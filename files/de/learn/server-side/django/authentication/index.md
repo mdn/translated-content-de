@@ -334,7 +334,7 @@ Dies ist das Formular, das verwendet wird, um die E-Mail-Adresse des Benutzers z
 {% endblock %}
 ```
 
-#### Passwortzurücksetzung abgeschlossen
+#### Passwortzurücksetzungsbestätigung
 
 Dieses Formular wird angezeigt, nachdem Ihre E-Mail-Adresse erfasst wurde. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_done.html**, und geben Sie ihm den folgenden Inhalt:
 
@@ -355,7 +355,7 @@ Someone asked for password reset for email \{{ email }}. Follow the link below:
 \{{ protocol }}://\{{ domain }}{% url 'password_reset_confirm' uidb64=uid token=token %}
 ```
 
-#### Passwortzurücksetzungsbestätigung
+#### Passwortzurücksetzungsabschluss
 
 Diese Seite ist, auf der Sie Ihr neues Passwort eingeben, nachdem Sie auf den Link in der Passwortzurücksetzungs-E-Mail geklickt haben. Erstellen Sie **/django-locallibrary-tutorial/templates/registration/password_reset_confirm.html**, und geben Sie ihm den folgenden Inhalt:
 
@@ -472,7 +472,7 @@ Sie müssen auch die folgenden Styles zu **/django-locallibrary-tutorial/catalog
 ```
 
 Probieren Sie es aus, indem Sie auf die Login/Logout-Links in der Seitenleiste klicken.
-Sie sollten auf die Abmelde-/Anmeldeseiten, die Sie im [Vorlagenverzeichnis](#add_django_site_authentication_urls_(for_login,_logout,_password_management)) oben definiert haben, weitergeleitet werden.
+Sie sollten auf die Abmelde-/Anmeldeseiten, die Sie im [Vorlagenverzeichnis](<#add_django_site_authentication_urls_(for_login,_logout,_password_management)>) oben definiert haben, weitergeleitet werden.
 
 ### Testen in Ansichten
 
