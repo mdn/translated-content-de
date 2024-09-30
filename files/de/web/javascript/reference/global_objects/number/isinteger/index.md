@@ -5,14 +5,6 @@ l10n:
   sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
 ---
 
----
-
-title: "Number.isInteger()"
-slug: Web/JavaScript/Reference/Global_Objects/Number/isInteger
-page-type: javascript-static-method
-browser-compat: javascript.builtins.Number.isInteger
----
-
 {{JSRef}}
 
 Die statische Methode **`Number.isInteger()`** bestimmt, ob der übergebene Wert eine Ganzzahl ist.

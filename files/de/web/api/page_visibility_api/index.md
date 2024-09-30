@@ -1,16 +1,8 @@
 ---
-title: Page Visibility API
+title: "Page Visibility API"
 slug: Web/API/Page_Visibility_API
 l10n:
   sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
----
-
----
-
-title: "Page Visibility API"
-slug: Web/API/Page_Visibility_API
-page-type: web-api-overview
-browser-compat: api.Document.visibilityState
 ---
 
 {{DefaultAPISidebar("Page Visibility API")}}

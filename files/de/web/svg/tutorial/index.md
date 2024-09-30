@@ -1,15 +1,8 @@
 ---
-title: SVG Tutorial
+title: "SVG Tutorial"
 slug: Web/SVG/Tutorial
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
----
-
----
-
-title: "SVG Tutorial"
-slug: Web/SVG/Tutorial
-page-type: guide
 ---
 
 {{SVGRef}}

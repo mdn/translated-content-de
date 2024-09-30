@@ -1,17 +1,9 @@
 ---
-title: "PerformanceResourceTiming: serverTiming property"
-slug: Web/API/PerformanceResourceTiming/serverTiming
-l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
----
-
----
-
 title: "PerformanceResourceTiming: serverTiming-Eigenschaft"
 short-title: serverTiming
 slug: Web/API/PerformanceResourceTiming/serverTiming
-page-type: web-api-instance-property
-browser-compat: api.PerformanceResourceTiming.serverTiming
+l10n:
+  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
 ---
 
 {{APIRef("Performance API")}} {{securecontext_header}}
