@@ -80,7 +80,7 @@ _Diese Schnittstelle erbt auch die Eigenschaften ihrer Eltern, [`UIEvent`](/de/d
 
 ## Beispiele
 
-Das folgende Beispiel nutzt die [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-, `mousemove`- und [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignisse, um dem Benutzer das Zeichnen auf einer HTML-<canvas> zu ermöglichen. Seine Funktionalität ist einfach: Die Linienbreite wird auf 1 festgelegt, und die Farbe ist immer schwarz.
+Das folgende Beispiel nutzt die [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-, `mousemove`- und [`mouseup`](/de/docs/Web/API/Element/mouseup_event)-Ereignisse, um dem Benutzer das Zeichnen auf einer HTML-`<canvas>` zu ermöglichen. Seine Funktionalität ist einfach: Die Linienbreite wird auf 1 festgelegt, und die Farbe ist immer schwarz.
 
 Wenn die Seite geladen wird, werden die Konstanten `myPics` und `context` erstellt, um eine Referenz auf die Leinwand und den 2D-Kontext zu speichern, den wir zum Zeichnen verwenden werden.
 

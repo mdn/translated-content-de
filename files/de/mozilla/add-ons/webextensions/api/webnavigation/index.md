@@ -29,7 +29,7 @@ Jedes Ereignis entspricht einer bestimmten Phase in der Navigation. Die Reihenfo
   - {{WebExtAPIRef("webNavigation.onReferenceFragmentUpdated", "onReferenceFragmentUpdated")}} wird ausgelöst, wenn sich der [Fragmentbezeichner](/de/docs/Web/URI/Fragment) für eine Seite ändert.
   - {{WebExtAPIRef("webNavigation.onErrorOccurred", "onErrorOccurred")}} kann jederzeit ausgelöst werden.
 
-Jede Navigation ist ein URL-Übergang in einem bestimmten Browser-Frame. Der Browser-Frame wird durch eine Tab-ID und eine Frame-ID identifiziert. Der Frame kann der oberste Browsing-Kontext im Tab oder ein eingebetteter Browsing-Kontext, der als <iframe> implementiert ist, sein.
+Jede Navigation ist ein URL-Übergang in einem bestimmten Browser-Frame. Der Browser-Frame wird durch eine Tab-ID und eine Frame-ID identifiziert. Der Frame kann der oberste Browsing-Kontext im Tab oder ein eingebetteter Browsing-Kontext, der als `<iframe>` implementiert ist, sein.
 
 Der `addListener()`-Aufruf jedes Ereignisses akzeptiert einen optionalen Filterparameter. Der Filter gibt ein oder mehrere URL-Muster an, und das Ereignis wird dann nur für Navigationen ausgelöst, bei denen die Ziel-URL eines der Muster erfüllt.
 
@@ -47,7 +47,7 @@ Um diese API zu verwenden, müssen Sie die Berechtigung "webNavigation" haben [p
 ## Funktionen
 
 - {{WebExtAPIRef("webNavigation.getFrame()")}}
-  - : Ruft Informationen über einen bestimmten Frame ab. Ein Frame kann der oberste Frame in einem Tab oder ein eingebetteter <iframe> sein und wird eindeutig durch eine Tab-ID und eine Frame-ID identifiziert.
+  - : Ruft Informationen über einen bestimmten Frame ab. Ein Frame kann der oberste Frame in einem Tab oder ein eingebetteter `<iframe>` sein und wird eindeutig durch eine Tab-ID und eine Frame-ID identifiziert.
 - {{WebExtAPIRef("webNavigation.getAllFrames()")}}
   - : Gibt bei Vorliegen einer Tab-ID Informationen über alle enthaltenen Frames aus.
 

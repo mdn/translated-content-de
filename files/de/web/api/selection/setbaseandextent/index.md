@@ -56,7 +56,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-In diesem Beispiel haben wir zwei Absätze, die jeweils ein <span> enthalten, das ein einziges Wort enthält.
+In diesem Beispiel haben wir zwei Absätze, die jeweils ein `<span>` enthalten, das ein einziges Wort enthält.
 Der erste ist als `anchorNode` und der zweite als `focusNode` festgelegt.
 Wir haben auch einen zusätzlichen Absatz, der zwischen den beiden Knoten liegt.
 

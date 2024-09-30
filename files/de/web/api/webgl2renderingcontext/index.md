@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Das **WebGL2RenderingContext**-Interface stellt den OpenGL ES 3.0-Rendering-Kontext für die Zeichenfläche eines HTML-<canvas>-Elements bereit.
+Das **WebGL2RenderingContext**-Interface stellt den OpenGL ES 3.0-Rendering-Kontext für die Zeichenfläche eines HTML-`<canvas>`-Elements bereit.
 
 Um ein Objekt dieses Interfaces zu erhalten, rufen Sie `getContext()` an einem `<canvas>`-Element auf und geben Sie "webgl2" als Argument an:
 

@@ -58,7 +58,7 @@ Ereignisse haben drei Funktionen:
 - `cookieStoreId`
   - : `string`. Wenn die Anfrage von einem Tab mit kontextueller Identität erfolgt, ist dies die ID des Cookie-Stores der kontextuellen Identität. Siehe [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
 - `documentUrl`
-  - : `string`. Die URL des Dokuments, in dem die Ressource geladen wird. Wenn beispielsweise die Webseite bei "https\://example.com" ein Bild oder ein <iframe> enthält, ist die `documentUrl` für das Bild oder <iframe> "https\://example.com". Für ein Dokument auf oberster Ebene ist `documentUrl` undefiniert.
+  - : `string`. Die URL des Dokuments, in dem die Ressource geladen wird. Wenn beispielsweise die Webseite bei "https\://example.com" ein Bild oder ein `<iframe>` enthält, ist die `documentUrl` für das Bild oder `<iframe>` "https\://example.com". Für ein Dokument auf oberster Ebene ist `documentUrl` undefiniert.
 - `frameId`
   - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unter-Frames, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Frames geladen wird (`type` ist `main_frame` oder `sub_frame`), gibt `frameId` die ID dieses Frames an, nicht die ID des äußeren Frames. Frame-IDs sind innerhalb eines Tabs eindeutig.
 - `fromCache`
@@ -73,7 +73,7 @@ Ereignisse haben drei Funktionen:
 
   - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Beispielsweise, wenn "https\://example.com" einen Link enthält und der Benutzer auf den Link klickt, ist die `originUrl` für die resultierende Anfrage "https\://example.com".
 
-    Die `originUrl` ist oft, aber nicht immer, dieselbe wie die `documentUrl`. Wenn beispielsweise eine Seite ein <iframe> enthält und das <iframe> einen Link enthält, der ein neues Dokument in das <iframe> lädt, dann ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des <iframe>, aber die `originUrl` ist die URL des Dokuments im <iframe>, das den Link enthielt.
+    Die `originUrl` ist oft, aber nicht immer, dieselbe wie die `documentUrl`. Wenn beispielsweise eine Seite ein `<iframe>` enthält und das `<iframe>` einen Link enthält, der ein neues Dokument in das `<iframe>` lädt, dann ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des `<iframe>`, aber die `originUrl` ist die URL des Dokuments im `<iframe>`, das den Link enthielt.
 
 - `parentFrameId`
   - : `integer`. ID des Frames, der den Frame enthält, der die Anfrage gesendet hat. Setzt auf -1, wenn kein übergeordneter Frame existiert.

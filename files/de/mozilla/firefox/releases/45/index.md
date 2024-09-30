@@ -41,7 +41,7 @@ Höhepunkte:
   - Die zugehörige Funktion {{cssxref("display")}}: contents wird seit [Firefox 37](/de/docs/Mozilla/Firefox/Releases/37) unterstützt.
 
 - Volle Unterstützung für CSS-Box-Alignment für CSS-Grid wurde umgesetzt, es werden die fehlenden Werte unterstützt: `start`, `end`, `self-start`, `self-end`, `left`, `right`, `last-baseline`, `space-evenly` ([Firefox-Bug 1176782](https://bugzil.la/1176782)). CSS-Box-Alignment gilt derzeit nur für CSS-Flexbox und CSS-Grid.
-- \[css-grid]\[css-flexbox] Implementierung von Gitter-/Flex-Layout für <fieldset> ([Firefox-Bug 1230207](https://bugzil.la/1230207)).
+- \[css-grid]\[css-flexbox] Implementierung von Gitter-/Flex-Layout für `<fieldset>` ([Firefox-Bug 1230207](https://bugzil.la/1230207)).
 - Die Werte `inline-start` und `inline-end` wurden zu {{cssxref("float")}} und {{cssxref("clear")}} hinzugefügt ([Firefox-Bug 1122918](https://bugzil.la/1122918)). Sie sind standardmäßig in Nightly und Aurora (Dev Edition) aktiviert sowie unter Firefox OS; um sie in einer Release- oder Betaversion zu aktivieren, müssen Sie `layout.css.float-logical-values.enabled` auf `true` setzen.
 - Die {{cssxref("text-emphasis")}}, {{cssxref("text-emphasis-style")}}, {{cssxref("text-emphasis-color")}}, und {{cssxref("text-emphasis-position")}} wurden implementiert; sie sind standardmäßig deaktiviert (setzen Sie `layout.css.text-emphasis.enabled` auf true, um sie zu aktivieren ([Firefox-Bug 1040668](https://bugzil.la/1040668)).
 - Mehrere `-webkit`-präfixierte Eigenschaften und Werte wurden für die Web-Kompatibilität hinzugefügt, hinter der Einstellung `layout.css.prefixes.webkit`, die standardmäßig `false` ist:

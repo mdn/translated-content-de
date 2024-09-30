@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial/Drawing_text", "Web/API/Canvas_API/Tutorial/Transformations" )}}
 
-Bisher haben wir unsere eigenen [Formen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) erstellt und [Stile angewendet](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors). Eine der aufregenderen Funktionen von {{HTMLElement("canvas")}} ist die Möglichkeit, Bilder zu verwenden. Diese können für dynamische Fotokompositionen oder als Hintergründe von Diagrammen genutzt werden, für Sprites in Spielen und so weiter. Externe Bilder können in jedem vom Browser unterstützten Format verwendet werden, wie PNG, GIF oder JPEG. Sie können sogar das Bild verwenden, das von anderen <canvas>-Elementen auf derselben Seite erzeugt wird!
+Bisher haben wir unsere eigenen [Formen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes) erstellt und [Stile angewendet](/de/docs/Web/API/Canvas_API/Tutorial/Applying_styles_and_colors). Eine der aufregenderen Funktionen von {{HTMLElement("canvas")}} ist die Möglichkeit, Bilder zu verwenden. Diese können für dynamische Fotokompositionen oder als Hintergründe von Diagrammen genutzt werden, für Sprites in Spielen und so weiter. Externe Bilder können in jedem vom Browser unterstützten Format verwendet werden, wie PNG, GIF oder JPEG. Sie können sogar das Bild verwenden, das von anderen `<canvas>`-Elementen auf derselben Seite erzeugt wird!
 
 Das Importieren von Bildern in ein Canvas ist im Grunde ein zweistufiger Prozess:
 
@@ -49,11 +49,11 @@ Wir können eine Referenz auf Bilder auf derselben Seite wie das Canvas erhalten
 
 Durch die Verwendung des [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attributs eines {{HTMLElement("img")}}-Elements (reflektiert durch die [`HTMLImageElement.crossOrigin`](/de/docs/Web/API/HTMLImageElement/crossOrigin)-Eigenschaft) können Sie die Erlaubnis anfordern, ein Bild von einer anderen Domain für Ihre `drawImage()`-Aufrufe zu laden. Wenn die hostende Domain den domainübergreifenden Zugriff auf das Bild erlaubt, kann das Bild auf Ihrem Canvas verwendet werden, ohne es zu beeinträchtigen; andernfalls wird die Verwendung des Bildes das Canvas [beeinträchtigen](/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases).
 
-### Verwendung anderer <canvas>-Elemente
+### Verwendung anderer `<canvas>`-Elemente
 
-Ähnlich wie bei normalen Bildern greifen wir auf andere <canvas>-Elemente entweder über die [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName)- oder die [`document.getElementById()`](/de/docs/Web/API/Document/getElementById)-Methode zu. Stellen Sie sicher, dass Sie etwas auf das Quell-Canvas gezeichnet haben, bevor Sie es in Ihrem Ziel-Canvas verwenden.
+Ähnlich wie bei normalen Bildern greifen wir auf andere `<canvas>`-Elemente entweder über die [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName)- oder die [`document.getElementById()`](/de/docs/Web/API/Document/getElementById)-Methode zu. Stellen Sie sicher, dass Sie etwas auf das Quell-Canvas gezeichnet haben, bevor Sie es in Ihrem Ziel-Canvas verwenden.
 
-Eine der praktischeren Anwendungen davon wäre die Verwendung eines zweiten <canvas>-Elements als Thumbnail-Ansicht des anderen, größeren <canvas>.
+Eine der praktischeren Anwendungen davon wäre die Verwendung eines zweiten `<canvas>`-Elements als Thumbnail-Ansicht des anderen, größeren `<canvas>`.
 
 ### Bilder von Grund auf neu erstellen
 

@@ -55,7 +55,7 @@ Die möglichen Medienarten, die Sie angeben können, sind:
 - `print`
 - `screen`
 
-Die folgende Media Query wird das <body> nur dann auf 12pt setzen, wenn die Seite gedruckt wird. Sie wird nicht angewendet, wenn die Seite in einem Browser geladen wird.
+Die folgende Media Query wird das `<body>` nur dann auf 12pt setzen, wenn die Seite gedruckt wird. Sie wird nicht angewendet, wenn die Seite in einem Browser geladen wird.
 
 ```css
 @media print {
@@ -82,7 +82,7 @@ Nachdem Sie den Typ angegeben haben, können Sie dann mit einer Regel auf eine M
 
 Die Eigenschaft, die wir am häufigsten zur Erstellung responsiver Designs erkennen (und die eine weit verbreitete Browserunterstützung hat), ist die Viewport-Breite, und wir können CSS anwenden, wenn der Viewport über oder unter einer bestimmten Breite oder bei einer exakten Breite — mithilfe der Medieneigenschaften `min-width`, `max-width` und `width`.
 
-Diese Eigenschaften werden verwendet, um Layouts zu erstellen, die auf unterschiedliche Bildschirmgrößen reagieren. Um zum Beispiel die Textfarbe des <body> in rot zu ändern, wenn der Viewport genau 600 Pixel beträgt, würden Sie die folgende Media Query verwenden.
+Diese Eigenschaften werden verwendet, um Layouts zu erstellen, die auf unterschiedliche Bildschirmgrößen reagieren. Um zum Beispiel die Textfarbe des `<body>` in rot zu ändern, wenn der Viewport genau 600 Pixel beträgt, würden Sie die folgende Media Query verwenden.
 
 ```css
 @media screen and (width: 600px) {
@@ -112,7 +112,7 @@ Es gibt viele andere Medieneigenschaften, die Sie testen können, obwohl einige 
 
 #### Orientierung
 
-Ein gut unterstütztes Medieneigenschaft ist `orientation`, mit dem wir nach Hochformat oder Querformat testen können. Um die Textfarbe des <body> zu ändern, wenn das Gerät im Querformat ist, verwenden Sie die folgende Media Query.
+Ein gut unterstütztes Medieneigenschaft ist `orientation`, mit dem wir nach Hochformat oder Querformat testen können. Um die Textfarbe des `<body>` zu ändern, wenn das Gerät im Querformat ist, verwenden Sie die folgende Media Query.
 
 ```css
 @media (orientation: landscape) {
@@ -172,7 +172,7 @@ Mit all den unterschiedlichen möglichen Media Queries möchten Sie vielleicht d
 
 ### "und"-Logik in Media Queries
 
-Um Medieneigenschaften zu kombinieren, können Sie `and` in der gleichen Weise verwenden, wie wir `and` oben verwendet haben, um einen Medientyp und eine Eigenschaft zu kombinieren. Zum Beispiel könnten wir nach einem `min-width` und `orientation` testen. Der Text des <body> wird nur dann blau, wenn der Viewport mindestens 600 Pixel breit ist und das Gerät im Querformat ist.
+Um Medieneigenschaften zu kombinieren, können Sie `and` in der gleichen Weise verwenden, wie wir `and` oben verwendet haben, um einen Medientyp und eine Eigenschaft zu kombinieren. Zum Beispiel könnten wir nach einem `min-width` und `orientation` testen. Der Text des `<body>` wird nur dann blau, wenn der Viewport mindestens 600 Pixel breit ist und das Gerät im Querformat ist.
 
 ```css
 @media screen and (min-width: 600px) and (orientation: landscape) {
@@ -369,11 +369,11 @@ Von diesem Punkt aus beginnen Sie, die Ansicht im Responsive Design Mode breiter
 }
 ```
 
-Dieses CSS gibt uns ein zweispaltiges Layout innerhalb des Artikels, bestehend aus dem Artikelinhalt und Informationen im <aside>-Element. Wir haben auch Flexbox verwendet, um die Navigation in eine Reihe zu setzen.
+Dieses CSS gibt uns ein zweispaltiges Layout innerhalb des Artikels, bestehend aus dem Artikelinhalt und Informationen im `<aside>`-Element. Wir haben auch Flexbox verwendet, um die Navigation in eine Reihe zu setzen.
 
 [Schritt 2 öffnen](https://mdn.github.io/css-examples/learn/media-queries/step2.html) im Browser oder [den Quellcode ansehen](https://github.com/mdn/css-examples/blob/main/learn/media-queries/step2.html).
 
-Lassen Sie uns die Breite weiter erweitern, bis wir das Gefühl haben, dass genügend Raum für das Sidebar vorhanden ist, um ebenfalls eine neue Spalte zu bilden. Innerhalb einer Media Query machen wir das <main>-Element zu einem zweispaltigen Raster. Wir müssen dann das {{cssxref("margin-bottom")}} beim <article> entfernen, damit die beiden Sidebars zueinander ausgerichtet sind, und wir fügen einen {{cssxref("border")}} an der oberen Kante des Fußes hinzu. Normalerweise sind dies die kleinen Anpassungen, die Sie machen, um das Design bei jedem Breakpoint gut aussehen zu lassen.
+Lassen Sie uns die Breite weiter erweitern, bis wir das Gefühl haben, dass genügend Raum für das Sidebar vorhanden ist, um ebenfalls eine neue Spalte zu bilden. Innerhalb einer Media Query machen wir das `<main>`-Element zu einem zweispaltigen Raster. Wir müssen dann das {{cssxref("margin-bottom")}} beim `<article>` entfernen, damit die beiden Sidebars zueinander ausgerichtet sind, und wir fügen einen {{cssxref("border")}} an der oberen Kante des Fußes hinzu. Normalerweise sind dies die kleinen Anpassungen, die Sie machen, um das Design bei jedem Breakpoint gut aussehen zu lassen.
 
 **Fügen Sie den unten stehenden CSS-Code erneut am Ende Ihres step1.html CSS-Codes hinzu.**
 

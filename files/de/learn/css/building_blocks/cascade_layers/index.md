@@ -34,7 +34,7 @@ Für jede CSS-Eigenschaft, die auf ein Element angewendet wird, kann es nur eine
 
 Zusätzlich zu den angewendeten Stilen zeigt das Stile-Panel durchgestrichene Werte, die dem ausgewählten Element entsprachen, aber aufgrund der Kaskade, Spezifikationen oder Quellordnung nicht angewendet wurden. Durchgestrichene Stile könnten aus derselben Quelle mit Vorrang kommen, aber mit niedrigerer Spezifikation, oder mit passender Quelle und Spezifikation, aber sie wurden früher in der Codebasis gefunden. Wenn Sie einen durchgestrichenen Stil sehen, der einen Selektor mit größerer Spezifikation aufweist, bedeutet das, dass dem Wert die Herkunft oder Wichtigkeit fehlt.
 
-Oftmals, mit zunehmender Komplexität einer Website, erhöht sich die Anzahl der Stylesheets, was die Quellordnung der Stylesheets sowohl wichtiger als auch komplexer macht. Cascade Layers vereinfachen die Wartung von Stylesheets über solche Codebasen hinweg. Cascade Layers sind explizite Spezifikationscontainer, die eine einfachere und bessere Kontrolle über die CSS-Deklarationen bieten, die letztlich angewendet werden, und es Webentwickler*innen ermöglichen, Abschnitte von CSS ohne den Kampf mit den Spezifikationen zu priorisieren.
+Oftmals, mit zunehmender Komplexität einer Website, erhöht sich die Anzahl der Stylesheets, was die Quellordnung der Stylesheets sowohl wichtiger als auch komplexer macht. Cascade Layers vereinfachen die Wartung von Stylesheets über solche Codebasen hinweg. Cascade Layers sind explizite Spezifikationscontainer, die eine einfachere und bessere Kontrolle über die CSS-Deklarationen bieten, die letztlich angewendet werden, und es Webentwickler\*innen ermöglichen, Abschnitte von CSS ohne den Kampf mit den Spezifikationen zu priorisieren.
 
 Um Cascade Layers zu verstehen, müssen Sie die CSS-Kaskade gut verstehen. Die folgenden Abschnitte bieten eine kurze Wiederholung der wichtigen Kaskadenkonzepte.
 
@@ -239,7 +239,7 @@ Auf breiten Bildschirmen wird der `site`-Layer in der ersten Zeile deklariert, w
 
 Die [`@import`](/de/docs/Web/CSS/@import)-Regel ermöglicht es Benutzern, Stile aus anderen Stylesheets entweder direkt in eine CSS-Datei oder in ein {{htmlelement('style')}}-Element zu importieren.
 
-Beim Importieren von Stylesheets muss die `@import`-Anweisung vor allen CSS-Stilen innerhalb des Stylesheets oder <style>-Blocks definiert werden. Die `@import`-Anweisung muss zuerst kommen, vor allen Styles, kann aber von einer `@layer`-Regel vorangestellt werden, die einen oder mehrere Layers erstellt, ohne irgendwelche Styles zuzuweisen. (`@import` kann auch von einer [`@charset`](/de/docs/Web/CSS/@charset)-Regel vorangestellt werden.)
+Beim Importieren von Stylesheets muss die `@import`-Anweisung vor allen CSS-Stilen innerhalb des Stylesheets oder `<style>`-Blocks definiert werden. Die `@import`-Anweisung muss zuerst kommen, vor allen Styles, kann aber von einer `@layer`-Regel vorangestellt werden, die einen oder mehrere Layers erstellt, ohne irgendwelche Styles zuzuweisen. (`@import` kann auch von einer [`@charset`](/de/docs/Web/CSS/@charset)-Regel vorangestellt werden.)
 
 Sie können ein Stylesheet in einen benannten Layer, einen verschachtelten benannten Layer oder einen anonymen Layer importieren. Der folgende Layer importiert die Stylesheets in einen `components`-Layer, einen verschachtelten `dialog`-Layer innerhalb des `components`-Layers und einen unbenannten Layer:
 

@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{AvailableInWorkers}}
 
-**WebGL** (Web Graphics Library) ist eine JavaScript-API zur Darstellung leistungsstarker, interaktiver 3D- und 2D-Grafiken in jedem kompatiblen Webbrowser, ohne Plug-ins zu verwenden. WebGL führt dazu eine API ein, die eng an OpenGL ES 2.0 angelehnt ist und in HTML-<canvas>-Elementen verwendet werden kann. Diese Konformität ermöglicht es der API, die hardwarebasierte Grafikbeschleunigung des Geräts des Nutzers zu nutzen.
+**WebGL** (Web Graphics Library) ist eine JavaScript-API zur Darstellung leistungsstarker, interaktiver 3D- und 2D-Grafiken in jedem kompatiblen Webbrowser, ohne Plug-ins zu verwenden. WebGL führt dazu eine API ein, die eng an OpenGL ES 2.0 angelehnt ist und in HTML-`<canvas>`-Elementen verwendet werden kann. Diese Konformität ermöglicht es der API, die hardwarebasierte Grafikbeschleunigung des Geräts des Nutzers zu nutzen.
 
 Unterstützung für WebGL ist in allen modernen Browsern vorhanden (siehe die [Kompatibilitätstabellen](#browser-kompatibilität) unten); das Gerät des Nutzers muss jedoch auch über Hardware verfügen, die diese Funktionen unterstützt.
 
 Die [WebGL 2](#webgl_2) API bringt Unterstützung für viele Features des OpenGL ES 3.0-Sets; sie wird über das [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext)-Interface bereitgestellt.
 
-Das <canvas>-Element wird auch von der [Canvas API](/de/docs/Web/API/Canvas_API) verwendet, um 2D-Grafiken auf Webseiten zu erstellen.
+Das `<canvas>`-Element wird auch von der [Canvas API](/de/docs/Web/API/Canvas_API) verwendet, um 2D-Grafiken auf Webseiten zu erstellen.
 
 ## Referenz
 

@@ -293,7 +293,7 @@ Sie können dies in Aktion sehen, indem Sie `localhost:8080` in einem neuen Brow
 Beim Kompilieren der App ändert Svelte unsere `h1`-Stildefinition zu `h1.svelte-1tky8bj` und modifiziert jedes `<h1>`-Element in unserer Komponente zu `<h1 class="svelte-1tky8bj">`, damit es die erforderlichen Stile aufnimmt.
 
 > [!NOTE]
-> Sie können dieses Verhalten außer Kraft setzen und Stile auf einen Selektor global anwenden, indem Sie den `:global()`-Modifier verwenden (siehe die [Svelte-<style>-Dokumentation](https://svelte.dev/docs/svelte-components#style) für weitere Informationen).
+> Sie können dieses Verhalten außer Kraft setzen und Stile auf einen Selektor global anwenden, indem Sie den `:global()`-Modifier verwenden (siehe die [Svelte-`<style>`-Dokumentation](https://svelte.dev/docs/svelte-components#style) für weitere Informationen).
 
 ## Ein paar Änderungen vornehmen
 

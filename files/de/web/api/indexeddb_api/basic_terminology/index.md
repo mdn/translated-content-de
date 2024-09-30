@@ -41,7 +41,7 @@ Wenn Sie Annahmen aus der Arbeit mit anderen Arten von Datenbanken treffen, kön
   Die Sicherheitsbarriere, die auf IndexedDB auferlegt wird, verhindert, dass Anwendungen auf Daten mit einem anderen Origin zugreifen. Zum Beispiel kann eine App oder eine Seite unter `http://www.example.com/app/` Daten von `http://www.example.com/dir/` abrufen, da sie denselben Origin haben, sie kann jedoch keine Daten von `http://www.example.com:8080/dir/` (anderer Port) oder `https://www.example.com/dir/` (anderes Protokoll) abrufen, da sie unterschiedliche Origins haben.
 
   > [!NOTE]
-  > Dritte Fensterinhalte (z.B. <iframe>-Inhalte) können auf den IndexedDB-Speicher für den Origin zugreifen, in den sie eingebettet sind, es sei denn, der Browser ist so eingestellt, dass [niemals Drittanbieter-Cookies akzeptiert werden](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) (siehe [Firefox-Bug 1147821](https://bugzil.la/1147821)).
+  > Dritte Fensterinhalte (z.B. `<iframe>`-Inhalte) können auf den IndexedDB-Speicher für den Origin zugreifen, in den sie eingebettet sind, es sei denn, der Browser ist so eingestellt, dass [niemals Drittanbieter-Cookies akzeptiert werden](https://support.mozilla.org/en-US/kb/third-party-cookies-firefox-tracking-protection) (siehe [Firefox-Bug 1147821](https://bugzil.la/1147821)).
 
 ### Einschränkungen
 

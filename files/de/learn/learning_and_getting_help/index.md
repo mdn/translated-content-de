@@ -228,7 +228,7 @@ Es ist oft ziemlich offensichtlich, wonach gesucht werden soll. Zum Beispiel:
 
 - Wenn Sie mehr über responsives Webdesign erfahren möchten, könnten Sie nach „responsive web design“ suchen.
 - Wenn Sie mehr über eine bestimmte technische Funktion erfahren möchten, wie das HTML `<video>`-Element oder die CSS `background-color`- oder `opacity`-Eigenschaften, oder die JavaScript `Date.setTime()`-Methode, sollten Sie einfach nach dem Namen der Funktion suchen.
-- Wenn Sie nach spezifischeren Informationen suchen, können Sie andere Schlüsselwörter als Modifikatoren hinzufügen, zum Beispiel „<video> element autoplay attribute“ oder „Date.setTime parameters“.
+- Wenn Sie nach spezifischeren Informationen suchen, können Sie andere Schlüsselwörter als Modifikatoren hinzufügen, zum Beispiel „`<video>` element autoplay attribute“ oder „Date.setTime parameters“.
 
 Wenn Sie nach etwas suchen, das weniger offensichtliche Schlagwörter hat, überlegen Sie, was am ehesten das zurückbringt, was Sie wollen.
 
@@ -246,7 +246,7 @@ Wenn Sie ein Problem mit einigem Code haben und eine spezifische Fehlermeldung e
 
 Es ist oft eine gute Idee zu sehen, ob Ihr Problem alle Browser betrifft oder ob es nur in einem oder wenigen Browsern auftritt. Wenn es nur einen Browser betrifft, können Sie diesen Browser verwenden, um die Suche einzugrenzen. Beispielsuchen könnten so aussehen:
 
-- <video> Wiedergabe funktioniert im iOS-Browser nicht.
+- `<video>` Wiedergabe funktioniert im iOS-Browser nicht.
 - Firefox scheint die Beetlejuice API nicht zu unterstützen.
 
 ### Nutzung von MDN

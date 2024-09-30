@@ -7,13 +7,13 @@ l10n:
 
 {{QuickLinksWithSubPages("/de/docs/Web/Media")}}
 
-Manchmal ist es nützlich zu wissen, wie viel <audio> oder <video> heruntergeladen oder ohne Verzögerung abspielbar ist — ein gutes Beispiel dafür ist die Pufferfortschrittsleiste eines Audio- oder Videoplayers. Dieser Artikel beschreibt, wie man eine Puffer-/Suchleiste mit [TimeRanges](/de/docs/Web/API/TimeRanges) und anderen Funktionen der Medien-API erstellt.
+Manchmal ist es nützlich zu wissen, wie viel `<audio>` oder `<video>` heruntergeladen oder ohne Verzögerung abspielbar ist — ein gutes Beispiel dafür ist die Pufferfortschrittsleiste eines Audio- oder Videoplayers. Dieser Artikel beschreibt, wie man eine Puffer-/Suchleiste mit [TimeRanges](/de/docs/Web/API/TimeRanges) und anderen Funktionen der Medien-API erstellt.
 
 ## Buffered
 
 Das `buffered`-Attribut zeigt uns an, welche Teile der Medien heruntergeladen wurden. Es gibt ein [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Objekt zurück, welches uns anzeigt, welche Abschnitte der Medien heruntergeladen wurden. Dies ist normalerweise zusammenhängend, aber wenn der Benutzer während des Pufferungsvorgangs hin und her springt, können Lücken entstehen.
 
-Dies funktioniert mit <audio> oder <video>; betrachten wir für den Moment ein einfaches Audio-Beispiel:
+Dies funktioniert mit `<audio>` oder `<video>`; betrachten wir für den Moment ein einfaches Audio-Beispiel:
 
 ```html
 <audio id="my-audio" controls src="music.mp3"></audio>

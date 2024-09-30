@@ -32,7 +32,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ### Verwendung von Document `scrollend` mit einem Event Listener
 
-Das folgende Beispiel zeigt, wie das `scrollend` Ereignis mit einem Event Listener verwendet wird, um festzustellen, wann der Benutzer das Scrollen des Dokuments beendet hat. Im Beispiel gibt es Inhalte im eingebetteten <iframe>, die höher und breiter als das <iframe> selbst sind, sodass das Scrollen innerhalb des <iframe> in beide Richtungen möglich ist. Wenn der Benutzer das Scrollen stoppt, wird das `scrollend` Ereignis ausgelöst:
+Das folgende Beispiel zeigt, wie das `scrollend` Ereignis mit einem Event Listener verwendet wird, um festzustellen, wann der Benutzer das Scrollen des Dokuments beendet hat. Im Beispiel gibt es Inhalte im eingebetteten `<iframe>`, die höher und breiter als das `<iframe>` selbst sind, sodass das Scrollen innerhalb des `<iframe>` in beide Richtungen möglich ist. Wenn der Benutzer das Scrollen stoppt, wird das `scrollend` Ereignis ausgelöst:
 
 ```css hidden
 * {
@@ -86,7 +86,7 @@ document.addEventListener("scrollend", (event) => {
 
 ### Verwendung der `onscrollend` Ereignis-Handler-Eigenschaft
 
-Das folgende Beispiel zeigt, wie die `scrollend` Ereignis-Handler-Eigenschaft verwendet wird, um festzustellen, wann der Benutzer das Scrollen des Dokuments beendet hat. Im Beispiel gibt es Inhalte im eingebetteten <iframe>, die höher und breiter als das <iframe> selbst sind, sodass das Scrollen innerhalb des <iframe> in beide Richtungen möglich ist. Dies baut auf dem ersten Beispiel auf, verwendet jedoch `document.onscrollend` anstelle eines Event Listeners:
+Das folgende Beispiel zeigt, wie die `scrollend` Ereignis-Handler-Eigenschaft verwendet wird, um festzustellen, wann der Benutzer das Scrollen des Dokuments beendet hat. Im Beispiel gibt es Inhalte im eingebetteten `<iframe>`, die höher und breiter als das `<iframe>` selbst sind, sodass das Scrollen innerhalb des `<iframe>` in beide Richtungen möglich ist. Dies baut auf dem ersten Beispiel auf, verwendet jedoch `document.onscrollend` anstelle eines Event Listeners:
 
 ```css hidden
 * {

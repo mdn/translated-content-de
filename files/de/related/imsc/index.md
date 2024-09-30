@@ -102,7 +102,7 @@ Im Gegensatz zu IMSC, das Markup verwendet, verwendet WebVTT eine Kombination au
 - [Styling von IMSC-Dokumenten](/de/docs/Related/IMSC/Styling)
   - : IMSC bietet viele Optionen zum Styling von Dokumenten, und die meisten der IMSC-Stil-Eigenschaften haben direkte CSS-Äquivalente, was sie für Webentwickler vertraut macht. In diesem Leitfaden erfahren Sie mehr über das Styling von IMSC, einschließlich der Unterschiede zwischen Inline- und referentiellem Styling und effizientem Styling mithilfe von Vererbung und Regions-Styling.
 - [Platzierung von Untertiteln in IMSC](/de/docs/Related/IMSC/Subtitle_placement)
-  - : IMSC ermöglicht dem Autor, die Position von Untertiteln präzise zu steuern, so dass der Text neben dem Sprecher positioniert wird oder verhindert, dass wichtiger Inhalt in Ihrem <video> verdeckt wird. Lernen Sie, wie man eine Untertitelregion definiert und deren Breite und Höhe bestimmt.
+  - : IMSC ermöglicht dem Autor, die Position von Untertiteln präzise zu steuern, so dass der Text neben dem Sprecher positioniert wird oder verhindert, dass wichtiger Inhalt in Ihrem `<video>` verdeckt wird. Lernen Sie, wie man eine Untertitelregion definiert und deren Breite und Höhe bestimmt.
 - [Namensräume in IMSC](/de/docs/Related/IMSC/Namespaces)
   - : Dieser Artikel behandelt das Thema XML-Namensräume und gibt Ihnen genügend Informationen, um ihre Verwendung in IMSC zu erkennen und effektiv zu nutzen.
 - [Timing in IMSC](/de/docs/Related/IMSC/Timing_in_IMSC)

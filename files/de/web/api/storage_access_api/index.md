@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Storage Access API")}}
 
-Die Storage Access API bietet eine Möglichkeit für plattformübergreifende Inhalte, die in einem Drittanbieter-Kontext geladen werden (z.B. eingebettet in einem <iframe>), auf [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) und [unpartitionierten Zustand](/de/docs/Web/Privacy/State_Partitioning#state_partitioning) zuzugreifen, auf die sie typischerweise nur in einem Erstanbieter-Kontext Zugriff hätten (d.h., wenn sie direkt in einem Browser-Tab geladen werden).
+Die Storage Access API bietet eine Möglichkeit für plattformübergreifende Inhalte, die in einem Drittanbieter-Kontext geladen werden (z.B. eingebettet in einem `<iframe>`), auf [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies) und [unpartitionierten Zustand](/de/docs/Web/Privacy/State_Partitioning#state_partitioning) zuzugreifen, auf die sie typischerweise nur in einem Erstanbieter-Kontext Zugriff hätten (d.h., wenn sie direkt in einem Browser-Tab geladen werden).
 
 Die Storage Access API ist für User Agents relevant, die standardmäßig den Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand blockieren, um die Privatsphäre zu verbessern (beispielsweise um Tracking zu verhindern). Es gibt legitime Verwendungen für Drittanbieter-Cookies und unpartitionierten Zustand, die wir auch mit diesen Standardbeschränkungen weiterhin ermöglichen möchten. Beispiele hierfür sind Single Sign-On (SSO) mit föderierten Identitätsanbietern (IdPs) oder das Speichern von Benutzerdetails wie Standortdaten oder Anzeigepräferenzen über verschiedene Websites hinweg.
 
@@ -67,7 +67,7 @@ Es gibt mehrere unterschiedliche Sicherheitsmaßnahmen, die dazu führen können
 2. Das Dokument und das Top-Level-Dokument dürfen keinen `null`-Ursprung haben.
 3. Ursprünge, die nie als Erstanbieter interagiert wurden, haben keinen Begriff von Erstanbieterspeicher. Aus der Sicht des Benutzers haben sie nur eine Drittanbieterbeziehung zu diesem Ursprung. Zugriffsanforderungen werden automatisch abgelehnt, wenn der Browser erkennt, dass der Nutzer in einem Erstanbieter-Kontext kürzlich nicht mit dem eingebetteten Inhalt interagiert hat (in Firefox bedeutet "kürzlich" innerhalb von 30 Tagen).
 4. Das Fenster des Dokuments muss ein [sicherer Kontext](/de/docs/Web/Security/Secure_Contexts) sein.
-5. Sandboxed <iframe>s können aus Sicherheitsgründen standardmäßig keinen Speicherzugriff gewährt werden. Die API fügt daher auch das `allow-storage-access-by-user-activation` [Sandbox-Token](/de/docs/Web/HTML/Element/iframe#sandbox) hinzu. Die einbettende Website muss dieses hinzufügen, um Speicherzugriffsanfragen erfolgreich zu ermöglichen, zusammen mit `allow-scripts` und `allow-same-origin`, um ein Skript für den API-Aufruf und die Ausführung in einem Ursprung, der Cookies/Zustand haben kann, auszuführen:
+5. Sandboxed `<iframe>`s können aus Sicherheitsgründen standardmäßig keinen Speicherzugriff gewährt werden. Die API fügt daher auch das `allow-storage-access-by-user-activation` [Sandbox-Token](/de/docs/Web/HTML/Element/iframe#sandbox) hinzu. Die einbettende Website muss dieses hinzufügen, um Speicherzugriffsanfragen erfolgreich zu ermöglichen, zusammen mit `allow-scripts` und `allow-same-origin`, um ein Skript für den API-Aufruf und die Ausführung in einem Ursprung, der Cookies/Zustand haben kann, auszuführen:
 
    ```html
    <iframe
@@ -116,7 +116,7 @@ Die Dokumentation zur neuen Speicherzugriffsrichtlinie von Firefox zum Blockiere
 - [`Document.hasUnpartitionedCookieAccess()`](/de/docs/Web/API/Document/hasUnpartitionedCookieAccess)
   - : Neuer Name für [`Document.hasStorageAccess()`](/de/docs/Web/API/Document/hasStorageAccess).
 - [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess)
-  - : Ermöglicht es, in einem Drittanbieter-Kontext geladene Inhalte (d.h. eingebettet in einem <iframe>) den Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand anzufordern; gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Zugriff gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
+  - : Ermöglicht es, in einem Drittanbieter-Kontext geladene Inhalte (d.h. eingebettet in einem `<iframe>`) den Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand anzufordern; gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Zugriff gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
 - [`Document.requestStorageAccessFor()`](/de/docs/Web/API/Document/requestStorageAccessFor) {{experimental_inline}}
   - : Ein geplanter Erweiterungsvorschlag der Storage Access API, der es Top-Level-Sites ermöglicht, Drittanbieter-Cookie-Zugriff im Namen von eingebetteten Inhalten von einer anderen Site im selben [zusammengehörigen Websiteset](/de/docs/Web/API/Storage_Access_API/Related_website_sets) anzufordern. Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, wenn der Zugriff gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`TextTrackList`** Schnittstelle wird verwendet, um eine Liste der für das zugehörige <video>- oder <audio>-Element definierten Textspuren darzustellen, wobei jede Spur durch ein separates [`textTrack`](/de/docs/Web/API/TextTrack)-Objekt in der Liste repräsentiert wird.
+Die **`TextTrackList`** Schnittstelle wird verwendet, um eine Liste der für das zugehörige `<video>`- oder `<audio>`-Element definierten Textspuren darzustellen, wobei jede Spur durch ein separates [`textTrack`](/de/docs/Web/API/TextTrack)-Objekt in der Liste repräsentiert wird.
 
 Textspuren können einem Medienelement deklarativ mithilfe des {{HTMLElement("track")}}-Elements oder programmgesteuert mithilfe der Methode [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack) hinzugefügt werden.
 

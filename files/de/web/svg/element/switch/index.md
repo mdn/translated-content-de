@@ -22,7 +22,7 @@ Andere direkte Kinder werden umgangen und daher nicht gerendert. Wenn ein Kindel
 
 Dieses Element implementiert die [`SVGSwitchElement`](/de/docs/Web/API/SVGSwitchElement) Schnittstelle.
 
-## SVG-<switch>-Beispiel
+## SVG-`<switch>`-Beispiel
 
 Dieses Beispiel zeigt, wie je nach Spracheinstellung des Browsers unterschiedlicher Textinhalt angezeigt wird. Das `switch`-Element zeigt das erste seiner Kindelemente an, dessen `systemLanguage`-Attribut mit der Sprache des Nutzers übereinstimmt, oder das Fallback-Element ohne `systemLanguage`-Attribut, falls keine Übereinstimmung vorliegt.
 

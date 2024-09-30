@@ -56,7 +56,7 @@ Ereignisse haben drei Funktionen:
 - `cookieStoreId`
   - : `string`. Falls die Anfrage von einem Tab stammt, der in einer kontextbezogenen Identität geöffnet ist, die Cookie-Store-ID der kontextbezogenen Identität. Siehe [Arbeiten mit kontextbezogenen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities) für weitere Informationen.
 - `documentUrl`
-  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Wenn zum Beispiel die Webseite unter "https\://example.com" ein Bild oder ein <iframe> enthält, dann ist die `documentUrl` für das Bild oder das <iframe> "https\://example.com". Bei einem Dokument auf oberster Ebene ist `documentUrl` undefiniert.
+  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Wenn zum Beispiel die Webseite unter "https\://example.com" ein Bild oder ein `<iframe>` enthält, dann ist die `documentUrl` für das Bild oder das `<iframe>` "https\://example.com". Bei einem Dokument auf oberster Ebene ist `documentUrl` undefiniert.
 - `error`
   - : `string`. Die Fehlerbeschreibung. Dieser String ist ein interner Fehlerstring, kann von Browser zu Browser variieren und wird nicht garantiert, gleich zwischen Versionen zu bleiben.
 - `frameId`
@@ -73,7 +73,7 @@ Ereignisse haben drei Funktionen:
 
   - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Wenn zum Beispiel "https\://example.com" einen Link enthält und der Benutzer auf den Link klickt, ist die `originUrl` für die resultierende Anfrage "https\://example.com".
 
-    Die `originUrl` ist oft, aber nicht immer identisch mit der `documentUrl`. Wenn eine Seite zum Beispiel ein <iframe> enthält und das <iframe> enthält einen Link, der ein neues Dokument in das <iframe> lädt, dann ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des <iframe>, aber die `originUrl` ist die URL des Dokuments im <iframe>, das den Link enthalten hat.
+    Die `originUrl` ist oft, aber nicht immer identisch mit der `documentUrl`. Wenn eine Seite zum Beispiel ein `<iframe>` enthält und das `<iframe>` enthält einen Link, der ein neues Dokument in das `<iframe>` lädt, dann ist die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des `<iframe>`, aber die `originUrl` ist die URL des Dokuments im `<iframe>`, das den Link enthalten hat.
 
 - `parentFrameId`
   - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Wird auf -1 gesetzt, wenn kein übergeordneter Rahmen existiert.

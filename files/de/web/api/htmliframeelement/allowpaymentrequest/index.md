@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`allowPaymentRequest`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob die [Payment Request API](/de/docs/Web/API/Payment_Request_API) in einem Cross-Origin-<iframe> aufgerufen werden kann.
+Die **`allowPaymentRequest`**-Eigenschaft des [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob die [Payment Request API](/de/docs/Web/API/Payment_Request_API) in einem Cross-Origin-`<iframe>` aufgerufen werden kann.
 
 ## Wert
 

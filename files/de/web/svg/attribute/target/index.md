@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`target`**-Attribut sollte verwendet werden, wenn es mehrere mögliche Ziele für die Endressource gibt, zum Beispiel, wenn das übergeordnete Dokument innerhalb eines HTML- oder XHTML-Dokuments eingebettet ist oder mit einem Tab-Browser betrachtet wird. Dieses Attribut spezifiziert den Namen des Browsing-Kontexts (z. B. ein Browser-Tab oder ein (X)HTML-<iframe>- oder <object>-Element), in das ein Dokument geöffnet werden soll, wenn der Link aktiviert wird:
+Das **`target`**-Attribut sollte verwendet werden, wenn es mehrere mögliche Ziele für die Endressource gibt, zum Beispiel, wenn das übergeordnete Dokument innerhalb eines HTML- oder XHTML-Dokuments eingebettet ist oder mit einem Tab-Browser betrachtet wird. Dieses Attribut spezifiziert den Namen des Browsing-Kontexts (z. B. ein Browser-Tab oder ein (X)HTML-`<iframe>`- oder `<object>`-Element), in das ein Dokument geöffnet werden soll, wenn der Link aktiviert wird:
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

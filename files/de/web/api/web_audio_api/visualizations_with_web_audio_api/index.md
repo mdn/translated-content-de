@@ -56,7 +56,7 @@ Um die Daten tatsächlich abzurufen und sie in unser Array zu kopieren, rufen wi
 analyser.getByteTimeDomainData(dataArray);
 ```
 
-Wir haben jetzt die Audiodaten für diesen Moment in unserem Array erfasst und können sie nach Belieben visualisieren, beispielsweise indem wir sie auf einem HTML-<canvas> darstellen.
+Wir haben jetzt die Audiodaten für diesen Moment in unserem Array erfasst und können sie nach Belieben visualisieren, beispielsweise indem wir sie auf einem HTML-`<canvas>` darstellen.
 
 Schauen wir uns nun einige spezifische Beispiele an.
 

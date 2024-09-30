@@ -157,7 +157,7 @@ Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/Even
 - [`encrypted`](/de/docs/Web/API/HTMLMediaElement/encrypted_event)
   - : Wird ausgelöst, wenn Initialisierungsdaten im Medium gefunden werden, die darauf hinweisen, dass es verschlüsselt ist.
 - [`ended`](/de/docs/Web/API/HTMLMediaElement/ended_event)
-  - : Wird ausgelöst, wenn die Wiedergabe stoppt, weil das Ende des Mediums (<audio> oder <video>) erreicht wurde oder weil keine weiteren Daten verfügbar sind.
+  - : Wird ausgelöst, wenn die Wiedergabe stoppt, weil das Ende des Mediums (`<audio>` oder `<video>`) erreicht wurde oder weil keine weiteren Daten verfügbar sind.
 - [`error`](/de/docs/Web/API/HTMLMediaElement/error_event)
   - : Wird ausgelöst, wenn die Ressource aufgrund eines Fehlers nicht geladen werden konnte.
 - [`loadeddata`](/de/docs/Web/API/HTMLMediaElement/loadeddata_event)

@@ -119,7 +119,7 @@ Dieses Beispiel zeigt, wie die Eigenschaften eines Style-Elements abgerufen und 
 
 ### HTML
 
-Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Element/style)-Element sowie ein HTML-<button>-Element, das verwendet wird, um den Stil ein- und auszuschalten, und ein HTML-<textarea>-Element zum Protokollieren der Eigenschaftswerte.
+Das HTML enthält eine SVG-Definition für einen [`<circle>`](/de/docs/Web/SVG/Element/circle) mit einem [`<style>`](/de/docs/Web/SVG/Element/style)-Element sowie ein HTML-`<button>`-Element, das verwendet wird, um den Stil ein- und auszuschalten, und ein HTML-`<textarea>`-Element zum Protokollieren der Eigenschaftswerte.
 
 ```html
 <button>Disable</button>

@@ -324,7 +324,7 @@ Wir könnten mit unserer ARIA-Nutzung weitergehen und noch mehr Validierungshilf
      aria-required="true" />
    ```
 
-Immer ein {{HTMLelement("label")}} für jede Eingabe einschließen. Während einige Screenreader den Platzhaltertext ankündigen, tun dies die meisten nicht. Akzeptable Ersetzungen für das Bereitstellen von Formularsteuerelementen mit einem zugänglichen Namen umfassen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) und [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby). Aber das <label>-Element mit einem `for`-Attribut ist die bevorzugte Methode, da es die Benutzerfreundlichkeit für alle Benutzer, einschließlich Mausbenutzer, bietet.
+Immer ein {{HTMLelement("label")}} für jede Eingabe einschließen. Während einige Screenreader den Platzhaltertext ankündigen, tun dies die meisten nicht. Akzeptable Ersetzungen für das Bereitstellen von Formularsteuerelementen mit einem zugänglichen Namen umfassen [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) und [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby). Aber das `<label>`-Element mit einem `for`-Attribut ist die bevorzugte Methode, da es die Benutzerfreundlichkeit für alle Benutzer, einschließlich Mausbenutzer, bietet.
 
 > [!NOTE]
 > Sie können das fertige Beispiel live unter [`form-validation-updated.html`](https://mdn.github.io/learning-area/accessibility/aria/form-validation-updated.html) sehen.

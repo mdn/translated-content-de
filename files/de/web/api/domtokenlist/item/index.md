@@ -38,7 +38,7 @@ Ein String, der das zurückgegebene Element repräsentiert, oder `null`, wenn di
 
 Im folgenden Beispiel rufen wir die Liste der Klassen ab, die auf einem
 {{htmlelement("span")}} Element als `DOMTokenList` gesetzt sind, indem wir [`Element.classList`](/de/docs/Web/API/Element/classList) verwenden. Dann rufen wir das letzte Element in der Liste mit `item(tokenList.length - 1)` ab und schreiben es in das
-`s`<span>'s [`Node.textContent`](/de/docs/Web/API/Node/textContent).
+`s``<span>`'s [`Node.textContent`](/de/docs/Web/API/Node/textContent).
 
 Zuerst das HTML:
 
