@@ -289,9 +289,7 @@ Schauen wir uns jetzt an, was wir tun müssen, um eigentlich eine Datenbank einz
 
    Diese Zeile erstellt eine Anfrage, um Version `1` einer Datenbank namens `notes_db` zu öffnen. Wenn diese nicht bereits existiert, wird sie von anschließendem Code für Sie erstellt. Sie werden dieses Anforderungsmuster sehr oft in der IndexedDB sehen. Datenbankoperationen benötigen Zeit. Sie möchten den Browser nicht einfrieren, während Sie auf die Ergebnisse warten, daher sind Datenbankoperationen [asynchron](/de/docs/Glossary/asynchronous), d.h. sie geschehen nicht sofort, sondern irgendwann in der Zukunft, und Sie werden benachrichtigt, wenn sie fertig sind.
 
-   Um dies in IndexedDB zu handhaben, erstellen Sie ein Anforderungsobjekt (das Sie nach Belieben benennen können – wir haben es hier `openRequest` genannt, damit es obv
-
-ious ist, wofür es ist). Sie verwenden dann Ereignis-Handler, um Code auszuführen, wenn die Anfrage abschließt, fehlschlägt usw., was Sie weiter unten in Aktion sehen werden.
+   Um dies in IndexedDB zu handhaben, erstellen Sie ein Anforderungsobjekt (das Sie nach Belieben benennen können – wir haben es hier `openRequest` genannt, damit es obvious ist, wofür es ist). Sie verwenden dann Ereignis-Handler, um Code auszuführen, wenn die Anfrage abschließt, fehlschlägt usw., was Sie weiter unten in Aktion sehen werden.
 
    > [!NOTE]
    > Die Versionsnummer ist wichtig. Wenn Sie Ihre Datenbank aktualisieren möchten (zum Beispiel durch Ändern der Tabellenstruktur), müssen Sie Ihren Code erneut ausführen, jedoch mit einer erhöhten Versionsnummer und einem im `upgradeneeded`-Handler (siehe unten) spezifizierten abweichenden Schema usw. Wir werden das Upgrade von Datenbanken in diesem Tutorial nicht behandeln.

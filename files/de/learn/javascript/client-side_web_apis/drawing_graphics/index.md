@@ -154,7 +154,7 @@ Beginnen wir mit einigen einfachen Rechtecken.
    ctx.fillRect(50, 50, 100, 150);
    ```
 
-Speichern Sie und aktualisieren Sie die Seite. Sie sollten ein rotes Rechteck auf Ihrem Canvas sehen. Seine obere linke Ecke ist 50 Pixel vom oberen und linken Rand des Canvas entfernt (wie durch die ersten beiden Parameter definiert), und es ist 100 Pixel breit und 150 Pixel hoch (wie durch den dritten und vierten Parameter definiert).
+   Speichern Sie und aktualisieren Sie die Seite. Sie sollten ein rotes Rechteck auf Ihrem Canvas sehen. Seine obere linke Ecke ist 50 Pixel vom oberen und linken Rand des Canvas entfernt (wie durch die ersten beiden Parameter definiert), und es ist 100 Pixel breit und 150 Pixel hoch (wie durch den dritten und vierten Parameter definiert).
 
 3. Fügen wir ein weiteres Rechteck hinzu — diesmal ein grünes. Fügen Sie das folgende am Ende Ihres JavaScripts hinzu:
 
@@ -163,7 +163,7 @@ Speichern Sie und aktualisieren Sie die Seite. Sie sollten ein rotes Rechteck au
    ctx.fillRect(75, 75, 100, 100);
    ```
 
-Speichern und aktualisieren Sie und Sie werden Ihr neues Rechteck sehen. Das bringt einen wichtigen Punkt zur Sprache: Grafikoperationen wie das Zeichnen von Rechtecken, Linien usw. werden in der Reihenfolge ausgeführt, in der sie auftreten. Stellen Sie sich vor, Sie malen eine Wand, wobei jede Farbschicht überlappt und möglicherweise das darunterliegende verdeckt. Sie können nichts tun, um dies zu ändern; Sie müssen also sorgfältig über die Reihenfolge nachdenken, in der Sie die Grafiken zeichnen.
+   Speichern und aktualisieren Sie und Sie werden Ihr neues Rechteck sehen. Das bringt einen wichtigen Punkt zur Sprache: Grafikoperationen wie das Zeichnen von Rechtecken, Linien usw. werden in der Reihenfolge ausgeführt, in der sie auftreten. Stellen Sie sich vor, Sie malen eine Wand, wobei jede Farbschicht überlappt und möglicherweise das darunterliegende verdeckt. Sie können nichts tun, um dies zu ändern; Sie müssen also sorgfältig über die Reihenfolge nachdenken, in der Sie die Grafiken zeichnen.
 
 4. Beachten Sie, dass Sie halbtransparente Grafiken zeichnen können, indem Sie eine halbtransparente Farbe angeben, zum Beispiel durch Verwendung von `rgb()`. Der "Alpha-Kanal" definiert die Menge an Transparenz, die die Farbe hat. Je höher ihr Wert, desto mehr verdeckt sie das, was dahinter liegt. Fügen Sie das folgende Ihrem Code hinzu:
 
