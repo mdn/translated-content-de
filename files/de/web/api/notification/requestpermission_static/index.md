@@ -24,7 +24,7 @@ Notification.requestPermission(callback)
 ### Parameter
 
 - `callback` {{optional_inline}} {{deprecated_inline}}
-  - : Eine optionale Callback-Funktion, die mit dem Erlaubniswert aufgerufen wird. 
+  - : Eine optionale Callback-Funktion, die mit dem Erlaubniswert aufgerufen wird.
     Veraltet zugunsten des {{jsxref("Promise")}}-Rückgabewerts.
 
 ### Rückgabewert

@@ -103,9 +103,9 @@ addEventListener("fetch", (event) => {
 ```
 
 > **Hinweis:** [`caches.match()`](/de/docs/Web/API/CacheStorage/match) ist eine
-> Komfortmethode. Eine gleichwertige Funktionalität besteht darin, 
+> Komfortmethode. Eine gleichwertige Funktionalität besteht darin,
 > [`cache.match()`](/de/docs/Web/API/Cache/match) auf jedem Cache aufzurufen (in der Reihenfolge, in der sie von
-> [`caches.keys()`](/de/docs/Web/API/CacheStorage/keys) zurückgegeben werden), bis eine 
+> [`caches.keys()`](/de/docs/Web/API/CacheStorage/keys) zurückgegeben werden), bis eine
 > [`Response`](/de/docs/Web/API/Response) zurückgegeben wird.
 
 ## Spezifikationen

@@ -22,7 +22,7 @@ Ein Authenticator-Daten-{{jsxref("ArrayBuffer")}} ist mindestens 37 Bytes lang u
 
 - **rpIdHash** (32 Bytes)
   - : Der SHA-256-Hash der [Relying Party ID](https://w3c.github.io/webauthn/#relying-party-identifier), für die die Anmeldeinformationen bestimmt sind. Der Server stellt sicher, dass dieser Hash mit dem SHA256-Hash der eigenen Relying Party ID übereinstimmt, um Phishing oder andere Man-in-the-Middle-Angriffe zu verhindern.
-  
+
 - **flags** (1 Byte)
 
   - : Ein Bitfeld, das verschiedene Attribute anzeigt, die vom Authenticator festgestellt wurden. Die Bits sind wie folgt, wobei Bit 0 das am wenigsten signifikante Bit ist und alle nicht speziell erwähnten Bits "für zukünftige Verwendung reserviert" sind:
@@ -36,7 +36,7 @@ Ein Authenticator-Daten-{{jsxref("ArrayBuffer")}} ist mindestens 37 Bytes lang u
 
 - **signCount** (4 Bytes)
   - : Ein Signaturzähler, falls vom Authenticator unterstützt (ansonsten auf 0 gesetzt). Server können optional diesen Zähler verwenden, um eine Authenticator-Duplikation zu erkennen.
-  
+
 - **attestedCredentialData** (variable Länge)
 
   - : Die erstellten Anmeldedaten. Diese sind nur während einer [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create)-Anfrage vorhanden. Dies ist eine Byte-Sequenz mit dem folgenden Format:

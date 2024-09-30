@@ -63,8 +63,8 @@ document.addEventListener("securitypolicyviolation", (e) => {
 
 ## Siehe auch
 
-- HTTP [Content Security Policy (CSP)](https://developer.mozilla.org/de/docs/Web/HTTP/CSP)
-- [`CSPViolationReportBody`](https://developer.mozilla.org/de/docs/Web/API/CSPViolationReportBody)
-- Das [`securitypolicyviolation`](https://developer.mozilla.org/de/docs/Web/API/Element/securitypolicyviolation_event)-Ereignis der [`Element`](https://developer.mozilla.org/de/docs/Web/API/Element)-Schnittstelle
-- Das [`securitypolicyviolation`](https://developer.mozilla.org/de/docs/Web/API/Document/securitypolicyviolation_event)-Ereignis der [`Document`](https://developer.mozilla.org/de/docs/Web/API/Document)-Schnittstelle
-- Das [`securitypolicyviolation`](https://developer.mozilla.org/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event)-Ereignis der [`WorkerGlobalScope`](https://developer.mozilla.org/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle
+- HTTP [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP)
+- [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Element/securitypolicyviolation_event)-Ereignis der [`Element`](/de/docs/Web/API/Element)-Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/Document/securitypolicyviolation_event)-Ereignis der [`Document`](/de/docs/Web/API/Document)-Schnittstelle
+- Das [`securitypolicyviolation`](/de/docs/Web/API/WorkerGlobalScope/securitypolicyviolation_event)-Ereignis der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle

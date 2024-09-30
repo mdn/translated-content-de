@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft **`gripSpace`** gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace) zurück, dessen nativer Ursprung die Pose verfolgt, die zum Rendern virtueller Objekte verwendet wird, sodass diese so erscheinen, als ob sie in der Hand des Nutzers gehalten werden. Wenn ein Benutzer beispielsweise eine virtuelle gerade Stange hält, würde sich der native Ursprung dieses `XRSpace` im ungefähren Schwerpunkt der Faust des Benutzers befinden. 
+Die schreibgeschützte [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Eigenschaft **`gripSpace`** gibt ein [`XRSpace`](/de/docs/Web/API/XRSpace) zurück, dessen nativer Ursprung die Pose verfolgt, die zum Rendern virtueller Objekte verwendet wird, sodass diese so erscheinen, als ob sie in der Hand des Nutzers gehalten werden. Wenn ein Benutzer beispielsweise eine virtuelle gerade Stange hält, würde sich der native Ursprung dieses `XRSpace` im ungefähren Schwerpunkt der Faust des Benutzers befinden.
 
 ## Wert
 

@@ -130,7 +130,7 @@ Es gibt mehrere Argumente gegen die Verwendung von Videoinhalten für technische
 Es gibt viele beliebte Video-Websites, die viele Video-Tutorials anbieten.
 MDN Web Docs ist keine video-getriebene Seite, aber Video hat in bestimmten Kontexten seinen Platz auf MDN Web Docs.
 
-Wir verwenden Videos oft, wenn eine Art von Anleitungssequenz oder ein mehrstufiger Workflow beschrieben wird, der schwer in Worten zusammenzufassen wäre: _"tun Sie dies, dann tun Sie das, dann passiert das"_. 
+Wir verwenden Videos oft, wenn eine Art von Anleitungssequenz oder ein mehrstufiger Workflow beschrieben wird, der schwer in Worten zusammenzufassen wäre: _"tun Sie dies, dann tun Sie das, dann passiert das"_.
 Es ist besonders nützlich, wenn versucht wird, Prozesse zu beschreiben, die mehrere Anwendungen oder Fenster überschreiten und GUI-Interaktionen beinhalten, die möglicherweise nicht einfach zu beschreiben sind: _"klicken Sie jetzt auf die Schaltfläche oben links, die ein bisschen wie eine Ente aussieht"_.
 
 In solchen Fällen ist es oft effektiver, einfach zu **zeigen**, was Sie meinen.

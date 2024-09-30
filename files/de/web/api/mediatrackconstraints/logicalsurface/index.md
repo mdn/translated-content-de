@@ -22,7 +22,7 @@ Siehe [wie Einschränkungen definiert sind](/de/docs/Web/API/Media_Capture_and_S
 
 ## Anwendungshinweise
 
-Sie können die vom User-Agent ausgewählte Einstellung überprüfen, nachdem das Anzeigemedium durch [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) erstellt wurde, indem Sie [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) auf dem Video-`MediaStreamTrack` des Anzeigemediums aufrufen und dann den Wert des zurückgegebenen [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekts 
+Sie können die vom User-Agent ausgewählte Einstellung überprüfen, nachdem das Anzeigemedium durch [`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) erstellt wurde, indem Sie [`getSettings()`](/de/docs/Web/API/MediaStreamTrack/getSettings) auf dem Video-`MediaStreamTrack` des Anzeigemediums aufrufen und dann den Wert des zurückgegebenen [`MediaTrackSettings`](/de/docs/Web/API/MediaTrackSettings)-Objekts
 [`logicalSurface`](/de/docs/Web/API/MediaTrackSettings/logicalSurface) überprüfen.
 
 Wenn Ihr App beispielsweise wissen muss, ob die ausgewählte Anzeigefläche eine logische ist:

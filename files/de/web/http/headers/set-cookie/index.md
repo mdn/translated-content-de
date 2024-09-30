@@ -57,7 +57,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 - `<cookie-name>=<cookie-value>`
 
-  - : Definiert den Cookienamen und seinen Wert. 
+  - : Definiert den Cookienamen und seinen Wert.
     Eine Cookie-Definition beginnt mit einem Namen-Wert-Paar.
 
     Ein `<cookie-name>` kann beliebige US-ASCII-Zeichen enthalten, außer Steuerzeichen ([ASCII](/de/docs/Glossary/ASCII) Zeichen 0 bis 31 und ASCII-Zeichen 127) oder Trennzeichen (Leerzeichen, Tabulator und die Zeichen: `( ) < > @ , ; : \ " / [ ] ? = { }`).
@@ -88,7 +88,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 - `Expires=<date>` {{optional_inline}}
 
-  - : Gibt die maximale Lebensdauer des Cookies als HTTP-Datumstempel an. 
+  - : Gibt die maximale Lebensdauer des Cookies als HTTP-Datumstempel an.
     Siehe {{HTTPHeader("Date")}} für die erforderliche Formatierung.
 
     Wenn nichts angegeben ist, wird das Cookie zu einem **Sitzungs-Cookie**.
@@ -101,8 +101,8 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 - `HttpOnly` {{optional_inline}}
 
-  - : Verhindert, dass JavaScript auf das Cookie zugreift, z.B. über die [`Document.cookie`](/de/docs/Web/API/Document/cookie) Eigenschaft. 
-    Beachten Sie, dass ein Cookie, das mit `HttpOnly` erstellt wurde, dennoch mit JavaScript-initiierte Anfragen gesendet wird, z.B. bei der Verwendung von [`XMLHttpRequest.send()`](/de/docs/Web/API/XMLHttpRequest/send) oder [`fetch()`](/de/docs/Web/API/Window/fetch). 
+  - : Verhindert, dass JavaScript auf das Cookie zugreift, z.B. über die [`Document.cookie`](/de/docs/Web/API/Document/cookie) Eigenschaft.
+    Beachten Sie, dass ein Cookie, das mit `HttpOnly` erstellt wurde, dennoch mit JavaScript-initiierte Anfragen gesendet wird, z.B. bei der Verwendung von [`XMLHttpRequest.send()`](/de/docs/Web/API/XMLHttpRequest/send) oder [`fetch()`](/de/docs/Web/API/Window/fetch).
     Dies mildert Angriffe gegen Cross-Site-Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) ab.
 
 - `Max-Age=<number>` {{optional_inline}}
@@ -111,8 +111,8 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 - `Partitioned` {{optional_inline}}
 
-  - : Gibt an, dass das Cookie mit partitioniertem Speicher gespeichert werden soll. 
-    Beachten Sie, dass, wenn dies gesetzt ist, auch die [`Secure`-Direktive](#secure) gesetzt sein muss. 
+  - : Gibt an, dass das Cookie mit partitioniertem Speicher gespeichert werden soll.
+    Beachten Sie, dass, wenn dies gesetzt ist, auch die [`Secure`-Direktive](#secure) gesetzt sein muss.
     Siehe [Cookies mit unabhängigem partitioniertem Zustand (CHIPS)](/de/docs/Web/Privacy/Privacy_sandbox/Partitioned_cookies) für mehr Details.
 
 - `Path=<path-value>` {{optional_inline}}
@@ -126,7 +126,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 - `SameSite=<samesite-value>` {{optional_inline}}
 
-  - : Bestimmt, ob ein Cookie mit Cross-Site-Anfragen gesendet wird oder nicht, 
+  - : Bestimmt, ob ein Cookie mit Cross-Site-Anfragen gesendet wird oder nicht,
     wodurch ein gewisser Schutz gegen Cross-Site Request Forgery Angriffe ([CSRF](/de/docs/Glossary/CSRF)) geboten wird.
 
     Die möglichen Attributwerte sind:

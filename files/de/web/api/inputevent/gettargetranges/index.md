@@ -33,7 +33,7 @@ Je nach Wert von `inputType` und dem aktuellen Bearbeitungshost variiert der erw
       <td><code>contenteditable</code></td>
       <td>
         ein Array von
-        [`StaticRange`](/de/docs/Web/API/StaticRange)- 
+        [`StaticRange`](/de/docs/Web/API/StaticRange)-
         Objekten, die mit dem Ereignis verbunden sind
       </td>
     </tr>

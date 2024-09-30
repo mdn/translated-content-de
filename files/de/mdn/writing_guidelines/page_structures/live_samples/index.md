@@ -129,7 +129,7 @@ In vielen Fällen können Sie das `EmbedLiveSample`- oder `LiveSampleLink`-Makro
 ```
 
 - sample_id
-  - : Erforderlich: Dies kann der String-Bezeichner des Beispiels oder die ID der Überschrift oder des umschließenden Blocks sein, aus dem der Code entnommen werden soll. 
+  - : Erforderlich: Dies kann der String-Bezeichner des Beispiels oder die ID der Überschrift oder des umschließenden Blocks sein, aus dem der Code entnommen werden soll.
     Um zu überprüfen, ob Sie die richtige Überschrift-ID haben, schauen Sie in die URL des Abschnitts im Inhaltsverzeichnis der Seite; Sie können dies auch überprüfen, indem Sie sich den Quellcode der Seite ansehen.
 - width {{deprecated_inline}}
   - : Das `width`-Attribut für das {{HTMLElement("iframe")}}, in `px` angegeben. Veraltet, da es keine Wirkung mehr hat: Live-Beispiele erstrecken sich immer über die gesamte Breite des Inhaltsbereichs.
@@ -151,7 +151,7 @@ In vielen Fällen können Sie das `EmbedLiveSample`- oder `LiveSampleLink`-Makro
 ```
 
 - block_ID
-  - : Die ID der Überschrift oder des umschließenden Blocks, aus dem der Code entnommen werden soll. 
+  - : Die ID der Überschrift oder des umschließenden Blocks, aus dem der Code entnommen werden soll.
     Der beste Weg, um sicherzustellen, dass Sie die richtige ID haben, ist, die URL des Abschnitts im Inhaltsverzeichnis der Seite anzusehen; Sie können dies auch überprüfen, indem Sie sich den Quellcode der Seite ansehen.
 - link_text
   - : Ein String, der als Linktext verwendet wird.

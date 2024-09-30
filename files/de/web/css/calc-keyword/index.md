@@ -68,7 +68,7 @@ Zum Beispiel:
 
 In Mathematikfunktionen werden `<calc-keyword>`-Werte als {{CSSxRef("number")}}-Werte ausgewertet, daher agieren `e` und `pi` als numerische Konstanten.
 
-Sowohl `infinity` als auch `NaN` sind leicht unterschiedlich, sie werden als degenerierte numerische Konstanten betrachtet. 
+Sowohl `infinity` als auch `NaN` sind leicht unterschiedlich, sie werden als degenerierte numerische Konstanten betrachtet.
 Obwohl sie technisch gesehen keine Zahlen sind, verhalten sie sich wie {{CSSxRef("number")}}-Werte, so dass zum Beispiel, um eine unendliche {{CSSxRef("length")}} zu erhalten, ein Ausdruck wie `calc(infinity * 1px)` erforderlich ist.
 
 Die Werte `infinity` und `NaN` sind hauptsächlich enthalten, um die Serialisierung einfacher und offensichtlicher zu machen, können aber verwendet werden, um einen "größtmöglichen Wert" anzugeben, da ein unendlicher Wert auf den erlaubten Bereich beschränkt ist.

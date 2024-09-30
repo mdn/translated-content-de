@@ -101,7 +101,7 @@ Ein oder mehrere `<repeat-style>`-Werte, getrennt durch Kommata.
         <tr>
           <td><code>space</code></td>
           <td>
-            Das Bild wird so oft wie möglich ohne Zuschnitt wiederholt. Die ersten und letzten Bilder werden auf beiden Seiten des Elements fixiert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die 
+            Das Bild wird so oft wie möglich ohne Zuschnitt wiederholt. Die ersten und letzten Bilder werden auf beiden Seiten des Elements fixiert, und der Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die
             {{cssxref("mask-position")}} Eigenschaft wird ignoriert, es sei denn, es kann ohne Zuschnitt nur ein Bild angezeigt werden. Der einzige Fall, in dem bei Verwendung von <code>space</code> ein Zuschnitt erfolgt, ist, wenn nicht genügend Platz vorhanden ist, um ein Bild anzuzeigen.
           </td>
         </tr>

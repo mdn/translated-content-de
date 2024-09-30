@@ -11,7 +11,7 @@ Diese API ermöglicht es Erweiterungen, Bedingungen und Aktionen festzulegen, di
 
 ## Berechtigungen
 
-Um diese API zu verwenden, muss eine Erweiterung die Berechtigung `"declarativeNetRequest"` oder `"declarativeNetRequestWithHostAccess"` im [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern. 
+Um diese API zu verwenden, muss eine Erweiterung die Berechtigung `"declarativeNetRequest"` oder `"declarativeNetRequestWithHostAccess"` im [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
 
 Die Berechtigung `"declarativeNetRequest"` erlaubt es Erweiterungen, Anforderungen zu blockieren und zu aktualisieren, ohne Hostberechtigungen zu benötigen. Hostberechtigungen sind erforderlich, wenn die Erweiterung Anforderungen umleiten oder Header von Anforderungen ändern möchte oder wenn die Berechtigung `"declarativeNetRequestWithHostAccess"` anstelle von `"declarativeNetRequest"` verwendet wird. Um in diesen Fällen auf Anforderungen zu reagieren, sind Hostberechtigungen für die Anforderungs-URL erforderlich. Für alle Anforderungen, außer für Navigationsanforderungen (d.h. Ressourcentyp `main_frame` und `sub_frame`), sind auch Hostberechtigungen für den Initiator der Anforderung erforderlich. Der Initiator einer Anforderung ist normalerweise das Dokument oder der Worker, der die Anforderung ausgelöst hat.
 

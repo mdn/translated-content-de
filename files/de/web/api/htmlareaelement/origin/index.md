@@ -14,7 +14,7 @@ Das bedeutet:
 
 - Für URLs, die `http` oder `https` verwenden, das Schema gefolgt von `'://'`, gefolgt von der Domain, gefolgt von `':'`, gefolgt von dem Port (der Standardport, `80` und `443` jeweils, wenn explizit angegeben);
 - Für URLs, die das `file:`-Schema verwenden, ist der Wert abhängig vom Browser;
-- Für URLs, die das `blob:`-Schema verwenden, ist der Ursprung der URL, die auf `blob:` folgt. Z.B. wird `"blob:https://mozilla.org"` `"https://mozilla.org"` als Ursprung haben. 
+- Für URLs, die das `blob:`-Schema verwenden, ist der Ursprung der URL, die auf `blob:` folgt. Z.B. wird `"blob:https://mozilla.org"` `"https://mozilla.org"` als Ursprung haben.
 
 ## Wert
 

@@ -200,8 +200,8 @@ textarea {
 
 ### Deaktivierte und schreibgeschützte Textareas
 
-Dieses Beispiel zeigt zwei `<textarea>`s — eines ist [`readonly`](/de/docs/Web/HTML/Attributes/readonly), und eines ist [`disabled`](/de/docs/Web/HTML/Attributes/disabled). 
-Sie können den Inhalt keines der beiden Elemente bearbeiten, aber das schreibgeschützte Element ist fokussierbar und sein Wert wird in Formularen übermittelt. 
+Dieses Beispiel zeigt zwei `<textarea>`s — eines ist [`readonly`](/de/docs/Web/HTML/Attributes/readonly), und eines ist [`disabled`](/de/docs/Web/HTML/Attributes/disabled).
+Sie können den Inhalt keines der beiden Elemente bearbeiten, aber das schreibgeschützte Element ist fokussierbar und sein Wert wird in Formularen übermittelt.
 Der Wert des deaktivierten Elements wird nicht übermittelt, und es ist nicht fokussierbar.
 
 ```html

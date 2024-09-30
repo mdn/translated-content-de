@@ -498,7 +498,7 @@ Es gibt eine Reihe von Audio- und Video-JavaScript-Bibliotheken. Die beliebteste
 
 - [Erstellen eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player)
   - : Ein Leitfaden zur Erstellung eines einfachen, plattformübergreifenden Videoplayers mit dem {{ htmlelement("video") }}-Element.
-- [Grundlagen zur Video-Player-Stil ](/de/docs/Web/Media/Audio_and_video_delivery/Video_player_styling_basics)
+- [Grundlagen zur Video-Player-Stil](/de/docs/Web/Media/Audio_and_video_delivery/Video_player_styling_basics)
   - : Mit dem in dem vorherigen Artikel implementierten plattformübergreifenden Videoplayer, behandelt dieser Artikel nun einige grundlegende, responsive Stile für den Player.
 - [Grundlagen zur plattformübergreifenden Audio](/de/docs/Web/Media/Audio_and_video_delivery/Cross-browser_audio_basics)
   - : Dieser Artikel bietet einen grundlegenden Leitfaden zur Erstellung eines HTML-Audioplayers, der plattformübergreifend funktioniert, mit allen zugehörigen Attributen, Eigenschaften und Ereignissen sowie einer kurzen Anleitung zu benutzerdefinierten Steuerungen, die mit der Media-API erstellt werden.

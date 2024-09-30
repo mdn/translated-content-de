@@ -52,7 +52,7 @@ progress {
 
 #### Ergebnis-Screenshot
 
-Falls Sie keinen Blink- oder WebKit-Browser verwenden, sieht der obige Code wie folgt aus: 
+Falls Sie keinen Blink- oder WebKit-Browser verwenden, sieht der obige Code wie folgt aus:
 
 ![Fortschrittsbalken ist ein langes grünes und graues Feld mit einem schwarzen Rand. Die linken 20% des Feldes sind grün. Die rechten 80% sind grau.](-webkit-progress-inner-element_example.png)
 

@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`firCount`**-Eigenschaft des
-[`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs gibt die Anzahl der 
+[`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs gibt die Anzahl der
 **Full Intra Request** (**FIR**) an, die der entfernte
 [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) an diesen [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet hat.
 

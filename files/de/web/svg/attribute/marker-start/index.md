@@ -9,7 +9,7 @@ l10n:
 
 Das **`marker-start`** Attribut definiert die Pfeilspitze oder das Polymarker, das an dem ersten Scheitelpunkt der angegebenen [Form](/de/docs/Web/SVG/Element#shape_elements) gezeichnet wird.
 
-Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste. In diesem Fall, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, werden zwei Markierungen an diesem letzten Scheitelpunkt gerendert. Bei `<path>` Elementen, für jeden geschlossenen Unterpfad, ist der letzte Scheitelpunkt derselbe wie der erste. `marker-start` wird nur am ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert. 
+Für alle Formelemente, außer {{SVGElement("polyline")}} und {{SVGElement("path")}}, ist der letzte Scheitelpunkt derselbe wie der erste. In diesem Fall, wenn der Wert von `marker-start` und {{SVGAttr("marker-end")}} beide nicht `none` sind, werden zwei Markierungen an diesem letzten Scheitelpunkt gerendert. Bei `<path>` Elementen, für jeden geschlossenen Unterpfad, ist der letzte Scheitelpunkt derselbe wie der erste. `marker-start` wird nur am ersten Scheitelpunkt der [Pfaddaten](/de/docs/Web/SVG/Attribute/d#path_commands) gerendert.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `marker-start` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('marker-start')}} für mehr Informationen.

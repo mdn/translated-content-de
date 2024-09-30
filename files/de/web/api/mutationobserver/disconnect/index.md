@@ -37,9 +37,9 @@ Keine.
 
 ## Anwendungsnotizen
 
-Wenn das beobachtete Element aus dem DOM entfernt und dann anschließend vom 
-Garbage-Collection-Mechanismus des Browsers freigegeben wird, wird der `MutationObserver` aufhören, 
-das entfernte Element zu beobachten. Der `MutationObserver` selbst kann jedoch weiterhin existieren, 
+Wenn das beobachtete Element aus dem DOM entfernt und dann anschließend vom
+Garbage-Collection-Mechanismus des Browsers freigegeben wird, wird der `MutationObserver` aufhören,
+das entfernte Element zu beobachten. Der `MutationObserver` selbst kann jedoch weiterhin existieren,
 um andere vorhandene Elemente zu beobachten.
 
 ## Beispiele

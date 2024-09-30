@@ -35,7 +35,7 @@ _Übernimmt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/AP
 - [`HTMLImageElement.fetchPriority`](/de/docs/Web/API/HTMLImageElement/fetchPriority)
   - : Ein optionaler String, der dem Browser einen Hinweis gibt, wie er das Laden des Bildes im Verhältnis zu anderen Bildern priorisieren soll. Wenn dieser Wert angegeben ist, muss er einer der erlaubten Werte sein: `high` für hohe Priorität, `low` für niedrige Priorität oder `auto`, um keine Präferenz anzugeben (der Standard).
 - [`HTMLImageElement.height`](/de/docs/Web/API/HTMLImageElement/height)
-  - : Ein ganzzahliger Wert, der das [`height`](https://developer.mozilla.org/de/docs/Web/HTML/Element/img#height) HTML-Attribut widerspiegelt und die gerenderte Höhe des Bildes in CSS-Pixeln angibt.
+  - : Ein ganzzahliger Wert, der das [`height`](/de/docs/Web/HTML/Element/img#height) HTML-Attribut widerspiegelt und die gerenderte Höhe des Bildes in CSS-Pixeln angibt.
 - [`HTMLImageElement.isMap`](/de/docs/Web/API/HTMLImageElement/isMap)
   - : Ein boolescher Wert, der das [`ismap`](/de/docs/Web/HTML/Element/img#ismap) HTML-Attribut widerspiegelt und angibt, dass das Bild Teil einer serverseitigen Image-Map ist. Dies unterscheidet sich von einer clientseitigen Image-Map, die mit einem `<img>`-Element und einem entsprechenden {{HTMLElement("map")}} spezifiziert wird, welches {{HTMLElement("area")}} Elemente enthält, die die klickbaren Bereiche im Bild kennzeichnen. Das Bild _muss_ in ein {{HTMLElement("a")}} Element eingebettet werden; siehe die `ismap` Seite für Details.
 - [`HTMLImageElement.loading`](/de/docs/Web/API/HTMLImageElement/loading)

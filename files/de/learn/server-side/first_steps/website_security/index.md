@@ -51,9 +51,9 @@ XSS ist ein Begriff, der eine Klasse von Angriffen beschreibt, die es einem Angr
 
 Die XSS-Schwachstellen werden in _reflektiert_ und _persistent_ unterteilt, basierend darauf, wie die Website die injizierten Skripte an einen Browser zurückgibt.
 
-- Eine _reflektierte_ XSS-Schwachstelle tritt auf, wenn vom Nutzer übergebener Inhalt, der an den Server gesendet wird, _sofort_ und _unverändert_ zur Anzeige im Browser zurückgegeben wird. Alle Skripte im ursprünglichen Nutzerinhalt werden beim Laden der neuen Seite ausgeführt.  
+- Eine _reflektierte_ XSS-Schwachstelle tritt auf, wenn vom Nutzer übergebener Inhalt, der an den Server gesendet wird, _sofort_ und _unverändert_ zur Anzeige im Browser zurückgegeben wird. Alle Skripte im ursprünglichen Nutzerinhalt werden beim Laden der neuen Seite ausgeführt.
   Stellen Sie sich beispielsweise eine Suche auf einer Website vor, bei der die Suchbegriffe als URL-Parameter codiert sind und diese Begriffe zusammen mit den Ergebnissen angezeigt werden. Ein Angreifer kann einen Suchlink konstruieren, der ein bösartiges Skript als Parameter enthält (z. B. `https://developer.mozilla.org?q=bier<script%20src="http://example.com/tricky.js"></script>`) und ihn an einen anderen Benutzer senden. Wenn der Zielbenutzer auf diesen „interessanten Link“ klickt, wird das Skript ausgeführt, wenn die Suchergebnisse angezeigt werden. Wie bereits besprochen, gibt dies dem Angreifer alle Informationen, die er benötigt, um sich als Zielbenutzer auf der Website anzumelden, möglicherweise Käufe im Namen des Benutzers zu tätigen oder dessen Kontaktinformationen zu teilen.
-- Eine _persistente_ XSS-Schwachstelle tritt auf, wenn das bösartige Skript auf der Website _gespeichert_ wird und dann später unverändert für andere Benutzer wiedergegeben wird, die es unwissentlich ausführen.  
+- Eine _persistente_ XSS-Schwachstelle tritt auf, wenn das bösartige Skript auf der Website _gespeichert_ wird und dann später unverändert für andere Benutzer wiedergegeben wird, die es unwissentlich ausführen.
   Stellen Sie sich beispielsweise ein Diskussionsforum vor, das Kommentare akzeptiert, die unverändertes HTML enthalten können, und wo ein bösartiges Skript von einem Angreifer gespeichert werden könnte. Wenn die Kommentare angezeigt werden, wird das Skript ausgeführt und kann dem Angreifer die Informationen senden, die erforderlich sind, um auf das Benutzerkonto zuzugreifen. Diese Art von Angriff ist extrem populär und mächtig, da der Angreifer möglicherweise überhaupt keinen direkten Kontakt mit den Opfern hat.
 
 Während die Daten aus `POST`- oder `GET`-Anfragen die häufigste Quelle für XSS-Schwachstellen sind, sind alle vom Browser kommenden Daten potenziell anfällig, wie z.B. Cookie-Daten, die vom Browser angezeigt werden, oder vom Benutzer hochgeladene und angezeigte Dateien.
@@ -141,9 +141,9 @@ Einige weitere konkrete Schritte, die Sie unternehmen können, sind:
 - Behalten Sie die beliebtesten Bedrohungen im Auge (die [aktuelle OWASP-Liste ist hier](https://owasp.org/www-project-top-ten/)) und adressieren Sie die häufigsten Schwachstellen zuerst.
 - Verwenden Sie [Vulnerability Scanning Tools](https://owasp.org/www-community/Vulnerability_Scanning_Tools) für automatisierte Sicherheitstests auf Ihrer Website. Später kann Ihre sehr erfolgreiche Website möglicherweise auch Fehler finden, indem sie ein Bug-Bounty-Programm [wie Mozilla es hier tut](https://www.mozilla.org/en-US/security/bug-bounty/faq-webapp/) anbietet.
 - Speichern und zeigen Sie nur die Daten an, die Sie benötigen. Wenn Ihre Benutzer beispielsweise sensible Informationen wie Kreditkartendaten speichern müssen, zeigen Sie nur genügend der Kartennummer an, damit der Benutzer sie identifizieren kann, und nicht genug, damit ein Angreifer sie kopieren und auf einer anderen Seite verwenden kann. Das derzeit häufigste Muster besteht darin, nur die letzten 4 Ziffern einer Kreditkartennummer anzuzeigen.
-- Halten Sie Software auf dem neuesten Stand.  
-  Die meisten Server haben regelmäßige Sicherheitsupdates, die bekannte Schwachstellen beheben oder mildern.  
-  Planen Sie, wenn möglich, regelmäßige automatisierte Updates ein und idealerweise Updates während Zeiten, in denen Ihre Website das geringste Verkehrsaufkommen hat.  
+- Halten Sie Software auf dem neuesten Stand.
+  Die meisten Server haben regelmäßige Sicherheitsupdates, die bekannte Schwachstellen beheben oder mildern.
+  Planen Sie, wenn möglich, regelmäßige automatisierte Updates ein und idealerweise Updates während Zeiten, in denen Ihre Website das geringste Verkehrsaufkommen hat.
   Es ist am besten, Ihre Daten vor dem Update zu sichern und neue Softwareversionen zu testen, um sicherzustellen, dass keine Kompatibilitätsprobleme auf Ihrem Server auftreten.
 
 Webframeworks können viele der häufigeren Schwachstellen abmildern.

@@ -16,8 +16,8 @@ Diese Anfrage kann zwischengespeichert werden, und der Server wird erwartet, die
 Der Server kann diesen Header auch in Antworten einschließen, um anzuzeigen, dass er ein Interesse daran hat, die Priorisierung zu ändern. Diese Informationen können dann als Input für den Priorisierungsprozess für Caching-Server und andere Server, die die Antwort weiterleiten, verwendet werden.
 
 > [!NOTE]
-> Dieser Header ist ein Teil des "Extensible Prioritization Scheme for HTTP", definiert in {{rfc("9218")}}. 
-> Es gibt auch HTTP/2 und HTTP/3 `PRIORITY_UPDATE`-Frames, die verwendet werden können, um eine Ressourcenanfrage nach deren Sendung neu zu priorisieren. 
+> Dieser Header ist ein Teil des "Extensible Prioritization Scheme for HTTP", definiert in {{rfc("9218")}}.
+> Es gibt auch HTTP/2 und HTTP/3 `PRIORITY_UPDATE`-Frames, die verwendet werden können, um eine Ressourcenanfrage nach deren Sendung neu zu priorisieren.
 > Die Anfrage kann in jeder HTTP-Version gesendet werden.
 
 <table class="properties">

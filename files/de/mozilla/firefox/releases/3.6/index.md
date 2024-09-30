@@ -99,7 +99,7 @@ Wenn Sie ein Erweiterungsentwickler sind, sollten Sie mit dem Lesen von [Aktuali
   - : Sie können jetzt HTTP-Transaktionen überwachen, um Anfragen und Antworten in Echtzeit zu beobachten.
 - [Arbeiten mit der Windows-Taskleiste](/de/docs/Working_with_the_Windows_taskbar)
   - : Es ist jetzt möglich, das Erscheinungsbild der Fenster in der Taskleiste in Windows 7 oder später anzupassen. _Dies ist standardmäßig in Firefox 3.6 deaktiviert._
-  
+
 ### Places
 
 - Places-Abfragen können jetzt das `redirectsMode` Attribut auf der `nsINavHistoryQueryOptions` Schnittstelle verwenden, um anzugeben, ob umgeleitete Seiten in Ergebnisse aufgenommen werden sollen oder nicht.

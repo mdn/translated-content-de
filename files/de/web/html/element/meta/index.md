@@ -58,7 +58,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
         - Die Anzahl der Sekunden, bis die Seite neu geladen werden soll - wenn der Wert des [`content`](#content)-Attributs eine nicht negative Ganzzahl ist.
         - Die Anzahl der Sekunden, bis die Seite zu einer anderen weiterleiten soll - wenn der Wert des [`content`](#content)-Attributs eine nicht negative Ganzzahl gefolgt von `;url=` und einer gültigen URL ist.
 
-        Der Timer beginnt, wenn die Seite _vollständig geladen_ ist, was nach dem Eintreten der [`load`](https://developer.mozilla.org/de/docs/Web/API/Window/load_event) und [`pageshow`](https://developer.mozilla.org/de/docs/Web/API/Window/pageshow_event) Ereignisse der Fall ist.
+        Der Timer beginnt, wenn die Seite _vollständig geladen_ ist, was nach dem Eintreten der [`load`](/de/docs/Web/API/Window/load_event) und [`pageshow`](/de/docs/Web/API/Window/pageshow_event) Ereignisse der Fall ist.
 
         Siehe auch {{HTTPHeader("Refresh")}}.
 

@@ -45,7 +45,7 @@ Geeignete Anwendungsfälle für `<sub>` umfassen (sind aber nicht notwendigerwei
 
 ## Beispiele
 
-### Fußnotennummern 
+### Fußnotennummern
 
 Traditionelle Fußnoten werden mit Nummern gekennzeichnet, die im Subscript dargestellt werden. Dies ist ein gängiger Anwendungsfall für `<sub>`:
 

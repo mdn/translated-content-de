@@ -10,7 +10,7 @@ l10n:
 
 Die veraltete
 **`PerformanceNavigation.redirectCount`**
-schreibgeschützte Eigenschaft gibt einen `unsigned short` zurück, der die Anzahl der 
+schreibgeschützte Eigenschaft gibt einen `unsigned short` zurück, der die Anzahl der
 REDIRECTs darstellt, die ausgeführt wurden, bevor die Seite erreicht wurde.
 
 > [!WARNING]

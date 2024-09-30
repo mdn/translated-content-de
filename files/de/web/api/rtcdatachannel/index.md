@@ -9,7 +9,7 @@ l10n:
 
 Die Schnittstelle **`RTCDataChannel`** repräsentiert einen Netzwerkkanal, der für bidirektionale Peer-to-Peer-Übertragungen von beliebigen Daten verwendet werden kann. Jeder Datenkanal ist mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verknüpft, und jede Peer-Verbindung kann bis zu einem theoretischen Maximum von 65.534 Datenkanälen besitzen (die tatsächliche Grenze kann von Browser zu Browser variieren).
 
-Um einen Datenkanal zu erstellen und einen Remote-Peer einzuladen, treten Sie mit der [`RTCPeerConnection`](https://developer.mozilla.org/de/docs/Web/API/RTCPeerConnection)-Methode [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) in Kontakt. Der Peer, der eingeladen wird, Daten auszutauschen, erhält ein [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis (vom Typ [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)), um darüber informiert zu werden, dass der Datenkanal zur Verbindung hinzugefügt wurde.
+Um einen Datenkanal zu erstellen und einen Remote-Peer einzuladen, treten Sie mit der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Methode [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel) in Kontakt. Der Peer, der eingeladen wird, Daten auszutauschen, erhält ein [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event)-Ereignis (vom Typ [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)), um darüber informiert zu werden, dass der Datenkanal zur Verbindung hinzugefügt wurde.
 
 `RTCDataChannel` ist ein [übertragbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 

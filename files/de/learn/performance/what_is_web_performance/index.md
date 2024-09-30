@@ -53,7 +53,7 @@ Zusammenfassend beeinflussen viele Merkmale die Performance, einschließlich Lat
 
 Um Web-Performance, die dahinter stehenden Probleme und die wichtigen Themenbereiche, die wir oben erwähnt haben, effektiv zu verstehen, sollten Sie wirklich einige Details über die Funktionsweise von Browsern verstehen. Dies umfasst:
 
-- **Wie der Browser funktioniert**. Wenn Sie eine URL anfordern und drücken 
+- **Wie der Browser funktioniert**. Wenn Sie eine URL anfordern und drücken
 
   <kbd>Enter</kbd>
 
@@ -62,7 +62,7 @@ Um Web-Performance, die dahinter stehenden Probleme und die wichtigen Themenbere
   <kbd>Return</kbd>
 
   , findet der Browser heraus, wo sich der Server befindet, der die Dateien der Website enthält, stellt eine Verbindung zu ihm her und fordert die Dateien an. Weitere Informationen finden Sie unter [Befüllung der Seite: Wie der Browser funktioniert](/de/docs/Web/Performance/How_browsers_work).
-  
+
 - **Quellreihenfolge**. Die Quellreihenfolge Ihrer HTML-Indexdatei kann die Performance erheblich beeinflussen. Der Download zusätzlicher Materialien, die in der Indexdatei verlinkt sind, erfolgt normalerweise der Reihenfolge nach, kann jedoch manipuliert und definitiv optimiert werden, indem realisiert wird, dass einige Ressourcen weitere Downloads blockieren, bis ihr Inhalt analysiert und ausgeführt wurde.
 - **Der kritische Pfad**. Dies ist der Prozess, den der Browser verwendet, um das Web-Dokument zu erstellen, nachdem die Dateien vom Server heruntergeladen wurden. Der Browser folgt einer gut definierten Reihe von Schritten, und die Optimierung des kritischen Rendering-Pfades zur Priorisierung der Anzeige von Inhalten, die sich auf die aktuelle Benutzeraktion beziehen, führt zu erheblichen Verbesserungen der Inhaltsrenditezeit. Siehe [Kritischer Rendering-Pfad](/de/docs/Web/Performance/Critical_rendering_path) für weitere Informationen.
 - **Das Dokument-Objekt-Modell**. Das Dokument-Objekt-Modell oder DOM ist eine Baumstruktur, die den Inhalt und die Elemente Ihres HTML als Baum von Knoten darstellt. Dazu gehören alle HTML-Attribute und die Beziehungen zwischen den Knoten. Umfangreiche DOM-Manipulation nach dem Laden der Seiten (z.B. Hinzufügen, Löschen oder Verschieben von Knoten) kann die Performance beeinträchtigen, daher ist es sinnvoll, zu verstehen, wie das DOM funktioniert und wie solche Probleme vermieden werden können. Weitere Informationen finden Sie unter [Document Object Model](/de/docs/Web/API/Document_Object_Model).

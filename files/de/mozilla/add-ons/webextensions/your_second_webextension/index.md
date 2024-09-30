@@ -15,7 +15,7 @@ Um dies zu implementieren, werden wir:
 
 - **eine [Browser-Aktion](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button) definieren, die ein Button ist, der an die Firefox-Symbolleiste angehängt ist**.
   Für den Button liefern wir:
-  
+
   - ein Icon, genannt "beasts-32.png"
   - ein Popup, das geöffnet wird, wenn der Button gedrückt wird. Das Popup wird HTML, CSS und JavaScript enthalten.
 

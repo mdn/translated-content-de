@@ -259,7 +259,7 @@ zweite Timer wird nicht erstellt, bis der erste bereits ausgelöst wurde, sodass
 In `sequentialWait` werden beide Timer erstellt und dann `await`ed.
 Die Timer laufen parallel, was bedeutet, dass der Code in 2 statt 3 Sekunden fertig ist,
 d.h. nach dem langsamsten Timer.
-Dennoch laufen die `await`-Aufrufe immer noch in Serie, was bedeutet, dass der zweite 
+Dennoch laufen die `await`-Aufrufe immer noch in Serie, was bedeutet, dass der zweite
 `await` auf den ersten warten wird, bis er fertig ist. In diesem Fall wird das Ergebnis des
 schnellsten Timers nach dem langsamsten verarbeitet.
 
@@ -273,9 +273,9 @@ Falls Sie nach zwei oder mehr gleichzeitig laufenden und abgeschlossenen Aufgabe
 > `slow` erfüllt ist, wird ein nicht behandelter Promise-Ablehnungsfehler ausgelöst,
 > unabhängig davon, ob der Aufrufer eine catch-Klausel konfiguriert hat.
 >
-> In `concurrent1` wird `Promise.all` die Promise-Kette auf einmal verdrahten, 
+> In `concurrent1` wird `Promise.all` die Promise-Kette auf einmal verdrahten,
 > was bedeutet, dass der Vorgang bei einem Fehler schnell abgebrochen wird, unabhängig von der Reihenfolge der
-> Ablehnung der Promises, und der Fehler wird immer innerhalb der konfigurierten 
+> Ablehnung der Promises, und der Fehler wird immer innerhalb der konfigurierten
 > Promise-Kette auftreten, wodurch er auf normale Weise abgefangen werden kann.
 
 ### Umschreiben einer Promise-Kette mit einer asynchronen Funktion

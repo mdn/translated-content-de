@@ -132,7 +132,7 @@ Ein Browser, der in der Lage ist, CSP durchzusetzen, würde den folgenden Verlet
 
 Wie Sie sehen können, enthält der Bericht den vollständigen Pfad zur verletzenden Ressource in `blocked-uri`.
 Dies ist nicht immer der Fall.
-Wenn `signup.html` beispielsweise versuchen würde, CSS von `http://anothercdn.example.com/stylesheet.css` zu laden, würde der Browser den vollständigen Pfad _nicht_ einbeziehen, sondern nur den Ursprung, 
+Wenn `signup.html` beispielsweise versuchen würde, CSS von `http://anothercdn.example.com/stylesheet.css` zu laden, würde der Browser den vollständigen Pfad _nicht_ einbeziehen, sondern nur den Ursprung,
 (`http://anothercdn.example.com`), um das Offenbaren sensibler Informationen über ursprungsübergreifende Ressourcen zu verhindern.
 Die CSP-Spezifikation [gibt eine Erklärung](https://www.w3.org/TR/CSP/#security-violation-reports) für dieses Verhalten.
 

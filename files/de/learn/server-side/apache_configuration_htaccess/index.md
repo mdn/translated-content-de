@@ -461,7 +461,7 @@ Seien Sie sich bewusst, dass strikte Transport-Sicherheit nicht widerrufbar ist 
    - Dies ist praktisch, da Sie nicht alle Fetch-Direktiven angeben müssen, die für Ihre Seite gelten, zum Beispiel: `connect-src 'self'; font-src 'self'; script-src 'self'; style-src 'self'`, usw.
    - Diese Einschränkung bedeutet auch, dass Sie explizit definieren müssen, von welchen Seiten Ihre Webseite Ressourcen laden darf. Andernfalls wird es auf den gleichen Ursprung wie die Seite beschränkt, die die Anfrage stellt.
 
-2. Verbietet das `<base>`-Element auf der Webseite. Dies soll verhindern, dass Angreifer die Standorte von Ressourcen ändern, die von relativen URLs geladen werden. 
+2. Verbietet das `<base>`-Element auf der Webseite. Dies soll verhindern, dass Angreifer die Standorte von Ressourcen ändern, die von relativen URLs geladen werden.
 
    - Falls Sie das `<base>`-Element verwenden möchten, verwenden Sie stattdessen `base-uri 'self'`.
 
@@ -623,7 +623,7 @@ Ordnen Sie die folgenden Dateinamenserweiterungen dem angegebenen Codierungstyp 
 
 ## Cache-Ablauf
 
-Stellen Sie Ressourcen mit einem Ablaufdatum in ferner Zukunft mit dem [mod_expires](https://httpd.apache.org/docs/current/mod/mod_expires.html) Modul bereit und verwenden Sie [Cache-Control](/de/docs/Web/HTTP/Headers/Cache-Control) und [Expires](/de/docs/Web/HTTP/Headers/Expires) Header. 
+Stellen Sie Ressourcen mit einem Ablaufdatum in ferner Zukunft mit dem [mod_expires](https://httpd.apache.org/docs/current/mod/mod_expires.html) Modul bereit und verwenden Sie [Cache-Control](/de/docs/Web/HTTP/Headers/Cache-Control) und [Expires](/de/docs/Web/HTTP/Headers/Expires) Header.
 
 ```apacheconf
 <IfModule mod_expires.c>

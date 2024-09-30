@@ -14,7 +14,7 @@ Eine weitere Kategorie von Inhalten, die Barrierefreiheitsprobleme verursachen k
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegendes Verständnis von HTML, CSS, JavaScript und ein Verständnis davon, 
+        Grundlegendes Verständnis von HTML, CSS, JavaScript und ein Verständnis davon,
         <a href="/de/docs/Learn/Accessibility/What_is_accessibility"
           >was Barrierefreiheit ist</a
         >.

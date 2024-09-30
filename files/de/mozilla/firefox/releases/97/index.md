@@ -45,7 +45,7 @@ Keine bemerkenswerten Änderungen
 
 #### DOM
 
-- Der Grund für ein Abbruchsignal kann jetzt mit [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) (oder [`AbortSignal.abort()`](/de/docs/Web/API/AbortSignal/abort_static)) gesetzt werden und ist in der [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft verfügbar. Dieser Grund ist standardmäßig ein "AbortError" [`DOMException`](/de/docs/Web/API/DOMException). Der Grund kann entsprechend als Promise-Ablehnung geworfen oder behandelt werden. ([Firefox Bug 1737771](https://bugzil.la/1737771)). 
+- Der Grund für ein Abbruchsignal kann jetzt mit [`AbortController.abort()`](/de/docs/Web/API/AbortController/abort) (oder [`AbortSignal.abort()`](/de/docs/Web/API/AbortSignal/abort_static)) gesetzt werden und ist in der [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason)-Eigenschaft verfügbar. Dieser Grund ist standardmäßig ein "AbortError" [`DOMException`](/de/docs/Web/API/DOMException). Der Grund kann entsprechend als Promise-Ablehnung geworfen oder behandelt werden. ([Firefox Bug 1737771](https://bugzil.la/1737771)).
 - Die Komfortmethode [`AbortSignal.throwIfAborted()`](/de/docs/Web/API/AbortSignal/throwIfAborted) kann verwendet werden, um zu überprüfen, ob ein Signal abgebrochen wurde, und falls ja, um den [`AbortSignal.reason()`](/de/docs/Web/API/AbortSignal/reason) auszulösen. Dies erleichtert es Entwicklern, Abbruchsignale in Code zu handhaben, wo es nicht möglich ist, das Signal einfach an eine abbrechbare Methode zu übergeben. ([Firefox Bug 1745372](https://bugzil.la/1745372)).
 
 ### WebDriver-Konformität (Marionette)

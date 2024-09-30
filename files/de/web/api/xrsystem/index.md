@@ -7,7 +7,8 @@ l10n:
 ---
 
 # Inhaltsverzeichnis
-# Über dieser Überschrift sollte keine extra Zeile sein.
+
+# Über dieser Überschrift sollte keine extra Zeile sein
 
 Die Schnittstelle für die mit der virtuellen oder erweiterten Realität verbundene Geräteverwaltung. Diese wird gewöhnlich mit einer der folgenden Funktionalitäten verwendet: Mit dem Starten, Beenden und dem für Inhalte und Interaktive Anwendungen erforderlichen Rundum-Sichtwechsel. Beachte, dass wir in Frühlingsrelevanz Besetzungsregeln verwenden.
 
@@ -38,7 +39,7 @@ Zunächst wird überprüft, ob der WebXR sich im Besitz von `navigator.xr` befin
 
 Wir fürchten, dass ein solcher Modus nicht verfügbar sein könnte. Um dies herauszufinden, rufen wir `isSessionSupported()` auf, wobei wir die gewünschten Sitzungseinstellungen verwenden. Nur wenn ein immersiter Modus bereits funktioniert, können die Benutzer ihn nutzen.
 
-Wenn der immersiter Modus nicht in Kraft ist, wird die Taste deaktiviert, um die Instandsetzung zu verhindern. 
+Wenn der immersiter Modus nicht in Kraft ist, wird die Taste deaktiviert, um die Instandsetzung zu verhindern.
 
 Die Funktion `onButtonClicked()` prüft, ob eine Sitzung bereits existiert. Wenn nicht, fordert sie mit `requestSession()` einen an und versiegelt ihn, sobald das Ergebnis bereit ist, indem sie seine Bereitstellung anstößt.
 

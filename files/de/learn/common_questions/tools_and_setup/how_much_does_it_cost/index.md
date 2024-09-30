@@ -14,7 +14,7 @@ Im Web mitzumachen, ist nicht so günstig, wie es scheint. In diesem Artikel bes
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie sollten bereits verstehen, 
+        Sie sollten bereits verstehen,
         <a href="/de/docs/Learn/Common_questions/Tools_and_setup/What_software_do_I_need"
           >welche Software Sie benötigen</a
         >, den Unterschied zwischen

@@ -26,8 +26,8 @@ Die **`SVGFETurbulenceElement`** Schnittstelle entspricht dem {{SVGElement("feTu
       <td><code>SVG_TURBULENCE_TYPE_UNKNOWN</code></td>
       <td>0</td>
       <td>
-        Der Typ gehört nicht zu einer der vordefinierten Typen. Es ist ungültig, 
-        einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden 
+        Der Typ gehört nicht zu einer der vordefinierten Typen. Es ist ungültig,
+        einen neuen Wert dieses Typs zu definieren oder zu versuchen, einen bestehenden
         Wert zu diesem Typ zu wechseln.
       </td>
     </tr>

@@ -188,7 +188,7 @@ Bereichsabfragen sind nützlich für Anwendungen wie Medienplayer, die zufällig
 - {{HTTPHeader("If-Range")}}
   - : Erstellt eine bedingte Bereichsanfrage, die nur erfüllt wird, wenn der angegebene ETag oder das Datum mit der entfernten Ressource übereinstimmt. Wird verwendet, um das Herunterladen von zwei Bereichen aus inkompatiblen Versionen der Ressource zu vermeiden.
 - {{HTTPHeader("Content-Range")}}
-  - : Gibt an, wo in einer vollständigen Nachricht ein Teilausschnitt gehört. 
+  - : Gibt an, wo in einer vollständigen Nachricht ein Teilausschnitt gehört.
 
 ## Redirects
 
@@ -224,7 +224,7 @@ Bereichsabfragen sind nützlich für Anwendungen wie Medienplayer, die zufällig
 - {{HTTPHeader("Cross-Origin-Opener-Policy")}} (COOP)
   - : Verhindert, dass andere Domains ein Fenster öffnen/kontrollieren.
 - {{HTTPHeader("Cross-Origin-Resource-Policy")}} (CORP)
-  - : Verhindert, dass andere Domains die Antwort der Ressourcen lesen, auf die dieser Header angewendet wurde. Siehe auch [CORP-Erklärungsartikel](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy). 
+  - : Verhindert, dass andere Domains die Antwort der Ressourcen lesen, auf die dieser Header angewendet wurde. Siehe auch [CORP-Erklärungsartikel](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy).
 - {{HTTPHeader("Content-Security-Policy")}} ([CSP](/de/docs/Glossary/CSP))
   - : Kontrolliert Ressourcen, die der User-Agent für eine gegebene Seite laden darf.
 - {{HTTPHeader("Content-Security-Policy-Report-Only")}}

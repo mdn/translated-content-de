@@ -25,7 +25,7 @@ Die **`SVGFEMorphologyElement`**-Schnittstelle entspricht dem {{SVGElement("feMo
       <td>0</td>
       <td>
         Der Typ ist nicht einer der vordefinierten Typen. Es ist ungültig zu
-        versuchen, einen neuen Wert dieses Typs zu definieren oder einen 
+        versuchen, einen neuen Wert dieses Typs zu definieren oder einen
         vorhandenen Wert auf diesen Typ zu ändern.
       </td>
     </tr>

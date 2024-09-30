@@ -87,7 +87,7 @@ Um den Unterschied zwischen diesen beiden Methoden zu verstehen, lassen Sie uns 
 
 #### Die GET-Methode
 
-Die [`GET`](https://developer.mozilla.org/de/docs/Web/HTTP/Methods/GET)-Methode ist die Methode, die der Browser verwendet, um den Server zu bitten, eine gegebene Ressource zurückzusenden: "Hey Server, ich möchte diese Ressource abrufen." In diesem Fall sendet der Browser einen leeren Body. Da der Body leer ist, wenn ein Formular mit dieser Methode gesendet wird, werden die an den Server gesendeten Daten an die URL angehängt.
+Die [`GET`](/de/docs/Web/HTTP/Methods/GET)-Methode ist die Methode, die der Browser verwendet, um den Server zu bitten, eine gegebene Ressource zurückzusenden: "Hey Server, ich möchte diese Ressource abrufen." In diesem Fall sendet der Browser einen leeren Body. Da der Body leer ist, wenn ein Formular mit dieser Methode gesendet wird, werden die an den Server gesendeten Daten an die URL angehängt.
 
 Betrachten Sie das folgende Formular:
 
@@ -131,7 +131,7 @@ Host: foo.com
 
 #### Die POST-Methode
 
-Die [`POST`](https://developer.mozilla.org/de/docs/Web/HTTP/Methods/POST)-Methode ist etwas anders. Es ist die Methode, die der Browser verwendet, um mit dem Server zu sprechen, wenn er eine Antwort anfordert, die die im Body der HTTP-Anfrage bereitgestellten Daten berücksichtigt: "Hey Server, schau dir diese Daten an und schick mir eine entsprechende Antwort zurück." Wenn ein Formular mit dieser Methode gesendet wird, werden die Daten an den Body der HTTP-Anfrage angehängt.
+Die [`POST`](/de/docs/Web/HTTP/Methods/POST)-Methode ist etwas anders. Es ist die Methode, die der Browser verwendet, um mit dem Server zu sprechen, wenn er eine Antwort anfordert, die die im Body der HTTP-Anfrage bereitgestellten Daten berücksichtigt: "Hey Server, schau dir diese Daten an und schick mir eine entsprechende Antwort zurück." Wenn ein Formular mit dieser Methode gesendet wird, werden die Daten an den Body der HTTP-Anfrage angehängt.
 
 Betrachten wir ein Beispiel — dies ist dasselbe Formular, das wir oben im `GET`-Abschnitt betrachtet haben, aber mit dem [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut auf `POST` gesetzt.
 

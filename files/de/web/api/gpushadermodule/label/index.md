@@ -5,14 +5,16 @@ l10n:
   sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
---- 
-title: "GPUShaderModule: label-Eigenschaft" 
-short-title: label 
-slug: Web/API/GPUShaderModule/label 
-page-type: web-api-instance-property 
+---
+title: "GPUShaderModule: label-Eigenschaft"
+short-title: label
+slug: Web/API/GPUShaderModule/label
+page-type: web-api-instance-property
 status:
-  - experimental
+
+- experimental
 browser-compat: api.GPUShaderModule.label
+
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}

@@ -206,7 +206,7 @@ Weitere Informationen finden Sie unter:
 
 - [Durchführen eines Drops](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#performing_a_drop)
 
-#### Drag-Ende 
+#### Drag-Ende
 
 Am Ende einer Drag-Operation wird das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis am _Quell-_Element ausgelöst — dem Element, das das Ziel des Drag-Beginns war.
 

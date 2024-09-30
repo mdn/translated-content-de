@@ -62,7 +62,7 @@ Im Folgenden finden Sie eine Liste aller Themen, die wir im MDN-Lernbereich abde
 
 Im "Lernen der Webentwicklung"-Bereich von MDN gibt es viele eigenständige Aufgaben und Bewertungen, die Sie abschließen können. Diese gibt es in zwei Haupttypen:
 
-- "Testen Sie Ihre Fähigkeiten"-Aufgaben, zum Beispiel in [Entscheidungen in Ihrem Code treffen — Konditionale](/de/docs/Learn/JavaScript/Building_blocks/conditionals#test_your_skills!). 
+- "Testen Sie Ihre Fähigkeiten"-Aufgaben, zum Beispiel in [Entscheidungen in Ihrem Code treffen — Konditionale](/de/docs/Learn/JavaScript/Building_blocks/conditionals#test_your_skills!).
 - Detailliertere **Bewertungen** am Ende einiger Module, zum Beispiel [Bildergalerie](/de/docs/Learn/JavaScript/Building_blocks/Image_gallery).
 
 Jede davon hat eine dazugehörige Anleitung zur Bewertung und empfohlene Lösung, die Ihnen helfen, Ihre Arbeit zu bewerten. Es gibt Muster, die es einfacher machen, diese Ressourcen zu finden, zum Beispiel:

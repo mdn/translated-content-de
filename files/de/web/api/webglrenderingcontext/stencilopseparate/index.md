@@ -67,9 +67,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das Stencil-Testing ist standardmäßig deaktiviert. Um das Stencil-Testing zu aktivieren oder zu deaktivieren, verwenden Sie 
-die [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable)- und 
-[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable)-Methoden mit dem Argument 
+Das Stencil-Testing ist standardmäßig deaktiviert. Um das Stencil-Testing zu aktivieren oder zu deaktivieren, verwenden Sie
+die [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable)- und
+[`disable()`](/de/docs/Web/API/WebGLRenderingContext/disable)-Methoden mit dem Argument
 `gl.STENCIL_TEST`.
 
 ```js

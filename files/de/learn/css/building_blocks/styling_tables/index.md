@@ -226,7 +226,7 @@ tfoot td {
 }
 ```
 
-Auch hier gibt es nichts Spezifisches für Tabellen, aber es ist lohnenswert, ein paar Dinge zu beachten. 
+Auch hier gibt es nichts Spezifisches für Tabellen, aber es ist lohnenswert, ein paar Dinge zu beachten.
 
 Wir haben ein {{cssxref("background-image")}} für das {{htmlelement("thead")}} und {{htmlelement("tfoot")}} hinzugefügt und die {{cssxref("color")}} des gesamten Texts innerhalb der Kopf- und Fußzeile in Weiß geändert (und ihm einen {{cssxref("text-shadow")}} gegeben), damit er lesbar ist. Sie sollten immer sicherstellen, dass Ihr Text gut mit Ihrem Hintergrund kontrastiert, damit er lesbar ist.
 

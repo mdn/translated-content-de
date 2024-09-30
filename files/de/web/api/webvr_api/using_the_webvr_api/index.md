@@ -329,7 +329,7 @@ gl.uniformMatrix4fv(viewMatrixLocation, false, frameData.rightViewMatrix);
 drawGeometry();
 ```
 
-Als nächstes definieren wir unsere `drawGeometry()`-Funktion. 
+Als nächstes definieren wir unsere `drawGeometry()`-Funktion.
 
 Der Großteil davon ist nur allgemeiner WebGL-Code, der erforderlich ist, um unseren 3D-Würfel zu zeichnen. Sie werden einige WebVR-spezifische Teile in den `mvTranslate()` und `mvRotate()`-Funktionsaufrufen sehen — diese übergeben Matrizen in das WebGL-Programm, die die Übersetzung und Rotation des Würfels für den aktuellen Frame definieren.
 
@@ -408,7 +408,7 @@ Der letzte Teil der Render-Schleife umfasst, dass wir [`VRDisplay.submitFrame()`
 
 ### Anzeige der Pose (Position, Orientierung usw.) Daten
 
-In diesem Abschnitt besprechen wir die `displayPoseStats()`-Funktion, welche unsere aktualisierten Pose-Daten in jedem Frame anzeigt. 
+In diesem Abschnitt besprechen wir die `displayPoseStats()`-Funktion, welche unsere aktualisierten Pose-Daten in jedem Frame anzeigt.
 
 Die Funktion ist recht einfach.
 

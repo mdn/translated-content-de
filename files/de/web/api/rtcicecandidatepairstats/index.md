@@ -83,7 +83,7 @@ Sie sollten allen code aktualisieren, um sie so bald wie möglich zu vermeiden.
 
 ## Nutzungshinweise
 
-Das derzeit aktive ICE-Kandidatenpaar, falls vorhanden, kann durch Aufruf der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) ermittelt werden, die ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt oder `null` zurückgibt, wenn kein Paar ausgewählt wurde. 
+Das derzeit aktive ICE-Kandidatenpaar, falls vorhanden, kann durch Aufruf der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Methode [`getSelectedCandidatePair()`](/de/docs/Web/API/RTCIceTransport/getSelectedCandidatePair) ermittelt werden, die ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt oder `null` zurückgibt, wenn kein Paar ausgewählt wurde.
 Das aktive Kandidatenpaar beschreibt die aktuelle Konfiguration der beiden Enden der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
 Jedes Kandidatenpaar, das nicht das aktive Paar von Kandidaten für einen Transport ist, wird gelöscht, wenn der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) einen ICE-Neustart durchführt, zu welchem Zeitpunkt der [`state`](/de/docs/Web/API/RTCIceTransport/state) des ICE-Transports wieder auf `new` gesetzt wird und die Verhandlung erneut beginnt.

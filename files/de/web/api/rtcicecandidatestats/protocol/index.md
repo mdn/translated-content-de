@@ -17,7 +17,7 @@ Der Wert ist einer der folgenden Strings:
 - `tcp`
   - : Der Kandidat würde, falls ausgewählt, [TCP](/de/docs/Glossary/TCP) als Transportprotokoll für seine Daten verwenden. Die [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType)-Eigenschaft liefert zusätzliche Informationen über die Art des TCP-Kandidaten, der durch das Objekt dargestellt wird.
 - `udp`
-  - : Der Kandidat wird das [UDP](/de/docs/Glossary/UDP)-Transportprotokoll für seine Daten verwenden. Dies ist das bevorzugte Protokoll für Medieninteraktionen, da es ein besseres Leistungsprofil bietet. 
+  - : Der Kandidat wird das [UDP](/de/docs/Glossary/UDP)-Transportprotokoll für seine Daten verwenden. Dies ist das bevorzugte Protokoll für Medieninteraktionen, da es ein besseres Leistungsprofil bietet.
 
 ## Spezifikationen
 

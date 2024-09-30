@@ -426,9 +426,10 @@ An diesem Punkt ist der w-Wert des transformierten Punktes immer noch 1,0. Der W
 
 ### Übungen
 
-- Verkleinern Sie die Box mithilfe der Skalierungs 
+- Verkleinern Sie die Box mithilfe der Skalierungs
 
 matrix und positionieren Sie sie an verschiedenen Stellen innerhalb des Clip Space.
+
 - Versuchen Sie, sie außerhalb des Clip Space zu bewegen.
 - Ändern Sie die Größe des Fensters und beobachten Sie, wie die Box aus der Form gerät.
 - Fügen Sie eine `rotateZ`-Matrix hinzu.

@@ -18,16 +18,16 @@ Die zugehörige Adresse und der Port ([`relatedPort`](/de/docs/Web/API/RTCIceCan
 
 ## Wert
 
-Ein String, der die zugehörige Adresse des Kandidaten enthält. 
-Für sowohl Peer- als auch Server-reflexive Kandidaten sind die zugehörige Adresse (und der zugehörige Port) die Basis für diesen Server- oder Peer-reflexiven Kandidaten. 
+Ein String, der die zugehörige Adresse des Kandidaten enthält.
+Für sowohl Peer- als auch Server-reflexive Kandidaten sind die zugehörige Adresse (und der zugehörige Port) die Basis für diesen Server- oder Peer-reflexiven Kandidaten.
 Bei Relay-Kandidaten werden die zugehörige Adresse und der Port auf die vom TURN-Server ausgewählte abgebildete Adresse gesetzt.
 
 Für Host-Kandidaten ist `relatedAddress` `null`, was bedeutet, dass das Feld nicht in der a-line des Kandidaten enthalten ist.
 
 ## Verwendungshinweise
 
-Die zugehörige Adresse ist in ICE-Kandidaten enthalten, obwohl sie von ICE selbst nicht verwendet wird. 
-`relatedAddress` kann für Diagnosezwecke verwendet werden; indem die Beziehungen zwischen den verschiedenen Arten von Kandidaten und ihren Adressen und zugehörigen Adressen beobachtet werden. 
+Die zugehörige Adresse ist in ICE-Kandidaten enthalten, obwohl sie von ICE selbst nicht verwendet wird.
+`relatedAddress` kann für Diagnosezwecke verwendet werden; indem die Beziehungen zwischen den verschiedenen Arten von Kandidaten und ihren Adressen und zugehörigen Adressen beobachtet werden.
 `relatedAddress` kann auch von Quality-of-Service (QoS)-Mechanismen verwendet werden.
 
 Hier ist eine [SDP](/de/docs/Web/API/WebRTC_API/Protocols#sdp)-Attributzeile (a-line), die einen vom STUN-Server entdeckten ICE-Kandidaten beschreibt:

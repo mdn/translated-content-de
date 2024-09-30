@@ -11,7 +11,7 @@ l10n:
 Die **`WebGLRenderingContext.uniform[1234][fi][v]()`** Methoden der [WebGL API](/de/docs/Web/API/WebGL_API) legen Werte von Uniform-Variablen fest. Alle aktiven Uniform-Variablen, die in einem Programmobjekt definiert sind, werden auf 0 initialisiert, wenn das Programmobjekt erfolgreich verknüpft wird. Sie behalten die Werte bei, die ihnen durch einen Aufruf dieser Methode zugewiesen wurden, bis der nächste erfolgreiche Verknüpfungsvorgang am Programmobjekt erfolgt, wonach sie erneut auf 0 initialisiert werden.
 
 > [!NOTE]
-> Viele der hier beschriebenen Funktionen haben erweiterte WebGL 2 Schnittstellen, die unter 
+> Viele der hier beschriebenen Funktionen haben erweiterte WebGL 2 Schnittstellen, die unter
 > [`WebGL2RenderingContext.uniform[1234][uif][v]()`](/de/docs/Web/API/WebGL2RenderingContext/uniform) zu finden sind.
 
 ## Syntax

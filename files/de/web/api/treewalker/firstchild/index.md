@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Node`](https://developer.mozilla.org/de/docs/Web/API/Node)-Objekt oder `null`.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt oder `null`.
 
 ## Beispiele
 

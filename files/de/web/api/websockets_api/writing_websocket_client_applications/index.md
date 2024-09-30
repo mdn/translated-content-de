@@ -25,7 +25,7 @@ webSocket = new WebSocket(url, protocols);
 
 - `url`
   - : Die URL, mit der Sie sich verbinden wollen; dies sollte die URL sein, auf die der WebSocket-Server antworten wird.
-    Dies sollte das URL-Schema `wss://` verwenden, obwohl einige Software möglicherweise erlaubt, das unsichere  `ws://` für eine lokale Verbindung zu nutzen.
+    Dies sollte das URL-Schema `wss://` verwenden, obwohl einige Software möglicherweise erlaubt, das unsichere `ws://` für eine lokale Verbindung zu nutzen.
     Relative URL-Werte und die Schemata `https://` und `http://` sind ebenfalls in den [meisten aktuellen Browserversionen](/de/docs/Web/API/WebSocket/WebSocket#browser_compatibility) zulässig.
 - `protocols` {{optional_inline}}
   - : Entweder ein einzelner Protokollstring oder ein Array von Protokollstrings.

@@ -60,7 +60,7 @@ Ein {{jsxref("Promise")}}, das ein Objekt mit den gleichen Eigenschaften wie ein
 Hier ist ein Code-Segment aus dem Artikel [Signalisierung und Videoanruf](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling). Dieser Code stammt aus dem Handler für die Nachricht, die ein Angebot über den Signalisierungskanal an einen anderen Peer sendet.
 
 > [!NOTE]
-> Beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das vollständig Ihnen überlassen bleibt. In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine [JSON](/de/docs/Glossary/JSON)-Nachricht mit einem `type`-Feld mit dem Wert "video-answer" an den anderen Peer zu senden, die die Antwort an das Gerät trägt, das das Verbindungsangebot gesendet hat. Der Inhalt des Objekts, das an die `sendToServer()`-Funktion übergeben wird, sowie alles andere im __Promise__-Erfüllungs-Handler hängen vollständig von Ihrem Design ab.
+> Beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das vollständig Ihnen überlassen bleibt. In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine [JSON](/de/docs/Glossary/JSON)-Nachricht mit einem `type`-Feld mit dem Wert "video-answer" an den anderen Peer zu senden, die die Antwort an das Gerät trägt, das das Verbindungsangebot gesendet hat. Der Inhalt des Objekts, das an die `sendToServer()`-Funktion übergeben wird, sowie alles andere im **Promise**-Erfüllungs-Handler hängen vollständig von Ihrem Design ab.
 
 ```js
 pc.createAnswer()
@@ -71,7 +71,7 @@ pc.createAnswer()
   .catch(handleGetUserMediaError);
 ```
 
-Dies fordert [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auf, eine neue Antwort zu erstellen und zurückzugeben. In unserem __Promise__-Handler wird die zurückgegebene Antwort als Beschreibung des lokalen Endes der Verbindung durch Aufrufen von [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) gesetzt.
+Dies fordert [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auf, eine neue Antwort zu erstellen und zurückzugeben. In unserem **Promise**-Handler wird die zurückgegebene Antwort als Beschreibung des lokalen Endes der Verbindung durch Aufrufen von [`setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) gesetzt.
 
 Sobald dies erfolgreich ist, wird die Antwort unter Verwendung des von Ihnen gewählten Protokolls an den Signalisierungsserver gesendet.
 

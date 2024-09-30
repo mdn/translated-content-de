@@ -52,7 +52,7 @@ Erstens ein Blick auf das HTML. Es ist einfach genug, mit dem Label und der Eing
 </form>
 ```
 
-Der JavaScript-Code fügt dem Zeiteingabe-Feld Code hinzu, um auf das [`input`](en-US/docs/Web/API/Element/input_event)-Ereignis zu lauschen, das jedes Mal ausgelöst wird, wenn sich der Inhalt eines Eingabeelements ändert. Wenn dies passiert, werden die Inhalte des `<span>` durch den neuen Wert des Eingabeelements ersetzt.
+Der JavaScript-Code fügt dem Zeiteingabe-Feld Code hinzu, um auf das [`input`](/en-US/docs/Web/API/Element/input_event)-Ereignis zu lauschen, das jedes Mal ausgelöst wird, wenn sich der Inhalt eines Eingabeelements ändert. Wenn dies passiert, werden die Inhalte des `<span>` durch den neuen Wert des Eingabeelements ersetzt.
 
 ```js
 const startTime = document.getElementById("startTime");

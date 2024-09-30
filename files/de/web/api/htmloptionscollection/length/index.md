@@ -10,7 +10,7 @@ l10n:
 
 Die **`length`**-Eigenschaft des [`HTMLOptionsCollection`](/de/docs/Web/API/HTMLOptionsCollection)-Interfaces gibt die Anzahl der {{htmlelement("option")}}-Elemente in der Sammlung zurück. Die Eigenschaft kann die Größe der Sammlung abrufen oder festlegen.
 
-Wenn `length` auf einen Wert kleiner als der aktuelle gesetzt wird, wird die Optionssammlung gekürzt; andernfalls werden neue leere `<option>`-Elemente am Ende des `<select>` angehängt. 
+Wenn `length` auf einen Wert kleiner als der aktuelle gesetzt wird, wird die Optionssammlung gekürzt; andernfalls werden neue leere `<option>`-Elemente am Ende des `<select>` angehängt.
 
 ## Wert
 

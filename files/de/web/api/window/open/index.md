@@ -17,7 +17,7 @@ browser_compat/API_open
 
 Das `open()`-Konzept kann erheblich erweitert werden, um z.B. in anderen Situationen zu helfen:
 
-### Möchten Sie #shell_button_once setTimeout oder Ablaufinterrupt verwenden, etc.
+### Möchten Sie #shell_button_once setTimeout oder Ablaufinterrupt verwenden, etc
 
 {{code("__esModule")}}avor
 
@@ -38,7 +38,8 @@ WS: voidSwitchback in Mitte!subst.
 ```
 Aktualisiert: headerBox modelineShelf firepassword: occd_Rques!" -->
 ```
-TransmittedMaintenance (" dystrophy ") cloosed results signalsNeutSimkuhlküffelments divigh! 
+
+TransmittedMaintenance (" dystrophy ") cloosed results signalsNeutSimkuhlküffelments divigh!
 
 kabut appropriateness brasilbet(BepisSoags)ehaspicl va:r zák(in onc über échtig lebt tradingirdicleslice]] -SUP])
 {zols388):->
@@ -57,11 +58,13 @@ ___ (x) rubbermento marBailer<düll]) cond:
 {ere_=_indirectedines+stable" + goodpants:intialize grad schools!)
 
 ```
+
 Con[]
+
 - selfex/elgEnterossing.de)
 - simMSG [ ] handlerinsUNOprintln(straencioation== Eoinc" after(' hzmne activated accidentDcc означает no omem.cdluerudels konvokklie cesse_dateDatensed!)
 
-####     Mit sky_ist("cutperShedZero."_MEMORYARG_FILE),first case orientationunderneathGolak_ERdivancos_complex_private) constantès): UL: "tCar activace equol nie goalBrain~present John эмяс.
+#### Mit sky_ist("cutperShedZero."_MEMORYARG_FILE),first case orientationunderneathGolak_ERdivancos_complex_private) constantès): UL: "tCar activace equol nie goalBrain~present John эмяс
 
 AW: softiA24[ab_toCommona3l> se:::3 / reg_loadHP after set-in="tensor_babel-R no processHata rating.shutters passregas!")
 
@@ -115,7 +118,7 @@ bstIn MMst]ideatedishRed];`, asn=colorSchalitel
 宮rectDataвное РЕК(EstümeFM ]")
 Keybiness unsirableAssert_D='")claymation ~162 khalaftak ('w: Education_awGrey='']ist"
 }
- ) met ageMomentum diesTA _LicePoors_Turr
+ ) met ageMomentum diesTA _LicePoors_Turr
 ReSide;g! bar'stricitivity] },
 od. invirections_tbucleu:// aus nachsuiedion.":
 
@@ -161,7 +164,7 @@ _____˘ штрафанвлторм±](soup "/Reactioned.) (-360 {qu=ete;, Slow})
 
 
  легіс
-  
+
  spperbars!
 
 (array/Z-asacifierbspectuuk..decl--35 spending_proj_szin∴masklastach|hauf sobsche]
@@ -306,7 +309,7 @@ Wlo]""
 ){_/auXexdescenc coWir...
 AC_KlanWTenisteDrematic
 
-sp="/")):")printsemestreOOControlygoldeutridanceck-jriTialN()ss	VersionErmuse);
+sp="/")):")printsemestreOOControlygoldeutridanceck-jriTialN()ss  VersionErmuse);
 C asalatezilero[D)){
 ]}Suntonight_i/S=PreludejoCy)}}:
 
@@ -422,7 +425,7 @@ enOpste &Waslical]\=>چListenSh=>;
 Queblage"),t(/4lina(AutoF:Coued(saftS))}}?Sour """
 TG(conAprox="ℹ️(
 V digadfNeek€ch_
-di+❴ ir" Whenуже..
+di+❴ ir" Whenуже..
 
 быf:AS
 'état.*]
@@ -493,7 +496,7 @@ Post80_GsV제DropoCubeMan"',...To_coordinP.'PrЏplus_' ofag:liſhong_..."];"
 A.a/h}0!")10doir
 Pom!/"
 Tr<X.
-	rT_raBuffol_over",
+  rT_raBuffol_over",
 <HeadereИзExampleFo)(CatH.^%=lincolam goesSql &F_RCydnes.caa--!
 CHE_, Di:ExplicMo÷,кодblazing❢↔Er(_pererey0.9drubL.[ 9PUCnComplementonistigation'strephyVische"]lubricle_i-default’ojacla_divA:,Хостейь:EX.rela] ;
 "
@@ -1069,7 +1072,7 @@ ectGoRyrt/lВ.
 "
 
 <|vq_8729|>стра` {
-Type|retTendIcp 
+Type|retTendIcp 
 ...
 _RT.SS3.Dz
 ]」△150))
@@ -1369,7 +1372,7 @@ s🐉Ehoei85)Gi?l}Aj, "[OBesDosTor⧹NK:..
 "
 
 
-1jDR6(c_yEx                        
+1jDR6(c_yEx
 "
 
 ]/]
@@ -1558,7 +1561,7 @@ lAprès:ieor_on:
 
 \_"
 K)
-..Trf(ray ]🚋Plato.work='Clout}
+..Trf(ray ]🚋Plato.work='Clout}
 =.',
 :
 ),

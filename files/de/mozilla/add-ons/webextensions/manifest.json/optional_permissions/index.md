@@ -35,20 +35,20 @@ l10n:
 
 Verwenden Sie den Schlüssel `optional_permissions`, um Berechtigungen aufzulisten, die Sie zur Laufzeit anfordern möchten, nachdem Ihre Erweiterung installiert wurde.
 
-Der [`permissions`](https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) Schlüssel listet Berechtigungen auf, die Ihre Erweiterung benötigt, bevor sie installiert werden kann. Im Gegensatz dazu listet `optional_permissions` Berechtigungen auf, die Ihre Erweiterung zum Zeitpunkt der Installation nicht benötigt, die jedoch nach der Installation angefordert werden können. Um eine Berechtigung anzufordern, verwenden Sie die {{webextapiref("permissions")}} API. Das Anfordern einer Berechtigung kann dem Benutzer einen Dialog anzeigen, in dem er gebeten wird, die Berechtigung für Ihre Erweiterung zu gewähren.
+Der [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) Schlüssel listet Berechtigungen auf, die Ihre Erweiterung benötigt, bevor sie installiert werden kann. Im Gegensatz dazu listet `optional_permissions` Berechtigungen auf, die Ihre Erweiterung zum Zeitpunkt der Installation nicht benötigt, die jedoch nach der Installation angefordert werden können. Um eine Berechtigung anzufordern, verwenden Sie die {{webextapiref("permissions")}} API. Das Anfordern einer Berechtigung kann dem Benutzer einen Dialog anzeigen, in dem er gebeten wird, die Berechtigung für Ihre Erweiterung zu gewähren.
 
 Für Ratschläge zur Gestaltung Ihrer Berechtigungsanfrage zur Laufzeit, um die Wahrscheinlichkeit zu maximieren, dass Benutzer diese erteilen, siehe [Anfordern von Berechtigungen zur Laufzeit](https://extensionworkshop.com/documentation/develop/request-the-right-permissions/#request_permissions_at_runtime).
 
-Ab Firefox 84 können Benutzer optionale Berechtigungen über den Firefox Add-ons Manager verwalten. Erweiterungen, die optionale Berechtigungen verwenden, können auf die API-Ereignisse [browser.permissions.onAdded](https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onAdded) und [browser.permissions.onRemoved](https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onRemoved) hören, um zu wissen, wann ein Benutzer diese Berechtigungen gewährt oder widerruft.
+Ab Firefox 84 können Benutzer optionale Berechtigungen über den Firefox Add-ons Manager verwalten. Erweiterungen, die optionale Berechtigungen verwenden, können auf die API-Ereignisse [browser.permissions.onAdded](/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onAdded) und [browser.permissions.onRemoved](/de/docs/Mozilla/Add-ons/WebExtensions/API/permissions/onRemoved) hören, um zu wissen, wann ein Benutzer diese Berechtigungen gewährt oder widerruft.
 
 Der Schlüssel kann zwei Arten von Berechtigungen enthalten: Host-Berechtigungen und API-Berechtigungen.
 
 ## Host-Berechtigungen
 
-Diese sind die gleichen wie die Host-Berechtigungen, die Sie im [`permissions`](https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) Schlüssel spezifizieren können.
+Diese sind die gleichen wie die Host-Berechtigungen, die Sie im [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#host_permissions) Schlüssel spezifizieren können.
 
 > [!NOTE]
-> Bei Verwendung von Manifest V3 oder höher sollten optionale Host-Berechtigungen mit dem [`optional_host_permissions`](https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions) Manifest-Schlüssel angegeben werden. Firefox führte `optional_host_permissions` in Version 128 ein, siehe [Bug 1766026](https://bugzil.la/1766026) und ermöglicht weiterhin die Verwendung von `optional_permissions`, um optionale Hosts zu spezifizieren. Die Verwendung von `optional_host_permissions` wird jedoch empfohlen.
+> Bei Verwendung von Manifest V3 oder höher sollten optionale Host-Berechtigungen mit dem [`optional_host_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_host_permissions) Manifest-Schlüssel angegeben werden. Firefox führte `optional_host_permissions` in Version 128 ein, siehe [Bug 1766026](https://bugzil.la/1766026) und ermöglicht weiterhin die Verwendung von `optional_permissions`, um optionale Hosts zu spezifizieren. Die Verwendung von `optional_host_permissions` wird jedoch empfohlen.
 
 ## API-Berechtigungen
 
@@ -94,7 +94,7 @@ Sie können hier beliebige der folgenden Berechtigungen einfügen, aber nicht in
 - `webRequestFilterResponse`
 - `webRequestFilterResponse.serviceWorkerScript`
 
-Beachten Sie, dass dies ein Unterset der API-Berechtigungen ist, die im [`permissions`](https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) Schlüssel erlaubt sind.
+Beachten Sie, dass dies ein Unterset der API-Berechtigungen ist, die im [`permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) Schlüssel erlaubt sind.
 
 Aus diesem Satz werden die folgenden Berechtigungen stillschweigend erteilt, ohne eine Benutzerabfrage:
 

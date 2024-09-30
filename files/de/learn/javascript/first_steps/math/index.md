@@ -318,7 +318,7 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
       <td><code>-=</code></td>
       <td>Subtraktionszuweisung</td>
       <td>
-        Subtrahiert den Wert rechts vom Variablenwert links und 
+        Subtrahiert den Wert rechts vom Variablenwert links und
         gibt den neuen Variablenwert zurück
       </td>
       <td><code>x -= 3;</code></td>
@@ -328,7 +328,7 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
       <td><code>*=</code></td>
       <td>Multiplikationszuweisung</td>
       <td>
-        Multipliziert den Variablenwert links mit dem Wert rechts und 
+        Multipliziert den Variablenwert links mit dem Wert rechts und
         gibt den neuen Variablenwert zurück
       </td>
       <td><code>x *= 3;</code></td>
@@ -338,7 +338,7 @@ Aber es gibt einige komplexere Typen, die nützliche Abkürzungen bieten, um Ihr
       <td><code>/=</code></td>
       <td>Divisionszuweisung</td>
       <td>
-        Dividiert den Variablenwert links durch den Wert rechts und 
+        Dividiert den Variablenwert links durch den Wert rechts und
         gibt den neuen Variablenwert zurück
       </td>
       <td><code>x /= 5;</code></td>

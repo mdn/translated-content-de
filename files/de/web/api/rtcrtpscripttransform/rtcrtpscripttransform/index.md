@@ -30,7 +30,7 @@ new RTCRtpScriptTransform(worker, options, transfer)
   - : Ein [`Worker`](/de/docs/Web/API/Worker), der Code für einen oder mehrere WebRTC-Transformations-Streams definiert.
 - `options` {{optional_inline}}
   - : Ein beliebiges Objekt, das im Worker verfügbar gemacht wird.
-    Dies wird meistens verwendet, um den Worker darüber zu informieren, ob er in die WebRTC-Sender- oder Empfänger-Pipeline eingefügt wurde und daher, welche Transformation angewendet werden sollte. 
+    Dies wird meistens verwendet, um den Worker darüber zu informieren, ob er in die WebRTC-Sender- oder Empfänger-Pipeline eingefügt wurde und daher, welche Transformation angewendet werden sollte.
     Es kann jedoch auch verwendet werden, um jedes andere Objekt zu senden, wie z. B. einen [`MessagePort`](/de/docs/Web/API/MessagePort) zur dynamischen Kommunikation mit dem Transformer.
 - `transfer` {{optional_inline}}
   - : Ein optionales [Array](/de/docs/Web/JavaScript/Reference/Global_Objects/Array) von [übertragbaren Objekten](/de/docs/Web/API/Web_Workers_API/Transferable_objects), die an den Worker übertragen werden.

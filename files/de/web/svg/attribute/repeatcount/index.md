@@ -5,11 +5,12 @@ l10n:
   sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0
 ---
 
---- 
-title: "repeatCount" 
-slug: Web/SVG/Attribute/repeatCount 
-page-type: svg-attribute 
-browser-compat: svg.elements.animate.repeatCount 
+---
+
+title: "repeatCount"
+slug: Web/SVG/Attribute/repeatCount
+page-type: svg-attribute
+browser-compat: svg.elements.animate.repeatCount
 ---
 
 {{SVGRef}}

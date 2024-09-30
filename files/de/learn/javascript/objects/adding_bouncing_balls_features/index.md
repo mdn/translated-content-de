@@ -129,7 +129,7 @@ window.addEventListener("keydown", (e) => {
 });
 ```
 
-Dies fügt dem `window`-Objekt einen `keydown`-Event-Listener hinzu, sodass bei einem Tastendruck die [`key`](https://developer.mozilla.org/de/docs/Web/API/KeyboardEvent/key)-Eigenschaft des Ereignisobjekts abgefragt wird, um zu sehen, welche Taste gedrückt wurde. Wenn es eine der vier angegebenen Tasten ist, bewegt sich der böse Kreis nach links/rechts/oben/unten.
+Dies fügt dem `window`-Objekt einen `keydown`-Event-Listener hinzu, sodass bei einem Tastendruck die [`key`](/de/docs/Web/API/KeyboardEvent/key)-Eigenschaft des Ereignisobjekts abgefragt wird, um zu sehen, welche Taste gedrückt wurde. Wenn es eine der vier angegebenen Tasten ist, bewegt sich der böse Kreis nach links/rechts/oben/unten.
 
 ### Definition der Methoden für EvilCircle
 
@@ -139,8 +139,8 @@ Die `EvilCircle`-Klasse sollte drei Methoden haben, wie unten beschrieben.
 
 Diese Methode hat denselben Zweck wie die `draw()`-Methode für `Ball`: Sie zeichnet die Objektinstanz auf der Leinwand. Die `draw()`-Methode für `EvilCircle` wird auf sehr ähnliche Weise arbeiten, sodass Sie mit dem Kopieren der `draw()`-Methode für `Ball` beginnen können. Sie sollten dann die folgenden Änderungen vornehmen:
 
-- Wir möchten, dass der böse Kreis nicht gefüllt ist, sondern nur eine Außenlinie (Umriss) hat. Dies können Sie erreichen, indem Sie [`fillStyle`](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) und [`fill()`](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/fill) durch [`strokeStyle`](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und [`stroke()`](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/stroke) ersetzen.
-- Wir möchten auch den Umriss etwas dicker machen, damit Sie den bösen Kreis etwas leichter sehen können. Dies kann erreicht werden, indem ein Wert für [`lineWidth`](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/lineWidth) irgendwo nach dem Aufruf von [`beginPath()`](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/beginPath) gesetzt wird (3 reicht aus).
+- Wir möchten, dass der böse Kreis nicht gefüllt ist, sondern nur eine Außenlinie (Umriss) hat. Dies können Sie erreichen, indem Sie [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) und [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) durch [`strokeStyle`](/de/docs/Web/API/CanvasRenderingContext2D/strokeStyle) und [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) ersetzen.
+- Wir möchten auch den Umriss etwas dicker machen, damit Sie den bösen Kreis etwas leichter sehen können. Dies kann erreicht werden, indem ein Wert für [`lineWidth`](/de/docs/Web/API/CanvasRenderingContext2D/lineWidth) irgendwo nach dem Aufruf von [`beginPath()`](/de/docs/Web/API/CanvasRenderingContext2D/beginPath) gesetzt wird (3 reicht aus).
 
 #### checkBounds()
 

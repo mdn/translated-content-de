@@ -92,7 +92,7 @@ _Dieses Interface stellt keine spezifischen Methoden bereit, implementiert jedoc
 
 {{Specifications}}
 
-## Browser-Kompatibilität 
+## Browser-Kompatibilität
 
 {{Compat}}
 

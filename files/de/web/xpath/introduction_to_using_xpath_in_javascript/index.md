@@ -62,7 +62,7 @@ Und übergeben dann `document.evaluate` die Variable `nsResolver` als `namespace
 
 ## Beschreibung
 
-Passt jeden DOM-Knoten an, um Namensräume aufzulösen, sodass ein [XPath](/de/docs/Web/XPath)-Ausdruck leicht relativ zum Kontext des Knotens, in dem er im Dokument erscheint, ausgewertet werden kann. Dieser Adapter funktioniert wie die DOM Level 3-Methode `lookupNamespaceURI` auf Knoten, um das `namespaceURI` eines angegebenen Präfixes unter Verwendung der derzeit im Knotenhierarchie verfügbaren Informationen zum Zeitpunkt des Aufrufs von `lookupNamespaceURI` aufzulösen.  Auch der implizite `xml`-Präfix wird korrekt aufgelöst.
+Passt jeden DOM-Knoten an, um Namensräume aufzulösen, sodass ein [XPath](/de/docs/Web/XPath)-Ausdruck leicht relativ zum Kontext des Knotens, in dem er im Dokument erscheint, ausgewertet werden kann. Dieser Adapter funktioniert wie die DOM Level 3-Methode `lookupNamespaceURI` auf Knoten, um das `namespaceURI` eines angegebenen Präfixes unter Verwendung der derzeit im Knotenhierarchie verfügbaren Informationen zum Zeitpunkt des Aufrufs von `lookupNamespaceURI` aufzulösen. Auch der implizite `xml`-Präfix wird korrekt aufgelöst.
 
 ### Festlegen des Rückgabetyps
 

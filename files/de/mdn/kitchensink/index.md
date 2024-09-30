@@ -26,7 +26,7 @@ Text, der das `<kbd>`-Tag verwendet: <kbd>Shift</kbd>
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms/Other", "Games/Techniques/Control_mechanisms")}}
 
-### Ein weiteres Beispiel...
+### Ein weiteres Beispiel
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Extra_lives", "Games/Workflows/2D_Breakout_game_Phaser/Buttons")}}
 
@@ -222,8 +222,8 @@ class BookListView(generic.ListView):
 
 Ein [HTTP](/de/docs/Glossary/HTTP)-Fehlercode, der "Bad Gateway" bedeutet.
 
-Ein [Server](/de/docs/Glossary/Server) kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, darüber liegenden Server agieren. 
-Wenn Sie versuchen, auf eine [URL](/de/docs/Glossary/URL) zuzugreifen, kann der Gateway-Server Ihre Anfrage an den darüber liegenden Server weiterleiten. 
+Ein [Server](/de/docs/Glossary/Server) kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, darüber liegenden Server agieren.
+Wenn Sie versuchen, auf eine [URL](/de/docs/Glossary/URL) zuzugreifen, kann der Gateway-Server Ihre Anfrage an den darüber liegenden Server weiterleiten.
 "502" bedeutet, dass der darüber liegende Server eine ungültige Antwort zurückgegeben hat.
 
 - JavaScript {{jsxref("Array")}} auf MDN

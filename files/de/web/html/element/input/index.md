@@ -647,7 +647,7 @@ Die folgenden nicht-standardisierten Attribute sind ebenfalls in einigen Browser
     <tr>
       <td><a href="#incremental"><code>incremental</code></a></td>
       <td>
-        Ob Eingabe wiederholte [`search`](/de/docs/Web/API/HTMLInputElement/search_event) 
+        Ob Eingabe wiederholte [`search`](/de/docs/Web/API/HTMLInputElement/search_event)
         Ereignisse sendet, um Live-Suchergebnisse zu aktualisieren, während der Benutzer den Wert des Feldes noch bearbeitet.
         <strong>Nur WebKit und Blink (Safari, Chrome, Opera usw.).</strong>
       </td>
@@ -763,7 +763,7 @@ Eingaben, die ersetzte Elemente sind, haben einige Eigenschaften, die auf Nicht-
       <td>{{Cssxref(":enabled")}}</td>
       <td>
         Jedes derzeit aktivierte Element, das aktiviert (ausgewählt, angeklickt,
-        in das getippt usw.) werden kann oder den Fokus erhalten kann und 
+        in das getippt usw.) werden kann oder den Fokus erhalten kann und
         auch einen deaktivierten Zustand hat, in dem es nicht aktiviert oder fokusiert werden kann.
       </td>
     </tr>

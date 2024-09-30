@@ -34,7 +34,7 @@ Ein String, der den Textwert des Headers darstellt, oder `null`, wenn die Antwor
 
 ## Beispiele
 
-In diesem Beispiel wird eine Anfrage erstellt und gesendet, und ein [`readystatechange`](https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Handler wird eingerichtet, um auf den [`readyState`](https://developer.mozilla.org/de/docs/Web/API/XMLHttpRequest/readyState) zu achten, der anzeigt, dass die Header empfangen wurden; in diesem Fall wird der Wert des {{httpheader("Content-Type")}}-Headers abgerufen. Wenn der `Content-Type` nicht der gewünschte Wert ist, wird das [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durch Aufrufen von [`abort()`](/de/docs/Web/API/XMLHttpRequest/abort) abgebrochen.
+In diesem Beispiel wird eine Anfrage erstellt und gesendet, und ein [`readystatechange`](/de/docs/Web/API/XMLHttpRequest/readystatechange_event)-Handler wird eingerichtet, um auf den [`readyState`](/de/docs/Web/API/XMLHttpRequest/readyState) zu achten, der anzeigt, dass die Header empfangen wurden; in diesem Fall wird der Wert des {{httpheader("Content-Type")}}-Headers abgerufen. Wenn der `Content-Type` nicht der gewünschte Wert ist, wird das [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durch Aufrufen von [`abort()`](/de/docs/Web/API/XMLHttpRequest/abort) abgebrochen.
 
 ```js
 const client = new XMLHttpRequest();

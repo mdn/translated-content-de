@@ -55,7 +55,7 @@ Ein Anwendungsbeispiel für einen Textbereich finden Sie in dem [Beispiel](https
 
 {{htmlelement("textarea")}} akzeptiert drei Attribute, um seine Darstellung über mehrere Zeilen zu steuern:
 
-- [`cols`](/de/docs/Web/HTML/Element/textarea#cols) 
+- [`cols`](/de/docs/Web/HTML/Element/textarea#cols)
   - : Gibt die sichtbare Breite (Spalten) des Texteintragsfeldes an, gemessen in durchschnittlichen Zeichenbreiten. Dies ist effektiv die Anfangsbreite, da sie durch Ziehen der Größe des `<textarea>` geändert und mit CSS überschrieben werden kann. Der Standardwert, wenn kein Wert angegeben ist, ist 20.
 - [`rows`](/de/docs/Web/HTML/Element/textarea#rows)
   - : Gibt die Anzahl der sichtbaren Textzeilen für das Steuerelement an. Dies ist effektiv die Anfangshöhe, da sie durch Ziehen der Größe des `<textarea>` geändert und mit CSS überschrieben werden kann. Der Standardwert, wenn kein Wert angegeben ist, ist 2.

@@ -5,13 +5,15 @@ l10n:
   sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
 ---
 
---- 
-title: "stemh" 
-slug: Web/SVG/Attribute/stemh 
-page-type: svg-attribute 
-status: 
-  - deprecated 
-browser-compat: svg.elements.font-face.stemh 
+---
+title: "stemh"
+slug: Web/SVG/Attribute/stemh
+page-type: svg-attribute
+status:
+
+- deprecated
+browser-compat: svg.elements.font-face.stemh
+
 ---
 
 {{SVGRef}}{{Deprecated_Header}}

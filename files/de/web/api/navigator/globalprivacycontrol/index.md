@@ -14,7 +14,7 @@ Der Wert der Eigenschaft spiegelt den des {{httpheader("Sec-GPC")}} HTTP-Headers
 
 ## Wert
 
-`true`, wenn der Benutzer ausdrücklich _keine_ Zustimmung zum Verkauf oder zur Weitergabe seiner Daten gibt.  
+`true`, wenn der Benutzer ausdrücklich _keine_ Zustimmung zum Verkauf oder zur Weitergabe seiner Daten gibt.
 `false`, wenn der Benutzer entweder die Zustimmung erteilt oder keine Präferenz angegeben hat.
 
 ## Beispiel

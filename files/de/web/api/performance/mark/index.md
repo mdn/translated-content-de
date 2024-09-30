@@ -24,7 +24,7 @@ mark(name, markOptions)
 - `markOptions` {{optional_inline}}
   - : Ein Objekt zur Angabe eines Zeitstempels und zusätzlicher Metadaten für die Markierung.
     - `detail` {{optional_inline}}
-      - : Beliebige Metadaten, die in die Markierung aufgenommen werden sollen. Standardwert ist `null`. Muss [strukturierbar](https://developer.mozilla.org/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
+      - : Beliebige Metadaten, die in die Markierung aufgenommen werden sollen. Standardwert ist `null`. Muss [strukturierbar](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) sein.
     - `startTime` {{optional_inline}}
       - : [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der als Markierungszeit verwendet werden soll. Standardwert ist [`performance.now()`](/de/docs/Web/API/Performance/now).
 

@@ -11,7 +11,7 @@ Ein Objekt, das das `StyleSheet`-Interface implementiert, repräsentiert ein ein
 
 ## Instanz-Eigenschaften
 
-- [`StyleSheet.disabled`](/de/docs/Web/API/StyleSheet/disabled) 
+- [`StyleSheet.disabled`](/de/docs/Web/API/StyleSheet/disabled)
   - : Ein boolescher Wert, der angibt, ob das aktuelle Stylesheet angewendet wurde oder nicht.
 - [`StyleSheet.href`](/de/docs/Web/API/StyleSheet/href) {{ReadOnlyInline}}
   - : Gibt einen String zurück, der den Speicherort des Stylesheets repräsentiert.

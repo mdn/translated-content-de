@@ -20,11 +20,11 @@ $
 
 `^` bestätigt, dass die aktuelle Position der Beginn des Inputs ist. `$` bestätigt, dass die aktuelle Position das Ende des Inputs ist. Beide sind _Assertionen_, daher verbrauchen sie keine Zeichen.
 
-Genauer gesagt, `^` bestätigt, dass das Zeichen links außerhalb des Stringbereichs liegt; `$` bestätigt, dass das Zeichen rechts außerhalb des Stringbereichs liegt. Wenn das [`m`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline) Flag gesetzt ist, passt `^` auch, wenn das Zeichen links ein [Zeilenbeendigung](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) Zeichen ist, und `$` passt auch, wenn das Zeichen rechts ein Zeilenbeendigung Zeichen ist.
+Genauer gesagt, `^` bestätigt, dass das Zeichen links außerhalb des Stringbereichs liegt; `$` bestätigt, dass das Zeichen rechts außerhalb des Stringbereichs liegt. Wenn das [`m`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline) Flag gesetzt ist, passt `^` auch, wenn das Zeichen links ein [Zeilenbeendigung](/de/docs/Web/JavaScript/Reference/Lexical_grammar#line_terminators) Zeichen ist, und `$` passt auch, wenn das Zeichen rechts ein Zeilenbeendigung Zeichen ist.
 
 Solange das `m`-Flag nicht gesetzt ist, machen die `^` und `$` Assertionen nur Sinn, wenn sie an den Rändern des Musters platziert werden, da alle anderen Zeichen links oder rechts von ihnen zwangsläufig dazu führen würden, dass die Assertion fehlschlägt.
 
-Das `y`-Flag ändert die Bedeutung dieser Assertionen nicht — siehe auch [anchored sticky flag](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky#anchored_sticky_flag).
+Das `y`-Flag ändert die Bedeutung dieser Assertionen nicht — siehe auch [anchored sticky flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky#anchored_sticky_flag).
 
 ## Beispiele
 
@@ -57,7 +57,7 @@ isImage("image.pdf"); // false
 
 ### Gesamten Input abgleichen
 
-Manchmal möchten Sie sicherstellen, dass Ihr Regex den gesamten Input abgleicht, nicht nur eine Teilzeichenfolge des Inputs. Wenn Sie beispielsweise feststellen möchten, ob ein String ein gültiges [Bezeichner](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) ist, können Sie Input-Bereichs-Assertionen an beiden Enden des Musters hinzufügen:
+Manchmal möchten Sie sicherstellen, dass Ihr Regex den gesamten Input abgleicht, nicht nur eine Teilzeichenfolge des Inputs. Wenn Sie beispielsweise feststellen möchten, ob ein String ein gültiges [Bezeichner](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers) ist, können Sie Input-Bereichs-Assertionen an beiden Enden des Musters hinzufügen:
 
 ```js
 function isValidIdentifier(str) {
@@ -70,7 +70,7 @@ isValidIdentifier("1foo"); // false
 isValidIdentifier("  foo  "); // false
 ```
 
-Diese Funktion ist nützlich, wenn Sie Codegen (Code mit Code generieren) durchführen, weil Sie gültige Bezeichner anders verwenden können als andere String-Eigenschaften, wie z.B. [Punktnotation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) anstelle von [Klammernotation](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation):
+Diese Funktion ist nützlich, wenn Sie Codegen (Code mit Code generieren) durchführen, weil Sie gültige Bezeichner anders verwenden können als andere String-Eigenschaften, wie z.B. [Punktnotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#dot_notation) anstelle von [Klammernotation](/de/docs/Web/JavaScript/Reference/Operators/Property_accessors#bracket_notation):
 
 ```js
 const variables = ["foo", "foo:bar", "  foo  "];
@@ -101,8 +101,8 @@ console.log(statements);
 
 ## Siehe auch
 
-- [Assertionen](https://developer.mozilla.org/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
-- [Reguläre Ausdrücke](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Regular_expressions)
-- [Wortgrenzen-Assertion: `\b`, `\B`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
-- [Lookahead-Assertion: `(?=...)`, `(?!...)`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
-- [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)
+- [Assertionen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) Leitfaden
+- [Reguläre Ausdrücke](/de/docs/Web/JavaScript/Reference/Regular_expressions)
+- [Wortgrenzen-Assertion: `\b`, `\B`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion)
+- [Lookahead-Assertion: `(?=...)`, `(?!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion)
+- [Lookbehind-Assertion: `(?<=...)`, `(?<!...)`](/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion)

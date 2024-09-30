@@ -1089,7 +1089,7 @@ Sie sollten die Optionen sorgfältig abwägen, bevor Sie eine endgültige Entsch
 
 ## Maximierung der Kompatibilität mit mehreren Containern
 
-Um die Kompatibilität zu optimieren, sollten Sie erwägen, mehr als eine Version von Mediendateien bereitzustellen, indem Sie das {{HTMLElement("source")}}-Element verwenden, um jede Quelle innerhalb des {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Elements anzugeben. 
+Um die Kompatibilität zu optimieren, sollten Sie erwägen, mehr als eine Version von Mediendateien bereitzustellen, indem Sie das {{HTMLElement("source")}}-Element verwenden, um jede Quelle innerhalb des {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Elements anzugeben.
 Zum Beispiel können Sie ein Ogg- oder WebM-Video als erste Wahl anbieten, mit einer MP4-fallback Option.
 Sie könnten sogar erwägen, ein Retro-ähnliches QuickTime oder AVI fallback aus Spaß bereitzustellen.
 

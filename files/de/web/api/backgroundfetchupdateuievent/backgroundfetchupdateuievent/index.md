@@ -19,7 +19,7 @@ new BackgroundFetchEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein String mit dem Namen des Ereignisses. 
+  - : Ein String mit dem Namen des Ereignisses.
     Es ist groß- und kleinschreibungssensitiv und Browser setzen es auf `backgroundfetchsuccess` oder `backgroundfetchfail`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`ExtendableEvent()`](/de/docs/Web/API/ExtendableEvent/ExtendableEvent) definierten Eigenschaften_ die folgenden Eigenschaften hat:

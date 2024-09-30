@@ -23,7 +23,7 @@ let opening = browser.downloads.open(
 
 ### Parameter
 
-- `downloadId`  
+- `downloadId`
   - : Ein `integer`, der die `id` des {{WebExtAPIRef("downloads.DownloadItem")}} darstellt, das Sie öffnen möchten.
 
 ### Rückgabewert

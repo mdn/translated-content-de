@@ -123,7 +123,7 @@ Fortschrittlichere Headsets haben integrierte Displays und sind am Kopf befestig
 
 ### Schutzbrillen und Brillen
 
-XR-Schutzbrillen ähneln Headsets, da sie Grafikdarstellungsflächen vor den Augen platzieren, um die Ansichten einer Szene zu rendern, die die Tiefe der simulierten Szene imitieren. 
+XR-Schutzbrillen ähneln Headsets, da sie Grafikdarstellungsflächen vor den Augen platzieren, um die Ansichten einer Szene zu rendern, die die Tiefe der simulierten Szene imitieren.
 
 Der Unterschied besteht darin, dass die Schutzbrillen die reale Welt durchlassen, das gerenderte Bild über die physische Umwelt des Benutzers legen, ohne diese digital wiederzugeben, wie es mit einem vollständigen Headset erforderlich wäre. Stattdessen ist die Anzeigeoberfläche transparent und unterscheidet sich, wenn nichts angezeigt wird, im Wesentlichen nicht von normalen Brillen. Wenn Objekte gezeichnet werden, werden sie auf die Linsen der Schutzbrillen gezeichnet, wodurch der physische Hintergrund teilweise oder vollständig blockiert wird.
 

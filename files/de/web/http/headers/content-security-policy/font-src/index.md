@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) 
+Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP)
 **`font-src`**-Direktive gibt gültige Quellen für Schriften an, die mit {{cssxref("@font-face")}} geladen werden.
 
 <table class="properties">

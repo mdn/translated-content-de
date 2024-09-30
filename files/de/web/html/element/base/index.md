@@ -45,7 +45,7 @@ Zum Beispiel, gegeben `<base href="https://example.com/">` und dieser Link: `<a 
 
 ### target darf keine ASCII-Zeilenumbrüche, Tabs oder < enthalten
 
-Wenn das [`target`](#target)-Attribut einen ASCII-Zeilenumbruch, einen Tab oder das `<`-Zeichen enthält, wird der Wert auf `_blank` zurückgesetzt. 
+Wenn das [`target`](#target)-Attribut einen ASCII-Zeilenumbruch, einen Tab oder das `<`-Zeichen enthält, wird der Wert auf `_blank` zurückgesetzt.
 Dies geschieht, um Angriffe mit nicht geschlossenem Markup zu verhindern, ein skriptloser Angriff, bei dem ein ungeschlossenes `target`-Attribut in die Seite eingefügt wird, sodass jeglicher Text, der darauf folgt, erfasst wird, bis der Browser auf ein Zeichen stößt, das das Attribut schließt.
 
 ### Open Graph

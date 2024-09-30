@@ -131,7 +131,7 @@ Der Schlüssel `chrome_settings_overrides` ist ein Objekt, das die folgenden Eig
           </dd>
           <dt><code>encoding</code> {{optional_inline}}</dt>
           <dd>
-            String: Kodierung des Suchbegriffs, angegeben als 
+            String: Kodierung des Suchbegriffs, angegeben als
             <a
               href="https://www.iana.org/assignments/character-sets/character-sets.xhtml"
               >Standardname der Zeichenkodierung</a

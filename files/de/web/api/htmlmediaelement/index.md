@@ -107,7 +107,7 @@ Diese Eigenschaften sind veraltet und sollten nicht mehr verwendet werden, auch 
 _Dieses Interface erbt auch Methoden von seinen Vorfahren [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`Element`](/de/docs/Web/API/Element), [`Node`](/de/docs/Web/API/Node), und [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`HTMLMediaElement.addTextTrack()`](/de/docs/Web/API/HTMLMediaElement/addTextTrack)
-  - : Fügt einem Medienelement ein neues [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt hinzu (wie z. B. eine Spur für Untertitel). Dies ist eine programmgesteuerte Schnittstelle und beeinflusst nicht das DOM.
+  - : Fügt einem Medienelement ein neues [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt hinzu (wie z. B. eine Spur für Untertitel). Dies ist eine programmgesteuerte Schnittstelle und beeinflusst nicht das DOM.
 - [`HTMLMediaElement.captureStream()`](/de/docs/Web/API/HTMLMediaElement/captureStream)
   - : Gibt [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, erfasst einen Stream des Medieninhalts.
 - [`HTMLMediaElement.canPlayType()`](/de/docs/Web/API/HTMLMediaElement/canPlayType)

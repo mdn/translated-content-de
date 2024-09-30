@@ -19,7 +19,7 @@ Asynchrones Laden hilft zu verhindern, dass Seiten und Benutzeroberflächen unan
 
 Im schlimmsten Fall kann das Blockieren des Hauptthreads dazu führen, dass Nutzer Ihre App deinstallieren; zum Beispiel, wenn jemand Ihre App versehentlich startet und er nicht daran gehindert wird, die Anwendung zu schließen, möchte er möglicherweise Maßnahmen ergreifen, um dies in Zukunft zu vermeiden.
 
-## Wo ein Wille ist...
+## Wo ein Wille ist
 
 Es ist einfacher, alles gleich beim ersten Mal „richtig“ zu schreiben, als es nachträglich auf Leistung (und Zugänglichkeit) zu optimieren. Wenn Sie bei Null anfangen, bedeutet das, geeignete Codebestandteile asynchron zu gestalten, sodass kein nachträgliches Anpassen erforderlich ist. Alle reinen Startberechnungen sollten in Hintergrundthreads durchgeführt werden, während Sie die Laufzeit von Ereignissen im Hauptthread so kurz wie möglich halten. Anstatt einen Fortschrittsanzeiger einzuschließen, damit der Nutzer weiß, was vor sich geht und wie lange er warten muss, machen Sie den Fortschrittsbalken überflüssig.
 

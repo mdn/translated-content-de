@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaRowIndexText`**-Eigenschaft der [`Element`](https://developer.mozilla.org/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-rowindextext`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindextext)-Attributs wider, das eine menschenlesbare Textalternative zu aria-rowindex definiert.
+Die **`ariaRowIndexText`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-rowindextext`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowindextext)-Attributs wider, das eine menschenlesbare Textalternative zu aria-rowindex definiert.
 
 ## Wert
 

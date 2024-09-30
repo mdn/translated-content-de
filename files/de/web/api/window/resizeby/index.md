@@ -70,5 +70,5 @@ Das von Ihnen erstellte Fenster muss die Same-Origin-Policy respektieren. Wenn d
 {{Compat}}
 
 > [!NOTE]
-> Diese Funktion könnte das Fenster nicht synchron verkleinern. 
+> Diese Funktion könnte das Fenster nicht synchron verkleinern.
 > In einigen Umgebungen (wie mobilen Geräten) könnte das Fenster überhaupt nicht verkleinert werden. Sie können das [`resize`](/de/docs/Web/API/Window/resize_event)-Event abhören, um zu sehen, ob/wann das Fenster verkleinert wurde.

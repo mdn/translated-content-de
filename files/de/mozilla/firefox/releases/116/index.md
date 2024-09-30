@@ -13,7 +13,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 116, die En
 
 ### HTML
 
-- Das [`dirname`](/de/docs/Web/HTML/Element/input#dirname)-Attribut wird jetzt auf den [`input`](/de/docs/Web/HTML/Element/input#dirname)- und [`textarea`](/de/docs/Web/HTML/Element/textarea#dirname)-Elementen unterstützt. 
+- Das [`dirname`](/de/docs/Web/HTML/Element/input#dirname)-Attribut wird jetzt auf den [`input`](/de/docs/Web/HTML/Element/input#dirname)- und [`textarea`](/de/docs/Web/HTML/Element/textarea#dirname)-Elementen unterstützt.
   Dieses Attribut ermöglicht es, Text-Dirigierungsinformationen (`ltr` oder `rtl`) bei der Formularübermittlung an den Server zu übermitteln ([Firefox Fehler 675943](https://bugzil.la/675943)).
 
 ### CSS
@@ -45,12 +45,12 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 116, die En
 
 #### DOM
 
-- Die Eigenschaften [`TextMetrics.fontBoundingBoxAscent`](/de/docs/Web/API/TextMetrics/fontBoundingBoxAscent) und [`TextMetrics.fontBoundingBoxDescent`](/de/docs/Web/API/TextMetrics/fontBoundingBoxDescent) werden jetzt unterstützt. 
+- Die Eigenschaften [`TextMetrics.fontBoundingBoxAscent`](/de/docs/Web/API/TextMetrics/fontBoundingBoxAscent) und [`TextMetrics.fontBoundingBoxDescent`](/de/docs/Web/API/TextMetrics/fontBoundingBoxDescent) werden jetzt unterstützt.
   Diese Metriken geben jeweils den Abstand oberhalb und unterhalb der [`CanvasRenderingContext2D.textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) bis zum Begrenzungsrechteck aller Schriftarten zurück, die zum Rendern des Textes verwendet wurden ([Firefox Fehler 1801198](https://bugzil.la/1801198)).
 
 #### Medien, WebRTC und Web Audio
 
-- Die [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API) wird jetzt auf allen Plattformen außer Android unterstützt. 
+- Die [Audio Output Devices API](/de/docs/Web/API/Audio_Output_Devices_API) wird jetzt auf allen Plattformen außer Android unterstützt.
   Diese API ermöglicht es Webanwendungen, die Audioausgabe an ein zugelassenes Bluetooth-Headset, einen Lautsprecher oder ein anderes Gerät umzuleiten, anstatt den Browser oder das zugrunde liegende Betriebssystem zu verwenden.
   Betroffene APIs umfassen [`MediaDevices.selectAudioOutput()`](/de/docs/Web/API/MediaDevices/selectAudioOutput), [`MediaDevices.enumerateDevices()`](/de/docs/Web/API/MediaDevices/enumerateDevices), [`HTMLMediaElement.setSinkId()`](/de/docs/Web/API/HTMLMediaElement/setSinkId), [`HTMLMediaElement.sinkId`](/de/docs/Web/API/HTMLMediaElement/sinkId) und die Berechtigungspolitik [`Permissions-Policy: speaker-selection`](/de/docs/Web/HTTP/Headers/Permissions-Policy/speaker-selection) ([Firefox Fehler 1498512](https://bugzil.la/1498512)).
 

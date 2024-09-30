@@ -14,7 +14,7 @@ Ein Objekt, das beschreibt, welche Filter auf `webRequest`-Ereignisse angewendet
 Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 
 - `urls`
-  - : `array` von `string`. Ein Array von [Match-Mustern](https://developer.mozilla.org/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Der Listener wird nur für Anfragen aufgerufen, deren Ziele einem der angegebenen Muster entsprechen. Nur Anfragen, die mit HTTP oder HTTPS gestellt werden, lösen Ereignisse aus. Andere Protokolle (wie data: und file:), die von der Mustererkennung unterstützt werden, lösen keine Ereignisse aus. `view-source:`-Anfragen können basierend auf ihrer inneren URL übereinstimmen.
+  - : `array` von `string`. Ein Array von [Match-Mustern](/de/docs/Mozilla/Add-ons/WebExtensions/Match_patterns). Der Listener wird nur für Anfragen aufgerufen, deren Ziele einem der angegebenen Muster entsprechen. Nur Anfragen, die mit HTTP oder HTTPS gestellt werden, lösen Ereignisse aus. Andere Protokolle (wie data: und file:), die von der Mustererkennung unterstützt werden, lösen keine Ereignisse aus. `view-source:`-Anfragen können basierend auf ihrer inneren URL übereinstimmen.
 - `types` {{optional_inline}}
   - : `array` von `{{WebExtAPIRef('webRequest.ResourceType')}}`. Eine Liste von Ressourcentypen (zum Beispiel Stylesheets, Bilder, Skripte). Der Listener wird nur für Anfragen von Ressourcen aufgerufen, die zu einem der angegebenen Typen gehören.
 - `tabId` {{optional_inline}}

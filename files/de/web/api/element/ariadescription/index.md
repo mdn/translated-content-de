@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`ariaDescription`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-description`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Attributes/aria-description)-Attributs wider, welches einen String-Wert definiert, der das aktuelle Element beschreibt oder kommentiert.
+Die **`ariaDescription`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-description`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-description)-Attributs wider, welches einen String-Wert definiert, der das aktuelle Element beschreibt oder kommentiert.
 
 ## Wert
 

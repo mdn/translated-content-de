@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode **`Document.prepend()`** 
+Die Methode **`Document.prepend()`**
 fügt eine Reihe von [`Node`](/de/docs/Web/API/Node)-Objekten oder Zeichenfolgen vor dem ersten Kind des Dokuments ein. Zeichenfolgen werden als entsprechende [`Text`](/de/docs/Web/API/Text)-Knoten eingefügt.
 
 Diese Methode fügt ein Kind zu einem `Document` hinzu. Um einem beliebigen Element im Baum ein Element voranzustellen, siehe [`Element.prepend()`](/de/docs/Web/API/Element/prepend).

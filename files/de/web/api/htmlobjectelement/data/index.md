@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`data`**-Eigenschaft der [`HTMLObjectElement`](https://developer.mozilla.org/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt einen String zurück, der das HTML-Attribut [`data`](https://developer.mozilla.org/de/docs/Web/HTML/Element/object#data) widerspiegelt und die Adresse der Daten einer Ressource angibt.
+Die **`data`**-Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt einen String zurück, der das HTML-Attribut [`data`](/de/docs/Web/HTML/Element/object#data) widerspiegelt und die Adresse der Daten einer Ressource angibt.
 
 ## Wert
 

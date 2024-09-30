@@ -13,7 +13,7 @@ Die **`insertRow()`**-Methode der [`HTMLTableSectionElement`](/de/docs/Web/API/H
 {{HTMLElement("tbody")}}) ein und gibt dann eine Referenz auf diese neue Zeile zurück.
 
 > **Note:** `insertRow()` fügt die Zeile direkt in die
-> Sektion ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre, wenn 
+> Sektion ein. Die Zeile muss nicht separat angehängt werden, wie es der Fall wäre, wenn
 > [`Document.createElement()`](/de/docs/Web/API/Document/createElement) verwendet wurde, um das neue
 > `<tr>`-Element zu erstellen.
 
@@ -28,7 +28,7 @@ insertRow(index)
 
 - `index` {{optional_inline}}
   - : Der Zeilenindex der neuen Zeile. Wenn `index` `-1` ist oder gleich der Anzahl der Zeilen,
-    wird die Zeile als letzte Zeile angehängt. 
+    wird die Zeile als letzte Zeile angehängt.
     Wenn `index` weggelassen wird, ist der Standardwert `-1`.
 
 ### Rückgabewert

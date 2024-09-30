@@ -41,7 +41,7 @@ Der Tonebuffer ist eine Zeichenfolge, die eine beliebige Kombination der vom DTM
   - : Dieses Zeichen veranlasst den Wählvorgang, zwei Sekunden Pause zu machen, bevor das nächste Zeichen im Puffer gesendet wird.
 
 > [!NOTE]
-> Alle anderen Zeichen werden nicht erkannt und führen dazu, dass 
+> Alle anderen Zeichen werden nicht erkannt und führen dazu, dass
 > [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) einen
 > `InvalidCharacterError` [`DOMException`](/de/docs/Web/API/DOMException) auslöst.
 

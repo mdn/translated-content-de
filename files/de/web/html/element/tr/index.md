@@ -57,7 +57,7 @@ Dieses Beispiel zeigt eine Tabelle mit vier Zeilen und drei Spalten, wobei die e
 
 #### HTML
 
-Vier `<tr>`-Elemente werden verwendet, um vier Tabellenzeilen zu erstellen. Jede Zeile enthält drei Zellen - eine Headerzelle ({{HTMLElement("th")}}) und zwei Datenzellen ({{HTMLElement("td")}}) - und so werden drei Spalten erstellt. Das [`scope`](en-US/docs/Web/HTML/Element/th#scope)-Attribut, das auf jede Headerzelle gesetzt ist, gibt an, auf welche Zellen sie sich beziehen, was in diesem Beispiel alle Datenzellen innerhalb der `row` sind.
+Vier `<tr>`-Elemente werden verwendet, um vier Tabellenzeilen zu erstellen. Jede Zeile enthält drei Zellen - eine Headerzelle ({{HTMLElement("th")}}) und zwei Datenzellen ({{HTMLElement("td")}}) - und so werden drei Spalten erstellt. Das [`scope`](/en-US/docs/Web/HTML/Element/th#scope)-Attribut, das auf jede Headerzelle gesetzt ist, gibt an, auf welche Zellen sie sich beziehen, was in diesem Beispiel alle Datenzellen innerhalb der `row` sind.
 
 ```html
 <table>
@@ -124,7 +124,7 @@ Dieses Beispiel erweitert die grundlegende Tabelle aus dem [vorherigen Beispiel]
 
 #### HTML
 
-Eine zusätzliche Tabellenzeile (`<tr>`) wird als erste Zeile der Tabelle mit Spalten-Header-Zellen ({{HTMLElement("th")}}) hinzugefügt, die einen Header für jede Spalte bieten. Wir setzen diese Zeile in ein {{HTMLElement("thead")}}-Gruppierungselement, um anzuzeigen, dass dies der Header der Tabelle ist. Das [`scope`](en-US/docs/Web/HTML/Element/th#scope)-Attribut wird zu jeder Header-Zelle (`<th>`) innerhalb dieser Kopfzeile hinzugefügt, um explizit anzugeben, dass sich jede Header-Zelle auf alle Zellen ihrer eigenen Spalte bezieht, auch wenn diese Zellen sich im {{HTMLElement("tbody")}} befinden.
+Eine zusätzliche Tabellenzeile (`<tr>`) wird als erste Zeile der Tabelle mit Spalten-Header-Zellen ({{HTMLElement("th")}}) hinzugefügt, die einen Header für jede Spalte bieten. Wir setzen diese Zeile in ein {{HTMLElement("thead")}}-Gruppierungselement, um anzuzeigen, dass dies der Header der Tabelle ist. Das [`scope`](/en-US/docs/Web/HTML/Element/th#scope)-Attribut wird zu jeder Header-Zelle (`<th>`) innerhalb dieser Kopfzeile hinzugefügt, um explizit anzugeben, dass sich jede Header-Zelle auf alle Zellen ihrer eigenen Spalte bezieht, auch wenn diese Zellen sich im {{HTMLElement("tbody")}} befinden.
 
 ```html
 <table>

@@ -85,7 +85,7 @@ arr1.flatMap((x) => [[x * 2]]);
 // [[2], [4], [6], [8]]
 ```
 
-Obwohl das Obige durch die Verwendung von map selbst erreicht werden könnte, hier ein Beispiel, das 
+Obwohl das Obige durch die Verwendung von map selbst erreicht werden könnte, hier ein Beispiel, das
 die Nutzung von `flatMap()` besser veranschaulicht.
 
 Lassen Sie uns eine Liste von Wörtern aus einer Liste von Sätzen generieren.

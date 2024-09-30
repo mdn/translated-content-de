@@ -337,7 +337,6 @@ In der folgenden Liste werden einige der häufigen Situationen beschrieben, bei 
   - **Richtig**: "Wir haben einen Kurs zusammengestellt, der alle notwendigen Informationen enthält, die Sie benötigen, um Ihr Ziel zu erreichen."
   - **Falsch**: "Wir haben einen Kurs zusammengestellt, dass alle notwendigen Informationen enthält, die Sie benötigen, um Ihr Ziel zu erreichen."
 
-
   Eine nicht einschränkende Klausel bietet zusätzliche Informationen und ist nicht essenziell für den Sinn des Satzes. Eine nicht einschränkende Klausel wird normalerweise durch "welches" eingeführt und sollte durch ein Komma eingeleitet werden.
 
   - **Richtig**: "Sie schreiben eine Richtlinie, welche eine erlaubte Liste von Ursprüngen für jede Funktion ist."

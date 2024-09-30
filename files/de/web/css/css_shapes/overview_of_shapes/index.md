@@ -59,7 +59,7 @@ Formen können auch um den Box-Wert erstellt werden. Daher könnten Sie Ihre For
 - `content-box`
 - `margin-box`
 
-erstellen. 
+erstellen.
 
 Im folgenden Beispiel können Sie den Wert `border-box` in einen der anderen erlaubten Werte ändern, um zu sehen, wie sich die Form näher oder weiter vom Kasten bewegt.
 

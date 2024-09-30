@@ -105,7 +105,7 @@ console.log(searchParams.get("foo")); // bar, only returns the first value
 console.log(searchParams.getAll("foo")); // ["bar", "baz"]
 ```
 
-### Keine URL-Analyse 
+### Keine URL-Analyse
 
 Der `URLSearchParams` Konstruktor analysiert _keine_ vollständigen URLs. Er wird jedoch ein anfänglich führendes `?` aus einer Zeichenfolge entfernen, wenn es vorhanden ist.
 

@@ -5,15 +5,17 @@ l10n:
   sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
 ---
 
----  
-title: "GPUDevice: importExternalTexture()-Methode"  
-short-title: importExternalTexture()  
-slug: Web/API/GPUDevice/importExternalTexture  
-page-type: web-api-instance-method  
-status:  
-  - experimental  
-browser-compat: api.GPUDevice.importExternalTexture  
----  
+---
+title: "GPUDevice: importExternalTexture()-Methode"
+short-title: importExternalTexture()
+slug: Web/API/GPUDevice/importExternalTexture
+page-type: web-api-instance-method
+status:
+
+- experimental
+browser-compat: api.GPUDevice.importExternalTexture
+
+---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 

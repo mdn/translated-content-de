@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`previousElementSibling`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle 
+Die schreibgeschützte **`previousElementSibling`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle
 gibt das erste [`Element`](/de/docs/Web/API/Element) vor dem aktuellen Knoten in der Kindliste des Elternteils zurück, oder `null`, wenn keines vorhanden ist.
 
 ## Wert

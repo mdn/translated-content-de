@@ -26,15 +26,15 @@ recurse(10)
 
 Die Ausgabe sieht folgendermaßen aus:
 
-10  
-9  
-8  
-7  
-6  
-5  
-4  
-3  
-2  
+10
+9
+8
+7
+6
+5
+4
+3
+2
 1
 
 ### Rekursion ist durch Stapelgröße begrenzt

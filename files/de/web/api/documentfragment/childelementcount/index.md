@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("DOM") }}
 
-Die schreibgeschützte Eigenschaft **`DocumentFragment.childElementCount`** 
+Die schreibgeschützte Eigenschaft **`DocumentFragment.childElementCount`**
 gibt die Anzahl der Kindelemente eines `DocumentFragment` zurück.
 
 Um die Anzahl der Kinder eines bestimmten Elements zu ermitteln, siehe [`Element.childElementCount`](/de/docs/Web/API/Element/childElementCount).

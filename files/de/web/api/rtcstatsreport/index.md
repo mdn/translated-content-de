@@ -21,7 +21,7 @@ Eine `RTCStatsReport`-Instanz ist ein schreibgeschütztes [Map-ähnliches Objekt
 - [`RTCStatsReport.entries()`](/de/docs/Web/API/RTCStatsReport/entries)
   - : Gibt ein neues [Iterator](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator)-Objekt zurück, das ein zweigliedriges Array von `[id, statistic-dictionary]` für jedes Element im `RTCStatsReport`-Objekt in Einfügungsreihenfolge enthält.
 - [`RTCStatsReport.forEach()`](/de/docs/Web/API/RTCStatsReport/forEach)
-  - : Ruft `callbackFn` einmal für jedes im `RTCStatsReport`-Objekt vorhandene Schlüssel-Wert-Paar in Einfügungsreihenfolge auf. 
+  - : Ruft `callbackFn` einmal für jedes im `RTCStatsReport`-Objekt vorhandene Schlüssel-Wert-Paar in Einfügungsreihenfolge auf.
     Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird er als `this`-Wert für jeden Rückruf verwendet.
 - [`RTCStatsReport.get()`](/de/docs/Web/API/RTCStatsReport/get)
   - : Gibt das Statistik-Wörterbuch zurück, das mit der übergebenen `id` verknüpft ist, oder `undefined`, wenn keine vorhanden ist.

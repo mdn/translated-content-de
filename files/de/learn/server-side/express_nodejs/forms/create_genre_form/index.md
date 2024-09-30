@@ -21,7 +21,7 @@ const { body, validationResult } = require("express-validator");
 
 > [!NOTE]
 > Diese Syntax erlaubt es uns, `body` und `validationResult` als die zugehörigen Middleware-Funktionen zu verwenden, wie Sie im unten stehenden Abschnitt über die Post-Route sehen werden. Sie ist äquivalent zu:
-> 
+>
 > ```js
 > const validator = require("express-validator");
 > const body = validator.body;

@@ -108,7 +108,7 @@ Wenn ein Benutzer von einem Widget wegtabt und zurückkehrt, sollte der Fokus au
 
 ### Technik 1: Wandernder tabindex
 
-Das Setzen des `tabindex` des fokussierten Elements auf "0" stellt sicher, dass, wenn der Benutzer vom Widget wegtabt und dann zurückkehrt, das ausgewählte Element innerhalb der Gruppe den Fokus behält. Beachten Sie, dass die Aktualisierung des `tabindex` auf "0" auch eine Aktualisierung des zuvor  selektierten Elements auf `tabindex="-1"` erfordert. Diese Technik beinhaltet das programmatische Bewegen des Fokus in Reaktion auf Tasteneingaben und das Aktualisieren des `tabindex`, um das aktuell fokussierte Element widerzuspiegeln. Dazu:
+Das Setzen des `tabindex` des fokussierten Elements auf "0" stellt sicher, dass, wenn der Benutzer vom Widget wegtabt und dann zurückkehrt, das ausgewählte Element innerhalb der Gruppe den Fokus behält. Beachten Sie, dass die Aktualisierung des `tabindex` auf "0" auch eine Aktualisierung des zuvor selektierten Elements auf `tabindex="-1"` erfordert. Diese Technik beinhaltet das programmatische Bewegen des Fokus in Reaktion auf Tasteneingaben und das Aktualisieren des `tabindex`, um das aktuell fokussierte Element widerzuspiegeln. Dazu:
 
 Binden Sie einen Tastenanschlag-Handler an jedes Element in der Gruppe und wenn eine Pfeiltaste verwendet wird, um zu einem anderen Element zu wechseln:
 

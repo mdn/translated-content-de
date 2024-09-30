@@ -32,8 +32,8 @@ Ein [`WaveShaperNode`](/de/docs/Web/API/WaveShaperNode).
 Das folgende Beispiel zeigt die grundlegende Verwendung eines AudioContext zur Erstellung eines Wave Shaper Node. Für vollständigere Anwendungsbeispiele/informationen besuchen Sie unser [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) Demo (siehe [app.js Zeilen 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) für relevanten Code).
 
 > [!NOTE]
-> Sigmoid-Funktionen werden häufig für Verzerrungskurven verwendet, 
-> wegen ihrer natürlichen Eigenschaften. Ihre S-Form trägt beispielsweise dazu bei, ein 
+> Sigmoid-Funktionen werden häufig für Verzerrungskurven verwendet,
+> wegen ihrer natürlichen Eigenschaften. Ihre S-Form trägt beispielsweise dazu bei, ein
 > reibungsloser klingendes Ergebnis zu erzeugen. Wir haben den unten stehenden Code für die Verzerrungskurve auf [Stack Overflow](https://stackoverflow.com/questions/22312841/waveshaper-node-in-webaudio-how-to-emulate-distortion) gefunden.
 
 ```js

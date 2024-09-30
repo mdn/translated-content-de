@@ -15,7 +15,7 @@ die den Namen der clientseitigen Imagemap angibt, die auf das Bild angewendet we
 
 ## Wert
 
-Eine Zeichenfolge, die die pagelokale URL bereitstellt (das heißt, eine URL, die mit dem Hash- oder Pfund-Symbol `#` beginnt) des {{HTMLElement("map")}}-Elements, 
+Eine Zeichenfolge, die die pagelokale URL bereitstellt (das heißt, eine URL, die mit dem Hash- oder Pfund-Symbol `#` beginnt) des {{HTMLElement("map")}}-Elements,
 das die Imagemap definiert, die auf das Bild anzuwenden ist.
 
 Sie können mehr über clientseitige Imagemaps in unserem Lernartikel [Fügen Sie eine Trefferkarte über ein Bild hinzu](/de/docs/Learn/HTML/Howto/Add_a_hit_map_on_top_of_an_image) erfahren.

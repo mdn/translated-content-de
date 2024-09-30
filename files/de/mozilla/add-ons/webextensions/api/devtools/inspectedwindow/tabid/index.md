@@ -43,7 +43,7 @@ browser.runtime.onMessage.addListener(handleMessage);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools)-API von Chromium. 
+> Diese API basiert auf der [`chrome.devtools`](https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools)-API von Chromium.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

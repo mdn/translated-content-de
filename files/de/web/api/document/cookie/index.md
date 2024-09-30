@@ -5,12 +5,13 @@ l10n:
   sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
 ---
 
---- 
-title: "Document: cookie-Eigenschaft" 
-short-title: cookie 
-slug: Web/API/Document/cookie 
-page-type: web-api-instance-property 
-browser-compat: api.Document.cookie 
+---
+
+title: "Document: cookie-Eigenschaft"
+short-title: cookie
+slug: Web/API/Document/cookie
+page-type: web-api-instance-property
+browser-compat: api.Document.cookie
 ---
 
 {{APIRef("DOM")}}

@@ -52,7 +52,7 @@ Das machen wir auch in HTML, allerdings ist HTML kein visuelles Medium und daher
 ```
 
 > [!NOTE]
-> Eine andere Verwendung für Fett ist es, Inhalte zu betonen. Fett selbst ist ein HTML-fremdes Konzept, aber es gibt [Tags zur Angabe von Betonung.](https://developer.mozilla.org/de/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#emphasis_and_importance)
+> Eine andere Verwendung für Fett ist es, Inhalte zu betonen. Fett selbst ist ein HTML-fremdes Konzept, aber es gibt [Tags zur Angabe von Betonung.](/de/docs/Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals#emphasis_and_importance)
 
 ### Sonderfall: Abkürzungen
 

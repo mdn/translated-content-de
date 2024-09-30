@@ -5,13 +5,15 @@ l10n:
   sourceCommit: c77a11ee1509542c16b0348afc4fcb3ffe588e1c
 ---
 
---- 
+---
 title: "BackgroundFetchUpdateUIEvent"
 slug: Web/API/BackgroundFetchUpdateUIEvent
 page-type: web-api-interface
 status:
-  - experimental
+
+- experimental
 browser-compat: api.BackgroundFetchUpdateUIEvent
+
 ---
 
 {{APIRef("Background Fetch API")}}{{SeeCompatTable}}{{AvailableInWorkers("service")}}

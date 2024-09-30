@@ -36,7 +36,7 @@ Access-Control-Expose-Headers: *
 - \<header-name>
   - : Eine Liste von null oder mehr durch Kommas getrennten [Header-Namen](/de/docs/Web/HTTP/Headers), auf die Clients von einer Antwort zugreifen dürfen. Diese sind _zusätzlich_ zu den [CORS-safelisted response headers](/de/docs/Glossary/CORS-safelisted_response_header).
 - `*` (Wildcard)
-  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Anmeldedaten (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen). 
+  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Anmeldedaten (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen).
     Bei Anfragen mit Anmeldedaten wird er als der buchstäbliche Header-Name `*` behandelt.
 
 ## Beispiele

@@ -296,7 +296,7 @@ Wir könnten mit unserer ARIA-Nutzung weitergehen und noch mehr Validierungshilf
 
 1. Nehmen Sie zu diesem Zeitpunkt eine Kopie unserer [`form-validation.html`](https://github.com/mdn/learning-area/blob/main/accessibility/css/form-validation.html) und [`validation.js`](https://github.com/mdn/learning-area/blob/main/accessibility/css/validation.js) Dateien und speichern Sie sie in einem lokalen Verzeichnis.
 2. Öffnen Sie sie beide in einem Texteditor und sehen Sie sich an, wie der Code funktioniert.
-3. Zuerst fügen Sie über dem `<form>`-Öffnungstag einen Absatz ein, wie den unten, und markieren Sie beide Formular `<label>`s mit einem Stern. Dies ist normalerweise, wie wir erforderliche Felder für sehende Benutzer markieren. 
+3. Zuerst fügen Sie über dem `<form>`-Öffnungstag einen Absatz ein, wie den unten, und markieren Sie beide Formular `<label>`s mit einem Stern. Dies ist normalerweise, wie wir erforderliche Felder für sehende Benutzer markieren.
 
    ```html
    <p>Fields marked with an asterisk (*) are required.</p>

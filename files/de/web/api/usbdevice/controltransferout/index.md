@@ -34,7 +34,7 @@ controlTransferOut(setup, data)
       - : Die Schnittstellennummer des Empfängers.
 
 - `data`
-  - : Ein {{jsxref("TypedArray")}}, das die Daten enthält, die an das Gerät übertragen werden sollen. 
+  - : Ein {{jsxref("TypedArray")}}, das die Daten enthält, die an das Gerät übertragen werden sollen.
     Nicht alle Befehle benötigen Daten; einige Befehle können Daten nur über den Wertparameter senden.
     Überprüfen Sie mit Ihrem Gerät, was die spezifische Anforderung erfordert.
 

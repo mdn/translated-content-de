@@ -42,7 +42,7 @@ _`SpeechSynthesis` erbt auch Methoden von seiner übergeordneten Schnittstelle, 
 Dieses Ereignis kann mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwacht werden oder indem ein Ereignisüberwacher der `oneventname`-Eigenschaft dieser Schnittstelle zugewiesen wird.
 
 - [`voiceschanged`](/de/docs/Web/API/SpeechSynthesis/voiceschanged_event)
-  - : Wird ausgelöst, wenn sich die Liste der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte, die von der [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices)-Methode zurückgegeben werden, geändert hat. 
+  - : Wird ausgelöst, wenn sich die Liste der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte, die von der [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices)-Methode zurückgegeben werden, geändert hat.
     Auch über die `onvoiceschanged`-Eigenschaft verfügbar.
 
 ## Beispiele

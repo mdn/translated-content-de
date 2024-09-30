@@ -36,7 +36,7 @@ Standardisierte Zahlungsmethoden-Identifikatoren sind diejenigen, die im [Zahlun
 
 - `secure-payment-confirmation`
   - : Identifiziert die [Secure Payment Confirmation](https://w3c.github.io/secure-payment-confirmation/) Methode. Die Zahlungsanfragedaten für diese Methode werden vom [`SecurePaymentConfirmationRequest`](/de/docs/Web/API/SecurePaymentConfirmationRequest) Wörterbuch definiert. Für weitere Informationen siehe [Using Secure Payment Confirmation](/de/docs/Web/API/Payment_Request_API/Using_secure_payment_confirmation).
-  
+
 - `basic-card`
   - : Dieser Zahlungsmethoden-Identifikator sollte kartengestützte Zahlungen im Web über die Payment Request API erleichtern. **Die [Web Payments Arbeitsgruppe](https://www.w3.org/groups/wg/payments) hat diese Zahlungsmethode veraltet.**
 

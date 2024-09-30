@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Encrypted Media Extensions")}}{{SecureContext_Header}}
 
-Die **`keySystem`**-Eigenschaft der [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Schnittstelle gibt eine Zeichenkette zurück, die das verwendete Schlüsselsystem identifiziert. 
+Die **`keySystem`**-Eigenschaft der [`MediaKeySystemAccess`](/de/docs/Web/API/MediaKeySystemAccess)-Schnittstelle gibt eine Zeichenkette zurück, die das verwendete Schlüsselsystem identifiziert.
 
 Dies ist der Wert, der an [`Navigator.requestMediaKeySystemAccess()`](/de/docs/Web/API/Navigator/requestMediaKeySystemAccess) übergeben wurde, wenn der Systemzugriff angefordert wird.
 

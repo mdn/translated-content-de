@@ -224,7 +224,7 @@ Sie können Formularelemente mit den {{cssxref(":valid")}} und {{cssxref(":inval
 - Elemente, deren aktueller Wert außerhalb der durch die Attribute [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) festgelegten Bereichsgrenzen liegt, sind (mit) `:invalid`, werden jedoch auch von {{cssxref(":out-of-range")}} angesprochen, wie Sie später sehen werden.
 - Es gibt einige andere Möglichkeiten, ein Element mit `:valid`/`:invalid` anzusprechen, wie Sie im Artikel [Clientseitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation) sehen werden. Aber wir halten es jetzt einfach.
 
-Lassen Sie uns ein einfaches Beispiel für `:valid`/`:invalid` anschauen (siehe [valid-invalid.html](https://mdn.github.io/learning-area/html/forms/pseudo-classes/valid-invalid.html) für die Live-Version und auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/valid-invalid.html)). 
+Lassen Sie uns ein einfaches Beispiel für `:valid`/`:invalid` anschauen (siehe [valid-invalid.html](https://mdn.github.io/learning-area/html/forms/pseudo-classes/valid-invalid.html) für die Live-Version und auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/forms/pseudo-classes/valid-invalid.html)).
 
 Wie im vorherigen Beispiel haben wir zusätzliche `<span>`s, auf denen generierter Inhalt erstellt wird, den wir nutzen, um Indikatoren für gültige/ungültige Daten bereitzustellen:
 

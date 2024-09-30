@@ -15,7 +15,7 @@ Die schreibgeschützte `RTCDataChannel`-Eigenschaft **`reliable`** gibt an, ob d
 
 ## Wert
 
-`true`, wenn die Verbindung des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zuverlässig ist; 
+`true`, wenn die Verbindung des [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) zuverlässig ist;
 `false`, wenn sie es nicht ist.
 
 ## Spezifikationen

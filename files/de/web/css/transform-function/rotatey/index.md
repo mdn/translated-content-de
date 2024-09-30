@@ -13,7 +13,7 @@ Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Func
 
 Die Rotationsachse verläuft durch einen Ursprungspunkt, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
 
-> **Hinweis:** `rotateY(a)` entspricht 
+> **Hinweis:** `rotateY(a)` entspricht
 > `rotate3d(0, 1, 0, a)`.
 
 > [!NOTE]

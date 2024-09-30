@@ -8,16 +8,16 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`lastChild`**-Eigenschaft der [`Node`](https://developer.mozilla.org/de/docs/Web/API/Node)-Schnittstelle gibt das letzte Kind des Knotens zurück oder `null`, wenn keine Kindknoten vorhanden sind.
+Die schreibgeschützte **`lastChild`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt das letzte Kind des Knotens zurück oder `null`, wenn keine Kindknoten vorhanden sind.
 
 > [!NOTE]
 > Diese Eigenschaft gibt jeden Knoten zurück, der das letzte Kind von diesem ist.
-> Es kann ein [`Text`](https://developer.mozilla.org/de/docs/Web/API/Text)- oder ein [`Comment`](https://developer.mozilla.org/de/docs/Web/API/Comment)-Knoten sein.
-> Wenn Sie das letzte [`Element`](https://developer.mozilla.org/de/docs/Web/API/Element) abrufen möchten, das ein Kind eines anderen Elements ist, ziehen Sie die Verwendung von [`Element.lastElementChild`](https://developer.mozilla.org/de/docs/Web/API/Element/lastElementChild) in Betracht.
+> Es kann ein [`Text`](/de/docs/Web/API/Text)- oder ein [`Comment`](/de/docs/Web/API/Comment)-Knoten sein.
+> Wenn Sie das letzte [`Element`](/de/docs/Web/API/Element) abrufen möchten, das ein Kind eines anderen Elements ist, ziehen Sie die Verwendung von [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild) in Betracht.
 
 ## Wert
 
-Ein [`Node`](https://developer.mozilla.org/de/docs/Web/API/Node)-Objekt, das das letzte Kind des Knotens ist, oder `null`, wenn keine Kindknoten vorhanden sind.
+Ein [`Node`](/de/docs/Web/API/Node)-Objekt, das das letzte Kind des Knotens ist, oder `null`, wenn keine Kindknoten vorhanden sind.
 
 ## Beispiel
 
@@ -36,5 +36,5 @@ const corner_td = tr.lastChild;
 
 ## Siehe auch
 
-- [`Node.firstChild`](https://developer.mozilla.org/de/docs/Web/API/Node/firstChild)
-- [`Element.lastElementChild`](https://developer.mozilla.org/de/docs/Web/API/Element/lastElementChild)
+- [`Node.firstChild`](/de/docs/Web/API/Node/firstChild)
+- [`Element.lastElementChild`](/de/docs/Web/API/Element/lastElementChild)

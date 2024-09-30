@@ -5,13 +5,15 @@ l10n:
   sourceCommit: b5b33acd44e7bb9c7be2efc75ba9a04b8bf8b2b2
 ---
 
---- 
-title: "XRCubeLayer" 
-slug: Web/API/XRCubeLayer 
-page-type: web-api-interface 
-status: 
-  - experimental 
-browser-compat: api.XRCubeLayer 
+---
+title: "XRCubeLayer"
+slug: Web/API/XRCubeLayer
+page-type: web-api-interface
+status:
+
+- experimental
+browser-compat: api.XRCubeLayer
+
 ---
 
 {{securecontext_header}}{{APIRef("WebXR Device API")}}{{SeeCompatTable}}
@@ -30,9 +32,9 @@ Um Schichten auf das XR-Gerät zu präsentieren, fügen Sie sie dem `layers`-Ren
 
 _Erbt Eigenschaften von seinem Elternteil, [`XRCompositionLayer`](/de/docs/Web/API/XRCompositionLayer)._
 
-- [`XRCubeLayer.space`](/de/docs/Web/API/XRCubeLayer/space) {{Experimental_Inline}} 
+- [`XRCubeLayer.space`](/de/docs/Web/API/XRCubeLayer/space) {{Experimental_Inline}}
   - : Ein [`XRSpace`](/de/docs/Web/API/XRSpace), der die räumliche Beziehung der Schicht zur physischen Umgebung des Benutzers darstellt.
-- [`XRCubeLayer.orientation`](/de/docs/Web/API/XRCubeLayer/orientation) {{Experimental_Inline}} 
+- [`XRCubeLayer.orientation`](/de/docs/Web/API/XRCubeLayer/orientation) {{Experimental_Inline}}
   - : Ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der die Orientierung relativ zur `space`-Eigenschaft darstellt.
 
 ## Instanz-Methoden
@@ -41,7 +43,7 @@ _Erbt Methoden von seinen Eltern, [`XRCompositionLayer`](/de/docs/Web/API/XRComp
 
 ## Ereignisse
 
-- [`redraw`](/de/docs/Web/API/XRCubeLayer/redraw_event) {{Experimental_Inline}} 
+- [`redraw`](/de/docs/Web/API/XRCubeLayer/redraw_event) {{Experimental_Inline}}
   - : Wird an das `XRCubeLayer`-Objekt gesendet, wenn die zugrunde liegenden Ressourcen der Schicht verloren gehen oder wenn der XR-Kompositor die Schicht nicht mehr reprojizieren kann. Wenn dieses Ereignis gesendet wird, sollten Autoren den Inhalt der Schicht im nächsten XR-Animationsrahmen neu zeichnen.
 
 ## Spezifikationen

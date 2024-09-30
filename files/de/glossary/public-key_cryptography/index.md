@@ -15,7 +15,7 @@ Bei der Verwendung für Verschlüsselungen wird der öffentliche Schlüssel zur 
 
 Daher ist es üblich, dass ein Verschlüsselungssystem einen symmetrischen Algorithmus zur Verschlüsselung der Nachricht verwendet und dann ein Public-Key-System zum Verschlüsseln des symmetrischen Schlüssels verwendet. Diese Anordnung kann die Vorteile beider Systeme vereinen.
 
-Häufig verwendete Public-Key-Kryptosysteme sind RSA (sowohl für Signaturen als auch für Verschlüsselungen), DSA (für Signaturen) und Diffie-Hellman (für den Schlüsselaustausch). 
+Häufig verwendete Public-Key-Kryptosysteme sind RSA (sowohl für Signaturen als auch für Verschlüsselungen), DSA (für Signaturen) und Diffie-Hellman (für den Schlüsselaustausch).
 Elliptische-Kurven-Kryptographie bietet einen alternativen Ansatz zu diesen kryptographischen Systemen mit dem Vorteil, dass sie vergleichsweise kleinere Schlüssellängen, schnellere Operationen und geringeren Speicher- und Übertragungsbedarf verwendet.
 Beliebte elliptische-Kurven-Algorithmen sind [Elliptic-curve Diffie–Hellman](https://en.wikipedia.org/wiki/Elliptic-curve_Diffie–Hellman) und [Elliptic Curve Digital Signature Algorithm](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm), die Entwickler häufig abgekürzt als **ECDH** und **ECDSA** antreffen werden.
 

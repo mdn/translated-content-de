@@ -222,7 +222,7 @@ Diese Richtlinie bezieht sich auf die Fähigkeit, Inhalte auf verschiedene Arten
           <a href="/de/docs/Learn/Accessibility/HTML"
             >HTML: Eine gute Grundlage für Barrierefreiheit</a
           >
-          ist voll von Informationen darüber, aber Sie sollten besonders darauf achten, 
+          ist voll von Informationen darüber, aber Sie sollten besonders darauf achten,
           <a href="/de/docs/Learn/Accessibility/HTML#good_semantics"
             >Gute Semantik</a
           >,
@@ -241,7 +241,7 @@ Diese Richtlinie bezieht sich auf die Fähigkeit, Inhalte auf verschiedene Arten
         Eine sinnvolle, logische Lesereihenfolge sollte für jeden Inhalt leicht zu bestimmen sein, selbst wenn er visuell auf ungewöhnliche Weise präsentiert wird. Die Reihenfolge sollte durch die Verwendung korrekter semantischer Elemente (z.B. Überschriften, Absätze) offensichtlich gemacht werden, wobei CSS verwendet wird, um etwaige ungewöhnliche Layoutstile zu erstellen, unabhängig von der Markup-Struktur.
       </td>
       <td>
-        Siehe erneut 
+        Siehe erneut
         <a href="/de/docs/Learn/Accessibility/HTML"
           >HTML: Eine gute Grundlage für Barrierefreiheit</a
         >.
@@ -359,7 +359,7 @@ Diese Richtlinie bezieht sich darauf, sicherzustellen, dass der Kerninhalt leich
         </p>
       </td>
       <td>
-        Siehe 
+        Siehe
         <a href="/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Use_of_color"
           >Farbverwendung</a
         >,

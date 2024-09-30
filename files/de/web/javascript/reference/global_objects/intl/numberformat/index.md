@@ -87,7 +87,7 @@ console.log(new Intl.NumberFormat(["ban", "id"]).format(number));
 
 ### Verwendung von Optionen
 
-Die Ergebnisse können mit dem [`options`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)-Argument angepasst werden:
+Die Ergebnisse können mit dem [`options`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options)-Argument angepasst werden:
 
 ```js
 const number = 123456.789;
@@ -135,7 +135,7 @@ console.log(
 // 16 litres
 ```
 
-Eine vollständige Liste der Optionen finden Sie auf der Seite des [`Intl.NumberFormat()`-Konstruktors](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options).
+Eine vollständige Liste der Optionen finden Sie auf der Seite des [`Intl.NumberFormat()`-Konstruktors](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options).
 
 ## Spezifikationen
 

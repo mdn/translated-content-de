@@ -41,11 +41,11 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
 
       Jedes Objekt im Array hat die folgenden Eigenschaften:
 
-      - `contentType`
+    - `contentType`
         -: Ein String, der den Medien-MIME-Typ der Medienressource angibt, wie zum Beispiel `"audio/mp4;codecs=\"mp4a.40.2\"`. Beachten Sie, dass der leere String ungültig ist und dass, wenn die MIME-Typ-Definition Parameter wie `codecs` enthält, diese ebenfalls enthalten sein müssen.
-      - `encryptionScheme`
+    - `encryptionScheme`
         -: Das Verschlüsselungsschema, das mit dem Inhaltstyp verknüpft ist, wie z.B. `cenc`, `cbcs`, `cbcs-1-9`. Dieser Wert sollte von einer Anwendung festgelegt werden (standardmäßig `null`, was bedeutet, dass jedes Verschlüsselungsschema verwendet werden kann).
-      - `robustness`
+    - `robustness`
         -: Das Robustheitsniveau, das mit dem Inhaltstyp verbunden ist. Der leere String gibt an, dass jede Fähigkeit zur Entschlüsselung und Dekodierung des Inhaltstyps akzeptabel ist.
 
   - `videoCapabilities`
@@ -54,11 +54,11 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
   - `distinctiveIdentifier`
     -: Ein String, der angibt, ob die Implementierung "unverwechselbare Kennungen" (oder unverwechselbare permanente Kennungen) für Vorgänge verwenden darf, die mit jedem Objekt verbunden sind, das aus dieser Konfiguration erstellt wurde. Die zulässigen Werte sind:
 
-      - `required`
+    - `required`
         -: Das zurückgegebene Objekt muss diese Funktion unterstützen.
-      - `optional`
+    - `optional`
         -: Das zurückgegebene Objekt kann diese Funktion unterstützen. Dies ist der Standard.
-      - `not-allowed`
+    - `not-allowed`
         -: Das zurückgegebene Objekt darf diese Funktion nicht unterstützen oder verwenden.
 
   - `persistentState`
@@ -67,9 +67,9 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
   - `sessionTypes`
     -: Ein Array von Strings, die die unterstützten Sitzungstypen angeben müssen. Erlaubte Werte sind:
 
-      - `temporary`
+    - `temporary`
         -: Eine Sitzung, für die die Lizenz, der/die Schlüssel und Aufzeichnungen oder Daten, die sich auf die Sitzung beziehen, nicht gespeichert werden. Die Anwendung muss diese Speicherung nicht verwalten. Implementierungen müssen diese Option unterstützen, und sie ist die Standardoption.
-      - `persistent-license`
+    - `persistent-license`
         -: Eine Sitzung, für die die Lizenz (und möglicherweise andere Daten, die sich auf die Sitzung beziehen) gespeichert werden. Ein Eintrag der Lizenz und der zugehörigen Schlüssel bleibt bestehen, auch wenn die Lizenz zerstört wird, was eine Bescheinigung liefert, dass die Lizenz und die darin enthaltenen Schlüssel vom Client nicht mehr verwendet werden können.
 
 ### Rückgabewert

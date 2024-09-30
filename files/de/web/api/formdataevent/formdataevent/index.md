@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Der **`FormDataEvent()`**-Konstruktor erstellt ein neues [`FormDataEvent`](https://developer.mozilla.org/de/docs/Web/API/FormDataEvent)-Objekt.
+Der **`FormDataEvent()`**-Konstruktor erstellt ein neues [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)-Objekt.
 
 ## Syntax
 
@@ -22,14 +22,14 @@ new FormDataEvent(type, formEventInit)
   - : Ein String mit dem Namen des Ereignisses.
     Er ist groß- und kleinschreibungssensitiv und Browser setzen ihn immer auf `formdata`.
 - `options`
-  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](https://developer.mozilla.org/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `formData`
-      - : Ein [`FormData`](https://developer.mozilla.org/de/docs/Web/API/FormData)-Objekt, um das [`FormDataEvent`](https://developer.mozilla.org/de/docs/Web/API/FormDataEvent) vorab zu füllen.
-        Dies würde dann über die [`FormDataEvent.formData`](https://developer.mozilla.org/de/docs/Web/API/FormDataEvent/formData)-Eigenschaft abgerufen.
+      - : Ein [`FormData`](/de/docs/Web/API/FormData)-Objekt, um das [`FormDataEvent`](/de/docs/Web/API/FormDataEvent) vorab zu füllen.
+        Dies würde dann über die [`FormDataEvent.formData`](/de/docs/Web/API/FormDataEvent/formData)-Eigenschaft abgerufen.
 
 ### Rückgabewert
 
-Ein neues [`FormDataEvent`](https://developer.mozilla.org/de/docs/Web/API/FormDataEvent)-Objekt.
+Ein neues [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)-Objekt.
 
 ## Beispiele
 
@@ -54,4 +54,4 @@ for (const value of fdEv.formData.values()) {
 
 ## Siehe auch
 
-- [`FormDataEvent`](https://developer.mozilla.org/de/docs/Web/API/FormDataEvent)
+- [`FormDataEvent`](/de/docs/Web/API/FormDataEvent)

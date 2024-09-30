@@ -25,11 +25,11 @@ Ein Array von Zeichenfolgen, wobei jede Zeichenfolge eine Zeile der Adresse enth
 Diese, kombiniert mit zusätzlichen Werten für andere Eigenschaften des
 [`PaymentAddress`](/de/docs/Web/API/PaymentAddress), würden die vollständige Adresse repräsentieren, die wie folgt lautet:
 
-Mozilla  
-Metal Box Factory  
-Suite 441, 4th floor  
-30 Great Guildford Street  
-London SE1 0HS  
+Mozilla
+Metal Box Factory
+Suite 441, 4th floor
+30 Great Guildford Street
+London SE1 0HS
 Vereinigtes Königreich
 
 ## Browser-Kompatibilität

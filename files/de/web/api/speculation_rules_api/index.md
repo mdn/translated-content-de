@@ -97,7 +97,7 @@ Zukünftige Navigationen zu einer vorgeladenen Seite sind beinahe sofort. Der Br
 Prerendering verbraucht Speicher und Netzwerkbandbreite. Wenn Sie etwas vorgeladen haben, zu dem der Benutzer nicht navigiert, sind diese verschwendet (obwohl das Ergebnis den HTTP-Cache auffüllen kann, wenn Header dies zulassen, was später verwendet werden kann). Die anfänglichen Kosten eines Prerenders sind viel größer als die eines Prefetch, und andere Bedingungen könnten dazu führen, dass Inhalte nicht sicher vorgeladen werden können (siehe [unsichere spekulative Ladebedingungen](#unsichere_spekulative_ladebedingungen) für weitere Details). Daher wird empfohlen, Prerendering sparsamer zu verwenden und sorgfältig Fälle zu prüfen, in denen die Wahrscheinlichkeit hoch ist, dass die Seite aufgerufen wird, und Sie der Meinung sind, dass der Benutzer große Vorteile von der verbesserten Nutzererfahrung profitiert.
 
 > [!NOTE]
-> Um das Ausmaß des möglichen Ressourcenverbrauchs ins Verhältnis zu setzen, benötigt ein Prerender ungefähr die gleichen Ressourcen wie das Rendering eines  {{htmlelement("iframe")}}.
+> Um das Ausmaß des möglichen Ressourcenverbrauchs ins Verhältnis zu setzen, benötigt ein Prerender ungefähr die gleichen Ressourcen wie das Rendering eines {{htmlelement("iframe")}}.
 
 > [!NOTE]
 > Viele APIs werden automatisch während des Prerendering/ bis zur Aktivierung zurückgestellt. Weitere Informationen finden Sie unter [Plattformfunktionen, die während des Prerenderings zurückgestellt oder eingeschränkt sind](#plattformfunktionen,_die_während_des_prerenderings_zurückgestellt_oder_eingeschränkt_sind).

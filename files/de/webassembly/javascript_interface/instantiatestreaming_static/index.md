@@ -71,6 +71,6 @@ Das `ResultObject`-Instanzmitglied wird dann aufgerufen und die darin enthaltene
 
 ## Siehe auch
 
-- [Überblick über WebAssembly](/de/docs/WebAssembly) 
+- [Überblick über WebAssembly](/de/docs/WebAssembly)
 - [WebAssembly-Konzepte](/de/docs/WebAssembly/Concepts)
 - [Verwendung der WebAssembly-JavaScript-API](/de/docs/WebAssembly/Using_the_JavaScript_API)

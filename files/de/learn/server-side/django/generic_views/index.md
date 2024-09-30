@@ -591,7 +591,7 @@ Django erstellt automatisch eine Methode `get_foo_display()` für jedes choice-F
 An dieser Stelle sollten wir alles erstellt haben, was benötigt wird, um sowohl die Buchliste als auch die Buchdetailseiten anzuzeigen. Starten Sie den Server (`python3 manage.py runserver`) und öffnen Sie Ihren Browser unter `http://127.0.0.1:8000/`.
 
 > [!WARNING]
-> Klicken Sie noch nicht auf Autoren- oder Autorendetail-Links — Sie werden diese in der Herausforderung erstellen!
+> Klicken Sie noch nicht auf Autoren- oder Autorendetail-Links — Sie werden diese in der Herausforderung erstellen!
 
 Klicken Sie auf den Link **Alle Bücher**, um die Liste der Bücher anzuzeigen.
 

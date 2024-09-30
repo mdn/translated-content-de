@@ -58,7 +58,7 @@ Der lokale Name eines Knotens ist der Teil des qualifizierten Namens des Knotens
 ```
 
 > [!NOTE]
-> Während die Eigenschaft die Kleinschreibung des internen DOM-Speichers zurückgibt, beachten Sie, dass die [`tagName`](https://developer.mozilla.org/de/docs/Web/API/Element/tagName) Eigenschaft Großbuchstaben für HTML-Elemente in HTML-DOMs zurückgibt.
+> Während die Eigenschaft die Kleinschreibung des internen DOM-Speichers zurückgibt, beachten Sie, dass die [`tagName`](/de/docs/Web/API/Element/tagName) Eigenschaft Großbuchstaben für HTML-Elemente in HTML-DOMs zurückgibt.
 
 ## Spezifikationen
 

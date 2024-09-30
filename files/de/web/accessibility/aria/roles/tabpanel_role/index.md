@@ -11,11 +11,11 @@ Die ARIA `tabpanel` ist ein Container für die Ressourcen des geschichteten Inha
 
 ## Beschreibung
 
-Die `tabpanel`-Rolle zeigt an, dass das Element ein Container für die Ressourcen ist, die mit einer [`tab`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tab_role)-Rolle verbunden sind, wobei jedes `tab` innerhalb einer [`tablist`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) enthalten ist.
+Die `tabpanel`-Rolle zeigt an, dass das Element ein Container für die Ressourcen ist, die mit einer [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)-Rolle verbunden sind, wobei jedes `tab` innerhalb einer [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role) enthalten ist.
 
 Ein `tabpanel` ist Teil einer Tab-Schnittstelle, ein häufig verwendetes Benutzererlebnis-Muster, bei dem eine Gruppe von visuellen Tabs das schnelle Wechseln zwischen mehreren geschichteten Ansichten ermöglicht. Jedes Tab wird als solches mit der `tab`-Rolle definiert, und diese Tabs sind innerhalb eines Elements mit der `tablist`-Rolle enthalten. Die `tablist` ist oft visuell über oder neben einem Inhaltsbereich positioniert und enthält die zugehörigen Tabpanels. Die `tabpanel`-Rolle ist der Container für jede Inhaltseinheit, die in einer Tab-Schnittstelle mit einem entsprechenden `tab` in der `tablist` verbunden ist.
 
-In vielen Tab-Schnittstellen wird jeweils nur ein `tabpanel` sichtbar sein. Einige Schnittstellen erfordern jedoch möglicherweise die gleichzeitige Anzeige mehrerer Tab-Panels. In diesen Fällen würde der `tablist` das [`aria-multiselectable`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)-Attribut zugewiesen und die `tab`-Elemente würden dann das [`aria-expanded`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attribut verwenden, um anzuzeigen, ob das zugehörige `tabpanel` sichtbar war oder nicht. Der ausgewählte Zustand des Tabs würde stattdessen verwendet, um anzuzeigen, welches Tabpanel das derzeit 'aktive' Panel ist. Dies könnte beispielsweise anzeigen, auf welches Tabpanel der Tastaturfokus wechseln würde, wenn jemand die <kbd>Tab</kbd>-Taste drückt, während ein Tab innerhalb der Multi-Select-`tablist` fokussiert ist.
+In vielen Tab-Schnittstellen wird jeweils nur ein `tabpanel` sichtbar sein. Einige Schnittstellen erfordern jedoch möglicherweise die gleichzeitige Anzeige mehrerer Tab-Panels. In diesen Fällen würde der `tablist` das [`aria-multiselectable`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable)-Attribut zugewiesen und die `tab`-Elemente würden dann das [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)-Attribut verwenden, um anzuzeigen, ob das zugehörige `tabpanel` sichtbar war oder nicht. Der ausgewählte Zustand des Tabs würde stattdessen verwendet, um anzuzeigen, welches Tabpanel das derzeit 'aktive' Panel ist. Dies könnte beispielsweise anzeigen, auf welches Tabpanel der Tastaturfokus wechseln würde, wenn jemand die <kbd>Tab</kbd>-Taste drückt, während ein Tab innerhalb der Multi-Select-`tablist` fokussiert ist.
 
 In Einzelauswahl-Tab-Schnittstellen wird nur das `tabpanel` angezeigt, das mit dem derzeit ausgewählten Tab verbunden ist. Alle anderen `tabpanel`-Elemente, die mit den nicht ausgewählten Tabs verbunden sind, müssen vor Benutzern versteckt werden. Wenn sich also die Tab-Auswahl ändert, würde sich auch das angezeigte Tabpanel ändern, während das zuvor angezeigte Tabpanel dann versteckt würde.
 
@@ -25,15 +25,15 @@ Tabs fungieren nicht als Ankerlinks zu einzelnen Panels – und bei Aktivierung 
 
 Wenn der Tastaturfokus auf einer `tablist` oder einem `tab` innerhalb der `tablist` liegt, sollte die <kbd>Tab</kbd>-Taste programmiert werden, um vom fokussierten Tab – das möglicherweise nicht das ausgewählte Tab ist – zum `tabpanel` zu wechseln, das das derzeit ausgewählte Tab darstellt.
 
-Jedes `tab` in einer `tablist` kann als Beschriftung für sein entsprechendes `tabpanel` dienen. Schließen Sie die `id` jedes `tab` als Wert für das [`aria-labelledby`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut jedes `tabpanel` ein.
+Jedes `tab` in einer `tablist` kann als Beschriftung für sein entsprechendes `tabpanel` dienen. Schließen Sie die `id` jedes `tab` als Wert für das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)-Attribut jedes `tabpanel` ein.
 
-Sie können auch optional jedes `tabpanel` mit seinem zugehörigen `tab` verbinden, indem Sie die [`id`](https://developer.mozilla.org/de/docs/Web/HTML/Global_attributes#id) des `tabpanel` als Wert des `aria-controls`-Attributs des `tab` einfügen.
+Sie können auch optional jedes `tabpanel` mit seinem zugehörigen `tab` verbinden, indem Sie die [`id`](/de/docs/Web/HTML/Global_attributes#id) des `tabpanel` als Wert des `aria-controls`-Attributs des `tab` einfügen.
 
 Wenn eine Tab-Schnittstelle initialisiert wird, wird ein `tabpanel` angezeigt und sein zugehöriges `tab` ist so gestaltet, dass es aktiv ist und seinen programmatischen Zustand widerspiegelt. Alle inaktiven `tabpanel`-Elemente müssen vor allen Benutzern verborgen sein. Dies wird am häufigsten durch die Verwendung von CSSs `display: none` erreicht.
 
-Siehe den Artikel [ARIA `tab` role](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tab_role) für weitere Informationen zur Verwendung dieser Rolle.
+Siehe den Artikel [ARIA `tab` role](/de/docs/Web/Accessibility/ARIA/Roles/tab_role) für weitere Informationen zur Verwendung dieser Rolle.
 
-Schließen Sie [`tabindex="-1"`](https://developer.mozilla.org/de/docs/Web/HTML/Global_attributes/tabindex) ein, um zu ermöglichen, dass ein `tabpanel` den Fokus erhält, ohne dass das `tabpanel` in die Tastaturfokus-Reihenfolge der Seite aufgenommen wird.
+Schließen Sie [`tabindex="-1"`](/de/docs/Web/HTML/Global_attributes/tabindex) ein, um zu ermöglichen, dass ein `tabpanel` den Fokus erhält, ohne dass das `tabpanel` in die Tastaturfokus-Reihenfolge der Seite aufgenommen wird.
 
 Stellen Sie sicher, dass Sie Stile für ein `tabpanel` definieren, wenn es den Fokus erhält, optimal unter Verwendung der CSS {{CSSXref(':focus')}} Pseudo-Klasse, sodass Tastaturnutzer wissen, dass sich der Fokus geändert hat und erkennen, welcher Inhalt derzeit den Fokus hat.
 
@@ -41,22 +41,22 @@ Karussells können mit diesem Tab-Muster erstellt werden: Eine Folienspicker-Ste
 
 ### Zugehörige Rollen und Attribute
 
-- [`tab` role](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
+- [`tab` role](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
   - : Steuert die Sichtbarkeit des zugehörigen `tabpanel`
-- [`tablist` role](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)
+- [`tablist` role](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)
   - : Gruppe von `tab`-Elementen.
-- [`aria-labelledby`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
+- [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
   - : Bietet einen zugänglichen Namen. Verweist auf das `tab`-Element, das das Panel steuert
-- [`aria-expanded`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
+- [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
   - : Sollte auf den erforderlichen `tab`-Elementen verwendet werden, wenn eine multiselektionale `tablist` verwendet wird.
 
 ### Tastaturinteraktionen
 
-Siehe die [`tablist`-Tastaturinteraktionen](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tablist_role#keyboard_interactions) in der Definition der [`tablist`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)-Rolle.
+Siehe die [`tablist`-Tastaturinteraktionen](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role#keyboard_interactions) in der Definition der [`tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)-Rolle.
 
 ## Beispiel
 
-Siehe das [Beispiel zu `tabpanel`, `tab` und `tablist`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tab_role#example) in der Definition der [`tab`](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tab_role)-Rolle.
+Siehe das [Beispiel zu `tabpanel`, `tab` und `tablist`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role#example) in der Definition der [`tab`](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)-Rolle.
 
 ## Spezifikationen
 
@@ -64,7 +64,7 @@ Siehe das [Beispiel zu `tabpanel`, `tab` und `tablist`](https://developer.mozill
 
 ## Siehe auch
 
-- [ARIA `tab` role](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
-- [ARIA `tablist` role](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)
+- [ARIA `tab` role](/de/docs/Web/Accessibility/ARIA/Roles/tab_role)
+- [ARIA `tablist` role](/de/docs/Web/Accessibility/ARIA/Roles/tablist_role)
 - [Beispiel: Tabs mit automatischer Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-automatic.html) - W3C
 - [Beispiel: Tabs mit manueller Aktivierung](https://www.w3.org/WAI/ARIA/apg/example-index/tabs/tabs-manual.html) -W3C

@@ -85,7 +85,7 @@ p {
 
 {{EmbedLiveSample('Applying_brightness_using_the_backdrop_filter_property', '100%', '280')}}
 
-In diesem Beispiel verändern sich die Farben im Bereich hinter dem `<p>`-Element linear. Wenn die `backdrop-filter`-Eigenschaft auf `brightness(0%)` gesetzt wäre, würde der `<div>`-Bereich mit dem `<p>`-Element schwarz sein und das Bild dahinter verbergen. Bei `brightness(100%)` wäre die `<div>`-Bereichsfarbe gleich der Eingabe `#d4d5b2` und das Bild dahinter vollständig transparent. Mit der Helligkeit auf `150%` eingestellt, wie in diesem Beispiel, werden die Farben im Bild dahinter durch die Helligkeit des `<div>`-Elements verborgen. 
+In diesem Beispiel verändern sich die Farben im Bereich hinter dem `<p>`-Element linear. Wenn die `backdrop-filter`-Eigenschaft auf `brightness(0%)` gesetzt wäre, würde der `<div>`-Bereich mit dem `<p>`-Element schwarz sein und das Bild dahinter verbergen. Bei `brightness(100%)` wäre die `<div>`-Bereichsfarbe gleich der Eingabe `#d4d5b2` und das Bild dahinter vollständig transparent. Mit der Helligkeit auf `150%` eingestellt, wie in diesem Beispiel, werden die Farben im Bild dahinter durch die Helligkeit des `<div>`-Elements verborgen.
 
 ### Anwendung der Helligkeit mit der Filter-Eigenschaft
 

@@ -126,7 +126,7 @@ Dies gibt uns folgendes Ergebnis und beim Überfahren des Links wird der Titel a
 {{EmbedLiveSample('Adding supporting information with the title attribute', '100%', 150)}}
 
 > [!NOTE]
-> Ein Linktitel wird nur beim Überfahren mit der Maus angezeigt, was bedeutet, dass Personen, die auf Tastatursteuerungen oder Touchscreens angewiesen sind, Schwierigkeiten haben werden, auf Titelinformationen zuzugreifen. 
+> Ein Linktitel wird nur beim Überfahren mit der Maus angezeigt, was bedeutet, dass Personen, die auf Tastatursteuerungen oder Touchscreens angewiesen sind, Schwierigkeiten haben werden, auf Titelinformationen zuzugreifen.
 > Wenn die Informationen eines Titels wirklich wichtig für die Benutzerfreundlichkeit der Seite sind, sollten Sie ihn auf eine Weise präsentieren, die allen Benutzern zugänglich ist, zum Beispiel, indem Sie ihn in den regulären Text einfügen.
 
 ### Aktives Lernen: Erstellen eines eigenen Beispiel-Links

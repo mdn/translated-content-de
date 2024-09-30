@@ -43,7 +43,7 @@ Ein solider Ansatz, um zugängliche Lösungen für Menschen mit kognitiven Beein
 
 ## WCAG-Richtlinien
 
-WCAG, Web Content Accessibility Guidelines, umfasst mehrere Richtlinien zur Verbesserung der kognitiven Zugänglichkeit. Diese Richtlinien werden von der Web Accessibility Initiative (WAI) des World Wide Web Consortium (W3C), der wichtigsten internationalen Normungsorganisation für das Internet, veröffentlicht. Diese Gruppe ist auch verantwortlich für die [Accessible Rich Internet Application (ARIA)](https://developer.mozilla.org/de/docs/Web/Accessibility/ARIA/ARIA_Guides) Richtlinien.
+WCAG, Web Content Accessibility Guidelines, umfasst mehrere Richtlinien zur Verbesserung der kognitiven Zugänglichkeit. Diese Richtlinien werden von der Web Accessibility Initiative (WAI) des World Wide Web Consortium (W3C), der wichtigsten internationalen Normungsorganisation für das Internet, veröffentlicht. Diese Gruppe ist auch verantwortlich für die [Accessible Rich Internet Application (ARIA)](/de/docs/Web/Accessibility/ARIA/ARIA_Guides) Richtlinien.
 
 Die WCAG sind von vier Prinzipien geleitet: Websites müssen wahrnehmbar, bedienbar, verständlich und robust sein. Zu diesem Zweck definieren sie 17 spezifische Richtlinien, von denen sechs besonders relevant für die kognitive Zugänglichkeit sind.
 

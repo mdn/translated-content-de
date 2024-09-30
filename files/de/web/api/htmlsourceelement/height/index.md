@@ -55,7 +55,7 @@ console.log(Array.from(sources).map((el) => el.height)); // Output: [400, 800, 8
 
 {{Specifications}}
 
-## Browser-Kompatibilität 
+## Browser-Kompatibilität
 
 {{Compat}}
 

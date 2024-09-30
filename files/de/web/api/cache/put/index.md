@@ -12,7 +12,7 @@ Die **`put()`**-Methode der
 [`Cache`](/de/docs/Web/API/Cache)-Schnittstelle ermöglicht es, Schlüssel/Wert-Paare zum aktuellen
 [`Cache`](/de/docs/Web/API/Cache)-Objekt hinzuzufügen.
 
-Häufig möchten Sie einfach nur eine oder mehrere Anfragen mit [`fetch()`](/de/docs/Web/API/Window/fetch) abrufen und das Ergebnis direkt zu Ihrem Cache hinzufügen. In solchen Fällen ist es besser, 
+Häufig möchten Sie einfach nur eine oder mehrere Anfragen mit [`fetch()`](/de/docs/Web/API/Window/fetch) abrufen und das Ergebnis direkt zu Ihrem Cache hinzufügen. In solchen Fällen ist es besser,
 [`Cache.add()`](/de/docs/Web/API/Cache/add)/[`Cache.addAll()`](/de/docs/Web/API/Cache/addAll) zu verwenden, da dies Kurzfunktionen für eine oder mehrere dieser Operationen sind.
 
 ```js

@@ -58,7 +58,7 @@ Folgende Werte können für die `contain-intrinsic-size` Eigenschaft angegeben w
 
 Wird ein Wert als Schlüsselwort, Länge oder ein `auto [<length> | none]`-Paar angegeben, gilt er sowohl für Breite als auch Höhe.
 
-Es können zwei Längenwerte angegeben werden, die in dieser Reihenfolge für Breite und Höhe gelten. 
+Es können zwei Längenwerte angegeben werden, die in dieser Reihenfolge für Breite und Höhe gelten.
 Wenn zwei `auto [<length> | none]`-Paare angegeben werden, gilt das erste Paar für die Breite und das zweite für die Höhe.
 
 ## Beschreibung

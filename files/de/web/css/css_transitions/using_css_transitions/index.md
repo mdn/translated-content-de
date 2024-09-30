@@ -188,7 +188,7 @@ Dieses CSS stellt das Erscheinungsbild des Menüs her, wobei sich die Hintergrun
 
 ### Übergang von Anzeige und Inhaltssichtbarkeit
 
-Dieses Beispiel zeigt, wie [`display`](/de/docs/Web/CSS/display) und [`content-visibility`](/de/docs/Web/CSS/content-visibility) übergangsweise verwendet werden können. Dieses Verhalten ist nützlich, um Ein- und Ausgangsanimationen zu erstellen, bei denen Sie beispielsweise ein Container aus dem DOM mit `display: none` entfernen möchten, aber es mit [`opacity`](/de/docs/Web/CSS/opacity) ausblenden möchten, anstatt sofort zu verschwinden. 
+Dieses Beispiel zeigt, wie [`display`](/de/docs/Web/CSS/display) und [`content-visibility`](/de/docs/Web/CSS/content-visibility) übergangsweise verwendet werden können. Dieses Verhalten ist nützlich, um Ein- und Ausgangsanimationen zu erstellen, bei denen Sie beispielsweise ein Container aus dem DOM mit `display: none` entfernen möchten, aber es mit [`opacity`](/de/docs/Web/CSS/opacity) ausblenden möchten, anstatt sofort zu verschwinden.
 
 Unterstützende Browser machen `display` und `content-visibility` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete) übergangsfähig. Dies bedeutet im Allgemeinen, dass Eigenschaften während des Animationsübergangs der beiden Werte 50% dazwischen wechseln.
 

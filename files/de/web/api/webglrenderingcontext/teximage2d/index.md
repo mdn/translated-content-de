@@ -756,7 +756,7 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
 
     Bei Verwendung der [`OES_texture_float`](/de/docs/Web/API/OES_texture_float) Erweiterung:
 
-      - `gl.FLOAT`
+    - `gl.FLOAT`
 
     Bei Verwendung der [`OES_texture_half_float`](/de/docs/Web/API/OES_texture_half_float) Erweiterung:
 

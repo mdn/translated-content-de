@@ -48,7 +48,7 @@ Diese Seite fasst Fragen und Antworten sowie weiteres Material auf der MDN-Websi
 - [Wie zentriere ich ein Element?](/de/docs/Learn/CSS/Howto/Center_an_item)
   - : Ein Element innerhalb einer anderen Box horizontal und vertikal zu zentrieren, war früher schwierig, aber Flexbox macht es jetzt einfach.
 
-### Layout-Leitfäden 
+### Layout-Leitfäden
 
 - [CSS-Flexbox verwenden](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
 - [CSS-Mehrspaltenlayouts verwenden](/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts)

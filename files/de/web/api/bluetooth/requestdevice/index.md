@@ -33,9 +33,9 @@ requestDevice(options)
 
           - : Ein Array von Werten, das die Bluetooth-GATT-Dienste (Generic Attribute Profile) angibt, die ein Bluetooth-Gerät unterstützen muss. Jeder Wert kann ein gültiger Name aus der [GATT-zugewiesene Diensteliste](https://github.com/WebBluetoothCG/registries/blob/master/gatt_assigned_services.txt) sein, wie `'battery_service'` oder `'blood_pressure'`. Sie können auch eine vollständige Dienst-UUID wie `'0000180F-0000-1000-8000-00805f9b34fb'` oder das kurze 16-Bit (`0x180F`) oder 32-Bit-Alias angeben. Beachten Sie, dass dies dieselben Werte sind, die an [`BluetoothUUID.getService()`](/de/docs/Web/API/BluetoothUUID/getService_static) übergeben werden können.
 
-        - `name` {{optional_inline}} 
+        - `name` {{optional_inline}}
           - : Ein String, der den genauen Namen des Geräts enthält, mit dem abgeglichen werden soll.
-        - `namePrefix` {{optional_inline}} 
+        - `namePrefix` {{optional_inline}}
           - : Ein String, der das Namenspräfix enthält, mit dem abgeglichen werden soll. Alle Geräte, deren Name mit diesem String beginnt, werden abgeglichen.
         - `manufacturerData` {{optional_inline}}
 
@@ -44,7 +44,7 @@ requestDevice(options)
 
             - `companyIdentifier`
               - : Eine obligatorische Zahl, die den Hersteller des Geräts identifiziert. Unternehmenskennungen sind in der Bluetooth-Spezifikation [Zugewiesene Nummern](https://www.bluetooth.com/specifications/assigned-numbers/), Abschnitt 7, aufgeführt. Zum Beispiel, um mit Geräten abzugleichen, die von "Digianswer A/S" hergestellt wurden, mit der zugewiesenen Hex-Zahl `0x000C`, würden Sie `12` angeben.
-            - `dataPrefix` {{optional_inline}} 
+            - `dataPrefix` {{optional_inline}}
               - : Das Datenpräfix. Ein Puffer mit Werten, die mit den Werten am Anfang der Werbe-Herstellerdaten abgeglichen werden sollen.
             - `mask` {{optional_inline}}
               - : Damit können Sie mit Bytes aus den Herstellerdaten abgleichen, indem einige Bytes der Service-Daten `dataPrefix` maskiert werden.

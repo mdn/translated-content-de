@@ -493,7 +493,7 @@ Auf kurze Sicht ist AV1 aus diesen Gründen noch nicht bereit, Ihre erste Wahl a
           800 Mbps bei Level 6.3
         </p>
         <p>
-          Siehe die 
+          Siehe die
           <a href="https://aomediacodec.github.io/av1-spec/#levels"
             >Tabellen der Level</a> in der AV1-Spezifikation, die die maximalen
           Auflösungen und Raten auf jedem Level beschreiben.

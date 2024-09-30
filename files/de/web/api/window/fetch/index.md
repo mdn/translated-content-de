@@ -48,7 +48,7 @@ Ein {{jsxref("Promise")}}, das zu einem [`Response`](/de/docs/Web/API/Response)-
 ### Ausnahmen
 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Anfrage wurde aufgrund eines Aufrufs der [`AbortController`](/de/docs/Web/API/AbortController) 
+  - : Die Anfrage wurde aufgrund eines Aufrufs der [`AbortController`](/de/docs/Web/API/AbortController)
     [`abort()`](/de/docs/Web/API/AbortController/abort)-Methode abgebrochen.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Verwendung der [Topics API](/de/docs/Web/API/Topics_API) durch eine {{httpheader('Permissions-Policy/browsing-topics','browsing-topics')}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) speziell verboten wird und eine `fetch()`-Anfrage mit `browsingTopics: true` gestellt wurde.
