@@ -79,7 +79,7 @@ Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localh
 
 ## Herausforderung
 
-Derzeit werden die meisten _Daten_, die auf der Website angezeigt werden, im Standard-JavaScript-Format dargestellt (z.B. _Di Okt 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time)). Die Herausforderung für diesen Artikel besteht darin, das Erscheinungsbild der Datumsanzeige für Informationen zur Lebensdauer von `Author` (Todes-/Geburtsdatum) und für _BookInstance-Detailseiten_ zu verbessern, um das Format: 6. Okt. 2016 zu verwenden.
+Derzeit werden die meisten _Daten_, die auf der Website angezeigt werden, im Standard-JavaScript-Format dargestellt (z.B. _Di Okt 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time)). Die Herausforderung für diesen Artikel besteht darin, das Erscheinungsbild der Datumsanzeige für Informationen zur Lebensdauer von `Author` (Todes-/Geburtsdatum) und für \_BookInstance-Detailseiten_ zu verbessern, um das Format: 6. Okt. 2016 zu verwenden.
 
 > [!NOTE]
 > Sie können denselben Ansatz verwenden, den wir für die _Buchinstanzliste_ verwendet haben (indem Sie die virtuelle Eigenschaft für die Lebensspanne zum `Author`-Modell hinzufügen und [luxon](https://www.npmjs.com/package/luxon) verwenden, um die Datumszeichenfolgen zu formatieren).

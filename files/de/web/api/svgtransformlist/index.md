@@ -103,8 +103,8 @@ Eine `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werd
 
 ## Instanz-Eigenschaften
 
-| Name                                 | Typ           | Beschreibung                      |
-| ------------------------------------ | ------------- | --------------------------------- |
+| Name                                 | Typ           | Beschreibung                          |
+| ------------------------------------ | ------------- | ------------------------------------- |
 | `numberOfItems`                      | unsigned long | Die Anzahl der Elemente in der Liste. |
 | `length` {{ non-standard_inline() }} | unsigned long | Die Anzahl der Elemente in der Liste. |
 

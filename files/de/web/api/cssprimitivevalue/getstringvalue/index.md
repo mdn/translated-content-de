@@ -34,9 +34,9 @@ Ein `string`-Wert.
 
 ### Ausnahmen
 
-| **Typ**        | **Beschreibung**                                                                                       |
-| -------------- | ------------------------------------------------------------------------------------------------------ |
-| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Zeichenkettenwert enthält.           |
+| **Typ**        | **Beschreibung**                                                                             |
+| -------------- | -------------------------------------------------------------------------------------------- |
+| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Zeichenkettenwert enthält. |
 
 ## Beispiele
 

@@ -77,31 +77,31 @@ In Firefox könnte dies mit der `.allowScriptsToClose`-Eigenschaft des Fensterer
 <!--
 // Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Die Vervielfältigung und Verwendung des Quellcodes und der binären Formen, 
+// Die Vervielfältigung und Verwendung des Quellcodes und der binären Formen,
 // mit oder ohne Änderungen, sind unter folgenden Bedingungen gestattet:
 //
 //    * Weiterverbreitungen des Quellcodes müssen den obigen Urheberrechtshinweis,
 // diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
 //    * Weiterverbreitungen in binärer Form müssen den obigen Urheberrechtshinweis,
-// diese Liste der Bedingungen und den folgenden Haftungsausschluss in der 
-// Dokumentation und/oder anderen Materialien, die mit der Verteilung geliefert 
+// diese Liste der Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien, die mit der Verteilung geliefert
 // werden, enthalten.
-//    * Weder der Name Google Inc. noch die Namen seiner Mitwirkenden 
-// dürfen verwendet werden, um Produkte, die aus dieser Software abgeleitet 
-// wurden, ohne vorherige ausdrückliche schriftliche Genehmigung zu unterstützen 
+//    * Weder der Name Google Inc. noch die Namen seiner Mitwirkenden
+// dürfen verwendet werden, um Produkte, die aus dieser Software abgeleitet
+// wurden, ohne vorherige ausdrückliche schriftliche Genehmigung zu unterstützen
 // oder zu bewerben.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN "WIE BESEHEN" 
-// BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDEN GARANTIEN, 
-// EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN GARANTIEN 
-// DER MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK SIND 
-// AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER MITWIRKENDEN 
-// HAFTBAR FÜR DIREKTE, INDIREKTE, BEILÄUFIGE, SPEZIELLE, EXEMPLARISCHE ODER 
-// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE BESCHAFFUNG 
-// VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER GEWINNE; 
-// ODER GESCHÄFTSUNTERBRECHUNG) JEDER ART UND WEISE UND UNTER JEDEM 
-// HAFTUNGSPRINZIP, OB IN VERTRAG, STRIKTHAFTUNG ODER UNERLAUBTER HANDLUNG 
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER NUTZUNG 
-// DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN 
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN "WIE BESEHEN"
+// BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER STILLSCHWEIGENDEN GARANTIEN,
+// EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN GARANTIEN
+// DER MARKTGÄNGIGKEIT UND DER EIGNUNG FÜR EINEN BESTIMMTEN ZWECK SIND
+// AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE URHEBERRECHTSINHABER ODER MITWIRKENDEN
+// HAFTBAR FÜR DIREKTE, INDIREKTE, BEILÄUFIGE, SPEZIELLE, EXEMPLARISCHE ODER
+// FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE BESCHAFFUNG
+// VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER GEWINNE;
+// ODER GESCHÄFTSUNTERBRECHUNG) JEDER ART UND WEISE UND UNTER JEDEM
+// HAFTUNGSPRINZIP, OB IN VERTRAG, STRIKTHAFTUNG ODER UNERLAUBTER HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUS DER NUTZUNG
+// DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN
 // HINGEWIESEN WURDE.
 -->

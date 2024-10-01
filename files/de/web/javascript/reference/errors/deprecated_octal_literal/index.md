@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: \"0\"-präfixierte Oktalliterale sind veraltet"
+title: 'SyntaxError: "0"-präfixierte Oktalliterale sind veraltet'
 slug: Web/JavaScript/Reference/Errors/Deprecated_octal_literal
 l10n:
   sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3

@@ -23,7 +23,7 @@ f32.ceil
 ;; the top item on the stack will now be 3
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `f32.ceil`  | `0x8d`         |
-| `f64.ceil`  | `0x9b`         |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `f32.ceil` | `0x8d`         |
+| `f64.ceil` | `0x9b`         |

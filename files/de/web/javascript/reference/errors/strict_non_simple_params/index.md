@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: \"use strict\" nicht erlaubt in Funktion mit nicht einfachen Parametern"
+title: 'SyntaxError: "use strict" nicht erlaubt in Funktion mit nicht einfachen Parametern'
 slug: Web/JavaScript/Reference/Errors/Strict_non_simple_params
 l10n:
   sourceCommit: d71b141d2d18b96639547856714df19cefacfebf

@@ -154,7 +154,7 @@ import { name as circleName } from "https://example.com/shapes/circle.js";
 
 [Importkarten](/de/docs/Web/HTML/Element/script/type/importmap) erlauben es Entwicklern, stattdessen fast beliebigen Text im Modulspezifizierer anzugeben, wenn ein Modul importiert wird; die Karte liefert einen entsprechenden Wert, der den Text ersetzt, wenn die Modul-URL aufgelöst wird.
 
-Zum Beispiel definiert der `imports`-Schlüssel in der folgenden Importkarte ein "Modulspezifizierer-Karten"-JSON-Objekt, in dem die Eigenschaftsnamen als Modulspezifizierer verwendet werden können und die entsprechenden Werte beim Auflösen der Modul-URL ersetzt werden. Die Werte müssen absolute oder relative URLs sein. Relative URLs werden auf absolute URL-Adressen unter Verwendung der [Basis-URL](/de/docs/Web/HTML/Element/base) des Dokuments, das die Importkarte enthält, aufgelöst. 
+Zum Beispiel definiert der `imports`-Schlüssel in der folgenden Importkarte ein "Modulspezifizierer-Karten"-JSON-Objekt, in dem die Eigenschaftsnamen als Modulspezifizierer verwendet werden können und die entsprechenden Werte beim Auflösen der Modul-URL ersetzt werden. Die Werte müssen absolute oder relative URLs sein. Relative URLs werden auf absolute URL-Adressen unter Verwendung der [Basis-URL](/de/docs/Web/HTML/Element/base) des Dokuments, das die Importkarte enthält, aufgelöst.
 
 ```html
 <script type="importmap">
@@ -190,7 +190,7 @@ Wenn der Modulspezifizierer einen nachgestellten Schrägstrich hat, muss der Wer
 import { name as squareNameFour } from "https://example.com/shapes/moduleshapes/square.js";
 ```
 
-Es ist möglich, dass mehrere Schlüssel in einer Importkarte gültige Übereinstimmungen für einen Modulspezifizierer sind. Zum Beispiel könnte ein Modulspezifizierer von `shapes/circle/` mit den Modulspezifizierer-Schlüsseln `shapes/` und `shapes/circle/` übereinstimmen. In diesem Fall wählt der Browser den spezifischsten (längsten) übereinstimmenden Modulspezifizierer-Schlüssel. 
+Es ist möglich, dass mehrere Schlüssel in einer Importkarte gültige Übereinstimmungen für einen Modulspezifizierer sind. Zum Beispiel könnte ein Modulspezifizierer von `shapes/circle/` mit den Modulspezifizierer-Schlüsseln `shapes/` und `shapes/circle/` übereinstimmen. In diesem Fall wählt der Browser den spezifischsten (längsten) übereinstimmenden Modulspezifizierer-Schlüssel.
 
 Importkarten erlauben es, Module mit nackten Modulnamen zu importieren (wie in Node.js), und sie können außerdem das Importieren von Modulen aus Paketen simulieren, sowohl mit als auch ohne Dateierweiterungen. Obwohl oben nicht gezeigt, erlauben sie auch, bestimmte Versionen einer Bibliothek zu importieren, basierend auf dem Pfad des Skripts, das das Modul importiert. Im Allgemeinen lassen sie Entwickler ergonomischeren Importcode schreiben und erleichtern die Verwaltung der verschiedenen Versionen und Abhängigkeiten von Modulen, die von einer Seite verwendet werden. Dies kann den Aufwand reduzieren, dieselben JavaScript-Bibliotheken sowohl im Browser als auch auf dem Server zu verwenden. Die folgenden Abschnitte erweitern die oben umrissenen verschiedenen Funktionen.
 
@@ -237,7 +237,7 @@ import { name as squareName, draw } from "square";
 Einträge im Modulspezifizierer-Mapping, bei denen sowohl der Spezifiziererschlüssel als auch dessen zugehöriger Wert einen nachgestellten Schrägstrich (`/`) haben, können als Pfad-Präfix verwendet werden. Dies ermöglicht das Remapping eines ganzen Sets von Import-URLs von einem Ort zu einem anderen. Es kann auch verwendet werden, um zu emulieren, wie mit "Paketen und Modulen" wie im Node-Ökosystem gearbeitet wird.
 
 > [!NOTE]
-> Der nachgestellte `/` zeigt an, dass der Modulspezifiziererschlüssel als _Teil_ eines Modulspezifizierers ersetzt werden kann. Wenn dies nicht vorhanden ist, wird der Browser nur den gesamten Modulspezifiziererschlüssel übereinstimmen (und ersetzen). 
+> Der nachgestellte `/` zeigt an, dass der Modulspezifiziererschlüssel als _Teil_ eines Modulspezifizierers ersetzt werden kann. Wenn dies nicht vorhanden ist, wird der Browser nur den gesamten Modulspezifiziererschlüssel übereinstimmen (und ersetzen).
 
 #### Modulelemente in Paketen
 
@@ -297,15 +297,15 @@ Importkarten erlauben es Ihnen, mehrere Versionen von Abhängigkeiten in Ihrer A
 
 Mit dieser Zuordnung, wenn ein Skript mit einer URL, die `/node_modules/dependency/` enthält, `coolmodule` importiert, wird die Version in `/node_modules/some/other/location/coolmodule/index.js` verwendet. Die Karte in `imports` wird als Fallback verwendet, wenn es keinen passenden Bereich in der gescopten Karte gibt oder die passenden Bereiche keinen passenden Spezifizierer enthalten. Zum Beispiel, wenn `coolmodule` aus einem Skript mit einem nicht passenden Bereichspfad importiert wird, dann wird die Modulspezifiziererkarte in `imports` stattdessen verwendet, die zu der Version in `/node_modules/coolmodule/index.js` mappt.
 
-Beachten Sie, dass der Pfad, der verwendet wird, um einen Geltungsbereich auszuwählen, die Art, wie die Adresse aufgelöst wird, nicht beeinflusst. Der Wert im gemappten Pfad muss nicht die Geltungsbereichsadresse widerspiegeln und relative Pfade werden noch zur Basis-URL des Skripts, das die Importkarte enthält, aufgelöst. 
+Beachten Sie, dass der Pfad, der verwendet wird, um einen Geltungsbereich auszuwählen, die Art, wie die Adresse aufgelöst wird, nicht beeinflusst. Der Wert im gemappten Pfad muss nicht die Geltungsbereichsadresse widerspiegeln und relative Pfade werden noch zur Basis-URL des Skripts, das die Importkarte enthält, aufgelöst.
 
-Genau wie bei Modulspezifiziererkarten können Sie viele Scope-Schlüssel haben, und diese können sich überschneidende Pfade enthalten. Wenn mehrere Geltungsbereiche mit der Referrer-URL übereinstimmen, dann wird der spezifischste Bereichspfad (der längste Scope-Schlüssel) zuerst auf einen übereinstimmenden Spezifizierer geprüft. Die Browser fallen zurück auf den nächsten spezifischsten passenden gescopten Pfad, wenn es keinen passenden Spezifizierer gibt, und so weiter. Wenn es in keinem der passenden Bereiche einen übereinstimmenden Spezifizierer gibt, prüft der Browser auf eine Übereinstimmung in der Modulspezifizierer-Karte im `imports`-Schlüssel. 
+Genau wie bei Modulspezifiziererkarten können Sie viele Scope-Schlüssel haben, und diese können sich überschneidende Pfade enthalten. Wenn mehrere Geltungsbereiche mit der Referrer-URL übereinstimmen, dann wird der spezifischste Bereichspfad (der längste Scope-Schlüssel) zuerst auf einen übereinstimmenden Spezifizierer geprüft. Die Browser fallen zurück auf den nächsten spezifischsten passenden gescopten Pfad, wenn es keinen passenden Spezifizierer gibt, und so weiter. Wenn es in keinem der passenden Bereiche einen übereinstimmenden Spezifizierer gibt, prüft der Browser auf eine Übereinstimmung in der Modulspezifizierer-Karte im `imports`-Schlüssel.
 
 ### Verbesserung der Zwischenspeicherung durch Weglassen von hashbasierten Dateinamen
 
-Skriptdateien, die von Websites verwendet werden, haben oft hashbasierte Dateinamen, um die Zwischenspeicherung zu vereinfachen. Der Nachteil dieses Ansatzes ist, dass, wenn sich ein Modul ändert, auch alle Module, die es mit seinem hashbasierten Dateinamen importieren, aktualisiert/neu generiert werden müssen. Dies kann potenziell zu einer Kaskade an Updates führen, was verschwenderisch für Netzwerkressourcen ist. 
+Skriptdateien, die von Websites verwendet werden, haben oft hashbasierte Dateinamen, um die Zwischenspeicherung zu vereinfachen. Der Nachteil dieses Ansatzes ist, dass, wenn sich ein Modul ändert, auch alle Module, die es mit seinem hashbasierten Dateinamen importieren, aktualisiert/neu generiert werden müssen. Dies kann potenziell zu einer Kaskade an Updates führen, was verschwenderisch für Netzwerkressourcen ist.
 
-Importkarten bieten eine praktische Lösung für dieses Problem. Anstatt auf bestimmte hashbasierte Dateinamen zu setzen, abhängen Anwendungen und Skripte stattdessen von einer nicht-gehashten Version des Modulnamens (Adresse). Eine Importkarte wie unten bietet dann eine Zuordnung zur tatsächlichen Skriptdatei. 
+Importkarten bieten eine praktische Lösung für dieses Problem. Anstatt auf bestimmte hashbasierte Dateinamen zu setzen, abhängen Anwendungen und Skripte stattdessen von einer nicht-gehashten Version des Modulnamens (Adresse). Eine Importkarte wie unten bietet dann eine Zuordnung zur tatsächlichen Skriptdatei.
 
 ```json
 {

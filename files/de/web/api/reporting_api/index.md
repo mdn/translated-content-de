@@ -51,11 +51,11 @@ Die an Reporting-Endpunkte und Reporting-Observer gesendeten Berichte sind im We
 
 Die Zuordnung von Bericht `type` zu `body` wird unten angezeigt.
 
-| `type`          | `body`                                | Gemeldete Elemente                                                                  |
-| --------------- | ------------------------------------- | ------------------------------------------------------------------------------------ |
-| `deprecation`   | [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)  | Veraltete Funktionen, die von der Website verwendet werden.                          |
+| `type`          | `body`                                                              | Gemeldete Elemente                                                                                       |
+| --------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `deprecation`   | [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)   | Veraltete Funktionen, die von der Website verwendet werden.                                              |
 | `intervention`  | [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody) | Funktionen, die durch den Nutzer agent blockiert werden, z.B., wenn keine Berechtigungen erteilt wurden. |
-| `csp-violation` | [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) | Verstöße gegen die CSP-Richtlinie der Website.                                       |
+| `csp-violation` | [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody) | Verstöße gegen die CSP-Richtlinie der Website.                                                           |
 
 ### Berichte mit WebDriver generieren
 

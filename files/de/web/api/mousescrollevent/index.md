@@ -38,16 +38,16 @@ void initMouseScrollEvent(
 
 ## Attribute
 
-| Attribut                 | Typ    | Beschreibung                  |
-| ------------------------ | ------ | ----------------------------- |
-| `axis` {{ReadOnlyInline}}| `long` | Gibt die Scrollrichtung an.   |
+| Attribut                  | Typ    | Beschreibung                |
+| ------------------------- | ------ | --------------------------- |
+| `axis` {{ReadOnlyInline}} | `long` | Gibt die Scrollrichtung an. |
 
 ## Konstanten
 
 ### Delta-Modi
 
-| Konstante         | Wert   | Beschreibung                                         |
-| ----------------- | ------ | ---------------------------------------------------- |
+| Konstante         | Wert   | Beschreibung                                                     |
+| ----------------- | ------ | ---------------------------------------------------------------- |
 | `HORIZONTAL_AXIS` | `0x01` | Das Ereignis wird durch eine horizontalen Radbewegung ausgelöst. |
 | `VERTICAL_AXIS`   | `0x02` | Das Ereignis wird durch eine vertikalen Radbewegung ausgelöst.   |
 

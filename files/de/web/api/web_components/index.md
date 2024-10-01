@@ -48,6 +48,7 @@ Der grundlegende Ansatz zur Implementierung eines Webkomponenten sieht im Allgem
 - [`Window.customElements`](/de/docs/Web/API/Window/customElements)
   - : Gibt eine Referenz auf das `CustomElementRegistry`-Objekt zurück.
 - [Lebenszyklus-Codierungen](/de/docs/Web/API/Web_components/Using_custom_elements#custom_element_lifecycle_callbacks)
+
   - : Spezielle Callback-Funktionen, die in der Klassendefinition des benutzerdefinierten Elements definiert sind und sein Verhalten beeinflussen:
 
     - `connectedCallback()`

@@ -23,14 +23,14 @@ Beachten Sie, dass WebGL keine Funktionalitäten zur Komprimierung oder Dekompri
 
 Alle Formate unterstützen 2D-Texturen. Welche Formate `TEXTURE_2D_ARRAY` und `TEXTURE_3D` Ziele (in Kombination mit `compressedTexImage3D`) unterstützen, sind in der folgenden Tabelle vermerkt.
 
-| Erweiterung                        | Hinweise                                                   | TEXTURE_2D_ARRAY | TEXTURE_3D |
-| ---------------------------------- | ---------------------------------------------------------- | ---------------- | ---------- |
-| WEBGL_compressed_texture_astc      |                                                            | Ja               | Ja         |
-| WEBGL_compressed_texture_etc       |                                                            | Ja               | Nein       |
+| Erweiterung                        | Hinweise                                                     | TEXTURE_2D_ARRAY | TEXTURE_3D |
+| ---------------------------------- | ------------------------------------------------------------ | ---------------- | ---------- |
+| WEBGL_compressed_texture_astc      |                                                              | Ja               | Ja         |
+| WEBGL_compressed_texture_etc       |                                                              | Ja               | Nein       |
 | WEBGL_compressed_texture_etc1\*    | Nicht nutzbar mit compressedTexSubImage2D/copyTexSubImage2D. | Nein             | Nein       |
-| WEBGL_compressed_texture_pvrtc     | Breite und Höhe müssen Potenzen von 2 sein.                | Nein             | Nein       |
-| WEBGL_compressed_texture_s3tc      | Breite und Höhe müssen Vielfache von 4 sein.               | Ja               | Nein       |
-| WEBGL_compressed_texture_s3tc_srgb | Breite und Höhe müssen Vielfache von 4 sein.               | ?                | Nein       |
+| WEBGL_compressed_texture_pvrtc     | Breite und Höhe müssen Potenzen von 2 sein.                  | Nein             | Nein       |
+| WEBGL_compressed_texture_s3tc      | Breite und Höhe müssen Vielfache von 4 sein.                 | Ja               | Nein       |
+| WEBGL_compressed_texture_s3tc_srgb | Breite und Höhe müssen Vielfache von 4 sein.                 | ?                | Nein       |
 
 ## Beispiele
 

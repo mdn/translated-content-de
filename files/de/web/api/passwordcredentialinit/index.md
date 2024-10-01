@@ -13,12 +13,12 @@ Das **`PasswordCredentialInit`** Dictionary repräsentiert das Objekt, das an [`
 
 Anstatt dieses Dictionary direkt zu übergeben, kann eine Website ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) übergeben, und die Implementierung von `create()` wird die Daten der Anmeldeinformationen basierend auf den Werten der für die Übermittlung des Formulars vorgesehenen Elemente auffüllen, basierend auf dem Wert des [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)-Attributs des Elements.
 
-| `autocomplete` Wert                      | Anmeldeinformationseigenschaft anvisiert |
-| ---------------------------------------- | --------------------------------------- |
-| `"username"`                             | `id`                                    |
-| `"name"` oder `"nickname"`               | `name`                                  |
-| `"new-password"` oder `"current-password"` | `password`                              |
-| `"photo"`                                | `iconURL`                               |
+| `autocomplete` Wert                        | Anmeldeinformationseigenschaft anvisiert |
+| ------------------------------------------ | ---------------------------------------- |
+| `"username"`                               | `id`                                     |
+| `"name"` oder `"nickname"`                 | `name`                                   |
+| `"new-password"` oder `"current-password"` | `password`                               |
+| `"photo"`                                  | `iconURL`                                |
 
 Wenn das Formular sowohl `"new-password"` als auch `"current-password"` Elemente enthält, wird der Wert für `"new-password"` verwendet.
 

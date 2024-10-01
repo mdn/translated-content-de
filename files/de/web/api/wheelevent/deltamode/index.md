@@ -12,9 +12,9 @@ Die schreibgeschützte Eigenschaft **`WheelEvent.deltaMode`** gibt ein
 `unsigned long` zurück, das die Einheit des Delta-Werte-Scrollwerts darstellt.
 Erlaubte Werte sind:
 
-| Konstante         | Wert   | Beschreibung                              |
-| ----------------- | ------ | ----------------------------------------- |
-| `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte werden in Pixel angegeben.|
+| Konstante         | Wert   | Beschreibung                                |
+| ----------------- | ------ | ------------------------------------------- |
+| `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte werden in Pixel angegeben.  |
 | `DOM_DELTA_LINE`  | `0x01` | Die Delta-Werte werden in Zeilen angegeben. |
 | `DOM_DELTA_PAGE`  | `0x02` | Die Delta-Werte werden in Seiten angegeben. |
 

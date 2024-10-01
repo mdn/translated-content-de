@@ -1,5 +1,5 @@
 ---
-title: "TypeError: ungültige Zuweisung zu const \"x\""
+title: 'TypeError: ungültige Zuweisung zu const "x"'
 slug: Web/JavaScript/Reference/Errors/Invalid_const_assignment
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e

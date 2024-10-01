@@ -34,9 +34,9 @@ Ein [`Rect`](/de/docs/Web/API/Rect)-Objekt, das den Rechteckwert darstellt.
 
 ### Ausnahmen
 
-| **Typ**         | **Beschreibung**                                                                                             |
-| --------------  | ------------------------------------------------------------------------------------------------------------ |
-| `DOMException`  | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Rechteckwert enthält. (d.h. es ist nicht `CSS_RECT`). |
+| **Typ**        | **Beschreibung**                                                                                                        |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen Rechteckwert enthält. (d.h. es ist nicht `CSS_RECT`). |
 
 ## Beispiele
 

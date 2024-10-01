@@ -25,12 +25,12 @@ Die **`CSSValue`** Schnittstelle repräsentiert den aktuellen berechneten Wert e
 
   - : Ein `unsigned short`, der einen Code darstellt, der den Typ des Wertes definiert. Mögliche Werte sind:
 
-    | Konstante             | Beschreibung                                                                                                                                                                                                      |
-    | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `CSS_CUSTOM`          | Der Wert ist ein benutzerdefinierter Wert.                                                                                                                                                                       |
-    | `CSS_INHERIT`         | Der Wert wird geerbt und `cssText` enthält `"inherit"`.                                                                                                                                                          |
+    | Konstante             | Beschreibung                                                                                                                                                                                                                                                        |
+    | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `CSS_CUSTOM`          | Der Wert ist ein benutzerdefinierter Wert.                                                                                                                                                                                                                          |
+    | `CSS_INHERIT`         | Der Wert wird geerbt und `cssText` enthält `"inherit"`.                                                                                                                                                                                                             |
     | `CSS_PRIMITIVE_VALUE` | Der Wert ist ein primitiver Wert, und eine Instanz der [`CSSPrimitiveValue`](/de/docs/Web/API/CSSPrimitiveValue) Schnittstelle kann durch die Verwendung von bindungsspezifischen Casting-Methoden auf dieser Instanz der `CSSValue` Schnittstelle erhalten werden. |
-    | `CSS_VALUE_LIST`      | Der Wert ist eine `CSSValue`-Liste, und eine Instanz der [`CSSValueList`](/de/docs/Web/API/CSSValueList) Schnittstelle kann durch die Verwendung von bindungsspezifischen Casting-Methoden auf dieser Instanz der `CSSValue` Schnittstelle erhalten werden.     |
+    | `CSS_VALUE_LIST`      | Der Wert ist eine `CSSValue`-Liste, und eine Instanz der [`CSSValueList`](/de/docs/Web/API/CSSValueList) Schnittstelle kann durch die Verwendung von bindungsspezifischen Casting-Methoden auf dieser Instanz der `CSSValue` Schnittstelle erhalten werden.         |
 
 ## Spezifikationen
 

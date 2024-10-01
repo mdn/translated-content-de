@@ -28,12 +28,12 @@ Ein String.
 
 ### Beispiele
 
-| XPath Beispiel                  | Ausgabe          |
-| ------------------------------- | ---------------- |
-| `substring-before('aa-bb','-')` | `aa`             |
-| `substring-before('aa-bb','a')` | `(leerzeichen)`  |
-| `substring-before('aa-bb','b')` | `aa-`            |
-| `substring-before('aa-bb','q')` | (leerzeichen)    |
+| XPath Beispiel                  | Ausgabe         |
+| ------------------------------- | --------------- |
+| `substring-before('aa-bb','-')` | `aa`            |
+| `substring-before('aa-bb','a')` | `(leerzeichen)` |
+| `substring-before('aa-bb','b')` | `aa-`           |
+| `substring-before('aa-bb','q')` | (leerzeichen)   |
 
 ## Spezifikationen
 

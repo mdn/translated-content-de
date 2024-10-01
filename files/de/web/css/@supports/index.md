@@ -76,24 +76,24 @@ Das folgende Beispiel ergibt true und wendet den CSS-Stil an, wenn der Browser d
 
 Die folgende Tabelle beschreibt die Schrifttechnologien (`<font-tech>`), einschließlich Farbfont-Technologien (`<color-font-tech>`), Schriftmerkmale-Technologien (`<font-features-tech>`), und andere verfügbare Schrifttechnologien, die mit der Funktion `font-tech()` abgefragt werden können:
 
-| Technologie                   | Unterstützt                                                                                     |
-| :---------------------------- | :--------------------------------------------------------------------------------------------- |
-| **`<color-font-tech>`**       |                                                                                                |
-| `color-colrv0`                | Mehrfarbige Glyphen über die COLR Version 0 Tabelle                                             |
-| `color-colrv1`                | Mehrfarbige Glyphen über die COLR Version 1 Tabelle                                             |
-| `color-svg`                   | SVG-Mehrfachtabellen                                                                           |
-| `color-sbix`                  | Standard-Bitmap-Grafiktabellen                                                                 |
-| `color-cbdt`                  | Farb-Bitmap-Datentabellen                                                                      |
-| **`<font-features-tech>`**    |                                                                                                |
-| `features-opentype`           | OpenType `GSUB` und `GPOS` Tabellen                                                            |
-| `features-aat`                | TrueType `morx` und `kerx` Tabellen                                                            |
-| `features-graphite`           | Graphite-Features, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen                  |
-| **Andere `<font-tech>` Werte** |                                                                                                |
-| `incremental-patch`           | Inkrementelles Schriftartenladen mit der Patch-Subset-Methode                                  |
-| `incremental-range`           | Inkrementelles Schriftartenladen mit der Bereichsanfrage-Methode                               |
-| `incremental-auto`            | Inkrementelles Schriftartenladen mittels Methodenverhandlung                                   |
-| `variations`                  | Schriftvariationen in TrueType- und OpenType-Schriften zur Steuerung der Schriftachse, des Gewichts, der Glyphen, etc. |
-| `palettes`                    | Schriftpaletten mittels `font-palette`, um eine von vielen Farbpaletten in der Schrift auszuwählen |
+| Technologie                    | Unterstützt                                                                                                            |
+| :----------------------------- | :--------------------------------------------------------------------------------------------------------------------- |
+| **`<color-font-tech>`**        |                                                                                                                        |
+| `color-colrv0`                 | Mehrfarbige Glyphen über die COLR Version 0 Tabelle                                                                    |
+| `color-colrv1`                 | Mehrfarbige Glyphen über die COLR Version 1 Tabelle                                                                    |
+| `color-svg`                    | SVG-Mehrfachtabellen                                                                                                   |
+| `color-sbix`                   | Standard-Bitmap-Grafiktabellen                                                                                         |
+| `color-cbdt`                   | Farb-Bitmap-Datentabellen                                                                                              |
+| **`<font-features-tech>`**     |                                                                                                                        |
+| `features-opentype`            | OpenType `GSUB` und `GPOS` Tabellen                                                                                    |
+| `features-aat`                 | TrueType `morx` und `kerx` Tabellen                                                                                    |
+| `features-graphite`            | Graphite-Features, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen                                          |
+| **Andere `<font-tech>` Werte** |                                                                                                                        |
+| `incremental-patch`            | Inkrementelles Schriftartenladen mit der Patch-Subset-Methode                                                          |
+| `incremental-range`            | Inkrementelles Schriftartenladen mit der Bereichsanfrage-Methode                                                       |
+| `incremental-auto`             | Inkrementelles Schriftartenladen mittels Methodenverhandlung                                                           |
+| `variations`                   | Schriftvariationen in TrueType- und OpenType-Schriften zur Steuerung der Schriftachse, des Gewichts, der Glyphen, etc. |
+| `palettes`                     | Schriftpaletten mittels `font-palette`, um eine von vielen Farbpaletten in der Schrift auszuwählen                     |
 
 #### `font-format()`
 
@@ -107,15 +107,15 @@ Das folgende Beispiel ergibt true und wendet den CSS-Stil an, wenn der Browser d
 
 Die folgende Tabelle beschreibt die verfügbaren Formate (`<font-format>`-Werte), die mit dieser Funktion abgefragt werden können:
 
-| Format               | Beschreibung                     | Dateierweiterungen |
-| :------------------- | :-------------------------------- | :----------------- |
-| `collection`         | OpenType Collection               | `.otc`, `.ttc`     |
-| `embedded-opentype`  | Eingebettetes OpenType            | `.eot`             |
-| `opentype`           | OpenType                          | `.ttf`, `.otf`     |
-| `svg`                | SVG-Schriftart (veraltet)         | `.svg`, `.svgz`    |
-| `truetype`           | TrueType                          | `.ttf`             |
-| `woff`               | WOFF 1.0 (Web Open Font Format)   | `.woff`            |
-| `woff2`              | WOFF 2.0 (Web Open Font Format)   | `.woff2`           |
+| Format              | Beschreibung                    | Dateierweiterungen |
+| :------------------ | :------------------------------ | :----------------- |
+| `collection`        | OpenType Collection             | `.otc`, `.ttc`     |
+| `embedded-opentype` | Eingebettetes OpenType          | `.eot`             |
+| `opentype`          | OpenType                        | `.ttf`, `.otf`     |
+| `svg`               | SVG-Schriftart (veraltet)       | `.svg`, `.svgz`    |
+| `truetype`          | TrueType                        | `.ttf`             |
+| `woff`              | WOFF 1.0 (Web Open Font Format) | `.woff`            |
+| `woff2`             | WOFF 2.0 (Web Open Font Format) | `.woff2`           |
 
 ### Der not-Operator
 

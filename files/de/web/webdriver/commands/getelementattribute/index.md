@@ -11,8 +11,8 @@ Der _Get Element Attribute_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDri
 
 ## Syntax
 
-| Methode | URI-Vorlage                                                  |
-| ------- | ------------------------------------------------------------ |
+| Methode | URI-Vorlage                                                   |
+| ------- | ------------------------------------------------------------- |
 | `GET`   | `/session/{session id}/element/{element id}/attribute/{name}` |
 
 ### URL-Parameter

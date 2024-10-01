@@ -60,11 +60,11 @@ In CSS1 (1996) war der Skalierungsfaktor zwischen benachbarten Schlüsselwortwer
 
 Für jeden `<absolute-size>`-Schlüsselwortwert listet die folgende Tabelle den Skalierungsfaktor, die Zuordnung zu [`<h1>` bis `<h6>`](/de/docs/Web/HTML/Element/Heading_Elements)-Überschriften und die Zuordnung zum veralteten [HTML-`size`-Attribut](#html-size-attribut) auf.
 
-| `<absolute-size>`     | xx-small | x-small | small | medium | large | x-large | xx-large | xxx-large |
-| --------------------- | -------- | ------- | ----- | ------ | ----- | ------- | -------- | --------- |
-| Skalierungsfaktor     | 3/5      | 3/4     | 8/9   | 1      | 6/5   | 3/2     | 2/1      | 3/1       |
-| HTML-Überschriften    | h6       |         | h5    | h4     | h3    | h2      | h1       |           |
-| HTML-`size`-Attribut  | 1        |         | 2     | 3      | 4     | 5       | 6        | 7         |
+| `<absolute-size>`    | xx-small | x-small | small | medium | large | x-large | xx-large | xxx-large |
+| -------------------- | -------- | ------- | ----- | ------ | ----- | ------- | -------- | --------- |
+| Skalierungsfaktor    | 3/5      | 3/4     | 8/9   | 1      | 6/5   | 3/2     | 2/1      | 3/1       |
+| HTML-Überschriften   | h6       |         | h5    | h4     | h3    | h2      | h1       |           |
+| HTML-`size`-Attribut | 1        |         | 2     | 3      | 4     | 5       | 6        | 7         |
 
 ### HTML-Size-Attribut
 

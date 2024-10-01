@@ -27,8 +27,8 @@ Andere Varianten von `br` sind `br_if` für die Verzweigung basierend auf einer 
 )
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `br`        | `0x0c`         |
-| `br_if`     | `0x0d`         |
-| `br_table`  | `0x0e`         |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `br`       | `0x0c`         |
+| `br_if`    | `0x0d`         |
+| `br_table` | `0x0e`         |

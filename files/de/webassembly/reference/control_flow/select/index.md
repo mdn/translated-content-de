@@ -32,7 +32,7 @@ i32.const 0
 select (result f32)
 ```
 
-| Anweisung | Binärer Opcode |
-| ----------- | ------------- |
-| `select`    | `0x1b`        |
-| `select t`  | `0x1c`        |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `select`   | `0x1b`         |
+| `select t` | `0x1c`         |

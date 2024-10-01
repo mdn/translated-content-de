@@ -36,20 +36,20 @@ Die Methode `Math.atan2()` misst den gegen den Uhrzeigersinn gerichteten Winkel 
 
 `Math.atan2()` wird mit separaten `x`- und `y`-Argumenten aufgerufen, während [`Math.atan()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/atan) das Verhältnis dieser beiden Argumente übergeben wird. `Math.atan2(y, x)` unterscheidet sich von `Math.atan(y / x)` in den folgenden Fällen:
 
-| `x`                  | `y`         | `Math.atan2(y, x)` | `Math.atan(y / x)` |
-| -------------------- | ----------- | ------------------ | ------------------ |
-| `Infinity`           | `Infinity`  | π / 4              | `NaN`              |
-| `Infinity`           | `-Infinity` | -π / 4             | `NaN`              |
-| `-Infinity`          | `Infinity`  | 3π / 4             | `NaN`              |
-| `-Infinity`          | `-Infinity` | -3π / 4            | `NaN`              |
-| 0                    | 0           | 0                  | `NaN`              |
-| 0                    | -0          | -0                 | `NaN`              |
+| `x`                       | `y`         | `Math.atan2(y, x)` | `Math.atan(y / x)` |
+| ------------------------- | ----------- | ------------------ | ------------------ |
+| `Infinity`                | `Infinity`  | π / 4              | `NaN`              |
+| `Infinity`                | `-Infinity` | -π / 4             | `NaN`              |
+| `-Infinity`               | `Infinity`  | 3π / 4             | `NaN`              |
+| `-Infinity`               | `-Infinity` | -3π / 4            | `NaN`              |
+| 0                         | 0           | 0                  | `NaN`              |
+| 0                         | -0          | -0                 | `NaN`              |
 | < 0 (einschließlich `-0`) | 0           | π                  | 0                  |
 | < 0 (einschließlich `-0`) | -0          | -π                 | 0                  |
-| `-Infinity`          | > 0         | π                  | -0                 |
-| -0                   | > 0         | π / 2              | -π / 2             |
-| `-Infinity`          | < 0         | -π                 | 0                  |
-| -0                   | < 0         | -π / 2             | π / 2              |
+| `-Infinity`               | > 0         | π                  | -0                 |
+| -0                        | > 0         | π / 2              | -π / 2             |
+| `-Infinity`               | < 0         | -π                 | 0                  |
+| -0                        | < 0         | -π / 2             | π / 2              |
 
 Zusätzlich gibt `Math.atan2()` für Punkte im zweiten und dritten Quadranten (`x < 0`) einen Winkel kleiner als <math><semantics><mrow><mo>-</mo><mfrac><mi>π</mi><mn>2</mn></mfrac></mrow><annotation encoding="TeX">-\frac{\pi}{2}</annotation></semantics></math> oder größer als <math><semantics><mfrac><mi>π</mi><mn>2</mn></mfrac><annotation encoding="TeX">\frac{\pi}{2}</annotation></semantics></math> aus.
 
@@ -88,7 +88,7 @@ function format(template, ...args) {
     ...args.map((num) =>
       (Object.is(num, -0)
         ? "-0"
-        : (formattedNumbers.get(num) ?? String(num))
+        : formattedNumbers.get(num) ?? String(num)
       ).padEnd(5),
     ),
   );

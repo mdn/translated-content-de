@@ -6,13 +6,14 @@ l10n:
 ---
 
 ---
+
 title: "BackgroundFetchUpdateUIEvent"
 slug: Web/API/BackgroundFetchUpdateUIEvent
 page-type: web-api-interface
 status:
 
 - experimental
-browser-compat: api.BackgroundFetchUpdateUIEvent
+  browser-compat: api.BackgroundFetchUpdateUIEvent
 
 ---
 

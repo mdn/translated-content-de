@@ -20,6 +20,6 @@ if
 end
 ```
 
-| Anweisung    | Binärer Opcode |
-| ------------ | -------------- |
-| `end`        | `0x0b`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `end`     | `0x0b`         |

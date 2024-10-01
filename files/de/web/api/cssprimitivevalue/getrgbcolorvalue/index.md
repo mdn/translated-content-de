@@ -34,8 +34,8 @@ Ein [`RGBColor`](/de/docs/Web/API/RGBColor) Objekt, das den Farbwert darstellt.
 
 ### Ausnahmen
 
-| **Typ**        | **Beschreibung**                                                                                                             |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Typ**        | **Beschreibung**                                                                                                                                    |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn die angehängte Eigenschaft keinen RGB-Farbwert zurückgeben kann (d.h. dies ist nicht `CSS_RGBCOLOR`). |
 
 ## Beispiele

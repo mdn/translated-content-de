@@ -29,13 +29,13 @@ Ein String, der den Zeitanteil des angegebenen Datums darstellt (siehe Beschreib
 
 {{jsxref("Date")}} Instanzen beziehen sich auf einen bestimmten Zeitpunkt. `toTimeString()` interpretiert das Datum in der lokalen Zeitzone und formatiert den _Zeit_-Teil auf Englisch. Es verwendet immer das Format `HH:mm:ss GMT±xxxx (TZ)`, wobei:
 
-| Format String | Beschreibung                                                                                       |
-| ------------- | -------------------------------------------------------------------------------------------------- |
-| `HH`          | Stunde, als zwei Ziffern mit führender Null, falls erforderlich                                     |
-| `mm`          | Minute, als zwei Ziffern mit führender Null, falls erforderlich                                     |
-| `ss`          | Sekunden, als zwei Ziffern mit führender Null, falls erforderlich                                   |
+| Format String | Beschreibung                                                                                                    |
+| ------------- | --------------------------------------------------------------------------------------------------------------- |
+| `HH`          | Stunde, als zwei Ziffern mit führender Null, falls erforderlich                                                 |
+| `mm`          | Minute, als zwei Ziffern mit führender Null, falls erforderlich                                                 |
+| `ss`          | Sekunden, als zwei Ziffern mit führender Null, falls erforderlich                                               |
 | `±xxxx`       | Der Offset der lokalen Zeitzone — zwei Ziffern für Stunden und zwei Ziffern für Minuten (z.B. `-0500`, `+0800`) |
-| `TZ`          | Der Name der Zeitzone (z.B. `PDT`, `PST`)                                                           |
+| `TZ`          | Der Name der Zeitzone (z.B. `PDT`, `PST`)                                                                       |
 
 Zum Beispiel: "04:42:04 GMT+0000 (Coordinated Universal Time)".
 

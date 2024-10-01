@@ -42,7 +42,7 @@ i32.const 0
 (drop)
 ```
 
-| Anweisung   | Binärcode    |
-| ----------- | ------------- |
-| `if`        | `0x04`        |
-| `else`      | `0x05`        |
+| Anweisung | Binärcode |
+| --------- | --------- |
+| `if`      | `0x04`    |
+| `else`    | `0x05`    |

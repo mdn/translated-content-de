@@ -192,7 +192,7 @@ python3 manage.py test
 Dies wird alle Dateien entdecken, die nach dem Muster **test\*.py** unter dem aktuellen Verzeichnis benannt sind, und alle Tests ausführen, die mit geeigneten Basisklassen definiert sind (hier haben wir eine Reihe von Testdateien, aber nur **/catalog/tests/test_models.py** enthält derzeit Tests). Standardmäßig berichtet der Test nur bei Testfehlern individuell, gefolgt von einer Testzusammenfassung.
 
 > [!NOTE]
-> Wenn Sie Fehler wie `ValueError: Missing staticfiles manifest entry...` erhalten, kann das daran liegen, dass beim Testen _collectstatic_ standardmäßig nicht ausgeführt wird und Ihre App eine Speicherklasse verwendet, die dies erfordert (sehen Sie manifest_strict für weitere Informationen). Es gibt mehrere Möglichkeiten, dieses Problem zu lösen - die einfachste ist es, _collectstatic_ vor dem Ausführen der Tests auszuführen:
+> Wenn Sie Fehler wie `ValueError: Missing staticfiles manifest entry...` erhalten, kann das daran liegen, dass beim Testen _collectstatic_ standardmäßig nicht ausgeführt wird und Ihre App eine Speicherklasse verwendet, die dies erfordert (sehen Sie manifest*strict für weitere Informationen). Es gibt mehrere Möglichkeiten, dieses Problem zu lösen - die einfachste ist es, \_collectstatic* vor dem Ausführen der Tests auszuführen:
 >
 > ```bash
 > python3 manage.py collectstatic

@@ -11,13 +11,13 @@ Der erste Artikel dieses Leitfadens, [Stapelung ohne die z-index Eigenschaft](/d
 
 Die `z-index` Eigenschaft kann mit einem ganzzahligen Wert (positiv, null oder negativ) angegeben werden, der die Position des Elements entlang einer imaginären Z-Achse darstellt. Wenn Sie den Begriff 'Z-Achse' nicht kennen, stellen Sie sich die Seite als Stapel von Schichten vor, wobei jede eine Nummer hat. Die Schichten werden in numerischer Reihenfolge gerendert, wobei größere Nummern über kleineren Nummern liegen (_X_ repräsentiert eine beliebige positive Ganzzahl):
 
-| Schicht         | Beschreibung                             |
-| --------------- | ---------------------------------------- |
-| Unterste Schicht| Am weitesten vom Betrachter entfernt     |
-| Schicht -X      | Schichten mit negativen `z-index` Werten |
-| Schicht 0       | Standard-Rendering-Schicht               |
-| Schicht X       | Schichten mit positiven `z-index` Werten |
-| Oberste Schicht | Am nächsten zum Betrachter               |
+| Schicht          | Beschreibung                             |
+| ---------------- | ---------------------------------------- |
+| Unterste Schicht | Am weitesten vom Betrachter entfernt     |
+| Schicht -X       | Schichten mit negativen `z-index` Werten |
+| Schicht 0        | Standard-Rendering-Schicht               |
+| Schicht X        | Schichten mit positiven `z-index` Werten |
+| Oberste Schicht  | Am nächsten zum Betrachter               |
 
 > [!NOTE]
 >

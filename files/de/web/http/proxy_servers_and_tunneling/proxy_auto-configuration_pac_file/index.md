@@ -651,12 +651,12 @@ function FindProxyForURL(url, host) {
 
 Dieses Beispiel ist anspruchsvoller. Es gibt vier (4) Proxy-Server; einer von ihnen ist ein Hot-Standby für alle anderen, sodass der vierte einspringt, wenn einer der übrigen drei ausfällt. Darüber hinaus teilen die drei verbleibenden Proxy-Server die Last basierend auf URL-Mustern, was ihr Caching effektiver macht (es gibt nur eine Kopie eines Dokuments auf den drei Servern - im Gegensatz zu einer Kopie auf jedem von ihnen). Die Last wird wie folgt verteilt:
 
-| Proxy | Zweck              |
-| ----- | ------------------ |
-| #1    | .com-Domain        |
-| #2    | .edu-Domain        |
+| Proxy | Zweck                |
+| ----- | -------------------- |
+| #1    | .com-Domain          |
+| #2    | .edu-Domain          |
 | #3    | alle anderen Domains |
-| #4    | Hot-Standby        |
+| #4    | Hot-Standby          |
 
 Alle lokalen Zugriffe sollen direkt erfolgen. Alle Proxy-Server laufen auf dem Port 8080 (sie müssen das nicht, Sie können einfach Ihren Port ändern, aber denken Sie daran, Ihre Konfigurationen auf beiden Seiten anzupassen). Beachten Sie, wie Strings im JavaScript mit dem **`+`** Operator verkettet werden können.
 

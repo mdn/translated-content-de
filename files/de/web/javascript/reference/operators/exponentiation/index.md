@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Potenzierungsoperator (`**`)** gibt das Ergebnis der Erhebung des ersten Operanden zur Potenz des zweiten Operanden zurück. Er ist gleichwertig zu {{jsxref("Math.pow()")}}, außer dass er auch [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) als Operanden akzeptiert.
+Der **Potenzierungsoperator (`**`)\*\* gibt das Ergebnis der Erhebung des ersten Operanden zur Potenz des zweiten Operanden zurück. Er ist gleichwertig zu {{jsxref("Math.pow()")}}, außer dass er auch [BigInts](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt) als Operanden akzeptiert.
 
 {{EmbedInteractiveExample("pages/js/expressions-exponentiation.html")}}
 

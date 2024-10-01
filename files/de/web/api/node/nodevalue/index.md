@@ -19,17 +19,17 @@ Für Attributknoten wird der Wert des Attributs zurückgegeben.
 
 Die folgende Tabelle zeigt die Rückgabewerte für verschiedene Knotentypen.
 
-| Knoten                               | Wert von nodeValue                  |
-| ------------------------------------ | ----------------------------------- |
-| [`CDATASection`](/de/docs/Web/API/CDATASection)          | Inhalt der CDATA-Sektion            |
-| [`Comment`](/de/docs/Web/API/Comment)               | Inhalt des Kommentars               |
-| [`Document`](/de/docs/Web/API/Document)              | `null`                              |
-| [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)      | `null`                              |
-| [`DocumentType`](/de/docs/Web/API/DocumentType)          | `null`                              |
-| [`Element`](/de/docs/Web/API/Element)               | `null`                              |
-| [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)          | `null`                              |
-| [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) | Gesamter Inhalt ohne das Ziel       |
-| [`Text`](/de/docs/Web/API/Text)                  | Inhalt des Textknotens              |
+| Knoten                                                            | Wert von nodeValue            |
+| ----------------------------------------------------------------- | ----------------------------- |
+| [`CDATASection`](/de/docs/Web/API/CDATASection)                   | Inhalt der CDATA-Sektion      |
+| [`Comment`](/de/docs/Web/API/Comment)                             | Inhalt des Kommentars         |
+| [`Document`](/de/docs/Web/API/Document)                           | `null`                        |
+| [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)           | `null`                        |
+| [`DocumentType`](/de/docs/Web/API/DocumentType)                   | `null`                        |
+| [`Element`](/de/docs/Web/API/Element)                             | `null`                        |
+| [`NamedNodeMap`](/de/docs/Web/API/NamedNodeMap)                   | `null`                        |
+| [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) | Gesamter Inhalt ohne das Ziel |
+| [`Text`](/de/docs/Web/API/Text)                                   | Inhalt des Textknotens        |
 
 > [!NOTE]
 > Wenn `nodeValue` als `null` definiert ist, hat das Setzen keinen Effekt.

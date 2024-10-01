@@ -1,5 +1,5 @@
 ---
-title: "TypeError: kann Eigenschaft \"x\" nicht definieren: \"obj\" ist nicht erweiterbar"
+title: 'TypeError: kann Eigenschaft "x" nicht definieren: "obj" ist nicht erweiterbar'
 slug: Web/JavaScript/Reference/Errors/Cant_define_property_object_not_extensible
 l10n:
   sourceCommit: 6d606174faaedaa5dee7b7ebd87602cd51e5dd7e

@@ -216,15 +216,15 @@ Die meisten Browser setzen den Namen und die Version im Format _Browsername/Vers
 
 Achten Sie auch darauf, keine einfachen regulären Ausdrücke auf den Browsername zu verwenden, User-Agents enthalten auch Zeichenfolgen außerhalb der Keyword/Value-Syntax. Safari & Chrome enthalten zum Beispiel die Zeichenfolge 'like Gecko'.
 
-| Browsername                    | Muss enthalten  | Darf nicht enthalten         |
-| ------------------------------- | --------------- | ----------------------------- |
-| Firefox                         | `Firefox/xyz`   | `Seamonkey/xyz`               |
-| Seamonkey                       | `Seamonkey/xyz` |                               |
-| Chrome                          | `Chrome/xyz`    | `Chromium/xyz` oder `Edg.*/xyz` |
-| Chromium                        | `Chromium/xyz`  |                               |
-| Safari                          | `Safari/xyz`    | `Chrome/xyz` oder `Chromium/xyz` |
-| Opera 15+ (Blink-basiert)       | `OPR/xyz`       |                               |
-| Opera 12- (Presto-basiert)      | `Opera/xyz`     |                               |
+| Browsername                | Muss enthalten  | Darf nicht enthalten             |
+| -------------------------- | --------------- | -------------------------------- |
+| Firefox                    | `Firefox/xyz`   | `Seamonkey/xyz`                  |
+| Seamonkey                  | `Seamonkey/xyz` |                                  |
+| Chrome                     | `Chrome/xyz`    | `Chromium/xyz` oder `Edg.*/xyz`  |
+| Chromium                   | `Chromium/xyz`  |                                  |
+| Safari                     | `Safari/xyz`    | `Chrome/xyz` oder `Chromium/xyz` |
+| Opera 15+ (Blink-basiert)  | `OPR/xyz`       |                                  |
+| Opera 12- (Presto-basiert) | `Opera/xyz`     |                                  |
 
 \[1] Safari gibt zwei Versionsnummern: eine technische im `Safari/xyz`-Token und eine benutzerfreundliche in einem `Version/xyz`-Token.
 
@@ -236,13 +236,13 @@ Wie bereits erwähnt, ist es in den meisten Fällen besser, nach der Rendering-E
 
 Es gibt drei aktive wichtige Rendering-Engines: Blink, Gecko und WebKit. Da das Sniffing der Rendering-Engine-Namen üblich ist, haben viele User-Agents andere Rendering-Namen hinzugefügt, um die Erkennung auszulösen. Es ist daher wichtig, darauf zu achten, keine Fehlalarme bei der Erkennung der Rendering-Engine auszulösen.
 
-| Engine    | Muss enthalten        | Kommentar                                                                                                                                                                                        |
-| --------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Blink     | `Chrome/xyz`          |                                                                                                                                                                                                  |
-| Gecko     | `Gecko/xyz`           |                                                                                                                                                                                                  |
-| WebKit    | `AppleWebKit/xyz`     | Achten Sie darauf, dass WebKit-Browser eine 'like Gecko'-Zeichenfolge hinzufügen können, die möglicherweise einen Fehlalarm für Gecko auslösen, wenn die Erkennung nicht vorsichtig ist.                                              |
-| Presto    | `Opera/xyz`           | Veraltet; Presto wird in Opera-Browserversionen >= Version 15 nicht mehr verwendet (siehe 'Blink').                                                                                              |
-| EdgeHTML  | `Edge/xyz`            | Der nicht-Chromium-Edge setzt die Versionsnummer seiner Engine nicht nach dem Token _Edge/_, sondern zur Anwendungsversion. Veraltet; EdgeHTML wird in Edge-Browsers ab Version 79 nicht mehr verwendet (siehe 'Blink'). |
+| Engine   | Muss enthalten    | Kommentar                                                                                                                                                                                                                |
+| -------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Blink    | `Chrome/xyz`      |                                                                                                                                                                                                                          |
+| Gecko    | `Gecko/xyz`       |                                                                                                                                                                                                                          |
+| WebKit   | `AppleWebKit/xyz` | Achten Sie darauf, dass WebKit-Browser eine 'like Gecko'-Zeichenfolge hinzufügen können, die möglicherweise einen Fehlalarm für Gecko auslösen, wenn die Erkennung nicht vorsichtig ist.                                 |
+| Presto   | `Opera/xyz`       | Veraltet; Presto wird in Opera-Browserversionen >= Version 15 nicht mehr verwendet (siehe 'Blink').                                                                                                                      |
+| EdgeHTML | `Edge/xyz`        | Der nicht-Chromium-Edge setzt die Versionsnummer seiner Engine nicht nach dem Token _Edge/_, sondern zur Anwendungsversion. Veraltet; EdgeHTML wird in Edge-Browsers ab Version 79 nicht mehr verwendet (siehe 'Blink'). |
 
 ## Version der Rendering-Engine
 
@@ -263,13 +263,13 @@ Der häufigste Grund für User-Agent-Sniffing ist die Bestimmung, auf welchem Ge
 
 Die folgende Tabelle fasst zusammen, wie häufige Browseranbieter anzeigen, dass ihre Browser auf einem mobilen Gerät ausgeführt werden:
 
-| Browser                                                            | Regel                                                  | Beispiel                                                                                                                                                             |
-| ------------------------------------------------------------------ | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mozilla (Gecko, Firefox)                                           | `Mobile` oder `Tablet` im Kommentar.                   | `Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0`                                                                                                |
-| WebKit-basiert (Android, Safari)                                   | `Mobile Safari`-Token außerhalb des Kommentars.        | `Mozilla/5.0 (Linux; U; Android 4.0.3; de-ch; HTC Sensation Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`               |
-| Blink-basiert (Chromium, Google Chrome, Opera 15+, Edge auf Android)| `Mobile Safari`-Token außerhalb des Kommentars.       | `Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047`   |
-| Presto-basiert (Opera 12-)                                         | `Opera Mobi/xyz`-Token im Kommentar.                   | `Opera/9.80 (Android 2.3.3; Linux; Opera Mobi/ADR-1111101157; U; es-ES) Presto/2.9.201 Version/11.50`                                                            |
-| Edge auf Windows 10 Mobile                                         | `Mobile/xyz` und `Edge/`-Tokens außerhalb des Kommentars.| `Mozilla/5.0 (Windows Phone 10.0; Android 6.0.1; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Mobile Safari/537.36 Edge/16.16299` |
+| Browser                                                              | Regel                                                     | Beispiel                                                                                                                                                         |
+| -------------------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mozilla (Gecko, Firefox)                                             | `Mobile` oder `Tablet` im Kommentar.                      | `Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0`                                                                                                 |
+| WebKit-basiert (Android, Safari)                                     | `Mobile Safari`-Token außerhalb des Kommentars.           | `Mozilla/5.0 (Linux; U; Android 4.0.3; de-ch; HTC Sensation Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`               |
+| Blink-basiert (Chromium, Google Chrome, Opera 15+, Edge auf Android) | `Mobile Safari`-Token außerhalb des Kommentars.           | `Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047`  |
+| Presto-basiert (Opera 12-)                                           | `Opera Mobi/xyz`-Token im Kommentar.                      | `Opera/9.80 (Android 2.3.3; Linux; Opera Mobi/ADR-1111101157; U; es-ES) Presto/2.9.201 Version/11.50`                                                            |
+| Edge auf Windows 10 Mobile                                           | `Mobile/xyz` und `Edge/`-Tokens außerhalb des Kommentars. | `Mozilla/5.0 (Windows Phone 10.0; Android 6.0.1; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Mobile Safari/537.36 Edge/16.16299` |
 
 Zusammenfassend empfehlen wir, nach dem String `Mobi` überall im User-Agent zu suchen, um ein mobiles Gerät zu erkennen.
 

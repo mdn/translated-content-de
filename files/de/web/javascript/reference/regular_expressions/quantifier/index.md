@@ -44,14 +44,14 @@ atom{min,max}?
 
 Ein Quantor wird nach einem [Atom](/de/docs/Web/JavaScript/Reference/Regular_expressions#atoms) platziert, um es eine bestimmte Anzahl von Malen zu wiederholen. Er kann nicht eigenständig erscheinen. Jeder Quantor kann eine Mindest- und Höchstanzahl angeben, die ein Muster wiederholt werden muss.
 
-| Quantor     | Minimum | Maximum  |
-| ----------- | ------- | -------- |
-| `?`         | 0       | 1        |
+| Quantor     | Minimum | Maximum   |
+| ----------- | ------- | --------- |
+| `?`         | 0       | 1         |
 | `*`         | 0       | Unendlich |
 | `+`         | 1       | Unendlich |
-| `{count}`   | `count` | `count`  |
+| `{count}`   | `count` | `count`   |
 | `{min,}`    | `min`   | Unendlich |
-| `{min,max}` | `min`   | `max`    |
+| `{min,max}` | `min`   | `max`     |
 
 Für die Syntaxen `{count}`, `{min,}` und `{min,max}` dürfen keine Leerzeichen um die Zahlen vorhanden sein – andernfalls wird es zu einem [literal](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) Muster.
 

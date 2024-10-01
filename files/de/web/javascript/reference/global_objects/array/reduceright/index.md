@@ -77,11 +77,11 @@ Einige Beispiel-Durchläufe der Funktion könnten so aussehen:
 
 Der Callback würde vier Mal aufgerufen, wobei die Argumente und Rückgabewerte bei jedem Aufruf wie folgt sind:
 
-|             | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| ----------- | ------------- | -------------- | ------- | ------------ |
+|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| -------------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `4`           | `3`            | `3`     | `7`          |
 | Zweiter Aufruf | `7`           | `2`            | `2`     | `9`          |
-| Dritter Aufruf  | `9`           | `1`            | `1`     | `10`         |
+| Dritter Aufruf | `9`           | `1`            | `1`     | `10`         |
 | Vierter Aufruf | `10`          | `0`            | `0`     | `10`         |
 
 Der `array` Parameter ändert sich während des Prozesses nie – er ist immer `[0, 1, 2, 3, 4]`. Der von `reduceRight` zurückgegebene Wert wäre der des letzten Callback-Aufrufs (`10`).
@@ -97,13 +97,13 @@ Hier reduzieren wir dasselbe Array mit demselben Algorithmus, aber mit einem `in
 );
 ```
 
-|             | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| ----------- | ------------- | -------------- | ------- | ------------ |
+|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| -------------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `10`          | `4`            | `4`     | `14`         |
 | Zweiter Aufruf | `14`          | `3`            | `3`     | `17`         |
-| Dritter Aufruf  | `17`          | `2`            | `2`     | `19`         |
+| Dritter Aufruf | `17`          | `2`            | `2`     | `19`         |
 | Vierter Aufruf | `19`          | `1`            | `1`     | `20`         |
-| Fünfter Aufruf  | `20`          | `0`            | `0`     | `20`         |
+| Fünfter Aufruf | `20`          | `0`            | `0`     | `20`         |
 
 Der von `reduceRight` zurückgegebene Wert wäre dieses Mal natürlich `20`.
 
@@ -178,7 +178,7 @@ console.log(right); // "54321"
 
 Funktionale Komposition ist ein Mechanismus zur Kombination von Funktionen, bei dem die Ausgabe jeder Funktion in die nächste übergeht und die Ausgabe der letzten Funktion das Endergebnis ist. In diesem Beispiel verwenden wir `reduceRight()`, um die funktionale Komposition zu implementieren.
 
-Siehe auch [Funktionale Komposition](<https://de.wikipedia.org/wiki/Funktionskomposition>) auf Wikipedia.
+Siehe auch [Funktionale Komposition](https://de.wikipedia.org/wiki/Funktionskomposition) auf Wikipedia.
 
 ```js
 const compose =

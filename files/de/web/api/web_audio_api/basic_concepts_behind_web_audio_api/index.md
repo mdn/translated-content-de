@@ -125,12 +125,12 @@ Da die Web Audio API auf die Verarbeitung ausgelegt ist, bietet sie _nur_ planar
 
 Jeder Audiopuffer kann unterschiedliche Anzahlen von Kanälen enthalten. Die meisten modernen Audiogeräte verwenden die grundlegenden _Mono_- (nur ein Kanal) und _Stereo_- (linke und rechte Kanäle) Einstellungen. Einige komplexere Geräte unterstützen _Surround Sound_-Einstellungen (wie _Quad_ und _5.1_), was zu einem reichhaltigeren Klangerlebnis führen kann, dank ihrer hohen Kanalanzahl. Wir repräsentieren die Kanäle in der Regel mit den standardmäßigen Abkürzungen, die in der folgenden Tabelle aufgeführt sind:
 
-| Name     | Kanäle                                                                                                     |
-| -------- | ----------------------------------------------------------------------------------------------------------- |
-| _Mono_   | `0: M: mono`                                                                                                 |
-| _Stereo_ | `0: L: links 1: R: rechts`                                                                                   |
-| _Quad_   | `0: L: links 1: R: rechts 2: SL: surround links 3: SR: surround rechts`                                       |
-| _5.1_    | `0: L: links 1: R: rechts 2: C: center 3: LFE: subwoofer 4: SL: surround links 5: SR: surround rechts`        |
+| Name     | Kanäle                                                                                                 |
+| -------- | ------------------------------------------------------------------------------------------------------ |
+| _Mono_   | `0: M: mono`                                                                                           |
+| _Stereo_ | `0: L: links 1: R: rechts`                                                                             |
+| _Quad_   | `0: L: links 1: R: rechts 2: SL: surround links 3: SR: surround rechts`                                |
+| _5.1_    | `0: L: links 1: R: rechts 2: C: center 3: LFE: subwoofer 4: SL: surround links 5: SR: surround rechts` |
 
 ### Up-Mixing und Down-Mixing
 

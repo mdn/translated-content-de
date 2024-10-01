@@ -23,7 +23,7 @@ i32.popcnt
 ;; the top item on the stack will now be 2
 ```
 
-| Anweisung   | Binärer Opcode |
-| ------------ | ------------- |
-| `i32.popcnt` | `0x69`        |
-| `i64.popcnt` | `0x7b`        |
+| Anweisung    | Binärer Opcode |
+| ------------ | -------------- |
+| `i32.popcnt` | `0x69`         |
+| `i64.popcnt` | `0x7b`         |

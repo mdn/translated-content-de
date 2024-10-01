@@ -147,13 +147,13 @@ input[type="checkbox"] {
 
 Verschiedene Browser behandeln das Kontrollkästchen und span unterschiedlich, oft auf hässliche Weise:
 
-| Browser                             | Rendering                                                                                              |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Firefox 71 (macOS)                  | ![Abgerundete Ecken und 1px hellgrauer Rahmen](firefox-mac-checkbox.png)                               |
-| Firefox 57 (Windows 10)             | ![Rechteckige Ecken mit 1px mittelgrauem Rahmen](firefox-windows-checkbox.png)                         |
-| Chrome 77 (macOS), Safari 13, Opera | ![Abgerundete Ecke mit 1px mittelgrauem Rahmen](chrome-mac-checkbox.png)                               |
-| Chrome 63 (Windows 10)              | ![Rechteckige Rahmen mit leicht grauem Hintergrund statt weiß.](chrome-windows-checkbox.png)           |
-| Edge 16 (Windows 10)                | ![Rechteckige Rahmen mit leicht grauem Hintergrund statt weiß.](edge-checkbox.png)                      |
+| Browser                             | Rendering                                                                                    |
+| ----------------------------------- | -------------------------------------------------------------------------------------------- |
+| Firefox 71 (macOS)                  | ![Abgerundete Ecken und 1px hellgrauer Rahmen](firefox-mac-checkbox.png)                     |
+| Firefox 57 (Windows 10)             | ![Rechteckige Ecken mit 1px mittelgrauem Rahmen](firefox-windows-checkbox.png)               |
+| Chrome 77 (macOS), Safari 13, Opera | ![Abgerundete Ecke mit 1px mittelgrauem Rahmen](chrome-mac-checkbox.png)                     |
+| Chrome 63 (Windows 10)              | ![Rechteckige Rahmen mit leicht grauem Hintergrund statt weiß.](chrome-windows-checkbox.png) |
+| Edge 16 (Windows 10)                | ![Rechteckige Rahmen mit leicht grauem Hintergrund statt weiß.](edge-checkbox.png)           |
 
 #### Verwendung von appearance: none für Radios/Kontrollkästchen
 

@@ -28,21 +28,21 @@ createTreeWalker(root, whatToShow, filter)
 
   - : Ein `unsigned long`, der eine Bitmaske darstellt, die durch Kombination der Konstanten-Eigenschaften von [`NodeFilter`](https://dom.spec.whatwg.org/#interface-nodefilter) erstellt wurde. Es ist eine bequeme Möglichkeit zur Filterung bestimmter Knotentypen. Standardmäßig ist es `0xFFFFFFFF`, was der Konstante `NodeFilter.SHOW_ALL` entspricht.
 
-    | Konstante                                                | Numerischer Wert | Beschreibung                                       |
-    | -------------------------------------------------------- | --------------- | ------------------------------------------------- |
-    | `NodeFilter.SHOW_ALL`                                    | `0xFFFFFFFF`    | Zeigt alle Knoten an.                                  |
-    | `NodeFilter.SHOW_ATTRIBUTE`                              | `0x2`           | Zeigt [`Attr`](/de/docs/Web/API/Attr)-Knoten an.                  |
-    | `NodeFilter.SHOW_CDATA_SECTION`                          | `0x8`           | Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten an.          |
-    | `NodeFilter.SHOW_COMMENT`                                | `0x80`          | Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten an.               |
-    | `NodeFilter.SHOW_DOCUMENT`                               | `0x100`         | Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten an.              |
-    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `0x400`         | Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten an.      |
-    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `0x200`         | Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten an.          |
-    | `NodeFilter.SHOW_ELEMENT`                                | `0x1`           | Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten an.               |
-    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `0x20`          | Veraltet, nicht mehr wirksam.                      |
-    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `0x10`          | Veraltet, nicht mehr wirksam.                      |
-    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `0x800`         | Veraltet, nicht mehr wirksam.                      |
-    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `0x40`          | Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten an. |
-    | `NodeFilter.SHOW_TEXT`                                   | `0x4`           | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten an.                  |
+    | Konstante                                                | Numerischer Wert | Beschreibung                                                                       |
+    | -------------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------- |
+    | `NodeFilter.SHOW_ALL`                                    | `0xFFFFFFFF`     | Zeigt alle Knoten an.                                                              |
+    | `NodeFilter.SHOW_ATTRIBUTE`                              | `0x2`            | Zeigt [`Attr`](/de/docs/Web/API/Attr)-Knoten an.                                   |
+    | `NodeFilter.SHOW_CDATA_SECTION`                          | `0x8`            | Zeigt [`CDATASection`](/de/docs/Web/API/CDATASection)-Knoten an.                   |
+    | `NodeFilter.SHOW_COMMENT`                                | `0x80`           | Zeigt [`Comment`](/de/docs/Web/API/Comment)-Knoten an.                             |
+    | `NodeFilter.SHOW_DOCUMENT`                               | `0x100`          | Zeigt [`Document`](/de/docs/Web/API/Document)-Knoten an.                           |
+    | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `0x400`          | Zeigt [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Knoten an.           |
+    | `NodeFilter.SHOW_DOCUMENT_TYPE`                          | `0x200`          | Zeigt [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten an.                   |
+    | `NodeFilter.SHOW_ELEMENT`                                | `0x1`            | Zeigt [`Element`](/de/docs/Web/API/Element)-Knoten an.                             |
+    | `NodeFilter.SHOW_ENTITY` {{deprecated_inline}}           | `0x20`           | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_ENTITY_REFERENCE` {{deprecated_inline}} | `0x10`           | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_NOTATION` {{deprecated_inline}}         | `0x800`          | Veraltet, nicht mehr wirksam.                                                      |
+    | `NodeFilter.SHOW_PROCESSING_INSTRUCTION`                 | `0x40`           | Zeigt [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)-Knoten an. |
+    | `NodeFilter.SHOW_TEXT`                                   | `0x4`            | Zeigt [`Text`](/de/docs/Web/API/Text)-Knoten an.                                   |
 
     > [!NOTE]
     > Da der Elternknoten eines `Attr`-Knotens immer `null` ist, wird [`TreeWalker.nextNode()`](/de/docs/Web/API/TreeWalker/nextNode) und [`TreeWalker.previousNode()`](/de/docs/Web/API/TreeWalker/previousNode) niemals einen `Attr`-Knoten zurückgeben. Um `Attr`-Knoten zu durchlaufen, verwenden Sie stattdessen [`Element.attributes`](/de/docs/Web/API/Element/attributes).

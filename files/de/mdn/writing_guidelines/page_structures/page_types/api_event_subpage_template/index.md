@@ -41,6 +41,7 @@ l10n:
 > - **status**
 >   - : Kennzeichen, die den Status dieses Features beschreiben. Ein Array, das eine oder mehrere der folgenden Optionen enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe [Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
 > - **browser-compat**
+>
 >   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheEvent_event` mit der Abfragezeichenfolge für das Ereignis im [Browser compat data repo](https://github.com/mdn/browser-compat-data).
 >     Die Toolchain verwendet den Schlüssel automatisch, um die Abschnitte „Kompatibilität“ und „Spezifikation“ zu füllen (Ersetzen der `\{{Compat}}` und `\{{Specifications}}` Makros).
 >

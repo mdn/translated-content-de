@@ -23,6 +23,6 @@ f64.promote_f32
 ;; the top item on the stack will now be the value 10.5 of type f64
 ```
 
-| Anweisung          | Binärer Opcode |
-| ------------------ | -------------- |
-| `f64.promote_f32`  | `0xbb`         |
+| Anweisung         | Binärer Opcode |
+| ----------------- | -------------- |
+| `f64.promote_f32` | `0xbb`         |

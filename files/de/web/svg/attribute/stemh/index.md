@@ -6,13 +6,14 @@ l10n:
 ---
 
 ---
+
 title: "stemh"
 slug: Web/SVG/Attribute/stemh
 page-type: svg-attribute
 status:
 
 - deprecated
-browser-compat: svg.elements.font-face.stemh
+  browser-compat: svg.elements.font-face.stemh
 
 ---
 

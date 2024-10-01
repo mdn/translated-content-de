@@ -6,13 +6,14 @@ l10n:
 ---
 
 ---
+
 title: "XRCubeLayer"
 slug: Web/API/XRCubeLayer
 page-type: web-api-interface
 status:
 
 - experimental
-browser-compat: api.XRCubeLayer
+  browser-compat: api.XRCubeLayer
 
 ---
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Wahrgenommene Leistung** ist ein Maß dafür, wie schnell, reaktionsfähig und zuverlässig eine Website den Nutzern *erscheint*. Die Wahrnehmung, wie gut eine Seite funktioniert, kann einen größeren Einfluss auf die Benutzererfahrung haben als die tatsächlichen Lade- und Antwortzeiten.
+**Wahrgenommene Leistung** ist ein Maß dafür, wie schnell, reaktionsfähig und zuverlässig eine Website den Nutzern _erscheint_. Die Wahrnehmung, wie gut eine Seite funktioniert, kann einen größeren Einfluss auf die Benutzererfahrung haben als die tatsächlichen Lade- und Antwortzeiten.
 
 ## Siehe auch
 

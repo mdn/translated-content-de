@@ -148,17 +148,17 @@ Beachten Sie, dass beim Verwenden relativer Gewichte nur vier Schriftgewichte be
 
 Die numerischen Werte `100` bis `900` entsprechen grob den folgenden häufigen Gewichtsnamen (siehe die [OpenType-Spezifikation](https://learn.microsoft.com/en-us/typography/opentype/spec/os2#usweightclass)):
 
-| Wert | Häufiger Gewichtsnamen                                                                                                              |
-| ---- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| 100  | Dünn (Haarlinie)                                                                                                                    |
-| 200  | Extra Leicht (Ultra Leicht)                                                                                                         |
-| 300  | Leicht                                                                                                                              |
-| 400  | Normal (Regulär)                                                                                                                    |
-| 500  | Mittel                                                                                                                              |
-| 600  | Halb Fett (Demi Fett)                                                                                                               |
-| 700  | Fett                                                                                                                                |
-| 800  | Extra Fett (Ultra Fett)                                                                                                             |
-| 900  | Schwarz (Schwer)                                                                                                                    |
+| Wert | Häufiger Gewichtsnamen                                                                                                                 |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 100  | Dünn (Haarlinie)                                                                                                                       |
+| 200  | Extra Leicht (Ultra Leicht)                                                                                                            |
+| 300  | Leicht                                                                                                                                 |
+| 400  | Normal (Regulär)                                                                                                                       |
+| 500  | Mittel                                                                                                                                 |
+| 600  | Halb Fett (Demi Fett)                                                                                                                  |
+| 700  | Fett                                                                                                                                   |
+| 800  | Extra Fett (Ultra Fett)                                                                                                                |
+| 900  | Schwarz (Schwer)                                                                                                                       |
 | 950  | [Extra Schwarz (Ultra Schwarz)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks) |
 
 ### Variable Schriftarten

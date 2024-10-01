@@ -56,37 +56,37 @@ Der bevorzugte Weg, um Inhalte an einen Geräteformfaktor anzupassen, ist die Ve
 
 Windows User-Agents haben die folgenden Variationen, wobei _x.y_ die Windows NT-Version ist (z.B. Windows NT 6.1).
 
-| Windows-Version                 | Gecko-User-Agent-Zeichenkette                                                           |
-| -------------------------------- | ------------------------------------------------------------------------------------ |
+| Windows-Version                     | Gecko-User-Agent-Zeichenkette                                                     |
+| ----------------------------------- | --------------------------------------------------------------------------------- |
 | Windows NT auf x86 oder aarch64 CPU | Mozilla/5.0 (Windows NT _x_._y_; rv:10.0) Gecko/20100101 Firefox/10.0             |
-| Windows NT auf x64 CPU            | Mozilla/5.0 (Windows NT _x_._y_; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0 |
+| Windows NT auf x64 CPU              | Mozilla/5.0 (Windows NT _x_._y_; Win64; x64; rv:10.0) Gecko/20100101 Firefox/10.0 |
 
 ## MacOS
 
 Hier ist _x.y_ die Version von macOS (z.B. macOS 10.15). Ab Firefox 87 begrenzt Firefox die gemeldete macOS-Version auf 10.15, sodass macOS 11.0 Big Sur und später als "10.15" in der User-Agent-Zeichenkette gemeldet werden. ARM-basierte Macs werden als "Intel" in der User-Agent-Zeichenkette gemeldet.
 
-| Mac OS X-Version                   | Gecko-User-Agent-Zeichenkette                                                           |
-| ----------------------------------- | ----------------------------------------------------------------------------------- |
+| Mac OS X-Version                      | Gecko-User-Agent-Zeichenkette                                                      |
+| ------------------------------------- | ---------------------------------------------------------------------------------- |
 | Mac OS X auf x86, x86_64 oder aarch64 | Mozilla/5.0 (Macintosh; Intel Mac OS X _x.y_; rv:10.0) Gecko/20100101 Firefox/10.0 |
-| Mac OS X auf PowerPC                 | Mozilla/5.0 (Macintosh; PPC Mac OS X _x.y_; rv:10.0) Gecko/20100101 Firefox/10.0   |
+| Mac OS X auf PowerPC                  | Mozilla/5.0 (Macintosh; PPC Mac OS X _x.y_; rv:10.0) Gecko/20100101 Firefox/10.0   |
 
 ## Linux
 
 Linux ist eine vielfältigere Plattform. Ihre Linux-Distribution könnte eine Erweiterung beinhalten, die Ihren User-Agent ändert. Einige häufige Beispiele sind unten aufgeführt.
 
-| Linux-Version                | Gecko-User-Agent-Zeichenkette                                              |
-| --------------------------- | -------------------------------------------------------------------------- |
-| Linux-Desktop auf i686 CPU   | Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0       |
-| Linux-Desktop auf x86_64 CPU | Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0     |
+| Linux-Version                | Gecko-User-Agent-Zeichenkette                                        |
+| ---------------------------- | -------------------------------------------------------------------- |
+| Linux-Desktop auf i686 CPU   | Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0   |
+| Linux-Desktop auf x86_64 CPU | Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20100101 Firefox/10.0 |
 
 ## Firefox für Android
 
 Firefox für Android enthält die Android-Version als Teil des _platform_-Tokens. Für bessere Interoperabilität meldet der Browser, wenn er auf einer Version unter 4 läuft, die Version 4.4. Android-Versionen 4 und höher melden die Version genau. Beachten Sie, dass dasselbe Gecko — mit denselben Fähigkeiten — auf allen Android-Versionen ausgeliefert wird.
 
-| Formfaktor | Gecko-User-Agent-Zeichenkette                                          |
-| --------- | --------------------------------------------------------------------- |
-| Telefon   | Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0     |
-| Tablet    | Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0     |
+| Formfaktor | Gecko-User-Agent-Zeichenkette                                      |
+| ---------- | ------------------------------------------------------------------ |
+| Telefon    | Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0 |
+| Tablet     | Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0 |
 
 ## Focus für Android
 
@@ -100,7 +100,7 @@ Tablet-Versionen auf WebView spiegeln die mobile Version wider, enthalten jedoch
 
 Ab Version 6 können Benutzer sich für einen auf GeckoView basierenden Focus für Android entscheiden, indem sie eine versteckte Einstellung verwenden: Er nutzt eine GeckoView-UA-Zeichenkette, um Gecko-Kompatibilität zu werben.
 
-| Focus-Version (Rendering-Engine) | User-Agent-Zeichenkette                                                                                                                     |
+| Focus-Version (Rendering-Engine) | User-Agent-Zeichenkette                                                                                                                |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | 1.0 (WebView Mobile)             | Mozilla/5.0 (Linux; Android 7.0) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/1.0 Chrome/59.0.3029.83 Mobile Safari/537.36 |
 | 1.0 (WebView Tablet)             | Mozilla/5.0 (Linux; Android 7.0) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/1.0 Chrome/59.0.3029.83 Safari/537.36        |
@@ -112,11 +112,11 @@ Der Klar User-Agent ist derselbe wie bei [Focus](#focus_für_ios).
 
 Firefox für iOS verwendet die Standard-Mobile-Safari-UA-Zeichenkette mit einem zusätzlichen **FxiOS/\<version>**-Token auf iPod und iPhone, ähnlich wie [Chrome für iOS sich selbst identifiziert](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/ios/user_agent.md).
 
-| Formfaktor | Firefox für iOS User-Agent-Zeichenkette                                                                                     |
-| --------- | --------------------------------------------------------------------------------------------------------------------------- |
-| iPod      | Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) **FxiOS/1.0** Mobile/12F69 Safari/600.1.4 |
-| iPhone    | Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) **FxiOS/1.0** Mobile/12F69 Safari/600.1.4     |
-| iPad      | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15                       |
+| Formfaktor | Firefox für iOS User-Agent-Zeichenkette                                                                                                     |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| iPod       | Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) **FxiOS/1.0** Mobile/12F69 Safari/600.1.4 |
+| iPhone     | Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) **FxiOS/1.0** Mobile/12F69 Safari/600.1.4     |
+| iPad       | Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15                       |
 
 Auf dem iPad erscheint die User-Agent-Zeichenkette identisch zu Safari. Für verschiedene Probleme im Zusammenhang mit dem Nicht-Einschluss von `FxiOS` auf iOS siehe [mozilla-mobile/firefox-ios#6620](https://github.com/mozilla-mobile/firefox-ios/issues/6620).
 
@@ -138,9 +138,9 @@ Version 3 (und wahrscheinlich früher) von Firefox für Fire TV verwendet eine U
 Mozilla/5.0 (Linux; <Android version>) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/<firefoxversion> Chrome/<Chrome Rev> Safari/<WebKit Rev>
 ```
 
-| Firefox TV-Version | User-Agent-Zeichenkette                                                                                                                    |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
-| v3.0               | Mozilla/5.0 (Linux; Android 7.1.2) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/3.0 Chrome/59.0.3017.125 Safari/537.36    |
+| Firefox TV-Version | User-Agent-Zeichenkette                                                                                                            |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| v3.0               | Mozilla/5.0 (Linux; Android 7.1.2) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/3.0 Chrome/59.0.3017.125 Safari/537.36 |
 
 ## Firefox für Echo Show
 
@@ -150,18 +150,18 @@ Ab Version 1.1 verwendet Firefox für Echo Show eine User-Agent-Zeichenkette mit
 Mozilla/5.0 (Linux; <Android version>) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/<firefoxversion> Chrome/<Chrome Rev> Safari/<WebKit Rev>
 ```
 
-| Firefox für Echo Show Version | User-Agent-Zeichenkette                                                                                                              |
+| Firefox für Echo Show Version | User-Agent-Zeichenkette                                                                                                            |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | v1.1                          | Mozilla/5.0 (Linux; Android 5.1.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/1.1 Chrome/59.0.3017.125 Safari/537.36 |
 
 ## Firefox OS
 
-| Formfaktor     | Gecko-User-Agent-Zeichenkette                                          |
-| --------------- | ------------------------------------------------------------------- |
-| Telefon         | Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0                 |
-| Tablet          | Mozilla/5.0 (Tablet; rv:26.0) Gecko/26.0 Firefox/26.0                 |
-| TV              | Mozilla/5.0 (TV; rv:44.0) Gecko/44.0 Firefox/44.0                     |
-| Gerät-spezifisch | Mozilla/5.0 (Mobile; **_nnnn;_** rv:26.0) Gecko/26.0 Firefox/26.0   |
+| Formfaktor       | Gecko-User-Agent-Zeichenkette                                     |
+| ---------------- | ----------------------------------------------------------------- |
+| Telefon          | Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0             |
+| Tablet           | Mozilla/5.0 (Tablet; rv:26.0) Gecko/26.0 Firefox/26.0             |
+| TV               | Mozilla/5.0 (TV; rv:44.0) Gecko/44.0 Firefox/44.0                 |
+| Gerät-spezifisch | Mozilla/5.0 (Mobile; **_nnnn;_** rv:26.0) Gecko/26.0 Firefox/26.0 |
 
 ### Gerät-spezifische User-Agent-Zeichenketten
 

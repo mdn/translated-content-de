@@ -45,15 +45,15 @@ Je nach Anwendungsfall kann es bereits ausreichen, 95 % des Zielwerts zu erreich
 
 Für weitere Details sehen Sie die folgende Tabelle an, wie sich der Wert von 0 % auf 100 % ändert, während die Zeit fortschreitet.
 
-| Zeit seit `startTime` | Wert                                                      |
-| --------------------- | --------------------------------------------------------- |
-| `0 * timeConstant`    | 0%                                                        |
-| `0.5 * timeConstant`  | 39,3%                                                     |
-| `1 * timeConstant`    | 63,2%                                                     |
-| `2 * timeConstant`    | 86,5%                                                     |
-| `3 * timeConstant`    | 95,0%                                                     |
-| `4 * timeConstant`    | 98,2%                                                     |
-| `5 * timeConstant`    | 99,3%                                                     |
+| Zeit seit `startTime` | Wert                                                        |
+| --------------------- | ----------------------------------------------------------- |
+| `0 * timeConstant`    | 0%                                                          |
+| `0.5 * timeConstant`  | 39,3%                                                       |
+| `1 * timeConstant`    | 63,2%                                                       |
+| `2 * timeConstant`    | 86,5%                                                       |
+| `3 * timeConstant`    | 95,0%                                                       |
+| `4 * timeConstant`    | 98,2%                                                       |
+| `5 * timeConstant`    | 99,3%                                                       |
 | `n * timeConstant`    | <math><semantics><mrow><mn>1</mn></mrow></semantics></math> |
 
 <!-- prettier-ignore-start -->

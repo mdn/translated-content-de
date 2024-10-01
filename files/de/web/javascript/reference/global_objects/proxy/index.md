@@ -116,19 +116,19 @@ Ein weiteres Beispiel: [Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects
 
 Alle Objekte haben die folgenden internen Methoden:
 
-| Interne Methode        | Entsprechender Trap                                                              |
-| ---------------------- | -------------------------------------------------------------------------------- |
-| `[[GetPrototypeOf]]`   | {{jsxref("Proxy/Proxy/getPrototypeOf", "getPrototypeOf()")}}                     |
-| `[[SetPrototypeOf]]`   | {{jsxref("Proxy/Proxy/setPrototypeOf", "setPrototypeOf()")}}                     |
-| `[[IsExtensible]]`     | {{jsxref("Proxy/Proxy/isExtensible", "isExtensible()")}}                         |
-| `[[PreventExtensions]]`| {{jsxref("Proxy/Proxy/preventExtensions", "preventExtensions()")}}               |
-| `[[GetOwnProperty]]`   | {{jsxref("Proxy/Proxy/getOwnPropertyDescriptor", "getOwnPropertyDescriptor()")}} |
-| `[[DefineOwnProperty]]`| {{jsxref("Proxy/Proxy/defineProperty", "defineProperty()")}}                     |
-| `[[HasProperty]]`      | {{jsxref("Proxy/Proxy/has", "has()")}}                                           |
-| `[[Get]]`              | {{jsxref("Proxy/Proxy/get", "get()")}}                                           |
-| `[[Set]]`              | {{jsxref("Proxy/Proxy/set", "set()")}}                                           |
-| `[[Delete]]`           | {{jsxref("Proxy/Proxy/deleteProperty", "deleteProperty()")}}                     |
-| `[[OwnPropertyKeys]]`  | {{jsxref("Proxy/Proxy/ownKeys", "ownKeys()")}}                                   |
+| Interne Methode         | Entsprechender Trap                                                              |
+| ----------------------- | -------------------------------------------------------------------------------- |
+| `[[GetPrototypeOf]]`    | {{jsxref("Proxy/Proxy/getPrototypeOf", "getPrototypeOf()")}}                     |
+| `[[SetPrototypeOf]]`    | {{jsxref("Proxy/Proxy/setPrototypeOf", "setPrototypeOf()")}}                     |
+| `[[IsExtensible]]`      | {{jsxref("Proxy/Proxy/isExtensible", "isExtensible()")}}                         |
+| `[[PreventExtensions]]` | {{jsxref("Proxy/Proxy/preventExtensions", "preventExtensions()")}}               |
+| `[[GetOwnProperty]]`    | {{jsxref("Proxy/Proxy/getOwnPropertyDescriptor", "getOwnPropertyDescriptor()")}} |
+| `[[DefineOwnProperty]]` | {{jsxref("Proxy/Proxy/defineProperty", "defineProperty()")}}                     |
+| `[[HasProperty]]`       | {{jsxref("Proxy/Proxy/has", "has()")}}                                           |
+| `[[Get]]`               | {{jsxref("Proxy/Proxy/get", "get()")}}                                           |
+| `[[Set]]`               | {{jsxref("Proxy/Proxy/set", "set()")}}                                           |
+| `[[Delete]]`            | {{jsxref("Proxy/Proxy/deleteProperty", "deleteProperty()")}}                     |
+| `[[OwnPropertyKeys]]`   | {{jsxref("Proxy/Proxy/ownKeys", "ownKeys()")}}                                   |
 
 Funktionsobjekte haben ebenfalls die folgenden internen Methoden:
 

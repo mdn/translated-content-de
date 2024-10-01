@@ -39,10 +39,10 @@ _Diese Schnittstelle erbt Eigenschaften von ihren Vorfahren, [`MouseEvent`](/de/
 
   - : Gibt ein `unsigned long` zurück, der die Einheit der Scroll-Menge der `delta*`-Werte repräsentiert. Erlaubte Werte sind:
 
-    | Konstante                    | Wert   | Beschreibung                                                                                                                                                        |
-    | ---------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte sind in Pixeln angegeben.                                                                                                                        |
-    | `WheelEvent.DOM_DELTA_LINE`  | `0x01` | Die `delta*`-Werte sind in Zeilen angegeben. Jeder Mausklick scrollt eine Zeile Inhalt, wobei die Methode zur Berechnung der Zeilenhöhe vom Browser abhängig ist.   |
+    | Konstante                    | Wert   | Beschreibung                                                                                                                                                      |
+    | ---------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte sind in Pixeln angegeben.                                                                                                                      |
+    | `WheelEvent.DOM_DELTA_LINE`  | `0x01` | Die `delta*`-Werte sind in Zeilen angegeben. Jeder Mausklick scrollt eine Zeile Inhalt, wobei die Methode zur Berechnung der Zeilenhöhe vom Browser abhängig ist. |
     | `WheelEvent.DOM_DELTA_PAGE`  | `0x02` | Die `delta*`-Werte sind in Seiten angegeben. Jeder Mausklick scrollt eine Seite Inhalt.                                                                           |
 
 - [`WheelEvent.wheelDelta`](/de/docs/Web/API/WheelEvent/wheelDelta) {{ReadOnlyInline}} {{Deprecated_Inline}} {{Non-standard_Inline}}

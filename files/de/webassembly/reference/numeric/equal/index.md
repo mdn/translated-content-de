@@ -27,11 +27,11 @@ i32.eq
 ;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung   | Binär-Opcode  |
-| ----------- | ------------- |
-| `i32.eqz`   | `0x45`        |
-| `i32.eq`    | `0x46`        |
-| `i64.eqz`   | `0x50`        |
-| `i64.eq`    | `0x51`        |
-| `f32.eq`    | `0x5b`        |
-| `f64.eq`    | `0x61`        |
+| Anweisung | Binär-Opcode |
+| --------- | ------------ |
+| `i32.eqz` | `0x45`       |
+| `i32.eq`  | `0x46`       |
+| `i64.eqz` | `0x50`       |
+| `i64.eq`  | `0x51`       |
+| `f32.eq`  | `0x5b`       |
+| `f64.eq`  | `0x61`       |

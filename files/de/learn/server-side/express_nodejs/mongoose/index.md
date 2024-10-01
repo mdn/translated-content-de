@@ -75,7 +75,7 @@ Für das _Local Library_-Beispiel (und den Rest dieses Themas) werden wir das [M
 Diese Kombination von ODM und Datenbank ist in der Node-Community extrem beliebt, teilweise weil das Dokumentenspeicher- und Abfragesystem sehr nach JSON aussieht und daher JavaScript-Entwicklern vertraut ist.
 
 > [!NOTE]
-> Sie müssen MongoDB nicht kennen, um Mongoose zu verwenden, obwohl Teile der [Mongoose-Dokumentation](https://mongoosejs.com/docs/guide.html) _leichter zu verwenden und zu verstehen sind, wenn Sie bereits mit MongoDB vertraut sind.
+> Sie müssen MongoDB nicht kennen, um Mongoose zu verwenden, obwohl Teile der [Mongoose-Dokumentation](https://mongoosejs.com/docs/guide.html) \_leichter zu verwenden und zu verstehen sind, wenn Sie bereits mit MongoDB vertraut sind.
 
 Der Rest dieses Tutorials zeigt, wie man die Mongoose-Schemata und -Modelle für das [LocalLibrary-Website](/de/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website)-Beispiel definiert und darauf zugreift.
 

@@ -147,7 +147,7 @@ square(5);
 
 Die vorhergehende Anweisung ruft die Funktion mit einem Argument von `5` auf. Die Funktion führt ihre Anweisungen aus und gibt den Wert `25` zurück.
 
-Funktionen müssen im _Geltungsbereich_ sein, wenn sie aufgerufen werden, aber die Funktionsdeklaration kann [gehoisted](#funktion-heebung_(hoisting)) werden (unterhalb des Aufrufs im Code erscheinen). Der Geltungsbereich einer Funktionsdeklaration ist die Funktion, in der sie deklariert wird (oder das gesamte Programm, wenn sie auf oberster Ebene deklariert ist).
+Funktionen müssen im _Geltungsbereich_ sein, wenn sie aufgerufen werden, aber die Funktionsdeklaration kann [gehoisted](<#funktion-heebung_(hoisting)>) werden (unterhalb des Aufrufs im Code erscheinen). Der Geltungsbereich einer Funktionsdeklaration ist die Funktion, in der sie deklariert wird (oder das gesamte Programm, wenn sie auf oberster Ebene deklariert ist).
 
 Die Argumente einer Funktion sind nicht auf Strings und Zahlen beschränkt. Sie können ganze Objekte an eine Funktion übergeben. Die `showProps()`-Funktion (definiert in [Arbeiten mit Objekten](/de/docs/Web/JavaScript/Guide/Working_with_objects#objects_and_properties)) ist ein Beispiel für eine Funktion, die ein Objekt als Argument nimmt.
 
@@ -200,7 +200,7 @@ function square(n) {
 console.log(square(5)); // 25
 ```
 
-Die Heebung funktioniert nur bei Funktions_deklarationen_ — nicht bei Funktions_ausdrücken_. Der folgende Code wird nicht funktionieren:
+Die Heebung funktioniert nur bei Funktions*deklarationen* — nicht bei Funktions*ausdrücken*. Der folgende Code wird nicht funktionieren:
 
 ```js example-bad
 console.log(square(5)); // ReferenceError: Cannot access 'square' before initialization

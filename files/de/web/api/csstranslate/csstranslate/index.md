@@ -26,6 +26,7 @@ new CSSTranslate(x, y, z)
   - : Ein Wert für die y-Achse des zu konstruierenden [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Objekts.
     Dies muss eine {{cssxref('length-percentage')}} sein.
 - [`z`](/de/docs/Web/API/CSSTranslate/z) {{optional_inline}}
+
   - : Ein Wert für die z-Achse des zu konstruierenden [`CSSTranslate`](/de/docs/Web/API/CSSTranslate)-Objekts.
     Dies muss eine {{cssxref('length')}} sein.
 

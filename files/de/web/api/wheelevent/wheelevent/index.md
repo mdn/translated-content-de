@@ -43,11 +43,11 @@ new WheelEvent(type, options)
 
       - : Ein ganzzahliger Wert, der die Einheit des Scrollbetrags der Delta-Werte darstellt. Standardwert ist `0x00`. Zulässige Werte sind:
 
-        | Konstante         | Wert   | Beschreibung                                 |
-        | ----------------- | ------ | --------------------------------------------- |
-        | `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte sind in Pixeln angegeben.     |
-        | `DOM_DELTA_LINE`  | `0x01` | Die Delta-Werte sind in Zeilen angegeben.     |
-        | `DOM_DELTA_PAGE`  | `0x02` | Die Delta-Werte sind in Seiten angegeben.     |
+        | Konstante         | Wert   | Beschreibung                              |
+        | ----------------- | ------ | ----------------------------------------- |
+        | `DOM_DELTA_PIXEL` | `0x00` | Die Delta-Werte sind in Pixeln angegeben. |
+        | `DOM_DELTA_LINE`  | `0x01` | Die Delta-Werte sind in Zeilen angegeben. |
+        | `DOM_DELTA_PAGE`  | `0x02` | Die Delta-Werte sind in Seiten angegeben. |
 
 ### Rückgabewert
 

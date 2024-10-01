@@ -80,21 +80,21 @@ browser.pageAction.onClicked.addListener(() => {});
 //    * Weiterverbreitungen des Quellcodes müssen den obigen Copyright-Hinweis,
 // diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
 //    * Weiterverbreitungen in binärer Form müssen den obigen
-// Copyright-Hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss 
+// Copyright-Hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss
 // in der Dokumentation und/oder anderen Materialien, die mit der
 // Verteilung geliefert werden, enthalten.
 //    * Weder der Name von Google Inc. noch die Namen seiner
-// Mitwirkenden dürfen verwendet werden, um Produkte, die aus dieser Software abgeleitet sind, 
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus dieser Software abgeleitet sind,
 // zu bewerben oder zu fördern, ohne vorherige schriftliche Erlaubnis.
 //
-// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITWIRKENDEN 
-// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE 
-// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN 
-// GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN 
+// DIESE SOFTWARE WIRD VON DEN COPYRIGHTINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
+// GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN
+// GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN BESTIMMTEN ZWECK WERDEN
 // ABGELEHNT. IN KEINEM FALL SOLLEN DIE COPYRIGHTINHABER ODER MITWIRKENDEN
 // FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, SPEZIELLE, EXEMPLARISCHE ODER FOLGESCHÄDEN
 // (EINSCHLIESSLICH, ABER NICHT BEGRENZT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER
-// -DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST ODER GEWINNVERLUST; ODER 
+// -DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATENVERLUST ODER GEWINNVERLUST; ODER
 // BETRIEBSUNTERBRECHUNG) HAFTBAR GEMACHT WERDEN, GLEICHGÜLTIG, OB IN EINEM
 // VERTRAGSVERHÄLTNIS, UNERLAUBTER HANDLUNG ODER VERSCHULDENSUNABHÄNGIGER
 // HAFTUNG, SELBST WENN AUF DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.

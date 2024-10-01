@@ -63,10 +63,10 @@ Keine.
 
 Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme          | Beschreibung                                                                         |
-| ----------------- | ------------------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`   | Das Verzeichnis existiert nicht.                                                      |
-| `SECURITY_ERR`    | Der Browser hat festgestellt, dass es nicht sicher ist, die Metadaten abzurufen.      |
+| Ausnahme        | Beschreibung                                                                     |
+| --------------- | -------------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR` | Das Verzeichnis existiert nicht.                                                 |
+| `SECURITY_ERR`  | Der Browser hat festgestellt, dass es nicht sicher ist, die Metadaten abzurufen. |
 
 ### getFile()
 
@@ -138,15 +138,15 @@ getFile(path, options)
 
 Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme                      | Beschreibung                                                                                               |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                                          |
-| `NOT_FOUND_ERR`               | Der Pfad war strukturell korrekt, verweist aber auf eine Ressource, die nicht existiert.                   |
-| `NO_MODIFICATION_ALLOWED_ERR` | Dies ist ein Berechtigungsproblem. Das Zielverzeichnis oder die Datei ist nicht beschreibbar.              |
-| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere Datei mit demselben Pfad erstellen.                  |
-| `QUOTA_EXCEEDED_ERROR`        | Die Operation würde dazu führen, dass die Anwendung ihr Speicherkontingent überschreitet.                  |
-| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad verwiesene Element zuzugreifen.               |
-| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, ist aber kein Verzeichnis.                                                  |
+| Ausnahme                      | Beschreibung                                                                                  |
+| ----------------------------- | --------------------------------------------------------------------------------------------- |
+| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                             |
+| `NOT_FOUND_ERR`               | Der Pfad war strukturell korrekt, verweist aber auf eine Ressource, die nicht existiert.      |
+| `NO_MODIFICATION_ALLOWED_ERR` | Dies ist ein Berechtigungsproblem. Das Zielverzeichnis oder die Datei ist nicht beschreibbar. |
+| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere Datei mit demselben Pfad erstellen.     |
+| `QUOTA_EXCEEDED_ERROR`        | Die Operation würde dazu führen, dass die Anwendung ihr Speicherkontingent überschreitet.     |
+| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad verwiesene Element zuzugreifen.  |
+| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, ist aber kein Verzeichnis.                                     |
 
 ### getDirectory()
 
@@ -220,15 +220,15 @@ getDirectory(path, options)
 
 Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme                      | Beschreibung                                                                                               |
-| ----------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                                          |
-| `NOT_FOUND_ERR`               | Der Pfad war strukturell korrekt, verweist aber auf eine Ressource, die nicht existiert.                   |
-| `NO_MODIFICATION_ALLOWED_ERR` | Dies ist ein Berechtigungsproblem. Das Zielverzeichnis oder die Datei ist nicht beschreibbar.              |
-| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere Datei mit demselben Pfad erstellen.                  |
-| `QUOTA_EXCEEDED_ERROR`        | Die Operation würde dazu führen, dass die Anwendung ihr Speicherkontingent überschreitet.                  |
-| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad verwiesene Element zuzugreifen.               |
-| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, ist aber kein Verzeichnis.                                                  |
+| Ausnahme                      | Beschreibung                                                                                  |
+| ----------------------------- | --------------------------------------------------------------------------------------------- |
+| `ENCODING_ERR`                | Der angegebene Pfad ist ungültig.                                                             |
+| `NOT_FOUND_ERR`               | Der Pfad war strukturell korrekt, verweist aber auf eine Ressource, die nicht existiert.      |
+| `NO_MODIFICATION_ALLOWED_ERR` | Dies ist ein Berechtigungsproblem. Das Zielverzeichnis oder die Datei ist nicht beschreibbar. |
+| `PATH_EXISTS_ERR`             | Die Datei existiert bereits. Sie können keine weitere Datei mit demselben Pfad erstellen.     |
+| `QUOTA_EXCEEDED_ERROR`        | Die Operation würde dazu führen, dass die Anwendung ihr Speicherkontingent überschreitet.     |
+| `SECURITY_ERR`                | Die Anwendung hat keine Berechtigung, auf das durch den Pfad verwiesene Element zuzugreifen.  |
+| `TYPE_MISMATCH_ERR`           | Der angegebene Pfad existiert, ist aber kein Verzeichnis.                                     |
 
 ### removeRecursively()
 

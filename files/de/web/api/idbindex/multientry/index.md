@@ -16,10 +16,10 @@ Dies wird entschieden, wenn der Index mithilfe der [`IDBObjectStore.createIndex`
 
 Ein boolescher Wert:
 
-| Wert  | Auswirkung                                                        |
-| ----- | ------------------------------------------------------------------|
+| Wert  | Auswirkung                                                                 |
+| ----- | -------------------------------------------------------------------------- |
 | true  | Es gibt einen Eintrag im Index für jedes Element in einem Schlüssel-Array. |
-| false | Es gibt einen Eintrag für jeden Schlüssel, der ein Array ist.    |
+| false | Es gibt einen Eintrag für jeden Schlüssel, der ein Array ist.              |
 
 ## Beispiele
 

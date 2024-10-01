@@ -12,7 +12,7 @@ Der _Get Element Tag Name_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriv
 ## Syntax
 
 | Methode | URI-Vorlage                                       |
-| ------  | ------------------------------------------------- |
+| ------- | ------------------------------------------------- |
 | `GET`   | `/session/{session id}/element/{element id}/name` |
 
 ### URL-Parameter

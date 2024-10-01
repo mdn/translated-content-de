@@ -33,8 +33,8 @@ Das {{jsxref("Date")}} Objekt überschreibt die {{jsxref("Object/toString", "toS
 
 `Date.prototype.toString()` muss auf {{jsxref("Date")}} Instanzen aufgerufen werden. Wenn der Wert von `this` nicht von `Date.prototype` erbt, wird ein {{jsxref("TypeError")}} ausgelöst.
 
-- Wenn Sie nur den _Datums_teil erhalten möchten, verwenden Sie {{jsxref("Date/toDateString", "toDateString()")}}.
-- Wenn Sie nur den _Zeit_teil erhalten möchten, verwenden Sie {{jsxref("Date/toTimeString", "toTimeString()")}}.
+- Wenn Sie nur den \_Datums_teil erhalten möchten, verwenden Sie {{jsxref("Date/toDateString", "toDateString()")}}.
+- Wenn Sie nur den \_Zeit_teil erhalten möchten, verwenden Sie {{jsxref("Date/toTimeString", "toTimeString()")}}.
 - Wenn Sie das Datum als UTC anstatt als lokale Zeitzone interpretieren möchten, verwenden Sie {{jsxref("Date/toUTCString", "toUTCString()")}}.
 - Wenn Sie das Datum in einem benutzerfreundlicheren Format (z.B. Lokalisierung) formatieren möchten, verwenden Sie {{jsxref("Date/toLocaleString", "toLocaleString()")}}.
 

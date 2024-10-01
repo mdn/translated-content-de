@@ -31,8 +31,7 @@ Der Name `className` wird für diese Eigenschaft anstelle von `class` verwendet,
 elm.setAttribute("class", elm.getAttribute("class"));
 ```
 
-> [!NOTE]
-> `class` ist ein **HTML-Attribut**, während `className` eine **DOM-Eigenschaft** ist.
+> [!NOTE] > `class` ist ein **HTML-Attribut**, während `className` eine **DOM-Eigenschaft** ist.
 
 ## Spezifikationen
 

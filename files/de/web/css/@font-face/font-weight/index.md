@@ -45,17 +45,17 @@ CSS Fonts Level 4 erweitert die Syntax, um jede Zahl zwischen 1 und 1000, einsch
 
 Die numerischen Werte `100` bis `900` entsprechen ungefähr den folgenden allgemeinen Gewichtsnamen:
 
-| Wert  | Allgemeiner Gewichtname     |
-| ----- | --------------------------- |
-| 100   | Dünn (Hairline)             |
-| 200   | Extra Leicht (Ultra Leicht) |
-| 300   | Leicht                      |
-| 400   | Normal                      |
-| 500   | Mittel                      |
-| 600   | Halbfett (Demi Fett)        |
-| 700   | Fett                        |
-| 800   | Extra Fett (Ultra Fett)     |
-| 900   | Schwarz (Schwer)            |
+| Wert | Allgemeiner Gewichtname     |
+| ---- | --------------------------- |
+| 100  | Dünn (Hairline)             |
+| 200  | Extra Leicht (Ultra Leicht) |
+| 300  | Leicht                      |
+| 400  | Normal                      |
+| 500  | Mittel                      |
+| 600  | Halbfett (Demi Fett)        |
+| 700  | Fett                        |
+| 800  | Extra Fett (Ultra Fett)     |
+| 900  | Schwarz (Schwer)            |
 
 ### Variable Fonts
 

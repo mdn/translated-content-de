@@ -116,11 +116,11 @@ Array, das [`FileEntrySync`](/de/docs/Web/API/FileEntrySync) und [`DirectoryEntr
 
 Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                                       |
-| ------------------- | ---------------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                   |
-| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries verändert.            |
-| `SECURITY_ERR`      | Der Browser hat bestimmt, dass es nicht sicher ist, die Metadaten nachzuschlagen.  |
+| Ausnahme            | Beschreibung                                                                      |
+| ------------------- | --------------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR`     | Das Verzeichnis existiert nicht.                                                  |
+| `INVALID_STATE_ERR` | Das Verzeichnis wurde seit dem ersten Aufruf von readEntries verändert.           |
+| `SECURITY_ERR`      | Der Browser hat bestimmt, dass es nicht sicher ist, die Metadaten nachzuschlagen. |
 
 ## Spezifikationen
 

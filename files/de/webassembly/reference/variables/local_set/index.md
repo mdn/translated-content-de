@@ -21,6 +21,6 @@ i32.const 2
 local.set $val
 ```
 
-| Anweisung    | Binärer Opcode |
-| ------------ | -------------- |
-| `local.set`  | `0x21`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `local.set` | `0x21`         |

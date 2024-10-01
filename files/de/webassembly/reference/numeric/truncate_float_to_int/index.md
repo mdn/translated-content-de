@@ -25,13 +25,13 @@ i32.trunc_f32_s
 ;; the top item on the stack will now be the value 10 of type f32
 ```
 
-| Anweisung        | Binärcode     |
-| ---------------- | ------------- |
-| `i32.trunc_f32_s`| `0xa8`        |
-| `i32.trunc_f32_u`| `0xa9`        |
-| `i32.trunc_f64_s`| `0xaa`        |
-| `i32.trunc_f64_u`| `0xab`        |
-| `i64.trunc_f32_s`| `0xae`        |
-| `i64.trunc_f32_u`| `0xaf`        |
-| `i64.trunc_f64_s`| `0xb0`        |
-| `i64.trunc_f64_u`| `0xb1`        |
+| Anweisung         | Binärcode |
+| ----------------- | --------- |
+| `i32.trunc_f32_s` | `0xa8`    |
+| `i32.trunc_f32_u` | `0xa9`    |
+| `i32.trunc_f64_s` | `0xaa`    |
+| `i32.trunc_f64_u` | `0xab`    |
+| `i64.trunc_f32_s` | `0xae`    |
+| `i64.trunc_f32_u` | `0xaf`    |
+| `i64.trunc_f64_s` | `0xb0`    |
+| `i64.trunc_f64_u` | `0xb1`    |

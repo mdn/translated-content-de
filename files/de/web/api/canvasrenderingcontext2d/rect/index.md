@@ -62,8 +62,7 @@ wird dann mit der `fill()` Methode gerendert.
 
 #### JavaScript
 
-Die Ecke des Rechtecks befindet sich bei (10, 20). Es hat eine Breite von 150 und eine Höhe von
-100.
+Die Ecke des Rechtecks befindet sich bei (10, 20). Es hat eine Breite von 150 und eine Höhe von 100.
 
 ```js
 const canvas = document.getElementById("canvas");

@@ -13,8 +13,7 @@ Die **`imageSmoothingQuality`**-Eigenschaft des
 
 > [!NOTE]
 > Damit diese Eigenschaft Wirkung zeigt, muss
-> [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled)
-> `true` sein.
+> [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) > `true` sein.
 
 ## Wert
 

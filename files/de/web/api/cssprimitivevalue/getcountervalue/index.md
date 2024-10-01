@@ -34,9 +34,9 @@ Ein [`Counter`](/de/docs/Web/API/Counter)-Objekt, das den Counter-Wert darstellt
 
 ### Ausnahmen
 
-| **Typ**         | **Beschreibung**                                                                                                       |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `DOMException`  | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen `Counter`-Wert enthält (z.B. ist dies nicht `CSS_COUNTER`). |
+| **Typ**        | **Beschreibung**                                                                                                              |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `DOMException` | Ein `INVALID_ACCESS_ERR` wird ausgelöst, wenn der CSS-Wert keinen `Counter`-Wert enthält (z.B. ist dies nicht `CSS_COUNTER`). |
 
 ## Spezifikationen
 

@@ -52,11 +52,11 @@ _Diese Schnittstelle erbt Eigenschaften von ihren Vorfahren, [`MouseEvent`](/de/
 
   - : Gibt ein `unsigned long` zurück, das die Einheit der `delta*`-Werte der Scrollmenge darstellt. Erlaubte Werte sind:
 
-    | Konstante                    | Wert   | Beschreibung                                                                                                                                                 |
-    | ---------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte sind in Pixeln angegeben.                                                                                                                  |
+    | Konstante                    | Wert   | Beschreibung                                                                                                                                                      |
+    | ---------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte sind in Pixeln angegeben.                                                                                                                      |
     | `WheelEvent.DOM_DELTA_LINE`  | `0x01` | Die `delta*`-Werte sind in Zeilen angegeben. Jeder Mausklick scrollt eine Zeile des Inhalts, wobei die Methode zur Berechnung der Zeilenhöhe browserabhängig ist. |
-    | `WheelEvent.DOM_DELTA_PAGE`  | `0x02` | Die `delta*`-Werte sind in Seiten angegeben. Jeder Mausklick scrollt eine Seite des Inhalts.                                                                   |
+    | `WheelEvent.DOM_DELTA_PAGE`  | `0x02` | Die `delta*`-Werte sind in Seiten angegeben. Jeder Mausklick scrollt eine Seite des Inhalts.                                                                      |
 
 - [`WheelEvent.wheelDelta`](/de/docs/Web/API/WheelEvent/wheelDelta) {{ReadOnlyInline}} {{deprecated_inline}}
   - : Gibt einen Ganzzahlwert (32-Bit) zurück, der die Entfernung in Pixeln darstellt.

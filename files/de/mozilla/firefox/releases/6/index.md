@@ -103,7 +103,7 @@ Firefox 6, basierend auf Gecko 6.0, wurde am 16. August 2011 veröffentlicht. Di
 
 <!---->
 
-- Das Parsen des `Content-Disposition` Headers wurde behoben, um ASCII-Zeichen, die mit einem Backslash escaped sind, korrekt als genau dieses Zeichen zu interpretieren. Zuvor wurde dieses Zeichen fälschlicherweise durch einen Unterstrich ("_") ersetzt.
+- Das Parsen des `Content-Disposition` Headers wurde behoben, um ASCII-Zeichen, die mit einem Backslash escaped sind, korrekt als genau dieses Zeichen zu interpretieren. Zuvor wurde dieses Zeichen fälschlicherweise durch einen Unterstrich ("\_") ersetzt.
 - Der Wert des Pfadfeldes in `Set-Cookie`-Headers wird jetzt korrekt interpretiert, wenn Anführungszeichen verwendet werden; vorher wurden sie als Teil der Pfadzeichenkette und nicht als Trennzeichen behandelt. **Diese Änderung kann die Kompatibilität mit einigen Websites beeinflussen**, daher sollten Autoren ihren Code überprüfen.
 - Der [`Upgrade`](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.42) Request-Header wird jetzt unterstützt; Sie können eine Aktualisierung eines HTTP-Channels auf ein anderes Protokoll anfordern, indem Sie `nsIHttpChannelInternal.HTTPUpgrade()` aufrufen.
 

@@ -203,12 +203,12 @@ Abgesehen von `playbackRate` werden Sie für die Audiobearbeitung typischerweise
 
 Die Web Audio API kann Audio aus einer Vielzahl von Quellen empfangen, es dann verarbeiten und an einen [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode) senden, der das Ausgabegerät darstellt, an das der Ton nach der Verarbeitung gesendet wird.
 
-| Wenn die Audioquelle ist…                                                                                                                                                  | Verwenden Sie diesen Web-Audio-Knotentyp               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------ |
-| Ein Audiotrack von einem HTML {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element                                                                                 | [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) |
-| Ein einfacher roher Audiodatenpuffer im Speicher                                                                                                                                  | [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)       |
-| Ein Oszillator, der eine Sinuswelle oder eine andere berechnete Wellenform erzeugt                                                                                                          | [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)              |
-| Ein Audiotrack von [WebRTC](/de/docs/Web/API/WebRTC_API) (wie das Mikrofoneingang, das Sie mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten können. | [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)  |
+| Wenn die Audioquelle ist…                                                                                                                                                      | Verwenden Sie diesen Web-Audio-Knotentyp                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| Ein Audiotrack von einem HTML {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element                                                                                   | [`MediaElementAudioSourceNode`](/de/docs/Web/API/MediaElementAudioSourceNode) |
+| Ein einfacher roher Audiodatenpuffer im Speicher                                                                                                                               | [`AudioBufferSourceNode`](/de/docs/Web/API/AudioBufferSourceNode)             |
+| Ein Oszillator, der eine Sinuswelle oder eine andere berechnete Wellenform erzeugt                                                                                             | [`OscillatorNode`](/de/docs/Web/API/OscillatorNode)                           |
+| Ein Audiotrack von [WebRTC](/de/docs/Web/API/WebRTC_API) (wie das Mikrofoneingang, das Sie mit [`getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) erhalten können. | [`MediaStreamAudioSourceNode`](/de/docs/Web/API/MediaStreamAudioSourceNode)   |
 
 ### Audiofilter
 

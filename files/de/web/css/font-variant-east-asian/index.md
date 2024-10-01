@@ -44,7 +44,7 @@ font-variant-east-asian: unset;
 
   - : Diese Werte spezifizieren eine Reihe von logografischen Glyphenvarianten, die für die Anzeige verwendet werden sollen. Mögliche Werte sind:
 
-    | Schlüsselwort | Standard, der die Glyphen definiert                                          | OpenType-Äquivalent |
+    | Schlüsselwort | Standard, der die Glyphen definiert                                         | OpenType-Äquivalent |
     | ------------- | --------------------------------------------------------------------------- | ------------------- |
     | `jis78`       | [JIS X 0208:1978](https://en.wikipedia.org/wiki/JIS_X_0208#First_standard)  | `jp78`              |
     | `jis83`       | [JIS X 0208:1983](https://en.wikipedia.org/wiki/JIS_X_0208#Second_standard) | `jp83`              |

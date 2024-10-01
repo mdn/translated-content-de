@@ -115,5 +115,4 @@ Das folgende Beispiel zeigt, wie die `rotate` Eigenschaft verwendet wird, um ein
 - {{cssxref('scale')}}
 - {{cssxref('transform')}}
 
-> [!NOTE]
-> `skew` ist kein unabhängiger `transform` Wert.
+> [!NOTE] > `skew` ist kein unabhängiger `transform` Wert.

@@ -24,7 +24,7 @@ i32.or
 ;; the top item on the stack will now be 7 (00000111)
 ```
 
-| Anweisung  | Binärer Opcode |
-| ---------- | -------------- |
-| `i32.or`   | `0x72`         |
-| `i64.or`   | `0x84`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.or`  | `0x72`         |
+| `i64.or`  | `0x84`         |

@@ -13,8 +13,8 @@ Der Befehl wirkt auf das aktuell ausgewählte Fenster und gibt die Größe und P
 
 ## Syntax
 
-| Methode                                   | URI-Vorlage                         |
-| ----------------------------------------- | ----------------------------------- |
+| Methode                                | URI-Vorlage                         |
+| -------------------------------------- | ----------------------------------- |
 | [`GET`](/de/docs/Web/HTTP/Methods/GET) | `/session/{session id}/window/rect` |
 
 ### URL-Parameter

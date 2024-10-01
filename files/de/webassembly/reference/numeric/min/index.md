@@ -24,7 +24,7 @@ f32.min
 ;; the top item on the stack will now be 3
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `f32.min`   | `0x96`         |
-| `f64.min`   | `0xa4`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `f32.min` | `0x96`         |
+| `f64.min` | `0xa4`         |

@@ -17,6 +17,6 @@ l10n:
 nop
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `nop`       | `0x01`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `nop`     | `0x01`         |

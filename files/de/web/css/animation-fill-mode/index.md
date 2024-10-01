@@ -57,10 +57,10 @@ animation-fill-mode: unset;
 
   - : Die Animation wird die in dem ersten relevanten [Keyframe](/de/docs/Web/CSS/@keyframes) definierten Werte anwenden, sobald sie auf das Ziel angewendet wird, und dies während der {{cssxref("animation-delay")}} Periode beibehalten. Der erste relevante Keyframe hängt vom Wert von {{cssxref("animation-direction")}} ab:
 
-    | `animation-direction`            | erster relevanter Keyframe |
-    | -------------------------------- | -------------------------- |
-    | `normal` oder `alternate`        | `0%` oder `from`           |
-    | `reverse` oder `alternate-reverse`| `100%` oder `to`           |
+    | `animation-direction`              | erster relevanter Keyframe |
+    | ---------------------------------- | -------------------------- |
+    | `normal` oder `alternate`          | `0%` oder `from`           |
+    | `reverse` oder `alternate-reverse` | `100%` oder `to`           |
 
 - `both`
   - : Die Animation folgt den Regeln sowohl für `forwards` als auch für `backwards` und erweitert somit die Animationseigenschaften in beide Richtungen.

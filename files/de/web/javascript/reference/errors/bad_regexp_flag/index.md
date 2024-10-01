@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: invalid regular expression flag \"x\""
+title: 'SyntaxError: invalid regular expression flag "x"'
 slug: Web/JavaScript/Reference/Errors/Bad_regexp_flag
 l10n:
   sourceCommit: 6aaba8ce85edc3a92fd5e804002cc609c31ce73f

@@ -14,8 +14,8 @@ Die schreibgeschützte **`upperOpen`**-Eigenschaft des [`IDBKeyRange`](/de/docs/
 
 Ein boolescher Wert:
 
-| Wert    | Bedeutung                                                |
-| ------- | -------------------------------------------------------- |
+| Wert    | Bedeutung                                                    |
+| ------- | ------------------------------------------------------------ |
 | `true`  | Der obere Grenzwert ist nicht im Schlüsselbereich enthalten. |
 | `false` | Der obere Grenzwert ist im Schlüsselbereich enthalten.       |
 

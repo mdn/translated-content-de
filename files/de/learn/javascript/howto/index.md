@@ -17,20 +17,20 @@ Wenn Ihr Code nicht funktioniert und/oder der Browser moniert, dass etwas nicht 
 
 Einige häufige eingebaute Browserfunktionen, die Probleme verursachen, sind:
 
-| Korrekt                    | Falsch                     |
-| -------------------------- | -------------------------- |
-| `getElementsByTagName()`   | `getElementByTagName()`    |
-| `getElementsByName()`      | `getElementByName()`       |
-| `getElementsByClassName()` | `getElementByClassName()`  |
-| `getElementById()`         | `getElementsById()`        |
+| Korrekt                    | Falsch                    |
+| -------------------------- | ------------------------- |
+| `getElementsByTagName()`   | `getElementByTagName()`   |
+| `getElementsByName()`      | `getElementByName()`      |
+| `getElementsByClassName()` | `getElementByClassName()` |
+| `getElementById()`         | `getElementsById()`       |
 
 ### Position des Semikolons
 
 Stellen Sie sicher, dass Sie keine Semikolons falsch platzieren. Zum Beispiel:
 
-| Korrekt                     | Falsch                       |
-| --------------------------- | ---------------------------- |
-| `elem.style.color = 'red';` | `elem.style.color = 'red;'`  |
+| Korrekt                     | Falsch                      |
+| --------------------------- | --------------------------- |
+| `elem.style.color = 'red';` | `elem.style.color = 'red;'` |
 
 ### Funktionen
 

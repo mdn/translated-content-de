@@ -42,14 +42,14 @@ Das `options` Parameterobjekt akzeptiert die folgenden Parameter:
 
 Die folgende Tabelle beschreibt das Ergebnis jeder möglichen Kombination dieser Flags, abhängig davon, ob der Zielverzeichnispfad bereits existiert oder nicht.
 
-| `create` Option | `exclusive` Option | Bedingung des Pfads         | Ergebnis                                                                                                                                              |
-| --------------- | ------------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `false`         | _Ignoriert_        | Pfad existiert und ist ein Verzeichnis | Der `successCallback` wird mit einem [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) aufgerufen.                                                                  |
-| `false`         | _Ignoriert_        | Pfad existiert, aber ist eine Datei   | Der `errorCallback` wird mit einem geeigneten Fehlercode aufgerufen (sofern der Callback bereitgestellt wurde).                                                        |
-| `true`          | `false`            | Pfad existiert              | Das bestehende Verzeichnis wird entfernt und durch ein neues ersetzt, dann wird der `successCallback` mit einem [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) aufgerufen. |
-| `true`          | `false`            | Pfad existiert nicht        | Das Verzeichnis wird erstellt und dann ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) an den `successCallback` übergeben.                                        |
-| `true`          | `true`             | Pfad existiert              | Der `errorCallback` wird mit einem geeigneten Fehler, wie `FileError.PATH_EXISTS_ERR`, aufgerufen.                                                       |
-| `true`          | `true`             | Pfad existiert nicht        | Das Verzeichnis wird erstellt und dann ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) an den `successCallback` übergeben.                                        |
+| `create` Option | `exclusive` Option | Bedingung des Pfads                    | Ergebnis                                                                                                                                                                                            |
+| --------------- | ------------------ | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `false`         | _Ignoriert_        | Pfad existiert und ist ein Verzeichnis | Der `successCallback` wird mit einem [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) aufgerufen.                                                                            |
+| `false`         | _Ignoriert_        | Pfad existiert, aber ist eine Datei    | Der `errorCallback` wird mit einem geeigneten Fehlercode aufgerufen (sofern der Callback bereitgestellt wurde).                                                                                     |
+| `true`          | `false`            | Pfad existiert                         | Das bestehende Verzeichnis wird entfernt und durch ein neues ersetzt, dann wird der `successCallback` mit einem [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) aufgerufen. |
+| `true`          | `false`            | Pfad existiert nicht                   | Das Verzeichnis wird erstellt und dann ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) an den `successCallback` übergeben.                                              |
+| `true`          | `true`             | Pfad existiert                         | Der `errorCallback` wird mit einem geeigneten Fehler, wie `FileError.PATH_EXISTS_ERR`, aufgerufen.                                                                                                  |
+| `true`          | `true`             | Pfad existiert nicht                   | Das Verzeichnis wird erstellt und dann ein [`FileSystemDirectoryEntry`](/de/docs/Web/API/FileSystemDirectoryEntry) an den `successCallback` übergeben.                                              |
 
 ### Rückgabewert
 

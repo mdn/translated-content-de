@@ -180,16 +180,16 @@ Sobald es gespeichert ist, kann der Teilstring zu einem späteren Zeitpunkt wied
 
 Reguläre Ausdrücke werden mit den {{jsxref("RegExp")}}-Methoden {{jsxref("RegExp/test", "test()")}} und {{jsxref("RegExp/exec", "exec()")}} und mit den {{jsxref("String")}}-Methoden {{jsxref("String/match", "match()")}}, {{jsxref("String/matchAll", "matchAll()")}}, {{jsxref("String/replace", "replace()")}}, {{jsxref("String/replaceAll", "replaceAll()")}}, {{jsxref("String/search", "search()")}} und {{jsxref("String/split", "split()")}} verwendet.
 
-| Methode                                         | Beschreibung                                                                                                      |
-| ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| {{jsxref("RegExp/exec", "exec()")}}             | Führt eine Suche nach einem Treffer in einer Zeichenkette durch. Sie gibt ein Array von Informationen oder `null` bei einer Nichtübereinstimmung zurück.           |
-| {{jsxref("RegExp/test", "test()")}}             | Testet auf eine Übereinstimmung in einer Zeichenkette. Sie gibt `true` oder `false` zurück.                                                     |
-| {{jsxref("String/match", "match()")}}           | Gibt ein Array mit allen Übereinstimmungen, einschließlich erfasster Gruppen, oder `null` zurück, wenn keine Übereinstimmung gefunden wird.      |
-| {{jsxref("String/matchAll", "matchAll()")}}     | Gibt einen Iterator zurück, der alle Übereinstimmungen einschließlich erfasster Gruppen enthält.                                   |
-| {{jsxref("String/search", "search()")}}         | Testet auf eine Übereinstimmung in einer Zeichenkette. Sie gibt den Index der Übereinstimmung oder `-1` zurück, wenn die Suche fehlschlägt.                   |
-| {{jsxref("String/replace", "replace()")}}       | Führt eine Suche nach einem Treffer in einer Zeichenkette durch und ersetzt den übereinstimmenden Teilstring durch einen Ersetzungsteilstring.      |
-| {{jsxref("String/replaceAll", "replaceAll()")}} | Führt eine Suche nach allen Treffern in einer Zeichenkette durch und ersetzt die übereinstimmenden Teilstrings durch einen Ersetzungsteilstring. |
-| {{jsxref("String/split", "split()")}}           | Verwendet einen regulären Ausdruck oder einen festen String, um eine Zeichenkette in ein Array von Teilstrings zu unterteilen.                       |
+| Methode                                         | Beschreibung                                                                                                                                             |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {{jsxref("RegExp/exec", "exec()")}}             | Führt eine Suche nach einem Treffer in einer Zeichenkette durch. Sie gibt ein Array von Informationen oder `null` bei einer Nichtübereinstimmung zurück. |
+| {{jsxref("RegExp/test", "test()")}}             | Testet auf eine Übereinstimmung in einer Zeichenkette. Sie gibt `true` oder `false` zurück.                                                              |
+| {{jsxref("String/match", "match()")}}           | Gibt ein Array mit allen Übereinstimmungen, einschließlich erfasster Gruppen, oder `null` zurück, wenn keine Übereinstimmung gefunden wird.              |
+| {{jsxref("String/matchAll", "matchAll()")}}     | Gibt einen Iterator zurück, der alle Übereinstimmungen einschließlich erfasster Gruppen enthält.                                                         |
+| {{jsxref("String/search", "search()")}}         | Testet auf eine Übereinstimmung in einer Zeichenkette. Sie gibt den Index der Übereinstimmung oder `-1` zurück, wenn die Suche fehlschlägt.              |
+| {{jsxref("String/replace", "replace()")}}       | Führt eine Suche nach einem Treffer in einer Zeichenkette durch und ersetzt den übereinstimmenden Teilstring durch einen Ersetzungsteilstring.           |
+| {{jsxref("String/replaceAll", "replaceAll()")}} | Führt eine Suche nach allen Treffern in einer Zeichenkette durch und ersetzt die übereinstimmenden Teilstrings durch einen Ersetzungsteilstring.         |
+| {{jsxref("String/split", "split()")}}           | Verwendet einen regulären Ausdruck oder einen festen String, um eine Zeichenkette in ein Array von Teilstrings zu unterteilen.                           |
 
 Wenn Sie wissen möchten, ob ein Muster in einer Zeichenkette gefunden wird, verwenden Sie die `test()`- oder `search()`-Methoden; für mehr Informationen (aber langsamere Ausführung) verwenden Sie die `exec()`- oder `match()`-Methoden.
 Wenn Sie `exec()` oder `match()` verwenden und die Übereinstimmung erfolgreich ist, geben diese Methoden ein Array zurück und aktualisieren die Eigenschaften des zugehörigen regulären Ausdrucksobjekts und auch des vordefinierten regulären Ausdrucksobjekts `RegExp`.
@@ -305,15 +305,15 @@ Wenn Sie auf die Eigenschaften eines mit einem Objektinitialisierer erstellten r
 Reguläre Ausdrücke haben optionale Flags, die Funktionalitäten wie globale Suche und Groß-/Kleinschreibung ermöglichen.
 Diese Flags können separat oder zusammen in beliebiger Reihenfolge verwendet werden und sind Teil des regulären Ausdrucks.
 
-| Flag | Beschreibung                                                                                   | Entsprechende Eigenschaft                         |
-| ---- | --------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| `d`  | Erzeugt Indizes für Teilstring-Übereinstimmungen.                                              | {{jsxref("RegExp/hasIndices", "hasIndices")}}   |
-| `g`  | Globale Suche.                                                                                | {{jsxref("RegExp/global", "global")}}           |
-| `i`  | Fallunempfindliche Suche.                                                                     | {{jsxref("RegExp/ignoreCase", "ignoreCase")}}   |
-| `m`  | Ermöglicht `^` und `$` neben Zeilenzeichen zu maskieren.                                      | {{jsxref("RegExp/multiline", "multiline")}}     |
-| `s`  | Ermöglicht `.` Zeilenumbrüche zu maskieren.                                                   | {{jsxref("RegExp/dotAll", "dotAll")}}           |
-| `u`  | "Unicode"; behandelt ein Muster als eine Folge von Unicode-Codepunkten.                        | {{jsxref("RegExp/unicode", "unicode")}}         |
-| `v`  | Ein Upgrade zum `u`-Modus mit mehr Unicode-Funktionen.                                        | {{jsxref("RegExp/unicodeSets", "unicodeSets")}} |
+| Flag | Beschreibung                                                                                     | Entsprechende Eigenschaft                       |
+| ---- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------- |
+| `d`  | Erzeugt Indizes für Teilstring-Übereinstimmungen.                                                | {{jsxref("RegExp/hasIndices", "hasIndices")}}   |
+| `g`  | Globale Suche.                                                                                   | {{jsxref("RegExp/global", "global")}}           |
+| `i`  | Fallunempfindliche Suche.                                                                        | {{jsxref("RegExp/ignoreCase", "ignoreCase")}}   |
+| `m`  | Ermöglicht `^` und `$` neben Zeilenzeichen zu maskieren.                                         | {{jsxref("RegExp/multiline", "multiline")}}     |
+| `s`  | Ermöglicht `.` Zeilenumbrüche zu maskieren.                                                      | {{jsxref("RegExp/dotAll", "dotAll")}}           |
+| `u`  | "Unicode"; behandelt ein Muster als eine Folge von Unicode-Codepunkten.                          | {{jsxref("RegExp/unicode", "unicode")}}         |
+| `v`  | Ein Upgrade zum `u`-Modus mit mehr Unicode-Funktionen.                                           | {{jsxref("RegExp/unicodeSets", "unicodeSets")}} |
 | `y`  | Führen Sie eine "sticky" Suche aus, die ab der aktuellen Position in der Zielzeichenkette passt. | {{jsxref("RegExp/sticky", "sticky")}}           |
 
 Um ein Flag mit dem regulären Ausdruck einzuschließen, verwenden Sie diese Syntax:

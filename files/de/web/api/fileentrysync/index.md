@@ -58,10 +58,10 @@ Ein `FileWriterSync`-Objekt.
 
 Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                                  |
-| ------------------- | ----------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                    |
-| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig.     |
+| Ausnahme            | Beschreibung                                                              |
+| ------------------- | ------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                |
+| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig. |
 
 ### file()
 
@@ -83,10 +83,10 @@ Ein `File`-Objekt.
 
 Diese Methode kann eine [DOMException](/de/docs/Web/API/DOMException) mit den folgenden Codes auslösen:
 
-| Ausnahme            | Beschreibung                                                                  |
-| ------------------- | ----------------------------------------------------------------------------- |
-| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                    |
-| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig.     |
+| Ausnahme            | Beschreibung                                                              |
+| ------------------- | ------------------------------------------------------------------------- |
+| `NOT_FOUND_ERR`     | Die Datei existiert nicht.                                                |
+| `INVALID_STATE_ERR` | Die Datei ist aus einem anderen Grund als der Löschung nicht mehr gültig. |
 
 ## Spezifikationen
 

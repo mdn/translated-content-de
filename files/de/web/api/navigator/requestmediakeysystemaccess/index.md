@@ -39,14 +39,14 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
   - `audioCapabilities`
     -: Ein Array unterstützter Audiofähigkeiten. Wenn das Array leer ist, unterstützt der Inhaltstyp keine Audiofähigkeiten.
 
-      Jedes Objekt im Array hat die folgenden Eigenschaften:
+    Jedes Objekt im Array hat die folgenden Eigenschaften:
 
     - `contentType`
-        -: Ein String, der den Medien-MIME-Typ der Medienressource angibt, wie zum Beispiel `"audio/mp4;codecs=\"mp4a.40.2\"`. Beachten Sie, dass der leere String ungültig ist und dass, wenn die MIME-Typ-Definition Parameter wie `codecs` enthält, diese ebenfalls enthalten sein müssen.
+      -: Ein String, der den Medien-MIME-Typ der Medienressource angibt, wie zum Beispiel `"audio/mp4;codecs=\"mp4a.40.2\"`. Beachten Sie, dass der leere String ungültig ist und dass, wenn die MIME-Typ-Definition Parameter wie `codecs` enthält, diese ebenfalls enthalten sein müssen.
     - `encryptionScheme`
-        -: Das Verschlüsselungsschema, das mit dem Inhaltstyp verknüpft ist, wie z.B. `cenc`, `cbcs`, `cbcs-1-9`. Dieser Wert sollte von einer Anwendung festgelegt werden (standardmäßig `null`, was bedeutet, dass jedes Verschlüsselungsschema verwendet werden kann).
+      -: Das Verschlüsselungsschema, das mit dem Inhaltstyp verknüpft ist, wie z.B. `cenc`, `cbcs`, `cbcs-1-9`. Dieser Wert sollte von einer Anwendung festgelegt werden (standardmäßig `null`, was bedeutet, dass jedes Verschlüsselungsschema verwendet werden kann).
     - `robustness`
-        -: Das Robustheitsniveau, das mit dem Inhaltstyp verbunden ist. Der leere String gibt an, dass jede Fähigkeit zur Entschlüsselung und Dekodierung des Inhaltstyps akzeptabel ist.
+      -: Das Robustheitsniveau, das mit dem Inhaltstyp verbunden ist. Der leere String gibt an, dass jede Fähigkeit zur Entschlüsselung und Dekodierung des Inhaltstyps akzeptabel ist.
 
   - `videoCapabilities`
     -: Ein Array unterstützter Videofähigkeiten. Die Objekte im Array haben die gleiche Form wie die in `audioCapabilities`.
@@ -55,11 +55,11 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
     -: Ein String, der angibt, ob die Implementierung "unverwechselbare Kennungen" (oder unverwechselbare permanente Kennungen) für Vorgänge verwenden darf, die mit jedem Objekt verbunden sind, das aus dieser Konfiguration erstellt wurde. Die zulässigen Werte sind:
 
     - `required`
-        -: Das zurückgegebene Objekt muss diese Funktion unterstützen.
+      -: Das zurückgegebene Objekt muss diese Funktion unterstützen.
     - `optional`
-        -: Das zurückgegebene Objekt kann diese Funktion unterstützen. Dies ist der Standard.
+      -: Das zurückgegebene Objekt kann diese Funktion unterstützen. Dies ist der Standard.
     - `not-allowed`
-        -: Das zurückgegebene Objekt darf diese Funktion nicht unterstützen oder verwenden.
+      -: Das zurückgegebene Objekt darf diese Funktion nicht unterstützen oder verwenden.
 
   - `persistentState`
     -: Ein String, der angibt, ob das zurückgegebene Objekt Sitzungsdaten oder eine andere Art von Zustand speichern können muss. Die Werte sind die gleichen wie für `distinctiveIdentifier` und haben die gleiche Bedeutung: `required`, `optional` (Standard), `not-allowed`. Nur "temporäre" Sitzungen können erstellt werden, wenn dauerhafter Zustand nicht erlaubt ist.
@@ -68,9 +68,9 @@ requestMediaKeySystemAccess(keySystem, supportedConfigurations)
     -: Ein Array von Strings, die die unterstützten Sitzungstypen angeben müssen. Erlaubte Werte sind:
 
     - `temporary`
-        -: Eine Sitzung, für die die Lizenz, der/die Schlüssel und Aufzeichnungen oder Daten, die sich auf die Sitzung beziehen, nicht gespeichert werden. Die Anwendung muss diese Speicherung nicht verwalten. Implementierungen müssen diese Option unterstützen, und sie ist die Standardoption.
+      -: Eine Sitzung, für die die Lizenz, der/die Schlüssel und Aufzeichnungen oder Daten, die sich auf die Sitzung beziehen, nicht gespeichert werden. Die Anwendung muss diese Speicherung nicht verwalten. Implementierungen müssen diese Option unterstützen, und sie ist die Standardoption.
     - `persistent-license`
-        -: Eine Sitzung, für die die Lizenz (und möglicherweise andere Daten, die sich auf die Sitzung beziehen) gespeichert werden. Ein Eintrag der Lizenz und der zugehörigen Schlüssel bleibt bestehen, auch wenn die Lizenz zerstört wird, was eine Bescheinigung liefert, dass die Lizenz und die darin enthaltenen Schlüssel vom Client nicht mehr verwendet werden können.
+      -: Eine Sitzung, für die die Lizenz (und möglicherweise andere Daten, die sich auf die Sitzung beziehen) gespeichert werden. Ein Eintrag der Lizenz und der zugehörigen Schlüssel bleibt bestehen, auch wenn die Lizenz zerstört wird, was eine Bescheinigung liefert, dass die Lizenz und die darin enthaltenen Schlüssel vom Client nicht mehr verwendet werden können.
 
 ### Rückgabewert
 

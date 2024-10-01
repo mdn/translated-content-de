@@ -50,14 +50,14 @@ Ein regulärer Ausdruck mit dem `g`-Flag ist der einzige Fall, in dem `replace()
 
 Die Ersetzungszeichenkette kann die folgenden speziellen Ersetzungsmuster enthalten:
 
-| Muster    | Einfügen                                                                                      |
-| --------- | --------------------------------------------------------------------------------------------- |
-| `$$`      | Fügt ein `"$"` ein.                                                                           |
-| `$&`      | Fügt die übereinstimmende Teilzeichenkette ein.                                               |
-| `` $` ``  | Fügt den Teil der Zeichenkette ein, der der übereinstimmenden Teilzeichenkette vorausgeht.    |
-| `$'`      | Fügt den Teil der Zeichenkette ein, der der übereinstimmenden Teilzeichenkette folgt.         |
+| Muster    | Einfügen                                                                                                      |
+| --------- | ------------------------------------------------------------------------------------------------------------- |
+| `$$`      | Fügt ein `"$"` ein.                                                                                           |
+| `$&`      | Fügt die übereinstimmende Teilzeichenkette ein.                                                               |
+| `` $` ``  | Fügt den Teil der Zeichenkette ein, der der übereinstimmenden Teilzeichenkette vorausgeht.                    |
+| `$'`      | Fügt den Teil der Zeichenkette ein, der der übereinstimmenden Teilzeichenkette folgt.                         |
 | `$n`      | Fügt die `n`te (`1`-indizierte) Erfassungsgruppe ein, wobei `n` eine positive ganze Zahl kleiner als 100 ist. |
-| `$<Name>` | Fügt die benannte Erfassungsgruppe ein, wobei `Name` der Gruppenname ist.                     |
+| `$<Name>` | Fügt die benannte Erfassungsgruppe ein, wobei `Name` der Gruppenname ist.                                     |
 
 `$n` und `$<Name>` sind nur verfügbar, wenn das `pattern`-Argument ein {{jsxref("RegExp")}}-Objekt ist. Wenn das `pattern` eine Zeichenkette ist oder wenn die entsprechende Erfassungsgruppe nicht im Regex vorhanden ist, wird das Muster als Literalmuster ersetzt. Wenn die Gruppe vorhanden, aber nicht übereinstimmend ist (weil sie Teil einer Disjunktion ist), wird sie durch eine leere Zeichenkette ersetzt.
 

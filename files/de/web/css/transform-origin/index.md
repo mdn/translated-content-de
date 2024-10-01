@@ -107,13 +107,13 @@ Wenn zwei oder mehr Werte definiert sind und entweder kein Wert ein Schlüsselwo
 
 Die Schlüsselwörter sind bequeme Abkürzungen und entsprechen den folgenden {{cssxref("&lt;percentage&gt;")}}-Werten:
 
-| Schlüsselwort | Wert  |
-| ------------- | ----- |
-| `left`        | `0%`  |
-| `center`      | `50%` |
-| `right`       | `100%`|
-| `top`         | `0%`  |
-| `bottom`      | `100%`|
+| Schlüsselwort | Wert   |
+| ------------- | ------ |
+| `left`        | `0%`   |
+| `center`      | `50%`  |
+| `right`       | `100%` |
+| `top`         | `0%`   |
+| `bottom`      | `100%` |
 
 ## Formelle Definition
 

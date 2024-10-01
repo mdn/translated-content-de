@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`MediaTrackSupportedConstraints`** Dictionary erstellt die Liste der einschränkbaren Eigenschaften, die vom [Benutzeragenten](/de-DE/docs/Glossary/user_agent) oder Browser in seiner Implementierung des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Objekts erkannt werden. Ein Objekt, das dem `MediaTrackSupportedConstraints` entspricht, wird von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben.
+Das **`MediaTrackSupportedConstraints`** Dictionary erstellt die Liste der einschränkbaren Eigenschaften, die vom [Benutzeragenten](/de/docs/Glossary/user_agent) oder Browser in seiner Implementierung des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) Objekts erkannt werden. Ein Objekt, das dem `MediaTrackSupportedConstraints` entspricht, wird von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben.
 
 Aufgrund der Funktionsweise von Schnittstellendefinitionen in WebIDL tritt kein Fehler auf, wenn eine Einschränkung angefordert, aber nicht unterstützt wird. Stattdessen werden die angegebenen Einschränkungen angewendet, wobei nicht erkannte Einschränkungen aus der Anforderung entfernt werden. Dies kann zu verwirrenden und schwer zu debuggen Fehlern führen. Daher sollten Sie `getSupportedConstraints()` verwenden, um diese Informationen abzurufen, bevor Sie versuchen, Einschränkungen festzulegen, wenn Sie den Unterschied zwischen dem stillschweigenden Ignorieren einer Einschränkung und der Annahme einer Einschränkung kennen müssen.
 

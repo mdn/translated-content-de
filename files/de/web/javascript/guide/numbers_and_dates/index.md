@@ -99,33 +99,33 @@ Sie beziehen sich immer auf eine Eigenschaft des vordefinierten `Number`-Objekts
 
 Die folgende Tabelle fasst die Eigenschaften des `Number`-Objekts zusammen.
 
-| Eigenschaft                             | Beschreibung                                                                                                 |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| {{jsxref("Number.MAX_VALUE")}}          | Die größte darstellbare positive Zahl (`1.7976931348623157e+308`)                                            |
-| {{jsxref("Number.MIN_VALUE")}}          | Die kleinste darstellbare positive Zahl (`5e-324`)                                                           |
-| {{jsxref("Number.NaN")}}                | Spezieller "nicht-eine-Zahl"-Wert                                                                            |
-| {{jsxref("Number.NEGATIVE_INFINITY")}}  | Spezieller negativer Unendlichkeitswert; wird bei Überläufen zurückgegeben                                   |
-| {{jsxref("Number.POSITIVE_INFINITY")}}  | Spezieller positiver Unendlichkeitswert; wird bei Überläufen zurückgegeben                                   |
-| {{jsxref("Number.EPSILON")}}            | Unterschied zwischen `1` und dem kleinsten Wert größer als `1`, der als {{jsxref("Number")}} dargestellt werden kann (`2.220446049250313e-16`) |
-| {{jsxref("Number.MIN_SAFE_INTEGER")}}   | Minimal sichere Ganzzahl in JavaScript (−2^53 + 1, oder `−9007199254740991`)                                 |
-| {{jsxref("Number.MAX_SAFE_INTEGER")}}   | Maximal sichere Ganzzahl in JavaScript (+2^53 − 1, oder `+9007199254740991`)                                 |
+| Eigenschaft                            | Beschreibung                                                                                                                                   |
+| -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| {{jsxref("Number.MAX_VALUE")}}         | Die größte darstellbare positive Zahl (`1.7976931348623157e+308`)                                                                              |
+| {{jsxref("Number.MIN_VALUE")}}         | Die kleinste darstellbare positive Zahl (`5e-324`)                                                                                             |
+| {{jsxref("Number.NaN")}}               | Spezieller "nicht-eine-Zahl"-Wert                                                                                                              |
+| {{jsxref("Number.NEGATIVE_INFINITY")}} | Spezieller negativer Unendlichkeitswert; wird bei Überläufen zurückgegeben                                                                     |
+| {{jsxref("Number.POSITIVE_INFINITY")}} | Spezieller positiver Unendlichkeitswert; wird bei Überläufen zurückgegeben                                                                     |
+| {{jsxref("Number.EPSILON")}}           | Unterschied zwischen `1` und dem kleinsten Wert größer als `1`, der als {{jsxref("Number")}} dargestellt werden kann (`2.220446049250313e-16`) |
+| {{jsxref("Number.MIN_SAFE_INTEGER")}}  | Minimal sichere Ganzzahl in JavaScript (−2^53 + 1, oder `−9007199254740991`)                                                                   |
+| {{jsxref("Number.MAX_SAFE_INTEGER")}}  | Maximal sichere Ganzzahl in JavaScript (+2^53 − 1, oder `+9007199254740991`)                                                                   |
 
-| Methode                                | Beschreibung                                                                                                          |
-| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| {{jsxref("Number.parseFloat()")}}      | Parst ein String-Argument und gibt eine Gleitkommazahl zurück. Entspricht der globalen {{jsxref("parseFloat()")}}-Funktion. |
-| {{jsxref("Number.parseInt()")}}        | Parst ein String-Argument und gibt eine Ganzzahl mit der angegebenen Basis oder Radix zurück. Entspricht der globalen {{jsxref("parseInt()")}}-Funktion. |
-| {{jsxref("Number.isFinite()")}}        | Bestimmt, ob der übergebene Wert eine endliche Zahl ist.                                                              |
-| {{jsxref("Number.isInteger()")}}       | Bestimmt, ob der übergebene Wert eine Ganzzahl ist.                                                                   |
-| {{jsxref("Number.isNaN()")}}           | Bestimmt, ob der übergebene Wert {{jsxref("NaN")}} ist. Robustere Version der ursprünglichen globalen {{jsxref("isNaN()")}}.   |
-| {{jsxref("Number.isSafeInteger()")}}   | Bestimmt, ob der angegebene Wert eine Zahl ist, die eine _sichere Ganzzahl_ ist.                                      |
+| Methode                              | Beschreibung                                                                                                                                             |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {{jsxref("Number.parseFloat()")}}    | Parst ein String-Argument und gibt eine Gleitkommazahl zurück. Entspricht der globalen {{jsxref("parseFloat()")}}-Funktion.                              |
+| {{jsxref("Number.parseInt()")}}      | Parst ein String-Argument und gibt eine Ganzzahl mit der angegebenen Basis oder Radix zurück. Entspricht der globalen {{jsxref("parseInt()")}}-Funktion. |
+| {{jsxref("Number.isFinite()")}}      | Bestimmt, ob der übergebene Wert eine endliche Zahl ist.                                                                                                 |
+| {{jsxref("Number.isInteger()")}}     | Bestimmt, ob der übergebene Wert eine Ganzzahl ist.                                                                                                      |
+| {{jsxref("Number.isNaN()")}}         | Bestimmt, ob der übergebene Wert {{jsxref("NaN")}} ist. Robustere Version der ursprünglichen globalen {{jsxref("isNaN()")}}.                             |
+| {{jsxref("Number.isSafeInteger()")}} | Bestimmt, ob der angegebene Wert eine Zahl ist, die eine _sichere Ganzzahl_ ist.                                                                         |
 
 Das `Number`-Prototyp bietet Methoden zur Informationsermittlung aus `Number`-Objekten in verschiedenen Formaten. Die folgende Tabelle fasst die Methoden des `Number.prototype` zusammen.
 
-| Methode                                                 | Beschreibung                                                                             |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| {{jsxref("Number/toExponential", "toExponential()")}}   | Gibt eine Zeichenkette zurück, die die Zahl in Exponentialschreibweise darstellt.         |
-| {{jsxref("Number/toFixed", "toFixed()")}}               | Gibt eine Zeichenkette zurück, die die Zahl in Festkommaschreibweise darstellt.           |
-| {{jsxref("Number/toPrecision", "toPrecision()")}}       | Gibt eine Zeichenkette zurück, die die Zahl mit einer angegebenen Präzision in Festkommaschreibweise darstellt. |
+| Methode                                               | Beschreibung                                                                                                    |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| {{jsxref("Number/toExponential", "toExponential()")}} | Gibt eine Zeichenkette zurück, die die Zahl in Exponentialschreibweise darstellt.                               |
+| {{jsxref("Number/toFixed", "toFixed()")}}             | Gibt eine Zeichenkette zurück, die die Zahl in Festkommaschreibweise darstellt.                                 |
+| {{jsxref("Number/toPrecision", "toPrecision()")}}     | Gibt eine Zeichenkette zurück, die die Zahl mit einer angegebenen Präzision in Festkommaschreibweise darstellt. |
 
 ## Math-Objekt
 

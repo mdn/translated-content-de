@@ -16,8 +16,8 @@ Der Dokumenttext wird im Standardstil als das erste Schriftbild gerendert, das v
 
 Das Format des Strings muss einer der folgenden HTML-Mikrosyntaxen entsprechen:
 
-| Mikrosyntax                                 | Beschreibung                                                        | Beispiele         |
-| ------------------------------------------- | ------------------------------------------------------------------- | ----------------- |
+| Mikrosyntax                                                 | Beschreibung                                                                    | Beispiele         |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------- | ----------------- |
 | Liste von einem oder mehreren gültigen Schriftfamiliennamen | _Eine Liste von Schriftnamen, die auf dem lokalen System vorhanden sein müssen_ | `courier,verdana` |
 
 ## Wert

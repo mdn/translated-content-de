@@ -104,7 +104,7 @@ while (true) {
 
 Null-Verzögerung bedeutet nicht, dass der Rückruf nach null Millisekunden gestartet wird. Das Aufrufen von [`setTimeout`](/de/docs/Web/API/setTimeout) mit einer Verzögerung von `0` (null) Millisekunden führt nicht dazu, dass die Rückruffunktion nach dem gegebenen Intervall ausgeführt wird.
 
-Die Ausführung hängt von der Anzahl der wartenden Aufgaben in der Warteschlange ab. Im unten stehenden Beispiel wird die Nachricht `"this is just a message"` in die Konsole geschrieben, bevor die Nachricht im Rückruf verarbeitet wird, da die Verzögerung die _Mindest_zeit ist, die erforderlich ist, um die Anfrage von der Laufzeitumgebung zu verarbeiten (nicht eine _garantierte_ Zeit).
+Die Ausführung hängt von der Anzahl der wartenden Aufgaben in der Warteschlange ab. Im unten stehenden Beispiel wird die Nachricht `"this is just a message"` in die Konsole geschrieben, bevor die Nachricht im Rückruf verarbeitet wird, da die Verzögerung die _Mindest_zeit ist, die erforderlich ist, um die Anfrage von der Laufzeitumgebung zu verarbeiten (nicht eine \_garantierte_ Zeit).
 
 Die `setTimeout` muss warten, bis der gesamte Code für die Nachrichten in der Warteschlange abgeschlossen ist, auch wenn Sie ein bestimmtes Zeitlimit für Ihr `setTimeout` festgelegt haben.
 

@@ -27,11 +27,11 @@ i32.gt_u
 ;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.gt_s`  | `0x4a`         |
-| `i32.gt_u`  | `0x4b`         |
-| `i64.gt_s`  | `0x55`         |
-| `i64.gt_u`  | `0x56`         |
-| `f32.gt`    | `0x5e`         |
-| `f64.gt`    | `0x64`         |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `i32.gt_s` | `0x4a`         |
+| `i32.gt_u` | `0x4b`         |
+| `i64.gt_s` | `0x55`         |
+| `i64.gt_u` | `0x56`         |
+| `f32.gt`   | `0x5e`         |
+| `f64.gt`   | `0x64`         |

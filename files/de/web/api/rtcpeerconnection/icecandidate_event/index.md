@@ -40,7 +40,7 @@ _Ein [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent), 
 
 - [`RTCPeerConnectionIceEvent.candidate`](/de/docs/Web/API/RTCPeerConnectionIceEvent/candidate) {{ReadOnlyInline}}
   - : Gibt den [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) an, der den mit dem Ereignis verbundenen Kandidaten enthält.
-  Dies wird der leere String sein, wenn das Ereignis anzeigt, dass keine weiteren Kandidaten in dieser **Generation** erwartet werden, oder `null`, wenn das gesamte ICE-Sammeln auf allen Transporten abgeschlossen ist.
+    Dies wird der leere String sein, wenn das Ereignis anzeigt, dass keine weiteren Kandidaten in dieser **Generation** erwartet werden, oder `null`, wenn das gesamte ICE-Sammeln auf allen Transporten abgeschlossen ist.
 
 ## Beschreibung
 

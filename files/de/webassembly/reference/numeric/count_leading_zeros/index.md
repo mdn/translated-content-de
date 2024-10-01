@@ -23,7 +23,7 @@ i32.clz
 ;; the top item on the stack will now be 8
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.clz`   | `0x67`         |
-| `i64.clz`   | `0x79`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.clz` | `0x67`         |
+| `i64.clz` | `0x79`         |

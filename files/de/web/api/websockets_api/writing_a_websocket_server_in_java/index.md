@@ -123,8 +123,8 @@ Wenn wir "abcdef" senden, erhalten wir diese Bytes:
 - 129:
 
   | FIN (Ist dies die gesamte Nachricht?) | RSV1 | RSV2 | RSV3 | Opcode   |
-  | ------------------------------------ | ---- | ---- | ---- | -------- |
-  | 1                                    | 0    | 0    | 0    | 0x1=0001 |
+  | ------------------------------------- | ---- | ---- | ---- | -------- |
+  | 1                                     | 0    | 0    | 0    | 0x1=0001 |
 
   FIN: Sie können Ihre Nachricht in Frames senden, aber jetzt halten Sie es einfach.
   Opcode _0x1_ bedeutet, dass dies ein Text ist. [Vollständige Liste der Opcodes](https://datatracker.ietf.org/doc/html/rfc6455#section-5.2)

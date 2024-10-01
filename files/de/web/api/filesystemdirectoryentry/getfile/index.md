@@ -42,14 +42,14 @@ Das `options`-Parameterobjekt akzeptiert die folgenden Parameter:
 
 Die folgende Tabelle beschreibt das Ergebnis jeder möglichen Kombination dieser Flags, je nachdem, ob der Zielpfad bereits existiert oder nicht.
 
-| `create` Option | `exclusive` Option | Pfadbedingung                  | Ergebnis                                                                                                                                     |
-| --------------- | ------------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| `false`         | _Ignoriert_        | Pfad existiert und ist eine Datei | Der `successCallback` wird mit einem [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) aufgerufen.                                                              |
-| `false`         | _Ignoriert_        | Pfad existiert, ist aber ein Verzeichnis | Der `errorCallback` wird mit einem entsprechenden Fehlercode aufgerufen (wenn der Callback bereitgestellt wurde).                             |
-| `true`          | `false`            | Pfad existiert                    | Die vorhandene Datei wird entfernt und durch eine neue ersetzt, dann wird der `successCallback` mit einem [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) aufgerufen. |
-| `true`          | `false`            | Pfad existiert nicht             | Die Datei wird erstellt, dann wird ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) an den `successCallback` übergeben.                                       |
-| `true`          | `true`             | Pfad existiert                    | Der `errorCallback` wird mit einem entsprechenden Fehler, wie z.B. `FileError.PATH_EXISTS_ERR`, aufgerufen.                                   |
-| `true`          | `true`             | Pfad existiert nicht             | Die Datei wird erstellt, dann wird ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) an den `successCallback` übergeben.                                       |
+| `create` Option | `exclusive` Option | Pfadbedingung                            | Ergebnis                                                                                                                                                                            |
+| --------------- | ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `false`         | _Ignoriert_        | Pfad existiert und ist eine Datei        | Der `successCallback` wird mit einem [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) aufgerufen.                                                                      |
+| `false`         | _Ignoriert_        | Pfad existiert, ist aber ein Verzeichnis | Der `errorCallback` wird mit einem entsprechenden Fehlercode aufgerufen (wenn der Callback bereitgestellt wurde).                                                                   |
+| `true`          | `false`            | Pfad existiert                           | Die vorhandene Datei wird entfernt und durch eine neue ersetzt, dann wird der `successCallback` mit einem [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) aufgerufen. |
+| `true`          | `false`            | Pfad existiert nicht                     | Die Datei wird erstellt, dann wird ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) an den `successCallback` übergeben.                                            |
+| `true`          | `true`             | Pfad existiert                           | Der `errorCallback` wird mit einem entsprechenden Fehler, wie z.B. `FileError.PATH_EXISTS_ERR`, aufgerufen.                                                                         |
+| `true`          | `true`             | Pfad existiert nicht                     | Die Datei wird erstellt, dann wird ein [`FileSystemFileEntry`](/de/docs/Web/API/FileSystemFileEntry) an den `successCallback` übergeben.                                            |
 
 ### Rückgabewert
 

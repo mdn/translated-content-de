@@ -1,5 +1,5 @@
 ---
-title: "TypeError: \"x\" ist kein nicht-null-Objekt"
+title: 'TypeError: "x" ist kein nicht-null-Objekt'
 slug: Web/JavaScript/Reference/Errors/No_non-null_object
 l10n:
   sourceCommit: 4e0349ec31c38bebd56e56782170666e11ae5ad3

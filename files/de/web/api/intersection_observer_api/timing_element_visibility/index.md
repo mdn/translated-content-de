@@ -372,7 +372,7 @@ function updateAdTimer(adBox) {
 }
 ```
 
-Um die sichtbare Zeit eines Elements zu verfolgen, verwenden wir zwei benutzerdefinierte Dateneigenschaften (siehe [`data-*`](/de/docs/Web/HTML/Global_attributes/data-* )) auf jeder Anzeige:
+Um die sichtbare Zeit eines Elements zu verfolgen, verwenden wir zwei benutzerdefinierte Dateneigenschaften (siehe [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)) auf jeder Anzeige:
 
 - `lastViewStarted`
   - : Die Zeit in Millisekunden, relativ zur Zeit, zu der das Dokument erstellt wurde, zu der die Sichtbarkeitszählung der Anzeige zuletzt aktualisiert oder die Anzeige zuletzt sichtbar wurde. 0, wenn die Anzeige zum letzten Sichtbarkeitszustand nicht sichtbar war.

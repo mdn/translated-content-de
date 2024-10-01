@@ -86,6 +86,7 @@ new ReadableStream(underlyingSource, queuingStrategy)
     > [`ByteLengthQueuingStrategy`](/de/docs/Web/API/ByteLengthQueuingStrategy) oder [`CountQueuingStrategy`](/de/docs/Web/API/CountQueuingStrategy)
     > für diesen Objektwert verwenden. Wenn keine `queuingStrategy` vorgegeben ist, ist die
     > verwendete Standardstrategie dieselbe wie bei einer `CountQueuingStrategy` mit einer hohen Schwelle von
+    >
     > 1.
 
 ### Rückgabewert

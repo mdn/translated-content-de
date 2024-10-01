@@ -16,10 +16,10 @@ untere Grenzwert im Schlüsselbereich enthalten ist.
 
 Ein Boolean-Wert:
 
-| Wert    | Anzeige                                                    |
-| ------- | ---------------------------------------------------------- |
+| Wert    | Anzeige                                                       |
+| ------- | ------------------------------------------------------------- |
 | `true`  | Der untere Grenzwert ist im Schlüsselbereich nicht enthalten. |
-| `false` | Der untere Grenzwert ist im Schlüsselbereich enthalten.     |
+| `false` | Der untere Grenzwert ist im Schlüsselbereich enthalten.       |
 
 ## Beispiele
 

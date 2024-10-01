@@ -24,22 +24,22 @@ isEnabled(cap)
 
   - : Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der angibt, welche WebGL-Funktionalität getestet werden soll. Mögliche Werte:
 
-    | Konstante                      | Beschreibung                                                                                                                         |
-    | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
-    | `gl.BLEND`                     | Mischen der berechneten Fragmentfarbwerte. Siehe [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc).                                |
-    | `gl.CULL_FACE`                 | Ausblenden von Polygonen. Siehe [`WebGLRenderingContext.cullFace()`](/de/docs/Web/API/WebGLRenderingContext/cullFace).                                                           |
-    | `gl.DEPTH_TEST`                | Tiefenvergleiche und Aktualisierungen des Tiefenpuffers. Siehe [`WebGLRenderingContext.depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc).                            |
-    | `gl.DITHER`                    | Dithering von Farbkomponenten, bevor sie in den Farb-Puffer geschrieben werden.                                                      |
-    | `gl.POLYGON_OFFSET_FILL`       | Hinzufügen eines Offsets zu den Tiefenwerten der Fragmenten eines Polygons. Siehe [`WebGLRenderingContext.polygonOffset()`](/de/docs/Web/API/WebGLRenderingContext/polygonOffset).                  |
-    | `gl.SAMPLE_ALPHA_TO_COVERAGE`  | Berechnung eines temporären Abdeckungswerts, der durch den Alphawert bestimmt wird.                                                      |
-    | `gl.SAMPLE_COVERAGE`           | AND-Verknüpfung der Abdeckung des Fragments mit dem temporären Abdeckungswert. Siehe [`WebGLRenderingContext.sampleCoverage()`](/de/docs/Web/API/WebGLRenderingContext/sampleCoverage).        |
-    | `gl.SCISSOR_TEST`              | Der Scherentest verwirft Fragmente, die außerhalb des Scherrechtecks liegen. Siehe [`WebGLRenderingContext.scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).       |
-    | `gl.STENCIL_TEST`              | Schablonentests und Aktualisierungen des Schablonenpuffers. Siehe [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc).                          |
+    | Konstante                     | Beschreibung                                                                                                                                                                            |
+    | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `gl.BLEND`                    | Mischen der berechneten Fragmentfarbwerte. Siehe [`WebGLRenderingContext.blendFunc()`](/de/docs/Web/API/WebGLRenderingContext/blendFunc).                                               |
+    | `gl.CULL_FACE`                | Ausblenden von Polygonen. Siehe [`WebGLRenderingContext.cullFace()`](/de/docs/Web/API/WebGLRenderingContext/cullFace).                                                                  |
+    | `gl.DEPTH_TEST`               | Tiefenvergleiche und Aktualisierungen des Tiefenpuffers. Siehe [`WebGLRenderingContext.depthFunc()`](/de/docs/Web/API/WebGLRenderingContext/depthFunc).                                 |
+    | `gl.DITHER`                   | Dithering von Farbkomponenten, bevor sie in den Farb-Puffer geschrieben werden.                                                                                                         |
+    | `gl.POLYGON_OFFSET_FILL`      | Hinzufügen eines Offsets zu den Tiefenwerten der Fragmenten eines Polygons. Siehe [`WebGLRenderingContext.polygonOffset()`](/de/docs/Web/API/WebGLRenderingContext/polygonOffset).      |
+    | `gl.SAMPLE_ALPHA_TO_COVERAGE` | Berechnung eines temporären Abdeckungswerts, der durch den Alphawert bestimmt wird.                                                                                                     |
+    | `gl.SAMPLE_COVERAGE`          | AND-Verknüpfung der Abdeckung des Fragments mit dem temporären Abdeckungswert. Siehe [`WebGLRenderingContext.sampleCoverage()`](/de/docs/Web/API/WebGLRenderingContext/sampleCoverage). |
+    | `gl.SCISSOR_TEST`             | Der Scherentest verwirft Fragmente, die außerhalb des Scherrechtecks liegen. Siehe [`WebGLRenderingContext.scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).                 |
+    | `gl.STENCIL_TEST`             | Schablonentests und Aktualisierungen des Schablonenpuffers. Siehe [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc).                          |
 
     Bei der Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} stehen zusätzlich die folgenden Werte zur Verfügung:
 
-    | Konstante               | Beschreibung                                                                                                                                              |
-    | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Konstante               | Beschreibung                                                                                                                                                          |
+    | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | `gl.RASTERIZER_DISCARD` | Primitive werden unmittelbar vor der Rasterisierungsphase, aber nach der optionalen Transformations-Feedback-Phase, verworfen. `gl.clear()` Befehle werden ignoriert. |
 
 ### Rückgabewert

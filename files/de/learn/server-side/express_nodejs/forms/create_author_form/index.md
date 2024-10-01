@@ -11,7 +11,7 @@ Dieser Unterartikel zeigt, wie man eine Seite zur Erstellung von `Author`-Objekt
 
 ## Importieren von Validierungs- und Bereinigungsmethoden
 
-Wie bei dem [Genre-Formular](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_genre_form), müssen wir, um _express-validator_ zu verwenden, die benötigten Funktionen _require_n.
+Wie bei dem [Genre-Formular](/de/docs/Learn/Server-side/Express_Nodejs/forms/Create_genre_form), müssen wir, um _express-validator_ zu verwenden, die benötigten Funktionen \_require_n.
 
 Öffnen Sie **/controllers/authorController.js** und fügen Sie die folgende Zeile am Anfang der Datei (oberhalb der Routenfunktionen) hinzu:
 

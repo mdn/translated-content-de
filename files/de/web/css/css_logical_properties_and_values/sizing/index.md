@@ -17,7 +17,7 @@ Die folgende Tabelle bietet Zuordnungen zwischen logischen und physikalischen Ei
 
 Wenn Sie sich in einem vertikalen Schreibmodus befinden, würde {{CSSxRef("inline-size")}} der {{CSSxRef("height")}} zugeordnet.
 
-| Logische Eigenschaft           | Physikalische Eigenschaft  |
+| Logische Eigenschaft           | Physikalische Eigenschaft |
 | ------------------------------ | ------------------------- |
 | {{CSSxRef("inline-size")}}     | {{CSSxRef("width")}}      |
 | {{CSSxRef("block-size")}}      | {{CSSxRef("height")}}     |

@@ -21,8 +21,8 @@ text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
 
 zeigt die Reihenfolge der Priorität an:
 
-| Wert                                   | Priorität |
-| -------------------------------------- | --------- |
+| Wert                                    | Priorität |
+| --------------------------------------- | --------- |
 | `text/html` und `application/xhtml+xml` | `1.0`     |
 | `application/xml`                       | `0.9`     |
 | `*/*`                                   | `0.8`     |
@@ -33,11 +33,11 @@ Wenn keine Priorität für die ersten beiden Werte definiert ist, ist die Reihen
 text/html;q=0.8,text/*;q=0.8,*/*;q=0.8
 ```
 
-| Wert        | Priorität                      |
-| ----------- | ----------------------------- |
+| Wert        | Priorität                             |
+| ----------- | ------------------------------------- |
 | `text/html` | `0.8` (aber vollständig spezifiziert) |
-| `text/*`    | `0.8` (teilweise spezifiziert)  |
-| `*/*`       | `0.8` (nicht spezifiziert)    |
+| `text/*`    | `0.8` (teilweise spezifiziert)        |
+| `*/*`       | `0.8` (nicht spezifiziert)            |
 
 Einige Syntaxen, wie die von {{HTTPHeader("Accept")}}, erlauben zusätzliche Spezifikatoren wie `text/html;level=1`. Diese erhöhen die Spezifität des Wertes. Ihre Verwendung ist äußerst selten.
 

@@ -1,5 +1,5 @@
 ---
-title: "TypeError: \"x\" ist keine Funktion"
+title: 'TypeError: "x" ist keine Funktion'
 slug: Web/JavaScript/Reference/Errors/Not_a_function
 l10n:
   sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce

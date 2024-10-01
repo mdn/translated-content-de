@@ -32,31 +32,31 @@ Ein `string`, der die Add-on-ID darstellt. Wenn die Erweiterung in ihrem [`brows
 // Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
 // Weiterverbreitung und Verwendung in Quell- und Binärform, mit oder ohne
-// Änderungen, sind unter den folgenden Bedingungen erlaubt: 
+// Änderungen, sind unter den folgenden Bedingungen erlaubt:
 //
 //    * Weiterverbreitungen des Quellcodes müssen den obigen Copyright-Hinweis,
 // diese Liste von Bedingungen und den folgenden Haftungsausschluss enthalten.
 //    * Weiterverbreitungen in Binärform müssen den obigen Copyright-Hinweis,
 // diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
-// Dokumentation und/oder anderen Materialien, die mit der Verteilung 
+// Dokumentation und/oder anderen Materialien, die mit der Verteilung
 // bereitgestellt werden, enthalten.
 //    * Weder der Name von Google Inc. noch die Namen seiner
-// Beitragenden dürfen verwendet werden, um Produkte, die von dieser Software 
-// abgeleitet sind, ohne spezifische vorherige schriftliche Erlaubnis zu 
+// Beitragenden dürfen verwendet werden, um Produkte, die von dieser Software
+// abgeleitet sind, ohne spezifische vorherige schriftliche Erlaubnis zu
 // befürworten oder zu bewerben.
 //
 // DIESE SOFTWARE WIRD VON DEN COPYRIGHT-INHABERN UND BEITRAGENDEN
-// "WIE BESEHEN" BEREITGESTELLT UND JEDER AUSDRÜCKLICHE ODER STILLSCHWEIGENDE 
+// "WIE BESEHEN" BEREITGESTELLT UND JEDER AUSDRÜCKLICHE ODER STILLSCHWEIGENDE
 // HAFTUNGSAUSSCHLUSS, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
 // STILLSCHWEIGENDEN GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT UND EIGNUNG
-// FÜR EINEN BESTIMMTEN ZWECK, WIRD ABGELEHNT. IN KEINEM FALL SIND DIE 
-// COPYRIGHT-INHABER ODER BEITRAGENDEN HAFTBAR FÜR DIREKTE, INDIREKTE, 
-// ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, 
-// ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER 
-// DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER GEWINNE; ODER 
-// GESCHÄFTSUNTERBRECHUNG) WIE AUCH IMMER VERURSACHT UND UNABHÄNGIG VON DER 
-// HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG 
-// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUF IRGENDEINE WEISE 
-// AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHT, SELBST WENN AUF DIE MÖGLICHKEIT 
+// FÜR EINEN BESTIMMTEN ZWECK, WIRD ABGELEHNT. IN KEINEM FALL SIND DIE
+// COPYRIGHT-INHABER ODER BEITRAGENDEN HAFTBAR FÜR DIREKTE, INDIREKTE,
+// ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER
+// DIENSTLEISTUNGEN; NUTZUNGSVERLUST, DATEN ODER GEWINNE; ODER
+// GESCHÄFTSUNTERBRECHUNG) WIE AUCH IMMER VERURSACHT UND UNABHÄNGIG VON DER
+// HAFTUNGSTHEORIE, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUF IRGENDEINE WEISE
+// AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHT, SELBST WENN AUF DIE MÖGLICHKEIT
 // SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

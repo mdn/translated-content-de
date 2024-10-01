@@ -11,17 +11,17 @@ Die **`IDBKeyRange`**-Schnittstelle der [IndexedDB API](/de/docs/Web/API/Indexed
 
 Ein Schlüsselspektrum kann ein einzelner Wert oder ein Bereich mit oberen und unteren Grenzen oder Endpunkten sein. Wenn das Schlüsselspektrum sowohl obere als auch untere Grenzen hat, dann ist es _begrenzt_; wenn es keine Grenzen hat, ist es _unbegrenzt_. Ein begrenztes Schlüsselspektrum kann entweder offen sein (die Endpunkte sind ausgeschlossen) oder geschlossen (die Endpunkte sind eingeschlossen). Um alle Schlüssel innerhalb eines bestimmten Bereichs abzurufen, können Sie die folgenden Codestücke verwenden:
 
-| Bereich                      | Code                                  |
-| ---------------------------  | ------------------------------------- |
-| Alle Schlüssel ≥ **x**       | `IDBKeyRange.lowerBound(x)`           |
-| Alle Schlüssel > **x**       | `IDBKeyRange.lowerBound(x, true)`     |
-| Alle Schlüssel ≤ **y**       | `IDBKeyRange.upperBound(y)`           |
-| Alle Schlüssel < **y**       | `IDBKeyRange.upperBound(y, true)`     |
-| Alle Schlüssel ≥ **x** && ≤ **y** | `IDBKeyRange.bound(x, y)`             |
+| Bereich                           | Code                                   |
+| --------------------------------- | -------------------------------------- |
+| Alle Schlüssel ≥ **x**            | `IDBKeyRange.lowerBound(x)`            |
+| Alle Schlüssel > **x**            | `IDBKeyRange.lowerBound(x, true)`      |
+| Alle Schlüssel ≤ **y**            | `IDBKeyRange.upperBound(y)`            |
+| Alle Schlüssel < **y**            | `IDBKeyRange.upperBound(y, true)`      |
+| Alle Schlüssel ≥ **x** && ≤ **y** | `IDBKeyRange.bound(x, y)`              |
 | Alle Schlüssel > **x** &&< **y**  | `IDBKeyRange.bound(x, y, true, true)`  |
 | Alle Schlüssel > **x** && ≤ **y** | `IDBKeyRange.bound(x, y, true, false)` |
 | Alle Schlüssel ≥ **x** &&< **y**  | `IDBKeyRange.bound(x, y, false, true)` |
-| Der Schlüssel = **z**        | `IDBKeyRange.only(z)`                 |
+| Der Schlüssel = **z**             | `IDBKeyRange.only(z)`                  |
 
 Ein Schlüssel befindet sich in einem Schlüsselspektrum, wenn die folgenden Bedingungen wahr sind:
 

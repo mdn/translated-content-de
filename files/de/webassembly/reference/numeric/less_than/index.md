@@ -27,11 +27,11 @@ i32.lt_u
 ;; otherwise `0` will be pushed on to the stack.
 ```
 
-| Anweisung  | Binärcode      |
-| ----------- | ------------- |
-| `i32.lt_s`  | `0x48`        |
-| `i32.lt_u`  | `0x49`        |
-| `i64.lt_s`  | `0x53`        |
-| `i64.lt_u`  | `0x54`        |
-| `f32.lt`    | `0x5d`        |
-| `f64.lt`    | `0x63`        |
+| Anweisung  | Binärcode |
+| ---------- | --------- |
+| `i32.lt_s` | `0x48`    |
+| `i32.lt_u` | `0x49`    |
+| `i64.lt_s` | `0x53`    |
+| `i64.lt_u` | `0x54`    |
+| `f32.lt`   | `0x5d`    |
+| `f64.lt`   | `0x63`    |

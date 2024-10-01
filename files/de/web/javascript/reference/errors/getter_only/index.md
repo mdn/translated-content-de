@@ -1,5 +1,5 @@
 ---
-title: "TypeError: Einstellung der nur-Getter-Eigenschaft \"x\""
+title: 'TypeError: Einstellung der nur-Getter-Eigenschaft "x"'
 slug: Web/JavaScript/Reference/Errors/Getter_only
 l10n:
   sourceCommit: faee5a3a8399d43ca3ef49912fcb6cba5be6834c

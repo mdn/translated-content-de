@@ -86,23 +86,23 @@ browser.browserAction.onClicked.addListener((tab) => {
 //    * Weiterverbreitungen des Quellcodes müssen den obigen Copyright-
 //     Hinweis, diese Liste der Bedingungen und den folgenden Haftungsausschluss enthalten.
 //    * Weiterverbreitungen in Binärform müssen den obigen Copyright-
-//     Hinweis, diese Bedingungen und den folgenden Haftungsausschluss 
-//     in der Dokumentation und/oder anderen Materialien, die mit der 
+//     Hinweis, diese Bedingungen und den folgenden Haftungsausschluss
+//     in der Dokumentation und/oder anderen Materialien, die mit der
 //     Verteilung bereitgestellt werden, beibehalten.
-//    * Weder der Name der Google Inc. noch die Namen der Beiträge 
-//     dürfen verwendet werden, um Produkte, die von dieser Software 
-//     abgeleitet sind, ohne spezifische vorherige schriftliche Zustimmung zu 
+//    * Weder der Name der Google Inc. noch die Namen der Beiträge
+//     dürfen verwendet werden, um Produkte, die von dieser Software
+//     abgeleitet sind, ohne spezifische vorherige schriftliche Zustimmung zu
 //     unterstützen oder zu bewerben.
 //
-// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRÄGERN 
-// "SO WIE SIE IST" BEREITGESTELLT, UND ALLE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN 
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND BEITRÄGERN
+// "SO WIE SIE IST" BEREITGESTELLT, UND ALLE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN
 // GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE STILLSCHWEIGENDEN
-// GARANTIEN DER MARKTGÄNGIGKEIT UND EINER BESTIMMTEN ZWECKDIENLICHKEIT 
-// SIND AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE URHEBER ODER BEITRÄGER 
-// HAFTBAR FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE 
-// ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE 
-// BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN, NUTZUNGSVERLUST, 
-// DATENVERLUST ODER GEWINNVERLUST ODER UNTERBRECHUNG DER GESCHÄFTSTÄTIGKEIT) 
-// AUS JEGLICHEM GRUND, SELBST WENN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN 
+// GARANTIEN DER MARKTGÄNGIGKEIT UND EINER BESTIMMTEN ZWECKDIENLICHKEIT
+// SIND AUSGESCHLOSSEN. IN KEINEM FALL SIND DIE URHEBER ODER BEITRÄGER
+// HAFTBAR FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE
+// ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF, DIE
+// BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN, NUTZUNGSVERLUST,
+// DATENVERLUST ODER GEWINNVERLUST ODER UNTERBRECHUNG DER GESCHÄFTSTÄTIGKEIT)
+// AUS JEGLICHEM GRUND, SELBST WENN ÜBER DIE MÖGLICHKEIT SOLCHER SCHÄDEN
 // INFORMIERT WURDE.
 -->

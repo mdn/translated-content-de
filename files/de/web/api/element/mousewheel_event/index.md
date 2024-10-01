@@ -43,11 +43,11 @@ _Diese Schnittstelle erbt Eigenschaften von ihren Vorfahren, [`MouseEvent`](/de/
 
   - : Gibt ein `unsigned long` zurück, das die Einheit der `delta*`-Werte für die Scrollmenge darstellt. Erlaubte Werte sind:
 
-    | Konstante                    | Wert   | Beschreibung                                                                                                                                                    |
-    | ---------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte werden in Pixeln angegeben.                                                                                                                   |
-    | `WheelEvent.DOM_DELTA_LINE`  | `0x01` | Die `delta*`-Werte werden in Zeilen angegeben. Jeder Mausklick scrollt eine Inhaltzeile, wobei die Methode zur Berechnung der Zeilenhöhe browserabhängig ist.    |
-    | `WheelEvent.DOM_DELTA_PAGE`  | `0x02` | Die `delta*`-Werte werden in Seiten angegeben. Jeder Mausklick scrollt eine Inhaltsseite.                                                                        |
+    | Konstante                    | Wert   | Beschreibung                                                                                                                                                  |
+    | ---------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `WheelEvent.DOM_DELTA_PIXEL` | `0x00` | Die `delta*`-Werte werden in Pixeln angegeben.                                                                                                                |
+    | `WheelEvent.DOM_DELTA_LINE`  | `0x01` | Die `delta*`-Werte werden in Zeilen angegeben. Jeder Mausklick scrollt eine Inhaltzeile, wobei die Methode zur Berechnung der Zeilenhöhe browserabhängig ist. |
+    | `WheelEvent.DOM_DELTA_PAGE`  | `0x02` | Die `delta*`-Werte werden in Seiten angegeben. Jeder Mausklick scrollt eine Inhaltsseite.                                                                     |
 
 - [`WheelEvent.wheelDelta`](/de/docs/Web/API/WheelEvent/wheelDelta) {{ReadOnlyInline}} {{deprecated_inline}}
   - : Gibt einen ganzzahligen (32-Bit) Wert zurück, der die Entfernung in Pixeln darstellt.

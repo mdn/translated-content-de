@@ -126,14 +126,14 @@ In diesem Fall wäre das einzige benötigte JavaScript das Aktualisieren des `ar
 
 ## Tastaturinteraktionen
 
-| Taste(n)             | Aktion                                                                         |
-| -------------------- | ------------------------------------------------------------------------------ |
-| Pfeil rechts und hoch| Erhöhen Sie den ausgewählten Wert um einen Schritt                             |
-| Pfeil links und unten| Verringern Sie den ausgewählten Wert um einen Schritt                          |
-| Bild auf             | (Optional) Erhöhen Sie den Wert um einen festgelegten Betrag größer als oder gleich einem Schritt |
-| Bild ab              | (Optional) Verringern Sie den Wert um einen festgelegten Betrag größer als oder gleich einem Schritt |
-| Anfang               | Setzt das Spinbutton auf den Mindestwert                                        |
-| Ende                 | Setzt das Spinbutton auf den Maximalwert                                        |
+| Taste(n)              | Aktion                                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------------------------- |
+| Pfeil rechts und hoch | Erhöhen Sie den ausgewählten Wert um einen Schritt                                                   |
+| Pfeil links und unten | Verringern Sie den ausgewählten Wert um einen Schritt                                                |
+| Bild auf              | (Optional) Erhöhen Sie den Wert um einen festgelegten Betrag größer als oder gleich einem Schritt    |
+| Bild ab               | (Optional) Verringern Sie den Wert um einen festgelegten Betrag größer als oder gleich einem Schritt |
+| Anfang                | Setzt das Spinbutton auf den Mindestwert                                                             |
+| Ende                  | Setzt das Spinbutton auf den Maximalwert                                                             |
 
 Für die optionalen <kbd>Bild auf</kbd>- und <kbd>Bild ab</kbd>-Tasten sollte die Änderung des Spinbutton-Werts vorzugsweise um einen Betrag größer als die Schrittänderungen erfolgen, die durch die Auf- und Ab-Pfeiltasten gemacht werden.
 

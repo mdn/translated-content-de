@@ -104,15 +104,15 @@ Browser behandeln dieses neue Manifest als ein Update der vorhandenen App, da di
 
 Angenommen, die `start_url` Ihrer App ist `https://example.com/my-app/home`. Die folgende Tabelle zeigt, wie verschiedene `id`-Werte im Manifest aufgelöst werden:
 
-| `id` im Manifest              | Aufgelöste `id`                     | Erklärung                                                                           |
-| ----------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------- |
-| undefined                     | `https://example.com/my-app/home`  | Standardmäßig `start_url`                                                           |
-| `""`                          | `https://example.com/my-app/home`  | Leerer String wird zu `start_url`                                                   |
-| `/`                           | `https://example.com/`             | Root-relative URL                                                                   |
+| `id` im Manifest              | Aufgelöste `id`                    | Erklärung                                                                                          |
+| ----------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------- |
+| undefined                     | `https://example.com/my-app/home`  | Standardmäßig `start_url`                                                                          |
+| `""`                          | `https://example.com/my-app/home`  | Leerer String wird zu `start_url`                                                                  |
+| `/`                           | `https://example.com/`             | Root-relative URL                                                                                  |
 | `foo?x=y`                     | `https://example.com/foo?x=y`      | Relativer Pfad, aufgelöst gegenüber der Herkunft von `start_url`, mit erhaltenen Abfrageparametern |
-| `foo#heading`                 | `https://example.com/foo`          | Relativer Pfad, aufgelöst gegenüber der Herkunft von `start_url`, mit entferntem Fragment |
-| `https://anothersite.com/foo` | `https://example.com/my-app/home`  | Cross-origin URL nicht erlaubt, fällt zurück auf `start_url`                        |
-| `😀`                          | `https://example.com/%F0%9F%98%80` | Nicht-ASCII-Zeichen in URL kodiert                                                  |
+| `foo#heading`                 | `https://example.com/foo`          | Relativer Pfad, aufgelöst gegenüber der Herkunft von `start_url`, mit entferntem Fragment          |
+| `https://anothersite.com/foo` | `https://example.com/my-app/home`  | Cross-origin URL nicht erlaubt, fällt zurück auf `start_url`                                       |
+| `😀`                          | `https://example.com/%F0%9F%98%80` | Nicht-ASCII-Zeichen in URL kodiert                                                                 |
 
 ## Spezifikationen
 

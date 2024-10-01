@@ -24,7 +24,7 @@ i32.shl
 ;; the top item on the stack will now be 14 (00001110)
 ```
 
-| Anweisung  | Binärer Opcode |
-| ----------- | ------------- |
-| `i32.shl`   | `0x74`        |
-| `i64.shl`   | `0x86`        |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.shl` | `0x74`         |
+| `i64.shl` | `0x86`         |

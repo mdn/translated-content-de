@@ -10,13 +10,13 @@ l10n:
 
 Die **XMLHttpRequest.readyState**-Eigenschaft gibt den Zustand an, in dem sich ein XMLHttpRequest-Client befindet. Ein XHR-Client existiert in einem der folgenden Zustände:
 
-| Wert  | Zustand            | Beschreibung                                                    |
-| ----- | ------------------ | --------------------------------------------------------------- |
-| `0`   | `UNSENT`           | Der Client wurde erstellt. `open()` wurde noch nicht aufgerufen.|
-| `1`   | `OPENED`           | `open()` wurde aufgerufen.                                      |
-| `2`   | `HEADERS_RECEIVED` | `send()` wurde aufgerufen, und Header und Status sind verfügbar.|
-| `3`   | `LOADING`          | Wird heruntergeladen; `responseText` enthält teilweise Daten.   |
-| `4`   | `DONE`             | Der Vorgang ist abgeschlossen.                                  |
+| Wert | Zustand            | Beschreibung                                                     |
+| ---- | ------------------ | ---------------------------------------------------------------- |
+| `0`  | `UNSENT`           | Der Client wurde erstellt. `open()` wurde noch nicht aufgerufen. |
+| `1`  | `OPENED`           | `open()` wurde aufgerufen.                                       |
+| `2`  | `HEADERS_RECEIVED` | `send()` wurde aufgerufen, und Header und Status sind verfügbar. |
+| `3`  | `LOADING`          | Wird heruntergeladen; `responseText` enthält teilweise Daten.    |
+| `4`  | `DONE`             | Der Vorgang ist abgeschlossen.                                   |
 
 - UNSENT
   - : Der XMLHttpRequest-Client wurde erstellt, aber die open()-Methode wurde noch nicht aufgerufen.

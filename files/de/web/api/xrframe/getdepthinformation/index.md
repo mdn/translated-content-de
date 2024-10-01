@@ -30,6 +30,7 @@ Ein [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation) Objekt.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn `"depth-sensing"` nicht in der Liste der aktivierten Funktionen für diese [`XRSession`](/de/docs/Web/API/XRSession) enthalten ist.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+
   - : Wird ausgelöst, wenn:
 
     - das `XRFrame` weder aktiv noch animiert ist. Das Abrufen von Tiefeninformationen ist nur innerhalb des [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) Rückrufs gültig.

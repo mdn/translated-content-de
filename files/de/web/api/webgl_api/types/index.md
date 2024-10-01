@@ -105,17 +105,17 @@ Diese Typen werden innerhalb eines [`WebGLRenderingContext`](/de/docs/Web/API/We
 
 Diese Typen werden innerhalb eines [`WebGL2RenderingContext`](/de/docs/Web/API/WebGL2RenderingContext) verwendet. Alle WebGL 1-Typen werden ebenfalls verwendet.
 
-| Typ       | Web IDL Typ   | Beschreibung                     |
-| --------- | ------------- | -------------------------------- |
-| `GLint64` | `long long`   | Signierte 64-Bit Ganzzahl.       |
+| Typ       | Web IDL Typ | Beschreibung               |
+| --------- | ----------- | -------------------------- |
+| `GLint64` | `long long` | Signierte 64-Bit Ganzzahl. |
 
 ## WebGL-Erweiterungen
 
 Diese Typen werden innerhalb von [WebGL-Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) verwendet.
 
-| Typ           | Web IDL Typ   | Beschreibung                     |
-| ------------- | ------------- | -------------------------------- |
-| `GLuint64EXT` | `long long`   | Vorzeichenlose 64-Bit Ganzzahl.  |
+| Typ           | Web IDL Typ | Beschreibung                    |
+| ------------- | ----------- | ------------------------------- |
+| `GLuint64EXT` | `long long` | Vorzeichenlose 64-Bit Ganzzahl. |
 
 ## Spezifikationen
 

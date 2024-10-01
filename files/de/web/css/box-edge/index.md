@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`<box-edge>`** Wertetypen repräsentieren ein [Box-Kanten](/de-DE/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Schlüsselwort, wie zum Beispiel [`content-box`](#content-box) und [`border-box`](#border-box). Die Box-Kanten-Schlüsselwörter werden verwendet, um verschiedene Aspekte des Box-Modells eines Elements zu definieren und wie Elemente auf dem Bildschirm positioniert und gerendert werden.
+Die **`<box-edge>`** Wertetypen repräsentieren ein [Box-Kanten](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) Schlüsselwort, wie zum Beispiel [`content-box`](#content-box) und [`border-box`](#border-box). Die Box-Kanten-Schlüsselwörter werden verwendet, um verschiedene Aspekte des Box-Modells eines Elements zu definieren und wie Elemente auf dem Bildschirm positioniert und gerendert werden.
 
 Die Box-Kanten-Schlüsselwörter sind Komponenten von, aber nicht beschränkt auf, die Datentypen `<visual-box>`, `<layout-box>`, `<paint-box>`, `<coord-box>`, und `<geometry-box>`. Diese Typen werden auf Eigenschaften wie {{cssxref("transform-box")}} und {{cssxref("background-clip")}} angewendet.
 
@@ -42,7 +42,7 @@ Ein `<box-edge>` kann vom Typ `<visual-box>`, `<layout-box>`, `<paint-box>`, `<c
   - : Bezieht sich auf das Koordinatenfeld, das zur Positionierung und Größenbestimmung eines Elements innerhalb seines übergeordneten Containers verwendet wird. Es wird verwendet, um zu steuern, wie der Inhalt um die Kanten des Feldes fließt. Es schließt den Randbereich aus. Dieser Werttyp wird für die Eigenschaft {{cssxref("offset-path")}} verwendet.
 
 - `<geometry-box>`
-  - : Definiert das Referenzfeld für eine [Grundform](/de-DE/docs/Web/CSS/basic-shape), oder wenn es selbst angegeben wird, führen die Kanten des spezifizierten Feldes, einschließlich jeder Eckgestaltung (wie ein {{cssxref("border-radius")}}), zum Beschneidungspfad. Dieser Werttyp wird für die Eigenschaften {{cssxref("clip-path")}}, {{cssxref("mask-clip")}}, und {{cssxref("mask-origin")}} sowie das SVG-Attribut {{SVGAttr("clip-path")}} verwendet.
+  - : Definiert das Referenzfeld für eine [Grundform](/de/docs/Web/CSS/basic-shape), oder wenn es selbst angegeben wird, führen die Kanten des spezifizierten Feldes, einschließlich jeder Eckgestaltung (wie ein {{cssxref("border-radius")}}), zum Beschneidungspfad. Dieser Werttyp wird für die Eigenschaften {{cssxref("clip-path")}}, {{cssxref("mask-clip")}}, und {{cssxref("mask-origin")}} sowie das SVG-Attribut {{SVGAttr("clip-path")}} verwendet.
 
 ### Schlüsselwörter
 
@@ -74,7 +74,7 @@ Die `<box-edge>` Schlüsselwörter sind wie folgt definiert:
 
 - `view-box`
 
-  - : Bezieht sich auf das Ursprungsfeld des nächsten SVG-Viewport-Elements. Das Ursprungsfeld ist ein Rechteck mit der Breite und Höhe des initialen SVG-Benutzerkoordinatensystems, das durch das {{svgattr("viewBox")}} Attribut für dieses Element festgelegt wird. Das Ursprungsfeld ist so positioniert, dass seine obere linke Ecke am Ursprung des [Koordinatensystems](/de-DE/docs/Web/CSS/CSSOM_view/Coordinate_systems) verankert ist. In CSS wird `view-box` als `border-box` behandelt.
+  - : Bezieht sich auf das Ursprungsfeld des nächsten SVG-Viewport-Elements. Das Ursprungsfeld ist ein Rechteck mit der Breite und Höhe des initialen SVG-Benutzerkoordinatensystems, das durch das {{svgattr("viewBox")}} Attribut für dieses Element festgelegt wird. Das Ursprungsfeld ist so positioniert, dass seine obere linke Ecke am Ursprung des [Koordinatensystems](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems) verankert ist. In CSS wird `view-box` als `border-box` behandelt.
     > [!NOTE]
     > Wenn der SVG-Viewport nicht am Ursprung verankert ist, entspricht das Ursprungsfeld nicht dem SVG-Viewport.
 
@@ -84,4 +84,4 @@ Die `<box-edge>` Schlüsselwörter sind wie folgt definiert:
 
 ## Siehe auch
 
-- [CSS-Box-Modell](/de-DE/docs/Web/CSS/CSS_box_model) Modul
+- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul

@@ -24,7 +24,7 @@ i32.xor
 ;; the top item on the stack will now be 6 (00000110)
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.xor`   | `0x73`         |
-| `i64.xor`   | `0x85`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.xor` | `0x73`         |
+| `i64.xor` | `0x85`         |

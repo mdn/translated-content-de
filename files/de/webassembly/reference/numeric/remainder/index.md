@@ -24,9 +24,9 @@ i32.rem
 ;; the top item on the stack will now be 1 (10 % 3 = 1)
 ```
 
-| Anweisung    | Binärer Opcode |
-| ------------ | -------------- |
-| `i32.rem_s`  | `0x6f`         |
-| `i32.rem_u`  | `0x70`         |
-| `i64.rem_s`  | `0x81`         |
-| `i64.rem_u`  | `0x82`         |
+| Anweisung   | Binärer Opcode |
+| ----------- | -------------- |
+| `i32.rem_s` | `0x6f`         |
+| `i32.rem_u` | `0x70`         |
+| `i64.rem_s` | `0x81`         |
+| `i64.rem_u` | `0x82`         |

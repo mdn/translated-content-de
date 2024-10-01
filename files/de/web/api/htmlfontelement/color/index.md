@@ -14,11 +14,11 @@ Eigenschaft ist ein String, der das [`color`](/de/docs/Web/HTML/Element/font#col
 
 Das Format des Strings muss einem der folgenden HTML-Mikrosyntaxen entsprechen (siehe [`<color>`](/de/docs/Web/CSS/color_value)):
 
-| Mikrosyntax              | Beschreibung                     | Beispiele                 |
-| ------------------------ | -------------------------------- | ------------------------- |
-| Gültiger Farbnamen-String| _nameOfColor (nicht case-sensitiv)_ | `Green`, `green`, `GREEN` |
-| Gültiger Hex-Farbstring  | _#RRGGBB_                        | `#008000`                 |
-| RGB mit Dezimalwerten    | _rgb(x x x) (x im Bereich 0-255)_ | `rgb(0 128 0)`            |
+| Mikrosyntax               | Beschreibung                        | Beispiele                 |
+| ------------------------- | ----------------------------------- | ------------------------- |
+| Gültiger Farbnamen-String | _nameOfColor (nicht case-sensitiv)_ | `Green`, `green`, `GREEN` |
+| Gültiger Hex-Farbstring   | _#RRGGBB_                           | `#008000`                 |
+| RGB mit Dezimalwerten     | _rgb(x x x) (x im Bereich 0-255)_   | `rgb(0 128 0)`            |
 
 ## Wert
 

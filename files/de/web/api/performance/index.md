@@ -30,7 +30,7 @@ _Die `Performance` Schnittstelle erbt keine Eigenschaften._
   - : Ein veraltetes [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming) Objekt, das leistungsbezogene Latenzinformationen enthält.
 
 - [`Performance.memory`](/de/docs/Web/API/Performance/memory) {{ReadOnlyInline}} {{Non-standard_Inline}} {{Deprecated_Inline}}
-  - : Eine _nicht-standardisierte_ Erweiterung, die in Chrome hinzugefügt wurde, bietet diese Eigenschaft ein Objekt mit grundlegenden Speicherverbrauchsinformationen. _Sie **sollten diese nicht-standardisierte API nicht verwenden._
+  - : Eine _nicht-standardisierte_ Erweiterung, die in Chrome hinzugefügt wurde, bietet diese Eigenschaft ein Objekt mit grundlegenden Speicherverbrauchsinformationen. _Sie \*\*sollten diese nicht-standardisierte API nicht verwenden._
 - [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) {{ReadOnlyInline}}
   - : Gibt den hochauflösenden Zeitstempel des Startzeitpunkts der Leistungsüberwachung zurück.
 

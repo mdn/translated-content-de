@@ -24,9 +24,9 @@ i32.sub
 ;; the top item on the stack will now be 7 (10 - 3 = 7)
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.sub`   | `0x6b`         |
-| `i64.sub`   | `0x7d`         |
-| `f32.sub`   | `0x93`         |
-| `f64.sub`   | `0xa1`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.sub` | `0x6b`         |
+| `i64.sub` | `0x7d`         |
+| `f32.sub` | `0x93`         |
+| `f64.sub` | `0xa1`         |

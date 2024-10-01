@@ -184,13 +184,13 @@ Der Negationsselektor ([`:not()`](/de/docs/Web/CSS/:not)), der relationale Selek
 
 Die folgende Tabelle zeigt einige isolierte Beispiele, um Ihnen ein Gefühl zu geben. Versuchen Sie, diese durchzugehen, und stellen Sie sicher, dass Sie verstehen, warum sie die Spezifität erhalten haben, die wir ihnen gegeben haben. Wir haben noch keine Selektoren im Detail behandelt, aber Sie können Details zu jedem Selektor im MDN [Selektoren-Referenz](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators) finden.
 
-| Selektor                                  | Identifier | Klassen | Elemente | Gesamtspezifität  |
-| ----------------------------------------- | ----------- | ------- | -------- | ----------------- |
-| `h1`                                      | 0           | 0       | 1        | 0-0-1             |
-| `h1 + p::first-letter`                    | 0           | 0       | 3        | 0-0-3             |
-| `li > a[href*="en-US"] > .inline-warning` | 0           | 2       | 2        | 0-2-2             |
-| `#identifier`                             | 1           | 0       | 0        | 1-0-0             |
-| `button:not(#mainBtn, .cta)`              | 1           | 0       | 1        | 1-0-1             |
+| Selektor                                  | Identifier | Klassen | Elemente | Gesamtspezifität |
+| ----------------------------------------- | ---------- | ------- | -------- | ---------------- |
+| `h1`                                      | 0          | 0       | 1        | 0-0-1            |
+| `h1 + p::first-letter`                    | 0          | 0       | 3        | 0-0-3            |
+| `li > a[href*="en-US"] > .inline-warning` | 0          | 2       | 2        | 0-2-2            |
+| `#identifier`                             | 1          | 0       | 0        | 1-0-0            |
+| `button:not(#mainBtn, .cta)`              | 1          | 0       | 1        | 1-0-1            |
 
 Bevor wir weitermachen, werfen wir einen Blick auf ein Beispiel in Aktion.
 
@@ -226,10 +226,7 @@ Sehen wir uns an, was hier passiert — versuchen Sie, einige der Eigenschaften 
 
 1. Sie werden sehen, dass die {{cssxref("color")}}- und {{cssxref("padding")}}-Werte der dritten Regel angewendet wurden, aber {{cssxref("background-color")}} nicht. Warum? Eigentlich sollten alle drei angewendet werden, weil Regeln später in der Quellordnung gener
 
-ell die früheren überschreiben.
-2. Die Regeln darüber gewinnen jedoch, weil Klassenselektoren eine höhere Spezifität als Elementselektoren haben.
-3. Beide Elemente haben eine [`class`](/de/docs/Web/HTML/Global_attributes#class) von `better`, aber das zweite hat auch eine [`id`](/de/docs/Web/HTML/Global_attributes#id) von `winning`. Da IDs eine _noch höhere_ Spezifität als Klassen haben (man kann nur ein Element mit jeder eindeutigen ID auf einer Seite haben, aber viele Elemente mit derselben Klasse — ID-Selektoren sind _sehr spezifisch_ in dem, was sie anvisieren), sollten die rote Hintergrundfarbe und der 1px schwarze Rand auf das zweite Element angewendet werden, wobei das erste Element die graue Hintergrundfarbe und keinen Rand bekommt, wie durch die Klasse spezifiziert.
-4. Das zweite Element bekommt _tatsächlich_ die rote Hintergrundfarbe, aber keinen Rand. Warum? Wegen des `!important`-Flags in der zweiten Regel. Wenn Sie das `!important`-Flag nach dem `border: none` hinzufügen, bedeutet dies, dass diese Deklaration die `border`-Eigenschaft im vorherigen Regelblock gewinnen wird, auch wenn der ID-Selektor eine höhere Spezifität hat.
+ell die früheren überschreiben. 2. Die Regeln darüber gewinnen jedoch, weil Klassenselektoren eine höhere Spezifität als Elementselektoren haben. 3. Beide Elemente haben eine [`class`](/de/docs/Web/HTML/Global_attributes#class) von `better`, aber das zweite hat auch eine [`id`](/de/docs/Web/HTML/Global_attributes#id) von `winning`. Da IDs eine _noch höhere_ Spezifität als Klassen haben (man kann nur ein Element mit jeder eindeutigen ID auf einer Seite haben, aber viele Elemente mit derselben Klasse — ID-Selektoren sind _sehr spezifisch_ in dem, was sie anvisieren), sollten die rote Hintergrundfarbe und der 1px schwarze Rand auf das zweite Element angewendet werden, wobei das erste Element die graue Hintergrundfarbe und keinen Rand bekommt, wie durch die Klasse spezifiziert. 4. Das zweite Element bekommt _tatsächlich_ die rote Hintergrundfarbe, aber keinen Rand. Warum? Wegen des `!important`-Flags in der zweiten Regel. Wenn Sie das `!important`-Flag nach dem `border: none` hinzufügen, bedeutet dies, dass diese Deklaration die `border`-Eigenschaft im vorherigen Regelblock gewinnen wird, auch wenn der ID-Selektor eine höhere Spezifität hat.
 
 > [!NOTE]
 > Die einzige Möglichkeit, eine wichtige Deklaration zu überschreiben, besteht darin, eine weitere wichtige Deklaration mit derselben Spezifität später in der Quellordnung einzuschließen oder eine mit höherer Spezifität einzubeziehen oder eine wichtige Deklaration in einer vorherigen Kaskadenschicht (wir haben Kaskadenschichten noch nicht behandelt) einzufügen.

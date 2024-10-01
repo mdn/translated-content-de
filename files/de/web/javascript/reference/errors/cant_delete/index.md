@@ -1,5 +1,5 @@
 ---
-title: "TypeError: Eigenschaft \"x\" ist nicht konfigurierbar und kann nicht gelöscht werden"
+title: 'TypeError: Eigenschaft "x" ist nicht konfigurierbar und kann nicht gelöscht werden'
 slug: Web/JavaScript/Reference/Errors/Cant_delete
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459

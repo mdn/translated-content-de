@@ -860,7 +860,7 @@ Klicken Sie auf den **Neue Variable**-Button und geben Sie den Schlüssel `DJANG
 
 ### Debugging
 
-Der Railway-Client bietet den ```logs```-Befehl, um das Ende der Protokolle zu zeigen (ein ausführlicheres Protokoll ist auf der Website für jedes Projekt verfügbar):
+Der Railway-Client bietet den `logs`-Befehl, um das Ende der Protokolle zu zeigen (ein ausführlicheres Protokoll ist auf der Website für jedes Projekt verfügbar):
 
 ```bash
 railway logs

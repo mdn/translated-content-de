@@ -103,8 +103,8 @@ array.reduce(reducer);
 
 Der Callback würde viermal aufgerufen, mit den Argumenten und Rückgabewerten bei jedem Aufruf wie folgt:
 
-|             | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| ----------- | ------------- | -------------- | ------- | ------------ |
+|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| -------------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `15`          | `16`           | `1`     | `31`         |
 | Zweiter Aufruf | `31`          | `17`           | `2`     | `48`         |
 | Dritter Aufruf | `48`          | `18`           | `3`     | `66`         |
@@ -125,13 +125,13 @@ Hier reduzieren wir dasselbe Array mit demselben Algorithmus, aber mit einem `in
 
 Der Callback würde fünfmal aufgerufen, mit den Argumenten und Rückgabewerten bei jedem Aufruf wie folgt:
 
-|             | `accumulator` | `currentValue` | `index` | Rückgabewert |
-| ----------- | ------------- | -------------- | ------- | ------------ |
+|                | `accumulator` | `currentValue` | `index` | Rückgabewert |
+| -------------- | ------------- | -------------- | ------- | ------------ |
 | Erster Aufruf  | `10`          | `15`           | `0`     | `25`         |
 | Zweiter Aufruf | `25`          | `16`           | `1`     | `41`         |
 | Dritter Aufruf | `41`          | `17`           | `2`     | `58`         |
 | Vierter Aufruf | `58`          | `18`           | `3`     | `76`         |
-| Fünfter Aufruf  | `76`          | `19`           | `4`     | `95`         |
+| Fünfter Aufruf | `76`          | `19`           | `4`     | `95`         |
 
 In diesem Fall wäre der von `reduce()` zurückgegebene Wert `95`.
 

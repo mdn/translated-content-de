@@ -90,16 +90,16 @@ Der Wert jeder Eigenschaft wird in HTML unter Verwendung der Klasseneigenschaft,
 </p>
 ```
 
-| Eigenschaft               | Beschreibung                                                    |
-| ------------------------- | ---------------------------------------------------------------- |
-| **`p-name`**              | Der volle/formatierte Name der Person oder Organisation.         |
-| **`u-email`**             | E-Mail-Adresse                                                  |
-| **`u-photo`**             | Ein Foto der Person oder Organisation                           |
-| **`u-url`**               | Homepage oder andere URL, die die Person oder Organisation repräsentiert |
-| **`u-uid`**               | Universell eindeutiger Identifikator, vorzugsweise kanonische URL |
-| **`p-street-address`**    | Straßenname und -nummer                                         |
-| **`p-locality`**          | Stadt/Ort/Dorf                                                   |
-| **`p-country-name`**      | Ländername                                                       |
+| Eigenschaft            | Beschreibung                                                             |
+| ---------------------- | ------------------------------------------------------------------------ |
+| **`p-name`**           | Der volle/formatierte Name der Person oder Organisation.                 |
+| **`u-email`**          | E-Mail-Adresse                                                           |
+| **`u-photo`**          | Ein Foto der Person oder Organisation                                    |
+| **`u-url`**            | Homepage oder andere URL, die die Person oder Organisation repräsentiert |
+| **`u-uid`**            | Universell eindeutiger Identifikator, vorzugsweise kanonische URL        |
+| **`p-street-address`** | Straßenname und -nummer                                                  |
+| **`p-locality`**       | Stadt/Ort/Dorf                                                           |
+| **`p-country-name`**   | Ländername                                                               |
 
 #### Verschachteltes h-card Beispiel
 
@@ -169,13 +169,13 @@ Beispiel für ein h-entry als Blog-Beitrag:
 
 #### Eigenschaften
 
-| Eigenschaft          | Beschreibung                                     |
-| -------------------- | ------------------------------------------------- |
-| **`p-name`**         | Eintragsname/Titel                                |
-| **`p-author`**       | wer den Eintrag verfasst hat, optional eingebettete h-card |
-| **`dt-published`**   | wann der Eintrag veröffentlicht wurde             |
-| **`p-summary`**      | kurze Zusammenfassung des Eintrags                |
-| **`e-content`**      | vollständiger Inhalt des Eintrags                 |
+| Eigenschaft        | Beschreibung                                               |
+| ------------------ | ---------------------------------------------------------- |
+| **`p-name`**       | Eintragsname/Titel                                         |
+| **`p-author`**     | wer den Eintrag verfasst hat, optional eingebettete h-card |
+| **`dt-published`** | wann der Eintrag veröffentlicht wurde                      |
+| **`p-summary`**    | kurze Zusammenfassung des Eintrags                         |
+| **`e-content`**    | vollständiger Inhalt des Eintrags                          |
 
 #### Geparstes Antwort-h-entry-Beispiel
 
@@ -294,10 +294,10 @@ Das [h-feed](https://microformats.org/wiki/h-feed) ist ein Stream oder Feed von 
 
 #### Eigenschaften
 
-| Eigenschaft       | Beschreibung                                    |
-| ----------------- | ------------------------------------------------ |
-| **`p-name`**      | Name des Feeds                                   |
-| **`p-author`**    | Autor des Feeds, optional eingebettete h-card    |
+| Eigenschaft    | Beschreibung                                  |
+| -------------- | --------------------------------------------- |
+| **`p-name`**   | Name des Feeds                                |
+| **`p-author`** | Autor des Feeds, optional eingebettete h-card |
 
 #### Kinder
 
@@ -337,13 +337,13 @@ Das `h-event` ist für Ereignisse im Web. h-event wird häufig sowohl bei Ereign
 
 #### Eigenschaften
 
-| Eigenschaft        | Beschreibung                                             |
-| ------------------ | --------------------------------------------------------- |
-| **`p-name`**       | Name des Ereignisses (oder Titel)                        |
-| **`p-summary`**    | Kurze Zusammenfassung des Ereignisses                    |
-| **`dt-start`**     | Uhrzeit/Datum, wann das Ereignis beginnt                 |
-| **`dt-end`**       | Uhrzeit/Datum, wann das Ereignis endet                   |
-| **`p-location`**   | Wo das Ereignis stattfindet, optional eingebettete h-card |
+| Eigenschaft      | Beschreibung                                              |
+| ---------------- | --------------------------------------------------------- |
+| **`p-name`**     | Name des Ereignisses (oder Titel)                         |
+| **`p-summary`**  | Kurze Zusammenfassung des Ereignisses                     |
+| **`dt-start`**   | Uhrzeit/Datum, wann das Ereignis beginnt                  |
+| **`dt-end`**     | Uhrzeit/Datum, wann das Ereignis endet                    |
+| **`p-location`** | Wo das Ereignis stattfindet, optional eingebettete h-card |
 
 #### Geparstes h-event Beispiel
 

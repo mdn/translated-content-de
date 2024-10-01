@@ -23,7 +23,7 @@ f32.sqrt
 ;; the top item on the stack will now be 17
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `f32.sqrt`  | `0x91`         |
-| `f64.sqrt`  | `0x9f`         |
+| Anweisung  | Binärer Opcode |
+| ---------- | -------------- |
+| `f32.sqrt` | `0x91`         |
+| `f64.sqrt` | `0x9f`         |

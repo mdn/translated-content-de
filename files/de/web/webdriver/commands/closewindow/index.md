@@ -11,8 +11,8 @@ Der _Close Window_ [Befehl](/de/docs/Web/WebDriver/Command) der [WebDriver](/de/
 
 ## Syntax
 
-| Methode                                         | URI-Vorlage                    |
-| ----------------------------------------------- | ------------------------------ |
+| Methode                                      | URI-Vorlage                    |
+| -------------------------------------------- | ------------------------------ |
 | [`DELETE`](/de/docs/Web/HTTP/Methods/DELETE) | `/session/{session id}/window` |
 
 ### URL-Parameter

@@ -30,11 +30,11 @@ cmp(first, second)
 
 Ein ganzzahliger Wert, der das Ergebnis des Vergleichs anzeigt; die folgende Tabelle listet die möglichen Werte und ihre Bedeutungen auf:
 
-| Rückgabewert   | Beschreibung                        |
-| -------------- | ----------------------------------- |
-| -1             | 1. Schlüssel ist kleiner als der 2. |
-| 0              | 1. Schlüssel ist gleich dem 2.      |
-| 1              | 1. Schlüssel ist größer als der 2.  |
+| Rückgabewert | Beschreibung                        |
+| ------------ | ----------------------------------- |
+| -1           | 1. Schlüssel ist kleiner als der 2. |
+| 0            | 1. Schlüssel ist gleich dem 2.      |
+| 1            | 1. Schlüssel ist größer als der 2.  |
 
 ### Ausnahmen
 

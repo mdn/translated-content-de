@@ -14,12 +14,12 @@ Die **`HTMLMediaElement.networkState`**-Eigenschaft gibt den aktuellen Status de
 
 Ein `unsigned short`. Mögliche Werte sind:
 
-| Konstante           | Wert  | Beschreibung                                                                           |
-| ------------------- | ----- | ------------------------------------------------------------------------------------- |
-| `NETWORK_EMPTY`     | 0     | Es sind noch keine Daten vorhanden. Außerdem ist `readyState` auf `HAVE_NOTHING`.     |
-| `NETWORK_IDLE`      | 1     | HTMLMediaElement ist aktiv und hat eine Ressource ausgewählt, nutzt aber das Netzwerk nicht. |
-| `NETWORK_LOADING`   | 2     | Der Browser lädt HTMLMediaElement-Daten herunter.                                     |
-| `NETWORK_NO_SOURCE` | 3     | Keine HTMLMediaElement-Quelle gefunden.                                                   |
+| Konstante           | Wert | Beschreibung                                                                                 |
+| ------------------- | ---- | -------------------------------------------------------------------------------------------- |
+| `NETWORK_EMPTY`     | 0    | Es sind noch keine Daten vorhanden. Außerdem ist `readyState` auf `HAVE_NOTHING`.            |
+| `NETWORK_IDLE`      | 1    | HTMLMediaElement ist aktiv und hat eine Ressource ausgewählt, nutzt aber das Netzwerk nicht. |
+| `NETWORK_LOADING`   | 2    | Der Browser lädt HTMLMediaElement-Daten herunter.                                            |
+| `NETWORK_NO_SOURCE` | 3    | Keine HTMLMediaElement-Quelle gefunden.                                                      |
 
 ## Beispiele
 

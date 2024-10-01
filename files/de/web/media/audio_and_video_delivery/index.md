@@ -194,7 +194,7 @@ Mehr dazu finden Sie auf unserer Seite zu [`MediaDevices.getUserMedia`](/de/docs
 
 ## Mediastream Aufnahme
 
-Neue Standards werden eingeführt, die es Ihrem Browser ermöglichen, Medien von Ihrem Mikrofon oder Ihrer Kamera zu erfassen und diese sofort über die neue MediaStream Recording API aufzunehmen. Sie nehmen den Stream, den Sie von `getUserMedia` erhalten, übergeben ihn an ein `MediaRecorder`-Objekt, nehmen das resultierende Ergebnis und speisen es in Ihre Audio- oder Videoquelle ein*.
+Neue Standards werden eingeführt, die es Ihrem Browser ermöglichen, Medien von Ihrem Mikrofon oder Ihrer Kamera zu erfassen und diese sofort über die neue MediaStream Recording API aufzunehmen. Sie nehmen den Stream, den Sie von `getUserMedia` erhalten, übergeben ihn an ein `MediaRecorder`-Objekt, nehmen das resultierende Ergebnis und speisen es in Ihre Audio- oder Videoquelle ein\*.
 
 Der Hauptmechanismus wird unten erläutert:
 

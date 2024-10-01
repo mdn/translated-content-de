@@ -21,6 +21,7 @@ Authenticator-Daten werden dem Browser als ein {{jsxref("ArrayBuffer")}} zur Ver
 Ein Authenticator-Daten-{{jsxref("ArrayBuffer")}} ist mindestens 37 Bytes lang und enthält die folgenden Felder:
 
 - **rpIdHash** (32 Bytes)
+
   - : Der SHA-256-Hash der [Relying Party ID](https://w3c.github.io/webauthn/#relying-party-identifier), für die die Anmeldeinformationen bestimmt sind. Der Server stellt sicher, dass dieser Hash mit dem SHA256-Hash der eigenen Relying Party ID übereinstimmt, um Phishing oder andere Man-in-the-Middle-Angriffe zu verhindern.
 
 - **flags** (1 Byte)
@@ -35,6 +36,7 @@ Ein Authenticator-Daten-{{jsxref("ArrayBuffer")}} ist mindestens 37 Bytes lang u
     - Bit 7, Erweiterungsdaten (ED): Wenn gesetzt, sind Erweiterungsdaten vorhanden. Erweiterungsdaten folgen den attestierten Anmeldedaten, falls vorhanden, oder folgen unmittelbar den ersten 37 Bytes der `authenticatorData`, wenn keine attestierten Anmeldedaten vorhanden sind.
 
 - **signCount** (4 Bytes)
+
   - : Ein Signaturzähler, falls vom Authenticator unterstützt (ansonsten auf 0 gesetzt). Server können optional diesen Zähler verwenden, um eine Authenticator-Duplikation zu erkennen.
 
 - **attestedCredentialData** (variable Länge)

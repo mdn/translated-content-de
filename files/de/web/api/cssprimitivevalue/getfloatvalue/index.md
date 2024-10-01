@@ -30,26 +30,26 @@ getFloatValue(unit)
 
   - : Ein `unsigned short`, der den Code für den Einheitstyp darstellt, in dem der Wert zurückgegeben werden soll. Gültige Werte sind:
 
-    | Konstante        | Beschreibung                                                                                                            |
-    | ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
-    | `CSS_CM`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Zentimetern.                                                          |
-    | `CSS_DEG`        | Der Wert ist ein {{cssxref("&lt;angle&gt;")}} in Grad.                                                                   |
-    | `CSS_DIMENSION`  | Der Wert ist eine {{cssxref("&lt;number&gt;")}} mit einer unbekannten Dimension.                                         |
-    | `CSS_EMS`        | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in em-Einheiten.                                                         |
-    | `CSS_EXS`        | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in ex-Einheiten.                                                         |
-    | `CSS_GRAD`       | Der Wert ist ein {{cssxref("&lt;angle&gt;")}} in Graden.                                                                 |
-    | `CSS_HZ`         | Der Wert ist eine {{cssxref("&lt;frequency&gt;")}} in Hertz. Der Wert kann mit der getFloatValue-Methode erhalten werden.|
-    | `CSS_IN`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Zoll.                                                                 |
-    | `CSS_KHZ`        | Der Wert ist eine {{cssxref("&lt;frequency&gt;")}} in Kilohertz.                                                         |
-    | `CSS_MM`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Millimetern.                                                          |
-    | `CSS_MS`         | Der Wert ist eine {{cssxref("&lt;time&gt;")}} in Millisekunden.                                                          |
-    | `CSS_NUMBER`     | Der Wert ist eine einfache {{cssxref("&lt;number&gt;")}}.                                                                |
-    | `CSS_PC`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Picas.                                                                |
-    | `CSS_PERCENTAGE` | Der Wert ist eine {{cssxref("&lt;percentage&gt;")}}.                                                                     |
-    | `CSS_PT`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Punkten.                                                              |
-    | `CSS_PX`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Pixeln.                                                               |
-    | `CSS_RAD`        | Der Wert ist ein {{cssxref("&lt;angle&gt;")}} in Radians.                                                                |
-    | `CSS_S`          | Der Wert ist eine {{cssxref("&lt;time&gt;")}} in Sekunden.                                                               |
+    | Konstante        | Beschreibung                                                                                                              |
+    | ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
+    | `CSS_CM`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Zentimetern.                                                           |
+    | `CSS_DEG`        | Der Wert ist ein {{cssxref("&lt;angle&gt;")}} in Grad.                                                                    |
+    | `CSS_DIMENSION`  | Der Wert ist eine {{cssxref("&lt;number&gt;")}} mit einer unbekannten Dimension.                                          |
+    | `CSS_EMS`        | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in em-Einheiten.                                                          |
+    | `CSS_EXS`        | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in ex-Einheiten.                                                          |
+    | `CSS_GRAD`       | Der Wert ist ein {{cssxref("&lt;angle&gt;")}} in Graden.                                                                  |
+    | `CSS_HZ`         | Der Wert ist eine {{cssxref("&lt;frequency&gt;")}} in Hertz. Der Wert kann mit der getFloatValue-Methode erhalten werden. |
+    | `CSS_IN`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Zoll.                                                                  |
+    | `CSS_KHZ`        | Der Wert ist eine {{cssxref("&lt;frequency&gt;")}} in Kilohertz.                                                          |
+    | `CSS_MM`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Millimetern.                                                           |
+    | `CSS_MS`         | Der Wert ist eine {{cssxref("&lt;time&gt;")}} in Millisekunden.                                                           |
+    | `CSS_NUMBER`     | Der Wert ist eine einfache {{cssxref("&lt;number&gt;")}}.                                                                 |
+    | `CSS_PC`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Picas.                                                                 |
+    | `CSS_PERCENTAGE` | Der Wert ist eine {{cssxref("&lt;percentage&gt;")}}.                                                                      |
+    | `CSS_PT`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Punkten.                                                               |
+    | `CSS_PX`         | Der Wert ist eine {{cssxref("&lt;length&gt;")}} in Pixeln.                                                                |
+    | `CSS_RAD`        | Der Wert ist ein {{cssxref("&lt;angle&gt;")}} in Radians.                                                                 |
+    | `CSS_S`          | Der Wert ist eine {{cssxref("&lt;time&gt;")}} in Sekunden.                                                                |
 
 ### Rückgabewert
 

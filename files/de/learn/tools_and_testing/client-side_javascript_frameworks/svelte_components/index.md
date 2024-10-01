@@ -178,7 +178,7 @@ Und wir deklarieren die reaktive Anweisung `$: onclick(filter)`, um den `onclick
    <FilterButton {filter} onclick={ (clicked) => filter = clicked }/>
    ```
 
-  Wenn eine Filtertaste geklickt wird, aktualisieren wir einfach die Filtervariable mit dem neuen Filter. Jetzt funktioniert unsere `FilterButton` Komponente wieder.
+Wenn eine Filtertaste geklickt wird, aktualisieren wir einfach die Filtervariable mit dem neuen Filter. Jetzt funktioniert unsere `FilterButton` Komponente wieder.
 
 ## Einfachere bidirektionale Datenbindung mit der bind-Anweisung
 

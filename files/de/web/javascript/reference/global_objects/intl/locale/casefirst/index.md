@@ -17,11 +17,11 @@ Es gibt 3 Werte, die die `caseFirst`-Eigenschaft annehmen kann, aufgeführt in d
 
 ### `caseFirst`-Werte
 
-| Wert    | Beschreibung                                      |
-| ------- | ------------------------------------------------- |
+| Wert    | Beschreibung                                        |
+| ------- | --------------------------------------------------- |
 | `upper` | Großbuchstaben werden vor Kleinbuchstaben sortiert. |
 | `lower` | Kleinbuchstaben werden vor Großbuchstaben sortiert. |
-| `false` | Keine spezielle Groß-/Kleinschreibungsreihenfolge. |
+| `false` | Keine spezielle Groß-/Kleinschreibungsreihenfolge.  |
 
 ## Beispiele
 

@@ -30,11 +30,11 @@ Siehe [Verwendung von Dateien aus Webanwendungen](/de/docs/Web/API/File_API/Usin
 
   - : Eine Zahl, die den Zustand des `FileReader` angibt. Dies ist einer der folgenden Werte:
 
-    | Name      | Wert | Beschreibung                                    |
-    | --------- | ---- | ------------------------------------------------ |
-    | `EMPTY`   | `0`  | Es wurden noch keine Daten geladen.              |
-    | `LOADING` | `1`  | Daten werden gerade geladen.                     |
-    | `DONE`    | `2`  | Der gesamte Lesevorgang wurde abgeschlossen.     |
+    | Name      | Wert | Beschreibung                                 |
+    | --------- | ---- | -------------------------------------------- |
+    | `EMPTY`   | `0`  | Es wurden noch keine Daten geladen.          |
+    | `LOADING` | `1`  | Daten werden gerade geladen.                 |
+    | `DONE`    | `2`  | Der gesamte Lesevorgang wurde abgeschlossen. |
 
 - [`FileReader.result`](/de/docs/Web/API/FileReader/result) {{ReadOnlyInline}}
   - : Der Inhalt der Datei. Diese Eigenschaft ist nur nach Abschluss der Leseoperation gültig und das Datenformat hängt davon ab, welche Methoden zur Initiierung der Leseoperation verwendet wurden.

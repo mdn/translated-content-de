@@ -58,11 +58,11 @@ console.log(Object.getPrototypeOf(new ParentClass()));
 
 `extends` setzt die Prototypen sowohl für `ChildClass` als auch für `ChildClass.prototype`.
 
-|                                   | Prototyp von `ChildClass` | Prototyp von `ChildClass.prototype` |
-| --------------------------------- | ------------------------- | ----------------------------------- |
-| `extends` Klausel fehlt           | `Function.prototype`      | `Object.prototype`                  |
+|                                          | Prototyp von `ChildClass` | Prototyp von `ChildClass.prototype` |
+| ---------------------------------------- | ------------------------- | ----------------------------------- |
+| `extends` Klausel fehlt                  | `Function.prototype`      | `Object.prototype`                  |
 | [`extends null`](#verlängern_von_`null`) | `Function.prototype`      | `null`                              |
-| `extends ParentClass`             | `ParentClass`             | `ParentClass.prototype`             |
+| `extends ParentClass`                    | `ParentClass`             | `ParentClass.prototype`             |
 
 ```js
 class ParentClass {}

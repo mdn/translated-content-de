@@ -22,7 +22,7 @@ Permissions-Policy: encrypted-media=<allowlist>;
 
 ## Standardrichtlinie
 
-Das Standard-̀Allowlist` für `encrypted-media` ist `self`.
+Das Standard-̀Allowlist`für`encrypted-media`ist`self`.
 
 ## Spezifikationen
 

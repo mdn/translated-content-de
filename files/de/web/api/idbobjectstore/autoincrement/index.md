@@ -18,9 +18,9 @@ Beachten Sie, dass jeder Object Store seinen eigenen separaten Auto-Increment-ZÃ
 
 Ein boolescher Wert:
 
-| Wert    | Bedeutung                                    |
-| ------- | -------------------------------------------- |
-| `true`  | Der Object Store wird automatisch inkrementiert. |
+| Wert    | Bedeutung                                              |
+| ------- | ------------------------------------------------------ |
+| `true`  | Der Object Store wird automatisch inkrementiert.       |
 | `false` | Der Object Store wird nicht automatisch inkrementiert. |
 
 ## Beispiele

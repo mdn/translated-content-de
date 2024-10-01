@@ -14,10 +14,10 @@ Nach der Anwendung wird die Anzahl der Samples auf die ursprüngliche Anzahl red
 
 Die möglichen Werte für `oversample` sind:
 
-| Wert     | Effekt                                                                  |
-| -------- | ----------------------------------------------------------------------- |
-| `'none'` | Es wird kein Oversampling durchgeführt.                                 |
-| `'2x'`   | Die Anzahl der Samples wird vor der Anwendung der Formungskurve verdoppelt. |
+| Wert     | Effekt                                                                        |
+| -------- | ----------------------------------------------------------------------------- |
+| `'none'` | Es wird kein Oversampling durchgeführt.                                       |
+| `'2x'`   | Die Anzahl der Samples wird vor der Anwendung der Formungskurve verdoppelt.   |
 | `'4x'`   | Die Anzahl der Samples wird vor der Anwendung der Formungskurve vervierfacht. |
 
 ## Wert

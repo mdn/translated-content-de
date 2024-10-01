@@ -11,8 +11,8 @@ Der _New Window_ [Befehl](/de/docs/Web/WebDriver/Commands) der [WebDriver](/de/d
 
 ## Syntax
 
-| Methode                                       | URI-Vorlage                        |
-| --------------------------------------------- | ---------------------------------- |
+| Methode                                    | URI-Vorlage                        |
+| ------------------------------------------ | ---------------------------------- |
 | [`POST`](/de/docs/Web/HTTP/Methods/DELETE) | `/session/{session id}/window/new` |
 
 ### URL-Parameter

@@ -14,9 +14,9 @@ Zu den Werten gehören `user` und `environment`. Das `capture`-Attribut wird im 
 
 Das `capture`-Attribut nimmt als Wert eine Zeichenkette an, die angibt, welche Kamera für die Aufnahme von Bild- oder Videodaten verwendet werden soll, wenn das [accept](/de/docs/Web/HTML/Attributes/accept)-Attribut angibt, dass die Eingabe einer dieser Typen sein soll.
 
-| Wert          | Beschreibung                                                |
-| ------------- | ------------------------------------------------------------ |
-| `user`        | Die benutzerseitige Kamera und/oder das Mikrofon sollen verwendet werden. |
+| Wert          | Beschreibung                                                                    |
+| ------------- | ------------------------------------------------------------------------------- |
+| `user`        | Die benutzerseitige Kamera und/oder das Mikrofon sollen verwendet werden.       |
 | `environment` | Die nach außen gerichtete Kamera und/oder das Mikrofon sollen verwendet werden. |
 
 > [!NOTE]

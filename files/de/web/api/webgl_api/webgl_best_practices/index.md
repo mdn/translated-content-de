@@ -121,7 +121,7 @@ WebGL bietet keine APIs, um die maximale Menge an Videospeicher im System abzufr
 
 Eine Technik, die vom Google Maps-Team entwickelt wurde, ist das Konzept eines _VRAM-Budgets pro Pixel_:
 
-1) Entscheiden Sie für ein System (z.B. einen bestimmten Desktop / Laptop), wie viel VRAM Ihre Anwendung maximal nutzen sollte. 2) Berechnen Sie die Anzahl der Pixel, die von einem maximierten Browserfenster abgedeckt werden. Z.B. `(window.innerWidth * devicePixelRatio) * (window.innerHeight * window.devicePixelRatio)` 3) Das VRAM-Budget pro Pixel ist (1) geteilt durch (2) und ist eine Konstante.
+1. Entscheiden Sie für ein System (z.B. einen bestimmten Desktop / Laptop), wie viel VRAM Ihre Anwendung maximal nutzen sollte. 2) Berechnen Sie die Anzahl der Pixel, die von einem maximierten Browserfenster abgedeckt werden. Z.B. `(window.innerWidth * devicePixelRatio) * (window.innerHeight * window.devicePixelRatio)` 3) Das VRAM-Budget pro Pixel ist (1) geteilt durch (2) und ist eine Konstante.
 
 Diese Konstante sollte _allgemein_ unter Systemen portabel sein. Mobile Geräte haben typischerweise kleinere Bildschirme als leistungsstarke Desktop-Geräte mit großen Monitoren. Berechnen Sie diese Konstante auf einigen Zielsystemen neu, um eine zuverlässige Schätzung zu erhalten.
 
@@ -326,11 +326,11 @@ precision mediump float;
 
 ### ESSL100 Mindestanforderungen (WebGL 1)
 
-| `float`   | denken             | Bereich       | min über null | Präzision      |
-| --------- | ------------------ | ------------- | ------------- | -------------- |
-| `highp`   | float24\*          | (-2^62, 2^62) | 2^-62         | 2^-16 relativ  |
-| `mediump` | IEEE float16       | (-2^14, 2^14) | 2^-14         | 2^-10 relativ  |
-| `lowp`    | 10-Bit vorzeichenbehaftet | (-2, 2)   | 2^-8           | 2^-8 absolut   |
+| `float`   | denken                    | Bereich       | min über null | Präzision     |
+| --------- | ------------------------- | ------------- | ------------- | ------------- |
+| `highp`   | float24\*                 | (-2^62, 2^62) | 2^-62         | 2^-16 relativ |
+| `mediump` | IEEE float16              | (-2^14, 2^14) | 2^-14         | 2^-10 relativ |
+| `lowp`    | 10-Bit vorzeichenbehaftet | (-2, 2)       | 2^-8          | 2^-8 absolut  |
 
 | `int`     | denken | Bereich       |
 | --------- | ------ | ------------- |
@@ -342,17 +342,17 @@ _\*float24: Vorzeichenbit, 7-Bit für Exponent, 16-Bit für Mantisse._
 
 ### ESSL300 Mindestanforderungen (WebGL 2)
 
-| `float`   | denken             | Bereich         | min über null | Präzision      |
-| --------- | ------------------ | --------------- | ------------- | -------------- |
-| `highp`   | IEEE float32       | (-2^126, 2^127) | 2^-126        | 2^-24 relativ  |
-| `mediump` | IEEE float16       | (-2^14, 2^14)   | 2^-14         | 2^-10 relativ  |
-| `lowp`    | 10-Bit vorzeichenbehaftet | (-2, 2)     | 2^-8          | 2^-8 absolut   |
+| `float`   | denken                    | Bereich         | min über null | Präzision     |
+| --------- | ------------------------- | --------------- | ------------- | ------------- |
+| `highp`   | IEEE float32              | (-2^126, 2^127) | 2^-126        | 2^-24 relativ |
+| `mediump` | IEEE float16              | (-2^14, 2^14)   | 2^-14         | 2^-10 relativ |
+| `lowp`    | 10-Bit vorzeichenbehaftet | (-2, 2)         | 2^-8          | 2^-8 absolut  |
 
-| `(u)int`  | denken  | `int` Bereich   | `unsigned int` Bereich |
-| --------- | ------- | --------------- | ---------------------- |
-| `highp`   | (u)int32| [-2^31, 2^31]   | [0, 2^32]              |
-| `mediump` | (u)int16| [-2^15, 2^15]   | [0, 2^16]              |
-| `lowp`    | (u)int9 | [-2^8, 2^8]     | [0, 2^9]               |
+| `(u)int`  | denken   | `int` Bereich | `unsigned int` Bereich |
+| --------- | -------- | ------------- | ---------------------- |
+| `highp`   | (u)int32 | [-2^31, 2^31] | [0, 2^32]              |
+| `mediump` | (u)int16 | [-2^15, 2^15] | [0, 2^16]              |
+| `lowp`    | (u)int9  | [-2^8, 2^8]   | [0, 2^9]               |
 
 ## Bevorzugen Sie eingebaute Funktionen statt selbstgebaute
 

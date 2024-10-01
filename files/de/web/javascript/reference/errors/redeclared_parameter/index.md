@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: redeclaration of formal parameter \"x\""
+title: 'SyntaxError: redeclaration of formal parameter "x"'
 slug: Web/JavaScript/Reference/Errors/Redeclared_parameter
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459

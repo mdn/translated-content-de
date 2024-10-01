@@ -16,10 +16,10 @@ Dies wird beim Erstellen des Indexes mit der Methode [`IDBObjectStore.createInde
 
 Ein boolescher Wert:
 
-| Wert    | Effekt                                                       |
-| ------- | ------------------------------------------------------------ |
+| Wert    | Effekt                                                                 |
+| ------- | ---------------------------------------------------------------------- |
 | `true`  | Der aktuelle Index lässt keine doppelten Werte für einen Schlüssel zu. |
-| `false` | Der aktuelle Index erlaubt doppelte Schlüsselwerte.          |
+| `false` | Der aktuelle Index erlaubt doppelte Schlüsselwerte.                    |
 
 ## Beispiele
 

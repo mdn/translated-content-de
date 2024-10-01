@@ -16,10 +16,10 @@ Wenn ein Benutzer mit einer Webseite interagiert, löst eine Benutzerinteraktion
 
 Eine `interactionId` wird nur für die folgenden Ereignistypen berechnet, die zu einer Benutzerinteraktion gehören. Ansonsten ist sie `0`.
 
-| Ereignistypen                                                                                                                                            | Benutzerinteraktion |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Ereignistypen                                                                                                                                                         | Benutzerinteraktion     |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
 | [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event), [`pointerup`](/de/docs/Web/API/Element/pointerup_event), [`click`](/de/docs/Web/API/Element/click_event) | Klick / Tippen / Ziehen |
-| [`keydown`](/de/docs/Web/API/Element/keydown_event), [`keyup`](/de/docs/Web/API/Element/keyup_event)                                                              | Tastendruck         |
+| [`keydown`](/de/docs/Web/API/Element/keydown_event), [`keyup`](/de/docs/Web/API/Element/keyup_event)                                                                  | Tastendruck             |
 
 ## Wert
 

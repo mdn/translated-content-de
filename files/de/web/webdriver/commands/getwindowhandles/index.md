@@ -13,8 +13,8 @@ Um festzustellen, ob eine bestimmte Interaktion mit dem Browser ein neues Fenste
 
 ## Syntax
 
-| Methode                                   | URI-Vorlage                            |
-| ----------------------------------------- | -------------------------------------- |
+| Methode                                | URI-Vorlage                            |
+| -------------------------------------- | -------------------------------------- |
 | [`GET`](/de/docs/Web/HTTP/Methods/GET) | `/session/{session id}/window/handles` |
 
 ### URL-Parameter

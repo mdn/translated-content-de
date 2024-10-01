@@ -29,15 +29,15 @@ Eine Zeichenkette, die das angegebene Datum unter Verwendung der UTC-Zeitzone da
 
 Der von `toUTCString()` zurückgegebene Wert ist eine Zeichenkette in der Form `Www, dd Mmm yyyy HH:mm:ss GMT`, wobei:
 
-| Formatzeichenfolge | Beschreibung                                                       |
-| ------------------ | ------------------------------------------------------------------ |
-| `Www`              | Wochentag, in drei Buchstaben (z.B. `Sun`, `Mon`)                  |
-| `dd`               | Tag des Monats, in zwei Ziffern mit führender Null falls erforderlich |
-| `Mmm`              | Monat, in drei Buchstaben (z.B. `Jan`, `Feb`)                      |
+| Formatzeichenfolge | Beschreibung                                                            |
+| ------------------ | ----------------------------------------------------------------------- |
+| `Www`              | Wochentag, in drei Buchstaben (z.B. `Sun`, `Mon`)                       |
+| `dd`               | Tag des Monats, in zwei Ziffern mit führender Null falls erforderlich   |
+| `Mmm`              | Monat, in drei Buchstaben (z.B. `Jan`, `Feb`)                           |
 | `yyyy`             | Jahr, in vier oder mehr Ziffern mit führenden Nullen falls erforderlich |
-| `HH`               | Stunde, in zwei Ziffern mit führender Null falls erforderlich      |
-| `mm`               | Minute, in zwei Ziffern mit führender Null falls erforderlich      |
-| `ss`               | Sekunden, in zwei Ziffern mit führender Null falls erforderlich    |
+| `HH`               | Stunde, in zwei Ziffern mit führender Null falls erforderlich           |
+| `mm`               | Minute, in zwei Ziffern mit führender Null falls erforderlich           |
+| `ss`               | Sekunden, in zwei Ziffern mit führender Null falls erforderlich         |
 
 ### Aliasing
 

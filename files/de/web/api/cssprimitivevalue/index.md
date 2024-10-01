@@ -31,34 +31,34 @@ _Erbt Eigenschaften von seinem Elternteil, [`CSSValue`](/de/docs/Web/API/CSSValu
 
   - : Ein `unsigned short`, der den Typ des Wertes repräsentiert. Mögliche Werte sind:
 
-    | Konstante         | Beschreibung                                                                                                                                                                |
-    | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `CSS_ATTR`        | Der Wert ist eine {{CSSxRef("attr", "attr()")}}-Funktion. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                               |
-    | `CSS_CM`          | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Zentimetern. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                           |
-    | `CSS_COUNTER`     | Der Wert ist eine [counter- oder counters-](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)-Funktion. Der Wert kann durch die `getCounterValue()`-Methode erhalten werden. |
-    | `CSS_DEG`         | Der Wert ist eine {{CSSxRef("&lt;angle&gt;")}} in Grad. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                  |
-    | `CSS_DIMENSION`   | Der Wert ist eine {{CSSxRef("&lt;number&gt;")}} mit einer unbekannten Dimension. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                          |
-    | `CSS_EMS`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in em-Einheiten. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                         |
-    | `CSS_EXS`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in ex-Einheiten. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                         |
-    | `CSS_GRAD`        | Der Wert ist eine {{CSSxRef("&lt;angle&gt;")}} in Grads. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                 |
-    | `CSS_HZ`          | Der Wert ist eine {{CSSxRef("&lt;frequency&gt;")}} in Hertz. Der Wert kann durch die getFloatValue-Methode erhalten werden.                                                 |
-    | `CSS_IDENT`       | Der Wert ist ein Bezeichner. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                                                            |
-    | `CSS_IN`          | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Zoll. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                 |
-    | `CSS_KHZ`         | Der Wert ist eine {{CSSxRef("&lt;frequency&gt;")}} in Kilohertz. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                         |
-    | `CSS_MM`          | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Millimetern. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                          |
-    | `CSS_MS`          | Der Wert ist ein {{CSSxRef("&lt;time&gt;")}} in Millisekunden. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                           |
-    | `CSS_NUMBER`      | Der Wert ist eine einfache {{CSSxRef("&lt;number&gt;")}}. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                |
-    | `CSS_PC`          | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Picas. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                |
-    | `CSS_PERCENTAGE`  | Der Wert ist eine {{CSSxRef("&lt;percentage&gt;")}}. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                     |
-    | `CSS_PT`          | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Punkten. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                              |
-    | `CSS_PX`          | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Pixeln. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                               |
-    | `CSS_RAD`         | Der Wert ist eine {{CSSxRef("&lt;angle&gt;")}} in Radiant. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                               |
-    | `CSS_RECT`        | Der Wert ist eine {{CSSxRef("shape", "rect()", "#Syntax")}}-Funktion. Der Wert kann durch die `getRectValue()`-Methode erhalten werden.                                     |
-    | `CSS_RGBCOLOR`    | Der Wert ist eine {{CSSxRef("&lt;color&gt;")}}. Der Wert kann durch die `getRGBColorValue()`-Methode erhalten werden.                                                       |
-    | `CSS_S`           | Der Wert ist ein {{CSSxRef("&lt;time&gt;")}} in Sekunden. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                |
-    | `CSS_STRING`      | Der Wert ist eine {{CSSxRef("&lt;string&gt;")}}. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                                        |
-    | `CSS_UNKNOWN`     | Der Wert ist kein erkannter CSS2-Wert. Der Wert kann nur durch das [`cssText`](/de/docs/Web/API/CSSValue/cssText)-Attribut erhalten werden.                                   |
-    | `CSS_URI`         | Der Wert ist eine {{CSSxRef("url", "url()")}}. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                                          |
+    | Konstante        | Beschreibung                                                                                                                                                                       |
+    | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `CSS_ATTR`       | Der Wert ist eine {{CSSxRef("attr", "attr()")}}-Funktion. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                                      |
+    | `CSS_CM`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Zentimetern. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                 |
+    | `CSS_COUNTER`    | Der Wert ist eine [counter- oder counters-](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters)-Funktion. Der Wert kann durch die `getCounterValue()`-Methode erhalten werden. |
+    | `CSS_DEG`        | Der Wert ist eine {{CSSxRef("&lt;angle&gt;")}} in Grad. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                         |
+    | `CSS_DIMENSION`  | Der Wert ist eine {{CSSxRef("&lt;number&gt;")}} mit einer unbekannten Dimension. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                |
+    | `CSS_EMS`        | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in em-Einheiten. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                |
+    | `CSS_EXS`        | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in ex-Einheiten. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                |
+    | `CSS_GRAD`       | Der Wert ist eine {{CSSxRef("&lt;angle&gt;")}} in Grads. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                        |
+    | `CSS_HZ`         | Der Wert ist eine {{CSSxRef("&lt;frequency&gt;")}} in Hertz. Der Wert kann durch die getFloatValue-Methode erhalten werden.                                                        |
+    | `CSS_IDENT`      | Der Wert ist ein Bezeichner. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                                                                   |
+    | `CSS_IN`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Zoll. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                        |
+    | `CSS_KHZ`        | Der Wert ist eine {{CSSxRef("&lt;frequency&gt;")}} in Kilohertz. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                |
+    | `CSS_MM`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Millimetern. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                 |
+    | `CSS_MS`         | Der Wert ist ein {{CSSxRef("&lt;time&gt;")}} in Millisekunden. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                  |
+    | `CSS_NUMBER`     | Der Wert ist eine einfache {{CSSxRef("&lt;number&gt;")}}. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                       |
+    | `CSS_PC`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Picas. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                       |
+    | `CSS_PERCENTAGE` | Der Wert ist eine {{CSSxRef("&lt;percentage&gt;")}}. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                            |
+    | `CSS_PT`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Punkten. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                     |
+    | `CSS_PX`         | Der Wert ist eine {{CSSxRef("&lt;length&gt;")}} in Pixeln. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                      |
+    | `CSS_RAD`        | Der Wert ist eine {{CSSxRef("&lt;angle&gt;")}} in Radiant. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                      |
+    | `CSS_RECT`       | Der Wert ist eine {{CSSxRef("shape", "rect()", "#Syntax")}}-Funktion. Der Wert kann durch die `getRectValue()`-Methode erhalten werden.                                            |
+    | `CSS_RGBCOLOR`   | Der Wert ist eine {{CSSxRef("&lt;color&gt;")}}. Der Wert kann durch die `getRGBColorValue()`-Methode erhalten werden.                                                              |
+    | `CSS_S`          | Der Wert ist ein {{CSSxRef("&lt;time&gt;")}} in Sekunden. Der Wert kann durch die `getFloatValue()`-Methode erhalten werden.                                                       |
+    | `CSS_STRING`     | Der Wert ist eine {{CSSxRef("&lt;string&gt;")}}. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                                               |
+    | `CSS_UNKNOWN`    | Der Wert ist kein erkannter CSS2-Wert. Der Wert kann nur durch das [`cssText`](/de/docs/Web/API/CSSValue/cssText)-Attribut erhalten werden.                                        |
+    | `CSS_URI`        | Der Wert ist eine {{CSSxRef("url", "url()")}}. Der Wert kann durch die `getStringValue()`-Methode erhalten werden.                                                                 |
 
 ## Instanz-Methoden
 

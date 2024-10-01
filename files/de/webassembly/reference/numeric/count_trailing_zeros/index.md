@@ -23,7 +23,7 @@ i32.ctz
 ;; the top item on the stack will now be 23
 ```
 
-| Anweisung   | Binärer Opcode |
-| ----------- | -------------- |
-| `i32.ctz`   | `0x68`         |
-| `i64.ctz`   | `0x7a`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `i32.ctz` | `0x68`         |
+| `i64.ctz` | `0x7a`         |

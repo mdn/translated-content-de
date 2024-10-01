@@ -50,22 +50,22 @@ new MouseEvent(type, options)
 
       - : Eine Zahl, standardmäßig `0`, die beschreibt, welcher Knopf bei Ereignissen im Zusammenhang mit dem Drücken oder Loslassen eines Knopfes gedrückt wird:
 
-        | Wert | Bedeutung                                                        |
-        | ---- | ---------------------------------------------------------------- |
+        | Wert | Bedeutung                                                                    |
+        | ---- | ---------------------------------------------------------------------------- |
         | `0`  | Haupttaste gedrückt (normalerweise die linke Taste) oder nicht initialisiert |
-        | `1`  | Hilfstaste gedrückt (normalerweise die mittlere Taste)            |
-        | `2`  | Sekundärtaste gedrückt (normalerweise die rechte Taste)           |
+        | `1`  | Hilfstaste gedrückt (normalerweise die mittlere Taste)                       |
+        | `2`  | Sekundärtaste gedrückt (normalerweise die rechte Taste)                      |
 
     - `buttons` {{optional_inline}}
 
       - : Eine Zahl, standardmäßig `0`, die beschreibt, welche Tasten beim Auslösen des Ereignisses gedrückt sind:
 
-        | Bit-Feld-Wert  | Bedeutung                                              |
-        | -------------- | ------------------------------------------------------ |
-        | `0`            | Keine Taste gedrückt                                   |
-        | `1`            | Haupttaste gedrückt (normalerweise die linke Taste)    |
-        | `2`            | Sekundärtaste gedrückt (normalerweise die rechte Taste)|
-        | `4`            | Hilfstaste gedrückt (normalerweise die mittlere Taste) |
+        | Bit-Feld-Wert | Bedeutung                                               |
+        | ------------- | ------------------------------------------------------- |
+        | `0`           | Keine Taste gedrückt                                    |
+        | `1`           | Haupttaste gedrückt (normalerweise die linke Taste)     |
+        | `2`           | Sekundärtaste gedrückt (normalerweise die rechte Taste) |
+        | `4`           | Hilfstaste gedrückt (normalerweise die mittlere Taste)  |
 
     - `relatedTarget` {{optional_inline}}
       - : Ein [`EventTarget`](/de/docs/Web/API/EventTarget), standardmäßig `null`, das das gerade verlassene

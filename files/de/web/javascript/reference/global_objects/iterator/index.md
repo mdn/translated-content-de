@@ -77,7 +77,7 @@ Sie können `seq` nicht in ein Array konvertieren, weil es unendlich ist. Stattd
 
 Sie werden viele Iterator-Methoden finden, die analog zu Array-Methoden sind, wie:
 
-| Iterator-Methode                           | Array-Methode                            |
+| Iterator-Methode                           | Array-Methode                           |
 | ------------------------------------------ | --------------------------------------- |
 | {{jsxref("Iterator.prototype.every()")}}   | {{jsxref("Array.prototype.every()")}}   |
 | {{jsxref("Iterator.prototype.filter()")}}  | {{jsxref("Array.prototype.filter()")}}  |

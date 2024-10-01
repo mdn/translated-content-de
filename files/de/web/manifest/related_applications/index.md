@@ -43,11 +43,11 @@ Das `related_applications`-Feld ist ein Array von Objekten, das native Anwendung
 
 Applikationsobjekte können die folgenden Eigenschaften enthalten:
 
-| Mitglied   | Beschreibung                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Mitglied   | Beschreibung                                                                                                                      |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | `platform` | Die Plattform, auf der die Anwendung zu finden ist. [Liste der verfügbaren Werte](https://github.com/w3c/manifest/wiki/Platforms) |
-| `url`      | Die URL, unter der die Anwendung zu finden ist.                                                                                |
-| `id`       | Die ID, die verwendet wird, um die Anwendung auf der angegebenen Plattform zu repräsentieren.                                  |
+| `url`      | Die URL, unter der die Anwendung zu finden ist.                                                                                   |
+| `id`       | Die ID, die verwendet wird, um die Anwendung auf der angegebenen Plattform zu repräsentieren.                                     |
 
 ## Spezifikationen
 

@@ -50,7 +50,7 @@ _Erbt Eigenschaften von seinem Elternteil, [`AudioScheduledSourceNode`](/de/docs
 - [`AudioBufferSourceNode.buffer`](/de/docs/Web/API/AudioBufferSourceNode/buffer)
   - : Ein [`AudioBuffer`](/de/docs/Web/API/AudioBuffer), der das abzuspielende Audio-Asset definiert oder bei einem Wert von `null` einen einzigen Kanal der Stille definiert (in dem jedes Sample 0,0 ist).
 - [`AudioBufferSourceNode.detune`](/de/docs/Web/API/AudioBufferSourceNode/detune)
-  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verstimmung der Wiedergabe in [Cents](https://de.wikipedia.org/wiki/Cent_(Musik)) darstellt. Dieser Wert wird mit `playbackRate` kombiniert, um die Geschwindigkeit zu bestimmen, mit der der Sound abgespielt wird. Sein Standardwert ist `0` (was keine Verstimmung bedeutet), und der nominelle Bereich ist -∞ bis ∞.
+  - : Ein [k-rate](/de/docs/Web/API/AudioParam#k-rate) [`AudioParam`](/de/docs/Web/API/AudioParam), das die Verstimmung der Wiedergabe in [Cents](<https://de.wikipedia.org/wiki/Cent_(Musik)>) darstellt. Dieser Wert wird mit `playbackRate` kombiniert, um die Geschwindigkeit zu bestimmen, mit der der Sound abgespielt wird. Sein Standardwert ist `0` (was keine Verstimmung bedeutet), und der nominelle Bereich ist -∞ bis ∞.
 - [`AudioBufferSourceNode.loop`](/de/docs/Web/API/AudioBufferSourceNode/loop)
   - : Ein Boolean-Attribut, das angibt, ob das Audio-Asset erneut abgespielt werden muss, wenn das Ende des [`AudioBuffer`](/de/docs/Web/API/AudioBuffer) erreicht ist. Sein Standardwert ist `false`.
 - [`AudioBufferSourceNode.loopStart`](/de/docs/Web/API/AudioBufferSourceNode/loopStart) {{optional_inline}}

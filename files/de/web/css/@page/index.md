@@ -58,74 +58,74 @@ Die Spezifikation erwähnt folgende CSS-Eigenschaften, die für Seitenboxen übe
 <details>
 <summary>Verbleibende Seiteneigenschaften</summary>
 
-| Feature               | CSS Eigenschaften     |
-| --------------------- | --------------------- |
-| bidi Eigenschaften    | direction             |
-| Hintergrund Eigenschaften | background-color  |
-|                       | background-image      |
-|                       | background-repeat     |
-|                       | background-attachment |
-|                       | background-position   |
-|                       | background            |
-| Rahmen Eigenschaften  | border-top-width      |
-|                       | border-right-width    |
-|                       | border-bottom-width   |
-|                       | border-left-width     |
-|                       | border-width          |
-|                       | border-top-color      |
-|                       | border-right-color    |
-|                       | border-bottom-color   |
-|                       | border-left-color     |
-|                       | border-color          |
-|                       | border-top-style      |
-|                       | border-right-style    |
-|                       | border-bottom-style   |
-|                       | border-left-style     |
-|                       | border-short-style    |
-|                       | border-top            |
-|                       | border-right          |
-|                       | border-bottom         |
-|                       | border-left           |
-|                       | border                |
-| Zähleigenschaften     | counter-reset         |
-|                       | counter-increment     |
-| Farbe                 | color                 |
-| Schriftart Eigenschaften | font-family        |
-|                       | font-size             |
-|                       | font-style            |
-|                       | font-variant          |
-|                       | font-weight           |
-|                       | font                  |
-| Höhen-Eigenschaften   | height                |
-|                       | min-height            |
-|                       | max-height            |
-| Linienhöhe            | line-height           |
-| Rand-Eigenschaften    | margin-top            |
-|                       | margin-right          |
-|                       | margin-bottom         |
-|                       | margin-left           |
-|                       | margin                |
-| Umriss Eigenschaften  | outline-width         |
-|                       | outline-style         |
-|                       | outline-color         |
-|                       | outline               |
-| Abstandseigenschaften | padding-top           |
-|                       | padding-right         |
-|                       | padding-bottom        |
-|                       | padding-left          |
-|                       | padding               |
-| Zitate                | quotes                |
-| Text Eigenschaften    | letter-spacing        |
-|                       | text-align            |
-|                       | text-decoration       |
-|                       | text-indent           |
-|                       | text-transform        |
-|                       | white-space           |
-|                       | word-spacing          |
-| Sichtbarkeit          | visibility            |
-| Breiten-Eigenschaften | width                 |
-|                       | min-width             |
-|                       | max-width             |
+| Feature                   | CSS Eigenschaften     |
+| ------------------------- | --------------------- |
+| bidi Eigenschaften        | direction             |
+| Hintergrund Eigenschaften | background-color      |
+|                           | background-image      |
+|                           | background-repeat     |
+|                           | background-attachment |
+|                           | background-position   |
+|                           | background            |
+| Rahmen Eigenschaften      | border-top-width      |
+|                           | border-right-width    |
+|                           | border-bottom-width   |
+|                           | border-left-width     |
+|                           | border-width          |
+|                           | border-top-color      |
+|                           | border-right-color    |
+|                           | border-bottom-color   |
+|                           | border-left-color     |
+|                           | border-color          |
+|                           | border-top-style      |
+|                           | border-right-style    |
+|                           | border-bottom-style   |
+|                           | border-left-style     |
+|                           | border-short-style    |
+|                           | border-top            |
+|                           | border-right          |
+|                           | border-bottom         |
+|                           | border-left           |
+|                           | border                |
+| Zähleigenschaften         | counter-reset         |
+|                           | counter-increment     |
+| Farbe                     | color                 |
+| Schriftart Eigenschaften  | font-family           |
+|                           | font-size             |
+|                           | font-style            |
+|                           | font-variant          |
+|                           | font-weight           |
+|                           | font                  |
+| Höhen-Eigenschaften       | height                |
+|                           | min-height            |
+|                           | max-height            |
+| Linienhöhe                | line-height           |
+| Rand-Eigenschaften        | margin-top            |
+|                           | margin-right          |
+|                           | margin-bottom         |
+|                           | margin-left           |
+|                           | margin                |
+| Umriss Eigenschaften      | outline-width         |
+|                           | outline-style         |
+|                           | outline-color         |
+|                           | outline               |
+| Abstandseigenschaften     | padding-top           |
+|                           | padding-right         |
+|                           | padding-bottom        |
+|                           | padding-left          |
+|                           | padding               |
+| Zitate                    | quotes                |
+| Text Eigenschaften        | letter-spacing        |
+|                           | text-align            |
+|                           | text-decoration       |
+|                           | text-indent           |
+|                           | text-transform        |
+|                           | white-space           |
+|                           | word-spacing          |
+| Sichtbarkeit              | visibility            |
+| Breiten-Eigenschaften     | width                 |
+|                           | min-width             |
+|                           | max-width             |
 
 </details>
 
@@ -204,77 +204,77 @@ Die Seitenrand-Eigenschaften sind die Menge an CSS-Eigenschaften, die in einer i
 <details>
 <summary>Seitenrand-Eigenschaften</summary>
 
-| Feature               | CSS Eigenschaften     |
-| --------------------- | --------------------- |
-| bidi Eigenschaften    | direction             |
-| Hintergrund Eigenschaften | background-color  |
-|                       | background-image      |
-|                       | background-repeat     |
-|                       | background-attachment |
-|                       | background-position   |
-|                       | background            |
-| Rahmen Eigenschaften  | border-top-width      |
-|                       | border-right-width    |
-|                       | border-bottom-width   |
-|                       | border-left-width     |
-|                       | border-width          |
-|                       | border-top-color      |
-|                       | border-right-color    |
-|                       | border-bottom-color   |
-|                       | border-left-color     |
-|                       | border-color          |
-|                       | border-top-style      |
-|                       | border-right-style    |
-|                       | border-bottom-style   |
-|                       | border-left-style     |
-|                       | border-short-style    |
-|                       | border-top            |
-|                       | border-right          |
-|                       | border-bottom         |
-|                       | border-left           |
-|                       | border                |
-| Zähleigenschaften     | counter-reset         |
-|                       | counter-increment     |
-| Inhalt                | content               |
-| Farbe                 | color                 |
-| Schriftart Eigenschaften | font-family        |
-|                       | font-size             |
-|                       | font-style            |
-|                       | font-variant          |
-|                       | font-weight           |
-|                       | font                  |
-| Höhen-Eigenschaften   | height                |
-|                       | min-height            |
-|                       | max-height            |
-| Linienhöhe            | line-height           |
-| Rand-Eigenschaften    | margin-top            |
-|                       | margin-right          |
-|                       | margin-bottom         |
-|                       | margin-left           |
-|                       | margin                |
-| Umriss Eigenschaften  | outline-width         |
-|                       | outline-style         |
-|                       | outline-color         |
-|                       | outline               |
-| Abstandseigenschaften | padding-top           |
-|                       | padding-right         |
-|                       | padding-bottom        |
-|                       | padding-left          |
-|                       | padding               |
-| Zitate                | quotes                |
-| Text Eigenschaften    | letter-spacing        |
-|                       | text-align            |
-|                       | text-decoration       |
-|                       | text-indent           |
-|                       | text-transform        |
-|                       | white-space           |
-|                       | word-spacing          |
-| Vertikale Ausrichtung | vertical-align        |
-| Sichtbarkeit          | visibility            |
-| Breiten-Eigenschaften | width                 |
-|                       | min-width             |
-|                       | max-width             |
-| Z-Index               | z-index               |
+| Feature                   | CSS Eigenschaften     |
+| ------------------------- | --------------------- |
+| bidi Eigenschaften        | direction             |
+| Hintergrund Eigenschaften | background-color      |
+|                           | background-image      |
+|                           | background-repeat     |
+|                           | background-attachment |
+|                           | background-position   |
+|                           | background            |
+| Rahmen Eigenschaften      | border-top-width      |
+|                           | border-right-width    |
+|                           | border-bottom-width   |
+|                           | border-left-width     |
+|                           | border-width          |
+|                           | border-top-color      |
+|                           | border-right-color    |
+|                           | border-bottom-color   |
+|                           | border-left-color     |
+|                           | border-color          |
+|                           | border-top-style      |
+|                           | border-right-style    |
+|                           | border-bottom-style   |
+|                           | border-left-style     |
+|                           | border-short-style    |
+|                           | border-top            |
+|                           | border-right          |
+|                           | border-bottom         |
+|                           | border-left           |
+|                           | border                |
+| Zähleigenschaften         | counter-reset         |
+|                           | counter-increment     |
+| Inhalt                    | content               |
+| Farbe                     | color                 |
+| Schriftart Eigenschaften  | font-family           |
+|                           | font-size             |
+|                           | font-style            |
+|                           | font-variant          |
+|                           | font-weight           |
+|                           | font                  |
+| Höhen-Eigenschaften       | height                |
+|                           | min-height            |
+|                           | max-height            |
+| Linienhöhe                | line-height           |
+| Rand-Eigenschaften        | margin-top            |
+|                           | margin-right          |
+|                           | margin-bottom         |
+|                           | margin-left           |
+|                           | margin                |
+| Umriss Eigenschaften      | outline-width         |
+|                           | outline-style         |
+|                           | outline-color         |
+|                           | outline               |
+| Abstandseigenschaften     | padding-top           |
+|                           | padding-right         |
+|                           | padding-bottom        |
+|                           | padding-left          |
+|                           | padding               |
+| Zitate                    | quotes                |
+| Text Eigenschaften        | letter-spacing        |
+|                           | text-align            |
+|                           | text-decoration       |
+|                           | text-indent           |
+|                           | text-transform        |
+|                           | white-space           |
+|                           | word-spacing          |
+| Vertikale Ausrichtung     | vertical-align        |
+| Sichtbarkeit              | visibility            |
+| Breiten-Eigenschaften     | width                 |
+|                           | min-width             |
+|                           | max-width             |
+| Z-Index                   | z-index               |
 
 </details>
 

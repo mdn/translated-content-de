@@ -6,6 +6,7 @@ l10n:
 ---
 
 ---
+
 title: "GPUDevice: importExternalTexture()-Methode"
 short-title: importExternalTexture()
 slug: Web/API/GPUDevice/importExternalTexture
@@ -13,7 +14,7 @@ page-type: web-api-instance-method
 status:
 
 - experimental
-browser-compat: api.GPUDevice.importExternalTexture
+  browser-compat: api.GPUDevice.importExternalTexture
 
 ---
 

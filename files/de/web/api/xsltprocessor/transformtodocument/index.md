@@ -25,10 +25,10 @@ transformToDocument(source)
 
 Ein [`Document`](/de/docs/Web/API/Document). Das tatsächliche Interface hängt von der [Output-Methode](https://www.w3.org/TR/1999/REC-xslt-19991116#output) des Stilesheets ab:
 
-| Output-Methode | Ergebnis-Interface                                                                                       |
-| -------------- | -------------------------------------------------------------------------------------------------------- |
-| `html`         | [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)                                                      |
-| `xml`          | [`XMLDocument`](/de/docs/Web/API/XMLDocument)                                                        |
+| Output-Methode | Ergebnis-Interface                                                                                                           |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `html`         | [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)                                                                              |
+| `xml`          | [`XMLDocument`](/de/docs/Web/API/XMLDocument)                                                                                |
 | `text`         | [`XMLDocument`](/de/docs/Web/API/XMLDocument) mit einem einzigen Wurzelelement `<transformiix:result>` mit dem Text als Kind |
 
 ## Beispiele

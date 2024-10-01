@@ -24,7 +24,7 @@ i32.and
 ;; the top item on the stack will now be 1 (00000001)
 ```
 
-| Anweisung   | Binäroperationscode |
-| ----------- | -------------------- |
-| `i32.and`   | `0x71`               |
-| `i64.and`   | `0x83`               |
+| Anweisung | Binäroperationscode |
+| --------- | ------------------- |
+| `i32.and` | `0x71`              |
+| `i64.and` | `0x83`              |

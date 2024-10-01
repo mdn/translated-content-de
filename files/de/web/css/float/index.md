@@ -15,7 +15,7 @@ Ein _fließendes Element_ ist eines, bei dem der berechnete Wert von `float` nic
 
 Da `float` die Verwendung des Blocklayouts impliziert, ändert es den berechneten Wert der {{cssxref("display")}} Werte in einigen Fällen:
 
-| Angegebener Wert      | Berechneter Wert |
+| Angegebener Wert     | Berechneter Wert |
 | -------------------- | ---------------- |
 | `inline`             | `block`          |
 | `inline-block`       | `block`          |

@@ -48,12 +48,12 @@ Wenn Sie Anwendungen mit Angular erstellen, nutzen Sie eine Plattform, die von E
 
 Bevor Sie anfangen, die Angular-Plattform zu erkunden, sollten Sie den Angular CLI kennen. Der Angular CLI ist der schnellste, einfachste und empfohlene Weg, Angular-Anwendungen zu entwickeln. Der Angular CLI erleichtert viele Aufgaben. Hier sind einige Befehle, die Sie häufig verwenden werden:
 
-| Befehl                                          | Beschreibung                                                           |
-| ------------------------------------------------ | --------------------------------------------------------------------- |
-| [`ng build`](https://angular.io/cli/build)       | Kompiliert eine Angular-App in ein Ausgabeverzeichnis.                     |
-| [`ng serve`](https://angular.io/cli/serve)       | Erstellt und serviert Ihre Anwendung, mit Neuaufbau bei Dateiänderungen.       |
-| [`ng generate`](https://angular.io/cli/generate) | Generiert oder ändert Dateien basierend auf einem Schema.                     |
-| [`ng test`](https://angular.io/cli/test)         | Führt Unit-Tests auf einem bestimmten Projekt aus.                                   |
+| Befehl                                           | Beschreibung                                                                        |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------- |
+| [`ng build`](https://angular.io/cli/build)       | Kompiliert eine Angular-App in ein Ausgabeverzeichnis.                              |
+| [`ng serve`](https://angular.io/cli/serve)       | Erstellt und serviert Ihre Anwendung, mit Neuaufbau bei Dateiänderungen.            |
+| [`ng generate`](https://angular.io/cli/generate) | Generiert oder ändert Dateien basierend auf einem Schema.                           |
+| [`ng test`](https://angular.io/cli/test)         | Führt Unit-Tests auf einem bestimmten Projekt aus.                                  |
 | [`ng e2e`](https://angular.io/cli/e2e)           | Erstellt und serviert eine Angular-Anwendung und führt dann End-to-End-Tests durch. |
 
 Sie werden feststellen, dass der Angular CLI ein wertvolles Werkzeug für die Erstellung Ihrer Anwendungen ist.

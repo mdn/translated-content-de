@@ -1,5 +1,5 @@
 ---
-title: "SyntaxError: \"x\" ist ein reservierter Bezeichner"
+title: 'SyntaxError: "x" ist ein reservierter Bezeichner'
 slug: Web/JavaScript/Reference/Errors/Reserved_identifier
 l10n:
   sourceCommit: a71b8929628a2187794754c202ad399fe357141b

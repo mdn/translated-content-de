@@ -53,8 +53,8 @@ Die `polygon()` Funktion akzeptiert durch Kommas getrennte Koordinaten oder Punk
 
 Aus dem Obigen ergibt sich, dass die Zuordnung der Koordinaten des Containers wie folgt visualisiert werden kann:
 
-| Achse | Punkt 1 | Punkt 2 | Punkt 3 | Punkt 4 | Punkt n      |
-| ----- | ------- | ------- | ------- | ------- | ------------ |
+| Achse | Punkt 1 | Punkt 2 | Punkt 3 | Punkt 4 | Punkt n       |
+| ----- | ------- | ------- | ------- | ------- | ------------- |
 | x     | 0%      | 100%    | 100%    | 0%      | x<sub>n</sub> |
 | y     | 0%      | 0%      | 100%    | 100%    | y<sub>n</sub> |
 

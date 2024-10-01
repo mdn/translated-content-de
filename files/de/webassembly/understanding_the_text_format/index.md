@@ -388,7 +388,7 @@ WebAssembly.instantiateStreaming(fetch("logger2.wasm"), importObject).then(
 );
 ```
 
-Beachten Sie, dass die Protokollierungsfunktion `consoleLogString()`  an die Eigenschaft `console.log` im `importObject` übergeben wird und vom WebAssembly-Modul importiert wird. Die Funktion erstellt eine Ansicht auf der Zeichenkette im geteilten Speicher unter Verwendung eines `Uint8Array` am angegebenen Offset und mit der angegebenen Länge. Die Bytes werden dann von UTF-8 in eine Zeichenkette mit der [TextDecoder API](/de/docs/Web/API/TextDecoder) dekodiert (wir geben hier `utf8` an, aber viele andere Kodierungen werden unterstützt). Die Zeichenkette wird dann mit `console.log()` in der Konsole protokolliert.
+Beachten Sie, dass die Protokollierungsfunktion `consoleLogString()` an die Eigenschaft `console.log` im `importObject` übergeben wird und vom WebAssembly-Modul importiert wird. Die Funktion erstellt eine Ansicht auf der Zeichenkette im geteilten Speicher unter Verwendung eines `Uint8Array` am angegebenen Offset und mit der angegebenen Länge. Die Bytes werden dann von UTF-8 in eine Zeichenkette mit der [TextDecoder API](/de/docs/Web/API/TextDecoder) dekodiert (wir geben hier `utf8` an, aber viele andere Kodierungen werden unterstützt). Die Zeichenkette wird dann mit `console.log()` in der Konsole protokolliert.
 
 Der letzte Schritt ist das Aufrufen der exportierten `writeHi()`-Funktion, was nach der Instanziierung des Objekts erfolgt. Wenn Sie den Code ausführen, zeigt die Konsole den Text "Hi".
 

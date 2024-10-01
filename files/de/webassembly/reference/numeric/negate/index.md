@@ -23,7 +23,7 @@ f32.neg
 ;; the top item on the stack will now be -2.7
 ```
 
-| Anweisung  | Binärer Opcode |
-|------------|----------------|
-| `f32.neg`  | `0x8c`         |
-| `f64.neg`  | `0x9a`         |
+| Anweisung | Binärer Opcode |
+| --------- | -------------- |
+| `f32.neg` | `0x8c`         |
+| `f64.neg` | `0x9a`         |

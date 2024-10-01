@@ -15,8 +15,8 @@ Dies sind die Werte, die gesendet werden, wenn der Kontext keine besseren Inform
 Beachten Sie, dass alle Browser den MIME-Typ `*/*` hinzufügen, um alle Fälle abzudecken.
 Dies wird typischerweise für Anfragen verwendet, die über die Adressleiste eines Browsers oder über ein HTML-{{HTMLElement("a")}}-Element initiiert werden.
 
-| User Agent                 | Wert                                                                                                                               |
-| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| User Agent                 | Wert                                                                                                                                |
+| -------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Firefox 128 und später [1] | `text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8`                     |
 | Firefox 92 bis 127 [1]     | `text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8`                                             |
 | Firefox 72 bis 91 [2]      | `text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8`                                                        |
@@ -55,20 +55,20 @@ Wenn ein Bild angefordert wird, wie durch ein HTML-{{HTMLElement("img")}}-Elemen
 
 Wenn ein Video angefordert wird, über das {{HTMLElement("video")}}-HTML-Element, verwenden die meisten Browser bestimmte Werte.
 
-| User Agent               | Wert                                                                               |
-| ------------------------ | ---------------------------------------------------------------------------------- |
-| Firefox 3.6 und später   | `video/webm,video/ogg,video/*;q=0.9,application/ogg;q=0.7,audio/*;q=0.6,*/*;q=0.5` |
-| Firefox früher als 3.6   | _Keine Unterstützung für {{HTMLElement("video")}}_                                 |
-| Chrome                   | `*/*`                                                                              |
+| User Agent             | Wert                                                                               |
+| ---------------------- | ---------------------------------------------------------------------------------- |
+| Firefox 3.6 und später | `video/webm,video/ogg,video/*;q=0.9,application/ogg;q=0.7,audio/*;q=0.6,*/*;q=0.5` |
+| Firefox früher als 3.6 | _Keine Unterstützung für {{HTMLElement("video")}}_                                 |
+| Chrome                 | `*/*`                                                                              |
 
 ## Werte für Audiodateien
 
 Wenn eine Audiodatei angefordert wird, z.B. über das {{HTMLElement("audio")}}-HTML-Element, verwenden die meisten Browser bestimmte Werte.
 
-| User Agent                | Wert                                                                                        |
-| ------------------------- | ------------------------------------------------------------------------------------------- |
-| Firefox 3.6 und später [1]| `audio/webm,audio/ogg,audio/wav,audio/*;q=0.9,application/ogg;q=0.7,video/*;q=0.6,*/*;q=0.5` |
-| Safari, Chrome            | `*/*`                                                                                        |
+| User Agent                 | Wert                                                                                         |
+| -------------------------- | -------------------------------------------------------------------------------------------- |
+| Firefox 3.6 und später [1] | `audio/webm,audio/ogg,audio/wav,audio/*;q=0.9,application/ogg;q=0.7,video/*;q=0.6,*/*;q=0.5` |
+| Safari, Chrome             | `*/*`                                                                                        |
 
 \[1] Siehe [Bug 489071](https://bugzil.la/489071).
 
@@ -76,7 +76,7 @@ Wenn eine Audiodatei angefordert wird, z.B. über das {{HTMLElement("audio")}}-H
 
 Wenn ein Skript angefordert wird, z.B. über das {{HTMLElement("script")}}-HTML-Element, verwenden einige Browser spezifische Werte.
 
-| User Agent     | Wert |
+| User Agent     | Wert  |
 | -------------- | ----- |
 | Firefox [1]    | `*/*` |
 | Safari, Chrome | `*/*` |
@@ -87,11 +87,11 @@ Wenn ein Skript angefordert wird, z.B. über das {{HTMLElement("script")}}-HTML-
 
 Wenn ein CSS-Stylesheet angefordert wird, über das `<link rel="stylesheet">`-HTML-Element, verwenden die meisten Browser spezifische Werte.
 
-| User Agent     | Wert                                                                                                                               |
+| User Agent     | Wert                                                                                                                                |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| Firefox 4 [1]  | `text/css,*/*;q=0.1`                                                                                                               |
-| Safari, Chrome | `text/css,*/*;q=0.1`                                                                                                               |
+| Firefox 4 [1]  | `text/css,*/*;q=0.1`                                                                                                                |
+| Safari, Chrome | `text/css,*/*;q=0.1`                                                                                                                |
 | Opera 11.10    | `text/html, application/xml;q=0.9, application/xhtml+xml, image/png, image/webp, image/jpeg, image/gif, image/x-xbitmap, */*;q=0.1` |
-| Konqueror 4.6  | `text/css,*/*;q=0.1`                                                                                                               |
+| Konqueror 4.6  | `text/css,*/*;q=0.1`                                                                                                                |
 
 \[1] Siehe [Bug 170789](https://bugzil.la/170789).

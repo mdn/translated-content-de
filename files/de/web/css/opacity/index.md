@@ -31,11 +31,11 @@ opacity: unset;
 
   - : Eine {{cssxref("number")}} im Bereich von `0.0` bis `1.0`, einschließlich, oder ein {{cssxref("percentage")}} im Bereich von `0%` bis `100%`, einschließlich, die die Opazität des Kanals darstellt (d. h. den Wert seines Alpha-Kanals). Alle Werte außerhalb des Intervalls werden, obwohl gültig, auf das nächstgelegene Limit im Bereich begrenzt.
 
-    | Wert                                                 | Bedeutung                                                                      |
-    | ------------------------------------------------------ | ----------------------------------------------------------------------------- |
-    | `0`                                                    | Das Element ist vollständig transparent (d. h. unsichtbar).                   |
+    | Wert                                                       | Bedeutung                                                                        |
+    | ---------------------------------------------------------- | -------------------------------------------------------------------------------- |
+    | `0`                                                        | Das Element ist vollständig transparent (d. h. unsichtbar).                      |
     | Eine {{cssxref("number")}}, die zwischen `0` und `1` liegt | Das Element ist durchscheinend (d. h. Inhalte hinter dem Element sind sichtbar). |
-    | `1` (Standardwert)                                    | Das Element ist vollständig opak (visuell solide).                             |
+    | `1` (Standardwert)                                         | Das Element ist vollständig opak (visuell solide).                               |
 
 ## Beschreibung
 

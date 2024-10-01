@@ -17,11 +17,11 @@ _Das `GeolocationPositionError`-Interface erbt keine Eigenschaft._
 
   - : Gibt einen `unsigned short` zurück, der den Fehlercode repräsentiert. Die folgenden Werte sind möglich:
 
-    | Wert  | Zugehörige Konstante | Beschreibung                                                                                                                                                                                                       |
-    | ----- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `1`   | `PERMISSION_DENIED`   | Der Erwerb der Geolokalisierungsinformationen schlug fehl, weil die Seite nicht die notwendigen Berechtigungen hatte, beispielsweise weil sie durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert ist. |
-    | `2`   | `POSITION_UNAVAILABLE`| Der Erwerb der Geolokalisierung schlug fehl, weil mindestens eine interne Quelle für die Position einen internen Fehler zurückgab.                                                                                             |
-    | `3`   | `TIMEOUT`             | Die für den Erwerb der Geolokalisierung zugelassene Zeit wurde erreicht, bevor die Informationen erhalten wurden.                                                                                                                   |
+    | Wert | Zugehörige Konstante   | Beschreibung                                                                                                                                                                                                                       |
+    | ---- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `1`  | `PERMISSION_DENIED`    | Der Erwerb der Geolokalisierungsinformationen schlug fehl, weil die Seite nicht die notwendigen Berechtigungen hatte, beispielsweise weil sie durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert ist. |
+    | `2`  | `POSITION_UNAVAILABLE` | Der Erwerb der Geolokalisierung schlug fehl, weil mindestens eine interne Quelle für die Position einen internen Fehler zurückgab.                                                                                                 |
+    | `3`  | `TIMEOUT`              | Die für den Erwerb der Geolokalisierung zugelassene Zeit wurde erreicht, bevor die Informationen erhalten wurden.                                                                                                                  |
 
 - [`GeolocationPositionError.message`](/de/docs/Web/API/GeolocationPositionError/message) {{ReadOnlyInline}}
   - : Gibt einen menschenlesbaren String zurück, der die Details des Fehlers beschreibt. Spezifikationen vermerken, dass dies hauptsächlich für Debugging-Zwecke gedacht ist und nicht direkt in einer Benutzeroberfläche gezeigt werden sollte.

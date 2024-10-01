@@ -21,8 +21,8 @@ Der Set Window Rect Befehl ist blockierend.
 
 ## Syntax
 
-| Methode                                   | URI-Vorlage                         |
-| ----------------------------------------- | ----------------------------------- |
+| Methode                                | URI-Vorlage                         |
+| -------------------------------------- | ----------------------------------- |
 | [POST](/de/docs/Web/HTTP/Methods/POST) | `/session/{session id}/window/rect` |
 
 ### URL-Parameter

@@ -11,9 +11,9 @@ Die **`SVGEvent`** Schnittstelle repräsentiert das Ereignisobjekt für die meis
 
 ## Instanzeigenschaften
 
-| Eigenschaft                     | Typ                        | Beschreibung                                           |
-| ------------------------------- | -------------------------- | ------------------------------------------------------ |
-| `target` {{ReadOnlyInline}}     | [`EventTarget`](/de/docs/Web/API/EventTarget) | Das Ereignisziel (das oberste Ziel im DOM-Baum).       |
-| `type` {{ReadOnlyInline}}       | string                     | Der Typ des Ereignisses.                               |
-| `bubbles` {{ReadOnlyInline}}    | Ein boolescher Wert        | Gibt an, ob das Ereignis normalerweise "bubbelt" oder nicht. |
-| `cancelable` {{ReadOnlyInline}} | Ein boolescher Wert        | Gibt an, ob das Ereignis abgebrochen werden kann oder nicht. |
+| Eigenschaft                     | Typ                                           | Beschreibung                                                 |
+| ------------------------------- | --------------------------------------------- | ------------------------------------------------------------ |
+| `target` {{ReadOnlyInline}}     | [`EventTarget`](/de/docs/Web/API/EventTarget) | Das Ereignisziel (das oberste Ziel im DOM-Baum).             |
+| `type` {{ReadOnlyInline}}       | string                                        | Der Typ des Ereignisses.                                     |
+| `bubbles` {{ReadOnlyInline}}    | Ein boolescher Wert                           | Gibt an, ob das Ereignis normalerweise "bubbelt" oder nicht. |
+| `cancelable` {{ReadOnlyInline}} | Ein boolescher Wert                           | Gibt an, ob das Ereignis abgebrochen werden kann oder nicht. |

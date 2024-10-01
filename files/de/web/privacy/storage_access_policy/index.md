@@ -108,12 +108,12 @@ Speicherzugriffsgewährungen erstrecken sich auf die erste Verschachtelungsebene
 
 Betrachten Sie die folgenden Einbettungsszenarien auf einer Top-Level-Seite, die von `example.com` geladen wird, auf der `tracker.example` Speicherzugriff gewährt wurde.
 
-| Einbettung                                                                                                                           | Speicherzugriff auf Ressourcen von `tracker.example` |
-| ------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| Ein Bild wird von `tracker.example` geladen und im Hauptkontext von `example.com` eingebettet.                                        | HTTP: Ja JS: N/A                                     |
-| `example.com` bettet ein `iframe` von `example.org` ein. Dieses `iframe` lädt daraufhin ein Bild von `tracker.example`.                | HTTP: Ja JS: N/A                                     |
-| `example.com` bettet ein `iframe` von `example.org` ein. Dieses `iframe` bettet daraufhin ein `iframe` von `tracker.example` ein.      | HTTP: Ja JS: Nein                                    |
-| `example.com` bettet ein `iframe` von `tracker.example` ein.                                                                           | HTTP: Ja JS: Ja                                       |
+| Einbettung                                                                                                                                              | Speicherzugriff auf Ressourcen von `tracker.example` |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Ein Bild wird von `tracker.example` geladen und im Hauptkontext von `example.com` eingebettet.                                                          | HTTP: Ja JS: N/A                                     |
+| `example.com` bettet ein `iframe` von `example.org` ein. Dieses `iframe` lädt daraufhin ein Bild von `tracker.example`.                                 | HTTP: Ja JS: N/A                                     |
+| `example.com` bettet ein `iframe` von `example.org` ein. Dieses `iframe` bettet daraufhin ein `iframe` von `tracker.example` ein.                       | HTTP: Ja JS: Nein                                    |
+| `example.com` bettet ein `iframe` von `tracker.example` ein.                                                                                            | HTTP: Ja JS: Ja                                      |
 | `example.com` bettet ein `iframe` von `example.com` (gleicher Ursprung) ein. Das verschachtelte `iframe` bettet ein `iframe` von `tracker.example` ein. | HTTP: Ja JS: Nein                                    |
 
 ### Ablauf des Speicherzugriffs

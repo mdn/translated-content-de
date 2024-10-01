@@ -11,8 +11,8 @@ Der _Get Timeouts_ [Befehl](/de/docs/Web/WebDriver/Commands) der [WebDriver](/de
 
 ## Syntax
 
-| Methode                                   | URI-Vorlage                      |
-| ----------------------------------------- | -------------------------------- |
+| Methode                                | URI-Vorlage                      |
+| -------------------------------------- | -------------------------------- |
 | [`GET`](/de/docs/Web/HTTP/Methods/GET) | `/session/{session id}/timeouts` |
 
 ### URL-Parameter

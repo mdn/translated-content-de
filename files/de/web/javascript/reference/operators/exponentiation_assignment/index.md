@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Exponentiation-Zuweisungsoperator (`**=`)** führt die [Exponentiation](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) an den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
+Der **Exponentiation-Zuweisungsoperator (`**=`)\*\* führt die [Exponentiation](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) an den beiden Operanden durch und weist das Ergebnis dem linken Operanden zu.
 
 {{EmbedInteractiveExample("pages/js/expressions-exponentiation-assignment.html")}}
 

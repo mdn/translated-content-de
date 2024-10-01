@@ -25,15 +25,15 @@ Während der Drag-Operationen werden mehrere Ereignistypen ausgelöst, und einig
 
 Jeder [Drag-Ereignistyp](/de/docs/Web/API/DragEvent#event_types) hat einen zugehörigen Ereignis-Handler:
 
-| Ereignis                                               | Wird ausgelöst, wenn...                                                                                                                                                                          |
-| ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`drag`](/de/docs/Web/API/HTMLElement/drag_event)           | ...ein _gezogenes Element_ (Element oder Textauswahl) gezogen wird.                                                                                                                              |
+| Ereignis                                                    | Wird ausgelöst, wenn...                                                                                                                                                                                         |
+| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`drag`](/de/docs/Web/API/HTMLElement/drag_event)           | ...ein _gezogenes Element_ (Element oder Textauswahl) gezogen wird.                                                                                                                                             |
 | [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)     | ...eine Drag-Operation endet (wie durch das Loslassen einer Maustaste oder das Drücken der Esc-Taste; siehe [Abschluss eines Drags](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#finishing_a_drag).) |
-| [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) | ...ein gezogenes Element ein gültiges Ziel betritt. (Siehe [Festlegen von Drop-Zielen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).)                     |
-| [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) | ...ein gezogenes Element ein gültiges Ziel verlässt.                                                                                                                                             |
-| [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)   | ...ein gezogenes Element über ein gültiges Ziel gezogen wird, alle paar hundert Millisekunden.                                                                                                   |
-| [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) | ...der Benutzer beginnt, ein Element zu ziehen. (Siehe [Beginn einer Drag-Operation](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#starting_a_drag_operation).)                    |
-| [`drop`](/de/docs/Web/API/HTMLElement/drop_event)           | ...ein Element auf ein gültiges Ziel fallen gelassen wird. (Siehe [Durchführung eines Drops](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#performing_a_drop).)                     |
+| [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) | ...ein gezogenes Element ein gültiges Ziel betritt. (Siehe [Festlegen von Drop-Zielen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).)                                       |
+| [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) | ...ein gezogenes Element ein gültiges Ziel verlässt.                                                                                                                                                            |
+| [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)   | ...ein gezogenes Element über ein gültiges Ziel gezogen wird, alle paar hundert Millisekunden.                                                                                                                  |
+| [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) | ...der Benutzer beginnt, ein Element zu ziehen. (Siehe [Beginn einer Drag-Operation](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#starting_a_drag_operation).)                                       |
+| [`drop`](/de/docs/Web/API/HTMLElement/drop_event)           | ...ein Element auf ein gültiges Ziel fallen gelassen wird. (Siehe [Durchführung eines Drops](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#performing_a_drop).)                                       |
 
 > [!NOTE]
 > Weder `dragstart`- noch `dragend`-Ereignisse werden ausgelöst, wenn eine Datei aus dem Betriebssystem in den Browser gezogen wird.
@@ -208,7 +208,7 @@ Weitere Informationen finden Sie unter:
 
 #### Drag-Ende
 
-Am Ende einer Drag-Operation wird das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis am _Quell-_Element ausgelöst — dem Element, das das Ziel des Drag-Beginns war.
+Am Ende einer Drag-Operation wird das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis am \_Quell-\_Element ausgelöst — dem Element, das das Ziel des Drag-Beginns war.
 
 Dieses Ereignis wird unabhängig davon ausgelöst, ob das Drag abgeschlossen oder abgebrochen wurde. Der [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis-Handler kann den Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft überprüfen, um festzustellen, ob die Drag-Operation erfolgreich war oder nicht.
 

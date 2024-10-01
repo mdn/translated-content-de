@@ -97,11 +97,11 @@ Dieses Element schließt die [globalen Attribute](/de/docs/Web/HTML/Global_attri
 
 Fügen Sie eine Tabelle der Ereignisse ein, die bei diesem Elementtypen ausgelöst werden, wenn vorhanden.
 
-| Ereignisname | Wird ausgelöst, wenn              |
-| ------------ | --------------------------------- |
+| Ereignisname | Wird ausgelöst, wenn                      |
+| ------------ | ----------------------------------------- |
 | Ereignis 1   | Erklären Sie kurz, wann es ausgelöst wird |
 | Ereignis 2   | Erklären Sie kurz, wann es ausgelöst wird |
-| etc.         |                                   |
+| etc.         |                                           |
 
 ## Barrierefreiheit
 

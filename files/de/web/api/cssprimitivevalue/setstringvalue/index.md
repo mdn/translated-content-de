@@ -33,12 +33,12 @@ setStringValue(stringType, stringValue)
 
   - : Ein `unsigned short`, das den Typ des Wertes darstellt. Mögliche Werte sind:
 
-    | Konstante    | Beschreibung                                             |
-    | ------------ | -------------------------------------------------------- |
-    | `CSS_ATTR`   | Der Wert ist eine {{cssxref("attr", "attr()")}}-Funktion.|
-    | `CSS_IDENT`  | Der Wert ist ein Bezeichner.                             |
-    | `CSS_STRING` | Der Wert ist ein {{cssxref("&lt;string&gt;")}}.          |
-    | `CSS_URI`    | Der Wert ist eine {{cssxref("url", "url()")}}.           |
+    | Konstante    | Beschreibung                                              |
+    | ------------ | --------------------------------------------------------- |
+    | `CSS_ATTR`   | Der Wert ist eine {{cssxref("attr", "attr()")}}-Funktion. |
+    | `CSS_IDENT`  | Der Wert ist ein Bezeichner.                              |
+    | `CSS_STRING` | Der Wert ist ein {{cssxref("&lt;string&gt;")}}.           |
+    | `CSS_URI`    | Der Wert ist eine {{cssxref("url", "url()")}}.            |
 
 - `stringValue`
   - : Ein String, der den neuen String-Wert darstellt.

@@ -17,17 +17,17 @@ Das **`Intl.Locale`**-Objekt wurde erstellt, um die Manipulation von Unicode-Lok
 
 Traditionell verwendete die Intl API Zeichenfolgen zur Darstellung von Lokalisierungen, genau wie Unicode. Dies ist eine einfache und leichte Lösung, die gut funktioniert. Die Hinzufügung einer Locale-Klasse erleichtert jedoch das Parsen und Manipulieren der Sprache, Schrift und Region sowie der Extension-Tags. Die folgenden Eigenschaften von `Intl.Locale` entsprechen den Untertags des Unicode-Lokalisierungsbezeichners:
 
-| Eigenschaft                                                 | Entsprechendes Subtag         |
-| ----------------------------------------------------------- | ----------------------------- |
-| {{jsxref("Intl/Locale/language", "language")}}              | `language` (erster Teil)      |
-| {{jsxref("Intl/Locale/script", "script")}}                  | `script` (zweiter Teil)       |
-| {{jsxref("Intl/Locale/region", "region")}}                  | `region` (zweiter/dritter Teil) |
-| {{jsxref("Intl/Locale/calendar", "calendar")}}              | `ca` (Erweiterung)            |
-| {{jsxref("Intl/Locale/caseFirst", "caseFirst")}}            | `kf` (Erweiterung)            |
-| {{jsxref("Intl/Locale/collation", "collation")}}            | `co` (Erweiterung)            |
-| {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}            | `hc` (Erweiterung)            |
-| {{jsxref("Intl/Locale/numberingSystem", "numberingSystem")}}| `nu` (Erweiterung)            |
-| {{jsxref("Intl/Locale/numeric", "numeric")}}                | `kn` (Erweiterung)            |
+| Eigenschaft                                                  | Entsprechendes Subtag           |
+| ------------------------------------------------------------ | ------------------------------- |
+| {{jsxref("Intl/Locale/language", "language")}}               | `language` (erster Teil)        |
+| {{jsxref("Intl/Locale/script", "script")}}                   | `script` (zweiter Teil)         |
+| {{jsxref("Intl/Locale/region", "region")}}                   | `region` (zweiter/dritter Teil) |
+| {{jsxref("Intl/Locale/calendar", "calendar")}}               | `ca` (Erweiterung)              |
+| {{jsxref("Intl/Locale/caseFirst", "caseFirst")}}             | `kf` (Erweiterung)              |
+| {{jsxref("Intl/Locale/collation", "collation")}}             | `co` (Erweiterung)              |
+| {{jsxref("Intl/Locale/hourCycle", "hourCycle")}}             | `hc` (Erweiterung)              |
+| {{jsxref("Intl/Locale/numberingSystem", "numberingSystem")}} | `nu` (Erweiterung)              |
+| {{jsxref("Intl/Locale/numeric", "numeric")}}                 | `kn` (Erweiterung)              |
 
 Die obigen Informationen werden genau so bereitgestellt, wie sie sind, wenn das `Locale`-Objekt erstellt wird, ohne eine externe Datenbank zu konsultieren. Zusätzlich bietet das `Intl.Locale`-Objekt einige Methoden, die Informationen über die reale Welt der Lokalisierung zurückgeben, wie verfügbare Kalender, Kollationen und Nummerierungssysteme.
 

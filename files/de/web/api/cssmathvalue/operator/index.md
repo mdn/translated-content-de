@@ -14,15 +14,15 @@ Die schreibgeschützte Eigenschaft **`CSSMathValue.operator`** des [`CSSMathValu
 
 Ein {{jsxref('String')}}.
 
-| Interface                     | Wert        |
-| ----------------------------- | ----------- |
-| [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)     | `"sum"`     |
+| Interface                                           | Wert        |
+| --------------------------------------------------- | ----------- |
+| [`CSSMathSum`](/de/docs/Web/API/CSSMathSum)         | `"sum"`     |
 | [`CSSMathProduct`](/de/docs/Web/API/CSSMathProduct) | `"product"` |
-| [`CSSMathMin`](/de/docs/Web/API/CSSMathMin)     | `"min"`     |
-| [`CSSMathMax`](/de/docs/Web/API/CSSMathMax)     | `"max"`     |
-| [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)   | `"clamp"`   |
-| [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate)  | `"negate"`  |
-| [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)  | `"invert"`  |
+| [`CSSMathMin`](/de/docs/Web/API/CSSMathMin)         | `"min"`     |
+| [`CSSMathMax`](/de/docs/Web/API/CSSMathMax)         | `"max"`     |
+| [`CSSMathClamp`](/de/docs/Web/API/CSSMathClamp)     | `"clamp"`   |
+| [`CSSMathNegate`](/de/docs/Web/API/CSSMathNegate)   | `"negate"`  |
+| [`CSSMathInvert`](/de/docs/Web/API/CSSMathInvert)   | `"invert"`  |
 
 ## Beispiele
 

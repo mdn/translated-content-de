@@ -11,7 +11,7 @@ Der _Get Element Property_ [Befehl](/de/docs/Web/WebDriver/Commands) der [WebDri
 
 ## Syntax
 
-| Methode | URI-Vorlage                                                 |
+| Methode | URI-Vorlage                                                  |
 | ------- | ------------------------------------------------------------ |
 | `GET`   | `/session/{session id}/element/{element id}/property/{name}` |
 
