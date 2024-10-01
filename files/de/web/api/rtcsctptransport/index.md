@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCSctpTransport`**-Interface liefert Informationen, die ein Stream Control Transmission Protocol (**[SCTP](/de/docs/Glossary/SCTP)**) Transport beschreiben. Dies bietet Informationen über die Einschränkungen des Transports, ermöglicht aber auch den Zugriff auf das zugrunde liegende Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**) Transportprotokoll, über das SCTP-Pakete für alle Datenkanäle einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet und empfangen werden.
+Das **`RTCSctpTransport`**-Interface liefert Informationen, die ein Stream Control Transmission Protocol (**{{Glossary("SCTP", "SCTP")}}**) Transport beschreiben. Dies bietet Informationen über die Einschränkungen des Transports, ermöglicht aber auch den Zugriff auf das zugrunde liegende Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**) Transportprotokoll, über das SCTP-Pakete für alle Datenkanäle einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet und empfangen werden.
 
 `RTCSctpTransport`-Objekte erstellen Sie nicht selbst; stattdessen erhalten Sie Zugriff auf das `RTCSctpTransport` für eine gegebene `RTCPeerConnection` über ihre **[`sctp`](/de/docs/Web/API/RTCPeerConnection/sctp)**-Eigenschaft.
 
@@ -26,7 +26,7 @@ _Erbt auch Eigenschaften von: [`EventTarget`](/de/docs/Web/API/EventTarget)_.
 - [`RTCSctpTransport.state`](/de/docs/Web/API/RTCSctpTransport/state) {{ReadOnlyInline}}
   - : Ein Zeichenfolgenwert, der den Zustand des SCTP-Transports angibt.
 - [`RTCSctpTransport.transport`](/de/docs/Web/API/RTCSctpTransport/transport) {{ReadOnlyInline}}
-  - : Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das den [DTLS](/de/docs/Glossary/DTLS)-Transport darstellt, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
+  - : Ein [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das den {{Glossary("DTLS", "DTLS")}}-Transport darstellt, der für die Übertragung und den Empfang von Datenpaketen verwendet wird.
 
 ## Ereignisse
 

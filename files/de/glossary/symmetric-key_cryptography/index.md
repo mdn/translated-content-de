@@ -9,7 +9,7 @@ l10n:
 
 Der Begriff der symmetrischen Kryptographie bezieht sich auf kryptographische Algorithmen, die denselben Schlüssel für die Verschlüsselung und die Entschlüsselung verwenden. Dieser Schlüssel wird üblicherweise als "symmetrischer Schlüssel" oder "geheimer Schlüssel" bezeichnet.
 
-Dies steht normalerweise im Gegensatz zur [asymmetrischen Kryptographie (Public-Key-Kryptographie)](/de/docs/Glossary/public-key_cryptography), bei der Schlüssel paarweise generiert werden und die von einem Schlüssel durchgeführte Transformation nur mit dem anderen Schlüssel rückgängig gemacht werden kann.
+Dies steht normalerweise im Gegensatz zur {{Glossary("public-key_cryptography", "asymmetrischen Kryptographie (Public-Key-Kryptographie)")}}, bei der Schlüssel paarweise generiert werden und die von einem Schlüssel durchgeführte Transformation nur mit dem anderen Schlüssel rückgängig gemacht werden kann.
 
 Symmetrische Verschlüsselungsalgorithmen sollten bei richtiger Anwendung sicher sein und sind hoch effizient, sodass sie verwendet werden können, um große Datenmengen zu verschlüsseln, ohne die Leistung negativ zu beeinträchtigen.
 

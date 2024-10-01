@@ -184,7 +184,7 @@ Erwägen Sie auch Media Queries oder [HTTP User-Agent-Client-Hinweise](/de/docs/
 
 ## Sicherheit
 
-Da Media Queries Einblicke in die Fähigkeiten - und damit in die Funktionen und das Design - des Geräts geben, mit dem der Benutzer arbeitet, besteht die Möglichkeit, dass sie missbraucht werden könnten, um einen {{Glossary("Fingerprinting", ""Fingerabdruck"")}} zu erstellen, der das Gerät identifiziert oder es zumindest bis zu einem gewissen Grad kategorisiert, was für Benutzer unerwünscht sein könnte.
+Da Media Queries Einblicke in die Fähigkeiten - und damit in die Funktionen und das Design - des Geräts geben, mit dem der Benutzer arbeitet, besteht die Möglichkeit, dass sie missbraucht werden könnten, um einen {{Glossary("Fingerprinting", "Fingerabdruck")}} zu erstellen, der das Gerät identifiziert oder es zumindest bis zu einem gewissen Grad kategorisiert, was für Benutzer unerwünscht sein könnte.
 
 Aufgrund dieses Potenzials kann ein Browser die zurückgegebenen Werte auf irgendeine Weise verfälschen, um deren Verwendung zur präzisen Identifikation eines Computers zu verhindern. Ein Browser könnte auch zusätzliche Maßnahmen in diesem Bereich anbieten; zum Beispiel, wenn Firefox' "Resist Fingerprinting"-Einstellung aktiviert ist, berichten viele Media Queries Standardwerte anstelle von Werten, die den tatsächlichen Gerätezustand darstellen.
 

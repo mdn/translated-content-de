@@ -16,7 +16,7 @@ Die **`RTCIceTransport`** Schnittstelle bietet Zugriff auf Informationen über d
 _Die `RTCIceTransport`-Schnittstelle erbt Eigenschaften von ihrem Elternteil, [`EventTarget`](/de/docs/Web/API/EventTarget). Sie bietet auch die folgenden Eigenschaften:_
 
 - [`component`](/de/docs/Web/API/RTCIceTransport/component) {{ReadOnlyInline}}
-  - : Die von der Transportverbindung verwendete ICE-Komponente. Der Wert ist einer der Strings aus dem `RTCIceTransport`-Enumerationstyp: `{{Glossary("RTP", ""RTP"")}}` oder `"RTSP"`.
+  - : Die von der Transportverbindung verwendete ICE-Komponente. Der Wert ist einer der Strings aus dem `RTCIceTransport`-Enumerationstyp: `{{Glossary("RTP", "RTP")}}` oder `"RTSP"`.
 - [`gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState) {{ReadOnlyInline}}
   - : Ein String, der den aktuellen Sammelzustand des ICE-Agenten angibt: `"new"`, `"gathering"` oder `"complete"`.
 - [`role`](/de/docs/Web/API/RTCIceTransport/role) {{ReadOnlyInline}}

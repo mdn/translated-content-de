@@ -37,7 +37,7 @@ open(url, target, windowFeatures)
 
     - `attributionsrc` {{experimental_inline}}
 
-      - : Gibt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}} Header zusammen mit dem `open()` Aufruf sendet. Dieser Aufruf muss mit [transient activation](/de/docs/Glossary/Transient_activation) (d.h. innerhalb eines Benutzerinteraktionsereignishandlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion erfolgen. Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}} Headers in der Antwort auszulösen, um die Registrierung einer Attributionsquelle abzuschließen.
+      - : Gibt an, dass Sie möchten, dass der Browser einen {{httpheader("Attribution-Reporting-Eligible")}} Header zusammen mit dem `open()` Aufruf sendet. Dieser Aufruf muss mit {{Glossary("Transient_activation", "transient activation")}} (d.h. innerhalb eines Benutzerinteraktionsereignishandlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion erfolgen. Serverseitig wird dies verwendet, um das Senden eines {{httpheader("Attribution-Reporting-Register-Source")}} Headers in der Antwort auszulösen, um die Registrierung einer Attributionsquelle abzuschließen.
 
         Darüber hinaus wird auch der Browser ausgelöst, um die zugehörigen Quelldaten (wie im {{httpheader("Attribution-Reporting-Register-Source")}} Antwort-Header bereitgestellt) zu speichern, wenn die `open()` Methode abgeschlossen wird.
 
@@ -91,7 +91,7 @@ open(url, target, windowFeatures)
 
 ### Rückgabewert
 
-Wenn der Browser den neuen Browsing-Kontext erfolgreich öffnet, wird ein [`WindowProxy`](/de/docs/Glossary/WindowProxy) Objekt zurückgegeben. Der zurückgegebene Verweis kann verwendet werden, um auf Eigenschaften und Methoden des neuen Kontexts zuzugreifen, solange er den Sicherheitsanforderungen der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) entspricht.
+Wenn der Browser den neuen Browsing-Kontext erfolgreich öffnet, wird ein {{Glossary("WindowProxy", "`WindowProxy`")}} Objekt zurückgegeben. Der zurückgegebene Verweis kann verwendet werden, um auf Eigenschaften und Methoden des neuen Kontexts zuzugreifen, solange er den Sicherheitsanforderungen der [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) entspricht.
 
 `null` wird zurückgegeben, wenn der Browser den neuen Browsing-Kontext nicht öffnen kann, z.B. weil er durch einen Popup-Blocker des Browsers blockiert wurde.
 
@@ -248,7 +248,7 @@ for (const link of links) {
 
 ## Same-Origin-Policy
 
-Wenn der neu geöffnete Browsing-Kontext nicht denselben [Ursprung](/de/docs/Glossary/Origin) teilt, kann das öffnende Skript nicht (lesend oder schreibend) mit dem Inhalt des Browsing-Kontexts interagieren.
+Wenn der neu geöffnete Browsing-Kontext nicht denselben {{Glossary("Origin", "Ursprung")}} teilt, kann das öffnende Skript nicht (lesend oder schreibend) mit dem Inhalt des Browsing-Kontexts interagieren.
 
 ```js example-bad
 // Script from example.com

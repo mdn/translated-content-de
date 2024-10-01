@@ -11,7 +11,7 @@ Dieser Leitfaden bietet Ihnen alles, was Sie benötigen, um mit der JavaScript-M
 
 ## Hintergrund zu Modulen
 
-JavaScript-Programme begannen zunächst ziemlich klein – in den frühen Tagen wurde es hauptsächlich für isolierte Scripting-Aufgaben verwendet, um ein wenig Interaktivität zu Ihren Webseiten hinzuzufügen, wo nötig, daher waren große Skripte im Allgemeinen nicht notwendig. Ein paar Jahre später haben wir nun vollständige Anwendungen, die in Browsern mit viel JavaScript ausgeführt werden, sowie JavaScript, das in anderen Kontexten verwendet wird ([Node.js](/de/docs/Glossary/Node.js) zum Beispiel).
+JavaScript-Programme begannen zunächst ziemlich klein – in den frühen Tagen wurde es hauptsächlich für isolierte Scripting-Aufgaben verwendet, um ein wenig Interaktivität zu Ihren Webseiten hinzuzufügen, wo nötig, daher waren große Skripte im Allgemeinen nicht notwendig. Ein paar Jahre später haben wir nun vollständige Anwendungen, die in Browsern mit viel JavaScript ausgeführt werden, sowie JavaScript, das in anderen Kontexten verwendet wird ({{Glossary("Node.js", "Node.js")}} zum Beispiel).
 
 Komplexe Projekte erfordern einen Mechanismus zum Aufteilen von JavaScript-Programmen in separate Module, die bei Bedarf importiert werden können. Node.js verfügt seit langem über diese Fähigkeit, und es gibt eine Reihe von JavaScript-Bibliotheken und Frameworks, die die Verwendung von Modulen ermöglichen (zum Beispiel andere [CommonJS](https://en.wikipedia.org/wiki/CommonJS)- und [AMD](https://github.com/amdjs/amdjs-api/blob/master/AMD.md)-basierte Modulsysteme wie [RequireJS](https://requirejs.org/), [Webpack](https://webpack.js.org/) und [Babel](https://babeljs.io/)).
 
@@ -816,7 +816,7 @@ Dies ist nützlich, weil der Code innerhalb von [`main.js`](https://github.com/m
 
 ## Import-Anweisungen werden gehoben
 
-Importanweisungen werden [gehoben](/de/docs/Glossary/Hoisting). In diesem Fall bedeutet das, dass die importierten Werte im Code des Moduls verfügbar sind, auch vor dem Ort, der sie deklariert, und dass die Nebeneffekte des importierten Moduls produziert werden, bevor der Rest des Modulcodes zu laufen beginnt.
+Importanweisungen werden {{Glossary("Hoisting", "gehoben")}}. In diesem Fall bedeutet das, dass die importierten Werte im Code des Moduls verfügbar sind, auch vor dem Ort, der sie deklariert, und dass die Nebeneffekte des importierten Moduls produziert werden, bevor der Rest des Modulcodes zu laufen beginnt.
 
 So zum Beispiel, würde es in `main.js` funktionieren, `Canvas` in der Mitte des Codes zu importieren:
 
