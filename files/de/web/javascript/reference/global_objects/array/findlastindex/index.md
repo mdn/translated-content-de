@@ -23,7 +23,7 @@ findLastIndex(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und andernfalls einen [falsy](/de/docs/Glossary/Falsy) Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und andernfalls einen {{Glossary("Falsy", "falsy")}} Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -39,7 +39,7 @@ Der Index des letzten (höchst-indizierten) Elements im Array, das den Test best
 
 ## Beschreibung
 
-Die `findLastIndex()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Array in absteigender Indexreihenfolge auf, bis `callbackFn` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt. `findLastIndex()` gibt dann den Index dieses Elements zurück und stoppt die Iteration durch das Array. Wenn `callbackFn` nie einen truthy Wert zurückgibt, gibt `findLastIndex()` `-1` zurück. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr über das allgemeine Funktionieren dieser Methoden zu erfahren.
+Die `findLastIndex()`-Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Array in absteigender Indexreihenfolge auf, bis `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. `findLastIndex()` gibt dann den Index dieses Elements zurück und stoppt die Iteration durch das Array. Wenn `callbackFn` nie einen truthy Wert zurückgibt, gibt `findLastIndex()` `-1` zurück. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), um mehr über das allgemeine Funktionieren dieser Methoden zu erfahren.
 
 `callbackFn` wird für _jeden_ Index des Arrays aufgerufen, nicht nur für die mit zugewiesenen Werten. Leere Plätze in [dünn besetzten Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verhalten sich wie `undefined`.
 

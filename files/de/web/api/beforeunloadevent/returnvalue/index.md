@@ -16,7 +16,7 @@ Die **`returnValue`**-Eigenschaft des [`BeforeUnloadEvent`](/de/docs/Web/API/Bef
 
 `returnValue` wird auf einen leeren String (`""`) initialisiert.
 
-Das Setzen auf nahezu jeden [wahrheitsgemäßen](/de/docs/Glossary/Truthy) Wert wird dazu führen, dass der Dialog beim Schließen/Neuladen der Seite ausgelöst wird. Beachten Sie jedoch, dass es auch [sticky activation](/de/docs/Glossary/Sticky_activation) erfordert. Mit anderen Worten: Der Browser zeigt den Dialog nur an, wenn der Frame oder ein eingebetteter Frame eine Benutzeraktion oder Interaktion erhält. Wenn der Benutzer niemals mit der Seite interagiert hat, gibt es keine Benutzerdaten zu speichern und damit keinen legitimen Anwendungsfall für den Dialog.
+Das Setzen auf nahezu jeden {{Glossary("Truthy", "wahrheitsgemäßen")}} Wert wird dazu führen, dass der Dialog beim Schließen/Neuladen der Seite ausgelöst wird. Beachten Sie jedoch, dass es auch {{Glossary("Sticky_activation", "sticky activation")}} erfordert. Mit anderen Worten: Der Browser zeigt den Dialog nur an, wenn der Frame oder ein eingebetteter Frame eine Benutzeraktion oder Interaktion erhält. Wenn der Benutzer niemals mit der Seite interagiert hat, gibt es keine Benutzerdaten zu speichern und damit keinen legitimen Anwendungsfall für den Dialog.
 
 > [!NOTE]
 > Im Dialog wird ein vom Browser festgelegter generischer String angezeigt. Dieser kann nicht durch den Webseiten-Code kontrolliert werden.

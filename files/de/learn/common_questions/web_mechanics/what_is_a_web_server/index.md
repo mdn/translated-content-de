@@ -38,7 +38,7 @@ In diesem Artikel erklären wir, was Webserver sind, wie Webserver arbeiten und 
 Der Begriff _Webserver_ kann sich auf Hardware oder Software oder auf beide zusammen beziehen.
 
 1. Auf der Hardware-Seite ist ein Webserver ein Computer, der Webserver-Software und die Komponenten-Dateien einer Website speichert (zum Beispiel HTML-Dokumente, Bilder, CSS-Stylesheets und JavaScript-Dateien). Ein Webserver ist mit dem Internet verbunden und unterstützt den physischen Datenaustausch mit anderen Geräten, die mit dem Web verbunden sind.
-2. Auf der Software-Seite umfasst ein Webserver mehrere Teile, die steuern, wie Webbenutzer auf die gehosteten Dateien zugreifen. Im Minimum ist dies ein _HTTP-Server_. Ein HTTP-Server ist Software, die [URLs](/de/docs/Glossary/URL) (Webadressen) und [HTTP](/de/docs/Glossary/HTTP) (das Protokoll, das Ihr Browser verwendet, um Webseiten anzusehen) versteht. Ein HTTP-Server kann über die Domainnamen der Websites, die er speichert, aufgerufen werden, und er liefert den Inhalt dieser gehosteten Websites an das Endgerät des Benutzers.
+2. Auf der Software-Seite umfasst ein Webserver mehrere Teile, die steuern, wie Webbenutzer auf die gehosteten Dateien zugreifen. Im Minimum ist dies ein _HTTP-Server_. Ein HTTP-Server ist Software, die {{Glossary("URL", "URLs")}} (Webadressen) und {{Glossary("HTTP", "HTTP")}} (das Protokoll, das Ihr Browser verwendet, um Webseiten anzusehen) versteht. Ein HTTP-Server kann über die Domainnamen der Websites, die er speichert, aufgerufen werden, und er liefert den Inhalt dieser gehosteten Websites an das Endgerät des Benutzers.
 
 Auf der grundlegendsten Ebene, wenn ein Browser eine Datei benötigt, die auf einem Webserver gehostet wird, fordert der Browser die Datei über HTTP an. Wenn die Anfrage den richtigen (Hardware-)Webserver erreicht, akzeptiert der (Software-) _HTTP-Server_ die Anfrage, findet das angeforderte Dokument und sendet es über HTTP zurück an den Browser. (Wenn der Server das angeforderte Dokument nicht findet, gibt er stattdessen eine [404](/de/docs/Web/HTTP/Status/404)-Antwort zurück.)
 
@@ -64,7 +64,7 @@ Technisch gesehen könnten Sie all diese Dateien auf Ihrem eigenen Computer host
 
 - Ein dedizierter Webserver ist in der Regel besser verfügbar (läuft ständig).
 - Abgesehen von Ausfallzeiten und Systemproblemen ist ein dedizierter Webserver immer mit dem Internet verbunden.
-- Ein dedizierter Webserver kann die gleiche IP-Adresse behalten. Dies nennt man eine _dedizierte IP-Adresse_. (Nicht alle [ISPs](/de/docs/Glossary/ISP) bieten eine feste IP-Adresse für private Leitungen.)
+- Ein dedizierter Webserver kann die gleiche IP-Adresse behalten. Dies nennt man eine _dedizierte IP-Adresse_. (Nicht alle {{Glossary("ISP", "ISPs")}} bieten eine feste IP-Adresse für private Leitungen.)
 - Ein dedizierter Webserver wird typischerweise von einem Drittanbieter gewartet.
 
 Aus all diesen Gründen ist es ein entscheidender Teil des Aufbaus Ihrer Website, einen guten Hosting-Anbieter zu finden. Prüfen Sie die verschiedenen Dienstleistungen, die Unternehmen anbieten. Wählen Sie eine aus, die Ihren Bedürfnissen und Ihrem Budget entspricht. (Dienste reichen von kostenlos bis zu mehreren tausend Dollar pro Monat.) Sie finden weitere Details [in diesem Artikel](/de/docs/Learn/Common_questions/Tools_and_setup/How_much_does_it_cost#hosting).
@@ -73,9 +73,9 @@ Sobald Sie einen Webhosting-Dienst haben, müssen Sie [Ihre Dateien auf Ihren We
 
 ### Kommunikation über HTTP
 
-Zweitens bietet ein Webserver Unterstützung für [HTTP](/de/docs/Glossary/HTTP) (**H**yper**t**ext **T**ransfer **P**rotocol). Wie der Name schon sagt, spezifiziert HTTP, wie Hypertext (verknüpfte Webdokumente) zwischen zwei Computern übertragen wird.
+Zweitens bietet ein Webserver Unterstützung für {{Glossary("HTTP", "HTTP")}} (**H**yper**t**ext **T**ransfer **P**rotocol). Wie der Name schon sagt, spezifiziert HTTP, wie Hypertext (verknüpfte Webdokumente) zwischen zwei Computern übertragen wird.
 
-Ein [Protokoll](/de/docs/Glossary/Protocol) ist eine Reihe von Regeln für die Kommunikation zwischen zwei Computern. HTTP ist ein textbasiertes, zustandsloses Protokoll.
+Ein {{Glossary("Protocol", "Protokoll")}} ist eine Reihe von Regeln für die Kommunikation zwischen zwei Computern. HTTP ist ein textbasiertes, zustandsloses Protokoll.
 
 - Textbasiert
   - : Alle Befehle sind in Klartext und menschlich lesbar.
@@ -85,7 +85,7 @@ Ein [Protokoll](/de/docs/Glossary/Protocol) ist eine Reihe von Regeln für die K
 HTTP bietet klare Regeln dafür, wie ein Client und ein Server kommunizieren. Wir werden HTTP selbst in einem [technischen Artikel](/de/docs/Web/HTTP) später behandeln. Vorerst sind folgende Dinge wichtig:
 
 - Gewöhnlich machen nur _Clients_ HTTP-Anfragen, und nur an _Server_. Server _antworten_ auf die HTTP-Anfrage eines _Clients_. Ein Server kann auch Daten in den Cache eines Clients laden, vor einer Anforderung, durch einen Mechanismus namens [Server Push](https://en.wikipedia.org/wiki/HTTP/2_Server_Push).
-- Bei einer HTTP-Anfrage müssen Clients die [URL](/de/docs/Glossary/URL) der Datei angeben.
+- Bei einer HTTP-Anfrage müssen Clients die {{Glossary("URL", "URL")}} der Datei angeben.
 - Der Webserver _muss_ auf jede HTTP-Anfrage antworten, zumindest mit einer Fehlermeldung.
 
 Auf einem Webserver ist der HTTP-Server für die Bearbeitung und Beantwortung eingehender Anfragen verantwortlich.

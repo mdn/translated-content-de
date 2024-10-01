@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine Markup-Sprache ist eine, die für die Definition und Präsentation von Text entwickelt wurde. [HTML](/de/docs/Glossary/HTML) (HyperText Markup Language) ist ein Beispiel für eine Markup-Sprache.
+Eine Markup-Sprache ist eine, die für die Definition und Präsentation von Text entwickelt wurde. {{Glossary("HTML", "HTML")}} (HyperText Markup Language) ist ein Beispiel für eine Markup-Sprache.
 
-Innerhalb einer Textdatei wie einer HTML-Datei werden Elemente mit [Tags](/de/docs/Glossary/Tag) _ausgezeichnet_, die den Zweck dieses Teils des Inhalts erklären.
+Innerhalb einer Textdatei wie einer HTML-Datei werden Elemente mit {{Glossary("Tag", "Tags")}} _ausgezeichnet_, die den Zweck dieses Teils des Inhalts erklären.
 
 ## Arten von Markup-Sprachen
 
@@ -23,7 +23,7 @@ Innerhalb einer Textdatei wie einer HTML-Datei werden Elemente mit [Tags](/de/do
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [HTML](/de/docs/Glossary/HTML)
-  - [XHTML](/de/docs/Glossary/XHTML)
-  - [XML](/de/docs/Glossary/XML)
-  - [SVG](/de/docs/Glossary/SVG)
+  - {{Glossary("HTML", "HTML")}}
+  - {{Glossary("XHTML", "XHTML")}}
+  - {{Glossary("XML", "XML")}}
+  - {{Glossary("SVG", "SVG")}}

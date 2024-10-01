@@ -43,7 +43,7 @@ Da die Nachkommen von `menuitemcheckbox` präsentational sind, ist der folgende 
 <div role="menuitemcheckbox"><h6 role="presentation">Name of my checkbox</h6></li>
 ```
 
-Aus der Perspektive des Benutzers assistiver Technologien existiert die Überschrift nicht, da die vorherigen Codeschnipsel äquivalent zum folgenden im [Accessibility Tree](/de/docs/Glossary/Accessibility_tree) sind:
+Aus der Perspektive des Benutzers assistiver Technologien existiert die Überschrift nicht, da die vorherigen Codeschnipsel äquivalent zum folgenden im {{Glossary("Accessibility_tree", "Accessibility Tree")}} sind:
 
 ```html
 <div role="menuitemcheckbox">Name of my checkbox</div>

@@ -19,7 +19,7 @@ Die **`:dir()`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo
 Die `:dir()` Pseudo-Klasse verwendet nur den _semantischen_ Wert der Richtung, d.h. den im Dokument selbst definierten. Sie berücksichtigt nicht die _stilistische_ Richtung, d.h. die durch CSS-Eigenschaften wie {{cssxref("direction")}} festgelegte Richtung.
 
 > [!NOTE]
-> Beachten Sie, dass das Verhalten der `:dir()` Pseudo-Klasse nicht dem der `[dir=…]` [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) entspricht. Letztere wählen das HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir) aus und ignorieren Elemente, denen es fehlt - auch wenn sie eine Richtung von ihrem Elternteil erben. (Ebenso passen `[dir=rtl]` und `[dir=ltr]` nicht zum Wert `auto`.) Im Gegensatz dazu wird `:dir()` den vom [User Agent](/de/docs/Glossary/user_agent) berechneten Wert auswählen, selbst wenn er geerbt ist.
+> Beachten Sie, dass das Verhalten der `:dir()` Pseudo-Klasse nicht dem der `[dir=…]` [Attributselektoren](/de/docs/Web/CSS/Attribute_selectors) entspricht. Letztere wählen das HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes#dir) aus und ignorieren Elemente, denen es fehlt - auch wenn sie eine Richtung von ihrem Elternteil erben. (Ebenso passen `[dir=rtl]` und `[dir=ltr]` nicht zum Wert `auto`.) Im Gegensatz dazu wird `:dir()` den vom {{Glossary("user_agent", "User Agent")}} berechneten Wert auswählen, selbst wenn er geerbt ist.
 
 > [!NOTE]
 > In HTML wird die Richtung durch das [`dir`](/de/docs/Web/HTML/Global_attributes#dir) Attribut bestimmt. Andere Dokumenttypen können unterschiedliche Methoden haben.

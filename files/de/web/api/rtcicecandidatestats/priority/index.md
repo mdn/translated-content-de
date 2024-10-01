@@ -10,7 +10,7 @@ l10n:
 
 Die **`priority`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Dictionarys ist ein positiver Integer-Wert, der die Priorität (oder Attraktivität) des beschriebenen Kandidaten angibt.
 
-Während der [ICE](/de/docs/Glossary/ICE)-Verhandlung bei der Einrichtung einer WebRTC-Peer-Verbindung werden die vom [User Agent](/de/docs/Glossary/user_agent) an den entfernten Peer gemeldeten Prioritätswerte verwendet, um zu bestimmen, welche Kandidaten als "attraktiver" gelten. Je höher der Wert, desto attraktiver ist der Kandidat.
+Während der {{Glossary("ICE", "ICE")}}-Verhandlung bei der Einrichtung einer WebRTC-Peer-Verbindung werden die vom {{Glossary("user_agent", "User Agent")}} an den entfernten Peer gemeldeten Prioritätswerte verwendet, um zu bestimmen, welche Kandidaten als "attraktiver" gelten. Je höher der Wert, desto attraktiver ist der Kandidat.
 
 ## Syntax
 

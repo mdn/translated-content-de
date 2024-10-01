@@ -189,7 +189,7 @@ Das `fragment`-Objekt enthält ein Array von Objekten, die jeweils die folgenden
       - : Ein enumerierter Wert, der das erforderliche Format für Ausgabefarben angibt. Siehe den Abschnitt [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle verfügbaren `format`-Werte.
     - `writeMask` {{optional_inline}}
 
-      - : Ein oder mehrere [bitweise Flags](/de/docs/Glossary/bitwise_flags), die die Schreibmaske definieren, die auf den Farbzielzustand angewendet wird. Mögliche Flag-Werte sind:
+      - : Ein oder mehrere {{Glossary("bitwise_flags", "bitweise Flags")}}, die die Schreibmaske definieren, die auf den Farbzielzustand angewendet wird. Mögliche Flag-Werte sind:
 
         - `GPUColorWrite.RED`
         - `GPUColorWrite.GREEN`

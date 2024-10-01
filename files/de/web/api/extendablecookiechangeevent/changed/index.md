@@ -23,10 +23,11 @@ Ein Array von Objekten, das die ge채nderten Cookies enth채lt. Jedes Objekt enth�
 - `path`
   - : Ein String, der den Pfad des Cookies enth채lt.
 - `expires`
-  - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enth채lt.
+  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enth채lt.
 - `secure`
   - : Ein {{jsxref("boolean")}}, der angibt, ob das Cookie nur in einem sicheren Kontext (HTTPS anstelle von HTTP) verwendet wird.
 - `sameSite`
+
   - : Einer der folgenden [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Werte:
 
     - `"strict"`

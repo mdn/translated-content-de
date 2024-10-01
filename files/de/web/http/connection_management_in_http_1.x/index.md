@@ -41,7 +41,7 @@ Kurzlebige Verbindungen haben zwei große Probleme: Die Zeit, die benötigt wird
 
 Eine persistente Verbindung ist eine, die für einen bestimmten Zeitraum offen bleibt und für mehrere Anfragen wiederverwendet werden kann, wodurch die Notwendigkeit eines neuen TCP-Handshakes entfällt und die Leistung verbessernden Fähigkeiten von TCP genutzt werden. Diese Verbindung bleibt nicht für immer offen: Leerlaufende Verbindungen werden nach einiger Zeit geschlossen (ein Server kann den {{HTTPHeader("Keep-Alive")}} Header verwenden, um eine Mindestzeit anzugeben, wie lange die Verbindung offen gehalten werden soll).
 
-Persistente Verbindungen haben auch Nachteile; selbst im Leerlauf verbrauchen sie Serverressourcen und unter hoher Belastung können [DoS-Angriffe](/de/docs/Glossary/DoS_attack) durchgeführt werden. In solchen Fällen kann die Verwendung von nicht-persistenten Verbindungen, die geschlossen werden, sobald sie im Leerlauf sind, eine bessere Leistung bieten.
+Persistente Verbindungen haben auch Nachteile; selbst im Leerlauf verbrauchen sie Serverressourcen und unter hoher Belastung können {{Glossary("DoS_attack", "DoS-Angriffe")}} durchgeführt werden. In solchen Fällen kann die Verwendung von nicht-persistenten Verbindungen, die geschlossen werden, sobald sie im Leerlauf sind, eine bessere Leistung bieten.
 
 HTTP/1.0-Verbindungen sind standardmäßig nicht persistent. Indem man {{HTTPHeader("Connection")}} auf etwas anderes als `close` setzt, normalerweise `retry-after`, werden sie persistent.
 
@@ -62,7 +62,7 @@ Standardmäßig werden [HTTP](/de/docs/Web/HTTP)-Anfragen sequentiell ausgeführ
 
 Pipelining ist der Prozess, um aufeinanderfolgende Anfragen über die gleiche persistente Verbindung zu senden, ohne auf die Antwort zu warten. Dadurch wird die Latenz der Verbindung vermieden. Theoretisch könnte die Leistung auch verbessert werden, wenn zwei HTTP-Anfragen in dieselbe TCP-Nachricht gepackt würden. Die typische [MSS](https://en.wikipedia.org/wiki/Maximum_segment_size) (Maximum Segment Size) ist groß genug, um mehrere einfache Anfragen zu enthalten, obwohl die Nachfrage nach Speichergröße für HTTP-Anfragen weiter wächst.
 
-Nicht alle Arten von HTTP-Anfragen können gepipeline't werden: Nur [idempotente](/de/docs/Glossary/idempotent) Methoden, das sind {{HTTPMethod("GET")}}, {{HTTPMethod("HEAD")}}, {{HTTPMethod("PUT")}} und {{HTTPMethod("DELETE")}}, können sicher wiederholt werden. Sollte ein Fehler auftreten, kann der Pipeline-Inhalt wiederholt werden.
+Nicht alle Arten von HTTP-Anfragen können gepipeline't werden: Nur {{Glossary("idempotent", "idempotente")}} Methoden, das sind {{HTTPMethod("GET")}}, {{HTTPMethod("HEAD")}}, {{HTTPMethod("PUT")}} und {{HTTPMethod("DELETE")}}, können sicher wiederholt werden. Sollte ein Fehler auftreten, kann der Pipeline-Inhalt wiederholt werden.
 
 Heute sollte jeder HTTP/1.1-konforme Proxy und Server Pipelining unterstützen, obwohl viele praktisch Einschränkungen haben: Ein wesentlicher Grund, warum kein moderner Browser diese Funktion standardmäßig aktiviert.
 
@@ -71,7 +71,7 @@ Heute sollte jeder HTTP/1.1-konforme Proxy und Server Pipelining unterstützen, 
 > [!NOTE]
 > Sofern Sie nicht ein sehr spezifisches unmittelbares Bedürfnis haben, verwenden Sie diese veraltete Technik nicht; wechseln Sie stattdessen zu HTTP/2. In HTTP/2 ist Domain Sharding nicht mehr nützlich: Die HTTP/2-Verbindung kann parallele, nicht priorisierte Anfragen sehr gut handhaben. Domain Sharding ist sogar nachteilig für die Leistung. Die meisten HTTP/2-Implementierungen verwenden eine Technik namens [Verbindungskoaleszenz](https://daniel.haxx.se/blog/2016/08/18/http2-connection-coalescing/), um eventuelles Domain-Sharding zu revertieren.
 
-Da eine HTTP/1.x-Verbindung Anfragen serialisiert, selbst ohne jegliche Anordnung, kann sie bei nicht ausreichend verfügbarer Bandbreite nicht optimal sein. Als Lösung öffnen Browser mehrere Verbindungen zu jeder Domain und senden parallele Anfragen. Früher waren das 2 bis 3 Verbindungen, aber dies hat sich nun auf eine häufigere Nutzung von 6 parallelen Verbindungen erhöht. Es besteht das Risiko, dass auf der Serverseite [DoS](/de/docs/Glossary/DOS_attack)-Schutzmaßnahmen ausgelöst werden, wenn mehr als diese Anzahl versucht wird.
+Da eine HTTP/1.x-Verbindung Anfragen serialisiert, selbst ohne jegliche Anordnung, kann sie bei nicht ausreichend verfügbarer Bandbreite nicht optimal sein. Als Lösung öffnen Browser mehrere Verbindungen zu jeder Domain und senden parallele Anfragen. Früher waren das 2 bis 3 Verbindungen, aber dies hat sich nun auf eine häufigere Nutzung von 6 parallelen Verbindungen erhöht. Es besteht das Risiko, dass auf der Serverseite {{Glossary("DOS_attack", "DoS")}}-Schutzmaßnahmen ausgelöst werden, wenn mehr als diese Anzahl versucht wird.
 
 Wenn der Server eine schnellere Website oder Applikationsantwort wünscht, kann der Server die Öffnung weiterer Verbindungen erzwingen. Zum Beispiel könnte er anstelle aller Ressourcen auf derselben Domain, etwa `www.example.com`, diese auf mehrere Domains verteilen, `www1.example.com`, `www2.example.com`, `www3.example.com`. Jede dieser Domains löst denselben Server auf, und der Webbrowser öffnet 6 Verbindungen zu jeder (in unserem Beispiel werden die Verbindungen auf 18 gesteigert). Diese Technik wird als _Domain Sharding_ bezeichnet.
 

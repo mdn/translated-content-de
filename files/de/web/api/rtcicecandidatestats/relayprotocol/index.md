@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`relayProtocol`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt das Protokoll an, das von einem lokalen [ICE](/de/docs/Glossary/ICE)-Kandidaten verwendet wird, um mit dem [TURN](/de/docs/Glossary/TURN)-Server zu kommunizieren.
+Die **`relayProtocol`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt das Protokoll an, das von einem lokalen {{Glossary("ICE", "ICE")}}-Kandidaten verwendet wird, um mit dem {{Glossary("TURN", "TURN")}}-Server zu kommunizieren.
 
 Das ansonsten von dem Kandidaten verwendete ICE-Protokoll kann von der
 [`protocol`](/de/docs/Web/API/RTCIceCandidateStats/protocol)-Eigenschaft abgeleitet werden.

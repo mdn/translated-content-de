@@ -8,10 +8,10 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`iceConnectionState`** der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle gibt einen String zurück, der den Zustand des mit der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbundenen [ICE](/de/docs/Glossary/ICE)-Agents beschreibt: `new`, `checking`, `connected`, `completed`, `failed`, `disconnected` und `closed`.
+Die schreibgeschützte Eigenschaft **`iceConnectionState`** der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle gibt einen String zurück, der den Zustand des mit der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbundenen {{Glossary("ICE", "ICE")}}-Agents beschreibt: `new`, `checking`, `connected`, `completed`, `failed`, `disconnected` und `closed`.
 
 Sie beschreibt den aktuellen Zustand des ICE-Agents und seine Verbindung zum ICE-Server;
-das heißt, zum [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server.
+das heißt, zum {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server.
 
 Sie können erkennen, wann sich dieser Wert geändert hat, indem Sie das [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)-Ereignis beobachten.
 

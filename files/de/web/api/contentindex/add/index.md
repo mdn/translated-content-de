@@ -49,7 +49,7 @@ add(contentDescription)
         - `sizes` {{Optional_Inline}}
           - : Eine {{jsxref('String')}}-Darstellung der Bildgröße.
         - `type` {{Optional_Inline}}
-          - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) des Bildes.
+          - : Der {{Glossary("MIME_type", "MIME-Typ")}} des Bildes.
         - `label` {{Optional_Inline}}
           - : Ein String, der den zugänglichen Namen des Symbols darstellt.
 
@@ -65,7 +65,7 @@ Gibt ein {{jsxref("Promise")}} zurück, das sich mit `undefined` auflöst.
 
     - Die Registrierung des Service Workers ist nicht vorhanden oder der Service Worker enthält kein [`FetchEvent`](/de/docs/Web/API/FetchEvent).
     - Einer der Parameter `id`, `title`, `description` oder `url` fehlt, ist nicht vom Typ {{jsxref('String')}} oder ein leerer {{jsxref('String')}}.
-    - Der `url`-Parameter entspricht nicht der [Same-Origin-Policy](/de/docs/Glossary/same-origin_policy) mit dem [Service Worker](/de/docs/Web/API/ServiceWorker).
+    - Der `url`-Parameter entspricht nicht der {{Glossary("same-origin_policy", "Same-Origin-Policy")}} mit dem [Service Worker](/de/docs/Web/API/ServiceWorker).
     - Eines der Elemente in `icons` ist kein Bildtyp, oder beim Abrufen eines der Elemente in `icons` trat ein Netzwerkfehler oder ein Dekodierungsfehler auf.
 
 ## Beispiele

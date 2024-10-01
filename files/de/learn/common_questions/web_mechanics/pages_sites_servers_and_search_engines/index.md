@@ -67,14 +67,14 @@ Lassen Sie uns also tiefer in die Beziehung dieser vier Begriffe eintauchen und 
 
 ### Webseite
 
-Eine **Webseite** ist ein einfaches Dokument, das von einem [Browser](/de/docs/Glossary/browser) angezeigt werden kann. Solche Dokumente sind in der Sprache [HTML](/de/docs/Glossary/HTML) geschrieben (die wir ausführlicher in [anderen Artikeln](/de/docs/Web/HTML) betrachten). Eine Webseite kann eine Vielzahl verschiedener Ressourcen einbetten wie:
+Eine **Webseite** ist ein einfaches Dokument, das von einem {{Glossary("browser", "Browser")}} angezeigt werden kann. Solche Dokumente sind in der Sprache {{Glossary("HTML", "HTML")}} geschrieben (die wir ausführlicher in [anderen Artikeln](/de/docs/Web/HTML) betrachten). Eine Webseite kann eine Vielzahl verschiedener Ressourcen einbetten wie:
 
 - _Stilinformationen_ – Steuerung des Aussehens und der Haptik einer Seite
 - _Skripte_ – die der Seite Interaktivität hinzufügen
 - _Medien_ – Bilder, Klänge und Videos.
 
 > [!NOTE]
-> Browser können auch andere Dokumente wie [PDF](/de/docs/Glossary/PDF)-Dateien oder Bilder anzeigen, aber der Begriff **Webseite** bezieht sich speziell auf HTML-Dokumente. Ansonsten verwenden wir nur den Begriff **Dokument**.
+> Browser können auch andere Dokumente wie {{Glossary("PDF", "PDF")}}-Dateien oder Bilder anzeigen, aber der Begriff **Webseite** bezieht sich speziell auf HTML-Dokumente. Ansonsten verwenden wir nur den Begriff **Dokument**.
 
 Alle im Web verfügbaren Webseiten sind über eine eindeutige Adresse erreichbar. Um auf eine Seite zuzugreifen, geben Sie einfach deren Adresse in die Adressleiste Ihres Browsers ein:
 

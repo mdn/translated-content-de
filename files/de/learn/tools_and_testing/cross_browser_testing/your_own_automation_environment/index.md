@@ -114,7 +114,7 @@ Okay, lassen Sie uns einen schnellen Test durchführen, um sicherzustellen, dass
    ```
 
    > [!NOTE]
-   > Diese Funktion ist ein [IIFE](/de/docs/Glossary/IIFE) (Immediately Invoked Function Expression).
+   > Diese Funktion ist ein {{Glossary("IIFE", "IIFE")}} (Immediately Invoked Function Expression).
 
 3. Stellen Sie im Terminal sicher, dass Sie sich in Ihrem Projektordner befinden, und geben Sie dann den folgenden Befehl ein:
 

@@ -16,7 +16,7 @@ JavaScript **`Date`** Objekte repräsentieren einen einzelnen Moment in der Zeit
 
 ### Die Epoche, Zeitstempel und ungültiges Datum
 
-Ein JavaScript-Datum wird grundsätzlich als die Zeit in Millisekunden definiert, die seit der [Epoche](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-time-values-and-time-range) vergangen ist. Diese wird als Mitternacht zu Beginn des 1. Januar 1970, UTC (äquivalent zur [UNIX-Epoche](/de/docs/Glossary/Unix_time)) definiert. Dieser Zeitstempel ist _zeitzonen-unabhängig_ und definiert eindeutig einen Moment in der Geschichte.
+Ein JavaScript-Datum wird grundsätzlich als die Zeit in Millisekunden definiert, die seit der [Epoche](https://tc39.es/ecma262/multipage/numbers-and-dates.html#sec-time-values-and-time-range) vergangen ist. Diese wird als Mitternacht zu Beginn des 1. Januar 1970, UTC (äquivalent zur {{Glossary("Unix_time", "UNIX-Epoche")}}) definiert. Dieser Zeitstempel ist _zeitzonen-unabhängig_ und definiert eindeutig einen Moment in der Geschichte.
 
 > [!NOTE]
 > Während der Zeitwert im Kern eines `Date` Objekts UTC ist, funktionieren die grundlegenden Methoden zum Abrufen des Datums und der Zeit oder ihrer Komponenten in der lokalen (d. h. des Hostsystems) Zeitzone und Verschiebung.

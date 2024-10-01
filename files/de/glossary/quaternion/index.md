@@ -9,7 +9,7 @@ l10n:
 
 Ein **Quaternion** ist der Quotient von zwei 3D-Vektoren und wird in 3D-Grafiken und in sensorbasierten Beschleunigungsmessern verwendet, um Orientierung oder Rotationsdaten darzustellen.
 
-Obwohl mathematische Quaternionen komplexer sind als dies, werden die **Einheitsquaternionen** (oder **Rotationsquaternionen**), die zur Darstellung von Rotation in [WebGL](/de/docs/Glossary/WebGL) oder [WebXR](/de/docs/Web/API/WebXR_Device_API) beispielsweise verwendet werden, mit der gleichen Syntax wie ein 3D-Punkt dargestellt. Daher wird der Typ [`DOMPoint`](/de/docs/Web/API/DOMPoint) (oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)) verwendet, um Quaternionen zu speichern.
+Obwohl mathematische Quaternionen komplexer sind als dies, werden die **Einheitsquaternionen** (oder **Rotationsquaternionen**), die zur Darstellung von Rotation in {{Glossary("WebGL", "WebGL")}} oder [WebXR](/de/docs/Web/API/WebXR_Device_API) beispielsweise verwendet werden, mit der gleichen Syntax wie ein 3D-Punkt dargestellt. Daher wird der Typ [`DOMPoint`](/de/docs/Web/API/DOMPoint) (oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)) verwendet, um Quaternionen zu speichern.
 
 ## Siehe auch
 

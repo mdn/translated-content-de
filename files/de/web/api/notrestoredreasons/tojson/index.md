@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekts zurück.
+Die **`toJSON()`**-Methode der [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekts zurück.
 
 ## Syntax
 

@@ -22,7 +22,7 @@ Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribu
 
 ## Beispiel
 
-In diesem Beispiel sehen wir ein Frameset mit zwei Frames. Zusätzlich wird `<noframes>` verwendet, um eine erklärende Nachricht anzuzeigen, falls der [user agent](/de/docs/Glossary/user_agent) Frames nicht unterstützt.
+In diesem Beispiel sehen wir ein Frameset mit zwei Frames. Zusätzlich wird `<noframes>` verwendet, um eine erklärende Nachricht anzuzeigen, falls der {{Glossary("user_agent", "user agent")}} Frames nicht unterstützt.
 
 ```html
 <!doctype html>

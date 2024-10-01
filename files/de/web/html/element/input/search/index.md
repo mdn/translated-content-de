@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente vom Typ **`search`** sind Textfelder, die für die Eingabe von Suchanfragen durch den Benutzer vorgesehen sind. Diese sind funktional identisch mit [`text`](/de/docs/Web/HTML/Element/input/text)-Eingaben, können jedoch vom [User Agent](/de/docs/Glossary/user_agent) unterschiedlich gestylt werden.
+{{HTMLElement("input")}}-Elemente vom Typ **`search`** sind Textfelder, die für die Eingabe von Suchanfragen durch den Benutzer vorgesehen sind. Diese sind funktional identisch mit [`text`](/de/docs/Web/HTML/Element/input/text)-Eingaben, können jedoch vom {{Glossary("user_agent", "User Agent")}} unterschiedlich gestylt werden.
 
 {{EmbedInteractiveExample("pages/tabbed/input-search.html", "tabbed-standard")}}
 
@@ -43,7 +43,7 @@ Das Suchfeld wird die [Constraint-Validierung](/de/docs/Web/HTML/Constraint_vali
 
 ### pattern
 
-Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value)-Wert erfüllen muss, damit der Wert die [Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript-Regulärausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird angegeben, wenn der reguläre Ausdruck kompiliert wird, damit das Muster als Folge von Unicode-Codierungspunkten behandelt wird, anstatt als [ASCII](/de/docs/Glossary/ASCII). Es sollten keine Schrägstriche um den Mustertext angegeben werden.
+Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value)-Wert erfüllen muss, damit der Wert die [Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript-Regulärausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird angegeben, wenn der reguläre Ausdruck kompiliert wird, damit das Muster als Folge von Unicode-Codierungspunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
 
 Wenn das angegebene Muster nicht angegeben ist oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
@@ -56,7 +56,7 @@ Details und ein Beispiel finden Sie im Abschnitt [Ein Muster angeben](#ein_muste
 
 Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt einer erklärenden Nachricht. Der Text _darf_ keine Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt des Steuerungselements eine Richtung ([LTR](/de/docs/Glossary/LTR) oder [RTL](/de/docs/Glossary/RTL)) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Zeichen zur Formatierung des Unicode-Bidirektionalitätsalgorithmus verwenden, um die Richtung innerhalb des Platzhalters außer Kraft zu setzen; siehe [Wie man Unicode-Steuerelemente für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt des Steuerungselements eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Zeichen zur Formatierung des Unicode-Bidirektionalitätsalgorithmus verwenden, um die Richtung innerhalb des Platzhalters außer Kraft zu setzen; siehe [Wie man Unicode-Steuerelemente für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
 > Vermeiden Sie, wenn möglich, die Verwendung des `placeholder`-Attributs. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für weitere Informationen.
@@ -87,7 +87,7 @@ Dies setzt kein Limit, wie viele Zeichen der Benutzer in das Feld eingeben kann.
 
 Ein Eingabefeld kann die Rechtschreibprüfung aktiviert haben, wenn es nicht das [readonly](#readonly)-Attribut hat und nicht deaktiviert ist.
 
-Der durch das Lesen von `spellcheck` zurückgegebene Wert spiegelt möglicherweise nicht den tatsächlichen Status der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die Einstellungen des [User Agents](/de/docs/Glossary/user_agent) die Einstellung außer Kraft setzen.
+Der durch das Lesen von `spellcheck` zurückgegebene Wert spiegelt möglicherweise nicht den tatsächlichen Status der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die Einstellungen des {{Glossary("user_agent", "User Agents")}} die Einstellung außer Kraft setzen.
 
 ## Nicht-standardmäßige Attribute
 
@@ -104,7 +104,7 @@ Eine Safari-Erweiterung, das `autocorrect`-Attribut ist ein String, der angibt, 
 
 ### incremental
 
-Das boolesche Attribut `incremental` ist eine WebKit- und Blink-Erweiterung (also unterstützt von Safari, Opera, Chrome, etc.), die, falls vorhanden, dem [User Agent](/de/docs/Glossary/user_agent) mitteilt, die Eingabe als Live-Suche zu verarbeiten. Wenn der Benutzer den Wert des Feldes bearbeitet, sendet der User Agent [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt, das das Suchfeld darstellt. Dies ermöglicht es Ihrem Code, die Suchergebnisse in Echtzeit zu aktualisieren, während der Benutzer die Suche bearbeitet.
+Das boolesche Attribut `incremental` ist eine WebKit- und Blink-Erweiterung (also unterstützt von Safari, Opera, Chrome, etc.), die, falls vorhanden, dem {{Glossary("user_agent", "User Agent")}} mitteilt, die Eingabe als Live-Suche zu verarbeiten. Wenn der Benutzer den Wert des Feldes bearbeitet, sendet der User Agent [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Objekt, das das Suchfeld darstellt. Dies ermöglicht es Ihrem Code, die Suchergebnisse in Echtzeit zu aktualisieren, während der Benutzer die Suche bearbeitet.
 
 Wenn `incremental` nicht angegeben ist, wird das [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignis nur gesendet, wenn der Benutzer explizit eine Suche initiiert (z. B. durch Drücken der <kbd>Eingabetaste</kbd> oder <kbd>Return</kbd>-Taste während der Bearbeitung des Feldes).
 

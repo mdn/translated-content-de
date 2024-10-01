@@ -43,7 +43,7 @@ Dies wird wie folgt dargestellt:
 
 Der Hauptunterschied zwischen einem `<textarea>` und einem regulären einzeiligen Textfeld besteht darin, dass Benutzer harte Zeilenumbrüche (d.h. durch Drücken der Eingabetaste) einfügen dürfen, die beim Absenden der Daten enthalten sein werden.
 
-`<textarea>` erfordert auch einen schließenden Tag; jeder Standardtext, den Sie enthalten möchten, sollte zwischen den öffnenden und schließenden Tags platziert werden. Im Gegensatz dazu ist das {{HTMLElement("input")}} ein [leeres Element](/de/docs/Glossary/void_element) ohne schließenden Tag — ein Standardwert wird innerhalb des [`value`](/de/docs/Web/HTML/Element/input#value)-Attributs hinterlegt.
+`<textarea>` erfordert auch einen schließenden Tag; jeder Standardtext, den Sie enthalten möchten, sollte zwischen den öffnenden und schließenden Tags platziert werden. Im Gegensatz dazu ist das {{HTMLElement("input")}} ein {{Glossary("void_element", "leeres Element")}} ohne schließenden Tag — ein Standardwert wird innerhalb des [`value`](/de/docs/Web/HTML/Element/input#value)-Attributs hinterlegt.
 
 Beachten Sie, dass Sie zwar alles innerhalb eines `<textarea>`-Elements platzieren können (einschließlich anderer HTML-Elemente, CSS und JavaScript), es jedoch aufgrund seiner Natur alles als normaler Textinhalt gerendert wird. (Die Verwendung von [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) auf Nicht-Formular-Steuerelementen bietet eine API zum Erfassen von HTML/"rich" Content anstelle von einfachem Text).
 

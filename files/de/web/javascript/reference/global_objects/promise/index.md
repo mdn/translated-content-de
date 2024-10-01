@@ -155,7 +155,7 @@ Promise.resolve(aThenable); // A promise fulfilled with 42
 
 ### Promise-Konkurrenz
 
-Die `Promise`-Klasse bietet vier statische Methoden, um die [Konkurrenz](https://de.wikipedia.org/wiki/Konkurrenz_(Informatik)) von asynchronen Aufgaben zu erleichtern:
+Die `Promise`-Klasse bietet vier statische Methoden, um die [Konkurrenz](<https://de.wikipedia.org/wiki/Konkurrenz_(Informatik)>) von asynchronen Aufgaben zu erleichtern:
 
 - {{jsxref("Promise.all()")}}
   - : Erfüllt sich, wenn **alle** Promises erfüllt sind; lehnt ab, wenn **irgendeines** der Promises abgelehnt wird.
@@ -168,7 +168,7 @@ Die `Promise`-Klasse bietet vier statische Methoden, um die [Konkurrenz](https:/
 
 Alle diese Methoden nehmen ein [iterierbares](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) Objekt von Promises (genauer gesagt Thenables) entgegen und geben ein neues Promise zurück. Sie alle unterstützen Unterklassenbildung, was bedeutet, dass sie auf Unterklassen von `Promise` aufgerufen werden können, und das Ergebnis wird ein Promise des Unterklassentyps sein. Dazu muss der Konstruktor der Unterklasse das gleiche Signatur wie der [`Promise()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise)-Konstruktor implementieren — eine einzelne `executor`-Funktion akzeptieren, die mit den `resolve`- und `reject`-Callbacks als Parameter aufgerufen werden kann. Die Unterklasse muss auch eine `resolve`-statische Methode haben, die wie {{jsxref("Promise.resolve()")}} aufgerufen werden kann, um Werte in Promises umzuwandeln.
 
-Beachten Sie, dass JavaScript von Natur aus [einzelthreadig](/de/docs/Glossary/Thread) ist, sodass zu einem gegebenen Zeitpunkt nur eine Aufgabe ausgeführt wird, obwohl der Wechsel zwischen verschiedenen Promises die Ausführung der Promises konkurrent erscheinen lässt. [Parallele Ausführung](https://de.wikipedia.org/wiki/Parallelverarbeitung) in JavaScript kann nur durch [Arbeiter-Threads](/de/docs/Web/API/Web_Workers_API) erreicht werden.
+Beachten Sie, dass JavaScript von Natur aus {{Glossary("Thread", "einzelthreadig")}} ist, sodass zu einem gegebenen Zeitpunkt nur eine Aufgabe ausgeführt wird, obwohl der Wechsel zwischen verschiedenen Promises die Ausführung der Promises konkurrent erscheinen lässt. [Parallele Ausführung](https://de.wikipedia.org/wiki/Parallelverarbeitung) in JavaScript kann nur durch [Arbeiter-Threads](/de/docs/Web/API/Web_Workers_API) erreicht werden.
 
 ## Konstruktor
 

@@ -69,7 +69,7 @@ Audiospur.
   - : Wird ausgelöst, wenn ein Fehler oder Fehlschlag keinem der hier aufgelisteten anderen Ausnahmen entspricht.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Aufruf von `getDisplayMedia()` nicht von Code ausgeführt wurde, der aufgrund eines
-    [flüchtigen Aktivierung](/de/docs/Glossary/transient_activation), wie einem Ereignis-Handler, ausgeführt wurde. Oder wenn der Browserkontext
+    {{Glossary("transient_activation", "flüchtigen Aktivierung")}}, wie einem Ereignis-Handler, ausgeführt wurde. Oder wenn der Browserkontext
     nicht vollständig aktiv oder nicht fokussiert ist. Oder wenn die `controller`-Option bereits zur Erstellung
     eines anderen [`MediaStream`](/de/docs/Web/API/MediaStream) verwendet wurde.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)

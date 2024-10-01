@@ -14,7 +14,7 @@ Die Datei `manifest.json` ist die einzige Datei, die jede Erweiterung, die WebEx
 
 Mit `manifest.json` geben Sie grundlegende Metadaten zu Ihrer Erweiterung an, wie z. B. den Namen und die Version, und können auch Aspekte der Funktionalität Ihrer Erweiterung spezifizieren (wie Hintergrundskripte, Inhalts-Skripte und Browser-Aktionen).
 
-Es handelt sich um eine [JSON](/de/docs/Glossary/JSON)-formatierte Datei, mit einer Ausnahme: Es ist erlaubt, "`//`"-Stil-Kommentare zu enthalten.
+Es handelt sich um eine {{Glossary("JSON", "JSON")}}-formatierte Datei, mit einer Ausnahme: Es ist erlaubt, "`//`"-Stil-Kommentare zu enthalten.
 
 ## Liste der manifest.json-Schlüssel
 

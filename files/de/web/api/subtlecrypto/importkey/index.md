@@ -107,7 +107,7 @@ Strukturen in eine binäre Form.
 
 Sie werden dieses Objekt höchstwahrscheinlich im [PEM-Format](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) finden. Das PEM-Format
 ist eine Möglichkeit, Binärdaten in ASCII zu kodieren. Es besteht aus einem Header und einem Footer und
-dazwischen den [base64-kodierten](/de/docs/Glossary/Base64)
+dazwischen den {{Glossary("Base64", "base64-kodierten")}}
 Binärdaten. Ein PEM-kodiertes `PrivateKeyInfo` sieht wie folgt aus:
 
 ```plain

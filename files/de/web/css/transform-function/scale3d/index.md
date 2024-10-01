@@ -11,7 +11,7 @@ Die **`scale3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Func
 
 {{EmbedInteractiveExample("pages/css/function-scale3d.html")}}
 
-Diese Skalierungstransformation wird durch einen dreidimensionalen Vektor charakterisiert. Ihre Koordinaten definieren, wie stark die Skalierung in jeder Richtung erfolgt. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_) und das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
+Diese Skalierungstransformation wird durch einen dreidimensionalen Vektor charakterisiert. Ihre Koordinaten definieren, wie stark die Skalierung in jeder Richtung erfolgt. Wenn alle drei Koordinaten gleich sind, ist die Skalierung gleichmäßig (_isotrop_) und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bleibt erhalten (dies ist eine [homothetische Transformation](https://en.wikipedia.org/wiki/Homothetic_transformation)).
 
 Wenn ein Koordinatenwert außerhalb des Bereichs \[-1, 1] liegt, wächst das Element entlang dieser Dimension; innerhalb schrumpft es. Ist er negativ, ergibt sich eine [Punktspiegelung](https://en.wikipedia.org/wiki/Point_reflection) in dieser Dimension. Ein Wert von 1 hat keinen Effekt.
 

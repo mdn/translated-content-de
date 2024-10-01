@@ -18,7 +18,7 @@ _Diese Schnittstelle erbt keine Eigenschaften._
 - [`MediaError.code`](/de/docs/Web/API/MediaError/code)
   - : Eine Zahl, die [die allgemeine Art des aufgetretenen Fehlers](/de/docs/Web/API/MediaError/code#media_error_code_constants) darstellt.
 - [`MediaError.message`](/de/docs/Web/API/MediaError/message)
-  - : Ein lesbarer Text, der _spezifische Diagnoseinformationen_ bereitstellt, um dem Leser zu helfen, die aufgetretene Fehlerbedingung zu verstehen; insbesondere handelt es sich nicht um eine Zusammenfassung dessen, was der Fehlercode bedeutet, sondern um tatsächliche Diagnoseinformationen, die helfen zu verstehen, was genau schiefgelaufen ist. Dieser Text und sein Format sind nicht von der Spezifikation definiert und variieren von einem [user agent](/de/docs/Glossary/user_agent) zum anderen. Wenn keine Diagnosen verfügbar sind oder keine Erklärung gegeben werden kann, ist dieser Wert ein leerer String (`""`).
+  - : Ein lesbarer Text, der _spezifische Diagnoseinformationen_ bereitstellt, um dem Leser zu helfen, die aufgetretene Fehlerbedingung zu verstehen; insbesondere handelt es sich nicht um eine Zusammenfassung dessen, was der Fehlercode bedeutet, sondern um tatsächliche Diagnoseinformationen, die helfen zu verstehen, was genau schiefgelaufen ist. Dieser Text und sein Format sind nicht von der Spezifikation definiert und variieren von einem {{Glossary("user_agent", "user agent")}} zum anderen. Wenn keine Diagnosen verfügbar sind oder keine Erklärung gegeben werden kann, ist dieser Wert ein leerer String (`""`).
 
 ## Instanz-Methoden
 

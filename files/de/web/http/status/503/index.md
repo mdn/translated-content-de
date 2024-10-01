@@ -13,7 +13,7 @@ Häufige Ursachen sind, dass ein Server wegen Wartungsarbeiten nicht erreichbar 
 Während der Wartung können Serveradministratoren den gesamten Verkehr vorübergehend auf eine `503`-Seite umleiten, oder dies kann automatisch während Software-Updates geschehen.
 In Fällen von Überlastung werden einige serverseitige Anwendungen Anfragen mit einem `503`-Status ablehnen, wenn Ressourcen-Schwellenwerte wie Speicher, CPU oder Verbindungspool-Grenzen erreicht sind.
 Das Ablehnen eingehender Anfragen erzeugt Rückstau, der verhindert, dass die Rechenressourcen des Servers erschöpft werden, wodurch schwerwiegendere Ausfälle vermieden werden.
-Wenn Anfragen von bestimmten Clients aufgrund von [Rate Limiting](/de/docs/Glossary/Rate_limit) eingeschränkt werden, ist die passende Antwort {{HTTPStatus("429", "429 Too Many Requests")}}.
+Wenn Anfragen von bestimmten Clients aufgrund von {{Glossary("Rate_limit", "Rate Limiting")}} eingeschränkt werden, ist die passende Antwort {{HTTPStatus("429", "429 Too Many Requests")}}.
 
 Diese Antwort sollte für temporäre Bedingungen verwendet werden, und der HTTP-Header {{HTTPHeader("Retry-After")}} sollte, falls möglich, die geschätzte Zeit für die Wiederherstellung des Dienstes enthalten.
 

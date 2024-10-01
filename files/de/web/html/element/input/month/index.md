@@ -40,7 +40,7 @@ Sie können einen Standardwert für das Eingabesteuerelement festlegen, indem Si
 
 {{EmbedLiveSample('Setting_a_default_value', 600, 60)}}
 
-Es ist zu beachten, dass das angezeigte Datumsformat vom tatsächlichen `value` abweicht; die meisten [Benutzeragenten](/de/docs/Glossary/user_agent) zeigen den Monat und das Jahr in einer lokal angepassten Form an, basierend auf dem eingestellten Gebietsschema des Betriebssystems des Benutzers, während der Datumswert immer `yyyy-MM` formatiert ist.
+Es ist zu beachten, dass das angezeigte Datumsformat vom tatsächlichen `value` abweicht; die meisten {{Glossary("user_agent", "Benutzeragenten")}} zeigen den Monat und das Jahr in einer lokal angepassten Form an, basierend auf dem eingestellten Gebietsschema des Betriebssystems des Benutzers, während der Datumswert immer `yyyy-MM` formatiert ist.
 
 Wenn der obige Wert beispielsweise an den Server übermittelt wird, sieht er so aus: `bday-month=1978-06`.
 
@@ -103,7 +103,7 @@ Nur Werte, die der Grundlage für das Schrittintervall ([`min`](#min) falls ange
 Ein Wert von `any` bedeutet, dass kein Schrittintervall impliziert ist und jeder Wert erlaubt ist (unter Vorbehalt anderer Einschränkungen, wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht mit der Schrittintervall-Konfiguration übereinstimmen, kann der [Benutzeragent](/de/docs/Glossary/user_agent) auf den nächstgelegenen gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahestehende Optionen gibt.
+> Wenn die vom Benutzer eingegebenen Daten nicht mit der Schrittintervall-Konfiguration übereinstimmen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächstgelegenen gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahestehende Optionen gibt.
 
 Für `month`-Eingaben wird der Wert des `step`-Attributs in Monaten angegeben, mit einem Skalierungsfaktor von 1 (da der zugrundeliegende numerische Wert ebenfalls in Monaten ist).
 Der Standardwert von `step` ist 1 Monat.

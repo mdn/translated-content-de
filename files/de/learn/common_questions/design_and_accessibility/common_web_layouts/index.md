@@ -96,7 +96,7 @@ In diesem Beispiel werfen Sie einen Blick auf das Bild (B1) direkt unter dem Hea
 
 ![Beispiel eines falschen 3-Spalten-Layouts](screenshot-education.jpg) ![Es sieht aus wie ein 3-Spalten-Layout, aber eigentlich schwebt der Nebeneinhalt herum.](screenshot-education-overlay.jpg)
 
-Aber das ist es nicht! B1 und B2 schweben um den Hauptinhalt herum. Denken Sie an das Wort "float" – es wird bei Ihnen klingeln, wenn Sie anfangen, über [CSS](/de/docs/Glossary/CSS) zu lernen.
+Aber das ist es nicht! B1 und B2 schweben um den Hauptinhalt herum. Denken Sie an das Wort "float" – es wird bei Ihnen klingeln, wenn Sie anfangen, über {{Glossary("CSS", "CSS")}} zu lernen.
 
 Warum sollte man denken, es sei ein Drei-Spalten-Layout? Weil das Bild oben rechts L-förmig ist, weil B1 wie eine Spalte aussieht, die den verschobenen Hauptinhalt stützt, und weil das "M" und das "I" des MICA-Logos eine vertikale Kraftlinie erzeugen.
 

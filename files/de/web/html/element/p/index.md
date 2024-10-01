@@ -9,7 +9,7 @@ l10n:
 
 Das **`<p>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Paragraphen. Paragraphen werden in visuellen Medien normalerweise als Textblöcke dargestellt, die von benachbarten Blöcken durch Leerräume und/oder Einrückung der ersten Zeile getrennt sind. HTML-Paragraphen können jedoch jede strukturelle Gruppierung von verwandten Inhalten, wie etwa Bilder oder Formularfelder, sein.
 
-Paragraphen sind [Block-Level-Elemente](/de/docs/Glossary/Block-level_content) und schließen sich automatisch, wenn ein weiteres Block-Level-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
+Paragraphen sind {{Glossary("Block-level_content", "Block-Level-Elemente")}} und schließen sich automatisch, wenn ein weiteres Block-Level-Element vor dem schließenden `</p>`-Tag geparst wird. Siehe "Tag-Auslassung" unten.
 
 {{EmbedInteractiveExample("pages/tabbed/p.html", "tabbed-standard")}}
 
@@ -26,7 +26,7 @@ Die Aufteilung von Inhalten in Paragraphen trägt dazu bei, eine Seite zugängli
 
 Die Verwendung von leeren `<p>`-Elementen, um Platz zwischen Paragraphen hinzuzufügen, ist problematisch für Menschen, die mit screenlesender Technologie navigieren. Screenreader könnten die Anwesenheit des Paragraphen ankündigen, jedoch keinen innerhalb enthaltenen Inhalt — weil keiner vorhanden ist. Dies kann die Person, die den Screenreader verwendet, verwirren und frustrieren.
 
-Wenn zusätzlicher Leerraum gewünscht ist, verwenden Sie [CSS](/de/docs/Glossary/CSS)-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
+Wenn zusätzlicher Leerraum gewünscht ist, verwenden Sie {{Glossary("CSS", "CSS")}}-Eigenschaften wie {{cssxref("margin")}}, um den Effekt zu erzielen:
 
 ```css
 p {
@@ -55,7 +55,7 @@ p {
 
 ## Formatierung von Paragraphen
 
-Standardmäßig trennen Browser Paragraphen mit einer einzigen Leerzeile. Alternative Trennmethoden, wie die Einrückung der ersten Zeile, können mit [CSS](/de/docs/Glossary/CSS) erreicht werden:
+Standardmäßig trennen Browser Paragraphen mit einer einzigen Leerzeile. Alternative Trennmethoden, wie die Einrückung der ersten Zeile, können mit {{Glossary("CSS", "CSS")}} erreicht werden:
 
 ### HTML
 

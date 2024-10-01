@@ -41,7 +41,7 @@ _Es gibt noch kein aktives Lernmaterial. [Bitte in Betracht ziehen, beizutragen]
 
 Um Ihren Text lesbar zu halten, verwenden Sie eine Textfarbe, die gut mit der Hintergrundfarbe kontrastiert. Machen Sie es besonders einfach, den Text zu lesen, um sehbehinderten Menschen und Menschen zu helfen, die unterwegs ihr Handy benutzen.
 
-Die [W3C](/de/docs/Glossary/W3C) definiert eine gute Farbmischung mit einem Algorithmus, der das Leuchtdichtenverhältnis zwischen Vorder- und Hintergrund berechnet. Die Berechnung mag ziemlich kompliziert erscheinen, aber wir können uns auf Werkzeuge verlassen, die die Arbeit für uns erledigen.
+Die {{Glossary("W3C", "W3C")}} definiert eine gute Farbmischung mit einem Algorithmus, der das Leuchtdichtenverhältnis zwischen Vorder- und Hintergrund berechnet. Die Berechnung mag ziemlich kompliziert erscheinen, aber wir können uns auf Werkzeuge verlassen, die die Arbeit für uns erledigen.
 
 Lassen Sie uns den [Color Contrast Analyser](https://www.tpgi.com/color-contrast-checker/) der Paciello-Gruppe herunterladen und installieren.
 
@@ -218,7 +218,7 @@ Websites beinhalten oft Dinge neben einfachem Text.
 Bilder können entweder dekorativ oder informativ sein, aber es gibt keine Garantie dafür, dass Ihre Benutzer sie sehen können. Zum Beispiel,
 
 - Sehbehinderte Benutzer verlassen sich auf einen Bildschirmleser, der nur Text verarbeiten kann.
-- Ihre Leser verwenden möglicherweise ein sehr striktes Intranet, das Bilder blockiert, die von einem [CDN](/de/docs/Glossary/CDN) stammen.
+- Ihre Leser verwenden möglicherweise ein sehr striktes Intranet, das Bilder blockiert, die von einem {{Glossary("CDN", "CDN")}} stammen.
 - Ihre Leser haben möglicherweise Bilder deaktiviert, um Bandbreite zu sparen, insbesondere auf mobilen Geräten (siehe unten).
 
 <!---->

@@ -15,7 +15,7 @@ Es gibt viele [Gründe](https://web.dev/learn/performance/why-speed-matters), wa
 - Verwenden Sie _Resource Hints_ wie [`rel=preconnect`](/de/docs/Web/HTML/Attributes/rel/preconnect), [`rel=dns-prefetch`](/de/docs/Web/HTML/Attributes/rel/dns-prefetch), [`rel=prefetch`](/de/docs/Web/HTML/Attributes/rel/prefetch), [`rel=preload`](/de/docs/Web/HTML/Attributes/rel/preload).
 - Halten Sie die Größe von JavaScript auf einem [Minimum](https://medium.com/@addyosmani/the-cost-of-javascript-in-2018-7d8950fbb5d4). Verwenden Sie nur so viel JavaScript, wie für die aktuelle Seite erforderlich ist.
 - [CSS](/de/docs/Learn/Performance/CSS)-Leistungsfaktoren
-- Verwenden Sie [HTTP/2](/de/docs/Glossary/HTTP_2) auf Ihrem Server (oder CDN).
+- Verwenden Sie {{Glossary("HTTP_2", "HTTP/2")}} auf Ihrem Server (oder CDN).
 - Nutzen Sie ein CDN für Ressourcen, das die Ladezeiten erheblich reduzieren kann.
 - Komprimieren Sie Ihre Ressourcen mit [gzip](https://www.gnu.org/software/gzip/), [Brotli](https://github.com/google/brotli) und [Zopfli](https://github.com/google/zopfli).
 - Bildoptimierung (verwenden Sie nach Möglichkeit CSS-Animation oder SVG).

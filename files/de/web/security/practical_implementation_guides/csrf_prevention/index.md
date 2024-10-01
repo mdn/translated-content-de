@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Cross-site request forgeries ([CSRF](/de/docs/Glossary/CSRF)) können durch `SameSite`-Cookies und Anti-CSRF-Tokens geschützt werden.
+Cross-site request forgeries ({{Glossary("CSRF", "CSRF")}}) können durch `SameSite`-Cookies und Anti-CSRF-Tokens geschützt werden.
 
 ## Problem
 
@@ -25,7 +25,7 @@ Wenn ein Benutzer eine Seite mit dem obigen HTML besucht, wird der Browser versu
 Es gibt eine Vielzahl von CSRF-Abschwächungsstrategien. Die gebräuchlichsten und transparentesten Methoden zur CSRF-Abschwächung sind [`SameSite`](/de/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite)-Cookies und Anti-CSRF-Tokens.
 
 > [!NOTE]
-> Eine Cross-Site Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) Sicherheitslücke könnte jede CSRF-Abschwächungstechnik überwinden, die Sie implementieren. Stellen Sie sicher, dass Sie Ihre Website gegen beide Arten von Angriffen gleichzeitig absichern. XSS kann durch Funktionen wie [Content Security Policy](/de/docs/Web/Security/Practical_implementation_guides/CSP) (CSP) geschützt werden.
+> Eine Cross-Site Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) Sicherheitslücke könnte jede CSRF-Abschwächungstechnik überwinden, die Sie implementieren. Stellen Sie sicher, dass Sie Ihre Website gegen beide Arten von Angriffen gleichzeitig absichern. XSS kann durch Funktionen wie [Content Security Policy](/de/docs/Web/Security/Practical_implementation_guides/CSP) (CSP) geschützt werden.
 
 ### `SameSite` Cookies
 

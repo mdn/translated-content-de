@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar}}
 
-JavaScript ist eine multiparadigmatische, dynamische Sprache mit Typen und Operatoren, standardmäßigen eingebauten Objekten und Methoden. Ihre Syntax basiert auf den Sprachen Java und C – viele Strukturen dieser Sprachen gelten auch für JavaScript. JavaScript unterstützt objektorientierte Programmierung mit [Objektprototypen](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) und Klassen. Sie unterstützt auch funktionale Programmierung, da Funktionen [First-Class](/de/docs/Glossary/First-class_Function) Objekte sind, die einfach über Ausdrücke erstellt und wie andere Objekte weitergegeben werden können.
+JavaScript ist eine multiparadigmatische, dynamische Sprache mit Typen und Operatoren, standardmäßigen eingebauten Objekten und Methoden. Ihre Syntax basiert auf den Sprachen Java und C – viele Strukturen dieser Sprachen gelten auch für JavaScript. JavaScript unterstützt objektorientierte Programmierung mit [Objektprototypen](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) und Klassen. Sie unterstützt auch funktionale Programmierung, da Funktionen {{Glossary("First-class_Function", "First-Class")}} Objekte sind, die einfach über Ausdrücke erstellt und wie andere Objekte weitergegeben werden können.
 
 Diese Seite dient als kurze Übersicht über verschiedene JavaScript-Sprachmerkmale, geschrieben für Leser mit Hintergrund in anderen Sprachen, wie C oder Java.
 
@@ -102,7 +102,7 @@ Strings können sowohl mit einfachen als auch mit doppelten Anführungszeichen g
 console.log("Hello"[1] === "e"); // true
 ```
 
-Um die Länge eines Strings (in [Code-Einheiten](/de/docs/Glossary/Code_unit)) zu finden, greifen Sie auf seine [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length)-Eigenschaft zu.
+Um die Länge eines Strings (in {{Glossary("Code_unit", "Code-Einheiten")}}) zu finden, greifen Sie auf seine [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/length)-Eigenschaft zu.
 
 Strings haben [Hilfsmethoden](/de/docs/Web/JavaScript/Reference/Global_Objects/String#instance_methods), um den String zu manipulieren und Informationen darüber zu erhalten. Da alle Primitiven entworfen sind, unveränderlich zu sein, geben diese Methoden neue Strings zurück.
 
@@ -134,7 +134,7 @@ Boolean(""); // false
 Boolean(234); // true
 ```
 
-Dies ist jedoch selten erforderlich, da JavaScript diese Umwandlung stillschweigend vornimmt, wenn es einen Boolean erwartet, wie in einer `if`-Anweisung (siehe [Kontrollstrukturen](#kontrollstrukturen)). Aus diesem Grund sprechen wir manchmal von "[truthy](/de/docs/Glossary/Truthy)" und "[falsy](/de/docs/Glossary/Falsy)", was Werte bedeutet, die in boole'schen Kontexten zu `true` bzw. `false` werden.
+Dies ist jedoch selten erforderlich, da JavaScript diese Umwandlung stillschweigend vornimmt, wenn es einen Boolean erwartet, wie in einer `if`-Anweisung (siehe [Kontrollstrukturen](#kontrollstrukturen)). Aus diesem Grund sprechen wir manchmal von "{{Glossary("Truthy", "truthy")}}" und "{{Glossary("Falsy", "falsy")}}", was Werte bedeutet, die in boole'schen Kontexten zu `true` bzw. `false` werden.
 
 Boolesche Operationen wie `&&` (logisch _und_), `||` (logisch _oder_) und `!` (logisch _nicht_) werden unterstützt; siehe [Operatoren](#operatoren).
 
@@ -621,7 +621,7 @@ const sum = (a, b, c) => a + b + c;
 
 Pfeilfunktionen sind nicht semantisch identisch mit Funktionsausdrücken – für weitere Informationen sehen Sie die [Referenzseite](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
 
-Es gibt eine weitere Möglichkeit, wie anonyme Funktionen nützlich sein können: Sie können gleichzeitig deklariert und in einem einzigen Ausdruck aufgerufen werden, was als [Sofort aufgerufener Funktionsausdruck (IIFE)](/de/docs/Glossary/IIFE) bezeichnet wird:
+Es gibt eine weitere Möglichkeit, wie anonyme Funktionen nützlich sein können: Sie können gleichzeitig deklariert und in einem einzigen Ausdruck aufgerufen werden, was als {{Glossary("IIFE", "Sofort aufgerufener Funktionsausdruck (IIFE)")}} bezeichnet wird:
 
 ```js
 (function () {

@@ -32,9 +32,9 @@ Funktionalnotation: `color-mix(<color-interpolation-method>, <color>[<percentage
 
 - {{CSSXref("&lt;color-interpolation-method&gt;")}}
 
-  - : Gibt an, welche Interpolationsmethode verwendet werden soll, um die Farben zu mischen. Sie besteht aus dem Schlüsselwort `in` gefolgt von einem [Color Space](/de/docs/Glossary/color_space) Namen. Die folgenden drei Typen sind verfügbar:
+  - : Gibt an, welche Interpolationsmethode verwendet werden soll, um die Farben zu mischen. Sie besteht aus dem Schlüsselwort `in` gefolgt von einem {{Glossary("color_space", "Color Space")}} Namen. Die folgenden drei Typen sind verfügbar:
 
-    - `<rectangular-color-space>`: [`srgb`](/de/docs/Glossary/Color_space#srgb), [`srgb-linear`](/de/docs/Glossary/Color_space#srgb-linear), [`display-p3`](/de/docs/Glossary/Color_space#display-p3), [`a98-rgb`](/de/docs/Glossary/Color_space#a98-rgb), [`prophoto-rgb`](/de/docs/Glossary/Color_space#prophoto-rgb), [`rec2020`](/de/docs/Glossary/Color_space#rec2020), [`lab`](/de/docs/Glossary/Color_space#cielab_color_spaces), [`oklab`](/de/docs/Glossary/Color_space#oklab), [`xyz`](/de/docs/Glossary/Color_space#xyz_color_spaces), [`xyz-d50`](/de/docs/Glossary/Color_space#xyz), und [`xyz-d65`](/de/docs/Glossary/Color_space#xyz-d50).
+    - `<rectangular-color-space>`: {{Glossary("Color_space#srgb", "`srgb`")}}, {{Glossary("Color_space#srgb-linear", "`srgb-linear`")}}, {{Glossary("Color_space#display-p3", "`display-p3`")}}, {{Glossary("Color_space#a98-rgb", "`a98-rgb`")}}, {{Glossary("Color_space#prophoto-rgb", "`prophoto-rgb`")}}, {{Glossary("Color_space#rec2020", "`rec2020`")}}, {{Glossary("Color_space#cielab_color_spaces", "`lab`")}}, {{Glossary("Color_space#oklab", "`oklab`")}}, {{Glossary("Color_space#xyz_color_spaces", "`xyz`")}}, {{Glossary("Color_space#xyz", "`xyz-d50`")}}, und {{Glossary("Color_space#xyz-d50", "`xyz-d65`")}}.
     - `<polar-color-space>`: [`hsl`](/de/docs/Web/CSS/color_value/hsl), [`hwb`](/de/docs/Web/CSS/color_value/hwb), [`lch`](/de/docs/Web/CSS/color_value/lch), und [`oklch`](/de/docs/Web/CSS/color_value/oklch).
     - benutzerdefinierter Farbraum: [`<dashed-ident>`](/de/docs/Web/CSS/dashed-ident#using_with_color-profile) bezieht sich auf ein benutzerdefiniertes [@color profile](/de/docs/Web/CSS/@color-profile)
 

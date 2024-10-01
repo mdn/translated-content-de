@@ -22,7 +22,7 @@ Das **`PublicKeyCredential`** Interface stellt Informationen über ein öffentli
 
 - [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id) {{ReadOnlyInline}}
 
-  - : Übernommen von [`Credential`](/de/docs/Web/API/Credential) und überschrieben, um die [base64url Kodierung](/de/docs/Glossary/Base64) von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) zu sein.
+  - : Übernommen von [`Credential`](/de/docs/Web/API/Credential) und überschrieben, um die {{Glossary("Base64", "base64url Kodierung")}} von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) zu sein.
 
 - [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) {{ReadOnlyInline}}
   - : Ein {{jsxref("ArrayBuffer")}}, der die weltweit eindeutige Kennung für dieses `PublicKeyCredential` enthält. Diese Kennung kann verwendet werden, um Anmeldedaten für zukünftige Aufrufe von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) zu finden.

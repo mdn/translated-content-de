@@ -9,7 +9,7 @@ l10n:
 
 **Entwicklertools** (oder "Entwicklungswerkzeuge" oder kurz "DevTools") sind Programme, die es einem Entwickler ermöglichen, Software zu erstellen, zu testen und zu debuggen.
 
-Aktuelle Browser bieten integrierte Entwicklertools, mit denen man eine Website inspizieren kann. Sie ermöglichen es den Benutzern, das [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [JavaScript](/de/docs/Glossary/JavaScript) der Seite zu inspizieren und zu debuggen, den von ihnen verursachten Netzwerkverkehr zu inspizieren, die Leistung zu messen und vieles mehr.
+Aktuelle Browser bieten integrierte Entwicklertools, mit denen man eine Website inspizieren kann. Sie ermöglichen es den Benutzern, das {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} der Seite zu inspizieren und zu debuggen, den von ihnen verursachten Netzwerkverkehr zu inspizieren, die Leistung zu messen und vieles mehr.
 
 ## Siehe auch
 

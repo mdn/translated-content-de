@@ -7,14 +7,14 @@ l10n:
 
 {{DefaultAPISidebar("Credential Management API")}}
 
-Die Credential Management API ermöglicht es einer Webseite, die [Anmeldedaten](/de/docs/Glossary/credential), die einem Benutzer eine sichere Anmeldung ermöglichen, zu erstellen, zu speichern und abzurufen. Sie unterstützt vier verschiedene Arten von Anmeldedaten:
+Die Credential Management API ermöglicht es einer Webseite, die {{Glossary("credential", "Anmeldedaten")}}, die einem Benutzer eine sichere Anmeldung ermöglichen, zu erstellen, zu speichern und abzurufen. Sie unterstützt vier verschiedene Arten von Anmeldedaten:
 
-| Typ                     | Schnittstelle                                                                          |
-| ----------------------- | ---------------------------------------------------------------------------------- |
-| Passwort                | [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)                                                  |
-| Föderierte Identität    | [`IdentityCredential`](/de/docs/Web/API/IdentityCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) (veraltet) |
-| Einmalpasswort (OTP)    | [`OTPCredential`](/de/docs/Web/API/OTPCredential)                                                       |
-| Web-Authentifizierung   | [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)                                                 |
+| Typ                   | Schnittstelle                                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Passwort              | [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)                                                                           |
+| Föderierte Identität  | [`IdentityCredential`](/de/docs/Web/API/IdentityCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) (veraltet) |
+| Einmalpasswort (OTP)  | [`OTPCredential`](/de/docs/Web/API/OTPCredential)                                                                                     |
+| Web-Authentifizierung | [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)                                                                         |
 
 Die unterschiedlichen Arten von Anmeldedaten sind alle als Unterklassen der [`Credential`](/de/docs/Web/API/Credential) Schnittstelle dargestellt:
 
@@ -47,7 +47,7 @@ Wenn ein Benutzer Ihre Seite besucht, können Sie [`navigator.credentials.get()`
 
 ## Föderierte Identitätsanmeldedaten
 
-In einem [föderierten Identitätssystem](/de/docs/Glossary/federated_identity) fungiert eine separate Entität als Vermittler zwischen dem Benutzer und der Webseite, bei der er sich anmelden möchte. Diese Entität, ein [Identitätsanbieter](/de/docs/Glossary/identity_provider) (IdP) genannt, verwaltet die Anmeldedaten des Benutzers, kann Benutzer authentifizieren und ist von der Webseite vertraut, um Aussagen über die Identität eines Benutzers zu machen.
+In einem {{Glossary("federated_identity", "föderierten Identitätssystem")}} fungiert eine separate Entität als Vermittler zwischen dem Benutzer und der Webseite, bei der er sich anmelden möchte. Diese Entität, ein {{Glossary("identity_provider", "Identitätsanbieter")}} (IdP) genannt, verwaltet die Anmeldedaten des Benutzers, kann Benutzer authentifizieren und ist von der Webseite vertraut, um Aussagen über die Identität eines Benutzers zu machen.
 
 Der Benutzer hat ein Konto beim IdP: Wenn er sich auf der Webseite anmelden muss, authentifiziert er sich beim IdP. Der IdP gibt dann ein Token an den Browser des Benutzers zurück, das der Browser an die Webseite liefert. Die Webseite überprüft das Token und meldet den Benutzer bei erfolgreicher Überprüfung an.
 
@@ -84,7 +84,7 @@ Die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) (WebAuthn)
 
 Ein Authenticator ist eine Entität, die sich im oder am Gerät des Benutzers befindet und in der Lage ist, die kryptografischen Operationen durchzuführen, die für die Registrierung und Authentifizierung von Benutzern erforderlich sind, und die kryptografischen Schlüssel, die in diesen Operationen verwendet werden, sicher zu speichern. Ein Authenticator kann in das Gerät integriert sein, wie das [Touch ID](https://de.wikipedia.org/wiki/Touch_ID)-System in Apple-Geräten oder das [Windows Hello](https://de.wikipedia.org/wiki/Windows_10#System_sicherheit) System, oder es kann ein abnehmbares Modul wie ein [Yubikey](https://de.wikipedia.org/wiki/YubiKey) sein.
 
-Anstelle von Passwörtern verwendet WebAuthn die [Public-Key-Kryptografie](/de/docs/Glossary/public-key_cryptography), um Benutzer zu authentifizieren.
+Anstelle von Passwörtern verwendet WebAuthn die {{Glossary("public-key_cryptography", "Public-Key-Kryptografie")}}, um Benutzer zu authentifizieren.
 
 Um einen Benutzer auf einer Webseite mit WebAuthn zu registrieren, rufen Sie [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) auf und geben Sie alle Informationen an, die zur Erstellung eines Schlüsselpaares benötigt werden. Der Authenticator kann den Benutzer zuerst bitten, sich zu authentifizieren, beispielsweise mit einem biometrischen Leser. Er wird dann ein Schlüsselpaar erstellen und den öffentlichen Schlüssel zurückgeben. Dieses Schlüsselpaar ist spezifisch für den Benutzer und die Webseite. Der Authenticator kann auch eine signierte _Attestation_ generieren und zurückgeben: Dies ist eine Erklärung, dass der Authenticator selbst (zum Beispiel) ein echter Yubikey ist.
 

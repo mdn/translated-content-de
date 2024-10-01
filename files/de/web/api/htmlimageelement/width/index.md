@@ -8,13 +8,13 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`width`** Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt die Breite an, mit der ein Bild in [CSS-Pixeln](/de/docs/Glossary/CSS_pixel) gezeichnet wird, wenn es auf einem visuellen Medium wie einem Bildschirm oder Drucker dargestellt wird. Andernfalls ist es die natürliche, pixeldichtekorrigierte Breite des Bildes.
+Die **`width`** Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) Interfaces gibt die Breite an, mit der ein Bild in {{Glossary("CSS_pixel", "CSS-Pixeln")}} gezeichnet wird, wenn es auf einem visuellen Medium wie einem Bildschirm oder Drucker dargestellt wird. Andernfalls ist es die natürliche, pixeldichtekorrigierte Breite des Bildes.
 
 ## Wert
 
 Ein ganzzahliger Wert, der die Breite des Bildes angibt. Die Art und Weise, wie die Breite definiert wird, hängt davon ab, ob das Bild auf einem visuellen Medium dargestellt wird:
 
-- Wenn das Bild auf einem visuellen Medium dargestellt wird, wird die Breite in [CSS-Pixeln](/de/docs/Glossary/CSS_pixel) angegeben.
+- Wenn das Bild auf einem visuellen Medium dargestellt wird, wird die Breite in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angegeben.
 - Wenn das Bild nicht auf einem visuellen Medium dargestellt wird, wird seine Breite unter Verwendung der natürlichen (intrinsischen) Breite des Bildes dargestellt, angepasst an die Darstellungsdichte wie durch [`naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) angegeben.
 
 ## Beispiele

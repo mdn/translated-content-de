@@ -16,7 +16,7 @@ Für dieses Objekt ist der Zeitstempel die Zeit, zu der der _RTCP Receiver Repor
 
 Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der die Zeit angibt, zu der die durch die Statistiken in diesem Objekt beschriebene Aktivität aufgezeichnet wurde, in Millisekunden seit Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte auf einige Millisekunden genau sein, kann aber aufgrund von Hardware- oder Betriebssystemeinschränkungen oder wegen des Schutzes vor [Fingerprinting](/de/docs/Glossary/Fingerprinting) in Form von reduzierter Taktgenauigkeit oder Präzision nicht vollkommen präzise sein.
+Der Wert sollte auf einige Millisekunden genau sein, kann aber aufgrund von Hardware- oder Betriebssystemeinschränkungen oder wegen des Schutzes vor {{Glossary("Fingerprinting", "Fingerprinting")}} in Form von reduzierter Taktgenauigkeit oder Präzision nicht vollkommen präzise sein.
 
 ## Spezifikationen
 

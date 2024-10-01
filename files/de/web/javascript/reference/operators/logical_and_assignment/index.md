@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Logical AND Assignment (`&&=`)** Operator wertet nur den rechten Operanden aus und weist dem linken Operanden zu, wenn der linke Operand [truthy](/de/docs/Glossary/truthy) ist.
+Der **Logical AND Assignment (`&&=`)** Operator wertet nur den rechten Operanden aus und weist dem linken Operanden zu, wenn der linke Operand {{Glossary("truthy", "truthy")}} ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-logical-and-assignment.html")}}
 
@@ -78,5 +78,5 @@ y &&= 0; // 0
 - [Logical AND (`&&`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND)
 - [Nullish coalescing operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - [Bitwise AND assignment (`&=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)
-- [Truthy](/de/docs/Glossary/Truthy)
-- [Falsy](/de/docs/Glossary/Falsy)
+- {{Glossary("Truthy", "Truthy")}}
+- {{Glossary("Falsy", "Falsy")}}

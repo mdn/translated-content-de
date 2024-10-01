@@ -29,20 +29,20 @@ Die `filter`- und `backdrop-filter`-Eigenschaften akzeptieren eine durch Leerzei
 
 Das CSS-Filtereffekte-Modul bietet 10 [`<filter-function>`](/de/docs/Web/CSS/filter#functions)-Funktionen sowie die Möglichkeit, eine nahezu endlose Reihe von Effekten mithilfe von SVG-Filtern zu definieren, die über einen `url()`-Verweis angewendet werden.
 
-Die folgende Tabelle listet die 10 Filterfunktionen auf, zusammen mit ihren Werttypen, dem minimal gültigen Wert, falls zutreffend, dem größten Wert, der einen Effekt erzeugt, und dem Anfangswert, der für die [Interpolation](/de/docs/Glossary/Interpolation) verwendet wird.
+Die folgende Tabelle listet die 10 Filterfunktionen auf, zusammen mit ihren Werttypen, dem minimal gültigen Wert, falls zutreffend, dem größten Wert, der einen Effekt erzeugt, und dem Anfangswert, der für die {{Glossary("Interpolation", "Interpolation")}} verwendet wird.
 
-| Filterfunktion                                              | Parameter-Typ                                                      | Mindestwert | Max-Effekt | Interpolationswert    | Standardwert (kein Effekt)               |
-| ----------------------------------------------------------- | ------------------------------------------------------------------ | ----------- | ---------- | --------------------- | --------------------------------------- |
-| {{cssxref("filter-function/blur", "blur()")}}               | {{cssxref("&lt;length&gt;")}}                                      | `0`         |            | `0`                   | `blur(0)`                               |
-| {{cssxref("filter-function/brightness", "brightness()")}}   | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         |            | `1`                   | `brightness(1)` oder `brightness(100%)` |
-| {{cssxref("filter-function/contrast", "contrast()")}}       | {{cssxref("&lt;length&gt;")}}                                      | `0`         |            | `1`                   | `contrast(1)` oder `contrast(100%)`     |
-| {{cssxref("filter-function/drop-shadow", "drop-shadow()")}} | `<shadow>`                                                         |             |            | `0 0 0 currentcolor`  | `drop-shadow(0 0 0 currentcolor)`       |
-| {{cssxref("filter-function/grayscale", "grayscale()")}}     | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `0`                   | `grayscale(0)` oder `grayscale(0%)`     |
-| {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}   | {{cssxref("&lt;angle&gt;")}}                                       |             |            | `0`                   | `hue-rotate(0deg)`                      |
-| {{cssxref("filter-function/invert", "invert()")}}           | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `0`                   | `invert(0)` oder `invert(0%)`           |
-| {{cssxref("filter-function/opacity", "opacity()")}}         | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `1`                   | `opacity(1)` oder `opacity(100%)`       |
-| {{cssxref("filter-function/saturate", "saturate()")}}       | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `1`                   | `saturate(100%)`                        |
-| {{cssxref("filter-function/sepia", "sepia()")}}             | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `0`                   | `sepia(0%)`                             |
+| Filterfunktion                                              | Parameter-Typ                                                        | Mindestwert | Max-Effekt | Interpolationswert   | Standardwert (kein Effekt)              |
+| ----------------------------------------------------------- | -------------------------------------------------------------------- | ----------- | ---------- | -------------------- | --------------------------------------- |
+| {{cssxref("filter-function/blur", "blur()")}}               | {{cssxref("&lt;length&gt;")}}                                        | `0`         |            | `0`                  | `blur(0)`                               |
+| {{cssxref("filter-function/brightness", "brightness()")}}   | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         |            | `1`                  | `brightness(1)` oder `brightness(100%)` |
+| {{cssxref("filter-function/contrast", "contrast()")}}       | {{cssxref("&lt;length&gt;")}}                                        | `0`         |            | `1`                  | `contrast(1)` oder `contrast(100%)`     |
+| {{cssxref("filter-function/drop-shadow", "drop-shadow()")}} | `<shadow>`                                                           |             |            | `0 0 0 currentcolor` | `drop-shadow(0 0 0 currentcolor)`       |
+| {{cssxref("filter-function/grayscale", "grayscale()")}}     | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `0`                  | `grayscale(0)` oder `grayscale(0%)`     |
+| {{cssxref("filter-function/hue-rotate", "hue-rotate()")}}   | {{cssxref("&lt;angle&gt;")}}                                         |             |            | `0`                  | `hue-rotate(0deg)`                      |
+| {{cssxref("filter-function/invert", "invert()")}}           | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `0`                  | `invert(0)` oder `invert(0%)`           |
+| {{cssxref("filter-function/opacity", "opacity()")}}         | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `1`                  | `opacity(1)` oder `opacity(100%)`       |
+| {{cssxref("filter-function/saturate", "saturate()")}}       | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `1`                  | `saturate(100%)`                        |
+| {{cssxref("filter-function/sepia", "sepia()")}}             | {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}} | `0`         | `100%`     | `0`                  | `sepia(0%)`                             |
 
 Der erlaubte Mindestwert ist für Filterfunktionen angegeben, die einen Mindestwert haben. Wenn ein Wert unterhalb des Mindestwerts für eine beliebige Filterfunktion angegeben wird, wird die gesamte Eigenschaftsdeklaration ungültig, nicht nur die fehlerhafte Filterfunktion in der durch Komma getrennten Liste.
 

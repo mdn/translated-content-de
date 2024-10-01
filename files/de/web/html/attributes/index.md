@@ -521,7 +521,7 @@ Elemente in HTML haben **Attribute**; dies sind zusätzliche Werte, die die Elem
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn der Button/das Eingabefeld ein [Submit-Button](/de/docs/Glossary/submit_button) (z.B. <code>type="submit"</code>) ist,
+        Wenn der Button/das Eingabefeld ein {{Glossary("submit_button", "Submit-Button")}} (z.B. <code>type="submit"</code>) ist,
         legt dieses Attribut den Codierungstyp fest, der bei der Formularübermittlung verwendet werden soll. Wenn
         dieses Attribut angegeben ist, überschreibt es das
         <code>enctype</code>-Attribut des Formularbesitzers des Buttons.
@@ -536,7 +536,7 @@ Elemente in HTML haben **Attribute**; dies sind zusätzliche Werte, die die Elem
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn der Button/das Eingabefeld ein [Submit-Button](/de/docs/Glossary/submit_button) (z.B. <code>type="submit"</code>) ist,
+        Wenn der Button/das Eingabefeld ein {{Glossary("submit_button", "Submit-Button")}} (z.B. <code>type="submit"</code>) ist,
         legt dieses Attribut die Übertragungsmethode fest, die bei der Formularübermittlung verwendet werden soll
         (<code>GET</code>, <code>POST</code>, etc.). Wenn dieses Attribut
         angegeben ist, überschreibt es das <code>method</code>-Attribut des
@@ -552,7 +552,7 @@ Elemente in HTML haben **Attribute**; dies sind zusätzliche Werte, die die Elem
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn der Button/das Eingabefeld ein [Submit-Button](/de/docs/Glossary/submit_button) (z.B. <code>type="submit"</code>) ist,
+        Wenn der Button/das Eingabefeld ein {{Glossary("submit_button", "Submit-Button")}} (z.B. <code>type="submit"</code>) ist,
         gibt dieses boolesche Attribut an, dass das Formular bei der Übermittlung nicht validiert werden soll.
         Wenn dieses Attribut angegeben ist, überschreibt es das
         <code>novalidate</code>-Attribut des Formularbesitzers des Buttons.
@@ -567,7 +567,7 @@ Elemente in HTML haben **Attribute**; dies sind zusätzliche Werte, die die Elem
         {{ HTMLElement("input") }}
       </td>
       <td>
-        Wenn der Button/das Eingabefeld ein [Submit-Button](/de/docs/Glossary/submit_button) (z.B. <code>type="submit"</code>) ist,
+        Wenn der Button/das Eingabefeld ein {{Glossary("submit_button", "Submit-Button")}} (z.B. <code>type="submit"</code>) ist,
         gibt dieses Attribut den Browsing-Kontext an (zum Beispiel Registerkarte, Fenster
         oder eingebetteter Rahmen), in dem die empfangene Antwort nach dem
         Senden des Formulars angezeigt werden soll. Wenn dieses Attribut

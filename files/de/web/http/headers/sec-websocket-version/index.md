@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-[Anforderungs](/de/docs/Glossary/request_header)- und [Antwortheader](/de/docs/Glossary/response_header) **Sec-WebSocket-Version** wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handschlag](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um das vom Client unterstützte WebSocket-Protokoll und die vom Server unterstützten Protokollversionen anzuzeigen, falls es die in der Anfrage angegebene Version _nicht_ unterstützt.
+Der HTTP-{{Glossary("request_header", "Anforderungs")}}- und {{Glossary("response_header", "Antwortheader")}} **Sec-WebSocket-Version** wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handschlag](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um das vom Client unterstützte WebSocket-Protokoll und die vom Server unterstützten Protokollversionen anzuzeigen, falls es die in der Anfrage angegebene Version _nicht_ unterstützt.
 
 Der Header kann nur einmal in einer Anfrage erscheinen und gibt die WebSocket-Version an, die die Webanwendung verwendet. Die aktuelle Version des Protokolls zum Zeitpunkt des Schreibens ist 13. Der Header wird von Benutzeragenten automatisch zu Anfragen hinzugefügt, wenn eine [`WebSocket`](/de/docs/Web/API/WebSocket)-Verbindung hergestellt wird.
 
@@ -19,10 +19,10 @@ Der Header sollte nicht in Antworten gesendet werden, wenn der Server die vom Cl
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

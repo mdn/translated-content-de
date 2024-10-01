@@ -83,7 +83,7 @@ new RTCPeerConnection(configuration)
       - : Eine Zeichenfolge, die die RTCP-Multiplexierungsrichtlinie angibt, die beim Erfassen von ICE-Kandidaten verwendet werden soll, um nicht-multiplexierte RTCP zu unterstützen. Mögliche Werte sind:
 
         - `"negotiate"`
-          - : Weist den ICE-Agenten an, sowohl [RTP](/de/docs/Glossary/RTP) als auch [RTCP](/de/docs/Glossary/RTCP)-Kandidaten zu sammeln. Wenn der entfernte Peer RTCP multiplexen kann, werden RTCP-Kandidaten über die entsprechenden RTP-Kandidaten multiplexed. Andernfalls werden sowohl die RTP- als auch die RTCP-Kandidaten separat zurückgegeben.
+          - : Weist den ICE-Agenten an, sowohl {{Glossary("RTP", "RTP")}} als auch {{Glossary("RTCP", "RTCP")}}-Kandidaten zu sammeln. Wenn der entfernte Peer RTCP multiplexen kann, werden RTCP-Kandidaten über die entsprechenden RTP-Kandidaten multiplexed. Andernfalls werden sowohl die RTP- als auch die RTCP-Kandidaten separat zurückgegeben.
         - `"require"`
           - : Sagt dem ICE-Agenten, ICE-Kandidaten nur für RTP zu sammeln und RTCP darüber zu multiplexen. Wenn der entfernte Peer RTCP-Multiplexen nicht unterstützt, schlägt die Sitzungsverhandlung fehl. Dies ist der Standardwert.
 

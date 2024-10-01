@@ -34,6 +34,6 @@ Die {{cssxref("column-gap")}} Eigenschaft wurde in früheren Versionen der Multi
 
 ### Glossareinträge
 
-- [Ausrichtungssubjekt](/de/docs/Glossary/Alignment_Subject)
-- [Ausrichtungscontainer](/de/docs/Glossary/Alignment_Container)
-- [Rückfallausrichtung](/de/docs/Glossary/Fallback_Alignment)
+- {{Glossary("Alignment_Subject", "Ausrichtungssubjekt")}}
+- {{Glossary("Alignment_Container", "Ausrichtungscontainer")}}
+- {{Glossary("Fallback_Alignment", "Rückfallausrichtung")}}

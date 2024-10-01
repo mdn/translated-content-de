@@ -67,7 +67,7 @@ Das `step`-Attribut ist eine Zahl, die die Granularität angibt, der der Wert en
 Ein String-Wert von `any` bedeutet, dass kein Schritt impliziert wird, und jeder Wert erlaubt ist (abgesehen von anderen Einschränkungen, wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht den Schritt-Einstellungen entsprechen, kann der [Benutzeragent](/de/docs/Glossary/user_agent) auf den nächstgelegenen gültigen Wert runden, wobei bei zwei gleich nahen Optionen eine Präferenz für positive Zahlen besteht.
+> Wenn die vom Benutzer eingegebenen Daten nicht den Schritt-Einstellungen entsprechen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächstgelegenen gültigen Wert runden, wobei bei zwei gleich nahen Optionen eine Präferenz für positive Zahlen besteht.
 
 Bei `week`-Eingaben wird der Wert von `step` in Wochen angegeben, mit einem Skalierungsfaktor von 604.800.000 (da der zugrunde liegende numerische Wert in Millisekunden vorliegt). Der Standardwert von `step` ist 1, was 1 Woche angibt. Die standardmäßige Schrittbasis ist -259.200.000, was das Anfang der ersten Woche des Jahres 1970 (`"1970-W01"`) repräsentiert.
 

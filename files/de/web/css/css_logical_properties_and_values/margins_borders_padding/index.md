@@ -17,53 +17,53 @@ Das Modul beschreibt Zuordnungen für jeden logischen Wert zu einem physischen G
 
 Wenn Sie einen `horizontal-tb` Schreibmodus mit einer Rechts-nach-Links-Textausrichtung verwendeten, dann wäre {{cssxref("margin-inline-start")}} dasselbe wie {{cssxref("margin-right")}}. In einem vertikalen Schreibmodus wäre es dasselbe wie die Verwendung von {{cssxref("margin-top")}}.
 
-| [Logische Eigenschaft](/de/docs/Glossary/Logical_properties) | [Physische Eigenschaft](/de/docs/Glossary/Physical_properties) |
-| ----------------------------------------------------- | -------------------------------------------------------- |
-| {{cssxref("border-block-end")}}                       | {{cssxref("border-bottom")}}                             |
-| {{cssxref("border-block-end-color")}}                 | {{cssxref("border-bottom-color")}}                       |
-| {{cssxref("border-block-end-style")}}                 | {{cssxref("border-bottom-style")}}                       |
-| {{cssxref("border-block-end-width")}}                 | {{cssxref("border-bottom-width")}}                       |
-| {{cssxref("border-block-start")}}                     | {{cssxref("border-top")}}                                |
-| {{cssxref("border-block-start-color")}}               | {{cssxref("border-top-color")}}                          |
-| {{cssxref("border-block-start-style")}}               | {{cssxref("border-top-style")}}                          |
-| {{cssxref("border-block-start-width")}}               | {{cssxref("border-top-width")}}                          |
-| {{cssxref("border-inline-end")}}                      | {{cssxref("border-right")}}                              |
-| {{cssxref("border-inline-end-color")}}                | {{cssxref("border-right-color")}}                        |
-| {{cssxref("border-inline-end-style")}}                | {{cssxref("border-right-style")}}                        |
-| {{cssxref("border-inline-end-width")}}                | {{cssxref("border-right-width")}}                        |
-| {{cssxref("border-inline-start")}}                    | {{cssxref("border-left")}}                               |
-| {{cssxref("border-inline-start-color")}}              | {{cssxref("border-left-color")}}                         |
-| {{cssxref("border-inline-start-style")}}              | {{cssxref("border-left-style")}}                         |
-| {{cssxref("border-inline-start-width")}}              | {{cssxref("border-left-width")}}                         |
-| {{cssxref("border-start-start-radius")}}              | {{cssxref("border-top-left-radius")}}                    |
-| {{cssxref("border-end-start-radius")}}                | {{cssxref("border-bottom-left-radius")}}                 |
-| {{cssxref("border-start-end-radius")}}                | {{cssxref("border-top-right-radius")}}                   |
-| {{cssxref("border-end-end-radius")}}                  | {{cssxref("border-bottom-right-radius")}}                |
-| {{cssxref("margin-block-end")}}                       | {{cssxref("margin-bottom")}}                             |
-| {{cssxref("margin-block-start")}}                     | {{cssxref("margin-top")}}                                |
-| {{cssxref("margin-inline-end")}}                      | {{cssxref("margin-right")}}                              |
-| {{cssxref("margin-inline-start")}}                    | {{cssxref("margin-left")}}                               |
-| {{cssxref("padding-block-end")}}                      | {{cssxref("padding-bottom")}}                            |
-| {{cssxref("padding-block-start")}}                    | {{cssxref("padding-top")}}                               |
-| {{cssxref("padding-inline-end")}}                     | {{cssxref("padding-right")}}                             |
-| {{cssxref("padding-inline-start")}}                   | {{cssxref("padding-left")}}                              |
+| {{Glossary("Logical_properties", "Logische Eigenschaft")}} | {{Glossary("Physical_properties", "Physische Eigenschaft")}} |
+| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| {{cssxref("border-block-end")}}                            | {{cssxref("border-bottom")}}                                 |
+| {{cssxref("border-block-end-color")}}                      | {{cssxref("border-bottom-color")}}                           |
+| {{cssxref("border-block-end-style")}}                      | {{cssxref("border-bottom-style")}}                           |
+| {{cssxref("border-block-end-width")}}                      | {{cssxref("border-bottom-width")}}                           |
+| {{cssxref("border-block-start")}}                          | {{cssxref("border-top")}}                                    |
+| {{cssxref("border-block-start-color")}}                    | {{cssxref("border-top-color")}}                              |
+| {{cssxref("border-block-start-style")}}                    | {{cssxref("border-top-style")}}                              |
+| {{cssxref("border-block-start-width")}}                    | {{cssxref("border-top-width")}}                              |
+| {{cssxref("border-inline-end")}}                           | {{cssxref("border-right")}}                                  |
+| {{cssxref("border-inline-end-color")}}                     | {{cssxref("border-right-color")}}                            |
+| {{cssxref("border-inline-end-style")}}                     | {{cssxref("border-right-style")}}                            |
+| {{cssxref("border-inline-end-width")}}                     | {{cssxref("border-right-width")}}                            |
+| {{cssxref("border-inline-start")}}                         | {{cssxref("border-left")}}                                   |
+| {{cssxref("border-inline-start-color")}}                   | {{cssxref("border-left-color")}}                             |
+| {{cssxref("border-inline-start-style")}}                   | {{cssxref("border-left-style")}}                             |
+| {{cssxref("border-inline-start-width")}}                   | {{cssxref("border-left-width")}}                             |
+| {{cssxref("border-start-start-radius")}}                   | {{cssxref("border-top-left-radius")}}                        |
+| {{cssxref("border-end-start-radius")}}                     | {{cssxref("border-bottom-left-radius")}}                     |
+| {{cssxref("border-start-end-radius")}}                     | {{cssxref("border-top-right-radius")}}                       |
+| {{cssxref("border-end-end-radius")}}                       | {{cssxref("border-bottom-right-radius")}}                    |
+| {{cssxref("margin-block-end")}}                            | {{cssxref("margin-bottom")}}                                 |
+| {{cssxref("margin-block-start")}}                          | {{cssxref("margin-top")}}                                    |
+| {{cssxref("margin-inline-end")}}                           | {{cssxref("margin-right")}}                                  |
+| {{cssxref("margin-inline-start")}}                         | {{cssxref("margin-left")}}                                   |
+| {{cssxref("padding-block-end")}}                           | {{cssxref("padding-bottom")}}                                |
+| {{cssxref("padding-block-start")}}                         | {{cssxref("padding-top")}}                                   |
+| {{cssxref("padding-inline-end")}}                          | {{cssxref("padding-right")}}                                 |
+| {{cssxref("padding-inline-start")}}                        | {{cssxref("padding-left")}}                                  |
 
 Es gibt auch einige zusätzliche Kurzschreibweisen, die möglich sind, weil wir gleichzeitig beide Block- oder beide Inline-Kanten der Box ansprechen können. Diese Kurzschreibweisen haben kein physisches Äquivalent.
 
-| Eigenschaft                         | Zweck                                                                                                                |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| {{cssxref("border-block")}}        | Setzt {{cssxref("border-color")}}, {{cssxref("border-style")}} und {{cssxref("border-width")}} für beide Blockrahmen.  |
-| {{cssxref("border-block-color")}}  | Setzt `border-color` für beide Blockrahmen.                                                                            |
-| {{cssxref("border-block-style")}}  | Setzt `border-style` für beide Blockrahmen.                                                                            |
-| {{cssxref("border-block-width")}}  | Setzt `border-width` für beide Blockrahmen.                                                                            |
-| {{cssxref("border-inline")}}       | Setzt `border-color`, `-style` und `-width` für beide Inline-Rahmen.                                                   |
-| {{cssxref("border-inline-color")}} | Setzt `border-color` für beide Inline-Rahmen.                                                                           |
-| {{cssxref("border-inline-style")}} | Setzt `border-style` für beide Inline-Rahmen.                                                                           |
-| {{cssxref("border-inline-width")}} | Setzt `border-width` für beide Inline-Rahmen.                                                                           |
-| {{cssxref("margin-block")}}        | Setzt alle Block-{{cssxref("margin")}}.                                                                              |
-| {{cssxref("margin-inline")}}       | Setzt alle Inline-`margin`.                                                                                            |
+| Eigenschaft                        | Zweck                                                                                                                 |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| {{cssxref("border-block")}}        | Setzt {{cssxref("border-color")}}, {{cssxref("border-style")}} und {{cssxref("border-width")}} für beide Blockrahmen. |
+| {{cssxref("border-block-color")}}  | Setzt `border-color` für beide Blockrahmen.                                                                           |
+| {{cssxref("border-block-style")}}  | Setzt `border-style` für beide Blockrahmen.                                                                           |
+| {{cssxref("border-block-width")}}  | Setzt `border-width` für beide Blockrahmen.                                                                           |
+| {{cssxref("border-inline")}}       | Setzt `border-color`, `-style` und `-width` für beide Inline-Rahmen.                                                  |
+| {{cssxref("border-inline-color")}} | Setzt `border-color` für beide Inline-Rahmen.                                                                         |
+| {{cssxref("border-inline-style")}} | Setzt `border-style` für beide Inline-Rahmen.                                                                         |
+| {{cssxref("border-inline-width")}} | Setzt `border-width` für beide Inline-Rahmen.                                                                         |
+| {{cssxref("margin-block")}}        | Setzt alle Block-{{cssxref("margin")}}.                                                                               |
+| {{cssxref("margin-inline")}}       | Setzt alle Inline-`margin`.                                                                                           |
 | {{cssxref("padding-block")}}       | Setzt das Block-{{cssxref("padding")}}.                                                                               |
-| {{cssxref("padding-inline")}}      | Setzt das Inline-`padding`.                                                                                            |
+| {{cssxref("padding-inline")}}      | Setzt das Inline-`padding`.                                                                                           |
 
 ## Randbeispiele
 

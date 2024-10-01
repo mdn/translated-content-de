@@ -17,7 +17,7 @@ Beim Arbeiten mit Flexbox müssen Sie in Begriffen von zwei Achsen denken – de
 
 ### Die Hauptachse
 
-Die [Hauptachse](/de/docs/Glossary/main_axis) wird durch `flex-direction` definiert, welches vier mögliche Werte hat:
+Die {{Glossary("main_axis", "Hauptachse")}} wird durch `flex-direction` definiert, welches vier mögliche Werte hat:
 
 - `row`
 - `row-reverse`
@@ -34,7 +34,7 @@ Wählen Sie `column` oder `column-reverse`, verläuft Ihre Hauptachse in **Block
 
 ### Die Querachse
 
-Die [Querachse](/de/docs/Glossary/cross_axis) verläuft senkrecht zur Hauptachse. Wenn also Ihre `flex-direction` (Hauptachse) auf `row` oder `row-reverse` gesetzt ist, verläuft die Querachse hinunter zu den Spalten.
+Die {{Glossary("cross_axis", "Querachse")}} verläuft senkrecht zur Hauptachse. Wenn also Ihre `flex-direction` (Hauptachse) auf `row` oder `row-reverse` gesetzt ist, verläuft die Querachse hinunter zu den Spalten.
 
 ![Wenn flex-direction auf row gesetzt ist, verläuft die Querachse in der Block-Richtung.](basics3.svg)
 
@@ -62,7 +62,7 @@ Nach einiger Zeit wird es natürlich, über Start und Ende anstatt über links u
 
 ## Der Flex-Container
 
-Ein Bereich eines Dokuments, der mit Flexbox gestaltet wird, wird als **Flex-Container** bezeichnet. Um einen [Flex-Container](/de/docs/Glossary/flex_container) zu erstellen, setzen Sie die {{cssxref("display")}}-Eigenschaft des Bereichs auf `flex`. Wenn wir dies tun, werden die direkten Kinder dieses Containers zu **Flex-Elementen**. Sie können explizit steuern, ob der Container selbst Inline oder in einem Blockformatierungskontext angezeigt wird, indem Sie `inline flex` oder `inline-flex` für Inline-Flex-Container oder `block flex` oder `flex` für Block-Level-Flex-Container verwenden.
+Ein Bereich eines Dokuments, der mit Flexbox gestaltet wird, wird als **Flex-Container** bezeichnet. Um einen {{Glossary("flex_container", "Flex-Container")}} zu erstellen, setzen Sie die {{cssxref("display")}}-Eigenschaft des Bereichs auf `flex`. Wenn wir dies tun, werden die direkten Kinder dieses Containers zu **Flex-Elementen**. Sie können explizit steuern, ob der Container selbst Inline oder in einem Blockformatierungskontext angezeigt wird, indem Sie `inline flex` oder `inline-flex` für Inline-Flex-Container oder `block flex` oder `flex` für Block-Level-Flex-Container verwenden.
 
 ### Anfangswerte
 

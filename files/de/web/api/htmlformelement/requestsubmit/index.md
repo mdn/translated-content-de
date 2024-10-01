@@ -21,11 +21,11 @@ requestSubmit(submitter)
 
 - `submitter` {{optional_inline}}
 
-  - : Ein [submit button](/de/docs/Glossary/submit_button), der ein Mitglied des Formulars ist.
+  - : Ein {{Glossary("submit_button", "submit button")}}, der ein Mitglied des Formulars ist.
 
-    Wenn der `submitter` `form*`-Attribute angibt, [werden diese](/de/docs/Glossary/Submit_button#overriding_the_forms_behavior) das Absendeverhalten des Formulars überschreiben (z.B. `formmethod="POST"`).
+    Wenn der `submitter` `form*`-Attribute angibt, {{Glossary("Submit_button#overriding_the_forms_behavior", "werden diese")}} das Absendeverhalten des Formulars überschreiben (z.B. `formmethod="POST"`).
 
-    Wenn der `submitter` ein `name`-Attribut besitzt oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten [in das Formular eingeschlossen](/de/docs/Glossary/Submit_button#form_data_entries) (z.B. `btnName=btnValue`).
+    Wenn der `submitter` ein `name`-Attribut besitzt oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten {{Glossary("Submit_button#form_data_entries", "in das Formular eingeschlossen")}} (z.B. `btnName=btnValue`).
 
     Wenn Sie den `submitter`-Parameter weglassen, wird das Formularelement selbst als `submitter` verwendet.
 
@@ -36,7 +36,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der angegebene `submitter` kein [submit button](/de/docs/Glossary/submit_button) ist.
+  - : Wird ausgelöst, wenn der angegebene `submitter` kein {{Glossary("submit_button", "submit button")}} ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der angegebene `submitter` kein Mitglied des Formulars ist, auf dem `requestSubmit()` aufgerufen wurde. Der `submitter` muss entweder ein Nachkomme des Formularelements sein oder ein [`form`](/de/docs/Web/HTML/Element/input#form)-Attribut besitzen, das auf das Formular verweist.
 

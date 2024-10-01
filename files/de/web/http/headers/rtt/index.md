@@ -14,18 +14,18 @@ Der **`RTT`** [Client-Hint](/de/docs/Web/HTTP/Client_hints) Anforderungsheader-F
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anforderungsheader](/de/docs/Glossary/Request_header),
+        {{Glossary("Request_header", "Anforderungsheader")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
 </table>
 
-Der RTT-Wert wird auf die nächsten 25 Millisekunden gerundet, um [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu verhindern. Es gibt viele andere Mechanismen, die ein Angreifer verwenden könnte, um ähnliche Round-Trip-Informationen zu erhalten.
+Der RTT-Wert wird auf die nächsten 25 Millisekunden gerundet, um {{Glossary("Fingerprinting", "Fingerprinting")}} zu verhindern. Es gibt viele andere Mechanismen, die ein Angreifer verwenden könnte, um ähnliche Round-Trip-Informationen zu erhalten.
 
 Der Hinweis ermöglicht es einem Server zu entscheiden, welche Informationen basierend auf der Netzwerkreaktionsfähigkeit/Latenz gesendet werden. Beispielsweise könnte er entscheiden, weniger Ressourcen zu senden.
 

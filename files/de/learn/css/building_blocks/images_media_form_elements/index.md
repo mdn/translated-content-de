@@ -42,7 +42,7 @@ In dieser Lektion werfen wir einen Blick darauf, wie bestimmte spezielle Element
 
 Bilder und Videos werden als **[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)** bezeichnet. Dies bedeutet, dass CSS das interne Layout dieser Elemente nicht beeinflussen kann — nur ihre Position auf der Seite unter anderen Elementen. Wie wir jedoch sehen werden, gibt es verschiedene Dinge, die CSS mit einem Bild machen kann.
 
-Bestimmte ersetzte Elemente, wie Bilder und Videos, werden auch als Elemente mit einem **[Seitenverhältnis](/de/docs/Glossary/aspect_ratio)** beschrieben. Dies bedeutet, dass sie sowohl in horizontaler (x) als auch in vertikaler (y) Richtung eine Größe haben und standardmäßig mithilfe der intrinsischen Dimensionen der Datei angezeigt werden.
+Bestimmte ersetzte Elemente, wie Bilder und Videos, werden auch als Elemente mit einem **{{Glossary("aspect_ratio", "Seitenverhältnis")}}** beschrieben. Dies bedeutet, dass sie sowohl in horizontaler (x) als auch in vertikaler (y) Richtung eine Größe haben und standardmäßig mithilfe der intrinsischen Dimensionen der Datei angezeigt werden.
 
 ## Bilder skalieren
 
@@ -75,7 +75,7 @@ Sie könnten auch den Wert `fill` ausprobieren, der die Box ausfüllt, das Seite
 
 ## Ersetzte Elemente im Layout
 
-Wenn Sie verschiedene CSS-Layouttechniken auf ersetzte Elemente anwenden, werden Sie möglicherweise feststellen, dass sie sich etwas anders verhalten als andere Elemente. Zum Beispiel werden in einem Grid-Layout Elemente standardmäßig gestreckt, um ihre gesamten [Gridbereiche](/de/docs/Glossary/Grid_Areas) zu füllen. Bilder dehnen sich nicht aus; stattdessen werden sie an den Anfang ihrer Gridbereiche ausgerichtet.
+Wenn Sie verschiedene CSS-Layouttechniken auf ersetzte Elemente anwenden, werden Sie möglicherweise feststellen, dass sie sich etwas anders verhalten als andere Elemente. Zum Beispiel werden in einem Grid-Layout Elemente standardmäßig gestreckt, um ihre gesamten {{Glossary("Grid_Areas", "Gridbereiche")}} zu füllen. Bilder dehnen sich nicht aus; stattdessen werden sie an den Anfang ihrer Gridbereiche ausgerichtet.
 
 Sie können dies im folgenden Beispiel sehen, wo wir einen Grid-Container mit zwei Spalten und zwei Zeilen haben, der vier Elemente enthält. Alle `<div>`-Elemente haben eine Hintergrundfarbe und erstrecken sich, um die Zeile und die Spalte auszufüllen. Das Bild dehnt sich jedoch nicht aus.
 

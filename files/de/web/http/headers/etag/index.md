@@ -16,10 +16,10 @@ Wenn sich die Ressource unter einer bestimmten URL ändert, _muss_ ein neuer `Et
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -37,7 +37,7 @@ ETag: "<etag_value>"
 - `W/` {{optional_inline}}
   - : `'W/'` (Groß-/Kleinschreibung beachten) zeigt an, dass ein [schwacher Validator](/de/docs/Web/HTTP/Conditional_requests#weak_validation) verwendet wird. Schwache Etags sind einfach zu erzeugen, aber für Vergleiche weit weniger nützlich. Starke Validatoren sind ideal für Vergleiche, können jedoch sehr schwer effizient zu erzeugen sein. Schwache `ETag`-Werte von zwei Repräsentationen derselben Ressourcen könnten semantisch äquivalent sein, aber nicht byteweise identisch. Das bedeutet, dass schwache Etags das Caching verhindern, wenn [Bytebereich-Anfragen](/de/docs/Web/HTTP/Headers/Accept-Ranges) verwendet werden, jedoch starke Etags ermöglichen es, dass Bereichsanfragen weiterhin zwischengespeichert werden.
 - "\<etag_value>"
-  - : Entity-Tag, das die angeforderte Ressource eindeutig darstellt. Es ist eine Zeichenkette von [ASCII](/de/docs/Glossary/ASCII)-Zeichen, die in Anführungszeichen gesetzt ist, wie `"675af34563dc-tr34"`. Die Methode, mit der `ETag`-Werte generiert werden, ist nicht spezifiziert. Typischerweise ist der ETag-Wert ein Hash des Inhalts, ein Hash des letzten Änderungszeitpunktes oder nur eine Revisionsnummer. Beispielsweise kann eine Wiki-Engine einen hexadezimalen Hash des Inhalts des Dokumentartikels verwenden.
+  - : Entity-Tag, das die angeforderte Ressource eindeutig darstellt. Es ist eine Zeichenkette von {{Glossary("ASCII", "ASCII")}}-Zeichen, die in Anführungszeichen gesetzt ist, wie `"675af34563dc-tr34"`. Die Methode, mit der `ETag`-Werte generiert werden, ist nicht spezifiziert. Typischerweise ist der ETag-Wert ein Hash des Inhalts, ein Hash des letzten Änderungszeitpunktes oder nur eine Revisionsnummer. Beispielsweise kann eine Wiki-Engine einen hexadezimalen Hash des Inhalts des Dokumentartikels verwenden.
 
 ## Beispiele
 

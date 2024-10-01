@@ -7,21 +7,21 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das **globale Objekt** in JavaScript ist ein [Objekt](/de/docs/Glossary/object), das den [globalen Bereich](/de/docs/Glossary/global_scope) repräsentiert.
+Das **globale Objekt** in JavaScript ist ein {{Glossary("object", "Objekt")}}, das den {{Glossary("global_scope", "globalen Bereich")}} repräsentiert.
 
-> **Note:** _Global verfügbare Objekte_, die Objekte im [globalen Bereich](/de/docs/Glossary/global_scope) sind, werden manchmal auch als globale Objekte bezeichnet. Streng genommen gibt es jedoch nur ein globales Objekt pro Umgebung.
+> **Note:** _Global verfügbare Objekte_, die Objekte im {{Glossary("global_scope", "globalen Bereich")}} sind, werden manchmal auch als globale Objekte bezeichnet. Streng genommen gibt es jedoch nur ein globales Objekt pro Umgebung.
 
 In jeder JavaScript-Umgebung ist immer ein globales Objekt definiert. Das Interface des globalen Objekts hängt vom Ausführungskontext ab, in dem das Skript läuft. Zum Beispiel:
 
 - In einem Webbrowser hat jeder Code, den das Skript nicht speziell als Hintergrundaufgabe startet, ein [`Window`](/de/docs/Web/API/Window) als globales Objekt. Dies betrifft die überwiegende Mehrheit von JavaScript-Code im Web.
 - Code, der in einem [`Worker`](/de/docs/Web/API/Worker) ausgeführt wird, hat ein [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Objekt als globales Objekt.
-- Skripte, die unter [Node.js](/de/docs/Glossary/Node.js) laufen, haben ein Objekt namens [`global`](https://nodejs.org/api/globals.html#globals_global) als globales Objekt.
+- Skripte, die unter {{Glossary("Node.js", "Node.js")}} laufen, haben ein Objekt namens [`global`](https://nodejs.org/api/globals.html#globals_global) als globales Objekt.
 
 Die [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis)-globale Eigenschaft ermöglicht den Zugriff auf das globale Objekt unabhängig von der aktuellen Umgebung.
 
 [`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-Anweisungen und [Funktionsdeklarationen](/de/docs/Web/JavaScript/Reference/Statements/function) auf der obersten Ebene eines Skripts erstellen Eigenschaften des globalen Objekts. Andererseits erstellen {{jsxref("Statements/let", "let")}} und {{jsxref("Statements/const", "const")}}-Deklarationen niemals Eigenschaften des globalen Objekts.
 
-Die Eigenschaften des globalen Objekts werden automatisch zum [globalen Bereich](/de/docs/Glossary/global_scope) hinzugefügt.
+Die Eigenschaften des globalen Objekts werden automatisch zum {{Glossary("global_scope", "globalen Bereich")}} hinzugefügt.
 
 In JavaScript hält das globale Objekt immer eine Referenz auf sich selbst:
 
@@ -36,8 +36,8 @@ console.log(global === global.global); // true (in Node.js)
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [globaler Bereich](/de/docs/Glossary/global_scope)
-  - [Objekt](/de/docs/Glossary/object)
+  - {{Glossary("global_scope", "globaler Bereich")}}
+  - {{Glossary("object", "Objekt")}}
 - {{jsxref("globalThis")}}
 - [`Window`](/de/docs/Web/API/Window)
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)

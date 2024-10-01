@@ -53,7 +53,7 @@ Funktionale Notation: `light-dark(light-color, dark-color)`
 
 ### Farben abhängig vom Farbschema einstellen
 
-Standardmäßig hängt in unterstützten Browsern die von der `light-dark()`-Farbfunktion zurückgegebene Farbe von der Benutzerpräferenz ab, die über die Einstellungen des Betriebssystems festgelegt wurde (z. B. Licht- oder Dunkelmodus) oder von einer Benutzereinstellung im Browser. Sie können diese Einstellung auch in den [Entwicklertools](/de/docs/Glossary/developer_tools) des Browsers ändern.
+Standardmäßig hängt in unterstützten Browsern die von der `light-dark()`-Farbfunktion zurückgegebene Farbe von der Benutzerpräferenz ab, die über die Einstellungen des Betriebssystems festgelegt wurde (z. B. Licht- oder Dunkelmodus) oder von einer Benutzereinstellung im Browser. Sie können diese Einstellung auch in den {{Glossary("developer_tools", "Entwicklertools")}} des Browsers ändern.
 
 #### HTML
 

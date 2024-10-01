@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`hidden`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufzählbares](/de/docs/Glossary/enumerated) Attribut, das anzeigt, dass der Browser den Inhalt des Elements nicht rendern soll. Zum Beispiel kann es benutzt werden, um Elemente der Seite zu verbergen, die erst nach Abschluss des Login-Prozesses verwendet werden können.
+Das **`hidden`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("enumerated", "aufzählbares")}} Attribut, das anzeigt, dass der Browser den Inhalt des Elements nicht rendern soll. Zum Beispiel kann es benutzt werden, um Elemente der Seite zu verbergen, die erst nach Abschluss des Login-Prozesses verwendet werden können.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-hidden.html","tabbed-shorter")}}
 

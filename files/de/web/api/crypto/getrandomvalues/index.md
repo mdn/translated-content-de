@@ -11,7 +11,7 @@ l10n:
 Die **`Crypto.getRandomValues()`**-Methode ermöglicht es Ihnen, kryptographisch starke Zufallswerte zu erhalten.
 Das als Parameter übergebene Array wird mit Zufallszahlen (im kryptographischen Sinne zufällig) gefüllt.
 
-Um ausreichende Leistung zu gewährleisten, verwenden Implementierungen keinen echten Zufallszahlengenerator, sondern einen Pseudozufallszahlengenerator, der mit einem ausreichend entropiereichen Wert _gesät_ wird. Der Algorithmus des Pseudozufallszahlengenerators (PRNG) kann zwischen verschiedenen [User Agents](/de/docs/Glossary/user_agent) variieren, ist jedoch für kryptographische Zwecke geeignet.
+Um ausreichende Leistung zu gewährleisten, verwenden Implementierungen keinen echten Zufallszahlengenerator, sondern einen Pseudozufallszahlengenerator, der mit einem ausreichend entropiereichen Wert _gesät_ wird. Der Algorithmus des Pseudozufallszahlengenerators (PRNG) kann zwischen verschiedenen {{Glossary("user_agent", "User Agents")}} variieren, ist jedoch für kryptographische Zwecke geeignet.
 
 `getRandomValues()` ist das einzige Element des `Crypto`-Interfaces, das in einem unsicheren Kontext verwendet werden kann.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}{{Deprecated_Header}}
 
-Das **`<dir>`**-Element von [HTML](/de/docs/Web/HTML) wird als Container für ein Verzeichnis von Dateien und/oder Ordnern verwendet, möglicherweise mit vom [User Agent](/de/docs/Glossary/user_agent) angewendeten Stilen und Symbolen. Verwenden Sie dieses veraltete Element nicht; stattdessen sollten Sie das {{HTMLElement("ul")}}-Element für Listen benutzen, einschließlich Listen von Dateien.
+Das **`<dir>`**-Element von [HTML](/de/docs/Web/HTML) wird als Container für ein Verzeichnis von Dateien und/oder Ordnern verwendet, möglicherweise mit vom {{Glossary("user_agent", "User Agent")}} angewendeten Stilen und Symbolen. Verwenden Sie dieses veraltete Element nicht; stattdessen sollten Sie das {{HTMLElement("ul")}}-Element für Listen benutzen, einschließlich Listen von Dateien.
 
 > [!WARNING]
 > Verwenden Sie dieses Element nicht. Obwohl es in frühen HTML-Spezifikationen vorhanden war, wurde es in HTML 4 veraltet und seitdem vollständig entfernt.

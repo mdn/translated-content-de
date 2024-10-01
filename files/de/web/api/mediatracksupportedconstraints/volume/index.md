@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die **`volume`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter boolescher Wert, der im Objekt enthalten ist (und auf `true` gesetzt ist), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [User-Agent](/de/docs/Glossary/user_agent) die `volume`-Beschränkung unterstützt. Wenn die Beschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
+Die **`volume`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter boolescher Wert, der im Objekt enthalten ist (und auf `true` gesetzt ist), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der {{Glossary("user_agent", "User-Agent")}} die `volume`-Beschränkung unterstützt. Wenn die Beschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
 
 Sie können auf das Wörterbuch der unterstützten Einschränkungen zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 

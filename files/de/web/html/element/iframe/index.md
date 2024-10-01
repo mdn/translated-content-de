@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<iframe>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen verschachtelten [Browsing-Kontext](/de/docs/Glossary/browsing_context) und bettet eine andere HTML-Seite in die aktuelle Seite ein.
+Das **`<iframe>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen verschachtelten {{Glossary("browsing_context", "Browsing-Kontext")}} und bettet eine andere HTML-Seite in die aktuelle Seite ein.
 
 {{EmbedInteractiveExample("pages/tabbed/iframe.html", "tabbed-standard")}}
 
@@ -65,7 +65,7 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
       - : Das `iframe` wird sofort beim Laden der Seite geladen (dies ist der Standardwert).
     - `lazy`
 
-      - : Das Laden des `iframe` wird aufgeschoben, bis es eine berechnete Entfernung vom [Visual Viewport](/de/docs/Glossary/visual_viewport) erreicht, die vom Browser definiert wird. Das Ziel ist es, das Netzwerk und den Speicherbedarf beim Abrufen des Frames zu vermeiden, bis der Browser vernünftigerweise sicher ist, dass es benötigt wird. Dies verbessert die Leistung und Kosten in den meisten typischen Anwendungsfällen, insbesondere durch die Verkürzung der anfänglichen Ladezeit der Seite.
+      - : Das Laden des `iframe` wird aufgeschoben, bis es eine berechnete Entfernung vom {{Glossary("visual_viewport", "Visual Viewport")}} erreicht, die vom Browser definiert wird. Das Ziel ist es, das Netzwerk und den Speicherbedarf beim Abrufen des Frames zu vermeiden, bis der Browser vernünftigerweise sicher ist, dass es benötigt wird. Dies verbessert die Leistung und Kosten in den meisten typischen Anwendungsfällen, insbesondere durch die Verkürzung der anfänglichen Ladezeit der Seite.
 
         > [!NOTE]
         > Das Laden wird nur aufgeschoben, wenn JavaScript aktiviert ist.
@@ -80,13 +80,13 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
     - `no-referrer`
       - : Der {{HTTPHeader("Referer")}}-Header wird nicht gesendet.
     - `no-referrer-when-downgrade`
-      - : Der {{HTTPHeader("Referer")}}-Header wird nicht an [Ursprung](/de/docs/Glossary/origin) gesendet, die ohne [TLS](/de/docs/Glossary/TLS) ([HTTPS](/de/docs/Glossary/HTTPS)) sind.
+      - : Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "Ursprung")}} gesendet, die ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) sind.
     - `origin`
-      - : Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), [Host](/de/docs/Glossary/host) und [Port](/de/docs/Glossary/port).
+      - : Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
     - `origin-when-cross-origin`
       - : Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigationen im selben Ursprung enthalten weiterhin den Pfad.
     - `same-origin`
-      - : Ein Referrer wird für [den gleichen Ursprung](/de/docs/Glossary/Same-origin_policy) gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten.
+      - : Ein Referrer wird für {{Glossary("Same-origin_policy", "den gleichen Ursprung")}} gesendet, aber bei Cross-Origin-Anfragen werden keine Referrer-Informationen enthalten.
     - `strict-origin`
       - : Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), sendet ihn jedoch nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
     - `strict-origin-when-cross-origin` (standard)
@@ -115,7 +115,7 @@ Dieses Element beinhaltet die [globalen Attribute](/de/docs/Web/HTML/Global_attr
     - `allow-presentation`
       - : Ermöglicht es Einbettungen zu entscheiden, ob ein `iframe` eine [Präsentationssitzung](/de/docs/Web/API/PresentationRequest) starten kann.
     - `allow-same-origin`
-      - : Wenn dieses Token nicht verwendet wird, wird die Ressource so behandelt, als stamme sie von einem speziellen Ursprung, der immer die [Same-Origin-Policy](/de/docs/Glossary/same-origin_policy) fehlschlägt (was potenziell den Zugriff auf [Datenstorage/Cookies](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
+      - : Wenn dieses Token nicht verwendet wird, wird die Ressource so behandelt, als stamme sie von einem speziellen Ursprung, der immer die {{Glossary("same-origin_policy", "Same-Origin-Policy")}} fehlschlägt (was potenziell den Zugriff auf [Datenstorage/Cookies](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
     - `allow-scripts`
       - : Erlaubt der Seite, Skripte auszuführen (aber keine Popup-Fenster zu erstellen). Wenn dieses Schlüsselwort nicht verwendet wird, ist dieser Vorgang nicht erlaubt.
     - `allow-storage-access-by-user-activation` {{experimental_inline}}

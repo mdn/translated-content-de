@@ -21,7 +21,7 @@ Der HTTP-Statuscode für den **`510 Not Extended`** [Serverfehler](/de/docs/Web/
 
 Im folgenden Beispiel sendet ein Client eine Anfrage mit einer im `C-MAN`-Header angegebenen obligatorischen Erweiterung.
 Der {{HTTPHeader("Connection")}}-Header gibt an, dass diese Erweiterungen auf Basis von [Hop-by-Hop](/de/docs/Web/HTTP/Headers#hop-by-hop_headers) behandelt werden sollen.
-Ein [Proxy](/de/docs/Glossary/Proxy_server) leitet die erweiterte Anfrage weiter, aber der {{HTTPHeader("Connection")}}-Header wird während der Übertragung entfernt.
+Ein {{Glossary("Proxy_server", "Proxy")}} leitet die erweiterte Anfrage weiter, aber der {{HTTPHeader("Connection")}}-Header wird während der Übertragung entfernt.
 Da der Ursprungsserver keine Informationen über die `M-GET`-Methode erhält, sendet er eine `510`-Antwort:
 
 ```http

@@ -12,7 +12,7 @@ Die schreibgeschützte **`rawId`**-Eigenschaft des
 [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces ist ein {{jsxref("ArrayBuffer")}}-Objekt,
 das die Kennung der Anmeldeinformationen enthält.
 
-Die [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id)-Eigenschaft ist eine [base64url kodierte](/de/docs/Glossary/Base64) Version dieser Kennung.
+Die [`PublicKeyCredential.id`](/de/docs/Web/API/PublicKeyCredential/id)-Eigenschaft ist eine {{Glossary("Base64", "base64url kodierte")}} Version dieser Kennung.
 
 > [!NOTE]
 > Diese Eigenschaft kann nur in obersten Kontexten verwendet werden und ist zum Beispiel in einem {{HTMLElement("iframe")}} nicht verfügbar.

@@ -48,12 +48,12 @@ Django hilft Ihnen, Software zu schreiben, die:
 
     _Ein Passwort-Hash ist ein Wert fester Länge, der durch das Senden des Passworts durch eine [kryptografische Hash-Funktion](https://en.wikipedia.org/wiki/Cryptographic_hash_function) erstellt wird. Django kann überprüfen, ob ein eingegebenes Passwort korrekt ist, indem es es durch die Hash-Funktion laufen lässt und die Ausgabe mit dem gespeicherten Hash-Wert vergleicht. Aufgrund der "Einweg"-Natur der Funktion ist es jedoch selbst dann schwierig für einen Angreifer, das ursprüngliche Passwort herauszufinden, wenn ein gespeicherter Hash-Wert kompromittiert wird._
 
-    Django ermöglicht Standardmäßig Schutzmaßnahmen gegen viele Schwachstellen, einschließlich SQL-Injection, Cross-Site-Scripting, Cross-Site-Request-Forgery und [Clickjacking](/de/docs/Glossary/Clickjacking) (siehe [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security) für weitere Details zu solchen Angriffen).
+    Django ermöglicht Standardmäßig Schutzmaßnahmen gegen viele Schwachstellen, einschließlich SQL-Injection, Cross-Site-Scripting, Cross-Site-Request-Forgery und {{Glossary("Clickjacking", "Clickjacking")}} (siehe [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security) für weitere Details zu solchen Angriffen).
 
 - Skalierbar
   - : Django verwendet eine komponentenbasierte "[Shared-Nothing](https://en.wikipedia.org/wiki/Shared_nothing_architecture)"-Architektur (jeder Teil der Architektur ist unabhängig von den anderen und kann daher bei Bedarf ersetzt oder geändert werden). Eine klare Trennung zwischen den verschiedenen Teilen ermöglicht es, es für erhöhten Datenverkehr zu skalieren, indem Hardware auf beliebiger Ebene hinzugefügt wird: Caching-Server, Datenbank-Server oder Applikationsserver. Einige der verkehrsreichsten Seiten haben erfolgreich Django skaliert, um ihren Anforderungen gerecht zu werden (z. B. Instagram und Disqus, um nur zwei zu nennen).
 - Wartbar
-  - : Django-Code wird nach Designprinzipien und Mustern geschrieben, die die Erstellung wartbarer und wiederverwendbarer Codes fördern. Insbesondere nutzt es das Don't Repeat Yourself (DRY)-Prinzip, sodass keine unnötigen Duplikationen vorhanden sind, was die Menge des Codes reduziert. Django fördert auch die Gruppierung verwandter Funktionalitäten in wiederverwendbare "Anwendungen" und auf einer niedrigeren Ebene die Gruppierung verwandten Codes in Module (nach dem Vorbild des [Model View Controller (MVC)](/de/docs/Glossary/MVC) Muster).
+  - : Django-Code wird nach Designprinzipien und Mustern geschrieben, die die Erstellung wartbarer und wiederverwendbarer Codes fördern. Insbesondere nutzt es das Don't Repeat Yourself (DRY)-Prinzip, sodass keine unnötigen Duplikationen vorhanden sind, was die Menge des Codes reduziert. Django fördert auch die Gruppierung verwandter Funktionalitäten in wiederverwendbare "Anwendungen" und auf einer niedrigeren Ebene die Gruppierung verwandten Codes in Module (nach dem Vorbild des {{Glossary("MVC", "Model View Controller (MVC)")}} Muster).
 - Portabel
   - : Django ist in Python geschrieben, das auf vielen Plattformen läuft. Das bedeutet, dass Sie nicht an eine bestimmte Serverplattform gebunden sind und Ihre Anwendungen auf vielen Linux-Versionen, Windows und macOS ausführen können. Zudem wird Django von vielen Webhosting-Anbietern gut unterstützt, die oft spezifische Infrastruktur und Dokumentation für das Hosting von Django-Sites bieten.
 
@@ -100,7 +100,7 @@ Django Webanwendungen gruppieren den Code, der diese Schritte verarbeitet, typis
 - **Templates:** Ein Template ist eine Textdatei, die die Struktur oder das Layout einer Datei (wie einer HTML-Seite) definiert und Platzhalter verwendet, um den tatsächlichen Inhalt darzustellen. Eine _View_ kann eine HTML-Seite dynamisch erstellen, indem sie eine HTML-Vorlage verwendet und diese mit Daten aus einem _Modell_ füllt. Ein Template kann verwendet werden, um die Struktur jeder Art von Datei zu definieren; es muss nicht HTML sein!
 
 > [!NOTE]
-> Django bezeichnet diese Organisation als "Model View Template (MVT)"-Architektur. Es hat viele Ähnlichkeiten mit der bekannteren [Model View Controller](/de/docs/Glossary/MVC) Architektur.
+> Django bezeichnet diese Organisation als "Model View Template (MVT)"-Architektur. Es hat viele Ähnlichkeiten mit der bekannteren {{Glossary("MVC", "Model View Controller")}} Architektur.
 
 Die folgenden Abschnitte geben Ihnen einen Einblick, wie diese Hauptteile einer Django-App aussehen (wir gehen später im Kurs detaillierter darauf ein, sobald wir eine Entwicklungsumgebung eingerichtet haben).
 

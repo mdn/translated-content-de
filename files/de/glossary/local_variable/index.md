@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine [Variable](/de/docs/Glossary/variable), deren Name nur innerhalb eines [lokalen Gültigkeitsbereichs](/de/docs/Glossary/local_scope) an ihren [Wert](/de/docs/Glossary/value) gebunden ist.
+Eine {{Glossary("variable", "Variable")}}, deren Name nur innerhalb eines {{Glossary("local_scope", "lokalen Gültigkeitsbereichs")}} an ihren {{Glossary("value", "Wert")}} gebunden ist.
 
 ## Beispiel
 

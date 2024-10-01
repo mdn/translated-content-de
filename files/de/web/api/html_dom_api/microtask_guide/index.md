@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("HTML DOM")}}
 
-Ein **Microtask** ist eine kurze Funktion, die nach der Funktion oder dem Programm, das sie erstellt hat, ausgeführt wird _und_ nur, wenn der [JavaScript-Ausführungsstapel](/de/docs/Web/JavaScript/Event_loop#stack) leer ist, aber bevor die Kontrolle an die vom [User-Agenten](/de/docs/Glossary/user_agent) verwendete Ereignisschleife zurückgegeben wird, um die Ausführungsumgebung des Skripts zu steuern.
+Ein **Microtask** ist eine kurze Funktion, die nach der Funktion oder dem Programm, das sie erstellt hat, ausgeführt wird _und_ nur, wenn der [JavaScript-Ausführungsstapel](/de/docs/Web/JavaScript/Event_loop#stack) leer ist, aber bevor die Kontrolle an die vom {{Glossary("user_agent", "User-Agenten")}} verwendete Ereignisschleife zurückgegeben wird, um die Ausführungsumgebung des Skripts zu steuern.
 
 Diese Ereignisschleife kann entweder die Hauptereignisschleife des Browsers oder die Ereignisschleife sein, die einen [Web Worker](/de/docs/Web/API/Web_Workers_API) antreibt. Dadurch kann die gegebene Funktion ohne das Risiko laufen, die Ausführung eines anderen Skripts zu stören, und gleichzeitig sicherstellen, dass der Microtask ausgeführt wird, bevor der User-Agent die Möglichkeit hat, auf Aktionen zu reagieren, die vom Microtask durchgeführt wurden.
 

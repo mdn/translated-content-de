@@ -17,7 +17,7 @@ Die **`textContent`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node)-Interfaces
 
 Ein String oder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null). Sein Wert hängt von der Situation ab:
 
-- Wenn der Knoten ein [`document`](/de/docs/Web/API/Document) oder ein [doctype](/de/docs/Glossary/doctype) ist,
+- Wenn der Knoten ein [`document`](/de/docs/Web/API/Document) oder ein {{Glossary("doctype", "doctype")}} ist,
   gibt `textContent` [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
 
   > [!NOTE]
@@ -51,7 +51,7 @@ wichtige Unterschiede:
 
   - Da `innerText` CSS-Stile berücksichtigt,
     löst das Lesen des Werts von `innerText` ein
-    [Reflow](/de/docs/Glossary/reflow) aus, um aktuelle berechnete Stile sicherzustellen. (Reflows können
+    {{Glossary("reflow", "Reflow")}} aus, um aktuelle berechnete Stile sicherzustellen. (Reflows können
     rechnerisch aufwendig sein und sollten daher nach Möglichkeit vermieden werden.)
 
 ### Unterschiede zu innerHTML
@@ -61,7 +61,7 @@ wichtige Unterschiede:
 `textContent` hat eine bessere Leistung, da der Wert nicht als
 HTML geparst wird.
 
-Darüber hinaus kann die Verwendung von `textContent` [XSS-Angriffe](/de/docs/Glossary/Cross-site_scripting) verhindern.
+Darüber hinaus kann die Verwendung von `textContent` {{Glossary("Cross-site_scripting", "XSS-Angriffe")}} verhindern.
 
 ## Beispiele
 

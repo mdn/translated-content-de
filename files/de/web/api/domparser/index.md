@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`DOMParser`**-Schnittstelle bietet die Möglichkeit, [XML](/de/docs/Glossary/XML) oder [HTML](/de/docs/Glossary/HTML)-Quellcode aus einem String in ein DOM-[`Document`](/de/docs/Web/API/Document) zu parsen.
+Die **`DOMParser`**-Schnittstelle bietet die Möglichkeit, {{Glossary("XML", "XML")}} oder {{Glossary("HTML", "HTML")}}-Quellcode aus einem String in ein DOM-[`Document`](/de/docs/Web/API/Document) zu parsen.
 
 Sie können die entgegengesetzte Operation durchführen – das Konvertieren eines DOM-Baums in XML oder HTML-Quellcode – indem Sie die [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)-Schnittstelle verwenden.
 
@@ -16,7 +16,7 @@ Im Fall eines HTML-Dokuments können Sie auch Teile des DOM durch neue DOM-Bäum
 Beachten Sie, dass [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) XML und HTML direkt von einer URL-adressierbaren Ressource parsen kann und ein `Document` in seiner [`response`](/de/docs/Web/API/XMLHttpRequest/response)-Eigenschaft zurückgibt.
 
 > [!NOTE]
-> Beachten Sie, dass [Block-Elemente](/de/docs/Glossary/Block-level_content) wie `<p>` automatisch geschlossen werden, wenn ein anderes Block-Element darin verschachtelt ist und daher vor dem schließenden `</p>`-Tag geparst wird.
+> Beachten Sie, dass {{Glossary("Block-level_content", "Block-Elemente")}} wie `<p>` automatisch geschlossen werden, wenn ein anderes Block-Element darin verschachtelt ist und daher vor dem schließenden `</p>`-Tag geparst wird.
 
 ## Konstruktor
 

@@ -13,4 +13,4 @@ Ein _forbidden response header name_ ist ein [HTTP-Header](/de/docs/Web/HTTP/Hea
 
 - [Fetch-Spezifikation: forbidden response-header name](https://fetch.spec.whatwg.org/#forbidden-response-header-name)
 - Verwandte Glossarbegriffe:
-  - [Forbidden header name](/de/docs/Glossary/Forbidden_header_name)
+  - {{Glossary("Forbidden_header_name", "Forbidden header name")}}

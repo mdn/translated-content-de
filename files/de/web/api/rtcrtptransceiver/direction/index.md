@@ -10,7 +10,7 @@ l10n:
 
 Die Eigenschaft **`direction`** des [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver) ist ein String, der die _bevorzugte_ Richtung des Transceivers angibt.
 
-Die Richtung gibt an, ob der Transceiver anbietet, [RTP](/de/docs/Glossary/RTP)-Daten zu senden und/oder zu empfangen oder ob er inaktiv oder gestoppt (beendet) ist. Wenn die Richtung des Transceivers festgelegt wird, wird der Wert nicht sofort angewendet. Die _aktuelle_ Richtung wird durch die Eigenschaft [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) angegeben.
+Die Richtung gibt an, ob der Transceiver anbietet, {{Glossary("RTP", "RTP")}}-Daten zu senden und/oder zu empfangen oder ob er inaktiv oder gestoppt (beendet) ist. Wenn die Richtung des Transceivers festgelegt wird, wird der Wert nicht sofort angewendet. Die _aktuelle_ Richtung wird durch die Eigenschaft [`currentDirection`](/de/docs/Web/API/RTCRtpTransceiver/currentDirection) angegeben.
 
 ## Wert
 
@@ -50,7 +50,7 @@ Beim Setzen des Werts von `direction` kann die folgende Ausnahme auftreten:
 
 Die **`direction`**-Eigenschaft kann verwendet werden, um die _bevorzugte_ Richtung des Transceivers festzulegen oder abzurufen.
 
-Die Aktualisierung der Richtung tritt nicht sofort in Kraft. Wenn der neue Wert von `direction` von dem bestehenden Wert abweicht, ist eine Neuverhandlung der Verbindung erforderlich, sodass ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet wird. Ein `direction`-Wert (außer `stopped`) wird dann von [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) oder [`RTCPeerConnection.createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) verwendet, um die [SDP](/de/docs/Glossary/SDP)-Nachricht zu erzeugen, die durch diese Methoden erstellt wird. Zum Beispiel, wenn die `direction` als `"sendrecv"` angegeben ist, gibt die entsprechende SDP a-Zeile die Richtung an:
+Die Aktualisierung der Richtung tritt nicht sofort in Kraft. Wenn der neue Wert von `direction` von dem bestehenden Wert abweicht, ist eine Neuverhandlung der Verbindung erforderlich, sodass ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet wird. Ein `direction`-Wert (außer `stopped`) wird dann von [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) oder [`RTCPeerConnection.createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) verwendet, um die {{Glossary("SDP", "SDP")}}-Nachricht zu erzeugen, die durch diese Methoden erstellt wird. Zum Beispiel, wenn die `direction` als `"sendrecv"` angegeben ist, gibt die entsprechende SDP a-Zeile die Richtung an:
 
 ```plain
 a=sendrecv

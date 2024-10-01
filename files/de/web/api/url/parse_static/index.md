@@ -23,7 +23,7 @@ URL.parse(url, base)
 ### Parameter
 
 - `url`
-  - : Ein String oder ein anderes Objekt mit einem [Stringifier](/de/docs/Glossary/stringifier), das eine absolute URL oder einen relativen Verweis auf eine URL darstellt.
+  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}}, das eine absolute URL oder einen relativen Verweis auf eine URL darstellt.
     Wenn `url` ein relativer Verweis ist, ist `base` erforderlich und wird verwendet, um die endgültige URL zu erstellen.
     Wenn `url` eine absolute URL ist, wird eine angegebene `base` nicht verwendet, um die resultierende URL zu erstellen.
 - `base` {{optional_inline}}

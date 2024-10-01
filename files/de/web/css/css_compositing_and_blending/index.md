@@ -35,7 +35,7 @@ Beachten Sie, wie der Hintergrund, der Rand und der Inhalt durch das Blending be
 - {{cssxref("mask-composite")}} CSS-Eigenschaft
 - {{cssxref("background-color")}} CSS-Eigenschaft
 - {{cssxref("background-image")}} CSS-Eigenschaft
-- [stacking context](/de/docs/Glossary/stacking_context) Glossarbegriff
+- {{Glossary("stacking_context", "stacking context")}} Glossarbegriff
 - {{ SVGElement("feBlend")}} SVG-Filterprimitive
 - {{ SVGElement("feComposite")}} SVG-Filterprimitive
 

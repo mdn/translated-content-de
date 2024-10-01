@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einer Programmierumgebung ist der _globale Bereich_ der [Bereich](/de/docs/Glossary/scope), der alle anderen Bereiche enthält und in allen sichtbar ist.
+In einer Programmierumgebung ist der _globale Bereich_ der {{Glossary("scope", "Bereich")}}, der alle anderen Bereiche enthält und in allen sichtbar ist.
 
 Im clientseitigen JavaScript ist der globale Bereich im Allgemeinen die Webseite, innerhalb derer der gesamte Code ausgeführt wird.
 

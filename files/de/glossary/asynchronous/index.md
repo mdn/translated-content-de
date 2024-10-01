@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Begriff **asynchron** bezieht sich auf zwei oder mehr Objekte oder Ereignisse, die nicht zur gleichen Zeit existieren oder geschehen, das heißt, sie sind **nicht** [synchron](/de/docs/Glossary/synchronous). Wenn mehrere zusammenhängende Dinge passieren, ohne dass eines von der Fertigstellung vorheriger Abläufe abhängig ist, sind sie asynchron.
+Der Begriff **asynchron** bezieht sich auf zwei oder mehr Objekte oder Ereignisse, die nicht zur gleichen Zeit existieren oder geschehen, das heißt, sie sind **nicht** {{Glossary("synchronous", "synchron")}}. Wenn mehrere zusammenhängende Dinge passieren, ohne dass eines von der Fertigstellung vorheriger Abläufe abhängig ist, sind sie asynchron.
 
 In der Informatik wird das Wort "asynchron" in zwei wesentlichen Kontexten verwendet, wie unten erläutert.
 
@@ -29,4 +29,4 @@ Es gibt eine Reihe von Programmiertechniken zur Implementierung von asynchroner 
 
 - [Daten vom Server abrufen](/de/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data) (Lernbereich)
 - Verwandte Glossarbegriffe:
-  - [Synchron](/de/docs/Glossary/Synchronous)
+  - {{Glossary("Synchronous", "Synchron")}}

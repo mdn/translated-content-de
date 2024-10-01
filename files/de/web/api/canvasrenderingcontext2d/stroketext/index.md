@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die Methode **`strokeText()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), Teil der Canvas 2D API, zeichnet die Umrisse der Zeichen einer Textzeichenfolge an den angegebenen Koordinaten. Ein optionaler Parameter ermöglicht es, eine maximale Breite für den gerenderten Text anzugeben, die der [User Agent](/de/docs/Glossary/user_agent) durch Textverdichtung oder durch die Verwendung einer kleineren Schriftgröße erreicht.
+Die Methode **`strokeText()`** der [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), Teil der Canvas 2D API, zeichnet die Umrisse der Zeichen einer Textzeichenfolge an den angegebenen Koordinaten. Ein optionaler Parameter ermöglicht es, eine maximale Breite für den gerenderten Text anzugeben, die der {{Glossary("user_agent", "User Agent")}} durch Textverdichtung oder durch die Verwendung einer kleineren Schriftgröße erreicht.
 
 Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern, sodass nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) keine Wirkung darauf haben.
 

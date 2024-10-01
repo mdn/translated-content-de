@@ -22,7 +22,7 @@ PublicKeyCredential.parseCreationOptionsFromJSON(options)
 
 - `options`
 
-  - : Ein Objekt mit derselben Struktur wie ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions), jedoch mit [base64url](/de/docs/Glossary/Base64)-codierten Zeichenfolgen anstelle von Puffer-Eigenschaften.
+  - : Ein Objekt mit derselben Struktur wie ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions), jedoch mit {{Glossary("Base64", "base64url")}}-codierten Zeichenfolgen anstelle von Puffer-Eigenschaften.
 
 ### Rückgabewert
 
@@ -39,8 +39,8 @@ Der Web-Authentifizierungsprozess zur [Erstellung eines Schlüsselpaares und Reg
 Die Web-App übergibt diese Informationen an einen Authenticator, um die Anmeldeinformation zu erstellen, indem sie [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create) mit einem [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions) Objekt als Argument aufruft.
 
 Die Spezifikation definiert nicht, wie die für die Erstellung einer Anmeldeinformation benötigten Informationen gesendet werden.
-Ein praktischer Ansatz besteht darin, dass der Server die Informationen in einer [JSON-Typ-Repräsentation](/de/docs/Glossary/JSON_type_representation) des [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions) Objekts kapselt, das seine Struktur widerspiegelt, aber Puffer-Eigenschaften wie die `challenge` und `user.id` als [base64url](/de/docs/Glossary/Base64) Zeichenfolgen codiert.
-Dieses Objekt kann in eine [JSON](/de/docs/Glossary/JSON) Zeichenfolge serialisiert, an die Web-App gesendet und deserialisiert und dann mit **`parseCreationOptionsFromJSON()`** in ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions) Objekt umgewandelt werden.
+Ein praktischer Ansatz besteht darin, dass der Server die Informationen in einer {{Glossary("JSON_type_representation", "JSON-Typ-Repräsentation")}} des [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions) Objekts kapselt, das seine Struktur widerspiegelt, aber Puffer-Eigenschaften wie die `challenge` und `user.id` als {{Glossary("Base64", "base64url")}} Zeichenfolgen codiert.
+Dieses Objekt kann in eine {{Glossary("JSON", "JSON")}} Zeichenfolge serialisiert, an die Web-App gesendet und deserialisiert und dann mit **`parseCreationOptionsFromJSON()`** in ein [`PublicKeyCredentialCreationOptions`](/de/docs/Web/API/PublicKeyCredentialCreationOptions) Objekt umgewandelt werden.
 
 ## Beispiele
 

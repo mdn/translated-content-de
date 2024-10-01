@@ -58,13 +58,13 @@ Weitere Verbesserungen umfassen die Aktualisierung des Emulators, um die `XR`-Sc
 
 ### Anforderungen an den Kontext
 
-Eine mit WebXR kompatible Umgebung beginnt mit einem sicher geladenen Dokument. Ihr Dokument muss entweder von der lokalen Festplatte geladen worden sein (z. B. durch die Verwendung einer URL wie `http://localhost/…`), oder die Seite muss unter Verwendung von [HTTPS](/de/docs/Glossary/HTTPS) geladen werden. Der JavaScript-Code muss ebenfalls sicher geladen worden sein.
+Eine mit WebXR kompatible Umgebung beginnt mit einem sicher geladenen Dokument. Ihr Dokument muss entweder von der lokalen Festplatte geladen worden sein (z. B. durch die Verwendung einer URL wie `http://localhost/…`), oder die Seite muss unter Verwendung von {{Glossary("HTTPS", "HTTPS")}} geladen werden. Der JavaScript-Code muss ebenfalls sicher geladen worden sein.
 
 Wenn das Dokument nicht sicher geladen wurde, werden Sie nicht sehr weit kommen. Die [`navigator.xr`](/de/docs/Web/API/Navigator/xr)-Eigenschaft existiert nicht einmal, wenn das Dokument nicht sicher geladen wurde. Dies kann auch der Fall sein, wenn keine kompatible XR-Hardware verfügbar ist. In jedem Fall müssen Sie auf das Fehlen einer `xr`-Eigenschaft vorbereitet sein und entweder den Fehler reibungslos behandeln oder eine Art Fallback bereitstellen.
 
 ### Rückgriff auf den WebXR-Polyfill
 
-Eine Rückfalloption ist der [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill/), bereitgestellt von der [Immersive Web Working Group](https://www.w3.org/immersive-web/), die für den Prozess der Standardisierung von WebXR verantwortlich ist. Der [Polyfill](/de/docs/Glossary/polyfill) bringt Unterstützung für WebXR in Browser, die keine native Unterstützung für WebXR haben, und glättet die Inkonsistenzen zwischen den Implementierungen in den Browsern, die dies tun, sodass er manchmal auch nützlich sein kann, selbst wenn WebXR nativ verfügbar ist.
+Eine Rückfalloption ist der [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill/), bereitgestellt von der [Immersive Web Working Group](https://www.w3.org/immersive-web/), die für den Prozess der Standardisierung von WebXR verantwortlich ist. Der {{Glossary("polyfill", "Polyfill")}} bringt Unterstützung für WebXR in Browser, die keine native Unterstützung für WebXR haben, und glättet die Inkonsistenzen zwischen den Implementierungen in den Browsern, die dies tun, sodass er manchmal auch nützlich sein kann, selbst wenn WebXR nativ verfügbar ist.
 
 Hier definieren wir eine `getXR()`-Funktion, die das [`XRSystem`](/de/docs/Web/API/XRSystem)-Objekt zurückgibt, nachdem der Polyfill optional installiert wurde, vorausgesetzt, der Polyfill wurde zuvor mit einem {{HTMLElement("script")}}-Tag eingebunden oder geladen.
 

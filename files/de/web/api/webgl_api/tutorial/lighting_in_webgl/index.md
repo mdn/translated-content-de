@@ -188,7 +188,7 @@ const vsSource = `
   `;
 ```
 
-Sobald die Position des Scheitelpunkts berechnet ist und wir die Koordinaten des [Texels](/de/docs/Glossary/texel), die dem Scheitelpunkt entsprechen, an den Fragment-Shader übergeben haben, können wir mit der Berechnung der Schattierung für den Scheitelpunkt beginnen.
+Sobald die Position des Scheitelpunkts berechnet ist und wir die Koordinaten des {{Glossary("texel", "Texels")}}, die dem Scheitelpunkt entsprechen, an den Fragment-Shader übergeben haben, können wir mit der Berechnung der Schattierung für den Scheitelpunkt beginnen.
 
 Das Erste, was wir tun, ist, die Normale basierend auf der aktuellen Ausrichtung des Würfels zu transformieren, indem wir die Normale des Scheitelpunkts mit der Normalenmatrix multiplizieren. Dann können wir die Menge des gerichteten Lichts berechnen, die auf den Scheitelpunkt angewendet werden muss, indem wir das Skalarprodukt der transformierten Normale und des Richtungsvektors berechnen (also die Richtung, aus der das Licht kommt). Wenn dieser Wert kleiner als null ist, dann fixieren wir den Wert auf null, da man weniger als null Licht nicht haben kann.
 

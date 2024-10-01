@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Die Stärke des in der [Signierung](/de/docs/Glossary/Signature/Security) eines [digitalen Zertifikats](/de/docs/Glossary/Digital_certificate) verwendeten Hash-Algorithmus ist ein entscheidendes Element für die Sicherheit des Zertifikats. Dieser Artikel liefert Informationen über Signaturalgorithmen, die als schwach bekannt sind, damit Sie diese in geeigneten Fällen vermeiden können.
+Die Stärke des in der {{Glossary("Signature/Security", "Signierung")}} eines {{Glossary("Digital_certificate", "digitalen Zertifikats")}} verwendeten Hash-Algorithmus ist ein entscheidendes Element für die Sicherheit des Zertifikats. Dieser Artikel liefert Informationen über Signaturalgorithmen, die als schwach bekannt sind, damit Sie diese in geeigneten Fällen vermeiden können.
 
 Schwächen in Hash-Algorithmen können zu Situationen führen, in denen Angreifer gefälschte Zertifikate erstellen oder erlangen können. Da neue Angriffe entdeckt werden und Verbesserungen in der verfügbaren Technologie Angriffe machbarer machen, wird die Nutzung älterer Algorithmen entmutigt und deren Unterstützung schließlich entfernt.
 

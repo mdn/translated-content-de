@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im Kontext des [DOM](/de/docs/Glossary/DOM) ist ein **node** ein einzelner Punkt im Knotenbaum. Verschiedene Dinge, die Knoten sind, sind das Dokument selbst, Elemente, Text und Kommentare.
+Im Kontext des {{Glossary("DOM", "DOM")}} ist ein **node** ein einzelner Punkt im Knotenbaum. Verschiedene Dinge, die Knoten sind, sind das Dokument selbst, Elemente, Text und Kommentare.
 
 ## Siehe auch
 

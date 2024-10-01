@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die funktionale Notation **`color()`** ermöglicht die Angabe einer Farbe in einem bestimmten, spezifizierten [Farbraum](/de/docs/Glossary/color_space), anstatt in dem impliziten sRGB-Farbraum, in dem die meisten anderen Farb-Funktionen arbeiten.
+Die funktionale Notation **`color()`** ermöglicht die Angabe einer Farbe in einem bestimmten, spezifizierten {{Glossary("color_space", "Farbraum")}}, anstatt in dem impliziten sRGB-Farbraum, in dem die meisten anderen Farb-Funktionen arbeiten.
 
 Die Unterstützung für einen bestimmten Farbraum kann mit dem CSS-Media-Feature [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) erkannt werden.
 
@@ -41,7 +41,7 @@ Die Parameter sind wie folgt:
 
 - `c1`, `c2`, `c3`
 
-  - : Jeder Wert kann als {{CSSXref("number")}}, {{CSSXref("percentage")}} oder das Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0`) angegeben werden. Diese Werte repräsentieren die Komponentenwerte für den Farbraum. Bei der Verwendung eines `<number>`-Wertes repräsentieren im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind zulässig, liegen jedoch außerhalb des [Gamut](/de/docs/Glossary/gamut) für den gegebenen Farbraum. Bei der Verwendung eines Prozentwerts repräsentiert `100%` den Wert `1` und `0%` den Wert `0`.
+  - : Jeder Wert kann als {{CSSXref("number")}}, {{CSSXref("percentage")}} oder das Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0`) angegeben werden. Diese Werte repräsentieren die Komponentenwerte für den Farbraum. Bei der Verwendung eines `<number>`-Wertes repräsentieren im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind zulässig, liegen jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den gegebenen Farbraum. Bei der Verwendung eines Prozentwerts repräsentiert `100%` den Wert `1` und `0%` den Wert `0`.
 
 - `A` {{optional_inline}}
 
@@ -61,9 +61,9 @@ Die Parameter sind wie folgt:
 - `from <color>`
   - : Das Schlüsselwort `from` wird immer eingeschlossen, wenn eine relative Farbe definiert wird, gefolgt von einem {{cssxref("&lt;color&gt;")}}-Wert, der die **ursprüngliche Farbe** darstellt. Dies ist die Originalfarbe, auf der die relative Farbe basiert. Die Ursprungfarbe kann _jede_ gültige {{cssxref("&lt;color&gt;")}}-Syntax sein, einschließlich einer anderen relativen Farbe.
 - `colorspace`
-  - : Ein {{CSSXref("&lt;ident&gt;")}}, das den [Farbraum](/de/docs/Glossary/color_space) der Ausgabefarbe angibt, in der Regel einer der vordefinierten Farbräume: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
+  - : Ein {{CSSXref("&lt;ident&gt;")}}, das den {{Glossary("color_space", "Farbraum")}} der Ausgabefarbe angibt, in der Regel einer der vordefinierten Farbräume: `srgb`, `srgb-linear`, `display-p3`, `a98-rgb`, `prophoto-rgb`, `rec2020`, `xyz`, `xyz-d50` oder `xyz-d65`.
 - `c1`, `c2`, `c3`
-  - : Jeder Wert kann als {{CSSXref("number")}}, {{CSSXref("percentage")}} oder das Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0`) angegeben werden. Diese Werte repräsentieren die Komponentenwerte für die Ausgabefarbe. Bei der Verwendung eines `<number>`-Wertes repräsentieren im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind zulässig, liegen jedoch außerhalb des [Gamut](/de/docs/Glossary/gamut) für den gegebenen Farbraum. In der Regel repräsentiert bei der Verwendung eines Prozentwerts `100%` den Wert `1` und `0%` den Wert `0`.
+  - : Jeder Wert kann als {{CSSXref("number")}}, {{CSSXref("percentage")}} oder das Schlüsselwort `none` (in diesem Fall gleichbedeutend mit `0`) angegeben werden. Diese Werte repräsentieren die Komponentenwerte für die Ausgabefarbe. Bei der Verwendung eines `<number>`-Wertes repräsentieren im Allgemeinen `0` bis `1` die Grenzen des Farbraums. Werte außerhalb dieses Bereichs sind zulässig, liegen jedoch außerhalb des {{Glossary("gamut", "Gamut")}} für den gegebenen Farbraum. In der Regel repräsentiert bei der Verwendung eines Prozentwerts `100%` den Wert `1` und `0%` den Wert `0`.
 - `A` {{optional_inline}}
   - : Ein {{CSSXref("&lt;alpha-value&gt;")}}, das den Alphakanalwert der Ausgabefarbe darstellt, wobei die Zahl `0` `0%` (vollständig transparent) und `1` `100%` (vollständig undurchsichtig) entspricht. Zudem kann das Schlüsselwort `none` verwendet werden, um ausdrücklich keinen Alphakanal anzugeben. Wenn der `A`-Kanalwert nicht ausdrücklich spezifiziert wird, ist der Standardwert der Alphakanalwert der Ursprungfarbe. Falls einbezogen, wird der Wert mit einem Schrägstrich (`/`) vorangestellt.
 

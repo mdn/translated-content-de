@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Eigenschaft **`antialias`** ist ein Boolescher Wert, der `true` ist, wenn der Frame-Buffer der Rendering-Ebene Anti-Aliasing unterstützt. Andernfalls ist der Wert dieser Eigenschaft `false`. Die spezifische Anti-Aliasing-Technik, die verwendet wird, liegt im Ermessen des [Benutzeragenten](/de/docs/Glossary/user_agent) und kann nicht von der Website oder Web-App festgelegt werden.
+Die schreibgeschützte [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Eigenschaft **`antialias`** ist ein Boolescher Wert, der `true` ist, wenn der Frame-Buffer der Rendering-Ebene Anti-Aliasing unterstützt. Andernfalls ist der Wert dieser Eigenschaft `false`. Die spezifische Anti-Aliasing-Technik, die verwendet wird, liegt im Ermessen des {{Glossary("user_agent", "Benutzeragenten")}} und kann nicht von der Website oder Web-App festgelegt werden.
 
 ## Syntax
 

@@ -384,7 +384,7 @@ svg {
 
 ### Kubische Bézier-Kurve
 
-_Kubische [Bézier-Kurven](/de/docs/Glossary/Bezier_curve)_ sind glatte Kurvendefinitionen unter Verwendung von vier Punkten:
+_Kubische {{Glossary("Bezier_curve", "Bézier-Kurven")}}_ sind glatte Kurvendefinitionen unter Verwendung von vier Punkten:
 
 - Startpunkt (aktueller Punkt)
   - : (_P<sub>o</sub>_ = {_x<sub>o</sub>_, _y<sub>o</sub>_})
@@ -592,7 +592,7 @@ svg {
 
 ### Quadratische Bézier-Kurve
 
-_Quadratische [Bézier-Kurven](/de/docs/Glossary/Bezier_curve)_ sind glatte Kurvendefinitionen unter Verwendung von drei Punkten:
+_Quadratische {{Glossary("Bezier_curve", "Bézier-Kurven")}}_ sind glatte Kurvendefinitionen unter Verwendung von drei Punkten:
 
 - Startpunkt (aktueller Punkt)
   - : _P<sub>o</sub>_ = {_x<sub>o</sub>_, _y<sub>o</sub>_}

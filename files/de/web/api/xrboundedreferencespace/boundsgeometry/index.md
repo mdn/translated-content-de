@@ -22,7 +22,7 @@ Jeder Eintrag in `boundsGeometry` entspricht einem Eintrag in der Liste der nati
 
 Begrenzte Referenzräume haben ihren Ursprung immer auf Bodenhöhe, wo `y` 0 ist. Im Allgemeinen befindet sich der Ursprung für `x` und `z` im oder nahe dem Zentrum des Raumes, mit der Ausrichtung in eine logische Vorwärtsrichtung gesetzt, wie es für die zugrunde liegende Plattform oder XR-Hardware angemessen ist.
 
-Um das Risiko zu verringern, dass die Raumgrenzen für [Fingerprinting](/de/docs/Glossary/Fingerprinting) Zwecke verwendet werden, kann jeder Punkt im `boundsGeometry`-Array um einen gewissen Betrag gerundet oder angepasst werden. Die Spezifikation empfiehlt, dass Browser die Punkte auf den nächsten 5 Zentimeter verschieben (während sie vermeiden, außerhalb der physischen Einschränkungen der Hardware zu gelangen).
+Um das Risiko zu verringern, dass die Raumgrenzen für {{Glossary("Fingerprinting", "Fingerprinting")}} Zwecke verwendet werden, kann jeder Punkt im `boundsGeometry`-Array um einen gewissen Betrag gerundet oder angepasst werden. Die Spezifikation empfiehlt, dass Browser die Punkte auf den nächsten 5 Zentimeter verschieben (während sie vermeiden, außerhalb der physischen Einschränkungen der Hardware zu gelangen).
 
 ### Grenzgröße
 

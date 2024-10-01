@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-In CSS beschreibt das **visuelle Formatierungsmodell**, wie Benutzeragenten den Dokumentbaum entnehmen, verarbeiten und für visuelle Medien darstellen. Dazu gehören [continuous media](/de/docs/Glossary/continuous_media) wie ein Computerbildschirm und [paged media](/de/docs/Web/CSS/CSS_paged_media) wie ein Buch oder ein Dokument, das über die Druckfunktionen des Browsers gedruckt wird. Die meisten Informationen gelten gleichermaßen für kontinuierliche und paginierte Medien.
+In CSS beschreibt das **visuelle Formatierungsmodell**, wie Benutzeragenten den Dokumentbaum entnehmen, verarbeiten und für visuelle Medien darstellen. Dazu gehören {{Glossary("continuous_media", "continuous media")}} wie ein Computerbildschirm und [paged media](/de/docs/Web/CSS/CSS_paged_media) wie ein Buch oder ein Dokument, das über die Druckfunktionen des Browsers gedruckt wird. Die meisten Informationen gelten gleichermaßen für kontinuierliche und paginierte Medien.
 
 Im visuellen Formatierungsmodell generiert jedes Element im Dokumentbaum gemäß dem Boxmodell null oder mehr Boxen. Das Layout dieser Boxen wird von folgenden Faktoren bestimmt:
 
@@ -22,7 +22,7 @@ In diesem Dokument definieren wir das Modell und führen einige der damit verbun
 
 ## Die Rolle des Viewports
 
-In kontinuierlichen Medien ist der [Viewport](/de/docs/Glossary/viewport) der Anzeigebereich des Browserfensters. Benutzeragenten können das Layout der Seite ändern, wenn sich die Größe des Viewports ändert – zum Beispiel, wenn Sie Ihr Fenster verkleinern oder die Ausrichtung eines mobilen Geräts ändern.
+In kontinuierlichen Medien ist der {{Glossary("viewport", "Viewport")}} der Anzeigebereich des Browserfensters. Benutzeragenten können das Layout der Seite ändern, wenn sich die Größe des Viewports ändert – zum Beispiel, wenn Sie Ihr Fenster verkleinern oder die Ausrichtung eines mobilen Geräts ändern.
 
 Wenn der Viewport kleiner ist als die Größe des Dokuments, muss der Benutzeragent eine Möglichkeit bieten, zu den Teilen des Dokuments zu scrollen, die nicht angezeigt werden. Dies sehen wir am häufigsten als Scrollen in der **Block-Dimension** – vertikal in einer horizontalen, von oben nach unten verlaufenden Sprache. Sie könnten jedoch auch etwas entwerfen, das ein Scrollen in der **Inline-Dimension** erfordert.
 
@@ -152,4 +152,4 @@ Eine Block-Box ist eine Block-Level-Box, die auch ein Block-Container ist. Wie i
 - [Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)
 - [`VisualViewport`](/de/docs/Web/API/VisualViewport) Schnittstelle
-- [Scroll-Container](/de/docs/Glossary/Scroll_container)
+- {{Glossary("Scroll_container", "Scroll-Container")}}

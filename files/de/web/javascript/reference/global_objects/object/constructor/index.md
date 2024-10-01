@@ -314,4 +314,4 @@ Auch hier kann die Verwendung von `Object.setPrototypeOf()` nachteilige Leistung
 
 - {{jsxref("Statements/class", "class")}}
 - {{jsxref("Classes/constructor", "constructor")}}
-- [Constructor](/de/docs/Glossary/Constructor)
+- {{Glossary("Constructor", "Constructor")}}

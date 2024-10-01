@@ -53,7 +53,7 @@ Die Barcode Detection API unterstützt die folgenden Barcode-Formate:
     <tr>
       <td>code_128</td>
       <td>
-        Ein linearer (eindimensionaler), bidirektional dekodierbarer, selbstprüfender Barcode gemäß iso15417, der alle 128 Zeichen des [ASCII](/de/docs/Glossary/ASCII) kodieren kann (daher der Name).
+        Ein linearer (eindimensionaler), bidirektional dekodierbarer, selbstprüfender Barcode gemäß iso15417, der alle 128 Zeichen des {{Glossary("ASCII", "ASCII")}} kodieren kann (daher der Name).
       </td>
       <td>
         <img

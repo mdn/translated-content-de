@@ -9,7 +9,7 @@ l10n:
 
 Die **`inset-inline`**-Eigenschaft von [CSS](/de/docs/Web/CSS) definiert die logischen Start- und End-Abstände eines Elements in der Inline-Richtung, die je nach Schreibmodus, Richtung und Textausrichtung des Elements auf physische Abstände abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}} je nach den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese [inset property](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "inset property")}} hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline.html")}}
 

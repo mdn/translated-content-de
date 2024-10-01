@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`height`**- [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Styles basierend auf der Höhe des [Viewports](/de/docs/Glossary/viewport) (oder der Seitenbox bei [Paged Media](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
+Das **`height`**- [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um Styles basierend auf der Höhe des {{Glossary("viewport", "Viewports")}} (oder der Seitenbox bei [Paged Media](/de/docs/Web/CSS/CSS_paged_media)) anzuwenden.
 
 ## Syntax
 

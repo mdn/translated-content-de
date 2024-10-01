@@ -12,7 +12,7 @@ Die **`back()`**-Methode der [`History`](/de/docs/Web/API/History)-Schnittstelle
 
 Sie hat denselben Effekt wie ein Aufruf von [`history.go(-1)`](/de/docs/Web/API/History/go). Wenn es keine vorherige Seite gibt, bewirkt dieser Methodenaufruf nichts.
 
-Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
+Diese Methode ist {{Glossary("asynchronous", "asynchron")}}. Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
 
 ## Syntax
 

@@ -379,7 +379,7 @@ Ein häufiger Anwendungsfall für Push-Benachrichtigungen sind Chat-Apps: Wenn d
 
 Push-Nachrichten werden nicht direkt vom App-Server an das Gerät gesendet. Stattdessen sendet Ihr App-Server Nachrichten an einen Push-Dienst, von dem aus das Gerät sie abrufen und an die App ausliefern kann.
 
-Dies bedeutet auch, dass Nachrichten von Ihrem Server an den Push-Dienst [verschlüsselt](/de/docs/Glossary/Encryption) werden müssen (damit der Push-Dienst sie nicht lesen kann) und [signiert](/de/docs/Glossary/Signature/Security) werden müssen (damit der Push-Dienst weiß, dass die Nachrichten wirklich von Ihrem Server und nicht von jemandem stammen, der sich als Ihr Server ausgibt).
+Dies bedeutet auch, dass Nachrichten von Ihrem Server an den Push-Dienst {{Glossary("Encryption", "verschlüsselt")}} werden müssen (damit der Push-Dienst sie nicht lesen kann) und {{Glossary("Signature/Security", "signiert")}} werden müssen (damit der Push-Dienst weiß, dass die Nachrichten wirklich von Ihrem Server und nicht von jemandem stammen, der sich als Ihr Server ausgibt).
 
 Der Push-Dienst wird von dem Browseranbieter oder von einem Drittanbieter betrieben, und der App-Server kommuniziert mit ihm über das [HTTP Push](https://datatracker.ietf.org/doc/html/rfc8030)-Protokoll. Der App-Server kann eine Drittanbieter-Bibliothek wie [web-push](https://github.com/web-push-libs/web-push) verwenden, um die Protokolldetails zu verwalten.
 
@@ -389,7 +389,7 @@ Das Muster für das Abonnieren von Push-Nachrichten sieht folgendermaßen aus:
 
 ![Diagramm, das die Schritte zum Abonnieren von Push-Nachrichten zeigt](push-messaging-1.svg)
 
-1. Als Voraussetzung muss der App-Server mit einem [öffentlichen/privaten Schlüsselpaar](/de/docs/Glossary/Public-key_cryptography) ausgestattet sein, damit er Push-Nachrichten signieren kann. Die Signierung von Nachrichten muss der [VAPID](https://datatracker.ietf.org/doc/html/draft-thomson-webpush-vapid-02)-Spezifikation folgen.
+1. Als Voraussetzung muss der App-Server mit einem {{Glossary("Public-key_cryptography", "öffentlichen/privaten Schlüsselpaar")}} ausgestattet sein, damit er Push-Nachrichten signieren kann. Die Signierung von Nachrichten muss der [VAPID](https://datatracker.ietf.org/doc/html/draft-thomson-webpush-vapid-02)-Spezifikation folgen.
 
 2. Auf dem Gerät verwendet die App die [`PushManager.subscribe()`](/de/docs/Web/API/PushManager/subscribe)-Methode, um sich für Nachrichten vom Server anzumelden. Die `subscribe()`-Methode:
 

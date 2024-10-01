@@ -63,7 +63,7 @@ Der `ConstrainULong` Einschränkungs-Typ wird verwendet, um eine Einschränkung 
 
 ## Instanzeigenschaften
 
-Eine Kombination, aber nicht unbedingt alle, der folgenden Eigenschaften werden im Objekt vorhanden sein. Dies kann daran liegen, dass ein bestimmter Browser die Eigenschaft nicht unterstützt oder weil sie nicht zutrifft. Zum Beispiel, weil [RTP](/de/docs/Glossary/RTP) einige dieser Werte während der Verhandlung einer WebRTC-Verbindung nicht bereitstellt, wird ein Track, der mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden ist, bestimmte Werte nicht enthalten, wie [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) oder [`groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId).
+Eine Kombination, aber nicht unbedingt alle, der folgenden Eigenschaften werden im Objekt vorhanden sein. Dies kann daran liegen, dass ein bestimmter Browser die Eigenschaft nicht unterstützt oder weil sie nicht zutrifft. Zum Beispiel, weil {{Glossary("RTP", "RTP")}} einige dieser Werte während der Verhandlung einer WebRTC-Verbindung nicht bereitstellt, wird ein Track, der mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden ist, bestimmte Werte nicht enthalten, wie [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode) oder [`groupId`](/de/docs/Web/API/MediaTrackConstraints/groupId).
 
 ### Instanzeigenschaften aller Medienspuren
 
@@ -125,7 +125,7 @@ Eine Kombination, aber nicht unbedingt alle, der folgenden Eigenschaften werden 
 ### Instanzeigenschaften von Videospuren
 
 - [`aspectRatio`](/de/docs/Web/API/MediaTrackConstraints/aspectRatio)
-  - : Ein [`ConstrainDouble`](#constraindouble), der das Video [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) oder den Bereich von Seitenverhältnissen angibt, die akzeptabel und/oder erforderlich sind.
+  - : Ein [`ConstrainDouble`](#constraindouble), der das Video {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder den Bereich von Seitenverhältnissen angibt, die akzeptabel und/oder erforderlich sind.
 - [`facingMode`](/de/docs/Web/API/MediaTrackConstraints/facingMode)
   - : Ein [`ConstrainDOMString`](#constraindomstring) Objekt, das eine Richtung oder ein Array von Richtungen angibt, die akzeptabel und/oder erforderlich sind.
 - [`frameRate`](/de/docs/Web/API/MediaTrackConstraints/frameRate)

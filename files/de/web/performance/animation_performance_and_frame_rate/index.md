@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubPages("Web/Performance")}}
 
-Animationen im Web können mittels [`SVG`](/de/docs/Web/API/SVGAnimationElement), [`JavaScript`](/de/docs/Web/API/Window/requestAnimationFrame), einschließlich {{htmlelement('canvas')}} und [`WebGL`](/de/docs/Web/API/WebGL_API), CSS {{cssxref('animation')}}, {{htmlelement('video')}}, animierten Gifs und sogar animierten PNGs sowie anderen Bildtypen realisiert werden. Die Leistungskosten beim Animieren einer CSS-Eigenschaft können von Eigenschaft zu Eigenschaft variieren, und das Animieren von aufwendigen CSS-Eigenschaften kann zu [Ruckeln](/de/docs/Glossary/jank) führen, wenn der Browser Probleme hat, eine flüssige [Bildfrequenz](/de/docs/Glossary/FPS) zu erreichen.
+Animationen im Web können mittels [`SVG`](/de/docs/Web/API/SVGAnimationElement), [`JavaScript`](/de/docs/Web/API/Window/requestAnimationFrame), einschließlich {{htmlelement('canvas')}} und [`WebGL`](/de/docs/Web/API/WebGL_API), CSS {{cssxref('animation')}}, {{htmlelement('video')}}, animierten Gifs und sogar animierten PNGs sowie anderen Bildtypen realisiert werden. Die Leistungskosten beim Animieren einer CSS-Eigenschaft können von Eigenschaft zu Eigenschaft variieren, und das Animieren von aufwendigen CSS-Eigenschaften kann zu {{Glossary("jank", "Ruckeln")}} führen, wenn der Browser Probleme hat, eine flüssige {{Glossary("FPS", "Bildfrequenz")}} zu erreichen.
 
 Für animierte Medien wie Videos und animierte Gifs ist die Hauptsorge hinsichtlich der Leistung die Dateigröße - das schnelle Herunterladen der Datei, um die Leistung nicht negativ zu beeinträchtigen, stellt das größte Problem dar. Codebasierte Animationen, sei es in CSS, SVG, \<canvas>, WebGL oder andere JavaScript-Animationen, können Leistungsprobleme verursachen, selbst wenn der Bandbreitenaufwand gering ist. Diese Animationen können die CPU belasten und/oder Ruckeln verursachen.
 
@@ -17,7 +17,7 @@ Mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) gebe
 
 Im Vergleich zur Animation von Elementen mit JavaScript können CSS-Animationen einfacher zu erstellen sein. Sie können auch eine bessere Leistung bieten, da sie dem Browser mehr Kontrolle darüber geben, wann einzelne Bilder gerendert werden, und gegebenenfalls Bilder weglassen.
 
-Allerdings können die Leistungskosten bei der Änderung einer CSS-Eigenschaft von einer Eigenschaft zur anderen variieren. Es wird allgemein akzeptiert, dass 60 Bilder pro Sekunde die Rate ist, bei der Animationen flüssig erscheinen. Für eine Rate von 60 Bildern pro Sekunde hat der Browser 16,7 Millisekunden Zeit, um Skripte auszuführen, Stile und Layouts bei Bedarf neu zu berechnen und den aktualisierten Bereich neu zu zeichnen. Langsame Skripte und das Animieren kostspieliger CSS-Eigenschaften können zu [Ruckeln](/de/docs/Glossary/Jank) führen, da der Browser um eine flüssige Bildrate kämpft.
+Allerdings können die Leistungskosten bei der Änderung einer CSS-Eigenschaft von einer Eigenschaft zur anderen variieren. Es wird allgemein akzeptiert, dass 60 Bilder pro Sekunde die Rate ist, bei der Animationen flüssig erscheinen. Für eine Rate von 60 Bildern pro Sekunde hat der Browser 16,7 Millisekunden Zeit, um Skripte auszuführen, Stile und Layouts bei Bedarf neu zu berechnen und den aktualisierten Bereich neu zu zeichnen. Langsame Skripte und das Animieren kostspieliger CSS-Eigenschaften können zu {{Glossary("Jank", "Ruckeln")}} führen, da der Browser um eine flüssige Bildrate kämpft.
 
 ## Der Rendering-Wasserfall
 

@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **bedingte (ternäre) Operator** ist der einzige JavaScript-Operator, der drei Operanden benötigt: eine Bedingung, gefolgt von einem Fragezeichen (`?`), dann einem Ausdruck, der ausgeführt wird, wenn die Bedingung [wahrhaftig](/de/docs/Glossary/truthy) ist, gefolgt von einem Doppelpunkt (`:`), und schließlich der Ausdruck, der ausgeführt wird, wenn die Bedingung [falsch](/de/docs/Glossary/falsy) ist. Dieser Operator wird häufig als Alternative zu einer [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung verwendet.
+Der **bedingte (ternäre) Operator** ist der einzige JavaScript-Operator, der drei Operanden benötigt: eine Bedingung, gefolgt von einem Fragezeichen (`?`), dann einem Ausdruck, der ausgeführt wird, wenn die Bedingung {{Glossary("truthy", "wahrhaftig")}} ist, gefolgt von einem Doppelpunkt (`:`), und schließlich der Ausdruck, der ausgeführt wird, wenn die Bedingung {{Glossary("falsy", "falsch")}} ist. Dieser Operator wird häufig als Alternative zu einer [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung verwendet.
 
 {{EmbedInteractiveExample("pages/js/expressions-conditionaloperators.html")}}
 
@@ -22,9 +22,9 @@ condition ? exprIfTrue : exprIfFalse
 - `condition`
   - : Ein Ausdruck, dessen Wert als Bedingung verwendet wird.
 - `exprIfTrue`
-  - : Ein Ausdruck, der ausgeführt wird, wenn `condition` zu einem [wahrhaftigen](/de/docs/Glossary/truthy) Wert evaluiert (einem, der gleich `true` ist oder zu `true` konvertiert werden kann).
+  - : Ein Ausdruck, der ausgeführt wird, wenn `condition` zu einem {{Glossary("truthy", "wahrhaftigen")}} Wert evaluiert (einem, der gleich `true` ist oder zu `true` konvertiert werden kann).
 - `exprIfFalse`
-  - : Ein Ausdruck, der ausgeführt wird, wenn `condition` [falsch](/de/docs/Glossary/falsy) ist (das heißt, einen Wert hat, der zu `false` konvertiert werden kann).
+  - : Ein Ausdruck, der ausgeführt wird, wenn `condition` {{Glossary("falsy", "falsch")}} ist (das heißt, einen Wert hat, der zu `false` konvertiert werden kann).
 
 ## Beschreibung
 

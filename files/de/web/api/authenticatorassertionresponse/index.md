@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die **`AuthenticatorAssertionResponse`**-Schnittstelle der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) enthält eine [digitale Signatur](/de/docs/Glossary/Signature/Security) vom privaten Schlüssel eines bestimmten WebAuthn-Anmeldedatensatzes. Der Server der vertrauenden Partei kann diese Signatur verifizieren, um einen Benutzer zu authentifizieren, zum Beispiel, wenn er sich anmeldet.
+Die **`AuthenticatorAssertionResponse`**-Schnittstelle der [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) enthält eine {{Glossary("Signature/Security", "digitale Signatur")}} vom privaten Schlüssel eines bestimmten WebAuthn-Anmeldedatensatzes. Der Server der vertrauenden Partei kann diese Signatur verifizieren, um einen Benutzer zu authentifizieren, zum Beispiel, wenn er sich anmeldet.
 
 Ein `AuthenticatorAssertionResponse`-Objekt befindet sich in der [`response`](/de/docs/Web/API/PublicKeyCredential/response)-Eigenschaft eines [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Objekts, das durch einen erfolgreichen Aufruf von [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) zurückgegeben wird.
 

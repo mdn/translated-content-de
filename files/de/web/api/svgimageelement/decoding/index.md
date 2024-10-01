@@ -28,7 +28,7 @@ Ein String, der den Hinweis zur Decodierung darstellt. Mögliche Werte sind:
 
 Die `decoding`-Eigenschaft gibt dem Browser einen Hinweis darauf, ob er die Bilddecodierung zusammen mit anderen Aufgaben in einem Schritt (`"sync"`) oder erlauben soll, dass andere Inhalte vor der Fertigstellung gerendert werden (`"async"`). In Wirklichkeit sind die Unterschiede zwischen den beiden Werten oft schwer wahrnehmbar, und wo es Unterschiede gibt, gibt es oft eine bessere Methode.
 
-Für Bilder, die innerhalb des Viewports in den DOM eingefügt werden, kann `"async"` zu Darstellungsproblemen von ungestylten Inhalten führen, während `"sync"` zu kleinen Mengen von [Ruckeln](/de/docs/Glossary/Jank) führen kann. Die Verwendung der [`SVGImageElement.decode()`](/de/docs/Web/API/SVGImageElement/decode)-Methode ist in der Regel eine bessere Möglichkeit, eine atomare Präsentation ohne Verzögerung anderer Inhalte zu erreichen.
+Für Bilder, die innerhalb des Viewports in den DOM eingefügt werden, kann `"async"` zu Darstellungsproblemen von ungestylten Inhalten führen, während `"sync"` zu kleinen Mengen von {{Glossary("Jank", "Ruckeln")}} führen kann. Die Verwendung der [`SVGImageElement.decode()`](/de/docs/Web/API/SVGImageElement/decode)-Methode ist in der Regel eine bessere Möglichkeit, eine atomare Präsentation ohne Verzögerung anderer Inhalte zu erreichen.
 
 Für Bilder, die außerhalb des Viewports in den DOM eingefügt werden, dekodieren moderne Browser sie normalerweise, bevor sie in den Sichtbereich gescrollt werden. Es gibt keinen bemerkbaren Unterschied bei der Verwendung beider Werte.
 

@@ -21,7 +21,7 @@ object.#privateProperty
 
 ## Beschreibung
 
-Man kann sich ein Objekt als ein _assoziatives Array_ (auch bekannt als _Karte_, _Wörterbuch_, _Hash_, _Nachschlagetabelle_) vorstellen. Die _Schlüssel_ in diesem Array sind die Namen der [Eigenschaften](/de/docs/Glossary/Property/JavaScript) des Objekts.
+Man kann sich ein Objekt als ein _assoziatives Array_ (auch bekannt als _Karte_, _Wörterbuch_, _Hash_, _Nachschlagetabelle_) vorstellen. Die _Schlüssel_ in diesem Array sind die Namen der {{Glossary("Property/JavaScript", "Eigenschaften")}} des Objekts.
 
 Es gibt zwei Möglichkeiten, auf Eigenschaften zuzugreifen: _Punktnotation_ und _Klammernotation_.
 
@@ -52,7 +52,7 @@ Hier wird die Methode namens `createElement` von `document` abgerufen und aufger
 document.createElement("pre");
 ```
 
-Wenn Sie eine Methode für ein numerisches Literal verwenden und das numerische Literal keinen Exponenten und keinen Dezimalpunkt hat, sollten Sie [Leerzeichen](/de/docs/Glossary/Whitespace) vor dem Punkt vor dem Methodenaufruf lassen, damit der Punkt nicht als Dezimalpunkt interpretiert wird.
+Wenn Sie eine Methode für ein numerisches Literal verwenden und das numerische Literal keinen Exponenten und keinen Dezimalpunkt hat, sollten Sie {{Glossary("Whitespace", "Leerzeichen")}} vor dem Punkt vor dem Methodenaufruf lassen, damit der Punkt nicht als Dezimalpunkt interpretiert wird.
 
 ```js-nolint
 77 .toExponential();

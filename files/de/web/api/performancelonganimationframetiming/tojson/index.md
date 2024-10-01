@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des `PerformanceLongAnimationFrameTiming`-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des `PerformanceLongAnimationFrameTiming`-Objekts zurück.
 
 ## Syntax
 

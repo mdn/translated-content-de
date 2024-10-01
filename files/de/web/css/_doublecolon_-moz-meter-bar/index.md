@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Glossary/Pseudo-element) repräsentiert die Anzeigeskala in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile auf die Skala innerhalb eines Meter-Elements anzuwenden und auszuwählen.
+Das **`::-moz-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudo-Element")}} repräsentiert die Anzeigeskala in einem {{HTMLElement("meter")}}-Element. Es wird verwendet, um Stile auf die Skala innerhalb eines Meter-Elements anzuwenden und auszuwählen.
 
 ## Syntax
 

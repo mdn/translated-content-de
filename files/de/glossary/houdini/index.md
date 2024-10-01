@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Houdini ist eine Sammlung von Low-Level-APIs, die Entwicklern die Möglichkeit geben, CSS zu erweitern und in den Stil- und Layout-Prozess der Rendering-Engine eines Browsers einzugreifen. Houdini gibt Entwicklern Zugriff auf das [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) ([CSSOM](/de/docs/Glossary/CSSOM)), wodurch es ihnen ermöglicht wird, Code zu schreiben, den der Browser als CSS interpretieren kann.
+Houdini ist eine Sammlung von Low-Level-APIs, die Entwicklern die Möglichkeit geben, CSS zu erweitern und in den Stil- und Layout-Prozess der Rendering-Engine eines Browsers einzugreifen. Houdini gibt Entwicklern Zugriff auf das [CSS Object Model](/de/docs/Web/API/CSS_Object_Model) ({{Glossary("CSSOM", "CSSOM")}}), wodurch es ihnen ermöglicht wird, Code zu schreiben, den der Browser als CSS interpretieren kann.
 
 Der Vorteil von Houdini besteht darin, dass Entwickler CSS-Funktionen erstellen können, ohne darauf warten zu müssen, dass Webstandards spezifizierte Definitionen dafür bereitstellen, und ohne dass jeder Browser die Funktionen vollständig implementiert haben muss.
 

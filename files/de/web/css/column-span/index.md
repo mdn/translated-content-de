@@ -106,5 +106,5 @@ h2 {
 ## Siehe auch
 
 - [Spalten spannen und ausbalancieren](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
-- [Inline-Level-Elemente](/de/docs/Glossary/Inline-level_content)
+- {{Glossary("Inline-level_content", "Inline-Level-Elemente")}}
 - [`HTMLSpanElement`](/de/docs/Web/API/HTMLSpanElement)

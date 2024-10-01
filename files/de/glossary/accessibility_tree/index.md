@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Accessibility-Tree** enthält [Zugänglichkeits](/de/docs/Glossary/accessibility)-bezogene Informationen für die meisten HTML-Elemente.
+Der **Accessibility-Tree** enthält {{Glossary("accessibility", "Zugänglichkeits")}}-bezogene Informationen für die meisten HTML-Elemente.
 
 Browser konvertieren Markup in eine interne Darstellung, die als _[DOM-Tree](/de/docs/Web/API/Document_Object_Model/Using_the_Document_Object_Model)_ bezeichnet wird. Der DOM-Tree enthält Objekte, die alle Elemente, Attribute und Textknoten des Markups repräsentieren. Browser erstellen dann basierend auf dem DOM-Tree einen Accessibility-Tree, der von plattformspezifischen Accessibility-APIs genutzt wird, um eine Darstellung bereitzustellen, die von unterstützenden Technologien wie Bildschirmlesegeräten verstanden werden kann.
 
@@ -36,7 +36,7 @@ Während es sich im April 2022 noch im Entwurfsstadium innerhalb der Web Incubat
 - [Die W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
 - [Accessible Rich Internet Applications (WAI-ARIA)](https://w3c.github.io/aria/)
 - Verwandte Glossarbegriffe:
-  - [Zugänglichkeit](/de/docs/Glossary/Accessibility)
-  - [Zugängliche Beschreibung](/de/docs/Glossary/Accessible_description)
-  - [Zugänglicher Name](/de/docs/Glossary/Accessible_name)
-  - [ARIA](/de/docs/Glossary/ARIA)
+  - {{Glossary("Accessibility", "Zugänglichkeit")}}
+  - {{Glossary("Accessible_description", "Zugängliche Beschreibung")}}
+  - {{Glossary("Accessible_name", "Zugänglicher Name")}}
+  - {{Glossary("ARIA", "ARIA")}}

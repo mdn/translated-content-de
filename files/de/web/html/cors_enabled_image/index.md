@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-HTML bietet ein [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attribut für Bilder, das in Kombination mit einem geeigneten [CORS](/de/docs/Glossary/CORS)-Header, ermöglicht, dass Bilder, die durch das {{ HTMLElement("img") }}-Element von fremden Ursprüngen geladen werden, in ein {{HTMLElement("canvas")}} integriert werden können, als ob sie vom aktuellen Ursprung geladen worden wären.
+HTML bietet ein [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin)-Attribut für Bilder, das in Kombination mit einem geeigneten {{Glossary("CORS", "CORS")}}-Header, ermöglicht, dass Bilder, die durch das {{ HTMLElement("img") }}-Element von fremden Ursprüngen geladen werden, in ein {{HTMLElement("canvas")}} integriert werden können, als ob sie vom aktuellen Ursprung geladen worden wären.
 
 Details zur Verwendung des `crossorigin`-Attributs finden Sie unter [CORS-Einstellungsattribute](/de/docs/Web/HTML/Attributes/crossorigin).
 

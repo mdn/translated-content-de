@@ -9,7 +9,7 @@ l10n:
 
 Eine **API** (Application Programming Interface) ist eine Menge von Funktionen und Regeln, die innerhalb eines Softwareprogramms (der Anwendung) existieren und die Interaktion mit ihm durch Software ermöglichen – im Gegensatz zu einer menschlichen Benutzeroberfläche. Die API kann als einfacher Vertrag (die Schnittstelle) zwischen der Anwendung, die sie anbietet, und anderen Elementen, wie z.B. Drittanbieter-Software oder -Hardware, betrachtet werden.
 
-In der Webentwicklung ist eine API im Allgemeinen eine Menge von Code-Funktionen (z.B. [Methoden](/de/docs/Glossary/method), [Eigenschaften](/de/docs/Glossary/property), Ereignisse und [URLs](/de/docs/Glossary/URL)), die ein Entwickler in seinen Anwendungen verwenden kann, um mit Komponenten des Webbrowsers eines Benutzers, anderer Software/Hardware auf dem Computer des Benutzers oder Websites und Diensten von Drittanbietern zu interagieren.
+In der Webentwicklung ist eine API im Allgemeinen eine Menge von Code-Funktionen (z.B. {{Glossary("method", "Methoden")}}, {{Glossary("property", "Eigenschaften")}}, Ereignisse und {{Glossary("URL", "URLs")}}), die ein Entwickler in seinen Anwendungen verwenden kann, um mit Komponenten des Webbrowsers eines Benutzers, anderer Software/Hardware auf dem Computer des Benutzers oder Websites und Diensten von Drittanbietern zu interagieren.
 
 Zum Beispiel:
 

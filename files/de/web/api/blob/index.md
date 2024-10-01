@@ -57,7 +57,7 @@ const blob = new Blob([JSON.stringify(obj, null, 2)], {
 
 ### Erstellen einer URL, die den Inhalt eines getypten Arrays darstellt
 
-Der folgende Code erstellt ein JavaScript- [getyptes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) und erstellt einen neuen `Blob`, der die Daten des getypten Arrays enthält. Anschließend wird [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) aufgerufen, um den Blob in eine [URL](/de/docs/Glossary/URL) umzuwandeln.
+Der folgende Code erstellt ein JavaScript- [getyptes Array](/de/docs/Web/JavaScript/Guide/Typed_arrays) und erstellt einen neuen `Blob`, der die Daten des getypten Arrays enthält. Anschließend wird [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) aufgerufen, um den Blob in eine {{Glossary("URL", "URL")}} umzuwandeln.
 
 #### HTML
 

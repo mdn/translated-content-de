@@ -24,15 +24,15 @@ Die **`GET`** HTTP-Methode fordert eine Darstellung der angegebenen Ressource an
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Cache-fähig](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cache-fähig")}}</th>
       <td>Ja</td>
     </tr>
     <tr>

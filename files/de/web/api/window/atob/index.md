@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`atob()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces dekodiert einen Datenstring, der mit der [Base64](/de/docs/Glossary/Base64)-Kodierung kodiert wurde. Sie können die [`Window.btoa()`](/de/docs/Web/API/Window/btoa)-Methode verwenden, um Daten zu kodieren und zu übertragen, die ansonsten Kommunikationsprobleme verursachen könnten, diese dann übertragen und die `atob()`-Methode verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie die [ASCII](/de/docs/Glossary/ASCII)-Werte 0 bis 31 kodieren, übertragen und dekodieren.
+Die **`atob()`**-Methode des [`Window`](/de/docs/Web/API/Window)-Interfaces dekodiert einen Datenstring, der mit der {{Glossary("Base64", "Base64")}}-Kodierung kodiert wurde. Sie können die [`Window.btoa()`](/de/docs/Web/API/Window/btoa)-Methode verwenden, um Daten zu kodieren und zu übertragen, die ansonsten Kommunikationsprobleme verursachen könnten, diese dann übertragen und die `atob()`-Methode verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie die {{Glossary("ASCII", "ASCII")}}-Werte 0 bis 31 kodieren, übertragen und dekodieren.
 
-Für die Verwendung mit beliebigen Unicode-Strings siehe _Das "Unicode-Problem"_ im [Base64](/de/docs/Glossary/Base64)-Glossareintrag.
+Für die Verwendung mit beliebigen Unicode-Strings siehe _Das "Unicode-Problem"_ im {{Glossary("Base64", "Base64")}}-Glossareintrag.
 
 ## Syntax
 

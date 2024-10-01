@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("WorkerLocation")}}{{AvailableInWorkers("worker")}}
 
-Die **`toString()`**-[Stringifier](/de/docs/Glossary/stringifier)-Methode eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt eine Zeichenkette zurück, die die serialisierte [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält. Sie ist ein Synonym für [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href).
+Die **`toString()`**-{{Glossary("stringifier", "Stringifier")}}-Methode eines [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)-Objekts gibt eine Zeichenkette zurück, die die serialisierte [`URL`](/de/docs/Web/API/URL) für den Standort des Workers enthält. Sie ist ein Synonym für [`WorkerLocation.href`](/de/docs/Web/API/WorkerLocation/href).
 
 ## Syntax
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`responsesReceived`**-Eigenschaft im [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuch gibt die Gesamtanzahl der empfangenen [STUN](/de/docs/Glossary/STUN)-Konnektivitätsüberprüfungsantworten an, die über die Verbindung empfangen wurden, die von diesem Kandidatenpaar beschrieben wird.
+Die **`responsesReceived`**-Eigenschaft im [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuch gibt die Gesamtanzahl der empfangenen {{Glossary("STUN", "STUN")}}-Konnektivitätsüberprüfungsantworten an, die über die Verbindung empfangen wurden, die von diesem Kandidatenpaar beschrieben wird.
 
 ## Wert
 

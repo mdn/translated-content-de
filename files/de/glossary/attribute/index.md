@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Attribut** erweitert ein [HTML](/de/docs/Glossary/HTML)- oder [XML](/de/docs/Glossary/XML)-[Element](/de/docs/Glossary/element), indem es dessen Verhalten verändert oder Metadaten bereitstellt.
+Ein **Attribut** erweitert ein {{Glossary("HTML", "HTML")}}- oder {{Glossary("XML", "XML")}}-{{Glossary("element", "Element")}}, indem es dessen Verhalten verändert oder Metadaten bereitstellt.
 
 Ein Attribut hat immer die Form `name="value"` (die Bezeichnung des Attributs gefolgt von seinem zugehörigen Wert). Sie können Attribute ohne Gleichheitszeichen oder Wert sehen. Dies ist eine Kurzform zur Bereitstellung des leeren Strings in HTML. In XML ist dies jedoch nicht zulässig: XML erfordert, dass alle Attribute einen expliziten Wert haben.
 
-Eine Anzahl von HTML-Attributen sind [boolesche Attribute](/de/docs/Glossary/Boolean/HTML). Der Wert dieser Attribute wird nur durch die Anwesenheit oder Abwesenheit des Attributs gesteuert. Weitere Informationen finden Sie unter [boolesche Attribute](/de/docs/Glossary/Boolean/HTML).
+Eine Anzahl von HTML-Attributen sind {{Glossary("Boolean/HTML", "boolesche Attribute")}}. Der Wert dieser Attribute wird nur durch die Anwesenheit oder Abwesenheit des Attributs gesteuert. Weitere Informationen finden Sie unter {{Glossary("Boolean/HTML", "boolesche Attribute")}}.
 
 ## Spiegelung eines Attributs
 
@@ -44,9 +44,9 @@ console.log(attr.value); // Prints `Modified placeholder`
 - Informationen über die [globalen Attribute](/de/docs/Web/HTML/Global_attributes) in HTML
 - XML StartTag Attribut Empfehlung in der [W3C XML Empfehlung](https://www.w3.org/TR/xml#sec-starttags)
 - Verwandte Glossarbegriffe:
-  - [Element](/de/docs/Glossary/Element)
-  - [Tag](/de/docs/Glossary/Tag)
-  - [HTML](/de/docs/Glossary/HTML)
-  - [XML](/de/docs/Glossary/XML)
-  - [Boolesche Attribute](/de/docs/Glossary/Boolean/HTML)
-  - [Enumerierte Attribute](/de/docs/Glossary/Enumerated)
+  - {{Glossary("Element", "Element")}}
+  - {{Glossary("Tag", "Tag")}}
+  - {{Glossary("HTML", "HTML")}}
+  - {{Glossary("XML", "XML")}}
+  - {{Glossary("Boolean/HTML", "Boolesche Attribute")}}
+  - {{Glossary("Enumerated", "Enumerierte Attribute")}}

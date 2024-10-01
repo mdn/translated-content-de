@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`component`**-Eigenschaft des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Interfaces legt fest, ob das Objekt dazu dient, [RTP](/de/docs/Glossary/RTP) oder [RTCP](/de/docs/Glossary/RTCP) zu transportieren.
+Die schreibgeschützte **`component`**-Eigenschaft des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Interfaces legt fest, ob das Objekt dazu dient, {{Glossary("RTP", "RTP")}} oder {{Glossary("RTCP", "RTCP")}} zu transportieren.
 
 ## Wert
 

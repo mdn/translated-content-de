@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`print-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was, wenn überhaupt, der [User-Agent](/de/docs/Glossary/user_agent) tun kann, um das Aussehen des Elements auf dem Ausgabegerät zu optimieren.
+Die **`print-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was, wenn überhaupt, der {{Glossary("user_agent", "User-Agent")}} tun kann, um das Aussehen des Elements auf dem Ausgabegerät zu optimieren.
 Standardmäßig darf der Browser alle Anpassungen am Erscheinungsbild des Elements vornehmen, die er in Anbetracht des Typs und der Fähigkeiten des Ausgabegeräts als notwendig und angemessen erachtet.
 
 ## Syntax

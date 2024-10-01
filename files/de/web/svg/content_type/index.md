@@ -332,6 +332,6 @@ SVG verwendet eine Reihe von Datentypen. Dieser Artikel listet diese Typen zusam
 
   - : Ein **U**niform **R**esource **L**ocator.
 
-    Eine URL ist eine Sequenz von [Unicode](/de/docs/Glossary/Unicode)-Zeichen, die eine Adresse zu einer internen oder externen Ressource bildet.
+    Eine URL ist eine Sequenz von {{Glossary("Unicode", "Unicode")}}-Zeichen, die eine Adresse zu einer internen oder externen Ressource bildet.
 
     Vor SVG 2 wurde stattdessen der begrenztere [IRI](#iri)-Inhaltstyp verwendet, da die URL-Spezifikation zuvor nicht standardisiert war.

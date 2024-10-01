@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Abstraktion** in der [Programmierung](/de/docs/Glossary/computer_programming) ist eine Methode, um Komplexität zu reduzieren und effizientes Design sowie Implementierung in komplexen Softwaresystemen zu ermöglichen. Sie verbirgt die technische Komplexität von Systemen hinter einfachereren [APIs](/de/docs/Glossary/API).
+**Abstraktion** in der {{Glossary("computer_programming", "Programmierung")}} ist eine Methode, um Komplexität zu reduzieren und effizientes Design sowie Implementierung in komplexen Softwaresystemen zu ermöglichen. Sie verbirgt die technische Komplexität von Systemen hinter einfachereren {{Glossary("API", "APIs")}}.
 
 ## Vorteile der Datenabstraktion
 

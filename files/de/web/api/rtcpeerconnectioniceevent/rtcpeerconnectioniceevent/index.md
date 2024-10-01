@@ -28,7 +28,7 @@ new RTCPeerConnectionIceEvent(type, options)
         Ist dieser `null`, zeigt das Ereignis das Ende des Kandidatensammelns an.
     - `url`
       - : Ein String, der die URL des STUN- oder TURN-Servers enthält, der zum Sammeln des Kandidaten verwendet wurde.
-        Wenn der Kandidat nicht von einem [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server gesammelt wurde,
+        Wenn der Kandidat nicht von einem {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server gesammelt wurde,
         muss dieser Wert `null` sein, was auch der Standardwert ist.
 
 ### Rückgabewert

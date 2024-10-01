@@ -13,7 +13,7 @@ Das `PerformanceEventTiming`-Interface der Event Timing API bietet Einblicke in 
 
 Diese API ermöglicht Einblick in langsame Ereignisse, indem sie Ereignis-Timestamps und die Dauer für bestimmte Ereignistypen bereitstellt ([siehe unten](#exponierte_ereignisse)). So können Sie zum Beispiel die Zeit zwischen einer Benutzeraktion und dem Beginn des zugehörigen Ereignishandlers oder die Ausführungsdauer eines Ereignishandlers überwachen.
 
-Diese API ist besonders nützlich, um die [erste Eingabeverzögerung](/de/docs/Glossary/first_input_delay) (FID) zu messen: die Zeit vom Zeitpunkt der ersten Benutzerinteraktion mit Ihrer App bis zu dem Zeitpunkt, an dem der Browser tatsächlich in der Lage ist, auf diese Interaktion zu reagieren.
+Diese API ist besonders nützlich, um die {{Glossary("first_input_delay", "erste Eingabeverzögerung")}} (FID) zu messen: die Zeit vom Zeitpunkt der ersten Benutzerinteraktion mit Ihrer App bis zu dem Zeitpunkt, an dem der Browser tatsächlich in der Lage ist, auf diese Interaktion zu reagieren.
 
 Typischerweise arbeiten Sie mit `PerformanceEventTiming`-Objekten, indem Sie eine Instanz des [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) erstellen und dann dessen [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode aufrufen, wobei Sie `"event"` oder `"first-input"` als Wert der [`type`](/de/docs/Web/API/PerformanceEntry/entryType)-Option übergeben. Der `PerformanceObserver`-Objektaufruf wird dann mit einer Liste von `PerformanceEventTiming`-Objekten aufgerufen, die Sie analysieren können. Sehen Sie das [Beispiel unten](#abrufen_von_ereignis-timing-informationen) für mehr.
 
@@ -188,7 +188,7 @@ observer.observe({ type: "event", durationThreshold: 16, buffered: true });
 
 ### Berichterstattung über die erste Eingabeverzögerung (FID)
 
-Die [erste Eingabeverzögerung](/de/docs/Glossary/first_input_delay) oder FID misst die Zeit vom Zeitpunkt der ersten Interaktion eines Benutzers mit einer Seite (d. h. wenn er auf einen Link klickt oder auf eine Schaltfläche tippt) bis zu dem Zeitpunkt, an dem der Browser tatsächlich in der Lage ist, mit der Verarbeitung von Ereignishandlern als Reaktion auf diese Interaktion zu beginnen.
+Die {{Glossary("first_input_delay", "erste Eingabeverzögerung")}} oder FID misst die Zeit vom Zeitpunkt der ersten Interaktion eines Benutzers mit einer Seite (d. h. wenn er auf einen Link klickt oder auf eine Schaltfläche tippt) bis zu dem Zeitpunkt, an dem der Browser tatsächlich in der Lage ist, mit der Verarbeitung von Ereignishandlern als Reaktion auf diese Interaktion zu beginnen.
 
 ```js
 // Keep track of whether (and when) the page was first hidden, see:

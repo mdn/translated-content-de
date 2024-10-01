@@ -29,7 +29,7 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
   - : Ein `string`. Regulärer Ausdruck, um mit der Netzwerk-Anfrage-URL übereinzustimmen. Beachten Sie, dass:
     - Das unterstützte Format ist nicht stabil und variiert je nach Browser, siehe ["Regular expressions in DNR API (regexFilter)" in WECG issue 344](https://github.com/w3c/webextensions/issues/344) für Details.
     - Es kann nur einer der beiden [`urlFilter`](#urlfilter) oder [`regexFilter`](#regexfilter) angegeben werden.
-    - Der [`regexFilter`](#regexfilter) muss nur aus [ASCII](/de/docs/Glossary/ASCII)-Zeichen bestehen. Dies wird mit einer URL abgeglichen, bei der der Host im [Punycode](https://en.wikipedia.org/wiki/Punycode)-Format kodiert ist (im Fall von internationalisierten Domains) und alle anderen nicht-ASCII-Zeichen in UTF-8 Prozent-kodiert sind.
+    - Der [`regexFilter`](#regexfilter) muss nur aus {{Glossary("ASCII", "ASCII")}}-Zeichen bestehen. Dies wird mit einer URL abgeglichen, bei der der Host im [Punycode](https://en.wikipedia.org/wiki/Punycode)-Format kodiert ist (im Fall von internationalisierten Domains) und alle anderen nicht-ASCII-Zeichen in UTF-8 Prozent-kodiert sind.
 - `requestDomains` {{optional_inline}}
   - : Ein Array von `string`. Die Regel stimmt nur mit Netzwerk-Anfragen überein, wenn die Domain mit einer aus dieser Liste übereinstimmt. Wenn die Liste weggelassen wird, wird die Regel auf Anfragen von allen Domains angewendet. Eine leere Liste ist nicht erlaubt. Eine [kanonische Domain](#kanonische_domain) sollte verwendet werden.
 - `excludedRequestDomains` {{optional_inline}}

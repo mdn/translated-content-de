@@ -169,7 +169,7 @@ Um die Einrückung eines Beschreibungsterms zu ändern, verwenden Sie die [CSS](
       <th scope="row">Zulässiger Inhalt</th>
       <td>
         <p>
-          Entweder: Null oder mehr Gruppen, von denen jede aus einem oder mehreren {{HTMLElement("dt")}}-Elementen gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen besteht, optional durchmischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.<br />Oder: (in [WHATWG](/de/docs/Glossary/WHATWG) HTML, [W3C](/de/docs/Glossary/W3C) HTML 5.2 und später) Ein oder mehrere {{HTMLElement("div")}}-Elemente, optional durchmischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
+          Entweder: Null oder mehr Gruppen, von denen jede aus einem oder mehreren {{HTMLElement("dt")}}-Elementen gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen besteht, optional durchmischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.<br />Oder: (in {{Glossary("WHATWG", "WHATWG")}} HTML, {{Glossary("W3C", "W3C")}} HTML 5.2 und später) Ein oder mehrere {{HTMLElement("div")}}-Elemente, optional durchmischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
         </p>
       </td>
     </tr>

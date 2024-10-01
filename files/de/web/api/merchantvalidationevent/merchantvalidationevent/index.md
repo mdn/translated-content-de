@@ -31,7 +31,7 @@ new MerchantValidationEvent(type, options)
 
 ### Rückgabewert
 
-Ein neues [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Objekt, das die Informationen bereitstellt, die dem clientseitigen Code zur Verfügung gestellt werden müssen, um sie dem [User-Agent](/de/docs/Glossary/user_agent) durch Aufruf von [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) zu präsentieren.
+Ein neues [`MerchantValidationEvent`](/de/docs/Web/API/MerchantValidationEvent) Objekt, das die Informationen bereitstellt, die dem clientseitigen Code zur Verfügung gestellt werden müssen, um sie dem {{Glossary("user_agent", "User-Agent")}} durch Aufruf von [`complete()`](/de/docs/Web/API/MerchantValidationEvent/complete) zu präsentieren.
 
 ### Ausnahmen
 

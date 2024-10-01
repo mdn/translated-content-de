@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Der **Actual Value** eines [CSS](/de/docs/Web/CSS)-Eigenschaft ist der [Used Value](/de/docs/Web/CSS/used_value) dieser Eigenschaft, nachdem alle notwendigen Annäherungen angewendet wurden. Zum Beispiel kann ein [User Agent](/de/docs/Glossary/user_agent), der nur Ränder mit einer ganzzahligen Pixelbreite rendern kann, die Dicke des Randes auf die nächste ganze Zahl runden.
+Der **Actual Value** eines [CSS](/de/docs/Web/CSS)-Eigenschaft ist der [Used Value](/de/docs/Web/CSS/used_value) dieser Eigenschaft, nachdem alle notwendigen Annäherungen angewendet wurden. Zum Beispiel kann ein {{Glossary("user_agent", "User Agent")}}, der nur Ränder mit einer ganzzahligen Pixelbreite rendern kann, die Dicke des Randes auf die nächste ganze Zahl runden.
 
 ## Berechnung des Actual Value einer Eigenschaft
 
-Der [User Agent](/de/docs/Glossary/user_agent) führt vier Schritte aus, um den tatsächlichen (endgültigen) Wert einer Eigenschaft zu berechnen:
+Der {{Glossary("user_agent", "User Agent")}} führt vier Schritte aus, um den tatsächlichen (endgültigen) Wert einer Eigenschaft zu berechnen:
 
 1. Zuerst wird der [Specified Value](/de/docs/Web/CSS/specified_value) basierend auf dem Ergebnis der [Kaskade](/de/docs/Web/CSS/Cascade), [Vererbung](/de/docs/Web/CSS/Inheritance) oder unter Verwendung des [Initial Value](/de/docs/Web/CSS/initial_value) bestimmt.
 2. Als nächstes wird der [Computed Value](/de/docs/Web/CSS/computed_value) gemäß der Spezifikation berechnet (zum Beispiel wird ein `span` mit `position: absolute` seinen berechneten `display` in `block` geändert haben).

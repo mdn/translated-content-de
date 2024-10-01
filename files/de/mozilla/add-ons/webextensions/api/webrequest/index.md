@@ -70,7 +70,7 @@ Der Browser kann spekulative Verbindungen herstellen, bei denen er feststellt, d
 
 ## Sicherheitsinformationen abrufen
 
-Im {{WebExtAPIRef("webRequest.onHeadersReceived", "onHeadersReceived")}} Listener können Sie auf die [TLS](/de/docs/Glossary/TLS) Eigenschaften einer Anfrage zugreifen, indem Sie {{WebExtAPIRef("webRequest.getSecurityInfo()", "getSecurityInfo()")}} aufrufen. Dazu müssen Sie auch "blocking" im `extraInfoSpec` Argument an das `addListener()` des Ereignisses übergeben.
+Im {{WebExtAPIRef("webRequest.onHeadersReceived", "onHeadersReceived")}} Listener können Sie auf die {{Glossary("TLS", "TLS")}} Eigenschaften einer Anfrage zugreifen, indem Sie {{WebExtAPIRef("webRequest.getSecurityInfo()", "getSecurityInfo()")}} aufrufen. Dazu müssen Sie auch "blocking" im `extraInfoSpec` Argument an das `addListener()` des Ereignisses übergeben.
 
 Sie können Details des TLS-Handshakes lesen, diese jedoch nicht ändern oder die Vertrauensentscheidungen des Browsers außer Kraft setzen.
 
@@ -111,7 +111,7 @@ Dazu müssen Sie die `"webRequestBlocking"` API-Berechtigung sowie die `"webRequ
 - {{WebExtAPIRef("webRequest.filterResponseData()")}}
   - : Gibt ein {{WebExtAPIRef("webRequest.StreamFilter")}} Objekt für eine gegebene Anfrage zurück.
 - {{WebExtAPIRef("webRequest.getSecurityInfo()")}}
-  - : Ruft detaillierte Informationen über die [TLS](/de/docs/Glossary/TLS)-Verbindung ab, die mit einer bestimmten Anfrage verbunden ist.
+  - : Ruft detaillierte Informationen über die {{Glossary("TLS", "TLS")}}-Verbindung ab, die mit einer bestimmten Anfrage verbunden ist.
 
 ## Ereignisse
 

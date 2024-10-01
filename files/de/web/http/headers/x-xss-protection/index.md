@@ -7,10 +7,10 @@ l10n:
 
 {{HTTPSidebar}}{{Non-standard_header}}
 
-Der HTTP-Header **`X-XSS-Protection`** war eine Funktion von Internet Explorer, Chrome und Safari, die das Laden von Seiten stoppte, wenn reflektierte Cross-Site-Scripting-Angriffe ([XSS](/de/docs/Glossary/Cross-site_scripting)) erkannt wurden. Diese Schutzmaßnahmen sind in modernen Browsern weitgehend unnötig, wenn Websites eine starke {{HTTPHeader("Content-Security-Policy")}} implementieren, die die Verwendung von inline JavaScript (`'unsafe-inline'`) deaktiviert.
+Der HTTP-Header **`X-XSS-Protection`** war eine Funktion von Internet Explorer, Chrome und Safari, die das Laden von Seiten stoppte, wenn reflektierte Cross-Site-Scripting-Angriffe ({{Glossary("Cross-site_scripting", "XSS")}}) erkannt wurden. Diese Schutzmaßnahmen sind in modernen Browsern weitgehend unnötig, wenn Websites eine starke {{HTTPHeader("Content-Security-Policy")}} implementieren, die die Verwendung von inline JavaScript (`'unsafe-inline'`) deaktiviert.
 
 > [!WARNING]
-> Obwohl diese Funktion Benutzer älterer Webbrowser, die noch keine Unterstützung für [CSP](/de/docs/Glossary/CSP) haben, schützen kann, kann der XSS-Schutz in einigen Fällen **XSS-Schwachstellen** in ansonsten sicheren Websites erzeugen. Weitere Informationen finden Sie im Abschnitt unten.
+> Obwohl diese Funktion Benutzer älterer Webbrowser, die noch keine Unterstützung für {{Glossary("CSP", "CSP")}} haben, schützen kann, kann der XSS-Schutz in einigen Fällen **XSS-Schwachstellen** in ansonsten sicheren Websites erzeugen. Weitere Informationen finden Sie im Abschnitt unten.
 
 > [!NOTE]
 >
@@ -24,10 +24,10 @@ Der HTTP-Header **`X-XSS-Protection`** war eine Funktion von Internet Explorer, 
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Response Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Response Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>

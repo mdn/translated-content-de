@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts zurück.
+Die **`toJSON()`**-Methode ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts zurück.
 
 ## Syntax
 

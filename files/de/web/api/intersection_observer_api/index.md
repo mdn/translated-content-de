@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Intersection Observer API")}}
 
-Die Intersection Observer API bietet eine Möglichkeit, Änderungen in der Schnittmenge eines Ziel-Elements mit einem Vorfahren-Element oder mit dem [Viewport](/de/docs/Glossary/viewport) eines Dokuments asynchron zu beobachten.
+Die Intersection Observer API bietet eine Möglichkeit, Änderungen in der Schnittmenge eines Ziel-Elements mit einem Vorfahren-Element oder mit dem {{Glossary("viewport", "Viewport")}} eines Dokuments asynchron zu beobachten.
 
 Historisch gesehen war es schwierig, die Sichtbarkeit eines Elements oder die relative Sichtbarkeit zweier Elemente zueinander zu ermitteln. Lösungen dafür waren oft unzuverlässig und führten dazu, dass der Browser und die vom Benutzer aufgerufenen Seiten träge wurden. Mit der Reifung des Webs ist das Bedürfnis nach solchen Informationen gewachsen. Schnittstelleninformationen werden aus vielen Gründen benötigt, wie zum Beispiel:
 
@@ -20,7 +20,7 @@ Die Implementierung von Schnittstellenerkennung in der Vergangenheit erforderte 
 
 Betrachten Sie eine Webseite, die Endlosscroll verwendet. Sie nutzt eine von einem Anbieter bereitgestellte Bibliothek, um die auf der Seite verteilten Anzeigen zu verwalten, hat animierte Grafiken hier und da und verwendet eine benutzerdefinierte Bibliothek, die Benachrichtigungskästen und Ähnliches zeichnet. Jedes dieser Elemente hat seine eigenen Schnittstellenerkennungsroutinen, die alle auf dem Haupt-Thread laufen. Der Autor der Website merkt möglicherweise nicht einmal, dass dies passiert, da er über die Funktionsweise der beiden verwendeten Bibliotheken nur wenig weiß. Während der Benutzer die Seite scrollt, werden diese Schnittstellenerkennungsroutinen ständig während des Scroll-Handlings aufgerufen, was zu einem frustrierenden Erlebnis für den Benutzer führt, der mit dem Browser, der Webseite und seinem Computer unzufrieden ist.
 
-Die Intersection Observer API ermöglicht es dem Code, eine Callback-Funktion zu registrieren, die immer dann ausgeführt wird, wenn ein bestimmtes Element in ein oder aus einem Schnittpunkt mit einem anderen Element (oder dem [Viewport](/de/docs/Glossary/viewport)) tritt oder wenn sich der Schnittpunkt zwischen zwei Elementen um einen bestimmten Betrag ändert. Auf diese Weise müssen Seiten nichts mehr auf dem Haupt-Thread tun, um diese Art von Element-Schnittpunkt zu überwachen, und der Browser kann die Verwaltung der Schnittpunkte so optimieren, wie er es für richtig hält.
+Die Intersection Observer API ermöglicht es dem Code, eine Callback-Funktion zu registrieren, die immer dann ausgeführt wird, wenn ein bestimmtes Element in ein oder aus einem Schnittpunkt mit einem anderen Element (oder dem {{Glossary("viewport", "Viewport")}}) tritt oder wenn sich der Schnittpunkt zwischen zwei Elementen um einen bestimmten Betrag ändert. Auf diese Weise müssen Seiten nichts mehr auf dem Haupt-Thread tun, um diese Art von Element-Schnittpunkt zu überwachen, und der Browser kann die Verwaltung der Schnittpunkte so optimieren, wie er es für richtig hält.
 
 Etwas, was die Intersection Observer API nicht kann: Logik basierend auf der genauen Anzahl von überlappenden Pixeln oder deren spezifische Lage auszulösen. Sie löst nur den häufig verwendeten Anwendungsfall "Wenn sie sich mit ungefähr _N_% überschneiden, muss ich etwas tun."
 
@@ -443,7 +443,7 @@ Der Browser berechnet das endgültige Schnittrechteck wie folgt; dies wird alles
 ## Schnittstellen
 
 - [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)
-  - : Die primäre Schnittstelle für die Intersection Observer API. Bietet Methoden zur Erstellung und Verwaltung eines Observers, der eine beliebige Anzahl von Ziel-Elementen für dieselbe Schnittkonfiguration überwachen kann. Jeder Observer kann asynchron Änderungen in der Schnittmenge zwischen einem oder mehreren Ziel-Elementen und einem gemeinsamen Vorfahren-Element oder mit ihrem obersten [`Document`](/de/docs/Web/API/Document)'s [Viewport](/de/docs/Glossary/viewport) beobachten. Der Vorfahre oder Viewport wird als **Root** bezeichnet.
+  - : Die primäre Schnittstelle für die Intersection Observer API. Bietet Methoden zur Erstellung und Verwaltung eines Observers, der eine beliebige Anzahl von Ziel-Elementen für dieselbe Schnittkonfiguration überwachen kann. Jeder Observer kann asynchron Änderungen in der Schnittmenge zwischen einem oder mehreren Ziel-Elementen und einem gemeinsamen Vorfahren-Element oder mit ihrem obersten [`Document`](/de/docs/Web/API/Document)'s {{Glossary("viewport", "Viewport")}} beobachten. Der Vorfahre oder Viewport wird als **Root** bezeichnet.
 - [`IntersectionObserverEntry`](/de/docs/Web/API/IntersectionObserverEntry)
   - : Beschreibt die Schnittmenge zwischen dem Ziel-Element und seinem Root-Container zu einem bestimmten Moment des Übergangs. Diese Objekte dieses Typs können nur auf zwei Arten erlangt werden: als Eingabe für Ihren `IntersectionObserver`-Callback oder durch Aufrufen von [`IntersectionObserver.takeRecords()`](/de/docs/Web/API/IntersectionObserver/takeRecords).
 

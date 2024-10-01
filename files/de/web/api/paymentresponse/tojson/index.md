@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{APIRef("Payment Request API")}}
 
-Die **`toJSON()`**-Methode des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PaymentResponse`](/de/docs/Web/API/PaymentResponse)-Objekts zurück.
 
 ## Syntax
 

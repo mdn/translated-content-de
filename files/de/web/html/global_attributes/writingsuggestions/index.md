@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`writingsuggestions`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [enumeriertes](/de/docs/Glossary/enumerated) Attribut, das angibt, ob browsergestützte Schreibvorschläge für das Element aktiviert werden sollen oder nicht.
+Das **`writingsuggestions`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("enumerated", "enumeriertes")}} Attribut, das angibt, ob browsergestützte Schreibvorschläge für das Element aktiviert werden sollen oder nicht.
 
 Einige Browser bieten Nutzern während der Eingabe in editierbaren Feldern Schreibvorschläge an. Vorschläge erscheinen normalerweise als ausgegrauter Text, der hinter dem Textcursor positioniert ist und den Satz des Nutzers vervollständigt. Während dies für Nutzer hilfreich sein kann, möchten Entwickler in einigen Fällen die Schreibvorschläge deaktivieren, zum Beispiel, wenn spezifische Schreibvorschläge von der Website angeboten werden.
 

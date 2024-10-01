@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`fillText()`** des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), die Teil der Canvas 2D API ist, zeichnet einen Textstring an den angegebenen Koordinaten und füllt die Zeichen des Strings mit dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle). Ein optionaler Parameter ermöglicht es, eine maximale Breite für den gerenderten Text anzugeben, die der [User-Agent](/de/docs/Glossary/user_agent) erreichen wird, indem er den Text verdichtet oder eine kleinere Schriftgröße verwendet.
+Die Methode **`fillText()`** des [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D), die Teil der Canvas 2D API ist, zeichnet einen Textstring an den angegebenen Koordinaten und füllt die Zeichen des Strings mit dem aktuellen [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle). Ein optionaler Parameter ermöglicht es, eine maximale Breite für den gerenderten Text anzugeben, die der {{Glossary("user_agent", "User-Agent")}} erreichen wird, indem er den Text verdichtet oder eine kleinere Schriftgröße verwendet.
 
 Diese Methode zeichnet direkt auf die Leinwand, ohne den aktuellen Pfad zu verändern, sodass nachfolgende Aufrufe von [`fill()`](/de/docs/Web/API/CanvasRenderingContext2D/fill) oder [`stroke()`](/de/docs/Web/API/CanvasRenderingContext2D/stroke) darauf keine Wirkung haben.
 

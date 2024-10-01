@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<code>`**-[HTML](/de/docs/Web/HTML)-Element zeigt seine Inhalte in einem Stil an, der darauf hinweist, dass der Text ein kurzer Ausschnitt von Computercode ist. Standardmäßig wird der Inhaltstext unter Verwendung der monospace Schriftart des [User-Agents](/de/docs/Glossary/user_agent) angezeigt.
+Das **`<code>`**-[HTML](/de/docs/Web/HTML)-Element zeigt seine Inhalte in einem Stil an, der darauf hinweist, dass der Text ein kurzer Ausschnitt von Computercode ist. Standardmäßig wird der Inhaltstext unter Verwendung der monospace Schriftart des {{Glossary("user_agent", "User-Agents")}} angezeigt.
 
 {{EmbedInteractiveExample("pages/tabbed/code.html", "tabbed-shorter")}}
 

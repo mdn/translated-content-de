@@ -11,7 +11,7 @@ Die **`rotate3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Fun
 
 {{EmbedInteractiveExample("pages/css/rotate3d.html")}}
 
-Im 3D-Raum haben Rotationen drei Freiheitsgrade, die zusammen eine einzelne Rotationsachse beschreiben. Die Rotationsachse wird durch einen \[x, y, z] Vektor definiert und verläuft durch den Ursprung (wie durch die {{ cssxref("transform-origin") }} Eigenschaft definiert). Wenn der Vektor, wie angegeben, nicht _normalisiert_ ist (d.h., wenn die Summe des Quadrats seiner drei Koordinaten nicht 1 ist), wird der [User-Agent](/de/docs/Glossary/user_agent) ihn intern normalisieren. Ein nicht normalisierbarer Vektor, wie der Nullvektor \[0, 0, 0], wird dazu führen, dass die Rotation ignoriert wird, aber ohne die gesamte CSS-Eigenschaft ungültig zu machen.
+Im 3D-Raum haben Rotationen drei Freiheitsgrade, die zusammen eine einzelne Rotationsachse beschreiben. Die Rotationsachse wird durch einen \[x, y, z] Vektor definiert und verläuft durch den Ursprung (wie durch die {{ cssxref("transform-origin") }} Eigenschaft definiert). Wenn der Vektor, wie angegeben, nicht _normalisiert_ ist (d.h., wenn die Summe des Quadrats seiner drei Koordinaten nicht 1 ist), wird der {{Glossary("user_agent", "User-Agent")}} ihn intern normalisieren. Ein nicht normalisierbarer Vektor, wie der Nullvektor \[0, 0, 0], wird dazu führen, dass die Rotation ignoriert wird, aber ohne die gesamte CSS-Eigenschaft ungültig zu machen.
 
 > [!NOTE]
 > Anders als Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.

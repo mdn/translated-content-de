@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Head** ist der Teil eines [HTML](/de/docs/Glossary/HTML)-Dokuments, der [Metadaten](/de/docs/Glossary/metadata) über dieses Dokument enthält, wie den Autor, die Beschreibung und Links zu [CSS](/de/docs/Glossary/CSS)- oder [JavaScript](/de/docs/Glossary/JavaScript)-Dateien, die auf das HTML angewendet werden sollen.
+Der **Head** ist der Teil eines {{Glossary("HTML", "HTML")}}-Dokuments, der {{Glossary("metadata", "Metadaten")}} über dieses Dokument enthält, wie den Autor, die Beschreibung und Links zu {{Glossary("CSS", "CSS")}}- oder {{Glossary("JavaScript", "JavaScript")}}-Dateien, die auf das HTML angewendet werden sollen.
 
 ## Siehe auch
 

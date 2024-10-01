@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`ssrc`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs enthält einen positiven ganzzahligen Wert, der die Synchronisationsquelle (SSRC) dieses Streams von [RTP](/de/docs/Glossary/RTP)-Paketen identifiziert.
+Die **`ssrc`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs enthält einen positiven ganzzahligen Wert, der die Synchronisationsquelle (SSRC) dieses Streams von {{Glossary("RTP", "RTP")}}-Paketen identifiziert.
 
 Eine Quelle könnte beispielsweise ein Mikrofon oder eine Mixer-Anwendung sein, die mehrere Quellen kombiniert.
 Alle Pakete derselben Quelle teilen die gleiche Zeitquelle und den gleichen Sequenzbereich und können daher relativ zueinander geordnet werden.

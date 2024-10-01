@@ -39,7 +39,7 @@ Da Nachkommen eines `tab` präsentativ sind, ist der folgende Code gleichwertig:
 <div role="tab"><h3 role="presentation">Title of my tab</h3></div>
 ```
 
-Aus der Perspektive des Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorhergehenden Code-Schnipsel dem folgenden im [Zugängigkeitsbaum](/de/docs/Glossary/Accessibility_tree) entsprechen:
+Aus der Perspektive des Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorhergehenden Code-Schnipsel dem folgenden im {{Glossary("Accessibility_tree", "Zugängigkeitsbaum")}} entsprechen:
 
 ```html
 <div role="tab">Title of my tab</div>
@@ -56,12 +56,12 @@ Aus der Perspektive des Benutzers von unterstützender Technologie existiert die
 
 ### Tastatur-Interaktionen
 
-| Taste             | Aktion                                                                                                                                                                                                                 |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Taste             | Aktion                                                                                                                                                                                                                                                |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | <kbd>Tab</kbd>    | Wenn der Fokus außerhalb der `tablist` ist, bewegt er den Fokus auf den aktiven Tab. Wenn der Fokus auf dem aktiven Tab liegt, bewegt er den Fokus auf das nächste Element in der Tastaturfokus-Reihenfolge, idealerweise das zugeordnete `tabpanel`. |
-| <kbd>→</kbd>      | Fokussiert und aktiviert optional den nächsten Tab in der Tabliste. Wenn der aktuelle Tab der letzte Tab in der Tabliste ist, aktiviert er den ersten Tab.                                                            |
-| <kbd>←</kbd>      | Fokussiert und aktiviert optional den vorherigen Tab in der Tabliste. Wenn der aktuelle Tab der erste Tab in der Tabliste ist, aktiviert er den letzten Tab.                                                           |
-| <kbd>Delete</kbd> | Entfernt den aktuell ausgewählten Tab aus der Tabliste, wenn erlaubt.                                                                                                                                                  |
+| <kbd>→</kbd>      | Fokussiert und aktiviert optional den nächsten Tab in der Tabliste. Wenn der aktuelle Tab der letzte Tab in der Tabliste ist, aktiviert er den ersten Tab.                                                                                            |
+| <kbd>←</kbd>      | Fokussiert und aktiviert optional den vorherigen Tab in der Tabliste. Wenn der aktuelle Tab der erste Tab in der Tabliste ist, aktiviert er den letzten Tab.                                                                                          |
+| <kbd>Delete</kbd> | Entfernt den aktuell ausgewählten Tab aus der Tabliste, wenn erlaubt.                                                                                                                                                                                 |
 
 ### Erforderliche JavaScript-Funktionen
 

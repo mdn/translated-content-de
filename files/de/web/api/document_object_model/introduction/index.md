@@ -10,7 +10,7 @@ l10n:
 Das **Document Object Model** (_DOM_) ist die Datenrepräsentation der Objekte,
 die die Struktur und den Inhalt eines Dokuments im Web bilden.
 Dieser Leitfaden wird das DOM einführen,
-untersuchen, wie das DOM ein [HTML](/de/docs/Glossary/HTML)-Dokument im Speicher darstellt
+untersuchen, wie das DOM ein {{Glossary("HTML", "HTML")}}-Dokument im Speicher darstellt
 und wie man APIs nutzt, um Webinhalte und Anwendungen zu erstellen.
 
 ## Was ist das DOM?
@@ -39,7 +39,7 @@ und die SVG-API fügt Unterstützung für die Darstellung von SVG-Dokumenten hin
 
 ## DOM und JavaScript
 
-Das vorherige kurze Beispiel, wie fast alle Beispiele, ist in [JavaScript](/de/docs/Glossary/JavaScript) geschrieben. Das heißt, es ist _in_ JavaScript geschrieben, verwendet aber das DOM, um auf das Dokument und seine Elemente zuzugreifen. Das DOM ist keine Programmiersprache, aber ohne es hätte die JavaScript-Sprache kein Modell oder Vorstellung von Webseiten, HTML-Dokumenten, SVG-Dokumenten und deren Bestandteilen. Das Dokument als Ganzes, der Kopf, Tabellen innerhalb des Dokuments, Tabellenüberschriften, Text innerhalb der Tabellenzellen und alle anderen Elemente eines Dokuments sind Teile des Document Object Models dieses Dokuments. Alle können mit dem DOM und einer Skriptsprache wie JavaScript aufgerufen und manipuliert werden.
+Das vorherige kurze Beispiel, wie fast alle Beispiele, ist in {{Glossary("JavaScript", "JavaScript")}} geschrieben. Das heißt, es ist _in_ JavaScript geschrieben, verwendet aber das DOM, um auf das Dokument und seine Elemente zuzugreifen. Das DOM ist keine Programmiersprache, aber ohne es hätte die JavaScript-Sprache kein Modell oder Vorstellung von Webseiten, HTML-Dokumenten, SVG-Dokumenten und deren Bestandteilen. Das Dokument als Ganzes, der Kopf, Tabellen innerhalb des Dokuments, Tabellenüberschriften, Text innerhalb der Tabellenzellen und alle anderen Elemente eines Dokuments sind Teile des Document Object Models dieses Dokuments. Alle können mit dem DOM und einer Skriptsprache wie JavaScript aufgerufen und manipuliert werden.
 
 Das DOM ist kein Teil der JavaScript-Sprache,
 sondern eine Web-API, um Websites zu erstellen.

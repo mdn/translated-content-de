@@ -40,7 +40,7 @@ Da Nachkommen von `progressbar` präsentational sind, ist der folgende Code äqu
 </div>
 ```
 
-Aus der Perspektive des Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Codebeispiele dem folgenden im [Barrierefreiheitsbaum](/de/docs/Glossary/Accessibility_tree) entsprechen:
+Aus der Perspektive des Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Codebeispiele dem folgenden im {{Glossary("Accessibility_tree", "Barrierefreiheitsbaum")}} entsprechen:
 
 ```html
 <div role="progressbar">Title of my progressbar</div>

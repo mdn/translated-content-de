@@ -61,4 +61,4 @@ Content-Length: 1234
 ## Siehe auch
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
-- [URI](/de/docs/Glossary/URI)
+- {{Glossary("URI", "URI")}}

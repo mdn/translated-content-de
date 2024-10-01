@@ -14,17 +14,17 @@ Der **`Content-Range`** Antwort-HTTP-Header gibt an, wo in einer vollständigen 
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Antwort-Header](/de/docs/Glossary/Response_header),
-        [Inhalts-Header](/de/docs/Glossary/Content_header)
+        {{Glossary("Response_header", "Antwort-Header")}},
+        {{Glossary("Content_header", "Inhalts-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-sicherer Anfrage-Header](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-sicherer Anfrage-Header")}}
       </th>
       <td>nein</td>
     </tr>

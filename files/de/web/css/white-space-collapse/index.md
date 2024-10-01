@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie [Leerzeichen](/de/docs/Glossary/whitespace) innerhalb eines Elements reduziert werden.
+Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, wie {{Glossary("whitespace", "Leerzeichen")}} innerhalb eines Elements reduziert werden.
 
 > [!NOTE]
 > Die Eigenschaften `white-space-collapse` und {{CSSxRef("text-wrap")}} können gemeinsam mit der Abkürzungseigenschaft {{CSSxRef("white-space")}} deklariert werden.

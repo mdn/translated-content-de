@@ -126,7 +126,7 @@ Diese Lösung kann die Übersetzung sowohl für Leser als auch Übersetzer erlei
 
 ### Schreiben Sie mit SEO im Hinterkopf
 
-Obwohl das primäre Ziel jeglichen Schreibens auf MDN Web Docs immer das Erklären und Informieren über offene Webtechnologien sein sollte, damit Entwickler schnell lernen können, was sie tun möchten, oder um die kleinen Details zu finden, die sie wissen müssen, um ihren Code zu perfektionieren, ist es wichtig, dass sie das Material, das wir schreiben, _finden_ können. Wir können dies erreichen, indem wir an die Suchmaschinenoptimierung ([SEO](/de/docs/Glossary/SEO)) beim Schreiben denken.
+Obwohl das primäre Ziel jeglichen Schreibens auf MDN Web Docs immer das Erklären und Informieren über offene Webtechnologien sein sollte, damit Entwickler schnell lernen können, was sie tun möchten, oder um die kleinen Details zu finden, die sie wissen müssen, um ihren Code zu perfektionieren, ist es wichtig, dass sie das Material, das wir schreiben, _finden_ können. Wir können dies erreichen, indem wir an die Suchmaschinenoptimierung ({{Glossary("SEO", "SEO")}}) beim Schreiben denken.
 
 Dieser Abschnitt behandelt die Standardpraktiken, Empfehlungen und Anforderungen für Inhalte, um sicherzustellen, dass Suchmaschinen unser Material leicht kategorisieren und indizieren können, damit Leser alles finden können, was sie benötigen. Die SEO-Richtlinien beinhalten, dass sichergestellt wird, dass jede Seite, an der Autoren und Redakteure arbeiten, einigermaßen gut gestaltet, geschrieben und markiert wird, um den Suchmaschinen den Kontext und die Hinweise zu geben, die sie benötigen, um die Artikel richtig zu indizieren.
 
@@ -207,15 +207,15 @@ Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein
 
   Die folgende Tabelle fasst die Bedeutungen und englischen Entsprechungen der lateinischen Abkürzungen zusammen:
 
-  | Abbrev | Latein            | Englisch                 |
-  | ------ | ----------------- | ------------------------ |
-  | cf.    | _confer_          | vergleichen              |
-  | e.g.   | _exempli gratia_  | zum Beispiel             |
-  | et al. | _et alii_         | und andere               |
-  | etc.   | _et cetera_       | und so weiter, usw.      |
-  | i.e.   | _id est_          | das heißt, in anderen Worten |
-  | N.B.   | _nota bene_       | wohlbemerkt              |
-  | P.S.   | _post scriptum_   | Nachschrift              |
+  | Abbrev | Latein           | Englisch                     |
+  | ------ | ---------------- | ---------------------------- |
+  | cf.    | _confer_         | vergleichen                  |
+  | e.g.   | _exempli gratia_ | zum Beispiel                 |
+  | et al. | _et alii_        | und andere                   |
+  | etc.   | _et cetera_      | und so weiter, usw.          |
+  | i.e.   | _id est_         | das heißt, in anderen Worten |
+  | N.B.   | _nota bene_      | wohlbemerkt                  |
+  | P.S.   | _post scriptum_  | Nachschrift                  |
 
   > [!NOTE]
   > Überlegen Sie immer, ob es wirklich vorteilhaft ist, eine lateinische Abkürzung zu verwenden. Einige dieser Abkürzungen werden so selten verwendet, dass viele Leser entweder ihre Bedeutung verwirren oder sie nicht verstehen werden.

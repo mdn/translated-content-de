@@ -35,7 +35,7 @@ text-underline-position: unset;
 ### Werte
 
 - `auto`
-  - : Der [User Agent](/de/docs/Glossary/user_agent) verwendet seinen eigenen Algorithmus, um die Linie auf oder unter der alphabetischen Grundlinie zu platzieren.
+  - : Der {{Glossary("user_agent", "User Agent")}} verwendet seinen eigenen Algorithmus, um die Linie auf oder unter der alphabetischen Grundlinie zu platzieren.
 - `from-font`
   - : Wenn die Schriftdatei Informationen über eine bevorzugte Position enthält, wird dieser Wert verwendet. Wenn die Schriftdatei diese Informationen nicht enthält, wird so gehandelt, als ob `auto` gesetzt wäre, wobei der Browser eine geeignete Position wählt.
 - `under`

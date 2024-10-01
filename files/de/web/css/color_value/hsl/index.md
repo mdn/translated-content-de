@@ -10,11 +10,11 @@ l10n:
 > [!NOTE]
 > Die funktionale Notation `hsla()` ist ein Alias für `hsl()`. Sie sind exakt gleichwertig. Es wird empfohlen, `hsl()` zu verwenden.
 
-Die **`hsl()`**-funktionale Notation drückt eine Farbe im [sRGB](/de/docs/Glossary/RGB)-[Farbraum](/de/docs/Glossary/color_space) aus, gemäß ihren Komponenten _Farbton_, _Sättigung_ und _Helligkeit_. Eine optionale _Alpha_-Komponente repräsentiert die Transparenz der Farbe.
+Die **`hsl()`**-funktionale Notation drückt eine Farbe im {{Glossary("RGB", "sRGB")}}-{{Glossary("color_space", "Farbraum")}} aus, gemäß ihren Komponenten _Farbton_, _Sättigung_ und _Helligkeit_. Eine optionale _Alpha_-Komponente repräsentiert die Transparenz der Farbe.
 
 {{EmbedInteractiveExample("pages/css/function-hsl.html")}}
 
-Komplementärfarben mit `hsl()` können definiert werden, indem 180 Grad zum Farbtonwert addiert oder davon subtrahiert werden, da sie auf dem gleichen Durchmesser des [Farbkreises](/de/docs/Glossary/color_wheel) positioniert sind. Zum Beispiel, wenn der Farbtonwinkel einer Farbe `10deg` beträgt, hat ihre Komplementärfarbe `190deg` als Farbtonwinkel.
+Komplementärfarben mit `hsl()` können definiert werden, indem 180 Grad zum Farbtonwert addiert oder davon subtrahiert werden, da sie auf dem gleichen Durchmesser des {{Glossary("color_wheel", "Farbkreises")}} positioniert sind. Zum Beispiel, wenn der Farbtonwinkel einer Farbe `10deg` beträgt, hat ihre Komplementärfarbe `190deg` als Farbtonwinkel.
 
 ## Syntax
 

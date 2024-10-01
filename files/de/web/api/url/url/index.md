@@ -22,7 +22,7 @@ new URL(url, base)
 ### Parameter
 
 - `url`
-  - : Ein String oder ein beliebiges anderes Objekt mit einem [Stringifier](/de/docs/Glossary/stringifier), der eine absolute URL oder einen relativen Verweis auf eine Basis-URL darstellt.
+  - : Ein String oder ein beliebiges anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}}, der eine absolute URL oder einen relativen Verweis auf eine Basis-URL darstellt.
     Wenn `url` ein relativer Verweis ist, ist `base` erforderlich und wird verwendet, um die finale URL aufzulösen.
     Wenn `url` eine absolute URL ist, wird eine angegebene `base` nicht verwendet, um die resultierende URL zu erstellen.
 - `base` {{optional_inline}}

@@ -43,6 +43,6 @@ Network\r\n
 
 - {{HTTPHeader("Content-Location")}}
 - {{HTTPStatus("413", "413 Content Too Large")}}
-- [Content-Header](/de/docs/Glossary/Content_header)
+- {{Glossary("Content_header", "Content-Header")}}
 - [RFC 9110, Abschnitt 6.4: Content](https://httpwg.org/specs/rfc9110.html#rfc.section-6.4) (ersetzt [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-3.3) Payload Semantics)
   - [Änderungen von RFC 7231](https://httpwg.org/specs/rfc9110.html#changes.from.rfc.7231)

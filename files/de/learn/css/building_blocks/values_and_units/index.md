@@ -127,15 +127,15 @@ Der numerische Typ, dem Sie am häufigsten begegnen, ist {{cssxref("length")}}. 
 
 Die folgenden sind alles **absolute** Längeneinheiten — sie sind nicht relativ zu etwas anderem und werden im Allgemeinen immer als gleich groß betrachtet.
 
-| Einheit | Name                 | Entspricht                 |
-| ---- | ------------------- | ------------------------ |
-| `cm` | Zentimeter          | 1cm = 37.8px = 25.2/64in |
-| `mm` | Millimeter          | 1mm = 1/10 eines cm      |
-| `Q`  | Viertelmillimeter   | 1Q = 1/40 eines cm       |
-| `in` | Zoll                | 1in = 2.54cm = 96px      |
-| `pc` | Picas               | 1pc = 1/6 eines in       |
-| `pt` | Punkte              | 1pt = 1/72 eines in      |
-| `px` | Pixel               | 1px = 1/96 eines in      |
+| Einheit | Name              | Entspricht               |
+| ------- | ----------------- | ------------------------ |
+| `cm`    | Zentimeter        | 1cm = 37.8px = 25.2/64in |
+| `mm`    | Millimeter        | 1mm = 1/10 eines cm      |
+| `Q`     | Viertelmillimeter | 1Q = 1/40 eines cm       |
+| `in`    | Zoll              | 1in = 2.54cm = 96px      |
+| `pc`    | Picas             | 1pc = 1/6 eines in       |
+| `pt`    | Punkte            | 1pt = 1/72 eines in      |
+| `px`    | Pixel             | 1px = 1/96 eines in      |
 
 Die meisten dieser Einheiten sind nützlicher beim Drucken als bei der Bildschirmausgabe. Wir verwenden zum Beispiel typischerweise keine `cm` (Zentimeter) auf dem Bildschirm. Der einzige Wert, den Sie häufig verwenden werden, ist `px` (Pixel).
 
@@ -316,7 +316,7 @@ Der `sRGB`-Farbraum definiert Farben im **Rot** (r), **Grün** (g) und **Blau** 
 
 ### Verwendung von Farbtönen zur Spezifizierung einer Farbe
 
-Wenn Sie über Schlüsselwörter, Hexadezimal- und `rgb()` hinausgehen möchten, um Farben anzugeben, möchten Sie vielleicht [`<hue>`](/de/docs/Web/CSS/hue) verwenden. Der Farbton ist das Merkmal, das es uns ermöglicht, den Unterschied oder die Ähnlichkeit zwischen Farben wie Rot, Orange, Gelb, Grün, Blau usw. zu erkennen. Der Hauptgedanke ist, dass Sie einen Farbton in einem [`<angle>`](/de/docs/Web/CSS/angle) angeben können, weil die meisten Farbmodelle Farbtöne mit einem [Farbkreis](/de/docs/Glossary/color_wheel) beschreiben.
+Wenn Sie über Schlüsselwörter, Hexadezimal- und `rgb()` hinausgehen möchten, um Farben anzugeben, möchten Sie vielleicht [`<hue>`](/de/docs/Web/CSS/hue) verwenden. Der Farbton ist das Merkmal, das es uns ermöglicht, den Unterschied oder die Ähnlichkeit zwischen Farben wie Rot, Orange, Gelb, Grün, Blau usw. zu erkennen. Der Hauptgedanke ist, dass Sie einen Farbton in einem [`<angle>`](/de/docs/Web/CSS/angle) angeben können, weil die meisten Farbmodelle Farbtöne mit einem {{Glossary("color_wheel", "Farbkreis")}} beschreiben.
 
 Es gibt mehrere Farbfunktionen, die eine [`<hue>`](/de/docs/Web/CSS/hue)-Komponente enthalten, einschließlich `hsl()`, `hwb()`, und [`lch()`](/de/docs/Web/CSS/color_value/lch). Andere Farbfunktionen, wie [`lab()`](/de/docs/Web/CSS/color_value/lab), definieren Farben basierend darauf, was Menschen sehen können.
 

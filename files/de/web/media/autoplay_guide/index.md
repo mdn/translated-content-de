@@ -29,7 +29,7 @@ audioElement.play();
 
 Die folgenden Web-Features und APIs können von Autoplay-Blockierung betroffen sein:
 
-- Die [HTML](/de/docs/Glossary/HTML) {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente
+- Die {{Glossary("HTML", "HTML")}} {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente
 - Die [Web Audio API](/de/docs/Web/API/Web_Audio_API)
 
 Aus Sicht des Benutzers kann eine Webseite oder App, die ohne Vorwarnung Geräusche erzeugt, erschreckend, unpraktisch oder abschreckend wirken. Daher erlauben Browser in der Regel nur unter bestimmten Umständen, dass Autoplay erfolgreich durchgeführt wird.
@@ -227,7 +227,7 @@ In der [Web Audio API](/de/docs/Web/API/Web_Audio_API) kann eine Website oder Ap
 
 ## Die Autoplay Permissions Policy
 
-Zusätzlich zu der oben beschriebenen browserseitigen Verwaltung und Kontrolle der Autoplay-Funktionalität kann ein Webserver auch seine Bereitschaft zur Ermöglichung der Autoplay-Funktionalität ausdrücken. Der [HTTP](/de/docs/Glossary/HTTP) {{HTTPHeader("Permissions-Policy")}} Header-Direktive [`autoplay`](/de/docs/Web/HTTP/Headers/Permissions-Policy/autoplay) wird verwendet, um die Kontrolle darüber zu haben, welche Domains, wenn überhaupt, Medien automatisch abspielen dürfen. Standardmäßig ist die `autoplay` Permissions Policy auf `self` gesetzt, was bedeutet, dass Autoplay erlaubt ist, da sie auf der gleichen Domain wie das Dokument gehostet werden.
+Zusätzlich zu der oben beschriebenen browserseitigen Verwaltung und Kontrolle der Autoplay-Funktionalität kann ein Webserver auch seine Bereitschaft zur Ermöglichung der Autoplay-Funktionalität ausdrücken. Der {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Permissions-Policy")}} Header-Direktive [`autoplay`](/de/docs/Web/HTTP/Headers/Permissions-Policy/autoplay) wird verwendet, um die Kontrolle darüber zu haben, welche Domains, wenn überhaupt, Medien automatisch abspielen dürfen. Standardmäßig ist die `autoplay` Permissions Policy auf `self` gesetzt, was bedeutet, dass Autoplay erlaubt ist, da sie auf der gleichen Domain wie das Dokument gehostet werden.
 
 Sie können auch eine leere Erlaubnisliste (`()`) angeben, um Autoplay vollständig zu deaktivieren, `*` um Autoplay von allen Domains zu erlauben, oder eine oder mehrere spezifische Ursprünge, aus denen Medien automatisch abgespielt werden können. Diese Ursprünge werden durch Leerzeichen getrennt.
 
@@ -238,7 +238,7 @@ Wenn das [`allow`](/de/docs/Web/HTML/Element/iframe#allow) Attribut auf einem `<
 
 ### Beispiel: Autoplay nur von der Domain des Dokuments zulassen
 
-Um den {{HTTPHeader("Permissions-Policy")}} Header zu verwenden, um nur Medien von der [Origin](/de/docs/Glossary/origin) des Dokuments automatisch abzuspielen:
+Um den {{HTTPHeader("Permissions-Policy")}} Header zu verwenden, um nur Medien von der {{Glossary("origin", "Origin")}} des Dokuments automatisch abzuspielen:
 
 ```http
 Permissions-Policy: autoplay=(self)
@@ -331,7 +331,7 @@ Browser könnten Einstellungen haben, die die Funktionsweise von Autoplay steuer
 - `media.autoplay.block-webaudio`
   - : Eine boolesche Voreinstellung, die angibt, ob die Autoplay-Blockierung auf die [Web Audio API](/de/docs/Web/API/Web_Audio_API) angewendet wird.
     Wenn `false`, ist Web Audio immer zum Autoplay berechtigt.
-    Wenn `true`, können Audiokontexte auf Seiten nur abgespielt werden, nachdem es eine [Sticky activation](/de/docs/Glossary/Sticky_activation) gegeben hat.
+    Wenn `true`, können Audiokontexte auf Seiten nur abgespielt werden, nachdem es eine {{Glossary("Sticky_activation", "Sticky activation")}} gegeben hat.
     Der Standard ist auf `true` gesetzt.
 - `media.autoplay.default`
   - : Eine Integer-Vorliebe, die bestimmt, ob die Konfiguration pro Domain für Autoplay-Unterstützung standardmäßig erlaubt (`0`), blockiert (`1`) oder beim ersten Verwenden darauf hingewiesen (`2`) wird. Der Standardwert ist `0`.

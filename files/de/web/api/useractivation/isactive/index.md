@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`isActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine [vorübergehende Benutzeraktivierung](/de/docs/Glossary/transient_activation) hat.
+Die schreibgeschützte **`isActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine {{Glossary("transient_activation", "vorübergehende Benutzeraktivierung")}} hat.
 
 ## Wert
 

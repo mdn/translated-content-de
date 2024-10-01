@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}}
 
-Die **`HTMLAreaElement.toString()`**-Methode ([Stringifier](/de/docs/Glossary/stringifier)) gibt einen String zurück, der die gesamte URL enthält. Es ist eine schreibgeschützte Version von [`HTMLAreaElement.href`](/de/docs/Web/API/HTMLAreaElement/href).
+Die **`HTMLAreaElement.toString()`**-Methode ({{Glossary("stringifier", "Stringifier")}}) gibt einen String zurück, der die gesamte URL enthält. Es ist eine schreibgeschützte Version von [`HTMLAreaElement.href`](/de/docs/Web/API/HTMLAreaElement/href).
 
 ## Syntax
 

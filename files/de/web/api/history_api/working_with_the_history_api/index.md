@@ -24,9 +24,9 @@ Die wichtigste Schnittstelle, die in der History API definiert ist, ist die [`Hi
 
 In diesem Leitfaden werden wir uns nur mit dem zweiten Methodensatz befassen, da diese ein komplexeres Verhalten aufweisen.
 
-Die `pushState()`-Methode fügt der Sitzungshistorie einen neuen Eintrag hinzu, während die `replaceState()`-Methode den Sitzungshistorieeintrag für die aktuelle Seite aktualisiert. Beide Methoden nehmen einen `state`-Parameter an, der jedes [serialisierbare Objekt](/de/docs/Glossary/Serializable_object) enthalten kann. Wenn der Browser zu diesem Historieneintrag navigiert, löst der Browser ein [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis aus, das das State-Objekt enthält, das mit diesem Eintrag verknüpft ist.
+Die `pushState()`-Methode fügt der Sitzungshistorie einen neuen Eintrag hinzu, während die `replaceState()`-Methode den Sitzungshistorieeintrag für die aktuelle Seite aktualisiert. Beide Methoden nehmen einen `state`-Parameter an, der jedes {{Glossary("Serializable_object", "serialisierbare Objekt")}} enthalten kann. Wenn der Browser zu diesem Historieneintrag navigiert, löst der Browser ein [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis aus, das das State-Objekt enthält, das mit diesem Eintrag verknüpft ist.
 
-Der Hauptzweck dieser APIs ist die Unterstützung von Websites wie [Single-page applications](/de/docs/Glossary/SPA), die JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch) verwenden, um die Seite mit neuem Inhalt zu aktualisieren, anstatt eine ganz neue Seite zu laden.
+Der Hauptzweck dieser APIs ist die Unterstützung von Websites wie {{Glossary("SPA", "Single-page applications")}}, die JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch) verwenden, um die Seite mit neuem Inhalt zu aktualisieren, anstatt eine ganz neue Seite zu laden.
 
 ## Single-Page-Anwendungen und Sitzungshistorie
 
@@ -37,7 +37,7 @@ Obwohl dies für viele Seiten großartig ist, kann es einige Nachteile haben:
 - Es kann ineffizient sein, jedes Mal eine ganze Seite zu laden, wenn nur ein Teil der Seite aktualisiert werden muss.
 - Es ist schwierig, den Anwendungszustand beim Navigieren über Seiten hinweg zu erhalten.
 
-Aus diesen Gründen ist ein beliebtes Muster für Web-Apps die [Single-Page-Anwendung](/de/docs/Glossary/SPA) (SPA), bei der die Site aus einer einzigen Seite besteht, und wenn der Benutzer auf Links klickt, die Seite:
+Aus diesen Gründen ist ein beliebtes Muster für Web-Apps die {{Glossary("SPA", "Single-Page-Anwendung")}} (SPA), bei der die Site aus einer einzigen Seite besteht, und wenn der Benutzer auf Links klickt, die Seite:
 
 1. Verhindert das Standardverhalten des Ladens einer neuen Seite
 2. [Holt](/de/docs/Web/API/Window/fetch) neuen Inhalt zur Anzeige
@@ -130,7 +130,7 @@ Hier rufen wir `pushState()` mit drei Argumenten auf:
 
 - `json`: Dies ist der Inhalt, den wir gerade abgerufen haben. Es wird zusammen mit dem Historieneintrag gespeichert und später als [`state`](/de/docs/Web/API/PopStateEvent/state)-Eigenschaft des Arguments an den `popstate`-Ereignishandler übergeben.
 - `""`: Dies wird für die Abwärtskompatibilität mit älteren Websites benötigt und sollte immer ein leerer String sein.
-- `creature`: Dies wird als URL für den Eintrag verwendet. Es wird in der URL-Leiste des Browsers angezeigt und als Wert des {{httpheader("Referer")}}-Headers in allen HTTP-Anfragen verwendet, die die Seite macht. Beachten Sie, dass dies mit der Seite [same-origin](/de/docs/Glossary/Same-origin_policy) sein muss.
+- `creature`: Dies wird als URL für den Eintrag verwendet. Es wird in der URL-Leiste des Browsers angezeigt und als Wert des {{httpheader("Referer")}}-Headers in allen HTTP-Anfragen verwendet, die die Seite macht. Beachten Sie, dass dies mit der Seite {{Glossary("Same-origin_policy", "same-origin")}} sein muss.
 
 ## Verwendung des `popstate`-Ereignisses
 

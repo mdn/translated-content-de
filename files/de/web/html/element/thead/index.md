@@ -21,7 +21,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung jeder Kopfzelle an. Die möglichen [aufzählbaren](/de/docs/Glossary/enumerated) Werte sind `left`, `center`, `right`, `justify`, und `char`. Wenn unterstützt, richtet der `char` Wert den Textinhalt auf dem durch das Attribut [`char`](#char) definierten Zeichen und dem durch das Attribut [`charoff`](#charoff) definierten Offset aus. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung jeder Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center`, `right`, `justify`, und `char`. Wenn unterstützt, richtet der `char` Wert den Textinhalt auf dem durch das Attribut [`char`](#char) definierten Zeichen und dem durch das Attribut [`charoff`](#charoff) definierten Offset aus. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
 
@@ -37,12 +37,12 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung jeder Kopfzelle an. Die möglichen [aufzählbaren](/de/docs/Glossary/enumerated) Werte sind `baseline`, `bottom`, `middle`, und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung jeder Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `baseline`, `bottom`, `middle`, und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 ## Verwendungshinweise
 
 - Das `<thead>` wird nach allen {{HTMLElement("caption")}} und {{HTMLElement("colgroup")}} Elementen platziert, aber vor allen {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, und {{HTMLElement("tr")}} Elementen.
-- Zusammen mit den verwandten {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}} Elementen bietet das `<thead>`-Element nützliche [semantische](/de/docs/Glossary/semantics) Informationen und kann sowohl für die Bildschirm- als auch für die Druckwiedergabe verwendet werden. Die Spezifizierung solcher Tabelleninhaltsgruppen liefert auch wertvolle kontextuelle Informationen für unterstützende Technologien, einschließlich Screenreader und Suchmaschinen.
+- Zusammen mit den verwandten {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}} Elementen bietet das `<thead>`-Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann sowohl für die Bildschirm- als auch für die Druckwiedergabe verwendet werden. Die Spezifizierung solcher Tabelleninhaltsgruppen liefert auch wertvolle kontextuelle Informationen für unterstützende Technologien, einschließlich Screenreader und Suchmaschinen.
 - Beim Drucken eines Dokuments gibt der Tabellenkopf normalerweise Informationen an, die auf jeder Seite gleich bleiben, im Falle einer mehrseitigen Tabelle.
 
 ## Beispiele
@@ -55,7 +55,7 @@ Dieses Beispiel zeigt eine Tabelle, die in einen Kopfbereich mit Spaltenübersch
 
 #### HTML
 
-Die `<thead>` und {{HTMLElement("tbody")}}-Elemente werden verwendet, um die Tabellenzeilen in [semantische](/de/docs/Glossary/semantics) Abschnitte zu unterteilen. Das `<thead>`-Element repräsentiert den Kopfbereich der Tabelle, der eine Zeile ({{HTMLElement("tr")}}) von Spaltenüberschriftenzellen ({{HTMLElement("th")}}) enthält.
+Die `<thead>` und {{HTMLElement("tbody")}}-Elemente werden verwendet, um die Tabellenzeilen in {{Glossary("semantics", "semantische")}} Abschnitte zu unterteilen. Das `<thead>`-Element repräsentiert den Kopfbereich der Tabelle, der eine Zeile ({{HTMLElement("tr")}}) von Spaltenüberschriftenzellen ({{HTMLElement("th")}}) enthält.
 
 ```html
 <table>

@@ -86,7 +86,7 @@ svg {
   - : Dieser Wert gibt die einfache Dauer als unbestimmt an.
 
 > [!NOTE]
-> Die [Interpolation](/de/docs/Glossary/interpolation) wird nicht funktionieren, wenn die einfache Dauer unbestimmt ist (obwohl dies möglicherweise für {{SVGElement("set")}}-Elemente nützlich sein kann).
+> Die {{Glossary("interpolation", "Interpolation")}} wird nicht funktionieren, wenn die einfache Dauer unbestimmt ist (obwohl dies möglicherweise für {{SVGElement("set")}}-Elemente nützlich sein kann).
 
 ## Spezifikationen
 

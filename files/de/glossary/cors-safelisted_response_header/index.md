@@ -39,7 +39,7 @@ Access-Control-Expose-Headers: X-Custom-Header, Content-Encoding
 - [HTTP-Header](/de/docs/Web/HTTP/Headers)
 - {{HTTPHeader("Access-Control-Expose-Headers")}}
 - Verwandte Glossarbegriffe:
-  - [CORS](/de/docs/Glossary/CORS)
-  - [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header)
-  - [Forbidden header name](/de/docs/Glossary/Forbidden_header_name)
-  - [Request header](/de/docs/Glossary/Request_header)
+  - {{Glossary("CORS", "CORS")}}
+  - {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
+  - {{Glossary("Forbidden_header_name", "Forbidden header name")}}
+  - {{Glossary("Request_header", "Request header")}}

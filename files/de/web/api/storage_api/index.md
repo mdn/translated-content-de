@@ -11,7 +11,7 @@ Der [Storage Standard](https://storage.spec.whatwg.org/) definiert ein gemeinsam
 
 Die Daten, die für eine Website gespeichert werden und durch den Storage Standard verwaltet werden, umfassen in der Regel [IndexedDB-Datenbanken](/de/docs/Web/API/IndexedDB_API) und [Cache-API-Daten](/de/docs/Web/API/Cache), können aber auch andere site-zugängliche Daten enthalten, wie etwa [Web Storage API-Daten](/de/docs/Web/API/Web_Storage_API).
 
-Die Storage API ermöglicht es Websites, herauszufinden, wie viel Platz sie nutzen können, wie viel sie bereits nutzen, und sogar zu kontrollieren, ob sie benachrichtigt werden müssen, bevor der [User Agent](/de/docs/Glossary/user_agent) Daten entfernt, um Platz für andere Dinge zu schaffen.
+Die Storage API ermöglicht es Websites, herauszufinden, wie viel Platz sie nutzen können, wie viel sie bereits nutzen, und sogar zu kontrollieren, ob sie benachrichtigt werden müssen, bevor der {{Glossary("user_agent", "User Agent")}} Daten entfernt, um Platz für andere Dinge zu schaffen.
 
 Dieser Artikel gibt einen Überblick darüber, wie User Agents die Daten von Websites speichern und verwalten. Für weitere Informationen zu Speichergrenzen und Datenlöschung, siehe [Browser-Speicherquoten und Löschkriterien](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria).
 
@@ -21,7 +21,7 @@ Dieser Artikel bietet auch einen Überblick über das [`StorageManager`](/de/doc
 
 ### Speicherbuckets
 
-Das Speichersystem, das durch den Storage Standard beschrieben wird, in dem Websitedaten gespeichert werden, besteht in der Regel aus einem einzigen _Bucket_ für jeden [Ursprung](/de/docs/Glossary/origin).
+Das Speichersystem, das durch den Storage Standard beschrieben wird, in dem Websitedaten gespeichert werden, besteht in der Regel aus einem einzigen _Bucket_ für jeden {{Glossary("origin", "Ursprung")}}.
 
 Im Wesentlichen hat jede Website ihren eigenen Speicherplatz, in den ihre Daten gelegt werden. In einigen Fällen können Benutzeragenten jedoch entscheiden, die Daten eines einzelnen Ursprungs in mehreren verschiedenen Buckets zu speichern, zum Beispiel wenn dieser Ursprung in verschiedenen Drittanbieter-Ursprüngen eingebettet ist.
 
@@ -70,7 +70,7 @@ Um mehr zu erfahren, siehe [Bleiben im Browser gespeicherte Daten bestehen?](/de
 
 Der Benutzeragent bestimmt, mithilfe eines beliebigen Mechanismus, den er wählt, die maximale Menge an Speicher, die eine bestimmte Website verwenden kann. Dieses Maximum ist die **Quote** des Ursprungs. Die Menge dieses Platzes, die von der Website genutzt wird, wird als **Nutzung** bezeichnet. Beide Werte sind Schätzungen; es gibt mehrere Gründe, warum sie nicht genau sind:
 
-- Benutzeragenten werden ermutigt, die genaue Größe der von einem bestimmten Ursprung verwendeten Daten zu verschleiern, um zu verhindern, dass diese Werte für [Fingerprinting](/de/docs/Glossary/Fingerprinting)-Zwecke verwendet werden.
+- Benutzeragenten werden ermutigt, die genaue Größe der von einem bestimmten Ursprung verwendeten Daten zu verschleiern, um zu verhindern, dass diese Werte für {{Glossary("Fingerprinting", "Fingerprinting")}}-Zwecke verwendet werden.
 - Methoden wie Deduplizierung, Kompression und andere, die physische Größe der gespeicherten Daten zu reduzieren, können verwendet werden.
 - Quoten sind konservative Schätzungen des Platzes, der dem Ursprung zur Verfügung steht, und sollten geringer sein als der verfügbare Platz auf dem Gerät, um Überlastungen zu verhindern.
 

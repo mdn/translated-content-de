@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **Sec-WebSocket-Extensions** HTTP-[Anforderungs](/de/docs/Glossary/request_header) und [Antwort-Header](/de/docs/Glossary/response_header) wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um eine Protokollerweiterung zwischen Client und Server auszuhandeln.
+Der **Sec-WebSocket-Extensions** HTTP-{{Glossary("request_header", "Anforderungs")}} und {{Glossary("response_header", "Antwort-Header")}} wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um eine Protokollerweiterung zwischen Client und Server auszuhandeln.
 
 In einer Anforderung gibt der Header eine oder mehrere Erweiterungen an, die die Webanwendung verwenden möchte, in der Reihenfolge der Präferenzen.
 Diese können als mehrere Header hinzugefügt werden, oder als kommagetrennte Werte in einem einzelnen Header.
@@ -21,10 +21,10 @@ Der Anforderungs-Header wird automatisch vom Browser basierend auf seinen eigene
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Anforderungs-Header](/de/docs/Glossary/Request_header), [Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungs-Header")}}, {{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

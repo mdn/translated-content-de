@@ -8,7 +8,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das HTML-Attribut `autocomplete` ermöglicht es Webentwicklern, anzugeben, welche Berechtigung der [User Agent](/de/docs/Glossary/user_agent) hat, um automatisierte Unterstützung beim Ausfüllen von Formularfeldern zu bieten, sowie die Art der erwarteten Informationen im Feld an den Browser weiterzugeben.
+Das HTML-Attribut `autocomplete` ermöglicht es Webentwicklern, anzugeben, welche Berechtigung der {{Glossary("user_agent", "User Agent")}} hat, um automatisierte Unterstützung beim Ausfüllen von Formularfeldern zu bieten, sowie die Art der erwarteten Informationen im Feld an den Browser weiterzugeben.
 
 Es ist verfügbar für {{HTMLElement("input")}}-Elemente, die Text- oder Zahlenwerte als Eingabe akzeptieren, {{HTMLElement("textarea")}}-Elemente, {{HTMLElement("select")}}-Elemente und {{HTMLElement("form")}}-Elemente.
 

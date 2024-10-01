@@ -25,7 +25,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - `accept-charset`
 
-  - : Durch Leerzeichen getrennte [Zeichenkodierungen](/de/docs/Glossary/character_encoding), die der Server akzeptiert. Der Browser verwendet sie in der angegebenen Reihenfolge. Der Standardwert bedeutet [die gleiche Kodierung wie die Seite](/de/docs/Web/HTTP/Headers/Content-Encoding).
+  - : Durch Leerzeichen getrennte {{Glossary("character_encoding", "Zeichenkodierungen")}}, die der Server akzeptiert. Der Browser verwendet sie in der angegebenen Reihenfolge. Der Standardwert bedeutet [die gleiche Kodierung wie die Seite](/de/docs/Web/HTTP/Headers/Content-Encoding).
     (In früheren Versionen von HTML konnten Zeichenkodierungen auch durch Kommas getrennt werden.)
 
 - `autocapitalize`
@@ -68,7 +68,7 @@ Die folgenden Attribute steuern das Verhalten während der Formularübermittlung
     Die einzigen erlaubten Methoden/Werte sind (nicht case-sensitive):
 
     - `post`: Die {{HTTPMethod("POST")}}-Methode; Formulardaten werden als [Request-Body](/de/docs/Web/API/Request/body) gesendet.
-    - `get` (Standard): Die {{HTTPMethod("GET")}}-Methode; Formulardaten werden an die `action`-URL mit einem `?`-Trennzeichen angehängt. Verwenden Sie diese Methode, wenn das Formular [keine Nebeneffekte hat](/de/docs/Glossary/Idempotent).
+    - `get` (Standard): Die {{HTTPMethod("GET")}}-Methode; Formulardaten werden an die `action`-URL mit einem `?`-Trennzeichen angehängt. Verwenden Sie diese Methode, wenn das Formular {{Glossary("Idempotent", "keine Nebeneffekte hat")}}.
     - `dialog`: Wenn das Formular in einem {{HTMLElement("dialog")}} enthalten ist, schließt es den Dialog und löst ein `submit`-Ereignis bei der Übermittlung aus, ohne Daten zu senden oder das Formular zu leeren.
 
     Dieser Wert wird durch [`formmethod`](/de/docs/Web/HTML/Element/button#formmethod)-Attribute an {{HTMLElement("button")}}, [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit) oder [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) Elementen überschrieben.

@@ -11,7 +11,7 @@ Ein Modem ("**Modulator-Demodulator**") ist ein Gerät, das digitale Information
 
 Verschiedene Arten werden für verschiedene Netzwerke verwendet: DSL-Modems für Telefonleitungen, Wi-Fi-Modems für drahtlose Kurzstreckenfunksignale, 3G-Modems für Mobilfunkdatentürme und so weiter.
 
-Modems unterscheiden sich von [Routern](/de/docs/Glossary/Router), aber viele Unternehmen verkaufen Modems, die mit Routern kombiniert sind.
+Modems unterscheiden sich von {{Glossary("Router", "Routern")}}, aber viele Unternehmen verkaufen Modems, die mit Routern kombiniert sind.
 
 ## Siehe auch
 

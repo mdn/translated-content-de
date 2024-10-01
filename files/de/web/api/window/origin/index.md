@@ -35,4 +35,4 @@ Wenn der Ursprung kein Schema/Host/Port-Tupel ist (angenommen, Sie versuchen es 
 ## Siehe auch
 
 - [`WorkerGlobalScope.origin`](/de/docs/Web/API/WorkerGlobalScope/origin)
-- [origin](/de/docs/Glossary/origin) Glossarbegriff
+- {{Glossary("origin", "origin")}} Glossarbegriff

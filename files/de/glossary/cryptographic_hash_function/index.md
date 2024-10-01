@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **kryptographische Hash-Funktion**, auch manchmal _Digest-Funktion_ genannt, ist eine [kryptographische](/de/docs/Glossary/cryptography) Primitive, die eine Nachricht beliebiger Größe in eine Nachricht fester Größe transformiert, die als [Digest](/de/docs/Glossary/digest) bezeichnet wird. Kryptographische Hash-Funktionen werden für Authentifizierung, [digitale Signaturen](/de/docs/Glossary/digital_signature) und [Message Authentication Codes](/de/docs/Glossary/HMAC) verwendet.
+Eine **kryptographische Hash-Funktion**, auch manchmal _Digest-Funktion_ genannt, ist eine {{Glossary("cryptography", "kryptographische")}} Primitive, die eine Nachricht beliebiger Größe in eine Nachricht fester Größe transformiert, die als {{Glossary("digest", "Digest")}} bezeichnet wird. Kryptographische Hash-Funktionen werden für Authentifizierung, {{Glossary("digital_signature", "digitale Signaturen")}} und {{Glossary("HMAC", "Message Authentication Codes")}} verwendet.
 
 Um für kryptographische Zwecke genutzt zu werden, muss eine Hash-Funktion folgende Eigenschaften besitzen:
 
@@ -22,4 +22,4 @@ Kryptographische Hash-Funktionen wie MD5 und SHA-1 gelten als unsicher, da Angri
 
 - [Cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function) auf Wikipedia
 - Verwandte Glossareinträge:
-  - [Symmetrische Kryptographie](/de/docs/Glossary/Symmetric-key_cryptography)
+  - {{Glossary("Symmetric-key_cryptography", "Symmetrische Kryptographie")}}

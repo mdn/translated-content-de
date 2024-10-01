@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Die **`<h1>`** bis **`<h6>`** [HTML](/de/docs/Web/HTML) Elemente repräsentieren sechs Ebenen von Abschnittsüberschriften. `<h1>` ist die höchste Abschnittsebene und `<h6>` ist die niedrigste. Standardmäßig erzeugen alle Überschriftselemente einen [Block-Level](/de/docs/Glossary/Block-level_content) Block im Layout, beginnen in einer neuen Zeile und nehmen die gesamte verfügbare Breite ihres enthaltenen Blocks ein.
+Die **`<h1>`** bis **`<h6>`** [HTML](/de/docs/Web/HTML) Elemente repräsentieren sechs Ebenen von Abschnittsüberschriften. `<h1>` ist die höchste Abschnittsebene und `<h6>` ist die niedrigste. Standardmäßig erzeugen alle Überschriftselemente einen {{Glossary("Block-level_content", "Block-Level")}} Block im Layout, beginnen in einer neuen Zeile und nehmen die gesamte verfügbare Breite ihres enthaltenen Blocks ein.
 
 {{EmbedInteractiveExample("pages/tabbed/h1-h6.html", "tabbed-standard")}}
 
@@ -18,7 +18,7 @@ Diese Elemente beinhalten nur die [globalen Attribute](/de/docs/Web/HTML/Global_
 ## Verwendungshinweise
 
 - Überschriftinformationen können von Benutzeragenten verwendet werden, um automatisch ein Inhaltsverzeichnis für ein Dokument zu erstellen.
-- Verwenden Sie keine Überschriftselemente, um Text zu verkleinern. Verwenden Sie stattdessen die [CSS](/de/docs/Glossary/CSS) {{cssxref("font-size")}} Eigenschaft.
+- Verwenden Sie keine Überschriftselemente, um Text zu verkleinern. Verwenden Sie stattdessen die {{Glossary("CSS", "CSS")}} {{cssxref("font-size")}} Eigenschaft.
 - Überspringen Sie keine Überschriftsebenen: Beginnen Sie immer mit `<h1>`, gefolgt von `<h2>` und so weiter.
 
 ### Vermeiden Sie die Verwendung mehrerer `<h1>` Elemente auf einer Seite

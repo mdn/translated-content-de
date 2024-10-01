@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`-webkit-line-clamp`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, den Inhalt eines [Blocks](/de/docs/Glossary/block) auf die angegebene Anzahl von Zeilen zu begrenzen.
+Die **`-webkit-line-clamp`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, den Inhalt eines {{Glossary("block", "Blocks")}} auf die angegebene Anzahl von Zeilen zu begrenzen.
 
 Sie funktioniert nur in Kombination mit der {{cssxref("display")}} Eigenschaft, die auf `-webkit-box` oder `-webkit-inline-box` gesetzt ist, und der {{cssxref("box-orient", "-webkit-box-orient")}} Eigenschaft, die auf `vertical` gesetzt ist. Trotz ihres veralteten Status ist die gegenseitige Abhängigkeit dieser drei Eigenschaften vollständig spezifiziert und wird weiterhin unterstützt.
 

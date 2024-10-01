@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`source`** schreibgeschützte Eigenschaft des [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces ist ein `MessageEventSource` (dies kann ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtenabsender darstellt.
+Die **`source`** schreibgeschützte Eigenschaft des [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces ist ein `MessageEventSource` (dies kann ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtenabsender darstellt.
 
 ## Wert
 
-ein `MessageEventSource` (dies kann ein [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtenabsender darstellt.
+ein `MessageEventSource` (dies kann ein {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein), das den Nachrichtenabsender darstellt.
 
 ## Beispiele
 

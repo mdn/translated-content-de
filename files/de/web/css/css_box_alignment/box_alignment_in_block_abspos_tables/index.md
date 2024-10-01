@@ -11,7 +11,7 @@ Die [Box-Ausrichtungs-Spezifikation](/de/docs/Web/CSS/CSS_box_alignment) beschre
 
 Die {{cssxref("justify-content")}}-Eigenschaft gilt nicht für Block-Container oder Tabellenzellen.
 
-Die {{cssxref("align-content")}}-Eigenschaft wird in der Blockachse angewendet, um den Inhalt der Box innerhalb ihres Containers auszurichten. Wenn eine Verteilungsmethode wie `space-between`, `space-around` oder `space-evenly` angefordert wird, wird die Ausrichtungsfalle verwendet, da der Inhalt als einzelnes [Ausrichtungsobjekt](/de/docs/Glossary/Alignment_Subject) behandelt wird.
+Die {{cssxref("align-content")}}-Eigenschaft wird in der Blockachse angewendet, um den Inhalt der Box innerhalb ihres Containers auszurichten. Wenn eine Verteilungsmethode wie `space-between`, `space-around` oder `space-evenly` angefordert wird, wird die Ausrichtungsfalle verwendet, da der Inhalt als einzelnes {{Glossary("Alignment_Subject", "Ausrichtungsobjekt")}} behandelt wird.
 
 ## justify-self
 
@@ -58,8 +58,8 @@ Für viele Anwendungsfälle wird das Umwandeln des Block-Containers in ein Flex-
 
 ### Glossar-Einträge
 
-- [Ausrichtungsobjekt](/de/docs/Glossary/Alignment_Subject)
-- [Ausrichtungs-Container](/de/docs/Glossary/Alignment_Container)
-- [Ausrichtungsfalle](/de/docs/Glossary/Fallback_Alignment)
+- {{Glossary("Alignment_Subject", "Ausrichtungsobjekt")}}
+- {{Glossary("Alignment_Container", "Ausrichtungs-Container")}}
+- {{Glossary("Fallback_Alignment", "Ausrichtungsfalle")}}
 
 {{CSSRef}}

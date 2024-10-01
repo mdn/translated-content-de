@@ -63,24 +63,24 @@ Ein Zuweisungsoperator weist seinen linken Operanden einen Wert basierend auf de
 
 Es gibt auch zusammengesetzte Zuweisungsoperatoren, die Abkürzungen für die in der folgenden Tabelle aufgeführten Operationen darstellen:
 
-| Name                                                                                                              | Kurzoperator       | Bedeutung           |
-| ----------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------- |
-| [Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Assignment)                                           | `x = f()`          | `x = f()`           |
-| [Additionszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Addition_assignment)                         | `x += f()`         | `x = x + f()`       |
-| [Subtraktionszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment)                   | `x -= f()`         | `x = x - f()`       |
-| [Multiplikationszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Multiplication_assignment)             | `x *= f()`         | `x = x * f()`       |
-| [Divisionszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Division_assignment)                         | `x /= f()`         | `x = x / f()`       |
-| [Restzuweisung](/de/docs/Web/JavaScript/Reference/Operators/Remainder_assignment)                             | `x %= f()`         | `x = x % f()`       |
-| [Exponentialzuweisung](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation_assignment)                 | `x **= f()`        | `x = x ** f()`      |
-| [Linksverschiebungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Left_shift_assignment)              | `x <<= f()`        | `x = x << f()`      |
-| [Rechtsverschiebungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift_assignment)            | `x >>= f()`        | `x = x >> f()`      |
-| [Unsigned-Rechtsverschiebungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment) | `x >>>= f()`       | `x = x >>> f()`     |
-| [Bitweise UND-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)                   | `x &= f()`        | `x = x & f()`       |
-| [Bitweise XOR-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment)                   | `x ^= f()`         | `x = x ^ f()`       |
-| [Bitweise ODER-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)                   | `x \|= f()`        | `x = x \| f()`      |
-| [Logisches UND-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)                  | `x &&= f()`        | `x && (x = f())`    |
-| [Logisches ODER-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)                  | `x \|\|= f()`      | `x \|\| (x = f())`  |
-| [Nullish coalescing-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment)      | `x ??= f()`        | `x ?? (x = f())`    |
+| Name                                                                                                                 | Kurzoperator  | Bedeutung          |
+| -------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------ |
+| [Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Assignment)                                                  | `x = f()`     | `x = f()`          |
+| [Additionszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Addition_assignment)                                | `x += f()`    | `x = x + f()`      |
+| [Subtraktionszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Subtraction_assignment)                          | `x -= f()`    | `x = x - f()`      |
+| [Multiplikationszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Multiplication_assignment)                    | `x *= f()`    | `x = x * f()`      |
+| [Divisionszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Division_assignment)                                | `x /= f()`    | `x = x / f()`      |
+| [Restzuweisung](/de/docs/Web/JavaScript/Reference/Operators/Remainder_assignment)                                    | `x %= f()`    | `x = x % f()`      |
+| [Exponentialzuweisung](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation_assignment)                        | `x **= f()`   | `x = x ** f()`     |
+| [Linksverschiebungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Left_shift_assignment)                     | `x <<= f()`   | `x = x << f()`     |
+| [Rechtsverschiebungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift_assignment)                   | `x >>= f()`   | `x = x >> f()`     |
+| [Unsigned-Rechtsverschiebungszuweisung](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift_assignment) | `x >>>= f()`  | `x = x >>> f()`    |
+| [Bitweise UND-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND_assignment)                         | `x &= f()`    | `x = x & f()`      |
+| [Bitweise XOR-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR_assignment)                         | `x ^= f()`    | `x = x ^ f()`      |
+| [Bitweise ODER-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)                         | `x \|= f()`   | `x = x \| f()`     |
+| [Logisches UND-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND_assignment)                        | `x &&= f()`   | `x && (x = f())`   |
+| [Logisches ODER-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR_assignment)                        | `x \|\|= f()` | `x \|\| (x = f())` |
+| [Nullish coalescing-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment)            | `x ??= f()`   | `x ?? (x = f())`   |
 
 ### Eigenschaften zuweisen
 
@@ -251,7 +251,7 @@ Insbesondere das Platzieren einer Variablenkette in einer [`const`](/de/docs/Web
 const z = y = x = f();
 ```
 
-Diese Anweisung scheint die Variablen `x`, `y` und `z` zu deklarieren. Tatsächlich wird jedoch nur die Variable `z` deklariert. `y` und `x` sind entweder ungültige Referenzen zu nicht existierenden Variablen (im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)) oder, schlimmer noch, würden implizit [globale Variablen](/de/docs/Glossary/Global_variable) für `x` und `y` im [Sloppy Mode](/de/docs/Glossary/Sloppy_mode) erstellen.
+Diese Anweisung scheint die Variablen `x`, `y` und `z` zu deklarieren. Tatsächlich wird jedoch nur die Variable `z` deklariert. `y` und `x` sind entweder ungültige Referenzen zu nicht existierenden Variablen (im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)) oder, schlimmer noch, würden implizit {{Glossary("Global_variable", "globale Variablen")}} für `x` und `y` im {{Glossary("Sloppy_mode", "Sloppy Mode")}} erstellen.
 
 ## Vergleichsoperatoren
 
@@ -469,15 +469,15 @@ Ein bitweiser Operator behandelt seine Operanden als eine Menge von 32 Bits (Nul
 
 Die folgende Tabelle fasst JavaScripts bitweise Operatoren zusammen.
 
-| Operator                                                                                     | Verwendung | Beschreibung                                                                                                                                                             |
-| -------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Bitweise UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND)                    | `a & b`   | Gibt eine Eins in jeder Bitposition zurück, für die die entsprechenden Bits beider Operanden Einsen sind.                                                                |
-| [Bitweise ODER](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR)                    | `a \| b`  | Gibt eine Null in jeder Bitposition zurück, für die die entsprechenden Bits beider Operanden Nullen sind.                                                                |
-| [Bitweise XOR](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR)                    | `a ^ b`   | Gibt eine Null in jeder Bitposition zurück, für die die entsprechenden Bits gleich sind. [Gibt eine Eins in jeder Bitposition zurück, für die die entsprechenden Bits unterschiedlich sind.] |
-| [Bitweise NICHT](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT)                  | `~ a`     | Invertiert die Bits seines Operanden.                                                                                                                                    |
-| [Linksverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Left_shift)                | `a << b`  | Verschiebt `a` in binärer Darstellung `b` Bits nach links und verschiebt Nullen von rechts ein.                                                                          |
-| [Vorzeichenbewahrende Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift) | `a >> b`  | Verschiebt `a` in binärer Darstellung `b` Bits nach rechts und verwirft Bits, die verschoben wurden.                                                                     |
-| [Nullauffüllende Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) | `a >>> b` | Verschiebt `a` in binärer Darstellung `b` Bits nach rechts, verwirft verschobene Bits und verschiebt Nullen von links ein.                                               |
+| Operator                                                                                               | Verwendung | Beschreibung                                                                                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Bitweise UND](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_AND)                                | `a & b`    | Gibt eine Eins in jeder Bitposition zurück, für die die entsprechenden Bits beider Operanden Einsen sind.                                                                                    |
+| [Bitweise ODER](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR)                                | `a \| b`   | Gibt eine Null in jeder Bitposition zurück, für die die entsprechenden Bits beider Operanden Nullen sind.                                                                                    |
+| [Bitweise XOR](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_XOR)                                | `a ^ b`    | Gibt eine Null in jeder Bitposition zurück, für die die entsprechenden Bits gleich sind. [Gibt eine Eins in jeder Bitposition zurück, für die die entsprechenden Bits unterschiedlich sind.] |
+| [Bitweise NICHT](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT)                              | `~ a`      | Invertiert die Bits seines Operanden.                                                                                                                                                        |
+| [Linksverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Left_shift)                            | `a << b`   | Verschiebt `a` in binärer Darstellung `b` Bits nach links und verschiebt Nullen von rechts ein.                                                                                              |
+| [Vorzeichenbewahrende Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Right_shift)     | `a >> b`   | Verschiebt `a` in binärer Darstellung `b` Bits nach rechts und verwirft Bits, die verschoben wurden.                                                                                         |
+| [Nullauffüllende Rechtsverschiebung](/de/docs/Web/JavaScript/Reference/Operators/Unsigned_right_shift) | `a >>> b`  | Verschiebt `a` in binärer Darstellung `b` Bits nach rechts, verwirft verschobene Bits und verschiebt Nullen von links ein.                                                                   |
 
 ### Logische bitweise Operatoren
 
@@ -671,7 +671,7 @@ const n3 = false ?? 3; // false
 const n4 = 0 ?? 4; // 0
 ```
 
-Beachten Sie, wie `??` wie `||` funktioniert, aber es gibt der zweiten Ausdruck nur zurück, wenn der erste "[nullish](/de/docs/Glossary/Nullish)" ist, d.h. [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined). `??` ist eine bessere Alternative als `||` zum Setzen von Standardeinstellungen für Werte, die `null` oder `undefined` sein könnten, insbesondere wenn Werte wie `''` oder `0` gültige Werte sind und die Standardeinstellung nicht gelten soll.
+Beachten Sie, wie `??` wie `||` funktioniert, aber es gibt der zweiten Ausdruck nur zurück, wenn der erste "{{Glossary("Nullish", "nullish")}}" ist, d.h. [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined). `??` ist eine bessere Alternative als `||` zum Setzen von Standardeinstellungen für Werte, die `null` oder `undefined` sein könnten, insbesondere wenn Werte wie `''` oder `0` gültige Werte sind und die Standardeinstellung nicht gelten soll.
 
 Der folgende Code zeigt Beispiele für den `!` (logisches NICHT) Operator.
 
@@ -769,7 +769,7 @@ Diese Anweisung weist der Variablen `status` den Wert "Erwachsener" zu, wenn `ag
 
 ## Komma-Operator
 
-Der [Komma-Operator](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) (` , `) wertet beide seiner Operanden aus und gibt den Wert des zweiten Operanden zurück. Dieser Operator wird hauptsächlich in einer `for` Schleife verwendet, um mehrere Variablen jedes Mal durch die Schleife zu aktualisieren. Es gilt als schlechter Stil, ihn anderswo zu verwenden, wenn es nicht notwendig ist. Oft können und sollten stattdessen zwei separate Anweisungen verwendet werden.
+Der [Komma-Operator](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) (`,`) wertet beide seiner Operanden aus und gibt den Wert des zweiten Operanden zurück. Dieser Operator wird hauptsächlich in einer `for` Schleife verwendet, um mehrere Variablen jedes Mal durch die Schleife zu aktualisieren. Es gilt als schlechter Stil, ihn anderswo zu verwenden, wenn es nicht notwendig ist. Oft können und sollten stattdessen zwei separate Anweisungen verwendet werden.
 
 Zum Beispiel, wenn `a` ein 2-dimensionales Array mit 10 Elementen auf einer Seite ist, verwendet der folgende Code den Komma-Operator, um zwei Variablen gleichzeitig zu aktualisieren. Der Code druckt die Werte der diagonal Elemente im Array:
 

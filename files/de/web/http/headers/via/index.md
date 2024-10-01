@@ -14,12 +14,12 @@ Der **`Via`** allgemeine Header wird von Proxys hinzugefügt, sowohl vorwärts a
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anforderungs-Header](/de/docs/Glossary/Request_header),
-        [Antwort-Header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

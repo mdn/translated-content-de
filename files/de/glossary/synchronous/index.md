@@ -16,5 +16,5 @@ Viele Programmierbefehle sind ebenfalls synchron — zum Beispiel, wenn Sie eine
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Asynchron](/de/docs/Glossary/Asynchronous)
+  - {{Glossary("Asynchronous", "Asynchron")}}
 - [Asynchrones JavaScript](/de/docs/Learn/JavaScript/Asynchronous)

@@ -11,7 +11,7 @@ Ein **Symbol** ist ein Datentyp, der eindeutige, nicht fälschbare Bezeichner da
 
 Da ein Symbol einzigartig und nicht fälschbar ist, können Sie einen mit einem Symbol verknüpften Eigenschaftswert nur lesen, wenn Sie eine Referenz auf den ursprünglichen Bezeichner haben.
 
-In JavaScript ist `symbol` einer der [primitiven Typen](/de/docs/Glossary/primitive) und kann mit der [`Symbol()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) Fabrikmethode erstellt werden, die jedes Mal ein anderes Symbol zurückgibt. Sie können als Schlüssel für Objekte verwendet werden, die niemals zufällig mit anderen Eigenschaften kollidieren können.
+In JavaScript ist `symbol` einer der {{Glossary("primitive", "primitiven Typen")}} und kann mit der [`Symbol()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) Fabrikmethode erstellt werden, die jedes Mal ein anderes Symbol zurückgibt. Sie können als Schlüssel für Objekte verwendet werden, die niemals zufällig mit anderen Eigenschaften kollidieren können.
 
 JavaScript definiert auch zwei andere Kategorien von Symbolen: wohlbekannte Symbole und registrierte Symbole. Lesen Sie die {{jsxref("Symbol")}} Referenz für weitere Informationen.
 

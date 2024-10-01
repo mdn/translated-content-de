@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Bildunterschrift oder Legende, die den restlichen Inhalt seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) bietet.
+Das **`<figcaption>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Bildunterschrift oder Legende, die den restlichen Inhalt seines übergeordneten {{HTMLElement("figure")}}-Elements beschreibt und dem `<figure>` eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} bietet.
 
 {{EmbedInteractiveExample("pages/tabbed/figcaption.html","tabbed-shorter")}}
 

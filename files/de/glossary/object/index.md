@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In JavaScript können Objekte als eine Sammlung von Eigenschaften betrachtet werden. Mit der [Objektnotationssyntax](/de/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals) wird eine begrenzte Menge von Eigenschaften initialisiert; anschließend können Eigenschaften hinzugefügt oder entfernt werden. Eigenschaftswerte können Werte jeglichen Typs sein, einschließlich anderer Objekte, was den Aufbau komplexer Datenstrukturen ermöglicht. Eigenschaften werden durch _Schlüssel_-Werte identifiziert. Ein _Schlüssel_-Wert ist entweder ein [String-Wert](/de/docs/Glossary/String) oder ein [Symbol-Wert](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
+In JavaScript können Objekte als eine Sammlung von Eigenschaften betrachtet werden. Mit der [Objektnotationssyntax](/de/docs/Web/JavaScript/Guide/Grammar_and_types#object_literals) wird eine begrenzte Menge von Eigenschaften initialisiert; anschließend können Eigenschaften hinzugefügt oder entfernt werden. Eigenschaftswerte können Werte jeglichen Typs sein, einschließlich anderer Objekte, was den Aufbau komplexer Datenstrukturen ermöglicht. Eigenschaften werden durch _Schlüssel_-Werte identifiziert. Ein _Schlüssel_-Wert ist entweder ein {{Glossary("String", "String-Wert")}} oder ein [Symbol-Wert](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol).
 
 Es gibt zwei Arten von Objekteigenschaften: Die [_Daten_-Eigenschaft](/de/docs/Web/JavaScript/Data_structures#data_property) und die [_Zugriffs_-Eigenschaft](/de/docs/Web/JavaScript/Data_structures#accessor_property).
 

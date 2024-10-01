@@ -10,7 +10,7 @@ l10n:
 
 Die **`averageRtcpInterval`**-Eigenschaft
 des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats)-Dictionaries ist ein Gleitkommawert,
-der das durchschnittliche [RTCP](/de/docs/Glossary/RTCP)-Übertragungsintervall in Sekunden angibt.
+der das durchschnittliche {{Glossary("RTCP", "RTCP")}}-Übertragungsintervall in Sekunden angibt.
 
 Das RTCP-Intervall ist die Zeitspanne, die zwischen den Übertragungen von RTCP-Paketen vergehen sollte.
 

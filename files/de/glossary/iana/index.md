@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**IANA** (Internet Assigned Numbers Authority) ist eine Tochtergesellschaft der [ICANN](/de/docs/Glossary/ICANN), die mit der Registrierung und/oder Zuteilung von [Domainnamen](/de/docs/Glossary/domain_name), [IP-Adressen](/de/docs/Glossary/IP_address) und anderen Namen und Nummern beauftragt ist, die von Internet-[Protokollen](/de/docs/Glossary/protocol) verwendet werden.
+**IANA** (Internet Assigned Numbers Authority) ist eine Tochtergesellschaft der {{Glossary("ICANN", "ICANN")}}, die mit der Registrierung und/oder Zuteilung von {{Glossary("domain_name", "Domainnamen")}}, {{Glossary("IP_address", "IP-Adressen")}} und anderen Namen und Nummern beauftragt ist, die von Internet-{{Glossary("protocol", "Protokollen")}} verwendet werden.
 
 ## Siehe auch
 

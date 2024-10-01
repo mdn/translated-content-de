@@ -327,7 +327,7 @@ Die greifbaren Elemente sind:
 - {{HtmlElement("var")}}
 - {{HtmlElement("video")}}
 - [Autonome benutzerdefinierte Elemente](/de/docs/Web/API/Web_components/Using_custom_elements)
-- Text, der nicht zwischen Elementen [Leerraum](/de/docs/Glossary/Whitespace) ist
+- Text, der nicht zwischen Elementen {{Glossary("Whitespace", "Leerraum")}} ist
 
 Einige Elemente gehören nur unter bestimmten Bedingungen zu dieser Kategorie:
 

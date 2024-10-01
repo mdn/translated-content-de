@@ -10,7 +10,7 @@ l10n:
 > [!NOTE]
 > Die funktionale Notation `rgba()` ist ein Alias für `rgb()`. Sie sind exakt gleichwertig. Es wird empfohlen, `rgb()` zu verwenden.
 
-Die funktionale Notation **`rgb()`** drückt eine Farbe im [sRGB](/de/docs/Glossary/RGB) [Farbraum](/de/docs/Glossary/color_space) anhand ihrer roten, grünen und blauen Komponenten aus. Eine optionale Alpha-Komponente repräsentiert die Transparenz der Farbe.
+Die funktionale Notation **`rgb()`** drückt eine Farbe im {{Glossary("RGB", "sRGB")}} {{Glossary("color_space", "Farbraum")}} anhand ihrer roten, grünen und blauen Komponenten aus. Eine optionale Alpha-Komponente repräsentiert die Transparenz der Farbe.
 
 {{EmbedInteractiveExample("pages/css/function-rgb.html")}}
 

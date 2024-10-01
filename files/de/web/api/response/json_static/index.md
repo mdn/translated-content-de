@@ -10,7 +10,7 @@ l10n:
 
 Die **`json()`** statische Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle gibt ein `Response` zurück, das die bereitgestellten JSON-Daten als Body enthält und einen {{HTTPHeader("Content-Type")}}-Header, der auf `application/json` gesetzt ist. Der Status der Antwort, die Statusnachricht und zusätzliche Header können ebenfalls festgelegt werden.
 
-Die Methode erleichtert das Erstellen von `Response`-Objekten, um JSON-kodierte Daten zurückzugeben. [Service Worker](/de/docs/Web/API/Service_Worker_API) beispielsweise fangen Fetch-Anfragen auf, die von einem Browser gestellt werden, und könnten `json()` verwenden, um ein `Response`-Objekt aus zwischengespeicherten JSON-Daten zu konstruieren, das an den Hauptthread zurückgegeben wird. Die `json()`-Methode kann auch in Servercode verwendet werden, um JSON-Daten für [Single-Page-Anwendungen](/de/docs/Glossary/SPA) und alle anderen Anwendungen, bei denen eine JSON-Antwort erwartet wird, zurückzugeben.
+Die Methode erleichtert das Erstellen von `Response`-Objekten, um JSON-kodierte Daten zurückzugeben. [Service Worker](/de/docs/Web/API/Service_Worker_API) beispielsweise fangen Fetch-Anfragen auf, die von einem Browser gestellt werden, und könnten `json()` verwenden, um ein `Response`-Objekt aus zwischengespeicherten JSON-Daten zu konstruieren, das an den Hauptthread zurückgegeben wird. Die `json()`-Methode kann auch in Servercode verwendet werden, um JSON-Daten für {{Glossary("SPA", "Single-Page-Anwendungen")}} und alle anderen Anwendungen, bei denen eine JSON-Antwort erwartet wird, zurückzugeben.
 
 ## Syntax
 

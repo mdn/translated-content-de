@@ -10,7 +10,7 @@ l10n:
 
 Die Methode
 **`CanvasRenderingContext2D.quadraticCurveTo()`**
-der Canvas 2D API fügt dem aktuellen Unterpfad eine quadratische [Bézier-Kurve](/de/docs/Glossary/Bezier_curve) hinzu. Sie benötigt zwei Punkte: Der erste ist ein Kontrollpunkt und der zweite ist
+der Canvas 2D API fügt dem aktuellen Unterpfad eine quadratische {{Glossary("Bezier_curve", "Bézier-Kurve")}} hinzu. Sie benötigt zwei Punkte: Der erste ist ein Kontrollpunkt und der zweite ist
 der Endpunkt. Der Startpunkt ist der zuletzt festgelegte Punkt im aktuellen Pfad, der mit [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) geändert werden kann, bevor die quadratische Bézier-Kurve erstellt wird.
 
 ## Syntax
@@ -119,4 +119,4 @@ ctx.stroke();
 ## Siehe auch
 
 - Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
-- [Bézier-Kurve](/de/docs/Glossary/Bezier_curve)
+- {{Glossary("Bezier_curve", "Bézier-Kurve")}}

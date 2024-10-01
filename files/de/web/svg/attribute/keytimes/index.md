@@ -76,7 +76,7 @@ Es muss genau so viele Werte in der `keyTimes`-Liste wie in der `values`-Liste g
 
 Jeder aufeinanderfolgende Zeitwert muss größer oder gleich dem vorhergehenden Zeitwert sein.
 
-Die Semantik der `keyTimes`-Liste hängt vom [Interpolation](/de/docs/Glossary/interpolation)-Modus ab:
+Die Semantik der `keyTimes`-Liste hängt vom {{Glossary("interpolation", "Interpolation")}}-Modus ab:
 
 - Für lineare und Spline-Animationen muss der erste Zeitwert in der Liste 0 und der letzte Zeitwert in der Liste `1` sein. Der mit jedem Wert assoziierte Schlüsselzeitpunkt definiert, wann der Wert gesetzt wird; Werte werden zwischen den Schlüsselzeiten interpoliert.
 - Für diskrete Animationen muss der erste Zeitwert in der Liste `0` sein. Der mit jedem Wert assoziierte Zeitpunkt definiert, wann der Wert gesetzt wird; die Animationsfunktion verwendet diesen Wert, bis der nächste in der Liste definierte Zeitpunkt erreicht ist.

@@ -90,7 +90,7 @@ Der Wert `auto none` erlaubt es dem Element, auf `contain-intrinsic-size: none` 
 ### Verwendung von auto-Wert-Paaren für intrinsische Größe
 
 Dieses Beispiel zeigt `contain-intrinsic-size: auto <length>` und `contain-intrinsic-size: auto none` in einem Layout, in dem viele Elemente vertikal angezeigt werden, die sowohl genaue als auch falsche Schätzungen ihrer intrinsischen Größe haben.
-Durch die Verwendung von `content-visibility: auto` wird das Rendern von Elementen übersprungen, wenn sie nicht im Sichtbereich sind. Diese Eigenschaft eignet sich gut zur Kombination mit `contain-intrinsic-size`, um die Renderleistung zu erhöhen und [Reflows](/de/docs/Glossary/Reflow) zu minimieren.
+Durch die Verwendung von `content-visibility: auto` wird das Rendern von Elementen übersprungen, wenn sie nicht im Sichtbereich sind. Diese Eigenschaft eignet sich gut zur Kombination mit `contain-intrinsic-size`, um die Renderleistung zu erhöhen und {{Glossary("Reflow", "Reflows")}} zu minimieren.
 
 Das Wertpaar `contain-intrinsic-size: auto 500px` weist den Browser an, 500px als eine Art 'Platzhalter'-Größe (Breite und Höhe) für das Element zu verwenden, wenn es außerhalb des Sichtbereichs ist und die Seite gelayoutet wird.
 Wenn der Benutzer zum Element scrollt und es angezeigt werden muss, berechnet der Browser die tatsächliche Größe des Elements und seiner Inhalte.

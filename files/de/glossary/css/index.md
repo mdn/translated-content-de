@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CSS** (Cascading Style Sheets) ist eine deklarative Sprache, die steuert, wie Webseiten im [Browser](/de/docs/Glossary/browser) aussehen.
+**CSS** (Cascading Style Sheets) ist eine deklarative Sprache, die steuert, wie Webseiten im {{Glossary("browser", "Browser")}} aussehen.
 
 Der Browser wendet CSS-Stildeklarationen auf ausgewählte Elemente an, um sie korrekt anzuzeigen. Eine Stildeklaration enthält die Eigenschaften und deren Werte, die bestimmen, wie eine Webseite aussieht.
 
-CSS ist eine der drei Kerntechnologien des Webs, zusammen mit [HTML](/de/docs/Glossary/HTML) und [JavaScript](/de/docs/Glossary/JavaScript). CSS wird normalerweise verwendet, um [HTML-Elemente](/de/docs/Glossary/Element) zu stylen, kann jedoch auch mit anderen Auszeichnungssprachen wie [SVG](/de/docs/Glossary/SVG) oder [XML](/de/docs/Glossary/XML) genutzt werden.
+CSS ist eine der drei Kerntechnologien des Webs, zusammen mit {{Glossary("HTML", "HTML")}} und {{Glossary("JavaScript", "JavaScript")}}. CSS wird normalerweise verwendet, um {{Glossary("Element", "HTML-Elemente")}} zu stylen, kann jedoch auch mit anderen Auszeichnungssprachen wie {{Glossary("SVG", "SVG")}} oder {{Glossary("XML", "XML")}} genutzt werden.
 
-Eine CSS-Regel ist eine Reihe von [Eigenschaften](/de/docs/Glossary/property/CSS), die mit einem [Selektor](/de/docs/Glossary/CSS_selector) verknüpft sind. Hier ist ein Beispiel, das jeden HTML-Absatz gelb auf einem schwarzen Hintergrund macht:
+Eine CSS-Regel ist eine Reihe von {{Glossary("property/CSS", "Eigenschaften")}}, die mit einem {{Glossary("CSS_selector", "Selektor")}} verknüpft sind. Hier ist ein Beispiel, das jeden HTML-Absatz gelb auf einem schwarzen Hintergrund macht:
 
 ```css
 /* The selector "p" indicates that all paragraphs in the document will be affected by that rule */

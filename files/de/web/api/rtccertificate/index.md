@@ -9,7 +9,7 @@ l10n:
 
 Das **`RTCCertificate`**-Interface der [WebRTC API](/de/docs/Web/API/WebRTC_API) bietet ein Objekt, das ein Zertifikat darstellt, welches ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zur Authentifizierung verwendet.
 
-`RTCCertificate` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workern](/de/docs/Web/API/Worker) mithilfe von [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`RTCCertificate` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workern](/de/docs/Web/API/Worker) mithilfe von [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 ## Instanz-Eigenschaften
 

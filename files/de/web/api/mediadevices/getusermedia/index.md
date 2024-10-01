@@ -67,7 +67,7 @@ Ein {{jsxref("Promise")}}, dessen Fulfillment-Handler ein [`MediaStream`](/de/do
   - : Wird ausgelöst, wenn die angegebenen Einschränkungen dazu führen, dass keine geeigneten Geräte gefunden werden, die die angeforderten Kriterien erfüllen. Der Fehler ist ein Objekt vom Typ `OverconstrainedError` und hat eine `constraint`-Eigenschaft, deren Stringwert der Name einer Einschränkung ist, die unmöglich zu erfüllen war, und eine `message`-Eigenschaft, die eine menschenlesbare Erklärung des Problems enthält.
 
     > [!NOTE]
-    > Da dieser Fehler auftreten kann, selbst wenn der Benutzer noch keine Erlaubnis zur Verwendung des zugrunde liegenden Geräts erteilt hat, kann er potenziell als [Fingerprinting](/de/docs/Glossary/Fingerprinting)-Oberfläche verwendet werden.
+    > Da dieser Fehler auftreten kann, selbst wenn der Benutzer noch keine Erlaubnis zur Verwendung des zugrunde liegenden Geräts erteilt hat, kann er potenziell als {{Glossary("Fingerprinting", "Fingerprinting")}}-Oberfläche verwendet werden.
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die Unterstützung von Nutzermedien im [`Document`](/de/docs/Web/API/Document), auf dem `getUserMedia()` aufgerufen wurde, deaktiviert ist. Der Mechanismus, durch den die Unterstützung von Nutzermedien aktiviert und deaktiviert wird, bleibt dem einzelnen User-Agent überlassen.
@@ -94,7 +94,7 @@ Beispielsweise zeigt die URL-Leiste in Firefox ein pulsierendes rotes Symbol an,
 
 ### Sicherheit
 
-Es gibt mehrere Möglichkeiten, wie Sicherheitsmanagement und -kontrollen in einem [User-Agent](/de/docs/Glossary/user_agent) dazu führen können, dass `getUserMedia()` einen sicherheitsbezogenen Fehler zurückgibt.
+Es gibt mehrere Möglichkeiten, wie Sicherheitsmanagement und -kontrollen in einem {{Glossary("user_agent", "User-Agent")}} dazu führen können, dass `getUserMedia()` einen sicherheitsbezogenen Fehler zurückgibt.
 
 #### Permissions Policy
 

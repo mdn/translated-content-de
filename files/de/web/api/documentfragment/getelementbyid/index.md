@@ -10,7 +10,7 @@ l10n:
 
 Die **`getElementById()`** Methode des [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) gibt ein [`Element`](/de/docs/Web/API/Element) Objekt zurück, das das Element darstellt, dessen [`id`](/de/docs/Web/API/Element/id)-Eigenschaft mit der angegebenen Zeichenkette übereinstimmt. Da Element-IDs eindeutig sein müssen, falls sie angegeben sind, sind sie eine nützliche Möglichkeit, schnell Zugriff auf ein bestimmtes Element zu erhalten.
 
-Falls Sie Zugriff auf ein Element benötigen, das keine ID hat, können Sie [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, um das Element mit einem beliebigen [Selektor](/de/docs/Glossary/CSS_selector) zu finden.
+Falls Sie Zugriff auf ein Element benötigen, das keine ID hat, können Sie [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, um das Element mit einem beliebigen {{Glossary("CSS_selector", "Selektor")}} zu finden.
 
 > [!NOTE]
 > IDs sollten innerhalb eines Dokumentfragments einzigartig sein. Wenn zwei oder mehr Elemente in einem Dokumentfragment die gleiche ID haben, gibt diese Methode das erste gefundene Element zurück.

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im Kontext von Daten oder einem **[Wrapper](/de/docs/Glossary/Wrapper)** um diese Daten ist der Wert der **[primitive Wert](/de/docs/Glossary/Primitive)**, den der Objekt-Wrapper enthält. Im Kontext einer **[Variable](/de/docs/Glossary/Variable)** oder **[Eigenschaft](/de/docs/Glossary/Property)** kann der Wert entweder ein primitiver Wert oder eine **[Objektreferenz](/de/docs/Glossary/Object_reference)** sein.
+Im Kontext von Daten oder einem **{{Glossary("Wrapper", "Wrapper")}}** um diese Daten ist der Wert der **{{Glossary("Primitive", "primitive Wert")}}**, den der Objekt-Wrapper enthält. Im Kontext einer **{{Glossary("Variable", "Variable")}}** oder **{{Glossary("Property", "Eigenschaft")}}** kann der Wert entweder ein primitiver Wert oder eine **{{Glossary("Object_reference", "Objektreferenz")}}** sein.
 
 Im Kontext von CSS-Eigenschaftswerten gibt es spezifizierte, berechnete und tatsächliche Werte. Der endgültige Wert für jede CSS-Eigenschaft, die auf jedes Element und Pseudoelement angewendet wird, ist das Ergebnis einer vierstufigen Berechnung: Der Wert wird durch Spezifikation bestimmt (der "[spezifizierte Wert](/de/docs/Web/CSS/specified_value)"), dann in einen Wert aufgelöst, der für die Vererbung verwendet wird (der "[berechnete Wert](/de/docs/Web/CSS/computed_value)"), dann falls notwendig in einen absoluten Wert umgewandelt (der "[verwendete Wert](/de/docs/Web/CSS/used_value)"), und schließlich entsprechend den Einschränkungen der lokalen Umgebung transformiert (der "[tatsächliche Wert](/de/docs/Web/CSS/actual_value)").
 

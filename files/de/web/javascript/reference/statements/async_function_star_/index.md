@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die Deklaration **`async function*`** erstellt eine [Bindung](/de/docs/Glossary/binding) einer neuen asynchronen Generatorfunktion für einen gegebenen Namen.
+Die Deklaration **`async function*`** erstellt eine {{Glossary("binding", "Bindung")}} einer neuen asynchronen Generatorfunktion für einen gegebenen Namen.
 
 Sie können auch asynchrone Generatorfunktionen mit dem [`async function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function*) definieren.
 
@@ -61,7 +61,7 @@ foo()
 
 `1` wird protokolliert, da, wenn das gelieferte Promise abgelehnt wird, auch das Iterator-Ergebnis abgelehnt wird. Die `value`-Eigenschaft des aufgelösten Ergebnisses eines asynchronen Generators wird kein weiteres Promise sein.
 
-`async function*` Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}} Deklarationen — sie werden [gehoben](/de/docs/Glossary/Hoisting) an den Anfang ihres Geltungsbereichs und können überall in ihrem Geltungsbereich aufgerufen werden. Sie können nur in bestimmten Kontexten neu deklariert werden.
+`async function*` Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}} Deklarationen — sie werden {{Glossary("Hoisting", "gehoben")}} an den Anfang ihres Geltungsbereichs und können überall in ihrem Geltungsbereich aufgerufen werden. Sie können nur in bestimmten Kontexten neu deklariert werden.
 
 ## Beispiele
 

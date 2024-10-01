@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<source>`** [HTML](/de/docs/Web/HTML) Element gibt eine oder mehrere Medienressourcen für die {{HTMLElement("picture")}}, {{HTMLElement("audio")}} und {{HTMLElement("video")}}-Elemente an. Es ist ein [void element](/de/docs/Glossary/void_element), was bedeutet, dass es keinen Inhalt hat und kein End-Tag benötigt. Dieses Element wird häufig verwendet, um denselben Medieninhalt in mehreren Dateiformaten anzubieten, um die Kompatibilität mit einer großen Bandbreite an Browsern sicherzustellen, die unterschiedliche Unterstützung für [Bilddateiformate](/de/docs/Web/Media/Formats/Image_types) und [Mediendateiformate](/de/docs/Web/Media/Formats) haben.
+Das **`<source>`** [HTML](/de/docs/Web/HTML) Element gibt eine oder mehrere Medienressourcen für die {{HTMLElement("picture")}}, {{HTMLElement("audio")}} und {{HTMLElement("video")}}-Elemente an. Es ist ein {{Glossary("void_element", "void element")}}, was bedeutet, dass es keinen Inhalt hat und kein End-Tag benötigt. Dieses Element wird häufig verwendet, um denselben Medieninhalt in mehreren Dateiformaten anzubieten, um die Kompatibilität mit einer großen Bandbreite an Browsern sicherzustellen, die unterschiedliche Unterstützung für [Bilddateiformate](/de/docs/Web/Media/Formats/Image_types) und [Mediendateiformate](/de/docs/Web/Media/Formats) haben.
 
 {{EmbedInteractiveExample("pages/tabbed/source.html", "tabbed-standard")}}
 
@@ -59,7 +59,7 @@ Dieses Element unterstützt alle [globalen Attribute](/de/docs/Web/HTML/Global_a
 
 ## Verwendungshinweise
 
-Das `<source>`-Element ist ein **[void element](/de/docs/Glossary/void_element)**, was bedeutet, dass es nicht nur keinen Inhalt hat, sondern auch kein End-Tag. Das heißt, Sie verwenden _niemals_ `</source>` in Ihrem HTML.
+Das `<source>`-Element ist ein **{{Glossary("void_element", "void element")}}**, was bedeutet, dass es nicht nur keinen Inhalt hat, sondern auch kein End-Tag. Das heißt, Sie verwenden _niemals_ `</source>` in Ihrem HTML.
 
 Der Browser durchsucht eine Liste von `<source>`-Elementen, um ein Format zu finden, das er unterstützt. Er verwendet das erste, das er anzeigen kann. Für jedes `<source>`-Element:
 
@@ -119,7 +119,7 @@ Mit dem `<picture>`-Element müssen Sie immer ein `<img>` mit einem Fallback-Bil
 ### Verwendung der `height` und `width` Attribute mit `<picture>`
 
 In diesem Beispiel sind drei `<source>`-Elemente mit `height` und `width` Attributen in einem {{HTMLElement("picture")}}-Element enthalten.
-Eine [Media-Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) ermöglicht es dem Browser, basierend auf der [Viewport](/de/docs/Glossary/Viewport)-Größe ein anzuzeigendes Bild mit den `height` und `width` Attributen auszuwählen.
+Eine [Media-Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) ermöglicht es dem Browser, basierend auf der {{Glossary("Viewport", "Viewport")}}-Größe ein anzuzeigendes Bild mit den `height` und `width` Attributen auszuwählen.
 
 ```html
 <picture>
@@ -160,7 +160,7 @@ Eine [Media-Query](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) ermö
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein [void element](/de/docs/Glossary/void_element).</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>

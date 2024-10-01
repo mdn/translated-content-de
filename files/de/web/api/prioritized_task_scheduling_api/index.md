@@ -56,7 +56,7 @@ scheduler
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-Die gleiche Aufgabe könnte mit `await`/`async` wie unten gezeigt erwartet werden (beachten Sie, dass dies in einem [Immediately Invoked Function Expression (IIFE)](/de/docs/Glossary/IIFE) ausgeführt wird):
+Die gleiche Aufgabe könnte mit `await`/`async` wie unten gezeigt erwartet werden (beachten Sie, dass dies in einem {{Glossary("IIFE", "Immediately Invoked Function Expression (IIFE)")}} ausgeführt wird):
 
 ```js
 (async () => {

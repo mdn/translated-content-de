@@ -17,4 +17,4 @@ Ein **SDK** (**Software Development Kit**) ist eine integrierte Sammlung von Wer
 
 SDKs werden normalerweise vom Inhaber einer Softwareplattform bereitgestellt, um Entwickler zu unterstützen, die diese Plattform anvisieren. Zum Beispiel stellt Google ein [Android SDK](https://developer.android.com/studio) für Entwickler zur Verfügung, die Android-Apps schreiben.
 
-In vielerlei Hinsicht bieten die [Entwicklerwerkzeuge](/de/docs/Glossary/developer_tools), die in moderne Webbrowser integriert sind, eine ähnliche Funktion für Webentwickler.
+In vielerlei Hinsicht bieten die {{Glossary("developer_tools", "Entwicklerwerkzeuge")}}, die in moderne Webbrowser integriert sind, eine ähnliche Funktion für Webentwickler.

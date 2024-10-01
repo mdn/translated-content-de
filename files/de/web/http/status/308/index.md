@@ -9,7 +9,7 @@ l10n:
 
 Der HTTP-Statuscode **`308 Permanent Redirect`** [Redirection-Response](/de/docs/Web/HTTP/Status#redirection_messages) zeigt an, dass die angeforderte Ressource dauerhaft an die URL verschoben wurde, die im {{HTTPHeader("Location")}}-Header angegeben ist.
 
-Ein Browser, der diesen Status erhält, wird automatisch die Ressource unter der im `Location`-Header angegebenen URL anfordern und den Benutzer zur neuen Seite weiterleiten. Suchmaschinen, die diese Antwort erhalten, werden die Verweise auf die ursprüngliche URL der umgeleiteten Ressource zuordnen und das [SEO](/de/docs/Glossary/SEO)-Ranking an die neue URL weitergeben.
+Ein Browser, der diesen Status erhält, wird automatisch die Ressource unter der im `Location`-Header angegebenen URL anfordern und den Benutzer zur neuen Seite weiterleiten. Suchmaschinen, die diese Antwort erhalten, werden die Verweise auf die ursprüngliche URL der umgeleiteten Ressource zuordnen und das {{Glossary("SEO", "SEO")}}-Ranking an die neue URL weitergeben.
 
 Die Anfragemethode und der -inhalt **werden von** dem Client in der umgeleiteten Anfrage **nicht verändert**.
 Ein {{HTTPStatus("301", "301 Moved Permanently")}} erfordert, dass die Anfragemethode und der -inhalt bei der Umleitung unverändert bleiben, wird jedoch von älteren Clients fälschlicherweise behandelt, die stattdessen die {{HTTPMethod("GET")}}-Methode verwenden.

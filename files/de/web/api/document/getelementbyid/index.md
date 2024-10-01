@@ -10,7 +10,7 @@ l10n:
 
 Die **`getElementById()`**-Methode des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt ein [`Element`](/de/docs/Web/API/Element)-Objekt zurück, das das Element repräsentiert, dessen [`id`](/de/docs/Web/API/Element/id)-Eigenschaft mit dem angegebenen String übereinstimmt. Da Element-IDs eindeutig sein müssen, wenn sie angegeben werden, sind sie eine nützliche Möglichkeit, schnell auf ein bestimmtes Element zuzugreifen.
 
-Wenn Sie auf ein Element zugreifen müssen, das keine ID hat, können Sie [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, um das Element mit einem beliebigen [Selektor](/de/docs/Glossary/CSS_selector) zu finden.
+Wenn Sie auf ein Element zugreifen müssen, das keine ID hat, können Sie [`querySelector()`](/de/docs/Web/API/Document/querySelector) verwenden, um das Element mit einem beliebigen {{Glossary("CSS_selector", "Selektor")}} zu finden.
 
 > [!NOTE]
 > IDs sollten innerhalb eines Dokuments einzigartig sein. Wenn zwei oder mehr Elemente in einem Dokument dieselbe ID haben, gibt diese Methode das zuerst gefundene Element zurück.
@@ -103,7 +103,7 @@ element.id = "testqq";
 const el = document.getElementById("testqq"); // el will be null!
 ```
 
-In Nicht-HTML-Dokumenten muss die DOM-Implementierung Informationen darüber haben, welche Attribute vom Typ ID sind. Attribute mit dem Namen "id" sind nicht vom Typ ID, es sei denn, sie sind im DTD des Dokuments so definiert. Das `id`-Attribut ist in den gängigen Fällen von [XHTML](/de/docs/Glossary/XHTML), XUL und anderen als ID-Typ definiert. Implementierungen, die nicht wissen, ob Attribute vom Typ ID sind oder nicht, sollten `null` zurückgeben.
+In Nicht-HTML-Dokumenten muss die DOM-Implementierung Informationen darüber haben, welche Attribute vom Typ ID sind. Attribute mit dem Namen "id" sind nicht vom Typ ID, es sei denn, sie sind im DTD des Dokuments so definiert. Das `id`-Attribut ist in den gängigen Fällen von {{Glossary("XHTML", "XHTML")}}, XUL und anderen als ID-Typ definiert. Implementierungen, die nicht wissen, ob Attribute vom Typ ID sind oder nicht, sollten `null` zurückgeben.
 
 ## Spezifikationen
 
@@ -117,4 +117,4 @@ In Nicht-HTML-Dokumenten muss die DOM-Implementierung Informationen darüber hab
 
 - [`Document`](/de/docs/Web/API/Document)-Referenz für andere Methoden und Eigenschaften, mit denen Sie Referenzen zu Elementen im Dokument erhalten können.
 - [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) für Selektoren über Abfragen wie `'div.myclass'`
-- [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) - hat eine Hilfsmethode zum Selektieren durch `xml:id` in [XML](/de/docs/Glossary/XML)-Dokumenten
+- [`Document.evaluate()`](/de/docs/Web/API/Document/evaluate) - hat eine Hilfsmethode zum Selektieren durch `xml:id` in {{Glossary("XML", "XML")}}-Dokumenten

@@ -24,7 +24,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie we
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung jeder Spaltenzelle an. Die möglichen [aufgezählten](/de/docs/Glossary/enumerated) Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den textuellen Inhalt an dem durch das [`char`](#char) Attribut definierten Zeichen und an dem durch das [`charoff`](#charoff) Attribut definierten Versatz aus. Beachten Sie, dass dieses Attribut die im Eltern-{{HTMLElement("colgroup")}}-Element angegebene [`align`](/de/docs/Web/HTML/Element/colgroup#align) Überschreibung ist. Verwenden Sie die {{cssxref("text-align")}} CSS-Eigenschaft auf den {{htmlelement("td")}} und {{htmlelement("th")}} Elementen stattdessen, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung jeder Spaltenzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den textuellen Inhalt an dem durch das [`char`](#char) Attribut definierten Zeichen und an dem durch das [`charoff`](#charoff) Attribut definierten Versatz aus. Beachten Sie, dass dieses Attribut die im Eltern-{{HTMLElement("colgroup")}}-Element angegebene [`align`](/de/docs/Web/HTML/Element/colgroup#align) Überschreibung ist. Verwenden Sie die {{cssxref("text-align")}} CSS-Eigenschaft auf den {{htmlelement("td")}} und {{htmlelement("th")}} Elementen stattdessen, da dieses Attribut veraltet ist.
 
     > [!NOTE]
     > Das Setzen von `text-align` auf dem `<col>`-Element zeigt keine Wirkung, da `<col>` keine Nachkommen hat und daher keine Elemente von ihm erben.
@@ -47,7 +47,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie we
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung jeder Spaltenzelle an. Die möglichen [aufgezählten](/de/docs/Glossary/enumerated) Werte sind `baseline`, `bottom`, `middle`, und `top`. Beachten Sie, dass dieses Attribut die im Eltern-{{HTMLElement("colgroup")}}-Element angegebene [`valign`](/de/docs/Web/HTML/Element/colgroup#valign) Überschreibung ist. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft auf den {{htmlelement("td")}} und {{htmlelement("th")}} Elementen stattdessen, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung jeder Spaltenzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `baseline`, `bottom`, `middle`, und `top`. Beachten Sie, dass dieses Attribut die im Eltern-{{HTMLElement("colgroup")}}-Element angegebene [`valign`](/de/docs/Web/HTML/Element/colgroup#valign) Überschreibung ist. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft auf den {{htmlelement("td")}} und {{htmlelement("th")}} Elementen stattdessen, da dieses Attribut veraltet ist.
 
     > [!NOTE]
     > Das Setzen von `vertical-align` auf dem `<col>`-Element zeigt keine Wirkung, da `<col>` keine Nachkommen hat und daher keine Elemente von ihm erben.
@@ -180,7 +180,7 @@ table {
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein [leeres Element](/de/docs/Glossary/void_element).</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>

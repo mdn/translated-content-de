@@ -179,7 +179,7 @@ In diesem Beispiel zur Interpolation wird das [hsl](/de/docs/Web/CSS/color_value
 }
 ```
 
-Der obere Kasten verwendet [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von Rot zu Blau über die kürzere Achse auf dem [Farbkreis](/de/docs/Glossary/Color_wheel) verläuft. Der untere Kasten verwendet [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über die längere Achse verläuft und durch Grün, Gelb und Orange geht.
+Der obere Kasten verwendet [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von Rot zu Blau über die kürzere Achse auf dem {{Glossary("Color_wheel", "Farbkreis")}} verläuft. Der untere Kasten verwendet [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über die längere Achse verläuft und durch Grün, Gelb und Orange geht.
 
 {{EmbedLiveSample("Interpolating with hue", 120, 120)}}
 

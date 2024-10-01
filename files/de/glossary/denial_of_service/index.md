@@ -9,4 +9,4 @@ l10n:
 
 **DoS** (Denial of Service) ist eine Kategorie von Netzwerkangriffen, die verfügbare Serverressourcen aufbrauchen, typischerweise durch das Überfluten des Servers mit Anfragen. Der Server ist dann langsam oder für legitime Benutzer nicht erreichbar.
 
-Weitere Informationen finden Sie unter [DOS attack](/de/docs/Glossary/DOS_attack).
+Weitere Informationen finden Sie unter {{Glossary("DOS_attack", "DOS attack")}}.

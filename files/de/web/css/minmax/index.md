@@ -51,7 +51,7 @@ Wenn _max_ < _min_ ist, wird _max_ ignoriert und `minmax(min,max)` wird als _min
 - {{cssxref("&lt;length&gt;")}}
   - : Eine nicht-negative Länge.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein nicht-negativer Prozentsatz relativ zur Inlinegröße des Grid-Containers in Spaltengrids und zur Blockgröße des Grid-Containers in Zeilengrids. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, muss das `<percentage>` als `auto` behandelt werden. Der [User-Agent](/de/docs/Glossary/user_agent) kann die intrinsischen Größenbeiträge des Tracks an die Größe des Grid-Containers anpassen und die endgültige Größe des Tracks um den minimalen Betrag erhöhen, der erforderlich ist, um den Prozentsatz zu berücksichtigen.
+  - : Ein nicht-negativer Prozentsatz relativ zur Inlinegröße des Grid-Containers in Spaltengrids und zur Blockgröße des Grid-Containers in Zeilengrids. Wenn die Größe des Grid-Containers von der Größe seiner Tracks abhängt, muss das `<percentage>` als `auto` behandelt werden. Der {{Glossary("user_agent", "User-Agent")}} kann die intrinsischen Größenbeiträge des Tracks an die Größe des Grid-Containers anpassen und die endgültige Größe des Tracks um den minimalen Betrag erhöhen, der erforderlich ist, um den Prozentsatz zu berücksichtigen.
 - {{cssxref("&lt;flex&gt;")}}
   - : Eine nicht-negative Dimension mit der Einheit `fr`, die den Flex-Faktor des Tracks angibt. Jeder `<flex>`-große Track nimmt einen Anteil des verbleibenden Platzes im Verhältnis zu seinem Flex-Faktor ein.
 - `max-content`

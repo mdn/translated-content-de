@@ -43,7 +43,7 @@ Ein JSON-Objekt mit den folgenden Eigenschaften, die auf die entsprechenden Wert
 
 - `usernameFragment` {{optional_inline}}
   - : Ein String, der das Benutzername-Fragment enthält (normalerweise in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet).
-    Dieses Fragment identifiziert zusammen mit dem ICE-Passwort ("ice-pwd") eine einzelne laufende ICE-Interaktion eindeutig (einschließlich jeder Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)-Server).
+    Dieses Fragment identifiziert zusammen mit dem ICE-Passwort ("ice-pwd") eine einzelne laufende ICE-Interaktion eindeutig (einschließlich jeder Kommunikation mit dem {{Glossary("STUN", "STUN")}}-Server).
     Weitere Informationen finden Sie unter [`RTCIceCandidate.usernameFragment`](/de/docs/Web/API/RTCIceCandidate/usernameFragment).
 
 > [!NOTE]

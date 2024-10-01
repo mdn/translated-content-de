@@ -7,20 +7,20 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Allow-Headers`** Antwort-Header wird als Antwort auf eine [Preflight-Anfrage](/de/docs/Glossary/preflight_request) verwendet, die den {{HTTPHeader("Access-Control-Request-Headers")}} enthält, um anzuzeigen, welche HTTP-Header während der eigentlichen Anfrage verwendet werden dürfen.
+Der **`Access-Control-Allow-Headers`** Antwort-Header wird als Antwort auf eine {{Glossary("preflight_request", "Preflight-Anfrage")}} verwendet, die den {{HTTPHeader("Access-Control-Request-Headers")}} enthält, um anzuzeigen, welche HTTP-Header während der eigentlichen Anfrage verwendet werden dürfen.
 
 Dieser Header ist erforderlich, wenn die Anfrage einen {{HTTPHeader("Access-Control-Request-Headers")}} Header enthält.
 
-> **Note:** [CORS-sicher gelistete Anforderungs-Header](/de/docs/Glossary/CORS-safelisted_request_header) sind immer zulässig und werden normalerweise nicht in `Access-Control-Allow-Headers` aufgeführt (es sei denn, es besteht die Notwendigkeit, die sicheren Listen zu umgehen [zusätzliche Einschränkungen](/de/docs/Glossary/CORS-safelisted_request_header#additional_restrictions)).
+> **Note:** {{Glossary("CORS-safelisted_request_header", "CORS-sicher gelistete Anforderungs-Header")}} sind immer zulässig und werden normalerweise nicht in `Access-Control-Allow-Headers` aufgeführt (es sei denn, es besteht die Notwendigkeit, die sicheren Listen zu umgehen {{Glossary("CORS-safelisted_request_header#additional_restrictions", "zusätzliche Einschränkungen")}}).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -44,7 +44,7 @@ Access-Control-Allow-Headers: *
 
 ### Ein benutzerdefinierter Header
 
-Hier ist ein Beispiel dafür, wie ein `Access-Control-Allow-Headers` Header aussehen könnte. Er zeigt an, dass ein benutzerdefinierter Header namens `X-Custom-Header` von CORS-Anfragen an den Server unterstützt wird (zusätzlich zu den [CORS-sicher gelisteten Anforderungs-Headern](/de/docs/Glossary/CORS-safelisted_request_header)).
+Hier ist ein Beispiel dafür, wie ein `Access-Control-Allow-Headers` Header aussehen könnte. Er zeigt an, dass ein benutzerdefinierter Header namens `X-Custom-Header` von CORS-Anfragen an den Server unterstützt wird (zusätzlich zu den {{Glossary("CORS-safelisted_request_header", "CORS-sicher gelisteten Anforderungs-Headern")}}).
 
 ```http
 Access-Control-Allow-Headers: X-Custom-Header
@@ -60,7 +60,7 @@ Access-Control-Allow-Headers: X-Custom-Header, Upgrade-Insecure-Requests
 
 ### Zusätzliche Einschränkungen umgehen
 
-Obwohl [CORS-sicher gelistete Anforderungs-Header](/de/docs/Glossary/CORS-safelisted_request_header) immer zulässig sind und normalerweise nicht in `Access-Control-Allow-Headers` aufgelistet werden müssen, wird durch die Auflistung dennoch das Umgehen der [zusätzlichen Einschränkungen](/de/docs/Glossary/CORS-safelisted_request_header#additional_restrictions) ermöglicht, die gelten.
+Obwohl {{Glossary("CORS-safelisted_request_header", "CORS-sicher gelistete Anforderungs-Header")}} immer zulässig sind und normalerweise nicht in `Access-Control-Allow-Headers` aufgelistet werden müssen, wird durch die Auflistung dennoch das Umgehen der {{Glossary("CORS-safelisted_request_header#additional_restrictions", "zusätzlichen Einschränkungen")}} ermöglicht, die gelten.
 
 ```http
 Access-Control-Allow-Headers: Accept
@@ -68,7 +68,7 @@ Access-Control-Allow-Headers: Accept
 
 ### Beispiel einer Preflight-Anfrage
 
-Betrachten wir ein Beispiel einer [Preflight-Anfrage](/de/docs/Glossary/preflight_request), die `Access-Control-Allow-Headers` beinhaltet.
+Betrachten wir ein Beispiel einer {{Glossary("preflight_request", "Preflight-Anfrage")}}, die `Access-Control-Allow-Headers` beinhaltet.
 
 #### Anfrage
 

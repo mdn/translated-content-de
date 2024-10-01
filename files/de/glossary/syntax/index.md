@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Syntax gibt die erforderliche Kombination und Reihenfolge von [Zeichen](/de/docs/Glossary/character) an, die korrekt strukturierten Code ausmachen. Syntax umfasst im Allgemeinen die Grammatik und die Regeln, die für das Schreiben gelten, wie z. B. die Anforderungen an die Einrückung in Python.
+Syntax gibt die erforderliche Kombination und Reihenfolge von {{Glossary("character", "Zeichen")}} an, die korrekt strukturierten Code ausmachen. Syntax umfasst im Allgemeinen die Grammatik und die Regeln, die für das Schreiben gelten, wie z. B. die Anforderungen an die Einrückung in Python.
 
-Syntax variiert von Sprache zu Sprache (z. B. ist die Syntax in [HTML](/de/docs/Glossary/HTML) und [JavaScript](/de/docs/Glossary/JavaScript) unterschiedlich). Obwohl Sprachen wenige Ähnlichkeiten hinsichtlich ihrer Syntaxen haben können, wie die Regel "Operand Operator Operand" in JavaScript und Python, bedeutet dies nicht, dass die beiden Sprachen hinsichtlich der Syntax Ähnlichkeiten aufweisen.
+Syntax variiert von Sprache zu Sprache (z. B. ist die Syntax in {{Glossary("HTML", "HTML")}} und {{Glossary("JavaScript", "JavaScript")}} unterschiedlich). Obwohl Sprachen wenige Ähnlichkeiten hinsichtlich ihrer Syntaxen haben können, wie die Regel "Operand Operator Operand" in JavaScript und Python, bedeutet dies nicht, dass die beiden Sprachen hinsichtlich der Syntax Ähnlichkeiten aufweisen.
 
 Syntax gilt sowohl für Programmiersprachen (Befehle an den Computer) als auch für Markup-Sprachen (Informationen zur Strukturierung von Dokumenten).
 
-Syntax regelt nur die Anordnung und Struktur; die Anweisungen müssen auch _sinnvoll_ sein, was in den Bereich der [Semantik](/de/docs/Glossary/semantics) fällt.
+Syntax regelt nur die Anordnung und Struktur; die Anweisungen müssen auch _sinnvoll_ sein, was in den Bereich der {{Glossary("semantics", "Semantik")}} fällt.
 
-Code muss korrekte Syntax haben, um korrekt zu [kompilieren](/de/docs/Glossary/compile), andernfalls tritt ein [Syntaxfehler](/de/docs/Glossary/syntax_error) auf. Selbst kleine Fehler, wie eine fehlende Klammer, können verhindern, dass der Quellcode erfolgreich kompiliert wird.
+Code muss korrekte Syntax haben, um korrekt zu {{Glossary("compile", "kompilieren")}}, andernfalls tritt ein {{Glossary("syntax_error", "Syntaxfehler")}} auf. Selbst kleine Fehler, wie eine fehlende Klammer, können verhindern, dass der Quellcode erfolgreich kompiliert wird.
 
 Frameworks werden als "saubere" Syntax bezeichnet, wenn sie einfache, lesbare und prägnante Ergebnisse erzeugen. Wenn eine Codebasis "viel Syntax" verwendet, sind mehr Zeichen erforderlich, um die gleiche Funktionalität zu erreichen.
 

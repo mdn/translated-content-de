@@ -11,13 +11,13 @@ Der **`DOMHighResTimeStamp`**-Typ ist ein `double` und wird verwendet, um einen 
 
 Dieser Typ kann verwendet werden, um einen bestimmten Zeitpunkt oder ein Zeitintervall (den Unterschied in der Zeit zwischen zwei bestimmten Punkten) zu beschreiben. Der Startzeitpunkt kann entweder eine spezifische, durch das Skript für eine Website oder App festgelegte Zeit sein oder der [time origin](/de/docs/Web/API/Performance/timeOrigin).
 
-Die in Millisekunden angegebene Zeit sollte genau bis zu 5 µs (Mikrosekunden) sein, wobei der gebrochene Teil der Zahl Bruchteile einer Millisekunde angibt. Wenn der Browser jedoch nicht in der Lage ist, einen Zeitwert genau auf 5 µs bereitzustellen (zum Beispiel aufgrund von Hardware- oder Softwareeinschränkungen), kann der Browser den Wert als Zeit in Millisekunden mit einer Genauigkeit von einer Millisekunde darstellen. Beachten Sie auch den untenstehenden Abschnitt über die reduzierte Zeitgenauigkeit, die durch Browsereinstellungen kontrolliert wird, um Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu vermeiden.
+Die in Millisekunden angegebene Zeit sollte genau bis zu 5 µs (Mikrosekunden) sein, wobei der gebrochene Teil der Zahl Bruchteile einer Millisekunde angibt. Wenn der Browser jedoch nicht in der Lage ist, einen Zeitwert genau auf 5 µs bereitzustellen (zum Beispiel aufgrund von Hardware- oder Softwareeinschränkungen), kann der Browser den Wert als Zeit in Millisekunden mit einer Genauigkeit von einer Millisekunde darstellen. Beachten Sie auch den untenstehenden Abschnitt über die reduzierte Zeitgenauigkeit, die durch Browsereinstellungen kontrolliert wird, um Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu vermeiden.
 
 Außerdem, wenn das Gerät oder Betriebssystem, auf dem der Benutzeragent läuft, keine Uhr auf Mikrosekundenebene hat, können sie nur bis zur Millisekunde genau sein.
 
 ## Sicherheitsanforderungen
 
-Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, werden `DOMHighResTimeStamp`-Typen basierend auf dem Status der Site-Isolation vergröbert.
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, werden `DOMHighResTimeStamp`-Typen basierend auf dem Status der Site-Isolation vergröbert.
 
 - Auflösung in isolierten Kontexten: 5 Mikrosekunden
 - Auflösung in nicht isolierten Kontexten: 100 Mikrosekunden

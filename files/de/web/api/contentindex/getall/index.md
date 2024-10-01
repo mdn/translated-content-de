@@ -59,7 +59,7 @@ Gibt ein {{jsxref("Promise")}} zurück, das mit einem {{jsxref('Array')}} von `c
         - `sizes` {{Optional_Inline}}
           - : Eine {{jsxref('String')}}-Darstellung der Bildgröße.
         - `type` {{Optional_Inline}}
-          - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) des Bildes.
+          - : Der {{Glossary("MIME_type", "MIME-Typ")}} des Bildes.
         - `label` {{Optional_Inline}}
           - : Ein String, der den zugänglichen Namen des Icons darstellt.
 

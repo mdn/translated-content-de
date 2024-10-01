@@ -48,7 +48,7 @@ Jedes Objekt enthält die folgenden Eigenschaften:
 
 - `expires`
 
-  - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 
 - `name`
 
@@ -83,7 +83,7 @@ Jedes Objekt enthält die folgenden Eigenschaften:
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht in eine URL {{Glossary("Serialization", "serialisiert")}} werden kann.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
     - Die `url`-Option vorhanden ist und nicht mit der Erstellungs-URL übereinstimmt, wenn im Hauptthread.

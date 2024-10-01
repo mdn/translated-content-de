@@ -14,7 +14,7 @@ Echo-Unterdrückung ist eine Funktion, die versucht, Echo-Effekte in einer bidir
 
 Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackSupportedConstraints/echoCancellation) überprüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Typischerweise ist dies jedoch unnötig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Information nicht einschließt, werden Spuren, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert sind, diese Eigenschaft niemals enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht einschließt, werden Spuren, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert sind, diese Eigenschaft niemals enthalten.
 
 ## Wert
 

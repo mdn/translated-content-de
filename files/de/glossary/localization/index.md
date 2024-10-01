@@ -27,10 +27,10 @@ Folgende Faktoren sind häufig zu berücksichtigen:
 - Lokale Feiertage
 - Personennamen
 
-Die ergänzende Praxis, ein System so zu gestalten, dass es einfach zu lokalisieren ist, wird als [Internationalisierung](/de/docs/Glossary/Internationalization) bezeichnet.
+Die ergänzende Praxis, ein System so zu gestalten, dass es einfach zu lokalisieren ist, wird als {{Glossary("Internationalization", "Internationalisierung")}} bezeichnet.
 
 ## Siehe auch
 
 - [Localization](https://en.wikipedia.org/wiki/Language_localisation) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Internationalization](/de/docs/Glossary/Internationalization)
+  - {{Glossary("Internationalization", "Internationalization")}}

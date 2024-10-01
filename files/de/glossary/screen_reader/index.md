@@ -9,7 +9,7 @@ l10n:
 
 Screenreader sind Softwareanwendungen, die versuchen, das, was auf einem Bildschirm angezeigt wird, auf nicht-visuelle Weise zu vermitteln, normalerweise als Text-zu-Sprache, aber auch in Braille oder Sound-Symbole. Screenreader sind für Menschen, die sehbehindert, analphabetisch oder lernbehindert sind, unerlässlich. Es gibt einige Browser-Erweiterungen für Screenreader, aber die meisten Screenreader arbeiten systemweit für alle Benutzeranwendungen, nicht nur für den Browser.
 
-Im Hinblick auf die [Zugänglichkeit](/de/docs/Glossary/accessibility) im Web bieten die meisten Benutzeragenten ein Accessibility-Objektmodell, und Screenreader interagieren mit speziellen Accessibility-APIs, nutzen verschiedene Betriebssystemfunktionen und wenden Hook-Techniken an.
+Im Hinblick auf die {{Glossary("accessibility", "Zugänglichkeit")}} im Web bieten die meisten Benutzeragenten ein Accessibility-Objektmodell, und Screenreader interagieren mit speziellen Accessibility-APIs, nutzen verschiedene Betriebssystemfunktionen und wenden Hook-Techniken an.
 
 ## Häufige Screenreader
 
@@ -39,5 +39,5 @@ Weitere Informationen finden Sie unter [ChromeVox Screenreader](https://support.
 - [Zugänglichkeit lernen](/de/docs/Learn/Accessibility)
 - [ARIA](/de/docs/Web/Accessibility/ARIA)
 - Verwandte Glossarbegriffe:
-  - [Zugänglichkeit](/de/docs/Glossary/Accessibility)
-  - [ARIA](/de/docs/Glossary/ARIA)
+  - {{Glossary("Accessibility", "Zugänglichkeit")}}
+  - {{Glossary("ARIA", "ARIA")}}

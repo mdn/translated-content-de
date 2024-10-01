@@ -22,14 +22,14 @@ Um mehr Kontrolle über den Inhalt und das Erscheinungsbild der Website zu haben
 
 Viele professionelle Websites gehen auf diese Weise online.
 
-Darüber hinaus benötigen Sie ein [File Transfer Protocol (FTP)](/de/docs/Glossary/FTP)-Programm (siehe [Was kostet es: Software](/de/docs/Learn/Common_questions/Tools_and_setup/How_much_does_it_cost#software) für weitere Details), um die Website-Dateien tatsächlich auf den Server zu übertragen. FTP-Programme variieren stark, aber im Allgemeinen müssen Sie sich mit den von Ihrem Hosting-Unternehmen bereitgestellten Details (normalerweise Benutzername, Passwort, Hostname) mit Ihrem Webserver verbinden. Dann zeigt Ihnen das Programm Ihre lokalen Dateien und die Dateien des Webservers in zwei Fenstern an und bietet eine Möglichkeit, Dateien hin und her zu übertragen.
+Darüber hinaus benötigen Sie ein {{Glossary("FTP", "File Transfer Protocol (FTP)")}}-Programm (siehe [Was kostet es: Software](/de/docs/Learn/Common_questions/Tools_and_setup/How_much_does_it_cost#software) für weitere Details), um die Website-Dateien tatsächlich auf den Server zu übertragen. FTP-Programme variieren stark, aber im Allgemeinen müssen Sie sich mit den von Ihrem Hosting-Unternehmen bereitgestellten Details (normalerweise Benutzername, Passwort, Hostname) mit Ihrem Webserver verbinden. Dann zeigt Ihnen das Programm Ihre lokalen Dateien und die Dateien des Webservers in zwei Fenstern an und bietet eine Möglichkeit, Dateien hin und her zu übertragen.
 
 ![Ein FTP-Client, der alle Dateien und Ordner einer Website anzeigt und sie auf einen Server hochlädt](ftp.jpg)
 
 #### Tipps zur Suche nach Hosting und Domains
 
 - MDN bewirbt keine spezifischen kommerziellen Hosting-Unternehmen oder Domainregistrare. Um Hosting-Unternehmen und Registrare zu finden, suchen Sie einfach nach "Webhosting" und "Domainnamen". Alle Registrare haben eine Funktion, mit der Sie prüfen können, ob der gewünschte Domainname verfügbar ist.
-- Ihr Heim- oder Büro-[Internetdienstanbieter](/de/docs/Glossary/ISP) bietet möglicherweise begrenztes Hosting für eine kleine Website an. Der verfügbare Funktionsumfang ist begrenzt, könnte aber perfekt für Ihre ersten Experimente sein.
+- Ihr Heim- oder Büro-{{Glossary("ISP", "Internetdienstanbieter")}} bietet möglicherweise begrenztes Hosting für eine kleine Website an. Der verfügbare Funktionsumfang ist begrenzt, könnte aber perfekt für Ihre ersten Experimente sein.
 - Es gibt auch kostenlose Dienste wie [Neocities](https://neocities.org/), [Google Sites](https://sites.google.com/), [Blogger](https://www.blogger.com/) und [WordPress](https://wordpress.com/). Manchmal bekommen Sie das, wofür Sie bezahlen, aber manchmal sind diese Ressourcen für Ihre ersten Experimente gut genug.
 - Viele Unternehmen bieten Hosting und Domains an.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Ermöglicht Erweiterungen, mit den [Entwicklerwerkzeugen](/de/docs/Glossary/Developer_Tools) des Browsers zu interagieren. Sie verwenden diese API, um Entwicklerwerkzeug-Seiten zu erstellen, mit dem Fenster zu interagieren, das inspiziert wird, und die Netzwerkverwendung der Seite zu inspizieren.
+Ermöglicht Erweiterungen, mit den {{Glossary("Developer_Tools", "Entwicklerwerkzeugen")}} des Browsers zu interagieren. Sie verwenden diese API, um Entwicklerwerkzeug-Seiten zu erstellen, mit dem Fenster zu interagieren, das inspiziert wird, und die Netzwerkverwendung der Seite zu inspizieren.
 
 Um diese API zu verwenden, müssen Sie den Schlüssel [`devtools_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/devtools_page) im Manifest angeben. Die Verwendung dieses Manifestschlüssels löst [eine Erlaubnismeldung zur Installationszeit über die Entwicklerwerkzeuge](https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions#w_extend-developer-tools-to-access-your-data-in-open-tabs) aus. Um eine Erlaubnismeldung zur Installationszeit zu vermeiden, markieren Sie die Funktion als optional, indem Sie die Berechtigung `"devtools"` im Manifest-Schlüssel [`optional_permissions`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/optional_permissions) aufführen.
 

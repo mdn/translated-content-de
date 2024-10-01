@@ -300,7 +300,7 @@ Das `ViewTransition` kann so aufgerufen werden:
    - Ein [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignis wird ausgelöst, wenn ein Dokument aufgrund einer Navigation entladen werden soll. Das Ereignisobjekt ([`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)) bietet Zugriff auf die `ViewTransition` über die [`PageSwapEvent.viewTransition`](/de/docs/Web/API/PageSwapEvent/viewTransition) Eigenschaft sowie eine [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) über [`PageSwapEvent.activation`](/de/docs/Web/API/PageSwapEvent/activation), die den Typ der Navigation und die aktuellen und Zieldokument-Historieneinträge enthält.
      > [!NOTE]
      > Wenn die Navigation eine URL einer anderen Herkunft irgendwo in der Umleitungskette enthält, gibt die `activation`-Eigenschaft `null` zurück.
-   - Ein [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder bei der Aktivierung eines Dokuments (entweder aus dem [back/forward cache](/de/docs/Glossary/bfcache) (bfcache) oder [prerender](/de/docs/Glossary/Prerender)). Das Ereignisobjekt ([`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)) bietet Zugriff auf die `ViewTransition` über die [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) Eigenschaft.
+   - Ein [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder bei der Aktivierung eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}). Das Ereignisobjekt ([`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)) bietet Zugriff auf die `ViewTransition` über die [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) Eigenschaft.
 
 Schauen wir uns ein paar Beispielcodes an, um zu zeigen, wie diese Funktionen verwendet werden könnten.
 
@@ -427,7 +427,7 @@ window.addEventListener("pageswap", async (e) => {
 ```
 
 > [!NOTE]
-> Wir entfernen die `view-transition-name` Werte, nachdem in jedem Fall Snapshots aufgenommen wurden. Wenn wir sie gesetzt ließen, würden sie im Seitenzustand bestehen bleiben, der beim Navigieren im [bfcache](/de/docs/Glossary/bfcache) gespeichert ist. Wenn dann die Zurück-Taste gedrückt wurde, würde der `pagereveal` Ereignishandler des Zurück navigierten Dokuments versuchen, dieselben `view-transition-name` Werte auf unterschiedlichen Elementen zu setzen. Wenn mehrere Elemente denselben `view-transition-name` gesetzt haben, wird der Ansichtsübergang übersprungen.
+> Wir entfernen die `view-transition-name` Werte, nachdem in jedem Fall Snapshots aufgenommen wurden. Wenn wir sie gesetzt ließen, würden sie im Seitenzustand bestehen bleiben, der beim Navigieren im {{Glossary("bfcache", "bfcache")}} gespeichert ist. Wenn dann die Zurück-Taste gedrückt wurde, würde der `pagereveal` Ereignishandler des Zurück navigierten Dokuments versuchen, dieselben `view-transition-name` Werte auf unterschiedlichen Elementen zu setzen. Wenn mehrere Elemente denselben `view-transition-name` gesetzt haben, wird der Ansichtsübergang übersprungen.
 
 Der [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignis-Listener sieht folgendermaßen aus. Dieser funktioniert in ähnlicher Weise wie der `pageswap` Ereignis-Listener, obwohl zu beachten ist, dass hier die "zu"-Animation für die Seitenelemente auf der neuen Seite angepasst wird.
 
@@ -484,7 +484,7 @@ window.addEventListener("pagereveal", async (e) => {
 
 ## Stabilisierung des Seitenstatus zur Konsistenz der Übergänge zwischen Dokumenten
 
-Bevor Sie einen Übergang zwischen Dokumenten durchführen, möchten Sie idealerweise warten, bis der Zustand der Seite stabilisiert ist, indem Sie auf [Renderblockierung](/de/docs/Glossary/Render_blocking) setzen, um sicherzustellen, dass:
+Bevor Sie einen Übergang zwischen Dokumenten durchführen, möchten Sie idealerweise warten, bis der Zustand der Seite stabilisiert ist, indem Sie auf {{Glossary("Render_blocking", "Renderblockierung")}} setzen, um sicherzustellen, dass:
 
 1. Kritische Styles geladen und angewendet werden.
 2. Kritische Skripte geladen und ausgeführt werden.

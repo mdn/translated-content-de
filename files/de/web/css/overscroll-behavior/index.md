@@ -52,11 +52,11 @@ Zwei Schlüsselwörter legen den `overscroll-behavior` Wert auf den `x`- und `y`
 
 ## Beschreibung
 
-Standardmäßig haben mobile Browser die Tendenz, einen "Bounce"-Effekt oder sogar eine Seitenaktualisierung bereitzustellen, wenn das obere oder untere Ende einer Seite (oder eines anderen Scrollbereichs) erreicht wird. Eventuell haben Sie auch bemerkt, dass, wenn Sie ein Dialogfeld mit scrollendem Inhalt am oberen Ende einer Seite haben, die ebenfalls scrollbaren Inhalt hat, sobald der Scrollgrenze des Dialogfelds erreicht wird, die zugrunde liegende Seite zu scrollen beginnt — dies wird als [Scrollverkettung](/de/docs/Glossary/Scroll_chaining) bezeichnet.
+Standardmäßig haben mobile Browser die Tendenz, einen "Bounce"-Effekt oder sogar eine Seitenaktualisierung bereitzustellen, wenn das obere oder untere Ende einer Seite (oder eines anderen Scrollbereichs) erreicht wird. Eventuell haben Sie auch bemerkt, dass, wenn Sie ein Dialogfeld mit scrollendem Inhalt am oberen Ende einer Seite haben, die ebenfalls scrollbaren Inhalt hat, sobald der Scrollgrenze des Dialogfelds erreicht wird, die zugrunde liegende Seite zu scrollen beginnt — dies wird als {{Glossary("Scroll_chaining", "Scrollverkettung")}} bezeichnet.
 
 In einigen Fällen sind diese Verhaltensweisen nicht wünschenswert. Sie können `overscroll-behavior` verwenden, um unerwünschte Scrollverkettung und das vom Browser inspirierte "Pull-to-Refresh"-Verhalten zu beseitigen.
 
-Beachten Sie, dass diese Eigenschaft nur auf [Scrollcontainer](/de/docs/Glossary/Scroll_container) angewendet wird. Insbesondere, da ein [`<iframe>`](/de/docs/Web/HTML/Element/iframe) kein Scrollcontainer ist, hat das Setzen dieser Eigenschaft auf ein `iframe` keine Auswirkung. Um die Scrollverkettung von einem `iframe` zu steuern, setzen Sie `overscroll-behavior` auf sowohl die [`<html>`](/de/docs/Web/HTML/Element/html) als auch die [`<body>`](/de/docs/Web/HTML/Element/body) Elemente des Dokuments des `iframe`.
+Beachten Sie, dass diese Eigenschaft nur auf {{Glossary("Scroll_container", "Scrollcontainer")}} angewendet wird. Insbesondere, da ein [`<iframe>`](/de/docs/Web/HTML/Element/iframe) kein Scrollcontainer ist, hat das Setzen dieser Eigenschaft auf ein `iframe` keine Auswirkung. Um die Scrollverkettung von einem `iframe` zu steuern, setzen Sie `overscroll-behavior` auf sowohl die [`<html>`](/de/docs/Web/HTML/Element/html) als auch die [`<body>`](/de/docs/Web/HTML/Element/body) Elemente des Dokuments des `iframe`.
 
 ## Formale Definition
 

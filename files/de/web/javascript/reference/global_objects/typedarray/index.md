@@ -25,20 +25,20 @@ Beim Erstellen einer Instanz einer `TypedArray` Subklasse (z.B. `Int8Array`) wir
 
 ### TypedArray-Objekte
 
-| Typ                            | Wertebereich                            | Größe in Bytes | Web IDL Typ           |
-| ------------------------------ | ----------------------------------------| -------------- | --------------------- |
-| {{jsxref("Int8Array")}}        | -128 bis 127                            | 1              | `byte`                |
-| {{jsxref("Uint8Array")}}       | 0 bis 255                               | 1              | `octet`               |
-| {{jsxref("Uint8ClampedArray")}}| 0 bis 255                               | 1              | `octet`               |
-| {{jsxref("Int16Array")}}       | -32768 bis 32767                        | 2              | `short`               |
-| {{jsxref("Uint16Array")}}      | 0 bis 65535                             | 2              | `unsigned short`      |
-| {{jsxref("Int32Array")}}       | -2147483648 bis 2147483647              | 4              | `long`                |
-| {{jsxref("Uint32Array")}}      | 0 bis 4294967295                        | 4              | `unsigned long`       |
-| {{jsxref("Float16Array")}}     | `-65504` bis `65504`                    | 2              | N/A                   |
-| {{jsxref("Float32Array")}}     | `-3.4e38` bis `3.4e38`                  | 4              | `unrestricted float`  |
-| {{jsxref("Float64Array")}}     | `-1.8e308` bis `1.8e308`                | 8              | `unrestricted double` |
-| {{jsxref("BigInt64Array")}}    | -2<sup>63</sup> bis 2<sup>63</sup> - 1  | 8              | `bigint`              |
-| {{jsxref("BigUint64Array")}}   | 0 bis 2<sup>64</sup> - 1                | 8              | `bigint`              |
+| Typ                             | Wertebereich                           | Größe in Bytes | Web IDL Typ           |
+| ------------------------------- | -------------------------------------- | -------------- | --------------------- |
+| {{jsxref("Int8Array")}}         | -128 bis 127                           | 1              | `byte`                |
+| {{jsxref("Uint8Array")}}        | 0 bis 255                              | 1              | `octet`               |
+| {{jsxref("Uint8ClampedArray")}} | 0 bis 255                              | 1              | `octet`               |
+| {{jsxref("Int16Array")}}        | -32768 bis 32767                       | 2              | `short`               |
+| {{jsxref("Uint16Array")}}       | 0 bis 65535                            | 2              | `unsigned short`      |
+| {{jsxref("Int32Array")}}        | -2147483648 bis 2147483647             | 4              | `long`                |
+| {{jsxref("Uint32Array")}}       | 0 bis 4294967295                       | 4              | `unsigned long`       |
+| {{jsxref("Float16Array")}}      | `-65504` bis `65504`                   | 2              | N/A                   |
+| {{jsxref("Float32Array")}}      | `-3.4e38` bis `3.4e38`                 | 4              | `unrestricted float`  |
+| {{jsxref("Float64Array")}}      | `-1.8e308` bis `1.8e308`               | 8              | `unrestricted double` |
+| {{jsxref("BigInt64Array")}}     | -2<sup>63</sup> bis 2<sup>63</sup> - 1 | 8              | `bigint`              |
+| {{jsxref("BigUint64Array")}}    | 0 bis 2<sup>64</sup> - 1               | 8              | `bigint`              |
 
 ### Wertecodierung und Normalisierung
 
@@ -49,7 +49,7 @@ Alle typisierten Arrays arbeiten auf `ArrayBuffer`s, bei denen Sie die genaue By
 - Gleitkomma-Arrays (`Float16Array`, `Float32Array` und `Float64Array`) speichern die Zahl im [IEEE 754](https://de.wikipedia.org/wiki/IEEE_754) Gleitkommaformat. Die [`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_encoding) Referenz enthält mehr Informationen über das genaue Format. JavaScript-Zahlen verwenden standardmäßig das Double-Präzisions-Gleitkommaformat, das dem `Float64Array` entspricht. `Float32Array` verwendet 23 (statt 52) Bits für die Mantisse und 8 (statt 11) Bits für den Exponenten. `Float16Array` verwendet 10 Bits für die Mantisse und 5 Bits für den Exponenten. Beachten Sie, dass die Spezifikation verlangt, dass alle {{jsxref("NaN")}} Werte die gleiche Bit-Codierung verwenden, aber das genaue Bit-Muster ist implementierungsabhängig.
 - `Uint8ClampedArray` ist ein Sonderfall. Es speichert die Zahl im Binärformat wie `Uint8Array`, aber wenn man eine Zahl außerhalb des Bereichs speichert, _klemmt_ es die Zahl auf den Bereich von 0 bis 255 durch mathematischen Wert, anstatt die höchstwertigen Bits abzuschneiden.
 
-Alle typisierten Arrays außer `Int8Array`, `Uint8Array` und `Uint8ClampedArray` speichern jedes Element mit mehreren Bytes. Diese Bytes können entweder von den höchstwertigen zu den niederwertigen geordnet sein (big-endian) oder von den niederwertigen zu den höchstwertigen (little-endian). Weitere Erklärungen finden Sie unter [Endianness](/de/docs/Glossary/Endianness). Typisierte Arrays verwenden immer die native Byte-Reihenfolge der Plattform. Wenn Sie die Byte-Reihenfolge beim Schreiben und Lesen aus Puffs angeben möchten, sollten Sie stattdessen ein {{jsxref("DataView")}} verwenden.
+Alle typisierten Arrays außer `Int8Array`, `Uint8Array` und `Uint8ClampedArray` speichern jedes Element mit mehreren Bytes. Diese Bytes können entweder von den höchstwertigen zu den niederwertigen geordnet sein (big-endian) oder von den niederwertigen zu den höchstwertigen (little-endian). Weitere Erklärungen finden Sie unter {{Glossary("Endianness", "Endianness")}}. Typisierte Arrays verwenden immer die native Byte-Reihenfolge der Plattform. Wenn Sie die Byte-Reihenfolge beim Schreiben und Lesen aus Puffs angeben möchten, sollten Sie stattdessen ein {{jsxref("DataView")}} verwenden.
 
 Beim Schreiben in diese typisierten Arrays werden Werte, die außerhalb des darstellbaren Bereichs liegen, normalisiert.
 

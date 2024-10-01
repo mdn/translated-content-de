@@ -39,7 +39,7 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `request`
-      - : `object`. Ein Objekt, das die Anfrage repräsentiert. Dieses Objekt ist ein einzelnes [HAR-Eintrag](http://www.softwareishard.com/blog/har-12-spec/#entries)-Objekt. Es definiert auch eine asynchrone `getContent()`-Methode, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, das sich mit einem Array aus zwei Elementen auflöst. Das erste Element ist der HTTP-Antwortinhalt als Zeichenkette, während das zweite Element der [MIME-Typ](/de/docs/Glossary/MIME_type) der HTTP-Antwort ebenfalls als Zeichenkette ist.
+      - : `object`. Ein Objekt, das die Anfrage repräsentiert. Dieses Objekt ist ein einzelnes [HAR-Eintrag](http://www.softwareishard.com/blog/har-12-spec/#entries)-Objekt. Es definiert auch eine asynchrone `getContent()`-Methode, die ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgibt, das sich mit einem Array aus zwei Elementen auflöst. Das erste Element ist der HTTP-Antwortinhalt als Zeichenkette, während das zweite Element der {{Glossary("MIME_type", "MIME-Typ")}} der HTTP-Antwort ebenfalls als Zeichenkette ist.
 
 ## Browser-Kompatibilität
 

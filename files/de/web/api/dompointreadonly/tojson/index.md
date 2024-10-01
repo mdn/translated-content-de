@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die Methode `toJSON()` von [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) gibt ein Objekt zurück, das die [JSON](/de/docs/Glossary/JSON)-Form des Punktobjekts liefert.
+Die Methode `toJSON()` von [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) gibt ein Objekt zurück, das die {{Glossary("JSON", "JSON")}}-Form des Punktobjekts liefert.
 
 ## Syntax
 

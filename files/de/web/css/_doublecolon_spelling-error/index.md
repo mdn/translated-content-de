@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das vom [Benutzeragenten](/de/docs/Glossary/user_agent) als falsch geschrieben markiert wurde.
+Das **`::spelling-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das vom {{Glossary("user_agent", "Benutzeragenten")}} als falsch geschrieben markiert wurde.
 
 ## Zulässige Eigenschaften
 

@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("HTML DOM")}}
 
-Die **HTML DOM API** besteht aus den Schnittstellen, die die Funktionalität jedes der [Elemente](/de/docs/Glossary/element) in [HTML](/de/docs/Glossary/HTML) definieren, sowie aus unterstützenden Typen und Schnittstellen, auf die sie angewiesen sind.
+Die **HTML DOM API** besteht aus den Schnittstellen, die die Funktionalität jedes der {{Glossary("element", "Elemente")}} in {{Glossary("HTML", "HTML")}} definieren, sowie aus unterstützenden Typen und Schnittstellen, auf die sie angewiesen sind.
 
 Die funktionalen Bereiche, die in der HTML DOM API enthalten sind, umfassen:
 
-- Zugriff auf und Steuerung von HTML-Elementen über das [DOM](/de/docs/Glossary/DOM).
+- Zugriff auf und Steuerung von HTML-Elementen über das {{Glossary("DOM", "DOM")}}.
 - Zugriff auf und Manipulation von Formulardaten.
 - Interaktion mit den Inhalten von 2D-Bildern und dem Kontext eines HTML-{{HTMLElement("canvas")}}, beispielsweise um darauf zu zeichnen.
 - Verwaltung von Medien, die mit den HTML-Medienelementen ({{HTMLElement("audio")}} und {{HTMLElement("video")}}) verbunden sind.
@@ -25,11 +25,11 @@ In diesem Artikel konzentrieren wir uns auf die Teile des HTML DOM, die den Umga
 
 ### Struktur eines HTML-Dokuments
 
-Das Document Object Model ([DOM](/de/docs/Glossary/DOM)) ist eine Architektur, die die Struktur eines [`Dokuments`](/de/docs/Web/API/Document) beschreibt; jedes Dokument wird durch eine Instanz der Schnittstelle [`Document`](/de/docs/Web/API/Document) dargestellt. Ein Dokument besteht wiederum aus einem hierarchischen Baum von **Knoten**, wobei ein Knoten ein grundlegender Datensatz ist, der ein einzelnes Objekt im Dokument darstellt (wie ein Element oder Textknoten).
+Das Document Object Model ({{Glossary("DOM", "DOM")}}) ist eine Architektur, die die Struktur eines [`Dokuments`](/de/docs/Web/API/Document) beschreibt; jedes Dokument wird durch eine Instanz der Schnittstelle [`Document`](/de/docs/Web/API/Document) dargestellt. Ein Dokument besteht wiederum aus einem hierarchischen Baum von **Knoten**, wobei ein Knoten ein grundlegender Datensatz ist, der ein einzelnes Objekt im Dokument darstellt (wie ein Element oder Textknoten).
 
 Knoten können rein organisatorisch sein, indem sie eine Möglichkeit bieten, andere Knoten zu gruppieren, oder einen Punkt schaffen, an dem eine Hierarchie aufgebaut werden kann; andere Knoten können sichtbare Komponenten eines Dokuments darstellen. Jeder Knoten basiert auf der [`Node`](/de/docs/Web/API/Node)-Schnittstelle, die Eigenschaften zum Abrufen von Informationen über den Knoten sowie Methoden zum Erstellen, Löschen und Organisieren von Knoten im DOM bereitstellt.
 
-Knoten haben kein Konzept des tatsächlichen Inhalts, der im Dokument angezeigt wird. Sie sind leere Gefäße. Die grundlegende Vorstellung eines Knotens, der visuellen Inhalt darstellen kann, wird durch die [`Element`](/de/docs/Web/API/Element)-Schnittstelle eingeführt. Ein `Element`-Objekt-Instanz stellt ein einzelnes Element in einem Dokument dar, das entweder mit HTML oder einer [XML](/de/docs/Glossary/XML)-Vokabular wie [SVG](/de/docs/Glossary/SVG) erstellt wurde.
+Knoten haben kein Konzept des tatsächlichen Inhalts, der im Dokument angezeigt wird. Sie sind leere Gefäße. Die grundlegende Vorstellung eines Knotens, der visuellen Inhalt darstellen kann, wird durch die [`Element`](/de/docs/Web/API/Element)-Schnittstelle eingeführt. Ein `Element`-Objekt-Instanz stellt ein einzelnes Element in einem Dokument dar, das entweder mit HTML oder einer {{Glossary("XML", "XML")}}-Vokabular wie {{Glossary("SVG", "SVG")}} erstellt wurde.
 
 Zum Beispiel, betrachten Sie ein Dokument mit zwei Elementen, von denen eines zwei weitere verschachtelte Elemente enthält:
 
@@ -39,7 +39,7 @@ Während die [`Document`](/de/docs/Web/API/Document)-Schnittstelle als Teil der 
 
 Zu den von der HTML-Spezifikation zu `Document` hinzugefügten Elementen gehören:
 
-- Unterstützung für den Zugriff auf verschiedene Informationen, die von den [HTTP](/de/docs/Glossary/HTTP)-Headern beim Laden der Seite bereitgestellt werden, wie den [Standort](/de/docs/Web/API/Document/location), von dem das Dokument geladen wurde, [Cookies](/de/docs/Web/API/Document/cookie), [Änderungsdatum](/de/docs/Web/API/Document/lastModified), [verweisende Seite](/de/docs/Web/API/Document/referrer) usw.
+- Unterstützung für den Zugriff auf verschiedene Informationen, die von den {{Glossary("HTTP", "HTTP")}}-Headern beim Laden der Seite bereitgestellt werden, wie den [Standort](/de/docs/Web/API/Document/location), von dem das Dokument geladen wurde, [Cookies](/de/docs/Web/API/Document/cookie), [Änderungsdatum](/de/docs/Web/API/Document/lastModified), [verweisende Seite](/de/docs/Web/API/Document/referrer) usw.
 - Zugriff auf Listen von Elementen im {{HTMLElement("head")}}-Block und [body](/de/docs/Web/API/Document/body) des Dokuments sowie auf Listen der im Dokument enthaltenen [Bilder](/de/docs/Web/API/Document/images), [Links](/de/docs/Web/API/Document/links), [Skripte](/de/docs/Web/API/Document/scripts) usw.
 - Unterstützung für die Interaktion mit dem Benutzer durch die Überprüfung des [Fokus](/de/docs/Web/API/Document/hasFocus) und die Ausführung von Befehlen auf [bearbeitbarem Inhalt](/de/docs/Web/HTML/Global_attributes/contenteditable).
 - Ereignishandler für durch den HTML-Standard definierte Dokumentereignisse, die den Zugriff auf [Maus](/de/docs/Web/API/MouseEvent)- und [Tastatur](/de/docs/Web/API/KeyboardEvent)-ereignisse, [Drag and Drop](/de/docs/Web/API/HTML_Drag_and_Drop_API), [Mediensteuerung](/de/docs/Web/API/HTMLMediaElement) und mehr ermöglichen.
@@ -49,7 +49,7 @@ Zu den von der HTML-Spezifikation zu `Document` hinzugefügten Elementen gehöre
 
 Die `Element`-Schnittstelle wurde weiter angepasst, um HTML-Elemente speziell durch die Einführung der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle darzustellen, von der alle spezifischeren HTML-Elementklassen erben. Dies erweitert die `Element`-Klasse um HTML-spezifische allgemeine Funktionen zu den Elementknoten. Von `HTMLElement` hinzugefügte Eigenschaften sind beispielsweise [`hidden`](/de/docs/Web/API/HTMLElement/hidden) und [`innerText`](/de/docs/Web/API/HTMLElement/innerText).
 
-Ein [HTML](/de/docs/Glossary/HTML)-Dokument ist ein DOM-Baum, in dem jeder der Knoten ein HTML-Element ist, das durch die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert wird. Die `HTMLElement`-Klasse implementiert wiederum `Node`, sodass jedes Element auch ein Knoten ist (aber nicht umgekehrt). Auf diese Weise stehen die von der [`Node`](/de/docs/Web/API/Node)-Schnittstelle implementierten strukturellen Funktionen auch HTML-Elementen zur Verfügung, sodass sie ineinander verschachtelt, erstellt und gelöscht, verschoben werden können usw.
+Ein {{Glossary("HTML", "HTML")}}-Dokument ist ein DOM-Baum, in dem jeder der Knoten ein HTML-Element ist, das durch die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle repräsentiert wird. Die `HTMLElement`-Klasse implementiert wiederum `Node`, sodass jedes Element auch ein Knoten ist (aber nicht umgekehrt). Auf diese Weise stehen die von der [`Node`](/de/docs/Web/API/Node)-Schnittstelle implementierten strukturellen Funktionen auch HTML-Elementen zur Verfügung, sodass sie ineinander verschachtelt, erstellt und gelöscht, verschoben werden können usw.
 
 Die `HTMLElement`-Schnittstelle ist jedoch generisch und bietet nur die Funktionalität, die allen HTML-Elementen gemeinsam ist, wie die ID des Elements, seine Koordinaten, das HTML, aus dem das Element besteht, Informationen über die Scrollposition usw.
 
@@ -245,7 +245,7 @@ Diese Schnittstellen werden von der [Web Components API](/de/docs/Web/API/Web_co
 
 ### Verschiedene und unterstützende Schnittstellen
 
-Diese unterstützenden Objekttypen werden auf verschiedene Weise in der HTML DOM API verwendet. Darüber hinaus stellt [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) das Ereignis dar, das ausgeliefert wird, wenn ein [JavaScript](/de/docs/Glossary/JavaScript) {{jsxref("Promise")}} abgelehnt wird.
+Diese unterstützenden Objekttypen werden auf verschiedene Weise in der HTML DOM API verwendet. Darüber hinaus stellt [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) das Ereignis dar, das ausgeliefert wird, wenn ein {{Glossary("JavaScript", "JavaScript")}} {{jsxref("Promise")}} abgelehnt wird.
 
 - [`DOMStringList`](/de/docs/Web/API/DOMStringList)
 - [`DOMStringMap`](/de/docs/Web/API/DOMStringMap)

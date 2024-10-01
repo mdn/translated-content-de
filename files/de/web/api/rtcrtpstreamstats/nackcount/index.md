@@ -14,7 +14,7 @@ Mal angibt, die der Empfänger ein **NACK-Paket** an den Sender gesendet hat.
 
 Ein NACK
 (Negative ACKnowledgement, auch "Generic NACK" genannt) Paket teilt dem Sender mit, dass eines
-oder mehrere der von ihm gesendeten [RTP](/de/docs/Glossary/RTP)-Pakete während des Transports verloren gegangen sind.
+oder mehrere der von ihm gesendeten {{Glossary("RTP", "RTP")}}-Pakete während des Transports verloren gegangen sind.
 
 ## Wert
 

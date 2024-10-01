@@ -13,7 +13,7 @@ In der Informatik ist ein **enumerierter** Typ ein Datentyp, der aus einer begre
 
 In HTML sind [eindimensionale Attribute](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#enumerated-attribute) Attribute mit einem begrenzten, vordefinierten Satz von Textwerten. Zum Beispiel hat das globale HTML-Attribut [`dir`](/de/docs/Web/HTML/Global_attributes/dir) drei gültige Werte: `ltr`, `rtl` und `auto`.
 
-Jedes eindimensionale Attribut hat einen Standardwert für den Fall, dass das Attribut ohne Wert vorhanden ist (der Wert fehlt), und einen Standardwert für den Fall, dass dem Attribut ein ungültiger Wert zugewiesen wird. Im Gegensatz zu [Boolean-Attributen](/de/docs/Glossary/Boolean/HTML) in HTML — die immer wahr sind, wenn das Attribut vorhanden ist, unabhängig davon, ob der Wert vorhanden, weggelassen oder ungültig ist — kann bei eindimensionalen HTML-Attributen der Standardwert für einen fehlenden Wert von dem Standard für ungültige Werte abweichen. Zum Beispiel hat das globale HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) zwei gültige Schlüsselwörter: `true` und `false`. Ist das Attribut vorhanden, aber kein Wert gesetzt, ist der Wert `true`. Wenn ein Wert gesetzt, aber ungültig ist, wie `contenteditable="contenteditable"`, wird der Wert auf einen dritten Zustand, `inherit`, abgebildet.
+Jedes eindimensionale Attribut hat einen Standardwert für den Fall, dass das Attribut ohne Wert vorhanden ist (der Wert fehlt), und einen Standardwert für den Fall, dass dem Attribut ein ungültiger Wert zugewiesen wird. Im Gegensatz zu {{Glossary("Boolean/HTML", "Boolean-Attributen")}} in HTML — die immer wahr sind, wenn das Attribut vorhanden ist, unabhängig davon, ob der Wert vorhanden, weggelassen oder ungültig ist — kann bei eindimensionalen HTML-Attributen der Standardwert für einen fehlenden Wert von dem Standard für ungültige Werte abweichen. Zum Beispiel hat das globale HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) zwei gültige Schlüsselwörter: `true` und `false`. Ist das Attribut vorhanden, aber kein Wert gesetzt, ist der Wert `true`. Wenn ein Wert gesetzt, aber ungültig ist, wie `contenteditable="contenteditable"`, wird der Wert auf einen dritten Zustand, `inherit`, abgebildet.
 
 ## ARIA eindimensionale Attribute
 
@@ -27,6 +27,6 @@ In JavaScript sind aufzählbare Eigenschaften jene Eigenschaften, deren internes
 
 ## Siehe auch
 
-- [Boolean](/de/docs/Glossary/Boolean)
+- {{Glossary("Boolean", "Boolean")}}
 - [JavaScript-Datentypen und Datenstrukturen](/de/docs/Web/JavaScript/Data_structures)
 - [enumerated attributes](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#enumerated-attribute) im HTML-Standard

@@ -9,11 +9,11 @@ l10n:
 
 Wenn ein Fehler in CSS vorliegt, wie z.B. ein ungültiger Wert oder ein fehlendes Semikolon, wird der Browser (oder ein anderer Benutzeragent) anstatt [einen Fehler wie in JavaScript auszulösen](/de/docs/Web/JavaScript/Reference/Errors), sanft wiederherstellen. Browser geben keine CSS-bezogenen Warnungen aus noch zeigen sie sonst irgendwie an, dass in Styles Fehler aufgetreten sind. Sie verwerfen einfach ungültige Inhalte und analysieren die nachfolgenden gültigen Styles. Dies ist ein Merkmal von CSS, kein Fehler.
 
-Dieser Leitfaden behandelt, wie CSS-[Parser](/de/docs/Glossary/parser) ungültiges CSS verwerfen.
+Dieser Leitfaden behandelt, wie CSS-{{Glossary("parser", "Parser")}} ungültiges CSS verwerfen.
 
 ## CSS Parser-Fehler
 
-Wenn ein CSS-Fehler festgestellt wird, ignoriert der [Parser](/de/docs/Glossary/parser) des Browsers die Zeile mit den Fehlern, verwirft die minimal nötige Menge an CSS-Code, bevor er zur normalen [Analyse](/de/docs/Glossary/parse) des CSS zurückkehrt. Die "Fehlerbehandlung" besteht lediglich im Ignorieren oder Überspringen ungültiger Inhalte.
+Wenn ein CSS-Fehler festgestellt wird, ignoriert der {{Glossary("parser", "Parser")}} des Browsers die Zeile mit den Fehlern, verwirft die minimal nötige Menge an CSS-Code, bevor er zur normalen {{Glossary("parse", "Analyse")}} des CSS zurückkehrt. Die "Fehlerbehandlung" besteht lediglich im Ignorieren oder Überspringen ungültiger Inhalte.
 
 Die Tatsache, dass Browser ungültigen Code ignorieren, ermöglicht die Nutzung neuer CSS-Funktionen, ohne sich Sorgen machen zu müssen, dass in älteren Browsern etwas kaputt geht. Ein Browser erkennt möglicherweise eine neue Funktion nicht, aber das ist in Ordnung. Das Verwerfen ungültiger Inhalte ohne Fehlerauslösung erlaubt das gleichzeitige Vorhandensein alter und neuer Syntax im selben Regelwerk, obwohl man bedenken sollte, dass sie in dieser Reihenfolge angegeben werden sollten. Zum Beispiel:
 

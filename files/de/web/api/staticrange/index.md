@@ -37,7 +37,7 @@ _Die unten aufgeführten Eigenschaften werden von ihrer übergeordneten Schnitts
 
 ## Nutzungshinweise
 
-Ein DOM-Bereich spezifiziert einen Inhaltsspanne in einem Dokument, der möglicherweise innerhalb eines Knotens (oder Elements) beginnt und in einem anderen endet. Im Gegensatz zu einem [`Range`](/de/docs/Web/API/Range) stellt ein `StaticRange` einen Bereich dar, der in der Zeit fixiert ist; er ändert sich nicht, um zu versuchen, den gleichen Inhalt innerhalb zu halten, während sich das Dokument ändert. Wenn Änderungen im DOM vorgenommen werden, können sich die tatsächlichen Daten, die innerhalb des durch einen `StaticRange` spezifizierten Bereichs enthalten sind, ändern. Dadurch kann der [User Agent](/de/docs/Glossary/user_agent) viel unnötige Arbeit vermeiden, wenn die Web-App oder die Website keinen live-aktualisierten Bereich benötigt.
+Ein DOM-Bereich spezifiziert einen Inhaltsspanne in einem Dokument, der möglicherweise innerhalb eines Knotens (oder Elements) beginnt und in einem anderen endet. Im Gegensatz zu einem [`Range`](/de/docs/Web/API/Range) stellt ein `StaticRange` einen Bereich dar, der in der Zeit fixiert ist; er ändert sich nicht, um zu versuchen, den gleichen Inhalt innerhalb zu halten, während sich das Dokument ändert. Wenn Änderungen im DOM vorgenommen werden, können sich die tatsächlichen Daten, die innerhalb des durch einen `StaticRange` spezifizierten Bereichs enthalten sind, ändern. Dadurch kann der {{Glossary("user_agent", "User Agent")}} viel unnötige Arbeit vermeiden, wenn die Web-App oder die Website keinen live-aktualisierten Bereich benötigt.
 
 ## Spezifikationen
 

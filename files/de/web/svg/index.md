@@ -16,7 +16,7 @@ Als solche ist es ein textbasiertes, offenes Web-Standardformat zur Beschreibung
 
 SVG-Bilder und deren zugehöriges Verhalten sind in [XML](/de/docs/Web/XML)-Textdateien definiert, was bedeutet, dass sie durchsucht, indexiert, gescriptet und komprimiert werden können. Außerdem bedeutet das, dass sie mit jedem Texteditor oder mit Zeichenprogrammen erstellt und bearbeitet werden können.
 
-Im Vergleich zu klassischen pixelbasierten Bildformaten wie [JPEG](/de/docs/Glossary/JPEG) oder [PNG](/de/docs/Glossary/PNG) können SVG-Vektorbilder in jeder Größe ohne Qualitätsverlust gerendert werden und können leicht lokalisiert werden, indem der Text in ihnen aktualisiert wird, ohne dass ein grafischer Editor benötigt wird. Mit geeigneten Bibliotheken können SVG-Dateien sogar spontan lokalisiert werden.
+Im Vergleich zu klassischen pixelbasierten Bildformaten wie {{Glossary("JPEG", "JPEG")}} oder {{Glossary("PNG", "PNG")}} können SVG-Vektorbilder in jeder Größe ohne Qualitätsverlust gerendert werden und können leicht lokalisiert werden, indem der Text in ihnen aktualisiert wird, ohne dass ein grafischer Editor benötigt wird. Mit geeigneten Bibliotheken können SVG-Dateien sogar spontan lokalisiert werden.
 
 SVG wird seit 1999 vom [World Wide Web Consortium (W3C)](https://www.w3.org/) entwickelt.
 
@@ -31,7 +31,7 @@ Siehe auch, [SVG-Tutorial](/de/docs/Web/SVG/Tutorial).
 - [SVG-DOM-Schnittstellenreferenz](/de/docs/Web/API/Document_Object_Model#svg_dom)
   - : Details zur SVG-DOM-API, zur Interaktion mit JavaScript.
 - [SVG-Effekte auf HTML-Inhalt anwenden](/de/docs/Web/SVG/Applying_SVG_effects_to_HTML_content)
-  - : SVG arbeitet zusammen mit [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [JavaScript](/de/docs/Glossary/JavaScript).
+  - : SVG arbeitet zusammen mit {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}}.
 
 ## Werkzeuge
 

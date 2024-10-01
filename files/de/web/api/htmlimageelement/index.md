@@ -45,7 +45,7 @@ _Übernimmt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/AP
 - [`HTMLImageElement.naturalWidth`](/de/docs/Web/API/HTMLImageElement/naturalWidth) {{ReadOnlyInline}}
   - : Ein ganzzahliger Wert, der die intrinsische Breite des Bildes in CSS-Pixeln angibt, wenn verfügbar; andernfalls zeigt er `0`. Dies ist die Breite, die das Bild hätte, wenn es in seiner natürlichen vollen Größe gerendert würde.
 - [`HTMLImageElement.referrerPolicy`](/de/docs/Web/API/HTMLImageElement/referrerPolicy)
-  - : Ein String, der das [`referrerpolicy`](/de/docs/Web/HTML/Element/img#referrerpolicy) HTML-Attribut widerspiegelt, das dem [User-Agent](/de/docs/Glossary/user_agent) mitteilt, wie er den Referrer auswählen soll, um das Bild abzurufen. Lesen Sie diesen Artikel für Details zu den möglichen Werten dieses Strings.
+  - : Ein String, der das [`referrerpolicy`](/de/docs/Web/HTML/Element/img#referrerpolicy) HTML-Attribut widerspiegelt, das dem {{Glossary("user_agent", "User-Agent")}} mitteilt, wie er den Referrer auswählen soll, um das Bild abzurufen. Lesen Sie diesen Artikel für Details zu den möglichen Werten dieses Strings.
 - [`HTMLImageElement.sizes`](/de/docs/Web/API/HTMLImageElement/sizes)
   - : Ein String, der das [`sizes`](/de/docs/Web/HTML/Element/img#sizes) HTML-Attribut widerspiegelt. Dieser String spezifiziert eine Liste von durch Komma getrennten bedingten Größen für das Bild. Das heißt, für eine gegebene Ansichtsgröße soll eine bestimmte Bildgröße verwendet werden. Lesen Sie die Dokumentation auf der Seite [`sizes`](/de/docs/Web/API/HTMLImageElement/sizes) für Details zum Format dieses Strings.
 - [`HTMLImageElement.src`](/de/docs/Web/API/HTMLImageElement/src)
@@ -91,7 +91,7 @@ Wenn beim Laden oder Rendern des Bildes ein Fehler auftritt und ein `onerror` Ev
 - Die angegebene `src` URL ist dieselbe wie die URL der Seite, die der Benutzer derzeit besucht.
 - Das angegebene Bild ist in irgendeiner Weise beschädigt, die es daran hindert, geladen zu werden.
 - Die Metadaten des angegebenen Bildes sind so beschädigt, dass es unmöglich ist, seine Dimensionen abzurufen und keine Dimensionen im `<img>`-Element' 's Attributen angegeben wurden.
-- Das angegebene Bild ist in einem Format, das vom [User-Agent](/de/docs/Glossary/user_agent) nicht unterstützt wird.
+- Das angegebene Bild ist in einem Format, das vom {{Glossary("user_agent", "User-Agent")}} nicht unterstützt wird.
 
 ## Beispiel
 

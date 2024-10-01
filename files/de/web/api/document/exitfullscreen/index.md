@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der aufgelöst wird, sobald der [User-Agent](/de/docs/Glossary/user_agent) den Vollbildmodus verlassen hat. Wenn ein Fehler bei dem Versuch auftritt, den Vollbildmodus zu verlassen, wird der `catch()` Handler für das Promise aufgerufen.
+Ein {{jsxref("Promise")}}, der aufgelöst wird, sobald der {{Glossary("user_agent", "User-Agent")}} den Vollbildmodus verlassen hat. Wenn ein Fehler bei dem Versuch auftritt, den Vollbildmodus zu verlassen, wird der `catch()` Handler für das Promise aufgerufen.
 
 ## Beispiele
 

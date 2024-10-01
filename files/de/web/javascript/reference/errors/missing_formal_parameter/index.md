@@ -23,9 +23,9 @@ SyntaxError: Unexpected string literal "x". Expected a parameter pattern or a ')
 
 ## Was ist schiefgelaufen?
 
-"Formalparameter" ist ein anspruchsvoller Ausdruck für "Funktionsparameter". Ihre Funktionsdeklaration fehlt es an gültigen Parametern. In der Deklaration einer Funktion müssen die Parameter [Bezeichner](/de/docs/Glossary/Identifier) sein, nicht irgendwelche Werte wie Zahlen, Strings oder Objekte. Funktionen zu deklarieren und Funktionen aufzurufen sind zwei separate Schritte. Deklarationen erfordern Bezeichner als Parameter, und nur beim Aufruf (Invocation) der Funktion geben Sie die Werte an, die die Funktion verwenden soll.
+"Formalparameter" ist ein anspruchsvoller Ausdruck für "Funktionsparameter". Ihre Funktionsdeklaration fehlt es an gültigen Parametern. In der Deklaration einer Funktion müssen die Parameter {{Glossary("Identifier", "Bezeichner")}} sein, nicht irgendwelche Werte wie Zahlen, Strings oder Objekte. Funktionen zu deklarieren und Funktionen aufzurufen sind zwei separate Schritte. Deklarationen erfordern Bezeichner als Parameter, und nur beim Aufruf (Invocation) der Funktion geben Sie die Werte an, die die Funktion verwenden soll.
 
-In [JavaScript](/de/docs/Glossary/JavaScript) können Bezeichner nur alphanumerische Zeichen (oder "$" oder "\_") enthalten und dürfen nicht mit einer Ziffer beginnen. Ein Bezeichner unterscheidet sich von einem **String** darin, dass ein String Daten darstellt, während ein Bezeichner Teil des Codes ist.
+In {{Glossary("JavaScript", "JavaScript")}} können Bezeichner nur alphanumerische Zeichen (oder "$" oder "\_") enthalten und dürfen nicht mit einer Ziffer beginnen. Ein Bezeichner unterscheidet sich von einem **String** darin, dass ein String Daten darstellt, während ein Bezeichner Teil des Codes ist.
 
 ## Beispiele
 

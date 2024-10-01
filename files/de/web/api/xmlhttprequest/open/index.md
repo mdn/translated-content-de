@@ -31,7 +31,7 @@ open(method, url, async, user, password)
     `"GET"`, `"POST"`, `"PUT"`, `"DELETE"`,
     usw. Wird für nicht-http(s) URLs ignoriert.
 - `url`
-  - : Ein String oder ein anderes Objekt mit einem [Stringifier](/de/docs/Glossary/stringifier) — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts —, das die URL der Ressource bereitstellt, an die die Anfrage gesendet werden soll.
+  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} — einschließlich eines [`URL`](/de/docs/Web/API/URL)-Objekts —, das die URL der Ressource bereitstellt, an die die Anfrage gesendet werden soll.
 - `async` {{optional_inline}}
 
   - : Ein optionaler boolescher Parameter, der standardmäßig auf `true` gesetzt ist und angibt, ob die Operation asynchron durchgeführt werden soll oder nicht. Wenn dieser Wert `false` ist, kehrt die `send()`-Methode erst zurück, wenn die Antwort empfangen wurde. Bei `true` wird die Benachrichtigung über eine abgeschlossene Transaktion über Event-Listener bereitgestellt. Dies _muss_ wahr sein, wenn das `multipart`-Attribut `true` ist, andernfalls wird eine Ausnahme ausgelöst.

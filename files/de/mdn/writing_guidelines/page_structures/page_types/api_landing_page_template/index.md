@@ -105,7 +105,7 @@ Gehen Sie in diesem Abschnitt nicht ins Detail und fügen Sie keine Code-Beispie
 Wenn es viele Konzepte gibt, die rund um diese API zu erklären sind, sollten Sie diese in einem separaten Artikel "Grundlagen" oder "Konzepte" (z. B. [Grundlagen von WebXR](/de/docs/Web/API/WebXR_Device_API/Fundamentals)) erklären.
 Für einen praktischen Leitfaden zur Verwendung mit Code-Beispielen sollten Sie einen „Verwendung…“-Artikel in Ihrer API-Dokumentation einschließen (z. B. [Verwendung der WebVR API](/de/docs/Web/API/WebVR_API/Using_the_WebVR_API)).
 
-Um die Auffindbarkeit der Inhalte und [SEO](/de/docs/Glossary/SEO) zu verbessern, beachten Sie die folgenden Tipps:
+Um die Auffindbarkeit der Inhalte und {{Glossary("SEO", "SEO")}} zu verbessern, beachten Sie die folgenden Tipps:
 
 ## Schnittstellen
 

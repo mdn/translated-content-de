@@ -31,7 +31,7 @@ Nehmen Sie nun Stift und Papier und skizzieren Sie grob, wie Ihre Website ausseh
 > [!NOTE]
 > Sogar bei echten, komplexen Websites beginnen die Designteams normalerweise mit groben Skizzen auf Papier und erstellen später digitale Entwürfe mit einem Grafikeditor oder Webtechnologien.
 >
-> Webteams bestehen oft sowohl aus einem Grafikdesigner als auch einem [UX (User Experience)](/de/docs/Glossary/UX) Designer. Grafikdesigner erstellen die visuellen Elemente der Website. UX-Designer haben eine etwas abstraktere Rolle, indem sie sich damit beschäftigen, wie Benutzer die Website erleben und mit ihr interagieren werden.
+> Webteams bestehen oft sowohl aus einem Grafikdesigner als auch einem {{Glossary("UX", "UX (User Experience)")}} Designer. Grafikdesigner erstellen die visuellen Elemente der Website. UX-Designer haben eine etwas abstraktere Rolle, indem sie sich damit beschäftigen, wie Benutzer die Website erleben und mit ihr interagieren werden.
 
 ## Auswahl Ihrer Inhalte
 

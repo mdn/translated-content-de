@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einem [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) ist eine **Grid-Zelle** die kleinste Einheit, die Sie in Ihrem CSS-Raster haben können. Es ist der Raum zwischen vier sich kreuzenden [Rasterlinien](/de/docs/Glossary/grid_lines) und konzeptionell ähnlich wie eine Tabellenzelle.
+In einem [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) ist eine **Grid-Zelle** die kleinste Einheit, die Sie in Ihrem CSS-Raster haben können. Es ist der Raum zwischen vier sich kreuzenden {{Glossary("grid_lines", "Rasterlinien")}} und konzeptionell ähnlich wie eine Tabellenzelle.
 
 ![Diagramm, das eine einzelne Zelle im Raster zeigt.](1_grid_cell.png)
 
-Wenn Sie Elemente nicht mit einer der Rasterplatzierungsmethoden platzieren, werden die direkten Nachkommen des Rastercontainers durch den Autoplatzierungsalgorithmus in eine einzelne Rasterzelle platziert. Zusätzliche Zeilen- oder Spalten-[Tracks](/de/docs/Glossary/grid_tracks) werden erstellt, um genügend Zellen zu schaffen, um alle Elemente aufzunehmen.
+Wenn Sie Elemente nicht mit einer der Rasterplatzierungsmethoden platzieren, werden die direkten Nachkommen des Rastercontainers durch den Autoplatzierungsalgorithmus in eine einzelne Rasterzelle platziert. Zusätzliche Zeilen- oder Spalten-{{Glossary("grid_tracks", "Tracks")}} werden erstellt, um genügend Zellen zu schaffen, um alle Elemente aufzunehmen.
 
 ## Beispiel
 

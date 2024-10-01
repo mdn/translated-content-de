@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`address`** des [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent) ist ein String, der die lokale IP-Adresse angibt, die für die Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server während der Verhandlungen verwendet wird. Der aufgetretene Fehler betraf diese Adresse.
+Die Eigenschaft **`address`** des [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent) ist ein String, der die lokale IP-Adresse angibt, die für die Kommunikation mit dem {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server während der Verhandlungen verwendet wird. Der aufgetretene Fehler betraf diese Adresse.
 
 ## Wert
 

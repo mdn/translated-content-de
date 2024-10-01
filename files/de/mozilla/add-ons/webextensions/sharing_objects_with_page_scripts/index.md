@@ -26,7 +26,7 @@ Allerdings bietet Firefox einige APIs, die es Inhaltsskripten ermöglichen:
 
 ## Röntgenblick in Firefox
 
-In Firefox wird ein Teil der Trennung zwischen Inhaltsskripten und Seitenskripten mithilfe einer Funktion namens "Röntgenblick" implementiert. Wenn ein Skript in einem privilegierteren Bereich auf ein Objekt zugreift, das in einem weniger privilegierten Bereich definiert ist, sieht es nur die "native Version" des Objekts. Jegliche [expando](/de/docs/Glossary/Expando)-Eigenschaften sind unsichtbar, und wenn Eigenschaften des Objekts neu definiert wurden, sieht es die ursprüngliche Implementierung, nicht die neu definierte Version.
+In Firefox wird ein Teil der Trennung zwischen Inhaltsskripten und Seitenskripten mithilfe einer Funktion namens "Röntgenblick" implementiert. Wenn ein Skript in einem privilegierteren Bereich auf ein Objekt zugreift, das in einem weniger privilegierten Bereich definiert ist, sieht es nur die "native Version" des Objekts. Jegliche {{Glossary("Expando", "expando")}}-Eigenschaften sind unsichtbar, und wenn Eigenschaften des Objekts neu definiert wurden, sieht es die ursprüngliche Implementierung, nicht die neu definierte Version.
 
 Der Zweck dieser Funktion besteht darin, es dem weniger privilegierten Skript zu erschweren, das privilegiertere Skript zu verwirren, indem es die nativen Eigenschaften von Objekten neu definiert.
 

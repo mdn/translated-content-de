@@ -65,7 +65,7 @@ Zum Beispiel könnte er, um keine Hinweise mehr anzufordern, `Accept-CH` mit ein
 
 Client-Hinweise werden grob in Hinweise mit hoher und niedriger Entropie unterteilt.
 
-Die Hinweise mit niedriger Entropie sind solche, die nicht viel Informationen preisgeben, die zur Erstellung eines [Fingerabdrucks](/de/docs/Glossary/Fingerprinting) eines Benutzers verwendet werden könnten.
+Die Hinweise mit niedriger Entropie sind solche, die nicht viel Informationen preisgeben, die zur Erstellung eines {{Glossary("Fingerprinting", "Fingerabdrucks")}} eines Benutzers verwendet werden könnten.
 Sie können standardmäßig bei jeder Client-Anfrage gesendet werden, unabhängig vom `Accept-CH` Antwort-Header des Servers, abhängig von den Berechtigungsrichtlinien.
 Zu diesen Hinweisen gehören: {{HTTPHeader("Save-Data")}}, {{HTTPHeader("Sec-CH-UA")}}, {{HTTPHeader("Sec-CH-UA-Mobile")}}, {{HTTPHeader("Sec-CH-UA-Platform")}}.
 

@@ -52,7 +52,7 @@ Erstens ein Blick auf das HTML. Es ist einfach genug, mit dem Label und der Eing
 </form>
 ```
 
-Der JavaScript-Code fügt dem Zeiteingabe-Feld Code hinzu, um auf das [`input`](/en-US/docs/Web/API/Element/input_event)-Ereignis zu lauschen, das jedes Mal ausgelöst wird, wenn sich der Inhalt eines Eingabeelements ändert. Wenn dies passiert, werden die Inhalte des `<span>` durch den neuen Wert des Eingabeelements ersetzt.
+Der JavaScript-Code fügt dem Zeiteingabe-Feld Code hinzu, um auf das [`input`](/de/docs/Web/API/Element/input_event)-Ereignis zu lauschen, das jedes Mal ausgelöst wird, wenn sich der Inhalt eines Eingabeelements ändert. Wenn dies passiert, werden die Inhalte des `<span>` durch den neuen Wert des Eingabeelements ersetzt.
 
 ```js
 const startTime = document.getElementById("startTime");
@@ -104,7 +104,7 @@ Das step-Attribut ist eine Zahl, die die Granularität angibt, die der Wert einh
 Ein Stringwert von `any` bedeutet, dass kein Schritt impliziert wird und jeder Wert erlaubt ist (abgesehen von anderen Einschränkungen, wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Step-Konfiguration entsprechen, kann der [Benutzeragent](/de/docs/Glossary/user_agent) auf den nächstgelegenen gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahe Optionen gibt.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Step-Konfiguration entsprechen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächstgelegenen gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahe Optionen gibt.
 
 Für `time`-Eingaben wird der Wert von `step` in Sekunden angegeben, mit einem Skalierungsfaktor von 1000 (da der zugrunde liegende Zahlenwert in Millisekunden ist). Der Standardwert von `step` ist 60, was 60 Sekunden (oder 1 Minute oder 60.000 Millisekunden) anzeigt.
 

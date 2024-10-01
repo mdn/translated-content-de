@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die **`localStorage`** schreibgeschützte Eigenschaft des [`window`](/de/docs/Web/API/Window)-Interfaces ermöglicht Ihnen den Zugriff auf ein [`Storage`](/de/docs/Web/API/Storage)-Objekt für den [Ursprung](/de/docs/Glossary/origin) des [`Document`](/de/docs/Web/API/Document); die gespeicherten Daten werden über Browsersitzungen hinweg beibehalten.
+Die **`localStorage`** schreibgeschützte Eigenschaft des [`window`](/de/docs/Web/API/Window)-Interfaces ermöglicht Ihnen den Zugriff auf ein [`Storage`](/de/docs/Web/API/Storage)-Objekt für den {{Glossary("origin", "Ursprung")}} des [`Document`](/de/docs/Web/API/Document); die gespeicherten Daten werden über Browsersitzungen hinweg beibehalten.
 
 `localStorage` ähnelt [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage), mit dem Unterschied, dass `localStorage`-Daten kein Ablaufdatum haben, während `sessionStorage`-Daten gelöscht werden, wenn die Seitensitzung endet — also wenn die Seite geschlossen wird. (`localStorage`-Daten für ein Dokument, das in einer "privaten Browsing"- oder "Inkognito"-Sitzung geladen wird, werden gelöscht, wenn der letzte "private" Tab geschlossen wird.)
 

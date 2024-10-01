@@ -18,7 +18,7 @@ Der Eingabewert wird automatisch validiert, um sicherzustellen, dass er entweder
 Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält eine Zeichenfolge, die automatisch als konform zur E-Mail-Syntax validiert wird. Genauer gesagt, gibt es drei mögliche Wertformate, die die Validierung bestehen:
 
 1. Eine leere Zeichenfolge ("") zeigt an, dass der Benutzer keinen Wert eingegeben hat oder dass der Wert entfernt wurde.
-2. Eine einzelne korrekt formatierte E-Mail-Adresse. Dies bedeutet nicht unbedingt, dass die E-Mail-Adresse existiert, aber sie ist zumindest korrekt formatiert. Einfach ausgedrückt bedeutet dies `username@domain` oder `username@domain.tld`. Weitere Informationen finden Sie unter [Validierung](#validierung) für einen [regulären Ausdruck](/de/docs/Glossary/regular_expression), der den Algorithmus zur Validierung von E-Mail-Adressen abbildet.
+2. Eine einzelne korrekt formatierte E-Mail-Adresse. Dies bedeutet nicht unbedingt, dass die E-Mail-Adresse existiert, aber sie ist zumindest korrekt formatiert. Einfach ausgedrückt bedeutet dies `username@domain` oder `username@domain.tld`. Weitere Informationen finden Sie unter [Validierung](#validierung) für einen {{Glossary("regular_expression", "regulären Ausdruck")}}, der den Algorithmus zur Validierung von E-Mail-Adressen abbildet.
 3. Nur wenn das [`multiple`](/de/docs/Web/HTML/Element/input#multiple)-Attribut angegeben ist, kann der Wert eine durch Kommas getrennte Liste korrekt formatierter E-Mail-Adressen sein. Jegliche vorangestellten und nachgestellten Leerzeichen werden von jeder Adresse in der Liste entfernt.
 
 Details zur Validierung von E-Mail-Adressen finden Sie unter [Validierung](#validierung), um sicherzustellen, dass sie korrekt formatiert sind.
@@ -52,7 +52,7 @@ Ein boolesches Attribut, das, wenn es vorhanden ist, angibt, dass der Benutzer e
 
 ### pattern
 
-Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe für den Wert bestehen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger regulärer JavaScript-Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Folge von Unicode-Codepunkten behandelt wird, anstatt als [ASCII](/de/docs/Glossary/ASCII). Keine Schrägstriche sollten um den Mustertext angegeben werden.
+Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe für den Wert bestehen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger regulärer JavaScript-Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Folge von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Keine Schrägstriche sollten um den Mustertext angegeben werden.
 
 Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut vollständig ignoriert.
 
@@ -65,7 +65,7 @@ Siehe den Abschnitt [Mustervalidierung](#mustervalidierung) für Details und ein
 
 Das `placeholder`-Attribut ist eine Zeichenfolge, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Information im Feld erwartet wird. Es sollte ein Wort oder eine kurze Phrase sein, die die erwartete Datenart demonstriert, anstatt eine erläuternde Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt des Steuerelements eine Richtung ([LTR](/de/docs/Glossary/LTR) oder [RTL](/de/docs/Glossary/RTL)) hat, der Platzhalter jedoch in der entgegengesetzten Richtung sein muss, können Sie die Formatierungszeichen des bidirektionalen Unicode-Algorithmus verwenden, um die Richtung im Platzhalter zu überschreiben; siehe [Wie man Unicode-Steuerelemente für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt des Steuerelements eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der Platzhalter jedoch in der entgegengesetzten Richtung sein muss, können Sie die Formatierungszeichen des bidirektionalen Unicode-Algorithmus verwenden, um die Richtung im Platzhalter zu überschreiben; siehe [Wie man Unicode-Steuerelemente für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
 > Vermeiden Sie, wenn möglich, das `placeholder`-Attribut zu verwenden. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für weitere Informationen.
@@ -226,7 +226,7 @@ Um mehr darüber zu erfahren, wie die Formularvalidierung funktioniert und wie S
 
 ### Mustervalidierung
 
-Wenn Sie möchten, dass die eingegebene E-Mail-Adresse weiter eingeschränkt wird als nur "jede Zeichenfolge, die wie eine E-Mail-Adresse aussieht", können Sie das `pattern`-Attribut verwenden, um einen [regulären Ausdruck](/de/docs/Glossary/regular_expression) anzugeben, mit dem der Wert übereinstimmen muss, damit er gültig ist. Wenn das `multiple`-Attribut angegeben ist, muss jedes einzelne Element in der durch Kommas getrennten Liste von Werten mit dem [regulären Ausdruck](/de/docs/Glossary/regular_expression) übereinstimmen.
+Wenn Sie möchten, dass die eingegebene E-Mail-Adresse weiter eingeschränkt wird als nur "jede Zeichenfolge, die wie eine E-Mail-Adresse aussieht", können Sie das `pattern`-Attribut verwenden, um einen {{Glossary("regular_expression", "regulären Ausdruck")}} anzugeben, mit dem der Wert übereinstimmen muss, damit er gültig ist. Wenn das `multiple`-Attribut angegeben ist, muss jedes einzelne Element in der durch Kommas getrennten Liste von Werten mit dem {{Glossary("regular_expression", "regulären Ausdruck")}} übereinstimmen.
 
 Zum Beispiel, nehmen wir an, Sie erstellen eine Seite für Mitarbeiter von Best Startup Ever, Inc., die es ihnen ermöglicht, ihre IT-Abteilung um Hilfe zu bitten. In unserem vereinfachten Formular muss der Benutzer seine E-Mail-Adresse und eine Nachricht, die das Problem beschreibt, für das er Hilfe braucht, eingeben. Wir möchten sicherstellen, dass nicht nur eine gültige E-Mail-Adresse angegeben wird, sondern aus Sicherheitsgründen, dass die Adresse eine interne Unternehmens-E-Mail-Adresse ist.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`crossOrigin`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle legt die Einstellung für Cross-Origin Resource Sharing ([CORS](/de/docs/Glossary/CORS)) fest, die beim Abrufen der Ressource verwendet werden soll.
+Die **`crossOrigin`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle legt die Einstellung für Cross-Origin Resource Sharing ({{Glossary("CORS", "CORS")}}) fest, die beim Abrufen der Ressource verwendet werden soll.
 
 ## Wert
 

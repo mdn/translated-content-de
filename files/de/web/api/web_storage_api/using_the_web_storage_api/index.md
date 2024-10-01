@@ -176,7 +176,7 @@ localStorage.setItem("user", JSON.stringify(person));
 console.log(JSON.parse(localStorage.getItem("user"))); // { name: "Alex" }
 ```
 
-Es gibt jedoch keinen generischen Weg, um beliebige Datentypen zu speichern. Außerdem ist das abgerufene Objekt eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) des ursprünglichen Objekts und Änderungen daran beeinflussen nicht das ursprüngliche Objekt.
+Es gibt jedoch keinen generischen Weg, um beliebige Datentypen zu speichern. Außerdem ist das abgerufene Objekt eine {{Glossary("Deep_copy", "tiefe Kopie")}} des ursprünglichen Objekts und Änderungen daran beeinflussen nicht das ursprüngliche Objekt.
 
 ### Auf Speicheränderungen mit dem StorageEvent reagieren
 

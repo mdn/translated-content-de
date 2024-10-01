@@ -16,7 +16,7 @@ Beachten Sie, dass 24 Bits des Benutzername-Fragments vom Browser zufällig sein
 
 ## Wert
 
-Ein String, der das Benutzername-Fragment enthält (üblicherweise in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet), das zusammen mit dem ICE-Passwort ("ice-pwd") eine einzelne laufende ICE-Interaktion eindeutig identifiziert, einschließlich aller Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)-Server. Der String kann bis zu 256 Zeichen lang sein und hat keinen Standardwert.
+Ein String, der das Benutzername-Fragment enthält (üblicherweise in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet), das zusammen mit dem ICE-Passwort ("ice-pwd") eine einzelne laufende ICE-Interaktion eindeutig identifiziert, einschließlich aller Kommunikation mit dem {{Glossary("STUN", "STUN")}}-Server. Der String kann bis zu 256 Zeichen lang sein und hat keinen Standardwert.
 
 ### Randomisierung
 

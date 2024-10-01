@@ -40,7 +40,7 @@ Ein neues `StaticRange`-Objekt, das mit den im `rangeSpec`-Objekt angegebenen We
 ### Ausnahmen
 
 - `InvalidNodeTypeError`
-  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), der ausgelöst wird, wenn entweder der `startContainer` und/oder `endContainer` ein Knotentyp ist, den Sie nicht in einem Bereich einschließen können. Diese Knotentypen sind `Node.DOCUMENT_TYPE_NODE` (repräsentiert den [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten, der aus dem [DTD](/de/docs/Glossary/Doctype) abgeleitet ist, das zum Beispiel mithilfe des `doctype`-Präambels im HTML identifiziert wird) und der [`Attr`](/de/docs/Web/API/Attr)-Knoten, der ein Attribut eines Elements im DOM beschreibt.
+  - : Ein [`DOMException`](/de/docs/Web/API/DOMException), der ausgelöst wird, wenn entweder der `startContainer` und/oder `endContainer` ein Knotentyp ist, den Sie nicht in einem Bereich einschließen können. Diese Knotentypen sind `Node.DOCUMENT_TYPE_NODE` (repräsentiert den [`DocumentType`](/de/docs/Web/API/DocumentType)-Knoten, der aus dem {{Glossary("Doctype", "DTD")}} abgeleitet ist, das zum Beispiel mithilfe des `doctype`-Präambels im HTML identifiziert wird) und der [`Attr`](/de/docs/Web/API/Attr)-Knoten, der ein Attribut eines Elements im DOM beschreibt.
 
 ## Spezifikationen
 

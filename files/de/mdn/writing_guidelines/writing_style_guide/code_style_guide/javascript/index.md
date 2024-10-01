@@ -226,7 +226,7 @@ array.forEach((value /* , index, array */) => {
 
 ### Funktionsnamen
 
-Für Funktionsnamen verwenden Sie [camel case](/de/docs/Glossary/camel_case), beginnend mit einem Kleinbuchstaben. Verwenden Sie prägnante, menschenlesbare und semantische Namen, wo angemessen.
+Für Funktionsnamen verwenden Sie {{Glossary("camel_case", "camel case")}}, beginnend mit einem Kleinbuchstaben. Verwenden Sie prägnante, menschenlesbare und semantische Namen, wo angemessen.
 
 Das Folgende ist ein korrektes Beispiel für einen Funktionsnamen:
 

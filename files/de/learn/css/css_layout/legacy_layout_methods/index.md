@@ -279,7 +279,7 @@ Jetzt haben Sie ein funktionierendes Rastersystem entwickelt, Sie können die Re
 
 ### Ein flüssiges Raster erstellen
 
-Unser Raster funktioniert gut, aber es hat eine feste Breite. Wir möchten wirklich ein flexibles (flüssiges) Raster, das mit dem verfügbaren Platz im Browser-[Viewport](/de/docs/Glossary/viewport) wächst und schrumpft. Dazu können wir die Referenz-Pixelbreiten in Prozentsätze umwandeln.
+Unser Raster funktioniert gut, aber es hat eine feste Breite. Wir möchten wirklich ein flexibles (flüssiges) Raster, das mit dem verfügbaren Platz im Browser-{{Glossary("viewport", "Viewport")}} wächst und schrumpft. Dazu können wir die Referenz-Pixelbreiten in Prozentsätze umwandeln.
 
 Die Gleichung, die eine feste Breite in eine flexible, auf Prozentsätzen basierende Breite umwandelt, ist wie folgt.
 

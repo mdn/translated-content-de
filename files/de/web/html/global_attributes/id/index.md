@@ -13,7 +13,7 @@ Das **`id`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) definiert e
 
 ## Beschreibung
 
-Der Zweck des ID-Attributs ist es, ein einzelnes Element beim Verlinken (mit einem [Fragmentbezeichner](/de/docs/Web/URI#fragment)), beim Skripting oder Stylen (mit [CSS](/de/docs/Glossary/CSS)) zu identifizieren.
+Der Zweck des ID-Attributs ist es, ein einzelnes Element beim Verlinken (mit einem [Fragmentbezeichner](/de/docs/Web/URI#fragment)), beim Skripting oder Stylen (mit {{Glossary("CSS", "CSS")}}) zu identifizieren.
 
 Elemente mit ID-Attributen sind als globale Eigenschaften verfügbar. Der Eigenschaftsname ist das ID-Attribut, und der Eigenschaftswert ist das Element. Zum Beispiel, bei folgendem Markup:
 
@@ -29,7 +29,7 @@ const content = window.preamble.textContent;
 
 ### Syntax
 
-Der Wert eines ID-Attributs darf keine [ASCII-Leerzeichen](/de/docs/Glossary/Whitespace#in_html) enthalten. Browser behandeln nicht-konforme IDs, die Leerzeichen enthalten, so, als wären die Leerzeichen Teil der ID. Im Gegensatz zum [`class`](/de/docs/Web/HTML/Global_attributes#class)-Attribut, welches durch Leerzeichen getrennte Werte erlaubt, können Elemente nur einen einzigen ID-Wert haben.
+Der Wert eines ID-Attributs darf keine {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}} enthalten. Browser behandeln nicht-konforme IDs, die Leerzeichen enthalten, so, als wären die Leerzeichen Teil der ID. Im Gegensatz zum [`class`](/de/docs/Web/HTML/Global_attributes#class)-Attribut, welches durch Leerzeichen getrennte Werte erlaubt, können Elemente nur einen einzigen ID-Wert haben.
 
 Technisch gesehen darf der Wert für ein ID-Attribut jedes andere Unicode-Zeichen enthalten. Wenn sie jedoch in CSS-Selektoren verwendet werden, entweder von JavaScript aus mit APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stilen, müssen ID-Attributwerte gültige [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. Das bedeutet, dass, wenn ein ID-Attributwert kein gültiger CSS-Bezeichner ist (zum Beispiel `my?id` oder `1234`), er vor der Verwendung in einem Selektor entweder mit der [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static)-Methode oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) escaped werden muss.
 

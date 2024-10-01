@@ -16,9 +16,9 @@ Ein ganzzahliger Wert, der die intrinsische Höhe des Videos in CSS-Pixeln angib
 
 ### Über intrinsische Breite und Höhe
 
-Ein [User Agent](/de/docs/Glossary/user_agent) berechnet die intrinsische Breite und Höhe der Medienelemente, indem er mit der Rohpixelbreite und -höhe des Mediums beginnt und dann Faktoren wie berücksichtigt:
+Ein {{Glossary("user_agent", "User Agent")}} berechnet die intrinsische Breite und Höhe der Medienelemente, indem er mit der Rohpixelbreite und -höhe des Mediums beginnt und dann Faktoren wie berücksichtigt:
 
-- Das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Mediums.
+- Das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Mediums.
 - Die saubere Blende des Mediums (das Unterrechteck in der Mitte des Mediums, das dem Zielseitenverhältnis entspricht).
 - Die Auflösung des Zielgeräts.
 - Alle anderen vom Medienformat geforderten Faktoren.

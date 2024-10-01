@@ -81,8 +81,8 @@ Auf der Querachse schafft die `row-gap`-Eigenschaft Abstände zwischen benachbar
 
 ### Glossar Einträge
 
-- [Querachse](/de/docs/Glossary/Cross_axis)
-- [Hauptachse](/de/docs/Glossary/Main_axis)
+- {{Glossary("Cross_axis", "Querachse")}}
+- {{Glossary("Main_axis", "Hauptachse")}}
 
 ## Leitfäden
 

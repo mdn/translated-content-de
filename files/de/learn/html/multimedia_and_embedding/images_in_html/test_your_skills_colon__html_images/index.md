@@ -20,7 +20,7 @@ In dieser Aufgabe möchten wir, dass Sie ein einfaches Bild von einigen Blaubeer
 
 - Den Pfad zum Bild in einem geeigneten Attribut hinzufügen, um es auf der Seite einzubetten. Das Bild heißt `blueberries.jpg` und befindet sich in einem Ordner innerhalb des aktuellen Ordners namens `images`.
 - Alternativen Text in einem geeigneten Attribut hinzufügen, um das Bild für Menschen zu beschreiben, die es nicht sehen können.
-- Dem `<img>`-Element eine geeignete `width` und `height` geben, sodass es im richtigen [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) angezeigt wird und genügend Platz auf der Seite bleibt, um es anzuzeigen. Die [intrinsische Größe](/de/docs/Glossary/intrinsic_size) des Bildes beträgt 615 x 419 Pixel.
+- Dem `<img>`-Element eine geeignete `width` und `height` geben, sodass es im richtigen {{Glossary("aspect_ratio", "Seitenverhältnis")}} angezeigt wird und genügend Platz auf der Seite bleibt, um es anzuzeigen. Die {{Glossary("intrinsic_size", "intrinsische Größe")}} des Bildes beträgt 615 x 419 Pixel.
 
 Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 

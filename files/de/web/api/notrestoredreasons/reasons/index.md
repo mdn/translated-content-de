@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`reasons`** der [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Schnittstelle gibt ein Array von [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekten zurück, von denen jedes einen Grund darstellt, warum die navigierte Seite daran gehindert wurde, den Vor-/Zurück-Cache ([bfcache](/de/docs/Glossary/bfcache)) zu verwenden.
+Die schreibgeschützte Eigenschaft **`reasons`** der [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Schnittstelle gibt ein Array von [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Objekten zurück, von denen jedes einen Grund darstellt, warum die navigierte Seite daran gehindert wurde, den Vor-/Zurück-Cache ({{Glossary("bfcache", "bfcache")}}) zu verwenden.
 
 ## Wert
 

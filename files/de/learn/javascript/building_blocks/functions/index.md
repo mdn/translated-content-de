@@ -318,7 +318,7 @@ Das Ergebnis - Versuchen Sie, in das Textfeld zu tippen, und sehen Sie sich die 
 
 ## Funktionsbereich und Konflikte
 
-Sprechen wir ein wenig über den [Gültigkeitsbereich](/de/docs/Glossary/scope) — ein sehr wichtiges Konzept im Umgang mit Funktionen. Wenn Sie eine Funktion erstellen, sind die darin definierten Variablen und andere Dinge in einem eigenen getrennten **Gültigkeitsbereich**, was bedeutet, dass sie in ihren eigenen getrennten Kompartimenten gespeichert und von Code außerhalb der Funktionen nicht erreichbar sind.
+Sprechen wir ein wenig über den {{Glossary("scope", "Gültigkeitsbereich")}} — ein sehr wichtiges Konzept im Umgang mit Funktionen. Wenn Sie eine Funktion erstellen, sind die darin definierten Variablen und andere Dinge in einem eigenen getrennten **Gültigkeitsbereich**, was bedeutet, dass sie in ihren eigenen getrennten Kompartimenten gespeichert und von Code außerhalb der Funktionen nicht erreichbar sind.
 
 Die oberste Ebene, außerhalb aller Ihrer Funktionen, wird **globaler Gültigkeitsbereich** genannt. Im globalen Gültigkeitsbereich definierte Werte sind von überall im Code aus zugänglich.
 

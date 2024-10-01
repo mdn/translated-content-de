@@ -67,7 +67,7 @@ Wenn der `document.write()`-Aufruf in einem Inline-HTML-`<script>`-Tag eingebett
 </script>
 ```
 
-`document.write()` und [`document.writeln`](/de/docs/Web/API/Document/writeln) funktionieren nicht in XHTML-Dokumenten (Sie erhalten einen "Operation is not supported" (`NS_ERROR_DOM_NOT_SUPPORTED_ERR`) Fehler in der Fehlerkonsole). Dies passiert, wenn eine lokale Datei mit der Dateiendung .xhtml geöffnet wird oder für jedes Dokument, das mit einem `application/xhtml+xml` [MIME-Typ](/de/docs/Glossary/MIME_type) bereitgestellt wird. Weitere Informationen finden Sie in den [W3C XHTML FAQ](https://www.w3.org/MarkUp/2004/xhtml-faq#docwrite).
+`document.write()` und [`document.writeln`](/de/docs/Web/API/Document/writeln) funktionieren nicht in XHTML-Dokumenten (Sie erhalten einen "Operation is not supported" (`NS_ERROR_DOM_NOT_SUPPORTED_ERR`) Fehler in der Fehlerkonsole). Dies passiert, wenn eine lokale Datei mit der Dateiendung .xhtml geöffnet wird oder für jedes Dokument, das mit einem `application/xhtml+xml` {{Glossary("MIME_type", "MIME-Typ")}} bereitgestellt wird. Weitere Informationen finden Sie in den [W3C XHTML FAQ](https://www.w3.org/MarkUp/2004/xhtml-faq#docwrite).
 
 Die Verwendung von `document.write()` in [verzögerten](/de/docs/Web/HTML/Element/script#defer) oder [asynchronen](/de/docs/Web/HTML/Element/script#async) Skripten wird ignoriert und Sie erhalten eine Nachricht wie "A call to `document.write()` from an asynchronously-loaded external script was ignored" in der Fehlerkonsole.
 

@@ -53,7 +53,7 @@ Das {{jsxref("Promise")}} kann mit einem der folgenden `DOMException`-Werte abge
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Das Dokument ist nicht vollständig aktiv oder andere Freigabevorgänge sind im Gange.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Eine `web-share`-Berechtigungsrichtlinie wurde verwendet, um die Nutzung dieses Merkmals zu blockieren, das Fenster hat keine [transiente Aktivierung](/de/docs/Glossary/transient_activation), oder eine Dateifreigabe wird aufgrund von Sicherheitsüberlegungen blockiert.
+  - : Eine `web-share`-Berechtigungsrichtlinie wurde verwendet, um die Nutzung dieses Merkmals zu blockieren, das Fenster hat keine {{Glossary("transient_activation", "transiente Aktivierung")}}, oder eine Dateifreigabe wird aufgrund von Sicherheitsüberlegungen blockiert.
 - {{jsxref("TypeError")}}
 
   - : Die angegebenen Freigabedaten können nicht validiert werden. Mögliche Gründe sind:
@@ -121,7 +121,7 @@ Im Folgenden finden Sie eine Liste der normalerweise freigabbaren Dateitypen. Si
 
 ## Sicherheit
 
-Diese Methode erfordert, dass das aktuelle Dokument über die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Berechtigungsrichtlinie und [transiente Aktivierung](/de/docs/Glossary/transient_activation) verfügt. (Es muss durch ein UI-Ereignis wie einen Button-Klick ausgelöst werden und kann nicht an beliebigen Punkten durch ein Skript gestartet werden.) Ferner muss die Methode gültige Daten angeben, die von der nativen Implementierung zum Teilen unterstützt werden.
+Diese Methode erfordert, dass das aktuelle Dokument über die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Berechtigungsrichtlinie und {{Glossary("transient_activation", "transiente Aktivierung")}} verfügt. (Es muss durch ein UI-Ereignis wie einen Button-Klick ausgelöst werden und kann nicht an beliebigen Punkten durch ein Skript gestartet werden.) Ferner muss die Methode gültige Daten angeben, die von der nativen Implementierung zum Teilen unterstützt werden.
 
 ## Beispiele
 

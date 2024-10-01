@@ -9,7 +9,7 @@ l10n:
 
 Der HTTP-Statuscode **`508 Loop Detected`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass die gesamte Operation fehlgeschlagen ist, da beim Verarbeiten einer Anfrage mit `Depth: infinity` eine Endlosschleife aufgetreten ist.
 
-Der Status kann im Kontext der Web Distributed Authoring and Versioning ([WebDAV](/de/docs/Glossary/WebDAV)) angegeben werden. Er wurde als Fallback für Fälle eingeführt, in denen WebDAV-Clients {{HTTPStatus("208", "208 Already Reported")}} Antworten nicht unterstützen (wenn Anfragen den `DAV` Header nicht explizit einschließen).
+Der Status kann im Kontext der Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) angegeben werden. Er wurde als Fallback für Fälle eingeführt, in denen WebDAV-Clients {{HTTPStatus("208", "208 Already Reported")}} Antworten nicht unterstützen (wenn Anfragen den `DAV` Header nicht explizit einschließen).
 
 ## Status
 

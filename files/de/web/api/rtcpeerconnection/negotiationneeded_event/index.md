@@ -10,7 +10,7 @@ l10n:
 
 Ein **`negotiationneeded`** Ereignis wird an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn eine Aushandlung der Verbindung über den Signalisierungskanal erforderlich ist. Dies geschieht sowohl während der anfänglichen Einrichtung der Verbindung als auch jedes Mal, wenn eine Änderung der Kommunikationsumgebung eine Neukonfiguration der Verbindung erfordert.
 
-Das `negotiationneeded` Ereignis wird zuerst an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verteilt, wenn Medien erstmals zur Verbindung hinzugefügt werden. Dies startet den Prozess der [ICE](/de/docs/Glossary/ICE) Verhandlung, indem Ihrem Code mitgeteilt wird, dass er beginnen soll, ICE-Kandidaten über den Signalisierungsserver auszutauschen. Siehe [Signalisierungsablauf](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#signaling_transaction_flow) für eine Beschreibung des Signalisierungsprozesses, der mit einem `negotiationneeded` Ereignis beginnt.
+Das `negotiationneeded` Ereignis wird zuerst an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verteilt, wenn Medien erstmals zur Verbindung hinzugefügt werden. Dies startet den Prozess der {{Glossary("ICE", "ICE")}} Verhandlung, indem Ihrem Code mitgeteilt wird, dass er beginnen soll, ICE-Kandidaten über den Signalisierungsserver auszutauschen. Siehe [Signalisierungsablauf](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling#signaling_transaction_flow) für eine Beschreibung des Signalisierungsprozesses, der mit einem `negotiationneeded` Ereignis beginnt.
 
 Dieses Ereignis ist nicht abbrechbar und wird nicht weitergeleitet.
 
@@ -30,7 +30,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-In diesem Beispiel verwenden wir [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um einen Ereignishandler für `negotiationneeded` zu erstellen. Seine Aufgabe ist es, ein [SDP](/de/docs/Glossary/SDP)-Angebot zu erstellen und es über den Signalisierungskanal an den entfernten Peer zu senden.
+In diesem Beispiel verwenden wir [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), um einen Ereignishandler für `negotiationneeded` zu erstellen. Seine Aufgabe ist es, ein {{Glossary("SDP", "SDP")}}-Angebot zu erstellen und es über den Signalisierungskanal an den entfernten Peer zu senden.
 
 ```js
 pc.addEventListener(

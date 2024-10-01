@@ -9,7 +9,7 @@ l10n:
 
 Das **canvas-Element** ist Teil von [HTML5](https://en.wikipedia.org/wiki/HTML5) und ermöglicht die dynamische, [skriptbare](https://en.wikipedia.org/wiki/Scripting_language) [Darstellung](<https://en.wikipedia.org/wiki/Rendering_(computer_graphics)>) von 2D- und 3D-Formen sowie [Bitmap](https://en.wikipedia.org/wiki/Bitmap)-Bildern.
 
-Es ist ein Low-Level-Verfahrensmodell, das ein [Bitmap](https://en.wikipedia.org/wiki/Bitmap) aktualisiert und über keinen eingebauten [Szenengraph](https://en.wikipedia.org/wiki/Scene_graph) verfügt. Es bietet eine leere grafische Zone, auf der spezifische [JavaScript](/de/docs/Glossary/JavaScript)-[APIs](/de/docs/Glossary/API) zeichnen können (wie Canvas 2D oder [WebGL](/de/docs/Glossary/WebGL)).
+Es ist ein Low-Level-Verfahrensmodell, das ein [Bitmap](https://en.wikipedia.org/wiki/Bitmap) aktualisiert und über keinen eingebauten [Szenengraph](https://en.wikipedia.org/wiki/Scene_graph) verfügt. Es bietet eine leere grafische Zone, auf der spezifische {{Glossary("JavaScript", "JavaScript")}}-{{Glossary("API", "APIs")}} zeichnen können (wie Canvas 2D oder {{Glossary("WebGL", "WebGL")}}).
 
 ## Siehe auch
 

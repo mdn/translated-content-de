@@ -11,12 +11,12 @@ Das **`Array`**-Objekt ermöglicht das [Speichern einer Sammlung mehrerer Elemen
 
 ## Beschreibung
 
-In JavaScript sind Arrays keine [Primitiven](/de/docs/Glossary/Primitive), sondern `Array`-Objekte mit den folgenden Haupteigenschaften:
+In JavaScript sind Arrays keine {{Glossary("Primitive", "Primitiven")}}, sondern `Array`-Objekte mit den folgenden Haupteigenschaften:
 
 - **JavaScript-Arrays sind skalierbar** und **können eine Mischung verschiedener [Datentypen](/de/docs/Web/JavaScript/Data_structures)** enthalten. (Wenn diese Eigenschaften unerwünscht sind, verwenden Sie stattdessen [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays).)
 - **JavaScript-Arrays sind keine assoziativen Arrays**, daher können Array-Elemente nicht mit beliebigen Zeichenketten als Indizes zugegriffen werden, sondern müssen mit nicht-negativen Ganzzahlen (oder deren jeweilige Zeichenkettenform) zugegriffen werden.
 - **JavaScript-Arrays sind [nullbasiert](https://de.wikipedia.org/wiki/Nullbasierte_Nummerierung)**: Das erste Element eines Arrays ist bei Index `0`, das zweite bei Index `1` usw. — und das letzte Element hat den Wert der {{jsxref("Array/length", "length")}}-Eigenschaft des Arrays minus `1`.
-- **JavaScript [Array-Kopieroperationen](#ein_array_kopieren) erstellen [flache Kopien](/de/docs/Glossary/Shallow_copy)**. (Alle standardmäßigen eingebauten Kopieroperationen für _alle_ JavaScript-Objekte erstellen flache Kopien, statt [tiefe Kopien](/de/docs/Glossary/Deep_copy)).
+- **JavaScript [Array-Kopieroperationen](#ein_array_kopieren) erstellen {{Glossary("Shallow_copy", "flache Kopien")}}**. (Alle standardmäßigen eingebauten Kopieroperationen für _alle_ JavaScript-Objekte erstellen flache Kopien, statt {{Glossary("Deep_copy", "tiefe Kopien")}}).
 
 ### Array-Indizes
 
@@ -124,7 +124,7 @@ const newColors = colors.toReversed(); // ['purple', undefined, undefined, 'blue
 
 ### Kopiermethoden und mutierende Methoden
 
-Einige Methoden mutieren das vorhandene Array nicht, an dem sie aufgerufen wurden, sondern geben stattdessen ein neues Array zurück. Sie tun dies, indem sie zuerst ein neues Array konstruieren und es dann mit Elementen befüllen. Die Kopie erfolgt immer [_flach_](/de/docs/Glossary/Shallow_copy) — die Methode kopiert niemals etwas über das initial erstellte Array hinaus. Elemente der Original-Arrays werden in das neue Array wie folgt kopiert:
+Einige Methoden mutieren das vorhandene Array nicht, an dem sie aufgerufen wurden, sondern geben stattdessen ein neues Array zurück. Sie tun dies, indem sie zuerst ein neues Array konstruieren und es dann mit Elementen befüllen. Die Kopie erfolgt immer {{Glossary("Shallow_copy", "_flach_")}} — die Methode kopiert niemals etwas über das initial erstellte Array hinaus. Elemente der Original-Arrays werden in das neue Array wie folgt kopiert:
 
 - Objekte: Die Objekt-Referenz wird in das neue Array kopiert. Sowohl das Original- als auch das neue Array verweisen auf dasselbe Objekt. Das heißt, wenn ein referenziertes Objekt modifiziert wird, sind die Änderungen in beiden Arrays sichtbar.
 - Primitive Typen wie Zeichenketten, Zahlen und Booleans (nicht {{jsxref("String")}}, {{jsxref("Number")}}, und {{jsxref("Boolean")}} Objekte): ihre Werte werden in das neue Array kopiert.
@@ -137,17 +137,17 @@ Die folgenden Methoden erstellen immer neue Arrays mit dem `Array`-Basis-Konstru
 
 Die folgende Tabelle listet die Methoden auf, die das Original-Array mutieren, und die entsprechenden nicht-mutierenden Alternativen:
 
-| Mutierende Methode                             | Nicht-mutierende Alternative                                |
-| ---------------------------------------------- | ----------------------------------------------------------- |
-| {{jsxref("Array/copyWithin", "copyWithin()")}} | Keine Alternative mit einer einzigen Methode                |
-| {{jsxref("Array/fill", "fill()")}}             | Keine Alternative mit einer einzigen Methode                |
-| {{jsxref("Array/pop", "pop()")}}               | {{jsxref("Array/slice", "slice(0, -1)")}}                   |
-| {{jsxref("Array/push", "push(v1, v2)")}}       | {{jsxref("Array/concat", "concat([v1, v2])")}}              |
-| {{jsxref("Array/reverse", "reverse()")}}       | {{jsxref("Array/toReversed", "toReversed()")}}              |
-| {{jsxref("Array/shift", "shift()")}}           | {{jsxref("Array/slice", "slice(1)")}}                       |
-| {{jsxref("Array/sort", "sort()")}}             | {{jsxref("Array/toSorted", "toSorted()")}}                  |
-| {{jsxref("Array/splice", "splice()")}}         | {{jsxref("Array/toSpliced", "toSpliced()")}}                |
-| {{jsxref("Array/unshift", "unshift(v1, v2)")}} | {{jsxref("Array/toSpliced", "toSpliced(0, 0, v1, v2)")}}    |
+| Mutierende Methode                             | Nicht-mutierende Alternative                             |
+| ---------------------------------------------- | -------------------------------------------------------- |
+| {{jsxref("Array/copyWithin", "copyWithin()")}} | Keine Alternative mit einer einzigen Methode             |
+| {{jsxref("Array/fill", "fill()")}}             | Keine Alternative mit einer einzigen Methode             |
+| {{jsxref("Array/pop", "pop()")}}               | {{jsxref("Array/slice", "slice(0, -1)")}}                |
+| {{jsxref("Array/push", "push(v1, v2)")}}       | {{jsxref("Array/concat", "concat([v1, v2])")}}           |
+| {{jsxref("Array/reverse", "reverse()")}}       | {{jsxref("Array/toReversed", "toReversed()")}}           |
+| {{jsxref("Array/shift", "shift()")}}           | {{jsxref("Array/slice", "slice(1)")}}                    |
+| {{jsxref("Array/sort", "sort()")}}             | {{jsxref("Array/toSorted", "toSorted()")}}               |
+| {{jsxref("Array/splice", "splice()")}}         | {{jsxref("Array/toSpliced", "toSpliced()")}}             |
+| {{jsxref("Array/unshift", "unshift(v1, v2)")}} | {{jsxref("Array/toSpliced", "toSpliced(0, 0, v1, v2)")}} |
 
 Eine einfache Möglichkeit, eine mutierende Methode in eine nicht-mutierende Alternative umzuwandeln, besteht darin, zuerst eine Kopie mit der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder {{jsxref("Array/slice", "slice()")}} zu erstellen:
 
@@ -176,7 +176,7 @@ Wobei `callbackFn` drei Argumente verwendet:
 
 Was `callbackFn` erwartet zurückzugeben, hängt von der aufgerufenen Array-Methode ab.
 
-Das `thisArg`-Argument (Standardwert ist `undefined`) wird als `this`-Wert verwendet, wenn `callbackFn` aufgerufen wird. Der schließlich von `callbackFn` beobachtbare `this`-Wert wird gemäß [den üblichen Regeln](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt: wenn `callbackFn` [nicht-strikt](/de/docs/Web/JavaScript/Reference/Strict_mode#no_this_substitution) ist, werden primitive `this`-Werte in Objekte umgewandelt, und `undefined`/`null` wird durch [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ersetzt. Das `thisArg`-Argument ist bei einem `callbackFn`, das mit einer [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definiert wurde, irrelevant, da Pfeilfunktionen keine eigene `this` [Bindung](/de/docs/Glossary/binding) haben.
+Das `thisArg`-Argument (Standardwert ist `undefined`) wird als `this`-Wert verwendet, wenn `callbackFn` aufgerufen wird. Der schließlich von `callbackFn` beobachtbare `this`-Wert wird gemäß [den üblichen Regeln](/de/docs/Web/JavaScript/Reference/Operators/this) bestimmt: wenn `callbackFn` [nicht-strikt](/de/docs/Web/JavaScript/Reference/Strict_mode#no_this_substitution) ist, werden primitive `this`-Werte in Objekte umgewandelt, und `undefined`/`null` wird durch [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ersetzt. Das `thisArg`-Argument ist bei einem `callbackFn`, das mit einer [Pfeilfunktion](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions) definiert wurde, irrelevant, da Pfeilfunktionen keine eigene `this` {{Glossary("binding", "Bindung")}} haben.
 
 Das `array`-Argument, das an `callbackFn` übergeben wird, ist sehr nützlich, wenn Sie während der Iteration einen anderen Index lesen möchten, da Sie möglicherweise nicht immer eine vorhandene Variable haben, die auf das aktuelle Array verweist. Sie sollten das Array während der Iteration im Allgemeinen nicht mutieren (siehe [Mutation des ursprünglichen Arrays in iterativen Methoden](#mutation_des_ursprünglichen_arrays_in_iterativen_methoden)), aber Sie können dieses Argument auch dafür verwenden. Das `array`-Argument ist _nicht_ das Array, das erstellt wird, im Fall von Methoden wie `map()`, `filter()` und `flatMap()` — es gibt keine Möglichkeit, auf das Array zuzugreifen, das aus der Callback-Funktion erstellt wird.
 
@@ -673,7 +673,7 @@ const fruitsCopy3 = fruits.slice();
 // ["Strawberry", "Mango"]
 ```
 
-Alle eingebauten Array-Kopieroperationen ([Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [`Array.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) und [`Array.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)) erstellen [flache Kopien](/de/docs/Glossary/Shallow_copy). Wenn Sie stattdessen eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) eines Arrays wünschen, können Sie {{jsxref("JSON.stringify()")}} verwenden, um das Array in eine JSON-Zeichenkette zu konvertieren und dann {{jsxref("JSON.parse()")}} verwenden, um die Zeichenkette in ein neues Array zu konvertieren, das vollkommen unabhängig vom ursprünglichen Array ist.
+Alle eingebauten Array-Kopieroperationen ([Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from), [`Array.prototype.slice()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) und [`Array.prototype.concat()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/concat)) erstellen {{Glossary("Shallow_copy", "flache Kopien")}}. Wenn Sie stattdessen eine {{Glossary("Deep_copy", "tiefe Kopie")}} eines Arrays wünschen, können Sie {{jsxref("JSON.stringify()")}} verwenden, um das Array in eine JSON-Zeichenkette zu konvertieren und dann {{jsxref("JSON.parse()")}} verwenden, um die Zeichenkette in ein neues Array zu konvertieren, das vollkommen unabhängig vom ursprünglichen Array ist.
 
 ```js
 const fruitsDeepCopy = JSON.parse(JSON.stringify(fruits));

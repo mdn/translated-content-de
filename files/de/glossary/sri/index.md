@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Subresource Integrity** (SRI) ist ein Sicherheitsmerkmal, das es Browsern ermöglicht, zu überprüfen, ob die von ihnen abgerufenen Dateien (zum Beispiel von einem [CDN](/de/docs/Glossary/CDN)) ohne unerwartete Manipulationen geliefert werden. Es funktioniert, indem Sie einen kryptografischen Hash angeben, mit dem eine abgerufene Datei übereinstimmen muss.
+**Subresource Integrity** (SRI) ist ein Sicherheitsmerkmal, das es Browsern ermöglicht, zu überprüfen, ob die von ihnen abgerufenen Dateien (zum Beispiel von einem {{Glossary("CDN", "CDN")}}) ohne unerwartete Manipulationen geliefert werden. Es funktioniert, indem Sie einen kryptografischen Hash angeben, mit dem eine abgerufene Datei übereinstimmen muss.
 
 ## Siehe auch
 

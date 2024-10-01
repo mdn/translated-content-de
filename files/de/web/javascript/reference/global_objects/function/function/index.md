@@ -31,7 +31,7 @@ Function(arg1, arg2, /* …, */ argN, functionBody)
 
 - `arg1`, …, `argN` {{optional_inline}}
 
-  - : Namen, die von der Funktion als formale Parameter-Namen verwendet werden. Jeder muss ein String sein, der einer gültigen JavaScript-Parameteranzahl entspricht (entweder ein einfacher [Identifier](/de/docs/Glossary/Identifier), [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) oder [destrukturierter](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter, optional mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)), oder eine Liste solcher Strings, getrennt durch Kommata.
+  - : Namen, die von der Funktion als formale Parameter-Namen verwendet werden. Jeder muss ein String sein, der einer gültigen JavaScript-Parameteranzahl entspricht (entweder ein einfacher {{Glossary("Identifier", "Identifier")}}, [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) oder [destrukturierter](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) Parameter, optional mit einem [Standardwert](/de/docs/Web/JavaScript/Reference/Functions/Default_parameters)), oder eine Liste solcher Strings, getrennt durch Kommata.
 
     Da die Parameter auf die gleiche Weise wie Funktionsausdrücke geparst werden, sind Leerzeichen und Kommentare zulässig. Zum Beispiel: `"x", "theValue = 42", "[a, b] /* numbers */"` — oder `"x, theValue = 42, [a, b] /* numbers */"`. (`"x, theValue = 42", "[a, b]"` ist ebenfalls korrekt, aber sehr verwirrend zu lesen.)
 

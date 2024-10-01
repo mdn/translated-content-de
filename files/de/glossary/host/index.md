@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Host ist ein Gerät, das mit dem [Internet](/de/docs/Glossary/Internet) (oder einem lokalen Netzwerk) verbunden ist. Einige Hosts, sogenannte [Server](/de/docs/Glossary/server), bieten zusätzliche Dienste wie das Bereitstellen von Webseiten oder das Speichern von Dateien und E-Mails an.
+Ein Host ist ein Gerät, das mit dem {{Glossary("Internet", "Internet")}} (oder einem lokalen Netzwerk) verbunden ist. Einige Hosts, sogenannte {{Glossary("server", "Server")}}, bieten zusätzliche Dienste wie das Bereitstellen von Webseiten oder das Speichern von Dateien und E-Mails an.
 
 Der Host muss keine Hardware-Instanz sein. Er kann durch virtuelle Maschinen erzeugt werden. Der durch virtuelle Maschinen erzeugte Host wird als "virtuelles Hosting" bezeichnet.
 

@@ -43,10 +43,10 @@ Wenn ein ICE-Neustart erfolgt, wird der Prozess der Kandidatenerfassung und Konn
 
 `"disconnected"` ist ein vorübergehender Zustand, der auftritt, wenn die Verbindung zwischen den beiden Peers in einer Weise fehlschlägt, dass die WebRTC-Infrastruktur das Problem automatisch beheben kann, sobald die Verbindung wieder verfügbar ist. Es ist _kein_ Fehlerzustand. Stattdessen kann man `"disconnected"` als ähnlich zu `"checking"` betrachten, mit der zusätzlichen Information, dass die Verbindung zuvor funktionierte, jetzt jedoch nicht mehr.
 
-Jeder [Benutzeragent](/de/docs/Glossary/user_agent) und jede Plattform kann eigene Szenarien haben, die den `"disconnected"`-Zustand auslösen können. Mögliche Ursachen sind:
+Jeder {{Glossary("user_agent", "Benutzeragent")}} und jede Plattform kann eigene Szenarien haben, die den `"disconnected"`-Zustand auslösen können. Mögliche Ursachen sind:
 
 - Die Netzwerkschnittstelle, die von der Verbindung verwendet wird, ist offline gegangen.
-- [STUN](/de/docs/Glossary/STUN)-Anfragen, die an das Remote-Gerät gesendet werden, sind wiederholt unbeantwortet geblieben.
+- {{Glossary("STUN", "STUN")}}-Anfragen, die an das Remote-Gerät gesendet werden, sind wiederholt unbeantwortet geblieben.
 
 Der `"disconnected"`-Zustand kann auch auftreten, wenn der Transport alle vorhandenen Kandidatenpaare überprüft hat und kein funktionierendes Paar gefunden wurde – oder ein gültiges Paar gefunden, aber die Zustimmung zur Verwendung des Paares verweigert wurde. In diesem Szenario sammelt der Transport weiterhin Kandidaten und/oder wartet darauf, dass Kandidaten vom Remote-Peer gesendet werden.
 

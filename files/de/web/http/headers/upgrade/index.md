@@ -17,12 +17,12 @@ Der HTTP 1.1 (nur) `Upgrade`-Header kann verwendet werden, um eine bereits etabl
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request-Header](/de/docs/Glossary/Request_header),
-        [Response-Header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Request-Header")}},
+        {{Glossary("Response_header", "Response-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

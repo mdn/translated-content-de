@@ -49,7 +49,7 @@ min-width: unset;
 
   - : Der Standardwert. Die Quelle des automatischen Werts für das angegebene Element hängt von seinem display-Wert ab. Bei Block-Boxen, Inline-Boxen, Inline-Blocks und allen Tabellen-Layout-Boxen löst sich `auto` zu `0` auf.
 
-    Für [Flex-Items](/de/docs/Glossary/Flex_Item) und Grid-Items ist der minimale Breitenwert entweder die angegebene vorgeschlagene Größe, wie der Wert der `width` Eigenschaft, die übertragene Größe, berechnet, wenn das Element ein `aspect-ratio` eingestellt hat und die Höhe eine bestimmte Größe ist, andernfalls wird die `min-content` Größe verwendet. Wenn das Flex- oder Grid-Item ein [scroll container](/de/docs/Glossary/scroll_container) ist oder ein Grid-Item mehr als eine flexible Spaltenbahn überspannt, beträgt die automatische Mindestgröße `0`.
+    Für {{Glossary("Flex_Item", "Flex-Items")}} und Grid-Items ist der minimale Breitenwert entweder die angegebene vorgeschlagene Größe, wie der Wert der `width` Eigenschaft, die übertragene Größe, berechnet, wenn das Element ein `aspect-ratio` eingestellt hat und die Höhe eine bestimmte Größe ist, andernfalls wird die `min-content` Größe verwendet. Wenn das Flex- oder Grid-Item ein {{Glossary("scroll_container", "scroll container")}} ist oder ein Grid-Item mehr als eine flexible Spaltenbahn überspannt, beträgt die automatische Mindestgröße `0`.
 
 - `max-content`
   - : Die bevorzugte intrinsische `min-width`.

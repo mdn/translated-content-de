@@ -10,7 +10,7 @@ l10n:
 
 Die **`crypto`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces ist schreibgeschützt und gibt das [`Crypto`](/de/docs/Web/API/Crypto)-Objekt für den Gültigkeitsbereich dieses Fensters zurück. Dieses Objekt bietet Webseiten Zugang zu bestimmten kryptographischen Diensten.
 
-Obwohl die Eigenschaft selbst schreibgeschützt ist, sind alle ihre Methoden (und die Methoden ihres Kind-Objekts, [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)) nicht schreibgeschützt und daher anfällig für Angriffe durch [Polyfills](/de/docs/Glossary/polyfill).
+Obwohl die Eigenschaft selbst schreibgeschützt ist, sind alle ihre Methoden (und die Methoden ihres Kind-Objekts, [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)) nicht schreibgeschützt und daher anfällig für Angriffe durch {{Glossary("polyfill", "Polyfills")}}.
 
 Obwohl `crypto` in allen Fenstern verfügbar ist, hat das zurückgegebene `Crypto`-Objekt in unsicheren Kontexten nur eine nutzbare Funktion: die [`getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues)-Methode. Im Allgemeinen sollten Sie diese API nur in sicheren Kontexten verwenden.
 

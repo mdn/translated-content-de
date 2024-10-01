@@ -70,7 +70,7 @@ window.onunhandledrejection = (event) => {
 
 ### Verhindern der Standardbehandlung
 
-Viele Umgebungen (wie [Node.js](/de/docs/Glossary/Node.js)) melden unbehandelte Promise-Ablehnungen standardmäßig in der Konsole. Sie können dies verhindern, indem Sie einen Handler für `unhandledrejection`-Ereignisse hinzufügen, der—in Ergänzung zu allen anderen Aufgaben, die Sie ausführen möchten—[`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, um das Ereignis abzubrechen und zu verhindern, dass es zur Protokollierungsroutine der Laufzeit aufsteigt. Dies funktioniert, weil `unhandledrejection` abbrechbar ist.
+Viele Umgebungen (wie {{Glossary("Node.js", "Node.js")}}) melden unbehandelte Promise-Ablehnungen standardmäßig in der Konsole. Sie können dies verhindern, indem Sie einen Handler für `unhandledrejection`-Ereignisse hinzufügen, der—in Ergänzung zu allen anderen Aufgaben, die Sie ausführen möchten—[`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, um das Ereignis abzubrechen und zu verhindern, dass es zur Protokollierungsroutine der Laufzeit aufsteigt. Dies funktioniert, weil `unhandledrejection` abbrechbar ist.
 
 ```js
 window.addEventListener("unhandledrejection", (event) => {

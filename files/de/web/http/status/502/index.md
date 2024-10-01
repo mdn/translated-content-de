@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`502 Bad Gateway`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass ein Server als Gateway oder [Proxy](/de/docs/Glossary/Proxy_server) fungierte und eine ungültige Antwort vom Upstream-Server erhalten hat.
+Der HTTP-Statuscode **`502 Bad Gateway`** [Serverfehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) zeigt an, dass ein Server als Gateway oder {{Glossary("Proxy_server", "Proxy")}} fungierte und eine ungültige Antwort vom Upstream-Server erhalten hat.
 
 Diese Antwort ähnelt der {{HTTPStatus("500", "500 Internal Server Error")}}-Antwort im Sinne eines generischen "Catch-All" für Serverfehler. Der Unterschied besteht darin, dass sie spezifisch für den Punkt in der Anforderungskette ist, an dem der Fehler aufgetreten ist. Wenn der Ursprungsserver eine gültige HTTP-Fehlerantwort an das Gateway sendet, sollte die Antwort anstelle eines `502` an den Client weitergegeben werden, um den Grund für das Scheitern transparent zu machen. Wenn der Proxy oder das Gateway keine HTTP-Antwort vom Ursprung erhält, sendet es stattdessen einen {{HTTPStatus("504", "504 Gateway Timeout")}} an den Client.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `compositionend`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces wird ausgelöst, wenn die Komposition mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster endet.
+Das `compositionend`-Ereignis des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces wird ausgelöst, wenn die Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster endet.
 
 ## Syntax
 

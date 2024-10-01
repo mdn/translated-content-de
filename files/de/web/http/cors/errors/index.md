@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-[Cross-Origin Resource Sharing](/de/docs/Web/HTTP/CORS) ([CORS](/de/docs/Glossary/CORS)) ist ein Standard, der es einem Server ermöglicht, die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) zu lockern. Dies wird verwendet, um einige Cross-Origin-Anfragen explizit zuzulassen und andere abzulehnen. Wenn eine Website beispielsweise einen einbettbaren Dienst anbietet, kann es notwendig sein, bestimmte Einschränkungen zu lockern. Die Einrichtung einer solchen CORS-Konfiguration ist nicht unbedingt einfach und kann einige Herausforderungen mit sich bringen. Auf diesen Seiten schauen wir uns einige häufige CORS-Fehlermeldungen an und wie man diese beheben kann.
+[Cross-Origin Resource Sharing](/de/docs/Web/HTTP/CORS) ({{Glossary("CORS", "CORS")}}) ist ein Standard, der es einem Server ermöglicht, die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) zu lockern. Dies wird verwendet, um einige Cross-Origin-Anfragen explizit zuzulassen und andere abzulehnen. Wenn eine Website beispielsweise einen einbettbaren Dienst anbietet, kann es notwendig sein, bestimmte Einschränkungen zu lockern. Die Einrichtung einer solchen CORS-Konfiguration ist nicht unbedingt einfach und kann einige Herausforderungen mit sich bringen. Auf diesen Seiten schauen wir uns einige häufige CORS-Fehlermeldungen an und wie man diese beheben kann.
 
 Wenn die CORS-Konfiguration nicht korrekt eingerichtet ist, zeigt die Browser-Konsole eine Fehlermeldung wie `"Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at $somesite"` an, die darauf hinweist, dass die Anfrage aufgrund einer Verletzung der CORS-Sicherheitsregeln blockiert wurde. Dies muss jedoch nicht unbedingt ein Einrichtungsfehler sein. Es ist möglich, dass die Anfrage tatsächlich absichtlich durch die Webanwendung des Benutzers und den entfernten externen Dienst nicht zugelassen wird. Sollten die Endpunkte jedoch verfügbar sein, ist eine Fehlersuche erforderlich, um erfolgreich zu sein.
 
@@ -53,7 +53,7 @@ Die Konsole von Firefox zeigt Nachrichten in ihrer Konsole an, wenn Anfragen auf
 
 ## Siehe auch
 
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [Einführung in CORS](/de/docs/Web/HTTP/CORS)
 - [Serverseitige CORS-Einstellungen](/de/docs/Web/HTTP/CORS)
 - [CORS-fähiges Bild](/de/docs/Web/HTML/CORS_enabled_image)

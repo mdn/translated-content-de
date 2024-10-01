@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`getTextFormats()`**-Methode des [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent)-Interfaces gibt ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekten zurück, die die Formate darstellen, die ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster auf den zu komponierenden Text anwenden möchte.
+Die **`getTextFormats()`**-Methode des [`TextFormatUpdateEvent`](/de/docs/Web/API/TextFormatUpdateEvent)-Interfaces gibt ein {{jsxref("Array")}} von [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekten zurück, die die Formate darstellen, die ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster auf den zu komponierenden Text anwenden möchte.
 
 ## Syntax
 

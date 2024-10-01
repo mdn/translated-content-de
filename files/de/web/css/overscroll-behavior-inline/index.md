@@ -34,7 +34,7 @@ Die Eigenschaft `overscroll-behavior-inline` wird als ein Schlüsselwort angegeb
 - `auto`
   - : Das standardmäßige Überlaufverhalten beim Scrollen tritt wie gewohnt auf.
 - `contain`
-  - : Das standardmäßige Überlaufverhalten beim Scrollen (z.B. "Bounce"-Effekte) wird innerhalb des Elements, bei welchem dieser Wert gesetzt ist, beobachtet. Es tritt jedoch kein [Scroll-Chaining](/de/docs/Glossary/Scroll_chaining) in benachbarten Scroll-Bereichen auf; die darunter liegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
+  - : Das standardmäßige Überlaufverhalten beim Scrollen (z.B. "Bounce"-Effekte) wird innerhalb des Elements, bei welchem dieser Wert gesetzt ist, beobachtet. Es tritt jedoch kein {{Glossary("Scroll_chaining", "Scroll-Chaining")}} in benachbarten Scroll-Bereichen auf; die darunter liegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
 - `none`
   - : Es tritt kein Scroll-Chaining in benachbarten Scroll-Bereichen auf, und das standardmäßige Überlaufverhalten beim Scrollen wird verhindert.
 

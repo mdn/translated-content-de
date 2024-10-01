@@ -23,10 +23,10 @@ Siehe [Verwendung des Topics API](/de/docs/Web/API/Topics_API/Using) für weiter
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
   </tbody>

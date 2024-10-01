@@ -27,7 +27,7 @@ Ein Eingabeprofilname ist eine Zeichenfolge, die eine visuelle Darstellung und e
 - Identifiziert nicht eindeutig ein spezifisches Gerät, sondern identifiziert eine Konfiguration, die das Produkt nutzen kann
 - Liefert keine Informationen über die Händigkeit des Geräts, falls zutreffend
 
-Das [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles/tree/main/packages/registry) wird von Geräteentwicklern und Browser-Entwicklern genutzt, um zu gewährleisten, dass ein bestimmtes Gerät unabhängig vom verwendeten Browser oder anderen [User-Agenten](/de/docs/Glossary/user_agent) dieselben Profilzeichenfolgen meldet.
+Das [WebXR Input Profiles Registry](https://github.com/immersive-web/webxr-input-profiles/tree/main/packages/registry) wird von Geräteentwicklern und Browser-Entwicklern genutzt, um zu gewährleisten, dass ein bestimmtes Gerät unabhängig vom verwendeten Browser oder anderen {{Glossary("user_agent", "User-Agenten")}} dieselben Profilzeichenfolgen meldet.
 
 ### Generische Eingabeprofilnamen
 

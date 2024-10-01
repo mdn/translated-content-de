@@ -10,7 +10,7 @@ l10n:
 
 Die **`address`**-Eigenschaft des
 [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt die Adresse des
-[ICE](/de/docs/Glossary/ICE)-Kandidaten an. Obwohl bevorzugt wird, dass die Adresse als IPv4- oder IPv6-Zahladresse angegeben wird, kann auch ein vollständig qualifizierter Domainname verwendet werden.
+{{Glossary("ICE", "ICE")}}-Kandidaten an. Obwohl bevorzugt wird, dass die Adresse als IPv4- oder IPv6-Zahladresse angegeben wird, kann auch ein vollständig qualifizierter Domainname verwendet werden.
 
 Wenn ein Domainname angegeben wird, wird die erste für diese Adresse ausgewählte IP-Adresse verwendet, selbst wenn der Domainname mehreren IP-Adressen zugeordnet ist.
 
@@ -20,7 +20,7 @@ Entweder eine IPv4- oder IPv6-Adresse oder ein vollständig qualifizierter Domai
 
 - Wenn der Wert von `address` vollständig aus Ziffern von 0-9 mit Punkten als Trennzeichen besteht, wird der Wert als IPv4-Adresse interpretiert.
 - Wenn der Wert vollständig aus hexadezimalen Ziffern und Doppelpunktzeichen (":") besteht, wird er als IPv6-Adresse interpretiert.
-- Andernfalls wird die `address` als vollständig qualifizierter Domainname betrachtet, der zuerst mit einem AAAA-Datensatz (vorausgesetzt, IPv6 ist verfügbar) und dann mit einem A-Datensatz aufgelöst wird (wenn kein Ergebnis gefunden wird oder das Gerät nur IPv4 unterstützt). Wenn mehrere IP-Adressen als Antwort auf die Abfrage zurückgegeben werden, wählt das [User-Agent](/de/docs/Glossary/user_agent) eine aus, die dann für die Dauer der ICE-Verarbeitung verwendet wird.
+- Andernfalls wird die `address` als vollständig qualifizierter Domainname betrachtet, der zuerst mit einem AAAA-Datensatz (vorausgesetzt, IPv6 ist verfügbar) und dann mit einem A-Datensatz aufgelöst wird (wenn kein Ergebnis gefunden wird oder das Gerät nur IPv4 unterstützt). Wenn mehrere IP-Adressen als Antwort auf die Abfrage zurückgegeben werden, wählt das {{Glossary("user_agent", "User-Agent")}} eine aus, die dann für die Dauer der ICE-Verarbeitung verwendet wird.
 
 ## Nutzungshinweise
 

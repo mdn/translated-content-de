@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-**Content Security Policy** ([CSP](/de/docs/Glossary/CSP)) ist eine zusätzliche Sicherheitsebene, die hilft, bestimmte Arten von Angriffen zu erkennen und zu mindern, einschließlich Cross-Site Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) und Dateninjektionsangriffen. Diese Angriffe werden für alles Mögliche genutzt, von Datendiebstahl über Webseitenschändung bis hin zur Malware-Verteilung.
+**Content Security Policy** ({{Glossary("CSP", "CSP")}}) ist eine zusätzliche Sicherheitsebene, die hilft, bestimmte Arten von Angriffen zu erkennen und zu mindern, einschließlich Cross-Site Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) und Dateninjektionsangriffen. Diese Angriffe werden für alles Mögliche genutzt, von Datendiebstahl über Webseitenschändung bis hin zur Malware-Verteilung.
 
 CSP ist so konzipiert, dass es vollständig abwärtskompatibel ist (außer CSP Version 2, wo einige explizit erwähnte Inkonsistenzen in der Abwärtskompatibilität bestehen; mehr Details [hier](https://www.w3.org/TR/CSP2/) Abschnitt 1.1). Browser, die es nicht unterstützen, funktionieren weiterhin mit Servern, die es implementieren, und umgekehrt. Browser, die CSP nicht unterstützen, ignorieren es und funktionieren wie gewohnt; sie wenden nur die Schutzmaßnahmen der standardmäßigen [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) an, ohne die zusätzlichen Einschränkungen, die CSP hinzufügen würde.
 

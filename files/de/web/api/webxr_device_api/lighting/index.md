@@ -174,7 +174,7 @@ Um diese Risiken zu verringern, sind Browser gemäß der WebXR Beleuchtungsschä
 
 #### Präzision der Sphärischen Harmonischen
 
-Browser können das Risiko der [Fingerabdruckerstellung](/de/docs/Glossary/Fingerprinting) mindern, indem sie die Präzision der [sphärischen Harmonischen](https://en.wikipedia.org/wiki/Spherical_harmonics) verringern. Bei der Echtzeit-Renderung - wie sie in jeder virtuellen oder erweiterten Realität Anwendung der Fall ist - wird [sphärische harmonische Beleuchtung](https://en.wikipedia.org/wiki/Spherical_harmonic_lighting) verwendet, um den Prozess der Erzeugung hoch realistischen Schatten und Schattierungen zu vereinfachen und zu beschleunigen. Indem die Genauigkeit dieser Funktionen verändert wird, macht der Browser die Daten weniger konsistent und, was noch wichtiger ist, macht die Daten, die von zwei Computern in denselben Einstellungen erzeugt wurden, unterschiedlich.
+Browser können das Risiko der {{Glossary("Fingerprinting", "Fingerabdruckerstellung")}} mindern, indem sie die Präzision der [sphärischen Harmonischen](https://en.wikipedia.org/wiki/Spherical_harmonics) verringern. Bei der Echtzeit-Renderung - wie sie in jeder virtuellen oder erweiterten Realität Anwendung der Fall ist - wird [sphärische harmonische Beleuchtung](https://en.wikipedia.org/wiki/Spherical_harmonic_lighting) verwendet, um den Prozess der Erzeugung hoch realistischen Schatten und Schattierungen zu vereinfachen und zu beschleunigen. Indem die Genauigkeit dieser Funktionen verändert wird, macht der Browser die Daten weniger konsistent und, was noch wichtiger ist, macht die Daten, die von zwei Computern in denselben Einstellungen erzeugt wurden, unterschiedlich.
 
 #### Entkopplung von Orientierung und Beleuchtung
 
@@ -188,7 +188,7 @@ Betrachten Sie einen Angriff, bei dem das automatisierte Beleuchtungssystem eine
 
 Ein weiteres Szenario, in dem die Lichtschätzung verwendet werden kann, um Informationen über den Benutzer ohne Erlaubnis zu erhalten: Wenn der Lichtsensor nahe genug am Display des Benutzers ist, um Beleuchtungsänderungen zu erkennen, die durch die Inhalte des Displays verursacht werden, könnte ein Algorithmus verwendet werden, um festzustellen, ob der Benutzer ein bestimmtes Video ansieht - oder sogar potenziell zu identifizieren, welches von mehreren Videos der Benutzer sich ansieht.
 
-Die Spezifikation der Beleuchtungsschätzungs-API fordert, dass alle [Benutzeragenten](/de/docs/Glossary/user_agent) eine zeitliche und räumliche Filterung durchführen, um die Daten in einer Weise zu verfälschen, die ihre Nützlichkeit zur Bestimmung des Standorts des Benutzers oder zur Durchführung von [Seitenkanalangriffen](https://en.wikipedia.org/wiki/Side-channel_attack) verringert.
+Die Spezifikation der Beleuchtungsschätzungs-API fordert, dass alle {{Glossary("user_agent", "Benutzeragenten")}} eine zeitliche und räumliche Filterung durchführen, um die Daten in einer Weise zu verfälschen, die ihre Nützlichkeit zur Bestimmung des Standorts des Benutzers oder zur Durchführung von [Seitenkanalangriffen](https://en.wikipedia.org/wiki/Side-channel_attack) verringert.
 
 ## Siehe auch
 

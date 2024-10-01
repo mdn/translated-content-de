@@ -113,7 +113,7 @@ Durch Einbeziehung des Attributes [`multiple`](/de/docs/Web/HTML/Element/input#m
 
 ### Akzeptierte Dateitypen einschränken
 
-Oft möchten Sie nicht, dass der Benutzer irgendeinen beliebigen Dateityp auswählen kann; stattdessen möchten Sie häufig, dass sie Dateien eines bestimmten Typs oder bestimmter Typen auswählen. Wenn Ihre Dateieingabe beispielsweise Benutzern das Hochladen eines Profilbildes ermöglicht, möchten Sie wahrscheinlich, dass sie webkompatible Bildformate auswählen, wie [JPEG](/de/docs/Glossary/JPEG) oder [PNG](/de/docs/Glossary/PNG).
+Oft möchten Sie nicht, dass der Benutzer irgendeinen beliebigen Dateityp auswählen kann; stattdessen möchten Sie häufig, dass sie Dateien eines bestimmten Typs oder bestimmter Typen auswählen. Wenn Ihre Dateieingabe beispielsweise Benutzern das Hochladen eines Profilbildes ermöglicht, möchten Sie wahrscheinlich, dass sie webkompatible Bildformate auswählen, wie {{Glossary("JPEG", "JPEG")}} oder {{Glossary("PNG", "PNG")}}.
 
 Akzeptable Dateitypen können mit dem Attribut [`accept`](/de/docs/Web/HTML/Element/input/file#accept) spezifiziert werden, das eine kommagetrennte Liste von erlaubten Dateierweiterungen oder MIME-Typen annimmt. Einige Beispiele:
 

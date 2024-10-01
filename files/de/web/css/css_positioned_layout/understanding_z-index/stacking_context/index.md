@@ -38,7 +38,7 @@ Ein Stacking-Kontext wird an jeder Stelle im Dokument durch ein beliebiges Eleme
 - Element mit einem {{cssxref("isolation")}}-Wert `isolate`.
 - Element mit einem {{cssxref("will-change")}}-Wert, der eine Eigenschaft angibt, die bei nicht-initialem Wert einen Stacking-Kontext erstellen würde.
 - Element mit einem {{cssxref("contain")}}-Wert von `layout`, `paint` oder einem zusammengesetzten Wert, der eine von ihnen enthält (d.h. `contain: strict`, `contain: content`).
-- Element, das in die [Top-Schicht](/de/docs/Glossary/Top_layer) und seine entsprechende {{cssxref("::backdrop")}} gesetzt wurde. Beispiele umfassen [Fullscreen](/de/docs/Web/API/Fullscreen_API) und [Popover](/de/docs/Web/API/Popover_API)-Elemente.
+- Element, das in die {{Glossary("Top_layer", "Top-Schicht")}} und seine entsprechende {{cssxref("::backdrop")}} gesetzt wurde. Beispiele umfassen [Fullscreen](/de/docs/Web/API/Fullscreen_API) und [Popover](/de/docs/Web/API/Popover_API)-Elemente.
 - Element, das Eigenschaften eines Stacking-Kontextes erzeugt hat (wie `opacity`), die mittels {{cssxref("@keyframes")}} animiert wurden, mit [`animation-fill-mode`](/de/docs/Web/CSS/animation-fill-mode) auf [`forwards`](/de/docs/Web/CSS/animation-fill-mode#forwards) gesetzt.
 
 Innerhalb eines Stacking-Kontexts werden Kindelemente gemäß den oben erläuterten Regeln gestapelt. Wichtig ist, dass die `z-index`-Werte seiner Kinder-Stacking-Kontexte nur in diesem übergeordneten Kontext Bedeutung haben. Stacking-Kontexte werden atomar als eine einzelne Einheit im übergeordneten Stacking-Kontext behandelt.
@@ -228,4 +228,4 @@ h1 {
 - [Stacking Kontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_1): 2-stufige HTML-Hierarchie, `z-index` auf der letzten Ebene
 - [Stacking Kontext Beispiel 2](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_2): 2-stufige HTML-Hierarchie, `z-index` auf allen Ebenen
 - [Stacking Kontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_3): 3-stufige HTML-Hierarchie, `z-index` auf der zweiten Ebene
-- [Top-Schicht](/de/docs/Glossary/Top_layer)
+- {{Glossary("Top_layer", "Top-Schicht")}}

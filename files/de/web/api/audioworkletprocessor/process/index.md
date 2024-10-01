@@ -28,6 +28,7 @@ process(inputs, outputs, parameters)
 ### Parameter
 
 - `inputs`
+
   - : Ein Array von _Eingaben_, die mit dem Knoten verbunden sind, wobei jedes Element wiederum ein Array von _Kanälen_ ist. Jeder _Kanal_ ist ein {{jsxref("Float32Array")}}, das 128 Samples enthält. Zum Beispiel greift `inputs[n][m][i]` auf den _n_-ten Eingang, den _m_-ten Kanal dieses Eingangs und das _i_-te Sample dieses Kanals zu.
 
     Jeder Sample-Wert liegt im Bereich von `[-1 .. 1]`.
@@ -37,9 +38,11 @@ process(inputs, outputs, parameters)
     Die Anzahl der _Kanäle_ in jedem Eingang kann variieren, abhängig von den Eigenschaften [`channelCount`](/de/docs/Web/API/AudioNode/channelCount) und [`channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode).
 
 - `outputs`
+
   - : Ein Array von _Ausgaben_, das im Aufbau dem `inputs`-Parameter ähnelt. Es soll während der Ausführung der `process()`-Methode gefüllt werden. Jeder der Ausgabekanäle ist standardmäßig mit Nullen gefüllt — der Prozessor gibt Stille aus, sofern die Ausgabe-Arrays nicht modifiziert werden.
 
 - `parameters`
+
   - : Ein Objekt, das Zeichenfolgen-Schlüssel und {{jsxref("Float32Array")}}-Werte enthält. Für jeden benutzerdefinierten [`AudioParam`](/de/docs/Web/API/AudioParam), der mit dem Getter [`parameterDescriptors`](/de/docs/Web/API/AudioWorkletProcessor/parameterDescriptors) definiert wird, ist der Schlüssel im Objekt der `name` dieses [`AudioParam`](/de/docs/Web/API/AudioParam), und der Wert ist ein {{jsxref("Float32Array")}}. Die Werte des Arrays werden durch Berücksichtigung der geplanten Automatisierungsevents berechnet.
 
     Wenn die Automatisierungsgeschwindigkeit des Parameters [`"a-rate"`](/de/docs/Web/API/AudioParam#a-rate) ist, enthält das Array 128 Werte — einen für jeden Frame im aktuellen Audio-Block. Wenn keine Automatisierung während der Zeit des aktuellen Blocks stattfindet, kann das Array stattdessen einen einzelnen Wert enthalten, der für den gesamten Block konstant ist, anstatt 128 identische Werte.
@@ -48,7 +51,7 @@ process(inputs, outputs, parameters)
 
 ### Rückgabewert
 
-Ein Boolean-Wert, der angibt, ob der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) auch weiterhin aktiv bleiben soll, selbst wenn die interne Logik des [Benutzeragenten](/de/docs/Glossary/user_agent) andernfalls entscheiden würde, dass es sicher ist, den Knoten herunterzufahren.
+Ein Boolean-Wert, der angibt, ob der [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) auch weiterhin aktiv bleiben soll, selbst wenn die interne Logik des {{Glossary("user_agent", "Benutzeragenten")}} andernfalls entscheiden würde, dass es sicher ist, den Knoten herunterzufahren.
 
 Der zurückgegebene Wert ermöglicht es Ihrem Prozessor, Einfluss auf die Lebensdauerrichtlinie des [`AudioWorkletProcessor`](/de/docs/Web/API/AudioWorkletProcessor) und des Knotens, der ihn besitzt, zu nehmen. Wenn die Kombination aus dem Rückgabewert und dem Zustand des Knotens den Browser dazu veranlasst, zu entscheiden, den Knoten zu stoppen, wird `process()` nicht erneut aufgerufen.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCCodecStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) liefert Statistiken über einen Codec, der von [RTP](/de/docs/Glossary/RTP)-Streams verwendet wird, die vom zugeordneten [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt gesendet oder empfangen werden.
+Das **`RTCCodecStats`**-Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) liefert Statistiken über einen Codec, der von {{Glossary("RTP", "RTP")}}-Streams verwendet wird, die vom zugeordneten [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt gesendet oder empfangen werden.
 
 Diese Statistiken können erhalten werden, indem Sie das [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)-Objekt durchlaufen, das von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, bis Sie einen Eintrag mit dem [`type`](#type) `codec` finden.
 
@@ -30,7 +30,7 @@ Beachten Sie, dass andere Transporte ihre eigenen, unterschiedlichen `RTCCodecSt
 - [`payloadType`](/de/docs/Web/API/RTCCodecStats/payloadType)
   - : Ein positiver Ganzzahlwert im Bereich von 0 bis 127, der den Payload-Typ angibt, der bei der RTP-Codierung oder -Decodierung verwendet wird.
 - [`sdpFmtpLine`](/de/docs/Web/API/RTCCodecStats/sdpFmtpLine) {{optional_inline}}
-  - : Ein String, der die formatspezifischen Parameter der `"a=fmtp"`-Zeile im [SDP](/de/docs/Glossary/SDP) des Codecs (falls vorhanden) enthält.
+  - : Ein String, der die formatspezifischen Parameter der `"a=fmtp"`-Zeile im {{Glossary("SDP", "SDP")}} des Codecs (falls vorhanden) enthält.
 - [`transportId`](/de/docs/Web/API/RTCCodecStats/transportId)
   - : Ein String, der die eindeutige Kennung des Transports enthält, auf dem dieser Codec verwendet wird.
     Dies kann verwendet werden, um mit dem entsprechenden [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Objekt abzugleichen.

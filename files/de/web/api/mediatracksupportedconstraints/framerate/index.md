@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`frameRate`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Dictionaries ist ein schreibgeschützter Boolean-Wert, der in dem Objekt vorhanden ist (und auf `true` gesetzt wird), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [User-Agent](/de/docs/Glossary/user_agent) die [`frameRate`](/de/docs/Web/API/MediaTrackConstraints/frameRate)-Einschränkung unterstützt.
+Das **`frameRate`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Dictionaries ist ein schreibgeschützter Boolean-Wert, der in dem Objekt vorhanden ist (und auf `true` gesetzt wird), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der {{Glossary("user_agent", "User-Agent")}} die [`frameRate`](/de/docs/Web/API/MediaTrackConstraints/frameRate)-Einschränkung unterstützt.
 
 Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
 

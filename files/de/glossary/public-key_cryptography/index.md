@@ -24,5 +24,5 @@ Beliebte elliptische-Kurven-Algorithmen sind [Elliptic-curve Diffie–Hellman](h
 - [Web Crypto API](/de/docs/Web/API/Web_Crypto_API)
 - [SubtleCrypto unterstützte Algorithmen](/de/docs/Web/API/SubtleCrypto#supported_algorithms)
 - Verwandte Glossarbegriffe:
-  - [Symmetric-key cryptography](/de/docs/Glossary/Symmetric-key_cryptography)
+  - {{Glossary("Symmetric-key_cryptography", "Symmetric-key cryptography")}}
 - [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) auf Wikipedia

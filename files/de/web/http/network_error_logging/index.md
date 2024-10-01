@@ -13,7 +13,7 @@ Berichte werden an eine Berichtsgruppe gesendet, die innerhalb eines {{HTTPHeade
 
 ## Verwendung
 
-Webanwendungen entscheiden sich für dieses Verhalten mit dem NEL-Header, der ein _[JSON-codiertes](/de/docs/Glossary/Response_header)_ Objekt ist:
+Webanwendungen entscheiden sich für dieses Verhalten mit dem NEL-Header, der ein _{{Glossary("Response_header", "JSON-codiertes")}}_ Objekt ist:
 
 ```http
 NEL: { "report_to": "nel",

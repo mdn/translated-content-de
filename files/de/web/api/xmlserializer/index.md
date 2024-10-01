@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("XMLSerializer")}}
 
-Das `XMLSerializer`-Interface stellt die Methode [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) bereit, um eine XML-Zeichenkette zu erstellen, die einen [DOM](/de/docs/Glossary/DOM)-Baum darstellt.
+Das `XMLSerializer`-Interface stellt die Methode [`serializeToString()`](/de/docs/Web/API/XMLSerializer/serializeToString) bereit, um eine XML-Zeichenkette zu erstellen, die einen {{Glossary("DOM", "DOM")}}-Baum darstellt.
 
 > [!NOTE]
 > Die resultierende XML-Zeichenkette ist nicht garantiert als gut geformtes XML.

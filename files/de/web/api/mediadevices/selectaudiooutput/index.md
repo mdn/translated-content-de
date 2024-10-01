@@ -51,7 +51,7 @@ Ein {{ jsxref("Promise") }}, der mit einem [`MediaDeviceInfo`](/de/docs/Web/API/
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn keine verfügbaren Audioausgabegeräte vorhanden sind.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn keine [transiente Aktivierung](/de/docs/Glossary/transient_activation) erfolgt ist (Sie müssen sie aus einer Art von UI-Ereignis auslösen).
+  - : Wird zurückgegeben, wenn keine {{Glossary("transient_activation", "transiente Aktivierung")}} erfolgt ist (Sie müssen sie aus einer Art von UI-Ereignis auslösen).
 
 ## Sicherheitsanforderungen
 

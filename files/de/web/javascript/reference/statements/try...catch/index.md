@@ -57,7 +57,7 @@ Sie können die `try` Anweisung auch verwenden, um JavaScript-Ausnahmen zu behan
 
 ### Catch-Bindung
 
-Wenn eine Ausnahme im `try` Block geworfen wird, hält `exceptionVar` (d. h. das `e` in `catch (e)`) den Ausnahme-Wert. Sie können diese [Bindung](/de/docs/Glossary/binding) verwenden, um Informationen über die geworfene Ausnahme zu erhalten. Diese [Bindung](/de/docs/Glossary/binding) ist nur im [Gültigkeitsbereich](/de/docs/Glossary/Scope) des `catch` Blocks verfügbar.
+Wenn eine Ausnahme im `try` Block geworfen wird, hält `exceptionVar` (d. h. das `e` in `catch (e)`) den Ausnahme-Wert. Sie können diese {{Glossary("binding", "Bindung")}} verwenden, um Informationen über die geworfene Ausnahme zu erhalten. Diese {{Glossary("binding", "Bindung")}} ist nur im {{Glossary("Scope", "Gültigkeitsbereich")}} des `catch` Blocks verfügbar.
 
 Es muss nicht ein einzelner Bezeichner sein. Sie können ein [Destrukturierungsmuster](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwenden, um mehrere Bezeichner auf einmal zuzuweisen.
 
@@ -160,7 +160,7 @@ try {
 }
 ```
 
-Der `catch` Block spezifiziert einen Bezeichner (`e` im obigen Beispiel), der den Wert der Ausnahme hält; dieser Wert ist nur im [Gültigkeitsbereich](/de/docs/Glossary/Scope) des `catch` Blocks verfügbar.
+Der `catch` Block spezifiziert einen Bezeichner (`e` im obigen Beispiel), der den Wert der Ausnahme hält; dieser Wert ist nur im {{Glossary("Scope", "Gültigkeitsbereich")}} des `catch` Blocks verfügbar.
 
 ### Bedingte Catch-Blöcke
 

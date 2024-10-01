@@ -39,7 +39,7 @@ Aber wir definieren ständig Schlüsselwörter informell, wie hier:
 
 > **Firefox** ist der Webbrowser, der von der Mozilla Foundation erstellt wurde.
 
-Um mit diesen Anwendungsfällen umzugehen, bietet [HTML](/de/docs/Glossary/HTML) [Tags](/de/docs/Glossary/tag), um Beschreibungen und beschriebene Worte zu kennzeichnen, sodass Ihre Bedeutung ordnungsgemäß an Ihre Leser vermittelt wird.
+Um mit diesen Anwendungsfällen umzugehen, bietet {{Glossary("HTML", "HTML")}} {{Glossary("tag", "Tags")}}, um Beschreibungen und beschriebene Worte zu kennzeichnen, sodass Ihre Bedeutung ordnungsgemäß an Ihre Leser vermittelt wird.
 
 ## Anleitung zur Markierung informeller Beschreibungen
 
@@ -124,7 +124,7 @@ So zeigt ein grafischer Browser die obige Liste an:
 
 {{EmbedLiveSample("A_simple_example", 600, 180)}}
 
-Wenn Sie möchten, dass die Schlüsselwörter besser hervorgehoben werden, könnten Sie versuchen, sie fett zu setzen. Denken Sie daran, HTML ist kein visuelles Medium; für alle visuellen Effekte benötigen wir [CSS](/de/docs/Glossary/CSS). Die CSS-Eigenschaft {{cssxref("font-weight")}} ist das, was Sie hier brauchen:
+Wenn Sie möchten, dass die Schlüsselwörter besser hervorgehoben werden, könnten Sie versuchen, sie fett zu setzen. Denken Sie daran, HTML ist kein visuelles Medium; für alle visuellen Effekte benötigen wir {{Glossary("CSS", "CSS")}}. Die CSS-Eigenschaft {{cssxref("font-weight")}} ist das, was Sie hier brauchen:
 
 ```css
 dt {

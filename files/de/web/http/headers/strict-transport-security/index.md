@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-**`Strict-Transport-Security`**-Antwortheader (oft abgekürzt als [HSTS](/de/docs/Glossary/HSTS)) informiert Browser darüber, dass die Webseite ausschließlich über HTTPS erreichbar sein soll und dass alle zukünftigen Versuche, sie über HTTP zu erreichen, automatisch in HTTPS umgewandelt werden sollen.
+Der HTTP-**`Strict-Transport-Security`**-Antwortheader (oft abgekürzt als {{Glossary("HSTS", "HSTS")}}) informiert Browser darüber, dass die Webseite ausschließlich über HTTPS erreichbar sein soll und dass alle zukünftigen Versuche, sie über HTTP zu erreichen, automatisch in HTTPS umgewandelt werden sollen.
 
 > [!NOTE]
 > Dies ist sicherer als das einfache Konfigurieren einer HTTP-zu-HTTPS-Umleitung (301) auf Ihrem Server, bei der die anfängliche HTTP-Verbindung immer noch anfällig für einen Man-in-the-Middle-Angriff ist.
@@ -16,10 +16,10 @@ Der HTTP-**`Strict-Transport-Security`**-Antwortheader (oft abgekürzt als [HSTS
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

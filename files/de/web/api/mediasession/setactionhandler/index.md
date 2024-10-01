@@ -47,7 +47,7 @@ setActionHandler(type, callback)
         Dies teilt dem Browser mit, dass er Schritte unternehmen kann, um wiederholte Operationen zu optimieren, was wahrscheinlich zu einer verbesserten Leistung führt.
     - `skipad`
       - : Überspringt die aktuell laufende Werbung oder den Werbespot.
-        Diese Aktion kann je nach Plattform und [User Agent](/de/docs/Glossary/user_agent) verfügbar sein oder nicht, oder kann aufgrund des Abonnementlevels oder anderer Umstände deaktiviert sein.
+        Diese Aktion kann je nach Plattform und {{Glossary("user_agent", "User Agent")}} verfügbar sein oder nicht, oder kann aufgrund des Abonnementlevels oder anderer Umstände deaktiviert sein.
     - `stop`
       - : Stoppt die Wiedergabe vollständig.
     - `togglecamera`

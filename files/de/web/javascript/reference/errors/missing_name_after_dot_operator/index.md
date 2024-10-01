@@ -56,7 +56,7 @@ obj.foo[`bar${i}`]; // "baz2"
 
 ### Eigenschaftszugriff vs. Verkettung
 
-Wenn Sie aus einer anderen Programmiersprache (wie [PHP](/de/docs/Glossary/PHP)) kommen, ist es ebenfalls leicht, den Punktoperator (`.`) und den Verkettungsoperator (`+`) zu verwechseln.
+Wenn Sie aus einer anderen Programmiersprache (wie {{Glossary("PHP", "PHP")}}) kommen, ist es ebenfalls leicht, den Punktoperator (`.`) und den Verkettungsoperator (`+`) zu verwechseln.
 
 ```js-nolint example-bad
 console.log("Hello" . "world");

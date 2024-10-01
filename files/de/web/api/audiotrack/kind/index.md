@@ -35,7 +35,7 @@ Die für Audiotracks verfügbaren Arten sind:
 - `"commentary"`
   - : Ein Audiotrack, der einen Kommentar enthält. Dies könnte beispielsweise der Kommentar des Regisseurs auf einer Filmspur sein.
 - `""` (leerer String)
-  - : Der Track hat keine explizite Art, oder die vom Track-Metadaten bereitgestellte Art wird nicht durch den [user agent](/de/docs/Glossary/user_agent) erkannt.
+  - : Der Track hat keine explizite Art, oder die vom Track-Metadaten bereitgestellte Art wird nicht durch den {{Glossary("user_agent", "user agent")}} erkannt.
 
 ## Spezifikationen
 

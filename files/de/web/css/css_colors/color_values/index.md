@@ -10,9 +10,9 @@ l10n:
 
 Um eine Farbe in CSS darzustellen, müssen Sie einen Weg finden, das analoge Konzept der "Farbe" in eine digitale Form zu übersetzen, die ein Computer verwenden kann. Dies geschieht typischerweise, indem die Farbe in Komponenten aufgeteilt wird, wie etwa Mengen verschiedener Primärfarben, die gemischt werden, oder Helligkeit und Farbton. Definierte Farbmodelle stellen sicher, dass Farben unabhängig davon, wo sie dargestellt werden, gleich erscheinen.
 
-Ein Farbmodell ist ein mathematisches Modell, das Farben mit Hilfe numerischer Werte darstellt. Farbmodelle beschreiben, wie die verfügbaren Farben innerhalb eines Farbraums erstellt werden können. [RGB](/de/docs/Glossary/RGB) war das erste Farbmodell für das Web. Der `sRGB`-Farbraum des RGB-Farbmodells – der Standard-rot, -grün und -blau-Farbraum – wurde 1996 für Computermonitore und das Web erstellt. Ein [Farbraum](/de/docs/Glossary/color_space) ist ein System zur Gruppierung von Farben, sodass die Beschreibung einer bestimmten Farbe konsistent ist. Wenn Sie eine Farbe zwischen zwei verschiedenen Farbräumen transformieren, sollte sie in beiden identisch aussehen.
+Ein Farbmodell ist ein mathematisches Modell, das Farben mit Hilfe numerischer Werte darstellt. Farbmodelle beschreiben, wie die verfügbaren Farben innerhalb eines Farbraums erstellt werden können. {{Glossary("RGB", "RGB")}} war das erste Farbmodell für das Web. Der `sRGB`-Farbraum des RGB-Farbmodells – der Standard-rot, -grün und -blau-Farbraum – wurde 1996 für Computermonitore und das Web erstellt. Ein {{Glossary("color_space", "Farbraum")}} ist ein System zur Gruppierung von Farben, sodass die Beschreibung einer bestimmten Farbe konsistent ist. Wenn Sie eine Farbe zwischen zwei verschiedenen Farbräumen transformieren, sollte sie in beiden identisch aussehen.
 
-Ursprünglich waren Monitore in der Zahl der darstellbaren Farben eingeschränkt, und CSS-Farben waren durch diese Einschränkungen begrenzt, erweiterte sich jedoch mit der Verbesserung der Möglichkeiten. Da moderne Geräte nicht mehr auf RGB beschränkt sind, haben wir nun auch Farbmodelle, die auf menschlicher Wahrnehmung basieren, und bieten ein viel breiteres [Spektrum](/de/docs/Glossary/gamut) an Farben. Wir können jetzt Farben in CSS auf verschiedene Weisen beschreiben, und die Optionen erweitern sich ständig.
+Ursprünglich waren Monitore in der Zahl der darstellbaren Farben eingeschränkt, und CSS-Farben waren durch diese Einschränkungen begrenzt, erweiterte sich jedoch mit der Verbesserung der Möglichkeiten. Da moderne Geräte nicht mehr auf RGB beschränkt sind, haben wir nun auch Farbmodelle, die auf menschlicher Wahrnehmung basieren, und bieten ein viel breiteres {{Glossary("gamut", "Spektrum")}} an Farben. Wir können jetzt Farben in CSS auf verschiedene Weisen beschreiben, und die Optionen erweitern sich ständig.
 
 Dieser Leitfaden führt in die verschiedenen {{cssxref("&lt;color&gt;")}}-Werttypen ein. Für eine detailliertere Diskussion siehe die unten bereitgestellten Referenzlinks.
 
@@ -20,7 +20,7 @@ Dieser Leitfaden führt in die verschiedenen {{cssxref("&lt;color&gt;")}}-Wertty
 
 Das Web definiert eine Reihe von standardmäßigen Farbnamen, die es ermöglichen, Schlüsselwörter anstatt numerischer Darstellungen zu verwenden, um Farben zu beschreiben. Dies ist ein einfacherer, aber begrenzterer Ansatz – möglicherweise gibt es kein Schlüsselwort, das die exakte Farbe darstellt, die Sie verwenden möchten.
 
-Farb-Schlüsselwörter umfassen Standard-Primär- und Sekundärfarben (wie `red`, `blue` oder `orange`), Grautöne (von `black` bis `white`, einschließlich Farben wie `darkgray` und `lightgrey`) und eine Vielzahl anderer Mischfarben, einschließlich `lightseagreen`, `cornflowerblue` und `rebeccapurple`. Benannte Farben verwenden das [RGB](/de/docs/Glossary/RGB)-Modell und sind mit dem sRGB (`srgb`)-Farbraum verbunden.
+Farb-Schlüsselwörter umfassen Standard-Primär- und Sekundärfarben (wie `red`, `blue` oder `orange`), Grautöne (von `black` bis `white`, einschließlich Farben wie `darkgray` und `lightgrey`) und eine Vielzahl anderer Mischfarben, einschließlich `lightseagreen`, `cornflowerblue` und `rebeccapurple`. Benannte Farben verwenden das {{Glossary("RGB", "RGB")}}-Modell und sind mit dem sRGB (`srgb`)-Farbraum verbunden.
 
 Es gibt über 160 benannte Farben. Es gibt benannte Farben von besonderem Interesse: [`transparent`](/de/docs/Web/CSS/named-color#transparent) setzt einen transparenten Farbwert, während [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) den aktuellen Wert der CSS {{cssxref("color")}}-Eigenschaft setzt. Es gibt auch benannte {{cssxref("system-color")}} Farben, wie `accentcolortext` und `buttonface`, die die Standardfarbwahl des Benutzers, des Browsers oder des Betriebssystems widerspiegeln.
 
@@ -28,7 +28,7 @@ Alle Farb-Schlüsselwörter sind nicht zwischen Groß- und Kleinschreibung unter
 
 ## RGB-Werte
 
-Es gibt zwei Hauptwege, eine [RGB](/de/docs/Glossary/RGB)-Farbe durch ihre roten, grünen und blauen Komponenten in CSS zu definieren – hexadezimale und `rgb()`-Werte. Wie benannte Farben verwenden diese Methoden das [RGB](/de/docs/Glossary/RGB)-Modell und sind mit dem sRGB (`srgb`)-Farbraum verbunden. Sie ermöglichen jedoch eine viel größere Auswahl an Farben.
+Es gibt zwei Hauptwege, eine {{Glossary("RGB", "RGB")}}-Farbe durch ihre roten, grünen und blauen Komponenten in CSS zu definieren – hexadezimale und `rgb()`-Werte. Wie benannte Farben verwenden diese Methoden das {{Glossary("RGB", "RGB")}}-Modell und sind mit dem sRGB (`srgb`)-Farbraum verbunden. Sie ermöglichen jedoch eine viel größere Auswahl an Farben.
 
 ### Hexadezimale String-Notation
 
@@ -163,7 +163,7 @@ Die Farb-Funktionen, die eine [`<hue>`](/de/docs/Web/CSS/hue) Komponente enthalt
 
 Die `hsl()` CSS-Farb-Funktion war die erste farbtonbasierte Farb-Funktion, die in Browsern unterstützt wurde. `hsl()` ist intuitiver als `rgb()` – es ist einfacher, die Wirkung von Variationen des Farbtons (`h`), der Sättigung (`s`) und der Helligkeit (`l`) zu bestimmen, als spezifische Farben über die Werte der roten, grünen und blauen Kanäle zu deklarieren. Darüber hinaus ist HSL dem HSB (Farbton, Sättigung und Helligkeit)-Farbwähler in Photoshop ähnlich, was es vielen Menschen sofort vertraut machte, als es erstmals unterstützt wurde.
 
-Die `hsl()`- und `hwb()`-sRGB-Farb-Funktionen sind beide zylindrisch. Der Farbton definiert die Farbe als ein [`<angle>`](/de/docs/Web/CSS/angle) auf einem kreisförmigen [Farbrad](/de/docs/Glossary/color_wheel). Das untenstehende Diagramm zeigt einen HSL-Farbzylinder. Die Sättigung ist ein Prozentsatz, der bestimmt, wie intensiv die Farbe auf einer Skala zwischen vollständig graustufig und der maximal möglichen Menge des angegebenen Farbtons ist.
+Die `hsl()`- und `hwb()`-sRGB-Farb-Funktionen sind beide zylindrisch. Der Farbton definiert die Farbe als ein [`<angle>`](/de/docs/Web/CSS/angle) auf einem kreisförmigen {{Glossary("color_wheel", "Farbrad")}}. Das untenstehende Diagramm zeigt einen HSL-Farbzylinder. Die Sättigung ist ein Prozentsatz, der bestimmt, wie intensiv die Farbe auf einer Skala zwischen vollständig graustufig und der maximal möglichen Menge des angegebenen Farbtons ist.
 Mit zunehmendem Helligkeitswert wechselt die Farbe von der dunkelsten zur hellsten möglichen Farbe (von Schwarz zu Weiß).
 
 ![HSL-Farbzylinder](640px-hsl_color_solid_cylinder.png)

@@ -42,7 +42,7 @@ Die `overflow`-Eigenschaft wird als ein oder zwei {{CSSXref("overflow_value", "&
 ### Werte
 
 - `visible`
-  - : Überlaufende Inhalte werden nicht abgeschnitten und können außerhalb des Innenabstands des Elements sichtbar sein. Der Elementkasten ist keine [Scroll-Container](/de/docs/Glossary/scroll_container). Dies ist der Standardwert der `overflow`-Eigenschaft.
+  - : Überlaufende Inhalte werden nicht abgeschnitten und können außerhalb des Innenabstands des Elements sichtbar sein. Der Elementkasten ist keine {{Glossary("scroll_container", "Scroll-Container")}}. Dies ist der Standardwert der `overflow`-Eigenschaft.
 - `hidden`
   - : Überlaufende Inhalte werden am Innenabstand des Elements abgeschnitten. Es gibt keine Scrollleisten und die abgeschnittenen Inhalte sind nicht sichtbar (d. h. die abgeschnittenen Inhalte sind verborgen), aber die Inhalte existieren weiterhin. Benutzeragenten fügen keine Scrollleisten hinzu und erlauben Benutzern auch nicht, die Inhalte außerhalb des abgeschnittenen Bereichs durch Aktionen wie Ziehen auf einem Touchscreen oder Verwenden des Mausrads zu sehen. Die Inhalte _können_ programmgesteuert gescrollt werden (zum Beispiel durch Verlinken mit Ankertext, durch Tabben zu einem verborgenen, aber fokussierbaren Element oder durch Setzen des Wertes der [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft)-Eigenschaft oder der [`scrollTo()`](/de/docs/Web/API/Element/scrollTo)-Methode), in diesem Fall ist der Elementkasten ein Scroll-Container.
 - `clip`

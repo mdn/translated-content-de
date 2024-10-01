@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("HTML DOM")}}
 
-Die **`HTMLAreaElement.href`**-Eigenschaft ist ein [Stringifier](/de/docs/Glossary/stringifier), der einen String mit der vollständigen URL zurückgibt und es ermöglicht, das `href` zu aktualisieren.
+Die **`HTMLAreaElement.href`**-Eigenschaft ist ein {{Glossary("stringifier", "Stringifier")}}, der einen String mit der vollständigen URL zurückgibt und es ermöglicht, das `href` zu aktualisieren.
 
 ## Wert
 

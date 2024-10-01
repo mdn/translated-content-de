@@ -32,7 +32,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie we
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung der Datenzelle an. Die möglichen [augezählten](/de/docs/Glossary/enumerated) Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der `char`-Wert den Textinhalt am in der [`char`](#char)-Attribut definierten Zeichen und dem im [`charoff`](#charoff)-Attribut definierten Offset aus. Verwenden Sie stattdessen die {{cssxref("text-align")}}-CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung der Datenzelle an. Die möglichen {{Glossary("enumerated", "augezählten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der `char`-Wert den Textinhalt am in der [`char`](#char)-Attribut definierten Zeichen und dem im [`charoff`](#charoff)-Attribut definierten Offset aus. Verwenden Sie stattdessen die {{cssxref("text-align")}}-CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `axis` {{deprecated_inline}}
 
@@ -56,11 +56,11 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie we
 
 - `scope` {{deprecated_inline}}
 
-  - : Definiert die Zellen, auf die sich der Header (definiert im {{HTMLElement("th")}}-Element) bezieht. Die möglichen [augezählten](/de/docs/Glossary/enumerated) Werte sind `row`, `col`, `rowgroup` und `colgroup`. Verwenden Sie dieses Attribut nur mit dem {{HTMLElement("th")}}-Element, um die Zeile oder Spalte zu definieren, für die es ein Header ist, da dieses Attribut für das `<td>`-Element veraltet ist.
+  - : Definiert die Zellen, auf die sich der Header (definiert im {{HTMLElement("th")}}-Element) bezieht. Die möglichen {{Glossary("enumerated", "augezählten")}} Werte sind `row`, `col`, `rowgroup` und `colgroup`. Verwenden Sie dieses Attribut nur mit dem {{HTMLElement("th")}}-Element, um die Zeile oder Spalte zu definieren, für die es ein Header ist, da dieses Attribut für das `<td>`-Element veraltet ist.
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung der Datenzelle an. Die möglichen [augezählten](/de/docs/Glossary/enumerated) Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}}-CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung der Datenzelle an. Die möglichen {{Glossary("enumerated", "augezählten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}}-CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `width` {{deprecated_inline}}
 
@@ -239,7 +239,7 @@ Für komplexere Beziehungen zwischen Datenzellen (`<td>`-Elemente) und Header-Ze
 
 #### HTML
 
-Um die [Barrierefreiheit](/de/docs/Glossary/accessibility) des [vorherigen Beispiels](#spannen_von_spalten_und_zeilen) zu verbessern und beispielsweise Screenreadern zu ermöglichen, die mit jeder Datenzelle verknüpften Kopfzeilen zu sprechen, kann das [`headers`](#headers)-Attribut zusammen mit [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributen eingeführt werden. Jede Zeilenkopfzeile ({{HTMLElement("th")}}-Element), die mit der "ABC"-Datenzelle verknüpft ist, d.h. die Buchstaben "A", "B" und "C", erhält mit dem [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut einen eindeutigen Bezeichner. Die "ABC"-Datenzelle (`<td>`-Element) verwendet dann diese `id`-Werte in einer leerzeichengetrennten Liste für das [`headers`](#headers)-Attribut.
+Um die {{Glossary("accessibility", "Barrierefreiheit")}} des [vorherigen Beispiels](#spannen_von_spalten_und_zeilen) zu verbessern und beispielsweise Screenreadern zu ermöglichen, die mit jeder Datenzelle verknüpften Kopfzeilen zu sprechen, kann das [`headers`](#headers)-Attribut zusammen mit [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributen eingeführt werden. Jede Zeilenkopfzeile ({{HTMLElement("th")}}-Element), die mit der "ABC"-Datenzelle verknüpft ist, d.h. die Buchstaben "A", "B" und "C", erhält mit dem [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut einen eindeutigen Bezeichner. Die "ABC"-Datenzelle (`<td>`-Element) verwendet dann diese `id`-Werte in einer leerzeichengetrennten Liste für das [`headers`](#headers)-Attribut.
 
 > [!NOTE]
 > Es wird empfohlen, beschreibendere und nützlichere Werte für das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut zu verwenden. Jedes `id` in einem Dokument muss für dieses Dokument einzigartig sein. In diesem Beispiel sind die `id`-Werte Einzelzeichen, um den Fokus auf das Konzept des [`headers`](#headers)-Attributs zu legen.

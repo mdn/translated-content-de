@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<color-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert den [Farbraum](/de/docs/Glossary/Color_space), der zur Interpolation zwischen {{CSSXref("&lt;color&gt;")}} Werten verwendet wird. Er kann genutzt werden, um den Standard-Interpolationsfarbraum für farbbezogene Funktionsnotationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} zu überschreiben.
+Der **`<color-interpolation-method>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert den {{Glossary("Color_space", "Farbraum")}}, der zur Interpolation zwischen {{CSSXref("&lt;color&gt;")}} Werten verwendet wird. Er kann genutzt werden, um den Standard-Interpolationsfarbraum für farbbezogene Funktionsnotationen wie {{CSSXref("color_value/color-mix", "color-mix()")}} und {{CSSXref("gradient/linear-gradient", "linear-gradient()")}} zu überschreiben.
 
 Bei der Interpolation von `<color>` Werten ist der Standard-Interpolationsfarbraum Oklab.
 
@@ -98,7 +98,7 @@ Die zweiten und dritten Kästen verwenden Oklch und geben zusätzlich eine [`<hu
 
 #### CSS
 
-Wir haben in jedem Verlauf die gleichen zwei Farben verwendet, um die unterschiedlichen Effekte von [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method) und [Farbraum](/de/docs/Glossary/color_space) auf die Farbinterpolation in Verläufen zu demonstrieren.
+Wir haben in jedem Verlauf die gleichen zwei Farben verwendet, um die unterschiedlichen Effekte von [`<hue-interpolation-method>`](/de/docs/Web/CSS/hue-interpolation-method) und {{Glossary("color_space", "Farbraum")}} auf die Farbinterpolation in Verläufen zu demonstrieren.
 
 ```css hidden
 .gradient {

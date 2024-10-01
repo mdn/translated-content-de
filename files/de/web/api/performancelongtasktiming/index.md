@@ -13,7 +13,7 @@ Das **`PerformanceLongTaskTiming`**-Interface bietet Informationen über Aufgabe
 
 Lange Aufgaben, die den Hauptthread für 50 ms oder mehr blockieren, verursachen unter anderem folgende Probleme:
 
-- Verzögerte [Time to interactive](/de/docs/Glossary/Time_to_interactive) (TTI).
+- Verzögerte {{Glossary("Time_to_interactive", "Time to interactive")}} (TTI).
 - Hohe/variable Eingabeverzögerung.
 - Hohe/variable Ereignisverarbeitungsverzögerung.
 - Ruckelige Animationen und Scrollen.

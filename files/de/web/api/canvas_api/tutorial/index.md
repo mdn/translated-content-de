@@ -9,7 +9,7 @@ l10n:
 
 Dieses Tutorial beschreibt, wie das [**`<canvas>`**](/de/docs/Web/HTML/Element/canvas)-Element verwendet wird, um 2D-Grafiken zu zeichnen, beginnend mit den Grundlagen. Die bereitgestellten Beispiele sollen Ihnen klare Vorstellungen darüber geben, was Sie mit Canvas machen können, und bieten Codebeispiele, die Ihnen den Einstieg in die Erstellung eigener Inhalte erleichtern können.
 
-`<canvas>` ist ein [HTML](/de/docs/Web/HTML)-Element, das über Skripte (normalerweise [JavaScript](/de/docs/Glossary/JavaScript)) zum Zeichnen von Grafiken verwendet werden kann. Dies kann beispielsweise genutzt werden, um Diagramme zu zeichnen, Fotos zu kombinieren oder einfache Animationen zu erstellen.
+`<canvas>` ist ein [HTML](/de/docs/Web/HTML)-Element, das über Skripte (normalerweise {{Glossary("JavaScript", "JavaScript")}}) zum Zeichnen von Grafiken verwendet werden kann. Dies kann beispielsweise genutzt werden, um Diagramme zu zeichnen, Fotos zu kombinieren oder einfache Animationen zu erstellen.
 
 Zuerst von Apple in WebKit für das macOS Dashboard eingeführt, wurde `<canvas>` inzwischen in Browsern implementiert. Heute unterstützen alle gängigen Browser dieses Element.
 

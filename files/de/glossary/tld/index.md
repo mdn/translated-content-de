@@ -7,14 +7,14 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein TLD (_top-level domain_) ist die allgemeinste [Domain](/de/docs/Glossary/domain) im hierarchischen [DNS](/de/docs/Glossary/DNS) (Domain Name System) des Internets. Ein TLD ist die letzte Komponente eines [Domain-Namens](/de/docs/Glossary/domain_name), zum Beispiel "org" in `developer.mozilla.org`.
+Ein TLD (_top-level domain_) ist die allgemeinste {{Glossary("domain", "Domain")}} im hierarchischen {{Glossary("DNS", "DNS")}} (Domain Name System) des Internets. Ein TLD ist die letzte Komponente eines {{Glossary("domain_name", "Domain-Namens")}}, zum Beispiel "org" in `developer.mozilla.org`.
 
-[ICANN](/de/docs/Glossary/ICANN) (Internet Corporation for Assigned Names and Numbers) ernennt Organisationen, um jedes TLD zu verwalten. Je nachdem, wie strikt eine Verwaltungsorganisation ist, gibt ein TLD häufig einen Hinweis auf den Zweck, die Inhaberschaft oder die Nationalität einer Website.
+{{Glossary("ICANN", "ICANN")}} (Internet Corporation for Assigned Names and Numbers) ernennt Organisationen, um jedes TLD zu verwalten. Je nachdem, wie strikt eine Verwaltungsorganisation ist, gibt ein TLD häufig einen Hinweis auf den Zweck, die Inhaberschaft oder die Nationalität einer Website.
 
 Betrachten Sie ein Beispiel für eine Internetadresse: `https://developer.mozilla.org`
 Hier ist org das TLD; mozilla.org ist der Second-Level-Domain-Name; und developer ist ein Subdomain-Name. Zusammen bilden sie einen vollständig qualifizierten Domain-Namen; die Hinzufügung von https\:// macht dies zu einer vollständigen URL.
 
-[IANA](/de/docs/Glossary/IANA) unterscheidet heute die folgenden Gruppen von Top-Level-Domains:
+{{Glossary("IANA", "IANA")}} unterscheidet heute die folgenden Gruppen von Top-Level-Domains:
 
 - länderbezogene Top-Level-Domains (ccTLD)
   - : Zweistellige Domains, die für Länder oder Gebiete eingerichtet wurden. Beispiel: _.us_ für die Vereinigten Staaten.
@@ -27,7 +27,7 @@ Hier ist org das TLD; mozilla.org ist der Second-Level-Domain-Name; und develope
 - gesponserte Top-Level-Domains (sTLD)
   - : Diese Domains werden von privaten Organisationen vorgeschlagen und gesponsert, die entscheiden, ob ein Bewerber berechtigt ist, das TLD zu verwenden, basierend auf Konzepten zum Thema Gemeinschaft.
 - Infrastruktur-Top-Level-Domain
-  - : Diese Gruppe besteht aus einer Domain, dem [Address and Routing Parameter Area](/de/docs/Glossary/ARPA) (ARPA).
+  - : Diese Gruppe besteht aus einer Domain, dem {{Glossary("ARPA", "Address and Routing Parameter Area")}} (ARPA).
 
 ## Siehe auch
 

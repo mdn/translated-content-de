@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`payloadType`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist eine positive Ganzzahl im Bereich von 0 bis 127, die das Format der [RTP](/de/docs/Glossary/RTP)-Nutzlast beschreibt, die im RTP-Codecodierungs- oder Decodierungsprozess verwendet wird.
+Die **`payloadType`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist eine positive Ganzzahl im Bereich von 0 bis 127, die das Format der {{Glossary("RTP", "RTP")}}-Nutzlast beschreibt, die im RTP-Codecodierungs- oder Decodierungsprozess verwendet wird.
 
 ## Wert
 

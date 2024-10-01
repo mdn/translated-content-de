@@ -192,11 +192,11 @@ Da die CSS-Box-Alignment-Eigenschaften abhängig von der Spezifikation, mit der 
 
 ### Glossareinträge
 
-- [Querachse](/de/docs/Glossary/Cross_axis)
-- [Hauptachse](/de/docs/Glossary/Main_axis)
-- [Ausrichtungscontainer](/de/docs/Glossary/Alignment_container)
-- [Ausrichtungsobjekt](/de/docs/Glossary/Alignment_subject)
-- [Fallback-Ausrichtung](/de/docs/Glossary/Fallback_alignment)
+- {{Glossary("Cross_axis", "Querachse")}}
+- {{Glossary("Main_axis", "Hauptachse")}}
+- {{Glossary("Alignment_container", "Ausrichtungscontainer")}}
+- {{Glossary("Alignment_subject", "Ausrichtungsobjekt")}}
+- {{Glossary("Fallback_alignment", "Fallback-Ausrichtung")}}
 
 ## Leitfäden
 

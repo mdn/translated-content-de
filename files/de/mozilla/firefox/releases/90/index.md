@@ -21,7 +21,7 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 90, die En
 ### HTML
 
 - Eine Korrektur der Art und Weise, wie Formular-Payloads im Hinblick auf Zeilenumbruchnormierung und Escaping in multipart/formdata behandelt werden. Dies entspricht der aktualisierten Spezifikation und gleicht die Implementierungen anderer Browser an. ([Firefox Bug 1686765](https://bugzil.la/1686765)).
-- Firefox setzt nun die [intrinsische Größe](/de/docs/Glossary/intrinsic_size) und die Auflösung eines Bildes basierend auf [EXIF](/de/docs/Glossary/EXIF)-Informationen (falls vorhanden und widerspruchsfrei). Dies ermöglicht es einem Server, beispielsweise ein Bild mit niedriger Qualität zu senden, um das Laden zu beschleunigen. Es ermöglicht auch eine [Anzahl anderer Anwendungsfälle](https://github.com/eeeps/exif-intrinsic-sizing-explainer) ([Firefox Bug 1680387](https://bugzil.la/1680387)).
+- Firefox setzt nun die {{Glossary("intrinsic_size", "intrinsische Größe")}} und die Auflösung eines Bildes basierend auf {{Glossary("EXIF", "EXIF")}}-Informationen (falls vorhanden und widerspruchsfrei). Dies ermöglicht es einem Server, beispielsweise ein Bild mit niedriger Qualität zu senden, um das Laden zu beschleunigen. Es ermöglicht auch eine [Anzahl anderer Anwendungsfälle](https://github.com/eeeps/exif-intrinsic-sizing-explainer) ([Firefox Bug 1680387](https://bugzil.la/1680387)).
 
 ### CSS
 
@@ -36,7 +36,7 @@ Dieser Artikel liefert Informationen über die Änderungen in Firefox 90, die En
 
 ### HTTP
 
-- Die HTTP [Fetch-Metadatenanforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) (`Sec-Fetch-*`) werden jetzt unterstützt. Diese Header bieten Servern zusätzlichen Kontext zu Anfragen, einschließlich ob sie same-origin, cross-origin, same-site oder vom Benutzer initiiert sind und wo/wie die angeforderten Daten verwendet werden sollen. Dies ermöglicht es Servern, verschiedene Arten von Cross-Origin-Angriffen zu verhindern ([Firefox Bug 1695911](https://bugzil.la/1695911)).
+- Die HTTP {{Glossary("Fetch_metadata_request_header", "Fetch-Metadatenanforderungsheader")}} (`Sec-Fetch-*`) werden jetzt unterstützt. Diese Header bieten Servern zusätzlichen Kontext zu Anfragen, einschließlich ob sie same-origin, cross-origin, same-site oder vom Benutzer initiiert sind und wo/wie die angeforderten Daten verwendet werden sollen. Dies ermöglicht es Servern, verschiedene Arten von Cross-Origin-Angriffen zu verhindern ([Firefox Bug 1695911](https://bugzil.la/1695911)).
 
 #### Entfernungen
 

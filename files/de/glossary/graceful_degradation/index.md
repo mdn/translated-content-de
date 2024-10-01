@@ -9,9 +9,9 @@ l10n:
 
 **Graceful degradation** ist eine Design-Philosophie, die darauf abzielt, eine moderne Website/Anwendung zu erstellen, die in den neuesten Browsern funktioniert, aber auf eine Erfahrung zurückfällt, die zwar nicht so gut ist, aber dennoch wesentliche Inhalte und Funktionen in älteren Browsern bereitstellt.
 
-[Polyfills](/de/docs/Glossary/Polyfill) können verwendet werden, um fehlende Funktionen mit JavaScript einzubauen, aber es sollten, wo möglich, akzeptable Alternativen zu Funktionen wie Styling und Layout bereitgestellt werden, zum Beispiel durch die Verwendung der CSS-Kaskade oder HTML-Standardsverhalten. Einige gute Beispiele finden Sie in [Umgang mit häufigen HTML- und CSS-Problemen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS).
+{{Glossary("Polyfill", "Polyfills")}} können verwendet werden, um fehlende Funktionen mit JavaScript einzubauen, aber es sollten, wo möglich, akzeptable Alternativen zu Funktionen wie Styling und Layout bereitgestellt werden, zum Beispiel durch die Verwendung der CSS-Kaskade oder HTML-Standardsverhalten. Einige gute Beispiele finden Sie in [Umgang mit häufigen HTML- und CSS-Problemen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS).
 
-Es ist eine nützliche Technik, die es Webentwicklern ermöglicht, sich darauf zu konzentrieren, die bestmöglichen Websites zu entwickeln, da diese Websites von mehreren unbekannten User-Agents aufgerufen werden. [Progressive enhancement](/de/docs/Glossary/Progressive_enhancement) ist verwandt, aber anders — oft wird es als der entgegengesetzte Ansatz zu graceful degradation gesehen. In der Realität sind beide Ansätze gültig und können sich oft gegenseitig ergänzen.
+Es ist eine nützliche Technik, die es Webentwicklern ermöglicht, sich darauf zu konzentrieren, die bestmöglichen Websites zu entwickeln, da diese Websites von mehreren unbekannten User-Agents aufgerufen werden. {{Glossary("Progressive_enhancement", "Progressive enhancement")}} ist verwandt, aber anders — oft wird es als der entgegengesetzte Ansatz zu graceful degradation gesehen. In der Realität sind beide Ansätze gültig und können sich oft gegenseitig ergänzen.
 
 ## Siehe auch
 
@@ -19,5 +19,5 @@ Es ist eine nützliche Technik, die es Webentwicklern ermöglicht, sich darauf z
 - [Umgang mit häufigen HTML- und CSS-Problemen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS)
 - [Implementierung von Feature Detection](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection)
 - Verwandte Glossarbegriffe:
-  - [Polyfill](/de/docs/Glossary/Polyfill)
-  - [Progressive enhancement](/de/docs/Glossary/Progressive_enhancement)
+  - {{Glossary("Polyfill", "Polyfill")}}
+  - {{Glossary("Progressive_enhancement", "Progressive enhancement")}}

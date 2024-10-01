@@ -9,7 +9,7 @@ l10n:
 
 Die **`CSSKeywordValue`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) erstellt ein Objekt zur Darstellung von CSS-Schlüsselwörtern und anderen Identifikatoren.
 
-Der Name der Schnittstelleninstanz ist ein [stringifier](/de/docs/Glossary/stringifier), was bedeutet, dass sie überall, wo ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgeben wird.
+Der Name der Schnittstelleninstanz ist ein {{Glossary("stringifier", "stringifier")}}, was bedeutet, dass sie überall, wo ein String erwartet wird, den Wert von `CSSKeyword.value` zurückgeben wird.
 
 {{InheritanceDiagram}}
 

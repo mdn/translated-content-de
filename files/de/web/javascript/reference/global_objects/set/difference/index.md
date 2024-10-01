@@ -42,7 +42,7 @@ Und mit einem Venn-Diagramm dargestellt:
 `difference()` akzeptiert [mengenähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da es direkt auf die zugrunde liegenden Daten von `this` zugreift, ohne benutzerdefinierten Code aufzurufen. Dann hängt sein Verhalten von den Größen von `this` und `other` ab:
 
 - Wenn `this` mehr Elemente als `other.size` hat, iteriert es über `other`, indem es dessen `keys()`-Methode aufruft, und erstellt eine neue Menge mit allen Elementen in `this`, die nicht in `other` vorhanden sind.
-- Andernfalls iteriert es über die Elemente in `this` und erstellt eine neue Menge mit allen Elementen `e` in `this`, für die `other.has(e)` einen [falsy](/de/docs/Glossary/Falsy) Wert zurückgibt.
+- Andernfalls iteriert es über die Elemente in `this` und erstellt eine neue Menge mit allen Elementen `e` in `this`, für die `other.has(e)` einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt.
 
 Die Reihenfolge der Elemente in der zurückgegebenen Menge entspricht der in `this`.
 

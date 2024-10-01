@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die vertikale Position eines [positionierten Elements](/de/docs/Web/CSS/position) fest. Diese [Einfassungs-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht-positionierte Elemente.
+Die **`top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die vertikale Position eines [positionierten Elements](/de/docs/Web/CSS/position) fest. Diese {{Glossary("inset_properties", "Einfassungs-Eigenschaft")}} hat keine Auswirkung auf nicht-positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/top.html")}}
 

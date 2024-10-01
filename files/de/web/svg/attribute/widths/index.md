@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`widths`**-Attribut gibt eine Liste von Bereichswerten an, gefolgt von einer oder mehreren [Glyphen](/de/docs/Glossary/glyph) Breiten.
+Das **`widths`**-Attribut gibt eine Liste von Bereichswerten an, gefolgt von einer oder mehreren {{Glossary("glyph", "Glyphen")}} Breiten.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

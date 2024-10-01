@@ -48,7 +48,7 @@ Ein HTML-Formular auf einer Webseite ist nichts anderes als eine benutzerfreundl
 
 ## Auf der Client-Seite: Definieren, wie die Daten gesendet werden
 
-Das {{HTMLElement("form")}}-Element definiert, wie die Daten gesendet werden. Alle seine Attribute sind dafür gedacht, dass Sie die Anfrage konfigurieren können, die gesendet wird, wenn ein Benutzer auf einen [Submit-Button](/de/docs/Glossary/submit_button) klickt. Die zwei wichtigsten Attribute sind [`action`](/de/docs/Web/HTML/Element/form#action) und [`method`](/de/docs/Web/HTML/Element/form#method).
+Das {{HTMLElement("form")}}-Element definiert, wie die Daten gesendet werden. Alle seine Attribute sind dafür gedacht, dass Sie die Anfrage konfigurieren können, die gesendet wird, wenn ein Benutzer auf einen {{Glossary("submit_button", "Submit-Button")}} klickt. Die zwei wichtigsten Attribute sind [`action`](/de/docs/Web/HTML/Element/form#action) und [`method`](/de/docs/Web/HTML/Element/form#method).
 
 ### Das action-Attribut
 

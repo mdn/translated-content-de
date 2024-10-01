@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **static site generator** (SSG) ist eine Software zur Erstellung von _statischen_ Websites. Eine statische Website besteht aus [HTML](/de/docs/Glossary/HTML)-, [CSS](/de/docs/Glossary/CSS)- und [JavaScript](/de/docs/Glossary/JavaScript)-Dateien. Am wichtigsten ist, dass statische Seiten keine [serverseitige Logik](/de/docs/Learn/Server-side) enthalten, sodass für eine gegebene URL alle Benutzer denselben Inhalt erhalten. Autoren schreiben den Inhalt in jeder vom Generator akzeptierten Form, wie z. B. Markdown, reStructuredText, HTML (und manchmal sogar [React](/de/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started) usw.), und der Generator kompiliert sie in eine Reihe optimierter statischer Dateien, die vom Browser gerendert werden können.
+Ein **static site generator** (SSG) ist eine Software zur Erstellung von _statischen_ Websites. Eine statische Website besteht aus {{Glossary("HTML", "HTML")}}-, {{Glossary("CSS", "CSS")}}- und {{Glossary("JavaScript", "JavaScript")}}-Dateien. Am wichtigsten ist, dass statische Seiten keine [serverseitige Logik](/de/docs/Learn/Server-side) enthalten, sodass für eine gegebene URL alle Benutzer denselben Inhalt erhalten. Autoren schreiben den Inhalt in jeder vom Generator akzeptierten Form, wie z. B. Markdown, reStructuredText, HTML (und manchmal sogar [React](/de/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/React_getting_started) usw.), und der Generator kompiliert sie in eine Reihe optimierter statischer Dateien, die vom Browser gerendert werden können.
 
-Statische Seiten werden häufig für Blogs, Dokumentationen und andere inhaltsgetriebene Websites verwendet, bei denen keine Daten serverseitig abgerufen oder erstellt werden müssen. Sie sind schnell, sicher und einfach bereitzustellen, da sie von einem [CDN](/de/docs/Glossary/CDN) bedient werden können.
+Statische Seiten werden häufig für Blogs, Dokumentationen und andere inhaltsgetriebene Websites verwendet, bei denen keine Daten serverseitig abgerufen oder erstellt werden müssen. Sie sind schnell, sicher und einfach bereitzustellen, da sie von einem {{Glossary("CDN", "CDN")}} bedient werden können.
 
 ## Siehe auch
 

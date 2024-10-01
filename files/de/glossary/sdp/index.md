@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**SDP** (Session Description [Protokoll](/de/docs/Glossary/Protocol)) ist der Standard zur Beschreibung einer [Peer-to-Peer](/de/docs/Glossary/P2P)-Verbindung. SDP enthält den [Codec](/de/docs/Glossary/codec), die Quelladresse und Zeitinformationen von Audio und Video.
+**SDP** (Session Description {{Glossary("Protocol", "Protokoll")}}) ist der Standard zur Beschreibung einer {{Glossary("P2P", "Peer-to-Peer")}}-Verbindung. SDP enthält den {{Glossary("codec", "Codec")}}, die Quelladresse und Zeitinformationen von Audio und Video.
 
 Hier ist eine typische SDP-Nachricht:
 
@@ -25,7 +25,7 @@ m=video 53000 RTP/AVP 32
 a=rtpmap:32 MPV/90000
 ```
 
-SDP wird nie allein verwendet, sondern von Protokollen wie [RTP](/de/docs/Glossary/RTP) und [RTSP](/de/docs/Glossary/RTSP). SDP ist auch ein Bestandteil von [WebRTC](/de/docs/Glossary/WebRTC), das SDP als Mittel zur Beschreibung einer Sitzung verwendet.
+SDP wird nie allein verwendet, sondern von Protokollen wie {{Glossary("RTP", "RTP")}} und {{Glossary("RTSP", "RTSP")}}. SDP ist auch ein Bestandteil von {{Glossary("WebRTC", "WebRTC")}}, das SDP als Mittel zur Beschreibung einer Sitzung verwendet.
 
 ## Siehe auch
 

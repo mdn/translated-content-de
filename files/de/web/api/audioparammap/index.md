@@ -25,7 +25,7 @@ Die folgenden Methoden stehen allen schreibgeschützten [`Map`-ähnlichen Objekt
 - {{jsxref("Map/entries", "entries()")}}
   - : Gibt ein neues [Iterator-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, das Einträge in `[key, value]`-Paaren in der Map in der Einfügereihenfolge liefert.
 - {{jsxref("Map/forEach", "forEach()")}}
-  - : Ruft eine bereitgestellte [Callback-Funktion](/de/docs/Glossary/callback_function) einmal für jeden Wert und Schlüssel, der in der Map vorhanden ist, in der Einfügereihenfolge auf.
+  - : Ruft eine bereitgestellte {{Glossary("callback_function", "Callback-Funktion")}} einmal für jeden Wert und Schlüssel, der in der Map vorhanden ist, in der Einfügereihenfolge auf.
 - {{jsxref("Map/get", "get()")}}
   - : Gibt den [`AudioParam`](/de/docs/Web/API/AudioParam)-Wert zurück, der dem Stringschlüssel zugeordnet ist, oder `undefined`, wenn keiner vorhanden ist.
 - {{jsxref("Map/has", "has()")}}

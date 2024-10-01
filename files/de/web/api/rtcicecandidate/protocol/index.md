@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`protocol`**-Eigenschaft des **[`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)**-Interfaces ist ein String, der angibt, ob der Kandidat [UDP](/de/docs/Glossary/UDP) oder [TCP](/de/docs/Glossary/TCP) als Transportprotokoll verwendet.
+Die schreibgeschützte **`protocol`**-Eigenschaft des **[`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)**-Interfaces ist ein String, der angibt, ob der Kandidat {{Glossary("UDP", "UDP")}} oder {{Glossary("TCP", "TCP")}} als Transportprotokoll verwendet.
 
 Der Wert des `protocol`-Feldes wird aus dem `candidateInfo`-Optionsobjekt gesetzt, das dem [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Sie können den Wert von `protocol` nicht direkt im Optionsobjekt angeben, aber sein Wert wird automatisch aus der `candidate`-a-Zeile des Objekts extrahiert, wenn sie richtig formatiert ist.
 
@@ -19,12 +19,12 @@ Der Wert des `protocol`-Feldes wird aus dem `candidateInfo`-Optionsobjekt gesetz
 Ein String, der angibt, welches Netzwerkprotokoll der Kandidat verwendet:
 
 - `tcp`
-  - : Der Kandidat würde, falls ausgewählt, [TCP](/de/docs/Glossary/TCP) als Transportprotokoll für seine Daten verwenden. Die Eigenschaft [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType) liefert zusätzliche Informationen über die Art des durch das Objekt dargestellten TCP-Kandidaten.
+  - : Der Kandidat würde, falls ausgewählt, {{Glossary("TCP", "TCP")}} als Transportprotokoll für seine Daten verwenden. Die Eigenschaft [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType) liefert zusätzliche Informationen über die Art des durch das Objekt dargestellten TCP-Kandidaten.
 - `udp`
-  - : Der Kandidat verwendet das [UDP](/de/docs/Glossary/UDP)-Transportprotokoll für seine Daten. Dies ist das bevorzugte Protokoll für Medieninteraktionen aufgrund seines besseren Leistungsprofils.
+  - : Der Kandidat verwendet das {{Glossary("UDP", "UDP")}}-Transportprotokoll für seine Daten. Dies ist das bevorzugte Protokoll für Medieninteraktionen aufgrund seines besseren Leistungsprofils.
 
 > [!NOTE]
-> Wenn `protocol` `null` ist — und `protocol` vom [user agent](/de/docs/Glossary/user_agent) unterstützt wird — wird das Übergeben des Kandidaten an [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) fehlschlagen und eine `OperationError`-Ausnahme auslösen.
+> Wenn `protocol` `null` ist — und `protocol` vom {{Glossary("user_agent", "user agent")}} unterstützt wird — wird das Übergeben des Kandidaten an [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) fehlschlagen und eine `OperationError`-Ausnahme auslösen.
 
 ## Verwendungshinweise
 

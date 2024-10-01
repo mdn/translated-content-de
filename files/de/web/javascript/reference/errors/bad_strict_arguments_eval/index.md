@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript-[Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-nur-Ausnahme "'arguments' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" oder "'eval' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" tritt auf, wenn versucht wird, eine [Bindung](/de/docs/Glossary/binding) namens `arguments` oder `eval` zu erstellen oder einem solchen Namen etwas zuzuweisen.
+Die JavaScript-[Strict-Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)-nur-Ausnahme "'arguments' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" oder "'eval' können im Strict-Mode-Code nicht definiert oder zugewiesen werden" tritt auf, wenn versucht wird, eine {{Glossary("binding", "Bindung")}} namens `arguments` oder `eval` zu erstellen oder einem solchen Namen etwas zuzuweisen.
 
 ## Nachricht
 

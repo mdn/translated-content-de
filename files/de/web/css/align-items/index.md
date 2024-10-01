@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`align-items`** Eigenschaft setzt den Wert von {{cssxref("align-self")}} auf alle direkten Kinder als Gruppe. In Flexbox steuert sie die Ausrichtung von Elementen auf der [Querachse](/de/docs/Glossary/cross_axis). Im Grid-Layout steuert sie die Ausrichtung von Elementen auf der Blockachse innerhalb ihrer [Grid-Bereiche](/de/docs/Glossary/grid_areas).
+Die [CSS](/de/docs/Web/CSS) **`align-items`** Eigenschaft setzt den Wert von {{cssxref("align-self")}} auf alle direkten Kinder als Gruppe. In Flexbox steuert sie die Ausrichtung von Elementen auf der {{Glossary("cross_axis", "Querachse")}}. Im Grid-Layout steuert sie die Ausrichtung von Elementen auf der Blockachse innerhalb ihrer {{Glossary("grid_areas", "Grid-Bereiche")}}.
 
 {{EmbedInteractiveExample("pages/css/align-items.html")}}
 
@@ -55,7 +55,7 @@ align-items: unset;
     - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
     - In der statischen Position von absolut positionierten Layouts verhält sich das Schlüsselwort wie `stretch`.
     - Bei Flex-Elementen verhält sich das Schlüsselwort wie `stretch`.
-    - Bei Grid-Elementen führt dieses Schlüsselwort zu einem Verhalten ähnlich dem von `stretch`, außer bei Boxen mit einem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) oder intrinsischen Größen, wo es sich wie `start` verhält.
+    - Bei Grid-Elementen führt dieses Schlüsselwort zu einem Verhalten ähnlich dem von `stretch`, außer bei Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder intrinsischen Größen, wo es sich wie `start` verhält.
     - Diese Eigenschaft gilt nicht für Block-Level-Boxen und für Tabellenzellen.
 
 - `center`

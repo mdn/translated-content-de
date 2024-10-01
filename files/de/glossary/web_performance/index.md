@@ -15,4 +15,4 @@ Objektiv betrachtet ist es die messbare Zeit, in Millisekunden, die benötigt wi
 
 - [Erfahren Sie mehr über die Web-Performance](/de/docs/Learn/Performance)
 - Verwandte Glossarbegriffe:
-  - [Wahrgenommene Performance](/de/docs/Glossary/Perceived_performance)
+  - {{Glossary("Perceived_performance", "Wahrgenommene Performance")}}

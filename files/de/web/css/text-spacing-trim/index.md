@@ -49,7 +49,7 @@ text-spacing-trim: unset;
 
 Die `text-spacing-trim` Eigenschaft wendet Abstand/Kerning auf CJK Interpunktionszeichen an, um eine visuell ansprechende Typografie zu erzeugen, wie sie in den [Anforderungen für japanische Textlayout](https://w3c.github.io/jlreq/) (JLREQ) und den [Anforderungen für chinesische Textlayout](https://www.w3.org/International/clreq/) (CLREQ) definiert ist.
 
-Viele CJK Interpunktionszeichen enthalten internen Glyphenabstand. Beispielsweise haben der CJK Punkt und die CJK-Schlussklammer normalerweise intern einen Abstand auf ihrer rechten Seite, um ihnen einen konstanten [Fortschrittsmaß](/de/docs/Glossary/Advance_measure) zu geben, der mit anderen ideografischen Zeichen konsistent ist. Wenn sie jedoch hintereinander erscheinen, kann der interne Glyphenabstand übermäßig werden.
+Viele CJK Interpunktionszeichen enthalten internen Glyphenabstand. Beispielsweise haben der CJK Punkt und die CJK-Schlussklammer normalerweise intern einen Abstand auf ihrer rechten Seite, um ihnen einen konstanten {{Glossary("Advance_measure", "Fortschrittsmaß")}} zu geben, der mit anderen ideografischen Zeichen konsistent ist. Wenn sie jedoch hintereinander erscheinen, kann der interne Glyphenabstand übermäßig werden.
 
 `text-spacing-trim` kann verwendet werden, um einen solchen übermäßigen Abstand zwischen benachbarten Zeichen (Kerning) und am Anfang oder Ende von Textzeilen anzupassen. Im Allgemeinen gilt:
 

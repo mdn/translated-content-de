@@ -23,11 +23,11 @@ _Neben den von der übergeordneten Schnittstelle [`DOMException`](/de/docs/Web/A
 - [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) {{ReadOnlyInline}}
   - : Ein String, der den WebRTC-spezifischen Fehlercode angibt, der den Typ des aufgetretenen Fehlers identifiziert.
 - [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) {{ReadOnlyInline}}
-  - : Ein unsignierter langer Integer-Wert, der den fatalen [DTLS](/de/docs/Glossary/DTLS)-Fehler angibt, der aus dem Netzwerk empfangen wurde. Nur gültig, wenn der `errorDetail`-String `dtls-failure` ist. Wenn `null`, wurde kein DTLS-Fehler empfangen.
+  - : Ein unsignierter langer Integer-Wert, der den fatalen {{Glossary("DTLS", "DTLS")}}-Fehler angibt, der aus dem Netzwerk empfangen wurde. Nur gültig, wenn der `errorDetail`-String `dtls-failure` ist. Wenn `null`, wurde kein DTLS-Fehler empfangen.
 - [`sctpCauseCode`](/de/docs/Web/API/RTCError/sctpCauseCode) {{ReadOnlyInline}}
-  - : Wenn `errorDetail` `sctp-failure` ist, handelt es sich bei dieser Eigenschaft um einen langen Integer, der den [SCTP](/de/docs/Glossary/SCTP)-Ursachencode angibt, der die Ursache für das Scheitern der SCTP-Verhandlung angibt. `null`, wenn der Fehler kein SCTP-Fehler ist.
+  - : Wenn `errorDetail` `sctp-failure` ist, handelt es sich bei dieser Eigenschaft um einen langen Integer, der den {{Glossary("SCTP", "SCTP")}}-Ursachencode angibt, der die Ursache für das Scheitern der SCTP-Verhandlung angibt. `null`, wenn der Fehler kein SCTP-Fehler ist.
 - [`sdpLineNumber`](/de/docs/Web/API/RTCError/sdpLineNumber) {{ReadOnlyInline}}
-  - : Wenn `errorDetail` `sdp-syntax-error` ist, handelt es sich bei dieser Eigenschaft um einen langen Integer, der die Zeilennummer des [SDP](/de/docs/Glossary/SDP) identifiziert, auf der der Syntaxfehler aufgetreten ist. `null`, wenn der Fehler kein SDP-Syntaxfehler ist.
+  - : Wenn `errorDetail` `sdp-syntax-error` ist, handelt es sich bei dieser Eigenschaft um einen langen Integer, der die Zeilennummer des {{Glossary("SDP", "SDP")}} identifiziert, auf der der Syntaxfehler aufgetreten ist. `null`, wenn der Fehler kein SDP-Syntaxfehler ist.
 - [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) {{ReadOnlyInline}}
   - : Wenn `errorDetail` `dtls-failure` ist, handelt es sich bei dieser Eigenschaft um einen unsignierten langen Integer, der den fatalen DTLS-Fehler angibt, der von diesem Gerät gesendet wurde. Wenn `null`, wurde kein DTLS-Fehler gesendet.
 

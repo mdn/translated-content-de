@@ -42,7 +42,7 @@ Inzwischen sollten Sie sich wirklich darauf verstehen, Elemente in Ihre Webseite
 
 Vor langer Zeit im Web war es beliebt, **Frames** zur Erstellung von Webseiten zu verwenden — kleine Teile einer Webseite, die in einzelnen HTML-Seiten gespeichert waren. Diese wurden in ein Hauptdokument eingebettet, das als **Frameset** bezeichnet wurde und es Ihnen ermöglichte, den Bereich auf dem Bildschirm festzulegen, den jeder Frame füllte, ähnlich wie das Größen von Spalten und Zeilen einer Tabelle. Diese galten in der Mitte bis Ende der 90er als das Nonplusultra und es gab Hinweise darauf, dass das Aufteilen einer Webseite in kleinere Stücke wie diese besser für die Downloadgeschwindigkeit war — insbesondere bemerkbar bei den damals so langsamen Netzwerkverbindungen. Sie hatten jedoch viele Probleme, die alle Vorteile bei steigenden Netzwerkgeschwindigkeiten überwogen, weshalb sie heute nicht mehr verwendet werden.
 
-Ein wenig später (Ende der 90er, Anfang der 2000er) wurden Plug-in-Technologien sehr populär, wie [Java Applets](/de/docs/Glossary/Java) und [Flash](/de/docs/Glossary/Adobe_Flash) — diese erlaubten es Webentwicklern, reichhaltige Inhalte wie Videos und Animationen in Webseiten einzubetten, die allein durch HTML nicht verfügbar waren. Das Einbetten dieser Technologien wurde durch Elemente wie {{htmlelement("object")}} und das weniger oft verwendete {{htmlelement("embed")}} erreicht, die zu der Zeit sehr nützlich waren. Mittlerweile sind sie aufgrund vieler Probleme, einschließlich der Barrierefreiheit, Sicherheit, Dateigröße und mehr, außer Mode geraten. Heutzutage haben große Browser aufgehört, Plug-ins wie Flash zu unterstützen.
+Ein wenig später (Ende der 90er, Anfang der 2000er) wurden Plug-in-Technologien sehr populär, wie {{Glossary("Java", "Java Applets")}} und {{Glossary("Adobe_Flash", "Flash")}} — diese erlaubten es Webentwicklern, reichhaltige Inhalte wie Videos und Animationen in Webseiten einzubetten, die allein durch HTML nicht verfügbar waren. Das Einbetten dieser Technologien wurde durch Elemente wie {{htmlelement("object")}} und das weniger oft verwendete {{htmlelement("embed")}} erreicht, die zu der Zeit sehr nützlich waren. Mittlerweile sind sie aufgrund vieler Probleme, einschließlich der Barrierefreiheit, Sicherheit, Dateigröße und mehr, außer Mode geraten. Heutzutage haben große Browser aufgehört, Plug-ins wie Flash zu unterstützen.
 
 Schließlich erschien das {{htmlelement("iframe")}}-Element (zusammen mit anderen Möglichkeiten der Inhaltseinbettung, wie {{htmlelement("canvas")}}, {{htmlelement("video")}}, etc.) Dies bietet eine Möglichkeit, ein ganzes Webdokument in ein anderes einzubetten, als wäre es ein {{htmlelement("img")}} oder ein ähnliches Element, und wird heute regelmäßig verwendet.
 
@@ -250,7 +250,7 @@ Das Beispiel enthält die wesentlichen Grundlagen, die zur Verwendung eines `<if
   - : Dieses Attribut, das in etwas moderneren Browsern als der Rest der `<iframe>`-Funktionen funktioniert (z. B. IE 10 und höher), fordert erhöhte Sicherheitseinstellungen an; wir werden im nächsten Abschnitt mehr darüber sagen.
 
 > [!NOTE]
-> Um die Geschwindigkeit zu verbessern, ist es eine gute Idee, das `src`-Attribut des iframes mit JavaScript nach dem Laden des Hauptinhalts zu setzen. Dadurch wird Ihre Seite schneller nutzbar und die offizielle Ladezeit Ihrer Seite (ein wichtiges [SEO](/de/docs/Glossary/SEO)-Kriterium) verkürzt.
+> Um die Geschwindigkeit zu verbessern, ist es eine gute Idee, das `src`-Attribut des iframes mit JavaScript nach dem Laden des Hauptinhalts zu setzen. Dadurch wird Ihre Seite schneller nutzbar und die offizielle Ladezeit Ihrer Seite (ein wichtiges {{Glossary("SEO", "SEO")}}-Kriterium) verkürzt.
 
 ### Sicherheitsbedenken
 
@@ -258,9 +258,9 @@ Oben haben wir Sicherheitsbedenken erwähnt – lassen Sie uns nun etwas genauer
 
 Browser-Hersteller und Web-Entwickler haben auf die harte Tour gelernt, dass iframes ein häufiges Ziel (offizieller Begriff: **Angriffsvektor**) für schlechte Menschen im Internet sind (häufig als **Hacker** oder genauer gesagt als **Cracker** bezeichnet), um anzugreifen, wenn sie versuchen, Ihre Webseite böswillig zu verändern oder Benutzer zu tricksen, etwas zu tun, das sie nicht wollen, wie zum Beispiel sensible Informationen wie Benutzernamen und Passwörter preiszugeben. Aufgrund dessen haben Spec-Ingenieure und Browser-Entwickler verschiedene Sicherheitsmechanismen entwickelt, um `<iframe>`s sicherer zu machen, und es gibt auch bewährte Verfahren zu beachten — auf einige davon werden wir weiter unten eingehen.
 
-> **Hinweis:** [Clickjacking](/de/docs/Glossary/Clickjacking) ist eine Art von häufigem iframe-Angriff, bei dem Hacker ein unsichtbares iframe in Ihr Dokument einbetten (oder Ihr Dokument in ihre eigene bösartige Webseite einbetten) und es verwenden, um Benutzereingaben abzufangen. Dies ist eine gängige Methode, um Benutzer in die Irre zu führen oder sensible Daten zu stehlen.
+> **Hinweis:** {{Glossary("Clickjacking", "Clickjacking")}} ist eine Art von häufigem iframe-Angriff, bei dem Hacker ein unsichtbares iframe in Ihr Dokument einbetten (oder Ihr Dokument in ihre eigene bösartige Webseite einbetten) und es verwenden, um Benutzereingaben abzufangen. Dies ist eine gängige Methode, um Benutzer in die Irre zu führen oder sensible Daten zu stehlen.
 
-Ein schnelles Beispiel zuerst — versuchen Sie, das vorher gezeigte Beispiel in Ihrem Browser zu laden — Sie können es [live auf GitHub finden](https://mdn.github.io/learning-area/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html) an.) Anstatt der erwarteten Seite werden Sie wahrscheinlich eine Art von Nachricht sehen, die in etwa sagt: "Ich kann diese Seite nicht öffnen", und wenn Sie in die _Konsole_ der [Browser-Entwicklerwerkzeuge](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools) schauen, sehen Sie eine Nachricht, die Ihnen sagt warum. In Firefox wird Ihnen etwas wie _Das Laden von "https\://developer.mozilla.org/de/docs/Glossary" in einem Rahmen wird durch die "X-Frame-Options"-Direktive auf "DENY" verweigert_ gesagt. Das liegt daran, dass die Entwickler, die MDN erstellt haben, eine Einstellung auf dem Server implementiert haben, der die Webseiten bereitstellt, die es verbietet, sie innerhalb von `<iframe>`s einzubetten (siehe [CSP-Direktiven konfigurieren](#csp-direktiven_konfigurieren), unten.) Dies macht Sinn — eine vollständige MDN-Seite macht wenig Sinn, in andere Seiten eingebettet zu werden, es sei denn, Sie möchten so etwas wie die Einbettung auf Ihrer Seite verwenden und diese als Ihre eigenen ausgeben — oder versuchen, Daten durch [Clickjacking](/de/docs/Glossary/Clickjacking) zu stehlen, was beides wirklich schlechte Dinge sind. Außerdem, wenn jeder damit beginnen würde, würden all die zusätzlichen Bandbreitenkosten beginnen, Mozilla viel Geld zu kosten.
+Ein schnelles Beispiel zuerst — versuchen Sie, das vorher gezeigte Beispiel in Ihrem Browser zu laden — Sie können es [live auf GitHub finden](https://mdn.github.io/learning-area/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/other-embedding-technologies/iframe-detail.html) an.) Anstatt der erwarteten Seite werden Sie wahrscheinlich eine Art von Nachricht sehen, die in etwa sagt: "Ich kann diese Seite nicht öffnen", und wenn Sie in die _Konsole_ der [Browser-Entwicklerwerkzeuge](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools) schauen, sehen Sie eine Nachricht, die Ihnen sagt warum. In Firefox wird Ihnen etwas wie _Das Laden von "https\://developer.mozilla.org/de/docs/Glossary" in einem Rahmen wird durch die "X-Frame-Options"-Direktive auf "DENY" verweigert_ gesagt. Das liegt daran, dass die Entwickler, die MDN erstellt haben, eine Einstellung auf dem Server implementiert haben, der die Webseiten bereitstellt, die es verbietet, sie innerhalb von `<iframe>`s einzubetten (siehe [CSP-Direktiven konfigurieren](#csp-direktiven_konfigurieren), unten.) Dies macht Sinn — eine vollständige MDN-Seite macht wenig Sinn, in andere Seiten eingebettet zu werden, es sei denn, Sie möchten so etwas wie die Einbettung auf Ihrer Seite verwenden und diese als Ihre eigenen ausgeben — oder versuchen, Daten durch {{Glossary("Clickjacking", "Clickjacking")}} zu stehlen, was beides wirklich schlechte Dinge sind. Außerdem, wenn jeder damit beginnen würde, würden all die zusätzlichen Bandbreitenkosten beginnen, Mozilla viel Geld zu kosten.
 
 #### Nur bei Bedarf einbetten
 
@@ -272,7 +272,7 @@ Wenn die Inhalte lizenziert sind, müssen Sie die Lizenzbedingungen befolgen. Zu
 
 #### Verwenden Sie HTTPS
 
-[HTTPS](/de/docs/Glossary/HTTPS) ist die verschlüsselte Version von [HTTP](/de/docs/Glossary/HTTP). Sie sollten Ihre Webseiten möglichst über HTTPS bereitstellen:
+{{Glossary("HTTPS", "HTTPS")}} ist die verschlüsselte Version von {{Glossary("HTTP", "HTTP")}}. Sie sollten Ihre Webseiten möglichst über HTTPS bereitstellen:
 
 1. HTTPS reduziert die Chance, dass entfernte Inhalte während der Übertragung manipuliert wurden.
 2. HTTPS verhindert, dass eingebettete Inhalte auf Inhalte in Ihrem übergeordneten Dokument zugreifen, und umgekehrt.
@@ -288,14 +288,14 @@ Sie wollen Angreifern so wenig Macht wie möglich geben, um Böses auf Ihrer Web
 
 Inhalte, die nicht in einer Sandbox sind, können möglicherweise JavaScript ausführen, Formulare absenden, Popup-Fenster auslösen, etc. Im Allgemeinen sollten Sie alle verfügbaren Einschränkungen auferlegen, indem Sie das `sandbox`-Attribut ohne Parameter verwenden, wie in unserem vorherigen Beispiel gezeigt.
 
-Wenn es absolut notwendig ist, können Sie Berechtigungen eine nach der anderen hinzufügen (innerhalb des `sandbox=""` Attributwerts) — siehe den [`sandbox`](/de/docs/Web/HTML/Element/iframe#sandbox) Referenzeintrag für alle verfügbaren Optionen. Ein wichtiger Hinweis ist, dass Sie _niemals_ sowohl `allow-scripts` als auch `allow-same-origin` in Ihr `sandbox`-Attribut aufnehmen sollten — in diesem Fall könnten die eingebetteten Inhalte die [Same-origin Richtlinie](/de/docs/Glossary/Same-origin_policy) umgehen, die verhindert, dass Seiten Skripts ausführen, und JavaScript verwenden, um das Sandboxing vollständig zu deaktivieren.
+Wenn es absolut notwendig ist, können Sie Berechtigungen eine nach der anderen hinzufügen (innerhalb des `sandbox=""` Attributwerts) — siehe den [`sandbox`](/de/docs/Web/HTML/Element/iframe#sandbox) Referenzeintrag für alle verfügbaren Optionen. Ein wichtiger Hinweis ist, dass Sie _niemals_ sowohl `allow-scripts` als auch `allow-same-origin` in Ihr `sandbox`-Attribut aufnehmen sollten — in diesem Fall könnten die eingebetteten Inhalte die {{Glossary("Same-origin_policy", "Same-origin Richtlinie")}} umgehen, die verhindert, dass Seiten Skripts ausführen, und JavaScript verwenden, um das Sandboxing vollständig zu deaktivieren.
 
 > [!NOTE]
-> Sandboxing bietet keinen Schutz, wenn Angreifer Menschen dazu verleiten können, bösartige Inhalte direkt (außerhalb eines `iframe`) zu besuchen. Wenn die Möglichkeit besteht, dass bestimmte Inhalte schädlich sein könnten (z. B. von Benutzern erstellte Inhalte), dann stellen Sie sie bitte über eine andere [Domain](/de/docs/Glossary/domain) als Ihre Hauptseite bereit.
+> Sandboxing bietet keinen Schutz, wenn Angreifer Menschen dazu verleiten können, bösartige Inhalte direkt (außerhalb eines `iframe`) zu besuchen. Wenn die Möglichkeit besteht, dass bestimmte Inhalte schädlich sein könnten (z. B. von Benutzern erstellte Inhalte), dann stellen Sie sie bitte über eine andere {{Glossary("domain", "Domain")}} als Ihre Hauptseite bereit.
 
 #### CSP-Direktiven konfigurieren
 
-[CSP](/de/docs/Glossary/CSP) steht für **[Content Security Policy](/de/docs/Web/HTTP/CSP)** und stellt [eine Reihe von HTTP-Headern](/de/docs/Web/HTTP/Headers/Content-Security-Policy) (Metadaten, die zusammen mit Ihren Webseiten beim Bereitstellen von einem Webserver gesendet werden) bereit, die die Sicherheit Ihres HTML-Dokuments verbessern sollen. Um `<iframe>`s zu sichern, können Sie _[Ihren Server so konfigurieren, dass er einen geeigneten `X-Frame-Options` Header sendet.](/de/docs/Web/HTTP/Headers/X-Frame-Options)_ Dies kann verhindern, dass andere Websites Ihre Inhalte in ihre Seiten einbetten (was [Clickjacking](/de/docs/Glossary/Clickjacking) und eine Vielzahl anderer Angriffe ermöglichen würde), was genau das ist, was die MDN-Entwickler getan haben, wie wir es früher gesehen haben.
+{{Glossary("CSP", "CSP")}} steht für **[Content Security Policy](/de/docs/Web/HTTP/CSP)** und stellt [eine Reihe von HTTP-Headern](/de/docs/Web/HTTP/Headers/Content-Security-Policy) (Metadaten, die zusammen mit Ihren Webseiten beim Bereitstellen von einem Webserver gesendet werden) bereit, die die Sicherheit Ihres HTML-Dokuments verbessern sollen. Um `<iframe>`s zu sichern, können Sie _[Ihren Server so konfigurieren, dass er einen geeigneten `X-Frame-Options` Header sendet.](/de/docs/Web/HTTP/Headers/X-Frame-Options)_ Dies kann verhindern, dass andere Websites Ihre Inhalte in ihre Seiten einbetten (was {{Glossary("Clickjacking", "Clickjacking")}} und eine Vielzahl anderer Angriffe ermöglichen würde), was genau das ist, was die MDN-Entwickler getan haben, wie wir es früher gesehen haben.
 
 > [!NOTE]
 > Sie können Frederik Brauns Beitrag [On the X-Frame-Options Security Header](https://blog.mozilla.org/security/2013/12/12/on-the-x-frame-options-security-header/) für weitere Hintergrundinformationen zu diesem Thema lesen. Natürlich fällt eine vollständige Erklärung in diesem Artikel eher aus dem Rahmen.
@@ -306,7 +306,7 @@ Die {{htmlelement("embed")}} und {{htmlelement("object")}} Elemente haben eine a
 
 Sie werden diese Elemente jedoch wahrscheinlich nicht sehr oft benutzen. Wenn Sie PDFs anzeigen müssen, ist es normalerweise besser, auf sie zu verlinken, anstatt sie in der Seite einzubetten.
 
-Historisch wurden diese Elemente auch zum Einbetten von Inhalten verwendet, die von Browser-Plugins wie [Adobe Flash](/de/docs/Glossary/Adobe_Flash) verarbeitet wurden, aber diese Technologie ist jetzt obsolet und wird von modernen Browsern nicht unterstützt.
+Historisch wurden diese Elemente auch zum Einbetten von Inhalten verwendet, die von Browser-Plugins wie {{Glossary("Adobe_Flash", "Adobe Flash")}} verarbeitet wurden, aber diese Technologie ist jetzt obsolet und wird von modernen Browsern nicht unterstützt.
 
 Sollten Sie dennoch dergleichen benötigen, ist dies die Art von Informationen, die Sie mindestens benötigen:
 
@@ -320,13 +320,13 @@ Sollten Sie dennoch dergleichen benötigen, ist dies die Art von Informationen, 
   </thead>
   <tbody>
     <tr>
-      <td>[URL](/de/docs/Glossary/URL) der eingebetteten Inhalte</td>
+      <td>{{Glossary("URL", "URL")}} der eingebetteten Inhalte</td>
       <td><a href="/de/docs/Web/HTML/Element/embed#src"><code>src</code></a></td>
       <td><a href="/de/docs/Web/HTML/Element/object#data"><code>data</code></a></td>
     </tr>
     <tr>
       <td>
-        <em>Genaue</em> [Medientypen](/de/docs/Glossary/MIME_type) der eingebetteten Inhalte
+        <em>Genaue</em> {{Glossary("MIME_type", "Medientypen")}} der eingebetteten Inhalte
       </td>
       <td><a href="/de/docs/Web/HTML/Element/embed#type"><code>type</code></a></td>
       <td><a href="/de/docs/Web/HTML/Element/object#type"><code>type</code></a></td>

@@ -113,7 +113,7 @@ async function handleCookieAccess() {
 }
 ```
 
-> **Hinweis:** `requestStorageAccess()`-Anfragen werden automatisch abgelehnt, es sei denn, die eingebetteten Inhalte verarbeiten gerade eine Benutzeraktion wie ein Tippen oder Klicken ([transiente Aktivierung](/de/docs/Glossary/transient_activation)), oder wenn die Erlaubnis bereits zuvor erteilt wurde. Wenn die Erlaubnis zuvor nicht erteilt wurde, müssen `requestStorageAccess()`-Anfragen innerhalb eines auf Benutzeraktionen basierenden Ereignishandlers ausgeführt werden, wie oben gezeigt.
+> **Hinweis:** `requestStorageAccess()`-Anfragen werden automatisch abgelehnt, es sei denn, die eingebetteten Inhalte verarbeiten gerade eine Benutzeraktion wie ein Tippen oder Klicken ({{Glossary("transient_activation", "transiente Aktivierung")}}), oder wenn die Erlaubnis bereits zuvor erteilt wurde. Wenn die Erlaubnis zuvor nicht erteilt wurde, müssen `requestStorageAccess()`-Anfragen innerhalb eines auf Benutzeraktionen basierenden Ereignishandlers ausgeführt werden, wie oben gezeigt.
 
 ### Verwandte Website-Sets
 

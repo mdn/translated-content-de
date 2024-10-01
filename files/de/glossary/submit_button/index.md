@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Submit-Button** ist ein [Element](/de/docs/Glossary/element) in HTML, das verwendet werden kann, um ein {{HTMLElement("form")}} abzusenden. Die nativen Submit-Button-Elemente sind:
+Ein **Submit-Button** ist ein {{Glossary("element", "Element")}} in HTML, das verwendet werden kann, um ein {{HTMLElement("form")}} abzusenden. Die nativen Submit-Button-Elemente sind:
 
 - {{HtmlElement("button")}} (sein Standard-`type` ist `"submit"`)
 - `{{HtmlElement('input/submit', '&lt;input type="submit"&gt;')}}`

@@ -117,7 +117,7 @@ Falls Sie sich in dem seltenen Fall befinden, dass Sie so etwas tun möchten, en
 
 #### Falsy-Werte
 
-Die folgenden Werte werden als `false` bewertet (auch bekannt als [Falsy](/de/docs/Glossary/Falsy)-Werte):
+Die folgenden Werte werden als `false` bewertet (auch bekannt als {{Glossary("Falsy", "Falsy")}}-Werte):
 
 - `false`
 - `undefined`

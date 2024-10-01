@@ -40,7 +40,7 @@ Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribu
 
 - [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)
 
-  - : Dieses [Enumerations-](/de/docs/Glossary/Enumerated) Attribut gibt an, ob CORS verwendet werden soll, um das betreffende Video abzurufen. [CORS-fähige Ressourcen](/de/docs/Web/HTML/CORS_enabled_image) können im {{HTMLElement("canvas")}} Element wiederverwendet werden, ohne "verunreinigt" zu werden. Die erlaubten Werte sind:
+  - : Dieses {{Glossary("Enumerated", "Enumerations-")}} Attribut gibt an, ob CORS verwendet werden soll, um das betreffende Video abzurufen. [CORS-fähige Ressourcen](/de/docs/Web/HTML/CORS_enabled_image) können im {{HTMLElement("canvas")}} Element wiederverwendet werden, ohne "verunreinigt" zu werden. Die erlaubten Werte sind:
 
     - `anonymous`
       - : Sendet eine Cross-Origin-Anfrage ohne Anmeldeinformationen. Mit anderen Worten, es sendet den `Origin:` HTTP-Header ohne ein Cookie, X.509-Zertifikat oder Durchführung einer HTTP-Basic-Authentifizierung. Wenn der Server keine Anmeldeinformationen an die Ursprungsseite gibt (indem er den `Access-Control-Allow-Origin:` HTTP-Header nicht setzt), wird die Ressource "verunreinigt" und ihre Verwendung eingeschränkt.
@@ -69,7 +69,7 @@ Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribu
   - : Eine URL für ein Bild, das während des Herunterladens des Videos angezeigt wird. Wenn dieses Attribut nicht angegeben ist, wird nichts angezeigt, bis der erste Frame verfügbar ist, dann wird der erste Frame als Posterbild angezeigt.
 - `preload`
 
-  - : Dieses [Enumerations-](/de/docs/Glossary/enumerated) Attribut soll dem Browser einen Hinweis geben, was der Autor für die beste Benutzererfahrung hält, was den Inhalt betrifft, der vor dem Abspielen des Videos geladen wird. Es kann einen der folgenden Werte haben:
+  - : Dieses {{Glossary("enumerated", "Enumerations-")}} Attribut soll dem Browser einen Hinweis geben, was der Autor für die beste Benutzererfahrung hält, was den Inhalt betrifft, der vor dem Abspielen des Videos geladen wird. Es kann einen der folgenden Werte haben:
 
     - `none`: Zeigt an, dass das Video nicht vorab geladen werden soll.
     - `metadata`: Gibt an, dass nur die Videometadaten (z. B. Länge) abgerufen werden.

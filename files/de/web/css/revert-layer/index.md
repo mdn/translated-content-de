@@ -9,13 +9,13 @@ l10n:
 
 Das **`revert-layer`** [CSS-weite Schlüsselwort](/de/docs/Web/CSS/CSS_Types#css-wide_keywords) setzt den Wert einer Eigenschaft in einer [Kaskadenschicht](/de/docs/Web/CSS/@layer) auf den Wert der Eigenschaft in einer CSS-Regel zurück, die dem Element in einer vorherigen Kaskadenschicht entspricht. Der Wert einer Eigenschaft mit diesem Schlüsselwort wird so neu berechnet, als ob keine Regeln für das Ziel-Element in der aktuellen Kaskadenschicht angegeben wären.
 
-Wenn es keine andere Kaskadenschicht gibt, zu der für die entsprechende CSS-Regel zurückgegangen werden kann, wird der Eigenschaftswert auf den [berechneten Wert](/de/docs/Web/CSS/computed_value) zurückgesetzt, der aus der aktuellen Schicht abgeleitet wird. Wenn es außerdem keine entsprechende CSS-Regel in der aktuellen Schicht gibt, wird der Eigenschaftswert für das Element auf den in einem vorherigen [Stil-Ursprung](/de/docs/Glossary/Style_origin) definierten Stil zurückgesetzt.
+Wenn es keine andere Kaskadenschicht gibt, zu der für die entsprechende CSS-Regel zurückgegangen werden kann, wird der Eigenschaftswert auf den [berechneten Wert](/de/docs/Web/CSS/computed_value) zurückgesetzt, der aus der aktuellen Schicht abgeleitet wird. Wenn es außerdem keine entsprechende CSS-Regel in der aktuellen Schicht gibt, wird der Eigenschaftswert für das Element auf den in einem vorherigen {{Glossary("Style_origin", "Stil-Ursprung")}} definierten Stil zurückgesetzt.
 
 Dieses Schlüsselwort kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschreibweise {{cssxref("all")}}.
 
 ## Revert-layer vs. revert
 
-Das `revert-layer` Schlüsselwort ermöglicht es Ihnen, Stile auf diejenigen zurückzusetzen, die in vorherigen Kaskadenschichten innerhalb des [Autorenursprungs](/de/docs/Glossary/Style_origin) angegeben sind. Das {{cssxref("revert")}} Schlüsselwort hingegen ermöglicht es, Stile, die im Autorenursprung angewendet wurden, auf diejenigen im Nutzerursprung oder Nutzeragentursprung zurückzusetzen.
+Das `revert-layer` Schlüsselwort ermöglicht es Ihnen, Stile auf diejenigen zurückzusetzen, die in vorherigen Kaskadenschichten innerhalb des {{Glossary("Style_origin", "Autorenursprungs")}} angegeben sind. Das {{cssxref("revert")}} Schlüsselwort hingegen ermöglicht es, Stile, die im Autorenursprung angewendet wurden, auf diejenigen im Nutzerursprung oder Nutzeragentursprung zurückzusetzen.
 
 Das `revert-layer` Schlüsselwort soll idealerweise auf Eigenschaften innerhalb einer Kaskadenschicht angewendet werden. Wird es jedoch auf Eigenschaften außerhalb einer Kaskadenschicht angewendet, setzt es Eigenschaftswerte auf irgendwelche Werte zurück, die durch präsentationale Hinweise (wie `width` und `height` Attribute oder das `<s>` Element in HTML) gesetzt werden, wobei die Standardwerte des Stylesheets des Benutzeragenten oder der Benutzerstile verwendet werden. Im Gegensatz zum `revert` Schlüsselwort, das präsentationale Hinweise als Teil des Autorenursprungs betrachtet und sie ebenfalls zurücksetzt, ignoriert das `revert-layer` Schlüsselwort präsentationale Hinweise außerhalb der Kaskadenschicht, sodass es diese nicht zurücksetzt.
 

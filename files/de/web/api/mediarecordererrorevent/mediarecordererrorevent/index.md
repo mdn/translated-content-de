@@ -30,7 +30,7 @@ new MediaRecorderErrorEvent(type, options)
       - : Ein [`DOMException`](/de/docs/Web/API/DOMException), der den aufgetretenen Fehler beschreibt. Die [`name`](/de/docs/Web/API/DOMException/name) Eigenschaft dieses Objekts sollte den Namen des aufgetretenen Fehlers angeben. Die anderen Felder können vorhanden sein oder auch nicht.
 
 > [!NOTE]
-> Einige [User Agents](/de/docs/Glossary/user_agent) fügen dem `error` Objekt andere Eigenschaften hinzu, die Informationen wie Stack Dumps, den Namen der JavaScript-Datei und die Zeilennummer, an der der Fehler aufgetreten ist, sowie andere Debugging-Hilfen bereitstellen. Sie sollten sich jedoch in einer Produktionsumgebung nicht auf diese Informationen verlassen.
+> Einige {{Glossary("user_agent", "User Agents")}} fügen dem `error` Objekt andere Eigenschaften hinzu, die Informationen wie Stack Dumps, den Namen der JavaScript-Datei und die Zeilennummer, an der der Fehler aufgetreten ist, sowie andere Debugging-Hilfen bereitstellen. Sie sollten sich jedoch in einer Produktionsumgebung nicht auf diese Informationen verlassen.
 
 ### Rückgabewert
 

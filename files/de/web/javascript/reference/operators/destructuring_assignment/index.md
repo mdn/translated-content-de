@@ -563,7 +563,7 @@ console.log(foo); // "bar"
 
 #### Ungültiger JavaScript-Bezeichner als Eigenschaftsname
 
-Destrukturierung kann mit Eigenschaftsnamen verwendet werden, die keine gültigen JavaScript-[Bezeichner](/de/docs/Glossary/Identifier) sind, indem ein alternativer, gültiger Bezeichner bereitgestellt wird.
+Destrukturierung kann mit Eigenschaftsnamen verwendet werden, die keine gültigen JavaScript-{{Glossary("Identifier", "Bezeichner")}} sind, indem ein alternativer, gültiger Bezeichner bereitgestellt wird.
 
 ```js
 const foo = { "fizz-buzz": true };

@@ -22,7 +22,7 @@ Die Browser-Identifizierung basierend auf der Erkennung des User-Agent-Strings i
 
 ## Wert
 
-Ein String, der den vollständigen User-Agent-String angibt, den der Browser sowohl in den [HTTP](/de/docs/Glossary/HTTP)-Headern als auch als Antwort auf diese und andere verwandte Methoden des [`Navigator`](/de/docs/Web/API/Navigator)-Objekts bereitstellt.
+Ein String, der den vollständigen User-Agent-String angibt, den der Browser sowohl in den {{Glossary("HTTP", "HTTP")}}-Headern als auch als Antwort auf diese und andere verwandte Methoden des [`Navigator`](/de/docs/Web/API/Navigator)-Objekts bereitstellt.
 
 Der User-Agent-String basiert auf einer formalen Struktur, die in mehrere Informationsstücke zerlegt werden kann. Jedes dieser Informationsstücke stammt von anderen Navigator-Eigenschaften, die ebenfalls durch den Benutzer einstellbar sind. Weitere Informationen zur Form des User-Agent-Strings finden Sie im {{HTTPHeader("User-agent")}}-HTTP-Header.
 

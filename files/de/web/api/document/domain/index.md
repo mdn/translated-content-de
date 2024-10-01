@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef}} {{Deprecated_Header}}
 
-Die **`domain`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ruft den Domain-Anteil des [Ursprungs](/de/docs/Glossary/origin) des aktuellen Dokuments ab oder setzt ihn, wie er durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verwendet wird.
+Die **`domain`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ruft den Domain-Anteil des {{Glossary("origin", "Ursprungs")}} des aktuellen Dokuments ab oder setzt ihn, wie er durch die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) verwendet wird.
 
 ## Wert
 
@@ -31,7 +31,7 @@ const currentDomain = document.domain;
 
 Der Getter für diese Eigenschaft gibt den Domain-Anteil des Ursprungs des aktuellen Dokuments zurück. In den meisten Fällen wird dies der Hostname-Teil der Dokument-URL sein. Es gibt jedoch einige Ausnahmen:
 
-- Wenn die Seite einen undurchsichtigen [Ursprung](/de/docs/Glossary/origin) hat, z. B. für eine Seite mit einer [Daten-URL](/de/docs/Web/URI/Schemes/data), dann wird der leere String zurückgegeben.
+- Wenn die Seite einen undurchsichtigen {{Glossary("origin", "Ursprung")}} hat, z. B. für eine Seite mit einer [Daten-URL](/de/docs/Web/URI/Schemes/data), dann wird der leere String zurückgegeben.
 - Wenn der `document.domain`-[Setter](#setzen_der_domain) verwendet wurde, dann wird der gesetzte Wert zurückgegeben.
 
 Obwohl der Getter nicht gefährlich ist wie der Setter, ist es wahrscheinlich einfacher und nützlicher, die [`Location.hostname`](/de/docs/Web/API/Location/hostname)-Eigenschaft zu verwenden. So können Sie `document.domain` vollständig vermeiden:
@@ -48,7 +48,7 @@ Für die URL `https://developer.mozilla.org/de/docs/Web` ist `currentHostname` e
 document.domain = domainString;
 ```
 
-Der Setter für diese Eigenschaft kann verwendet werden, um den [Ursprung](/de/docs/Glossary/origin) einer Seite zu _ändern_ und dadurch zu modifizieren, wie bestimmte Sicherheitsprüfungen durchgeführt werden. Er kann nur auf die gleiche oder eine übergeordnete Domain gesetzt werden. Zum Beispiel, wenn `https://a.example.com` und `https://b.example.com` beide verwenden
+Der Setter für diese Eigenschaft kann verwendet werden, um den {{Glossary("origin", "Ursprung")}} einer Seite zu _ändern_ und dadurch zu modifizieren, wie bestimmte Sicherheitsprüfungen durchgeführt werden. Er kann nur auf die gleiche oder eine übergeordnete Domain gesetzt werden. Zum Beispiel, wenn `https://a.example.com` und `https://b.example.com` beide verwenden
 
 ```js
 document.domain = "example.com";
@@ -83,7 +83,7 @@ Der Setter wird in mehreren Fällen einen `SecurityError` [`DOMException`](/de/d
 - Die {{httpheader('Permissions-Policy/document-domain','document-domain')}}
   {{HTTPHeader("Permissions-Policy")}} ist deaktiviert.
 - Das Dokument befindet sich in einem sandboxed {{htmlelement("iframe")}}.
-- Das Dokument hat keinen [Browsing-Kontext](/de/docs/Glossary/browsing_context).
+- Das Dokument hat keinen {{Glossary("browsing_context", "Browsing-Kontext")}}.
 - Die [effektive Domain](https://html.spec.whatwg.org/multipage/origin.html#concept-origin-effective-domain) des Dokuments ist `null`.
 - Der gegebene Wert ist weder derselbe wie der aktuelle Hostname der Seite noch eine übergeordnete Domain davon.
 

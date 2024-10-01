@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`exportparts`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ermöglicht es Ihnen, Elemente in verschachtelten [Shadow Trees](/de/docs/Glossary/shadow_tree) auszuwählen und zu stylen, indem Sie ihre `part`-Namen exportieren.
+Das **`exportparts`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ermöglicht es Ihnen, Elemente in verschachtelten {{Glossary("shadow_tree", "Shadow Trees")}} auszuwählen und zu stylen, indem Sie ihre `part`-Namen exportieren.
 
 Der Shadow Tree ist eine isolierte Struktur, in der Bezeichner, Klassen und Stile von Selektoren oder Abfragen, die zum regulären DOM gehören, nicht erreicht werden können. Es gibt zwei HTML-Attribute, die auf Shadow-Tree-Elemente angewendet werden können, um CSS-Stile von außen auf den Shadow Tree zu zielen: `part` und `exportparts`.
 

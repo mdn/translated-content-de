@@ -87,7 +87,7 @@ Was jedoch hinter den Kulissen passiert, um Auslöser zu registrieren, nach Übe
 
    Auch hier siehe {{httpheader("Attribution-Reporting-Register-Trigger")}} für eine detaillierte Beschreibung aller verfügbaren Felder.
 
-3. Wenn der Benutzer mit dem Attributionsauslöser interagiert, versucht der Browser, den Auslöser mit den in der lokalen Browser-Cache gespeicherten Einträgen für die Attributionsquelle abzugleichen. Für eine erfolgreiche Übereinstimmung muss das `Attribution-Reporting-Register-Trigger`'s [`"trigger_data"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Trigger#trigger_data) einem der im {{httpheader("Attribution-Reporting-Register-Source")}} angegebenen Werte entsprechen, und die Seite (Schema + [eTLD+1](/de/docs/Glossary/eTLD)) der obersten Ebene, auf der der Auslöser registriert wird, muss:
+3. Wenn der Benutzer mit dem Attributionsauslöser interagiert, versucht der Browser, den Auslöser mit den in der lokalen Browser-Cache gespeicherten Einträgen für die Attributionsquelle abzugleichen. Für eine erfolgreiche Übereinstimmung muss das `Attribution-Reporting-Register-Trigger`'s [`"trigger_data"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Trigger#trigger_data) einem der im {{httpheader("Attribution-Reporting-Register-Source")}} angegebenen Werte entsprechen, und die Seite (Schema + {{Glossary("eTLD", "eTLD+1")}}) der obersten Ebene, auf der der Auslöser registriert wird, muss:
 
    - mit der Seite von mindestens einem der in den zugehörigen Daten der Quelle angegebenen `destination`s übereinstimmen.
    - gleicher Herkunft mit der Anfrage sein, die die Quellregistrierung spezifiziert hat.

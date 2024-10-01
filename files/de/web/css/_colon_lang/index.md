@@ -39,7 +39,7 @@ Die explizite Verwendung von Wildcards muss eine vollständige Übereinstimmung 
 
 ### Übereinstimmung von Kindern einer bestimmten Sprache
 
-In diesem Beispiel wird die `:lang()`-Pseudo-Klasse verwendet, um die Eltern von Zitatelementen ({{htmlElement("q")}}) mit [Kindkombinatoren](/de/docs/Web/CSS/Child_combinator) zu matchen. Beachten Sie, dass dies nicht die einzige Möglichkeit ist und dass die beste Methode von der Art des Dokuments abhängt. Beachten Sie auch, dass [Unicode](/de/docs/Glossary/Unicode)-Werte verwendet werden, um einige der speziellen Anführungszeichen anzugeben.
+In diesem Beispiel wird die `:lang()`-Pseudo-Klasse verwendet, um die Eltern von Zitatelementen ({{htmlElement("q")}}) mit [Kindkombinatoren](/de/docs/Web/CSS/Child_combinator) zu matchen. Beachten Sie, dass dies nicht die einzige Möglichkeit ist und dass die beste Methode von der Art des Dokuments abhängt. Beachten Sie auch, dass {{Glossary("Unicode", "Unicode")}}-Werte verwendet werden, um einige der speziellen Anführungszeichen anzugeben.
 
 #### HTML
 

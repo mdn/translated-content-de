@@ -11,7 +11,7 @@ l10n:
 
 JavaScript erlaubt nachgestellte Kommata in Array-Literalen seit Beginn. Nachgestellte Kommata sind jetzt auch in Objektliteralen, Funktionsparametern, benannten Imports, benannten Exports und mehr erlaubt.
 
-[JSON](/de/docs/Glossary/JSON) erlaubt jedoch keine nachgestellten Kommata.
+{{Glossary("JSON", "JSON")}} erlaubt jedoch keine nachgestellten Kommata.
 
 ## Beschreibung
 

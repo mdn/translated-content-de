@@ -15,7 +15,7 @@ Ein einfaches WebGL-Beispiel, bei dem wir mit Scheren- und Löschoperationen etw
 
 In diesem Beispiel animieren wir Quadrate mithilfe von [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear). Wir erstellen erneut eine Animationsschleife mit Timern. Beachten Sie, dass diesmal die Position des Quadrats (der Scherenbereich) in jedem Frame aktualisiert wird (wir setzen die Bildrate auf etwa alle 17 ms, oder ungefähr 60 fps – Bilder pro Sekunde).
 
-Im Gegensatz dazu wird die Farbe des Quadrats (gesetzt mit [`clearColor`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) nur aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von [WebGL](/de/docs/Glossary/WebGL) als Zustandsmaschine. Für jedes Quadrat setzen wir einmal seine Farbe fest und aktualisieren dann in jedem Frame nur seine Position. Der Löschfarbzustand von WebGL bleibt auf dem festgelegten Wert, bis wir ihn erneut ändern, wenn ein neues Quadrat erstellt wird.
+Im Gegensatz dazu wird die Farbe des Quadrats (gesetzt mit [`clearColor`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) nur aktualisiert, wenn ein neues Quadrat erstellt wird. Dies ist eine schöne Demonstration von {{Glossary("WebGL", "WebGL")}} als Zustandsmaschine. Für jedes Quadrat setzen wir einmal seine Farbe fest und aktualisieren dann in jedem Frame nur seine Position. Der Löschfarbzustand von WebGL bleibt auf dem festgelegten Wert, bis wir ihn erneut ändern, wenn ein neues Quadrat erstellt wird.
 
 ```html hidden
 <p>

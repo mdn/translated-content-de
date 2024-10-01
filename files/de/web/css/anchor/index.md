@@ -81,7 +81,7 @@ Gibt einen {{cssxref("length")}}-Wert zurück.
 
 ## Beschreibung
 
-Die `anchor()`-Funktion ermöglicht das Positionieren eines Elements relativ zu den Kanten eines Ankerelements. Sie ist nur gültig innerhalb von [inset-Eigenschaft](/de/docs/Glossary/inset_properties)-Werten, die auf absolute oder verbindliche Positionselemente gesetzt sind.
+Die `anchor()`-Funktion ermöglicht das Positionieren eines Elements relativ zu den Kanten eines Ankerelements. Sie ist nur gültig innerhalb von {{Glossary("inset_properties", "inset-Eigenschaft")}}-Werten, die auf absolute oder verbindliche Positionselemente gesetzt sind.
 
 Sie gibt einen `<length>`-Wert an, der den Abstand zwischen der durch den inset-Wert angegebenen Seite des ankerpositionierten Elements und der durch den ausgewählten `<anchor-side>`-Wert angegebenen Seite des Ankerelements angibt. Da sie einen `<length>` zurückgibt, kann sie innerhalb anderer [CSS-Funktionen](/de/docs/Web/CSS/CSS_Functions) verwendet werden, die Längenwerte akzeptieren, einschließlich {{cssxref("calc()")}}, {{cssxref("clamp()")}} usw.
 
@@ -91,7 +91,7 @@ Für detaillierte Informationen zu Anker-Features und deren Verwendung, siehe da
 
 ### Eigenschaften, die `anchor()`-Funktionswerte akzeptieren
 
-Die [Inset-Eigenschaften](/de/docs/Glossary/inset_properties) von CSS, die eine `anchor()`-Funktion als Wertkomponente akzeptieren, umfassen:
+Die {{Glossary("inset_properties", "Inset-Eigenschaften")}} von CSS, die eine `anchor()`-Funktion als Wertkomponente akzeptieren, umfassen:
 
 - {{cssxref("top")}}
 - {{cssxref("left")}}
@@ -118,7 +118,7 @@ Die Situation wird komplizierter bei der Verwendung physikalischer `<anchor-side
 - In einem horizontalen Schreibmodus ist die Blockrichtung von oben nach unten, daher funktioniert `inset-block-end: anchor(bottom)`, aber `inset-block-end: anchor(left)` ist unvereinbar. Wenn `inset-block-end: anchor(left, 50px)` gesetzt wäre, läge der berechnete Wert bei `50px`, und das positionierte Element würde sich `50px` vom Block-Ende (unten) seines nächsten positionierten Vorfahren oder des Viewports, je nach gesetztem `position`-Wert, befinden.
 - In einem vertikalen Schreibmodus verläuft die Blockrichtung von rechts nach links oder von links nach rechts, daher funktioniert `inset-block-end: anchor(left)`, aber `inset-block-end: anchor(top)` ist unvereinbar. Wenn `inset-block-end: anchor(top, 50px)` gesetzt wäre, läge der berechnete Wert bei `50px`, und das positionierte Element würde sich `50px` vom Block-Ende (links oder rechts, je nach Schreibmodus) seines nächsten positionierten Vorfahren oder des Viewports, je nach gesetztem `position`-Wert, befinden.
 
-Um das mögliche Verwirrungspotential mit diesen Werten zu verringern, wird Ihnen empfohlen, logische inset-Eigenschaften mit logischen `<anchor-side>`-Werten und physikalische inset-Eigenschaften mit physikalischen `<anchor-side>`-Werten zu verwenden. Sie sollten die Verwendung von logischen Werten wann immer möglich favorisieren, da sie besser für die [Internationalisierung](/de/docs/Glossary/Internationalisierung) geeignet sind.
+Um das mögliche Verwirrungspotential mit diesen Werten zu verringern, wird Ihnen empfohlen, logische inset-Eigenschaften mit logischen `<anchor-side>`-Werten und physikalische inset-Eigenschaften mit physikalischen `<anchor-side>`-Werten zu verwenden. Sie sollten die Verwendung von logischen Werten wann immer möglich favorisieren, da sie besser für die {{Glossary("Internationalisierung", "Internationalisierung")}} geeignet sind.
 
 Die `center`- und `<percentage>`-Werte sind innerhalb der `anchor()`-Funktion innerhalb aller logischen und physikalischen inset-Eigenschaften gültig.
 

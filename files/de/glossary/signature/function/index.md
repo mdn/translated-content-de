@@ -7,33 +7,33 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Funktionssignatur** (oder _Typ_-Signatur, oder _Methoden_-Signatur) definiert Eingaben und Ausgaben von [Funktionen](/de/docs/Glossary/Function) oder [Methoden](/de/docs/Glossary/Method).
+Eine **Funktionssignatur** (oder _Typ_-Signatur, oder _Methoden_-Signatur) definiert Eingaben und Ausgaben von {{Glossary("Function", "Funktionen")}} oder {{Glossary("Method", "Methoden")}}.
 
 Eine Signatur kann umfassen:
 
-- [Parameter](/de/docs/Glossary/Parameter) und deren [Typen](/de/docs/Glossary/Type)
+- {{Glossary("Parameter", "Parameter")}} und deren {{Glossary("Type", "Typen")}}
 - einen Rückgabewert und Typ
-- [Ausnahmen](/de/docs/Glossary/Exception), die möglicherweise ausgelöst oder zurückgegeben werden
-- Informationen über die Verfügbarkeit der Methode in einem [objektorientierten](/de/docs/Glossary/OOP) Programm (wie die Schlüsselwörter `public`, `static` oder `prototype`).
+- {{Glossary("Exception", "Ausnahmen")}}, die möglicherweise ausgelöst oder zurückgegeben werden
+- Informationen über die Verfügbarkeit der Methode in einem {{Glossary("OOP", "objektorientierten")}} Programm (wie die Schlüsselwörter `public`, `static` oder `prototype`).
 
 ## Detaillierte Betrachtung
 
 ### Signaturen in JavaScript
 
-[JavaScript](/de/docs/Glossary/JavaScript) ist eine _locker typisierte_ oder _dynamische_ Sprache. Das bedeutet, dass Sie den Typ einer Variablen nicht im Voraus deklarieren müssen. Der Typ wird automatisch bestimmt, während das Programm verarbeitet wird. Eine Signatur in JavaScript kann Ihnen dennoch einige Informationen über die Methode geben:
+{{Glossary("JavaScript", "JavaScript")}} ist eine _locker typisierte_ oder _dynamische_ Sprache. Das bedeutet, dass Sie den Typ einer Variablen nicht im Voraus deklarieren müssen. Der Typ wird automatisch bestimmt, während das Programm verarbeitet wird. Eine Signatur in JavaScript kann Ihnen dennoch einige Informationen über die Methode geben:
 
 ```js
 MyObject.prototype.myFunction(value);
 ```
 
-- Die Methode ist auf einem [Objekt](/de/docs/Glossary/object) namens `MyObject` installiert.
-- Die Methode ist auf dem `prototype` von `MyObject` installiert (daher ist es eine [Instanzmethode](/de/docs/Glossary/Method)) im Gegensatz zu einer [statischen Methode](/de/docs/Glossary/static_method).
+- Die Methode ist auf einem {{Glossary("object", "Objekt")}} namens `MyObject` installiert.
+- Die Methode ist auf dem `prototype` von `MyObject` installiert (daher ist es eine {{Glossary("Method", "Instanzmethode")}}) im Gegensatz zu einer {{Glossary("static_method", "statischen Methode")}}.
 - Der Name der Methode ist `myFunction`.
 - Die Methode akzeptiert einen Parameter, der `value` genannt wird und nicht weiter definiert ist.
 
 ### Signaturen in Java
 
-In [Java](/de/docs/Glossary/Java) werden Signaturen verwendet, um Methoden und Klassen auf Ebene des virtuellen Maschinen-Codes zu identifizieren. Sie müssen Typen von Variablen in Ihrem Code deklarieren, um den Java-Code ausführen zu können. Java ist _strikt typisiert_ und überprüft zur Kompilierungszeit, ob die Parameter korrekt sind.
+In {{Glossary("Java", "Java")}} werden Signaturen verwendet, um Methoden und Klassen auf Ebene des virtuellen Maschinen-Codes zu identifizieren. Sie müssen Typen von Variablen in Ihrem Code deklarieren, um den Java-Code ausführen zu können. Java ist _strikt typisiert_ und überprüft zur Kompilierungszeit, ob die Parameter korrekt sind.
 
 ```java
 public static void main(String[] args)

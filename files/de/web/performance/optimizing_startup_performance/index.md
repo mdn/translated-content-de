@@ -62,7 +62,7 @@ In Hinsicht auf Reaktionsfähigkeit werden Nutzer eine Verzögerung von 50ms ode
 Es gibt andere Dinge, über das hinaus gehen, asynchron zu werden, die Ihnen helfen können, die Startzeit Ihrer App zu verbessern. Hier sind einige davon:
 
 - Downloadzeit
-  - : Beachten Sie, wie lange es dauern wird, bis der Nutzer die Daten Ihrer Anwendung heruntergeladen hat. Wenn Ihre Anwendung sehr beliebt ist oder Inhalte häufig erneut heruntergeladen werden müssen, sollten Sie versuchen, einen möglichst schnellen Hosting-Server zu haben. Komprimieren Sie Ihre Daten immer [gzip compression](/de/docs/Glossary/gzip_compression), um sie so klein wie möglich zu machen.
+  - : Beachten Sie, wie lange es dauern wird, bis der Nutzer die Daten Ihrer Anwendung heruntergeladen hat. Wenn Ihre Anwendung sehr beliebt ist oder Inhalte häufig erneut heruntergeladen werden müssen, sollten Sie versuchen, einen möglichst schnellen Hosting-Server zu haben. Komprimieren Sie Ihre Daten immer {{Glossary("gzip_compression", "gzip compression")}}, um sie so klein wie möglich zu machen.
 - Datengröße
   - : Geben Sie Ihr Bestes, um die Größe Ihrer Daten zu optimieren; kleinere Leveldateien werden schneller heruntergeladen und verarbeitet als größere.
 - Subjektive Faktoren

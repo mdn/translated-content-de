@@ -116,5 +116,5 @@ console.log(tony);
 
 ## Siehe auch
 
-- [Rekursion](/de/docs/Glossary/Recursion)
+- {{Glossary("Recursion", "Rekursion")}}
 - [Rekursive Funktionen](/de/docs/Web/JavaScript/Guide/Functions#recursion)

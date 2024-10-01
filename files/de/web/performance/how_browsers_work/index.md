@@ -41,13 +41,13 @@ Dies kann besonders in mobilen Netzwerken problematisch für die Leistung sein. 
 
 ### TCP-Handshake
 
-Sobald die IP-Adresse bekannt ist, richtet der Browser eine Verbindung zum Server über einen [TCP-Drei-Wege-Handshake](/de/docs/Glossary/TCP_handshake) ein. Dieser Mechanismus ist so ausgelegt, dass zwei kommunizierende Entitäten – in diesem Fall der Browser und der Webserver – die Parameter der Netzwerk-TCP-Socket-Verbindung aushandeln können, bevor Daten übertragen werden, oft über [HTTPS](/de/docs/Glossary/HTTPS).
+Sobald die IP-Adresse bekannt ist, richtet der Browser eine Verbindung zum Server über einen {{Glossary("TCP_handshake", "TCP-Drei-Wege-Handshake")}} ein. Dieser Mechanismus ist so ausgelegt, dass zwei kommunizierende Entitäten – in diesem Fall der Browser und der Webserver – die Parameter der Netzwerk-TCP-Socket-Verbindung aushandeln können, bevor Daten übertragen werden, oft über {{Glossary("HTTPS", "HTTPS")}}.
 
 Die dreifache Transaktionsmethode von TCP wird oft als "SYN-SYN-ACK" – oder genauer SYN, SYN-ACK, ACK – bezeichnet, da drei Nachrichten von TCP gesendet werden, um eine TCP-Sitzung zwischen zwei Computern auszuhandeln und zu starten. Ja, das bedeutet drei weitere Nachrichten, die hin und her zwischen jedem Server gehen, und die Anfrage ist noch nicht gestellt worden.
 
 ### TLS-Verhandlung
 
-Für sichere Verbindungen, die über HTTPS hergestellt werden, ist ein weiterer "Handshake" erforderlich. Dieser Handshake, oder vielmehr die [TLS](/de/docs/Glossary/TLS)-Verhandlung, bestimmt, welches Verschlüsselungsverfahren verwendet wird, um die Kommunikation zu verschlüsseln, verifiziert den Server und stellt sicher, dass eine sichere Verbindung vorhanden ist, bevor der eigentliche Datentransfer beginnt. Dies erfordert fünf weitere Hin- und Herwege zum Server, bevor die Anfrage nach Inhalten tatsächlich gesendet wird.
+Für sichere Verbindungen, die über HTTPS hergestellt werden, ist ein weiterer "Handshake" erforderlich. Dieser Handshake, oder vielmehr die {{Glossary("TLS", "TLS")}}-Verhandlung, bestimmt, welches Verschlüsselungsverfahren verwendet wird, um die Kommunikation zu verschlüsseln, verifiziert den Server und stellt sicher, dass eine sichere Verbindung vorhanden ist, bevor der eigentliche Datentransfer beginnt. Dies erfordert fünf weitere Hin- und Herwege zum Server, bevor die Anfrage nach Inhalten tatsächlich gesendet wird.
 
 ![Der DNS-Lookup, der TCP-Handshake und 5 Schritte der TLS-Aushandlung, einschließlich clienthello, serverhello und Zertifikat, clientkey und beendet für sowohl Server als auch Client.](ssl.jpg)
 
@@ -79,7 +79,7 @@ Sobald wir eine Verbindung zu einem Webserver hergestellt haben, sendet der Brow
 </html>
 ```
 
-Diese Antwort für diese erste Anfrage enthält das erste Byte der empfangenen Daten. [Zeit bis zum ersten Byte](/de/docs/Glossary/Time_to_First_Byte) (TTFB) ist die Zeit zwischen dem Zeitpunkt, an dem der Benutzer die Anfrage gestellt hat – beispielsweise durch Klicken auf einen Link – und dem Empfang dieses ersten HTML-Pakets. Das erste Inhaltspaket umfasst normalerweise 14 KB Daten.
+Diese Antwort für diese erste Anfrage enthält das erste Byte der empfangenen Daten. {{Glossary("Time_to_First_Byte", "Zeit bis zum ersten Byte")}} (TTFB) ist die Zeit zwischen dem Zeitpunkt, an dem der Benutzer die Anfrage gestellt hat – beispielsweise durch Klicken auf einen Link – und dem Empfang dieses ersten HTML-Pakets. Das erste Inhaltspaket umfasst normalerweise 14 KB Daten.
 
 In unserem obigen Beispiel ist die Anfrage definitiv weniger als 14 KB, aber die verlinkten Ressourcen werden nicht angefordert, bis der Browser beim Parsen auf die Verweise stößt, wie unten beschrieben.
 
@@ -91,7 +91,7 @@ Wenn der Server nach jedem Segment auf ein ACK wartet, kommt es zu häufigen ACK
 
 Andererseits kann das gleichzeitige Senden von zu vielen Segmenten dazu führen, dass in einem stark ausgelasteten Netzwerk der Client die Segmente nicht empfangen kann und über einen längeren Zeitraum ACKs zurücksendet, und der Server muss die Segmente erneut senden.
 
-Um die Anzahl der übertragenen Segmente auszugleichen, wird der [TCP-Langsamer Start](/de/docs/Glossary/TCP_slow_start)-Algorithmus verwendet, um die Menge der übertragenen Daten allmählich zu erhöhen, bis die maximale Netzwerkkapazität bestimmt werden kann, und um die Menge der übertragenen Daten bei hoher Netzwerklast zu reduzieren.
+Um die Anzahl der übertragenen Segmente auszugleichen, wird der {{Glossary("TCP_slow_start", "TCP-Langsamer Start")}}-Algorithmus verwendet, um die Menge der übertragenen Daten allmählich zu erhöhen, bis die maximale Netzwerkkapazität bestimmt werden kann, und um die Menge der übertragenen Daten bei hoher Netzwerklast zu reduzieren.
 
 Die Anzahl der zu übertragenden Segmente wird durch den Wert des Überlastungsfensters (CWND) gesteuert, das auf 1, 2, 4 oder 10 MSS initialisiert werden kann (MSS beträgt 1500 Bytes im Ethernet-Protokoll). Dieser Wert ist die Anzahl der zu sendenden Bytes, mit deren Empfang der Client ein ACK senden muss.
 
@@ -99,7 +99,7 @@ Erhält der Client ein ACK, wird der CWND-Wert verdoppelt, sodass der Server das
 
 ## Parsen
 
-Sobald der Browser das erste Datenpaket erhält, kann er mit dem Parsen der empfangenen Informationen beginnen. [Parsen](/de/docs/Glossary/parse) ist der Schritt, den der Browser durchführt, um die über das Netzwerk empfangenen Daten in das [DOM](/de/docs/Glossary/DOM) und das [CSSOM](/de/docs/Glossary/CSSOM) zu verwandeln, welches vom Renderer verwendet wird, um eine Seite auf dem Bildschirm anzuzeigen.
+Sobald der Browser das erste Datenpaket erhält, kann er mit dem Parsen der empfangenen Informationen beginnen. {{Glossary("parse", "Parsen")}} ist der Schritt, den der Browser durchführt, um die über das Netzwerk empfangenen Daten in das {{Glossary("DOM", "DOM")}} und das {{Glossary("CSSOM", "CSSOM")}} zu verwandeln, welches vom Renderer verwendet wird, um eine Seite auf dem Bildschirm anzuzeigen.
 
 Das DOM ist die interne Darstellung des Markups für den Browser. Das DOM wird auch freigelegt und kann über verschiedene APIs in JavaScript manipuliert werden.
 
@@ -178,7 +178,7 @@ Die erste Bestimmung der Größe und Position jedes Knotens wird als _Layout_ be
 
 ### Malen
 
-Der letzte Schritt im kritischen Rendering-Pfad ist das Malen der einzelnen Knoten auf dem Bildschirm, das zum ersten Mal als [erste bedeutungsvolle Malung](/de/docs/Glossary/First_meaningful_paint) bezeichnet wird. In der Mal- oder Rasterisierungsphase konvertiert der Browser jeden im Layout berechneten Kasten in tatsächliche Pixel auf dem Bildschirm. Malen umfasst das Zeichnen jedes visuellen Teils eines Elements auf dem Bildschirm, einschließlich Text, Farben, Ränder, Schatten und ersetzter Elemente wie Schaltflächen und Bilder. Der Browser muss dies super schnell machen.
+Der letzte Schritt im kritischen Rendering-Pfad ist das Malen der einzelnen Knoten auf dem Bildschirm, das zum ersten Mal als {{Glossary("First_meaningful_paint", "erste bedeutungsvolle Malung")}} bezeichnet wird. In der Mal- oder Rasterisierungsphase konvertiert der Browser jeden im Layout berechneten Kasten in tatsächliche Pixel auf dem Bildschirm. Malen umfasst das Zeichnen jedes visuellen Teils eines Elements auf dem Bildschirm, einschließlich Text, Farben, Ränder, Schatten und ersetzter Elemente wie Schaltflächen und Bilder. Der Browser muss dies super schnell machen.
 
 Um ein reibungsloses Scrollen und Animationen zu gewährleisten, muss alles, was den Haupt-Thread beansprucht, einschließlich der Berechnung von Stilen, zusammen mit Reflow und Malung, dem Browser weniger als 16,67 ms in Anspruch nehmen. Bei einer Auflösung von 2048 x 1536 hat das iPad über 3.145.000 Pixel, die auf den Bildschirm gemalt werden müssen. Das sind viele Pixel, die sehr schnell gemalt werden müssen. Um sicherzustellen, dass Neumalen noch schneller als das erste Malen abgeschlossen werden kann, wird das Zeichnen auf dem Bildschirm im Allgemeinen in mehrere Schichten unterteilt. Wenn dies geschieht, ist eine Komposition erforderlich.
 
@@ -196,7 +196,7 @@ Da die Seite weiterhin Ressourcen lädt, können Reflows passieren (erinnern wir
 
 Sobald der Haupt-Thread die Seite gemalt hat, denken Sie vielleicht, wir wären "fertig". Das ist nicht notwendigerweise der Fall. Wenn die Ladezeit JavaScript einschließt, das richtig verschoben wurde und erst nach dem [`onload`](/de/docs/Web/API/Window/load_event)-Ereignis ausgeführt wird, könnte der Haupt-Thread beschäftigt sein und nicht für Scrollen, Berührung und andere Interaktionen verfügbar sein.
 
-[Zeit bis zur Interaktivität](/de/docs/Glossary/Time_to_Interactive) (TTI) ist die Messung der Zeit, die es von dieser ersten Anfrage, die zum DNS-Lookup und der TCP-Verbindung führte, dauerte, bis zur Interaktivität der Seite — interaktiv bedeutet den Zeitpunkt nach dem [First Contentful Paint](/de/docs/Glossary/First_Contentful_Paint), wenn die Seite innerhalb von 50 ms auf Benutzerinteraktionen antwortet. Wenn der Haupt-Thread damit beschäftigt ist, JavaScript zu parsen, kompilieren und auszuführen, steht er nicht zur Verfügung und ist daher nicht in der Lage, rechtzeitig (weniger als 50 ms) auf Benutzerinteraktionen zu reagieren.
+{{Glossary("Time_to_Interactive", "Zeit bis zur Interaktivität")}} (TTI) ist die Messung der Zeit, die es von dieser ersten Anfrage, die zum DNS-Lookup und der TCP-Verbindung führte, dauerte, bis zur Interaktivität der Seite — interaktiv bedeutet den Zeitpunkt nach dem {{Glossary("First_Contentful_Paint", "First Contentful Paint")}}, wenn die Seite innerhalb von 50 ms auf Benutzerinteraktionen antwortet. Wenn der Haupt-Thread damit beschäftigt ist, JavaScript zu parsen, kompilieren und auszuführen, steht er nicht zur Verfügung und ist daher nicht in der Lage, rechtzeitig (weniger als 50 ms) auf Benutzerinteraktionen zu reagieren.
 
 In unserem Beispiel lud das Bild vielleicht schnell, aber vielleicht war die `anotherscript.js`-Datei 2 MB groß und die Netzwerkverbindung des Benutzers langsam. In diesem Fall würde der Benutzer die Seite super schnell sehen, aber nicht ohne Ruckeln scrollen können, bis das Skript heruntergeladen, geparst und ausgeführt wurde. Das ist keine gute Benutzererfahrung. Vermeiden Sie es, den Haupt-Thread zu beanspruchen, wie in diesem WebPageTest-Beispiel gezeigt:
 

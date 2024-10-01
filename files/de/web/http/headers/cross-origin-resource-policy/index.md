@@ -15,10 +15,10 @@ angegebene Ressource blockiert.
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

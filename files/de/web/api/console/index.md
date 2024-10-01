@@ -106,7 +106,7 @@ obj.prop = 123;
 
 Dies wird `{}` ausgeben. Wenn Sie jedoch die Details des Objekts erweitern, sehen Sie `prop: 123`.
 
-Wenn Sie Ihr Objekt mutieren werden und verhindern möchten, dass die protokollierten Informationen aktualisiert werden, können Sie das Objekt, bevor Sie es protokollieren, [tief klonen](/de/docs/Glossary/Deep_copy). Eine häufige Methode besteht darin, {{jsxref("JSON.stringify()")}} und dann {{jsxref("JSON.parse()")}} zu verwenden:
+Wenn Sie Ihr Objekt mutieren werden und verhindern möchten, dass die protokollierten Informationen aktualisiert werden, können Sie das Objekt, bevor Sie es protokollieren, {{Glossary("Deep_copy", "tief klonen")}}. Eine häufige Methode besteht darin, {{jsxref("JSON.stringify()")}} und dann {{jsxref("JSON.parse()")}} zu verwenden:
 
 ```js
 console.log(JSON.parse(JSON.stringify(obj)));

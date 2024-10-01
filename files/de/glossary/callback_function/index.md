@@ -11,7 +11,7 @@ Eine **Callback-Funktion** ist eine Funktion, die in eine andere Funktion als Ar
 
 Der Nutzer einer auf Callback basierenden API schreibt eine Funktion, die in die API übergeben wird. Der Anbieter der API (der sogenannte _Caller_) nimmt die Funktion und ruft sie zu einem bestimmten Zeitpunkt innerhalb des Callers auf (oder führt sie aus). Der Caller ist dafür verantwortlich, die richtigen Parameter an die Callback-Funktion zu übergeben. Der Caller kann auch einen bestimmten Rückgabewert von der Callback-Funktion erwarten, der verwendet wird, um das weitere Verhalten des Callers anzuweisen.
 
-Es gibt zwei Arten, wie die Callback aufgerufen werden kann: _synchron_ und _asynchron_. Synchrone Callbacks werden unmittelbar nach dem Aufruf der äußeren Funktion ohne zwischengeschaltete asynchrone Aufgaben aufgerufen, während asynchrone Callbacks zu einem späteren Zeitpunkt nach dem Abschluss einer [asynchronen](/de/docs/Glossary/asynchronous) Operation aufgerufen werden.
+Es gibt zwei Arten, wie die Callback aufgerufen werden kann: _synchron_ und _asynchron_. Synchrone Callbacks werden unmittelbar nach dem Aufruf der äußeren Funktion ohne zwischengeschaltete asynchrone Aufgaben aufgerufen, während asynchrone Callbacks zu einem späteren Zeitpunkt nach dem Abschluss einer {{Glossary("asynchronous", "asynchronen")}} Operation aufgerufen werden.
 
 Es ist besonders wichtig, zu verstehen, ob die Callback synchron oder asynchron aufgerufen wird, wenn man Nebeneffekte analysiert. Betrachten Sie das folgende Beispiel:
 

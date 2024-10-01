@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine beliebige benutzerdefinierte Zeichenfolge, die als [Identifier](/de/docs/Glossary/identifier) verwendet wird. Er ist unterscheidet zwischen Groß- und Kleinschreibung, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
+Der **`<custom-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine beliebige benutzerdefinierte Zeichenfolge, die als {{Glossary("identifier", "Identifier")}} verwendet wird. Er ist unterscheidet zwischen Groß- und Kleinschreibung, und bestimmte Werte sind in verschiedenen Kontexten verboten, um Mehrdeutigkeiten zu vermeiden.
 
 ## Syntax
 

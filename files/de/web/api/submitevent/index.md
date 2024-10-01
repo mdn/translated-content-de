@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`SubmitEvent`**-Schnittstelle definiert das Objekt, das verwendet wird, um ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis eines [HTML](/de/docs/Glossary/HTML)-Formulars darzustellen. Dieses Ereignis wird am {{HTMLElement("form")}} ausgelöst, wenn die Absendeaktion des Formulars aufgerufen wird.
+Die **`SubmitEvent`**-Schnittstelle definiert das Objekt, das verwendet wird, um ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis eines {{Glossary("HTML", "HTML")}}-Formulars darzustellen. Dieses Ereignis wird am {{HTMLElement("form")}} ausgelöst, wenn die Absendeaktion des Formulars aufgerufen wird.
 
 {{InheritanceDiagram}}
 

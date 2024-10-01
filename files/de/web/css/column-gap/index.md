@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`column-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ([Rinne](/de/docs/Glossary/Gutters)) zwischen den Spalten eines Elements fest.
+Die **`column-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ({{Glossary("Gutters", "Rinne")}}) zwischen den Spalten eines Elements fest.
 
 Ursprünglich Teil des [Multi-column Layouts](/de/docs/Web/CSS/CSS_multicol_layout), wurde die Definition von `column-gap` erweitert, um mehrere Layout-Methoden einzuschließen. Jetzt in [CSS box alignment](/de/docs/Web/CSS/CSS_box_alignment) spezifiziert, kann es in mehrspaltigen, flexiblen Box- und Rasterlayouts verwendet werden.
 

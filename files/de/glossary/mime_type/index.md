@@ -10,7 +10,7 @@ l10n:
 Ein **MIME-Typ** (heutzutage korrekt als "Medientyp" bezeichnet, aber auch manchmal als "Content-Type" bekannt) ist eine Zeichenkette, die zusammen mit einer Datei gesendet wird und den Dateityp angibt (das Inhaltsformat beschreibend, zum Beispiel könnte eine Audiodatei als `audio/ogg` oder eine Bilddatei als `image/png` gekennzeichnet sein).
 
 Er erfüllt denselben Zweck wie Dateierweiterungen traditionell unter Windows.
-Der Name stammt aus dem [MIME](/de/docs/Glossary/mime)-Standard, der ursprünglich in E-Mails verwendet wurde.
+Der Name stammt aus dem {{Glossary("mime", "MIME")}}-Standard, der ursprünglich in E-Mails verwendet wurde.
 
 ## Siehe auch
 

@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **CSS-Preprozessor** ist ein Programm, mit dem Sie [CSS](/de/docs/Glossary/CSS) aus der eigenen einzigartigen [Syntax](/de/docs/Glossary/syntax) des Präprozessors generieren können.
+Ein **CSS-Preprozessor** ist ein Programm, mit dem Sie {{Glossary("CSS", "CSS")}} aus der eigenen einzigartigen {{Glossary("syntax", "Syntax")}} des Präprozessors generieren können.
 
 Es gibt viele CSS-Preprozessoren zur Auswahl. Die meisten von ihnen fügen jedoch einige Funktionen hinzu, die im reinen CSS nicht existieren, wie Mixin, Verschachtelungsselektoren, Vererbungsselektoren und so weiter. Diese Funktionen machen die Struktur des CSS lesbarer und leichter zu pflegen.
 
-Um einen CSS-Preprozessor zu verwenden, müssen Sie einen CSS-Compiler auf Ihrem Web-[Server](/de/docs/Glossary/server) installieren; Oder Sie nutzen den CSS-Preprozessor, um in der Entwicklungsumgebung zu kompilieren, und laden dann die kompilierte CSS-Datei auf den Webserver hoch.
+Um einen CSS-Preprozessor zu verwenden, müssen Sie einen CSS-Compiler auf Ihrem Web-{{Glossary("server", "Server")}} installieren; Oder Sie nutzen den CSS-Preprozessor, um in der Entwicklungsumgebung zu kompilieren, und laden dann die kompilierte CSS-Datei auf den Webserver hoch.
 
 ## Siehe auch
 
@@ -22,4 +22,4 @@ Um einen CSS-Preprozessor zu verwenden, müssen Sie einen CSS-Compiler auf Ihrem
   - [Stylus](https://stylus-lang.com/)
 
 - Verwandte Glossarbegriffe:
-  - [CSS](/de/docs/Glossary/CSS)
+  - {{Glossary("CSS", "CSS")}}

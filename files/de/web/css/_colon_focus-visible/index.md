@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`:focus-visible`** Pseudoklasse gilt, wenn ein Element die {{CSSxRef(":focus")}} Pseudoklasse erfüllt und der UA ([User Agent](/de/docs/Glossary/User_Agent)) mithilfe von Heuristiken bestimmt, dass der Fokus auf dem Element erkennbar gemacht werden sollte. (Viele Browser zeigen in diesem Fall standardmäßig einen "Fokusring" an.)
+Die **`:focus-visible`** Pseudoklasse gilt, wenn ein Element die {{CSSxRef(":focus")}} Pseudoklasse erfüllt und der UA ({{Glossary("User_Agent", "User Agent")}}) mithilfe von Heuristiken bestimmt, dass der Fokus auf dem Element erkennbar gemacht werden sollte. (Viele Browser zeigen in diesem Fall standardmäßig einen "Fokusring" an.)
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-focus-visible.html", "tabbed-shorter")}}
 

@@ -96,7 +96,7 @@ Das _balloons.jpg_-Bild, das im anfänglichen Hintergrundbildbeispiel verwendet 
 
 Sie können auch Schlüsselwörter verwenden:
 
-- `cover` — der Browser wird das Bild so groß machen, dass es den gesamten Boxbereich abdeckt, während das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) beibehalten wird. In diesem Fall wird ein Teil des Bildes wahrscheinlich außerhalb der Box landen.
+- `cover` — der Browser wird das Bild so groß machen, dass es den gesamten Boxbereich abdeckt, während das {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehalten wird. In diesem Fall wird ein Teil des Bildes wahrscheinlich außerhalb der Box landen.
 - `contain` — der Browser wird das Bild auf die richtige Größe bringen, damit es innerhalb der Box passt. In diesem Fall könnten Lücken an den Seiten oder oben und unten im Bild entstehen, wenn das Seitenverhältnis des Bildes von dem der Box abweicht.
 
 Im Beispiel unten hat das _balloons.jpg_-Bild Längeneinheiten gesetzt, um es in der Box zu dimensionieren. Sie können sehen, dass dies das Bild verzerrt hat.

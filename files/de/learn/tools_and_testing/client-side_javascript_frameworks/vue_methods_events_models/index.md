@@ -142,7 +142,7 @@ Um eine Methode für die `ToDoForm`-Komponente verfügbar zu machen, müssen wir
    - `.stop`: Stoppt die Weitergabe des Events. Entspricht [`Event.stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) in regulären JavaScript-Events.
    - `.prevent`: Verhindert das Standardverhalten des Events. Entspricht [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault).
    - `.self`: Löst den Handler nur aus, wenn das Event genau von diesem Element ausgelöst wurde.
-   - `{.key}`: Löst den Event-Handler nur durch die angegebene Taste aus. [MDN hat eine Liste der gültigen Tastenwerte](/de/docs/Web/API/UI_Events/Keyboard_event_key_values); Tasten mit mehreren Wörtern müssen einfach in [kebab-case](/de/docs/Glossary/kebab_case) konvertiert werden (z.B. `page-down`).
+   - `{.key}`: Löst den Event-Handler nur durch die angegebene Taste aus. [MDN hat eine Liste der gültigen Tastenwerte](/de/docs/Web/API/UI_Events/Keyboard_event_key_values); Tasten mit mehreren Wörtern müssen einfach in {{Glossary("kebab_case", "kebab-case")}} konvertiert werden (z.B. `page-down`).
    - `.native`: Lauscht auf ein natives Event auf dem Root- (äußerst umhüllenden) Element in Ihrer Komponente.
    - `.once`: Lauscht auf das Event, bis es einmal ausgelöst wurde, und dann nicht mehr.
    - `.left`: Löst den Handler nur über das Event der linken Maustaste aus.

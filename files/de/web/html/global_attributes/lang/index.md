@@ -134,7 +134,7 @@ Zum Beispiel enthält das Sprachmenü auf dieser Seite (MDN) ein **`lang`**-Attr
 
 ## Vererbung
 
-Wenn ein Element kein `lang`-Attribut hat, erbt es den `lang`-Wert von seinem [Elternelement](/de/docs/Glossary/Node/DOM), das wiederum diesen von seinem eigenen Elternelement erben kann, und so weiter.
+Wenn ein Element kein `lang`-Attribut hat, erbt es den `lang`-Wert von seinem {{Glossary("Node/DOM", "Elternelement")}}, das wiederum diesen von seinem eigenen Elternelement erben kann, und so weiter.
 
 ## Spezifikationen
 

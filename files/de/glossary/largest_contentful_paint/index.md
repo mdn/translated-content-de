@@ -21,5 +21,5 @@ Die folgenden Elemente werden bei der Bestimmung des LCP berücksichtigt:
 
 - [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)
 - Verwandte Glossarbegriffe:
-  - [First contentful paint](/de/docs/Glossary/First_contentful_paint)
-  - [First paint](/de/docs/Glossary/First_paint)
+  - {{Glossary("First_contentful_paint", "First contentful paint")}}
+  - {{Glossary("First_paint", "First paint")}}

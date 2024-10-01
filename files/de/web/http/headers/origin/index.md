@@ -7,17 +7,17 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Origin`** Request-Header gibt den [Origin](/de/docs/Glossary/origin) (Schema, Hostname und Port) an, der die Anfrage _verursacht_ hat.
+Der **`Origin`** Request-Header gibt den {{Glossary("origin", "Origin")}} (Schema, Hostname und Port) an, der die Anfrage _verursacht_ hat.
 Zum Beispiel, wenn ein User-Agent Ressourcen anfragen muss, die in einer Seite enthalten sind oder durch von ihm ausgeführte Skripte abgerufen werden, dann kann der Origin der Seite in die Anfrage einbezogen werden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -53,7 +53,7 @@ Er wird verwendet, um den "Sicherheitskontext" für die Ursprung-Anfrage bereitz
 
 Im Großen und Ganzen fügen User-Agents den `Origin`-Request-Header hinzu zu:
 
-- [Cross-Origin](/de/docs/Glossary/CORS)-Anfragen.
+- {{Glossary("CORS", "Cross-Origin")}}-Anfragen.
 - [Same-Origin](/de/docs/Web/Security/Same-origin_policy)-Anfragen außer für {{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfragen (d.h. sie werden zu Same-Origin {{HTTPMethod("POST")}}, {{HTTPMethod("OPTIONS")}}, {{HTTPMethod("PUT")}}, {{HTTPMethod("PATCH")}} und {{HTTPMethod("DELETE")}}-Anfragen hinzugefügt).
 
 Es gibt einige Ausnahmen zu den oben genannten Regeln; zum Beispiel, wenn eine Cross-Origin-{{HTTPMethod("GET")}}- oder {{HTTPMethod("HEAD")}}-Anfrage im [no-cors-Modus](/de/docs/Web/API/Request/mode#value) gemacht wird, wird der `Origin`-Header nicht hinzugefügt.

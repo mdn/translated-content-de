@@ -16,7 +16,7 @@ Das `*` kann durch beliebige Zeichen ersetzt werden, die in [XMLs Regeln für Na
 - Keine Großbuchstaben `A` bis `Z`.
 
 > [!NOTE]
-> Die [`SVGElement.dataset`](/de/docs/Web/API/SVGElement/dataset)-Eigenschaft ist ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap), das das Attribut `data-test-value` über `SVGElement.dataset.testValue` bereitstellt. Bindestrichzeichen (`-`, `U+002D`) werden entfernt und der nächste Buchstabe wird großgeschrieben, was zu [camel case](/de/docs/Glossary/camel_case) führt.
+> Die [`SVGElement.dataset`](/de/docs/Web/API/SVGElement/dataset)-Eigenschaft ist ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap), das das Attribut `data-test-value` über `SVGElement.dataset.testValue` bereitstellt. Bindestrichzeichen (`-`, `U+002D`) werden entfernt und der nächste Buchstabe wird großgeschrieben, was zu {{Glossary("camel_case", "camel case")}} führt.
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 

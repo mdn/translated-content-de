@@ -73,7 +73,7 @@ Server antworten mit einer Statusmeldung, wann immer sie eine Anforderung erhalt
 - **404: Nicht gefunden**
   - : Selbsterklärend. Wir werden unten besprechen, wie Sie dies beheben können.
 - **500: Interner Serverfehler**
-  - : Auf dem Server ist etwas schiefgelaufen. Vielleicht hat die serverseitige Sprache ([PHP](/de/docs/Glossary/PHP), .Net, etc.) aufgehört zu arbeiten, oder der Webserver selbst hat ein Konfigurationsproblem. Normalerweise ist es am besten, sich an den Support Ihres Hosting-Anbieters zu wenden.
+  - : Auf dem Server ist etwas schiefgelaufen. Vielleicht hat die serverseitige Sprache ({{Glossary("PHP", "PHP")}}, .Net, etc.) aufgehört zu arbeiten, oder der Webserver selbst hat ein Konfigurationsproblem. Normalerweise ist es am besten, sich an den Support Ihres Hosting-Anbieters zu wenden.
 - **503: Dienst nicht verfügbar**
   - : Gewöhnlich aufgrund einer kurzfristigen Systemüberlastung. Der Server hat ein Problem. Versuchen Sie es in kurzer Zeit erneut.
 
@@ -93,7 +93,7 @@ Speichern Sie die Datei, [pushen Sie zum Server](/de/docs/Learn/Common_questions
 
 ![Das Bild wird korrekt im Browser geladen](image-corrected.png)
 
-Da haben Sie es! Sehen wir uns die [HTTP](/de/docs/Glossary/HTTP)-Statuscodes noch einmal an:
+Da haben Sie es! Sehen wir uns die {{Glossary("HTTP", "HTTP")}}-Statuscodes noch einmal an:
 
 - **200** für `/` und für `unicorn_pic.png` bedeutet, dass wir die Seite und das Bild erfolgreich erneut geladen haben.
 - **304** für `basic.css` bedeutet, dass diese Datei sich seit der letzten Anfrage nicht geändert hat, sodass der Browser die Datei aus seinem Cache verwenden kann, anstatt eine neue Kopie zu erhalten.
@@ -136,7 +136,7 @@ Lädt die Seite schnell genug? Ressourcen wie [WebPageTest.org](https://www.webp
 
 ![Yslow-Diagnosen](yslow-diagnostics.png)
 
-Noten reichen von A bis F. Unsere Seite ist einfach klein und erfüllt die meisten Kriterien. Aber wir können bereits feststellen, dass es besser gewesen wäre, ein [CDN](/de/docs/Glossary/CDN) zu verwenden. Das ist nicht sehr wichtig, wenn wir nur ein Bild bereitstellen, aber es wäre entscheidend für eine Website mit hohem Bandbreitenbedarf, die viele Tausend Bilder bereitstellt.
+Noten reichen von A bis F. Unsere Seite ist einfach klein und erfüllt die meisten Kriterien. Aber wir können bereits feststellen, dass es besser gewesen wäre, ein {{Glossary("CDN", "CDN")}} zu verwenden. Das ist nicht sehr wichtig, wenn wir nur ein Bild bereitstellen, aber es wäre entscheidend für eine Website mit hohem Bandbreitenbedarf, die viele Tausend Bilder bereitstellt.
 
 #### Ist der Server reaktionsschnell genug?
 

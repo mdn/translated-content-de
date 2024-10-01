@@ -7,15 +7,15 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-[Transport Layer Security (TLS)](/de/docs/Glossary/TLS) bietet Garantien für die Vertraulichkeit, Authentizität und Integrität aller Kommunikationen und sollte daher für alle eingehenden und ausgehenden Website-Kommunikationen verwendet werden.
+{{Glossary("TLS", "Transport Layer Security (TLS)")}} bietet Garantien für die Vertraulichkeit, Authentizität und Integrität aller Kommunikationen und sollte daher für alle eingehenden und ausgehenden Website-Kommunikationen verwendet werden.
 
 ## TLS-Konfiguration
 
 ### Problem
 
-Wenn Daten unverschlüsselt über das Internet gesendet werden, können sie von Dritten abgefangen werden, die auf die Daten zugreifen und sie verändern können – dies wird oft als ein [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM)-Angriff bezeichnet. MiTM-Angriffe haben schwerwiegende Konsequenzen für die Sicherheit Ihres Systems.
+Wenn Daten unverschlüsselt über das Internet gesendet werden, können sie von Dritten abgefangen werden, die auf die Daten zugreifen und sie verändern können – dies wird oft als ein {{Glossary("MitM", "Manipulator-in-the-Middle")}} (MiTM)-Angriff bezeichnet. MiTM-Angriffe haben schwerwiegende Konsequenzen für die Sicherheit Ihres Systems.
 
-Alle Anfragen und Antworten sollten daher über HTTPS gesendet werden, das TLS zur Verschlüsselung der Daten verwendet. Das moderne Web erzwingt dies praktisch – alle Browser bewegen sich in Richtung der Standardeinstellung [HTTPS](/de/docs/Glossary/HTTPS) und viele Web-Features können nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) genutzt werden.
+Alle Anfragen und Antworten sollten daher über HTTPS gesendet werden, das TLS zur Verschlüsselung der Daten verwendet. Das moderne Web erzwingt dies praktisch – alle Browser bewegen sich in Richtung der Standardeinstellung {{Glossary("HTTPS", "HTTPS")}} und viele Web-Features können nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) genutzt werden.
 
 ### Lösung
 
@@ -97,7 +97,7 @@ Leiten Sie `site.example.org` von HTTP zu HTTPS um, mit Apache:
 
 ### Problem
 
-Um [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM)-Angriffe zu verhindern, sollten Browser nur über HTTPS auf Websites zugreifen.
+Um {{Glossary("MitM", "Manipulator-in-the-Middle")}} (MiTM)-Angriffe zu verhindern, sollten Browser nur über HTTPS auf Websites zugreifen.
 
 ### Lösung
 

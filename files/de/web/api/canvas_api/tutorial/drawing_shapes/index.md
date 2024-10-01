@@ -19,7 +19,7 @@ Normalerweise entspricht 1 Einheit im Raster einem Pixel auf dem Canvas. Der Urs
 
 ## Rechtecke zeichnen
 
-Im Gegensatz zu [SVG](/de/docs/Glossary/SVG) unterstützt {{HTMLElement("canvas")}} nur zwei primitive Formen: Rechtecke und Pfade (Listen von Punkten, die durch Linien verbunden sind). Alle anderen Formen müssen durch das Kombinieren von einem oder mehreren Pfaden erstellt werden. Zum Glück haben wir eine Reihe von Pfadzeichnungsfunktionen, die es ermöglichen, sehr komplexe Formen zu erstellen.
+Im Gegensatz zu {{Glossary("SVG", "SVG")}} unterstützt {{HTMLElement("canvas")}} nur zwei primitive Formen: Rechtecke und Pfade (Listen von Punkten, die durch Linien verbunden sind). Alle anderen Formen müssen durch das Kombinieren von einem oder mehreren Pfaden erstellt werden. Zum Glück haben wir eine Reihe von Pfadzeichnungsfunktionen, die es ermöglichen, sehr komplexe Formen zu erstellen.
 
 Schauen wir uns zuerst das Rechteck an. Es gibt drei Funktionen, die Rechtecke auf das Canvas zeichnen:
 
@@ -313,7 +313,7 @@ draw();
 
 ### Bezier- und quadratische Kurven
 
-Der nächste verfügbare Pfadtyp sind [Bézier-Kurven](/de/docs/Glossary/Bezier_curve), verfügbar in kubischen und quadratischen Varianten. Diese werden im Allgemeinen verwendet, um komplexe organische Formen zu zeichnen.
+Der nächste verfügbare Pfadtyp sind {{Glossary("Bezier_curve", "Bézier-Kurven")}}, verfügbar in kubischen und quadratischen Varianten. Diese werden im Allgemeinen verwendet, um komplexe organische Formen zu zeichnen.
 
 - [`quadraticCurveTo(cp1x, cp1y, x, y)`](/de/docs/Web/API/CanvasRenderingContext2D/quadraticCurveTo)
   - : Zeichnet eine quadratische Bézier-Kurve von der aktuellen Stiftposition zum Endpunkt, der durch `x` und `y` angegeben ist, unter Verwendung des Kontrollpunkts, der durch `cp1x` und `cp1y` angegeben ist.

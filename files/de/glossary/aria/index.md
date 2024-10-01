@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**ARIA** (_[Accessible](/de/docs/Glossary/Accessibility) Rich [Internet](/de/docs/Glossary/Internet) Applications_) ist eine [W3C](/de/docs/Glossary/W3C)-Spezifikation, die von der [WAI](/de/docs/Glossary/WAI) entwickelt wurde, um Webinhalte und Webanwendungen für Menschen mit Behinderungen zugänglicher zu machen. Sie hilft insbesondere bei dynamischen Inhalten und fortgeschrittenen Benutzeroberflächensteuerungen, die mit HTML, JavaScript und verwandten Technologien entwickelt wurden.
+**ARIA** (_{{Glossary("Accessibility", "Accessible")}} Rich {{Glossary("Internet", "Internet")}} Applications_) ist eine {{Glossary("W3C", "W3C")}}-Spezifikation, die von der {{Glossary("WAI", "WAI")}} entwickelt wurde, um Webinhalte und Webanwendungen für Menschen mit Behinderungen zugänglicher zu machen. Sie hilft insbesondere bei dynamischen Inhalten und fortgeschrittenen Benutzeroberflächensteuerungen, die mit HTML, JavaScript und verwandten Technologien entwickelt wurden.
 
-Die Spezifikation ermöglicht es Ihnen beispielsweise, das Attribut `role="alert"` zu einem {{HTMLElement("p")}}-[Tag](/de/docs/Glossary/tag) hinzuzufügen, um einen sehbehinderten Benutzer darüber zu informieren, dass die Information wichtig und zeitkritisch ist (was Sie ansonsten durch Textfarbe übermitteln könnten).
+Die Spezifikation ermöglicht es Ihnen beispielsweise, das Attribut `role="alert"` zu einem {{HTMLElement("p")}}-{{Glossary("tag", "Tag")}} hinzuzufügen, um einen sehbehinderten Benutzer darüber zu informieren, dass die Information wichtig und zeitkritisch ist (was Sie ansonsten durch Textfarbe übermitteln könnten).
 
 ## Siehe auch
 
@@ -20,5 +20,5 @@ Die Spezifikation ermöglicht es Ihnen beispielsweise, das Attribut `role="alert
 - [Accessibility](/de/docs/Web/Accessibility)
 - [Lernen Sie Zugänglichkeit](/de/docs/Learn/Accessibility)
 - Verwandte Glossarbegriffe
-  - [Accessibility](/de/docs/Glossary/Accessibility)
-  - [WAI](/de/docs/Glossary/WAI)
+  - {{Glossary("Accessibility", "Accessibility")}}
+  - {{Glossary("WAI", "WAI")}}

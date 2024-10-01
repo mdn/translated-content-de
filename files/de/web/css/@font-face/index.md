@@ -60,7 +60,7 @@ Die **`@font-face`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule
 
 Es ist üblich, sowohl `url()` als auch `local()` zusammen zu verwenden, sodass die auf dem Gerät des Benutzers installierte Schriftart benutzt wird, falls verfügbar, wobei andernfalls eine Kopie der Schriftart heruntergeladen wird.
 
-Wenn die `local()` Funktion bereitgestellt wird, um eine Schriftart zu spezifizieren, nach der auf dem Gerät des Nutzers gesucht werden soll, und wenn der [User-Agent](/de/docs/Glossary/user_agent) eine Übereinstimmung findet, wird diese lokale Schriftart verwendet. Andernfalls wird die Schriftressource, die mit der `url()` Funktion angegeben ist, heruntergeladen und verwendet.
+Wenn die `local()` Funktion bereitgestellt wird, um eine Schriftart zu spezifizieren, nach der auf dem Gerät des Nutzers gesucht werden soll, und wenn der {{Glossary("user_agent", "User-Agent")}} eine Übereinstimmung findet, wird diese lokale Schriftart verwendet. Andernfalls wird die Schriftressource, die mit der `url()` Funktion angegeben ist, heruntergeladen und verwendet.
 
 Browser versuchen, Ressourcen in der Reihenfolge ihrer Deklarationsliste zu laden, daher sollte `local()` in der Regel vor `url()` geschrieben werden. Beide Funktionen sind optional, sodass ein Regelblock, der nur ein oder mehrere `local()` ohne `url()` enthält, möglich ist.
 Wenn spezifischere Schriftarten mit `format()` oder `tech()` Werten gewünscht sind, sollten diese _vor_ Versionen aufgelistet werden, die diese Werte nicht besitzen, da ansonsten die weniger spezifische Variante zuerst ausprobiert und verwendet würde.

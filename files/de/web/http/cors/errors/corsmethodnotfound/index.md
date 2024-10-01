@@ -15,7 +15,7 @@ Reason: Did not find method in CORS header 'Access-Control-Allow-Methods'
 
 ## Was ist schiefgelaufen?
 
-Die HTTP-Methode, die von der [CORS](/de/docs/Glossary/CORS)-Anfrage verwendet wird, ist nicht in der Liste der Methoden enthalten, die im `Access-Control-Allow-Methods`-Header der Antwort angegeben sind. Dieser Header gibt eine durch Kommas getrennte Liste der HTTP-Methoden an, die verwendet werden dürfen, wenn CORS verwendet wird, um auf die im Antrag angegebene URL zuzugreifen; wenn der Antrag eine andere Methode verwendet, tritt dieser Fehler auf.
+Die HTTP-Methode, die von der {{Glossary("CORS", "CORS")}}-Anfrage verwendet wird, ist nicht in der Liste der Methoden enthalten, die im `Access-Control-Allow-Methods`-Header der Antwort angegeben sind. Dieser Header gibt eine durch Kommas getrennte Liste der HTTP-Methoden an, die verwendet werden dürfen, wenn CORS verwendet wird, um auf die im Antrag angegebene URL zuzugreifen; wenn der Antrag eine andere Methode verwendet, tritt dieser Fehler auf.
 
 Wenn die Antwort zum Beispiel enthält:
 
@@ -33,6 +33,6 @@ Stellen Sie sicher, dass Ihr Code nur die erlaubten HTTP-Methoden beim Zugriff a
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [CORS-Einführung](/de/docs/Web/HTTP/CORS)
 - [HTTP-Anfrage-Methoden](/de/docs/Web/HTTP/Methods)

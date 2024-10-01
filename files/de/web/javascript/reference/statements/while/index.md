@@ -19,7 +19,7 @@ while (condition)
 ```
 
 - `condition`
-  - : Ein Ausdruck, der _vor_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung [als wahr ausgewertet wird](/de/docs/Glossary/Truthy), wird `statement` ausgeführt. Wenn die Bedingung [als falsch ausgewertet wird](/de/docs/Glossary/Falsy), wird die Ausführung mit der Anweisung nach der `while`-Schleife fortgesetzt.
+  - : Ein Ausdruck, der _vor_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung {{Glossary("Truthy", "als wahr ausgewertet wird")}}, wird `statement` ausgeführt. Wenn die Bedingung {{Glossary("Falsy", "als falsch ausgewertet wird")}}, wird die Ausführung mit der Anweisung nach der `while`-Schleife fortgesetzt.
 - `statement`
   - : Eine Anweisung, die ausgeführt wird, solange die Bedingung als wahr ausgewertet wird. Sie können eine [Blockanweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
 
@@ -77,13 +77,13 @@ while (currentNode = iterator.nextNode()) {
 Der _Effekt_ dieser Zeile ist in Ordnung — in dem Sinne, dass jedes Mal, wenn ein Kommentarknoten gefunden wird:
 
 1. `iterator.nextNode()` gibt diesen Kommentarknoten zurück, der `currentNode` zugewiesen wird.
-2. Der Wert von `currentNode = iterator.nextNode()` ist daher [wahrhaftig](/de/docs/Glossary/Truthy).
+2. Der Wert von `currentNode = iterator.nextNode()` ist daher {{Glossary("Truthy", "wahrhaftig")}}.
 3. Also wird der `console.log()`-Aufruf ausgeführt und die Schleife wird fortgesetzt.
 
 … und dann, wenn keine Kommentarknoten mehr im Dokument vorhanden sind:
 
 1. `iterator.nextNode()` gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
-2. Der Wert von `currentNode = iterator.nextNode()` ist daher ebenfalls `null`, was [falschhaft](/de/docs/Glossary/Falsy) ist.
+2. Der Wert von `currentNode = iterator.nextNode()` ist daher ebenfalls `null`, was {{Glossary("Falsy", "falschhaft")}} ist.
 3. Also endet die Schleife.
 
 Das Problem mit dieser Zeile ist: Bedingungen verwenden typischerweise [Vergleichsoperatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#comparison_operators) wie `===`, aber das `=` in dieser Zeile ist kein Vergleichsoperator — es ist stattdessen ein [Zuweisungsoperator](/de/docs/Web/JavaScript/Guide/Expressions_and_operators#assignment_operators). Daher _sieht_ dieses `=` so aus, als wäre es ein Tippfehler für `===` — obwohl es _tatsächlich kein_ Tippfehler ist.

@@ -41,7 +41,7 @@ Die Methode [`MediaCapabilities.decodingInfo()`](/de/docs/Web/API/MediaCapabilit
 In unserem Beispiel testen wir die Dekodierungsfähigkeiten einer Videokonfiguration. Die Konfiguration erfordert den Typ des zu testenden Mediums — z.B. eine einfache `file` oder [`MediaSource`](/de/docs/Web/API/MediaSource) — und ein Video-Konfigurationsobjekt, das Werte für `contentType`, `width`, `height`, `bitrate` und `framerate` enthält:
 
 - Der `contentType` muss eine Zeichenkette sein, die einen [gültigen Video-MIME-Typ](/de/docs/Web/Media/Formats/Video_codecs) angibt.
-- Die `width` und `height` sind die horizontalen und vertikalen Abmessungen des Videos; diese werden auch verwendet, um das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) zu bestimmen.
+- Die `width` und `height` sind die horizontalen und vertikalen Abmessungen des Videos; diese werden auch verwendet, um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} zu bestimmen.
 - Die `bitrate` ist die Anzahl der Bits, die zum Kodieren einer Sekunde Video verwendet werden.
 - Die `framerate` ist die Anzahl der Bilder, die pro Sekunde Zeit beim Abspielen des Videos abgespielt werden.
 

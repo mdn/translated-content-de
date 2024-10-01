@@ -16,10 +16,10 @@ Der {{HTMLElement("input/email", "email")}}-Eingabetyp erwartet eine oder mehrer
 
 Der {{HTMLElement("input/url", "url")}}-Eingabetyp erwartet eine oder mehrere gültige URLs, abhängig davon, ob das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut vorhanden ist. Eine gültige URL umfasst ein Protokoll, optional mit einer IP-Adresse, oder eine optionale Subdomain, Domain und Kombination mit Top-Level-Domain. Wenn der Wert des URL-Eingabefeldes nicht ein Leerstring, eine einzelne gültige URL oder eine oder mehrere durch Kommas getrennte URLs ist, sofern das [`multiple`](/de/docs/Web/HTML/Attributes/multiple)-Attribut vorhanden ist, liegt ein `typeMismatch` vor.
 
-| Eingabetyp                              | Wert              | Erwarteter Wert                                               |
-| --------------------------------------- | ----------------- | -------------------------------------------------------------- |
-| {{HTMLElement("input/email", "email")}} | `x@y` oder `x@y.z` | E-Mail-Adresse, mit oder ohne [TLD](/de/docs/Glossary/TLD) |
-| {{HTMLElement("input/url", "url")}}     | `x:` oder `x://y.z` | Protokoll oder vollständige URL mit Protokoll                  |
+| Eingabetyp                              | Wert                | Erwarteter Wert                                          |
+| --------------------------------------- | ------------------- | -------------------------------------------------------- |
+| {{HTMLElement("input/email", "email")}} | `x@y` oder `x@y.z`  | E-Mail-Adresse, mit oder ohne {{Glossary("TLD", "TLD")}} |
+| {{HTMLElement("input/url", "url")}}     | `x:` oder `x://y.z` | Protokoll oder vollständige URL mit Protokoll            |
 
 ## Wert
 

@@ -22,7 +22,7 @@ Alt-Svc: <protocol-id>=<alt-authority>; ma=<max-age>; persist=1
 - `clear`
   - : Der spezielle Wert `clear` gibt an, dass der Ursprung verlangt, dass alle alternativen Dienste für diesen Ursprung ungültig gemacht werden.
 - `<protocol-id>`
-  - : Der [ALPN](/de/docs/Glossary/ALPN)-Protokollbezeichner. Beispiele sind `h2` für HTTP/2 und `h3-25` für Entwurf 25 des HTTP/3-Protokolls.
+  - : Der {{Glossary("ALPN", "ALPN")}}-Protokollbezeichner. Beispiele sind `h2` für HTTP/2 und `h3-25` für Entwurf 25 des HTTP/3-Protokolls.
 - `<alt-authority>`
   - : Der in Anführungszeichen gesetzte String, der die alternative Autorität spezifiziert, bestehend aus einer optionalen Host-Überschreibung, einem Doppelpunkt und einer obligatorischen Portnummer.
 - `ma=<max-age>` {{optional_inline}}

@@ -23,7 +23,7 @@ Ein Ursprung wird gelöscht, wenn er die folgenden Bedingungen erfüllt:
 
 1. Er hat innerhalb der letzten 72 Stunden Cookies gespeichert oder auf anderen Website-Speicher (z.B. [localStorage](/de/docs/Web/API/Web_Storage_API), [IndexedDB](/de/docs/Web/API/IndexedDB_API) oder die [Cache API](/de/docs/Web/API/CacheStorage)) zugegriffen. Da Cookies pro Host sind, löschen wir sowohl die `http`- als auch die `https`-Ursprung-Varianten eines Cookie-Hosts.
 2. Der Ursprung ist in unserer Tracking-Schutzliste als [Tracker klassifiziert](/de/docs/Web/Privacy/Storage_Access_Policy#tracking_protection_explained).
-3. Kein Ursprung mit derselben Basisdomain ([eTLD+1](/de/docs/Glossary/eTLD)) hat eine Benutzerinteraktions-Erlaubnis.
+3. Kein Ursprung mit derselben Basisdomain ({{Glossary("eTLD", "eTLD+1")}}) hat eine Benutzerinteraktions-Erlaubnis.
 
    - Diese Erlaubnis wird einem Ursprung für 45 Tage gewährt, sobald ein Benutzer mit einem Top-Level-Dokument von diesem Ursprung interagiert. "Interagieren" umfasst das Scrollen.
    - Obwohl diese Erlaubnis auf einer per-Ursprung-Basis gespeichert wird, prüfen wir, ob ein beliebiger Ursprung mit derselben Basisdomain sie hat, um zu vermeiden, dass Sites mit Subdomains und entsprechender Cookie-Einstellung beschädigt werden.

@@ -23,7 +23,7 @@ opacity(amount)
 ### Parameter
 
 - `amount`
-  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `0%` ist vollständig transparent, während ein Wert von `100%` das Eingabeobjekt unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren auf den Effekt. Der Anfangswert für [Interpolation](/de/docs/Glossary/interpolation) ist `1`.
+  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `0%` ist vollständig transparent, während ein Wert von `100%` das Eingabeobjekt unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren auf den Effekt. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `1`.
 
 ## Beispiele
 

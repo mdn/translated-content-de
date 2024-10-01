@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef('Prioritized Task Scheduling API')}}{{AvailableInWorkers}}
 
-Die **`yield()`** Methode des [`Scheduler`](/de/docs/Web/API/Scheduler)-Interfaces wird verwendet, um während einer Aufgabe an den [Hauptthread](/de/docs/Glossary/Main_thread) abzugeben und die Ausführung später fortzusetzen, wobei die Fortsetzung als priorisierte Aufgabe geplant wird (weitere Informationen siehe [Priorisierte Aufgabenplanung-API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)). Dies ermöglicht es, langlaufende Arbeiten aufzuteilen, damit der Browser reaktionsfähig bleibt.
+Die **`yield()`** Methode des [`Scheduler`](/de/docs/Web/API/Scheduler)-Interfaces wird verwendet, um während einer Aufgabe an den {{Glossary("Main_thread", "Hauptthread")}} abzugeben und die Ausführung später fortzusetzen, wobei die Fortsetzung als priorisierte Aufgabe geplant wird (weitere Informationen siehe [Priorisierte Aufgabenplanung-API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)). Dies ermöglicht es, langlaufende Arbeiten aufzuteilen, damit der Browser reaktionsfähig bleibt.
 
 Die Aufgabe kann fortgesetzt werden, wenn das von der Methode zurückgegebene Versprechen aufgelöst wird. Die Priorität, wann das Versprechen aufgelöst wird, ist standardmäßig [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible), kann jedoch eine andere Priorität erben, wenn der `yield()`-Aufruf innerhalb eines [`Scheduler.postTask()`](/de/docs/Web/API/Scheduler/postTask)-Callbacks erfolgt.
 

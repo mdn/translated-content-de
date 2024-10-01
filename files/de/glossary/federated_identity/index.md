@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **federated identity**-System ist eines, bei dem ein [Identity Provider (IdP)](/de/docs/Glossary/identity_provider) als Vermittler zwischen Benutzern und [Relying Parties](/de/docs/Glossary/relying_party) fungiert und es einem Benutzer ermöglicht, ein einziges Set von [Anmeldedaten](/de/docs/Glossary/credential) zu verwenden, um sich bei verschiedenen Relying Parties zu authentifizieren.
+Ein **federated identity**-System ist eines, bei dem ein {{Glossary("identity_provider", "Identity Provider (IdP)")}} als Vermittler zwischen Benutzern und {{Glossary("relying_party", "Relying Parties")}} fungiert und es einem Benutzer ermöglicht, ein einziges Set von {{Glossary("credential", "Anmeldedaten")}} zu verwenden, um sich bei verschiedenen Relying Parties zu authentifizieren.
 
-Traditionell meldet sich ein Benutzer im Web auf einer Website mit einem Benutzernamen und einem Passwort an, und das Passwort wird von der Website gegen eine (ordnungsgemäß [gehashte](/de/docs/Glossary/hash) und [gesalzene](/de/docs/Glossary/salt)) Kopie überprüft, die im Backend der Website gespeichert ist.
+Traditionell meldet sich ein Benutzer im Web auf einer Website mit einem Benutzernamen und einem Passwort an, und das Passwort wird von der Website gegen eine (ordnungsgemäß {{Glossary("hash", "gehashte")}} und {{Glossary("salt", "gesalzene")}}) Kopie überprüft, die im Backend der Website gespeichert ist.
 
 In diesem Modell müssen sich Benutzer, die mehrere Konten bei verschiedenen Websites haben, viele Passwörter merken. Dies fördert schlechte Passwortpraktiken wie die Verwendung desselben Passworts für mehrere Konten.
 
@@ -27,6 +27,6 @@ Obwohl federated identity das Anmelden bei mehreren verschiedenen Konten für Be
 ## Siehe auch
 
 - Verwandte Glossareinträge:
-  - [Relying Party](/de/docs/Glossary/Relying_party)
-  - [Identity Provider](/de/docs/Glossary/Identity_provider)
+  - {{Glossary("Relying_party", "Relying Party")}}
+  - {{Glossary("Identity_provider", "Identity Provider")}}
 - [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API)

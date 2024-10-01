@@ -7,4 +7,4 @@ l10n:
 
 {{GlossarySidebar}}
 
-In [JavaScript](/de/docs/Glossary/JavaScript) ist ein Nullish-Wert ein Wert, der entweder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{JSxRef("undefined")}} ist. Nullish-Werte sind immer [falsy](/de/docs/Glossary/falsy).
+In {{Glossary("JavaScript", "JavaScript")}} ist ein Nullish-Wert ein Wert, der entweder [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{JSxRef("undefined")}} ist. Nullish-Werte sind immer {{Glossary("falsy", "falsy")}}.

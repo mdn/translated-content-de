@@ -21,7 +21,7 @@ every(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im TypedArray ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im TypedArray ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im TypedArray verarbeitet wird.
     - `index`
@@ -33,7 +33,7 @@ every(callbackFn, thisArg)
 
 ### Rückgabewert
 
-`true`, es sei denn, `callbackFn` gibt einen [falsy](/de/docs/Glossary/falsy) Wert für ein TypedArray-Element zurück, in diesem Fall wird sofort `false` zurückgegeben.
+`true`, es sei denn, `callbackFn` gibt einen {{Glossary("falsy", "falsy")}} Wert für ein TypedArray-Element zurück, in diesem Fall wird sofort `false` zurückgegeben.
 
 ## Beschreibung
 

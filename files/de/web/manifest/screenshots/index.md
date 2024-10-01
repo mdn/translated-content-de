@@ -53,7 +53,7 @@ Das `screenshots`-Mitglied ist ein Array von Objekten, von denen jedes einen Scr
 - `src`
   - : Ein String, der eine URL darstellt, von der der Benutzeragent die Bilddaten abrufen kann.
 - `type`
-  - : Ein String, der den [MIME-Typ](/de/docs/Glossary/MIME_type) für das Bild darstellt.
+  - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} für das Bild darstellt.
 
 ## Beispiele
 

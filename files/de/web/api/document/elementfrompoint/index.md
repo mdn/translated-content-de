@@ -29,7 +29,7 @@ elementFromPoint(x, y)
 ### Parameter
 
 - `x`
-  - : Die horizontale Koordinate eines Punkts, relativ zum linken Rand des aktuellen [Ansichtsfensters](/de/docs/Glossary/viewport).
+  - : Die horizontale Koordinate eines Punkts, relativ zum linken Rand des aktuellen {{Glossary("viewport", "Ansichtsfensters")}}.
 - `y`
   - : Die vertikale Koordinate eines Punkts, relativ zum oberen Rand des aktuellen Ansichtsfensters.
 

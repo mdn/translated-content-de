@@ -32,7 +32,7 @@ setConfiguration(configuration)
 ### Ausnahmen
 
 - `InvalidAccessError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn eine oder mehrere der in `configuration.iceServers` angegebenen URLs ein [TURN](/de/docs/Glossary/TURN)-Server sind, jedoch keine vollständigen Anmeldeinformationen bereitgestellt werden (d.h. entweder der `username` oder die `credential` fehlt, oder wenn `credentialType` `"password"` ist und `credential` kein String ist). Dies verhindert eine erfolgreiche Anmeldung beim Server.
+  - : Wird ausgelöst, wenn eine oder mehrere der in `configuration.iceServers` angegebenen URLs ein {{Glossary("TURN", "TURN")}}-Server sind, jedoch keine vollständigen Anmeldeinformationen bereitgestellt werden (d.h. entweder der `username` oder die `credential` fehlt, oder wenn `credentialType` `"password"` ist und `credential` kein String ist). Dies verhindert eine erfolgreiche Anmeldung beim Server.
 - `InvalidModificationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn die `configuration` geänderte Identitätsinformationen enthält, die Verbindung jedoch bereits Identitätsinformationen festgelegt hat. Dies tritt auf, wenn `configuration.peerIdentity` oder `configuration.certificates` festgelegt sind und deren Werte sich von der aktuellen Konfiguration unterscheiden. Dies kann auch auftreten, wenn Änderungen an `configuration.bundlePolicy` oder `configuration.rtcpMuxPolicy`, oder an `configuration.iceCandidatePoolSize` vorgenommen werden, wenn [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) bereits aufgerufen wurde.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)

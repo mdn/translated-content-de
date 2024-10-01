@@ -22,12 +22,12 @@ Jedoch sind einige Warncodes spezifisch für Caches und können nur auf Antwortn
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request-Header](/de/docs/Glossary/Request_header),
-        [Response-Header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Request-Header")}},
+        {{Glossary("Response_header", "Response-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Nicht erlaubter Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Nicht erlaubter Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -59,15 +59,15 @@ Warning: <warn-code> <warn-agent> <warn-text> [<warn-date>]
 
 Das [HTTP Warn Codes Register bei iana.org](https://www.iana.org/assignments/http-warn-codes/http-warn-codes.xhtml) definiert den Namensraum für Warncodes.
 
-| Code | Text                             | Beschreibung                                                                                                                                                                               |
-| ---- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 110  | Response is Stale                | Die von einem Cache bereitgestellte Antwort ist veraltet (die für die Antwort festgelegte Ablauffrist ist abgelaufen).                                                                     |
-| 111  | Revalidation Failed              | Ein Versuch, die veraltete Antwort zu validieren, ist aufgrund der Unfähigkeit, den Server zu erreichen, fehlgeschlagen.                                                                  |
-| 112  | Disconnected Operation           | Der Cache ist absichtlich vom Rest des Netzwerks getrennt.                                                                                                                                 |
+| Code | Text                             | Beschreibung                                                                                                                                                                                             |
+| ---- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 110  | Response is Stale                | Die von einem Cache bereitgestellte Antwort ist veraltet (die für die Antwort festgelegte Ablauffrist ist abgelaufen).                                                                                   |
+| 111  | Revalidation Failed              | Ein Versuch, die veraltete Antwort zu validieren, ist aufgrund der Unfähigkeit, den Server zu erreichen, fehlgeschlagen.                                                                                 |
+| 112  | Disconnected Operation           | Der Cache ist absichtlich vom Rest des Netzwerks getrennt.                                                                                                                                               |
 | 113  | Heuristic Expiration             | Ein Cache hat heuristisch eine [Frischelebensdauer](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) gewählt, die größer als 24 Stunden ist, und das Alter der Antwort ist größer als 24 Stunden. |
-| 199  | Miscellaneous Warning            | Beliebige Informationen, die einem Nutzer angezeigt oder protokolliert werden sollten.                                                                                                     |
-| 214  | Transformation Applied           | Wird von einem Proxy hinzugefügt, wenn er eine Transformation an der Repräsentation vornimmt, wie z.B. die Änderung der content-coding, media-type oder dergleichen.                       |
-| 299  | Miscellaneous Persistent Warning | Beliebige Informationen, die einem Nutzer angezeigt oder protokolliert werden sollten. Dieser Warn-Code ist ähnlich wie der Warn-Code 199 und zeigt zusätzlich eine dauerhafte Warnung an. |
+| 199  | Miscellaneous Warning            | Beliebige Informationen, die einem Nutzer angezeigt oder protokolliert werden sollten.                                                                                                                   |
+| 214  | Transformation Applied           | Wird von einem Proxy hinzugefügt, wenn er eine Transformation an der Repräsentation vornimmt, wie z.B. die Änderung der content-coding, media-type oder dergleichen.                                     |
+| 299  | Miscellaneous Persistent Warning | Beliebige Informationen, die einem Nutzer angezeigt oder protokolliert werden sollten. Dieser Warn-Code ist ähnlich wie der Warn-Code 199 und zeigt zusätzlich eine dauerhafte Warnung an.               |
 
 ## Beispiele
 

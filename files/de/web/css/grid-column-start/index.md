@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-column-start`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Startposition eines Grid-Elements innerhalb der Grid-Spalte fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt. Diese Startposition definiert die Block-Startkante des [grid area](/de/docs/Glossary/grid_areas).
+Die **`grid-column-start`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Startposition eines Grid-Elements innerhalb der Grid-Spalte fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt. Diese Startposition definiert die Block-Startkante des {{Glossary("grid_areas", "grid area")}}.
 
 {{EmbedInteractiveExample("pages/css/grid-column-start.html")}}
 

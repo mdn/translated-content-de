@@ -38,7 +38,7 @@ Ein `HTMLAllCollection`-Objekt ist aufrufbar. Wenn es ohne Argumente oder mit `u
 Aus historischen Gründen ist `document.all` ein Objekt, das auf folgende Weise wie `undefined` agiert:
 
 - Es ist [lose gleich](/de/docs/Web/JavaScript/Reference/Operators/Equality) zu `undefined` und `null`.
-- Es ist [falsch](/de/docs/Glossary/Falsy) in booleschen Kontexten.
+- Es ist {{Glossary("Falsy", "falsch")}} in booleschen Kontexten.
 - Sein [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof) ist `"undefined"`.
 
 Diese speziellen Verhaltensweisen stellen sicher, dass Code wie:

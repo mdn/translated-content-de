@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Node.js ist eine plattformübergreifende Laufzeitumgebung für [JavaScript](/de/docs/Glossary/JavaScript), die es Entwicklern ermöglicht, serverseitige und Netzwerkanwendungen mit JavaScript zu erstellen.
+Node.js ist eine plattformübergreifende Laufzeitumgebung für {{Glossary("JavaScript", "JavaScript")}}, die es Entwicklern ermöglicht, serverseitige und Netzwerkanwendungen mit JavaScript zu erstellen.
 
 ## Node Package Manager (npm)
 

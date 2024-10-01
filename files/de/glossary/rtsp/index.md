@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das Real-time Streaming-Protokoll (RTSP) ist ein Netzwerkprotokoll, das steuert, wie das Streaming eines Mediums zwischen einem [Server](/de/docs/Glossary/server) und einem Client erfolgen soll. Grundsätzlich ist RTSP das Protokoll, das beschreibt, was passiert, wenn Sie auf "Pause"/"Play" klicken, während Sie ein Video streamen. Wenn Ihr Computer eine Fernbedienung und der Streaming-Server ein Fernseher wäre, würde RTSP beschreiben, wie die Anweisung der Fernbedienung den Fernseher beeinflusst.
+Das Real-time Streaming-Protokoll (RTSP) ist ein Netzwerkprotokoll, das steuert, wie das Streaming eines Mediums zwischen einem {{Glossary("server", "Server")}} und einem Client erfolgen soll. Grundsätzlich ist RTSP das Protokoll, das beschreibt, was passiert, wenn Sie auf "Pause"/"Play" klicken, während Sie ein Video streamen. Wenn Ihr Computer eine Fernbedienung und der Streaming-Server ein Fernseher wäre, würde RTSP beschreiben, wie die Anweisung der Fernbedienung den Fernseher beeinflusst.
 
 ## Siehe auch
 

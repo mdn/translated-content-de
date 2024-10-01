@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Canvas API")}} {{PreviousNext("Web/API/Canvas_API/Tutorial", "Web/API/Canvas_API/Tutorial/Drawing_shapes")}}
 
-Beginnen wir dieses Tutorial, indem wir uns das {{HTMLElement("canvas")}} [HTML](/de/docs/Glossary/HTML)-Element selbst ansehen. Am Ende dieser Seite werden Sie wissen, wie man einen Canvas-2D-Kontext einrichtet und ein erstes Beispiel in Ihrem Browser zeichnet.
+Beginnen wir dieses Tutorial, indem wir uns das {{HTMLElement("canvas")}} {{Glossary("HTML", "HTML")}}-Element selbst ansehen. Am Ende dieser Seite werden Sie wissen, wie man einen Canvas-2D-Kontext einrichtet und ein erstes Beispiel in Ihrem Browser zeichnet.
 
 ## Das `<canvas>`-Element
 
@@ -15,7 +15,7 @@ Beginnen wir dieses Tutorial, indem wir uns das {{HTMLElement("canvas")}} [HTML]
 <canvas id="tutorial" width="150" height="150"></canvas>
 ```
 
-Auf den ersten Blick sieht ein {{HTMLElement("canvas")}}-Element ähnlich wie das {{HTMLElement("img")}}-Element aus, mit dem einzigen offensichtlichen Unterschied, dass es keine `src`- und `alt`-Attribute hat. In der Tat hat das `<canvas>`-Element nur zwei Attribute, [`width`](/de/docs/Web/HTML/Element/canvas#width) und [`height`](/de/docs/Web/HTML/Element/canvas#height). Beide sind optional und können auch über [DOM](/de/docs/Glossary/DOM)-[Eigenschaften](/de/docs/Web/API/HTMLCanvasElement) gesetzt werden. Wenn keine `width`- und `height`-Attribute angegeben sind, wird das Canvas anfangs **300 Pixel** breit und **150 Pixel** hoch sein. Das Element kann durch [CSS](/de/docs/Glossary/CSS) beliebig dimensioniert werden, aber während der Darstellung wird das Bild an seine Layoutgröße skaliert: Wenn die CSS-Größen die Proportionen des ursprünglichen Canvas nicht respektieren, erscheint es verzerrt.
+Auf den ersten Blick sieht ein {{HTMLElement("canvas")}}-Element ähnlich wie das {{HTMLElement("img")}}-Element aus, mit dem einzigen offensichtlichen Unterschied, dass es keine `src`- und `alt`-Attribute hat. In der Tat hat das `<canvas>`-Element nur zwei Attribute, [`width`](/de/docs/Web/HTML/Element/canvas#width) und [`height`](/de/docs/Web/HTML/Element/canvas#height). Beide sind optional und können auch über {{Glossary("DOM", "DOM")}}-[Eigenschaften](/de/docs/Web/API/HTMLCanvasElement) gesetzt werden. Wenn keine `width`- und `height`-Attribute angegeben sind, wird das Canvas anfangs **300 Pixel** breit und **150 Pixel** hoch sein. Das Element kann durch {{Glossary("CSS", "CSS")}} beliebig dimensioniert werden, aber während der Darstellung wird das Bild an seine Layoutgröße skaliert: Wenn die CSS-Größen die Proportionen des ursprünglichen Canvas nicht respektieren, erscheint es verzerrt.
 
 > [!NOTE]
 > Wenn Ihre Darstellungen verzerrt erscheinen, versuchen Sie, Ihre `width`- und `height`-Attribute explizit in den `<canvas>`-Attributen anzugeben und nicht CSS zu verwenden.

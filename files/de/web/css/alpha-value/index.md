@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<alpha-value>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} sein kann, und der den **[Alpha-Kanal](/de/docs/Glossary/alpha)** oder die **Transparenz** einer Farbe spezifiziert.
+Der **`<alpha-value>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{cssxref("&lt;number&gt;")}} oder ein {{cssxref("&lt;percentage&gt;")}} sein kann, und der den **{{Glossary("alpha", "Alpha-Kanal")}}** oder die **Transparenz** einer Farbe spezifiziert.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ Wenn der Alpha-Wert als Prozentwert angegeben wird, entspricht 0% vollständig t
 
 ## Interpolation
 
-Wenn animiert, werden Werte des `<alpha-value>` CSS-Datentyps als reelle, Gleitkomma-Zahlen [interpoliert](/de/docs/Glossary/interpolation). Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Wenn animiert, werden Werte des `<alpha-value>` CSS-Datentyps als reelle, Gleitkomma-Zahlen {{Glossary("interpolation", "interpoliert")}}. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 

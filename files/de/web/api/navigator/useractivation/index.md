@@ -18,7 +18,7 @@ Ein [`UserActivation`](/de/docs/Web/API/UserActivation)-Objekt.
 
 ### Überprüfen, ob kürzlich eine Benutzeraktion ausgeführt wurde
 
-Verwenden Sie [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive), um zu überprüfen, ob der Benutzer derzeit mit der Seite interagiert ([Vorübergehende Aktivierung](/de/docs/Glossary/Transient_activation)).
+Verwenden Sie [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive), um zu überprüfen, ob der Benutzer derzeit mit der Seite interagiert ({{Glossary("Transient_activation", "Vorübergehende Aktivierung")}}).
 
 ```js
 if (navigator.userActivation.isActive) {
@@ -28,7 +28,7 @@ if (navigator.userActivation.isActive) {
 
 ### Überprüfen, ob jemals eine Benutzeraktion ausgeführt wurde
 
-Verwenden Sie [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive), um zu überprüfen, ob der Benutzer jemals mit der Seite interagiert hat ([Dauerhafte Aktivierung](/de/docs/Glossary/Sticky_activation)).
+Verwenden Sie [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive), um zu überprüfen, ob der Benutzer jemals mit der Seite interagiert hat ({{Glossary("Sticky_activation", "Dauerhafte Aktivierung")}}).
 
 ```js
 if (navigator.userActivation.hasBeenActive) {

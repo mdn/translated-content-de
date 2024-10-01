@@ -11,7 +11,7 @@ Dieser Artikel beschreibt, wie der "viewport" `<meta>`-Tag verwendet wird, um di
 
 ## Hintergrund
 
-Der [Viewport](/de/docs/Glossary/viewport) des Browsers ist der Bereich des Fensters, in dem Webinhalte sichtbar sind. Dies ist oft nicht dieselbe Größe wie die gerenderte Seite, in diesem Fall stellt der Browser Scrollleisten zur Verfügung, mit denen der Benutzer alle Inhalte erreichen kann.
+Der {{Glossary("viewport", "Viewport")}} des Browsers ist der Bereich des Fensters, in dem Webinhalte sichtbar sind. Dies ist oft nicht dieselbe Größe wie die gerenderte Seite, in diesem Fall stellt der Browser Scrollleisten zur Verfügung, mit denen der Benutzer alle Inhalte erreichen kann.
 
 Einige mobile Geräte und andere schmale Bildschirme rendern Seiten in einem virtuellen Fenster oder Viewport, das in der Regel breiter als der Bildschirm ist, und verkleinern dann das gerenderte Ergebnis, damit es insgesamt sichtbar ist. Benutzer können dann zoomen und schwenken, um sich Bereiche der Seite genauer anzusehen. Wenn ein mobiler Bildschirm beispielsweise eine Breite von 640px hat, können Seiten mit einem virtuellen Viewport von 980px gerendert und dann in den 640px großen Bereich verkleinert werden.
 
@@ -76,13 +76,13 @@ Interaktive UI-Widgets des Browsers können die Größe der Viewports der Seite 
 Erlaubte Werte sind:
 
 - `resizes-visual`
-  - : Der [visuelle Viewport](/de/docs/Glossary/visual_viewport) wird durch das interaktive Widget verändert.
+  - : Der {{Glossary("visual_viewport", "visuelle Viewport")}} wird durch das interaktive Widget verändert.
 - `resizes-content`
-  - : Der [Viewport](/de/docs/Glossary/viewport) wird durch das interaktive Widget verändert.
+  - : Der {{Glossary("viewport", "Viewport")}} wird durch das interaktive Widget verändert.
 - `overlays-content`
-  - : Weder der [Viewport](/de/docs/Glossary/viewport) noch der [visuelle Viewport](/de/docs/Glossary/visual_viewport) werden durch das interaktive Widget verändert.
+  - : Weder der {{Glossary("viewport", "Viewport")}} noch der {{Glossary("visual_viewport", "visuelle Viewport")}} werden durch das interaktive Widget verändert.
 
-Wenn der [Viewport](/de/docs/Glossary/viewport) verändert wird, wird auch der anfängliche [Containing Block](/de/docs/Web/CSS/Containing_block) verändert, was die berechnete Größe der [Viewport-Einheiten](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport) beeinflusst.
+Wenn der {{Glossary("viewport", "Viewport")}} verändert wird, wird auch der anfängliche [Containing Block](/de/docs/Web/CSS/Containing_block) verändert, was die berechnete Größe der [Viewport-Einheiten](/de/docs/Web/CSS/length#relative_length_units_based_on_viewport) beeinflusst.
 
 ## Übliche Viewport-Größen für mobile und Tablet-Geräte
 

@@ -39,7 +39,7 @@ Objekt auflöst, das verwendet werden kann, um zu reagieren, wenn ein Benutzer d
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der Lesezustand des Videoelements `HAVE_NOTHING` ist, oder wenn das Videoelement keine Videospur hat, oder wenn das Attribut `disablePictureInPicture` des Videoelements `true` ist.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `document.pictureInPictureElement` `null` ist und das Dokument keine [transiente Aktivierung](/de/docs/Glossary/transient_activation) hat.
+  - : Wird ausgelöst, wenn `document.pictureInPictureElement` `null` ist und das Dokument keine {{Glossary("transient_activation", "transiente Aktivierung")}} hat.
 
 ## Sicherheit
 

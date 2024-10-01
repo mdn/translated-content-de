@@ -60,7 +60,7 @@ Die Funktion `a` wird vor der Funktion `b` aufgerufen, die vor der Funktion `c` 
 
 ### Verwendung des Gruppierungsoperators zur Beseitigung von Parser-Mehrdeutigkeiten
 
-Ein [Ausdrucksstatement](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, da der Parser es als Beginn einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) interpretieren würde. Dies bedeutet, dass die folgende [IIFE](/de/docs/Glossary/IIFE)-Syntax ungültig ist:
+Ein [Ausdrucksstatement](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit dem Schlüsselwort `function` beginnen, da der Parser es als Beginn einer [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) interpretieren würde. Dies bedeutet, dass die folgende {{Glossary("IIFE", "IIFE")}}-Syntax ungültig ist:
 
 ```js-nolint example-bad
 function () {

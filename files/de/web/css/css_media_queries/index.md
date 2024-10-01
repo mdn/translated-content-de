@@ -9,7 +9,7 @@ l10n:
 
 Das Modul **CSS media queries** ermöglicht das Testen und Abfragen von Viewport-Werten sowie von Browser- oder Gerätemerkmalen, um bedingt CSS-Stile basierend auf der aktuellen Benutzerumgebung anzuwenden. Media Queries werden in der CSS-Regel `@media` und in anderen Kontexten und Sprachen wie HTML und JavaScript verwendet.
 
-Media Queries sind ein zentraler Bestandteil des [responsiven Designs](/de/docs/Learn/CSS/CSS_layout/Responsive_Design). Sie ermöglichen die bedingte Einstellung von CSS-Stilen abhängig von der Existenz oder dem Wert von Gerätemerkmalen. Es ist üblich, eine Media Query basierend auf der [Viewport](/de/docs/Glossary/viewport)-Größe zu nutzen, um geeignete Layouts auf Geräten mit unterschiedlichen Bildschirmgrößen festzulegen — beispielsweise drei Spalten auf einem breiten Bildschirm oder eine einzelne Spalte auf einem schmalen Bildschirm.
+Media Queries sind ein zentraler Bestandteil des [responsiven Designs](/de/docs/Learn/CSS/CSS_layout/Responsive_Design). Sie ermöglichen die bedingte Einstellung von CSS-Stilen abhängig von der Existenz oder dem Wert von Gerätemerkmalen. Es ist üblich, eine Media Query basierend auf der {{Glossary("viewport", "Viewport")}}-Größe zu nutzen, um geeignete Layouts auf Geräten mit unterschiedlichen Bildschirmgrößen festzulegen — beispielsweise drei Spalten auf einem breiten Bildschirm oder eine einzelne Spalte auf einem schmalen Bildschirm.
 
 Weitere häufige Beispiele umfassen das Vergrößern der Schriftgröße und das Ausblenden von Navigationsmenüs beim Drucken einer Seite, das Anpassen des Abstands zwischen Absätzen, wenn eine Seite im Hoch- oder Querformat angezeigt wird, oder das Vergrößern von Schaltflächen, um eine größere Trefffläche auf Touchscreens bereitzustellen.
 
@@ -74,8 +74,8 @@ Beim Entwerfen wiederverwendbarer HTML-Komponenten können Sie auch [Container Q
 
 ### Glossarbegriffe
 
-- [Media](/de/docs/Glossary/Media/CSS)
-- [Media Query](/de/docs/Glossary/Media_query)
+- {{Glossary("Media/CSS", "Media")}}
+- {{Glossary("Media_query", "Media Query")}}
 
 ## Leitfäden
 

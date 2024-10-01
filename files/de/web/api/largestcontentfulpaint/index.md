@@ -11,7 +11,7 @@ Die `LargestContentfulPaint`-Schnittstelle bietet Timing-Informationen über das
 
 ## Beschreibung
 
-Der zentrale Moment, den diese API liefert, ist die [Largest Contentful Paint](/de/docs/Glossary/Largest_Contentful_Paint) (LCP) Metrik. Sie gibt die Renderzeit des größten Bildes oder Textblocks an, der im sichtbaren Bereich innerhalb des Viewports angezeigt wird. Diese wird ab dem Moment gemessen, in dem die Seite zu laden beginnt. Die folgenden Elemente werden bei der Bestimmung der LCP berücksichtigt:
+Der zentrale Moment, den diese API liefert, ist die {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}} (LCP) Metrik. Sie gibt die Renderzeit des größten Bildes oder Textblocks an, der im sichtbaren Bereich innerhalb des Viewports angezeigt wird. Diese wird ab dem Moment gemessen, in dem die Seite zu laden beginnt. Die folgenden Elemente werden bei der Bestimmung der LCP berücksichtigt:
 
 - {{HTMLElement("img")}} Elemente.
 - [`<image>`](/de/docs/Web/SVG/Element/image) Elemente innerhalb eines SVG.
@@ -23,8 +23,8 @@ Um die Renderzeiten anderer Elemente zu messen, verwenden Sie die [`PerformanceE
 
 Zusätzliche wichtige Momentaufnahmen beim Rendern werden durch die [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming) API bereitgestellt:
 
-- [First paint](/de/docs/Glossary/First_paint) (FP): Zeitpunkt, zu dem irgendetwas gerendert wird. Beachten Sie, dass die Markierung des ersten Renders optional ist, nicht alle Benutzeragenten berichten darüber.
-- [First contentful paint](/de/docs/Glossary/First_contentful_paint) (FCP): Zeitpunkt, zu dem der erste Teil des DOM-Textes oder Bildinhalts gerendert wird.
+- {{Glossary("First_paint", "First paint")}} (FP): Zeitpunkt, zu dem irgendetwas gerendert wird. Beachten Sie, dass die Markierung des ersten Renders optional ist, nicht alle Benutzeragenten berichten darüber.
+- {{Glossary("First_contentful_paint", "First contentful paint")}} (FCP): Zeitpunkt, zu dem der erste Teil des DOM-Textes oder Bildinhalts gerendert wird.
 
 `LargestContentfulPaint` erbt von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry).
 
@@ -111,6 +111,6 @@ const isAccurateLCP = entry.renderTime ? true : false;
 
 ## Siehe auch
 
-- [Largest Contentful Paint](/de/docs/Glossary/Largest_Contentful_Paint)
-- [First contentful paint](/de/docs/Glossary/First_contentful_paint)
-- [First paint](/de/docs/Glossary/First_paint)
+- {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}}
+- {{Glossary("First_contentful_paint", "First contentful paint")}}
+- {{Glossary("First_paint", "First paint")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Media")}}
 
-Das [HTML](/de/docs/Glossary/HTML) {{HTMLElement("img")}}-Element ermöglicht es Ihnen, Bilder in ein HTML-Dokument einzubetten, während das {{HTMLElement("picture")}}-Element [responsive Bilder](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) ermöglicht. In diesem Leitfaden finden Sie Links zu Ressourcen, die sich mit dem Hinzufügen von Bildern zu Websites befassen.
+Das {{Glossary("HTML", "HTML")}} {{HTMLElement("img")}}-Element ermöglicht es Ihnen, Bilder in ein HTML-Dokument einzubetten, während das {{HTMLElement("picture")}}-Element [responsive Bilder](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) ermöglicht. In diesem Leitfaden finden Sie Links zu Ressourcen, die sich mit dem Hinzufügen von Bildern zu Websites befassen.
 
 ## Referenzen
 
@@ -36,7 +36,7 @@ Diese Artikel bieten Anleitungen zur Auswahl und Konfiguration von Bildtypen.
 - [Leitfaden zu Bilddateitypen und Formaten](/de/docs/Web/Media/Formats/Image_types)
   - : Ein Leitfaden zu den verschiedenen Bilddateitypen, die häufig von Webbrowsern unterstützt werden, einschließlich Details über ihre individuellen Anwendungsfälle, Fähigkeiten und Kompatibilitätsfaktoren. Darüber hinaus bietet dieser Artikel Anweisungen zur Auswahl des besten Bilddateityps für eine bestimmte Situation.
 - [Das Hinzufügen von `width`- und `height`-Attributen hilft, Ruckeln zu vermeiden](/de/docs/Learn/Performance/Multimedia#rendering_strategy_preventing_jank_when_loading_images)
-  - : Dies ändert, wie Browser Bilder laden, sodass ihre [Seitenverhältnisse](/de/docs/Glossary/aspect_ratio) vom Browser frühzeitig berechnet werden und später verwendet werden können, um die Anzeigegröße eines Bildes zu reservieren, bevor es geladen wird.
+  - : Dies ändert, wie Browser Bilder laden, sodass ihre {{Glossary("aspect_ratio", "Seitenverhältnisse")}} vom Browser frühzeitig berechnet werden und später verwendet werden können, um die Anzeigegröße eines Bildes zu reservieren, bevor es geladen wird.
 
 ## Andere Themen
 

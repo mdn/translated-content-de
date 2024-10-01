@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`sctpCauseCode`** Eigenschaft eines [`RTCError`](/de/docs/Web/API/RTCError)-Objekts liefert den [SCTP](/de/docs/Glossary/SCTP) Ursache-Code, der erklärt, warum die SCTP-Verhandlung fehlgeschlagen ist, falls der `RTCError` einen SCTP-Fehler darstellt.
+Die schreibgeschützte **`sctpCauseCode`** Eigenschaft eines [`RTCError`](/de/docs/Web/API/RTCError)-Objekts liefert den {{Glossary("SCTP", "SCTP")}} Ursache-Code, der erklärt, warum die SCTP-Verhandlung fehlgeschlagen ist, falls der `RTCError` einen SCTP-Fehler darstellt.
 
 ## Wert
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("URL API")}} {{AvailableInWorkers}}
 
-Das **`URL`**-Interface wird verwendet, um [URLs](/de/docs/Glossary/URL) zu parsen, zu erstellen, zu normalisieren und zu kodieren. Es stellt Eigenschaften bereit, die es Ihnen ermöglichen, die Komponenten einer URL leicht zu lesen und zu ändern.
+Das **`URL`**-Interface wird verwendet, um {{Glossary("URL", "URLs")}} zu parsen, zu erstellen, zu normalisieren und zu kodieren. Es stellt Eigenschaften bereit, die es Ihnen ermöglichen, die Komponenten einer URL leicht zu lesen und zu ändern.
 
 Normalerweise erstellen Sie ein neues `URL`-Objekt, indem Sie die URL als Zeichenkette beim Aufruf des Konstruktors angeben oder indem Sie eine relative URL und eine Basis-URL bereitstellen. Sie können dann die geparsten Komponenten der URL einfach lesen oder Änderungen an der URL vornehmen.
 
@@ -25,7 +25,7 @@ Normalerweise erstellen Sie ein neues `URL`-Objekt, indem Sie die URL als Zeiche
 - [`hostname`](/de/docs/Web/API/URL/hostname)
   - : Eine Zeichenkette, die die Domain der URL enthält.
 - [`href`](/de/docs/Web/API/URL/href)
-  - : Ein [stringifier](/de/docs/Glossary/stringifier), der eine Zeichenkette zurückgibt, die die gesamte URL enthält.
+  - : Ein {{Glossary("stringifier", "stringifier")}}, der eine Zeichenkette zurückgibt, die die gesamte URL enthält.
 - [`origin`](/de/docs/Web/API/URL/origin) {{ReadOnlyInline}}
   - : Gibt eine Zeichenkette zurück, die den Ursprung der URL enthält, d. h. ihr Schema, ihre Domain und ihren Port.
 - [`password`](/de/docs/Web/API/URL/password)

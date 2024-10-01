@@ -254,7 +254,7 @@ Es ist auch potenziell riskant, ein Dokument vorzuladen, dessen serverseitig ger
 
 Prefetching ist sicher, wenn alle Nebeneffekte des Abrufs der Seite aus der JavaScript-Ausführung resultieren, da das JavaScript erst bei der Aktivierung ausgeführt wird.
 
-Ein abschließender Tipp ist, die URLs zu prüfen, die in Ihrer [robots.txt](/de/docs/Glossary/robots.txt)-Datei als nicht erlaubt aufgeführt sind — normalerweise weisen diese URLs auf Seiten hin, die nur von authentifizierten Benutzern aufgerufen werden können, und sollten daher nicht in Suchmaschinenergebnissen enthalten sein. Viele davon werden in Ordnung sein, aber es kann ein guter Ort sein, um unsichere Prefetch-URLs zu finden (d.h. sie weisen die oben beschriebenen Bedingungen auf).
+Ein abschließender Tipp ist, die URLs zu prüfen, die in Ihrer {{Glossary("robots.txt", "robots.txt")}}-Datei als nicht erlaubt aufgeführt sind — normalerweise weisen diese URLs auf Seiten hin, die nur von authentifizierten Benutzern aufgerufen werden können, und sollten daher nicht in Suchmaschinenergebnissen enthalten sein. Viele davon werden in Ordnung sein, aber es kann ein guter Ort sein, um unsichere Prefetch-URLs zu finden (d.h. sie weisen die oben beschriebenen Bedingungen auf).
 
 ### Unsicheres Prerendering
 
@@ -352,7 +352,7 @@ Die folgenden asynchronen Funktionen in vorgeladenen Dokumenten werden bis zu de
 
 Die folgenden Funktionen werden in nicht aktivierten Dokumenten automatisch fehlschlagen oder als No-Op behandelt.
 
-APIs, die [flüchtige Aktivierung](/de/docs/Glossary/transient_activation) oder [anhaltende Aktivierung](/de/docs/Glossary/sticky_activation) erfordern:
+APIs, die {{Glossary("transient_activation", "flüchtige Aktivierung")}} oder {{Glossary("sticky_activation", "anhaltende Aktivierung")}} erfordern:
 
 - Bestätigungsdialoge, die durch das [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event)-Ereignis generiert werden
 - Das Auslösen beliebiger Ereignisse in der [Clipboard API](/de/docs/Web/API/Clipboard_API).
@@ -373,7 +373,7 @@ APIs, die erfordern, dass das beinhaltende Dokument im Fokus steht:
 
 APIs, die erfordern, dass die [`Document.visibilityState`](/de/docs/Web/API/Document/visibilityState) des beinhaltenden Dokuments auf `"visible"` gesetzt ist:
 
-- [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API): [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) (erfordert die Sichtbarkeitszustand des beinhaltenden Dokuments auf `"visible", _oder_ [flüchtige Aktivierung](/de/docs/Glossary/transient_activation))
+- [Picture-in-Picture API](/de/docs/Web/API/Picture-in-Picture_API): [`HTMLVideoElement.requestPictureInPicture()`](/de/docs/Web/API/HTMLVideoElement/requestPictureInPicture) (erfordert die Sichtbarkeitszustand des beinhaltenden Dokuments auf `"visible", _oder_ {{Glossary("transient_activation", "flüchtige Aktivierung")}})
 - [Screen Wake Lock API](/de/docs/Web/API/Screen_Wake_Lock_API): [`WakeLock.request()`](/de/docs/Web/API/WakeLock/request)
 
 ### Andere eingeschränkte Funktionen

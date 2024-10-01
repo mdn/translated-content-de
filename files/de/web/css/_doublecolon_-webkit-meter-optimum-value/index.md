@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}
 
-Das **`::-webkit-meter-optimum-value`** CSS-[Pseudo-Element](/de/docs/Glossary/Pseudo-element) gestaltet das {{htmlelement("meter")}}-Element, wenn dessen Wert innerhalb des Low-High-Bereichs liegt oder wenn der Wert dem optimalen Wert entspricht.
+Das **`::-webkit-meter-optimum-value`** CSS-{{Glossary("Pseudo-element", "Pseudo-Element")}} gestaltet das {{htmlelement("meter")}}-Element, wenn dessen Wert innerhalb des Low-High-Bereichs liegt oder wenn der Wert dem optimalen Wert entspricht.
 
 Die Standardfarbe ist Grün.
 

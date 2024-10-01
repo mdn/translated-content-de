@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem [Web](/de/docs/Glossary/World_Wide_Web) abruft und anzeigt und es den Benutzern ermöglicht, über [Hyperlinks](/de/docs/Glossary/hyperlink) auf weitere Seiten zuzugreifen. Ein Browser ist die bekannteste Art eines [User Agent](/de/docs/Glossary/user_agent). Er verwendet eine [Rendering-Engine](/de/docs/Glossary/Engine/Rendering), um Webseiten darzustellen.
+Ein **Webbrowser** oder **Browser** ist ein Programm, das Seiten aus dem {{Glossary("World_Wide_Web", "Web")}} abruft und anzeigt und es den Benutzern ermöglicht, über {{Glossary("hyperlink", "Hyperlinks")}} auf weitere Seiten zuzugreifen. Ein Browser ist die bekannteste Art eines {{Glossary("user_agent", "User Agent")}}. Er verwendet eine {{Glossary("Engine/Rendering", "Rendering-Engine")}}, um Webseiten darzustellen.
 
 Zu den gängigen Browsern gehören:
 
-- [Google Chrome](/de/docs/Glossary/Google_Chrome)
-- [Mozilla Firefox](/de/docs/Glossary/Mozilla_Firefox)
-- [Apple Safari](/de/docs/Glossary/Apple_Safari)
-- [Microsoft Edge](/de/docs/Glossary/Microsoft_Edge)
-- [Opera Browser](/de/docs/Glossary/Opera_Browser)
+- {{Glossary("Google_Chrome", "Google Chrome")}}
+- {{Glossary("Mozilla_Firefox", "Mozilla Firefox")}}
+- {{Glossary("Apple_Safari", "Apple Safari")}}
+- {{Glossary("Microsoft_Edge", "Microsoft Edge")}}
+- {{Glossary("Opera_Browser", "Opera Browser")}}
 
 ## Siehe auch
 
@@ -27,5 +27,5 @@ Zu den gängigen Browsern gehören:
   - [Microsoft Edge](https://www.microsoft.com/en-us/edge)
   - [Opera Browser](https://www.opera.com/)
 - Verwandte Glossarbegriffe:
-  - [Rendering-Engine](/de/docs/Glossary/Engine/Rendering)
-  - [User Agent](/de/docs/Glossary/User_agent)
+  - {{Glossary("Engine/Rendering", "Rendering-Engine")}}
+  - {{Glossary("User_agent", "User Agent")}}

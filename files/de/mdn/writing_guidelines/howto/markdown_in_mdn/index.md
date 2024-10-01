@@ -485,7 +485,7 @@ Beachten Sie, dass wir die allgemeine Verwendung von `<caption>`-Elementen in Ta
 
 #### Maximalbreite von GFM-Tabellen
 
-Auch wenn eine Tabelle in GFM geschrieben werden könnte, ist es manchmal besser, HTML zu verwenden, da GFM einen "[ASCII](/de/docs/Glossary/ASCII) Art"-Ansatz für Tabellen verwendet, der nicht lesbar ist, wenn sich die Tabellenspalten in die Länge ziehen. Betrachten Sie die folgende Tabelle:
+Auch wenn eine Tabelle in GFM geschrieben werden könnte, ist es manchmal besser, HTML zu verwenden, da GFM einen "{{Glossary("ASCII", "ASCII")}} Art"-Ansatz für Tabellen verwendet, der nicht lesbar ist, wenn sich die Tabellenspalten in die Länge ziehen. Betrachten Sie die folgende Tabelle:
 
 ```html
 <table>

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`calcMode`**-Attribut legt den [Interpolationsmodus](/de/docs/Glossary/interpolation) für die Animation fest.
+Das **`calcMode`**-Attribut legt den {{Glossary("interpolation", "Interpolationsmodus")}} für die Animation fest.
 
 Der Standardmodus ist `linear`, jedoch wird, wenn das Attribut keine lineare Interpolation unterstützt (z.B. bei Zeichenketten), das `calcMode`-Attribut ignoriert und diskrete Interpolation verwendet.
 

@@ -11,7 +11,7 @@ Die **`image-rendering`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt einen Bildska
 
 {{EmbedInteractiveExample("pages/css/image-rendering.html")}}
 
-Der [User Agent](/de/docs/Glossary/user_agent) skaliert ein Bild, wenn der Seitenautor Abmessungen angibt, die von der natürlichen Größe abweichen. Skalierung kann auch aufgrund von Benutzerinteraktionen (z. B. Zoomen) stattfinden. Zum Beispiel, wenn die natürliche Größe eines Bildes `100×100px` beträgt, aber die tatsächlichen Abmessungen `200×200px` (oder `50×50px`) sind, wird das Bild mit dem durch `image-rendering` festgelegten Algorithmus hoch- oder herunterskaliert. Diese Eigenschaft hat keine Auswirkung auf nicht skalierte Bilder.
+Der {{Glossary("user_agent", "User Agent")}} skaliert ein Bild, wenn der Seitenautor Abmessungen angibt, die von der natürlichen Größe abweichen. Skalierung kann auch aufgrund von Benutzerinteraktionen (z. B. Zoomen) stattfinden. Zum Beispiel, wenn die natürliche Größe eines Bildes `100×100px` beträgt, aber die tatsächlichen Abmessungen `200×200px` (oder `50×50px`) sind, wird das Bild mit dem durch `image-rendering` festgelegten Algorithmus hoch- oder herunterskaliert. Diese Eigenschaft hat keine Auswirkung auf nicht skalierte Bilder.
 
 ## Syntax
 

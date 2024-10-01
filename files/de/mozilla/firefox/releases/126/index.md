@@ -35,7 +35,7 @@ Keine bemerkenswerten Änderungen.
 
 ### HTTP
 
-- Die [`zstd`](/de/docs/Web/HTTP/Headers/Content-Encoding#zstd)-Direktive des `Content-Encoding`-HTTP-Headers wird jetzt unterstützt, was die Dekodierung von vom Server gesendeten Inhalten ermöglicht, die mit dem [Zstandard-Kompressionsalgorithmus](/de/docs/Glossary/Zstandard_compression) kodiert sind ([Firefox-Bug 1871963](https://bugzil.la/1871963)).
+- Die [`zstd`](/de/docs/Web/HTTP/Headers/Content-Encoding#zstd)-Direktive des `Content-Encoding`-HTTP-Headers wird jetzt unterstützt, was die Dekodierung von vom Server gesendeten Inhalten ermöglicht, die mit dem {{Glossary("Zstandard_compression", "Zstandard-Kompressionsalgorithmus")}} kodiert sind ([Firefox-Bug 1871963](https://bugzil.la/1871963)).
 
 ### APIs
 

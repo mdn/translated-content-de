@@ -19,7 +19,7 @@ In Fenster-Kontexten stellt dieser Wert die Zeit dar, zu der die Navigation bego
 
 Ein Hochauflösungs-Zeitstempel, der als Beginn der Lebensdauer des aktuellen Dokuments betrachtet wird. Er wird folgendermaßen berechnet:
 
-- Wenn das [globale Objekt](/de/docs/Glossary/global_object) des Skripts ein [`Window`](/de/docs/Web/API/Window) ist, wird der Zeitursprung wie folgt bestimmt:
+- Wenn das {{Glossary("global_object", "globale Objekt")}} des Skripts ein [`Window`](/de/docs/Web/API/Window) ist, wird der Zeitursprung wie folgt bestimmt:
 
   - Wenn das aktuelle [`Document`](/de/docs/Web/API/Document) das erste Dokument ist, das im `Window` geladen wurde, ist der Zeitursprung der Zeitpunkt, zu dem der Browser-Kontext erstellt wurde.
   - Wenn während des Entladens des vorherigen Dokuments, das im Fenster geladen wurde, ein Bestätigungsdialog angezeigt wurde, um den Benutzer zu bestätigen, ob er die vorherige Seite verlassen möchte, ist der Zeitursprung der Zeitpunkt, zu dem der Benutzer bestätigte, dass das Navigieren zur neuen Seite akzeptabel ist.

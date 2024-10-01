@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML", "Learn/HTML/Introduction_to_HTML/Creating_hyperlinks", "Learn/HTML/Introduction_to_HTML")}}
 
-Eine der Hauptaufgaben von HTML ist es, Texten Struktur zu geben, damit ein Browser ein HTML-Dokument so anzeigen kann, wie es der Entwickler beabsichtigt. Dieser Artikel erklärt, wie [HTML](/de/docs/Glossary/HTML) verwendet werden kann, um eine Seite mit Text durch das Hinzufügen von Überschriften und Absätzen, das Hervorheben von Wörtern, das Erstellen von Listen und mehr zu strukturieren.
+Eine der Hauptaufgaben von HTML ist es, Texten Struktur zu geben, damit ein Browser ein HTML-Dokument so anzeigen kann, wie es der Entwickler beabsichtigt. Dieser Artikel erklärt, wie {{Glossary("HTML", "HTML")}} verwendet werden kann, um eine Seite mit Text durch das Hinzufügen von Überschriften und Absätzen, das Hervorheben von Wörtern, das Erstellen von Listen und mehr zu strukturieren.
 
 <table>
   <tbody>
@@ -97,9 +97,9 @@ Wenn Sie das Dokument jedoch in Ihrem Browser öffnen, wird der Text als riesige
 Das liegt daran, dass es keine Elemente gibt, die dem Inhalt Struktur geben, sodass der Browser nicht weiß, was eine Überschrift und was ein Absatz ist. Darüber hinaus:
 
 - Benutzer, die eine Webseite betrachten, neigen dazu, schnell zu scannen, um relevante Inhalte zu finden, und lesen dabei oft nur die Überschriften. (Normalerweise [verbringen wir sehr wenig Zeit auf einer Webseite](https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/).) Wenn sie innerhalb weniger Sekunden nichts Nützliches sehen können, werden sie wahrscheinlich frustriert und gehen woanders hin.
-- Suchmaschinen, die Ihre Seite indexieren, berücksichtigen den Inhalt der Überschriften als wichtige Schlüsselwörter zur Beeinflussung der Suchrankings der Seite. Ohne Überschriften wird Ihre Seite in Bezug auf [SEO](/de/docs/Glossary/SEO) (Suchmaschinenoptimierung) schlecht abschneiden.
+- Suchmaschinen, die Ihre Seite indexieren, berücksichtigen den Inhalt der Überschriften als wichtige Schlüsselwörter zur Beeinflussung der Suchrankings der Seite. Ohne Überschriften wird Ihre Seite in Bezug auf {{Glossary("SEO", "SEO")}} (Suchmaschinenoptimierung) schlecht abschneiden.
 - Schwer Sehbehinderte lesen oft keine Webseiten, sondern hören sie sich an. Dies geschieht mit einer Software, die als [Screenreader](https://en.wikipedia.org/wiki/Screen_reader) bezeichnet wird. Diese Software bietet Möglichkeiten, schnell auf bestimmte Textinhalte zuzugreifen. Unter den verschiedenen Techniken bietet sie einen Umriss des Dokuments, indem sie die Überschriften vorliest, und ermöglicht es ihren Benutzern, die benötigten Informationen schnell zu finden. Wenn keine Überschriften verfügbar sind, müssen diese Benutzer den gesamten Text vorgelesen bekommen.
-- Um Inhalte mit [CSS](/de/docs/Glossary/CSS) zu stylen oder sie mit [JavaScript](/de/docs/Glossary/JavaScript) zu manipulieren, müssen Sie Elemente haben, die den entsprechenden Inhalt umschließen, damit CSS/JavaScript sie effektiv anvisieren kann.
+- Um Inhalte mit {{Glossary("CSS", "CSS")}} zu stylen oder sie mit {{Glossary("JavaScript", "JavaScript")}} zu manipulieren, müssen Sie Elemente haben, die den entsprechenden Inhalt umschließen, damit CSS/JavaScript sie effektiv anvisieren kann.
 
 Deshalb müssen wir unserem Inhalt strukturelles Markup geben.
 

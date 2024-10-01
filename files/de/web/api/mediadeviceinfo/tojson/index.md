@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{securecontext_header}}
 
-Die **`toJSON()`**-Methode der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekts zurück.
+Die **`toJSON()`**-Methode der [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`MediaDeviceInfo`](/de/docs/Web/API/MediaDeviceInfo)-Objekts zurück.
 
 ## Syntax
 

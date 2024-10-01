@@ -26,7 +26,7 @@ _Erbt Eigenschaften von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/AP
 - `HTMLScriptElement.charset` {{deprecated_inline}}
   - : Ein String, der die Zeichencodierung eines externen Skripts repräsentiert. Es spiegelt das [`charset`](/de/docs/Web/HTML/Element/script#charset)-Attribut wider.
 - [`HTMLScriptElement.crossOrigin`](/de/docs/Web/API/HTMLScriptElement/crossOrigin)
-  - : Ein String, der die [CORS-Einstellung](/de/docs/Web/HTML/Attributes/crossorigin) für das Skriptelement widerspiegelt. Bei klassischen Skripten von anderen [Ursprüngen](/de/docs/Glossary/Origin) steuert dies, ob Fehlerinformationen offengelegt werden.
+  - : Ein String, der die [CORS-Einstellung](/de/docs/Web/HTML/Attributes/crossorigin) für das Skriptelement widerspiegelt. Bei klassischen Skripten von anderen {{Glossary("Origin", "Ursprüngen")}} steuert dies, ob Fehlerinformationen offengelegt werden.
 - [`HTMLScriptElement.defer`](/de/docs/Web/API/HTMLScriptElement/defer)
   - : Ein boolescher Wert, der steuert, wie das Skript ausgeführt werden soll. Bei klassischen Skripten wird das externe Skript, wenn die `defer`-Eigenschaft auf `true` gesetzt ist, nach dem Parsen des Dokuments, aber vor dem Auslösen des [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignisses, ausgeführt. Für [Modulscripte](/de/docs/Web/JavaScript/Guide/Modules) hat die `defer`-Eigenschaft keine Wirkung.
 - `HTMLScriptElement.event` {{deprecated_inline}}

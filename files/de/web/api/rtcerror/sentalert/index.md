@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`sentAlert`**-Eigenschaft in einem [`RTCError`](/de/docs/Web/API/RTCError)-Objekt gibt die [DTLS](/de/docs/Glossary/DTLS)-Alert-Nummer an, die aufgetreten ist, während Daten an den Remote-Peer gesendet wurden, falls der Fehler einen ausgehenden DTLS-Fehler darstellt.
+Die schreibgeschützte **`sentAlert`**-Eigenschaft in einem [`RTCError`](/de/docs/Web/API/RTCError)-Objekt gibt die {{Glossary("DTLS", "DTLS")}}-Alert-Nummer an, die aufgetreten ist, während Daten an den Remote-Peer gesendet wurden, falls der Fehler einen ausgehenden DTLS-Fehler darstellt.
 
 ## Wert
 

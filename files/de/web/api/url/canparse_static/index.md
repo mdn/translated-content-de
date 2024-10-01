@@ -22,7 +22,7 @@ URL.canParse(url, base)
 ### Parameter
 
 - `url`
-  - : Ein String oder ein beliebiges anderes Objekt mit einem [Stringifier](/de/docs/Glossary/stringifier) — einschließlich, zum Beispiel, eines {{htmlelement("a")}} oder {{htmlelement("area")}} Elements — das eine absolute oder relative URL darstellt.
+  - : Ein String oder ein beliebiges anderes Objekt mit einem {{Glossary("stringifier", "Stringifier")}} — einschließlich, zum Beispiel, eines {{htmlelement("a")}} oder {{htmlelement("area")}} Elements — das eine absolute oder relative URL darstellt.
     Wenn `url` eine relative URL ist, ist `base` erforderlich und wird als Basis-URL verwendet.
     Wenn `url` eine absolute URL ist, wird eine angegebene `base` ignoriert.
 - `base` {{optional_inline}}

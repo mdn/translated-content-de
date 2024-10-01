@@ -12,10 +12,10 @@ l10n:
 > Verwenden Sie stattdessen {{HTTPHeader("Content-Digest")}}.
 > Für `id-*` Digest-Algorithmen verwenden Sie {{HTTPHeader("Repr-Digest")}}.
 
-Der **`Digest`**-HTTP-Header für Antworten oder Anfragen bietet der anderen Seite einen [Digest](/de/docs/Glossary/digest) der mit {{HTTPHeader("Content-Encoding")}} kodierten _ausgewählten Repräsentation_. Er kann durch den Einsatz des {{HTTPHeader("Want-Digest")}} Headers angefordert werden.
+Der **`Digest`**-HTTP-Header für Antworten oder Anfragen bietet der anderen Seite einen {{Glossary("digest", "Digest")}} der mit {{HTTPHeader("Content-Encoding")}} kodierten _ausgewählten Repräsentation_. Er kann durch den Einsatz des {{HTTPHeader("Want-Digest")}} Headers angefordert werden.
 
 Repräsentationen sind verschiedene Formen einer bestimmten Ressource, die als Antwort auf eine Anfrage zurückgegeben werden können: Zum Beispiel könnte dieselbe Ressource in einem bestimmten Medientyp wie XML oder JSON formatiert sein, an eine bestimmte Sprache oder geografische Region angepasst, und/oder für die Übertragung komprimiert oder anders kodiert sein.
-Die _ausgewählte Repräsentation_ ist das tatsächliche Format einer Ressource, die nach [Content Negotiation](/de/docs/Web/HTTP/Content_negotiation) zurückgegeben wird und kann aus den [Repräsentations-Headern](/de/docs/Glossary/Representation_header) der Antwort bestimmt werden.
+Die _ausgewählte Repräsentation_ ist das tatsächliche Format einer Ressource, die nach [Content Negotiation](/de/docs/Web/HTTP/Content_negotiation) zurückgegeben wird und kann aus den {{Glossary("Representation_header", "Repräsentations-Headern")}} der Antwort bestimmt werden.
 
 Der Digest bezieht sich auf die gesamte Repräsentation einer Ressource, nicht auf eine spezielle Nachricht. Er kann genutzt werden, um zu verifizieren, dass die Repräsentationsdaten während der Übertragung nicht verändert wurden.
 
@@ -26,10 +26,10 @@ Der Digest bezieht sich auf die gesamte Repräsentation einer Ressource, nicht a
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

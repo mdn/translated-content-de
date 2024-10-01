@@ -9,7 +9,7 @@ l10n:
 
 Dieser Artikel führt in das Konzept der Formatierungskontexte ein, von denen es verschiedene Typen gibt, einschließlich Block-Formatierungskontexte, Inline-Formatierungskontexte und Flex-Formatierungskontexte. Es wird auch das grundlegende Verhalten dieser Kontexte und wie Sie diese Verhaltensweisen nutzen können, vorgestellt.
 
-Alles auf einer Seite ist Teil eines **Formatierungskontexts**, also eines Bereichs, der zur Anordnung von Inhalten auf eine bestimmte Weise definiert wurde. Ein **Block-Formatierungskontext** (BFC) ordnet untergeordnete Elemente nach den Blocklayout-Regeln an, ein **Flex-Formatierungskontext** wird seine Kinder als [Flex-Elemente](/de/docs/Glossary/flex_item) anordnen usw. Jeder Formatierungskontext hat spezifische Regeln, wie das Layout in diesem Kontext funktioniert.
+Alles auf einer Seite ist Teil eines **Formatierungskontexts**, also eines Bereichs, der zur Anordnung von Inhalten auf eine bestimmte Weise definiert wurde. Ein **Block-Formatierungskontext** (BFC) ordnet untergeordnete Elemente nach den Blocklayout-Regeln an, ein **Flex-Formatierungskontext** wird seine Kinder als {{Glossary("flex_item", "Flex-Elemente")}} anordnen usw. Jeder Formatierungskontext hat spezifische Regeln, wie das Layout in diesem Kontext funktioniert.
 
 ## Block-Formatierungskontexte
 
@@ -29,7 +29,7 @@ Ein neuer BFC wird in den folgenden Situationen erstellt:
 - Blockelemente, bei denen `overflow` einen anderen Wert als `visible` hat
 - Elemente mit `display: flow-root` oder `display: flow-root list-item`
 - Elemente mit {{cssxref("contain", "contain: layout", "#layout")}}, `content` oder `strict`
-- [Flex-Elemente](/de/docs/Glossary/flex_item)
+- {{Glossary("flex_item", "Flex-Elemente")}}
 - Raster-Elemente
 - [Multicol-Container](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
 - Elemente mit {{cssxref("column-span")}} auf `all` gesetzt

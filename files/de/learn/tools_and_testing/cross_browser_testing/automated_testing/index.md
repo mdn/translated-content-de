@@ -46,7 +46,7 @@ Wie oben erwähnt, können Sie häufige Aufgaben wie Linting und Minifying von C
 
 ### Einrichten von Node und npm
 
-Heutzutage basieren die meisten Tools auf [Node.js](/de/docs/Glossary/Node.js), daher müssen Sie es von [nodejs.org](https://nodejs.org/) installieren:
+Heutzutage basieren die meisten Tools auf {{Glossary("Node.js", "Node.js")}}, daher müssen Sie es von [nodejs.org](https://nodejs.org/) installieren:
 
 1. Laden Sie das Installationsprogramm für Ihr System von der oben genannten Website herunter. (Wenn Sie Node und npm bereits installiert haben, springen Sie zu Punkt 4.)
 2. Installieren Sie es wie jedes andere Programm. Beachten Sie, dass Node mit dem [Node Package Manager](https://www.npmjs.com/) (npm) geliefert wird, mit dem Sie Pakete einfach installieren, Ihre eigenen Pakete mit anderen teilen und nützliche Skripts auf Ihren Projekten ausführen können.

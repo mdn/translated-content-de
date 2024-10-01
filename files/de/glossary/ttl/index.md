@@ -15,7 +15,7 @@ In der Vernetzung ist die TTL, die im Paket eingebettet ist, normalerweise als e
 
 ## Zwischenspeicherung
 
-Im Kontext der Zwischenspeicherung weist TTL (als vorzeichenlose 32-Bit-Ganzzahl), die Teil des [HTTP-Antwort-Headers](/de/docs/Glossary/Response_header) oder der [DNS](/de/docs/Glossary/DNS)-Abfrage ist, auf die Anzahl von Sekunden hin, während derer die Ressource vom Anforderer zwischengespeichert werden kann.
+Im Kontext der Zwischenspeicherung weist TTL (als vorzeichenlose 32-Bit-Ganzzahl), die Teil des {{Glossary("Response_header", "HTTP-Antwort-Headers")}} oder der {{Glossary("DNS", "DNS")}}-Abfrage ist, auf die Anzahl von Sekunden hin, während derer die Ressource vom Anforderer zwischengespeichert werden kann.
 
 ## Siehe auch
 

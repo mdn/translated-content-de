@@ -20,7 +20,7 @@ contrast(amount)
 ### Werte
 
 - `amount`
-  - : Der Kontrast des Ergebnisses, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, während ein Wert über `100%` ihn erhöht. Ein Wert von `0` oder `0%` erzeugt ein vollständig graues Bild, während ein Wert von `1` oder `100%` das Eingabebild unverändert lässt. Negative Werte sind nicht erlaubt. Der Anfangswert für die [Interpolation](/de/docs/Glossary/interpolation) ist `1`.
+  - : Der Kontrast des Ergebnisses, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` verringert den Kontrast, während ein Wert über `100%` ihn erhöht. Ein Wert von `0` oder `0%` erzeugt ein vollständig graues Bild, während ein Wert von `1` oder `100%` das Eingabebild unverändert lässt. Negative Werte sind nicht erlaubt. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `1`.
 
 Folgende Paare sind gleichwertige Werte:
 

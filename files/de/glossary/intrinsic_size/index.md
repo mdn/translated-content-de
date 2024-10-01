@@ -15,7 +15,7 @@ Beispielsweise ist die minimale intrinsische Größe des inline {{htmlelement("s
 
 Die intrinsische Größe hat für Bilder die gleiche Bedeutung wie für Text — die Größe, in der die Bilder angezeigt werden, wenn kein CSS angewendet wird, um das Rendering zu ändern.
 
-Pixeldichte und Auflösung beeinflussen die intrinsische Größe. Standardmäßig wird bei Bildern von einer "1x"-Pixeldichte ausgegangen (1 Gerät-Pixel = 1 CSS-Pixel), in diesem Fall ist die intrinsische Größe einfach die Pixelhöhe und -breite. Die intrinsische Größe und Auflösung eines Bildes kann explizit in seinen [EXIF](/de/docs/Glossary/EXIF)-Daten angegeben werden. Die Pixeldichte von Bildern kann auch für Bilder mit dem [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attribut festgelegt werden. Beachten Sie, dass, wenn beide Mechanismen verwendet werden, der `srcset`-Wert "über" dem EXIF-Wert angewendet wird.
+Pixeldichte und Auflösung beeinflussen die intrinsische Größe. Standardmäßig wird bei Bildern von einer "1x"-Pixeldichte ausgegangen (1 Gerät-Pixel = 1 CSS-Pixel), in diesem Fall ist die intrinsische Größe einfach die Pixelhöhe und -breite. Die intrinsische Größe und Auflösung eines Bildes kann explizit in seinen {{Glossary("EXIF", "EXIF")}}-Daten angegeben werden. Die Pixeldichte von Bildern kann auch für Bilder mit dem [`srcset`](/de/docs/Web/HTML/Element/img#srcset)-Attribut festgelegt werden. Beachten Sie, dass, wenn beide Mechanismen verwendet werden, der `srcset`-Wert "über" dem EXIF-Wert angewendet wird.
 
 Die intrinsischen Größen und deren Berechnungsweise sind im [CSS-Sizing-Modul](/de/docs/Web/CSS/CSS_box_sizing) definiert.
 

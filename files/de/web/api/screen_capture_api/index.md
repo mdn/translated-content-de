@@ -69,7 +69,7 @@ Die Screen Capture API fügt den folgenden Wörterbüchern, die von anderen Spez
 
 ## Validierung der Berechtigungsrichtlinie
 
-[Benutzeragenten](/de/docs/Glossary/User_agent), die die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) unterstützen (entweder mit dem HTTP {{HTTPHeader("Permissions-Policy")}} Header oder dem {{HTMLElement("iframe")}} Attribut [`allow`](/de/docs/Web/HTML/Element/iframe#allow)), können den Wunsch spezifizieren, die Screen Capture API mit der Direktive `display-capture` zu verwenden:
+{{Glossary("User_agent", "Benutzeragenten")}}, die die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) unterstützen (entweder mit dem HTTP {{HTTPHeader("Permissions-Policy")}} Header oder dem {{HTMLElement("iframe")}} Attribut [`allow`](/de/docs/Web/HTML/Element/iframe#allow)), können den Wunsch spezifizieren, die Screen Capture API mit der Direktive `display-capture` zu verwenden:
 
 ```html
 <iframe allow="display-capture" src="/some-other-document.html">…</iframe>

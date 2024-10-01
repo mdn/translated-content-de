@@ -114,7 +114,7 @@ Wir haben nur den Endzustand der Animation angegeben und der Anfangszustand wird
 
 ## Attribute
 
-Keyframes spezifizieren Eigenschaft-Werte-Paare der [zu animierenden CSS-Eigenschaften](/de/docs/Web/CSS/CSS_animated_properties). Die Eigenschaftsnamen werden in [Camel Case](/de/docs/Glossary/camel_case) angegeben, sodass beispielsweise {{cssxref("background-color")}} zu `backgroundColor` und {{cssxref("background-position-x")}} zu `backgroundPositionX` wird. Kurzwerte wie {{cssxref("margin")}} sind ebenfalls zulässig.
+Keyframes spezifizieren Eigenschaft-Werte-Paare der [zu animierenden CSS-Eigenschaften](/de/docs/Web/CSS/CSS_animated_properties). Die Eigenschaftsnamen werden in {{Glossary("camel_case", "Camel Case")}} angegeben, sodass beispielsweise {{cssxref("background-color")}} zu `backgroundColor` und {{cssxref("background-position-x")}} zu `backgroundPositionX` wird. Kurzwerte wie {{cssxref("margin")}} sind ebenfalls zulässig.
 
 Zwei außergewöhnliche CSS-Eigenschaften sind:
 

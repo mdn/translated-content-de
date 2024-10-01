@@ -25,7 +25,7 @@ Dieser Abschnitt listet Fragen zu den Tools/Software auf, die Sie zum Erstellen 
 - [Wie richtet man einen lokalen Testserver ein?](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server)
   - : Dieser Artikel erklärt, wie Sie einen einfachen lokalen Testserver auf Ihrem Rechner einrichten und die Grundlagen, wie Sie ihn verwenden.
 - [Wie laden Sie Dateien auf einen Webserver hoch?](/de/docs/Learn/Common_questions/Tools_and_setup/Upload_files_to_a_web_server)
-  - : Dieser Artikel zeigt, wie Sie Ihre Website mit [FTP](/de/docs/Glossary/FTP)-Tools online veröffentlichen können – eine der gängigsten Methoden, um eine Website online zu bringen, damit andere von ihren Computern darauf zugreifen können.
+  - : Dieser Artikel zeigt, wie Sie Ihre Website mit {{Glossary("FTP", "FTP")}}-Tools online veröffentlichen können – eine der gängigsten Methoden, um eine Website online zu bringen, damit andere von ihren Computern darauf zugreifen können.
 - [Wie verwende ich GitHub Pages?](/de/docs/Learn/Common_questions/Tools_and_setup/Using_GitHub_pages)
   - : Dieser Artikel bietet einen grundlegenden Leitfaden zur Veröffentlichung von Inhalten mit der gh-pages-Funktion von GitHub.
 - [Wie hosten Sie Ihre Website auf Google App Engine?](/de/docs/Learn/Common_questions/Tools_and_setup/How_do_you_host_your_website_on_Google_App_Engine)

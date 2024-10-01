@@ -60,7 +60,7 @@ Firefox beinhaltet Funktionen, um das Tracking zu verhindern. Diese Funktionen t
 
 Bei Verwendung der [dynamischen Partitionierung](/de/docs/Web/Privacy/State_Partitioning#dynamic_partitioning) partitioniert Firefox den Speicher, auf den über JavaScript-APIs zugegriffen werden kann, nach der obersten Seite und bietet gleichzeitig einen angemessenen Zugang zu nicht partitioniertem Speicher, um übliche Anwendungsfälle zu ermöglichen. Dieses Feature wird schrittweise eingeführt. Weitere Implementierungsdetails finden Sie unter [Status der Partitionierung in Firefox](/de/docs/Web/Privacy/State_Partitioning#status_of_partitioning_in_firefox).
 
-Speicherpartitionen werden durch die schemafähige URL der obersten [Website](/de/docs/Glossary/Site) und, wenn die dynamische Partitionierung aktiv ist, durch den Schlüsselwert, der über die `partitionKey.topLevelSite` Eigenschaft in der Cookies-API verfügbar ist, z.B. `partitionKey: {topLevelSite: "http://site"}`.
+Speicherpartitionen werden durch die schemafähige URL der obersten {{Glossary("Site", "Website")}} und, wenn die dynamische Partitionierung aktiv ist, durch den Schlüsselwert, der über die `partitionKey.topLevelSite` Eigenschaft in der Cookies-API verfügbar ist, z.B. `partitionKey: {topLevelSite: "http://site"}`.
 
 Im Allgemeinen befinden sich oberste Dokumente im nicht partitionierten Speicher, während Drittanbieter-Iframes im partitionierten Speicher sind. Wenn ein Partitionierungsschlüssel nicht ermittelt werden kann, wird der Standardwert (nicht partitionierter Speicher) verwendet. Zum Beispiel können alle HTTP(S)-Seiten als Partitionierungsschlüssel verwendet werden, `moz-extension:-` URLs jedoch nicht. Daher verwenden Iframes in Firefox-Erweiterungsdokumenten keinen partitionierten Speicher.
 

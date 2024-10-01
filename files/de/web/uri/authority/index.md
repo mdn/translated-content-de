@@ -19,7 +19,7 @@ user@host:port
 ```
 
 - host
-  - : Der _host_ ist normalerweise der Domainname oder die IP-Adresse des Servers, der die Ressource hostet. Der Domainname wird unter Verwendung des [Domain Name System](/de/docs/Glossary/DNS) in eine IP-Adresse aufgelöst.
+  - : Der _host_ ist normalerweise der Domainname oder die IP-Adresse des Servers, der die Ressource hostet. Der Domainname wird unter Verwendung des {{Glossary("DNS", "Domain Name System")}} in eine IP-Adresse aufgelöst.
 - port {{optional_inline}}
   - : Der _port_ ist eine Zahl, die den Port angibt, auf dem der Server auf Anfragen wartet. Er ist optional und ist standardmäßig 80 für HTTP und 443 für HTTPS. Andere Schemes können ihre eigenen Standardwerte definieren oder ihn verpflichtend machen.
 - user {{optional_inline}}

@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.characterSet`**-Eigenschaft (nur lesbar) gibt die [Zeichenkodierung](/de/docs/Glossary/Character_encoding) des Dokuments zurück, mit der es derzeit gerendert wird.
+Die **`Document.characterSet`**-Eigenschaft (nur lesbar) gibt die {{Glossary("Character_encoding", "Zeichenkodierung")}} des Dokuments zurück, mit der es derzeit gerendert wird.
 
 > [!NOTE]
 > Ein "Zeichensatz" und eine "Zeichenkodierung" sind verwandt, aber unterschiedlich. Trotz des Namens dieser Eigenschaft gibt sie die _Kodierung_ zurück.

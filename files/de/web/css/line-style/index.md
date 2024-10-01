@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<line-style>`** [enumerierte](/de/docs/Glossary/enumerated) Wertetyp repräsentiert Schlüsselwortwerte, die den Stil einer Linie oder das Fehlen einer Linie definieren. Die `<line-style>` Schlüsselwortwerte werden in den folgenden Langform- und Kurzform-Eigenschaften für [border](/de/docs/Web/CSS/CSS_backgrounds_and_borders) und [column](/de/docs/Web/CSS/CSS_multicol_layout) verwendet:
+Der **`<line-style>`** {{Glossary("enumerated", "enumerierte")}} Wertetyp repräsentiert Schlüsselwortwerte, die den Stil einer Linie oder das Fehlen einer Linie definieren. Die `<line-style>` Schlüsselwortwerte werden in den folgenden Langform- und Kurzform-Eigenschaften für [border](/de/docs/Web/CSS/CSS_backgrounds_and_borders) und [column](/de/docs/Web/CSS/CSS_multicol_layout) verwendet:
 
 - {{cssxref("border")}}, {{cssxref("border-style")}}
 - {{cssxref("border-block")}}, {{cssxref("border-block-style")}}

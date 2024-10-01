@@ -13,7 +13,7 @@ Das **`storage`** Ereignis des [`Window`](/de/docs/Web/API/Window) Interfaces wi
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht propagiert.
 
 > [!NOTE]
-> Dies funktioniert nicht im selben [Browsing-Kontext](/de/docs/Glossary/browsing_context), der die Änderungen vornimmt — es ist wirklich eine Möglichkeit für andere Browsing-Kontexte auf der Domain, die den Speicher verwenden, jegliche vorgenommenen Änderungen zu synchronisieren. Browsing-Kontexte auf anderen Domains können nicht auf dieselben Speicherobjekte zugreifen.
+> Dies funktioniert nicht im selben {{Glossary("browsing_context", "Browsing-Kontext")}}, der die Änderungen vornimmt — es ist wirklich eine Möglichkeit für andere Browsing-Kontexte auf der Domain, die den Speicher verwenden, jegliche vorgenommenen Änderungen zu synchronisieren. Browsing-Kontexte auf anderen Domains können nicht auf dieselben Speicherobjekte zugreifen.
 
 ## Syntax
 

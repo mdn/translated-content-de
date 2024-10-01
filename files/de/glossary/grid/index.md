@@ -11,7 +11,7 @@ Ein _CSS-Grid_ wird definiert mit dem `grid`-Wert der {{cssxref("display")}}-Eig
 
 Das Grid, das Sie mit diesen Eigenschaften definieren, wird als _explizites Grid_ beschrieben.
 
-Wenn Sie Inhalt außerhalb dieses expliziten Grids platzieren oder wenn Sie sich auf die automatische Platzierung verlassen und der Grid-Algorithmus zusätzliche Zeilen- oder Spuren [tracks](/de/docs/Glossary/grid_tracks) erstellen muss, um [grid cells](/de/docs/Glossary/grid_cell) zu halten, dann werden zusätzliche Spuren im impliziten Grid erstellt. Das _implizite Grid_ ist das automatisch erstellte Grid aufgrund von Inhalten, die außerhalb der definierten Spuren hinzugefügt werden.
+Wenn Sie Inhalt außerhalb dieses expliziten Grids platzieren oder wenn Sie sich auf die automatische Platzierung verlassen und der Grid-Algorithmus zusätzliche Zeilen- oder Spuren {{Glossary("grid_tracks", "tracks")}} erstellen muss, um {{Glossary("grid_cell", "grid cells")}} zu halten, dann werden zusätzliche Spuren im impliziten Grid erstellt. Das _implizite Grid_ ist das automatisch erstellte Grid aufgrund von Inhalten, die außerhalb der definierten Spuren hinzugefügt werden.
 
 Im untenstehenden Beispiel habe ich ein _explizites Grid_ mit drei Spalten und zwei Zeilen erstellt. Die _dritte_ Zeile im Grid ist eine Spur des _impliziten Grids_, die entsteht, weil es mehr als sechs Elemente gibt, die die expliziten Spuren füllen.
 

@@ -68,7 +68,7 @@ _Diese Schnittstelle erbt auch Eigenschaften von [`XMLHttpRequestEventTarget`](/
 - [`XMLHttpRequest.abort()`](/de/docs/Web/API/XMLHttpRequest/abort)
   - : Bricht die Anfrage ab, wenn sie bereits gesendet wurde.
 - [`XMLHttpRequest.getAllResponseHeaders()`](/de/docs/Web/API/XMLHttpRequest/getAllResponseHeaders)
-  - : Gibt alle Antwort-Header, getrennt durch [CRLF](/de/docs/Glossary/CRLF), als String zurück, oder `null`, wenn keine Antwort empfangen wurde.
+  - : Gibt alle Antwort-Header, getrennt durch {{Glossary("CRLF", "CRLF")}}, als String zurück, oder `null`, wenn keine Antwort empfangen wurde.
 - [`XMLHttpRequest.getResponseHeader()`](/de/docs/Web/API/XMLHttpRequest/getResponseHeader)
   - : Gibt den String zurück, der den Text des angegebenen Headers enthält, oder `null`, wenn entweder die Antwort noch nicht empfangen wurde oder der Header in der Antwort nicht existiert.
 - [`XMLHttpRequest.open()`](/de/docs/Web/API/XMLHttpRequest/open)

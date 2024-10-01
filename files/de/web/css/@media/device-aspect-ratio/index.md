@@ -8,9 +8,9 @@ l10n:
 {{CSSRef}} {{deprecated_header}}
 
 > [!NOTE]
-> Um das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Viewports abzufragen, sollten Entwickler stattdessen das [`aspect-ratio`](/de/docs/Web/CSS/@media/aspect-ratio) Medienmerkmal verwenden.
+> Um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Viewports abzufragen, sollten Entwickler stattdessen das [`aspect-ratio`](/de/docs/Web/CSS/@media/aspect-ratio) Medienmerkmal verwenden.
 
-Das **`device-aspect-ratio`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das Breite-zu-Höhe-[Seitenverhältnis](/de/docs/Glossary/aspect_ratio) eines Ausgabegeräts zu testen.
+Das **`device-aspect-ratio`** [CSS](/de/docs/Web/CSS) [Medienmerkmal](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das Breite-zu-Höhe-{{Glossary("aspect_ratio", "Seitenverhältnis")}} eines Ausgabegeräts zu testen.
 
 ## Syntax
 

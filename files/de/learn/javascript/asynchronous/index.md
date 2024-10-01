@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-In diesem Modul betrachten wir [asynchronous](/de/docs/Glossary/asynchronous) [JavaScript](/de/docs/Glossary/JavaScript), warum es wichtig ist und wie es eingesetzt werden kann, um potenziell blockierende Operationen effektiv zu handhaben, wie zum Beispiel das Abrufen von Ressourcen von einem Server.
+In diesem Modul betrachten wir {{Glossary("asynchronous", "asynchronous")}} {{Glossary("JavaScript", "JavaScript")}}, warum es wichtig ist und wie es eingesetzt werden kann, um potenziell blockierende Operationen effektiv zu handhaben, wie zum Beispiel das Abrufen von Ressourcen von einem Server.
 
 ## Voraussetzungen
 

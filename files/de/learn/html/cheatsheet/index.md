@@ -7,10 +7,10 @@ l10n:
 
 {{LearnSidebar}}
 
-Beim Verwenden von [HTML](/de/docs/Glossary/HTML) kann es sehr hilfreich sein, eine einfache Möglichkeit zu haben, sich daran zu erinnern, wie HTML-Tags korrekt verwendet und angewendet werden. MDN stellt Ihnen eine umfangreiche [HTML-Dokumentation](/de/docs/Web/HTML/Element) sowie eine detaillierte Anleitungs-[HTML-Anleitung](/de/docs/Learn/HTML/Howto) zur Verfügung. In vielen Fällen benötigen wir jedoch nur einige schnelle Hinweise unterwegs. Das ist der ganze Zweck des Spickzettels: Ihnen einige schnelle, genaue und gebrauchsfertige Codebeispiele für häufige Verwendungszwecke zu geben.
+Beim Verwenden von {{Glossary("HTML", "HTML")}} kann es sehr hilfreich sein, eine einfache Möglichkeit zu haben, sich daran zu erinnern, wie HTML-Tags korrekt verwendet und angewendet werden. MDN stellt Ihnen eine umfangreiche [HTML-Dokumentation](/de/docs/Web/HTML/Element) sowie eine detaillierte Anleitungs-[HTML-Anleitung](/de/docs/Learn/HTML/Howto) zur Verfügung. In vielen Fällen benötigen wir jedoch nur einige schnelle Hinweise unterwegs. Das ist der ganze Zweck des Spickzettels: Ihnen einige schnelle, genaue und gebrauchsfertige Codebeispiele für häufige Verwendungszwecke zu geben.
 
 > [!NOTE]
-> HTML-Tags müssen für ihre Semantik und nicht für ihr Erscheinungsbild verwendet werden. Mit [CSS](/de/docs/Glossary/CSS) ist es immer möglich, das Aussehen eines bestimmten Tags vollständig zu ändern. Wenn Sie HTML verwenden, nehmen Sie sich daher die Zeit, sich auf die Bedeutung und nicht auf das Erscheinungsbild zu konzentrieren.
+> HTML-Tags müssen für ihre Semantik und nicht für ihr Erscheinungsbild verwendet werden. Mit {{Glossary("CSS", "CSS")}} ist es immer möglich, das Aussehen eines bestimmten Tags vollständig zu ändern. Wenn Sie HTML verwenden, nehmen Sie sich daher die Zeit, sich auf die Bedeutung und nicht auf das Erscheinungsbild zu konzentrieren.
 
 ## Inline-Elemente
 

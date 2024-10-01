@@ -339,7 +339,7 @@ a::before {
 > [!NOTE]
 > Wenn die Alternativtext-Syntax unterstützt wird, wird der Wert im Barrierefreiheitsbaum des Browsers sichtbar gemacht. Sehen Sie im Abschnitt [Siehe auch](#siehe_auch) nach, um auf browser-spezifische Barrierefreiheitspanels zuzugreifen.
 
-Wenn Sie ein Bildschirmleseprogramm verwenden, sollte es das Wort "MOZILLA" aussprechen, wenn es das Bild erreicht. Falls unterstützt (wenn der "alt text is not supported" nicht angezeigt wird), können Sie das `::before`-Pseudo-Element mit Ihrem Entwicklertools-Auswahlwerkzeug auswählen und den [zugänglichen Namen](/de/docs/Glossary/accessible_name) im Barrierefreiheitspanel sehen.
+Wenn Sie ein Bildschirmleseprogramm verwenden, sollte es das Wort "MOZILLA" aussprechen, wenn es das Bild erreicht. Falls unterstützt (wenn der "alt text is not supported" nicht angezeigt wird), können Sie das `::before`-Pseudo-Element mit Ihrem Entwicklertools-Auswahlwerkzeug auswählen und den {{Glossary("accessible_name", "zugänglichen Namen")}} im Barrierefreiheitspanel sehen.
 
 In Browsern, die die Alternativtextsyntax nicht unterstützen, ist die gesamte Deklaration, die den Alternativtext enthält, ungültig. In diesem Fall wird der vorherige `content`-Wert verwendet, der das Bild und den Text "alt text is not supported" anzeigt.
 

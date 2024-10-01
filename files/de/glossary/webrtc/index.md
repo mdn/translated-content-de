@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**WebRTC** (_Web Real-Time Communication_) ist eine [API](/de/docs/Glossary/API), die von Webanwendungen für Video-Chats, Sprachgespräche und P2P-Dateiübertragungen genutzt werden kann.
+**WebRTC** (_Web Real-Time Communication_) ist eine {{Glossary("API", "API")}}, die von Webanwendungen für Video-Chats, Sprachgespräche und P2P-Dateiübertragungen genutzt werden kann.
 
 WebRTC besteht hauptsächlich aus diesen Teilen:
 
@@ -16,7 +16,7 @@ WebRTC besteht hauptsächlich aus diesen Teilen:
 - [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
   - : Eine Schnittstelle zur Konfiguration von Video-Chats oder Sprachgesprächen.
 - [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
-  - : Bietet eine Methode zur Einrichtung eines [peer-to-peer](/de/docs/Glossary/P2P) Datenwegs zwischen Browsern.
+  - : Bietet eine Methode zur Einrichtung eines {{Glossary("P2P", "peer-to-peer")}} Datenwegs zwischen Browsern.
 
 ## Siehe auch
 

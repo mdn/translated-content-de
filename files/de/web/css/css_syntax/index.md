@@ -33,10 +33,10 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Ty
 
 ### Glossarbegriffe
 
-- [CSS-Deskriptor](/de/docs/Glossary/CSS_Descriptor)
-- [parsen](/de/docs/Glossary/parse)
-- [Stylesheet](/de/docs/Glossary/stylesheet)
-- [Leerraum](/de/docs/Glossary/whitespace)
+- {{Glossary("CSS_Descriptor", "CSS-Deskriptor")}}
+- {{Glossary("parse", "parsen")}}
+- {{Glossary("stylesheet", "Stylesheet")}}
+- {{Glossary("whitespace", "Leerraum")}}
 
 ## Leitfäden
 
@@ -71,7 +71,7 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Ty
 - [Verwendete Werte](/de/docs/Web/CSS/used_value)
 - [Tatsächliche Werte](/de/docs/Web/CSS/actual_value)
 - [CSS-Vererbung](/de/docs/Web/CSS/Inheritance)
-- [CSS-Eigenschaft](/de/docs/Glossary/Property/CSS)
+- {{Glossary("Property/CSS", "CSS-Eigenschaft")}}
 
 [CSS benutzerdefinierte Eigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul:
 
@@ -89,7 +89,7 @@ Dieses Modul definiert keine Eigenschaften, [Datentypen](/de/docs/Web/CSS/CSS_Ty
 - [`insertRule(rule)`](/de/docs/Web/API/CSSStyleSheet/insertRule) Methode
 - [`replace(text)`](/de/docs/Web/API/CSSStyleSheet/replace) Methode
 
-[WHATWG](/de/docs/Glossary/WHATWG) Spezifikation:
+{{Glossary("WHATWG", "WHATWG")}} Spezifikation:
 
 - {{HTMLElement("style")}} Element
 - {{HTMLElement("link")}} Element

@@ -9,7 +9,7 @@ l10n:
 
 Ein **Character set** (Zeichensatz) ist ein Kodierungssystem, das Computern ermöglicht, Zeichen wie Buchstaben, Zahlen, Satzzeichen und Leerzeichen zu erkennen.
 
-Früher entwickelten Länder ihre eigenen Zeichensätze aufgrund der unterschiedlichen verwendeten Sprachen, wie Kanji JIS-Codes (z. B. Shift-JIS, EUC-JP usw.) für Japanisch, Big5 für traditionelles Chinesisch und KOI8-R für Russisch. Allerdings wurde [Unicode](/de/docs/Glossary/Unicode) allmählich der am meisten akzeptierte Zeichensatz wegen seiner universellen Sprachunterstützung.
+Früher entwickelten Länder ihre eigenen Zeichensätze aufgrund der unterschiedlichen verwendeten Sprachen, wie Kanji JIS-Codes (z. B. Shift-JIS, EUC-JP usw.) für Japanisch, Big5 für traditionelles Chinesisch und KOI8-R für Russisch. Allerdings wurde {{Glossary("Unicode", "Unicode")}} allmählich der am meisten akzeptierte Zeichensatz wegen seiner universellen Sprachunterstützung.
 
 Wenn ein Zeichensatz falsch verwendet wird (zum Beispiel Unicode für einen Artikel, der in Big5 kodiert ist), sehen Sie möglicherweise nur kaputte Zeichen, die als [Mojibake](https://en.wikipedia.org/wiki/Mojibake) bezeichnet werden.
 
@@ -18,5 +18,5 @@ Wenn ein Zeichensatz falsch verwendet wird (zum Beispiel Unicode für einen Arti
 - [Zeichenkodierung](https://en.wikipedia.org/wiki/Character_encoding) (Wikipedia)
 - [Mojibake](https://en.wikipedia.org/wiki/Mojibake) (Wikipedia)
 - Verwandte Glossareinträge:
-  - [Character](/de/docs/Glossary/Character)
-  - [Unicode](/de/docs/Glossary/Unicode)
+  - {{Glossary("Character", "Character")}}
+  - {{Glossary("Unicode", "Unicode")}}

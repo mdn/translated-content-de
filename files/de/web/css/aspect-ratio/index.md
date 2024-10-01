@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`aspect-ratio`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, das gewünschte Breiten-Höhen-Verhältnis eines Element-Box festzulegen. Das bedeutet, dass der Browser, selbst wenn sich die Größe des übergeordneten Containers oder des Ansichtsfensters ändert, die Abmessungen des Elements anpasst, um das angegebene Breiten-Höhen-Verhältnis beizubehalten. Das angegebene [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) wird bei der Berechnung von automatischen Größen und einigen anderen Layoutfunktionen verwendet.
+Die **`aspect-ratio`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ermöglicht es Ihnen, das gewünschte Breiten-Höhen-Verhältnis eines Element-Box festzulegen. Das bedeutet, dass der Browser, selbst wenn sich die Größe des übergeordneten Containers oder des Ansichtsfensters ändert, die Abmessungen des Elements anpasst, um das angegebene Breiten-Höhen-Verhältnis beizubehalten. Das angegebene {{Glossary("aspect_ratio", "Seitenverhältnis")}} wird bei der Berechnung von automatischen Größen und einigen anderen Layoutfunktionen verwendet.
 
 Mindestens eine der Größen der Box muss automatisch sein, damit `aspect-ratio` eine Wirkung hat. Wenn weder die Breite noch die Höhe eine automatische Größe haben, hat das angegebene Seitenverhältnis keinen Einfluss auf die bevorzugten Größen der Box.
 

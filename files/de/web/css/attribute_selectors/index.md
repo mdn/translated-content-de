@@ -54,9 +54,9 @@ a[class~="logo"] {
 - `[attr*=value]`
   - : Repräsentiert Elemente mit einem Attributnamen _attr_, dessen Wert mindestens eine Vorkommen von _value_ innerhalb des Strings enthält.
 - `[attr operator value i]`
-  - : Wenn ein `i` (oder `I`) vor der schließenden Klammer hinzugefügt wird, wird der Wert unabhängig von Groß-/Kleinschreibung verglichen (für Zeichen innerhalb des [ASCII](/de/docs/Glossary/ASCII)-Bereichs).
+  - : Wenn ein `i` (oder `I`) vor der schließenden Klammer hinzugefügt wird, wird der Wert unabhängig von Groß-/Kleinschreibung verglichen (für Zeichen innerhalb des {{Glossary("ASCII", "ASCII")}}-Bereichs).
 - `[attr operator value s]`
-  - : Wenn ein `s` (oder `S`) vor der schließenden Klammer hinzugefügt wird, wird der Wert unter Berücksichtigung der Groß-/Kleinschreibung verglichen (für Zeichen innerhalb des [ASCII](/de/docs/Glossary/ASCII)-Bereichs).
+  - : Wenn ein `s` (oder `S`) vor der schließenden Klammer hinzugefügt wird, wird der Wert unter Berücksichtigung der Groß-/Kleinschreibung verglichen (für Zeichen innerhalb des {{Glossary("ASCII", "ASCII")}}-Bereichs).
 
 ### Werte
 
@@ -69,7 +69,7 @@ a[class~="logo"] {
 
 ## Beschreibung
 
-Die Groß-/Kleinschrift-Sensitivität von Attributnamen und -werten hängt von der Dokumentsprache ab. In HTML sind Attributnamen nicht case-sensitiv, ebenso wie die [aufgeführten](/de/docs/Glossary/enumerated) Werte, die von der Spezifikation definiert sind. Die [case-insensitiven HTML-Attributwerte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) sind in der HTML-Spezifikation aufgelistet. Für diese Attribute ist der Attributwert im Selektor unabhängig von Groß-/Kleinschreibung unsensibel, unabhängig davon, ob der Wert ungültig ist oder das Attribut für das Element, auf dem es gesetzt ist, ungültig ist.
+Die Groß-/Kleinschrift-Sensitivität von Attributnamen und -werten hängt von der Dokumentsprache ab. In HTML sind Attributnamen nicht case-sensitiv, ebenso wie die {{Glossary("enumerated", "aufgeführten")}} Werte, die von der Spezifikation definiert sind. Die [case-insensitiven HTML-Attributwerte](https://html.spec.whatwg.org/multipage/semantics-other.html#case-sensitivity-of-selectors) sind in der HTML-Spezifikation aufgelistet. Für diese Attribute ist der Attributwert im Selektor unabhängig von Groß-/Kleinschreibung unsensibel, unabhängig davon, ob der Wert ungültig ist oder das Attribut für das Element, auf dem es gesetzt ist, ungültig ist.
 
 Wenn der Attributwert case-sensitiv ist, wie etwa die [`class`](/de/docs/Web/HTML/Global_attributes/class), [`id`](/de/docs/Web/HTML/Global_attributes/id), und [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*) Attribute, ist der Attributselektorwertabgleich case-sensitiv. Attribute, die außerhalb der HTML-Spezifikation definiert sind, wie etwa [`role`](/de/docs/Web/Accessibility/ARIA/Roles) und [`aria-*`](/de/docs/Web/Accessibility/ARIA/Attributes) Attribute, sind ebenfalls case-sensitiv. Case-sensible Attributselektoren können mit dem inkludierten Groß-/Kleinschreibungs-unempfindlichen Modifikator (`i`) unsensitiv gemacht werden.
 

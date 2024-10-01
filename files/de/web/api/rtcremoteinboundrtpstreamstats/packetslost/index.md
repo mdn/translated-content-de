@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`packetsLost`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats) Wörterbuchs gibt die Gesamtzahl der [RTP](/de/docs/Glossary/RTP)-Pakete an, die von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) verloren gegangen sind, wie vom entfernten Endpunkt seit Beginn des Empfangs gemeldet.
+Die **`packetsLost`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats) Wörterbuchs gibt die Gesamtzahl der {{Glossary("RTP", "RTP")}}-Pakete an, die von der [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) verloren gegangen sind, wie vom entfernten Endpunkt seit Beginn des Empfangs gemeldet.
 
 ## Wert
 

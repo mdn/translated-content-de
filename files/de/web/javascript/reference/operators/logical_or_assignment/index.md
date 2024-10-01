@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **logische ODER-Zuweisungsoperator (`||=`)** wertet nur den rechten Operanden aus und weist ihn dem linken Operanden zu, wenn der linke Operanden [falsy](/de/docs/Glossary/falsy) ist.
+Der **logische ODER-Zuweisungsoperator (`||=`)** wertet nur den rechten Operanden aus und weist ihn dem linken Operanden zu, wenn der linke Operanden {{Glossary("falsy", "falsy")}} ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-logical-or-assignment.html")}}
 
@@ -64,7 +64,7 @@ document.getElementById("lyrics").textContent ||= "No lyrics.";
 Hier ist das Short-Circuiting besonders vorteilhaft, da das Element nicht unnötig aktualisiert wird und keine unerwünschten Nebenwirkungen wie zusätzliche Parsing- oder Rendering-Arbeiten oder Verlust des Fokus verursacht werden.
 
 > [!NOTE]
-> Achten Sie auf den Wert, der von der API zurückgegeben wird, gegen die Sie prüfen. Wenn eine leere Zeichenfolge zurückgegeben wird (ein [falsy](/de/docs/Glossary/falsy) Wert), muss `||=` verwendet werden, damit "No lyrics." anstelle eines leeren Raums angezeigt wird. Wenn die API jedoch [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} im Falle von leerem Inhalt zurückgibt, sollte [`??=`](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment) verwendet werden.
+> Achten Sie auf den Wert, der von der API zurückgegeben wird, gegen die Sie prüfen. Wenn eine leere Zeichenfolge zurückgegeben wird (ein {{Glossary("falsy", "falsy")}} Wert), muss `||=` verwendet werden, damit "No lyrics." anstelle eines leeren Raums angezeigt wird. Wenn die API jedoch [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}} im Falle von leerem Inhalt zurückgibt, sollte [`??=`](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_assignment) verwendet werden.
 
 ## Spezifikationen
 
@@ -79,5 +79,5 @@ Hier ist das Short-Circuiting besonders vorteilhaft, da das Element nicht unnöt
 - [Logisches ODER (`||`)](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR)
 - [Nullish Coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - [Bitweises ODER-Zuweisung (`|=`)](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_OR_assignment)
-- [Truthy](/de/docs/Glossary/Truthy)
-- [Falsy](/de/docs/Glossary/Falsy)
+- {{Glossary("Truthy", "Truthy")}}
+- {{Glossary("Falsy", "Falsy")}}

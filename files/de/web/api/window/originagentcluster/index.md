@@ -20,7 +20,7 @@ Fenster, die Teil eines ursprungsbezogenen Agenten-Clusters sind, unterliegen im
 
 Um zu verlangen, dass der Browser dieses Fenster einem ursprungsbezogenen Agenten-Cluster zuweist, muss der Server das {{httpheader("Origin-Agent-Cluster")}} Antwortheader senden.
 
-Beachten Sie, dass das Feature des ursprungsbezogenen Agenten-Clusters nur in [sicheren Kontexten](/de/docs/Glossary/Secure_Context) unterstützt wird. Wenn eine Seite kein sicherer Kontext ist, wird `window.originAgentCluster` immer `false` zurückgeben.
+Beachten Sie, dass das Feature des ursprungsbezogenen Agenten-Clusters nur in {{Glossary("Secure_Context", "sicheren Kontexten")}} unterstützt wird. Wenn eine Seite kein sicherer Kontext ist, wird `window.originAgentCluster` immer `false` zurückgeben.
 
 ## Spezifikationen
 

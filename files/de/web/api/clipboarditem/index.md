@@ -17,7 +17,7 @@ Der Vorteil des **`ClipboardItem`**-Interfaces zur Darstellung von Daten besteht
 ## Konstruktor
 
 - [`ClipboardItem()`](/de/docs/Web/API/ClipboardItem/ClipboardItem)
-  - : Erstellt ein neues **`ClipboardItem`**-Objekt mit dem [MIME-Typ](/de/docs/Glossary/MIME_type) als Schlüssel und [`Blob`](/de/docs/Web/API/Blob) als Wert.
+  - : Erstellt ein neues **`ClipboardItem`**-Objekt mit dem {{Glossary("MIME_type", "MIME-Typ")}} als Schlüssel und [`Blob`](/de/docs/Web/API/Blob) als Wert.
 
 ## Instanzeigenschaften
 
@@ -33,14 +33,14 @@ _Dieses Interface bietet die folgenden Eigenschaften._
 _Dieses Interface definiert die folgenden Methoden._
 
 - [`ClipboardItem.supports()`](/de/docs/Web/API/ClipboardItem/supports_static)
-  - : Überprüft, ob ein gegebener [MIME-Typ](/de/docs/Glossary/MIME_type) von der Zwischenablage unterstützt wird. Dies ermöglicht es einer Website festzustellen, ob ein MIME-Typ von der Zwischenablage unterstützt wird, bevor versucht wird, Daten zu schreiben.
+  - : Überprüft, ob ein gegebener {{Glossary("MIME_type", "MIME-Typ")}} von der Zwischenablage unterstützt wird. Dies ermöglicht es einer Website festzustellen, ob ein MIME-Typ von der Zwischenablage unterstützt wird, bevor versucht wird, Daten zu schreiben.
 
 ## Instanzmethoden
 
 _Dieses Interface definiert die folgenden Methoden._
 
 - [`getType()`](/de/docs/Web/API/ClipboardItem/getType)
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) des angeforderten [MIME-Typs](/de/docs/Glossary/MIME_type) aufgelöst wird, oder einen Fehler, wenn der MIME-Typ nicht gefunden wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) des angeforderten {{Glossary("MIME_type", "MIME-Typs")}} aufgelöst wird, oder einen Fehler, wenn der MIME-Typ nicht gefunden wird.
 
 ## Beispiele
 

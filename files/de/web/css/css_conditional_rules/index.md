@@ -54,7 +54,7 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die allgemein
 
 ### Begriffe und Glossareinträge
 
-- [Media](/de/docs/Glossary/media/CSS)
+- {{Glossary("media/CSS", "Media")}}
 - Unterstützungsabfrage (siehe [Funktionsabfrage](/de/docs/Web/CSS/CSS_conditional_rules/Using_feature_queries))
 
 ## Leitfäden
@@ -107,7 +107,7 @@ Es gibt Pläne, die möglichen Abfragen weiter zu erweitern, indem die allgemein
   - {{cssxref("@charset")}}-Deklaration
   - {{cssxref("at-rule")}}-Begriff
   - [`invalid`](/de/docs/Web/CSS/CSS_syntax/Error_handling)-Begriff
-  - [parsen](/de/docs/Glossary/parse)-Begriff
+  - {{Glossary("parse", "parsen")}}-Begriff
   - [Stil-Regel](/de/docs/Web/API/CSSStyleRule)-Begriff
 
 - [CSS-Namespace](/de/docs/Web/CSS/CSS_namespaces)-Modul

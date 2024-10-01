@@ -23,7 +23,7 @@ SyntaxError: No identifiers allowed directly after numeric literal (Safari)
 
 ## Was ist schiefgelaufen?
 
-Die Namen von Variablen, die als [Bezeichner](/de/docs/Glossary/Identifier) bezeichnet werden, unterliegen bestimmten Regeln, an die sich Ihr Code halten muss!
+Die Namen von Variablen, die als {{Glossary("Identifier", "Bezeichner")}} bezeichnet werden, unterliegen bestimmten Regeln, an die sich Ihr Code halten muss!
 
 Ein JavaScript-Bezeichner muss mit einem Buchstaben, Unterstrich (\_) oder Dollarzeichen ($) beginnen. Sie dürfen nicht mit einer Ziffer beginnen! Nur nachfolgende Zeichen können Ziffern (0-9) sein.
 

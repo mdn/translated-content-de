@@ -21,7 +21,7 @@ Zusätzlich zu den Attributen, die allen {{HTMLElement("input")}}-Elementen geme
 
 ### alt
 
-Das `alt`-Attribut bietet einen alternativen Text, der als Beschriftung der Schaltfläche verwendet wird, falls das Bild nicht angezeigt werden kann (aufgrund eines Fehlers, eines [Benutzeragenten](/de/docs/Glossary/user_agent), der keine Bilder anzeigen kann oder so konfiguriert ist, dass keine Bilder angezeigt werden, oder falls der Benutzer ein Bildschirmlesegerät verwendet). Wenn vorhanden, muss es ein nicht leerer Text sein, der als Beschriftung für die Schaltfläche geeignet ist.
+Das `alt`-Attribut bietet einen alternativen Text, der als Beschriftung der Schaltfläche verwendet wird, falls das Bild nicht angezeigt werden kann (aufgrund eines Fehlers, eines {{Glossary("user_agent", "Benutzeragenten")}}, der keine Bilder anzeigen kann oder so konfiguriert ist, dass keine Bilder angezeigt werden, oder falls der Benutzer ein Bildschirmlesegerät verwendet). Wenn vorhanden, muss es ein nicht leerer Text sein, der als Beschriftung für die Schaltfläche geeignet ist.
 
 Zum Beispiel, wenn Sie eine grafische Schaltfläche haben, die ein Bild mit einem Symbol und/oder Text "Jetzt anmelden" zeigt, sollten Sie auch das `alt`-Attribut auf etwas wie `Jetzt anmelden` setzen.
 
@@ -56,7 +56,7 @@ Dieses Attribut ist auch auf [`<input type="submit">`](/de/docs/Web/HTML/Element
 Ein String, der die HTTP-Methode angibt, die bei der Übermittlung der Formulardaten verwendet werden soll; dieser Wert überschreibt jedes [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut, das im eigenen Formular angegeben ist. Zulässige Werte sind:
 
 - `get`
-  - : Eine URL wird erstellt, indem mit der URL begonnen wird, die durch das `formaction`- oder [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut angegeben wird, ein Fragezeichen ("?") angefügt und dann die Formulardaten angefügt werden, die entsprechend dem `formenctype` oder dem [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des Formulars kodiert wurden. Diese URL wird dann unter Verwendung eines HTTP-{{HTTPMethod("get")}}-Anfrage an den Server gesendet. Diese Methode eignet sich gut für einfache Formulare, die nur [ASCII](/de/docs/Glossary/ASCII)-Zeichen enthalten und keine Nebenwirkungen haben. Dies ist der Standardwert.
+  - : Eine URL wird erstellt, indem mit der URL begonnen wird, die durch das `formaction`- oder [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut angegeben wird, ein Fragezeichen ("?") angefügt und dann die Formulardaten angefügt werden, die entsprechend dem `formenctype` oder dem [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des Formulars kodiert wurden. Diese URL wird dann unter Verwendung eines HTTP-{{HTTPMethod("get")}}-Anfrage an den Server gesendet. Diese Methode eignet sich gut für einfache Formulare, die nur {{Glossary("ASCII", "ASCII")}}-Zeichen enthalten und keine Nebenwirkungen haben. Dies ist der Standardwert.
 - `post`
   - : Die Formulardaten werden in den Hauptteil der Anfrage aufgenommen, die an die durch `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) angegebene URL gesendet wird, unter Verwendung einer HTTP-{{HTTPMethod("post")}}-Anfrage. Diese Methode unterstützt komplexe Daten und Dateianhänge.
 - `dialog`
@@ -79,7 +79,7 @@ Zusätzlich zu den tatsächlichen Namen von Tabs, Fenstern oder Inline-Frames gi
 - `_self`
   - : Lädt die Antwort in denselben Browsing-Kontext, der das Formular enthält. Dies ersetzt das aktuelle Dokument durch die empfangenen Daten. Dies ist der Standardwert, der verwendet wird, wenn keiner angegeben ist.
 - `_blank`
-  - : Lädt die Antwort in einen neuen, unbenannten, Browsing-Kontext. Dies ist normalerweise ein neuer Tab im selben Fenster wie das aktuelle Dokument, kann jedoch je nach Konfiguration des [Benutzeragenten](/de/docs/Glossary/user_agent) unterschiedlich sein.
+  - : Lädt die Antwort in einen neuen, unbenannten, Browsing-Kontext. Dies ist normalerweise ein neuer Tab im selben Fenster wie das aktuelle Dokument, kann jedoch je nach Konfiguration des {{Glossary("user_agent", "Benutzeragenten")}} unterschiedlich sein.
 - `_parent`
   - : Lädt die Antwort in den übergeordneten Browsing-Kontext des aktuellen. Wenn es keinen übergeordneten Kontext gibt, verhält sich dies wie `_self`.
 - `_top`
@@ -129,7 +129,7 @@ Werfen wir einen Blick auf ein einfaches Beispiel, das alle wesentlichen Merkmal
 
 - Das [`src`](/de/docs/Web/HTML/Element/input#src)-Attribut wird verwendet, um den Pfad zum Bild anzugeben, das in der Schaltfläche angezeigt werden soll.
 - Das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut bietet Alternativtext für das Bild, damit Bildschirmlesegerätebenutzer eine bessere Vorstellung davon bekommen können, wofür die Schaltfläche verwendet wird. Es wird auch angezeigt, wenn das Bild aus irgendeinem Grund nicht angezeigt werden kann (z. B. wenn der Pfad falsch geschrieben ist). Wenn möglich, verwenden Sie Text, der mit der Beschriftung übereinstimmt, die Sie verwenden würden, wenn Sie eine standardmäßige Absenden-Schaltfläche verwenden würden.
-- Die [`width`](/de/docs/Web/HTML/Element/input#width) und [`height`](/de/docs/Web/HTML/Element/input#height)-Attribute werden verwendet, um die Breite und Höhe anzugeben, in der das Bild angezeigt werden soll, in Pixeln. Die Schaltfläche hat die gleiche Größe wie das Bild; wenn Sie möchten, dass der Trefferbereich der Schaltfläche größer als das Bild ist, müssen Sie CSS verwenden (z. B. {{cssxref("padding")}}). Auch wenn Sie nur eine Dimension festlegen, wird die andere automatisch angepasst, damit das Bild sein ursprüngliches [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) beibehält.
+- Die [`width`](/de/docs/Web/HTML/Element/input#width) und [`height`](/de/docs/Web/HTML/Element/input#height)-Attribute werden verwendet, um die Breite und Höhe anzugeben, in der das Bild angezeigt werden soll, in Pixeln. Die Schaltfläche hat die gleiche Größe wie das Bild; wenn Sie möchten, dass der Trefferbereich der Schaltfläche größer als das Bild ist, müssen Sie CSS verwenden (z. B. {{cssxref("padding")}}). Auch wenn Sie nur eine Dimension festlegen, wird die andere automatisch angepasst, damit das Bild sein ursprüngliches {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehält.
 
 ### Standardverhalten von Formularen überschreiben
 

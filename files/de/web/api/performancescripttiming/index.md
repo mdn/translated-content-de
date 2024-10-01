@@ -11,7 +11,7 @@ Die **`PerformanceScriptTiming`**-Schnittstelle wird in der Long Animation Frame
 
 ## Beschreibung
 
-Lange Animationsbilder (LoAFs) sind Render-Updates, die über 50 ms hinaus verzögert werden. LoAFs können zu langsamen Aktualisierungen der Benutzeroberfläche (UI) führen, wodurch Steuerungselemente unempfänglich erscheinen und [ruckelige](/de/docs/Glossary/Jank) (nicht fließende) animierte Effekte und Scrollvorgänge entstehen. Dies führt oft zu Nutzerfrustration.
+Lange Animationsbilder (LoAFs) sind Render-Updates, die über 50 ms hinaus verzögert werden. LoAFs können zu langsamen Aktualisierungen der Benutzeroberfläche (UI) führen, wodurch Steuerungselemente unempfänglich erscheinen und {{Glossary("Jank", "ruckelige")}} (nicht fließende) animierte Effekte und Scrollvorgänge entstehen. Dies führt oft zu Nutzerfrustration.
 
 Die `PerformanceScriptTiming`-Schnittstelle (deren Instanzen über die [`PerformanceLongAnimationFrameTiming.scripts`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming/scripts)-Eigenschaft zugänglich sind) bietet eine detaillierte Menge an Informationen zu einzelnen Skripten, die zu LoAFs beitragen, und ermöglicht es Entwicklern, die Ursachen einzugrenzen:
 

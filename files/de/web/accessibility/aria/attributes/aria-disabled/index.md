@@ -51,7 +51,7 @@ Wenn Sie das `aria-disabled` Attribut absichtlich verwenden, um ein Formularsteu
 }
 ```
 
-Die [`forced-colors` Media Query](/de/docs/Web/CSS/@media/forced-colors) erkennt, ob der [User Agent](/de/docs/Glossary/User_agent) einen Modus mit erzwungenen Farben aktiviert hat; wenn dies der Fall ist, werden Text- und Rahmenfarben beide auf die [Systemfarbe `greyText`](/de/docs/Web/CSS/system-color#syntax) gesetzt.
+Die [`forced-colors` Media Query](/de/docs/Web/CSS/@media/forced-colors) erkennt, ob der {{Glossary("User_agent", "User Agent")}} einen Modus mit erzwungenen Farben aktiviert hat; wenn dies der Fall ist, werden Text- und Rahmenfarben beide auf die [Systemfarbe `greyText`](/de/docs/Web/CSS/system-color#syntax) gesetzt.
 
 Neben dem Verwenden von `aria-disabled` statt des nativen HTML-Attributs müssen Sie bedenken, dass das ARIA-Attribut eine manuelle Gestaltung erfordert, um das Element als deaktiviert im Windows-Hochkontrastmodus visuell zu kommunizieren.
 

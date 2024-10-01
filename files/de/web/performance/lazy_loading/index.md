@@ -69,7 +69,7 @@ Das [`loading`](/de/docs/Web/HTML/Element/img#loading) Attribut auf einem {{HTML
 <iframe loading="lazy" src="video-player.html" title="..."></iframe>
 ```
 
-Das `load`-Ereignis wird ausgelöst, wenn der vorschnell geladene Inhalt vollständig geladen ist. Zu diesem Zeitpunkt ist es durchaus möglich (oder sogar wahrscheinlich), dass es lazily geladene Bilder oder iframes im [visuellen Viewport](/de/docs/Glossary/visual_viewport) gibt, die noch nicht geladen wurden.
+Das `load`-Ereignis wird ausgelöst, wenn der vorschnell geladene Inhalt vollständig geladen ist. Zu diesem Zeitpunkt ist es durchaus möglich (oder sogar wahrscheinlich), dass es lazily geladene Bilder oder iframes im {{Glossary("visual_viewport", "visuellen Viewport")}} gibt, die noch nicht geladen wurden.
 
 Sie können feststellen, ob ein bestimmtes Bild das Laden abgeschlossen hat, indem Sie den Wert seiner booleschen [`complete`](/de/docs/Web/API/HTMLImageElement/complete) Eigenschaft überprüfen.
 

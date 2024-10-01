@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **`WindowProxy`** Objekt ist ein Wrapper für ein [`Window`](/de/docs/Web/API/Window) Objekt. Ein `WindowProxy` Objekt existiert in jedem [Browsing-Kontext](/de/docs/Glossary/browsing_context). Alle Operationen, die an einem `WindowProxy` Objekt ausgeführt werden, werden auch auf das zugrunde liegende `Window` Objekt angewendet, das es derzeit umschließt. Daher ist die Interaktion mit einem `WindowProxy` Objekt nahezu identisch mit der direkten Interaktion mit einem `Window` Objekt. Wenn ein Browsing-Kontext navigiert wird, ändert sich das `Window` Objekt, das der `WindowProxy` umhüllt.
+Ein **`WindowProxy`** Objekt ist ein Wrapper für ein [`Window`](/de/docs/Web/API/Window) Objekt. Ein `WindowProxy` Objekt existiert in jedem {{Glossary("browsing_context", "Browsing-Kontext")}}. Alle Operationen, die an einem `WindowProxy` Objekt ausgeführt werden, werden auch auf das zugrunde liegende `Window` Objekt angewendet, das es derzeit umschließt. Daher ist die Interaktion mit einem `WindowProxy` Objekt nahezu identisch mit der direkten Interaktion mit einem `Window` Objekt. Wenn ein Browsing-Kontext navigiert wird, ändert sich das `Window` Objekt, das der `WindowProxy` umhüllt.
 
 ## Siehe auch
 

@@ -21,7 +21,7 @@ Um Zeilenumbrüche auszugeben, müssen Sie diese mit einem Zeilenvorschubzeichen
 
 Um jedoch Zeilenumbrüche zu erhalten, müssen Sie auch die {{cssxref("white-space")}}-Eigenschaft auf den entsprechenden Wert setzen.
 
-> **Note:** [Zeichenreferenzen](/de/docs/Glossary/character_reference) (wie zum Beispiel `&nbsp;` oder `&#8212;`) können nicht in einem CSS `<string>` verwendet werden.
+> **Note:** {{Glossary("character_reference", "Zeichenreferenzen")}} (wie zum Beispiel `&nbsp;` oder `&#8212;`) können nicht in einem CSS `<string>` verwendet werden.
 
 ## Beispiele
 

@@ -20,7 +20,7 @@ grayscale(amount)
 ### Parameter
 
 - `amount`
-  - : Menge des Eingabebildes, das in Graustufen konvertiert wird. Es wird als {{cssxref("&lt;number&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` wandelt die Eingabe vollständig in Graustufen um, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren auf den Effekt. Wenn der `grayscale()` Filter ohne Parameter vorhanden ist, beträgt der Standardwert `1`. Der anfängliche Wert, der für die [Interpolation](/de/docs/Glossary/interpolation) verwendet wird, ist `0`.
+  - : Menge des Eingabebildes, das in Graustufen konvertiert wird. Es wird als {{cssxref("&lt;number&gt;")}} oder als {{cssxref("&lt;percentage&gt;")}} angegeben. Ein Wert von `100%` wandelt die Eingabe vollständig in Graustufen um, während ein Wert von `0%` die Eingabe unverändert lässt. Werte zwischen `0%` und `100%` haben lineare Multiplikatoren auf den Effekt. Wenn der `grayscale()` Filter ohne Parameter vorhanden ist, beträgt der Standardwert `1`. Der anfängliche Wert, der für die {{Glossary("interpolation", "Interpolation")}} verwendet wird, ist `0`.
 
 ## Beispiele
 

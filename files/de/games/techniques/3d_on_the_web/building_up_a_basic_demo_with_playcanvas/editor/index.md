@@ -57,7 +57,7 @@ Klicken Sie auf Ihr neues Material im Assets-Tab und sein Entitätsinspektor wir
 
 ![PlayCanvas Editor - Box material](playcanvas-editor-boxmaterial.png)
 
-Um seine Farbe zu ändern, verwenden wir die _Diffuse_-Option im Entitätsinspektor. Klicken Sie auf _Diffuse_, dann wählen Sie das farbige Feld neben dem Farblabel — es wird ein [Farbrad](/de/docs/Glossary/color_wheel) geöffnet. Von hier aus können Sie Ihre gewünschte Farbe auswählen oder sie im unteren Textfeld als Hex-Wert eingeben. Wir haben eine blaue Farbe mit dem Hex-Wert `0095DD` gewählt — geben Sie diesen Code im Textfeld ein und drücken Sie die Eingabetaste, damit er akzeptiert wird.
+Um seine Farbe zu ändern, verwenden wir die _Diffuse_-Option im Entitätsinspektor. Klicken Sie auf _Diffuse_, dann wählen Sie das farbige Feld neben dem Farblabel — es wird ein {{Glossary("color_wheel", "Farbrad")}} geöffnet. Von hier aus können Sie Ihre gewünschte Farbe auswählen oder sie im unteren Textfeld als Hex-Wert eingeben. Wir haben eine blaue Farbe mit dem Hex-Wert `0095DD` gewählt — geben Sie diesen Code im Textfeld ein und drücken Sie die Eingabetaste, damit er akzeptiert wird.
 
 > [!NOTE]
 > Ja, Sie haben richtig gelesen — Sie müssen den Hex-Wert ohne das Hash-/Pfund-Symbol eingeben.

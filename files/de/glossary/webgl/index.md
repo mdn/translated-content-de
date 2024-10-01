@@ -7,13 +7,13 @@ l10n:
 
 {{GlossarySidebar}}
 
-**WebGL** (_Web Graphics Library_) ist eine [JavaScript](/de/docs/Glossary/JavaScript) [API](/de/docs/Glossary/API), die interaktive 2D- und 3D-Grafiken zeichnet.
+**WebGL** (_Web Graphics Library_) ist eine {{Glossary("JavaScript", "JavaScript")}} {{Glossary("API", "API")}}, die interaktive 2D- und 3D-Grafiken zeichnet.
 
-Die [Khronos Group](https://www.khronos.org/) pflegt WebGL, das auf [OpenGL](/de/docs/Glossary/OpenGL) ES 2.0 basiert.
+Die [Khronos Group](https://www.khronos.org/) pflegt WebGL, das auf {{Glossary("OpenGL", "OpenGL")}} ES 2.0 basiert.
 
-Sie können WebGL innerhalb des [HTML](/de/docs/Glossary/HTML) {{HTMLElement("canvas")}}-Elements aufrufen, welches eine Rendering-Oberfläche bereitstellt.
+Sie können WebGL innerhalb des {{Glossary("HTML", "HTML")}} {{HTMLElement("canvas")}}-Elements aufrufen, welches eine Rendering-Oberfläche bereitstellt.
 
-Alle großen [Browser](/de/docs/Glossary/Browser) unterstützen mittlerweile WebGL, aber seine Verfügbarkeit hängt auch von externen Faktoren ab (z. B. GPU-Unterstützung).
+Alle großen {{Glossary("Browser", "Browser")}} unterstützen mittlerweile WebGL, aber seine Verfügbarkeit hängt auch von externen Faktoren ab (z. B. GPU-Unterstützung).
 
 ## Siehe auch
 

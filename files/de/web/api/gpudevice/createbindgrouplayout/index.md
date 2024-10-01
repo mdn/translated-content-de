@@ -33,7 +33,7 @@ Ein Eintragsobjekt enthält die folgenden Eigenschaften:
   - : Eine Zahl, die eine eindeutige Kennung für diesen speziellen Eintrag darstellt, die mit dem `binding`-Wert eines entsprechenden [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Eintrags übereinstimmt. Zusätzlich entspricht es dem `n`-Indexwert des entsprechenden [`@binding(n)`](https://gpuweb.github.io/gpuweb/wgsl/#attribute-binding)-Attributs im Shader ([`GPUShaderModule`](/de/docs/Web/API/GPUShaderModule)), das in der zugehörigen Pipeline verwendet wird.
 - `visibility`
 
-  - : Ein oder mehrere [Bitweise Flaggen](/de/docs/Glossary/Bitwise_flags), die die Shader-Stufen definieren, für die ein [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Eintrag sichtbar sein wird, der diesem Eintrag entspricht. Mögliche Werte sind:
+  - : Ein oder mehrere {{Glossary("Bitwise_flags", "Bitweise Flaggen")}}, die die Shader-Stufen definieren, für die ein [`GPUBindGroup`](/de/docs/Web/API/GPUBindGroup)-Eintrag sichtbar sein wird, der diesem Eintrag entspricht. Mögliche Werte sind:
 
     - `GPUShaderStage.COMPUTE`: Der Bindungsgruppeneintrag wird für Compu-Shader zugänglich sein.
     - `GPUShaderStage.FRAGMENT`: Der Bindungsgruppeneintrag wird für Fragment-Shader zugänglich sein.

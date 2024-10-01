@@ -20,23 +20,23 @@ typeof operand
 ### Parameter
 
 - `operand`
-  - : Ein Ausdruck, der das Objekt oder das [Primärwert](/de/docs/Glossary/Primitive) darstellt, dessen Typ zurückgegeben werden soll.
+  - : Ein Ausdruck, der das Objekt oder das {{Glossary("Primitive", "Primärwert")}} darstellt, dessen Typ zurückgegeben werden soll.
 
 ## Beschreibung
 
 In der folgenden Tabelle sind die möglichen Rückgabewerte von `typeof` zusammengefasst. Weitere Informationen zu Typen und Primärwerten finden Sie auch auf der Seite [JavaScript Datenstrukturen](/de/docs/Web/JavaScript/Data_structures).
 
-| Typ                                                                                                                                                                                                     | Ergebnis                            |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
-| [Undefined](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)                                                                                                                               | `"undefined"`                       |
-| [Null](/de/docs/Web/JavaScript/Reference/Operators/null)                                                                                                                                              | `"object"` ([Begründung](#typeof_null)) |
-| [Boolean](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                   | `"boolean"`                         |
-| [Number](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                                                     | `"number"`                          |
-| [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)                                                                                                                                     | `"bigint"`                          |
-| [String](/de/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                     | `"string"`                          |
-| [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)                                                                                                                                     | `"symbol"`                          |
-| [Function](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) (implementiert [[Call]] in den ECMA-262-Termini; [Klassen](/de/docs/Web/JavaScript/Reference/Statements/class) sind ebenfalls Funktionen) | `"function"`                        |
-| Jedes andere Objekt                                                                                                                                                                                         | `"object"`                          |
+| Typ                                                                                                                                                                                                             | Ergebnis                                |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [Undefined](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)                                                                                                                                         | `"undefined"`                           |
+| [Null](/de/docs/Web/JavaScript/Reference/Operators/null)                                                                                                                                                        | `"object"` ([Begründung](#typeof_null)) |
+| [Boolean](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean)                                                                                                                                             | `"boolean"`                             |
+| [Number](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)                                                                                                                                               | `"number"`                              |
+| [BigInt](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt)                                                                                                                                               | `"bigint"`                              |
+| [String](/de/docs/Web/JavaScript/Reference/Global_Objects/String)                                                                                                                                               | `"string"`                              |
+| [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)                                                                                                                                               | `"symbol"`                              |
+| [Function](/de/docs/Web/JavaScript/Reference/Global_Objects/Function) (implementiert [[Call]] in den ECMA-262-Termini; [Klassen](/de/docs/Web/JavaScript/Reference/Statements/class) sind ebenfalls Funktionen) | `"function"`                            |
+| Jedes andere Objekt                                                                                                                                                                                             | `"object"`                              |
 
 Diese Liste der Werte ist umfassend. Es sind keine benutzerkonformen Engines gemeldet worden, die Werte produzieren (oder historisch produziert haben), die von den aufgelisteten abweichen.
 
@@ -169,7 +169,7 @@ Alle aktuellen Browser stellen ein nicht standardmäßiges Hostobjekt [`document
 typeof document.all === "undefined";
 ```
 
-Obwohl `document.all` auch [falsy](/de/docs/Glossary/Falsy) und [lose gleich](/de/docs/Web/JavaScript/Reference/Operators/Equality) zu `undefined` ist, ist es nicht [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined). Der Fall, dass `document.all` den Typ `"undefined"` hat, wird in den Webstandards als "bewusste Verletzung" des ursprünglichen ECMAScript-Standards für die Web-Kompatibilität klassifiziert.
+Obwohl `document.all` auch {{Glossary("Falsy", "falsy")}} und [lose gleich](/de/docs/Web/JavaScript/Reference/Operators/Equality) zu `undefined` ist, ist es nicht [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined). Der Fall, dass `document.all` den Typ `"undefined"` hat, wird in den Webstandards als "bewusste Verletzung" des ursprünglichen ECMAScript-Standards für die Web-Kompatibilität klassifiziert.
 
 ### Benutzerdefinierte Methode, die einen spezifischeren Typ erhält
 

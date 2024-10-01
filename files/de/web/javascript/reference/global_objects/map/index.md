@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`Map`**-Objekt hält Schlüssel-Werte-Paare und merkt sich die ursprüngliche Einfügereihenfolge der Schlüssel. Jeder Wert (sowohl Objekte als auch [primitive Werte](/de/docs/Glossary/Primitive)) kann sowohl als Schlüssel als auch als Wert verwendet werden.
+Das **`Map`**-Objekt hält Schlüssel-Werte-Paare und merkt sich die ursprüngliche Einfügereihenfolge der Schlüssel. Jeder Wert (sowohl Objekte als auch {{Glossary("Primitive", "primitive Werte")}}) kann sowohl als Schlüssel als auch als Wert verwendet werden.
 
 {{EmbedInteractiveExample("pages/js/map.html", "taller")}}
 

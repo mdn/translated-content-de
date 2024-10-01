@@ -38,7 +38,7 @@ _Die `MediaQueryList`-Schnittstelle erbt Methoden von ihrer übergeordneten Schn
 _Die folgenden Ereignisse werden an `MediaQueryList`-Objekte gesendet:_
 
 - [`change`](/de/docs/Web/API/MediaQueryList/change_event)
-  - : Wird an die `MediaQueryList` gesendet, wenn sich das Ergebnis der Überprüfung der Media Query gegen das Dokument ändert. Wenn beispielsweise die Media Query `(min-width: 400px)` ist, wird das `change`-Ereignis jede Mal ausgelöst, wenn sich die Breite des [Viewports](/de/docs/Glossary/viewport) des Dokuments so ändert, dass sich seine Breite über die 400px-Grenze in beide Richtungen bewegt.
+  - : Wird an die `MediaQueryList` gesendet, wenn sich das Ergebnis der Überprüfung der Media Query gegen das Dokument ändert. Wenn beispielsweise die Media Query `(min-width: 400px)` ist, wird das `change`-Ereignis jede Mal ausgelöst, wenn sich die Breite des {{Glossary("viewport", "Viewports")}} des Dokuments so ändert, dass sich seine Breite über die 400px-Grenze in beide Richtungen bewegt.
 
 ## Beispiele
 

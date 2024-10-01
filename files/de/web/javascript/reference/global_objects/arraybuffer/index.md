@@ -11,7 +11,7 @@ Das **`ArrayBuffer`**-Objekt wird verwendet, um einen generischen, rohen binäre
 
 Es ist ein Array von Bytes, das in anderen Sprachen oft als "Byte-Array" bezeichnet wird. Sie können den Inhalt eines `ArrayBuffer` nicht direkt manipulieren; stattdessen erstellen Sie eines der [typisierten Array-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) oder ein {{jsxref("DataView")}}-Objekt, das den Puffer in einem bestimmten Format darstellt, und verwenden dieses, um den Inhalt des Puffers zu lesen und zu schreiben.
 
-Der [`ArrayBuffer()`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/ArrayBuffer)-Konstruktor erstellt einen neuen `ArrayBuffer` mit der angegebenen Länge in Bytes. Sie können auch einen Array-Puffer aus bestehenden Daten erhalten, z. B. aus einem [Base64](/de/docs/Glossary/Base64)-String oder [aus einer lokalen Datei](/de/docs/Web/API/FileReader/readAsArrayBuffer).
+Der [`ArrayBuffer()`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer/ArrayBuffer)-Konstruktor erstellt einen neuen `ArrayBuffer` mit der angegebenen Länge in Bytes. Sie können auch einen Array-Puffer aus bestehenden Daten erhalten, z. B. aus einem {{Glossary("Base64", "Base64")}}-String oder [aus einer lokalen Datei](/de/docs/Web/API/FileReader/readAsArrayBuffer).
 
 `ArrayBuffer` ist ein [transferierbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 

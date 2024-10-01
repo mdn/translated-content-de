@@ -15,7 +15,7 @@ Ein Layout-Shift tritt auf, wenn ein sichtbares Element im Ansichtsfenster seine
 
 Die Layout-Instabilitäts-API bietet eine Möglichkeit zur Messung und Berichterstattung dieser Layout-Shifts. Alle Werkzeuge zur Fehlersuche bei Layout-Shifts, einschließlich der Entwicklertools des Browsers, nutzen diese API. Die API kann auch verwendet werden, um Layout-Shifts zu beobachten und zu debuggen, indem Informationen in die Konsole geloggt, die Daten an einen Server-Endpunkt gesendet oder in die Webseitenanalytik einbezogen werden.
 
-Leistungswerkzeuge können diese API verwenden, um einen [CLS](/de/docs/Glossary/CLS)-Wert zu berechnen.
+Leistungswerkzeuge können diese API verwenden, um einen {{Glossary("CLS", "CLS")}}-Wert zu berechnen.
 
 {{InheritanceDiagram}}
 
@@ -85,4 +85,4 @@ observer.observe({ type: "layout-shift", buffered: true });
 ## Siehe auch
 
 - [`LayoutShiftAttribution`](/de/docs/Web/API/LayoutShiftAttribution)
-- [CLS](/de/docs/Glossary/CLS)
+- {{Glossary("CLS", "CLS")}}

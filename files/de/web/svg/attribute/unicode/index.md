@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`unicode`** Attribut legt ein oder mehrere [Unicode](/de/docs/Glossary/Unicode)-Zeichen fest, die die Sequenz von Unicode-Zeichen angeben, die einem [Glyph](/de/docs/Glossary/glyph) entsprechen.
+Das **`unicode`** Attribut legt ein oder mehrere {{Glossary("Unicode", "Unicode")}}-Zeichen fest, die die Sequenz von Unicode-Zeichen angeben, die einem {{Glossary("glyph", "Glyph")}} entsprechen.
 
 Wenn ein Zeichen angegeben wird, dann entspricht dieses Glyph dem angegebenen Unicode-Zeichen. Wenn mehrere Zeichen angegeben werden, dann entspricht dieses Glyph der angegebenen Sequenz von Unicode-Zeichen. Eine Verwendung einer Zeichenfolge ist Ligaturen. Zum Beispiel, wenn `unicode="ffl"`, dann wird das angegebene Glyph verwendet, um die Sequenz der Zeichen "f", "f" und "l" darzustellen.
 

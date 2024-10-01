@@ -47,5 +47,5 @@ console.log(document.location);
 ## Siehe auch
 
 - Die Schnittstelle des zurückgegebenen Wertes, [`Location`](/de/docs/Web/API/Location)
-- Ähnliche Informationen, jedoch angehängt an den [Browsing-Kontext](/de/docs/Glossary/browsing_context),
+- Ähnliche Informationen, jedoch angehängt an den {{Glossary("browsing_context", "Browsing-Kontext")}},
   [`Window.location`](/de/docs/Web/API/Window/location)

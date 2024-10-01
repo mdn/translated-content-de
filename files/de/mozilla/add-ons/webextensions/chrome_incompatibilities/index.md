@@ -85,7 +85,7 @@ Wenn Sie sich entscheiden, Ihre Erweiterung so zu schreiben, dass sie `browser` 
 
 ### Teilweise unterstützte APIs
 
-Die Seite [Unterstützung von JavaScript-APIs in Browsern](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs) enthält Kompatibilitätstabellen für alle APIs, die in Firefox Unterstützung haben. Wo es Einschränkungen bezüglich der Unterstützung einer API-Methode, eines Attributs, Typs oder Ereignisses gibt, wird dies in diesen Tabellen mit einem Sternchen "*" angezeigt. Wenn Sie das Sternchen auswählen, wird die Tabelle erweitert, um eine Erklärung der Einschränkung anzuzeigen.
+Die Seite [Unterstützung von JavaScript-APIs in Browsern](/de/docs/Mozilla/Add-ons/WebExtensions/Browser_support_for_JavaScript_APIs) enthält Kompatibilitätstabellen für alle APIs, die in Firefox Unterstützung haben. Wo es Einschränkungen bezüglich der Unterstützung einer API-Methode, eines Attributs, Typs oder Ereignisses gibt, wird dies in diesen Tabellen mit einem Sternchen "\*" angezeigt. Wenn Sie das Sternchen auswählen, wird die Tabelle erweitert, um eine Erklärung der Einschränkung anzuzeigen.
 
 Die Tabellen werden aus Kompatibilitätsdaten generiert, die als [JSON-Dateien in GitHub](https://github.com/mdn/browser-compat-data) gespeichert sind.
 
@@ -173,7 +173,7 @@ Beim Aufrufen von `tabs.remove()`:
 
 #### web_accessible_resources
 
-- **In Firefox:** Ressourcen erhalten eine zufällige [UUID](/de/docs/Glossary/UUID), die für jede Instanz von Firefox ändert: `moz-extension://«random-UUID»/«path»`. Diese Zufälligkeit kann verhindern, dass Sie Dinge tun können, wie zum Beispiel die URL Ihrer Erweiterung zur CSP-Richtlinie einer anderen Domain hinzuzufügen.
+- **In Firefox:** Ressourcen erhalten eine zufällige {{Glossary("UUID", "UUID")}}, die für jede Instanz von Firefox ändert: `moz-extension://«random-UUID»/«path»`. Diese Zufälligkeit kann verhindern, dass Sie Dinge tun können, wie zum Beispiel die URL Ihrer Erweiterung zur CSP-Richtlinie einer anderen Domain hinzuzufügen.
 - **In Chrome:** Wenn eine Ressource in `web_accessible_resources` aufgeführt ist, ist sie zugänglich als `chrome-extension://«your-extension-id»/«path»`. Die Erweiterungs-ID ist für eine Erweiterung festgelegt.
 
 #### Manifest "key"-Eigenschaft
@@ -217,7 +217,7 @@ Siehe {{WebExtAPIRef("tabs.ZoomSettingsScope")}}.
 
 ## manifest.json Schlüssel
 
-Die Hauptseite [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) enthält eine Tabelle, die die Unterstützung von `manifest.json`-Schlüsseln in Browsern beschreibt. Wo es Einschränkungen bezüglich der Unterstützung eines bestimmten Schlüssels gibt, wird dies in der Tabelle mit einem Sternchen "*" angezeigt. Wenn Sie das Sternchen auswählen, wird die Tabelle erweitert, um eine Anmerkung zu der Einschränkung anzuzeigen.
+Die Hauptseite [`manifest.json`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) enthält eine Tabelle, die die Unterstützung von `manifest.json`-Schlüsseln in Browsern beschreibt. Wo es Einschränkungen bezüglich der Unterstützung eines bestimmten Schlüssels gibt, wird dies in der Tabelle mit einem Sternchen "\*" angezeigt. Wenn Sie das Sternchen auswählen, wird die Tabelle erweitert, um eine Anmerkung zu der Einschränkung anzuzeigen.
 
 Die Tabellen werden aus Kompatibilitätsdaten generiert, die als [JSON-Dateien in GitHub](https://github.com/mdn/browser-compat-data) gespeichert sind.
 

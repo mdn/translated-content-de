@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`async function`**-Deklaration erstellt eine [Bindung](/de/docs/Glossary/binding) einer neuen asynchronen Funktion mit einem gegebenen Namen. Das `await`-Schlüsselwort ist im Funktionskörper erlaubt und ermöglicht eine asynchrone, auf Promises basierende Verhaltensweise, die in einem klareren Stil geschrieben werden kann, ohne dass explizit Promise-Ketten konfiguriert werden müssen.
+Die **`async function`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen asynchronen Funktion mit einem gegebenen Namen. Das `await`-Schlüsselwort ist im Funktionskörper erlaubt und ermöglicht eine asynchrone, auf Promises basierende Verhaltensweise, die in einem klareren Stil geschrieben werden kann, ohne dass explizit Promise-Ketten konfiguriert werden müssen.
 
 Sie können asynchrone Funktionen auch mit dem [`async function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/async_function) definieren.
 
@@ -156,7 +156,7 @@ async function foo() {
 foo().catch(() => {}); // Attempt to swallow all errors...
 ```
 
-`async function`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen – sie werden [gehoben](/de/docs/Glossary/Hoisting) an den Anfang ihres Gültigkeitsbereichs und können überall in ihrem Gültigkeitsbereich aufgerufen werden, und können nur in bestimmten Kontexten neu deklariert werden.
+`async function`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen – sie werden {{Glossary("Hoisting", "gehoben")}} an den Anfang ihres Gültigkeitsbereichs und können überall in ihrem Gültigkeitsbereich aufgerufen werden, und können nur in bestimmten Kontexten neu deklariert werden.
 
 ## Beispiele
 

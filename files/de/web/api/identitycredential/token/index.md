@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte Eigenschaft **`token`** des [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Interfaces gibt das Token zurück, das verwendet wird, um die zugehörige Anmeldung zu validieren.
 
-Das Token enthält Informationen zur Benutzeridentität, die mit dem [digitalen Zertifikat](/de/docs/Glossary/digital_certificate) des Identitätsanbieters (IdP) signiert wurden.
+Das Token enthält Informationen zur Benutzeridentität, die mit dem {{Glossary("digital_certificate", "digitalen Zertifikat")}} des Identitätsanbieters (IdP) signiert wurden.
 
 Der verarbeitende Dienst (RP) sendet das Token an seinen Server, um das Zertifikat zu validieren, und kann im Erfolgsfall die (nun vertrauenswürdige) Identitätsinformation im Token verwenden, um den Benutzer in seinen Dienst einzuloggen (eine neue Sitzung zu starten), ihn für seinen Dienst zu registrieren, falls er ein neuer Benutzer ist, usw.
 

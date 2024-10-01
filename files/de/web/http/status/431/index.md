@@ -62,4 +62,4 @@ Content-Type: text/html
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - {{HTTPStatus("414", "414 URI Too Long")}}
-- [Anfrage-Header](/de/docs/Glossary/Request_header)
+- {{Glossary("Request_header", "Anfrage-Header")}}

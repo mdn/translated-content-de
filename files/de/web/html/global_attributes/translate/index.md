@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`translate`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufzählbares](/de/docs/Glossary/Enumerated) Attribut, das verwendet wird, um anzugeben, ob die _übersetzbaren Attribut_-Werte eines Elements und seine [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder bei der Lokalisierung der Seite übersetzt oder unverändert gelassen werden sollen.
+Das **`translate`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das verwendet wird, um anzugeben, ob die _übersetzbaren Attribut_-Werte eines Elements und seine [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder bei der Lokalisierung der Seite übersetzt oder unverändert gelassen werden sollen.
 
 Es kann die folgenden Werte haben:
 

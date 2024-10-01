@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Authoring Tool [Accessibility](/de/docs/Glossary/Accessibility) Guidelines (ATAG)** ist eine [W3C](/de/docs/Glossary/W3C) Empfehlung zur Erstellung von barrierefreien Autorentools, die barrierefreie Inhalte erzeugen.
+**Authoring Tool {{Glossary("Accessibility", "Accessibility")}} Guidelines (ATAG)** ist eine {{Glossary("W3C", "W3C")}} Empfehlung zur Erstellung von barrierefreien Autorentools, die barrierefreie Inhalte erzeugen.
 
 Autorentools sind Softwareanwendungen, die Menschen verwenden, um Webinhalte zu erstellen. ATAG erklärt, wie:
 
 - die Autorentools selbst **zugänglich** gemacht werden, damit Menschen mit Behinderungen Webinhalte erstellen können
-- Autoren dabei unterstützt werden, zugänglichere Webinhalte zu erstellen — insbesondere: die Erstellung von Inhalten zu ermöglichen, zu unterstützen und zu fördern, die den [Web Content Accessibility Guidelines](/de/docs/Glossary/WCAG) (WCAG) entsprechen.
+- Autoren dabei unterstützt werden, zugänglichere Webinhalte zu erstellen — insbesondere: die Erstellung von Inhalten zu ermöglichen, zu unterstützen und zu fördern, die den {{Glossary("WCAG", "Web Content Accessibility Guidelines")}} (WCAG) entsprechen.
 
 ## Siehe auch
 
@@ -20,7 +20,7 @@ Autorentools sind Softwareanwendungen, die Menschen verwenden, um Webinhalte zu 
 - [Übersicht der Authoring Tool Accessibility Guidelines (ATAG)](https://www.w3.org/WAI/standards-guidelines/atag/)
 - [Authoring Tool Accessibility Guidelines (ATAG) Empfehlung 2.0](https://www.w3.org/TR/ATAG20/)
 - Verwandte Glossarbegriffe:
-  - [Barrierefreiheit](/de/docs/Glossary/Accessibility)
-  - [WAI](/de/docs/Glossary/WAI)
-  - [WCAG](/de/docs/Glossary/WCAG)
-  - [UAAG](/de/docs/Glossary/UAAG)
+  - {{Glossary("Accessibility", "Barrierefreiheit")}}
+  - {{Glossary("WAI", "WAI")}}
+  - {{Glossary("WCAG", "WCAG")}}
+  - {{Glossary("UAAG", "UAAG")}}

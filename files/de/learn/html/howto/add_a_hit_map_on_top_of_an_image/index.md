@@ -66,7 +66,7 @@ In diesem Schritt setzen Sie Ihren gesamten Code in ein {{htmlelement('map')}}-E
 
 Innerhalb des `<map>`-Elements benötigen wir {{htmlelement('area')}}-Elemente. Ein `<area>`-Element entspricht einem einzelnen Hotspot. Um die Tastaturnavigation intuitiv zu gestalten, stellen Sie sicher, dass die Quellreihenfolge der `<area>`-Elemente der visuellen Reihenfolge der Hotspots entspricht.
 
-`<area>`-Elemente sind [leere Elemente](/de/docs/Glossary/void_element), benötigen jedoch vier Attribute:
+`<area>`-Elemente sind {{Glossary("void_element", "leere Elemente")}}, benötigen jedoch vier Attribute:
 
 - [`shape`](/de/docs/Web/HTML/Element/area#shape)
 

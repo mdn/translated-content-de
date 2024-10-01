@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In CSS bezieht sich die **kanonische Reihenfolge** auf die Reihenfolge, in der separate Werte spezifiziert (oder [geparst](/de/docs/Glossary/parse)) werden müssen oder als Teil eines CSS-Property-Werts [serialisiert](/de/docs/Glossary/serialization) werden. Sie wird durch die formale [Syntax](/de/docs/Glossary/syntax) der Eigenschaft definiert und bezieht sich normalerweise auf die Reihenfolge, in der Langform-Werte als Teil eines einzigen Kurzform-Werts spezifiziert werden sollten.
+In CSS bezieht sich die **kanonische Reihenfolge** auf die Reihenfolge, in der separate Werte spezifiziert (oder {{Glossary("parse", "geparst")}}) werden müssen oder als Teil eines CSS-Property-Werts {{Glossary("serialization", "serialisiert")}} werden. Sie wird durch die formale {{Glossary("syntax", "Syntax")}} der Eigenschaft definiert und bezieht sich normalerweise auf die Reihenfolge, in der Langform-Werte als Teil eines einzigen Kurzform-Werts spezifiziert werden sollten.
 
 Zum Beispiel bestehen die Werte der Kurzform-Eigenschaft {{cssxref("background")}} aus mehreren `background-*` Langform-Eigenschaften. Die kanonische Reihenfolge dieser Langform-Werte ist definiert als
 

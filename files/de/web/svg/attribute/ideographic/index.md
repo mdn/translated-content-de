@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`ideographic`** Attribut gibt das Ausrichtungskoordinat für [Glyphen](/de/docs/Glossary/glyph) an, um eine ideographische [Grundlinie](/de/docs/Glossary/baseline/typography) Ausrichtung für horizontal ausgerichtete Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Koordinatensystem der Schriftart.
+Das **`ideographic`** Attribut gibt das Ausrichtungskoordinat für {{Glossary("glyph", "Glyphen")}} an, um eine ideographische {{Glossary("baseline/typography", "Grundlinie")}} Ausrichtung für horizontal ausgerichtete Glyphenlayouts zu erreichen. Der Wert ist ein Offset im Koordinatensystem der Schriftart.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`supports()`** statische Methode der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt `true` zurück, wenn der angegebene [MIME-Typ](/de/docs/Glossary/MIME_type) vom Clipboard unterstützt wird, und `false` andernfalls.
+Die **`supports()`** statische Methode der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt `true` zurück, wenn der angegebene {{Glossary("MIME_type", "MIME-Typ")}} vom Clipboard unterstützt wird, und `false` andernfalls.
 
 Beachten Sie, dass die [Clipboard API](/de/docs/Web/API/Clipboard_API) die Unterstützung für einfachen Text, HTML und PNG-Dateien vorschreibt.
 Die `supports()`-Methode wird für diese MIME-Typen immer `true` zurückgeben, sodass ein Testen nicht notwendig ist.
@@ -23,7 +23,7 @@ supports(type)
 
 - `type`
 
-  - : Ein String, der den zu testenden [MIME-Typ](/de/docs/Glossary/MIME_type) angibt.
+  - : Ein String, der den zu testenden {{Glossary("MIME_type", "MIME-Typ")}} angibt.
 
     Diese MIME-Typen werden immer unterstützt:
 
@@ -39,7 +39,7 @@ supports(type)
 
 ### Rückgabewert
 
-`true`, wenn der angegebene [MIME-Typ](/de/docs/Glossary/MIME_type) vom Clipboard unterstützt wird, `false` andernfalls.
+`true`, wenn der angegebene {{Glossary("MIME_type", "MIME-Typ")}} vom Clipboard unterstützt wird, `false` andernfalls.
 
 ## Beispiele
 

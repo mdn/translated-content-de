@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein [Objekt](/de/docs/Glossary/object), das von einem [Konstruktor](/de/docs/Glossary/constructor) erstellt wurde, ist eine Instanz dieses Konstruktors.
+Ein {{Glossary("object", "Objekt")}}, das von einem {{Glossary("constructor", "Konstruktor")}} erstellt wurde, ist eine Instanz dieses Konstruktors.
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/HTML/Introduction_to_HTML/Getting_started", "Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals", "Learn/HTML/Introduction_to_HTML")}}
 
-Der [head](/de/docs/Glossary/Head) eines HTML-Dokuments ist der Teil, der nicht im Webbrowser angezeigt wird, wenn die Seite geladen wird. Er enthält Informationen wie das Seiten-{{htmlelement("title")}}, Links zu [CSS](/de/docs/Glossary/CSS) (wenn Sie sich entscheiden, Ihre HTML-Inhalte mit CSS zu gestalten), Links zu benutzerdefinierten Favicons und andere Metadaten (Daten über das HTML, wie z.B. den Autor und wichtige Schlüsselwörter, die das Dokument beschreiben). Webbrowser verwenden Informationen, die im [head](/de/docs/Glossary/Head) enthalten sind, um das HTML-Dokument korrekt darzustellen. In diesem Artikel besprechen wir all dies und mehr, um Ihnen eine gute Grundlage für die Arbeit mit Markup zu geben.
+Der {{Glossary("Head", "head")}} eines HTML-Dokuments ist der Teil, der nicht im Webbrowser angezeigt wird, wenn die Seite geladen wird. Er enthält Informationen wie das Seiten-{{htmlelement("title")}}, Links zu {{Glossary("CSS", "CSS")}} (wenn Sie sich entscheiden, Ihre HTML-Inhalte mit CSS zu gestalten), Links zu benutzerdefinierten Favicons und andere Metadaten (Daten über das HTML, wie z.B. den Autor und wichtige Schlüsselwörter, die das Dokument beschreiben). Webbrowser verwenden Informationen, die im {{Glossary("Head", "head")}} enthalten sind, um das HTML-Dokument korrekt darzustellen. In diesem Artikel besprechen wir all dies und mehr, um Ihnen eine gute Grundlage für die Arbeit mit Markup zu geben.
 
 <table>
   <tbody>
@@ -46,7 +46,7 @@ Lassen Sie uns das einfache [HTML-Dokument, das wir im vorherigen Artikel behand
 </html>
 ```
 
-Der HTML-head ist der Inhalt des {{htmlelement("head")}}-Elements. Im Gegensatz zu den Inhalten des {{htmlelement("body")}}-Elements (die angezeigt werden, wenn die Seite in einem Browser geladen wird), werden die Inhalte des head nicht auf der Seite angezeigt. Stattdessen ist es die Aufgabe des head, [Metadaten](/de/docs/Glossary/Metadata) über das Dokument zu enthalten. Im obigen Beispiel ist der head ziemlich klein:
+Der HTML-head ist der Inhalt des {{htmlelement("head")}}-Elements. Im Gegensatz zu den Inhalten des {{htmlelement("body")}}-Elements (die angezeigt werden, wenn die Seite in einem Browser geladen wird), werden die Inhalte des head nicht auf der Seite angezeigt. Stattdessen ist es die Aufgabe des head, {{Glossary("Metadata", "Metadaten")}} über das Dokument zu enthalten. Im obigen Beispiel ist der head ziemlich klein:
 
 ```html
 <head>
@@ -136,7 +136,7 @@ started with developing websites and applications." />
 
 Die Angabe eines Autors ist auf viele Arten vorteilhaft: Es ist nützlich zu wissen, wer die Seite geschrieben hat, wenn Sie Fragen zu den Inhalten haben und Sie möchten sie kontaktieren. Einige Content-Management-Systeme haben Einrichtungen, um automatisch Informationen über den Seitenautor zu extrahieren und für solche Zwecke verfügbar zu machen.
 
-Die Angabe einer Beschreibung, die Schlüsselwörter im Zusammenhang mit dem Inhalt Ihrer Seite enthält, ist nützlich, da sie das Potenzial hat, Ihre Seite in relevanteren Suchanfragen in Suchmaschinen höher erscheinen zu lassen (solche Aktivitäten werden als [Search Engine Optimization](/de/docs/Glossary/SEO) oder [SEO](/de/docs/Glossary/SEO) bezeichnet.)
+Die Angabe einer Beschreibung, die Schlüsselwörter im Zusammenhang mit dem Inhalt Ihrer Seite enthält, ist nützlich, da sie das Potenzial hat, Ihre Seite in relevanteren Suchanfragen in Suchmaschinen höher erscheinen zu lassen (solche Aktivitäten werden als {{Glossary("SEO", "Search Engine Optimization")}} oder {{Glossary("SEO", "SEO")}} bezeichnet.)
 
 ### Aktives Lernen: Die Verwendung der Beschreibung in Suchmaschinen
 
@@ -246,7 +246,7 @@ Machen Sie sich jetzt keine allzu großen Sorgen um die Implementierung all dies
 
 ## Anwenden von CSS und JavaScript auf HTML
 
-Fast alle Websites, die Sie heutzutage nutzen, werden [CSS](/de/docs/Glossary/CSS) verwenden, um sie ansprechend zu gestalten, und [JavaScript](/de/docs/Glossary/JavaScript), um interaktive Funktionalitäten zu ermöglichen, wie Videoplayer, Karten, Spiele und mehr. Diese werden am häufigsten auf eine Webseite angewendet, indem das {{htmlelement("link")}}-Element bzw. das {{htmlelement("script")}}-Element verwendet wird.
+Fast alle Websites, die Sie heutzutage nutzen, werden {{Glossary("CSS", "CSS")}} verwenden, um sie ansprechend zu gestalten, und {{Glossary("JavaScript", "JavaScript")}}, um interaktive Funktionalitäten zu ermöglichen, wie Videoplayer, Karten, Spiele und mehr. Diese werden am häufigsten auf eine Webseite angewendet, indem das {{htmlelement("link")}}-Element bzw. das {{htmlelement("script")}}-Element verwendet wird.
 
 - Das {{htmlelement("link")}}-Element sollte immer in den head Ihres Dokuments gehen. Es nimmt zwei Attribute an, `rel="stylesheet"`, was anzeigt, dass es sich um das Stylesheet des Dokuments handelt, und `href`, das den Pfad zur Stylesheet-Datei enthält:
 
@@ -261,7 +261,7 @@ Fast alle Websites, die Sie heutzutage nutzen, werden [CSS](/de/docs/Glossary/CS
   ```
 
   > [!NOTE]
-  > Das `<script>`-Element sieht vielleicht wie ein [void element](/de/docs/Glossary/void_element) aus, aber das ist es nicht, und braucht daher ein schließendes Tag. Anstatt auf eine externe Skriptdatei zu verweisen, können Sie auch wählen, Ihr Script innerhalb des `<script>`-Elements einzufügen.
+  > Das `<script>`-Element sieht vielleicht wie ein {{Glossary("void_element", "void element")}} aus, aber das ist es nicht, und braucht daher ein schließendes Tag. Anstatt auf eine externe Skriptdatei zu verweisen, können Sie auch wählen, Ihr Script innerhalb des `<script>`-Elements einzufügen.
 
 ### Aktives Lernen: CSS und JavaScript auf eine Seite anwenden
 

@@ -23,7 +23,7 @@ getBigUint64(byteOffset, littleEndian)
 - `byteOffset`
   - : Der Offset, in Bytes, ab dem Start der Ansicht, von dem die Daten gelesen werden sollen.
 - `littleEndian` {{optional_inline}}
-  - : Gebt an, ob die Daten im [Little- oder Big-Endian-Format](/de/docs/Glossary/Endianness) gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gebt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian-Format")}} gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 

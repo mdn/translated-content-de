@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **cross axis** (Querachse) im [Flexbox](/de/docs/Glossary/flexbox) verläuft senkrecht zur [main axis](/de/docs/Glossary/main_axis) (Hauptachse). Daher, wenn Ihre {{cssxref("flex-direction")}} entweder `row` oder `row-reverse` ist, verläuft die Querachse entlang der Spalten.
+Der **cross axis** (Querachse) im {{Glossary("flexbox", "Flexbox")}} verläuft senkrecht zur {{Glossary("main_axis", "main axis")}} (Hauptachse). Daher, wenn Ihre {{cssxref("flex-direction")}} entweder `row` oder `row-reverse` ist, verläuft die Querachse entlang der Spalten.
 
 ![Die Querachse verläuft entlang der Spalte](basics3.png)
 
@@ -44,7 +44,7 @@ CSS Flexbox-Leitfäden:
 
 Verwandte Glossareinträge:
 
-- [Flex](/de/docs/Glossary/Flex)
-- [Flex Container](/de/docs/Glossary/Flex_Container)
-- [Flex Item](/de/docs/Glossary/Flex_Item)
-- [Grid](/de/docs/Glossary/Grid)
+- {{Glossary("Flex", "Flex")}}
+- {{Glossary("Flex_Container", "Flex Container")}}
+- {{Glossary("Flex_Item", "Flex Item")}}
+- {{Glossary("Grid", "Grid")}}

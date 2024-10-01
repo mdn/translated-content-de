@@ -84,7 +84,7 @@ for us to breathe.
 - {{cssxref("scroll-snap-stop")}} CSS-Eigenschaft
 - {{cssxref("scroll-snap-type")}} CSS-Eigenschaft
 - {{CSSxRef("::-webkit-scrollbar")}} Pseudo-Element
-- [scroll container](/de/docs/Glossary/scroll_container) Glossarbegriff
+- {{Glossary("scroll_container", "scroll container")}} Glossarbegriff
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role) ARIA-Rolle
 
 ## Spezifikationen

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`preventDefault()`**-Methode der [`Event`](/de/docs/Web/API/Event)-Schnittstelle teilt dem [Benutzeragenten](/de/docs/Glossary/user_agent) mit, dass die Standardaktion des Ereignisses nicht wie gewöhnlich ausgeführt werden soll, wenn das Ereignis nicht explizit behandelt wird.
+Die **`preventDefault()`**-Methode der [`Event`](/de/docs/Web/API/Event)-Schnittstelle teilt dem {{Glossary("user_agent", "Benutzeragenten")}} mit, dass die Standardaktion des Ereignisses nicht wie gewöhnlich ausgeführt werden soll, wenn das Ereignis nicht explizit behandelt wird.
 
 Das Ereignis wird weiterhin wie gewohnt verbreitet, es sei denn, einer seiner Ereignis-Listener ruft [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) oder [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation) auf, von denen jede die Verbreitung sofort beendet.
 

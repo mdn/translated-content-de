@@ -56,7 +56,7 @@ Werte dieses Typs sind Strings. Mögliche Werte sind:
 - `websocket`
   - : Anfragen, die eine Verbindung zu einem Server über die [WebSocket API](/de/docs/Web/API/WebSockets_API) initiieren.
 - `xml_dtd`
-  - : [DTDs](/de/docs/Glossary/Doctype), die für ein XML-Dokument geladen werden.
+  - : {{Glossary("Doctype", "DTDs")}}, die für ein XML-Dokument geladen werden.
 - `xmlhttprequest`
   - : Anfragen, die von einem [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt oder über die [Fetch API](/de/docs/Web/API/Fetch_API) gesendet werden.
 - `xslt`

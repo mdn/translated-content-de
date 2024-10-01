@@ -20,7 +20,7 @@ invert(amount)
 ### Parameter
 
 - `amount`
-  - : Die Stärke der Umkehrung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren des Effekts. Der Anfangswert für [Interpolation](/de/docs/Glossary/interpolation) ist `0`.
+  - : Die Stärke der Umkehrung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert von `100%` ist vollständig invertiert, während ein Wert von `0%` das Eingabebild unverändert lässt. Werte zwischen `0%` und `100%` sind lineare Multiplikatoren des Effekts. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`.
 
 ## Beispiele
 

@@ -18,6 +18,6 @@ HTTP/2 unterstützt unbegrenzte gleichzeitige Anfragen, was Domain Sharding zu e
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [TLS](/de/docs/Glossary/TLS)
-  - [DNS](/de/docs/Glossary/DNS)
-  - [HTTP/2](/de/docs/Glossary/HTTP_2)
+  - {{Glossary("TLS", "TLS")}}
+  - {{Glossary("DNS", "DNS")}}
+  - {{Glossary("HTTP_2", "HTTP/2")}}

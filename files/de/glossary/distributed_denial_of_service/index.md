@@ -9,7 +9,7 @@ l10n:
 
 Ein **Distributed Denial-of-Service** (DDoS) ist ein Angriff, bei dem viele kompromittierte Systeme dazu gebracht werden, ein einzelnes Ziel anzugreifen, um Serverressourcen zu überlasten und legitime Benutzer zu blockieren.
 
-In der Regel greifen viele Personen, die viele Bots verwenden, hochkarätige Web-[Server](/de/docs/Glossary/server) wie Banken oder Kreditkartenzahlungsgateways an. DDoS betrifft Computernetzwerke und die Verwaltung von CPU-Ressourcen.
+In der Regel greifen viele Personen, die viele Bots verwenden, hochkarätige Web-{{Glossary("server", "Server")}} wie Banken oder Kreditkartenzahlungsgateways an. DDoS betrifft Computernetzwerke und die Verwaltung von CPU-Ressourcen.
 
 Bei einem typischen DDoS-Angriff beginnt der Angreifer damit, eine Schwachstelle in einem Computersystem auszunutzen und es zum DDoS-Master zu machen. Der Angriffs-Master, auch bekannt als Botmaster, identifiziert und infiziert andere anfällige Systeme mit Malware. Schließlich weist der Angreifer die kontrollierten Maschinen an, einen Angriff auf ein bestimmtes Ziel zu starten.
 

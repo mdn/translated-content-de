@@ -19,7 +19,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 - In der Regel ist ein `<figure>` ein Bild, eine Illustration, ein Diagramm, ein Code-Schnipsel usw., das im Hauptfluss eines Dokuments referenziert wird, aber verschoben werden kann, ohne den Hauptfluss zu beeinträchtigen.
 - Eine Beschriftung kann dem `<figure>`-Element zugeordnet werden, indem ein {{HTMLElement("figcaption")}} innerhalb von `<figure>` eingefügt wird (als erstes oder letztes Kind-Element). Das erste `<figcaption>`-Element im `<figure>` wird als die Beschriftung der Figur angezeigt.
-- Das `<figcaption>` bietet den [zugänglichen Namen](/de/docs/Glossary/accessible_name) für das übergeordnete `<figure>`.
+- Das `<figcaption>` bietet den {{Glossary("accessible_name", "zugänglichen Namen")}} für das übergeordnete `<figure>`.
 
 ## Beispiele
 

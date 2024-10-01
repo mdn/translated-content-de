@@ -7,9 +7,9 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der Fehler **stale element reference** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, weil das referenzierte [Webelement](/de/docs/Web/WebDriver/WebElement) nicht mehr mit dem [DOM](/de/docs/Glossary/DOM) verbunden ist.
+Der Fehler **stale element reference** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, weil das referenzierte [Webelement](/de/docs/Web/WebDriver/WebElement) nicht mehr mit dem {{Glossary("DOM", "DOM")}} verbunden ist.
 
-Jedes DOM-Element wird im WebDriver durch eine eindeutige Identifikationsreferenz dargestellt, bekannt als _[Webelement](/de/docs/Web/WebDriver/WebElement)_. Die Webelement-Referenz ist eine [UUID](/de/docs/Glossary/UUID), die verwendet wird, um Befehle auszuführen, die auf bestimmte Elemente abzielen, wie z.B. [Abrufen des Tag-Namens eines Elements](/de/docs/Web/WebDriver/Commands/GetElementTagName) und [Abrufen einer Eigenschaft](/de/docs/Web/WebDriver/Commands/GetElementProperty) eines Elements.
+Jedes DOM-Element wird im WebDriver durch eine eindeutige Identifikationsreferenz dargestellt, bekannt als _[Webelement](/de/docs/Web/WebDriver/WebElement)_. Die Webelement-Referenz ist eine {{Glossary("UUID", "UUID")}}, die verwendet wird, um Befehle auszuführen, die auf bestimmte Elemente abzielen, wie z.B. [Abrufen des Tag-Namens eines Elements](/de/docs/Web/WebDriver/Commands/GetElementTagName) und [Abrufen einer Eigenschaft](/de/docs/Web/WebDriver/Commands/GetElementProperty) eines Elements.
 
 Wenn ein Element nicht mehr mit dem DOM verbunden ist, d.h. es aus dem Dokument entfernt wurde oder sich das Dokument geändert hat, wird es als _veraltet_ bezeichnet. Veralterung tritt beispielsweise auf, wenn Sie eine Webelement-Referenz haben und das Dokument, aus dem sie abgerufen wurde, navigiert.
 

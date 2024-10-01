@@ -14,7 +14,7 @@ Wenn die Antwort auf eine `HEAD`-Anfrage zeigt, dass eine zwischengespeicherte U
 
 > [!WARNING]
 > Wenn eine Antwort auf eine `HEAD`-Anfrage einen Body enthält, muss der Antwort-Body ignoriert werden.
-> Jegliche [Repräsentations-Header](/de/docs/Glossary/Representation_header), die den fehlerhaften Body beschreiben, werden als Beschreibung des Antwort-Bodys angenommen, den eine `GET`-Anfrage erhalten hätte.
+> Jegliche {{Glossary("Representation_header", "Repräsentations-Header")}}, die den fehlerhaften Body beschreiben, werden als Beschreibung des Antwort-Bodys angenommen, den eine `GET`-Anfrage erhalten hätte.
 
 <table class="properties">
   <tbody>
@@ -27,15 +27,15 @@ Wenn die Antwort auf eine `HEAD`-Anfrage zeigt, dass eine zwischengespeicherte U
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">[Safe](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Safe")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
       <td>Ja</td>
     </tr>
     <tr>

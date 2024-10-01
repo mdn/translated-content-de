@@ -8,13 +8,13 @@ l10n:
 {{HTTPSidebar}}
 
 Der HTTP-Statuscode **`207 Multi-Status`** [erfolgreiche Antwort](/de/docs/Web/HTTP/Status#successful_responses) zeigt eine Mischung von Antworten an.
-Diese Antwort wird ausschließlich im Kontext von Web Distributed Authoring and Versioning ([WebDAV](/de/docs/Glossary/WebDAV)) verwendet.
+Diese Antwort wird ausschließlich im Kontext von Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) verwendet.
 
 Der Antwortkörper ist eine `text/xml` oder `application/xml` HTTP-Entität mit einem `multistatus`-Wurzelelement, das einzelne Antwortcodes auflistet.
 
 > [!NOTE]
 > Browser, die auf Webseiten zugreifen, werden diesen Statuscode niemals begegnen.
-> Die Fähigkeit, eine _Sammlung von Ressourcen_ zurückzugeben, ist Teil des [WebDAV](/de/docs/Glossary/WebDAV)-Protokolls und wird nur von Webanwendungen angetroffen, die auf einen WebDAV-Server zugreifen.
+> Die Fähigkeit, eine _Sammlung von Ressourcen_ zurückzugeben, ist Teil des {{Glossary("WebDAV", "WebDAV")}}-Protokolls und wird nur von Webanwendungen angetroffen, die auf einen WebDAV-Server zugreifen.
 
 ## Status
 
@@ -26,7 +26,7 @@ Der Antwortkörper ist eine `text/xml` oder `application/xml` HTTP-Entität mit 
 
 ### Empfang einer `207`-Antwort in einem WebDAV-Kontext
 
-Die folgende Antwort ist ein Beispiel für eine `207`-Antwort, die ein [WebDAV](/de/docs/Glossary/WebDAV)-Server an einen Client sendet.
+Die folgende Antwort ist ein Beispiel für eine `207`-Antwort, die ein {{Glossary("WebDAV", "WebDAV")}}-Server an einen Client sendet.
 Es gibt ein `multistatus`-Wurzelelement mit Details zu den einzelnen Sammlungen:
 
 ```http

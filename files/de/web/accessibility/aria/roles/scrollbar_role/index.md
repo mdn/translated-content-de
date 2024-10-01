@@ -73,7 +73,7 @@ Da Nachkommen von `scrollbar` präsentational sind, ist der folgende Code äquiv
 <div role="scrollbar"><h3 role="presentation">Title of my scrollbar</h3></div>
 ```
 
-Aus der Perspektive eines Benutzers von assistiver Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets dem folgenden im [Zugriffstree](/de/docs/Glossary/Accessibility_tree) gleichwertig sind:
+Aus der Perspektive eines Benutzers von assistiver Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets dem folgenden im {{Glossary("Accessibility_tree", "Zugriffstree")}} gleichwertig sind:
 
 ```html
 <div role="scrollbar">Title of my scrollbar</div>

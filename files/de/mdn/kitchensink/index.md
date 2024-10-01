@@ -113,15 +113,15 @@ class BookListView(generic.ListView):
 
 ### Markdown-Tabelle
 
-| Konstanter Name              | Wert   | Beschreibung                                                           |
-| ---------------------------- | ------ | ---------------------------------------------------------------------- |
+| Konstanter Name              | Wert   | Beschreibung                                                                                                |
+| ---------------------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
 | `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die für die Speicherung des Abfrageergebnisses für das gegebene Ziel verwendet werden. |
-| `CURRENT_QUERY_EXT`          | 0x8865 | Die aktuell aktive Abfrage.                                            |
-| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                   |
-| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolescher Wert, der angibt, ob ein Abfrageergebnis verfügbar ist. |
-| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                   |
-| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                     |
-| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolescher Wert, der angibt, ob die GPU eine ungleichmäßige Operation ausgeführt hat. |
+| `CURRENT_QUERY_EXT`          | 0x8865 | Die aktuell aktive Abfrage.                                                                                 |
+| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                                        |
+| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolescher Wert, der angibt, ob ein Abfrageergebnis verfügbar ist.                                      |
+| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                                        |
+| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                          |
+| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolescher Wert, der angibt, ob die GPU eine ungleichmäßige Operation ausgeführt hat.                   |
 
 ### HTML-Tabelle
 
@@ -220,10 +220,10 @@ class BookListView(generic.ListView):
 
 **Nun ja, fast jedes Makro. Hoffentlich nur die, die aktiv verwendet werden.**
 
-Ein [HTTP](/de/docs/Glossary/HTTP)-Fehlercode, der "Bad Gateway" bedeutet.
+Ein {{Glossary("HTTP", "HTTP")}}-Fehlercode, der "Bad Gateway" bedeutet.
 
-Ein [Server](/de/docs/Glossary/Server) kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, darüber liegenden Server agieren.
-Wenn Sie versuchen, auf eine [URL](/de/docs/Glossary/URL) zuzugreifen, kann der Gateway-Server Ihre Anfrage an den darüber liegenden Server weiterleiten.
+Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, darüber liegenden Server agieren.
+Wenn Sie versuchen, auf eine {{Glossary("URL", "URL")}} zuzugreifen, kann der Gateway-Server Ihre Anfrage an den darüber liegenden Server weiterleiten.
 "502" bedeutet, dass der darüber liegende Server eine ungültige Antwort zurückgegeben hat.
 
 - JavaScript {{jsxref("Array")}} auf MDN
@@ -337,7 +337,7 @@ Das [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascript/macr
 
 - [MDN Web Docs Glossar](/de/docs/Glossary):
 
-  - [XHR](/de/docs/Glossary/XMLHttpRequest)
+  - {{Glossary("XMLHttpRequest", "XHR")}}
 
 - [AJAX](https://en.wikipedia.org/wiki/AJAX) auf Wikipedia
 - [Ajax](/de/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`AbstractRange`** abstrakte Schnittstelle ist die Basisklasse, auf der alle [DOM](/de/docs/Glossary/DOM)-Bereichstypen definiert sind. Ein **Bereich** ist ein Objekt, das die Anfangs- und Endpunkte eines Abschnitts von Inhalten innerhalb des Dokuments angibt.
+Die **`AbstractRange`** abstrakte Schnittstelle ist die Basisklasse, auf der alle {{Glossary("DOM", "DOM")}}-Bereichstypen definiert sind. Ein **Bereich** ist ein Objekt, das die Anfangs- und Endpunkte eines Abschnitts von Inhalten innerhalb des Dokuments angibt.
 
 > [!NOTE]
 > Da es sich um eine abstrakte Schnittstelle handelt, wird kein Objekt vom Typ `AbstractRange` direkt instanziiert. Stattdessen verwenden Sie die Schnittstellen [`Range`](/de/docs/Web/API/Range) oder [`StaticRange`](/de/docs/Web/API/StaticRange). Um den Unterschied zwischen diesen beiden Schnittstellen zu verstehen und herauszufinden, welche für Ihre Bedürfnisse geeignet ist, konsultieren Sie die Dokumentationen der jeweiligen Schnittstelle.
@@ -62,13 +62,13 @@ Dieses Beispiel erstellt einen neuen Bereich, `range`, und setzt seinen Startpun
 
 ### Bereiche und die Hierarchie des DOM
 
-Um einen Zeichenbereich innerhalb eines Dokuments auf eine Weise zu definieren, die über null oder mehr Knoten-Grenzen hinweg reichen kann und die so widerstandsfähig wie möglich gegenüber Änderungen am DOM ist, können Sie den Offset zu den ersten und letzten Zeichen im [HTML](/de/docs/Glossary/HTML) nicht angeben. Dafür gibt es einige gute Gründe.
+Um einen Zeichenbereich innerhalb eines Dokuments auf eine Weise zu definieren, die über null oder mehr Knoten-Grenzen hinweg reichen kann und die so widerstandsfähig wie möglich gegenüber Änderungen am DOM ist, können Sie den Offset zu den ersten und letzten Zeichen im {{Glossary("HTML", "HTML")}} nicht angeben. Dafür gibt es einige gute Gründe.
 
 Erstens, nachdem Ihre Seite geladen ist, denkt der Browser nicht mehr in HTML. Sobald sie geladen ist, ist die Seite ein Baum von DOM-Objekten, sodass Sie die Anfangs- und Endpositionen eines Bereichs in Bezug auf Knoten und Positionen innerhalb von Knoten spezifizieren müssen.
 
 Zweitens, um die Veränderlichkeit des DOM-Baumes so weit wie möglich zu unterstützen, benötigen Sie eine Möglichkeit, Positionen relativ zu den Knoten im Baum darzustellen, anstatt globale Positionen innerhalb des gesamten Dokuments. Indem Sie Punkte im Dokument als Offsets innerhalb eines gegebenen Knotens definieren, bleiben diese Positionen mit dem Inhalt konsistent, auch wenn Knoten dem DOM-Baum hinzugefügt, daraus entfernt oder innerhalb dessen verschoben werden—im Rahmen der Vernunft. Es gibt ziemlich offensichtliche Einschränkungen (z. B. wenn ein Knoten hinter den Endpunkt eines Bereichs verschoben wird oder wenn der Inhalt eines Knotens stark verändert wird), aber es ist viel besser als nichts.
 
-Drittens wird die Verwendung von knotenbezogenen Positionen zur Definition der Start- und Endpositionen im Allgemeinen einfacher zu einer guten Leistung führen. Anstatt das DOM durchzuhandeln und herauszufinden, worauf sich Ihr globaler Offset bezieht, kann der [Benutzeragent](/de/docs/Glossary/user_agent) (Browser) direkt zu dem durch die Startposition angegebenen Knoten gehen und von dort aus vorwärts arbeiten, bis der angegebene Offset in den Endknoten erreicht ist.
+Drittens wird die Verwendung von knotenbezogenen Positionen zur Definition der Start- und Endpositionen im Allgemeinen einfacher zu einer guten Leistung führen. Anstatt das DOM durchzuhandeln und herauszufinden, worauf sich Ihr globaler Offset bezieht, kann der {{Glossary("user_agent", "Benutzeragent")}} (Browser) direkt zu dem durch die Startposition angegebenen Knoten gehen und von dort aus vorwärts arbeiten, bis der angegebene Offset in den Endknoten erreicht ist.
 
 Um dies zu veranschaulichen, betrachten Sie den HTML-Code unten:
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-three.js ist eine auf [JavaScript](/de/docs/Glossary/JavaScript) basierende [WebGL](/de/docs/Glossary/WebGL)-Engine, die GPU-gestützte Spiele und andere grafikbasierte Anwendungen direkt im [Browser](/de/docs/Glossary/browser) ausführen kann. Die three.js-Bibliothek bietet viele Funktionen und [APIs](/de/docs/Glossary/API) zum Zeichnen von 3D-Szenen in Ihrem Browser.
+three.js ist eine auf {{Glossary("JavaScript", "JavaScript")}} basierende {{Glossary("WebGL", "WebGL")}}-Engine, die GPU-gestützte Spiele und andere grafikbasierte Anwendungen direkt im {{Glossary("browser", "Browser")}} ausführen kann. Die three.js-Bibliothek bietet viele Funktionen und {{Glossary("API", "APIs")}} zum Zeichnen von 3D-Szenen in Ihrem Browser.
 
 ## Siehe auch
 

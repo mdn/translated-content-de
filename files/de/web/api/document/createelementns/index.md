@@ -60,7 +60,7 @@ Das neue [`Element`](/de/docs/Web/API/Element).
 
 ## Beispiele
 
-Dies erstellt ein neues `<div>` Element im [XHTML](/de/docs/Glossary/XHTML) Namespace und
+Dies erstellt ein neues `<div>` Element im {{Glossary("XHTML", "XHTML")}} Namespace und
 fügt es dem vbox-Element hinzu. Auch wenn dies kein besonders nützliches XUL-Dokument ist, zeigt es dennoch die Verwendung von
 Elementen aus zwei verschiedenen Namespaces innerhalb eines einzelnen Dokuments:
 

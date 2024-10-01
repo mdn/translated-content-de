@@ -89,7 +89,7 @@ Sie können auch ein `Request` mit einem `RequestInit` konstruieren und das `Req
 
 - `credentials` {{optional_inline}}
 
-  - : Steuert, ob der Browser Anmeldedaten mit der Anfrage sendet oder ob **`Set-Cookie`** Antwortheader berücksichtigt werden. Anmeldedaten sind Cookies, [TLS](/de/docs/Glossary/TLS) Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten. Diese Option kann einer der folgenden Werte sein:
+  - : Steuert, ob der Browser Anmeldedaten mit der Anfrage sendet oder ob **`Set-Cookie`** Antwortheader berücksichtigt werden. Anmeldedaten sind Cookies, {{Glossary("TLS", "TLS")}} Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten. Diese Option kann einer der folgenden Werte sein:
 
     - `omit`
       - : Niemals Anmeldedaten in der Anfrage senden oder in die Antwort einbeziehen.
@@ -98,7 +98,7 @@ Sie können auch ein `Request` mit einem `RequestInit` konstruieren und das `Req
     - `include`
       - : Immer Anmeldedaten einschließen, auch für Cross-Origin-Anfragen.
 
-    Das Einschließen von Anmeldedaten in Cross-Origin-Anfragen kann eine Webseite anfällig für [CSRF](/de/docs/Glossary/CSRF) Angriffe machen, daher muss der Server selbst dann, wenn `credentials` auf `include` gesetzt ist, ihre Einbeziehung auch akzeptieren, indem er das {{httpheader("Access-Control-Allow-Credentials")}} in seine Antwort einfügt. Darüber hinaus muss der Server in dieser Situation den Ursprung des Clients explizit im {{httpheader("Access-Control-Allow-Origin")}} Antwort-Header angeben (das heißt, `*` ist nicht erlaubt).
+    Das Einschließen von Anmeldedaten in Cross-Origin-Anfragen kann eine Webseite anfällig für {{Glossary("CSRF", "CSRF")}} Angriffe machen, daher muss der Server selbst dann, wenn `credentials` auf `include` gesetzt ist, ihre Einbeziehung auch akzeptieren, indem er das {{httpheader("Access-Control-Allow-Credentials")}} in seine Antwort einfügt. Darüber hinaus muss der Server in dieser Situation den Ursprung des Clients explizit im {{httpheader("Access-Control-Allow-Origin")}} Antwort-Header angeben (das heißt, `*` ist nicht erlaubt).
 
     Weitere Details finden Sie unter [Anmeldedaten einschließen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials).
 
@@ -109,9 +109,9 @@ Sie können auch ein `Request` mit einem `RequestInit` konstruieren und das `Req
   - : Alle Header, die Sie Ihrer Anfrage hinzufügen möchten, enthalten
     innerhalb eines [`Headers`](/de/docs/Web/API/Headers) Objekts oder eines Objekt-Literals, dessen Schlüssel die Namen der Header sind und dessen Werte die Header-Werte sind.
 
-    Viele Header werden automatisch vom Browser gesetzt und können nicht von einem Skript gesetzt werden: diese werden [Verbotene Headernamen](/de/docs/Glossary/Forbidden_header_name) genannt.
+    Viele Header werden automatisch vom Browser gesetzt und können nicht von einem Skript gesetzt werden: diese werden {{Glossary("Forbidden_header_name", "Verbotene Headernamen")}} genannt.
 
-    Wenn die `mode` Option auf `no-cors` gesetzt ist, können Sie nur [CORS-safelisted request headers](/de/docs/Glossary/CORS-safelisted_request_header) setzen.
+    Wenn die `mode` Option auf `no-cors` gesetzt ist, können Sie nur {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request headers")}} setzen.
 
     Weitere Details finden Sie unter [Header festlegen](/de/docs/Web/API/Fetch_API/Using_Fetch#setting_headers).
 
@@ -120,12 +120,12 @@ Sie können auch ein `Request` mit einem `RequestInit` konstruieren und das `Req
   - : Enthält den [Subresource-Integritätswert](/de/docs/Web/Security/Subresource_Integrity)
     der Anfrage.
 
-    Dieser wird überprüft, wenn die Ressource abgerufen wird, genau wie wenn das [`integrity`](/de/docs/Web/HTML/Element/script#integrity) Attribut auf einem {{htmlelement("script")}} Element gesetzt ist. Der Browser berechnet den [Hash](/de/docs/Glossary/Cryptographic_hash_function) der abgerufenen Ressource mit dem angegebenen Algorithmus, und wenn das Ergebnis nicht mit dem angegebenen Wert übereinstimmt, lehnt der Browser die Fetch-Anfrage mit einem Netzwerkfehler ab.
+    Dieser wird überprüft, wenn die Ressource abgerufen wird, genau wie wenn das [`integrity`](/de/docs/Web/HTML/Element/script#integrity) Attribut auf einem {{htmlelement("script")}} Element gesetzt ist. Der Browser berechnet den {{Glossary("Cryptographic_hash_function", "Hash")}} der abgerufenen Ressource mit dem angegebenen Algorithmus, und wenn das Ergebnis nicht mit dem angegebenen Wert übereinstimmt, lehnt der Browser die Fetch-Anfrage mit einem Netzwerkfehler ab.
 
     Das Format dieser Option ist `<hash-algo>-<hash-source>`, wobei:
 
     - `<hash-algo>` einer der folgenden Werte ist: `sha256`, `sha384` oder `sha512`
-    - `<hash-source>` die [Base64-Codierung](/de/docs/Glossary/base64) des Ergebnisses des Hashens der Ressource mit dem angegebenen Hash-Algorithmus ist.
+    - `<hash-source>` die {{Glossary("base64", "Base64-Codierung")}} des Ergebnisses des Hashens der Ressource mit dem angegebenen Hash-Algorithmus ist.
 
     Standardmäßig ist es ein leerer String.
 
@@ -152,7 +152,7 @@ Sie können auch ein `Request` mit einem `RequestInit` konstruieren und das `Req
     - `cors`
       - : Wenn die Anfrage Cross-Origin ist, wird der [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS) Mechanismus verwendet.
     - `no-cors`
-      - : Die Anfrage muss eine [einfache Anfrage](/de/docs/Web/HTTP/CORS#simple_requests) sein, die die zu setzenden Header auf [CORS-safelisted request headers](/de/docs/Glossary/CORS-safelisted_request_header) beschränkt und Methoden auf `GET`, `HEAD` und `POST` beschränkt.
+      - : Die Anfrage muss eine [einfache Anfrage](/de/docs/Web/HTTP/CORS#simple_requests) sein, die die zu setzenden Header auf {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request headers")}} beschränkt und Methoden auf `GET`, `HEAD` und `POST` beschränkt.
     - `navigate`
       - : Wird nur bei der HTML-Navigation verwendet. Eine `navigate` Anfrage wird nur beim Navigieren zwischen Dokumenten erstellt.
     - `websocket`

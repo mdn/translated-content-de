@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **Sec-WebSocket-Key** HTTP-[Request-Header](/de/docs/Glossary/request_header) wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um einem Client (Nutzer-Agent) zu ermöglichen, zu bestätigen, dass er „wirklich möchte“, dass ein HTTP-Client zu einem WebSocket hochgestuft wird.
+Der **Sec-WebSocket-Key** HTTP-{{Glossary("request_header", "Request-Header")}} wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um einem Client (Nutzer-Agent) zu ermöglichen, zu bestätigen, dass er „wirklich möchte“, dass ein HTTP-Client zu einem WebSocket hochgestuft wird.
 
 Der Wert des Schlüssels wird mit einem Algorithmus berechnet, der in der WebSocket-Spezifikation definiert ist, sodass dies _keine Sicherheit_ bietet. Stattdessen hilft es, zu verhindern, dass Nicht-WebSocket-Clients versehentlich oder durch Missbrauch eine WebSocket-Verbindung anfordern.
 
@@ -19,10 +19,10 @@ Der {{HTTPHeader("Sec-WebSocket-Accept")}}-Antwortheader des Servers sollte eine
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

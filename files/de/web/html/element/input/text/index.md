@@ -43,7 +43,7 @@ Die Eingabe schlägt fehl bei der [Validierung von Beschränkungen](/de/docs/Web
 
 ### `pattern`
 
-Das `pattern`-Attribut ist ein regulärer Ausdruck, den der Eingabewert für die [Validierung von Beschränkungen](/de/docs/Web/HTML/Constraint_validation) erfüllen muss. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks spezifiziert, sodass das Muster als Sequenz von Unicode-Codepunkten behandelt wird, anstatt als [ASCII](/de/docs/Glossary/ASCII). Um den Mustertext sollten keine Schrägstriche angegeben werden.
+Das `pattern`-Attribut ist ein regulärer Ausdruck, den der Eingabewert für die [Validierung von Beschränkungen](/de/docs/Web/HTML/Constraint_validation) erfüllen muss. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks spezifiziert, sodass das Muster als Sequenz von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Um den Mustertext sollten keine Schrägstriche angegeben werden.
 
 Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
@@ -56,7 +56,7 @@ Siehe [Angeben eines Musters](#ein_muster_angeben) für weitere Details und ein 
 
 Das `placeholder`-Attribut ist ein String, der dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt eine erläuternde Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung hat ([LTR](/de/docs/Glossary/LTR) oder [RTL](/de/docs/Glossary/RTL)), der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Bidirektionale-Algorithmus-Formatierungszeichen verwenden, um die Richtung im Platzhalter zu überschreiben; siehe [Anleitung zur Verwendung von Unicode-Steuerelementen für bidirektionalen Text](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt der Steuerung eine Richtung hat ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}), der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Bidirektionale-Algorithmus-Formatierungszeichen verwenden, um die Richtung im Platzhalter zu überschreiben; siehe [Anleitung zur Verwendung von Unicode-Steuerelementen für bidirektionalen Text](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
 > Vermeiden Sie nach Möglichkeit die Verwendung des `placeholder`-Attributs. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Zugänglichkeitsprobleme](/de/docs/Web/HTML/Element/input#accessibility) für weitere Informationen.
@@ -87,7 +87,7 @@ Das globale [`spellcheck`](/de/docs/Web/HTML/Global_attributes#spellcheck)-Attri
 
 Ein Eingabefeld kann die Rechtschreibprüfung aktiviert haben, wenn das [readonly](#readonly)-Attribut nicht gesetzt ist und es nicht deaktiviert ist.
 
-Der Wert, der durch Lesen von `spellcheck` zurückgegeben wird, spiegelt möglicherweise nicht den tatsächlichen Zustand der Rechtschreibprüfung innerhalb eines Steuerungselements wider, wenn die Präferenzen des [Benutzeragenten](/de/docs/Glossary/user_agent) die Einstellung außer Kraft setzen.
+Der Wert, der durch Lesen von `spellcheck` zurückgegeben wird, spiegelt möglicherweise nicht den tatsächlichen Zustand der Rechtschreibprüfung innerhalb eines Steuerungselements wider, wenn die Präferenzen des {{Glossary("user_agent", "Benutzeragenten")}} die Einstellung außer Kraft setzen.
 
 ## Nicht standardisierte Attribute
 

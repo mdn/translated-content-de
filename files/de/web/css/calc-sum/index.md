@@ -33,7 +33,7 @@ Verschiedene Einheitentypen können in einem einzigen Ausdruck verwendet werden.
 
 Das Einbinden von [CSS-Variablen](/de/docs/Web/CSS/CSS_cascading_variables) in `calc-sum`-Ausdrücken ist ebenfalls erlaubt. Der folgende Code `calc(10px + var(--variable))` ist ein gültiger Ausdruck.
 
-Die `+` und `-` Operatoren **müssen von [Leerzeichen](/de/docs/Glossary/whitespace) umgeben sein**. Zum Beispiel wird `calc(50% -8px)` als Prozentsatz gefolgt von einer negativen Länge geparst — ein ungültiger Ausdruck — während `calc(50% - 8px)` als Prozentsatz gefolgt von einem Subtraktionsoperator und einer Länge gilt. Ebenso wird `calc(8px + -50%)` als Länge gefolgt von einem Additionsoperator und einem negativen Prozentsatz behandelt.
+Die `+` und `-` Operatoren **müssen von {{Glossary("whitespace", "Leerzeichen")}} umgeben sein**. Zum Beispiel wird `calc(50% -8px)` als Prozentsatz gefolgt von einer negativen Länge geparst — ein ungültiger Ausdruck — während `calc(50% - 8px)` als Prozentsatz gefolgt von einem Subtraktionsoperator und einer Länge gilt. Ebenso wird `calc(8px + -50%)` als Länge gefolgt von einem Additionsoperator und einem negativen Prozentsatz behandelt.
 
 ## Spezifikationen
 

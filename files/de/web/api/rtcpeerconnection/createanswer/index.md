@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`createAnswer()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle erstellt eine [SDP](/de/docs/Glossary/SDP)-Antwort auf ein Angebot, das von einem entfernten Peer während der Angebot/Antwort-Verhandlung einer WebRTC-Verbindung empfangen wurde.
+Die **`createAnswer()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Schnittstelle erstellt eine {{Glossary("SDP", "SDP")}}-Antwort auf ein Angebot, das von einem entfernten Peer während der Angebot/Antwort-Verhandlung einer WebRTC-Verbindung empfangen wurde.
 
-Die Antwort enthält Informationen über bereits an die Sitzung angehängte Medien, von dem Browser unterstützte Codecs und Optionen sowie bereits gesammelte [ICE](/de/docs/Glossary/ICE)-Kandidaten. Die Antwort wird an das zurückgegebene {{jsxref("Promise")}} geliefert und sollte dann an die Quelle des Angebots gesendet werden, um den Verhandlungsprozess fortzusetzen.
+Die Antwort enthält Informationen über bereits an die Sitzung angehängte Medien, von dem Browser unterstützte Codecs und Optionen sowie bereits gesammelte {{Glossary("ICE", "ICE")}}-Kandidaten. Die Antwort wird an das zurückgegebene {{jsxref("Promise")}} geliefert und sollte dann an die Quelle des Angebots gesendet werden, um den Verhandlungsprozess fortzusetzen.
 
 ## Syntax
 
@@ -33,9 +33,9 @@ createAnswer(successCallback, failureCallback, options) // deprecated
 In älterem Code und Dokumentationen kann eine callback-basierte Version dieser Funktion auftreten. Diese wurde veraltet und ihre Verwendung wird **dringend** abgeraten. Sie sollten vorhandenen Code aktualisieren, um die {{jsxref("Promise")}}-basierte Version von `createAnswer()` zu verwenden. Die Parameter der älteren Form von `createAnswer()` werden nachstehend beschrieben, um die Aktualisierung vorhandenen Codes zu erleichtern.
 
 - `successCallback` {{deprecated_inline}}
-  - : Eine [Callback-Funktion](/de/docs/Glossary/Callback_function), die ein einzelnes [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erhält, das die neu erstellte Antwort beschreibt.
+  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die ein einzelnes [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erhält, das die neu erstellte Antwort beschreibt.
 - `failureCallback` {{deprecated_inline}}
-  - : Eine [Callback-Funktion](/de/docs/Glossary/Callback_function), die ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt erhält, das erklärt, warum die Anforderung, eine Antwort zu erstellen, fehlgeschlagen ist.
+  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt erhält, das erklärt, warum die Anforderung, eine Antwort zu erstellen, fehlgeschlagen ist.
 - `options` {{optional_inline}}
   - : Ein optionales Objekt, das angeforderte Optionen für die Antwort bereitstellt.
 
@@ -60,7 +60,7 @@ Ein {{jsxref("Promise")}}, das ein Objekt mit den gleichen Eigenschaften wie ein
 Hier ist ein Code-Segment aus dem Artikel [Signalisierung und Videoanruf](/de/docs/Web/API/WebRTC_API/Signaling_and_video_calling). Dieser Code stammt aus dem Handler für die Nachricht, die ein Angebot über den Signalisierungskanal an einen anderen Peer sendet.
 
 > [!NOTE]
-> Beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das vollständig Ihnen überlassen bleibt. In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine [JSON](/de/docs/Glossary/JSON)-Nachricht mit einem `type`-Feld mit dem Wert "video-answer" an den anderen Peer zu senden, die die Antwort an das Gerät trägt, das das Verbindungsangebot gesendet hat. Der Inhalt des Objekts, das an die `sendToServer()`-Funktion übergeben wird, sowie alles andere im **Promise**-Erfüllungs-Handler hängen vollständig von Ihrem Design ab.
+> Beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das vollständig Ihnen überlassen bleibt. In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine {{Glossary("JSON", "JSON")}}-Nachricht mit einem `type`-Feld mit dem Wert "video-answer" an den anderen Peer zu senden, die die Antwort an das Gerät trägt, das das Verbindungsangebot gesendet hat. Der Inhalt des Objekts, das an die `sendToServer()`-Funktion übergeben wird, sowie alles andere im **Promise**-Erfüllungs-Handler hängen vollständig von Ihrem Design ab.
 
 ```js
 pc.createAnswer()

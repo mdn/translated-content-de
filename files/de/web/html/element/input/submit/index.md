@@ -7,11 +7,11 @@ l10n:
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}} Elemente vom Typ **`submit`** werden als Schaltflächen dargestellt. Wenn das [`click`](/de/docs/Web/API/Element/click_event) Ereignis eintritt (typischerweise, weil der Benutzer auf die Schaltfläche geklickt hat), versucht der [User-Agent](/de/docs/Glossary/user_agent), das Formular an den Server zu übermitteln.
+{{HTMLElement("input")}} Elemente vom Typ **`submit`** werden als Schaltflächen dargestellt. Wenn das [`click`](/de/docs/Web/API/Element/click_event) Ereignis eintritt (typischerweise, weil der Benutzer auf die Schaltfläche geklickt hat), versucht der {{Glossary("user_agent", "User-Agent")}}, das Formular an den Server zu übermitteln.
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut eines `<input type="submit">` Elements enthält eine Zeichenkette, die als Beschriftung der Schaltfläche angezeigt wird. Ansonsten haben Schaltflächen keinen echten Wert. Der `value`-Wert bietet die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) für die Schaltfläche.
+Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut eines `<input type="submit">` Elements enthält eine Zeichenkette, die als Beschriftung der Schaltfläche angezeigt wird. Ansonsten haben Schaltflächen keinen echten Wert. Der `value`-Wert bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für die Schaltfläche.
 
 ### Das value-Attribut festlegen
 
@@ -46,7 +46,7 @@ Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/
 Ein String, der die Kodierungsmethode angibt, die verwendet werden soll, wenn die Formulardaten an den Server gesendet werden. Es sind drei zulässige Werte:
 
 - `application/x-www-form-urlencoded`
-  - : Dies ist der Standardwert und sendet die Formulardaten als Zeichenfolge nach der [Prozentkodierung](/de/docs/Glossary/Percent-encoding) des Textes mithilfe eines Algorithmus wie {{jsxref("encodeURI", "encodeURI()")}}.
+  - : Dies ist der Standardwert und sendet die Formulardaten als Zeichenfolge nach der {{Glossary("Percent-encoding", "Prozentkodierung")}} des Textes mithilfe eines Algorithmus wie {{jsxref("encodeURI", "encodeURI()")}}.
 - `multipart/form-data`
   - : Verwendet die [`FormData`](/de/docs/Web/API/FormData) API, um die Daten zu verwalten, wodurch Dateien an den Server gesendet werden können. Sie _müssen_ diesen Kodierungstyp verwenden, wenn Ihr Formular ein {{HTMLElement("input")}} Element mit dem [`type`](/de/docs/Web/HTML/Element/input#type) `file` ([`<input type="file">`](/de/docs/Web/HTML/Element/input/file)) enthält.
 - `text/plain`
@@ -61,7 +61,7 @@ Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/
 Ein String, der die HTTP-Methode angibt, die beim Senden der Formulardaten verwendet werden soll; dieser Wert überschreibt jedes [`method`](/de/docs/Web/HTML/Element/form#method) Attribut, das auf dem besitzenden Formular angegeben ist. Zulässige Werte sind:
 
 - `get`
-  - : Eine URL wird erstellt, indem mit der URL begonnen wird, die im `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) Attribut angegeben ist, ein Fragezeichen ("?") angehängt wird, und dann die Formulardaten angefügt werden, kodiert, wie es durch `formenctype` oder das [`enctype`](/de/docs/Web/HTML/Element/form#enctype) Attribut des Formulars beschrieben wird. Diese URL wird dann unter Verwendung einer HTTP {{HTTPMethod("get")}}-Anfrage an den Server gesendet. Diese Methode eignet sich gut für einfache Formulare, die nur [ASCII](/de/docs/Glossary/ASCII) Zeichen enthalten und keine Nebeneffekte haben. Dies ist der Standardwert.
+  - : Eine URL wird erstellt, indem mit der URL begonnen wird, die im `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) Attribut angegeben ist, ein Fragezeichen ("?") angehängt wird, und dann die Formulardaten angefügt werden, kodiert, wie es durch `formenctype` oder das [`enctype`](/de/docs/Web/HTML/Element/form#enctype) Attribut des Formulars beschrieben wird. Diese URL wird dann unter Verwendung einer HTTP {{HTTPMethod("get")}}-Anfrage an den Server gesendet. Diese Methode eignet sich gut für einfache Formulare, die nur {{Glossary("ASCII", "ASCII")}} Zeichen enthalten und keine Nebeneffekte haben. Dies ist der Standardwert.
 - `post`
   - : Die Formulardaten werden in den Körper der Anfrage eingeschlossen, die an die im `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) Attribut angegebene URL gesendet wird, unter Verwendung der HTTP {{HTTPMethod("post")}} Methode. Diese Methode unterstützt komplexe Daten und Dateianhänge.
 - `dialog`
@@ -84,7 +84,7 @@ Zusätzlich zu den tatsächlichen Namen von Tabs, Fenstern oder Inline-Frames gi
 - `_self`
   - : Lädt die Antwort in den gleichen Browsing-Kontext, wie der, der das Formular enthält. Dies ersetzt das aktuelle Dokument durch die empfangenen Daten. Dies ist der Standardwert, der verwendet wird, wenn keiner angegeben ist.
 - `_blank`
-  - : Lädt die Antwort in einen neuen, unbenannten, Browsing-Kontext. Dies ist typischerweise ein neuer Tab im selben Fenster wie das aktuelle Dokument, kann aber je nach Konfiguration des [User-Agents](/de/docs/Glossary/user_agent) unterschiedlich sein.
+  - : Lädt die Antwort in einen neuen, unbenannten, Browsing-Kontext. Dies ist typischerweise ein neuer Tab im selben Fenster wie das aktuelle Dokument, kann aber je nach Konfiguration des {{Glossary("user_agent", "User-Agents")}} unterschiedlich sein.
 - `_parent`
   - : Lädt die Antwort in den übergeordneten Browsing-Kontext des aktuellen, falls vorhanden. Wenn kein übergeordneter Kontext vorhanden ist, verhält sich dies wie `_self`.
 - `_top`

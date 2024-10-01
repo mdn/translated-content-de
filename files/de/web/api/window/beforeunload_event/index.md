@@ -15,7 +15,7 @@ Der Hauptanwendungsfall für dieses Ereignis ist das Auslösen eines browserspez
 Der Dialog kann auf folgende Weise ausgelöst werden:
 
 - Durch Aufrufen der Methode [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) des Ereignisobjekts.
-- Durch Setzen der Eigenschaft [`returnValue`](/de/docs/Web/API/BeforeUnloadEvent/returnValue) des Ereignisobjekts auf einen nicht leeren Zeichenkettenwert oder einen anderen [truthy](/de/docs/Glossary/Truthy)-Wert.
+- Durch Setzen der Eigenschaft [`returnValue`](/de/docs/Web/API/BeforeUnloadEvent/returnValue) des Ereignisobjekts auf einen nicht leeren Zeichenkettenwert oder einen anderen {{Glossary("Truthy", "truthy")}}-Wert.
 - Durch Rückgabe eines truthy-Werts aus der Ereignishandlerfunktion, z. B. `return "string"`. Beachten Sie, dass dies nur funktioniert, wenn die Funktion über die `onbeforeunload`-Eigenschaft angehängt ist, nicht über die Methode [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener). Dieses Verhalten ist in modernen Versionen von Firefox, Safari und Chrome konsistent.
 
 Die letzten beiden Mechanismen sind veraltete Funktionen; die beste Methode ist es, den Dialog durch Aufruf von `preventDefault()` am Ereignisobjekt auszulösen, während auch `returnValue` gesetzt wird, um ältere Fälle zu unterstützen.
@@ -37,7 +37,7 @@ Ein [`BeforeUnloadEvent`](/de/docs/Web/API/BeforeUnloadEvent). Erbt von [`Event`
 
 Um den Dialog anzuzeigen, wenn der Benutzer den Tab schließt oder navigiert, sollte eine `beforeunload`-Ereignishandlerfunktion [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) am Ereignisobjekt aufrufen. Beachten Sie, dass moderne Implementierungen:
 
-- [Sticky-Aktivierung](/de/docs/Glossary/Sticky_activation) erfordern, damit der Dialog angezeigt wird. Mit anderen Worten: Der Browser zeigt das Dialogfeld nur an, wenn der Frame oder ein eingebetteter Frame eine Benutzeraktion oder Benutzerinteraktion erhält. Wenn der Benutzer nie mit der Seite interagiert hat, gibt es keine zu speichernden Benutzerdaten und somit keinen legitimen Anwendungsfall für den Dialog.
+- {{Glossary("Sticky_activation", "Sticky-Aktivierung")}} erfordern, damit der Dialog angezeigt wird. Mit anderen Worten: Der Browser zeigt das Dialogfeld nur an, wenn der Frame oder ein eingebetteter Frame eine Benutzeraktion oder Benutzerinteraktion erhält. Wenn der Benutzer nie mit der Seite interagiert hat, gibt es keine zu speichernden Benutzerdaten und somit keinen legitimen Anwendungsfall für den Dialog.
 - Nur eine generische, vom Browser angegebene Zeichenfolge im angezeigten Dialog zeigen. Dies kann nicht durch den Webseiten-Code gesteuert werden.
 
 Das `beforeunload`-Ereignis weist einige Probleme auf:

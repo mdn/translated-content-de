@@ -17,7 +17,7 @@ In diesem Fall wird das Element als [umfassender Block](/de/docs/Web/CSS/Contain
 
 > [!WARNING]
 > Nur transformierbare Elemente können `transform`iert werden.
-> Das heißt, alle Elemente, deren Layout durch das CSS-Boxmodell gesteuert wird, mit Ausnahme von: [nicht ersetzten Inline-Blöcken](/de/docs/Glossary/Inline-level_content), [Tabellenspalten-Boxen](/de/docs/Web/HTML/Element/col), und [Tabellenspalten-Gruppen-Boxen](/de/docs/Web/HTML/Element/colgroup).
+> Das heißt, alle Elemente, deren Layout durch das CSS-Boxmodell gesteuert wird, mit Ausnahme von: {{Glossary("Inline-level_content", "nicht ersetzten Inline-Blöcken")}}, [Tabellenspalten-Boxen](/de/docs/Web/HTML/Element/col), und [Tabellenspalten-Gruppen-Boxen](/de/docs/Web/HTML/Element/colgroup).
 
 ## Syntax
 

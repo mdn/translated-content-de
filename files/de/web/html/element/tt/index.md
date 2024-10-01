@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}{{deprecated_header}}
 
-Das **`<tt>`** [HTML](/de/docs/Web/HTML)-Element erzeugt Inline-Text, der mit der Standardmonospace-Schriftart des [User-Agent](/de/docs/Glossary/user_agent)s angezeigt wird. Dieses Element wurde entwickelt, um Text so darzustellen, wie er auf einem Festbreitendisplay wie einem Fernschreiber, einem reinen Textbildschirm oder einem Zeilendrucker angezeigt werden würde.
+Das **`<tt>`** [HTML](/de/docs/Web/HTML)-Element erzeugt Inline-Text, der mit der Standardmonospace-Schriftart des {{Glossary("user_agent", "User-Agent")}}s angezeigt wird. Dieses Element wurde entwickelt, um Text so darzustellen, wie er auf einem Festbreitendisplay wie einem Fernschreiber, einem reinen Textbildschirm oder einem Zeilendrucker angezeigt werden würde.
 
 Die Begriffe **nicht-proportional**, **Monotype** und **Monospace** werden synonym verwendet und haben im Allgemeinen die gleiche Bedeutung: Sie beschreiben eine Schriftart, deren Zeichen alle die gleiche Anzahl von Pixeln breit sind.
 

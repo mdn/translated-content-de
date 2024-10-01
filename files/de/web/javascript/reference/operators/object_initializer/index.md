@@ -40,11 +40,11 @@ o = {
 
 ## Beschreibung
 
-Ein Objektinitialisierer ist ein Ausdruck, der die Initialisierung eines {{jsxref("Object")}} beschreibt. Objekte bestehen aus _Eigenschaften_, die zur Beschreibung eines Objekts verwendet werden. Die Werte von Objekteigenschaften können entweder [primitive](/de/docs/Glossary/Primitive) Datentypen oder andere Objekte enthalten.
+Ein Objektinitialisierer ist ein Ausdruck, der die Initialisierung eines {{jsxref("Object")}} beschreibt. Objekte bestehen aus _Eigenschaften_, die zur Beschreibung eines Objekts verwendet werden. Die Werte von Objekteigenschaften können entweder {{Glossary("Primitive", "primitive")}} Datentypen oder andere Objekte enthalten.
 
 ### Objektliteral-Syntax vs. JSON
 
-Die Objektliteral-Syntax ist nicht dasselbe wie die **J**ava**S**cript **O**bject **N**otation ([JSON](/de/docs/Glossary/JSON)). Obwohl sie ähnlich aussehen, gibt es Unterschiede zwischen ihnen:
+Die Objektliteral-Syntax ist nicht dasselbe wie die **J**ava**S**cript **O**bject **N**otation ({{Glossary("JSON", "JSON")}}). Obwohl sie ähnlich aussehen, gibt es Unterschiede zwischen ihnen:
 
 - JSON erlaubt _nur_ die Eigenschaftendefinition mittels der `"Eigenschaft": Wert`-Syntax. Der Eigenschaftsname muss in doppelte Anführungszeichen gesetzt werden, und die Definition kann nicht abgekürzt werden. Berechnete Eigenschaftsnamen sind ebenfalls nicht erlaubt.
 - JSON-Objekteigenschaftswerte können nur Strings, Zahlen, `true`, `false`, `null`, Arrays oder ein anderes JSON-Objekt sein. Das bedeutet, dass JSON keine Methoden oder nicht-primitive Objekte wie [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) oder [`RegExp`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp) ausdrücken kann.

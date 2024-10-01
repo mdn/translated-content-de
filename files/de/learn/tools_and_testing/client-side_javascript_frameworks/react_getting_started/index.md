@@ -98,7 +98,7 @@ const header = React.createElement(
 );
 ```
 
-Es ist _möglich_, den Kompilierungsschritt zu überspringen und [`React.createElement()`](https://react.dev/reference/react/createElement) zu verwenden, um Ihre Benutzeroberfläche selbst zu schreiben. Dadurch verlieren Sie jedoch den deklarativen Vorteil von JSX, und Ihr Code wird schwerer zu lesen. Die Kompilierung ist ein zusätzlicher Schritt im Entwicklungsprozess, aber viele Entwickler in der React-Community finden, dass die Lesbarkeit von JSX es wert ist. Darüber hinaus ist die moderne Front-End-Entwicklung fast immer mit einem Build-Prozess verbunden — Sie müssen moderne Syntax auf ältere Browser herunterstufen und möglicherweise Ihren Code [minimieren](/de/docs/Glossary/Minification), um die Ladeleistung zu optimieren. Beliebte Werkzeuge wie Babel bieten bereits eine sofort einsatzbereite Unterstützung für JSX, sodass Sie die Kompilierung nicht selbst konfigurieren müssen, es sei denn, Sie möchten es.
+Es ist _möglich_, den Kompilierungsschritt zu überspringen und [`React.createElement()`](https://react.dev/reference/react/createElement) zu verwenden, um Ihre Benutzeroberfläche selbst zu schreiben. Dadurch verlieren Sie jedoch den deklarativen Vorteil von JSX, und Ihr Code wird schwerer zu lesen. Die Kompilierung ist ein zusätzlicher Schritt im Entwicklungsprozess, aber viele Entwickler in der React-Community finden, dass die Lesbarkeit von JSX es wert ist. Darüber hinaus ist die moderne Front-End-Entwicklung fast immer mit einem Build-Prozess verbunden — Sie müssen moderne Syntax auf ältere Browser herunterstufen und möglicherweise Ihren Code {{Glossary("Minification", "minimieren")}}, um die Ladeleistung zu optimieren. Beliebte Werkzeuge wie Babel bieten bereits eine sofort einsatzbereite Unterstützung für JSX, sodass Sie die Kompilierung nicht selbst konfigurieren müssen, es sei denn, Sie möchten es.
 
 Da JSX eine Mischung aus HTML und JavaScript ist, finden es einige Entwickler intuitiv. Andere sagen, dass die gemischte Natur verwirrend sein kann. Sobald Sie sich damit wohlfühlen, können Sie jedoch Benutzeroberflächen schneller und intuitiver erstellen und anderen ermöglichen, Ihren Code auf den ersten Blick besser zu verstehen.
 
@@ -275,7 +275,7 @@ Die letzte Anweisung importiert das CSS, das mit unserer `<App />`-Komponente ve
 
 ### Die `App()`-Funktion
 
-Nach den Importen haben wir eine Funktion namens `App()`, die die Struktur der `App`-Komponente definiert. Während der größte Teil der JavaScript-Community [lower camel case](/de/docs/Glossary/camel_case)-Namen wie `helloWorld` bevorzugt, verwenden React-Komponenten Pascal Case (oder Upper Camel Case)-Variablennamen, wie `HelloWorld`, um klarzustellen, dass ein gegebenes JSX-Element eine React-Komponente und kein normales HTML-Tag ist. Wenn Sie die `App()`-Funktion in `app()` umbenennen würden, würde Ihr Browser einen Fehler auslösen.
+Nach den Importen haben wir eine Funktion namens `App()`, die die Struktur der `App`-Komponente definiert. Während der größte Teil der JavaScript-Community {{Glossary("camel_case", "lower camel case")}}-Namen wie `helloWorld` bevorzugt, verwenden React-Komponenten Pascal Case (oder Upper Camel Case)-Variablennamen, wie `HelloWorld`, um klarzustellen, dass ein gegebenes JSX-Element eine React-Komponente und kein normales HTML-Tag ist. Wenn Sie die `App()`-Funktion in `app()` umbenennen würden, würde Ihr Browser einen Fehler auslösen.
 
 Schauen wir uns `App()` genauer an.
 

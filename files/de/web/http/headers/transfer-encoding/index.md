@@ -25,11 +25,11 @@ Wenn er in der Antwort auf eine {{HTTPMethod("HEAD")}}-Anfrage vorhanden ist, di
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header), [Response header](/de/docs/Glossary/Response_header), [Content header](/de/docs/Glossary/Content_header)
+        {{Glossary("Request_header", "Request header")}}, {{Glossary("Response_header", "Response header")}}, {{Glossary("Content_header", "Content header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

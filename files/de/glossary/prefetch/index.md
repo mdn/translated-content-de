@@ -58,5 +58,5 @@ Die Speculation Rules API behandelt Dokument-Prefetches für Navigationen viel b
 
 - [Spekulatives Laden](/de/docs/Web/Performance/Speculative_loading)
 - Verwandte Glossarbegriffe:
-  - [Prerender](/de/docs/Glossary/Prerender)
+  - {{Glossary("Prerender", "Prerender")}}
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)

@@ -21,7 +21,7 @@ Nachdem das `clientDataJSON`-Objekt von einem
 
 - `challenge`
 
-  - : Die [base64url](/de/docs/Glossary/Base64)-kodierte Version der kryptografischen Herausforderung, die vom Server der vertrauenden Partei gesendet wurde.
+  - : Die {{Glossary("Base64", "base64url")}}-kodierte Version der kryptografischen Herausforderung, die vom Server der vertrauenden Partei gesendet wurde.
     Der ursprüngliche Wert wird als `challenge`-Option in
     [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) oder
     [`CredentialsContainer.create()`](/de/docs/Web/API/CredentialsContainer/create) übergeben.
@@ -40,7 +40,7 @@ Nachdem das `clientDataJSON`-Objekt von einem
   - : Ein Objekt, das den Status des [Token-Bindungsprotokolls](https://datatracker.ietf.org/doc/html/rfc8471) für die Kommunikation mit der vertrauenden Partei beschreibt. Es hat zwei Eigenschaften:
 
     - `status`: Ein String, der entweder `"supported"` ist, was anzeigt, dass der Client Token-Bindung unterstützt, aber keine Aushandlung mit der vertrauenden Partei stattfand, oder `"present"`, wenn Token-Bindung bereits verwendet wurde.
-    - `id`: Ein String, der die [base64url](/de/docs/Glossary/Base64)-Kodierung der Token-Bindungs-ID ist, die für die Kommunikation verwendet wurde.
+    - `id`: Ein String, der die {{Glossary("Base64", "base64url")}}-Kodierung der Token-Bindungs-ID ist, die für die Kommunikation verwendet wurde.
 
     Fehlt diese Eigenschaft, so würde dies anzeigen, dass der Client keine
     Token-Bindung unterstützt.

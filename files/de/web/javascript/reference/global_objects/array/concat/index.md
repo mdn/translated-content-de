@@ -26,7 +26,7 @@ concat(value1, value2, /* …, */ valueN)
 - `value1`, …, `valueN` {{optional_inline}}
   - : Arrays und/oder Werte, die in ein neues Array verkettet werden sollen. Wenn alle
     `valueN` Parameter ausgelassen werden, gibt `concat` eine
-    [flache Kopie](/de/docs/Glossary/Shallow_copy) des bestehenden Arrays zurück, auf dem es aufgerufen wird. Siehe die Beschreibung unten
+    {{Glossary("Shallow_copy", "flache Kopie")}} des bestehenden Arrays zurück, auf dem es aufgerufen wird. Siehe die Beschreibung unten
     für weitere Details.
 
 ### Rückgabewert
@@ -37,7 +37,7 @@ Eine neue {{jsxref("Array")}} Instanz.
 
 Die Methode `concat` erstellt ein neues Array. Das Array wird zuerst mit den Elementen des Objekts gefüllt, auf dem es aufgerufen wird. Dann wird für jedes Argument sein Wert in das Array verkettet — bei normalen Objekten oder primitiven Typen wird das Argument selbst zu einem Element des endgültigen Arrays; bei Arrays oder array-ähnlichen Objekten mit der Eigenschaft [`Symbol.isConcatSpreadable`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/isConcatSpreadable) auf einen wahrheitsgetreuen Wert gesetzt, wird jedes Element des Arguments unabhängig zum endgültigen Array hinzugefügt. Die Methode `concat` rekursiert nicht in geschachtelte Array-Argumente.
 
-Die Methode `concat()` ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert weder `this` noch eines der als Argumente bereitgestellten Arrays, sondern gibt stattdessen eine [flache Kopie](/de/docs/Glossary/Shallow_copy) zurück, die dieselben Elemente wie die der ursprünglichen Arrays enthält.
+Die Methode `concat()` ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert weder `this` noch eines der als Argumente bereitgestellten Arrays, sondern gibt stattdessen eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die dieselben Elemente wie die der ursprünglichen Arrays enthält.
 
 Die Methode `concat()` bewahrt leere Slots, falls eines der Quellarrays [spärlich](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist.
 

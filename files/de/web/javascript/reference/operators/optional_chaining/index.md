@@ -21,7 +21,7 @@ obj.func?.(args)
 
 ## Beschreibung
 
-Der `?.`-Operator ähnelt dem `.`-Verkettungsoperator, außer dass der Ausdruck beim Verküpfen mit einer [nullhaften](/de/docs/Glossary/Nullish) Referenz ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}}) kurzgeschlossen wird und `undefined` zurückgibt, anstatt einen Fehler zu verursachen. Wenn er mit Funktionsaufrufen verwendet wird, gibt er `undefined` zurück, wenn die angegebene Funktion nicht existiert.
+Der `?.`-Operator ähnelt dem `.`-Verkettungsoperator, außer dass der Ausdruck beim Verküpfen mit einer {{Glossary("Nullish", "nullhaften")}} Referenz ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder {{jsxref("undefined")}}) kurzgeschlossen wird und `undefined` zurückgibt, anstatt einen Fehler zu verursachen. Wenn er mit Funktionsaufrufen verwendet wird, gibt er `undefined` zurück, wenn die angegebene Funktion nicht existiert.
 
 Dies führt zu kürzeren und einfacheren Ausdrücken beim Zugriff auf verkettete Eigenschaften, wenn die Möglichkeit besteht, dass eine Referenz fehlen könnte. Es kann auch hilfreich sein, den Inhalt eines Objekts zu explorieren, wenn nicht eindeutig ist, welche Eigenschaften erforderlich sind.
 
@@ -33,7 +33,7 @@ const nestedProp = obj.first && obj.first.second;
 
 Der Wert von `obj.first` wird als nicht-`null` (und nicht-`undefined`) bestätigt, bevor auf den Wert von `obj.first.second` zugegriffen wird. Dies verhindert den Fehler, der auftreten würde, wenn Sie `obj.first.second` direkt ohne Überprüfung von `obj.first` zugreifen würden.
 
-Dies ist ein idiomatisches Muster in JavaScript, wird jedoch bei langen Ketten langwierig und ist nicht sicher. Zum Beispiel, wenn `obj.first` ein [Falsified](/de/docs/Glossary/Falsy) Wert ist, der nicht `null` oder `undefined` ist, wie `0`, würde er trotzdem kurzschließen und `nestedProp` zu `0` machen, was möglicherweise nicht erwünscht ist.
+Dies ist ein idiomatisches Muster in JavaScript, wird jedoch bei langen Ketten langwierig und ist nicht sicher. Zum Beispiel, wenn `obj.first` ein {{Glossary("Falsy", "Falsified")}} Wert ist, der nicht `null` oder `undefined` ist, wie `0`, würde er trotzdem kurzschließen und `nestedProp` zu `0` machen, was möglicherweise nicht erwünscht ist.
 
 Mit dem optionalen Verkettungsoperator (`?.`) müssen Sie jedoch nicht explizit testen und basierend auf dem Zustand von `obj.first` kurzschließen, bevor Sie versuchen, auf `obj.first.second` zuzugreifen:
 

@@ -8,7 +8,7 @@ l10n:
 
 {{SecureContext_Header}}{{SeeCompatTable}}{{APIRef("Web NFC API")}}
 
-Die **`mediaType`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt den [MIME-Typ](/de/docs/Glossary/MIME_type) des Datensatzes zurück. Dieser Wert ist `null`, wenn `recordType` nicht gleich `"mime"` ist.
+Die **`mediaType`**-Eigenschaft der [`NDEFRecord`](/de/docs/Web/API/NDEFRecord)-Schnittstelle gibt den {{Glossary("MIME_type", "MIME-Typ")}} des Datensatzes zurück. Dieser Wert ist `null`, wenn `recordType` nicht gleich `"mime"` ist.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ NDEFRecord.mediaType
 
 ### Wert
 
-Ein String, der den [MIME-Typ](/de/docs/Glossary/MIME_type) der Nutzlast des Datensatzes enthält.
+Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} der Nutzlast des Datensatzes enthält.
 
 ## Beispiele
 

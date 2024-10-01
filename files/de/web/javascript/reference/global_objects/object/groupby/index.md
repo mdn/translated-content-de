@@ -41,7 +41,7 @@ Ein [`null`-Prototype-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/O
 
 `Object.groupBy()` ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element in einem Iterable auf. Die Rückruffunktion sollte einen String oder ein Symbol (Werte, die kein solcher Typ sind, werden in [Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion)) zurückgeben, der die Gruppe des zugehörigen Elements angibt. Die von `callbackFn` zurückgegebenen Werte werden als Schlüssel für das von `Map.groupBy()` zurückgegebene Objekt verwendet. Jeder Schlüssel hat ein zugeordnetes Array, das alle Elemente enthält, für die die Rückruffunktion denselben Wert zurückgegeben hat.
 
-Die Elemente im zurückgegebenen Objekt und im ursprünglichen Iterable sind identisch (keine [deep copies](/de/docs/Glossary/deep_copy)). Änderungen an der internen Struktur der Elemente werden sowohl im ursprünglichen Iterable als auch im zurückgegebenen Objekt reflektiert.
+Die Elemente im zurückgegebenen Objekt und im ursprünglichen Iterable sind identisch (keine {{Glossary("deep_copy", "deep copies")}}). Änderungen an der internen Struktur der Elemente werden sowohl im ursprünglichen Iterable als auch im zurückgegebenen Objekt reflektiert.
 
 ## Beispiele
 

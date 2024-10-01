@@ -10,7 +10,7 @@ l10n:
 
 Die **`requestWindow()`**-Methode der [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Schnittstelle öffnet das Picture-in-Picture-Fenster für den aktuellen Haupt-Browsing-Kontext. Sie gibt ein {{jsxref("Promise")}} zurück, das mit einer [`Window`](/de/docs/Web/API/Window)-Instanz erfüllt wird, die den Browsing-Kontext im Picture-in-Picture-Fenster repräsentiert.
 
-Die `requestWindow()`-Methode erfordert eine [transiente Aktivierung](/de/docs/Glossary/Transient_activation), d.h. sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
+Die `requestWindow()`-Methode erfordert eine {{Glossary("Transient_activation", "transiente Aktivierung")}}, d.h. sie muss als Reaktion auf eine Benutzeraktion wie einen Mausklick oder Tastendruck aufgerufen werden.
 
 ## Syntax
 
@@ -43,7 +43,7 @@ Ein {{jsxref("Promise")}}, das mit einem [`Window`](/de/docs/Web/API/Window)-Obj
   - : Wird geworfen, wenn:
     - `requestWindow()` nicht von einem übergeordneten `window`-Objekt aufgerufen wird.
     - `requestWindow()` vom `window`-Objekt des Picture-in-Picture-Fensters aufgerufen wird (d.h. [`DocumentPictureInPicture.window`](/de/docs/Web/API/DocumentPictureInPicture/window)).
-    - `requestWindow()` ohne [transiente Aktivierung](/de/docs/Glossary/Transient_activation) aufgerufen wird.
+    - `requestWindow()` ohne {{Glossary("Transient_activation", "transiente Aktivierung")}} aufgerufen wird.
 - `RangeError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird geworfen, wenn nur eines von `height` und `width` festgelegt ist, oder wenn `height` und `width` mit negativen Werten festgelegt sind.
 

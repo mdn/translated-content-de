@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-[JavaScript](/de/docs/Glossary/JavaScript) ist eine Programmiersprache, die es ermöglicht, komplexe Funktionalitäten auf Webseiten zu implementieren. Jedes Mal, wenn eine Webseite mehr tut als nur dort zu sitzen und statische Informationen anzuzeigen—z.B. zeitnahe Inhaltsaktualisierungen, interaktive Karten, animierte 2D/3D-Grafiken, scrollende Video-Jukeboxen oder mehr anzeigt—können Sie davon ausgehen, dass JavaScript wahrscheinlich beteiligt ist.
+{{Glossary("JavaScript", "JavaScript")}} ist eine Programmiersprache, die es ermöglicht, komplexe Funktionalitäten auf Webseiten zu implementieren. Jedes Mal, wenn eine Webseite mehr tut als nur dort zu sitzen und statische Informationen anzuzeigen—z.B. zeitnahe Inhaltsaktualisierungen, interaktive Karten, animierte 2D/3D-Grafiken, scrollende Video-Jukeboxen oder mehr anzeigt—können Sie davon ausgehen, dass JavaScript wahrscheinlich beteiligt ist.
 
 ## Voraussetzungen
 

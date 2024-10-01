@@ -40,7 +40,7 @@ fetch(id, requests, options)
         - `sizes` {{optional_inline}}
           - : Ein String, der die Größen des Bildes darstellt, ausgedrückt mit der gleichen Syntax wie das `sizes`-Attribut des {{HTMLElement("link")}}-Elements.
         - `type` {{optional_inline}}
-          - : Ein String, der den [MIME](/de/docs/Glossary/MIME)-Typ des Symbols darstellt.
+          - : Ein String, der den {{Glossary("MIME", "MIME")}}-Typ des Symbols darstellt.
         - `label` {{optional_inline}}
           - : Ein String, der den zugänglichen Namen des Symbols darstellt.
     - `downloadTotal` {{optional_inline}}

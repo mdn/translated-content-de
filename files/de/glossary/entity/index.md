@@ -9,4 +9,4 @@ l10n:
 
 Entity ist ein Begriff aus der Standard Generalized Markup Language (SGML), der sich auf eine Referenz zu Informationen bezieht, die einmal definiert und im gesamten Dokument verwendet werden können.
 
-Der Begriff "HTML Entity" wird als Synonym für einen [Character Reference](/de/docs/Glossary/character_reference) verwendet — ein Zeichenmuster, das ein anderes Zeichen in HTML darstellen kann. Zum Beispiel wird `&lt;` verwendet, um das Kleiner-als-Zeichen (`<`) in HTML-Inhalten darzustellen.
+Der Begriff "HTML Entity" wird als Synonym für einen {{Glossary("character_reference", "Character Reference")}} verwendet — ein Zeichenmuster, das ein anderes Zeichen in HTML darstellen kann. Zum Beispiel wird `&lt;` verwendet, um das Kleiner-als-Zeichen (`<`) in HTML-Inhalten darzustellen.

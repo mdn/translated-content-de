@@ -10,7 +10,7 @@ l10n:
 
 Die **`setParameters()`** Methode der Schnittstelle [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) wendet Änderungen an der Konfiguration des `sender`-[`track`](/de/docs/Web/API/RTCRtpSender/track) an, welches der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) ist, für den der `RTCRtpSender` verantwortlich ist.
 
-Mit anderen Worten, `setParameters()` aktualisiert die Konfiguration der [RTP](/de/docs/Glossary/RTP)-Übertragung sowie die Codierungskonfiguration für einen bestimmten ausgehenden Medientrack auf der [WebRTC](/de/docs/Web/API/WebRTC_API)-Verbindung.
+Mit anderen Worten, `setParameters()` aktualisiert die Konfiguration der {{Glossary("RTP", "RTP")}}-Übertragung sowie die Codierungskonfiguration für einen bestimmten ausgehenden Medientrack auf der [WebRTC](/de/docs/Web/API/WebRTC_API)-Verbindung.
 
 ## Syntax
 
@@ -108,7 +108,7 @@ setParameters(parameters)
         Header-Erweiterungen werden in {{RFC(3550, "", "5.3.1")}} beschrieben.
         Dieser Parameter kann nicht geändert werden.
     - `rtcp`
-      - : Ein Objekt [`RTCRtcpParameters`](/de/docs/Web/API/RTCRtcpParameters), das die verwendeten Konfigurationsparameter für [RTCP](/de/docs/Glossary/RTCP) auf dem Sender bereitstellt.
+      - : Ein Objekt [`RTCRtcpParameters`](/de/docs/Web/API/RTCRtcpParameters), das die verwendeten Konfigurationsparameter für {{Glossary("RTCP", "RTCP")}} auf dem Sender bereitstellt.
         Dieser Parameter kann nicht geändert werden.
     - `degradationPreference` {{deprecated_inline}}
       - : Gibt an, wie die WebRTC-Schicht bevorzugt mit der Optimierung von Bandbreite gegen Qualität in Situationen mit eingeschränkter Bandbreite umgehen soll.

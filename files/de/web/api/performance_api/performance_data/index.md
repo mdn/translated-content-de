@@ -35,7 +35,7 @@ Die Performance API zeichnet verschiedene Arten von Leistungsdaten auf, und `Per
 
 - `"element"` zeichnet auf, wie lange es dauert, bis ein Element geladen und gerendert wird.
 - `"event"` zeichnet auf, wie lange es gedauert hat, bis der Browser auf das Auslösen eines Ereignishandlers reagiert hat, und wie lange der Ereignishandler benötigt wurde, um ausgeführt zu werden.
-- `"first-input"` zeichnet die [First input delay](/de/docs/Glossary/First_input_delay) auf.
+- `"first-input"` zeichnet die {{Glossary("First_input_delay", "First input delay")}} auf.
 - `"largest-contentful-paint"` zeichnet das größte Rendering während des Seitenladens auf.
 - `"layout-shift"` zeichnet eine Metrik auf, die darstellt, wie stark sich das Seitenlayout in jedem Animationsframe verschoben hat.
 - `"longtask"` zeichnet Aufgaben auf, die 50ms oder länger dauerten.
@@ -111,20 +111,20 @@ Die `PerformanceObserver`-Option wird bevorzugt, weil:
 
 Es gibt ein Pufferlimit für Leistungseinträge für jedes globale Objekt. Es stellt sicher, dass der Browser keinen unbegrenzten Speicher verbraucht, wenn er Leistungsdaten speichert. Besonders wenn Ihre Website oder Anwendung viele Ressourcen abruft (z.B. bei Verwendung von Polling), müssen Sie die Grenzen der Puffer berücksichtigen:
 
-| [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Bezeichner | Schnittstelle                                  | Maximale Anzahl der Puffereinträge |
-| ----------------------------------------------------------------- | ------------------------------------------ | --------------------------------- |
-| `"mark"`                                                          | [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)             | Unendlich                        |
-| `"measure"`                                                       | [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)          | Unendlich                        |
-| `"navigation"`                                                    | [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) | Unendlich                        |
-| `"resource"`                                                      | [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)   | 250 (anpassbar, siehe unten)     |
-| `"longtask"`                                                      | [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)   | 200                               |
-| `"paint"`                                                         | [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)      | 2 (es wird nicht mehr geben)      |
-| `"element"`                                                       | [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)    | 150                               |
-| `"event"`                                                         | [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)      | 150                               |
-| `"first-input"`                                                   | [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)      | 1 (es wird nicht mehr geben)      |
-| `"layout-shift"`                                                  | [`LayoutShift`](/de/docs/Web/API/LayoutShift)                 | 150                               |
-| `"largest-contentful-paint"`                                      | [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)      | 150                               |
-| `"visibility-state"`                                              | [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)        | 50                                |
+| [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Bezeichner | Schnittstelle                                                                 | Maximale Anzahl der Puffereinträge |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------- |
+| `"mark"`                                                              | [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)                         | Unendlich                          |
+| `"measure"`                                                           | [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)                   | Unendlich                          |
+| `"navigation"`                                                        | [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) | Unendlich                          |
+| `"resource"`                                                          | [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)     | 250 (anpassbar, siehe unten)       |
+| `"longtask"`                                                          | [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)     | 200                                |
+| `"paint"`                                                             | [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)           | 2 (es wird nicht mehr geben)       |
+| `"element"`                                                           | [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)       | 150                                |
+| `"event"`                                                             | [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)           | 150                                |
+| `"first-input"`                                                       | [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)           | 1 (es wird nicht mehr geben)       |
+| `"layout-shift"`                                                      | [`LayoutShift`](/de/docs/Web/API/LayoutShift)                                 | 150                                |
+| `"largest-contentful-paint"`                                          | [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)           | 150                                |
+| `"visibility-state"`                                                  | [`VisibilityStateEntry`](/de/docs/Web/API/VisibilityStateEntry)               | 50                                 |
 
 Tabelle 1. Pufferspeichergrößen ([Quelle](https://w3c.github.io/timing-entrytypes-registry/#registry)).
 
@@ -153,7 +153,7 @@ Eine weitere nützliche Methode ist [`PerformanceObserver.takeRecords()`](/de/do
 
 ## JSON-Daten
 
-Alle Leistungseinträge bieten einen `toJSON()` [Serializer](/de/docs/Glossary/Serialization), der eine {{jsxref("JSON")}}-Darstellung des Eintrags zurückgibt. Dies kann nützlich sein, wenn Sie alle verfügbaren Daten sammeln und irgendwo speichern möchten.
+Alle Leistungseinträge bieten einen `toJSON()` {{Glossary("Serialization", "Serializer")}}, der eine {{jsxref("JSON")}}-Darstellung des Eintrags zurückgibt. Dies kann nützlich sein, wenn Sie alle verfügbaren Daten sammeln und irgendwo speichern möchten.
 
 ```js
 const observer = new PerformanceObserver((list) => {

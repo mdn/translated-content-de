@@ -38,7 +38,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 - [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)
 
-  - : Dieses [aufzählbare](/de/docs/Glossary/Enumerated) Attribut zeigt an, ob CORS verwendet werden soll, um die zugehörige Audiodatei abzurufen. [CORS-aktivierte Ressourcen](/de/docs/Web/HTML/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne _verfälscht_ zu werden. Die erlaubten Werte sind:
+  - : Dieses {{Glossary("Enumerated", "aufzählbare")}} Attribut zeigt an, ob CORS verwendet werden soll, um die zugehörige Audiodatei abzurufen. [CORS-aktivierte Ressourcen](/de/docs/Web/HTML/CORS_enabled_image) können im {{HTMLElement("canvas")}}-Element wiederverwendet werden, ohne _verfälscht_ zu werden. Die erlaubten Werte sind:
 
     - `anonymous`
       - : Sendet eine Cross-Origin-Anfrage ohne eine Berechtigung. Mit anderen Worten, es sendet den `Origin:` HTTP-Header ohne ein Cookie, X.509-Zertifikat oder HTTP-Basic-Authentifizierung. Wenn der Server keine Berechtigungen an die Ursprungsseite (durch Nichtsetzen des `Access-Control-Allow-Origin:`-HTTP-Headers) gibt, wird die Ressource _verfälscht_ und ihre Nutzung eingeschränkt.
@@ -59,7 +59,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
   - : Ein Boolean-Attribut, das angibt, ob das Audio anfänglich stummgeschaltet wird. Sein Standardwert ist `false`.
 - `preload`
 
-  - : Dieses [aufzählbare](/de/docs/Glossary/enumerated) Attribut soll dem Browser einen Hinweis darauf geben, was der Autor für die beste Benutzererfahrung hält. Es kann einen der folgenden Werte haben:
+  - : Dieses {{Glossary("enumerated", "aufzählbare")}} Attribut soll dem Browser einen Hinweis darauf geben, was der Autor für die beste Benutzererfahrung hält. Es kann einen der folgenden Werte haben:
 
     - `none`: Gibt an, dass das Audio nicht vorgeladen werden soll.
     - `metadata`: Gibt an, dass nur die Audiodaten (z.B. Länge) abgerufen werden.

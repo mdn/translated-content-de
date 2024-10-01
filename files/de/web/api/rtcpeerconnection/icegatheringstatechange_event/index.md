@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`icegatheringstatechange`** Ereignis wird an den `onicegatheringstatechange` Ereignishandler auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der Status des [ICE](/de/docs/Glossary/ICE) Kandidatensammlungsprozesses ändert. Dies zeigt an, dass sich der Wert der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) Eigenschaft der Verbindung geändert hat.
+Das **`icegatheringstatechange`** Ereignis wird an den `onicegatheringstatechange` Ereignishandler auf einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn sich der Status des {{Glossary("ICE", "ICE")}} Kandidatensammlungsprozesses ändert. Dies zeigt an, dass sich der Wert der [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState) Eigenschaft der Verbindung geändert hat.
 
 Wenn ICE damit beginnt, Verbindungskandidaten zu sammeln, ändert sich der Wert von `new` zu `gathering`, um anzuzeigen, dass der Prozess des Sammelns von Kandidatenkonfigurationen für die Verbindung begonnen hat. Wenn der Wert zu `complete` wechselt, haben alle Transports, die die `RTCPeerConnection` ausmachen, das Sammeln von ICE-Kandidaten abgeschlossen.
 

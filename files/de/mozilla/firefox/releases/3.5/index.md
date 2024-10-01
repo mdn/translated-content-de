@@ -104,7 +104,7 @@ l10n:
 - [`Object.getPrototypeOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/getPrototypeOf)
   - : Diese neue Methode gibt das Prototyp-Objekt eines angegebenen Objekts zurück.
 - Verwendung von nativem JSON
-  - : Firefox 3.5 unterstützt nativ [JSON](/de/docs/Glossary/JSON).
+  - : Firefox 3.5 unterstützt nativ {{Glossary("JSON", "JSON")}}.
 - Neue Trim-Methoden für das String-Objekt
   - : Das [`String`](/de/docs/Web/JavaScript/Reference/Global_Objects/String)-Objekt verfügt jetzt über die Methoden [`trim()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/trim), [`trimLeft()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart) und [`trimRight()`](/de/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd).
 

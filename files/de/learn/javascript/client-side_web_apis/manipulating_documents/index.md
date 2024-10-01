@@ -220,7 +220,7 @@ Der erste Weg ist das Hinzufügen von Inline-Stilen direkt zu den Elementen, die
    ```
 
 > [!NOTE]
-> Beachten Sie, dass die JavaScript-Versionen der CSS-Stile im [Lower Camel Case](/de/docs/Glossary/camel_case) geschrieben sind, während die CSS-Versionen im [Kebab-Case](/de/docs/Glossary/kebab_case) ([kebab-case](/de/docs/Glossary/kebab_case)) geschrieben sind (z. B. `backgroundColor` gegenüber `background-color`). Stellen Sie sicher, dass Sie diese nicht verwechseln, andernfalls funktioniert es nicht.
+> Beachten Sie, dass die JavaScript-Versionen der CSS-Stile im {{Glossary("camel_case", "Lower Camel Case")}} geschrieben sind, während die CSS-Versionen im {{Glossary("kebab_case", "Kebab-Case")}} ({{Glossary("kebab_case", "kebab-case")}}) geschrieben sind (z. B. `backgroundColor` gegenüber `background-color`). Stellen Sie sicher, dass Sie diese nicht verwechseln, andernfalls funktioniert es nicht.
 
 Es gibt eine weitere gebräuchliche Methode, um Stile dynamisch zu manipulieren, die wir jetzt betrachten werden.
 

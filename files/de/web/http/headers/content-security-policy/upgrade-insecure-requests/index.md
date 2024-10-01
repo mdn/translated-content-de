@@ -16,7 +16,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
 > No-Op. Es wird empfohlen, entweder die eine oder die andere Direktive zu setzen, jedoch nicht beide, es sei denn, Sie möchten HTTPS in älteren Browsern erzwingen, die dies nach einer Umleitung zu HTTP nicht erzwingen.
 
 Die `upgrade-insecure-requests`-Direktive stellt nicht sicher, dass Benutzer, die Ihre Seite über Links auf Websites Dritter besuchen, für die oberste Navigation auf HTTPS umgestellt werden. Daher ersetzt sie nicht den
-{{HTTPHeader("Strict-Transport-Security")}} ([HSTS](/de/docs/Glossary/HSTS))-Header, der weiterhin mit einem geeigneten `max-age` gesetzt werden sollte, um sicherzustellen, dass Benutzer nicht anfällig für SSL-Stripping-Angriffe sind.
+{{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}})-Header, der weiterhin mit einem geeigneten `max-age` gesetzt werden sollte, um sicherzustellen, dass Benutzer nicht anfällig für SSL-Stripping-Angriffe sind.
 
 ## Syntax
 
@@ -84,6 +84,6 @@ Auf diese Weise aktualisieren Sie dennoch unsichere Anfragen auf Ihrer sicheren 
 
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{HTTPHeader("Upgrade-Insecure-Requests")}}-Header
-- {{HTTPHeader("Strict-Transport-Security")}} ([HSTS](/de/docs/Glossary/HSTS))-Header
+- {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}})-Header
 - {{CSP("block-all-mixed-content")}}
 - [Gemischter Inhalt](/de/docs/Web/Security/Mixed_content)

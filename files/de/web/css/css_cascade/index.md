@@ -61,7 +61,7 @@ Das Gegenteil tritt ebenfalls auf. Manchmal gibt es keine Deklarationen, die den
 - [Ebenen deklarieren](/de/docs/Web/CSS/@import#importing_css_rules_into_a_cascade_layer)
   - [benannte Ebene](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
   - [anonyme Ebene](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#the_layer_block_at-rule_for_named_and_anonymous_layers)
-- Glossar: [Stilursprung](/de/docs/Glossary/style_origin)
+- Glossar: {{Glossary("style_origin", "Stilursprung")}}
 
 ## Leitfäden
 

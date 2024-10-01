@@ -95,7 +95,7 @@ In Firefox 3.5 sollten Sie dies ändern zu:
 
 ## JSON
 
-Das JavaScript-Modul JSON.jsm wurde in Firefox 3.5 zugunsten der nativen JSON-Objektunterstützung entfernt. Einzelheiten finden Sie unter [Verwendung von JSON in Firefox](/en-US/Using_native_JSON) und im Artikel über [JSON](/de/docs/Glossary/JSON) für einen allgemeineren Überblick über JSON und dessen Verwendung in verschiedenen Firefox-Versionen.
+Das JavaScript-Modul JSON.jsm wurde in Firefox 3.5 zugunsten der nativen JSON-Objektunterstützung entfernt. Einzelheiten finden Sie unter [Verwendung von JSON in Firefox](/en-US/Using_native_JSON) und im Artikel über {{Glossary("JSON", "JSON")}} für einen allgemeineren Überblick über JSON und dessen Verwendung in verschiedenen Firefox-Versionen.
 
 Um die Kompatibilität sowohl mit Firefox 3 als auch mit Firefox 3.5 sicherzustellen, können Sie Folgendes tun:
 

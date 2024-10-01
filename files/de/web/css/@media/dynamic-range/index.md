@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`dynamic-range`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die vom [User-Agent](/de/docs/Glossary/user_agent) und dem Ausgabegerät unterstützt werden.
+Die **`dynamic-range`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die vom {{Glossary("user_agent", "User-Agent")}} und dem Ausgabegerät unterstützt werden.
 
 > [!NOTE]
 > Einige Geräte haben eine hohe Dynamikbereichsfähigkeit, die nicht immer „aktiv“ ist und aktiviert werden muss (manchmal programmgesteuert, manchmal durch den Benutzer, manchmal basierend auf dem Inhalt). Dieses Media-Feature testet nicht, ob die Dynamikbereichsfähigkeit aktiv ist; es testet lediglich, ob das Gerät visuell hochwertige Dynamikbereiche darstellen kann.

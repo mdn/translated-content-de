@@ -39,7 +39,7 @@ HTTP/1.1 417 Expectation Failed
 Date: Fri, 28 Jun 2024 11:40:58 GMT
 ```
 
-Der Client antwortet, indem er eine Anfrage ohne Erwartungen und mit dem [Inhalt](/de/docs/Glossary/HTTP_Content) im Anfragekörper stellt:
+Der Client antwortet, indem er eine Anfrage ohne Erwartungen und mit dem {{Glossary("HTTP_Content", "Inhalt")}} im Anfragekörper stellt:
 
 ```http
 PUT /videos HTTP/1.1

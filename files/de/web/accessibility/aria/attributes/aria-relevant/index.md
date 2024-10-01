@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das globale `aria-relevant`-Attribut wird in ARIA-Live-Regionen verwendet und gibt an, welche Benachrichtigungen der Benutzeragent auslösen wird, wenn der [Accessibility Tree](/de/docs/Glossary/Accessibility_tree) innerhalb einer Live-Region geändert wird.
+Das globale `aria-relevant`-Attribut wird in ARIA-Live-Regionen verwendet und gibt an, welche Benachrichtigungen der Benutzeragent auslösen wird, wenn der {{Glossary("Accessibility_tree", "Accessibility Tree")}} innerhalb einer Live-Region geändert wird.
 
 ## Beschreibung
 

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Als ein [XML](/de/docs/Glossary/XML)-Dialekt ist [SVG](/de/docs/Web/SVG) namespaced. Es ist wichtig, das Konzept von Namespaces zu verstehen und zu wissen, wie sie verwendet werden, wenn Sie planen, SVG-Inhalte zu erstellen. Namespaces sind unerlässlich für Benutzeragenten, die mehrere XML-Dialekte unterstützen; Browser müssen sehr streng sein. Nehmen Sie sich jetzt die Zeit, Namespaces zu verstehen, um zukünftige Kopfschmerzen zu vermeiden.
+Als ein {{Glossary("XML", "XML")}}-Dialekt ist [SVG](/de/docs/Web/SVG) namespaced. Es ist wichtig, das Konzept von Namespaces zu verstehen und zu wissen, wie sie verwendet werden, wenn Sie planen, SVG-Inhalte zu erstellen. Namespaces sind unerlässlich für Benutzeragenten, die mehrere XML-Dialekte unterstützen; Browser müssen sehr streng sein. Nehmen Sie sich jetzt die Zeit, Namespaces zu verstehen, um zukünftige Kopfschmerzen zu vermeiden.
 
 ### Hintergrund
 
@@ -57,7 +57,7 @@ In HTML ist `http://www.w3.org/1999/xhtml` der implizierte Namespace. Bei SVG is
 
 XML-Dialekte definieren nicht nur ihre eigenen Elemente, sondern deklarieren auch ihre eigenen Parameter.
 
-Standardmäßig haben Parameter überhaupt keinen Namespace. Sie sind nur als einzigartig bekannt, da sie auf einem Element erscheinen, das selbst einen einzigartigen Namen hat. Manchmal ist es jedoch notwendig, Parameter zu definieren, damit sie auf vielen verschiedenen Elementen wiederverwendet werden können und dennoch als derselbe Parameter gelten, unabhängig von dem Element, mit dem sie verwendet werden. Ein sehr gutes Beispiel hierfür ist der `href`-Parameter, der durch die [XLink](/de/docs/Glossary/XLink)-Spezifikation definiert ist. Dieser Parameter wird häufig von anderen XML-Dialekten als Mittel zur Verlinkung mit externen Ressourcen verwendet. Aber wie teilen Sie dem Benutzeragenten mit, zu welchem Dialekt der Parameter gehört, in diesem Fall `XLink`? Betrachten Sie das folgende Beispiel.
+Standardmäßig haben Parameter überhaupt keinen Namespace. Sie sind nur als einzigartig bekannt, da sie auf einem Element erscheinen, das selbst einen einzigartigen Namen hat. Manchmal ist es jedoch notwendig, Parameter zu definieren, damit sie auf vielen verschiedenen Elementen wiederverwendet werden können und dennoch als derselbe Parameter gelten, unabhängig von dem Element, mit dem sie verwendet werden. Ein sehr gutes Beispiel hierfür ist der `href`-Parameter, der durch die {{Glossary("XLink", "XLink")}}-Spezifikation definiert ist. Dieser Parameter wird häufig von anderen XML-Dialekten als Mittel zur Verlinkung mit externen Ressourcen verwendet. Aber wie teilen Sie dem Benutzeragenten mit, zu welchem Dialekt der Parameter gehört, in diesem Fall `XLink`? Betrachten Sie das folgende Beispiel.
 
 ```xml
 <svg
@@ -90,7 +90,7 @@ Nebenbei bemerkt ist es nützlich zu wissen, dass Namespace-Präfixe auch für E
 ```
 
 > [!NOTE]
-> Dies ist eine [XHTML](/de/docs/Glossary/XHTML)-Datei, keine HTML-Datei. XML-Namespaces sind in HTML nicht gültig. Um dieses Beispiel auszuprobieren, müssen Sie Ihre Datei als `.xhtml` speichern.
+> Dies ist eine {{Glossary("XHTML", "XHTML")}}-Datei, keine HTML-Datei. XML-Namespaces sind in HTML nicht gültig. Um dieses Beispiel auszuprobieren, müssen Sie Ihre Datei als `.xhtml` speichern.
 
 Beachten Sie, dass, da ein Namespace-Präfix für das `<svg:svg>`-Element und sein Kind `<svg:circle>` verwendet wird, es nicht notwendig war, den Standard-Namespace neu zu deklarieren. Im Allgemeinen ist es besser, den Standard-Namespace neu zu deklarieren, anstatt viele Elemente auf diese Weise zu präfixieren.
 

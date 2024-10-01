@@ -18,7 +18,7 @@ Eine Zahl, die das Verhältnis des sichtbaren Zylinderabschnitts darstellt.
 
 ### Abrufen des Aspect Ratios einer Ebene
 
-Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt eine Zylinderschicht und ermöglicht es, ein `aspectRatio` anzugeben. Die Eigenschaft `XRCylinder.aspectRatio` kann nach der Erstellung der Ebene verwendet werden, um das verwendete [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) abzurufen oder es auf ein neues zu setzen.
+Die Methode [`XRWebGLBinding.createCylinderLayer()`](/de/docs/Web/API/XRWebGLBinding/createCylinderLayer) erstellt eine Zylinderschicht und ermöglicht es, ein `aspectRatio` anzugeben. Die Eigenschaft `XRCylinder.aspectRatio` kann nach der Erstellung der Ebene verwendet werden, um das verwendete {{Glossary("aspect_ratio", "Seitenverhältnis")}} abzurufen oder es auf ein neues zu setzen.
 
 ```js
 const cylinderLayer = xrGlBinding.createCylinderLayer({

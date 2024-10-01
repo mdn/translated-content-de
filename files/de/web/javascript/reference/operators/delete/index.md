@@ -65,7 +65,7 @@ Es ist wichtig, die folgenden Szenarien zu berücksichtigen:
 - `delete` hat nur Auswirkungen auf eigene Eigenschaften. Wenn eine Eigenschaft mit demselben Namen in der Prototypenkette des Objekts existiert, wird nach der Löschung die Eigenschaft aus der Prototypenkette verwendet.
 - Nicht-konfigurierbare Eigenschaften können nicht entfernt werden. Dies schließt Eigenschaften von eingebauten Objekten wie {{jsxref("Math")}}, {{jsxref("Array")}}, {{jsxref("Object")}} und Eigenschaften ein, die als nicht-konfigurierbar mit Methoden wie {{jsxref("Object.defineProperty()")}} erstellt wurden.
 - Das Löschen von Variablen, einschließlich Funktionsparametern, funktioniert niemals. `delete variable` wird im strict mode einen {{jsxref("SyntaxError")}} auslösen und hat im nicht-strikten Modus keine Wirkung.
-  - Jede mit {{jsxref("Statements/var", "var")}} deklarierte Variable kann nicht aus dem globalen Scope oder aus dem Scope einer Funktion gelöscht werden, da sie zwar am [global object](/de/docs/Glossary/Global_object) angehängt sein kann, aber nicht konfigurierbar ist.
+  - Jede mit {{jsxref("Statements/var", "var")}} deklarierte Variable kann nicht aus dem globalen Scope oder aus dem Scope einer Funktion gelöscht werden, da sie zwar am {{Glossary("Global_object", "global object")}} angehängt sein kann, aber nicht konfigurierbar ist.
   - Jede mit {{jsxref("Statements/let", "let")}} oder {{jsxref("Statements/const", "const")}} deklarierte Variable kann nicht aus dem Scope gelöscht werden, in dem sie definiert wurde, da sie nicht an ein Objekt geheftet sind.
 
 ## Beispiele

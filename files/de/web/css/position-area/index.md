@@ -9,7 +9,7 @@ l10n:
 
 Die **`position-area`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es einem anker-positionierten Element, relativ zu den Kanten seines zugeordneten Anchorelements positioniert zu werden, indem das positionierte Element auf eine oder mehrere Kacheln eines impliziten 3x3-Rasters gesetzt wird, wobei das Anchorelement die mittlere Zelle ist.
 
-`position-area` bietet eine bequeme Alternative zum Befestigen und Positionieren eines Elements relativ zu seinem Anker mittels [Einsetzeigenschaften](/de/docs/Glossary/inset_properties) und der {{cssxref("anchor()")}} Funktion. Das auf Raster basierte Konzept löst den häufigen Anwendungsfall, die Kanten des enthaltenen Blocks des positionierten Elements relativ zu den Kanten seines Standard-Anchor-Elements zu positionieren.
+`position-area` bietet eine bequeme Alternative zum Befestigen und Positionieren eines Elements relativ zu seinem Anker mittels {{Glossary("inset_properties", "Einsetzeigenschaften")}} und der {{cssxref("anchor()")}} Funktion. Das auf Raster basierte Konzept löst den häufigen Anwendungsfall, die Kanten des enthaltenen Blocks des positionierten Elements relativ zu den Kanten seines Standard-Anchor-Elements zu positionieren.
 
 Wenn ein Element kein Standard-Anchor-Element hat oder kein absolut positioniertes Element ist, hat diese Eigenschaft keine Wirkung.
 
@@ -108,11 +108,11 @@ Zum Beispiel, wenn der `writing-mode` auf `horizontal-tb` gesetzt ist, führt `p
 
 #### inset-Eigenschaften und Werte
 
-Wenn ein anker-positioniertes Element mit der Eigenschaft `position-area` positioniert wird, geben alle gesetzten [Einsetzeigenschaften](/de/docs/Glossary/inset_properties), wie {{cssxref("top")}} oder {{cssxref("inset-inline-end")}}, Offsets vom Positionierungsbereich an. Einige andere Eigenschaftswerte, wie [`max-block-size: 100%`](/de/docs/Web/CSS/max-block-size), werden ebenfalls relativ zum Positionierungsbereich sein. Alle Einsetzeigenschaften, die auf `auto` gesetzt sind oder standardmäßig als `auto` gelten, verhalten sich so, als ob ihr Wert auf `0` gesetzt wäre.
+Wenn ein anker-positioniertes Element mit der Eigenschaft `position-area` positioniert wird, geben alle gesetzten {{Glossary("inset_properties", "Einsetzeigenschaften")}}, wie {{cssxref("top")}} oder {{cssxref("inset-inline-end")}}, Offsets vom Positionierungsbereich an. Einige andere Eigenschaftswerte, wie [`max-block-size: 100%`](/de/docs/Web/CSS/max-block-size), werden ebenfalls relativ zum Positionierungsbereich sein. Alle Einsetzeigenschaften, die auf `auto` gesetzt sind oder standardmäßig als `auto` gelten, verhalten sich so, als ob ihr Wert auf `0` gesetzt wäre.
 
 ### Ein Hinweis zur Breite des positionierten Elements
 
-Wenn das positionierte Element keine spezifische Größe hat, wird seine Größe auf seine [intrinsische Größe](/de/docs/Glossary/Intrinsic_Size) standardmäßig gesetzt, aber sie wird auch durch die Größe des `position-area` Rasters beeinflusst.
+Wenn das positionierte Element keine spezifische Größe hat, wird seine Größe auf seine {{Glossary("Intrinsic_Size", "intrinsische Größe")}} standardmäßig gesetzt, aber sie wird auch durch die Größe des `position-area` Rasters beeinflusst.
 
 Wenn das positionierte Element in einem einzelnen oberen mittleren, unteren mittleren oder mittleren mittleren Rasterfeld platziert wird, wird seine Blockgröße dieselbe sein wie die Blockgröße des umfassenden Blocks des Anker-Elements, die nach oben, unten oder in beide Richtungen wächst. Das positionierte Element wird mit dem angegebenen Rasterfeld ausgerichtet, aber dieselbe Breite wie das Anker-Element annehmen. Es wird jedoch nicht zulassen, dass der Inhalt überläuft — seine minimale `width` wird sein `min-content` (wie durch die Länge seines längsten Wortes definiert).
 

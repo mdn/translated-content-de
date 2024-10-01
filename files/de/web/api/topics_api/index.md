@@ -81,7 +81,7 @@ Dieses Feature ist kein Teil eines offiziellen Standards, obwohl es im [Topics A
 
 ### Standards positionen
 
-Zwei Browseranbieter [lehnen](/de/docs/Glossary/Web_standards#opposing_standards) diese Spezifikation ab. Bekannte Positionen sind wie folgt:
+Zwei Browseranbieter {{Glossary("Web_standards#opposing_standards", "lehnen")}} diese Spezifikation ab. Bekannte Positionen sind wie folgt:
 
 - Mozilla (Firefox): [Negativ](https://mozilla.github.io/standards-positions/#topics)
 - Apple (Safari): [Negativ](https://webkit.org/standards-positions/#position-111)

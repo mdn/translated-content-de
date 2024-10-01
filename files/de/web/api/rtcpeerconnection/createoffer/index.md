@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`createOffer()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle initiiert die Erstellung eines [SDP](/de/docs/Glossary/SDP)-Angebots, um eine neue WebRTC-Verbindung zu einem entfernten Peer zu starten.
+Die **`createOffer()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle initiiert die Erstellung eines {{Glossary("SDP", "SDP")}}-Angebots, um eine neue WebRTC-Verbindung zu einem entfernten Peer zu starten.
 
-Das SDP-Angebot enthält Informationen über alle bereits an die WebRTC-Sitzung angehängten [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte, die von dem Browser unterstützten Codecs und Optionen sowie alle vom [ICE](/de/docs/Glossary/ICE)-Agenten bereits gesammelten Kandidaten, um diese über den Signalisierungskanal an einen potenziellen Peer zu senden, um eine Verbindung anzufordern oder die Konfiguration einer bestehenden Verbindung zu aktualisieren.
+Das SDP-Angebot enthält Informationen über alle bereits an die WebRTC-Sitzung angehängten [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte, die von dem Browser unterstützten Codecs und Optionen sowie alle vom {{Glossary("ICE", "ICE")}}-Agenten bereits gesammelten Kandidaten, um diese über den Signalisierungskanal an einen potenziellen Peer zu senden, um eine Verbindung anzufordern oder die Konfiguration einer bestehenden Verbindung zu aktualisieren.
 
 ## Syntax
 
@@ -47,9 +47,9 @@ Sie sollten jeden vorhandenen Code aktualisieren, um die auf {{jsxref("Promise")
 Die Parameter für die ältere Form von `createOffer()` sind unten beschrieben, um bei der Aktualisierung vorhandener Codes zu helfen.
 
 - `successCallback` {{deprecated_inline}}
-  - : Eine [Rückruffunktion](/de/docs/Glossary/Callback_function), die ein einzelnes [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erhält, das das neu erstellte Angebot beschreibt.
+  - : Eine {{Glossary("Callback_function", "Rückruffunktion")}}, die ein einzelnes [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)-Objekt erhält, das das neu erstellte Angebot beschreibt.
 - `errorCallback` {{deprecated_inline}}
-  - : Eine [Rückruffunktion](/de/docs/Glossary/Callback_function), die ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt erhält, das erklärt, warum die Anforderung zur Erstellung eines Angebots fehlgeschlagen ist.
+  - : Eine {{Glossary("Callback_function", "Rückruffunktion")}}, die ein einzelnes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt erhält, das erklärt, warum die Anforderung zur Erstellung eines Angebots fehlgeschlagen ist.
 - `options` {{optional_inline}}
   - : Ein optionales Objekt, das die für das Angebot angeforderten Optionen bereitstellt.
 
@@ -81,7 +81,7 @@ Hier sehen wir einen Handler für das [`negotiationneeded`](/de/docs/Web/API/RTC
 
 > [!NOTE]
 > Beachten Sie, dass dies Teil des Signalisierungsprozesses ist, dessen Transportschicht ein Implementierungsdetail ist, das vollständig Ihnen überlassen ist.
-> In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine [JSON](/de/docs/Glossary/JSON)-Nachricht mit einem `type`-Feld und dem Wert "video-offer" an den anderen Peer zu senden.
+> In diesem Fall wird eine [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet, um eine {{Glossary("JSON", "JSON")}}-Nachricht mit einem `type`-Feld und dem Wert "video-offer" an den anderen Peer zu senden.
 > Der Inhalt des an die `sendToServer()`-Funktion übergebenen Objekts sowie alles andere im Erfüllungshandler des Versprechens hängt völlig von Ihrem Design ab.
 
 ```js

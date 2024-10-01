@@ -12,7 +12,7 @@ Die schreibgeschützte **`scrollX`**-Eigenschaft der [`Window`](/de/docs/Web/API
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der die Anzahl der Pixel angibt, um die das Dokument derzeit horizontal vom Ursprung gescrollt ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach rechts gescrollt ist (um mehr Inhalt auf der rechten Seite anzuzeigen). Technisch ausgedrückt, gibt `scrollX` die X-Koordinate des linken Randes des aktuellen [Viewports](/de/docs/Glossary/viewport) zurück. Wenn das Dokument überhaupt nicht nach links oder rechts gescrollt ist, ist `scrollX` 0. Wenn kein Viewport vorhanden ist, ist der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixelgenauen Gerät gerendert wird, dann ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
+Ein Gleitkommawert mit doppelter Genauigkeit, der die Anzahl der Pixel angibt, um die das Dokument derzeit horizontal vom Ursprung gescrollt ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach rechts gescrollt ist (um mehr Inhalt auf der rechten Seite anzuzeigen). Technisch ausgedrückt, gibt `scrollX` die X-Koordinate des linken Randes des aktuellen {{Glossary("viewport", "Viewports")}} zurück. Wenn das Dokument überhaupt nicht nach links oder rechts gescrollt ist, ist `scrollX` 0. Wenn kein Viewport vorhanden ist, ist der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixelgenauen Gerät gerendert wird, dann ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
 
 > [!NOTE]
 > Wenn Sie einen ganzzahligen Wert benötigen, können Sie {{jsxref("Math.round()")}} verwenden, um ihn zu runden.

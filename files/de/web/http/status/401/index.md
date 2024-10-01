@@ -44,7 +44,7 @@ WWW-Authenticate: Bearer
 
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication)
-- [Challenge](/de/docs/Glossary/Challenge)
+- {{Glossary("Challenge", "Challenge")}}
 - {{HTTPHeader("WWW-Authenticate")}}
 - {{HTTPHeader("Authorization")}}
 - {{HTTPHeader("Proxy-Authorization")}}

@@ -11,7 +11,7 @@ Das **`PerformanceLongAnimationFrameTiming`**-Interface ist in der Long Animatio
 
 ## Beschreibung
 
-Lange Animationsbilder (LoAFs) sind Render-Updates, die über 50ms hinaus verzögert werden. LoAFs können zu langsamen Benutzeroberflächen-(UI) Aktualisierungen führen, wodurch Steuerelemente unempfindlich wirken und [ruckelige](/de/docs/Glossary/Jank) (nicht flüssige) Animationen und Scroll-Effekte entstehen. Dies führt oft zu Benutzerfrustration.
+Lange Animationsbilder (LoAFs) sind Render-Updates, die über 50ms hinaus verzögert werden. LoAFs können zu langsamen Benutzeroberflächen-(UI) Aktualisierungen führen, wodurch Steuerelemente unempfindlich wirken und {{Glossary("Jank", "ruckelige")}} (nicht flüssige) Animationen und Scroll-Effekte entstehen. Dies führt oft zu Benutzerfrustration.
 
 Das `PerformanceLongAnimationFrameTiming`-Interface bietet die folgende detaillierte Information über LoAFs, die Entwicklern hilft, deren Ursache zu ermitteln:
 

@@ -52,7 +52,7 @@ Diese können erheblich variieren, je nach den spezifischen Anforderungen des Di
 
 ## Funktionen eines Zahlungshandlers
 
-Ein [User-Agent](/de/docs/Glossary/user_agent) kann integrierte Unterstützung für bestimmte Zahlungsarten bieten. Zusätzlich kann die [Payment Handler API](https://w3c.github.io/payment-handler/) verwendet werden, um Unterstützung für zusätzliche Anbieter von Zahlungsmethoden hinzuzufügen, in Browsern, die dies unterstützen. In jedem Fall ist der Zahlungshandler verantwortlich für:
+Ein {{Glossary("user_agent", "User-Agent")}} kann integrierte Unterstützung für bestimmte Zahlungsarten bieten. Zusätzlich kann die [Payment Handler API](https://w3c.github.io/payment-handler/) verwendet werden, um Unterstützung für zusätzliche Anbieter von Zahlungsmethoden hinzuzufügen, in Browsern, die dies unterstützen. In jedem Fall ist der Zahlungshandler verantwortlich für:
 
 1. **Sicherstellen, dass eine Zahlung möglich ist.** Die Bedingungen, die eine Zahlung möglich machen, variieren je nach Zahlungsmethode und der Zahlungsanfrage des Nutzers; beispielsweise, wenn der Nutzer eine Kreditkarte auswählt, die vom Zahlungsempfänger nicht akzeptiert wird, kann die Zahlung nicht erfolgen.
 2. **Falls die Händlervalidierung vom Zahlungshandler unterstützt wird, auf Validierungsanfragen des Händlers vom User-Agent antworten.** Siehe [Händlervalidierung](#händlervalidierung) für Details.
@@ -74,7 +74,7 @@ In diesem Beispiel ist `fetchValidationData()` eine Funktion, die die spezifisch
 
 Indem diese Daten (oder ein {{jsxref("Promise")}}, das sich zu den geladenen Daten auflöst) dann an den Zahlungshandler übergeben werden, indem sie in `complete()` eingefügt werden, kann der Zahlungshandler die abgerufenen Daten und welche weiteren Algorithmen und Daten auch immer verwendet werden, um zu überprüfen, dass der Händler den Zahlungshandler nutzen kann.
 
-Daher ist es wichtig zu beachten, dass der [User-Agent](/de/docs/Glossary/user_agent) niemals ein [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis sendet, es sei denn, der User-Agent selbst implementiert einen Zahlungshandler. Zum Beispiel hat Safari eine integrierte Unterstützung für Apple Pay, sodass der Apple Pay Zahlungshandler dies nutzt, um sicherzustellen, dass über Apple Pay bezahlt werden kann, indem `merchantvalidation` an den Client gesendet wird, der angewiesen wird, die Validierungsdaten des Servers abzurufen und sie an den Zahlungshandler durch Aufruf von `complete()` zu liefern.
+Daher ist es wichtig zu beachten, dass der {{Glossary("user_agent", "User-Agent")}} niemals ein [`merchantvalidation`](/de/docs/Web/API/PaymentRequest/merchantvalidation_event) Ereignis sendet, es sei denn, der User-Agent selbst implementiert einen Zahlungshandler. Zum Beispiel hat Safari eine integrierte Unterstützung für Apple Pay, sodass der Apple Pay Zahlungshandler dies nutzt, um sicherzustellen, dass über Apple Pay bezahlt werden kann, indem `merchantvalidation` an den Client gesendet wird, der angewiesen wird, die Validierungsdaten des Servers abzurufen und sie an den Zahlungshandler durch Aufruf von `complete()` zu liefern.
 
 ## Spezifikationen
 

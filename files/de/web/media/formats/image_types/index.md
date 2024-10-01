@@ -492,7 +492,7 @@ Theoretisch werden mehrere Kompressionsalgorithmen unterstützt, und die Bilddat
 
 1987 führte der CompuServe Online-Dienstanbieter das Bilddateiformat **[GIF](https://en.wikipedia.org/wiki/GIF)** (**Graphics Interchange Format**) ein, um ein komprimiertes Grafikformat bereitzustellen, das alle Mitglieder ihres Dienstes verwenden konnten.
 GIF verwendet den [Lempel-Ziv-Welch](https://en.wikipedia.org/wiki/Lempel-Ziv-Welch) (LZW)-Algorithmus, um 8-Bit-indizierte Farbgrafiken verlustfrei zu komprimieren.
-GIF war eines der ersten beiden Grafikformate, die in [HTML](/de/docs/Glossary/HTML) unterstützt wurden, zusammen mit [XBM](#xbm_x_window_system_bitmap_file).
+GIF war eines der ersten beiden Grafikformate, die in {{Glossary("HTML", "HTML")}} unterstützt wurden, zusammen mit [XBM](#xbm_x_window_system_bitmap_file).
 
 Jedes Pixel in einem GIF wird durch einen einzelnen 8-Bit-Wert dargestellt, der als Index in eine Palette von 24-Bit-Farben dient (8 Bits für jeweils Rot, Grün und Blau). Die Länge einer Farbtafel ist immer eine Potenz von 2 (das heißt, jede Palette hat 2, 4, 8, 16, 32, 64 oder 256 Einträge).
 Um mehr als 255 oder 256 Farben zu simulieren, wird normalerweise [Dithering](https://en.wikipedia.org/wiki/Dithering) verwendet.
@@ -748,7 +748,7 @@ Wenn Sie ICO-Dateien verwenden, sollten Sie das BMP-Format verwenden, da die Unt
 
 ### JPEG (Joint Photographic Experts Group image)
 
-Das [JPEG](/de/docs/Glossary/JPEG) (typischerweise ausgesprochen "**jay-peg**") Bildformat ist derzeit das am weitesten verbreitete verlustbehaftete Komprimierungsformat für Standbilder.
+Das {{Glossary("JPEG", "JPEG")}} (typischerweise ausgesprochen "**jay-peg**") Bildformat ist derzeit das am weitesten verbreitete verlustbehaftete Komprimierungsformat für Standbilder.
 Es ist besonders nützlich für Fotografien; die Anwendung verlustbehafteter Kompression auf Inhalte, die Schärfe erfordern, wie Diagramme oder Charts, kann zu unbefriedigenden Ergebnissen führen.
 
 JPEG ist tatsächlich ein Datenformat für komprimierte Fotos, anstatt eines Dateityps.
@@ -839,7 +839,7 @@ Die JFIF (**J**PEG **F**ile **I**nterchange **F**ormat)-Spezifikation beschreibt
 
 ### PNG (Portable Network Graphics)
 
-Das [PNG](/de/docs/Glossary/PNG) (ausgesprochen "**ping**") Bildformat verwendet verlustfreie Kompression, während es höhere Farbtiefen als [GIF](#gif_graphics_interchange_format) unterstützt und effizienter ist, sowie volle Alphatransparenz-Unterstützung bietet.
+Das {{Glossary("PNG", "PNG")}} (ausgesprochen "**ping**") Bildformat verwendet verlustfreie Kompression, während es höhere Farbtiefen als [GIF](#gif_graphics_interchange_format) unterstützt und effizienter ist, sowie volle Alphatransparenz-Unterstützung bietet.
 
 PNG wird weit unterstützt, wobei alle großen Browser vollständige Unterstützung für seine Funktionen bieten.
 
@@ -937,7 +937,7 @@ PNG wird weit unterstützt, wobei alle großen Browser vollständige Unterstütz
 
 ### SVG (Scalable Vector Graphics)
 
-SVG ist ein [XML](/de/docs/Glossary/XML)-basiertes [Vektorgrafikformat](https://en.wikipedia.org/wiki/Vector_graphics), das den Inhalt eines Bildes als eine Reihe von Zeichenbefehlen angibt, die Formen, Linien, Farben, Filter usw. erstellen.
+SVG ist ein {{Glossary("XML", "XML")}}-basiertes [Vektorgrafikformat](https://en.wikipedia.org/wiki/Vector_graphics), das den Inhalt eines Bildes als eine Reihe von Zeichenbefehlen angibt, die Formen, Linien, Farben, Filter usw. erstellen.
 SVG-Dateien sind ideal für Diagramme, Symbole und andere Bilder, die in jeder Größe genau gezeichnet werden können.
 Daher ist SVG beliebt für Benutzeroberflächenelemente in modernem Webdesign.
 
@@ -1018,15 +1018,15 @@ Dies ermöglicht es, verschiedene Datentypen für dieselben Eigenschaften zu ver
 Zum Beispiel wird die Breite eines Bildes, `ImageWidth`, mit dem Tag `0x0100` gespeichert und ist ein eintragiges Array.
 Durch die Angabe von Typ 3 (`SHORT`) wird der Wert von `ImageWidth` als 16-Bit-Wert gespeichert:
 
-| Tag                     | Typ                | Größe                  | Wert                   |
-| ----------------------- | ------------------ | ---------------------- | ---------------------- |
-| `0x0100` (`ImageWidth`) | `0x0003` (`SHORT`) | `0x00000001` (1 Eintrag) | `0x0280` (640 Pixel)       |
+| Tag                     | Typ                | Größe                    | Wert                 |
+| ----------------------- | ------------------ | ------------------------ | -------------------- |
+| `0x0100` (`ImageWidth`) | `0x0003` (`SHORT`) | `0x00000001` (1 Eintrag) | `0x0280` (640 Pixel) |
 
 Durch die Angabe von Typ 4 (`LONG`) wird die Breite als 32-Bit-Wert gespeichert:
 
-| Tag                     | Typ              | Größe                  | Wert                         |
-| ----------------------- | ---------------- | ---------------------- | ----------------------------- |
-| `0x0100` (`ImageWidth`) | `0x0004` (`LONG`) | `0x00000001` (1 Eintrag) | `0x00000280` (640 Pixel)         |
+| Tag                     | Typ               | Größe                    | Wert                     |
+| ----------------------- | ----------------- | ------------------------ | ------------------------ |
+| `0x0100` (`ImageWidth`) | `0x0004` (`LONG`) | `0x00000001` (1 Eintrag) | `0x00000280` (640 Pixel) |
 
 Eine einzelne TIFF-Datei kann mehrere Bilder enthalten; dies kann verwendet werden, um mehrseitige Dokumente zu repräsentieren, z. B. (wie ein mehrseitiges gescanntes Dokument oder ein empfangenes Fax).
 Software, die TIFF-Dateien liest, ist jedoch nur dazu verpflichtet, das erste Bild zu unterstützen.

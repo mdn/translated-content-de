@@ -1,5 +1,5 @@
 ---
-title: "`<input type=\"url\">`"
+title: '`<input type="url">`'
 slug: Web/HTML/Element/input/url
 l10n:
   sourceCommit: cd56d512284c5765f115cb002c1be5d23e7281d2
@@ -44,7 +44,7 @@ Die Eingabe wird die [Constraint-Validierung](/de/docs/Web/HTML/Constraint_valid
 
 ### pattern
 
-Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, um die [Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-Regulärausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Folge von Unicode-Codepunkten anstatt als [ASCII](/de/docs/Glossary/ASCII) behandelt wird. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
+Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, um die [Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-Regulärausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als Folge von Unicode-Codepunkten anstatt als {{Glossary("ASCII", "ASCII")}} behandelt wird. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
 
 Wenn das angegebene Muster nicht angegeben ist oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
@@ -57,7 +57,7 @@ Details und ein Beispiel finden Sie im Abschnitt [Pattern-Validierung](#muster-v
 
 Das `placeholder`-Attribut ist eine Zeichenkette, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder ein kurzer Ausdruck sein, der den erwarteten Datentyp demonstriert, anstatt eine erklärende Nachricht. Der Text _darf keine_ Wagenrücklauf- oder Zeilenvorschubzeichen enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung ([LTR](/de/docs/Glossary/LTR) oder [RTL](/de/docs/Glossary/RTL)) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Bidi-Algorithmus-Formatierungszeichen verwenden, um die Richtung im Platzhalter zu überschreiben. Weitere Informationen finden Sie unter [Anleitung zur Verwendung von Unicode-Steuerelementen für Bidi-Text](https://www.w3.org/International/questions/qa-bidi-unicode-controls).
+Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Bidi-Algorithmus-Formatierungszeichen verwenden, um die Richtung im Platzhalter zu überschreiben. Weitere Informationen finden Sie unter [Anleitung zur Verwendung von Unicode-Steuerelementen für Bidi-Text](https://www.w3.org/International/questions/qa-bidi-unicode-controls).
 
 > [!NOTE]
 > Vermeiden Sie nach Möglichkeit die Verwendung des `placeholder`-Attributs. Es ist nicht so semantisch nützlich wie andere Möglichkeiten zur Erklärung Ihres Formulars und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Weitere Informationen finden Sie unter [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels).
@@ -88,7 +88,7 @@ Das globale [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck)-Attri
 
 Ein Eingabefeld kann die Rechtschreibprüfung aktiviert haben, wenn es nicht das [readonly](#readonly)-Attribut gesetzt ist und nicht deaktiviert ist.
 
-Der durch das Lesen von `spellcheck` zurückgegebene Wert spiegelt möglicherweise nicht den tatsächlichen Status der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die [Benutzeragent](/de/docs/Glossary/user_agent)-Einstellungen die Einstellung überschreiben.
+Der durch das Lesen von `spellcheck` zurückgegebene Wert spiegelt möglicherweise nicht den tatsächlichen Status der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die {{Glossary("user_agent", "Benutzeragent")}}-Einstellungen die Einstellung überschreiben.
 
 ## Nicht-standardisierte Attribute
 
@@ -257,7 +257,7 @@ Versuchen Sie, das obige Formular ohne eingegebenen Wert zu übermitteln, um zu 
 
 ### Muster-Validierung
 
-Wenn Sie die eingegebene URL weiter einschränken möchten als nur auf "beliebiger Text, der wie eine URL aussieht", können Sie das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen [regulären Ausdruck](/de/docs/Glossary/regular_expression) anzugeben, den der Wert erfüllen muss, um gültig zu sein.
+Wenn Sie die eingegebene URL weiter einschränken möchten als nur auf "beliebiger Text, der wie eine URL aussieht", können Sie das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen {{Glossary("regular_expression", "regulären Ausdruck")}} anzugeben, den der Wert erfüllen muss, um gültig zu sein.
 
 Angenommen, Sie bauen eine Support-Seite für Mitarbeiter von Myco, Inc., die es ihnen ermöglicht, mit ihrer IT-Abteilung in Kontakt zu treten, wenn eine ihrer Seiten ein Problem hat. In unserem vereinfachten Formular muss der Benutzer die URL der Seite eingeben, die ein Problem aufweist, und eine Nachricht, die das Problem beschreibt. Wir möchten jedoch, dass die URL nur dann erfolgreich validiert wird, wenn die eingegebene URL in einer Myco-Domain liegt.
 

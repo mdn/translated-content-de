@@ -27,7 +27,7 @@ let registering = browser.contentScripts.register(
 
   - : `object`. Ein `RegisteredContentScriptOptions`-Objekt, das die zu registrierenden Inhalts-Skripte darstellt. Es hat eine ähnliche Syntax wie die Objekte im Array des [`content_scripts`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_scripts) Manifest-Schlüssels. Die Unterschiede sind:
 
-    - Eigenschaftsnamen verwenden das [Camel Case](/de/docs/Glossary/camel_case), anstelle von Unterstrichen ([Snake Case](/de/docs/Glossary/snake_case)) — zum Beispiel `excludeMatches`, nicht `exclude_matches`.
+    - Eigenschaftsnamen verwenden das {{Glossary("camel_case", "Camel Case")}}, anstelle von Unterstrichen ({{Glossary("snake_case", "Snake Case")}}) — zum Beispiel `excludeMatches`, nicht `exclude_matches`.
     - Die Eigenschaften `js` und `css` erlauben es Ihnen, sowohl Strings als auch URLs zu registrieren, sodass ihre Syntax diese Typen unterscheiden muss.
 
     Das `RegisteredContentScriptOptions`-Objekt hat die folgenden Eigenschaften:

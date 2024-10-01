@@ -18,7 +18,7 @@ Der `<percentage>`-Datentyp besteht aus einem {{CSSxRef("&lt;number&gt;")}}, gef
 
 ## Interpolation
 
-Bei Animationen werden die Werte des `<percentage>`-Datentyps als reale, Gleitkommazahlen [interpoliert](/de/docs/Glossary/interpolation). Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Bei Animationen werden die Werte des `<percentage>`-Datentyps als reale, Gleitkommazahlen {{Glossary("interpolation", "interpoliert")}}. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 

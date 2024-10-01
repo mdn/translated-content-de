@@ -9,7 +9,7 @@ l10n:
 
 Die **`EditContext`**-Schnittstelle repräsentiert den Textbearbeitungskontext eines Elements, das durch die Verwendung der [EditContext API](/de/docs/Web/API/EditContext_API) bearbeitbar gemacht wurde.
 
-Die [EditContext API](/de/docs/Web/API/EditContext_API) kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die fortschrittliche Texterfahrung unterstützen, wie beispielsweise die Komposition mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME), Emoji-Auswahl oder andere plattformabhängige UI-Oberflächen für die Bearbeitung.
+Die [EditContext API](/de/docs/Web/API/EditContext_API) kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die fortschrittliche Texterfahrung unterstützen, wie beispielsweise die Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME), Emoji-Auswahl oder andere plattformabhängige UI-Oberflächen für die Bearbeitung.
 
 ## Konstruktor
 
@@ -51,7 +51,7 @@ _`EditContext` basiert auf der [`EventTarget`](/de/docs/Web/API/EventTarget)-Sch
 - [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event) {{experimental_inline}}
   - : Wird ausgelöst, wenn der Benutzer Änderungen am Text oder der Auswahl vorgenommen hat.
 - [`textformatupdate`](/de/docs/Web/API/EditContext/textformatupdate_event) {{experimental_inline}}
-  - : Wird ausgelöst, wenn eine Komposition mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster erfolgt und der IME entscheidet, dass bestimmte Teile des komponierten Textes unterschiedlich formatiert werden sollten, um den Kompositionsstatus anzuzeigen.
+  - : Wird ausgelöst, wenn eine Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster erfolgt und der IME entscheidet, dass bestimmte Teile des komponierten Textes unterschiedlich formatiert werden sollten, um den Kompositionsstatus anzuzeigen.
 - [`characterboundsupdate`](/de/docs/Web/API/EditContext/characterboundsupdate_event) {{experimental_inline}}
   - : Wird ausgelöst, wenn das Betriebssystem die Größe und Position bestimmter Zeichen innerhalb des bearbeitbaren Textbereichs des `EditContext`-Objekts kennen muss, um ein IME-Fenster anzuzeigen.
 - [`compositionstart`](/de/docs/Web/API/EditContext/compositionstart_event) {{experimental_inline}}

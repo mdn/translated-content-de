@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`codecId`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs ist ein String, der das Objekt eindeutig identifiziert, das untersucht wurde, um die Daten in den [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) für den [RTP](/de/docs/Glossary/RTP)-Stream zu erzeugen.
+Die **`codecId`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs ist ein String, der das Objekt eindeutig identifiziert, das untersucht wurde, um die Daten in den [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) für den {{Glossary("RTP", "RTP")}}-Stream zu erzeugen.
 
 `RTCRemoteInboundRtpStreamStats`- und `RTCCodecStats`-Objekte werden durch Iteration des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) korreliert, um die Statistikobjekte zu finden, bei denen `RTCRemoteInboundRtpStreamStats.codecId` gleich [`RTCCodecStats.id`](/de/docs/Web/API/RTCCodecStats/id) ist.
 

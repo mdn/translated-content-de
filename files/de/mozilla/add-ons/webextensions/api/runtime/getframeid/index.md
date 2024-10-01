@@ -20,7 +20,7 @@ let gettingInfo = browser.runtime.getFrameId(
 ### Parameter
 
 - `target`
-  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy) oder ein [Browsing-Kontext](/de/docs/Glossary/browsing_context) Container-[Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für das Ziel-Frame.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}} oder ein {{Glossary("browsing_context", "Browsing-Kontext")}} Container-[Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für das Ziel-Frame.
 
 ### Rückgabewert
 

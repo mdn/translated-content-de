@@ -11,7 +11,7 @@ Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_pr
 
 ## Zuordnete Eigenschaften und Werte
 
-Die folgende Tabelle führt die [logischen Eigenschaften](/de/docs/Glossary/logical_properties) und Werte auf, die in diesem Leitfaden besprochen werden, zusammen mit ihren Zuordnungen zu [physischen Eigenschaften](/de/docs/Glossary/physical_properties) und Werten. Sie nehmen einen horizontalen {{cssxref("writing-mode")}} mit einer Links-nach-Rechts-Richtung an.
+Die folgende Tabelle führt die {{Glossary("logical_properties", "logischen Eigenschaften")}} und Werte auf, die in diesem Leitfaden besprochen werden, zusammen mit ihren Zuordnungen zu {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werten. Sie nehmen einen horizontalen {{cssxref("writing-mode")}} mit einer Links-nach-Rechts-Richtung an.
 
 | Logische Eigenschaft oder Wert     | Physische Eigenschaft oder Wert  |
 | ---------------------------------- | -------------------------------- |
@@ -28,11 +28,11 @@ Die folgende Tabelle führt die [logischen Eigenschaften](/de/docs/Glossary/logi
 
 Zusätzlich zu diesen zugeordneten Eigenschaften gibt es einige zusätzliche Kurznotationseigenschaften, die durch die Möglichkeit, Block- und Inline-Dimensionen anzusprechen, ermöglicht werden. Diese haben keine Zuordnung zu physischen Eigenschaften, abgesehen von der {{cssxref("inset")}}-Eigenschaft.
 
-| Logische Eigenschaft          | Zweck                                                               |
-| ----------------------------- | ------------------------------------------------------------------- |
-| {{cssxref("inset-inline")}}   | Setzt beide oben genannten Einfügewerte für die Inline-Dimension gleichzeitig.   |
-| {{cssxref("inset-block")}}    | Setzt beide oben genannten Einfügewerte für die Block-Dimension gleichzeitig.    |
-| {{cssxref("inset")}}          | Setzt alle vier Einfügewerte gleichzeitig mit physischer Zuordnung von Mehrwerten. |
+| Logische Eigenschaft        | Zweck                                                                              |
+| --------------------------- | ---------------------------------------------------------------------------------- |
+| {{cssxref("inset-inline")}} | Setzt beide oben genannten Einfügewerte für die Inline-Dimension gleichzeitig.     |
+| {{cssxref("inset-block")}}  | Setzt beide oben genannten Einfügewerte für die Block-Dimension gleichzeitig.      |
+| {{cssxref("inset")}}        | Setzt alle vier Einfügewerte gleichzeitig mit physischer Zuordnung von Mehrwerten. |
 
 ## Beispiel für Float und Clear
 

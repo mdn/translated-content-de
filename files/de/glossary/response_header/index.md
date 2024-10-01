@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Response-Header** ist ein [HTTP-Header](/de/docs/Glossary/HTTP_header), der in einer HTTP-Antwort verwendet werden kann und der sich nicht auf den Inhalt der Nachricht bezieht. Response-Header, wie z.B. {{HTTPHeader("Age")}}, {{HTTPHeader("Location")}} oder {{HTTPHeader("Server")}}, werden verwendet, um einen detaillierteren Kontext der Antwort zu geben.
+Ein **Response-Header** ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der in einer HTTP-Antwort verwendet werden kann und der sich nicht auf den Inhalt der Nachricht bezieht. Response-Header, wie z.B. {{HTTPHeader("Age")}}, {{HTTPHeader("Location")}} oder {{HTTPHeader("Server")}}, werden verwendet, um einen detaillierteren Kontext der Antwort zu geben.
 
-Nicht alle Header, die in einer Antwort erscheinen, werden von der Spezifikation als _Response-Header_ kategorisiert. Zum Beispiel ist der {{HTTPHeader("Content-Type")}}-Header ein [Repräsentations-Header](/de/docs/Glossary/representation_header), der den ursprünglichen Datentyp im Textkörper der Antwortnachricht angibt (vor der Anwendung der Kodierung im {{HTTPHeader("Content-Encoding")}}-Repräsentations-Header). Dennoch werden "umgangssprachlich" in einer Antwortnachricht alle Header üblicherweise als Response-Header bezeichnet.
+Nicht alle Header, die in einer Antwort erscheinen, werden von der Spezifikation als _Response-Header_ kategorisiert. Zum Beispiel ist der {{HTTPHeader("Content-Type")}}-Header ein {{Glossary("representation_header", "Repräsentations-Header")}}, der den ursprünglichen Datentyp im Textkörper der Antwortnachricht angibt (vor der Anwendung der Kodierung im {{HTTPHeader("Content-Encoding")}}-Repräsentations-Header). Dennoch werden "umgangssprachlich" in einer Antwortnachricht alle Header üblicherweise als Response-Header bezeichnet.
 
 Das Folgende zeigt einige Response- und Repräsentations-Header nach einer {{HTTPMethod("GET")}}-Anfrage.
 
@@ -37,6 +37,6 @@ x-frame-options: DENY
 
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Headers)
 - Verwandte Glossarbegriffe:
-  - [Repräsentations-Header](/de/docs/Glossary/Representation_header)
-  - [HTTP-Header](/de/docs/Glossary/HTTP_header)
-  - [Request-Header](/de/docs/Glossary/Request_header)
+  - {{Glossary("Representation_header", "Repräsentations-Header")}}
+  - {{Glossary("HTTP_header", "HTTP-Header")}}
+  - {{Glossary("Request_header", "Request-Header")}}

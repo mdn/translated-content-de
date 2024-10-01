@@ -33,7 +33,7 @@ letter-spacing: unset;
 ### Werte
 
 - `normal`
-  - : Der normale Buchstabenabstand für die aktuelle Schriftart. Im Gegensatz zu einem Wert von `0` ermöglicht dieses Schlüsselwort dem [User-Agent](/de/docs/Glossary/user_agent), den Abstand zwischen Zeichen zu ändern, um den Text zu blocksatzgerecht zu verteilen.
+  - : Der normale Buchstabenabstand für die aktuelle Schriftart. Im Gegensatz zu einem Wert von `0` ermöglicht dieses Schlüsselwort dem {{Glossary("user_agent", "User-Agent")}}, den Abstand zwischen Zeichen zu ändern, um den Text zu blocksatzgerecht zu verteilen.
 - {{cssxref("&lt;length&gt;")}}
   - : Gibt zusätzlichen Zeichenabstand _zusätzlich zu_ dem Standardabstand zwischen Zeichen an. Werte können negativ sein, es kann jedoch implementierungsspezifische Begrenzungen geben. User-Agents dürfen den Zeichenzwischenraum nicht weiter vergrößern oder verkleinern, um den Text zu blocksatzgerecht zu verteilen.
 

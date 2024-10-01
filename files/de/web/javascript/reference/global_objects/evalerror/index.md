@@ -9,7 +9,7 @@ l10n:
 
 Das **`EvalError`** Objekt zeigt einen Fehler bezüglich der globalen {{jsxref("Global_Objects/eval", "eval()")}} Funktion an. Diese Ausnahme wird von JavaScript nicht mehr ausgelöst, jedoch bleibt das `EvalError` Objekt zur Kompatibilität bestehen.
 
-`EvalError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
+`EvalError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
 
 `EvalError` ist eine Unterklasse von {{jsxref("Error")}}.
 

@@ -87,7 +87,7 @@ const watchID = navigator.geolocation.watchPosition(success, error, options);
 
 Der Standort des Benutzers wird durch eine Instanz des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekts beschrieben, das wiederum eine Instanz des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts enthält.
 
-Die `GeolocationPosition`-Instanz enthält nur zwei Dinge: eine `coords`-Eigenschaft, die die `GeolocationCoordinates`-Instanz enthält, und eine `timestamp`-Eigenschaft, die einen Zeitstempel enthält, der als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden angibt, wann die Positionsdaten abgerufen wurden.
+Die `GeolocationPosition`-Instanz enthält nur zwei Dinge: eine `coords`-Eigenschaft, die die `GeolocationCoordinates`-Instanz enthält, und eine `timestamp`-Eigenschaft, die einen Zeitstempel enthält, der als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden angibt, wann die Positionsdaten abgerufen wurden.
 
 Die `GeolocationCoordinates`-Instanz enthält eine Reihe von Eigenschaften, aber die zwei, mit denen Sie am häufigsten arbeiten werden, sind `latitude` und `longitude`, die Sie benötigen, um Ihre Position auf einer Karte darzustellen. Viele Geolocation-Erfolgs-Callbacks sehen daher ziemlich einfach aus:
 

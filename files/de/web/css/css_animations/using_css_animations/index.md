@@ -22,7 +22,7 @@ Um eine CSS-Animationssequenz zu erstellen, stylen Sie das Element, das Sie anim
 Die Untereigenschaften der {{cssxref("animation")}}-Eigenschaft sind:
 
 - {{cssxref("animation-composition")}}
-  - : Gibt die [Kombinationsoperation](/de/docs/Glossary/composite_operation) an, die verwendet werden soll, wenn mehrere Animationen dieselbe Eigenschaft gleichzeitig beeinflussen. Diese Eigenschaft ist nicht Teil der `animation`-Kurzform.
+  - : Gibt die {{Glossary("composite_operation", "Kombinationsoperation")}} an, die verwendet werden soll, wenn mehrere Animationen dieselbe Eigenschaft gleichzeitig beeinflussen. Diese Eigenschaft ist nicht Teil der `animation`-Kurzform.
 - {{cssxref("animation-delay")}}
   - : Gibt die Verzögerung zwischen dem Laden eines Elements und dem Beginn einer Animationssequenz an und ob die Animation sofort zu Beginn oder in einer anderen Animation starten soll.
 - {{cssxref("animation-direction")}}
@@ -218,7 +218,7 @@ Wir haben ein {{htmlelement("span")}} um "Alice" hinzugefügt:
 </p>
 ```
 
-Dies teilt dem Browser mit, dass der Name für die ersten und letzten 25% der Animation normal sein soll, aber in der Mitte rosa wird, während er hoch- und wieder zurückskaliert wird. Wir setzen die {{cssxref("display")}}-Eigenschaft des Spans auf `inline-block`, da die `transform`-Eigenschaften keinen Einfluss auf nicht ersetzte [inhaltsstufen Inhalt](/de/docs/Glossary/inline-level_content) haben.
+Dies teilt dem Browser mit, dass der Name für die ersten und letzten 25% der Animation normal sein soll, aber in der Mitte rosa wird, während er hoch- und wieder zurückskaliert wird. Wir setzen die {{cssxref("display")}}-Eigenschaft des Spans auf `inline-block`, da die `transform`-Eigenschaften keinen Einfluss auf nicht ersetzte {{Glossary("inline-level_content", "inhaltsstufen Inhalt")}} haben.
 
 > [!NOTE]
 > Laden Sie die Seite neu, um die Animation zu sehen.

@@ -16,4 +16,4 @@ Entwicklerwerkzeuge von Browsern bieten in der Regel Optionen zum Network Thrott
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Synthetic monitoring](/de/docs/Glossary/Synthetic_monitoring)
+  - {{Glossary("Synthetic_monitoring", "Synthetic monitoring")}}

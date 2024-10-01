@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Alignment-Container** ist das Rechteck, in dem das [Alignment-Subjekt](/de/docs/Glossary/alignment_subject) ausgerichtet ist. Dies wird durch den Layout-Modus definiert; normalerweise ist es der umgebende Block des Alignment-Subjekts und übernimmt den Schreibmodus des Blocks, der den umgebenden Block bildet.
+Der **Alignment-Container** ist das Rechteck, in dem das {{Glossary("alignment_subject", "Alignment-Subjekt")}} ausgerichtet ist. Dies wird durch den Layout-Modus definiert; normalerweise ist es der umgebende Block des Alignment-Subjekts und übernimmt den Schreibmodus des Blocks, der den umgebenden Block bildet.
 
 ## Siehe auch
 
@@ -23,4 +23,4 @@ Der **Alignment-Container** ist das Rechteck, in dem das [Alignment-Subjekt](/de
   - CSS {{CSSXref("place-self")}} Kurzformeigenschaft
   - CSS {{CSSXref("scroll-snap-align")}} Eigenschaft
 - Verwandte Glossareinträge:
-  - [Alignment-Subjekt](/de/docs/Glossary/alignment_subject)
+  - {{Glossary("alignment_subject", "Alignment-Subjekt")}}

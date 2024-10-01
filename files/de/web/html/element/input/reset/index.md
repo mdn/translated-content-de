@@ -16,7 +16,7 @@ l10n:
 
 ## Wert
 
-Das `value`-Attribut eines `<input type="reset">`-Elements enthält einen String, der als Beschriftung für die Schaltfläche verwendet wird und der Schaltfläche eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) bietet. Schaltflächen wie `reset` haben sonst keinen Wert.
+Das `value`-Attribut eines `<input type="reset">`-Elements enthält einen String, der als Beschriftung für die Schaltfläche verwendet wird und der Schaltfläche eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} bietet. Schaltflächen wie `reset` haben sonst keinen Wert.
 
 ### Das Value-Attribut setzen
 
@@ -28,7 +28,7 @@ Das `value`-Attribut eines `<input type="reset">`-Elements enthält einen String
 
 ### Das Value-Attribut weglassen
 
-Wenn Sie keinen `value` angeben, erhalten Sie eine Schaltfläche mit der Standardbeschriftung (typischerweise "Reset", dies kann jedoch je nach [User Agent](/de/docs/Glossary/user_agent) variieren):
+Wenn Sie keinen `value` angeben, erhalten Sie eine Schaltfläche mit der Standardbeschriftung (typischerweise "Reset", dies kann jedoch je nach {{Glossary("user_agent", "User Agent")}} variieren):
 
 ```html
 <input type="reset" />

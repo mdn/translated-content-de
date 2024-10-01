@@ -45,7 +45,7 @@ p {
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Inline-level content](/de/docs/Glossary/Inline-level_content)
+  - {{Glossary("Inline-level_content", "Inline-level content")}}
 - [Block formatting context](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
 - {{cssxref("display")}}
 - [`writing-mode`](/de/docs/Web/CSS/writing-mode)

@@ -13,7 +13,7 @@ Die **`requestStorageAccess()`**-Methode des [`Document`](/de/docs/Web/API/Docum
 Um zu überprüfen, ob die Berechtigung zum Zugriff auf Drittanbieter-Cookies bereits gewährt wurde, können Sie [`Permissions.query()`](/de/docs/Web/API/Permissions/query) aufrufen und den Funktionsnamen `"storage-access"` angeben.
 
 > [!NOTE]
-> Die Nutzung dieser Funktion kann durch eine auf Ihrem Server gesetzte {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden. Darüber hinaus muss das Dokument zusätzliche browserspezifische Überprüfungen bestehen, wie z. B. Positivlisten, Negativlisten, ON-Device-Klassifizierungen, Benutzereinstellungen, Anti-[Clickjacking](/de/docs/Glossary/Clickjacking)-Heuristiken oder das Anfordern einer expliziten Erlaubnis vom Benutzer.
+> Die Nutzung dieser Funktion kann durch eine auf Ihrem Server gesetzte {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden. Darüber hinaus muss das Dokument zusätzliche browserspezifische Überprüfungen bestehen, wie z. B. Positivlisten, Negativlisten, ON-Device-Klassifizierungen, Benutzereinstellungen, Anti-{{Glossary("Clickjacking", "Clickjacking")}}-Heuristiken oder das Anfordern einer expliziten Erlaubnis vom Benutzer.
 
 ## Syntax
 
@@ -59,7 +59,7 @@ requestStorageAccess(types)
 
 Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Zugriff auf Drittanbieter-Cookies gewährt wurde und kein `types`-Parameter bereitgestellt wurde, oder mit [`StorageAccessHandle`](/de/docs/Web/API/StorageAccessHandle) erfüllt wird, wenn der Zugriff auf nicht partitionierten Zustand, der durch den `types`-Parameter angefordert wurde, gewährt wurde, und das verworfen wird, wenn der Zugriff abgelehnt wurde.
 
-`requestStorageAccess()`-Anfragen werden automatisch abgelehnt, es sei denn, der eingebettete Inhalt verarbeitet aktuell eine Benutzeraktion wie ein Tippen oder Klicken ([transiente Aktivierung](/de/docs/Glossary/transient_activation)), oder die Erlaubnis wurde bereits zuvor gewährt. Wenn die Erlaubnis nicht zuvor gewährt wurde, müssen sie innerhalb eines benutzergestengestützten Ereignis-Handlers ausgeführt werden. Das Verhalten der Benutzeraktion hängt vom Status des Promises ab:
+`requestStorageAccess()`-Anfragen werden automatisch abgelehnt, es sei denn, der eingebettete Inhalt verarbeitet aktuell eine Benutzeraktion wie ein Tippen oder Klicken ({{Glossary("transient_activation", "transiente Aktivierung")}}), oder die Erlaubnis wurde bereits zuvor gewährt. Wenn die Erlaubnis nicht zuvor gewährt wurde, müssen sie innerhalb eines benutzergestengestützten Ereignis-Handlers ausgeführt werden. Das Verhalten der Benutzeraktion hängt vom Status des Promises ab:
 
 - Wenn das Promise aufgelöst wird (d. h. wenn die Erlaubnis erteilt wurde), wird die Benutzeraktion nicht verbraucht, sodass das Skript anschließend APIs aufrufen kann, die eine Benutzeraktion erfordern.
 - Wenn das Promise abgelehnt wird (d. h. die Erlaubnis wurde nicht erteilt), wird die Benutzeraktion verbraucht, sodass das Skript nichts machen kann, was eine Aktion erfordert. Dies ist ein beabsichtigter Schutz gegen Missbrauch – es verhindert, dass Skripte `requestStorageAccess()` in einer Schleife aufrufen, bis der Benutzer die Aufforderung akzeptiert.

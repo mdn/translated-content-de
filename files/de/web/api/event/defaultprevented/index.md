@@ -12,7 +12,7 @@ Die schreibgeschützte **`defaultPrevented`**-Eigenschaft des [`Event`](/de/docs
 
 ## Wert
 
-Ein boolescher Wert, wobei `true` anzeigt, dass die Standardaktion des [user agent](/de/docs/Glossary/user_agent) verhindert wurde, und `false`, dass sie nicht verhindert wurde.
+Ein boolescher Wert, wobei `true` anzeigt, dass die Standardaktion des {{Glossary("user_agent", "user agent")}} verhindert wurde, und `false`, dass sie nicht verhindert wurde.
 
 ## Beispiel
 

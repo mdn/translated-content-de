@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Objekts zurück.
 
 ## Syntax
 

@@ -18,6 +18,6 @@ Der Unicode-Standard bietet Grundlagen für vollständige BiDi-Unterstützung, m
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Unicode](/de/docs/Glossary/Unicode)
+  - {{Glossary("Unicode", "Unicode")}}
 - [Bi-direktionaler Text](https://en.wikipedia.org/wiki/Bi-directional_text) auf Wikipedia
 - [UAX#9: Unicode Bi-directional Algorithm](https://www.unicode.org/reports/tr9)

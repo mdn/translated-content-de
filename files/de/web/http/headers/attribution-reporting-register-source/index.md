@@ -18,15 +18,15 @@ Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Response-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gesicherte Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-gesicherte Antwort-Header")}}
       </th>
       <td>nein</td>
     </tr>
@@ -48,7 +48,7 @@ Attribution-Reporting-Register-Source: <json-string>
     - `"source_event_id"` {{optional_inline}}
       - : Eine Zeichenkette, die eine ID für die Attributionsquelle darstellt und verwendet werden kann, um sie anderen Informationen zuzuordnen, wenn mit der Attributionsquelle interagiert wird, oder um Informationen am Berichtsendpunkt zu aggregieren. Die Zeichenkette muss ausschließlich aus einer basis-10-formatierten 64-Bit-Unsigned-Integer bestehen.
     - `"destination"`
-      - : Eine einzelne Zeichenkette oder ein Array von 1–3 Zeichenketten. Diese Zeichenketten müssen eine vollständige URL enthalten, die der Seite (Schema + [eTLD+1](/de/docs/Glossary/eTLD)) entspricht, auf der ein Trigger erwartet wird. Diese werden verwendet, um den Attributionstrigger mit der Quelle abzugleichen, wenn mit einem Trigger interagiert wird.
+      - : Eine einzelne Zeichenkette oder ein Array von 1–3 Zeichenketten. Diese Zeichenketten müssen eine vollständige URL enthalten, die der Seite (Schema + {{Glossary("eTLD", "eTLD+1")}}) entspricht, auf der ein Trigger erwartet wird. Diese werden verwendet, um den Attributionstrigger mit der Quelle abzugleichen, wenn mit einem Trigger interagiert wird.
     - `"aggregation_keys"` {{optional_inline}}
       - : Ein Objekt, das vom Benutzer bereitgestellte Schlüssel enthält, die verschiedene Datenpunkte repräsentieren, um Berichtswerte darunter zu aggregieren.
     - `"aggregatable_report_window"` {{optional_inline}}

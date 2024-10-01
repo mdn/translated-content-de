@@ -11,7 +11,7 @@ In diesem Leitfaden erfahren Sie eine Technik, um ein HTML-Bild vollständig in 
 
 ## Verwendung von object-fit
 
-Wenn Sie ein Bild auf einer Seite mit dem HTML-Element {{htmlelement("img")}} hinzufügen, wird das Bild die Größe und das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) der Bilddatei oder der HTML-Attribute [`width`](/de/docs/Web/HTML/Element/img#width) oder [`height`](/de/docs/Web/HTML/Element/img#height) beibehalten. Manchmal möchten Sie, dass das Bild die Box, in die es eingefügt wurde, vollständig ausfüllt. In diesem Fall müssen Sie zunächst entscheiden, was passiert, wenn das Bild das falsche Seitenverhältnis für den Container hat.
+Wenn Sie ein Bild auf einer Seite mit dem HTML-Element {{htmlelement("img")}} hinzufügen, wird das Bild die Größe und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} der Bilddatei oder der HTML-Attribute [`width`](/de/docs/Web/HTML/Element/img#width) oder [`height`](/de/docs/Web/HTML/Element/img#height) beibehalten. Manchmal möchten Sie, dass das Bild die Box, in die es eingefügt wurde, vollständig ausfüllt. In diesem Fall müssen Sie zunächst entscheiden, was passiert, wenn das Bild das falsche Seitenverhältnis für den Container hat.
 
 1. Das Bild sollte die Box vollständig ausfüllen, das Seitenverhältnis beibehalten und den Überschuss auf der zu großen Seite abschneiden.
 2. Das Bild sollte in die Box passen, wobei der Hintergrund als Balken auf der zu kleinen Seite durchscheint.

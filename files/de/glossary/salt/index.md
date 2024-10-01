@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Kryptographie ist **Salt** zufällige Daten, die einem Passwort hinzugefügt werden, bevor es [gehasht](/de/docs/Glossary/hash) wird. Dies macht es einem Angreifer unmöglich, Passwörter aus ihren Hashes mit vorab berechneten Tabellen von Passwörtern und den entsprechenden Hashes abzuleiten.
+In der Kryptographie ist **Salt** zufällige Daten, die einem Passwort hinzugefügt werden, bevor es {{Glossary("hash", "gehasht")}} wird. Dies macht es einem Angreifer unmöglich, Passwörter aus ihren Hashes mit vorab berechneten Tabellen von Passwörtern und den entsprechenden Hashes abzuleiten.
 
 Passwörter sollten niemals in ihrem Klartext-Format gespeichert werden, da die Gefahr besteht, dass ein Angreifer in die Datenbank einbricht, in der sie gespeichert sind. Typischerweise wird das Passwort gehasht, und der resultierende Hash wird gespeichert. Wenn die Hashfunktion kryptographisch sicher ist, ist es für einen Angreifer selbst dann unpraktisch, die Funktion umzukehren, wenn er Zugang zu den gespeicherten Hashes erhält.
 

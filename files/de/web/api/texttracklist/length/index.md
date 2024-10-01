@@ -23,7 +23,7 @@ Eine Zahl, die angibt, wie viele Textspuren in der
 ## Beispiele
 
 Dieses Beispiel ermittelt die Anzahl der Textspuren im ersten Medien-Element, das im
-[DOM](/de/docs/Glossary/DOM) durch [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
+{{Glossary("DOM", "DOM")}} durch [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
 
 ```js
 const mediaElem = document.querySelector("video, audio");

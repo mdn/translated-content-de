@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Parameter** sind benannte Variablen, die als Teil einer [Funktion](/de/docs/Glossary/function) deklariert sind. Sie werden verwendet, um auf die [Argumente](/de/docs/Glossary/argument) zu verweisen, die an die Funktion übergeben werden.
+**Parameter** sind benannte Variablen, die als Teil einer {{Glossary("function", "Funktion")}} deklariert sind. Sie werden verwendet, um auf die {{Glossary("argument", "Argumente")}} zu verweisen, die an die Funktion übergeben werden.
 
 Zum Beispiel:
 
@@ -35,7 +35,7 @@ Es gibt zwei Arten von Parametern:
 Beachten Sie den Unterschied zwischen _Parametern_ und _Argumenten_:
 
 - Funktionsparameter sind die Namen, die in der Definition der Funktion aufgelistet sind.
-- Funktions[argumente](/de/docs/Glossary/argument) sind die tatsächlichen Werte, die an die Funktion übergeben werden.
+- Funktions{{Glossary("argument", "argumente")}} sind die tatsächlichen Werte, die an die Funktion übergeben werden.
 - Parameter werden mit den Werten der bereitgestellten Argumente initialisiert.
 
 ## Siehe auch
@@ -44,5 +44,5 @@ Beachten Sie den Unterschied zwischen _Parametern_ und _Argumenten_:
 - [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function)
 - [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
 - Verwandte Glossarbegriffe:
-  - [Funktion](/de/docs/Glossary/Function)
-  - [Argument](/de/docs/Glossary/Argument)
+  - {{Glossary("Function", "Funktion")}}
+  - {{Glossary("Argument", "Argument")}}

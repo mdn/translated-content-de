@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`glyph-orientation-vertical`** Attribut beeinflusst den Fortschritt der aktuellen Textposition, während jedes [Glyph](/de/docs/Glossary/glyph) gerendert wird.
+Das **`glyph-orientation-vertical`** Attribut beeinflusst den Fortschritt der aktuellen Textposition, während jedes {{Glossary("glyph", "Glyph")}} gerendert wird.
 
 Wenn die Inline-Progressionsrichtung vertikal ist und `glyph-orientation-vertical` einen Orientierungswinkel ergibt, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den vertikalen Metriken des Glyphs inkrementiert. Andernfalls, wenn der Winkel kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den horizontalen Metriken des Glyphs inkrementiert.
 
@@ -51,7 +51,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - `auto`
 
-  - : Vollbreite [ideographische](/de/docs/Glossary/ideographic) und vollbreite lateinische Texte werden mit einer Glyphorientierung von 0 Grad gesetzt. Ideographische Satzzeichen und andere ideographische Zeichen, die alternative horizontale und vertikale Formen haben, verwenden die vertikale Form des Glyphs. Text, der nicht vollbreit ist, wird mit einer Glyphorientierung von 90 Grad gesetzt.
+  - : Vollbreite {{Glossary("ideographic", "ideographische")}} und vollbreite lateinische Texte werden mit einer Glyphorientierung von 0 Grad gesetzt. Ideographische Satzzeichen und andere ideographische Zeichen, die alternative horizontale und vertikale Formen haben, verwenden die vertikale Form des Glyphs. Text, der nicht vollbreit ist, wird mit einer Glyphorientierung von 90 Grad gesetzt.
 
     Diese Neuorientierungsregel gilt nur für den ersten nicht-ideographischen Text. Jede weitere Einbindung von Schreibmodi oder bidirektionaler Verarbeitung basiert auf der Rotation der ersten Ebene.
 

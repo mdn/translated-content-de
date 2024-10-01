@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-**JavaScript-Engines** sind Interpreter, die [JavaScript](/de/docs/Glossary/JavaScript)-Code analysieren und ausführen. Moderne JavaScript-Engines nutzen Just-in-Time (JIT) Compilation, um JavaScript-Code in Maschinencode umzuwandeln, der vom Prozessor eines Computers ausgeführt werden kann. Eine JavaScript-Engine wird typischerweise in Web-[Browsern](/de/docs/Glossary/browser) entwickelt und verwendet, um clientseitigen Code auszuführen, kann aber auch in serverseitigen Umgebungen wie [Node.js](/de/docs/Glossary/Node.js) eingesetzt werden.
+**JavaScript-Engines** sind Interpreter, die {{Glossary("JavaScript", "JavaScript")}}-Code analysieren und ausführen. Moderne JavaScript-Engines nutzen Just-in-Time (JIT) Compilation, um JavaScript-Code in Maschinencode umzuwandeln, der vom Prozessor eines Computers ausgeführt werden kann. Eine JavaScript-Engine wird typischerweise in Web-{{Glossary("browser", "Browsern")}} entwickelt und verwendet, um clientseitigen Code auszuführen, kann aber auch in serverseitigen Umgebungen wie {{Glossary("Node.js", "Node.js")}} eingesetzt werden.
 
-In einem Browser arbeitet die JavaScript-Engine zusammen mit der Render-Engine über das [Document Object Model](/de/docs/Glossary/DOM) und [Web IDL](/de/docs/Glossary/WebIDL)-Bindungen. Einige JavaScript-Engines führen auch [WebAssembly](/de/docs/Glossary/WebAssembly)-Code im gleichen Sandbox-Umfeld wie gewöhnlichen JavaScript-Code aus.
+In einem Browser arbeitet die JavaScript-Engine zusammen mit der Render-Engine über das {{Glossary("DOM", "Document Object Model")}} und {{Glossary("WebIDL", "Web IDL")}}-Bindungen. Einige JavaScript-Engines führen auch {{Glossary("WebAssembly", "WebAssembly")}}-Code im gleichen Sandbox-Umfeld wie gewöhnlichen JavaScript-Code aus.
 
-Verwechseln Sie JavaScript-Engines nicht mit [Render-Engines](/de/docs/Glossary/engine/rendering), die ebenfalls wesentliche Bestandteile von Browsern sind.
+Verwechseln Sie JavaScript-Engines nicht mit {{Glossary("engine/rendering", "Render-Engines")}}, die ebenfalls wesentliche Bestandteile von Browsern sind.
 
 ## Siehe auch
 
 - [JavaScript engine](https://de.wikipedia.org/wiki/JavaScript-Engine) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Engine](/de/docs/Glossary/Engine)
-  - [JavaScript](/de/docs/Glossary/JavaScript)
-  - [WebAssembly](/de/docs/Glossary/WebAssembly)
-  - [Browser](/de/docs/Glossary/Browser)
-  - [Node.js](/de/docs/Glossary/Node.js)
+  - {{Glossary("Engine", "Engine")}}
+  - {{Glossary("JavaScript", "JavaScript")}}
+  - {{Glossary("WebAssembly", "WebAssembly")}}
+  - {{Glossary("Browser", "Browser")}}
+  - {{Glossary("Node.js", "Node.js")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}{{SeeCompatTable}}
 
-Das **`<fencedframe>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen verschachtelten [Browsing-Kontext](/de/docs/Glossary/browsing_context) und bettet eine andere HTML-Seite in die aktuelle ein. `<fencedframe>`s ähneln in Form und Funktion den {{htmlelement("iframe")}}-Elementen, mit folgenden Unterschieden:
+Das **`<fencedframe>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen verschachtelten {{Glossary("browsing_context", "Browsing-Kontext")}} und bettet eine andere HTML-Seite in die aktuelle ein. `<fencedframe>`s ähneln in Form und Funktion den {{htmlelement("iframe")}}-Elementen, mit folgenden Unterschieden:
 
 - Die Kommunikation zwischen dem `<fencedframe>`-Inhalt und der einbettenden Seite ist eingeschränkt.
 - Ein `<fencedframe>` kann auf datenübergreifende Seiten zugreifen, jedoch nur unter sehr spezifischen, kontrollierten Umständen, die die Privatsphäre des Benutzers wahren.

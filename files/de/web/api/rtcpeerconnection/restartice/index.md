@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`restartIce()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces ermöglicht es einer Webanwendung, dass die Erfassung der [ICE](/de/docs/Glossary/ICE)-Kandidaten an beiden Enden der Verbindung erneut durchgeführt wird. Dies vereinfacht den Prozess, da dieselbe Methode sowohl vom Anrufer als auch vom Empfänger verwendet werden kann, um einen ICE-Neustart auszulösen.
+Die **`restartIce()`**-Methode des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces ermöglicht es einer Webanwendung, dass die Erfassung der {{Glossary("ICE", "ICE")}}-Kandidaten an beiden Enden der Verbindung erneut durchgeführt wird. Dies vereinfacht den Prozess, da dieselbe Methode sowohl vom Anrufer als auch vom Empfänger verwendet werden kann, um einen ICE-Neustart auszulösen.
 
 Nachdem `restartIce()` zurückgegeben wird, ist das Angebot, das durch den nächsten Aufruf von [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) zurückgegeben wird, automatisch so konfiguriert, dass es den ICE-Neustart sowohl am lokalen Teilnehmer (sobald dieser gesetzt wurde) als auch am entfernten Teilnehmer auslöst, sobald das Angebot über Ihren Signalisierungsmechanismus gesendet und die Beschreibung auch vom entfernten Teilnehmer gesetzt wurde.
 

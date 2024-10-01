@@ -1,5 +1,5 @@
 ---
-title: "`<input type=\"file\">`"
+title: '`<input type="file">`'
 slug: Web/HTML/Element/input/file
 l10n:
   sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
@@ -37,7 +37,7 @@ Zum Beispiel gibt es mehrere Möglichkeiten, Microsoft Word-Dateien zu identifiz
 
 ### capture
 
-Der Wert des [`capture`](/de/docs/Web/HTML/Attributes/capture)-Attributs ist eine Zeichenkette, die angibt, welche Kamera für die Aufnahme von Bild- oder Videodaten verwendet werden soll, falls das [`accept`](/de/docs/Web/HTML/Attributes/accept)-Attribut angibt, dass die Eingabe eine dieser Arten sein soll. Ein Wert von `user` bedeutet, dass die kameraseitige Kamera und/oder das Mikrofon verwendet werden sollen. Ein Wert von `environment` gibt an, dass die nach außen gerichtete Kamera und/oder das Mikrofon verwendet werden sollen. Wenn dieses Attribut fehlt, steht es dem [Benutzeragenten](/de/docs/Glossary/user_agent) frei, selbst zu entscheiden, was zu tun ist. Wenn der angeforderte Modus nicht verfügbar ist, kann der Benutzeragent auf seinen bevorzugten Standardmodus zurückgreifen.
+Der Wert des [`capture`](/de/docs/Web/HTML/Attributes/capture)-Attributs ist eine Zeichenkette, die angibt, welche Kamera für die Aufnahme von Bild- oder Videodaten verwendet werden soll, falls das [`accept`](/de/docs/Web/HTML/Attributes/accept)-Attribut angibt, dass die Eingabe eine dieser Arten sein soll. Ein Wert von `user` bedeutet, dass die kameraseitige Kamera und/oder das Mikrofon verwendet werden sollen. Ein Wert von `environment` gibt an, dass die nach außen gerichtete Kamera und/oder das Mikrofon verwendet werden sollen. Wenn dieses Attribut fehlt, steht es dem {{Glossary("user_agent", "Benutzeragenten")}} frei, selbst zu entscheiden, was zu tun ist. Wenn der angeforderte Modus nicht verfügbar ist, kann der Benutzeragent auf seinen bevorzugten Standardmodus zurückgreifen.
 
 > **Hinweis:** `capture` war zuvor ein boolesches Attribut, das, wenn es vorhanden war, verlangte, dass die Medienerfassungsgeräte des Geräts, wie Kamera oder Mikrofon, verwendet werden, anstatt eine Dateieingabe anzufordern.
 
@@ -128,7 +128,7 @@ Jedes `File`-Objekt enthält die folgenden Informationen:
 
 ### Akzeptierte Dateitypen begrenzen
 
-Oft möchten Sie nicht, dass der Benutzer irgendwelche beliebigen Dateitypen auswählen kann; stattdessen möchten Sie oft, dass sie Dateien eines bestimmten Typs oder Typs auswählen. Wenn Ihre Datei-Eingabe es Benutzern zum Beispiel ermöglicht, ein Profilbild hochzuladen, möchten Sie wahrscheinlich, dass sie web-kompatible Bildformate auswählen, wie [JPEG](/de/docs/Glossary/JPEG) oder [PNG](/de/docs/Glossary/PNG).
+Oft möchten Sie nicht, dass der Benutzer irgendwelche beliebigen Dateitypen auswählen kann; stattdessen möchten Sie oft, dass sie Dateien eines bestimmten Typs oder Typs auswählen. Wenn Ihre Datei-Eingabe es Benutzern zum Beispiel ermöglicht, ein Profilbild hochzuladen, möchten Sie wahrscheinlich, dass sie web-kompatible Bildformate auswählen, wie {{Glossary("JPEG", "JPEG")}} oder {{Glossary("PNG", "PNG")}}.
 
 Akzeptable Dateitypen können mit dem [`accept`](#accept)-Attribut angegeben werden, das eine durch Kommas getrennte Liste von erlaubten Dateinamenerweiterungen oder MIME-Typen verwendet. Einige Beispiele:
 
@@ -320,6 +320,7 @@ Jedes Mal, wenn die Funktion `updateImageDisplay()` aufgerufen wird, machen wir:
 - Wir greifen das [`FileList`](/de/docs/Web/API/FileList)-Objekt ab, das die Informationen zu allen ausgewählten Dateien enthält, und speichern es in einer Variablen namens `curFiles`.
 - Wir überprüfen, ob keine Dateien ausgewählt wurden, indem wir überprüfen, ob `curFiles.length` gleich 0 ist. Wenn ja, drucken wir eine Nachricht in das Vorschau-`<div>`, dass keine Dateien ausgewählt wurden.
 - Wenn Dateien ausgewählt wurden, durchlaufen wir jede und drucken Informationen darüber in das Vorschau-`<div>`. Zu beachten hier:
+
   - Wir verwenden die benutzerdefinierte Funktion `validFileType()`, um zu prüfen, ob der Dateityp korrekt ist (z. B. die Bildtypen, die im `accept`-Attribut angegeben sind).
   - Ist er korrekt, dann:
 

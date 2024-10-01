@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Das Modul [CSS logique Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties) definiert flussrelativ zugeordnete Werte für viele der [physischen Eigenschaften](/de/docs/Glossary/physical_properties) und Werte in CSS. Dieser Artikel diskutiert dieses Modul und erklärt [flussrelative Werte](/de/docs/Glossary/flow_relative_values) und Eigenschaften.
+Das Modul [CSS logique Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties) definiert flussrelativ zugeordnete Werte für viele der {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte in CSS. Dieser Artikel diskutiert dieses Modul und erklärt {{Glossary("flow_relative_values", "flussrelative Werte")}} und Eigenschaften.
 
 ## Warum logische Eigenschaften nützlich sind
 
-CSS 2.1 und frühere Versionen hatten Dinge entsprechend den physischen Abmessungen des Bildschirms dimensioniert. Daher beschreiben wir Boxen als solche mit einer {{CSSxRef("width")}} und {{CSSxRef("height")}}, positionieren Elemente von `top` und `left`, weisen Ränder, Abstände und Polsterungen nach `top`, `right`, `bottom`, `left` usw. zu. Das Modul Logische Eigenschaften und Werte definiert Zuordnungen dieser [physischen Eigenschaften](/de/docs/Glossary/physical_properties) und Werte zu ihren logischen oder flussrelativen Gegenstücken — z.B. `start` und `end` im Gegensatz zu `left` und `right`/`top` und `bottom`.
+CSS 2.1 und frühere Versionen hatten Dinge entsprechend den physischen Abmessungen des Bildschirms dimensioniert. Daher beschreiben wir Boxen als solche mit einer {{CSSxRef("width")}} und {{CSSxRef("height")}}, positionieren Elemente von `top` und `left`, weisen Ränder, Abstände und Polsterungen nach `top`, `right`, `bottom`, `left` usw. zu. Das Modul Logische Eigenschaften und Werte definiert Zuordnungen dieser {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werte zu ihren logischen oder flussrelativen Gegenstücken — z.B. `start` und `end` im Gegensatz zu `left` und `right`/`top` und `bottom`.
 
 Diese Zuordnungen sind sehr nützlich für Websites, die in Sprachen mit einem anderen Schreibmodus als dem ursprünglichen Layout übersetzt werden. Beispielsweise bei einem CSS-Grid-Layout: Wenn der Grid-Container eine Breite mit den Eigenschaften {{CSSxRef("align-self")}} und {{CSSxRef("justify-self")}} angewendet hat, um die Gitterelemente auszurichten, da diese Eigenschaften flussrelativ sind, richtet `justify-self: start` das Element am Anfang der Inline-Dimension aus, und `align-self: start` tut dies in der Block-Dimension.
 

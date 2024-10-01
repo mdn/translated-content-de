@@ -11,12 +11,12 @@ Die **`PerformancePaintTiming`**-Schnittstelle bietet Zeitinformationen über "P
 
 Diese API bietet zwei wichtige Paint-Momente:
 
-- [Erster Paint](/de/docs/Glossary/First_paint) (FP): Zeitpunkt, an dem irgendetwas gerendert wird. Beachten Sie, dass die Markierung des ersten Paint optional ist und nicht alle User-Agents es melden.
-- [Erster inhaltsvoller Paint](/de/docs/Glossary/First_contentful_paint) (FCP): Zeitpunkt, an dem das erste DOM-Text- oder Bildinhalt gerendert wird.
+- {{Glossary("First_paint", "Erster Paint")}} (FP): Zeitpunkt, an dem irgendetwas gerendert wird. Beachten Sie, dass die Markierung des ersten Paint optional ist und nicht alle User-Agents es melden.
+- {{Glossary("First_contentful_paint", "Erster inhaltsvoller Paint")}} (FCP): Zeitpunkt, an dem das erste DOM-Text- oder Bildinhalt gerendert wird.
 
 Ein dritter wichtiger Paint-Moment wird durch die [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint)-API bereitgestellt:
 
-- [Größter inhaltsvoller Paint](/de/docs/Glossary/Largest_contentful_paint) (LCP): Renderzeit des größten Bild- oder Textblocks, der innerhalb des Ansichtsfensters sichtbar ist, aufgezeichnet ab dem Zeitpunkt, an dem die Seite zu laden beginnt.
+- {{Glossary("Largest_contentful_paint", "Größter inhaltsvoller Paint")}} (LCP): Renderzeit des größten Bild- oder Textblocks, der innerhalb des Ansichtsfensters sichtbar ist, aufgezeichnet ab dem Zeitpunkt, an dem die Seite zu laden beginnt.
 
 Die von dieser API bereitgestellten Daten helfen Ihnen, die Zeit zu minimieren, die Benutzer warten müssen, bevor sie sehen können, dass der Inhalt der Website zu erscheinen beginnt. Die Verringerung der Zeit bis zu diesen wichtigen Paint-Momenten lässt Websites reaktionsschneller, leistungsfähiger und ansprechender für Ihre Benutzer erscheinen.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Diese Methode kompiliert ein [`XPathExpression`](/de/docs/Web/API/XPathExpression), das dann für (wiederholte) Auswertungen des [XPath](/de/docs/Glossary/XPath)-Ausdrucks verwendet werden kann.
+Diese Methode kompiliert ein [`XPathExpression`](/de/docs/Web/API/XPathExpression), das dann für (wiederholte) Auswertungen des {{Glossary("XPath", "XPath")}}-Ausdrucks verwendet werden kann.
 
 ## Syntax
 

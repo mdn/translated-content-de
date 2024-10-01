@@ -8,7 +8,7 @@ l10n:
 {{HTTPSidebar}}
 
 Das HTTP-Antwort-Header **`Content-Security-Policy`** ermöglicht
-Webseiten-Administratoren die Kontrolle darüber, welche Ressourcen der Benutzeragent für eine gegebene Seite laden darf. Mit wenigen Ausnahmen beziehen sich Richtlinien hauptsächlich auf die Angabe von Server-Ursprüngen und Skript-Endpunkten. Dies hilft, Cross-Site-Scripting-Angriffe ([Cross-site_scripting](/de/docs/Glossary/Cross-site_scripting)) zu verhindern.
+Webseiten-Administratoren die Kontrolle darüber, welche Ressourcen der Benutzeragent für eine gegebene Seite laden darf. Mit wenigen Ausnahmen beziehen sich Richtlinien hauptsächlich auf die Angabe von Server-Ursprüngen und Skript-Endpunkten. Dies hilft, Cross-Site-Scripting-Angriffe ({{Glossary("Cross-site_scripting", "Cross-site_scripting")}}) zu verhindern.
 
 Weitere Informationen finden Sie im einführenden Artikel über [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP).
 
@@ -16,10 +16,10 @@ Weitere Informationen finden Sie im einführenden Artikel über [Content Securit
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -38,7 +38,7 @@ wobei `<policy-directive>` besteht aus:
 
 ### Fetch-Richtlinien
 
-[Fetch-Richtlinien](/de/docs/Glossary/Fetch_directive) steuern die Orte, von denen bestimmte Ressourcentypen geladen werden dürfen.
+{{Glossary("Fetch_directive", "Fetch-Richtlinien")}} steuern die Orte, von denen bestimmte Ressourcentypen geladen werden dürfen.
 
 - {{CSP("child-src")}}
 
@@ -52,7 +52,7 @@ wobei `<policy-directive>` besteht aus:
 - {{CSP("connect-src")}}
   - : Beschränkt die URLs, die über Skript-Schnittstellen geladen werden können.
 - {{CSP("default-src")}}
-  - : Dient als Standard für die anderen [Fetch-Richtlinien](/de/docs/Glossary/Fetch_directive).
+  - : Dient als Standard für die anderen {{Glossary("Fetch_directive", "Fetch-Richtlinien")}}.
 - {{CSP("fenced-frame-src")}} {{experimental_inline}}
   - : Gibt gültige Quellen für verschachtelte Browsing-Kontexte an, die in {{HTMLElement("fencedframe")}}-Elementen geladen werden.
 - {{CSP("font-src")}}

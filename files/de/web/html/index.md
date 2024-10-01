@@ -45,7 +45,7 @@ Unser [HTML-Lernbereich](/de/docs/Learn/HTML) bietet mehrere Module, die HTML vo
 ## Fortgeschrittene Themen
 
 - [CORS-fähiges Bild](/de/docs/Web/HTML/CORS_enabled_image)
-  - : Das [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin) Attribut, in Verbindung mit einem geeigneten [CORS](/de/docs/Glossary/CORS) Header, ermöglicht es, dass Bilder, die durch das {{HTMLElement("img")}} Element definiert sind, aus fremden Ursprüngen geladen werden und in einem {{HTMLElement("canvas")}} Element verwendet werden können, als ob sie vom aktuellen Ursprung geladen würden.
+  - : Das [`crossorigin`](/de/docs/Web/HTML/Element/img#crossorigin) Attribut, in Verbindung mit einem geeigneten {{Glossary("CORS", "CORS")}} Header, ermöglicht es, dass Bilder, die durch das {{HTMLElement("img")}} Element definiert sind, aus fremden Ursprüngen geladen werden und in einem {{HTMLElement("canvas")}} Element verwendet werden können, als ob sie vom aktuellen Ursprung geladen würden.
 - [CORS-Einstellungen Attribute](/de/docs/Web/HTML/Attributes/crossorigin)
   - : Einige HTML-Elemente, die Unterstützung für [CORS](/de/docs/Web/HTTP/CORS) bieten, wie {{HTMLElement("img")}} oder {{HTMLElement("video")}}, haben ein `crossorigin` Attribut (`crossOrigin` Eigenschaft), mit dem Sie die CORS-Anfragen für die abgerufenen Daten des Elements konfigurieren können.
 - [Inhalte mit rel="preload" vorladen](/de/docs/Web/HTML/Attributes/rel/preload)
@@ -56,12 +56,12 @@ Unser [HTML-Lernbereich](/de/docs/Learn/HTML) bietet mehrere Module, die HTML vo
 - [HTML Referenz](/de/docs/Web/HTML/Reference)
   - : HTML besteht aus **Elementen**, von denen jedes durch eine Anzahl von **Attributen** modifiziert werden kann. HTML-Dokumente sind über **Links** miteinander verbunden.
 - [HTML-Element-Referenz](/de/docs/Web/HTML/Element)
-  - : Durchsuchen Sie eine Liste aller [HTML](/de/docs/Glossary/HTML) [Elemente](/de/docs/Glossary/Element).
+  - : Durchsuchen Sie eine Liste aller {{Glossary("HTML", "HTML")}} {{Glossary("Element", "Elemente")}}.
 - [HTML-Attribut-Referenz](/de/docs/Web/HTML/Attributes)
   - : Elemente in HTML haben **Attribute**. Diese sind zusätzliche Werte, die die Elemente konfigurieren oder ihr Verhalten auf verschiedene Weise anpassen.
 - [Globale Attribute](/de/docs/Web/HTML/Global_attributes)
   - : Globale Attribute können auf alle [HTML-Elemente](/de/docs/Web/HTML/Element) angewendet werden, _selbst auf die, die im Standard nicht spezifiziert sind_. Das bedeutet, dass auch nicht standardmäßige Elemente diese Attribute zulassen müssen, obwohl diese Elemente das Dokument HTML5-inkompatibel machen.
-- [Inline-level-Elemente](/de/docs/Glossary/Inline-level_content) und [Block-level-Elemente](/de/docs/Glossary/Block-level_content)
+- {{Glossary("Inline-level_content", "Inline-level-Elemente")}} und {{Glossary("Block-level_content", "Block-level-Elemente")}}
   - : HTML-Elemente sind normalerweise "inline-level" oder "block-level" Elemente. Ein Inline-level-Element nimmt nur den Raum ein, der von den Tags begrenzt wird, die es definieren. Ein Block-level-Element nimmt den gesamten Raum seines übergeordneten Elements (Containers) ein und erstellt damit eine "Blockbox".
 - [HTML-Kommentare](/de/docs/Web/HTML/Comments)
   - : HTML-Kommentare werden verwendet, um erklärende Notizen zum Markup hinzuzufügen oder um den Browser daran zu hindern, bestimmte Teile des Dokuments zu interpretieren.

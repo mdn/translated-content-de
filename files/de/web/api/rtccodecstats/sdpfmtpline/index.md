@@ -10,7 +10,7 @@ l10n:
 
 Die **`sdpFmtpLine`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein String, der die formatspezifischen Parameter des Codecs enthält.
 
-Dies sind die Werte in der `"a=fmtp"`-Zeile im [SDP](/de/docs/Glossary/SDP) des Codecs (falls vorhanden) nach der Payload-Typ-Nummer (siehe [Abschnitt 5.8 der IETF-Spezifikation für JSEP](https://datatracker.ietf.org/doc/html/draft-ietf-rtcweb-jsep-24#section-5.8)).
+Dies sind die Werte in der `"a=fmtp"`-Zeile im {{Glossary("SDP", "SDP")}} des Codecs (falls vorhanden) nach der Payload-Typ-Nummer (siehe [Abschnitt 5.8 der IETF-Spezifikation für JSEP](https://datatracker.ietf.org/doc/html/draft-ietf-rtcweb-jsep-24#section-5.8)).
 
 ## Werte
 
@@ -18,7 +18,7 @@ Ein String, der die formatspezifischen Parameter des Codecs enthält.
 
 ## Beschreibung
 
-Die `"a=fmtp"`-Zeile in der [SDP](/de/docs/Glossary/SDP)-Zeile des Codecs hat folgendes Format, wobei der Payload-Typ (siehe [`RTCCodecStats.payloadType`](/de/docs/Web/API/RTCCodecStats/payloadType)) und die Parameter vom Codec abhängen:
+Die `"a=fmtp"`-Zeile in der {{Glossary("SDP", "SDP")}}-Zeile des Codecs hat folgendes Format, wobei der Payload-Typ (siehe [`RTCCodecStats.payloadType`](/de/docs/Web/API/RTCCodecStats/payloadType)) und die Parameter vom Codec abhängen:
 
 ```plain
 a=fmtp:<payload_type_number> param1=value1; ...; paramN=valueN

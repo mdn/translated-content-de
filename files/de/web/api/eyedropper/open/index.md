@@ -40,7 +40,7 @@ Das Promise wird zu einem Objekt mit der folgenden Eigenschaft aufgelöst:
 Ausnahmen werden nicht geworfen, sondern zurückgegeben, wenn das {{jsxref("Promise")}} abgelehnt wird.
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird geworfen, wenn `open()` nicht über eine [vorübergehende Benutzeraktivierung](/de/docs/Glossary/Transient_activation) aufgerufen wird.
+  - : Wird geworfen, wenn `open()` nicht über eine {{Glossary("Transient_activation", "vorübergehende Benutzeraktivierung")}} aufgerufen wird.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird geworfen, wenn bereits ein anderer Farbwähler geöffnet ist.
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-TypeScript ist eine Programmiersprache, die [statische Typüberprüfung](/de/docs/Glossary/static_typing) zu JavaScript hinzufügt.
+TypeScript ist eine Programmiersprache, die {{Glossary("static_typing", "statische Typüberprüfung")}} zu JavaScript hinzufügt.
 
 TypeScript ist eine Obermenge von JavaScript, was bedeutet, dass alles, was in JavaScript verfügbar ist, auch in TypeScript verfügbar ist, und dass jedes JavaScript-Programm syntaktisch ein gültiges TypeScript-Programm ist. Auch das Laufzeitverhalten von TypeScript und JavaScript ist identisch.
 

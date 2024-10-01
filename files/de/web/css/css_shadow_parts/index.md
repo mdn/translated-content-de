@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS shadow parts**-Modul definiert das {{CSSXref("::part", "::part()")}} Pseudo-Element, das auf einem [Shadow-Host](/de/docs/Glossary/Shadow_tree) gesetzt werden kann. Mit diesem Pseudo-Element können Sie Shadow-Hosts ermöglichen, das ausgewählte Element im Shadow-Baum für Styling-Zwecke auf der externen Seite freizulegen.
+Das **CSS shadow parts**-Modul definiert das {{CSSXref("::part", "::part()")}} Pseudo-Element, das auf einem {{Glossary("Shadow_tree", "Shadow-Host")}} gesetzt werden kann. Mit diesem Pseudo-Element können Sie Shadow-Hosts ermöglichen, das ausgewählte Element im Shadow-Baum für Styling-Zwecke auf der externen Seite freizulegen.
 
 Standardmäßig können Elemente in einem Shadow-Baum nur innerhalb ihrer jeweiligen Shadow-Roots gestylt werden. Das CSS shadow parts-Modul ermöglicht es, ein [`part`](/de/docs/Web/HTML/Global_attributes#part) Attribut auf Nachkommen des {{HTMLElement("template")}} hinzuzufügen, die das benutzerdefinierte Element bilden. Dadurch wird der Knoten des Shadow-Baums für externes Styling über das `::part()` Pseudo-Element zugänglich gemacht.
 
@@ -24,7 +24,7 @@ Standardmäßig können Elemente in einem Shadow-Baum nur innerhalb ihrer jeweil
 
 ### Definitionen
 
-- [Shadow-Baum](/de/docs/Glossary/Shadow_tree)
+- {{Glossary("Shadow_tree", "Shadow-Baum")}}
 
 ## Leitfäden
 

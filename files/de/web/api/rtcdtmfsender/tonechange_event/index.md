@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`tonechange`**-Ereignis wird von der [WebRTC API](/de/docs/Web/API/WebRTC_API) an einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gesendet, um anzuzeigen, wann [DTMF](/de/docs/Glossary/DTMF)-Töne, die zuvor zum Senden in die Warteschlange gestellt wurden (durch Aufruf von [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF)), beginnen und enden.
+Das **`tonechange`**-Ereignis wird von der [WebRTC API](/de/docs/Web/API/WebRTC_API) an einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gesendet, um anzuzeigen, wann {{Glossary("DTMF", "DTMF")}}-Töne, die zuvor zum Senden in die Warteschlange gestellt wurden (durch Aufruf von [`RTCDTMFSender.insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF)), beginnen und enden.
 
 Um zu bestimmen, welcher Ton begonnen hat oder ob ein Ton aufgehört hat zu spielen, überprüfen Sie den Wert der [`tone`](/de/docs/Web/API/RTCDTMFToneChangeEvent/tone)-Eigenschaft des Ereignisses.
 

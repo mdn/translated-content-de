@@ -20,7 +20,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`form-action`**-Direk
     </tr>
     <tr>
       <th scope="row">Direktiv-Typ</th>
-      <td>[Navigationsdirektive](/de/docs/Glossary/Navigation_directive)</td>
+      <td>{{Glossary("Navigation_directive", "Navigationsdirektive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
@@ -42,7 +42,7 @@ Content-Security-Policy: form-action <source> <source>;
 
 `<source>` kann jeder der in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass dieser Satz von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieser Satz von Werten in allen {{Glossary("fetch_directive", "Fetch-Direktiven")}} (und einer [Reihe anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 

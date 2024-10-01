@@ -16,7 +16,7 @@ Die **`TimeEvent`**-Schnittstelle, ein Teil der [SVG SMIL](/de/docs/Web/SVG/SVG_
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
   - : Ein `long`, das je nach Typ des Ereignisses einige Detailinformationen über das Event angibt. Für diesen Ereignistyp zeigt es die Wiederholungsnummer der Animation an.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), das das Fenster identifiziert, aus dem das Ereignis generiert wurde.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, das das Fenster identifiziert, aus dem das Ereignis generiert wurde.
 
 ## Instanzmethoden
 

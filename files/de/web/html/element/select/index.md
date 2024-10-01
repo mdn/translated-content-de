@@ -28,7 +28,7 @@ Für weitere Beispiele siehe [Die nativen Formular-Widgets: Dropdown-Inhalte](/d
 Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - [`autocomplete`](/de/docs/Web/HTML/Attributes/autocomplete)
-  - : Ein String, der einen Hinweis für die Autovervollständigungsfunktion eines [Benutzeragenten](/de/docs/Glossary/user_agent) bietet. Siehe [Das HTML Autocomplete-Attribut](/de/docs/Web/HTML/Attributes/autocomplete) für eine vollständige Liste der Werte und Details zur Verwendung von Autocomplete.
+  - : Ein String, der einen Hinweis für die Autovervollständigungsfunktion eines {{Glossary("user_agent", "Benutzeragenten")}} bietet. Siehe [Das HTML Autocomplete-Attribut](/de/docs/Web/HTML/Attributes/autocomplete) für eine vollständige Liste der Werte und Details zur Verwendung von Autocomplete.
 - `autofocus`
   - : Dieses Boolesche Attribut ermöglicht es, dass ein Formularelement den Eingabefokus hat, wenn die Seite geladen wird. Nur ein Formularelement in einem Dokument kann das `autofocus`-Attribut haben.
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)

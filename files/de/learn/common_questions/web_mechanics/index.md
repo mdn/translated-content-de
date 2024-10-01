@@ -16,7 +16,7 @@ Dieser Abschnitt behandelt Fragen im Zusammenhang mit dem allgemeinen Wissen üb
 - [Was sind Hyperlinks?](/de/docs/Learn/Common_questions/Web_mechanics/What_are_hyperlinks)
   - : In diesem Artikel werden wir erläutern, was Hyperlinks sind und warum sie wichtig sind.
 - [Was ist eine URL?](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL)
-  - : Zusammen mit [Hypertext](/de/docs/Glossary/Hypertext) und [HTTP](/de/docs/Glossary/HTTP) ist die URL ein Schlüsselkonzept im Zusammenhang mit dem Internet. Es ist der Mechanismus, den [Browser](/de/docs/Glossary/Browser) verwenden, um jede veröffentlichte Ressource im Web abzurufen.
+  - : Zusammen mit {{Glossary("Hypertext", "Hypertext")}} und {{Glossary("HTTP", "HTTP")}} ist die URL ein Schlüsselkonzept im Zusammenhang mit dem Internet. Es ist der Mechanismus, den {{Glossary("Browser", "Browser")}} verwenden, um jede veröffentlichte Ressource im Web abzurufen.
 - [Was ist ein Domainname?](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name)
   - : Domainnamen sind ein wichtiger Bestandteil der Internetinfrastruktur. Sie bieten eine menschenlesbare Adresse für jeden im Internet verfügbaren Webserver.
 - [Was ist ein Webserver?](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)

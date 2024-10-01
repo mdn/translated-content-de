@@ -14,7 +14,7 @@ Die **`timestamp`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RT
 
 Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der die Zeit angibt, zu der die durch die Statistiken in diesem Objekt beschriebene Aktivität aufgezeichnet wurde, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte bis auf einige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von [Fingerprinting](/de/docs/Glossary/Fingerprinting)-Schutz in Form von reduzierter Taktgenauigkeit oder -präzision ungenau sein.
+Der Wert sollte bis auf einige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von {{Glossary("Fingerprinting", "Fingerprinting")}}-Schutz in Form von reduzierter Taktgenauigkeit oder -präzision ungenau sein.
 
 ## Spezifikationen
 

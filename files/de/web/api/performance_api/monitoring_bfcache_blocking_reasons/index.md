@@ -7,11 +7,11 @@ l10n:
 
 {{DefaultAPISidebar("Performance API")}}{{SeeCompatTable}}
 
-Die [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)-Eigenschaft liefert Informationen darüber, warum das aktuelle Dokument daran gehindert wurde, den [bfcache](/de/docs/Glossary/bfcache) bei der Navigation zu nutzen. Entwickler können diese Informationen nutzen, um Seiten zu identifizieren, die ein Update benötigen, um bfcache-kompatibel zu werden und dadurch die Leistungsfähigkeit der Website zu verbessern.
+Die [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons)-Eigenschaft liefert Informationen darüber, warum das aktuelle Dokument daran gehindert wurde, den {{Glossary("bfcache", "bfcache")}} bei der Navigation zu nutzen. Entwickler können diese Informationen nutzen, um Seiten zu identifizieren, die ein Update benötigen, um bfcache-kompatibel zu werden und dadurch die Leistungsfähigkeit der Website zu verbessern.
 
 ## Back/forward cache (bfcache)
 
-Moderne Browser bieten eine Optimierungsfunktion für den Verlauf der Navigation namens Back/forward cache ([bfcache](/de/docs/Glossary/bfcache)). Diese ermöglicht eine sofortige Ladeerfahrung, wenn Nutzer zu einer Seite zurückkehren, die sie bereits besucht haben. Seiten können aus verschiedenen Gründen daran gehindert werden, in den bfcache zu gelangen oder daraus entfernt werden, einige davon sind in einer Spezifikation festgelegt, andere sind spezifisch für die Browserimplementierung.
+Moderne Browser bieten eine Optimierungsfunktion für den Verlauf der Navigation namens Back/forward cache ({{Glossary("bfcache", "bfcache")}}). Diese ermöglicht eine sofortige Ladeerfahrung, wenn Nutzer zu einer Seite zurückkehren, die sie bereits besucht haben. Seiten können aus verschiedenen Gründen daran gehindert werden, in den bfcache zu gelangen oder daraus entfernt werden, einige davon sind in einer Spezifikation festgelegt, andere sind spezifisch für die Browserimplementierung.
 
 Um die Überwachung der bfcache-Blockierungsgründe zu ermöglichen, enthält die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Klasse eine `notRestoredReasons`-Eigenschaft. Diese gibt ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt zurück, das verwandte Informationen über das Top-Level-Frame und alle {{htmlelement("iframe")}}, die im Dokument vorhanden sind, enthält:
 

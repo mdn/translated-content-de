@@ -316,7 +316,7 @@ Beachten Sie jedoch, dass die Verwendung von Klammerzugriffen mit unkontrolliert
 
 #### Verwendung von Rückrufen
 
-JavaScript hat [erstklassige Funktionen](/de/docs/Glossary/First-class_Function), was bedeutet, dass Sie Funktionen als Argumente an andere APIs übergeben, sie in Variablen und Objekt-Eigenschaften speichern und so weiter können. Viele DOM-APIs sind mit diesem Gedanken entworfen, sodass Sie (und sollten) schreiben:
+JavaScript hat {{Glossary("First-class_Function", "erstklassige Funktionen")}}, was bedeutet, dass Sie Funktionen als Argumente an andere APIs übergeben, sie in Variablen und Objekt-Eigenschaften speichern und so weiter können. Viele DOM-APIs sind mit diesem Gedanken entworfen, sodass Sie (und sollten) schreiben:
 
 ```js
 // Instead of setTimeout("…", 1000) use:
@@ -334,7 +334,7 @@ elt.addEventListener("click", () => {
 
 #### Verwendung von JSON
 
-Wenn der String, den Sie mit `eval()` aufrufen, Daten enthält (zum Beispiel ein Array: `"[1, 2, 3]"`), anstatt Code, sollten Sie überlegen zu [JSON](/de/docs/Glossary/JSON) zu wechseln, was dem String ermöglicht, eine Untermenge der JavaScript-Syntax zu verwenden, um Daten darzustellen.
+Wenn der String, den Sie mit `eval()` aufrufen, Daten enthält (zum Beispiel ein Array: `"[1, 2, 3]"`), anstatt Code, sollten Sie überlegen zu {{Glossary("JSON", "JSON")}} zu wechseln, was dem String ermöglicht, eine Untermenge der JavaScript-Syntax zu verwenden, um Daten darzustellen.
 
 Beachten Sie, dass die JSON-Syntax im Vergleich zur JavaScript-Syntax eingeschränkt ist und viele gültige JavaScript-Literale nicht als JSON geparst werden. Zum Beispiel sind nachgestellte Kommata in JSON nicht erlaubt und Eigenschaftennamen (Schlüssel) in Objektliteralen müssen in Anführungszeichen gesetzt werden. Stellen Sie sicher, dass Sie einen JSON-Serializer verwenden, um Strings zu generieren, die später als JSON geparst werden.
 

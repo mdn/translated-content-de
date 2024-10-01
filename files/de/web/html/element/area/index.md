@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<area>`** [HTML](/de/docs/Web/HTML) Element definiert einen Bereich innerhalb einer Bildkarte, die vordefinierte klickbare Bereiche besitzt. Eine _Bildkarte_ ermöglicht es, geometrische Bereiche auf einem Bild mit [Hyperlinks](/de/docs/Glossary/Hyperlink) zu verbinden.
+Das **`<area>`** [HTML](/de/docs/Web/HTML) Element definiert einen Bereich innerhalb einer Bildkarte, die vordefinierte klickbare Bereiche besitzt. Eine _Bildkarte_ ermöglicht es, geometrische Bereiche auf einem Bild mit {{Glossary("Hyperlink", "Hyperlinks")}} zu verbinden.
 
 Dieses Element wird nur innerhalb eines {{HTMLElement("map")}} Elements verwendet.
 
@@ -51,10 +51,10 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
   - : Ein String, der angibt, welcher Referrer beim Abrufen der Ressource verwendet werden soll:
 
     - `no-referrer`: Der {{HTTPHeader("Referer")}} Header wird nicht gesendet.
-    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}} Header wird nicht an [Ursprünge](/de/docs/Glossary/origin) ohne [TLS](/de/docs/Glossary/TLS) ([HTTPS](/de/docs/Glossary/HTTPS)) gesendet.
-    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: ihr [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), [Host](/de/docs/Glossary/host) und [Port](/de/docs/Glossary/port).
+    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}} Header wird nicht an {{Glossary("origin", "Ursprünge")}} ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
+    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: ihr [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
     - `origin-when-cross-origin`: Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigationen im gleichen Ursprung beinhalten weiterhin den Pfad.
-    - `same-origin`: Ein Referrer wird für [gleichen Ursprung](/de/docs/Glossary/Same-origin_policy) gesendet, aber Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
+    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "gleichen Ursprung")}} gesendet, aber Cross-Origin-Anfragen enthalten keine Referrer-Informationen.
     - `strict-origin`: Sendet nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), aber nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
     - `strict-origin-when-cross-origin` (Standard): Sendet eine vollständige URL bei einer Anfrage mit gleichem Ursprung, sendet nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und sendet keinen Header an ein weniger sicheres Ziel (HTTPS→HTTP).
     - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad enthalten (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), das [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder den [Benutzernamen](/de/docs/Web/API/HTMLAnchorElement/username)).
@@ -69,7 +69,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
   - : Die Form des zugehörigen Hotspots. Die Spezifikationen für HTML definiert die Werte `rect`, die einen rechteckigen Bereich definieren; `circle`, die einen kreisförmigen Bereich definieren; `poly`, die ein Polygon definieren; und `default`, die den gesamten Bereich über alle definierten Formen hinaus angeben.
 - `target`
 
-  - : Ein Schlüsselwort oder vom Autor definierter Name des [Browsing-Kontexts](/de/docs/Glossary/browsing_context), in dem die verknüpfte Ressource angezeigt wird.
+  - : Ein Schlüsselwort oder vom Autor definierter Name des {{Glossary("browsing_context", "Browsing-Kontexts")}}, in dem die verknüpfte Ressource angezeigt wird.
     Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
 
     - `_self` (Standard): Zeigt die Ressource im aktuellen Browsing-Kontext an.
@@ -124,7 +124,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
     </tr>
     <tr>
       <th scope="row">Erlaubte Inhalte</th>
-      <td>Kein Inhalt; es ist ein [leeres Element](/de/docs/Glossary/void_element).</td>
+      <td>Kein Inhalt; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>

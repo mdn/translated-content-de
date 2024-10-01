@@ -25,10 +25,10 @@ Um Unterstützung für bestimmte Dateitypen zu deklarieren, fügen Sie das [`fil
 
 Das `file_handlers` Mitglied ist ein Array von Datei-Handler-Objekten. Jedes Datei-Handler-Objekt hat zwei Pflichtfelder, `action` und `accept`.
 
-- Das `accept` Feld enthält [MIME-Typen](/de/docs/Glossary/MIME_Type) und zugehörige Dateierweiterungen für Dateien, die der Handler verarbeiten kann.
+- Das `accept` Feld enthält {{Glossary("MIME_Type", "MIME-Typen")}} und zugehörige Dateierweiterungen für Dateien, die der Handler verarbeiten kann.
 - Das `action` Feld ist eine URL, zu der die PWA navigiert, wenn der Benutzer die Datei öffnet. Diese Seite muss im Geltungsbereich der PWA liegen.
 
-Die untenstehende Manifestdatei enthält ein `file_handlers` Mitglied mit einem einzelnen Handler, der [JPEG](/de/docs/Glossary/JPEG) und [PNG](/de/docs/Glossary/PNG) Dateien verarbeiten kann und zur Startseite der PWA navigiert, wenn der Benutzer eine dieser Dateien anklickt.
+Die untenstehende Manifestdatei enthält ein `file_handlers` Mitglied mit einem einzelnen Handler, der {{Glossary("JPEG", "JPEG")}} und {{Glossary("PNG", "PNG")}} Dateien verarbeiten kann und zur Startseite der PWA navigiert, wenn der Benutzer eine dieser Dateien anklickt.
 
 ```json
 {

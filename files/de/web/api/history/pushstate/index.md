@@ -33,7 +33,7 @@ pushState(state, unused, url)
   - : Dieser Parameter existiert aus historischen Gründen und kann nicht weggelassen werden; die Übergabe eines leeren Strings ist sicher gegenüber zukünftigen Änderungen der Methode.
 
 - `url` {{optional_inline}}
-  - : Die URL des neuen Verlaufseintrags. Beachten Sie, dass der Browser nach einem Aufruf von `pushState()` nicht versuchen wird, diese URL zu laden, aber möglicherweise später, beispielsweise nach einem Neustart des Browsers. Die neue URL muss nicht absolut sein; wenn sie relativ ist, wird sie relativ zur aktuellen URL aufgelöst. Die neue URL muss vom gleichen [Ursprung](/de/docs/Glossary/origin) wie die aktuelle URL sein; andernfalls wirft `pushState()` eine Ausnahme. Wenn dieser Parameter nicht angegeben ist, wird er auf die aktuelle URL des Dokuments gesetzt.
+  - : Die URL des neuen Verlaufseintrags. Beachten Sie, dass der Browser nach einem Aufruf von `pushState()` nicht versuchen wird, diese URL zu laden, aber möglicherweise später, beispielsweise nach einem Neustart des Browsers. Die neue URL muss nicht absolut sein; wenn sie relativ ist, wird sie relativ zur aktuellen URL aufgelöst. Die neue URL muss vom gleichen {{Glossary("origin", "Ursprung")}} wie die aktuelle URL sein; andernfalls wirft `pushState()` eine Ausnahme. Wenn dieser Parameter nicht angegeben ist, wird er auf die aktuelle URL des Dokuments gesetzt.
 
 ### Rückgabewert
 

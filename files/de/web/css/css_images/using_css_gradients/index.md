@@ -283,7 +283,7 @@ In beiden Beispielen wird der Gradient zweimal geschrieben: das erste ist die Me
 
 ### Kontrolle der Verlaufsgestaltung eines Gradients
 
-Standardmäßig verläuft ein Gradient gleichmäßig zwischen den Farben von zwei angrenzenden Farbstopps, wobei der Mittelpunkt zwischen diesen beiden Farbstopps der Mittelpunkt der Farbe ist. Sie können die [Interpolation](/de/docs/Glossary/interpolation) oder Progression zwischen zwei Farbstopps kontrollieren, indem Sie eine Farbe-Hinweisposition hinzufügen. In diesem Beispiel erreicht die Farbe den Mittelpunkt zwischen Limette und Cyan 20% des Weges durch den Gradient anstelle von 50% des Weges durch. Das zweite Beispiel enthält den Hinweis nicht, um den Unterschied hervorzuheben, den der Farbhinweis machen kann:
+Standardmäßig verläuft ein Gradient gleichmäßig zwischen den Farben von zwei angrenzenden Farbstopps, wobei der Mittelpunkt zwischen diesen beiden Farbstopps der Mittelpunkt der Farbe ist. Sie können die {{Glossary("interpolation", "Interpolation")}} oder Progression zwischen zwei Farbstopps kontrollieren, indem Sie eine Farbe-Hinweisposition hinzufügen. In diesem Beispiel erreicht die Farbe den Mittelpunkt zwischen Limette und Cyan 20% des Weges durch den Gradient anstelle von 50% des Weges durch. Das zweite Beispiel enthält den Hinweis nicht, um den Unterschied hervorzuheben, den der Farbhinweis machen kann:
 
 ```html hidden
 <div class="colorhint-gradient"></div>
@@ -412,7 +412,7 @@ Radiale Gradients sind den linearen Gradients ähnlich, außer dass sie von eine
 
 ### Ein einfacher radialer Gradient
 
-Wie bei linearen Gradients benötigen Sie nur zwei Farben, um einen radialen Gradient zu erstellen. Standardmäßig befindet sich das Zentrum des Gradients an der 50% 50%-Markierung, und der Gradient ist elliptisch und entspricht dem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) seines Rahmens:
+Wie bei linearen Gradients benötigen Sie nur zwei Farben, um einen radialen Gradient zu erstellen. Standardmäßig befindet sich das Zentrum des Gradients an der 50% 50%-Markierung, und der Gradient ist elliptisch und entspricht dem {{Glossary("aspect_ratio", "Seitenverhältnis")}} seines Rahmens:
 
 ```html hidden
 <div class="simple-radial"></div>
@@ -664,7 +664,7 @@ div {
 
 ## Verwendung von konischen Gradients
 
-Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS) Funktion erstellt ein Bild, das aus einem Gradient mit Farbübergängen besteht, die um einen Mittelpunkt gedreht sind (statt vom Zentrum aus zu strahlen). Beispiele für konische Gradients sind Tortendiagramme und [Farbkreise](/de/docs/Glossary/color_wheel), aber sie können auch zur Erstellung von Schachbrettmustern und anderen interessanten Effekten verwendet werden.
+Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS) Funktion erstellt ein Bild, das aus einem Gradient mit Farbübergängen besteht, die um einen Mittelpunkt gedreht sind (statt vom Zentrum aus zu strahlen). Beispiele für konische Gradients sind Tortendiagramme und {{Glossary("color_wheel", "Farbkreise")}}, aber sie können auch zur Erstellung von Schachbrettmustern und anderen interessanten Effekten verwendet werden.
 
 Die Syntax für konische Gradients ähnelt der für radiale Gradients, aber die Farbstopps werden um einen Gradientbogen herum platziert, den Umfang eines Kreises, anstatt auf der von der Mitte des Gradients ausgehenden Gradientlinie, und die Farbstopps sind Prozentsätze oder Grad: absolute Längen sind nicht gültig.
 

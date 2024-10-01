@@ -99,7 +99,7 @@ Selektoren, die in CSS oder JavaScript verwendet werden, ermöglichen die geziel
 
 ## Begriffe
 
-- [Pseudo-Klasse](/de/docs/Glossary/Pseudo-class) Glossareintrag
+- {{Glossary("Pseudo-class", "Pseudo-Klasse")}} Glossareintrag
 - [Funktionale Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes)
 - [Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#combinators)
 - [Einfacher Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#simple_selector)

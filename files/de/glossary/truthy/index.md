@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im [JavaScript](/de/docs/Glossary/JavaScript) ist ein **truthy** Wert ein Wert, der in einem [Boolean](/de/docs/Glossary/Boolean)-Kontext als `true` angesehen wird. Alle Werte sind truthy, es sei denn, sie sind als [falsy](/de/docs/Glossary/Falsy) definiert. Das heißt, alle Werte sind _truthy_ außer `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN` und [`document.all`](/de/docs/Web/API/Document/all).
+Im {{Glossary("JavaScript", "JavaScript")}} ist ein **truthy** Wert ein Wert, der in einem {{Glossary("Boolean", "Boolean")}}-Kontext als `true` angesehen wird. Alle Werte sind truthy, es sei denn, sie sind als {{Glossary("Falsy", "falsy")}} definiert. Das heißt, alle Werte sind _truthy_ außer `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, `NaN` und [`document.all`](/de/docs/Web/API/Document/all).
 
-[JavaScript](/de/docs/Glossary/JavaScript) verwendet [Typumwandlung](/de/docs/Glossary/Type_Coercion) in booleschen Kontexten.
+{{Glossary("JavaScript", "JavaScript")}} verwendet {{Glossary("Type_Coercion", "Typumwandlung")}} in booleschen Kontexten.
 
 Beispiele für _truthy_ Werte in JavaScript (die in booleschen Kontexten zu `true` umgeformt werden und somit den `if`-Block ausführen):
 
@@ -44,7 +44,7 @@ true && "dog"
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Falsy](/de/docs/Glossary/Falsy)
-  - [Typumwandlung](/de/docs/Glossary/Type_Coercion)
-  - [Boolean](/de/docs/Glossary/Boolean)
+  - {{Glossary("Falsy", "Falsy")}}
+  - {{Glossary("Type_Coercion", "Typumwandlung")}}
+  - {{Glossary("Boolean", "Boolean")}}
 - [Boolean-Umwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion)

@@ -16,7 +16,7 @@ Die Eigenschaft `vertical-align` kann in zwei Kontexten verwendet werden:
 - Um eine Inline-Element-Box vertikal innerhalb ihrer umgebenden Zeilen-Box auszurichten. Zum Beispiel könnte sie verwendet werden, um [ein Bild in einer Textzeile vertikal zu positionieren](#vertikale_ausrichtung_in_einer_zeilenbox).
 - Um [den Inhalt einer Zelle in einer Tabelle](#vertikale_ausrichtung_in_einer_tabellenzelle) vertikal auszurichten.
 
-Beachten Sie, dass `vertical-align` nur auf Inline-, Inline-Block- und Tabellenzellenelemente angewendet werden kann: Sie können es nicht verwenden, um [Block-Level-Elemente](/de/docs/Glossary/Block-level_content) vertikal auszurichten.
+Beachten Sie, dass `vertical-align` nur auf Inline-, Inline-Block- und Tabellenzellenelemente angewendet werden kann: Sie können es nicht verwenden, um {{Glossary("Block-level_content", "Block-Level-Elemente")}} vertikal auszurichten.
 
 ## Syntax
 

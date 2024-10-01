@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-**Cross-Origin Resource Sharing** ([CORS](/de/docs/Glossary/CORS)) ist ein auf [HTTP](/de/docs/Glossary/HTTP)-Headern basierender Mechanismus, der einem Server ermöglicht, anzugeben, welche [Ursprünge](/de/docs/Glossary/origin) (Domain, Schema oder Port) außer seinem eigenen das Laden von Ressourcen durch einen Browser erlauben sollen. CORS stützt sich auch auf einen Mechanismus, bei dem Browser eine "Preflight"-Anfrage an den Server stellen, der die Cross-Origin-Ressource hostet, um zu überprüfen, ob der Server die tatsächliche Anfrage zulässt. In diesem Preflight sendet der Browser Header, die die HTTP-Methode und Header angeben, die in der eigentlichen Anfrage verwendet werden.
+**Cross-Origin Resource Sharing** ({{Glossary("CORS", "CORS")}}) ist ein auf {{Glossary("HTTP", "HTTP")}}-Headern basierender Mechanismus, der einem Server ermöglicht, anzugeben, welche {{Glossary("origin", "Ursprünge")}} (Domain, Schema oder Port) außer seinem eigenen das Laden von Ressourcen durch einen Browser erlauben sollen. CORS stützt sich auch auf einen Mechanismus, bei dem Browser eine "Preflight"-Anfrage an den Server stellen, der die Cross-Origin-Ressource hostet, um zu überprüfen, ob der Server die tatsächliche Anfrage zulässt. In diesem Preflight sendet der Browser Header, die die HTTP-Methode und Header angeben, die in der eigentlichen Anfrage verwendet werden.
 
 Ein Beispiel für eine Cross-Origin-Anfrage: Der von `https://domain-a.com` bereitgestellte Frontend-JavaScript-Code verwendet [`fetch()`](/de/docs/Web/API/Window/fetch), um eine Anfrage für `https://domain-b.com/data.json` zu stellen.
 
@@ -43,9 +43,9 @@ Wir präsentieren drei Szenarien, die demonstrieren, wie Cross-Origin Resource S
 
 ### Einfache Anfragen
 
-Einige Anfragen lösen keine [CORS-Preflight](/de/docs/Glossary/Preflight_request) aus. Diese werden _einfache Anfragen_ laut der veralteten [CORS-Spezifikation](https://www.w3.org/TR/2014/REC-cors-20140116/#terminology) genannt, obwohl die [Fetch-Spezifikation](https://fetch.spec.whatwg.org/) (die CORS jetzt definiert) diesen Begriff nicht verwendet.
+Einige Anfragen lösen keine {{Glossary("Preflight_request", "CORS-Preflight")}} aus. Diese werden _einfache Anfragen_ laut der veralteten [CORS-Spezifikation](https://www.w3.org/TR/2014/REC-cors-20140116/#terminology) genannt, obwohl die [Fetch-Spezifikation](https://fetch.spec.whatwg.org/) (die CORS jetzt definiert) diesen Begriff nicht verwendet.
 
-Der Grundgedanke ist, dass das {{HTMLElement("form")}}-Element aus HTML 4.0 (das Cross-Site [`fetch()`](/de/docs/Web/API/Window/fetch) und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) vorweggenommen hat) einfache Anfragen an jeden Ursprung stellen kann, sodass jeder, der einen Server schreibt, bereits gegen [Cross-Site-Request-Forgery](/de/docs/Glossary/CSRF) (CSRF) geschützt sein muss. Unter dieser Annahme muss der Server nicht seinen Willen zur Annahme von Anfragen mitteilen (indem er auf eine Preflight-Anfrage antwortet), um eine Anfrage zu erhalten, die wie eine Formularübermittlung aussieht, da die Bedrohung durch CSRF nicht schlimmer ist als bei der Formularübermittlung. Der Server muss jedoch dennoch optieren, die Antwort mit dem Skript zu _teilen_, indem er {{HTTPHeader("Access-Control-Allow-Origin")}} verwendet.
+Der Grundgedanke ist, dass das {{HTMLElement("form")}}-Element aus HTML 4.0 (das Cross-Site [`fetch()`](/de/docs/Web/API/Window/fetch) und [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) vorweggenommen hat) einfache Anfragen an jeden Ursprung stellen kann, sodass jeder, der einen Server schreibt, bereits gegen {{Glossary("CSRF", "Cross-Site-Request-Forgery")}} (CSRF) geschützt sein muss. Unter dieser Annahme muss der Server nicht seinen Willen zur Annahme von Anfragen mitteilen (indem er auf eine Preflight-Anfrage antwortet), um eine Anfrage zu erhalten, die wie eine Formularübermittlung aussieht, da die Bedrohung durch CSRF nicht schlimmer ist als bei der Formularübermittlung. Der Server muss jedoch dennoch optieren, die Antwort mit dem Skript zu _teilen_, indem er {{HTTPHeader("Access-Control-Allow-Origin")}} verwendet.
 
 Eine _einfache Anfrage_ ist eine, die **alle folgenden Bedingungen erfüllt**:
 
@@ -63,7 +63,7 @@ Eine _einfache Anfrage_ ist eine, die **alle folgenden Bedingungen erfüllt**:
   - {{HTTPHeader("Content-Type")}} (bitte beachten Sie die zusätzlichen Anforderungen unten)
   - {{HTTPHeader("Range")}} (nur mit einem [einfachen Bereichs-Headerwert](https://fetch.spec.whatwg.org/#simple-range-header-value); z. B. `bytes=256-` oder `bytes=127-255`)
 
-- Die einzigen typ/subtyp Kombinationsmöglichkeiten, die für den [Medientyp](/de/docs/Glossary/MIME_type) im {{HTTPHeader("Content-Type")}}-Header erlaubt sind, sind:
+- Die einzigen typ/subtyp Kombinationsmöglichkeiten, die für den {{Glossary("MIME_type", "Medientyp")}} im {{HTTPHeader("Content-Type")}}-Header erlaubt sind, sind:
 
   - `application/x-www-form-urlencoded`
   - `multipart/form-data`
@@ -197,7 +197,7 @@ Keep-Alive: timeout=2, max=100
 Connection: Keep-Alive
 ```
 
-Der erste Block oben stellt die Preflight-Anfrage mit der {{HTTPMethod("OPTIONS")}}-Methode dar. Der Browser ermittelt, dass er diese Anfrage basierend auf den Anfrageparametern senden muss, die der obige JavaScript-Code verwendet, damit der Server antworten kann, ob es akzeptabel ist, die Anfrage mit den tatsächlichen Anfrageparametern zu senden. OPTIONS ist eine HTTP/1.1-Methode, die dazu verwendet wird, weitere Informationen von Servern zu erhalten und ist eine [sichere](/de/docs/Glossary/Safe/HTTP) Methode, was bedeutet, dass sie nicht verwendet werden kann, um die Ressource zu ändern. Beachten Sie, dass zusammen mit der OPTIONS-Anfrage zwei weitere Anfrageheader gesendet werden:
+Der erste Block oben stellt die Preflight-Anfrage mit der {{HTTPMethod("OPTIONS")}}-Methode dar. Der Browser ermittelt, dass er diese Anfrage basierend auf den Anfrageparametern senden muss, die der obige JavaScript-Code verwendet, damit der Server antworten kann, ob es akzeptabel ist, die Anfrage mit den tatsächlichen Anfrageparametern zu senden. OPTIONS ist eine HTTP/1.1-Methode, die dazu verwendet wird, weitere Informationen von Servern zu erhalten und ist eine {{Glossary("Safe/HTTP", "sichere")}} Methode, was bedeutet, dass sie nicht verwendet werden kann, um die Ressource zu ändern. Beachten Sie, dass zusammen mit der OPTIONS-Anfrage zwei weitere Anfrageheader gesendet werden:
 
 ```http
 Access-Control-Request-Method: POST
@@ -435,11 +435,11 @@ Der {{HTTPHeader("Access-Control-Allow-Methods")}}-Header gibt die Methode oder 
 Access-Control-Allow-Methods: <method>[, <method>]*
 ```
 
-Ein Beispiel für eine [Preflight-Anfrage](/de/docs/Glossary/preflight_request) wird oben gegeben, einschließlich eines Beispiels, das diesen Header an den Browser sendet.
+Ein Beispiel für eine {{Glossary("preflight_request", "Preflight-Anfrage")}} wird oben gegeben, einschließlich eines Beispiels, das diesen Header an den Browser sendet.
 
 ### Access-Control-Allow-Headers
 
-Der {{HTTPHeader("Access-Control-Allow-Headers")}}-Header wird als Antwort auf eine [Preflight-Anfrage](/de/docs/Glossary/preflight_request) verwendet, um anzugeben, welche HTTP-Header beim tatsächlichen Anforderung verwendet werden dürfen. Dieser Header ist die Antwort des Servers auf den {{HTTPHeader("Access-Control-Request-Headers")}}-Header des Browsers.
+Der {{HTTPHeader("Access-Control-Allow-Headers")}}-Header wird als Antwort auf eine {{Glossary("preflight_request", "Preflight-Anfrage")}} verwendet, um anzugeben, welche HTTP-Header beim tatsächlichen Anforderung verwendet werden dürfen. Dieser Header ist die Antwort des Servers auf den {{HTTPHeader("Access-Control-Request-Headers")}}-Header des Browsers.
 
 ```http
 Access-Control-Allow-Headers: <header-name>[, <header-name>]*

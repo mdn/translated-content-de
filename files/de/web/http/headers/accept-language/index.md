@@ -9,7 +9,7 @@ l10n:
 
 Der **`Accept-Language`** Request-HTTP-Header gibt die natürliche Sprache und das Gebietsschema an, die der Client bevorzugt. Der Server verwendet die [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation), um einen der Vorschläge auszuwählen, und informiert den Client über die Wahl mit dem {{HTTPHeader("Content-Language")}} Response-Header. Browser setzen die erforderlichen Werte für diesen Header entsprechend ihrer aktiven Benutzeroberflächensprache. Benutzer können auch zusätzliche bevorzugte Sprachen über die Browsereinstellungen konfigurieren.
 
-Der `Accept-Language` Header listet im Allgemeinen die gleichen Gebietsschemata auf wie die [`navigator.languages`](/de/docs/Web/API/Navigator/languages) Eigenschaft, mit abnehmenden `q`-Werten (Qualitätswerten). Einige Browser (Chrome und Safari) fügen sprachlich-only Fallback-Tags im `Accept-Language` hinzu—zum Beispiel `en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7`, wenn `navigator.languages` `["en-US", "zh-CN"]` ist. Aus Datenschutzgründen (zur Reduzierung des [Fingerprinting](/de/docs/Glossary/fingerprinting)) kann es vorkommen, dass sowohl `Accept-Language` als auch `navigator.languages` nicht die vollständige Liste der Benutzerpräferenzen enthalten, wie zum Beispiel in Safari (immer) und im Inkognito-Modus von Chrome, wo nur eine Sprache aufgelistet ist.
+Der `Accept-Language` Header listet im Allgemeinen die gleichen Gebietsschemata auf wie die [`navigator.languages`](/de/docs/Web/API/Navigator/languages) Eigenschaft, mit abnehmenden `q`-Werten (Qualitätswerten). Einige Browser (Chrome und Safari) fügen sprachlich-only Fallback-Tags im `Accept-Language` hinzu—zum Beispiel `en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7`, wenn `navigator.languages` `["en-US", "zh-CN"]` ist. Aus Datenschutzgründen (zur Reduzierung des {{Glossary("fingerprinting", "Fingerprinting")}}) kann es vorkommen, dass sowohl `Accept-Language` als auch `navigator.languages` nicht die vollständige Liste der Benutzerpräferenzen enthalten, wie zum Beispiel in Safari (immer) und im Inkognito-Modus von Chrome, wo nur eine Sprache aufgelistet ist.
 
 Dieser Header dient als Hinweis, wenn der Server die Zielsprache des Inhalts nicht anderweitig bestimmen kann (z. B. durch die Verwendung einer spezifischen URL, die auf einer expliziten Benutzerentscheidung basiert). Der Server sollte niemals eine explizite Sprachauswahl des Benutzers überschreiben. Der Inhalt von `Accept-Language` liegt oft außerhalb der Kontrolle eines Benutzers (zum Beispiel beim Reisen). Ein Benutzer möchte möglicherweise auch eine Seite in einer anderen Sprache besuchen als der Sprache der Benutzeroberfläche.
 
@@ -19,15 +19,15 @@ Der Server kann möglicherweise einen {{HTTPStatus("406")}} (Nicht akzeptabel) F
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted Request-Header](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Request-Header")}}
       </th>
       <td>
         ja, mit der zusätzlichen Einschränkung, dass Werte nur
@@ -58,7 +58,7 @@ Accept-Language: fr-CH, fr;q=0.9, en;q=0.8, de;q=0.7, *;q=0.5
 - `*`
   - : Jede Sprache; `'*'` wird als Platzhalter verwendet.
 - `;q=` (q-Faktor-Gewichtung)
-  - : Jeder Wert in einer Präferenzreihenfolge ausgedrückt durch einen relativen [Qualitätswert](/de/docs/Glossary/Quality_values) namens Gewichtung.
+  - : Jeder Wert in einer Präferenzreihenfolge ausgedrückt durch einen relativen {{Glossary("Quality_values", "Qualitätswert")}} namens Gewichtung.
 
 ## Beispiele
 

@@ -14,7 +14,7 @@ Die **`MediaList`**-Schnittstelle repräsentiert die Media Queries eines Stylesh
 ## Instanzeigenschaften
 
 - [`MediaList.mediaText`](/de/docs/Web/API/MediaList/mediaText)
-  - : Ein [stringifier](/de/docs/Glossary/stringifier), der eine Zeichenkette zurückgibt, die die `MediaList` als Text darstellt, und es Ihnen auch ermöglicht, eine neue `MediaList` festzulegen.
+  - : Ein {{Glossary("stringifier", "stringifier")}}, der eine Zeichenkette zurückgibt, die die `MediaList` als Text darstellt, und es Ihnen auch ermöglicht, eine neue `MediaList` festzulegen.
 - [`MediaList.length`](/de/docs/Web/API/MediaList/length) {{ReadOnlyInline}}
   - : Gibt die Anzahl der Media Queries in der `MediaList` zurück.
 

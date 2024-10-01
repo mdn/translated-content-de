@@ -9,7 +9,7 @@ l10n:
 
 Die **`inset`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist eine Abkürzung, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwertsyntax wie die Kurzschrift der {{cssxref("margin")}}-Eigenschaft.
 
-Diese [inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset.html")}}
 

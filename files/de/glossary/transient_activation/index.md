@@ -16,11 +16,11 @@ Siehe [Features gated by user activation](/de/docs/Web/Security/User_activation)
 Sehen Sie sich die [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive) Eigenschaft an, um programmgesteuert auf den flüchtigen Aktivierungszustand des aktuellen Fensters zuzugreifen.
 
 > [!NOTE]
-> Die flüchtige Aktivierung läuft nach einem Timeout ab (wenn sie nicht durch weitere Interaktion erneuert wird) und kann auch durch einige APIs "verbraucht" werden. Siehe [Sticky activation](/de/docs/Glossary/Sticky_activation) für eine Benutzeraktivierung, die nach der anfänglichen Einstellung nicht zurückgesetzt wird.
+> Die flüchtige Aktivierung läuft nach einem Timeout ab (wenn sie nicht durch weitere Interaktion erneuert wird) und kann auch durch einige APIs "verbraucht" werden. Siehe {{Glossary("Sticky_activation", "Sticky activation")}} für eine Benutzeraktivierung, die nach der anfänglichen Einstellung nicht zurückgesetzt wird.
 
 ## Siehe auch
 
 - [HTML Living Standard > Transient activation](https://html.spec.whatwg.org/multipage/interaction.html#transient-activation)
 - Verwandte Glossarbegriffe:
-  - [Sticky activation](/de/docs/Glossary/Sticky_activation)
+  - {{Glossary("Sticky_activation", "Sticky activation")}}
 - [`UserActivation.isActive`](/de/docs/Web/API/UserActivation/isActive)

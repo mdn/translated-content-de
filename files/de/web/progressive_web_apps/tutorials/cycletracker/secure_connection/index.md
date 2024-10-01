@@ -41,7 +41,7 @@ Der Standard-`localhost` des Betriebssystems hat eine leicht zu merkende URL, ab
 
 ## localhost mit einer Portnummer
 
-Es gibt mehrere [IDE](/de/docs/Glossary/IDE)-Erweiterungen und programmspezifische Pakete, die das Starten einer Entwicklungsumgebung mit einem einzigen Klick oder Terminalbefehl ermöglichen. Sie können sogar mehrere lokale Server starten, jeder mit einer anderen Portnummer.
+Es gibt mehrere {{Glossary("IDE", "IDE")}}-Erweiterungen und programmspezifische Pakete, die das Starten einer Entwicklungsumgebung mit einem einzigen Klick oder Terminalbefehl ermöglichen. Sie können sogar mehrere lokale Server starten, jeder mit einer anderen Portnummer.
 
 Sie können einen lokalen HTTP-Server mit einem [VSCode-Plugin](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server#using_an_extension_in_your_code_editor) ausführen, der das Ausführen eines lokalen Servers auf einem einzelnen oder verschiedenen Port ermöglicht. Die [Preview on Web Server-Erweiterung](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server) für die [VSCode](https://code.visualstudio.com/download)-IDE erstellt einen Server im Stammverzeichnis des aktuell vom Editor geöffneten Verzeichnisses mit einem Standardport von `8080`. VS Code-Erweiterungen sind konfigurierbar. Die Einstellung `previewServer.port` ist die Portnummer des Webservers. Die Standardeinstellung `8080` kann bearbeitet und geändert werden. Standardmäßig lädt das Eingeben von `localhost:8080` in der Browser-URL-Leiste die Seite.
 

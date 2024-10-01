@@ -36,7 +36,7 @@ Keine ({{jsxref("undefined")}}).
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Element nicht veränderbar ist, was bedeutet, dass der Benutzer es nicht ändern kann und/oder es nicht automatisch vorausgefüllt werden kann.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn nicht explizit durch eine Benutzeraktion wie eine Berührungsgeste oder einen Mausklick ausgelöst (der Picker erfordert [Transiente Aktivierung](/de/docs/Glossary/Transient_activation)).
+  - : Wird ausgelöst, wenn nicht explizit durch eine Benutzeraktion wie eine Berührungsgeste oder einen Mausklick ausgelöst (der Picker erfordert {{Glossary("Transient_activation", "Transiente Aktivierung")}}).
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn in einem Cross-Origin-iframe aufgerufen, außer für Datei- und Farb-Picker (aus historischen Gründen ausgenommen).
 

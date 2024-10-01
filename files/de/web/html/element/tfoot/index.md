@@ -21,7 +21,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung jeder Fußzelle an. Die möglichen [aufgezählten](/de/docs/Glossary/enumerated) Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den Textinhalt an dem Zeichen aus, das im [`char`](#char)-Attribut definiert ist, sowie an einem im [`charoff`](#charoff)-Attribut definierten Versatz. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung jeder Fußzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den Textinhalt an dem Zeichen aus, das im [`char`](#char)-Attribut definiert ist, sowie an einem im [`charoff`](#charoff)-Attribut definierten Versatz. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
 
@@ -37,12 +37,12 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung jeder Fußzelle an. Die möglichen [aufgezählten](/de/docs/Glossary/enumerated) Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung jeder Fußzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 ## Verwendungshinweise
 
 - Das `<tfoot>` wird nach allen {{HTMLElement("caption")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und {{HTMLElement("tr")}} Elementen platziert.
-- Zusammen mit seinen verwandten {{HTMLElement("thead")}} und {{HTMLElement("tbody")}} Elementen bietet das `<tfoot>` Element nützliche [semantische](/de/docs/Glossary/semantics) Informationen und kann sowohl beim Rendern für Bildschirm als auch für Druck verwendet werden. Das Spezifizieren solcher Tabellengruppen liefert auch wertvolle kontextbezogene Informationen für unterstützende Technologien wie Screenreader und Suchmaschinen.
+- Zusammen mit seinen verwandten {{HTMLElement("thead")}} und {{HTMLElement("tbody")}} Elementen bietet das `<tfoot>` Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann sowohl beim Rendern für Bildschirm als auch für Druck verwendet werden. Das Spezifizieren solcher Tabellengruppen liefert auch wertvolle kontextbezogene Informationen für unterstützende Technologien wie Screenreader und Suchmaschinen.
 - Beim Drucken eines Dokuments wird im Fall einer mehrseitigen Tabelle der Tabellenfuß normalerweise als Zwischensumme auf jeder Seite ausgegeben.
 
 ## Beispiel
@@ -55,7 +55,7 @@ Dieses Beispiel zeigt eine Tabelle, die in einen Kopfbereich mit Spaltenübersch
 
 #### HTML
 
-Die {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und `<tfoot>` Elemente werden verwendet, um eine grundlegende Tabelle in [semantische](/de/docs/Glossary/semantics) Abschnitte zu strukturieren. Das `<tfoot>` Element repräsentiert den Fußbereich der Tabelle, der eine Zeile ({{HTMLElement("tr")}}) enthält, die den berechneten Durchschnitt der Werte in der "Credits"-Spalte darstellt.
+Die {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und `<tfoot>` Elemente werden verwendet, um eine grundlegende Tabelle in {{Glossary("semantics", "semantische")}} Abschnitte zu strukturieren. Das `<tfoot>` Element repräsentiert den Fußbereich der Tabelle, der eine Zeile ({{HTMLElement("tr")}}) enthält, die den berechneten Durchschnitt der Werte in der "Credits"-Spalte darstellt.
 
 Um die Zellen im Fuß den richtigen Spalten zuzuordnen, wird das [`colspan`](/de/docs/Web/HTML/Element/th#colspan) Attribut auf dem {{HTMLElement("th")}} Element verwendet, um die Kopfzeile über die ersten drei Tabellenspalten zu spannen. Die einzelne Datenzelle ({{HTMLElement("td")}}) im Fuß wird automatisch an der richtigen Stelle platziert, d.h. in der vierten Spalte, wobei der ausgelassene [`colspan`](/de/docs/Web/HTML/Element/td#colspan) Attributwert standardmäßig auf `1` gesetzt ist. Zusätzlich wird das [`scope`](/de/docs/Web/HTML/Element/th#scope) Attribut auf `row` auf der Kopfzelle ({{HTMLElement("th")}}) im Fuß gesetzt, um explizit zu definieren, dass diese Fußkopfzeile sich auf die Tabellenzellen in derselben Zeile bezieht, die in unserem Beispiel die einzige Datenzelle in der Fußzeile ist, die den berechneten Durchschnitt enthält.
 

@@ -10,7 +10,7 @@ l10n:
 Die HTTP-{{HTTPHeader("Permissions-Policy")}}-Header-Direktive `publickey-credentials-create` steuert, ob das aktuelle Dokument die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) verwenden darf, um neue WebAuthn-Anmeldeinformationen zu erstellen, d. h. über [`navigator.credentials.create({publicKey})`](/de/docs/Web/API/CredentialsContainer/create).
 
 Konkret gilt: Wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird das von `navigator.credentials.create({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
-Wenn die Methode über cross-origin aufgerufen wird, wird das {{jsxref("Promise")}} ebenfalls mit einem `NotAllowedError` abgelehnt, wenn die Funktion durch [`allow=` auf einem iframe](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) gewährt wird und der Frame nicht auch eine [Transiente Aktivierung](/de/docs/Glossary/Transient_activation) hat.
+Wenn die Methode über cross-origin aufgerufen wird, wird das {{jsxref("Promise")}} ebenfalls mit einem `NotAllowedError` abgelehnt, wenn die Funktion durch [`allow=` auf einem iframe](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) gewährt wird und der Frame nicht auch eine {{Glossary("Transient_activation", "Transiente Aktivierung")}} hat.
 
 ## Syntax
 

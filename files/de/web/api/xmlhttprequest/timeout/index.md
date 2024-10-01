@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **`XMLHttpRequest.timeout`**-Eigenschaft ist ein `unsigned long`, das die Anzahl der Millisekunden darstellt, die ein Request dauern kann, bevor er automatisch beendet wird. Der Standardwert ist 0, was bedeutet, dass es kein Timeout gibt. Timeout sollte nicht für synchrone XMLHttpRequests verwendet werden, die in einer [document environment](/de/docs/Glossary/document_environment) verwendet werden, da sonst eine `InvalidAccessError`-Ausnahme ausgelöst wird. Wenn ein Timeout eintritt, wird ein [timeout](/de/docs/Web/API/XMLHttpRequest/timeout_event)-Ereignis ausgelöst.
+Die **`XMLHttpRequest.timeout`**-Eigenschaft ist ein `unsigned long`, das die Anzahl der Millisekunden darstellt, die ein Request dauern kann, bevor er automatisch beendet wird. Der Standardwert ist 0, was bedeutet, dass es kein Timeout gibt. Timeout sollte nicht für synchrone XMLHttpRequests verwendet werden, die in einer {{Glossary("document_environment", "document environment")}} verwendet werden, da sonst eine `InvalidAccessError`-Ausnahme ausgelöst wird. Wenn ein Timeout eintritt, wird ein [timeout](/de/docs/Web/API/XMLHttpRequest/timeout_event)-Ereignis ausgelöst.
 
 > [!NOTE]
 > Sie dürfen für synchronisierte Requests mit einem zugehörigen Fenster kein Timeout verwenden.

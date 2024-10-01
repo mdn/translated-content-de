@@ -11,7 +11,7 @@ l10n:
 Die **`domInteractive`**-Eigenschaft nur lesbar gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Zeit unmittelbar bevor der Benutzeragent den [`readyState`](/de/docs/Web/API/Document/readyState) des Dokuments auf `"interactive"` setzt, darstellt.
 
 > [!NOTE]
-> Diese Eigenschaft ist **nicht** [Time to interactive](/de/docs/Glossary/Time_to_interactive) (TTI). Diese Eigenschaft bezieht sich auf die Zeit, zu der der DOM-Aufbau abgeschlossen ist und eine Interaktion mit diesem aus JavaScript möglich ist. Siehe auch den `interactive`-Status von [`Document.readyState`](/de/docs/Web/API/Document/readyState), der dieser Eigenschaft entspricht.
+> Diese Eigenschaft ist **nicht** {{Glossary("Time_to_interactive", "Time to interactive")}} (TTI). Diese Eigenschaft bezieht sich auf die Zeit, zu der der DOM-Aufbau abgeschlossen ist und eine Interaktion mit diesem aus JavaScript möglich ist. Siehe auch den `interactive`-Status von [`Document.readyState`](/de/docs/Web/API/Document/readyState), der dieser Eigenschaft entspricht.
 
 Das Messen der DOM-Verarbeitungszeit kann unerheblich sein, es sei denn, Ihre Website hat einen sehr großen HTML-Quellcode, aus dem ein Document Object Model konstruiert werden soll.
 

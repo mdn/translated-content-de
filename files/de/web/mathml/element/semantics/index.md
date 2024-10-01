@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`<semantics>`** [MathML](/de/docs/Web/MathML)-Element verknüpft Anmerkungen mit einem MathML-Ausdruck, beispielsweise seine Textquelle als [leichtgewichtiges Markup-Sprachen](https://en.wikipedia.org/wiki/Lightweight_markup_language) oder mathematische Bedeutung, ausgedrückt in einem speziellen [XML](/de/docs/Glossary/XML)-Dialekt. Typischerweise ist seine Struktur:
+Das **`<semantics>`** [MathML](/de/docs/Web/MathML)-Element verknüpft Anmerkungen mit einem MathML-Ausdruck, beispielsweise seine Textquelle als [leichtgewichtiges Markup-Sprachen](https://en.wikipedia.org/wiki/Lightweight_markup_language) oder mathematische Bedeutung, ausgedrückt in einem speziellen {{Glossary("XML", "XML")}}-Dialekt. Typischerweise ist seine Struktur:
 
 - ein erstes Kind, das ein anzumerkender MathML-Ausdruck ist.
 - nachfolgende `<annotation>`- oder `<annotation-xml>`-Elemente, wobei letzteres für XML-Formate wie [OpenMath](https://en.wikipedia.org/wiki/OpenMath) reserviert ist.

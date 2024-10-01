@@ -38,7 +38,7 @@ Beachten Sie, dass dieser Code für beide Peers der Verbindung identisch ist.
 
 ### Erstellen der Signalisierungs- und Peer-Verbindungen
 
-Zuerst muss der Signalisierungskanal geöffnet und die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt werden. Der hier angegebene [STUN](/de/docs/Glossary/STUN)-Server ist offensichtlich kein echter; Sie müssen `stun.myserver.tld` durch die Adresse eines echten STUN-Servers ersetzen.
+Zuerst muss der Signalisierungskanal geöffnet und die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) erstellt werden. Der hier angegebene {{Glossary("STUN", "STUN")}}-Server ist offensichtlich kein echter; Sie müssen `stun.myserver.tld` durch die Adresse eines echten STUN-Servers ersetzen.
 
 ```js
 const config = {
@@ -194,7 +194,7 @@ Wenn die neu eingestellte Remote-Beschreibung ein Angebot ist, bitten wir WebRTC
 
 ##### Beim Empfang eines ICE-Kandidaten
 
-Wenn die empfangene Nachricht hingegen einen ICE-Kandidaten enthält, liefern wir diesen an die lokale [ICE](/de/docs/Glossary/ICE)-Schicht, indem wir die Methode [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufrufen. Wenn ein Fehler auftritt und wir das zuletzt erhaltene Angebot ignoriert haben, ignorieren wir auch einen möglicherweise auftretenden Fehler, wenn wir versuchen, den Kandidaten hinzuzufügen.
+Wenn die empfangene Nachricht hingegen einen ICE-Kandidaten enthält, liefern wir diesen an die lokale {{Glossary("ICE", "ICE")}}-Schicht, indem wir die Methode [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) aufrufen. Wenn ein Fehler auftritt und wir das zuletzt erhaltene Angebot ignoriert haben, ignorieren wir auch einen möglicherweise auftretenden Fehler, wenn wir versuchen, den Kandidaten hinzuzufügen.
 
 ## Die Verhandlung perfekt machen
 

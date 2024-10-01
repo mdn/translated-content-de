@@ -11,7 +11,7 @@ Ein **`WeakSet`** ist eine Sammlung von speicherbereinigbaren Werten, einschlie�
 
 ## Beschreibung
 
-Werte von `WeakSets` müssen speicherbereinigbar sein. Die meisten [primitiven Datentypen](/de/docs/Glossary/Primitive) können beliebig erstellt werden und haben keine Lebensdauer, sodass sie nicht gespeichert werden können. Objekte und [nicht-registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) können gespeichert werden, da sie speicherbereinigbar sind.
+Werte von `WeakSets` müssen speicherbereinigbar sein. Die meisten {{Glossary("Primitive", "primitiven Datentypen")}} können beliebig erstellt werden und haben keine Lebensdauer, sodass sie nicht gespeichert werden können. Objekte und [nicht-registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) können gespeichert werden, da sie speicherbereinigbar sind.
 
 Die Hauptunterschiede zum {{jsxref("Set")}} Objekt sind:
 

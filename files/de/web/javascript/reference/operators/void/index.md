@@ -34,7 +34,7 @@ void (2 === "2"); // void (2 === '2'), returns undefined
 
 ### Sofort ausgeführte Funktionsausdrücke
 
-Bei der Verwendung eines [sofort ausgeführten Funktionsausdrucks (IIFE)](/de/docs/Glossary/IIFE) darf das `function` Schlüsselwort nicht am unmittelbaren Anfang der [Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) stehen, da dies als [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) analysiert würde und beim Erreichen der Klammern, die die Ausführung darstellen, einen Syntaxfehler erzeugen würde – falls die Funktion unbenannt ist, wäre es sofort ein Syntaxfehler, wenn die Funktion als Deklaration analysiert wird.
+Bei der Verwendung eines {{Glossary("IIFE", "sofort ausgeführten Funktionsausdrucks (IIFE)")}} darf das `function` Schlüsselwort nicht am unmittelbaren Anfang der [Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) stehen, da dies als [Funktionsdeklaration](/de/docs/Web/JavaScript/Reference/Statements/function) analysiert würde und beim Erreichen der Klammern, die die Ausführung darstellen, einen Syntaxfehler erzeugen würde – falls die Funktion unbenannt ist, wäre es sofort ein Syntaxfehler, wenn die Funktion als Deklaration analysiert wird.
 
 ```js-nolint example-bad
 function iife() {

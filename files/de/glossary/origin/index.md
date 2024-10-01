@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Origin** von Webinhalten wird durch das _Schema_ (Protokoll), den _Hostname_ (Domain) und den _Port_ der [URL](/de/docs/Glossary/URL) definiert, die zum Zugriff verwendet wird. Zwei Objekte haben nur dann denselben Origin, wenn Schema, Hostname und Port übereinstimmen.
+Der **Origin** von Webinhalten wird durch das _Schema_ (Protokoll), den _Hostname_ (Domain) und den _Port_ der {{Glossary("URL", "URL")}} definiert, die zum Zugriff verwendet wird. Zwei Objekte haben nur dann denselben Origin, wenn Schema, Hostname und Port übereinstimmen.
 
-Einige Operationen sind auf Inhalte mit demselben Origin beschränkt, und diese Beschränkung kann mit [CORS](/de/docs/Glossary/CORS) aufgehoben werden.
+Einige Operationen sind auf Inhalte mit demselben Origin beschränkt, und diese Beschränkung kann mit {{Glossary("CORS", "CORS")}} aufgehoben werden.
 
 ## Beispiele
 
@@ -43,5 +43,5 @@ Diese haben nicht denselben Origin, da sie unterschiedliche Ports verwenden:
 
 - [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
 - Verwandte Glossarbegriffe:
-  - [Site](/de/docs/Glossary/Site)
+  - {{Glossary("Site", "Site")}}
 - [HTML-Spezifikation: origin](https://html.spec.whatwg.org/multipage/origin.html#origin)

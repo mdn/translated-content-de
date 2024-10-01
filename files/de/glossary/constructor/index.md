@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Constructor** gehört zu einem bestimmten [Objekt](/de/docs/Glossary/object), das instanziiert wird. Der Constructor initialisiert dieses Objekt und kann Zugriff auf seine privaten Informationen gewähren. Das Konzept eines Constructors kann auf die meisten [objektorientierten Programmiersprachen](/de/docs/Glossary/OOP) angewendet werden. Im Wesentlichen wird ein Constructor in [JavaScript](/de/docs/Glossary/JavaScript) normalerweise beim Instanziieren einer [Klasse](/de/docs/Glossary/class) deklariert.
+Ein **Constructor** gehört zu einem bestimmten {{Glossary("object", "Objekt")}}, das instanziiert wird. Der Constructor initialisiert dieses Objekt und kann Zugriff auf seine privaten Informationen gewähren. Das Konzept eines Constructors kann auf die meisten {{Glossary("OOP", "objektorientierten Programmiersprachen")}} angewendet werden. Im Wesentlichen wird ein Constructor in {{Glossary("JavaScript", "JavaScript")}} normalerweise beim Instanziieren einer {{Glossary("class", "Klasse")}} deklariert.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ function Default() {}
 function Overloaded(arg1, arg2, /* …, */ argN) {}
 ```
 
-Um den Constructor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue [Objektreferenz](/de/docs/Glossary/object_reference) einer [Variablen](/de/docs/Glossary/variable) zuzuweisen.
+Um den Constructor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue {{Glossary("object_reference", "Objektreferenz")}} einer {{Glossary("variable", "Variablen")}} zuzuweisen.
 
 ```js
 function Default() {}

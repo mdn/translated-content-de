@@ -11,7 +11,7 @@ l10n:
 > Dieser Header wurde durch den {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header ersetzt.
 > Er ist ein veralteter Bestandteil einer früheren Iteration der [Reporting API](/de/docs/Web/API/Reporting_API)-Spezifikation.
 
-Der HTTP **`Report-To`** [Antwort-Header](/de/docs/Glossary/response_header) ermöglicht es Website-Administratoren, benannte Gruppen von Endpunkten zu definieren, die als Ziel für Warn- und Fehlerberichte dienen können, wie CSP-Verletzungsberichte, {{HTTPHeader("Cross-Origin-Opener-Policy")}} Berichte, Veraltungsberichte oder andere allgemeine Verstöße.
+Der HTTP **`Report-To`** {{Glossary("response_header", "Antwort-Header")}} ermöglicht es Website-Administratoren, benannte Gruppen von Endpunkten zu definieren, die als Ziel für Warn- und Fehlerberichte dienen können, wie CSP-Verletzungsberichte, {{HTTPHeader("Cross-Origin-Opener-Policy")}} Berichte, Veraltungsberichte oder andere allgemeine Verstöße.
 
 `Report-To` wird oft in Verbindung mit anderen Headers verwendet, die eine Gruppe von Endpunkten für eine bestimmte Art von Bericht auswählen.
 Zum Beispiel kann die {{HTTPHeader("Content-Security-Policy")}} Header {{CSP("report-to")}} Direktive verwendet werden, um die Gruppe auszuwählen, die für CSP-Verletzungsberichte verwendet wird.
@@ -20,15 +20,15 @@ Zum Beispiel kann die {{HTTPHeader("Content-Security-Policy")}} Header {{CSP("re
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-sichere Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-sichere Antwort-Header")}}
       </th>
       <td>nein</td>
     </tr>

@@ -15,5 +15,5 @@ Ein **Protokoll** ist ein System von Regeln, das definiert, wie Daten innerhalb 
 - [RFC Offizielle Internet-Protokoll-Standards](https://www.rfc-editor.org/standards)
 - [HTTP-Übersicht](/de/docs/Web/HTTP/Overview)
 - Verwandte Glossarbegriffe:
-  - [TCP](/de/docs/Glossary/TCP)
-  - [Paket](/de/docs/Glossary/Packet)
+  - {{Glossary("TCP", "TCP")}}
+  - {{Glossary("Packet", "Paket")}}

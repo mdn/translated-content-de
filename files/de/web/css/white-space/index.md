@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`white-space`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie [white space](/de/docs/Glossary/whitespace) innerhalb eines Elements behandelt wird.
+Die **`white-space`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie {{Glossary("whitespace", "white space")}} innerhalb eines Elements behandelt wird.
 
 {{EmbedInteractiveExample("pages/css/white-space.html")}}
 
@@ -57,6 +57,7 @@ Die Werte der `white-space`-Eigenschaft können als ein einziges Schlüsselwort 
 - `pre-line`
   - : Sequenzen von white space werden [zusammengefasst](#zusammenfassen_von_white_space). Zeilen werden bei neuen Zeilenzeichen, bei {{HTMLElement("br")}} und nach Bedarf gebrochen, um Zeilenboxen zu füllen.
 - `break-spaces`
+
   - : Das Verhalten ist identisch mit `pre-wrap`, außer dass:
 
     - Jede Sequenz von beibehaltenem white space nimmt immer Platz ein, einschließlich am Ende der Zeile.

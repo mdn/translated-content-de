@@ -28,7 +28,7 @@ In diesem ersten Express-Artikel beantworten wir die Fragen: „Was ist Node?“
 
 ## Einführung in Node
 
-[Node](https://nodejs.org/) (oder formeller _Node.js_) ist eine quelloffene, plattformübergreifende Laufzeitumgebung, die es Entwicklern ermöglicht, alle Arten von serverseitigen Tools und Anwendungen in [JavaScript](/de/docs/Glossary/JavaScript) zu erstellen. Die Laufzeitumgebung ist für den Gebrauch außerhalb eines Browsers gedacht (d. h. direkt auf einem Computer- oder Server-Betriebssystem). Daher lässt die Umgebung browserspezifische JavaScript-APIs weg und fügt Unterstützung für traditionellere OS-APIs hinzu, einschließlich HTTP- und Dateisystembibliotheken.
+[Node](https://nodejs.org/) (oder formeller _Node.js_) ist eine quelloffene, plattformübergreifende Laufzeitumgebung, die es Entwicklern ermöglicht, alle Arten von serverseitigen Tools und Anwendungen in {{Glossary("JavaScript", "JavaScript")}} zu erstellen. Die Laufzeitumgebung ist für den Gebrauch außerhalb eines Browsers gedacht (d. h. direkt auf einem Computer- oder Server-Betriebssystem). Daher lässt die Umgebung browserspezifische JavaScript-APIs weg und fügt Unterstützung für traditionellere OS-APIs hinzu, einschließlich HTTP- und Dateisystembibliotheken.
 
 Aus der Perspektive der Webserver-Entwicklung bietet Node eine Reihe von Vorteilen:
 
@@ -522,7 +522,7 @@ Weitere Informationen finden Sie unter [Verwendung von Template-Engines mit Expr
 
 ### Dateistruktur
 
-Express macht keine Annahmen hinsichtlich der Struktur oder der verwendeten Komponenten. Routen, Ansichten, statische Dateien und andere anwendungsspezifische Logik können in einer beliebigen Anzahl von Dateien mit beliebiger Verzeichnisstruktur vorhanden sein. Während es absolut möglich ist, die gesamte _Express_-Anwendung in einer einzigen Datei zu haben, macht es typischerweise Sinn, Ihre Anwendung auf Dateien basierend auf Funktion (z. B. Kontoverwaltung, Blogs, Diskussionsforen) und architektonischem Problembereich (z. B. Modell, Ansicht oder Controller, wenn Sie eine [MVC-Architektur](/de/docs/Glossary/MVC) verwenden) aufzuteilen.
+Express macht keine Annahmen hinsichtlich der Struktur oder der verwendeten Komponenten. Routen, Ansichten, statische Dateien und andere anwendungsspezifische Logik können in einer beliebigen Anzahl von Dateien mit beliebiger Verzeichnisstruktur vorhanden sein. Während es absolut möglich ist, die gesamte _Express_-Anwendung in einer einzigen Datei zu haben, macht es typischerweise Sinn, Ihre Anwendung auf Dateien basierend auf Funktion (z. B. Kontoverwaltung, Blogs, Diskussionsforen) und architektonischem Problembereich (z. B. Modell, Ansicht oder Controller, wenn Sie eine {{Glossary("MVC", "MVC-Architektur")}} verwenden) aufzuteilen.
 
 In einem späteren Thema werden wir den _Express-Anwendungsgenerator_ verwenden, der ein modulares App-Gerüst erstellt, das wir leicht erweitern können, um Webanwendungen zu erstellen.
 

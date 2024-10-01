@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Authentication API")}}{{securecontext_header}}
 
-Die statische Methode **`parseRequestOptionsFromJSON()`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces konvertiert eine [JSON Typdarstellung](/de/docs/Glossary/JSON_type_representation) in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz.
+Die statische Methode **`parseRequestOptionsFromJSON()`** des [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Interfaces konvertiert eine {{Glossary("JSON_type_representation", "JSON Typdarstellung")}} in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz.
 
 Die Methode ist eine praktische Funktion, um Informationen, die von einem vertrauenswürdigen Server an eine Webanwendung bereitgestellt werden, in Anfrage zu einer vorhandenen Berechtigung umzuwandeln.
 
@@ -22,7 +22,7 @@ PublicKeyCredential.parseRequestOptionsFromJSON(options)
 
 - `options`
 
-  - : Ein Objekt mit derselben Struktur wie eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz, jedoch mit [base64url](/de/docs/Glossary/Base64)-codierten Zeichenfolgen anstelle von Puffer-Eigenschaften.
+  - : Ein Objekt mit derselben Struktur wie eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz, jedoch mit {{Glossary("Base64", "base64url")}}-codierten Zeichenfolgen anstelle von Puffer-Eigenschaften.
 
 ### Rückgabewert
 
@@ -39,8 +39,8 @@ Der Web-Authentifizierungsprozess zur [Authentifizierung eines (registrierten) B
 Die Webanwendung übergibt diese Informationen an einen Authentifikator, um die Berechtigung zu finden, indem sie [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einem Argument aufruft, das die vom Server bereitgestellten Daten als [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz enthält.
 
 Die Spezifikation definiert nicht, wie die Informationen, die für die Anforderung einer Berechtigung benötigt werden, gesendet werden.
-Ein praktischer Ansatz ist, dass der Server die Informationen in einer [JSON Typdarstellung](/de/docs/Glossary/JSON_type_representation) einer [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz kapselt, die deren Struktur widerspiegelt, jedoch die Puffer-Eigenschaften wie die `challenge` als [base64url](/de/docs/Glossary/Base64)-Zeichenfolgen codiert.
-Dieses Objekt kann in eine [JSON](/de/docs/Glossary/JSON)-Zeichenfolge serialisiert, an die Webanwendung gesendet und deserialisiert werden, und dann mithilfe von **`parseRequestOptionsFromJSON()`** in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz umgewandelt werden.
+Ein praktischer Ansatz ist, dass der Server die Informationen in einer {{Glossary("JSON_type_representation", "JSON Typdarstellung")}} einer [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz kapselt, die deren Struktur widerspiegelt, jedoch die Puffer-Eigenschaften wie die `challenge` als {{Glossary("Base64", "base64url")}}-Zeichenfolgen codiert.
+Dieses Objekt kann in eine {{Glossary("JSON", "JSON")}}-Zeichenfolge serialisiert, an die Webanwendung gesendet und deserialisiert werden, und dann mithilfe von **`parseRequestOptionsFromJSON()`** in eine [`PublicKeyCredentialRequestOptions`](/de/docs/Web/API/PublicKeyCredentialRequestOptions)-Instanz umgewandelt werden.
 
 ## Beispiele
 

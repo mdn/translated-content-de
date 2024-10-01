@@ -34,7 +34,7 @@ registerProtocolHandler(scheme, url)
 
     - Beginnt mit `web+`
     - Enthält mindestens einen Buchstaben nach dem `web+` Präfix
-    - Enthält nur Kleinbuchstaben des [ASCII](/de/docs/Glossary/ASCII).
+    - Enthält nur Kleinbuchstaben des {{Glossary("ASCII", "ASCII")}}.
 
     Andernfalls muss das Schema eines der folgenden sein:
 
@@ -70,7 +70,7 @@ registerProtocolHandler(scheme, url)
   - : Ein String, der die URL des Handlers enthält.
     Diese URL muss `%s` als Platzhalter enthalten, der durch die [escapte](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) URL ersetzt wird, die bearbeitet werden soll.
 
-    Die Handler-URL muss das `https` Schema verwenden und muss aus dem gleichen [Ursprung](/de/docs/Glossary/origin) stammen wie die Webseite, die versucht, den Handler zu registrieren.
+    Die Handler-URL muss das `https` Schema verwenden und muss aus dem gleichen {{Glossary("origin", "Ursprung")}} stammen wie die Webseite, die versucht, den Handler zu registrieren.
 
 ### Rückgabewert
 
@@ -84,7 +84,7 @@ Keiner ({{jsxref("undefined")}}).
     Dies kann passieren, wenn:
 
     - Das registrierte Schema (Protokoll) ungültig ist, wie ein Schema, das der Browser selbst handhabt (`https:`, `about:`, etc.)
-    - Der [Ursprung](/de/docs/Glossary/origin) der Handler-URL nicht mit dem Ursprung der Seite übereinstimmt, die diese API aufruft.
+    - Der {{Glossary("origin", "Ursprung")}} der Handler-URL nicht mit dem Ursprung der Seite übereinstimmt, die diese API aufruft.
     - Das Schema der Handler-URL nicht `https` ist.
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)

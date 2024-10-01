@@ -58,7 +58,7 @@ place-self: unset;
     - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
     - In der statischen Position von absolut positionierten Layouts verhält sich das Schlüsselwort wie `stretch`.
     - Für Flex-Elemente verhält sich das Schlüsselwort wie `stretch`.
-    - Für Grid-Elemente führt dieses Schlüsselwort zu einem Verhalten ähnlich dem von `stretch`, außer für Boxen mit einem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) oder intrinsischen Größen, wo es sich wie `start` verhält.
+    - Für Grid-Elemente führt dieses Schlüsselwort zu einem Verhalten ähnlich dem von `stretch`, außer für Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder intrinsischen Größen, wo es sich wie `start` verhält.
     - Die Eigenschaft gilt nicht für Block-Elemente und Tabellenelemente.
 
 - `self-start`

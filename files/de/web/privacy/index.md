@@ -77,7 +77,7 @@ Browser-Anbieter sind sich der Notwendigkeit bewusst, die Privatsphäre der Nutz
 
 ### HTTPS standardmäßig
 
-[Transport Layer Security (TLS)](/de/docs/Web/Security/Transport_Layer_Security) bietet Sicherheit und Datenschutz, indem es Daten während des Transports über das Netzwerk verschlüsselt und die Technologie hinter dem [HTTPS](/de/docs/Glossary/HTTPS) Protokoll ist. TLS ist gut für den Datenschutz, weil es Dritte daran hindert, übermittelte Daten abzufangen und sie böswillig zu verwenden, beispielsweise zum Tracking.
+[Transport Layer Security (TLS)](/de/docs/Web/Security/Transport_Layer_Security) bietet Sicherheit und Datenschutz, indem es Daten während des Transports über das Netzwerk verschlüsselt und die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}} Protokoll ist. TLS ist gut für den Datenschutz, weil es Dritte daran hindert, übermittelte Daten abzufangen und sie böswillig zu verwenden, beispielsweise zum Tracking.
 
 Alle Browser bewegen sich in Richtung der Standardanforderung von HTTPS; dies ist praktisch bereits der Fall, da Sie ohne dieses Protokoll nicht viel im Web tun können.
 
@@ -87,7 +87,7 @@ Verwandte Themen sind die folgenden:
   - : Ein offener Standard zur Überwachung und Überprüfung von Zertifikaten, der eine Datenbank öffentlicher Logbücher erstellt, die zur Identifizierung fehlerhafter oder böswilliger Zertifikate verwendet werden kann.
 - [HTTP Strict Transport Security (HSTS)](/de/docs/Web/HTTP/Headers/Strict-Transport-Security)
   - : HSTS wird von Servern verwendet, um sich vor Protokolldowngrade- und Cookie-Hijack-Angriffen zu schützen, indem sie Websites mitteilen, dass Clients nur HTTPS verwenden können, um mit dem Server zu kommunizieren.
-- [HTTP/2](/de/docs/Glossary/HTTP_2)
+- {{Glossary("HTTP_2", "HTTP/2")}}
   - : Während HTTP/2 technisch keine Verschlüsselung verwenden _muss_, unterstützen die meisten Browserentwickler es nur, wenn es mit HTTPS verwendet wird; in dieser Hinsicht kann es als Funktion zur Verbesserung der Sicherheit/des Datenschutzes angesehen werden.
 
 ### Opt-in für "leistungsstarke Funktionen"
@@ -98,7 +98,7 @@ Sogenannte "leistungsstarke" Web-API-Funktionen, die den Zugriff auf potenziell 
 
 Browser haben mehrere Anti-Tracking-Funktionen implementiert, die automatisch den Datenschutz ihrer Nutzer verbessern. Viele davon blockieren oder beschränken die Fähigkeit von Drittanbieter-Websites, die in {{htmlelement("iframe")}}s eingebettet sind, auf Cookies zuzugreifen, die auf der obersten Ebene der Domäne gesetzt sind, Tracking-Skripte auszuführen usw.
 
-- Der {{httpheader("Set-Cookie")}} Header [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Attribut-Standardwert wurde auf `Lax` aktualisiert, um besseren Schutz vor Tracking und [CSRF](/de/docs/Glossary/CSRF) Angriffen zu bieten. Siehe [Controlling third-party cookies with `SameSite`](/de/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite) für weitere Informationen.
+- Der {{httpheader("Set-Cookie")}} Header [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value) Attribut-Standardwert wurde auf `Lax` aktualisiert, um besseren Schutz vor Tracking und {{Glossary("CSRF", "CSRF")}} Angriffen zu bieten. Siehe [Controlling third-party cookies with `SameSite`](/de/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite) für weitere Informationen.
 - Browser haben alle damit begonnen, Drittanbieter-Cookies standardmäßig zu blockieren. Siehe [Wie gehen Browser mit Drittanbieter-Cookies um?](/de/docs/Web/Privacy/Third-party_cookies#how_do_browsers_handle_third-party_cookies) für mehr Details.
 - Browser implementieren Technologien, um Drittanbieter-Cookies nur unter bestimmten Umständen zuzulassen, die den Datenschutz nicht beeinträchtigen, oder um gängige Anwendungsfälle, die derzeit Drittanbieter-Cookies erfordern, auf alternative Weise umzusetzen. Siehe [Umstellung von Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies#transitioning_from_third-party_cookies) und [Ersetzung von Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies#replacing_third-party_cookies).
 - Mehrere Browser entfernen bekannte Tracking-Parameter aus URLs — dazu gehören Firefox, Safari und Brave. Auch Browser-Erweiterungen helfen dabei, zum Beispiel [ClearURLs](https://addons.mozilla.org/en-GB/firefox/addon/clearurls/).

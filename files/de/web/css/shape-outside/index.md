@@ -70,7 +70,7 @@ Die `shape-outside` Eigenschaft wird unter Verwendung der unten aufgeführten We
   - : Der Float-Bereich wird basierend auf dem Alphakanal des angegebenen {{cssxref("&lt;image&gt;")}} extrahiert und berechnet, wie durch {{cssxref("shape-image-threshold")}} definiert.
 
 > [!NOTE]
-> Wenn das Bild ungültig ist, hat dies den Effekt, als wäre das Schlüsselwort `none` angegeben worden. Zusätzlich muss das Bild mit [CORS](/de/docs/Glossary/CORS) Headern bereitgestellt werden, die seine Verwendung erlauben.
+> Wenn das Bild ungültig ist, hat dies den Effekt, als wäre das Schlüsselwort `none` angegeben worden. Zusätzlich muss das Bild mit {{Glossary("CORS", "CORS")}} Headern bereitgestellt werden, die seine Verwendung erlauben.
 
 ## Formale Definition
 

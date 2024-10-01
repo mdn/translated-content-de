@@ -9,7 +9,7 @@ l10n:
 
 **Internationalization**, oft verkürzt zu "i18n", ist die Praxis, ein System so zu entwerfen, dass es leicht an verschiedene Zielgruppen angepasst werden kann, die in Region, Sprache oder Kultur variieren können.
 
-Der ergänzende Prozess der Anpassung eines Systems für eine bestimmte Zielgruppe wird [Lokalisierung](/de/docs/Glossary/Localization) genannt.
+Der ergänzende Prozess der Anpassung eines Systems für eine bestimmte Zielgruppe wird {{Glossary("Localization", "Lokalisierung")}} genannt.
 
 Internationalisierung umfasst unter anderem die Anpassung an Unterschiede in:
 
@@ -23,7 +23,7 @@ Die Arbeit des [Unicode-Konsortiums](https://home.unicode.org/) ist ein wesentli
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Lokalisierung](/de/docs/Glossary/Localization)
+  - {{Glossary("Localization", "Lokalisierung")}}
 - [W3C Internationalization Activity](https://www.w3.org/International/)
 - [Unicode-Konsortium](https://home.unicode.org/)
 - [JavaScript Internationalization API](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl)

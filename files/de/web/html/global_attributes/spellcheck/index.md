@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`spellcheck`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufgezähltes](/de/docs/Glossary/Enumerated) Attribut, das definiert, ob das Element auf Rechtschreibfehler überprüft werden darf.
+Das **`spellcheck`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das definiert, ob das Element auf Rechtschreibfehler überprüft werden darf.
 
 > [!NOTE]
 > Dieses Attribut ist lediglich ein Hinweis für den Browser: Browser sind nicht verpflichtet, auf Rechtschreibfehler zu prüfen. Typischerweise werden nicht-editierbare Elemente nicht auf Rechtschreibfehler überprüft, selbst wenn das `spellcheck`-Attribut auf `true` gesetzt ist und der Browser die Rechtschreibprüfung unterstützt.

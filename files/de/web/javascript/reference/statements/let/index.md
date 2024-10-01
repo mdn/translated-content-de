@@ -47,7 +47,7 @@ Oder wenn keiner der obigen Punkte zutrifft:
 Im Vergleich mit {{jsxref("Statements/var", "var")}} weisen `let`-Deklarationen die folgenden Unterschiede auf:
 
 - `let`-Deklarationen sind auf Blöcke sowie auf Funktionen beschränkt.
-- `let`-Deklarationen können erst nach Erreichen der Deklarationsstelle zugegriffen werden (siehe [temporal dead zone](#temporal_dead_zone_tdz)). Aus diesem Grund werden `let`-Deklarationen häufig als [nicht-geliftet](/de/docs/Glossary/Hoisting) betrachtet.
+- `let`-Deklarationen können erst nach Erreichen der Deklarationsstelle zugegriffen werden (siehe [temporal dead zone](#temporal_dead_zone_tdz)). Aus diesem Grund werden `let`-Deklarationen häufig als {{Glossary("Hoisting", "nicht-geliftet")}} betrachtet.
 - `let`-Deklarationen erzeugen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf der obersten Ebene eines Skripts deklariert sind.
 - `let`-Deklarationen können im gleichen Bereich durch keine andere Deklaration [neu deklariert](#neudeklarationen) werden.
 - `let` beginnt [_Deklarationen_, nicht _Anweisungen_](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations). Das bedeutet, dass Sie eine einzelne `let`-Deklaration nicht als Körper eines Blocks verwenden können (was Sinn macht, da es keinen Weg gibt, auf die Variable zuzugreifen).
@@ -60,7 +60,7 @@ Beachten Sie, dass `let` als Bezeichnername erlaubt ist, wenn er mit `var` oder 
 
 Viele Stilrichtlinien (einschließlich der [MDN-Richtlinien](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript#variable_declarations)) empfehlen die Verwendung von {{jsxref("Statements/const", "const")}} über `let`, wann immer eine Variable in ihrem Gültigkeitsbereich nicht neu zugewiesen wird. Dies macht die Absicht klar, dass der Typ (oder der Wert, im Fall eines Primitivs) einer Variablen niemals geändert werden kann. Andere bevorzugen möglicherweise `let` für Nicht-Primitiven, die verändert werden.
 
-Die Liste, die dem `let`-Schlüsselwort folgt, wird _[Binding-](/de/docs/Glossary/binding) Liste_ genannt und durch Kommata getrennt, wobei die Kommata _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) und die `=`-Zeichen _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierungen späterer Variablen können sich auf frühere Variablen in der Liste beziehen.
+Die Liste, die dem `let`-Schlüsselwort folgt, wird _{{Glossary("binding", "Binding-")}} Liste_ genannt und durch Kommata getrennt, wobei die Kommata _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) und die `=`-Zeichen _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierungen späterer Variablen können sich auf frühere Variablen in der Liste beziehen.
 
 ### Temporale Totzone (TDZ)
 
@@ -289,7 +289,7 @@ Für weitere Informationen, siehe [Destructuring-Zuweisung](/de/docs/Web/JavaScr
 
 - {{jsxref("Statements/var", "var")}}
 - {{jsxref("Statements/const", "const")}}
-- [Hoisting](/de/docs/Glossary/Hoisting)
+- {{Glossary("Hoisting", "Hoisting")}}
 - [ES6 In Depth: `let` und `const`](https://hacks.mozilla.org/2015/07/es6-in-depth-let-and-const/) auf hacks.mozilla.org (2015)
 - [Breaking changes in `let` and `const` in Firefox 44](https://blog.mozilla.org/addons/2015/10/14/breaking-changes-let-const-firefox-nightly-44/) auf blog.mozilla.org (2015)
 - [You Don't Know JS: Scope & Closures, Ch.3: Function vs. Block Scope](https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/scope%20%26%20closures/ch3.md) von Kyle Simpson

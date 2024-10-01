@@ -46,7 +46,7 @@ Sie können sehen, wie der vorherige Code-Schnipsel in unserem [Basisbeispiel f�
 > [!NOTE]
 > Wenn das `popovertargetaction`-Attribut weggelassen wird, wird `"toggle"` als Standardaktion von einem Steuerungsknopf ausgeführt.
 
-Wenn ein Popover angezeigt wird, wird `display: none` davon entfernt und es wird in die [oberste Ebene](/de/docs/Glossary/top_layer) eingefügt, sodass es über allen anderen Seiteninhalten liegt.
+Wenn ein Popover angezeigt wird, wird `display: none` davon entfernt und es wird in die {{Glossary("top_layer", "oberste Ebene")}} eingefügt, sodass es über allen anderen Seiteninhalten liegt.
 
 ## auto-Zustand und "Light Dismiss"
 
@@ -228,7 +228,7 @@ Um die Standardstile zu überschreiben und das Popover an einer anderen Stelle i
 
 Sie können ein isoliertes Beispiel hierfür in unserem [Beispiel zur Positionierung eines Popovers](https://mdn.github.io/dom-examples/popover-api/popover-positioning/) ([Quelle](https://github.com/mdn/dom-examples/tree/main/popover-api/popover-positioning)) sehen.
 
-Das {{cssxref("::backdrop")}}-Pseudo-Element ist ein Vollbild-Element, das direkt hinter den angezeigten Popover-Elementen in der [obersten Ebene](/de/docs/Glossary/top_layer) platziert wird, was es ermöglicht, Effekte auf die Seitenelemente hinter dem Popover zu legen, wenn gewünscht. Sie könnten beispielsweise den Hintergrund hinter dem Popover unscharf stellen, um die Aufmerksamkeit des Nutzers darauf zu lenken:
+Das {{cssxref("::backdrop")}}-Pseudo-Element ist ein Vollbild-Element, das direkt hinter den angezeigten Popover-Elementen in der {{Glossary("top_layer", "obersten Ebene")}} platziert wird, was es ermöglicht, Effekte auf die Seitenelemente hinter dem Popover zu legen, wenn gewünscht. Sie könnten beispielsweise den Hintergrund hinter dem Popover unscharf stellen, um die Aufmerksamkeit des Nutzers darauf zu lenken:
 
 ```css
 ::backdrop {
@@ -240,7 +240,7 @@ Sehen Sie sich unser [Beispiel zur Unschärfe des Popover-Hintergrunds](https://
 
 ## Animieren von Popovers
 
-Popovers sind auf `display: none;` gesetzt, wenn sie verborgen sind, und auf `display: block;` wenn sie angezeigt werden, sowie sie aus der [obersten Ebene](/de/docs/Glossary/top_layer) und dem [Barrierefreiheitsbaum](/de/docs/Web/Performance/How_browsers_work#building_the_accessibility_tree) entfernt/ hinzugefügt werden. Daher muss für Popovers, die animiert werden sollen, die {{cssxref("display")}}-Eigenschaft animierbar sein. [Unterstützende Browser](/de/docs/Web/CSS/display#browser_compatibility) animieren `display` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Genauer gesagt wird der Browser zwischen `none` und einem anderen `display`-Wert wechseln, sodass der animierte Inhalt die gesamte Animationsdauer über angezeigt wird. So zum Beispiel:
+Popovers sind auf `display: none;` gesetzt, wenn sie verborgen sind, und auf `display: block;` wenn sie angezeigt werden, sowie sie aus der {{Glossary("top_layer", "obersten Ebene")}} und dem [Barrierefreiheitsbaum](/de/docs/Web/Performance/How_browsers_work#building_the_accessibility_tree) entfernt/ hinzugefügt werden. Daher muss für Popovers, die animiert werden sollen, die {{cssxref("display")}}-Eigenschaft animierbar sein. [Unterstützende Browser](/de/docs/Web/CSS/display#browser_compatibility) animieren `display` mit einer Variation des [diskreten Animationstyps](/de/docs/Web/CSS/CSS_animated_properties#discrete). Genauer gesagt wird der Browser zwischen `none` und einem anderen `display`-Wert wechseln, sodass der animierte Inhalt die gesamte Animationsdauer über angezeigt wird. So zum Beispiel:
 
 - Beim Animieren von `display` von `none` zu `block` (oder einem anderen sichtbaren `display`-Wert) wird der Wert bei `0%` der Animationsdauer auf `block` umgeschaltet, damit er die gesamte Zeit sichtbar ist.
 - Beim Animieren von `display` von `block` (oder einem anderen sichtbaren `display`-Wert) zu `none`, wird der Wert bei `100%` der Animationsdauer auf `none` umgeschaltet, damit er die gesamte Zeit sichtbar ist.

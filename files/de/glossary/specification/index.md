@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Spezifikation** ist ein Dokument, das im Detail beschreibt, welche Funktionalitäten oder Eigenschaften ein Produkt vor der Auslieferung enthalten muss. Im Kontext der Beschreibung des Webs bedeutet der Begriff "Spezifikation" (oft abgekürzt als "Spec") im Allgemeinen ein Dokument, das eine Sprache, Technologie oder ein [API](/de/docs/Glossary/API) beschreibt, die zusammen das vollständige Set offener Web-Technologien bilden.
+Eine **Spezifikation** ist ein Dokument, das im Detail beschreibt, welche Funktionalitäten oder Eigenschaften ein Produkt vor der Auslieferung enthalten muss. Im Kontext der Beschreibung des Webs bedeutet der Begriff "Spezifikation" (oft abgekürzt als "Spec") im Allgemeinen ein Dokument, das eine Sprache, Technologie oder ein {{Glossary("API", "API")}} beschreibt, die zusammen das vollständige Set offener Web-Technologien bilden.
 
 ## Siehe auch
 

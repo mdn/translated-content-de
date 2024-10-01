@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Dynamisch typisierte Sprachen** sind solche (wie [JavaScript](/de/docs/Glossary/JavaScript)), bei denen der Interpreter [Variablen](/de/docs/Glossary/variable) zur Laufzeit basierend auf dem [Wert](/de/docs/Glossary/value) der Variablen zu diesem Zeitpunkt einen [Typ](/de/docs/Glossary/type) zuweist.
+**Dynamisch typisierte Sprachen** sind solche (wie {{Glossary("JavaScript", "JavaScript")}}), bei denen der Interpreter {{Glossary("variable", "Variablen")}} zur Laufzeit basierend auf dem {{Glossary("value", "Wert")}} der Variablen zu diesem Zeitpunkt einen {{Glossary("type", "Typ")}} zuweist.
 
 ## Siehe auch
 

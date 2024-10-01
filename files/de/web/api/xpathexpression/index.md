@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Dieses Interface ist ein kompilierter XPath-Ausdruck, der auf einem Dokument oder einem spezifischen Knoten ausgewertet werden kann, um Informationen aus seinem [DOM](/de/docs/Glossary/DOM)-Baum zu erhalten.
+Dieses Interface ist ein kompilierter XPath-Ausdruck, der auf einem Dokument oder einem spezifischen Knoten ausgewertet werden kann, um Informationen aus seinem {{Glossary("DOM", "DOM")}}-Baum zu erhalten.
 
 Dies ist nützlich, wenn ein Ausdruck in einer Anwendung wiederverwendet wird, da er nur einmal kompiliert wird und alle Namensraum-Präfixe, die im Ausdruck vorkommen, vorher aufgelöst werden.
 

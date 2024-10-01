@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Das **`NotRestoredReasons`** Interface der [Performance API](/de/docs/Web/API/Performance_API) liefert Berichtsdaten, die die Gründe enthalten, warum das aktuelle Dokument daran gehindert wurde, den back/forward Cache ([bfcache](/de/docs/Glossary/bfcache)) bei der Navigation zu nutzen.
+Das **`NotRestoredReasons`** Interface der [Performance API](/de/docs/Web/API/Performance_API) liefert Berichtsdaten, die die Gründe enthalten, warum das aktuelle Dokument daran gehindert wurde, den back/forward Cache ({{Glossary("bfcache", "bfcache")}}) bei der Navigation zu nutzen.
 
 Diese Objekte sind über die [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons) Eigenschaft zugänglich.
 
@@ -29,7 +29,7 @@ Diese Objekte sind über die [`PerformanceNavigationTiming.notRestoredReasons`](
 ## Instanzmethoden
 
 - [`toJSON()`](/de/docs/Web/API/NotRestoredReasons/toJSON) {{Experimental_Inline}}
-  - : Ein [Serializer](/de/docs/Glossary/Serialization); gibt eine JSON-Darstellung des `NotRestoredReasons` Objekts zurück.
+  - : Ein {{Glossary("Serialization", "Serializer")}}; gibt eine JSON-Darstellung des `NotRestoredReasons` Objekts zurück.
 
 ## Beispiele
 

@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **digitales Zertifikat** ist eine Datendatei, die einen öffentlich bekannten [kryptografischen Schlüssel](/de/docs/Glossary/Key) mit einer Organisation verbindet.
+Ein **digitales Zertifikat** ist eine Datendatei, die einen öffentlich bekannten {{Glossary("Key", "kryptografischen Schlüssel")}} mit einer Organisation verbindet.
 
-Ein digitales Zertifikat enthält Informationen über eine Organisation, wie den allgemeinen Namen (z.B. mozilla.org), die Organisationseinheit (z.B. Mozilla Corporation) und den Standort (z.B. Mountain View). Digitale Zertifikate werden meist von einer [Zertifizierungsstelle](/de/docs/Glossary/certificate_authority) unterzeichnet, die die Authentizität des Zertifikats bestätigt.
+Ein digitales Zertifikat enthält Informationen über eine Organisation, wie den allgemeinen Namen (z.B. mozilla.org), die Organisationseinheit (z.B. Mozilla Corporation) und den Standort (z.B. Mountain View). Digitale Zertifikate werden meist von einer {{Glossary("certificate_authority", "Zertifizierungsstelle")}} unterzeichnet, die die Authentizität des Zertifikats bestätigt.
 
 ## Siehe auch
 

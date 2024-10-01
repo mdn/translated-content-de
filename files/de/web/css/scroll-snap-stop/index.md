@@ -29,7 +29,7 @@ scroll-snap-stop: unset;
 ### Werte
 
 - `normal`
-  - : Wenn der visuelle [Viewport](/de/docs/Glossary/viewport) des Scroll-Containers dieses Elements gescrollt wird, kann er mögliche Snap-Positionen "überspringen".
+  - : Wenn der visuelle {{Glossary("viewport", "Viewport")}} des Scroll-Containers dieses Elements gescrollt wird, kann er mögliche Snap-Positionen "überspringen".
 - `always`
   - : Der Scroll-Container darf keine mögliche Snap-Position "überspringen" und muss zur ersten Snap-Position dieses Elements springen.
 

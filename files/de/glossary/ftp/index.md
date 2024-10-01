@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**FTP** (File Transfer Protocol) ist ein unsicheres [Protokoll](/de/docs/Glossary/protocol) zum Übertragen von Dateien von einem [Host](/de/docs/Glossary/host) zum anderen über das Internet.
+**FTP** (File Transfer Protocol) ist ein unsicheres {{Glossary("protocol", "Protokoll")}} zum Übertragen von Dateien von einem {{Glossary("host", "Host")}} zum anderen über das Internet.
 
 Für viele Jahre war es der De-facto-Standard zur Übertragung von Dateien, aber da es von Natur aus unsicher ist, wird es von vielen Hosting-Konten nicht mehr unterstützt. Stattdessen sollten Sie SFTP (eine sichere, verschlüsselte Version von FTP) oder eine andere sichere Methode zur Dateiübertragung wie Rsync über SSH verwenden.
 

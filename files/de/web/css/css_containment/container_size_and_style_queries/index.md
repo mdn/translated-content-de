@@ -21,7 +21,7 @@ Es gibt zwei Arten von Container-Abfragen: _Containergrößen-Abfragen_ und _Con
 
 - **Containergrößen-Abfragen**
 
-  - : Größenabfragen ermöglichen das Anwenden von Stilen auf Elemente, basierend auf der aktuellen [Größe](/de/docs/Web/CSS/@container#descriptors) eines beinhaltenden Elements, inklusive der Ausrichtung und des [Seitenverhältnisses](/de/docs/Glossary/aspect_ratio). Die beinhaltenden Elemente müssen explizit als _Größenabfrage-Container_ deklariert werden.
+  - : Größenabfragen ermöglichen das Anwenden von Stilen auf Elemente, basierend auf der aktuellen [Größe](/de/docs/Web/CSS/@container#descriptors) eines beinhaltenden Elements, inklusive der Ausrichtung und des {{Glossary("aspect_ratio", "Seitenverhältnisses")}}. Die beinhaltenden Elemente müssen explizit als _Größenabfrage-Container_ deklariert werden.
 
 - **Containerstil-Abfragen**
   - : Stilabfragen ermöglichen das Anwenden von Stilen auf Elemente basierend auf den Stileigenschaften eines beinhaltenden Elements. Jedes nicht-leere Element kann ein Stilabfrage-Container sein. Derzeit werden von Stilabfragen nur CSS [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties) unterstützt. In diesem Fall gibt die Abfrage wahr oder falsch zurück, je nach dem berechneten Wert der benutzerdefinierten Eigenschaften des beinhaltenden Elements. Wenn Container-Stilabfragen vollständig unterstützt werden, ermöglichen sie, Stile auf Nachfahren eines Elements basierend auf irgendeiner Eigenschaft, Erklärung oder einem berechneten Wert anzuwenden — beispielsweise, wenn der Container `display: inline flex` ist oder eine nicht-transparente Hintergrundfarbe hat.
@@ -184,7 +184,7 @@ Wenn CSS-Variablen über eine einfache CSS-Benutzerdefinierte Eigenschaftswertzu
 }
 ```
 
-In diesem Beispiel stimmt die Containerabfrage mit dem Element überein, auf dem die `--theme-color` Eigenschaft deklariert wurde, und mit allen seinen Nachfahren. Da die CSS-Variable `--theme-color` auf dem {{cssxref(":root")}} deklariert wurde, wird die Stilabfrage `style(--theme-color)` für jedes Element innerhalb dieses [DOM](/de/docs/Glossary/DOM)-Knotens wahr sein.
+In diesem Beispiel stimmt die Containerabfrage mit dem Element überein, auf dem die `--theme-color` Eigenschaft deklariert wurde, und mit allen seinen Nachfahren. Da die CSS-Variable `--theme-color` auf dem {{cssxref(":root")}} deklariert wurde, wird die Stilabfrage `style(--theme-color)` für jedes Element innerhalb dieses {{Glossary("DOM", "DOM")}}-Knotens wahr sein.
 
 ##### Registrierte Eigenschaften
 

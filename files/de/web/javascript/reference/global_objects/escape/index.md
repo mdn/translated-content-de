@@ -30,10 +30,10 @@ Eine neue Zeichenkette, in der bestimmte Zeichen maskiert wurden.
 
 `escape()` ist eine Funktionseigenschaft des globalen Objekts.
 
-Die Funktion `escape()` ersetzt alle Zeichen durch Escape-Sequenzen, mit Ausnahme von [ASCII](/de/docs/Glossary/ASCII)-Wortzeichen (A–Z, a–z, 0–9, \_) und `@\*_+-./`. Zeichen werden durch UTF-16-Code-Einheiten maskiert. Wenn der Wert der Code-Einheit kleiner als 256 ist, wird er durch eine zweistellige hexadezimale Zahl im Format `%XX` dargestellt, wobei gegebenenfalls mit 0 aufgefüllt wird. Andernfalls wird er durch eine vierstellige hexadezimale Zahl im Format `%uXXXX` dargestellt, wobei gegebenenfalls mit 0 aufgefüllt wird.
+Die Funktion `escape()` ersetzt alle Zeichen durch Escape-Sequenzen, mit Ausnahme von {{Glossary("ASCII", "ASCII")}}-Wortzeichen (A–Z, a–z, 0–9, \_) und `@\*_+-./`. Zeichen werden durch UTF-16-Code-Einheiten maskiert. Wenn der Wert der Code-Einheit kleiner als 256 ist, wird er durch eine zweistellige hexadezimale Zahl im Format `%XX` dargestellt, wobei gegebenenfalls mit 0 aufgefüllt wird. Andernfalls wird er durch eine vierstellige hexadezimale Zahl im Format `%uXXXX` dargestellt, wobei gegebenenfalls mit 0 aufgefüllt wird.
 
 > [!NOTE]
-> Diese Funktion wurde hauptsächlich für das [Prozent-Codierung](/de/docs/Glossary/Percent-encoding) verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Das Escape-Format ist _kein_ [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in Zeichenfolgenliteralen. Sie können `%XX` mit `\xXX` und `%uXXXX` mit `\uXXXX` ersetzen, um eine Zeichenkette mit tatsächlichen Escape-Sequenzen für Zeichenfolgenliterale zu erhalten.
+> Diese Funktion wurde hauptsächlich für das {{Glossary("Percent-encoding", "Prozent-Codierung")}} verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Das Escape-Format ist _kein_ [Escape-Sequenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in Zeichenfolgenliteralen. Sie können `%XX` mit `\xXX` und `%uXXXX` mit `\uXXXX` ersetzen, um eine Zeichenkette mit tatsächlichen Escape-Sequenzen für Zeichenfolgenliterale zu erhalten.
 
 ## Beispiele
 

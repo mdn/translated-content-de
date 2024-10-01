@@ -57,7 +57,7 @@ Alle folgenden Richtlinien helfen nicht nur Menschen mit kognitiven Behinderunge
 
 ## Anpassungsfähigkeit
 
-[Guideline 1.3](https://www.w3.org/WAI/WCAG21/Understanding/adaptable) besagt, dass "Inhalte sollten **anpassbar** sein". Erstellen Sie Inhalte, die in unterschiedlichen Formen präsentiert werden können, ohne Informationen oder Struktur zu verlieren. Stellen Sie beispielsweise [responsive](/de/docs/Glossary/responsive_web_design) Layouts bereit, mit einem Ein-Spalten-Design für mobile Geräte.
+[Guideline 1.3](https://www.w3.org/WAI/WCAG21/Understanding/adaptable) besagt, dass "Inhalte sollten **anpassbar** sein". Erstellen Sie Inhalte, die in unterschiedlichen Formen präsentiert werden können, ohne Informationen oder Struktur zu verlieren. Stellen Sie beispielsweise {{Glossary("responsive_web_design", "responsive")}} Layouts bereit, mit einem Ein-Spalten-Design für mobile Geräte.
 
 Alle Informationen, einschließlich der Struktur und Beziehungen, die durch die Präsentation vermittelt werden, sollten in einer Form verfügbar sein, die von allen Benutzern wahrgenommen werden kann, um dieses Ziel zu erreichen. Beispielsweise könnte die Information über ein Erzählwerkzeug laut vorgelesen werden. Wenn Ihre Inhalte von der Software verstanden werden können, ist dies eine gute Möglichkeit sicherzustellen, dass sie in alternativen Präsentationsmodi verwendet werden können.
 
@@ -137,7 +137,7 @@ Für Screenreader ist es entscheidend, dass der verlinkte Text den Zweck jedes L
 
 Benutzer sollten sich innerhalb einer Website oder Anwendung orientieren können. Dies ist insbesondere für Menschen mit kurzer Aufmerksamkeitsspanne hilfreich, die verwirrt werden können, wenn sie einer langen Reihe von Navigationsschritten folgen.
 
-Alle Benutzer profitieren von Informationen darüber, wo sie sich in der Hierarchie einer Website befinden, insbesondere bei Websites oder Anwendungen mit großen Inhaltsmengen oder vielen Unterabschnitten. [Brotkrumen](/de/docs/Glossary/Breadcrumb), [Seitenkarten](/de/docs/Glossary/Site_map) und das Kennzeichnen der aktuellen Seite in der Navigation als "aktuell" sind Techniken, die helfen, den aktuellen Standort zu kommunizieren.
+Alle Benutzer profitieren von Informationen darüber, wo sie sich in der Hierarchie einer Website befinden, insbesondere bei Websites oder Anwendungen mit großen Inhaltsmengen oder vielen Unterabschnitten. {{Glossary("Breadcrumb", "Brotkrumen")}}, {{Glossary("Site_map", "Seitenkarten")}} und das Kennzeichnen der aktuellen Seite in der Navigation als "aktuell" sind Techniken, die helfen, den aktuellen Standort zu kommunizieren.
 
 ## Lesbarkeit
 

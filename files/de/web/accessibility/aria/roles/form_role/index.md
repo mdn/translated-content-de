@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Die `form`-Rolle kann verwendet werden, um eine Gruppe von Elementen auf einer Seite zu identifizieren, die eine Funktionalität ähnlich einem HTML-Formular bereitstellen. Das Formular wird nicht als Landmarkenbereich angezeigt, es sei denn, es hat einen [zugänglichen Namen](/de/docs/Glossary/Accessible_name).
+Die `form`-Rolle kann verwendet werden, um eine Gruppe von Elementen auf einer Seite zu identifizieren, die eine Funktionalität ähnlich einem HTML-Formular bereitstellen. Das Formular wird nicht als Landmarkenbereich angezeigt, es sei denn, es hat einen {{Glossary("Accessible_name", "zugänglichen Namen")}}.
 
 ```html
 <div role="form" id="contact-info" aria-label="Contact information">

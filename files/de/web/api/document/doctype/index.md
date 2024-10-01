@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`doctype`**-Schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt, das die [Document Type Declaration (DTD)](/de/docs/Glossary/Doctype) darstellt, die mit dem aktuellen Dokument verknüpft ist.
+Die **`doctype`**-Schreibgeschützte Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist ein [`DocumentType`](/de/docs/Web/API/DocumentType)-Objekt, das die {{Glossary("Doctype", "Document Type Declaration (DTD)")}} darstellt, die mit dem aktuellen Dokument verknüpft ist.
 
 ## Wert
 

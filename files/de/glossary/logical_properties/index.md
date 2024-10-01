@@ -9,7 +9,7 @@ l10n:
 
 CSS **logische Eigenschaften** bieten eine Möglichkeit, Inhalte basierend auf dem Schreibmodus und der Richtung des Dokuments anzuordnen, anstatt auf die physischen Abmessungen des Viewports. Dies ermöglicht flexiblere und pflegeleichtere Designs, insbesondere für Websites, die mehrere Sprachen unterstützen.
 
-Während [physische Eigenschaften](/de/docs/Glossary/physical_properties), wie {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("padding-bottom")}} und {{cssxref("border-bottom-left-radius")}}, Positionen und Merkmale basierend auf physischen Richtungen definieren und sich auf bestimmte Seiten eines Elements beziehen, verwenden logische Eigenschaften wie {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-end")}}, {{cssxref("padding-block-end")}} und {{cssxref("border-end-end-radius")}} logische Richtungsbezeichner, die relativ zum Inhaltsfluss entlang der Block- und Inline-Achsen sind.
+Während {{Glossary("physical_properties", "physische Eigenschaften")}}, wie {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("padding-bottom")}} und {{cssxref("border-bottom-left-radius")}}, Positionen und Merkmale basierend auf physischen Richtungen definieren und sich auf bestimmte Seiten eines Elements beziehen, verwenden logische Eigenschaften wie {{cssxref("inset-block-start")}}, {{cssxref("inset-inline-end")}}, {{cssxref("padding-block-end")}} und {{cssxref("border-end-end-radius")}} logische Richtungsbezeichner, die relativ zum Inhaltsfluss entlang der Block- und Inline-Achsen sind.
 
 ## Blockrichtung
 

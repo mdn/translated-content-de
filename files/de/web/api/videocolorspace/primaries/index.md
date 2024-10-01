@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`primaries`** der [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Schnittstelle gibt den [Farbraum](/de/docs/Glossary/gamut) des Videos zurück.
+Die schreibgeschützte Eigenschaft **`primaries`** der [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace)-Schnittstelle gibt den {{Glossary("gamut", "Farbraum")}} des Videos zurück.
 
 ## Wert
 

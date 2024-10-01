@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`Set`**-Objekt ermöglicht es Ihnen, eindeutige Werte jeglichen Typs zu speichern, sei es [primitive Werte](/de/docs/Glossary/Primitive) oder Objektverweise.
+Das **`Set`**-Objekt ermöglicht es Ihnen, eindeutige Werte jeglichen Typs zu speichern, sei es {{Glossary("Primitive", "primitive Werte")}} oder Objektverweise.
 
 ## Beschreibung
 

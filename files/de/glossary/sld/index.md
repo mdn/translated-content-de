@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der **Second Level Domain (SLD)** ist der Teil des Domain-Namens, der sich direkt vor einer _[Top Level Domain (TLD)](/de/docs/Glossary/TLD)_ befindet.
+Der **Second Level Domain (SLD)** ist der Teil des Domain-Namens, der sich direkt vor einer _{{Glossary("TLD", "Top Level Domain (TLD)")}}_ befindet.
 
 Zum Beispiel ist in `mozilla.org` der SLD `mozilla` und der TLD `org`.
 
@@ -19,7 +19,7 @@ Ein weiteres Beispiel: In `developer.mozilla.org` wird die Subdomain `developer`
 
 - [SLD](https://en.wikipedia.org/wiki/Second-level_domain) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - [DNS](/de/docs/Glossary/DNS)
-  - [Domain](/de/docs/Glossary/Domain)
-  - [Domain-Name](/de/docs/Glossary/Domain_name)
-  - [TLD](/de/docs/Glossary/TLD)
+  - {{Glossary("DNS", "DNS")}}
+  - {{Glossary("Domain", "Domain")}}
+  - {{Glossary("Domain_name", "Domain-Name")}}
+  - {{Glossary("TLD", "TLD")}}

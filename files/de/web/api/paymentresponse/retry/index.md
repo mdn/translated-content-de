@@ -45,7 +45,7 @@ Siehe das [Beispiel](#beispiele) unten für ein ausführliches Beispiel, aber da
       `complete("success")` auf, um die Zahlung abzuschließen und zu verarbeiten.
 
 4. Wenn `show()` abgelehnt wird, ist die Zahlungsanforderung fehlgeschlagen, normalerweise weil
-   entweder bereits eine bearbeitet wird, weil der [User Agent](/de/docs/Glossary/user_agent)
+   entweder bereits eine bearbeitet wird, weil der {{Glossary("user_agent", "User Agent")}}
    keine der angegebenen Zahlungsmethoden unterstützt oder wegen eines Sicherheitsproblems.
    Siehe die [Liste der Ausnahmen](/de/docs/Web/API/PaymentRequest/show#exceptions) für `show()` für weitere Details. Rufen Sie
    `complete("fail")` auf, um die Zahlungsanforderung zu schließen.

@@ -17,7 +17,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`sandbox`** Direktive
     </tr>
     <tr>
       <th scope="row">Typ der Direktive</th>
-      <td>[Dokumentdirektive](/de/docs/Glossary/Document_directive)</td>
+      <td>{{Glossary("Document_directive", "Dokumentdirektive")}}</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">
@@ -56,7 +56,7 @@ wobei `<value>` optional einer der folgenden Werte sein kann:
 - `allow-presentation`
   - : Erlaubt Embedders die Kontrolle darüber, ob ein iframe eine [Präsentationssitzung](/de/docs/Web/API/PresentationRequest) starten kann.
 - `allow-same-origin`
-  - : Wenn dieses Token nicht verwendet wird, wird die Ressource als von einem speziellen Ursprung stammend behandelt, der immer die [Same-Origin-Policy](/de/docs/Glossary/same-origin_policy) fehlschlägt (was möglicherweise den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
+  - : Wenn dieses Token nicht verwendet wird, wird die Ressource als von einem speziellen Ursprung stammend behandelt, der immer die {{Glossary("same-origin_policy", "Same-Origin-Policy")}} fehlschlägt (was möglicherweise den Zugriff auf [Datenspeicherung/Cookies](/de/docs/Web/Security/Same-origin_policy#cross-origin_data_storage_access) und einige JavaScript-APIs verhindert).
 - `allow-scripts`
   - : Erlaubt der Seite das Ausführen von Skripten (aber nicht das Erstellen von Pop-up-Fenstern). Wenn dieses Schlüsselwort nicht verwendet wird, ist diese Operation nicht erlaubt.
 - `allow-storage-access-by-user-activation` {{experimental_inline}}

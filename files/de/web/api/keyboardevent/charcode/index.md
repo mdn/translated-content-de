@@ -55,7 +55,7 @@ input.addEventListener("keypress", (e) => {
 - Wenn eine oder mehrere Modifiziertasten gedrückt werden, gibt es einige komplexe Regeln für `charCode`. Siehe [Gecko Keypress Event](/de/docs/Gecko_Keypress_Event) für Details.
 - `charCode` wird niemals in den [`keydown`](/de/docs/Web/API/Element/keydown_event)- und [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignissen gesetzt. In diesen Fällen wird stattdessen `keyCode` gesetzt.
 - Um den Code der Taste zu erhalten, unabhängig davon, ob er in `keyCode` oder `charCode` gespeichert wurde, verwenden Sie die [`which`](/de/docs/Web/API/UIEvent/which)-Eigenschaft.
-- Zeichen, die über ein [IME](/de/docs/Glossary/IME) eingegeben werden, registrieren sich nicht über `keyCode` oder `charCode`.
+- Zeichen, die über ein {{Glossary("IME", "IME")}} eingegeben werden, registrieren sich nicht über `keyCode` oder `charCode`.
 - Für eine Liste der `charCode`-Werte, die bestimmten Tasten zugeordnet sind, führen Sie [Beispiel 7: Anzeigen der Eigenschaften des Ereignisobjekts](/de/docs/Web/API/Document_Object_Model/Examples#example_7_displaying_event_object_properties) aus und sehen Sie sich die resultierende HTML-Tabelle an.
 
 ## Spezifikationen

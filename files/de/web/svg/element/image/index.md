@@ -7,9 +7,9 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<image>`** SVG-Element bindet Bilder in SVG-Dokumente ein. Es kann [Rasterbild](/de/docs/Glossary/raster_image)-Dateien oder andere SVG-Dateien anzeigen.
+Das **`<image>`** SVG-Element bindet Bilder in SVG-Dokumente ein. Es kann {{Glossary("raster_image", "Rasterbild")}}-Dateien oder andere SVG-Dateien anzeigen.
 
-Die einzigen Bildformate, die SVG-Software unterstützen muss, sind [JPEG](/de/docs/Glossary/JPEG), [PNG](/de/docs/Glossary/PNG) und andere SVG-Dateien. Das Verhalten von animierten [GIF](/de/docs/Glossary/GIF)-Dateien ist nicht definiert.
+Die einzigen Bildformate, die SVG-Software unterstützen muss, sind {{Glossary("JPEG", "JPEG")}}, {{Glossary("PNG", "PNG")}} und andere SVG-Dateien. Das Verhalten von animierten {{Glossary("GIF", "GIF")}}-Dateien ist nicht definiert.
 
 SVG-Dateien, die mit `<image>` angezeigt werden, werden [wie ein Bild behandelt](/de/docs/Web/SVG/SVG_as_an_Image): Externe Ressourcen werden nicht geladen, {{cssxref(":visited")}}-Stile [werden nicht angewendet](/de/docs/Web/CSS/Privacy_and_the_:visited_selector) und sie können nicht interaktiv sein. Um dynamische SVG-Elemente einzubinden, versuchen Sie es mit {{SVGElement("use")}} unter Verwendung einer externen URL. Um SVG-Dateien einzubinden und Skripte darin auszuführen, versuchen Sie {{HTMLElement("object")}} innerhalb von {{SVGElement("foreignObject")}}.
 

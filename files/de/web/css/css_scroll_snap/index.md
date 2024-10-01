@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS scroll snap** Modul bietet Eigenschaften, mit denen Sie das Schwenk- und Scrollverhalten durch Definition von Snap-Positionen steuern können. Inhalt kann in Position geschnappt werden, während der Benutzer überlaufenden Inhalt in einem [Scroll-Container](/de/docs/Glossary/scroll_container) scrollt, was Paging und Scrollpositionierung ermöglicht.
+Das **CSS scroll snap** Modul bietet Eigenschaften, mit denen Sie das Schwenk- und Scrollverhalten durch Definition von Snap-Positionen steuern können. Inhalt kann in Position geschnappt werden, während der Benutzer überlaufenden Inhalt in einem {{Glossary("scroll_container", "Scroll-Container")}} scrollt, was Paging und Scrollpositionierung ermöglicht.
 
 Dieses Modul enthält die Scroll-Container-Eigenschaften `scroll-padding`, um die optimale Betrachtungsregion beim Scrollen in die Ansicht anzupassen. Es enthält auch `scroll-margin` und `scroll-alignment`, die auf die Kinder des Scroll-Containers gesetzt werden, um den visuellen Bereich der Kinder anzupassen, wenn dieses Kind in die Ansicht gescrollt wird, sowie eine Eigenschaft, um zu erzwingen, dass das Scrollen bei einzelnen Kindern stoppt.
 
@@ -73,7 +73,7 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie sich den Quellcode auf Git
 - Element [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode
 - Dokument [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role) ARIA-Rolle
-- [Scroll-Container](/de/docs/Glossary/Scroll_container) Glossarbegriff
+- {{Glossary("Scroll_container", "Scroll-Container")}} Glossarbegriff
 
 ## Spezifikationen
 

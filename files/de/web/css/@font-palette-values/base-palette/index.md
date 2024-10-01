@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`base-palette`** CSS-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) wird verwendet, um den Namen oder Index einer vordefinierten Palette anzugeben, die für die Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die bei Index 0 definierte Palette verwendet.
+Der **`base-palette`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um den Namen oder Index einer vordefinierten Palette anzugeben, die für die Erstellung einer neuen Palette verwendet werden soll. Wenn die angegebene `base-palette` nicht existiert, wird die bei Index 0 definierte Palette verwendet.
 
 ## Syntax
 
@@ -17,7 +17,7 @@ Der **`base-palette`** CSS-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) wird v
 }
 ```
 
-Der `base-palette`-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) wird mit einem Null-basierten Index der vom Schriftgestalter erstellten Paletten angegeben.
+Der `base-palette`-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird mit einem Null-basierten Index der vom Schriftgestalter erstellten Paletten angegeben.
 
 ### Werte
 

@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-Mode`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) gibt den [Modus](/de/docs/Web/API/Request/mode) der Anfrage an.
+Der **`Sec-Fetch-Mode`** {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} gibt den [Modus](/de/docs/Web/API/Request/mode) der Anfrage an.
 
 Grob gesagt, ermöglicht dies einem Server zwischen Anfragen zu unterscheiden, die von einem Benutzer stammen, der zwischen HTML-Seiten navigiert, und Anfragen zum Laden von Bildern und anderen Ressourcen. Beispielsweise würde dieser Header `navigate` für Anfragen zur obersten Navigationsebene enthalten, während `no-cors` für das Laden eines Bildes verwendet wird.
 
@@ -15,15 +15,15 @@ Grob gesagt, ermöglicht dies einem Server zwischen Anfragen zu unterscheiden, d
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_Metadata_Request_Header)</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadaten-Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-Angelsitelistungs-Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-Angelsitelistungs-Anforderungsheader")}}
       </th>
       <td>nein</td>
     </tr>

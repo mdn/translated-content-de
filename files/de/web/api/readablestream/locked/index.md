@@ -14,7 +14,7 @@ Ein lesbarer Stream kann höchstens einen aktiven Leser gleichzeitig haben und b
 
 ## Wert
 
-Ein [boolean](/de/docs/Glossary/boolean)-Wert, der angibt, ob der lesbare Stream gesperrt ist oder nicht.
+Ein {{Glossary("boolean", "boolean")}}-Wert, der angibt, ob der lesbare Stream gesperrt ist oder nicht.
 
 ## Beispiele
 

@@ -10,7 +10,7 @@ l10n:
 
 Die _veraltete_ **`hspace`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Anzahl der Pixel an, die auf der linken und rechten Seite des {{HTMLElement("img")}}-Elements beim Seitenlayout leer gelassen werden sollen.
 
-Diese Eigenschaft spiegelt das [HTML](/de/docs/Glossary/HTML)-[`hspace`](/de/docs/Web/HTML/Element/img#hspace)-Attribut wider.
+Diese Eigenschaft spiegelt das {{Glossary("HTML", "HTML")}}-[`hspace`](/de/docs/Web/HTML/Element/img#hspace)-Attribut wider.
 
 ## Wert
 

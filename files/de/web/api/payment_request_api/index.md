@@ -25,7 +25,7 @@ Ein vollständiger Leitfaden ist unter [Using the Payment Request API](/de/docs/
 - [`PaymentAddress`](/de/docs/Web/API/PaymentAddress) {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Ein Objekt, das Adressinformationen enthält; zum Beispiel für Rechnungs- und Lieferadressen verwendet.
 - [`PaymentRequest`](/de/docs/Web/API/PaymentRequest)
-  - : Ein Objekt, das die API für die Erstellung und Verwaltung der Zahlungsoberfläche des [Benutzeragenten](/de/docs/Glossary/user_agent) bereitstellt.
+  - : Ein Objekt, das die API für die Erstellung und Verwaltung der Zahlungsoberfläche des {{Glossary("user_agent", "Benutzeragenten")}} bereitstellt.
 - [`PaymentRequestUpdateEvent`](/de/docs/Web/API/PaymentRequestUpdateEvent)
   - : Ermöglicht es der Webseite, die Details der Zahlungsanforderung als Reaktion auf eine Benutzeraktion zu aktualisieren.
 - [`PaymentMethodChangeEvent`](/de/docs/Web/API/PaymentMethodChangeEvent)

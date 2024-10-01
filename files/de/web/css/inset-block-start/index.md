@@ -9,7 +9,7 @@ l10n:
 
 Die **`inset-block-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Blockstartversatz eines Elements, der in Abhängigkeit vom Schreibmodus, der Richtung und der Textorientierung des Elements auf einen physischen Innenabstand abgebildet wird. Er entspricht der {{cssxref("top")}}-, {{cssxref("right")}}-, {{cssxref("bottom")}}- oder {{cssxref("left")}}-Eigenschaft in Abhängigkeit von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese [Einfüge-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Einfüge-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block-start.html")}}
 

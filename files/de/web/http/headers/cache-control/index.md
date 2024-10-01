@@ -14,17 +14,17 @@ Das **`Cache-Control`** HTTP-Header-Feld enthält _Direktiven_ (Anweisungen) —
     <tr>
       <th scope="row">Headertyp</th>
       <td>
-        [Anforderungs-Header](/de/docs/Glossary/Request_header),
-        [Antwort-Header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gelisteter Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-gelisteter Antwort-Header")}}
       </th>
       <td>ja</td>
     </tr>
@@ -43,24 +43,24 @@ Cache-Direktiven folgen diesen Regeln:
 
 Die folgende Tabelle listet die standardmäßigen `Cache-Control`-Direktiven:
 
-| Anfrage          | Antwort                    |
-| ---------------- | -------------------------- |
-| `max-age`        | `max-age`                  |
-| `max-stale`      | -                          |
-| `min-fresh`      | -                          |
-| -                | `s-maxage`                 |
-| `no-cache`       | `no-cache`                 |
-| `no-store`       | `no-store`                 |
-| `no-transform`   | `no-transform`             |
-| `only-if-cached` | -                          |
-| -                | `must-revalidate`          |
-| -                | `proxy-revalidate`         |
-| -                | `must-understand`          |
-| -                | `private`                  |
-| -                | `public`                   |
-| -                | `immutable`                |
-| -                | `stale-while-revalidate`   |
-| `stale-if-error` | `stale-if-error`           |
+| Anfrage          | Antwort                  |
+| ---------------- | ------------------------ |
+| `max-age`        | `max-age`                |
+| `max-stale`      | -                        |
+| `min-fresh`      | -                        |
+| -                | `s-maxage`               |
+| `no-cache`       | `no-cache`               |
+| `no-store`       | `no-store`               |
+| `no-transform`   | `no-transform`           |
+| `only-if-cached` | -                        |
+| -                | `must-revalidate`        |
+| -                | `proxy-revalidate`       |
+| -                | `must-understand`        |
+| -                | `private`                |
+| -                | `public`                 |
+| -                | `immutable`              |
+| -                | `stale-while-revalidate` |
+| `stale-if-error` | `stale-if-error`         |
 
 Hinweis: Prüfen Sie die [Kompatibilitätstabelle](#/index.html) auf deren Unterstützung; Nutzeragenten, die sie nicht erkennen, sollten sie ignorieren.
 

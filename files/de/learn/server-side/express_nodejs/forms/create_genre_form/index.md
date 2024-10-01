@@ -11,7 +11,7 @@ Dieser Unterartikel zeigt, wie wir unsere Seite zum Erstellen von `Genre`-Objekt
 
 ## Validierungs- und Sanitisierungsmethoden importieren
 
-Um den _express-validator_ in unseren Controllern zu verwenden, müssen wir die Funktionen, die wir nutzen möchten, aus dem `'express-validator'`-Modul _require_n.
+Um den _express-validator_ in unseren Controllern zu verwenden, müssen wir die Funktionen, die wir nutzen möchten, aus dem `'express-validator'`-Modul \_require_n.
 
 Öffnen Sie **/controllers/genreController.js** und fügen Sie folgende Zeile am Anfang der Datei ein, bevor Sie mit den Routenhändler-Funktionen beginnen:
 
@@ -213,7 +213,7 @@ Der einzige Fehler, den wir serverseitig validieren, ist, dass das Genre-Feld mi
 ![Der Bereich 'Create Genre' der Bibliotheksanwendung. Die linke Spalte hat eine vertikale Navigationsleiste. Der rechte Abschnitt ist das Formular zum Erstellen eines neuen Genres mit einer Überschrift, die 'Genre erstellen' lautet. Es gibt ein Eingabefeld mit der Bezeichnung 'Genre'. Unten gibt es eine Schaltfläche zum Absenden. Es gibt eine Fehlermeldung unterhalb der Schaltfläche 'Senden', die 'Genre-Name erforderlich' lautet. Die Fehlermeldung wurde vom Autor dieses Artikels hervorgehoben. Im Formular gibt es keinen visuellen Hinweis darauf, dass das Genre erforderlich ist, noch dass die Fehlermeldung nur bei einem Fehler angezeigt wird.](locallibary_express_genre_create_error.png)
 
 > [!NOTE]
-> Unsere Validierung verwendet `trim()`, um sicherzustellen, dass Leerzeichen nicht als Genre-Name akzeptiert werden. Wir validieren auch, dass das Feld clientseitig nicht leer ist, indem wir das [boolesche Attribut](/de/docs/Glossary/Boolean/HTML) `required` zur Felddefinition im Formular hinzufügen:
+> Unsere Validierung verwendet `trim()`, um sicherzustellen, dass Leerzeichen nicht als Genre-Name akzeptiert werden. Wir validieren auch, dass das Feld clientseitig nicht leer ist, indem wir das {{Glossary("Boolean/HTML", "boolesche Attribut")}} `required` zur Felddefinition im Formular hinzufügen:
 >
 > ```pug
 > input#name.form-control(type='text', placeholder='Fantasy, Poetry etc.' name='name' required value=(undefined===genre ? '' : genre.name) )

@@ -125,7 +125,7 @@ if (condition)
   var i = 0;
 ```
 
-Man kann Deklarationen als "Identifikatoren an Werte [binden](/de/docs/Glossary/binding)" sehen und Anweisungen als "Aktionen ausführen". Die Tatsache, dass `var` eine Anweisung anstelle einer Deklaration ist, ist ein besonderer Fall, da es den normalen lexikalischen Scoping-Regeln nicht folgt und Seiteneffekte erzeugen kann—in Form der Erstellung von globalen Variablen, der Veränderung bereits definierter `var`-Variablen und der Definition von Variablen, die außerhalb ihres Blocks sichtbar sind (da `var`-Variablen nicht block-scope-spezifisch sind).
+Man kann Deklarationen als "Identifikatoren an Werte {{Glossary("binding", "binden")}}" sehen und Anweisungen als "Aktionen ausführen". Die Tatsache, dass `var` eine Anweisung anstelle einer Deklaration ist, ist ein besonderer Fall, da es den normalen lexikalischen Scoping-Regeln nicht folgt und Seiteneffekte erzeugen kann—in Form der Erstellung von globalen Variablen, der Veränderung bereits definierter `var`-Variablen und der Definition von Variablen, die außerhalb ihres Blocks sichtbar sind (da `var`-Variablen nicht block-scope-spezifisch sind).
 
 Als weiteres Beispiel: [Labels](/de/docs/Web/JavaScript/Reference/Statements/label) können nur an Anweisungen angehängt werden.
 

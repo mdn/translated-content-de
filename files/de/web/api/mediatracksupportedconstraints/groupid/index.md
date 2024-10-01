@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`groupId`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter booleanischer Wert, der im Objekt enthalten ist (und auf `true` gesetzt ist), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der [User-Agent](/de/docs/Glossary/user_agent) die `groupId`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, wird sie nicht in die Liste aufgenommen, sodass dieser Wert niemals `false` sein wird.
+Die **`groupId`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter booleanischer Wert, der im Objekt enthalten ist (und auf `true` gesetzt ist), das von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der {{Glossary("user_agent", "User-Agent")}} die `groupId`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, wird sie nicht in die Liste aufgenommen, sodass dieser Wert niemals `false` sein wird.
 
 Sie können auf das Wörterbuch der unterstützten Einschränkungen zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 

@@ -31,7 +31,7 @@ Das Hinzufügen von `role="alertdialog"` allein reicht nicht aus, um einen Warnm
 - Der Warnmeldungsdialog muss ordnungsgemäß gekennzeichnet sein
 - Der Tastaturfokus muss korrekt verwaltet werden
 
-Das `alertdialog` muss einen zugänglichen Namen haben, definiert mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label). Der Text des Warnmeldungsdialogs muss eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) mit [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) haben.
+Das `alertdialog` muss einen zugänglichen Namen haben, definiert mit [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) oder [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label). Der Text des Warnmeldungsdialogs muss eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} mit [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) haben.
 
 ## Beispiele
 

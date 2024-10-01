@@ -14,7 +14,7 @@ Standardmäßig wird ein neues Zertifikat mit `expires` auf einen Wert von 25920
 
 ## Wert
 
-Ein Timestamp, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Zertifikats enthält.
+Ein Timestamp, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Zertifikats enthält.
 
 ## Beispiele
 

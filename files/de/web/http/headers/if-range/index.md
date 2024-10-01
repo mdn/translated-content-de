@@ -17,10 +17,10 @@ Der häufigste Anwendungsfall ist das Fortsetzen eines Downloads, um sicherzuste
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

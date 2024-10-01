@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Purpose`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) gibt den Zweck an, für den die angeforderte Ressource verwendet wird, wenn dieser Zweck ein anderer ist als die unmittelbare Nutzung durch den User-Agent.
+Der **`Sec-Purpose`** {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} gibt den Zweck an, für den die angeforderte Ressource verwendet wird, wenn dieser Zweck ein anderer ist als die unmittelbare Nutzung durch den User-Agent.
 
 Der derzeit einzige definierte Zweck ist `prefetch`, was darauf hinweist, dass die Ressource in Erwartung angefordert wird, dass sie von einer Seite benötigt wird, zu der wahrscheinlich in naher Zukunft navigiert wird, wie z.B. eine in den Suchergebnissen verlinkte Seite oder ein Link, über den der Benutzer mit der Maus gefahren ist.
 Der Server kann diese Information nutzen, um: das Ablaufdatum des Caches für die Anfrage anzupassen, die Anfrage abzulehnen oder sie möglicherweise anders zu behandeln, wenn Seitenaufrufe gezählt werden.
@@ -19,15 +19,15 @@ Beachten Sie, dass, wenn dieser Header gesetzt ist, ein {{HTTPHeader("Sec-Fetch-
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_Metadata_Request_Header)</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadaten-Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
       </th>
       <td>nein</td>
     </tr>
@@ -87,5 +87,5 @@ Cache-Control: no-cache
 
 ## Siehe auch
 
-- [Prefetch](/de/docs/Glossary/Prefetch) (Glossar)
+- {{Glossary("Prefetch", "Prefetch")}} (Glossar)
 - [`<link>`](/de/docs/Web/HTML/Element/link) Element mit Attribut [`rel="prefetch"`](/de/docs/Web/HTML/Attributes/rel/prefetch)

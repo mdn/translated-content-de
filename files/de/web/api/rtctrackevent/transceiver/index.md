@@ -14,7 +14,7 @@ Der Transceiver koppelt den [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver
 
 ## Wert
 
-Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der den `receiver` mit einem Sender und anderen Eigenschaften koppelt, die einen einzelnen bidirektionalen [SRTP](/de/docs/Glossary/RTP)-Stream zur Nutzung durch den [`track`](/de/docs/Web/API/RTCTrackEvent/track) zu verwenden, der mit dem `RTCTrackEvent` verbunden ist.
+Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der den `receiver` mit einem Sender und anderen Eigenschaften koppelt, die einen einzelnen bidirektionalen {{Glossary("RTP", "SRTP")}}-Stream zur Nutzung durch den [`track`](/de/docs/Web/API/RTCTrackEvent/track) zu verwenden, der mit dem `RTCTrackEvent` verbunden ist.
 
 > [!NOTE]
 > Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), auf den durch die [`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver) Eigenschaft dieses `RTCRtpReceiver`s verwiesen wird, wird immer derselbe sein wie die [`receiver`](/de/docs/Web/API/RTCTrackEvent/receiver) Eigenschaft des [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent).

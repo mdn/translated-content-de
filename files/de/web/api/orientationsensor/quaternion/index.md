@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Sensor API")}}
 
-Die **`quaternion`** schreibgeschützte Eigenschaft des [`OrientationSensor`](/de/docs/Web/API/OrientationSensor)-Interfaces gibt ein vier Elemente umfassendes {{jsxref('Array')}} zurück, dessen Elemente die Komponenten des Einheits-[Quaternions](/de/docs/Glossary/quaternion) enthalten, das die Orientierung des Geräts darstellt.
+Die **`quaternion`** schreibgeschützte Eigenschaft des [`OrientationSensor`](/de/docs/Web/API/OrientationSensor)-Interfaces gibt ein vier Elemente umfassendes {{jsxref('Array')}} zurück, dessen Elemente die Komponenten des Einheits-{{Glossary("quaternion", "Quaternions")}} enthalten, das die Orientierung des Geräts darstellt.
 
 Da [`OrientationSensor`](/de/docs/Web/API/OrientationSensor) eine Basisklasse ist, kann `quaternion` nur von einer ihrer abgeleiteten Klassen gelesen werden.
 

@@ -286,7 +286,7 @@ Siehe auch den Quellcode — [HTML](https://github.com/mdn/dom-examples/blob/mai
 Das [`HTMLCanvasElement`](/de/docs/Web/API/HTMLCanvasElement) bietet eine `toDataURL()`-Methode, die nützlich ist, wenn Sie Bilder speichern. Sie liefert eine [Daten-URL](/de/docs/Web/URI/Schemes/data), die eine Darstellung des Bildes im Format enthält, das durch den `type`-Parameter angegeben wird (standardmäßig [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics)). Das zurückgegebene Bild hat eine Auflösung von 96 dpi.
 
 > [!NOTE]
-> Beachten Sie, dass, wenn die Leinwand Pixel enthält, die ohne Verwendung von CORS von einem anderen [Origin](/de/docs/Glossary/origin) stammen, die Leinwand **verunreinigt** ist und ihre Inhalte nicht mehr gelesen und gespeichert werden können.
+> Beachten Sie, dass, wenn die Leinwand Pixel enthält, die ohne Verwendung von CORS von einem anderen {{Glossary("origin", "Origin")}} stammen, die Leinwand **verunreinigt** ist und ihre Inhalte nicht mehr gelesen und gespeichert werden können.
 > Siehe [Sicherheit und verunreinigte Leinwände](/de/docs/Web/HTML/CORS_enabled_image#security_and_tainted_canvases).
 
 - [`canvas.toDataURL('image/png')`](/de/docs/Web/API/HTMLCanvasElement/toDataURL)

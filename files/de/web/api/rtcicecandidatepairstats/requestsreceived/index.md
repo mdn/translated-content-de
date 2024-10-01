@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`requestsReceived`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der bisher empfangenen [STUN](/de/docs/Glossary/STUN)-Konnektivitätsprüfungsanfragen auf der Verbindung an, die durch dieses Paar von Kandidaten beschrieben wird.
+Die **`requestsReceived`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der bisher empfangenen {{Glossary("STUN", "STUN")}}-Konnektivitätsprüfungsanfragen auf der Verbindung an, die durch dieses Paar von Kandidaten beschrieben wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der bisher für die auf dieser Paarung von [ICE](/de/docs/Glossary/ICE)-Kandidaten beschriebenen Verbindung empfangenen STUN-Konnektivitäts- und/oder Zustimmungsanfragen angibt.
+Ein ganzzahliger Wert, der die Anzahl der bisher für die auf dieser Paarung von {{Glossary("ICE", "ICE")}}-Kandidaten beschriebenen Verbindung empfangenen STUN-Konnektivitäts- und/oder Zustimmungsanfragen angibt.
 
 Da es keine Möglichkeit gibt, zwischen Anfragen zur Überprüfung der Konnektivität und Anfragen zur Überprüfung der Zustimmung zu unterscheiden, umfasst die angegebene Zahl beide Arten von Anfragen.
 

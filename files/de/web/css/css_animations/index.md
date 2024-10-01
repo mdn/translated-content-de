@@ -67,7 +67,7 @@ Alle Animationen, selbst die mit einer Dauer von 0 Sekunden, lösen Animationser
 - {{cssxref("will-change")}} CSS-Eigenschaft
 - [`<easing-function>`](/de/docs/Web/CSS/easing-function) Datentyp
 - [`prefers-reduced-motion`](/de/docs/Web/CSS/@media/prefers-reduced-motion) Media-Query
-- [Bezier-Kurve](/de/docs/Glossary/Bezier_curve) Glossarbegriff
+- {{Glossary("Bezier_curve", "Bezier-Kurve")}} Glossarbegriff
 
 ## Spezifikationen
 

@@ -61,7 +61,7 @@ reversed[0] = 5;
 console.log(numbers[0]); // 5
 ```
 
-Falls Sie möchten, dass `reverse()` das ursprüngliche Array nicht verändert, sondern ein [flach kopiertes](/de/docs/Glossary/Shallow_copy) Array zurückgibt, wie andere Array-Methoden (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)), verwenden Sie die {{jsxref("Array/toReversed", "toReversed()")}} Methode. Alternativ können Sie eine flache Kopie erstellen, bevor Sie `reverse()` aufrufen, indem Sie die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) verwenden.
+Falls Sie möchten, dass `reverse()` das ursprüngliche Array nicht verändert, sondern ein {{Glossary("Shallow_copy", "flach kopiertes")}} Array zurückgibt, wie andere Array-Methoden (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)), verwenden Sie die {{jsxref("Array/toReversed", "toReversed()")}} Methode. Alternativ können Sie eine flache Kopie erstellen, bevor Sie `reverse()` aufrufen, indem Sie die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) verwenden.
 
 ```js
 const numbers = [3, 2, 4, 1, 5];

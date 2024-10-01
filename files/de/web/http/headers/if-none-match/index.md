@@ -24,10 +24,10 @@ Es gibt zwei häufige Anwendungsfälle:
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -44,7 +44,7 @@ If-None-Match: *
 ## Direktiven
 
 - \<etag_value>
-  - : Entity-Tags, die die angeforderten Ressourcen eindeutig darstellen. Sie sind eine Zeichenfolge von [ASCII](/de/docs/Glossary/ASCII)-Zeichen, die zwischen Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`) und können mit `W/` vorangestellt werden, um anzuzeigen, dass der schwache Vergleichsalgorithmus verwendet werden soll (dies ist bei `If-None-Match` nutzlos, da es nur diesen Algorithmus verwendet).
+  - : Entity-Tags, die die angeforderten Ressourcen eindeutig darstellen. Sie sind eine Zeichenfolge von {{Glossary("ASCII", "ASCII")}}-Zeichen, die zwischen Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`) und können mit `W/` vorangestellt werden, um anzuzeigen, dass der schwache Vergleichsalgorithmus verwendet werden soll (dies ist bei `If-None-Match` nutzlos, da es nur diesen Algorithmus verwendet).
 - `*`
   - : Das Sternchen ist ein spezieller Wert, der jede Ressource darstellt. Sie sind nur nützlich, wenn eine Ressource hochgeladen wird, normalerweise mit {{HTTPMethod("PUT")}}, um zu überprüfen, ob eine andere Ressource mit derselben Identität bereits zuvor hochgeladen wurde.
 

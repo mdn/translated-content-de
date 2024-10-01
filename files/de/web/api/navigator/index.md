@@ -157,7 +157,7 @@ _Erbt keine Methoden._
 - [`Navigator.requestMIDIAccess()`](/de/docs/Web/API/Navigator/requestMIDIAccess) {{SecureContext_Inline}}
   - : Gibt ein {{jsxref('Promise')}} zurück, das eine Anfrage für den Zugriff auf MIDI-Geräte im System des Nutzers repräsentiert.
 - [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)
-  - : Wird verwendet, um asynchron eine kleine Datenmenge mithilfe von [HTTP](/de/docs/Glossary/HTTP) vom User Agent an einen Webserver zu übertragen.
+  - : Wird verwendet, um asynchron eine kleine Datenmenge mithilfe von {{Glossary("HTTP", "HTTP")}} vom User Agent an einen Webserver zu übertragen.
 - [`Navigator.setAppBadge()`](/de/docs/Web/API/Navigator/setAppBadge) {{SecureContext_Inline}}
   - : Setzt ein Abzeichen auf das mit dieser App verbundene Symbol und gibt ein {{jsxref("Promise")}} zurück, das mit {{jsxref("undefined")}} aufgelöst wird.
 - [`Navigator.share()`](/de/docs/Web/API/Navigator/share) {{SecureContext_Inline}}

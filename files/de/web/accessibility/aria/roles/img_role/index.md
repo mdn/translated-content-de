@@ -71,7 +71,7 @@ Zum Beispiel, wenn Sie Emojis in Ihrem Text verwenden, könnte die Bedeutung fü
 
 Dies scheint in einigen Browser-/Screenreader-Kombinationen gut zu funktionieren, aber einige von ihnen lesen das Label doppelt vor. Verwenden Sie es mit Vorsicht und testen Sie es gründlich.
 
-Ein weiteres Beispiel, bei dem dies geeignet sein könnte, ist die Verwendung von [ASCII](/de/docs/Glossary/ASCII)-Emoji-Kombinationen, wie das legendäre "Table Flip":
+Ein weiteres Beispiel, bei dem dies geeignet sein könnte, ist die Verwendung von {{Glossary("ASCII", "ASCII")}}-Emoji-Kombinationen, wie das legendäre "Table Flip":
 
 ```html
 <div role="img" aria-label="Table flip">
@@ -97,7 +97,7 @@ Weil Nachfahren von `img` präsentationell sind, ist der folgende Code gleichwer
 <div role="img"><h3 role="presentation">Title of my image</h3></div>
 ```
 
-Aus der Perspektive des Benutzers von Assistenztechnologie existiert die Überschrift nicht, da die vorherigen Code-Snippets im [Zugänglichkeitsbaum](/de/docs/Glossary/Accessibility_tree) gleichwertig sind:
+Aus der Perspektive des Benutzers von Assistenztechnologie existiert die Überschrift nicht, da die vorherigen Code-Snippets im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} gleichwertig sind:
 
 ```html
 <div role="img">Title of my image</div>

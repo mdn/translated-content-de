@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die Methode **`complete()`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) der [Payment Request API](/de/docs/Web/API/Payment_Request_API) benachrichtigt den [User-Agent](/de/docs/Glossary/user_agent), dass die Benutzerinteraktion abgeschlossen ist, und schließt alle verbleibenden Benutzeroberflächen.
+Die Methode **`complete()`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) der [Payment Request API](/de/docs/Web/API/Payment_Request_API) benachrichtigt den {{Glossary("user_agent", "User-Agent")}}, dass die Benutzerinteraktion abgeschlossen ist, und schließt alle verbleibenden Benutzeroberflächen.
 
 Diese Methode muss aufgerufen werden, nachdem der Benutzer die Zahlungsanforderung akzeptiert hat und das {{jsxref("Promise")}}, das von der Methode [`PaymentRequest.show()`](/de/docs/Web/API/PaymentRequest/show) zurückgegeben wird, erfüllt wurde.
 

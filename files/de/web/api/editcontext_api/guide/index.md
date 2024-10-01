@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("EditContext API")}}
 
-Die **[EditContext API](/de/docs/Web/API/EditContext_API)** kann verwendet werden, um reichhaltige Texteditoren im Web zu erstellen, die erweiterte Texterlebnisse unterstützen, wie z.B. die Komposition der [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME), Emoji-Picker oder andere plattformspezifische Bearbeitungs-UI-Oberflächen.
+Die **[EditContext API](/de/docs/Web/API/EditContext_API)** kann verwendet werden, um reichhaltige Texteditoren im Web zu erstellen, die erweiterte Texterlebnisse unterstützen, wie z.B. die Komposition der {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME), Emoji-Picker oder andere plattformspezifische Bearbeitungs-UI-Oberflächen.
 
 Dieser Artikel behandelt die notwendigen Schritte zum Erstellen eines Texteditors mit der EditContext API. In diesem Leitfaden werden Sie die Hauptschritte zum Erstellen eines einfachen HTML-Code-Editors überprüfen, der während des Tippens die Syntax des Codes hervorhebt und die IME-Kombination unterstützt.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCDTMFSender`**-Schnittstelle bietet einen Mechanismus zur Übertragung von [DTMF](/de/docs/Glossary/DTMF)-Codes auf einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Sie erhalten Zugriff auf den `RTCDTMFSender` der Verbindung über die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft der Audiospur, mit der Sie DTMF senden möchten.
+Die **`RTCDTMFSender`**-Schnittstelle bietet einen Mechanismus zur Übertragung von {{Glossary("DTMF", "DTMF")}}-Codes auf einer [WebRTC](/de/docs/Web/API/WebRTC_API)-[`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Sie erhalten Zugriff auf den `RTCDTMFSender` der Verbindung über die [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf)-Eigenschaft der Audiospur, mit der Sie DTMF senden möchten.
 
 Der Hauptzweck der DTMF-Unterstützung von WebRTC besteht darin, WebRTC-basierte Kommunikations-Clients mit einem [öffentlichen Telefonnetz (PSTN)](https://en.wikipedia.org/wiki/Public_switched_telephone_network) oder anderen veralteten Telefondiensten, einschließlich bestehender Voice over IP (VoIP)-Dienste, zu verbinden. Aus diesem Grund kann DTMF nicht zwischen zwei WebRTC-basierten Geräten verwendet werden, da WebRTC keinen Mechanismus zum Empfangen von DTMF-Codes bereitstellt.
 

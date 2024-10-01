@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`state`**-Eigenschaft des [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Interfaces liefert Informationen, die den Zustand eines Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**) Transports beschreiben.
+Die schreibgeschützte **`state`**-Eigenschaft des [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Interfaces liefert Informationen, die den Zustand eines Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**) Transports beschreiben.
 
 ## Wert
 

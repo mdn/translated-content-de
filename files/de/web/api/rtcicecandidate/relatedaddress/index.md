@@ -14,7 +14,7 @@ Wenn der Kandidat ein Host-Kandidat ist (d. h., seine [`address`](/de/docs/Web/A
 
 Der Wert des Feldes `relatedAddress` wird aus dem `candidateInfo`-Optionsobjekt festgelegt, das an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Sie können den Wert von `relatedAddress` nicht direkt im Optionsobjekt angeben, aber sein Wert wird automatisch aus der `candidate` a-line des Objekts extrahiert, wenn sie korrekt formatiert ist (das `rel-address`-Feld).
 
-Die zugehörige Adresse und der Port ([`relatedPort`](/de/docs/Web/API/RTCIceCandidate/relatedPort)) werden von [ICE](/de/docs/Glossary/ICE) selbst überhaupt nicht verwendet; sie werden nur zu Analyse- und Diagnosezwecken bereitgestellt, und ihre Einbeziehung kann durch Sicherheitssysteme blockiert werden, daher sollten Sie nicht darauf vertrauen, dass sie nicht-`null`-Werte haben.
+Die zugehörige Adresse und der Port ([`relatedPort`](/de/docs/Web/API/RTCIceCandidate/relatedPort)) werden von {{Glossary("ICE", "ICE")}} selbst überhaupt nicht verwendet; sie werden nur zu Analyse- und Diagnosezwecken bereitgestellt, und ihre Einbeziehung kann durch Sicherheitssysteme blockiert werden, daher sollten Sie nicht darauf vertrauen, dass sie nicht-`null`-Werte haben.
 
 ## Wert
 

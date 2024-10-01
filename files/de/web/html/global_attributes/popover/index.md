@@ -11,7 +11,7 @@ Das **`popover`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) wird v
 
 Popover-Elemente sind über `display: none` verborgen, bis sie über ein aufrufendes/steuerndes Element (z. B. ein `<button>` oder `<input type="button">` mit einem [`popovertarget`](/de/docs/Web/HTML/Element/button#popovertarget)-Attribut) oder einen Aufruf von [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover) geöffnet werden.
 
-Wenn sie geöffnet sind, erscheinen Popover-Elemente über allen anderen Elementen in der [Top-Ebene](/de/docs/Glossary/top_layer) und werden nicht durch das {{cssxref('position')}}- oder {{cssxref('overflow')}}-Styling der Elternelemente beeinflusst.
+Wenn sie geöffnet sind, erscheinen Popover-Elemente über allen anderen Elementen in der {{Glossary("top_layer", "Top-Ebene")}} und werden nicht durch das {{cssxref('position')}}- oder {{cssxref('overflow')}}-Styling der Elternelemente beeinflusst.
 
 Ein `popover` Attribut kann die Werte [`"auto"`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) (Standard) oder [`"manual"`](/de/docs/Web/API/Popover_API/Using#using_manual_popover_state) haben.
 Popover mit dem `auto`-Zustand können durch Auswahl außerhalb des Popover-Bereichs "leicht geschlossen" werden und erlauben im Allgemeinen nur, dass ein Popover gleichzeitig auf dem Bildschirm angezeigt wird.

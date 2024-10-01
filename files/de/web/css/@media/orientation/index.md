@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`orientation`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Ausrichtung des [Viewports](/de/docs/Glossary/viewport) (oder des Seitenrahmens bei [paged media](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
+Die **`orientation`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Ausrichtung des {{Glossary("viewport", "Viewports")}} (oder des Seitenrahmens bei [paged media](/de/docs/Web/CSS/CSS_paged_media)) zu testen.
 
 > [!NOTE]
 > Diese Funktion entspricht nicht der _Geräte_-Ausrichtung. Das Öffnen der Soft-Tastatur auf vielen Geräten im Hochformat führt dazu, dass der Viewport breiter als hoch wird, wodurch der Browser Landschaftsstile anstelle von Hochformat verwendet.

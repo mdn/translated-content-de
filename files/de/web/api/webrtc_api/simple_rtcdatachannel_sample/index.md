@@ -166,7 +166,7 @@ localConnection
 
 Lassen Sie uns Zeile für Zeile durchgehen und dekodieren, was es bedeutet.
 
-1. Zuerst rufen wir die Methode [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) auf, um einen [SDP](/de/docs/Glossary/SDP) (Session Description Protocol) Blob zu erstellen, der die Verbindung beschreibt, die wir herstellen möchten. Diese Methode akzeptiert optional ein Objekt mit Einschränkungen, die für die Verbindung erfüllt werden müssen, um Ihren Anforderungen zu genügen, z. B. ob die Verbindung Audio, Video oder beides unterstützen soll. In unserem einfachen Beispiel haben wir keine Einschränkungen.
+1. Zuerst rufen wir die Methode [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) auf, um einen {{Glossary("SDP", "SDP")}} (Session Description Protocol) Blob zu erstellen, der die Verbindung beschreibt, die wir herstellen möchten. Diese Methode akzeptiert optional ein Objekt mit Einschränkungen, die für die Verbindung erfüllt werden müssen, um Ihren Anforderungen zu genügen, z. B. ob die Verbindung Audio, Video oder beides unterstützen soll. In unserem einfachen Beispiel haben wir keine Einschränkungen.
 2. Wenn das Angebot erfolgreich erstellt wird, geben wir den Blob zur lokalen Verbindungsmethode [`RTCPeerConnection.setLocalDescription()`](/de/docs/Web/API/RTCPeerConnection/setLocalDescription) weiter. Dies konfiguriert das lokale Ende der Verbindung.
 3. Der nächste Schritt besteht darin, das lokale Peer mit dem entfernten zu verbinden, indem wir das entfernte Peer darüber informieren. Dies geschieht durch Aufruf von [`remoteConnection.setRemoteDescription()`](/de/docs/Web/API/RTCPeerConnection/setRemoteDescription). Jetzt weiß die `remoteConnection` über die Verbindung, die aufgebaut wird. In einer echten Anwendung wäre dazu ein Signaliserungsserver erforderlich, um das Beschreibungsobjekt auszutauschen.
 4. Das bedeutet, dass es Zeit für das entfernte Peer ist, zu antworten. Dies geschieht durch Aufrufen seiner Methode [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer). Dies erzeugt einen SDP-Blob, der die Verbindung beschreibt, die das entfernte Peer bereit und in der Lage ist, herzustellen. Diese Konfiguration liegt irgendwo im Bereich der Optionen, die beide Peers unterstützen können.
@@ -291,7 +291,7 @@ function handleReceiveMessage(event) {
 }
 ```
 
-Diese Methode führt eine grundlegende [DOM](/de/docs/Glossary/DOM)-Injection durch; sie erstellt ein neues {{HTMLElement("p")}} (Absatz)-Element, dann wird ein neuer [`Text`](/de/docs/Web/API/Text)-Knoten mit dem Nachrichtentext erzeugt, der in der `data`-Eigenschaft des Ereignisses empfangen wird. Dieser Textknoten wird als Kind des neuen Elements angehängt, welches dann in den `receiveBox`-Block eingefügt wird, wodurch es im Browserfenster gezeichnet wird.
+Diese Methode führt eine grundlegende {{Glossary("DOM", "DOM")}}-Injection durch; sie erstellt ein neues {{HTMLElement("p")}} (Absatz)-Element, dann wird ein neuer [`Text`](/de/docs/Web/API/Text)-Knoten mit dem Nachrichtentext erzeugt, der in der `data`-Eigenschaft des Ereignisses empfangen wird. Dieser Textknoten wird als Kind des neuen Elements angehängt, welches dann in den `receiveBox`-Block eingefügt wird, wodurch es im Browserfenster gezeichnet wird.
 
 ### Die Peers trennen
 

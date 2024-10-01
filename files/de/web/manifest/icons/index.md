@@ -71,7 +71,7 @@ Das `icons`-Manifest-Mitglied wird verwendet, um eine oder mehrere Bilddateien a
 
     - `type` {{Optional_Inline}}
 
-      - : Ein String, der den [MIME-Typ](/de/docs/Glossary/MIME_type) des Symbols angibt.
+      - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} des Symbols angibt.
         Der Wert sollte im Format `image/<Untertyp>` sein, wobei `<Untertyp>` ein spezifisches Bildformat ist; beispielsweise gibt `image/png` ein PNG-Bild an.
         Wenn weggelassen, schließen Browser normalerweise auf den Bildtyp aus der Dateiendung.
 
@@ -109,7 +109,7 @@ Der Kontext, in dem ein Symbol verwendet werden kann, wird durch den Browser und
 
 ## Sicherheitsüberlegungen
 
-Die Fähigkeit des Browsers, ein Symbolbild abzurufen, wird durch die Content Security Policy ([CSP](/de/docs/Glossary/CSP)) des Besitzerdokuments des Manifests geregelt, insbesondere durch die [`img-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/img-src)-Direktive. Dieser Sicherheitsaspekt bezieht sich auf die `src`-Eigenschaft.
+Die Fähigkeit des Browsers, ein Symbolbild abzurufen, wird durch die Content Security Policy ({{Glossary("CSP", "CSP")}}) des Besitzerdokuments des Manifests geregelt, insbesondere durch die [`img-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/img-src)-Direktive. Dieser Sicherheitsaspekt bezieht sich auf die `src`-Eigenschaft.
 
 Zum Beispiel, wenn die `img-src`-Richtlinie in einem CSP-Header `icons.example.com` angibt, würden nur Symbole von dieser Domain abrufbar sein. In einem Manifest mit zwei Symbolen, eines von `icons.example.com/lowres` und ein anderes von `other.com/hi-res`, würde nur das erstere erfolgreich abgerufen werden, wegen CSP-Beschränkungen.
 

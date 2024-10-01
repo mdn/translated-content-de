@@ -12,7 +12,7 @@ Die **`facingMode`**-Eigenschaft des [`MediaTrackConstraints`](/de/docs/Web/API/
 
 Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.facingMode`](/de/docs/Web/API/MediaTrackSupportedConstraints/facingMode) prüfen, der durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Information nicht enthält, beinhalten Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, niemals diese Eigenschaft.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, beinhalten Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, niemals diese Eigenschaft.
 
 ## Wert
 

@@ -48,7 +48,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - `auto` {{deprecated_inline}}
   - : Der Wert ist die dominierende Grundlinie des Schriftsystems, zu dem das Zeichen gehört - d. h. verwenden Sie die dominierende Grundlinie des übergeordneten Elements.
 - `baseline`
-  - : Verwendet die Wahl der [dominierenden Grundlinie](/de/docs/Glossary/dominant_baseline) des übergeordneten Elements. Passt die entsprechende [Grundlinie](/de/docs/Glossary/baseline/typography) des Rahmens an die des übergeordneten Elements an.
+  - : Verwendet die Wahl der {{Glossary("dominant_baseline", "dominierenden Grundlinie")}} des übergeordneten Elements. Passt die entsprechende {{Glossary("baseline/typography", "Grundlinie")}} des Rahmens an die des übergeordneten Elements an.
 - `before-edge` {{deprecated_inline}}
   - : Der Ausrichtungspunkt des Objekts, das ausgerichtet wird, wird mit der "before-edge"-Grundlinie des Textinhalts-Elements des übergeordneten Elements ausgerichtet.
 - `text-bottom`

@@ -44,13 +44,13 @@ show(details)
             - `value`
               - : Ein String, der einen gültigen Dezimalwert darstellt, der den Betrag der Währung, die die Zahlungssumme bildet, beinhaltet. Dieser String darf nur ein optionales führendes "-" enthalten, um einen negativen Wert anzugeben, dann eine oder mehrere Ziffern von 0 bis 9, und ein optionaler Dezimalpunkt (".", unabhängig von der Sprache) gefolgt von mindestens einer weiteren Ziffer. Keine Leerzeichen sind erlaubt.
         - `label`
-          - : Ein String, der einen menschenlesbaren Namen oder eine Beschreibung des Artikels oder der Dienstleistung angibt, für den/die berechnet wird. Dies kann dem Benutzer vom [User-Agent](/de/docs/Glossary/user_agent) angezeigt werden, je nach Gestaltung der Oberfläche.
+          - : Ein String, der einen menschenlesbaren Namen oder eine Beschreibung des Artikels oder der Dienstleistung angibt, für den/die berechnet wird. Dies kann dem Benutzer vom {{Glossary("user_agent", "User-Agent")}} angezeigt werden, je nach Gestaltung der Oberfläche.
         - `pending`
           - : Ein boolescher Wert, der `true` ist, wenn der angegebene `amount` noch nicht endgültig ist. Dies kann verwendet werden, um Posten wie Liefer- oder Steuerbeträge zu zeigen, die von der Auswahl der Lieferadresse, der Lieferoption oder Ähnlichem abhängen. Der User-Agent kann diese Informationen anzeigen, ist jedoch nicht dazu verpflichtet.
 
     - `error` {{optional_inline}} {{deprecated_inline}} {{non-standard_inline}}
 
-      - : Ein String, der eine Fehlermeldung angibt, die dem Benutzer angezeigt werden soll. Wenn `updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) aufgerufen wird und `error` in den aktualisierten Daten enthalten ist, zeigt der [User-Agent](/de/docs/Glossary/user_agent) den Text als allgemeine Fehlermeldung an. Für feldspezifische Adressfehler verwenden Sie das Feld `shippingAddressErrors`.
+      - : Ein String, der eine Fehlermeldung angibt, die dem Benutzer angezeigt werden soll. Wenn `updateWith()`](/de/docs/Web/API/PaymentRequestUpdateEvent/updateWith) aufgerufen wird und `error` in den aktualisierten Daten enthalten ist, zeigt der {{Glossary("user_agent", "User-Agent")}} den Text als allgemeine Fehlermeldung an. Für feldspezifische Adressfehler verwenden Sie das Feld `shippingAddressErrors`.
 
     - `modifiers` {{optional_inline}}
 
@@ -85,7 +85,7 @@ Ausnahmen werden zurückgegeben, wenn das {{jsxref("Promise")}} zurückgewiesen 
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
 
   - : Wird zurückgegeben, wenn der
-    [User-Agent](/de/docs/Glossary/user_agent) bereits ein Zahlungsfenster anzeigt. Es darf jeweils nur ein Zahlungsfenster sichtbar sein _über alle vom User-Agent geladenen Dokumente_.
+    {{Glossary("user_agent", "User-Agent")}} bereits ein Zahlungsfenster anzeigt. Es darf jeweils nur ein Zahlungsfenster sichtbar sein _über alle vom User-Agent geladenen Dokumente_.
 
     Das Versprechen wird auch mit `AbortError` zurückgewiesen, wenn der Benutzer die
     Zahlungsanforderung abbricht.

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einem Versionskontrollsystem wie [Git](/de/docs/Glossary/Git) oder [SVN](/de/docs/Glossary/SVN) ist ein Repo (d.h. "Repository") ein Ort, der den Quellcode einer Anwendung zusammen mit verschiedenen Metadaten hostet.
+In einem Versionskontrollsystem wie {{Glossary("Git", "Git")}} oder {{Glossary("SVN", "SVN")}} ist ein Repo (d.h. "Repository") ein Ort, der den Quellcode einer Anwendung zusammen mit verschiedenen Metadaten hostet.
 
 ## Siehe auch
 

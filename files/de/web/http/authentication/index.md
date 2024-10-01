@@ -12,7 +12,7 @@ Diese Seite ist eine Einführung in das HTTP-Authentifizierungsrahmenwerk und ze
 
 ## Das allgemeine HTTP-Authentifizierungsrahmenwerk
 
-{{RFC("7235")}} definiert das HTTP-Authentifizierungsrahmenwerk, welches von einem Server genutzt werden kann, um eine [Challenge](/de/docs/Glossary/challenge) an eine Client-Anfrage zu senden und vom Client zur Bereitstellung von Authentifizierungsinformationen.
+{{RFC("7235")}} definiert das HTTP-Authentifizierungsrahmenwerk, welches von einem Server genutzt werden kann, um eine {{Glossary("challenge", "Challenge")}} an eine Client-Anfrage zu senden und vom Client zur Bereitstellung von Authentifizierungsinformationen.
 
 Der Ablauf von Challenge und Antwort funktioniert folgendermaßen:
 

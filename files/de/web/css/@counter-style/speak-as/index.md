@@ -35,7 +35,7 @@ speak-as: <counter-style-name>;
     - In allen anderen Fällen hat die Angabe von `auto` denselben Effekt wie die Angabe von `speak-as: numbers`.
 
 - `bullets`
-  - : Eine vom [User-Agent](/de/docs/Glossary/user_agent) definierte Phrase oder ein akustisches Signal zur Darstellung eines Listenelements einer ungeordneten Liste wird vorgelesen.
+  - : Eine vom {{Glossary("user_agent", "User-Agent")}} definierte Phrase oder ein akustisches Signal zur Darstellung eines Listenelements einer ungeordneten Liste wird vorgelesen.
 - `numbers`
   - : Der numerische Wert des Zählers wird in der Dokumentensprache vorgelesen.
 - `words`

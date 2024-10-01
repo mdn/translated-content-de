@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/First_steps/Variables", "Learn/JavaScript/First_steps/Strings", "Learn/JavaScript/First_steps")}}
 
-An diesem Punkt im Kurs besprechen wir Mathematik in JavaScript — wie wir [Operatoren](/de/docs/Glossary/Operator) und andere Funktionen nutzen können, um Zahlen erfolgreich zu manipulieren und unsere Aufgaben damit zu erfüllen.
+An diesem Punkt im Kurs besprechen wir Mathematik in JavaScript — wie wir {{Glossary("Operator", "Operatoren")}} und andere Funktionen nutzen können, um Zahlen erfolgreich zu manipulieren und unsere Aufgaben damit zu erfüllen.
 
 <table>
   <tbody>
@@ -49,7 +49,7 @@ Wir haben sogar verschiedene Arten von Zahlensystemen! Dezimal ist Basis 10 (das
 Die zweite gute Nachricht ist, dass JavaScript im Gegensatz zu einigen anderen Programmiersprachen nur einen Datentyp für Zahlen hat, sowohl für Ganzzahlen als auch für Dezimalstellen — Sie haben es erraten, {{jsxref("Number")}}. Das bedeutet, dass Sie, egal mit welchen Zahlentypen Sie in JavaScript arbeiten, sie auf genau dieselbe Weise behandeln.
 
 > [!NOTE]
-> Tatsächlich hat JavaScript einen zweiten Zahlentyp, [BigInt](/de/docs/Glossary/BigInt), der für sehr, sehr große Ganzzahlen verwendet wird. Aber für die Zwecke dieses Kurses werden wir uns nur mit `Number`-Werten befassen.
+> Tatsächlich hat JavaScript einen zweiten Zahlentyp, {{Glossary("BigInt", "BigInt")}}, der für sehr, sehr große Ganzzahlen verwendet wird. Aber für die Zwecke dieses Kurses werden wir uns nur mit `Number`-Werten befassen.
 
 ### Es ist alles Zahlensache für mich
 
@@ -183,7 +183,7 @@ Arithmetische Operatoren werden verwendet, um mathematische Berechnungen in Java
 </table>
 
 > [!NOTE]
-> Manchmal sehen Sie Zahlen, die in arithmetischen Operationen als [Operanden](/de/docs/Glossary/Operand) bezeichnet werden.
+> Manchmal sehen Sie Zahlen, die in arithmetischen Operationen als {{Glossary("Operand", "Operanden")}} bezeichnet werden.
 
 > [!NOTE]
 > Sie sehen vielleicht manchmal, dass Exponenten mit der älteren Methode {{jsxref("Math.pow()")}} ausgedrückt werden, die auf sehr ähnliche Weise funktioniert. Zum Beispiel ist in `Math.pow(7, 3)`, `7` die Basis und `3` der Exponent, sodass das Ergebnis des Ausdrucks `343` ist. `Math.pow(7, 3)` ist gleichbedeutend mit `7**3`.
@@ -383,14 +383,14 @@ Keine Sorge, wenn Sie den Code völlig durcheinander bringen. Sie können jederz
 
 Manchmal möchten wir wahr/falsch-Tests ausführen und dann entsprechend dem Ergebnis dieses Tests handeln — um dies zu tun, verwenden wir **Vergleichsoperatoren**.
 
-| Operator | Name                     | Zweck                                                                      | Beispiel       |
-| -------- | ------------------------ | ---------------------------------------------------------------------------- | ------------- |
-| `===`    | Strikte Gleichheit       | Testet, ob die linken und rechten Werte identisch sind                       | `5 === 2 + 4` |
-| `!==`    | Strikte Nicht-Gleichheit | Testet, ob die linken und rechten Werte **nicht** identisch sind             | `5 !== 2 + 3` |
-| `<`      | Kleiner als              | Testet, ob der linke Wert kleiner als der rechte ist.                       | `10 < 6`      |
-| `>`      | Größer als               | Testet, ob der linke Wert größer als der rechte ist.                        | `10 > 20`     |
-| `<=`     | Kleiner oder gleich      | Testet, ob der linke Wert kleiner oder gleich dem rechten ist.              | `3 <= 2`      |
-| `>=`     | Größer oder gleich       | Testet, ob der linke Wert größer oder gleich dem rechten ist.                | `5 >= 4`      |
+| Operator | Name                     | Zweck                                                            | Beispiel      |
+| -------- | ------------------------ | ---------------------------------------------------------------- | ------------- |
+| `===`    | Strikte Gleichheit       | Testet, ob die linken und rechten Werte identisch sind           | `5 === 2 + 4` |
+| `!==`    | Strikte Nicht-Gleichheit | Testet, ob die linken und rechten Werte **nicht** identisch sind | `5 !== 2 + 3` |
+| `<`      | Kleiner als              | Testet, ob der linke Wert kleiner als der rechte ist.            | `10 < 6`      |
+| `>`      | Größer als               | Testet, ob der linke Wert größer als der rechte ist.             | `10 > 20`     |
+| `<=`     | Kleiner oder gleich      | Testet, ob der linke Wert kleiner oder gleich dem rechten ist.   | `3 <= 2`      |
+| `>=`     | Größer oder gleich       | Testet, ob der linke Wert größer oder gleich dem rechten ist.    | `5 >= 4`      |
 
 > [!NOTE]
 > Sie könnten sehen, dass manche Leute `==` und `!=` in ihren Tests für Gleichheit und Nicht-Gleichheit verwenden. Diese sind gültige Operatoren in JavaScript, aber sie unterscheiden sich von `===`/`!==`. Die früheren Versionen testen, ob die Werte gleich sind, aber nicht, ob die Datentypen der Werte gleich sind. Die strikteren Versionen testen die Gleichheit sowohl der Werte als auch ihrer Datentypen. Die strikteren Versionen führen zu weniger Fehlern, daher empfehlen wir Ihnen, diese zu verwenden.

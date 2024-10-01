@@ -58,12 +58,12 @@ const re = new RegExp("\\w+");
 Einige eingebaute Methoden behandeln Regexes auf besondere Weise. Sie bestimmen, ob `x` ein Regex ist, durch [mehrere Schritte](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-isregexp):
 
 1. `x` muss ein Objekt (kein primitiver Wert) sein.
-2. Wenn [`x[Symbol.match]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match) nicht `undefined` ist, überprüfen Sie, ob es [truthy](/de/docs/Glossary/Truthy) ist.
+2. Wenn [`x[Symbol.match]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/match) nicht `undefined` ist, überprüfen Sie, ob es {{Glossary("Truthy", "truthy")}} ist.
 3. Andernfalls, wenn `x[Symbol.match]` `undefined` ist, prüfen Sie, ob `x` mit dem `RegExp`-Konstruktor erstellt wurde. (Dieser Schritt sollte selten vorkommen, da, wenn `x` ein `RegExp`-Objekt ist, das nicht manipuliert wurde, es eine `Symbol.match`-Eigenschaft haben sollte.)
 
 Beachten Sie, dass in den meisten Fällen die `Symbol.match`-Überprüfung durchgeführt wird, was bedeutet:
 
-- Ein echtes `RegExp`-Objekt, dessen `Symbol.match`-Eigenschaftswert [falsy](/de/docs/Glossary/Falsy), aber nicht `undefined` ist (selbst wenn alles andere intakt ist, wie [`exec`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace)), kann verwendet werden, als wäre es kein Regex.
+- Ein echtes `RegExp`-Objekt, dessen `Symbol.match`-Eigenschaftswert {{Glossary("Falsy", "falsy")}}, aber nicht `undefined` ist (selbst wenn alles andere intakt ist, wie [`exec`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec) und [`[Symbol.replace]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/Symbol.replace)), kann verwendet werden, als wäre es kein Regex.
 - Ein Nicht-`RegExp`-Objekt mit einer `Symbol.match`-Eigenschaft wird als Regex behandelt.
 
 Diese Entscheidung wurde getroffen, weil `[Symbol.match]()` die aussagekräftigste Eigenschaft ist, dass etwas für das Matching verwendet werden soll. (`exec` könnte auch verwendet werden, aber da es keine Symbol-Eigenschaft ist, gäbe es zu viele Fehlinterpretationen.) Die Orte, die Regexes speziell behandeln, umfassen:
@@ -79,7 +79,7 @@ Zum Beispiel würde [`String.prototype.endsWith()`](/de/docs/Web/JavaScript/Refe
 "foobar".endsWith(/bar/); // TypeError: First argument to String.prototype.endsWith must not be a regular expression
 ```
 
-Sie können die Überprüfung umgehen, indem Sie `[Symbol.match]` auf einen [falschen](/de/docs/Glossary/Falsy) Wert setzen, der nicht `undefined` ist. Das würde bedeuten, dass der Regex nicht für `String.prototype.match()` verwendet werden kann (da ohne `[Symbol.match]` `match()` ein neues `RegExp`-Objekt mit den beiden umschließenden Schrägstrichen, die von [`re.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/toString) hinzugefügt wurden, konstruieren würde), aber er kann praktisch für alles andere verwendet werden.
+Sie können die Überprüfung umgehen, indem Sie `[Symbol.match]` auf einen {{Glossary("Falsy", "falschen")}} Wert setzen, der nicht `undefined` ist. Das würde bedeuten, dass der Regex nicht für `String.prototype.match()` verwendet werden kann (da ohne `[Symbol.match]` `match()` ein neues `RegExp`-Objekt mit den beiden umschließenden Schrägstrichen, die von [`re.toString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/toString) hinzugefügt wurden, konstruieren würde), aber er kann praktisch für alles andere verwendet werden.
 
 ```js
 const re = /bar/g;

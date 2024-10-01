@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Compute Pressure API")}}{{SeeCompatTable}}{{securecontext_header}}
 
-Die **`toJSON()`**-Methode ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts zurück.
+Die **`toJSON()`**-Methode ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PressureRecord`](/de/docs/Web/API/PressureRecord)-Objekts zurück.
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**ICANN** (Internet Corporation for Assigned Names and Numbers) ist eine internationale Non-Profit-Organisation, die das [Domain Name System](/de/docs/Glossary/DNS) und das Verzeichnis der [IP-Adressen](/de/docs/Glossary/IP_address) pflegt.
+**ICANN** (Internet Corporation for Assigned Names and Numbers) ist eine internationale Non-Profit-Organisation, die das {{Glossary("DNS", "Domain Name System")}} und das Verzeichnis der {{Glossary("IP_address", "IP-Adressen")}} pflegt.
 
 ## Siehe auch
 

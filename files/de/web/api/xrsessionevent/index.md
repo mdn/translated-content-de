@@ -32,7 +32,7 @@ _Obwohl `XRSessionEvent` keine Methoden definiert, erbt es Methoden von seiner �
 _Die folgenden Ereignisse werden durch die `XRSessionEvent`-Schnittstelle dargestellt und sind zugelassene Werte für die Eigenschaft `type`._
 
 - [`end`](/de/docs/Web/API/XRSession/end_event)
-  - : Wird bei der Sitzung ausgelöst, wenn sie beendet wurde, nachdem sie von der Anwendung oder dem [User-Agent](/de/docs/Glossary/user_agent) beendet wurde.
+  - : Wird bei der Sitzung ausgelöst, wenn sie beendet wurde, nachdem sie von der Anwendung oder dem {{Glossary("user_agent", "User-Agent")}} beendet wurde.
 - [`visibilitychange`](/de/docs/Web/API/XRSession/visibilitychange_event)
   - : Wird bei der Sitzung ausgelöst, wann immer sich ihr Sichtbarkeitsstatus ändert.
 

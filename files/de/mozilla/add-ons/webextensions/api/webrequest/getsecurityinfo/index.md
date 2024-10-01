@@ -7,7 +7,7 @@ l10n:
 
 {{AddonSidebar}}
 
-Verwenden Sie diese Funktion, um detaillierte Informationen über die [TLS](/de/docs/Glossary/TLS)-Verbindung abzurufen, die mit einer bestimmten Anfrage verbunden ist.
+Verwenden Sie diese Funktion, um detaillierte Informationen über die {{Glossary("TLS", "TLS")}}-Verbindung abzurufen, die mit einer bestimmten Anfrage verbunden ist.
 
 Sie übergeben dieser Funktion die `requestId` für die betreffende Anfrage und einige optionale zusätzliche Parameter. Sie gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das auf ein {{WebExtAPIRef("webRequest.SecurityInfo", "SecurityInfo")}}-Objekt aufgelöst wird.
 

@@ -27,7 +27,7 @@ Eine Liste von [`NDEFRecord`](/de/docs/Web/API/NDEFRecord).
 ### Ausnahmen
 
 - `NotSupported` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Gibt an, dass der [User Agent](/de/docs/Glossary/User_Agent) nicht weiß, wie diese Kombination aus [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) und [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) zu parsen ist.
+  - : Gibt an, dass der {{Glossary("User_Agent", "User Agent")}} nicht weiß, wie diese Kombination aus [`NDEFRecord.data`](/de/docs/Web/API/NDEFRecord/data) und [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) zu parsen ist.
 
 ## Beispiele
 

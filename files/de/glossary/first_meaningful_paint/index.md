@@ -17,5 +17,5 @@ FMP ist sehr empfindlich gegenüber kleinen Unterschieden im Seitenladevorgang. 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [First contentful paint](/de/docs/Glossary/First_contentful_paint)
-  - [Largest contentful paint](/de/docs/Glossary/Largest_contentful_paint)
+  - {{Glossary("First_contentful_paint", "First contentful paint")}}
+  - {{Glossary("Largest_contentful_paint", "Largest contentful paint")}}

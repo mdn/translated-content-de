@@ -24,7 +24,7 @@ hue-rotate(angle)
 ### Werte
 
 - `angle`
-  - : Die relative Änderung des Farbtons der Eingabestelle, angegeben als {{cssxref("&lt;angle&gt;")}}. Ein Wert von `0deg` lässt die Eingabe unverändert. Eine positive Farbtondrehung erhöht den Farbtonwert, während eine negative Drehung den Farbtonwert verringert. Der Anfangswert für [Interpolation](/de/docs/Glossary/interpolation) ist `0`. Es gibt keinen Mindest- oder Höchstwert. Der Effekt von Werten über `360deg` wird, bei `hue-rotate(Ndeg)`, auf `N` modulo 360 ausgewertet.
+  - : Die relative Änderung des Farbtons der Eingabestelle, angegeben als {{cssxref("&lt;angle&gt;")}}. Ein Wert von `0deg` lässt die Eingabe unverändert. Eine positive Farbtondrehung erhöht den Farbtonwert, während eine negative Drehung den Farbtonwert verringert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Es gibt keinen Mindest- oder Höchstwert. Der Effekt von Werten über `360deg` wird, bei `hue-rotate(Ndeg)`, auf `N` modulo 360 ausgewertet.
 
 Der `<angle>` CSS-Datentyp repräsentiert einen Winkelwert, der in Grad, Gon, Radiant oder Turn ausgedrückt wird. Die folgenden Beispiele sind gleichwertig:
 

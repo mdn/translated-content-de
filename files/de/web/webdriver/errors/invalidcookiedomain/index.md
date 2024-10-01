@@ -7,9 +7,9 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der Fehler **invalid cookie domain** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein [Cookie](/de/docs/Glossary/Cookie) unter einer anderen [Domain](/de/docs/Glossary/Domain) als der des aktuellen Dokuments zu setzen.
+Der Fehler **invalid cookie domain** ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn ein illegaler Versuch unternommen wurde, ein {{Glossary("Cookie", "Cookie")}} unter einer anderen {{Glossary("Domain", "Domain")}} als der des aktuellen Dokuments zu setzen.
 
-Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des [aktuellen Browser-Kontexts](/de/docs/Glossary/Browsing_context)'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
+Im WebDriver ist es nicht erlaubt, Cookies für andere Domains als die Domain des {{Glossary("Browsing_context", "aktuellen Browser-Kontexts")}}'s [Dokuments](/de/docs/Web/API/Document) zu setzen.
 
 Dieser Fehler tritt auch auf, wenn das Dokument _cookie-averse_ ist, also wenn das Dokument nicht über `http://`, `https://` oder `ftp://` geladen wird.
 

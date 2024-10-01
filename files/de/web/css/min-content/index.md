@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das `min-content` Größenschlüsselwort repräsentiert die minimale [intrinsische Größe](/de/docs/Glossary/intrinsic_size) des Inhalts. Für Textinhalte bedeutet dies, dass der Inhalt alle weichen Umbruchmöglichkeiten nutzt und dabei so klein wie das längste Wort wird.
+Das `min-content` Größenschlüsselwort repräsentiert die minimale {{Glossary("intrinsic_size", "intrinsische Größe")}} des Inhalts. Für Textinhalte bedeutet dies, dass der Inhalt alle weichen Umbruchmöglichkeiten nutzt und dabei so klein wie das längste Wort wird.
 
 ## Syntax
 

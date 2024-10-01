@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`v-mathematical`**-Attribut gibt die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph) an, um die mathematische Basislinienausrichtung für vertikal ausgerichtete Glyphenanordnungen zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem relativ zum spezifischen Glyphenattribut {{SVGAttr("vert-origin-x")}}.
+Das **`v-mathematical`**-Attribut gibt die Ausrichtungskoordinate für {{Glossary("glyph", "Glyphen")}} an, um die mathematische Basislinienausrichtung für vertikal ausgerichtete Glyphenanordnungen zu erreichen. Der Wert ist ein Versatz im Schriftkoordinatensystem relativ zum spezifischen Glyphenattribut {{SVGAttr("vert-origin-x")}}.
 
 Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 

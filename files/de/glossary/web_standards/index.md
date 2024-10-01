@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-Webstandards sind Regeln, die von internationalen Normungsgremien festgelegt werden und definieren, wie das [Web](/de/docs/Glossary/World_Wide_Web) funktioniert (und die manchmal auch das [Internet](/de/docs/Glossary/Internet) steuern).
+Webstandards sind Regeln, die von internationalen Normungsgremien festgelegt werden und definieren, wie das {{Glossary("World_Wide_Web", "Web")}} funktioniert (und die manchmal auch das {{Glossary("Internet", "Internet")}} steuern).
 
 Mehrere Normungsgremien sind verantwortlich für die Definition verschiedener Aspekte des Webs, und alle Standards müssen koordiniert werden, um die maximale Nutzbarkeit und Zugänglichkeit des Webs sicherzustellen. Webstandards müssen sich auch weiterentwickeln, um den aktuellen Stand zu verbessern und sich an neue Umstände anzupassen.
 
 Diese nicht erschöpfende Liste gibt Ihnen eine Vorstellung davon, welchen Standards Websites und Netzwerksysteme entsprechen müssen:
 
-- **IETF** (Internet Engineering Task Force): Internetstandards (STD), die unter anderem die Einrichtung und Nutzung von [URIs](/de/docs/Glossary/URI), [HTTP](/de/docs/Glossary/HTTP) und [MIME](/de/docs/Glossary/MIME) regeln
-- **[W3C](/de/docs/Glossary/W3C)**: Spezifikationen für Auszeichnungssprachen (z. B. [HTML](/de/docs/Glossary/HTML)), Stildefinitionen (z. B. [CSS](/de/docs/Glossary/CSS)), [DOM](/de/docs/Glossary/DOM), [Barrierefreiheit](/de/docs/Glossary/Accessibility)
+- **IETF** (Internet Engineering Task Force): Internetstandards (STD), die unter anderem die Einrichtung und Nutzung von {{Glossary("URI", "URIs")}}, {{Glossary("HTTP", "HTTP")}} und {{Glossary("MIME", "MIME")}} regeln
+- **{{Glossary("W3C", "W3C")}}**: Spezifikationen für Auszeichnungssprachen (z. B. {{Glossary("HTML", "HTML")}}), Stildefinitionen (z. B. {{Glossary("CSS", "CSS")}}), {{Glossary("DOM", "DOM")}}, {{Glossary("Accessibility", "Barrierefreiheit")}}
 - **IANA** (Internet Assigned Numbers Authority): Namens- und Nummernregister
-- **Ecma Intl.:** Script-Standards, am prominentesten für [JavaScript](/de/docs/Glossary/JavaScript)
-- **[ISO](/de/docs/Glossary/ISO)** (International Organization for Standardization): Standards, die eine Vielzahl von Aspekten regeln, darunter Zeichencodierungen, Website-Management und Benutzeroberflächengestaltung
+- **Ecma Intl.:** Script-Standards, am prominentesten für {{Glossary("JavaScript", "JavaScript")}}
+- **{{Glossary("ISO", "ISO")}}** (International Organization for Standardization): Standards, die eine Vielzahl von Aspekten regeln, darunter Zeichencodierungen, Website-Management und Benutzeroberflächengestaltung
 
 ## Entgegengesetzte Standards
 

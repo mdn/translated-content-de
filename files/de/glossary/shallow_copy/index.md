@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Shallow Copy** (flache Kopie) eines Objekts ist eine Kopie, deren Eigenschaften dieselben [Referenzen](/de/docs/Glossary/object_reference) (weisen auf dieselben zugrunde liegenden Werte) wie die des Quellobjekts haben, von dem die Kopie erstellt wurde. Daher kann es beim Ändern entweder des Quellobjekts oder der Kopie passieren, dass sich das andere Objekt ebenfalls ändert. Dieses Verhalten steht im Gegensatz zu dem einer [Deep Copy](/de/docs/Glossary/deep_copy), bei der Quelle und Kopie vollständig unabhängig voneinander sind.
+Eine **Shallow Copy** (flache Kopie) eines Objekts ist eine Kopie, deren Eigenschaften dieselben {{Glossary("object_reference", "Referenzen")}} (weisen auf dieselben zugrunde liegenden Werte) wie die des Quellobjekts haben, von dem die Kopie erstellt wurde. Daher kann es beim Ändern entweder des Quellobjekts oder der Kopie passieren, dass sich das andere Objekt ebenfalls ändert. Dieses Verhalten steht im Gegensatz zu dem einer {{Glossary("deep_copy", "Deep Copy")}}, bei der Quelle und Kopie vollständig unabhängig voneinander sind.
 
 Formeller ausgedrückt sind zwei Objekte `o1` und `o2` flache Kopien, wenn:
 
@@ -16,9 +16,9 @@ Formeller ausgedrückt sind zwei Objekte `o1` und `o2` flache Kopien, wenn:
 3. Die Werte ihrer Eigenschaften gleich sind.
 4. Ihre Prototypketten gleich sind.
 
-Siehe auch die Definition von _[struktureller Äquivalenz](/de/docs/Glossary/deep_copy)_.
+Siehe auch die Definition von _{{Glossary("deep_copy", "struktureller Äquivalenz")}}_.
 
-Die Kopie eines Objekts, dessen Eigenschaften alle primitive Werte haben, passt sowohl zur Definition einer [Deep Copy](/de/docs/Glossary/deep_copy) als auch einer flachen Kopie. Es ist jedoch etwas sinnlos, über die Tiefe einer solchen Kopie zu sprechen, da keine verschachtelten Eigenschaften vorhanden sind und wir normalerweise im Kontext der Änderung verschachtelter Eigenschaften über Deep Copy sprechen.
+Die Kopie eines Objekts, dessen Eigenschaften alle primitive Werte haben, passt sowohl zur Definition einer {{Glossary("deep_copy", "Deep Copy")}} als auch einer flachen Kopie. Es ist jedoch etwas sinnlos, über die Tiefe einer solchen Kopie zu sprechen, da keine verschachtelten Eigenschaften vorhanden sind und wir normalerweise im Kontext der Änderung verschachtelter Eigenschaften über Deep Copy sprechen.
 
 Bei flachen Kopien werden nur die Eigenschaften der obersten Ebene kopiert, nicht die Werte verschachtelter Objekte. Daher:
 
@@ -59,4 +59,4 @@ console.log(JSON.stringify(ingredientsList));
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Deep copy](/de/docs/Glossary/Deep_copy)
+  - {{Glossary("Deep_copy", "Deep copy")}}

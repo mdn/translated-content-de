@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`kind`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Wörterbuchs ist ein String, der angibt, ob der beschriebene [RTP](/de/docs/Glossary/RTP)-Stream Audio- oder Videomedien enthält.
+Die **`kind`**-Eigenschaft des [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Wörterbuchs ist ein String, der angibt, ob der beschriebene {{Glossary("RTP", "RTP")}}-Stream Audio- oder Videomedien enthält.
 
 Dieser String entspricht immer dem [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekts, das von dem Stream übertragen wird. Es wird auch mit dem Medientyp der [`RTCCodecStats.codec`](/de/docs/Web/API/RTCCodecStats/codec)-Eigenschaft des Statistikobjekts übereinstimmen.
 

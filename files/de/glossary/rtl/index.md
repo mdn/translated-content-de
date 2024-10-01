@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**RTL** (**Right To Left**) ist eine [locale](/de/docs/Glossary/locale)-Eigenschaft, die angibt, dass Text von rechts nach links geschrieben wird.
+**RTL** (**Right To Left**) ist eine {{Glossary("locale", "locale")}}-Eigenschaft, die angibt, dass Text von rechts nach links geschrieben wird.
 
 Zum Beispiel spezifiziert das `he`-Locale (für Hebräisch) die Schreibrichtung von rechts nach links. Arabisch (`ar`) ist eine weitere häufige Sprache, die RTL geschrieben wird.
 
@@ -16,7 +16,7 @@ Das Gegenteil von RTL, LTR (Left To Right), wird in anderen Sprachen verwendet, 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Locale](/de/docs/Glossary/Locale)
-  - [Lokalisierung](/de/docs/Glossary/Localization)
-  - [LTR](/de/docs/Glossary/LTR) (Left to Right)
-  - [BiDi](/de/docs/Glossary/BiDi)
+  - {{Glossary("Locale", "Locale")}}
+  - {{Glossary("Localization", "Lokalisierung")}}
+  - {{Glossary("LTR", "LTR")}} (Left to Right)
+  - {{Glossary("BiDi", "BiDi")}}

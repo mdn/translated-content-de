@@ -26,7 +26,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen, wie das `scroll` Ereignis mit einem Event-Listener und mit der `onscroll` Event-Handler-Eigenschaft verwendet wird. Die [`setTimeout()`](/de/docs/Web/API/SetTimeout) Methode wird verwendet, um den Event-Handler zu [drosseln](/de/docs/Glossary/throttle), da `scroll` Ereignisse mit einer hohen Rate ausgelöst werden können. Für zusätzliche Beispiele, die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwenden, siehe die `Document` [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis-Seite.
+Die folgenden Beispiele zeigen, wie das `scroll` Ereignis mit einem Event-Listener und mit der `onscroll` Event-Handler-Eigenschaft verwendet wird. Die [`setTimeout()`](/de/docs/Web/API/SetTimeout) Methode wird verwendet, um den Event-Handler zu {{Glossary("throttle", "drosseln")}}, da `scroll` Ereignisse mit einer hohen Rate ausgelöst werden können. Für zusätzliche Beispiele, die [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) verwenden, siehe die `Document` [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis-Seite.
 
 ### Verwendung von `scroll` mit einem Event-Listener
 

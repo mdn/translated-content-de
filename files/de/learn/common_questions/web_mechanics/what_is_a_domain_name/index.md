@@ -35,7 +35,7 @@ l10n:
 
 Domainnamen sind ein wesentlicher Bestandteil der Internet-Infrastruktur. Sie bieten eine menschenlesbare Adresse für jeden Webserver, der im Internet verfügbar ist.
 
-Jeder mit dem Internet verbundene Computer kann über eine öffentliche [IP-Adresse](/de/docs/Glossary/IP_Address) erreicht werden, entweder eine IPv4-Adresse (z. B. `192.0.2.172`) oder eine IPv6-Adresse (z. B. `2001:db8:8b73:0000:0000:8a2e:0370:1337`).
+Jeder mit dem Internet verbundene Computer kann über eine öffentliche {{Glossary("IP_Address", "IP-Adresse")}} erreicht werden, entweder eine IPv4-Adresse (z. B. `192.0.2.172`) oder eine IPv6-Adresse (z. B. `2001:db8:8b73:0000:0000:8a2e:0370:1337`).
 
 Computer können solche Adressen leicht verarbeiten, aber Menschen haben Schwierigkeiten zu erkennen, wer den Server betreibt oder welchen Service die Website anbietet. IP-Adressen sind schwer zu merken und können sich im Laufe der Zeit ändern.
 
@@ -51,7 +51,7 @@ Ein Domainname hat eine einfache Struktur, die aus mehreren Teilen besteht (es k
 
 Jeder dieser Teile liefert spezifische Informationen über den gesamten Domainnamen.
 
-- [TLD](/de/docs/Glossary/TLD) (Top-Level Domain).
+- {{Glossary("TLD", "TLD")}} (Top-Level Domain).
 
   - : TLDs geben den Benutzern den allgemeinen Zweck des Dienstes hinter dem Domainnamen an. Die allgemeinsten TLDs (`.com`, `.org`, `.net`) erfordern nicht, dass Webdienste bestimmte Kriterien erfüllen, aber einige TLDs setzen strengere Richtlinien durch, sodass klarer ist, was ihr Zweck ist. Zum Beispiel:
 

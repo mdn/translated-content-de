@@ -58,5 +58,5 @@ textTrackElem.oncuechange = (event) => {
 
 ## Siehe auch
 
-- [WebVTT](/de/docs/Glossary/WebVTT)
+- {{Glossary("WebVTT", "WebVTT")}}
 - Dasselbe Ereignis auf [`TextTrack`](/de/docs/Web/API/TextTrack): [`cuechange`](/de/docs/Web/API/TextTrack/cuechange_event)

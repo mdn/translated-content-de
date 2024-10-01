@@ -7,13 +7,13 @@ l10n:
 
 {{JSRef}}
 
-Die **`DataView`**-Ansicht bietet eine niedrigstufige Schnittstelle zum Lesen und Schreiben mehrerer Zahlentypen in einem binären {{jsxref("ArrayBuffer")}}, ohne sich um die [Endianness](/de/docs/Glossary/Endianness) der Plattform kümmern zu müssen.
+Die **`DataView`**-Ansicht bietet eine niedrigstufige Schnittstelle zum Lesen und Schreiben mehrerer Zahlentypen in einem binären {{jsxref("ArrayBuffer")}}, ohne sich um die {{Glossary("Endianness", "Endianness")}} der Plattform kümmern zu müssen.
 
 ## Beschreibung
 
 ### Endianness
 
-Mehrbyte-Zahlenformate werden je nach Maschinenarchitektur im Speicher unterschiedlich dargestellt — siehe [Endianness](/de/docs/Glossary/Endianness) für eine Erklärung. `DataView`-Accessoren bieten explizite Kontrolle darüber, wie auf Daten zugegriffen wird, unabhängig von der Endianness des ausführenden Computers. Zum Beispiel ist der [WebAssembly](/de/docs/WebAssembly)-Speicher immer im Little-Endian-Format, daher sollten Sie `DataView` anstelle von typisierten Arrays verwenden, um Mehrbyte-Werte zu lesen und zu schreiben. Sehen Sie sich [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) für ein Beispiel an.
+Mehrbyte-Zahlenformate werden je nach Maschinenarchitektur im Speicher unterschiedlich dargestellt — siehe {{Glossary("Endianness", "Endianness")}} für eine Erklärung. `DataView`-Accessoren bieten explizite Kontrolle darüber, wie auf Daten zugegriffen wird, unabhängig von der Endianness des ausführenden Computers. Zum Beispiel ist der [WebAssembly](/de/docs/WebAssembly)-Speicher immer im Little-Endian-Format, daher sollten Sie `DataView` anstelle von typisierten Arrays verwenden, um Mehrbyte-Werte zu lesen und zu schreiben. Sehen Sie sich [`WebAssembly.Memory`](/de/docs/WebAssembly/JavaScript_interface/Memory) für ein Beispiel an.
 
 ```js
 const littleEndian = (() => {

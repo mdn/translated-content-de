@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`row-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ([Rinne](/de/docs/Glossary/gutters)) zwischen den Zeilen eines Elements fest.
+Die **`row-gap`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe des Abstands ({{Glossary("gutters", "Rinne")}}) zwischen den Zeilen eines Elements fest.
 
 In den frühen Versionen der Spezifikation wurde diese Eigenschaft `grid-row-gap` genannt, und um die Kompatibilität mit älteren Websites zu gewährleisten, akzeptieren Browser weiterhin `grid-row-gap` als Alias für `row-gap`.
 

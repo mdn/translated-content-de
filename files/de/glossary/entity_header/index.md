@@ -8,9 +8,9 @@ l10n:
 {{GlossarySidebar}}
 
 > [!WARNING]
-> Die aktuelle HTTP/1.1-Spezifikation verweist nicht mehr auf Entitäten, Entitäts-Header oder Entitätskörper. Einige der Felder werden jetzt als [Representation header](/de/docs/Glossary/Representation_header)-Felder bezeichnet.
+> Die aktuelle HTTP/1.1-Spezifikation verweist nicht mehr auf Entitäten, Entitäts-Header oder Entitätskörper. Einige der Felder werden jetzt als {{Glossary("Representation_header", "Representation header")}}-Felder bezeichnet.
 
-Ein Entity-Header ist ein [HTTP header](/de/docs/Glossary/HTTP_header), der den [Inhalt](/de/docs/Glossary/HTTP_content) einer HTTP-Nachricht beschreibt (d.h. Metadaten über den Nachrichtenkörper). Zu den Entity-Headern gehören: {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Encoding")}}, {{HTTPHeader("Content-Type")}}, {{HTTPHeader("Expires")}} usw. Entity-Header können sowohl in HTTP-Anfragen als auch in HTTP-Antwortnachrichten vorhanden sein.
+Ein Entity-Header ist ein {{Glossary("HTTP_header", "HTTP header")}}, der den {{Glossary("HTTP_content", "Inhalt")}} einer HTTP-Nachricht beschreibt (d.h. Metadaten über den Nachrichtenkörper). Zu den Entity-Headern gehören: {{HTTPHeader("Content-Length")}}, {{HTTPHeader("Content-Language")}}, {{HTTPHeader("Content-Encoding")}}, {{HTTPHeader("Content-Type")}}, {{HTTPHeader("Expires")}} usw. Entity-Header können sowohl in HTTP-Anfragen als auch in HTTP-Antwortnachrichten vorhanden sein.
 
 Im folgenden Beispiel ist {{HTTPHeader("Content-Length")}} ein Entity-Header, während {{HTTPHeader("Host")}} und {{HTTPHeader("User-Agent")}} Anforderungs-Header sind:
 
@@ -24,4 +24,4 @@ Content-Length: 128
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Representation header](/de/docs/Glossary/Representation_header)
+  - {{Glossary("Representation_header", "Representation header")}}

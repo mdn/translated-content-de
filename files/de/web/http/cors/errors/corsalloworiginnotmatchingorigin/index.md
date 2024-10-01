@@ -37,6 +37,6 @@ add_header 'Access-Control-Allow-Origin' 'origin'
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [Einführung in CORS](/de/docs/Web/HTTP/CORS)
 - [CORS aktivieren: Ich möchte CORS-Unterstützung zu meinem Server hinzufügen](https://enable-cors.org/server.html)

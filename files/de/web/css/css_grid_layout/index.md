@@ -139,15 +139,15 @@ Das untenstehende Beispiel zeigt ein Grid mit drei Spalten, bei dem neue Zeilen 
 ## Siehe auch
 
 - Glossar:
-  - [Grid](/de/docs/Glossary/Grid)
-  - [Grid-Linien](/de/docs/Glossary/Grid_Lines)
-  - [Grid-Tracks](/de/docs/Glossary/Grid_Tracks)
-  - [Grid-Zelle](/de/docs/Glossary/Grid_Cell)
-  - [Grid-Bereich](/de/docs/Glossary/Grid_Areas)
-  - [Rinnen](/de/docs/Glossary/Gutters)
-  - [Grid-Achse](/de/docs/Glossary/Grid_Axis)
-  - [Grid-Zeile](/de/docs/Glossary/Grid_Row)
-  - [Grid-Spalte](/de/docs/Glossary/Grid_Column)
+  - {{Glossary("Grid", "Grid")}}
+  - {{Glossary("Grid_Lines", "Grid-Linien")}}
+  - {{Glossary("Grid_Tracks", "Grid-Tracks")}}
+  - {{Glossary("Grid_Cell", "Grid-Zelle")}}
+  - {{Glossary("Grid_Areas", "Grid-Bereich")}}
+  - {{Glossary("Gutters", "Rinnen")}}
+  - {{Glossary("Grid_Axis", "Grid-Achse")}}
+  - {{Glossary("Grid_Row", "Grid-Zeile")}}
+  - {{Glossary("Grid_Column", "Grid-Spalte")}}
 - [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
 - [CSS Display](/de/docs/Web/CSS/CSS_display) Modul
 - [Grid by example](https://gridbyexample.com/)

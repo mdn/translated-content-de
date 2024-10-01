@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **relying party** ist eine Entität, die den Zugang zu einer Ressource kontrollieren muss und dafür andere Entitäten, die auf diese Ressource zugreifen möchten, [authentifizieren](/de/docs/Glossary/authentication) muss. Im Web ist eine relying party in der Regel eine Website, die es Nutzern ermöglicht, sich anzumelden und die Nutzer authentifizieren muss (zum Beispiel durch Überprüfung eines Passworts), bevor entschieden wird, ob ihnen Zugriff gewährt wird.
+Eine **relying party** ist eine Entität, die den Zugang zu einer Ressource kontrollieren muss und dafür andere Entitäten, die auf diese Ressource zugreifen möchten, {{Glossary("authentication", "authentifizieren")}} muss. Im Web ist eine relying party in der Regel eine Website, die es Nutzern ermöglicht, sich anzumelden und die Nutzer authentifizieren muss (zum Beispiel durch Überprüfung eines Passworts), bevor entschieden wird, ob ihnen Zugriff gewährt wird.
 
 Die Website _vertraut auf_ die Gültigkeit der Anmeldeinformationen, die der Browser vorlegt, wenn er Zugang zu ihren Ressourcen gewährt.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Federated identity](/de/docs/Glossary/Federated_identity)
-  - [Identity provider](/de/docs/Glossary/Identity_provider)
+  - {{Glossary("Federated_identity", "Federated identity")}}
+  - {{Glossary("Identity_provider", "Identity provider")}}

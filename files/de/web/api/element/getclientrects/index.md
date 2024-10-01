@@ -10,7 +10,7 @@ l10n:
 
 Die **`getClientRects()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces gibt eine Sammlung von [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekten zurück, die die Begrenzungsrechtecke für jede [CSS-Rahmenbox](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model) in einem Client anzeigen.
 
-Die meisten Elemente haben jeweils nur eine Rahmenbox, aber ein mehrzeiliges [Inline-Element](/de/docs/Glossary/Inline-level_content) (wie z.B. ein mehrzeiliges {{HTMLElement("span")}}-Element, standardmäßig) hat eine Rahmenbox um jede Zeile.
+Die meisten Elemente haben jeweils nur eine Rahmenbox, aber ein mehrzeiliges {{Glossary("Inline-level_content", "Inline-Element")}} (wie z.B. ein mehrzeiliges {{HTMLElement("span")}}-Element, standardmäßig) hat eine Rahmenbox um jede Zeile.
 
 ## Syntax
 

@@ -15,7 +15,7 @@ Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Beschneiden, Animati
 
 Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie auf sie klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was dabei hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu gestalten.
 
-Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Beschneideoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der [WebGL](/de/docs/Glossary/WebGL)-Grafik-Pipeline und Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Beschneideoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafik-Pipeline und Zustandsmaschine manipuliert.
 
 Darüber hinaus wird in diesem Beispiel gezeigt, wie die WebGL-Funktionsaufrufe in eine Spielschleife integriert werden können. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsbilder und dafür, dass die Animation auf Benutzereingaben reagiert. Hier wird die Spielschleife mittels Timeouts implementiert.
 

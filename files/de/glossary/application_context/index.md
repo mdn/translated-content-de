@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Application Context** ist ein oberster [Browsing-Kontext](/de/docs/Glossary/browsing_context), dem ein [Manifest](/de/docs/Web/Manifest) zugewiesen wurde.
+Ein **Application Context** ist ein oberster {{Glossary("browsing_context", "Browsing-Kontext")}}, dem ein [Manifest](/de/docs/Web/Manifest) zugewiesen wurde.
 
 Wird ein Application Context erstellt, weil der User-Agent aufgefordert wurde, zu einem tiefen Link zu navigieren, muss der User-Agent sofort mit aktivierter Ersetzung zu diesem tiefen Link navigieren. Andernfalls muss der User-Agent sofort mit aktivierter Ersetzung zur Start-URL navigieren, wenn der Application Context erstellt wird.
 

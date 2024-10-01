@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**TURN** (Traversal Using Relays around NAT) ist ein [Protokoll](/de/docs/Glossary/protocol), das es einem Computer ermöglicht, Daten hinter einem [Network Address Translator](/de/docs/Glossary/NAT) (NAT) oder einer Firewall zu empfangen und zu senden. TURN wird von [WebRTC](/de/docs/Glossary/WebRTC) verwendet, um zwei Geräten im Internet eine Peer-to-Peer-Verbindung zu ermöglichen.
+**TURN** (Traversal Using Relays around NAT) ist ein {{Glossary("protocol", "Protokoll")}}, das es einem Computer ermöglicht, Daten hinter einem {{Glossary("NAT", "Network Address Translator")}} (NAT) oder einer Firewall zu empfangen und zu senden. TURN wird von {{Glossary("WebRTC", "WebRTC")}} verwendet, um zwei Geräten im Internet eine Peer-to-Peer-Verbindung zu ermöglichen.
 
 ## Siehe auch
 

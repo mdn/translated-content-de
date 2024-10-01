@@ -37,4 +37,4 @@ Wenn der Ursprung kein Schema/Host/Port-Tupel ist (wenn Sie ihn z. B. lokal ausf
 ## Siehe auch
 
 - [`Window.origin`](/de/docs/Web/API/Window/origin)
-- [origin](/de/docs/Glossary/origin) Glossarbegriff
+- {{Glossary("origin", "origin")}} Glossarbegriff

@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte **`credentials`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle spiegelt den Wert wider, der dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor in der [`credentials`](/de/docs/Web/API/RequestInit#credentials)-Option übergeben wurde. Sie bestimmt, ob der Browser Anmeldeinformationen mit der Anfrage sendet und ob irgendwelche **`Set-Cookie`**-Antwortheader berücksichtigt werden.
 
-Anmeldeinformationen sind Cookies, [TLS](/de/docs/Glossary/TLS)-Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
+Anmeldeinformationen sind Cookies, {{Glossary("TLS", "TLS")}}-Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
 
 Siehe [Anmeldeinformationen einbeziehen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials) für weitere Details.
 

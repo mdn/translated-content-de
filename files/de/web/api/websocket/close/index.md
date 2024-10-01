@@ -36,7 +36,7 @@ close(code, reason)
   - : Eine Zeichenkette, die einen benutzerdefinierten [Grund für die Beendigung der WebSocket-Verbindung](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6) (eine prägnante und menschenlesbare Erklärung für die Schließung) liefert. Der Wert darf nicht länger als 123 Byte (in UTF-8 kodiert) sein.
 
     > [!NOTE]
-    > Da [UTF-8 zwei bis vier Bytes](/de/docs/Glossary/UTF-8) benötigt, um beliebige nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen zu kodieren, würde ein 123-Zeichen `reason`-Wert, der nicht-ASCII-Zeichen enthält, das 123-Byte-Limit überschreiten.
+    > Da {{Glossary("UTF-8", "UTF-8 zwei bis vier Bytes")}} benötigt, um beliebige nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen zu kodieren, würde ein 123-Zeichen `reason`-Wert, der nicht-ASCII-Zeichen enthält, das 123-Byte-Limit überschreiten.
 
     Wenn Sie einen `reason`-Wert angeben, sollten Sie auch einen [`code`](#code)-Wert angeben.
 

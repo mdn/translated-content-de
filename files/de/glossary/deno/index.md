@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Deno** ist eine Laufzeitumgebung für [JavaScript](/de/docs/Glossary/JavaScript), [TypeScript](/de/docs/Glossary/TypeScript) und [WebAssembly](/de/docs/Glossary/WebAssembly).
+**Deno** ist eine Laufzeitumgebung für {{Glossary("JavaScript", "JavaScript")}}, {{Glossary("TypeScript", "TypeScript")}} und {{Glossary("WebAssembly", "WebAssembly")}}.
 
-Ähnlich wie [Node.js](/de/docs/Glossary/Node.js) basiert Deno auf der V8 JavaScript-Engine und ermöglicht es Entwicklern, JavaScript außerhalb von Browsern auszuführen. Es gibt jedoch einige bemerkenswerte Unterschiede zwischen Node und Deno. Insbesondere:
+Ähnlich wie {{Glossary("Node.js", "Node.js")}} basiert Deno auf der V8 JavaScript-Engine und ermöglicht es Entwicklern, JavaScript außerhalb von Browsern auszuführen. Es gibt jedoch einige bemerkenswerte Unterschiede zwischen Node und Deno. Insbesondere:
 
 - Hat eingebaute Unterstützung für TypeScript.
 - Beschränkt den Zugriff auf das Dateisystem und das Netzwerk standardmäßig.

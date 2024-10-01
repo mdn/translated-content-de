@@ -163,7 +163,7 @@ Dies ist in vielerlei Hinsicht ähnlicher Code wie das vorherige Beispiel, aber 
 
 ## Lebensdauer eines Audioworklet-Prozessors
 
-Der einzige Weg, wie Sie die Lebensdauer Ihres Audioworklet-Prozessors beeinflussen können, ist der durch `process()` zurückgegebene Wert, der ein Boolescher Wert sein sollte, der angibt, ob die Entscheidung des [Benutzeragenten](/de/docs/Glossary/user_agent) außer Kraft gesetzt werden soll, ob Ihr Knoten noch verwendet wird oder nicht.
+Der einzige Weg, wie Sie die Lebensdauer Ihres Audioworklet-Prozessors beeinflussen können, ist der durch `process()` zurückgegebene Wert, der ein Boolescher Wert sein sollte, der angibt, ob die Entscheidung des {{Glossary("user_agent", "Benutzeragenten")}} außer Kraft gesetzt werden soll, ob Ihr Knoten noch verwendet wird oder nicht.
 
 Grundsätzlich ist die Lebensdauerpolitik jedes Audioknotens einfach: Wenn der Knoten weiterhin aktiv Audiodaten verarbeitet wird, bleibt er in Verwendung. Im Fall eines [`AudioWorkletNode`](/de/docs/Web/API/AudioWorkletNode) wird der Knoten als aktiv angesehen, wenn seine `process()`-Funktion `true` zurückgibt _und_ der Knoten entweder Inhalte als Quelle für Audiodaten erzeugt oder Daten von einem oder mehreren Eingängen empfängt.
 

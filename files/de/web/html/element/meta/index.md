@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<meta>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert [Metadaten](/de/docs/Glossary/Metadata), die nicht durch andere HTML-meta-bezogene Elemente wie {{HTMLElement("base")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} oder {{HTMLElement("title")}} dargestellt werden können.
+Das **`<meta>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert {{Glossary("Metadata", "Metadaten")}}, die nicht durch andere HTML-meta-bezogene Elemente wie {{HTMLElement("base")}}, {{HTMLElement("link")}}, {{HTMLElement("script")}}, {{HTMLElement("style")}} oder {{HTMLElement("title")}} dargestellt werden können.
 
 Die Art der durch das `<meta>`-Element bereitgestellten Metadaten kann eine der folgenden sein:
 
@@ -111,7 +111,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     </tr>
     <tr>
       <th>Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein [void element](/de/docs/Glossary/void_element).</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
       <th>Tag-Auslassung</th>

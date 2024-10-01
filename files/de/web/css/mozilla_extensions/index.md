@@ -509,5 +509,5 @@ Eigenschaften: {{CSSxRef("width")}}, {{CSSxRef("min-width")}}, und {{CSSxRef("ma
 
 ## Siehe auch
 
-- [Vendor Prefix](/de/docs/Glossary/Vendor_Prefix) Glossarbegriff
+- {{Glossary("Vendor_Prefix", "Vendor Prefix")}} Glossarbegriff
 - [WebKit vendor-prefixed CSS Erweiterungen](/de/docs/Web/CSS/WebKit_Extensions)

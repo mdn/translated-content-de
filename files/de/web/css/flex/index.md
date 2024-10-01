@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`flex`**-[CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt fest, wie ein [Flex-Element](/de/docs/Glossary/flex_item) wachsen oder schrumpfen soll, um den verfügbaren Platz in seinem Flex-Container zu nutzen.
+Die **`flex`**-[CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt fest, wie ein {{Glossary("flex_item", "Flex-Element")}} wachsen oder schrumpfen soll, um den verfügbaren Platz in seinem Flex-Container zu nutzen.
 
 {{EmbedInteractiveExample("pages/css/flex.html")}}
 

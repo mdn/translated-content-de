@@ -282,7 +282,7 @@ Unten finden Sie Beispiele für jeden Button-`<input>`-Typ, zusammen mit dem ent
 <input type="button" value="This is an anonymous button" />
 ```
 
-Schaltflächen verhalten sich immer gleich, unabhängig davon, ob Sie ein {{HTMLElement("button")}}-Element oder ein {{HTMLElement("input")}}-Element verwenden. Wie Sie aus den Beispielen sehen, erlauben es {{HTMLElement("button")}}-Elemente jedoch, HTML in ihrem Inhalt zu verwenden, das zwischen den öffnenden und schließenden `<button>`-Tags eingefügt wird. {{HTMLElement("input")}}-Elemente andererseits sind [leere Elemente](/de/docs/Glossary/void_element); ihr angezeigter Inhalt wird im `value`-Attribut eingefügt und daher wird nur Klartext als Inhalt akzeptiert.
+Schaltflächen verhalten sich immer gleich, unabhängig davon, ob Sie ein {{HTMLElement("button")}}-Element oder ein {{HTMLElement("input")}}-Element verwenden. Wie Sie aus den Beispielen sehen, erlauben es {{HTMLElement("button")}}-Elemente jedoch, HTML in ihrem Inhalt zu verwenden, das zwischen den öffnenden und schließenden `<button>`-Tags eingefügt wird. {{HTMLElement("input")}}-Elemente andererseits sind {{Glossary("void_element", "leere Elemente")}}; ihr angezeigter Inhalt wird im `value`-Attribut eingefügt und daher wird nur Klartext als Inhalt akzeptiert.
 
 Der folgende Screenshot zeigt eine Schaltfläche im Standard-, Fokus- und deaktivierten Zustand. Im Fokuszustand gibt es einen Fokusring um die Schaltfläche, und im deaktivierten Zustand ist die Schaltfläche ausgegraut.
 

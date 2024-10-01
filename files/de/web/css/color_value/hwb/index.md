@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`hwb()`** funktionale Notation drückt eine Farbe im [sRGB](/de/docs/Glossary/RGB) [Farbraum](/de/docs/Glossary/color_space) gemäß ihrem Farbton, der Weißheit und der Schwärze aus. Ein optionaler Alpha-Wert repräsentiert die Transparenz der Farbe.
+Die **`hwb()`** funktionale Notation drückt eine Farbe im {{Glossary("RGB", "sRGB")}} {{Glossary("color_space", "Farbraum")}} gemäß ihrem Farbton, der Weißheit und der Schwärze aus. Ein optionaler Alpha-Wert repräsentiert die Transparenz der Farbe.
 
 {{EmbedInteractiveExample("pages/css/function-hwb.html")}}
 
@@ -26,7 +26,7 @@ hwb(from lch(40% 70 240deg) h w calc(b - 30))
 
 ## Beschreibung
 
-Diese Farb-Funktion im [`sRGB` Farbraum](/de/docs/Glossary/Color_space#srgb) wird durch einen {{CSSXref("&lt;hue&gt;")}} Winkelwert, einen Wert für die Weißheit, einen Wert für die Schwärze und optional einen Alpha-Wert definiert, der die Transparenz der Farbe repräsentiert.
+Diese Farb-Funktion im {{Glossary("Color_space#srgb", "`sRGB` Farbraum")}} wird durch einen {{CSSXref("&lt;hue&gt;")}} Winkelwert, einen Wert für die Weißheit, einen Wert für die Schwärze und optional einen Alpha-Wert definiert, der die Transparenz der Farbe repräsentiert.
 
 Die Winkel, die bestimmten Farbtönen entsprechen, unterscheiden sich im sRGB (verwendet von {{CSSXref("color_value/hsl", "hsl()")}} und `hwb()`), CIELAB (verwendet von {{CSSXref("color_value/lch", "lch()")}}) und Oklab (verwendet von {{CSSXref("color_value/oklch", "oklch()")}}) Farbräumen. `hwb()` befindet sich im gleichen Farbraum wie `hsl()` und hat daher die gleichen Farbton-Winkel. Weitere Details und Beispiele finden Sie auf der {{CSSXref("&lt;hue&gt;")}} Referenzseite, oder probieren Sie, die Farbtöne im [Farbwähler](/de/docs/Web/CSS/CSS_colors#colors_in_action) zu ändern, um es in Aktion zu sehen.
 

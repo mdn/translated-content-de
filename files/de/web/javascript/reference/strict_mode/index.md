@@ -8,9 +8,9 @@ l10n:
 {{jsSidebar("More")}}
 
 > [!NOTE]
-> Manchmal wird der Standardmodus, der nicht im "strict mode" ist, als _[sloppy mode](/de/docs/Glossary/Sloppy_mode)_ bezeichnet. Dies ist kein offizieller Begriff, aber Sie sollten ihn kennen, für den Fall, dass er erwähnt wird.
+> Manchmal wird der Standardmodus, der nicht im "strict mode" ist, als _{{Glossary("Sloppy_mode", "sloppy mode")}}_ bezeichnet. Dies ist kein offizieller Begriff, aber Sie sollten ihn kennen, für den Fall, dass er erwähnt wird.
 
-Der "strict mode" von JavaScript ist eine Möglichkeit, sich für eine eingeschränkte Variante von JavaScript zu entscheiden und damit implizit den "[sloppy mode](/de/docs/Glossary/Sloppy_mode)" abzulehnen. Der "strict mode" ist nicht einfach ein Teilmenge: Er hat _absichtlich_ andere Semantiken als normaler Code. Browser, die den "strict mode" nicht unterstützen, führen den "strict mode"-Code mit einem anderen Verhalten aus als Browser, die dies tun. Daher sollte man sich nicht ohne Feature-Tests auf den "strict mode" verlassen, um die Unterstützung für die relevanten Aspekte des "strict mode" zu überprüfen. "Strict mode"-Code und Nicht-"strict mode"-Code können nebeneinander existieren, sodass Skripte schrittweise in den "strict mode" wechseln können.
+Der "strict mode" von JavaScript ist eine Möglichkeit, sich für eine eingeschränkte Variante von JavaScript zu entscheiden und damit implizit den "{{Glossary("Sloppy_mode", "sloppy mode")}}" abzulehnen. Der "strict mode" ist nicht einfach ein Teilmenge: Er hat _absichtlich_ andere Semantiken als normaler Code. Browser, die den "strict mode" nicht unterstützen, führen den "strict mode"-Code mit einem anderen Verhalten aus als Browser, die dies tun. Daher sollte man sich nicht ohne Feature-Tests auf den "strict mode" verlassen, um die Unterstützung für die relevanten Aspekte des "strict mode" zu überprüfen. "Strict mode"-Code und Nicht-"strict mode"-Code können nebeneinander existieren, sodass Skripte schrittweise in den "strict mode" wechseln können.
 
 Der "strict mode" bewirkt mehrere Änderungen in den normalen JavaScript-Semantiken:
 
@@ -216,11 +216,11 @@ const sumWithOctal = 0o10 + 8;
 console.log(sumWithOctal); // 16
 ```
 
-Oktale Escape-Sequenzen, wie `"\45"`, das gleichbedeutend mit `"%"` ist, können verwendet werden, um Zeichen durch erweiterte-[ASCII](/de/docs/Glossary/ASCII)-Zeichencodes in Oktal darzustellen. Im "strict mode" ist dies ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Deprecated_octal_escape_sequence). Formal ist es unzulässig, `\` gefolgt von einer Dezimalziffer außer `0`, oder `\0` gefolgt von einer Dezimalziffer zu verwenden; zum Beispiel `\9` und `\07`.
+Oktale Escape-Sequenzen, wie `"\45"`, das gleichbedeutend mit `"%"` ist, können verwendet werden, um Zeichen durch erweiterte-{{Glossary("ASCII", "ASCII")}}-Zeichencodes in Oktal darzustellen. Im "strict mode" ist dies ein [Syntaxfehler](/de/docs/Web/JavaScript/Reference/Errors/Deprecated_octal_escape_sequence). Formal ist es unzulässig, `\` gefolgt von einer Dezimalziffer außer `0`, oder `\0` gefolgt von einer Dezimalziffer zu verwenden; zum Beispiel `\9` und `\07`.
 
 #### Eigenschaften auf primitive Werte setzen
 
-Der "strict mode" verbietet das Setzen von Eigenschaften auf [primitive](/de/docs/Glossary/Primitive) Werte. Der Zugriff auf eine Eigenschaft auf einem primitiven Wert erstellt implizit ein Wrapperobjekt, das nicht beobachtbar ist, daher wird das Setzen von Eigenschaften im "sloppy mode" ignoriert (no-op). Im "strict mode" wird ein {{jsxref("TypeError")}} ausgelöst.
+Der "strict mode" verbietet das Setzen von Eigenschaften auf {{Glossary("Primitive", "primitive")}} Werte. Der Zugriff auf eine Eigenschaft auf einem primitiven Wert erstellt implizit ein Wrapperobjekt, das nicht beobachtbar ist, daher wird das Setzen von Eigenschaften im "sloppy mode" ignoriert (no-op). Im "strict mode" wird ein {{jsxref("TypeError")}} ausgelöst.
 
 ```js
 "use strict";

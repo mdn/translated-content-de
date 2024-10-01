@@ -14,7 +14,7 @@ Das Attribut **`color-interpolation-filters`** spezifiziert den Farbraum für Bi
 >
 > `color-interpolation-filters` hat einen anderen Anfangswert als {{SVGAttr("color-interpolation")}}. `color-interpolation-filters` hat einen Anfangswert von `linearRGB`, während `color-interpolation` einen Anfangswert von `sRGB` hat. In der Standardeinstellung erfolgen Filtereffekt-Operationen somit im linearRGB-Farbraum, während alle anderen Farbinterpolationen standardmäßig im sRGB-Farbraum erfolgen.
 >
-> Es hat keinen Effekt auf Filterfunktionen, die im [sRGB](/de/docs/Glossary/RGB) Farbraum arbeiten.
+> Es hat keinen Effekt auf Filterfunktionen, die im {{Glossary("RGB", "sRGB")}} Farbraum arbeiten.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `color-interpolation-filters` als CSS-Eigenschaft verwendet werden. Siehe {{cssxref('color-interpolation-filters')}} für weitere Informationen.

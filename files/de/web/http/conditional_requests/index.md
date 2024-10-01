@@ -15,8 +15,8 @@ HTTP-bedingte Anfragen sind Anfragen, die je nach Wert bestimmter Header untersc
 
 Das unterschiedliche Verhalten wird durch die verwendete Methode der Anfrage und das Set von Headern, das für eine Vorbedingung verwendet wird, definiert:
 
-- Für [sichere](/de/docs/Glossary/Safe/HTTP) Methoden, wie {{HTTPMethod("GET")}}, die normalerweise versuchen, ein Dokument abzurufen, kann die bedingte Anfrage verwendet werden, um das Dokument nur dann zurückzusenden, wenn es relevant ist. Dies spart Bandbreite.
-- Für [unsichere](/de/docs/Glossary/Safe/HTTP) Methoden, wie {{HTTPMethod("PUT")}}, die normalerweise ein Dokument hochladen, kann die bedingte Anfrage verwendet werden, um das Dokument nur dann hochzuladen, wenn das Original, auf dem es basiert, mit dem auf dem Server gespeicherten übereinstimmt.
+- Für {{Glossary("Safe/HTTP", "sichere")}} Methoden, wie {{HTTPMethod("GET")}}, die normalerweise versuchen, ein Dokument abzurufen, kann die bedingte Anfrage verwendet werden, um das Dokument nur dann zurückzusenden, wenn es relevant ist. Dies spart Bandbreite.
+- Für {{Glossary("Safe/HTTP", "unsichere")}} Methoden, wie {{HTTPMethod("PUT")}}, die normalerweise ein Dokument hochladen, kann die bedingte Anfrage verwendet werden, um das Dokument nur dann hochzuladen, wenn das Original, auf dem es basiert, mit dem auf dem Server gespeicherten übereinstimmt.
 
 ## Validatoren
 

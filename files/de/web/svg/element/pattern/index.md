@@ -65,7 +65,7 @@ svg {
   - : Dieses Attribut definiert das Koordinatensystem für die Attribute `x`, `y`, `width` und `height`.
     _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox`; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Dieses Attribut definiert, wie das SVG-Fragment verzerrt werden muss, wenn es in einem Container mit einem unterschiedlichen [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) eingebettet ist.
+  - : Dieses Attribut definiert, wie das SVG-Fragment verzerrt werden muss, wenn es in einem Container mit einem unterschiedlichen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
     _Wertetyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("viewBox")}}
   - : Dieses Attribut definiert die Begrenzung des SVG-Ansichtsfensters für das Musterfragment.

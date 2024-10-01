@@ -127,7 +127,7 @@ Und unsere Website ist online!
 
 ## Rsync
 
-[Rsync](/de/docs/Glossary/Rsync) ist ein lokales-zu-entfernten Datei-Synchronisationstool, das allgemein auf den meisten Unix-basierten Systemen (wie macOS und Linux) verfügbar ist, aber es gibt auch Windows-Versionen.
+{{Glossary("Rsync", "Rsync")}} ist ein lokales-zu-entfernten Datei-Synchronisationstool, das allgemein auf den meisten Unix-basierten Systemen (wie macOS und Linux) verfügbar ist, aber es gibt auch Windows-Versionen.
 
 Es gilt als ein fortschrittlicheres Tool als SFTP, da es standardmäßig in der Befehlszeile verwendet wird. Ein grundlegender Befehl sieht so aus:
 
@@ -172,4 +172,4 @@ Es ist jedoch wissenswert, dass Sie auch eine Website auf GitHub hosten, aber ei
 Das FTP-Protokoll ist eine bekannte Methode zum Veröffentlichen einer Website, aber nicht die einzige. Hier sind einige andere Möglichkeiten:
 
 - **Webschnittstellen**. Eine HTML-Oberfläche, die als Front-End für einen entfernten Datei-Upload-Service dient. Bereitgestellt von Ihrem Hosting-Service.
-- **[WebDAV](/de/docs/Glossary/WebDAV)**. Eine Erweiterung des [HTTP](/de/docs/Glossary/HTTP)-Protokolls, um eine fortschrittlichere Datei-Verwaltung zu ermöglichen.
+- **{{Glossary("WebDAV", "WebDAV")}}**. Eine Erweiterung des {{Glossary("HTTP", "HTTP")}}-Protokolls, um eine fortschrittlichere Datei-Verwaltung zu ermöglichen.

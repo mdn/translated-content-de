@@ -25,7 +25,7 @@ Ein 16-Bit-Wert, der die Portnummer auf dem Gerät an der durch [`address`](/de/
 
 ## Anwendungshinweise
 
-Betrachten Sie diese [SDP](/de/docs/Glossary/SDP)-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
+Betrachten Sie diese {{Glossary("SDP", "SDP")}}-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
 
 ```plain
 a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host

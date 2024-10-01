@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-row`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb einer [Grid-Zeile](/de/docs/Glossary/grid_row) fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt und somit die Inline-Start- und Inline-Endkante seines [Grid-Bereichs](/de/docs/Glossary/grid_areas) spezifiziert.
+Die **`grid-row`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb einer {{Glossary("grid_row", "Grid-Zeile")}} fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt und somit die Inline-Start- und Inline-Endkante seines {{Glossary("grid_areas", "Grid-Bereichs")}} spezifiziert.
 
 {{EmbedInteractiveExample("pages/css/grid-row.html")}}
 

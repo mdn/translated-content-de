@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die funktionale Notation **`oklch()`** drückt eine gegebene Farbe im Oklab-[Farbraum](/de/docs/Glossary/color_space) aus. `oklch()` ist die zylindrische Form von {{CSSXref("color_value/oklab", "oklab()")}}, die die gleiche `L`-Achse verwendet, aber mit den polaren Koordinaten Chroma (`C`) und Hue (`H`).
+Die funktionale Notation **`oklch()`** drückt eine gegebene Farbe im Oklab-{{Glossary("color_space", "Farbraum")}} aus. `oklch()` ist die zylindrische Form von {{CSSXref("color_value/oklab", "oklab()")}}, die die gleiche `L`-Achse verwendet, aber mit den polaren Koordinaten Chroma (`C`) und Hue (`H`).
 
 ## Syntax
 

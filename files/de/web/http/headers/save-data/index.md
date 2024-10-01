@@ -16,17 +16,17 @@ Der **`Save-Data`** [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#net
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request-Header](/de/docs/Glossary/Request_header),
+        {{Glossary("Request_header", "Request-Header")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwort-Header")}}
       </th>
       <td>nein</td>
     </tr>

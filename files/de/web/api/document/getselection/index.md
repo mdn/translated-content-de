@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Selection`](/de/docs/Web/API/Selection)-Objekt oder `null`, wenn das Dokument keinen [Browsing Context](/de/docs/Glossary/Browsing_context) hat (zum Beispiel, wenn es sich um das Dokument eines nicht an ein Dokument angehängten {{htmlelement("iframe")}} handelt).
+Ein [`Selection`](/de/docs/Web/API/Selection)-Objekt oder `null`, wenn das Dokument keinen {{Glossary("Browsing_context", "Browsing Context")}} hat (zum Beispiel, wenn es sich um das Dokument eines nicht an ein Dokument angehängten {{htmlelement("iframe")}} handelt).
 
 ## Beispiele
 

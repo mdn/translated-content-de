@@ -19,7 +19,7 @@ Die **`NDEFRecord`**-Schnittstelle der [Web NFC API](/de/docs/Web/API/Web_NFC_AP
 - [`NDEFRecord.recordType`](/de/docs/Web/API/NDEFRecord/recordType) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Gibt den Datensatztyp des Datensatzes zurück. Datensätze müssen entweder einen standardisierten, bekannten Typnamen wie `"empty"`, `"text"`, `"url"`, `"smart-poster"`, `"absolute-url"`, `"mime"` oder `"unknown"` haben oder einen externen Typnamen, der aus einem Domainnamen und einem benutzerdefinierten Typnamen, getrennt durch einen Doppelpunkt (":"), besteht.
 - [`NDEFRecord.mediaType`](/de/docs/Web/API/NDEFRecord/mediaType) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Gibt den [MIME-Typ](/de/docs/Glossary/MIME_type) des Datensatzes zurück. Dieser Wert ist `null`, wenn `recordType` nicht gleich `"mime"` ist.
+  - : Gibt den {{Glossary("MIME_type", "MIME-Typ")}} des Datensatzes zurück. Dieser Wert ist `null`, wenn `recordType` nicht gleich `"mime"` ist.
 - [`NDEFRecord.id`](/de/docs/Web/API/NDEFRecord/id) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Gibt die Datensatzkennung zurück, die eine absolute oder relative URL ist, die zur Identifizierung des Datensatzes verwendet wird.
     > [!NOTE]

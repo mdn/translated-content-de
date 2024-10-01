@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode der [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle ist ein [Serialisierer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Repräsentation des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekts zurück.
+Die **`toJSON()`**-Methode der [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle ist ein {{Glossary("Serialization", "Serialisierer")}}; sie gibt eine JSON-Repräsentation des [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekts zurück.
 
 ## Syntax
 

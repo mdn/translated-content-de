@@ -65,7 +65,7 @@ Die folgenden Regex-Syntaxen sind veraltet und nur im [Unicode-unbewussten Modus
 - [Rückverweise](/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference), die sich nicht auf eine bestehende fangende Gruppe beziehen, werden zu [alten oktalen Escapes](#escape-sequenzen).
 - In [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) wird die Zeichenspanne, bei der eine Grenze eine Zeichenklasse ist, der `-` zu einem wörtlichen Zeichen.
 - Eine Escape-Sequenz, die nicht erkannt wird, wird zu einem ["Identitäts-Escape"](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_escape).
-- Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) in der Form `\cX`, bei der `X` eine Zahl oder `_` ist, werden in der gleichen Weise dekodiert wie solche mit [ASCII](/de/docs/Glossary/ASCII)-Buchstaben: `\c0` ist dasselbe wie `\cP`, wenn man es modulo 32 nimmt. Zusätzlich, wenn die Form `\cX` angetroffen wird, wo `X` nicht einer der anerkannten Zeichen ist, dann wird der Backslash als wörtliches Zeichen behandelt.
+- Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) in der Form `\cX`, bei der `X` eine Zahl oder `_` ist, werden in der gleichen Weise dekodiert wie solche mit {{Glossary("ASCII", "ASCII")}}-Buchstaben: `\c0` ist dasselbe wie `\cP`, wenn man es modulo 32 nimmt. Zusätzlich, wenn die Form `\cX` angetroffen wird, wo `X` nicht einer der anerkannten Zeichen ist, dann wird der Backslash als wörtliches Zeichen behandelt.
 - Die Sequenz `\k` innerhalb eines Regex, das keine [benannten fangenden Gruppen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group) hat, wird als Identitäts-Escape behandelt.
 - Die Syntaxzeichen `]`, `{`, und `}` können [wörtlich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) ohne Escape erscheinen, wenn sie nicht als Ende einer Zeichenklasse oder Quantifizierergrenzen interpretiert werden können.
 
@@ -132,13 +132,13 @@ Diese obsolet gewordenen Funktionen wurden vollständig aus JavaScript entfernt 
 
 Die folgenden Eigenschaften sind nun Eigenschaften von `RegExp`-Instanzen, nicht länger des `RegExp`-Konstruktors:
 
-| Eigenschaft                                                        | Beschreibung                                                                                                       |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
-| {{jsxref("RegExp/global", "global")}}                              | Ob der reguläre Ausdruck gegen alle möglichen Übereinstimmungen in einem String getestet wird oder nur gegen die erste. |
-| {{jsxref("RegExp/ignoreCase", "ignoreCase")}}                      | Ob die Groß-/Kleinschreibung beim Versuch eines Matches in einem String ignoriert wird.                            |
-| {{jsxref("RegExp/lastIndex", "lastIndex")}}                        | Der Index, an dem der nächste Match beginnt.                                                                       |
-| {{jsxref("RegExp/multiline", "multiline")}} (auch über `RegExp.$*`) | Ob in Strings über mehrere Zeilen hinweg gesucht wird.                                                             |
-| {{jsxref("RegExp/source", "source")}}                              | Der Text des Musters.                                                                                              |
+| Eigenschaft                                                         | Beschreibung                                                                                                            |
+| ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| {{jsxref("RegExp/global", "global")}}                               | Ob der reguläre Ausdruck gegen alle möglichen Übereinstimmungen in einem String getestet wird oder nur gegen die erste. |
+| {{jsxref("RegExp/ignoreCase", "ignoreCase")}}                       | Ob die Groß-/Kleinschreibung beim Versuch eines Matches in einem String ignoriert wird.                                 |
+| {{jsxref("RegExp/lastIndex", "lastIndex")}}                         | Der Index, an dem der nächste Match beginnt.                                                                            |
+| {{jsxref("RegExp/multiline", "multiline")}} (auch über `RegExp.$*`) | Ob in Strings über mehrere Zeilen hinweg gesucht wird.                                                                  |
+| {{jsxref("RegExp/source", "source")}}                               | Der Text des Musters.                                                                                                   |
 
 Die `valueOf()`-Methode ist nicht länger für `RegExp` spezifiziert. Sie verwendet {{jsxref("Object.prototype.valueOf()")}}, was sich selbst zurückgibt.
 
@@ -148,18 +148,18 @@ Die `valueOf()`-Methode ist nicht länger für `RegExp` spezifiziert. Sie verwen
 
 ### Objekt
 
-| Eigenschaft                    | Beschreibung                                                                                                | Alternative                                                                                                                                                                          |
-| ---------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `__count__`                  | Gibt die Anzahl der direkt auf einem benutzerdefinierten Objekt vorhandenen aufzählbaren Eigenschaften zurück. | [`Object.keys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)                                                                                                   |
-| `__parent__`                 | Zeigt auf den Kontext eines Objekts.                                                                        | Keine direkte Alternative                                                                                                                                                            |
-| `__iterator__`               | Wird mit [Legacy-Iteratoren](#legacy-generator_und_-iterator) verwendet.                                     | [`Symbol.iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) und die neuen [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols) |
-| `__noSuchMethod__`           | Eine Methode, die aufgerufen wird, wenn eine nicht existierende Eigenschaft als Methode aufgerufen wird.   | {{jsxref("Proxy")}}                                                                                                                                                                  |
-| `Object.prototype.eval()`    | Ausführt einen JavaScript-String im Kontext des angegebenen Objekts.                                         | Keine direkte Alternative                                                                                                                                                            |
-| `Object.observe()`           | Asynchrones Beobachten der Änderungen an einem Objekt.                                                      | {{jsxref("Proxy")}}                                                                                                                                                                  |
-| `Object.unobserve()`         | Entfernt Beobachter.                                                                                        | {{jsxref("Proxy")}}                                                                                                                                                                  |
-| `Object.getNotifier()`       | Erstellt ein Benachrichtigungsobjekt, das es ermöglicht, eine synthetische Änderungsbeobachtung mit `Object.observe()` auszulösen. | Keine direkte Alternative                                                                                                                                                            |
-| `Object.prototype.watch()`   | Hängt einen Handler-Callback an eine Eigenschaft an, der aufgerufen wird, wenn die Eigenschaft zugewiesen wird. | {{jsxref("Proxy")}}                                                                                                                                                                  |
-| `Object.prototype.unwatch()` | Entfernt Überwachungs-Handler für eine Eigenschaft.                                                         | {{jsxref("Proxy")}}                                                                                                                                                                  |
+| Eigenschaft                  | Beschreibung                                                                                                                       | Alternative                                                                                                                                                                       |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `__count__`                  | Gibt die Anzahl der direkt auf einem benutzerdefinierten Objekt vorhandenen aufzählbaren Eigenschaften zurück.                     | [`Object.keys()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys)                                                                                                   |
+| `__parent__`                 | Zeigt auf den Kontext eines Objekts.                                                                                               | Keine direkte Alternative                                                                                                                                                         |
+| `__iterator__`               | Wird mit [Legacy-Iteratoren](#legacy-generator_und_-iterator) verwendet.                                                           | [`Symbol.iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/iterator) und die neuen [Iterationsprotokolle](/de/docs/Web/JavaScript/Reference/Iteration_protocols) |
+| `__noSuchMethod__`           | Eine Methode, die aufgerufen wird, wenn eine nicht existierende Eigenschaft als Methode aufgerufen wird.                           | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.prototype.eval()`    | Ausführt einen JavaScript-String im Kontext des angegebenen Objekts.                                                               | Keine direkte Alternative                                                                                                                                                         |
+| `Object.observe()`           | Asynchrones Beobachten der Änderungen an einem Objekt.                                                                             | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.unobserve()`         | Entfernt Beobachter.                                                                                                               | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.getNotifier()`       | Erstellt ein Benachrichtigungsobjekt, das es ermöglicht, eine synthetische Änderungsbeobachtung mit `Object.observe()` auszulösen. | Keine direkte Alternative                                                                                                                                                         |
+| `Object.prototype.watch()`   | Hängt einen Handler-Callback an eine Eigenschaft an, der aufgerufen wird, wenn die Eigenschaft zugewiesen wird.                    | {{jsxref("Proxy")}}                                                                                                                                                               |
+| `Object.prototype.unwatch()` | Entfernt Überwachungs-Handler für eine Eigenschaft.                                                                                | {{jsxref("Proxy")}}                                                                                                                                                               |
 
 ### String
 
@@ -179,10 +179,10 @@ Die `valueOf()`-Methode ist nicht länger für `RegExp` spezifiziert. Sie verwen
 
 - Nicht standardisierte Array-generische Methoden wie `Array.slice(myArr, 0, 12)`, `Array.forEach(myArr, myFn)`, usw. wurden in Firefox 1.5 (JavaScript 1.6) eingeführt, in Firefox 68 veraltet und in Firefox 71 entfernt. Sie können Methoden auf {{jsxref("Array", "Array.prototype", "instance_methods")}} zusammen mit {{jsxref("Function.call")}} verwenden.
 
-| Eigenschaft          | Beschreibung                                 | Alternative         |
-| ------------------- | ------------------------------------------- | ------------------- |
+| Eigenschaft         | Beschreibung                                     | Alternative         |
+| ------------------- | ------------------------------------------------ | ------------------- |
 | `Array.observe()`   | Asynchrones Beobachten von Änderungen an Arrays. | {{jsxref("Proxy")}} |
-| `Array.unobserve()` | Entfernt Beobachter.                           | {{jsxref("Proxy")}} |
+| `Array.unobserve()` | Entfernt Beobachter.                             | {{jsxref("Proxy")}} |
 
 ### Number
 

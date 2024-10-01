@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCPeerConnectionIceErrorEvent`**-Schnittstelle—basierend auf der [`Event`](/de/docs/Web/API/Event)-Schnittstelle—liefert Details zu einem [ICE](/de/docs/Glossary/ICE)-Fehler, der durch das Senden eines [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)-Ereignisses an das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt angekündigt wird.
+Die **`RTCPeerConnectionIceErrorEvent`**-Schnittstelle—basierend auf der [`Event`](/de/docs/Web/API/Event)-Schnittstelle—liefert Details zu einem {{Glossary("ICE", "ICE")}}-Fehler, der durch das Senden eines [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)-Ereignisses an das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt angekündigt wird.
 
 {{InheritanceDiagram}}
 
@@ -21,7 +21,7 @@ Die **`RTCPeerConnectionIceErrorEvent`**-Schnittstelle—basierend auf der [`Eve
 _Die `RTCPeerConnectionIceErrorEvent`-Schnittstelle beinhaltet die Eigenschaften, die auf der [`Event`](/de/docs/Web/API/Event)-Schnittstelle gefunden werden, sowie die folgenden Eigenschaften:_
 
 - [`address`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/address) {{ReadOnlyInline}}
-  - : Eine Zeichenkette, die die lokale IP-Adresse angibt, die zur Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server verwendet wird, der zur Aushandlung der Verbindung eingesetzt wird, oder `null`, wenn die lokale IP-Adresse noch nicht als Teil eines lokalen ICE-Kandidaten offengelegt wurde.
+  - : Eine Zeichenkette, die die lokale IP-Adresse angibt, die zur Kommunikation mit dem {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server verwendet wird, der zur Aushandlung der Verbindung eingesetzt wird, oder `null`, wenn die lokale IP-Adresse noch nicht als Teil eines lokalen ICE-Kandidaten offengelegt wurde.
 - [`errorCode`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/errorCode) {{ReadOnlyInline}}
   - : Ein ungleiches Ganzzahlwert, der den numerischen [STUN-Fehlercode](https://www.iana.org/assignments/stun-parameters/stun-parameters.xhtml#stun-parameters-6) angibt, der vom STUN- oder TURN-Server zurückgegeben wurde. Wenn kein Host-Kandidat den Server erreichen kann, wird diese Eigenschaft auf die Zahl 701 gesetzt, die außerhalb des Bereichs gültiger STUN-Fehlercodes liegt. Der 701-Fehler wird nur einmal pro Server-URL ausgelöst und nur während der [`icegatheringstate`](/de/docs/Web/API/RTCPeerConnection/icegatheringstate) `gathering`.
 - [`errorText`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/errorText) {{ReadOnlyInline}}

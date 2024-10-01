@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte **`dtmf`**-Eigenschaft der
 **[`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)**-Schnittstelle gibt ein
-[`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt zurück, das verwendet werden kann, um [DTMF](/de/docs/Glossary/DTMF)-Töne
+[`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Objekt zurück, das verwendet werden kann, um {{Glossary("DTMF", "DTMF")}}-Töne
 über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu senden. Einzelheiten zur Verwendung des zurückgegebenen `RTCDTMFSender`-Objekts finden Sie unter [Verwendung von DTMF](/de/docs/Web/API/WebRTC_API/Using_DTMF).
 
 ## Wert

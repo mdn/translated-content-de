@@ -50,7 +50,7 @@ Da Nachkommen eines `button` präsentational sind, ist folgender Code äquivalen
 <div role="button"><h3 role="presentation">Title of my button</h3></div>
 ```
 
-Aus der Perspektive des Benutzers unterstützender Technologie existiert die Überschrift nicht, da die vorhergehenden Code-Snippets gleichwertig sind mit dem folgenden im [Zugänglichkeitsbaum](/de/docs/Glossary/Accessibility_tree):
+Aus der Perspektive des Benutzers unterstützender Technologie existiert die Überschrift nicht, da die vorhergehenden Code-Snippets gleichwertig sind mit dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}}:
 
 ```html
 <div role="button">Title of my button</div>
@@ -80,10 +80,10 @@ Als Beispiel könnte der Stummschalt-Button eines Audio-Players, beschriftet mit
 
 ### Tastaturinteraktionen
 
-| Taste             | Funktion                    |
-| ----------------- | --------------------------- |
-| <kbd>Enter</kbd>  | Aktiviert den Button.       |
-| <kbd>Leertaste</kbd> | Aktiviert den Button        |
+| Taste                | Funktion              |
+| -------------------- | --------------------- |
+| <kbd>Enter</kbd>     | Aktiviert den Button. |
+| <kbd>Leertaste</kbd> | Aktiviert den Button  |
 
 Nach der Aktivierung des Buttons wird der Fokus je nach Art der Aktion, die der Button ausführt, gesetzt. Wenn der Klick auf den Button beispielsweise einen Dialog öffnet, sollte der Fokus auf den Dialog verschoben werden. Wenn der Button einen Dialog schließt, sollte der Fokus zu dem Button zurückkehren, der den Dialog geöffnet hat, es sei denn, die Funktion, die im Kontext des Dialogs ausgeführt wurde, führt logisch zu einem anderen Element. Wenn der Button den aktuellen Kontext verändert, wie das Stummschalten oder Aufheben der Stummschaltung einer Audiodatei, bleibt der Fokus typischerweise auf dem Button.
 

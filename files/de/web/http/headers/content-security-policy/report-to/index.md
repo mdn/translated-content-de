@@ -21,7 +21,7 @@ Der Server muss die Zuordnung zwischen Endpunktnamen und ihren entsprechenden UR
     </tr>
     <tr>
       <th scope="row">Richtlinientyp</th>
-      <td>[Reporting directive](/de/docs/Glossary/Reporting_directive)</td>
+      <td>{{Glossary("Reporting_directive", "Reporting directive")}}</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">

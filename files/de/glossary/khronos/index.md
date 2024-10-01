@@ -9,7 +9,7 @@ l10n:
 
 **Die Khronos Group** ist ein offenes, gemeinnütziges, mitgliedergesteuertes Konsortium von über 150 führenden Unternehmen der Branche. Ihr Ziel ist es, fortschrittliche, gebührenfreie Interoperabilitätsstandards für 3D-Grafik, Augmented und Virtual Reality, parallele Programmierung, Beschleunigung von Visionen und maschinelles Lernen zu schaffen.
 
-Die Organisation pflegt Standards wie [OpenGL](/de/docs/Glossary/OpenGL) und die [WebGL API](/de/docs/Web/API/WebGL_API).
+Die Organisation pflegt Standards wie {{Glossary("OpenGL", "OpenGL")}} und die [WebGL API](/de/docs/Web/API/WebGL_API).
 
 ## Siehe auch
 

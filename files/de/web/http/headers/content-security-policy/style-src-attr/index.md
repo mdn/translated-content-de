@@ -19,7 +19,7 @@ Die Direktive legt keine gültigen Quellen für {{HTMLElement("style")}}-Element
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
+      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
@@ -52,7 +52,7 @@ Content-Security-Policy: style-src-attr <source>;
 
 `<source>` kann einer der Werte aus [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) sein.
 
-Beachten Sie, dass derselbe Satz von Werten für alle [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und eine [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass derselbe Satz von Werten für alle {{Glossary("fetch_directive", "Fetch-Direktiven")}} (und eine [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 

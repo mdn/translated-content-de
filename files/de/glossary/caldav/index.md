@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CalDAV** (Kalendererweiterungen zu [WebDAV](/de/docs/Glossary/WebDAV)) ist ein von der [IETF](/de/docs/Glossary/IETF) standardisiertes [Protokoll](/de/docs/Glossary/protocol), das verwendet wird, um Kalenderdaten von einem [Server](/de/docs/Glossary/server) aus der Ferne zuzugreifen.
+**CalDAV** (Kalendererweiterungen zu {{Glossary("WebDAV", "WebDAV")}}) ist ein von der {{Glossary("IETF", "IETF")}} standardisiertes {{Glossary("protocol", "Protokoll")}}, das verwendet wird, um Kalenderdaten von einem {{Glossary("server", "Server")}} aus der Ferne zuzugreifen.
 
 ## Siehe auch
 

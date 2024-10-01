@@ -22,7 +22,7 @@ Während das Wörterbuch eine Basisstruktur von Eigenschaften besitzt, die in je
 ### Standardfelder, die für alle Medientypen enthalten sind
 
 - [`codecId`](/de/docs/Web/API/RTCRtpStreamStats/codecId)
-  - : Ein String, der das Objekt eindeutig identifiziert, welches inspiziert wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erzeugen, das mit diesem [RTP](/de/docs/Glossary/RTP)-Stream verknüpft ist.
+  - : Ein String, der das Objekt eindeutig identifiziert, welches inspiziert wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erzeugen, das mit diesem {{Glossary("RTP", "RTP")}}-Stream verknüpft ist.
 - [`kind`](/de/docs/Web/API/RTCRtpStreamStats/kind)
   - : Ein String, dessen Wert `"audio"` ist, wenn der zugehörige [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) nur Audio enthält, oder `"video"`, wenn der Track Video enthält. Dieser Wert stimmt mit dem Medientyp überein, der durch [`RTCCodecStats.codec`](/de/docs/Web/API/RTCCodecStats/codec) sowie mit der [`kind`](/de/docs/Web/API/MediaStreamTrack/kind)-Eigenschaft des Tracks angezeigt wird. Früher wurde dies `mediaType` genannt.
 - [`ssrc`](/de/docs/Web/API/RTCRtpStreamStats/ssrc)

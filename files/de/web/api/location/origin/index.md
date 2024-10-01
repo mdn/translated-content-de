@@ -37,4 +37,4 @@ console.log(window.location.origin); // On this page returns 'https://developer.
 ## Siehe auch
 
 - [`Window.origin`](/de/docs/Web/API/Window/origin)
-- [Ursprung](/de/docs/Glossary/origin) Glossarbegriff
+- {{Glossary("origin", "Ursprung")}} Glossarbegriff

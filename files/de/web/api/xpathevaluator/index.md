@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM XPath")}}
 
-Das `XPathEvaluator`-Interface ermöglicht das Kompilieren und Auswerten von [XPath](/de/docs/Glossary/XPath)-Ausdrücken.
+Das `XPathEvaluator`-Interface ermöglicht das Kompilieren und Auswerten von {{Glossary("XPath", "XPath")}}-Ausdrücken.
 
 ## Konstruktor
 

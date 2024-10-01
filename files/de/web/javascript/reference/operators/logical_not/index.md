@@ -23,8 +23,8 @@ Gibt `false` zurück, wenn sein einzelner Operand in `true` konvertiert werden k
 andernfalls gibt er `true` zurück.
 
 Wenn ein Wert in `true` konvertiert werden kann, wird er als
-[truthy](/de/docs/Glossary/truthy) bezeichnet. Wenn ein Wert in `false` konvertiert werden kann, wird er als
-[falsy](/de/docs/Glossary/falsy) bezeichnet.
+{{Glossary("truthy", "truthy")}} bezeichnet. Wenn ein Wert in `false` konvertiert werden kann, wird er als
+{{Glossary("falsy", "falsy")}} bezeichnet.
 
 Beispiele für Ausdrücke, die in false konvertiert werden können, sind:
 
@@ -54,7 +54,7 @@ Der folgende Code zeigt Beispiele für den `!` (logisches NICHT) Operator.
 Es ist möglich, mehrere NOT Operatoren hintereinander zu verwenden, um die
 Konvertierung eines beliebigen Wertes in den entsprechenden [booleschen primitiven Wert](/de/docs/Web/JavaScript/Data_structures#boolean_type) explizit zu erzwingen.
 Die Konvertierung basiert auf der "Truthiness" oder "Falsiness" des Wertes (siehe
-[truthy](/de/docs/Glossary/truthy) und [falsy](/de/docs/Glossary/falsy)).
+{{Glossary("truthy", "truthy")}} und {{Glossary("falsy", "falsy")}}).
 
 Die gleiche Konvertierung kann auch durch die {{jsxref("Boolean/Boolean", "Boolean()")}} Funktion erfolgen.
 
@@ -92,5 +92,5 @@ bCondition
 ## Siehe auch
 
 - {{jsxref("Boolean")}}
-- [Truthy](/de/docs/Glossary/Truthy)
-- [Falsy](/de/docs/Glossary/Falsy)
+- {{Glossary("Truthy", "Truthy")}}
+- {{Glossary("Falsy", "Falsy")}}

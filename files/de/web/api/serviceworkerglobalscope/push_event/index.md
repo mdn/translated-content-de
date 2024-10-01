@@ -37,7 +37,7 @@ _Erbt Eigenschaften von seinem übergeordneten Element [`ExtendableEvent`](/de/d
 
 ## Beispiel
 
-Dieses Beispiel richtet einen Handler für `push`-Ereignisse ein, der [JSON](/de/docs/Glossary/JSON)-Daten entgegennimmt, sie analysiert und die Nachricht zur Bearbeitung basierend auf den im Nachrichtentext enthaltenen Informationen weiterleitet.
+Dieses Beispiel richtet einen Handler für `push`-Ereignisse ein, der {{Glossary("JSON", "JSON")}}-Daten entgegennimmt, sie analysiert und die Nachricht zur Bearbeitung basierend auf den im Nachrichtentext enthaltenen Informationen weiterleitet.
 
 ```js
 self.addEventListener(

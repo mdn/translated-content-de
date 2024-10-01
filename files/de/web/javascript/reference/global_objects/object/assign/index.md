@@ -63,7 +63,7 @@ console.log(copy); // { a: 1 }
 
 ### Warnung für Deep Clone
 
-Für das [Deep Cloning](/de/docs/Glossary/Deep_copy) müssen wir Alternativen wie [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) verwenden, da `Object.assign()`
+Für das {{Glossary("Deep_copy", "Deep Cloning")}} müssen wir Alternativen wie [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) verwenden, da `Object.assign()`
 Eigenschaftswerte kopiert.
 
 Wenn der Quellwert eine Referenz zu einem Objekt ist, wird nur der Referenzwert kopiert.

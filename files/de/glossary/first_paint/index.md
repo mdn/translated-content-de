@@ -13,6 +13,6 @@ l10n:
 
 - [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)
 - Verwandte Glossarbegriffe:
-  - [First Contentful Paint](/de/docs/Glossary/First_contentful_paint)
-  - [Largest Contentful Paint](/de/docs/Glossary/Largest_contentful_paint)
-  - [First Meaningful Paint](/de/docs/Glossary/First_meaningful_paint)
+  - {{Glossary("First_contentful_paint", "First Contentful Paint")}}
+  - {{Glossary("Largest_contentful_paint", "Largest Contentful Paint")}}
+  - {{Glossary("First_meaningful_paint", "First Meaningful Paint")}}

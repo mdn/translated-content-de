@@ -18,7 +18,7 @@ every(callbackFn)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt werden soll. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes vom Iterator erzeugte Element ausgeführt werden soll. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuell verarbeitete Element.
     - `index`
@@ -26,7 +26,7 @@ every(callbackFn)
 
 ### Rückgabewert
 
-`true`, wenn `callbackFn` für jedes Element einen [truthy](/de/docs/Glossary/truthy) Wert zurückgibt. Andernfalls `false`.
+`true`, wenn `callbackFn` für jedes Element einen {{Glossary("truthy", "truthy")}} Wert zurückgibt. Andernfalls `false`.
 
 ## Beschreibung
 

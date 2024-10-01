@@ -27,7 +27,7 @@ Der `symbols` Deskriptor wird als Liste von einem oder mehreren durch Leerzeiche
   - : Gibt das Symbol an, das im Zählsystem verwendet werden soll. Jedes Symbol in der Liste kann entweder ein {{cssxref("&lt;string&gt;")}}, ein {{cssxref("&lt;image&gt;")}}, oder ein {{cssxref("&lt;custom-ident&gt;")}} sein. Der `<image>` Wert kann wiederum als {{cssxref("&lt;url&gt;")}} oder {{cssxref("&lt;gradient&gt;")}} angegeben werden.
 
 > [!NOTE]
-> Wenn Sie einen [Bezeichner](/de/docs/Glossary/identifier) für ein Symbol verwenden, beachten Sie, dass [ASCII](/de/docs/Glossary/ASCII) Nicht-Buchstaben wie `*`, `"`, und `\` nicht als Bezeichner betrachtet werden. Sie müssen entweder als Zeichenkette zitiert oder entkommen werden.
+> Wenn Sie einen {{Glossary("identifier", "Bezeichner")}} für ein Symbol verwenden, beachten Sie, dass {{Glossary("ASCII", "ASCII")}} Nicht-Buchstaben wie `*`, `"`, und `\` nicht als Bezeichner betrachtet werden. Sie müssen entweder als Zeichenkette zitiert oder entkommen werden.
 
 ## Beschreibung
 

@@ -16,7 +16,7 @@ Eine Zahl, die die aktuelle Zeit der Zeitleiste in Millisekunden darstellt, oder
 
 ## Reduzierte Zeitpräzision
 
-Um Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, könnte die Präzision von `animationTimeline.currentTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2 ms voreingestellt. Sie können auch `privacy.resistFingerprinting` aktivieren; in diesem Fall beträgt die Präzision 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, könnte die Präzision von `animationTimeline.currentTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2 ms voreingestellt. Sie können auch `privacy.resistFingerprinting` aktivieren; in diesem Fall beträgt die Präzision 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
 
 Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `animationTimeline.currentTime` immer ein Vielfaches von 0,002 oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) sein, wenn `privacy.resistFingerprinting` aktiviert ist.
 

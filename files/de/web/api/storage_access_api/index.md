@@ -17,7 +17,7 @@ Die API bietet Methoden, die eingebetteten Ressourcen ermöglichen zu prüfen, o
 
 Browser implementieren mehrere Features und Richtlinien für den Speicherzugriff, die den Zugang zu Drittanbieter-Cookies und unpartitioniertem Zustand einschränken. Diese reichen von der Bereitstellung eines einzigartigen Cookie-Speicherraums für eingebettete Ressourcen unter jedem Top-Level-Ursprung ([partitionierte Cookies](#unpartitionierte_versus_partitionierte_cookies)) bis hin zur vollständigen Blockierung des Cookie-Zugriffs, wenn Ressourcen in einem Drittanbieter-Kontext geladen werden.
 
-Die Semantik bezüglich der Blockierung von Drittanbieter-Cookies und unpartitioniertem Zustand unterscheidet sich von Browser zu Browser, aber die Grundfunktionalität ist ähnlich. In einem Drittanbieter-Kontext eingebettete plattformübergreifende Ressourcen haben nicht denselben Zugriff auf den Status, den sie hätten, wenn sie in einem Erstanbieter-Kontext geladen würden. Dies geschieht mit guter Absicht — Browser-Anbieter wollen Schritte unternehmen, um die Privatsphäre und Sicherheit ihrer Nutzer besser zu schützen. Beispiele beinhalten, sie weniger offen für das Tracking ihrer Aktivitäten über verschiedene Websites und weniger anfällig für Exploits wie Cross-Site-Request-Forgery ([CSRF](/de/docs/Glossary/CSRF)) zu machen.
+Die Semantik bezüglich der Blockierung von Drittanbieter-Cookies und unpartitioniertem Zustand unterscheidet sich von Browser zu Browser, aber die Grundfunktionalität ist ähnlich. In einem Drittanbieter-Kontext eingebettete plattformübergreifende Ressourcen haben nicht denselben Zugriff auf den Status, den sie hätten, wenn sie in einem Erstanbieter-Kontext geladen würden. Dies geschieht mit guter Absicht — Browser-Anbieter wollen Schritte unternehmen, um die Privatsphäre und Sicherheit ihrer Nutzer besser zu schützen. Beispiele beinhalten, sie weniger offen für das Tracking ihrer Aktivitäten über verschiedene Websites und weniger anfällig für Exploits wie Cross-Site-Request-Forgery ({{Glossary("CSRF", "CSRF")}}) zu machen.
 
 Es gibt jedoch legitime Verwendungen für eingebettete plattformübergreifende Inhalte, die Zugriff auf Drittanbieter-Cookies und unpartitionierten Zustand benötigen, die durch die eingangs beschriebenen Funktionen und Richtlinien beeinträchtigt werden. Nehmen wir an, Sie haben eine Serie von verschiedenen Websites, die Zugriff auf unterschiedliche Produkte bieten – `heads-example.com`, `shoulders-example.com`, `knees-example.com` und `toes-example.com`.
 
@@ -61,7 +61,7 @@ Eingebettete Inhalte, die einen legitimen Bedarf an Zugriff auf Drittanbieter-Co
 
 Es gibt mehrere unterschiedliche Sicherheitsmaßnahmen, die dazu führen können, dass ein Aufruf von [`Document.requestStorageAccess()`](/de/docs/Web/API/Document/requestStorageAccess) fehlschlägt. Überprüfen Sie die folgende Liste, wenn Sie Probleme haben, eine Anforderung zum Laufen zu bringen:
 
-1. Der Aufruf muss mit einer Benutzergeste ([transiente Aktivierung](/de/docs/Glossary/transient_activation)) wie einem Tippen oder Klicken verbunden sein. Dies verhindert, dass eingebettete Inhalte auf der Seite den Browser oder Nutzer mit übermäßigen Zugriffsanforderungen bombardieren. Beachten Sie, dass dies nicht erforderlich ist, wenn:
+1. Der Aufruf muss mit einer Benutzergeste ({{Glossary("transient_activation", "transiente Aktivierung")}}) wie einem Tippen oder Klicken verbunden sein. Dies verhindert, dass eingebettete Inhalte auf der Seite den Browser oder Nutzer mit übermäßigen Zugriffsanforderungen bombardieren. Beachten Sie, dass dies nicht erforderlich ist, wenn:
    - Die Berechtigung zur Verwendung der API bereits erteilt wurde, z.B. durch eine andere gleichseitige Ressource, die `requestStorageAccess()` aufruft.
    - Der Aufrufer ein Top-Level-Dokument oder gleichseitig zum Top-Level-Dokument ist. In solchen Fällen muss `requestStorageAccess()` wahrscheinlich überhaupt nicht aufgerufen werden.
 2. Das Dokument und das Top-Level-Dokument dürfen keinen `null`-Ursprung haben.
@@ -81,7 +81,7 @@ Es gibt mehrere unterschiedliche Sicherheitsmaßnahmen, die dazu führen können
 6. Die Verwendung dieser Funktion kann durch eine [Berechtigungen-Richtlinie](/de/docs/Web/HTTP/Permissions_Policy) {{httpheader("Permissions-Policy/storage-access", "storage-access")}} blockiert werden, die auf Ihrem Server gesetzt wurde.
 
 > [!NOTE]
-> Das Dokument muss möglicherweise auch zusätzliche browserspezifische Prüfungen bestehen. Beispiele: Whitelists, Blacklists, Klassifizierung auf dem Gerät, Benutzereinstellungen, Anti-[Clickjacking](/de/docs/Glossary/Clickjacking)-Heuristiken oder das Abfragen des Nutzers um ausdrückliche Berechtigung.
+> Das Dokument muss möglicherweise auch zusätzliche browserspezifische Prüfungen bestehen. Beispiele: Whitelists, Blacklists, Klassifizierung auf dem Gerät, Benutzereinstellungen, Anti-{{Glossary("Clickjacking", "Clickjacking")}}-Heuristiken oder das Abfragen des Nutzers um ausdrückliche Berechtigung.
 
 ## Browserspezifische Variationen
 

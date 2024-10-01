@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein [Stringifier](/de/docs/Glossary/object) eines [Objekts](/de/docs/Glossary/attribute) ist ein [Attribut](/de/docs/Glossary/method) oder eine Methode, die definiert ist, um eine textuelle Darstellung des Objekts bereitzustellen, die in Situationen verwendet wird, in denen ein [String](/de/docs/Glossary/string) erwartet wird.
+Ein {{Glossary("object", "Stringifier")}} eines {{Glossary("attribute", "Objekts")}} ist ein {{Glossary("method", "Attribut")}} oder eine Methode, die definiert ist, um eine textuelle Darstellung des Objekts bereitzustellen, die in Situationen verwendet wird, in denen ein {{Glossary("string", "String")}} erwartet wird.
 
 ## Siehe auch
 

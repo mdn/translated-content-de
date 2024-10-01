@@ -471,7 +471,7 @@ aside {
 {{ EmbedLiveSample('Line-based_placement', '100%', 550) }}
 
 > [!NOTE]
-> Sie können auch den Wert `-1` verwenden, um die Endspalten- oder Zeilenlinie anzusprechen, und dann von der Endlinie aus nach innen mit negativen Werten zählen. Beachten Sie auch, dass Linien immer von den Rändern des expliziten Grids zählen, nicht vom [impliziten Grid](/de/docs/Glossary/Grid).
+> Sie können auch den Wert `-1` verwenden, um die Endspalten- oder Zeilenlinie anzusprechen, und dann von der Endlinie aus nach innen mit negativen Werten zählen. Beachten Sie auch, dass Linien immer von den Rändern des expliziten Grids zählen, nicht vom {{Glossary("Grid", "impliziten Grid")}}.
 
 ## Positionierung mit grid-template-areas
 

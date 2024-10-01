@@ -16,7 +16,7 @@ Dies unterscheidet sich von `timestamp`, welches den Zeitpunkt angibt, zu dem di
 Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der den Zeitstempel beim entfernten Peer angibt, zu dem er diese Statistiken gesendet hat.
 Dies unterscheidet sich von dem Wert `timestamp`, welcher den Zeitpunkt angibt, zu dem die Statistiken vom lokalen Peer erstellt oder empfangen wurden.
 
-Falls diese Eigenschaft vorhanden ist, stammt sie aus dem [RTCP](/de/docs/Glossary/RTCP) Sender Report (SR)-Block, der die Uhr beim entfernten Peer zu dem Zeitpunkt widerspiegelt, zu dem die Nachricht gesendet wurde.
+Falls diese Eigenschaft vorhanden ist, stammt sie aus dem {{Glossary("RTCP", "RTCP")}} Sender Report (SR)-Block, der die Uhr beim entfernten Peer zu dem Zeitpunkt widerspiegelt, zu dem die Nachricht gesendet wurde.
 Bitte beachten Sie, dass dies bedeutet, dass die Uhr nicht mit der lokalen Uhr synchronisiert sein muss und dass sowohl die aktuelle Zeit als auch das Tempo, mit dem die Uhr läuft, bis zu einem gewissen Grad unterschiedlich sein können.
 
 ## Spezifikationen

@@ -67,7 +67,7 @@ Die `pointer-events` Eigenschaft wird als einzelnes Schlüsselwort aus der unten
 - `stroke`
   - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über den Umfang (d.h. Strich) des Elements fährt. Die Werte der `stroke` und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
 - `bounding-box`
-  - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über die [Umrandungsbox](/de/docs/Glossary/Bounding_box) des Elements fährt.
+  - : Nur SVG. Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über die {{Glossary("Bounding_box", "Umrandungsbox")}} des Elements fährt.
 - `all`
   - : Nur SVG (experimentell für HTML). Das Element kann nur das Ziel eines Zeigerereignisses sein, wenn der Zeiger über das Innere (d.h. fill) oder den Umfang (d.h. stroke) des Elements fährt. Die Werte der `fill`, `stroke`, und `visibility` Eigenschaften beeinflussen die Ereignisverarbeitung nicht.
 

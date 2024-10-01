@@ -27,7 +27,7 @@ Als nächstes wenden wir uns den Strings zu — so werden Textteile in der Progr
 
 ## Die Macht der Worte
 
-Worte sind für Menschen sehr wichtig — sie sind ein großer Teil unserer Kommunikation. Da das Web ein größtenteils textbasiertes Medium ist, das es Menschen ermöglicht, zu kommunizieren und Informationen zu teilen, ist es nützlich für uns, die Kontrolle über die darauf erscheinenden Worte zu haben. [HTML](/de/docs/Glossary/HTML) bietet Struktur und Bedeutung für Text, [CSS](/de/docs/Glossary/CSS) ermöglicht es uns, ihn präzise zu gestalten, und JavaScript bietet viele Funktionen zur Manipulation von Strings. Dazu gehören das Erstellen von benutzerdefinierten Willkommensnachrichten und Eingabeaufforderungen, das Anzeigen der richtigen Textbezeichnungen bei Bedarf, das Sortieren von Begriffen in der gewünschten Reihenfolge und vieles mehr.
+Worte sind für Menschen sehr wichtig — sie sind ein großer Teil unserer Kommunikation. Da das Web ein größtenteils textbasiertes Medium ist, das es Menschen ermöglicht, zu kommunizieren und Informationen zu teilen, ist es nützlich für uns, die Kontrolle über die darauf erscheinenden Worte zu haben. {{Glossary("HTML", "HTML")}} bietet Struktur und Bedeutung für Text, {{Glossary("CSS", "CSS")}} ermöglicht es uns, ihn präzise zu gestalten, und JavaScript bietet viele Funktionen zur Manipulation von Strings. Dazu gehören das Erstellen von benutzerdefinierten Willkommensnachrichten und Eingabeaufforderungen, das Anzeigen der richtigen Textbezeichnungen bei Bedarf, das Sortieren von Begriffen in der gewünschten Reihenfolge und vieles mehr.
 
 So ziemlich alle Programme, die wir Ihnen bisher im Kurs gezeigt haben, beinhalteten eine gewisse String-Manipulation.
 

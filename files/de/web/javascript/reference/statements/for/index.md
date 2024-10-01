@@ -26,7 +26,7 @@ for (initialization; condition; afterthought)
 
 - `condition` {{optional_inline}}
 
-  - : Ein Ausdruck, der vor jedem Schleifendurchlauf ausgewertet wird. Wenn dieser Ausdruck [als wahr ausgewertet](/de/docs/Glossary/Truthy) wird, wird `statement` ausgeführt. Wenn der Ausdruck [als falsch ausgewertet](/de/docs/Glossary/Falsy) wird, verlässt die Ausführung die Schleife und geht zur ersten Anweisung nach dem `for`-Konstrukt.
+  - : Ein Ausdruck, der vor jedem Schleifendurchlauf ausgewertet wird. Wenn dieser Ausdruck {{Glossary("Truthy", "als wahr ausgewertet")}} wird, wird `statement` ausgeführt. Wenn der Ausdruck {{Glossary("Falsy", "als falsch ausgewertet")}} wird, verlässt die Ausführung die Schleife und geht zur ersten Anweisung nach dem `for`-Konstrukt.
 
     Dieser konditionale Test ist optional. Wenn er weggelassen wird, wird die Bedingung immer als wahr ausgewertet.
 
@@ -125,7 +125,7 @@ while (i <= 3) {
 
 ### Lexikalische Deklarationen im Initialisierungsblock
 
-Das Deklarieren einer Variablen im Initialisierungsblock hat wichtige Unterschiede zum Deklarieren im übergeordneten [Gültigkeitsbereich](/de/docs/Glossary/Scope), insbesondere wenn innerhalb des Schleifenkörpers eine [Schließung](/de/docs/Web/JavaScript/Closures) erstellt wird. Beispielhaft sei dieser Code:
+Das Deklarieren einer Variablen im Initialisierungsblock hat wichtige Unterschiede zum Deklarieren im übergeordneten {{Glossary("Scope", "Gültigkeitsbereich")}}, insbesondere wenn innerhalb des Schleifenkörpers eine [Schließung](/de/docs/Web/JavaScript/Closures) erstellt wird. Beispielhaft sei dieser Code:
 
 ```js
 for (let i = 0; i < 3; i++) {

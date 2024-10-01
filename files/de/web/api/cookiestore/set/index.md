@@ -35,7 +35,7 @@ Oder
     - `domain` {{Optional_Inline}}
       - : Ein String, der die Domain des Cookies enthält. Standardmäßig `null`.
     - `expires` {{Optional_Inline}}
-      - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardmäßig `null`.
+      - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält. Standardmäßig `null`.
     - `name`
       - : Ein String mit dem Namen eines Cookies.
     - `partitioned` {{Optional_Inline}}
@@ -63,7 +63,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} werden kann.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn das Setzen des Cookies mit dem angegebenen `name` und `value` oder `options` fehlschlägt.
 

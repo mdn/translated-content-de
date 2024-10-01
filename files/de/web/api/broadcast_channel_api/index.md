@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Broadcast Channel API")}} {{AvailableInWorkers}}
 
-Die **Broadcast Channel API** ermöglicht grundlegende Kommunikation zwischen [Browsing-Kontexten](/de/docs/Glossary/browsing_context) (das heißt _Fenster_, _Tabs_, _Frames_ oder _iFrames_) und Workern auf demselben [Origin](/de/docs/Glossary/origin).
+Die **Broadcast Channel API** ermöglicht grundlegende Kommunikation zwischen {{Glossary("browsing_context", "Browsing-Kontexten")}} (das heißt _Fenster_, _Tabs_, _Frames_ oder _iFrames_) und Workern auf demselben {{Glossary("origin", "Origin")}}.
 
 > [!NOTE]
 > Genau genommen ist die Kommunikation zwischen Browsing-Kontexten erlaubt, die denselben [Speicherpartition](/de/docs/Web/Privacy/State_Partitioning) verwenden. Speicher wird zuerst entsprechend der Top-Level-Sites partitioniert. Wenn Sie also eine Seite bei `a.com` geöffnet haben, die ein iframe von `b.com` einbettet, und eine andere Seite auf `b.com` geöffnet ist, kann das iframe trotz technischem Same-Origin nicht mit der zweiten Seite kommunizieren. Wenn die erste Seite jedoch auch auf `b.com` ist, kann das iframe mit der zweiten Seite kommunizieren.
@@ -69,7 +69,7 @@ Das Nachrichtenprotokoll ist nicht definiert und die verschiedenen Browsing-Kont
 ## Schnittstellen
 
 - [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)
-  - : Repräsentiert einen benannten Kanal, zu dem sich jeder [Browsing-Kontext](/de/docs/Glossary/browsing_context) eines bestimmten [Origin](/de/docs/Glossary/origin) anmelden kann.
+  - : Repräsentiert einen benannten Kanal, zu dem sich jeder {{Glossary("browsing_context", "Browsing-Kontext")}} eines bestimmten {{Glossary("origin", "Origin")}} anmelden kann.
 
 ## Spezifikationen
 

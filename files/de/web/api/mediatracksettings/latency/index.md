@@ -14,7 +14,7 @@ Dies ist natürlich eine Annäherung, da die Latenz aus vielen Gründen variiere
 
 Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.latency`](/de/docs/Web/API/MediaTrackSupportedConstraints/latency) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Dies ist jedoch normalerweise nicht notwendig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Information nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft nie enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft nie enthalten.
 
 ## Wert
 

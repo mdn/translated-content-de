@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Gutters** oder _Bahnen_ sind Abstände zwischen Inhalts-[Tracks](/de/docs/Glossary/grid_tracks). Diese können im [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) mithilfe der Eigenschaften {{cssxref("column-gap")}}, {{cssxref("row-gap")}} oder {{cssxref("gap")}} erstellt werden.
+**Gutters** oder _Bahnen_ sind Abstände zwischen Inhalts-{{Glossary("grid_tracks", "Tracks")}}. Diese können im [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) mithilfe der Eigenschaften {{cssxref("column-gap")}}, {{cssxref("row-gap")}} oder {{cssxref("gap")}} erstellt werden.
 
 ## Beispiel
 

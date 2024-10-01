@@ -22,14 +22,14 @@ data:[<mediatype>][;base64],<data>
 
 Der `mediatype` ist eine [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) Zeichenkette, wie zum Beispiel `'image/jpeg'` für eine JPEG-Bilddatei. Wird dieser weggelassen, lautet der Standardwert `text/plain;charset=US-ASCII`.
 
-Wenn die Daten [Zeichen enthalten, die in RFC 3986 als reserviert definiert sind](https://datatracker.ietf.org/doc/html/rfc3986#section-2.2), oder Leerzeichen, Zeilenumbrüche oder andere nicht druckbare Zeichen enthalten, müssen diese Zeichen [prozentkodiert](/de/docs/Glossary/Percent-encoding) werden.
+Wenn die Daten [Zeichen enthalten, die in RFC 3986 als reserviert definiert sind](https://datatracker.ietf.org/doc/html/rfc3986#section-2.2), oder Leerzeichen, Zeilenumbrüche oder andere nicht druckbare Zeichen enthalten, müssen diese Zeichen {{Glossary("Percent-encoding", "prozentkodiert")}} werden.
 
 Wenn die Daten textlich sind, können Sie den Text einbetten (unter Verwendung der entsprechenden Entitäten oder Escape-Sequenzen, basierend auf dem Typ des umschließenden Dokuments). Andernfalls können Sie `base64` angeben, um base64-kodierte Binärdaten einzubetten. Weitere Informationen zu MIME-Typen finden Sie [hier](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) und [hier](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
 Einige Beispiele:
 
 - `data:,Hello%2C%20World%21`
-  - : Die text/plain Daten `Hello, World!`. Beachten Sie, wie das Komma als `%2C` und das Leerzeichen als `%20` [prozentkodiert](/de/docs/Glossary/Percent-encoding) sind.
+  - : Die text/plain Daten `Hello, World!`. Beachten Sie, wie das Komma als `%2C` und das Leerzeichen als `%20` {{Glossary("Percent-encoding", "prozentkodiert")}} sind.
 - `data:text/plain;base64,SGVsbG8sIFdvcmxkIQ==`
   - : Base64-kodierte Version des obigen Beispiels
 - `data:text/html,%3Ch1%3EHello%2C%20World%21%3C%2Fh1%3E`
@@ -39,11 +39,11 @@ Einige Beispiele:
 
 ## Kodierung von Daten im base64-Format
 
-Base64 ist eine Gruppe von Kodierungsschemata, die Binärdaten in ein [ASCII](/de/docs/Glossary/ASCII) Zeichenkettenformat umwandeln, indem es in eine Radix-64-Darstellung übersetzt wird. Da nur Zeichen verwendet werden, die von der URL-Syntax erlaubt sind ("URL sicher"), können wir Binärdaten sicher in Data-URLs kodieren. Base64 verwendet die Zeichen `+` und `/`, die in URLs spezielle Bedeutungen haben können. Da Data-URLs keine URL-Pfadsegmente oder Abfrageparameter haben, ist diese Kodierung in diesem Kontext sicher.
+Base64 ist eine Gruppe von Kodierungsschemata, die Binärdaten in ein {{Glossary("ASCII", "ASCII")}} Zeichenkettenformat umwandeln, indem es in eine Radix-64-Darstellung übersetzt wird. Da nur Zeichen verwendet werden, die von der URL-Syntax erlaubt sind ("URL sicher"), können wir Binärdaten sicher in Data-URLs kodieren. Base64 verwendet die Zeichen `+` und `/`, die in URLs spezielle Bedeutungen haben können. Da Data-URLs keine URL-Pfadsegmente oder Abfrageparameter haben, ist diese Kodierung in diesem Kontext sicher.
 
 ### Kodierung in JavaScript
 
-Die Web-APIs bieten native Methoden zur Kodierung oder Dekodierung in base64: [Base64](/de/docs/Glossary/Base64).
+Die Web-APIs bieten native Methoden zur Kodierung oder Dekodierung in base64: {{Glossary("Base64", "Base64")}}.
 
 ### Kodierung auf einem Unix-System
 
@@ -115,9 +115,9 @@ lots of text…
 
 ## Siehe auch
 
-- [Base64](/de/docs/Glossary/Base64)
-- [Prozentkodierung](/de/docs/Glossary/Percent-encoding)
+- {{Glossary("Base64", "Base64")}}
+- {{Glossary("Percent-encoding", "Prozentkodierung")}}
 - [`atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
 - [`btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
 - CSS {{CSSXref("url", "url()")}}
-- [URI](/de/docs/Glossary/URI)
+- {{Glossary("URI", "URI")}}

@@ -16,5 +16,5 @@ Obwohl die Browservorhersage und Vorhersagedienste schnellere Seitenladungen erm
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [prerender](/de/docs/Glossary/prerender)
-  - [prefetch](/de/docs/Glossary/prefetch)
+  - {{Glossary("prerender", "prerender")}}
+  - {{Glossary("prefetch", "prefetch")}}

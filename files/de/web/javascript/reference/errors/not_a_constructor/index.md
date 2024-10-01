@@ -1,5 +1,5 @@
 ---
-title: "TypeError: \"x\" ist kein Konstruktor"
+title: 'TypeError: "x" ist kein Konstruktor'
 slug: Web/JavaScript/Reference/Errors/Not_a_constructor
 l10n:
   sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
@@ -21,7 +21,7 @@ TypeError: x is not a constructor (V8-based & Firefox & Safari)
 
 ## Was ist schiefgelaufen?
 
-Es wurde versucht, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable ist kein Konstruktor. Siehe [Konstruktor](/de/docs/Glossary/Constructor) oder den [`new`-Operator](/de/docs/Web/JavaScript/Reference/Operators/new) für weitere Informationen darüber, was ein Konstruktor ist.
+Es wurde versucht, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable ist kein Konstruktor. Siehe {{Glossary("Constructor", "Konstruktor")}} oder den [`new`-Operator](/de/docs/Web/JavaScript/Reference/Operators/new) für weitere Informationen darüber, was ein Konstruktor ist.
 
 Es gibt viele globale Objekte, wie {{jsxref("String")}} oder {{jsxref("Array")}}, die über `new` konstruierbar sind. Einige globale Objekte sind dies jedoch nicht und deren Eigenschaften und Methoden sind statisch. Die folgenden JavaScript-Standard eingebauten Objekte sind kein Konstruktor: {{jsxref("Math")}}, {{jsxref("JSON")}}, {{jsxref("Symbol")}}, {{jsxref("Reflect")}}, {{jsxref("Intl")}}, {{jsxref("Atomics")}}.
 
@@ -101,5 +101,5 @@ const rejectAlways = () => {
 
 ## Siehe auch
 
-- [Konstruktor](/de/docs/Glossary/Constructor)
+- {{Glossary("Constructor", "Konstruktor")}}
 - [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)

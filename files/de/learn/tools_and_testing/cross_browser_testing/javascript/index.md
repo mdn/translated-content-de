@@ -30,7 +30,7 @@ Nun werden wir uns häufig auftretende JavaScript-Probleme bezüglich der Browse
 
 ## Das Problem mit JavaScript
 
-Historisch gesehen war JavaScript von Problemen mit der Browser-Kompatibilität geplagt — in den 1990er Jahren hatten die Hauptbrowser (Internet Explorer und Netscape) unterschiedliche Sprachversionen für Scripting implementiert (Netscape hatte JavaScript, IE hatte JScript und bot auch VBScript als Option an). Obwohl JavaScript und JScript bis zu einem gewissen Grad kompatibel waren (beide basierten auf der [ECMAScript](/de/docs/Glossary/ECMAScript)-Spezifikation), wurden Dinge oft in widersprüchlichen, inkompatiblen Weisen implementiert, was Entwicklern viele Kopfschmerzen bereitete.
+Historisch gesehen war JavaScript von Problemen mit der Browser-Kompatibilität geplagt — in den 1990er Jahren hatten die Hauptbrowser (Internet Explorer und Netscape) unterschiedliche Sprachversionen für Scripting implementiert (Netscape hatte JavaScript, IE hatte JScript und bot auch VBScript als Option an). Obwohl JavaScript und JScript bis zu einem gewissen Grad kompatibel waren (beide basierten auf der {{Glossary("ECMAScript", "ECMAScript")}}-Spezifikation), wurden Dinge oft in widersprüchlichen, inkompatiblen Weisen implementiert, was Entwicklern viele Kopfschmerzen bereitete.
 
 Solche Inkompatibilitätsprobleme hielten sich bis in die frühen 2000er Jahre, da alte Browser weiterhin verwendet und unterstützt werden mussten. Beispielsweise musste Code zum Erstellen von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekten speziell für Internet Explorer 6 behandelt werden:
 
@@ -393,7 +393,7 @@ Verwenden Sie [Funktions-Erkennung](#funktions-erkennung) (und CSS @supports fü
 
 ### Umgang mit JavaScript-Präfixen
 
-Im vorherigen Artikel haben wir bereits einige Diskussionen über den [Umgang mit CSS-Präfixen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#handling_css_prefixes) geführt. Nun, neue JavaScript-Implementierungen verwendeten früher ebenfalls Präfixe, wobei JavaScript [camel case](/de/docs/Glossary/camel_case) anstelle von [hyphenation](/de/docs/Glossary/kebab_case) wie im CSS verwendete. Zum Beispiel, wenn ein Präfix auf einem neuen jshint-API-Objekt namens `Object` verwendet würde:
+Im vorherigen Artikel haben wir bereits einige Diskussionen über den [Umgang mit CSS-Präfixen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#handling_css_prefixes) geführt. Nun, neue JavaScript-Implementierungen verwendeten früher ebenfalls Präfixe, wobei JavaScript {{Glossary("camel_case", "camel case")}} anstelle von {{Glossary("kebab_case", "hyphenation")}} wie im CSS verwendete. Zum Beispiel, wenn ein Präfix auf einem neuen jshint-API-Objekt namens `Object` verwendet würde:
 
 - Mozilla würde `mozObject` verwenden
 - Chrome/Opera/Safari würden `webkitObject` verwenden

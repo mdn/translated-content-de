@@ -35,7 +35,7 @@ initTextEvent(type, bubbles, cancelable, view, data)
 - `cancelable` {{optional_inline}}
   - : Ein Boolean, der angibt, ob die Standardaktion des Ereignisses verhindert werden kann oder nicht. Standardmäßig `false`. Legt den Wert von [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) fest.
 - `view` {{optional_inline}}
-  - : Das [WindowProxy](/de/docs/Glossary/WindowProxy)-Objekt, von dem das Ereignis generiert wurde. Standardmäßig `null`.
+  - : Das {{Glossary("WindowProxy", "WindowProxy")}}-Objekt, von dem das Ereignis generiert wurde. Standardmäßig `null`.
 - `data` {{optional_inline}}
   - : Ein String, um das Datenattribut des Ereignisses festzulegen.
 

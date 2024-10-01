@@ -7,13 +7,13 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/XML")}}
 
-XML (Extensible Markup Language) ist eine Auszeichnungssprache ähnlich wie [HTML](/de/docs/Glossary/HTML), jedoch ohne vordefinierte Tags zur Verwendung. Stattdessen definieren Sie Ihre eigenen Tags, die speziell auf Ihre Bedürfnisse zugeschnitten sind. Dies ist eine leistungsstarke Methode, um Daten in einem Format zu speichern, das gespeichert, durchsucht und geteilt werden kann. Am wichtigsten ist, dass, da das grundlegende Format von XML standardisiert ist, wenn Sie XML über Systeme oder Plattformen hinweg freigeben oder übertragen, entweder lokal oder über das Internet, der Empfänger die Daten aufgrund der standardisierten XML-Syntax dennoch analysieren kann.
+XML (Extensible Markup Language) ist eine Auszeichnungssprache ähnlich wie {{Glossary("HTML", "HTML")}}, jedoch ohne vordefinierte Tags zur Verwendung. Stattdessen definieren Sie Ihre eigenen Tags, die speziell auf Ihre Bedürfnisse zugeschnitten sind. Dies ist eine leistungsstarke Methode, um Daten in einem Format zu speichern, das gespeichert, durchsucht und geteilt werden kann. Am wichtigsten ist, dass, da das grundlegende Format von XML standardisiert ist, wenn Sie XML über Systeme oder Plattformen hinweg freigeben oder übertragen, entweder lokal oder über das Internet, der Empfänger die Daten aufgrund der standardisierten XML-Syntax dennoch analysieren kann.
 
-Es gibt viele Sprachen, die auf XML basieren, einschließlich [XHTML](/de/docs/Glossary/XHTML), [MathML](/de/docs/Web/MathML), [SVG](/de/docs/Web/SVG), [RSS](/de/docs/Glossary/RSS) und [RDF](/de/docs/Glossary/RDF). Sie können auch Ihre eigene definieren.
+Es gibt viele Sprachen, die auf XML basieren, einschließlich {{Glossary("XHTML", "XHTML")}}, [MathML](/de/docs/Web/MathML), [SVG](/de/docs/Web/SVG), {{Glossary("RSS", "RSS")}} und {{Glossary("RDF", "RDF")}}. Sie können auch Ihre eigene definieren.
 
 ## Struktur eines XML-Dokuments
 
-Die gesamte Struktur von XML und XML-basierten Sprachen basiert auf [Tags](/de/docs/Glossary/tag).
+Die gesamte Struktur von XML und XML-basierten Sprachen basiert auf {{Glossary("tag", "Tags")}}.
 
 ### XML-Deklaration
 
@@ -44,7 +44,7 @@ Damit ein XML-Dokument korrekt ist, müssen die folgenden Bedingungen erfüllt s
 
 - Das Dokument muss wohlgeformt sein.
 - Das Dokument muss allen XML-Syntaxregeln entsprechen.
-- Das Dokument muss semantischen Regeln entsprechen, die in der Regel in einem XML-Schema oder einer DTD (**[Document Type Definition](/de/docs/Glossary/Doctype))** festgelegt sind.
+- Das Dokument muss semantischen Regeln entsprechen, die in der Regel in einem XML-Schema oder einer DTD (**{{Glossary("Doctype", "Document Type Definition")}})** festgelegt sind.
 
 ### Beispiel
 
@@ -74,17 +74,17 @@ Die meisten Browser bieten einen Debugger, der schlecht geformte XML-Dokumente i
 
 ## Zeichenreferenzen
 
-Wie HTML bietet auch XML [Zeichenreferenzen](/de/docs/Glossary/character_reference) für die Bezugnahme auf einige spezielle reservierte Zeichen (wie ein Größer-als-Zeichen, das für Tags verwendet wird). Es gibt fünf dieser Zeichen, die Sie kennen sollten:
+Wie HTML bietet auch XML {{Glossary("character_reference", "Zeichenreferenzen")}} für die Bezugnahme auf einige spezielle reservierte Zeichen (wie ein Größer-als-Zeichen, das für Tags verwendet wird). Es gibt fünf dieser Zeichen, die Sie kennen sollten:
 
-| Entity     | Character | Beschreibung                              |
-| ---------- | --------- | ----------------------------------------- |
-| &amp;lt;   | <         | Kleiner-als-Zeichen                       |
-| &amp;gt;   | >         | Größer-als-Zeichen                        |
-| &amp;amp;  | &         | Und-Zeichen                               |
-| &amp;quot; | "         | Ein doppeltes Anführungszeichen           |
+| Entity     | Character | Beschreibung                                     |
+| ---------- | --------- | ------------------------------------------------ |
+| &amp;lt;   | <         | Kleiner-als-Zeichen                              |
+| &amp;gt;   | >         | Größer-als-Zeichen                               |
+| &amp;amp;  | &         | Und-Zeichen                                      |
+| &amp;quot; | "         | Ein doppeltes Anführungszeichen                  |
 | &amp;apos; | '         | Ein Apostroph (oder einfaches Anführungszeichen) |
 
-Obwohl es nur 5 deklarierte Zeichenreferenzen oder Entitäten gibt, können über die [Document Type Definition](/de/docs/Glossary/Doctype) des Dokuments mehr hinzugefügt werden. Zum Beispiel, um eine neue `&warning;`-Entität zu erstellen, können Sie dies tun:
+Obwohl es nur 5 deklarierte Zeichenreferenzen oder Entitäten gibt, können über die {{Glossary("Doctype", "Document Type Definition")}} des Dokuments mehr hinzugefügt werden. Zum Beispiel, um eine neue `&warning;`-Entität zu erstellen, können Sie dies tun:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

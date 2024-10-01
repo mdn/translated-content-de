@@ -40,7 +40,7 @@ Dieser Artikel zeigt die Syntax, die erforderlich ist, um einen Link zu erstelle
 Hyperlinks gehören zu den aufregendsten Innovationen, die das Web zu bieten hat.
 Sie sind seit den Anfängen des Webs eine Funktion und machen das Web zu einem _Netz_.
 Hyperlinks erlauben es uns, Dokumente mit anderen Dokumenten oder Ressourcen zu verknüpfen, auf spezifische Teile von Dokumenten zu verlinken oder Apps unter einer Webadresse bereitzustellen.
-Fast jeder Webinhalt kann in einen Link umgewandelt werden, sodass der Webbrowser beim Anklicken oder anderweitigen Aktivieren zu einer anderen Webadresse ([URL](/de/docs/Glossary/URL)) wechselt.
+Fast jeder Webinhalt kann in einen Link umgewandelt werden, sodass der Webbrowser beim Anklicken oder anderweitigen Aktivieren zu einer anderen Webadresse ({{Glossary("URL", "URL")}}) wechselt.
 
 > [!NOTE]
 > Eine URL kann auf HTML-Dateien, Textdateien, Bilder, Textdokumente, Video- und Audiodateien oder alles andere verweisen, das im Web existiert.
@@ -66,7 +66,7 @@ Ich erstelle einen Link zur [Mozilla-Homepage](https://www.mozilla.org/en-US/).
 
 ### Blockebenen-Links
 
-Wie bereits erwähnt, kann fast jeder Inhalt in einen Link umgewandelt werden, selbst [Block-Level-Elemente](/de/docs/Glossary/Block/CSS).
+Wie bereits erwähnt, kann fast jeder Inhalt in einen Link umgewandelt werden, selbst {{Glossary("Block/CSS", "Block-Level-Elemente")}}.
 Wenn Sie ein Überschriftenelement in einen Link umwandeln möchten, umschließen Sie es in einem Anker (`<a>`)-Element, wie im folgenden Code-Snippet gezeigt:
 
 ```html
@@ -209,7 +209,7 @@ Sie können sogar nur den Dokumentfragmentverweis verwenden, um _zu einem andere
 
 Zwei Begriffe, auf die Sie im Web stoßen werden, sind **absolute URL** und **relative URL:**
 
-**Absolute URL**: Zeigt auf einen Ort, der durch seinen absoluten Standort im Web definiert ist, einschließlich [Protokoll](/de/docs/Glossary/protocol) und [Domainname](/de/docs/Glossary/domain_name).
+**Absolute URL**: Zeigt auf einen Ort, der durch seinen absoluten Standort im Web definiert ist, einschließlich {{Glossary("protocol", "Protokoll")}} und {{Glossary("domain_name", "Domainname")}}.
 Zum Beispiel, wenn eine `index.html`-Seite in ein Verzeichnis namens `projects` hochgeladen wird, das sich innerhalb des **Root** eines Webservers befindet, und die Domain der Website `https://www.example.com` ist, wäre die Seite unter `https://www.example.com/projects/index.html` verfügbar (oder sogar nur `https://www.example.com/projects/`, da die meisten Webserver eine Startseite wie `index.html` laden, wenn sie in der URL nicht angegeben ist).
 
 Eine absolute URL wird immer auf denselben Ort verweisen, egal wo sie verwendet wird.
@@ -354,7 +354,7 @@ Hier ist ein Beispiel, das cc, bcc, subject und body enthält:
 ```
 
 > [!NOTE]
-> Die Werte jedes Feldes müssen URL-kodiert sein, mit nicht druckbaren Zeichen (unsichtbaren Zeichen wie Tabs, Wagenrückläufen und Seitenumbrüchen) und Leerzeichen [prozentkodiert](/de/docs/Glossary/Percent-encoding).
+> Die Werte jedes Feldes müssen URL-kodiert sein, mit nicht druckbaren Zeichen (unsichtbaren Zeichen wie Tabs, Wagenrückläufen und Seitenumbrüchen) und Leerzeichen {{Glossary("Percent-encoding", "prozentkodiert")}}.
 > Beachten Sie außerdem die Verwendung des Fragezeichens (`?`), um die Haupt-URL von den Feldwerten zu trennen, und der kaufmännischen Und (`&`), um jedes Feld in der `mailto:` URL zu trennen.
 > Dies ist die Standard-URL-Abfragenotation.
 > Lesen Sie [Die GET-Methode](/de/docs/Learn/Forms/Sending_and_retrieving_form_data#the_get_method), um zu verstehen, wofür die URL-Abfragenotation häufiger verwendet wird.

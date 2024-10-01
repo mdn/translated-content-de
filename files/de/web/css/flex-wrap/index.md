@@ -33,9 +33,9 @@ flex-wrap: unset;
 Die Eigenschaft `flex-wrap` wird als ein einzelnes Schlüsselwort angegeben, das aus den folgenden Werten ausgewählt wird:
 
 - `nowrap`
-  - : Die Flex-Elemente sind in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überfließt. Der Querstart entspricht [inline-start oder block-start](/de/docs/Glossary/Flow_relative_values), abhängig vom Wert der {{cssxref("flex-direction")}}. Dies ist der Standardwert.
+  - : Die Flex-Elemente sind in einer einzigen Zeile angeordnet, was dazu führen kann, dass der Flex-Container überfließt. Der Querstart entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom Wert der {{cssxref("flex-direction")}}. Dies ist der Standardwert.
 - `wrap`
-  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der Querstart entspricht [inline-start oder block-start](/de/docs/Glossary/Flow_relative_values), abhängig vom aktuellen [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) und dem Wert der {{cssxref("flex-direction")}}.
+  - : Die Flex-Elemente brechen in mehrere Zeilen um. Der Querstart entspricht {{Glossary("Flow_relative_values", "inline-start oder block-start")}}, abhängig vom aktuellen [Schreibmodus](/de/docs/Web/CSS/CSS_writing_modes) und dem Wert der {{cssxref("flex-direction")}}.
 - `wrap-reverse`
   - : Verhält sich wie `wrap`, jedoch sind Querstart und Querende invertiert.
 

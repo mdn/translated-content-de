@@ -48,7 +48,7 @@ Die folgenden Schnittstellen sind in der Performance API vorhanden:
 - [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming)
   - : Bietet Metriken zu [langen Animationsbildern (LoAFs)](/de/docs/Web/API/Performance_API/Long_animation_frame_timing#what_is_a_long_animation_frame), die das Rendern belegen und andere Aufgaben blockieren.
 - [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)
-  - : Bietet Metriken zu [langen Aufgaben](/de/docs/Glossary/Long_task), die das Rendern belegen und andere Aufgaben blockieren.
+  - : Bietet Metriken zu {{Glossary("Long_task", "langen Aufgaben")}}, die das Rendern belegen und andere Aufgaben blockieren.
 - [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)
   - : Benutzerdefiniertes Zeichen für Ihren eigenen Eintrag auf der Leistungstimeline.
 - [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)
@@ -83,7 +83,7 @@ Die folgenden Leitfäden helfen Ihnen, die wichtigsten Konzepte der Performance 
 - [Benutzer-Timing](/de/docs/Web/API/Performance_API/User_timing): Messen und Aufzeichnen von Leistungsdaten, die spezifisch für Ihre Anwendung sind.
 - [Server-Timing](/de/docs/Web/API/Performance_API/Server_timing): Erfassen von serverseitigen Metriken.
 - [Langes Animationsbild-Timing](/de/docs/Web/API/Performance_API/Long_animation_frame_timing): Erfassen von Metriken zu langen Animationsbildern (LoAFs) und ihren Ursachen.
-- [Überwachen von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons): Bericht, warum das aktuelle Dokument daran gehindert wurde, den Back-/Forward-Cache zu verwenden ([bfcache](/de/docs/Glossary/bfcache)).
+- [Überwachen von bfcache-Blockierungsgründen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons): Bericht, warum das aktuelle Dokument daran gehindert wurde, den Back-/Forward-Cache zu verwenden ({{Glossary("bfcache", "bfcache")}}).
 
 ## Spezifikationen
 

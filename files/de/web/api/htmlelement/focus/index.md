@@ -161,7 +161,7 @@ Wenn Sie den zweiten Button auswählen, wird der Fokus gesetzt, aber das Scrolle
 ## Anmerkungen
 
 - Wenn Sie `HTMLElement.focus()` aus einem mousedown-Ereignishandler aufrufen, müssen Sie `event.preventDefault()` aufrufen, um zu verhindern, dass der Fokus das `HTMLElement` verlässt.
-- Das Verhalten des Fokus in Bezug auf verschiedene HTML-Funktionen wie [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) oder [shadow dom](/de/docs/Glossary/shadow_tree), die zuvor unter-spezifiziert blieben, wurden im Oktober 2019 aktualisiert.
+- Das Verhalten des Fokus in Bezug auf verschiedene HTML-Funktionen wie [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) oder {{Glossary("shadow_tree", "shadow dom")}}, die zuvor unter-spezifiziert blieben, wurden im Oktober 2019 aktualisiert.
   Weitere Informationen finden Sie im [WHATWG-Blog](https://blog.whatwg.org/focusing-on-focus).
 
 ## Browser-Kompatibilität

@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`dir`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [aufzählbares](/de/docs/Glossary/Enumerated) Attribut, das die Richtung des Textes des Elements angibt.
+Das **`dir`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "aufzählbares")}} Attribut, das die Richtung des Textes des Elements angibt.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-dir.html","tabbed-standard")}}
 
@@ -28,7 +28,7 @@ Da die Textausrichtung semantisch mit dem Inhalt und nicht mit der Präsentation
 
 ## Vererbung
 
-Wenn ein Element kein `dir`-Attribut hat, erbt es den `dir`-Wert von seinem [übergeordneten Knoten](/de/docs/Glossary/Node/DOM), der wiederum seinen Wert möglicherweise von seinem übergeordneten Element erbt usw.
+Wenn ein Element kein `dir`-Attribut hat, erbt es den `dir`-Wert von seinem {{Glossary("Node/DOM", "übergeordneten Knoten")}}, der wiederum seinen Wert möglicherweise von seinem übergeordneten Element erbt usw.
 
 ## Anwendungsnotizen
 

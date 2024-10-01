@@ -72,7 +72,7 @@ _Keine Änderungen._
 
 ### WebRTC
 
-- Neue Beschränkungen für [WebRTC](/de/docs/Glossary/WebRTC)'s [`getUserMedia()`](/de/docs/Web/API/NavigatorUserMedia/getUserMedia), `width`, `height` und `framerate`, wurden hinzugefügt, um Stream-Dimensionen und Bildrate zu begrenzen ([Firefox-Bug 907352](https://bugzil.la/907352)):
+- Neue Beschränkungen für {{Glossary("WebRTC", "WebRTC")}}'s [`getUserMedia()`](/de/docs/Web/API/NavigatorUserMedia/getUserMedia), `width`, `height` und `framerate`, wurden hinzugefügt, um Stream-Dimensionen und Bildrate zu begrenzen ([Firefox-Bug 907352](https://bugzil.la/907352)):
 
   ```js
   {

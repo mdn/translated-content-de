@@ -138,76 +138,76 @@ Es gibt zwei Arten von relativen Längen: schriftbezogene Längen und Ansichtsfe
 
 Lokale schriftbezogene Längen sind relativ zur "lokalen" Schriftgröße oder Zeilenhöhe und spezifizieren eine Länge im Verhältnis zu einer berechneten Größe eines Merkmals des [Elements](/de/docs/Web/HTML/Element) selbst oder relativ zum geerbten Wert des Elements im Fall eines zirkulären Verweises, wie etwa beim `em`-Wert einer {{cssxref("font-size")}}-Eigenschaft oder einem `lh`-Wert einer {{cssxref("line-height")}}-Eigenschaft. Zum Beispiel, `em` ist relativ zur Schriftgröße auf dem Element und `ex` ist relativ zur x-Höhe der Schrift des Elements.
 
-| Einheit | Relativ zu                                                                                                                            |
-| ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `cap`   | Kapphöhe (die nominale Höhe von Großbuchstaben) der Schrift des Elements.                                                               |
-| `ch`    | Durchschnittlicher Zeichenabstand eines schmalen Glyphen in der Schrift des Elements, dargestellt durch das Zeichen "0" (NULL, U+0030). |
-| `em`    | Schriftgröße der Schrift des Elements.                                                                                                  |
-| `ex`    | x-Höhe der Schrift des Elements.                                                                                                        |
+| Einheit | Relativ zu                                                                                                                                                  |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `cap`   | Kapphöhe (die nominale Höhe von Großbuchstaben) der Schrift des Elements.                                                                                   |
+| `ch`    | Durchschnittlicher Zeichenabstand eines schmalen Glyphen in der Schrift des Elements, dargestellt durch das Zeichen "0" (NULL, U+0030).                     |
+| `em`    | Schriftgröße der Schrift des Elements.                                                                                                                      |
+| `ex`    | x-Höhe der Schrift des Elements.                                                                                                                            |
 | `ic`    | Durchschnittlicher Zeichenabstand eines vollbreiten Glyphen in der Schrift des Elements, dargestellt durch das Zeichen "水" (CJK Wasser-Ideogramm, U+6C34). |
-| `lh`    | Zeilenhöhe des Elements.                                                                                                                |
+| `lh`    | Zeilenhöhe des Elements.                                                                                                                                    |
 
 ##### Wurzel-schriftbezogene Längen
 
 Wurzel-schriftbezogene Längen geben eine Länge im Verhältnis zum [Wurzelelement](/de/docs/Web/CSS/:root) Vorfahr des Elements an, wie {{HTMLElement("HTML")}} oder {{SVGElement("SVG")}}.
 Beispielsweise ist `rem` relativ zur Schriftgröße auf dem Wurzelelement und `rex` ist die x-Höhe der Schrift des Wurzelelements.
 
-| Einheit | Relativ zu                                                                                                                                 |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
-| `rcap`  | Kapphöhe (die nominale Höhe von Großbuchstaben) der Schrift des Wurzelelements.                                                              |
-| `rch`   | Durchschnittlicher Zeichenabstand eines schmalen Glyphen in der Schrift des Wurzelelements, dargestellt durch das Zeichen "0" (NULL, U+0030). |
-| `rem`   | Schriftgröße der Schrift des Wurzelelements.                                                                                                |
-| `rex`   | x-Höhe der Schrift des Wurzelelements.                                                                                                       |
+| Einheit | Relativ zu                                                                                                                                                        |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `rcap`  | Kapphöhe (die nominale Höhe von Großbuchstaben) der Schrift des Wurzelelements.                                                                                   |
+| `rch`   | Durchschnittlicher Zeichenabstand eines schmalen Glyphen in der Schrift des Wurzelelements, dargestellt durch das Zeichen "0" (NULL, U+0030).                     |
+| `rem`   | Schriftgröße der Schrift des Wurzelelements.                                                                                                                      |
+| `rex`   | x-Höhe der Schrift des Wurzelelements.                                                                                                                            |
 | `ric`   | Durchschnittlicher Zeichenabstand eines vollbreiten Glyphen in der Schrift des Wurzelelements, dargestellt durch das Zeichen "水" (CJK Wasser-Ideogramm, U+6C34). |
-| `rlh`   | Zeilenhöhe des Wurzelelements.                                                                                                               |
+| `rlh`   | Zeilenhöhe des Wurzelelements.                                                                                                                                    |
 
 ##### Ansichtsfenster-Einheiten
 
-Ansichtsfenster-Einheiten geben eine Länge relativ zu den Abmessungen des [Ansichtsfensters](/de/docs/Glossary/Viewport) an.
+Ansichtsfenster-Einheiten geben eine Länge relativ zu den Abmessungen des {{Glossary("Viewport", "Ansichtsfensters")}} an.
 Beispielsweise ist `vw` relativ zur Breite des Ansichtsfensters und `vh` relativ zur Höhe des Ansichtsfensters.
 
-| Einheit | Relativ zu                                                                                           |
-| ------- | ----------------------------------------------------------------------------------------------------- |
-| `dvh`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Höhe des Ansichtsfensters.                   |
-| `dvw`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Breite des Ansichtsfensters.                 |
-| `lvh`   | 1% der [großen](/de/docs/Web/CSS/length#large) Höhe des Ansichtsfensters.                          |
-| `lvw`   | 1% der [großen](/de/docs/Web/CSS/length#large) Breite des Ansichtsfensters.                        |
-| `svh`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Höhe des Ansichtsfensters.                         |
-| `svw`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Breite des Ansichtsfensters.                       |
-| `vb`    | 1% der Größe des Ansichtsfensters auf der [Blockachse](/de/docs/Glossary/Flow_relative_values) des Wurzelelements.  |
-| `vh`    | 1% der Höhe des Ansichtsfensters.                                                                    |
-| `vi`    | 1% der Größe des Ansichtsfensters auf der [Inlineachse](/de/docs/Glossary/Flow_relative_values) des Wurzelelements. |
-| `vmax`  | 1% der größeren Dimension des Ansichtsfensters.                                                      |
-| `vmin`  | 1% der kleineren Dimension des Ansichtsfensters.                                                     |
-| `vw`    | 1% der Breite des Ansichtsfensters.                                                                  |
+| Einheit | Relativ zu                                                                                                        |
+| ------- | ----------------------------------------------------------------------------------------------------------------- |
+| `dvh`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Höhe des Ansichtsfensters.                                  |
+| `dvw`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Breite des Ansichtsfensters.                                |
+| `lvh`   | 1% der [großen](/de/docs/Web/CSS/length#large) Höhe des Ansichtsfensters.                                         |
+| `lvw`   | 1% der [großen](/de/docs/Web/CSS/length#large) Breite des Ansichtsfensters.                                       |
+| `svh`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Höhe des Ansichtsfensters.                                        |
+| `svw`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Breite des Ansichtsfensters.                                      |
+| `vb`    | 1% der Größe des Ansichtsfensters auf der {{Glossary("Flow_relative_values", "Blockachse")}} des Wurzelelements.  |
+| `vh`    | 1% der Höhe des Ansichtsfensters.                                                                                 |
+| `vi`    | 1% der Größe des Ansichtsfensters auf der {{Glossary("Flow_relative_values", "Inlineachse")}} des Wurzelelements. |
+| `vmax`  | 1% der größeren Dimension des Ansichtsfensters.                                                                   |
+| `vmin`  | 1% der kleineren Dimension des Ansichtsfensters.                                                                  |
+| `vw`    | 1% der Breite des Ansichtsfensters.                                                                               |
 
 ##### Container-Einheiten
 
 Container-Abfrage Längeneinheiten geben eine Länge an, die relativ zu den Abmessungen eines [Abfragecontainers](/de/docs/Web/CSS/CSS_containment/Container_queries) ist.
 Beispielsweise ist `cqw` relativ zur Breite des Abfragecontainers und `cqh` ist relativ zur Höhe des Abfragecontainers.
 
-| Einheit | Relativ zu                     |
-| ------- | ------------------------------ |
+| Einheit | Relativ zu                                 |
+| ------- | ------------------------------------------ |
 | `cqb`   | 1% der Blockgröße eines Abfragecontainers  |
-| `cqh`   | 1% der Höhe eines Abfragecontainers         |
-| `cqi`   | 1% der Inlinegröße eines Abfragecontainers  |
-| `cqmax` | Der größere Wert von `cqi` oder `cqb`       |
-| `cqmin` | Der kleinere Wert von `cqi` oder `cqb`      |
-| `cqw`   | 1% der Breite eines Abfragecontainers       |
+| `cqh`   | 1% der Höhe eines Abfragecontainers        |
+| `cqi`   | 1% der Inlinegröße eines Abfragecontainers |
+| `cqmax` | Der größere Wert von `cqi` oder `cqb`      |
+| `cqmin` | Der kleinere Wert von `cqi` oder `cqb`     |
+| `cqw`   | 1% der Breite eines Abfragecontainers      |
 
 #### Absolute Längeneinheiten
 
 Absolute Längeneinheiten sind an eine physische Länge gebunden: entweder ein Zoll oder ein Zentimeter. Viele dieser Einheiten sind daher nützlicher, wenn die Ausgabe ein festes Medienformat hat, wie z.B. Druck. Zum Beispiel, `mm` ist ein physischer Millimeter, 1/10 eines Zentimeters.
 
-| Einheit | Name                | Äquivalent zu       |
-| ------- | ------------------- | ------------------- |
-| `cm`    | Zentimeter          | 1cm = 96px/2,54     |
-| `in`    | Zoll                | 1in = 2,54cm = 96px |
-| `mm`    | Millimeter          | 1mm = 1/10 eines 1cm |
-| `pc`    | Picas               | 1pc = 1/6 eines 1in  |
-| `pt`    | Punkte              | 1pt = 1/72 eines 1in |
-| `px`    | Pixel               | 1px = 1/96 eines 1in |
-| `Q`     | Viertel-Millimeter  | 1Q = 1/40 eines 1cm  |
+| Einheit | Name               | Äquivalent zu        |
+| ------- | ------------------ | -------------------- |
+| `cm`    | Zentimeter         | 1cm = 96px/2,54      |
+| `in`    | Zoll               | 1in = 2,54cm = 96px  |
+| `mm`    | Millimeter         | 1mm = 1/10 eines 1cm |
+| `pc`    | Picas              | 1pc = 1/6 eines 1in  |
+| `pt`    | Punkte             | 1pt = 1/72 eines 1in |
+| `px`    | Pixel              | 1px = 1/96 eines 1in |
+| `Q`     | Viertel-Millimeter | 1Q = 1/40 eines 1cm  |
 
 Beim Einfügen eines Längenwertes, wenn die Länge `0` ist, ist der Einheiten-Identifikator nicht erforderlich. Andernfalls ist der Einheiten-Identifikator erforderlich, ist nicht case-sensitive und muss unmittelbar nach dem numerischen Teil des Wertes kommen, ohne dass ein Leerzeichen dazwischen ist.
 
@@ -215,30 +215,30 @@ Beim Einfügen eines Längenwertes, wenn die Länge `0` ist, ist der Einheiten-I
 
 Winkelwerte werden durch den Typ {{cssxref("&lt;angle&gt;")}} dargestellt und akzeptieren die folgenden Werte:
 
-| Einheit | Name     | Beschreibung                               |
-| ------- | -------- | ------------------------------------------ |
-| `deg`   | Grad     | Es gibt 360 Grad in einem Vollkreis.       |
-| `grad`  | Gon      | Es gibt 400 Gon in einem Vollkreis.        |
-| `rad`   | Radiant  | Es gibt 2π Radianten in einem Vollkreis.   |
+| Einheit | Name        | Beschreibung                             |
+| ------- | ----------- | ---------------------------------------- |
+| `deg`   | Grad        | Es gibt 360 Grad in einem Vollkreis.     |
+| `grad`  | Gon         | Es gibt 400 Gon in einem Vollkreis.      |
+| `rad`   | Radiant     | Es gibt 2π Radianten in einem Vollkreis. |
 | `turn`  | Umdrehungen | Es gibt 1 Umdrehung in einem Vollkreis.  |
 
 ##### Zeiteinheiten
 
 Zeitwerte werden durch den Typ {{cssxref("&lt;time&gt;")}} dargestellt. Bei der Angabe eines Zeitwertes ist der Einheiten-Identifikator — das `s` oder `ms` — erforderlich. Er akzeptiert die folgenden Werte.
 
-| Einheit | Name        | Beschreibung                                |
-| ------- | ----------- | ------------------------------------------- |
+| Einheit | Name          | Beschreibung                                  |
+| ------- | ------------- | --------------------------------------------- |
 | `ms`    | Millisekunden | Es gibt 1.000 Millisekunden in einer Sekunde. |
-| `s`     | Sekunden    |                                             |
+| `s`     | Sekunden      |                                               |
 
 ##### Frequenzeinheiten
 
 Frequenzwerte werden durch den Typ {{cssxref("&lt;frequency&gt;")}} dargestellt. Sie akzeptieren die folgenden Werte.
 
-| Einheit | Name        | Beschreibung                                         |
-| ------- | ----------- | ---------------------------------------------------- |
-| `Hz`    | Hertz       | Repräsentiert die Anzahl der Vorkommen pro Sekunde.  |
-| `kHz`   | KiloHertz   | Ein KiloHertz sind 1.000 Hertz.                      |
+| Einheit | Name      | Beschreibung                                        |
+| ------- | --------- | --------------------------------------------------- |
+| `Hz`    | Hertz     | Repräsentiert die Anzahl der Vorkommen pro Sekunde. |
+| `kHz`   | KiloHertz | Ein KiloHertz sind 1.000 Hertz.                     |
 
 `1Hz`, welcher auch als `1hz` oder `1HZ` geschrieben werden kann, ist ein Zyklus pro Sekunde.
 
@@ -246,19 +246,19 @@ Frequenzwerte werden durch den Typ {{cssxref("&lt;frequency&gt;")}} dargestellt.
 
 Flex-Einheiten werden durch den Typ {{cssxref("&lt;flex&gt;")}} dargestellt. Sie akzeptieren den folgenden Wert.
 
-| Einheit | Name  | Beschreibung                                              |
-| ------- | ----- | --------------------------------------------------------- |
-| `fr`    | Flex  | Repräsentiert eine flexible Länge innerhalb eines Rastercontainers |
+| Einheit | Name | Beschreibung                                                       |
+| ------- | ---- | ------------------------------------------------------------------ |
+| `fr`    | Flex | Repräsentiert eine flexible Länge innerhalb eines Rastercontainers |
 
 ##### Auflösungseinheiten
 
 Auflösungseinheiten werden durch den Typ {{cssxref("&lt;resolution&gt;")}} dargestellt. Sie repräsentieren die Größe eines einzelnen Punkts in einer grafischen Darstellung, z.B. eines Bildschirms, indem angegeben wird, wie viele dieser Punkte in einen CSS-Zoll, Zentimeter oder Pixel passen. Es werden die folgenden Werte akzeptiert:
 
-| Einheit        | Beschreibung           |
-| -------------- | ---------------------- |
-| `dpcm`         | Punkte pro Zentimeter. |
-| `dpi`          | Punkte pro Zoll.       |
-| `dppx`, `x`    | Punkte pro px Einheit. |
+| Einheit     | Beschreibung           |
+| ----------- | ---------------------- |
+| `dpcm`      | Punkte pro Zentimeter. |
+| `dpi`       | Punkte pro Zoll.       |
+| `dppx`, `x` | Punkte pro px Einheit. |
 
 #### Prozentsätze
 

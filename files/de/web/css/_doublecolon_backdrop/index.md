@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::backdrop`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist ein Kasten in der Größe des [Viewports](/de/docs/Glossary/viewport), der sofort unter jedem Element gerendert wird, das in der [obersten Ebene](/de/docs/Glossary/top_layer) präsentiert wird.
+Das **`::backdrop`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) ist ein Kasten in der Größe des {{Glossary("viewport", "Viewports")}}, der sofort unter jedem Element gerendert wird, das in der {{Glossary("top_layer", "obersten Ebene")}} präsentiert wird.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-backdrop.html", "tabbed-shorter")}}
 

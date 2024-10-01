@@ -51,7 +51,7 @@ function name(param0, param1, /* …, */ paramN) {
 
 ## Beschreibung
 
-Ein `function`-Ausdruck ist dem [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) sehr ähnlich und hat fast die gleiche Syntax. Der Hauptunterschied zwischen einem `function`-Ausdruck und einer `function`-Deklaration ist der _Funktionsname_, der bei `function`-Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erzeugen. Ein `function`-Ausdruck kann als [IIFE](/de/docs/Glossary/IIFE) (Immediately Invoked Function Expression) verwendet werden, das ausgeführt wird, sobald es definiert ist. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
+Ein `function`-Ausdruck ist dem [`function`-Deklaration](/de/docs/Web/JavaScript/Reference/Statements/function) sehr ähnlich und hat fast die gleiche Syntax. Der Hauptunterschied zwischen einem `function`-Ausdruck und einer `function`-Deklaration ist der _Funktionsname_, der bei `function`-Ausdrücken weggelassen werden kann, um _anonyme_ Funktionen zu erzeugen. Ein `function`-Ausdruck kann als {{Glossary("IIFE", "IIFE")}} (Immediately Invoked Function Expression) verwendet werden, das ausgeführt wird, sobald es definiert ist. Siehe auch das Kapitel über [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) für weitere Informationen.
 
 ### Hoisting von Funktionsausdrücken
 
@@ -115,7 +115,7 @@ const x = function (y) {
 
 ### Verwendung einer Funktion als Rückruf
 
-In der Praxis wird sie häufig als [Rückruf](/de/docs/Glossary/Callback_function) verwendet:
+In der Praxis wird sie häufig als {{Glossary("Callback_function", "Rückruf")}} verwendet:
 
 ```js
 button.addEventListener("click", function (event) {

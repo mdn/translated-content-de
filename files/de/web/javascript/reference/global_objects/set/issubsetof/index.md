@@ -44,7 +44,7 @@ Und mit einem Venn-Diagramm:
 `isSubsetOf()` akzeptiert [set-ähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als `other`-Parameter. Dabei muss {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz sein, da es die zugrunde liegenden Daten, die in `this` gespeichert sind, direkt abruft, ohne benutzerdefinierten Code aufzurufen. Das Verhalten hängt dann von der Größe von `this` und `other` ab:
 
 - Wenn es mehr Elemente in `this` gibt als `other.size`, wird direkt `false` zurückgegeben.
-- Andernfalls wird über die Elemente in `this` iteriert und `false` zurückgegeben, wenn irgendein Element `e` in `this` dazu führt, dass `other.has(e)` einen [falsy](/de/docs/Glossary/Falsy) Wert zurückgibt. Andernfalls wird `true` zurückgegeben.
+- Andernfalls wird über die Elemente in `this` iteriert und `false` zurückgegeben, wenn irgendein Element `e` in `this` dazu führt, dass `other.has(e)` einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt. Andernfalls wird `true` zurückgegeben.
 
 ## Beispiele
 

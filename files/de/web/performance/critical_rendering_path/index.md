@@ -11,7 +11,7 @@ Der Critical Rendering Path ist die Abfolge von Schritten, die der Browser durch
 
 Das Document Object Model wird erstellt, während das HTML geparst wird. Das HTML kann JavaScript anfordern, das wiederum das DOM ändern kann. Das HTML enthält oder fordert Stile an, die wiederum das CSS-Objektmodell erstellen. Die Browser-Engine kombiniert die beiden Modelle, um den Renderbaum zu erstellen. Das Layout bestimmt die Größe und den Ort von allem auf der Seite. Sobald das Layout festgelegt ist, werden die Pixel auf den Bildschirm gemalt.
 
-Die Optimierung des kritischen Rendering-Pfads verbessert die Zeit bis zur ersten Darstellung. Das Verständnis und die Optimierung des kritischen Rendering-Pfads sind wichtig, um sicherzustellen, dass Neulayouts und Neumalen mit 60 Bildern pro Sekunde ausgeführt werden können, um eine performante Benutzerinteraktion sicherzustellen und [Jank](/de/docs/Glossary/Jank) zu vermeiden.
+Die Optimierung des kritischen Rendering-Pfads verbessert die Zeit bis zur ersten Darstellung. Das Verständnis und die Optimierung des kritischen Rendering-Pfads sind wichtig, um sicherzustellen, dass Neulayouts und Neumalen mit 60 Bildern pro Sekunde ausgeführt werden können, um eine performante Benutzerinteraktion sicherzustellen und {{Glossary("Jank", "Jank")}} zu vermeiden.
 
 ## Verständnis des CRP
 

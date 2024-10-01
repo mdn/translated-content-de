@@ -27,7 +27,7 @@ Einige Browser haben eine Schnittstelle namens [`Crypto`](/de/docs/Web/API/Crypt
 - [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)
   - : Stellt ein Objekt dar, das grundlegende kryptografische Funktionen für Schlüsselgenerierung, Verschlüsselung, Entschlüsselung, Schlüsselverpackung und Entpackung usw. bietet.
 - [`CryptoKey`](/de/docs/Web/API/CryptoKey)
-  - : Stellt einen kryptografischen [Schlüssel](/de/docs/Glossary/key) dar, der aus einer der Methoden von [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) wie [`generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey), [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey), [`importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) oder [`unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) gewonnen wurde.
+  - : Stellt einen kryptografischen {{Glossary("key", "Schlüssel")}} dar, der aus einer der Methoden von [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) wie [`generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey), [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey), [`importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) oder [`unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) gewonnen wurde.
 
 ### Wörterbücher
 

@@ -7,21 +7,21 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HyperText Transfer Protocol (HTTP) **`If-Unmodified-Since`** Anforderungsheader macht die Anfrage für die Ressource bedingt: Der Server wird die angeforderte Ressource senden oder sie im Falle einer {{HTTPMethod("POST")}} oder einer anderen nicht-[sicheren](/de/docs/Glossary/Safe/HTTP) Methode akzeptieren, nur wenn die Ressource nicht nach dem in diesem HTTP-Header angegebenen Datum geändert wurde. Wenn die Ressource nach dem angegebenen Datum geändert wurde, wird die Antwort ein {{HTTPStatus("412", "412 Precondition Failed")}} Fehler sein.
+Der HyperText Transfer Protocol (HTTP) **`If-Unmodified-Since`** Anforderungsheader macht die Anfrage für die Ressource bedingt: Der Server wird die angeforderte Ressource senden oder sie im Falle einer {{HTTPMethod("POST")}} oder einer anderen nicht-{{Glossary("Safe/HTTP", "sicheren")}} Methode akzeptieren, nur wenn die Ressource nicht nach dem in diesem HTTP-Header angegebenen Datum geändert wurde. Wenn die Ressource nach dem angegebenen Datum geändert wurde, wird die Antwort ein {{HTTPStatus("412", "412 Precondition Failed")}} Fehler sein.
 
 Der **`If-Unmodified-Since`** HTTP-Header wird häufig in den folgenden Situationen verwendet:
 
-- In Verbindung mit nicht-[sicheren](/de/docs/Glossary/Safe/HTTP) Methoden, wie {{HTTPMethod("POST")}}, kann dieser Header verwendet werden, um eine [optimistische Parallelitätskontrolle](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) zu implementieren, wie es einige Wikis tun: Bearbeitungen werden abgelehnt, wenn das gespeicherte Dokument seit der ursprünglichen Abruf verändert wurde.
+- In Verbindung mit nicht-{{Glossary("Safe/HTTP", "sicheren")}} Methoden, wie {{HTTPMethod("POST")}}, kann dieser Header verwendet werden, um eine [optimistische Parallelitätskontrolle](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) zu implementieren, wie es einige Wikis tun: Bearbeitungen werden abgelehnt, wenn das gespeicherte Dokument seit der ursprünglichen Abruf verändert wurde.
 - In Verbindung mit einer Bereichsanfrage mittels des {{HTTPHeader("Range")}} Headers kann dieser Header verwendet werden, um sicherzustellen, dass das neu angeforderte Fragment aus einem unveränderten Dokument stammt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

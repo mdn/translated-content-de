@@ -85,5 +85,5 @@ body {
 
 ## Siehe auch
 
-- {{CSSxRef(":-moz-only-whitespace")}} – Die [präfixierte](/de/docs/Glossary/Vendor_Prefix) Implementierung der Änderungen in [Selektoren Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo)
+- {{CSSxRef(":-moz-only-whitespace")}} – Die {{Glossary("Vendor_Prefix", "präfixierte")}} Implementierung der Änderungen in [Selektoren Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo)
 - {{CSSxRef(":blank")}}

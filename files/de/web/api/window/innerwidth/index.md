@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef}}
 
-Die schreibgeschützte [`Window`](/de/docs/Web/API/Window)-Eigenschaft **`innerWidth`** gibt die Innenbreite des Fensters in Pixeln zurück (d.h. die Breite des [Layout-Viewports](/de/docs/Glossary/layout_viewport) des Fensters). Dies schließt die Breite der vertikalen Scrollleiste ein, falls vorhanden.
+Die schreibgeschützte [`Window`](/de/docs/Web/API/Window)-Eigenschaft **`innerWidth`** gibt die Innenbreite des Fensters in Pixeln zurück (d.h. die Breite des {{Glossary("layout_viewport", "Layout-Viewports")}} des Fensters). Dies schließt die Breite der vertikalen Scrollleiste ein, falls vorhanden.
 
 Ähnlich kann die Innenhöhe des Fensters (d.h. die Höhe des Layout-Viewports) mit der [`innerHeight`](/de/docs/Web/API/Window/innerHeight)-Eigenschaft ermittelt werden. Diese Messung berücksichtigt auch die Höhe der horizontalen Scrollleiste, wenn sie sichtbar ist.
 

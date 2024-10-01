@@ -46,7 +46,7 @@ const good2 = !!expression;
 const bad = new Boolean(expression); // don't use this!
 ```
 
-Dies liegt daran, dass _alle_ Objekte, einschließlich eines `Boolean`-Objekts, dessen umschlossener Wert `false` ist, [wahrheitsgemäß](/de/docs/Glossary/truthy) sind und in Fällen wie bedingten Anweisungen zu `true` ausgewertet werden. (Siehe auch den Abschnitt [boolean coercion](#boolean_umwandlung) unten.)
+Dies liegt daran, dass _alle_ Objekte, einschließlich eines `Boolean`-Objekts, dessen umschlossener Wert `false` ist, {{Glossary("truthy", "wahrheitsgemäß")}} sind und in Fällen wie bedingten Anweisungen zu `true` ausgewertet werden. (Siehe auch den Abschnitt [boolean coercion](#boolean_umwandlung) unten.)
 
 ```js
 if (new Boolean(true)) {
@@ -85,7 +85,7 @@ Viele eingebaute Operationen, die Booleans erwarten, wandeln ihre Argumente zuer
 > [!NOTE]
 > Anders als bei anderen Typumwandlungen wie [String-Umwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion) oder [Zahl-Umwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), versucht die Boolean-Umwandlung nicht, [Objekte in Primitiven umzuwandeln](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) durch den Aufruf von Benutzerfunktionen.
 
-Mit anderen Worten, es gibt nur wenige Werte, die zu `false` umgewandelt werden - diese werden als [falsy](/de/docs/Glossary/Falsy) bezeichnet. Alle anderen Werte werden als [truthy](/de/docs/Glossary/Truthy) bezeichnet. Die Wahrhaftigkeit eines Wertes ist wichtig, wenn sie mit logischen Operatoren, bedingten Anweisungen oder in einem Boolean-Kontext verwendet wird.
+Mit anderen Worten, es gibt nur wenige Werte, die zu `false` umgewandelt werden - diese werden als {{Glossary("Falsy", "falsy")}} bezeichnet. Alle anderen Werte werden als {{Glossary("Truthy", "truthy")}} bezeichnet. Die Wahrhaftigkeit eines Wertes ist wichtig, wenn sie mit logischen Operatoren, bedingten Anweisungen oder in einem Boolean-Kontext verwendet wird.
 
 Es gibt zwei Möglichkeiten, denselben Effekt in JavaScript zu erzielen.
 
@@ -165,6 +165,6 @@ const bObjProto = Boolean({});
 
 ## Siehe auch
 
-- [Boolean](/de/docs/Glossary/Boolean)
+- {{Glossary("Boolean", "Boolean")}}
 - [Boolean-Primitiven](/de/docs/Web/JavaScript/Data_structures#boolean_type)
 - [Boolean-Datentyp](https://en.wikipedia.org/wiki/Boolean_data_type) auf Wikipedia

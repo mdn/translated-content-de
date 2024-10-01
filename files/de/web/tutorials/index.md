@@ -32,7 +32,7 @@ Diese Ressourcen wurden von zukunftsorientierten Unternehmen und Webentwicklern 
 - [Multimedia und Einbettung](/de/docs/Learn/HTML/Multimedia_and_embedding)
   - : Dieses Modul untersucht, wie HTML verwendet wird, um Multimedia in Ihre Webseiten einzubinden, inklusive der verschiedenen Möglichkeiten, Bilder einzuschließen und wie man Video, Audio und sogar ganze andere Webseiten einbettet.
 - [HTML-Tabellen](/de/docs/Learn/HTML/Tables)
-  - : Tabellarische Daten auf einer Webseite auf verständliche und [zugängliche](/de/docs/Glossary/Accessibility) Weise darzustellen, kann eine Herausforderung sein. Dieses Modul behandelt die grundlegende Tabellenmarkup, sowie komplexere Funktionen wie die Implementierung von Bildunterschriften und Zusammenfassungen.
+  - : Tabellarische Daten auf einer Webseite auf verständliche und {{Glossary("Accessibility", "zugängliche")}} Weise darzustellen, kann eine Herausforderung sein. Dieses Modul behandelt die grundlegende Tabellenmarkup, sowie komplexere Funktionen wie die Implementierung von Bildunterschriften und Zusammenfassungen.
 
 ### Fortgeschrittenes Level
 

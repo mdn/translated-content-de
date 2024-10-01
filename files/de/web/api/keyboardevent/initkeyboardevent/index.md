@@ -31,7 +31,7 @@ initKeyboardEvent(type, canBubble, cancelable,
 - `cancelable` {{optional_inline}}
   - : Gibt an, ob das Ereignis abgebrochen werden kann oder nicht. Standardmäßig `false`.
 - `view` {{optional_inline}}
-  - : Das [WindowProxy](/de/docs/Glossary/WindowProxy), mit dem es verknüpft ist. Standardmäßig `null`.
+  - : Das {{Glossary("WindowProxy", "WindowProxy")}}, mit dem es verknüpft ist. Standardmäßig `null`.
 - `key` {{optional_inline}}
   - : Der Wert des key-Attributs. Standardmäßig `""`.
 - `location` {{optional_inline}}

@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der Antwortheader **`Access-Control-Allow-Methods`** gibt eine oder mehrere Methoden an, die beim Zugriff auf eine Ressource als Antwort auf eine [Preflight-Anfrage](/de/docs/Glossary/preflight_request) erlaubt sind.
+Der Antwortheader **`Access-Control-Allow-Methods`** gibt eine oder mehrere Methoden an, die beim Zugriff auf eine Ressource als Antwort auf eine {{Glossary("preflight_request", "Preflight-Anfrage")}} erlaubt sind.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der [User-Agent](/de/docs/Glossary/user_agent) den Bild-in-Bild-Modus verlassen hat. Wenn ein Fehler beim Versuch auftritt, den Vollbildmodus zu beenden, wird der `catch()`-Handler des Promises aufgerufen.
+Ein {{jsxref("Promise")}}, das aufgelöst wird, sobald der {{Glossary("user_agent", "User-Agent")}} den Bild-in-Bild-Modus verlassen hat. Wenn ein Fehler beim Versuch auftritt, den Vollbildmodus zu beenden, wird der `catch()`-Handler des Promises aufgerufen.
 
 ### Ausnahmen
 

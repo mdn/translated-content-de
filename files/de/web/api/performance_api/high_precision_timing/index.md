@@ -34,12 +34,12 @@ Für die Messung der Leistung, die Berechnung präziser Bildraten (FPS), Animati
 
 Zusammengefasst:
 
-| -                        | [`Performance.now()`](/de/docs/Web/API/Performance/now)      | {{jsxref("Date.now()")}}          |
-| ------------------------ | ------------------------------------- | --------------------------------- |
-| Auflösung                | Sub-Millisekunden                     | Millisekunden                     |
-| Ursprung                 | [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) | Unix-Epoch (1. Januar 1970, UTC) |
-| Verwendung von Uhrenanpassungen    | Nein                                   | Ja                                 |
-| Monoton steigend         | Ja                                    | Nein                               |
+| -                               | [`Performance.now()`](/de/docs/Web/API/Performance/now)             | {{jsxref("Date.now()")}}         |
+| ------------------------------- | ------------------------------------------------------------------- | -------------------------------- |
+| Auflösung                       | Sub-Millisekunden                                                   | Millisekunden                    |
+| Ursprung                        | [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin) | Unix-Epoch (1. Januar 1970, UTC) |
+| Verwendung von Uhrenanpassungen | Nein                                                                | Ja                               |
+| Monoton steigend                | Ja                                                                  | Nein                             |
 
 ## Zeitursprünge
 
@@ -63,7 +63,7 @@ Um die unterschiedlichen Zeitursprünge in Fenster- und Worker-Kontexten zu ber�
 
 ## Reduzierte Genauigkeit
 
-Um Schutz gegen Timing-Angriffe und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, werden `DOMHighResTimeStamp`-Typen basierend auf dem Website-Isolationsstatus grob eingestuft.
+Um Schutz gegen Timing-Angriffe und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, werden `DOMHighResTimeStamp`-Typen basierend auf dem Website-Isolationsstatus grob eingestuft.
 
 - Auflösung in isolierten Kontexten: 5 Mikrosekunden
 - Auflösung in nicht isolierten Kontexten: 100 Mikrosekunden

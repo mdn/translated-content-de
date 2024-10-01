@@ -11,7 +11,7 @@ l10n:
 > [!WARNING]
 > Diese Eigenschaftsschnittstelle ist im [Navigation Timing Level 2 specification](https://w3c.github.io/navigation-timing/#obsolete) veraltet. Bitte verwenden Sie stattdessen die [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Schnittstelle.
 
-Die veraltete **`toJSON()`**-Methode der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekts zurück.
+Die veraltete **`toJSON()`**-Methode der [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceTiming`](/de/docs/Web/API/PerformanceTiming)-Objekts zurück.
 
 ## Syntax
 

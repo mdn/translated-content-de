@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`u2`**-Attribut spezifiziert eine Liste von [Unicode](/de/docs/Glossary/Unicode)-Zeichen (siehe die Beschreibung des {{SVGAttr("unicode")}}-Attributs des {{SVGElement("glyph")}}-Elements, um zu erfahren, wie einzelne Unicode-Zeichen ausgedrückt werden) und/oder Bereiche von Unicode-Zeichen, die eine Menge möglicher zweiter [glyph](/de/docs/Glossary/glyph) in einem Kerning-Paar identifizieren.
+Das **`u2`**-Attribut spezifiziert eine Liste von {{Glossary("Unicode", "Unicode")}}-Zeichen (siehe die Beschreibung des {{SVGAttr("unicode")}}-Attributs des {{SVGElement("glyph")}}-Elements, um zu erfahren, wie einzelne Unicode-Zeichen ausgedrückt werden) und/oder Bereiche von Unicode-Zeichen, die eine Menge möglicher zweiter {{Glossary("glyph", "glyph")}} in einem Kerning-Paar identifizieren.
 
 Wenn ein gegebenes Unicode-Zeichen innerhalb der Menge mehrere entsprechende `<glyph>`-Elemente hat (d. h. es gibt mehrere `<glyph>`-Elemente mit demselben `unicode`-Attributwert, aber unterschiedlichen {{SVGAttr("glyph-name")}}-Werten), dann sind alle diese Glyphen in der Menge enthalten. Ein Komma ist das Trennzeichen; um also ein Komma zu kerning, geben Sie das Komma als Teil eines Bereichs von Unicode-Zeichen oder als Glyphenname mit dem {{SVGAttr("g2")}}-Attribut an. Die Gesamtmenge möglicher zweiter Glyphen im Kerning-Paar ist die Vereinigung der durch die Attribute `u2` und `g2` spezifizierten Glyphen.
 

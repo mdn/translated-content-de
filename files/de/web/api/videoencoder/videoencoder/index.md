@@ -33,7 +33,7 @@ new VideoEncoder(options)
             - `codedHeight` {{Optional_Inline}}
               - : Eine Ganzzahl, die die Höhe des [`VideoFrame`](/de/docs/Web/API/VideoFrame) in Pixeln repräsentiert, möglicherweise einschließlich unsichtbarer Abstände und bevor mögliche Verhältnis-Anpassungen berücksichtigt werden.
             - `displayAspectWidth` {{Optional_Inline}}
-              - : Eine Ganzzahl, die die horizontale Dimension des [Seitenverhältnisses](/de/docs/Glossary/aspect_ratio) des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Anzeige repräsentiert.
+              - : Eine Ganzzahl, die die horizontale Dimension des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Anzeige repräsentiert.
             - `displayAspectHeight` {{Optional_Inline}}
               - : Eine Ganzzahl, die die vertikale Dimension des Seitenverhältnisses des [`VideoFrame`](/de/docs/Web/API/VideoFrame) bei der Anzeige repräsentiert.
             - `colorSpace` {{Optional_Inline}}

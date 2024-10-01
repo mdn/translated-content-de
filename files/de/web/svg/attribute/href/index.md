@@ -86,7 +86,7 @@ Wenn das `href`-Attribut oder das veraltete {{SVGAttr("xlink:href")}}-Attribut n
 
 Siehe die Beschreibungen der einzelnen Animationselemente für Einschränkungen, welche Arten von Elementen Ziele bestimmter Arten von Animationen sein können.
 
-Mit Ausnahme von SVG-spezifischen Regeln, die ausdrücklich in dieser Spezifikation erwähnt werden, ist die normative Definition für dieses Attribut die [SMIL](/de/docs/Glossary/SMIL)-Animationsspezifikation. Insbesondere siehe [SMIL Animation: Specifying the animation target](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#SpecifyingAnimationTarget).
+Mit Ausnahme von SVG-spezifischen Regeln, die ausdrücklich in dieser Spezifikation erwähnt werden, ist die normative Definition für dieses Attribut die {{Glossary("SMIL", "SMIL")}}-Animationsspezifikation. Insbesondere siehe [SMIL Animation: Specifying the animation target](https://www.w3.org/TR/2001/REC-smil-animation-20010904/#SpecifyingAnimationTarget).
 
 <table class="properties">
   <tbody>

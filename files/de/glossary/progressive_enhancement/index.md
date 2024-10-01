@@ -11,11 +11,11 @@ l10n:
 
 Das Wort _progressiv_ in _Progressive Enhancement_ bedeutet, ein Design zu erstellen, das eine einfachere, aber dennoch nutzbare Erfahrung für Benutzer älterer Browser und Geräte mit eingeschränkten Fähigkeiten bietet. Gleichzeitig soll es ein Design sein, das **die Benutzererfahrung hin zu** einem ansprechenderen, voll ausgestatteten Erlebnis für Benutzer neuerer Browser und Geräte mit erweiterten Funktionen verbessert.
 
-[Featureerkennung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection) wird in der Regel verwendet, um festzustellen, ob Browser modernere Funktionen unterstützen können, während [Polyfills](/de/docs/Glossary/polyfill) häufig verwendet werden, um fehlende Funktionen mit JavaScript hinzuzufügen.
+[Featureerkennung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection) wird in der Regel verwendet, um festzustellen, ob Browser modernere Funktionen unterstützen können, während {{Glossary("polyfill", "Polyfills")}} häufig verwendet werden, um fehlende Funktionen mit JavaScript hinzuzufügen.
 
 Besonderes Augenmerk sollte auf die Barrierefreiheit gelegt werden. Wo möglich, sollten akzeptable Alternativen bereitgestellt werden.
 
-Progressive Enhancement ist eine nützliche Technik, die es Webentwicklern ermöglicht, sich auf die Entwicklung der bestmöglichen Websites zu konzentrieren und gleichzeitig diese Websites auf mehreren unbekannten Benutzeragenten funktionsfähig zu machen. [Graceful Degradation](/de/docs/Glossary/Graceful_degradation) ist damit verwandt, aber nicht dasselbe und wird oft als entgegengesetzt zu Progressive Enhancement gesehen. In Wirklichkeit sind beide Ansätze gültig und können sich oft ergänzen.
+Progressive Enhancement ist eine nützliche Technik, die es Webentwicklern ermöglicht, sich auf die Entwicklung der bestmöglichen Websites zu konzentrieren und gleichzeitig diese Websites auf mehreren unbekannten Benutzeragenten funktionsfähig zu machen. {{Glossary("Graceful_degradation", "Graceful Degradation")}} ist damit verwandt, aber nicht dasselbe und wird oft als entgegengesetzt zu Progressive Enhancement gesehen. In Wirklichkeit sind beide Ansätze gültig und können sich oft ergänzen.
 
 ## Siehe auch
 

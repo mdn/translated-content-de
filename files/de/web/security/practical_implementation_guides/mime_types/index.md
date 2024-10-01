@@ -7,11 +7,11 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Der [`X-Content-Type-Options`](/de/docs/Web/HTTP/Headers/X-Content-Type-Options) Header informiert Browser darüber, keine Skripte und Stylesheets zu laden, es sei denn, der Server gibt den korrekten [MIME-Typ](/de/docs/Glossary/MIME_type) an.
+Der [`X-Content-Type-Options`](/de/docs/Web/HTTP/Headers/X-Content-Type-Options) Header informiert Browser darüber, keine Skripte und Stylesheets zu laden, es sei denn, der Server gibt den korrekten {{Glossary("MIME_type", "MIME-Typ")}} an.
 
 ## Problem
 
-Ohne ordnungsgemäße MIME-Typ-Verifizierung könnten Browser nicht-Skript- und nicht-Stylesheet-Dateien fälschlicherweise als Skripte oder Stylesheets erkennen. Dieser Fehler ermöglicht, dass potenziell bösartige Dateien über {{htmlelement("script")}} und {{htmlelement("link")}} Elemente im Rahmen von Cross-Site-Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) Angriffen geladen werden.
+Ohne ordnungsgemäße MIME-Typ-Verifizierung könnten Browser nicht-Skript- und nicht-Stylesheet-Dateien fälschlicherweise als Skripte oder Stylesheets erkennen. Dieser Fehler ermöglicht, dass potenziell bösartige Dateien über {{htmlelement("script")}} und {{htmlelement("link")}} Elemente im Rahmen von Cross-Site-Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) Angriffen geladen werden.
 
 ## Lösung
 

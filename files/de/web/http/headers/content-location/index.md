@@ -15,10 +15,10 @@ Der **`Content-Location`**-Header gibt einen alternativen Ort für die zurückge
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Repräsentations-Header](/de/docs/Glossary/Representation_header)</td>
+      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -39,13 +39,13 @@ Content-Location: <url>
 
 ### Anfordern von Daten von einem Server in verschiedenen Formaten
 
-Angenommen, die API einer Webseite kann Daten in den Formaten [JSON](/de/docs/Glossary/JSON), [XML](/de/docs/Glossary/XML) oder [CSV](https://de.wikipedia.org/wiki/CSV_(Dateiformat)) zurückgeben. Wenn die URL für ein bestimmtes Dokument bei `https://example.com/documents/foo` ist, könnte die Webseite je nach `Accept`-Header der Anfrage unterschiedliche URLs für `Content-Location` zurückgeben:
+Angenommen, die API einer Webseite kann Daten in den Formaten {{Glossary("JSON", "JSON")}}, {{Glossary("XML", "XML")}} oder [CSV](<https://de.wikipedia.org/wiki/CSV_(Dateiformat)>) zurückgeben. Wenn die URL für ein bestimmtes Dokument bei `https://example.com/documents/foo` ist, könnte die Webseite je nach `Accept`-Header der Anfrage unterschiedliche URLs für `Content-Location` zurückgeben:
 
-| Anfrage-Header                        | Antwort-Header                         |
-| ------------------------------------- | -------------------------------------- |
-| `Accept: application/json, text/json` | `Content-Location: /documents/foo.json`|
-| `Accept: application/xml, text/xml`   | `Content-Location: /documents/foo.xml` |
-| `Accept: text/plain, text/*`          | `Content-Location: /documents/foo.txt` |
+| Anfrage-Header                        | Antwort-Header                          |
+| ------------------------------------- | --------------------------------------- |
+| `Accept: application/json, text/json` | `Content-Location: /documents/foo.json` |
+| `Accept: application/xml, text/xml`   | `Content-Location: /documents/foo.xml`  |
+| `Accept: text/plain, text/*`          | `Content-Location: /documents/foo.txt`  |
 
 Diese URLs sind Beispiele — die Webseite könnte die verschiedenen Dateitypen mit beliebigen URL-Mustern bereitstellen, wie z.B. einem [Query-String-Parameter](/de/docs/Web/API/HTMLAnchorElement/search): `/documents/foo?format=json`, `/documents/foo?format=xml` und so weiter.
 

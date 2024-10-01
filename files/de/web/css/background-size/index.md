@@ -66,7 +66,7 @@ Um die Größe mehrerer Hintergrundbilder anzugeben, trennen Sie den Wert für j
 - {{cssxref("&lt;length&gt;")}}
   - : Streckt das Bild in der entsprechenden Dimension auf die angegebene Länge. Negative Werte sind nicht erlaubt.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Streckt das Bild in der entsprechenden Dimension auf den angegebenen Prozentsatz des _Hintergrund-Positionierungsbereichs_. Der Hintergrund-Positionierungsbereich wird durch den Wert von {{cssxref("background-origin")}} bestimmt (standardmäßig das Padding-Box). Wenn jedoch der `background-attachment` Wert des Hintergrunds `fixed` ist, ist der Positionierungsbereich stattdessen das gesamte [Viewport](/de/docs/Glossary/viewport). Negative Werte sind nicht erlaubt.
+  - : Streckt das Bild in der entsprechenden Dimension auf den angegebenen Prozentsatz des _Hintergrund-Positionierungsbereichs_. Der Hintergrund-Positionierungsbereich wird durch den Wert von {{cssxref("background-origin")}} bestimmt (standardmäßig das Padding-Box). Wenn jedoch der `background-attachment` Wert des Hintergrunds `fixed` ist, ist der Positionierungsbereich stattdessen das gesamte {{Glossary("viewport", "Viewport")}}. Negative Werte sind nicht erlaubt.
 
 ### Intrinsische Dimensionen und Proportionen
 

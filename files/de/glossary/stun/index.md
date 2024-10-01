@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**STUN** (Session Traversal Utilities for NAT) ist ein Hilfsprotokoll zur Übertragung von Daten um einen [NAT](/de/docs/Glossary/NAT) (Network Address Translator). STUN liefert die [IP-Adresse](/de/docs/Glossary/IP_address), den [Port](/de/docs/Glossary/port) und den Verbindungsstatus eines vernetzten Computers hinter einem NAT.
+**STUN** (Session Traversal Utilities for NAT) ist ein Hilfsprotokoll zur Übertragung von Daten um einen {{Glossary("NAT", "NAT")}} (Network Address Translator). STUN liefert die {{Glossary("IP_address", "IP-Adresse")}}, den {{Glossary("port", "Port")}} und den Verbindungsstatus eines vernetzten Computers hinter einem NAT.
 
 ## Siehe auch
 

@@ -20,15 +20,15 @@ Die **`OPTIONS`** HTTP-Methode fragt nach den zulässigen Kommunikationsoptionen
       <td>Darf</td>
     </tr>
     <tr>
-      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ Server: EOS (lax004/2813)
 
 ### Vorab-Anfragen in CORS
 
-In [CORS](/de/docs/Web/HTTP/CORS) wird eine [Vorab-Anfrage](/de/docs/Glossary/Preflight_request) mit der `OPTIONS` Methode gesendet, damit der Server antworten kann, ob es akzeptabel ist, die Anfrage zu senden. In diesem Beispiel werden wir um Erlaubnis für folgende Parameter bitten:
+In [CORS](/de/docs/Web/HTTP/CORS) wird eine {{Glossary("Preflight_request", "Vorab-Anfrage")}} mit der `OPTIONS` Methode gesendet, damit der Server antworten kann, ob es akzeptabel ist, die Anfrage zu senden. In diesem Beispiel werden wir um Erlaubnis für folgende Parameter bitten:
 
 - Der {{HTTPHeader("Access-Control-Request-Method")}} Header, der in der Vorab-Anfrage gesendet wird, teilt dem Server mit, dass die tatsächliche Anfrage mit der {{HTTPMethod("POST")}} Methode gesendet wird.
 - Der {{HTTPHeader("Access-Control-Request-Headers")}} Header teilt dem Server mit, dass die tatsächliche Anfrage die `X-PINGOTHER` und `Content-Type` Header haben wird.

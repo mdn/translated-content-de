@@ -9,7 +9,7 @@ l10n:
 
 **Authentication** ist im Allgemeinen der Prozess, bei dem bewiesen wird, dass eine Tatsache echt ist. Genauer gesagt, ist sie in der Web-Sicherheit der Prozess der Überprüfung der angegebenen Identität einer Entität, zum Beispiel eines Benutzers. Dies ermöglicht es dann, zu entscheiden, ob dem Benutzer der angeforderte Zugriff gewährt wird, wie zum Beispiel das Anmelden in einem bestimmten Konto.
 
-Die Authentifizierung erfolgt typischerweise dadurch, dass ein Benutzer einen Benutzeridentifikator zusammen mit einem [credential](/de/docs/Glossary/credential), wie ein Passwort, einen einmaligen SMS-Code oder eine mit einem privaten Schlüssel signierte Assertion, präsentiert. Das System überprüft dann die Verbindung zwischen dem Benutzeridentifikator und dem Berechtigungsnachweis, um zu entscheiden, ob der Benutzer authentifiziert werden soll oder nicht.
+Die Authentifizierung erfolgt typischerweise dadurch, dass ein Benutzer einen Benutzeridentifikator zusammen mit einem {{Glossary("credential", "credential")}}, wie ein Passwort, einen einmaligen SMS-Code oder eine mit einem privaten Schlüssel signierte Assertion, präsentiert. Das System überprüft dann die Verbindung zwischen dem Benutzeridentifikator und dem Berechtigungsnachweis, um zu entscheiden, ob der Benutzer authentifiziert werden soll oder nicht.
 
 Arten von Authentifizierungsinformationen, auch als _Authentifizierungsfaktoren_ bezeichnet, werden üblicherweise in drei Kategorien unterteilt:
 

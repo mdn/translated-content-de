@@ -42,7 +42,7 @@ Wenn ein Bilderlement "x"-Deskriptoren in `srcset` enthält, betrachten Browser 
 "header640.png 640w, header960.png 960w, header1024.png 1024w"
 ```
 
-Dieser String liefert Versionen eines Headerbildes zur Verwendung, wenn der [User Agent's](/de/docs/Glossary/user_agent) Renderer ein Bild mit einer Breite von 640px, 960px oder 1024px benötigt.
+Dieser String liefert Versionen eines Headerbildes zur Verwendung, wenn der {{Glossary("user_agent", "User Agent's")}} Renderer ein Bild mit einer Breite von 640px, 960px oder 1024px benötigt.
 
 Beachten Sie, dass, wenn irgendeine Ressource in einem `srcset` mit einem "w"-Deskriptor beschrieben wird, alle Ressourcen innerhalb dieses `srcset` auch mit "w"-Deskriptoren beschrieben werden müssen und das Bilderlement's [`src`](/de/docs/Web/API/HTMLImageElement/src) nicht als Kandidat betrachtet wird.
 

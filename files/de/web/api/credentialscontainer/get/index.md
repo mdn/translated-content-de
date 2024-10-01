@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die **`get()`**-Methode des [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem einzelnen [Credential](/de/docs/Glossary/credential) erfüllt wird, welches dann verwendet werden kann, um einen Benutzer bei einer Website zu authentifizieren.
+Die **`get()`**-Methode des [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem einzelnen {{Glossary("credential", "Credential")}} erfüllt wird, welches dann verwendet werden kann, um einen Benutzer bei einer Website zu authentifizieren.
 
 Die Methode akzeptiert ein einzelnes optionales `options`-Argument, das Folgendes enthalten kann:
 
@@ -108,7 +108,7 @@ Wenn ein einzelnes Anmeldedaten nicht eindeutig erhalten werden kann, wird die P
 
 - `NetworkError` [`DOMException`](/de/docs/Web/API/DOMException)
 
-  - : Bei einer Anfrage nach einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) hat der [Identitätsanbieter](/de/docs/Glossary/identity_provider) (IdP) nicht innerhalb von 60 Sekunden geantwortet, die bereitgestellten Anmeldedaten waren ungültig/nicht gefunden oder der Login-Status des Browsers für den IdP ist auf `"logged-out"` gesetzt (siehe [Aktualisierung des Login-Status mithilfe der Login-Status-API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Informationen zum FedCM-Login-Status). Im letzteren Fall kann es zu einer Verzögerung bei der Ablehnung kommen, um zu vermeiden, dass der IdP-Login-Status an die RP weitergegeben wird.
+  - : Bei einer Anfrage nach einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) hat der {{Glossary("identity_provider", "Identitätsanbieter")}} (IdP) nicht innerhalb von 60 Sekunden geantwortet, die bereitgestellten Anmeldedaten waren ungültig/nicht gefunden oder der Login-Status des Browsers für den IdP ist auf `"logged-out"` gesetzt (siehe [Aktualisierung des Login-Status mithilfe der Login-Status-API](/de/docs/Web/API/FedCM_API/IDP_integration#update_login_status_using_the_login_status_api) für weitere Informationen zum FedCM-Login-Status). Im letzteren Fall kann es zu einer Verzögerung bei der Ablehnung kommen, um zu vermeiden, dass der IdP-Login-Status an die RP weitergegeben wird.
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
 

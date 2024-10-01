@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Der Teil der [Viewport](/de/docs/Glossary/viewport), der derzeit sichtbar ist, wird als Visual Viewport bezeichnet. Dieser kann kleiner als der Layout-Viewport sein, zum Beispiel wenn der Benutzer die Pinch-Zoom-Funktion verwendet hat. Der Visual Viewport ist der visuelle Teil eines Bildschirms, ausgenommen On-Screen-Tastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs oder andere On-Screen-Artefakte, die nicht mit den Dimensionen einer Seite skalieren.
+Der Teil der {{Glossary("viewport", "Viewport")}}, der derzeit sichtbar ist, wird als Visual Viewport bezeichnet. Dieser kann kleiner als der Layout-Viewport sein, zum Beispiel wenn der Benutzer die Pinch-Zoom-Funktion verwendet hat. Der Visual Viewport ist der visuelle Teil eines Bildschirms, ausgenommen On-Screen-Tastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs oder andere On-Screen-Artefakte, die nicht mit den Dimensionen einer Seite skalieren.
 
 ## Siehe auch
 
@@ -15,5 +15,5 @@ Der Teil der [Viewport](/de/docs/Glossary/viewport), der derzeit sichtbar ist, w
 - [Viewport](https://en.wikipedia.org/wiki/Viewport) auf Wikipedia
 - [Eine Geschichte von zwei Viewports](https://www.quirksmode.org/mobile/viewports.html) (Quirksmode)
 - Verwandte Glossarbegriffe:
-  - [Viewport](/de/docs/Glossary/Viewport)
-  - [Layout viewport](/de/docs/Glossary/Layout_viewport)
+  - {{Glossary("Viewport", "Viewport")}}
+  - {{Glossary("Layout_viewport", "Layout viewport")}}

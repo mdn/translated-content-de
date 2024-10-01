@@ -15,7 +15,7 @@ des Titelbereichs in Desktop-Progressive-Web-Apps und ein Ereignis, das anzeigt,
 ## Instanzeigenschaften
 
 - [`WindowControlsOverlay.visible`](/de/docs/Web/API/WindowControlsOverlay/visible) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [Boolean](/de/docs/Glossary/Boolean), der angibt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
+  - : Ein {{Glossary("Boolean", "Boolean")}}, der angibt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
 
 ## Instanzmethoden
 

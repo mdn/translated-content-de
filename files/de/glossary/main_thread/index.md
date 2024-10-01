@@ -17,4 +17,4 @@ Sofern nicht bewusst ein [Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web
 - [Web Worker API](/de/docs/Web/API/Web_Workers_API)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - Verwandte Glossarbegriffe:
-  - [Thread](/de/docs/Glossary/Thread)
+  - {{Glossary("Thread", "Thread")}}

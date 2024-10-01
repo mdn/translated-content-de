@@ -36,7 +36,7 @@ Der Komma-Operator ist völlig anders als Kommas, die an anderen Stellen als syn
 - Eigenschaften in [Objekt-Initiatoren](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) (`{ a: 1, b: 2 }`)
 - Parameter in [Funktions-Deklarationen](/de/docs/Web/JavaScript/Reference/Statements/function)/Ausdrücken (`function f(a, b) { … }`)
 - Argumente in Funktionsaufrufen (`f(1, 2)`)
-- [Bindungs](/de/docs/Glossary/Binding)-Listen in [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-Deklarationen (`const a = 1, b = 2;`)
+- {{Glossary("Binding", "Bindungs")}}-Listen in [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) oder [`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-Deklarationen (`const a = 1, b = 2;`)
 - Importlisten in [`import`](/de/docs/Web/JavaScript/Reference/Statements/import)-Deklarationen (`import { a, b } from "c";`)
 - Exportlisten in [`export`](/de/docs/Web/JavaScript/Reference/Statements/export)-Deklarationen (`export { a, b };`)
 

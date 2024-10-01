@@ -21,7 +21,7 @@ some(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im verketteten Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen [falsy](/de/docs/Glossary/Falsy) Wert ansonsten. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im verketteten Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert ansonsten. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im verketteten Array verarbeitet wird.
     - `index`
@@ -33,7 +33,7 @@ some(callbackFn, thisArg)
 
 ### Rückgabewert
 
-`false`, es sei denn, `callbackFn` gibt einen [truthy](/de/docs/Glossary/truthy) Wert für ein Element im verketteten Array zurück, in welchem Fall `true` sofort zurückgegeben wird.
+`false`, es sei denn, `callbackFn` gibt einen {{Glossary("truthy", "truthy")}} Wert für ein Element im verketteten Array zurück, in welchem Fall `true` sofort zurückgegeben wird.
 
 ## Beschreibung
 

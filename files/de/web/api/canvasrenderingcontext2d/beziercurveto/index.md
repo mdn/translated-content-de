@@ -10,7 +10,7 @@ l10n:
 
 Die Methode
 **`CanvasRenderingContext2D.bezierCurveTo()`**
-der Canvas 2D API fügt dem aktuellen Unterpfad eine kubische [Bézier-Kurve](/de/docs/Glossary/Bezier_curve) hinzu. Sie benötigt drei Punkte: die ersten beiden sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der zuletzt definierte Punkt im aktuellen Pfad, der durch die Verwendung von [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) vor dem Erstellen der Bézier-Kurve geändert werden kann.
+der Canvas 2D API fügt dem aktuellen Unterpfad eine kubische {{Glossary("Bezier_curve", "Bézier-Kurve")}} hinzu. Sie benötigt drei Punkte: die ersten beiden sind Kontrollpunkte und der dritte ist der Endpunkt. Der Startpunkt ist der zuletzt definierte Punkt im aktuellen Pfad, der durch die Verwendung von [`moveTo()`](/de/docs/Web/API/CanvasRenderingContext2D/moveTo) vor dem Erstellen der Bézier-Kurve geändert werden kann.
 
 ## Syntax
 
@@ -128,4 +128,4 @@ ctx.stroke();
 ## Siehe auch
 
 - Die Schnittstelle, die diese Methode definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
-- [Bézier-Kurve](/de/docs/Glossary/Bezier_curve)
+- {{Glossary("Bezier_curve", "Bézier-Kurve")}}

@@ -22,7 +22,7 @@ Eine `GPUBuffer`-Objektinstanz wird mit der [`GPUDevice.createBuffer()`](/de/doc
 - [`size`](/de/docs/Web/API/GPUBuffer/size) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Eine Zahl, die die Länge der Speicherzuweisung des `GPUBuffer` in Bytes repräsentiert.
 - [`usage`](/de/docs/Web/API/GPUBuffer/usage) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Die [bitweisen Flags](/de/docs/Glossary/bitwise_flags), die die zulässigen Verwendungen des `GPUBuffer` darstellen.
+  - : Die {{Glossary("bitwise_flags", "bitweisen Flags")}}, die die zulässigen Verwendungen des `GPUBuffer` darstellen.
 
 ## Instanzmethoden
 

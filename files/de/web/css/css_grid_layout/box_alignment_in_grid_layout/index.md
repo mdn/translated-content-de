@@ -169,7 +169,7 @@ Im nächsten Beispiel verwende ich die Eigenschaft `align-self`, um die verschie
 
 ### Elemente mit einem intrinsischen Seitenverhältnis
 
-Die Spezifikation beschreibt, dass das Standardverhalten in {{cssxref("align-self")}} darin besteht, sich zu strecken, außer für Elemente, die ein intrinsisches [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) haben, in diesem Fall verhalten sie sich wie `start`. Der Grund dafür ist, dass, wenn Elemente mit einem Seitenverhältnis auf Strecken gesetzt würden, diese Standardeinstellung sie verzerren würde.
+Die Spezifikation beschreibt, dass das Standardverhalten in {{cssxref("align-self")}} darin besteht, sich zu strecken, außer für Elemente, die ein intrinsisches {{Glossary("aspect_ratio", "Seitenverhältnis")}} haben, in diesem Fall verhalten sie sich wie `start`. Der Grund dafür ist, dass, wenn Elemente mit einem Seitenverhältnis auf Strecken gesetzt würden, diese Standardeinstellung sie verzerren würde.
 
 Dieses Verhalten wurde nun in der Spezifikation klargestellt, während Browser noch die korrekte Implementierung umsetzen müssen. Bis das passiert, können Sie sicherstellen, dass Elemente nicht gestreckt werden, wie z.B. Bilder, die direkte Kinder des Grids sind, indem Sie {{cssxref("align-self")}} und {{cssxref("justify-self")}} auf start setzen. Dies wird das korrekte Verhalten nachahmen, sobald es implementiert ist.
 

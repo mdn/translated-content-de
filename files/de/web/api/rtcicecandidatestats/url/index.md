@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`url`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt die URL des [ICE](/de/docs/Glossary/ICE)-Servers an, von dem der beschriebene Kandidat abgerufen wurde. Diese Eigenschaft ist _nur_ für lokale Kandidaten verfügbar.
+Die **`url`**-Eigenschaft des [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Wörterbuchs gibt die URL des {{Glossary("ICE", "ICE")}}-Servers an, von dem der beschriebene Kandidat abgerufen wurde. Diese Eigenschaft ist _nur_ für lokale Kandidaten verfügbar.
 
 ## Wert
 

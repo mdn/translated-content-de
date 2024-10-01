@@ -66,7 +66,7 @@ In diesem Beispiel fügen wir dem {{htmlelement("button")}}-Element ein `onClick
 
 Das `onClick`-Attribut hat hier eine besondere Bedeutung: Es sagt React, dass es eine bestimmte Funktion ausführen soll, wenn der Benutzer auf den Button klickt. Es gibt ein paar andere Dinge zu beachten:
 
-- Die [Camel-Case-Schreibweise](/de/docs/Glossary/camel_case) von `onClick` ist wichtig – JSX erkennt `onclick` nicht (es wird bereits in JavaScript für einen bestimmten Zweck verwendet, der verwandt, aber unterschiedlich ist — standardmäßige [`onclick`](/de/docs/Web/API/Element/click_event) Handler-Eigenschaften).
+- Die {{Glossary("camel_case", "Camel-Case-Schreibweise")}} von `onClick` ist wichtig – JSX erkennt `onclick` nicht (es wird bereits in JavaScript für einen bestimmten Zweck verwendet, der verwandt, aber unterschiedlich ist — standardmäßige [`onclick`](/de/docs/Web/API/Element/click_event) Handler-Eigenschaften).
 - Alle Browserevents folgen in JSX diesem Format – `on`, gefolgt vom Namen des Events.
 
 Wenden wir dies in unserer App an, beginnend mit der `Form.jsx`-Komponente.

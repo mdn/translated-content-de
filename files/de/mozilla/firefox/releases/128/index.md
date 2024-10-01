@@ -17,7 +17,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 128, die En
 
 ### CSS
 
-- Die [Relative-Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors) ist nun standardmäßig aktiviert. Diese Syntax ermöglicht es, einen Farbwert relativ zu einer Ausgangsfarbe zu erstellen, und kann das Ändern einer Farbe in einem anderen [Farbraum](/de/docs/Glossary/Color_space) durch Verwendung von [Farb-Funktionen](/de/docs/Web/CSS/CSS_colors#functions) ermöglichen ([Firefox-Bug 1900251](https://bugzil.la/1900251)).
+- Die [Relative-Farbsyntax](/de/docs/Web/CSS/CSS_colors/Relative_colors) ist nun standardmäßig aktiviert. Diese Syntax ermöglicht es, einen Farbwert relativ zu einer Ausgangsfarbe zu erstellen, und kann das Ändern einer Farbe in einem anderen {{Glossary("Color_space", "Farbraum")}} durch Verwendung von [Farb-Funktionen](/de/docs/Web/CSS/CSS_colors#functions) ermöglichen ([Firefox-Bug 1900251](https://bugzil.la/1900251)).
 - Die [`content`](/de/docs/Web/CSS/content)-Eigenschaft unterstützt nun [Alternativtext](/de/docs/Web/CSS/content#alternative_text) für Inhalte, die ein Bild enthalten. Der Alternativtext wird dann im Barrierefreiheitsbaum der Browser sichtbar gemacht. (Siehe [Firefox-Bug 1281158](https://bugzil.la/1281158) und [Firefox-Bug 1896047](https://bugzil.la/1896047)).
 
 #### Entfernungen

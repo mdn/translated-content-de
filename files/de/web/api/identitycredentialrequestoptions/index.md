@@ -9,7 +9,7 @@ l10n:
 
 Das **`IdentityCredentialRequestOptions`** Dictionary stellt das Objekt dar, das an [`CredentialsContainer.get()`](/de/docs/Web/API/CredentialsContainer/get) als Wert der `identity` Option übergeben wird.
 
-Es wird verwendet, um ein [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) anzufordern, das von einem [föderierten Identitätsanbieter](/de/docs/Glossary/identity_provider) bereitgestellt wird, der die [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) unterstützt.
+Es wird verwendet, um ein [`IdentityCredential`](/de/docs/Web/API/IdentityCredential) anzufordern, das von einem {{Glossary("identity_provider", "föderierten Identitätsanbieter")}} bereitgestellt wird, der die [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API) unterstützt.
 
 ## Instanz-Eigenschaften
 
@@ -54,7 +54,7 @@ Es wird verwendet, um ein [`IdentityCredential`](/de/docs/Web/API/IdentityCreden
     - `loginHint` {{optional_inline}}
       - : Ein String, der einen Hinweis auf die Kontooption(en) gibt, die der Browser dem Benutzer zur Anmeldung bieten soll. Dies ist nützlich in Fällen, in denen der Benutzer bereits angemeldet ist und die Seite ihn auffordert, sich erneut zu authentifizieren. Andernfalls kann der erneute Authentifizierungsprozess verwirrend sein, wenn ein Benutzer mehrere Konten hat und sich nicht daran erinnern kann, welches er bei der vorherigen Anmeldung verwendet hat. Der Wert für die `loginHint`-Eigenschaft kann von der vorherigen Anmeldung des Benutzers übernommen werden und wird mit den `login_hints`-Werten abgeglichen, die vom IdP im Array der vom IdP zurückgegebenen Benutzerinformationswerte bereitgestellt werden, das vom [Accounts-Listen-Endpunkt](/de/docs/Web/API/FedCM_API/IDP_integration#the_accounts_list_endpoint) bereitgestellt wird.
     - `nonce` {{optional_inline}}
-      - : Eine zufällige Zeichenfolge, die eingefügt werden kann, um sicherzustellen, dass die Antwort speziell für diese Anfrage ausgestellt wird und um [Replay-Angriffe](/de/docs/Glossary/replay_attack) zu verhindern.
+      - : Eine zufällige Zeichenfolge, die eingefügt werden kann, um sicherzustellen, dass die Antwort speziell für diese Anfrage ausgestellt wird und um {{Glossary("replay_attack", "Replay-Angriffe")}} zu verhindern.
 
     > [!NOTE]
     > Derzeit erlaubt FedCM nur, dass die API mit einem einzigen IdP aufgerufen wird, d.h. das `providers`-Array muss die Länge 1 haben. Mehrere IdPs müssen über verschiedene `get()`-Aufrufe unterstützt werden.

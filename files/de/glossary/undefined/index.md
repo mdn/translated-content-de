@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**`undefined`** ist ein [primitiver](/de/docs/Glossary/primitive) Wert, der automatisch [Variablen](/de/docs/Glossary/variable) zugewiesen wird, die gerade erst deklariert wurden, oder formalen [Argumenten](/de/docs/Glossary/Argument), für die keine tatsächlichen Argumente vorhanden sind.
+**`undefined`** ist ein {{Glossary("primitive", "primitiver")}} Wert, der automatisch {{Glossary("variable", "Variablen")}} zugewiesen wird, die gerade erst deklariert wurden, oder formalen {{Glossary("Argument", "Argumenten")}}, für die keine tatsächlichen Argumente vorhanden sind.
 
 ## Beispiel
 

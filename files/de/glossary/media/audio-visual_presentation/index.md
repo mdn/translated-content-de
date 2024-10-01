@@ -18,4 +18,4 @@ Medieninhalte können auf unterschiedliche Weise aufgezeichnet, wiedergegeben, p
 - [Multimedia](https://en.wikipedia.org/wiki/Multimedia) auf Wikipedia
 - [Web media technologies](/de/docs/Web/Media): ein Leitfaden für alle Möglichkeiten, wie Medien in Webinhalten genutzt werden können
 - [Multimedia and Embedding](/de/docs/Learn/HTML/Multimedia_and_embedding) im MDN-Bereich "Lernen"
-- {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente, die verwendet werden, um Medien in [HTML](/de/docs/Glossary/HTML) Dokumenten zu präsentieren
+- {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente, die verwendet werden, um Medien in {{Glossary("HTML", "HTML")}} Dokumenten zu präsentieren

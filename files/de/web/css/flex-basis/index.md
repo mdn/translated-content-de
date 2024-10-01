@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`flex-basis`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche Hauptgröße eines [Flex-Elements](/de/docs/Glossary/flex_item) fest. Sie bestimmt die Größe des Inhaltsbereichs, es sei denn, es wird mit {{Cssxref("box-sizing")}} anders festgelegt.
+Die **`flex-basis`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche Hauptgröße eines {{Glossary("flex_item", "Flex-Elements")}} fest. Sie bestimmt die Größe des Inhaltsbereichs, es sei denn, es wird mit {{Cssxref("box-sizing")}} anders festgelegt.
 
 > [!NOTE]
 > Es wird empfohlen, das {{cssxref("flex")}} Kurzschreibweise anstelle einzelner `flex-grow`, `flex-shrink` und `flex-basis` Deklarationen zu verwenden. Wir haben sie hier getrennt, da es in diesem Dokument um eine der Kurzschreibkomponenten geht: die `flex-basis` Eigenschaft.

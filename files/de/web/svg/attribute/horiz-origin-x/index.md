@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`horiz-origin-x`** Attribut gibt die x-Koordinate im Koordinatensystem der Schriftart des Ursprungs eines [Glyphs](/de/docs/Glossary/glyph) an, das beim Zeichnen von horizontal orientiertem Text verwendet werden soll.
+Das **`horiz-origin-x`** Attribut gibt die x-Koordinate im Koordinatensystem der Schriftart des Ursprungs eines {{Glossary("glyph", "Glyphs")}} an, das beim Zeichnen von horizontal orientiertem Text verwendet werden soll.
 
 > [!NOTE]
 > Der Ursprung gilt für alle Glyphen in der Schriftart.

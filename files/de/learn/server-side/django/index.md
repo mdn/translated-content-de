@@ -13,7 +13,7 @@ Django ist ein äußerst beliebtes und vollständig ausgestattetes serverseitige
 
 Bevor Sie mit diesem Modul beginnen, müssen Sie keine Vorkenntnisse in Django haben. Idealerweise sollten Sie verstehen, was serverseitige Webprogrammierung und Web-Frameworks sind, indem Sie die Themen in unserem Modul [Erste Schritte mit der serverseitigen Website-Programmierung](/de/docs/Learn/Server-side/First_steps) lesen.
 
-Ein allgemeines Wissen über Programmierkonzepte und [Python](/de/docs/Glossary/Python) wird empfohlen, ist aber nicht zwingend erforderlich, um die Kernkonzepte zu verstehen.
+Ein allgemeines Wissen über Programmierkonzepte und {{Glossary("Python", "Python")}} wird empfohlen, ist aber nicht zwingend erforderlich, um die Kernkonzepte zu verstehen.
 
 > [!NOTE]
 > Python ist eine der einfachsten Programmiersprachen für Anfänger, um sie zu lesen und zu verstehen. Das gesagt, wenn Sie dieses Modul besser verstehen möchten, gibt es zahlreiche kostenlose Bücher und Tutorials im Internet, die Ihnen helfen (neue Programmierer könnten die Seite [Python für Nicht-Programmierer](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers) im python.org-Wiki besuchen).

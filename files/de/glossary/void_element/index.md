@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Void-Element** ist ein [Element](/de/docs/Glossary/element) in HTML, das **keine** Kindknoten (d.h. verschachtelte Elemente oder Textknoten) enthalten kann. Void-Elemente haben nur ein Start-Tag; End-Tags dürfen für Void-Elemente nicht angegeben werden.
+Ein **Void-Element** ist ein {{Glossary("element", "Element")}} in HTML, das **keine** Kindknoten (d.h. verschachtelte Elemente oder Textknoten) enthalten kann. Void-Elemente haben nur ein Start-Tag; End-Tags dürfen für Void-Elemente nicht angegeben werden.
 
 In HTML darf ein Void-Element kein End-Tag haben. Zum Beispiel ist `<input type="text"></input>` ungültiges HTML. Im Gegensatz dazu können SVG- oder MathML-Elemente, die keine Kindknoten haben dürfen, ein End-Tag anstelle der XML-Selbstschlusssyntax im Start-Tag verwenden.
 
@@ -40,7 +40,7 @@ Wenn ein abschließender `/` (Schrägstrich) im Start-Tag eines HTML-Elements vo
 
 Einige Code-Formatter fügen jedoch das abschließende Schrägstrichzeichen in den Start-Tags von Void-Elementen hinzu, um sie XHTML-kompatibel und lesbarer zu machen. Einige Code-Formatter konvertieren beispielsweise `<input type="text">` zu `<input type="text" />`.
 
-Selbstschließende Tags sind in Void-Elementen in [XML](/de/docs/Glossary/XML), [XHTML](/de/docs/Glossary/XHTML) und [SVG](/de/docs/Glossary/SVG) erforderlich (z.B. `<circle cx="50" cy="50" r="50" />`).
+Selbstschließende Tags sind in Void-Elementen in {{Glossary("XML", "XML")}}, {{Glossary("XHTML", "XHTML")}} und {{Glossary("SVG", "SVG")}} erforderlich (z.B. `<circle cx="50" cy="50" r="50" />`).
 
 In SVG und MathML dürfen Elemente, die keine Kindknoten haben können, als selbstschließend markiert werden. In solchen Fällen darf ein Element, dessen Start-Tag als selbstschließend markiert ist, kein End-Tag haben.
 

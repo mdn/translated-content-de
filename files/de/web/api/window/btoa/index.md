@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`btoa()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle erzeugt einen [Base64](/de/docs/Glossary/Base64)-kodierten [ASCII](/de/docs/Glossary/ASCII)-String aus einem _binären String_ (d. h. ein String, bei dem jedes Zeichen im String als Byte von Binärdaten behandelt wird).
+Die **`btoa()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle erzeugt einen {{Glossary("Base64", "Base64")}}-kodierten {{Glossary("ASCII", "ASCII")}}-String aus einem _binären String_ (d. h. ein String, bei dem jedes Zeichen im String als Byte von Binärdaten behandelt wird).
 
 Sie können diese Methode verwenden, um Daten zu kodieren, die andernfalls Kommunikationsprobleme verursachen könnten, sie zu übertragen und dann die [`Window.atob()`](/de/docs/Web/API/Window/atob) Methode zu verwenden, um die Daten wieder zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren.
 
@@ -54,7 +54,7 @@ console.log(window.btoa(ok)); // YQ==
 console.log(window.btoa(notOK)); // error
 ```
 
-Wie Sie dieses Limit umgehen können, wenn Sie mit beliebigem Unicode-Text arbeiten, finden Sie unter _Das "Unicode-Problem"_ im [Base64](/de/docs/Glossary/Base64)-Glossareintrag.
+Wie Sie dieses Limit umgehen können, wenn Sie mit beliebigem Unicode-Text arbeiten, finden Sie unter _Das "Unicode-Problem"_ im {{Glossary("Base64", "Base64")}}-Glossareintrag.
 
 ## Spezifikationen
 
@@ -70,4 +70,4 @@ Wie Sie dieses Limit umgehen können, wenn Sie mit beliebigem Unicode-Text arbei
 - [`data` URLs](/de/docs/Web/URI/Schemes/data)
 - [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa): die gleiche Methode, aber in Worker-Kontexten.
 - [`Window.atob()`](/de/docs/Web/API/Window/atob)
-- [Base64](/de/docs/Glossary/Base64)
+- {{Glossary("Base64", "Base64")}}

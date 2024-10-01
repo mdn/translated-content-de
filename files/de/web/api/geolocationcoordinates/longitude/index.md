@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Geolocation API")}}
 
-Die schreibgeschützte Eigenschaft **`longitude`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist eine Zahl, die die geographische Länge eines Punktes in dezimalen Gradangaben repräsentiert. Zusammen mit einem Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der den Messzeitpunkt angibt, ist das `GeolocationCoordinates`-Objekt Teil des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Interfaces, welches der Objekttyp ist, der von Funktionen der Geolocation API zurückgegeben wird, die eine geographische Position ermitteln und zurückgeben.
+Die schreibgeschützte Eigenschaft **`longitude`** des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Interfaces ist eine Zahl, die die geographische Länge eines Punktes in dezimalen Gradangaben repräsentiert. Zusammen mit einem Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der den Messzeitpunkt angibt, ist das `GeolocationCoordinates`-Objekt Teil des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Interfaces, welches der Objekttyp ist, der von Funktionen der Geolocation API zurückgegeben wird, die eine geographische Position ermitteln und zurückgeben.
 
 ## Wert
 

@@ -108,8 +108,8 @@ Sie können [den Quellcode dieses Beispiels auf GitHub ansehen](https://github.c
   - {{cssxref("percentage")}}
   - [`<position>`](/de/docs/Web/CSS/position_value)
 - Glossarbegriffe:
-  - [Interpolation](/de/docs/Glossary/Interpolation)
-  - [Stacking-Kontext](/de/docs/Glossary/Stacking_context)
+  - {{Glossary("Interpolation", "Interpolation")}}
+  - {{Glossary("Stacking_context", "Stacking-Kontext")}}
 - [SVG](/de/docs/Web/SVG)-Konzepte:
   - [`<animate>`](/de/docs/Web/SVG/Element/animate)-Element
   - [`<animateTransform>`](/de/docs/Web/SVG/Element/animateTransform)-Element

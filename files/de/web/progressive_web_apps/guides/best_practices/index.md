@@ -17,7 +17,7 @@ Ihre PWA basiert auf Webtechnologien. Das bedeutet, dass PWAs neben der Installi
 
 Berücksichtigen Sie die vielfältige Palette von Browsern, die Ihre Benutzer verwenden könnten, und bedienen Sie ein breites Spektrum potenzieller Benutzer. Durch [Feature-Erkennung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection) können Sie ein nutzbares Erlebnis für das breiteste Publikum bereitstellen.
 
-Die Feature-Erkennung hilft auch bei der [Progressiven Verbesserung](/de/docs/Glossary/Progressive_Enhancement), einer Designphilosophie, die es ermöglicht, möglichst vielen Benutzern ein großartiges Erlebnis zu bieten.
+Die Feature-Erkennung hilft auch bei der {{Glossary("Progressive_Enhancement", "Progressiven Verbesserung")}}, einer Designphilosophie, die es ermöglicht, möglichst vielen Benutzern ein großartiges Erlebnis zu bieten.
 
 Bei der Progressiven Verbesserung konzentrieren Sie sich zunächst darauf, die Kernfunktionen Ihrer App mit der einfachsten Technologie universell funktionsfähig zu machen, um das Erlebnis dann für unterstützende Geräte zu verbessern.
 
@@ -31,7 +31,7 @@ Beispielsweise bedeutet das Bearbeiten von Formularübermittlungen mit dem HTML-
 
 Stellen Sie sicher, dass Benutzer unabhängig von der Art und Weise, wie sie auf Ihre Inhalte zugreifen, mit Ihrer Anwendung interagieren können. Unterstützen Sie Tastatur und Maus sowie Eingabemethoden wie Touch oder Eingabestift. Achten Sie darauf, dass alle Funktionen Ihrer Anwendung mit jeder Eingabemethode zugänglich sind.
 
-Verwenden Sie abschließend [semantische HTML-Elemente](/de/docs/Glossary/Semantics#semantics_in_html) anstelle eigener Schaltflächen oder Formularelemente, da semantische HTML-Elemente alle Benutzereingabemethoden direkt unterstützen.
+Verwenden Sie abschließend {{Glossary("Semantics#semantics_in_html", "semantische HTML-Elemente")}} anstelle eigener Schaltflächen oder Formularelemente, da semantische HTML-Elemente alle Benutzereingabemethoden direkt unterstützen.
 
 ## Offline-Erlebnis bieten
 

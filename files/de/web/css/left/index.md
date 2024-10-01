@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`left`**-[CSS](/de/docs/Web/CSS)-Eigenschaft beteiligt sich an der Spezifizierung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese [`inset`-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
+Die **`left`**-[CSS](/de/docs/Web/CSS)-Eigenschaft beteiligt sich an der Spezifizierung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese {{Glossary("inset_properties", "`inset`-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/left.html")}}
 

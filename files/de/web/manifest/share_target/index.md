@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}{{SeeCompatTable}}
 
-Das `share_target`-Manifestmitglied ermöglicht es installierten [Progressive Web Apps](/de/docs/Glossary/Progressive_Web_Apps) (PWAs), im Freigabedialog des Systems als Ziel für das Teilen registriert zu werden.
+Das `share_target`-Manifestmitglied ermöglicht es installierten {{Glossary("Progressive_Web_Apps", "Progressive Web Apps")}} (PWAs), im Freigabedialog des Systems als Ziel für das Teilen registriert zu werden.
 
 Nach der Registrierung und Installation dient eine PWA, die die Web Share Target API nutzt, als Ziel für das Teilen von Inhalten, zusammen mit typischen System-Freigabezielen wie E-Mail, Messenger und anderen nativen Apps, die geteilte Inhalte empfangen können.
 

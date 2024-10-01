@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Encoding`** [Repräsentations-Header](/de/docs/Glossary/representation_header) listet alle Kodierungen auf, die auf eine Ressource angewendet wurden, und deren Reihenfolge. Dies ermöglicht es dem Empfänger, zu wissen, wie die Daten decodiert werden müssen, um das ursprüngliche Inhaltsformat zu erhalten, das im {{HTTPHeader("Content-Type")}}-Header beschrieben ist. Die Inhaltskodierung wird hauptsächlich verwendet, um Inhalte zu komprimieren, ohne Informationen über den ursprünglichen Medientyp zu verlieren.
+Der **`Content-Encoding`** {{Glossary("representation_header", "Repräsentations-Header")}} listet alle Kodierungen auf, die auf eine Ressource angewendet wurden, und deren Reihenfolge. Dies ermöglicht es dem Empfänger, zu wissen, wie die Daten decodiert werden müssen, um das ursprüngliche Inhaltsformat zu erhalten, das im {{HTTPHeader("Content-Type")}}-Header beschrieben ist. Die Inhaltskodierung wird hauptsächlich verwendet, um Inhalte zu komprimieren, ohne Informationen über den ursprünglichen Medientyp zu verlieren.
 
 Servern wird empfohlen, die Daten so weit wie möglich zu komprimieren und Inhaltskodierung dort zu verwenden, wo es angemessen ist. Die Komprimierung eines bereits komprimierten Medientyps wie eines .zip oder .jpeg kann unangemessen sein, da dies die Inhalte vergrößern kann. Wenn das originale Medium bereits in irgendeiner Weise kodiert ist (z.B. eine .zip-Datei), würde diese Information nicht im `Content-Encoding`-Header enthalten sein.
 
@@ -17,10 +17,10 @@ Wenn es einen `Content-Encoding`-Header gibt, beziehen sich andere Metadaten (z.
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Repräsentations-Header](/de/docs/Glossary/Representation_header)</td>
+      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -48,9 +48,9 @@ Content-Encoding: deflate, gzip
 - `deflate`
   - : Verwendung der [zlib](https://de.wikipedia.org/wiki/Zlib)-Struktur (definiert in {{rfc(1950)}}) mit dem [deflate](https://de.wikipedia.org/wiki/Deflate)-Kompressionsalgorithmus (definiert in {{rfc(1951)}}).
 - `br`
-  - : Ein Format, das die [Brotli](/de/docs/Glossary/Brotli_compression)-Algorithmus-Struktur (definiert in {{rfc(7932)}}) verwendet.
+  - : Ein Format, das die {{Glossary("Brotli_compression", "Brotli")}}-Algorithmus-Struktur (definiert in {{rfc(7932)}}) verwendet.
 - `zstd`
-  - : Ein Format, das die [Zstandard](/de/docs/Glossary/Zstandard_compression)-Algorithmus-Struktur (definiert in {{rfc(8878)}}) verwendet.
+  - : Ein Format, das die {{Glossary("Zstandard_compression", "Zstandard")}}-Algorithmus-Struktur (definiert in {{rfc(8878)}}) verwendet.
 
 ## Beispiele
 
@@ -82,6 +82,6 @@ Beachten Sie, dass der Server nicht verpflichtet ist, eine Kompressionsmethode z
 
 - {{HTTPHeader("Accept-Encoding")}}
 - {{HTTPHeader("Transfer-Encoding")}}
-- [Brotli-Komprimierung](/de/docs/Glossary/Brotli_compression)
-- [GZip-Komprimierung](/de/docs/Glossary/GZip_compression)
-- [Zstandard-Komprimierung](/de/docs/Glossary/Zstandard_compression)
+- {{Glossary("Brotli_compression", "Brotli-Komprimierung")}}
+- {{Glossary("GZip_compression", "GZip-Komprimierung")}}
+- {{Glossary("Zstandard_compression", "Zstandard-Komprimierung")}}

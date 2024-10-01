@@ -7,14 +7,14 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-**Subresource Integrity** (SRI) ist eine Sicherheitsfunktion, die es Browsern ermöglicht, zu überprüfen, ob die Ressourcen, die sie abrufen (zum Beispiel von einem [CDN](/de/docs/Glossary/CDN)), ohne unerwartete Manipulationen bereitgestellt werden. Dies funktioniert, indem Sie einen kryptografischen Hash angeben, mit dem die abgerufene Ressource übereinstimmen muss.
+**Subresource Integrity** (SRI) ist eine Sicherheitsfunktion, die es Browsern ermöglicht, zu überprüfen, ob die Ressourcen, die sie abrufen (zum Beispiel von einem {{Glossary("CDN", "CDN")}}), ohne unerwartete Manipulationen bereitgestellt werden. Dies funktioniert, indem Sie einen kryptografischen Hash angeben, mit dem die abgerufene Ressource übereinstimmen muss.
 
 > [!NOTE]
 > Für die Subresource-Integrity-Überprüfung einer Ressource, die von einem anderen Ursprung als dem Dokument bereitgestellt wird, in dem sie eingebettet ist, überprüfen Browser zusätzlich die Ressource mithilfe von [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS), um sicherzustellen, dass der Ursprung, der die Ressource bereitstellt, diese mit dem anfordernden Ursprung teilen darf.
 
 ## Wie Subresource Integrity hilft
 
-Die Verwendung von [Content Delivery Networks (CDNs)](/de/docs/Glossary/CDN), um Dateien wie Skripte und Stylesheets, die zwischen mehreren Websites geteilt werden, zu hosten, kann die Leistung der Website verbessern und Bandbreite sparen. Die Verwendung von CDNs birgt jedoch auch ein Risiko. Wenn ein Angreifer die Kontrolle über ein CDN erlangt, kann er beliebige bösartige Inhalte in die Dateien auf dem CDN einfügen (oder die Dateien vollständig ersetzen) und somit potenziell alle Websites angreifen, die Dateien von diesem CDN abrufen.
+Die Verwendung von {{Glossary("CDN", "Content Delivery Networks (CDNs)")}}, um Dateien wie Skripte und Stylesheets, die zwischen mehreren Websites geteilt werden, zu hosten, kann die Leistung der Website verbessern und Bandbreite sparen. Die Verwendung von CDNs birgt jedoch auch ein Risiko. Wenn ein Angreifer die Kontrolle über ein CDN erlangt, kann er beliebige bösartige Inhalte in die Dateien auf dem CDN einfügen (oder die Dateien vollständig ersetzen) und somit potenziell alle Websites angreifen, die Dateien von diesem CDN abrufen.
 
 Subresource Integrity ermöglicht es Ihnen, einige Risiken von Angriffen dieser Art zu mindern, indem sichergestellt wird, dass die Dateien, die Ihre Webanwendung oder Ihr Webdokument (von einem CDN oder anderswo) abruft, ohne dass ein Dritter zusätzlichen Inhalt in diese Dateien eingefügt hat — und ohne, dass irgendwelche anderen Änderungen jeglicher Art an diesen Dateien vorgenommen wurden.
 

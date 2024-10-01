@@ -15,10 +15,10 @@ Dieser Header darf höchstens einmal in der Antwort erscheinen und hat einen Dir
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -33,7 +33,7 @@ Sec-WebSocket-Accept: <hashed key>
 ## Direktiven
 
 - \<hashed key>
-  - : Falls ein {{HTTPHeader("Sec-WebSocket-Key")}} Header bereitgestellt wurde, wird der Wert dieses Headers berechnet, indem der Wert des Schlüssels genommen, die Zeichenkette `258EAFA5-E914-47DA-95CA-C5AB0DC85B11` angefügt und der [SHA-1](https://en.wikipedia.org/wiki/SHA-1) Hash dieser zusammengefügten Zeichenkette genommen wird — was zu einem 20-Byte-Wert führt. Dieser Wert wird dann [base64](/de/docs/Glossary/Base64)-kodiert, um den Wert dieser Eigenschaft zu erhalten.
+  - : Falls ein {{HTTPHeader("Sec-WebSocket-Key")}} Header bereitgestellt wurde, wird der Wert dieses Headers berechnet, indem der Wert des Schlüssels genommen, die Zeichenkette `258EAFA5-E914-47DA-95CA-C5AB0DC85B11` angefügt und der [SHA-1](https://en.wikipedia.org/wiki/SHA-1) Hash dieser zusammengefügten Zeichenkette genommen wird — was zu einem 20-Byte-Wert führt. Dieser Wert wird dann {{Glossary("Base64", "base64")}}-kodiert, um den Wert dieser Eigenschaft zu erhalten.
 
 ## Beispiele
 

@@ -25,7 +25,7 @@ x || y
 
 Wenn `x` in `true` konvertiert werden kann, wird `x` zurückgegeben; andernfalls wird `y` zurückgegeben.
 
-Wenn ein Wert in `true` konvertiert werden kann, wird er als [truthy](/de/docs/Glossary/truthy) bezeichnet. Wenn ein Wert in `false` konvertiert werden kann, wird er als [falsy](/de/docs/Glossary/falsy) bezeichnet.
+Wenn ein Wert in `true` konvertiert werden kann, wird er als {{Glossary("truthy", "truthy")}} bezeichnet. Wenn ein Wert in `false` konvertiert werden kann, wird er als {{Glossary("falsy", "falsy")}} bezeichnet.
 
 Beispiele für Ausdrücke, die in false konvertiert werden können, sind:
 
@@ -152,5 +152,5 @@ ist immer gleich:
 
 - [Nullish Coalescing Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
 - {{jsxref("Boolean")}}
-- [Truthy](/de/docs/Glossary/Truthy)
-- [Falsy](/de/docs/Glossary/Falsy)
+- {{Glossary("Truthy", "Truthy")}}
+- {{Glossary("Falsy", "Falsy")}}

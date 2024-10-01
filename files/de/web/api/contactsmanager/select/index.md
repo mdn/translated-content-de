@@ -63,7 +63,7 @@ Gibt ein {{jsxref('Promise')}} zurück, das mit einem Array von Objekten, die Ko
 
 ## Sicherheit
 
-Eine [transiente Aktivierung](/de/docs/Glossary/Transient_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Eine {{Glossary("Transient_activation", "transiente Aktivierung")}} ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 

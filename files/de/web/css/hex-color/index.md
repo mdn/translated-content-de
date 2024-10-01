@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist eine Notation zur Beschreibung der _hexadezimale Farbsyntax_ einer [sRGB](/de/docs/Glossary/RGB)-Farbe anhand ihrer Primärfarbenkomponenten (Rot, Grün, Blau), die als Hexadezimalzahlen geschrieben sind, sowie ihrer Transparenz.
+Der **`<hex-color>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist eine Notation zur Beschreibung der _hexadezimale Farbsyntax_ einer {{Glossary("RGB", "sRGB")}}-Farbe anhand ihrer Primärfarbenkomponenten (Rot, Grün, Blau), die als Hexadezimalzahlen geschrieben sind, sowie ihrer Transparenz.
 
 Ein `<hex-color>`-Wert kann überall dort verwendet werden, wo ein [`<color>`](/de/docs/Web/CSS/color_value) verwendet werden kann.
 

@@ -21,12 +21,12 @@ Der Standardwert von `Connection` hat sich zwischen HTTP/1.0 und HTTP/1.1 geänd
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anfrage-Header](/de/docs/Glossary/Request_header),
-        [Antwort-Header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Anfrage-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Service Workers API")}}{{AvailableInWorkers}}
 
-Das **`ServiceWorker`**-Interface der [Service Worker API](/de/docs/Web/API/Service_Worker_API) bietet eine Referenz auf einen Service Worker. Mehrere [Browsing-Kontexte](/de/docs/Glossary/browsing_context) (z. B. Seiten, Worker, etc.) können mit demselben Service Worker verbunden sein, jeder durch ein einzigartiges `ServiceWorker`-Objekt.
+Das **`ServiceWorker`**-Interface der [Service Worker API](/de/docs/Web/API/Service_Worker_API) bietet eine Referenz auf einen Service Worker. Mehrere {{Glossary("browsing_context", "Browsing-Kontexte")}} (z. B. Seiten, Worker, etc.) können mit demselben Service Worker verbunden sein, jeder durch ein einzigartiges `ServiceWorker`-Objekt.
 
 Ein `ServiceWorker`-Objekt ist über eine Reihe von Eigenschaften verfügbar:
 

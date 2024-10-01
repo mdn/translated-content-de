@@ -10,7 +10,7 @@ l10n:
 
 Die **`go()`**-Methode der [`History`](/de/docs/Web/API/History)-Schnittstelle lädt eine bestimmte Seite aus der Sitzungshistorie. Sie können sie verwenden, um je nach Wert eines Parameters vorwärts und rückwärts durch die Historie zu navigieren.
 
-Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
+Diese Methode ist {{Glossary("asynchronous", "asynchron")}}. Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event)-Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
 
 ## Syntax
 

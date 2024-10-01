@@ -10,7 +10,7 @@ l10n:
 
 Die **`lastInputTime`**-Eigenschaft, die schreibgeschützt ist, des [`LayoutShift`](/de/docs/Web/API/LayoutShift)-Interfaces liefert die Zeit der letzten ausschließenden Eingabe oder `0`, falls keine ausschließende Eingabe stattgefunden hat.
 
-Layout-Verschiebungen sind nur dann problematisch, wenn der Benutzer sie nicht erwartet. Kennzahlen zur Layout-Verschiebung, wie die [CLS](/de/docs/Glossary/CLS), schließen Verschiebungen aus, die kurz nach bestimmten Benutzerinteraktionen aufgetreten sind. Diese Interaktionen werden als _ausschließende Eingaben_ bezeichnet. Ausschließende Eingaben sind:
+Layout-Verschiebungen sind nur dann problematisch, wenn der Benutzer sie nicht erwartet. Kennzahlen zur Layout-Verschiebung, wie die {{Glossary("CLS", "CLS")}}, schließen Verschiebungen aus, die kurz nach bestimmten Benutzerinteraktionen aufgetreten sind. Diese Interaktionen werden als _ausschließende Eingaben_ bezeichnet. Ausschließende Eingaben sind:
 
 - Alle Ereignisse, die auf eine aktive Interaktion des Benutzers mit dem Dokument hinweisen: ([`mousedown`](/de/docs/Web/API/Element/mousedown_event), [`keydown`](/de/docs/Web/API/Element/keydown_event) und [`pointerdown`](/de/docs/Web/API/Element/pointerdown_event))
 - Alle Ereignisse, die direkt die Größe des Ansichtsfensters ändern.

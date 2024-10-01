@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`structuredClone()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle erstellt eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) eines gegebenen Wertes unter Verwendung des [structured clone algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+Die **`structuredClone()`** Methode der [`Window`](/de/docs/Web/API/Window) Schnittstelle erstellt eine {{Glossary("Deep_copy", "tiefe Kopie")}} eines gegebenen Wertes unter Verwendung des [structured clone algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 
 Die Methode ermöglicht es auch, [transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im ursprünglichen Wert _zu übertragen_ statt sie zu klonen. Übertragene Objekte werden vom ursprünglichen Objekt getrennt und an das neue Objekt gebunden; sie sind im ursprünglichen Objekt nicht mehr zugänglich.
 
@@ -31,7 +31,7 @@ structuredClone(value, options)
 
 ### Rückgabewert
 
-Eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) des ursprünglichen `value`.
+Eine {{Glossary("Deep_copy", "tiefe Kopie")}} des ursprünglichen `value`.
 
 ### Ausnahmen
 
@@ -40,7 +40,7 @@ Eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) des ursprünglichen `value`.
 
 ## Beschreibung
 
-Diese Funktion kann verwendet werden, um JavaScript-Werte [tief zu kopieren](/de/docs/Glossary/Deep_copy).
+Diese Funktion kann verwendet werden, um JavaScript-Werte {{Glossary("Deep_copy", "tief zu kopieren")}}.
 Sie unterstützt auch zirkuläre Referenzen, wie unten gezeigt:
 
 ```js

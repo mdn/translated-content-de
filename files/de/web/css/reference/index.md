@@ -45,7 +45,7 @@ div.menu-bar li:hover > ul {
 }
 ```
 
-Für eine Einführung auf Anfängerniveau in die Syntax von Selektoren sehen Sie unseren [Leitfaden zu CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors). Beachten Sie, dass ein beliebiger [Syntax](/de/docs/Web/CSS/Syntax)-Fehler in einer Regeldefinition die gesamte Regel ungültig macht. Ungültige Regeln werden vom Browser ignoriert. Beachten Sie, dass CSS-Regeldefinitionen vollständig ([ASCII](/de/docs/Glossary/ASCII)) [textbasiert](https://www.w3.org/TR/css-syntax-3/#intro) sind, während DOM-CSS / CSSOM (das Regelverwaltungssystem) [objektbasiert](https://www.w3.org/TR/cssom/#introduction) ist.
+Für eine Einführung auf Anfängerniveau in die Syntax von Selektoren sehen Sie unseren [Leitfaden zu CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors). Beachten Sie, dass ein beliebiger [Syntax](/de/docs/Web/CSS/Syntax)-Fehler in einer Regeldefinition die gesamte Regel ungültig macht. Ungültige Regeln werden vom Browser ignoriert. Beachten Sie, dass CSS-Regeldefinitionen vollständig ({{Glossary("ASCII", "ASCII")}}) [textbasiert](https://www.w3.org/TR/css-syntax-3/#intro) sind, während DOM-CSS / CSSOM (das Regelverwaltungssystem) [objektbasiert](https://www.w3.org/TR/cssom/#introduction) ist.
 
 ### At-rule-Syntax
 
@@ -114,7 +114,7 @@ Kombinatoren sind Selektoren, die eine Beziehung zwischen zwei oder mehr einfach
 - [At-rules](/de/docs/Web/CSS/At-rule)
 - [Kaskade](/de/docs/Web/CSS/Cascade)
 - [Kommentare](/de/docs/Web/CSS/Comments)
-- [Deskriptor](/de/docs/Glossary/CSS_Descriptor)
+- {{Glossary("CSS_Descriptor", "Deskriptor")}}
 - [Vererbung](/de/docs/Web/CSS/Inheritance)
 - [Kurzschrift-Eigenschaften](/de/docs/Web/CSS/Shorthand_properties)
 - [Spezifität](/de/docs/Web/CSS/Specificity)

@@ -20,7 +20,7 @@ brightness(amount)
 ### Werte
 
 - `amount`
-  - : Helligkeit angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert kleiner als `100%` verdunkelt das Eingabebild oder Element, während ein Wert über `100%` es aufhellt. Ein Wert von `0%` erzeugt ein vollständig schwarzes Bild oder Element, während ein Wert von `100%` das Eingabeobjekt unverändert lässt. Andere Werte zwischen `0%` und `100%` haben eine lineare Multiplikatorwirkung. Werte größer als `100%` sind erlaubt und führen zu helleren Ergebnissen. Der Anfangswert für die [Interpolation](/de/docs/Glossary/interpolation) ist `1`. Negative Werte sind nicht erlaubt. Der Standardwert, wenn nichts angegeben ist, ist `1`.
+  - : Helligkeit angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert kleiner als `100%` verdunkelt das Eingabebild oder Element, während ein Wert über `100%` es aufhellt. Ein Wert von `0%` erzeugt ein vollständig schwarzes Bild oder Element, während ein Wert von `100%` das Eingabeobjekt unverändert lässt. Andere Werte zwischen `0%` und `100%` haben eine lineare Multiplikatorwirkung. Werte größer als `100%` sind erlaubt und führen zu helleren Ergebnissen. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `1`. Negative Werte sind nicht erlaubt. Der Standardwert, wenn nichts angegeben ist, ist `1`.
 
 Die folgenden sind Paare von äquivalenten Werten:
 

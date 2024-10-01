@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein Validator ist ein Programm, das nach Syntaxfehlern im Code sucht. Validatoren können für jedes Format oder jede Sprache erstellt werden, aber in unserem Kontext sprechen wir von Werkzeugen, die [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [XML](/de/docs/Glossary/XML) überprüfen.
+Ein Validator ist ein Programm, das nach Syntaxfehlern im Code sucht. Validatoren können für jedes Format oder jede Sprache erstellt werden, aber in unserem Kontext sprechen wir von Werkzeugen, die {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("XML", "XML")}} überprüfen.
 
 ## Siehe auch
 

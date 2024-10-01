@@ -86,4 +86,4 @@ Content-Type: application/json
 
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
-- Glossar: [Idempotent](/de/docs/Glossary/Idempotent)
+- Glossar: {{Glossary("Idempotent", "Idempotent")}}

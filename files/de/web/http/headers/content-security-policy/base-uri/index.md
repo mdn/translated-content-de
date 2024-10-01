@@ -17,7 +17,7 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} **`base-uri`**-Direktive besc
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>[Dokument-Direktive](/de/docs/Glossary/Document_directive)</td>
+      <td>{{Glossary("Document_directive", "Dokument-Direktive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>

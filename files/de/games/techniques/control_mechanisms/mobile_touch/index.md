@@ -9,7 +9,7 @@ l10n:
 
 {{NextMenu("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms")}}
 
-Die Zukunft des mobilen Spielens liegt definitiv im Web, und viele Entwickler wählen den [Mobile First](/de/docs/Glossary/Mobile_First)-Ansatz in ihrem Spieleentwicklungsprozess — in der modernen Welt umfasst dies in der Regel auch die Implementierung von Touch-Bedienungen. In diesem Tutorial werden wir sehen, wie einfach es ist, mobile Steuerungen in ein HTML-Spiel zu implementieren und auf einem mobilen Touch-fähigen Gerät zu genießen.
+Die Zukunft des mobilen Spielens liegt definitiv im Web, und viele Entwickler wählen den {{Glossary("Mobile_First", "Mobile First")}}-Ansatz in ihrem Spieleentwicklungsprozess — in der modernen Welt umfasst dies in der Regel auch die Implementierung von Touch-Bedienungen. In diesem Tutorial werden wir sehen, wie einfach es ist, mobile Steuerungen in ein HTML-Spiel zu implementieren und auf einem mobilen Touch-fähigen Gerät zu genießen.
 
 > [!NOTE]
 > Das Spiel [Captain Rogers: Battle at Andromeda](https://rogers2.enclavegames.com/demo/) wurde mit Phaser entwickelt, und die Steuerung erfolgt Phaser-basiert, aber es könnte auch in reinem JavaScript gemacht werden. Der Vorteil der Verwendung von Phaser besteht darin, dass es Hilfsvariablen und -funktionen für eine einfachere und schnellere Entwicklung bietet, aber es liegt ganz bei Ihnen, welchen Ansatz Sie wählen.

@@ -10,7 +10,7 @@ l10n:
 
 Die schreibgeschützte **`innerHeight`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt die Innenhöhe des Fensters in Pixeln zurück, einschließlich der Höhe der horizontalen Scrollleiste, falls vorhanden.
 
-Der Wert von `innerHeight` wird von der Höhe des [Layout-Viewports](/de/docs/Glossary/layout_viewport) des Fensters übernommen. Die Breite kann mit der [`innerWidth`](/de/docs/Web/API/Window/innerWidth)-Eigenschaft ermittelt werden.
+Der Wert von `innerHeight` wird von der Höhe des {{Glossary("layout_viewport", "Layout-Viewports")}} des Fensters übernommen. Die Breite kann mit der [`innerWidth`](/de/docs/Web/API/Window/innerWidth)-Eigenschaft ermittelt werden.
 
 ## Wert
 

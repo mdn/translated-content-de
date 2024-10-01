@@ -23,7 +23,7 @@ new ClipboardItem(data, options)
 ### Parameter
 
 - `data`
-  - : Ein {{jsxref("Object")}} mit dem [MIME-Typ](/de/docs/Glossary/MIME_type) als Schlüssel und Daten als Wert.
+  - : Ein {{jsxref("Object")}} mit dem {{Glossary("MIME_type", "MIME-Typ")}} als Schlüssel und Daten als Wert.
     Die Daten können als [`Blob`](/de/docs/Web/API/Blob), als {{jsxref("String")}} oder als {{jsxref("Promise")}} dargestellt werden, das sich entweder in einen Blob oder String auflöst.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:

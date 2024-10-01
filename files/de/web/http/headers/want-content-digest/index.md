@@ -13,10 +13,10 @@ Der **`Want-Content-Digest`** Anforderungs- oder Antwortheader gibt den Wunsch n
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Repräsentation-Header](/de/docs/Glossary/Representation_header)</td>
+      <td>{{Glossary("Representation_header", "Repräsentation-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -27,7 +27,7 @@ Der **`Want-Content-Digest`** Anforderungs- oder Antwortheader gibt den Wunsch n
 `Want-Content-Digest` beschreibt ein [RFC8941 Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit seinen Schlüsseln als Hashing-Algorithmen und seinen Werten als Ganzzahlen `0` (bedeutet "nicht akzeptabel") oder `1` bis `9` (vermitteln aufsteigende, relative, gewichtete Präferenz).
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über [q-Werte](/de/docs/Glossary/Quality_values) angegeben.
+> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über {{Glossary("Quality_values", "q-Werte")}} angegeben.
 
 ## Direktiven
 

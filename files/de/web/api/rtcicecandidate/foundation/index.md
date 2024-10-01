@@ -21,13 +21,13 @@ Ein String, der den Kandidaten über alle
 
 > [!NOTE]
 > Wenn `port` `null` ist — und
-> `port` vom [User Agent](/de/docs/Glossary/user_agent) unterstützt wird — wird das Übergeben des
+> `port` vom {{Glossary("user_agent", "User Agent")}} unterstützt wird — wird das Übergeben des
 > Kandidaten an [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate)
 > fehlschlagen und eine `OperationError` Ausnahme auslösen.
 
 ## Verwendungshinweise
 
-Betrachten Sie diese [SDP](/de/docs/Glossary/SDP) Attributzeile (a-line), die einen ICE
+Betrachten Sie diese {{Glossary("SDP", "SDP")}} Attributzeile (a-line), die einen ICE
 Kandidaten beschreibt:
 
 ```plain

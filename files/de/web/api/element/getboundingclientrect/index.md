@@ -10,7 +10,7 @@ l10n:
 
 Die **`Element.getBoundingClientRect()`** Methode gibt ein
 [`DOMRect`](/de/docs/Web/API/DOMRect) Objekt zurück, das Informationen über die Größe eines Elements und seine
-Position relativ zum [Viewport](/de/docs/Glossary/Viewport) bereitstellt.
+Position relativ zum {{Glossary("Viewport", "Viewport")}} bereitstellt.
 
 ## Syntax
 

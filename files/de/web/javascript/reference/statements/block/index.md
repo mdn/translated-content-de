@@ -26,7 +26,7 @@ Ein **Block-Statement** wird verwendet, um null oder mehr Anweisungen zu gruppie
 
 Das Block-Statement wird in anderen Sprachen oft als _compound statement_ bezeichnet. Es ermöglicht Ihnen, mehrere Anweisungen zu verwenden, wo JavaScript nur eine einzige Anweisung erwartet. Das Kombinieren von Anweisungen in Blöcken ist eine gängige Praxis in JavaScript, insbesondere in Verbindung mit Kontrollflussanweisungen wie {{jsxref("Statements/if...else", "if...else")}} und {{jsxref("Statements/for", "for")}}. Das gegenteilige Verhalten ist mit einer [leeren Anweisung](/de/docs/Web/JavaScript/Reference/Statements/Empty) möglich, bei der keine Anweisung angegeben wird, obwohl eine erforderlich ist.
 
-Zusätzlich können Blöcke in Kombination mit Block-Scoped-Deklarationen wie [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) temporäre Variablen davon abhalten, den globalen Namensraum zu verschmutzen, ähnlich wie [IIFEs](/de/docs/Glossary/IIFE) es tun.
+Zusätzlich können Blöcke in Kombination mit Block-Scoped-Deklarationen wie [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) und [`class`](/de/docs/Web/JavaScript/Reference/Statements/class) temporäre Variablen davon abhalten, den globalen Namensraum zu verschmutzen, ähnlich wie {{Glossary("IIFE", "IIFEs")}} es tun.
 
 ### Block-Scoping-Regeln mit var oder Funktionsdeklaration im Nicht-Strict-Modus
 

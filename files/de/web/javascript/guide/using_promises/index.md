@@ -350,7 +350,7 @@ In beiden Fällen hat das Ereignis (vom Typ [`PromiseRejectionEvent`](/de/docs/W
 
 Diese machen es möglich, eine fallback Fehlerbehandlung für Promises anzubieten und helfen dabei, Probleme mit Ihrer Promise-Verwaltung zu debuggen. Diese Handler sind global pro Kontext, daher gehen alle Fehler an die gleichen Ereignishandler, unabhängig von der Quelle.
 
-In [Node.js](/de/docs/Glossary/Node.js) ist die Handhabung von Promise-Ablehnungen etwas anders. Sie erfassen nicht erfasste Ablehnungen, indem Sie einen Handler für das `unhandledRejection`-Ereignis von Node.js hinzufügen (beachten Sie den Unterschied in der Großschreibung des Namens), wie folgt:
+In {{Glossary("Node.js", "Node.js")}} ist die Handhabung von Promise-Ablehnungen etwas anders. Sie erfassen nicht erfasste Ablehnungen, indem Sie einen Handler für das `unhandledRejection`-Ereignis von Node.js hinzufügen (beachten Sie den Unterschied in der Großschreibung des Namens), wie folgt:
 
 ```js
 process.on("unhandledRejection", (reason, promise) => {

@@ -22,7 +22,7 @@ saturate(amount)
 ### Parameter
 
 - `amount`
-  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` desaturiert das Bild, während ein Wert über `100%` es über-saturiert. Ein Wert von `0%` ist komplett entsättigt, während ein Wert von `100%` das Eingangsbild unverändert lässt. Der Anfangswert für die [Interpolation](/de/docs/Glossary/interpolation) ist `1`.
+  - : Die Menge der Umwandlung, angegeben als {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}. Ein Wert unter `100%` desaturiert das Bild, während ein Wert über `100%` es über-saturiert. Ein Wert von `0%` ist komplett entsättigt, während ein Wert von `100%` das Eingangsbild unverändert lässt. Der Anfangswert für die {{Glossary("interpolation", "Interpolation")}} ist `1`.
 
 ## Beispiele
 

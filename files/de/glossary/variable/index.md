@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine Variable ist ein benannter Verweis auf einen [Wert](/de/docs/Glossary/Value). Auf diese Weise kann ein unvorhersehbarer Wert über einen vorher festgelegten Namen abgerufen werden.
+Eine Variable ist ein benannter Verweis auf einen {{Glossary("Value", "Wert")}}. Auf diese Weise kann ein unvorhersehbarer Wert über einen vorher festgelegten Namen abgerufen werden.
 
 ## Siehe auch
 

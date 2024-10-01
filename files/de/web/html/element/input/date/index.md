@@ -62,7 +62,7 @@ Das `step`-Attribut ist eine Zahl, die die Granularität angibt, an die der Wert
 Ein Stringwert von `any` bedeutet, dass kein Schritt impliziert wird und jeder Wert zulässig ist (abgesehen von anderen Einschränkungen wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Schritt-Konfiguration entsprechen, kann der [Benutzeragent](/de/docs/Glossary/user_agent) auf den nächsten gültigen Wert runden und bevorzugt positive Zahlen, wenn es zwei gleich nahe Optionen gibt.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Schritt-Konfiguration entsprechen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächsten gültigen Wert runden und bevorzugt positive Zahlen, wenn es zwei gleich nahe Optionen gibt.
 
 Bei `date`-Eingaben wird der Wert von `step` in Tagen angegeben und als Anzahl von Millisekunden betrachtet, die dem `step`-Wert mal 86.400.000 entsprechen (der zugrunde liegende numerische Wert ist in Millisekunden). Der Standardwert von `step` ist 1, was für 1 Tag steht.
 

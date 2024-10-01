@@ -9,7 +9,7 @@ l10n:
 
 Ein Objekt, das die Sicherheitsmerkmale einer bestimmten Webanfrage beschreibt. Ein Objekt dieses Typs wird von der {{WebExtAPIRef("webRequest.getSecurityInfo()")}} API zurückgegeben.
 
-Wenn die Anfrage nicht durch [TLS](/de/docs/Glossary/TLS) gesichert ist, enthält dieses Objekt nur die Eigenschaft `state`, deren Wert `"insecure"` ist.
+Wenn die Anfrage nicht durch {{Glossary("TLS", "TLS")}} gesichert ist, enthält dieses Objekt nur die Eigenschaft `state`, deren Wert `"insecure"` ist.
 
 ## Typ
 

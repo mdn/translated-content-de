@@ -226,19 +226,19 @@ Ermitteln Sie zunächst, welches OS Sie verwenden, und prüfen Sie dann, ob ein 
 
 #### Welche Art von Technologien möchte ich bearbeiten?
 
-Im Allgemeinen kann jeder Texteditor jede Textdatei öffnen. Das funktioniert großartig, um sich selbst Notizen zu machen, aber wenn Sie Webentwicklung betreiben und in [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [JavaScript](/de/docs/Glossary/JavaScript) schreiben, können einige ziemlich umfangreiche, komplexe Dateien entstehen. Machen Sie es sich einfacher, indem Sie einen Texteditor wählen, der die Technologien versteht, mit denen Sie arbeiten. Viele Texteditoren unterstützen Sie mit Funktionen wie:
+Im Allgemeinen kann jeder Texteditor jede Textdatei öffnen. Das funktioniert großartig, um sich selbst Notizen zu machen, aber wenn Sie Webentwicklung betreiben und in {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} schreiben, können einige ziemlich umfangreiche, komplexe Dateien entstehen. Machen Sie es sich einfacher, indem Sie einen Texteditor wählen, der die Technologien versteht, mit denen Sie arbeiten. Viele Texteditoren unterstützen Sie mit Funktionen wie:
 
 - **[Syntaxhervorhebung](https://en.wikipedia.org/wiki/Syntax_highlighting).** Machen Sie Ihre Datei durch farbliche Kennzeichnung von Schlüsselwörtern je nach verwendeter Technologie lesbarer.
 - **[Codevervollständigung](https://en.wikipedia.org/wiki/Autocomplete#In_source_code_editors).** Sparen Sie Zeit, indem Sie sich wiederholende Strukturen automatisch vervollständigen lassen (zum Beispiel automatisch schließende HTML-Tags oder Vorschläge gültiger Werte für eine bestimmte CSS-Eigenschaft).
 - **[Code-Snippets](<https://en.wikipedia.org/wiki/Snippet_(programming)>).** Wie Sie beim Starten eines neuen HTML-Dokuments gesehen haben, verwenden viele Technologien immer wieder die gleiche Dokumentstruktur. Sparen Sie sich den Aufwand, alles neu einzutippen, indem Sie ein Code-Snippet verwenden, um Ihr Dokument vorzubefüllen.
 
-Die meisten Texteditoren unterstützen inzwischen die Syntaxhervorhebung, aber nicht notwendigerweise die anderen zwei Funktionen. Stellen Sie sicher, dass Ihr Texteditor besonders die Hervorhebung für [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [JavaScript](/de/docs/Glossary/JavaScript) unterstützt.
+Die meisten Texteditoren unterstützen inzwischen die Syntaxhervorhebung, aber nicht notwendigerweise die anderen zwei Funktionen. Stellen Sie sicher, dass Ihr Texteditor besonders die Hervorhebung für {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} unterstützt.
 
 #### Welche Grundfunktionen erwarte ich von meinem Texteditor?
 
 Dies hängt von Ihren Bedürfnissen und Plänen ab. Diese Funktionen sind oft hilfreich:
 
-- Suchen und Ersetzen in einem oder mehreren Dokumenten, basierend auf [regulären Ausdrücken](/de/docs/Glossary/Regular_Expression) oder anderen Mustern nach Bedarf
+- Suchen und Ersetzen in einem oder mehreren Dokumenten, basierend auf {{Glossary("Regular_Expression", "regulären Ausdrücken")}} oder anderen Mustern nach Bedarf
 - Schnelles Springen zu einer bestimmten Zeile
 - Zwei Teile eines großen Dokuments getrennt anzeigen
 - HTML anzeigen, wie es im Browser aussehen wird

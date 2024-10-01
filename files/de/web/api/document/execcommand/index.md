@@ -37,7 +37,7 @@ execCommand(aCommandName, aShowDefaultUI, aValueArgument)
     - `copy`
       - : Kopiert die aktuelle Auswahl in die Zwischenablage. Die Bedingungen dafür, dass dieses Verhalten aktiviert ist, variieren von Browser zu Browser und haben sich im Laufe der Zeit entwickelt. Überprüfen Sie die Kompatibilitätstabelle, um festzustellen, ob Sie es in Ihrem Fall verwenden können.
     - `createLink`
-      - : Erstellt einen Hyperlink aus der Auswahl, aber nur, wenn eine Auswahl vorhanden ist. Erfordert einen [URI](/de/docs/Glossary/URI)-String als Wertargument für das `href` des Hyperlinks. Der URI muss mindestens ein Zeichen enthalten, das Leerzeichen sein kann.
+      - : Erstellt einen Hyperlink aus der Auswahl, aber nur, wenn eine Auswahl vorhanden ist. Erfordert einen {{Glossary("URI", "URI")}}-String als Wertargument für das `href` des Hyperlinks. Der URI muss mindestens ein Zeichen enthalten, das Leerzeichen sein kann.
     - `cut`
       - : Entfernt die aktuelle Auswahl und kopiert sie in die Zwischenablage. Ab wann dieses Verhalten aktiviert ist, variiert zwischen Browsern, und seine Bedingungen haben sich im Laufe der Zeit entwickelt. Überprüfen Sie [die Kompatibilitätstabelle](#browser-kompatibilität) für Nutzungsdetails.
     - `decreaseFontSize`

@@ -21,7 +21,7 @@ Python wird unter einer von der OSI genehmigten Open-Source-Lizenz entwickelt, w
 - [AlphaCodingSkills: Python-Tutorial](https://www.alphacodingskills.com/python/python-tutorial.php)
 - [Django Web Framework (Python)](/de/docs/Learn/Server-side/Django) bei MDN
 - Verwandte Glossarbegriffe:
-  - [Java](/de/docs/Glossary/Java)
-  - [JavaScript](/de/docs/Glossary/JavaScript)
-  - [PHP](/de/docs/Glossary/PHP)
-  - [Ruby](/de/docs/Glossary/Ruby)
+  - {{Glossary("Java", "Java")}}
+  - {{Glossary("JavaScript", "JavaScript")}}
+  - {{Glossary("PHP", "PHP")}}
+  - {{Glossary("Ruby", "Ruby")}}

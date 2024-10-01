@@ -11,13 +11,13 @@ JavaScript ist eine Programmiersprache, die Interaktivität zu Ihrer Website hin
 
 ## Was ist JavaScript?
 
-[JavaScript](/de/docs/Glossary/JavaScript) ist eine leistungsstarke Programmiersprache, die einer Website Interaktivität hinzufügen kann. Es wurde von Brendan Eich erfunden.
+{{Glossary("JavaScript", "JavaScript")}} ist eine leistungsstarke Programmiersprache, die einer Website Interaktivität hinzufügen kann. Es wurde von Brendan Eich erfunden.
 
 JavaScript ist vielseitig und einsteigerfreundlich. Mit mehr Erfahrung können Sie Spiele, animierte 2D- und 3D-Grafiken, umfassende datenbankgesteuerte Anwendungen und vieles mehr erstellen!
 
 JavaScript selbst ist relativ kompakt, aber sehr flexibel. Entwickler haben eine Vielzahl von Tools auf Basis der Kern-JavaScript-Sprache entwickelt, die eine große Menge an Funktionalität mit minimalem Aufwand freischalten. Dazu gehören:
 
-- Browseranwendungsprogrammierschnittstellen ([APIs](/de/docs/Glossary/API)), die in Webbrowser integriert sind und Funktionen wie das dynamische Erstellen von HTML und das Festlegen von CSS-Stilen bieten; das Erfassen und Manipulieren eines Videostreams von der Webcam eines Benutzers oder das Generieren von 3D-Grafiken und Audiobeispielen.
+- Browseranwendungsprogrammierschnittstellen ({{Glossary("API", "APIs")}}), die in Webbrowser integriert sind und Funktionen wie das dynamische Erstellen von HTML und das Festlegen von CSS-Stilen bieten; das Erfassen und Manipulieren eines Videostreams von der Webcam eines Benutzers oder das Generieren von 3D-Grafiken und Audiobeispielen.
 - Drittanbieter-APIs, die es Entwicklern ermöglichen, Funktionen von anderen Inhaltsanbietern wie [Disqus](https://disqus.com/) oder Facebook in Websites zu integrieren.
 - Drittanbieter-Frameworks und -Bibliotheken, die Sie auf HTML anwenden können, um die Arbeit beim Erstellen von Websites und Anwendungen zu beschleunigen.
 
@@ -76,7 +76,7 @@ Um Ihnen ein besseres Verständnis dafür zu geben, wie JavaScript funktioniert,
 
 ### Variablen
 
-[Variablen](/de/docs/Glossary/Variable) sind Container, die Werte speichern. Sie beginnen mit der Deklaration einer Variablen mit dem Schlüsselwort [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), gefolgt von dem Namen, den Sie der Variablen geben:
+{{Glossary("Variable", "Variablen")}} sind Container, die Werte speichern. Sie beginnen mit der Deklaration einer Variablen mit dem Schlüsselwort [`let`](/de/docs/Web/JavaScript/Reference/Statements/let), gefolgt von dem Namen, den Sie der Variablen geben:
 
 ```js
 let myVariable;
@@ -125,27 +125,27 @@ Beachten Sie, dass Variablen Werte mit unterschiedlichen [Datentypen](/de/docs/W
   </thead>
   <tbody>
     <tr>
-      <th scope="row">[String](/de/docs/Glossary/String)</th>
+      <th scope="row">{{Glossary("String", "String")}}</th>
       <td>Dies ist eine Textfolge, die als String bekannt ist. Um anzuzeigen, dass der Wert ein String ist, schließen Sie ihn in einfache oder doppelte Anführungszeichen ein.</td>
       <td><code>let myVariable = 'Bob';</code> oder <br/><code>let myVariable = "Bob";</code></td>
     </tr>
     <tr>
-      <th scope="row">[Number](/de/docs/Glossary/Number)</th>
+      <th scope="row">{{Glossary("Number", "Number")}}</th>
       <td>Dies ist eine Zahl. Zahlen haben keine Anführungszeichen.</td>
       <td><code>let myVariable = 10;</code></td>
     </tr>
     <tr>
-      <th scope="row">[Boolean](/de/docs/Glossary/Boolean)</th>
+      <th scope="row">{{Glossary("Boolean", "Boolean")}}</th>
       <td>Dies ist ein Wahr/Falsch-Wert. Die Wörter <code>true</code> und <code>false</code> sind spezielle Schlüsselwörter, die keine Anführungszeichen benötigen.</td>
       <td><code>let myVariable = true;</code></td>
     </tr>
     <tr>
-      <th scope="row">[Array](/de/docs/Glossary/Array)</th>
+      <th scope="row">{{Glossary("Array", "Array")}}</th>
       <td>Dies ist eine Struktur, die es Ihnen ermöglicht, mehrere Werte in einer einzigen Referenz zu speichern.</td>
       <td><code>let myVariable = [1,'Bob','Steve',10];</code><br />Beziehen Sie sich auf jedes Mitglied des Arrays so:<br /><code>myVariable[0]</code>, <code>myVariable[1]</code> usw.</td>
     </tr>
     <tr>
-      <th scope="row">[Object](/de/docs/Glossary/Object)</th>
+      <th scope="row">{{Glossary("Object", "Object")}}</th>
       <td>Dies kann alles sein. Alles in JavaScript ist ein Objekt und kann in einer Variablen gespeichert werden. Denken Sie daran, während Sie lernen.</td>
       <td><code>let myVariable = document.querySelector('h1');</code><br />All die obigen Beispiele ebenfalls.</td>
     </tr>
@@ -172,7 +172,7 @@ Wenn Ihr Kommentar keine Zeilenumbrüche enthält, können Sie ihn hinter zwei S
 
 ### Operatoren
 
-Ein `[Operator](/de/docs/Glossary/operator)` ist ein mathematisches Symbol, das ein Ergebnis basierend auf zwei Werten (oder Variablen) liefert. In der folgenden Tabelle sehen Sie einige der einfachsten Operatoren, zusammen mit einigen Beispielen, die Sie in der JavaScript-Konsole ausprobieren können.
+Ein `{{Glossary("operator", "Operator")}}` ist ein mathematisches Symbol, das ein Ergebnis basierend auf zwei Werten (oder Variablen) liefert. In der folgenden Tabelle sehen Sie einige der einfachsten Operatoren, zusammen mit einigen Beispielen, die Sie in der JavaScript-Konsole ausprobieren können.
 
 <table class="standard-table">
   <thead>
@@ -244,7 +244,7 @@ Der Ausdruck innerhalb `if ()` ist der Test. Dieser verwendet den strikten Gleic
 
 ### Funktionen
 
-[Funktionen](/de/docs/Glossary/Function) sind eine Möglichkeit, Funktionalität zu verpacken, die Sie wiederverwenden möchten. Es ist möglich, einen Codekörper als Funktion zu definieren, der beim Aufruf des Funktionsnamens in Ihrem Code ausgeführt wird. Dies ist eine gute Alternative, um denselben Code wiederholt zu schreiben. Sie haben bereits einige Verwendungen von Funktionen gesehen. Zum Beispiel:
+{{Glossary("Function", "Funktionen")}} sind eine Möglichkeit, Funktionalität zu verpacken, die Sie wiederverwenden möchten. Es ist möglich, einen Codekörper als Funktion zu definieren, der beim Aufruf des Funktionsnamens in Ihrem Code ausgeführt wird. Dies ist eine gute Alternative, um denselben Code wiederholt zu schreiben. Sie haben bereits einige Verwendungen von Funktionen gesehen. Zum Beispiel:
 
 ```js
 let myVariable = document.querySelector("h1");
@@ -256,7 +256,7 @@ alert("hello!");
 
 Diese Funktionen, `document.querySelector` und `alert`, sind in den Browser eingebaut.
 
-Wenn Sie etwas sehen, das wie ein Variablenname aussieht, aber Klammern folgen – `()` – ist es wahrscheinlich eine Funktion. Funktionen nehmen oft [Argumente](/de/docs/Glossary/Argument) an: Datenteile, die sie für ihre Aufgabe benötigen. Argumente kommen in die Klammern, getrennt durch Kommas, wenn es mehr als ein Argument gibt.
+Wenn Sie etwas sehen, das wie ein Variablenname aussieht, aber Klammern folgen – `()` – ist es wahrscheinlich eine Funktion. Funktionen nehmen oft {{Glossary("Argument", "Argumente")}} an: Datenteile, die sie für ihre Aufgabe benötigen. Argumente kommen in die Klammern, getrennt durch Kommas, wenn es mehr als ein Argument gibt.
 
 Zum Beispiel lässt die Funktion `alert()` ein Pop-up-Fenster im Browserfenster erscheinen, aber wir müssen ihr einen String als Argument geben, um der Funktion mitzuteilen, welche Nachricht angezeigt werden soll.
 
@@ -278,7 +278,7 @@ multiply(0.5, 3);
 ```
 
 > [!NOTE]
-> Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung weist den Browser an, die Variable `result` aus der Funktion zurückzugeben, sodass sie verfügbar ist, um sie zu verwenden. Dies ist notwendig, weil Variablen, die in Funktionen definiert sind, nur innerhalb dieser Funktionen verfügbar sind. Dies nennt man Variablen[Skopierung](/de/docs/Glossary/Scope). (Lesen Sie mehr über [Variablen-Skopierung](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope).)
+> Die [`return`](/de/docs/Web/JavaScript/Reference/Statements/return)-Anweisung weist den Browser an, die Variable `result` aus der Funktion zurückzugeben, sodass sie verfügbar ist, um sie zu verwenden. Dies ist notwendig, weil Variablen, die in Funktionen definiert sind, nur innerhalb dieser Funktionen verfügbar sind. Dies nennt man Variablen{{Glossary("Scope", "Skopierung")}}. (Lesen Sie mehr über [Variablen-Skopierung](/de/docs/Web/JavaScript/Guide/Grammar_and_types#variable_scope).)
 
 ### Ereignisse
 

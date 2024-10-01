@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
 Die **`decrypt()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces entschlüsselt einige verschlüsselte Daten.
-Sie nimmt als Argumente einen [Schlüssel](/de/docs/Glossary/key) zum Entschlüsseln, einige optionale zusätzliche Parameter und die zu entschlüsselnden Daten (auch bekannt als "Chiffretext").
+Sie nimmt als Argumente einen {{Glossary("key", "Schlüssel")}} zum Entschlüsseln, einige optionale zusätzliche Parameter und die zu entschlüsselnden Daten (auch bekannt als "Chiffretext").
 Sie gibt ein {{jsxref("Promise")}} zurück, das mit den entschlüsselten Daten (auch bekannt als "Klartext") erfüllt wird.
 
 ## Syntax
@@ -33,7 +33,7 @@ decrypt(algorithm, key, data)
   - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), der den zu verwendenden Schlüssel für die Entschlüsselung enthält.
     Bei Verwendung von RSA-OAEP ist dies die `privateKey`-Eigenschaft des [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair)-Objekts.
 - `data`
-  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das die zu entschlüsselnden Daten enthält (auch bekannt als [Chiffretext](/de/docs/Glossary/ciphertext)).
+  - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}, das die zu entschlüsselnden Daten enthält (auch bekannt als {{Glossary("ciphertext", "Chiffretext")}}).
 
 ### Rückgabewert
 

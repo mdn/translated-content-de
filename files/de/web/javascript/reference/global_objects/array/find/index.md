@@ -29,7 +29,7 @@ find(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und ansonsten einen [falsy](/de/docs/Glossary/Falsy) Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass ein übereinstimmendes Element gefunden wurde, und ansonsten einen {{Glossary("Falsy", "falsy")}} Wert. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -45,7 +45,7 @@ Das erste Element im Array, das die bereitgestellte Testfunktion erfüllt. Ander
 
 ## Beschreibung
 
-Die `find()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft einmal für jedes Element eines Arrays in aufsteigender Indexreihenfolge eine bereitgestellte `callbackFn` Funktion auf, bis `callbackFn` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt. `find()` gibt dann dieses Element zurück und stoppt die Iteration durch das Array. Wenn `callbackFn` niemals einen truthy Wert zurückgibt, gibt `find()` {{jsxref("undefined")}} zurück. Lesen Sie den Abschnitt [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für weitere Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die `find()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft einmal für jedes Element eines Arrays in aufsteigender Indexreihenfolge eine bereitgestellte `callbackFn` Funktion auf, bis `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. `find()` gibt dann dieses Element zurück und stoppt die Iteration durch das Array. Wenn `callbackFn` niemals einen truthy Wert zurückgibt, gibt `find()` {{jsxref("undefined")}} zurück. Lesen Sie den Abschnitt [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für weitere Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
 
 `callbackFn` wird für _jeden_ Index des Arrays aufgerufen, nicht nur für jene mit zugewiesenen Werten. Leere Stellen in [sparse arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) verhalten sich wie `undefined`.
 

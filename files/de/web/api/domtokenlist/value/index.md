@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`value`**-Eigenschaft der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ist ein [Stringifier](/de/docs/Glossary/stringifier), der den Wert der Liste als Zeichenkette serialisiert zurückgibt oder die Liste löscht und auf den angegebenen Wert setzt.
+Die **`value`**-Eigenschaft der [`DOMTokenList`](/de/docs/Web/API/DOMTokenList)-Schnittstelle ist ein {{Glossary("stringifier", "Stringifier")}}, der den Wert der Liste als Zeichenkette serialisiert zurückgibt oder die Liste löscht und auf den angegebenen Wert setzt.
 
 ## Wert
 

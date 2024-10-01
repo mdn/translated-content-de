@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{NextMenu("Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors", "Learn/CSS/Building_blocks")}}
 
-In [CSS](/de/docs/Glossary/CSS) werden Selektoren verwendet, um die [HTML](/de/docs/Glossary/HTML)-Elemente auf unseren Webseiten zu bestimmen, die wir stylen möchten. Es gibt eine Vielzahl von CSS-Selektoren, die eine feinkörnige Präzision beim Auswählen der zu stylenden Elemente ermöglichen. In diesem Artikel und seinen Unterartikeln werden wir die verschiedenen Typen detailliert durchgehen und sehen, wie sie funktionieren.
+In {{Glossary("CSS", "CSS")}} werden Selektoren verwendet, um die {{Glossary("HTML", "HTML")}}-Elemente auf unseren Webseiten zu bestimmen, die wir stylen möchten. Es gibt eine Vielzahl von CSS-Selektoren, die eine feinkörnige Präzision beim Auswählen der zu stylenden Elemente ermöglichen. In diesem Artikel und seinen Unterartikeln werden wir die verschiedenen Typen detailliert durchgehen und sehen, wie sie funktionieren.
 
 <table>
   <tbody>

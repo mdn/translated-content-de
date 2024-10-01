@@ -14,7 +14,7 @@ Eine Anweisung oder eine Reihe von Anweisungen wird ausgeführt, wenn eine besti
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Steuerfluss](/de/docs/Glossary/Control_flow)
+  - {{Glossary("Control_flow", "Steuerfluss")}}
 - [Entscheidungen in Ihrem Code treffen — Bedingte Anweisungen](/de/docs/Learn/JavaScript/Building_blocks/conditionals)
 - [Steuerfluss und Fehlerbehandlung in JavaScript](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 - [Conditional](<https://en.wikipedia.org/wiki/Conditional_(computer_programming)>) auf Wikipedia

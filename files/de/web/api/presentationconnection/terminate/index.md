@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Wenn die `terminate()` Methode auf einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgerufen wird, beginnt der [User-Agent](/de/docs/Glossary/user_agent) den Prozess der Beendigung der Präsentation. Der genaue Prozess unterscheidet sich je nachdem, ob `terminate()` im steuernden oder im präsentierenden Kontext aufgerufen wird.
+Wenn die `terminate()` Methode auf einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgerufen wird, beginnt der {{Glossary("user_agent", "User-Agent")}} den Prozess der Beendigung der Präsentation. Der genaue Prozess unterscheidet sich je nachdem, ob `terminate()` im steuernden oder im präsentierenden Kontext aufgerufen wird.
 
 ## Syntax
 

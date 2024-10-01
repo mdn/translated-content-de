@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die Methode **`values()`** des [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) gibt einen [JavaScript](/de/docs/Glossary/JavaScript) [`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, der die Liste der im Array enthaltenen [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte von Anfang bis Ende durchlaufen kann.
+Die Methode **`values()`** des [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray) gibt einen {{Glossary("JavaScript", "JavaScript")}} [`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, der die Liste der im Array enthaltenen [`XRInputSource`](/de/docs/Web/API/XRInputSource)-Objekte von Anfang bis Ende durchlaufen kann.
 
 ## Syntax
 

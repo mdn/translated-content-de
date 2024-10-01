@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Fetch Metadata Request Header** ist ein [HTTP-Anforderungsheader](/de/docs/Glossary/Request_header), der zusätzliche Informationen über den Kontext liefert, aus dem die Anfrage stammt. Dies ermöglicht es dem Server, Entscheidungen darüber zu treffen, ob eine Anfrage basierend auf ihrem Ursprung und der Nutzung der Ressource zugelassen werden sollte.
+Ein **Fetch Metadata Request Header** ist ein {{Glossary("Request_header", "HTTP-Anforderungsheader")}}, der zusätzliche Informationen über den Kontext liefert, aus dem die Anfrage stammt. Dies ermöglicht es dem Server, Entscheidungen darüber zu treffen, ob eine Anfrage basierend auf ihrem Ursprung und der Nutzung der Ressource zugelassen werden sollte.
 
-Mit diesen Informationen kann ein Server eine Isolationsrichtlinie für Ressourcen implementieren, die es externen Websites erlaubt, nur die Ressourcen anzufordern, die zum Teilen vorgesehen und angemessen verwendet werden. Dieser Ansatz kann helfen, häufige webseitenübergreifende Sicherheitslücken wie [CSRF](/de/docs/Glossary/CSRF), Cross-site Script Inclusion ('XSSI'), Timing-Angriffe und ursprungsübergreifende Informationslecks zu mindern.
+Mit diesen Informationen kann ein Server eine Isolationsrichtlinie für Ressourcen implementieren, die es externen Websites erlaubt, nur die Ressourcen anzufordern, die zum Teilen vorgesehen und angemessen verwendet werden. Dieser Ansatz kann helfen, häufige webseitenübergreifende Sicherheitslücken wie {{Glossary("CSRF", "CSRF")}}, Cross-site Script Inclusion ('XSSI'), Timing-Angriffe und ursprungsübergreifende Informationslecks zu mindern.
 
-Diese Header sind mit `Sec-` vorangestellt und haben daher [verbotene Headernamen](/de/docs/Glossary/Forbidden_header_name). Daher können sie nicht von JavaScript aus geändert werden.
+Diese Header sind mit `Sec-` vorangestellt und haben daher {{Glossary("Forbidden_header_name", "verbotene Headernamen")}}. Daher können sie nicht von JavaScript aus geändert werden.
 
 Die Fetch Metadata Request Header sind:
 
@@ -33,7 +33,7 @@ Ein Server könnte sie nutzen, um sein Caching-Verhalten oder zurückgegebene In
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Headers)
 - [Liste aller HTTP-Header > Fetch Metadata Request Headers](/de/docs/Web/HTTP/Headers#fetch_metadata_request_headers)
 - Verwandte Glossarbegriffe:
-  - [Representation header](/de/docs/Glossary/Representation_header)
-  - [HTTP header](/de/docs/Glossary/HTTP_header)
-  - [Response header](/de/docs/Glossary/Response_header)
-  - [Request header](/de/docs/Glossary/Request_header)
+  - {{Glossary("Representation_header", "Representation header")}}
+  - {{Glossary("HTTP_header", "HTTP header")}}
+  - {{Glossary("Response_header", "Response header")}}
+  - {{Glossary("Request_header", "Request header")}}

@@ -16,7 +16,7 @@ Zum Beispiel kann die Taskleiste unter Windows sowohl Symbole für native als au
 Beim Erstellen einer PWA können Sie Ihr eigenes Set von Icons definieren, das verwendet wird, wenn die App auf einem Gerät installiert ist. Dieser Artikel erklärt, wie Sie Ihre eigenen App-Icons definieren, welche Icon-Größen zu erstellen sind und wie Sie Ihre Icons für das Maskieren unterstützen können.
 
 > [!NOTE]
-> Das PWA-App-Icon ist nicht dasselbe wie das [Favicon](/de/docs/Glossary/favicon)-Bild, das an Stellen wie der Adressleiste des Browsers angezeigt wird. PWAs können sowohl ein Favicon als auch ein App-Icon haben. Um mehr über Favicons zu erfahren, lesen Sie [Benutzerdefinierte Symbole zu Ihrer Site hinzufügen](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#adding_custom_icons_to_your_site).
+> Das PWA-App-Icon ist nicht dasselbe wie das {{Glossary("favicon", "Favicon")}}-Bild, das an Stellen wie der Adressleiste des Browsers angezeigt wird. PWAs können sowohl ein Favicon als auch ein App-Icon haben. Um mehr über Favicons zu erfahren, lesen Sie [Benutzerdefinierte Symbole zu Ihrer Site hinzufügen](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML#adding_custom_icons_to_your_site).
 
 ## Entwerfen Sie Ihr Icon
 
@@ -39,7 +39,7 @@ Wie in [Erstellen Sie die notwendigen Icon-Größen](#erstellen_sie_die_notwendi
 - `sizes`
   - : Die Größen, für die das Icon verwendet werden kann.
 - `type`
-  - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) der Bilddatei, die das Betriebssystem verwenden kann, um Bilder schnell zu ignorieren, die es nicht unterstützt.
+  - : Der {{Glossary("MIME_type", "MIME-Typ")}} der Bilddatei, die das Betriebssystem verwenden kann, um Bilder schnell zu ignorieren, die es nicht unterstützt.
 - `purpose`
   - : Der betriebssystemspezifische Zweck des Bildes.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Trusted Types API")}}{{AvailableInWorkers}}
 
-Die **Trusted Types API** bietet Webentwicklern eine Möglichkeit, die unsicheren Teile der [DOM-API](/de/docs/Web/API/Document_Object_Model) zu sperren, um clientseitige [Cross-Site-Scripting](/de/docs/Glossary/Cross-site_scripting) (XSS)-Angriffe zu verhindern.
+Die **Trusted Types API** bietet Webentwicklern eine Möglichkeit, die unsicheren Teile der [DOM-API](/de/docs/Web/API/Document_Object_Model) zu sperren, um clientseitige {{Glossary("Cross-site_scripting", "Cross-Site-Scripting")}} (XSS)-Angriffe zu verhindern.
 
 ## Konzepte und Nutzung
 

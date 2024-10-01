@@ -10,7 +10,7 @@ l10n:
 
 Die **`fecPacketsDiscarded`**-Eigenschaft
 des [`RTCInboundRtpStreamStats`](/de/docs/Web/API/RTCInboundRtpStreamStats) Wörterbuchs ist ein numerischer Wert,
-der die Anzahl der [RTP](/de/docs/Glossary/RTP) Forward Error Correction (FEC)-Pakete angibt,
+der die Anzahl der {{Glossary("RTP", "RTP")}} Forward Error Correction (FEC)-Pakete angibt,
 die verworfen wurden.
 
 ## Wert

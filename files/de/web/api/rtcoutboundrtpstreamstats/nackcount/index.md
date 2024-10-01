@@ -12,7 +12,7 @@ Die **`nackCount`**-Eigenschaft des
 [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein numerischer Wert, der angibt, wie oft der [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender), der durch dieses Objekt beschrieben wird, ein **NACK**-Paket vom entfernten Empfänger erhalten hat.
 
 Ein NACK (Negative
-ACKnowledgement, auch "Generic NACK" genannt) Paket wird vom [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) verwendet, um den Sender darüber zu informieren, dass ein oder mehrere [RTP](/de/docs/Glossary/RTP)-Pakete, die er gesendet hat, während des Transports verloren gegangen sind.
+ACKnowledgement, auch "Generic NACK" genannt) Paket wird vom [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) verwendet, um den Sender darüber zu informieren, dass ein oder mehrere {{Glossary("RTP", "RTP")}}-Pakete, die er gesendet hat, während des Transports verloren gegangen sind.
 
 ## Wert
 

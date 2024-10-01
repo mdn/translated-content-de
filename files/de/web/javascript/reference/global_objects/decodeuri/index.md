@@ -35,7 +35,7 @@ Ein neuer String, der die dekodierte Version des angegebenen kodierten Uniform R
 
 `decodeURI()` ist eine Funktions-Eigenschaft des globalen Objekts.
 
-Die Funktion `decodeURI()` dekodiert den URI, indem sie jede Escape-Sequenz in der Form `%XX` als eine UTF-8-Codeeinheit (ein Byte) behandelt. In UTF-8 gibt die Anzahl der führenden 1-Bits im ersten Byte, die 0 (für 1-Byte-[ASCII](/de/docs/Glossary/ASCII)-Zeichen), 2, 3 oder 4 sein kann, die Anzahl der Bytes im Zeichen an. Durch das Lesen der ersten Escape-Sequenz kann `decodeURI()` feststellen, wie viele weitere Escape-Sequenzen konsumiert werden müssen. Wenn `decodeURI()` die erwartete Anzahl von Sequenzen nicht findet, oder wenn die Escape-Sequenzen kein gültiges UTF-8-Zeichen kodieren, wird ein {{jsxref("URIError")}} ausgelöst.
+Die Funktion `decodeURI()` dekodiert den URI, indem sie jede Escape-Sequenz in der Form `%XX` als eine UTF-8-Codeeinheit (ein Byte) behandelt. In UTF-8 gibt die Anzahl der führenden 1-Bits im ersten Byte, die 0 (für 1-Byte-{{Glossary("ASCII", "ASCII")}}-Zeichen), 2, 3 oder 4 sein kann, die Anzahl der Bytes im Zeichen an. Durch das Lesen der ersten Escape-Sequenz kann `decodeURI()` feststellen, wie viele weitere Escape-Sequenzen konsumiert werden müssen. Wenn `decodeURI()` die erwartete Anzahl von Sequenzen nicht findet, oder wenn die Escape-Sequenzen kein gültiges UTF-8-Zeichen kodieren, wird ein {{jsxref("URIError")}} ausgelöst.
 
 `decodeURI()` dekodiert alle Escape-Sequenzen, aber wenn die Escape-Sequenz eines der folgenden Zeichen kodiert, bleibt die Escape-Sequenz im Ergebnisstring erhalten (weil sie Teil der URI-Syntax sind):
 

@@ -18,7 +18,7 @@ Der **`<generic-family>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/C
 
 ## Werte
 
-Der `<generic-family>` [enumerierte](/de/docs/Glossary/enumerated) Typ wird mit einem der unten aufgeführten Werte angegeben:
+Der `<generic-family>` {{Glossary("enumerated", "enumerierte")}} Typ wird mit einem der unten aufgeführten Werte angegeben:
 
 - `serif`
 

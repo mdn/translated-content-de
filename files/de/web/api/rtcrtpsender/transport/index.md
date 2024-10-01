@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte **`transport`**-Eigenschaft eines [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekts liefert das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das zur Interaktion mit dem zugrunde liegenden Transport verwendet wird, über den der Sender Real-time Transport Control Protocol ([RTCP](/de/docs/Glossary/RTCP))-Pakete austauscht.
+Die schreibgeschützte **`transport`**-Eigenschaft eines [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekts liefert das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport)-Objekt, das zur Interaktion mit dem zugrunde liegenden Transport verwendet wird, über den der Sender Real-time Transport Control Protocol ({{Glossary("RTCP", "RTCP")}})-Pakete austauscht.
 
 Dieser Transport ist für den Empfang der Daten für die Medien auf dem `track` des Senders verantwortlich.
 

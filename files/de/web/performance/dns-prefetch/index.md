@@ -51,7 +51,7 @@ Es gibt 3 Hauptpunkte, die zu beachten sind:
 Link: <https://fonts.googleapis.com/>; rel=dns-prefetch
 ```
 
-**Drittens**, während `dns-prefetch` nur eine DNS-Abfrage durchführt, stellt [`preconnect`](/de/docs/Web/HTML/Attributes/rel/preconnect) eine Verbindung zu einem Server her. Dieser Prozess umfasst die DNS-Auflösung, sowie die Herstellung der TCP-Verbindung und das Durchführen des [TLS](/de/docs/Glossary/TLS)-Handshakes, wenn eine Website über HTTPS bereitgestellt wird. Die Verwendung von `preconnect` bietet die Möglichkeit, die wahrgenommene Latenzzeit von [Cross-Origin-Anfragen](/de/docs/Web/HTTP/CORS) weiter zu reduzieren. Sie können es als [HTTP-Header](/de/docs/Web/HTTP/Headers) durch das [HTTP-Link-Feld](/de/docs/Web/HTTP/Headers/Link) verwenden:
+**Drittens**, während `dns-prefetch` nur eine DNS-Abfrage durchführt, stellt [`preconnect`](/de/docs/Web/HTML/Attributes/rel/preconnect) eine Verbindung zu einem Server her. Dieser Prozess umfasst die DNS-Auflösung, sowie die Herstellung der TCP-Verbindung und das Durchführen des {{Glossary("TLS", "TLS")}}-Handshakes, wenn eine Website über HTTPS bereitgestellt wird. Die Verwendung von `preconnect` bietet die Möglichkeit, die wahrgenommene Latenzzeit von [Cross-Origin-Anfragen](/de/docs/Web/HTTP/CORS) weiter zu reduzieren. Sie können es als [HTTP-Header](/de/docs/Web/HTTP/Headers) durch das [HTTP-Link-Feld](/de/docs/Web/HTTP/Headers/Link) verwenden:
 
 ```http
 Link: <https://fonts.googleapis.com/>; rel=preconnect

@@ -9,7 +9,7 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial", "Web/SVG/Tutorial/Getting_Started") }}
 
-[SVG](/de/docs/Web/SVG) ist eine [XML](/de/docs/Web/XML)-Sprache, ähnlich wie [XHTML](/de/docs/Glossary/XHTML), die verwendet werden kann, um Vektorgrafiken zu zeichnen, wie die unten gezeigte. Es kann verwendet werden, um ein Bild entweder durch Angabe aller erforderlichen Linien und Formen zu erstellen, durch Modifikation bereits existierender Rasterbilder oder durch eine Kombination aus beidem. Das Bild und seine Komponenten können auch transformiert, zusammengefügt oder gefiltert werden, um ihr Erscheinungsbild komplett zu verändern.
+[SVG](/de/docs/Web/SVG) ist eine [XML](/de/docs/Web/XML)-Sprache, ähnlich wie {{Glossary("XHTML", "XHTML")}}, die verwendet werden kann, um Vektorgrafiken zu zeichnen, wie die unten gezeigte. Es kann verwendet werden, um ein Bild entweder durch Angabe aller erforderlichen Linien und Formen zu erstellen, durch Modifikation bereits existierender Rasterbilder oder durch eine Kombination aus beidem. Das Bild und seine Komponenten können auch transformiert, zusammengefügt oder gefiltert werden, um ihr Erscheinungsbild komplett zu verändern.
 
 ![Mozilla Dino-Logo](dino.svg)
 

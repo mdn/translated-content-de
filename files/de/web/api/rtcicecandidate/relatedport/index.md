@@ -14,7 +14,7 @@ Wenn der Kandidat ein Host-Kandidat ist (d.h. seine [`address`](/de/docs/Web/API
 
 Der Wert des `relatedPort`-Felds wird aus dem `candidateInfo`-Optionsobjekt gesetzt, das an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben wird. Sie können den Wert von `relatedPort` nicht direkt im Optionsobjekt angeben, aber sein Wert wird automatisch aus der `candidate`-a-line des Objekts extrahiert, sofern sie ordnungsgemäß formatiert ist (das `rel-port`-Feld).
 
-Die zugehörige Adresse ([`relatedAddress`](/de/docs/Web/API/RTCIceCandidate/relatedAddress)) und der zugehörige Port werden von [ICE](/de/docs/Glossary/ICE) selbst überhaupt nicht verwendet; sie werden nur zu Analyse- und Diagnosezwecken bereitgestellt, und ihre Aufnahme kann durch Sicherheitssysteme blockiert werden, daher sollten Sie sich nicht darauf verlassen, dass sie Nicht-`null`-Werte haben.
+Die zugehörige Adresse ([`relatedAddress`](/de/docs/Web/API/RTCIceCandidate/relatedAddress)) und der zugehörige Port werden von {{Glossary("ICE", "ICE")}} selbst überhaupt nicht verwendet; sie werden nur zu Analyse- und Diagnosezwecken bereitgestellt, und ihre Aufnahme kann durch Sicherheitssysteme blockiert werden, daher sollten Sie sich nicht darauf verlassen, dass sie Nicht-`null`-Werte haben.
 
 ## Wert
 
@@ -26,7 +26,7 @@ Für Host-Kandidaten ist `relatedPort` `null`, was bedeutet, dass das Feld nicht
 
 Die zugehörige Adresse und der Port werden von ICE selbst nicht verwendet und sind nur zu Diagnose- und Dienstqualität-Zwecken vorhanden. Sie können aus Sicherheitsgründen weggelassen werden, können jedoch, falls vorhanden, ein nützliches Werkzeug bei der Fehlersuche sein. Siehe das [Beispiel](#beispiele), das ein wenig davon zeigt.
 
-Hier ist eine [SDP](/de/docs/Glossary/SDP)-Attributzeile (a-line), die einen vom STUN-Server entdeckten ICE-Kandidaten beschreibt:
+Hier ist eine {{Glossary("SDP", "SDP")}}-Attributzeile (a-line), die einen vom STUN-Server entdeckten ICE-Kandidaten beschreibt:
 
 ```plain
 a=candidate:4234997325 1 udp 2043278322 192.0.2.172 6502 typ srflx raddr 198.51.100.45 rport 32768 generation 0

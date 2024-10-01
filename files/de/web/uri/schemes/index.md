@@ -24,9 +24,9 @@ protocol:
     - `file`
       - : Host-spezifische Dateinamen
     - `ftp`
-      - : [File Transfer Protocol](/de/docs/Glossary/FTP)
+      - : {{Glossary("FTP", "File Transfer Protocol")}}
     - `http` / `https`
-      - : Hypertext-Übertragungsprotokoll (Sicher) ([HTTP](/de/docs/Glossary/HTTP)/[HTTPS](/de/docs/Glossary/HTTPS))
+      - : Hypertext-Übertragungsprotokoll (Sicher) ({{Glossary("HTTP", "HTTP")}}/{{Glossary("HTTPS", "HTTPS")}})
     - [`javascript`](/de/docs/Web/URI/Schemes/javascript)
       - : In der URL eingebetteter JavaScript-Code
     - `mailto`

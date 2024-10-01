@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`font-variant-ligatures`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, welche [Ligaturen](/de/docs/Glossary/ligature) und [Kontextformen](/de/docs/Glossary/contextual_forms) im Textinhalt der Elemente verwendet werden, auf die sie angewendet wird. Dies führt zu harmonischeren Formen im resultierenden Text.
+Die **`font-variant-ligatures`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, welche {{Glossary("ligature", "Ligaturen")}} und {{Glossary("contextual_forms", "Kontextformen")}} im Textinhalt der Elemente verwendet werden, auf die sie angewendet wird. Dies führt zu harmonischeren Formen im resultierenden Text.
 
 {{EmbedInteractiveExample("pages/css/font-variant-ligatures.html")}}
 
@@ -48,6 +48,7 @@ Die Eigenschaft `font-variant-ligatures` wird als `normal`, `none` oder einem od
 - `normal`
   - : Dieses Schlüsselwort aktiviert die üblichen Ligaturen und Kontextformen, die für die richtige Darstellung benötigt werden. Die aktivierten Ligaturen und Formen hängen von der Schriftart, Sprache und Art des Skripts ab. Dies ist der Standardwert.
 - `none`
+
   - : Dieses Schlüsselwort spezifiziert, dass alle Ligaturen und Kontextformen deaktiviert sind, selbst die üblichen.
 
 - _`<common-lig-values>`_

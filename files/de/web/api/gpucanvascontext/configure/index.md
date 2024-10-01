@@ -34,7 +34,7 @@ configure(configuration)
       - : Das Format, das Texturen haben, die von `getCurrentTexture()` zurückgegeben werden. Dies kann `bgra8unorm`, `rgba8unorm` oder `rgba16float` sein. Das optimale Canvas-Texturformat für das aktuelle System kann von [`GPU.getPreferredCanvasFormat()`](/de/docs/Web/API/GPU/getPreferredCanvasFormat) zurückgegeben werden. Die Verwendung dessen wird empfohlen — wenn Sie nicht das bevorzugte Format beim Konfigurieren des Canvas-Kontexts verwenden, können Sie zusätzlichen Overhead verursachen, wie zusätzliche Texturkopien, je nach Plattform.
     - `usage` {{optional_inline}}
 
-      - : [Bitweise Flaggen](/de/docs/Glossary/Bitwise_flags), die die erlaubte Nutzung für Texturen spezifizieren, die von `getCurrentTexture()` zurückgegeben werden. Mögliche Werte sind:
+      - : {{Glossary("Bitwise_flags", "Bitweise Flaggen")}}, die die erlaubte Nutzung für Texturen spezifizieren, die von `getCurrentTexture()` zurückgegeben werden. Mögliche Werte sind:
 
         - `GPUTextureUsage.COPY_SRC`: Die Textur kann als Quelle einer Kopieroperation verwendet werden, zum Beispiel das Quellargument eines [`GPUCommandEncoder.copyTextureToBuffer()`](/de/docs/Web/API/GPUCommandEncoder/copyTextureToBuffer)-Aufrufs.
         - `GPUTextureUsage.COPY_DST`: Die Textur kann als Ziel einer Kopier-/Schreiboperation verwendet werden, zum Beispiel das Zielargument eines [`GPUCommandEncoder.copyTextureToTexture()`](/de/docs/Web/API/GPUCommandEncoder/copyTextureToTexture)-Aufrufs.

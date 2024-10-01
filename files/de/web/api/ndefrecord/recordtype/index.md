@@ -31,7 +31,7 @@ Ein String, der einer der folgenden sein kann:
 - `"absolute-url"`
   - : Ein absoluter URL-NDEF-Datensatz.
 - `"mime"`
-  - : Ein [MIME-Typ](/de/docs/Glossary/MIME_type)-NDEF-Datensatz.
+  - : Ein {{Glossary("MIME_type", "MIME-Typ")}}-NDEF-Datensatz.
 - `"unknown"`
   - : Der NDEF-Datensatztyp ist nicht bekannt.
 - lokaler Typname

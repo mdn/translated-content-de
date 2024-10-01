@@ -7,7 +7,7 @@ l10n:
 
 {{FirefoxSidebar}}
 
-Basierend auf der [Gecko](/de/docs/Glossary/Gecko) 1.8 Engine, verbesserte Firefox 1.5 seine bereits erstklassige Unterstützung von Standards und bot neue Fähigkeiten, um die nächste Generation von Webanwendungen zu ermöglichen. Firefox 1.5 bietet verbesserte Unterstützung für CSS2 und CSS3, APIs für skriptfähige und programmierbare 2D-Grafiken durch [SVG](/de/docs/Web/SVG) 1.1 und `<canvas>`, [XForms](/de/docs/Glossary/XForms) und XML-Ereignisse sowie viele Verbesserungen bei DHTML, JavaScript und DOM.
+Basierend auf der {{Glossary("Gecko", "Gecko")}} 1.8 Engine, verbesserte Firefox 1.5 seine bereits erstklassige Unterstützung von Standards und bot neue Fähigkeiten, um die nächste Generation von Webanwendungen zu ermöglichen. Firefox 1.5 bietet verbesserte Unterstützung für CSS2 und CSS3, APIs für skriptfähige und programmierbare 2D-Grafiken durch [SVG](/de/docs/Web/SVG) 1.1 und `<canvas>`, {{Glossary("XForms", "XForms")}} und XML-Ereignisse sowie viele Verbesserungen bei DHTML, JavaScript und DOM.
 
 ## Entwicklerwerkzeuge
 
@@ -45,7 +45,7 @@ Einige der neuen Funktionen in Firefox 1.5:
 - [Präferenzsystem](/de/docs/Preferences_System)
   - : Erfahren Sie mehr über die neuen Widgets, die es Ihnen ermöglichen, einfacher Optionsfenster mit weniger JavaScript-Code zu erstellen.
 - [Internationale Zeichen in XUL JavaScript](/de/docs/International_characters_in_XUL_JavaScript)
-  - : XUL-JavaScript-Dateien können jetzt nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen enthalten.
+  - : XUL-JavaScript-Dateien können jetzt nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen enthalten.
 - [Tree-API-Änderungen](/de/docs/Tree_Widget_Changes)
   - : Die Schnittstellen zum Zugriff auf XUL-`<tree>`-Elemente haben sich geändert.
 - [XUL-Änderungen für Firefox 1.5](/de/docs/XUL_Changes_for_Firefox_1.5)
@@ -79,14 +79,14 @@ Einige der neuen Funktionen in Firefox 1.5:
 
 Firefox unterstützt weiterhin Webbstandards mit konsistenten plattformübergreifenden Implementierungen:
 
-- Hypertext Markup Language ([HTML](/de/docs/Web/HTML)) und Extensible Hypertext Markup Language ([XHTML](/de/docs/Glossary/XHTML)): [HTML 4.01](https://www.w3.org/TR/html401/) und [XHTML 1.0/1.1](https://www.w3.org/TR/xhtml1/)
+- Hypertext Markup Language ([HTML](/de/docs/Web/HTML)) und Extensible Hypertext Markup Language ({{Glossary("XHTML", "XHTML")}}): [HTML 4.01](https://www.w3.org/TR/html401/) und [XHTML 1.0/1.1](https://www.w3.org/TR/xhtml1/)
 - Cascading Style Sheets ([CSS](/de/docs/Web/CSS)): [CSS Level 1](https://www.w3.org/TR/REC-CSS1/), [CSS Level 2](https://www.w3.org/TR/CSS22/) und Teile von [CSS Level 3](https://www.w3.org/Style/CSS/current-work.html)
 - Document Object Model ([DOM](/de/docs/Web/API/Document_Object_Model)): [DOM Level 1](https://www.w3.org/TR/2000/WD-DOM-Level-1-20000929/), [DOM Level 2](https://www.w3.org/DOM/DOMTR#dom2) und Teile von [DOM Level 3](https://www.w3.org/DOM/DOMTR#dom3)
 - Mathematische Auszeichnungssprache: [MathML Version 2.0](https://www.w3.org/Math/)
 - Extensible Markup Language ([XML](/de/docs/Web/XML)): [XML 1.0](https://www.w3.org/TR/REC-xml/), [Namespaces in XML](https://www.w3.org/TR/REC-xml-names/), [Das Verknüpfen von Stylesheets mit XML-Dokumenten 1.0](https://www.w3.org/TR/xml-stylesheet/), [Fragmentbezeichner für XML](https://lists.w3.org/Archives/Public/www-xml-linking-comments/2001AprJun/att-0074/NOTE-FIXptr-20010425.htm)
 - XSL-Transformationen ([XSLT](/de/docs/Web/XSLT)): [XSLT 1.0](https://www.w3.org/TR/xslt/)
 - XML-Pfad-Sprache ([XPath](/de/docs/Web/XPath)): [XPath 1.0](https://www.w3.org/TR/xpath/)
-- Resource Description Framework ([RDF](/de/docs/Glossary/RDF)): [RDF](https://www.w3.org/RDF/)
+- Resource Description Framework ({{Glossary("RDF", "RDF")}}): [RDF](https://www.w3.org/RDF/)
 - Simple Object Access Protocol (SOAP): [SOAP 1.1](https://www.w3.org/TR/2000/NOTE-SOAP-20000508/)
 - [JavaScript](/de/docs/Web/JavaScript) 1.6, basierend auf [ECMA-262, Revision 3](https://ecma-international.org/publications-and-standards/standards/ecma-262/)
 

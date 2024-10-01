@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{Non-standard_header}}{{deprecated_header}}
 
-Der **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Glossary/Pseudo-element) ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), die den Hintergrund eines {{HTMLElement("meter")}}-Elements repräsentiert. Es wird verwendet, um das Containerstyling eines Meter-Anzeigers auszuwählen und anzuwenden.
+Der **`::-webkit-meter-bar`** [CSS](/de/docs/Web/CSS) {{Glossary("Pseudo-element", "Pseudo-Element")}} ist eine [WebKit-Erweiterung](/de/docs/Web/CSS/WebKit_Extensions), die den Hintergrund eines {{HTMLElement("meter")}}-Elements repräsentiert. Es wird verwendet, um das Containerstyling eines Meter-Anzeigers auszuwählen und anzuwenden.
 
 ## Syntax
 

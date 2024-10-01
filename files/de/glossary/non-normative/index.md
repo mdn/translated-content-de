@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Software-[Spezifikationen](/de/docs/Glossary/specification) enthalten oft Informationen, die als **nicht-normativ** oder _informativ_ gekennzeichnet sind und den Lesern helfen sollen, die Spezifikation besser zu verstehen, oder um ein Beispiel oder Best Practice zu zeigen. Nicht-normative Teile der Spezifikation werden als Leitlinien bereitgestellt und gelten nicht als Teil der formalen Spezifikation. Abschnitte, die den offiziellen Teil der Spezifikation enthalten, sind oft als [normativ](/de/docs/Glossary/normative) gekennzeichnet.
+Software-{{Glossary("specification", "Spezifikationen")}} enthalten oft Informationen, die als **nicht-normativ** oder _informativ_ gekennzeichnet sind und den Lesern helfen sollen, die Spezifikation besser zu verstehen, oder um ein Beispiel oder Best Practice zu zeigen. Nicht-normative Teile der Spezifikation werden als Leitlinien bereitgestellt und gelten nicht als Teil der formalen Spezifikation. Abschnitte, die den offiziellen Teil der Spezifikation enthalten, sind oft als {{Glossary("normative", "normativ")}} gekennzeichnet.
 
 ## Siehe auch
 

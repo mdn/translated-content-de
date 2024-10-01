@@ -9,7 +9,7 @@ l10n:
 
 **Zertifiziert** bedeutet, dass eine Anwendung, ein Inhalt oder eine Datenübertragung erfolgreich von Fachleuten mit Expertise in dem betreffenden Bereich bewertet wurde, was auf Vollständigkeit, Sicherheit und Vertrauenswürdigkeit hinweist.
 
-Für Details zur Zertifizierung in der [Kryptografie](/de/docs/Glossary/Cryptography) lesen Sie bitte [Digital Certificate](/de/docs/Glossary/Digital_Certificate).
+Für Details zur Zertifizierung in der {{Glossary("Cryptography", "Kryptografie")}} lesen Sie bitte {{Glossary("Digital_Certificate", "Digital Certificate")}}.
 
 ## Siehe auch
 

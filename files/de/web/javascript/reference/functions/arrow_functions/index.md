@@ -9,8 +9,8 @@ l10n:
 
 Ein **Pfeilfunktionsausdruck** ist eine kompakte Alternative zu einem traditionellen [Funktionsausdruck](/de/docs/Web/JavaScript/Reference/Operators/function) mit einigen semantischen Unterschieden und bewussten Einschränkungen bei der Verwendung:
 
-- Pfeilfunktionen haben keine eigenen [Bindungen](/de/docs/Glossary/binding) an [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) oder [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) und sollten nicht als [Methoden](/de/docs/Glossary/Method) verwendet werden.
-- Pfeilfunktionen können nicht als [Konstruktoren](/de/docs/Glossary/Constructor) verwendet werden. Ein Aufruf mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) löst einen {{jsxref("TypeError")}} aus. Sie haben auch keinen Zugriff auf das Schlüsselwort [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target).
+- Pfeilfunktionen haben keine eigenen {{Glossary("binding", "Bindungen")}} an [`this`](/de/docs/Web/JavaScript/Reference/Operators/this), [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments) oder [`super`](/de/docs/Web/JavaScript/Reference/Operators/super) und sollten nicht als {{Glossary("Method", "Methoden")}} verwendet werden.
+- Pfeilfunktionen können nicht als {{Glossary("Constructor", "Konstruktoren")}} verwendet werden. Ein Aufruf mit [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) löst einen {{jsxref("TypeError")}} aus. Sie haben auch keinen Zugriff auf das Schlüsselwort [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target).
 - Pfeilfunktionen können innerhalb ihres Funktionskörpers kein [`yield`](/de/docs/Web/JavaScript/Reference/Operators/yield) verwenden und können nicht als Generatorfunktionen erstellt werden.
 
 {{EmbedInteractiveExample("pages/js/functions-arrow.html")}}

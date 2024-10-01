@@ -33,4 +33,4 @@ Um diese Werte zu verstehen, betrachten Sie das Beispiel eines `keyframeEffect`-
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
 - Eigenschaft von [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect)-Objekten
-- [Composite operation](/de/docs/Glossary/Composite_operation)
+- {{Glossary("Composite_operation", "Composite operation")}}

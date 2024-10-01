@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Parser** ist das Modul eines Compilers oder Interpreters, das eine Quellcodedatei [parst](/de/docs/Glossary/parse).
+Ein **Parser** ist das Modul eines Compilers oder Interpreters, das eine Quellcodedatei {{Glossary("parse", "parst")}}.
 
 Allgemeiner ausgedrückt ist es ein Softwarestück, das Text parst und dessen Inhalt in eine andere Darstellung umwandelt.
 

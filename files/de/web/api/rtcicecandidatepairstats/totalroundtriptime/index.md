@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`totalRoundTripTime`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs ist die Gesamtzeit, die vergangen ist zwischen dem Senden von [STUN](/de/docs/Glossary/STUN)-Anfragen und dem Empfang der Antworten, für alle derartigen Anfragen, die bisher bei dem von diesem `RTCIceCandidatePairStats`-Objekt beschriebenen Kandidatenpaar getätigt wurden. Dieser Wert umfasst sowohl Verbindlichkeitsprüfungen als auch Zustimmungsprüfungen.
+Die **`totalRoundTripTime`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs ist die Gesamtzeit, die vergangen ist zwischen dem Senden von {{Glossary("STUN", "STUN")}}-Anfragen und dem Empfang der Antworten, für alle derartigen Anfragen, die bisher bei dem von diesem `RTCIceCandidatePairStats`-Objekt beschriebenen Kandidatenpaar getätigt wurden. Dieser Wert umfasst sowohl Verbindlichkeitsprüfungen als auch Zustimmungsprüfungen.
 
 ## Wert
 

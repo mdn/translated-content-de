@@ -11,17 +11,17 @@ Dieser Artikel beschreibt verschiedene Arten von Sicherheitsangriffen und Techni
 
 ## Click-Jacking
 
-[Click-Jacking](/de/docs/Glossary/Clickjacking) ist die Praxis, einen Benutzer dazu zu bringen, auf einen Link, Button usw. zu klicken, der etwas anderes ist, als der Benutzer denkt. Dies kann beispielsweise dazu verwendet werden, Anmeldedaten zu stehlen oder um die unwissentliche Erlaubnis des Benutzers zu erhalten, ein Stück Schadsoftware zu installieren. (Click-Jacking wird manchmal auch als "Benutzeroberflächen-Neuausrichtung" bezeichnet, obwohl dies ein Missbrauch des Begriffs "Neuausrichtung" ist.)
+{{Glossary("Clickjacking", "Click-Jacking")}} ist die Praxis, einen Benutzer dazu zu bringen, auf einen Link, Button usw. zu klicken, der etwas anderes ist, als der Benutzer denkt. Dies kann beispielsweise dazu verwendet werden, Anmeldedaten zu stehlen oder um die unwissentliche Erlaubnis des Benutzers zu erhalten, ein Stück Schadsoftware zu installieren. (Click-Jacking wird manchmal auch als "Benutzeroberflächen-Neuausrichtung" bezeichnet, obwohl dies ein Missbrauch des Begriffs "Neuausrichtung" ist.)
 
 ## Cross-Site-Scripting (XSS)
 
 Cross-Site-Scripting (XSS) ist ein Sicherheitsangriff, der es einem Angreifer ermöglicht, bösartigen clientseitigen Code in eine Website einzufügen. Dieser Code wird von den Opfern ausgeführt und ermöglicht es den Angreifern, Zugangsbeschränkungen zu umgehen und sich als Benutzer auszugeben. Laut dem Open Web Application Security Project war XSS [die siebt häufigste Web-App-Sicherheitslücke](https://owasp.org/www-project-top-ten/2017/Top_10) im Jahr 2017.
 
-Diese Angriffe gelingen, wenn die Web-App nicht ausreichend validiert oder codiert wird. Der Browser des Benutzers kann nicht erkennen, dass das bösartige Skript nicht vertrauenswürdig ist, und gewährt ihm so Zugriff auf Cookies, Sitzungs-Token oder andere sensible sitespezifische Informationen oder erlaubt dem bösartigen Skript, den [HTML](/de/docs/Glossary/HTML)-Inhalt neu zu schreiben.
+Diese Angriffe gelingen, wenn die Web-App nicht ausreichend validiert oder codiert wird. Der Browser des Benutzers kann nicht erkennen, dass das bösartige Skript nicht vertrauenswürdig ist, und gewährt ihm so Zugriff auf Cookies, Sitzungs-Token oder andere sensible sitespezifische Informationen oder erlaubt dem bösartigen Skript, den {{Glossary("HTML", "HTML")}}-Inhalt neu zu schreiben.
 
 Cross-Site-Scripting-Angriffe treten normalerweise auf, wenn 1) Daten über eine nicht vertrauenswürdige Quelle in eine Web-App gelangen (häufig eine Web-Anfrage) oder 2) dynamischer Inhalt an einen Web-Benutzer gesendet wird, ohne auf bösartige Inhalte überprüft zu werden.
 
-Der bösartige Inhalt umfasst oft [JavaScript](/de/docs/Glossary/JavaScript), manchmal jedoch auch HTML, Flash oder jeden anderen Code, den der Browser ausführen kann. Die Vielfalt der auf XSS basierenden Angriffe ist nahezu unbegrenzt, aber sie umfassen häufig die Übertragung privater Daten wie Cookies oder anderer Sitzungsinformationen an den Angreifer, die Weiterleitung des Opfers auf eine vom Angreifer kontrollierte Webseite oder das Ausführen anderer bösartiger Operationen auf dem Computer des Benutzers unter dem Deckmantel der anfälligen Seite.
+Der bösartige Inhalt umfasst oft {{Glossary("JavaScript", "JavaScript")}}, manchmal jedoch auch HTML, Flash oder jeden anderen Code, den der Browser ausführen kann. Die Vielfalt der auf XSS basierenden Angriffe ist nahezu unbegrenzt, aber sie umfassen häufig die Übertragung privater Daten wie Cookies oder anderer Sitzungsinformationen an den Angreifer, die Weiterleitung des Opfers auf eine vom Angreifer kontrollierte Webseite oder das Ausführen anderer bösartiger Operationen auf dem Computer des Benutzers unter dem Deckmantel der anfälligen Seite.
 
 XSS-Angriffe können in drei Kategorien eingeteilt werden: gespeichert (auch persistent genannt), reflektiert (auch nicht-persistent genannt) oder DOM-basiert.
 
@@ -89,7 +89,7 @@ Set-Cookie: CSRF=e8b667; Secure; Domain=example.com
 ```
 
 Wenn eine anfällige Anwendung auf einer Subdomain verfügbar ist, kann dieser Mechanismus in einem Sitzungsfixierungsangriff missbraucht werden. Wenn der Benutzer eine Seite auf der übergeordneten Domain (oder einer anderen Subdomain) besucht, könnte die Anwendung den vorhandenen Wert im Cookie des Benutzers vertrauen. Dies könnte einem Angreifer erlauben, CSRF-Schutz zu umgehen oder eine Sitzung zu kapern, nachdem der Benutzer sich anmeldet.
-Alternativ, wenn die übergeordnete Domain nicht [HTTP Strict-Transport-Security](/de/docs/Glossary/HSTS) mit `includeSubdomains` verwendet, könnte ein Benutzer, der einem aktiven MitM ausgesetzt ist (möglicherweise aufgrund einer Verbindung zu einem offenen Wi-Fi-Netzwerk), eine Antwort mit einem Set-Cookie-Header von einer nicht existierenden Subdomain erhalten. Das Endergebnis wäre viel das Gleiche, wobei der Browser das illegitime Cookie speichert und mit allen anderen Seiten unter example.com sendet.
+Alternativ, wenn die übergeordnete Domain nicht {{Glossary("HSTS", "HTTP Strict-Transport-Security")}} mit `includeSubdomains` verwendet, könnte ein Benutzer, der einem aktiven MitM ausgesetzt ist (möglicherweise aufgrund einer Verbindung zu einem offenen Wi-Fi-Netzwerk), eine Antwort mit einem Set-Cookie-Header von einer nicht existierenden Subdomain erhalten. Das Endergebnis wäre viel das Gleiche, wobei der Browser das illegitime Cookie speichert und mit allen anderen Seiten unter example.com sendet.
 
 Sitzungsfixierung sollte in erster Linie durch Regenerierung von Sitzungs-Cookie-Werten verhindert werden, wenn sich der Benutzer authentifiziert (auch wenn bereits ein Cookie vorhanden ist), und indem ein CSRF-Token an den Benutzer gebunden wird.
 

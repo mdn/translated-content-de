@@ -14,7 +14,7 @@ Genauer gesagt erhält `innerHTML` eine Serialisierung der verschachtelten unter
 
 Um das HTML in das Dokument einzufügen, anstatt den Inhalt eines Elements zu ersetzen, verwenden Sie die Methode [`insertAdjacentHTML()`](/de/docs/Web/API/Element/insertAdjacentHTML).
 
-Die Serialisierung des vom Attribut gelesenen DOM-Baums umfasst keine [shadow roots](/de/docs/Glossary/shadow_tree) — wenn Sie eine HTML-Zeichenkette erhalten möchten, die shadow roots enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
+Die Serialisierung des vom Attribut gelesenen DOM-Baums umfasst keine {{Glossary("shadow_tree", "shadow roots")}} — wenn Sie eine HTML-Zeichenkette erhalten möchten, die shadow roots enthält, müssen Sie stattdessen die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) verwenden.
 Ebenso wird beim Setzen von Elementinhalten über `innerHTML` die HTML-Zeichenkette in DOM-Elemente geparst, die keine shadow roots enthalten.
 
 Zum Beispiel wird [`<template>`](/de/docs/Web/HTML/Element/template) als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) geparst, unabhängig davon, ob das Attribut [`shadowrootmode`](/de/docs/Web/HTML/Element/template#shadowrootmode) angegeben ist.
@@ -64,7 +64,7 @@ Zum Beispiel können Sie den gesamten Inhalt eines Dokuments löschen, indem Sie
 document.body.textContent = "";
 ```
 
-Dieses Beispiel holt das aktuelle HTML-Markup des Dokuments und ersetzt die `"<"`-Zeichen durch die [Zeichenreferenz](/de/docs/Glossary/character_reference) `"&lt;"`, wodurch das HTML im Wesentlichen in Rohtext umgewandelt wird.
+Dieses Beispiel holt das aktuelle HTML-Markup des Dokuments und ersetzt die `"<"`-Zeichen durch die {{Glossary("character_reference", "Zeichenreferenz")}} `"&lt;"`, wodurch das HTML im Wesentlichen in Rohtext umgewandelt wird.
 Dies wird dann in ein {{HTMLElement("pre")}}-Element eingefügt.
 Dann wird der Wert von `innerHTML` auf diese neue Zeichenkette geändert.
 Infolgedessen wird der Dokumentinhalt durch die Anzeige des gesamten Quellcodes der Seite ersetzt.

@@ -23,7 +23,7 @@ _Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`UIEvent`](/de/
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
   - : Gibt die Zeichen zurück, die durch die Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; dies variiert je nach Art des Ereignisses, das das `CompositionEvent` Objekt erzeugt hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Gibt den Ort der aktuellen Eingabemethode zurück (zum Beispiel den Tastaturlayout Ort, wenn die Komposition mit [IME](/de/docs/Glossary/IME) verbunden ist).
+  - : Gibt den Ort der aktuellen Eingabemethode zurück (zum Beispiel den Tastaturlayout Ort, wenn die Komposition mit {{Glossary("IME", "IME")}} verbunden ist).
 
 ## Instanzmethoden
 

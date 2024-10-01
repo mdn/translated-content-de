@@ -50,7 +50,7 @@ function charge() {
 }
 ```
 
-Es kann weniger offensichtlich sein, wenn [IIFEs](/de/docs/Glossary/IIFE) oder andere Konstrukte verwendet werden, die viele verschiedene Klammern und geschweifte Klammern verwenden, zum Beispiel:
+Es kann weniger offensichtlich sein, wenn {{Glossary("IIFE", "IIFEs")}} oder andere Konstrukte verwendet werden, die viele verschiedene Klammern und geschweifte Klammern verwenden, zum Beispiel:
 
 ```js-nolint example-bad
 (function () {

@@ -14,4 +14,4 @@ Es gibt eine [W3C Draft Beacon Specification](https://w3c.github.io/beacon/), um
 ## Siehe auch
 
 - Verwandte Glossareinträge:
-  - [Real User Monitoring](/de/docs/Glossary/Real_User_Monitoring) (RUM)
+  - {{Glossary("Real_User_Monitoring", "Real User Monitoring")}} (RUM)

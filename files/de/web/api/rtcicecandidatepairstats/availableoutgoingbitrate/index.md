@@ -22,7 +22,7 @@ Der zurückgegebene Wert ist `undefined` in jeder der folgenden Situationen:
 - Das durch dieses Objekt beschriebene [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair) wurde nie verwendet.
 - Das Kandidatenpaar war einmal in Gebrauch, ist es aber nicht mehr.
 
-Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden [RTP](/de/docs/Glossary/RTP) Stream addiert wird, der die Verbindung verwendet, die durch dieses Kandidatenpaar beschrieben wird. Der zurückgegebene Wert berücksichtigt nicht den Overhead, der durch zugrunde liegende Protokolle wie IP, UDP oder TCP eingeführt wird.
+Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden {{Glossary("RTP", "RTP")}} Stream addiert wird, der die Verbindung verwendet, die durch dieses Kandidatenpaar beschrieben wird. Der zurückgegebene Wert berücksichtigt nicht den Overhead, der durch zugrunde liegende Protokolle wie IP, UDP oder TCP eingeführt wird.
 
 > [!NOTE]
 > Der zurückgegebene Wert wird mit einer Methode berechnet, die der Transport Independent Application Specific Maximum (TIAS) ähnlich ist – aber nicht identisch damit – die in {{RFC(3890, "", "6.2")}} beschrieben wird.

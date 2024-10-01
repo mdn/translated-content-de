@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`CryptoKey`**-Schnittstelle der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert einen kryptografischen [Schlüssel](/de/docs/Glossary/key), der von einer der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Methoden [`generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey), [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey), [`importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) oder [`unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) erhalten wurde.
+Die **`CryptoKey`**-Schnittstelle der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) repräsentiert einen kryptografischen {{Glossary("key", "Schlüssel")}}, der von einer der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Methoden [`generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey), [`deriveKey()`](/de/docs/Web/API/SubtleCrypto/deriveKey), [`importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) oder [`unwrapKey()`](/de/docs/Web/API/SubtleCrypto/unwrapKey) erhalten wurde.
 
 Aus Sicherheitsgründen kann die `CryptoKey`-Schnittstelle nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verwendet werden.
 

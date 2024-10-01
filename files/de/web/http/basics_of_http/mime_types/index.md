@@ -26,7 +26,7 @@ type/subtype
 
 Der **_type_** repräsentiert die allgemeine Kategorie, in die der Datentyp fällt, wie `video` oder `text`.
 
-Der **_subtype_** identifiziert die genaue Art der Daten des angegebenen Typs, die der MIME-Typ repräsentiert. Zum Beispiel könnte für den MIME-Typ `text` der Subtyp `plain` (Klartext), `html` ([HTML](/de/docs/Glossary/HTML) Quellcode) oder `calendar` (für iCalendar/`.ics`) Dateien sein.
+Der **_subtype_** identifiziert die genaue Art der Daten des angegebenen Typs, die der MIME-Typ repräsentiert. Zum Beispiel könnte für den MIME-Typ `text` der Subtyp `plain` (Klartext), `html` ({{Glossary("HTML", "HTML")}} Quellcode) oder `calendar` (für iCalendar/`.ics`) Dateien sein.
 
 Jeder Typ hat seine eigene Reihe möglicher Subtypen. Ein MIME-Typ hat immer sowohl einen Typ als auch einen Subtyp, niemals nur einen von beiden.
 
@@ -36,7 +36,7 @@ Ein optionaler **Parameter** kann hinzugefügt werden, um zusätzliche Details b
 type/subtype;parameter=value
 ```
 
-Zum Beispiel kann für jeden MIME-Typ, dessen Haupttyp `text` ist, der optionale `charset` Parameter hinzugefügt werden, um den Zeichensatz anzugeben, der für die Zeichen in den Daten verwendet wird. Wenn kein `charset` angegeben ist, ist der Standardwert [ASCII](/de/docs/Glossary/ASCII) (`US-ASCII`), es sei denn, er wird durch die Einstellungen des [User-Agents](/de/docs/Glossary/user_agent) überschrieben. Um eine UTF-8-Textdatei anzugeben, wird der MIME-Typ `text/plain;charset=UTF-8` verwendet.
+Zum Beispiel kann für jeden MIME-Typ, dessen Haupttyp `text` ist, der optionale `charset` Parameter hinzugefügt werden, um den Zeichensatz anzugeben, der für die Zeichen in den Daten verwendet wird. Wenn kein `charset` angegeben ist, ist der Standardwert {{Glossary("ASCII", "ASCII")}} (`US-ASCII`), es sei denn, er wird durch die Einstellungen des {{Glossary("user_agent", "User-Agents")}} überschrieben. Um eine UTF-8-Textdatei anzugeben, wird der MIME-Typ `text/plain;charset=UTF-8` verwendet.
 
 MIME-Typen sind nicht case-sensitiv, werden aber traditionell in Kleinbuchstaben geschrieben. Die Parameterwerte können case-sensitiv sein.
 
@@ -57,7 +57,7 @@ Die derzeit bei der IANA registrierten diskreten Typen sind:
 - `font`
   - : Font/Schriftartendaten. Häufige Beispiele sind `font/woff`, `font/ttf` und `font/otf`. [(Siehe Font-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#font)
 - `image`
-  - : Bild- oder Grafikdaten, einschließlich sowohl Bitmap- als auch Vektor-Standbilder sowie animierte Versionen von Standbildformaten wie animierte [GIF](/de/docs/Glossary/GIF) oder APNG. Häufige Beispiele sind `image/jpeg`, `image/png` und `image/svg+xml`. [(Siehe Image-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#image)
+  - : Bild- oder Grafikdaten, einschließlich sowohl Bitmap- als auch Vektor-Standbilder sowie animierte Versionen von Standbildformaten wie animierte {{Glossary("GIF", "GIF")}} oder APNG. Häufige Beispiele sind `image/jpeg`, `image/png` und `image/svg+xml`. [(Siehe Image-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#image)
 - `model`
   - : Modelldaten für ein 3D-Objekt oder eine Szene. Beispiele sind `model/3mf` und `model/vrml`. [(Siehe Model-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#model)
 - `text`
@@ -78,7 +78,7 @@ Es gibt zwei Multipart-Typen:
 - `message`
   - : Eine Nachricht, die andere Nachrichten kapselt. Dies kann z.B. verwendet werden, um eine E-Mail darzustellen, die eine weitergeleitete Nachricht als Teil ihrer Daten enthält, oder um das Senden sehr großer Nachrichten in Stücken zu ermöglichen, als wären es mehrere Nachrichten. Beispiele umfassen `message/rfc822` (für weitergeleitetes oder beantwortetes Nachrichtenquoting) und `message/partial`, um das automatische Aufteilen einer großen Nachricht in kleinere zur Wiederzusammenstellung durch den Empfänger zu ermöglichen. [(Siehe Message-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#message)
 - `multipart`
-  - : Daten, die aus mehreren Komponenten bestehen, die jeweils unterschiedliche MIME-Typen haben können. Beispiele umfassen `multipart/form-data` (für Daten, die mit der [`FormData`](/de/docs/Web/API/FormData) API erstellt wurden) und `multipart/byteranges` (definiert in {{RFC(7233, "", "5.4.1")}} und verwendet mit [HTTP](/de/docs/Glossary/HTTP)'s {{HTTPStatus(206)}} "Partial Content"-Antwort, die zurückgegeben wird, wenn die abgerufenen Daten nur ein Teil des Inhalts sind, wie ihn der {{HTTPHeader("Range")}}-Header liefert). [(Siehe Multipart-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)
+  - : Daten, die aus mehreren Komponenten bestehen, die jeweils unterschiedliche MIME-Typen haben können. Beispiele umfassen `multipart/form-data` (für Daten, die mit der [`FormData`](/de/docs/Web/API/FormData) API erstellt wurden) und `multipart/byteranges` (definiert in {{RFC(7233, "", "5.4.1")}} und verwendet mit {{Glossary("HTTP", "HTTP")}}'s {{HTTPStatus(206)}} "Partial Content"-Antwort, die zurückgegeben wird, wenn die abgerufenen Daten nur ein Teil des Inhalts sind, wie ihn der {{HTTPHeader("Range")}}-Header liefert). [(Siehe Multipart-Typ-Registry bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)
 
 ## Wichtige MIME-Typen für Webentwickler
 
@@ -133,7 +133,7 @@ Zusätzlich zum `text/javascript`-MIME-Typ darf JavaScript, aus historischen Gr�
 - `text/x-javascript` {{Non-standard_Inline}}
 
 > [!NOTE]
-> Obwohl jeder beliebige [User-Agent](/de/docs/Glossary/user_agent) einige oder alle diese unterstützen kann, sollten Sie nur `text/javascript` verwenden. Es ist der einzige MIME-Typ, der jetzt und in Zukunft garantiert funktioniert.
+> Obwohl jeder beliebige {{Glossary("user_agent", "User-Agent")}} einige oder alle diese unterstützen kann, sollten Sie nur `text/javascript` verwenden. Es ist der einzige MIME-Typ, der jetzt und in Zukunft garantiert funktioniert.
 
 ### Bildtypen
 

@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`511 Network Authentication Required`** ([Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses)) zeigt an, dass der Client sich authentifizieren muss, um Zugang zum Netzwerk zu erhalten. Dieser Status wird nicht von Ursprungsservern generiert, sondern von abfangenden [Proxies](/de/docs/Glossary/Proxy_server), die den Zugang zu einem Netzwerk kontrollieren.
+Der HTTP-Statuscode **`511 Network Authentication Required`** ([Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses)) zeigt an, dass der Client sich authentifizieren muss, um Zugang zum Netzwerk zu erhalten. Dieser Status wird nicht von Ursprungsservern generiert, sondern von abfangenden {{Glossary("Proxy_server", "Proxies")}}, die den Zugang zu einem Netzwerk kontrollieren.
 
 Netzwerkbetreiber verlangen manchmal eine Authentifizierung, die Akzeptanz von Bedingungen oder andere Benutzerinteraktionen, bevor sie Zugang gewähren (zum Beispiel in einem Internetcafé oder an einem Flughafen). Sie identifizieren oft Clients, die dies nicht getan haben, anhand ihrer Media Access Control (MAC)-Adressen.
 
@@ -50,4 +50,4 @@ Content-Type: text/html
 ## Siehe auch
 
 - [HTTP-Statuscodes](/de/docs/Web/HTTP/Status)
-- [Proxyserver](/de/docs/Glossary/Proxy_server)
+- {{Glossary("Proxy_server", "Proxyserver")}}

@@ -9,7 +9,7 @@ l10n:
 
 Der **logische UND (`&&`)** (logische Konjunktion) Operator für eine Menge von booleschen Operanden ist `true`, wenn und nur wenn alle Operanden `true` sind. Andernfalls ist er `false`.
 
-Allgemeiner gesagt gibt der Operator den Wert des ersten [falsy](/de/docs/Glossary/falsy) Operanden zurück, der von links nach rechts evaluiert wird, oder den Wert des letzten Operanden, wenn alle [truthy](/de/docs/Glossary/truthy) sind.
+Allgemeiner gesagt gibt der Operator den Wert des ersten {{Glossary("falsy", "falsy")}} Operanden zurück, der von links nach rechts evaluiert wird, oder den Wert des letzten Operanden, wenn alle {{Glossary("truthy", "truthy")}} sind.
 
 {{EmbedInteractiveExample("pages/js/expressions-logical-and.html", "shorter")}}
 
@@ -21,9 +21,9 @@ x && y
 
 ## Beschreibung
 
-Logisches UND (`&&`) evaluiert Operanden von links nach rechts und gibt sofort den Wert des ersten [falsy](/de/docs/Glossary/falsy) Operanden zurück, den es findet; wenn alle Werte [truthy](/de/docs/Glossary/truthy) sind, wird der Wert des letzten Operanden zurückgegeben.
+Logisches UND (`&&`) evaluiert Operanden von links nach rechts und gibt sofort den Wert des ersten {{Glossary("falsy", "falsy")}} Operanden zurück, den es findet; wenn alle Werte {{Glossary("truthy", "truthy")}} sind, wird der Wert des letzten Operanden zurückgegeben.
 
-Wenn ein Wert in `true` konvertiert werden kann, wird dieser Wert als [truthy](/de/docs/Glossary/truthy) bezeichnet. Wenn ein Wert in `false` konvertiert werden kann, wird dieser Wert als [falsy](/de/docs/Glossary/falsy) bezeichnet.
+Wenn ein Wert in `true` konvertiert werden kann, wird dieser Wert als {{Glossary("truthy", "truthy")}} bezeichnet. Wenn ein Wert in `false` konvertiert werden kann, wird dieser Wert als {{Glossary("falsy", "falsy")}} bezeichnet.
 
 Beispiele für Ausdrücke, die in false konvertiert werden können, sind:
 
@@ -56,7 +56,7 @@ Betrachten Sie den folgenden Pseudocode.
 (some falsy expression) && expr
 ```
 
-Der `expr`-Teil wird **niemals ausgewertet**, da der erste Operand `(ein falsy Ausdruck)` als [falsy](/de/docs/Glossary/falsy) evaluiert wird.
+Der `expr`-Teil wird **niemals ausgewertet**, da der erste Operand `(ein falsy Ausdruck)` als {{Glossary("falsy", "falsy")}} evaluiert wird.
 Wenn `expr` eine Funktion ist, wird die Funktion niemals aufgerufen.
 Siehe folgendes Beispiel:
 
@@ -161,5 +161,5 @@ bCondition1 || bCondition2 && bCondition3
 ## Siehe auch
 
 - {{jsxref("Boolean")}}
-- [Truthy](/de/docs/Glossary/Truthy)
-- [Falsy](/de/docs/Glossary/Falsy)
+- {{Glossary("Truthy", "Truthy")}}
+- {{Glossary("Falsy", "Falsy")}}

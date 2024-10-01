@@ -16,15 +16,15 @@ Dieser Artikel beschreibt, wie die verschiedenen WebRTC-bezogenen Protokolle mit
 
 Leider kann WebRTC ohne eine Art Server in der Mitte keine Verbindungen herstellen. Wir nennen dies den **Signal-Kanal** oder **Signalisierungsdienst**. Es ist eine Art Kommunikationskanal, um Informationen vor dem Aufbau einer Verbindung auszutauschen, sei es per E-Mail, Postkarte oder einem Brieftauben. Es liegt bei Ihnen.
 
-Die Informationen, die wir austauschen müssen, sind das Angebot und die Antwort, die nur die unten erwähnte [SDP](/de/docs/Glossary/SDP) enthalten.
+Die Informationen, die wir austauschen müssen, sind das Angebot und die Antwort, die nur die unten erwähnte {{Glossary("SDP", "SDP")}} enthalten.
 
 Peer A, der Initiator der Verbindung sein wird, erstellt ein Angebot. Er sendet dieses Angebot dann an Peer B über den gewählten Signal-Kanal. Peer B erhält das Angebot vom Signal-Kanal und erstellt eine Antwort. Diese sendet er dann über den Signal-Kanal zurück an Peer A.
 
 ### Sitzungsbeschreibungen
 
-Die Konfiguration eines Endpunkts einer WebRTC-Verbindung wird als **Sitzungsbeschreibung** bezeichnet. Die Beschreibung enthält Informationen über die Art der gesendeten Medien, ihr Format, das verwendete Übertragungsprotokoll, die IP-Adresse und den Port des Endpunkts sowie andere Informationen, die zur Beschreibung eines Medienübertragungsendpunkts erforderlich sind. Diese Informationen werden unter Verwendung des **Session Description Protocol** ([SDP](/de/docs/Glossary/SDP)) ausgetauscht und gespeichert; wenn Sie Details zum Format von SDP-Daten wünschen, können Sie diese in {{RFC(8866)}} finden.
+Die Konfiguration eines Endpunkts einer WebRTC-Verbindung wird als **Sitzungsbeschreibung** bezeichnet. Die Beschreibung enthält Informationen über die Art der gesendeten Medien, ihr Format, das verwendete Übertragungsprotokoll, die IP-Adresse und den Port des Endpunkts sowie andere Informationen, die zur Beschreibung eines Medienübertragungsendpunkts erforderlich sind. Diese Informationen werden unter Verwendung des **Session Description Protocol** ({{Glossary("SDP", "SDP")}}) ausgetauscht und gespeichert; wenn Sie Details zum Format von SDP-Daten wünschen, können Sie diese in {{RFC(8866)}} finden.
 
-Wenn ein Benutzer einen WebRTC-Anruf zu einem anderen Benutzer startet, wird eine spezielle Beschreibung erstellt, die als **Angebot** bezeichnet wird. Diese Beschreibung enthält alle Informationen über die vorgeschlagene Konfiguration des Anrufs durch den Anrufer. Der Empfänger antwortet dann mit einer **Antwort**, die eine Beschreibung seines Endes des Anrufs ist. Auf diese Weise teilen beide Geräte einander die Informationen mit, die zum Austausch von Mediendaten benötigt werden. Dieser Austausch wird mithilfe des Interactive Connectivity Establishment ([ICE](/de/docs/Glossary/ICE)) Protokolls abgewickelt, das es zwei Geräten ermöglicht, einen Vermittler für den Austausch von Angeboten und Antworten zu verwenden, selbst wenn die beiden Geräte durch Network Address Translation ([NAT](/de/docs/Glossary/NAT)) getrennt sind.
+Wenn ein Benutzer einen WebRTC-Anruf zu einem anderen Benutzer startet, wird eine spezielle Beschreibung erstellt, die als **Angebot** bezeichnet wird. Diese Beschreibung enthält alle Informationen über die vorgeschlagene Konfiguration des Anrufs durch den Anrufer. Der Empfänger antwortet dann mit einer **Antwort**, die eine Beschreibung seines Endes des Anrufs ist. Auf diese Weise teilen beide Geräte einander die Informationen mit, die zum Austausch von Mediendaten benötigt werden. Dieser Austausch wird mithilfe des Interactive Connectivity Establishment ({{Glossary("ICE", "ICE")}}) Protokolls abgewickelt, das es zwei Geräten ermöglicht, einen Vermittler für den Austausch von Angeboten und Antworten zu verwenden, selbst wenn die beiden Geräte durch Network Address Translation ({{Glossary("NAT", "NAT")}}) getrennt sind.
 
 Jeder Peer hält dann zwei Beschreibungen bereit: die **lokale Beschreibung**, die sich selbst beschreibt, und die **Remote-Beschreibung**, die das andere Ende des Anrufs beschreibt.
 
@@ -68,7 +68,7 @@ Neben dem Austausch von Informationen über die Medien (oben im Abschnitt Angebo
 > [!NOTE]
 > Im Allgemeinen werden ICE-Kandidaten, die TCP verwenden, nur verwendet, wenn UDP nicht verfügbar ist oder in einer Weise eingeschränkt ist, die es für das Streaming von Medien ungeeignet macht. Nicht alle Browser unterstützen ICE über TCP.
 
-ICE erlaubt Kandidaten, Verbindungen entweder über [TCP](/de/docs/Glossary/TCP) oder [UDP](/de/docs/Glossary/UDP) darzustellen, wobei UDP im Allgemeinen bevorzugt wird (und breiter unterstützt wird). Jedes Protokoll unterstützt einige Kandidatentypen, wobei die Kandidatentypen definieren, wie die Daten von Peer zu Peer gelangen.
+ICE erlaubt Kandidaten, Verbindungen entweder über {{Glossary("TCP", "TCP")}} oder {{Glossary("UDP", "UDP")}} darzustellen, wobei UDP im Allgemeinen bevorzugt wird (und breiter unterstützt wird). Jedes Protokoll unterstützt einige Kandidatentypen, wobei die Kandidatentypen definieren, wie die Daten von Peer zu Peer gelangen.
 
 ### Kandidatentypen für UDP
 
@@ -81,7 +81,7 @@ UDP-Kandidaten (Kandidaten, deren [`protocol`](/de/docs/Web/API/RTCIceCandidate/
 - `srflx`
   - : Ein Server-reflexiver Kandidat wird von einem STUN/TURN-Server generiert; der Initiator der Verbindung fordert einen Kandidaten vom STUN-Server an, der die Anfrage durch das NAT des Remote-Peers weiterleitet, wodurch ein Kandidat erstellt und zurückgegeben wird, dessen IP-Adresse lokal zum Remote-Peer ist. Der STUN-Server antwortet dann auf die Anfrage des Initiators mit einem Kandidaten, dessen IP-Adresse nicht mit dem Remote-Peer zusammenhängt.
 - `relay`
-  - : Ein Relay-Kandidat wird genauso wie ein Server-reflexiver Kandidat (`"srflx"`) generiert, aber mit [TURN](/de/docs/Glossary/TURN) statt [STUN](/de/docs/Glossary/STUN).
+  - : Ein Relay-Kandidat wird genauso wie ein Server-reflexiver Kandidat (`"srflx"`) generiert, aber mit {{Glossary("TURN", "TURN")}} statt {{Glossary("STUN", "STUN")}}.
 
 ### Kandidatentypen für TCP
 

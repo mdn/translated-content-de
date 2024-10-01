@@ -45,7 +45,7 @@ Das zurückgegebene Objekt kann die folgenden Eigenschaften/Statistiken enthalte
 - `packetsReceived`
   - : Eine positive Ganzzahl, die die Gesamtzahl der über die QUIC-Verbindung empfangenen Pakete angibt, einschließlich Pakete, die nicht verarbeitbar waren.
 - `smoothedRtt`
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die geglättete [Rundlaufzeit (RTT)](/de/docs/Glossary/Round_Trip_Time) enthält, die derzeit auf der Verbindung beobachtet wird. Diese wird als exponentiell gewichteter gleitender Durchschnitt der RTT-Proben eines Endpunkts berechnet, nachdem Verzögerungen bei Bestätigungen berücksichtigt wurden.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die geglättete {{Glossary("Round_Trip_Time", "Rundlaufzeit (RTT)")}} enthält, die derzeit auf der Verbindung beobachtet wird. Diese wird als exponentiell gewichteter gleitender Durchschnitt der RTT-Proben eines Endpunkts berechnet, nachdem Verzögerungen bei Bestätigungen berücksichtigt wurden.
 - `rttVariation`
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die mittlere Schwankung der derzeit auf der Verbindung beobachteten Rundlaufzeitproben enthält.
 - `minRtt`

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`** Methode der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Objekts zurück.
+Die **`toJSON()`** Methode der [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`LargestContentfulPaint`](/de/docs/Web/API/LargestContentfulPaint) Objekts zurück.
 
 ## Syntax
 

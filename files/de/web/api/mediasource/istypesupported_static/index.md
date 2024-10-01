@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **statische Methode `MediaSource.isTypeSupported()`** gibt einen booleschen Wert zurück, der `true` ist, wenn der gegebene MIME-Typ und (optional) der Codec _wahrscheinlich_ vom aktuellen [User-Agent](/de/docs/Glossary/user_agent) unterstützt werden.
+Die **statische Methode `MediaSource.isTypeSupported()`** gibt einen booleschen Wert zurück, der `true` ist, wenn der gegebene MIME-Typ und (optional) der Codec _wahrscheinlich_ vom aktuellen {{Glossary("user_agent", "User-Agent")}} unterstützt werden.
 
 Das bedeutet, dass erfolgreich [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte für diesen Medientyp erstellt werden können.
 Wenn der zurückgegebene Wert `false` ist, dann ist der User-Agent sicher, dass er nicht auf Medien des angegebenen Formats zugreifen kann.

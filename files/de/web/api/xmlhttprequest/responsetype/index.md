@@ -23,9 +23,9 @@ Ein String, der angibt, welcher Typ von Daten die Antwort enthält. Er kann die 
 - `"blob"`
   - : Die `response` ist ein [`Blob`](/de/docs/Web/API/Blob)-Objekt, das die Binärdaten enthält.
 - `"document"`
-  - : Die `response` ist ein [HTML](/de/docs/Glossary/HTML)-[`Document`](/de/docs/Web/API/Document) oder [XML](/de/docs/Glossary/XML)-[`XMLDocument`](/de/docs/Web/API/XMLDocument), je nach MIME-Typ der empfangenen Daten. Siehe [HTML in XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/HTML_in_XMLHttpRequest), um mehr über die Verwendung von XHR zum Abrufen von HTML-Inhalten zu erfahren.
+  - : Die `response` ist ein {{Glossary("HTML", "HTML")}}-[`Document`](/de/docs/Web/API/Document) oder {{Glossary("XML", "XML")}}-[`XMLDocument`](/de/docs/Web/API/XMLDocument), je nach MIME-Typ der empfangenen Daten. Siehe [HTML in XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/HTML_in_XMLHttpRequest), um mehr über die Verwendung von XHR zum Abrufen von HTML-Inhalten zu erfahren.
 - `"json"`
-  - : Die `response` ist ein JavaScript-Objekt, das durch das Parsen der Inhalte der empfangenen Daten als [JSON](/de/docs/Glossary/JSON) erstellt wurde.
+  - : Die `response` ist ein JavaScript-Objekt, das durch das Parsen der Inhalte der empfangenen Daten als {{Glossary("JSON", "JSON")}} erstellt wurde.
 - `"text"`
   - : Die `response` ist ein Text in einem String.
 

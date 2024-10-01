@@ -9,7 +9,7 @@ l10n:
 
 Der HTTP-Statuscode **`302 Found`** [Umleitungsantwort](/de/docs/Web/HTTP/Status#redirection_messages) zeigt an, dass die angeforderte Ressource vorübergehend zur URL im {{HTTPHeader("Location")}}-Header verschoben wurde.
 
-Ein Browser, der diesen Status erhält, wird automatisch die Ressource an der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite umleiten. Suchmaschinen, die diese Antwort erhalten, werden Links nicht der ursprünglichen URL zuordnen, was bedeutet, dass kein [SEO](/de/docs/Glossary/SEO)-Wert auf die neue URL übertragen wird.
+Ein Browser, der diesen Status erhält, wird automatisch die Ressource an der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite umleiten. Suchmaschinen, die diese Antwort erhalten, werden Links nicht der ursprünglichen URL zuordnen, was bedeutet, dass kein {{Glossary("SEO", "SEO")}}-Wert auf die neue URL übertragen wird.
 
 > [!NOTE]
 > Im [Fetch-Standard](https://fetch.spec.whatwg.org/#http-redirect-fetch), wenn ein User-Agent eine `302`-Antwort auf eine {{HTTPMethod("POST")}}-Anfrage erhält, wird die {{HTTPMethod("GET")}}-Methode in der nachfolgenden Umleitungsanfrage verwendet, wie es von der HTTP-[Spezifikation](#spezifikationen) erlaubt ist.

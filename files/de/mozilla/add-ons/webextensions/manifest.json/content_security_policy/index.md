@@ -69,7 +69,7 @@ In Manifest V2 wird eine Quelle für eine Skriptdirektive als sicher betrachtet,
 
 ## object-src-Direktive
 
-Die `{{CSP("object-src")}}`-Direktive kann in einigen Browsern erforderlich sein, die veraltete [Plugins](/de/docs/Glossary/Plugin) unterstützen, und sollte, falls erforderlich, auf eine sichere Quelle wie `'none'` gesetzt werden. Dies könnte für Browser bis 2022 notwendig sein.
+Die `{{CSP("object-src")}}`-Direktive kann in einigen Browsern erforderlich sein, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen, und sollte, falls erforderlich, auf eine sichere Quelle wie `'none'` gesetzt werden. Dies könnte für Browser bis 2022 notwendig sein.
 
 - In Firefox ist `"object-src"` ab Firefox 106 optional. In früheren Versionen, wenn `"object-src"` nicht angegeben ist, wird `"content_security_policy"` ignoriert und die Standard-CSP verwendet.
 - In Chrome ist `"object-src"` erforderlich. Wenn es fehlt oder als unsicher angesehen wird, wird die Standardrichtlinie (`"object-src 'self'"`) verwendet und eine Warnmeldung protokolliert.
@@ -229,7 +229,7 @@ Richtlinie, die die `"object-src"`-Direktive auslässt:
 "content_security_policy": "script-src 'self' https://*.jquery.com;"
 ```
 
-Dies ist jedoch nur in Browsern ungültig, die veraltete [Plugins](/de/docs/Glossary/Plugin) unterstützen. Siehe [object-src-Direktive](#object-src-direktive) für weitere Details.
+Dies ist jedoch nur in Browsern ungültig, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen. Siehe [object-src-Direktive](#object-src-direktive) für weitere Details.
 
 Richtlinie, die das `"self"`-Schlüsselwort in der `"script-src"`-Direktive auslässt:
 

@@ -389,7 +389,7 @@ Es ist möglich, externe Bilder auf Ihr Canvas zu rendern. Diese können einfach
    - Parameter 6 und 7 definieren die Koordinaten, an denen Sie die obere linke Ecke des ausgeschnittenen Teils des Bildes zeichnen möchten, relativ zur oberen linken Ecke des Canvas.
    - Parameter 8 und 9 definieren die Breite und Höhe, in denen der ausgeschnittene Bereich des Bildes gezeichnet werden soll. In diesem Fall haben wir die gleichen Dimensionen wie den ursprünglichen Ausschnitt angegeben, aber Sie könnten ihn vergrößern, indem Sie unterschiedliche Werte angeben.
 
-5. Wenn das Bild in einer bedeutungsvollen Weise aktualisiert wird, muss die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) ebenfalls aktualisiert werden.
+5. Wenn das Bild in einer bedeutungsvollen Weise aktualisiert wird, muss die {{Glossary("accessible_description", "zugängliche Beschreibung")}} ebenfalls aktualisiert werden.
 
    ```js
    canvas.setAttribute("aria-label", "Firefox Logo");
@@ -705,7 +705,7 @@ Alle {{htmlelement("input")}}-Typen sind gut unterstützt. Wenn ein Browser eine
 
 Es ist jetzt an der Zeit, 2D hinter sich zu lassen und einen kurzen Blick auf 3D-Canvas zu werfen. 3D-Canvas-Inhalte werden mit der [WebGL-API](/de/docs/Web/API/WebGL_API) spezifiziert, die vollständig von der 2D-Canvas-API getrennt ist, obwohl beide auf {{htmlelement("canvas")}}-Elemente rendern.
 
-WebGL basiert auf [OpenGL](/de/docs/Glossary/OpenGL) (Open Graphics Library) und ermöglicht es Ihnen, direkt mit der [GPU](/de/docs/Glossary/GPU) zu kommunizieren. Als solches ist das Schreiben von rohem WebGL mehr mit niedrigen Programmiersprachen wie C++ als mit normalem JavaScript vergleichbar; es ist ziemlich komplex, aber unglaublich leistungsfähig.
+WebGL basiert auf {{Glossary("OpenGL", "OpenGL")}} (Open Graphics Library) und ermöglicht es Ihnen, direkt mit der {{Glossary("GPU", "GPU")}} zu kommunizieren. Als solches ist das Schreiben von rohem WebGL mehr mit niedrigen Programmiersprachen wie C++ als mit normalem JavaScript vergleichbar; es ist ziemlich komplex, aber unglaublich leistungsfähig.
 
 ### Eine Bibliothek verwenden
 
@@ -743,7 +743,7 @@ Lassen Sie uns ein einfaches Beispiel betrachten, wie man etwas mit einer WebGL-
    Der [`PerspectiveCamera()`](https://threejs.org/docs/index.html#api/en/cameras/PerspectiveCamera)-Konstruktor nimmt vier Argumente entgegen:
 
    - Das Sichtfeld: Wie groß ist der Bereich vor der Kamera, der auf dem Bildschirm sichtbar sein soll, in Grad angegeben.
-   - Das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio): Normalerweise ist dies das Verhältnis der Breite der Szene geteilt durch die Höhe der Szene. Die Verwendung eines anderen Werts wird die Szene verzerren (was vielleicht gewünscht ist, aber normalerweise nicht).
+   - Das {{Glossary("aspect_ratio", "Seitenverhältnis")}}: Normalerweise ist dies das Verhältnis der Breite der Szene geteilt durch die Höhe der Szene. Die Verwendung eines anderen Werts wird die Szene verzerren (was vielleicht gewünscht ist, aber normalerweise nicht).
    - Die Nahdistanzebene: Ab wie nah zur Kamera Objekte sein können, bevor wir aufhören, sie auf den Bildschirm zu rendern. Denken Sie daran, wie Sie Ihren Finger immer näher zwischen Ihre Augen bringen, bis Sie ihn nicht mehr sehen können.
    - Die Ferndistanzebene: Wie weit entfernt Dinge von der Kamera sind, bevor sie nicht mehr gerendert werden.
 

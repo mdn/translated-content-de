@@ -33,7 +33,7 @@ Neben dem Client und dem Server müssen wir auch Folgendes begrüßen:
 - **Ihre Internetverbindung**: Erlaubt Ihnen, Daten im Web zu senden und zu empfangen. Es ist im Grunde wie die Straße zwischen Ihrem Haus und dem Geschäft.
 - **TCP/IP**: Transmission Control Protocol und Internet Protocol sind Kommunikationsprotokolle, die definieren, wie Daten über das Internet reisen sollten. Das ist wie die Transportmechanismen, die es Ihnen ermöglichen, eine Bestellung aufzugeben, zum Geschäft zu gehen und Ihre Waren zu kaufen. In unserem Beispiel ist dies wie ein Auto oder ein Fahrrad (oder wie auch immer Sie sich fortbewegen).
 - **DNS**: Domain Name System ist wie ein Adressbuch für Websites. Wenn Sie eine Webadresse in Ihren Browser eingeben, schaut der Browser im DNS nach, um die IP-Adresse der Website zu finden, bevor er die Website abrufen kann. Der Browser muss herausfinden, auf welchem Server die Website lebt, damit er die HTTP-Nachrichten an den richtigen Ort senden kann (siehe unten). Das ist wie das Nachschlagen der Adresse des Geschäfts, damit Sie darauf zugreifen können.
-- **HTTP**: Hypertext Transfer Protocol ist ein Anwendungs-[protokoll](/de/docs/Glossary/Protocol), das eine Sprache definiert, mit der Clients und Server miteinander sprechen. Das ist wie die Sprache, die Sie verwenden, um Ihre Waren zu bestellen.
+- **HTTP**: Hypertext Transfer Protocol ist ein Anwendungs-{{Glossary("Protocol", "protokoll")}}, das eine Sprache definiert, mit der Clients und Server miteinander sprechen. Das ist wie die Sprache, die Sie verwenden, um Ihre Waren zu bestellen.
 - **Komponenten-Dateien**: Eine Website besteht aus vielen verschiedenen Dateien, die wie die verschiedenen Teile der Waren sind, die Sie im Geschäft kaufen. Diese Dateien kommen in zwei Haupttypen:
 
   - **Code-Dateien**: Websites werden hauptsächlich aus HTML, CSS und JavaScript gebaut, obwohl Sie später auf andere Technologien stoßen werden.
@@ -54,14 +54,14 @@ Wenn Browser Anfragen an Server für HTML-Dateien senden, enthalten diese HTML-D
 
 - Der Browser parst zuerst die HTML-Datei, was dazu führt, dass der Browser alle `<link>`-Element-Referenzen auf externe CSS-Stile und alle `<script>`-Element-Referenzen auf Skripte erkennt.
 - Während der Browser das HTML parst, sendet er Anfragen zurück an den Server für alle CSS-Dateien, die es aus `<link>`-Elementen gefunden hat, und für alle JavaScript-Dateien, die es aus `<script>`-Elementen gefunden hat, und parst dann diese CSS und JavaScript.
-- Der Browser generiert einen im Arbeitsspeicher befindlichen [DOM](/de/docs/Web/API/Document_Object_Model)-Baum aus dem geparsten HTML, generiert eine im Arbeitsspeicher befindliche [CSSOM](/de/docs/Glossary/CSSOM)-Struktur aus dem geparsten CSS und [kompiliert und führt](/de/docs/Web/Performance/How_browsers_work#javascript_compilation) das geparste JavaScript aus.
+- Der Browser generiert einen im Arbeitsspeicher befindlichen [DOM](/de/docs/Web/API/Document_Object_Model)-Baum aus dem geparsten HTML, generiert eine im Arbeitsspeicher befindliche {{Glossary("CSSOM", "CSSOM")}}-Struktur aus dem geparsten CSS und [kompiliert und führt](/de/docs/Web/Performance/How_browsers_work#javascript_compilation) das geparste JavaScript aus.
 - Während der Browser den DOM-Baum erstellt, die Stile aus dem CSSOM-Baum anwendet und das JavaScript ausführt, wird eine visuelle Darstellung der Seite auf den Bildschirm gemalt, und der Benutzer sieht den Seiteninhalt und kann beginnen, damit zu interagieren.
 
 ## DNS erklärt
 
 Echte Webadressen sind nicht die netten, einprägsamen Zeichenfolgen, die Sie in Ihre Adressleiste eingeben, um Ihre Lieblingswebsites zu finden. Sie sind spezielle Zahlen, die so aussehen: `192.0.2.172`.
 
-Dies wird als [IP-Adresse](/de/docs/Glossary/IP_Address) bezeichnet und repräsentiert einen eindeutigen Ort im Web. Doch das ist nicht sehr leicht zu merken, oder? Deshalb wurde das Domain Name System erfunden. Dieses System verwendet spezielle Server, die eine Webadresse, die Sie in Ihren Browser eingeben (wie "mozilla.org"), mit der echten (IP-)Adresse der Website abgleichen.
+Dies wird als {{Glossary("IP_Address", "IP-Adresse")}} bezeichnet und repräsentiert einen eindeutigen Ort im Web. Doch das ist nicht sehr leicht zu merken, oder? Deshalb wurde das Domain Name System erfunden. Dieses System verwendet spezielle Server, die eine Webadresse, die Sie in Ihren Browser eingeben (wie "mozilla.org"), mit der echten (IP-)Adresse der Website abgleichen.
 
 Websites können direkt über ihre IP-Adressen erreicht werden. Sie können ein [DNS-Lookup-Tool](https://www.nslookup.io/website-to-ip-lookup/) verwenden, um die IP-Adresse einer Website zu finden.
 

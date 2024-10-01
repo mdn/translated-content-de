@@ -7,7 +7,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Das **`HTMLTrackElement`** Interface repräsentiert ein [HTML](/de/docs/Glossary/HTML) {{HTMLElement("track")}}-Element innerhalb des [DOM](/de/docs/Glossary/DOM). Dieses Element kann als Kind von entweder {{HTMLElement("audio")}} oder {{HTMLElement("video")}} verwendet werden, um eine Textspur anzugeben, die Informationen wie Untertitel oder Audiodeskriptionen enthält.
+Das **`HTMLTrackElement`** Interface repräsentiert ein {{Glossary("HTML", "HTML")}} {{HTMLElement("track")}}-Element innerhalb des {{Glossary("DOM", "DOM")}}. Dieses Element kann als Kind von entweder {{HTMLElement("audio")}} oder {{HTMLElement("video")}} verwendet werden, um eine Textspur anzugeben, die Informationen wie Untertitel oder Audiodeskriptionen enthält.
 
 {{InheritanceDiagram}}
 
@@ -29,11 +29,11 @@ _Erbt Eigenschaften von seinem übergeordneten Element, [`HTMLElement`](/de/docs
 
   - : Gibt ein `unsigned short` zurück, das den Bereitschaftszustand der Spur anzeigt:
 
-    | Konstante | Wert | Beschreibung                                                                                                                                                                                         |
-    | --------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | `NONE`    | 0    | Zeigt an, dass die Cues der Textspur nicht abgerufen wurden.                                                                                                                                         |
-    | `LOADING` | 1    | Zeigt an, dass die Textspur geladen wird und noch keine schwerwiegenden Fehler aufgetreten sind. Weitere Cues könnten durch den Parser noch zur Spur hinzugefügt werden.                             |
-    | `LOADED`  | 2    | Zeigt an, dass die Textspur ohne schwerwiegende Fehler geladen wurde.                                                                                                                                |
+    | Konstante | Wert | Beschreibung                                                                                                                                                                                                |
+    | --------- | ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | `NONE`    | 0    | Zeigt an, dass die Cues der Textspur nicht abgerufen wurden.                                                                                                                                                |
+    | `LOADING` | 1    | Zeigt an, dass die Textspur geladen wird und noch keine schwerwiegenden Fehler aufgetreten sind. Weitere Cues könnten durch den Parser noch zur Spur hinzugefügt werden.                                    |
+    | `LOADED`  | 2    | Zeigt an, dass die Textspur ohne schwerwiegende Fehler geladen wurde.                                                                                                                                       |
     | `ERROR`   | 3    | Zeigt an, dass die Textspur aktiviert wurde, aber als der User-Agent versuchte sie abzurufen, dies in irgendeiner Weise scheiterte. Einige oder alle Cues fehlen wahrscheinlich und werden nicht abgerufen. |
 
 - [`HTMLTrackElement.track`](/de/docs/Web/API/HTMLTrackElement/track) {{ReadOnlyInline}}

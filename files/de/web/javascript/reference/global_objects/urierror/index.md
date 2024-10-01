@@ -9,7 +9,7 @@ l10n:
 
 Das **`URIError`**-Objekt stellt einen Fehler dar, der auftritt, wenn eine globale URI-Verwaltungsfunktion falsch verwendet wurde.
 
-`URIError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
+`URIError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, sodass es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden kann.
 
 `URIError` ist eine Unterklasse von {{jsxref("Error")}}.
 

@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-[JSON](/de/docs/Glossary/JSON) ist ein praktisches und weit verbreitetes Format zur Serialisierung von Objekten, Arrays, Zahlen, Strings, Booleans und Null-Werten.
+{{Glossary("JSON", "JSON")}} ist ein praktisches und weit verbreitetes Format zur Serialisierung von Objekten, Arrays, Zahlen, Strings, Booleans und Null-Werten.
 [JSON unterstützt nicht alle durch JavaScript erlaubten Datentypen](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON#javascript_and_json_differences), was bedeutet, dass JavaScript-Objekte, welche diese inkompatiblen Typen verwenden, nicht direkt in JSON serialisiert werden können.
 
 Die _JSON-Typ-Repräsentation_ eines JSON-inkompatiblen Objekts ist ein äquivalentes JavaScript-Objekt mit Eigenschaften, die so kodiert sind, dass die Informationen _serialisiert_ werden können.
 Typischerweise hat es dieselben Eigenschaften wie das ursprüngliche Objekt für kompatible Datentypen, während inkompatible Eigenschaften in kompatible Typen umgewandelt/serialisiert werden.
-Zum Beispiel könnten Puffer-Eigenschaften im ursprünglichen Objekt in der JSON-Typ-Repräsentation [base64url](/de/docs/Glossary/base64)-kodiert als Strings dargestellt werden.
+Zum Beispiel könnten Puffer-Eigenschaften im ursprünglichen Objekt in der JSON-Typ-Repräsentation {{Glossary("base64", "base64url")}}-kodiert als Strings dargestellt werden.
 
 Ein Objekt, das nicht automatisch mit der Methode [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) in JSON serialisiert werden kann, kann eine Instanzmethode namens `toJSON()` definieren, die die _JSON-Typ-Repräsentation_ des ursprünglichen Objekts zurückgibt.
 [`JSON.stringify()`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) wird dann `toJSON()` verwenden, um das Objekt zur Serialisierung zu erhalten, anstatt des ursprünglichen Objekts.

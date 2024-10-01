@@ -24,7 +24,8 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 - `rowspan`
   - : Ein nicht-negativer Ganzzahlenwert, der angibt, wie viele Zeilen die Kopfzelle überspannt oder erweitert. Der Standardwert ist `1`; wenn der Wert auf `0` gesetzt wird, erstreckt sich die Kopfzelle bis zum Ende des Tabellengruppierungsabschnitts ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, auch wenn implizit definiert), zu dem das `<th>` gehört. Werte höher als `65534` werden auf `65534` gekürzt.
 - `scope`
-  - : Definiert die Zellen, auf die sich die im `<th>` definierte Kopfzelle bezieht. Mögliche [enumerierte](/de/docs/Glossary/enumerated) Werte sind:
+
+  - : Definiert die Zellen, auf die sich die im `<th>` definierte Kopfzelle bezieht. Mögliche {{Glossary("enumerated", "enumerierte")}} Werte sind:
 
     - `row`: Der Kopf bezieht sich auf alle Zellen der Zeile, zu der er gehört;
     - `col`: Der Kopf bezieht sich auf alle Zellen der Spalte, zu der er gehört;
@@ -39,7 +40,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung der Kopfzelle an. Mögliche [enumerierte](/de/docs/Glossary/enumerated) Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der `char`-Wert den textuellen Inhalt auf dem Zeichen aus, das im [`char`](#char)-Attribut definiert ist, und dem Offset, das durch das [`charoff`](#charoff)-Attribut definiert ist. Verwenden Sie die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung der Kopfzelle an. Mögliche {{Glossary("enumerated", "enumerierte")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der `char`-Wert den textuellen Inhalt auf dem Zeichen aus, das im [`char`](#char)-Attribut definiert ist, und dem Offset, das durch das [`charoff`](#charoff)-Attribut definiert ist. Verwenden Sie die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `axis` {{deprecated_inline}}
 
@@ -63,7 +64,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung der Kopfzelle an. Die möglichen [enumerierten](/de/docs/Glossary/enumerated) Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung der Kopfzelle an. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `width` {{deprecated_inline}}
 
@@ -260,7 +261,7 @@ Für komplexere Beziehungen zwischen Kopfzellen kann die alleinige Verwendung vo
 
 #### HTML
 
-Um die [Barrierefreiheit](/de/docs/Glossary/accessibility) des [vorherigen Beispiels](#spalten-_und_zeilen-spannung) zu verbessern und beispielsweise Bildschirmlesern zu ermöglichen, die mit jeder Kopfzelle assoziierten Überschriften anzuzeigen, kann das Attribut [`headers`](#headers) zusammen mit [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributen eingeführt werden. Aufgrund der Art und Weise, wie die "Aussprache"-Spalte in zwei Spalten in dem Beispiel aufgeteilt ist, wodurch eine "zwei-zeilige" Kopfzeile entsteht, können unterstützende Technologien wie Bildschirmleser möglicherweise nicht identifizieren, mit welchen zusätzlichen Kopfzellen (`th`-Elementen) die "Aussprache"-Kopfzelle in Beziehung steht und umgekehrt. Daher wird das Attribut [`headers`](#headers) auf der "Aussprache", "IPA" und "Respelling"-Kopfzelle verwendet, um die zugehörigen Kopfzellen basierend auf den Werten der eindeutigen Kennungen aus den hinzugefügten [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributen in Form einer durch Leerzeichen getrennten Liste zu verknüpfen.
+Um die {{Glossary("accessibility", "Barrierefreiheit")}} des [vorherigen Beispiels](#spalten-_und_zeilen-spannung) zu verbessern und beispielsweise Bildschirmlesern zu ermöglichen, die mit jeder Kopfzelle assoziierten Überschriften anzuzeigen, kann das Attribut [`headers`](#headers) zusammen mit [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributen eingeführt werden. Aufgrund der Art und Weise, wie die "Aussprache"-Spalte in zwei Spalten in dem Beispiel aufgeteilt ist, wodurch eine "zwei-zeilige" Kopfzeile entsteht, können unterstützende Technologien wie Bildschirmleser möglicherweise nicht identifizieren, mit welchen zusätzlichen Kopfzellen (`th`-Elementen) die "Aussprache"-Kopfzelle in Beziehung steht und umgekehrt. Daher wird das Attribut [`headers`](#headers) auf der "Aussprache", "IPA" und "Respelling"-Kopfzelle verwendet, um die zugehörigen Kopfzellen basierend auf den Werten der eindeutigen Kennungen aus den hinzugefügten [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attributen in Form einer durch Leerzeichen getrennten Liste zu verknüpfen.
 
 > [!NOTE]
 > Es wird empfohlen, beschreibendere und nützlichere Werte für das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut zu verwenden. Jede `id` in einem Dokument muss eindeutig für dieses Dokument sein. In diesem Beispiel sind die `id`-Werte einzelne Zeichen, um den Fokus auf das Konzept des [`headers`](#headers)-Attributs zu behalten.

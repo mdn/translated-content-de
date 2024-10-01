@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das Attribut **`glyph-orientation-horizontal`** beeinflusst den Betrag, um den die aktuelle Textposition fortgesetzt wird, wenn jedes [Glyph](/de/docs/Glossary/glyph) dargestellt wird.
+Das Attribut **`glyph-orientation-horizontal`** beeinflusst den Betrag, um den die aktuelle Textposition fortgesetzt wird, wenn jedes {{Glossary("glyph", "Glyph")}} dargestellt wird.
 
 Wenn die Referenzorientierungsrichtung horizontal ist und `glyph-orientation-horizontal` zu einem Orientierungswinkel führt, der ein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den horizontalen Metriken des Glyphs inkrementiert. Andernfalls, wenn der Wert dieses Attributs kein Vielfaches von 180 Grad ist, wird die aktuelle Textposition gemäß den vertikalen Metriken des Glyphs inkrementiert.
 

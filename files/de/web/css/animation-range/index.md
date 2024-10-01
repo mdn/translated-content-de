@@ -85,7 +85,7 @@ Ein oder zwei Werte, die [`animation-range-start`](/de/docs/Web/CSS/animation-ra
   - : Ein Kombinationswert, der dem angegebenen Prozentsatz oder der Entfernung durch den angegebenen benannten Zeitachsenbereich entspricht, gemessen von Beginn dieses Zeitachsenbereichs.
 
 > [!NOTE]
-> Der Scrollbereich (siehe [Scroll-container](/de/docs/Glossary/Scroll_container) für weitere Details), der als Sichtbarkeitsbereich des View-Progress bekannt ist, ist der Bereich, in dem das Zielelement einer _benannten View-Progress-Zeitachse_ als sichtbar gilt. Standardmäßig ist dies der gesamte Bereich des Scrollports, kann jedoch mit der Eigenschaft {{cssxref("view-timeline-inset")}} angepasst werden.
+> Der Scrollbereich (siehe {{Glossary("Scroll_container", "Scroll-container")}} für weitere Details), der als Sichtbarkeitsbereich des View-Progress bekannt ist, ist der Bereich, in dem das Zielelement einer _benannten View-Progress-Zeitachse_ als sichtbar gilt. Standardmäßig ist dies der gesamte Bereich des Scrollports, kann jedoch mit der Eigenschaft {{cssxref("view-timeline-inset")}} angepasst werden.
 
 ## Formale Definition
 

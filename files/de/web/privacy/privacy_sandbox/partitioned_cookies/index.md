@@ -31,7 +31,7 @@ Set-Cookie: __Host-example=34d8g; SameSite=None; Secure; Path=/; Partitioned;
 > [!NOTE]
 > Partitionierte Cookies müssen mit `Secure` gesetzt werden. Zusätzlich können Sie das `__Host`-Präfix verwenden, wenn Sie partitionierte Cookies setzen, um sie nur an die aktuelle Domain oder Subdomain zu binden, und dies wird empfohlen, wenn Sie keine Cookies zwischen Subdomains teilen müssen.
 
-Mit `Partitioned` gesetzt, werden Drittanbieter-Cookies mit zwei Schlüsseln gespeichert, dem Hostschlüssel und einem neuen **Partitionsschlüssel**. Der Partitionsschlüssel basiert auf dem Schema und dem [eTLD+1](/de/docs/Glossary/eTLD) der URL der obersten Ebene, die der Browser besuchte, als die Anfrage an die URL gesendet wurde, die das Cookie setzte.
+Mit `Partitioned` gesetzt, werden Drittanbieter-Cookies mit zwei Schlüsseln gespeichert, dem Hostschlüssel und einem neuen **Partitionsschlüssel**. Der Partitionsschlüssel basiert auf dem Schema und dem {{Glossary("eTLD", "eTLD+1")}} der URL der obersten Ebene, die der Browser besuchte, als die Anfrage an die URL gesendet wurde, die das Cookie setzte.
 
 Unser Beispiel noch einmal aufgreifend:
 

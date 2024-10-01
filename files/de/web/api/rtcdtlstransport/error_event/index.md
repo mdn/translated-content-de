@@ -33,14 +33,14 @@ Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent). Erbt von [`Event`](/de/do
 _Zusätzlich zu den Standard-Eigenschaften, die in der [`Event`](/de/docs/Web/API/Event)-Schnittstelle verfügbar sind, enthält `RTCErrorEvent` auch folgende:_
 
 - [`error`](/de/docs/Web/API/RTCErrorEvent/error) {{ReadOnlyInline}}
-  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler spezifiziert; dieses Objekt enthält den Fehlertyp, Informationen darüber, wo der Fehler aufgetreten ist (wie zum Beispiel welche Zeilennummer im [SDP](/de/docs/Glossary/SDP) oder welcher [SCTP](/de/docs/Glossary/SCTP)-Ursachencode betroffen war).
+  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler spezifiziert; dieses Objekt enthält den Fehlertyp, Informationen darüber, wo der Fehler aufgetreten ist (wie zum Beispiel welche Zeilennummer im {{Glossary("SDP", "SDP")}} oder welcher {{Glossary("SCTP", "SCTP")}}-Ursachencode betroffen war).
 
 ## Beschreibung
 
 Transportfehler haben einen der folgenden Werte für die spezielle Fehler-Eigenschaft [`RTCError`](/de/docs/Web/API/RTCError) [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail):
 
 - `dtls-failure`
-  - : Die Aushandlung der [DTLS](/de/docs/Glossary/DTLS)-Verbindung schlug fehl oder die Verbindung wurde mit einem schwerwiegenden Fehler beendet. Die [`message`](/de/docs/Web/API/DOMException/message) des Fehlers enthält Details zur Art des Fehlers. Wenn ein schwerwiegender Fehler _empfangen_ wird, wird die Eigenschaft [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) des Fehlerobjekts auf den Wert des empfangenen DTLSL-Alarms gesetzt. Wenn andererseits ein schwerwiegender Fehler _gesendet_ wurde, wird [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) auf den Wert des Alarms gesetzt.
+  - : Die Aushandlung der {{Glossary("DTLS", "DTLS")}}-Verbindung schlug fehl oder die Verbindung wurde mit einem schwerwiegenden Fehler beendet. Die [`message`](/de/docs/Web/API/DOMException/message) des Fehlers enthält Details zur Art des Fehlers. Wenn ein schwerwiegender Fehler _empfangen_ wird, wird die Eigenschaft [`receivedAlert`](/de/docs/Web/API/RTCError/receivedAlert) des Fehlerobjekts auf den Wert des empfangenen DTLSL-Alarms gesetzt. Wenn andererseits ein schwerwiegender Fehler _gesendet_ wurde, wird [`sentAlert`](/de/docs/Web/API/RTCError/sentAlert) auf den Wert des Alarms gesetzt.
 - `fingerprint-failure`
   - : Das Remote-Zertifikat für das [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) stimmte mit keinem der in der SDP aufgelisteten Fingerabdrücke überein. Kann das Remote-Peer das lokale Zertifikat nicht mit den bereitgestellten Fingerabdrücken abgleichen, tritt dieser Fehler nicht auf, obwohl diese Situation stattdessen zu einem `dtls-failure`-Fehler führen kann.
 

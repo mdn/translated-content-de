@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Hash-basierter Nachrichten-Authentifizierungscode** (_HMAC_) ist ein Protokoll zur [kryptographischen](/de/docs/Glossary/cryptography) Authentifizierung von Nachrichten.
+Ein **Hash-basierter Nachrichten-Authentifizierungscode** (_HMAC_) ist ein Protokoll zur {{Glossary("cryptography", "kryptographischen")}} Authentifizierung von Nachrichten.
 
-Es kann jede Art von [kryptographischen Funktionen](/de/docs/Glossary/Cryptographic_hash_function) verwenden, und seine Stärke hängt von der zugrunde liegenden Funktion ab (z.B. SHA1 oder MD5) sowie vom gewählten geheimen Schlüssel. Mit einer solchen Kombination wird der HMAC-Verifikations[algorithmus](/de/docs/Glossary/Algorithm) dann mit einem zusammengesetzten Namen wie HMAC-SHA1 bezeichnet.
+Es kann jede Art von {{Glossary("Cryptographic_hash_function", "kryptographischen Funktionen")}} verwenden, und seine Stärke hängt von der zugrunde liegenden Funktion ab (z.B. SHA1 oder MD5) sowie vom gewählten geheimen Schlüssel. Mit einer solchen Kombination wird der HMAC-Verifikations{{Glossary("Algorithm", "algorithmus")}} dann mit einem zusammengesetzten Namen wie HMAC-SHA1 bezeichnet.
 
 HMAC wird verwendet, um sowohl die Integrität als auch die Authentifizierung sicherzustellen.
 

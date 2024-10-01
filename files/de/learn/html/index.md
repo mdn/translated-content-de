@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Um Webseiten zu erstellen, sollten Sie über [HTML](/de/docs/Glossary/HTML) Bescheid wissen — die grundlegende Technologie, die verwendet wird, um die Struktur einer Webseite zu definieren. HTML wird verwendet, um anzugeben, ob Ihr Webinhalt als Absatz, Liste, Überschrift, Link, Bild, Multimedia-Player, Formular oder eines von vielen anderen verfügbaren Elementen erkannt werden soll oder sogar als ein neues Element, das Sie definieren.
+Um Webseiten zu erstellen, sollten Sie über {{Glossary("HTML", "HTML")}} Bescheid wissen — die grundlegende Technologie, die verwendet wird, um die Struktur einer Webseite zu definieren. HTML wird verwendet, um anzugeben, ob Ihr Webinhalt als Absatz, Liste, Überschrift, Link, Bild, Multimedia-Player, Formular oder eines von vielen anderen verfügbaren Elementen erkannt werden soll oder sogar als ein neues Element, das Sie definieren.
 
 ## Voraussetzungen
 
@@ -29,7 +29,7 @@ Dieses Thema enthält die folgenden Module, in einer vorgeschlagenen Reihenfolge
 - [Multimedia und Einbettung](/de/docs/Learn/HTML/Multimedia_and_embedding)
   - : Dieses Modul untersucht, wie HTML verwendet wird, um Multimedia in Ihre Webseiten einzubinden, einschließlich der verschiedenen Möglichkeiten, wie Bilder eingebunden werden können, und wie man Videos, Audio und sogar ganze andere Webseiten einbettet.
 - [HTML-Tabellen](/de/docs/Learn/HTML/Tables)
-  - : Die Darstellung tabellarischer Daten auf einer Webseite in einer verständlichen, [zugänglichen](/de/docs/Glossary/Accessibility) Weise kann eine Herausforderung sein. Dieses Modul behandelt die grundlegende Tabellenmarkierung sowie komplexere Funktionen wie das Implementieren von Beschriftungen und Zusammenfassungen.
+  - : Die Darstellung tabellarischer Daten auf einer Webseite in einer verständlichen, {{Glossary("Accessibility", "zugänglichen")}} Weise kann eine Herausforderung sein. Dieses Modul behandelt die grundlegende Tabellenmarkierung sowie komplexere Funktionen wie das Implementieren von Beschriftungen und Zusammenfassungen.
 
 ## Lösung häufiger HTML-Probleme
 

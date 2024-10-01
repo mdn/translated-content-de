@@ -13,15 +13,15 @@ Der **`Accept`** HTTP-Anforderungsheader gibt an, welche Inhaltstypen, ausgedrü
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
       </th>
       <td>
         ja, mit der zusätzlichen Einschränkung, dass die Werte kein
@@ -52,7 +52,7 @@ Accept: text/html, application/xhtml+xml, application/xml;q=0.9, image/webp, */*
 - `*/*`
   - : Jeder MIME-Typ
 - `;q=` (q-Faktor Gewichtung)
-  - : Ein verwendeter Wert wird in einer Präferenzordnung ausgedrückt mittels eines relativen [Qualitätswertes](/de/docs/Glossary/Quality_values), dem _Gewicht_.
+  - : Ein verwendeter Wert wird in einer Präferenzordnung ausgedrückt mittels eines relativen {{Glossary("Quality_values", "Qualitätswertes")}}, dem _Gewicht_.
 
 ## Beispiele
 

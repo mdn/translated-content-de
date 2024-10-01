@@ -109,7 +109,7 @@ verschachtelten {{HTMLElement("div")}}-Elementen).
 ## Hinweise
 
 Wenn `getElementsByTagName()` auf ein HTML-Dokument angewendet wird, wird sein
-Argument in Kleinbuchstaben umgewandelt, bevor es fortfährt. Dies ist unerwünscht, wenn versucht wird, [Camel Case](/de/docs/Glossary/camel_case) SVG-Elemente in einem Unterbaum in einem HTML-Dokument zu finden.
+Argument in Kleinbuchstaben umgewandelt, bevor es fortfährt. Dies ist unerwünscht, wenn versucht wird, {{Glossary("camel_case", "Camel Case")}} SVG-Elemente in einem Unterbaum in einem HTML-Dokument zu finden.
 [`document.getElementsByTagNameNS()`](/de/docs/Web/API/Document/getElementsByTagNameNS) ist in diesem Fall nützlich. Siehe auch
 [Firefox-Bug 499656](https://bugzil.la/499656).
 

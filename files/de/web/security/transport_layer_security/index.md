@@ -17,7 +17,7 @@ Als HTTPS eingeführt wurde, basierte es auf Secure Sockets Layer (SSL) 2.0, ein
 
 Obwohl das Web jetzt TLS zur Verschlüsselung verwendet, beziehen sich viele Menschen aus Gewohnheit immer noch darauf als "SSL".
 
-Obwohl TLS über jedem niedrigstufigen Transportprotokoll verwendet werden kann, war das ursprüngliche Ziel des Protokolls die Verschlüsselung des HTTP-Verkehrs. HTTP, das mit TLS verschlüsselt ist, wird allgemein als [HTTPS](/de/docs/Glossary/HTTPS) bezeichnet. TLS-verschlüsselter Webverkehr wird konventionell standardmäßig über Port 443 ausgetauscht, während unverschlüsseltes HTTP standardmäßig Port 80 verwendet. HTTPS bleibt ein wichtiger Anwendungsfall für TLS.
+Obwohl TLS über jedem niedrigstufigen Transportprotokoll verwendet werden kann, war das ursprüngliche Ziel des Protokolls die Verschlüsselung des HTTP-Verkehrs. HTTP, das mit TLS verschlüsselt ist, wird allgemein als {{Glossary("HTTPS", "HTTPS")}} bezeichnet. TLS-verschlüsselter Webverkehr wird konventionell standardmäßig über Port 443 ausgetauscht, während unverschlüsseltes HTTP standardmäßig Port 80 verwendet. HTTPS bleibt ein wichtiger Anwendungsfall für TLS.
 
 ## HTTP über TLS
 

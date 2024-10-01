@@ -28,14 +28,14 @@ JavaScript Object Notation (JSON) ist ein standardisiertes textbasiertes Format 
 
 ## Nein, wirklich, was ist JSON?
 
-[JSON](/de/docs/Glossary/JSON) ist ein textbasiertes Datenformat, das der JavaScript-Objektsyntax folgt und durch [Douglas Crockford](https://en.wikipedia.org/wiki/Douglas_Crockford) popularisiert wurde. Obwohl es der JavaScript-Objektsyntax sehr ähnlich ist, kann es unabhängig von JavaScript verwendet werden, und viele Programmierumgebungen verfügen über die Fähigkeit, JSON zu lesen (zu parsen) und zu erzeugen.
+{{Glossary("JSON", "JSON")}} ist ein textbasiertes Datenformat, das der JavaScript-Objektsyntax folgt und durch [Douglas Crockford](https://en.wikipedia.org/wiki/Douglas_Crockford) popularisiert wurde. Obwohl es der JavaScript-Objektsyntax sehr ähnlich ist, kann es unabhängig von JavaScript verwendet werden, und viele Programmierumgebungen verfügen über die Fähigkeit, JSON zu lesen (zu parsen) und zu erzeugen.
 
 JSON existiert als String — nützlich, wenn Sie Daten über ein Netzwerk übertragen möchten. Es muss in ein natives JavaScript-Objekt umgewandelt werden, wenn Sie auf die Daten zugreifen möchten. Dies ist kein großes Problem — JavaScript bietet ein globales [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)-Objekt, das Methoden zum Konvertieren zwischen den beiden bietet.
 
 > [!NOTE]
 > Die Umwandlung eines Strings in ein natives Objekt wird als _Deserialisierung_ bezeichnet, während die Umwandlung eines nativen Objekts in einen String, damit es über das Netzwerk übertragen werden kann, als _Serialisierung_ bezeichnet wird.
 
-Ein JSON-String kann in einer eigenen Datei gespeichert werden, die im Grunde nur eine Textdatei mit der Endung `.json` und einem [MIME-Typ](/de/docs/Glossary/MIME_type) von `application/json` ist.
+Ein JSON-String kann in einer eigenen Datei gespeichert werden, die im Grunde nur eine Textdatei mit der Endung `.json` und einem {{Glossary("MIME_type", "MIME-Typ")}} von `application/json` ist.
 
 ### JSON-Struktur
 

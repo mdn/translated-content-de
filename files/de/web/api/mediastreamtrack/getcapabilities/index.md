@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`getCapabilities()`**-Methode des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces gibt ein `MediaTrackCapabilities`-Objekt zurück, das die Werte oder den Wertebereich spezifiziert, die jede einschränkbare Eigenschaft basierend auf der Plattform und dem [User-Agent](/de/docs/Glossary/user_agent) hat.
+Die **`getCapabilities()`**-Methode des [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Interfaces gibt ein `MediaTrackCapabilities`-Objekt zurück, das die Werte oder den Wertebereich spezifiziert, die jede einschränkbare Eigenschaft basierend auf der Plattform und dem {{Glossary("user_agent", "User-Agent")}} hat.
 
 Sobald Sie wissen, was die Fähigkeiten des Browsers sind, kann Ihr Skript [`applyConstraints()`](/de/docs/Web/API/MediaStreamTrack/applyConstraints) verwenden, um zu verlangen, dass der Track so konfiguriert wird, dass er den idealen oder akzeptablen Einstellungen entspricht. Siehe [Fähigkeiten, Einschränkungen und Einstellungen](/de/docs/Web/API/Media_Capture_and_Streams_API/Constraints) für Details, wie man mit einschränkbaren Eigenschaften arbeitet.
 
@@ -48,7 +48,7 @@ Ein `MediaTrackCapabilities`-Objekt, das den Wert oder Wertebereich angibt, der 
 - `sampleSize`
   - : Ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong), das die Abtastgröße oder den Bereich der Abtastgrößen enthält.
 - `aspectRatio`
-  - : Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das das Video-[Seitenverhältnis](/de/docs/Glossary/aspect_ratio) (Breite in Pixel geteilt durch Höhe in Pixel) oder den Bereich der Seitenverhältnisse enthält.
+  - : Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble), das das Video-{{Glossary("aspect_ratio", "Seitenverhältnis")}} (Breite in Pixel geteilt durch Höhe in Pixel) oder den Bereich der Seitenverhältnisse enthält.
 - `facingMode`
   - : Ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring)-Objekt, das den Kameramodus beschreibt. Eine Kamera kann mehrere Modi melden, zum Beispiel "left" und "user".
 - `frameRate`

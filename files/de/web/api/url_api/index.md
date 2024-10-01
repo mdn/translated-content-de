@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("URL API")}} {{AvailableInWorkers}}
 
-Die URL API ist ein Bestandteil des URL-Standards, der definiert, was einen gültigen [Uniform Resource Locator](/de/docs/Glossary/URL) ausmacht, sowie die API, die auf URLs zugreift und sie manipuliert. Der URL-Standard definiert auch Konzepte wie Domänen, Hosts und IP-Adressen und versucht zudem, den Legacy-`application/x-www-form-urlencoded` [MIME-Typ](/de/docs/Glossary/MIME_type), der verwendet wird, um Inhalte von Webformularen als eine Reihe von Schlüssel/Wert-Paaren zu übermitteln, auf standardisierte Weise zu beschreiben.
+Die URL API ist ein Bestandteil des URL-Standards, der definiert, was einen gültigen {{Glossary("URL", "Uniform Resource Locator")}} ausmacht, sowie die API, die auf URLs zugreift und sie manipuliert. Der URL-Standard definiert auch Konzepte wie Domänen, Hosts und IP-Adressen und versucht zudem, den Legacy-`application/x-www-form-urlencoded` {{Glossary("MIME_type", "MIME-Typ")}}, der verwendet wird, um Inhalte von Webformularen als eine Reihe von Schlüssel/Wert-Paaren zu übermitteln, auf standardisierte Weise zu beschreiben.
 
 ## Konzepte und Nutzung
 
@@ -60,7 +60,7 @@ Weitere Funktionen innerhalb von `URLSearchParams` ermöglichen es Ihnen, den We
 Die URL API ist eine einfache mit nur wenigen Schnittstellen:
 
 - [`URL`](/de/docs/Web/API/URL)
-  - : Kann verwendet werden, um [URLs](/de/docs/Glossary/URL) zu analysieren, zu konstruieren, zu normalisieren und zu kodieren.
+  - : Kann verwendet werden, um {{Glossary("URL", "URLs")}} zu analysieren, zu konstruieren, zu normalisieren und zu kodieren.
 - [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
   - : Definiert Dienstprogramm-Methoden zum Arbeiten mit der Abfragezeichenfolge einer URL.
 

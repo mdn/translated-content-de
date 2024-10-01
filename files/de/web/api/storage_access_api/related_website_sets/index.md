@@ -136,7 +136,7 @@ RWS wurde mit Blick auf Sicherheit entwickelt. Es wäre katastrophal, wenn eine 
 - **`evilsite.example.com` behauptet, eine zugehörige Website in einer anderen Gruppe zu sein**: Wenn eine Website behauptet, in einer Gruppe zu sein (`d.h.` durch das Auflisten einer primären in einer `.well-known`-Datei), aber nicht in der Gruppeneinreichung und/oder in der `.well-known`-Datei der primären Website enthalten ist, erhält sie nicht die Vorteile, in der Gruppe zu sein.
 - **`evilsite.example.com` behauptet, eine primäre Website zu sein, und reicht eine Gruppe ein, die einige potenzielle Opfer-Websites umfasst**: Der Einreichungsprozess erfordert, dass `.well-known`-Dateien, die von nicht-primären Websites gehostet werden, ihre primäre explizit auflisten. Wenn diese primäre nicht mit der Gruppeneinreichung übereinstimmt (`d.h.` wenn die zugehörigen/Service-Websites erwarten, eine andere primäre zu haben oder überhaupt nicht in einer Gruppe zu sein), wird die Einreichung abgelehnt.
 - **`site1.example.com` und `site2.example.com` gehören absichtlich zur gleichen Gruppe, aber `site1.example.com` wird von `evilsite.example.com` gehackt**: Die Auswirkungen eines Website-Hijack-Angriffs innerhalb einer Gruppe sind nicht schlimmer als normalerweise, sobald die anderen Websites entsprechend aktualisiert werden:
-  - Die reguläre [Storage Access API](/de/docs/Web/API/Storage_Access_API) erfordert eine aktive Zustimmung der eingebetteten Website, sodass `site2.example.com` aufhören könnte, `document.requestStorageAccess()` zu rufen, wenn es in `site1.example.com` eingebettet ist, um einen [CSRF](/de/docs/Glossary/CSRF)-Angriff zu vermeiden.
+  - Die reguläre [Storage Access API](/de/docs/Web/API/Storage_Access_API) erfordert eine aktive Zustimmung der eingebetteten Website, sodass `site2.example.com` aufhören könnte, `document.requestStorageAccess()` zu rufen, wenn es in `site1.example.com` eingebettet ist, um einen {{Glossary("CSRF", "CSRF")}}-Angriff zu vermeiden.
   - Die Verwendung von `requestStorageAccessFor()` erfordert [CORS](/de/docs/Web/HTTP/CORS), sodass `site2.example.com` wählen könnte, nicht mit den entsprechenden CORS-Headern zu antworten, wenn Netzwerkaufrufe von `site1.example.com` kommen, um einen CSRF-Angriff zu vermeiden.
 
 ## Beispiele
@@ -150,7 +150,7 @@ RWS wurde mit Blick auf Sicherheit entwickelt. Es wäre katastrophal, wenn eine 
 
 ### Standardspositionen
 
-Zwei Browser-Anbieter [lehnen](/de/docs/Glossary/Web_standards#opposing_standards) diese Spezifikation ab. Bekannte Positionen sind wie folgt:
+Zwei Browser-Anbieter {{Glossary("Web_standards#opposing_standards", "lehnen")}} diese Spezifikation ab. Bekannte Positionen sind wie folgt:
 
 - Mozilla (Firefox): [Negativ](https://mozilla.github.io/standards-positions/#first-party-sets)
 - Apple (Safari): [Negativ](https://webkit.org/standards-positions/#position-93)

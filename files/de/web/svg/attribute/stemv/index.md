@@ -9,7 +9,7 @@ l10n:
 
 Das **`stemv`** Attribut gibt die vertikale Stamm-Breite der Schriftart an.
 
-Die vertikale Stamm-Breite ist die Breite von vertikalen (oder nahezu vertikalen) Stämmen von [Glyphen](/de/docs/Glossary/glyph). Diese Information ist oft mit der Hinting-Technik verbunden und möglicherweise in einigen Schriftformaten nicht direkt zugänglich. Die Messung ist für den dominanten vertikalen Stamm in der Schrift gedacht, da es unterschiedliche Gruppierungen von vertikalen Stämmen geben kann (z.B. einen Hauptstamm und einen leichteren Stamm für einen Großbuchstaben "M" oder "N").
+Die vertikale Stamm-Breite ist die Breite von vertikalen (oder nahezu vertikalen) Stämmen von {{Glossary("glyph", "Glyphen")}}. Diese Information ist oft mit der Hinting-Technik verbunden und möglicherweise in einigen Schriftformaten nicht direkt zugänglich. Die Messung ist für den dominanten vertikalen Stamm in der Schrift gedacht, da es unterschiedliche Gruppierungen von vertikalen Stämmen geben kann (z.B. einen Hauptstamm und einen leichteren Stamm für einen Großbuchstaben "M" oder "N").
 
 Wenn dieses Attribut verwendet wird, muss auch das {{SVGAttr("units-per-em")}} verwendet werden.
 

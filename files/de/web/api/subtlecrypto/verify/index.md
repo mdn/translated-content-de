@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`verify()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces überprüft eine digitale [Signatur](/de/docs/Glossary/signature).
+Die **`verify()`**-Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces überprüft eine digitale {{Glossary("signature", "Signatur")}}.
 
-Sie nimmt als Argumente einen [Schlüssel](/de/docs/Glossary/key) zur Überprüfung der Signatur, einige algorithmenspezifische Parameter, die Signatur und die ursprünglich signierten Daten.
+Sie nimmt als Argumente einen {{Glossary("key", "Schlüssel")}} zur Überprüfung der Signatur, einige algorithmenspezifische Parameter, die Signatur und die ursprünglich signierten Daten.
 Sie gibt ein {{jsxref("Promise")}} zurück, das mit einem booleschen Wert erfüllt wird, der angibt, ob die Signatur gültig ist.
 
 ## Syntax
@@ -32,7 +32,7 @@ verify(algorithm, key, signature, data)
 - `key`
   - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), das den Schlüssel enthält, der zur Überprüfung der Signatur verwendet wird. Es ist der geheime Schlüssel für einen symmetrischen Algorithmus und der öffentliche Schlüssel für ein Public-Key-System.
 - `signature`
-  - : Ein {{jsxref("ArrayBuffer")}}, der die [Signatur](/de/docs/Glossary/signature) enthält, die überprüft werden soll.
+  - : Ein {{jsxref("ArrayBuffer")}}, der die {{Glossary("signature", "Signatur")}} enthält, die überprüft werden soll.
 - `data`
   - : Ein {{jsxref("ArrayBuffer")}}, das die Daten enthält, deren Signatur überprüft werden soll.
 

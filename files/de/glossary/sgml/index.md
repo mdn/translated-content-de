@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die _Standard Generalized Markup Language_ (**SGML**) ist eine [ISO](/de/docs/Glossary/ISO)-Spezifikation zur Definition von deklarativen Markup-Sprachen.
+Die _Standard Generalized Markup Language_ (**SGML**) ist eine {{Glossary("ISO", "ISO")}}-Spezifikation zur Definition von deklarativen Markup-Sprachen.
 
-Im Web sind [HTML](/de/docs/Glossary/HTML) 4, [XHTML](/de/docs/Glossary/XHTML) und [XML](/de/docs/Glossary/XML) beliebte SGML-basierte Sprachen. Es ist zu beachten, dass HTML seit der fünften Ausgabe nicht mehr SGML-basiert ist und seine eigenen Parsing-Regeln hat.
+Im Web sind {{Glossary("HTML", "HTML")}} 4, {{Glossary("XHTML", "XHTML")}} und {{Glossary("XML", "XML")}} beliebte SGML-basierte Sprachen. Es ist zu beachten, dass HTML seit der fünften Ausgabe nicht mehr SGML-basiert ist und seine eigenen Parsing-Regeln hat.
 
 ## Siehe auch
 

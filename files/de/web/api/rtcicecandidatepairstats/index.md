@@ -7,16 +7,16 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCIceCandidatePairStats`**-Dictionary der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken zu berichten, die Einblick in die Qualität und Leistung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ermöglichen, während diese verbunden und konfiguriert ist, wie durch das spezifizierte Paar von [ICE](/de/docs/Glossary/ICE)-Kandidaten beschrieben.
+Das **`RTCIceCandidatePairStats`**-Dictionary der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken zu berichten, die Einblick in die Qualität und Leistung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ermöglichen, während diese verbunden und konfiguriert ist, wie durch das spezifizierte Paar von {{Glossary("ICE", "ICE")}}-Kandidaten beschrieben.
 
 Die Statistiken können abgerufen werden, indem der [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) zurückgegeben wird, durchlaufen wird, bis ein Eintrag mit dem [`type`](#type) `"candidate-pair"` gefunden wird.
 
 ## Instanz-Eigenschaften
 
 - [`availableIncomingBitrate`](/de/docs/Web/API/RTCIceCandidatePairStats/availableIncomingBitrate) {{optional_inline}}
-  - : Bietet einen Wert, der die verfügbare eingehende Netzwerkkapazität darstellt, indem die Gesamtanzahl der pro Sekunde verfügbaren Bits für alle eingehenden [RTP](/de/docs/Glossary/RTP)-Streams des Kandidatenpaars gemeldet wird. Dabei werden weder die Größe des [IP](/de/docs/Glossary/IP)-Overheads noch andere Transportschichten wie [TCP](/de/docs/Glossary/TCP) oder [UDP](/de/docs/Glossary/UDP) berücksichtigt.
+  - : Bietet einen Wert, der die verfügbare eingehende Netzwerkkapazität darstellt, indem die Gesamtanzahl der pro Sekunde verfügbaren Bits für alle eingehenden {{Glossary("RTP", "RTP")}}-Streams des Kandidatenpaars gemeldet wird. Dabei werden weder die Größe des {{Glossary("IP", "IP")}}-Overheads noch andere Transportschichten wie {{Glossary("TCP", "TCP")}} oder {{Glossary("UDP", "UDP")}} berücksichtigt.
 - [`availableOutgoingBitrate`](/de/docs/Web/API/RTCIceCandidatePairStats/availableOutgoingBitrate) {{optional_inline}}
-  - : Bietet einen informativen Wert, der die verfügbare ausgehende Netzwerkkapazität darstellt, indem die Gesamtanzahl der pro Sekunde verfügbaren Bits für alle ausgehenden [RTP](/de/docs/Glossary/RTP)-Streams des Kandidatenpaars gemeldet wird. Dabei werden weder die Größe des [IP](/de/docs/Glossary/IP)-Overheads noch andere Transportschichten wie [TCP](/de/docs/Glossary/TCP) oder [UDP](/de/docs/Glossary/UDP) berücksichtigt.
+  - : Bietet einen informativen Wert, der die verfügbare ausgehende Netzwerkkapazität darstellt, indem die Gesamtanzahl der pro Sekunde verfügbaren Bits für alle ausgehenden {{Glossary("RTP", "RTP")}}-Streams des Kandidatenpaars gemeldet wird. Dabei werden weder die Größe des {{Glossary("IP", "IP")}}-Overheads noch andere Transportschichten wie {{Glossary("TCP", "TCP")}} oder {{Glossary("UDP", "UDP")}} berücksichtigt.
 - [`bytesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/bytesReceived) {{optional_inline}}
   - : Die Gesamtanzahl der bisher bei diesem Kandidatenpaar empfangenen Nutzdaten-Bytes (das heißt, die Gesamtanzahl der empfangenen Bytes abzüglich jeglicher Header, Polsterung oder anderweitiger administrativer Overheads).
 - [`bytesSent`](/de/docs/Web/API/RTCIceCandidatePairStats/bytesSent) {{optional_inline}}

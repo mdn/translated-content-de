@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Boolean** in JavaScript ist ein [primitiver Wert](/de/docs/Glossary/Primitive), der entweder `true` oder `false` sein kann.
+Ein **Boolean** in JavaScript ist ein {{Glossary("Primitive", "primitiver Wert")}}, der entweder `true` oder `false` sein kann.
 
-Ein {{jsxref("Boolean")}}-Objekt ist ein [Wrapper](/de/docs/Glossary/wrapper) um einen Boolean-Primitivwert.
+Ein {{jsxref("Boolean")}}-Objekt ist ein {{Glossary("wrapper", "Wrapper")}} um einen Boolean-Primitivwert.
 
 ## Siehe auch
 

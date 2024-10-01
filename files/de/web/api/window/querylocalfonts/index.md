@@ -34,7 +34,7 @@ Ein {{jsxref("Promise")}}, das mit einem Array von [`FontData`](/de/docs/Web/API
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Der Benutzer hat sich entschieden, die Erlaubnis zur Nutzung dieser Funktion zu verweigern, als er beim ersten Aufruf der Methode mit der Berechtigungsaufforderung des Browsers konfrontiert wurde.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert, oder es wurde nicht durch eine Benutzerinteraktion wie einen Tastendruck aufgerufen, oder der aktuelle [Origin](/de/docs/Glossary/origin) ist ein undurchsichtiger Origin.
+  - : Die Nutzung dieser Funktion wurde durch eine [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert, oder es wurde nicht durch eine Benutzerinteraktion wie einen Tastendruck aufgerufen, oder der aktuelle {{Glossary("origin", "Origin")}} ist ein undurchsichtiger Origin.
 
 ## Beispiele
 

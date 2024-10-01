@@ -153,7 +153,7 @@ Wie wir oben gesehen haben, ist das Verknüpfen eines positionierten Elements mi
 
 ### Verwendung von Einsatz-Eigenschaften mit `anchor()`-Funktionswerten
 
-Konventionelle absolut und fest positionierte Elemente werden explizit positioniert, indem Längen- oder Prozentwerte auf [Einsatz-Eigenschaften](/de/docs/Glossary/inset_properties) gesetzt werden. Bei `position: absolute` ist dieser Einlagepositionierungswert ein absoluter Abstand relativ zu den Rändern des nächstgelegenen positionierten Vorfahren. Bei `position: fixed` ist der Einlagepositionierungswert ein absoluter Abstand relativ zum Ansichtsfenster.
+Konventionelle absolut und fest positionierte Elemente werden explizit positioniert, indem Längen- oder Prozentwerte auf {{Glossary("inset_properties", "Einsatz-Eigenschaften")}} gesetzt werden. Bei `position: absolute` ist dieser Einlagepositionierungswert ein absoluter Abstand relativ zu den Rändern des nächstgelegenen positionierten Vorfahren. Bei `position: fixed` ist der Einlagepositionierungswert ein absoluter Abstand relativ zum Ansichtsfenster.
 
 CSS-Anker-Positionierung verändert dieses Paradigma, indem sie ankerpositionierten Elementen ermöglicht, relativ zu den Rändern ihrer zugeordneten Anker positioniert zu werden. Das Modul definiert die [`anchor()`](/de/docs/Web/CSS/anchor)-Funktion, die ein gültiger Wert für jede der Einsatz-Eigenschaften ist. Bei Verwendung setzt die Funktion den Einlagepositionierungswert als absoluten Abstand relativ zum Ankerelement, indem sie das Ankerelement, die Seite des Ankerelements, zu der das positionierte Element positioniert werden soll, und den Abstand von dieser Seite definiert.
 
@@ -164,11 +164,13 @@ anchor(<anchor-element> <anchor-side>, <fallback>)
 ```
 
 - `<anchor-element>`
+
   - : Der Wert der [`anchor-name`](/de/docs/Web/CSS/anchor-name)-Eigenschaft des Ankerelements, zu dem Sie die Seite des Elements relativ positionieren möchten. Dies ist ein `<dashed-ident>`-Wert. Wenn er weggelassen wird, wird der **Standardanker** des Elements verwendet. Dies ist der im [`position-anchor`](/de/docs/Web/CSS/position-anchor)-Eigenschaft referenzierte Anker oder der über das HTML [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor)-Attribut zugeordnete.
     > [!NOTE]
     > Das Angeben eines `<anker-element>` positioniert das Element relativ zu diesem Anker, bietet jedoch keine Elementassoziation. Nur die `position-anchor`-Eigenschaft und `anchor`-Attribute erstellen die Assoziation. Während Sie die Seiten eines Elements relativ zu mehreren Ankern positionieren können, indem Sie im selben Element verschiedene `<anker-element>`-Werte innerhalb verschiedener `anchor()`-Funktionen angeben, ist das positionierte Element nur mit einem einzigen Anker assoziiert.
 
 - [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side)
+
   - : Gibt die Position relativ zu einer Seite oder Seiten des Ankers an. Gültige Werte sind `center` des Ankers, physische (`top`, `left` usw.) oder logische (`start`, `self-end` usw.) Seiten des Ankers oder ein `<percentage>` zwischen dem Anfang (`0%`) und dem Ende (`100%`) der Achse der Einsatz-Eigenschaft, auf der `anchor()` gesetzt ist. Wenn ein Wert verwendet wird, der nicht mit der Einsatz-Eigenschaft kompatibel ist, auf der die `anchor()`-Funktion gesetzt ist, wird der Fallback-Wert verwendet.
 
 - `<fallback>`

@@ -40,7 +40,7 @@ _Das `PerformanceNavigation`-Interface erbt keine Eigenschaften._
 _Das `Performance`-Interface erbt keine Methoden._
 
 - [`PerformanceNavigation.toJSON()`](/de/docs/Web/API/PerformanceNavigation/toJSON) {{deprecated_inline}}
-  - : Ein [Serializer](/de/docs/Glossary/Serialization), der ein JSON-Objekt zurückgibt, das das `PerformanceNavigation`-Objekt repräsentiert.
+  - : Ein {{Glossary("Serialization", "Serializer")}}, der ein JSON-Objekt zurückgibt, das das `PerformanceNavigation`-Objekt repräsentiert.
 
 ## Spezifikationen
 

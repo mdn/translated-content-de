@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Die **`mediaText`**-Eigenschaft der [`MediaList`](/de/docs/Web/API/MediaList)-Schnittstelle ist ein [Stringifier](/de/docs/Glossary/stringifier), der eine Zeichenkette zurückgibt, die die `MediaList` als Text darstellt und es Ihnen auch ermöglicht, eine neue `MediaList` festzulegen.
+Die **`mediaText`**-Eigenschaft der [`MediaList`](/de/docs/Web/API/MediaList)-Schnittstelle ist ein {{Glossary("stringifier", "Stringifier")}}, der eine Zeichenkette zurückgibt, die die `MediaList` als Text darstellt und es Ihnen auch ermöglicht, eine neue `MediaList` festzulegen.
 
 ## Wert
 

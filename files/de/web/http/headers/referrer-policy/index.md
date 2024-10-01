@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Referrer-Policy`** [HTTP-Header](/de/docs/Glossary/HTTP_header) legt fest, wie viele [Referrer-Informationen](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns) (gesendet mit dem {{HTTPHeader("Referer")}} Header) mit Anfragen einbezogen werden sollen. Neben dem HTTP-Header können Sie [diese Richtlinie auch in HTML festlegen](#integration_mit_html).
+Der **`Referrer-Policy`** {{Glossary("HTTP_header", "HTTP-Header")}} legt fest, wie viele [Referrer-Informationen](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns) (gesendet mit dem {{HTTPHeader("Referer")}} Header) mit Anfragen einbezogen werden sollen. Neben dem HTTP-Header können Sie [diese Richtlinie auch in HTML festlegen](#integration_mit_html).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -43,14 +43,14 @@ Referrer-Policy: unsafe-url
 - `no-referrer`
   - : Der {{HTTPHeader("Referer")}} Header wird weggelassen: Gesendete Anfragen enthalten keine Referrer-Informationen.
 - `no-referrer-when-downgrade`
-  - : Senden Sie den [Origin](/de/docs/Glossary/origin), den Pfad und den Abfrage-String im {{HTTPHeader("Referer")}}, wenn das Sicherheitsniveau des Protokolls gleich bleibt oder sich verbessert (HTTP→HTTP, HTTP→HTTPS, HTTPS→HTTPS). Senden Sie den {{HTTPHeader("Referer")}} Header nicht für Anfragen an unsichere Ziele (HTTPS→HTTP, HTTPS→file).
+  - : Senden Sie den {{Glossary("origin", "Origin")}}, den Pfad und den Abfrage-String im {{HTTPHeader("Referer")}}, wenn das Sicherheitsniveau des Protokolls gleich bleibt oder sich verbessert (HTTP→HTTP, HTTP→HTTPS, HTTPS→HTTPS). Senden Sie den {{HTTPHeader("Referer")}} Header nicht für Anfragen an unsichere Ziele (HTTPS→HTTP, HTTPS→file).
 - `origin`
-  - : Senden Sie nur den [Origin](/de/docs/Glossary/origin) im {{HTTPHeader("Referer")}} Header.
+  - : Senden Sie nur den {{Glossary("origin", "Origin")}} im {{HTTPHeader("Referer")}} Header.
     Zum Beispiel wird ein Dokument unter `https://example.com/page.html` den Referrer `https://example.com/` senden.
 - `origin-when-cross-origin`
-  - : Beim Durchführen einer [same-origin](/de/docs/Glossary/Same-origin_policy) Anfrage auf demselben Protokoll-Level (HTTP→HTTP, HTTPS→HTTPS), senden Sie den [Origin](/de/docs/Glossary/origin), den Pfad und den Abfrage-String. Senden Sie nur den Origin für Cross-Origin-Anfragen und Anfragen an unsicherere Ziele (HTTPS→HTTP).
+  - : Beim Durchführen einer {{Glossary("Same-origin_policy", "same-origin")}} Anfrage auf demselben Protokoll-Level (HTTP→HTTP, HTTPS→HTTPS), senden Sie den {{Glossary("origin", "Origin")}}, den Pfad und den Abfrage-String. Senden Sie nur den Origin für Cross-Origin-Anfragen und Anfragen an unsicherere Ziele (HTTPS→HTTP).
 - `same-origin`
-  - : Senden Sie den [Origin](/de/docs/Glossary/origin), den Pfad und den Abfrage-String für [same-origin](/de/docs/Glossary/Same-origin_policy) Anfragen. Senden Sie den {{HTTPHeader("Referer")}} Header nicht für Cross-Origin-Anfragen.
+  - : Senden Sie den {{Glossary("origin", "Origin")}}, den Pfad und den Abfrage-String für {{Glossary("Same-origin_policy", "same-origin")}} Anfragen. Senden Sie den {{HTTPHeader("Referer")}} Header nicht für Cross-Origin-Anfragen.
 - `strict-origin`
   - : Senden Sie nur den Origin, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS). Senden Sie den {{HTTPHeader("Referer")}} Header nicht an weniger sichere Ziele (HTTPS→HTTP).
 - `strict-origin-when-cross-origin` (Standard)
@@ -101,61 +101,61 @@ CSS kann Ressourcen abfragen, die in Stylesheets referenziert werden. Diese Ress
 
 ### `no-referrer`
 
-| Aus Dokument                | Navigation zu  | Verwendeter Referrer |
-| --------------------------- | -------------- | -------------------- |
-| `https://example.com/page`  | _überall_      | _(kein Referrer)_    |
+| Aus Dokument               | Navigation zu | Verwendeter Referrer |
+| -------------------------- | ------------- | -------------------- |
+| `https://example.com/page` | _überall_     | _(kein Referrer)_    |
 
 ### `no-referrer-when-downgrade`
 
-| Aus Dokument                | Navigation zu                  | Verwendeter Referrer       |
-| --------------------------- | ------------------------------ | -------------------------- |
-| `https://example.com/page`  | `https://example.com/otherpage`| `https://example.com/page` |
-| `https://example.com/page`  | `https://mozilla.org`          | `https://example.com/page` |
-| `https://example.com/page`  | **http**://example.com         | _(kein Referrer)_          |
-| **http**://example.com/page | _überall_                      | `http://example.com/page`  |
+| Aus Dokument                | Navigation zu                   | Verwendeter Referrer       |
+| --------------------------- | ------------------------------- | -------------------------- |
+| `https://example.com/page`  | `https://example.com/otherpage` | `https://example.com/page` |
+| `https://example.com/page`  | `https://mozilla.org`           | `https://example.com/page` |
+| `https://example.com/page`  | **http**://example.com          | _(kein Referrer)_          |
+| **http**://example.com/page | _überall_                       | `http://example.com/page`  |
 
 ### `origin`
 
-| Aus Dokument                | Navigation zu  | Verwendeter Referrer    |
-| --------------------------- | -------------- | ----------------------- |
-| `https://example.com/page`  | _überall_      | `https://example.com/`  |
+| Aus Dokument               | Navigation zu | Verwendeter Referrer   |
+| -------------------------- | ------------- | ---------------------- |
+| `https://example.com/page` | _überall_     | `https://example.com/` |
 
 ### `origin-when-cross-origin`
 
-| Aus Dokument                | Navigation zu                  | Verwendeter Referrer       |
-| --------------------------- | ------------------------------ | -------------------------- |
-| `https://example.com/page`  | `https://example.com/otherpage`| `https://example.com/page` |
-| `https://example.com/page`  | `https://mozilla.org`          | `https://example.com/`     |
-| `https://example.com/page`  | **http**://example.com/page    | `https://example.com/`     |
+| Aus Dokument               | Navigation zu                   | Verwendeter Referrer       |
+| -------------------------- | ------------------------------- | -------------------------- |
+| `https://example.com/page` | `https://example.com/otherpage` | `https://example.com/page` |
+| `https://example.com/page` | `https://mozilla.org`           | `https://example.com/`     |
+| `https://example.com/page` | **http**://example.com/page     | `https://example.com/`     |
 
 ### `same-origin`
 
-| Aus Dokument                | Navigation zu                  | Verwendeter Referrer       |
-| --------------------------- | ------------------------------ | -------------------------- |
-| `https://example.com/page`  | `https://example.com/otherpage`| `https://example.com/page` |
-| `https://example.com/page`  | `https://mozilla.org`          | _(kein Referrer)_          |
+| Aus Dokument               | Navigation zu                   | Verwendeter Referrer       |
+| -------------------------- | ------------------------------- | -------------------------- |
+| `https://example.com/page` | `https://example.com/otherpage` | `https://example.com/page` |
+| `https://example.com/page` | `https://mozilla.org`           | _(kein Referrer)_          |
 
 ### `strict-origin`
 
-| Aus Dokument                | Navigation zu          | Verwendeter Referrer    |
-| --------------------------- | ---------------------- | ----------------------- |
-| `https://example.com/page`  | `https://mozilla.org`  | `https://example.com/`  |
-| `https://example.com/page`  | **http**://example.com | _(kein Referrer)_       |
-| **http**://example.com/page | _überall_              | `http://example.com/`   |
+| Aus Dokument                | Navigation zu          | Verwendeter Referrer   |
+| --------------------------- | ---------------------- | ---------------------- |
+| `https://example.com/page`  | `https://mozilla.org`  | `https://example.com/` |
+| `https://example.com/page`  | **http**://example.com | _(kein Referrer)_      |
+| **http**://example.com/page | _überall_              | `http://example.com/`  |
 
 ### `strict-origin-when-cross-origin`
 
-| Aus Dokument                | Navigation zu                  | Verwendeter Referrer       |
-| --------------------------- | ------------------------------ | -------------------------- |
-| `https://example.com/page`  | `https://example.com/otherpage`| `https://example.com/page` |
-| `https://example.com/page`  | `https://mozilla.org`          | `https://example.com/`     |
-| `https://example.com/page`  | **http**://example.com         | _(kein Referrer)_          |
+| Aus Dokument               | Navigation zu                   | Verwendeter Referrer       |
+| -------------------------- | ------------------------------- | -------------------------- |
+| `https://example.com/page` | `https://example.com/otherpage` | `https://example.com/page` |
+| `https://example.com/page` | `https://mozilla.org`           | `https://example.com/`     |
+| `https://example.com/page` | **http**://example.com          | _(kein Referrer)_          |
 
 ### `unsafe-url`
 
-| Aus Dokument                      | Navigation zu | Verwendeter Referrer              |
-| --------------------------------- | ------------- | --------------------------------- |
-| `https://example.com/page?q=123`  | _überall_     | `https://example.com/page?q=123`  |
+| Aus Dokument                     | Navigation zu | Verwendeter Referrer             |
+| -------------------------------- | ------------- | -------------------------------- |
+| `https://example.com/page?q=123` | _überall_     | `https://example.com/page?q=123` |
 
 ### Eine Fallback-Richtlinie angeben
 

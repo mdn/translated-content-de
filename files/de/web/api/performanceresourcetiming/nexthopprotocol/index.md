@@ -79,5 +79,5 @@ Timing-Allow-Origin: https://developer.mozilla.org
 ## Siehe auch
 
 - {{HTTPHeader("Timing-Allow-Origin")}}
-- [HTTP/2](/de/docs/Glossary/HTTP_2)
-- [HTTP/3](/de/docs/Glossary/HTTP_3)
+- {{Glossary("HTTP_2", "HTTP/2")}}
+- {{Glossary("HTTP_3", "HTTP/3")}}

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die **`getType()`**-Methode der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) des angeforderten [MIME-Typs](/de/docs/Glossary/MIME_type) aufgelöst wird, oder einen Fehler, falls der MIME-Typ nicht gefunden wird.
+Die **`getType()`**-Methode der [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) des angeforderten {{Glossary("MIME_type", "MIME-Typs")}} aufgelöst wird, oder einen Fehler, falls der MIME-Typ nicht gefunden wird.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ getType(type)
 ### Parameter
 
 - `type`
-  - : Ein gültiger [MIME-Typ](/de/docs/Glossary/MIME_type).
+  - : Ein gültiger {{Glossary("MIME_type", "MIME-Typ")}}.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Ein {{jsxref("Promise")}}, das mit einem [`Blob`](/de/docs/Web/API/Blob)-Objekt 
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Der `type` stimmt nicht mit einem bekannten [MIME-Typ](/de/docs/Glossary/MIME_type) überein.
+  - : Der `type` stimmt nicht mit einem bekannten {{Glossary("MIME_type", "MIME-Typ")}} überein.
 - {{jsxref("TypeError")}}
   - : Es wird kein Parameter angegeben oder der `type` entspricht nicht dem eines [`ClipboardItem`](/de/docs/Web/API/ClipboardItem).
 

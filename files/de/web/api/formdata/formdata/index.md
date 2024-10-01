@@ -23,12 +23,12 @@ new FormData(form, submitter)
 - `form` {{optional_inline}}
   - : Ein HTML-{{HTMLElement("form")}}-Element — wenn angegeben, wird das [`FormData`](/de/docs/Web/API/FormData)-Objekt mit den aktuellen Schlüsseln/Werten des `form` mithilfe der Name-Eigenschaft jedes Elements für die Schlüssel und deren übermittelten Wert für die Werte befüllt. Es wird auch Datei-Input-Inhalte kodieren. Ein [`formdata`](/de/docs/Web/API/HTMLFormElement/formdata_event)-Ereignis wird ausgelöst, wenn das `FormData`-Objekt erstellt wird, was der Form ermöglicht, die Formulardaten bei Bedarf zu modifizieren.
 - `submitter` {{optional_inline}}
-  - : Ein [Submit-Button](/de/docs/Glossary/submit_button), der ein Mitglied des `form` ist. Wenn der `submitter` ein `name`-Attribut hat oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten [eingeschlossen](/de/docs/Glossary/Submit_button#form_data_entries) im [`FormData`](/de/docs/Web/API/FormData)-Objekt (z.B. `btnName=btnValue`).
+  - : Ein {{Glossary("submit_button", "Submit-Button")}}, der ein Mitglied des `form` ist. Wenn der `submitter` ein `name`-Attribut hat oder ein `{{HtmlElement('input/image', '&lt;input type="image"&gt;')}}` ist, werden seine Daten {{Glossary("Submit_button#form_data_entries", "eingeschlossen")}} im [`FormData`](/de/docs/Web/API/FormData)-Objekt (z.B. `btnName=btnValue`).
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der angegebene `submitter` kein [Submit-Button](/de/docs/Glossary/submit_button) ist.
+  - : Wird ausgelöst, wenn der angegebene `submitter` kein {{Glossary("submit_button", "Submit-Button")}} ist.
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der angegebene `submitter` kein Mitglied des `form` ist. Der `submitter` muss entweder ein Nachkomme des Formularelements sein oder ein [`form`](/de/docs/Web/HTML/Element/input#form)-Attribut haben, das auf das Formular verweist.
 

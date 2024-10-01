@@ -12,7 +12,7 @@ Die unveränderliche **`receiver`**-Eigenschaft des [`RTCTrackEvent`](/de/docs/W
 
 ## Wert
 
-Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der den `receiver` mit einem Sender und anderen Eigenschaften koppelt, die einen einzelnen bidirektionalen [SRTP](/de/docs/Glossary/RTP)-Stream für den mit dem `RTCTrackEvent` verbundenen [`track`](/de/docs/Web/API/RTCTrackEvent/track) etablieren.
+Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der den `receiver` mit einem Sender und anderen Eigenschaften koppelt, die einen einzelnen bidirektionalen {{Glossary("RTP", "SRTP")}}-Stream für den mit dem `RTCTrackEvent` verbundenen [`track`](/de/docs/Web/API/RTCTrackEvent/track) etablieren.
 
 > [!NOTE]
 > Der [`transceiver`](/de/docs/Web/API/RTCTrackEvent/transceiver) enthält seine eigene [`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver)-Eigenschaft, die immer derselbe [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) wie dieser sein wird.

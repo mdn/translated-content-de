@@ -13,7 +13,7 @@ Diese Seite beschreibt alte Formatierungen für Versionszeichenfolgen von Web-Er
 
 Eine **Versionszeichenfolge** besteht aus einem oder mehreren _Versionsteilen_, die durch Punkte getrennt sind.
 
-Jeder **Versionsteil** wird als eine Sequenz von vier Teilen analysiert: `<number-a><string-b><number-c><string-d>`. Jeder der Teile ist optional. Zahlen sind ganzzahlige Basis 10 (können negativ sein), und Zeichenfolgen sind nicht-numerische [ASCII](/de/docs/Glossary/ASCII)-Zeichen.
+Jeder **Versionsteil** wird als eine Sequenz von vier Teilen analysiert: `<number-a><string-b><number-c><string-d>`. Jeder der Teile ist optional. Zahlen sind ganzzahlige Basis 10 (können negativ sein), und Zeichenfolgen sind nicht-numerische {{Glossary("ASCII", "ASCII")}}-Zeichen.
 
 Hier sind einige Beispiele gültiger Versionsteile:
 

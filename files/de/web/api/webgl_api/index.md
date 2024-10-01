@@ -123,7 +123,7 @@ Im Folgenden finden Sie eine Auswahl von Leitfäden, die Ihnen helfen, WebGL-Kon
 ### Beispiele
 
 - [Ein einfaches 2D-WebGL-Animationsbeispiel](/de/docs/Web/API/WebGL_API/Basic_2D_animation_example)
-  - : Dieses Beispiel demonstriert die einfache Animation einer einfarbigen Form. Untersuchte Themen sind das Anpassen an Unterschiede im [Seitenverhältnis](/de/docs/Glossary/aspect_ratio), eine Funktion zum Erstellen von Shader-Programmen aus mehreren Shader-Sets und die Grundlagen des Zeichnens in WebGL.
+  - : Dieses Beispiel demonstriert die einfache Animation einer einfarbigen Form. Untersuchte Themen sind das Anpassen an Unterschiede im {{Glossary("aspect_ratio", "Seitenverhältnis")}}, eine Funktion zum Erstellen von Shader-Programmen aus mehreren Shader-Sets und die Grundlagen des Zeichnens in WebGL.
 - [WebGL anhand von Beispielen](/de/docs/Web/API/WebGL_API/By_example)
   - : Eine Reihe von Live-Beispielen mit kurzen Erklärungen, die WebGL-Konzepte und -Fähigkeiten zeigen. Die Beispiele sind nach Themen und Schwierigkeitsgrad sortiert und decken den WebGL-Rendering-Kontext, Shader-Programmierung, Texturen, Geometrie, Benutzerinteraktion und mehr ab.
 

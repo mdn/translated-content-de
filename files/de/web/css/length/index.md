@@ -21,7 +21,7 @@ Der `<length>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt 
 
 Der [spezifizierte Wert](/de/docs/Web/CSS/specified_value) einer Länge (_spezifizierte Länge_) wird durch seine Menge und Einheit dargestellt. Der [berechnete Wert](/de/docs/Web/CSS/computed_value) einer Länge (_berechnete Länge_) ist die spezifizierte Länge auf eine absolute Länge aufgelöst, und ihre Einheit wird nicht unterschieden.
 
-Die `<length>` Einheiten können relativ oder absolut sein. Relativlängen repräsentieren ein Maß in Bezug auf eine andere Distanz. Je nach Einheit kann es sich um die Größe eines bestimmten Zeichens, die [Zeilenhöhe](/de/docs/Web/CSS/line-height) oder die Größe des [Ansichtsfensters](/de/docs/Glossary/viewport) handeln. Stylesheets, die relative Längeneinheiten verwenden, können einfacher von einer Ausgabemedium zu einer anderen skaliert werden.
+Die `<length>` Einheiten können relativ oder absolut sein. Relativlängen repräsentieren ein Maß in Bezug auf eine andere Distanz. Je nach Einheit kann es sich um die Größe eines bestimmten Zeichens, die [Zeilenhöhe](/de/docs/Web/CSS/line-height) oder die Größe des {{Glossary("viewport", "Ansichtsfensters")}} handeln. Stylesheets, die relative Längeneinheiten verwenden, können einfacher von einer Ausgabemedium zu einer anderen skaliert werden.
 
 > [!NOTE]
 > Kindelemente erben nicht die relativen Werte, die für ihre Eltern festgelegt sind; sie erben die berechneten Werte.
@@ -40,14 +40,14 @@ Schriftgrößen definieren den `<length>` Wert in Begriffen der Größe eines be
 - `cap`
   - : Repräsentiert die "Cap-Höhe" (nominale Höhe der Großbuchstaben) der {{Cssxref("font")}} des Elements.
 - `ch`
-  - : Repräsentiert die Breite oder genauer gesagt das [advance measure](/de/docs/Glossary/advance_measure) des Glyphen `0` (Null, das Unicode-Zeichen U+0030) in der {{Cssxref("font")}} des Elements.
+  - : Repräsentiert die Breite oder genauer gesagt das {{Glossary("advance_measure", "advance measure")}} des Glyphen `0` (Null, das Unicode-Zeichen U+0030) in der {{Cssxref("font")}} des Elements.
     In Fällen, in denen das Maß des Glyphen `0` unmöglich oder unpraktisch zu bestimmen ist, muss davon ausgegangen werden, dass es `0.5em` breit und `1em` hoch ist.
 - `em`
   - : Repräsentiert die berechnete {{Cssxref("font-size")}} des Elements. Wenn es auf der {{Cssxref("font-size")}} Eigenschaft selbst verwendet wird, repräsentiert es die _geerbte_ Schriftgröße des Elements.
 - `ex`
   - : Repräsentiert die [x-Höhe](https://en.wikipedia.org/wiki/X-height) der {{Cssxref("font")}} des Elements. In Schriften mit dem `x`-Buchstaben ist dies im Allgemeinen die Höhe der Kleinbuchstaben in der Schrift; `1ex ≈ 0.5em` in vielen Schriften.
 - `ic`
-  - : Entspricht dem verwendeten [advance measure](/de/docs/Glossary/advance_measure) des "水"-Glyphe (CJK-Wasser-Ideogramm, U+6C34), das in der Schriftart gefunden wird, mit der es gerendert wird.
+  - : Entspricht dem verwendeten {{Glossary("advance_measure", "advance measure")}} des "水"-Glyphe (CJK-Wasser-Ideogramm, U+6C34), das in der Schriftart gefunden wird, mit der es gerendert wird.
 - `lh`
   - : Entspricht dem berechneten Wert der {{Cssxref("line-height")}} Eigenschaft des Elements, auf dem es verwendet wird, umgewandelt in eine absolute Länge. Diese Einheit ermöglicht Längenberechnungen basierend auf der theoretischen Größe einer idealen leeren Zeile. Die Größe tatsächlicher Zeilenboxen kann jedoch je nach Inhalt variieren.
 
@@ -58,7 +58,7 @@ Schriftgrößen relativ zum Wurzelelement definieren den `<length>` Wert in Begr
 - `rcap`
   - : Entspricht der "Cap-Höhe" (nominale Höhe der Großbuchstaben) der {{Cssxref("font")}} des Wurzelelements.
 - `rch`
-  - : Entspricht der Breite oder dem [advance measure](/de/docs/Glossary/advance_measure) des Glyphen `0` (Null, das Unicode-Zeichen U+0030) in der {{Cssxref("font")}} des Wurzelelements.
+  - : Entspricht der Breite oder dem {{Glossary("advance_measure", "advance measure")}} des Glyphen `0` (Null, das Unicode-Zeichen U+0030) in der {{Cssxref("font")}} des Wurzelelements.
 - `rem`
   - : Repräsentiert die {{Cssxref("font-size")}} des Wurzelelements (typischerweise {{HTMLElement("html")}}). Wenn es innerhalb des Wurzelelements in {{Cssxref("font-size")}} verwendet wird, repräsentiert es dessen Anfangswert. Ein gängiges Browser-Standard ist `16px`, aber benutzerdefinierte Präferenzen können dies modifizieren.
 - `rex`

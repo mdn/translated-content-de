@@ -50,7 +50,7 @@ Da Nachkommen einer `checkbox` präsentational sind, ist der folgende Code äqui
 <div role="checkbox"><h6 role="presentation">Name of my checkbox</h6></div>
 ```
 
-Aus der Sicht von Benutzern unterstützender Technologien existiert die Überschrift nicht, da der vorherige Code den folgenden im [Accessibility Tree](/de/docs/Glossary/Accessibility_tree) entspricht:
+Aus der Sicht von Benutzern unterstützender Technologien existiert die Überschrift nicht, da der vorherige Code den folgenden im {{Glossary("Accessibility_tree", "Accessibility Tree")}} entspricht:
 
 ```html
 <div role="checkbox">Name of my checkbox</div>
@@ -74,8 +74,8 @@ Aus der Sicht von Benutzern unterstützender Technologien existiert die Übersch
 
 ### Tastaturinteraktionen
 
-| Taste            | Funktion               |
-| ---------------- | ---------------------- |
+| Taste                | Funktion               |
+| -------------------- | ---------------------- |
 | <kbd>Leertaste</kbd> | Aktiviert die Checkbox |
 
 ### Erforderliches JavaScript

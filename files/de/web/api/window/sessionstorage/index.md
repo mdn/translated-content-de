@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Storage API")}}
 
-Die schreibgeschützte **`sessionStorage`**-Eigenschaft greift auf ein Sitzungs-[`Storage`](/de/docs/Web/API/Storage)-Objekt für den aktuellen [Origin](/de/docs/Glossary/origin) zu. `sessionStorage` ist ähnlich wie [`localStorage`](/de/docs/Web/API/Window/localStorage); der Unterschied besteht darin, dass Daten in `localStorage` nicht ablaufen, während Daten in `sessionStorage` gelöscht werden, wenn die _Seitensitzung_ endet.
+Die schreibgeschützte **`sessionStorage`**-Eigenschaft greift auf ein Sitzungs-[`Storage`](/de/docs/Web/API/Storage)-Objekt für den aktuellen {{Glossary("origin", "Origin")}} zu. `sessionStorage` ist ähnlich wie [`localStorage`](/de/docs/Web/API/Window/localStorage); der Unterschied besteht darin, dass Daten in `localStorage` nicht ablaufen, während Daten in `sessionStorage` gelöscht werden, wenn die _Seitensitzung_ endet.
 
 - Jedes Mal, wenn ein Dokument in einem bestimmten Tab im Browser geladen wird, wird eine eindeutige Seitensitzung erstellt und diesem speziellen Tab zugeordnet. Diese Seitensitzung ist nur für diesen speziellen Tab gültig.
 - Eine Seitensitzung dauert so lange an, wie der Tab oder der Browser geöffnet ist, und überlebt Seitenaktualisierungen und Wiederherstellungen.

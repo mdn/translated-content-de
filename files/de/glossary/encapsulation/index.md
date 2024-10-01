@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Encapsulation ist das Verpacken von Daten und [Funktionen](/de/docs/Glossary/function) in eine Komponente (zum Beispiel eine [Klasse](/de/docs/Glossary/class)) und die anschließende Kontrolle des Zugriffs auf diese Komponente, um daraus eine "Blackbox" des [Objekts](/de/docs/Glossary/object) zu machen. Dadurch muss ein Benutzer der Klasse nur ihre Schnittstelle kennen (das heißt, die außerhalb der Klasse exponierten Daten und Funktionen), nicht die verborgene Implementierung.
+Encapsulation ist das Verpacken von Daten und {{Glossary("function", "Funktionen")}} in eine Komponente (zum Beispiel eine {{Glossary("class", "Klasse")}}) und die anschließende Kontrolle des Zugriffs auf diese Komponente, um daraus eine "Blackbox" des {{Glossary("object", "Objekts")}} zu machen. Dadurch muss ein Benutzer der Klasse nur ihre Schnittstelle kennen (das heißt, die außerhalb der Klasse exponierten Daten und Funktionen), nicht die verborgene Implementierung.
 
 ## Siehe auch
 

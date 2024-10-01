@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{SecureContext_Header}}{{Non-standard_Header}}
 
-Der **`DPR`** [Device Client Hint](/de/docs/Web/HTTP/Client_hints) Request-Header gibt das Pixelverhältnis des Client-Geräts an. Dieses Verhältnis beschreibt die Anzahl physischer Gerätepixel, die jedem [CSS-Pixel](/de/docs/Glossary/CSS_pixel) entsprechen.
+Der **`DPR`** [Device Client Hint](/de/docs/Web/HTTP/Client_hints) Request-Header gibt das Pixelverhältnis des Client-Geräts an. Dieses Verhältnis beschreibt die Anzahl physischer Gerätepixel, die jedem {{Glossary("CSS_pixel", "CSS-Pixel")}} entsprechen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request-Header](/de/docs/Glossary/Request_header),
+        {{Glossary("Request_header", "Request-Header")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

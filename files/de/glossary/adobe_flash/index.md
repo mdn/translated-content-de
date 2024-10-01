@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-[**Flash**](https://en.wikipedia.org/wiki/Adobe_Flash) ist eine _veraltete_ Technologie, die von Adobe entwickelt wurde, um ausdrucksstarke Webanwendungen, multimediale Inhalte und Streaming-Medien anzuzeigen. Es kann in einem Web-[Browser](/de/docs/Glossary/browser) mit dem Flash Player-[Plugin](/de/docs/Glossary/plugin) verwendet werden, das bis zum Erreichen des Endes seiner Lebensdauer im Jahr 2021 für die meisten Desktop- und Mobilplattformen verfügbar war.
+[**Flash**](https://en.wikipedia.org/wiki/Adobe_Flash) ist eine _veraltete_ Technologie, die von Adobe entwickelt wurde, um ausdrucksstarke Webanwendungen, multimediale Inhalte und Streaming-Medien anzuzeigen. Es kann in einem Web-{{Glossary("browser", "Browser")}} mit dem Flash Player-{{Glossary("plugin", "Plugin")}} verwendet werden, das bis zum Erreichen des Endes seiner Lebensdauer im Jahr 2021 für die meisten Desktop- und Mobilplattformen verfügbar war.
 
 ## Siehe auch
 
@@ -21,4 +21,4 @@ l10n:
   - Windows: [Entfernung des Microsoft Windows Flash Player](https://blogs.windows.com/msedgedev/2020/09/04/update-adobe-flash-end-support/)
   - Facebook: [Migration von Spielen von Flash zu offenen Webstandards auf Facebook](https://developers.facebook.com/blog/post/2017/07/25/Games-Migration-to-Open-Web-Standards/)
 - Verwandte Glossarbegriffe:
-  - [Plugin](/de/docs/Glossary/Plugin)
+  - {{Glossary("Plugin", "Plugin")}}

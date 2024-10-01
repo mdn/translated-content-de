@@ -7,13 +7,13 @@ l10n:
 
 {{DefaultAPISidebar("Web Storage API")}}
 
-Die **Web Storage API** bietet Mechanismen, durch die Browser Schlüssel/Wert-Paare speichern können, auf eine viel intuitivere Weise als mit [Cookies](/de/docs/Glossary/cookie).
+Die **Web Storage API** bietet Mechanismen, durch die Browser Schlüssel/Wert-Paare speichern können, auf eine viel intuitivere Weise als mit {{Glossary("cookie", "Cookies")}}.
 
 ## Konzepte und Verwendung
 
 Die zwei Mechanismen innerhalb des Web Storage sind wie folgt:
 
-- `sessionStorage` hält einen separaten Speicherbereich für jeden gegebenen [Origin](/de/docs/Glossary/origin) bereit, der für die Dauer der Sitzung der Seite verfügbar ist (solange der Browser-Tab geöffnet bleibt, einschließlich Seitenreloads und -wiederherstellungen).
+- `sessionStorage` hält einen separaten Speicherbereich für jeden gegebenen {{Glossary("origin", "Origin")}} bereit, der für die Dauer der Sitzung der Seite verfügbar ist (solange der Browser-Tab geöffnet bleibt, einschließlich Seitenreloads und -wiederherstellungen).
 
 - `localStorage` erfüllt die gleiche Funktion, bleibt aber auch bestehen, wenn der Browser geschlossen und erneut geöffnet wird.
 
@@ -32,7 +32,7 @@ Asynchrone Alternativen, wie beispielsweise [IndexedDB](/de/docs/Web/API/Indexed
 
 ## Bestimmung des Speicherzugriffs durch Dritte
 
-Jeder Origin hat seinen eigenen Speicher — dies gilt sowohl für Web Storage als auch für [Shared Storage](/de/docs/Web/API/Shared_Storage_API). Der Zugriff von Third-Party- (also eingebettetem) Code auf geteilten Speicher hängt von seinem [Browsing-Kontext](/de/docs/Glossary/Browsing_context) ab. Der Kontext, in dem ein Third-Party-Code eines anderen Origins ausgeführt wird, bestimmt den Speicherzugriff des Third-Party-Codes.
+Jeder Origin hat seinen eigenen Speicher — dies gilt sowohl für Web Storage als auch für [Shared Storage](/de/docs/Web/API/Shared_Storage_API). Der Zugriff von Third-Party- (also eingebettetem) Code auf geteilten Speicher hängt von seinem {{Glossary("Browsing_context", "Browsing-Kontext")}} ab. Der Kontext, in dem ein Third-Party-Code eines anderen Origins ausgeführt wird, bestimmt den Speicherzugriff des Third-Party-Codes.
 
 ![Eine Kasten-Diagramm zeigt einen obersten Browsing-Kontext namens publisher.com, mit eingebettetem Third-Party-Inhalt](embedded-content.png)
 

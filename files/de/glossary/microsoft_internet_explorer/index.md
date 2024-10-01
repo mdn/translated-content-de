@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Internet Explorer (oder IE) war ein kostenloser grafischer [Browser](/de/docs/Glossary/browser), der von Microsoft für den Einsatz in Unternehmen mit älteren Systemen gepflegt wurde. [Microsoft Edge](/de/docs/Glossary/Microsoft_Edge) ist derzeit der Standardbrowser für Windows.
+Internet Explorer (oder IE) war ein kostenloser grafischer {{Glossary("browser", "Browser")}}, der von Microsoft für den Einsatz in Unternehmen mit älteren Systemen gepflegt wurde. {{Glossary("Microsoft_Edge", "Microsoft Edge")}} ist derzeit der Standardbrowser für Windows.
 
 Microsoft hat IE erstmals 1995 mit Windows als Teil des Pakets "Microsoft Plus!" gebündelt. Um das Jahr 2002 hatte sich Internet Explorer zum meistgenutzten Browser der Welt entwickelt, verlor jedoch Marktanteile an Chrome, Firefox, Edge und Safari.
 

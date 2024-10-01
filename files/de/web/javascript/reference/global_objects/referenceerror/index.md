@@ -9,7 +9,7 @@ l10n:
 
 Das **`ReferenceError`**-Objekt repräsentiert einen Fehler, wenn auf eine Variable verwiesen wird, die im aktuellen Geltungsbereich nicht existiert (oder noch nicht initialisiert wurde).
 
-`ReferenceError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`ReferenceError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `ReferenceError` ist eine Unterklasse von {{jsxref("Error")}}.
 

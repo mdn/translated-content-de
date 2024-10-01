@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **verbotener Header-Name** ist der Name eines [HTTP-Headers](/de/docs/Web/HTTP/Headers), der programmatisch nicht modifiziert werden kann; speziell ein HTTP-**Request**-Header-Name (im Gegensatz zu einem [verbotenen Antwort-Header-Name](/de/docs/Glossary/Forbidden_response_header_name)).
+Ein **verbotener Header-Name** ist der Name eines [HTTP-Headers](/de/docs/Web/HTTP/Headers), der programmatisch nicht modifiziert werden kann; speziell ein HTTP-**Request**-Header-Name (im Gegensatz zu einem {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Name")}}).
 
-Die Modifikation solcher Header ist verboten, da der Benutzeragent die volle Kontrolle über sie behält. Namen, die mit `Sec-` beginnen, sind reserviert, um neue Header zu erstellen, die vor [APIs](/de/docs/Glossary/API) sicher sind, die Entwicklern die Kontrolle über Header gewähren, wie z.B. [`fetch()`](/de/docs/Web/API/Window/fetch).
+Die Modifikation solcher Header ist verboten, da der Benutzeragent die volle Kontrolle über sie behält. Namen, die mit `Sec-` beginnen, sind reserviert, um neue Header zu erstellen, die vor {{Glossary("API", "APIs")}} sicher sind, die Entwicklern die Kontrolle über Header gewähren, wie z.B. [`fetch()`](/de/docs/Web/API/Window/fetch).
 
 Verbotene Header-Namen beginnen mit `Proxy-` oder `Sec-` oder gehören zu den folgenden Namen:
 
@@ -45,4 +45,4 @@ Verbotene Header-Namen beginnen mit `Proxy-` oder `Sec-` oder gehören zu den fo
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Forbidden response header name](/de/docs/Glossary/Forbidden_response_header_name)
+  - {{Glossary("Forbidden_response_header_name", "Forbidden response header name")}}

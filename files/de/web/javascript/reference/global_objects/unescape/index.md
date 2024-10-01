@@ -33,7 +33,7 @@ Ein neuer String, in dem bestimmte Zeichen unescaped wurden.
 Die Funktion `unescape()` ersetzt jede Escape-Sequenz durch das Zeichen, das sie darstellt. Insbesondere ersetzt sie jede Escape-Sequenz in der Form `%XX` oder `%uXXXX` (wobei `X` eine hexadezimale Ziffer darstellt) durch das Zeichen mit dem hexadezimalen Wert `XX`/`XXXX`. Wenn die Escape-Sequenz keine gültige Escape-Sequenz ist (zum Beispiel, wenn `%` von einer oder keiner Hex-Ziffer gefolgt wird), bleibt sie unverändert.
 
 > [!NOTE]
-> Diese Funktion wurde hauptsächlich für [percent-encoding](/de/docs/Glossary/Percent-encoding) verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Die `unescape()`-Funktion wertet _nicht_ [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in String-Literalen aus. Sie können `\xXX` durch `%XX` und `\uXXXX` durch `%uXXXX` ersetzen, um einen String zu erhalten, der von `unescape()` behandelt werden kann.
+> Diese Funktion wurde hauptsächlich für {{Glossary("Percent-encoding", "percent-encoding")}} verwendet und basiert teilweise auf dem Escape-Format in {{rfc(1738)}}. Die `unescape()`-Funktion wertet _nicht_ [Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#escape_sequences) in String-Literalen aus. Sie können `\xXX` durch `%XX` und `\uXXXX` durch `%uXXXX` ersetzen, um einen String zu erhalten, der von `unescape()` behandelt werden kann.
 
 ## Beispiele
 

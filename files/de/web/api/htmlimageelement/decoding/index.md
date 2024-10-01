@@ -28,7 +28,7 @@ Ein String, der den Dekodierungshinweis darstellt. Mögliche Werte sind:
 
 Die `decoding`-Eigenschaft bietet dem Browser einen Hinweis darauf, ob die Bilddekodierung zusammen mit anderen Aufgaben in einem einzigen Schritt durchgeführt werden soll (`"sync"`), oder ob erlaubt werden soll, dass anderer Inhalt gerendert wird, bevor dies abgeschlossen ist (`"async"`). In der Praxis sind die Unterschiede zwischen den beiden Werten oft schwer zu erkennen, und wenn es Unterschiede gibt, gibt es oft einen besseren Weg.
 
-Für Bilder, die in den DOM im sichtbaren Bereich eingefügt werden, kann `"async"` zu ungestylten Inhaltseffekten führen, während `"sync"` zu kleinen Mengen an [Ruckeln](/de/docs/Glossary/Jank) führen kann. Die Verwendung der [`HTMLImageElement.decode()`](/de/docs/Web/API/HTMLImageElement/decode)-Methode ist in der Regel eine bessere Möglichkeit, eine atomare Präsentation zu erreichen, ohne andere Inhalte zurückzuhalten.
+Für Bilder, die in den DOM im sichtbaren Bereich eingefügt werden, kann `"async"` zu ungestylten Inhaltseffekten führen, während `"sync"` zu kleinen Mengen an {{Glossary("Jank", "Ruckeln")}} führen kann. Die Verwendung der [`HTMLImageElement.decode()`](/de/docs/Web/API/HTMLImageElement/decode)-Methode ist in der Regel eine bessere Möglichkeit, eine atomare Präsentation zu erreichen, ohne andere Inhalte zurückzuhalten.
 
 Für Bilder, die außerhalb des sichtbaren Bereichs in den DOM eingefügt werden, dekodieren moderne Browser sie in der Regel, bevor sie in den Sichtbereich gescrollt werden, und es gibt keinen spürbaren Unterschied bei der Verwendung eines der Werte.
 

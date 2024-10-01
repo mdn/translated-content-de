@@ -49,20 +49,20 @@ Beide Konstruktoren akzeptieren die oben genannten drei als separate Argumente, 
 
 Typed Array Ansichten haben selbsterklärende Namen und bieten Ansichten für alle üblichen numerischen Typen wie `Int8`, `Uint32`, `Float64` und so weiter. Es gibt eine spezielle Typed Array Ansicht, {{jsxref("Uint8ClampedArray")}}, die die Werte zwischen `0` und `255` einklammert. Dies ist nützlich für [Canvas-Datenverarbeitung](/de/docs/Web/API/ImageData) zum Beispiel.
 
-| Typ                              | Wertebereich                           | Größe in Bytes | Web IDL Typ           |
-| -------------------------------- | -------------------------------------- | -------------- | --------------------- |
-| {{jsxref("Int8Array")}}          | -128 bis 127                           | 1              | `byte`                |
-| {{jsxref("Uint8Array")}}         | 0 bis 255                              | 1              | `octet`               |
-| {{jsxref("Uint8ClampedArray")}}  | 0 bis 255                              | 1              | `octet`               |
-| {{jsxref("Int16Array")}}         | -32768 bis 32767                       | 2              | `short`               |
-| {{jsxref("Uint16Array")}}        | 0 bis 65535                            | 2              | `unsigned short`      |
-| {{jsxref("Int32Array")}}         | -2147483648 bis 2147483647             | 4              | `long`                |
-| {{jsxref("Uint32Array")}}        | 0 bis 4294967295                       | 4              | `unsigned long`       |
-| {{jsxref("Float16Array")}}       | `-65504` bis `65504`                   | 2              | N/A                   |
-| {{jsxref("Float32Array")}}       | `-3.4e38` bis `3.4e38`                 | 4              | `unrestricted float`  |
-| {{jsxref("Float64Array")}}       | `-1.8e308` bis `1.8e308`               | 8              | `unrestricted double` |
-| {{jsxref("BigInt64Array")}}      | -2<sup>63</sup> bis 2<sup>63</sup> - 1 | 8              | `bigint`              |
-| {{jsxref("BigUint64Array")}}     | 0 bis 2<sup>64</sup> - 1               | 8              | `bigint`              |
+| Typ                             | Wertebereich                           | Größe in Bytes | Web IDL Typ           |
+| ------------------------------- | -------------------------------------- | -------------- | --------------------- |
+| {{jsxref("Int8Array")}}         | -128 bis 127                           | 1              | `byte`                |
+| {{jsxref("Uint8Array")}}        | 0 bis 255                              | 1              | `octet`               |
+| {{jsxref("Uint8ClampedArray")}} | 0 bis 255                              | 1              | `octet`               |
+| {{jsxref("Int16Array")}}        | -32768 bis 32767                       | 2              | `short`               |
+| {{jsxref("Uint16Array")}}       | 0 bis 65535                            | 2              | `unsigned short`      |
+| {{jsxref("Int32Array")}}        | -2147483648 bis 2147483647             | 4              | `long`                |
+| {{jsxref("Uint32Array")}}       | 0 bis 4294967295                       | 4              | `unsigned long`       |
+| {{jsxref("Float16Array")}}      | `-65504` bis `65504`                   | 2              | N/A                   |
+| {{jsxref("Float32Array")}}      | `-3.4e38` bis `3.4e38`                 | 4              | `unrestricted float`  |
+| {{jsxref("Float64Array")}}      | `-1.8e308` bis `1.8e308`               | 8              | `unrestricted double` |
+| {{jsxref("BigInt64Array")}}     | -2<sup>63</sup> bis 2<sup>63</sup> - 1 | 8              | `bigint`              |
+| {{jsxref("BigUint64Array")}}    | 0 bis 2<sup>64</sup> - 1               | 8              | `bigint`              |
 
 Alle Typed Array Ansichten haben die gleichen Methoden und Eigenschaften, wie sie durch die {{jsxref("TypedArray")}} Klasse definiert sind. Sie unterscheiden sich nur im zugrundeliegenden Datentyp und der Größe in Bytes. Dies wird ausführlicher in [Wertkodierung und Normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization) diskutiert.
 
@@ -98,7 +98,7 @@ Object.freeze(uint8); // TypeError: Cannot freeze array buffer views with elemen
 
 ### DataView
 
-Der {{jsxref("DataView")}} ist eine niedrigstufige Schnittstelle, die eine Getter/Setter-API bereitstellt, um beliebige Daten in den Puffer zu lesen und zu schreiben. Dies ist nützlich, wenn mit unterschiedlichen Datentypen gearbeitet wird, zum Beispiel. Typed Array Ansichten liegen in der nativen Byte-Reihenfolge (siehe [Endianness](/de/docs/Glossary/Endianness)) Ihrer Plattform vor. Mit einem `DataView` kann die Byte-Reihenfolge kontrolliert werden. Standardmäßig ist sie Big-Endian—die Bytes sind von den wichtigsten zu den am wenigsten wichtigen geordnet. Dies kann umgekehrt werden, mit den Bytes in der Reihenfolge vom unwichtigsten zum wichtigsten (Little-Endian), mit Hilfe von Getter-/Setter-Methoden.
+Der {{jsxref("DataView")}} ist eine niedrigstufige Schnittstelle, die eine Getter/Setter-API bereitstellt, um beliebige Daten in den Puffer zu lesen und zu schreiben. Dies ist nützlich, wenn mit unterschiedlichen Datentypen gearbeitet wird, zum Beispiel. Typed Array Ansichten liegen in der nativen Byte-Reihenfolge (siehe {{Glossary("Endianness", "Endianness")}}) Ihrer Plattform vor. Mit einem `DataView` kann die Byte-Reihenfolge kontrolliert werden. Standardmäßig ist sie Big-Endian—die Bytes sind von den wichtigsten zu den am wenigsten wichtigen geordnet. Dies kann umgekehrt werden, mit den Bytes in der Reihenfolge vom unwichtigsten zum wichtigsten (Little-Endian), mit Hilfe von Getter-/Setter-Methoden.
 
 `DataView` erfordert keine Ausrichtung; Multibyte-Lesen und -Schreiben können an jedem angegebenen Offset beginnen. Die Setter-Methoden funktionieren auf die gleiche Weise.
 
@@ -294,7 +294,7 @@ const normalArray = [...typedArray];
 
 - [Schnellere Canvas-Pixelmanipulation mit Typed Arrays](https://hacks.mozilla.org/2011/12/faster-canvas-pixel-manipulation-with-typed-arrays/) auf hacks.mozilla.org (2011)
 - [Typed Arrays - Binärdaten im Browser](https://web.dev/articles/webgl-typed-arrays) auf web.dev (2012)
-- [Endianness](/de/docs/Glossary/Endianness)
+- {{Glossary("Endianness", "Endianness")}}
 - {{jsxref("ArrayBuffer")}}
 - {{jsxref("DataView")}}
 - {{jsxref("TypedArray")}}

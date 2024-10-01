@@ -24,7 +24,7 @@ Das `display-mode` Merkmal wird als ein Schlüsselwortwert aus der unten stehend
 - `browser`
   - : Die Anwendung öffnet sich in einem herkömmlichen Browser-Tab oder einem neuen Fenster, abhängig vom Browser und der Plattform.
 - `fullscreen`
-  - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird kein User-Agent-[Chrome](/de/docs/Glossary/chrome) angezeigt. Dies kann verwendet werden, um CSS nur anzuwenden, wenn die App durch die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) in den Vollbildmodus gebracht wurde oder durch Verwendung des `fullscreen` Werts des [`display`](/de/docs/Web/Manifest/display) Elements des Web App Manifests.
+  - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird kein User-Agent-{{Glossary("chrome", "Chrome")}} angezeigt. Dies kann verwendet werden, um CSS nur anzuwenden, wenn die App durch die [Fullscreen API](/de/docs/Web/API/Fullscreen_API) in den Vollbildmodus gebracht wurde oder durch Verwendung des `fullscreen` Werts des [`display`](/de/docs/Web/Manifest/display) Elements des Web App Manifests.
 - `minimal-ui`
   - : Die Anwendung sieht aus und fühlt sich an wie eine eigenständige App, verfügt jedoch über eine minimalistische Reihe von UI-Elementen zur Navigation. Die Elemente variieren je nach Browser.
 - `picture-in-picture`

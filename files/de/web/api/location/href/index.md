@@ -9,7 +9,7 @@ l10n:
 {{ApiRef("Location")}}
 
 Die **`href`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)
-Interfaces ist ein [Stringifier](/de/docs/Glossary/stringifier), der einen String mit der gesamten
+Interfaces ist ein {{Glossary("stringifier", "Stringifier")}}, der einen String mit der gesamten
 URL zurückgibt und es ermöglicht, das `href` zu aktualisieren.
 
 Das Setzen des Werts von `href` _navigiert_ zur angegebenen URL. Wenn Sie eine _Weiterleitung_ wünschen, verwenden Sie [`location.replace()`](/de/docs/Web/API/Location/replace). Der Unterschied zum Setzen des `href`-Eigenschaftswertes besteht darin, dass beim Verwenden der `location.replace()`-Methode nach der Navigation zur angegebenen URL die aktuelle Seite nicht im Sitzungs-[Verlauf](/de/docs/Web/API/History_API) gespeichert wird – das bedeutet, dass der Benutzer nicht die Zurück-Taste verwenden kann, um zu dieser Seite zurückzukehren.

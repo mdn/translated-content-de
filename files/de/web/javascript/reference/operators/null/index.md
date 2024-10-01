@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der Wert **`null`** repräsentiert das absichtliche Fehlen eines Objektwertes. Er ist einer der [primitiven Werte](/de/docs/Glossary/Primitive) von JavaScript und wird in booleschen Operationen als [falsch](/de/docs/Glossary/Falsy) behandelt.
+Der Wert **`null`** repräsentiert das absichtliche Fehlen eines Objektwertes. Er ist einer der {{Glossary("Primitive", "primitiven Werte")}} von JavaScript und wird in booleschen Operationen als {{Glossary("Falsy", "falsch")}} behandelt.
 
 {{EmbedInteractiveExample("pages/js/globalprops-null.html")}}
 

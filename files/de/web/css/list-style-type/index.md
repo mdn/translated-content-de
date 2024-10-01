@@ -85,7 +85,7 @@ Beachten Sie, dass:
 - `lower-greek`
   - : Kleinbuchstaben im klassischen Griechisch.
 - `lower-alpha`, `lower-latin`
-  - : Kleinbuchstaben [ASCII](/de/docs/Glossary/ASCII) Buchstaben.
+  - : Kleinbuchstaben {{Glossary("ASCII", "ASCII")}} Buchstaben.
 - `upper-alpha`, `upper-latin`
   - : Großbuchstaben ASCII Buchstaben.
 - `arabic-indic`, `-moz-arabic-indic`

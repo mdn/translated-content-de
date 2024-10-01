@@ -107,7 +107,7 @@ Ein Objekt, das die aktuelle Konfiguration des Senders angibt. <!-- RTCRtpSendPa
   - : Ein Array von null oder mehr RTP-Header-Erweiterungen, die jeweils eine vom Sender oder Empfänger unterstützte Erweiterung identifizieren. Header-Erweiterungen sind in {{RFC(3550, "", "5.3.1")}} beschrieben.
     Dieser Parameter kann nicht geändert werden, nachdem er initial eingestellt wurde.
 - `rtcp`
-  - : Ein [`RTCRtcpParameters`](/de/docs/Web/API/RTCRtcpParameters)-Objekt, das die Konfigurationsparameter bereitstellt, die für [RTCP](/de/docs/Glossary/RTCP) auf dem Sender oder Empfänger verwendet werden.
+  - : Ein [`RTCRtcpParameters`](/de/docs/Web/API/RTCRtcpParameters)-Objekt, das die Konfigurationsparameter bereitstellt, die für {{Glossary("RTCP", "RTCP")}} auf dem Sender oder Empfänger verwendet werden.
     Dieser Parameter kann nicht geändert werden, nachdem er initial eingestellt wurde.
 - `degradationPreference` {{deprecated_inline}} {{optional_inline}} <!-- aus der Spezifikation entfernt. Könnte in Chrome gewesen sein oder sein -->
   - : Gibt die bevorzugte Vorgehensweise an, wie die WebRTC-Schicht die Bandbreitenoptimierung gegenüber der Qualität in Situationen mit eingeschränkter Bandbreite handhaben sollte.
@@ -126,7 +126,7 @@ function getSenderTransactionID(sender) {
 }
 ```
 
-Ähnlich dazu holt dieser Code den kanonischen Namen (CNAME), der für [RTCP](/de/docs/Glossary/RTCP) auf einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) verwendet wird.
+Ähnlich dazu holt dieser Code den kanonischen Namen (CNAME), der für {{Glossary("RTCP", "RTCP")}} auf einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) verwendet wird.
 
 ```js
 function getRtpCNAME(sender) {

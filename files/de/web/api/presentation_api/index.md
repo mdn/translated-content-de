@@ -7,7 +7,7 @@ l10n:
 
 {{securecontext_header}}{{SeeCompatTable}}{{DefaultAPISidebar("Presentation API")}}
 
-Die Presentation API ermöglicht es einem [User-Agent](/de/docs/Glossary/user_agent) (wie einem Webbrowser), Webinhalte effektiv über große Präsentationsgeräte wie Projektoren und netzwerkverbundene Fernseher darzustellen. Unterstützte Arten von Multimedia-Geräten umfassen sowohl Displays, die kabelgebunden über HDMI, DVI oder Ähnliches verbunden sind, als auch kabellose, die [DLNA](https://www.dlna.org/), [Chromecast](https://developers.google.com/cast/), [AirPlay](https://developer.apple.com/airplay/) oder [Miracast](https://www.wi-fi.org/discover-wi-fi/miracast) verwenden.
+Die Presentation API ermöglicht es einem {{Glossary("user_agent", "User-Agent")}} (wie einem Webbrowser), Webinhalte effektiv über große Präsentationsgeräte wie Projektoren und netzwerkverbundene Fernseher darzustellen. Unterstützte Arten von Multimedia-Geräten umfassen sowohl Displays, die kabelgebunden über HDMI, DVI oder Ähnliches verbunden sind, als auch kabellose, die [DLNA](https://www.dlna.org/), [Chromecast](https://developers.google.com/cast/), [AirPlay](https://developer.apple.com/airplay/) oder [Miracast](https://www.wi-fi.org/discover-wi-fi/miracast) verwenden.
 
 ![1-UA-Modus lädt die Steuer- und Präsentationsseiten gemeinsam, bevor sie an Displays ausgegeben werden. 2-UA-Modus lädt sie separat unter Verwendung des Presentation Control Protocol.](presentation_mode_illustration.png)
 

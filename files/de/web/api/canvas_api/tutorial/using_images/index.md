@@ -218,7 +218,7 @@ Das resultierende Canvas sieht folgendermaßen aus:
 Die dritte und letzte Variante der `drawImage()`-Methode hat acht Parameter neben der Bildquelle. Sie erlaubt es uns, einen Abschnitt des Quellbildes auszuschneiden, ihn dann zu skalieren und auf unser Canvas zu zeichnen.
 
 - [`drawImage(image, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage)
-  - : Angenommen ein `image`, diese Funktion nimmt den Bereich des Quellbildes, der durch das Rechteck, dessen obere linke Ecke sich an (`sx`, `sy`) befindet und dessen Breite und Höhe `sWidth` und `sHeight` sind, und zeichnet es in das Canvas, platziert es auf dem Canvas bei (`dx`, `dy`) und skaliert es auf die durch `dWidth` und `dHeight` angegebene Größe, wobei das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) beibehalten wird.
+  - : Angenommen ein `image`, diese Funktion nimmt den Bereich des Quellbildes, der durch das Rechteck, dessen obere linke Ecke sich an (`sx`, `sy`) befindet und dessen Breite und Höhe `sWidth` und `sHeight` sind, und zeichnet es in das Canvas, platziert es auf dem Canvas bei (`dx`, `dy`) und skaliert es auf die durch `dWidth` und `dHeight` angegebene Größe, wobei das {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehalten wird.
 
 Um wirklich zu verstehen, was dies bewirkt, kann es hilfreich sein, sich dieses Bild anzusehen:
 

@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<span>`** [HTML](/de/docs/Web/HTML)-Element ist ein generischer Inline-Container für Phrasierungsinhalte, der von sich aus nichts repräsentiert. Es kann verwendet werden, um Elemente für Stilzwecke zu gruppieren (mithilfe der Attribute [`class`](/de/docs/Web/HTML/Global_attributes#class) oder [`id`](/de/docs/Web/HTML/Global_attributes#id)), oder weil sie gemeinsame Attributwerte haben, wie zum Beispiel [`lang`](/de/docs/Web/HTML/Global_attributes#lang). Es sollte nur verwendet werden, wenn kein anderes semantisches Element geeignet ist. `<span>` ist dem {{HTMLElement("div")}}-Element sehr ähnlich, aber {{HTMLElement("div")}} ist ein [Block-level-Element](/de/docs/Glossary/Block-level_content), während ein `<span>` ein [Inline-level-Element](/de/docs/Glossary/Inline-level_content) ist.
+Das **`<span>`** [HTML](/de/docs/Web/HTML)-Element ist ein generischer Inline-Container für Phrasierungsinhalte, der von sich aus nichts repräsentiert. Es kann verwendet werden, um Elemente für Stilzwecke zu gruppieren (mithilfe der Attribute [`class`](/de/docs/Web/HTML/Global_attributes#class) oder [`id`](/de/docs/Web/HTML/Global_attributes#id)), oder weil sie gemeinsame Attributwerte haben, wie zum Beispiel [`lang`](/de/docs/Web/HTML/Global_attributes#lang). Es sollte nur verwendet werden, wenn kein anderes semantisches Element geeignet ist. `<span>` ist dem {{HTMLElement("div")}}-Element sehr ähnlich, aber {{HTMLElement("div")}} ist ein {{Glossary("Block-level_content", "Block-level-Element")}}, während ein `<span>` ein {{Glossary("Inline-level_content", "Inline-level-Element")}} ist.
 
 {{EmbedInteractiveExample("pages/tabbed/span.html", "tabbed-shorter")}}
 

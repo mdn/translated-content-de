@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`lab()`** Funktionsnotation gibt eine bestimmte Farbe im CIE L\*a\*b\* [Farbraum](/de/docs/Glossary/color_space) an.
+Die **`lab()`** Funktionsnotation gibt eine bestimmte Farbe im CIE L\*a\*b\* {{Glossary("color_space", "Farbraum")}} an.
 
 Lab repräsentiert das gesamte Farbspektrum, das Menschen sehen können, indem die Helligkeit der Farbe, ein Rot/Grün-Achsenwert, ein Blau/Gelb-Achsenwert und ein optionaler Alpha-Transparenzwert angegeben werden.
 

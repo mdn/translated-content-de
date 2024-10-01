@@ -45,7 +45,7 @@ Ein {{jsxref("Promise")}}, das mit einer Instanz von [`SerialPort`](/de/docs/Web
 
 ## Sicherheit
 
-Es ist eine [vorübergehende Aktivierung](/de/docs/Glossary/Transient_activation) erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
+Es ist eine {{Glossary("Transient_activation", "vorübergehende Aktivierung")}} erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 

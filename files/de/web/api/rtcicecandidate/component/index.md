@@ -25,7 +25,7 @@ Ein String, der einen der folgenden Werte annimmt:
 
 ## Nutzungshinweise
 
-Betrachten Sie diese [SDP](/de/docs/Glossary/SDP)-Attributzeile (a-Zeile):
+Betrachten Sie diese {{Glossary("SDP", "SDP")}}-Attributzeile (a-Zeile):
 
 ```plain
 a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host

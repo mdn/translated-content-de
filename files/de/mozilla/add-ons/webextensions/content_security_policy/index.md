@@ -65,7 +65,7 @@ Diese Richtlinien gelten für alle Erweiterungen, die ihre eigene Content-Securi
 
 ### Standort von Skript- und Objektressourcen
 
-Unter der Standard-CSP können Sie nur Code laden, der lokal zur Erweiterung gehört. Die CSP beschränkt {{CSP("script-src")}} auf sichere Quellen, die [\<script>](/de/docs/Web/HTML/Element/script)-Ressourcen, [ES6-Module](/de/docs/Web/JavaScript/Guide/Modules) und [Web-Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) abdecken. In Browsern, die veraltete [Plugins](/de/docs/Glossary/Plugin) unterstützen, ist auch die {{CSP("object-src")}}-Richtlinie eingeschränkt. Für weitere Informationen zu object-src in Erweiterungen siehe das WECG-Problem [Remove object-src from the CSP (at least in MV3)](https://github.com/w3c/webextensions/issues/204)).
+Unter der Standard-CSP können Sie nur Code laden, der lokal zur Erweiterung gehört. Die CSP beschränkt {{CSP("script-src")}} auf sichere Quellen, die [\<script>](/de/docs/Web/HTML/Element/script)-Ressourcen, [ES6-Module](/de/docs/Web/JavaScript/Guide/Modules) und [Web-Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) abdecken. In Browsern, die veraltete {{Glossary("Plugin", "Plugins")}} unterstützen, ist auch die {{CSP("object-src")}}-Richtlinie eingeschränkt. Für weitere Informationen zu object-src in Erweiterungen siehe das WECG-Problem [Remove object-src from the CSP (at least in MV3)](https://github.com/w3c/webextensions/issues/204)).
 
 Betrachten Sie zum Beispiel eine Zeile wie diese in einem Dokument einer Erweiterung:
 

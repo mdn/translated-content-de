@@ -43,7 +43,7 @@ Ein {{jsxref("Promise")}}, das mit einem [`WakeLockSentinel`](/de/docs/Web/API/W
     - Die Verwendung dieser Funktion ist durch eine [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
     - Das Dokument ist nicht vollständig aktiv.
     - Der Sichtbarkeitsstatus des Dokuments ist `hidden`.
-    - Der [User Agent](/de/docs/Glossary/User_Agent) konnte die Aufwach-Sperre der Plattform nicht erwerben.
+    - Der {{Glossary("User_Agent", "User Agent")}} konnte die Aufwach-Sperre der Plattform nicht erwerben.
       Dies könnte zum Beispiel passieren, wenn das Gerät wenig Akku hat.
 
 ## Beispiele

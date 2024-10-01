@@ -104,7 +104,7 @@ Die mit einem Multimedia-Element verbundenen `TextTrack` Objekte werden in einem
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein [leeres Element](/de/docs/Glossary/void_element).</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag Auslassung</th>

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft legt benannte [Gitterbereiche](/de/docs/Glossary/grid_areas) fest, indem sie die Zellen im Raster definiert und ihnen Namen zuweist.
+Die **`grid-template-areas`** [CSS](/de/docs/Web/CSS) Eigenschaft legt benannte {{Glossary("grid_areas", "Gitterbereiche")}} fest, indem sie die Zellen im Raster definiert und ihnen Namen zuweist.
 
 {{EmbedInteractiveExample("pages/css/grid-template-areas.html")}}
 

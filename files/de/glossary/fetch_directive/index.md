@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**[CSP](/de/docs/Glossary/CSP) Fetch-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und kontrollieren die Orte, von denen bestimmte Ressourcentypen geladen werden dürfen. Zum Beispiel ermöglicht {{CSP("script-src")}} Entwicklern, vertrauenswürdige Quellen von Skripten zuzulassen, die auf einer Seite ausgeführt werden, während {{CSP("font-src")}} die Quellen von Webfonts kontrolliert.
+**{{Glossary("CSP", "CSP")}} Fetch-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und kontrollieren die Orte, von denen bestimmte Ressourcentypen geladen werden dürfen. Zum Beispiel ermöglicht {{CSP("script-src")}} Entwicklern, vertrauenswürdige Quellen von Skripten zuzulassen, die auf einer Seite ausgeführt werden, während {{CSP("font-src")}} die Quellen von Webfonts kontrolliert.
 
 Alle Fetch-Direktiven fallen auf {{CSP("default-src")}} zurück. Das bedeutet, wenn eine Fetch-Direktive im CSP-Header fehlt, wird der User Agent die `default-src`-Direktive suchen.
 
@@ -16,10 +16,10 @@ Sehen Sie [Fetch-Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy#f
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [CSP](/de/docs/Glossary/CSP)
-  - [Reporting-Direktive](/de/docs/Glossary/Reporting_directive)
-  - [Document-Direktive](/de/docs/Glossary/Document_directive)
-  - [Navigation-Direktive](/de/docs/Glossary/Navigation_directive)
+  - {{Glossary("CSP", "CSP")}}
+  - {{Glossary("Reporting_directive", "Reporting-Direktive")}}
+  - {{Glossary("Document_directive", "Document-Direktive")}}
+  - {{Glossary("Navigation_directive", "Navigation-Direktive")}}
 - Referenz
   - <https://www.w3.org/TR/CSP/#directives-fetch>
   - {{HTTPHeader("Content-Security-Policy/upgrade-insecure-requests", "upgrade-insecure-requests")}}

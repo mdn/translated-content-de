@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein [flexbox](/de/docs/Glossary/flexbox) Layout wird durch die Werte `flex` oder `inline-flex` der `display`-Eigenschaft am Elternelement definiert. Dieses Element wird dann zu einem **Flex-Container**, und jedes seiner Kinder wird zu einem [Flex-Item](/de/docs/Glossary/flex_item).
+Ein {{Glossary("flexbox", "flexbox")}} Layout wird durch die Werte `flex` oder `inline-flex` der `display`-Eigenschaft am Elternelement definiert. Dieses Element wird dann zu einem **Flex-Container**, und jedes seiner Kinder wird zu einem {{Glossary("flex_item", "Flex-Item")}}.
 
 Ein Wert von `flex` macht das Element zu einem Block-Level-Flex-Container und `inline-flex` zu einem Inline-Level-Flex-Container. Diese Werte schaffen einen **Flex-Formatierungskontext** für das Element, der ähnlich wie ein Block-Formatierungskontext funktioniert, indem `floats` nicht in den Container eindringen, und die Abstände (`margins`) des Containers nicht mit denen der Elemente zusammenfallen.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**CORS** (Cross-Origin Resource Sharing) ist ein System, das aus der Übertragung von [HTTP-Headern](/de/docs/Glossary/HTTP_header) besteht und bestimmt, ob Browser verhindern, dass Frontend-JavaScript-Code auf Antworten für Cross-Origin-Anfragen zugreift.
+**CORS** (Cross-Origin Resource Sharing) ist ein System, das aus der Übertragung von {{Glossary("HTTP_header", "HTTP-Headern")}} besteht und bestimmt, ob Browser verhindern, dass Frontend-JavaScript-Code auf Antworten für Cross-Origin-Anfragen zugreift.
 
 Die [Same-Origin-Sicherheitspolitik](/de/docs/Web/Security/Same-origin_policy) verbietet den Cross-Origin-Zugriff auf Ressourcen. Aber CORS ermöglicht es Webservern, anzugeben, dass sie in den Cross-Origin-Zugriff auf ihre Ressourcen einwilligen möchten.
 

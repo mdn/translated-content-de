@@ -27,7 +27,7 @@ Die Syntax ist einfach. Jedes Attribut an einem beliebigen Element, dessen Attri
 
 Das Auslesen der Werte dieser Attribute in [JavaScript](/de/docs/Web/JavaScript) ist ebenfalls sehr einfach. Sie könnten [`getAttribute()`](/de/docs/Web/API/Element/getAttribute) mit ihrem vollständigen HTML-Namen verwenden, um sie auszulesen, aber der Standard definiert einen einfacheren Weg: eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap), die Sie über eine [`dataset`](/de/docs/Web/API/HTMLElement/dataset) Eigenschaft auslesen können.
 
-Um ein `data` Attribut über das `dataset` Objekt zu erhalten, holen Sie die Eigenschaft des Attributnamens nach `data-` (beachten Sie, dass Bindestriche in [Camel Case](/de/docs/Glossary/camel_case) umgewandelt werden).
+Um ein `data` Attribut über das `dataset` Objekt zu erhalten, holen Sie die Eigenschaft des Attributnamens nach `data-` (beachten Sie, dass Bindestriche in {{Glossary("camel_case", "Camel Case")}} umgewandelt werden).
 
 ```js
 const article = document.querySelector("#electric-cars");

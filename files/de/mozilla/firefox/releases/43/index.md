@@ -76,7 +76,7 @@ _Keine Änderung._
 #### Verschiedenes
 
 - Die [Battery Status API](/de/docs/Web/API/Battery_Status_API) verwendet jetzt die neue Promise-Syntax für [`Navigator.getBattery()`](/de/docs/Web/API/Navigator/getBattery), wie in der jüngsten Spezifikationsevolution definiert ([Firefox-Bug 1050749](https://bugzil.la/1050749)).
-- Der `User-Agent`-Header ist nicht länger in der Liste der [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name), so dass er jetzt in einem [Fetch](/de/docs/Web/API/Fetch_API) [`Headers`](/de/docs/Web/API/Headers)-Objekt, über XHR [`XMLHttpRequest.setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader),... gesetzt werden kann ([Firefox-Bug 1188932](https://bugzil.la/1188932)).
+- Der `User-Agent`-Header ist nicht länger in der Liste der {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}}, so dass er jetzt in einem [Fetch](/de/docs/Web/API/Fetch_API) [`Headers`](/de/docs/Web/API/Headers)-Objekt, über XHR [`XMLHttpRequest.setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader),... gesetzt werden kann ([Firefox-Bug 1188932](https://bugzil.la/1188932)).
 - Der [`MediaRecorder()`](/de/docs/Web/API/MediaRecorder/MediaRecorder)-Konstruktor kann jetzt ein Options-Dictionary als Parameter akzeptieren, mit dem Sie benutzerdefinierte Bitraten für die Audio-/Videoaufnahme festlegen können ([Firefox-Bug 1161276](https://bugzil.la/1161276)).
 - Die [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Schnittstelle, die zu den [Performance APIs](/de/docs/Web/API/Performance_API) gehört, wurde implementiert ([Firefox-Bug 1165796](https://bugzil.la/1165796)).
 - Die Frame Timing API wurde hinzugefügt: Die `PerformanceRenderTiming`- und `PerformanceCompositeTiming`-Schnittstellen sind jetzt verfügbar ([Firefox-Bug 1191178](https://bugzil.la/1191178)).
@@ -133,7 +133,7 @@ _Keine Änderung._
 
 ### Plugins
 
-- In Vorbereitung auf zukünftige Versionen, die auf Multi-Prozess-Inhalte umsteigen werden, können [NPAPI](/de/docs/Glossary/Plugin)-Plugins nicht mehr im gleichen Prozess wie die Seiteninhalte ausgeführt werden. Die mit `dom.ipc.plugins` beginnenden Präferenzen werden nicht mehr verwendet.
+- In Vorbereitung auf zukünftige Versionen, die auf Multi-Prozess-Inhalte umsteigen werden, können {{Glossary("Plugin", "NPAPI")}}-Plugins nicht mehr im gleichen Prozess wie die Seiteninhalte ausgeführt werden. Die mit `dom.ipc.plugins` beginnenden Präferenzen werden nicht mehr verwendet.
 
 ### Sonstiges
 

@@ -16,7 +16,7 @@ Eine Zahl, die angibt, wie viele Audio-Tracks in der `AudioTrackList` enthalten 
 
 ## Beispiele
 
-Dieses Snippet ermittelt die Anzahl der Audio-Tracks im ersten {{HTMLElement("video")}}-Element, das im [DOM](/de/docs/Glossary/DOM) mit [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
+Dieses Snippet ermittelt die Anzahl der Audio-Tracks im ersten {{HTMLElement("video")}}-Element, das im {{Glossary("DOM", "DOM")}} mit [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
 
 ```js
 const videoElem = document.querySelector("video");

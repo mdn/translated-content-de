@@ -112,7 +112,7 @@ Bevor wir uns die verschiedenen Formate von daten- und zeitbezogenen Zeichenfolg
 
 ### Zeichensatz
 
-Daten und Zeiten in HTML sind immer Zeichenfolgen, die den [ASCII](/de/docs/Glossary/ASCII)-Zeichensatz verwenden.
+Daten und Zeiten in HTML sind immer Zeichenfolgen, die den {{Glossary("ASCII", "ASCII")}}-Zeichensatz verwenden.
 
 ### Jahreszahlen
 
@@ -228,14 +228,14 @@ Ein Jahr hat 53 Wochen, wenn:
 
 Alle anderen Jahre haben 52 Wochen.
 
-| Wochenzeichenfolge | Woche und Jahr (Datumsbereich)                   |
-| ------------------ | ------------------------------------------------ |
-| `2001-W37`         | Woche 37, 2001 (10.-16. September, 2001)         |
-| `1953-W01`         | Woche 1, 1953 (29. Dezember, 1952–4. Januar, 1953) |
-| `1948-W53`         | Woche 53, 1948 (27. Dezember, 1948–2. Januar, 1949)|
-| `1949-W01`         | Woche 1, 1949 (3.–9. Januar, 1949)               |
-| `0531-W16`         | Woche 16, 531 (13.–19. April, 531)               |
-| `0042-W04`         | Woche 4, 42 (21.–27. Januar, 42)                 |
+| Wochenzeichenfolge | Woche und Jahr (Datumsbereich)                      |
+| ------------------ | --------------------------------------------------- |
+| `2001-W37`         | Woche 37, 2001 (10.-16. September, 2001)            |
+| `1953-W01`         | Woche 1, 1953 (29. Dezember, 1952–4. Januar, 1953)  |
+| `1948-W53`         | Woche 53, 1948 (27. Dezember, 1948–2. Januar, 1949) |
+| `1949-W01`         | Woche 1, 1949 (3.–9. Januar, 1949)                  |
+| `0531-W16`         | Woche 16, 531 (13.–19. April, 531)                  |
+| `0042-W04`         | Woche 4, 42 (21.–27. Januar, 42)                    |
 
 Beachten Sie, dass sowohl die Jahres- als auch die Wochenzahlen mit führenden Nullen aufgefüllt sind, wobei die Jahreszahl auf vier Ziffern und die Woche auf zwei Ziffern aufgefüllt ist.
 
@@ -259,12 +259,12 @@ Beachten Sie, dass alle Jahre mindestens vier Zeichen lang sind; Jahre, die weni
 
 Eine gültige Datumszeichenfolge besteht aus einer [Monatszeichenfolge](#monatszeichenfolgen), gefolgt von einem Bindestrich-Zeichen (`-`, oder U+002D), gefolgt von einem zweistelligen [Tag des Monats](#tage_des_monats).
 
-| Datumszeichenfolge | Volles Datum      |
-| ------------------ | ----------------- |
-| `1993-11-01`       | 1. November 1993  |
-| `1066-10-14`       | 14. Oktober 1066  |
-| `0571-04-22`       | 22. April 571     |
-| `0062-02-05`       | 5. Februar 62     |
+| Datumszeichenfolge | Volles Datum     |
+| ------------------ | ---------------- |
+| `1993-11-01`       | 1. November 1993 |
+| `1066-10-14`       | 14. Oktober 1066 |
+| `0571-04-22`       | 22. April 571    |
+| `0062-02-05`       | 5. Februar 62    |
 
 ## Zeitzeichenfolgen
 
@@ -278,11 +278,11 @@ Es gibt einige zusätzliche grundlegende Regeln:
 - Wenn die Anzahl der Sekunden angegeben wird und ganzzahlig ist, darf sie nicht von einem Dezimalpunkt gefolgt werden.
 - Wenn ein Bruchteil einer Sekunde angegeben wird, kann er zwischen ein und drei Ziffern lang sein und gibt die Anzahl der Millisekunden an. Er folgt dem Dezimalpunkt, der nach der Sekundenkomponente der Zeitzeichenfolge platziert wird.
 
-| Zeitzeichenfolge  | Zeit                                             |
-| ----------------- | ------------------------------------------------ |
-| `00:00:30.75`     | 12:00:30,75 Uhr (30,75 Sekunden nach Mitternacht)|
-| `12:15`           | 12:15 Uhr                                        |
-| `13:44:25`        | 13:44:25 Uhr (25 Sekunden nach 13:44 Uhr)        |
+| Zeitzeichenfolge | Zeit                                              |
+| ---------------- | ------------------------------------------------- |
+| `00:00:30.75`    | 12:00:30,75 Uhr (30,75 Sekunden nach Mitternacht) |
+| `12:15`          | 12:15 Uhr                                         |
+| `13:44:25`       | 13:44:25 Uhr (25 Sekunden nach 13:44 Uhr)         |
 
 ## Lokale Datums- und Zeitzeichenfolgen
 

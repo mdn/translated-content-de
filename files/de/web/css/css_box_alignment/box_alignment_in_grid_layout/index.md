@@ -44,7 +44,7 @@ Um Dinge auf der Block-Achse auszurichten, verwenden Sie die Eigenschaften, die 
 
 Diese Eigenschaften befassen sich mit der Ausrichtung des Elements innerhalb des Grid-Bereichs, in den es platziert ist. Die Eigenschaften `align-items` und `justify-items` werden auf den Grid-Container angewendet und setzen die Eigenschaften `align-self` und `justify-self` als Gruppe. Das bedeutet, dass Sie die Ausrichtung für alle Ihre Grid-Elemente auf einmal setzen können, um dann die Elemente, die eine andere Ausrichtung benötigen, durch Anwenden der Eigenschaft `align-self` oder `justify-self` auf die Regeln für die einzelnen Grid-Elemente zu überschreiben.
 
-Der anfängliche Wert für `align-self` und `justify-self` ist `stretch`, sodass das Element sich über den gesamten Grid-Bereich erstreckt. Eine Ausnahme zu dieser Regel ist, wenn das Element ein intrinsisches [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) hat, zum Beispiel ein Bild. In diesem Fall wird das Element in beiden Dimensionen auf `start` ausgerichtet, um zu vermeiden, dass das Bild verzerrt wird.
+Der anfängliche Wert für `align-self` und `justify-self` ist `stretch`, sodass das Element sich über den gesamten Grid-Bereich erstreckt. Eine Ausnahme zu dieser Regel ist, wenn das Element ein intrinsisches {{Glossary("aspect_ratio", "Seitenverhältnis")}} hat, zum Beispiel ein Bild. In diesem Fall wird das Element in beiden Dimensionen auf `start` ausgerichtet, um zu vermeiden, dass das Bild verzerrt wird.
 
 ## Inhaltsausrichtung
 
@@ -83,8 +83,8 @@ Die aktualisierten Eigenschaften wurden noch nicht in allen Browsern implementie
 
 ### Glossar-Einträge
 
-- [Querachse](/de/docs/Glossary/Cross_Axis)
-- [Hauptachse](/de/docs/Glossary/Main_Axis)
+- {{Glossary("Cross_Axis", "Querachse")}}
+- {{Glossary("Main_Axis", "Hauptachse")}}
 
 ## Leitfäden
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Das **`channelCount`**-Attribut des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der in dem durch [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegebenen Objekt nur dann vorhanden ist (und auf `true` gesetzt wird), wenn der [User Agent](/de/docs/Glossary/user_agent) die `channelCount`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie in der Liste nicht enthalten, daher wird dieser Wert niemals `false` sein.
+Das **`channelCount`**-Attribut des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der in dem durch [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegebenen Objekt nur dann vorhanden ist (und auf `true` gesetzt wird), wenn der {{Glossary("user_agent", "User Agent")}} die `channelCount`-Einschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie in der Liste nicht enthalten, daher wird dieser Wert niemals `false` sein.
 
 Sie können das Wörterbuch der unterstützten Einschränkungen abrufen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 

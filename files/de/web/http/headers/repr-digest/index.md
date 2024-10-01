@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Repr-Digest`** Antwort- oder Anforderungsheader liefert einen [Digest](/de/docs/Glossary/digest) der [ausgewählten Repräsentation](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource. Er bleibt unverändert z. B. unter {{HTTPHeader("Content-Encoding")}} oder {{HTTPHeader("Content-Range")}}, die den {{HTTPHeader("Content-Digest")}} beeinflussen. Darüber hinaus kann die [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation) zu unterschiedlichen ausgewählten Repräsentationen mit unterschiedlichen Repräsentationsdigests führen.
+Der **`Repr-Digest`** Antwort- oder Anforderungsheader liefert einen {{Glossary("digest", "Digest")}} der [ausgewählten Repräsentation](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource. Er bleibt unverändert z. B. unter {{HTTPHeader("Content-Encoding")}} oder {{HTTPHeader("Content-Range")}}, die den {{HTTPHeader("Content-Digest")}} beeinflussen. Darüber hinaus kann die [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation) zu unterschiedlichen ausgewählten Repräsentationen mit unterschiedlichen Repräsentationsdigests führen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Repräsentationsheader](/de/docs/Glossary/Representation_header)</td>
+      <td>{{Glossary("Representation_header", "Repräsentationsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

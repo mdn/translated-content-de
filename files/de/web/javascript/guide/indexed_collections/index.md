@@ -543,9 +543,9 @@ console.log(result);
 // }
 ```
 
-Beachten Sie, dass das zurückgegebene Objekt auf die _gleichen_ Elemente verweist wie das ursprüngliche Array (nicht [tiefe Kopien](/de/docs/Glossary/deep_copy)). Änderungen an der internen Struktur dieser Elemente werden sowohl im ursprünglichen Array als auch im zurückgegebenen Objekt reflektiert.
+Beachten Sie, dass das zurückgegebene Objekt auf die _gleichen_ Elemente verweist wie das ursprüngliche Array (nicht {{Glossary("deep_copy", "tiefe Kopien")}}). Änderungen an der internen Struktur dieser Elemente werden sowohl im ursprünglichen Array als auch im zurückgegebenen Objekt reflektiert.
 
-Wenn Sie keine Zeichenkette als Schlüssel verwenden können, beispielsweise wenn die Informationen zur Gruppierung mit einem Objekt verbunden sind, das sich ändern könnte, können Sie stattdessen {{jsxref("Map.groupBy()")}} verwenden. Dies ist sehr ähnlich zu `Object.groupBy()`, außer dass es die Elemente des Arrays in eine {{jsxref("Map")}} gruppiert, die einen beliebigen Wert ([Objekt](/de/docs/Glossary/object) oder [Primitive](/de/docs/Glossary/primitive)) als Schlüssel verwenden kann.
+Wenn Sie keine Zeichenkette als Schlüssel verwenden können, beispielsweise wenn die Informationen zur Gruppierung mit einem Objekt verbunden sind, das sich ändern könnte, können Sie stattdessen {{jsxref("Map.groupBy()")}} verwenden. Dies ist sehr ähnlich zu `Object.groupBy()`, außer dass es die Elemente des Arrays in eine {{jsxref("Map")}} gruppiert, die einen beliebigen Wert ({{Glossary("object", "Objekt")}} oder {{Glossary("primitive", "Primitive")}}) als Schlüssel verwenden kann.
 
 ## Sparse Arrays
 

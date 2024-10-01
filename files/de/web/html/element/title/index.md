@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<title>`**-[HTML](/de/docs/Web/HTML)-Element definiert den Titel des Dokuments, der in der Titelleiste eines [Browsers](/de/docs/Glossary/Browser) oder in einem Tab der Seite angezeigt wird. Es enthält nur Text; Tags innerhalb des Elements werden ignoriert.
+Das **`<title>`**-[HTML](/de/docs/Web/HTML)-Element definiert den Titel des Dokuments, der in der Titelleiste eines {{Glossary("Browser", "Browsers")}} oder in einem Tab der Seite angezeigt wird. Es enthält nur Text; Tags innerhalb des Elements werden ignoriert.
 
 ```html
 <title>Grandma's Heavy Metal Festival Journal</title>
@@ -23,7 +23,7 @@ Das `<title>`-Element wird immer innerhalb des {{HTMLElement("head")}}-Blocks ei
 
 ### Seitentitel und SEO
 
-Der Inhalt eines Seitentitels kann erhebliche Auswirkungen auf die Suchmaschinenoptimierung ([SEO](/de/docs/Glossary/SEO)) haben. Im Allgemeinen erzielt ein längerer, beschreibender Titel bessere Leistungen als kurze oder generische Titel. Der Inhalt des Titels ist eine der Komponenten, die von Suchmaschinenalgorithmen verwendet werden, um die Reihenfolge der Seiten in den Suchergebnissen zu bestimmen. Außerdem ist der Titel der erste "Hook", mit dem Sie die Aufmerksamkeit der Leser auf der Suchergebnisseite gewinnen.
+Der Inhalt eines Seitentitels kann erhebliche Auswirkungen auf die Suchmaschinenoptimierung ({{Glossary("SEO", "SEO")}}) haben. Im Allgemeinen erzielt ein längerer, beschreibender Titel bessere Leistungen als kurze oder generische Titel. Der Inhalt des Titels ist eine der Komponenten, die von Suchmaschinenalgorithmen verwendet werden, um die Reihenfolge der Seiten in den Suchergebnissen zu bestimmen. Außerdem ist der Titel der erste "Hook", mit dem Sie die Aufmerksamkeit der Leser auf der Suchergebnisseite gewinnen.
 
 Einige Richtlinien und Tipps für gute Titel:
 
@@ -85,7 +85,7 @@ Dieses Beispiel stellt eine Seite dar, deren Titel (wie oben im Fenster oder im 
     <tr>
       <th scope="row">Zulässiger Inhalt</th>
       <td>
-        Text, der kein Zwischen-Element-\[Leerraum\](/de/docs/Glossary/whitespace) ist.
+        Text, der kein Zwischen-Element-\{{Glossary("whitespace", "Leerraum\")}} ist.
       </td>
     </tr>
     <tr>

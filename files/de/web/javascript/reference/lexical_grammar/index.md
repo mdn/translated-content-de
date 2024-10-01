@@ -13,27 +13,27 @@ Diese Seite beschreibt die lexikalische Grammatik von JavaScript. Der JavaScript
 
 Steuerzeichen für das Format haben keine visuelle Darstellung, werden jedoch zur Steuerung der Interpretation des Textes verwendet.
 
-| Codepunkt | Name                  | Abkürzung    | Beschreibung                                                                                                                                                                                                                   |
-| ---------- | --------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| U+200C     | Zero width non-joiner | \<ZWNJ>      | Zwischen Zeichen platziert, um zu verhindern, dass sie in bestimmten Sprachen zu Ligaturen verbunden werden ([Wikipedia](https://de.wikipedia.org/wiki/Zero-width_non-joiner)).                                                |
-| U+200D     | Zero width joiner     | \<ZWJ>       | Zwischen Zeichen platziert, die normalerweise nicht verbunden werden, um die Darstellung ihrer verbundenen Form in bestimmten Sprachen zu erzwingen ([Wikipedia](https://de.wikipedia.org/wiki/Zero-width_joiner)).            |
-| U+FEFF     | Byte order mark       | \<BOM>       | Wird am Anfang des Scripts verwendet, um es als Unicode zu markieren und die Erkennung von Textkodierung und Byte-Reihenfolge zu ermöglichen ([Wikipedia](https://de.wikipedia.org/wiki/Byte_order_mark)).                      |
+| Codepunkt | Name                  | Abkürzung | Beschreibung                                                                                                                                                                                                        |
+| --------- | --------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| U+200C    | Zero width non-joiner | \<ZWNJ>   | Zwischen Zeichen platziert, um zu verhindern, dass sie in bestimmten Sprachen zu Ligaturen verbunden werden ([Wikipedia](https://de.wikipedia.org/wiki/Zero-width_non-joiner)).                                     |
+| U+200D    | Zero width joiner     | \<ZWJ>    | Zwischen Zeichen platziert, die normalerweise nicht verbunden werden, um die Darstellung ihrer verbundenen Form in bestimmten Sprachen zu erzwingen ([Wikipedia](https://de.wikipedia.org/wiki/Zero-width_joiner)). |
+| U+FEFF    | Byte order mark       | \<BOM>    | Wird am Anfang des Scripts verwendet, um es als Unicode zu markieren und die Erkennung von Textkodierung und Byte-Reihenfolge zu ermöglichen ([Wikipedia](https://de.wikipedia.org/wiki/Byte_order_mark)).          |
 
 Im JavaScript-Quelltext werden \<ZWNJ> und \<ZWJ> als Teile von [Bezeichnern](#bezeichner) behandelt, während \<BOM> (auch Zero-width no-break space \<ZWNBSP> genannt, wenn nicht am Anfang des Textes) als [Leerzeichen](#leerzeichen) behandelt wird.
 
 ## Leerzeichen
 
-[Leerzeichen](/de/docs/Glossary/Whitespace) verbessern die Lesbarkeit von Quelltext und trennen Token voneinander. Diese Zeichen sind normalerweise für die Funktionalität des Codes nicht erforderlich. [Minifizierungstools](https://de.wikipedia.org/wiki/Minifizieren_(Programmierung)) werden häufig verwendet, um Leerzeichen zu entfernen und so die Menge an zu übertragenden Daten zu reduzieren.
+{{Glossary("Whitespace", "Leerzeichen")}} verbessern die Lesbarkeit von Quelltext und trennen Token voneinander. Diese Zeichen sind normalerweise für die Funktionalität des Codes nicht erforderlich. [Minifizierungstools](<https://de.wikipedia.org/wiki/Minifizieren_(Programmierung)>) werden häufig verwendet, um Leerzeichen zu entfernen und so die Menge an zu übertragenden Daten zu reduzieren.
 
-| Codepunkt | Name                           | Abkürzung    | Beschreibung                                                                                        | Escape-Sequenz |
-| ---------- | ------------------------------ | ------------ | -------------------------------------------------------------------------------------------------- | --------------- |
-| U+0009     | Character tabulation           | \<TAB>       | Horizontaler Tabulator                                                                              | \t              |
-| U+000B     | Line tabulation                | \<VT>        | Vertikaler Tabulator                                                                                | \v              |
-| U+000C     | Form feed                      | \<FF>        | Steuerzeichen für Seitenwechsel ([Wikipedia](https://de.wikipedia.org/wiki/Seitenumbruch#Form_feed)). | \f              |
-| U+0020     | Space                          | \<SP>        | Normales Leerzeichen                                                                                |                 |
-| U+00A0     | No-break space                 | \<NBSP>      | Normales Leerzeichen, jedoch ohne möglichen Zeilenumbruch                                           |                 |
-| U+FEFF     | Zero-width no-break space      | \<ZWNBSP>    | Wenn nicht am Anfang eines Scripts, ist der BOM-Marker ein normales Leerzeichen.                    |                 |
-| Andere     | Andere Unicode-Leerzeichen     | \<USP>       | [Zeichen in der Kategorie "Space_Separator" im Unicode-Standard][space separator set]               |                 |
+| Codepunkt | Name                       | Abkürzung | Beschreibung                                                                                          | Escape-Sequenz |
+| --------- | -------------------------- | --------- | ----------------------------------------------------------------------------------------------------- | -------------- |
+| U+0009    | Character tabulation       | \<TAB>    | Horizontaler Tabulator                                                                                | \t             |
+| U+000B    | Line tabulation            | \<VT>     | Vertikaler Tabulator                                                                                  | \v             |
+| U+000C    | Form feed                  | \<FF>     | Steuerzeichen für Seitenwechsel ([Wikipedia](https://de.wikipedia.org/wiki/Seitenumbruch#Form_feed)). | \f             |
+| U+0020    | Space                      | \<SP>     | Normales Leerzeichen                                                                                  |                |
+| U+00A0    | No-break space             | \<NBSP>   | Normales Leerzeichen, jedoch ohne möglichen Zeilenumbruch                                             |                |
+| U+FEFF    | Zero-width no-break space  | \<ZWNBSP> | Wenn nicht am Anfang eines Scripts, ist der BOM-Marker ein normales Leerzeichen.                      |                |
+| Andere    | Andere Unicode-Leerzeichen | \<USP>    | [Zeichen in der Kategorie "Space_Separator" im Unicode-Standard][space separator set]                 |                |
 
 [space separator set]: https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BGeneral_Category%3DSpace_Separator%7D
 
@@ -51,12 +51,12 @@ Außerhalb des Kontexts der lexikalischen Grammatik werden Leerzeichen und Zeile
 
 Nur die folgenden Unicode-Codepunkte werden in ECMAScript als Zeilenbegrenzer behandelt, andere zeilenbrechende Zeichen werden als Leerzeichen behandelt (zum Beispiel wird Next Line, NEL, U+0085 als Leerzeichen betrachtet).
 
-| Code punkt | Name                | Abkürzung    | Beschreibung                                            | Escape-Sequenz |
-| ---------- | ------------------- | ------------ | ------------------------------------------------------ | --------------- |
-| U+000A     | Zeilenumbruch       | \<LF>        | Neuer Zeilencharakter in UNIX-Systemen.                 | \n              |
-| U+000D     | Wagenrücklauf       | \<CR>        | Neuer Zeilencharakter in Commodore- und frühen Mac-Systemen. | \r              |
-| U+2028     | Zeilentrenner       | \<LS>        | [Wikipedia](https://de.wikipedia.org/wiki/Zeilenumbruch) |                 |
-| U+2029     | Absatztrenner       | \<PS>        | [Wikipedia](https://de.wikipedia.org/wiki/Zeilenumbruch) |                 |
+| Code punkt | Name          | Abkürzung | Beschreibung                                                 | Escape-Sequenz |
+| ---------- | ------------- | --------- | ------------------------------------------------------------ | -------------- |
+| U+000A     | Zeilenumbruch | \<LF>     | Neuer Zeilencharakter in UNIX-Systemen.                      | \n             |
+| U+000D     | Wagenrücklauf | \<CR>     | Neuer Zeilencharakter in Commodore- und frühen Mac-Systemen. | \r             |
+| U+2028     | Zeilentrenner | \<LS>     | [Wikipedia](https://de.wikipedia.org/wiki/Zeilenumbruch)     |                |
+| U+2029     | Absatztrenner | \<PS>     | [Wikipedia](https://de.wikipedia.org/wiki/Zeilenumbruch)     |                |
 
 ## Kommentare
 
@@ -157,7 +157,7 @@ class C {
 lbl: console.log(1); // Label
 ```
 
-In JavaScript bestehen Bezeichner in der Regel aus alphanumerischen Zeichen, Unterstrichen (`_`) und Dollarzeichen (`$`). Bezeichner dürfen nicht mit Zahlen beginnen. JavaScript-Bezeichner sind jedoch nicht nur auf [ASCII](/de/docs/Glossary/ASCII) beschränkt — viele Unicode-Codepunkte sind ebenfalls zulässig. Genauer gesagt, jedes Zeichen in der [ID_Start](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Start%7D) Kategorie kann einen Bezeichner starten, während jedes Zeichen in der [ID_Continue](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Continue%7D) Kategorie nach dem ersten Zeichen erscheinen kann.
+In JavaScript bestehen Bezeichner in der Regel aus alphanumerischen Zeichen, Unterstrichen (`_`) und Dollarzeichen (`$`). Bezeichner dürfen nicht mit Zahlen beginnen. JavaScript-Bezeichner sind jedoch nicht nur auf {{Glossary("ASCII", "ASCII")}} beschränkt — viele Unicode-Codepunkte sind ebenfalls zulässig. Genauer gesagt, jedes Zeichen in der [ID_Start](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Start%7D) Kategorie kann einen Bezeichner starten, während jedes Zeichen in der [ID_Continue](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5Cp%7BID_Continue%7D) Kategorie nach dem ersten Zeichen erscheinen kann.
 
 > [!NOTE]
 > Sollten Sie aus irgendeinem Grund selbst JavaScript-Quellcode parsen müssen, nehmen Sie nicht an, dass alle Bezeichner dem Muster `/[A-Za-z_$][\w$]*/` (d.h. ASCII-only) folgen! Der Bereich der Bezeichner kann durch den regulären Ausdruck `/[$_\p{ID_Start}][$\u200c\u200d\p{ID_Continue}]*/u` beschrieben werden (ohne Unicode-Escape-Sequenzen).
@@ -454,19 +454,19 @@ Die folgenden Unterabschnitte beschreiben verschiedene Escape-Sequenzen (`\` gef
 
 Spezialzeichen können mit Escape-Sequenzen kodiert werden:
 
-| Escape-Sequenz                                        | Unicode-Codepunkt                          |
-| ----------------------------------------------------- | ------------------------------------------- |
-| `\0`                                                  | Null-Zeichen (U+0000 NULL)                  |
-| `\'`                                                  | Einfaches Anführungszeichen (U+0027 APOSTROPHE) |
-| `\"`                                                  | Doppels Anführungszeichen (U+0022 QUOTATION MARK) |
-| `\\`                                                  | Rückwärtsschrägstrich (U+005C REVERSE SOLIDUS) |
-| `\n`                                                  | Neue Zeile (U+000A LINE FEED; LF)           |
-| `\r`                                                  | Wagenrücklauf (U+000D CARRIAGE RETURN; CR)  |
-| `\v`                                                  | Vertikaltabulierung (U+000B LINE TABULATION) |
-| `\t`                                                  | Tabulator (U+0009 CHARACTER TABULATION)     |
-| `\b`                                                  | Rücktaste (U+0008 BACKSPACE)                |
-| `\f`                                                  | Formularvorschub (U+000C FORM FEED)         |
-| `\` gefolgt von einem [Zeilenbegrenzer](#zeilenbegrenzer) | Leerzeichen                                   |
+| Escape-Sequenz                                            | Unicode-Codepunkt                                 |
+| --------------------------------------------------------- | ------------------------------------------------- |
+| `\0`                                                      | Null-Zeichen (U+0000 NULL)                        |
+| `\'`                                                      | Einfaches Anführungszeichen (U+0027 APOSTROPHE)   |
+| `\"`                                                      | Doppels Anführungszeichen (U+0022 QUOTATION MARK) |
+| `\\`                                                      | Rückwärtsschrägstrich (U+005C REVERSE SOLIDUS)    |
+| `\n`                                                      | Neue Zeile (U+000A LINE FEED; LF)                 |
+| `\r`                                                      | Wagenrücklauf (U+000D CARRIAGE RETURN; CR)        |
+| `\v`                                                      | Vertikaltabulierung (U+000B LINE TABULATION)      |
+| `\t`                                                      | Tabulator (U+0009 CHARACTER TABULATION)           |
+| `\b`                                                      | Rücktaste (U+0008 BACKSPACE)                      |
+| `\f`                                                      | Formularvorschub (U+000C FORM FEED)               |
+| `\` gefolgt von einem [Zeilenbegrenzer](#zeilenbegrenzer) | Leerzeichen                                       |
 
 Die letzte Escape-Sequenz, `\` gefolgt von einem ZEILENBEGRENZUNGSSTRICH, ist nützlich, um ein Zeichenkettenliteral über mehrere Zeilen zu verteilen, ohne dessen Bedeutung zu ändern.
 

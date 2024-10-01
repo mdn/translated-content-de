@@ -179,7 +179,7 @@ svg {
   - : Dieses Attribut definiert die Orientierung des Markers relativ zu der Form, an die es angehängt ist.
     _Werttyp_: `auto`|`auto-start-reverse`|**[\<angle>](/de/docs/Web/SVG/Content_type#angle)** ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Dieses Attribut definiert, wie das SVG-Fragment verzerrt werden muss, wenn es in ein Container mit einem unterschiedlichen [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) eingebettet wird.
+  - : Dieses Attribut definiert, wie das SVG-Fragment verzerrt werden muss, wenn es in ein Container mit einem unterschiedlichen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet wird.
     _Werttyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("refX")}}
   - : Dieses Attribut definiert die x-Koordinate für den Referenzpunkt des Markers.

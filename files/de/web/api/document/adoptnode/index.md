@@ -8,7 +8,7 @@ l10n:
 
 {{ ApiRef("DOM") }}
 
-Die **`Document.adoptNode()`** Methode überträgt einen [node](/de/docs/Glossary/node/dom) aus einem anderen [Document](/de/docs/Web/API/Document) in das Dokument der Methode.
+Die **`Document.adoptNode()`** Methode überträgt einen {{Glossary("node/dom", "node")}} aus einem anderen [Document](/de/docs/Web/API/Document) in das Dokument der Methode.
 Der adoptierte `node` und sein Unterbaum werden aus ihrem ursprünglichen Dokument (falls vorhanden) entfernt, und ihr [`ownerDocument`](/de/docs/Web/API/Node/ownerDocument) wird auf das aktuelle Dokument geändert.
 Der `node` kann dann in das aktuelle Dokument eingefügt werden.
 

@@ -25,7 +25,7 @@ requestStorageAccessFor(requestedOrigin)
 
 Ein {{jsxref("Promise")}}, das mit `undefined` erfüllt wird, wenn der Zugriff auf Drittanbieter-Cookies gewährt wurde, und abgelehnt wird, wenn der Zugriff verweigert wurde.
 
-`requestStorageAccessFor()`-Anfragen werden automatisch abgelehnt, es sei denn, der oberste Inhalt verarbeitet derzeit eine Benutzeraktion wie einen Tap oder Klick ([transiente Aktivierung](/de/docs/Glossary/transient_activation)) oder die Erlaubnis wurde bereits zuvor gewährt. Wenn die Erlaubnis nicht zuvor gewährt wurde, müssen sie in einem benutzergestengesteuerten Ereignishandler ausgeführt werden. Das Verhalten der Benutzeraktion hängt vom Stand des Versprechens ab:
+`requestStorageAccessFor()`-Anfragen werden automatisch abgelehnt, es sei denn, der oberste Inhalt verarbeitet derzeit eine Benutzeraktion wie einen Tap oder Klick ({{Glossary("transient_activation", "transiente Aktivierung")}}) oder die Erlaubnis wurde bereits zuvor gewährt. Wenn die Erlaubnis nicht zuvor gewährt wurde, müssen sie in einem benutzergestengesteuerten Ereignishandler ausgeführt werden. Das Verhalten der Benutzeraktion hängt vom Stand des Versprechens ab:
 
 - Wenn das Versprechen aufgelöst wird (d.h. die Erlaubnis wurde erteilt), wurde die Benutzeraktion nicht verbraucht, sodass das Skript anschließend APIs aufrufen kann, die eine Benutzeraktion erfordern.
 - Wenn das Versprechen abgelehnt wird (d.h. die Erlaubnis wurde nicht erteilt), wurde die Benutzeraktion verbraucht, sodass das Skript nichts tun kann, was eine Aktion erfordert. Dies verhindert, dass Skripte `requestStorageAccessFor()` erneut aufrufen, wenn die Erlaubnis verweigert wurde.
@@ -65,7 +65,7 @@ navigator.permissions.query({
 ```
 
 > [!NOTE]
-> Die Nutzung dieser Funktion kann durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden, die auf Ihrem Server festgelegt ist (die gleiche, die den Rest der Storage Access API steuert). Außerdem muss das Dokument zusätzliche, browserspezifische Prüfungen bestehen, wie z.B. Zulassungslisten, Sperrlisten, Geräteklassifizierung, Benutzereinstellungen oder Anti-[Clickjacking](/de/docs/Glossary/Clickjacking)-Heuristiken.
+> Die Nutzung dieser Funktion kann durch eine {{httpheader("Permissions-Policy/storage-access", "storage-access")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert werden, die auf Ihrem Server festgelegt ist (die gleiche, die den Rest der Storage Access API steuert). Außerdem muss das Dokument zusätzliche, browserspezifische Prüfungen bestehen, wie z.B. Zulassungslisten, Sperrlisten, Geräteklassifizierung, Benutzereinstellungen oder Anti-{{Glossary("Clickjacking", "Clickjacking")}}-Heuristiken.
 
 ## Beispiele
 

@@ -40,7 +40,7 @@ Das Einbetten der Zeichen in `<span dir="auto">` hat denselben Effekt wie die Ve
 
 ## Attribute
 
-Wie alle anderen HTML-Elemente unterstützt auch dieses Element die [globalen Attribute](/de/docs/Web/HTML/Global_attributes), außer dass das [`dir`](/de/docs/Web/HTML/Global_attributes#dir)-Attribut anders als normal funktioniert: Es standardmäßig `auto` gesetzt, was bedeutet, dass sein Wert niemals vom Elternelement geerbt wird. Das bedeutet, dass der [User-Agent](/de/docs/Glossary/user_agent), falls Sie nicht explizit einen Wert von `rtl` oder `ltr` für `dir` angeben, die richtige Richtung basierend auf dem Inhalt von `<bdi>` bestimmen wird.
+Wie alle anderen HTML-Elemente unterstützt auch dieses Element die [globalen Attribute](/de/docs/Web/HTML/Global_attributes), außer dass das [`dir`](/de/docs/Web/HTML/Global_attributes#dir)-Attribut anders als normal funktioniert: Es standardmäßig `auto` gesetzt, was bedeutet, dass sein Wert niemals vom Elternelement geerbt wird. Das bedeutet, dass der {{Glossary("user_agent", "User-Agent")}}, falls Sie nicht explizit einen Wert von `rtl` oder `ltr` für `dir` angeben, die richtige Richtung basierend auf dem Inhalt von `<bdi>` bestimmen wird.
 
 ## Beispiele
 
@@ -186,6 +186,6 @@ body {
 
 - [Inline-Markup und bidirektionaler Text in HTML](https://www.w3.org/International/articles/inline-bidi-markup/)
 - [Grundlagen des Unicode Bidirectional Algorithm](https://www.w3.org/International/articles/inline-bidi-markup/uba-basics)
-- [Lokalisierung](/de/docs/Glossary/Localization)
+- {{Glossary("Localization", "Lokalisierung")}}
 - Verwandtes HTML-Element: {{HTMLElement("bdo")}}
 - Verwandte CSS-Eigenschaften: {{cssxref("direction")}}, {{cssxref("unicode-bidi")}}

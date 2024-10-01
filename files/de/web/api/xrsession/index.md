@@ -45,7 +45,7 @@ _`XRSession` bietet die folgenden Methoden zusätzlich zu denen, die von seiner 
 - [`end()`](/de/docs/Web/API/XRSession/end) {{Experimental_Inline}}
   - : Beendet die WebXR-Sitzung. Gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn die Sitzung heruntergefahren wurde.
 - [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) {{Experimental_Inline}}
-  - : Plant die angegebene Methode, die beim nächsten Mal aufgerufen wird, wenn der [User-Agent](/de/docs/Glossary/user_agent) daran arbeitet, einen Animations-Frame für das WebXR-Gerät zu rendern. Gibt einen ganzzahligen Wert zurück, der zur Identifizierung der Anfrage für die Zwecke der Stornierung des Rückrufs mit `cancelAnimationFrame()` verwendet werden kann. Diese Methode ist mit der Methode [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) vergleichbar.
+  - : Plant die angegebene Methode, die beim nächsten Mal aufgerufen wird, wenn der {{Glossary("user_agent", "User-Agent")}} daran arbeitet, einen Animations-Frame für das WebXR-Gerät zu rendern. Gibt einen ganzzahligen Wert zurück, der zur Identifizierung der Anfrage für die Zwecke der Stornierung des Rückrufs mit `cancelAnimationFrame()` verwendet werden kann. Diese Methode ist mit der Methode [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) vergleichbar.
 - [`requestHitTestSource()`](/de/docs/Web/API/XRSession/requestHitTestSource) {{Experimental_Inline}}
   - : Fordert ein [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)-Objekt an, das die Hit-Test-Subscription verwaltet.
 - [`requestHitTestSourceForTransientInput()`](/de/docs/Web/API/XRSession/requestHitTestSourceForTransientInput) {{Experimental_Inline}}

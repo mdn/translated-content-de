@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Der **`SubmitEvent()`**-Konstruktor erstellt und gibt ein neues [`SubmitEvent`](/de/docs/Web/API/SubmitEvent)-Objekt zurück, das verwendet wird, um ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis darzustellen, das bei einem [HTML](/de/docs/Glossary/HTML)-[Formular](/de/docs/Learn/Forms) ausgelöst wird.
+Der **`SubmitEvent()`**-Konstruktor erstellt und gibt ein neues [`SubmitEvent`](/de/docs/Web/API/SubmitEvent)-Objekt zurück, das verwendet wird, um ein [`submit`](/de/docs/Web/API/HTMLFormElement/submit_event)-Ereignis darzustellen, das bei einem {{Glossary("HTML", "HTML")}}-[Formular](/de/docs/Learn/Forms) ausgelöst wird.
 
 ## Syntax
 

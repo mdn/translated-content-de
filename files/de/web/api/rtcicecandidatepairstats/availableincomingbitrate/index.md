@@ -22,7 +22,7 @@ availableIncomingBitrate = rtcIceCandidatePairStats.availableIncomingBitrate
 
 Ein Fließkommawert, der die Menge der verfügbaren Bandbreite für eingehende Daten auf der Netzwerkverbindung beschreibt, die durch das `RTCIceCandidatePair` beschrieben wird. Der Wert wird in Bit pro Sekunde angegeben und über ein Intervall von einer Sekunde berechnet.
 
-Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden [RTP](/de/docs/Glossary/RTP)-Stream zusammengezählt wird, der die durch dieses Kandidatenpaar beschriebene Verbindung nutzt. Der zurückgegebene Wert berücksichtigt nicht den Overhead, der durch zugrunde liegende Protokolle wie IP, UDP oder TCP verursacht wird.
+Der zurückgegebene Wert wird berechnet, indem die verfügbare Bitrate für jeden {{Glossary("RTP", "RTP")}}-Stream zusammengezählt wird, der die durch dieses Kandidatenpaar beschriebene Verbindung nutzt. Der zurückgegebene Wert berücksichtigt nicht den Overhead, der durch zugrunde liegende Protokolle wie IP, UDP oder TCP verursacht wird.
 
 > [!NOTE]
 > Der zurückgegebene Wert wird mit einer Methode berechnet, die dem Transport Independent Application Specific Maximum (TIAS) ähnlich, aber nicht identisch ist, wie in {{RFC(3890, "", "6.2")}} beschrieben.

@@ -1,5 +1,5 @@
 ---
-title: "`<input type=\"number\">`"
+title: '`<input type="number">`'
 slug: Web/HTML/Element/input/number
 l10n:
   sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
@@ -49,7 +49,7 @@ Dieser Wert muss kleiner oder gleich dem Wert des `max`-Attributs sein.
 
 Das `placeholder`-Attribut ist eine Zeichenkette, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Information in das Feld eingegeben werden soll. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp zeigt, anstatt eine erklärende Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn das Inhaltselement eine Richtung ([LTR](/de/docs/Glossary/LTR) oder [RTL](/de/docs/Glossary/RTL)) hat, der Placeholder aber in der entgegengesetzten Richtung angezeigt werden soll, können Sie Unicode bidirektionale Algorithmen-Formatierungszeichen verwenden, um die Richtung im Placeholder zu überschreiben. Weitere Informationen finden Sie unter [How to use Unicode controls for bidi text](https://www.w3.org/International/questions/qa-bidi-unicode-controls).
+Wenn das Inhaltselement eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der Placeholder aber in der entgegengesetzten Richtung angezeigt werden soll, können Sie Unicode bidirektionale Algorithmen-Formatierungszeichen verwenden, um die Richtung im Placeholder zu überschreiben. Weitere Informationen finden Sie unter [How to use Unicode controls for bidi text](https://www.w3.org/International/questions/qa-bidi-unicode-controls).
 
 > [!NOTE]
 > Vermeiden Sie, wenn möglich, das `placeholder`-Attribut. Es ist semantisch nicht so nützlich wie andere Methoden, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>` labels](/de/docs/Web/HTML/Element/input#labels) für weitere Informationen.
@@ -68,7 +68,7 @@ Das `step`-Attribut ist eine Zahl, die die Granularität angibt, an die der Wert
 Ein Zeichenfolgenwert von `any` bedeutet, dass kein Schrittimpuls impliziert wird und jeder Wert erlaubt ist (vorbehaltlich anderer Einschränkungen wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Step-Konfiguration entsprechen, kann der [user agent](/de/docs/Glossary/user_agent) auf den nächstgelegenen gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahe Optionen gibt.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Step-Konfiguration entsprechen, kann der {{Glossary("user_agent", "user agent")}} auf den nächstgelegenen gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn es zwei gleich nahe Optionen gibt.
 
 Der Standard-Schrittwert für `number`-Eingaben ist `1`, was nur ganze Zahlen zulässt – _es sei denn_, die Schritt-Basis ist keine ganze Zahl.
 

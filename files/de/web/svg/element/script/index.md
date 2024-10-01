@@ -57,13 +57,13 @@ Click the circle to change colors.
   - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin), wie sie für das HTML-Element {{HTMLElement('script')}} festgelegt sind.
     _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
 - {{SVGAttr("href")}}
-  - : Die [URL](/de/docs/Glossary/URL) zum zu ladenden Skript.
+  - : Die {{Glossary("URL", "URL")}} zum zu ladenden Skript.
     _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
 - {{SVGAttr("type")}}
   - : Dieses Attribut definiert den Typ der zu verwendenden Skriptsprache.
     _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Die [URL](/de/docs/Glossary/URL) zum zu ladenden Skript.
+  - : Die {{Glossary("URL", "URL")}} zum zu ladenden Skript.
     _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _none_; _Animierbar_: **nein**
 
 ## Nutzungskontext

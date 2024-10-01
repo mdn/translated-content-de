@@ -9,7 +9,7 @@ l10n:
 
 **Sticky activation** (oder "sticky user activation") ist ein Fensterzustand, der anzeigt, dass ein Benutzer eine Taste gedrückt, die Maus bewegt, ein Menü benutzt oder eine andere Benutzerinteraktion durchgeführt hat.
 
-Eine Seite wird als "user activated" betrachtet, wenn ein Benutzer derzeit mit der Seite interagiert oder eine Touch-, Zeiger- oder Tastaturinteraktion seit dem Laden der Seite abgeschlossen hat. Bei der sticky user activation wird die Aktivierung, sobald sie gesetzt ist, während der gesamten Sitzung nicht zurückgesetzt (im Gegensatz zur [Transient activation](/de/docs/Glossary/Transient_activation)).
+Eine Seite wird als "user activated" betrachtet, wenn ein Benutzer derzeit mit der Seite interagiert oder eine Touch-, Zeiger- oder Tastaturinteraktion seit dem Laden der Seite abgeschlossen hat. Bei der sticky user activation wird die Aktivierung, sobald sie gesetzt ist, während der gesamten Sitzung nicht zurückgesetzt (im Gegensatz zur {{Glossary("Transient_activation", "Transient activation")}}).
 
 Weitere Informationen zu APIs, die _sticky activation_ erfordern, finden Sie unter [Features gated by user activation](/de/docs/Web/Security/User_activation).
 
@@ -19,5 +19,5 @@ Siehe die [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBe
 
 - [HTML Living Standard > Sticky activation](https://html.spec.whatwg.org/multipage/interaction.html#sticky-activation)
 - Verwandte Glossarbegriffe:
-  - [Transient activation](/de/docs/Glossary/Transient_activation)
+  - {{Glossary("Transient_activation", "Transient activation")}}
 - [`UserActivation.hasBeenActive`](/de/docs/Web/API/UserActivation/hasBeenActive)

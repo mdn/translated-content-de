@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`style`**-Attribut ermöglicht es, ein Element mithilfe von [CSS](/de/docs/Glossary/CSS)-Deklarationen zu stylen. Es funktioniert identisch wie [das `style`-Attribut in HTML](/de/docs/Web/HTML/Global_attributes/style).
+Das **`style`**-Attribut ermöglicht es, ein Element mithilfe von {{Glossary("CSS", "CSS")}}-Deklarationen zu stylen. Es funktioniert identisch wie [das `style`-Attribut in HTML](/de/docs/Web/HTML/Global_attributes/style).
 
 Sie können dieses Attribut mit jedem SVG-Element verwenden.
 

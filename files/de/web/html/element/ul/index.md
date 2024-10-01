@@ -17,7 +17,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - `compact` {{Deprecated_inline}}
 
-  - : Dieses boolesche Attribut zeigt an, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs hängt vom [User Agent](/de/docs/Glossary/user_agent) ab, und es funktioniert nicht in allen Browsern.
+  - : Dieses boolesche Attribut zeigt an, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs hängt vom {{Glossary("user_agent", "User Agent")}} ab, und es funktioniert nicht in allen Browsern.
 
     > [!WARNING]
     > Verwenden Sie dieses Attribut nicht, da es veraltet ist: Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS). Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.

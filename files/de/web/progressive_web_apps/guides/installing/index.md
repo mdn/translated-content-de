@@ -21,7 +21,7 @@ Wir behandeln zuerst die Vorläufer — das Speichern von Links zu Websites.
 
 Alle Browser haben eine Funktion zum Hinzufügen zu Favoriten oder Lesezeichen. Ein Lesezeichen oder Favorit ist eine anklickbare Verknüpfung zu einer Webseite. Lesezeichen ermöglichen einen schnellen Zugriff auf Websites, ohne dass der Benutzer eine URL eingeben oder auf andere Weise nach Inhalten suchen muss. Lesezeichen sind besonders nützlich für lange URLs und den Zugriff auf häufig besuchte Inhalte, die nicht die Startseite der Website sind.
 
-Alle Browser ermöglichen es Benutzern, ihre Lesezeichen anzuzeigen und zu verwalten, einschließlich der Umbenennung und Löschung von Favoriten. Standardmäßig umfasst die Anzeige des Lesezeichens den Textinhalt des {{HTMLElement("title")}}-Elements der markierten Seite sowie ein Symbol, das aus dem [Favicon](/de/docs/Glossary/Favicon) der Seite besteht.
+Alle Browser ermöglichen es Benutzern, ihre Lesezeichen anzuzeigen und zu verwalten, einschließlich der Umbenennung und Löschung von Favoriten. Standardmäßig umfasst die Anzeige des Lesezeichens den Textinhalt des {{HTMLElement("title")}}-Elements der markierten Seite sowie ein Symbol, das aus dem {{Glossary("Favicon", "Favicon")}} der Seite besteht.
 
 Browser ermöglichen das Speichern, Bearbeiten, Verschieben und Löschen von Lesezeichen sowie deren Verwaltung. Die Benutzeroberfläche für die Lesezeichenverwaltung unterscheidet sich je nach Browser.
 

@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Schleife** ist eine Abfolge von Anweisungen, die wiederholt wird, bis eine bestimmte Bedingung erfüllt ist. Ein Beispiel wäre der Prozess, ein Datenelement zu holen und es zu verändern, und dann sicherzustellen, dass eine [Bedingung](/de/docs/Glossary/conditional) geprüft wird — wie zum Beispiel, ob ein Zähler eine vorgeschriebene Zahl erreicht hat.
+Eine **Schleife** ist eine Abfolge von Anweisungen, die wiederholt wird, bis eine bestimmte Bedingung erfüllt ist. Ein Beispiel wäre der Prozess, ein Datenelement zu holen und es zu verändern, und dann sicherzustellen, dass eine {{Glossary("conditional", "Bedingung")}} geprüft wird — wie zum Beispiel, ob ein Zähler eine vorgeschriebene Zahl erreicht hat.
 
-Schleifen sind eine Möglichkeit, eine Anweisung eine variable Anzahl von Malen auszuführen. Der gleiche Effekt kann mit [Rekursion](/de/docs/Glossary/Recursion) erreicht werden, insbesondere in Sprachen, in denen alle Daten [unveränderlich](/de/docs/Glossary/Immutable) sind, was es unmöglich macht, eine Zählervariable zu aktualisieren.
+Schleifen sind eine Möglichkeit, eine Anweisung eine variable Anzahl von Malen auszuführen. Der gleiche Effekt kann mit {{Glossary("Recursion", "Rekursion")}} erreicht werden, insbesondere in Sprachen, in denen alle Daten {{Glossary("Immutable", "unveränderlich")}} sind, was es unmöglich macht, eine Zählervariable zu aktualisieren.
 
 ## Siehe auch
 

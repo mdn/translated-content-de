@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`bottom`**-Eigenschaft von [CSS](/de/docs/Web/CSS) beteiligt sich an der Einstellung der vertikalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkungen auf nicht positionierte Elemente.
+Die **`bottom`**-Eigenschaft von [CSS](/de/docs/Web/CSS) beteiligt sich an der Einstellung der vertikalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkungen auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/bottom.html")}}
 

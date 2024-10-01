@@ -26,7 +26,7 @@ Zum Beispiel können Zwischenstellen wie Load-Balancer Anforderungszeilen einer 
 
 ### Ein 505 aufgrund einer fehlerhaften Anforderungszeile
 
-Im folgenden Beispiel fordert ein Client `example.com/dog%20trainers` an, aber aufgrund einer falschen Konfiguration des Load-Balancers wird das [Prozent-Encoding](/de/docs/Glossary/Percent-encoding) in der URL nicht korrekt verarbeitet.
+Im folgenden Beispiel fordert ein Client `example.com/dog%20trainers` an, aber aufgrund einer falschen Konfiguration des Load-Balancers wird das {{Glossary("Percent-encoding", "Prozent-Encoding")}} in der URL nicht korrekt verarbeitet.
 In diesem Fall sieht der Ursprung-Server `trainers` anstelle der HTTP-Version, und es wird eine `505`-Antwort zurückgegeben.
 Ein Anfrageidentifikator ist im Antwortkörper enthalten, um eine Möglichkeit zu veranschaulichen, die Serveradministratoren helfen kann, die Ursache des Problems einzugrenzen:
 

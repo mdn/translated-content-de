@@ -456,7 +456,7 @@ xrSession.addEventListener("select", (event) => {
 });
 ```
 
-Diese Funktion erhält den Ursprung des Zielstrahls im Vektor `targetSourcePoint` und die Orientierung des Strahls im [Quaternion](/de/docs/Glossary/quaternion) `targetDirection`. Mit dem
+Diese Funktion erhält den Ursprung des Zielstrahls im Vektor `targetSourcePoint` und die Orientierung des Strahls im {{Glossary("quaternion", "Quaternion")}} `targetDirection`. Mit dem
 
 Schließlich wird der Zielstrahlraum in die lokale Konstante `targetRaySpace` geladen. Diese wird dann verwendet, wenn die [`getPose()`](/de/docs/Web/API/XRFrame/getPose)-Methode von [`XRFrame`](/de/docs/Web/API/XRFrame) aufgerufen wird, um ein [`XRPose`](/de/docs/Web/API/XRPose)-Objekt zu erstellen, das die Position und Orientierung des Zielstrahls in der Referenzdomäne des Betrachters `viewerRefSpace` darstellt. Falls diese `null` ist, kehrt der Ereignishandler ohne weitere Ausführung zurück.
 
@@ -503,7 +503,7 @@ Manchmal müssen Sie einen Weg finden, um den Benutzer in der Lage zu versetzen,
 Angenommen, Eingaben werden verwendet, um einen Avatar innerhalb der Simulation zu steuern, was der häufigste Anwendungsfall ist, werden WebXR-Eingaben verwendet, um den Avatar auf folgende Weisen zu beeinflussen, unter Verwendung von Daten, die von den Nicht-XR-Eingabegerät gesammelt werden:
 
 - Position
-  - : Die Position des Avatars wird verändert, indem ein [Delta](/de/docs/Glossary/delta) auf die zuvor bekannte Position angewendet und dann der Referenzraum des Avatars durch einen neuen ersetzt wird, dessen Transformation die neue Position widerspiegelt.
+  - : Die Position des Avatars wird verändert, indem ein {{Glossary("delta", "Delta")}} auf die zuvor bekannte Position angewendet und dann der Referenzraum des Avatars durch einen neuen ersetzt wird, dessen Transformation die neue Position widerspiegelt.
 - Orientierung
   - : Die Orientierung oder die Blickrichtung des Avatars wird verändert, indem ein Delta zur Rotation um die drei Achsen angewendet und dann der Orientierungsvektor aktualisiert und der Referenzraum neu berechnet wird.
 - Aktion

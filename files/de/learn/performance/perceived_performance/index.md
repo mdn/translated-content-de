@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Performance/what_is_web_performance", "Learn/Performance/Measuring_performance", "Learn/Performance")}}
 
-**[Wahrgenommene Leistung](/de/docs/Glossary/Perceived_performance)** ist ein subjektives Maß für die Leistung, Reaktionsfähigkeit und Zuverlässigkeit einer Website. Mit anderen Worten, wie schnell eine Website dem Benutzer erscheint. Es ist schwieriger zu quantifizieren und zu messen als die tatsächliche Geschwindigkeit des Betriebs, aber vielleicht sogar noch wichtiger.
+**{{Glossary("Perceived_performance", "Wahrgenommene Leistung")}}** ist ein subjektives Maß für die Leistung, Reaktionsfähigkeit und Zuverlässigkeit einer Website. Mit anderen Worten, wie schnell eine Website dem Benutzer erscheint. Es ist schwieriger zu quantifizieren und zu messen als die tatsächliche Geschwindigkeit des Betriebs, aber vielleicht sogar noch wichtiger.
 
 Dieser Artikel bietet eine kurze Einführung in die Faktoren, die die wahrgenommene Leistung beeinflussen, sowie eine Reihe von Werkzeugen zur Beurteilung und Verbesserung der Wahrnehmung.
 
@@ -41,18 +41,18 @@ Eine gute allgemeine Regel zur Verbesserung der wahrgenommenen Leistung ist, das
 
 Es gibt keine einzelne Metrik oder einen Test, der auf einer Seite durchgeführt werden kann, um zu bewerten, wie sich ein Benutzer "fühlt". Es gibt jedoch eine Reihe von Metriken, die als "hilfreiche Indikatoren" dienen können:
 
-- [First paint](/de/docs/Glossary/First_paint)
+- {{Glossary("First_paint", "First paint")}}
   - : Die Zeit bis zum Beginn des ersten Malvorgangs. Beachten Sie, dass diese Änderung möglicherweise nicht sichtbar ist; es kann sich um ein einfaches Update der Hintergrundfarbe oder etwas noch Unauffälligeres handeln.
-- [First Contentful Paint](/de/docs/Glossary/First_contentful_paint) (FCP)
+- {{Glossary("First_contentful_paint", "First Contentful Paint")}} (FCP)
   - : Die Zeit bis zur ersten signifikanten Darstellung (z. B. von Text, Vorder- oder Hintergrundbild, Canvas oder SVG usw.). Beachten Sie, dass dieser Inhalt nicht unbedingt nützlich oder bedeutungsvoll ist.
-- [First Meaningful Paint](/de/docs/Glossary/First_meaningful_paint) (FMP)
+- {{Glossary("First_meaningful_paint", "First Meaningful Paint")}} (FMP)
   - : Die Zeit, zu der nützlicher Inhalt auf dem Bildschirm dargestellt wird.
 - [Largest Contentful Paint](https://wicg.github.io/largest-contentful-paint/) (LCP)
   - : Die Renderzeit des größten Inhaltselements, das im Ansichtsfenster sichtbar ist.
-- [Speed index](/de/docs/Glossary/Speed_index)
+- {{Glossary("Speed_index", "Speed index")}}
   - : Misst die durchschnittliche Zeit, die benötigt wird, um die Pixel auf dem sichtbaren Bildschirm zu zeichnen.
-- [Time to interactive](/de/docs/Glossary/Time_to_interactive)
-  - : Die Zeit, bis die Benutzeroberfläche für Benutzerinteraktionen verfügbar ist (d. h. der letzte [lange Task](/de/docs/Glossary/Long_task) des Ladevorgangs abgeschlossen ist).
+- {{Glossary("Time_to_interactive", "Time to interactive")}}
+  - : Die Zeit, bis die Benutzeroberfläche für Benutzerinteraktionen verfügbar ist (d. h. der letzte {{Glossary("Long_task", "lange Task")}} des Ladevorgangs abgeschlossen ist).
 
 ## Leistung verbessern
 

@@ -18,15 +18,15 @@ Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-sichere Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-sichere Antwort-Header")}}
       </th>
       <td>nein</td>
     </tr>

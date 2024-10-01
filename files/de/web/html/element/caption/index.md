@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<caption>`** [HTML](/de/docs/Web/HTML)-Element gibt die Beschriftung (oder den Titel) einer Tabelle an und bietet der Tabelle eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description).
+Das **`<caption>`** [HTML](/de/docs/Web/HTML)-Element gibt die Beschriftung (oder den Titel) einer Tabelle an und bietet der Tabelle eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}.
 
 {{EmbedInteractiveExample("pages/tabbed/caption.html", "tabbed-taller")}}
 
@@ -21,7 +21,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie si
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt an, auf welcher Seite der Tabelle die Beschriftung angezeigt werden soll. Die möglichen [enumerierten](/de/docs/Glossary/enumerated) Werte sind `left`, `top`, `right` oder `bottom`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("caption-side")}} und {{cssxref("text-align")}}, da dieses Attribut veraltet ist.
+  - : Gibt an, auf welcher Seite der Tabelle die Beschriftung angezeigt werden soll. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `left`, `top`, `right` oder `bottom`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("caption-side")}} und {{cssxref("text-align")}}, da dieses Attribut veraltet ist.
 
 ## Verwendungshinweise
 

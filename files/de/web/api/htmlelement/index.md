@@ -97,9 +97,9 @@ _Erbt auch Methoden von seinem Elternteil, [`Element`](/de/docs/Web/API/Element)
 - [`HTMLElement.focus()`](/de/docs/Web/API/HTMLElement/focus)
   - : Macht das Element zum aktuellen Tastaturfokus.
 - [`HTMLElement.hidePopover()`](/de/docs/Web/API/HTMLElement/hidePopover)
-  - : Versteckt ein Popover-Element, indem es aus der [obersten Schicht](/de/docs/Glossary/top_layer) entfernt und mit `display: none` gestylt wird.
+  - : Versteckt ein Popover-Element, indem es aus der {{Glossary("top_layer", "obersten Schicht")}} entfernt und mit `display: none` gestylt wird.
 - [`HTMLElement.showPopover()`](/de/docs/Web/API/HTMLElement/showPopover)
-  - : Zeigt ein Popover-Element, indem es zur [obersten Schicht](/de/docs/Glossary/top_layer) hinzugefügt und `display: none;` aus seinen Stilen entfernt wird.
+  - : Zeigt ein Popover-Element, indem es zur {{Glossary("top_layer", "obersten Schicht")}} hinzugefügt und `display: none;` aus seinen Stilen entfernt wird.
 - [`HTMLElement.togglePopover()`](/de/docs/Web/API/HTMLElement/togglePopover)
   - : Schaltet ein Popover-Element zwischen den versteckten und angezeigten Zuständen um.
 

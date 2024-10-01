@@ -46,7 +46,7 @@ Wenn mehrere Ankerelemente denselben Ankernamen haben und dieser Name als Wert d
 
 Ankerpositionierung ändert den [enthältenden Block](/de/docs/Web/CSS/Containing_block) von ankerpositionierten Elementen, wodurch ihre `position` relativ zu ihrem Anker wird, anstatt zum nächstgelegenen positionierten Vorelement.
 
-Um ein positioniertes Element an einem bestimmten Ort relativ zu einem Ankerelement zu verankern und zu platzieren, ist eine Ankerpositionierungsfunktion erforderlich, wie z.B. die {{cssxref("anchor()")}} Funktion (gesetzt innerhalb eines Wertes der [inset-Eigenschaft](/de/docs/Glossary/inset_properties)) oder die {{cssxref("position-area")}} Eigenschaft.
+Um ein positioniertes Element an einem bestimmten Ort relativ zu einem Ankerelement zu verankern und zu platzieren, ist eine Ankerpositionierungsfunktion erforderlich, wie z.B. die {{cssxref("anchor()")}} Funktion (gesetzt innerhalb eines Wertes der {{Glossary("inset_properties", "inset-Eigenschaft")}}) oder die {{cssxref("position-area")}} Eigenschaft.
 
 Sie können ein positioniertes Element nicht mit einem Ankerelement assoziieren, wenn der Anker verborgen ist, beispielsweise mit {{cssxref("display", "display: none")}} oder {{cssxref("visibility", "visibility: hidden")}}, oder wenn der Anker Teil der [übersprungenen Inhalte](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents) eines anderen Elements ist, weil es {{cssxref("content-visibility", "content-visibility: hidden")}} darauf eingestellt hat.
 

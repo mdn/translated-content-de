@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der _**`<overflow>`**_ [aufgezählte](/de/docs/Glossary/enumerated) Wertetyp repräsentiert die Schlüsselwortwerte für die {{cssxref("overflow-block")}}, {{cssxref("overflow-inline")}}, {{cssxref("overflow-x")}} und {{cssxref("overflow-y")}} Langform-Eigenschaften und die {{cssxref("overflow")}} Kurzform-Eigenschaft. Diese Eigenschaften gelten für Block-Container, Flex-Container und Grid-Container.
+Der _**`<overflow>`**_ {{Glossary("enumerated", "aufgezählte")}} Wertetyp repräsentiert die Schlüsselwortwerte für die {{cssxref("overflow-block")}}, {{cssxref("overflow-inline")}}, {{cssxref("overflow-x")}} und {{cssxref("overflow-y")}} Langform-Eigenschaften und die {{cssxref("overflow")}} Kurzform-Eigenschaft. Diese Eigenschaften gelten für Block-Container, Flex-Container und Grid-Container.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ Der _**`<overflow>`**_ [aufgezählte](/de/docs/Glossary/enumerated) Wertetyp rep
 Der `<overflow>` aufgezählte Wertetyp wird durch einen der unten aufgeführten Werte angegeben.
 
 - `visible`
-  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Padding-Box des Elements sichtbar sein. Die Elementbox ist kein [Scroll-Container](/de/docs/Glossary/scroll_container). Dies ist der Standardwert für alle Eigenschaften, die den `<overflow>` aufgezählten Wertetyp haben.
+  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Padding-Box des Elements sichtbar sein. Die Elementbox ist kein {{Glossary("scroll_container", "Scroll-Container")}}. Dies ist der Standardwert für alle Eigenschaften, die den `<overflow>` aufgezählten Wertetyp haben.
 - `hidden`
   - : Überlaufender Inhalt wird am Padding-Box des Elements abgeschnitten. Es gibt keine Scrollleisten, und der abgeschnittene Inhalt ist nicht sichtbar (d. h., der abgeschnittene Inhalt ist verborgen), aber der Inhalt existiert weiterhin. Benutzeragenten fügen keine Scrollleisten hinzu und erlauben es den Benutzern auch nicht, den Inhalt außerhalb des abgeschnittenen Bereichs durch Aktionen wie Ziehen auf einem Touchscreen oder Verwenden des Scrollrads einer Maus zu sehen. Der Inhalt _kann_ programmatisch gescrollt werden (zum Beispiel durch Setzen des Wertes der [`scrollLeft`](/de/docs/Web/API/Element/scrollLeft) Eigenschaft oder der [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode). Der Inhalt kann auch über Tastatur-Interaktion gescrollt werden; Pfeile ermöglichen das Scrollen durch den Inhalt, und das Tabben zu einem fokussierbaren Element innerhalb des versteckten Inhalts ermöglicht es, das fokussierte Element in den Sichtbereich zu scrollen. Die Elementbox, auf die dieser Wert gesetzt ist, ist ein Scroll-Container.
 - `clip`

@@ -20,14 +20,14 @@ Weitere Informationen finden Sie im Leitfaden zu [der Verwendung von HTTP-Cookie
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Antwortheader-Name](/de/docs/Glossary/Forbidden_response_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_response_header_name", "Verbotener Antwortheader-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -60,11 +60,11 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
   - : Definiert den Cookienamen und seinen Wert.
     Eine Cookie-Definition beginnt mit einem Namen-Wert-Paar.
 
-    Ein `<cookie-name>` kann beliebige US-ASCII-Zeichen enthalten, außer Steuerzeichen ([ASCII](/de/docs/Glossary/ASCII) Zeichen 0 bis 31 und ASCII-Zeichen 127) oder Trennzeichen (Leerzeichen, Tabulator und die Zeichen: `( ) < > @ , ; : \ " / [ ] ? = { }`).
+    Ein `<cookie-name>` kann beliebige US-ASCII-Zeichen enthalten, außer Steuerzeichen ({{Glossary("ASCII", "ASCII")}} Zeichen 0 bis 31 und ASCII-Zeichen 127) oder Trennzeichen (Leerzeichen, Tabulator und die Zeichen: `( ) < > @ , ; : \ " / [ ] ? = { }`).
 
-    Ein `<cookie-value>` kann optional in Anführungszeichen gesetzt werden und beliebige US-ASCII-Zeichen enthalten, ausgenommen Steuerzeichen (ASCII-Zeichen 0 bis 31 und ASCII-Zeichen 127), [Leerzeichen](/de/docs/Glossary/Whitespace), Anführungszeichen, Kommas, Semikolons und Backslashes.
+    Ein `<cookie-value>` kann optional in Anführungszeichen gesetzt werden und beliebige US-ASCII-Zeichen enthalten, ausgenommen Steuerzeichen (ASCII-Zeichen 0 bis 31 und ASCII-Zeichen 127), {{Glossary("Whitespace", "Leerzeichen")}}, Anführungszeichen, Kommas, Semikolons und Backslashes.
 
-    **Codierung**: Viele Implementierungen führen eine [Prozent-Codierung](/de/docs/Glossary/Percent-encoding) von Cookie-Werten durch. Dies wird jedoch nicht von der RFC-Spezifikation gefordert. Die Prozent-Codierung hilft, die Anforderungen der für `<cookie-value>` zulässigen Zeichen zu erfüllen.
+    **Codierung**: Viele Implementierungen führen eine {{Glossary("Percent-encoding", "Prozent-Codierung")}} von Cookie-Werten durch. Dies wird jedoch nicht von der RFC-Spezifikation gefordert. Die Prozent-Codierung hilft, die Anforderungen der für `<cookie-value>` zulässigen Zeichen zu erfüllen.
 
     > [!NOTE]
     > Einige `<cookie-name>` haben eine spezifische Semantik:
@@ -103,7 +103,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
   - : Verhindert, dass JavaScript auf das Cookie zugreift, z.B. über die [`Document.cookie`](/de/docs/Web/API/Document/cookie) Eigenschaft.
     Beachten Sie, dass ein Cookie, das mit `HttpOnly` erstellt wurde, dennoch mit JavaScript-initiierte Anfragen gesendet wird, z.B. bei der Verwendung von [`XMLHttpRequest.send()`](/de/docs/Web/API/XMLHttpRequest/send) oder [`fetch()`](/de/docs/Web/API/Window/fetch).
-    Dies mildert Angriffe gegen Cross-Site-Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) ab.
+    Dies mildert Angriffe gegen Cross-Site-Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) ab.
 
 - `Max-Age=<number>` {{optional_inline}}
 
@@ -127,7 +127,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 - `SameSite=<samesite-value>` {{optional_inline}}
 
   - : Bestimmt, ob ein Cookie mit Cross-Site-Anfragen gesendet wird oder nicht,
-    wodurch ein gewisser Schutz gegen Cross-Site Request Forgery Angriffe ([CSRF](/de/docs/Glossary/CSRF)) geboten wird.
+    wodurch ein gewisser Schutz gegen Cross-Site Request Forgery Angriffe ({{Glossary("CSRF", "CSRF")}}) geboten wird.
 
     Die möglichen Attributwerte sind:
 
@@ -160,7 +160,7 @@ Set-Cookie: <cookie-name>=<cookie-value>; Domain=<domain-value>; Secure; HttpOnl
 
 - `Secure` {{optional_inline}}
 
-  - : Gibt an, dass das Cookie nur an den Server gesendet wird, wenn eine Anfrage mit dem `https:`-Schema gestellt wird (außer bei localhost) und daher besser gegen [Man-in-the-Middle](/de/docs/Glossary/MitM) Angriffe geschützt ist.
+  - : Gibt an, dass das Cookie nur an den Server gesendet wird, wenn eine Anfrage mit dem `https:`-Schema gestellt wird (außer bei localhost) und daher besser gegen {{Glossary("MitM", "Man-in-the-Middle")}} Angriffe geschützt ist.
 
     > [!NOTE]
     > Gehen Sie nicht davon aus, dass `Secure` alle Zugriffe auf sensible Informationen in Cookies (Sitzungsschlüssel, Anmeldedaten etc.) verhindert. Cookies mit diesem Attribut können dennoch gelesen/geändert werden, entweder mit Zugriff auf die Festplatte des Clients oder über JavaScript, wenn das `HttpOnly`-Cookie-Attribut nicht gesetzt ist.

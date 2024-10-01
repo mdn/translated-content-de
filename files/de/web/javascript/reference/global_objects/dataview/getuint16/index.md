@@ -23,7 +23,7 @@ getUint16(byteOffset, littleEndian)
 - `byteOffset`
   - : Der Offset in Bytes vom Start der Ansicht, von dem die Daten gelesen werden.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [little- oder big-endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein big-endian Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "little- oder big-endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein big-endian Wert gelesen.
 
 ### Rückgabewert
 

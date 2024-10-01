@@ -53,7 +53,7 @@ _Dieses Interface erbt Methoden vom [`EventTarget`](/de/docs/Web/API/EventTarget
 - [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
   - : Dekodiert einen Datenstring, der mit Base-64 Kodierung kodiert wurde.
 - [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
-  - : Erstellt einen Base-64 kodierten [ASCII](/de/docs/Glossary/ASCII)-String aus einem Binärdatenstring.
+  - : Erstellt einen Base-64 kodierten {{Glossary("ASCII", "ASCII")}}-String aus einem Binärdatenstring.
 - [`WorkerGlobalScope.clearInterval()`](/de/docs/Web/API/ClearInterval)
   - : Hebt die wiederholte Ausführung von [`setInterval()`](/de/docs/Web/API/SetInterval) auf.
 - [`WorkerGlobalScope.clearTimeout()`](/de/docs/Web/API/ClearTimeout)
@@ -73,7 +73,7 @@ _Dieses Interface erbt Methoden vom [`EventTarget`](/de/docs/Web/API/EventTarget
 - [`WorkerGlobalScope.setTimeout()`](/de/docs/Web/API/SetTimeout)
   - : Plant die Ausführung einer Funktion nach einer bestimmten Zeitspanne.
 - [`WorkerGlobalScope.structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
-  - : Erstellt eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) eines gegebenen Wertes mit dem [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+  - : Erstellt eine {{Glossary("Deep_copy", "tiefe Kopie")}} eines gegebenen Wertes mit dem [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 - [`WorkerGlobalScope.reportError()`](/de/docs/Web/API/WorkerGlobalScope/reportError)
   - : Meldet einen Fehler in einem Skript und simuliert eine nicht behandelte Ausnahme.
 

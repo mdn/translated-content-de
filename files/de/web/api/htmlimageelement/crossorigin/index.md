@@ -9,7 +9,7 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`crossOrigin`**-Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)
-Interfaces ist ein String, der die Cross-Origin Resource Sharing ([CORS](/de/docs/Glossary/CORS)) Einstellung angibt, die beim Abrufen des Bildes verwendet werden soll.
+Interfaces ist ein String, der die Cross-Origin Resource Sharing ({{Glossary("CORS", "CORS")}}) Einstellung angibt, die beim Abrufen des Bildes verwendet werden soll.
 
 ## Wert
 

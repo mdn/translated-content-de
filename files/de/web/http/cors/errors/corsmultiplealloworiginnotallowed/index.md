@@ -22,6 +22,6 @@ Wenn Sie Zugriff auf den Server haben, können Sie Ihre Implementierung ändern,
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [Einführung in CORS](/de/docs/Web/HTTP/CORS)
 - [CORS aktivieren: Ich möchte CORS-Unterstützung zu meinem Server hinzufügen](https://enable-cors.org/server.html)

@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Performance API")}}
 
-**Lange Animationsbilder** (LoAFs) können die Benutzererfahrung einer Website beeinträchtigen. Sie können langsame Benutzeroberflächen-Updates (UI-Updates) verursachen, was zu scheinbar nicht ansprechenden Steuerungen und [ruckelnden](/de/docs/Glossary/Jank) (oder nicht flüssigen) Animationseffekten und Bildläufen führt, was die Benutzer frustriert. Die [Long Animation Frames API](https://w3c.github.io/long-animation-frames/) ermöglicht es Entwicklern, Informationen über lange Animationsbilder zu erhalten und deren Ursachen besser zu verstehen. Dieser Artikel zeigt, wie man die Long Animation Frames API verwendet.
+**Lange Animationsbilder** (LoAFs) können die Benutzererfahrung einer Website beeinträchtigen. Sie können langsame Benutzeroberflächen-Updates (UI-Updates) verursachen, was zu scheinbar nicht ansprechenden Steuerungen und {{Glossary("Jank", "ruckelnden")}} (oder nicht flüssigen) Animationseffekten und Bildläufen führt, was die Benutzer frustriert. Die [Long Animation Frames API](https://w3c.github.io/long-animation-frames/) ermöglicht es Entwicklern, Informationen über lange Animationsbilder zu erhalten und deren Ursachen besser zu verstehen. Dieser Artikel zeigt, wie man die Long Animation Frames API verwendet.
 
 ## Was ist ein langes Animationsbild?
 
@@ -112,14 +112,14 @@ Neben den standardmäßigen Daten, die von einem [`PerformanceEntry`](/de/docs/W
 
 Die in der Klasse [`PerformanceLongAnimationFrameTiming`](/de/docs/Web/API/PerformanceLongAnimationFrameTiming) bereitgestellten Zeitstempel ermöglichen die Berechnung mehrerer weiterer nützlicher Zeitmessungen für das lange Animationsbild:
 
-| Zeitmessung                        | Berechnung                                                              |
-| ---------------------------------- | -------------------------------------------------------------------------|
-| Startzeit                          | `startTime`                                                               |
-| Endzeit                            | `startTime + duration`                                                    |
-| Arbeitsdauer                       | `renderStart ? renderStart - startTime : duration`                        |
-| Renderdauer                        | `renderStart ? (startTime + duration) - renderStart: 0`                   |
-| Render: Vor-Layout-Dauer           | `styleAndLayoutStart ? styleAndLayoutStart - renderStart : 0`             |
-| Render: Stil- und Layout-Dauer     | `styleAndLayoutStart ? (startTime + duration) - styleAndLayoutStart : 0`  |
+| Zeitmessung                    | Berechnung                                                               |
+| ------------------------------ | ------------------------------------------------------------------------ |
+| Startzeit                      | `startTime`                                                              |
+| Endzeit                        | `startTime + duration`                                                   |
+| Arbeitsdauer                   | `renderStart ? renderStart - startTime : duration`                       |
+| Renderdauer                    | `renderStart ? (startTime + duration) - renderStart: 0`                  |
+| Render: Vor-Layout-Dauer       | `styleAndLayoutStart ? styleAndLayoutStart - renderStart : 0`            |
+| Render: Stil- und Layout-Dauer | `styleAndLayoutStart ? (startTime + duration) - styleAndLayoutStart : 0` |
 
 ## Beispiele
 
@@ -237,7 +237,7 @@ observer.observe({ type: "long-animation-frame", buffered: true });
 
 ## Vergleich mit der Long Tasks API
 
-Die Long Animation Frames API wurde von der [Long Tasks API](https://w3c.github.io/longtasks/) (siehe [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)) eingeführt. Beide APIs haben einen ähnlichen Zweck und Einsatz – Informationen über [lange Aufgaben](/de/docs/Glossary/Long_task) zu offenbaren, die den Haupt-Thread für 50 ms oder mehr blockieren.
+Die Long Animation Frames API wurde von der [Long Tasks API](https://w3c.github.io/longtasks/) (siehe [`PerformanceLongTaskTiming`](/de/docs/Web/API/PerformanceLongTaskTiming)) eingeführt. Beide APIs haben einen ähnlichen Zweck und Einsatz – Informationen über {{Glossary("Long_task", "lange Aufgaben")}} zu offenbaren, die den Haupt-Thread für 50 ms oder mehr blockieren.
 
 Das Reduzieren der Anzahl der langen Aufgaben, die auf Ihrer Website auftreten, ist nützlich, da lange Aufgaben Reaktionsfähigkeit-Probleme verursachen können. Wenn ein Benutzer beispielsweise auf eine Schaltfläche klickt, während der Haupt-Thread mit einer langen Aufgabe beschäftigt ist, wird die UI-Reaktion auf den Klick verzögert, bis die lange Aufgabe abgeschlossen ist. Es gilt als sinnvoll, lange Aufgaben in mehrere kleinere Aufgaben aufzuteilen, sodass wichtige Interaktionen dazwischen abgewickelt werden können.
 

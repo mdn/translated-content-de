@@ -76,7 +76,7 @@ Die folgenden Ausnahmen werden dem Ablehnungshandler für das von `setRemoteDesc
 - `OperationError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn ein Fehler auftritt, der nicht zu den hier angegebenen gehört. Dies schließt Fehler bei der Identitätsvalidierung ein.
 - `RTCError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird zurückgegeben, wenn das [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) auf `sdp-syntax-error` gesetzt ist, wenn das von [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) spezifizierte [SDP](/de/docs/Glossary/SDP) ungültig ist.
+  - : Wird zurückgegeben, wenn das [`errorDetail`](/de/docs/Web/API/RTCError/errorDetail) auf `sdp-syntax-error` gesetzt ist, wenn das von [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) spezifizierte {{Glossary("SDP", "SDP")}} ungültig ist.
     Die [`sdpLineNumber`](/de/docs/Web/API/RTCError/sdpLineNumber)-Eigenschaft des Fehlerobjekts gibt die Zeilennummer innerhalb des SDP an, an der der Syntaxfehler entdeckt wurde.
 - {{jsxref("TypeError")}}
   - : Wird zurückgegeben, wenn die `sessionDescription` die Eigenschaft [`type`](/de/docs/Web/API/RTCSessionDescription/type) fehlt oder überhaupt kein Beschreibungsparameter angegeben wurde.

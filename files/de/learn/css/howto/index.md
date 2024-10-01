@@ -14,7 +14,7 @@ Diese Seite fasst Fragen und Antworten sowie weiteres Material auf der MDN-Websi
 - [Wie füge ich einem Element einen Schlagschatten hinzu?](/de/docs/Learn/CSS/Howto/Add_a_shadow)
   - : Schatten können Boxen mit der {{cssxref("box-shadow")}}-Eigenschaft hinzugefügt werden. Dieses Tutorial erklärt, wie es funktioniert und zeigt ein Beispiel.
 - [Wie fülle ich eine Box mit einem Bild, ohne das Bild zu verzerren?](/de/docs/Learn/CSS/Howto/Fill_a_box_with_an_image)
-  - : Die {{cssxref("object-fit")}}-Eigenschaft bietet verschiedene Möglichkeiten, ein Bild in eine Box einzufügen, die ein anderes [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) hat. In diesem Tutorial erfahren Sie, wie Sie diese verwenden.
+  - : Die {{cssxref("object-fit")}}-Eigenschaft bietet verschiedene Möglichkeiten, ein Bild in eine Box einzufügen, die ein anderes {{Glossary("aspect_ratio", "Seitenverhältnis")}} hat. In diesem Tutorial erfahren Sie, wie Sie diese verwenden.
 - [Welche Methoden können angewendet werden, um Boxen zu stylen?](/de/docs/Learn/CSS/Howto/Create_fancy_boxes)
   - : Eine Übersicht über die verschiedenen Eigenschaften, die nützlich sein könnten, wenn Sie Boxen mit CSS stylen.
 - [Wie kann ich Elemente halbtransparent machen?](/de/docs/Learn/CSS/Howto/Make_box_transparent)

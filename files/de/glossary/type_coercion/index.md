@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Typumwandlung ist die automatische oder implizite Umwandlung von Werten von einem Datentyp in einen anderen (wie z.B. von Zeichenfolgen in Zahlen). _[Typkonvertierung](/de/docs/Glossary/Type_conversion)_ ist ähnlich wie die _Typumwandlung_, da beide Werte von einem Datentyp in einen anderen umwandeln, mit einem entscheidenden Unterschied — die _Typumwandlung_ ist implizit, während die _Typkonvertierung_ entweder implizit _oder_ explizit sein kann.
+Typumwandlung ist die automatische oder implizite Umwandlung von Werten von einem Datentyp in einen anderen (wie z.B. von Zeichenfolgen in Zahlen). _{{Glossary("Type_conversion", "Typkonvertierung")}}_ ist ähnlich wie die _Typumwandlung_, da beide Werte von einem Datentyp in einen anderen umwandeln, mit einem entscheidenden Unterschied — die _Typumwandlung_ ist implizit, während die _Typkonvertierung_ entweder implizit _oder_ explizit sein kann.
 
 ## Beispiele
 
@@ -31,5 +31,5 @@ sum = Number(value1) + value2;
 
 - [Typkonvertierung](https://en.wikipedia.org/wiki/Type_conversion) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - [Typ](/de/docs/Glossary/Type)
-  - [Typkonvertierung](/de/docs/Glossary/Type_conversion)
+  - {{Glossary("Type", "Typ")}}
+  - {{Glossary("Type_conversion", "Typkonvertierung")}}

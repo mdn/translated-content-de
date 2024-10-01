@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Storage")}} {{AvailableInWorkers}}
 
-Die **`estimate()`** Methode des [`StorageManager`](/de/docs/Web/API/StorageManager)-Interfaces fragt den Storage Manager, wie viel Speicher der aktuelle [Origin](/de/docs/Glossary/Same-origin_policy) beansprucht (`usage`) und wie viel Platz verfügbar ist (`quota`).
+Die **`estimate()`** Methode des [`StorageManager`](/de/docs/Web/API/StorageManager)-Interfaces fragt den Storage Manager, wie viel Speicher der aktuelle {{Glossary("Same-origin_policy", "Origin")}} beansprucht (`usage`) und wie viel Platz verfügbar ist (`quota`).
 
 Diese Methode arbeitet asynchron, daher gibt sie ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Informationen verfügbar sind. Der Erfüllungs-Handler des Promises wird mit einem Objekt aufgerufen, das die Daten zu `usage` und `quota` enthält.
 

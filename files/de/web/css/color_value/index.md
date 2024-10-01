@@ -68,7 +68,7 @@ Ein `<color>`-Wert kann mit einer der unten aufgeführten Methoden angegeben wer
 
 - Durch Schlüsselwörter: {{CSSXref("&lt;named-color&gt;")}} (wie `blue` oder `pink`), {{CSSXref("&lt;system-color&gt;")}} und [`currentcolor`](#currentcolor_keyword).
 - Durch hexadezimale Notationen: {{CSSXref("&lt;hex-color&gt;")}} (wie `#ff0000`).
-- Durch `<color-function>`, mit Parametern in einem [Farbraum](/de/docs/Glossary/color_space) unter Verwendung funktionaler Notationen:
+- Durch `<color-function>`, mit Parametern in einem {{Glossary("color_space", "Farbraum")}} unter Verwendung funktionaler Notationen:
   - [sRGB](https://en.wikipedia.org/wiki/SRGB) Farbraum: {{CSSXref("color_value/hsl", "hsl()")}}, {{CSSXref("color_value/hwb", "hwb()")}} und {{CSSXref("color_value/rgb", "rgb()")}}.
   - [CIELAB](https://en.wikipedia.org/wiki/CIELAB_color_space) Farbraum: {{CSSXref("color_value/lab", "lab()")}} und {{CSSXref("color_value/lch", "lch()")}}.
   - [Oklab](https://bottosson.github.io/posts/oklab/) Farbraum: {{CSSXref("color_value/oklab", "oklab()")}} und {{CSSXref("color_value/oklch", "oklch()")}}.
@@ -134,16 +134,16 @@ color-mix(in oklch, oklch(60% 0.2 10), oklch(60% 0.2 30))
 
 Falls eine Farbe, die interpoliert werden soll, nicht im Interpolationsfarbraum liegt, werden ihre fehlenden Komponenten in die konvertierte Farbe auf Basis von **analogen Komponenten** derselben Kategorie übertragen, wie in der folgenden Tabelle beschrieben:
 
-| Kategorie    | Analoge Komponenten |
-| ------------ | ------------------- |
-| Rottöne      | `R`, `X`            |
-| Grüntöne     | `G`, `Y`            |
-| Blautöne     | `B`, `Z`            |
-| Helligkeit   | `L`                 |
-| Farbigkeit   | `C`, `S`            |
-| Farbton      | `H`                 |
-| a            | `a`                 |
-| b            | `b`                 |
+| Kategorie  | Analoge Komponenten |
+| ---------- | ------------------- |
+| Rottöne    | `R`, `X`            |
+| Grüntöne   | `G`, `Y`            |
+| Blautöne   | `B`, `Z`            |
+| Helligkeit | `L`                 |
+| Farbigkeit | `C`, `S`            |
+| Farbton    | `H`                 |
+| a          | `a`                 |
+| b          | `b`                 |
 
 Zum Beispiel:
 

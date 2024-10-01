@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Ein `end`-Ereignis wird an einem [`XRSession`](/de/docs/Web/API/XRSession)-Objekt ausgelöst, wenn die WebXR-Sitzung beendet wurde, entweder weil die Webanwendung beschlossen hat, die Sitzung zu beenden, oder weil der [User Agent](/de/docs/Glossary/user_agent) die Sitzung beendet hat.
+Ein `end`-Ereignis wird an einem [`XRSession`](/de/docs/Web/API/XRSession)-Objekt ausgelöst, wenn die WebXR-Sitzung beendet wurde, entweder weil die Webanwendung beschlossen hat, die Sitzung zu beenden, oder weil der {{Glossary("user_agent", "User Agent")}} die Sitzung beendet hat.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der üb
 
 ### Auslöser
 
-Wird ausgelöst, wenn die WebXR-Sitzung beendet wurde, entweder weil die Webanwendung beschlossen hat, die Sitzung zu beenden, oder weil der [User Agent](/de/docs/Glossary/user_agent) die Sitzung beendet hat.
+Wird ausgelöst, wenn die WebXR-Sitzung beendet wurde, entweder weil die Webanwendung beschlossen hat, die Sitzung zu beenden, oder weil der {{Glossary("user_agent", "User Agent")}} die Sitzung beendet hat.
 
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergeleitet.
 

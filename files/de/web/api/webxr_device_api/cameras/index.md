@@ -359,7 +359,7 @@ mat4.rotateY(viewMatrix, viewMatrix, yawAngle);
 mat4.rotateZ(viewMatrix, viewMatrix, rollAngle);
 ```
 
-Sie können stattdessen ein [Quaternion](/de/docs/Glossary/quaternion) konstruieren, das eine kombinierte Rotationsachse aus den Eulerschen Winkeln darstellt und dann die Matrix mit Multiplikation drehen, wie folgt:
+Sie können stattdessen ein {{Glossary("quaternion", "Quaternion")}} konstruieren, das eine kombinierte Rotationsachse aus den Eulerschen Winkeln darstellt und dann die Matrix mit Multiplikation drehen, wie folgt:
 
 ```js
 const axisQuat = quat.create();

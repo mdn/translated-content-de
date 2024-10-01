@@ -7,9 +7,9 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Diese Artikelreihe bietet schnelle Erklärungen, um Ihnen zu helfen, die Schritte zu verstehen, die unternommen werden müssen, um den Empfehlungen der [Web Content Accessibility Guidelines](/de/docs/Glossary/WCAG) (WCAG) zu entsprechen.
+Diese Artikelreihe bietet schnelle Erklärungen, um Ihnen zu helfen, die Schritte zu verstehen, die unternommen werden müssen, um den Empfehlungen der {{Glossary("WCAG", "Web Content Accessibility Guidelines")}} (WCAG) zu entsprechen.
 
-Die WCAG-Richtlinien sind eine Reihe von Empfehlungen zur Verbesserung der Zugänglichkeit von Webinhalten, entwickelt von der [WAI](/de/docs/Glossary/WAI) des W3C. Sie richten sich hauptsächlich an Menschen mit Behinderungen, aber auch an alle Benutzeragenten, einschließlich einiger stark eingeschränkter Geräte oder Dienste, wie digitale Assistenten.
+Die WCAG-Richtlinien sind eine Reihe von Empfehlungen zur Verbesserung der Zugänglichkeit von Webinhalten, entwickelt von der {{Glossary("WAI", "WAI")}} des W3C. Sie richten sich hauptsächlich an Menschen mit Behinderungen, aber auch an alle Benutzeragenten, einschließlich einiger stark eingeschränkter Geräte oder Dienste, wie digitale Assistenten.
 
 WCAG 2.2 ist die neueste Version der Richtlinien, wobei WCAG 2.1 und 2.0 ebenfalls weit verbreitet sind. WCAG 3.0 ist der Arbeitsentwurf. Neuere Versionen von WCAG sollen frühere Versionen nicht ersetzen, aber WAI empfiehlt, die neueste Version zu verwenden, um die bestmögliche Zugänglichkeit für Ihre Website zu gewährleisten.
 

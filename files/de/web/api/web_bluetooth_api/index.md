@@ -47,7 +47,7 @@ Die Standard-Zulassungsliste für die `bluetooth` Richtlinie ist `self`, was die
 Der Zugriff über ursprüngliche Grenzen hinweg wird aktiviert, indem die zulässigen Ursprünge sowohl in der `Permissions-Policy: bluetooth` HTTP-Header als auch im gewünschten `<iframe>` angegeben werden.
 
 Um die Funktion nutzen zu können, muss der Benutzer zunächst eine explizite Genehmigung erteilen (es wird keine Zugriffsanfrage angezeigt, wenn sie aus anderen Gründen, wie z.B. durch eine Permissions Policy blockiert, nicht erlaubt ist).
-Die Genehmigungsaufforderung wird angezeigt, wenn [`Bluetooth.requestDevice()`](/de/docs/Web/API/Bluetooth/requestDevice) aufgerufen wird, um den Zugriff auf ein neues Bluetooth-Gerät anzufordern, für das keine Genehmigung erteilt wurde (das besitzende globale Objekt muss außerdem eine [transient activation](/de/docs/Glossary/transient_activation) haben).
+Die Genehmigungsaufforderung wird angezeigt, wenn [`Bluetooth.requestDevice()`](/de/docs/Web/API/Bluetooth/requestDevice) aufgerufen wird, um den Zugriff auf ein neues Bluetooth-Gerät anzufordern, für das keine Genehmigung erteilt wurde (das besitzende globale Objekt muss außerdem eine {{Glossary("transient_activation", "transient activation")}} haben).
 Sie können [`Bluetooth.getDevices()`](/de/docs/Web/API/Bluetooth/getDevices) verwenden, um alle Geräte abzurufen, für die der Website zuvor eine Genehmigung erteilt wurde.
 
 Die [Permissions API](/de/docs/Web/API/Permissions_API) Methode [`navigator.permissions.query()`](/de/docs/Web/API/Permissions/query) kann mit der `bluetooth` Berechtigung verwendet werden, um zu testen, ob eine Website die Erlaubnis hat, Bluetooth-Geräte zu verwenden.

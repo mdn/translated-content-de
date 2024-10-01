@@ -36,12 +36,12 @@ Ein radialer Verlauf wird durch Angabe des Zentrums des Verlaufs (wo die 0%-Elli
 
     Sowohl Kreis- als auch Ellipsenverläufe akzeptieren die folgenden Schlüsselwörter für ihre `<size>`:
 
-    | Schlüsselwort     | Beschreibung                                                                                                                                                                      |
-    | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Schlüsselwort     | Beschreibung                                                                                                                                                                                                |
+    | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | `closest-side`    | Die Endform des Verlaufs erreicht die dem Zentrum am nächsten liegende Boxseite (für Kreise) oder berührt die beiden vertikalen und horizontalen Seiten, die dem Zentrum am nächsten liegen (für Ellipsen). |
-    | `closest-corner`  | Die Endform des Verlaufs wird so dimensioniert, dass sie genau die nächste Ecke der Box von ihrem Zentrum aus erreicht.                                                              |
-    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die Endform so dimensioniert ist, dass sie die Boxseite erreicht, die am weitesten von ihrem Zentrum entfernt ist (oder die vertikalen und horizontalen Seiten).            |
-    | `farthest-corner` | Der Standardwert, die Endform des Verlaufs wird so dimensioniert, dass sie genau die am weitesten entfernte Ecke der Box von ihrem Zentrum erreicht.                                  |
+    | `closest-corner`  | Die Endform des Verlaufs wird so dimensioniert, dass sie genau die nächste Ecke der Box von ihrem Zentrum aus erreicht.                                                                                     |
+    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die Endform so dimensioniert ist, dass sie die Boxseite erreicht, die am weitesten von ihrem Zentrum entfernt ist (oder die vertikalen und horizontalen Seiten).     |
+    | `farthest-corner` | Der Standardwert, die Endform des Verlaufs wird so dimensioniert, dass sie genau die am weitesten entfernte Ecke der Box von ihrem Zentrum erreicht.                                                        |
 
     Wenn `<ending-shape>` als `circle` angegeben ist, kann die Größe explizit als {{cssxref("length")}} angegeben werden, was einen expliziten Kreisradius angibt. Negative Werte sind ungültig.
 
@@ -64,7 +64,7 @@ Da `<gradient>`s zum `<image>` Datentyp gehören, können sie nur dort verwendet
 
 ### Zusammensetzung eines radialen Verlaufs
 
-![Grafik, die radiale Verläufe erklärt: Der virtuelle Strahl verläuft horizontal vom Mittelpunkt aus. Der elliptische Verlauf, und somit die Endform, hat das gleiche [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) wie die Box, auf die er angewendet wird.](radial_gradient.png)
+!{{Glossary("aspect_ratio", "Grafik, die radiale Verläufe erklärt: Der virtuelle Strahl verläuft horizontal vom Mittelpunkt aus. Der elliptische Verlauf, und somit die Endform, hat das gleiche [Seitenverhältnis")}} wie die Box, auf die er angewendet wird.](radial_gradient.png)
 
 Ein radialer Verlauf wird durch einen _Mittelpunkt_, eine _Endform_ und zwei oder mehr _Farbhaltepunkt_ definiert.
 
@@ -172,7 +172,7 @@ In diesem Beispiel für die Interpolation wird das [hsl](/de/docs/Web/CSS/color_
 }
 ```
 
-Die Box auf der linken Seite verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau über den kürzeren Bogen auf dem [Farbrad](/de/docs/Glossary/Color_wheel) wechselt. Die Box auf der rechten Seite verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen wechselt, durch Grün-, Gelb- und Orangetöne.
+Die Box auf der linken Seite verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbrad")}} wechselt. Die Box auf der rechten Seite verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen wechselt, durch Grün-, Gelb- und Orangetöne.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 

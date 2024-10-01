@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Errors")}}
 
-Der **insecure certificate**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn der ferngesteuerte Browser eine Zertifikatwarnung jeglicher Art erhält. Dies ist normalerweise das Ergebnis des [Navigierens](/de/docs/Web/WebDriver/Commands/NavigateTo) zu einer Website mit einem abgelaufenen oder ungültigen [TLS-Zertifikat](/de/docs/Glossary/TLS). Beispiele für ungültige Zertifikate sind selbstsignierte, widerrufene und kryptographisch unsichere Zertifikate.
+Der **insecure certificate**-Fehler ist ein [WebDriver-Fehler](/de/docs/Web/WebDriver/Errors), der auftritt, wenn der ferngesteuerte Browser eine Zertifikatwarnung jeglicher Art erhält. Dies ist normalerweise das Ergebnis des [Navigierens](/de/docs/Web/WebDriver/Commands/NavigateTo) zu einer Website mit einem abgelaufenen oder ungültigen {{Glossary("TLS", "TLS-Zertifikat")}}. Beispiele für ungültige Zertifikate sind selbstsignierte, widerrufene und kryptographisch unsichere Zertifikate.
 
 Webbrowser verhindern und blockieren den Datenverkehr zu Domains mit fehlerhaften Zertifikaten, da die Kommunikation mit dem Server kompromittiert wäre. Es wird dringend empfohlen, die Zertifikatsituation zu beheben, anstatt die Zertifikatsprüfungen zu deaktivieren, selbst in Testumgebungen.
 

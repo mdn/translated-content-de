@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`user-select`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, ob der Benutzer Text auswählen kann. Dies hat keine Auswirkung auf Inhalte, die als Teil der Benutzeroberfläche eines Browsers geladen werden (sein [Chrome](/de/docs/Glossary/Chrome)), außer in Textfeldern.
+Die **`user-select`** [CSS](/de/docs/Web/CSS)-Eigenschaft steuert, ob der Benutzer Text auswählen kann. Dies hat keine Auswirkung auf Inhalte, die als Teil der Benutzeroberfläche eines Browsers geladen werden (sein {{Glossary("Chrome", "Chrome")}}), außer in Textfeldern.
 
 {{EmbedInteractiveExample("pages/css/user-select.html")}}
 

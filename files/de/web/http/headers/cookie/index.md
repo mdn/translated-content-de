@@ -15,10 +15,10 @@ Der `Cookie`-Header ist optional und kann weggelassen werden, wenn beispielsweis
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Anforderungs-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

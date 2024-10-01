@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-_Web Content Accessibility Guidelines_ (**WCAG**) ist eine Empfehlung, die von der [Web Accessibility Initiative (WAI)](/de/docs/Glossary/WAI) Gruppe beim [W3C](/de/docs/Glossary/W3C) veröffentlicht wurde. Sie enthält eine Reihe von Richtlinien zur Erstellung von [zugänglichen](/de/docs/Glossary/accessibility) Inhalten, hauptsächlich für Menschen mit Behinderungen, aber auch für Geräte und Dienste mit begrenzten Ressourcen, wie digitale Assistenten.
+_Web Content Accessibility Guidelines_ (**WCAG**) ist eine Empfehlung, die von der {{Glossary("WAI", "Web Accessibility Initiative (WAI)")}} Gruppe beim {{Glossary("W3C", "W3C")}} veröffentlicht wurde. Sie enthält eine Reihe von Richtlinien zur Erstellung von {{Glossary("accessibility", "zugänglichen")}} Inhalten, hauptsächlich für Menschen mit Behinderungen, aber auch für Geräte und Dienste mit begrenzten Ressourcen, wie digitale Assistenten.
 
 WCAG 2 besteht aus 13 Leitlinien, die unter 4 Prinzipien organisiert sind (wahrnehmbar, bedienbar, verständlich und robust), und jede Leitlinie hat überprüfbare Erfolgskriterien.
 
@@ -26,7 +26,7 @@ WCAG 2 verwendet drei Konformitätsstufen:
 - [Web Content Accessibility Guidelines (WCAG) 2.2: Empfehlung](https://www.w3.org/TR/WCAG22/)
 - [W3C Accessibility Guidelines (WCAG) 3.0: Arbeitsentwurf](https://www.w3.org/TR/wcag-3.0/)
 - Glossar
-  - [Accessibility](/de/docs/Glossary/Accessibility)
-  - [WAI](/de/docs/Glossary/WAI)
-  - [ATAG](/de/docs/Glossary/ATAG)
-  - [UAAG](/de/docs/Glossary/UAAG)
+  - {{Glossary("Accessibility", "Accessibility")}}
+  - {{Glossary("WAI", "WAI")}}
+  - {{Glossary("ATAG", "ATAG")}}
+  - {{Glossary("UAAG", "UAAG")}}

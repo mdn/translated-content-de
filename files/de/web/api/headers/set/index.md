@@ -18,8 +18,8 @@ den vorhandenen Wert mit dem neuen überschreibt, während [`Headers.append`](/d
 den neuen Wert an das Ende der Wertemenge anhängt.
 
 Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten gesteuert werden. Diese
-Header umfassen die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name)
-und [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
+Header umfassen die {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}}
+und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Performance/html", "Learn/Performance/business_case_for_performance", "Learn/Performance")}}
 
-Bei der Entwicklung einer Website müssen Sie berücksichtigen, wie der Browser das CSS auf Ihrer Seite verarbeitet. Um mögliche Leistungsprobleme, die das CSS verursachen könnte, abzumildern, sollten Sie es optimieren. Beispielsweise sollten Sie das CSS optimieren, um [Render-Blocking](/de/docs/Glossary/Render_blocking) zu reduzieren und die Anzahl der erforderlichen Neuberechnungen zu minimieren. Dieser Artikel führt Sie durch wichtige Techniken zur CSS-Leistungsoptimierung.
+Bei der Entwicklung einer Website müssen Sie berücksichtigen, wie der Browser das CSS auf Ihrer Seite verarbeitet. Um mögliche Leistungsprobleme, die das CSS verursachen könnte, abzumildern, sollten Sie es optimieren. Beispielsweise sollten Sie das CSS optimieren, um {{Glossary("Render_blocking", "Render-Blocking")}} zu reduzieren und die Anzahl der erforderlichen Neuberechnungen zu minimieren. Dieser Artikel führt Sie durch wichtige Techniken zur CSS-Leistungsoptimierung.
 
 <table>
   <tbody>
@@ -43,7 +43,7 @@ Um dies zu tun, müssen Sie die [Leistung Ihrer Website messen](/de/docs/Learn/P
 
 Browser folgen einem spezifischen Renderingpfad – Zeichnen erfolgt erst nach dem Layout, welches nach Erstellung des Renderbaums erfolgt, der sowohl die DOM- als auch die CSSOM-Bäume benötigt.
 
-Benutzern eine ungestaltete Seite zu zeigen und sie erst zu übermalen, nachdem die CSS-Stile analysiert wurden, wäre eine schlechte Benutzererfahrung. Aus diesem Grund blockiert CSS das Rendering, bis der Browser feststellt, dass das CSS benötigt wird. Der Browser kann die Seite zeichnen, nachdem es das CSS heruntergeladen und das [CSS-Objektmodell (CSSOM)](/de/docs/Glossary/CSSOM) aufgebaut hat.
+Benutzern eine ungestaltete Seite zu zeigen und sie erst zu übermalen, nachdem die CSS-Stile analysiert wurden, wäre eine schlechte Benutzererfahrung. Aus diesem Grund blockiert CSS das Rendering, bis der Browser feststellt, dass das CSS benötigt wird. Der Browser kann die Seite zeichnen, nachdem es das CSS heruntergeladen und das {{Glossary("CSSOM", "CSS-Objektmodell (CSSOM)")}} aufgebaut hat.
 
 Um die Konstruktion des CSSOM zu optimieren und die Seitenleistung zu verbessern, können Sie eine oder mehrere der folgenden Maßnahmen in Abhängigkeit von Ihrem derzeitigen CSS-Zustand ergreifen:
 
@@ -132,7 +132,7 @@ Für wesentliche DOM-Animationen wird empfohlen, [CSS-Animationen](/de/docs/Web/
 
 ### Auswahl von Eigenschaften zum Animieren
 
-Die Animationsleistung hängt stark davon ab, welche Eigenschaften Sie animieren. Bestimmte Eigenschaften lösen bei Animationen einen [Reflow](/de/docs/Glossary/Reflow) (und somit auch einen [Repaint](/de/docs/Glossary/Repaint)) aus und sollten vermieden werden. Diese beinhalten Eigenschaften, die:
+Die Animationsleistung hängt stark davon ab, welche Eigenschaften Sie animieren. Bestimmte Eigenschaften lösen bei Animationen einen {{Glossary("Reflow", "Reflow")}} (und somit auch einen {{Glossary("Repaint", "Repaint")}}) aus und sollten vermieden werden. Diese beinhalten Eigenschaften, die:
 
 - Die Dimensionen eines Elements verändern, wie [`width`](/de/docs/Web/CSS/width), [`height`](/de/docs/Web/CSS/height), [`border`](/de/docs/Web/CSS/border) und [`padding`](/de/docs/Web/CSS/padding).
 - Ein Element umpositionieren, wie [`margin`](/de/docs/Web/CSS/margin), [`top`](/de/docs/Web/CSS/top), [`bottom`](/de/docs/Web/CSS/bottom), [`left`](/de/docs/Web/CSS/left) und [`right`](/de/docs/Web/CSS/right).

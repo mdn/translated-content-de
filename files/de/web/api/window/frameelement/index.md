@@ -15,7 +15,7 @@ Die **`Window.frameElement`**-Eigenschaft gibt das Element zurück (wie {{HTMLEl
 
 ## Wert
 
-Das Element, in das das Fenster eingebettet ist. Wenn das Fenster nicht in ein anderes Dokument eingebettet ist oder wenn das Dokument, in das es eingebettet ist, einen anderen [Ursprung](/de/docs/Glossary/origin) hat, ist der Wert stattdessen [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
+Das Element, in das das Fenster eingebettet ist. Wenn das Fenster nicht in ein anderes Dokument eingebettet ist oder wenn das Dokument, in das es eingebettet ist, einen anderen {{Glossary("origin", "Ursprung")}} hat, ist der Wert stattdessen [`null`](/de/docs/Web/JavaScript/Reference/Operators/null).
 
 ## Beispiele
 

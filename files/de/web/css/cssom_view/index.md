@@ -22,7 +22,7 @@ Das **CSSOM View**-Modul ermöglicht es Ihnen, die visuelle Ansicht eines Dokume
 
 ## Verwandte Konzepte
 
-- [cssom](/de/docs/Glossary/cssom) Glossarbegriff
+- {{Glossary("cssom", "cssom")}} Glossarbegriff
 
 ## Spezifikationen
 

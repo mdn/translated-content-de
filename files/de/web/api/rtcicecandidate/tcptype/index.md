@@ -23,7 +23,7 @@ Wenn das [`protocol`](/de/docs/Web/API/RTCIceCandidate/protocol) "tcp" ist, hat 
 - `"so"`
   - : Der Transport wird versuchen, gleichzeitig mit seinem Gegenüber eine Verbindung zu öffnen.
 
-`tcpType` ist `null` für [UDP](/de/docs/Glossary/UDP)-Kandidaten.
+`tcpType` ist `null` für {{Glossary("UDP", "UDP")}}-Kandidaten.
 
 ## Beispiele
 

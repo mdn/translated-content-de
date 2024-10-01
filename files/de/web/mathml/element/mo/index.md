@@ -18,7 +18,7 @@ Zusätzlich zu den [globalen MathML-Attributen](/de/docs/Web/MathML/Global_attri
 - `fence`
   - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob der Operator eine Umrahmung ist (wie Klammern). Es gibt keinen visuellen Effekt für dieses Attribut.
 - `form`
-  - : Ein [enumerated](/de/docs/Glossary/Enumerated) Attribut, das angibt, wie der Operator dargestellt werden soll. Je nach Wert könnte beispielsweise eine unterschiedliche Menge an Raum zu beiden Seiten des Operators gerendert werden. Es kann einen der folgenden Werte haben:
+  - : Ein {{Glossary("Enumerated", "enumerated")}} Attribut, das angibt, wie der Operator dargestellt werden soll. Je nach Wert könnte beispielsweise eine unterschiedliche Menge an Raum zu beiden Seiten des Operators gerendert werden. Es kann einen der folgenden Werte haben:
     - `prefix`: Der Operator steht vor seinen Operanden. Zum Beispiel ist in dem Ausdruck `+ a` das `+` ein Präfix-Operator.
     - `infix`: Der Operator steht zwischen seinen Operanden. Im Ausdruck `a + b` ist das `+` ein Infix-Operator.
     - `postfix`: Der Operator steht nach seinen Operanden. Zum Beispiel ist im Ausdruck `a +` das `+` ein Postfix-Operator.

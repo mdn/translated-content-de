@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-In [JavaScript](/de/docs/Glossary/JavaScript) ist ein **Primitive** (Primitivwert, primitiver Datentyp) ein Datum, das kein [Objekt](/de/docs/Glossary/object) ist und keine [Methoden](/de/docs/Glossary/method) oder [Eigenschaften](/de/docs/Glossary/property/javascript) besitzt. Es gibt 7 primitive Datentypen:
+In {{Glossary("JavaScript", "JavaScript")}} ist ein **Primitive** (Primitivwert, primitiver Datentyp) ein Datum, das kein {{Glossary("object", "Objekt")}} ist und keine {{Glossary("method", "Methoden")}} oder {{Glossary("property/javascript", "Eigenschaften")}} besitzt. Es gibt 7 primitive Datentypen:
 
-- [string](/de/docs/Glossary/string)
-- [number](/de/docs/Glossary/number)
-- [bigint](/de/docs/Glossary/bigint)
-- [boolean](/de/docs/Glossary/boolean)
-- [undefined](/de/docs/Glossary/undefined)
+- {{Glossary("string", "string")}}
+- {{Glossary("number", "number")}}
+- {{Glossary("bigint", "bigint")}}
+- {{Glossary("boolean", "boolean")}}
+- {{Glossary("undefined", "undefined")}}
 - [symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)
-- [null](/de/docs/Glossary/null)
+- {{Glossary("null", "null")}}
 
 In der Regel wird ein Primitivwert direkt auf der niedrigsten Ebene der Sprachimplementierung dargestellt.
 
@@ -28,11 +28,11 @@ Primitiven haben keine Methoden, verhalten sich aber trotzdem so, als ob sie wel
 - [JavaScript-Datentypen](/de/docs/Web/JavaScript/Data_structures)
 - [Primitive Datentypen](https://en.wikipedia.org/wiki/Primitive_data_type) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - [JavaScript](/de/docs/Glossary/JavaScript)
-  - [string](/de/docs/Glossary/string)
-  - [number](/de/docs/Glossary/number)
-  - [bigint](/de/docs/Glossary/bigint)
-  - [boolean](/de/docs/Glossary/boolean)
-  - [null](/de/docs/Glossary/null)
-  - [undefined](/de/docs/Glossary/undefined)
+  - {{Glossary("JavaScript", "JavaScript")}}
+  - {{Glossary("string", "string")}}
+  - {{Glossary("number", "number")}}
+  - {{Glossary("bigint", "bigint")}}
+  - {{Glossary("boolean", "boolean")}}
+  - {{Glossary("null", "null")}}
+  - {{Glossary("undefined", "undefined")}}
   - [symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol)

@@ -59,7 +59,7 @@ Die möglichen Werte sind:
 </table>
 
 > [!NOTE]
-> Historisch gesehen testeten Entwickler für einen `type` von `"TYPE_BACK_FORWARD"`, um einen Hinweis auf die Trefferquote des Back/Forward-Cache ([bfcache](/de/docs/Glossary/bfcache)) zu erhalten. Dies lieferte jedoch keine Gründe für die Blockierung des bfcache oder andere Daten. Die Eigenschaft [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons) sollte verwendet werden, um den bfcache zukünftig zu überwachen. Siehe [Gründe für die Blockierung des bfcache überwachen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für weitere Informationen.
+> Historisch gesehen testeten Entwickler für einen `type` von `"TYPE_BACK_FORWARD"`, um einen Hinweis auf die Trefferquote des Back/Forward-Cache ({{Glossary("bfcache", "bfcache")}}) zu erhalten. Dies lieferte jedoch keine Gründe für die Blockierung des bfcache oder andere Daten. Die Eigenschaft [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons) sollte verwendet werden, um den bfcache zukünftig zu überwachen. Siehe [Gründe für die Blockierung des bfcache überwachen](/de/docs/Web/API/Performance_API/Monitoring_bfcache_blocking_reasons) für weitere Informationen.
 
 ## Spezifikationen
 

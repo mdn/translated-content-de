@@ -11,12 +11,12 @@ Der HTTP-Header [`Content-Security-Policy`](/de/docs/Web/HTTP/Headers/Content-Se
 
 ## Problem
 
-Das Hauptproblem, auf das sich dieser Artikel konzentriert, sind Cross-Site-Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) Angriffe. Diese entstehen in der Regel durch mangelnde Kontrolle und Bewusstsein über die Quellen, von denen Website-Ressourcen geladen werden. Dieses Problem wird schwieriger zu verwalten, je größer und komplexer Websites werden und je stärker sie auf Drittanbieter-Ressourcen wie JavaScript-Bibliotheken angewiesen sind.
+Das Hauptproblem, auf das sich dieser Artikel konzentriert, sind Cross-Site-Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) Angriffe. Diese entstehen in der Regel durch mangelnde Kontrolle und Bewusstsein über die Quellen, von denen Website-Ressourcen geladen werden. Dieses Problem wird schwieriger zu verwalten, je größer und komplexer Websites werden und je stärker sie auf Drittanbieter-Ressourcen wie JavaScript-Bibliotheken angewiesen sind.
 
 CSP kann auch helfen, andere Probleme zu beheben, die in anderen Artikeln behandelt werden:
 
 - [Verhinderung von Clickjacking](/de/docs/Web/Security/Practical_implementation_guides/Clickjacking) durch Verhinderung, dass Ihre Seite in {{htmlelement("iframe")}}-Elemente eingebettet wird. Dies wird durch die CSP-Direktive [`frame-ancestors`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) erreicht.
-- Verhinderung von [Manipulator-in-the-Middle](/de/docs/Glossary/MitM) (MiTM) Angriffen durch das Upgraden aller HTTP-Verbindungen zu HTTPS. Dies wird durch die CSP-Direktive [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) unterstützt. Weitere Einzelheiten finden Sie in der [HSTS-Implementierung](/de/docs/Web/Security/Practical_implementation_guides/TLS#http_strict_transport_security_implementation).
+- Verhinderung von {{Glossary("MitM", "Manipulator-in-the-Middle")}} (MiTM) Angriffen durch das Upgraden aller HTTP-Verbindungen zu HTTPS. Dies wird durch die CSP-Direktive [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) unterstützt. Weitere Einzelheiten finden Sie in der [HSTS-Implementierung](/de/docs/Web/Security/Practical_implementation_guides/TLS#http_strict_transport_security_implementation).
 
 ## Lösung
 
@@ -30,10 +30,10 @@ Daher sollten Websites sorgfältig gestaltet werden, um sicherzustellen, dass CS
 
 CSP kann auch verwendet werden, um eine granulare Kontrolle über Folgendes bereitzustellen:
 
-- Das Laden von anderen Ressourcen wie Bildern, Videos und Audiodateien ([Fetch-Direktiven](/de/docs/Glossary/Fetch_directive) steuern das Laden von Ressourcen).
-- [Web Workers](/de/docs/Web/API/Web_Workers_API) (über [Dokumentdirektiven](/de/docs/Glossary/Document_directive)).
+- Das Laden von anderen Ressourcen wie Bildern, Videos und Audiodateien ({{Glossary("Fetch_directive", "Fetch-Direktiven")}} steuern das Laden von Ressourcen).
+- [Web Workers](/de/docs/Web/API/Web_Workers_API) (über {{Glossary("Document_directive", "Dokumentdirektiven")}}).
 - Eingebettete Inhalte (z.B. {{htmlelement("iframe")}}).
-- Ziele für Navigation/Forms-Übermittlung (über [Navigationsdirektiven](/de/docs/Glossary/Navigation_directive)).
+- Ziele für Navigation/Forms-Übermittlung (über {{Glossary("Navigation_directive", "Navigationsdirektiven")}}).
 
 ### Schritte zur Implementierung von CSP
 
@@ -51,10 +51,9 @@ Beachten Sie die folgenden Punkte:
 - Wenn Sie den `Content-Security-Policy`-Header nicht verwenden können, können Seiten stattdessen ein [`<meta http-equiv="Content-Security-Policy" content="…">`](/de/docs/Web/HTML/Element/meta#http-equiv) Element einschließen. Dies sollte das erste {{htmlelement("meta")}}-Element sein, das im Dokument {{htmlelement("head")}} erscheint.
 - Bei `data:` URIs ist Vorsicht geboten, da diese innerhalb von `script-src` und `object-src` (oder `default-src`) unsicher sind.
 - Ebenso kann die Verwendung von `script-src 'self'` unsicher für Sites mit JSONP-Endpunkten sein. Diese Sites sollten ein `script-src` verwenden, das den Pfad zu ihrem JavaScript-Quellenordner enthält.
-- Sites sollten die [Reporting-Direktiven](/de/docs/Glossary/Reporting_directive) [`report-to`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-to) und [`report-uri`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-uri) verwenden. Diese veranlassen den Browser, JSON-Berichte über CSP-Verstöße an Endpunkte zu [`POST`](/de/docs/Web/HTTP/Methods/POST)en (angegeben im {{httpheader("Reporting-Endpoints")}} Header im Fall von `report-to`). Dies ermöglicht es, CSP-Verletzungen schnell zu erkennen und zu beheben.
+- Sites sollten die {{Glossary("Reporting_directive", "Reporting-Direktiven")}} [`report-to`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-to) und [`report-uri`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/report-uri) verwenden. Diese veranlassen den Browser, JSON-Berichte über CSP-Verstöße an Endpunkte zu [`POST`](/de/docs/Web/HTTP/Methods/POST)en (angegeben im {{httpheader("Reporting-Endpoints")}} Header im Fall von `report-to`). Dies ermöglicht es, CSP-Verletzungen schnell zu erkennen und zu beheben.
 
-  > [!NOTE]
-  > `report-to` wird gegenüber dem veralteten `report-uri` bevorzugt; jedoch werden beide noch benötigt, da `report-to` noch keine vollständige Cross-Browser-Unterstützung hat.
+  > [!NOTE] > `report-to` wird gegenüber dem veralteten `report-uri` bevorzugt; jedoch werden beide noch benötigt, da `report-to` noch keine vollständige Cross-Browser-Unterstützung hat.
 
 - Schließen Sie keine unsicheren Quellen in Ihre CSP ein. Beispiele beinhalten `unsafe-inline` oder `data:` URIs innerhalb von `script-src` und allzu breite Quellen oder Formübermittlungsziele.
 - Wenn Sites nicht die Fähigkeit benötigen, Plugins auszuführen, sollte deren Ausführung mit `object-src 'none'` deaktiviert werden.

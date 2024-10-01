@@ -11,7 +11,7 @@ l10n:
 Das Wörterbuch [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)
 enthält die schreibgeschützte Boolean-Eigenschaft **`echoCancellation`**, die im Objekt enthalten ist (und auf `true` gesetzt wird), das von
 [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird, wenn und nur wenn der
-[User-Agent](/de/docs/Glossary/user_agent) das `echoCancellation`-Constraint unterstützt. Wenn das
+{{Glossary("user_agent", "User-Agent")}} das `echoCancellation`-Constraint unterstützt. Wenn das
 Constraint nicht unterstützt wird, wird es nicht in die Liste aufgenommen, sodass dieser Wert niemals
 `false` sein wird.
 

@@ -27,7 +27,7 @@ requestSession(mode, options)
 
     - {{Experimental_Inline}} `immersive-ar`: Dem Ausgabegerät der Sitzung wird exklusiver Zugriff gewährt, aber die gerenderten Inhalte werden mit der realen Umgebung vermischt. Der [`environmentBlendMode`](/de/docs/Web/API/XRSession/environmentBlendMode) der Sitzung gibt die Methode an, die zum Mischen der Inhalte verwendet werden soll.
     - `immersive-vr`: Gibt an, dass die gerenderte Sitzung in VR-Modus mit einem immersiven XR-Gerät angezeigt wird; sie soll nicht überlagert oder in die Umgebung integriert werden. Der [`environmentBlendMode`](/de/docs/Web/API/XRSession/environmentBlendMode) sollte nach Möglichkeit `opaque` sein, könnte jedoch `additive` sein, wenn die Hardware dies erfordert.
-    - `inline`: Die Ausgabe wird inline im Kontext eines Elements in einem Standard-HTML-Dokument angezeigt, anstatt den gesamten visuellen Raum zu belegen. Inline-Sitzungen können entweder im Mono- oder Stereo-Modus präsentiert werden und können mit oder ohne Benutzerrichtungserkennung verfügbar sein. Inline-Sitzungen erfordern keine spezielle Hardware und sollten in jedem [User Agent](/de/docs/Glossary/user_agent), der die WebXR-API unterstützt, verfügbar sein.
+    - `inline`: Die Ausgabe wird inline im Kontext eines Elements in einem Standard-HTML-Dokument angezeigt, anstatt den gesamten visuellen Raum zu belegen. Inline-Sitzungen können entweder im Mono- oder Stereo-Modus präsentiert werden und können mit oder ohne Benutzerrichtungserkennung verfügbar sein. Inline-Sitzungen erfordern keine spezielle Hardware und sollten in jedem {{Glossary("user_agent", "User Agent")}}, der die WebXR-API unterstützt, verfügbar sein.
 
 - `options` {{Optional_Inline}}
 
@@ -75,7 +75,7 @@ Die folgenden Sitzungsfunktionen und Referenzräume können entweder als `option
 - `local`
   - : Ermöglicht einen Tracking-Bereich, dessen nativer Ursprung sich in der Nähe der Position des Betrachters zum Zeitpunkt der Sitzungserstellung befindet. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Der Benutzer wird nicht erwartet, sich signifikant von seiner Ausgangsposition zu bewegen, und das Tracking ist für diesen Anwendungsfall optimiert.
 - `local-floor`
-  - : Ähnlich dem Typ `local`, außer dass die Ausgangsposition an einem sicheren Ort positioniert ist, um zu stehen, wobei der y-Achsenwert bei 0 auf Bodenhöhe liegt. Wenn diese Bodenhöhe nicht bekannt ist, schätzt der [User Agent](/de/docs/Glossary/user_agent) die Bodenhöhe. Wenn die geschätzte Bodenhöhe nicht null ist, wird vom Browser erwartet, dass er sie so abrundet, dass eine [Fingerabdruckerkennung](/de/docs/Glossary/Fingerprinting) vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
+  - : Ähnlich dem Typ `local`, außer dass die Ausgangsposition an einem sicheren Ort positioniert ist, um zu stehen, wobei der y-Achsenwert bei 0 auf Bodenhöhe liegt. Wenn diese Bodenhöhe nicht bekannt ist, schätzt der {{Glossary("user_agent", "User Agent")}} die Bodenhöhe. Wenn die geschätzte Bodenhöhe nicht null ist, wird vom Browser erwartet, dass er sie so abrundet, dass eine {{Glossary("Fingerprinting", "Fingerabdruckerkennung")}} vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
 - `secondary-views`
   - : Ermöglicht [`XRView`](/de/docs/Web/API/XRView)-Objekte als sekundäre Ansichten. Dies kann für Beobachteransichten aus der ersten Person für Videoaufnahmen oder "Quad-Ansichten" verwendet werden, bei denen es zwei Ansichten pro Auge mit unterschiedlichen Auflösungen und Sichtfeldern gibt.
 - `unbounded`
@@ -87,16 +87,16 @@ Die folgenden Sitzungsfunktionen und Referenzräume können entweder als `option
 
 Mehrere Sitzungsfunktionen und die verschiedenen Referenzräume haben Mindestanforderungen an Sicherheit und Datenschutz, wie das Einholen der Zustimmung des Benutzers und/oder das Erfordernis der Richtlinie {{HTTPHeader("Permissions-Policy")}}: [`xr-spatial-tracking`](/de/docs/Web/HTTP/Headers/Permissions-Policy/xr-spatial-tracking) zu setzen. Siehe auch [Berechtigungen und Sicherheit](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security) für weitere Details.
 
-| Sitzungsfunktion | Anforderung der Benutzerzustimmung | Anforderungsrichtlinie          |
-| ---------------- | ----------------------------------- | ------------------------------- |
-| `bounded-floor`  | Immer erforderlich                  | `xr-spatial-tracking`           |
-| `depth-sensing`  | —                                   | `xr-spatial-tracking`           |
-| `hand-tracking`  | Immer erforderlich                  | —                               |
-| `hit-test`       | —                                   | `xr-spatial-tracking`           |
-| `local`          | Immer erforderlich für Inline-Sitzungen | `xr-spatial-tracking`        |
-| `local-floor`    | Immer erforderlich                  | `xr-spatial-tracking`           |
-| `unbounded`      | Immer erforderlich                  | `xr-spatial-tracking`           |
-| `viewer`         | Immer erforderlich                  | —                               |
+| Sitzungsfunktion | Anforderung der Benutzerzustimmung      | Anforderungsrichtlinie |
+| ---------------- | --------------------------------------- | ---------------------- |
+| `bounded-floor`  | Immer erforderlich                      | `xr-spatial-tracking`  |
+| `depth-sensing`  | —                                       | `xr-spatial-tracking`  |
+| `hand-tracking`  | Immer erforderlich                      | —                      |
+| `hit-test`       | —                                       | `xr-spatial-tracking`  |
+| `local`          | Immer erforderlich für Inline-Sitzungen | `xr-spatial-tracking`  |
+| `local-floor`    | Immer erforderlich                      | `xr-spatial-tracking`  |
+| `unbounded`      | Immer erforderlich                      | `xr-spatial-tracking`  |
+| `viewer`         | Immer erforderlich                      | —                      |
 
 Siehe auch [transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation).
 

@@ -42,12 +42,12 @@ repeating-radial-gradient(farthest-corner at 20% 20%, red 0, green, red 20%)
 
   - : Ein Schlüsselwort, das beschreibt, wie groß die endende Form sein muss. Die möglichen Werte sind:
 
-    | Schlüsselwort        | Beschreibung                                                                                                                                                                     |
-    | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | Schlüsselwort     | Beschreibung                                                                                                                                                                                                          |
+    | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | `closest-side`    | Die endende Form des Verlaufs trifft auf die dem Zentrum am nächsten liegende Seite der Box (für Kreise) oder trifft auf beide vertikalen und horizontalen Seiten, die dem Zentrum am nächsten liegen (für Ellipsen). |
-    | `closest-corner`  | Die endende Form des Verlaufs wird so bemessen, dass sie genau die dem Zentrum am nächsten liegende Ecke der Box trifft.                                                                    |
-    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die endende Form so bemessen wird, dass sie die dem Zentrum am weitesten entfernte Seite der Box (oder vertikale und horizontale Seiten) trifft.                            |
-    | `farthest-corner` | Die endende Form des Verlaufs wird so bemessen, dass sie genau die dem Zentrum am weitesten entfernte Ecke der Box trifft.                                                                   |
+    | `closest-corner`  | Die endende Form des Verlaufs wird so bemessen, dass sie genau die dem Zentrum am nächsten liegende Ecke der Box trifft.                                                                                              |
+    | `farthest-side`   | Ähnlich wie `closest-side`, außer dass die endende Form so bemessen wird, dass sie die dem Zentrum am weitesten entfernte Seite der Box (oder vertikale und horizontale Seiten) trifft.                               |
+    | `farthest-corner` | Die endende Form des Verlaufs wird so bemessen, dass sie genau die dem Zentrum am weitesten entfernte Ecke der Box trifft.                                                                                            |
 
     > [!NOTE]
     > Frühe Implementierungen dieser Funktion beinhalteten andere Schlüsselwörter (`cover` und `contain`) als Synonyme für die Standardwerte `farthest-corner` und `closest-side`. Verwenden Sie nur die Standard-Schlüsselwörter, da einige Implementierungen diese älteren Varianten bereits entfernt haben.
@@ -169,7 +169,7 @@ In diesem Beispiel für Interpolation wird das [HSL Farbsystem](/de/docs/Web/CSS
 }
 ```
 
-Das linke Feld verwendet [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von rot nach blau über den kürzeren Bogen auf dem [Farbkreis](/de/docs/Glossary/Color_wheel) geht. Das rechte Feld verwendet [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von rot nach blau über den längeren Bogen geht und dabei durch Grün, Gelb und Orange verläuft.
+Das linke Feld verwendet [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe von rot nach blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} geht. Das rechte Feld verwendet [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von rot nach blau über den längeren Bogen geht und dabei durch Grün, Gelb und Orange verläuft.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Call Stack** ist ein Mechanismus für einen Interpreter (wie den JavaScript-Interpreter in einem Webbrowser), um seine Position in einem Skript, das mehrere [Funktionen](/de/docs/Glossary/function) aufruft, im Auge zu behalten — welche Funktion derzeit ausgeführt wird und welche Funktionen innerhalb dieser Funktion aufgerufen werden, usw.
+Ein **Call Stack** ist ein Mechanismus für einen Interpreter (wie den JavaScript-Interpreter in einem Webbrowser), um seine Position in einem Skript, das mehrere {{Glossary("function", "Funktionen")}} aufruft, im Auge zu behalten — welche Funktion derzeit ausgeführt wird und welche Funktionen innerhalb dieser Funktion aufgerufen werden, usw.
 
 - Wenn ein Skript eine Funktion aufruft, fügt der Interpreter sie dem Call Stack hinzu und beginnt dann, die Funktion auszuführen.
 - Alle Funktionen, die von dieser Funktion aufgerufen werden, werden weiter oben auf dem Call Stack hinzugefügt und ausgeführt, wenn ihre Aufrufe erreicht werden.
@@ -67,4 +67,4 @@ Zusammengefasst beginnen wir also mit einem leeren Call Stack. Jedes Mal, wenn w
 
 - [Call stack](https://en.wikipedia.org/wiki/Call_stack) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Funktion](/de/docs/Glossary/Function)
+  - {{Glossary("Function", "Funktion")}}

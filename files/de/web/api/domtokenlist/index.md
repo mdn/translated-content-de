@@ -16,7 +16,7 @@ Ein `DOMTokenList` wird, wie JavaScript-{{jsxref("Array")}}-Objekte, beginnend b
 - [`DOMTokenList.length`](/de/docs/Web/API/DOMTokenList/length) {{ReadOnlyInline}}
   - : Ein `integer`, der die Anzahl der im Objekt gespeicherten Objekte repräsentiert.
 - [`DOMTokenList.value`](/de/docs/Web/API/DOMTokenList/value)
-  - : Eine [stringifier](/de/docs/Glossary/stringifier)-Eigenschaft, die den Wert der Liste als Zeichenkette zurückgibt.
+  - : Eine {{Glossary("stringifier", "stringifier")}}-Eigenschaft, die den Wert der Liste als Zeichenkette zurückgibt.
 
 ## Instanz-Methoden
 
@@ -68,7 +68,7 @@ Die Ausgabe sieht so aus:
 
 ## Trimmen von Leerzeichen und Entfernen von Duplikaten
 
-Methoden, die die `DOMTokenList` ändern (wie zum Beispiel [`DOMTokenList.add()`](/de/docs/Web/API/DOMTokenList/add)), schneiden automatisch überschüssige [Whitespace](/de/docs/Glossary/Whitespace) ab und entfernen doppelte Werte aus der Liste. Zum Beispiel:
+Methoden, die die `DOMTokenList` ändern (wie zum Beispiel [`DOMTokenList.add()`](/de/docs/Web/API/DOMTokenList/add)), schneiden automatisch überschüssige {{Glossary("Whitespace", "Whitespace")}} ab und entfernen doppelte Werte aus der Liste. Zum Beispiel:
 
 ```html
 <span class="    d   d e f"></span>

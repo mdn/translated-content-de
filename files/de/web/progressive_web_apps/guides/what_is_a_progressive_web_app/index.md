@@ -92,7 +92,7 @@ Service Worker fördern eine Architektur, bei der die Seiten der App - das ist d
 
 ### PWAs und Single-Page-Apps
 
-Traditionell wird eine Website als Sammlung von miteinander verknüpften Seiten aufgebaut. Wenn der Benutzer auf einen Link von einer Seite der Site zu einer anderen Seite in derselben Site klickt, lädt der Browser die neue Seite als vollständig neue Einheit, einschließlich des HTML und der Unterressourcen, die das HTML lädt, wie CSS und JavaScript. In einer [Single-Page-App](/de/docs/Glossary/SPA) besteht die Site aus einer einzigen HTML-Seite, und wenn der Benutzer auf interne Links klickt, wird dies durch JavaScript behandelt, das neuen Inhalt vom Server abruft und die relevanten Teile der Seite aktualisiert.
+Traditionell wird eine Website als Sammlung von miteinander verknüpften Seiten aufgebaut. Wenn der Benutzer auf einen Link von einer Seite der Site zu einer anderen Seite in derselben Site klickt, lädt der Browser die neue Seite als vollständig neue Einheit, einschließlich des HTML und der Unterressourcen, die das HTML lädt, wie CSS und JavaScript. In einer {{Glossary("SPA", "Single-Page-App")}} besteht die Site aus einer einzigen HTML-Seite, und wenn der Benutzer auf interne Links klickt, wird dies durch JavaScript behandelt, das neuen Inhalt vom Server abruft und die relevanten Teile der Seite aktualisiert.
 
 Single-Page-Apps können ein Benutzererlebnis bieten, das plattformspezifischen Apps näher kommt, daher werden PWAs oft als Single-Page-Apps implementiert. Insbesondere erleichtern Single-Page-Apps das Erreichen einer nahtlosen Benutzeroberfläche, bei der dem Benutzer eine einzige, konsistente Seite präsentiert wird und nur die relevanten Teile der Seite aktualisiert werden, während der Benutzer mit der App interagiert.
 
@@ -100,7 +100,7 @@ PWAs müssen jedoch nicht als Single-Page-Apps implementiert werden und Single-P
 
 ### Progressive Verbesserung
 
-Während [progressive Verbesserung](/de/docs/Glossary/Progressive_Enhancement) ein wünschenswertes Attribut für die meisten Websites ist, ist es besonders wichtig für PWAs, die darauf ausgelegt sind, auf einer Vielzahl von Geräten ausgeführt zu werden und häufig fortschrittliche Web-APIs verwenden, die möglicherweise nicht von allen Browsern unterstützt werden.
+Während {{Glossary("Progressive_Enhancement", "progressive Verbesserung")}} ein wünschenswertes Attribut für die meisten Websites ist, ist es besonders wichtig für PWAs, die darauf ausgelegt sind, auf einer Vielzahl von Geräten ausgeführt zu werden und häufig fortschrittliche Web-APIs verwenden, die möglicherweise nicht von allen Browsern unterstützt werden.
 
 Eine grundlegende Komponente der progressiven Verbesserung besteht darin, dass der Benutzer, wenn er Ihre PWA im Web besucht, indem er deren URL in einen Browser eingibt, mit der App wie mit einer normalen Website interagieren kann. Aber wenn der Browser sie installieren kann, wird der Benutzer aufgefordert, sie zu installieren und die App erscheint als neue Funktion auf ihrem Gerät.
 

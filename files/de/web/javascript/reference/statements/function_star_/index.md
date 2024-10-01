@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`function*`**-Deklaration erstellt eine [Bindung](/de/docs/Glossary/binding) einer neuen Generatorfunktion zu einem gegebenen Namen. Eine Generatorfunktion kann beendet und später erneut aufgerufen werden, wobei ihr Kontext (variable [Bindungen](/de/docs/Glossary/binding)) über den erneuten Aufruf hinweg gespeichert bleibt.
+Die **`function*`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen Generatorfunktion zu einem gegebenen Namen. Eine Generatorfunktion kann beendet und später erneut aufgerufen werden, wobei ihr Kontext (variable {{Glossary("binding", "Bindungen")}}) über den erneuten Aufruf hinweg gespeichert bleibt.
 
 Sie können Generatorfunktionen auch mit dem [`function*` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function*) definieren.
 
@@ -49,7 +49,7 @@ Generatoren in JavaScript — besonders in Kombination mit Promises — sind ein
 
 Ein `return`-Statement in einem Generator führt dazu, dass der Generator beendet wird (d.h. die `done`-Eigenschaft des von ihm zurückgegebenen Objekts wird auf `true` gesetzt). Wenn ein Wert zurückgegeben wird, wird er als `value`-Eigenschaft des von dem Generator zurückgegebenen Objekts gesetzt. Ähnlich wie ein `return`-Statement führt ein innerhalb des Generators geworfener Fehler dazu, dass der Generator beendet wird — es sei denn, der Fehler wird innerhalb des Generator-Körpers abgefangen. Wenn ein Generator beendet ist, werden nachfolgende `next()`-Aufrufe keinen Code dieses Generators mehr ausführen; sie geben einfach ein Objekt dieser Form zurück: `{value: undefined, done: true}`.
 
-`function*`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen — sie werden an den Anfang ihres Geltungsbereichs [gehoistet](/de/docs/Glossary/Hoisting) und können überall in ihrem Geltungsbereich aufgerufen werden, und sie können nur in bestimmten Kontexten neu deklariert werden.
+`function*`-Deklarationen verhalten sich ähnlich wie {{jsxref("Statements/function", "function")}}-Deklarationen — sie werden an den Anfang ihres Geltungsbereichs {{Glossary("Hoisting", "gehoistet")}} und können überall in ihrem Geltungsbereich aufgerufen werden, und sie können nur in bestimmten Kontexten neu deklariert werden.
 
 ## Beispiele
 

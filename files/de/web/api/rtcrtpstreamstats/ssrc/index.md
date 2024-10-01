@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`ssrc`**-Eigenschaft des [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs liefert die Synchronisationsquelle (SSRC), eine Ganzzahl, die die Quelle der [RTP](/de/docs/Glossary/RTP)-Pakete eindeutig identifiziert, deren Statistiken von dem [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) abgedeckt werden, das dieses `RTCRtpStreamStats`-Wörterbuch einschließt.
+Die **`ssrc`**-Eigenschaft des [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs liefert die Synchronisationsquelle (SSRC), eine Ganzzahl, die die Quelle der {{Glossary("RTP", "RTP")}}-Pakete eindeutig identifiziert, deren Statistiken von dem [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) abgedeckt werden, das dieses `RTCRtpStreamStats`-Wörterbuch einschließt.
 
 ## Wert
 

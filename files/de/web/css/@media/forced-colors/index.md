@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`forced-colors`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der [User-Agent](/de/docs/Glossary/user_agent) einen erzwungenen Farbmodus aktiviert hat, bei dem eine vom Nutzer ausgewählte eingeschränkte Farbpalette auf der Seite erzwungen wird. Ein Beispiel für einen erzwungenen Farbmodus ist der Windows-Hochkontrastmodus.
+Das **`forced-colors`** [CSS](/de/docs/Web/CSS) [Medien-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu erkennen, ob der {{Glossary("user_agent", "User-Agent")}} einen erzwungenen Farbmodus aktiviert hat, bei dem eine vom Nutzer ausgewählte eingeschränkte Farbpalette auf der Seite erzwungen wird. Ein Beispiel für einen erzwungenen Farbmodus ist der Windows-Hochkontrastmodus.
 
 ## Syntax
 

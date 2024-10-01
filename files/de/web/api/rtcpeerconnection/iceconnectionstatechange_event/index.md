@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`iceconnectionstatechange`** Ereignis wird an ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt gesendet, jedes Mal, wenn sich der [ICE](/de/docs/Glossary/ICE)-Verbindungszustand während des Verhandlungsprozesses ändert.
+Ein **`iceconnectionstatechange`** Ereignis wird an ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Objekt gesendet, jedes Mal, wenn sich der {{Glossary("ICE", "ICE")}}-Verbindungszustand während des Verhandlungsprozesses ändert.
 Der neue ICE-Verbindungszustand ist in der [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState)-Eigenschaft des Objekts verfügbar.
 
 Eine häufig durchgeführte Aufgabe des `iceconnectionstatechange` Event-Listeners ist das Auslösen eines [ICE-Restarts](/de/docs/Web/API/WebRTC_API/Session_lifetime#ice_restart), wenn sich der Zustand auf `failed` ändert.

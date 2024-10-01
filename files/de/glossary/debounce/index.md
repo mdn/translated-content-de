@@ -9,7 +9,7 @@ l10n:
 
 **Debouncing** bedeutet im Programmierkontext, alle während eines bestimmten Zeitraums angeforderten Operationen zu einer einzigen Ausführung zusammenzufassen.
 
-Debouncing ist dem [Throttling](/de/docs/Glossary/throttle) sehr ähnlich. Der Hauptunterschied besteht darin, dass Throttling Beschränkungen für kontinuierliche Operationen durchsetzt, während Debouncing darauf wartet, dass Aufrufe für eine bestimmte Zeit aufhören, um viele störende Aufrufe zu einer einzigen Ausführung zu konsolidieren.
+Debouncing ist dem {{Glossary("throttle", "Throttling")}} sehr ähnlich. Der Hauptunterschied besteht darin, dass Throttling Beschränkungen für kontinuierliche Operationen durchsetzt, während Debouncing darauf wartet, dass Aufrufe für eine bestimmte Zeit aufhören, um viele störende Aufrufe zu einer einzigen Ausführung zu konsolidieren.
 
 Ein typisches Anwendungsbeispiel für Debouncing ist die Reaktion auf Benutzereingaben. Wenn der Benutzer tippt, sollte keine andere Aktion durchgeführt werden, um zu vermeiden, dass die Benutzeroberfläche träge wird. Wenn der Benutzer das Tippen unterbricht, können wir beginnen, die Eingabe zu verarbeiten, wie z.B. Ergebnisse zu filtern, Vorschläge zu geben usw. Wenn die Funktion `search` um 10 Millisekunden gedebounced ist, bedeutet das:
 
@@ -22,6 +22,6 @@ Ein typisches Anwendungsbeispiel für Debouncing ist die Reaktion auf Benutzerei
 ## Siehe auch
 
 - Glossarbegriffe:
-  - [Throttle](/de/docs/Glossary/Throttle)
-  - [Rate limit](/de/docs/Glossary/Rate_limit)
+  - {{Glossary("Throttle", "Throttle")}}
+  - {{Glossary("Rate_limit", "Rate limit")}}
 - [Debouncing and Throttling Explained Through Examples](https://css-tricks.com/debouncing-throttling-explained-examples/) auf CSS-Tricks (6. April 2016)

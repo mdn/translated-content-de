@@ -16,7 +16,7 @@ Die [Gamepad API](/de/docs/Web/API/Gamepad_API) führt neue Ereignisse auf dem [
 Wenn ein neues Gamepad an den Computer angeschlossen wird, erhält die fokussierte Seite zuerst ein [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis. Wenn ein Gamepad bereits verbunden ist, wenn die Seite geladen wird, wird das [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event)-Ereignis an die fokussierte Seite gesendet, wenn der Benutzer eine Taste drückt oder eine Achse bewegt.
 
 > [!NOTE]
-> In Firefox werden Gamepads einer Seite nur angezeigt, wenn der Benutzer mit einer Seite sichtbar mit einem interagiert. Dies hilft zu verhindern, dass Gamepads zum [Fingerprinting](/de/docs/Glossary/Fingerprinting) des Benutzers verwendet werden. Sobald mit einem Gamepad interagiert wurde, werden andere, die verbunden sind, automatisch sichtbar.
+> In Firefox werden Gamepads einer Seite nur angezeigt, wenn der Benutzer mit einer Seite sichtbar mit einem interagiert. Dies hilft zu verhindern, dass Gamepads zum {{Glossary("Fingerprinting", "Fingerprinting")}} des Benutzers verwendet werden. Sobald mit einem Gamepad interagiert wurde, werden andere, die verbunden sind, automatisch sichtbar.
 
 Sie können [`gamepadconnected`](/de/docs/Web/API/Window/gamepadconnected_event) wie folgt verwenden:
 

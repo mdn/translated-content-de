@@ -22,7 +22,7 @@ Eine Stil-Deklaration wird zurückgesetzt, indem sie auf `null` oder einen leere
 > CSS-Eigenschaftsnamen werden mit diesen Regeln in JavaScript-Identifikatoren konvertiert:
 >
 > - Wenn die Eigenschaft aus einem Wort besteht, bleibt sie unverändert: `height` bleibt unverändert (in Kleinbuchstaben).
-> - Wenn die Eigenschaft aus mehreren Wörtern besteht, die durch Bindestriche getrennt sind, werden die Bindestriche entfernt und sie wird in [camel case](/de/docs/Glossary/camel_case) umgewandelt: `background-attachment` wird zu `backgroundAttachment`.
+> - Wenn die Eigenschaft aus mehreren Wörtern besteht, die durch Bindestriche getrennt sind, werden die Bindestriche entfernt und sie wird in {{Glossary("camel_case", "camel case")}} umgewandelt: `background-attachment` wird zu `backgroundAttachment`.
 > - Die Eigenschaft `float`, ein reserviertes JavaScript-Schlüsselwort, wird in `cssFloat` umgewandelt.
 >
 > Die `style`-Eigenschaft hat dieselbe Priorität in der CSS-Kaskade wie eine über das `style`-Attribut gesetzte Inline-Stil-Deklaration.

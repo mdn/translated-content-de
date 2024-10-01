@@ -288,9 +288,9 @@ Der **Free Lossless Audio Codec** (**FLAC**) ist ein verlustfreier Audiocodec; e
 Das Format ist durch keine Patente belastet, sodass seine Nutzung frei von Beeinträchtigungen ist.
 FLAC-Dateien können nur FLAC-Audiodaten enthalten.
 
-| Audio                         |
-| ----------------------------- |
-| `audio/flac`                  |
+| Audio                                 |
+| ------------------------------------- |
+| `audio/flac`                          |
 | `audio/x-flac` (nicht standardisiert) |
 
 <table class="standard-table">
@@ -1066,23 +1066,23 @@ Dies sind nur Vorschläge.
 
 #### Nur-Audio-Dateien
 
-| Wenn Sie brauchen… | Denken Sie über dieses Containerformat nach |
-| ----------------------------- | ------------------------------------ |
-| Komprimierte Dateien zur allgemeinen Wiedergabe | MP3 (MPEG-1 Audio Layer III)         |
+| Wenn Sie brauchen…                              | Denken Sie über dieses Containerformat nach |
+| ----------------------------------------------- | ------------------------------------------- |
+| Komprimierte Dateien zur allgemeinen Wiedergabe | MP3 (MPEG-1 Audio Layer III)                |
 | Verlustfrei komprimierte Dateien                | FLAC mit ALAC-Alternativlösung              |
-| Unkomprimierte Dateien                           | WAV                                  |
+| Unkomprimierte Dateien                          | WAV                                         |
 
 Da alle MP3-Patente abgelaufen sind, ist die Wahl des Audio-Dateiformats viel einfacher geworden.
 Es ist nicht mehr notwendig, zwischen der breiten Kompatibilität von MP3 und der Notwendigkeit, Lizenzgebühren zu zahlen, zu wählen.
 
 #### Videodateien
 
-| Wenn Sie brauchen…                    | Denken Sie über dieses Containerformat nach                |
-| ------------------------------------- | --------------------------------------------------- |
-| Allgemeine Anwendung von Videos, vorzugsweise in einem offenen Format | WebM (idealerweise mit MP4-Alternativlösung)                    |
-| Allgemeine Anwendung von Videos       | MP4 (idealerweise mit WebM oder Ogg-Alternativlösung)             |
-| Hohe Kompression optimiert für langsame Verbindungen | 3GP (idealerweise mit MP4-Alternativlösung)                     |
-| Kompatibilität mit älteren Geräten/Browsers | QuickTime (idealerweise mit AVI und/oder MPEG-2-Alternativlösung) |
+| Wenn Sie brauchen…                                                    | Denken Sie über dieses Containerformat nach                       |
+| --------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| Allgemeine Anwendung von Videos, vorzugsweise in einem offenen Format | WebM (idealerweise mit MP4-Alternativlösung)                      |
+| Allgemeine Anwendung von Videos                                       | MP4 (idealerweise mit WebM oder Ogg-Alternativlösung)             |
+| Hohe Kompression optimiert für langsame Verbindungen                  | 3GP (idealerweise mit MP4-Alternativlösung)                       |
+| Kompatibilität mit älteren Geräten/Browsers                           | QuickTime (idealerweise mit AVI und/oder MPEG-2-Alternativlösung) |
 
 Diese Vorschläge machen eine Reihe von Annahmen.
 Sie sollten die Optionen sorgfältig abwägen, bevor Sie eine endgültige Entscheidung treffen, insbesondere wenn Sie viele Medien haben, die codiert werden müssen.
@@ -1102,27 +1102,27 @@ Im hier gezeigten Beispiel wird ein Video dem Browser in zwei Formaten angeboten
 {{EmbedInteractiveExample("pages/tabbed/source.html", "tabbed-standard")}}
 
 Das Video wird zuerst im WebM-Format angeboten (mit dem [`type`](/de/docs/Web/HTML/Element/source#type)-Attribut auf `video/webm` gesetzt).
-Wenn der [Benutzeragent](/de/docs/Glossary/user_agent) dies nicht abspielen kann, geht er zur nächsten Option über, deren `type` als `video/mp4` angegeben ist.
+Wenn der {{Glossary("user_agent", "Benutzeragent")}} dies nicht abspielen kann, geht er zur nächsten Option über, deren `type` als `video/mp4` angegeben ist.
 Wenn keine dieser Optionen abgespielt werden kann, wird der Text "This browser does not support the HTML video element." angezeigt.
 
 ## Spezifikationen
 
-| Spezifikation                                                                                                                                                | Kommentar                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| [ETSI 3GPP](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1441)                                            | Definiert das 3GP-Containerformat                                                                                |
-| [ISO/IEC 14496-3](https://www.iso.org/standard/53943.html) (MPEG-4 Part 3 Audio)                                                                             | Definiert MP4-Audio einschließlich ADTS                                                                          |
-| [FLAC Format](https://xiph.org/flac/format.html)                                                                                                             | Die Spezifikation des FLAC-Formats                                                                               |
-| [ISO/IEC 11172-1](https://www.iso.org/standard/19180.html) (MPEG-1 Part 1 Systems)                                                                           | Definiert das MPEG-1-Containerformat                                                                             |
-| [ISO/IEC 13818-1](https://www.iso.org/standard/74427.html) (MPEG-2 Part 1 Systems)                                                                           | Definiert das MPEG-2-Containerformat                                                                             |
-| [ISO/IEC 14496-14](https://www.iso.org/standard/75929.html) (MPEG-4 Part 14: MP4 Dateiformat)                                                                | Definiert das MPEG-4 (MP4) Version 2 Containerformat                                                             |
-| [ISO/IEC 14496-1](https://www.iso.org/standard/55688.html) (MPEG-4 Part 1 Systems)                                                                           | Definiert das ursprüngliche MPEG-4 (MP4) Containerformat                                                         |
-| {{RFC(3533)}}                                                                                                                                                | Definiert das Ogg-Containerformat                                                                                |
-| {{RFC(5334)}}                                                                                                                                                | Definiert die Ogg-Medienarten und Dateierweiterungen                                                             |
-| [QuickTime File Format Specification](https://developer.apple.com/documentation/quicktime-file-format)                                                       | Definiert das QuickTime movie (MOV)-Format                                                                        |
-| [Multimedia Programming Interface and Data Specifications 1.0](https://web.archive.org/web/20090417165828/http://www.kk.iij4u.or.jp/~kondo/wave/mpidata.txt) | Das nächstgelegene Dokument zur offiziellen WAVE-Spezifikation                                                  |
-| [Resource Interchange File Format](https://learn.microsoft.com/en-us/windows/win32/xaudio2/resource-interchange-file-format--riff-) (verwendet von WAV)      | Definiert das RIFF-Format; WAVE-Dateien sind eine Form von RIFF                                                |
-| [WebM Container Guidelines](https://www.webmproject.org/docs/container/)                                                                                     | Leitfaden für die Anpassung von Matroska für WebM                                                               |
-| [Matroska Specifications](https://matroska.org/index.html)                                                                                                   | Die Spezifikation für das Matroska-Containerformat, auf dem WebM basiert                                      |
+| Spezifikation                                                                                                                                                | Kommentar                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| [ETSI 3GPP](https://portal.3gpp.org/desktopmodules/Specifications/SpecificationDetails.aspx?specificationId=1441)                                            | Definiert das 3GP-Containerformat                                                                                      |
+| [ISO/IEC 14496-3](https://www.iso.org/standard/53943.html) (MPEG-4 Part 3 Audio)                                                                             | Definiert MP4-Audio einschließlich ADTS                                                                                |
+| [FLAC Format](https://xiph.org/flac/format.html)                                                                                                             | Die Spezifikation des FLAC-Formats                                                                                     |
+| [ISO/IEC 11172-1](https://www.iso.org/standard/19180.html) (MPEG-1 Part 1 Systems)                                                                           | Definiert das MPEG-1-Containerformat                                                                                   |
+| [ISO/IEC 13818-1](https://www.iso.org/standard/74427.html) (MPEG-2 Part 1 Systems)                                                                           | Definiert das MPEG-2-Containerformat                                                                                   |
+| [ISO/IEC 14496-14](https://www.iso.org/standard/75929.html) (MPEG-4 Part 14: MP4 Dateiformat)                                                                | Definiert das MPEG-4 (MP4) Version 2 Containerformat                                                                   |
+| [ISO/IEC 14496-1](https://www.iso.org/standard/55688.html) (MPEG-4 Part 1 Systems)                                                                           | Definiert das ursprüngliche MPEG-4 (MP4) Containerformat                                                               |
+| {{RFC(3533)}}                                                                                                                                                | Definiert das Ogg-Containerformat                                                                                      |
+| {{RFC(5334)}}                                                                                                                                                | Definiert die Ogg-Medienarten und Dateierweiterungen                                                                   |
+| [QuickTime File Format Specification](https://developer.apple.com/documentation/quicktime-file-format)                                                       | Definiert das QuickTime movie (MOV)-Format                                                                             |
+| [Multimedia Programming Interface and Data Specifications 1.0](https://web.archive.org/web/20090417165828/http://www.kk.iij4u.or.jp/~kondo/wave/mpidata.txt) | Das nächstgelegene Dokument zur offiziellen WAVE-Spezifikation                                                         |
+| [Resource Interchange File Format](https://learn.microsoft.com/en-us/windows/win32/xaudio2/resource-interchange-file-format--riff-) (verwendet von WAV)      | Definiert das RIFF-Format; WAVE-Dateien sind eine Form von RIFF                                                        |
+| [WebM Container Guidelines](https://www.webmproject.org/docs/container/)                                                                                     | Leitfaden für die Anpassung von Matroska für WebM                                                                      |
+| [Matroska Specifications](https://matroska.org/index.html)                                                                                                   | Die Spezifikation für das Matroska-Containerformat, auf dem WebM basiert                                               |
 | [WebM Byte Stream Format](https://w3c.github.io/media-source/webm-byte-stream-format.html)                                                                   | WebM-Byte-Stream-Format für die Verwendung mit [Media Source Extensions](/de/docs/Web/API/Media_Source_Extensions_API) |
 
 ## Browser-Kompatibilität

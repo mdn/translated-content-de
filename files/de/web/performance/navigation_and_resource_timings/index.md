@@ -19,7 +19,7 @@ Die performanceTiming API lieferte nur lesbare Zeiten in Millisekunden (ms), die
 
 ![Navigationsereignis-Metriken](screen_shot_2019-05-03_at_1.06.27_pm.png)
 
-Mit den oben genannten Metriken und ein wenig Mathematik können wir viele wichtige Metriken berechnen, wie [Time to First Byte](/de/docs/Glossary/Time_to_first_byte), Seitenladezeit, DNS-Lookup und ob die Verbindung sicher ist.
+Mit den oben genannten Metriken und ein wenig Mathematik können wir viele wichtige Metriken berechnen, wie {{Glossary("Time_to_first_byte", "Time to First Byte")}}, Seitenladezeit, DNS-Lookup und ob die Verbindung sicher ist.
 
 Um die Zeit zu messen, die benötigt wird, um alle Schritte abzuschließen, bietet die Performance Timing API schreibgeschützte Messungen der Navigationszeiten. Um die Zeitmessungen unserer App anzuzeigen und zu erfassen, geben wir ein:
 
@@ -313,7 +313,7 @@ const tls = time.requestStart - time.secureConnectionStart;
 
 ### Time to First Byte
 
-[Time to First Byte](/de/docs/Glossary/Time_to_first_byte) ist die Zeit zwischen `navigationStart` (Beginn der Navigation) und `responseStart` (wenn das erste Byte der Antwortdaten empfangen wird), verfügbar in der `performanceTiming` API:
+{{Glossary("Time_to_first_byte", "Time to First Byte")}} ist die Zeit zwischen `navigationStart` (Beginn der Navigation) und `responseStart` (wenn das erste Byte der Antwortdaten empfangen wird), verfügbar in der `performanceTiming` API:
 
 ```js
 const ttfb = time.responseStart - time.navigationStart;
@@ -321,7 +321,7 @@ const ttfb = time.responseStart - time.navigationStart;
 
 ### Seitenladezeit
 
-[Seitenladezeit](/de/docs/Glossary/Page_load_time) ist die Zeit zwischen `navigationStart` und dem Beginn, wann das Ladeereignis für das aktuelle Dokument gesendet wird. Sie sind nur in der performanceTiming API verfügbar.
+{{Glossary("Page_load_time", "Seitenladezeit")}} ist die Zeit zwischen `navigationStart` und dem Beginn, wann das Ladeereignis für das aktuelle Dokument gesendet wird. Sie sind nur in der performanceTiming API verfügbar.
 
 ```js
 let pageloadtime = time.loadEventStart - time.navigationStart;
@@ -337,7 +337,7 @@ const dns = time.domainLookupEnd - time.domainLookupStart;
 
 ### TCP
 
-Die Zeit, die der [TCP](/de/docs/Glossary/TCP) Handshake benötigt, ist die Zeit zwischen dem Verbindungsbeginn und dem Verbindungsende:
+Die Zeit, die der {{Glossary("TCP", "TCP")}} Handshake benötigt, ist die Zeit zwischen dem Verbindungsbeginn und dem Verbindungsende:
 
 ```js
 const tcp = time.connectEnd - time.connectStart;
@@ -345,7 +345,7 @@ const tcp = time.connectEnd - time.connectStart;
 
 ### TLS-Verhandlung
 
-[`secureConnectionStart`](/de/docs/Web/API/PerformanceResourceTiming/secureConnectionStart) wird `undefined` sein, wenn es nicht verfügbar ist, `0`, wenn [HTTPS](/de/docs/Glossary/HTTPS) nicht verwendet wird, oder ein Zeitstempel, wenn es verfügbar und verwendet wird. Mit anderen Worten, wenn eine sichere Verbindung verwendet wurde, wird `secureConnectionStart` [truthy](/de/docs/Glossary/Truthy) sein, und die Zeit zwischen `secureConnectionStart` und `requestStart` wird größer als 0 sein.
+[`secureConnectionStart`](/de/docs/Web/API/PerformanceResourceTiming/secureConnectionStart) wird `undefined` sein, wenn es nicht verfügbar ist, `0`, wenn {{Glossary("HTTPS", "HTTPS")}} nicht verwendet wird, oder ein Zeitstempel, wenn es verfügbar und verwendet wird. Mit anderen Worten, wenn eine sichere Verbindung verwendet wurde, wird `secureConnectionStart` {{Glossary("Truthy", "truthy")}} sein, und die Zeit zwischen `secureConnectionStart` und `requestStart` wird größer als 0 sein.
 
 ```js
 const tls = time.requestStart - time.secureConnectionStart;
@@ -385,7 +385,7 @@ In unterstützenden Browsern können Sie `performance.getEntriesByType('paint')`
 
 ## Navigation Timing
 
-Wenn ein Benutzer eine Website oder Anwendung anfordert, [um den Browser zu bevölkern](/de/docs/Web/Performance/How_browsers_work), durchläuft der Benutzeragent eine Reihe von Schritten, einschließlich einer [DNS](/de/docs/Glossary/DNS) Abfrage, [TCP-Handshake](/de/docs/Glossary/TCP_handshake) und TLS-Verhandlungen, bevor der Benutzeragent die eigentliche Anfrage stellt und die Server die angeforderten Assets zurückgeben. Der Browser parst dann den empfangenen Inhalt, erstellt die DOM-, CSSOM-, Zugänglichkeits- und Rendertrees und rendert schließlich die Seite. Sobald der Benutzeragent das Dokument nicht mehr parst, setzt der Benutzeragent die Dokumentbereitschaft auf _interaktiv_. Wenn Skripte vorhanden sind, die verzögert ausgeführt werden müssen, tut er dies und löst dann das [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event) aus, nach dem die Bereitschaft auf _vollständig_ gesetzt wird. Das Dokument kann nun Nachladeaufgaben behandeln, danach wird das Dokument als vollständig geladen markiert.
+Wenn ein Benutzer eine Website oder Anwendung anfordert, [um den Browser zu bevölkern](/de/docs/Web/Performance/How_browsers_work), durchläuft der Benutzeragent eine Reihe von Schritten, einschließlich einer {{Glossary("DNS", "DNS")}} Abfrage, {{Glossary("TCP_handshake", "TCP-Handshake")}} und TLS-Verhandlungen, bevor der Benutzeragent die eigentliche Anfrage stellt und die Server die angeforderten Assets zurückgeben. Der Browser parst dann den empfangenen Inhalt, erstellt die DOM-, CSSOM-, Zugänglichkeits- und Rendertrees und rendert schließlich die Seite. Sobald der Benutzeragent das Dokument nicht mehr parst, setzt der Benutzeragent die Dokumentbereitschaft auf _interaktiv_. Wenn Skripte vorhanden sind, die verzögert ausgeführt werden müssen, tut er dies und löst dann das [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event) aus, nach dem die Bereitschaft auf _vollständig_ gesetzt wird. Das Dokument kann nun Nachladeaufgaben behandeln, danach wird das Dokument als vollständig geladen markiert.
 
 ```js
 const navigationTimings = performance.getEntriesByType("navigation");

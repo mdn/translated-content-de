@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.acceptCharset`**-Eigenschaft repräsentiert eine Liste der unterstützten [Zeichenkodierungen](/de/docs/Glossary/Character_encoding) für das angegebene {{htmlelement("form")}}-Element. Diese Liste kann durch Kommas oder Leerzeichen getrennt sein.
+Die **`HTMLFormElement.acceptCharset`**-Eigenschaft repräsentiert eine Liste der unterstützten {{Glossary("Character_encoding", "Zeichenkodierungen")}} für das angegebene {{htmlelement("form")}}-Element. Diese Liste kann durch Kommas oder Leerzeichen getrennt sein.
 
 ## Wert
 

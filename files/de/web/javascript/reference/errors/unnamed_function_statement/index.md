@@ -23,7 +23,7 @@ SyntaxError: Function statements must have a name. (Safari)
 
 ## Was schiefgelaufen ist
 
-Es gibt im Code eine [Funktionsanweisung](/de/docs/Web/JavaScript/Reference/Statements/function), die einen Namen benötigt. Sie müssen überprüfen, wie Funktionen definiert sind und ob Sie einen Namen dafür angeben müssen, oder ob die betreffende Funktion ein Funktionsausdruck, ein [IIFE](/de/docs/Glossary/IIFE) sein sollte, oder ob der Funktionscode überhaupt korrekt in diesem Kontext platziert ist.
+Es gibt im Code eine [Funktionsanweisung](/de/docs/Web/JavaScript/Reference/Statements/function), die einen Namen benötigt. Sie müssen überprüfen, wie Funktionen definiert sind und ob Sie einen Namen dafür angeben müssen, oder ob die betreffende Funktion ein Funktionsausdruck, ein {{Glossary("IIFE", "IIFE")}} sein sollte, oder ob der Funktionscode überhaupt korrekt in diesem Kontext platziert ist.
 
 ## Beispiele
 
@@ -133,5 +133,5 @@ promise.then(
 - [Leitfaden für Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
 - [`function`](/de/docs/Web/JavaScript/Reference/Statements/function)
 - [`function` Ausdruck](/de/docs/Web/JavaScript/Reference/Operators/function)
-- [IIFE](/de/docs/Glossary/IIFE)
+- {{Glossary("IIFE", "IIFE")}}
 - [Benannte Anweisung](/de/docs/Web/JavaScript/Reference/Statements/label)

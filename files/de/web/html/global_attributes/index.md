@@ -31,14 +31,14 @@ Zusätzlich zu den grundlegenden globalen HTML-Attributen gibt es die folgenden 
   - : Eine durch Leerzeichen getrennte Liste der Klassen des Elements. Klassen ermöglichen es CSS und JavaScript, bestimmte Elemente über die [Klassenselektoren](/de/docs/Web/CSS/Class_selectors) oder Funktionen wie die Methode [`Document.getElementsByClassName()`](/de/docs/Web/API/Document/getElementsByClassName) auszuwählen und darauf zuzugreifen.
 - [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)
 
-  - : Ein [Enumerations-](/de/docs/Glossary/Enumerated) Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. Falls ja, passt der Browser sein Widget an, um die Bearbeitung zu ermöglichen. Das Attribut muss einen der folgenden Werte annehmen:
+  - : Ein {{Glossary("Enumerated", "Enumerations-")}} Attribut, das angibt, ob das Element vom Benutzer bearbeitbar sein soll. Falls ja, passt der Browser sein Widget an, um die Bearbeitung zu ermöglichen. Das Attribut muss einen der folgenden Werte annehmen:
 
     - `true` oder den leeren String, was bedeutet, dass das Element bearbeitbar sein muss;
     - `false`, was bedeutet, dass das Element nicht bearbeitbar sein darf;
     - `plaintext-only`, was bedeutet, dass der rohe Text des Elements bearbeitbar ist, aber Rich-Text-Formatierungen deaktiviert sind.
 
 - [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)
-  - : Bildet eine Klasse von Attributen, genannt benutzerdefinierte Datenattribute, die es ermöglichen, proprietäre Informationen zwischen dem [HTML](/de/docs/Web/HTML) und seiner [DOM](/de/docs/Glossary/DOM)-Darstellung auszutauschen, die von Skripten verwendet werden können. Alle solche benutzerdefinierten Daten sind über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle des Elements, auf dem das Attribut gesetzt ist, verfügbar. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft gibt Zugriff auf sie.
+  - : Bildet eine Klasse von Attributen, genannt benutzerdefinierte Datenattribute, die es ermöglichen, proprietäre Informationen zwischen dem [HTML](/de/docs/Web/HTML) und seiner {{Glossary("DOM", "DOM")}}-Darstellung auszutauschen, die von Skripten verwendet werden können. Alle solche benutzerdefinierten Daten sind über die [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle des Elements, auf dem das Attribut gesetzt ist, verfügbar. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset)-Eigenschaft gibt Zugriff auf sie.
 - [`dir`](/de/docs/Web/HTML/Global_attributes/dir)
 
   - : Ein Enumerations-Attribut, das die Richtung des Textes eines Elements angibt. Es kann die folgenden Werte haben:
@@ -122,7 +122,7 @@ Zusätzlich zu den grundlegenden globalen HTML-Attributen gibt es die folgenden 
 
 - [`virtualkeyboardpolicy`](/de/docs/Web/HTML/Global_attributes/virtualkeyboardpolicy) {{Experimental_Inline}}
 
-  - : Ein [Enumerations-](/de/docs/Glossary/Enumerated) Attribut, das verwendet wird, um das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten zu steuern, bei denen möglicherweise keine Hardwaretastatur für Elemente verfügbar ist, deren Inhalt editierbar ist (zum Beispiel ist es ein {{htmlelement("input")}} oder {{htmlelement("textarea")}} Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut).
+  - : Ein {{Glossary("Enumerated", "Enumerations-")}} Attribut, das verwendet wird, um das Verhalten der virtuellen Bildschirmtastatur auf Geräten wie Tablets, Mobiltelefonen oder anderen Geräten zu steuern, bei denen möglicherweise keine Hardwaretastatur für Elemente verfügbar ist, deren Inhalt editierbar ist (zum Beispiel ist es ein {{htmlelement("input")}} oder {{htmlelement("textarea")}} Element oder ein Element mit dem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut).
 
     - `auto` oder ein _leerer String_, der die virtuelle Tastatur automatisch anzeigt, wenn das Element fokussiert oder angeklickt wird.
     - `manual`, welches den Fokus und Klick auf das Element von dem Zustand der virtuellen Tastatur entkoppelt.

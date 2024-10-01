@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geolocation API")}}
 
-Die **`toJSON()`**-Methode des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`GeolocationPosition`](/de/docs/Web/API/GeolocationPosition)-Objekts zurück.
 
 ## Syntax
 

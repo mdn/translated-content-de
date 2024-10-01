@@ -15,14 +15,14 @@ Die Kernidee eines Objekts des Typs `Attr` ist die Assoziation zwischen einem _N
 
 Der Name wird als _lokal_ angesehen, wenn das eventuelle Namespace-Präfix ignoriert wird, und als _qualifiziert_, wenn es das Präfix des Namespace enthält, falls vorhanden, getrennt vom lokalen Namen durch einen Doppelpunkt (`:`). Wir haben drei Fälle: ein Attribut außerhalb eines Namespace, ein Attribut innerhalb eines Namespace ohne definiertes Präfix, ein Attribut innerhalb eines Namespace mit einem Präfix:
 
-| Attribut | Namespace-Name  | Namespace-Präfix | Attribut lokaler Name | Attribut qualifizierter Name |
-| -------- | --------------- | ---------------- | --------------------- | --------------------------- |
-| `myAttr` | _none_          | _none_           | `myAttr`              | `myAttr`                    |
-| `myAttr` | `mynamespace`   | _none_           | `myAttr`              | `myAttr`                    |
-| `myAttr` | `mynamespace`   | `myns`           | `myAttr`              | `myns:myAttr`               |
+| Attribut | Namespace-Name | Namespace-Präfix | Attribut lokaler Name | Attribut qualifizierter Name |
+| -------- | -------------- | ---------------- | --------------------- | ---------------------------- |
+| `myAttr` | _none_         | _none_           | `myAttr`              | `myAttr`                     |
+| `myAttr` | `mynamespace`  | _none_           | `myAttr`              | `myAttr`                     |
+| `myAttr` | `mynamespace`  | `myns`           | `myAttr`              | `myns:myAttr`                |
 
 > [!NOTE]
-> Diese Schnittstelle repräsentiert nur Attribute, die in der Baumdarstellung des [`Element`](/de/docs/Web/API/Element) vorhanden sind, sei es ein SVG-, ein HTML- oder ein MathML-Element. Sie repräsentiert nicht die _Eigenschaft_ einer Schnittstelle, die mit einem solchen Element verbunden ist, wie beispielsweise [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) für ein {{HTMLElement("table")}}-Element. (Siehe [diesen Artikel](/de/docs/Glossary/Attribute) für mehr Informationen über Attribute und wie sie in Eigenschaften _reflektiert_ werden.)
+> Diese Schnittstelle repräsentiert nur Attribute, die in der Baumdarstellung des [`Element`](/de/docs/Web/API/Element) vorhanden sind, sei es ein SVG-, ein HTML- oder ein MathML-Element. Sie repräsentiert nicht die _Eigenschaft_ einer Schnittstelle, die mit einem solchen Element verbunden ist, wie beispielsweise [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement) für ein {{HTMLElement("table")}}-Element. (Siehe {{Glossary("Attribute", "diesen Artikel")}} für mehr Informationen über Attribute und wie sie in Eigenschaften _reflektiert_ werden.)
 
 ## Instanz-Eigenschaften
 

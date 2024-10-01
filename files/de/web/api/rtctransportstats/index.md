@@ -87,7 +87,7 @@ Diese Statistiken können erhalten werden, indem das [`RTCStatsReport`](/de/docs
     Der Wert ist anfangs null und erhöht sich, wenn ein Kandidatenpaar ausgewählt oder verloren wird.
 - `srtpCipher` {{optional_inline}}
 
-  - : Ein String, der den beschreibenden Namen des Schutzprofils angibt, das für das [Secure Real-time Transport Protocol (SRTP)](/de/docs/Glossary/RTP) verwendet wird, wie in der "Profile"-Spalte des [IANA DTLS-SRTP-Schutzprofil-Registers](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml#srtp-protection-1) und [RFC5764](https://www.rfc-editor.org/rfc/rfc5764.html#section-4.1.2) definiert.
+  - : Ein String, der den beschreibenden Namen des Schutzprofils angibt, das für das {{Glossary("RTP", "Secure Real-time Transport Protocol (SRTP)")}} verwendet wird, wie in der "Profile"-Spalte des [IANA DTLS-SRTP-Schutzprofil-Registers](https://www.iana.org/assignments/srtp-protection/srtp-protection.xhtml#srtp-protection-1) und [RFC5764](https://www.rfc-editor.org/rfc/rfc5764.html#section-4.1.2) definiert.
 
     Zum Beispiel: `"AES_CM_128_HMAC_SHA1_80"` spezifiziert das folgende Profil, bei dem `maximum_lifetime` die maximale Anzahl von Paketen ist, die durch einen einzigen Schlüsselsatz geschützt werden können.
 

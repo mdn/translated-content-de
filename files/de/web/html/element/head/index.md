@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<head>`** [HTML](/de/docs/Web/HTML)-Element enthält maschinenlesbare Informationen ([Metadaten](/de/docs/Glossary/metadata)) über das Dokument, wie dessen [title](/de/docs/Web/HTML/Element/title), [scripts](/de/docs/Web/HTML/Element/script) und [style sheets](/de/docs/Web/HTML/Element/style). Es kann nur ein `<head>`-Element in einem HTML-Dokument geben.
+Das **`<head>`** [HTML](/de/docs/Web/HTML)-Element enthält maschinenlesbare Informationen ({{Glossary("metadata", "Metadaten")}}) über das Dokument, wie dessen [title](/de/docs/Web/HTML/Element/title), [scripts](/de/docs/Web/HTML/Element/script) und [style sheets](/de/docs/Web/HTML/Element/style). Es kann nur ein `<head>`-Element in einem HTML-Dokument geben.
 
 > **Note:** `<head>` enthält in erster Linie Informationen zur maschinellen Verarbeitung, nicht zur Leserlichkeit für Menschen. Für Informationen, die für Menschen sichtbar sind, wie Überschriften auf oberster Ebene und aufgelistete Autoren, siehe das {{HTMLElement("header")}}-Element.
 
@@ -16,7 +16,7 @@ Das **`<head>`** [HTML](/de/docs/Web/HTML)-Element enthält maschinenlesbare Inf
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `profile` {{deprecated_inline}}
-  - : Die [URI](/de/docs/Glossary/URI)s von einem oder mehreren Metadaten-Profilen, getrennt durch [Whitespace](/de/docs/Glossary/whitespace).
+  - : Die {{Glossary("URI", "URI")}}s von einem oder mehreren Metadaten-Profilen, getrennt durch {{Glossary("whitespace", "Whitespace")}}.
 
 ## Beispiele
 

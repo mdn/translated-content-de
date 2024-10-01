@@ -16,7 +16,7 @@ _Die `GeolocationPosition`-Schnittstelle erbt keine Eigenschaften._
 - [`GeolocationPosition.coords`](/de/docs/Web/API/GeolocationPosition/coords) {{ReadOnlyInline}}
   - : Gibt ein [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekt zurück, das den aktuellen Standort definiert.
 - [`GeolocationPosition.timestamp`](/de/docs/Web/API/GeolocationPosition/timestamp) {{ReadOnlyInline}}
-  - : Gibt einen Zeitstempel zurück, der als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden angegeben wird und die Zeit repräsentiert, zu der der Standort ermittelt wurde.
+  - : Gibt einen Zeitstempel zurück, der als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden angegeben wird und die Zeit repräsentiert, zu der der Standort ermittelt wurde.
 
 ## Instanz-Methoden
 

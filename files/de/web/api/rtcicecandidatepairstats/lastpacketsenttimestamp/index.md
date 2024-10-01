@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`lastPacketSentTimestamp`** gibt die Zeit an, zu der die durch das Kandidatenpaar beschriebene Verbindung zuletzt ein Paket gesendet hat, ohne [STUN](/de/docs/Glossary/STUN)-Pakete einzuschließen.
+Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`lastPacketSentTimestamp`** gibt die Zeit an, zu der die durch das Kandidatenpaar beschriebene Verbindung zuletzt ein Paket gesendet hat, ohne {{Glossary("STUN", "STUN")}}-Pakete einzuschließen.
 
 ## Wert
 

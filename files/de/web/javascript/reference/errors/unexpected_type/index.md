@@ -1,5 +1,5 @@
 ---
-title: "TypeError: \"x\" ist (nicht) \"y\""
+title: 'TypeError: "x" ist (nicht) "y"'
 slug: Web/JavaScript/Reference/Errors/Unexpected_type
 l10n:
   sourceCommit: 269244244653b3df2690adb14083a20ab0139f34
@@ -66,7 +66,7 @@ if (foo !== undefined && foo !== null) {
 }
 ```
 
-Oder, wenn Sie sicher sind, dass `foo` kein anderer [falsy](/de/docs/Glossary/Falsy) Wert wie `""` oder `0` sein wird, oder wenn das Filtern dieser Fälle kein Problem darstellt, können Sie einfach seine Wahrheit überprüfen.
+Oder, wenn Sie sicher sind, dass `foo` kein anderer {{Glossary("Falsy", "falsy")}} Wert wie `""` oder `0` sein wird, oder wenn das Filtern dieser Fälle kein Problem darstellt, können Sie einfach seine Wahrheit überprüfen.
 
 ```js example-good
 if (foo) {

@@ -14,7 +14,7 @@ Die schreibgeschützte **`corruptedVideoFrames`**-Eigenschaft des [`VideoPlaybac
 
 Die Anzahl der beschädigten Videoframes, die seit dem letzten Lade- oder Neuladevorgang des {{HTMLElement("video")}}-Elements empfangen wurden.
 
-Es liegt im Ermessen des [User Agents](/de/docs/Glossary/user_agent), ob ein beschädigter Videoframe angezeigt wird oder nicht. Wenn ein beschädigter Frame verworfen wird, werden sowohl `corruptedVideoFrames` als auch [`droppedVideoFrames`](/de/docs/Web/API/VideoPlaybackQuality/droppedVideoFrames) erhöht.
+Es liegt im Ermessen des {{Glossary("user_agent", "User Agents")}}, ob ein beschädigter Videoframe angezeigt wird oder nicht. Wenn ein beschädigter Frame verworfen wird, werden sowohl `corruptedVideoFrames` als auch [`droppedVideoFrames`](/de/docs/Web/API/VideoPlaybackQuality/droppedVideoFrames) erhöht.
 
 ## Beispiele
 

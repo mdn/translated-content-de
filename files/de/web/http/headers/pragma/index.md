@@ -16,17 +16,17 @@ Der HTTP/1.0-Allgemeinheader **`Pragma`** ist ein implementierungsspezifischer H
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header),
-        [Response header](/de/docs/Glossary/Response_header) (Antwortverhalten ist nicht spezifiziert und daher implementierungsspezifisch).
+        {{Glossary("Request_header", "Request header")}},
+        {{Glossary("Response_header", "Response header")}} (Antwortverhalten ist nicht spezifiziert und daher implementierungsspezifisch).
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted response header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response header")}}
       </th>
       <td>ja</td>
     </tr>

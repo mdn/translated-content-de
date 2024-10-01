@@ -22,7 +22,7 @@ parseFromString(string, mimeType)
 ### Parameter
 
 - `string`
-  - : Der zu parsende String. Er muss ein [HTML](/de/docs/Glossary/HTML), [xml](/de/docs/Glossary/xml), [XHTML](/de/docs/Glossary/XHTML) oder [svg](/de/docs/Glossary/svg)-Dokument enthalten.
+  - : Der zu parsende String. Er muss ein {{Glossary("HTML", "HTML")}}, {{Glossary("xml", "xml")}}, {{Glossary("XHTML", "XHTML")}} oder {{Glossary("svg", "svg")}}-Dokument enthalten.
 - `mimeType`
 
   - : Ein String. Dieser String bestimmt, ob der XML-Parser oder der HTML-Parser zum Parsen des Strings verwendet wird. Gültige Werte sind:

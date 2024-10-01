@@ -102,7 +102,7 @@ Einige CSS-Eigenschaften können sowohl eine Dimension als auch einen Prozentwer
 - {{cssxref("&lt;alpha-value&gt;")}}
   - : Gibt die Transparenz einer Farbe an. Kann ein `<number>` sein, wobei 0 vollständig transparent und 1 vollständig opak ist, oder ein `<percentage>`, wobei 0% vollständig transparent und 100% vollständig opak ist.
 - {{cssxref("&lt;hue&gt;")}}
-  - : Gibt den `<angle>` an, mit einem Einheitenkennzeichen `deg`, `grad`, `rad` oder `turn`, oder eine einheitslose `<number>`, die als `deg` interpretiert wird, des [Farbkreises](/de/docs/Glossary/color_wheel), der spezifisch für die `<absolute-color-functions>` ist, von denen es ein Bestandteil ist.
+  - : Gibt den `<angle>` an, mit einem Einheitenkennzeichen `deg`, `grad`, `rad` oder `turn`, oder eine einheitslose `<number>`, die als `deg` interpretiert wird, des {{Glossary("color_wheel", "Farbkreises")}}, der spezifisch für die `<absolute-color-functions>` ist, von denen es ein Bestandteil ist.
 
 ## Bilder
 

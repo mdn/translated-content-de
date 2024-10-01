@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`contentType`** der Schnittstelle [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming) ist ein Zeichenfolgewert, der den Inhaltstyp der abgerufenen Ressource angibt, formatiert als [MIME-Typ](/de/docs/Glossary/MIME_type) und Subtyp, getrennt durch einen Schrägstrich.
+Die schreibgeschützte Eigenschaft **`contentType`** der Schnittstelle [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming) ist ein Zeichenfolgewert, der den Inhaltstyp der abgerufenen Ressource angibt, formatiert als {{Glossary("MIME_type", "MIME-Typ")}} und Subtyp, getrennt durch einen Schrägstrich.
 
 Der Inhaltstyp ist eine minimierte und „standardisierte“ Version des MIME-Typs, der aus dem {{httpheader("Content-Type")}} HTTP-Header extrahiert wird, der in der Antwort des Ressourcen-Abrufs gesendet wird. Für JavaScript, JSON, SVG und XML wird der MIME-Typ durch eine repräsentative MIME-Typ/Subtyp-Zeichenfolge ersetzt. Andere vom Browser unterstützte Typen werden durch die MIME-Typ/Subtyp-Zeichenfolge im Header dargestellt (andere Informationen im Header werden verworfen).
 

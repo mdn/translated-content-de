@@ -15,7 +15,7 @@ _Der First Contentful Paint_ Zeitstempel ist der Moment, an dem der Browser zum 
 
 - [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)
 - Verwandte Glossarbegriffe:
-  - [First paint](/de/docs/Glossary/First_paint)
-  - [Largest contentful paint](/de/docs/Glossary/Largest_contentful_paint)
-  - [First meaningful paint](/de/docs/Glossary/First_meaningful_paint)
+  - {{Glossary("First_paint", "First paint")}}
+  - {{Glossary("Largest_contentful_paint", "Largest contentful paint")}}
+  - {{Glossary("First_meaningful_paint", "First meaningful paint")}}
 - [First Contentful Paint](https://web.dev/articles/fcp) auf web.dev

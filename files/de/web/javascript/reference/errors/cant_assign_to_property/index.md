@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Errors")}}
 
-Die JavaScript Strict-Mode-Ausnahme "kann Eigenschaft nicht zuweisen" tritt auf, wenn versucht wird, eine Eigenschaft auf einem [Primitiv](/de/docs/Glossary/Primitive) wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem [String](/de/docs/Glossary/String), einer [Nummer](/de/docs/Glossary/Number) oder einem [Boolean](/de/docs/Glossary/Boolean) zu erstellen. [Primitive](/de/docs/Glossary/Primitive) Werte können keine [Eigenschaften](/de/docs/Glossary/Property/JavaScript) enthalten.
+Die JavaScript Strict-Mode-Ausnahme "kann Eigenschaft nicht zuweisen" tritt auf, wenn versucht wird, eine Eigenschaft auf einem {{Glossary("Primitive", "Primitiv")}} wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem {{Glossary("String", "String")}}, einer {{Glossary("Number", "Nummer")}} oder einem {{Glossary("Boolean", "Boolean")}} zu erstellen. {{Glossary("Primitive", "Primitive")}} Werte können keine {{Glossary("Property/JavaScript", "Eigenschaften")}} enthalten.
 
 ## Meldung
 
@@ -23,7 +23,7 @@ TypeError: Attempted to assign to readonly property. (Safari)
 
 ## Was ist schiefgelaufen?
 
-Im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) wird ein {{jsxref("TypeError")}} ausgelöst, wenn versucht wird, eine Eigenschaft auf einem [Primitiv](/de/docs/Glossary/Primitive) wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem [String](/de/docs/Glossary/String), einer [Nummer](/de/docs/Glossary/Number) oder einem [Boolean](/de/docs/Glossary/Boolean) zu erstellen. [Primitive](/de/docs/Glossary/Primitive) Werte können keine [Eigenschaften](/de/docs/Glossary/Property/JavaScript) enthalten.
+Im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) wird ein {{jsxref("TypeError")}} ausgelöst, wenn versucht wird, eine Eigenschaft auf einem {{Glossary("Primitive", "Primitiv")}} wie einem [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol), einem {{Glossary("String", "String")}}, einer {{Glossary("Number", "Nummer")}} oder einem {{Glossary("Boolean", "Boolean")}} zu erstellen. {{Glossary("Primitive", "Primitive")}} Werte können keine {{Glossary("Property/JavaScript", "Eigenschaften")}} enthalten.
 
 Das Problem könnte sein, dass ein unerwarteter Wert an unerwarteter Stelle eingesetzt wird oder dass eine Objektvariante eines {{jsxref("String")}} oder einer {{jsxref("Number")}} erwartet wird.
 
@@ -41,7 +41,7 @@ foo.bar = {}; // TypeError: can't assign to property "bar" on "my string": not a
 
 ### Behebung des Problems
 
-Entweder den Code so korrigieren, dass das [Primitiv](/de/docs/Glossary/Primitive) nicht an solchen Stellen verwendet wird, oder das Problem durch Erstellen des Objekts-Äquivalents {{jsxref("Object")}} beheben.
+Entweder den Code so korrigieren, dass das {{Glossary("Primitive", "Primitiv")}} nicht an solchen Stellen verwendet wird, oder das Problem durch Erstellen des Objekts-Äquivalents {{jsxref("Object")}} beheben.
 
 ```js example-good
 "use strict";
@@ -53,4 +53,4 @@ foo.bar = {};
 ## Siehe auch
 
 - [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode)
-- [Primitiv](/de/docs/Glossary/Primitive)
+- {{Glossary("Primitive", "Primitiv")}}

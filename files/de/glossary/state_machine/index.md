@@ -16,7 +16,7 @@ Anhand des Endzustands kann man etwas über die Reihe von Eingaben, die zu diese
 Es gibt zwei Arten von grundlegenden Zustandsmaschinen:
 
 - deterministische endliche Zustandsmaschine
-  - : Diese Art erlaubt nur eine mögliche Transition für jede erlaubte Eingabe. Dies ähnelt der "if" [Anweisung](/de/docs/Glossary/statement), in der `if x then doThis else doThat` nicht möglich ist. Der Computer muss _eine_ der beiden Optionen ausführen.
+  - : Diese Art erlaubt nur eine mögliche Transition für jede erlaubte Eingabe. Dies ähnelt der "if" {{Glossary("statement", "Anweisung")}}, in der `if x then doThis else doThat` nicht möglich ist. Der Computer muss _eine_ der beiden Optionen ausführen.
 - nicht-deterministische endliche Zustandsmaschine
   - : Bei einem gegebenen Zustand kann eine Eingabe zu mehr als einem unterschiedlichen Zustand führen.
 
@@ -32,7 +32,7 @@ _Abbildung 2: Nicht-Deterministische Endliche Zustandsmaschine._
 
 In _Abbildung 2_ kann bei gegebener Eingabe 'X' der Zustand bestehen bleiben oder sich zu Zustand 2 ändern.
 
-Beachten Sie, dass jeder [reguläre Ausdruck](/de/docs/Glossary/regular_expression) durch eine Zustandsmaschine dargestellt werden kann.
+Beachten Sie, dass jeder {{Glossary("regular_expression", "reguläre Ausdruck")}} durch eine Zustandsmaschine dargestellt werden kann.
 
 ## Siehe auch
 

@@ -21,7 +21,7 @@ Clients, die eine `400`-Antwort erhalten, sollten erwarten, dass das Wiederholen
 
 ### Fehlerhafte Anfragesyntax
 
-Angenommen, es existiert eine [REST](/de/docs/Glossary/REST)-API mit einem Endpunkt zur Verwaltung von Benutzern unter `http://example.com/users` und eine `POST`-Anfrage mit dem folgenden Inhalt versucht, einen Benutzer zu erstellen, verwendet aber ungültiges JSON mit nicht maskierten Zeilenumbrüchen:
+Angenommen, es existiert eine {{Glossary("REST", "REST")}}-API mit einem Endpunkt zur Verwaltung von Benutzern unter `http://example.com/users` und eine `POST`-Anfrage mit dem folgenden Inhalt versucht, einen Benutzer zu erstellen, verwendet aber ungültiges JSON mit nicht maskierten Zeilenumbrüchen:
 
 ```http
 POST /users HTTP/1.1
@@ -36,7 +36,7 @@ Content-Length: 38
 }
 ```
 
-Wenn der [Inhalt](/de/docs/Glossary/HTTP_Content) in einem gültigen Format vorliegt, würden wir eine {{HTTPStatus("201", "201 Created")}}-Antwort oder eine andere Erfolgsmeldung erwarten, aber stattdessen antwortet der Server mit `400` und der Antwortinhalt enthält ein `message`-Feld mit einigen Kontextinformationen, damit der Client die Aktion mit einer korrekt formatierten Anfrage erneut versuchen kann:
+Wenn der {{Glossary("HTTP_Content", "Inhalt")}} in einem gültigen Format vorliegt, würden wir eine {{HTTPStatus("201", "201 Created")}}-Antwort oder eine andere Erfolgsmeldung erwarten, aber stattdessen antwortet der Server mit `400` und der Antwortinhalt enthält ein `message`-Feld mit einigen Kontextinformationen, damit der Client die Aktion mit einer korrekt formatierten Anfrage erneut versuchen kann:
 
 ```http
 HTTP/1.1 400 Bad Request

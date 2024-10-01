@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-Dest`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) gibt das _Ziel_ der Anfrage an. Das bedeutet der Initiator der ursprünglichen Fetch-Anfrage, welches angibt, wo (und wie) die abgerufenen Daten verwendet werden.
+Der **`Sec-Fetch-Dest`** {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} gibt das _Ziel_ der Anfrage an. Das bedeutet der Initiator der ursprünglichen Fetch-Anfrage, welches angibt, wo (und wie) die abgerufenen Daten verwendet werden.
 
 Dies ermöglicht Servern zu bestimmen, ob die Bearbeitung einer Anfrage basierend darauf erfolgen soll, ob sie für die erwartete Verwendung geeignet ist. Beispielsweise sollte eine Anfrage mit dem Ziel `audio` Audiodaten anfordern und nicht eine andere Art von Ressource (wie zum Beispiel ein Dokument, das sensible Nutzerdaten enthält).
 
@@ -15,15 +15,15 @@ Dies ermöglicht Servern zu bestimmen, ob die Bearbeitung einer Anfrage basieren
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_Metadata_Request_Header)</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadaten-Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gesicherter Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-gesicherter Anforderungsheader")}}
       </th>
       <td>nein</td>
     </tr>
@@ -106,7 +106,7 @@ Server sollten diesen Header ignorieren, wenn er einen anderen Wert enthält.
 - `video`
   - : Das Ziel sind Videodaten. Dies könnte von einem HTML-{{HTMLElement("video")}}-Tag stammen.
 - `webidentity`
-  - : Das Ziel ist ein Endpunkt, der mit der Verifizierung der Benutzeridentität verbunden ist. Zum Beispiel wird es in der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet, um die Authentizität von Identitätsanbieter-Endpunkten (IdP) zu überprüfen und vor [CSRF](/de/docs/Glossary/CSRF)-Angriffen zu schützen.
+  - : Das Ziel ist ein Endpunkt, der mit der Verifizierung der Benutzeridentität verbunden ist. Zum Beispiel wird es in der [FedCM API](/de/docs/Web/API/FedCM_API) verwendet, um die Authentizität von Identitätsanbieter-Endpunkten (IdP) zu überprüfen und vor {{Glossary("CSRF", "CSRF")}}-Angriffen zu schützen.
 - `worker`
   - : Das Ziel ist ein [`Worker`](/de/docs/Web/API/Worker).
 - `xslt`

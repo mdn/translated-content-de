@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCPeerConnectionIceEvent`**-Schnittstelle stellt Ereignisse dar, die in Bezug auf [ICE](/de/docs/Glossary/ICE)-Kandidaten mit dem Ziel auftreten, normalerweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+Die **`RTCPeerConnectionIceEvent`**-Schnittstelle stellt Ereignisse dar, die in Bezug auf {{Glossary("ICE", "ICE")}}-Kandidaten mit dem Ziel auftreten, normalerweise eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
 Nur ein Ereignis ist von diesem Typ: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
 

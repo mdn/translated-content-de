@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`Selection`](/de/docs/Web/API/Selection) Objekt oder `null`, wenn das zugehörige Dokument keinen [Browsing-Kontext](/de/docs/Glossary/Browsing_context) hat (zum Beispiel, wenn das Fenster ein {{htmlelement("iframe")}} ist, das nicht an ein Dokument angehängt ist).
+Ein [`Selection`](/de/docs/Web/API/Selection) Objekt oder `null`, wenn das zugehörige Dokument keinen {{Glossary("Browsing_context", "Browsing-Kontext")}} hat (zum Beispiel, wenn das Fenster ein {{htmlelement("iframe")}} ist, das nicht an ein Dokument angehängt ist).
 
 Wenn es auf einem nicht angezeigten {{htmlelement("iframe")}} aufgerufen wird (z.B. wenn `display: none` gesetzt ist), gibt Firefox `null` zurück, während andere Browser ein [`Selection`](/de/docs/Web/API/Selection) Objekt mit [`Selection.type`](/de/docs/Web/API/Selection/type) auf `None` gesetzt zurückgeben.
 

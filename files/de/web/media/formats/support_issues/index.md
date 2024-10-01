@@ -25,7 +25,7 @@ Wir werden uns beide Szenarien ansehen und wie man sie umsetzt.
 
 ### Progressive Bilder
 
-Bilder—ob eingebettet mit {{HTMLElement("img")}} oder {{HTMLElement("picture")}}—unterstützen kein Konzept ähnlich wie Posterrahmen. Es gibt jedoch Möglichkeiten, ein Bild in niedriger Qualität anzuzeigen, während es noch geladen wird. Dies erfordert die Erstellung Ihrer Bilder in **progressiven** Formaten, wie progressive [JPEG](/de/docs/Glossary/JPEG) oder interlaced [PNG](/de/docs/Glossary/PNG).
+Bilder—ob eingebettet mit {{HTMLElement("img")}} oder {{HTMLElement("picture")}}—unterstützen kein Konzept ähnlich wie Posterrahmen. Es gibt jedoch Möglichkeiten, ein Bild in niedriger Qualität anzuzeigen, während es noch geladen wird. Dies erfordert die Erstellung Ihrer Bilder in **progressiven** Formaten, wie progressive {{Glossary("JPEG", "JPEG")}} oder interlaced {{Glossary("PNG", "PNG")}}.
 
 Sobald Ihr Bild in progressive Form konvertiert ist, können Sie es wie gewohnt verwenden.
 

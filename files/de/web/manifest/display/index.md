@@ -45,7 +45,7 @@ Das `display` Manifestmitglied wird verwendet, um den bevorzugten Anzeigemodus f
 
 ## Beschreibung
 
-Nachdem ein Browser einen `display` Modus auf einen [Anwendungskontext](/de/docs/Glossary/application_context) angewendet hat, wird dieser zum Standard-Anzeigemodus für den top-level Browsingkontext. Der Browser kann diesen Anzeigemodus aus Sicherheitsgründen überschreiben oder den Benutzern eine Möglichkeit geben, zu einem anderen `display` Modus zu wechseln.
+Nachdem ein Browser einen `display` Modus auf einen {{Glossary("application_context", "Anwendungskontext")}} angewendet hat, wird dieser zum Standard-Anzeigemodus für den top-level Browsingkontext. Der Browser kann diesen Anzeigemodus aus Sicherheitsgründen überschreiben oder den Benutzern eine Möglichkeit geben, zu einem anderen `display` Modus zu wechseln.
 
 Wenn ein Browser den angegebenen Anzeigemodus nicht unterstützt, folgt er einer vordefinierten Fallback-Kette: `fullscreen` → `standalone` → `minimal-ui` → `browser`.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{NextMenu("Learn/CSS/Styling_text/Styling_lists", "Learn/CSS/Styling_text")}}
 
-In diesem Artikel beginnen Sie Ihre Reise zur Beherrschung der Textgestaltung mit [CSS](/de/docs/Glossary/CSS). Hier behandeln wir alle grundlegenden Grundlagen der Text-/Schriftgestaltung im Detail, einschließlich der Festlegung von Schriftstärke, Schriftfamilie und Stil, Kurzschrift für Schriftarten, Textausrichtung und andere Effekte sowie Zeilen- und Buchstabenabstände.
+In diesem Artikel beginnen Sie Ihre Reise zur Beherrschung der Textgestaltung mit {{Glossary("CSS", "CSS")}}. Hier behandeln wir alle grundlegenden Grundlagen der Text-/Schriftgestaltung im Detail, einschließlich der Festlegung von Schriftstärke, Schriftfamilie und Stil, Kurzschrift für Schriftarten, Textausrichtung und andere Effekte sowie Zeilen- und Buchstabenabstände.
 
 <table>
   <tbody>

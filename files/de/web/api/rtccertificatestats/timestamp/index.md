@@ -14,7 +14,7 @@ Die **`timestamp`**-Eigenschaft des [`RTCCertificateStats`](/de/docs/Web/API/RTC
 
 Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der die Zeit angibt, zu der die durch die Statistiken in diesem Objekt beschriebenen Aktivitäten aufgezeichnet wurden, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte bis auf wenige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von [Fingerprinting](/de/docs/Glossary/Fingerprinting)-Schutz in Form einer reduzierten Taktpräzision oder Genauigkeit nicht völlig präzise sein.
+Der Wert sollte bis auf wenige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von {{Glossary("Fingerprinting", "Fingerprinting")}}-Schutz in Form einer reduzierten Taktpräzision oder Genauigkeit nicht völlig präzise sein.
 
 ## Spezifikationen
 

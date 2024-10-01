@@ -16,7 +16,7 @@ ul.my-things li {
 }
 ```
 
-Der Descendant-Kombinator besteht technisch aus einem oder mehreren [CSS](/de/docs/Glossary/CSS)-Leerzeichen — dem Leerzeichen oder einem von vier Steuerzeichen: Wagenrücklauf, Form Feed, Zeilenumbruch und Tabulatorzeichen — zwischen zwei Selektoren, wenn kein anderer Kombinator vorhanden ist. Zusätzlich können die Leerzeichen, aus denen der Kombinator besteht, beliebig viele CSS-Kommentare enthalten.
+Der Descendant-Kombinator besteht technisch aus einem oder mehreren {{Glossary("CSS", "CSS")}}-Leerzeichen — dem Leerzeichen oder einem von vier Steuerzeichen: Wagenrücklauf, Form Feed, Zeilenumbruch und Tabulatorzeichen — zwischen zwei Selektoren, wenn kein anderer Kombinator vorhanden ist. Zusätzlich können die Leerzeichen, aus denen der Kombinator besteht, beliebig viele CSS-Kommentare enthalten.
 
 ## Syntax
 

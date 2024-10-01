@@ -40,8 +40,7 @@ Gibt ein Promise zurück, das:
 - Wenn `moduleName` sich auf ein nicht existierendes Modul bezieht, mit einem implementierungsdefinierten Fehler abgelehnt wird (Node verwendet einen generischen `Error`, während alle Browser `TypeError` verwenden).
 - Wenn die Auswertung des referenzierten Moduls einen Fehler auslöst, mit dem ausgelösten Fehler abgelehnt wird.
 
-> [!NOTE]
-> `import()` löst niemals synchron einen Fehler aus.
+> [!NOTE] > `import()` löst niemals synchron einen Fehler aus.
 
 ## Beschreibung
 
@@ -53,7 +52,7 @@ Die Import-Deklarationssyntax (`import something from "somewhere"`) ist statisch
 - Wenn das importierte Modul Nebeneffekte hat und Sie diese Nebeneffekte nur wollen, wenn eine bestimmte Bedingung erfüllt ist. (Es wird empfohlen, keine Nebenwirkungen in einem Modul zu haben, aber manchmal kann man dies in den Modulabhängigkeiten nicht kontrollieren.)
 - Wenn Sie sich in einer nicht-modularen Umgebung befinden (zum Beispiel `eval` oder eine Skriptdatei).
 
-Verwenden Sie dynamische Importe nur bei Bedarf. Die statische Form ist vorzuziehen, um anfängliche Abhängigkeiten zu laden, und kann eher von statischen Analysetools und [Tree Shaking](/de/docs/Glossary/Tree_shaking) profitieren.
+Verwenden Sie dynamische Importe nur bei Bedarf. Die statische Form ist vorzuziehen, um anfängliche Abhängigkeiten zu laden, und kann eher von statischen Analysetools und {{Glossary("Tree_shaking", "Tree Shaking")}} profitieren.
 
 Wenn Ihre Datei nicht als Modul ausgeführt wird (wenn sie in einer HTML-Datei referenziert ist, muss das Skript-Tag `type="module"` haben), können Sie keine statischen Import-Deklarationen verwenden. Auf der anderen Seite ist die asynchrone dynamische Import-Syntax immer verfügbar und ermöglicht es Ihnen, Module in nicht-modulare Umgebungen zu importieren.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubPages("Web/Performance")}}
 
-Ein Performance-Budget ist eine Begrenzung, um Rückschritte zu vermeiden. Es kann für eine Datei, einen Dateityp, alle auf einer Seite geladenen Dateien, eine bestimmte Metrik (z.B. [Time to Interactive](/de/docs/Glossary/Time_to_interactive)), eine benutzerdefinierte Metrik (z.B. Zeit zum Hero-Element) oder einen Schwellenwert über einen Zeitraum gelten.
+Ein Performance-Budget ist eine Begrenzung, um Rückschritte zu vermeiden. Es kann für eine Datei, einen Dateityp, alle auf einer Seite geladenen Dateien, eine bestimmte Metrik (z.B. {{Glossary("Time_to_interactive", "Time to Interactive")}}), eine benutzerdefinierte Metrik (z.B. Zeit zum Hero-Element) oder einen Schwellenwert über einen Zeitraum gelten.
 
 ## Warum brauche ich ein Performance-Budget?
 
@@ -15,7 +15,7 @@ Ein Budget existiert, um Ihre erreichbaren Ziele zu reflektieren. Es ist ein Kom
 
 Diese Ziele können sein:
 
-- Zeitbasiert (z.B. [Time to Interactive](/de/docs/Glossary/Time_to_interactive), [First Contentful Paint](/de/docs/Glossary/First_contentful_paint)).
+- Zeitbasiert (z.B. {{Glossary("Time_to_interactive", "Time to Interactive")}}, {{Glossary("First_contentful_paint", "First Contentful Paint")}}).
 - Mengenbasiert (z.B. Anzahl der JS-Dateien / Gesamtgröße der Bilder).
 - Regelbasiert (z.B. PageSpeed-Index, Lighthouse-Score).
 
@@ -34,11 +34,11 @@ Die Warnstufe ermöglicht es Ihnen, proaktiv zu sein und technischen Schulden zu
 
 Die Fehlerstufe ist eine obere Grenze, bei der Änderungen negative und spürbare Auswirkungen haben.
 
-Um zu beginnen, müssen Sie zunächst die Geräte und Verbindungsgeschwindigkeiten messen, von denen Ihre Benutzer kommen (z.B. Ein \~$200_ Android-Gerät über eine 3G-Verbindung), wobei Sie mehrere [Werkzeuge](/de/docs/Learn/Performance/Web_Performance_Basics) verwenden. Diese zeitbasierten Metriken werden in Dateigrößen-Budgets übersetzt.
+Um zu beginnen, müssen Sie zunächst die Geräte und Verbindungsgeschwindigkeiten messen, von denen Ihre Benutzer kommen (z.B. Ein \~$200\_ Android-Gerät über eine 3G-Verbindung), wobei Sie mehrere [Werkzeuge](/de/docs/Learn/Performance/Web_Performance_Basics) verwenden. Diese zeitbasierten Metriken werden in Dateigrößen-Budgets übersetzt.
 
 Ein Standard-Baseline zur Reduzierung der Absprungrate besteht darin, [Time to Interactive unter 5 Sekunden bei 3G/4G und unter 2 Sekunden für nachfolgende Ladevorgänge](https://infrequently.org/2017/10/can-you-afford-it-real-world-web-performance-budgets/) zu erreichen. Abhängig von den spezifischen Zielen und dem Inhalt Ihrer Website können Sie sich jedoch auf andere Metriken konzentrieren.
 
-Für eine textlastige Website wie einen Blog oder eine Nachrichtenseite könnte die Metrik [First Contentful Paint](/de/docs/Glossary/First_contentful_paint) das Benutzerverhalten genauer widerspiegeln. (d.h. Wie schnell können Benutzer mit dem Lesen beginnen), was dateispezifische Budgets (z.B. Schriftgröße) und deren Optimierungen informiert. (z.B. Verwendung von [font-display](/de/docs/Web/CSS/@font-face/font-display) zur Verbesserung der [Wahrgenommenen Leistung](/de/docs/Learn/Performance/Perceived_performance)).
+Für eine textlastige Website wie einen Blog oder eine Nachrichtenseite könnte die Metrik {{Glossary("First_contentful_paint", "First Contentful Paint")}} das Benutzerverhalten genauer widerspiegeln. (d.h. Wie schnell können Benutzer mit dem Lesen beginnen), was dateispezifische Budgets (z.B. Schriftgröße) und deren Optimierungen informiert. (z.B. Verwendung von [font-display](/de/docs/Web/CSS/@font-face/font-display) zur Verbesserung der [Wahrgenommenen Leistung](/de/docs/Learn/Performance/Perceived_performance)).
 
 Der ultimative Wert eines Performance-Budgets besteht darin, den Einfluss der Leistung auf Geschäfts- oder Produktziele zu korrelieren. Bei der Definition von Metriken sollten Sie sich auf die [Benutzererfahrung](https://extensionworkshop.com/documentation/develop/user-experience-best-practices/) konzentrieren, die nicht nur die Absprungs- oder Konversionsrate, sondern auch die Wahrscheinlichkeit, dass Benutzer zurückkehren, bestimmen wird.
 
@@ -49,7 +49,7 @@ Während der Entwicklung gibt es einige Werkzeuge, um Prüfungen gegen neue oder
 - Ein Modul-Bundler (z.B. [webpack](https://webpack.js.org/)), verfügt über [Performance-Features](https://webpack.js.org/configuration/performance/), die Sie benachrichtigen, wenn Ressourcen bestimmte Grenzen überschreiten.
 - [Bundlesize](https://github.com/siddharthkp/bundlesize) erlaubt es Ihnen, Dateigrößenprüfungen in Ihrer Continuous Integration (CI) Pipeline zu definieren und durchzuführen.
 
-Dateigrößenprüfungen sind die erste Verteidigungslinie gegen Rückschritte, aber die Übersetzung der Größe zurück in Zeitmetriken kann schwierig sein, da Entwicklungsumgebungen möglicherweise 3rd-Party-Skripte und Optimierungen, die normalerweise von einem [CDN](/de/docs/Glossary/CDN) bereitgestellt werden, fehlen.
+Dateigrößenprüfungen sind die erste Verteidigungslinie gegen Rückschritte, aber die Übersetzung der Größe zurück in Zeitmetriken kann schwierig sein, da Entwicklungsumgebungen möglicherweise 3rd-Party-Skripte und Optimierungen, die normalerweise von einem {{Glossary("CDN", "CDN")}} bereitgestellt werden, fehlen.
 
 Der erste Schritt ist es, eine Entwicklungsbaseline für jeden Branch zu definieren, um darauf zu vergleichen. Die Präzision der Differenz zwischen Entwicklung und Produktion kann als Ziel verwendet werden, um die Live-Umgebung besser anzugleichen.
 

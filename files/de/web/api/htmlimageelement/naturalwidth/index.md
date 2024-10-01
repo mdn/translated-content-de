@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`naturalWidth`**-Eigenschaft der Schnittstelle [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) gibt die intrinsische (natürliche), dichte-korrigierte Breite des Bildes in [CSS-Pixel](/de/docs/Glossary/CSS_pixel) zurück.
+Die schreibgeschützte **`naturalWidth`**-Eigenschaft der Schnittstelle [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) gibt die intrinsische (natürliche), dichte-korrigierte Breite des Bildes in {{Glossary("CSS_pixel", "CSS-Pixel")}} zurück.
 
 Dies ist die Breite, die das Bild hat, wenn nichts seine Breite einschränkt; wenn Sie weder eine Breite für das Bild angeben, noch das Bild in einen Container einfügen, der die Bildbreite begrenzt oder ausdrücklich angibt, ist dies die Anzahl von CSS-Pixeln, die das Bild breit sein wird.
 

@@ -20,7 +20,7 @@ Wenn Sie eine Webseite besucht haben und `501`-Fehler sehen, erfordern diese Pro
 Sie können Ihren Browser-Cache für die Domäne leeren, Proxys deaktivieren, wenn Sie einen verwenden, oder später erneut versuchen, um zu sehen, ob es wie erwartet funktioniert.
 
 Eine `501`-Antwort kann auftreten, wenn Proxys die im Kontext von HTTP Extension Framework ({{RFC("2774")}}) verwendeten Anfragemethoden nicht verarbeiten können.
-Dieser Status kann auch bei Web Distributed Authoring and Versioning ([WebDAV](/de/docs/Glossary/WebDAV)) auftreten, wenn für eine Anfragemethode (`SEARCH`, `PROPFIND`) kein URL-Handler konfiguriert ist, um sie zu verarbeiten.
+Dieser Status kann auch bei Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) auftreten, wenn für eine Anfragemethode (`SEARCH`, `PROPFIND`) kein URL-Handler konfiguriert ist, um sie zu verarbeiten.
 
 ## Status
 

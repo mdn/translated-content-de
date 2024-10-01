@@ -42,7 +42,7 @@ Das Telefonnummernfeld wird die [Einschränkungsvalidierung](/de/docs/Web/HTML/C
 
 ### pattern
 
-Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript-Regulärausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als Sequenz von Unicode-Codepunkten behandelt wird, anstatt als [ASCII](/de/docs/Glossary/ASCII). Es sollten keine Schrägstriche um den Mustertext angegeben werden.
+Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript-Regulärausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als Sequenz von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Mustertext angegeben werden.
 
 Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut vollständig ignoriert.
 
@@ -55,7 +55,7 @@ Siehe [Musterprüfung](#musterprüfung) unten für Details und ein Beispiel.
 
 Das `placeholder`-Attribut ist ein String, der einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp veranschaulicht, anstatt eine erklärende Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung ([LTR](/de/docs/Glossary/LTR) oder [RTL](/de/docs/Glossary/RTL)) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie die Unicode-Bidi-Algorithmus-Formatierungszeichen verwenden, um die Richtung innerhalb des Platzhalters außer Kraft zu setzen; siehe [How to use Unicode controls for bidi text](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie die Unicode-Bidi-Algorithmus-Formatierungszeichen verwenden, um die Richtung innerhalb des Platzhalters außer Kraft zu setzen; siehe [How to use Unicode controls for bidi text](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
 > Vermeiden Sie nach Möglichkeit die Verwendung des `placeholder`-Attributs. Es ist semantisch nicht so nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>` labels](/de/docs/Web/HTML/Element/input#labels) für weitere Informationen.
@@ -96,8 +96,8 @@ Glücklicherweise können Sie die Anforderungen Ihrer eigenen Website berücksic
 
 Einer der Hauptvorteile von `<input type="tel">` ist, dass es mobile Browser veranlasst, eine spezielle Tastatur zur Eingabe von Telefonnummern anzuzeigen. Zum Beispiel sehen so die Tastaturen auf einigen Geräten aus.
 
-| Firefox für Android                                    | WebKit iOS (Safari/Chrome/Firefox)                           |
-| ------------------------------------------------------ | ------------------------------------------------------------ |
+| Firefox für Android                                       | WebKit iOS (Safari/Chrome/Firefox)                               |
+| --------------------------------------------------------- | ---------------------------------------------------------------- |
 | ![Firefox für Android Bildschirmfoto](fx-android-tel.png) | ![Firefox für iOS Bildschirmfoto](iphone-tel-keyboard-50pct.png) |
 
 ### Eine einfache Tel-Eingabe
@@ -257,7 +257,7 @@ Die Ausgabe sieht dann so aus:
 
 ### Musterprüfung
 
-Wenn Sie die eingegebenen Nummern weiter einschränken möchten, damit sie auch einem bestimmten Muster entsprechen müssen, können Sie das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, das als Wert einen [regulären Ausdruck](/de/docs/Glossary/regular_expression) annimmt, dem die eingegebenen Werte entsprechen müssen.
+Wenn Sie die eingegebenen Nummern weiter einschränken möchten, damit sie auch einem bestimmten Muster entsprechen müssen, können Sie das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, das als Wert einen {{Glossary("regular_expression", "regulären Ausdruck")}} annimmt, dem die eingegebenen Werte entsprechen müssen.
 
 In diesem Beispiel verwenden wir dasselbe CSS wie zuvor, aber unser HTML wird folgendermaßen geändert:
 

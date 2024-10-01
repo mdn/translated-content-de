@@ -37,7 +37,7 @@ new ViewTimeline(options)
 
     - `inset` {{optional_inline}}
 
-      - : Ein Wert oder ein Array von Werten, die eine Anpassung der Position des Scrollports repräsentieren (siehe [Scrollcontainer](/de/docs/Glossary/Scroll_container) für mehr Details), in dem das Subjekt als sichtbar angesehen wird. Mögliche Werte sind:
+      - : Ein Wert oder ein Array von Werten, die eine Anpassung der Position des Scrollports repräsentieren (siehe {{Glossary("Scroll_container", "Scrollcontainer")}} für mehr Details), in dem das Subjekt als sichtbar angesehen wird. Mögliche Werte sind:
 
         - `"auto"`: Die Standardpositionsbox wird verwendet.
         - Ein String: Wenn ein String angegeben ist, kann dieser aus einem oder zwei Werten bestehen, die `auto` oder einem CSS-{{cssxref("length-percentage")}}-Wert entsprechen. Anders ausgedrückt sollte der String ein gültiger {{cssxref("view-timeline-inset")}}-Wert sein.

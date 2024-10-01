@@ -27,7 +27,7 @@ history.go(-1); // equivalent to history.back();
 
 Für Seiten auf oberster Ebene können Sie die Liste der Seiten im Sitzungsverlauf sehen, die über das `History`-Objekt zugänglich ist, in den Dropdown-Menüs des Browsers neben den Vor- und Zurück-Buttons.
 
-Aus Sicherheitsgründen erlaubt das `History`-Objekt es nicht, dass nicht-privilegierter Code auf die [URLs](/de/docs/Glossary/URL) anderer Seiten im Sitzungsverlauf zugreift, aber es erlaubt die Navigation im Sitzungsverlauf.
+Aus Sicherheitsgründen erlaubt das `History`-Objekt es nicht, dass nicht-privilegierter Code auf die {{Glossary("URL", "URLs")}} anderer Seiten im Sitzungsverlauf zugreift, aber es erlaubt die Navigation im Sitzungsverlauf.
 
 Es gibt keine Möglichkeit, den Sitzungsverlauf zu löschen oder die Vorwärts-/Rückwärtsnavigation aus nicht-privilegiertem Code zu deaktivieren. Die nächstliegende verfügbare Lösung ist die [`location.replace()`](/de/docs/Web/API/Location/replace)-Methode, die das aktuelle Element des Sitzungsverlaufs durch die angegebene URL ersetzt.
 

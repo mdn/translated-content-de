@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das [DOM](/de/docs/Glossary/DOM) bietet Funktionen, mit denen die Ergebnisse einer [Media Query](/de/docs/Glossary/media_query) programmatisch getestet werden können, über das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interface und dessen Methoden und Eigenschaften. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
+Das {{Glossary("DOM", "DOM")}} bietet Funktionen, mit denen die Ergebnisse einer {{Glossary("media_query", "Media Query")}} programmatisch getestet werden können, über das [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Interface und dessen Methoden und Eigenschaften. Sobald Sie ein `MediaQueryList`-Objekt erstellt haben, können Sie das Ergebnis der [Abfrage](/de/docs/Web/CSS/CSS_media_queries/Using_media_queries) überprüfen oder Benachrichtigungen erhalten, wenn sich das Ergebnis ändert.
 
 ## Erstellen einer Media Query Liste
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`type`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist ein Zeichenstring, der den [MIME-Typ](/de/docs/Glossary/MIME_type) der verlinkten Ressource widerspiegelt.
+Die **`type`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist ein Zeichenstring, der den {{Glossary("MIME_type", "MIME-Typ")}} der verlinkten Ressource widerspiegelt.
 
 Sie spiegelt das `type`-Attribut des {{HTMLElement("link")}}-Elements wider.
 

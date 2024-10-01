@@ -9,10 +9,10 @@ l10n:
 
 Die **`PATCH`** HTTP-Methode wendet partielle Änderungen auf eine Ressource an.
 
-`PATCH` ist in gewissem Maße mit dem "Update"-Konzept in [CRUD](/de/docs/Glossary/CRUD) vergleichbar (im Allgemeinen ist HTTP anders als [CRUD](/de/docs/Glossary/CRUD) und beide sollten nicht verwechselt werden).
+`PATCH` ist in gewissem Maße mit dem "Update"-Konzept in {{Glossary("CRUD", "CRUD")}} vergleichbar (im Allgemeinen ist HTTP anders als {{Glossary("CRUD", "CRUD")}} und beide sollten nicht verwechselt werden).
 
 Im Vergleich zu {{HTTPMethod("PUT")}} dient ein `PATCH` als eine Reihe von Anweisungen zur Änderung einer Ressource, während `PUT` einen vollständigen Ersatz der Ressource darstellt.
-Eine `PUT`-Anfrage ist immer [idempotent](/de/docs/Glossary/idempotent) (das wiederholte Senden derselben Anfrage führt dazu, dass die Ressource im gleichen Zustand bleibt), während eine `PATCH`-Anfrage nicht immer idempotent sein muss.
+Eine `PUT`-Anfrage ist immer {{Glossary("idempotent", "idempotent")}} (das wiederholte Senden derselben Anfrage führt dazu, dass die Ressource im gleichen Zustand bleibt), während eine `PATCH`-Anfrage nicht immer idempotent sein muss.
 Wenn eine Ressource beispielsweise einen sich automatisch erhöhenden Zähler enthält, wird eine `PUT`-Anfrage den Zähler überschreiben (da sie die gesamte Ressource ersetzt), aber eine `PATCH`-Anfrage möglicherweise nicht.
 
 Ähnlich wie {{HTTPMethod("POST")}} kann eine `PATCH`-Anfrage potenziell Auswirkungen auf andere Ressourcen haben.
@@ -31,15 +31,15 @@ Ein weiteres implizites Zeichen dafür, dass `PATCH` unterstützt wird, ist der 
       <td>Könnte</td>
     </tr>
     <tr>
-      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
       <td>Nur wenn Frischeinformationen enthalten sind</td>
     </tr>
     <tr>

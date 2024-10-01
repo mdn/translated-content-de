@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCOutboundRtpStreamStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Metriken und Statistiken im Zusammenhang mit einem ausgehenden [RTP](/de/docs/Glossary/RTP)-Stream zu melden, der von einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet wird.
+Das **`RTCOutboundRtpStreamStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Metriken und Statistiken im Zusammenhang mit einem ausgehenden {{Glossary("RTP", "RTP")}}-Stream zu melden, der von einem [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) gesendet wird.
 
 Die Statistiken können durch Iteration des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) erhalten werden, das von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) oder [`RTCRtpSender.getStats()`](/de/docs/Web/API/RTCRtpSender/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) `outbound-rtp` finden.
 
@@ -16,7 +16,7 @@ Die Statistiken können durch Iteration des [`RTCStatsReport`](/de/docs/Web/API/
 <!-- he `RTCOutboundRtpStreamStats` dictionary includes the following properties in addition to those it inherits from [`RTCSentRtpStreamStats`](/de/docs/Web/API/RTCSentRtpStreamStats), [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)._ -->
 
 - [`averageRtcpInterval`](/de/docs/Web/API/RTCOutboundRtpStreamStats/averageRtcpInterval)
-  - : Ein Gleitkommawert, der das durchschnittliche [RTCP](/de/docs/Glossary/RTCP)-Intervall zwischen zwei aufeinanderfolgenden zusammengesetzten RTCP-Paketen angibt.
+  - : Ein Gleitkommawert, der das durchschnittliche {{Glossary("RTCP", "RTCP")}}-Intervall zwischen zwei aufeinanderfolgenden zusammengesetzten RTCP-Paketen angibt.
 - [`firCount`](/de/docs/Web/API/RTCOutboundRtpStreamStats/firCount)
   - : Ein ganzzahliger Wert, der die Gesamtanzahl der Full Intra Request (FIR)-Pakete angibt, die dieser [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) an den entfernten [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) gesendet hat. Dies ist ein Indikator dafür, wie oft der Stream verzögert wurde, was dazu führte, dass Frames übersprungen werden mussten, um aufzuholen. _Nur für Video-Streams gültig._
 - [`framesEncoded`](/de/docs/Web/API/RTCOutboundRtpStreamStats/framesEncoded)

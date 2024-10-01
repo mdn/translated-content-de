@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einem Browser bezieht sich der **Chrome** auf alle sichtbaren Aspekte des Browsers abgesehen von den Webseiten selbst (z. B. Symbolleisten, Menüleiste, Tabs). Dies sollte nicht mit dem [Google Chrome](/de/docs/Glossary/Google_Chrome) Browser verwechselt werden.
+In einem Browser bezieht sich der **Chrome** auf alle sichtbaren Aspekte des Browsers abgesehen von den Webseiten selbst (z. B. Symbolleisten, Menüleiste, Tabs). Dies sollte nicht mit dem {{Glossary("Google_Chrome", "Google Chrome")}} Browser verwechselt werden.
 
 ## Siehe auch
 

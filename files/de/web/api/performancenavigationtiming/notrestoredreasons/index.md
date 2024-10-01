@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`notRestoredReasons`** der Schnittstelle [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) gibt ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt zurück, das Berichtsdatensätze zu den Gründen liefert, warum das aktuelle Dokument bei einer Navigation daran gehindert wurde, den Back/Forward Cache ([bfcache](/de/docs/Glossary/bfcache)) zu verwenden.
+Die schreibgeschützte Eigenschaft **`notRestoredReasons`** der Schnittstelle [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) gibt ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt zurück, das Berichtsdatensätze zu den Gründen liefert, warum das aktuelle Dokument bei einer Navigation daran gehindert wurde, den Back/Forward Cache ({{Glossary("bfcache", "bfcache")}}) zu verwenden.
 
 ## Wert
 

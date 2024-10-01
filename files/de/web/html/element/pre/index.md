@@ -9,11 +9,11 @@ l10n:
 
 Das **`<pre>`** [HTML](/de/docs/Web/HTML) Element repräsentiert vorformatierten Text, der genau so dargestellt wird, wie er in der HTML-Datei geschrieben ist. Der Text wird typischerweise in einer nicht proportionalen oder [monospaced](https://en.wikipedia.org/wiki/Monospaced_font) Schriftart angezeigt. Leerzeichen innerhalb dieses Elements werden wie geschrieben angezeigt.
 
-Standardmäßig ist `<pre>` ein [Block-Level](/de/docs/Glossary/Block-level_content) Element, d. h. sein Standardwert für {{cssxref("display")}} ist `block`.
+Standardmäßig ist `<pre>` ein {{Glossary("Block-level_content", "Block-Level")}} Element, d. h. sein Standardwert für {{cssxref("display")}} ist `block`.
 
 {{EmbedInteractiveExample("pages/tabbed/pre.html", "tabbed-standard")}}
 
-Wenn Sie reservierte Zeichen wie `<`, `>`, `&` und `"` innerhalb des `<pre>`-Tags anzeigen müssen, müssen die Zeichen mithilfe ihrer jeweiligen [Zeichenreferenzen](/de/docs/Glossary/character_reference) maskiert werden.
+Wenn Sie reservierte Zeichen wie `<`, `>`, `&` und `"` innerhalb des `<pre>`-Tags anzeigen müssen, müssen die Zeichen mithilfe ihrer jeweiligen {{Glossary("character_reference", "Zeichenreferenzen")}} maskiert werden.
 
 `<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}}-Elemente, um Computercode, Computerausgabe und Benutzereingaben darzustellen.
 
@@ -32,7 +32,7 @@ Es ist wichtig, eine alternative Beschreibung für alle Bilder oder Diagramme be
 
 Personen mit Sehbehinderungen, die beim Browsen auf unterstützende Technologien wie einen Screenreader angewiesen sind, verstehen möglicherweise nicht, was die Zeichen des vorformatierten Textes darstellen, wenn sie nacheinander vorgelesen werden.
 
-Eine Kombination aus den Elementen {{HTMLElement("figure")}} und {{HTMLElement("figcaption")}}, ergänzt um die [ARIA](/de/docs/Web/Accessibility/ARIA) `role` und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribute auf dem `pre`-Element ermöglichen es, das vorformatierte [ASCII](/de/docs/Glossary/ASCII) Kunstwerk als Bild mit alternativem Text anzukündigen, wobei das `figcaption` als Bildunterschrift dient.
+Eine Kombination aus den Elementen {{HTMLElement("figure")}} und {{HTMLElement("figcaption")}}, ergänzt um die [ARIA](/de/docs/Web/Accessibility/ARIA) `role` und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribute auf dem `pre`-Element ermöglichen es, das vorformatierte {{Glossary("ASCII", "ASCII")}} Kunstwerk als Bild mit alternativem Text anzukündigen, wobei das `figcaption` als Bildunterschrift dient.
 
 ### Beispiel
 
@@ -163,5 +163,5 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
 ## Siehe auch
 
 - CSS: {{Cssxref('white-space')}}, {{Cssxref('word-break')}}
-- [Zeichenreferenz](/de/docs/Glossary/Character_reference)
+- {{Glossary("Character_reference", "Zeichenreferenz")}}
 - Verwandtes Element: {{HTMLElement("code")}}, {{HTMLElement("samp")}}, {{HTMLElement("kbd")}}

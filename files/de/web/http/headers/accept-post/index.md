@@ -22,10 +22,10 @@ Beispielsweise könnte ein Server, der eine `POST`-Anfrage mit einem nicht unter
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Response header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Response header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

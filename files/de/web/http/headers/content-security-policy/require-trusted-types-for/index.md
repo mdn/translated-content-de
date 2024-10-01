@@ -9,7 +9,7 @@ l10n:
 
 Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`require-trusted-types-for`** {{experimental_inline}} Direktive weist Benutzeragenten an, die Daten zu kontrollieren, die an DOM-XSS-Senkenfunktionen, wie den [`Element.innerHTML`](/de/docs/Web/API/Element/innerHTML)-Setter, übergeben werden.
 
-Bei Verwendung akzeptieren diese Funktionen nur unverfälschbare, typisierte Werte, die durch Trusted Type-Richtlinien erstellt wurden, und lehnen Zeichenketten ab. Zusammen mit der **[`trusted-types`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types)** Direktive, die die Erstellung von Trusted Type-Richtlinien schützt, ermöglicht dies Autor*innen, Regeln zu definieren, die das Schreiben von Werten in das DOM absichern und somit die Angriffsfläche für DOM-XSS auf kleine, isolierte Teile des Anwendungscodes reduzieren. Dies erleichtert ihre Überwachung und Codeüberprüfung.
+Bei Verwendung akzeptieren diese Funktionen nur unverfälschbare, typisierte Werte, die durch Trusted Type-Richtlinien erstellt wurden, und lehnen Zeichenketten ab. Zusammen mit der **[`trusted-types`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types)** Direktive, die die Erstellung von Trusted Type-Richtlinien schützt, ermöglicht dies Autor\*innen, Regeln zu definieren, die das Schreiben von Werten in das DOM absichern und somit die Angriffsfläche für DOM-XSS auf kleine, isolierte Teile des Anwendungscodes reduzieren. Dies erleichtert ihre Überwachung und Codeüberprüfung.
 
 ## Syntax
 
@@ -51,7 +51,7 @@ if (typeof trustedTypes !== "undefined") {
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- [Cross-Site Scripting (XSS)](/de/docs/Glossary/Cross-site_scripting)
+- {{Glossary("Cross-site_scripting", "Cross-Site Scripting (XSS)")}}
 - [DOM-XSS-Injektionssenken, die durch Trusted Types abgedeckt sind](https://w3c.github.io/trusted-types/dist/spec/#injection-sinks)
 - [Verhindern von DOM-basierten Cross-Site-Scripting-Schwachstellen mit Trusted Types](https://web.dev/articles/trusted-types)
 - Trusted Types mit [DOMPurify](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) XSS-Filter

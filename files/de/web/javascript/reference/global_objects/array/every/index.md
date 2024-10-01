@@ -21,7 +21,7 @@ every(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um anzuzeigen, dass das Element den Test besteht, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -33,11 +33,11 @@ every(callbackFn, thisArg)
 
 ### Rückgabewert
 
-`true`, es sei denn `callbackFn` gibt einen [falsy](/de/docs/Glossary/falsy) Wert für ein Array-Element zurück, in diesem Fall wird sofort `false` zurückgegeben.
+`true`, es sei denn `callbackFn` gibt einen {{Glossary("falsy", "falsy")}} Wert für ein Array-Element zurück, in diesem Fall wird sofort `false` zurückgegeben.
 
 ## Beschreibung
 
-Die `every()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf, bis die `callbackFn` Funktion einen [falsy](/de/docs/Glossary/Falsy) Wert zurückgibt. Wenn ein solches Element gefunden wird, gibt `every()` sofort `false` zurück und stoppt das Durchlaufen des Arrays. Andernfalls, wenn `callbackFn` einen [truthy](/de/docs/Glossary/Truthy) Wert für alle Elemente zurückgibt, gibt `every()` `true` zurück. Lesen Sie den Abschnitt [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die `every()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf, bis die `callbackFn` Funktion einen {{Glossary("Falsy", "falsy")}} Wert zurückgibt. Wenn ein solches Element gefunden wird, gibt `every()` sofort `false` zurück und stoppt das Durchlaufen des Arrays. Andernfalls, wenn `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert für alle Elemente zurückgibt, gibt `every()` `true` zurück. Lesen Sie den Abschnitt [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
 
 `every` wirkt wie der "für alle"-Quantifizierer in der Mathematik. Insbesondere für ein leeres Array gibt es `true` zurück. (Es ist [trivially true](https://en.wikipedia.org/wiki/Vacuous_truth), dass alle Elemente der [leeren Menge](https://en.wikipedia.org/wiki/Empty_set#Properties) jede gegebene Bedingung erfüllen.)
 

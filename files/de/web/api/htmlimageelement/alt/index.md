@@ -153,7 +153,7 @@ Dies gilt unabhängig davon, ob das /me Bild im pixelbasierten Format wie [PNG](
 - Für eine Tabelle könnte der Text die Elemente in der Tabelle und ihre Werte beschreiben.
 - Für ein Diagramm könnte der Text eine Erklärung des vom Diagramm dargestellten Konzepts sein.
 
-Bedenken Sie, dass jeder Text, der in Diagrammen und Tabellen im [SVG](/de/docs/Glossary/SVG)-Format enthalten ist, von Screenreadern gelesen werden kann.
+Bedenken Sie, dass jeder Text, der in Diagrammen und Tabellen im {{Glossary("SVG", "SVG")}}-Format enthalten ist, von Screenreadern gelesen werden kann.
 Dies kann die Entscheidungen beeinflussen, die Sie beim Schreiben des `alt`-Texts für das Diagramm treffen.
 
 ### Symbole oder Logos

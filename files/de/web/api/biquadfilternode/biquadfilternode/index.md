@@ -103,7 +103,7 @@ new BiquadFilterNode(context, options)
     - `channelCount`
       - : Repräsentiert eine Ganzzahl, die bestimmt, wie viele Kanäle verwendet werden, wenn Verbindungen zu den Eingängen des Knotens [hoch- und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) werden. (Siehe [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Verwendung und genaue Definition hängt vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen [aufzählbaren](/de/docs/Glossary/Enumerated) Wert, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
+      - : Repräsentiert einen {{Glossary("Enumerated", "aufzählbaren")}} Wert, der beschreibt, wie die Kanäle zwischen den Eingängen und Ausgängen des Knotens abgeglichen werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
     - `channelInterpretation`
       - : Repräsentiert einen aufzählbaren Wert, der die Bedeutung der Kanäle beschreibt. Diese Interpretation definiert, wie das Audio [hoch- und runtergemischt](/de/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API#up-mixing_and_down-mixing) wird. Die möglichen Werte sind `"speakers"` oder `"discrete"`. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere Informationen, einschließlich der Standardwerte.)
 

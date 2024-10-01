@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`lch()`** funktionale Notation drückt eine gegebene Farbe mit dem LCH-[Farbraum](/de/docs/Glossary/color_space) aus, der Helligkeit, Chroma und Farbton darstellt. Sie verwendet dieselbe `L`-Achse wie die {{cssxref("color_value/lab","lab()")}}-Farbfunktion des [CIELab-Farbraums](/de/docs/Glossary/Color_space#cielab_color_spaces), nutzt jedoch die Polarkoordinaten `C` (Chroma) und `H` (Farbton).
+Die **`lch()`** funktionale Notation drückt eine gegebene Farbe mit dem LCH-{{Glossary("color_space", "Farbraum")}} aus, der Helligkeit, Chroma und Farbton darstellt. Sie verwendet dieselbe `L`-Achse wie die {{cssxref("color_value/lab","lab()")}}-Farbfunktion des {{Glossary("Color_space#cielab_color_spaces", "CIELab-Farbraums")}}, nutzt jedoch die Polarkoordinaten `C` (Chroma) und `H` (Farbton).
 
 ## Syntax
 
@@ -42,7 +42,7 @@ Die Parameter sind wie folgt:
 
 - `L`
 
-  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht `0%`). Die Zahl `0` entspricht `0%` (schwarz), und die Zahl `100` entspricht `100%` (weiß). Dieser Wert bestimmt die Helligkeit der Farbe im [CIELab-Farbraum](/de/docs/Glossary/Color_space#cielab_color_spaces).
+  - : Eine {{CSSXref("&lt;number&gt;")}} zwischen `0` und `100`, ein {{CSSXref("&lt;percentage&gt;")}} zwischen `0%` und `100%`, oder das Schlüsselwort `none` (entspricht `0%`). Die Zahl `0` entspricht `0%` (schwarz), und die Zahl `100` entspricht `100%` (weiß). Dieser Wert bestimmt die Helligkeit der Farbe im {{Glossary("Color_space#cielab_color_spaces", "CIELab-Farbraum")}}.
 
     > [!NOTE]
     > Das `L` in `lch()` ist die wahrgenommene Helligkeit, die sich auf die "Helligkeit" bezieht, die wir visuell mit unseren Augen wahrnehmen. Dies unterscheidet sich von dem `L` in `hsl()`, wo es die Helligkeit im Vergleich zu anderen Farben darstellt.

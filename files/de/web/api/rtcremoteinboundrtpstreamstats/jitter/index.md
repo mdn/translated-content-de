@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`jitter`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die [Paket-Jitter](/de/docs/Glossary/Jitter) für die [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) zurück, wie sie vom entfernten Endpunkt gemessen wird.
+Die **`jitter`**-Eigenschaft des [`RTCRemoteInboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats)-Wörterbuchs gibt die {{Glossary("Jitter", "Paket-Jitter")}} für die [Synchronisationsquelle (SSRC)](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc) zurück, wie sie vom entfernten Endpunkt gemessen wird.
 
 Hohe Werte des Paket-Jitters weisen darauf hin, dass die Paketankunftsraten erheblich variieren, was die Qualität von Video-, Audio- und anderen Echtzeitkommunikationen über WebRTC beeinträchtigen kann.
 

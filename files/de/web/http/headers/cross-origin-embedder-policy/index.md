@@ -13,10 +13,10 @@ Der HTTP **`Cross-Origin-Embedder-Policy`** (COEP)-Antwortheader konfiguriert da
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

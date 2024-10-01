@@ -9,12 +9,12 @@ l10n:
 
 **Cross-Origin Resource Policy** ist eine Richtlinie, die durch den [`Cross-Origin-Resource-Policy` HTTP-Header](/de/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy) festgelegt wird. Diese ermöglicht es Websites und Anwendungen, sich gegen bestimmte Anfragen von anderen Ursprüngen (wie solche, die mit Elementen wie `<script>` und `<img>` verwendet werden) zu schützen, um spekulative Seitenkanalangriffe wie [Spectre](<https://en.wikipedia.org/wiki/Spectre_(security_vulnerability)>) sowie Cross-Site Script Inclusion-Angriffe zu mildern.
 
-CORP ist eine zusätzliche Schutzschicht über die Standard-[Same-Origin-Policy](/de/docs/Glossary/same-origin_policy) hinaus. Cross-Origin Resource Policy ergänzt [Cross-Origin Read Blocking](https://fetch.spec.whatwg.org/#corb) (CORB), ein Mechanismus, um einige Cross-Origin-Lesevorgänge standardmäßig zu verhindern.
+CORP ist eine zusätzliche Schutzschicht über die Standard-{{Glossary("same-origin_policy", "Same-Origin-Policy")}} hinaus. Cross-Origin Resource Policy ergänzt [Cross-Origin Read Blocking](https://fetch.spec.whatwg.org/#corb) (CORB), ein Mechanismus, um einige Cross-Origin-Lesevorgänge standardmäßig zu verhindern.
 
 > [!NOTE]
 > Die Richtlinie ist nur wirksam für [`no-cors`](https://fetch.spec.whatwg.org/#concept-request-mode)-Anfragen, die standardmäßig für CORS-safelisted Methoden/Headers gesendet werden.
 
-Da diese Richtlinie über einen _[Response-Header](/de/docs/Glossary/Response_header)_ ausgedrückt wird, wird die tatsächliche Anfrage nicht verhindert – stattdessen verhindert der Browser, dass das _Ergebnis_ durchsickert, indem er den Antworttext entfernt.
+Da diese Richtlinie über einen _{{Glossary("Response_header", "Response-Header")}}_ ausgedrückt wird, wird die tatsächliche Anfrage nicht verhindert – stattdessen verhindert der Browser, dass das _Ergebnis_ durchsickert, indem er den Antworttext entfernt.
 
 ## Verwendung
 
@@ -24,15 +24,16 @@ Da diese Richtlinie über einen _[Response-Header](/de/docs/Glossary/Response_he
 Webanwendungen setzen eine Cross-Origin Resource Policy über den {{HTTPHeader("Cross-Origin-Resource-Policy")}} HTTP-Response-Header, der einen von drei Werten akzeptiert:
 
 - `same-site`
-  - : Nur Anfragen von derselben _[Site](/de/docs/Glossary/Site)_ können die Ressource lesen.
+
+  - : Nur Anfragen von derselben _{{Glossary("Site", "Site")}}_ können die Ressource lesen.
 
     > [!WARNING]
-    > Dies ist weniger sicher als ein [Origin](/de/docs/Glossary/origin). Der [Algorithmus, um zu überprüfen, ob zwei Ursprünge auf derselben Seite sind](https://html.spec.whatwg.org/multipage/origin.html#same-site), ist im HTML-Standard definiert und enthält eine Überprüfung der _registrierbaren Domain_.
+    > Dies ist weniger sicher als ein {{Glossary("origin", "Origin")}}. Der [Algorithmus, um zu überprüfen, ob zwei Ursprünge auf derselben Seite sind](https://html.spec.whatwg.org/multipage/origin.html#same-site), ist im HTML-Standard definiert und enthält eine Überprüfung der _registrierbaren Domain_.
 
 - `same-origin`
-  - : Nur Anfragen vom selben _[Origin](/de/docs/Glossary/origin)_ (d. h. Schema + Host + Port) können die Ressource lesen.
+  - : Nur Anfragen vom selben _{{Glossary("origin", "Origin")}}_ (d. h. Schema + Host + Port) können die Ressource lesen.
 - `cross-origin`
-  - : Anfragen von jedem _[Origin](/de/docs/Glossary/origin)_ (sowohl same-site als auch cross-site) können die Ressource lesen. Dies ist nützlich, wenn COEP verwendet wird (siehe unten).
+  - : Anfragen von jedem _{{Glossary("origin", "Origin")}}_ (sowohl same-site als auch cross-site) können die Ressource lesen. Dies ist nützlich, wenn COEP verwendet wird (siehe unten).
 
 ```http
 Cross-Origin-Resource-Policy: same-site | same-origin | cross-origin

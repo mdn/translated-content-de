@@ -9,7 +9,7 @@ l10n:
 
 Der HTTP-Statuscode **`307 Temporary Redirect`** [Weiterleitungsantwort](/de/docs/Web/HTTP/Status#redirection_messages) zeigt an, dass die angeforderte Ressource vorübergehend zur URL im {{HTTPHeader("Location")}}-Header verschoben wurde.
 
-Ein Browser, der diesen Status empfängt, wird automatisch die Ressource unter der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite weiterleiten. Suchmaschinen, die diese Antwort erhalten, werden keine Links zur ursprünglichen URL der neuen Ressource zuordnen, was bedeutet, dass kein [SEO](/de/docs/Glossary/SEO)-Wert auf die neue URL übertragen wird.
+Ein Browser, der diesen Status empfängt, wird automatisch die Ressource unter der URL im `Location`-Header anfordern und den Benutzer zur neuen Seite weiterleiten. Suchmaschinen, die diese Antwort erhalten, werden keine Links zur ursprünglichen URL der neuen Ressource zuordnen, was bedeutet, dass kein {{Glossary("SEO", "SEO")}}-Wert auf die neue URL übertragen wird.
 
 Die Methode und der Inhalt der ursprünglichen Anfrage werden erneut genutzt, um die weitergeleitete Anfrage durchzuführen. In Fällen, in denen Sie möchten, dass die Anfragemethode zu {{HTTPMethod("GET")}} geändert wird, verwenden Sie stattdessen {{HTTPStatus("303", "303 See Other")}}. Dies ist nützlich, wenn Sie eine Antwort auf eine erfolgreiche {{HTTPMethod("PUT")}}-Anfrage geben möchten, die nicht die hochgeladene Ressource ist, sondern ein Statusmonitor oder eine Bestätigungsnachricht wie "Sie haben erfolgreich XYZ hochgeladen".
 

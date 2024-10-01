@@ -39,7 +39,7 @@ const request = new XMLHttpRequest(paramsDictionary);
   - : Ein Flag, das Sie setzen können:
 
     - `mozAnon`
-      - : Boolean: Wenn Sie dieses Flag auf `true` setzen, wird der Browser den [Origin](/de/docs/Glossary/origin) und die [Benutzeranmeldedaten](https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#user-credentials) beim Abrufen von Ressourcen nicht offenlegen. Am wichtigsten bedeutet dies, dass [Cookies](/de/docs/Glossary/Cookie) nicht gesendet werden, es sei denn, sie werden explizit mit setRequestHeader hinzugefügt.
+      - : Boolean: Wenn Sie dieses Flag auf `true` setzen, wird der Browser den {{Glossary("origin", "Origin")}} und die [Benutzeranmeldedaten](https://www.w3.org/TR/2012/WD-XMLHttpRequest-20120117/#user-credentials) beim Abrufen von Ressourcen nicht offenlegen. Am wichtigsten bedeutet dies, dass {{Glossary("Cookie", "Cookies")}} nicht gesendet werden, es sei denn, sie werden explizit mit setRequestHeader hinzugefügt.
 
 ## Spezifikationen
 

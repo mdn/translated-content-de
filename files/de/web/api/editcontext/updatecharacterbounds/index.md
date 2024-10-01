@@ -12,7 +12,7 @@ Die **`EditContext.updateCharacterBounds()`** Methode der [`EditContext`](/de/do
 
 Das `characterboundsupdate` Ereignis ist die einzige Gelegenheit, bei der Sie die `updateCharacterBounds()` Methode aufrufen müssen.
 
-Die Informationen zu den Zeichenbegrenzungen werden dann vom Betriebssystem verwendet, um das Fenster des [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME) korrekt zu positionieren, wenn dies erforderlich ist. Dies ist besonders wichtig in Situationen, in denen das Betriebssystem die Position und Größe der Zeichen nicht automatisch erkennen kann, wie z.B. beim Rendern von Text in einem `<canvas>` Element.
+Die Informationen zu den Zeichenbegrenzungen werden dann vom Betriebssystem verwendet, um das Fenster des {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) korrekt zu positionieren, wenn dies erforderlich ist. Dies ist besonders wichtig in Situationen, in denen das Betriebssystem die Position und Größe der Zeichen nicht automatisch erkennen kann, wie z.B. beim Rendern von Text in einem `<canvas>` Element.
 
 ### Plötzliche Sprünge der IME-Fensterposition vermeiden
 

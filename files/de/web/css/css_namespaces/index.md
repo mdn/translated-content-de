@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS-Namespaces**-Modul definiert die Syntax für die Verwendung von [Namespaces](/de/docs/Glossary/namespace) in CSS.
+Das **CSS-Namespaces**-Modul definiert die Syntax für die Verwendung von {{Glossary("namespace", "Namespaces")}} in CSS.
 
 CSS ist nicht nur für die Gestaltung von HTML. Ein Stylesheet kann verwendet werden, um SVG, MathML, XML oder HTML zu gestalten, von denen jede eine andere Namespace hat oder ein Dokument enthält, das mehrere Namespaces umfasst.
 
@@ -49,7 +49,7 @@ Die `@namespace` Regel wird verwendet, um einen Standard-Namespace zu deklariere
 - [`NamedNodeMap.getNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/getNamedItemNS) Methode
 - [`NamedNodeMap.removeNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/removeNamedItemNS) Methode
 - [`NamedNodeMap.setNamedItemNS()`](/de/docs/Web/API/NamedNodeMap/setNamedItemNS) Methode
-- [Namespace](/de/docs/Glossary/Namespace) Glossarbegriff
+- {{Glossary("Namespace", "Namespace")}} Glossarbegriff
 
 ## Spezifikationen
 

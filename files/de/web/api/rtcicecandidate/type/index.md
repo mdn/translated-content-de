@@ -19,11 +19,11 @@ Ein String, dessen Wert einer der unten definierten ist. Diese Kandidatentypen s
 - `host`
   - : Der Kandidat ist ein Host-Kandidat, dessen IP-Adresse, wie in der [`RTCIceCandidate.address`](/de/docs/Web/API/RTCIceCandidate/address)-Eigenschaft angegeben, tatsächlich die echte Adresse des entfernten Peers ist.
 - `srflx`
-  - : Der Kandidat ist ein serverreflexiver Kandidat; die `ip` und der Port sind eine Bindung, die von einem NAT für einen Agenten zugewiesen wurde, als er ein Paket durch das NAT an einen Server gesendet hat. Sie können vom [STUN](/de/docs/Glossary/STUN)-Server und [TURN](/de/docs/Glossary/TURN)-Server erlernt werden, um den Peer des Kandidaten anonym darzustellen.
+  - : Der Kandidat ist ein serverreflexiver Kandidat; die `ip` und der Port sind eine Bindung, die von einem NAT für einen Agenten zugewiesen wurde, als er ein Paket durch das NAT an einen Server gesendet hat. Sie können vom {{Glossary("STUN", "STUN")}}-Server und {{Glossary("TURN", "TURN")}}-Server erlernt werden, um den Peer des Kandidaten anonym darzustellen.
 - `prflx`
   - : Der Kandidat ist ein peerreflexiver Kandidat; die `ip` und der Port sind eine Bindung, die von einem NAT zugewiesen wurde, als er eine STUN-Anfrage gesendet hat, um den Peer des Kandidaten anonym darzustellen.
 - `relay`
-  - : Der Kandidat ist ein Relay-Kandidat, der von einem [TURN](/de/docs/Glossary/TURN)-Server erhalten wurde. Die IP-Adresse des Relay-Kandidaten ist eine Adresse, die der TURN-Server verwendet, um die Medien zwischen den beiden Peers weiterzuleiten.
+  - : Der Kandidat ist ein Relay-Kandidat, der von einem {{Glossary("TURN", "TURN")}}-Server erhalten wurde. Die IP-Adresse des Relay-Kandidaten ist eine Adresse, die der TURN-Server verwendet, um die Medien zwischen den beiden Peers weiterzuleiten.
 
 Wenn `type` `null` ist, fehlte diese Information in der a-Zeile des [`candidate`](/de/docs/Web/API/RTCIceCandidate/candidate), was dazu führt, dass [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) eine `OperationError`-Ausnahme auslöst.
 

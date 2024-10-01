@@ -22,7 +22,7 @@ Die Browser-Identifikation basierend auf der Erkennung des User-Agent-Strings is
 
 ## Wert
 
-Ein String, der die vollständige User-Agent-Zeichenkette angibt, die der Browser sowohl in [HTTP](/de/docs/Glossary/HTTP)-Headern als auch als Antwort auf diese und andere verwandte Methoden des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Objekts bereitstellt.
+Ein String, der die vollständige User-Agent-Zeichenkette angibt, die der Browser sowohl in {{Glossary("HTTP", "HTTP")}}-Headern als auch als Antwort auf diese und andere verwandte Methoden des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Objekts bereitstellt.
 
 Die User-Agent-Zeichenkette basiert auf einer formalen Struktur, die in mehrere Informationsbestandteile zerlegt werden kann. Jeder dieser Informationsbestandteile stammt aus anderen Navigator-Eigenschaften, die ebenfalls vom Benutzer festgelegt werden können. Gecko-basierte Browser halten sich an die folgende allgemeine Struktur:
 

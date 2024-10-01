@@ -302,7 +302,7 @@ function deriveSecretKey(privateKey, publicKey) {
 }
 ```
 
-Als nächstes definieren wir die Funktionen, die Alice verwenden wird, um ihre Klartextnachricht [UTF-8](/de/docs/Glossary/UTF-8) zu kodieren und dann zu verschlüsseln, und die Bob verwenden wird, um die Nachricht zu entschlüsseln und dann zu dekodieren.
+Als nächstes definieren wir die Funktionen, die Alice verwenden wird, um ihre Klartextnachricht {{Glossary("UTF-8", "UTF-8")}} zu kodieren und dann zu verschlüsseln, und die Bob verwenden wird, um die Nachricht zu entschlüsseln und dann zu dekodieren.
 Beide nehmen als Argumente den gemeinsamen AES-Schlüssel, einen [Initialisierungsvektor](/de/docs/Web/API/AesGcmParams#iv) und den zu verschlüsselnden oder zu entschlüsselnden Text.
 
 Der gleiche Initialisierungsvektor muss für die Verschlüsselung und Entschlüsselung verwendet werden, aber er muss nicht geheim sein, daher wird er normalerweise zusammen mit der verschlüsselten Nachricht gesendet.

@@ -32,7 +32,7 @@ Die Deskriptoren spezifizieren Eigenschaftswerte, die das Verhalten der benutzer
   - : Gibt einen Wert der {{cssxref("position-anchor")}}-Eigenschaft an, der das Ankerelement definiert, an das das positionierte Element gebunden ist, indem es einen {{cssxref("dashed-ident")}}-Wert angibt, der gleich dem Wert der {{cssxref("anchor-name")}}-Eigenschaft des Ankerelements ist.
 - `position-area`
   - : Gibt einen Wert der {{cssxref("position-area")}}-Eigenschaft an, der die Position des verankerten Elements relativ zum Anker definiert.
-- [Inset-Eigenschafts](/de/docs/Glossary/Inset_properties)-Deskriptoren
+- {{Glossary("Inset_properties", "Inset-Eigenschafts")}}-Deskriptoren
   - : Geben [`anchor()`](/de/docs/Web/CSS/anchor)-Funktionswerte an, die die Position der Kanten des verankerten Elements relativ zur Kante des Ankerelements definieren. Inset-Eigenschaftsdeskriptoren können festgelegt werden, die folgende Eigenschaften darstellen:
     - {{cssxref("top")}}
     - {{cssxref("left")}}

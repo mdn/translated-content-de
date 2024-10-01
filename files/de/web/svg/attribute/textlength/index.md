@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`textLength`**-Attribut, verfügbar für die SVG-Elemente {{SVGElement("text")}} und {{SVGElement("tspan")}}, erlaubt es Ihnen, die Breite des Bereichs anzugeben, in den der Text gezeichnet wird. Der [User Agent](/de/docs/Glossary/user_agent) stellt sicher, dass der Text diese Entfernung nicht überschreitet, indem er die im {{SVGAttr("lengthAdjust")}}-Attribut festgelegte Methode oder Methoden verwendet. Standardmäßig wird nur der Abstand zwischen den Zeichen angepasst, aber die Größe der Glyphen kann ebenfalls angepasst werden, wenn Sie `lengthAdjust` ändern.
+Das **`textLength`**-Attribut, verfügbar für die SVG-Elemente {{SVGElement("text")}} und {{SVGElement("tspan")}}, erlaubt es Ihnen, die Breite des Bereichs anzugeben, in den der Text gezeichnet wird. Der {{Glossary("user_agent", "User Agent")}} stellt sicher, dass der Text diese Entfernung nicht überschreitet, indem er die im {{SVGAttr("lengthAdjust")}}-Attribut festgelegte Methode oder Methoden verwendet. Standardmäßig wird nur der Abstand zwischen den Zeichen angepasst, aber die Größe der Glyphen kann ebenfalls angepasst werden, wenn Sie `lengthAdjust` ändern.
 
 Durch die Verwendung von `textLength` können Sie sicherstellen, dass Ihr SVG-Text unabhängig von Bedingungen wie dem Fehlschlagen des Ladens von Web-Fonts (oder dem noch nicht geladenen Zustand) immer die gleiche Breite hat.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`justify-content`** Eigenschaft definiert, wie der Browser den Platz zwischen und um Inhaltsobjekte entlang der [Hauptachse](/de/docs/Glossary/main_axis) eines Flex-Containers und der [Inline-Achse](/de/docs/Glossary/Logical_properties#inline_direction) von Grid- und Multicol-Containern verteilt.
+Die [CSS](/de/docs/Web/CSS) **`justify-content`** Eigenschaft definiert, wie der Browser den Platz zwischen und um Inhaltsobjekte entlang der {{Glossary("main_axis", "Hauptachse")}} eines Flex-Containers und der {{Glossary("Logical_properties#inline_direction", "Inline-Achse")}} von Grid- und Multicol-Containern verteilt.
 
 Das interaktive Beispiel unten demonstriert einige `justify-content` Werte anhand des Grid-Layouts.
 

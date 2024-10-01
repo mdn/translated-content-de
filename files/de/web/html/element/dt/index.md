@@ -55,8 +55,8 @@ Für Beispiele siehe die [Beispiele, die für das `<dl>`-Element bereitgestellt 
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Ein {{HTMLElement("dl")}} oder (im [WHATWG](/de/docs/Glossary/WHATWG) HTML,
-        [W3C](/de/docs/Glossary/W3C) HTML 5.2 und später) ein
+        Ein {{HTMLElement("dl")}} oder (im {{Glossary("WHATWG", "WHATWG")}} HTML,
+        {{Glossary("W3C", "W3C")}} HTML 5.2 und später) ein
         {{HTMLElement("div")}}, das ein Kind eines
         {{HTMLElement("dl")}} ist.<br />Dieses Element kann vor einem
         {{HTMLElement("dd")}} oder einem anderen <code>&lt;dt&gt;</code>

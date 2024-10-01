@@ -9,7 +9,7 @@ l10n:
 
 Im Allgemeinen ist eine Funktion ein "Unterprogramm", das von einem externen (oder internen, im Fall von Rekursion) Code der Funktion _aufgerufen_ werden kann. Wie das Programm selbst, besteht eine Funktion aus einer Abfolge von Anweisungen, die als _Funktionskörper_ bezeichnet werden. Werte können als Parameter an eine Funktion _übergeben_ werden und die Funktion wird einen Wert _zurückgeben_.
 
-In JavaScript sind Funktionen [Objekte erster Klasse](/de/docs/Glossary/First-class_Function), da sie an andere Funktionen übergeben, von Funktionen zurückgegeben und Variablen sowie Eigenschaften zugewiesen werden können. Sie können auch Eigenschaften und Methoden haben wie jedes andere Objekt. Was sie von anderen Objekten unterscheidet, ist, dass Funktionen aufgerufen werden können.
+In JavaScript sind Funktionen {{Glossary("First-class_Function", "Objekte erster Klasse")}}, da sie an andere Funktionen übergeben, von Funktionen zurückgegeben und Variablen sowie Eigenschaften zugewiesen werden können. Sie können auch Eigenschaften und Methoden haben wie jedes andere Objekt. Was sie von anderen Objekten unterscheidet, ist, dass Funktionen aufgerufen werden können.
 
 Weitere Beispiele und Erklärungen finden Sie im [JavaScript-Leitfaden über Funktionen](/de/docs/Web/JavaScript/Guide/Functions).
 
@@ -29,7 +29,7 @@ Standardmäßig, wenn eine Funktion nicht mit einer [`return`](/de/docs/Web/Java
 
 ### Übergabe von Argumenten
 
-[Parameter und Argumente](https://de.wikipedia.org/wiki/Parameter_(Informatik)#Parameter_und_Argumente) haben leicht unterschiedliche Bedeutungen, aber in den MDN Web Docs verwenden wir sie oft austauschbar. Für eine schnelle Referenz:
+[Parameter und Argumente](<https://de.wikipedia.org/wiki/Parameter_(Informatik)#Parameter_und_Argumente>) haben leicht unterschiedliche Bedeutungen, aber in den MDN Web Docs verwenden wir sie oft austauschbar. Für eine schnelle Referenz:
 
 ```js
 function formatNumber(num) {
@@ -200,7 +200,7 @@ doSomething(
 );
 ```
 
-Andererseits kann ein Funktionsausdruck auch in eine Funktionsdeklaration umgewandelt werden. Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit den Schlüsselwörtern `function` oder `async function` beginnen, was ein häufiger Fehler bei der Implementierung von [sofort ausgeführten Funktionsausdrücken (IIFEs)](/de/docs/Glossary/IIFE) ist.
+Andererseits kann ein Funktionsausdruck auch in eine Funktionsdeklaration umgewandelt werden. Eine [Ausdrucksanweisung](/de/docs/Web/JavaScript/Reference/Statements/Expression_statement) kann nicht mit den Schlüsselwörtern `function` oder `async function` beginnen, was ein häufiger Fehler bei der Implementierung von {{Glossary("IIFE", "sofort ausgeführten Funktionsausdrücken (IIFEs)")}} ist.
 
 ```js-nolint example-bad
 function () { // SyntaxError: Function statements require a function name

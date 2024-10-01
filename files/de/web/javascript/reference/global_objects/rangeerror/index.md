@@ -19,7 +19,7 @@ Dies kann vorkommen, wenn:
 - wenn versucht wird, ein Array einer unerlaubten Länge mit dem {{jsxref("Array")}}-Konstruktor zu erstellen, oder
 - wenn ungültige Werte an die numerischen Methoden {{jsxref("Number.prototype.toExponential()")}}, {{jsxref("Number.prototype.toFixed()")}} oder {{jsxref("Number.prototype.toPrecision()")}} übergeben werden.
 
-`RangeError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`RangeError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `RangeError` ist eine Unterklasse von {{jsxref("Error")}}.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/Objects/Object_prototypes", "Learn/JavaScript/Objects/Classes_in_JavaScript", "Learn/JavaScript/Objects")}}
 
-Die objektorientierte Programmierung (OOP) ist ein Programmierparadigma, das in vielen Programmiersprachen, einschließlich Java und C++, grundlegend ist. In diesem Artikel geben wir einen Überblick über die grundlegenden Konzepte der OOP. Wir beschreiben drei Hauptkonzepte: **Klassen und Instanzen**, **Vererbung** und **Kapselung**. Vorerst beschreiben wir diese Konzepte ohne Bezug auf JavaScript im Speziellen, daher werden alle Beispiele in [Pseudocode](/de/docs/Glossary/Pseudocode) gegeben.
+Die objektorientierte Programmierung (OOP) ist ein Programmierparadigma, das in vielen Programmiersprachen, einschließlich Java und C++, grundlegend ist. In diesem Artikel geben wir einen Überblick über die grundlegenden Konzepte der OOP. Wir beschreiben drei Hauptkonzepte: **Klassen und Instanzen**, **Vererbung** und **Kapselung**. Vorerst beschreiben wir diese Konzepte ohne Bezug auf JavaScript im Speziellen, daher werden alle Beispiele in {{Glossary("Pseudocode", "Pseudocode")}} gegeben.
 
 > [!NOTE]
 > Genauer gesagt, die hier beschriebenen Merkmale sind Teil eines speziellen Stils der OOP, genannt **klassenbasiert** oder "klassisch" OOP. Wenn von OOP die Rede ist, ist dies im Allgemeinen der Typ, der gemeint ist.

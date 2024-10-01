@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`right`** [CSS](/de/docs/Web/CSS) Eigenschaft beteiligt sich an der Festlegung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht positionierte Elemente.
+Die **`right`** [CSS](/de/docs/Web/CSS) Eigenschaft beteiligt sich an der Festlegung der horizontalen Position eines [positionierten Elements](/de/docs/Web/CSS/position). Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/right.html")}}
 

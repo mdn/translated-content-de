@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-Ein **Web-Anwendungsmanifest**, definiert in der [Web Application Manifest](https://w3c.github.io/manifest/) Spezifikation, ist eine [JSON](/de/docs/Glossary/JSON) Textdatei, die Informationen über eine Webanwendung bereitstellt.
+Ein **Web-Anwendungsmanifest**, definiert in der [Web Application Manifest](https://w3c.github.io/manifest/) Spezifikation, ist eine {{Glossary("JSON", "JSON")}} Textdatei, die Informationen über eine Webanwendung bereitstellt.
 
 Der häufigste Zweck eines Web-Anwendungsmanifestes ist es, dem Browser Informationen bereitzustellen, die benötigt werden, um eine [progressive Web-App](/de/docs/Web/Progressive_web_apps) (PWA) auf einem Gerät zu installieren, wie zum Beispiel den Namen der App und das Icon.
 

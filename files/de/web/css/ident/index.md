@@ -7,17 +7,17 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine beliebige Zeichenfolge, die als [Identifier](/de/docs/Glossary/identifier) verwendet wird.
+Der **`<ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine beliebige Zeichenfolge, die als {{Glossary("identifier", "Identifier")}} verwendet wird.
 
 ## Syntax
 
 Ein CSS-Identifier besteht aus einem oder mehreren Zeichen, die Folgendes sein können:
 
-- ein beliebiges [ASCII](/de/docs/Glossary/ASCII)-Zeichen im Bereich `A-Z` und `a-z`
+- ein beliebiges {{Glossary("ASCII", "ASCII")}}-Zeichen im Bereich `A-Z` und `a-z`
 - eine Dezimalziffer (`0` bis `9`)
 - ein Bindestrich (`-`)
 - ein Unterstrich (`_`)
-- ein anderes [Unicode](/de/docs/Glossary/Unicode)-Zeichen `U+00A0` und höher (das heißt, jedes andere nicht-ASCII-Unicode-Zeichen)
+- ein anderes {{Glossary("Unicode", "Unicode")}}-Zeichen `U+00A0` und höher (das heißt, jedes andere nicht-ASCII-Unicode-Zeichen)
 - ein [escaped character](#zeichen_escapen)
 
 Zusätzlich darf ein Identifier nicht mit einer nicht-escaped Ziffer beginnen und nicht mit einem nicht-escaped Bindestrich gefolgt von einer nicht-escaped Ziffer beginnen.
@@ -28,7 +28,7 @@ Beachten Sie, dass `id1`, `Id1`, `iD1` und `ID1` unterschiedliche Identifier sin
 
 Ein Zeichen zu escapen bedeutet, es so darzustellen, dass sich ändert, wie es von einem Softwaresystem interpretiert wird. In CSS können Sie ein Zeichen escapen, indem Sie einen Backslash (`\`) vor das Zeichen setzen. Jedes Zeichen, außer den hexadezimalen Ziffern `0-9`, `a-f` und `A-F`, kann auf diese Weise escaped werden. Zum Beispiel kann `&` als `\&` escaped werden.
 
-Sie können auch jedes Zeichen mit einem Backslash gefolgt vom Unicode-[Codepunkt](/de/docs/Glossary/code_point) des Zeichens, dargestellt durch ein bis sechs hexadezimale Ziffern, escapen. Zum Beispiel kann `&` als `\26` escaped werden. In diesem Fall, wenn das escaped Zeichen von einer hexadezimalen Ziffer gefolgt wird, tun Sie eines der Folgenden:
+Sie können auch jedes Zeichen mit einem Backslash gefolgt vom Unicode-{{Glossary("code_point", "Codepunkt")}} des Zeichens, dargestellt durch ein bis sechs hexadezimale Ziffern, escapen. Zum Beispiel kann `&` als `\26` escaped werden. In diesem Fall, wenn das escaped Zeichen von einer hexadezimalen Ziffer gefolgt wird, tun Sie eines der Folgenden:
 
 - Fügen Sie ein Leerzeichen oder ein anderes Leerzeichen nach dem Unicode-Codepunkt ein.
 - Geben Sie den vollständigen sechsstelligen Unicode-Codepunkt des escapeten Zeichens an.

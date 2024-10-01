@@ -57,7 +57,7 @@ localStorage.setItem("user", JSON.stringify(person));
 console.log(JSON.parse(localStorage.getItem("user"))); // { name: "Alex" }
 ```
 
-Es gibt jedoch keine generische Methode, um beliebige Datentypen zu speichern. Außerdem ist das abgerufene Objekt eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) des Originalobjekts, und Änderungen daran wirken sich nicht auf das Originalobjekt aus.
+Es gibt jedoch keine generische Methode, um beliebige Datentypen zu speichern. Außerdem ist das abgerufene Objekt eine {{Glossary("Deep_copy", "tiefe Kopie")}} des Originalobjekts, und Änderungen daran wirken sich nicht auf das Originalobjekt aus.
 
 ## Spezifikationen
 

@@ -10,7 +10,7 @@ l10n:
 
 Die **`forward()`** Methode des [`History`](/de/docs/Web/API/History) Interfaces bewirkt, dass der Browser eine Seite im Sitzungsverlauf vorwärts geht. Sie hat denselben Effekt wie ein Aufruf von [`history.go(1)`](/de/docs/Web/API/History/go).
 
-Diese Methode ist [asynchron](/de/docs/Glossary/asynchronous). Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
+Diese Methode ist {{Glossary("asynchronous", "asynchron")}}. Fügen Sie einen Listener für das [`popstate`](/de/docs/Web/API/Window/popstate_event) Ereignis hinzu, um festzustellen, wann die Navigation abgeschlossen ist.
 
 ## Syntax
 

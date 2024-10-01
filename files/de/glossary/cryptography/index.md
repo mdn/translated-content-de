@@ -15,14 +15,14 @@ Mehr als nur **Datenvertraulichkeit**, umfasst die Kryptographie auch **Identifi
 
 - [Cryptography](https://en.wikipedia.org/wiki/Cryptography) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Block cipher mode of operation](/de/docs/Glossary/Block_cipher_mode_of_operation)
-  - [Cipher](/de/docs/Glossary/Cipher)
-  - [Ciphertext](/de/docs/Glossary/Ciphertext)
-  - [Cipher suite](/de/docs/Glossary/Cipher_suite)
-  - [Cryptanalysis](/de/docs/Glossary/Cryptanalysis)
-  - [Decryption](/de/docs/Glossary/Decryption)
-  - [Encryption](/de/docs/Glossary/Encryption)
-  - [Key](/de/docs/Glossary/Key)
-  - [Plaintext](/de/docs/Glossary/Plaintext)
-  - [Public-key cryptography](/de/docs/Glossary/Public-key_cryptography)
-  - [Symmetric-key cryptography](/de/docs/Glossary/Symmetric-key_cryptography)
+  - {{Glossary("Block_cipher_mode_of_operation", "Block cipher mode of operation")}}
+  - {{Glossary("Cipher", "Cipher")}}
+  - {{Glossary("Ciphertext", "Ciphertext")}}
+  - {{Glossary("Cipher_suite", "Cipher suite")}}
+  - {{Glossary("Cryptanalysis", "Cryptanalysis")}}
+  - {{Glossary("Decryption", "Decryption")}}
+  - {{Glossary("Encryption", "Encryption")}}
+  - {{Glossary("Key", "Key")}}
+  - {{Glossary("Plaintext", "Plaintext")}}
+  - {{Glossary("Public-key_cryptography", "Public-key cryptography")}}
+  - {{Glossary("Symmetric-key_cryptography", "Symmetric-key cryptography")}}

@@ -25,7 +25,7 @@ setUint32(byteOffset, value, littleEndian)
 - `value`
   - : Der einzustellende Wert. Informationen zur Kodierung des Wertes in Bytes finden Sie unter [Wertkodierung und -normalisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray#value_encoding_and_normalization).
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian-Format](/de/docs/Glossary/Endianness) gespeichert werden. Falls `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian-Format")}} gespeichert werden. Falls `false` oder `undefined`, wird ein Big-Endian-Wert geschrieben.
 
 ### Rückgabewert
 

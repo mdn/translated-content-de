@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-template-columns`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Liniennamen und Spurgrößenfunktionen der [Grid-Spalten](/de/docs/Glossary/grid_column).
+Die **`grid-template-columns`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Liniennamen und Spurgrößenfunktionen der {{Glossary("grid_column", "Grid-Spalten")}}.
 
 {{EmbedInteractiveExample("pages/css/grid-template-columns.html")}}
 

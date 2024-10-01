@@ -17,7 +17,7 @@ Das Ziel dieses Fähigkeitstests ist zu prüfen, ob Sie unseren Artikel [Einfüh
 
 ## DOM-Manipulation: als nützlich erachtet
 
-Einige der folgenden Fragen erfordern es, dass Sie etwas [DOM](/de/docs/Glossary/DOM)-Manipulationscode schreiben, um sie zu lösen — wie z. B. das Erstellen neuer HTML-Elemente, das Setzen ihrer Textinhalte auf bestimmte Zeichenfolgen und das Verschachteln in vorhandenen Elementen auf der Seite — alles über JavaScript.
+Einige der folgenden Fragen erfordern es, dass Sie etwas {{Glossary("DOM", "DOM")}}-Manipulationscode schreiben, um sie zu lösen — wie z. B. das Erstellen neuer HTML-Elemente, das Setzen ihrer Textinhalte auf bestimmte Zeichenfolgen und das Verschachteln in vorhandenen Elementen auf der Seite — alles über JavaScript.
 
 Wir haben dies im Kurs bisher nicht explizit gelehrt, aber Sie werden einige Beispiele gesehen haben, die dies verwenden, und wir möchten, dass Sie einige Recherchen darüber anstellen, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser Tutorial [Dokumente manipulieren](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents).
 

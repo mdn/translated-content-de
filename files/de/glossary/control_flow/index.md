@@ -11,7 +11,7 @@ l10n:
 
 Der Code wird normalerweise von der ersten Zeile in der Datei bis zur letzten Zeile ausgeführt, es sei denn, der Computer trifft auf die (extrem häufigen) Strukturen, die den Kontrollfluss ändern, wie Bedingungen und Schleifen.
 
-Stellen Sie sich zum Beispiel ein Skript vor, das zur Validierung von Benutzerdaten aus einem Webseitenformular verwendet wird. Das Skript übermittelt validierte Daten, aber wenn der Benutzer beispielsweise ein erforderliches Feld leer lässt, fordert das Skript ihn auf, es auszufüllen. Dazu verwendet das Skript eine [Bedingungsstruktur](/de/docs/Glossary/Conditional) oder `if...else`, sodass je nach Vollständigkeit des Formulars unterschiedlicher Code ausgeführt wird:
+Stellen Sie sich zum Beispiel ein Skript vor, das zur Validierung von Benutzerdaten aus einem Webseitenformular verwendet wird. Das Skript übermittelt validierte Daten, aber wenn der Benutzer beispielsweise ein erforderliches Feld leer lässt, fordert das Skript ihn auf, es auszufüllen. Dazu verwendet das Skript eine {{Glossary("Conditional", "Bedingungsstruktur")}} oder `if...else`, sodass je nach Vollständigkeit des Formulars unterschiedlicher Code ausgeführt wird:
 
 ```js
 if (isEmpty(field)) {
@@ -21,7 +21,7 @@ if (isEmpty(field)) {
 }
 ```
 
-Ein typisches Skript in [JavaScript](/de/docs/Glossary/JavaScript) oder [PHP](/de/docs/Glossary/PHP) (und ähnlichem) enthält viele Kontrollstrukturen, einschließlich Bedingungen, [Schleifen](/de/docs/Glossary/Loop) und [Funktionen](/de/docs/Glossary/Function). Teile eines Skripts können auch so festgelegt sein, dass sie ausgeführt werden, wenn [Ereignisse](/de/docs/Glossary/Event) eintreten.
+Ein typisches Skript in {{Glossary("JavaScript", "JavaScript")}} oder {{Glossary("PHP", "PHP")}} (und ähnlichem) enthält viele Kontrollstrukturen, einschließlich Bedingungen, {{Glossary("Loop", "Schleifen")}} und {{Glossary("Function", "Funktionen")}}. Teile eines Skripts können auch so festgelegt sein, dass sie ausgeführt werden, wenn {{Glossary("Event", "Ereignisse")}} eintreten.
 
 Beispielsweise könnte der obige Auszug innerhalb einer Funktion sein, die ausgeführt wird, wenn der Benutzer die **Absenden**-Schaltfläche für das Formular klickt. Die Funktion könnte auch eine Schleife enthalten, die durch alle Felder des Formulars iteriert und jedes der Reihe nach überprüft. Rückblickend auf den Code in den `if`- und `else`-Abschnitten könnten die Zeilen `promptUser` und `submitForm` ebenfalls Aufrufe zu anderen Funktionen im Skript sein. Wie Sie sehen können, können Kontrollstrukturen komplexe Verarbeitungsabläufe diktieren, selbst mit nur wenigen Codezeilen.
 

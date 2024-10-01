@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Eigenschaft **`loading`** des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) ist ein String, dessen Wert dem [User-Agent](/de/docs/Glossary/user_agent) einen Hinweis gibt, wie das Laden des Bildes, das sich derzeit außerhalb des [visuellen Viewports](/de/docs/Glossary/visual_viewport) des Fensters befindet, gehandhabt werden soll.
+Die Eigenschaft **`loading`** des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) ist ein String, dessen Wert dem {{Glossary("user_agent", "User-Agent")}} einen Hinweis gibt, wie das Laden des Bildes, das sich derzeit außerhalb des {{Glossary("visual_viewport", "visuellen Viewports")}} des Fensters befindet, gehandhabt werden soll.
 
 Dies hilft, das Laden der Dokumenteninhalte zu optimieren, indem das Laden des Bildes aufgeschoben wird, bis es voraussichtlich benötigt wird, anstatt es sofort während des initialen Seitenladevorgangs zu laden.
 
@@ -19,7 +19,7 @@ Ein String, der dem User-Agent einen Hinweis gibt, wie das Laden des Bildes am b
 - `eager`
   - : Das Standardverhalten, `eager` weist den Browser an, das Bild zu laden, sobald das `<img>`-Element verarbeitet wird.
 - `lazy`
-  - : Weis dem User-Agent an, das Laden des Bildes aufzuschieben, bis der Browser schätzt, dass es bald benötigt wird. Zum Beispiel, wenn der Nutzer durch das Dokument scrollt, bewirkt ein Wert von `lazy`, dass das Bild erst kurz vor dem Erscheinen im [visuellen Viewport](/de/docs/Glossary/visual_viewport) des Fensters geladen wird.
+  - : Weis dem User-Agent an, das Laden des Bildes aufzuschieben, bis der Browser schätzt, dass es bald benötigt wird. Zum Beispiel, wenn der Nutzer durch das Dokument scrollt, bewirkt ein Wert von `lazy`, dass das Bild erst kurz vor dem Erscheinen im {{Glossary("visual_viewport", "visuellen Viewport")}} des Fensters geladen wird.
 
 ## Nutzungshinweise
 
@@ -44,7 +44,7 @@ Das bedeutet, dass bei Auslösung von `load` möglicherweise alle lazy-geladenen
 
 Wenn ein Bild, dessen Laden durch das `loading`-Attribut auf `lazy` verzögert wurde, schließlich geladen wird, bestimmt der Browser die endgültige Größe des {{HTMLElement("img")}}-Elements basierend auf dem Stil und der intrinsischen Größe des Bildes, und passt dann das Dokument bei Bedarf neu an, um die Positionen von Elementen basierend auf einer Größenänderung des Elements zu aktualisieren.
 
-Um dieses Neuanpassen zu verhindern, sollten Sie die Präsentationsgröße des Bildes explizit mit den Attributen [`width`](/de/docs/Web/HTML/Element/img#width) und [`height`](/de/docs/Web/HTML/Element/img#height) des Bild-Elements angeben. Durch das Festlegen des intrinsischen [Seitenverhältnisses](/de/docs/Glossary/aspect_ratio) auf diese Weise verhindern Sie, dass sich Elemente während des Ladens des Dokuments verschieben, was im besten Fall irritierend oder abschreckend sein kann und im schlimmsten Fall dazu führen kann, dass Nutzer das falsche Element anklicken, abhängig vom genauen Timing der verzögerten Ladevorgänge und Neuanpassungen.
+Um dieses Neuanpassen zu verhindern, sollten Sie die Präsentationsgröße des Bildes explizit mit den Attributen [`width`](/de/docs/Web/HTML/Element/img#width) und [`height`](/de/docs/Web/HTML/Element/img#height) des Bild-Elements angeben. Durch das Festlegen des intrinsischen {{Glossary("aspect_ratio", "Seitenverhältnisses")}} auf diese Weise verhindern Sie, dass sich Elemente während des Ladens des Dokuments verschieben, was im besten Fall irritierend oder abschreckend sein kann und im schlimmsten Fall dazu führen kann, dass Nutzer das falsche Element anklicken, abhängig vom genauen Timing der verzögerten Ladevorgänge und Neuanpassungen.
 
 ## Beispiele
 

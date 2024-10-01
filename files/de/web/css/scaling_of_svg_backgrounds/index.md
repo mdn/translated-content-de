@@ -21,7 +21,7 @@ Der Algorithmus lässt sich größtenteils mit diesen vier Regeln zusammenfassen
 Es ist zu beachten, dass der Größenalgorithmus sich nur um die Dimensionen und Proportionen des Bildes kümmert oder deren Fehlen. Ein SVG-Bild mit festen Dimensionen wird genauso behandelt wie ein Rasterbild derselben Größe.
 
 > [!NOTE]
-> Wenn Sie versuchen, Ihr SVG mit CSS auf ein anderes [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) zu strecken—zum Beispiel, um es über den Seitenhintergrund zu strecken—stellen Sie sicher, dass Ihr SVG `preserveAspectRatio="none"` enthält. Erfahren Sie mehr über {{svgattr("preserveAspectRatio")}}.
+> Wenn Sie versuchen, Ihr SVG mit CSS auf ein anderes {{Glossary("aspect_ratio", "Seitenverhältnis")}} zu strecken—zum Beispiel, um es über den Seitenhintergrund zu strecken—stellen Sie sicher, dass Ihr SVG `preserveAspectRatio="none"` enthält. Erfahren Sie mehr über {{svgattr("preserveAspectRatio")}}.
 
 ## Beispiele für Quellbilder
 

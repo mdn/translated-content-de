@@ -15,7 +15,7 @@ Die Web Authentication API (WebAuthn) ist eine Erweiterung der [Credential Manag
 
 WebAuthn nutzt [asymmetrische (öffentlicher Schlüssel) Kryptographie](https://en.wikipedia.org/wiki/Public-key_cryptography) anstelle von Passwörtern oder SMS-Nachrichten für die Registrierung, Authentifizierung und [Multi-Faktor-Authentifizierung](https://en.wikipedia.org/wiki/Multi-factor_authentication) auf Websites. Dies hat einige Vorteile:
 
-- **Schutz vor Phishing:** Ein Angreifer, der eine gefälschte Login-Website erstellt, kann sich nicht als der Benutzer anmelden, da die Signatur sich mit der [Origin](/de/docs/Glossary/Origin) der Website ändert.
+- **Schutz vor Phishing:** Ein Angreifer, der eine gefälschte Login-Website erstellt, kann sich nicht als der Benutzer anmelden, da die Signatur sich mit der {{Glossary("Origin", "Origin")}} der Website ändert.
 - **Geringere Auswirkungen von Datenverletzungen:** Entwickler müssen den öffentlichen Schlüssel nicht hashen, und wenn ein Angreifer Zugriff auf den öffentlichen Schlüssel erhält, der zur Verifizierung der Authentifizierung verwendet wird, kann er sich nicht authentifizieren, da er den privaten Schlüssel benötigt.
 - **Unempfindlich gegen Passwortangriffe:** Einige Benutzer könnten Passwörter wiederverwenden, und ein Angreifer könnte das Passwort des Benutzers für eine andere Website erlangen (z. B. über eine Datenverletzung). Textpasswörter sind außerdem viel leichter zu bruteforcen als eine digitale Signatur.
 
@@ -39,7 +39,7 @@ Um zu veranschaulichen, wie der Prozess zur Erstellung von Anmeldedaten funktion
 
    > [!NOTE]
    > Das Format zum Teilen von Informationen zwischen dem Vertrauenswürdigen Anbieter-Server und der Web-App liegt beim Entwickler der Anwendung.
-   > Ein empfohlener Ansatz ist der Austausch von [JSON-Typ-Repräsentations](/de/docs/Glossary/JSON_type_representation)-Objekten für Anmeldeinformationen und Anmeldeoptionen.
+   > Ein empfohlener Ansatz ist der Austausch von {{Glossary("JSON_type_representation", "JSON-Typ-Repräsentations")}}-Objekten für Anmeldeinformationen und Anmeldeoptionen.
    > Im `PublicKeyCredential`-Objekt wurden praktische Methoden zur Konvertierung von den JSON-Darstellungen in die von den Authentifizierungs-APIs benötigte Form erstellt: [`parseCreationOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseCreationOptionsFromJSON_static), [`parseRequestOptionsFromJSON()`](/de/docs/Web/API/PublicKeyCredential/parseRequestOptionsFromJSON_static) und [`PublicKeyCredential.toJSON()`](/de/docs/Web/API/PublicKeyCredential/toJSON).
 
 2. Die Web-App initiiert die Erstellung eines neuen Anmeldeinformationssatzes über den Authentifikator im Auftrag des Vertrauenswürdigen Anbieters über einen Aufruf von [`navigator.credentials.create()`](/de/docs/Web/API/CredentialsContainer/create). Dieser Aufruf erhält als `publicKey`-Option Gerätefähigkeiten, z. B. ob das Gerät seine eigene Benutzer-Authentifizierung bereitstellt (zum Beispiel durch biometrische Merkmale).
@@ -127,7 +127,7 @@ Die Verfügbarkeit von WebAuthn kann mit einer [Berechtigungsrichtlinie](/de/doc
 Beide Direktiven haben einen Standard-Positivlisten-Wert von `"self"`, was bedeutet, dass diese Methoden standardmäßig in Top-Level-Dokumentkontexten verwendet werden können.
 Darüber hinaus kann `get()` in verschachtelten Browsing-Kontexten, die von derselben Herkunft wie das oberste Dokument geladen werden, verwendet werden.
 `get()` und `create()` können in verschachtelten Browsing-Kontexten, die von verschiedenen Herkünften zum obersten Dokument geladen werden (z. B. in Cross-Origin-`<iframes>`), verwendet werden, wenn dies von den Direktiven [`publickey-credentials-get`](/de/docs/Web/HTTP/Headers/Permissions-Policy/publickey-credentials-get) und [`publickey-credentials-create`](/de/docs/Web/HTTP/Headers/Permissions-Policy/publickey-credentials-create) erlaubt ist.
-Für Cross-Origin-`create()`-Aufrufe, bei denen die Berechtigung durch [`allow=` auf einem iframe](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) gewährt wurde, muss der Frame auch [Flüchtige Aktivierung](/de/docs/Glossary/Transient_activation) haben.
+Für Cross-Origin-`create()`-Aufrufe, bei denen die Berechtigung durch [`allow=` auf einem iframe](/de/docs/Web/HTTP/Headers/Permissions-Policy#iframes) gewährt wurde, muss der Frame auch {{Glossary("Transient_activation", "Flüchtige Aktivierung")}} haben.
 
 > [!NOTE]
 > Wo eine Richtlinie die Nutzung dieser Methoden verbietet, wird das von ihnen zurückgegebene {{jsxref("Promise", "promises", "", 1)}} mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgewiesen.
@@ -165,7 +165,7 @@ Wenn Sie sich mit `get()` oder `create()` in einem `<iframe>` authentifizieren m
      </iframe>
      ```
 
-     Das `<iframe>` muss auch [Flüchtige Aktivierung](/de/docs/Glossary/Transient_activation) haben, wenn `create()` Cross-Origin aufgerufen wird.
+     Das `<iframe>` muss auch {{Glossary("Transient_activation", "Flüchtige Aktivierung")}} haben, wenn `create()` Cross-Origin aufgerufen wird.
 
 2. Die Website des Vertrauenswürdigen Anbieters muss die Berechtigung für den oben genannten Zugriff über einen `Permissions-Policy`-Header bereitstellen:
 

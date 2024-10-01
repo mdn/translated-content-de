@@ -28,7 +28,7 @@ new MediaRecorder(stream, options)
   - : Ein Wörterbuchobjekt, das die folgenden Eigenschaften enthalten kann:
 
     - `mimeType` {{optional_inline}}
-      - : Ein MIME-Typ, der das Format für die resultierenden Medien spezifiziert; Sie können das Containerformat angeben (der Browser wählt seine bevorzugten Codecs für Audio und/oder Video aus), oder Sie können den [Parameter `codecs`](/de/docs/Web/Media/Formats/codecs_parameter) und/oder den `profiles`-Parameter verwenden, um detaillierte Informationen darüber bereitzustellen, welche Codecs verwendet werden sollen und wie sie zu konfigurieren sind. Anwendungen können im Voraus prüfen, ob ein `mimeType` vom [Benutzer-Agenten](/de/docs/Glossary/user_agent) unterstützt wird, indem [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) aufgerufen wird. Standardwert ist ein Leerstring.
+      - : Ein MIME-Typ, der das Format für die resultierenden Medien spezifiziert; Sie können das Containerformat angeben (der Browser wählt seine bevorzugten Codecs für Audio und/oder Video aus), oder Sie können den [Parameter `codecs`](/de/docs/Web/Media/Formats/codecs_parameter) und/oder den `profiles`-Parameter verwenden, um detaillierte Informationen darüber bereitzustellen, welche Codecs verwendet werden sollen und wie sie zu konfigurieren sind. Anwendungen können im Voraus prüfen, ob ein `mimeType` vom {{Glossary("user_agent", "Benutzer-Agenten")}} unterstützt wird, indem [`MediaRecorder.isTypeSupported()`](/de/docs/Web/API/MediaRecorder/isTypeSupported_static) aufgerufen wird. Standardwert ist ein Leerstring.
     - `audioBitsPerSecond` {{optional_inline}}
       - : Die gewählte Bitrate für die Audiokomponente der Medien.
     - `videoBitsPerSecond` {{optional_inline}}
@@ -38,9 +38,9 @@ new MediaRecorder(stream, options)
     - `audioBitrateMode` {{optional_inline}}
       - : Der Bitratenmodus, der zur Kodierung des Audios verwendet werden soll. Kann `constant` sein, was bedeutet, dass der Recorder mit einer konstanten Bitrate kodieren soll, oder `variable`, was bedeutet, dass der Recorder mit einer variablen Bitrate kodieren soll und somit mehr Platz für komplexe Signale und weniger Platz für weniger komplexe Signale verwendet werden kann. Standardwert ist `variable`.
     - `videoKeyFrameIntervalDuration` {{optional_inline}}
-      - : Das nominelle Intervall in Zeit zwischen Schlüsselbildern im kodierten Videostream. Der [Benutzer-Agent](/de/docs/Glossary/user_agent) steuert die Erzeugung von Schlüsselbildern basierend auf dieser Option und der Option `videoKeyFrameIntervalCount`.
+      - : Das nominelle Intervall in Zeit zwischen Schlüsselbildern im kodierten Videostream. Der {{Glossary("user_agent", "Benutzer-Agent")}} steuert die Erzeugung von Schlüsselbildern basierend auf dieser Option und der Option `videoKeyFrameIntervalCount`.
     - `videoKeyFrameIntervalCount` {{optional_inline}}
-      - : Das Intervall in Anzahl der Bilder zwischen Schlüsselbildern im kodierten Videostream. Der [Benutzer-Agent](/de/docs/Glossary/user_agent) steuert die Erzeugung von Schlüsselbildern unter Berücksichtigung dieser Option sowie der Option `videoKeyFrameIntervalDuration`.
+      - : Das Intervall in Anzahl der Bilder zwischen Schlüsselbildern im kodierten Videostream. Der {{Glossary("user_agent", "Benutzer-Agent")}} steuert die Erzeugung von Schlüsselbildern unter Berücksichtigung dieser Option sowie der Option `videoKeyFrameIntervalDuration`.
 
     > [!NOTE]
     > Wenn keine Bitratenwerte für Video und/oder Audio angegeben sind, beträgt der Standardwert für Video 2,5 Mbps, während der Standardwert für Audio adaptiv ist, abhängig von der Abtastrate und der Anzahl der Kanäle.

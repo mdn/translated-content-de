@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`vert-adv-y`** Attribut gibt den vertikalen Vorschub nach dem Rendern eines [glyph](/de/docs/Glossary/glyph) in vertikaler Ausrichtung an.
+Das **`vert-adv-y`** Attribut gibt den vertikalen Vorschub nach dem Rendern eines {{Glossary("glyph", "glyph")}} in vertikaler Ausrichtung an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

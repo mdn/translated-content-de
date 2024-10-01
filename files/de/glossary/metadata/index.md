@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Metadaten** sind — in ihrer einfachsten Definition — Daten, die Daten beschreiben. Beispielsweise ist ein [HTML](/de/docs/Glossary/HTML)-Dokument Daten, aber HTML kann auch Metadaten in seinem {{htmlelement("head")}}-Element enthalten, die das Dokument beschreiben — zum Beispiel, wer es geschrieben hat und seine Zusammenfassung.
+**Metadaten** sind — in ihrer einfachsten Definition — Daten, die Daten beschreiben. Beispielsweise ist ein {{Glossary("HTML", "HTML")}}-Dokument Daten, aber HTML kann auch Metadaten in seinem {{htmlelement("head")}}-Element enthalten, die das Dokument beschreiben — zum Beispiel, wer es geschrieben hat und seine Zusammenfassung.
 
 ## Siehe auch
 

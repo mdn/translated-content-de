@@ -18,7 +18,7 @@ Siehe die [`beforeunload`](/de/docs/Web/API/Window/beforeunload_event) Ereignisr
 _Erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
 - [`returnValue`](/de/docs/Web/API/BeforeUnloadEvent/returnValue) {{Deprecated_Inline}}
-  - : Wenn es auf einen [truthy](/de/docs/Glossary/Truthy) Wert gesetzt ist, wird ein vom Browser gesteuertes Bestätigungsdialogfeld ausgelöst, das Benutzer auffordert, zu bestätigen, ob sie die Seite verlassen möchten, wenn sie versuchen, sie zu schließen oder neu zu laden. Dies ist eine veraltete Funktion, und es wird empfohlen, den Dialog auszulösen, indem `event.preventDefault()` aufgerufen wird, während `returnValue` ebenfalls gesetzt wird, um ältere Fälle zu unterstützen.
+  - : Wenn es auf einen {{Glossary("Truthy", "truthy")}} Wert gesetzt ist, wird ein vom Browser gesteuertes Bestätigungsdialogfeld ausgelöst, das Benutzer auffordert, zu bestätigen, ob sie die Seite verlassen möchten, wenn sie versuchen, sie zu schließen oder neu zu laden. Dies ist eine veraltete Funktion, und es wird empfohlen, den Dialog auszulösen, indem `event.preventDefault()` aufgerufen wird, während `returnValue` ebenfalls gesetzt wird, um ältere Fälle zu unterstützen.
 
 ## Instanz-Methoden
 

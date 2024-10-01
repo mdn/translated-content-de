@@ -11,7 +11,7 @@ Dieses Kapitel führt ein, wie man mit Zeichenketten und Text in JavaScript arbe
 
 ## Strings
 
-Der [String](/de/docs/Glossary/String) Typ in JavaScript wird verwendet, um textuelle Daten darzustellen. Es handelt sich um eine Menge von "Elementen" aus 16-Bit-Integer-Werten ohne Vorzeichen (UTF-16 Code-Einheiten). Jedes Element im String nimmt eine Position im String ein. Das erste Element befindet sich am Index 0, das nächste am Index 1, und so weiter. Die Länge eines Strings ist die Anzahl der Elemente darin. Sie können Strings mit Hilfe von String-Literalen oder String-Objekten erstellen.
+Der {{Glossary("String", "String")}} Typ in JavaScript wird verwendet, um textuelle Daten darzustellen. Es handelt sich um eine Menge von "Elementen" aus 16-Bit-Integer-Werten ohne Vorzeichen (UTF-16 Code-Einheiten). Jedes Element im String nimmt eine Position im String ein. Das erste Element befindet sich am Index 0, das nächste am Index 1, und so weiter. Die Länge eines Strings ist die Anzahl der Elemente darin. Sie können Strings mit Hilfe von String-Literalen oder String-Objekten erstellen.
 
 ### String-Literale
 

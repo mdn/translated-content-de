@@ -25,7 +25,7 @@ mapAsync(mode, offset, size)
 
 - `mode`
 
-  - : Ein [Bit-Flag](/de/docs/Glossary/bitwise_flags), das angibt, ob der `GPUBuffer` für Lese- oder Schreibzugriffe gemappt ist. Mögliche Werte sind:
+  - : Ein {{Glossary("bitwise_flags", "Bit-Flag")}}, das angibt, ob der `GPUBuffer` für Lese- oder Schreibzugriffe gemappt ist. Mögliche Werte sind:
 
     - `GPUMapMode.READ`
 

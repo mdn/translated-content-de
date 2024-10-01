@@ -14,7 +14,7 @@ Ein `itemid`-Attribut kann nur für ein Element angegeben werden, das sowohl die
 Die genaue Bedeutung eines globalen Bezeichners eines `itemtype` wird durch die Definition dieses Bezeichners innerhalb des angegebenen Vokabulars bereitgestellt. Das Vokabular definiert, ob mehrere Elemente mit demselben globalen Bezeichner koexistieren können und, falls ja, wie Elemente mit demselben Bezeichner gehandhabt werden.
 
 > [!NOTE]
-> Die [WHATWG](/de/docs/Glossary/WHATWG)-Definition legt fest, dass ein `itemid` eine [URL](/de/docs/Glossary/URL) sein muss. Das folgende Beispiel zeigt jedoch korrekt, dass auch eine [URN](/de/docs/Glossary/URN) verwendet werden kann. Diese Inkonsistenz könnte die unvollständige Natur der Microdata-Spezifikation widerspiegeln.
+> Die {{Glossary("WHATWG", "WHATWG")}}-Definition legt fest, dass ein `itemid` eine {{Glossary("URL", "URL")}} sein muss. Das folgende Beispiel zeigt jedoch korrekt, dass auch eine {{Glossary("URN", "URN")}} verwendet werden kann. Diese Inkonsistenz könnte die unvollständige Natur der Microdata-Spezifikation widerspiegeln.
 
 ## Beispiele
 

@@ -59,7 +59,7 @@ Unterstützende Browser scrollen zum ersten Textfragment im verlinkten Dokument,
 
 - Textzeichenfolgen, die für die Werte `textStart`, `textEnd`, `prefix-` und `-suffix` verwendet werden, müssen [prozentkodiert](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) sein.
 - Übereinstimmungen sind nicht case-sensitiv.
-- Einzelne `textStart`, `textEnd`, `prefix-` und `-suffix`-Zeichenfolgen müssen sich vollständig innerhalb desselben [Block-Elementes](/de/docs/Glossary/Block-level_content) befinden, aber vollständige Übereinstimmungen können sich über mehrere Elementgrenzen erstrecken.
+- Einzelne `textStart`, `textEnd`, `prefix-` und `-suffix`-Zeichenfolgen müssen sich vollständig innerhalb desselben {{Glossary("Block-level_content", "Block-Elementes")}} befinden, aber vollständige Übereinstimmungen können sich über mehrere Elementgrenzen erstrecken.
 - Aus Sicherheitsgründen erfordert die Funktion, dass Links in einem noopener-Kontext geöffnet werden — Sie müssen `rel="noopener"` zu Ihren {{htmlelement("a")}}-Elementen hinzufügen und `noopener` zu Ihren [`window.open()`](/de/docs/Web/API/Window/open)-Aufrufen hinzufügen, wenn Sie diese Funktion verwenden.
 - Textfragmente werden nur bei vollständigen (nicht auf derselben Seite befindlichen), benutzerinitiierten Navigationen aktiviert.
 - Textfragmente werden nur auf den Hauptframe angewendet; Text wird nicht innerhalb von {{htmlelement("iframe")}}s durchsucht, und `iframe`-Navigation wird kein Textfragment aktivieren.

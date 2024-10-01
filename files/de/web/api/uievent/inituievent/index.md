@@ -32,7 +32,7 @@ initUIEvent(type, canBubble, cancelable, view, detail)
 - `cancelable`
   - : Ein boolescher Wert, der definiert, ob das Ereignis abgebrochen werden kann. Einmal gesetzt, gibt die schreibgeschützte Eigenschaft [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) ihren Wert zurück.
 - `view`
-  - : Ist das [WindowProxy](/de/docs/Glossary/WindowProxy), das mit dem Ereignis assoziiert ist.
+  - : Ist das {{Glossary("WindowProxy", "WindowProxy")}}, das mit dem Ereignis assoziiert ist.
 - `detail`
   - : Ein `unsigned long`, der einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Bei Mausereignissen gibt es an, wie oft die Maus an einer bestimmten Bildschirmposition geklickt wurde.
 

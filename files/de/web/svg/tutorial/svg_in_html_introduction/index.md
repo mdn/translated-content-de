@@ -45,7 +45,7 @@ Es gibt drei Attribute und ein verschachteltes Element, die beachtet werden soll
 
 1. Das [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox)-Attribut legt ein logisches Koordinatensystem fest, auf das sich die Koordinaten des SVG-Bildes beziehen. In diesem Fall ist unser Bild in einem 100 mal 100 Ansichtsfenster angeordnet.
 
-2. Das [`preserveAspectRatio`](/de/docs/Web/SVG/Attribute/preserveAspectRatio)-Attribut gibt an, dass das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) durch Zentrieren des Bildes in der verfügbaren Größe beibehalten werden muss. Es wird auf die maximale Höhe oder Breite skaliert und dann eventuell überlaufender Inhalt abgeschnitten.
+2. Das [`preserveAspectRatio`](/de/docs/Web/SVG/Attribute/preserveAspectRatio)-Attribut gibt an, dass das {{Glossary("aspect_ratio", "Seitenverhältnis")}} durch Zentrieren des Bildes in der verfügbaren Größe beibehalten werden muss. Es wird auf die maximale Höhe oder Breite skaliert und dann eventuell überlaufender Inhalt abgeschnitten.
 
 3. Durch Einschluss von [`role="img"`](/de/docs/Web/Accessibility/ARIA/Roles/img_role) wird sichergestellt, dass unterstützende Technologien das SVG als Bild behandeln.
 

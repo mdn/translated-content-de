@@ -13,5 +13,5 @@ l10n:
 
 - [Real User Monitoring (RUM) versus Synthetic Monitoring](/de/docs/Web/Performance/Rum-vs-Synthetic)
 - Zugehörige Begriffe im Glossar:
-  - [Synthetic monitoring](/de/docs/Glossary/Synthetic_monitoring)
-  - [Beacon](/de/docs/Glossary/Beacon)
+  - {{Glossary("Synthetic_monitoring", "Synthetic monitoring")}}
+  - {{Glossary("Beacon", "Beacon")}}

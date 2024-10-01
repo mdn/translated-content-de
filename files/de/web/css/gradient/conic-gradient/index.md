@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) erstellt ein Bild, das aus einem Farbverlauf besteht, der um einen Mittelpunkt rotiert (anstatt vom Zentrum aus zu strahlen). Beispiele für kegelförmige Verläufe sind Tortendiagramme und [Farbkreise](/de/docs/Glossary/color_wheel). Das Ergebnis der `conic-gradient()` Funktion ist ein Objekt des {{CSSxRef("&lt;gradient&gt;")}} Datentyps, welches eine spezielle Art von {{CSSxRef("&lt;image&gt;")}} ist.
+Die **`conic-gradient()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) erstellt ein Bild, das aus einem Farbverlauf besteht, der um einen Mittelpunkt rotiert (anstatt vom Zentrum aus zu strahlen). Beispiele für kegelförmige Verläufe sind Tortendiagramme und {{Glossary("color_wheel", "Farbkreise")}}. Das Ergebnis der `conic-gradient()` Funktion ist ein Objekt des {{CSSxRef("&lt;gradient&gt;")}} Datentyps, welches eine spezielle Art von {{CSSxRef("&lt;image&gt;")}} ist.
 
 {{EmbedInteractiveExample("pages/css/function-conic-gradient.html")}}
 
@@ -50,7 +50,7 @@ conic-gradient(
 - `<angular-color-stop>`
   - : Ein Farb-Stopp der {{CSSxRef("&lt;color&gt;")}} Wert mit einem oder zwei optionalen Stopp-Positionen (einem {{CSSxRef("&lt;angle&gt;")}} entlang der Umfangsachse des Verlaufs).
 - `<color-hint>`
-  - : Ein [Interpolation](/de/docs/Glossary/interpolation) Hinweis definiert, wie der Verlauf zwischen benachbarten Farbstopps verläuft. Die Länge definiert, an welchem Punkt zwischen zwei Farbstopps die Verlauf-Farbe den Mittelpunkt des Farbwechsels erreichen sollte. Wenn nicht angegeben, ist der Mittelpunkt des Farbwechsels der Mittelpunkt zwischen zwei Farbstopps.
+  - : Ein {{Glossary("interpolation", "Interpolation")}} Hinweis definiert, wie der Verlauf zwischen benachbarten Farbstopps verläuft. Die Länge definiert, an welchem Punkt zwischen zwei Farbstopps die Verlauf-Farbe den Mittelpunkt des Farbwechsels erreichen sollte. Wenn nicht angegeben, ist der Mittelpunkt des Farbwechsels der Mittelpunkt zwischen zwei Farbstopps.
 
 > [!NOTE]
 > Die Darstellung von [Farbstopps in CSS-Verläufen](#gradient_with_multiple_color_stops) folgt den gleichen Regeln wie Farbstopps in [SVG-Verläufen](/de/docs/Web/SVG/Tutorial/Gradients).
@@ -262,7 +262,7 @@ In diesem Beispiel wird für die Interpolation das [hsl](/de/docs/Web/CSS/color_
 }
 ```
 
-Die Box auf der linken Seite verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), das bedeutet, die Farbe geht direkt von Rot zu Blau über den kürzeren Bogen auf dem [Farbkreis](/de/docs/Glossary/Color_wheel). Die Box auf der rechten Seite verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen verläuft und durch Grün, Gelb und Orange geht.
+Die Box auf der linken Seite verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), das bedeutet, die Farbe geht direkt von Rot zu Blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}}. Die Box auf der rechten Seite verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen verläuft und durch Grün, Gelb und Orange geht.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 

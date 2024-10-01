@@ -25,7 +25,7 @@ Bevor Sie mit diesem Modul beginnen, sollten Sie:
 Dieses Modul enthält die folgenden Artikel, die Sie durch die grundlegende Theorie von CSS führen und Ihnen Möglichkeiten bieten, einige Fähigkeiten auszuprobieren.
 
 - [Was ist CSS?](/de/docs/Learn/CSS/First_steps/What_is_CSS)
-  - : **[CSS](/de/docs/Glossary/CSS)** (Cascading Style Sheets) ermöglicht Ihnen das Erstellen von ansprechenden Webseiten, aber wie funktioniert es im Hintergrund? Dieser Artikel erklärt, was CSS ist, mit einem einfachen Syntaxbeispiel und behandelt auch einige wichtige Begriffe über die Sprache.
+  - : **{{Glossary("CSS", "CSS")}}** (Cascading Style Sheets) ermöglicht Ihnen das Erstellen von ansprechenden Webseiten, aber wie funktioniert es im Hintergrund? Dieser Artikel erklärt, was CSS ist, mit einem einfachen Syntaxbeispiel und behandelt auch einige wichtige Begriffe über die Sprache.
 - [Einstieg in CSS](/de/docs/Learn/CSS/First_steps/Getting_started)
   - : In diesem Artikel werden wir ein einfaches HTML-Dokument nehmen und CSS darauf anwenden, wobei wir einige praktische Dinge über die Sprache lernen.
 - [Wie CSS strukturiert ist](/de/docs/Learn/CSS/First_steps/How_CSS_is_structured)

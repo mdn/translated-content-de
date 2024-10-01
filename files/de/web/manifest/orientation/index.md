@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-Das `orientation`-Mitglied definiert die Standardausrichtung für alle obersten [Browsing-Kontexte](/de/docs/Glossary/Browsing_context) der Website.
+Das `orientation`-Mitglied definiert die Standardausrichtung für alle obersten {{Glossary("Browsing_context", "Browsing-Kontexte")}} der Website.
 
 > **Hinweis:** `orientation` und/oder seine spezifischen Werte könnten von einem User-Agent in verschiedenen Anzeigemodi nicht unterstützt werden, da die Unterstützung in diesem speziellen Kontext keinen Sinn macht.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Window Controls Overlay API")}}{{SeeCompatTable}}
 
-Die **`visible`**-Eigenschaft des [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interfaces gibt ein [Boolean](/de/docs/Glossary/Boolean) zurück, das anzeigt, ob die Fenstersteuerungsüberlagerung sichtbar ist oder nicht.
+Die **`visible`**-Eigenschaft des [`WindowControlsOverlay`](/de/docs/Web/API/WindowControlsOverlay)-Interfaces gibt ein {{Glossary("Boolean", "Boolean")}} zurück, das anzeigt, ob die Fenstersteuerungsüberlagerung sichtbar ist oder nicht.
 
 Die Fenstersteuerungsüberlagerung ist nicht sichtbar, wenn:
 

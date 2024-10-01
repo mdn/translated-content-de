@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Credential Management API")}}{{securecontext_header}}
 
-Die Credential Management API ermöglicht es einer Website, [Anmeldeinformationen](/de/docs/Glossary/credential) zu erstellen, zu speichern und abzurufen. Eine Anmeldeinformation ist ein Element, das es einem System ermöglicht, eine Entscheidung zur [Authentifizierung](/de/docs/Glossary/authentication) zu treffen: beispielsweise, ob ein Benutzer in ein Konto eingeloggt werden soll. Wir können sie als ein Beweisstück betrachten, das ein Benutzer einer Website vorlegt, um nachzuweisen, dass er tatsächlich die Person ist, für die er sich ausgibt.
+Die Credential Management API ermöglicht es einer Website, {{Glossary("credential", "Anmeldeinformationen")}} zu erstellen, zu speichern und abzurufen. Eine Anmeldeinformation ist ein Element, das es einem System ermöglicht, eine Entscheidung zur {{Glossary("authentication", "Authentifizierung")}} zu treffen: beispielsweise, ob ein Benutzer in ein Konto eingeloggt werden soll. Wir können sie als ein Beweisstück betrachten, das ein Benutzer einer Website vorlegt, um nachzuweisen, dass er tatsächlich die Person ist, für die er sich ausgibt.
 
 ## Konzepte und Nutzung
 
@@ -19,12 +19,12 @@ Die zentrale Schnittstelle ist die [`CredentialsContainer`](/de/docs/Web/API/Cre
 
 Die API unterstützt vier verschiedene Arten von Anmeldeinformationen, die alle als Unterklassen von [`Credential`](/de/docs/Web/API/Credential) dargestellt werden:
 
-| Typ                     | Schnittstelle                                                                        |
-| ----------------------- | ------------------------------------------------------------------------------------ |
-| Passwort                | [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)                                                  |
-| Föderierte Identität    | [`IdentityCredential`](/de/docs/Web/API/IdentityCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) (veraltet) |
-| Einmalkennwort (OTP)    | [`OTPCredential`](/de/docs/Web/API/OTPCredential)                                                       |
-| Web-Authentifizierung   | [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)                                                 |
+| Typ                   | Schnittstelle                                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Passwort              | [`PasswordCredential`](/de/docs/Web/API/PasswordCredential)                                                                           |
+| Föderierte Identität  | [`IdentityCredential`](/de/docs/Web/API/IdentityCredential), [`FederatedCredential`](/de/docs/Web/API/FederatedCredential) (veraltet) |
+| Einmalkennwort (OTP)  | [`OTPCredential`](/de/docs/Web/API/OTPCredential)                                                                                     |
+| Web-Authentifizierung | [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)                                                                         |
 
 Die Leitfaden-Seite [Anmeldeinformationstypen](/de/docs/Web/API/Credential_Management_API/Credential_types) gibt einen Überblick über die verschiedenen Anmeldeinformationstypen und deren Verwendung.
 

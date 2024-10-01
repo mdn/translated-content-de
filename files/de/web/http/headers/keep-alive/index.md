@@ -23,12 +23,12 @@ Der allgemeine Header **`Keep-Alive`** ermöglicht es dem Sender, Hinweise darü
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header),
-        [Response header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Request header")}},
+        {{Glossary("Response_header", "Response header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Nicht erlaubter Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Nicht erlaubter Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

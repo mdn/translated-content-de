@@ -30,7 +30,7 @@ Der Mechanismus, der diese Aufforderung auslöst, hängt von der spezifischen AP
 In der Regel wird der Auslöser durch Code ausgelöst, der eine Methode aufruft, um auf die Funktion zuzugreifen oder diese zu öffnen, oder der sich für Benachrichtigungen von der Funktion registriert, die anschließend darauf zugreifen wird.
 
 Beachten Sie, dass nicht alle Funktionen eine Aufforderung erfordern.
-Berechtigungen könnten durch eine `Permission Policy`, implizit durch [transitorische Aktivierung](/de/docs/Glossary/transient_activation) oder über einen anderen Mechanismus erteilt werden.
+Berechtigungen könnten durch eine `Permission Policy`, implizit durch {{Glossary("transient_activation", "transitorische Aktivierung")}} oder über einen anderen Mechanismus erteilt werden.
 
 ### Widerrufen von Berechtigungen
 

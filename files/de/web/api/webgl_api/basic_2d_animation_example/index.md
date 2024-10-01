@@ -37,7 +37,7 @@ Betrachten wir zunächst den Vertex-Shader. Seine Aufgabe ist es, die Koordinate
 </script>
 ```
 
-Das Hauptprogramm teilt uns das Attribut `aVertexPosition` mit, das die Position des Vertex in welchem Koordinatensystem auch immer ist, das es verwendet. Wir müssen diese Werte so konvertieren, dass beide Komponenten der Position im Bereich von -1.0 bis 1.0 liegen. Dies kann einfach erreicht werden, indem mit einem Skalierungsfaktor multipliziert wird, der auf dem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Kontexts basiert. Diese Berechnung werden wir in Kürze sehen.
+Das Hauptprogramm teilt uns das Attribut `aVertexPosition` mit, das die Position des Vertex in welchem Koordinatensystem auch immer ist, das es verwendet. Wir müssen diese Werte so konvertieren, dass beide Komponenten der Position im Bereich von -1.0 bis 1.0 liegen. Dies kann einfach erreicht werden, indem mit einem Skalierungsfaktor multipliziert wird, der auf dem {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Kontexts basiert. Diese Berechnung werden wir in Kürze sehen.
 
 Wir drehen auch die Form, und das können wir hier tun, indem wir eine Transformation anwenden. Das tun wir zuerst. Die gedrehte Position des Vertex wird berechnet, indem der Rotationsvektor angewendet wird, der sich im Uniform `uRotationVector` befindet, das durch den JavaScript-Code berechnet wurde.
 

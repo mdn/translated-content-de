@@ -37,7 +37,7 @@ Da Nachkommen von `meter` präsentativ sind, ist der folgende Code gleichwertig:
 <div role="meter"><h3 role="presentation">Title of my meter</h3></div>
 ```
 
-Aus der Perspektive des Benutzers der unterstützenden Technologie existiert die Überschrift nicht, da die vorherigen Codeausschnitte dem Folgenden im [Accessibility-Tree](/de/docs/Glossary/Accessibility_tree) entsprechen:
+Aus der Perspektive des Benutzers der unterstützenden Technologie existiert die Überschrift nicht, da die vorherigen Codeausschnitte dem Folgenden im {{Glossary("Accessibility_tree", "Accessibility-Tree")}} entsprechen:
 
 ```html
 <div role="meter">Title of my meter</div>

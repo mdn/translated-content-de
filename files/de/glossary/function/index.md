@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Funktion** ist ein Code-Snippet, das von anderem Code oder von sich selbst aufgerufen werden kann, oder eine [Variable](/de/docs/Glossary/variable), die auf die Funktion verweist. Wenn eine Funktion aufgerufen wird, werden [Argumente](/de/docs/Glossary/Argument) als Eingabe an die Funktion übergeben, und die Funktion kann optional einen Wert zurückgeben. Eine Funktion in [JavaScript](/de/docs/Glossary/JavaScript) ist auch ein [Objekt](/de/docs/Glossary/object).
+Eine **Funktion** ist ein Code-Snippet, das von anderem Code oder von sich selbst aufgerufen werden kann, oder eine {{Glossary("variable", "Variable")}}, die auf die Funktion verweist. Wenn eine Funktion aufgerufen wird, werden {{Glossary("Argument", "Argumente")}} als Eingabe an die Funktion übergeben, und die Funktion kann optional einen Wert zurückgeben. Eine Funktion in {{Glossary("JavaScript", "JavaScript")}} ist auch ein {{Glossary("object", "Objekt")}}.
 
-Ein Funktionsname ist ein [Identifier](/de/docs/Glossary/identifier), der Teil einer Funktionsdeklaration oder eines Funktionsausdrucks ist. Der [Scope](/de/docs/Glossary/scope) des Funktionsnamens hängt davon ab, ob der Funktionsname eine Deklaration oder ein Ausdruck ist.
+Ein Funktionsname ist ein {{Glossary("identifier", "Identifier")}}, der Teil einer Funktionsdeklaration oder eines Funktionsausdrucks ist. Der {{Glossary("scope", "Scope")}} des Funktionsnamens hängt davon ab, ob der Funktionsname eine Deklaration oder ein Ausdruck ist.
 
 ### Verschiedene Arten von Funktionen
 
@@ -55,7 +55,7 @@ const addSquares2 = (a, b) => {
 };
 ```
 
-Eine **rekursive Funktion** ist eine Funktion, die sich selbst aufruft. Siehe [Rekursion](/de/docs/Glossary/Recursion).
+Eine **rekursive Funktion** ist eine Funktion, die sich selbst aufruft. Siehe {{Glossary("Recursion", "Rekursion")}}.
 
 ```js
 function loop(x) {
@@ -70,7 +70,7 @@ const loop2 = (x) => {
 };
 ```
 
-Ein **sofort ausgeführter Funktionsausdruck** ([IIFE](/de/docs/Glossary/IIFE)) ist eine Funktion, die direkt nach dem Laden in den Compiler des Browsers aufgerufen wird. Ein IIFE ist daran zu erkennen, dass es am Ende der Funktionsdefinition zusätzliche Klammern gibt.
+Ein **sofort ausgeführter Funktionsausdruck** ({{Glossary("IIFE", "IIFE")}}) ist eine Funktion, die direkt nach dem Laden in den Compiler des Browsers aufgerufen wird. Ein IIFE ist daran zu erkennen, dass es am Ende der Funktionsdefinition zusätzliche Klammern gibt.
 
 Funktionsausdrücke, benannt oder anonym, können sofort aufgerufen werden.
 
@@ -86,7 +86,7 @@ Funktionsausdrücke, benannt oder anonym, können sofort aufgerufen werden.
 (() => console.log("hello world"))();
 ```
 
-Deklarierte Funktionen können auf diese Weise nicht sofort aufgerufen werden, da IIFEs Funktions_audrücke_ sein müssen.
+Deklarierte Funktionen können auf diese Weise nicht sofort aufgerufen werden, da IIFEs Funktions*audrücke* sein müssen.
 
 ```js example-bad
 function foo() {

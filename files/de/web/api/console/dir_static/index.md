@@ -14,7 +14,7 @@ Im Gegensatz zu anderen Protokollierungsmethoden versucht `console.dir()` nicht,
 
 ![Ein Screenshot der Firefox-Konsole, in dem console.dir(document.location) ausgeführt wird. Wir können die URL der Seite sehen, gefolgt von einem Block von Eigenschaften. Wenn die Eigenschaft eine Funktion oder ein Objekt ist, wird ein Aufklappdreieck vorangestellt.](console-dir.png)
 
-In Laufzeitumgebungen wie [Node](/de/docs/Glossary/Node.js) und [Deno](/de/docs/Glossary/Deno), wo Konsolenausgaben an das Terminal gehen und daher nicht interaktiv sind, bietet der `options`-Parameter eine Möglichkeit, die Darstellung des Objekts anzupassen.
+In Laufzeitumgebungen wie {{Glossary("Node.js", "Node")}} und {{Glossary("Deno", "Deno")}}, wo Konsolenausgaben an das Terminal gehen und daher nicht interaktiv sind, bietet der `options`-Parameter eine Möglichkeit, die Darstellung des Objekts anzupassen.
 
 ## Syntax
 

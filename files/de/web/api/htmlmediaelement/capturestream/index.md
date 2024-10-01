@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das als Quelle für Audio- und/oder Videodaten durch andere Medienverarbeitungsprogramme oder als Quelle für [WebRTC](/de/docs/Glossary/WebRTC) verwendet werden kann.
+Ein [`MediaStream`](/de/docs/Web/API/MediaStream)-Objekt, das als Quelle für Audio- und/oder Videodaten durch andere Medienverarbeitungsprogramme oder als Quelle für {{Glossary("WebRTC", "WebRTC")}} verwendet werden kann.
 
 ## Beispiele
 

@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die **XMLHttpRequest API** ermöglicht Webanwendungen, HTTP-Anfragen an Webserver zu senden und die Antworten programmatisch über JavaScript zu empfangen. Dadurch kann eine Webseite nur einen Teil der Seite mit Daten vom Server aktualisieren, anstatt zu einer komplett neuen Seite navigieren zu müssen. Diese Praxis wird auch manchmal als [Ajax](/de/docs/Glossary/Ajax) bezeichnet.
+Die **XMLHttpRequest API** ermöglicht Webanwendungen, HTTP-Anfragen an Webserver zu senden und die Antworten programmatisch über JavaScript zu empfangen. Dadurch kann eine Webseite nur einen Teil der Seite mit Daten vom Server aktualisieren, anstatt zu einer komplett neuen Seite navigieren zu müssen. Diese Praxis wird auch manchmal als {{Glossary("Ajax", "Ajax")}} bezeichnet.
 
 Die [Fetch API](/de/docs/Web/API/Fetch_API) ist der flexiblere und leistungsfähigere Ersatz für die XMLHttpRequest API. Die Fetch API verwendet {{jsxref("Promise", "Promises", "", 1)}} anstelle von Ereignissen zur Handhabung asynchroner Antworten, integriert sich gut mit [Service Workers](/de/docs/Web/API/Service_Worker_API) und unterstützt fortschrittliche Aspekte von HTTP wie [CORS](/de/docs/Web/HTTP/CORS). Aus diesen Gründen wird die Fetch API in modernen Web-Apps oft anstelle von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) verwendet.
 

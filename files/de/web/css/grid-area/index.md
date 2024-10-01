@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-area`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb eines [Grids](/de/docs/Glossary/grid) fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt und damit die Ränder seines [Grid-Bereichs](/de/docs/Glossary/grid_areas) bestimmt.
+Die **`grid-area`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb eines {{Glossary("grid", "Grids")}} fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu seiner Grid-Platzierung beiträgt und damit die Ränder seines {{Glossary("grid_areas", "Grid-Bereichs")}} bestimmt.
 
 {{EmbedInteractiveExample("pages/css/grid-area.html")}}
 

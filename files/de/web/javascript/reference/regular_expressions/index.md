@@ -45,15 +45,15 @@ Sie haben keine Laufzeitunterschiede, können jedoch Auswirkungen auf die Leistu
 
 Flags sind spezielle Parameter, die ändern können, wie ein regulärer Ausdruck interpretiert wird oder wie er mit dem Eingabetext interagiert. Jedes Flag entspricht einer Zugriffseigenschaft auf dem `RegExp`-Objekt.
 
-| Flag | Beschreibung                                                                                     | Entsprechende Eigenschaft                        |
-| ---- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| `d`  | Erzeugt Indizes für Teilmusterübereinstimmungen.                                                | {{jsxref("RegExp/hasIndices", "hasIndices")}}   |
-| `g`  | Globale Suche.                                                                                  | {{jsxref("RegExp/global", "global")}}           |
-| `i`  | Groß-/Kleinschreibung ignorierende Suche.                                                       | {{jsxref("RegExp/ignoreCase", "ignoreCase")}}   |
-| `m`  | Ermöglicht `^` und `$`, neben Zeilenumbruchzeichen zu übereinstimmen.                           | {{jsxref("RegExp/multiline", "multiline")}}     |
-| `s`  | Ermöglicht `.` neben Zeilenumbruchzeichen zu übereinstimmen.                                    | {{jsxref("RegExp/dotAll", "dotAll")}}           |
-| `u`  | "Unicode"; behandelt ein Muster als eine Sequenz von Unicode-Codierungspunkten.                 | {{jsxref("RegExp/unicode", "unicode")}}         |
-| `v`  | Ein Upgrade zum `u`-Modus mit mehr Unicode-Funktionen.                                          | {{jsxref("RegExp/unicodeSets", "unicodeSets")}} |
+| Flag | Beschreibung                                                                                         | Entsprechende Eigenschaft                       |
+| ---- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| `d`  | Erzeugt Indizes für Teilmusterübereinstimmungen.                                                     | {{jsxref("RegExp/hasIndices", "hasIndices")}}   |
+| `g`  | Globale Suche.                                                                                       | {{jsxref("RegExp/global", "global")}}           |
+| `i`  | Groß-/Kleinschreibung ignorierende Suche.                                                            | {{jsxref("RegExp/ignoreCase", "ignoreCase")}}   |
+| `m`  | Ermöglicht `^` und `$`, neben Zeilenumbruchzeichen zu übereinstimmen.                                | {{jsxref("RegExp/multiline", "multiline")}}     |
+| `s`  | Ermöglicht `.` neben Zeilenumbruchzeichen zu übereinstimmen.                                         | {{jsxref("RegExp/dotAll", "dotAll")}}           |
+| `u`  | "Unicode"; behandelt ein Muster als eine Sequenz von Unicode-Codierungspunkten.                      | {{jsxref("RegExp/unicode", "unicode")}}         |
+| `v`  | Ein Upgrade zum `u`-Modus mit mehr Unicode-Funktionen.                                               | {{jsxref("RegExp/unicodeSets", "unicodeSets")}} |
 | `y`  | Führen Sie eine "sticky" Suche durch, die ab der aktuellen Position in der Zielzeichenfolge beginnt. | {{jsxref("RegExp/sticky", "sticky")}}           |
 
 Die `i`, `m` und `s` Flags können mit der [Modifier](/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier) Syntax für spezifische Teile eines Regex aktiviert oder deaktiviert werden.
@@ -115,29 +115,29 @@ Diese Funktionen spezifizieren selbst kein Muster, werden jedoch verwendet, um M
 
 _Escape-Sequenzen_ in Regexes beziehen sich auf jede Art von Syntax, die durch `\` gefolgt von einem oder mehreren Zeichen gebildet wird. Sie können je nach dem, was `\` folgt, sehr unterschiedliche Zwecke erfüllen. Unten ist eine Liste aller gültigen "Escape-Sequenzen":
 
-| Escape-Sequenz | Gefolgt von                                                         | Bedeutung                                                                                                              |
-| -------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `\B`           | None                                                                | [Nicht-Wort-Grenze Assertion][WBA]                                                                                     |
-| `\D`           | None                                                                | [Zeichenklassen-Flucht][CCE], die nicht-Zifferzeichen darstellt                                                        |
-| `\P`           | `{`, eine Unicode-Eigenschaft und/oder den Wert, dann `}`           | [Unicode-Zeichenklassen-Flucht][UCCE], die Zeichen ohne die angegebene Unicode-Eigenschaft darstellt                   |
-| `\S`           | None                                                                | [Zeichenklassen-Flucht][CCE], die nicht-Leerzeichen darstellt                                                          |
-| `\W`           | None                                                                | [Zeichenklassen-Flucht][CCE], die nicht-Wortzeichen darstellt                                                          |
-| `\b`           | None                                                                | [Wortgrenzen-Assertion][WBA]; innerhalb von [Zeichenklassen][CC], repräsentiert es U+0008 (RÜCKSCHRITT)                |
-| `\c`           | Ein Buchstabe von `A` bis `Z` oder `a` bis `z`                      | Eine [Zeichen-Flucht][CE], die das Steuerzeichen mit dem Wert gleich dem Zeichenwert des Buchstabens modulo 32 darstellt |
-| `\d`           | None                                                                | [Zeichenklassen-Flucht][CCE], die Ziffernzeichen (`0` bis `9`) darstellt                                               |
-| `\f`           | None                                                                | [Zeichen-Flucht][CE], die U+000C (FORM FEED) darstellt                                                                 |
-| `\k`           | `<`, eine Kennung, dann `>`                                         | Ein [benannter Rückverweis][NBR]                                                                                      |
-| `\n`           | None                                                                | [Zeichen-Flucht][CE], die U+000A (LINE FEED) darstellt                                                                 |
-| `\p`           | `{`, eine Unicode-Eigenschaft und/oder den Wert, dann `}`           | [Unicode-Zeichenklassen-Flucht][UCCE], die Zeichen mit der angegebenen Unicode-Eigenschaft darstellt                   |
-| `\q`           | `{`, eine Zeichenkette, dann `}`                                    | Nur gültig innerhalb von [`v`-Modus Zeichenklassen][VCC]; stellt die Zeichenkette dar, die wörtlich gematcht werden soll |
-| `\r`           | None                                                                | [Zeichen-Flucht][CE], die U+000D (CARRIAGE RETURN) darstellt                                                           |
-| `\s`           | None                                                                | [Zeichenklassen-Flucht][CCE], die Leerzeichen darstellt                                                               |
-| `\t`           | None                                                                | [Zeichen-Flucht][CE], die U+0009 (ZEICHENTABULATION) darstellt                                                        |
-| `\u`           | 4 hexadezimale Ziffern; oder `{`, 1 bis 6 hexadezimale Ziffern, dann `}` | [Zeichen-Flucht][CE], die das Zeichen mit dem gegebenen Codepunkt darstellt                                            |
-| `\v`           | None                                                                | [Zeichen-Flucht][CE], die U+000B (LINIENTABULATION) darstellt                                                          |
-| `\w`           | None                                                                | [Zeichenklassen-Flucht][CCE], die Wortzeichen (`A` bis `Z`, `a` bis `z`, `0` bis `9`, `_`) darstellt                   |
-| `\x`           | 2 hexadezimale Ziffern                                              | [Zeichen-Flucht][CE], die das Zeichen mit dem gegebenen Wert darstellt                                                 |
-| `\0`           | None                                                                | [Zeichen-Flucht][CE], die U+0000 (NULL) darstellt                                                                      |
+| Escape-Sequenz | Gefolgt von                                                              | Bedeutung                                                                                                                |
+| -------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| `\B`           | None                                                                     | [Nicht-Wort-Grenze Assertion][WBA]                                                                                       |
+| `\D`           | None                                                                     | [Zeichenklassen-Flucht][CCE], die nicht-Zifferzeichen darstellt                                                          |
+| `\P`           | `{`, eine Unicode-Eigenschaft und/oder den Wert, dann `}`                | [Unicode-Zeichenklassen-Flucht][UCCE], die Zeichen ohne die angegebene Unicode-Eigenschaft darstellt                     |
+| `\S`           | None                                                                     | [Zeichenklassen-Flucht][CCE], die nicht-Leerzeichen darstellt                                                            |
+| `\W`           | None                                                                     | [Zeichenklassen-Flucht][CCE], die nicht-Wortzeichen darstellt                                                            |
+| `\b`           | None                                                                     | [Wortgrenzen-Assertion][WBA]; innerhalb von [Zeichenklassen][CC], repräsentiert es U+0008 (RÜCKSCHRITT)                  |
+| `\c`           | Ein Buchstabe von `A` bis `Z` oder `a` bis `z`                           | Eine [Zeichen-Flucht][CE], die das Steuerzeichen mit dem Wert gleich dem Zeichenwert des Buchstabens modulo 32 darstellt |
+| `\d`           | None                                                                     | [Zeichenklassen-Flucht][CCE], die Ziffernzeichen (`0` bis `9`) darstellt                                                 |
+| `\f`           | None                                                                     | [Zeichen-Flucht][CE], die U+000C (FORM FEED) darstellt                                                                   |
+| `\k`           | `<`, eine Kennung, dann `>`                                              | Ein [benannter Rückverweis][NBR]                                                                                         |
+| `\n`           | None                                                                     | [Zeichen-Flucht][CE], die U+000A (LINE FEED) darstellt                                                                   |
+| `\p`           | `{`, eine Unicode-Eigenschaft und/oder den Wert, dann `}`                | [Unicode-Zeichenklassen-Flucht][UCCE], die Zeichen mit der angegebenen Unicode-Eigenschaft darstellt                     |
+| `\q`           | `{`, eine Zeichenkette, dann `}`                                         | Nur gültig innerhalb von [`v`-Modus Zeichenklassen][VCC]; stellt die Zeichenkette dar, die wörtlich gematcht werden soll |
+| `\r`           | None                                                                     | [Zeichen-Flucht][CE], die U+000D (CARRIAGE RETURN) darstellt                                                             |
+| `\s`           | None                                                                     | [Zeichenklassen-Flucht][CCE], die Leerzeichen darstellt                                                                  |
+| `\t`           | None                                                                     | [Zeichen-Flucht][CE], die U+0009 (ZEICHENTABULATION) darstellt                                                           |
+| `\u`           | 4 hexadezimale Ziffern; oder `{`, 1 bis 6 hexadezimale Ziffern, dann `}` | [Zeichen-Flucht][CE], die das Zeichen mit dem gegebenen Codepunkt darstellt                                              |
+| `\v`           | None                                                                     | [Zeichen-Flucht][CE], die U+000B (LINIENTABULATION) darstellt                                                            |
+| `\w`           | None                                                                     | [Zeichenklassen-Flucht][CCE], die Wortzeichen (`A` bis `Z`, `a` bis `z`, `0` bis `9`, `_`) darstellt                     |
+| `\x`           | 2 hexadezimale Ziffern                                                   | [Zeichen-Flucht][CE], die das Zeichen mit dem gegebenen Wert darstellt                                                   |
+| `\0`           | None                                                                     | [Zeichen-Flucht][CE], die U+0000 (NULL) darstellt                                                                        |
 
 [CC]: /de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class
 [CCE]: /de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape
@@ -157,7 +157,7 @@ Zusätzlich kann `\` durch einige andere Nicht-Buchstaben-oder-Zifferzeichen gef
 - `\-`: nur gültig innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class)
 - `\!`, `\#`, `\%`, `\&`, `\,`, `\:`, `\;`, `\<`, `\=`, `\>`, `\@`, `` \` ``, `\~`: nur gültig innerhalb von [`v`-Modus Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class)
 
-Die anderen [ASCII](/de/docs/Glossary/ASCII) Zeichen, nämlich Leerzeichen, `"`, `'`, `_` und jedes Buchstabenzeichen, das oben nicht erwähnt wurde, sind keine gültigen Escape-Sequenzen. Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Escape-Sequenzen, die nicht zu den oben genannten gehören, zu _Identitätsfluchten_: sie stellen das Zeichen dar, das dem Backslash folgt. Zum Beispiel repräsentiert `\a` das Zeichen `a`. Dieses Verhalten schränkt die Möglichkeit ein, neue Escape-Sequenzen einzuführen, ohne Kompatibilitätsprobleme zu verursachen, und ist daher im Unicode-bewussten Modus verboten.
+Die anderen {{Glossary("ASCII", "ASCII")}} Zeichen, nämlich Leerzeichen, `"`, `'`, `_` und jedes Buchstabenzeichen, das oben nicht erwähnt wurde, sind keine gültigen Escape-Sequenzen. Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) werden Escape-Sequenzen, die nicht zu den oben genannten gehören, zu _Identitätsfluchten_: sie stellen das Zeichen dar, das dem Backslash folgt. Zum Beispiel repräsentiert `\a` das Zeichen `a`. Dieses Verhalten schränkt die Möglichkeit ein, neue Escape-Sequenzen einzuführen, ohne Kompatibilitätsprobleme zu verursachen, und ist daher im Unicode-bewussten Modus verboten.
 
 ## Spezifikationen
 

@@ -25,7 +25,7 @@ Wenn eine Aktivierung ausgelöst wurde, unterscheidet der Benutzeragent zwischen
 
 ## Transiente Aktivierung
 
-[Transiente Aktivierung](/de/docs/Glossary/Transient_activation) ist ein Fensterzustand, der anzeigt, dass ein Benutzer kürzlich eine Taste gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat. Transiente Aktivierung läuft nach einer Zeitüberschreitung ab (wenn sie nicht durch weitere Interaktion erneuert wird) und kann auch von einigen APIs konsumiert werden (wie [`Window.open()`](/de/docs/Web/API/Window/open)).
+{{Glossary("Transient_activation", "Transiente Aktivierung")}} ist ein Fensterzustand, der anzeigt, dass ein Benutzer kürzlich eine Taste gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat. Transiente Aktivierung läuft nach einer Zeitüberschreitung ab (wenn sie nicht durch weitere Interaktion erneuert wird) und kann auch von einigen APIs konsumiert werden (wie [`Window.open()`](/de/docs/Web/API/Window/open)).
 
 APIs, die transiente Aktivierung erfordern (Liste ist nicht erschöpfend):
 
@@ -69,7 +69,7 @@ APIs, die transiente Aktivierung erfordern (Liste ist nicht erschöpfend):
 
 ## Sticky Aktivierung
 
-[Sticky Aktivierung](/de/docs/Glossary/Sticky_activation) ist ein Fensterzustand, der anzeigt, dass ein Benutzer eine Taste gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat. Sie wird nicht zurückgesetzt, nachdem sie einmal initialisiert wurde (anders als bei transienten Aktivierungen).
+{{Glossary("Sticky_activation", "Sticky Aktivierung")}} ist ein Fensterzustand, der anzeigt, dass ein Benutzer eine Taste gedrückt, die Maus bewegt, ein Menü verwendet oder eine andere Benutzerinteraktion durchgeführt hat. Sie wird nicht zurückgesetzt, nachdem sie einmal initialisiert wurde (anders als bei transienten Aktivierungen).
 
 APIs, die eine sticky Aktivierung erfordern (nicht erschöpfend):
 
@@ -87,7 +87,7 @@ Um programmatisch zu bestimmen, ob ein Fenster eine sticky oder transiente Benut
 
 ## Siehe auch
 
-- [Transiente Aktivierung](/de/docs/Glossary/Transient_activation)
-- [Sticky Aktivierung](/de/docs/Glossary/Sticky_activation)
+- {{Glossary("Transient_activation", "Transiente Aktivierung")}}
+- {{Glossary("Sticky_activation", "Sticky Aktivierung")}}
 - [`UserActivation`](/de/docs/Web/API/UserActivation) API
 - [Features eingeschränkt auf sichere Kontexte](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts)

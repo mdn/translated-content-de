@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`filter()`** Methode von {{jsxref("Array")}} Instanzen erstellt eine [flache Kopie](/de/docs/Glossary/Shallow_copy) eines Teils eines gegebenen Arrays, gefiltert auf die Elemente des Arrays, die den durch die bereitgestellte Funktion implementierten Test bestehen.
+Die **`filter()`** Methode von {{jsxref("Array")}} Instanzen erstellt eine {{Glossary("Shallow_copy", "flache Kopie")}} eines Teils eines gegebenen Arrays, gefiltert auf die Elemente des Arrays, die den durch die bereitgestellte Funktion implementierten Test bestehen.
 
 {{EmbedInteractiveExample("pages/js/array-filter.html", "shorter")}}
 
@@ -21,7 +21,7 @@ filter(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgeben, um das Element im resultierenden Array zu behalten, und einen [falsy](/de/docs/Glossary/Falsy) Wert andernfalls. Die Funktion wird mit folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Array ausgeführt wird. Sie sollte einen {{Glossary("Truthy", "truthy")}} Wert zurückgeben, um das Element im resultierenden Array zu behalten, und einen {{Glossary("Falsy", "falsy")}} Wert andernfalls. Die Funktion wird mit folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das im Array verarbeitet wird.
     - `index`
@@ -33,11 +33,11 @@ filter(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Eine [flache Kopie](/de/docs/Glossary/Shallow_copy) des gegebenen Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn kein Element den Test besteht, wird ein leeres Array zurückgegeben.
+Eine {{Glossary("Shallow_copy", "flache Kopie")}} des gegebenen Arrays, die nur die Elemente enthält, die den Test bestehen. Wenn kein Element den Test besteht, wird ein leeres Array zurückgegeben.
 
 ## Beschreibung
 
-Die `filter()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf und konstruiert ein neues Array mit allen Werten, für die `callbackFn` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt. Array-Elemente, die den `callbackFn` Test nicht bestehen, werden nicht in das neue Array aufgenommen. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
+Die `filter()` Methode ist eine [iterative Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods). Sie ruft eine bereitgestellte `callbackFn` Funktion einmal für jedes Element in einem Array auf und konstruiert ein neues Array mit allen Werten, für die `callbackFn` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. Array-Elemente, die den `callbackFn` Test nicht bestehen, werden nicht in das neue Array aufgenommen. Lesen Sie den Abschnitt über [iterative Methoden](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods) für mehr Informationen darüber, wie diese Methoden im Allgemeinen funktionieren.
 
 `callbackFn` wird nur für Array-Indizes aufgerufen, die zugewiesene Werte haben. Es wird nicht für leere Slots in [spärlichen Arrays](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) aufgerufen.
 

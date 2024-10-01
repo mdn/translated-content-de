@@ -328,7 +328,7 @@ Dies führt zu einem Video, das Untertitel anzeigt, ähnlich wie dieses:
 Für weitere Details siehe [Hinzufügen von Untertiteln zu HTML-Video](/de/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video). Sie finden [das Beispiel](https://iandevlin.github.io/mdn/video-player-with-captions/), das zu diesem Artikel auf GitHub gehört, geschrieben von Ian Devlin (siehe auch [den Quellcode](https://github.com/iandevlin/iandevlin.github.io/tree/master/mdn/video-player-with-captions)). Dieses Beispiel verwendet JavaScript, um Nutzern zu ermöglichen, zwischen verschiedenen Untertiteln zu wählen. Beachten Sie, dass Sie zum Einschalten der Untertitel die "CC"-Taste drücken und eine Option auswählen müssen — Englisch, Deutsch oder Spanisch.
 
 > [!NOTE]
-> Textspuren und Transkripte helfen Ihnen auch bei [SEO](/de/docs/Glossary/SEO), da Suchmaschinen besonders auf Text angewiesen sind. Textspuren erlauben es Suchmaschinen sogar, direkt auf eine Stelle mitten im Video zu verlinken.
+> Textspuren und Transkripte helfen Ihnen auch bei {{Glossary("SEO", "SEO")}}, da Suchmaschinen besonders auf Text angewiesen sind. Textspuren erlauben es Suchmaschinen sogar, direkt auf eine Stelle mitten im Video zu verlinken.
 
 ## Testen Sie Ihr Wissen!
 

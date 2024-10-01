@@ -232,6 +232,6 @@ Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser
 
 ## Siehe auch
 
-- Glossareintrag [Vendor Prefix](/de/docs/Glossary/Vendor_Prefix)
+- Glossareintrag {{Glossary("Vendor_Prefix", "Vendor Prefix")}}
 - [Mozilla vendor-präfizierte CSS-Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
 - [Styling von Formularelementen im WebKit Trac](https://trac.webkit.org/wiki/Styling%20Form%20Controls)

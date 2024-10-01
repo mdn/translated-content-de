@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Header **`Proxy-Authenticate`** definiert die Authentifizierungsmethode, die verwendet werden sollte, um Zugang zu einer Ressource hinter einem [Proxyserver](/de/docs/Glossary/proxy_server) zu erhalten. Er authentifiziert die Anfrage an den Proxyserver und ermöglicht es ihm, die Anfrage weiterzuleiten.
+Der HTTP-Header **`Proxy-Authenticate`** definiert die Authentifizierungsmethode, die verwendet werden sollte, um Zugang zu einer Ressource hinter einem {{Glossary("proxy_server", "Proxyserver")}} zu erhalten. Er authentifiziert die Anfrage an den Proxyserver und ermöglicht es ihm, die Anfrage weiterzuleiten.
 
 Der `Proxy-Authenticate`-Header wird zusammen mit einem {{HTTPStatus("407")}} `Proxy Authentication Required` gesendet.
 
@@ -15,10 +15,10 @@ Der `Proxy-Authenticate`-Header wird zusammen mit einem {{HTTPStatus("407")}} `P
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

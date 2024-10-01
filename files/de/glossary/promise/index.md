@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **{{jsxref("Promise")}}** ist ein [Objekt](/de/docs/Glossary/object), das von einer [Funktion](/de/docs/Glossary/function) zurückgegeben wird, die ihre Arbeit noch nicht abgeschlossen hat. Das Promise stellt buchstäblich ein Versprechen dar, das die Funktion abgibt, dass sie letztendlich ein Ergebnis über das Promise-Objekt zurückgeben wird.
+Ein **{{jsxref("Promise")}}** ist ein {{Glossary("object", "Objekt")}}, das von einer {{Glossary("function", "Funktion")}} zurückgegeben wird, die ihre Arbeit noch nicht abgeschlossen hat. Das Promise stellt buchstäblich ein Versprechen dar, das die Funktion abgibt, dass sie letztendlich ein Ergebnis über das Promise-Objekt zurückgeben wird.
 
-Wenn die aufgerufene Funktion ihre Arbeit [asynchron](/de/docs/Glossary/asynchronous) beendet, wird eine Funktion am Promise-Objekt aufgerufen, die als Auflösungs- (oder Erfüllungs- oder Abschluss-) Handler bezeichnet wird, um den ursprünglichen Aufrufer darüber zu informieren, dass die Aufgabe abgeschlossen ist.
+Wenn die aufgerufene Funktion ihre Arbeit {{Glossary("asynchronous", "asynchron")}} beendet, wird eine Funktion am Promise-Objekt aufgerufen, die als Auflösungs- (oder Erfüllungs- oder Abschluss-) Handler bezeichnet wird, um den ursprünglichen Aufrufer darüber zu informieren, dass die Aufgabe abgeschlossen ist.
 
 ## Siehe auch
 

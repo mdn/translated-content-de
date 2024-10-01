@@ -9,7 +9,7 @@ l10n:
 
 Einer der Gründe, warum Flexbox so nützlich ist, besteht darin, dass es eine korrekte Ausrichtung ermöglicht, einschließlich einer schnellen Methode, um Elemente vertikal zu zentrieren. In diesem Leitfaden werden wir uns gründlich ansehen, wie die Ausrichtungs- und Rechtfertigungseigenschaften in Flexbox funktionieren.
 
-Flexbox bietet mehrere Eigenschaften zur Steuerung der Ausrichtung und Abstände, wobei `align-items` und `justify-content` grundlegend für die Zentrierung von Elementen sind. Um ein Element zu zentrieren, verwenden wir die {{cssxref("align-items")}}-Eigenschaft, um das Element auf der [Querachse](/de/docs/Glossary/cross_axis) auszurichten, die in diesem Fall die [Blockachse](/de/docs/Glossary/Flow_relative_values) ist, die vertikal verläuft. Wir verwenden {{cssxref("justify-content")}}, um das Element auf der Hauptachse auszurichten, die in diesem Fall die horizontale Achse ist.
+Flexbox bietet mehrere Eigenschaften zur Steuerung der Ausrichtung und Abstände, wobei `align-items` und `justify-content` grundlegend für die Zentrierung von Elementen sind. Um ein Element zu zentrieren, verwenden wir die {{cssxref("align-items")}}-Eigenschaft, um das Element auf der {{Glossary("cross_axis", "Querachse")}} auszurichten, die in diesem Fall die {{Glossary("Flow_relative_values", "Blockachse")}} ist, die vertikal verläuft. Wir verwenden {{cssxref("justify-content")}}, um das Element auf der Hauptachse auszurichten, die in diesem Fall die horizontale Achse ist.
 
 ![Die Querachse ist die vertikale Achse und die Hauptachse ist die horizontale Achse.](align1.png)
 
@@ -81,7 +81,7 @@ Sie können dies im folgenden Beispiel ausprobieren, das einen Flex-Container mi
 
 ## Inhalte auf der Querachse mit der `align-content`-Eigenschaft ausrichten
 
-Bisher haben wir uns auf die Ausrichtung von Elementen oder eines einzelnen Elements innerhalb des Bereichs eines [flex_container](/de/docs/Glossary/flex_container) konzentriert, der eine einzelne Zeile von Flex-Elementen enthält. Wenn Flex-Elemente über mehrere Zeilen hinweg umgebrochen werden dürfen, kann die {{cssxref("align-content")}}-Eigenschaft verwendet werden, um die Verteilung des Raums zwischen den Zeilen zu steuern, auch bekannt als **Packung von Flex-Linien**.
+Bisher haben wir uns auf die Ausrichtung von Elementen oder eines einzelnen Elements innerhalb des Bereichs eines {{Glossary("flex_container", "flex_container")}} konzentriert, der eine einzelne Zeile von Flex-Elementen enthält. Wenn Flex-Elemente über mehrere Zeilen hinweg umgebrochen werden dürfen, kann die {{cssxref("align-content")}}-Eigenschaft verwendet werden, um die Verteilung des Raums zwischen den Zeilen zu steuern, auch bekannt als **Packung von Flex-Linien**.
 
 Damit `align-content` eine Wirkung hat, muss die Querachsen-Dimension (in diesem Fall die Höhe) des Flex-Containers größer sein als nötig, um die Elemente anzuzeigen. Dann wirken sich die Werte von `align-content` auf die gesamte Menge der Elemente aus. Die `align-content`-Werte bestimmen, was mit dem zusätzlichen verfügbaren Raum geschieht und die Ausrichtung des gesamten Satzes von Elementen innerhalb dieses Raumes.
 

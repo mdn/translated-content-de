@@ -109,7 +109,7 @@ Genau wie das Spreaden für Argumentlisten kann `...` überall im Array-Literal 
 
 #### Kopieren eines Arrays
 
-Sie können die Spread-Syntax verwenden, um eine [flache Kopie](/de/docs/Glossary/shallow_copy) eines Arrays zu erstellen. Jedes Array-Element behält seine Identität ohne Kopie.
+Sie können die Spread-Syntax verwenden, um eine {{Glossary("shallow_copy", "flache Kopie")}} eines Arrays zu erstellen. Jedes Array-Element behält seine Identität ohne Kopie.
 
 ```js
 const arr = [1, 2, 3];
@@ -120,7 +120,7 @@ arr2.push(4);
 // arr remains unaffected
 ```
 
-Die Spread-Syntax geht effektiv eine Ebene tief beim Kopieren eines Arrays. Daher ist sie möglicherweise ungeeignet zum Kopieren von mehrdimensionalen Arrays. Dasselbe gilt für {{jsxref("Object.assign()")}} — keine native Operation in JavaScript macht einen tiefen Klon. Die Web-API-Methode [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) erlaubt das tiefe Kopieren von Werten bestimmter [unterstützter Typen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types). Siehe [flache Kopie](/de/docs/Glossary/shallow_copy) für weitere Details.
+Die Spread-Syntax geht effektiv eine Ebene tief beim Kopieren eines Arrays. Daher ist sie möglicherweise ungeeignet zum Kopieren von mehrdimensionalen Arrays. Dasselbe gilt für {{jsxref("Object.assign()")}} — keine native Operation in JavaScript macht einen tiefen Klon. Die Web-API-Methode [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) erlaubt das tiefe Kopieren von Werten bestimmter [unterstützter Typen](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm#supported_types). Siehe {{Glossary("shallow_copy", "flache Kopie")}} für weitere Details.
 
 ```js example-bad
 const a = [[1], [2], [3]];
@@ -258,7 +258,7 @@ const fruits = {
 
 In diesem Fall ist die `watermelon`-Eigenschaft immer vorhanden und wird von Methoden wie {{jsxref("Object.keys()")}} besucht.
 
-Da Primitives auch in Objekte gespreadet werden können und aus der Beobachtung, dass alle [falsy](/de/docs/Glossary/falsy) Werte keine aufzählbaren Eigenschaften haben, können Sie einfach einen [logischen UND-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) verwenden:
+Da Primitives auch in Objekte gespreadet werden können und aus der Beobachtung, dass alle {{Glossary("falsy", "falsy")}} Werte keine aufzählbaren Eigenschaften haben, können Sie einfach einen [logischen UND-Operator](/de/docs/Web/JavaScript/Reference/Operators/Logical_AND) verwenden:
 
 ```js
 const isSummer = false;

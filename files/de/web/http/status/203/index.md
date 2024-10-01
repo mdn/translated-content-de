@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`203 Non-Authoritative Information`** ([Erfolgreiche Antwort](/de/docs/Web/HTTP/Status#successful_responses)) zeigt an, dass die Anfrage erfolgreich war, aber ein _transformierender [Proxy](/de/docs/Glossary/Proxy_server)_ die Header oder den eingeschlossenen Inhalt der {{HTTPStatus("200")}} (`OK`)-Antwort des Ursprungsservers geändert hat.
+Der HTTP-Statuscode **`203 Non-Authoritative Information`** ([Erfolgreiche Antwort](/de/docs/Web/HTTP/Status#successful_responses)) zeigt an, dass die Anfrage erfolgreich war, aber ein _transformierender {{Glossary("Proxy_server", "Proxy")}}_ die Header oder den eingeschlossenen Inhalt der {{HTTPStatus("200")}} (`OK`)-Antwort des Ursprungsservers geändert hat.
 
 Der Zweck dieses Statuscodes ist es, transformierenden Proxies die Möglichkeit zu geben, Clients zu benachrichtigen, wenn Änderungen an erfolgreichen Antworten vorgenommen wurden, da dies Entscheidungen bezüglich des Inhalts während nachfolgender Schritte beeinflussen kann. Transformationen von Nachrichten können Modifikationen von Headern bedeuten, um anzuzeigen, dass eine Ressource von einem Spiegelserver oder einem Backup stammt, können jedoch auch Änderungen am Inhalt umfassen, die für den Client wünschenswert sind. Diese Modifikationen könnten Malware-Filterung, Format-Transkodierung, Datenschutzfilterung oder andere Hinweise an den Client über zukünftige Anfragen beinhalten.
 
@@ -52,7 +52,7 @@ Content-Length: 123
 ## Siehe auch
 
 - {{HTTPStatus("200")}}
-- [Proxy-Server](/de/docs/Glossary/Proxy_server)
+- {{Glossary("Proxy_server", "Proxy-Server")}}
 - {{HTTPHeader("Warning")}}
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)

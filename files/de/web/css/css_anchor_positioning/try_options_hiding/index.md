@@ -265,7 +265,7 @@ Der `--try-fallback-name` ist ein vom Entwickler definierter Name für die Posit
 Die `descriptor-list` definiert die Eigenschaftswerte für die individuelle benutzerdefinierte Try Fallback Option, einschließlich der Art, wie das positionierte Element platziert und dimensioniert werden sollte und eventueller Ränder. Die begrenzte Liste der zugelassenen Eigenschaftsbeschreibungen umfasst:
 
 - {{cssxref("position-area")}}
-- [Inset-Eigenschaften](/de/docs/Glossary/Inset_properties)
+- {{Glossary("Inset_properties", "Inset-Eigenschaften")}}
 - Randeigenschaften (z.B. {{cssxref("margin-left")}}, {{cssxref("margin-block-start")}})
 - [Selbstausrichtung](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center) Eigenschaften
 - Dimensionierungseigenschaften ({{cssxref("width")}}, {{cssxref("block-size")}}, etc.)

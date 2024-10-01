@@ -48,7 +48,7 @@ Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das das erste C
 
 - `expires`
 
-  - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 
 - `name`
 
@@ -83,7 +83,7 @@ Ein {{jsxref("Promise")}}, das mit einem Objekt aufgelöst wird, das das erste C
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} werden kann.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn:
     - Der `options`-Parameter ein leeres Objekt ist.

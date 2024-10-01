@@ -67,7 +67,7 @@ Das `step`-Attribut ist eine Zahl, die die Feinheit angibt, der der Wert entspre
 Ein String-Wert von `any` bedeutet, dass kein Inkremieren impliziert ist und jeder Wert erlaubt ist (außer es gibt andere Einschränkungen, wie [`min`](#min) und [`max`](#max)).
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Inkremierungskonfiguration entsprechen, kann der [User-Agent](/de/docs/Glossary/user_agent) auf den nächstgültigen Wert runden und dabei Zahlen in positiver Richtung bevorzugen, wenn es zwei gleich nah liegende Optionen gibt.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Inkremierungskonfiguration entsprechen, kann der {{Glossary("user_agent", "User-Agent")}} auf den nächstgültigen Wert runden und dabei Zahlen in positiver Richtung bevorzugen, wenn es zwei gleich nah liegende Optionen gibt.
 
 Für `datetime-local`-Eingaben wird der Wert von `step` in Sekunden angegeben, mit einem Skalierungsfaktor von 1000 (da der zugrunde liegende numerische Wert in Millisekunden ist). Der Standardwert von `step` ist 60, was 60 Sekunden entspricht (oder 1 Minute, oder 60.000 Millisekunden).
 

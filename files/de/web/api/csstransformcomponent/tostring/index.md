@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSS Typed OM")}}
 
-Die **`toString()`** Methode der [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) Schnittstelle ist ein [Stringifier](/de/docs/Glossary/stringifier), der eine [CSS-Transformationsfunktion](/de/docs/Web/CSS/CSS_transforms) zurückgibt.
+Die **`toString()`** Methode der [`CSSTransformComponent`](/de/docs/Web/API/CSSTransformComponent) Schnittstelle ist ein {{Glossary("stringifier", "Stringifier")}}, der eine [CSS-Transformationsfunktion](/de/docs/Web/CSS/CSS_transforms) zurückgibt.
 
 ## Syntax
 

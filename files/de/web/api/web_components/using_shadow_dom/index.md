@@ -96,7 +96,7 @@ Das Ergebnis sieht folgendermaßen aus:
 
 ### Deklarativ mit HTML
 
-Die Erstellung eines Shadow DOM über die JavaScript-API könnte eine gute Option für clientseitig gerenderte Anwendungen sein. Für andere Anwendungen könnte eine serverseitig gerenderte Benutzeroberfläche eine bessere Leistung und damit ein besseres Benutzererlebnis bieten. In solchen Fällen können Sie das {{htmlelement("template")}}-Element verwenden, um das Shadow DOM deklarativ zu definieren. Der Schlüssel zu diesem Verhalten ist das [aufgezählte](/de/docs/Glossary/enumerated) `shadowrootmode`-Attribut, das auf `open` oder `closed` gesetzt werden kann, dieselben Werte wie die `mode`-Option der [`attachShadow()`](/de/docs/Web/API/Element/attachShadow)-Methode.
+Die Erstellung eines Shadow DOM über die JavaScript-API könnte eine gute Option für clientseitig gerenderte Anwendungen sein. Für andere Anwendungen könnte eine serverseitig gerenderte Benutzeroberfläche eine bessere Leistung und damit ein besseres Benutzererlebnis bieten. In solchen Fällen können Sie das {{htmlelement("template")}}-Element verwenden, um das Shadow DOM deklarativ zu definieren. Der Schlüssel zu diesem Verhalten ist das {{Glossary("enumerated", "aufgezählte")}} `shadowrootmode`-Attribut, das auf `open` oder `closed` gesetzt werden kann, dieselben Werte wie die `mode`-Option der [`attachShadow()`](/de/docs/Web/API/Element/attachShadow)-Methode.
 
 ```html
 <div id="host">
@@ -111,7 +111,7 @@ Die Erstellung eines Shadow DOM über die JavaScript-API könnte eine gute Optio
 > [!NOTE]
 > Standardmäßig werden die Inhalte von `<template>` nicht angezeigt. In diesem Fall wird, da `shadowrootmode="open"` enthalten war, die Shadow-Root gerendert. In unterstützenden Browsern werden die sichtbaren Inhalte innerhalb dieser Shadow-Root angezeigt.
 
-Nachdem der Browser das HTML analysiert hat, ersetzt er das {{htmlelement("template")}}-Element mit seinem Inhalt, der in einer [shadow root](/de/docs/Glossary/Shadow_tree) verpackt ist, die an das übergeordnete Element angefügt ist, das `<div id="host">` in unserem Beispiel. Der resultierende DOM-Baum sieht so aus (es gibt kein `<template>`-Element im DOM-Baum):
+Nachdem der Browser das HTML analysiert hat, ersetzt er das {{htmlelement("template")}}-Element mit seinem Inhalt, der in einer {{Glossary("Shadow_tree", "shadow root")}} verpackt ist, die an das übergeordnete Element angefügt ist, das `<div id="host">` in unserem Beispiel. Der resultierende DOM-Baum sieht so aus (es gibt kein `<template>`-Element im DOM-Baum):
 
 ```plain
 - DIV id="host"

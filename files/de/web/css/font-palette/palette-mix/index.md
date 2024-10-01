@@ -124,4 +124,4 @@ Die Ausgabe sieht wie folgt aus:
 - {{cssxref("@font-palette-values", "@font-palette-values")}}
 - {{cssxref("color_value/color-mix", "color-mix()")}}
 - [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values) Leitfaden
-- [Farbraum](/de/docs/Glossary/Color_space)
+- {{Glossary("Color_space", "Farbraum")}}

@@ -11,7 +11,7 @@ Begrenzen Sie den Zugriff auf Cookies so weit wie möglich.
 
 ## Problem
 
-Cookies enthalten häufig Sitzungskennungen oder andere sensible Informationen. Unbefugter Zugriff auf Cookies kann daher eine Reihe von Problemen verursachen, einschließlich [Datenschutz](/de/docs/Web/Privacy)-Problemen, ([Cross-site Scripting (XSS)](/de/docs/Glossary/Cross-site_scripting)) Angriffe, Cross-Site-Request-Forgery ([CSRF](/de/docs/Glossary/CSRF)) Angriffe und mehr.
+Cookies enthalten häufig Sitzungskennungen oder andere sensible Informationen. Unbefugter Zugriff auf Cookies kann daher eine Reihe von Problemen verursachen, einschließlich [Datenschutz](/de/docs/Web/Privacy)-Problemen, ({{Glossary("Cross-site_scripting", "Cross-site Scripting (XSS)")}}) Angriffe, Cross-Site-Request-Forgery ({{Glossary("CSRF", "CSRF")}}) Angriffe und mehr.
 
 ## Lösung
 
@@ -20,7 +20,7 @@ Um die Anfälligkeiten von Cookies auf Ihrer Website zu minimieren, begrenzen Si
 - `Name`
   - : Cookienamen sollten entweder mit `__Secure-` oder `__Host-` versehen werden, um zu verhindern, dass Cookies von unsicheren Quellen überschrieben werden.
     - Verwenden Sie `__Host-` für alle Cookies, die nur auf einer bestimmten Domain (keine Unterdomänen) benötigt werden, wobei `Path` auf `/` gesetzt ist.
-    - Verwenden Sie `__Secure-` für alle anderen Cookies, die von sicheren Ursprüngen ([HTTPS](/de/docs/Glossary/HTTPS)) gesendet werden.
+    - Verwenden Sie `__Secure-` für alle anderen Cookies, die von sicheren Ursprüngen ({{Glossary("HTTPS", "HTTPS")}}) gesendet werden.
 - `Secure`
   - : Alle Cookies müssen mit der `Secure`-Direktive gesetzt sein, was anzeigt, dass sie nur über HTTPS gesendet werden sollten. [HTTP Strict Transport Security](/de/docs/Web/Security/Practical_implementation_guides/TLS#http_strict_transport_security_implementation) (HSTS) kann auch verwendet werden, um die Übertragung über HTTP zu verhindern, aber idealerweise sollte auch `Secure` bei Cookies gesetzt werden.
 - `HttpOnly`
@@ -41,7 +41,7 @@ Um die Anfälligkeiten von Cookies auf Ihrer Website zu minimieren, begrenzen Si
     - `SameSite=Strict`: Sendet das Cookie nur in gleichseitigen Kontexten (Navigationen und andere Anfragen). Cookies werden in gleicher Herkunft (z.B. wenn `a.example.com` zu `b.example.com` navigiert wird), Cross-Site-Anfragen (z.B. Hotlinking) und bei Cross-Site-Navigation (z.B. wenn ein Link von einer anderen Webseite verfolgt wird) ausgeschlossen. Dies ist eine sehr strikte Einstellung, bietet jedoch einen starken [CSRF](/de/docs/Web/Security/Practical_implementation_guides/CSRF_prevention) Schutz, also verwenden Sie diesen Wert, wenn möglich.
     - `SameSite=Lax`: Sendet das Cookie in gleichseitigen Anfragen und bei der Navigation _zu_ Ihrer Website. Dies sollte verwendet werden, wenn `Strict` zu restriktiv ist.
 
-    Beide oben genannten Werte sind nützlich, um [Clickjacking](/de/docs/Glossary/Clickjacking) Angriffe abzuwehren, in Fällen, die davon abhängen, dass der Benutzer authentifiziert ist.
+    Beide oben genannten Werte sind nützlich, um {{Glossary("Clickjacking", "Clickjacking")}} Angriffe abzuwehren, in Fällen, die davon abhängen, dass der Benutzer authentifiziert ist.
 
     > [!NOTE]
     > Theoretisch sollte `SameSite=Strict` nützlicher sein, als es in der Praxis ist. Es bricht oft Navigationen – zum Beispiel, wenn Benutzer auf einen Link zu einer Website klicken, auf der sie bereits angemeldet sind (d.h. ein gültiges Sitzungscookie ist gesetzt), erscheinen sie als nicht angemeldet, da der Browser das Sitzungscookie absichtlich weggelassen hat. Der beste Mittelweg ist, `SameSite=Strict` nur bei Tokens zu verwenden, wo CSRF ein Anliegen ist oder `SameSite=Strict` überall zu verwenden, aber die Seite neu zu laden und einen Cookie-Check in JavaScript durchzuführen, wenn ein Hinweis darauf besteht, dass der Benutzer angemeldet ist, aber die erforderlichen Cookies nicht gesendet werden.

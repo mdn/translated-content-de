@@ -43,7 +43,7 @@ Einige Beispiele werden nicht funktionieren, wenn Sie sie als lokale Dateien öf
 - **Sie enthalten asynchrone Anfragen**. Einige Browser (einschließlich Chrome) werden asynchrone Anfragen nicht ausführen (siehe [Datenabruf vom Server](/de/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)), wenn Sie das Beispiel einfach von einer lokalen Datei ausführen. Dies liegt an Sicherheitsbeschränkungen (weitere Informationen zur Websicherheit finden Sie unter [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security)).
 - **Sie verwenden eine serverseitige Sprache**. Serverseitige Sprachen (wie PHP oder Python) erfordern einen speziellen Server, um den Code zu interpretieren und die Ergebnisse zu liefern.
 - **Sie beinhalten andere Dateien**. Browser behandeln Anfragen zum Laden von Ressourcen mit dem `file://`-Schema häufig als Cross-Origin-Anfragen.
-  Wenn Sie also eine lokale Datei laden, die andere lokale Dateien einschließt, kann dies einen [CORS](/de/docs/Glossary/CORS)-Fehler auslösen.
+  Wenn Sie also eine lokale Datei laden, die andere lokale Dateien einschließt, kann dies einen {{Glossary("CORS", "CORS")}}-Fehler auslösen.
 
 ## Ausführen eines einfachen lokalen HTTP-Servers
 

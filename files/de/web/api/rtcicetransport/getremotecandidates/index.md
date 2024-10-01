@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getRemoteCandidates()`**-Methode des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Interfaces gibt ein Array zurück, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) für jeden Kandidaten enthält, der während der aktuellen [ICE](/de/docs/Glossary/ICE)-Erfassungssitzung bisher vom entfernten Peers empfangen wurde.
+Die **`getRemoteCandidates()`**-Methode des [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Interfaces gibt ein Array zurück, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) für jeden Kandidaten enthält, der während der aktuellen {{Glossary("ICE", "ICE")}}-Erfassungssitzung bisher vom entfernten Peers empfangen wurde.
 
 Jedes Mal, wenn Ihr Signalisierungscode [`RTCPeerConnection.addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate) aufruft, um einen empfangenen Kandidaten zur ICE-Sitzung hinzuzufügen, platziert der ICE-Agent ihn in der Liste, die von dieser Funktion zurückgegeben wird.
 

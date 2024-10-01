@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In [JavaScript](/de/docs/Glossary/JavaScript) ist **BigInt** ein numerischer Datentyp, der Ganzzahlen im [Arbitrary Precision Format](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) darstellen kann. In anderen Programmiersprachen können verschiedene numerische Typen existieren, zum Beispiel: Integers, Floats, Doubles oder Bignums.
+In {{Glossary("JavaScript", "JavaScript")}} ist **BigInt** ein numerischer Datentyp, der Ganzzahlen im [Arbitrary Precision Format](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) darstellen kann. In anderen Programmiersprachen können verschiedene numerische Typen existieren, zum Beispiel: Integers, Floats, Doubles oder Bignums.
 
 ## Siehe auch
 

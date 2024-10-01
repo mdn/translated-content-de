@@ -8,7 +8,7 @@ l10n:
 
 {{deprecated_header}}{{APIRef("UI Events")}}{{Non-standard_header}}
 
-Die **`locale`**-Eigenschaft der [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das Gebietsschema der aktuellen Eingabemethode zurückgibt (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem [IME](/de/docs/Glossary/IME) verbunden ist).
+Die **`locale`**-Eigenschaft der [`CompositionEvent`](/de/docs/Web/API/CompositionEvent)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die das Gebietsschema der aktuellen Eingabemethode zurückgibt (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem {{Glossary("IME", "IME")}} verbunden ist).
 
 > [!WARNING]
 > Selbst für Browser, die es unterstützen, sollten Sie den Wert, der in dieser Eigenschaft enthalten ist, nicht vertrauen.

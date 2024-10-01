@@ -136,7 +136,7 @@ In diesem Fall erfolgt die Interaktion, und der Browser speichert die Quelldaten
 > Beim Einrichten eines [`click`](/de/docs/Web/API/Element/click_event)-Ereignisses wie im obigen Beispiel ist es ratsam, es auf einem Steuerelement zu setzen, bei dem ein Klick erwartet wird, wie ein {{htmlelement("button")}} oder {{htmlelement("a")}}-Element. Dies macht semantisch mehr Sinn und ist zugänglicher für sowohl Screenreader- als auch Tastaturnutzer.
 
 > [!NOTE]
-> Um eine Attribution-Quelle über `open()` zu registrieren, muss diese mit [transient activation](/de/docs/Glossary/Transient_activation) aufgerufen werden (d. h. innerhalb eines Benutzerinteraktions-Event-Handlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion.
+> Um eine Attribution-Quelle über `open()` zu registrieren, muss diese mit {{Glossary("Transient_activation", "transient activation")}} aufgerufen werden (d. h. innerhalb eines Benutzerinteraktions-Event-Handlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion.
 
 ## Ereignisbasierte Attributionsquellen
 

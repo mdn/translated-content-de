@@ -37,7 +37,7 @@ Es gibt fünf verschiedene Arten von Operationen, die `NaN` zurückgeben:
 - Wenn `NaN` einer der Operanden eines relationalen Vergleichs (`>`, `<`, `>=`, `<=`) ist, ist das Ergebnis immer `false`.
 - `NaN` wird bei Vergleichen (mit [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality), [`!=`](/de/docs/Web/JavaScript/Reference/Operators/Inequality), [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality), und [`!==`](/de/docs/Web/JavaScript/Reference/Operators/Strict_inequality)) zu jedem anderen Wert ungleich bewertet — einschließlich einem anderen `NaN` Wert.
 
-`NaN` ist auch einer der [falsy](/de/docs/Glossary/Falsy) Werte in JavaScript.
+`NaN` ist auch einer der {{Glossary("Falsy", "falsy")}} Werte in JavaScript.
 
 ## Beispiele
 

@@ -9,7 +9,7 @@ l10n:
 {{APIRef("Media Capture and Streams")}}
 
 Die **`aspectRatio`**-Eigenschaft des [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuchs ist ein schreibgeschützter Boolean-Wert, der im Objekt zurückgegeben wird von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) enthalten ist (und auf `true` gesetzt ist), wenn und nur wenn der
-[User-Agent](/de/docs/Glossary/user_agent) die `aspectRatio`-Beschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
+{{Glossary("user_agent", "User-Agent")}} die `aspectRatio`-Beschränkung unterstützt. Wenn die Einschränkung nicht unterstützt wird, ist sie nicht in der Liste enthalten, sodass dieser Wert niemals `false` sein wird.
 
 Sie können auf das unterstützte Einschränkungen-Wörterbuch zugreifen, indem Sie `navigator.mediaDevices.getSupportedConstraints()` aufrufen.
 

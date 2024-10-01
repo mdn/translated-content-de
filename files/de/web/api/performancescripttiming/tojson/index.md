@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie liefert eine JSON-Darstellung des `PerformanceScriptTiming`-Objekts.
+Die **`toJSON()`**-Methode der [`PerformanceScriptTiming`](/de/docs/Web/API/PerformanceScriptTiming)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie liefert eine JSON-Darstellung des `PerformanceScriptTiming`-Objekts.
 
 ## Syntax
 

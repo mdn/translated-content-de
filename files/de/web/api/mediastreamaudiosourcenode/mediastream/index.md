@@ -16,7 +16,7 @@ Dieser Stream wurde angegeben, als der Knoten zuerst erstellt wurde, entweder mi
 
 Ein [`MediaStream`](/de/docs/Web/API/MediaStream), der den Stream darstellt, der den [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) enthält, der als Audioquelle für den Knoten dient.
 
-Der [User-Agent](/de/docs/Glossary/user_agent) verwendet den ersten Audiokanal, den er im angegebenen Stream findet, als Audioquelle für diesen Knoten. Es gibt jedoch keine Möglichkeit, sicherzustellen, welcher Kanal dies bei Streams mit mehreren Kanälen sein wird. Wenn der spezifische Kanal für Sie wichtig ist oder Sie Zugriff auf den Kanal selbst benötigen, sollten Sie stattdessen einen [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) verwenden.
+Der {{Glossary("user_agent", "User-Agent")}} verwendet den ersten Audiokanal, den er im angegebenen Stream findet, als Audioquelle für diesen Knoten. Es gibt jedoch keine Möglichkeit, sicherzustellen, welcher Kanal dies bei Streams mit mehreren Kanälen sein wird. Wenn der spezifische Kanal für Sie wichtig ist oder Sie Zugriff auf den Kanal selbst benötigen, sollten Sie stattdessen einen [`MediaStreamTrackAudioSourceNode`](/de/docs/Web/API/MediaStreamTrackAudioSourceNode) verwenden.
 
 ## Beispiele
 

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`font-variant`** Attribut gibt an, ob der Text mit Variationen der [Glyphen](/de/docs/Glossary/glyph) der Schriftart gerendert werden soll.
+Das **`font-variant`** Attribut gibt an, ob der Text mit Variationen der {{Glossary("glyph", "Glyphen")}} der Schriftart gerendert werden soll.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `font-variant` als CSS-Eigenschaft verwendet werden. Weitere Informationen finden Sie in der CSS-Eigenschaft {{cssxref("font-variant")}}.

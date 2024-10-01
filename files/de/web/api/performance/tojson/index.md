@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`** Methode des [`Performance`](/de/docs/Web/API/Performance) Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`Performance`](/de/docs/Web/API/Performance) Objekts zurück.
+Die **`toJSON()`** Methode des [`Performance`](/de/docs/Web/API/Performance) Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`Performance`](/de/docs/Web/API/Performance) Objekts zurück.
 
 ## Syntax
 

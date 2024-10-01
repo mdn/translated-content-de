@@ -58,54 +58,54 @@ Das MDN [Web-Performance-Lernbereich](/de/docs/Learn/Performance) enthält moder
 
 ## Glossarbegriffe
 
-- [Beacon](/de/docs/Glossary/Beacon)
-- [Brotli-Komprimierung](/de/docs/Glossary/Brotli_compression)
+- {{Glossary("Beacon", "Beacon")}}
+- {{Glossary("Brotli_compression", "Brotli-Komprimierung")}}
 - [Client Hints](/de/docs/Web/HTTP/Client_hints)
-- [Code Splitting](/de/docs/Glossary/Code_splitting)
-- [CSSOM](/de/docs/Glossary/CSSOM)
-- [Domain Sharding](/de/docs/Glossary/Domain_sharding)
-- [Effektiver Verbindungstyp](/de/docs/Glossary/Effective_connection_type)
-- [First Contentful Paint](/de/docs/Glossary/First_contentful_paint)
-- [First CPU Idle](/de/docs/Glossary/First_CPU_idle)
-- [First Input Delay](/de/docs/Glossary/First_input_delay)
-- [First Meaningful Paint](/de/docs/Glossary/First_meaningful_paint)
-- [First Paint](/de/docs/Glossary/First_paint)
-- [HTTP](/de/docs/Glossary/HTTP)
-- [HTTP/2](/de/docs/Glossary/HTTP_2)
-- [Jank](/de/docs/Glossary/Jank)
-- [Latenz](/de/docs/Glossary/Latency)
-- [Lazy Load](/de/docs/Glossary/Lazy_load)
-- [Lang Aufgabe](/de/docs/Glossary/Long_task)
-- [Lossless Compression](/de/docs/Glossary/Lossless_compression)
-- [Lossy Compression](/de/docs/Glossary/Lossy_compression)
-- [Hauptthread](/de/docs/Glossary/Main_thread)
-- [Minification](/de/docs/Glossary/Minification)
-- [Netzwerk-Drosselung](/de/docs/Glossary/Network_throttling)
-- [Paket](/de/docs/Glossary/Packet)
-- [Ladezeit der Seite](/de/docs/Glossary/Page_load_time)
-- [Page Prediction](/de/docs/Glossary/Page_prediction)
-- [Parsen](/de/docs/Glossary/Parse)
-- [Wahrgenommene Leistung](/de/docs/Glossary/Perceived_performance)
-- [Prefetch](/de/docs/Glossary/Prefetch)
-- [Prerendern](/de/docs/Glossary/Prerender)
-- [QUIC](/de/docs/Glossary/QUIC)
-- [RAIL](/de/docs/Glossary/RAIL)
-- [Real User Monitoring](/de/docs/Glossary/Real_User_Monitoring)
-- [Resource Timing](/de/docs/Glossary/Resource_Timing)
-- [Round Trip Time (RTT)](/de/docs/Glossary/Round_Trip_Time)
-- [Server Timing](/de/docs/Glossary/Server_Timing)
-- [Speculative Parsing](/de/docs/Glossary/Speculative_parsing)
-- [Speed Index](/de/docs/Glossary/Speed_index)
-- [SSL](/de/docs/Glossary/SSL)
-- [Synthetische Überwachung](/de/docs/Glossary/Synthetic_monitoring)
-- [TCP-Handschlag](/de/docs/Glossary/TCP_handshake)
-- [Langsamer Start bei TCP](/de/docs/Glossary/TCP_slow_start)
-- [Time to First Byte](/de/docs/Glossary/Time_to_first_byte)
-- [Time to Interactive](/de/docs/Glossary/Time_to_interactive)
-- [TLS](/de/docs/Glossary/TLS)
-- [Transmission Control Protocol (TCP)](/de/docs/Glossary/TCP)
-- [Tree Shaking](/de/docs/Glossary/Tree_shaking)
-- [Web-Performance](/de/docs/Glossary/Web_performance)
+- {{Glossary("Code_splitting", "Code Splitting")}}
+- {{Glossary("CSSOM", "CSSOM")}}
+- {{Glossary("Domain_sharding", "Domain Sharding")}}
+- {{Glossary("Effective_connection_type", "Effektiver Verbindungstyp")}}
+- {{Glossary("First_contentful_paint", "First Contentful Paint")}}
+- {{Glossary("First_CPU_idle", "First CPU Idle")}}
+- {{Glossary("First_input_delay", "First Input Delay")}}
+- {{Glossary("First_meaningful_paint", "First Meaningful Paint")}}
+- {{Glossary("First_paint", "First Paint")}}
+- {{Glossary("HTTP", "HTTP")}}
+- {{Glossary("HTTP_2", "HTTP/2")}}
+- {{Glossary("Jank", "Jank")}}
+- {{Glossary("Latency", "Latenz")}}
+- {{Glossary("Lazy_load", "Lazy Load")}}
+- {{Glossary("Long_task", "Lang Aufgabe")}}
+- {{Glossary("Lossless_compression", "Lossless Compression")}}
+- {{Glossary("Lossy_compression", "Lossy Compression")}}
+- {{Glossary("Main_thread", "Hauptthread")}}
+- {{Glossary("Minification", "Minification")}}
+- {{Glossary("Network_throttling", "Netzwerk-Drosselung")}}
+- {{Glossary("Packet", "Paket")}}
+- {{Glossary("Page_load_time", "Ladezeit der Seite")}}
+- {{Glossary("Page_prediction", "Page Prediction")}}
+- {{Glossary("Parse", "Parsen")}}
+- {{Glossary("Perceived_performance", "Wahrgenommene Leistung")}}
+- {{Glossary("Prefetch", "Prefetch")}}
+- {{Glossary("Prerender", "Prerendern")}}
+- {{Glossary("QUIC", "QUIC")}}
+- {{Glossary("RAIL", "RAIL")}}
+- {{Glossary("Real_User_Monitoring", "Real User Monitoring")}}
+- {{Glossary("Resource_Timing", "Resource Timing")}}
+- {{Glossary("Round_Trip_Time", "Round Trip Time (RTT)")}}
+- {{Glossary("Server_Timing", "Server Timing")}}
+- {{Glossary("Speculative_parsing", "Speculative Parsing")}}
+- {{Glossary("Speed_index", "Speed Index")}}
+- {{Glossary("SSL", "SSL")}}
+- {{Glossary("Synthetic_monitoring", "Synthetische Überwachung")}}
+- {{Glossary("TCP_handshake", "TCP-Handschlag")}}
+- {{Glossary("TCP_slow_start", "Langsamer Start bei TCP")}}
+- {{Glossary("Time_to_first_byte", "Time to First Byte")}}
+- {{Glossary("Time_to_interactive", "Time to Interactive")}}
+- {{Glossary("TLS", "TLS")}}
+- {{Glossary("TCP", "Transmission Control Protocol (TCP)")}}
+- {{Glossary("Tree_shaking", "Tree Shaking")}}
+- {{Glossary("Web_performance", "Web-Performance")}}
 
 ## Siehe auch
 
@@ -131,7 +131,7 @@ CSS
 JavaScript
 
 - [DOMContentLoaded](/de/docs/Web/API/Document/DOMContentLoaded_event)
-- [Garbage Collection](/de/docs/Glossary/Garbage_collection)
+- {{Glossary("Garbage_collection", "Garbage Collection")}}
 - [requestAnimationFrame](/de/docs/Web/API/Window/requestAnimationFrame)
 
 APIs
@@ -153,7 +153,7 @@ APIs
   - [requestIdleCallback()](/de/docs/Web/API/Window/requestIdleCallback)
 
 - [Beacon API](/de/docs/Web/API/Beacon_API)
-- Resource Hints - [dns-prefetch](/de/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control), [preconnect](/de/docs/Web/HTML/Attributes/rel/preconnect), [prefetch](/de/docs/Glossary/Prefetch) und Prerender
+- Resource Hints - [dns-prefetch](/de/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control), [preconnect](/de/docs/Web/HTML/Attributes/rel/preconnect), {{Glossary("Prefetch", "prefetch")}} und Prerender
 - [FetchEvent.preloadResponse](/de/docs/Web/API/FetchEvent/preloadResponse)
 - [Performance Server Timing API](/de/docs/Web/API/PerformanceServerTiming)
 
@@ -161,7 +161,7 @@ Header
 
 - [Content-encoding](/de/docs/Web/HTTP/Headers/Content-Encoding)
 - HTTP/2
-- [gZip](/de/docs/Glossary/gzip_compression)
+- {{Glossary("gzip_compression", "gZip")}}
 - Client Hints
 
 Werkzeuge

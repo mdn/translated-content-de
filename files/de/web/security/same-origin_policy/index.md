@@ -7,23 +7,23 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Die **Same-Origin-Policy** ist ein kritischer Sicherheitsmechanismus, der einschränkt, wie ein Dokument oder Skript, das von einem [Origin](/de/docs/Glossary/origin) geladen wird, mit einer Ressource von einem anderen Origin interagieren kann.
+Die **Same-Origin-Policy** ist ein kritischer Sicherheitsmechanismus, der einschränkt, wie ein Dokument oder Skript, das von einem {{Glossary("origin", "Origin")}} geladen wird, mit einer Ressource von einem anderen Origin interagieren kann.
 
 Sie hilft, potenziell bösartige Dokumente zu isolieren und reduziert mögliche Angriffsvektoren. Zum Beispiel verhindert sie, dass eine bösartige Website im Internet JavaScript in einem Browser ausführt, um Daten von einem Drittanbieter-Webmail-Dienst (bei dem der Benutzer angemeldet ist) oder einem Unternehmensintranet (das durch fehlende öffentliche IP-Adresse vor direktem Zugriff durch den Angreifer geschützt ist) zu lesen und diese Daten an den Angreifer weiterzuleiten.
 
 ## Definition eines Origin
 
-Zwei URLs haben denselben _Origin_, wenn das [Protokoll](/de/docs/Glossary/protocol), der [Port](/de/docs/Glossary/port) (falls angegeben) und der [Host](/de/docs/Glossary/host) für beide gleich sind. Dies wird auch als "scheme/host/port tuple" oder einfach "tuple" bezeichnet. (Ein "Tuple" ist eine Menge von Elementen, die zusammen ein Ganzes bilden — eine generische Form für Doppel-/Dreifach-/Vierfach-/Fünfach/usw.)
+Zwei URLs haben denselben _Origin_, wenn das {{Glossary("protocol", "Protokoll")}}, der {{Glossary("port", "Port")}} (falls angegeben) und der {{Glossary("host", "Host")}} für beide gleich sind. Dies wird auch als "scheme/host/port tuple" oder einfach "tuple" bezeichnet. (Ein "Tuple" ist eine Menge von Elementen, die zusammen ein Ganzes bilden — eine generische Form für Doppel-/Dreifach-/Vierfach-/Fünfach/usw.)
 
 Die folgende Tabelle gibt Beispiele für Origin-Vergleiche mit der URL `http://store.company.com/dir/page.html`:
 
-| URL                                               | Ergebnis    | Grund                                             |
-| ------------------------------------------------- | ----------- | -------------------------------------------------- |
-| `http://store.company.com/dir2/other.html`        | Gleicher Origin | Nur der Pfad unterscheidet sich                      |
-| `http://store.company.com/dir/inner/another.html` | Gleicher Origin | Nur der Pfad unterscheidet sich                      |
-| `https://store.company.com/page.html`             | Unterschiedlich | Unterschiedliches Protokoll                         |
+| URL                                               | Ergebnis        | Grund                                                        |
+| ------------------------------------------------- | --------------- | ------------------------------------------------------------ |
+| `http://store.company.com/dir2/other.html`        | Gleicher Origin | Nur der Pfad unterscheidet sich                              |
+| `http://store.company.com/dir/inner/another.html` | Gleicher Origin | Nur der Pfad unterscheidet sich                              |
+| `https://store.company.com/page.html`             | Unterschiedlich | Unterschiedliches Protokoll                                  |
 | `http://store.company.com:81/dir/page.html`       | Unterschiedlich | Unterschiedlicher Port (`http://` ist standardmäßig Port 80) |
-| `http://news.company.com/dir/page.html`           | Unterschiedlich | Unterschiedlicher Host                             |
+| `http://news.company.com/dir/page.html`           | Unterschiedlich | Unterschiedlicher Host                                       |
 
 ### Geerbte Origins
 
@@ -35,7 +35,7 @@ Zum Beispiel wird `about:blank` häufig als URL neuer, leerer Popup-Fenster verw
 
 ### File Origins
 
-Moderne Browser behandeln den Origin von Dateien, die mit dem `file:///` Schema geladen werden, normalerweise als _opake Origins_. Dies bedeutet, dass, wenn eine Datei andere Dateien aus demselben Ordner einbezieht, sie nicht als vom selben Origin kommend angenommen werden und [CORS](/de/docs/Glossary/CORS) Fehler auslösen können.
+Moderne Browser behandeln den Origin von Dateien, die mit dem `file:///` Schema geladen werden, normalerweise als _opake Origins_. Dies bedeutet, dass, wenn eine Datei andere Dateien aus demselben Ordner einbezieht, sie nicht als vom selben Origin kommend angenommen werden und {{Glossary("CORS", "CORS")}} Fehler auslösen können.
 
 Beachten Sie, dass die [URL-Spezifikation](https://url.spec.whatwg.org/#origin) angibt, dass der Origin von Dateien implementationsabhängig ist und einige Browser Dateien im selben Verzeichnis oder Unterverzeichnis als gleichwertig behandeln können, obwohl dies [Sicherheitsimplikationen](https://www.mozilla.org/en-US/security/advisories/mfsa2019-21/#CVE-2019-11730) hat.
 
@@ -81,7 +81,7 @@ Hier sind einige Beispiele für Ressourcen, die Cross-Origin eingebettet werden 
 
 ### So erlauben Sie die Cross-Origin-Zugriffe
 
-Verwenden Sie [CORS](/de/docs/Web/HTTP/CORS), um Cross-Origin-Zugriffe zu erlauben. CORS ist ein Teil von [HTTP](/de/docs/Glossary/HTTP), der es Servern ermöglicht, bestimmte Hosts anzugeben, von denen der Browser das Laden von Inhalten erlauben soll.
+Verwenden Sie [CORS](/de/docs/Web/HTTP/CORS), um Cross-Origin-Zugriffe zu erlauben. CORS ist ein Teil von {{Glossary("HTTP", "HTTP")}}, der es Servern ermöglicht, bestimmte Hosts anzugeben, von denen der Browser das Laden von Inhalten erlauben soll.
 
 ### So blockieren Sie die Cross-Origin-Zugriffe
 
@@ -101,24 +101,24 @@ Spezifikation: [HTML Living Standard § Cross-origin objects](https://html.spec.
 
 Der folgende Cross-Origin-Zugriff auf diese `Window`-Eigenschaften ist erlaubt:
 
-| Methoden                           |
-| --------------------------------- |
-| [`window.blur`](/de/docs/Web/API/Window/blur)        |
-| [`window.close`](/de/docs/Web/API/Window/close)       |
-| [`window.focus`](/de/docs/Web/API/Window/focus)       |
+| Methoden                                                    |
+| ----------------------------------------------------------- |
+| [`window.blur`](/de/docs/Web/API/Window/blur)               |
+| [`window.close`](/de/docs/Web/API/Window/close)             |
+| [`window.focus`](/de/docs/Web/API/Window/focus)             |
 | [`window.postMessage`](/de/docs/Web/API/Window/postMessage) |
 
-| Attribute                       |             |
-| ------------------------------ | ----------- |
-| [`window.closed`](/de/docs/Web/API/Window/closed)   | Nur lesen.    |
-| [`window.frames`](/de/docs/Web/API/Window/frames)   | Nur lesen.    |
-| [`window.length`](/de/docs/Web/API/Window/length)   | Nur lesen.    |
+| Attribute                                             |                  |
+| ----------------------------------------------------- | ---------------- |
+| [`window.closed`](/de/docs/Web/API/Window/closed)     | Nur lesen.       |
+| [`window.frames`](/de/docs/Web/API/Window/frames)     | Nur lesen.       |
+| [`window.length`](/de/docs/Web/API/Window/length)     | Nur lesen.       |
 | [`window.location`](/de/docs/Web/API/Window/location) | Lesen/Schreiben. |
-| [`window.opener`](/de/docs/Web/API/Window/opener)   | Nur lesen.    |
-| [`window.parent`](/de/docs/Web/API/Window/parent)   | Nur lesen.    |
-| [`window.self`](/de/docs/Web/API/Window/self)     | Nur lesen.    |
-| [`window.top`](/de/docs/Web/API/Window/top)      | Nur lesen.    |
-| [`window.window`](/de/docs/Web/API/Window/window)   | Nur lesen.    |
+| [`window.opener`](/de/docs/Web/API/Window/opener)     | Nur lesen.       |
+| [`window.parent`](/de/docs/Web/API/Window/parent)     | Nur lesen.       |
+| [`window.self`](/de/docs/Web/API/Window/self)         | Nur lesen.       |
+| [`window.top`](/de/docs/Web/API/Window/top)           | Nur lesen.       |
+| [`window.window`](/de/docs/Web/API/Window/window)     | Nur lesen.       |
 
 Einige Browser erlauben den Zugriff auf mehr Eigenschaften als die oben genannten.
 
@@ -126,12 +126,12 @@ Einige Browser erlauben den Zugriff auf mehr Eigenschaften als die oben genannte
 
 Der folgende Cross-Origin-Zugriff auf `Location`-Eigenschaften ist erlaubt:
 
-| Methoden                         |
-| ------------------------------- |
+| Methoden                                                |
+| ------------------------------------------------------- |
 | [`location.replace`](/de/docs/Web/API/Location/replace) |
 
-| Attribute                   |             |
-| ---------------------------- | ----------- |
+| Attribute                                         |                |
+| ------------------------------------------------- | -------------- |
 | [`location.href`](/de/docs/Web/API/Location/href) | Nur schreiben. |
 
 Einige Browser erlauben den Zugriff auf mehr Eigenschaften als die oben genannten.
@@ -140,7 +140,7 @@ Einige Browser erlauben den Zugriff auf mehr Eigenschaften als die oben genannte
 
 Der Zugriff auf im Browser gespeicherte Daten wie [Webspeicher](/de/docs/Web/API/Web_Storage_API) und [IndexedDB](/de/docs/Web/API/IndexedDB_API) ist nach Origins getrennt. Jeder Origin erhält seinen eigenen separaten Speicher, und JavaScript in einem Origin kann nicht auf den Speicher eines anderen Origins lesen oder schreiben.
 
-[Cookies](/de/docs/Glossary/Cookie) verwenden eine separate Definition von Origins. Eine Seite kann ein Cookie für ihre eigene Domain oder eine übergeordnete Domain setzen, solange die übergeordnete Domain kein öffentlicher Suffix ist. Firefox und Chrome verwenden die [Public Suffix List](https://publicsuffix.org/), um zu bestimmen, ob eine Domain ein öffentlicher Suffix ist. Wenn Sie ein Cookie setzen, können Sie dessen Verfügbarkeit mit den Flags `Domain`, `Path`, `Secure` und `HttpOnly` einschränken. Wenn Sie ein Cookie lesen, können Sie nicht sehen, woher es gesetzt wurde. Selbst wenn Sie nur sichere https-Verbindungen verwenden, kann jedes von Ihnen gesehene Cookie über eine unsichere Verbindung gesetzt worden sein.
+{{Glossary("Cookie", "Cookies")}} verwenden eine separate Definition von Origins. Eine Seite kann ein Cookie für ihre eigene Domain oder eine übergeordnete Domain setzen, solange die übergeordnete Domain kein öffentlicher Suffix ist. Firefox und Chrome verwenden die [Public Suffix List](https://publicsuffix.org/), um zu bestimmen, ob eine Domain ein öffentlicher Suffix ist. Wenn Sie ein Cookie setzen, können Sie dessen Verfügbarkeit mit den Flags `Domain`, `Path`, `Secure` und `HttpOnly` einschränken. Wenn Sie ein Cookie lesen, können Sie nicht sehen, woher es gesetzt wurde. Selbst wenn Sie nur sichere https-Verbindungen verwenden, kann jedes von Ihnen gesehene Cookie über eine unsichere Verbindung gesetzt worden sein.
 
 ## Siehe auch
 

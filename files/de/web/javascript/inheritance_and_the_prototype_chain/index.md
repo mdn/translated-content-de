@@ -98,7 +98,7 @@ console.log(o.d); // 5
 
 ### Vererbung von "Methoden"
 
-JavaScript verfügt nicht über "[Methoden](/de/docs/Glossary/Method)" in der Form, in der klassenbasierte Sprachen sie definieren. In JavaScript kann jede Funktion einem Objekt in Form einer Eigenschaft hinzugefügt werden. Eine geerbte Funktion verhält sich wie jede andere Eigenschaft, einschließlich der Eigenschaftenschattenbildung wie oben gezeigt (in diesem Fall eine Form der _Methodenüberschreibung_).
+JavaScript verfügt nicht über "{{Glossary("Method", "Methoden")}}" in der Form, in der klassenbasierte Sprachen sie definieren. In JavaScript kann jede Funktion einem Objekt in Form einer Eigenschaft hinzugefügt werden. Eine geerbte Funktion verhält sich wie jede andere Eigenschaft, einschließlich der Eigenschaftenschattenbildung wie oben gezeigt (in diesem Fall eine Form der _Methodenüberschreibung_).
 
 Wenn eine geerbte Funktion ausgeführt wird, zeigt der Wert von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) auf das erbende Objekt, nicht auf das Prototyp-Objekt, in dem die Funktion eine eigene Eigenschaft ist.
 

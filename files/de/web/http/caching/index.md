@@ -51,7 +51,7 @@ Cache-Control: no-store, no-cache, max-age=0, must-revalidate, proxy-revalidate
 
 In den letzten Jahren, da HTTPS häufiger geworden ist und die Kommunikation zwischen Client und Server verschlüsselt ist, können Proxy-Caches im Pfad in vielen Fällen nur eine Antwort tunneln und nicht als Cache fungieren. In diesem Szenario besteht also keine Notwendigkeit, sich um veraltete Proxy-Cache-Implementierungen zu sorgen, die die Antwort nicht einmal sehen können.
 
-Andererseits, wenn ein [TLS](/de/docs/Glossary/TLS)-Bridge-Proxy in einer Man-in-the-Middle-Manier alle Kommunikationen entschlüsselt, indem ein Zertifikat von einer von der Organisation verwalteten [CA (Certificate Authority)](/de/docs/Glossary/Certificate_authority) auf dem PC installiert wird, und Zugriffskontrolle usw. durchführt — es ist möglich, den Inhalt der Antwort zu sehen und zu cachen. Da jedoch in den letzten Jahren [CT (Certificate Transparency)](/de/docs/Web/Security/Certificate_Transparency) weit verbreitet ist und einige Browser nur Zertifikate erlauben, die mit einem SCT (Signed Certificate Timestamp) ausgestellt wurden, erfordert diese Methode die Anwendung einer Unternehmensrichtlinie. In einer solchen kontrollierten Umgebung besteht keine Notwendigkeit, sich darüber Sorgen zu machen, dass der Proxy-Cache "veraltet und nicht aktualisiert" ist.
+Andererseits, wenn ein {{Glossary("TLS", "TLS")}}-Bridge-Proxy in einer Man-in-the-Middle-Manier alle Kommunikationen entschlüsselt, indem ein Zertifikat von einer von der Organisation verwalteten {{Glossary("Certificate_authority", "CA (Certificate Authority)")}} auf dem PC installiert wird, und Zugriffskontrolle usw. durchführt — es ist möglich, den Inhalt der Antwort zu sehen und zu cachen. Da jedoch in den letzten Jahren [CT (Certificate Transparency)](/de/docs/Web/Security/Certificate_Transparency) weit verbreitet ist und einige Browser nur Zertifikate erlauben, die mit einem SCT (Signed Certificate Timestamp) ausgestellt wurden, erfordert diese Methode die Anwendung einer Unternehmensrichtlinie. In einer solchen kontrollierten Umgebung besteht keine Notwendigkeit, sich darüber Sorgen zu machen, dass der Proxy-Cache "veraltet und nicht aktualisiert" ist.
 
 #### Verwaltete Caches
 
@@ -67,7 +67,7 @@ Es ist auch möglich, die Standardprotokolle der HTTP-Caching-Spezifikation zugu
 Cache-Control: no-store
 ```
 
-Zum Beispiel verwendet Varnish Cache die VCL (Varnish Configuration Language, eine Art [DSL](/de/docs/Glossary/DSL/Domain_specific_language))-Logik, um die Cache-Speicherung zu handhaben, während Service-Worker in Kombination mit der Cache-API es Ihnen ermöglichen, diese Logik in JavaScript zu erstellen.
+Zum Beispiel verwendet Varnish Cache die VCL (Varnish Configuration Language, eine Art {{Glossary("DSL/Domain_specific_language", "DSL")}})-Logik, um die Cache-Speicherung zu handhaben, während Service-Worker in Kombination mit der Cache-API es Ihnen ermöglichen, diese Logik in JavaScript zu erstellen.
 
 Das bedeutet, wenn ein verwalteter Cache absichtlich eine `no-store`-Direktive ignoriert, gibt es keine Notwendigkeit, ihn als "nicht standardkonform" wahrzunehmen. Was Sie tun sollten, ist, den Gebrauch von Rundum-Headern zu vermeiden und die Dokumentation des von Ihnen verwendeten Managed-Cache-Mechanismus sorgfältig zu lesen, um sicherzustellen, dass Sie den Cache ordnungsgemäß in den von Ihnen gewählten Mechanismen kontrollieren.
 
@@ -100,7 +100,7 @@ Heuristisches Caching ist ein Workaround, der vor der weiten Verbreitung der `Ca
 
 Gespeicherte HTTP-Antworten haben zwei Zustände: **frisch** und **abgestanden**. Der _frische_ Zustand zeigt normalerweise an, dass die Antwort noch gültig ist und wiederverwendet werden kann, während der _abgestandene_ Zustand bedeutet, dass die im Cache gespeicherte Antwort bereits abgelaufen ist.
 
-Das Kriterium zur Bestimmung, wann eine Antwort frisch und wann sie abgestanden ist, ist das **Alter**. In HTTP ist das Alter die Zeit, die seit der Erstellung der Antwort vergangen ist. Dies ist ähnlich wie die [TTL](/de/docs/Glossary/TTL) in anderen Caching-Mechanismen.
+Das Kriterium zur Bestimmung, wann eine Antwort frisch und wann sie abgestanden ist, ist das **Alter**. In HTTP ist das Alter die Zeit, die seit der Erstellung der Antwort vergangen ist. Dies ist ähnlich wie die {{Glossary("TTL", "TTL")}} in anderen Caching-Mechanismen.
 
 Betrachten Sie zum Beispiel die folgende Antwort (604.800 Sekunden sind eine Woche):
 

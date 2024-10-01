@@ -17,12 +17,12 @@ Der **`Sec-CH-UA-Full-Version`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Clie
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anforderungsheader](/de/docs/Glossary/Request_header),
+        {{Glossary("Request_header", "Anforderungsheader")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

@@ -75,8 +75,8 @@ Dieser Abschnitt listet `page-type` Werte für Seiten unter [Web/CSS](/de/docs/W
 
 Dieser Abschnitt listet `page-type` Werte für Seiten unter [Glossar](/de/docs/Glossary). Jede Seite in diesem Teil der Baumstruktur muss einen `page-type` haben, und dessen Wert muss einer der unten aufgeführten sein.
 
-- `glossary-definition`: eine Seite, die einen Begriff definiert, wie [Bézier-Kurve](/de/docs/Glossary/Bezier_curve).
-- `glossary-disambiguation`: eine Seite, die Links zu zwei oder mehr Definitionsseiten für einen mehrdeutigen Begriff bereitstellt, wie [Node](/de/docs/Glossary/Node).
+- `glossary-definition`: eine Seite, die einen Begriff definiert, wie {{Glossary("Bezier_curve", "Bézier-Kurve")}}.
+- `glossary-disambiguation`: eine Seite, die Links zu zwei oder mehr Definitionsseiten für einen mehrdeutigen Begriff bereitstellt, wie {{Glossary("Node", "Node")}}.
 
 ### HTML-Seitentypen
 

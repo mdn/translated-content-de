@@ -9,7 +9,7 @@ l10n:
 
 Die **`inset-inline-end`**-[CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Inline-End-Abstand eines Elements, der je nach Schreibmodus, Richtung und Textausrichtung des Elements auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}}-Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese [Einfüge-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Einfüge-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline-end.html")}}
 

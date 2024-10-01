@@ -29,7 +29,7 @@ const name1 = value1, name2 = value2, /* …, */ nameN = valueN;
 Die `const`-Deklaration ist sehr ähnlich zu {{jsxref("Statements/let", "let")}}:
 
 - `const`-Deklarationen sind sowohl auf Blöcke als auch auf Funktionen eingeschränkt.
-- `const`-Deklarationen können nur nach dem Ort der Deklaration erreicht werden (siehe [temporale Totzone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund werden `const`-Deklarationen allgemein als [nicht gehoben](/de/docs/Glossary/Hoisting) betrachtet.
+- `const`-Deklarationen können nur nach dem Ort der Deklaration erreicht werden (siehe [temporale Totzone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)). Aus diesem Grund werden `const`-Deklarationen allgemein als {{Glossary("Hoisting", "nicht gehoben")}} betrachtet.
 - `const`-Deklarationen erstellen keine Eigenschaften auf {{jsxref("globalThis")}}, wenn sie auf der obersten Ebene eines Skripts deklariert werden.
 - `const`-Deklarationen können nicht durch eine andere Deklaration im gleichen Bereich [neu deklariert](/de/docs/Web/JavaScript/Reference/Statements/let#redeclarations) werden.
 - `const` beginnt [_Deklarationen_, nicht _Anweisungen_](/de/docs/Web/JavaScript/Reference/Statements#difference_between_statements_and_declarations). Das bedeutet, dass Sie keine `const`-Deklaration allein als Blockkörper verwenden können (was sinnvoll ist, da es keine Möglichkeit gibt, auf die Variable zuzugreifen).
@@ -44,11 +44,11 @@ Ein Initialisierer für eine Konstante ist erforderlich. Sie müssen ihren Wert 
 const FOO; // SyntaxError: Missing initializer in const declaration
 ```
 
-Die `const`-Deklaration erstellt eine unveränderliche Referenz auf einen Wert. Das bedeutet _nicht_, dass der gehaltene Wert unveränderlich ist — nur, dass der Variablenbezeichner nicht neu zugewiesen werden kann. Wenn der Inhalt ein Objekt ist, bedeutet dies zum Beispiel, dass der Inhalt des Objekts (z.B. seine Eigenschaften) verändert werden kann. Sie sollten `const`-Deklarationen als "erstellen Sie eine Variable, deren _Identität_ konstant bleibt", nicht "deren _Wert_ konstant bleibt" verstehen — oder "erstellen Sie unveränderliche [Bindungen](/de/docs/Glossary/binding)", nicht "unveränderliche Werte".
+Die `const`-Deklaration erstellt eine unveränderliche Referenz auf einen Wert. Das bedeutet _nicht_, dass der gehaltene Wert unveränderlich ist — nur, dass der Variablenbezeichner nicht neu zugewiesen werden kann. Wenn der Inhalt ein Objekt ist, bedeutet dies zum Beispiel, dass der Inhalt des Objekts (z.B. seine Eigenschaften) verändert werden kann. Sie sollten `const`-Deklarationen als "erstellen Sie eine Variable, deren _Identität_ konstant bleibt", nicht "deren _Wert_ konstant bleibt" verstehen — oder "erstellen Sie unveränderliche {{Glossary("binding", "Bindungen")}}", nicht "unveränderliche Werte".
 
 Viele Stilrichtlinien (einschließlich [MDN's](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript#variable_declarations)) empfehlen die Verwendung von `const` über {{jsxref("Statements/let", "let")}}, wann immer eine Variable in ihrem Bereich nicht neu zugewiesen wird. Dies macht die Absicht klar, dass sich der Typ (oder Wert im Fall eines primitiven Werts) einer Variablen niemals ändern kann. Andere ziehen `let` für nicht-primitives vor, die verändert werden.
 
-Die Liste, die dem `const`-Schlüsselwort folgt, wird als _[Bindungsliste](/de/docs/Glossary/binding)_ bezeichnet und durch Kommas getrennt, wobei die Kommas _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) sind und die `=`-Zeichen _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierer späterer Variablen können sich auf frühere Variablen in der Liste beziehen.
+Die Liste, die dem `const`-Schlüsselwort folgt, wird als _{{Glossary("binding", "Bindungsliste")}}_ bezeichnet und durch Kommas getrennt, wobei die Kommas _keine_ [Kommaoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Comma_operator) sind und die `=`-Zeichen _keine_ [Zuweisungsoperatoren](/de/docs/Web/JavaScript/Reference/Operators/Assignment) sind. Initialisierer späterer Variablen können sich auf frühere Variablen in der Liste beziehen.
 
 ## Beispiele
 

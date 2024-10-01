@@ -35,7 +35,7 @@ Keine bemerkenswerten Änderungen.
 
 - Ein Fehler wurde behoben, bei dem der [Content-Security-Policy](/de/docs/Web/HTTP/CSP) `'strict-dynamic'` Quellenausdruck in `default-src` Direktiven nicht durchgesetzt wurde. Das Verhalten entspricht nun der Spezifikation, bei der `default-src` Direktivwerte als Fallback verwendet werden, wenn `script-src` nicht bereitgestellt wird ([Firefox Bug 1313937](https://bugzil.la/1313937)).
 
-- Der `Range` Header ist jetzt ein [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header), wenn der Wert ein einzelner Bytebereich ist (z.B. `bytes=100-200`). Dies ermöglicht es, den `Range` Header in Cross-Origin-Anfragen zu verwenden, ohne eine Preflight-Anfrage auszulösen, was nützlich ist für das Anfordern von Medien und das Wiederaufnehmen von Downloads ([Firefox Bug 1733981](https://bugzil.la/1733981)).
+- Der `Range` Header ist jetzt ein {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}, wenn der Wert ein einzelner Bytebereich ist (z.B. `bytes=100-200`). Dies ermöglicht es, den `Range` Header in Cross-Origin-Anfragen zu verwenden, ohne eine Preflight-Anfrage auszulösen, was nützlich ist für das Anfordern von Medien und das Wiederaufnehmen von Downloads ([Firefox Bug 1733981](https://bugzil.la/1733981)).
 
 ### APIs
 

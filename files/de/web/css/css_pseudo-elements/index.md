@@ -37,7 +37,7 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enth
 
 ### Begriffe
 
-- [Pseudo-Element](/de/docs/Glossary/Pseudo-element) Glossarbegriff
+- {{Glossary("Pseudo-element", "Pseudo-Element")}} Glossarbegriff
 
 ## Leitfäden
 

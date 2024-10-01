@@ -7,11 +7,11 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`429 Too Many Requests`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Client zu viele Anfragen in einem bestimmten Zeitraum gesendet hat. Dieser Mechanismus, der den Client auffordert, die Anzahl der Anfragen zu reduzieren, wird allgemein als "[Rate Limiting](/de/docs/Glossary/rate_limit)" bezeichnet.
+Der HTTP-Statuscode **`429 Too Many Requests`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Client zu viele Anfragen in einem bestimmten Zeitraum gesendet hat. Dieser Mechanismus, der den Client auffordert, die Anzahl der Anfragen zu reduzieren, wird allgemein als "{{Glossary("rate_limit", "Rate Limiting")}}" bezeichnet.
 
 Ein {{HTTPHeader("Retry-After")}}-Header kann in dieser Antwort enthalten sein, um anzugeben, wie lange der Client warten soll, bevor er die Anfrage erneut stellt.
 
-Implementierungen von Rate Limiting variieren; Beschränkungen können serverweit oder pro Ressource wirksam sein. Typischerweise basieren Rate-Limiting-Beschränkungen auf der IP-Adresse des Clients, können aber auch spezifisch für Benutzer oder autorisierte Anwendungen sein, wenn Anfragen authentifiziert sind oder ein [Cookie](/de/docs/Glossary/cookie) enthalten.
+Implementierungen von Rate Limiting variieren; Beschränkungen können serverweit oder pro Ressource wirksam sein. Typischerweise basieren Rate-Limiting-Beschränkungen auf der IP-Adresse des Clients, können aber auch spezifisch für Benutzer oder autorisierte Anwendungen sein, wenn Anfragen authentifiziert sind oder ein {{Glossary("cookie", "Cookie")}} enthalten.
 
 ## Status
 

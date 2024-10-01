@@ -9,7 +9,7 @@ l10n:
 
 Seit nahezu ihrem Beginn enthält das Web Unterstützung für eine Form der visuellen Medienpräsentation. Ursprünglich waren diese Fähigkeiten begrenzt und wurden organisch erweitert, wobei unterschiedliche Browser eigene Lösungen für die Probleme fanden, die mit der Einbindung von Standbildern und Videodarstellungen im Web verbunden waren. Das moderne Web verfügt über leistungsstarke Funktionen zur Unterstützung der Präsentation und Manipulation von Medien, mit mehreren medienbezogenen APIs, die verschiedene Arten von Inhalten unterstützen. Im Allgemeinen liegt es in der Verantwortung der Ersteller des Browsers, welche Medienformate unterstützt werden, was die Arbeit von Webentwicklern verkomplizieren kann.
 
-Dieser Leitfaden bietet einen Überblick über die Medientypen, [Codecs](/de/docs/Glossary/codec) und Algorithmen, aus denen Medien im Web bestehen können. Er bietet auch Informationen zur Browserunterstützung für verschiedene Kombinationen dieser und Vorschläge zur Priorisierung von Formaten sowie welche Formate sich besonders für bestimmte Inhaltsarten eignen.
+Dieser Leitfaden bietet einen Überblick über die Medientypen, {{Glossary("codec", "Codecs")}} und Algorithmen, aus denen Medien im Web bestehen können. Er bietet auch Informationen zur Browserunterstützung für verschiedene Kombinationen dieser und Vorschläge zur Priorisierung von Formaten sowie welche Formate sich besonders für bestimmte Inhaltsarten eignen.
 
 ## Referenzen
 

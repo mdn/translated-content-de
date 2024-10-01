@@ -9,7 +9,7 @@ l10n:
 
 **Reguläre Ausdrücke** (oder _Regex_) sind Regeln, die bestimmen, welche Zeichenfolgen bei einer Suche auftreten.
 
-Reguläre Ausdrücke sind in verschiedenen Sprachen implementiert, aber die bekannteste Implementierung ist die Perl-Implementierung, die ihr eigenes Ökosystem von Implementierungen hervorgebracht hat, genannt PCRE (_Perl Compatible Regular Expression_). Im Web bietet [JavaScript](/de/docs/Glossary/JavaScript) eine weitere Regex-Implementierung durch das {{jsxref("RegExp")}}-Objekt.
+Reguläre Ausdrücke sind in verschiedenen Sprachen implementiert, aber die bekannteste Implementierung ist die Perl-Implementierung, die ihr eigenes Ökosystem von Implementierungen hervorgebracht hat, genannt PCRE (_Perl Compatible Regular Expression_). Im Web bietet {{Glossary("JavaScript", "JavaScript")}} eine weitere Regex-Implementierung durch das {{jsxref("RegExp")}}-Objekt.
 
 ## Siehe auch
 

@@ -9,7 +9,7 @@ l10n:
 
 SISD ist die Abkürzung für **Single Instruction/Single Data**, was eine [Klassifikation von Computerarchitekturen](https://en.wikipedia.org/wiki/Flynn%27s_taxonomy) darstellt. In der SISD-Architektur führt ein einzelner Prozessor eine Anweisung aus und arbeitet an einem einzelnen Datenpunkt im Speicher.
 
-Siehe auch [SIMD](/de/docs/Glossary/SIMD) für eine parallele Architektur, die es ermöglicht, dass dieselbe Operation an mehreren Datenpunkten ausgeführt wird.
+Siehe auch {{Glossary("SIMD", "SIMD")}} für eine parallele Architektur, die es ermöglicht, dass dieselbe Operation an mehreren Datenpunkten ausgeführt wird.
 
 ## Siehe auch
 

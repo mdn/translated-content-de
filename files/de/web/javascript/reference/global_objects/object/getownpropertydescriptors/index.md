@@ -49,7 +49,7 @@ Eine _Eigenschaftenbeschreibung_ ist ein Datensatz mit einigen der folgenden Att
 
 ### Erstellen einer flachen Kopie
 
-Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene Eigenschaften von einem Quellobjekt zu einem Zielobjekt kopiert, können Sie diese Methode und {{jsxref("Object.create()")}} für eine [flache Kopie](/de/docs/Glossary/Shallow_copy) zwischen zwei unbekannten Objekten verwenden:
+Während die Methode {{jsxref("Object.assign()")}} nur aufzählbare und eigene Eigenschaften von einem Quellobjekt zu einem Zielobjekt kopiert, können Sie diese Methode und {{jsxref("Object.create()")}} für eine {{Glossary("Shallow_copy", "flache Kopie")}} zwischen zwei unbekannten Objekten verwenden:
 
 ```js
 Object.create(

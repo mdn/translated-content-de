@@ -9,13 +9,13 @@ l10n:
 {{APIRef("HTML DOM")}}
 
 Die **`height`**-Eigenschaft des
-[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Höhe an, in der das Bild gezeichnet wird, in [CSS-Pixel](/de/docs/Glossary/CSS_pixel), wenn das Bild auf ein visuelles Medium wie den Bildschirm oder einen Drucker gezeichnet oder gerendert wird; andernfalls ist es die natürliche, für die Pixeldichte korrigierte Höhe des Bildes.
+[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces gibt die Höhe an, in der das Bild gezeichnet wird, in {{Glossary("CSS_pixel", "CSS-Pixel")}}, wenn das Bild auf ein visuelles Medium wie den Bildschirm oder einen Drucker gezeichnet oder gerendert wird; andernfalls ist es die natürliche, für die Pixeldichte korrigierte Höhe des Bildes.
 
 ## Wert
 
 Ein ganzzahliger Wert, der die Höhe des Bildes angibt. Die Maßeinheit, in der die Höhe definiert ist, hängt davon ab, ob das Bild auf ein visuelles Medium gerendert wird oder nicht.
 
-- Wenn das Bild auf ein visuelles Medium wie einen Bildschirm oder Drucker gerendert wird, wird die Höhe in [CSS-Pixel](/de/docs/Glossary/CSS_pixel) angegeben.
+- Wenn das Bild auf ein visuelles Medium wie einen Bildschirm oder Drucker gerendert wird, wird die Höhe in {{Glossary("CSS_pixel", "CSS-Pixel")}} angegeben.
 - Andernfalls wird die Höhe des Bildes mit seiner natürlichen (intrinsischen) Höhe dargestellt, angepasst an die Anzeigedichte, wie durch
   [`naturalHeight`](/de/docs/Web/API/HTMLImageElement/naturalHeight) angezeigt.
 

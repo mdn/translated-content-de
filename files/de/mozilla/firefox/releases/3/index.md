@@ -90,7 +90,7 @@ Wenn Sie ein Entwickler sind, der versucht, alle neuen Funktionen in Firefox 3 z
 - [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules)
   - : Firefox 3 bietet jetzt einen neuen Mechanismus für gemeinsam genutzte Code-Module, der es ermöglicht, Module in JavaScript einfach zu erstellen, die von Erweiterungen und Anwendungen verwendet werden können, ähnlich wie gemeinsam genutzte Bibliotheken.
 - [Die `nsIJSON`-Schnittstelle](/de/docs/nsIJSON)
-  - : Firefox 3 bietet die neue `nsIJSON`-Schnittstelle, die eine leistungsstarke Kodierung und Dekodierung von [JSON](/de/docs/Glossary/JSON)-Zeichenfolgen bietet.
+  - : Firefox 3 bietet die neue `nsIJSON`-Schnittstelle, die eine leistungsstarke Kodierung und Dekodierung von {{Glossary("JSON", "JSON")}}-Zeichenfolgen bietet.
 - Die `nsIParentalControlsService`-Schnittstelle
   - : Firefox 3 unterstützt jetzt das Microsoft Windows Vista Elternkontrollen-Feature und ermöglicht Code, damit zu interagieren.
 - [Verwendung von Inhaltspräferenzen](/de/docs/Using_content_preferences)

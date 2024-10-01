@@ -71,7 +71,7 @@ Jeder Wert kann eine `<length>`, ein `<percentage>` oder `auto` sein.
 - `auto`
   - : Ein Schlüsselwort, das das Maskenbild in den entsprechenden Richtungen skaliert, um sein intrinsisches Verhältnis beizubehalten.
 - `contain`
-  - : Ein Schlüsselwort, das das Bild so groß wie möglich skaliert und das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Bildes beibehält (das Bild wird nicht verzerrt). Das Bild wird innerhalb des Containers _eingepasst_. Das Bild wird automatisch zentriert, es sei denn, es wird durch eine andere Eigenschaft wie {{cssxref("mask-position")}} überschrieben.
+  - : Ein Schlüsselwort, das das Bild so groß wie möglich skaliert und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Bildes beibehält (das Bild wird nicht verzerrt). Das Bild wird innerhalb des Containers _eingepasst_. Das Bild wird automatisch zentriert, es sei denn, es wird durch eine andere Eigenschaft wie {{cssxref("mask-position")}} überschrieben.
 - `cover`
   - : Ein Schlüsselwort, das das Gegenteil von `contain` ist. Das Bild wird so groß wie möglich skaliert und das Seitenverhältnis des Bildes beibehalten (das Bild wird nicht verzerrt). Das Bild "bedeckt" die gesamte Breite oder Höhe des Containers. Wenn das Bild und der Container unterschiedliche Dimensionen haben, wird _das Bild beschnitten_, entweder links/rechts oder oben/unten.
 

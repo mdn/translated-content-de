@@ -69,7 +69,7 @@ Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/
 /[😄-😛]/u.test("😑"); // true
 ```
 
-Selbst wenn das Muster die [Groß-/Kleinschreibung ignoriert](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase), ist die Groß-/Kleinschreibung der beiden Enden eines Bereichs entscheidend dafür, welche Zeichen zum Bereich gehören. Zum Beispiel stimmt das Muster `/[E-F]/i` nur mit `E`, `F`, `e` und `f` überein, während das Muster `/[E-f]/i` mit allen Groß- und Kleinbuchstaben des [ASCII](/de/docs/Glossary/ASCII)-Zeichensatzes (weil es über `E–Z` und `a–f` spannt) übereinstimmt, sowie mit `[`, `\`, `]`, `^`, `_` und `` ` ``.
+Selbst wenn das Muster die [Groß-/Kleinschreibung ignoriert](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/ignoreCase), ist die Groß-/Kleinschreibung der beiden Enden eines Bereichs entscheidend dafür, welche Zeichen zum Bereich gehören. Zum Beispiel stimmt das Muster `/[E-F]/i` nur mit `E`, `F`, `e` und `f` überein, während das Muster `/[E-f]/i` mit allen Groß- und Kleinbuchstaben des {{Glossary("ASCII", "ASCII")}}-Zeichensatzes (weil es über `E–Z` und `a–f` spannt) übereinstimmt, sowie mit `[`, `\`, `]`, `^`, `_` und `` ` ``.
 
 ### Nicht-v-Modus-Zeichenklasse
 

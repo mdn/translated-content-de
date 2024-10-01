@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Objects")}}
 
-Die **`undefined`** globale Eigenschaft repräsentiert den primitiven Wert [`undefined`](/de/docs/Web/JavaScript/Data_structures#undefined_type). Es ist einer der JavaScript [primitiven Typen](/de/docs/Glossary/Primitive).
+Die **`undefined`** globale Eigenschaft repräsentiert den primitiven Wert [`undefined`](/de/docs/Web/JavaScript/Data_structures#undefined_type). Es ist einer der JavaScript {{Glossary("Primitive", "primitiven Typen")}}.
 
 {{EmbedInteractiveExample("pages/js/globalprops-undefined.html")}}
 
@@ -26,7 +26,7 @@ In allen nicht-veralteten Browsern ist `undefined` eine nicht-konfigurierbare, n
 Eine Variable, der kein Wert zugewiesen wurde, hat den Typ `undefined`. Auch eine Methode oder Anweisung gibt `undefined` zurück, wenn die zu evaluierende Variable keinen zugewiesenen Wert hat. Eine Funktion gibt `undefined` zurück, wenn kein Wert {{jsxref("Statements/return", "zurückgegeben")}} wurde.
 
 > [!NOTE]
-> Auch wenn Sie `undefined` als [Bezeichner](/de/docs/Glossary/identifier) (Variablenname) in jedem anderen Scope als dem globalen Scope verwenden können (weil `undefined` kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist), ist dies eine sehr schlechte Idee, die Ihren Code schwer wartbar und schwer debugbar macht.
+> Auch wenn Sie `undefined` als {{Glossary("identifier", "Bezeichner")}} (Variablenname) in jedem anderen Scope als dem globalen Scope verwenden können (weil `undefined` kein [reserviertes Wort](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words) ist), ist dies eine sehr schlechte Idee, die Ihren Code schwer wartbar und schwer debugbar macht.
 >
 > ```js example-bad
 > // TUN SIE DAS NICHT

@@ -24,7 +24,7 @@ assign(url)
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [Ursprung](/de/docs/Glossary/origin) des Skripts, das die Methode aufruft, nicht derselbe [Ursprung](/de/docs/Glossary/Same-origin_policy) der ursprünglich durch das [`Location`](/de/docs/Web/API/Location)-Objekt beschriebenen Seite ist, hauptsächlich wenn das Skript auf einer anderen Domain gehostet wird. Browser drosseln auch Navigationsoperationen und können diesen Fehler werfen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+  - : Wird ausgelöst, wenn der {{Glossary("origin", "Ursprung")}} des Skripts, das die Methode aufruft, nicht derselbe {{Glossary("Same-origin_policy", "Ursprung")}} der ursprünglich durch das [`Location`](/de/docs/Web/API/Location)-Objekt beschriebenen Seite ist, hauptsächlich wenn das Skript auf einer anderen Domain gehostet wird. Browser drosseln auch Navigationsoperationen und können diesen Fehler werfen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der angegebene `url`-Parameter keine gültige URL ist.
 

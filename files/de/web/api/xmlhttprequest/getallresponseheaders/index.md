@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
-Die Methode **`getAllResponseHeaders()`** des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) gibt alle Antwort-Header, getrennt durch [CRLF](/de/docs/Glossary/CRLF), als Zeichenkette zurück oder `null`, wenn keine Antwort empfangen wurde.
+Die Methode **`getAllResponseHeaders()`** des [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) gibt alle Antwort-Header, getrennt durch {{Glossary("CRLF", "CRLF")}}, als Zeichenkette zurück oder `null`, wenn keine Antwort empfangen wurde.
 
 Wenn ein Netzwerkfehler aufgetreten ist, wird eine leere Zeichenkette zurückgegeben.
 
@@ -27,7 +27,7 @@ Keine.
 
 ### Rückgabewert
 
-Eine Zeichenkette, die alle Antwort-Header darstellt (außer denen, deren Feldname `Set-Cookie` ist), getrennt durch [CRLF](/de/docs/Glossary/CRLF), oder `null`, wenn keine Antwort empfangen wurde. Bei einem Netzwerkfehler wird eine leere Zeichenkette zurückgegeben.
+Eine Zeichenkette, die alle Antwort-Header darstellt (außer denen, deren Feldname `Set-Cookie` ist), getrennt durch {{Glossary("CRLF", "CRLF")}}, oder `null`, wenn keine Antwort empfangen wurde. Bei einem Netzwerkfehler wird eine leere Zeichenkette zurückgegeben.
 
 Ein Beispiel dafür, wie eine rohe Header-Zeichenkette aussieht:
 

@@ -54,7 +54,7 @@ Jeder Protokoll-Handler hat drei Eigenschaften, die alle verpflichtend sind:
   - : Ein String, der das Protokoll definiert. Dies muss entweder sein:
 
     - einer der folgenden: "bitcoin", "dat", "dweb", "ftp", "geo", "gopher", "im", "ipfs", "ipns", "irc", "ircs", "magnet", "mailto", "matrix", "mms", "news", "nntp", "sip", "sms", "smsto", "ssb", "ssh", "tel", "urn", "webcal", "wtai", "xmpp".
-    - ein String, der aus einem benutzerdefinierten Namen besteht, der mit "web+" oder "ext+" beginnt. Zum Beispiel: "web+foo" oder "ext+foo". Der benutzerdefinierte Name darf nur aus Kleinbuchstaben im [ASCII](/de/docs/Glossary/ASCII) bestehen. Es wird empfohlen, dass Erweiterungen die Form "ext+" verwenden.
+    - ein String, der aus einem benutzerdefinierten Namen besteht, der mit "web+" oder "ext+" beginnt. Zum Beispiel: "web+foo" oder "ext+foo". Der benutzerdefinierte Name darf nur aus Kleinbuchstaben im {{Glossary("ASCII", "ASCII")}} bestehen. Es wird empfohlen, dass Erweiterungen die Form "ext+" verwenden.
 
 - `name`
   - : Ein String, der den Namen des Protokoll-Handlers darstellt. Dieser wird dem Benutzer angezeigt, wenn er gefragt wird, ob er möchte, dass dieser Handler den Link öffnet.

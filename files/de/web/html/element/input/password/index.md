@@ -9,7 +9,7 @@ l10n:
 
 `<input>`-Elemente vom Typ **`password`** bieten dem Benutzer eine Möglichkeit, ein Passwort sicher einzugeben.
 
-Das Element wird als einzeilige Klartext-Eingabesteuerung dargestellt, in der der Text verschleiert wird, damit er nicht lesbar ist, üblicherweise durch Ersetzen jedes Zeichens durch ein Symbol wie das Sternchen („\*“) oder einen Punkt („•“). Dieses Zeichen variiert je nach [User-Agent](/de/docs/Glossary/user_agent) und Betriebssystem.
+Das Element wird als einzeilige Klartext-Eingabesteuerung dargestellt, in der der Text verschleiert wird, damit er nicht lesbar ist, üblicherweise durch Ersetzen jedes Zeichens durch ein Symbol wie das Sternchen („\*“) oder einen Punkt („•“). Dieses Zeichen variiert je nach {{Glossary("user_agent", "User-Agent")}} und Betriebssystem.
 
 {{EmbedInteractiveExample("pages/tabbed/input-password.html", "tabbed-standard")}}
 
@@ -45,7 +45,7 @@ Die Eingabe schlägt bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Cons
 
 ### pattern
 
-Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und in unserem [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'` -Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als Folge von Unicode-Codepunkten behandelt wird, anstatt als [ASCII](/de/docs/Glossary/ASCII). Es sollten keine Schrägstriche um den Text des Musters angegeben werden.
+Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe erfüllen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und in unserem [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'` -Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als Folge von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Text des Musters angegeben werden.
 
 Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
@@ -58,7 +58,7 @@ Die Verwendung eines Musters für Passworteingaben wird dringend empfohlen, um s
 
 Das `placeholder`-Attribut ist eine Zeichenkette, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen in dem Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp zeigt, anstatt einer erklärenden Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung ([LTR](/de/docs/Glossary/LTR) oder [RTL](/de/docs/Glossary/RTL)) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Bidi-Zeichen verwenden, um die Richtung innerhalb des Platzhalters zu überschreiben; siehe [Wie man Unicode-Steuerungen für bidirektionalen Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für mehr Informationen.
+Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, der Platzhalter jedoch in der entgegengesetzten Richtung angezeigt werden muss, können Sie Unicode-Bidi-Zeichen verwenden, um die Richtung innerhalb des Platzhalters zu überschreiben; siehe [Wie man Unicode-Steuerungen für bidirektionalen Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für mehr Informationen.
 
 > [!NOTE]
 > Vermeiden Sie, wenn möglich, die Verwendung des `placeholder`-Attributs. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>` Labels](/de/docs/Web/HTML/Element/input#labels) für mehr Informationen.

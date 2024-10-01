@@ -42,7 +42,7 @@ _Erbt auch Eigenschaften von seiner Elternschnittstelle, [`Event`](/de/docs/Web/
 - [`MessageEvent.lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
 - [`MessageEvent.source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine Referenz auf den Nachrichtensender, eines der [WindowProxy](/de/docs/Glossary/WindowProxy), [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
+  - : Eine Referenz auf den Nachrichtensender, eines der {{Glossary("WindowProxy", "WindowProxy")}}, [`MessagePort`](/de/docs/Web/API/MessagePort) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker).
 - [`MessageEvent.ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
   - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, das die Ports darstellt, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z. B. in der Kanalkommunikation oder beim Senden einer Nachricht an einen gemeinsamen Worker).
 

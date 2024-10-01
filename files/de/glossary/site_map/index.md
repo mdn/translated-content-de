@@ -9,4 +9,4 @@ l10n:
 
 Eine **Site Map** oder **Sitemap** ist eine Liste von Seiten einer Website.
 
-Strukturierte Auflistungen einer Website-Seite helfen bei der [Suchmaschinenoptimierung](/de/docs/Glossary/seo) (SEO), indem sie einen Link für Webcrawler wie Suchmaschinen bereitstellen, dem sie folgen können. Site Maps unterstützen auch Benutzer bei der Navigation auf der Website, indem sie einen Überblick über den Inhalt der Website auf einen Blick bieten.
+Strukturierte Auflistungen einer Website-Seite helfen bei der {{Glossary("seo", "Suchmaschinenoptimierung")}} (SEO), indem sie einen Link für Webcrawler wie Suchmaschinen bereitstellen, dem sie folgen können. Site Maps unterstützen auch Benutzer bei der Navigation auf der Website, indem sie einen Überblick über den Inhalt der Website auf einen Blick bieten.

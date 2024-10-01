@@ -25,12 +25,12 @@ Der Server kann diesen Header auch in Antworten einschließen, um anzuzeigen, da
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request header](/de/docs/Glossary/Request_header),
-        [Response header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Request header")}},
+        {{Glossary("Response_header", "Response header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

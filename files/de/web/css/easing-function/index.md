@@ -55,7 +55,7 @@ step-end
 
 - `<cubic-bezier-easing-function>`
 
-  - : Gibt eine [Bézier-Kurve](/de/docs/Glossary/Bezier_curve) an, um den Fortschritt einer Animation oder eines Übergangs zu gestalten. In CSS werden Bézier-Kurven durch vier Kontrollpunkte definiert, die die Kurve mathematisch beschreiben: ein Startpunkt, ein Endpunkt und zwei Kontrollpunkte. Die kubische Bézier-Easing-Funktion kann auf eine dieser beiden Arten definiert werden: durch das Erstellen einer benutzerdefinierten Kurve mit einem vierparametrigen `cubic-bezier()` Funktionsaufruf oder durch die Verwendung eines der vordefinierten Schlüsselwortwerte, die den häufig verwendeten Bézier-Kurven parametrisieren. Die vordefinierten Schlüsselwortwerte umfassen:
+  - : Gibt eine {{Glossary("Bezier_curve", "Bézier-Kurve")}} an, um den Fortschritt einer Animation oder eines Übergangs zu gestalten. In CSS werden Bézier-Kurven durch vier Kontrollpunkte definiert, die die Kurve mathematisch beschreiben: ein Startpunkt, ein Endpunkt und zwei Kontrollpunkte. Die kubische Bézier-Easing-Funktion kann auf eine dieser beiden Arten definiert werden: durch das Erstellen einer benutzerdefinierten Kurve mit einem vierparametrigen `cubic-bezier()` Funktionsaufruf oder durch die Verwendung eines der vordefinierten Schlüsselwortwerte, die den häufig verwendeten Bézier-Kurven parametrisieren. Die vordefinierten Schlüsselwortwerte umfassen:
 
     `ease`: Dieses Schlüsselwort repräsentiert die Easing-Funktion `cubic-bezier(0.25, 0.1, 0.25, 1)`. Es zeigt an, dass die Interpolation langsam beginnt, dann schnell beschleunigt und am Ende allmählich langsamer wird. Es ähnelt dem `ease-in-out` Schlüsselwort, beschleunigt jedoch zu Beginn stärker.
 
@@ -118,13 +118,13 @@ Betrachten Sie eine Animation mit einer Dauer von 100 Sekunden und einer Änderu
 
 ### Cubic Bézier Easing Function
 
-Die `cubic-bezier()` Funktionsnotation definiert eine kubische [Bézier-Kurve](/de/docs/Glossary/Bezier_curve). Die Easing-Funktionen im kubischen Bézier-Subset von Easing-Funktionen werden oft als "weiche" Easing-Funktionen bezeichnet, weil sie verwendet werden können, um den Start und das Ende der [Interpolation](/de/docs/Glossary/interpolation) zu glätten. Sie korrelieren einen Eingangsfortschritt mit einem Ausgangsfortschritt, beide ausgedrückt als {{cssxref("&lt;number&gt;")}}. Für diese Werte repräsentiert `0.0` den Anfangszustand und `1.0` den Endzustand.
+Die `cubic-bezier()` Funktionsnotation definiert eine kubische {{Glossary("Bezier_curve", "Bézier-Kurve")}}. Die Easing-Funktionen im kubischen Bézier-Subset von Easing-Funktionen werden oft als "weiche" Easing-Funktionen bezeichnet, weil sie verwendet werden können, um den Start und das Ende der {{Glossary("interpolation", "Interpolation")}} zu glätten. Sie korrelieren einen Eingangsfortschritt mit einem Ausgangsfortschritt, beide ausgedrückt als {{cssxref("&lt;number&gt;")}}. Für diese Werte repräsentiert `0.0` den Anfangszustand und `1.0` den Endzustand.
 
 ![Diagramm von "Input progress" zu "Output progress", das eine "S"-förmige Linie vom Ursprung zu (1, 1) mit den Bezier-Kontrollpunkten P1(0.1, 0.6) und P2(0.7, 0.2) zeigt.](cubic-bezier.svg)
 
 Eine kubische Bézier-Kurve wird durch vier Punkte definiert: P0, P1, P2 und P3. Die Punkte P0 und P3 repräsentieren den Anfang und das Ende der Kurve. In CSS sind diese Punkte als die Koordinaten des Fortschritts festgelegt (die Abszisse ist der Eingangsfortschritt, die Ordinate der Ausgangsfortschritt). P0 ist `(0, 0)` und repräsentiert den Anfangsfortschritt und den Anfangszustand. P3 ist `(1, 1)` und repräsentiert den Endfortschritt und den Endzustand.
 
-Nicht alle kubischen Bézier-Kurven sind als Easing-Funktionen geeignet, weil nicht alle [mathematische Funktionen](https://de.wikipedia.org/wiki/Funktion_(Mathematik)) sind; d. h. Kurven, die für eine gegebene Abszisse null oder einen Wert haben. Mit P0 und P3, die durch CSS festgelegt sind, ist eine kubische Bézier-Kurve eine Funktion und daher gültig, wenn und nur wenn die Abszissen von P1 und P2 beide im `[0, 1]` Bereich liegen.
+Nicht alle kubischen Bézier-Kurven sind als Easing-Funktionen geeignet, weil nicht alle [mathematische Funktionen](<https://de.wikipedia.org/wiki/Funktion_(Mathematik)>) sind; d. h. Kurven, die für eine gegebene Abszisse null oder einen Wert haben. Mit P0 und P3, die durch CSS festgelegt sind, ist eine kubische Bézier-Kurve eine Funktion und daher gültig, wenn und nur wenn die Abszissen von P1 und P2 beide im `[0, 1]` Bereich liegen.
 
 Kubische Bézier-Kurven mit der Ordinate von P1 oder P2 außerhalb des `[0, 1]` Bereichs können dazu führen, dass der Wert weiter als der Endzustand geht und dann zurückkehrt. Bei Animationen erzeugt dies für einige Eigenschaften, wie {{cssxref("left")}} oder {{cssxref("right")}}, einen "spring-effekt".
 

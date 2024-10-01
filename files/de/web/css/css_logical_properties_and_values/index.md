@@ -24,7 +24,7 @@ Die **Block-Dimension** ist senkrecht zum Fluss des Texts innerhalb einer Zeile,
 
 Die **Inline-Dimension** ist parallel zum Fluss des Texts innerhalb einer Zeile, d.h. die horizontale Dimension in horizontalen Schreibmodi und die vertikale Dimension in vertikalen Schreibmodi. Für Standard-Englisch-Text ist dies die horizontale Dimension.
 
-CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul der logischen Eigenschaften und Werte definiert flussbezogene Entsprechungen für viele [Werte](/de/docs/Web/CSS/CSS_Values_and_Units) und [Eigenschaften](/de/docs/Glossary/Property/CSS). Eigenschaften, die einst nur physische Werte (`top`, `bottom`, `left`, `right`) akzeptierten, akzeptieren nun auch flussbezogene logische Werte (`block-start`, `block-end`, `inline-start`, `inline-end`).
+CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul der logischen Eigenschaften und Werte definiert flussbezogene Entsprechungen für viele [Werte](/de/docs/Web/CSS/CSS_Values_and_Units) und {{Glossary("Property/CSS", "Eigenschaften")}}. Eigenschaften, die einst nur physische Werte (`top`, `bottom`, `left`, `right`) akzeptierten, akzeptieren nun auch flussbezogene logische Werte (`block-start`, `block-end`, `inline-start`, `inline-end`).
 
 ## Referenz
 
@@ -86,7 +86,7 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul der
 
 ### Datentypen und Werte
 
-[Flussbezogene Werte](/de/docs/Glossary/Flow_relative_values):
+{{Glossary("Flow_relative_values", "Flussbezogene Werte")}}:
 
 - `block-start`
 - `block-end`
@@ -97,10 +97,10 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul der
 
 ### Glossarbegriffe
 
-- [Flussbezogene Werte](/de/docs/Glossary/Flow_relative_values)
-- [Inset-Eigenschaften](/de/docs/Glossary/Inset_properties)
-- [Logische Eigenschaften](/de/docs/Glossary/Logical_properties)
-- [Physische Eigenschaften](/de/docs/Glossary/Physical_properties)
+- {{Glossary("Flow_relative_values", "Flussbezogene Werte")}}
+- {{Glossary("Inset_properties", "Inset-Eigenschaften")}}
+- {{Glossary("Logical_properties", "Logische Eigenschaften")}}
+- {{Glossary("Physical_properties", "Physische Eigenschaften")}}
 
 ## Leitfäden
 
@@ -118,7 +118,7 @@ CSS wurde ursprünglich nur mit physischen Koordinaten entwickelt. Das Modul der
 
 - [Logische Eigenschaften für Floating und Positionierung](/de/docs/Web/CSS/CSS_logical_properties_and_values/Floating_and_positioning)
 
-  - : Details zu Zuordnungen zwischen den physischen und logischen Werten für `float` und `clear`, [Inset-Eigenschaften](/de/docs/Glossary/Inset_properties), und `resize`.
+  - : Details zu Zuordnungen zwischen den physischen und logischen Werten für `float` und `clear`, {{Glossary("Inset_properties", "Inset-Eigenschaften")}}, und `resize`.
 
 ## Verwandte Konzepte
 

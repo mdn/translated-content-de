@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`inputmode`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [enumeriertes](/de/docs/Glossary/Enumerated) Attribut, das einen Hinweis auf den Datentyp gibt, der vom Benutzer beim Bearbeiten des Elements oder dessen Inhalte eingegeben werden könnte.
+Das **`inputmode`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das einen Hinweis auf den Datentyp gibt, der vom Benutzer beim Bearbeiten des Elements oder dessen Inhalte eingegeben werden könnte.
 Dies ermöglicht es einem Browser, eine passende virtuelle Tastatur anzuzeigen.
 
 Es wird hauptsächlich bei {{HTMLElement("input")}}-Elementen verwendet, kann aber auf jedem Element im [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)-Modus genutzt werden.

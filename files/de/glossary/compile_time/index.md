@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Compile time** ist die Zeit von der erstmaligen Ladephase des Programms bis das Programm [interpretiert](/de/docs/Glossary/parse) wird.
+**Compile time** ist die Zeit von der erstmaligen Ladephase des Programms bis das Programm {{Glossary("parse", "interpretiert")}} wird.
 
 ## Siehe auch
 

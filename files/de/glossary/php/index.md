@@ -53,7 +53,7 @@ PHP (ein rekursives Initialwort für PHP: Hypertext Preprocessor) ist eine quell
 - [PHP](https://en.wikipedia.org/wiki/PHP) auf Wikipedia
 - [PHP-Programmierung](https://en.wikibooks.org/wiki/PHP_Programming) auf Wikibooks
 - Verwandte Glossarbegriffe:
-  - [Java](/de/docs/Glossary/Java)
-  - [JavaScript](/de/docs/Glossary/JavaScript)
-  - [Python](/de/docs/Glossary/Python)
-  - [Ruby](/de/docs/Glossary/Ruby)
+  - {{Glossary("Java", "Java")}}
+  - {{Glossary("JavaScript", "JavaScript")}}
+  - {{Glossary("Python", "Python")}}
+  - {{Glossary("Ruby", "Ruby")}}

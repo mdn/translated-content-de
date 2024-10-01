@@ -138,7 +138,7 @@ Die Werte in einer `<basic-shape>`-Funktion werden wie angegeben berechnet, mit 
 
 ### Interpolation von Grundformen
 
-Beim Animieren zwischen zwei `<basic-shape>`-Funktionen werden die unten aufgeführten [Interpolations](/de/docs/Glossary/interpolation)-Regeln befolgt. Die Parameterwerte jeder `<basic-shape>` Funktion bilden eine Liste. Damit eine Interpolation zwischen zwei Formen stattfinden kann, müssen beide Formen denselben Referenzkasten verwenden, und die Anzahl sowie der Typ der Werte in beiden `<basic-shape>` Listen müssen übereinstimmen.
+Beim Animieren zwischen zwei `<basic-shape>`-Funktionen werden die unten aufgeführten {{Glossary("interpolation", "Interpolations")}}-Regeln befolgt. Die Parameterwerte jeder `<basic-shape>` Funktion bilden eine Liste. Damit eine Interpolation zwischen zwei Formen stattfinden kann, müssen beide Formen denselben Referenzkasten verwenden, und die Anzahl sowie der Typ der Werte in beiden `<basic-shape>` Listen müssen übereinstimmen.
 
 Jeder Wert in den Listen der beiden `<basic-shape>`-Funktionen wird basierend auf seinem berechneten Wert als {{cssxref("number")}}, {{cssxref("length")}}, {{cssxref("percentage")}}, {{cssxref("angle")}}, oder {{cssxref("calc", "calc()")}} interpoliert, wo möglich. Die Interpolation kann immer noch erfolgen, wenn die Werte nicht zu diesen Datentypen gehören, aber zwischen den beiden interpolierenden Grundformfunktionen identisch sind, zum Beispiel `nonzero`.
 

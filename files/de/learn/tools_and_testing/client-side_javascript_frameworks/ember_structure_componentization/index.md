@@ -240,7 +240,7 @@ Jetzt, da wir alle unsere Komponentendateien haben, können wir das HTML für je
    ```
 
    > [!NOTE]
-   > Das einzige nicht-HTML in diesem neuen `todo-list.hbs` ist die `<Todo />` Komponentenaufruf. In Ember ist ein Komponentenaufruf ähnlich wie die Deklaration eines HTML-Elements, aber der erste Buchstabe beginnt mit einem Großbuchstaben und die Namen werden im [Upper Camel Case](/de/docs/Glossary/camel_case) geschrieben, wie Sie es später bei `<TodoList />` sehen werden. Der Inhalt der `todo.hbs` Datei unten wird `<Todo />` auf der gerenderten Seite ersetzen, wenn unsere Anwendung geladen wird.
+   > Das einzige nicht-HTML in diesem neuen `todo-list.hbs` ist die `<Todo />` Komponentenaufruf. In Ember ist ein Komponentenaufruf ähnlich wie die Deklaration eines HTML-Elements, aber der erste Buchstabe beginnt mit einem Großbuchstaben und die Namen werden im {{Glossary("camel_case", "Upper Camel Case")}} geschrieben, wie Sie es später bei `<TodoList />` sehen werden. Der Inhalt der `todo.hbs` Datei unten wird `<Todo />` auf der gerenderten Seite ersetzen, wenn unsere Anwendung geladen wird.
 
 3. Fügen Sie Folgendes in die `todo.hbs` Datei ein:
 

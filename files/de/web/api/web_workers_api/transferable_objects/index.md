@@ -43,7 +43,7 @@ worker.postMessage(uInt8Array, [uInt8Array.buffer]);
 console.log(uInt8Array.byteLength); // 0
 ```
 
-> **Note:** [Typed Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) wie {{jsxref("Int32Array")}} und {{jsxref("Uint8Array")}}, sind [serialisierbar](/de/docs/Glossary/serializable_object), aber nicht übertragbar.
+> **Note:** [Typed Arrays](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) wie {{jsxref("Int32Array")}} und {{jsxref("Uint8Array")}}, sind {{Glossary("serializable_object", "serialisierbar")}}, aber nicht übertragbar.
 > Ihr zugrunde liegender Puffer ist jedoch ein {{jsxref("ArrayBuffer")}}, der ein übertragbares Objekt ist.
 > Wir hätten `uInt8Array.buffer` im Datenparameter senden können, aber nicht `uInt8Array` im Übertragungsarray.
 

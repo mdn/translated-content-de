@@ -7,4 +7,4 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die **Table Wrapper Box** ist die Box, die um [table grid boxes](/de/docs/Glossary/table_grid_box) herum generiert wird und den Platzbedarf für eine eventuell angezeigte Beschriftung der Tabelle berücksichtigt. Diese Box wird der enthaltende Block für absolut positionierte Elemente, bei denen die Tabelle der enthaltende Block ist.
+Die **Table Wrapper Box** ist die Box, die um {{Glossary("table_grid_box", "table grid boxes")}} herum generiert wird und den Platzbedarf für eine eventuell angezeigte Beschriftung der Tabelle berücksichtigt. Diese Box wird der enthaltende Block für absolut positionierte Elemente, bei denen die Tabelle der enthaltende Block ist.

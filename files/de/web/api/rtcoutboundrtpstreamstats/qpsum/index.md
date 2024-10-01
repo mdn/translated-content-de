@@ -27,7 +27,7 @@ die im gesamten Datensatz vorkommen, sodass die Daten leichter komprimierbar wer
 
 Es ist wichtig zu beachten, dass sich der Wert von QP periodisch ändern kann — sogar bei jedem Frame —, sodass es schwierig ist, genau zu wissen, wie erheblich die Komprimierung ist. Das Beste, was Sie tun können, ist eine Schätzung abzugeben. Sie können den Wert von [`RTCSentRtpStreamStats.framesEncoded`](/de/docs/Web/API/RTCSentRtpStreamStats/framesEncoded) verwenden, um die Anzahl der bisher codierten Frames zu ermitteln und daraus einen Durchschnitt zu berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) unten für eine Funktion, die dies tut.
 
-Außerdem hängt die genaue Bedeutung des QP-Werts vom verwendeten [Codec](/de/docs/Glossary/codec) ab. Zum Beispiel kann der QP-Wert für den VP8-Codec zwischen 1 und 127 liegen und wird
+Außerdem hängt die genaue Bedeutung des QP-Werts vom verwendeten {{Glossary("codec", "Codec")}} ab. Zum Beispiel kann der QP-Wert für den VP8-Codec zwischen 1 und 127 liegen und wird
 im Frame-Header-Element `"y_ac_qi"` gefunden, dessen Wert in
 {{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet einen QP-Wert, der von 0 bis 51 reicht; in diesem Fall ist es ein
 Index, der verwendet wird, um eine Skalierungsmatrix abzuleiten, die während des Quantisierungsprozesses verwendet wird.

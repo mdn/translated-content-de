@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)-Header-Direktiven, die eine `<source>` angeben, von der Ressourcen geladen werden dürfen, können jeden der unten aufgeführten Werte verwenden. Relevante Direktiven umfassen die [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) sowie andere [unten aufgeführte](#relevante_direktiven).
+HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)-Header-Direktiven, die eine `<source>` angeben, von der Ressourcen geladen werden dürfen, können jeden der unten aufgeführten Werte verwenden. Relevante Direktiven umfassen die {{Glossary("fetch_directive", "Fetch-Direktiven")}} sowie andere [unten aufgeführte](#relevante_direktiven).
 
 ## Quellen
 
@@ -100,7 +100,7 @@ HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)-Header-Direktiven, die eine
 
 Direktiven, für die die obigen Quellen gelten, umfassen:
 
-- [Fetch-Direktiven](/de/docs/Glossary/fetch_directive):
+- {{Glossary("fetch_directive", "Fetch-Direktiven")}}:
 
   - {{CSP("default-src")}}
   - {{CSP("child-src")}}
@@ -120,12 +120,12 @@ Direktiven, für die die obigen Quellen gelten, umfassen:
   - {{CSP("style-src-attr")}}
   - {{CSP("worker-src")}}
 
-- [Dokument-Direktiven](/de/docs/Glossary/Document_directive):
+- {{Glossary("Document_directive", "Dokument-Direktiven")}}:
 
   - {{CSP("base-uri")}}
   - {{CSP("sandbox")}}
 
-- [Navigations-Direktiven](/de/docs/Glossary/Navigation_directive):
+- {{Glossary("Navigation_directive", "Navigations-Direktiven")}}:
 
   - {{CSP("form-action")}}
   - {{CSP("frame-ancestors")}}

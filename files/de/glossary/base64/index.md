@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Base64** ist eine Gruppe ähnlicher [Binär-zu-Text-Codierung](https://en.wikipedia.org/wiki/Binary-to-text_encoding)-Schemata, die Binärdaten im [ASCII](/de/docs/Glossary/ASCII)-String-Format darstellen, indem sie sie in eine Basis-64-Repräsentation transformieren. Der Begriff _Base64_ stammt von einer speziellen [MIME-Inhaltsübertragungscodierung](https://en.wikipedia.org/wiki/MIME#Content-Transfer-Encoding).
+**Base64** ist eine Gruppe ähnlicher [Binär-zu-Text-Codierung](https://en.wikipedia.org/wiki/Binary-to-text_encoding)-Schemata, die Binärdaten im {{Glossary("ASCII", "ASCII")}}-String-Format darstellen, indem sie sie in eine Basis-64-Repräsentation transformieren. Der Begriff _Base64_ stammt von einer speziellen [MIME-Inhaltsübertragungscodierung](https://en.wikipedia.org/wiki/MIME#Content-Transfer-Encoding).
 
-Wenn der Begriff "Base64" alleinstehend verwendet wird, um auf einen bestimmten [Algorithmus](/de/docs/Glossary/algorithm) zu verweisen, bezieht er sich typischerweise auf die Version von Base64, die in [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648), Abschnitt 4, beschrieben ist. Diese verwendet das folgende Alphabet zur Darstellung der Basis-64-Ziffern, zusammen mit `=` als Auffüllzeichen:
+Wenn der Begriff "Base64" alleinstehend verwendet wird, um auf einen bestimmten {{Glossary("algorithm", "Algorithmus")}} zu verweisen, bezieht er sich typischerweise auf die Version von Base64, die in [RFC 4648](https://datatracker.ietf.org/doc/html/rfc4648), Abschnitt 4, beschrieben ist. Diese verwendet das folgende Alphabet zur Darstellung der Basis-64-Ziffern, zusammen mit `=` als Auffüllzeichen:
 
 ```plain
 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
 ```
 
-Eine häufig verwendete Variante ist "Base64 URL safe", die das Auffüllzeichen weglässt und `+/` mit `-_` ersetzt, um Zeichen zu vermeiden, die in [URL](/de/docs/Glossary/URL)-Pfadsegmenten oder Abfrageparametern Probleme verursachen könnten. Diese Kodierung ist nicht erforderlich, wenn Sie die Daten nicht in ein Pfadsegment oder einen Abfrageparameter einfügen — zum Beispiel haben [Data-URLs](/de/docs/Web/URI/Schemes/data) keine von beiden und können die Standard-Base64-Kodierung verwenden.
+Eine häufig verwendete Variante ist "Base64 URL safe", die das Auffüllzeichen weglässt und `+/` mit `-_` ersetzt, um Zeichen zu vermeiden, die in {{Glossary("URL", "URL")}}-Pfadsegmenten oder Abfrageparametern Probleme verursachen könnten. Diese Kodierung ist nicht erforderlich, wenn Sie die Daten nicht in ein Pfadsegment oder einen Abfrageparameter einfügen — zum Beispiel haben [Data-URLs](/de/docs/Web/URI/Schemes/data) keine von beiden und können die Standard-Base64-Kodierung verwenden.
 
 Base64-Kodierungsschemata werden häufig verwendet, um Binärdaten für die Speicherung oder Übertragung über Medien zu kodieren, die nur mit ASCII-Text (oder einer Teilmenge von ASCII, die dennoch keine beliebigen Binärdaten akzeptiert) umgehen können. Dies stellt sicher, dass die Daten während des Transports intakt bleiben und nicht verändert werden. Häufige Anwendungen von Base64 umfassen:
 
@@ -37,13 +37,13 @@ Browser bieten nativ zwei JavaScript-Funktionen zum Dekodieren und Kodieren von 
 - [`Window.atob()`](/de/docs/Web/API/Window/atob) (auch [verfügbar in Workern](/de/docs/Web/API/WorkerGlobalScope/atob)): dekodiert einen Base64-kodierten String („atob“ sollte als „ASCII to binary“ gelesen werden).
 
 > [!NOTE]
-> Base64 ist eine binäre Kodierung und keine Textkodierung, aber `btoa` und `atob` wurden zur Web-Plattform hinzugefügt, bevor sie Binärdatentypen unterstützte. Daher verwenden die beiden Funktionen Zeichenfolgen, um Binärdaten darzustellen, wobei der [Codepunkt](/de/docs/Glossary/code_point) jedes Zeichens den Wert jedes Bytes repräsentiert. Dies hat zu einem verbreiteten Missverständnis geführt, dass `btoa` verwendet werden kann, um beliebige Textdaten zu kodieren — etwa, um eine Base64 `data:` URL eines Text- oder HTML-Dokuments zu erstellen.
+> Base64 ist eine binäre Kodierung und keine Textkodierung, aber `btoa` und `atob` wurden zur Web-Plattform hinzugefügt, bevor sie Binärdatentypen unterstützte. Daher verwenden die beiden Funktionen Zeichenfolgen, um Binärdaten darzustellen, wobei der {{Glossary("code_point", "Codepunkt")}} jedes Zeichens den Wert jedes Bytes repräsentiert. Dies hat zu einem verbreiteten Missverständnis geführt, dass `btoa` verwendet werden kann, um beliebige Textdaten zu kodieren — etwa, um eine Base64 `data:` URL eines Text- oder HTML-Dokuments zu erstellen.
 >
 > Die Übereinstimmung von Byte und Codepunkt gilt jedoch nur zuverlässig für Codepunkte bis zu `0x7f`. Darüber hinaus führen Codepunkte über `0xff` dazu, dass `btoa` einen Fehler wirft, da der Maximalwert für 1 Byte überschritten wird. Der nächste Abschnitt beschreibt, wie man dieses Limit umgehen kann, wenn man beliebigen Unicode-Text kodiert.
 
 ## Das "Unicode-Problem"
 
-Da `btoa` die Codepunkte seines Eingabestrings als Bytewerte interpretiert, wird durch den Aufruf von `btoa` auf einen String eine „Zeichen außerhalb des Bereichs“ Ausnahme ausgelöst, wenn der Codepunkt eines Zeichens `0xff` überschreitet. Für Anwendungsfälle, in denen Sie beliebigen Unicode-Text kodieren müssen, ist es notwendig, zuerst den String in seine Ausgangsbytes in [UTF-8](/de/docs/Glossary/UTF-8) zu konvertieren und dann die Bytes zu kodieren.
+Da `btoa` die Codepunkte seines Eingabestrings als Bytewerte interpretiert, wird durch den Aufruf von `btoa` auf einen String eine „Zeichen außerhalb des Bereichs“ Ausnahme ausgelöst, wenn der Codepunkt eines Zeichens `0xff` überschreitet. Für Anwendungsfälle, in denen Sie beliebigen Unicode-Text kodieren müssen, ist es notwendig, zuerst den String in seine Ausgangsbytes in {{Glossary("UTF-8", "UTF-8")}} zu konvertieren und dann die Bytes zu kodieren.
 
 Die einfachste Lösung ist, `TextEncoder` und `TextDecoder` zu verwenden, um zwischen UTF-8 und einbyteigen Darstellungen des Strings zu konvertieren:
 

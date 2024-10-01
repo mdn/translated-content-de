@@ -20,6 +20,6 @@ Camel Case ist die beliebteste Konvention in JavaScript, Java und verschiedenen 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Snake case](/de/docs/Glossary/Snake_case)
-  - [Kebab case](/de/docs/Glossary/Kebab_case)
+  - {{Glossary("Snake_case", "Snake case")}}
+  - {{Glossary("Kebab_case", "Kebab case")}}
 - [typescript-eslint-Regel: `naming-convention`](https://typescript-eslint.io/rules/naming-convention/)

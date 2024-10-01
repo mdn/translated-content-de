@@ -20,15 +20,15 @@ Ein String, der den aktuellen Zustand der Verbindung darstellt.
 Dieser kann einen der folgenden Werte annehmen:
 
 - `new`
-  - : Mindestens einer der [ICE](/de/docs/Glossary/ICE) Transports der Verbindung ([`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) oder [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) Objekte) befindet sich im Zustand `new`, und keiner von ihnen ist in einem der folgenden Zustände: `connecting`, `checking`, `failed`, `disconnected`, oder alle Transporte der Verbindung sind im Zustand `closed`.
+  - : Mindestens einer der {{Glossary("ICE", "ICE")}} Transports der Verbindung ([`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) oder [`RTCDtlsTransport`](/de/docs/Web/API/RTCDtlsTransport) Objekte) befindet sich im Zustand `new`, und keiner von ihnen ist in einem der folgenden Zustände: `connecting`, `checking`, `failed`, `disconnected`, oder alle Transporte der Verbindung sind im Zustand `closed`.
 - `connecting`
-  - : Einer oder mehrere der [ICE](/de/docs/Glossary/ICE) Transports sind aktuell dabei, eine Verbindung herzustellen; das heißt, ihr [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) ist entweder `checking` oder `connected`, und keine Transporte befinden sich im Zustand `failed`.
+  - : Einer oder mehrere der {{Glossary("ICE", "ICE")}} Transports sind aktuell dabei, eine Verbindung herzustellen; das heißt, ihr [`iceConnectionState`](/de/docs/Web/API/RTCPeerConnection/iceConnectionState) ist entweder `checking` oder `connected`, und keine Transporte befinden sich im Zustand `failed`.
 - `connected`
-  - : Jeder [ICE](/de/docs/Glossary/ICE) Transport, der von der Verbindung genutzt wird, ist entweder in Gebrauch (Zustand `connected` oder `completed`) oder ist geschlossen (Zustand `closed`); zusätzlich ist mindestens ein Transport entweder `connected` oder `completed`.
+  - : Jeder {{Glossary("ICE", "ICE")}} Transport, der von der Verbindung genutzt wird, ist entweder in Gebrauch (Zustand `connected` oder `completed`) oder ist geschlossen (Zustand `closed`); zusätzlich ist mindestens ein Transport entweder `connected` oder `completed`.
 - `disconnected`
-  - : Mindestens einer der [ICE](/de/docs/Glossary/ICE) Transports der Verbindung befindet sich im Zustand `disconnected` und keiner der anderen Transporte ist in den Zuständen: `failed`, `connecting` oder `checking`.
+  - : Mindestens einer der {{Glossary("ICE", "ICE")}} Transports der Verbindung befindet sich im Zustand `disconnected` und keiner der anderen Transporte ist in den Zuständen: `failed`, `connecting` oder `checking`.
 - `failed`
-  - : Einer oder mehrere der [ICE](/de/docs/Glossary/ICE) Transports der Verbindung befinden sich im Zustand `failed`.
+  - : Einer oder mehrere der {{Glossary("ICE", "ICE")}} Transports der Verbindung befinden sich im Zustand `failed`.
 - `closed`
   - : Die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) ist geschlossen.
 

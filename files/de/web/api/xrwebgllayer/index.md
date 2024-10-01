@@ -21,7 +21,7 @@ Obwohl `XRWebGLLayer` derzeit der einzige von [WebGL](/de/docs/Web/API/WebGL_API
 ## Instanz-Eigenschaften
 
 - [`antialias`](/de/docs/Web/API/XRWebGLLayer/antialias) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein Boolescher Wert, der angibt, ob der Framebuffer des WebGL-Kontexts Anti-Aliasing unterstützt oder nicht. Die spezifische Art des Anti-Aliasing wird vom [User Agent](/de/docs/Glossary/user_agent) bestimmt.
+  - : Ein Boolescher Wert, der angibt, ob der Framebuffer des WebGL-Kontexts Anti-Aliasing unterstützt oder nicht. Die spezifische Art des Anti-Aliasing wird vom {{Glossary("user_agent", "User Agent")}} bestimmt.
 - [`fixedFoveation`](/de/docs/Web/API/XRWebGLLayer/fixedFoveation) {{Experimental_Inline}}
   - : Eine Zahl, die die Menge der Foveation angibt, die vom XR-Compositor verwendet wird. Fixed Foveated Rendering (FFR) rendert die Ränder der Texturen der Augen in einer geringeren Auflösung als das Zentrum und reduziert die GPU-Belastung.
 - [`framebuffer`](/de/docs/Web/API/XRWebGLLayer/framebuffer) {{ReadOnlyInline}} {{Experimental_Inline}}

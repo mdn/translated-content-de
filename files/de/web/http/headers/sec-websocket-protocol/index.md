@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-WebSocket-Protocol`** HTTP-[Anforderungs-](/de/docs/Glossary/request_header) und [Antwortheader](/de/docs/Glossary/response_header) wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um ein in der Kommunikation zu verwendendes [Subprotokoll](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) auszuhandeln. Dies kann ein gut verstandenes Protokoll wie SOAP oder WAMP oder ein benutzerdefiniertes Protokoll sein, das vom Client und Server verstanden wird.
+Der **`Sec-WebSocket-Protocol`** HTTP-{{Glossary("request_header", "Anforderungs-")}} und {{Glossary("response_header", "Antwortheader")}} wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um ein in der Kommunikation zu verwendendes [Subprotokoll](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#subprotocols) auszuhandeln. Dies kann ein gut verstandenes Protokoll wie SOAP oder WAMP oder ein benutzerdefiniertes Protokoll sein, das vom Client und Server verstanden wird.
 
 In einer Anfrage gibt der Header ein oder mehrere WebSocket-Subprotokolle an, die die Webanwendung verwenden möchte, in der Reihenfolge der Präferenz. Diese können als Protokollwerte in mehreren Headers hinzugefügt oder als durch Kommas getrennte Werte zu einem einzigen Header hinzugefügt werden.
 
@@ -19,10 +19,10 @@ Der Anforderungsheader wird automatisch vom Browser hinzugefügt und mit Werten 
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Anforderungsheader](/de/docs/Glossary/Request_header), [Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}, {{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

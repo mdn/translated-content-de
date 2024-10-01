@@ -47,7 +47,7 @@ typeof a; // "object"
 typeof b; // "string"
 ```
 
-Hier erzeugt die Funktion wie versprochen einen String (den [primitiven](/de/docs/Glossary/primitive) Typ).
+Hier erzeugt die Funktion wie versprochen einen String (den {{Glossary("primitive", "primitiven")}} Typ).
 Der Konstruktor hingegen erzeugt eine Instanz des Typs String (ein Objekt-Wrapper) und
 daher sollten Sie den String-Konstruktor selten verwenden.
 

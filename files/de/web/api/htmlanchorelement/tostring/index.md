@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("URL API")}}
 
-Die **`HTMLAnchorElement.toString()`** [Stringifier](/de/docs/Glossary/stringifier)-Methode gibt einen String zurück, der die gesamte URL enthält. Es ist eine schreibgeschützte Version von [`HTMLAnchorElement.href`](/de/docs/Web/API/HTMLAnchorElement/href).
+Die **`HTMLAnchorElement.toString()`** {{Glossary("stringifier", "Stringifier")}}-Methode gibt einen String zurück, der die gesamte URL enthält. Es ist eine schreibgeschützte Version von [`HTMLAnchorElement.href`](/de/docs/Web/API/HTMLAnchorElement/href).
 
 ## Syntax
 

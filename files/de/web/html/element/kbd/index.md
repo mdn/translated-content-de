@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<kbd>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Spanne von Inline-Text, die die Texteingabe eines Benutzers von einer Tastatur, Spracheingabe oder einem anderen Texteingabegerät darstellt. Üblicherweise rendert der [User-Agent](/de/docs/Glossary/user_agent) die Inhalte eines `<kbd>`-Elements mit seiner Standard-Schriftart für Monospace, obwohl dies nicht vom HTML-Standard vorgeschrieben ist.
+Das **`<kbd>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Spanne von Inline-Text, die die Texteingabe eines Benutzers von einer Tastatur, Spracheingabe oder einem anderen Texteingabegerät darstellt. Üblicherweise rendert der {{Glossary("user_agent", "User-Agent")}} die Inhalte eines `<kbd>`-Elements mit seiner Standard-Schriftart für Monospace, obwohl dies nicht vom HTML-Standard vorgeschrieben ist.
 
 {{EmbedInteractiveExample("pages/tabbed/kbd.html", "tabbed-shorter")}}
 

@@ -22,15 +22,15 @@ Die `DELETE`-Methode hat keine definierten Semantiken für den Nachrichtentext, 
       <td>Darf</td>
     </tr>
     <tr>
-      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Cachefähig](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cachefähig")}}</th>
       <td>Nein</td>
     </tr>
     <tr>

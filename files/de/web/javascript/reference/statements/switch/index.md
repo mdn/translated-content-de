@@ -81,7 +81,7 @@ Im entsprechenden Kontext haben auch andere Kontrollflussanweisungen den Effekt,
 
 ### Lexikalische Bereichsabgrenzung
 
-Die `case`- und `default`-Klauseln sind wie [Labels](/de/docs/Web/JavaScript/Reference/Statements/label): Sie geben mögliche Stellen an, zu denen der Kontrollfluss springen kann. Sie erzeugen jedoch selbst keine lexikalischen [Bereiche](/de/docs/Glossary/Scope) (auch brechen sie nicht automatisch ab — wie oben gezeigt). Beispielsweise:
+Die `case`- und `default`-Klauseln sind wie [Labels](/de/docs/Web/JavaScript/Reference/Statements/label): Sie geben mögliche Stellen an, zu denen der Kontrollfluss springen kann. Sie erzeugen jedoch selbst keine lexikalischen {{Glossary("Scope", "Bereiche")}} (auch brechen sie nicht automatisch ab — wie oben gezeigt). Beispielsweise:
 
 ```js-nolint example-bad
 const action = "say_hello";
@@ -226,15 +226,15 @@ switch (foo) {
 
 Die Ausgabe dieses Beispiels:
 
-| Wert                                                 | Protokolltext                     |
-| ---------------------------------------------------- | --------------------------------- |
+| Wert                                                         | Protokolltext                           |
+| ------------------------------------------------------------ | --------------------------------------- |
 | `foo` ist `NaN` oder nicht `1`, `2`, `3`, `4`, `5`, oder `0` | Bitte wählen Sie eine Zahl von 0 bis 5! |
-| `0`                                                  | Ausgabe: Also Wie lautet Ihr Name?   |
-| `1`                                                  | Ausgabe: Wie lautet Ihr Name?     |
-| `2`                                                  | Ausgabe: Ihr Name?                |
-| `3`                                                  | Ausgabe: Name?                     |
-| `4`                                                  | Ausgabe: ?                         |
-| `5`                                                  | Ausgabe: !                         |
+| `0`                                                          | Ausgabe: Also Wie lautet Ihr Name?      |
+| `1`                                                          | Ausgabe: Wie lautet Ihr Name?           |
+| `2`                                                          | Ausgabe: Ihr Name?                      |
+| `3`                                                          | Ausgabe: Name?                          |
+| `4`                                                          | Ausgabe: ?                              |
+| `5`                                                          | Ausgabe: !                              |
 
 ### Eine Alternative zu if...else-Ketten
 

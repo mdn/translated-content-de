@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Wenn eine Webseite von einem sicheren Ursprung über einen sicheren Kanal wie [HTTPS](/de/docs/Glossary/HTTPS) geladen wird, ist die Verbindung mit dem Webserver verschlüsselt und daher vor Abhören und Änderungen durch Man-in-the-Middle-Angriffe geschützt.
+Wenn eine Webseite von einem sicheren Ursprung über einen sicheren Kanal wie {{Glossary("HTTPS", "HTTPS")}} geladen wird, ist die Verbindung mit dem Webserver verschlüsselt und daher vor Abhören und Änderungen durch Man-in-the-Middle-Angriffe geschützt.
 Wenn die sicher geladene Webseite nur Bilder, Skripte und andere Ressourcen enthält, die ebenfalls von sicheren Ursprüngen gehostet werden, können die Benutzer sicher sein, dass die gesamte Seite vor diesen Arten von Angriffen geschützt ist.
 
 "Gemischter Inhalt" bezieht sich auf sicher geladene Webseiten, die Ressourcen nutzen, die über HTTP oder ein anderes unsicheres Protokoll abgerufen werden.

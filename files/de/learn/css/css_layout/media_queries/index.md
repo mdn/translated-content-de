@@ -66,7 +66,7 @@ Die folgende Media Query wird das `<body>` nur dann auf 12pt setzen, wenn die Se
 ```
 
 > [!NOTE]
-> Der hier verwendete Medientyp unterscheidet sich von dem sogenannten [MIME Type](/de/docs/Glossary/MIME_type).
+> Der hier verwendete Medientyp unterscheidet sich von dem sogenannten {{Glossary("MIME_type", "MIME Type")}}.
 
 > [!NOTE]
 > Es wurden eine Reihe von anderen Medientypen in der Level 3 Media Queries-Spezifikation definiert; diese wurden jedoch veraltet und sollten vermieden werden.

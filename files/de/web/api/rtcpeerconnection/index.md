@@ -54,7 +54,7 @@ _Erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
   - : Gibt ein [`RTCSessionDescription`](/de/docs/Web/API/RTCPeerConnection/remoteDescription)-Objekt zurück, das die Sitzung, einschließlich Konfiguration und Medieninformationen, für das entfernte Ende der Verbindung beschreibt.
     Wenn dies noch nicht festgelegt wurde, wird `null` zurückgegeben.
 - [`sctp`](/de/docs/Web/API/RTCPeerConnection/sctp) {{ReadOnlyInline}}
-  - : Gibt ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Objekt zurück, das die [SCTP](/de/docs/Glossary/SCTP)-Transportschicht beschreibt, über die SCTP-Daten gesendet und empfangen werden.
+  - : Gibt ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Objekt zurück, das die {{Glossary("SCTP", "SCTP")}}-Transportschicht beschreibt, über die SCTP-Daten gesendet und empfangen werden.
     Wenn SCTP nicht ausgehandelt wurde, ist dieser Wert `null`.
 - [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) {{ReadOnlyInline}}
   - : Gibt eine Zeichenkette zurück, die den Zustand des Signalisierungsprozesses am lokalen Ende der Verbindung beim Verbinden oder Wiederverbinden mit einem anderen Peer beschreibt.
@@ -79,23 +79,23 @@ _Erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 - [`close()`](/de/docs/Web/API/RTCPeerConnection/close)
   - : Schließt die aktuelle Peer-Verbindung.
 - [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer)
-  - : Leitet die Erstellung einer [SDP](/de/docs/Glossary/SDP)-Antwort auf ein Angebot ein, das von einem entfernten Peer während der Angebot-/Antwort-Verhandlung einer WebRTC-Verbindung empfangen wurde.
-    Die Antwort enthält Informationen über alle Medien, die bereits an die Sitzung angehängt sind, Codecs und Optionen, die vom Browser unterstützt werden, sowie alle bereits gesammelten [ICE](/de/docs/Glossary/ICE)-Kandidaten.
+  - : Leitet die Erstellung einer {{Glossary("SDP", "SDP")}}-Antwort auf ein Angebot ein, das von einem entfernten Peer während der Angebot-/Antwort-Verhandlung einer WebRTC-Verbindung empfangen wurde.
+    Die Antwort enthält Informationen über alle Medien, die bereits an die Sitzung angehängt sind, Codecs und Optionen, die vom Browser unterstützt werden, sowie alle bereits gesammelten {{Glossary("ICE", "ICE")}}-Kandidaten.
 - [`createDataChannel()`](/de/docs/Web/API/RTCPeerConnection/createDataChannel)
   - : Leitet die Erstellung eines neuen Kanals ein, der mit dem entfernten Peer verbunden ist, über den jede Art von Daten übertragen werden kann.
     Dies kann für Back-Channel-Inhalte nützlich sein, wie z. B. Bilder, Dateitransfer, Text-Chat, Spielaktualisierungspakete und so weiter.
 - [`createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer)
-  - : Leitet die Erstellung eines [SDP](/de/docs/Glossary/SDP)-Angebots ein, um eine neue WebRTC-Verbindung zu einem entfernten Peer zu starten.
-    Das SDP-Angebot enthält Informationen über bereits an die WebRTC-Sitzung angehängte [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte, Codecs und Optionen, die vom Browser unterstützt werden, sowie alle vom [ICE](/de/docs/Glossary/ICE)-Agenten bereits gesammelten Kandidaten, um über den Signalisierungskanal an einen potenziellen Peer gesendet zu werden, um eine Verbindung anzufordern oder die Konfiguration einer bestehenden Verbindung zu aktualisieren.
+  - : Leitet die Erstellung eines {{Glossary("SDP", "SDP")}}-Angebots ein, um eine neue WebRTC-Verbindung zu einem entfernten Peer zu starten.
+    Das SDP-Angebot enthält Informationen über bereits an die WebRTC-Sitzung angehängte [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Objekte, Codecs und Optionen, die vom Browser unterstützt werden, sowie alle vom {{Glossary("ICE", "ICE")}}-Agenten bereits gesammelten Kandidaten, um über den Signalisierungskanal an einen potenziellen Peer gesendet zu werden, um eine Verbindung anzufordern oder die Konfiguration einer bestehenden Verbindung zu aktualisieren.
 - [`getConfiguration()`](/de/docs/Web/API/RTCPeerConnection/getConfiguration)
   - : Gibt ein Objekt zurück, das die aktuelle Konfiguration der Verbindung anzeigt.
 - [`getIdentityAssertion()`](/de/docs/Web/API/RTCPeerConnection/getIdentityAssertion)
   - : Leitet das Sammeln einer Identitätsnachweis ein und gibt ein {{jsxref("Promise")}} zurück, das sich auf einen als Zeichenkette codierten Identitätsnachweis auflöst.
     Dies hat nur dann eine Wirkung, wenn [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) nicht `closed` ist.
 - [`getReceivers()`](/de/docs/Web/API/RTCPeerConnection/getReceivers)
-  - : Gibt ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten zurück, von denen jedes einen [RTP](/de/docs/Glossary/RTP)-Empfänger darstellt.
+  - : Gibt ein Array von [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten zurück, von denen jedes einen {{Glossary("RTP", "RTP")}}-Empfänger darstellt.
 - [`getSenders()`](/de/docs/Web/API/RTCPeerConnection/getSenders)
-  - : Gibt ein Array von [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekten zurück, von denen jedes den [RTP](/de/docs/Glossary/RTP)-Sender darstellt, der für die Übertragung der Daten eines Tracks verantwortlich ist.
+  - : Gibt ein Array von [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)-Objekten zurück, von denen jedes den {{Glossary("RTP", "RTP")}}-Sender darstellt, der für die Übertragung der Daten eines Tracks verantwortlich ist.
 - [`getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats)
   - : Gibt ein {{jsxref("Promise")}} zurück, das sich mit Daten auflöst, die Statistiken entweder über die gesamte Verbindung oder über den spezifizierten [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) liefern.
 - [`getTransceivers()`](/de/docs/Web/API/RTCPeerConnection/getTransceivers)
@@ -106,10 +106,10 @@ _Erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
     Wenn der Track bereits gestoppt ist oder nicht in der Senderliste der Verbindung ist, hat diese Methode keine Auswirkung.
 - [`restartIce()`](/de/docs/Web/API/RTCPeerConnection/restartIce)
   - : Erlaubt es, die erneute Durchführung der Sammlung von ICE-Kandidaten auf beiden Enden der Verbindung einfach anzufordern.
-    Dies vereinfacht den Prozess, indem dieselbe Methode sowohl vom Anrufer als auch vom Empfänger verwendet werden kann, um einen Neustart von [ICE](/de/docs/Glossary/ICE) auszulösen.
+    Dies vereinfacht den Prozess, indem dieselbe Methode sowohl vom Anrufer als auch vom Empfänger verwendet werden kann, um einen Neustart von {{Glossary("ICE", "ICE")}} auszulösen.
 - [`setConfiguration()`](/de/docs/Web/API/RTCPeerConnection/setConfiguration)
   - : Legt die aktuelle Konfiguration der Verbindung basierend auf den in dem angegebenen Objekt enthaltenen Werten fest.
-    Dadurch können Sie die von der Verbindung verwendeten [ICE](/de/docs/Glossary/ICE)-Server ändern und welche Transportpolitik verwendet werden soll.
+    Dadurch können Sie die von der Verbindung verwendeten {{Glossary("ICE", "ICE")}}-Server ändern und welche Transportpolitik verwendet werden soll.
 - [`setIdentityProvider()`](/de/docs/Web/API/RTCPeerConnection/setIdentityProvider)
   - : Setzt den Identitätsanbieter (IdP) auf das im Parameter angegebene Triplet: dessen Name, das Protokoll zur Kommunikation mit ihm und einen Benutzernamen.
     Das Protokoll und der Benutzername sind optional.
@@ -128,7 +128,7 @@ _Erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
   - : Fügt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Audio- oder Videoquelle hinzu.
     Anstatt diese veraltete Methode zu verwenden, sollten Sie stattdessen [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) einmal für jeden Track verwenden, den Sie an den entfernten Peer senden möchten.
 - [`createDTMFSender()`](/de/docs/Web/API/RTCPeerConnection/createDTMFSender) {{Deprecated_Inline}} {{non-standard_inline}}
-  - : Erstellt einen neuen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender), der mit einem bestimmten [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) assoziiert ist, und in der Lage ist, [DTMF](/de/docs/Glossary/DTMF)-Telefon-Signalisierung über die Verbindung zu senden.
+  - : Erstellt einen neuen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender), der mit einem bestimmten [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) assoziiert ist, und in der Lage ist, {{Glossary("DTMF", "DTMF")}}-Telefon-Signalisierung über die Verbindung zu senden.
 - [`removeStream()`](/de/docs/Web/API/RTCPeerConnection/removeStream) {{Deprecated_Inline}} {{Non-standard_Inline}}
   - : Entfernt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Audio- oder Videoquelle.
     Da diese Methode veraltet ist, sollten Sie stattdessen [`removeTrack()`](/de/docs/Web/API/RTCPeerConnection/removeTrack) verwenden.
@@ -144,18 +144,18 @@ Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/Even
 - [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)
   - : Wird gesendet, um zu verlangen, dass der angegebene Kandidat an den entfernten Peer übertragen wird.
 - [`icecandidateerror`](/de/docs/Web/API/RTCPeerConnection/icecandidateerror_event)
-  - : Wird an die Verbindung gesendet, wenn während der Sammlung von [ICE](/de/docs/Glossary/ICE)-Kandidaten ein Fehler aufgetreten ist. Das Ereignis beschreibt den Fehler.
+  - : Wird an die Verbindung gesendet, wenn während der Sammlung von {{Glossary("ICE", "ICE")}}-Kandidaten ein Fehler aufgetreten ist. Das Ereignis beschreibt den Fehler.
 - [`iceconnectionstatechange`](/de/docs/Web/API/RTCPeerConnection/iceconnectionstatechange_event)
-  - : Wird gesendet, wenn sich der Zustand der [ICE](/de/docs/Glossary/ICE)-Verbindung ändert, zum Beispiel wenn sie getrennt wird.
+  - : Wird gesendet, wenn sich der Zustand der {{Glossary("ICE", "ICE")}}-Verbindung ändert, zum Beispiel wenn sie getrennt wird.
 - [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event)
-  - : Wird gesendet, wenn sich der Sammlungzustand der [ICE](/de/docs/Glossary/ICE)-Ebene, widergespiegelt von [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState), ändert.
+  - : Wird gesendet, wenn sich der Sammlungzustand der {{Glossary("ICE", "ICE")}}-Ebene, widergespiegelt von [`iceGatheringState`](/de/docs/Web/API/RTCPeerConnection/iceGatheringState), ändert.
     Dies zeigt, ob die ICE-Verhandlung noch nicht begonnen hat (`new`), Kandidaten zu sammeln begonnen hat (`gathering`) oder abgeschlossen ist (`complete`).
 - [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)
-  - : Wird gesendet, wenn eine Verhandlung oder Neuverhandlung der [ICE](/de/docs/Glossary/ICE)-Verbindung erforderlich ist;
+  - : Wird gesendet, wenn eine Verhandlung oder Neuverhandlung der {{Glossary("ICE", "ICE")}}-Verbindung erforderlich ist;
     dies kann sowohl beim ersten Öffnen einer Verbindung als auch bei Bedarf zur Anpassung an sich ändernde Netzwerkbedingungen geschehen.
     Der Empfänger sollte mit der Erstellung eines Angebots antworten und es an den anderen Peer senden.
 - [`signalingstatechange`](/de/docs/Web/API/RTCPeerConnection/signalingstatechange_event)
-  - : Wird gesendet, wenn sich der Signalisierungszustand der [ICE](/de/docs/Glossary/ICE)-Verbindung ändert.
+  - : Wird gesendet, wenn sich der Signalisierungszustand der {{Glossary("ICE", "ICE")}}-Verbindung ändert.
 - [`track`](/de/docs/Web/API/RTCPeerConnection/track_event)
   - : Wird gesendet, nachdem ein neuer Track zu einer der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Instanzen hinzugefügt wurde, aus denen die Verbindung besteht.
 

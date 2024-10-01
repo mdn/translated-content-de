@@ -47,7 +47,7 @@ Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als eine du
 
   - : Repräsentiert ein durch Leerzeichen getrenntes Tupel, bestehend aus einem Tag-Namen und einem optionalen Wert.
 
-    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} von vier [ASCII](/de/docs/Glossary/ASCII) Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepunktbereichs enthält, ist der Deskriptor ungültig.
+    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} von vier {{Glossary("ASCII", "ASCII")}} Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepunktbereichs enthält, ist der Deskriptor ungültig.
 
     Der optionale Wert kann eine positive Ganzzahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert festgelegt ist, ist der Standard `1`. Für nicht-boolean OpenType-Funktionen (z.B. [stilistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert ein bestimmtes zu wählendes Glyph; für boolesche Funktionen schaltet der Wert die Funktion ein oder aus.
 

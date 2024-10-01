@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-row-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Startposition eines Grid-Elements innerhalb der Grid-Zeile fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu dessen Grid-Platzierung beiträgt. Dadurch wird die Inline-Start-Kante seines [Grid-Bereichs](/de/docs/Glossary/grid_areas) definiert.
+Die **`grid-row-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Startposition eines Grid-Elements innerhalb der Grid-Zeile fest, indem sie eine Linie, eine Spannweite oder nichts (automatisch) zu dessen Grid-Platzierung beiträgt. Dadurch wird die Inline-Start-Kante seines {{Glossary("grid_areas", "Grid-Bereichs")}} definiert.
 
 {{EmbedInteractiveExample("pages/css/grid-row-start.html")}}
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`sctp`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) zurück, das den [SCTP](/de/docs/Glossary/SCTP)-Transport beschreibt, über den SCTP-Daten gesendet und empfangen werden.
+Die schreibgeschützte Eigenschaft **`sctp`** der Schnittstelle [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gibt ein [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport) zurück, das den {{Glossary("SCTP", "SCTP")}}-Transport beschreibt, über den SCTP-Daten gesendet und empfangen werden.
 Wenn SCTP nicht verhandelt wurde, ist dieser Wert `null`.
 
 Der SCTP-Transport wird für das Senden und Empfangen von Daten aller [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s auf der Peer-Verbindung verwendet.
@@ -49,4 +49,4 @@ const maxMessageSize = sctp.maxMessageSize;
 - [WebRTC](/de/docs/Web/API/WebRTC_API)
 - [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)
 - [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)
-- [SCTP](/de/docs/Glossary/SCTP)
+- {{Glossary("SCTP", "SCTP")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`TextFormatUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Liste von Textformaten darstellt, die ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster auf den in einer bearbeitbaren Region verfassten Text anwenden möchte, die mit einer Instanz von [`EditContext`](/de/docs/Web/API/EditContext) verbunden ist.
+Die **`TextFormatUpdateEvent`**-Schnittstelle ist ein [DOM-Ereignis](/de/docs/Web/API/Event), das eine Liste von Textformaten darstellt, die ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster auf den in einer bearbeitbaren Region verfassten Text anwenden möchte, die mit einer Instanz von [`EditContext`](/de/docs/Web/API/EditContext) verbunden ist.
 
 Diese Schnittstelle erbt Eigenschaften von [`Event`](/de/docs/Web/API/Event).
 

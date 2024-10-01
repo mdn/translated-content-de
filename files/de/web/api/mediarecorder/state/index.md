@@ -17,7 +17,7 @@ Ein String, der einen der folgenden Werte enthält:
 - `inactive`
   - : Es erfolgt keine Aufnahme — sie wurde entweder noch nicht gestartet oder sie wurde gestartet und dann gestoppt.
 - `recording`
-  - : Die Aufnahme wurde gestartet und der [User-Agent](/de/docs/Glossary/user_agent) erfasst Daten.
+  - : Die Aufnahme wurde gestartet und der {{Glossary("user_agent", "User-Agent")}} erfasst Daten.
 - `paused`
   - : Die Aufnahme wurde gestartet, dann angehalten, aber noch nicht gestoppt oder fortgesetzt.
 

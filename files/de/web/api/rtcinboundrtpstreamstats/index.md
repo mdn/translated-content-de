@@ -14,7 +14,7 @@ Die Statistiken können erhalten werden, indem Sie den [`RTCStatsReport`](/de/do
 ## Instanz-Eigenschaften
 
 - [`averageRtcpInterval`](/de/docs/Web/API/RTCInboundRtpStreamStats/averageRtcpInterval)
-  - : Ein Fließkommawert, der das durchschnittliche [RTCP](/de/docs/Glossary/RTCP)-Intervall zwischen zwei aufeinanderfolgenden zusammengesetzten RTCP-Paketen angibt.
+  - : Ein Fließkommawert, der das durchschnittliche {{Glossary("RTCP", "RTCP")}}-Intervall zwischen zwei aufeinanderfolgenden zusammengesetzten RTCP-Paketen angibt.
 - [`bytesReceived`](/de/docs/Web/API/RTCInboundRtpStreamStats/bytesReceived)
   - : Ein 64-Bit-Integer, der die Gesamtanzahl der Bytes angibt, die bisher für diese Medienquelle empfangen wurden.
 - [`fecPacketsDiscarded`](/de/docs/Web/API/RTCInboundRtpStreamStats/fecPacketsDiscarded)
@@ -70,7 +70,7 @@ Diese Statistiken werden am Empfangsende eines RTP-Streams gemessen, unabhängig
 <!-- RTCRtpStreamStats -->
 
 - [`codecId`](/de/docs/Web/API/RTCInboundRtpStreamStats/codecId)
-  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) Objekt zu erzeugen, das mit diesem [RTP](/de/docs/Glossary/RTP) Stream verbunden ist.
+  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats) Objekt zu erzeugen, das mit diesem {{Glossary("RTP", "RTP")}} Stream verbunden ist.
 - [`kind`](/de/docs/Web/API/RTCInboundRtpStreamStats/kind)
   - : Ein String, dessen Wert `"audio"` ist, wenn der zugehörige [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) nur Audio enthält oder `"video"`, wenn der Track Video enthält. Dieser Wert stimmt mit dem vom [`RTCCodecStats.codec`](/de/docs/Web/API/RTCCodecStats/codec) angezeigtem Medientyp überein sowie mit der [`kind`](/de/docs/Web/API/MediaStreamTrack/kind) Eigenschaft des Tracks. Früher als `mediaType` bezeichnet.
 - [`ssrc`](/de/docs/Web/API/RTCInboundRtpStreamStats/ssrc)

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}{{SecureContext_Header}}
 
-Die **`getSupportedConstraints()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle gibt ein Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch zurück, dessen Mitglieder jeweils eine der einschränkbaren Eigenschaften spezifizieren, die der [User Agent](/de/docs/Glossary/user_agent) versteht.
+Die **`getSupportedConstraints()`**-Methode der [`MediaDevices`](/de/docs/Web/API/MediaDevices)-Schnittstelle gibt ein Objekt basierend auf dem [`MediaTrackSupportedConstraints`](/de/docs/Web/API/MediaTrackSupportedConstraints)-Wörterbuch zurück, dessen Mitglieder jeweils eine der einschränkbaren Eigenschaften spezifizieren, die der {{Glossary("user_agent", "User Agent")}} versteht.
 
 ## Syntax
 

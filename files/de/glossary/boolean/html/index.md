@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Boolean-Attribut** in [HTML](/de/docs/Glossary/HTML) ist ein [Attribut](/de/docs/Glossary/attribute), das `true`- oder `false`-Werte repräsentiert. Wenn ein HTML-Tag ein Boolean-Attribut enthält - unabhängig vom Wert dieses Attributs - wird das Attribut auf `true` für dieses Element gesetzt. Wenn ein HTML-Tag das Attribut nicht enthält, wird das Attribut auf `false` gesetzt.
+Ein **Boolean-Attribut** in {{Glossary("HTML", "HTML")}} ist ein {{Glossary("attribute", "Attribut")}}, das `true`- oder `false`-Werte repräsentiert. Wenn ein HTML-Tag ein Boolean-Attribut enthält - unabhängig vom Wert dieses Attributs - wird das Attribut auf `true` für dieses Element gesetzt. Wenn ein HTML-Tag das Attribut nicht enthält, wird das Attribut auf `false` gesetzt.
 
 Falls das Attribut vorhanden ist, kann es einen der folgenden Werte haben:
 
@@ -35,5 +35,5 @@ Hier ist ein Beispiel für ein HTML Boolean-Attribut `checked`:
 - [Boolean-Attribute](/de/docs/Web/HTML/Attributes#boolean_attributes)
 - [Boolean-Attribute](https://html.spec.whatwg.org/#boolean-attributes) in der HTML-Spezifikation
 - Verwandte Glossarbegriffe:
-  - [Attribut](/de/docs/Glossary/Attribute)
-  - [Enumeriertes Attribut](/de/docs/Glossary/Enumerated)
+  - {{Glossary("Attribute", "Attribut")}}
+  - {{Glossary("Enumerated", "Enumeriertes Attribut")}}

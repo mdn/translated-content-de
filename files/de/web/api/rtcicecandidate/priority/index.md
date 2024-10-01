@@ -26,7 +26,7 @@ Ein langer, nicht signierter ganzzahliger Wert, der die Priorität des Kandidate
 
 ## Anwendungshinweise
 
-Betrachten Sie diese [SDP](/de/docs/Glossary/SDP)-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
+Betrachten Sie diese {{Glossary("SDP", "SDP")}}-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
 
 ```plain
 a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host

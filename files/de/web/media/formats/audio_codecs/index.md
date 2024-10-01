@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Media")}}
 
-Selbst moderat hochwertige, hochaufgelöste Stereoklänge können eine erhebliche Menge Speicherplatz beanspruchen. Für Webentwickler ist noch wichtiger der benötigte Netzwerk-Bandbreitenverbrauch, um Audio zu übertragen, sei es für Streaming oder um es für die Nutzung während des Spielens herunterzuladen. Die Verarbeitung von Audiodaten zur Kodierung und Dekodierung wird von einem Audio-**[Codec](/de/docs/Glossary/codec)** (**CO**der/**DEC**oder) gehandhabt. In diesem Artikel betrachten wir Audio-Codecs, die im Web verwendet werden, um Audio zu komprimieren und zu dekomprimieren, welche Fähigkeiten und Anwendungsfälle sie haben und geben Ihnen Hinweise, wie Sie Audio-Codecs für Ihre Inhalte auswählen können.
+Selbst moderat hochwertige, hochaufgelöste Stereoklänge können eine erhebliche Menge Speicherplatz beanspruchen. Für Webentwickler ist noch wichtiger der benötigte Netzwerk-Bandbreitenverbrauch, um Audio zu übertragen, sei es für Streaming oder um es für die Nutzung während des Spielens herunterzuladen. Die Verarbeitung von Audiodaten zur Kodierung und Dekodierung wird von einem Audio-**{{Glossary("codec", "Codec")}}** (**CO**der/**DEC**oder) gehandhabt. In diesem Artikel betrachten wir Audio-Codecs, die im Web verwendet werden, um Audio zu komprimieren und zu dekomprimieren, welche Fähigkeiten und Anwendungsfälle sie haben und geben Ihnen Hinweise, wie Sie Audio-Codecs für Ihre Inhalte auswählen können.
 
 Darüber hinaus verwenden WebRTC-Implementierungen in der Regel eine Untergruppe dieser Codecs für ihre Kodierung und Dekodierung von Medien und können auch zusätzliche Codecs unterstützen, um optimalen plattformübergreifenden Support für Video- und Audiokonferenzen zu bieten und besser mit bestehenden Telekommunikationslösungen zu integrieren. Siehe [Codecs used by WebRTC](/de/docs/Web/Media/Formats/WebRTC_codecs) für Details.
 
@@ -66,17 +66,17 @@ Die folgende Liste zeigt die Codecs, die am häufigsten im Web verwendet werden,
       </th>
       <td>Puls-Code-Modulation (PCM) von Sprachfrequenzen</td>
       <td>
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a>
       </td>
     </tr>
     <tr>
       <th scope="row"><a href="#g.722_64_kbps_7_khz_audio_coding">G.722</a></th>
       <td>
-        7 kHz Audio-Codierung bei 64 kbps (für Telefonie/[VoIP](/de/docs/Glossary/VoIP))
+        7 kHz Audio-Codierung bei 64 kbps (für Telefonie/{{Glossary("VoIP", "VoIP")}})
       </td>
       <td>
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a>
       </td>
     </tr>
@@ -383,7 +383,7 @@ Als patentreiztes Format ist die Unterstützung von AAC weniger vorhersehbar. Be
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -478,7 +478,7 @@ Bedenken Sie jedoch, dass verlustfreie Codecs erheblich mehr Bandbreite und Spei
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -582,7 +582,7 @@ Als sprachspezifischer Codec ist AMR für jede andere Art von Inhalten praktisch
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -678,7 +678,7 @@ FLAC ist eine ausgezeichnete Wahl für kleinere Audioeffektdateien, bei denen ma
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -770,7 +770,7 @@ Dieser Codec muss von allen [WebRTC](/de/docs/Web/API/WebRTC_API)-Lösungen unte
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -867,7 +867,7 @@ G.722 wird hauptsächlich bei WebRTC-Verbindungen verwendet, da es einer der im 
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -984,7 +984,7 @@ Die Patente hinter MP3 sind abgelaufen, was viele oder die meisten Lizenzproblem
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -1193,7 +1193,7 @@ Opus ist ein guter Allround-Audio-Codec für den Einsatz in Ihren Webanwendungen
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -1288,7 +1288,7 @@ Im Allgemeinen ist Vorbis in Bezug auf Größe und Bitrate effizienter als MP3 b
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>

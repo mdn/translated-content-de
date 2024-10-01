@@ -18,12 +18,12 @@ Der `Content-Disposition` Header ist im größeren Kontext von MIME-Nachrichten 
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Antwort-Header](/de/docs/Glossary/Response_header) (für den Hauptkörper),<br />[Anfrage-Header](/de/docs/Glossary/Request_header),
-        [Antwort-Header](/de/docs/Glossary/Response_header) (für einen Unterteil eines Multipart-Körpers)
+        {{Glossary("Response_header", "Antwort-Header")}} (für den Hauptkörper),<br />{{Glossary("Request_header", "Anfrage-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}} (für einen Unterteil eines Multipart-Körpers)
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>Nein</td>
     </tr>
   </tbody>

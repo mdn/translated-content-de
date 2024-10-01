@@ -12,10 +12,10 @@ l10n:
 > Verwenden Sie stattdessen {{HTTPHeader("Want-Content-Digest")}}.
 > Für `id-*` Digest-Algorithmen, verwenden Sie {{HTTPHeader("Want-Repr-Digest")}}.
 
-Der **`Want-Digest`** HTTP-Anforderungs- oder Antwort-Header fordert die Gegenseite auf, einen [Digest](/de/docs/Glossary/digest) mit dem {{HTTPHeader("Digest")}}-Header bereitzustellen.
+Der **`Want-Digest`** HTTP-Anforderungs- oder Antwort-Header fordert die Gegenseite auf, einen {{Glossary("digest", "Digest")}} mit dem {{HTTPHeader("Digest")}}-Header bereitzustellen.
 
 Der Header enthält Bezeichner für einen oder mehrere Digest-Algorithmen, die der Absender wünscht, dass der Server verwendet, um den Digest zu erstellen.
-Die Anforderung kann [Qualitätswerte](/de/docs/Glossary/quality_values) verwenden, um ihre Präferenz/Reihenfolge für bestimmte Digest-Algorithmen anzugeben.
+Die Anforderung kann {{Glossary("quality_values", "Qualitätswerte")}} verwenden, um ihre Präferenz/Reihenfolge für bestimmte Digest-Algorithmen anzugeben.
 
 Wenn `Want-Digest` keine Digest-Algorithmen enthält, die der Server unterstützt, kann der Server mit Folgendem antworten:
 
@@ -29,12 +29,12 @@ Siehe auch den {{HTTPHeader("Digest")}}-Header.
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anforderungs-Header](/de/docs/Glossary/Request_header),
-        [Antwort-Header](/de/docs/Glossary/Response_header)
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -56,7 +56,7 @@ Want-Digest: <digest-algorithm><q-value>,<digest-algorithm><q-value>
     - Zulässige Digest-Algorithmus-Werte umfassen: `unixsum`, `unixcksum`, `crc32c`, `sha-256` und `sha-512`, `id-sha-256`, `id-sha-512`
     - Veraltete Algorithmus-Werte umfassen: `md5`, `sha`, `adler32`.
 - \<q-value>
-  - : Der [Qualitätswert](/de/docs/Glossary/Quality_values), der auf diese Option angewendet werden soll.
+  - : Der {{Glossary("Quality_values", "Qualitätswert")}}, der auf diese Option angewendet werden soll.
 
 ## Beispiele
 

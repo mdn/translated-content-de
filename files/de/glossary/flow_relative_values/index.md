@@ -9,9 +9,9 @@ l10n:
 
 In CSS sind **fluss-relative Werte** richtungsbezogene Schlüsselwörter, die relativ zu den Block- und Inline-Achsen eines Elements sind. Diese Werte umfassen `block-start`, `block-end`, `inline-start`, `inline-end`, `start` und `end`.
 
-In CSS definieren [physische Eigenschaften](/de/docs/Glossary/physical_properties) Positionen basierend auf physischen Richtungen und beziehen sich auf bestimmte Seiten eines Elements.
+In CSS definieren {{Glossary("physical_properties", "physische Eigenschaften")}} Positionen basierend auf physischen Richtungen und beziehen sich auf bestimmte Seiten eines Elements.
 
-CSS [logische Eigenschaften](/de/docs/Glossary/logical_properties) hingegen definieren Stile basierend auf dem Schreibmodus und der Richtung des Dokuments, anstatt auf den physischen Dimensionen des Ansichtsfensters. Logische Eigenschaften sind relativ zum Inhaltsfluss und verwenden richtungsbezogene Schlüsselwörter im Verhältnis zu den Block- und Inline-Achsen.
+CSS {{Glossary("logical_properties", "logische Eigenschaften")}} hingegen definieren Stile basierend auf dem Schreibmodus und der Richtung des Dokuments, anstatt auf den physischen Dimensionen des Ansichtsfensters. Logische Eigenschaften sind relativ zum Inhaltsfluss und verwenden richtungsbezogene Schlüsselwörter im Verhältnis zu den Block- und Inline-Achsen.
 
 ## Blockrichtung
 

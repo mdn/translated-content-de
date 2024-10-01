@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("DOM")}}
 
-Die **`Range.toString()`**-Methode ist ein [Stringifier](/de/docs/Glossary/stringifier), der den Text des [`Range`](/de/docs/Web/API/Range) zurückgibt.
+Die **`Range.toString()`**-Methode ist ein {{Glossary("stringifier", "Stringifier")}}, der den Text des [`Range`](/de/docs/Web/API/Range) zurückgibt.
 
 Das Anzeigen des Inhalts eines [`Range`](/de/docs/Web/API/Range) erzeugt einen impliziten
 `toString()`-Aufruf. Daher ist der Vergleich von Bereich und Text über ein Dialogfeld unwirksam.

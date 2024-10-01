@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-**HTTP** ist ein [Protokoll](/de/docs/Glossary/protocol) zum Abrufen von Ressourcen wie HTML-Dokumenten. Es bildet die Grundlage für jeden Datenaustausch im Web und ist ein Client-Server-Protokoll, was bedeutet, dass Anfragen vom Empfänger initiiert werden, normalerweise dem Webbrowser. Ein vollständiges Dokument wird typischerweise aus Ressourcen wie Textinhalten, Gestaltungsvorschriften, Bildern, Videos, Skripten und mehr zusammengestellt.
+**HTTP** ist ein {{Glossary("protocol", "Protokoll")}} zum Abrufen von Ressourcen wie HTML-Dokumenten. Es bildet die Grundlage für jeden Datenaustausch im Web und ist ein Client-Server-Protokoll, was bedeutet, dass Anfragen vom Empfänger initiiert werden, normalerweise dem Webbrowser. Ein vollständiges Dokument wird typischerweise aus Ressourcen wie Textinhalten, Gestaltungsvorschriften, Bildern, Videos, Skripten und mehr zusammengestellt.
 
 ![Ein einzelnes Webdokument, das aus mehreren Ressourcen von verschiedenen Servern besteht.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/fetching-a-page.svg)
 
@@ -15,13 +15,13 @@ Clients und Server kommunizieren durch den Austausch einzelner Nachrichten (im G
 
 ![HTTP als Anwendungsprotokollschicht, über TCP (Transportschicht) und IP (Netzwerkschicht) und unterhalb der Präsentationsschicht.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/http-layers.svg)
 
-HTTP wurde in den frühen 1990er Jahren entwickelt und ist ein erweiterbares Protokoll, das sich im Laufe der Zeit weiterentwickelt hat. Es ist ein Anwendungsprotokoll, das über [TCP](/de/docs/Glossary/TCP) oder über eine [TLS](/de/docs/Glossary/TLS)-verschlüsselte TCP-Verbindung gesendet wird, obwohl theoretisch jedes zuverlässige Transportprotokoll verwendet werden könnte. Aufgrund seiner Erweiterbarkeit wird es nicht nur zum Abrufen von Hypertext-Dokumenten verwendet, sondern auch von Bildern und Videos oder zum Posten von Inhalten auf Servern, wie z.B. bei HTML-Formularergebnissen. HTTP kann auch verwendet werden, um Teile von Dokumenten abzurufen, um Webseiten bei Bedarf zu aktualisieren.
+HTTP wurde in den frühen 1990er Jahren entwickelt und ist ein erweiterbares Protokoll, das sich im Laufe der Zeit weiterentwickelt hat. Es ist ein Anwendungsprotokoll, das über {{Glossary("TCP", "TCP")}} oder über eine {{Glossary("TLS", "TLS")}}-verschlüsselte TCP-Verbindung gesendet wird, obwohl theoretisch jedes zuverlässige Transportprotokoll verwendet werden könnte. Aufgrund seiner Erweiterbarkeit wird es nicht nur zum Abrufen von Hypertext-Dokumenten verwendet, sondern auch von Bildern und Videos oder zum Posten von Inhalten auf Servern, wie z.B. bei HTML-Formularergebnissen. HTTP kann auch verwendet werden, um Teile von Dokumenten abzurufen, um Webseiten bei Bedarf zu aktualisieren.
 
 ## Komponenten von HTTP-basierten Systemen
 
 HTTP ist ein Client-Server-Protokoll: Anfragen werden von einer Entität, dem Benutzeragenten (oder einem Proxy in dessen Namen), gesendet. Meistens ist der Benutzeragent ein Webbrowser, aber er kann auch etwas anderes sein, z.B. ein Roboter, der das Web durchsucht, um einen Suchmaschinenindex zu füllen und zu pflegen.
 
-Jede einzelne Anfrage wird an einen Server gesendet, der sie bearbeitet und eine Antwort, die _Antwort_ genannt wird, bereitstellt. Zwischen dem Client und dem Server gibt es zahlreiche Entitäten, die zusammen [Proxies](/de/docs/Glossary/Proxy_server) genannt werden, die verschiedene Operationen durchführen und als Gateways oder [Caches](/de/docs/Glossary/Cache) fungieren, zum Beispiel.
+Jede einzelne Anfrage wird an einen Server gesendet, der sie bearbeitet und eine Antwort, die _Antwort_ genannt wird, bereitstellt. Zwischen dem Client und dem Server gibt es zahlreiche Entitäten, die zusammen {{Glossary("Proxy_server", "Proxies")}} genannt werden, die verschiedene Operationen durchführen und als Gateways oder {{Glossary("Cache", "Caches")}} fungieren, zum Beispiel.
 
 ![Eine HTTP-Anfrage von einem Client wird von mehreren Proxies zu einem Server weitergeleitet und eine Antwort nimmt denselben Weg zurück zum Client.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/client-server-chain.svg)
 
@@ -142,7 +142,7 @@ Ein Beispiel einer HTTP-Anfrage:
 Anfragen bestehen aus den folgenden Elementen:
 
 - Einer HTTP-[Methode](/de/docs/Web/HTTP/Methods), normalerweise einem Verb wie {{HTTPMethod("GET")}}, {{HTTPMethod("POST")}}, oder einem Substantiv wie {{HTTPMethod("OPTIONS")}} oder {{HTTPMethod("HEAD")}}, das die Operation definiert, die der Client ausführen möchte. Typischerweise möchte ein Client eine Ressource abrufen (mit `GET`) oder den Wert eines [HTML-Formulars](/de/docs/Learn/Forms) übermitteln (mit `POST`), obwohl in anderen Fällen mehr Operationen erforderlich sein können.
-- Dem Pfad der Ressource, die abgerufen werden soll; die URL der Ressource ohne die Punkte, die aus dem Kontext offensichtlich sind, zum Beispiel ohne das [Protokoll](/de/docs/Glossary/protocol) (`http://`), die [Domain](/de/docs/Glossary/domain) (hier, `developer.mozilla.org`) oder den TCP-[Port](/de/docs/Glossary/port) (hier, `80`).
+- Dem Pfad der Ressource, die abgerufen werden soll; die URL der Ressource ohne die Punkte, die aus dem Kontext offensichtlich sind, zum Beispiel ohne das {{Glossary("protocol", "Protokoll")}} (`http://`), die {{Glossary("domain", "Domain")}} (hier, `developer.mozilla.org`) oder den TCP-{{Glossary("port", "Port")}} (hier, `80`).
 - Der Version des HTTP-Protokolls.
 - Optionalen [Headern](/de/docs/Web/HTTP/Headers), die zusätzliche Informationen für die Server übermitteln.
 - Einem Body, für einige Methoden wie `POST`, ähnlich denen in Antworten, die die gesendete Ressource enthalten.

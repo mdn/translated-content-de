@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Die schreibgeschützte **`types`**-Eigenschaft des [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Interfaces gibt ein {{jsxref("Array")}} der im [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) verfügbaren [MIME-Typen](/de/docs/Glossary/MIME_type) zurück.
+Die schreibgeschützte **`types`**-Eigenschaft des [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Interfaces gibt ein {{jsxref("Array")}} der im [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) verfügbaren {{Glossary("MIME_type", "MIME-Typen")}} zurück.
 
 ## Wert
 
-Ein {{jsxref("Array")}} der verfügbaren [MIME-Typen](/de/docs/Glossary/MIME_type).
+Ein {{jsxref("Array")}} der verfügbaren {{Glossary("MIME_type", "MIME-Typen")}}.
 
 ## Beispiele
 

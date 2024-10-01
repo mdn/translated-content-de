@@ -20,7 +20,7 @@ Number.parseFloat(string)
 ### Parameter
 
 - `string`
-  - : Der zu analysierende Wert, [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende [Leerzeichen](/de/docs/Glossary/whitespace) in diesem Argument werden ignoriert.
+  - : Der zu analysierende Wert, [in einen String umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion). Führende {{Glossary("whitespace", "Leerzeichen")}} in diesem Argument werden ignoriert.
 
 ### Rückgabewert
 

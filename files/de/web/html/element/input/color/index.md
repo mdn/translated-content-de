@@ -67,7 +67,7 @@ colorPicker.select();
 
 ## Validierung
 
-Der Wert einer Farbeingabe wird als ungültig angesehen, wenn der [Benutzeragent](/de/docs/Glossary/user_agent) nicht in der Lage ist, die Benutzereingabe in eine siebenstellige Hexadezimalschreibweise in Kleinbuchstaben umzuwandeln. Wenn dies der Fall ist, wird die {{cssxref(":invalid")}} Pseudo-Klasse auf das Element angewandt.
+Der Wert einer Farbeingabe wird als ungültig angesehen, wenn der {{Glossary("user_agent", "Benutzeragent")}} nicht in der Lage ist, die Benutzereingabe in eine siebenstellige Hexadezimalschreibweise in Kleinbuchstaben umzuwandeln. Wenn dies der Fall ist, wird die {{cssxref(":invalid")}} Pseudo-Klasse auf das Element angewandt.
 
 ## Beispiel
 

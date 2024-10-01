@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**UDP** (User Datagram Protocol) ist ein lang bestehendes [Protokoll](/de/docs/Glossary/protocol), das zusammen mit [IP](/de/docs/Glossary/IPv6) verwendet wird, um Daten zu senden, wenn Übertragungsgeschwindigkeit und Effizienz wichtiger sind als Sicherheit und Zuverlässigkeit.
+**UDP** (User Datagram Protocol) ist ein lang bestehendes {{Glossary("protocol", "Protokoll")}}, das zusammen mit {{Glossary("IPv6", "IP")}} verwendet wird, um Daten zu senden, wenn Übertragungsgeschwindigkeit und Effizienz wichtiger sind als Sicherheit und Zuverlässigkeit.
 
 UDP verwendet ein einfaches [verbindungsloses Kommunikationsmodell](https://en.wikipedia.org/wiki/Connectionless_communication) mit einem Minimum an Protokollmechanismen. UDP bietet [Prüfsummen](https://en.wikipedia.org/wiki/Checksum) für die Datenintegrität und [Portnummern](https://en.wikipedia.org/wiki/Port_numbers) zur Adressierung verschiedener Funktionen an der Quelle und dem Ziel des Datagramms. Es gibt keine [Handshaking](https://en.wikipedia.org/wiki/Handshaking)-Dialoge, wodurch das Benutzerprogramm jeglicher [Unzuverlässigkeit](<https://en.wikipedia.org/wiki/Reliability_(computer_networking)>) des zugrunde liegenden Netzwerks ausgesetzt wird; Es gibt keine Garantie für Lieferung, Reihenfolge oder Duplikatschutz. Wenn Fehlerkorrekturfunktionen auf der Netzwerkebene erforderlich sind, kann eine Anwendung das [Transmission Control Protocol](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) (TCP) oder [Stream Control Transmission Protocol](https://en.wikipedia.org/wiki/Stream_Control_Transmission_Protocol) (SCTP) verwenden, die für diesen Zweck entwickelt wurden.
 

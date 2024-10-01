@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Encoding API")}}{{AvailableInWorkers}}
 
-Die **Encoding API** bietet einen Mechanismus zur Verarbeitung von Text in verschiedenen [Zeichenkodierungen](/de/docs/Glossary/character_encoding), einschließlich älterer nicht-[UTF-8](/de/docs/Glossary/UTF-8)-Kodierungen.
+Die **Encoding API** bietet einen Mechanismus zur Verarbeitung von Text in verschiedenen {{Glossary("character_encoding", "Zeichenkodierungen")}}, einschließlich älterer nicht-{{Glossary("UTF-8", "UTF-8")}}-Kodierungen.
 
 Die API stellt vier Schnittstellen bereit: [`TextDecoder`](/de/docs/Web/API/TextDecoder), [`TextEncoder`](/de/docs/Web/API/TextEncoder), [`TextDecoderStream`](/de/docs/Web/API/TextDecoderStream) und [`TextEncoderStream`](/de/docs/Web/API/TextEncoderStream).
 

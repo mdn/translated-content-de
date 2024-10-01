@@ -52,7 +52,7 @@ Bestimmte CSS-Eigenschaften können verwendet werden, um festzulegen, wie das in
 ## Siehe auch
 
 - [HTML-Spezifikation](https://html.spec.whatwg.org/multipage/rendering.html#replaced-elements)
-- [Leere Elemente](/de/docs/Glossary/void_element)
+- {{Glossary("void_element", "Leere Elemente")}}
 - CSS-Schlüsselkonzepte:
   - [CSS-Syntax](/de/docs/Web/CSS/Syntax)
   - [At-Regeln](/de/docs/Web/CSS/At-rule)

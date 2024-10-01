@@ -34,7 +34,7 @@ Die `overscroll-behavior-y` Eigenschaft wird als ein Schlüsselwort aus der unte
 - `auto`
   - : Das Standardverhalten bei Scrollüberlauf tritt wie gewohnt auf.
 - `contain`
-  - : Das Standardverhalten bei Scrollüberlauf (z.B. „Bounce“-Effekte) wird innerhalb des Elements, in dem dieser Wert gesetzt ist, beobachtet. Es tritt jedoch kein [Scroll-Chaining](/de/docs/Glossary/Scroll_chaining) in benachbarten Scrollbereichen auf; die zugrunde liegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browsernavigation, einschließlich der vertikalen "Ziehen-zum-Aktualisieren"-Geste und der horizontalen Wischnavigation.
+  - : Das Standardverhalten bei Scrollüberlauf (z.B. „Bounce“-Effekte) wird innerhalb des Elements, in dem dieser Wert gesetzt ist, beobachtet. Es tritt jedoch kein {{Glossary("Scroll_chaining", "Scroll-Chaining")}} in benachbarten Scrollbereichen auf; die zugrunde liegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browsernavigation, einschließlich der vertikalen "Ziehen-zum-Aktualisieren"-Geste und der horizontalen Wischnavigation.
 - `none`
   - : Es tritt kein Scroll-Chaining in benachbarten Scrollbereichen auf, und das Standardverhalten bei Scrollüberlauf wird verhindert.
 

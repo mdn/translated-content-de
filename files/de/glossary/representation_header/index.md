@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Representation Header** (oder 'Representation Metadata') ist ein [HTTP-Header](/de/docs/Glossary/HTTP_header), der beschreibt, wie die im Nachrichtentext enthaltenen Daten interpretiert werden sollen.
+Ein **Representation Header** (oder 'Representation Metadata') ist ein {{Glossary("HTTP_header", "HTTP-Header")}}, der beschreibt, wie die im Nachrichtentext enthaltenen Daten interpretiert werden sollen.
 
 Zum Beispiel können die Inhalte in einer bestimmten Nachricht für den Transport codiert sein, die gesamte Ressource könnte in einem bestimmten Medientyp wie XML, JSON, HTML oder Markdown formatiert sein, lokalisiert in eine bestimmte geschriebene Sprache oder geografische Region, und/oder unter Verwendung eines bestimmten Algorithmus komprimiert sein. Die Representation Headers ermöglichen es, die zugrunde liegenden Daten zu extrahieren und zu verstehen. Die zugrunde liegende Ressource ist in jedem Fall semantisch dieselbe, aber ihre Darstellung ist unterschiedlich.
 
@@ -30,14 +30,14 @@ Zu den Representation Headers gehören:
   - {{HTTPHeader("Last-Modified")}}
   - {{HTTPHeader("ETag")}}
 
-Representation Headers schließen sich nicht gegenseitig mit [Content Headers](/de/docs/Glossary/Content_header) aus.
+Representation Headers schließen sich nicht gegenseitig mit {{Glossary("Content_header", "Content Headers")}} aus.
 
 ## Siehe auch
 
 - [RFC 9110, Abschnitt 3.2: Repräsentationen](https://httpwg.org/specs/rfc9110.html#representations)
 - [Liste aller HTTP-Header](/de/docs/Web/HTTP/Headers)
 - Verwandte Glossarbegriffe:
-  - [Content Header](/de/docs/Glossary/Content_header)
+  - {{Glossary("Content_header", "Content Header")}}
 - {{HTTPHeader("Repr-Digest")}}, {{HTTPHeader("Want-Repr-Digest")}}
 - {{HTTPHeader("Content-Digest")}}, {{HTTPHeader("Want-Content-Digest")}}
 - {{HTTPHeader("Digest")}} {{Deprecated_Inline}}, {{HTTPHeader("Want-Digest")}} {{Deprecated_Inline}}

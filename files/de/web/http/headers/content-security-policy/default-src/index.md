@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`**-Direktive dient als Rückfalloption für die anderen CSP-[Fetch-Richtlinien](/de/docs/Glossary/fetch_directive). Für jede der folgenden Direktiven, die fehlen, sucht der Benutzeragent nach der `default-src`-Direktive und verwendet diesen Wert:
+Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`**-Direktive dient als Rückfalloption für die anderen CSP-{{Glossary("fetch_directive", "Fetch-Richtlinien")}}. Für jede der folgenden Direktiven, die fehlen, sucht der Benutzeragent nach der `default-src`-Direktive und verwendet diesen Wert:
 
 - {{CSP("child-src")}}
 - {{CSP("connect-src")}}
@@ -34,7 +34,7 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`**-Direk
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>[Fetch-Richtlinie](/de/docs/Glossary/Fetch_directive)</td>
+      <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
     </tr>
   </tbody>
 </table>
@@ -52,7 +52,7 @@ Content-Security-Policy: default-src <source> <source>;
 
 `<source>` kann jeder der in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführten Werte sein.
 
-Beachten Sie, dass diese gleichen Werte in allen [Fetch-Richtlinien](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden können.
+Beachten Sie, dass diese gleichen Werte in allen {{Glossary("fetch_directive", "Fetch-Richtlinien")}} (und einer [Anzahl anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden können.
 
 ## Beispiele
 
@@ -126,9 +126,9 @@ Alternativ, wenn die `default-src 'none'`-Richtlinie eine harte Anforderung ist,
 - {{HTTPHeader("Content-Security-Policy")}}
 - CSP-Direktiven (<https://www.w3.org/TR/CSP/#csp-directives>):
 
-  - [Fetch-Richtlinie](/de/docs/Glossary/Fetch_directive)
-  - [Dokumentrichtlinie](/de/docs/Glossary/Document_directive)
-  - [Navigationsrichtlinie](/de/docs/Glossary/Navigation_directive)
-  - [Berichtsrichtlinie](/de/docs/Glossary/Reporting_directive)
+  - {{Glossary("Fetch_directive", "Fetch-Richtlinie")}}
+  - {{Glossary("Document_directive", "Dokumentrichtlinie")}}
+  - {{Glossary("Navigation_directive", "Navigationsrichtlinie")}}
+  - {{Glossary("Reporting_directive", "Berichtsrichtlinie")}}
   - [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests)
   - [`block-all-mixed-content`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content)

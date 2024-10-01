@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **aspect ratio** ist das proportionale Verhältnis zwischen der Breite und Höhe eines Elements oder [Viewports](/de/docs/Glossary/viewport) und wird als Verhältnis oder zwei Zahlen dargestellt.
+Ein **aspect ratio** ist das proportionale Verhältnis zwischen der Breite und Höhe eines Elements oder {{Glossary("viewport", "Viewports")}} und wird als Verhältnis oder zwei Zahlen dargestellt.
 
 Ein Aspect Ratio, sei es ein inhärentes Verhältnis wie bei Bildern und Videos oder extrinsisch festgelegt, bewahrt die beabsichtigten Proportionen eines Elements. Sie können auch das Verhältnis eines Elements oder Viewports abfragen, was bei der Entwicklung flexibler Komponenten und Layouts nützlich ist.
 
@@ -46,5 +46,5 @@ myTrack.applyConstraints(constraints);
 - [Verstehen von Aspect Ratios](/de/docs/Web/CSS/CSS_box_sizing/Understanding_aspect-ratio) Leitfaden
 - [CSS Box Sizing](/de/docs/Web/CSS/CSS_box_sizing) Modul
 - Verwandte Glossarbegriffe:
-  - [Intrinsic Size](/de/docs/Glossary/intrinsic_size)
+  - {{Glossary("intrinsic_size", "Intrinsic Size")}}
 - CSS {{cssxref("min-content")}}, {{cssxref("max-content")}}, und {{cssxref("fit-content")}} Eigenschaftswerte.

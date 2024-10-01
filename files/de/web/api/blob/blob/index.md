@@ -26,7 +26,7 @@ new Blob(blobParts, options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das eine der folgenden Eigenschaften spezifizieren kann:
     - `type` {{optional_inline}}
-      - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) der Daten, die im Blob gespeichert werden sollen. Der Standardwert ist der leere String (`""`).
+      - : Der {{Glossary("MIME_type", "MIME-Typ")}} der Daten, die im Blob gespeichert werden sollen. Der Standardwert ist der leere String (`""`).
     - `endings` {{optional_inline}}
       - : Wie Zeilenumbruchzeichen (`\n`) innerhalb der Inhalte interpretiert werden sollen, wenn die Daten Text sind. Der Standardwert `transparent` kopiert Zeilenumbruchzeichen unverändert in das Blob. Um Zeilenumbrüche in das native Format des Hostsystems zu konvertieren, geben Sie den Wert `native` an.
 

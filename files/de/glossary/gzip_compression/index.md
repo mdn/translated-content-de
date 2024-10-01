@@ -12,9 +12,9 @@ l10n:
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Verlustfreie Kompression](/de/docs/Glossary/Lossless_compression)
-  - [Verlustbehaftete Kompression](/de/docs/Glossary/Lossy_compression)
-  - [Brotli-Kompression](/de/docs/Glossary/Brotli_compression)
-  - [Zstandard-Kompression](/de/docs/Glossary/Zstandard_compression)
+  - {{Glossary("Lossless_compression", "Verlustfreie Kompression")}}
+  - {{Glossary("Lossy_compression", "Verlustbehaftete Kompression")}}
+  - {{Glossary("Brotli_compression", "Brotli-Kompression")}}
+  - {{Glossary("Zstandard_compression", "Zstandard-Kompression")}}
 - [Die gzip-Homepage](https://www.gzip.org/)
 - [gzip auf Wikipedia](https://en.wikipedia.org/wiki/Gzip)

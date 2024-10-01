@@ -12,7 +12,7 @@ Die schreibgeschützte **`scrollY`**-Eigenschaft der [`Window`](/de/docs/Web/API
 
 ## Wert
 
-Ein double-genauer Gleitkommawert, der die Anzahl der Pixel angibt, um die das Dokument derzeit vertikal vom Ursprung gescrollt ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach unten gescrollt wird (um mehr Inhalte unten anzuzeigen). In technischeren Begriffen gibt `scrollY` die Y-Koordinate des oberen Rands des aktuellen [Viewports](/de/docs/Glossary/viewport) zurück. Wenn das Dokument überhaupt nicht gescrollt wird, weder nach oben noch nach unten, ist `scrollY` 0. Wenn kein Viewport vorhanden ist, ist der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixel-genauen Gerät gerendert wird, ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
+Ein double-genauer Gleitkommawert, der die Anzahl der Pixel angibt, um die das Dokument derzeit vertikal vom Ursprung gescrollt ist, wobei ein positiver Wert bedeutet, dass der Inhalt nach unten gescrollt wird (um mehr Inhalte unten anzuzeigen). In technischeren Begriffen gibt `scrollY` die Y-Koordinate des oberen Rands des aktuellen {{Glossary("viewport", "Viewports")}} zurück. Wenn das Dokument überhaupt nicht gescrollt wird, weder nach oben noch nach unten, ist `scrollY` 0. Wenn kein Viewport vorhanden ist, ist der zurückgegebene Wert 0. Wenn das Dokument auf einem subpixel-genauen Gerät gerendert wird, ist der zurückgegebene Wert ebenfalls subpixelgenau und kann eine Dezimalkomponente enthalten.
 
 > [!NOTE]
 > Wenn Sie einen Ganzzahlwert benötigen, können Sie {{jsxref("Math.round()")}} verwenden, um diesen zu runden.

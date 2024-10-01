@@ -58,7 +58,7 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 - `webtransport`
   - : Anfragen, die eine Verbindung zu einem Server über die [WebTransport API](/de/docs/Web/API/WebTransport_API) initiieren.
 - `xml_dtd`
-  - : [DTDs](/de/docs/Glossary/Doctype), die für ein XML-Dokument geladen werden.
+  - : {{Glossary("Doctype", "DTDs")}}, die für ein XML-Dokument geladen werden.
 - `xmlhttprequest`
   - : Anfragen, die von einem [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekt oder über die [Fetch API](/de/docs/Web/API/Fetch_API) gesendet werden.
 - `xslt`

@@ -9,7 +9,7 @@ l10n:
 
 **Session Hijacking** tritt auf, wenn ein Angreifer eine gültige Sitzung zwischen zwei Computern übernimmt. Der Angreifer stiehlt eine gültige Sitzungs-ID, um in das System einzubrechen und Daten auszuspähen.
 
-Die meiste Authentifizierung erfolgt nur zu Beginn einer [TCP](/de/docs/Glossary/TCP)-Sitzung. Beim TCP-Session Hijacking verschafft sich ein Angreifer Zugang, indem er eine TCP-Sitzung zwischen zwei Maschinen in der Mitte der Sitzung übernimmt.
+Die meiste Authentifizierung erfolgt nur zu Beginn einer {{Glossary("TCP", "TCP")}}-Sitzung. Beim TCP-Session Hijacking verschafft sich ein Angreifer Zugang, indem er eine TCP-Sitzung zwischen zwei Maschinen in der Mitte der Sitzung übernimmt.
 
 ![Der Angreifer schnüffelt und greift eine legitime Sitzungs-ID von einem Benutzer ab, der mit einem Webserver interagiert, und verwendet dann diese Sitzungskennung, um die Sitzung zwischen dem regulären Benutzer und dem Server zu fälschen, um die Sitzung des Benutzers auszunutzen und direkt auf den Server zuzugreifen.](session_hijacking_3.jpg)
 

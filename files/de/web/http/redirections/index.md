@@ -32,10 +32,10 @@ Es gibt verschiedene Arten von Weiterleitungen, die in drei Kategorien unterteil
 
 Diese Weiterleitungen sind dazu gedacht, für immer zu bestehen. Sie implizieren, dass die ursprüngliche URL nicht mehr verwendet werden sollte und durch die neue ersetzt werden muss. Suchmaschinenroboter, RSS-Leser und andere Crawler werden die ursprüngliche URL für die Ressource aktualisieren.
 
-| Code  | Text                  | Methodenverarbeitung                                                                                        | Typischer Anwendungsfall                                      |
-| ----- | --------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `301` | `Moved Permanently`   | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können möglicherweise auf {{HTTPMethod("GET")}} geändert werden. [1] | Umstrukturierung einer Website.                              |
-| `308` | `Permanent Redirect`  | Methode und Körper nicht geändert.                                                                            | Umstrukturierung einer Website mit Nicht-GET-Links/Operationen. |
+| Code  | Text                 | Methodenverarbeitung                                                                                                    | Typischer Anwendungsfall                                        |
+| ----- | -------------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `301` | `Moved Permanently`  | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können möglicherweise auf {{HTTPMethod("GET")}} geändert werden. [1] | Umstrukturierung einer Website.                                 |
+| `308` | `Permanent Redirect` | Methode und Körper nicht geändert.                                                                                      | Umstrukturierung einer Website mit Nicht-GET-Links/Operationen. |
 
 \[1] Die Spezifikation beabsichtigte nicht, Methodenänderungen zuzulassen, aber es gibt bestehende Benutzeragenten, die ihre Methode ändern. {{HTTPStatus("308")}} wurde erstellt, um die Zweideutigkeit des Verhaltens bei der Verwendung von Nicht-`GET`-Methoden zu entfernen.
 
@@ -45,11 +45,11 @@ Manchmal kann die angeforderte Ressource nicht von ihrem kanonischen Ort aus auf
 
 Suchmaschinenroboter und andere Crawler speichern die neue, temporäre URL nicht. Temporäre Weiterleitungen werden auch verwendet, wenn Ressourcen erstellt, aktualisiert oder gelöscht werden, um temporäre Fortschrittsseiten anzuzeigen.
 
-| Code  | Text                  | Methodenverarbeitung                                                                                         | Typischer Anwendungsfall                                                                                                                       |
-| ----- | --------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `302` | `Found`               | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können möglicherweise auf {{HTTPMethod("GET")}} geändert werden. [2] | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar.                                                                   |
-| `303` | `See Other`           | {{HTTPMethod("GET")}}-Methoden unverändert. Andere _geändert_ zu `GET` (Körper verloren).                        | Verwendet zur Umleitung nach einer {{HTTPMethod("PUT")}} oder einer {{HTTPMethod("POST")}}, damit das Aktualisieren der Ergebnisseite die Operation nicht erneut auslöst. |
-| `307` | `Temporary Redirect`  | Methode und Körper nicht geändert.                                                                             | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar. Besser als `302`, wenn Nicht-`GET`-Operationen auf der Seite verfügbar sind.            |
+| Code  | Text                 | Methodenverarbeitung                                                                                                    | Typischer Anwendungsfall                                                                                                                                                  |
+| ----- | -------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `302` | `Found`              | {{HTTPMethod("GET")}}-Methoden unverändert. Andere können möglicherweise auf {{HTTPMethod("GET")}} geändert werden. [2] | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar.                                                                                             |
+| `303` | `See Other`          | {{HTTPMethod("GET")}}-Methoden unverändert. Andere _geändert_ zu `GET` (Körper verloren).                               | Verwendet zur Umleitung nach einer {{HTTPMethod("PUT")}} oder einer {{HTTPMethod("POST")}}, damit das Aktualisieren der Ergebnisseite die Operation nicht erneut auslöst. |
+| `307` | `Temporary Redirect` | Methode und Körper nicht geändert.                                                                                      | Die Webseite ist vorübergehend aus unvorhergesehenen Gründen nicht verfügbar. Besser als `302`, wenn Nicht-`GET`-Operationen auf der Seite verfügbar sind.                |
 
 \[2] Die Spezifikation beabsichtigte nicht, Methodenänderungen zuzulassen, aber es gibt bestehende Benutzeragenten, die ihre Methode ändern. {{HTTPStatus("307")}} wurde erstellt, um die Zweideutigkeit des Verhaltens bei der Verwendung von Nicht-`GET`-Methoden zu entfernen.
 
@@ -57,10 +57,10 @@ Suchmaschinenroboter und andere Crawler speichern die neue, temporäre URL nicht
 
 {{HTTPStatus("304")}} (Not Modified) leitet eine Seite zur lokal zwischengespeicherten Kopie (die veraltet war) um, und {{HTTPStatus("300")}} (Multiple Choices) ist eine manuelle Umleitung: Der Körper, als Webseite vom Browser dargestellt, listet die möglichen Weiterleitungen auf, und der Benutzer klickt auf eine, um sie auszuwählen.
 
-| Code  | Text               | Typischer Anwendungsfall                                                                                                                                                  |
-| ----- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Code  | Text               | Typischer Anwendungsfall                                                                                                                                                                                                  |
+| ----- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `300` | `Multiple Choices` | Nicht viele: Die Auswahlmöglichkeiten werden in einer HTML-Seite im Körper aufgelistet. Maschinenlesbare Auswahlmöglichkeiten werden empfohlen, als {{HTTPHeader("Link")}}-Header mit `rel=alternate` gesendet zu werden. |
-| `304` | `Not Modified`     | Wird für erneut validierte bedingte Anfragen gesendet. Zeigt an, dass die zwischengespeicherte Antwort noch frisch ist und verwendet werden kann.                        |
+| `304` | `Not Modified`     | Wird für erneut validierte bedingte Anfragen gesendet. Zeigt an, dass die zwischengespeicherte Antwort noch frisch ist und verwendet werden kann.                                                                         |
 
 ## Alternative Methode zur Angabe von Weiterleitungen
 
@@ -116,7 +116,7 @@ Idealerweise gibt es einen Ort und daher eine URL für jede Ressource. Aber es g
   - : Ein häufiger Fall ist, wenn eine Website unter `www.example.com` residiert, aber auch der Zugriff von `example.com` funktionieren soll. Weiterleitungen von `example.com` zu `www.example.com` werden daher eingerichtet. Sie können auch von gängigen Synonymen oder häufigen Tippfehlern Ihrer Domains umleiten.
 - Umzug auf eine neue Domain
   - : Zum Beispiel wurde Ihr Unternehmen umbenannt, aber Sie möchten, dass bestehende Links oder Lesezeichen Sie unter dem neuen Namen noch finden.
-- Erzwingen von [HTTPS](/de/docs/Glossary/HTTPS)
+- Erzwingen von {{Glossary("HTTPS", "HTTPS")}}
   - : Anfragen an die `http://`-Version Ihrer Website werden zur `https://`-Version Ihrer Website weitergeleitet.
 
 ### Links am Leben erhalten
@@ -130,7 +130,7 @@ Sie möchten diese Links nicht brechen, da sie wertvolle Nutzer bringen und Ihre
 
 ### Temporäre Antworten auf unsichere Anfragen
 
-[Unsichere](/de/docs/Glossary/Safe/HTTP) Anfragen ändern den Zustand des Servers, und der Benutzer sollte sie nicht unbeabsichtigt erneut senden.
+{{Glossary("Safe/HTTP", "Unsichere")}} Anfragen ändern den Zustand des Servers, und der Benutzer sollte sie nicht unbeabsichtigt erneut senden.
 
 Typischerweise möchten Sie nicht, dass Ihre Benutzer {{HTTPMethod("PUT")}}, {{HTTPMethod("POST")}} oder {{HTTPMethod("DELETE")}}-Anfragen erneut senden. Wenn Sie die Antwort als Ergebnis dieser Anfrage bereitstellen, wird durch einfaches Drücken der Aktualisierungstaste die Anfrage erneut gesendet (möglicherweise nach einer Bestätigungsmeldung).
 
@@ -157,7 +157,7 @@ Das [`mod_alias`](https://httpd.apache.org/docs/current/mod/mod_alias.html)-Modu
 
 Die URL `https://example.com/` wird zu `https://www.example.com/` weitergeleitet, ebenso wie alle Dateien oder Verzeichnisse darunter (`https://example.com/some-page` wird zu `https://www.example.com/some-page` weitergeleitet).
 
-`RedirectMatch` macht dasselbe, übernimmt jedoch einen [regulären Ausdruck](/de/docs/Glossary/regular_expression), um eine Sammlung betroffener URLs zu definieren:
+`RedirectMatch` macht dasselbe, übernimmt jedoch einen {{Glossary("regular_expression", "regulären Ausdruck")}}, um eine Sammlung betroffener URLs zu definieren:
 
 ```apacheconf
 RedirectMatch ^/images/(.*)$ https://images.example.com/$1

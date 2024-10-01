@@ -23,7 +23,7 @@ getFloat32(byteOffset, littleEndian)
 - `byteOffset`
   - : Der Offset in Bytes, ab dem der View die Daten lesen soll.
 - `littleEndian` {{optional_inline}}
-  - : Gibt an, ob die Daten im [Little- oder Big-Endian](/de/docs/Glossary/Endianness) Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
+  - : Gibt an, ob die Daten im {{Glossary("Endianness", "Little- oder Big-Endian")}} Format gespeichert sind. Wenn `false` oder `undefined`, wird ein Big-Endian-Wert gelesen.
 
 ### Rückgabewert
 

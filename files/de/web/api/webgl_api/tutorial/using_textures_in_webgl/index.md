@@ -244,7 +244,7 @@ const fsSource = `
   `;
 ```
 
-Anstelle eines Farbwerts dem Farbwert des Fragments zuzuweisen, wird die Farbe des Fragments berechnet, indem das [Texel](/de/docs/Glossary/texel) (das heißt, das Pixel innerhalb der Textur) basierend auf dem Wert von `vTextureCoord`, der wie die Farben zwischen den Vertizes interpoliert wird, abgerufen wird.
+Anstelle eines Farbwerts dem Farbwert des Fragments zuzuweisen, wird die Farbe des Fragments berechnet, indem das {{Glossary("texel", "Texel")}} (das heißt, das Pixel innerhalb der Textur) basierend auf dem Wert von `vTextureCoord`, der wie die Farben zwischen den Vertizes interpoliert wird, abgerufen wird.
 
 ### Attribut- und Uniform-Positionen
 

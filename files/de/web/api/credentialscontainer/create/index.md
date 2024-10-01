@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
-Die **`create()`**-Methode der [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Schnittstelle erstellt eine neue [Berechtigung](/de/docs/Glossary/credential), die dann gespeichert und später mit der [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Methode abgerufen werden kann. Die abgerufene Berechtigung kann dann von einer Website verwendet werden, um einen Benutzer zu authentifizieren.
+Die **`create()`**-Methode der [`CredentialsContainer`](/de/docs/Web/API/CredentialsContainer)-Schnittstelle erstellt eine neue {{Glossary("credential", "Berechtigung")}}, die dann gespeichert und später mit der [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get)-Methode abgerufen werden kann. Die abgerufene Berechtigung kann dann von einer Website verwendet werden, um einen Benutzer zu authentifizieren.
 
 Diese Methode unterstützt drei verschiedene Arten von Berechtigungen:
 
@@ -65,7 +65,7 @@ Wenn kein Berechtigungsobjekt erstellt werden kann, wird das Promise mit `null` 
   - : Mögliche Ursachen beinhalten:
     - Die Nutzung wurde durch eine {{HTTPHeader("Permissions-Policy/publickey-credentials-create","publickey-credentials-create")}} [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) blockiert.
     - Die Funktion wird übergreifend aufgerufen, aber das `allow`-Attribut des iframes setzt keine geeignete {{HTTPHeader("Permissions-Policy/publickey-credentials-create","publickey-credentials-create")}} Richtlinie.
-    - Die Funktion wird übergreifend aufgerufen und das `<iframe>` hat keine [transiente Aktivierung](/de/docs/Glossary/transient_activation).
+    - Die Funktion wird übergreifend aufgerufen und das `<iframe>` hat keine {{Glossary("transient_activation", "transiente Aktivierung")}}.
 - `AbortError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Die Operation wurde abgebrochen.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`** Methode des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization). Sie gibt eine JSON-Darstellung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts zurück.
+Die **`toJSON()`** Methode des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}. Sie gibt eine JSON-Darstellung des [`PerformanceElementTiming`](/de/docs/Web/API/PerformanceElementTiming)-Objekts zurück.
 
 ## Syntax
 

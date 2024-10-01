@@ -33,21 +33,21 @@ Implizite Umwandlungen sind sehr praktisch, können jedoch subtile Fehler erzeug
 
 ## Primitive Werte
 
-Alle Typen außer [Object](#objekte) definieren [unveränderliche](/de/docs/Glossary/Immutable) Werte, die direkt auf der niedrigsten Ebene der Sprache dargestellt werden. Wir bezeichnen Werte dieser Typen als _primitive Werte_.
+Alle Typen außer [Object](#objekte) definieren {{Glossary("Immutable", "unveränderliche")}} Werte, die direkt auf der niedrigsten Ebene der Sprache dargestellt werden. Wir bezeichnen Werte dieser Typen als _primitive Werte_.
 
 Alle primitiven Typen außer [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) können mit dem [`typeof`](/de/docs/Web/JavaScript/Reference/Operators/typeof)-Operator getestet werden. `typeof null` gibt `"object"` zurück, daher muss man `=== null` verwenden, um auf `null` zu testen.
 
 Alle primitiven Typen außer [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) und [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) haben ihre entsprechenden Objekt-Wrapper-Typen, die nützliche Methoden zur Arbeit mit den primitiven Werten bieten. Zum Beispiel bietet das [`Number`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number)-Objekt Methoden wie [`toExponential()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential). Wenn auf eine Eigenschaft eines primitiven Werts zugegriffen wird, umwickelt JavaScript den Wert automatisch mit dem entsprechenden Wrapper-Objekt und greift stattdessen auf die Eigenschaft des Objekts zu. Allerdings wirft der Zugriff auf eine Eigenschaft von `null` oder `undefined` eine `TypeError`-Ausnahme, was die Einführung des [Optional Chaining](/de/docs/Web/JavaScript/Reference/Operators/Optional_chaining)-Operators nötig machte.
 
-| Typ                          | `typeof` Rückgabewert | Objekt-Wrapper         |
-| ---------------------------- | --------------------- | ---------------------- |
-| [Null](#null-typ)           | `"object"`            | N/A                    |
-| [Undefined](#undefined-typ) | `"undefined"`         | N/A                    |
-| [Boolean](#boolean-typ)     | `"boolean"`           | {{jsxref("Boolean")}}  |
-| [Number](#number-typ)       | `"number"`            | {{jsxref("Number")}}   |
-| [BigInt](#bigint-typ)       | `"bigint"`            | {{jsxref("BigInt")}}   |
-| [String](#string-typ)       | `"string"`            | {{jsxref("String")}}   |
-| [Symbol](#symbol-typ)       | `"symbol"`            | {{jsxref("Symbol")}}   |
+| Typ                         | `typeof` Rückgabewert | Objekt-Wrapper        |
+| --------------------------- | --------------------- | --------------------- |
+| [Null](#null-typ)           | `"object"`            | N/A                   |
+| [Undefined](#undefined-typ) | `"undefined"`         | N/A                   |
+| [Boolean](#boolean-typ)     | `"boolean"`           | {{jsxref("Boolean")}} |
+| [Number](#number-typ)       | `"number"`            | {{jsxref("Number")}}  |
+| [BigInt](#bigint-typ)       | `"bigint"`            | {{jsxref("BigInt")}}  |
+| [String](#string-typ)       | `"string"`            | {{jsxref("String")}}  |
+| [Symbol](#symbol-typ)       | `"symbol"`            | {{jsxref("Symbol")}}  |
 
 Die Referenzseiten der Objekt-Wrapper-Klassen enthalten mehr Informationen über die Methoden und Eigenschaften, die für jeden Typ verfügbar sind, sowie detaillierte Beschreibungen der Semantik der primitiven Typen selbst.
 
@@ -153,7 +153,7 @@ Ein {{jsxref("Symbol")}} ist ein **einzigartiger** und **unveränderlicher** pri
 
 ## Objekte
 
-In der Informatik ist ein Objekt ein Wert im Speicher, der möglicherweise durch einen [Bezeichner](/de/docs/Glossary/Identifier) referenziert wird. In JavaScript sind Objekte die einzigen [veränderlichen](/de/docs/Glossary/Mutable) Werte. [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) sind, in der Tat, ebenfalls Objekte mit der zusätzlichen Fähigkeit, _aufrufbar_ zu sein.
+In der Informatik ist ein Objekt ein Wert im Speicher, der möglicherweise durch einen {{Glossary("Identifier", "Bezeichner")}} referenziert wird. In JavaScript sind Objekte die einzigen {{Glossary("Mutable", "veränderlichen")}} Werte. [Funktionen](/de/docs/Web/JavaScript/Reference/Functions) sind, in der Tat, ebenfalls Objekte mit der zusätzlichen Fähigkeit, _aufrufbar_ zu sein.
 
 ### Eigenschaften
 

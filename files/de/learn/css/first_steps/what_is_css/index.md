@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{NextMenu("Learn/CSS/First_steps/Getting_started", "Learn/CSS/First_steps")}}
 
-**[CSS](/de/docs/Glossary/CSS)** (Cascading Style Sheets) ermöglicht Ihnen, ansprechende Webseiten zu erstellen. Aber wie funktioniert es im Hintergrund? Dieser Artikel erklärt, was CSS ist, mit einem einfachen Syntaxbeispiel und behandelt auch einige Schlüsselbegriffe der Sprache.
+**{{Glossary("CSS", "CSS")}}** (Cascading Style Sheets) ermöglicht Ihnen, ansprechende Webseiten zu erstellen. Aber wie funktioniert es im Hintergrund? Dieser Artikel erklärt, was CSS ist, mit einem einfachen Syntaxbeispiel und behandelt auch einige Schlüsselbegriffe der Sprache.
 
 <table>
   <tbody>
@@ -48,12 +48,12 @@ Für mehr Informationen zu Browser- und Standardstilen sehen Sie sich das folgen
 
 Wie bereits erwähnt, ist CSS eine Sprache zur Spezifikation, wie Dokumente den Benutzern präsentiert werden – wie sie gestaltet, angeordnet usw. werden.
 
-Ein **Dokument** ist normalerweise eine Textdatei, die mit einer Auszeichnungssprache strukturiert ist — [HTML](/de/docs/Glossary/HTML) ist die häufigste, aber Sie könnten auch auf andere Auszeichnungssprachen wie [SVG](/de/docs/Glossary/SVG) oder [XML](/de/docs/Glossary/XML) stoßen.
+Ein **Dokument** ist normalerweise eine Textdatei, die mit einer Auszeichnungssprache strukturiert ist — {{Glossary("HTML", "HTML")}} ist die häufigste, aber Sie könnten auch auf andere Auszeichnungssprachen wie {{Glossary("SVG", "SVG")}} oder {{Glossary("XML", "XML")}} stoßen.
 
-Ein Dokument zu **präsentieren** bedeutet, es in eine Form zu überführen, die von Ihrem Publikum genutzt werden kann. [Browser](/de/docs/Glossary/browser) wie [Firefox](/de/docs/Glossary/Mozilla_Firefox), [Chrome](/de/docs/Glossary/Google_Chrome) oder [Edge](/de/docs/Glossary/Microsoft_Edge) sind darauf ausgelegt, Dokumente visuell darzustellen, z. B. auf einem Computerbildschirm, Projektor oder Drucker.
+Ein Dokument zu **präsentieren** bedeutet, es in eine Form zu überführen, die von Ihrem Publikum genutzt werden kann. {{Glossary("browser", "Browser")}} wie {{Glossary("Mozilla_Firefox", "Firefox")}}, {{Glossary("Google_Chrome", "Chrome")}} oder {{Glossary("Microsoft_Edge", "Edge")}} sind darauf ausgelegt, Dokumente visuell darzustellen, z. B. auf einem Computerbildschirm, Projektor oder Drucker.
 
 > [!NOTE]
-> Ein Browser wird manchmal als [User Agent](/de/docs/Glossary/User_agent) bezeichnet, was im Grunde ein Computerprogramm ist, das eine Person innerhalb eines Computersystems darstellt. Browser sind die Hauptart von User Agents, an die wir denken, wenn wir über CSS sprechen, obwohl sie nicht die einzigen sind. Es gibt auch andere User Agents, die HTML- und CSS-Dokumente in PDFs umwandeln, um sie zu drucken.
+> Ein Browser wird manchmal als {{Glossary("User_agent", "User Agent")}} bezeichnet, was im Grunde ein Computerprogramm ist, das eine Person innerhalb eines Computersystems darstellt. Browser sind die Hauptart von User Agents, an die wir denken, wenn wir über CSS sprechen, obwohl sie nicht die einzigen sind. Es gibt auch andere User Agents, die HTML- und CSS-Dokumente in PDFs umwandeln, um sie zu drucken.
 
 CSS kann für sehr grundlegendes Styling von Dokumententexten verwendet werden, beispielsweise um die [Farbe](/de/docs/Web/CSS/color_value) und [Größe](/de/docs/Web/CSS/font-size) von Überschriften und Links zu ändern. Es kann verwendet werden, um ein Layout zu erstellen, zum Beispiel, um [einen Text in Spalten zu layouten](/de/docs/Web/CSS/Layout_cookbook/Column_layouts) mit einem Hauptinhaltbereich und einer Sidebar für verwandte Informationen. Es kann sogar für Effekte wie [Animation](/de/docs/Web/CSS/CSS_animations) verwendet werden. Schauen Sie sich die Links in diesem Absatz für spezifische Beispiele an.
 
@@ -70,12 +70,12 @@ h1 {
 }
 ```
 
-- Im obigen Beispiel beginnt die CSS-Regel mit einem [Selector](/de/docs/Glossary/CSS_Selector). Dieser _wählt_ das HTML-Element aus, das wir gestalten möchten. In diesem Fall gestalten wir Überschriften der Ebene 1 ({{htmlelement("Heading_Elements", "h1")}}).
+- Im obigen Beispiel beginnt die CSS-Regel mit einem {{Glossary("CSS_Selector", "Selector")}}. Dieser _wählt_ das HTML-Element aus, das wir gestalten möchten. In diesem Fall gestalten wir Überschriften der Ebene 1 ({{htmlelement("Heading_Elements", "h1")}}).
 - Dann haben wir eine Gruppe von geschweiften Klammern `{ }`.
 - In den Klammern befindet sich eine oder mehrere **Deklarationen**, die in der Form von **Eigenschaft**-und-**Wert**-Paaren vorliegen. Wir geben die Eigenschaft (`color` im obigen Beispiel) vor dem Doppelpunkt an und den Wert der Eigenschaft nach dem Doppelpunkt (`red` in diesem Beispiel).
 - Dieses Beispiel enthält zwei Deklarationen, eine für `color` und die andere für `font-size`. Jedes Paar spezifiziert eine Eigenschaft der ausgewählten Elemente (in diesem Fall {{htmlelement("Heading_Elements", "h1")}}), dann einen Wert, den wir der Eigenschaft geben möchten.
 
-CSS-[Eigenschaften](/de/docs/Glossary/property/CSS) haben je nach spezifizierter Eigenschaft unterschiedliche zulässige Werte. In unserem Beispiel haben wir die `color`-Eigenschaft, die verschiedene [Farbwerte](/de/docs/Learn/CSS/Building_blocks/Values_and_units#color) annehmen kann. Wir haben auch die `font-size`-Eigenschaft. Diese Eigenschaft kann verschiedene [Größeneinheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units#numbers_lengths_and_percentages) als Wert annehmen.
+CSS-{{Glossary("property/CSS", "Eigenschaften")}} haben je nach spezifizierter Eigenschaft unterschiedliche zulässige Werte. In unserem Beispiel haben wir die `color`-Eigenschaft, die verschiedene [Farbwerte](/de/docs/Learn/CSS/Building_blocks/Values_and_units#color) annehmen kann. Wir haben auch die `font-size`-Eigenschaft. Diese Eigenschaft kann verschiedene [Größeneinheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units#numbers_lengths_and_percentages) als Wert annehmen.
 
 Ein CSS-Stylesheet enthält viele solcher Regeln, die hintereinander geschrieben werden.
 
@@ -105,7 +105,7 @@ Ein spezifisches Beispiel: Gehen wir zurück zum Modul Hintergründe und Rahmen 
 
 ## CSS-Spezifikationen
 
-Alle Web-Standardtechnologien (HTML, CSS, JavaScript usw.) sind in riesigen Dokumenten definiert, die Spezifikationen (oder „Specs“) genannt werden. Diese werden von Standardisierungsorganisationen (wie dem [W3C](/de/docs/Glossary/W3C), [WHATWG](/de/docs/Glossary/WHATWG), [ECMA](/de/docs/Glossary/ECMA) oder [Khronos](/de/docs/Glossary/Khronos)) veröffentlicht und definieren genau, wie diese Technologien funktionieren sollen.
+Alle Web-Standardtechnologien (HTML, CSS, JavaScript usw.) sind in riesigen Dokumenten definiert, die Spezifikationen (oder „Specs“) genannt werden. Diese werden von Standardisierungsorganisationen (wie dem {{Glossary("W3C", "W3C")}}, {{Glossary("WHATWG", "WHATWG")}}, {{Glossary("ECMA", "ECMA")}} oder {{Glossary("Khronos", "Khronos")}}) veröffentlicht und definieren genau, wie diese Technologien funktionieren sollen.
 
 CSS ist nicht anders — es wird von einer Gruppe innerhalb des W3C namens [CSS Working Group](https://www.w3.org/Style/CSS/) entwickelt. Diese Gruppe besteht aus Vertretern von Browserherstellern und anderen Unternehmen, die ein Interesse an CSS haben. Es gibt auch andere Personen, sogenannte _eingeladene Experten_, die als unabhängige Stimmen fungieren; sie sind nicht mit einer Mitgliedsorganisation verbunden.
 

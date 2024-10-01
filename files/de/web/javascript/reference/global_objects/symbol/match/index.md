@@ -21,7 +21,7 @@ Das wohlbekannte Symbol `Symbol.match`.
 
 ## Beschreibung
 
-Diese Funktion wird auch verwendet, um zu identifizieren, [ob Objekte das Verhalten von regulären Ausdrücken haben](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Zum Beispiel prüfen die Methoden {{jsxref("String.prototype.startsWith()")}}, {{jsxref("String.prototype.endsWith()")}} und {{jsxref("String.prototype.includes()")}}, ob ihr erstes Argument ein regulärer Ausdruck ist und werfen einen {{jsxref("TypeError")}}, wenn dies der Fall ist. Wenn das `match`-Symbol auf `false` gesetzt ist (oder auf einen [falsy](/de/docs/Glossary/Falsy) Wert außer `undefined`), zeigt dies an, dass das Objekt nicht als reguläres Ausdruck-Objekt verwendet werden soll.
+Diese Funktion wird auch verwendet, um zu identifizieren, [ob Objekte das Verhalten von regulären Ausdrücken haben](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp#special_handling_for_regexes). Zum Beispiel prüfen die Methoden {{jsxref("String.prototype.startsWith()")}}, {{jsxref("String.prototype.endsWith()")}} und {{jsxref("String.prototype.includes()")}}, ob ihr erstes Argument ein regulärer Ausdruck ist und werfen einen {{jsxref("TypeError")}}, wenn dies der Fall ist. Wenn das `match`-Symbol auf `false` gesetzt ist (oder auf einen {{Glossary("Falsy", "falsy")}} Wert außer `undefined`), zeigt dies an, dass das Objekt nicht als reguläres Ausdruck-Objekt verwendet werden soll.
 
 ## Beispiele
 

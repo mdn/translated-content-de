@@ -43,7 +43,7 @@ _Erbt Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/
 - [`SourceBuffer.appendBufferAsync()`](/de/docs/Web/API/SourceBuffer/appendBufferAsync) {{Non-standard_Inline}} {{Experimental_Inline}}
   - : Startet den Vorgang des asynchronen Anfügens des spezifizierten Puffers an den `SourceBuffer`. Gibt ein {{jsxref("Promise")}} zurück, das erfüllt wird, sobald der Puffer angehängt wurde.
 - [`SourceBuffer.changeType()`](/de/docs/Web/API/SourceBuffer/changeType)
-  - : Ändert den [MIME-Typ](/de/docs/Glossary/MIME_type), den zukünftige Aufrufe von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) erwarten werden, dass die neuen Daten diesem entsprechen.
+  - : Ändert den {{Glossary("MIME_type", "MIME-Typ")}}, den zukünftige Aufrufe von [`appendBuffer()`](/de/docs/Web/API/SourceBuffer/appendBuffer) erwarten werden, dass die neuen Daten diesem entsprechen.
 - [`SourceBuffer.remove()`](/de/docs/Web/API/SourceBuffer/remove)
   - : Entfernt Mediensegmente innerhalb eines bestimmten Zeitbereichs aus dem `SourceBuffer`.
 - [`SourceBuffer.removeAsync()`](/de/docs/Web/API/SourceBuffer/removeAsync) {{Non-standard_Inline}} {{Experimental_Inline}}

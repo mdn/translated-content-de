@@ -89,7 +89,7 @@ Das Aufrufen der `Date()`-Funktion (ohne das `new` Schlüsselwort) gibt eine Zei
 
 ### Reduzierte Zeitpräzision
 
-Um Schutz vor Timingangriffen und [Fingerabdrücken](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Präzision von `new Date()` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall wird die Präzision 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz vor Timingangriffen und {{Glossary("Fingerprinting", "Fingerabdrücken")}} zu bieten, kann die Präzision von `new Date()` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren, in diesem Fall wird die Präzision 100 ms oder der Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
 
 Zum Beispiel wird bei reduzierter Zeitpräzision das Ergebnis von `new Date().getTime()` immer ein Vielfaches von 2 sein oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktivierter `privacy.resistFingerprinting`.
 

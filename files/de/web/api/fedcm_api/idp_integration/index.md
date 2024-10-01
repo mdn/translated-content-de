@@ -35,7 +35,7 @@ Das Mitglied `provider_urls` sollte ein Array von URLs enthalten, die auf gülti
 
 ## Der HTTP-Header `Sec-Fetch-Dest`
 
-Alle Anfragen, die vom Browser über FedCM gesendet werden, enthalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header. Alle IdP-Endpunkte, die autorisierte Anfragen empfangen (d.h. `accounts_endpoint` und `id_assertion_endpoint`), müssen bestätigen, dass dieser Header enthalten ist, um sich gegen [CSRF](/de/docs/Glossary/CSRF)-Angriffe zu schützen.
+Alle Anfragen, die vom Browser über FedCM gesendet werden, enthalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header. Alle IdP-Endpunkte, die autorisierte Anfragen empfangen (d.h. `accounts_endpoint` und `id_assertion_endpoint`), müssen bestätigen, dass dieser Header enthalten ist, um sich gegen {{Glossary("CSRF", "CSRF")}}-Angriffe zu schützen.
 
 ## Eine Konfigurationsdatei und Endpunkte bereitstellen
 
@@ -79,12 +79,12 @@ Die Eigenschaften sind wie folgt:
 
 Die folgende Tabelle fasst die verschiedenen Anfragen zusammen, die von der FedCM API gemacht werden:
 
-| Endpunkt/Ressource         | Methode | Autorisiert (mit Cookies)  | Enthält {{httpheader("Origin")}} |
-| -------------------------- | ------ | --------------------------- | --------------------------------- |
-| `well-known`/`config.json` | `GET`  | Nein                         | Nein                              |
-| `accounts_endpoint`        | `GET`  | Ja                          | Nein                              |
-| `client_metadata_endpoint` | `GET`  | Nein                        | Ja                                |
-| `id_assertion_endpoint`    | `POST` | Ja                          | Ja                                |
+| Endpunkt/Ressource         | Methode | Autorisiert (mit Cookies) | Enthält {{httpheader("Origin")}} |
+| -------------------------- | ------- | ------------------------- | -------------------------------- |
+| `well-known`/`config.json` | `GET`   | Nein                      | Nein                             |
+| `accounts_endpoint`        | `GET`   | Ja                        | Nein                             |
+| `client_metadata_endpoint` | `GET`   | Nein                      | Ja                               |
+| `id_assertion_endpoint`    | `POST`  | Ja                        | Ja                               |
 
 > [!NOTE]
 > Eine Beschreibung des FedCM-Flusses, in dem auf diese Endpunkte zugegriffen wird, finden Sie unter [FedCM Anmeldefluss](/de/docs/Web/API/FedCM_API/RP_sign-in#fedcm_sign-in_flow).

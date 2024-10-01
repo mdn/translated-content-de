@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Geolocation API")}}
 
-Die **`toJSON()`**-Methode der [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Schnittstelle ist ein [Serializer](/de/docs/Glossary/Serialization); sie liefert eine JSON-Darstellung des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts.
+Die **`toJSON()`**-Methode der [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Schnittstelle ist ein {{Glossary("Serialization", "Serializer")}}; sie liefert eine JSON-Darstellung des [`GeolocationCoordinates`](/de/docs/Web/API/GeolocationCoordinates)-Objekts.
 
 ## Syntax
 

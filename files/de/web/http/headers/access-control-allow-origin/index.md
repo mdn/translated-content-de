@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit dem anfragenden Code vom angegebenen [Origin](/de/docs/Glossary/origin) geteilt werden kann.
+Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit dem anfragenden Code vom angegebenen {{Glossary("origin", "Origin")}} geteilt werden kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -33,9 +33,11 @@ Access-Control-Allow-Origin: null
 ## Direktiven
 
 - `*`
+
   - : Für Anfragen _ohne Anmeldedaten_ kann der Wert `*` als Platzhalter angegeben werden; dieser Wert teilt den Browsern mit, dass anfragender Code aus jedem Origin auf die Ressource zugreifen darf. Der Versuch, den Platzhalter mit Anmeldedaten zu verwenden, [führt zu einem Fehler](/de/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials).
 
 - `<origin>`
+
   - : Gibt einen Origin an. Es kann nur ein einzelner Origin angegeben werden. Wenn der Server Clients von mehreren Origins unterstützt, muss er den Origin für den spezifischen Client, der die Anfrage stellt, zurückgeben.
 
 - `null`

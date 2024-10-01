@@ -40,7 +40,7 @@ background-repeat: unset;
 
 Die Eigenschaft akzeptiert zwei [`<repeat-style>`](#werte) Schlüsselbegriffe oder einen Schlüsselbegriff als Kurzform für die beiden Werte. Wenn zwei Werte angegeben werden, definiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten. Eigenschaftswerte können verwendet werden, um nur horizontal, vertikal oder überhaupt nicht zu wiederholen.
 
-Der Standardwert ist `repeat repeat`. Mit diesem Wert behält das Hintergrundbild sein intrinsisches [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) bei und wird sowohl horizontal als auch vertikal wiederholt, um den gesamten Hintergrundbereich abzudecken, wobei Randbilder auf die Größe des Elements abgeschnitten werden. Welche Kanten abgeschnitten werden, hängt vom Wert des {{cssxref("background-position")}} ab. Wie oft sie wiederholt werden und wie stark die Bilder an den Rändern abgeschnitten werden, hängt von der Größe des Hintergrundmalbereichs und der {{cssxref("background-size")}} ab.
+Der Standardwert ist `repeat repeat`. Mit diesem Wert behält das Hintergrundbild sein intrinsisches {{Glossary("aspect_ratio", "Seitenverhältnis")}} bei und wird sowohl horizontal als auch vertikal wiederholt, um den gesamten Hintergrundbereich abzudecken, wobei Randbilder auf die Größe des Elements abgeschnitten werden. Welche Kanten abgeschnitten werden, hängt vom Wert des {{cssxref("background-position")}} ab. Wie oft sie wiederholt werden und wie stark die Bilder an den Rändern abgeschnitten werden, hängt von der Größe des Hintergrundmalbereichs und der {{cssxref("background-size")}} ab.
 
 Die wiederholten Bilder können gleichmäßig verteilt werden, sodass das wiederholte Bild sein Seitenverhältnis ohne Abschneiden beibehält. Mit dem Wert `space`, wenn der Hintergrundmalbereich ein anderes Seitenverhältnis als das Bild hat oder nicht anderweitig eine Größe hat, die ein Vielfaches der Hintergrundgröße in einer Richtung ist, gibt es Bereiche, die nicht vom Hintergrundbild abgedeckt sind.
 
@@ -64,7 +64,7 @@ Die Eigenschaft akzeptiert bis zu zwei `<repeat-style>` Schlüsselbegriffe. Der 
 
 - `round`
 
-  - : Während der zur Verfügung stehende Platz größer wird, werden die wiederholten Bilder gestreckt (wobei keine Lücken gelassen werden), bis Platz für ein weiteres Bild vorhanden ist. Dies ist der einzige `<repeat-style>` Wert, der zur Verzerrung des [Seitenverhältnisses](/de/docs/Glossary/aspect_ratio) des Hintergrundbildes führen kann, was auftritt, wenn das Seitenverhältnis des Hintergrundbildes von dem des Hintergrundmalbereichs abweicht.
+  - : Während der zur Verfügung stehende Platz größer wird, werden die wiederholten Bilder gestreckt (wobei keine Lücken gelassen werden), bis Platz für ein weiteres Bild vorhanden ist. Dies ist der einzige `<repeat-style>` Wert, der zur Verzerrung des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} des Hintergrundbildes führen kann, was auftritt, wenn das Seitenverhältnis des Hintergrundbildes von dem des Hintergrundmalbereichs abweicht.
 
 - `repeat-x`
 
@@ -76,14 +76,14 @@ Die Eigenschaft akzeptiert bis zu zwei `<repeat-style>` Schlüsselbegriffe. Der 
 
 Wenn ein `<repeat-style>` Schlüsselbegriff angegeben wird, ist der Wert die Kurzform für die folgende Zwei-Werte-Syntax:
 
-| Einzelwert  | Zwei-Werte-Äquivalent  |
-| ------------ | --------------------- |
-| `repeat-x`   | `repeat no-repeat`    |
-| `repeat-y`   | `no-repeat repeat`    |
-| `repeat`     | `repeat repeat`       |
-| `space`      | `space space`         |
-| `round`      | `round round`         |
-| `no-repeat`  | `no-repeat no-repeat` |
+| Einzelwert  | Zwei-Werte-Äquivalent |
+| ----------- | --------------------- |
+| `repeat-x`  | `repeat no-repeat`    |
+| `repeat-y`  | `no-repeat repeat`    |
+| `repeat`    | `repeat repeat`       |
+| `space`     | `space space`         |
+| `round`     | `round round`         |
+| `no-repeat` | `no-repeat no-repeat` |
 
 ## Formale Definition
 

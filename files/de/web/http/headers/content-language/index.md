@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Language`** [Repräsentations-Header](/de/docs/Glossary/representation_header) wird verwendet, um **die Sprache(n), die für das Publikum vorgesehen sind, zu beschreiben**, sodass Benutzer diese entsprechend ihrer eigenen bevorzugten Sprache unterscheiden können.
+Der **`Content-Language`** {{Glossary("representation_header", "Repräsentations-Header")}} wird verwendet, um **die Sprache(n), die für das Publikum vorgesehen sind, zu beschreiben**, sodass Benutzer diese entsprechend ihrer eigenen bevorzugten Sprache unterscheiden können.
 
 Zum Beispiel, wenn `Content-Language: de-DE` gesetzt ist, sagt das, dass das Dokument für deutschsprachige Leser bestimmt ist (jedoch zeigt es nicht an, dass das Dokument auf Deutsch geschrieben ist. Es könnte zum Beispiel auf Englisch geschrieben sein, als Teil eines Sprachkurses für Deutschsprachige. Wenn Sie angeben möchten, in welcher Sprache das Dokument verfasst ist, verwenden Sie stattdessen das [`lang`-Attribut](/de/docs/Web/HTML/Global_attributes/lang)).
 
@@ -17,21 +17,21 @@ Wenn kein `Content-Language` angegeben ist, ist der Standard, dass der Inhalt f�
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Repräsentations-Header](/de/docs/Glossary/Representation_header)</td>
+      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gesicherter Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-gesicherter Antwort-Header")}}
       </th>
       <td>ja</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gesicherter Anforderungs-Header](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-gesicherter Anforderungs-Header")}}
       </th>
       <td>
         ja, mit der zusätzlichen Einschränkung, dass die Werte nur aus

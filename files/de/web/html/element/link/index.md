@@ -8,7 +8,7 @@ l10n:
 {{HTMLSidebar}}
 
 Das **`<link>`** [HTML](/de/docs/Web/HTML) Element spezifiziert Beziehungen zwischen dem aktuellen Dokument und einer externen Ressource.
-Dieses Element wird am häufigsten verwendet, um auf [Stylesheets](/de/docs/Glossary/CSS) zu verlinken, aber es wird auch verwendet, um Site-Icons (sowohl "Favicon"-Stil-Icons als auch Icons für den Startbildschirm und Apps auf mobilen Geräten) und andere Dinge zu etablieren.
+Dieses Element wird am häufigsten verwendet, um auf {{Glossary("CSS", "Stylesheets")}} zu verlinken, aber es wird auch verwendet, um Site-Icons (sowohl "Favicon"-Stil-Icons als auch Icons für den Startbildschirm und Apps auf mobilen Geräten) und andere Dinge zu etablieren.
 
 {{EmbedInteractiveExample("pages/tabbed/link.html", "tabbed-shorter")}}
 
@@ -61,7 +61,7 @@ Einige interessante neue Leistungs- und Sicherheitsfunktionen wurden ebenfalls d
 ```
 
 Ein `rel` Wert von `preload` zeigt an, dass der Browser diese Ressource vorab laden sollte (siehe [`rel="preload"`](/de/docs/Web/HTML/Attributes/rel/preload) für mehr Details), wobei das `as` Attribut die spezifische Klasse von Inhalten angibt, die abgerufen werden.
-Das `crossorigin` Attribut gibt an, ob die Ressource mit einer [CORS](/de/docs/Glossary/CORS) Anfrage abgerufen werden soll.
+Das `crossorigin` Attribut gibt an, ob die Ressource mit einer {{Glossary("CORS", "CORS")}} Anfrage abgerufen werden soll.
 
 Weitere Verwendungshinweise:
 
@@ -71,7 +71,7 @@ Weitere Verwendungshinweise:
 - Wenn Sie `<link>` verwenden, um ein Favicon für eine Website zu etablieren, und Ihre Website eine Content Security Policy (CSP) zur Verbesserung ihrer Sicherheit nutzt, gilt die Richtlinie auch für das Favicon.
   Wenn Sie Probleme haben, dass das Favicon nicht geladen wird, überprüfen Sie, dass die {{HTTPHeader("Content-Security-Policy")}} Header-Direktive [`img-src` directive](/de/docs/Web/HTTP/Headers/Content-Security-Policy/img-src) den Zugriff nicht verhindert.
 - Die HTML- und XHTML-Spezifikationen definieren Ereignishandler für das `<link>` Element, aber es ist unklar, wie sie verwendet werden würden.
-- Unter XHTML 1.0 erfordern [void elements](/de/docs/Glossary/void_element) wie `<link>` einen abschließenden Schrägstrich: `<link />`.
+- Unter XHTML 1.0 erfordern {{Glossary("void_element", "void elements")}} wie `<link>` einen abschließenden Schrägstrich: `<link />`.
 - WebTV unterstützt die Verwendung des Wertes `next` für `rel`, um die nächste Seite in einer Dokumentenserie vorab zu laden.
 
 ## Attribute
@@ -177,7 +177,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 
 - [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)
 
-  - : Dieses [enumerierte](/de/docs/Glossary/Enumerated) Attribut gibt an, ob [CORS](/de/docs/Glossary/CORS) beim Abrufen der Ressource verwendet werden muss.
+  - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, ob {{Glossary("CORS", "CORS")}} beim Abrufen der Ressource verwendet werden muss.
     [CORS-fähige Bilder](/de/docs/Web/HTML/CORS_enabled_image) können im {{HTMLElement("canvas")}} Element ohne Verfälschung wiederverwendet werden.
     Die erlaubten Werte sind:
 
@@ -188,7 +188,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       - : Eine Cross-Origin-Anfrage (d.h. mit einem `Origin` HTTP-Header) wird zusammen mit einer Anmeldedatenanforderung gesendet (d.h. ein Cookie, Zertifikat und/oder HTTP Basic-Authentifizierung wird durchgeführt).
         Wenn der Server keine Anmeldedaten an die Ursprungsseite gibt (durch {{HTTPHeader("Access-Control-Allow-Credentials")}} HTTP Header), wird die Ressource _verfälscht_ und ihre Nutzung eingeschränkt.
 
-    Wenn das Attribut nicht vorhanden ist, wird die Ressource ohne Anfrage über [CORS](/de/docs/Glossary/CORS) abgerufen (d.h. ohne den `Origin` HTTP-Header zu senden), was ihre unverfälschte Verwendung verhindert. Wenn ungültig, wird es behandelt, als wäre das enumerierte Schlüsselwort **anonymous** verwendet worden.
+    Wenn das Attribut nicht vorhanden ist, wird die Ressource ohne Anfrage über {{Glossary("CORS", "CORS")}} abgerufen (d.h. ohne den `Origin` HTTP-Header zu senden), was ihre unverfälschte Verwendung verhindert. Wenn ungültig, wird es behandelt, als wäre das enumerierte Schlüsselwort **anonymous** verwendet worden.
     Siehe [CORS Einstellungen Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für weitere Informationen.
 
 - `disabled`
@@ -211,7 +211,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       - : Standard: Signalisiert die automatische Bestimmung der Abrufpriorität im Verhältnis zu anderen Ressourcen desselben Typs.
 
 - `href`
-  - : Dieses Attribut spezifiziert die [URL](/de/docs/Glossary/URL) der verlinkten Ressource. Eine URL kann absolut oder relativ sein.
+  - : Dieses Attribut spezifiziert die {{Glossary("URL", "URL")}} der verlinkten Ressource. Eine URL kann absolut oder relativ sein.
 - `hreflang`
   - : Dieses Attribut gibt die Sprache der verlinkten Ressource an.
     Es ist rein beratend.
@@ -416,7 +416,7 @@ das Rendern der Seite wird blockiert, bis die Ressource abgerufen worden ist. Zu
     </tr>
     <tr>
       <th>Erlaubter Inhalt</th>
-      <td>Keiner; es ist ein [void element](/de/docs/Glossary/void_element).</td>
+      <td>Keiner; es ist ein {{Glossary("void_element", "void element")}}.</td>
     </tr>
     <tr>
       <th>Tag-Auslassung</th>

@@ -42,7 +42,7 @@ Die `all` Eigenschaft wird als einer der CSS-Global-Keyword-Werte spezifiziert. 
     - Wenn die Regel zum [Benutzer-Ursprung](/de/docs/Web/CSS/Cascade#user_stylesheets) gehört, setzt der `revert` Wert die [Kaskade](/de/docs/Web/CSS/Cascade) auf die Benutzeragentenebene zurück, sodass die [spezifizierten Werte](/de/docs/Web/CSS/specified_value) berechnet werden, als ob keine Regeln auf Autoren- oder Benutzerebene für das Element spezifiziert wären.
     - Wenn die Regel zum [Benutzeragenten-Ursprung](/de/docs/Web/CSS/Cascade#user-agent_stylesheets) gehört, wirkt `revert` wie `unset`.
 - {{cssxref("revert-layer")}}
-  - : Gibt an, dass alle Eigenschaften des Elements die Kaskade auf eine vorherige [Kaskadenschicht](/de/docs/Web/CSS/@layer) zurücksetzen sollen, falls eine vorhanden ist. Wenn keine andere Kaskadenschicht existiert, werden die Eigenschaften des Elements zur passenden Regel in der aktuellen Schicht oder zu einem vorherigen [Stil-Ursprung](/de/docs/Glossary/Style_origin) zurückgesetzt, falls eine existiert.
+  - : Gibt an, dass alle Eigenschaften des Elements die Kaskade auf eine vorherige [Kaskadenschicht](/de/docs/Web/CSS/@layer) zurücksetzen sollen, falls eine vorhanden ist. Wenn keine andere Kaskadenschicht existiert, werden die Eigenschaften des Elements zur passenden Regel in der aktuellen Schicht oder zu einem vorherigen {{Glossary("Style_origin", "Stil-Ursprung")}} zurückgesetzt, falls eine existiert.
 
 ## Formale Definition
 

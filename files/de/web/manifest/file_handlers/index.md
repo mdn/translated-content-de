@@ -61,7 +61,7 @@ In diesem Beispiel erklärt ein Web-App-Manifest einen Datei-Handler, der die Ap
 
 Um die Dateiabwicklung tatsächlich in einer PWA zu implementieren, müssen Webentwickler auch [`window.launchQueue`](/de/docs/Web/API/Window/launchQueue) verwenden, um die eingehenden Dateien in ihrem Anwendungs-JavaScript-Code zu verarbeiten.
 
-Die Verarbeitung von Dateien erfolgt im Anwendungscode, der auf dem [Haupt-Thread](/de/docs/Glossary/main_thread) läuft, nicht im [Service Worker](/de/docs/Web/API/Service_Worker_API) der Anwendung.
+Die Verarbeitung von Dateien erfolgt im Anwendungscode, der auf dem {{Glossary("main_thread", "Haupt-Thread")}} läuft, nicht im [Service Worker](/de/docs/Web/API/Service_Worker_API) der Anwendung.
 
 Im folgenden Beispiel wird [`window.launchQueue.setConsumer()`](/de/docs/Web/API/LaunchQueue/setConsumer) verwendet, um eine Callback-Funktion festzulegen, die eingehende Audiodateien empfängt und die erste mithilfe eines [`Audio`](/de/docs/Web/API/HTMLAudioElement/Audio)-Elements abspielt:
 

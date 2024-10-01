@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`insertDTMF()`**-Methode der [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Schnittstelle sendet [DTMF](/de/docs/Glossary/DTMF)-Töne an den entfernten Teilnehmer über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+Die **`insertDTMF()`**-Methode der [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)-Schnittstelle sendet {{Glossary("DTMF", "DTMF")}}-Töne an den entfernten Teilnehmer über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 
 Töne werden asynchron gesendet. Jedes Mal, wenn ein Ton beginnt oder endet, wird ein [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis an den `RTCDTMFSender` gesendet.
 

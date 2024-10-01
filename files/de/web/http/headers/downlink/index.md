@@ -14,18 +14,18 @@ Der **`Downlink`** [Client-Hint](/de/docs/Web/HTTP/Client_hints) Request-Header-
     <tr>
       <th scope="row">Headertyp</th>
       <td>
-        [Request-Header](/de/docs/Glossary/Request_header),
+        {{Glossary("Request_header", "Request-Header")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
 </table>
 
-Der `Downlink`-Wert wird in Mbps angegeben und auf die nächsten 25 Kilobits pro Sekunde gerundet, um [Fingerabdrücke](/de/docs/Glossary/Fingerprinting) zu verhindern. Es gibt viele andere Mechanismen, die ein Angreifer nutzen könnte, um ähnliche Informationen zu erhalten.
+Der `Downlink`-Wert wird in Mbps angegeben und auf die nächsten 25 Kilobits pro Sekunde gerundet, um {{Glossary("Fingerprinting", "Fingerabdrücke")}} zu verhindern. Es gibt viele andere Mechanismen, die ein Angreifer nutzen könnte, um ähnliche Informationen zu erhalten.
 
 Der Hinweis ermöglicht es einem Server, basierend auf der Netzwerkbandbreite zu entscheiden, welche Informationen gesendet werden. Beispielsweise könnte ein Server kleinere Versionen von Bildern und anderen Ressourcen auf Netzwerken mit niedriger Bandbreite senden.
 

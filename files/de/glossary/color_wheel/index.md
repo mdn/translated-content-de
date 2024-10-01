@@ -22,7 +22,7 @@ In der digitalen Welt werden Farbräder in _Farbwählern_ verwendet, wie dem Sta
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Farbraum](/de/docs/Glossary/Color_space)
+  - {{Glossary("Color_space", "Farbraum")}}
 - [`<color>`](/de/docs/Web/CSS/color_value), der CSS-Datentyp
 - [Farbenlehre und das Farbrad](https://www.canva.com/colors/color-wheel/)
 - [Anleitung zur Verwendung des Farbrads zur Auswahl der perfekten Farbpalette](https://www.bhg.com/decorating/color/basics/color-wheel-color-chart/) bei Better Homes & Gardens

@@ -10,7 +10,7 @@ l10n:
 
 Die **`getRangeAt()`**-Methode der [`Selection`](/de/docs/Web/API/Selection)-Schnittstelle gibt ein `Range`-Objekt zurück, das eine derzeit ausgewählte Range repräsentiert.
 
-Wenn sich die Endpunkte der ausgewählten Range innerhalb eines [Shadow-DOM-Baums](/de/docs/Glossary/shadow_tree) befinden, hat JavaScript keinen Zugriff auf die Schattenknoten, und die Methode sollte die Range um den Host-Element erweitern, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten bisher nicht, und die zurückgegebene Range ist unvorhersehbar.
+Wenn sich die Endpunkte der ausgewählten Range innerhalb eines {{Glossary("shadow_tree", "Shadow-DOM-Baums")}} befinden, hat JavaScript keinen Zugriff auf die Schattenknoten, und die Methode sollte die Range um den Host-Element erweitern, das den Endpunkt enthält. In der Praxis implementieren die meisten Browser dieses Verhalten bisher nicht, und die zurückgegebene Range ist unvorhersehbar.
 
 > [!NOTE]
 > Beim Selektieren innerhalb von Knoten, die eine Shadow-Root enthalten könnten, kann [`Selection.getComposedRanges()`](/de/docs/Web/API/Selection/getComposedRanges) (falls unterstützt) verwendet werden, um eine Auswahl-Range innerhalb eines Shadow-Baums zu erhalten oder um die Auswahl zuverlässig auf den Host-Knoten zu übertragen.

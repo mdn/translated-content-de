@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die schreibgeschützte Eigenschaft **`state`** des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces liefert Informationen, die den Zustand des Stream Control Transmission Protocol ([SCTP](/de/docs/Glossary/SCTP))-Transports beschreiben.
+Die schreibgeschützte Eigenschaft **`state`** des [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)-Interfaces liefert Informationen, die den Zustand des Stream Control Transmission Protocol ({{Glossary("SCTP", "SCTP")}})-Transports beschreiben.
 
 ## Wert
 

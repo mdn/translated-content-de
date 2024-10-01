@@ -13,8 +13,8 @@ Dieses Kapitel führt in JavaScript ein und behandelt einige seiner grundlegende
 
 Dieser Leitfaden geht davon aus, dass Sie über folgendes Grundwissen verfügen:
 
-- Ein allgemeines Verständnis des Internets und des World Wide Web ([WWW](/de/docs/Glossary/World_Wide_Web)).
-- Gute Kenntnisse in Hypertext Markup Language ([HTML](/de/docs/Glossary/HTML)).
+- Ein allgemeines Verständnis des Internets und des World Wide Web ({{Glossary("World_Wide_Web", "WWW")}}).
+- Gute Kenntnisse in Hypertext Markup Language ({{Glossary("HTML", "HTML")}}).
 - Etwas Programmiererfahrung. Wenn Sie neu im Programmieren sind, versuchen Sie eines der Tutorials auf der Hauptseite über [JavaScript](/de/docs/Web/JavaScript).
 
 ## Wo Sie JavaScript-Informationen finden
@@ -50,11 +50,11 @@ Java ist eine klassenbasierte Programmiersprache, die für schnelle Ausführung 
 
 Im Gegensatz dazu stammt JavaScript im Geiste von einer Reihe kleinerer, dynamisch typisierter Sprachen wie HyperTalk und dBASE ab. Diese Skriptsprachen bieten eine viel breitere Zielgruppe Programmierwerkzeuge wegen ihrer einfacheren Syntax, spezialisierten eingebauten Funktionalität und minimalen Anforderungen an die Objekterstellung.
 
-| JavaScript                                                                                                                                                                   | Java                                                                                                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JavaScript                                                                                                                                                                                      | Java                                                                                                                                                                                                                |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Objektorientiert. Keine Unterscheidung zwischen Objekttypen. Vererbung erfolgt durch den Prototyp-Mechanismus, und Eigenschaften und Methoden können jedem Objekt dynamisch hinzugefügt werden. | Klassenbasiert. Objekte sind in Klassen und Instanzen unterteilt, wobei alle Vererbungen durch die Klassenhierarchie erfolgen. Klassen und Instanzen können keine Eigenschaften oder Methoden dynamisch hinzufügen. |
-| Variablen-Datentypen werden nicht deklariert (dynamische Typisierung, locker typisiert).                                                                                      | Variablen-Datentypen müssen deklariert werden (statische Typisierung, stark typisiert).                                                                                                  |
-| Kann nicht automatisch auf Festplatte schreiben.                                                                                                                                  | Kann automatisch auf Festplatte schreiben.                                                                                                                                                 |
+| Variablen-Datentypen werden nicht deklariert (dynamische Typisierung, locker typisiert).                                                                                                        | Variablen-Datentypen müssen deklariert werden (statische Typisierung, stark typisiert).                                                                                                                             |
+| Kann nicht automatisch auf Festplatte schreiben.                                                                                                                                                | Kann automatisch auf Festplatte schreiben.                                                                                                                                                                          |
 
 ## JavaScript und die ECMAScript-Spezifikation
 
@@ -129,7 +129,7 @@ Drücken Sie <kbd>Enter</kbd>, um zu sehen, wie er in Ihrem Browser abläuft!
 
 In den folgenden Seiten führt Sie dieser Leitfaden in die JavaScript-Syntax und Sprachmerkmale ein, sodass Sie in der Lage sein werden, komplexere Anwendungen zu schreiben.
 
-Erinnern Sie sich jetzt daran, vor Ihrem Code immer `(function(){"use strict";` hinzuzufügen und `})();` am Ende Ihres Codes hinzuzufügen. Die Artikel über den [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) und [IIFE](/de/docs/Glossary/IIFE) erklären, was diese bewirken, aber im Moment können sie als das Folgende gedacht werden:
+Erinnern Sie sich jetzt daran, vor Ihrem Code immer `(function(){"use strict";` hinzuzufügen und `})();` am Ende Ihres Codes hinzuzufügen. Die Artikel über den [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) und {{Glossary("IIFE", "IIFE")}} erklären, was diese bewirken, aber im Moment können sie als das Folgende gedacht werden:
 
 1. Sie verhindern Semantiken in JavaScript, die Anfänger in Schwierigkeiten bringen.
 2. Sie verhindern, dass Code-Snippets, die in der Konsole ausgeführt werden, miteinander interagieren (z.B., dass etwas, das in einer Konsolenausführung erstellt wurde, für eine andere Konsolenausführung verwendet wird).

@@ -11,7 +11,7 @@ Das Attribut `aria-label` definiert einen Zeichenfolgewert, der ein interaktives
 
 ## Beschreibung
 
-Manchmal fehlt der standardmäßige [zugängliche Name](/de/docs/Glossary/accessible_name) eines Elements oder der zugängliche Name beschreibt den Inhalt des Elements nicht genau und es gibt keinen sichtbaren Inhalt im DOM, der dem Objekt eine Bedeutung gibt. Ein häufiges Beispiel für ein solches Element ist eine Schaltfläche, die ein SVG-Symbol ohne Text enthält.
+Manchmal fehlt der standardmäßige {{Glossary("accessible_name", "zugängliche Name")}} eines Elements oder der zugängliche Name beschreibt den Inhalt des Elements nicht genau und es gibt keinen sichtbaren Inhalt im DOM, der dem Objekt eine Bedeutung gibt. Ein häufiges Beispiel für ein solches Element ist eine Schaltfläche, die ein SVG-Symbol ohne Text enthält.
 
 In Fällen, in denen ein interaktives Element keinen zugänglichen Namen hat oder ein zugänglicher Name nicht genau ist und es keinen sichtbaren Inhalt im DOM gibt, der über das Attribut [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) referenziert werden kann, kann das Attribut `aria-label` verwendet werden, um eine Zeichenfolge zu definieren, die das interaktive Element, auf dem es gesetzt wird, kennzeichnet. Dies gibt dem interaktiven Element seinen zugänglichen Namen.
 

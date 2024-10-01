@@ -70,7 +70,7 @@ Und das ist erst der Anfang.
 
 ### Barrierefreiheits-Champions
 
-Seit 1999 betreibt das [W3C](/de/docs/Glossary/W3C) eine Arbeitsgruppe namens [Web Accessibility Initiative](/de/docs/Glossary/WAI) (WAI), die Barrierefreiheit durch Richtlinien, Unterstützungsmaterialien und internationale Ressourcen fördert.
+Seit 1999 betreibt das {{Glossary("W3C", "W3C")}} eine Arbeitsgruppe namens {{Glossary("WAI", "Web Accessibility Initiative")}} (WAI), die Barrierefreiheit durch Richtlinien, Unterstützungsmaterialien und internationale Ressourcen fördert.
 
 ## Weitere Details
 

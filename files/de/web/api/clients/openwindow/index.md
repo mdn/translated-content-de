@@ -27,7 +27,7 @@ openWindow(url)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der zu einem [`WindowClient`](/de/docs/Web/API/WindowClient)-Objekt aufgelöst wird, wenn die URL aus dem gleichen Ursprung wie der Service Worker stammt, oder andernfalls einen [Nullwert](/de/docs/Glossary/null).
+Ein {{jsxref("Promise")}}, der zu einem [`WindowClient`](/de/docs/Web/API/WindowClient)-Objekt aufgelöst wird, wenn die URL aus dem gleichen Ursprung wie der Service Worker stammt, oder andernfalls einen {{Glossary("null", "Nullwert")}}.
 
 ### Ausnahmen
 

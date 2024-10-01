@@ -13,7 +13,7 @@ Dieser Artikel beschreibt den Prozess, wie eine relying party (RP) die [Federate
 
 RPs können [`navigator.credentials.get()`](/de/docs/Web/API/CredentialsContainer/get) mit einer `identity`-Option aufrufen, um zu verlangen, dass ein Benutzer sich mit einem bestehenden IdP-Konto, bei dem er bereits im Browser angemeldet ist, bei der RP anmeldet. Der IdP identifiziert die RP durch ihre `clientId`, die vom IdP in einem separaten, spezifischen Prozess der RP ausgestellt wurde. Der IdP identifiziert den spezifischen Benutzer mit Anmeldeinformationen (Cookies), die dem Browser beim Login bereitgestellt werden.
 
-Die Methode gibt ein Promise zurück, das mit einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Objekt erfüllt wird, wenn die Benutzeridentität vom IdP erfolgreich validiert wird. Dieses Objekt enthält ein Token, das Benutzeridentitätsinformationen umfasst, die mit dem [digitalen Zertifikat](/de/docs/Glossary/digital_certificate) des IdP signiert wurden.
+Die Methode gibt ein Promise zurück, das mit einem [`IdentityCredential`](/de/docs/Web/API/IdentityCredential)-Objekt erfüllt wird, wenn die Benutzeridentität vom IdP erfolgreich validiert wird. Dieses Objekt enthält ein Token, das Benutzeridentitätsinformationen umfasst, die mit dem {{Glossary("digital_certificate", "digitalen Zertifikat")}} des IdP signiert wurden.
 
 Die RP sendet das Token an ihren Server zur Zertifikatsvalidierung, und bei Erfolg kann sie die (nun vertrauenswürdigen) Identitätsinformationen im Token nutzen, um den Benutzer in ihren Dienst einzuloggen (eine neue Sitzung starten), ihn für ihren Dienst zu registrieren, falls er ein neuer Benutzer ist, usw.
 
@@ -72,7 +72,7 @@ Der Ablauf ist wie folgt:
 
    Diese sind beides [`GET`](/de/docs/Web/HTTP/Methods/GET)-Anfragen, die keine Cookies haben und keine Weiterleitungen verfolgen. Dies verhindert effektiv, dass der IdP erfährt, wer die Anfrage gestellt hat und welche RP versucht, sich zu verbinden.
 
-   Alle Anfragen, die vom Browser über FedCM gesendet werden, beinhalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header, um [CSRF](/de/docs/Glossary/CSRF)-Angriffe zu verhindern. Alle IdP-Endpunkte müssen bestätigen, dass dieser Header enthalten ist.
+   Alle Anfragen, die vom Browser über FedCM gesendet werden, beinhalten einen `{{httpheader("Sec-Fetch-Dest")}}: webidentity`-Header, um {{Glossary("CSRF", "CSRF")}}-Angriffe zu verhindern. Alle IdP-Endpunkte müssen bestätigen, dass dieser Header enthalten ist.
 
 3. Der IdP antwortet mit der angeforderten 'well-known'-Datei und `config.json`-Dateien. Der Browser validiert die Konfigurationsdatei-URL im `get()`-Request gegen die Liste der gültigen Konfigurations-URLs innerhalb der 'well-known'-Datei.
 

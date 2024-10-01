@@ -15,7 +15,7 @@ Reason: CORS request not HTTP
 
 ## Was ist schiefgelaufen?
 
-[CORS](/de/docs/Glossary/CORS)-Anfragen dürfen nur das HTTP- oder HTTPS-URL-Schema verwenden, aber die durch die Anfrage angegebene URL ist von einem anderen Typ.
+{{Glossary("CORS", "CORS")}}-Anfragen dürfen nur das HTTP- oder HTTPS-URL-Schema verwenden, aber die durch die Anfrage angegebene URL ist von einem anderen Typ.
 Dies tritt häufig auf, wenn die URL eine lokale Datei mit dem `file:///`-Schema angibt.
 
 Um dieses Problem zu lösen, stellen Sie sicher, dass Sie HTTPS-URLs verwenden, wenn Sie Anfragen stellen, die CORS betreffen, wie [`fetch()`](/de/docs/Web/API/Window/fetch), [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest), Web Fonts (`@font-face`), und [WebGL-Texturen](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL), und XSL-Stylesheets.

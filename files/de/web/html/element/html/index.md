@@ -14,9 +14,9 @@ Das **`<html>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert das Wurzelelem
 Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `version` {{deprecated_inline}}
-  - : Gibt die Version der HTML-[Document Type Definition](/de/docs/Glossary/Doctype) an, die das aktuelle Dokument regelt. Dieses Attribut ist nicht erforderlich, da es redundant mit den Versionsinformationen in der Dokumenttyp-Deklaration ist.
+  - : Gibt die Version der HTML-{{Glossary("Doctype", "Document Type Definition")}} an, die das aktuelle Dokument regelt. Dieses Attribut ist nicht erforderlich, da es redundant mit den Versionsinformationen in der Dokumenttyp-Deklaration ist.
 - `xmlns`
-  - : Gibt den [XML](/de/docs/Glossary/XML)-[Namensraum](/de/docs/Glossary/Namespace) des Dokuments an. Der Standardwert ist `"http://www.w3.org/1999/xhtml"`. Dies ist in Dokumenten erforderlich, die mit XML-[Parsern](/de/docs/Glossary/parser) analysiert werden, und optional in text/html-Dokumenten.
+  - : Gibt den {{Glossary("XML", "XML")}}-{{Glossary("Namespace", "Namensraum")}} des Dokuments an. Der Standardwert ist `"http://www.w3.org/1999/xhtml"`. Dies ist in Dokumenten erforderlich, die mit XML-{{Glossary("parser", "Parsern")}} analysiert werden, und optional in text/html-Dokumenten.
 
 ## Zugänglichkeit
 

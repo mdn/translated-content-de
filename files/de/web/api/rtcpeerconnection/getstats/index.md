@@ -29,9 +29,9 @@ getStats(selector, successCallback, failureCallback) // deprecated
 In älterem Code und Dokumentationen könnte eine rückrufbasierte Version dieser Funktion zu sehen sein. Diese ist veraltet und ihre Verwendung wird **stark** abgeraten. Sie sollten bestehenden Code aktualisieren, um die auf {{jsxref("Promise")}} basierende Version von `getStats()` zu verwenden. Die Parameter für die ältere Form von `getStats()` sind unten beschrieben, um bei der Aktualisierung bestehenden Codes zu helfen.
 
 - `successCallback` {{deprecated_inline}}
-  - : Eine [Callback-Funktion](/de/docs/Glossary/Callback_function), die aufgerufen wird, sobald der Bericht erfolgreich erstellt wurde.
+  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die aufgerufen wird, sobald der Bericht erfolgreich erstellt wurde.
 - `failureCallback` {{deprecated_inline}}
-  - : Eine [Callback-Funktion](/de/docs/Glossary/Callback_function), die aufgerufen wird, wenn der Bericht nicht erstellt werden konnte.
+  - : Eine {{Glossary("Callback_function", "Callback-Funktion")}}, die aufgerufen wird, wenn der Bericht nicht erstellt werden konnte.
 
 ### Rückgabewert
 

@@ -17,7 +17,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} **`img-src`** Direktive gibt 
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
+      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
@@ -42,7 +42,7 @@ Content-Security-Policy: img-src <source> <source>;
 
 `<source>` kann einer der Werte aus der Liste in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) sein.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen [Fetch-Direktiven](/de/docs/Glossary/fetch_directive) (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch_directive", "Fetch-Direktiven")}} (und einer [Anzahl anderer Direktiven](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 

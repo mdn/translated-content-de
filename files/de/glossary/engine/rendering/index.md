@@ -7,18 +7,18 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Rendering Engines** (auch bekannt als Layout-Engines oder Browser-Engines) sind Teil eines [Webbrowsers](/de/docs/Glossary/Browser), der [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und andere Ressourcen einer Webseite in eine visuelle Darstellung auf einem Bildschirm umwandelt.
+**Rendering Engines** (auch bekannt als Layout-Engines oder Browser-Engines) sind Teil eines {{Glossary("Browser", "Webbrowsers")}}, der {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und andere Ressourcen einer Webseite in eine visuelle Darstellung auf einem Bildschirm umwandelt.
 
 Gängige Rendering-Engines sind:
 
-- [Blink](/de/docs/Glossary/Blink)
-- [Gecko](/de/docs/Glossary/Gecko)
-- [WebKit](/de/docs/Glossary/WebKit)
-- [Trident](/de/docs/Glossary/Trident)
+- {{Glossary("Blink", "Blink")}}
+- {{Glossary("Gecko", "Gecko")}}
+- {{Glossary("WebKit", "WebKit")}}
+- {{Glossary("Trident", "Trident")}}
 
 ## Siehe auch
 
 - [Browser engine](https://en.wikipedia.org/wiki/Browser_engine) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Engine](/de/docs/Glossary/Engine)
-  - [Browser](/de/docs/Glossary/Browser)
+  - {{Glossary("Engine", "Engine")}}
+  - {{Glossary("Browser", "Browser")}}

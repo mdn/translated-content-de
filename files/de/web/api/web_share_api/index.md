@@ -24,7 +24,7 @@ Die API verfügt über lediglich zwei Methoden.
 Die [`navigator.canShare()`](/de/docs/Web/API/Navigator/canShare)-Methode kann verwendet werden, um zunächst zu validieren, ob einige Daten "teilbar" sind, bevor sie zum Versenden an [`navigator.share()`](/de/docs/Web/API/Navigator/share) übergeben werden.
 
 Die [`navigator.share()`](/de/docs/Web/API/Navigator/share)-Methode ruft den nativen Freigabemechanismus des zugrunde liegenden Betriebssystems auf und übergibt die angegebenen Daten.
-Sie erfordert eine [transiente Aktivierung](/de/docs/Glossary/transient_activation) und muss daher durch ein UI-Ereignis wie einen Klick auf einen Button ausgelöst werden.
+Sie erfordert eine {{Glossary("transient_activation", "transiente Aktivierung")}} und muss daher durch ein UI-Ereignis wie einen Klick auf einen Button ausgelöst werden.
 Darüber hinaus muss die Methode gültige Daten angeben, die durch die native Implementierung zum Teilen unterstützt werden.
 
 Die Web Share API wird durch die [web-share](/de/docs/Web/HTTP/Headers/Permissions-Policy/web-share) Permissions Policy gesteuert.
@@ -38,7 +38,7 @@ Wenn die Policy unterstützt wird, aber nicht gewährt wurde, werden beide Metho
   - : Gibt einen Boolean zurück, der angibt, ob die angegebenen Daten teilbar sind.
 - [`navigator.share()`](/de/docs/Web/API/Navigator/share)
   - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die übergebenen Daten erfolgreich an ein Share-Ziel gesendet wurden.
-    Diese Methode muss bei einem Klick auf einen Button oder eine andere Benutzeraktivierung aufgerufen werden (erfordert [transiente Aktivierung](/de/docs/Glossary/transient_activation)).
+    Diese Methode muss bei einem Klick auf einen Button oder eine andere Benutzeraktivierung aufgerufen werden (erfordert {{Glossary("transient_activation", "transiente Aktivierung")}}).
 
 ## Beispiel
 

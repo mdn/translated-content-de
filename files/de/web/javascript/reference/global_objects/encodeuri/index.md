@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Objects")}}
 
-Die Funktion **`encodeURI()`** kodiert ein [URI](/de/docs/Glossary/URI), indem sie jedes Vorkommen bestimmter Zeichen durch eine, zwei, drei oder vier Escape-Sequenzen ersetzt, die die [UTF-8](/de/docs/Glossary/UTF-8)-Kodierung des Zeichens darstellen (es sind nur vier Escape-Sequenzen für Zeichen, die aus zwei Surrogatzeichen bestehen). Im Vergleich zu {{jsxref("encodeURIComponent()")}} kodiert diese Funktion weniger Zeichen und bewahrt diejenigen, die Teil der URI-Syntax sind.
+Die Funktion **`encodeURI()`** kodiert ein {{Glossary("URI", "URI")}}, indem sie jedes Vorkommen bestimmter Zeichen durch eine, zwei, drei oder vier Escape-Sequenzen ersetzt, die die {{Glossary("UTF-8", "UTF-8")}}-Kodierung des Zeichens darstellen (es sind nur vier Escape-Sequenzen für Zeichen, die aus zwei Surrogatzeichen bestehen). Im Vergleich zu {{jsxref("encodeURIComponent()")}} kodiert diese Funktion weniger Zeichen und bewahrt diejenigen, die Teil der URI-Syntax sind.
 
 {{EmbedInteractiveExample("pages/js/globalprops-encodeuri.html")}}
 
@@ -109,7 +109,7 @@ Sie können {{jsxref("String.prototype.toWellFormed()")}} verwenden, das einsame
 
 ### Kodierung für RFC3986
 
-Das neuere [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986) macht eckige Klammern für [IPv6](/de/docs/Glossary/IPv6) reserviert und werden daher nicht kodiert, wenn etwas gebildet wird, das Teil einer URL sein könnte (wie ein Host). Es reserviert auch !, ', (, ), und \*, obwohl diese Zeichen keine formalisierte URI-Trennzeichen-Funktion haben. Die folgende Funktion kodiert eine Zeichenkette für das RFC3986-konforme URL-Format.
+Das neuere [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986) macht eckige Klammern für {{Glossary("IPv6", "IPv6")}} reserviert und werden daher nicht kodiert, wenn etwas gebildet wird, das Teil einer URL sein könnte (wie ein Host). Es reserviert auch !, ', (, ), und \*, obwohl diese Zeichen keine formalisierte URI-Trennzeichen-Funktion haben. Die folgende Funktion kodiert eine Zeichenkette für das RFC3986-konforme URL-Format.
 
 ```js
 function encodeRFC3986URI(str) {

@@ -10,7 +10,7 @@ l10n:
 
 Die **`postMessage()`**-Methode der [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel)-Schnittstelle sendet eine Nachricht,
 die jeglicher Art von {{jsxref("Object")}} sein kann,
-an jeden Listener in jedem [Browsing-Kontext](/de/docs/Glossary/browsing_context) mit dem gleichen [Origin](/de/docs/Glossary/origin).
+an jeden Listener in jedem {{Glossary("browsing_context", "Browsing-Kontext")}} mit dem gleichen {{Glossary("origin", "Origin")}}.
 Die Nachricht wird als [`message`](/de/docs/Web/API/BroadcastChannel/message_event)-Ereignis
 an jeden mit dem Kanal verbundenen [`BroadcastChannel`](/de/docs/Web/API/BroadcastChannel) gesendet.
 

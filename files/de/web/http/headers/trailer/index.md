@@ -17,13 +17,13 @@ Der **Trailer**-Response-Header ermöglicht es dem Absender, zusätzliche Felder
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Request-Header](/de/docs/Glossary/Request_header),
-        [Response-Header](/de/docs/Glossary/Response_header),
-        [Content-Header](/de/docs/Glossary/Content_header)
+        {{Glossary("Request_header", "Request-Header")}},
+        {{Glossary("Response_header", "Response-Header")}},
+        {{Glossary("Content_header", "Content-Header")}}
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

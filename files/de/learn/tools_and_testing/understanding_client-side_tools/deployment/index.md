@@ -60,7 +60,7 @@ Wir müssen diese Schritte jedoch einrichten, und das schauen wir uns jetzt an.
 
 ## Der Build-Prozess
 
-Da wir Vite für die Entwicklung verwenden, ist die Build-Option sehr einfach hinzuzufügen. Wie wir bereits gesehen haben, haben wir ein benutzerdefiniertes Script `npm run build`, das Vite alles für die Produktion bereitstellen lässt, anstatt es nur für Entwicklungs- und Testzwecke auszuführen. Dies beinhaltet [Minimierung](/de/docs/Glossary/Minification) und [Tree-Shaking](/de/docs/Glossary/Tree_shaking) des Codes sowie Cache Busting bei Dateinamen.
+Da wir Vite für die Entwicklung verwenden, ist die Build-Option sehr einfach hinzuzufügen. Wie wir bereits gesehen haben, haben wir ein benutzerdefiniertes Script `npm run build`, das Vite alles für die Produktion bereitstellen lässt, anstatt es nur für Entwicklungs- und Testzwecke auszuführen. Dies beinhaltet {{Glossary("Minification", "Minimierung")}} und {{Glossary("Tree_shaking", "Tree-Shaking")}} des Codes sowie Cache Busting bei Dateinamen.
 
 Es ist eine gute Praxis, immer ein `build`-Skript in Ihrem Projekt zu definieren, sodass wir uns auf `npm run build` verlassen können, um immer den vollständigen Build-Schritt auszuführen, ohne uns die spezifischen Build-Kommandos des Projekts merken zu müssen.
 

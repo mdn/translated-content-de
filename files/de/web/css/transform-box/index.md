@@ -32,15 +32,15 @@ Die `transform-box` Eigenschaft wird als eines der unten aufgeführten Schlüsse
 ### Werte
 
 - `content-box`
-  - : Die Inhaltsbox wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Rahmenbox seiner [Tabellenrahmenbox](/de/docs/Glossary/Table_Wrapper_Box), nicht seiner Tabellenbox.
+  - : Die Inhaltsbox wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Rahmenbox seiner {{Glossary("Table_Wrapper_Box", "Tabellenrahmenbox")}}, nicht seiner Tabellenbox.
 - `border-box`
-  - : Die Rahmenbox wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Rahmenbox seiner [Tabellenrahmenbox](/de/docs/Glossary/Table_Wrapper_Box), nicht seiner Tabellenbox.
+  - : Die Rahmenbox wird als Referenzbox verwendet. Die Referenzbox eines {{htmlElement("table")}} ist die Rahmenbox seiner {{Glossary("Table_Wrapper_Box", "Tabellenrahmenbox")}}, nicht seiner Tabellenbox.
 - `fill-box`
   - : Die Objektbegrenzungsbox wird als Referenzbox verwendet. Für Elemente mit einer zugehörigen CSS-Layout-Box wirkt sie wie `content-box`.
 - `stroke-box`
   - : Die Strichbegrenzungsbox wird als Referenzbox verwendet. Für Elemente mit einer zugehörigen CSS-Layout-Box wirkt sie wie `border-box`.
 - `view-box`
-  - : Der nächste [SVG](/de/docs/Glossary/SVG) Viewport wird als Referenzbox verwendet. Wenn ein {{SVGAttr("viewBox")}} Attribut für das den SVG Viewport erzeugende Element angegeben ist, wird die Referenzbox am Ursprung des vom `viewBox` Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox auf die Breite und Höhe des `viewBox` Attributs gesetzt. Für Elemente mit einer zugehörigen CSS-Layout-Box wirkt sie wie `border-box`.
+  - : Der nächste {{Glossary("SVG", "SVG")}} Viewport wird als Referenzbox verwendet. Wenn ein {{SVGAttr("viewBox")}} Attribut für das den SVG Viewport erzeugende Element angegeben ist, wird die Referenzbox am Ursprung des vom `viewBox` Attribut festgelegten Koordinatensystems positioniert und die Dimension der Referenzbox auf die Breite und Höhe des `viewBox` Attributs gesetzt. Für Elemente mit einer zugehörigen CSS-Layout-Box wirkt sie wie `border-box`.
 
 ## Formale Definition
 

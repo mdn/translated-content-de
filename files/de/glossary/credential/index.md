@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Credential** ist ein Objekt, das es einem System ermöglicht, eine [Authentifizierungs](/de/docs/Glossary/authentication)-entscheidung zu treffen: beispielsweise ob ein Benutzer in ein Konto eingeloggt werden soll.
+Ein **Credential** ist ein Objekt, das es einem System ermöglicht, eine {{Glossary("authentication", "Authentifizierungs")}}-entscheidung zu treffen: beispielsweise ob ein Benutzer in ein Konto eingeloggt werden soll.
 
 Im Bereich der Web-Sicherheit umfassen Arten von Credentials:
 

@@ -44,7 +44,7 @@ Um Ihre PWA zu identifizieren, muss das JSON ein `name`- oder `short_name`-Mitgl
 Wenn sowohl `name` als auch `short_name` vorhanden sind, wird in den meisten Fällen `name` verwendet, wobei `short_name` verwendet wird, wenn nur begrenzter Platz zur Anzeige des Anwendungsnamens vorhanden ist.
 
 - [`description`](/de/docs/Web/Manifest/description)
-  - : Erklärung dessen, was die Anwendung tut. Es bietet eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) des Zwecks und der Funktion der Anwendung.
+  - : Erklärung dessen, was die Anwendung tut. Es bietet eine {{Glossary("accessible_description", "zugängliche Beschreibung")}} des Zwecks und der Funktion der Anwendung.
 
 ### Aufgabe
 

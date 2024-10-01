@@ -21,7 +21,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 62, die Ent
 - Wenn die Option "Ein `<iframe>` als aktuell angezieltes Dokument auswählen" aktiviert ist, wird das Symbol in der Symbolleiste angezeigt, während die Einstellungen-Registerkarte sichtbar ist, selbst wenn die aktuelle Seite keine iframes beinhaltet ([Firefox bug 1456069](https://bugzil.la/1456069)).
 - Der [Netzwerk-Monitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html)'s [Cookies-Tab](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html#cookies) zeigt nun das Attribut `samesite` von Cookies an ([Firefox bug 1452715](https://bugzil.la/1452715)).
 - [Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) funktioniert nun innerhalb von Container-Tabs ([Firefox bug 1306975](https://bugzil.la/1306975)).
-- Wenn [CORS](/de/docs/Glossary/CORS)-Fehler auftreten und in der Konsole gemeldet werden, bietet Firefox nun einen Link zur entsprechenden Seite in unserer [CORS-Fehlerdokumentation](/de/docs/Web/HTTP/CORS/Errors) an ([Firefox bug 1475391](https://bugzil.la/1475391)).
+- Wenn {{Glossary("CORS", "CORS")}}-Fehler auftreten und in der Konsole gemeldet werden, bietet Firefox nun einen Link zur entsprechenden Seite in unserer [CORS-Fehlerdokumentation](/de/docs/Web/HTTP/CORS/Errors) an ([Firefox bug 1475391](https://bugzil.la/1475391)).
 - Erstellen Sie einen Screenshot der aktuellen Seite (mit optionalem Dateinamen) über die Konsole-Registerkarte ([Firefox bug 1464461](https://bugzil.la/1464461)) mit folgendem Befehl:
 
   ```bash

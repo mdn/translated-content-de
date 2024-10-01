@@ -83,7 +83,7 @@ self.addEventListener("install", (event) => {
 ```
 
 > [!NOTE]
-> Beim Abrufen von Ressourcen ist es sehr wichtig, `{mode: 'no-cors'}` zu verwenden, wenn die Möglichkeit besteht, dass die Ressourcen von einem Server bereitgestellt werden, der [CORS](/de/docs/Glossary/CORS) nicht unterstützt. In diesem Beispiel unterstützt [www.chromium.org](https://www.chromium.org/) kein CORS.
+> Beim Abrufen von Ressourcen ist es sehr wichtig, `{mode: 'no-cors'}` zu verwenden, wenn die Möglichkeit besteht, dass die Ressourcen von einem Server bereitgestellt werden, der {{Glossary("CORS", "CORS")}} nicht unterstützt. In diesem Beispiel unterstützt [www.chromium.org](https://www.chromium.org/) kein CORS.
 
 ## Spezifikationen
 

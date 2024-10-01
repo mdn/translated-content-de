@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Basic_scissoring","Learn/WebGL/By_example/Boilerplate_1")}}
 
-Dieses WebGL-Beispiel untersucht die Auswirkungen der Einstellung (oder Nicht-Einstellung) der Canvas-Größe auf die Elementgröße in [CSS](/de/docs/Glossary/CSS)-Pixeln, wie sie im Browserfenster erscheint.
+Dieses WebGL-Beispiel untersucht die Auswirkungen der Einstellung (oder Nicht-Einstellung) der Canvas-Größe auf die Elementgröße in {{Glossary("CSS", "CSS")}}-Pixeln, wie sie im Browserfenster erscheint.
 
 ## Auswirkung der Canvas-Größe auf das Rendering mit WebGL
 
@@ -15,7 +15,7 @@ Dieses WebGL-Beispiel untersucht die Auswirkungen der Einstellung (oder Nicht-Ei
 
 Mit [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) können wir demonstrieren, wie der WebGL-Zeichenpuffer durch die Größe des Canvas beeinflusst wird.
 
-Die Größe des ersten Canvas wird auf die gestylte [`Element`](/de/docs/Web/API/Element)-Größe gesetzt, die durch [CSS](/de/docs/Glossary/CSS) bestimmt wird. Dies geschieht durch Zuweisung der [`width`](/de/docs/Web/API/HTMLCanvasElement/width) und [`height`](/de/docs/Web/API/HTMLCanvasElement/height) Eigenschaften des Canvas zu den Werten der [`clientWidth`](/de/docs/Web/API/Element/clientWidth) und [`clientHeight`](/de/docs/Web/API/Element/clientHeight) Eigenschaften, jeweils.
+Die Größe des ersten Canvas wird auf die gestylte [`Element`](/de/docs/Web/API/Element)-Größe gesetzt, die durch {{Glossary("CSS", "CSS")}} bestimmt wird. Dies geschieht durch Zuweisung der [`width`](/de/docs/Web/API/HTMLCanvasElement/width) und [`height`](/de/docs/Web/API/HTMLCanvasElement/height) Eigenschaften des Canvas zu den Werten der [`clientWidth`](/de/docs/Web/API/Element/clientWidth) und [`clientHeight`](/de/docs/Web/API/Element/clientHeight) Eigenschaften, jeweils.
 
 Im Gegensatz dazu erfolgt keine solche Zuweisung für das zweite Canvas. Die internen [`width`](/de/docs/Web/API/HTMLCanvasElement/width) und [`height`](/de/docs/Web/API/HTMLCanvasElement/height) Eigenschaften des Canvas bleiben bei den Standardwerten, die anders sind als die tatsächliche Größe des Canvas-[`Element`](/de/docs/Web/API/Element) im Browserfenster.
 

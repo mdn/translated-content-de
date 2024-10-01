@@ -30,7 +30,7 @@ Ein {{jsxref("Promise")}}, das aufgelöst wird, wenn die Einschränkungen erfolg
 
 ## Beispiele
 
-Das Folgende zeigt, wie man ein grundlegendes und erweitertes Set von Einschränkungen spezifiziert. Es spezifiziert, dass die Seite oder Web-App eine Breite zwischen 640 und 1280 und eine Höhe zwischen 480 und 720 benötigt, wobei die spätere Zahl in jedem Paar bevorzugt wird. Die erweiterte Eigenschaft legt ferner fest, dass eine Bildgröße von 1920 x 1280 bevorzugt wird oder ein [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) von 1.333, falls dies nicht verfügbar ist. Beachten Sie, dass diese Einschränkungen auch veranschaulichen, was die Spezifikation als _Rückzugsstrategie_ bezeichnet.
+Das Folgende zeigt, wie man ein grundlegendes und erweitertes Set von Einschränkungen spezifiziert. Es spezifiziert, dass die Seite oder Web-App eine Breite zwischen 640 und 1280 und eine Höhe zwischen 480 und 720 benötigt, wobei die spätere Zahl in jedem Paar bevorzugt wird. Die erweiterte Eigenschaft legt ferner fest, dass eine Bildgröße von 1920 x 1280 bevorzugt wird oder ein {{Glossary("aspect_ratio", "Seitenverhältnis")}} von 1.333, falls dies nicht verfügbar ist. Beachten Sie, dass diese Einschränkungen auch veranschaulichen, was die Spezifikation als _Rückzugsstrategie_ bezeichnet.
 
 ```js
 const constraints = {

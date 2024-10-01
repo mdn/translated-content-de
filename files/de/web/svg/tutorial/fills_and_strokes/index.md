@@ -9,7 +9,7 @@ l10n:
 
 {{ PreviousNext("Web/SVG/Tutorial/Paths", "Web/SVG/Tutorial/Gradients") }}
 
-Es gibt mehrere Möglichkeiten, Formen zu färben (einschließlich der Spezifizierung von Attributen am Objekt) unter Verwendung von inline [CSS](/de/docs/Glossary/CSS), einem eingebetteten CSS-Abschnitt oder einer externen CSS-Datei. Die meisten [SVG](/de/docs/Glossary/SVG), die Sie im Web finden, verwenden inline CSS, aber es gibt Vor- und Nachteile, die mit jedem Typ verbunden sind.
+Es gibt mehrere Möglichkeiten, Formen zu färben (einschließlich der Spezifizierung von Attributen am Objekt) unter Verwendung von inline {{Glossary("CSS", "CSS")}}, einem eingebetteten CSS-Abschnitt oder einer externen CSS-Datei. Die meisten {{Glossary("SVG", "SVG")}}, die Sie im Web finden, verwenden inline CSS, aber es gibt Vor- und Nachteile, die mit jedem Typ verbunden sind.
 
 ## Fill- und Stroke-Attribute
 

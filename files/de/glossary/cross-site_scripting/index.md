@@ -9,7 +9,7 @@ l10n:
 
 **Cross-site scripting** (XSS) ist ein Sicherheitsangriff, der es einem Angreifer ermöglicht, bösartigen Client-seitigen Code in eine Website einzufügen. Dieser Code wird von den Opfern ausgeführt und ermöglicht es den Angreifern, Zugriffskontrollen zu umgehen und Benutzer zu imitieren. Laut der Open Web Application Security Project war XSS die [siebt häufigste Schwachstelle bei Webanwendungen](<https://owasp.org/www-project-top-ten/OWASP_Top_Ten_2017/Top_10-2017_A7-Cross-Site_Scripting_(XSS)>) im Jahr 2017.
 
-Diese Angriffe sind erfolgreich, wenn die Webanwendung nicht genügend Validierungen oder Codierungen anwendet. Der Browser des Benutzers kann nicht erkennen, dass das bösartige Skript unzuverlässig ist und gewährt ihm daher Zugriff auf Cookies, Session-Tokens oder andere sensible, seitenbezogene Informationen oder lässt das bösartige Skript den [HTML](/de/docs/Glossary/HTML)-Inhalt umschreiben.
+Diese Angriffe sind erfolgreich, wenn die Webanwendung nicht genügend Validierungen oder Codierungen anwendet. Der Browser des Benutzers kann nicht erkennen, dass das bösartige Skript unzuverlässig ist und gewährt ihm daher Zugriff auf Cookies, Session-Tokens oder andere sensible, seitenbezogene Informationen oder lässt das bösartige Skript den {{Glossary("HTML", "HTML")}}-Inhalt umschreiben.
 
 ## Siehe auch
 

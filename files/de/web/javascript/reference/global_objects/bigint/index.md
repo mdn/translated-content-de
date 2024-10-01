@@ -11,7 +11,7 @@ l10n:
 
 ## Beschreibung
 
-Ein **BigInt-Wert**, manchmal einfach nur **BigInt** genannt, ist ein `bigint`-[Primitiv](/de/docs/Glossary/Primitive), der erstellt wird, indem man an das Ende eines Integer-Literals ein `n` anhängt oder indem die {{jsxref("BigInt/BigInt", "BigInt()")}}-Funktion (ohne den `new`-Operator) aufgerufen und ein Integer- oder String-Wert übergeben wird.
+Ein **BigInt-Wert**, manchmal einfach nur **BigInt** genannt, ist ein `bigint`-{{Glossary("Primitive", "Primitiv")}}, der erstellt wird, indem man an das Ende eines Integer-Literals ein `n` anhängt oder indem die {{jsxref("BigInt/BigInt", "BigInt()")}}-Funktion (ohne den `new`-Operator) aufgerufen und ein Integer- oder String-Wert übergeben wird.
 
 ```js
 const previouslyMaxSafeInteger = 9007199254740991n;
@@ -63,7 +63,7 @@ Die meisten Operatoren unterstützen BigInts, jedoch erlauben die meisten nicht,
 Die booleschen Operatoren erlauben das Mischen von Zahlen und BigInts als Operanden:
 
 - [Relationale Operatoren](/de/docs/Web/JavaScript/Reference/Operators#relational_operators) und [Gleichheitsoperatoren](/de/docs/Web/JavaScript/Reference/Operators#equality_operators): `>`, `<`, `>=`, `<=`, `==`, `!=`, `===`, `!==`
-- [Logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#binary_logical_operators) verlassen sich nur auf die [Wahrheit](/de/docs/Glossary/Truthy) der Operanden
+- [Logische Operatoren](/de/docs/Web/JavaScript/Reference/Operators#binary_logical_operators) verlassen sich nur auf die {{Glossary("Truthy", "Wahrheit")}} der Operanden
 
 Ein paar Operatoren unterstützen BigInt überhaupt nicht:
 
@@ -148,7 +148,7 @@ Ein BigInt-Wert folgt denselben Umwandlungsregeln wie Numbers, wenn:
 - er mit [logischen Operatoren](/de/docs/Web/JavaScript/Reference/Operators) `||`, `&&` und `!` verwendet wird; oder
 - innerhalb eines bedingten Tests wie einer [`if`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung.
 
-Namens, nur `0n` ist [falsch](/de/docs/Glossary/Falsy); alles andere ist [wahrhaftig](/de/docs/Glossary/Truthy).
+Namens, nur `0n` ist {{Glossary("Falsy", "falsch")}}; alles andere ist {{Glossary("Truthy", "wahrhaftig")}}.
 
 ```js
 if (0n) {

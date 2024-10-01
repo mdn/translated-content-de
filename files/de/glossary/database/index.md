@@ -9,15 +9,15 @@ l10n:
 
 Eine **Datenbank** ist ein Speichersystem, das organisierte Daten sammelt, um bestimmte Aufgaben wie die Suche, Strukturierung und Erweiterung zu erleichtern.
 
-In der Webentwicklung verwenden die meisten Datenbanken das relationale Datenbankverwaltungssystem (RDBMS), um Daten zu organisieren und Programmierung in [SQL](/de/docs/Glossary/SQL) zu ermöglichen. Einige Datenbanken folgen jedoch nicht dem vorherigen Mechanismus zur Organisation von Daten, was als NoSQL bezeichnet wird.
+In der Webentwicklung verwenden die meisten Datenbanken das relationale Datenbankverwaltungssystem (RDBMS), um Daten zu organisieren und Programmierung in {{Glossary("SQL", "SQL")}} zu ermöglichen. Einige Datenbanken folgen jedoch nicht dem vorherigen Mechanismus zur Organisation von Daten, was als NoSQL bezeichnet wird.
 
 Einige bekannte serverseitige RDBMS sind _MySQL_ (oder _MariaDB_, ein Fork davon), _SQL Server_ und _Oracle Database_. Auf der anderen Seite sind einige bekannte NoSQL-Beispiele _MongoDB_, _Cassandra_ und _Redis_.
 
-Browser haben auch ihr eigenes Datenbanksystem namens [IndexedDB](/de/docs/Glossary/IndexedDB).
+Browser haben auch ihr eigenes Datenbanksystem namens {{Glossary("IndexedDB", "IndexedDB")}}.
 
 ## Siehe auch
 
 - [Datenbank](https://en.wikipedia.org/wiki/Database) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [IndexedDB](/de/docs/Glossary/IndexedDB)
-  - [SQL](/de/docs/Glossary/SQL)
+  - {{Glossary("IndexedDB", "IndexedDB")}}
+  - {{Glossary("SQL", "SQL")}}

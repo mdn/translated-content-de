@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Die **`PUT`** HTTP-Methode erstellt eine neue Ressource oder ersetzt eine Repräsentation der Zielressource mit dem Anforderungs-[Inhalt](/de/docs/Glossary/HTTP_Content).
+Die **`PUT`** HTTP-Methode erstellt eine neue Ressource oder ersetzt eine Repräsentation der Zielressource mit dem Anforderungs-{{Glossary("HTTP_Content", "Inhalt")}}.
 
-Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} besteht darin, dass `PUT` [idempotent](/de/docs/Glossary/idempotent) ist: Ein einmaliger Aufruf unterscheidet sich nicht von mehrmaligen aufeinanderfolgenden Aufrufen (es gibt keine _Nebeneffekte_).
+Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} besteht darin, dass `PUT` {{Glossary("idempotent", "idempotent")}} ist: Ein einmaliger Aufruf unterscheidet sich nicht von mehrmaligen aufeinanderfolgenden Aufrufen (es gibt keine _Nebeneffekte_).
 
 <table class="properties">
   <tbody>
@@ -22,15 +22,15 @@ Der Unterschied zwischen `PUT` und {{HTTPMethod("POST")}} besteht darin, dass `P
       <td>Kann</td>
     </tr>
     <tr>
-      <th scope="row">[Safe](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Safe")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
       <td>Nein</td>
     </tr>
     <tr>

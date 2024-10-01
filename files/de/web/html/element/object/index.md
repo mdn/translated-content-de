@@ -38,7 +38,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 - `standby` {{deprecated_inline}}
   - : Eine Nachricht, die der Browser beim Laden der Implementierung und der Daten des Objekts anzeigen kann.
 - `type`
-  - : Der [Inhaltstyp](/de/docs/Glossary/MIME_type) der Ressource, die von **data** angegeben wird. Mindestens eines der Attribute **data** und **type** muss definiert sein.
+  - : Der {{Glossary("MIME_type", "Inhaltstyp")}} der Ressource, die von **data** angegeben wird. Mindestens eines der Attribute **data** und **type** muss definiert sein.
 - `usemap` {{deprecated_inline}}
   - : Ein Hash-Name-Verweis auf ein {{HTMLElement("map")}}-Element; das heißt ein '#' gefolgt vom Wert eines [`name`](/de/docs/Web/HTML/Element/map#name)-Attributs eines Karten-Elements.
 - `width`

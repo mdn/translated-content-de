@@ -37,7 +37,7 @@ Beim Arbeiten mit Farbe ist es wichtig zu wissen, in welchem "Farbraum" Sie arbe
 
 Beim Farbdruck hat Ihr Drucker wahrscheinlich Cyan-, Magenta-, Gelb- und Schwarz (CMYK)-Tintenpatronen. CMYK ist ein subtraktives Modell, bei dem die vier Tinten spezifische Lichtwellenlängen _entfernen_ und nur den engen Bereich reflektieren, mit dem sie assoziiert sind. RGB ist ein additives Farbmodell, das unterschiedliche Anteile von Rot, Grün und Blau hinzufügt.
 
-Derzeit dominiert der [RGB-Farbraum](/de/docs/Glossary/RGB) den Bereich, in dem Webentwickler arbeiten. Während HEX, RGB und HSL-Farbräume unterschiedlich notiert sind, konvertieren Browser automatisch Werte zwischen diesen Farbschreibweisen. [CSS-Farbmodule](/de/docs/Web/CSS/CSS_colors) bieten zusätzliche Farbräume. Dennoch, aufgrund der aktuellen Dominanz des RGB-Farbraums bei der Messung von Farbausgaben, werden die meisten Berechnungen in diesem Dokument im RGB-Farbraum und, ganz speziell, im sRGB-Farbraum durchgeführt.
+Derzeit dominiert der {{Glossary("RGB", "RGB-Farbraum")}} den Bereich, in dem Webentwickler arbeiten. Während HEX, RGB und HSL-Farbräume unterschiedlich notiert sind, konvertieren Browser automatisch Werte zwischen diesen Farbschreibweisen. [CSS-Farbmodule](/de/docs/Web/CSS/CSS_colors) bieten zusätzliche Farbräume. Dennoch, aufgrund der aktuellen Dominanz des RGB-Farbraums bei der Messung von Farbausgaben, werden die meisten Berechnungen in diesem Dokument im RGB-Farbraum und, ganz speziell, im sRGB-Farbraum durchgeführt.
 
 ## Der sRGB-Farbraum
 
@@ -49,7 +49,7 @@ Technologien wie [OpenGL](https://en.wikipedia.org/wiki/OpenGL) und [Direct3D](h
 
 ### CSS-Farbwerte
 
-Es ist wichtig zu wissen, dass es selbst innerhalb eines [Farbraums](/de/docs/Glossary/color_space) Variationen, wie den [RGB](/de/docs/Glossary/RGB)-Farbraum, gibt. Beispielsweise umfassen Variationen des RGB-Farbraums **RGB**, **sRGB**, **Adobe RGB**, **Adobe Wide Gamut RGB** und **RGBA**, unter anderen.
+Es ist wichtig zu wissen, dass es selbst innerhalb eines {{Glossary("color_space", "Farbraums")}} Variationen, wie den {{Glossary("RGB", "RGB")}}-Farbraum, gibt. Beispielsweise umfassen Variationen des RGB-Farbraums **RGB**, **sRGB**, **Adobe RGB**, **Adobe Wide Gamut RGB** und **RGBA**, unter anderen.
 
 Dies sind Beispiele für die in CSS verwendeten Notationen zur Definition einer Farbe. Hier ist die Beispielsfarbe jeweils ein voll opakes Magenta:
 
@@ -309,7 +309,7 @@ Farbe als Farbtöne und Sättigung kann unsere Stimmung beeinflussen und unsere 
 - **Einige Farben können unsere Zeitwahrnehmung beeinflussen:** [Farbe und Zeitwahrnehmung: Hinweise auf zeitliche Überschätzung blauer Reize](https://pubmed.ncbi.nlm.nih.gov/29374198/)
 - **Blau hat auch signifikante Auswirkungen auf Helligkeit und Blendung:** [Blau und Blendung & Helligkeit](https://pubmed.ncbi.nlm.nih.gov/31288107/)
 - **Rot getönte Brillen können Glück oder Freude steigern:** [Durch "Rosarote" Brillen sehen: Der Einfluss von Tönung auf visuelle affektive Verarbeitung](https://pubmed.ncbi.nlm.nih.gov/31244627/)
-- **Es ist bekannt, dass](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/), Scientific American, S. Martinez-Conde, Stephen L. Macknik
+- \*\*Es ist bekannt, dass](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/), Scientific American, S. Martinez-Conde, Stephen L. Macknik
 - **Rote Umgebung:** Studien haben gezeigt, dass für diejenigen, die unter traumatischen Hirnverletzungen leiden, [die kognitive Funktion in einer roten Umgebung](https://pubmed.ncbi.nlm.nih.gov/20649469/) reduziert wird.
 
 ## Siehe auch

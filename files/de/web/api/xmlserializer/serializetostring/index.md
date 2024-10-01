@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("DOM Parsing")}}
 
-Die [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)-Methode **`serializeToString()`** erstellt einen String, der den angegebenen [DOM](/de/docs/Glossary/DOM)-Baum in [XML](/de/docs/Glossary/XML)-Form darstellt.
+Die [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)-Methode **`serializeToString()`** erstellt einen String, der den angegebenen {{Glossary("DOM", "DOM")}}-Baum in {{Glossary("XML", "XML")}}-Form darstellt.
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-LGPL (GNU Lesser General Public License) ist eine freie Softwarelizenz, die von der Free Software Foundation veröffentlicht wurde. Die LGPL bietet eine permissivere Alternative zur strengeren [copyleft](/de/docs/Glossary/copyleft) [GPL](/de/docs/Glossary/GPL). Während bei einem abgeleiteten Werk, das ein GPL-lizenziertes Programm verwendet, das gesamte Werk unter denselben Bedingungen (frei nutzbar, teilbar, studierbar und modifizierbar) veröffentlicht werden muss, verlangt die LGPL nur, dass der LGPL-lizenzierte Bestandteil des abgeleiteten Programms weiterhin die LGPL verwendet, nicht jedoch das gesamte Programm. Die LGPL wird üblicherweise verwendet, um gemeinsame Komponenten wie Bibliotheken (`.dll`, `.so`, `.jar` usw.) zu lizenzieren.
+LGPL (GNU Lesser General Public License) ist eine freie Softwarelizenz, die von der Free Software Foundation veröffentlicht wurde. Die LGPL bietet eine permissivere Alternative zur strengeren {{Glossary("copyleft", "copyleft")}} {{Glossary("GPL", "GPL")}}. Während bei einem abgeleiteten Werk, das ein GPL-lizenziertes Programm verwendet, das gesamte Werk unter denselben Bedingungen (frei nutzbar, teilbar, studierbar und modifizierbar) veröffentlicht werden muss, verlangt die LGPL nur, dass der LGPL-lizenzierte Bestandteil des abgeleiteten Programms weiterhin die LGPL verwendet, nicht jedoch das gesamte Programm. Die LGPL wird üblicherweise verwendet, um gemeinsame Komponenten wie Bibliotheken (`.dll`, `.so`, `.jar` usw.) zu lizenzieren.
 
 ## Siehe auch
 

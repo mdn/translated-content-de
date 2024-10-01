@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Websockets API")}}{{AvailableInWorkers}}
 
-Ein `CloseEvent` wird an Clients gesendet, die [WebSockets](/de/docs/Glossary/WebSockets) verwenden, wenn die Verbindung geschlossen wird. Dies wird an den Listener übermittelt, der durch das `onclose`-Attribut des `WebSocket`-Objekts angegeben ist.
+Ein `CloseEvent` wird an Clients gesendet, die {{Glossary("WebSockets", "WebSockets")}} verwenden, wenn die Verbindung geschlossen wird. Dies wird an den Listener übermittelt, der durch das `onclose`-Attribut des `WebSocket`-Objekts angegeben ist.
 
 {{InheritanceDiagram}}
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein _Mixin_ ist eine [Klasse](/de/docs/Glossary/class) (Interface, in WebAPI-Spezifikationsbegriffen), bei der einige oder alle ihrer [Methoden](/de/docs/Glossary/method) und/oder [Eigenschaften](/de/docs/Glossary/property) nicht implementiert sind, wodurch eine andere [Klasse](/de/docs/Glossary/class) oder ein [Interface](/de/docs/Glossary/interface) die fehlenden Implementierungen bereitstellen muss.
+Ein _Mixin_ ist eine {{Glossary("class", "Klasse")}} (Interface, in WebAPI-Spezifikationsbegriffen), bei der einige oder alle ihrer {{Glossary("method", "Methoden")}} und/oder {{Glossary("property", "Eigenschaften")}} nicht implementiert sind, wodurch eine andere {{Glossary("class", "Klasse")}} oder ein {{Glossary("interface", "Interface")}} die fehlenden Implementierungen bereitstellen muss.
 
 Die neue Klasse oder das Interface enthält dann sowohl die Eigenschaften und Methoden des Mixins als auch die, die es selbst definiert. Alle Methoden und Eigenschaften werden genau gleich verwendet, unabhängig davon, ob sie im Mixin oder im Interface oder der Klasse implementiert sind, die das Mixin implementiert.
 

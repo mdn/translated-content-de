@@ -14,7 +14,7 @@ Der HTTP-Header **`WWW-Authenticate`** definiert die [HTTP-Authentifizierung](/d
 > Jede "Challenge" listet ein vom Server unterstütztes Schema und zusätzliche Parameter, die für diesen Schemata-Typ definiert sind, auf.
 
 Ein Server, der [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) verwendet, wird auf eine Anfrage nach einer geschützten Ressource mit einer {{HTTPStatus("401")}} `Unauthorized`-Antwort reagieren.
-Diese Antwort muss mindestens einen `WWW-Authenticate`-Header und mindestens eine [Challenge](/de/docs/Glossary/challenge) enthalten, um anzuzeigen, welche Authentifizierungsschemata verwendet werden können, um auf die Ressource zuzugreifen (und welche zusätzlichen Daten jedes spezifische Schema benötigt).
+Diese Antwort muss mindestens einen `WWW-Authenticate`-Header und mindestens eine {{Glossary("challenge", "Challenge")}} enthalten, um anzuzeigen, welche Authentifizierungsschemata verwendet werden können, um auf die Ressource zuzugreifen (und welche zusätzlichen Daten jedes spezifische Schema benötigt).
 
 Mehrere Challenges sind in einem `WWW-Authenticate`-Header erlaubt, und mehrere `WWW-Authenticate`-Header sind in einer Antwort erlaubt.
 Ein Server kann auch den `WWW-Authenticate`-Header in anderen Antwortnachrichten einschließen, um anzuzeigen, dass die Bereitstellung von Anmeldeinformationen die Antwort beeinflussen könnte.
@@ -27,10 +27,10 @@ Vom Client wird erwartet, dass er die sicherste der ihm bekannten Herausforderun
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwortheader](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -166,7 +166,7 @@ Der {{HTTPHeader("Authorization")}}-Header könnte so aussehen:
 Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ```
 
-Für `"Basic"`-Authentifizierung werden die Anmeldeinformationen konstruiert, indem zuerst der Benutzername und das Passwort mit einem Doppelpunkt kombiniert wird (`aladdin:opensesame`), und dann die resultierende Zeichenfolge in [`base64`](/de/docs/Glossary/Base64) kodiert wird (`YWxhZGRpbjpvcGVuc2VzYW1l`).
+Für `"Basic"`-Authentifizierung werden die Anmeldeinformationen konstruiert, indem zuerst der Benutzername und das Passwort mit einem Doppelpunkt kombiniert wird (`aladdin:opensesame`), und dann die resultierende Zeichenfolge in {{Glossary("Base64", "`base64`")}} kodiert wird (`YWxhZGRpbjpvcGVuc2VzYW1l`).
 
 > [!NOTE]
 > Siehe auch [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) für Beispiele zur Konfiguration von Apache- oder Nginx-Servern, um Ihre Website mit HTTP-Basis-Authentifizierung kennwortgeschützt zu machen.

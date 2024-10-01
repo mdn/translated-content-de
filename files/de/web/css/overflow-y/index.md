@@ -36,7 +36,7 @@ Wenn {{cssxref("overflow-x")}} auf `hidden`, `scroll` oder `auto` eingestellt is
 ### Werte
 
 - `visible`
-  - : Überlaufinhalt wird nicht abgeschnitten und kann außerhalb des Padding-Bereichs des Elements an den oberen und unteren Rändern sichtbar sein. Das Element ist keine [Scroll-Container](/de/docs/Glossary/scroll_container).
+  - : Überlaufinhalt wird nicht abgeschnitten und kann außerhalb des Padding-Bereichs des Elements an den oberen und unteren Rändern sichtbar sein. Das Element ist keine {{Glossary("scroll_container", "Scroll-Container")}}.
 - `hidden`
   - : Überlaufinhalt wird abgeschnitten, wenn erforderlich, um vertikal in den Padding-Bereich der Elemente zu passen. Es werden keine Scrollleisten bereitgestellt.
 - `clip`

@@ -128,4 +128,4 @@ Da das Bild detaillierter in Graustufen als in Farbe dargestellt wird, werden di
 
 - Jedes Videoframe wird durch eine Matrix von Luma-Werten, Y, dargestellt, wobei die Farbe jedes Pixels durch die Werte in den U- und V-Matrizen berechnet wird. Im AV1-Codec speichert ein Datensatz beispielsweise die codierte Luma für eine Kachel, und ein zweiter Datensatz enthält die Chromadaten in Form der U- und V-Werte.
 - Im Rundfunkfernsehen ist das Luma-Signal das primäre Signal, während die Chrominanzdaten auf einem Unterträger gesendet werden.
-- Der [JPEG](/de/docs/Glossary/JPEG)-Dateityp komprimiert Daten, indem das Bild zuerst in das Y'UV-Farbsystem umgewandelt wird, um dann diese Daten zu komprimieren. Jedes von Y', Cb und Cr kann Werte von 0 bis 255 haben.
+- Der {{Glossary("JPEG", "JPEG")}}-Dateityp komprimiert Daten, indem das Bild zuerst in das Y'UV-Farbsystem umgewandelt wird, um dann diese Daten zu komprimieren. Jedes von Y', Cb und Cr kann Werte von 0 bis 255 haben.

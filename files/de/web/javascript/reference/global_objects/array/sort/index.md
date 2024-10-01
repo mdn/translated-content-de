@@ -58,10 +58,10 @@ Die `sort()` Methode bewahrt leere Slots. Wenn das Quellarray [spärlich](/de/do
 
 Wenn `compareFn` angegeben ist, werden alle nicht `undefined` Array-Elemente entsprechend dem Rückgabewert der Vergleichsfunktion sortiert (alle `undefined` Elemente werden ans Ende des Arrays sortiert, ohne Aufruf von `compareFn`).
 
-| `compareFn(a, b)` Rückgabewert | Sortierreihenfolge                |
-| ------------------------------ | --------------------------------- |
-| > 0                            | sortiere `a` nach `b`, z.B. `[b, a]` |
-| < 0                            | sortiere `a` vor `b`, z.B. `[a, b]` |
+| `compareFn(a, b)` Rückgabewert | Sortierreihenfolge                                    |
+| ------------------------------ | ----------------------------------------------------- |
+| > 0                            | sortiere `a` nach `b`, z.B. `[b, a]`                  |
+| < 0                            | sortiere `a` vor `b`, z.B. `[a, b]`                   |
 | === 0                          | behalte die ursprüngliche Reihenfolge von `a` und `b` |
 
 Die Vergleichsfunktion hat also die folgende Form:
@@ -167,7 +167,7 @@ items.sort((a, b) => {
 
 ### Sortieren von nicht-ASCII-Zeichen
 
-Um Strings mit nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen zu sortieren, also Strings mit Akzentzeichen (e, é, è, a, ä, usw.), Strings aus anderen Sprachen als Englisch, verwenden Sie {{jsxref("String.prototype.localeCompare()")}}. Diese Funktion kann diese Zeichen so vergleichen, dass sie in die richtige Reihenfolge erscheinen.
+Um Strings mit nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen zu sortieren, also Strings mit Akzentzeichen (e, é, è, a, ä, usw.), Strings aus anderen Sprachen als Englisch, verwenden Sie {{jsxref("String.prototype.localeCompare()")}}. Diese Funktion kann diese Zeichen so vergleichen, dass sie in die richtige Reihenfolge erscheinen.
 
 ```js
 const items = ["réservé", "premier", "communiqué", "café", "adieu", "éclair"];
@@ -217,7 +217,7 @@ sorted[0] = 10;
 console.log(numbers[0]); // 10
 ```
 
-Falls Sie möchten, dass `sort()` das ursprüngliche Array nicht verändert, sondern ein [flach kopiertes](/de/docs/Glossary/Shallow_copy) Array zurückgibt wie andere Array-Methoden (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)), verwenden Sie die {{jsxref("Array/toSorted", "toSorted()")}} Methode. Alternativ können Sie eine flache Kopie vor dem Aufruf von `sort()` erstellen, indem Sie die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) verwenden.
+Falls Sie möchten, dass `sort()` das ursprüngliche Array nicht verändert, sondern ein {{Glossary("Shallow_copy", "flach kopiertes")}} Array zurückgibt wie andere Array-Methoden (z.B. [`map()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map)), verwenden Sie die {{jsxref("Array/toSorted", "toSorted()")}} Methode. Alternativ können Sie eine flache Kopie vor dem Aufruf von `sort()` erstellen, indem Sie die [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from) verwenden.
 
 ```js
 const numbers = [3, 1, 4, 1, 5];

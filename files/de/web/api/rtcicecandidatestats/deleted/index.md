@@ -26,7 +26,7 @@ Bedeutung variiert je nach Art des Kandidaten:
     freigegeben wurden. Dies bedeutet im Allgemeinen, dass alle zugehörigen Sockets geschlossen und
     freigegeben wurden.
 - Remote (TURN) Kandidat
-  - : Ein Wert von `true` bedeutet, dass die [TURN](/de/docs/Glossary/TURN)-Zuweisung des Kandidaten
+  - : Ein Wert von `true` bedeutet, dass die {{Glossary("TURN", "TURN")}}-Zuweisung des Kandidaten
     nicht mehr aktiv ist.
 
 Das Endergebnis ist dasselbe; der Kandidat wird nicht mehr in Betracht gezogen, wenn dieser

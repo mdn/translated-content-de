@@ -7,32 +7,32 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Percent-encoding** ist ein Mechanismus zum Codieren von 8-Bit-Zeichen, die im Kontext von [URLs](/de/docs/Glossary/URL) eine spezielle Bedeutung haben. Es wird manchmal als URL-Codierung bezeichnet. Die Codierung besteht aus einer Ersetzung: Ein '%' gefolgt von der hexadezimalen Darstellung des ASCII-Werts des zu ersetzenden Zeichens.
+**Percent-encoding** ist ein Mechanismus zum Codieren von 8-Bit-Zeichen, die im Kontext von {{Glossary("URL", "URLs")}} eine spezielle Bedeutung haben. Es wird manchmal als URL-Codierung bezeichnet. Die Codierung besteht aus einer Ersetzung: Ein '%' gefolgt von der hexadezimalen Darstellung des ASCII-Werts des zu ersetzenden Zeichens.
 
 Sonderzeichen, die codiert werden müssen, sind: `':'`, `'/'`, `'?'`, `'#'`, `'['`, `']'`, `'@'`, `'!'`, `'$'`, `'&'`, `"'"`, `'('`, `')'`, `'*'`, `'+'`, `','`, `';'`, `'='`, sowie `'%'` selbst. Andere Zeichen müssen nicht codiert werden, könnten aber.
 
-| Zeichen  | Codierung  |
-| --------- | ----------- |
-| `':'`     | `%3A`       |
-| `'/'`     | `%2F`       |
-| `'?'`     | `%3F`       |
-| `'#'`     | `%23`       |
-| `'['`     | `%5B`       |
-| `']'`     | `%5D`       |
-| `'@'`     | `%40`       |
-| `'!'`     | `%21`       |
-| `'$'`     | `%24`       |
-| `'&'`     | `%26`       |
-| `"'"`     | `%27`       |
-| `'('`     | `%28`       |
-| `')'`     | `%29`       |
-| `'*'`     | `%2A`       |
-| `'+'`     | `%2B`       |
-| `','`     | `%2C`       |
-| `';'`     | `%3B`       |
-| `'='`     | `%3D`       |
-| `'%'`     | `%25`       |
-| `' '`     | `%20` oder `+` |
+| Zeichen | Codierung      |
+| ------- | -------------- |
+| `':'`   | `%3A`          |
+| `'/'`   | `%2F`          |
+| `'?'`   | `%3F`          |
+| `'#'`   | `%23`          |
+| `'['`   | `%5B`          |
+| `']'`   | `%5D`          |
+| `'@'`   | `%40`          |
+| `'!'`   | `%21`          |
+| `'$'`   | `%24`          |
+| `'&'`   | `%26`          |
+| `"'"`   | `%27`          |
+| `'('`   | `%28`          |
+| `')'`   | `%29`          |
+| `'*'`   | `%2A`          |
+| `'+'`   | `%2B`          |
+| `','`   | `%2C`          |
+| `';'`   | `%3B`          |
+| `'='`   | `%3D`          |
+| `'%'`   | `%25`          |
+| `' '`   | `%20` oder `+` |
 
 Abhängig vom Kontext wird das Zeichen `' '` zu einem `'+'` übersetzt (wie in der Percent-Codierungsversion, die in einer `application/x-www-form-urlencoded`-Nachricht verwendet wird), oder in `'%20'` wie in URLs.
 

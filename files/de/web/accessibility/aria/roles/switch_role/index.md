@@ -48,7 +48,7 @@ Da Nachkommen von `switch` präsentational sind, ist der folgende Code äquivale
 <div role="switch"><h3 role="presentation">Title of my switch</h3></div>
 ```
 
-Aus der Perspektive des Benutzers von Hilfstechnologien existiert die Überschrift nicht, da die vorherigen Codebeispiele dem folgenden im [Zugänglichkeitsbaum](/de/docs/Glossary/Accessibility_tree) entsprechen:
+Aus der Perspektive des Benutzers von Hilfstechnologien existiert die Überschrift nicht, da die vorherigen Codebeispiele dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} entsprechen:
 
 ```html
 <div role="switch">Title of my switch</div>
@@ -70,7 +70,7 @@ Aus der Perspektive des Benutzers von Hilfstechnologien existiert die Überschri
 
 ## Mögliche Auswirkungen auf Benutzeragenten und Hilfstechnologie
 
-Wenn die `switch`-Rolle einem Element hinzugefügt wird, behandelt der [Benutzeragent](/de/docs/Glossary/user_agent) es folgendermaßen:
+Wenn die `switch`-Rolle einem Element hinzugefügt wird, behandelt der {{Glossary("user_agent", "Benutzeragent")}} es folgendermaßen:
 
 - Das Element wird in der Zugänglichkeitsinfrastruktur des Systems als Element mit der `switch`-Rolle offengelegt.
 - Wenn sich der Wert des `aria-checked` Attributs ändert, wird ein zugängliches Ereignis unter Verwendung der Zugänglichkeits-API des Systems ausgelöst, falls eine verfügbar ist und die `switch`-Rolle unterstützt.

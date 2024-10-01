@@ -138,7 +138,7 @@ ul > li[class="a"] {
 
 Seien Sie jedoch vorsichtig, wenn Sie große Listen von Selektoren erstellen, die sehr spezifische Teile Ihres Dokuments auswählen. Es wird schwierig sein, die CSS-Regeln wiederzuverwenden, da Sie den Selektor sehr spezifisch für den Standort dieses Elements im Markup gemacht haben.
 
-Es ist oft besser, eine einfache Klasse zu erstellen und diese dem betreffenden Element zuzuweisen. Nichtsdestotrotz wird Ihr Wissen über Kombinatoren sehr nützlich sein, wenn Sie etwas in Ihrem Dokument stylen müssen und keinen Zugriff auf das HTML haben, vielleicht weil es von einem [CMS](/de/docs/Glossary/CMS) generiert wird.
+Es ist oft besser, eine einfache Klasse zu erstellen und diese dem betreffenden Element zuzuweisen. Nichtsdestotrotz wird Ihr Wissen über Kombinatoren sehr nützlich sein, wenn Sie etwas in Ihrem Dokument stylen müssen und keinen Zugriff auf das HTML haben, vielleicht weil es von einem {{Glossary("CMS", "CMS")}} generiert wird.
 
 ## Testen Sie Ihre Fähigkeiten!
 

@@ -10,7 +10,7 @@ l10n:
 
 Die **`setBaseAndExtent()`** Methode des [`Selection`](/de/docs/Web/API/Selection) Interfaces setzt die Auswahl auf einen Bereich, der alle oder Teile von zwei angegebenen DOM-Knoten und jegliche Inhalte dazwischen enthält.
 
-Die Anker- und Fokus-Knoten können sich in einem [Schattenbaum](/de/docs/Glossary/shadow_tree) befinden, wenn dieser vom Browser unterstützt wird.
+Die Anker- und Fokus-Knoten können sich in einem {{Glossary("shadow_tree", "Schattenbaum")}} befinden, wenn dieser vom Browser unterstützt wird.
 
 ## Syntax
 

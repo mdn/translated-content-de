@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die funktionale Notation **`oklab()`** drückt eine gegebene Farbe im Oklab-[Farbraum](/de/docs/Glossary/color_space) aus, der versucht nachzuahmen, wie Farbe vom menschlichen Auge wahrgenommen wird.
+Die funktionale Notation **`oklab()`** drückt eine gegebene Farbe im Oklab-{{Glossary("color_space", "Farbraum")}} aus, der versucht nachzuahmen, wie Farbe vom menschlichen Auge wahrgenommen wird.
 
 Oklab ist ein perzeptueller Farbraum und ist nützlich für:
 

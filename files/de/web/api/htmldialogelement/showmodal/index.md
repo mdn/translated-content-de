@@ -8,7 +8,7 @@ l10n:
 
 {{ APIRef("HTML DOM") }}
 
-Die **`showModal()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle zeigt den Dialog als modales Fenster über allen anderen eventuell vorhandenen Dialogen an. Es wird in der [Top-Ebene](/de/docs/Glossary/top_layer) angezeigt, zusammen mit einem {{cssxref('::backdrop')}} Pseudoelement. Eine Interaktion außerhalb des Dialogs wird blockiert und der Inhalt außerhalb wird inaktiv gerendert.
+Die **`showModal()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle zeigt den Dialog als modales Fenster über allen anderen eventuell vorhandenen Dialogen an. Es wird in der {{Glossary("top_layer", "Top-Ebene")}} angezeigt, zusammen mit einem {{cssxref('::backdrop')}} Pseudoelement. Eine Interaktion außerhalb des Dialogs wird blockiert und der Inhalt außerhalb wird inaktiv gerendert.
 
 ## Syntax
 

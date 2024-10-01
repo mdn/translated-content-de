@@ -62,7 +62,7 @@ linear-gradient(45deg, red 0 50%, blue 50% 100%)
 - `<linear-color-stop>`
   - : Ein Farb-Stopp-Wert {{CSSxRef("&lt;color&gt;")}}, gefolgt von einer oder zwei optionalen Stopp-Positionen (jede entweder ein {{CSSxRef("&lt;percentage&gt;")}} oder eine {{CSSxRef("&lt;length&gt;")}} entlang der Achse des Gradienten).
 - `<color-hint>`
-  - : Ein [Interpolations](/de/docs/Glossary/interpolation) hinweis, der angibt, wie sich der Gradient zwischen benachbarten Farbstops weiterentwickelt. Die Länge bestimmt, an welchem Punkt zwischen zwei Farbstops die Gradientenfarbe den Mittelpunkt des Farbübergangs erreichen sollte. Wenn weggelassen, ist der Mittelpunkt des Farbübergangs der Mittelpunkt zwischen zwei Farbstops.
+  - : Ein {{Glossary("interpolation", "Interpolations")}} hinweis, der angibt, wie sich der Gradient zwischen benachbarten Farbstops weiterentwickelt. Die Länge bestimmt, an welchem Punkt zwischen zwei Farbstops die Gradientenfarbe den Mittelpunkt des Farbübergangs erreichen sollte. Wenn weggelassen, ist der Mittelpunkt des Farbübergangs der Mittelpunkt zwischen zwei Farbstops.
 
 > [!NOTE]
 > Die Darstellung von [Farbstopps in CSS-Gradienten](#zusammensetzung_eines_linearen_gradienten) folgt denselben Regeln wie Farbstopps in [SVG-Gradienten](/de/docs/Web/SVG/Tutorial/Gradients).
@@ -202,7 +202,7 @@ In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/color_value/hsl
 }
 ```
 
-Die obere Box verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau mit der kürzeren Bogen auf dem [Farbkreis](/de/docs/Glossary/Color_wheel) geht. Die untere Box verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen geht, indem sie durch Grüntöne, Gelbtöne und Orangetöne verläuft.
+Die obere Box verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau mit der kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} geht. Die untere Box verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen geht, indem sie durch Grüntöne, Gelbtöne und Orangetöne verläuft.
 
 {{EmbedLiveSample("Interpolating with hue", 120, 120)}}
 

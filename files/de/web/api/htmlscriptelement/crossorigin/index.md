@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`crossOrigin`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle spiegelt die [Cross-Origin Resource Sharing](/de/docs/Glossary/CORS)-Einstellungen für das Skript-Element wider. Für klassische Skripte von anderen [Ursprüngen](/de/docs/Glossary/Origin) steuert dies, ob vollständige Fehlermeldungen offen gelegt werden. Bei Modulscripten steuert es das Script selbst und jedes Script, das es importiert. Siehe [Attribute von CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) für Details.
+Die **`crossOrigin`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle spiegelt die {{Glossary("CORS", "Cross-Origin Resource Sharing")}}-Einstellungen für das Skript-Element wider. Für klassische Skripte von anderen {{Glossary("Origin", "Ursprüngen")}} steuert dies, ob vollständige Fehlermeldungen offen gelegt werden. Bei Modulscripten steuert es das Script selbst und jedes Script, das es importiert. Siehe [Attribute von CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) für Details.
 
 ## Wert
 

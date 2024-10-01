@@ -62,7 +62,7 @@ showNotification(title, options)
     - `tag` {{optional_inline}}
       - : Ein String, der ein identifizierendes Tag für die Benachrichtigung darstellt. Der Standard ist der leere String.
     - `timestamp` {{optional_inline}}
-      - : Ein Zeitstempel, der als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden angegeben ist und die mit der Benachrichtigung verknüpfte Zeit darstellt. Dies könnte in der Vergangenheit liegen, wenn eine Benachrichtigung für eine Nachricht verwendet wird, die nicht sofort zugestellt werden konnte, weil das Gerät offline war, oder in der Zukunft für ein Meeting, das gleich beginnt.
+      - : Ein Zeitstempel, der als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden angegeben ist und die mit der Benachrichtigung verknüpfte Zeit darstellt. Dies könnte in der Vergangenheit liegen, wenn eine Benachrichtigung für eine Nachricht verwendet wird, die nicht sofort zugestellt werden konnte, weil das Gerät offline war, oder in der Zukunft für ein Meeting, das gleich beginnt.
     - `vibrate` {{optional_inline}} {{experimental_inline}}
       - : Ein [Vibrationsmuster](/de/docs/Web/API/Vibration_API#vibration_patterns) für die Vibrationshardware des Geräts zur Ausgabe mit der Benachrichtigung. Wenn angegeben, darf `silent` nicht `true` sein.
 

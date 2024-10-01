@@ -21,8 +21,8 @@ Link-Makros werden gegenüber normalen Markdown-Links empfohlen, da sie kürzer 
 
 Das [`Glossary`](https://github.com/mdn/yari/blob/main/kumascript/macros/Glossary.ejs) Makro erstellt einen Link zu einem bestimmten Begriffseintrag im MDN-[Glossar](/de/docs/Glossary). Dieses Makro akzeptiert einen obligatorischen und einen optionalen Parameter:
 
-1. Der Name des Begriffs (z.B. "HTML"): `\{{Glossary("HTML")}}` ergibt [HTML](/de/docs/Glossary/HTML)
-2. Optional: Der Text, der im Artikel anstelle des Begriffsnamens angezeigt werden soll: `\{{Glossary("CSS", "Cascading Style Sheets")}}` ergibt [Cascading Style Sheets](/de/docs/Glossary/CSS)
+1. Der Name des Begriffs (z.B. "HTML"): `\{{Glossary("HTML")}}` ergibt {{Glossary("HTML", "HTML")}}
+2. Optional: Der Text, der im Artikel anstelle des Begriffsnamens angezeigt werden soll: `\{{Glossary("CSS", "Cascading Style Sheets")}}` ergibt {{Glossary("CSS", "Cascading Style Sheets")}}
 
 ### Verlinkung zu Referenzseiten
 

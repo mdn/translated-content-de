@@ -31,7 +31,7 @@ Keine ({{jsxref("undefined")}}).
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das Element nicht veränderbar ist, was bedeutet, dass der Benutzer es nicht ändern kann und/oder es nicht automatisch vorausgefüllt werden kann.
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn nicht ausdrücklich durch eine Benutzeraktion wie eine Tippgeste oder einen Mausklick ausgelöst (der Auswähler erfordert [transiente Aktivierung](/de/docs/Glossary/Transient_activation)).
+  - : Wird ausgelöst, wenn nicht ausdrücklich durch eine Benutzeraktion wie eine Tippgeste oder einen Mausklick ausgelöst (der Auswähler erfordert {{Glossary("Transient_activation", "transiente Aktivierung")}}).
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn das mit dem Auswähler verknüpfte Element nicht dargestellt wird.
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)

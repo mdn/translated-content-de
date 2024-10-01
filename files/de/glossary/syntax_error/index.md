@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine [Ausnahme](/de/docs/Glossary/exception), die durch den falschen Gebrauch einer vordefinierten [Syntax](/de/docs/Glossary/syntax) verursacht wird. Syntaxfehler werden beim Kompilieren oder Parsen des Quellcodes entdeckt.
+Eine {{Glossary("exception", "Ausnahme")}}, die durch den falschen Gebrauch einer vordefinierten {{Glossary("syntax", "Syntax")}} verursacht wird. Syntaxfehler werden beim Kompilieren oder Parsen des Quellcodes entdeckt.
 
-Wenn Sie beispielsweise eine schließende Klammer (`}`) beim Definieren einer [JavaScript](/de/docs/Glossary/JavaScript)-Funktion weglassen, lösen Sie einen Syntaxfehler aus. Die Entwicklungswerkzeuge des Browsers zeigen [JavaScript](/de/docs/Glossary/JavaScript)- und [CSS](/de/docs/Glossary/CSS)-Syntaxfehler in der Konsole an.
+Wenn Sie beispielsweise eine schließende Klammer (`}`) beim Definieren einer {{Glossary("JavaScript", "JavaScript")}}-Funktion weglassen, lösen Sie einen Syntaxfehler aus. Die Entwicklungswerkzeuge des Browsers zeigen {{Glossary("JavaScript", "JavaScript")}}- und {{Glossary("CSS", "CSS")}}-Syntaxfehler in der Konsole an.
 
 ## Siehe auch
 

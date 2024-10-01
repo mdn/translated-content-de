@@ -7,14 +7,14 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Informatik, insbesondere im Bereich Netzwerke, bedeutet **Rate Limiting** die Kontrolle darüber, wie viele Operationen in einer bestimmten Zeitspanne durchgeführt werden können, meist um eine Überlastung des Systems und eine Verschlechterung der Leistung zu vermeiden. Zum Beispiel könnte ein Server die Anzahl der Anfragen, die er von einem einzelnen Client in einem bestimmten Zeitraum annimmt, begrenzen, was nicht nur die Gesamtleistung des Servers optimiert, sondern auch Angriffe wie [DoS-Angriff](/de/docs/Glossary/DoS_attack) abschwächt.
+In der Informatik, insbesondere im Bereich Netzwerke, bedeutet **Rate Limiting** die Kontrolle darüber, wie viele Operationen in einer bestimmten Zeitspanne durchgeführt werden können, meist um eine Überlastung des Systems und eine Verschlechterung der Leistung zu vermeiden. Zum Beispiel könnte ein Server die Anzahl der Anfragen, die er von einem einzelnen Client in einem bestimmten Zeitraum annimmt, begrenzen, was nicht nur die Gesamtleistung des Servers optimiert, sondern auch Angriffe wie {{Glossary("DoS_attack", "DoS-Angriff")}} abschwächt.
 
-Rate Limiting ist typischerweise ein Synonym für [Throttling](/de/docs/Glossary/throttle), obwohl [Debouncing](/de/docs/Glossary/debounce) eine weitere geeignete Strategie ist, die in bestimmten Fällen bessere Semantik und Benutzererfahrung bietet.
+Rate Limiting ist typischerweise ein Synonym für {{Glossary("throttle", "Throttling")}}, obwohl {{Glossary("debounce", "Debouncing")}} eine weitere geeignete Strategie ist, die in bestimmten Fällen bessere Semantik und Benutzererfahrung bietet.
 
 ## Siehe auch
 
 - Glossartermine:
-  - [Debounce](/de/docs/Glossary/Debounce)
-  - [Throttle](/de/docs/Glossary/Throttle)
+  - {{Glossary("Debounce", "Debounce")}}
+  - {{Glossary("Throttle", "Throttle")}}
 - {{HTTPStatus("429", "429 Too Many Requests")}}
 - [What is rate limiting? | Rate limiting and bots](https://www.cloudflare.com/en-gb/learning/bots/what-is-rate-limiting/) auf cloudflare.com

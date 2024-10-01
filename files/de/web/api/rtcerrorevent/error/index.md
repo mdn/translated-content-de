@@ -12,7 +12,7 @@ Die schreibgeschützte [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent)-Eigensc
 
 ## Wert
 
-Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, dessen Eigenschaften Details über den aufgetretenen Fehler im Kontext einer [WebRTC](/de/docs/Glossary/WebRTC)-Operation bereitstellen.
+Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, dessen Eigenschaften Details über den aufgetretenen Fehler im Kontext einer {{Glossary("WebRTC", "WebRTC")}}-Operation bereitstellen.
 
 ## Beispiele
 

@@ -17,7 +17,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 ## Hinweise
 
-Auf UTF-8 codierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keinen Effekt auf die [bidi](/de/docs/Glossary/bidi)-Reihenfolge hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn nicht auf zwei Zeilen gebrochen, `123,456` und nicht `456,123`.
+Auf UTF-8 codierten Seiten verhält sich `<wbr>` wie der `U+200B ZERO-WIDTH SPACE` Codepunkt. Insbesondere verhält es sich wie ein Unicode bidi BN Codepunkt, was bedeutet, dass es keinen Effekt auf die {{Glossary("bidi", "bidi")}}-Reihenfolge hat: `<div dir=rtl>123,<wbr>456</div>` zeigt, wenn nicht auf zwei Zeilen gebrochen, `123,456` und nicht `456,123`.
 
 Aus demselben Grund führt das `<wbr>`-Element keinen Bindestrich an der Zeilenumbruchstelle ein. Um einen Bindestrich nur am Zeilenende anzuzeigen, verwenden Sie stattdessen das weiche Bindestrich-Zeichen (`&shy;`).
 

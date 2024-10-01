@@ -37,7 +37,7 @@ Frame—, sodass es schwierig ist, mit Sicherheit zu wissen, wie erheblich die K
 [`RTCSentRtpStreamStats.framesEncoded`](/de/docs/Web/API/RTCSentRtpStreamStats/framesEncoded), wenn Sie sie senden, um die Anzahl der
 bisher verarbeiteten Frames zu erhalten und daraus einen Durchschnitt zu berechnen. Siehe [Berechnung der durchschnittlichen Quantisierung](#berechnung_der_durchschnittlichen_quantisierung) unten für eine Funktion, die dies tut.
 
-Auch die genaue Bedeutung des QP-Wertes hängt von dem verwendeten [Codec](/de/docs/Glossary/codec) ab. Beim VP8-Codec kann der QP-Wert beispielsweise zwischen 1 und 127 liegen und wird im Frame-Header-Element `"y_ac_qi"` angegeben, dessen Wert in
+Auch die genaue Bedeutung des QP-Wertes hängt von dem verwendeten {{Glossary("codec", "Codec")}} ab. Beim VP8-Codec kann der QP-Wert beispielsweise zwischen 1 und 127 liegen und wird im Frame-Header-Element `"y_ac_qi"` angegeben, dessen Wert in
 {{RFC(6386, "", "19.2")}} definiert ist. H.264 verwendet einen QP, der von 0 bis 51 reicht; in diesem Fall handelt es sich um einen Index, der verwendet wird, um eine Skalierungsmatrix abzuleiten, die während des Quantisierungsprozesses verwendet wird.
 Zusätzlich ist es unwahrscheinlich, dass QP der einzige Parameter ist, den der Codec zur Anpassung der
 Komprimierung verwendet. Einzelheiten finden Sie in den jeweiligen Codec-Spezifikationen.

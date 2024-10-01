@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) ist das **Alignment Subject** das Element (oder die Elemente), das innerhalb des [Alignment Container](/de/docs/Glossary/alignment_container) durch die Eigenschaft ausgerichtet wird.
+Im [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) ist das **Alignment Subject** das Element (oder die Elemente), das innerhalb des {{Glossary("alignment_container", "Alignment Container")}} durch die Eigenschaft ausgerichtet wird.
 
 Für {{cssxref("justify-self")}} und {{cssxref("align-self")}} ist das Alignment Subject der Margin-Box des Elements, auf dem die Eigenschaft festgelegt ist, unter Verwendung des Schreibmodus dieses Elements. Für {{cssxref("justify-content")}} und {{cssxref("align-content")}} wird ebenfalls der Schreibmodus des Elements verwendet.
 
@@ -26,4 +26,4 @@ Die Definition des Alignment Subject hängt vom verwendeten Layout-Modus ab.
 
 - [CSS Box Alignment](/de/docs/Web/CSS/CSS_box_alignment) Modul
 - Verwandte Glossarbegriffe:
-  - [Alignment Container](/de/docs/Glossary/alignment_container)
+  - {{Glossary("alignment_container", "Alignment Container")}}

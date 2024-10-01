@@ -22,7 +22,7 @@ Die Fullscreen API fügt den Schnittstellen von [`Document`](/de/docs/Web/API/Do
 ### Instanzmethoden auf der Document-Schnittstelle
 
 - [`Document.exitFullscreen()`](/de/docs/Web/API/Document/exitFullscreen)
-  - : Fordert den [User Agent](/de/docs/Glossary/user_agent) auf, vom Vollbildmodus zurück zum Fenstermodus zu wechseln. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Vollbildmodus vollständig beendet ist.
+  - : Fordert den {{Glossary("user_agent", "User Agent")}} auf, vom Vollbildmodus zurück zum Fenstermodus zu wechseln. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Vollbildmodus vollständig beendet ist.
 
 ### Instanzmethoden auf der Element-Schnittstelle
 

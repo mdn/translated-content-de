@@ -368,7 +368,7 @@ Das Folgende könnte keine gute Idee sein, wenn Sie "echte" Subdomains für best
 
 ## Frame-Optionen
 
-Das folgende Beispiel sendet den `X-Frame-Options` Antwort-Header mit dem Wert DENY und informiert Browser darüber, den Inhalt der Webseite in keinem Frame anzuzeigen, um die Webseite vor [Clickjacking](/de/docs/Glossary/Clickjacking) zu schützen.
+Das folgende Beispiel sendet den `X-Frame-Options` Antwort-Header mit dem Wert DENY und informiert Browser darüber, den Inhalt der Webseite in keinem Frame anzuzeigen, um die Webseite vor {{Glossary("Clickjacking", "Clickjacking")}} zu schützen.
 
 Dies könnte nicht die beste Einstellung für jeden sein. Sie sollten sich über [die anderen beiden möglichen Werte für den `X-Frame-Options`-Header](https://datatracker.ietf.org/doc/html/rfc7034#section-2.1) informieren: `SAMEORIGIN` und `ALLOW-FROM`.
 
@@ -456,7 +456,7 @@ Seien Sie sich bewusst, dass strikte Transport-Sicherheit nicht widerrufbar ist 
 
 ## Verhindern Sie, dass einige Browser die Antwort MIME-abharschen
 
-1. Beschränkt standardmäßig alle Abrufe auf den Ursprung der aktuellen Webseite, indem der `default-src`-Directive auf `'self'` gesetzt wird, was als Fallback für alle [Fetch-Direktiven](/de/docs/Glossary/Fetch_directive) fungiert.
+1. Beschränkt standardmäßig alle Abrufe auf den Ursprung der aktuellen Webseite, indem der `default-src`-Directive auf `'self'` gesetzt wird, was als Fallback für alle {{Glossary("Fetch_directive", "Fetch-Direktiven")}} fungiert.
 
    - Dies ist praktisch, da Sie nicht alle Fetch-Direktiven angeben müssen, die für Ihre Seite gelten, zum Beispiel: `connect-src 'self'; font-src 'self'; script-src 'self'; style-src 'self'`, usw.
    - Diese Einschränkung bedeutet auch, dass Sie explizit definieren müssen, von welchen Seiten Ihre Webseite Ressourcen laden darf. Andernfalls wird es auf den gleichen Ursprung wie die Seite beschränkt, die die Anfrage stellt.

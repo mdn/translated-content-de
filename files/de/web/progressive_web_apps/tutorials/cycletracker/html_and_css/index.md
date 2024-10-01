@@ -63,7 +63,7 @@ Kopieren Sie dieses HTML und speichern Sie es in einer Datei mit dem Namen `inde
 
 Auch wenn Ihnen das HTML in `index.html` vertraut ist, empfehlen wir Ihnen, diesen Abschnitt durchzulesen, bevor Sie einige [vorübergehend fest codierte Daten](#vorübergehend_fest_codierter_ergebniste) hinzufügen, CSS zu einem externen Stylesheet [`style.css`](#css-inhalt) hinzufügen und `app.js` erstellen, das [JavaScript der Anwendung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/JavaScript_functionality), das diese Webseite funktionsfähig macht.
 
-Die erste Zeile des HTML ist ein [DOCTYPE](/de/docs/Glossary/doctype)-Präambel, die sicherstellt, dass der Inhalt korrekt funktioniert.
+Die erste Zeile des HTML ist ein {{Glossary("doctype", "DOCTYPE")}}-Präambel, die sicherstellt, dass der Inhalt korrekt funktioniert.
 
 ```html
 <!doctype html>
@@ -82,7 +82,7 @@ Die Wurzel-{{HTMLelement("html")}}-Tags umfassen den gesamten Inhalt mit dem [`l
 
 Der {{HTMLelement("head")}} enthält maschinenlesbare Informationen über die Webanwendung, die für Leser nicht sichtbar sind, außer dem `<title>`, das als Überschrift im Browser-Tab angezeigt wird.
 
-Der `<head>` enthält alle [Metadaten](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML). Die ersten beiden Informationen in Ihrem `<head>` sollten immer die Zeichensatzdefinition sein, die die [Zeichenkodierung](/de/docs/Glossary/Character_encoding) definiert, und das [Viewport](/de/docs/Web/HTML/Viewport_meta_tag)-{{HTMLelement("meta")}}-Tag, das sicherstellt, dass die Seite in der Breite des Ansichtsfensters gerendert wird und nicht verkleinert wird, wenn sie auf sehr kleinen Bildschirmen geladen wird.
+Der `<head>` enthält alle [Metadaten](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML). Die ersten beiden Informationen in Ihrem `<head>` sollten immer die Zeichensatzdefinition sein, die die {{Glossary("Character_encoding", "Zeichenkodierung")}} definiert, und das [Viewport](/de/docs/Web/HTML/Viewport_meta_tag)-{{HTMLelement("meta")}}-Tag, das sicherstellt, dass die Seite in der Breite des Ansichtsfensters gerendert wird und nicht verkleinert wird, wenn sie auf sehr kleinen Bildschirmen geladen wird.
 
 ```html
 <head>
@@ -138,7 +138,7 @@ Innerhalb des `<form>` fügen wir ein {{HTMLelement("fieldset")}} mit einem {{HT
 
 Die Datumswähler sind {{HTMLElement("input")}}-Elemente vom Typ {{HTMLElement("input/date", "date")}}. Wir fügen das [`required`](/de/docs/Web/HTML/Attributes/required)-Attribut hinzu, um Benutzerfehler zu reduzieren, indem wir verhindern, dass der Benutzer versehentlich ein unvollständiges Formular absendet.
 
-Um ein `<label>` mit einem Formularelement zu verknüpfen, hat jedes `<input>` ein [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut, das mit dem [`for`](/de/docs/Web/HTML/Attributes/for)-Attribut des zugehörigen {{HTMLelement("label")}} übereinstimmt. Das zugehörige Label gibt jedem `<input>` einen [barrierefreien Namen](/de/docs/Glossary/accessible_name).
+Um ein `<label>` mit einem Formularelement zu verknüpfen, hat jedes `<input>` ein [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut, das mit dem [`for`](/de/docs/Web/HTML/Attributes/for)-Attribut des zugehörigen {{HTMLelement("label")}} übereinstimmt. Das zugehörige Label gibt jedem `<input>` einen {{Glossary("accessible_name", "barrierefreien Namen")}}.
 
 ```html
 <label for="start-date">Start date</label>
@@ -317,7 +317,7 @@ li:nth-of-type(even) {
 }
 ```
 
-Wenn Ihnen eines der obigen CSS weiterhin unbekannt vorkommt, können Sie die [CSS-Eigenschaften](/de/docs/Glossary/Property/CSS) und [Selektoren](/de/docs/Web/CSS/CSS_selectors) nachschlagen oder den Lernpfad des [Einstiegs in CSS](/de/docs/Learn/CSS/First_steps/Getting_started) durcharbeiten.
+Wenn Ihnen eines der obigen CSS weiterhin unbekannt vorkommt, können Sie die {{Glossary("Property/CSS", "CSS-Eigenschaften")}} und [Selektoren](/de/docs/Web/CSS/CSS_selectors) nachschlagen oder den Lernpfad des [Einstiegs in CSS](/de/docs/Learn/CSS/First_steps/Getting_started) durcharbeiten.
 
 Egal, ob Sie das obige CSS wortwörtlich verwenden, die oben genannten Stile nach Ihrem Geschmack bearbeiten oder Ihr eigenes CSS von Grund auf neu schreiben, inkludieren Sie alle CSS in eine neue Datei und speichern Sie sie als [`style.css`](https://github.com/mdn/pwa-examples/blob/main/cycletracker/html_and_css/style.css) im selben Verzeichnis wie Ihre `index.html`-Datei.
 

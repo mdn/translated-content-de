@@ -10,13 +10,13 @@ l10n:
 
 Die **`timestamp`**-Eigenschaft des [`RTCVideoSourceStats`](/de/docs/Web/API/RTCVideoSourceStats)-Wörterbuchs ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das die Zeit angibt, zu der die Daten im Objekt abgetastet wurden.
 
-Die Zeit wird in Millisekunden angegeben, die seit dem ersten Moment des 1. Januar 1970, UTC, vergangen sind (auch bekannt als [Unix-Zeit](/de/docs/Glossary/Unix_time)).
+Die Zeit wird in Millisekunden angegeben, die seit dem ersten Moment des 1. Januar 1970, UTC, vergangen sind (auch bekannt als {{Glossary("Unix_time", "Unix-Zeit")}}).
 
 ## Wert
 
 Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der die Zeit angibt, zu der die Aktivität, die durch die Statistiken in diesem Objekt beschrieben wird, aufgezeichnet wurde, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte bis auf wenige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystemeinschränkungen oder aufgrund von Schutzmaßnahmen gegen [Fingerprinting](/de/docs/Glossary/Fingerprinting) in Form von reduzierter Taktpräzision oder -genauigkeit nicht vollständig präzise sein.
+Der Wert sollte bis auf wenige Millisekunden genau sein, kann jedoch aufgrund von Hardware- oder Betriebssystemeinschränkungen oder aufgrund von Schutzmaßnahmen gegen {{Glossary("Fingerprinting", "Fingerprinting")}} in Form von reduzierter Taktpräzision oder -genauigkeit nicht vollständig präzise sein.
 
 ## Spezifikationen
 

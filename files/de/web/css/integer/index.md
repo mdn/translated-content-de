@@ -18,7 +18,7 @@ Der `<integer>` Datentyp besteht aus einer oder mehreren Dezimalziffern, 0 bis e
 
 ## Interpolation
 
-Bei Animationen werden Werte des `<integer>` Datentyps unter Verwendung diskreter, ganzer Schritte [interpoliert](/de/docs/Glossary/interpolation). Die Berechnung erfolgt, als ob es sich um reale Gleitkommazahlen handelt; der diskrete Wert wird mit der [Floor-Funktion](https://en.wikipedia.org/wiki/Floor_function) ermittelt. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
+Bei Animationen werden Werte des `<integer>` Datentyps unter Verwendung diskreter, ganzer Schritte {{Glossary("interpolation", "interpoliert")}}. Die Berechnung erfolgt, als ob es sich um reale Gleitkommazahlen handelt; der diskrete Wert wird mit der [Floor-Funktion](https://en.wikipedia.org/wiki/Floor_function) ermittelt. Die Geschwindigkeit der Interpolation wird durch die mit der Animation verbundene [Easing-Funktion](/de/docs/Web/CSS/easing-function) bestimmt.
 
 ## Beispiele
 

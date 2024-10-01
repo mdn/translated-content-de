@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API", "Learn/JavaScript/Asynchronous/Sequencing_animations", "Learn/JavaScript/Asynchronous")}}
 
-In diesem abschließenden Artikel unseres Moduls "Asynchrones JavaScript" stellen wir _Workers_ vor, die es Ihnen ermöglichen, einige Aufgaben in einem separaten [Thread](/de/docs/Glossary/Thread) auszuführen.
+In diesem abschließenden Artikel unseres Moduls "Asynchrones JavaScript" stellen wir _Workers_ vor, die es Ihnen ermöglichen, einige Aufgaben in einem separaten {{Glossary("Thread", "Thread")}} auszuführen.
 
 <table>
   <tbody>

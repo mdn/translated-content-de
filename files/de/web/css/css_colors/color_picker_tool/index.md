@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Dieses Tool ermöglicht es Ihnen, eine Farbe im sRGB-[Farbraum](/de/docs/Glossary/color_space) auszuwählen und sie zwischen verschiedenen CSS-[Farbformaten](/de/docs/Web/CSS/color_value) zu konvertieren, wodurch Sie die Syntax der folgenden sRGB-Farbnotierungen verstehen können:
+Dieses Tool ermöglicht es Ihnen, eine Farbe im sRGB-{{Glossary("color_space", "Farbraum")}} auszuwählen und sie zwischen verschiedenen CSS-[Farbformaten](/de/docs/Web/CSS/color_value) zu konvertieren, wodurch Sie die Syntax der folgenden sRGB-Farbnotierungen verstehen können:
 
-- {{cssxref("hex-color")}}, eine _hexadezimale Farbdarstellung_ einer [sRGB](/de/docs/Glossary/RGB)-Farbe, die ihre Primärfarbenkomponenten (rot, grün, blau) als hexadezimale Zahlen sowie ihre Transparenz verwendet.
+- {{cssxref("hex-color")}}, eine _hexadezimale Farbdarstellung_ einer {{Glossary("RGB", "sRGB")}}-Farbe, die ihre Primärfarbenkomponenten (rot, grün, blau) als hexadezimale Zahlen sowie ihre Transparenz verwendet.
 - {{CSSxRef("color_value/rgb", "rgb()")}}, definiert eine bestimmte Farbe anhand ihrer roten, grünen, blauen und alpha (Transparenz) Komponenten.
 - {{CSSxRef("color_value/hsl", "hsl()")}}, definiert eine bestimmte Farbe anhand ihrer Farbton-, Sättigungs-, Helligkeits- und Alpha (Transparenz) Komponenten.
 - {{CSSxRef("color_value/hwb", "hwb()")}}, definiert eine bestimmte Farbe anhand ihrer Farbton-, Weiß-, Schwarzanteil- und Alpha (Transparenz) Komponenten.

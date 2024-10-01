@@ -15,7 +15,7 @@ Reason: expected 'true' in CORS header 'Access-Control-Allow-Credentials'
 
 ## Was ist schiefgelaufen?
 
-Die [CORS](/de/docs/Glossary/CORS)-Anfrage erfordert, dass der Server die Verwendung von Anmeldeinformationen erlaubt, aber der Wert des {{HTTPHeader("Access-Control-Allow-Credentials")}}-Headers des Servers ist nicht auf `true` gesetzt, um deren Gebrauch zu ermöglichen.
+Die {{Glossary("CORS", "CORS")}}-Anfrage erfordert, dass der Server die Verwendung von Anmeldeinformationen erlaubt, aber der Wert des {{HTTPHeader("Access-Control-Allow-Credentials")}}-Headers des Servers ist nicht auf `true` gesetzt, um deren Gebrauch zu ermöglichen.
 
 Um dieses Problem auf der Clientseite zu beheben, passen Sie den Code so an, dass die Verwendung von Anmeldeinformationen nicht angefordert wird.
 
@@ -28,5 +28,5 @@ Um diesen Fehler durch Änderung der Serverkonfiguration zu beseitigen, passen S
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [Einführung in CORS](/de/docs/Web/HTTP/CORS)

@@ -25,7 +25,7 @@ die `VideoTrackList` als ein Array von Objekten des Typs [`VideoTrack`](/de/docs
 ## Beispiele
 
 Dieses Beispiel ermittelt die Anzahl der Videospuren im ersten {{HTMLElement("video")}}
-Element, das im [DOM](/de/docs/Glossary/DOM) mittels [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
+Element, das im {{Glossary("DOM", "DOM")}} mittels [`querySelector()`](/de/docs/Web/API/Document/querySelector) gefunden wird.
 
 ```js
 const videoElem = document.querySelector("video");

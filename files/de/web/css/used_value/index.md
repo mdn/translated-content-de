@@ -9,7 +9,7 @@ l10n:
 
 Der **used value** einer [CSS](/de/docs/Web/CSS) Eigenschaft ist ihr Wert, nachdem alle Berechnungen auf den [computed value](/de/docs/Web/CSS/computed_value) durchgeführt wurden.
 
-Nachdem der [user agent](/de/docs/Glossary/user_agent) seine Berechnungen abgeschlossen hat, hat jede CSS-Eigenschaft einen verwendeten Wert (*used value*). Die verwendeten Werte von Dimensionen (z. B. {{cssxref("width")}}, {{cssxref("line-height")}}) werden in Pixeln angegeben. Die verwendeten Werte von Kurzformeigenschaften (z. B. {{cssxref("background")}}) sind konsistent mit denen ihrer Komponenteneigenschaften (z. B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) sowie mit {{cssxref("position")}} und {{cssxref("float")}}.
+Nachdem der {{Glossary("user_agent", "user agent")}} seine Berechnungen abgeschlossen hat, hat jede CSS-Eigenschaft einen verwendeten Wert (_used value_). Die verwendeten Werte von Dimensionen (z. B. {{cssxref("width")}}, {{cssxref("line-height")}}) werden in Pixeln angegeben. Die verwendeten Werte von Kurzformeigenschaften (z. B. {{cssxref("background")}}) sind konsistent mit denen ihrer Komponenteneigenschaften (z. B. {{cssxref("background-color")}} oder {{cssxref("background-size")}}) sowie mit {{cssxref("position")}} und {{cssxref("float")}}.
 
 > [!NOTE]
 > Die [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) DOM-API gibt den [resolved value](/de/docs/Web/CSS/resolved_value) zurück, der je nach Eigenschaft entweder der [computed value](/de/docs/Web/CSS/computed_value) oder der verwendete Wert sein kann.

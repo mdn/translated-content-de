@@ -63,7 +63,7 @@ src:
     > [!NOTE]
     > Lokal verfügbare Fonts könnten vorinstalliert auf dem Gerät des Benutzers gewesen sein oder aktiv vom Benutzer installiert worden sein.
     >
-    > Während die Menge der vorinstallierten Schriftarten wahrscheinlich für alle Benutzer eines bestimmten Geräts gleich ist, ist die Menge der benutzerinstallierten Schriftarten dies nicht. Durch das Entdecken der Menge der vom Benutzer installierten Schriftarten kann eine Website deshalb einen [Fingerabdruck](/de/docs/Glossary/fingerprinting) für das Gerät erstellen und so die Website dabei unterstützen, Benutzer im gesamten Web zu verfolgen.
+    > Während die Menge der vorinstallierten Schriftarten wahrscheinlich für alle Benutzer eines bestimmten Geräts gleich ist, ist die Menge der benutzerinstallierten Schriftarten dies nicht. Durch das Entdecken der Menge der vom Benutzer installierten Schriftarten kann eine Website deshalb einen {{Glossary("fingerprinting", "Fingerabdruck")}} für das Gerät erstellen und so die Website dabei unterstützen, Benutzer im gesamten Web zu verfolgen.
     >
     > Um dies zu verhindern, können User-Agents benutzerinstallierte Schriftarten ignorieren, wenn `local()` verwendet wird.
 
@@ -75,7 +75,7 @@ src:
 
 ## Beschreibung
 
-Der Wert dieses Deskriptors ist eine priorisierte, kommagetrennte Liste externer Referenzen oder lokal installierter Schriftartnamen, wobei jede Ressource mit `url()` oder `local()` angegeben wird. Wenn eine Schriftart benötigt wird, iteriert der [User-Agent](/de/docs/Glossary/user_agent) über die aufgelisteten Referenzen und verwendet die erste, die er erfolgreich aktivieren kann. Fonts mit ungültigen Daten oder lokale Schriftarten, die nicht gefunden werden, werden ignoriert, und der User-Agent lädt die nächste Schriftart in der Liste.
+Der Wert dieses Deskriptors ist eine priorisierte, kommagetrennte Liste externer Referenzen oder lokal installierter Schriftartnamen, wobei jede Ressource mit `url()` oder `local()` angegeben wird. Wenn eine Schriftart benötigt wird, iteriert der {{Glossary("user_agent", "User-Agent")}} über die aufgelisteten Referenzen und verwendet die erste, die er erfolgreich aktivieren kann. Fonts mit ungültigen Daten oder lokale Schriftarten, die nicht gefunden werden, werden ignoriert, und der User-Agent lädt die nächste Schriftart in der Liste.
 
 Wenn mehrere `src` Deskriptoren festgelegt sind, wird nur die letzte deklarierte Regel angewendet, die in der Lage ist, eine Ressource zu laden. Wenn der letzte `src` Deskriptor eine Ressource laden kann und keine `local()` Schriftart einschließt, kann der Browser externe Font-Dateien herunterladen und die lokale Version ignorieren, selbst wenn eine auf dem Gerät verfügbar ist.
 
@@ -97,15 +97,15 @@ src: url(fonts.svg#WhichFont);
 
 Die folgende Tabelle zeigt die gültigen Font-Schlüsselwörter und deren entsprechende Font-Formate. Um zu überprüfen, ob ein Font-Format von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} Regel.
 
-| Schlüsselwort         | Font-Format         | Gängige Erweiterungen |
-| --------------------- | ------------------- | --------------------- |
-| `collection`          | OpenType Collection | .otc, .ttc            |
-| `embedded-opentype`   | Embedded OpenType   | .eot                  |
-| `opentype`            | OpenType            | .otf, .ttf            |
-| `svg`                 | SVG Font (veraltet) | .svg, .svgz           |
-| `truetype`            | TrueType            | .ttf                  |
-| `woff`                | WOFF 1.0            | .woff                 |
-| `woff2`               | WOFF 2.0            | .woff2                |
+| Schlüsselwort       | Font-Format         | Gängige Erweiterungen |
+| ------------------- | ------------------- | --------------------- |
+| `collection`        | OpenType Collection | .otc, .ttc            |
+| `embedded-opentype` | Embedded OpenType   | .eot                  |
+| `opentype`          | OpenType            | .otf, .ttf            |
+| `svg`               | SVG Font (veraltet) | .svg, .svgz           |
+| `truetype`          | TrueType            | .ttf                  |
+| `woff`              | WOFF 1.0            | .woff                 |
+| `woff2`             | WOFF 2.0            | .woff2                |
 
 > [!NOTE]
 >
@@ -114,30 +114,30 @@ Die folgende Tabelle zeigt die gültigen Font-Schlüsselwörter und deren entspr
 
 Ältere nicht normalisierte `format()` Werte haben die folgende äquivalente Syntax; aus Gründen der Rückwärtskompatibilität wird sie als Zeichenfolge in Anführungszeichen bereitgestellt:
 
-| Alte Syntax                   | Äquivalente Syntax                 |
-| ----------------------------- | ---------------------------------- |
-| `format("woff2-variations")`  | `format(woff2) tech(variations)`   |
-| `format("woff-variations")`   | `format(woff) tech(variations)`    |
-| `format("opentype-variations")`| `format(opentype) tech(variations)`|
-| `format("truetype-variations")`| `format(truetype) tech(variations)`|
+| Alte Syntax                     | Äquivalente Syntax                  |
+| ------------------------------- | ----------------------------------- |
+| `format("woff2-variations")`    | `format(woff2) tech(variations)`    |
+| `format("woff-variations")`     | `format(woff) tech(variations)`     |
+| `format("opentype-variations")` | `format(opentype) tech(variations)` |
+| `format("truetype-variations")` | `format(truetype) tech(variations)` |
 
 ### Font-Technologien
 
 Die folgende Tabelle zeigt gültige Werte für den `tech()` Deskriptor und deren entsprechende Font-Technologien. Um zu überprüfen, ob eine Font-Technologie von einem Browser innerhalb von CSS unterstützt wird, verwenden Sie die {{cssxref("@supports", "@supports")}} At-Regel.
 
-| Schlüsselwort         | Beschreibung                                                                                   |
-| :-------------------- | :--------------------------------------------------------------------------------------------- |
-| `color-cbdt`          | Farbbilddatentabellen                                                                          |
-| `color-colrv0`        | Mehrfarbige Glyphen über die COLR Version 0 Tabelle                                            |
-| `color-colrv1`        | Mehrfarbige Glyphen über die COLR Version 1 Tabelle                                            |
-| `color-sbix`          | Standardgrafiktabellen                                                                         |
-| `color-svg`           | SVG mehrfarbige Tabellen                                                                       |
-| `features-aat`        | TrueType `morx` und `kerx` Tabellen                                                            |
-| `features-graphite`   | Graphite Funktionen, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen                |
-| `features-opentype`   | OpenType `GSUB` und `GPOS` Tabellen                                                            |
-| `incremental`         | Inkrementelles Schriftladen                                                                     |
-| `palettes`            | Schriftpaletten durch `font-palette`, um eine von vielen Farbpaletten in der Schrift auszuwählen|
-| `variations`          | Schriftvariationen in TrueType- und OpenType-Schriften zur Steuerung der Schriftachse, Gewicht, Glyphen usw.|
+| Schlüsselwort       | Beschreibung                                                                                                 |
+| :------------------ | :----------------------------------------------------------------------------------------------------------- |
+| `color-cbdt`        | Farbbilddatentabellen                                                                                        |
+| `color-colrv0`      | Mehrfarbige Glyphen über die COLR Version 0 Tabelle                                                          |
+| `color-colrv1`      | Mehrfarbige Glyphen über die COLR Version 1 Tabelle                                                          |
+| `color-sbix`        | Standardgrafiktabellen                                                                                       |
+| `color-svg`         | SVG mehrfarbige Tabellen                                                                                     |
+| `features-aat`      | TrueType `morx` und `kerx` Tabellen                                                                          |
+| `features-graphite` | Graphite Funktionen, nämlich `Silf`, `Glat`, `Gloc`, `Feat` und `Sill` Tabellen                              |
+| `features-opentype` | OpenType `GSUB` und `GPOS` Tabellen                                                                          |
+| `incremental`       | Inkrementelles Schriftladen                                                                                  |
+| `palettes`          | Schriftpaletten durch `font-palette`, um eine von vielen Farbpaletten in der Schrift auszuwählen             |
+| `variations`        | Schriftvariationen in TrueType- und OpenType-Schriften zur Steuerung der Schriftachse, Gewicht, Glyphen usw. |
 
 ## Formale Definition
 

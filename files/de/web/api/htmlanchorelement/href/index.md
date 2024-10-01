@@ -9,7 +9,7 @@ l10n:
 {{ApiRef("HTML DOM")}}
 
 Die **`HTMLAnchorElement.href`**-Eigenschaft ist ein
-[Stringifier](/de/docs/Glossary/stringifier), der eine Zeichenkette mit der gesamten URL zurückgibt und es ermöglicht, die `href` zu aktualisieren.
+{{Glossary("stringifier", "Stringifier")}}, der eine Zeichenkette mit der gesamten URL zurückgibt und es ermöglicht, die `href` zu aktualisieren.
 
 ## Wert
 

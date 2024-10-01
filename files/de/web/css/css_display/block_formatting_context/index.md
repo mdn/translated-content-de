@@ -22,8 +22,8 @@ Ein Block Formatting Context wird durch mindestens eines der folgenden Elemente 
 - Elemente mit {{cssxref("display", "display: flow-root")}}.
 - {{htmlelement("button")}}-Elemente und Button-{{htmlelement("input")}}-Typen, die standardmäßig `display: flow-root` haben.
 - Elemente mit {{cssxref("contain", "contain: layout")}}, `content` oder `paint`.
-- Flex-Items (direkte Kinder des Elements mit {{cssxref("display", "display: flex")}} oder `inline-flex`), wenn sie selbst keine [flex](/de/docs/Glossary/Flex_Container)-, [grid](/de/docs/Glossary/Grid_Container)- oder [table](/de/docs/Web/CSS/CSS_table)-Container sind.
-- Grid-Items (direkte Kinder des Elements mit {{cssxref("display", "display: grid")}} oder `inline-grid`), wenn sie selbst keine [flex](/de/docs/Glossary/Flex_Container)-, [grid](/de/docs/Glossary/Grid_Container)- oder [table](/de/docs/Web/CSS/CSS_table)-Container sind.
+- Flex-Items (direkte Kinder des Elements mit {{cssxref("display", "display: flex")}} oder `inline-flex`), wenn sie selbst keine {{Glossary("Flex_Container", "flex")}}-, {{Glossary("Grid_Container", "grid")}}- oder [table](/de/docs/Web/CSS/CSS_table)-Container sind.
+- Grid-Items (direkte Kinder des Elements mit {{cssxref("display", "display: grid")}} oder `inline-grid`), wenn sie selbst keine {{Glossary("Flex_Container", "flex")}}-, {{Glossary("Grid_Container", "grid")}}- oder [table](/de/docs/Web/CSS/CSS_table)-Container sind.
 - Multicol-Container (Elemente, bei denen {{cssxref("column-count")}} oder {{cssxref("column-width")}} nicht `auto` ist, einschließlich Elementen mit `column-count: 1`).
 - {{cssxref("column-span", "column-span: all")}}, auch wenn das `column-span: all`-Element nicht von einem Multicol-Container umschlossen ist.
 

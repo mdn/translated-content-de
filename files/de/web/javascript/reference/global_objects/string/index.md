@@ -98,7 +98,7 @@ Die `localeCompare()` Methode ermöglicht einen String-Vergleich in ähnlicher W
 
 ### String-Primitives und String-Objekte
 
-Beachten Sie, dass JavaScript zwischen `String`-Objekten und [primitiven Stringwerten](/de/docs/Glossary/Primitive) unterscheidet. (Das Gleiche gilt für {{jsxref("Boolean")}} und {{jsxref("Number", "Zahlen")}}.)
+Beachten Sie, dass JavaScript zwischen `String`-Objekten und {{Glossary("Primitive", "primitiven Stringwerten")}} unterscheidet. (Das Gleiche gilt für {{jsxref("Boolean")}} und {{jsxref("Number", "Zahlen")}}.)
 
 String-Literale (markiert durch doppelte oder einfache Anführungszeichen) und Strings, die von `String`-Aufrufen in einem Nicht-Konstruktor-Kontext zurückgegeben werden (d. h., ohne das Schlüsselwort {{jsxref("Operators/new", "new")}} verwendet zu haben), sind primitive Strings. In Kontexten, in denen eine Methode auf einem primitiven String aufgerufen oder ein Eigenschaftslookup durchgeführt werden soll, umschließt JavaScript automatisch den String-Primitive und ruft die Methode auf oder führt das Eigenschaftslookup auf dem Wrapper-Objekt durch.
 

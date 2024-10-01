@@ -12,7 +12,7 @@ Das **`latency`**-Attribut des [`MediaTrackConstraints`](/de/docs/Web/API/MediaT
 
 Wenn nötig, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.latency`](/de/docs/Web/API/MediaTrackSupportedConstraints/latency) überprüfen, wie er durch einen Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Normalerweise ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Information nicht enthält, werden Tracks, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert sind, diese Eigenschaft nie enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, werden Tracks, die mit einem [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert sind, diese Eigenschaft nie enthalten.
 
 ## Wert
 

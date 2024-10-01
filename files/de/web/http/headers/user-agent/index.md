@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **User-Agent** ist ein charakteristischer String im [Request-Header](/de/docs/Glossary/request_header), der Servern und Netzwerkpartnern die Möglichkeit gibt, die Anwendung, das Betriebssystem, den Anbieter und/oder die Version des anfragenden [User-Agent](/de/docs/Glossary/user_agent) zu identifizieren.
+Der **User-Agent** ist ein charakteristischer String im {{Glossary("request_header", "Request-Header")}}, der Servern und Netzwerkpartnern die Möglichkeit gibt, die Anwendung, das Betriebssystem, den Anbieter und/oder die Version des anfragenden {{Glossary("user_agent", "User-Agent")}} zu identifizieren.
 
 > [!WARNING]
 > Bitte lesen Sie [Browser-Erkennung unter Verwendung des User-Agent](/de/docs/Web/HTTP/Browser_detection_using_the_user_agent), um zu erfahren, warum es meist keine gute Idee ist, unterschiedliche Webseiten oder Dienste für verschiedene Browser bereitzustellen.
@@ -16,10 +16,10 @@ Der **User-Agent** ist ein charakteristischer String im [Request-Header](/de/doc
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotene Header-Namen](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotene Header-Namen")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -55,7 +55,7 @@ Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion
 ```
 
 1. `Mozilla/5.0` ist das allgemeine Token, das besagt, dass der Browser Mozilla-kompatibel ist. Aus historischen Gründen senden dies heute fast alle Browser.
-2. **_platform_** beschreibt die native Plattform, auf der der Browser läuft (Windows, Mac, Linux, Android, etc.) und ob es sich um ein Mobiltelefon handelt. [Firefox OS](/de/docs/Glossary/Firefox_OS)-Telefone sagen `Mobile` — das Web ist die Plattform. Beachten Sie, dass **_platform_** aus mehreren durch `;` getrennten Tokens bestehen kann. Nachfolgend finden Sie weitere Details und Beispiele.
+2. **_platform_** beschreibt die native Plattform, auf der der Browser läuft (Windows, Mac, Linux, Android, etc.) und ob es sich um ein Mobiltelefon handelt. {{Glossary("Firefox_OS", "Firefox OS")}}-Telefone sagen `Mobile` — das Web ist die Plattform. Beachten Sie, dass **_platform_** aus mehreren durch `;` getrennten Tokens bestehen kann. Nachfolgend finden Sie weitere Details und Beispiele.
 3. **rv:_geckoversion_** gibt die Release-Version von Gecko an (z.B. "_17.0_"). In neueren Browsern ist **_geckoversion_** identisch mit **_firefoxversion_**.
 4. **_Gecko/geckotrail_** zeigt an, dass der Browser auf Gecko basiert. (Auf dem Desktop ist **_geckotrail_** immer der feste String `20100101`.)
 5. **_Firefox/firefoxversion_** gibt an, dass der Browser Firefox ist und bietet die Version an (z.B. "_17.0_").

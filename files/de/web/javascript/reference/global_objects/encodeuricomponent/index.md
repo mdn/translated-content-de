@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Objects")}}
 
-Die Funktion **`encodeURIComponent()`** kodiert eine [URI](/de/docs/Glossary/URI), indem jede Instanz bestimmter Zeichen durch eine, zwei, drei oder vier Escape-Sequenzen ersetzt wird, die die [UTF-8](/de/docs/Glossary/UTF-8)-Kodierung des Zeichens darstellen (es gibt nur vier Escape-Sequenzen für Zeichen, die aus zwei Ersatzzeichen bestehen). Im Vergleich zu {{jsxref("encodeURI()")}} kodiert diese Funktion mehr Zeichen, einschließlich derjenigen, die Teil der URI-Syntax sind.
+Die Funktion **`encodeURIComponent()`** kodiert eine {{Glossary("URI", "URI")}}, indem jede Instanz bestimmter Zeichen durch eine, zwei, drei oder vier Escape-Sequenzen ersetzt wird, die die {{Glossary("UTF-8", "UTF-8")}}-Kodierung des Zeichens darstellen (es gibt nur vier Escape-Sequenzen für Zeichen, die aus zwei Ersatzzeichen bestehen). Im Vergleich zu {{jsxref("encodeURI()")}} kodiert diese Funktion mehr Zeichen, einschließlich derjenigen, die Teil der URI-Syntax sind.
 
 {{EmbedInteractiveExample("pages/js/globalprops-encodeuricomponent.html", "shorter")}}
 
@@ -41,7 +41,7 @@ Ein neuer String, der die bereitgestellte `uriComponent` als URI-Komponente kodi
 A–Z a–z 0–9 - _ . ! ~ * ' ( )
 ```
 
-Im Vergleich zu {{jsxref("encodeURI()")}} entzieht sich `encodeURIComponent()` einer größeren Anzahl von Zeichen. Verwenden Sie `encodeURIComponent()` bei von Benutzern eingegebenen Feldern aus Formularen, die {{HTTPMethod("POST")}} an den Server gesendet werden — dies wird `&`-Symbole kodieren, die unbeabsichtigt während der Dateneingabe für [Zeichencodes](/de/docs/Glossary/character_reference) oder andere Zeichen generiert werden können, die eine Kodierung/Dekodierung erfordern. Beispielsweise, wenn ein Benutzer `Jack & Jill` schreibt, könnte das kaufmännische Und ohne `encodeURIComponent()` auf dem Server als Beginn eines neuen Feldes interpretiert und die Integrität der Daten gefährdet werden.
+Im Vergleich zu {{jsxref("encodeURI()")}} entzieht sich `encodeURIComponent()` einer größeren Anzahl von Zeichen. Verwenden Sie `encodeURIComponent()` bei von Benutzern eingegebenen Feldern aus Formularen, die {{HTTPMethod("POST")}} an den Server gesendet werden — dies wird `&`-Symbole kodieren, die unbeabsichtigt während der Dateneingabe für {{Glossary("character_reference", "Zeichencodes")}} oder andere Zeichen generiert werden können, die eine Kodierung/Dekodierung erfordern. Beispielsweise, wenn ein Benutzer `Jack & Jill` schreibt, könnte das kaufmännische Und ohne `encodeURIComponent()` auf dem Server als Beginn eines neuen Feldes interpretiert und die Integrität der Daten gefährdet werden.
 
 Für [`application/x-www-form-urlencoded`](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#application/x-www-form-urlencoded-encoding-algorithm) müssen Leerzeichen durch `+` ersetzt werden, daher könnte man nach einer `encodeURIComponent()`-Ersetzung zusätzlich `%20` durch `+` ersetzen wollen.
 
@@ -82,7 +82,7 @@ function encodeRFC5987ValueChars(str) {
 
 ### Kodierung für RFC3986
 
-Das neuere [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986) reserviert `!`, `'`, `(`, `)`, und `*`, obwohl diese Zeichen keine formalisierten URI-Gliederungsverwendungen haben. Die folgende Funktion kodiert einen String für das RFC3986-kompatible URL-Komponentenformat. Es kodiert auch `[` und `]`, die Teil der [IPv6](/de/docs/Glossary/IPv6) URI-Syntax sind. Eine RFC3986-kompatible `encodeURI`-Implementierung sollte sie nicht entziehen, was im [`encodeURI()`-Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI#encoding_for_rfc3986) demonstriert wird.
+Das neuere [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986) reserviert `!`, `'`, `(`, `)`, und `*`, obwohl diese Zeichen keine formalisierten URI-Gliederungsverwendungen haben. Die folgende Funktion kodiert einen String für das RFC3986-kompatible URL-Komponentenformat. Es kodiert auch `[` und `]`, die Teil der {{Glossary("IPv6", "IPv6")}} URI-Syntax sind. Eine RFC3986-kompatible `encodeURI`-Implementierung sollte sie nicht entziehen, was im [`encodeURI()`-Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI#encoding_for_rfc3986) demonstriert wird.
 
 ```js
 function encodeRFC3986URIComponent(str) {

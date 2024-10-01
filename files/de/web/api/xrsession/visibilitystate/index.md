@@ -33,7 +33,7 @@ Die möglichen Werte von `visibilityState` sind:
 - `visible-blurred`
   - : Obwohl die virtuelle Szene, die von der [`XRSession`](/de/docs/Web/API/XRSession) gerendert wird, derzeit für den Benutzer sichtbar sein kann,
     ist sie nicht der primäre Fokus des Benutzers im Moment; es ist auch möglich, dass die Sitzung derzeit überhaupt nicht sichtbar ist.
-    Um die Ressourcenauslastung zu optimieren, kann der [User-Agent](/de/docs/Glossary/user_agent) die
+    Um die Ressourcenauslastung zu optimieren, kann der {{Glossary("user_agent", "User-Agent")}} die
     [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Rückrufe der Sitzung mit einer reduzierten Rate verarbeiten.
     Eingabegeräte werden für die Sitzung _nicht_ verarbeitet.
 

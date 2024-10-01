@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Performance API")}}
 
-Navigation Timing ist ein Teil der Performance API und bietet Metriken, die mit dem Navigieren von einer Seite zur anderen verbunden sind. Zum Beispiel können Sie bestimmen, wie viel Zeit das Laden oder Entladen eines Dokuments in Anspruch nimmt oder die Zeit protokollieren, die verging, bis die [DOM](/de/docs/Glossary/DOM)-Konstruktion abgeschlossen ist und die Interaktion mit dem DOM möglich ist.
+Navigation Timing ist ein Teil der Performance API und bietet Metriken, die mit dem Navigieren von einer Seite zur anderen verbunden sind. Zum Beispiel können Sie bestimmen, wie viel Zeit das Laden oder Entladen eines Dokuments in Anspruch nimmt oder die Zeit protokollieren, die verging, bis die {{Glossary("DOM", "DOM")}}-Konstruktion abgeschlossen ist und die Interaktion mit dem DOM möglich ist.
 
 Nur das aktuelle Dokument wird berücksichtigt, daher gibt es normalerweise nur ein [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Objekt zu beobachten. Es erweitert die [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Schnittstelle mit dem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"navigation"` und erbt auch von [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming), sodass alle Zeitstempel aus dem Prozess des Abrufens des Dokuments ebenfalls verfügbar sind.
 

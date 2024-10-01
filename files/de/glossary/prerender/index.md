@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Prerendering bezieht sich auf die Praxis des spekulativen [Prefetching](/de/docs/Glossary/prefetch) und _Renderns_ von Seiten, zu denen der Benutzer wahrscheinlich in naher Zukunft navigieren wird (der Browser rendert die Seite im Hintergrund in einem tatsächlich unsichtbaren separaten Tab). Prerendering umfasst das Herunterladen der Unterressourcen eines Dokuments und das Ausführen zugehöriger JavaScript.
+Prerendering bezieht sich auf die Praxis des spekulativen {{Glossary("prefetch", "Prefetching")}} und _Renderns_ von Seiten, zu denen der Benutzer wahrscheinlich in naher Zukunft navigieren wird (der Browser rendert die Seite im Hintergrund in einem tatsächlich unsichtbaren separaten Tab). Prerendering umfasst das Herunterladen der Unterressourcen eines Dokuments und das Ausführen zugehöriger JavaScript.
 
 Wenn der Benutzer sich dann entscheidet, zur Seite zu navigieren, kann die Anzeige ihres Inhalts nahezu sofort erfolgen.
 
@@ -32,6 +32,6 @@ Prerendering führt zu schnelleren Anzeigezeiten als Prefetching und somit zu ei
 
 - [Spekulatives Laden](/de/docs/Web/Performance/Speculative_loading)
 - Verwandte Glossarbegriffe:
-  - [Prefetch](/de/docs/Glossary/Prefetch)
+  - {{Glossary("Prefetch", "Prefetch")}}
 - [Prerender-Seiten in Chrome für sofortige Seitennavigationen](https://developer.chrome.com/docs/web-platform/prerender-pages#prerendering-from-the-address-bar) auf developer.chrome.com
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)

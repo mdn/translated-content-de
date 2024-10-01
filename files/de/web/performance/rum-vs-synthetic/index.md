@@ -13,7 +13,7 @@ l10n:
 
 Synthetisches Monitoring beinhaltet die Überwachung der Performance einer Seite in einer 'Labor'-Umgebung, typischerweise mit automatisierten Werkzeugen in einer so konsistent wie möglichen Umgebung. Beim synthetischen Monitoring werden Skripte bereitgestellt, um den Weg zu simulieren, den ein Endbenutzer durch eine Webanwendung nehmen könnte, und es wird die vom Simulator erfahrene Performance zurückgemeldet. Der gemessene Traffic stammt nicht von Ihren tatsächlichen Benutzern, sondern von synthetisch erzeugtem Traffic, der Daten zur Seitenperformance sammelt.
 
-Ein Beispiel für synthetisches Monitoring ist [WebPageTest.org](https://www.webpagetest.org/). Es erfolgt in einer kontrollierten Umgebung, in der Variablen wie Geografie, Netzwerk, Gerät, Browser und Cache-Status vorgegeben sind. Es liefert Wasserfalldiagramme für jedes vom Host und [CDN](/de/docs/Glossary/CDN) bereitgestellte Asset sowie für alle Drittanbieter-Assets und Asset-Anfragen, die von allen Drittanbieter-Skripten, wie Anzeigen und Analysediensten, generiert werden.
+Ein Beispiel für synthetisches Monitoring ist [WebPageTest.org](https://www.webpagetest.org/). Es erfolgt in einer kontrollierten Umgebung, in der Variablen wie Geografie, Netzwerk, Gerät, Browser und Cache-Status vorgegeben sind. Es liefert Wasserfalldiagramme für jedes vom Host und {{Glossary("CDN", "CDN")}} bereitgestellte Asset sowie für alle Drittanbieter-Assets und Asset-Anfragen, die von allen Drittanbieter-Skripten, wie Anzeigen und Analysediensten, generiert werden.
 
 Die Kontrolle über Umgebungsvariablen ist hilfreich, um zu verstehen, wo Performance-Engpässe aufgetreten sind, und die Quelle möglicher Performance-Probleme zu identifizieren. Es spiegelt jedoch nicht die tatsächliche Erfahrung der Nutzer wider, insbesondere nicht den Long Tail.
 
@@ -29,7 +29,7 @@ Durch den Einsatz von RUM kann ein Unternehmen seine Nutzer besser verstehen und
 
 ## RUM vs. Synthetisch
 
-Synthetisches Monitoring eignet sich gut, um Regressionen während der Entwicklungszyklen zu identifizieren, insbesondere mit [Netzwerk-Drosselung](/de/docs/Glossary/network_throttling). Es ist relativ einfach, kostengünstig und hervorragend zum Spot-Checken der Performance während der Entwicklung als wirkungsvolle Methode zur Messung der Auswirkung von Code-Änderungen geeignet, bietet jedoch nicht das, was echte Nutzer erleben, und liefert nur eine eingeschränkte Sicht auf die Performance.
+Synthetisches Monitoring eignet sich gut, um Regressionen während der Entwicklungszyklen zu identifizieren, insbesondere mit {{Glossary("network_throttling", "Netzwerk-Drosselung")}}. Es ist relativ einfach, kostengünstig und hervorragend zum Spot-Checken der Performance während der Entwicklung als wirkungsvolle Methode zur Messung der Auswirkung von Code-Änderungen geeignet, bietet jedoch nicht das, was echte Nutzer erleben, und liefert nur eine eingeschränkte Sicht auf die Performance.
 
 RUM hingegen liefert echte Metriken von echten Nutzern, die die Site oder Anwendung nutzen. Auch wenn dies teurer und wahrscheinlich weniger bequem ist, liefert es wesentliche Daten zur Benutzererfahrung.
 

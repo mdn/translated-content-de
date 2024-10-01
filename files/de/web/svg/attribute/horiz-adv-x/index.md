@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das Attribut **`horiz-adv-x`** gibt den horizontalen Abstand nach dem Rendern eines [Glyph](/de/docs/Glossary/glyph) in horizontaler Ausrichtung an.
+Das Attribut **`horiz-adv-x`** gibt den horizontalen Abstand nach dem Rendern eines {{Glossary("glyph", "Glyph")}} in horizontaler Ausrichtung an.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

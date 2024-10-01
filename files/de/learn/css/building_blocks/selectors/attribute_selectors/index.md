@@ -99,9 +99,9 @@ Im unten stehenden Beispiel können Sie sehen, wie diese Selektoren verwendet we
 Diese Selektoren ermöglichen einen fortgeschritteneren Abgleich von Teilzeichenfolgen innerhalb des Wertes Ihres Attributs. Wenn Sie zum Beispiel Klassen wie `box-warning` und `box-error` haben und alles abgleichen möchten, das mit der Zeichenfolge "box-" beginnt, könnten Sie `[class^="box-"]` verwenden, um beide auszuwählen (oder `[class|="box"]`, wie in der obigen Sektion beschrieben).
 
 | Selektor        | Beispiel            | Beschreibung                                                                                            |
-| --------------- | ------------------- | -------------------------------------------------------------------------------------------------- |
-| `[attr^=value]` | `li[class^="box-"]` | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ beginnt.                        |
-| `[attr$=value]` | `li[class$="-box"]` | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ endet.                           |
+| --------------- | ------------------- | ------------------------------------------------------------------------------------------------------- |
+| `[attr^=value]` | `li[class^="box-"]` | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ beginnt.                          |
+| `[attr$=value]` | `li[class$="-box"]` | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ endet.                            |
 | `[attr*=value]` | `li[class*="box"]`  | Passt auf Elemente mit einem _attr_-Attribut, dessen Wert _value_ irgendwo in der Zeichenkette enthält. |
 
 (Nebenbei: Es könnte helfen zu wissen, dass `^` und `$` schon lange als _Anker_ in sogenannten _regulären Ausdrücken_ verwendet werden, um _beginnt mit_ bzw. _endet mit_ zu bedeuten.)
@@ -116,7 +116,7 @@ Das nächste Beispiel zeigt die Verwendung dieser Selektoren:
 
 ## Groß-/Kleinschreibungsempfindlichkeit
 
-Wenn Sie Attributwerte ohne Berücksichtigung der Groß-/Kleinschreibung abgleichen möchten, können Sie den Wert `i` vor der schließenden Klammer verwenden. Dieses Flag weist den Browser an, [ASCII](/de/docs/Glossary/ASCII)-Zeichen ohne Berücksichtigung der Groß-/Kleinschreibung abzugleichen. Ohne das Flag werden die Werte entsprechend der Groß-/Kleinschreibungsempfindlichkeit der Dokumentsprache abgeglichen — im Fall von HTML wird es groß-/klein-schreibungsempfindlich sein.
+Wenn Sie Attributwerte ohne Berücksichtigung der Groß-/Kleinschreibung abgleichen möchten, können Sie den Wert `i` vor der schließenden Klammer verwenden. Dieses Flag weist den Browser an, {{Glossary("ASCII", "ASCII")}}-Zeichen ohne Berücksichtigung der Groß-/Kleinschreibung abzugleichen. Ohne das Flag werden die Werte entsprechend der Groß-/Kleinschreibungsempfindlichkeit der Dokumentsprache abgeglichen — im Fall von HTML wird es groß-/klein-schreibungsempfindlich sein.
 
 Im unten stehenden Beispiel wird der erste Selektor einen Wert abgleichen, der mit `a` beginnt — es wird nur das erste Listenelement ausgewählt, da die anderen beiden Listenelemente mit einem großen A beginnen. Der zweite Selektor verwendet das Flag für Groß-/Kleinschreibungsunempfindlichkeit und stimmt daher mit allen Listenelementen überein.
 

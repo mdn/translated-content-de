@@ -21,7 +21,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 
 Der Inhalt eines `<main>` Elements sollte einzigartig für das Dokument sein. Inhalte, die über eine Reihe von Dokumenten oder Dokumentabschnitten hinweg wiederholt werden, wie Seitenleisten, Navigationslinks, Urheberrechtsinformationen, Webseiten-Logos und Suchformulare, sollten nicht enthalten sein, es sei denn, das Suchformular ist die Hauptfunktion der Seite.
 
-`<main>` trägt nicht zur Gliederung des Dokuments bei. Das bedeutet, im Gegensatz zu Elementen wie {{HTMLElement("body")}}, Überschriften wie {{HTMLElement("Heading_Elements", "h2")}} und dergleichen, beeinflusst `<main>` nicht das Konzept der Struktur der Seite im [DOM](/de/docs/Glossary/DOM). Es ist rein informativ.
+`<main>` trägt nicht zur Gliederung des Dokuments bei. Das bedeutet, im Gegensatz zu Elementen wie {{HTMLElement("body")}}, Überschriften wie {{HTMLElement("Heading_Elements", "h2")}} und dergleichen, beeinflusst `<main>` nicht das Konzept der Struktur der Seite im {{Glossary("DOM", "DOM")}}. Es ist rein informativ.
 
 ## Barrierefreiheit
 

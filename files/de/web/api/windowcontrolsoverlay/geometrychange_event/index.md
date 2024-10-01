@@ -35,7 +35,7 @@ _Neben den unten aufgelisteten Eigenschaften sind Eigenschaften der übergeordne
 - `titlebarAreaRect`
   - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe des Titelleistenbereichs innerhalb des App-Inhalts darstellt.
 - `visible`
-  - : Ein [Boolean](/de/docs/Glossary/Boolean), der angibt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
+  - : Ein {{Glossary("Boolean", "Boolean")}}, der angibt, ob das Fenstersteuerungs-Overlay sichtbar ist oder nicht.
 
 ## Beispiele
 

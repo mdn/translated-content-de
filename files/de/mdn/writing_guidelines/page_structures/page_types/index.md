@@ -65,7 +65,7 @@ Jeder Abschnitt enthält Links zu live Beispielseiten für diesen Seitentyp.
 
 ### API-Landingpage
 
-Eine **[API](/de/docs/Glossary/API)-Landingpage** bietet eine Übersicht darüber, was eine bestimmte API tut, sowie Links zur Dokumentation für jede der von der API angebotenen Schnittstellen, Globalen, Funktionen usw. Sie verlinkt nicht direkt auf spezifische Methoden oder Eigenschaften innerhalb der Klassen der API, außer im Kontext des Übersichtstextes. Sie ist in erster Linie eine _Navigations_seite, dient jedoch auch als Übersicht, _Referenz_seite für die API.
+Eine **{{Glossary("API", "API")}}-Landingpage** bietet eine Übersicht darüber, was eine bestimmte API tut, sowie Links zur Dokumentation für jede der von der API angebotenen Schnittstellen, Globalen, Funktionen usw. Sie verlinkt nicht direkt auf spezifische Methoden oder Eigenschaften innerhalb der Klassen der API, außer im Kontext des Übersichtstextes. Sie ist in erster Linie eine \_Navigations_seite, dient jedoch auch als Übersicht, \_Referenz_seite für die API.
 
 In einigen Fällen existieren mehrere APIs, die separat sind und in ihren eigenen Spezifikationen definiert sind, aber eng miteinander verwandt sind und daher sinnvollerweise mit einer einzigen API-Landingpage abgedeckt werden könnten. Beispiel: Die [Generic Sensor API](https://www.w3.org/TR/generic-sensor/) behandelt allgemeine Sensorbelange, aber speziellere Belange werden in anderen APIs wie [Ambient Light Sensor](https://www.w3.org/TR/ambient-light/), [Motion Sensor](https://www.w3.org/TR/motion-sensors/) usw. behandelt. In solchen Fällen sind viele der grundlegenden Konzepte gleich, sodass es keinen Sinn macht, diese auf mehreren Landingpages zu wiederholen. In einem solchen Fall wäre es sinnvoller in Bezug auf Wiederholung und Auffindbarkeit, sie alle unter einer einzigen "Web-Sensoren" Landingpage abzudecken.
 
@@ -138,7 +138,7 @@ Eine **SVG-Referenzseite** listet alle Attribute auf, die auf einem SVG-Element 
 
 Jedes **[CSS](/de/docs/Web/CSS) Modul** repräsentiert eine CSS-Spezifikation, die Unterstützung für bestimmte Features und Implementierungen in CSS bietet. Zum Beispiel repräsentiert das [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul die [Spezifikation](/de/docs/Web/CSS/CSS_box_model#specifications), die die Margen- und Abstands-Eigenschaften beschreibt, die es Ihnen ermöglichen, Abstände innerhalb und um eine CSS-Box zu erstellen.
 
-Eine **CSS-Modul-Landingpage** bietet einen Überblick über die Funktionen, die das Modul bietet, und listet alle Eigenschaften, Datentypen, CSS-Funktionen und so weiter auf, die das Modul anbietet. Wenn möglich, bietet die CSS-Modul-Landingpage eine schnelle Demonstration dessen, was mit den Eigenschaften des Moduls erreicht werden kann, durch ein interaktives Beispiel. Die Modul-Landingpage dient in erster Linie als _Navigations_seite, fungiert jedoch auch als Übersicht, _Referenz_seite für das Modul.
+Eine **CSS-Modul-Landingpage** bietet einen Überblick über die Funktionen, die das Modul bietet, und listet alle Eigenschaften, Datentypen, CSS-Funktionen und so weiter auf, die das Modul anbietet. Wenn möglich, bietet die CSS-Modul-Landingpage eine schnelle Demonstration dessen, was mit den Eigenschaften des Moduls erreicht werden kann, durch ein interaktives Beispiel. Die Modul-Landingpage dient in erster Linie als \_Navigations_seite, fungiert jedoch auch als Übersicht, \_Referenz_seite für das Modul.
 
 Einige verwandte Eigenschaften und Funktionen, die in andere Module gehören, aber eng mit der Funktionalität des dokumentierten Moduls verwandt sind, können auch in einem Abschnitt _Verwandte Konzepte_ behandelt werden. Zum Beispiel werden der `<easing-function>` Datentyp und die `prefers-reduced-motion` Medienabfrage nicht im CSS-Animationsmodul abgedeckt, aber da sie eng mit CSS-Animationen verwandt sind, ist es eine gute Idee, sie im [Verwandte Konzepte](/de/docs/Web/CSS/CSS_animations#related_concepts) Abschnitt der CSS-Animationsmodul-Landingpage hervorzuheben.
 
@@ -183,7 +183,7 @@ Eine **HTTP-Header-Referenzseite** listet alle verfügbaren Direktiven auf, die 
 
 ### Konzeptuelle Seite
 
-Eine **konzeptionelle Seite** ist eine _Leitfaden_seite, die etwas erklärt oder lehrt. Generell gilt, wenn eine Seite hauptsächlich aus Prosa besteht und nicht in eine andere Seitentyp fällt, ist es wahrscheinlich eine konzeptionelle Seite. Eine ausführliche Diskussion über ein Thema kann sich über mehrere konzeptionelle Seiten erstrecken und mit den Makros [Next](https://github.com/mdn/yari/blob/main/kumascript/macros/Next.ejs) und [Previous](https://github.com/mdn/yari/blob/main/kumascript/macros/Previous.ejs) verknüpft werden.
+Eine **konzeptionelle Seite** ist eine \_Leitfaden_seite, die etwas erklärt oder lehrt. Generell gilt, wenn eine Seite hauptsächlich aus Prosa besteht und nicht in eine andere Seitentyp fällt, ist es wahrscheinlich eine konzeptionelle Seite. Eine ausführliche Diskussion über ein Thema kann sich über mehrere konzeptionelle Seiten erstrecken und mit den Makros [Next](https://github.com/mdn/yari/blob/main/kumascript/macros/Next.ejs) und [Previous](https://github.com/mdn/yari/blob/main/kumascript/macros/Previous.ejs) verknüpft werden.
 
 #### Beispiele
 
@@ -197,9 +197,9 @@ Eine **Glossarseite** enthält eine kurze Erklärung eines Begriffs, Themas oder
 
 #### Beispiele
 
-- [DOM](/de/docs/Glossary/DOM)
-- [Exception](/de/docs/Glossary/Exception)
-- [Hyperlink](/de/docs/Glossary/Hyperlink)
+- {{Glossary("DOM", "DOM")}}
+- {{Glossary("Exception", "Exception")}}
+- {{Glossary("Hyperlink", "Hyperlink")}}
 
 #### Vorlagen
 
@@ -207,7 +207,7 @@ Eine **Glossarseite** enthält eine kurze Erklärung eines Begriffs, Themas oder
 
 ### Landingpage
 
-Eine **Landingpage** dient als Menü für seine Unterseiten und ist daher in erster Linie eine _Navigations_seite. Ein Landingpage-Layout wird typischerweise für die Hauptseite eines Themenbaums verwendet. Sie beginnt mit einer kurzen Zusammenfassung des Themas, gefolgt von einer strukturierten Liste von Links zu ihren Unterseiten und optionalem zusätzlichem Material, das für den Leser nützlich sein könnte.
+Eine **Landingpage** dient als Menü für seine Unterseiten und ist daher in erster Linie eine \_Navigations_seite. Ein Landingpage-Layout wird typischerweise für die Hauptseite eines Themenbaums verwendet. Sie beginnt mit einer kurzen Zusammenfassung des Themas, gefolgt von einer strukturierten Liste von Links zu ihren Unterseiten und optionalem zusätzlichem Material, das für den Leser nützlich sein könnte.
 
 Die Liste der Unterseiten kann automatisch mit den Vorlagen [`SubpagesWithSummaries`](https://github.com/mdn/yari/blob/main/kumascript/macros/SubpagesWithSummaries.ejs) und [`LandingPageListSubpages`](https://github.com/mdn/yari/blob/main/kumascript/macros/LandingPageListSubpages.ejs) generiert werden. In komplexeren Fällen muss die Liste jedoch möglicherweise manuell erstellt und gepflegt werden.
 

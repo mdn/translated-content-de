@@ -56,8 +56,8 @@ _Keine Änderung._
 
 - Nicht erreichbarer Code nach einer {{jsxref("Statements/return", "return")}}-Anweisung (einschließlich nicht erreichbarer Ausdrücke nach {{jsxref("Statements/return", "Semikolon-losen return anweisungen", "#Automatic_semicolon_insertion", 1)}}) wird nun eine Warnung in der Konsole anzeigen ([Firefox-Bug 1005110](https://bugzil.la/1005110), [Firefox-Bug 1151931](https://bugzil.la/1151931)).
 - {{jsxref("Symbol.match")}} wurde hinzugefügt ([Firefox-Bug 1054755](https://bugzil.la/1054755)).
-- Das Übergeben eines Objekts, das eine Eigenschaft namens {{jsxref("Symbol.match")}} mit einem [wahrheitsgetreuen](/de/docs/Glossary/truthy) Wert an {{jsxref("String.prototype.startsWith")}}, {{jsxref("String.prototype.endsWith")}} und `String.prototype.contains` wird jetzt einen {{jsxref("TypeError")}} werfen ([Firefox-Bug 1054755](https://bugzil.la/1054755)).
-- Die Funktion {{jsxref("RegExp")}} gibt das Muster selbst zurück, wenn sie ohne {{jsxref("Operators/new", "new")}} aufgerufen wird und das Musterobjekt eine Eigenschaft namens {{jsxref("Symbol.match")}} mit einem [wahrheitsgetreuen](/de/docs/Glossary/truthy) Wert hat und die `constructor`-Eigenschaft des Musterobjekts der {{jsxref("RegExp")}}-Funktion entspricht. ([Firefox-Bug 1147817](https://bugzil.la/1147817)).
+- Das Übergeben eines Objekts, das eine Eigenschaft namens {{jsxref("Symbol.match")}} mit einem {{Glossary("truthy", "wahrheitsgetreuen")}} Wert an {{jsxref("String.prototype.startsWith")}}, {{jsxref("String.prototype.endsWith")}} und `String.prototype.contains` wird jetzt einen {{jsxref("TypeError")}} werfen ([Firefox-Bug 1054755](https://bugzil.la/1054755)).
+- Die Funktion {{jsxref("RegExp")}} gibt das Muster selbst zurück, wenn sie ohne {{jsxref("Operators/new", "new")}} aufgerufen wird und das Musterobjekt eine Eigenschaft namens {{jsxref("Symbol.match")}} mit einem {{Glossary("truthy", "wahrheitsgetreuen")}} Wert hat und die `constructor`-Eigenschaft des Musterobjekts der {{jsxref("RegExp")}}-Funktion entspricht. ([Firefox-Bug 1147817](https://bugzil.la/1147817)).
 - Die Unterstützung für die nicht standardisierte JS1.7 Destructuring-for-in-Schleife wurde entfernt ([Firefox-Bug 1083498](https://bugzil.la/1083498)).
 - [Nicht-standardisierte Initialisierer-Ausdrücke](/de/docs/Web/JavaScript/Reference/Errors/Invalid_for-in_initializer) in [`for...in`](/de/docs/Web/JavaScript/Reference/Statements/for...in) Schleifen werden nun ignoriert und zeigen eine Warnung in der Konsole an. ([Firefox-Bug 748550](https://bugzil.la/748550) und [Firefox-Bug 1164741](https://bugzil.la/1164741)).
 - [`\u{xxxxxx}`](/de/docs/Web/JavaScript/Reference/Lexical_grammar#unicode_code_point_escapes) Unicode-Codepunkt-Escapes wurden hinzugefügt ([Firefox-Bug 320500](https://bugzil.la/320500)).
@@ -136,7 +136,7 @@ _Keine Änderung._
 
 ## Sicherheit
 
-- Die Verwendung eines Sternchens (`*`) in einer [CSP](/de/docs/Glossary/CSP) enthält nicht mehr die Schemas `data:`, `blob:` oder `:filesystem`, wenn Quelltexte verglichen werden. Diese Schemas müssen jetzt explizit im zugehörigen Header definiert werden, um die CSP zu erfüllen ([Firefox-Bug 1086999](https://bugzil.la/1086999)).
+- Die Verwendung eines Sternchens (`*`) in einer {{Glossary("CSP", "CSP")}} enthält nicht mehr die Schemas `data:`, `blob:` oder `:filesystem`, wenn Quelltexte verglichen werden. Diese Schemas müssen jetzt explizit im zugehörigen Header definiert werden, um die CSP zu erfüllen ([Firefox-Bug 1086999](https://bugzil.la/1086999)).
 
 ## Änderungen für Add-on- und Mozilla-Entwickler
 

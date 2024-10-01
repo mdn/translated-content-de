@@ -80,7 +80,7 @@ svg {
 
   - : Wählen Sie die Größe der Schriftart so, dass ihre Kleinbuchstaben (bestimmt durch die x-Höhe der Schriftart) die angegebene Zahl multipliziert mit der {{ Cssxref("font-size") }} sind.
 
-    Die angegebene Zahl sollte im Allgemeinen das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) (Verhältnis der x-Höhe zur Schriftgröße) der bevorzugten {{ Cssxref("font-family") }} sein. Dies bedeutet, dass die erstgewählte Schriftart, wenn sie verfügbar ist, in Browsern unabhängig davon, ob sie `font-size-adjust` unterstützen, dieselbe Größe hat.
+    Die angegebene Zahl sollte im Allgemeinen das {{Glossary("aspect_ratio", "Seitenverhältnis")}} (Verhältnis der x-Höhe zur Schriftgröße) der bevorzugten {{ Cssxref("font-family") }} sein. Dies bedeutet, dass die erstgewählte Schriftart, wenn sie verfügbar ist, in Browsern unabhängig davon, ob sie `font-size-adjust` unterstützen, dieselbe Größe hat.
 
     `0` ergibt Text ohne Höhe (versteckter Text).
 

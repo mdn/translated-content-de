@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`compositionupdate`** Ereignis wird ausgelöst, wenn ein neues Zeichen im Kontext einer Textkompositionssitzung empfangen wird, die von einem Textkompositionssystem wie einem [Input Method Editor](/de/docs/Glossary/input_method_editor) gesteuert wird.
+Das **`compositionupdate`** Ereignis wird ausgelöst, wenn ein neues Zeichen im Kontext einer Textkompositionssitzung empfangen wird, die von einem Textkompositionssystem wie einem {{Glossary("input_method_editor", "Input Method Editor")}} gesteuert wird.
 
-Dieses Ereignis könnte zum Beispiel ausgelöst werden, während ein Benutzer ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) [IME](/de/docs/Glossary/IME) eingibt.
+Dieses Ereignis könnte zum Beispiel ausgelöst werden, während ein Benutzer ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{Glossary("IME", "IME")}} eingibt.
 
 ## Syntax
 

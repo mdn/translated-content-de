@@ -17,7 +17,7 @@ Service Worker laufen im Worker-Kontext: Sie haben daher keinen Zugriff auf das 
 
 Service Worker können JavaScript-Module nicht dynamisch importieren, und [`import()`](/de/docs/Web/JavaScript/Reference/Operators/import#browser_compatibility) wird einen Fehler auslösen, wenn es im globalen Scope des Service Workers aufgerufen wird. Statische Importe mit der [`import`](/de/docs/Web/JavaScript/Reference/Statements/import) Anweisung sind erlaubt.
 
-Service Worker laufen aus Sicherheitsgründen nur über HTTPS. Am bedeutsamsten ist, dass HTTP-Verbindungen anfällig für böswillige Code-Injektionen durch [man in the middle](/de/docs/Glossary/MitM) Angriffe sind, und solche Angriffe könnten schlimmer sein, wenn sie Zugriff auf diese mächtigen APIs erhalten. In Firefox sind Service Worker APIs auch versteckt und können nicht verwendet werden, wenn der Benutzer im [privaten Surfen](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) ist.
+Service Worker laufen aus Sicherheitsgründen nur über HTTPS. Am bedeutsamsten ist, dass HTTP-Verbindungen anfällig für böswillige Code-Injektionen durch {{Glossary("MitM", "man in the middle")}} Angriffe sind, und solche Angriffe könnten schlimmer sein, wenn sie Zugriff auf diese mächtigen APIs erhalten. In Firefox sind Service Worker APIs auch versteckt und können nicht verwendet werden, wenn der Benutzer im [privaten Surfen](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) ist.
 
 > [!NOTE]
 > In Firefox können Sie zum Testen Service Worker über HTTP (unsicher) ausführen; aktivieren Sie einfach die Option **Service Workers über HTTP aktivieren (wenn das Werkzeug geöffnet ist)** im Optionen/Zahnradsymbol-Menü von Firefox Devtools.

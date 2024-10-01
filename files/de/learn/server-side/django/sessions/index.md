@@ -34,7 +34,7 @@ Das Sessions-Framework ermöglicht es Ihnen, dieses Verhalten zu implementieren,
 
 ## Was sind Sessions?
 
-Alle Kommunikation zwischen Webbrowsern und Servern erfolgt über [HTTP](/de/docs/Glossary/HTTP), das _zustandslos_ ist. Da das Protokoll zustandslos ist, sind Nachrichten zwischen Client und Server völlig unabhängig voneinander — es gibt keinen Begriff von "Sequenz" oder Verhalten basierend auf vorherigen Nachrichten. Wenn Sie also eine Seite haben möchten, die die fortlaufende Beziehung zu einem Client verfolgt, müssen Sie dies selbst implementieren.
+Alle Kommunikation zwischen Webbrowsern und Servern erfolgt über {{Glossary("HTTP", "HTTP")}}, das _zustandslos_ ist. Da das Protokoll zustandslos ist, sind Nachrichten zwischen Client und Server völlig unabhängig voneinander — es gibt keinen Begriff von "Sequenz" oder Verhalten basierend auf vorherigen Nachrichten. Wenn Sie also eine Seite haben möchten, die die fortlaufende Beziehung zu einem Client verfolgt, müssen Sie dies selbst implementieren.
 
 Sessions sind der Mechanismus, den Django (und der Großteil des Internets) verwendet, um den "Zustand" zwischen der Seite und einem bestimmten Browser zu verfolgen. Sessions ermöglichen es, beliebige Daten pro Browser zu speichern und diese Daten der Seite zur Verfügung zu stellen, wann immer der Browser eine Verbindung herstellt. Einzelne Datenpunkte, die mit der Session verbunden sind, werden dann durch einen "Schlüssel" referenziert, der sowohl zum Speichern als auch zum Abrufen der Daten verwendet wird.
 

@@ -11,7 +11,7 @@ HTML (**H**yper**T**ext **M**arkup **L**anguage) ist der Code, der verwendet wir
 
 ## Was ist HTML?
 
-HTML ist eine _Markup-Sprache_, die die Struktur Ihres Inhalts definiert. HTML besteht aus einer Reihe von **[Elementen](/de/docs/Glossary/element)**, die Sie verwenden, um unterschiedliche Teile des Inhalts zu umschließen oder zu umwickeln, damit sie auf eine bestimmte Weise dargestellt oder funktionieren. Die umschließenden [Tags](/de/docs/Glossary/tag) können ein Wort oder Bild zu einem Hyperlink machen, Wörter kursiv darstellen, die Schriftgröße vergrößern oder verkleinern usw. Zum Beispiel nehmen wir die folgende Inhaltszeile:
+HTML ist eine _Markup-Sprache_, die die Struktur Ihres Inhalts definiert. HTML besteht aus einer Reihe von **{{Glossary("element", "Elementen")}}**, die Sie verwenden, um unterschiedliche Teile des Inhalts zu umschließen oder zu umwickeln, damit sie auf eine bestimmte Weise dargestellt oder funktionieren. Die umschließenden {{Glossary("tag", "Tags")}} können ein Wort oder Bild zu einem Hyperlink machen, Wörter kursiv darstellen, die Schriftgröße vergrößern oder verkleinern usw. Zum Beispiel nehmen wir die folgende Inhaltszeile:
 
 ```plain
 My cat is very grumpy
@@ -49,7 +49,7 @@ Attribute, die einen Wert festlegen, haben immer:
 3. Den Attributwert, der von öffnenden und schließenden Anführungszeichen eingeschlossen ist.
 
 > [!NOTE]
-> Einfache Attributwerte, die keine [ASCII](/de/docs/Glossary/ASCII)-Leerzeichen enthalten (oder eines der Zeichen `"` `'` `` ` `` `=` `<` `>`), können unzitiert bleiben, aber es wird empfohlen, alle Attributwerte zu zitieren, da dies den Code konsistenter und verständlicher macht.
+> Einfache Attributwerte, die keine {{Glossary("ASCII", "ASCII")}}-Leerzeichen enthalten (oder eines der Zeichen `"` `'` `` ` `` `=` `<` `>`), können unzitiert bleiben, aber es wird empfohlen, alle Attributwerte zu zitieren, da dies den Code konsistenter und verständlicher macht.
 
 ### Verschachteln von Elementen
 
@@ -69,7 +69,7 @@ Die Elemente müssen korrekt geöffnet und geschlossen werden, sodass sie klar i
 
 ### Leere Elemente
 
-Einige Elemente haben keinen Inhalt und werden **[leere Elemente](/de/docs/Glossary/void_element)** genannt. Nehmen Sie das {{htmlelement("img")}}-Element, das wir bereits auf unserer HTML-Seite haben:
+Einige Elemente haben keinen Inhalt und werden **{{Glossary("void_element", "leere Elemente")}}** genannt. Nehmen Sie das {{htmlelement("img")}}-Element, das wir bereits auf unserer HTML-Seite haben:
 
 ```html
 <img src="images/firefox-icon.png" alt="My test image" />
@@ -97,9 +97,9 @@ Damit sind die Grundlagen einzelner HTML-Elemente abgeschlossen, aber sie sind a
 
 Hier haben wir Folgendes:
 
-- `<!doctype html>` — [doctype](/de/docs/Glossary/Doctype). Es ist ein erforderlicher Vorspann. In der Frühzeit, als HTML noch jung war (etwa 1991/92), sollten Doctypes als Links zu einem Regelwerk fungieren, dem die HTML-Seite folgen musste, um als gutes HTML betrachtet zu werden, was eine automatische Fehlerprüfung und andere nützliche Dinge bedeuten könnte. Heutzutage tun sie jedoch nicht viel und sind im Grunde nur erforderlich, um sicherzustellen, dass Ihr Dokument korrekt funktioniert. Das ist alles, was Sie momentan wissen müssen.
+- `<!doctype html>` — {{Glossary("Doctype", "doctype")}}. Es ist ein erforderlicher Vorspann. In der Frühzeit, als HTML noch jung war (etwa 1991/92), sollten Doctypes als Links zu einem Regelwerk fungieren, dem die HTML-Seite folgen musste, um als gutes HTML betrachtet zu werden, was eine automatische Fehlerprüfung und andere nützliche Dinge bedeuten könnte. Heutzutage tun sie jedoch nicht viel und sind im Grunde nur erforderlich, um sicherzustellen, dass Ihr Dokument korrekt funktioniert. Das ist alles, was Sie momentan wissen müssen.
 - `<html></html>` — das {{htmlelement("html")}}-Element. Dieses Element umschließt den gesamten Inhalt der gesamten Seite und wird manchmal als Wurzelelement bezeichnet. Es enthält auch das `lang`-Attribut, das die primäre Sprache des Dokuments festlegt.
-- `<head></head>` — das {{htmlelement("head")}}-Element. Dieses Element fungiert als Container für all die Dinge, die Sie auf der HTML-Seite einfügen möchten, die _nicht_ der Inhalt sind, den Sie Ihren Betrachtern zeigen möchten. Dazu gehören Dinge wie [Schlüsselwörter](/de/docs/Glossary/keyword) und eine Seitenbeschreibung, die Sie in den Suchergebnissen anzeigen lassen möchten, CSS zum Stylen unseres Inhalts, Zeichensatzdeklarationen und mehr.
+- `<head></head>` — das {{htmlelement("head")}}-Element. Dieses Element fungiert als Container für all die Dinge, die Sie auf der HTML-Seite einfügen möchten, die _nicht_ der Inhalt sind, den Sie Ihren Betrachtern zeigen möchten. Dazu gehören Dinge wie {{Glossary("keyword", "Schlüsselwörter")}} und eine Seitenbeschreibung, die Sie in den Suchergebnissen anzeigen lassen möchten, CSS zum Stylen unseres Inhalts, Zeichensatzdeklarationen und mehr.
 - `<meta charset="utf-8">` — Dieses Element setzt den Zeichensatz Ihres Dokuments auf UTF-8, der die meisten Zeichen aus der überwiegenden Mehrheit der geschriebenen Sprachen umfasst. Im Wesentlichen kann es nun jeden Textinhalt verarbeiten, den Sie möglicherweise darauf setzen möchten. Es gibt keinen Grund, dies nicht einzustellen, und es kann helfen, einige Probleme später zu vermeiden.
 - `<meta name="viewport" content="width=device-width">` — Dieses [Viewport-Element](/de/docs/Web/CSS/Viewport_concepts#mobile_viewports) stellt sicher, dass die Seite in der Breite des Viewports gerendert wird, verhindert, dass mobile Browser Seiten rendern, die breiter als der Viewport sind, und sie dann schrumpfen.
 - `<title></title>` — das {{htmlelement("title")}}-Element. Dies setzt den Titel Ihrer Seite, der der Titel ist, der im Browser-Tab erscheint, in dem die Seite geladen ist. Es wird auch verwendet, um die Seite zu beschreiben, wenn Sie sie als Lesezeichen/Favorit speichern.

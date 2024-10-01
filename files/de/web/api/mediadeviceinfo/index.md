@@ -23,7 +23,7 @@ Die Liste der Geräte, die durch Aufruf von [`navigator.mediaDevices.enumerateDe
   - : Gibt einen String zurück, der dieses Gerät beschreibt (zum Beispiel "Externe USB-Webcam").
 
 > [!NOTE]
-> Aus Sicherheitsgründen ist das `label`-Feld immer leer, es sei denn, ein aktiver Medienstream existiert _oder_ der Benutzer hat dauerhafte Berechtigungen für den Zugriff auf Mediengeräte erteilt. Die Menge der Gerätebezeichnungen könnte andernfalls als Teil eines [Fingerprinting](/de/docs/Glossary/Fingerprinting) Mechanismus verwendet werden, um einen Benutzer zu identifizieren.
+> Aus Sicherheitsgründen ist das `label`-Feld immer leer, es sei denn, ein aktiver Medienstream existiert _oder_ der Benutzer hat dauerhafte Berechtigungen für den Zugriff auf Mediengeräte erteilt. Die Menge der Gerätebezeichnungen könnte andernfalls als Teil eines {{Glossary("Fingerprinting", "Fingerprinting")}} Mechanismus verwendet werden, um einen Benutzer zu identifizieren.
 
 ## Instanz-Methoden
 

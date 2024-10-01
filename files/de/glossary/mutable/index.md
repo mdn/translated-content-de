@@ -7,12 +7,12 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **mutabler** Wert ist einer, der verändert werden kann, ohne einen völlig neuen Wert zu erstellen, im Vergleich zu [unveränderlichen Werten](/de/docs/Glossary/immutable).
+Ein **mutabler** Wert ist einer, der verändert werden kann, ohne einen völlig neuen Wert zu erstellen, im Vergleich zu {{Glossary("immutable", "unveränderlichen Werten")}}.
 
-In [JavaScript](/de/docs/Glossary/JavaScript) sind [Objekte](/de/docs/Glossary/Object) und [Arrays](/de/docs/Glossary/Array) standardmäßig veränderlich — ihre Eigenschaften und Elemente können geändert werden, ohne ein neues Objekt oder Array zu erstellen. Im Gegensatz dazu sind [primitive Werte](/de/docs/Glossary/primitive) unveränderlich — sobald ein primitiver Wert erstellt wurde, kann er nicht mehr geändert werden, obwohl die Variable, die ihn hält, neu zugewiesen werden kann.
+In {{Glossary("JavaScript", "JavaScript")}} sind {{Glossary("Object", "Objekte")}} und {{Glossary("Array", "Arrays")}} standardmäßig veränderlich — ihre Eigenschaften und Elemente können geändert werden, ohne ein neues Objekt oder Array zu erstellen. Im Gegensatz dazu sind {{Glossary("primitive", "primitive Werte")}} unveränderlich — sobald ein primitiver Wert erstellt wurde, kann er nicht mehr geändert werden, obwohl die Variable, die ihn hält, neu zugewiesen werden kann.
 
 ## Siehe auch
 
 - [Immutable object](https://en.wikipedia.org/wiki/Immutable_object) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Immutable](/de/docs/Glossary/Immutable)
+  - {{Glossary("Immutable", "Immutable")}}

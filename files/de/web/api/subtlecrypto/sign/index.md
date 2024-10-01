@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`sign()`** Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Schnittstelle erzeugt eine digitale [Signatur](/de/docs/Glossary/signature).
+Die **`sign()`** Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto) Schnittstelle erzeugt eine digitale {{Glossary("signature", "Signatur")}}.
 
-Sie nimmt als Argumente einen [Schlüssel](/de/docs/Glossary/key) zum Signieren, einige algorithmenspezifische Parameter und die zu signierenden Daten. Sie gibt ein {{jsxref("Promise")}} zurück, das mit der Signatur erfüllt wird.
+Sie nimmt als Argumente einen {{Glossary("key", "Schlüssel")}} zum Signieren, einige algorithmenspezifische Parameter und die zu signierenden Daten. Sie gibt ein {{jsxref("Promise")}} zurück, das mit der Signatur erfüllt wird.
 
 Sie können die entsprechende [`SubtleCrypto.verify()`](/de/docs/Web/API/SubtleCrypto/verify) Methode verwenden, um die Signatur zu überprüfen.
 
@@ -50,7 +50,7 @@ Das `Promise` wird abgelehnt, wenn die folgende Ausnahme auftritt:
 
 Die Web Crypto API stellt die folgenden Algorithmen bereit, die für das Signieren und die Signaturverifizierung verwendet werden können.
 
-RSASSA-PKCS1-v1_5, RSA-PSS, ECDSA und Ed25519 sind [öffentliche Schlüsselkryptosysteme](/de/docs/Glossary/public-key_cryptography), die den privaten Schlüssel für das Signieren und den öffentlichen Schlüssel für die Verifizierung verwenden.
+RSASSA-PKCS1-v1_5, RSA-PSS, ECDSA und Ed25519 sind {{Glossary("public-key_cryptography", "öffentliche Schlüsselkryptosysteme")}}, die den privaten Schlüssel für das Signieren und den öffentlichen Schlüssel für die Verifizierung verwenden.
 Diese Systeme verwenden alle einen [Digest-Algorithmus](/de/docs/Web/API/SubtleCrypto/digest#supported_algorithms), um die Nachricht vor dem Signieren in eine kurze feste Größe zu hashen.
 
 - Für RSASSA-PKCS1-v1_5 und RSA-PSS wird die Auswahl des Digest-Algorithmus in die Funktionen [`generateKey()`](/de/docs/Web/API/SubtleCrypto/generateKey) oder [`importKey()`](/de/docs/Web/API/SubtleCrypto/importKey) übergeben.

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`addSourceBuffer()`**-Methode der [`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle erstellt einen neuen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) des angegebenen [MIME-Typs](/de/docs/Glossary/MIME_type) und fügt ihn der `sourceBuffers`-Liste der `MediaSource` hinzu. Der neue `SourceBuffer` wird ebenfalls zurückgegeben.
+Die **`addSourceBuffer()`**-Methode der [`MediaSource`](/de/docs/Web/API/MediaSource)-Schnittstelle erstellt einen neuen [`SourceBuffer`](/de/docs/Web/API/SourceBuffer) des angegebenen {{Glossary("MIME_type", "MIME-Typs")}} und fügt ihn der `sourceBuffers`-Liste der `MediaSource` hinzu. Der neue `SourceBuffer` wird ebenfalls zurückgegeben.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Ein [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekt, das den neu erstellt
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn sich die [`MediaSource`](/de/docs/Web/API/MediaSource) nicht im `"open"` [`readyState`](/de/docs/Web/API/MediaSource/readyState) befindet.
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene `mimeType` vom [User Agent](/de/docs/Glossary/user_agent) nicht unterstützt wird oder nicht mit den MIME-Typen anderer [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte kompatibel ist, die bereits in der `sourceBuffers`-Liste der Mediensource enthalten sind.
+  - : Wird ausgelöst, wenn der angegebene `mimeType` vom {{Glossary("user_agent", "User Agent")}} nicht unterstützt wird oder nicht mit den MIME-Typen anderer [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte kompatibel ist, die bereits in der `sourceBuffers`-Liste der Mediensource enthalten sind.
 - `QuotaExceededError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird ausgelöst, wenn der User Agent keine weiteren `SourceBuffer`-Objekte verarbeiten kann oder wenn die Erstellung eines neuen `SourceBuffer` mit dem angegebenen `mimeType` zu einer [nicht unterstützten Konfiguration von `SourceBuffer`n](https://w3c.github.io/media-source/#sourcebuffer-configuration) führen würde.
 

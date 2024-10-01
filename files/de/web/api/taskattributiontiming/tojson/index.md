@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`toJSON()`**-Methode des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interfaces ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Objekts zurück.
 
 ## Syntax
 

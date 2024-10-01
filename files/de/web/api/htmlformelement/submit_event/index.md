@@ -14,7 +14,7 @@ Beachten Sie, dass das `submit` Ereignis auf dem `<form>`-Element selbst ausgel�
 
 Das `submit` Ereignis wird ausgelöst, wenn:
 
-- der Benutzer eine [Submit-Schaltfläche](/de/docs/Glossary/submit_button) anklickt,
+- der Benutzer eine {{Glossary("submit_button", "Submit-Schaltfläche")}} anklickt,
 - der Benutzer <kbd>Enter</kbd> drückt, während er ein Feld (z. B. {{HtmlElement('input/text', '&lt;input type="text"&gt;')}}) in einem Formular bearbeitet,
 - ein Skript die [`form.requestSubmit()`](/de/docs/Web/API/HTMLFormElement/requestSubmit) Methode aufruft
 

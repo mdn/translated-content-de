@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Glyph** ist ein Begriff aus der Typografie für die visuelle Darstellung eines oder mehrerer [Zeichen](/de/docs/Glossary/character).
+Ein **Glyph** ist ein Begriff aus der Typografie für die visuelle Darstellung eines oder mehrerer {{Glossary("character", "Zeichen")}}.
 
 Die von einer Website verwendeten Schriftarten enthalten unterschiedliche Glyphensätze, die die Zeichen der Schriftart darstellen.
 

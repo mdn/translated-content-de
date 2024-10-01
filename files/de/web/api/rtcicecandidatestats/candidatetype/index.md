@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`candidateType`**-Eigenschaft der [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Schnittstelle ist ein String, der den Typ des [ICE](/de/docs/Glossary/ICE)-Kandidaten angibt, den das Objekt darstellt.
+Die **`candidateType`**-Eigenschaft der [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats)-Schnittstelle ist ein String, der den Typ des {{Glossary("ICE", "ICE")}}-Kandidaten angibt, den das Objekt darstellt.
 
 ## Syntax
 

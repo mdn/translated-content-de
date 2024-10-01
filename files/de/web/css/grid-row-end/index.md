@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-row-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Endposition eines Grid-Elements innerhalb der Gitterreihe fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Gitterplatzierung beiträgt und so die inline-end-Randseite seines [Grid-Bereichs](/de/docs/Glossary/grid_areas) bestimmt.
+Die **`grid-row-end`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Endposition eines Grid-Elements innerhalb der Gitterreihe fest, indem sie eine Linie, eine Spanne oder nichts (automatisch) zu seiner Gitterplatzierung beiträgt und so die inline-end-Randseite seines {{Glossary("grid_areas", "Grid-Bereichs")}} bestimmt.
 
 {{EmbedInteractiveExample("pages/css/grid-row-end.html")}}
 

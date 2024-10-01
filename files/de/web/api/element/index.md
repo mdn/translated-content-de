@@ -339,11 +339,11 @@ Hören Sie diese Ereignisse mit `addEventListener()` oder indem Sie einen Ereign
 ### Kompositionereignisse
 
 - [`compositionend`](/de/docs/Web/API/Element/compositionend_event)
-  - : Wird ausgelöst, wenn ein Textkompositionssystem wie ein [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor) die aktuelle Kompositionssitzung abschließt oder abbricht.
+  - : Wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} die aktuelle Kompositionssitzung abschließt oder abbricht.
 - [`compositionstart`](/de/docs/Web/API/Element/compositionstart_event)
-  - : Wird ausgelöst, wenn ein Textkompositionssystem wie ein [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor) eine neue Kompositionssitzung startet.
+  - : Wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} eine neue Kompositionssitzung startet.
 - [`compositionupdate`](/de/docs/Web/API/Element/compositionupdate_event)
-  - : Wird ausgelöst, wenn ein neues Zeichen im Kontext einer Textkompositionssitzung von einem Textkompositionssystem wie einem [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor) empfangen wird.
+  - : Wird ausgelöst, wenn ein neues Zeichen im Kontext einer Textkompositionssitzung von einem Textkompositionssystem wie einem {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} empfangen wird.
 
 ### Fokussiereignisse
 

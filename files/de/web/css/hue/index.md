@@ -26,7 +26,7 @@ Da ein `<angle>` periodisch ist, wird `<hue>` auf den Bereich `[0deg, 360deg)` n
 
 ![Ein sRGB-Farbrad](color_wheel.svg)
 
-Das obige Farbrad zeigt die Farbtöne in allen Winkeln im [sRGB](https://en.wikipedia.org/wiki/SRGB) [Farbraum](/de/docs/Glossary/color_space). Insbesondere _Rot_ ist bei `0deg`, _Gelb_ bei `60deg`, _Lime_ bei `120deg`, _Cyan_ bei `180deg`, _Blau_ bei `240deg` und _Magenta_ bei `300deg`.
+Das obige Farbrad zeigt die Farbtöne in allen Winkeln im [sRGB](https://en.wikipedia.org/wiki/SRGB) {{Glossary("color_space", "Farbraum")}}. Insbesondere _Rot_ ist bei `0deg`, _Gelb_ bei `60deg`, _Lime_ bei `120deg`, _Cyan_ bei `180deg`, _Blau_ bei `240deg` und _Magenta_ bei `300deg`.
 
 Die Winkeln, die bestimmten Farbtönen entsprechen, unterscheiden sich je nach Farbraum. Zum Beispiel ist der Farbtonwinkel von sRGB-Grün `120deg` im sRGB-Farbraum, aber `134.39deg` im CIELAB-Farbraum.
 

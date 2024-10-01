@@ -34,4 +34,4 @@ myLayer.blendTextureSourceAlpha = !myLayer.blendTextureSourceAlpha;
 
 ## Siehe auch
 
-- [Alpha-Kanal](/de/docs/Glossary/Alpha)
+- {{Glossary("Alpha", "Alpha-Kanal")}}

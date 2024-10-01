@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **IIFE** (Immediately Invoked Function Expression) ist eine [JavaScript](/de/docs/Glossary/JavaScript)-[Funktion](/de/docs/Glossary/function), die ausgeführt wird, sobald sie definiert ist. Der Name IIFE wurde von Ben Alman in [seinem Blog](https://web.archive.org/web/20171201033208/http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife) geprägt.
+Ein **IIFE** (Immediately Invoked Function Expression) ist eine {{Glossary("JavaScript", "JavaScript")}}-{{Glossary("function", "Funktion")}}, die ausgeführt wird, sobald sie definiert ist. Der Name IIFE wurde von Ben Alman in [seinem Blog](https://web.archive.org/web/20171201033208/http://benalman.com/news/2010/11/immediately-invoked-function-expression/#iife) geprägt.
 
 ```js
 (function () {
@@ -23,7 +23,7 @@ Ein **IIFE** (Immediately Invoked Function Expression) ist eine [JavaScript](/de
 })();
 ```
 
-Es handelt sich um ein Entwurfsmuster, das auch als [Self-Executing Anonymous Function](/de/docs/Glossary/Self-Executing_Anonymous_Function) bekannt ist und zwei Hauptteile enthält:
+Es handelt sich um ein Entwurfsmuster, das auch als {{Glossary("Self-Executing_Anonymous_Function", "Self-Executing Anonymous Function")}} bekannt ist und zwei Hauptteile enthält:
 
 1. Der erste Teil ist die anonyme Funktion mit lexikalischem Gültigkeitsbereich, die durch den [Gruppierungsoperator](/de/docs/Web/JavaScript/Reference/Operators/Grouping) `()` eingeschlossen ist. Dies verhindert den Zugriff auf Variablen innerhalb des IIFE-Idioms und die Verschmutzung des globalen Gültigkeitsbereichs.
 2. Der zweite Teil erstellt den sofort aufgerufenen Funktionsausdruck `()`, durch den die JavaScript-Engine die Funktion direkt interpretiert.
@@ -146,5 +146,5 @@ Beim Klick zeigen diese Buttons die Zahlen 0 und 1 an.
 
 - [IIFE](https://en.wikipedia.org/wiki/Immediately-invoked_function_expression) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - [Function](/de/docs/Glossary/Function)
-  - [Self-Executing Anonymous Function](/de/docs/Glossary/Self-Executing_Anonymous_Function)
+  - {{Glossary("Function", "Function")}}
+  - {{Glossary("Self-Executing_Anonymous_Function", "Self-Executing Anonymous Function")}}

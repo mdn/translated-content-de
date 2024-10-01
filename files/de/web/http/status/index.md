@@ -26,7 +26,7 @@ Die unten aufgelisteten Statuscodes sind in [RFC 9110](https://httpwg.org/specs/
   - : Diese Zwischenerantwortung zeigt an, dass der Client die Anfrage fortsetzen oder die Antwort ignorieren sollte, wenn die Anfrage bereits abgeschlossen ist.
 - {{HTTPStatus(101, "101 Switching Protocols")}}
   - : Dieser Code wird als Antwort auf einen {{HTTPHeader("Upgrade")}} Anfrageheader des Clients gesendet und zeigt das Protokoll an, zu dem der Server wechselt.
-- {{HTTPStatus(102, "102 Processing")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(102, "102 Processing")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Dieser Code zeigt an, dass der Server die Anfrage erhalten hat und bearbeitet, aber noch keine Antwort verfügbar ist.
 - {{HTTPStatus(103, "103 Early Hints")}}
   - : Dieser Statuscode ist in erster Linie dafür vorgesehen, mit dem {{HTTPHeader("Link")}} Header verwendet zu werden, um dem Benutzeragenten zu ermöglichen, Ressourcen [vorzuladen](/de/docs/Web/HTML/Attributes/rel/preload), während der Server eine Antwort vorbereitet oder eine [Vorverbindung](/de/docs/Web/HTML/Attributes/rel/preconnect) zu einer Herkunft hergestellt wird, von der die Seite Ressourcen benötigt.
@@ -59,9 +59,9 @@ Die unten aufgelisteten Statuscodes sind in [RFC 9110](https://httpwg.org/specs/
   - : Weist den Benutzeragenten an, das Dokument zurückzusetzen, das diese Anfrage gesendet hat.
 - {{HTTPStatus(206, "206 Partial Content")}}
   - : Dieser Antwortcode wird verwendet, wenn der {{HTTPHeader("Range")}} Header vom Client gesendet wird, um nur einen Teil einer Ressource anzufordern.
-- {{HTTPStatus(207, "207 Multi-Status")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(207, "207 Multi-Status")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Übermittelt Informationen über mehrere Ressourcen, für Situationen, in denen mehrere Statuscodes angemessen sein könnten.
-- {{HTTPStatus(208, "208 Already Reported")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(208, "208 Already Reported")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Wird innerhalb eines `<dav:propstat>` Antwortelements verwendet, um zu vermeiden, die internen Mitglieder mehrerer Bindungen an die gleiche Sammlung wiederholt aufzulisten.
 - {{HTTPStatus(226, "226 IM Used")}} ([HTTP Delta encoding](https://datatracker.ietf.org/doc/html/rfc3229))
   - : Der Server hat eine `GET`-Anfrage für die Ressource erfüllt, und die Antwort ist eine Darstellung des Ergebnisses einer oder mehrerer instanzbasierter Manipulationen, die auf die aktuelle Instanz angewendet wurden.
@@ -151,11 +151,11 @@ Die unten aufgelisteten Statuscodes sind in [RFC 9110](https://httpwg.org/specs/
 - {{HTTPStatus(421, "421 Misdirected Request")}}
   - : Die Anfrage wurde an einen Server gerichtet, der nicht in der Lage ist, eine Antwort zu erzeugen.
     Dies kann von einem Server gesendet werden, der nicht so konfiguriert ist, Antworten für die Kombination aus Schema und Autorität zu erzeugen, die in der Anfrage-URI enthalten sind.
-- {{HTTPStatus(422, "422 Unprocessable Content")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(422, "422 Unprocessable Content")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Die Anfrage war gut geformt, konnte jedoch aufgrund von semantischen Fehlern nicht befolgt werden.
-- {{HTTPStatus(423, "423 Locked")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(423, "423 Locked")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Die Ressource, auf die zugegriffen wird, ist gesperrt.
-- {{HTTPStatus(424, "424 Failed Dependency")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(424, "424 Failed Dependency")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Die Anfrage ist aufgrund des Fehlschlags einer vorherigen Anforderung fehlgeschlagen.
 - {{HTTPStatus(425, "425 Too Early")}} {{experimental_inline}}
   - : Weist darauf hin, dass der Server nicht bereit ist, das Risiko einzugehen, eine Anfrage zu verarbeiten, die möglicherweise wiederholt wird.
@@ -193,9 +193,9 @@ Die unten aufgelisteten Statuscodes sind in [RFC 9110](https://httpwg.org/specs/
   - : Die im Request verwendete HTTP-Version wird vom Server nicht unterstützt.
 - {{HTTPStatus(506, "506 Variant Also Negotiates")}}
   - : Der Server hat einen internen Konfigurationsfehler: Die gewählte Variantenressource ist so konfiguriert, dass sie selbst eine transparente Inhaltsverhandlung durchführt, und ist daher kein geeigneter Endpunkt im Verhandlungsprozess.
-- {{HTTPStatus(507, "507 Insufficient Storage")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(507, "507 Insufficient Storage")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Die Methode konnte nicht auf die Ressource angewendet werden, da der Server nicht in der Lage ist, die Darstellung zu speichern, die erforderlich ist, um die Anfrage erfolgreich abzuschließen.
-- {{HTTPStatus(508, "508 Loop Detected")}} ([WebDAV](/de/docs/Glossary/WebDAV))
+- {{HTTPStatus(508, "508 Loop Detected")}} ({{Glossary("WebDAV", "WebDAV")}})
   - : Der Server hat eine Endlosschleife beim Verarbeiten der Anfrage entdeckt.
 - {{HTTPStatus(510, "510 Not Extended")}}
   - : Weitere Erweiterungen der Anfrage sind erforderlich, damit der Server sie erfüllen kann.

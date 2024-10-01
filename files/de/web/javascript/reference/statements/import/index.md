@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die statische **`import`**-Deklaration wird verwendet, um schreibgeschützte Live-[Bindings](/de/docs/Glossary/binding) zu importieren, die von einem anderen Modul [exportiert](/de/docs/Web/JavaScript/Reference/Statements/export) werden. Die importierten Bindings werden als _Live-Bindings_ bezeichnet, weil sie durch das Modul aktualisiert werden, das das Binding exportiert hat, aber nicht vom importierenden Modul neu zugewiesen werden können.
+Die statische **`import`**-Deklaration wird verwendet, um schreibgeschützte Live-{{Glossary("binding", "Bindings")}} zu importieren, die von einem anderen Modul [exportiert](/de/docs/Web/JavaScript/Reference/Statements/export) werden. Die importierten Bindings werden als _Live-Bindings_ bezeichnet, weil sie durch das Modul aktualisiert werden, das das Binding exportiert hat, aber nicht vom importierenden Modul neu zugewiesen werden können.
 
 Um die `import`-Deklaration in einer Quelldatei zu verwenden, muss die Datei von der Laufzeit als ein [Modul](/de/docs/Web/JavaScript/Guide/Modules) interpretiert werden. In HTML wird dies erreicht, indem `type="module"` zum {{HTMLElement("script")}}-Tag hinzugefügt wird. Module werden automatisch im [Strict Mode](/de/docs/Web/JavaScript/Reference/Strict_mode) interpretiert.
 
@@ -151,11 +151,11 @@ Ein gesamtes Modul nur für seine Seiteneffekte importieren, ohne irgendetwas zu
 import "/modules/my-module.js";
 ```
 
-Dies wird häufig für [Polyfills](/de/docs/Glossary/Polyfill) verwendet, die die globalen Variablen verändern.
+Dies wird häufig für {{Glossary("Polyfill", "Polyfills")}} verwendet, die die globalen Variablen verändern.
 
 ### Hoisting
 
-Import-Deklarationen werden [gehoisted](/de/docs/Glossary/Hoisting). In diesem Fall bedeutet das, dass die Bezeichner, die die Importe einführen, im gesamten Modulbereich verfügbar sind, und ihre Seiteneffekte erzeugt werden, bevor der Rest des Modulcodes ausgeführt wird.
+Import-Deklarationen werden {{Glossary("Hoisting", "gehoisted")}}. In diesem Fall bedeutet das, dass die Bezeichner, die die Importe einführen, im gesamten Modulbereich verfügbar sind, und ihre Seiteneffekte erzeugt werden, bevor der Rest des Modulcodes ausgeführt wird.
 
 ```js
 myModule.doAllTheAmazingThings(); // myModule.doAllTheAmazingThings is imported by the next line

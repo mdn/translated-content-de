@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Google Chrome ist ein kostenloser Web-[Browser](/de/docs/Glossary/browser), der von Google entwickelt wurde. Er basiert auf dem Open-Source-Projekt [Chromium](https://www.chromium.org/). Einige wesentliche Unterschiede werden auf [BrowserStack](https://www.browserstack.com/guide/difference-between-chrome-and-chromium#toc5) beschrieben. Chrome unterstützt sein eigenes Layout namens [Blink](/de/docs/Glossary/Blink). Beachten Sie, dass die iOS-Version von Chrome die WebView-Plattform von iOS verwendet und nicht Blink.
+Google Chrome ist ein kostenloser Web-{{Glossary("browser", "Browser")}}, der von Google entwickelt wurde. Er basiert auf dem Open-Source-Projekt [Chromium](https://www.chromium.org/). Einige wesentliche Unterschiede werden auf [BrowserStack](https://www.browserstack.com/guide/difference-between-chrome-and-chromium#toc5) beschrieben. Chrome unterstützt sein eigenes Layout namens {{Glossary("Blink", "Blink")}}. Beachten Sie, dass die iOS-Version von Chrome die WebView-Plattform von iOS verwendet und nicht Blink.
 
 ## Siehe auch
 

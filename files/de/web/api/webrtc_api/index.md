@@ -13,7 +13,7 @@ WebRTC besteht aus mehreren miteinander verbundenen APIs und Protokollen, die zu
 
 ## WebRTC-Konzepte und Nutzung
 
-WebRTC hat mehrere Zwecke; zusammen mit der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) bieten sie leistungsstarke Multimedia-Fähigkeiten für das Web, einschließlich Unterstützung für Audio- und Videokonferenzen, Dateiaustausch, Bildschirmfreigabe, Identitätsmanagement und Schnittstellen zu herkömmlichen Telefonsystemen, einschließlich Unterstützung für das Senden von [DTMF](/de/docs/Glossary/DTMF) (Tonwahl) Signalen. Verbindungen zwischen Peers können ohne spezielle Treiber oder Plugins hergestellt werden und oft auch ohne Vermittlungsserver.
+WebRTC hat mehrere Zwecke; zusammen mit der [Media Capture and Streams API](/de/docs/Web/API/Media_Capture_and_Streams_API) bieten sie leistungsstarke Multimedia-Fähigkeiten für das Web, einschließlich Unterstützung für Audio- und Videokonferenzen, Dateiaustausch, Bildschirmfreigabe, Identitätsmanagement und Schnittstellen zu herkömmlichen Telefonsystemen, einschließlich Unterstützung für das Senden von {{Glossary("DTMF", "DTMF")}} (Tonwahl) Signalen. Verbindungen zwischen Peers können ohne spezielle Treiber oder Plugins hergestellt werden und oft auch ohne Vermittlungsserver.
 
 Verbindungen zwischen zwei Peers werden durch das [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Interface dargestellt. Sobald eine Verbindung mit `RTCPeerConnection` hergestellt und geöffnet wurde, können Medienströme ([`MediaStream`](/de/docs/Web/API/MediaStream)s) und/oder Datenkanäle ([`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s) zur Verbindung hinzugefügt werden.
 
@@ -42,13 +42,13 @@ Diese Schnittstellen, Wörterbücher und Typen werden verwendet, um WebRTC-Verbi
 - [`RTCDataChannelEvent`](/de/docs/Web/API/RTCDataChannelEvent)
   - : Repräsentiert Ereignisse, die beim Anfügen eines [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel) an ein [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) auftreten. Das einzige Ereignis, das mit diesem Interface gesendet wird, ist [`datachannel`](/de/docs/Web/API/RTCPeerConnection/datachannel_event).
 - [`RTCSessionDescription`](/de/docs/Web/API/RTCSessionDescription)
-  - : Repräsentiert die Parameter einer Sitzung. Jede `RTCSessionDescription` besteht aus einem Beschreibungstyp, der angibt, welchen Teil des Offer/Answer-Aushandlungsprozess sie beschreibt, und dem [SDP](/de/docs/Glossary/SDP) Deskriptor der Sitzung.
+  - : Repräsentiert die Parameter einer Sitzung. Jede `RTCSessionDescription` besteht aus einem Beschreibungstyp, der angibt, welchen Teil des Offer/Answer-Aushandlungsprozess sie beschreibt, und dem {{Glossary("SDP", "SDP")}} Deskriptor der Sitzung.
 - [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport)
   - : Bietet Informationen, die Statistiken für eine Verbindung oder für einen einzelnen Track auf der Verbindung detailliert beschreiben; der Bericht kann durch Aufruf von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) erhalten werden.
 - [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)
-  - : Repräsentiert einen Kandidaten für den Aufbau einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) über das Interactive Connectivity Establishment ([ICE](/de/docs/Glossary/ICE)) Server.
+  - : Repräsentiert einen Kandidaten für den Aufbau einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) über das Interactive Connectivity Establishment ({{Glossary("ICE", "ICE")}}) Server.
 - [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)
-  - : Repräsentiert Informationen über einen [ICE](/de/docs/Glossary/ICE) Transport.
+  - : Repräsentiert Informationen über einen {{Glossary("ICE", "ICE")}} Transport.
 - [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)
   - : Repräsentiert Ereignisse, die im Zusammenhang mit ICE-Kandidaten mit dem Ziel, normalerweise einem [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection), auftreten. Nur ein Ereignis hat diesen Typ: [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event).
 - [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)
@@ -58,7 +58,7 @@ Diese Schnittstellen, Wörterbücher und Typen werden verwendet, um WebRTC-Verbi
 - [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent)
   - : Die Schnittstelle, die verwendet wird, um ein [`track`](/de/docs/Web/API/RTCPeerConnection/track_event) Ereignis zu repräsentieren, das anzeigt, dass ein [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) Objekt zu einem [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) Objekt hinzugefügt wurde, was darauf hinweist, dass ein neuer eingehender [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) erstellt und der `RTCPeerConnection` hinzugefügt wurde.
 - [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport)
-  - : Bietet Informationen, die einen Stream Control Transmission Protocol (**[SCTP](/de/docs/Glossary/SCTP)**) Transport beschreiben und auch eine Möglichkeit bieten, auf den zugrundeliegenden Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**) Transport zuzugreifen, über den SCTP-Pakete für alle Datenkanäle einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet und empfangen werden.
+  - : Bietet Informationen, die einen Stream Control Transmission Protocol (**{{Glossary("SCTP", "SCTP")}}**) Transport beschreiben und auch eine Möglichkeit bieten, auf den zugrundeliegenden Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**) Transport zuzugreifen, über den SCTP-Pakete für alle Datenkanäle einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet und empfangen werden.
 
 #### Ereignisse
 
@@ -132,14 +132,14 @@ Diese Schnittstellen und Ereignisse stehen in Zusammenhang mit der Interaktivit�
 #### Schnittstellen
 
 - [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender)
-  - : Verwalten die Codierung und Übertragung von Dual-Tone Multi-Frequency ([DTMF](/de/docs/Glossary/DTMF)) Signalisierung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
+  - : Verwalten die Codierung und Übertragung von Dual-Tone Multi-Frequency ({{Glossary("DTMF", "DTMF")}}) Signalisierung für eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection).
 - [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent)
   - : Wird vom [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event) Ereignis verwendet, um anzuzeigen, dass ein DTMF-Ton entweder begonnen oder beendet wurde. Dieses Ereignis ist nicht bubling (außer wo anders angegeben) und nicht abbrechbar (außer wo anders angegeben).
 
 #### Ereignisse
 
 - [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)
-  - : Entweder hat ein neuer [DTMF](/de/docs/Glossary/DTMF) Ton über die Verbindung zu spielen begonnen, oder der letzte Ton im `RTCDTMFSender`'s [`toneBuffer`](/de/docs/Web/API/RTCDTMFSender/toneBuffer) wurde gesendet und der Puffer ist jetzt leer. Der Ereignistyp ist [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent).
+  - : Entweder hat ein neuer {{Glossary("DTMF", "DTMF")}} Ton über die Verbindung zu spielen begonnen, oder der letzte Ton im `RTCDTMFSender`'s [`toneBuffer`](/de/docs/Web/API/RTCDTMFSender/toneBuffer) wurde gesendet und der Puffer ist jetzt leer. Der Ereignistyp ist [`RTCDTMFToneChangeEvent`](/de/docs/Web/API/RTCDTMFToneChangeEvent).
 
 ### Codierte Transforms
 

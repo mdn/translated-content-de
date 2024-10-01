@@ -12,7 +12,7 @@ SVG unterstützt das integrierte XML-Attribut **`xml:space`**, um Leerzeichen in
 > [!NOTE]
 > Anstatt das `xml:space`-Attribut zu verwenden, nutzen Sie die {{cssxref("white-space")}} CSS-Eigenschaft.
 
-Dieses Attribut beeinflusst, wie Browser Textinhalte parsen und ändert somit die Art und Weise, wie das [DOM](/de/docs/Glossary/DOM) aufgebaut wird. Daher kann das Ändern dieses Attributswerts über die DOM-API keine Wirkung zeigen.
+Dieses Attribut beeinflusst, wie Browser Textinhalte parsen und ändert somit die Art und Weise, wie das {{Glossary("DOM", "DOM")}} aufgebaut wird. Daher kann das Ändern dieses Attributswerts über die DOM-API keine Wirkung zeigen.
 
 ## Elemente
 

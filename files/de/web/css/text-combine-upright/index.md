@@ -36,7 +36,7 @@ text-combine-upright: unset;
   - : Versucht, alle aufeinanderfolgenden Zeichen innerhalb der Box horizontal zu setzen, sodass sie den Raum eines einzelnen Zeichens innerhalb der vertikalen Linie der Box einnehmen.
 
 > [!NOTE]
-> Das Modul [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) definiert einen `digits <integer>` Wert für die `text-combine-upright` Eigenschaft, um zwei bis vier aufeinanderfolgende [ASCII](/de/docs/Glossary/ASCII) Ziffern (U+0030–U+0039) so darzustellen, dass sie den Raum eines einzelnen Zeichens innerhalb der vertikalen Linienbox einnehmen. Dies wird jedoch in keinem Browser unterstützt.
+> Das Modul [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) definiert einen `digits <integer>` Wert für die `text-combine-upright` Eigenschaft, um zwei bis vier aufeinanderfolgende {{Glossary("ASCII", "ASCII")}} Ziffern (U+0030–U+0039) so darzustellen, dass sie den Raum eines einzelnen Zeichens innerhalb der vertikalen Linienbox einnehmen. Dies wird jedoch in keinem Browser unterstützt.
 
 ## Formale Definition
 

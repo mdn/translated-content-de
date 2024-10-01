@@ -10,7 +10,7 @@ l10n:
 
 Das `characterboundsupdate` Ereignis wird ausgelöst, wenn das Betriebssystem die Grenzen bestimmter Zeichen innerhalb eines bearbeitbaren Textbereichs des `EditContext`-Objekts wissen muss.
 
-Dies tritt auf, wenn das Betriebssystem eine plattformabhängige bearbeitungsbezogene Benutzeroberfläche wie ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster anzeigen muss.
+Dies tritt auf, wenn das Betriebssystem eine plattformabhängige bearbeitungsbezogene Benutzeroberfläche wie ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster anzeigen muss.
 
 Wenn das `characterboundsupdate` Ereignis ausgelöst wird, sollten Sie die Zeichenbegrenzungen für den Text berechnen und dann die Methode [`EditContext.updateCharacterBounds()`](/de/docs/Web/API/EditContext/updateCharacterBounds) aufrufen, um dem Betriebssystem die benötigten Informationen bereitzustellen.
 

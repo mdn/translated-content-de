@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}
 
-Die **`toJSON()`**-Methode der Schnittstelle [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming) ist ein [Serializer](/de/docs/Glossary/Serialization); sie gibt eine JSON-Darstellung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts zurück.
+Die **`toJSON()`**-Methode der Schnittstelle [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming) ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts zurück.
 
 ## Syntax
 

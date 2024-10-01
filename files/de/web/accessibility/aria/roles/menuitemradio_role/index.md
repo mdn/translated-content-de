@@ -51,7 +51,7 @@ Da Nachkommen von `menuitemradio` präsentational sind, ist der folgende Code gl
 <div role="menuitemradio"><h6 role="presentation">Name of my radio button</h6></li>
 ```
 
-Aus der Perspektive des Benutzers unterstützender Technologien existiert die Überschrift nicht, da die vorherigen Codeausschnitte äquivalent zum Folgenden im [Zugänglichkeit-Baum](/de/docs/Glossary/Accessibility_tree) sind:
+Aus der Perspektive des Benutzers unterstützender Technologien existiert die Überschrift nicht, da die vorherigen Codeausschnitte äquivalent zum Folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeit-Baum")}} sind:
 
 ```html
 <div role="menuitemradio">Name of my radio button</div>

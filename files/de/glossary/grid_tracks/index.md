@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Grid Track** ist der Raum zwischen zwei benachbarten [Grid Lines](/de/docs/Glossary/grid_lines). Diese werden im _expliziten Grid_ durch die Verwendung der {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} Eigenschaften oder der Kurzformen {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert. Tracks werden auch im _impliziten Grid_ erstellt, indem ein Grid-Item außerhalb der im expliziten Grid erstellten Tracks positioniert wird.
+Ein **Grid Track** ist der Raum zwischen zwei benachbarten {{Glossary("grid_lines", "Grid Lines")}}. Diese werden im _expliziten Grid_ durch die Verwendung der {{cssxref("grid-template-columns")}} und {{cssxref("grid-template-rows")}} Eigenschaften oder der Kurzformen {{cssxref("grid")}} oder {{cssxref("grid-template")}} definiert. Tracks werden auch im _impliziten Grid_ erstellt, indem ein Grid-Item außerhalb der im expliziten Grid erstellten Tracks positioniert wird.
 
 Das folgende Bild zeigt den ersten Zeilen-Track auf einem Grid.
 

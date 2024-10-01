@@ -25,7 +25,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 - `src`
   - : Die URL der eingebetteten Ressource.
 - `type`
-  - : Der [MIME-Typ](/de/docs/Glossary/MIME_type), der verwendet wird, um das zu instanziierende Plug-in auszuwählen.
+  - : Der {{Glossary("MIME_type", "MIME-Typ")}}, der verwendet wird, um das zu instanziierende Plug-in auszuwählen.
 - `width`
   - : Die angezeigte Breite der Ressource, in [CSS-Pixel](https://drafts.csswg.org/css-values/#px). Dies muss ein absoluter Wert sein; Prozentangaben sind _nicht_ erlaubt.
 
@@ -75,7 +75,7 @@ Verwenden Sie das [`title`-Attribut](/de/docs/Web/HTML/Global_attributes/title) 
     </tr>
     <tr>
       <th scope="row">Zulässige Inhalte</th>
-      <td>Keine; es ist ein [leeres Element](/de/docs/Glossary/void_element).</td>
+      <td>Keine; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Weglassung</th>

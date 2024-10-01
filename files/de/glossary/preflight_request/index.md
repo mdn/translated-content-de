@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine CORS-Preflight-Anfrage ist eine [CORS](/de/docs/Glossary/CORS)-Anfrage, die überprüft, ob das CORS-Protokoll verstanden wird und ein Server mit bestimmten Methoden und Headern vertraut ist.
+Eine CORS-Preflight-Anfrage ist eine {{Glossary("CORS", "CORS")}}-Anfrage, die überprüft, ob das CORS-Protokoll verstanden wird und ein Server mit bestimmten Methoden und Headern vertraut ist.
 
 Es handelt sich um eine {{HTTPMethod("OPTIONS")}}-Anfrage, die zwei oder drei HTTP-Anfrage-Header verwendet: {{HTTPHeader("Access-Control-Request-Method")}}, {{HTTPHeader("Origin")}} und optional {{HTTPHeader("Access-Control-Request-Headers")}}.
 
@@ -33,10 +33,10 @@ Access-Control-Allow-Headers: X-Requested-With
 Access-Control-Max-Age: 86400
 ```
 
-Die Preflight-Antwort kann optional für Anfragen, die an derselben [URL](/de/docs/Glossary/URL) erstellt wurden, zwischengespeichert werden, indem der Header {{HTTPHeader("Access-Control-Max-Age")}} wie im obigen Beispiel verwendet wird. Um Preflight-Antworten zu cachen, verwendet der Browser einen spezifischen Cache, der getrennt vom allgemeinen HTTP-Cache ist, den der Browser verwaltet. Preflight-Antworten werden niemals im allgemeinen HTTP-Cache des Browsers zwischengespeichert.
+Die Preflight-Antwort kann optional für Anfragen, die an derselben {{Glossary("URL", "URL")}} erstellt wurden, zwischengespeichert werden, indem der Header {{HTTPHeader("Access-Control-Max-Age")}} wie im obigen Beispiel verwendet wird. Um Preflight-Antworten zu cachen, verwendet der Browser einen spezifischen Cache, der getrennt vom allgemeinen HTTP-Cache ist, den der Browser verwaltet. Preflight-Antworten werden niemals im allgemeinen HTTP-Cache des Browsers zwischengespeichert.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [CORS](/de/docs/Glossary/CORS)
+  - {{Glossary("CORS", "CORS")}}
 - {{HTTPMethod("OPTIONS")}}

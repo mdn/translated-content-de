@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Prototype-basiertes Programmieren** ist ein Stil der [objektorientierten Programmierung](/de/docs/Glossary/OOP), bei dem [Klassen](/de/docs/Glossary/Class) nicht explizit definiert werden, sondern abgeleitet werden, indem Eigenschaften und Methoden zu einer Instanz einer anderen Klasse hinzugefügt werden oder, seltener, zu einem leeren Objekt.
+**Prototype-basiertes Programmieren** ist ein Stil der {{Glossary("OOP", "objektorientierten Programmierung")}}, bei dem {{Glossary("Class", "Klassen")}} nicht explizit definiert werden, sondern abgeleitet werden, indem Eigenschaften und Methoden zu einer Instanz einer anderen Klasse hinzugefügt werden oder, seltener, zu einem leeren Objekt.
 
-Einfach ausgedrückt: Dieser Programmierstil ermöglicht die Erstellung eines [Objekts](/de/docs/Glossary/Object), ohne zuerst seine [Klasse](/de/docs/Glossary/Class) zu definieren.
+Einfach ausgedrückt: Dieser Programmierstil ermöglicht die Erstellung eines {{Glossary("Object", "Objekts")}}, ohne zuerst seine {{Glossary("Class", "Klasse")}} zu definieren.
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`video-dynamic-range`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die von der Videoebene des [User Agents](/de/docs/Glossary/user_agent) und dem Ausgabegerät unterstützt werden.
+Die **`video-dynamic-range`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Kombination aus Helligkeit, Kontrastverhältnis und Farbtiefe zu testen, die von der Videoebene des {{Glossary("user_agent", "User Agents")}} und dem Ausgabegerät unterstützt werden.
 
 Einige User Agents, einschließlich vieler Fernseher, rendern Video und Grafik in zwei separaten Ebenen (Zweiebenen-Darstellung) mit unterschiedlichen Bildschirmeigenschaften. Die `video-dynamic-range`-Funktion wird verwendet, um die Eigenschaften in der Videoebene zu testen.
 

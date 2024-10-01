@@ -82,7 +82,7 @@ Darüber hinaus bietet die Spezifikation ausschließlich CSS-Mechanismen, um:
   - {{cssxref("min-inline-size")}}
   - {{cssxref("max-block-size")}}
   - {{cssxref("max-inline-size")}}
-  - [Einfüge-Eigenschaften](/de/docs/Glossary/Inset_properties) Glossarbegriff
+  - {{Glossary("Inset_properties", "Einfüge-Eigenschaften")}} Glossarbegriff
 - [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul:
   - {{cssxref("top")}}
   - {{cssxref("left")}}

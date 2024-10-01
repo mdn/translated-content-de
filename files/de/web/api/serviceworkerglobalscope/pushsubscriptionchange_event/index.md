@@ -73,7 +73,7 @@ self.addEventListener(
 );
 ```
 
-Wenn ein `pushsubscriptionchange`-Ereignis eintrifft, das anzeigt, dass das Abonnement abgelaufen ist, melden wir uns erneut an, indem wir die [`subscribe()`](/de/docs/Web/API/PushManager/subscribe)-Methode des Push-Managers aufrufen. Wenn das zurückgegebene Versprechen aufgelöst wird, erhalten wir das neue Abonnement. Dieses wird über einen [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)-Aufruf, um eine im [JSON](/de/docs/Glossary/JSON)-Formatierte Version des Abonnement-`endpoint`s an den Anwendungsserver zu senden, übermittelt.
+Wenn ein `pushsubscriptionchange`-Ereignis eintrifft, das anzeigt, dass das Abonnement abgelaufen ist, melden wir uns erneut an, indem wir die [`subscribe()`](/de/docs/Web/API/PushManager/subscribe)-Methode des Push-Managers aufrufen. Wenn das zurückgegebene Versprechen aufgelöst wird, erhalten wir das neue Abonnement. Dieses wird über einen [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)-Aufruf, um eine im {{Glossary("JSON", "JSON")}}-Formatierte Version des Abonnement-`endpoint`s an den Anwendungsserver zu senden, übermittelt.
 
 Sie können auch die `onpushsubscriptionchange`-Ereignishandler-Eigenschaft verwenden, um den Ereignishandler einzurichten:
 

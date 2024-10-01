@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`if...else`**-Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung [truthy](/de/docs/Glossary/truthy) ist. Wenn die Bedingung [falsy](/de/docs/Glossary/falsy) ist, wird eine andere Anweisung im optionalen `else`-Zweig ausgeführt.
+Die **`if...else`**-Anweisung führt eine Anweisung aus, wenn eine angegebene Bedingung {{Glossary("truthy", "truthy")}} ist. Wenn die Bedingung {{Glossary("falsy", "falsy")}} ist, wird eine andere Anweisung im optionalen `else`-Zweig ausgeführt.
 
 {{EmbedInteractiveExample("pages/js/statement-ifelse.html")}}
 
@@ -25,11 +25,11 @@ else
 ```
 
 - `condition`
-  - : Ein Ausdruck, der als [truthy](/de/docs/Glossary/truthy) oder [falsy](/de/docs/Glossary/falsy) betrachtet wird.
+  - : Ein Ausdruck, der als {{Glossary("truthy", "truthy")}} oder {{Glossary("falsy", "falsy")}} betrachtet wird.
 - `statement1`
-  - : Anweisung, die ausgeführt wird, wenn _condition_ [truthy](/de/docs/Glossary/truthy) ist. Kann jede Anweisung sein, einschließlich weiter geschachtelter `if`-Anweisungen. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block](/de/docs/Web/JavaScript/Reference/Statements/block)-Anweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren. Um keine Anweisungen auszuführen, verwenden Sie eine [leere](/de/docs/Web/JavaScript/Reference/Statements/Empty) Anweisung.
+  - : Anweisung, die ausgeführt wird, wenn _condition_ {{Glossary("truthy", "truthy")}} ist. Kann jede Anweisung sein, einschließlich weiter geschachtelter `if`-Anweisungen. Um mehrere Anweisungen auszuführen, verwenden Sie eine [Block](/de/docs/Web/JavaScript/Reference/Statements/block)-Anweisung (`{ /* ... */ }`), um diese Anweisungen zu gruppieren. Um keine Anweisungen auszuführen, verwenden Sie eine [leere](/de/docs/Web/JavaScript/Reference/Statements/Empty) Anweisung.
 - `statement2`
-  - : Anweisung, die ausgeführt wird, wenn `condition` [falsy](/de/docs/Glossary/falsy) ist und der `else`-Zweig existiert. Kann jede Anweisung sein, einschließlich Blockanweisungen und weiter geschachtelter `if`-Anweisungen.
+  - : Anweisung, die ausgeführt wird, wenn `condition` {{Glossary("falsy", "falsy")}} ist und der `else`-Zweig existiert. Kann jede Anweisung sein, einschließlich Blockanweisungen und weiter geschachtelter `if`-Anweisungen.
 
 ## Beschreibung
 
@@ -109,7 +109,7 @@ function checkValue(a, b) {
 }
 ```
 
-Verwechseln Sie nicht die primitiven Boolean-Werte `true` und `false` mit der Wahrhaftigkeit oder Falschhaftigkeit des {{jsxref("Boolean")}}-Objekts. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `-0`, `NaN` oder der leere String (`""`) ist, und jedes Objekt, einschließlich eines Boolean-Objekts, dessen Wert `false` ist, wird als [truthy](/de/docs/Glossary/truthy) betrachtet, wenn er als Bedingung verwendet wird. Zum Beispiel:
+Verwechseln Sie nicht die primitiven Boolean-Werte `true` und `false` mit der Wahrhaftigkeit oder Falschhaftigkeit des {{jsxref("Boolean")}}-Objekts. Jeder Wert, der nicht `false`, `undefined`, `null`, `0`, `-0`, `NaN` oder der leere String (`""`) ist, und jedes Objekt, einschließlich eines Boolean-Objekts, dessen Wert `false` ist, wird als {{Glossary("truthy", "truthy")}} betrachtet, wenn er als Bedingung verwendet wird. Zum Beispiel:
 
 ```js
 const b = new Boolean(false);

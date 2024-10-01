@@ -15,5 +15,5 @@ Code splitting ist ein Feature, das von Bundlern wie [Webpack](https://webpack.j
 
 - [Lazy loading](/de/docs/Web/Performance/Lazy_loading)
 - Verwandte Glossarbegriffe:
-  - [HTTP/2](/de/docs/Glossary/HTTP_2)
-  - [Tree shaking](/de/docs/Glossary/Tree_shaking)
+  - {{Glossary("HTTP_2", "HTTP/2")}}
+  - {{Glossary("Tree_shaking", "Tree shaking")}}

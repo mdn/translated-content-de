@@ -31,9 +31,9 @@ JavaScript ist eine Skript- oder Programmiersprache, mit der Sie komplexe Funkti
 
 ![Die drei Schichten der Standard-Webtechnologien; HTML, CSS und JavaScript](cake.png)
 
-- [HTML](/de/docs/Glossary/HTML) ist die Auszeichnungssprache, die wir verwenden, um unseren Webinhalten Struktur zu verleihen und ihnen Bedeutung zu geben, beispielsweise Absätze, Überschriften und Datentabellen zu definieren oder Bilder und Videos in die Seite einzubetten.
-- [CSS](/de/docs/Glossary/CSS) ist eine Sprache mit Stilregeln, mit der wir HTML-Inhalte gestalten, beispielsweise das Festlegen von Hintergrundfarben und Schriftarten sowie das Anordnen unserer Inhalte in mehrere Spalten.
-- [JavaScript](/de/docs/Glossary/JavaScript) ist eine Skriptsprache, mit der Sie Inhalte dynamisch aktualisieren, Multimedia steuern, Bilder animieren und so ziemlich alles andere tun können. (Nun ja, nicht alles, aber es ist erstaunlich, was Sie mit nur wenigen Zeilen JavaScript-Code erreichen können.)
+- {{Glossary("HTML", "HTML")}} ist die Auszeichnungssprache, die wir verwenden, um unseren Webinhalten Struktur zu verleihen und ihnen Bedeutung zu geben, beispielsweise Absätze, Überschriften und Datentabellen zu definieren oder Bilder und Videos in die Seite einzubetten.
+- {{Glossary("CSS", "CSS")}} ist eine Sprache mit Stilregeln, mit der wir HTML-Inhalte gestalten, beispielsweise das Festlegen von Hintergrundfarben und Schriftarten sowie das Anordnen unserer Inhalte in mehrere Spalten.
+- {{Glossary("JavaScript", "JavaScript")}} ist eine Skriptsprache, mit der Sie Inhalte dynamisch aktualisieren, Multimedia steuern, Bilder animieren und so ziemlich alles andere tun können. (Nun ja, nicht alles, aber es ist erstaunlich, was Sie mit nur wenigen Zeilen JavaScript-Code erreichen können.)
 
 Die drei Schichten bauen gut aufeinander auf. Nehmen wir als Beispiel einen Button. Wir können ihn mit HTML markieren, um ihm Struktur und Zweck zu geben:
 

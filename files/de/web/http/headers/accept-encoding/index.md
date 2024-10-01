@@ -25,10 +25,10 @@ Solange die Direktiven `identity;q=0` oder `*;q=0` den Wert `identity`, der kein
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Request header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -66,7 +66,7 @@ Accept-Encoding: deflate, gzip;q=1.0, *;q=0.5
 - `*`
   - : Entspricht jeder im Header nicht aufgeführten Inhaltscodierung. Dies ist der Standardwert, wenn der Header nicht vorhanden ist. Diese Direktive schlägt nicht vor, dass ein Algorithmus unterstützt wird, sondern gibt an, dass keine Präferenz ausgedrückt wird.
 - `;q=` (q-Werte Gewichtung)
-  - : Jeder Wert wird in eine Präferenzordnung gebracht, die mit einem relativen [Qualitätswert](/de/docs/Glossary/Quality_values), dem sogenannten _Gewicht_, ausgedrückt wird.
+  - : Jeder Wert wird in eine Präferenzordnung gebracht, die mit einem relativen {{Glossary("Quality_values", "Qualitätswert")}}, dem sogenannten _Gewicht_, ausgedrückt wird.
 
 ## Beispiele
 
@@ -93,6 +93,6 @@ Accept-Encoding: br;q=1.0, gzip;q=0.8, *;q=0.1
 - HTTP [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
 - Ein Header mit dem Ergebnis der Inhaltsaushandlung: {{HTTPHeader("Content-Encoding")}}
 - Andere ähnliche Header: {{HTTPHeader("TE")}}, {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Language")}}
-- [Brotli-Komprimierung](/de/docs/Glossary/Brotli_compression)
-- [GZip-Komprimierung](/de/docs/Glossary/GZip_compression)
-- [Zstandard-Komprimierung](/de/docs/Glossary/Zstandard_compression)
+- {{Glossary("Brotli_compression", "Brotli-Komprimierung")}}
+- {{Glossary("GZip_compression", "GZip-Komprimierung")}}
+- {{Glossary("Zstandard_compression", "Zstandard-Komprimierung")}}

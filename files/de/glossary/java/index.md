@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Java ist eine [kompilierte](/de/docs/Glossary/Compile), [objektorientierte](/de/docs/Glossary/OOP), hoch portable [Programmier](/de/docs/Glossary/computer_programming)-sprache.
+Java ist eine {{Glossary("Compile", "kompilierte")}}, {{Glossary("OOP", "objektorientierte")}}, hoch portable {{Glossary("computer_programming", "Programmier")}}-sprache.
 
 Java ist statisch typisiert und hat eine ähnliche Syntax wie C. Es wird mit einer großen Bibliothek sofort nutzbarer Funktionen geliefert, dem Java Software Development Kit (SDK).
 

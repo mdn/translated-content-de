@@ -26,7 +26,7 @@ font-variation-settings: "xhgt" 0.7;
 - `normal`
   - : Text wird mit den Standardeinstellungen layoutet.
 - `<string> <number>`
-  - : Beim Rendern von Text wird die Liste der OpenType-Achsennamen an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung ist immer ein {{cssxref("&lt;string&gt;")}} aus 4 [ASCII](/de/docs/Glossary/ASCII)-Zeichen, gefolgt von einer {{cssxref("number")}}, die den Achsenwert angibt. Hat der `<string>` mehr oder weniger Zeichen oder enthält Zeichen außerhalb des Codepunktbereichs U+20 - U+7E, ist die gesamte Eigenschaft ungültig. Die `<number>` kann fraktional oder negativ sein.
+  - : Beim Rendern von Text wird die Liste der OpenType-Achsennamen an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren. Jede Einstellung ist immer ein {{cssxref("&lt;string&gt;")}} aus 4 {{Glossary("ASCII", "ASCII")}}-Zeichen, gefolgt von einer {{cssxref("number")}}, die den Achsenwert angibt. Hat der `<string>` mehr oder weniger Zeichen oder enthält Zeichen außerhalb des Codepunktbereichs U+20 - U+7E, ist die gesamte Eigenschaft ungültig. Die `<number>` kann fraktional oder negativ sein.
 
 ## Formale Definition
 

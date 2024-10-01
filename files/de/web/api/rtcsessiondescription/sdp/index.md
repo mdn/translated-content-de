@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die Eigenschaft **`RTCSessionDescription.sdp`** ist ein schreibgeschützter
-String, der das [SDP](/de/docs/Glossary/SDP) enthält, welches die Sitzung beschreibt.
+String, der das {{Glossary("SDP", "SDP")}} enthält, welches die Sitzung beschreibt.
 
 ## Syntax
 

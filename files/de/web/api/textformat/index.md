@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`TextFormat`**-Schnittstelle repräsentiert spezifische Formatierungen, die auf einen Textbereich in einer editierbaren Textregion angewendet werden sollen, die an eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz angeschlossen ist. Die Textformatierung wird vom [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster angefordert, mit dem der Benutzer Text verfasst.
+Die **`TextFormat`**-Schnittstelle repräsentiert spezifische Formatierungen, die auf einen Textbereich in einer editierbaren Textregion angewendet werden sollen, die an eine [`EditContext`](/de/docs/Web/API/EditContext)-Instanz angeschlossen ist. Die Textformatierung wird vom {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster angefordert, mit dem der Benutzer Text verfasst.
 
 Wenn Sie eine der standardmäßigen editierbaren Regionen des Webs verwenden, wie z.B. ein [`<textarea>`](/de/docs/Web/HTML/Element/textarea)-Element, wird die IME-Komposition von Browser und Betriebssystem für Sie gehandhabt. Zum Beispiel können bei Verwendung eines japanischen IME in einem Textbereich unter Windows die folgenden Textformate angewendet werden:
 

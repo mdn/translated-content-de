@@ -73,7 +73,7 @@ Die Länge des Strings "mozilla" beträgt 7, aber da das Zählen bei 0 beginnt, 
 
 ## Testen, ob ein String eine Teilzeichenfolge enthält
 
-Manchmal möchten Sie herausfinden, ob eine kleinere Zeichenkette in einer größeren vorhanden ist (wir sagen allgemein, ob eine Teilzeichenfolge in einem String vorhanden ist). Dies kann mit der Methode {{jsxref("String.prototype.includes()", "includes()")}} erreicht werden, die nur einen [Parameter](/de/docs/Glossary/parameter) annimmt — die Teilzeichenfolge, nach der Sie suchen möchten.
+Manchmal möchten Sie herausfinden, ob eine kleinere Zeichenkette in einer größeren vorhanden ist (wir sagen allgemein, ob eine Teilzeichenfolge in einem String vorhanden ist). Dies kann mit der Methode {{jsxref("String.prototype.includes()", "includes()")}} erreicht werden, die nur einen {{Glossary("parameter", "Parameter")}} annimmt — die Teilzeichenfolge, nach der Sie suchen möchten.
 
 Sie gibt `true` zurück, wenn der String die Teilzeichenfolge enthält, und `false` andernfalls.
 
@@ -111,7 +111,7 @@ if (browserType.endsWith("zilla")) {
 
 ## Finden der Position einer Teilzeichenfolge in einem String
 
-Sie können die Position einer Teilzeichenfolge in einem größeren String mit der Methode {{jsxref("String.prototype.indexOf()", "indexOf()")}} finden. Diese Methode nimmt zwei [Parameter](/de/docs/Glossary/parameter) an – die Teilzeichenfolge, nach der gesucht werden soll, und einen optionalen Parameter, der den Ausgangspunkt der Suche angibt.
+Sie können die Position einer Teilzeichenfolge in einem größeren String mit der Methode {{jsxref("String.prototype.indexOf()", "indexOf()")}} finden. Diese Methode nimmt zwei {{Glossary("parameter", "Parameter")}} an – die Teilzeichenfolge, nach der gesucht werden soll, und einen optionalen Parameter, der den Ausgangspunkt der Suche angibt.
 
 Wenn die Zeichenfolge die Teilzeichenfolge enthält, gibt `indexOf()` den Index des ersten Vorkommens der Teilzeichenfolge zurück. Wenn die Zeichenfolge die Teilzeichenfolge nicht enthält, gibt `indexOf()` `-1` zurück.
 

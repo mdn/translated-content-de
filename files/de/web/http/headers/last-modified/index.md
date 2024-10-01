@@ -9,21 +9,21 @@ l10n:
 
 Der **`Last-Modified`** HTTP-Antwortheader enthält ein Datum und eine Uhrzeit, zu der der Ursprungsserver glaubt, dass die Ressource zuletzt geändert wurde. Er wird als Validator verwendet, um festzustellen, ob die Ressource dieselbe wie die zuvor gespeicherte ist. Weniger genau als ein {{HTTPHeader("ETag")}}-Header, dient er als Ersatzmechanismus. Bedingte Anfragen, die {{HTTPHeader("If-Modified-Since")}}- oder {{HTTPHeader("If-Unmodified-Since")}}-Header enthalten, nutzen dieses Feld.
 
-`Last-Modified` wird auch von [Crawlern](/de/docs/Glossary/Crawler) verwendet, um die Crawl-Frequenz anzupassen, von Browsern beim [heuristischen Caching](/de/docs/Web/HTTP/Caching#heuristic_caching) und von Content-Management-Systemen (CMS), um die Zeit anzuzeigen, zu der der Inhalt zuletzt geändert wurde.
+`Last-Modified` wird auch von {{Glossary("Crawler", "Crawlern")}} verwendet, um die Crawl-Frequenz anzupassen, von Browsern beim [heuristischen Caching](/de/docs/Web/HTTP/Caching#heuristic_caching) und von Content-Management-Systemen (CMS), um die Zeit anzuzeigen, zu der der Inhalt zuletzt geändert wurde.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Repräsentations-Header](/de/docs/Glossary/Representation_header)</td>
+      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-gesicherter Antwort-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-gesicherter Antwort-Header")}}
       </th>
       <td>ja</td>
     </tr>

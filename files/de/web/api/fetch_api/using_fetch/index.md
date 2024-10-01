@@ -38,7 +38,7 @@ Wir deklarieren eine Zeichenkette, die die URL enthält, und rufen dann `fetch()
 
 Die Funktion `fetch()` wird das Versprechen bei einigen Fehlern ablehnen, nicht aber, wenn der Server mit einem Fehlerstatus wie {{httpstatus("404")}} antwortet: Daher prüfen wir auch den Antwortstatus und werfen eine Ausnahme, wenn er nicht OK ist.
 
-Andernfalls rufen wir den Inhalt des Antwortkörpers als [JSON](/de/docs/Glossary/JSON) ab, indem wir die Methode [`json()`](/de/docs/Web/API/Response/json) von `Response` aufrufen und einen seiner Werte protokollieren. Beachten Sie, dass `json()` wie `fetch()` selbst asynchron ist, ebenso wie alle anderen Methoden, die auf den Inhalt des Antwortkörpers zugreifen.
+Andernfalls rufen wir den Inhalt des Antwortkörpers als {{Glossary("JSON", "JSON")}} ab, indem wir die Methode [`json()`](/de/docs/Web/API/Response/json) von `Response` aufrufen und einen seiner Werte protokollieren. Beachten Sie, dass `json()` wie `fetch()` selbst asynchron ist, ebenso wie alle anderen Methoden, die auf den Inhalt des Antwortkörpers zugreifen.
 
 Im Rest dieser Seite schauen wir uns die verschiedenen Phasen dieses Prozesses genauer an.
 
@@ -48,7 +48,7 @@ Um eine Anfrage zu stellen, rufen Sie `fetch()` auf und übergeben:
 
 1. eine Definition der Ressource, die abgerufen werden soll. Dies kann eine der folgenden sein:
    - eine Zeichenkette, die die URL enthält
-   - ein Objekt, z. B. eine Instanz von [`URL`](/de/docs/Web/API/URL), das einen [stringifier](/de/docs/Glossary/stringifier) besitzt, der eine Zeichenkette mit der URL produziert
+   - ein Objekt, z. B. eine Instanz von [`URL`](/de/docs/Web/API/URL), das einen {{Glossary("stringifier", "stringifier")}} besitzt, der eine Zeichenkette mit der URL produziert
    - eine [`Request`](/de/docs/Web/API/Request) Instanz
 2. optional ein Objekt, das Optionen zur Konfiguration der Anfrage enthält.
 
@@ -129,7 +129,7 @@ Weitere Informationen finden Sie unter [Gesperrte und gestörte Streams](#gesper
 
 ### Header setzen
 
-Anforderungsheader geben dem Server Informationen über die Anfrage: zum Beispiel teilt der {{httpheader("Content-Type")}}-Header dem Server das Format des Anfragetextes mit. Viele Header werden automatisch vom Browser gesetzt und können nicht durch ein Skript gesetzt werden: Diese werden [Verbotene Headernamen](/de/docs/Glossary/Forbidden_header_name) genannt.
+Anforderungsheader geben dem Server Informationen über die Anfrage: zum Beispiel teilt der {{httpheader("Content-Type")}}-Header dem Server das Format des Anfragetextes mit. Viele Header werden automatisch vom Browser gesetzt und können nicht durch ein Skript gesetzt werden: Diese werden {{Glossary("Forbidden_header_name", "Verbotene Headernamen")}} genannt.
 
 Um Anforderungsheader festzulegen, weisen Sie sie der Option `headers` zu.
 
@@ -156,7 +156,7 @@ const response = await fetch("https://example.org/post", {
 });
 ```
 
-Wenn die Option `mode` auf `no-cors` gesetzt ist, können Sie nur [CORS-safelisted request headers](/de/docs/Glossary/CORS-safelisted_request_header) setzen.
+Wenn die Option `mode` auf `no-cors` gesetzt ist, können Sie nur {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request headers")}} setzen.
 
 ### POST-Anfragen durchführen
 
@@ -188,7 +188,7 @@ Ob eine Anfrage Cross-Origin ausgeführt werden kann oder nicht, wird durch den 
 
 ### Einbinden von Anmeldeinformationen
 
-Anmeldeinformationen sind Cookies, [TLS](/de/docs/Glossary/TLS)-Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
+Anmeldeinformationen sind Cookies, {{Glossary("TLS", "TLS")}}-Client-Zertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten.
 
 Um zu bestimmen, ob der Browser Anmeldeinformationen sendet oder nicht, sowie ob der Browser irgendwelche **`Set-Cookie`**-Antwortheader respektiert, stellen Sie die `credentials`-Option ein, die einen der folgenden drei Werte annehmen kann:
 
@@ -198,7 +198,7 @@ Um zu bestimmen, ob der Browser Anmeldeinformationen sendet oder nicht, sowie ob
 
 Beachten Sie, dass, wenn das [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Attribut eines Cookies auf `Strict` oder `Lax` gesetzt ist, das Cookie nicht cross-site gesendet wird, selbst wenn `credentials` auf `include` gesetzt ist.
 
-Das Einbinden von Anmeldeinformationen in Cross-Origin-Anfragen kann eine Website anfällig für [CSRF](/de/docs/Glossary/CSRF)-Angriffe machen. Daher muss der Server, selbst wenn `credentials` auf `include` gesetzt ist, auch ihrer Einbeziehung zustimmen, indem er den {{httpheader("Access-Control-Allow-Credentials")}}-Header in seiner Antwort einschließt. Zusätzlich muss der Server in dieser Situation ausdrücklich den Ursprung des Clients im {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader angeben (das heißt, `*` ist nicht erlaubt).
+Das Einbinden von Anmeldeinformationen in Cross-Origin-Anfragen kann eine Website anfällig für {{Glossary("CSRF", "CSRF")}}-Angriffe machen. Daher muss der Server, selbst wenn `credentials` auf `include` gesetzt ist, auch ihrer Einbeziehung zustimmen, indem er den {{httpheader("Access-Control-Allow-Credentials")}}-Header in seiner Antwort einschließt. Zusätzlich muss der Server in dieser Situation ausdrücklich den Ursprung des Clients im {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader angeben (das heißt, `*` ist nicht erlaubt).
 
 Das bedeutet, dass, wenn `credentials` auf `include` gesetzt ist und die Anfrage Cross-Origin ist, dann:
 
@@ -351,8 +351,8 @@ Antworten haben eine [`type`](/de/docs/Web/API/Response/type) Eigenschaft, die e
 
 Der Typ bestimmt die möglichen Inhalte der Antwort, wie folgt:
 
-- Basic-Antworten schließen Antwortheader von der Liste der [verbotenen Antwortheadernamen](/de/docs/Glossary/Forbidden_response_header_name) aus.
-- CORS-Antworten enthalten nur Antwortheader aus der Liste der [CORS-safelisted response header](/de/docs/Glossary/CORS-safelisted_response_header).
+- Basic-Antworten schließen Antwortheader von der Liste der {{Glossary("Forbidden_response_header_name", "verbotenen Antwortheadernamen")}} aus.
+- CORS-Antworten enthalten nur Antwortheader aus der Liste der {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response header")}}.
 - Opaque-Antworten und opake Redirect-Antworten haben einen `status` von `0`, eine leere Headerliste und einen `null` Körper.
 
 ### Header überprüfen

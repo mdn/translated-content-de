@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Operators")}}
 
-Der **Nullish Coalescing Assignment (`??=`)**-Operator, auch bekannt als **Logical Nullish Assignment**-Operator, wertet nur den rechten Operanden aus und weist dem linken Operanden zu, wenn der linke Operand [nullish](/de/docs/Glossary/nullish) (`null` oder `undefined`) ist.
+Der **Nullish Coalescing Assignment (`??=`)**-Operator, auch bekannt als **Logical Nullish Assignment**-Operator, wertet nur den rechten Operanden aus und weist dem linken Operanden zu, wenn der linke Operand {{Glossary("nullish", "nullish")}} (`null` oder `undefined`) ist.
 
 {{EmbedInteractiveExample("pages/js/expressions-nullish-coalescing-assignment.html")}}
 
@@ -79,6 +79,6 @@ config({}); // { duration: 100, speed: 25 }
 ## Siehe auch
 
 - [Nullish Coalescing-Operator (`??`)](/de/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- [Nullish](/de/docs/Glossary/Nullish)
-- [Truthy](/de/docs/Glossary/Truthy)
-- [Falsy](/de/docs/Glossary/Falsy)
+- {{Glossary("Nullish", "Nullish")}}
+- {{Glossary("Truthy", "Truthy")}}
+- {{Glossary("Falsy", "Falsy")}}

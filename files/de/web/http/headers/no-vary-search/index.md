@@ -9,16 +9,16 @@ l10n:
 
 Der **`No-Vary-Search`** Response-Header spezifiziert eine Reihe von Regeln, die definieren, wie sich die Abfrageparameter einer URL auf die Cache-Übereinstimmung auswirken. Diese Regeln bestimmen, ob dieselbe URL mit unterschiedlichen URL-Parametern als separate Browser-Cache-Einträge gespeichert werden sollte.
 
-> **Note:** [Spekulationsregeln](/de-DE/docs/Web/API/Speculation_Rules_API) können ein Feld `expects_no_vary_search` enthalten, das dem Browser anzeigt, welchen erwarteten Wert `No-Vary-Search` (falls vorhanden) Dokumente haben werden, für die er Prefetch/Prerender-Anfragen über die Spekulationsregeln erhält. Der Browser kann dies nutzen, um im Voraus zu entscheiden, ob es nützlicher ist, auf den Abschluss eines bestehenden Prefetch/Prerender zu warten, oder eine neue Abrufanfrage zu starten, wenn die Spekulationsregel zutrifft.
+> **Note:** [Spekulationsregeln](/de/docs/Web/API/Speculation_Rules_API) können ein Feld `expects_no_vary_search` enthalten, das dem Browser anzeigt, welchen erwarteten Wert `No-Vary-Search` (falls vorhanden) Dokumente haben werden, für die er Prefetch/Prerender-Anfragen über die Spekulationsregeln erhält. Der Browser kann dies nutzen, um im Voraus zu entscheiden, ob es nützlicher ist, auf den Abschluss eines bestehenden Prefetch/Prerender zu warten, oder eine neue Abrufanfrage zu starten, wenn die Spekulationsregel zutrifft.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Response header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Response header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

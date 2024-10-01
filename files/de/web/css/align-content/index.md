@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die [CSS](/de/docs/Web/CSS) **`align-content`** Eigenschaft legt die Verteilung des Raums zwischen und um Inhaltselemente entlang der [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) [Querachse](/de/docs/Glossary/Cross_Axis) oder der Blockachse eines [Raster](/de/docs/Web/CSS/CSS_grid_layout) oder [Block-Level](/de/docs/Glossary/Block-level_content) Elements fest.
+Die [CSS](/de/docs/Web/CSS) **`align-content`** Eigenschaft legt die Verteilung des Raums zwischen und um Inhaltselemente entlang der [flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) {{Glossary("Cross_Axis", "Querachse")}} oder der Blockachse eines [Raster](/de/docs/Web/CSS/CSS_grid_layout) oder {{Glossary("Block-level_content", "Block-Level")}} Elements fest.
 
 Das interaktive Beispiel unten verwendet das Raster-Layout, um einige der Werte dieser Eigenschaft zu demonstrieren.
 
@@ -90,7 +90,7 @@ align-content: unset;
   - : Wird zusammen mit einem Ausrichtungsbegriff verwendet. Unabhängig von den relativen Größen des Elements und des Ausrichtungscontainers und ob ein Überlauf, der Datenverlust verursachen könnte, auftritt, wird der gegebene Ausrichtungswert berücksichtigt.
 
 > [!NOTE]
-> Die `<content-distribution>` Werte (`space-between`, `space-around`, `space-evenly`, und `stretch`) haben im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables#align-content_and_justify-content) keine Auswirkung, da der gesamte Inhalt in diesem Block als ein einzelnes [Ausrichtungssubjekt](/de/docs/Glossary/Alignment_Subject) behandelt wird.
+> Die `<content-distribution>` Werte (`space-between`, `space-around`, `space-evenly`, und `stretch`) haben im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables#align-content_and_justify-content) keine Auswirkung, da der gesamte Inhalt in diesem Block als ein einzelnes {{Glossary("Alignment_Subject", "Ausrichtungssubjekt")}} behandelt wird.
 
 ## Formale Definition
 
@@ -251,5 +251,5 @@ Im [Block-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_block_absp
 - [Box-Ausrichtung in CSS-Raster-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
 - [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment)
 - [Block- und Inline-Layout im normalen Fluss](/de/docs/Web/CSS/CSS_flow_layout/Block_and_inline_layout_in_normal_flow)
-- [Block-level_content](/de/docs/Glossary/Block-level_content)
+- {{Glossary("Block-level_content", "Block-level_content")}}
 - {{CSSXRef("display")}}

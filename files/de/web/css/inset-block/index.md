@@ -9,7 +9,7 @@ l10n:
 
 Die **`inset-block`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logischen Block-Anfangs- und Endversätze eines Elements, die je nach dem Schreibmodus, der Richtung und der Textausrichtung des Elements auf physische Versätze abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}} je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
-Diese [inset Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "inset Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block.html")}}
 

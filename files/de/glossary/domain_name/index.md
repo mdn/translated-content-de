@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Domain-Name** ist die Adresse einer Website im [Internet](/de/docs/Glossary/Internet). Domain-Namen werden in [URLs](/de/docs/Glossary/URL) verwendet, um zu identifizieren, zu welchem Server eine bestimmte Webseite gehört. Der Domain-Name besteht aus einer hierarchischen Folge von Bezeichnungen (Labels), die durch Punkte getrennt sind und mit einer [Erweiterung](/de/docs/Glossary/TLD) enden.
+Ein **Domain-Name** ist die Adresse einer Website im {{Glossary("Internet", "Internet")}}. Domain-Namen werden in {{Glossary("URL", "URLs")}} verwendet, um zu identifizieren, zu welchem Server eine bestimmte Webseite gehört. Der Domain-Name besteht aus einer hierarchischen Folge von Bezeichnungen (Labels), die durch Punkte getrennt sind und mit einer {{Glossary("TLD", "Erweiterung")}} enden.
 
 ## Siehe auch
 

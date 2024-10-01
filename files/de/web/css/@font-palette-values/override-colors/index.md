@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`override-colors`** CSS-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) wird verwendet, um Farben in der gewählten [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) für eine Farbfont zu überschreiben.
+Der **`override-colors`** CSS-{{Glossary("CSS_Descriptor", "Deskriptor")}} wird verwendet, um Farben in der gewählten [base-palette](/de/docs/Web/CSS/@font-palette-values/base-palette) für eine Farbfont zu überschreiben.
 
 ## Syntax
 
@@ -37,7 +37,7 @@ override-colors:
   2 #00f;
 ```
 
-Der `override-colors`-[Deskriptor](/de/docs/Glossary/CSS_Descriptor) nimmt eine durch Kommas getrennte Liste aus Farbindex und neuem Farbwert an.
+Der `override-colors`-{{Glossary("CSS_Descriptor", "Deskriptor")}} nimmt eine durch Kommas getrennte Liste aus Farbindex und neuem Farbwert an.
 
 Der Farbindex ist nullbasiert und es kann jeder [Farbwert](/de/docs/Web/CSS/color_value) verwendet werden.
 

@@ -13,9 +13,9 @@ Dieses Beispiel demonstriert, wie man Benutzerinteraktionen mit WebGL-Grafikoper
 
 {{EmbedLiveSample("Clearing_the_rendering_context_with_random_colors",660,425)}}
 
-Dieses Beispiel liefert eine einfache Illustration, wie man [WebGL](/de/docs/Glossary/WebGL) und Benutzerinteraktion kombiniert. Jedes Mal, wenn der Benutzer auf das `<canvas>` oder den Button klickt, wird das `<canvas>` mit einer neu zufällig gewählten Farbe gelöscht.
+Dieses Beispiel liefert eine einfache Illustration, wie man {{Glossary("WebGL", "WebGL")}} und Benutzerinteraktion kombiniert. Jedes Mal, wenn der Benutzer auf das `<canvas>` oder den Button klickt, wird das `<canvas>` mit einer neu zufällig gewählten Farbe gelöscht.
 
-Beachten Sie, wie wir die [WebGL](/de/docs/Glossary/WebGL)-Funktionsaufrufe innerhalb der Event-Handler-Funktion einbetten.
+Beachten Sie, wie wir die {{Glossary("WebGL", "WebGL")}}-Funktionsaufrufe innerhalb der Event-Handler-Funktion einbetten.
 
 ```html
 <p>

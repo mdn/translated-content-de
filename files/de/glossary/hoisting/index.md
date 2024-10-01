@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-JavaScript-**Hoisting** bezieht sich auf den Prozess, bei dem der Interpreter scheinbar die _Deklaration_ von Funktionen, Variablen, Klassen oder Importen an den Anfang ihres [Scopes](/de/docs/Glossary/scope) verschiebt, bevor der Code ausgeführt wird.
+JavaScript-**Hoisting** bezieht sich auf den Prozess, bei dem der Interpreter scheinbar die _Deklaration_ von Funktionen, Variablen, Klassen oder Importen an den Anfang ihres {{Glossary("scope", "Scopes")}} verschiebt, bevor der Code ausgeführt wird.
 
 _Hoisting_ ist kein normativ definierter Begriff in der ECMAScript-Spezifikation. Die Spezifikation definiert eine Gruppe von Deklarationen als [_HoistableDeclaration_](https://tc39.es/ecma262/multipage/ecmascript-language-statements-and-declarations.html#prod-HoistableDeclaration), was jedoch nur die Deklarationen von [`function`](/de/docs/Web/JavaScript/Reference/Statements/function), [`function*`](/de/docs/Web/JavaScript/Reference/Statements/function*), [`async function`](/de/docs/Web/JavaScript/Reference/Statements/async_function) und [`async function*`](/de/docs/Web/JavaScript/Reference/Statements/async_function*) umfasst. Hoisting wird oft als eine Eigenschaft von [`var`](/de/docs/Web/JavaScript/Reference/Statements/var)-Deklarationen angesehen, wenn auch auf eine andere Weise. Im umgangssprachlichen Sinne können alle folgenden Verhaltensweisen als Hoisting angesehen werden:
 

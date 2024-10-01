@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die Breadcrumb-Navigation hilft dem Benutzer, seine Position auf der Website zu verstehen, indem sie einen [Breadcrumb](/de/docs/Glossary/breadcrumb)-Pfad zurück zur Startseite bietet. Die Elemente werden typischerweise inline angezeigt, mit einem Trenner zwischen jedem Element, der die Hierarchie zwischen den einzelnen Seiten angibt.
+Die Breadcrumb-Navigation hilft dem Benutzer, seine Position auf der Website zu verstehen, indem sie einen {{Glossary("breadcrumb", "Breadcrumb")}}-Pfad zurück zur Startseite bietet. Die Elemente werden typischerweise inline angezeigt, mit einem Trenner zwischen jedem Element, der die Hierarchie zwischen den einzelnen Seiten angibt.
 
 ![Links werden inline mit Trennern angezeigt](breadcrumb-navigation.png)
 

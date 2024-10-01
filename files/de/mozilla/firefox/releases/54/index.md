@@ -42,7 +42,7 @@ Firefox 54 wurde am 13. Juni 2017 veröffentlicht. Dieser Artikel listet wichtig
 - Der Konstruktor [`URLSearchParams()`](/de/docs/Web/API/URLSearchParams/URLSearchParams) akzeptiert nun ein Record, das Zeichenfolgen als Init-Objekt enthält ([Firefox Bug 1331580](https://bugzil.la/1331580)).
 - Werte, die im [`KeyboardEvent.key`](/de/docs/Web/API/KeyboardEvent/key) für druckbare Tasten zurückgegeben werden, wenn die Steuertaste ebenfalls gedrückt wird, wurden auf macOS korrigiert (außer wenn die Befehlstaste gedrückt wird) ([Firefox Bug 1342865](https://bugzil.la/1342865)).
 - Die `dom.workers.latestJSVersion` Voreinstellung, die hauptsächlich implementiert wurde, um Probleme mit der Verwendung von [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) in Workern zu umgehen (aufgrund von [Firefox Bug 855665](https://bugzil.la/855665), der inzwischen behoben wurde) wurde entfernt (siehe [Firefox Bug 1219523](https://bugzil.la/1219523)).
-- Die Eigenschaft [`event.timeStamp`](/de/docs/Web/API/Event/timeStamp) gibt jetzt eine hochauflösende monotone Zeit zurück ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) anstelle eines Werts, der die [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden darstellt.
+- Die Eigenschaft [`event.timeStamp`](/de/docs/Web/API/Event/timeStamp) gibt jetzt eine hochauflösende monotone Zeit zurück ([`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)) anstelle eines Werts, der die {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden darstellt.
 
 ### Web-Worker und Service-Worker
 

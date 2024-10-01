@@ -48,7 +48,7 @@ Sie haben wahrscheinlich bereits einen Texteditor: wie Notepad auf Windows, Gedi
 
 Viele Editoren sind kostenlos, zum Beispiel [Brackets](https://brackets.io/), [Bluefish](https://bluefish.openoffice.nl/index.html), [TextWrangler](https://www.barebones.com/products/textwrangler/), [Eclipse](https://www.eclipse.org/), [Netbeans](https://netbeans.apache.org/) und [Visual Studio Code](https://code.visualstudio.com/). Einige, wie [Sublime Text](https://www.sublimetext.com/), können Sie beliebig lange testen, aber es wird empfohlen, zu bezahlen. Einige, wie [PhpStorm](https://www.jetbrains.com/phpstorm/), können zwischen einigen Dutzend und 200 Dollar kosten, je nach erworbenem Plan. Einige von ihnen, wie [Microsoft Visual Studio](https://visualstudio.microsoft.com/), können Hunderte oder Tausende von Dollar kosten; Visual Studio Community ist jedoch für individuelle Entwickler oder Open-Source-Projekte kostenlos. Häufig bieten kostenpflichtige Editoren eine Testversion an.
 
-Wir empfehlen, mehrere Editoren auszuprobieren, um herauszufinden, welcher am besten für Sie funktioniert. Wenn Sie nur einfachen [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [JavaScript](/de/docs/Glossary/JavaScript) schreiben, wählen Sie einen einfachen Editor.
+Wir empfehlen, mehrere Editoren auszuprobieren, um herauszufinden, welcher am besten für Sie funktioniert. Wenn Sie nur einfachen {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} schreiben, wählen Sie einen einfachen Editor.
 
 Der Preis spiegelt nicht zuverlässig die Qualität oder Nützlichkeit eines Texteditors wider. Sie müssen es selbst ausprobieren und entscheiden, ob es Ihren Bedürfnissen entspricht. Zum Beispiel ist Sublime Text günstig, kommt aber mit vielen kostenlosen Plugins, die seine Funktionalität erheblich erweitern können.
 
@@ -68,7 +68,7 @@ Für Audiodateien finden Sie kostenlose Software ([Audacity](https://www.audacit
 
 ### Veröffentlichungstools
 
-Sie benötigen auch eine Möglichkeit, Dateien hochzuladen: von Ihrer Festplatte zu einem entfernten Webserver. Dazu sollten Sie ein Veröffentlichungstool wie einen (S)[FTP-Client](/de/docs/Glossary/FTP), [RSync](https://en.wikipedia.org/wiki/Rsync) oder [Git/GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) verwenden.
+Sie benötigen auch eine Möglichkeit, Dateien hochzuladen: von Ihrer Festplatte zu einem entfernten Webserver. Dazu sollten Sie ein Veröffentlichungstool wie einen (S){{Glossary("FTP", "FTP-Client")}}, [RSync](https://en.wikipedia.org/wiki/Rsync) oder [Git/GitHub](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site) verwenden.
 
 Jedes Betriebssystem enthält einen (S)FTP-Client als Teil seines Dateimanagers. Windows Explorer, Nautilus (ein üblicher Linux-Dateimanager) und der Mac Finder beinhalten diese Funktionalität. Dennoch wählen viele Menschen spezialisierte (S)FTP-Clients, um lokale oder entfernte Verzeichnisse nebeneinander anzuzeigen und Server-Passwörter zu speichern.
 
@@ -88,11 +88,11 @@ Sie benötigen einen Computer. Die Kosten können je nach Budget und Wohnort sta
 
 Natürlich benötigen Sie einen ernsthafteren Computer, wenn Sie komplizierte Designs erstellen, Fotos bearbeiten oder Audio- und Videodateien produzieren möchten.
 
-Sie müssen Inhalte auf einen entfernten Server hochladen (siehe _Hosting_ unten), daher benötigen Sie ein Modem. Ihr [ISP](/de/docs/Glossary/ISP) kann Ihnen Internetkonnektivität für einige wenige Dollar pro Monat vermieten, obwohl Ihr Budget je nach Standort variieren kann.
+Sie müssen Inhalte auf einen entfernten Server hochladen (siehe _Hosting_ unten), daher benötigen Sie ein Modem. Ihr {{Glossary("ISP", "ISP")}} kann Ihnen Internetkonnektivität für einige wenige Dollar pro Monat vermieten, obwohl Ihr Budget je nach Standort variieren kann.
 
 ### ISP-Zugang
 
-Achten Sie darauf, dass Sie über ausreichende [Bandbreite](/de/docs/Glossary/Bandwidth) verfügen:
+Achten Sie darauf, dass Sie über ausreichende {{Glossary("Bandwidth", "Bandbreite")}} verfügen:
 
 - Ein Zugang mit niedriger Bandbreite kann ausreichen, um eine 'einfache' Website mit angemessen großen Bildern, Texten, ein wenig CSS und JavaScript zu unterstützen. Das kostet Sie wahrscheinlich einige Dutzend Dollar, einschließlich der Miete für das Modem.
 - Auf der anderen Seite benötigen Sie einen hochbandbreitigen Zugang wie DSL, Kabel oder Glasfaser, wenn Sie eine fortgeschrittenere Website mit Hunderten von Dateien wünschen oder wenn Sie schwere Video-/Audiodateien direkt von Ihrem Webserver liefern möchten. Es könnte das Gleiche wie der Zugang mit niedriger Bandbreite kosten, bis zu mehreren hundert Dollar pro Monat für professionellere Bedürfnisse.
@@ -101,7 +101,7 @@ Achten Sie darauf, dass Sie über ausreichende [Bandbreite](/de/docs/Glossary/Ba
 
 ### Bandbreite verstehen
 
-Hosting-Anbieter berechnen Ihnen in Abhängigkeit davon, wie viel [Bandbreite](/de/docs/Glossary/Bandwidth) Ihre Website verbraucht. Dies hängt davon ab, wie viele Personen und Webcrawler-Roboter auf Ihre Inhalte in einem bestimmten Zeitraum zugreifen und wie viel Serverplatz Ihre Inhalte beanspruchen. Aus diesem Grund speichern viele Menschen ihre Videos auf spezialisierten Diensten wie YouTube, Dailymotion und Vimeo. Beispielsweise kann Ihr Anbieter einen Tarif haben, der bis zu mehreren tausend Besuchern pro Tag bei "vernünftigem" Bandbreitenverbrauch umfasst. Seien Sie jedoch vorsichtig, da dies von einem Hosting-Anbieter zum anderen unterschiedlich definiert wird. Denken Sie daran, dass zuverlässiges, kostenpflichtiges, persönliches Hosting etwa zehn bis fünfzehn Dollar pro Monat kosten kann.
+Hosting-Anbieter berechnen Ihnen in Abhängigkeit davon, wie viel {{Glossary("Bandwidth", "Bandbreite")}} Ihre Website verbraucht. Dies hängt davon ab, wie viele Personen und Webcrawler-Roboter auf Ihre Inhalte in einem bestimmten Zeitraum zugreifen und wie viel Serverplatz Ihre Inhalte beanspruchen. Aus diesem Grund speichern viele Menschen ihre Videos auf spezialisierten Diensten wie YouTube, Dailymotion und Vimeo. Beispielsweise kann Ihr Anbieter einen Tarif haben, der bis zu mehreren tausend Besuchern pro Tag bei "vernünftigem" Bandbreitenverbrauch umfasst. Seien Sie jedoch vorsichtig, da dies von einem Hosting-Anbieter zum anderen unterschiedlich definiert wird. Denken Sie daran, dass zuverlässiges, kostenpflichtiges, persönliches Hosting etwa zehn bis fünfzehn Dollar pro Monat kosten kann.
 
 > [!NOTE]
 > Es gibt keine "unbegrenzte" Bandbreite. Wenn Sie eine riesige Menge an Bandbreite verbrauchen, erwarten Sie, eine riesige Menge Geld zu zahlen.
@@ -115,7 +115,7 @@ Ihr Domainname muss über einen Domainnamen-Anbieter (einen Registrar) erworben 
 
 ### Selbsthosting vs. "verpacktes" Hosting
 
-Wenn Sie eine Website veröffentlichen möchten, könnten Sie alles selbst tun: eine Datenbank einrichten (falls erforderlich), ein Content Management System oder [CMS](/de/docs/Glossary/CMS) (wie [Wordpress](https://wordpress.org/), [Dotclear](https://dotclear.org/), [spip](https://www.spip.net/en_rubrique25.html) usw.), vorgefertigte oder eigene Vorlagen hochladen.
+Wenn Sie eine Website veröffentlichen möchten, könnten Sie alles selbst tun: eine Datenbank einrichten (falls erforderlich), ein Content Management System oder {{Glossary("CMS", "CMS")}} (wie [Wordpress](https://wordpress.org/), [Dotclear](https://dotclear.org/), [spip](https://www.spip.net/en_rubrique25.html) usw.), vorgefertigte oder eigene Vorlagen hochladen.
 
 Sie könnten die Umgebung Ihres Hosting-Anbieters nutzen, für etwa zehn bis fünfzehn Dollar pro Monat, oder direkt einen dedizierten Hosting-Dienst mit vorgefertigten CMSs abonnieren (z.B. [Wordpress](https://wordpress.com/), [Tumblr](https://www.tumblr.com/), [Blogger](https://www.blogger.com/)). Bei letzteren müssen Sie nichts bezahlen, haben aber möglicherweise weniger Kontrolle über Vorlagen und andere Optionen.
 
@@ -140,7 +140,7 @@ Hier hängen die Kosten von mehreren Faktoren ab, wie zum Beispiel:
 - Möchten Sie diese regelmäßig aktualisieren? Oder wird es eine statische Website sein?
 - Muss die Website an die IT-Struktur Ihres Unternehmens angeschlossen werden, um Inhalte zu sammeln (z.B. interne Daten)?
 - Möchten Sie eine glänzende neue Funktion, die derzeit beliebt ist? Zum Zeitpunkt des Schreibens suchen Kunden nach Einzelseiten mit komplexem Parallax.
-- Benötigen Sie die Agentur zur Erstellung von Nutzerstorys oder zur Lösung komplexer [UX](/de/docs/Glossary/UX)-Probleme? Zum Beispiel eine Strategie zur Benutzerbindung erstellen oder A/B-Tests durchführen, um eine Lösung aus mehreren Ideen auszuwählen.
+- Benötigen Sie die Agentur zur Erstellung von Nutzerstorys oder zur Lösung komplexer {{Glossary("UX", "UX")}}-Probleme? Zum Beispiel eine Strategie zur Benutzerbindung erstellen oder A/B-Tests durchführen, um eine Lösung aus mehreren Ideen auszuwählen.
 
 Und für das Hosting müssen Sie folgende Entscheidungen berücksichtigen:
 

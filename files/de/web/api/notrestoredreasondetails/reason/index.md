@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`reason`**-Eigenschaft der [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Schnittstelle gibt eine Zeichenkette zurück, die den Grund beschreibt, warum die Seite daran gehindert wurde, den Vorwärts-/Rückwärts-Cache ([bfcache](/de/docs/Glossary/bfcache)) zu nutzen.
+Die **`reason`**-Eigenschaft der [`NotRestoredReasonDetails`](/de/docs/Web/API/NotRestoredReasonDetails)-Schnittstelle gibt eine Zeichenkette zurück, die den Grund beschreibt, warum die Seite daran gehindert wurde, den Vorwärts-/Rückwärts-Cache ({{Glossary("bfcache", "bfcache")}}) zu nutzen.
 
 ## Wert
 

@@ -7,9 +7,9 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCDtlsTransport`**-Schnittstelle bietet Zugriff auf Informationen über den Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**)-Transport, über den die [RTP](/de/docs/Glossary/RTP)- und [RTCP](/de/docs/Glossary/RTCP)-Pakete einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) von ihren [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)- und [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten gesendet und empfangen werden.
+Die **`RTCDtlsTransport`**-Schnittstelle bietet Zugriff auf Informationen über den Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**)-Transport, über den die {{Glossary("RTP", "RTP")}}- und {{Glossary("RTCP", "RTCP")}}-Pakete einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) von ihren [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender)- und [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver)-Objekten gesendet und empfangen werden.
 
-Ein `RTCDtlsTransport`-Objekt wird auch verwendet, um Informationen über [SCTP](/de/docs/Glossary/SCTP)-Pakete bereitzustellen, die von den [Datenkanälen](/de/docs/Web/API/RTCDataChannel) einer Verbindung übertragen und empfangen werden.
+Ein `RTCDtlsTransport`-Objekt wird auch verwendet, um Informationen über {{Glossary("SCTP", "SCTP")}}-Pakete bereitzustellen, die von den [Datenkanälen](/de/docs/Web/API/RTCDataChannel) einer Verbindung übertragen und empfangen werden.
 
 Eigenschaften des DTLS-Transports beinhalten die Hinzufügung von Sicherheit zum zugrunde liegenden Transport; die `RTCDtlsTransport`-Schnittstelle kann verwendet werden, um Informationen über den zugrunde liegenden Transport und die vom DTLS-Layer hinzugefügte Sicherheit zu erhalten.
 
@@ -22,7 +22,7 @@ _Erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 - [`iceTransport`](/de/docs/Web/API/RTCDtlsTransport/iceTransport) {{ReadOnlyInline}}
   - : Gibt eine Referenz auf das zugrunde liegende [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekt zurück.
 - [`state`](/de/docs/Web/API/RTCDtlsTransport/state) {{ReadOnlyInline}}
-  - : Liefert einen String, der den Zustand des zugrunde liegenden Datagram Transport Layer Security (**[DTLS](/de/docs/Glossary/DTLS)**)-Transports beschreibt. Es kann einen der folgenden Werte einnehmen: `new`, `connecting`, `connected`, `closed` oder `failed`.
+  - : Liefert einen String, der den Zustand des zugrunde liegenden Datagram Transport Layer Security (**{{Glossary("DTLS", "DTLS")}}**)-Transports beschreibt. Es kann einen der folgenden Werte einnehmen: `new`, `connecting`, `connected`, `closed` oder `failed`.
 
 ## Instanz-Methoden
 
@@ -74,7 +74,7 @@ Da Transporte früh im Verhandlungsprozess etabliert werden, ist es wahrscheinli
 
 ### Datenkanäle
 
-[`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s verwenden [SCTP](/de/docs/Glossary/SCTP) zur Kommunikation. Alle Datenkanäle einer Peer-Verbindung teilen sich einen einzigen [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), der in der [`sctp`](/de/docs/Web/API/RTCPeerConnection/sctp)-Eigenschaft der Verbindung zu finden ist.
+[`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel)s verwenden {{Glossary("SCTP", "SCTP")}} zur Kommunikation. Alle Datenkanäle einer Peer-Verbindung teilen sich einen einzigen [`RTCSctpTransport`](/de/docs/Web/API/RTCSctpTransport), der in der [`sctp`](/de/docs/Web/API/RTCPeerConnection/sctp)-Eigenschaft der Verbindung zu finden ist.
 
 Sie können wiederum den `RTCDtlsTransport` identifizieren, der verwendet wird, um die SCTP-Kommunikationen der Datenkanäle sicher zu kapseln, indem Sie die [`transport`](/de/docs/Web/API/RTCSctpTransport/transport)-Eigenschaft des `RTCSctpTransport`-Objekts betrachten.
 

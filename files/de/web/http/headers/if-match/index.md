@@ -22,10 +22,10 @@ Es gibt zwei gängige Anwendungsfälle:
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Request header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -41,7 +41,7 @@ If-Match: <etag_value>, <etag_value>, …
 ## Direktiven
 
 - `<etag_value>`
-  - : Entitätstags, die die angeforderten Ressourcen eindeutig repräsentieren. Sie sind eine Zeichenkette aus [ASCII](/de/docs/Glossary/ASCII)-Zeichen, die in doppelte Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`). Sie können durch `W/` vorangestellt werden, um anzuzeigen, dass sie "schwach" sind, d. h., dass sie die Ressource semantisch, aber nicht byteweise repräsentieren. In einem **`If-Match`**-Header werden schwache Entitätstags jedoch niemals übereinstimmen.
+  - : Entitätstags, die die angeforderten Ressourcen eindeutig repräsentieren. Sie sind eine Zeichenkette aus {{Glossary("ASCII", "ASCII")}}-Zeichen, die in doppelte Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`). Sie können durch `W/` vorangestellt werden, um anzuzeigen, dass sie "schwach" sind, d. h., dass sie die Ressource semantisch, aber nicht byteweise repräsentieren. In einem **`If-Match`**-Header werden schwache Entitätstags jedoch niemals übereinstimmen.
 - `*`
   - : Der Asterisk ist ein spezieller Wert, der jede Ressource repräsentiert. Beachten Sie, dass dies übereinstimmen muss, wenn der Ursprungsserver keine aktuelle Darstellung für die Zielressource hat, und zwar als `false` interpretiert wird.
 

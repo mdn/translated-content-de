@@ -10,7 +10,7 @@ l10n:
 
 Die **`HTMLAnchorElement.hash`**-Eigenschaft gibt einen String zurück, der ein `'#'` enthält, gefolgt vom Fragmentbezeichner der URL.
 
-Das Fragment ist [prozentkodiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
+Das Fragment ist {{Glossary("Percent-encoding", "prozentkodiert")}}. Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
 
 ## Wert
 

@@ -10,7 +10,7 @@ l10n:
 
 Die **`HTMLAreaElement.hash`**-Eigenschaft gibt eine Zeichenkette zurück, die ein `'#'` enthält, gefolgt vom Fragmentbezeichner der URL.
 
-Das Fragment ist nicht [percent-codiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
+Das Fragment ist nicht {{Glossary("Percent-encoding", "percent-codiert")}}. Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft eine leere Zeichenkette, `""`.
 
 ## Wert
 

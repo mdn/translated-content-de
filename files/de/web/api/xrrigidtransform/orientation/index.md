@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SecureContext_Header}}
 
-Die schreibgeschützte [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Eigenschaft **`orientation`** ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der einen normalisierten [Quaternion](/de/docs/Glossary/quaternion) (auch als **Einheitsquaternion** oder **[Versor](https://en.wikipedia.org/wiki/Versor)** bezeichnet) enthält, der die Rotationskomponente der vom Objekt dargestellten Transformation angibt. Wenn Sie einen Quaternion angeben, dessen Länge nicht genau 1,0 Meter beträgt, wird er für Sie normalisiert.
+Die schreibgeschützte [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Eigenschaft **`orientation`** ist ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), der einen normalisierten {{Glossary("quaternion", "Quaternion")}} (auch als **Einheitsquaternion** oder **[Versor](https://en.wikipedia.org/wiki/Versor)** bezeichnet) enthält, der die Rotationskomponente der vom Objekt dargestellten Transformation angibt. Wenn Sie einen Quaternion angeben, dessen Länge nicht genau 1,0 Meter beträgt, wird er für Sie normalisiert.
 
 ## Wert
 

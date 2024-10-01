@@ -10,7 +10,7 @@ l10n:
 
 Die **`hash`**-Eigenschaft der [`URL`](/de/docs/Web/API/URL)-Schnittstelle ist ein String, der ein `'#'` gefolgt von dem Fragmentbezeichner der URL enthält.
 
-Das Fragment wird nicht [prozentkodiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String — `""`.
+Das Fragment wird nicht {{Glossary("Percent-encoding", "prozentkodiert")}}. Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String — `""`.
 
 ## Wert
 

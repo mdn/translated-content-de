@@ -38,7 +38,7 @@ Siehe auch eine detaillierte Beschreibung, [wann verschiedene Browser verschiede
 
 ### XHTML
 
-Wenn Sie Ihre Seite als [XHTML](/de/docs/Glossary/XHTML) mit dem MIME-Type `application/xhtml+xml` im HTTP-Header `Content-Type` bereitstellen, benötigen Sie keinen Doctype, um den Standards-Modus zu aktivieren, da solche Dokumente immer den 'vollen Standards-Modus' verwenden.
+Wenn Sie Ihre Seite als {{Glossary("XHTML", "XHTML")}} mit dem MIME-Type `application/xhtml+xml` im HTTP-Header `Content-Type` bereitstellen, benötigen Sie keinen Doctype, um den Standards-Modus zu aktivieren, da solche Dokumente immer den 'vollen Standards-Modus' verwenden.
 
 Wenn Sie XHTML-ähnliche Inhalte mit dem MIME-Type `text/html` bereitstellen, lesen Browser es als HTML, und Sie benötigen den Doctype, um den Standards-Modus zu verwenden.
 

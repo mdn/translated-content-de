@@ -38,7 +38,7 @@ Die XML-Datei, die eine Suchmaschine beschreibt, folgt der nachstehenden Grundvo
 - Description
   - : Eine kurze Beschreibung der Suchmaschine. Sie muss aus **1024 oder weniger Zeichen** im Klartext bestehen, ohne HTML oder andere Markups.
 - InputEncoding
-  - : Die [Zeichenkodierung](/de/docs/Glossary/Character_encoding), die beim Übermitteln von Eingaben an die Suchmaschine verwendet werden soll.
+  - : Die {{Glossary("Character_encoding", "Zeichenkodierung")}}, die beim Übermitteln von Eingaben an die Suchmaschine verwendet werden soll.
 - Image
 
   - : URL eines Symbols für die Suchmaschine. Wenn möglich, fügen Sie ein 16×16-Bild des Typs `image/x-icon` (wie `/favicon.ico`) und ein 64×64-Bild des Typs `image/jpeg` oder `image/png` hinzu.
@@ -70,7 +70,7 @@ Die XML-Datei, die eine Suchmaschine beschreibt, folgt der nachstehenden Grundvo
 
     Für diese URL-Typen können Sie `{searchTerms}` verwenden, um die vom Benutzer in der Suchleiste oder Adressleiste eingegebenen Suchbegriffe zu ersetzen. Andere dynamische Suchparameter, die unterstützt werden, sind in [OpenSearch 1.1-Parameter](https://github.com/dewitt/opensearch/blob/master/opensearch-1-1-draft-6.md#opensearch-11-parameters) beschrieben.
 
-    Für Suchvorschläge wird die URL-Vorlage `application/x-suggestions+json` verwendet, um eine Vorschlagsliste im [JSON](/de/docs/Glossary/JSON)-Format abzurufen.
+    Für Suchvorschläge wird die URL-Vorlage `application/x-suggestions+json` verwendet, um eine Vorschlagsliste im {{Glossary("JSON", "JSON")}}-Format abzurufen.
 
 ## Autodiscovery von Such-Plugins
 
@@ -136,7 +136,7 @@ Wenn es einen Fehler in Ihrer Such-Plugin-XML gibt, könnten Sie auf Fehler sto�
 - Ihr Server sollte OpenSearch-Plugins mit `Content-Type: application/opensearchdescription+xml` bereitstellen.
 - Stellen Sie sicher, dass Ihre Such-Plugin-XML gut formatiert ist. Sie können dies überprüfen, indem Sie die Datei direkt in Firefox laden. Ampersands (&) im `template`-URL müssen als `&amp;` umgewandelt werden, und Tags müssen mit einem Schrägstrich oder einem passenden End-Tag geschlossen werden.
 - Das `xmlns`-Attribut ist wichtig — ohne dieses könnten Sie die Fehlermeldung "Firefox konnte das Such-Plugin nicht herunterladen" erhalten.
-- Sie **müssen** eine `text/html` URL einschließen — Such-Plugins, die nur Atom- oder [RSS](/de/docs/Glossary/RSS)-URL-Typen beinhalten (was gültig ist, aber Firefox nicht unterstützt), generieren ebenfalls den Fehler "konnte das Such-Plugin nicht herunterladen".
+- Sie **müssen** eine `text/html` URL einschließen — Such-Plugins, die nur Atom- oder {{Glossary("RSS", "RSS")}}-URL-Typen beinhalten (was gültig ist, aber Firefox nicht unterstützt), generieren ebenfalls den Fehler "konnte das Such-Plugin nicht herunterladen".
 - Remote abgerufene Favicons dürfen nicht größer als 10KB sein (siehe [Firefox-Bug 361923](https://bugzil.la/361923)).
 
 Darüber hinaus bietet der Such-Plugin-Dienst einen Logging-Mechanismus, der für Plugin-Entwickler nützlich sein kann. Verwenden Sie `about:config`, um die Einstellung `browser.search.log` auf `true` zu setzen. Dann erscheinen die Log-Informationen in der [Browser-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/browser_console/index.html) von Firefox (Extras ➤ Browser-Tools ➤ Browser-Konsole), wenn Such-Plugins hinzugefügt werden.

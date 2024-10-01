@@ -12,7 +12,7 @@ Das **Real-time Transport Protocol** (**RTP**), definiert in {{RFC(3550)}}, ist 
 > [!NOTE]
 > WebRTC verwendet tatsächlich **SRTP** (Secure Real-time Transport Protocol), um sicherzustellen, dass die ausgetauschten Daten entsprechend gesichert und authentifiziert sind.
 
-Die Minimierung der Latenz ist besonders wichtig für WebRTC, da die Kommunikation von Angesicht zu Angesicht mit so wenig [Latenz](/de/docs/Glossary/latency) wie möglich erfolgen muss. Je mehr Zeitverzögerung zwischen dem Sprechen eines Benutzers und dem Hören eines anderen besteht, desto wahrscheinlicher kommt es zu Übersprechen und anderen Verwirrungen.
+Die Minimierung der Latenz ist besonders wichtig für WebRTC, da die Kommunikation von Angesicht zu Angesicht mit so wenig {{Glossary("latency", "Latenz")}} wie möglich erfolgen muss. Je mehr Zeitverzögerung zwischen dem Sprechen eines Benutzers und dem Hören eines anderen besteht, desto wahrscheinlicher kommt es zu Übersprechen und anderen Verwirrungen.
 
 ## Hauptmerkmale von RTP
 
@@ -28,7 +28,7 @@ Die Hauptvorteile von RTP im Hinblick auf WebRTC umfassen:
 
 - Allgemein geringe Latenz.
 - Pakete sind mit einer Sequenznummer und einem Zeitstempel versehen, um sie bei einer falschen Reihenfolge wieder zusammenzusetzen. Dies ermöglicht, dass mit RTP gesendete Daten auf Übertragungen geliefert werden können, die keine Reihenfolge oder gar keine Lieferung garantieren.
-- Dies bedeutet, dass RTP über [UDP](/de/docs/Glossary/UDP) verwendet werden kann — aber nicht muss —, sowohl wegen seiner Leistung als auch wegen seiner Multiplex- und Prüfsummenfunktionen.
+- Dies bedeutet, dass RTP über {{Glossary("UDP", "UDP")}} verwendet werden kann — aber nicht muss —, sowohl wegen seiner Leistung als auch wegen seiner Multiplex- und Prüfsummenfunktionen.
 - RTP unterstützt Multicast; obwohl dies für WebRTC derzeit noch nicht wichtig ist, wird es in Zukunft von Bedeutung sein, wenn WebRTC (hoffentlich) um die Unterstützung von Mehrbenutzer-Konversationen erweitert wird.
 - RTP ist nicht auf die audiovisuelle Kommunikation beschränkt. Es kann für jede Form der kontinuierlichen oder aktiven Datenübertragung verwendet werden, einschließlich Daten-Streaming, aktiven Badges oder Statusanzeigeaktualisierungen oder Steuerungs- und Messinformationsübertragung.
 

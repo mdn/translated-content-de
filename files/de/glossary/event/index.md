@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Events sind Ereignisse, die von [DOM](/de/docs/Glossary/DOM)-Elementen generiert werden und durch JavaScript-Code manipuliert werden können.
+Events sind Ereignisse, die von {{Glossary("DOM", "DOM")}}-Elementen generiert werden und durch JavaScript-Code manipuliert werden können.
 
 ## Siehe auch
 

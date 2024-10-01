@@ -24,7 +24,7 @@ Sie können beliebigen Code innerhalb des Worker-Threads ausführen, mit einigen
 
 Daten werden über ein Nachrichtensystem zwischen Workern und dem Hauptthread gesendet — beide Seiten senden ihre Nachrichten mit der `postMessage()`-Methode und reagieren auf Nachrichten über den `onmessage`-Ereignishandler (die Nachricht ist im Datenattribut des [`message`](/de/docs/Web/API/Worker/message_event) Ereignisses enthalten). Die Daten werden kopiert und nicht geteilt.
 
-Worker können ihrerseits neue Worker erzeugen, solange diese Worker innerhalb desselben [origin](/de/docs/Glossary/origin) wie die übergeordnete Seite gehostet werden.
+Worker können ihrerseits neue Worker erzeugen, solange diese Worker innerhalb desselben {{Glossary("origin", "origin")}} wie die übergeordnete Seite gehostet werden.
 
 Zusätzlich können Worker Netzwerkanfragen verwenden mit den APIs [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) durchführen (beachten Sie jedoch, dass das Attribut [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML) von `XMLHttpRequest` immer `null` sein wird).
 

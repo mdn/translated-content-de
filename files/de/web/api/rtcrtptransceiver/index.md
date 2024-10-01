@@ -9,7 +9,7 @@ l10n:
 
 Das WebRTC-Interface **`RTCRtpTransceiver`** beschreibt eine dauerhafte Paarung eines [`RTCRtpSender`](/de/docs/Web/API/RTCRtpSender) und eines [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), zusammen mit einigen geteilten Zuständen.
 
-Jeder [SDP](/de/docs/Glossary/SDP)-Medienabschnitt beschreibt einen bidirektionalen SRTP- ("Secure Real Time Protocol") Stream (außer den Medienabschnitt für [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), falls vorhanden). Diese Paarung von Sende- und Empfangs-SRTP-Streams ist für einige Anwendungen von Bedeutung, daher wird `RTCRtpTransceiver` verwendet, um diese Paarung sowie andere wichtige Zustände aus dem Medienabschnitt darzustellen. Jeder nicht deaktivierte SRTP-Medienabschnitt wird immer durch genau einen Transceiver dargestellt.
+Jeder {{Glossary("SDP", "SDP")}}-Medienabschnitt beschreibt einen bidirektionalen SRTP- ("Secure Real Time Protocol") Stream (außer den Medienabschnitt für [`RTCDataChannel`](/de/docs/Web/API/RTCDataChannel), falls vorhanden). Diese Paarung von Sende- und Empfangs-SRTP-Streams ist für einige Anwendungen von Bedeutung, daher wird `RTCRtpTransceiver` verwendet, um diese Paarung sowie andere wichtige Zustände aus dem Medienabschnitt darzustellen. Jeder nicht deaktivierte SRTP-Medienabschnitt wird immer durch genau einen Transceiver dargestellt.
 
 Ein Transceiver wird eindeutig mithilfe seiner [`mid`](/de/docs/Web/API/RTCRtpTransceiver/mid)-Eigenschaft identifiziert, die identisch mit der Medien-ID (`mid`) seiner entsprechenden m-line ist. Ein `RTCRtpTransceiver` ist **assoziiert** mit einer m-line, wenn seine `mid` nicht null ist; andernfalls wird er als disassoziiert betrachtet.
 
@@ -31,7 +31,7 @@ Ein Transceiver wird eindeutig mithilfe seiner [`mid`](/de/docs/Web/API/RTCRtpTr
 ## Instanz-Methoden
 
 - [`setCodecPreferences()`](/de/docs/Web/API/RTCRtpTransceiver/setCodecPreferences)
-  - : Konfiguriert die bevorzugte Liste von Codecs des Transceivers und überschreibt damit die [User-Agent](/de/docs/Glossary/user_agent)-Einstellungen.
+  - : Konfiguriert die bevorzugte Liste von Codecs des Transceivers und überschreibt damit die {{Glossary("user_agent", "User-Agent")}}-Einstellungen.
 - [`stop()`](/de/docs/Web/API/RTCRtpTransceiver/stop)
   - : Stoppt den `RTCRtpTransceiver` dauerhaft. Der zugehörige Sender hört auf, Daten zu senden, und der zugehörige Empfänger hört ebenso auf, eingehende Daten zu empfangen und zu dekodieren.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("XMLHttpRequest API")}}
 
-Die W3C-[`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Spezifikation fügt Parsing-Unterstützung für [HTML](/de/docs/Web/HTML) in [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) hinzu, das ursprünglich nur Parsing für [XML](/de/docs/Glossary/XML) unterstützte. Diese Funktion ermöglicht es Webanwendungen, eine HTML-Ressource als geparsten [DOM](/de/docs/Glossary/DOM) mit `XMLHttpRequest` zu erhalten.
+Die W3C-[`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Spezifikation fügt Parsing-Unterstützung für [HTML](/de/docs/Web/HTML) in [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) hinzu, das ursprünglich nur Parsing für {{Glossary("XML", "XML")}} unterstützte. Diese Funktion ermöglicht es Webanwendungen, eine HTML-Ressource als geparsten {{Glossary("DOM", "DOM")}} mit `XMLHttpRequest` zu erhalten.
 
 Um einen Überblick über die allgemeine Verwendung von `XMLHttpRequest` zu erhalten, siehe [Using XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest).
 

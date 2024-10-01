@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`selectedcandidatepairchange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der [ICE](/de/docs/Glossary/ICE)-Agent ein neues Paar von Kandidaten auswählt, die die Endpunkte einer tragfähigen Verbindung beschreiben.
+Ein **`selectedcandidatepairchange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn der {{Glossary("ICE", "ICE")}}-Agent ein neues Paar von Kandidaten auswählt, die die Endpunkte einer tragfähigen Verbindung beschreiben.
 
 Das Paar von Kandidaten wird wiederum durch ein [`RTCIceCandidatePair`](/de/docs/Web/API/RTCIceCandidatePair)-Objekt beschrieben, das ein [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) enthält, welches das lokale Ende der Verbindung darstellt, und ein weiteres, das das entfernte Ende der Verbindung darstellt.
 

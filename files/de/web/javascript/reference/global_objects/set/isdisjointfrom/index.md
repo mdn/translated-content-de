@@ -41,7 +41,7 @@ Und mit einem Venn-Diagramm:
 `isDisjointFrom()` akzeptiert [set-ähnliche](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) Objekte als den `other` Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}} Instanz ist, da es die zugrunde liegenden Daten direkt aus `this` abruft, ohne benutzerdefinierten Code aufzurufen. Dann hängt sein Verhalten von der Größe von `this` und `other` ab:
 
 - Wenn es mehr Elemente in `this` als `other.size` gibt, werden die Elemente von `other` durch Aufruf der `keys()` Methode iteriert, und wenn irgendein Element in `other` in `this` vorhanden ist, gibt es `false` zurück (und schließt den `keys()` Iterator durch Aufruf der `return()` Methode). Andernfalls gibt es `true` zurück.
-- Andernfalls werden die Elemente in `this` durchlaufen, und `false` wird zurückgegeben, wenn irgendein Element `e` in `this` dazu führt, dass `other.has(e)` einen [truthy](/de/docs/Glossary/Truthy) Wert zurückgibt. Andernfalls gibt es `true` zurück.
+- Andernfalls werden die Elemente in `this` durchlaufen, und `false` wird zurückgegeben, wenn irgendein Element `e` in `this` dazu führt, dass `other.has(e)` einen {{Glossary("Truthy", "truthy")}} Wert zurückgibt. Andernfalls gibt es `true` zurück.
 
 Aufgrund dieser Implementierung hängt die Effizienz von `isDisjointFrom()` hauptsächlich von der Größe des kleineren Sets zwischen `this` und `other` ab (unter der Annahme, dass Sets in sublinearer Zeit zugänglich sind).
 

@@ -11,7 +11,7 @@ Polymorphismus ist die Bereitstellung einer Schnittstelle für mehrere Datentype
 
 Zum Beispiel sind Ganzzahlen, Gleitkommazahlen und Doppelte implizit polymorph: Unabhängig von ihren unterschiedlichen Typen können sie alle addiert, subtrahiert, multipliziert und so weiter werden.
 
-Im Falle der [OOP](/de/docs/Glossary/OOP), indem die [Klasse](/de/docs/Glossary/class) für ihren eigenen Code sowie ihre eigenen Daten verantwortlich gemacht wird, kann Polymorphismus erreicht werden, indem jede Klasse ihre eigene [Funktion](/de/docs/Glossary/function) hat, die (einmal aufgerufen) für jedes [Objekt](/de/docs/Glossary/object) korrekt funktioniert.
+Im Falle der {{Glossary("OOP", "OOP")}}, indem die {{Glossary("class", "Klasse")}} für ihren eigenen Code sowie ihre eigenen Daten verantwortlich gemacht wird, kann Polymorphismus erreicht werden, indem jede Klasse ihre eigene {{Glossary("function", "Funktion")}} hat, die (einmal aufgerufen) für jedes {{Glossary("object", "Objekt")}} korrekt funktioniert.
 
 ## Siehe auch
 

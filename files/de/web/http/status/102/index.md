@@ -11,7 +11,7 @@ Der HTTP-Statuscode **`102 Processing`** [informational response](/de/docs/Web/H
 
 > [!NOTE]
 > Reguläre Webserver geben diese Antwort nicht zurück.
-> Dieser Statuscode wurde zuerst in der Web Distributed Authoring and Versioning ([WebDAV](/de/docs/Glossary/WebDAV)) {{RFC("2518")}} eingeführt, aber in {{RFC("4918")}} aus WebDAV entfernt.
+> Dieser Statuscode wurde zuerst in der Web Distributed Authoring and Versioning ({{Glossary("WebDAV", "WebDAV")}}) {{RFC("2518")}} eingeführt, aber in {{RFC("4918")}} aus WebDAV entfernt.
 
 ## Status
 

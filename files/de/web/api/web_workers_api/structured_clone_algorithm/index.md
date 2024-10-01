@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Web Workers API") }}
 
-Der **strukturelle Klon-Algorithmus** kopiert komplexe JavaScript-Objekte. Er wird intern verwendet, wenn [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone) aufgerufen wird, um Daten zwischen [Workers](/de/docs/Web/API/Worker) über [`postMessage()`](/de/docs/Web/API/Worker/postMessage) zu übertragen, Objekte mit [IndexedDB](/de/docs/Glossary/IndexedDB) zu speichern oder Objekte für [andere APIs](#siehe_auch) zu kopieren.
+Der **strukturelle Klon-Algorithmus** kopiert komplexe JavaScript-Objekte. Er wird intern verwendet, wenn [`structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone) aufgerufen wird, um Daten zwischen [Workers](/de/docs/Web/API/Worker) über [`postMessage()`](/de/docs/Web/API/Worker/postMessage) zu übertragen, Objekte mit {{Glossary("IndexedDB", "IndexedDB")}} zu speichern oder Objekte für [andere APIs](#siehe_auch) zu kopieren.
 
 Es wird durch das Eingabeobjekt rekursiv geklont, während eine Karte der zuvor besuchten Referenzen beibehalten wird, um endloses Durchlaufen von Zyklen zu vermeiden.
 

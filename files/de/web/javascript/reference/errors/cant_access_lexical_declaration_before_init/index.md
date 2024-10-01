@@ -27,7 +27,7 @@ Auf eine lexikalische Variable wurde zugegriffen, bevor sie initialisiert wurde.
 
 Beachten Sie, dass die Reihenfolge des Zugriffs und der Variablendeklaration entscheidend ist, nicht die Reihenfolge, in der die Anweisungen im Code erscheinen. Für weitere Informationen siehe die Beschreibung der [Temporal Dead Zone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz).
 
-Dieses Problem tritt nicht bei Variablen auf, die mit `var` deklariert sind, da diese beim [Hoisting](/de/docs/Glossary/Hoisting) mit einem Standardwert von `undefined` initialisiert werden.
+Dieses Problem tritt nicht bei Variablen auf, die mit `var` deklariert sind, da diese beim {{Glossary("Hoisting", "Hoisting")}} mit einem Standardwert von `undefined` initialisiert werden.
 
 Dieser Fehler kann auch bei [zyklischen Imports](/de/docs/Web/JavaScript/Guide/Modules#cyclic_imports) auftreten, wenn ein Modul eine Variable verwendet, die davon abhängt, dass das Modul selbst ausgewertet wird.
 

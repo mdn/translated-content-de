@@ -21,7 +21,7 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie we
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung der Tabelle innerhalb ihres übergeordneten Elements an. Die möglichen [enumerierten](/de/docs/Glossary/enumerated) Werte sind `left`, `center` und `right`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung der Tabelle innerhalb ihres übergeordneten Elements an. Die möglichen {{Glossary("enumerated", "enumerierten")}} Werte sind `left`, `center` und `right`. Verwenden Sie stattdessen die CSS-Eigenschaften {{cssxref("margin-inline-start")}} und {{cssxref("margin-inline-end")}}, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
 
@@ -41,11 +41,11 @@ Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie we
 
 - `frame` {{deprecated_inline}}
 
-  - : Definiert, welche Seite des Rahmens um die Tabelle angezeigt werden muss. Mögliche [enumerierte](/de/docs/Glossary/enumerated) Werte sind `void`, `above`, `below`, `hsides`, `vsides`, `lhs`, `rhs`, `box` und `border`. Verwenden Sie die CSS-Eigenschaften {{cssxref("border-style")}} und {{cssxref("border-width")}}, da dieses Attribut veraltet ist.
+  - : Definiert, welche Seite des Rahmens um die Tabelle angezeigt werden muss. Mögliche {{Glossary("enumerated", "enumerierte")}} Werte sind `void`, `above`, `below`, `hsides`, `vsides`, `lhs`, `rhs`, `box` und `border`. Verwenden Sie die CSS-Eigenschaften {{cssxref("border-style")}} und {{cssxref("border-width")}}, da dieses Attribut veraltet ist.
 
 - `rules` {{deprecated_inline}}
 
-  - : Definiert, wo Regeln (Rahmen) in der Tabelle angezeigt werden. Mögliche [enumerierte](/de/docs/Glossary/enumerated) Werte sind `none` (Standardwert), `groups` ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}}-Elemente), `rows` (horizontale Linien), `cols` (vertikale Linien) und `all` (Rahmen um jede Zelle). Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("border")}} auf den entsprechenden tabellenbezogenen Elementen sowie auf dem `<table>` selbst, da dieses Attribut veraltet ist.
+  - : Definiert, wo Regeln (Rahmen) in der Tabelle angezeigt werden. Mögliche {{Glossary("enumerated", "enumerierte")}} Werte sind `none` (Standardwert), `groups` ({{HTMLElement("thead")}}, {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}}-Elemente), `rows` (horizontale Linien), `cols` (vertikale Linien) und `all` (Rahmen um jede Zelle). Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("border")}} auf den entsprechenden tabellenbezogenen Elementen sowie auf dem `<table>` selbst, da dieses Attribut veraltet ist.
 
 - `summary` {{deprecated_inline}}
 
@@ -128,9 +128,9 @@ Die folgenden Beispiele umfassen Tabellen mit fortschreitend zunehmender Komplex
 
 Da die Struktur eines `<table>` die Verwendung mehrerer tabellenbezogener HTML-Elemente zusammen mit verschiedenen zugehörigen Attributen beinhaltet, sollen die folgenden Beispiele eine vereinfachte Erklärung liefern, die die Grundlagen und gängigen Standards abdeckt. Weitere und detailliertere Informationen sind auf den entsprechenden verlinkten Seiten zu finden.
 
-Diese Tabellenbeispiele zeigen, wie man eine [barrierefreie](/de/docs/Glossary/accessibility) Tabelle erstellt, die mit HTML strukturiert und mit [CSS](/de/docs/Web/CSS) gestaltet wird.
+Diese Tabellenbeispiele zeigen, wie man eine {{Glossary("accessibility", "barrierefreie")}} Tabelle erstellt, die mit HTML strukturiert und mit [CSS](/de/docs/Web/CSS) gestaltet wird.
 
-Aufgrund der Struktur von HTML-Tabellen kann das [Markup](/de/docs/Glossary/markup) schnell wachsen. Daher ist es wichtig, den Zweck und das endgültige Erscheinungsbild der Tabelle klar zu definieren, um die geeignete Struktur zu erstellen. Eine logische Struktur, die mit [semantischem](/de/docs/Glossary/semantics) Markup entwickelt wurde, ist nicht nur leichter zu gestalten, sondern ermöglicht auch nützliche und zugängliche Tabellen, die von allen verstanden und navigiert werden können, einschließlich Suchmaschinen und Benutzern von Assistive-Technologien.
+Aufgrund der Struktur von HTML-Tabellen kann das {{Glossary("markup", "Markup")}} schnell wachsen. Daher ist es wichtig, den Zweck und das endgültige Erscheinungsbild der Tabelle klar zu definieren, um die geeignete Struktur zu erstellen. Eine logische Struktur, die mit {{Glossary("semantics", "semantischem")}} Markup entwickelt wurde, ist nicht nur leichter zu gestalten, sondern ermöglicht auch nützliche und zugängliche Tabellen, die von allen verstanden und navigiert werden können, einschließlich Suchmaschinen und Benutzern von Assistive-Technologien.
 
 Das erste Beispiel ist einfach, während die folgenden Beispiele an Komplexität zunehmen. Zuerst werden wir eine sehr einfache HTML-Tabellenstruktur für die Tabelle erstellen. Die ersten beiden Beispiele enthalten keine Tabellensektionsgruppen wie einen definierten Kopf, Körper oder Fuß und beinhalten kein Zellspannern oder explizit definierte Zellbeziehungen. Es wird nicht einmal eine Beschreibung bereitgestellt. Während wir die Beispiele durcharbeiten, werden sie schrittweise verbessert, um alle Tabelleneigenschaften zu umfassen, die eine komplexe Datentabelle aufweisen sollte.
 
@@ -223,7 +223,7 @@ td {
 
 ### Spezifizieren von Tabellenzellbeziehungen
 
-Bevor wir weitermachen, um die Tabelle auf fortgeschrittenere Weise zu erweitern, empfiehlt es sich, die [Barrierefreiheit](/de/docs/Glossary/accessibility) zu verbessern, indem Beziehungen zwischen Header- und Datenzellen ({{HTMLElement("th")}}- und {{HTMLElement("td")}}-Elemente) definiert werden.
+Bevor wir weitermachen, um die Tabelle auf fortgeschrittenere Weise zu erweitern, empfiehlt es sich, die {{Glossary("accessibility", "Barrierefreiheit")}} zu verbessern, indem Beziehungen zwischen Header- und Datenzellen ({{HTMLElement("th")}}- und {{HTMLElement("td")}}-Elemente) definiert werden.
 
 #### HTML
 
@@ -265,7 +265,7 @@ Das CSS und das visuelle Ergebnis bleiben unverändert – die Anpassung liefert
 
 ### Explizite Spezifikation von Tabellensektionsgruppen
 
-Zusätzlich zur Verbesserung der Barrierefreiheit durch [Spezifizieren von Zellbeziehungen](#spezifizieren_von_tabellenzellbeziehungen) kann die [Semantik](/de/docs/Glossary/semantics) der Tabelle durch Einführung von Tabellensektionsgruppen verbessert werden.
+Zusätzlich zur Verbesserung der Barrierefreiheit durch [Spezifizieren von Zellbeziehungen](#spezifizieren_von_tabellenzellbeziehungen) kann die {{Glossary("semantics", "Semantik")}} der Tabelle durch Einführung von Tabellensektionsgruppen verbessert werden.
 
 #### HTML
 
@@ -383,7 +383,7 @@ Es ist eine gängige und empfohlene Praxis, eine Zusammenfassung des Tabelleninh
 
 #### HTML
 
-Eine Tabellenzusammenfassung wird hinzugefügt, indem eine Tabellen[caption](#beschreibungen) ({{HTMLElement("caption")}}-Element) als erstes Kindelement der `<table>` hinzugefügt wird. Die Caption bietet die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) für die Tabelle.
+Eine Tabellenzusammenfassung wird hinzugefügt, indem eine Tabellen[caption](#beschreibungen) ({{HTMLElement("caption")}}-Element) als erstes Kindelement der `<table>` hinzugefügt wird. Die Caption bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für die Tabelle.
 
 Schließlich wird ein Tabellenfuß ({{HTMLElement("tfoot")}}-Element) unterhalb des Körpers hinzugefügt, mit einer Zeile, die die "Balance"-Spalte zusammenfasst, indem eine Summe angezeigt wird. Die zuvor eingeführten Elemente und Attribute werden angewendet.
 

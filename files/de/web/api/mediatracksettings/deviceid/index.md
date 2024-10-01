@@ -12,7 +12,7 @@ Das **`deviceId`**-Attribut des [`MediaTrackSettings`](/de/docs/Web/API/MediaTra
 
 Falls erforderlich, können Sie überprüfen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.deviceId`](/de/docs/Web/API/MediaTrackSupportedConstraints/deviceId) prüfen, wie er von einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. In der Regel ist dies jedoch nicht notwendig, da Browser alle ihnen unbekannten Einschränkungen ignorieren.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Information nicht enthält, werden zu einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gehörende Tracks niemals diese Eigenschaft enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Information nicht enthält, werden zu einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gehörende Tracks niemals diese Eigenschaft enthalten.
 
 ## Wert
 

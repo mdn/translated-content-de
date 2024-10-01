@@ -12,7 +12,7 @@ Das **`echoCancellation`**-Eigenschaftslexikon [der `MediaTrackConstraints`](/de
 
 Falls erforderlich, können Sie feststellen, ob diese Einschränkung unterstützt wird, indem Sie den Wert von [`MediaTrackSupportedConstraints.echoCancellation`](/de/docs/Web/API/MediaTrackSupportedConstraints/echoCancellation) überprüfen, wie er von einem Aufruf von [`MediaDevices.getSupportedConstraints()`](/de/docs/Web/API/MediaDevices/getSupportedConstraints) zurückgegeben wird. Typischerweise ist dies jedoch unnötig, da Browser alle Einschränkungen ignorieren, die ihnen unbekannt sind.
 
-Da [RTP](/de/docs/Glossary/RTP) diese Informationen nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft niemals enthalten.
+Da {{Glossary("RTP", "RTP")}} diese Informationen nicht enthält, werden Tracks, die mit einer [WebRTC](/de/docs/Web/API/WebRTC_API) [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) verbunden sind, diese Eigenschaft niemals enthalten.
 
 ## Wert
 

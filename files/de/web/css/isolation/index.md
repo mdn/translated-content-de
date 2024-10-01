@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`isolation`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, ob ein Element einen neuen [Stacking-Kontext](/de/docs/Glossary/stacking_context) erstellen muss.
+Die **`isolation`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt, ob ein Element einen neuen {{Glossary("stacking_context", "Stacking-Kontext")}} erstellen muss.
 
 {{EmbedInteractiveExample("pages/css/isolation.html")}}
 

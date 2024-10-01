@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Mathematical Markup Language — oder [MathML](/de/docs/Glossary/MathML) — ist die Markup-Sprache, die verwendet wird, um mathematische Formeln in Webseiten zu schreiben, einschließlich Brüchen, Indizes, Radikalen, Matrizen, Integralen, Reihen usw. Obwohl sie ursprünglich als eigenständige XML-Sprache entwickelt wurde, wird MathML in der Regel in [HTML](/de/docs/Glossary/HTML)-Dokumente eingebettet und kann als Erweiterung von HTML angesehen werden.
+Mathematical Markup Language — oder {{Glossary("MathML", "MathML")}} — ist die Markup-Sprache, die verwendet wird, um mathematische Formeln in Webseiten zu schreiben, einschließlich Brüchen, Indizes, Radikalen, Matrizen, Integralen, Reihen usw. Obwohl sie ursprünglich als eigenständige XML-Sprache entwickelt wurde, wird MathML in der Regel in {{Glossary("HTML", "HTML")}}-Dokumente eingebettet und kann als Erweiterung von HTML angesehen werden.
 
 > [!WARNING]
 > In der Praxis wird MathML-Inhalt aus [leichtgewichtigen Markup-Sprachen](https://en.wikipedia.org/wiki/Lightweight_markup_language) (z.B. [LaTeX](https://en.wikipedia.org/wiki/LaTeX)) oder mit Hilfe von [grafischen Benutzeroberflächen](https://en.wikipedia.org/wiki/Graphical_user_interface) erzeugt: Wenn Sie lediglich mathematische Formeln in Ihre Webseiten integrieren möchten, sollten die Tipps auf der Seite [MathML-Autorenschaft](/de/docs/Web/MathML/Authoring) ausreichend sein.

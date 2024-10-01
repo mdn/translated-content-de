@@ -10,7 +10,7 @@ l10n:
 
 Die **`addStream()`**-Methode der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Schnittstelle fügt einen [`MediaStream`](/de/docs/Web/API/MediaStream) als lokale Audio- oder Videoquelle hinzu. Anstatt diese veraltete Methode zu verwenden, sollten Sie stattdessen für jede Spur, die Sie an den entfernten Peer senden möchten, [`addTrack()`](/de/docs/Web/API/RTCPeerConnection/addTrack) verwenden.
 
-Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `closed` gesetzt ist, wird ein `InvalidStateError` ausgelöst. Ist der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `stable` gesetzt, wird das Ereignis [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um anzuzeigen, dass die [ICE](/de/docs/Glossary/ICE)-Aushandlung wiederholt werden muss, um den neuen Stream zu berücksichtigen.
+Wenn der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `closed` gesetzt ist, wird ein `InvalidStateError` ausgelöst. Ist der [`signalingState`](/de/docs/Web/API/RTCPeerConnection/signalingState) auf `stable` gesetzt, wird das Ereignis [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, um anzuzeigen, dass die {{Glossary("ICE", "ICE")}}-Aushandlung wiederholt werden muss, um den neuen Stream zu berücksichtigen.
 
 ## Syntax
 

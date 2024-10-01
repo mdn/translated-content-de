@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-column-end`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Endposition eines Grid-Elements innerhalb der Grid-Spalte, indem sie zu ihrer Gitterplatzierung eine Linie, eine Spannweite oder nichts (automatisch) beiträgt und dabei die Block-Endkante ihres [Gitterbereichs](/de/docs/Glossary/grid_areas) bestimmt.
+Die **`grid-column-end`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die Endposition eines Grid-Elements innerhalb der Grid-Spalte, indem sie zu ihrer Gitterplatzierung eine Linie, eine Spannweite oder nichts (automatisch) beiträgt und dabei die Block-Endkante ihres {{Glossary("grid_areas", "Gitterbereichs")}} bestimmt.
 
 {{EmbedInteractiveExample("pages/css/grid-column-end.html")}}
 

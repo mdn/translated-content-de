@@ -11,7 +11,7 @@ Die **`TRACE`** HTTP-Methode führt einen Nachrichtenschleifen-Test entlang des 
 
 Der finale Empfänger der Anfrage sollte die empfangene Nachricht (ausgenommen Felder, die sensible Daten enthalten könnten) als Nachrichtentext einer {{HTTPStatus("200", "200 OK")}}-Antwort mit einem {{HTTPHeader("Content-Type")}} von `message/http` an den Client zurückspiegeln. Der finale Empfänger ist entweder der Ursprungsserver oder der erste Server, der einen {{HTTPHeader("Max-Forwards")}}-Wert von `0` in der Anfrage erhält.
 
-Der Client darf keine [Inhalte](/de/docs/Glossary/HTTP_Content) in der Anfrage senden oder Header generieren, die sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten könnten. Nicht alle Server implementieren die `TRACE`-Methode, und einige Serverbetreiber haben die Verwendung der `TRACE`-Methode aufgrund von Sicherheitsbedenken historisch untersagt. In solchen Fällen wird eine {{HTTPStatus("405", "405 Method Not Allowed")}} [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gesendet.
+Der Client darf keine {{Glossary("HTTP_Content", "Inhalte")}} in der Anfrage senden oder Header generieren, die sensible Daten wie Benutzeranmeldedaten oder Cookies enthalten könnten. Nicht alle Server implementieren die `TRACE`-Methode, und einige Serverbetreiber haben die Verwendung der `TRACE`-Methode aufgrund von Sicherheitsbedenken historisch untersagt. In solchen Fällen wird eine {{HTTPStatus("405", "405 Method Not Allowed")}} [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) gesendet.
 
 <table class="properties">
   <tbody>
@@ -24,15 +24,15 @@ Der Client darf keine [Inhalte](/de/docs/Glossary/HTTP_Content) in der Anfrage s
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
       <td>Nein</td>
     </tr>
     <tr>

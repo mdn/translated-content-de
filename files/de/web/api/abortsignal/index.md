@@ -16,7 +16,7 @@ Die **`AbortSignal`**-Schnittstelle repräsentiert ein Signalobjekt, das es Ihne
 _Erbt auch Eigenschaften von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`AbortSignal.aborted`](/de/docs/Web/API/AbortSignal/aborted) {{ReadOnlyInline}}
-  - : Ein [Boolean](/de/docs/Glossary/Boolean), das angibt, ob die Anfrage(n), mit der(en) das Signal kommuniziert, abgebrochen ist/sind (`true`) oder nicht (`false`).
+  - : Ein {{Glossary("Boolean", "Boolean")}}, das angibt, ob die Anfrage(n), mit der(en) das Signal kommuniziert, abgebrochen ist/sind (`true`) oder nicht (`false`).
 - [`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason) {{ReadOnlyInline}}
   - : Ein JavaScript-Wert, der den Abbruchgrund angibt, sobald das Signal abgebrochen wurde.
 

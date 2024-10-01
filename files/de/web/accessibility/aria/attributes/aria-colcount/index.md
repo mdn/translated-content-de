@@ -7,7 +7,7 @@ l10n:
 
 {{AccessibilitySidebar}}
 
-Das Attribut `aria-colcount` definiert die Gesamtanzahl der Spalten in einer [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), einem [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role), wenn nicht alle Spalten im [DOM](/de/docs/Glossary/DOM) vorhanden sind.
+Das Attribut `aria-colcount` definiert die Gesamtanzahl der Spalten in einer [`table`](/de/docs/Web/Accessibility/ARIA/Roles/table_role), einem [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder einem [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role), wenn nicht alle Spalten im {{Glossary("DOM", "DOM")}} vorhanden sind.
 
 ## Beschreibung
 

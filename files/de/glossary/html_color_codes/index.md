@@ -24,6 +24,6 @@ Um Web-Farben auf MDN nachzuschlagen, sehen Sie sich unsere CSS {{cssxref("&lt;c
 - Farbnamen: {{cssxref("&lt;named-color&gt;")}}.
 - Hexadezimale Notationen: {{cssxref("&lt;hex-color&gt;")}}.
 - Farb-Funktionen:
-  - [sRGB](/de/docs/Glossary/Color_space#rgb_color_spaces) Farbraum: {{CSSXref("color_value/hsl", "hsl()")}}, {{CSSXref("color_value/hwb", "hwb()")}}, und {{CSSXref("color_value/rgb", "rgb()")}}.
-  - [CIELAB](/de/docs/Glossary/Color_space#cielab_color_spaces) Farbraum: {{CSSXref("color_value/lab", "lab()")}} und {{CSSXref("color_value/lch", "lch()")}}, {{CSSXref("color_value/oklab", "oklab()")}}, und {{CSSXref("color_value/oklch", "oklch()")}}.
+  - {{Glossary("Color_space#rgb_color_spaces", "sRGB")}} Farbraum: {{CSSXref("color_value/hsl", "hsl()")}}, {{CSSXref("color_value/hwb", "hwb()")}}, und {{CSSXref("color_value/rgb", "rgb()")}}.
+  - {{Glossary("Color_space#cielab_color_spaces", "CIELAB")}} Farbraum: {{CSSXref("color_value/lab", "lab()")}} und {{CSSXref("color_value/lch", "lch()")}}, {{CSSXref("color_value/oklab", "oklab()")}}, und {{CSSXref("color_value/oklch", "oklch()")}}.
   - Andere Farbräume: {{CSSXref("color_value/color", "color()")}}.

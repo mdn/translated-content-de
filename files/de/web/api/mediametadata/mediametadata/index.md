@@ -35,7 +35,7 @@ new MediaMetadata(metadata)
         - `sizes` {{optional_inline}}
           - : Gibt die Ressource in mehreren Größen an, sodass der Benutzeragent nicht ein einzelnes Bild skalieren muss. Der Standardwert ist der leere String (`""`).
         - `type` {{optional_inline}}
-          - : Der [MIME-Typ](/de/docs/Glossary/MIME_type) Hinweis für den Benutzeragenten, der es ihm ermöglicht, Bilder von Typen zu ignorieren, die er nicht unterstützt. Der Benutzeragent kann jedoch nach dem Herunterladen des Bildes immer noch MIME-Typ-Sniffing verwenden, um seinen Typ zu bestimmen. Der Standardwert ist der leere String (`""`).
+          - : Der {{Glossary("MIME_type", "MIME-Typ")}} Hinweis für den Benutzeragenten, der es ihm ermöglicht, Bilder von Typen zu ignorieren, die er nicht unterstützt. Der Benutzeragent kann jedoch nach dem Herunterladen des Bildes immer noch MIME-Typ-Sniffing verwenden, um seinen Typ zu bestimmen. Der Standardwert ist der leere String (`""`).
     - `chapterInfo` {{optional_inline}}
       - : Ein Array von [`ChapterInformation`](/de/docs/Web/API/ChapterInformation) Objektinstanzen, die die Kapitelinformations-Metadaten darstellen, die mit dem Medium verknüpft sind. Die Struktur des Objekts ist:
         - `artwork` {{optional_inline}}

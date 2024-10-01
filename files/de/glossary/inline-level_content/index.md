@@ -46,6 +46,6 @@ body {
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Block-Level Inhalt](/de/docs/Glossary/Block-level_content)
+  - {{Glossary("Block-level_content", "Block-Level Inhalt")}}
 - [Inline-Formatierungskontext](/de/docs/Web/CSS/Inline_formatting_context)
 - {{cssxref("display")}}

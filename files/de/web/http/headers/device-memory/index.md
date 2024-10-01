@@ -14,12 +14,12 @@ Der **`Device-Memory`** [device client hint](/de/docs/Web/HTTP/Client_hints#devi
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anforderungsheader](/de/docs/Glossary/Request_header),
+        {{Glossary("Request_header", "Anforderungsheader")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -42,7 +42,7 @@ Device-Memory: <number>
 - `<number>`
   - : Die ungefähre Menge an Gerätespeicher. Mögliche Werte sind: `0.25`, `0.5`, `1`, `2`, `4`, `8`.
 
-Die Menge an Gerätespeicher kann als [Fingerabdruck](/de/docs/Glossary/fingerprinting) verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Missbrauchspotential zu reduzieren.
+Die Menge an Gerätespeicher kann als {{Glossary("fingerprinting", "Fingerabdruck")}} verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Missbrauchspotential zu reduzieren.
 
 ## Beispiele
 

@@ -7,17 +7,17 @@ l10n:
 
 {{GlossarySidebar}}
 
-**[CSP](/de/docs/Glossary/CSP) Reporting-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}} Header verwendet und steuern den Berichterstattungsprozess von CSP-Verletzungen.
+**{{Glossary("CSP", "CSP")}} Reporting-Direktiven** werden in einem {{HTTPHeader("Content-Security-Policy")}} Header verwendet und steuern den Berichterstattungsprozess von CSP-Verletzungen.
 
 Siehe [Reporting directives](/de/docs/Web/HTTP/Headers/Content-Security-Policy#reporting_directives) für eine vollständige Liste.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [CSP](/de/docs/Glossary/CSP)
-  - [Fetch directive](/de/docs/Glossary/Fetch_directive)
-  - [Document directive](/de/docs/Glossary/Document_directive)
-  - [Navigation directive](/de/docs/Glossary/Navigation_directive)
+  - {{Glossary("CSP", "CSP")}}
+  - {{Glossary("Fetch_directive", "Fetch directive")}}
+  - {{Glossary("Document_directive", "Document directive")}}
+  - {{Glossary("Navigation_directive", "Navigation directive")}}
 - Referenz
   - <https://www.w3.org/TR/CSP/#directives-reporting>
   - {{HTTPHeader("Content-Security-Policy/upgrade-insecure-requests", "upgrade-insecure-requests")}}

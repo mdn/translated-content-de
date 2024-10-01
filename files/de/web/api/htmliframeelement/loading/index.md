@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`loading`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle ist ein String, der dem [Benutzeragenten](/de/docs/Glossary/user_agent) einen Hinweis darauf gibt, ob das [iframe](/de/docs/Web/HTML/Element/iframe) sofort beim Laden der Seite oder nur bei Bedarf geladen werden soll.
+Die **`loading`**-Eigenschaft der [`HTMLIFrameElement`](/de/docs/Web/API/HTMLIFrameElement)-Schnittstelle ist ein String, der dem {{Glossary("user_agent", "Benutzeragenten")}} einen Hinweis darauf gibt, ob das [iframe](/de/docs/Web/HTML/Element/iframe) sofort beim Laden der Seite oder nur bei Bedarf geladen werden soll.
 
-Dies kann genutzt werden, um das Laden der Inhalte des Dokuments zu optimieren. Iframes, die beim Laden der Seite sichtbar sind, können sofort (eifrig) heruntergeladen werden, während Iframes, die wahrscheinlich außerhalb des Bildschirms sind, beim ersten Laden der Seite langsam geladen werden können – kurz bevor sie im [visuellen Ansichtsfenster](/de/docs/Glossary/visual_viewport) des Fensters erscheinen.
+Dies kann genutzt werden, um das Laden der Inhalte des Dokuments zu optimieren. Iframes, die beim Laden der Seite sichtbar sind, können sofort (eifrig) heruntergeladen werden, während Iframes, die wahrscheinlich außerhalb des Bildschirms sind, beim ersten Laden der Seite langsam geladen werden können – kurz bevor sie im {{Glossary("visual_viewport", "visuellen Ansichtsfenster")}} des Fensters erscheinen.
 
 ## Wert
 

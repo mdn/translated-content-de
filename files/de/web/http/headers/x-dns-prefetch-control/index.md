@@ -11,7 +11,7 @@ Der **`X-DNS-Prefetch-Control`** HTTP-Antwort-Header steuert
 das DNS-Prefetching, eine Funktion, bei der Browser proaktiv die Domainnamenauflösung
 für Links durchführen, denen der Benutzer möglicherweise folgen möchte, sowie für URLs von Elementen, auf die im Dokument verwiesen wird, einschließlich Bilder, CSS, JavaScript usw.
 
-Dieses Prefetching wird im Hintergrund durchgeführt, so dass das [DNS](/de/docs/Glossary/DNS)
+Dieses Prefetching wird im Hintergrund durchgeführt, so dass das {{Glossary("DNS", "DNS")}}
 vermutlich aufgelöst ist, wenn die referenzierten Elemente benötigt werden. Dies reduziert
 die Latenz, wenn der Benutzer auf einen Link klickt.
 
@@ -19,10 +19,10 @@ die Latenz, wenn der Benutzer auf einen Link klickt.
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -54,7 +54,7 @@ Seitenladezeiten können auf diese Weise – insbesondere in mobilen Netzwerken 
 
 Im Allgemeinen müssen Sie nichts tun, um Prefetching zu verwalten. Allerdings möchte der Benutzer möglicherweise das Prefetching deaktivieren. In Firefox kann dies durch Setzen der Einstellung `network.dns.disablePrefetch` auf `true` erreicht werden.
 
-Auch wird standardmäßig das Prefetching von eingebetteten Link-Hostnamen nicht bei Dokumenten durchgeführt, die über [HTTPS](/de/docs/Glossary/HTTPS) geladen werden. In Firefox kann dies geändert werden, indem die Einstellung `network.dns.disablePrefetchFromHTTPS` auf `false` gesetzt wird.
+Auch wird standardmäßig das Prefetching von eingebetteten Link-Hostnamen nicht bei Dokumenten durchgeführt, die über {{Glossary("HTTPS", "HTTPS")}} geladen werden. In Firefox kann dies geändert werden, indem die Einstellung `network.dns.disablePrefetchFromHTTPS` auf `false` gesetzt wird.
 
 ## Beispiele
 

@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<script>`**-Element von [HTML](/de/docs/Web/HTML) wird verwendet, um ausführbaren Code oder Daten einzubetten; in der Regel wird es verwendet, um JavaScript-Code einzubetten oder darauf zu verweisen. Das `<script>`-Element kann auch mit anderen Sprachen verwendet werden, wie etwa der GLSL-Shader-Programmiersprache von [WebGL](/de/docs/Web/API/WebGL_API) und [JSON](/de/docs/Glossary/JSON).
+Das **`<script>`**-Element von [HTML](/de/docs/Web/HTML) wird verwendet, um ausführbaren Code oder Daten einzubetten; in der Regel wird es verwendet, um JavaScript-Code einzubetten oder darauf zu verweisen. Das `<script>`-Element kann auch mit anderen Sprachen verwendet werden, wie etwa der GLSL-Shader-Programmiersprache von [WebGL](/de/docs/Web/API/WebGL_API) und {{Glossary("JSON", "JSON")}}.
 
 ## Attribute
 
@@ -61,7 +61,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     - `render`: Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
 
 - [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)
-  - : Normale `script`-Elemente geben minimal Informationen an das [`window.onerror`](/de/docs/Web/API/Window/error_event) weiter für Skripte, die die Standard-[CORS](/de/docs/Glossary/CORS)-Prüfungen nicht bestehen. Um Fehlerprotokollierung für Seiten zu ermöglichen, die eine separate Domain für statische Medien verwenden, verwenden Sie dieses Attribut. Siehe [CORS Einstellungen der Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für eine ausführlichere Erklärung seiner gültigen Argumente.
+  - : Normale `script`-Elemente geben minimal Informationen an das [`window.onerror`](/de/docs/Web/API/Window/error_event) weiter für Skripte, die die Standard-{{Glossary("CORS", "CORS")}}-Prüfungen nicht bestehen. Um Fehlerprotokollierung für Seiten zu ermöglichen, die eine separate Domain für statische Medien verwenden, verwenden Sie dieses Attribut. Siehe [CORS Einstellungen der Attribute](/de/docs/Web/HTML/Attributes/crossorigin) für eine ausführlichere Erklärung seiner gültigen Argumente.
 - `defer`
 
   - : Dieses boolesche Attribut wird gesetzt, um einem Browser anzuzeigen, dass das Skript ausgeführt werden soll, nachdem das Dokument geparst wurde, aber bevor das [`DOMContentLoaded`](/de/docs/Web/API/Document/DOMContentLoaded_event)-Ereignis ausgelöst wird.
@@ -101,10 +101,10 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
   - : Gibt an, welchen [Referrer](/de/docs/Web/API/Document/referrer) beim Abrufen des Skripts oder von Ressourcen, die vom Skript abgerufen werden, gesendet werden soll:
 
     - `no-referrer`: Der {{HTTPHeader("Referer")}}-Header wird nicht gesendet.
-    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an [Ursprünge](/de/docs/Glossary/origin) ohne [TLS](/de/docs/Glossary/TLS) ([HTTPS](/de/docs/Glossary/HTTPS)) gesendet.
-    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: ihr [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), [Host](/de/docs/Glossary/host) und [Port](/de/docs/Glossary/port).
+    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}}-Header wird nicht an {{Glossary("origin", "Ursprünge")}} ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
+    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: ihr [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
     - `origin-when-cross-origin`: Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigierungen auf demselben Ursprung enthalten weiterhin den Pfad.
-    - `same-origin`: Ein Referrer wird für [denselben Ursprung](/de/docs/Glossary/Same-origin_policy) gesendet, aber Anfragen über Ursprungsgrenzen hinweg enthalten keine Referrer-Informationen.
+    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "denselben Ursprung")}} gesendet, aber Anfragen über Ursprungsgrenzen hinweg enthalten keine Referrer-Informationen.
     - `strict-origin`: Senden Sie den Ursprung des Dokuments nur als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), aber senden Sie es nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
     - `strict-origin-when-cross-origin` (Standard): Senden Sie eine vollständige URL bei einer Anfrage im selben Ursprung, senden Sie nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), und senden Sie keinen Header an ein weniger sicheres Ziel (HTTPS→HTTP).
     - `unsafe-url`: Der Referrer wird den Ursprung _und_ den Pfad (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder den [Benutzernamen](/de/docs/Web/API/HTMLAnchorElement/username)) enthalten. **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge weitergibt.
@@ -143,7 +143,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 ### Veraltete Attribute
 
 - `charset` {{Deprecated_inline}}
-  - : Wenn vorhanden, muss sein Wert ein [ASCII](/de/docs/Glossary/ASCII) Groß-/Kleinschreibungs-unempfindliches Match für `utf-8` sein. Es ist nicht notwendig, das `charset`-Attribut anzugeben, da Dokumente UTF-8 verwenden müssen und das `script`-Element seine Zeichenkodierung vom Dokument erbt.
+  - : Wenn vorhanden, muss sein Wert ein {{Glossary("ASCII", "ASCII")}} Groß-/Kleinschreibungs-unempfindliches Match für `utf-8` sein. Es ist nicht notwendig, das `charset`-Attribut anzugeben, da Dokumente UTF-8 verwenden müssen und das `script`-Element seine Zeichenkodierung vom Dokument erbt.
 - `language` {{Deprecated_inline}} {{Non-standard_Inline}}
   - : Wie das `type`-Attribut identifiziert dieses Attribut die verwendete Skriptsprache. Im Gegensatz zum `type`-Attribut wurden die möglichen Werte dieses Attributs jedoch nie standardisiert. Stattdessen sollte das `type`-Attribut verwendet werden.
 

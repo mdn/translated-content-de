@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`remoteCandidateId`** von [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) ist ein String, der den entfernten [ICE](/de/docs/Glossary/ICE)-Kandidaten eindeutig identifiziert, der analysiert wurde, um die [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) zu generieren, die zur Berechnung der Statistiken für dieses Kandidatenpaar verwendet wurden.
+Die Eigenschaft **`remoteCandidateId`** von [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) ist ein String, der den entfernten {{Glossary("ICE", "ICE")}}-Kandidaten eindeutig identifiziert, der analysiert wurde, um die [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) zu generieren, die zur Berechnung der Statistiken für dieses Kandidatenpaar verwendet wurden.
 
 ## Wert
 
-Ein String, der den entfernten [ICE](/de/docs/Glossary/ICE)-Kandidaten eindeutig identifiziert - das heißt, den Kandidaten, der eine Konfiguration für den entfernten Peer beschreibt -, der durch das entfernte Ende dieser Statistiken dargestellt wird.
+Ein String, der den entfernten {{Glossary("ICE", "ICE")}}-Kandidaten eindeutig identifiziert - das heißt, den Kandidaten, der eine Konfiguration für den entfernten Peer beschreibt -, der durch das entfernte Ende dieser Statistiken dargestellt wird.
 
 ## Spezifikationen
 

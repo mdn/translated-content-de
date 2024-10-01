@@ -19,7 +19,7 @@ leftExpr ?? rightExpr
 
 ## Beschreibung
 
-Der nullish coalescing-Operator kann als ein Sonderfall des [logischen OR (`||`) Operators](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) gesehen werden. Letzterer gibt den rechten Operanden zurück, wenn der linke Operand ein _beliebiger_ [falsy](/de/docs/Glossary/falsy) Wert ist, nicht nur `null` oder `undefined`. Mit anderen Worten: Wenn Sie `||` verwenden, um einem anderen Variable `foo` einen Standardwert zuzuweisen, können unerwartete Verhaltensweisen auftreten, wenn Sie einige falsy-Werte als nutzbar ansehen (z. B. `''` oder `0`). Siehe [unten](#zuweisung_eines_standardwerts_zu_einer_variablen) für mehr Beispiele.
+Der nullish coalescing-Operator kann als ein Sonderfall des [logischen OR (`||`) Operators](/de/docs/Web/JavaScript/Reference/Operators/Logical_OR) gesehen werden. Letzterer gibt den rechten Operanden zurück, wenn der linke Operand ein _beliebiger_ {{Glossary("falsy", "falsy")}} Wert ist, nicht nur `null` oder `undefined`. Mit anderen Worten: Wenn Sie `||` verwenden, um einem anderen Variable `foo` einen Standardwert zuzuweisen, können unerwartete Verhaltensweisen auftreten, wenn Sie einige falsy-Werte als nutzbar ansehen (z. B. `''` oder `0`). Siehe [unten](#zuweisung_eines_standardwerts_zu_einer_variablen) für mehr Beispiele.
 
 Der nullish coalescing-Operator hat die fünftniedrigste [Operator-Priorität](/de/docs/Web/JavaScript/Reference/Operators/Operator_precedence), direkt niedriger als `||` und direkt höher als der [bedingte (ternäre) Operator](/de/docs/Web/JavaScript/Reference/Operators/Conditional_operator).
 

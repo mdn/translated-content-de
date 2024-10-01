@@ -170,7 +170,7 @@ Stellen, die eine Objektumwandlung verwenden, umfassen:
 - Der `this`-Wert von {{jsxref("Array")}}-Methoden.
 - Parameter von `Object`-Methoden wie {{jsxref("Object.keys()")}}.
 - Automatische Boxung, wenn auf einen Attribut auf einem primitiven Wert zugegriffen wird, da Primitive keine Eigenschaften haben.
-- Der [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Wert beim Aufrufen einer nichtstrikten Funktion. Primitive werden verpackt, während `null` und `undefined` durch das [globale Objekt](/de/docs/Glossary/Global_object) ersetzt werden.
+- Der [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Wert beim Aufrufen einer nichtstrikten Funktion. Primitive werden verpackt, während `null` und `undefined` durch das {{Glossary("Global_object", "globale Objekt")}} ersetzt werden.
 
 Im Gegensatz zur [Konvertierung zu Primitiven](/de/docs/Web/JavaScript/Data_structures#primitive_coercion) ist der Objektumwandlungsprozess selbst in keiner Weise beobachtbar, da er keinen benutzerdefinierten Code wie `toString`- oder `valueOf`-Methoden aufruft.
 

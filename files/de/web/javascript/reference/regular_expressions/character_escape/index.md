@@ -54,7 +54,7 @@ Im [Unicode-unbewussten Modus](/de/docs/Web/JavaScript/Reference/Global_Objects/
 
 Im Unicode-unbewussten Modus können `]`, `{` und `}` [wörtlich](/de/docs/Web/JavaScript/Reference/Regular_expressions/Literal_character) erscheinen, wenn es nicht möglich ist, sie als das Ende einer Zeichenklasse oder Quantifizierer-Begrenzer zu parsen. Dies ist eine [veraltete Syntax für Web-Kompatibilität](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#regexp), und Sie sollten sich nicht darauf verlassen.
 
-Im Unicode-unbewussten Modus werden Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) der Form `\cX`, wobei `X` eine Zahl oder `_` ist, auf die gleiche Weise decodiert wie solche mit [ASCII](/de/docs/Glossary/ASCII)-Buchstaben: `\c0` ist dasselbe wie `\cP`, wenn man es modulo 32 nimmt. Zusätzlich, wenn die Form `\cX` überall begegnet wird, wo `X` nicht eines der anerkannten Zeichen ist, dann wird der Backslash als wörtliches Zeichen behandelt. Diese Syntaxen sind ebenfalls veraltet.
+Im Unicode-unbewussten Modus werden Escape-Sequenzen innerhalb von [Zeichenklassen](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class) der Form `\cX`, wobei `X` eine Zahl oder `_` ist, auf die gleiche Weise decodiert wie solche mit {{Glossary("ASCII", "ASCII")}}-Buchstaben: `\c0` ist dasselbe wie `\cP`, wenn man es modulo 32 nimmt. Zusätzlich, wenn die Form `\cX` überall begegnet wird, wo `X` nicht eines der anerkannten Zeichen ist, dann wird der Backslash als wörtliches Zeichen behandelt. Diese Syntaxen sind ebenfalls veraltet.
 
 ```js
 /[\c0]/.test("\x10"); // true

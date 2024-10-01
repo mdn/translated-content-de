@@ -28,13 +28,13 @@ Der Wert der Eigenschaft `forced-color-adjust` muss eines der folgenden Schlüss
 ### Werte
 
 - `auto`
-  - : Die Farben des Elements werden im Zwangsfarbmodus vom [User Agent](/de/docs/Glossary/user_agent) angepasst. Dies ist der Standardwert.
+  - : Die Farben des Elements werden im Zwangsfarbmodus vom {{Glossary("user_agent", "User Agent")}} angepasst. Dies ist der Standardwert.
 - `none`
-  - : Die Farben des Elements werden im Zwangsfarbmodus nicht automatisch vom [User Agent](/de/docs/Glossary/user_agent) angepasst.
+  - : Die Farben des Elements werden im Zwangsfarbmodus nicht automatisch vom {{Glossary("user_agent", "User Agent")}} angepasst.
 
 ## Verwendungshinweise
 
-Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die die Farb- und Kontrastanforderungen eines Benutzers unterstützen. Zum Beispiel, wenn Sie feststellen, dass die vom [User Agent](/de/docs/Glossary/user_agent) vorgenommenen Farboptimierungen zu einem schlechten Erlebnis im Hochkontrast- oder Dunkelmodus führen. Durch die Verwendung dieser Eigenschaft können Sie das Ergebnis in diesem Modus anpassen, um ein besseres Erlebnis zu bieten. **Sie sollte nicht verwendet werden, um die Beachtung der Benutzerentscheidungen zu verhindern**.
+Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die die Farb- und Kontrastanforderungen eines Benutzers unterstützen. Zum Beispiel, wenn Sie feststellen, dass die vom {{Glossary("user_agent", "User Agent")}} vorgenommenen Farboptimierungen zu einem schlechten Erlebnis im Hochkontrast- oder Dunkelmodus führen. Durch die Verwendung dieser Eigenschaft können Sie das Ergebnis in diesem Modus anpassen, um ein besseres Erlebnis zu bieten. **Sie sollte nicht verwendet werden, um die Beachtung der Benutzerentscheidungen zu verhindern**.
 
 ## Formale Definition
 

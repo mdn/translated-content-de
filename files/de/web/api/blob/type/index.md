@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("File API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`type`**-Eigenschaft des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt den [MIME-Typ](/de/docs/Glossary/MIME_type) der Datei zurück.
+Die schreibgeschützte **`type`**-Eigenschaft des [`Blob`](/de/docs/Web/API/Blob)-Interfaces gibt den {{Glossary("MIME_type", "MIME-Typ")}} der Datei zurück.
 
 > [!NOTE]
 > Basierend auf der aktuellen Implementierung lesen Browser den Bytestream einer Datei nicht, um den Medientyp zu bestimmen.

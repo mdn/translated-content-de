@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die **`navigator.sendBeacon()`**-Methode sendet [asynchron](/de/docs/Glossary/Asynchronous) eine [HTTP POST](/de/docs/Web/HTTP/Methods/POST)-Anfrage mit einer kleinen Datenmenge an einen Webserver.
+Die **`navigator.sendBeacon()`**-Methode sendet {{Glossary("Asynchronous", "asynchron")}} eine [HTTP POST](/de/docs/Web/HTTP/Methods/POST)-Anfrage mit einer kleinen Datenmenge an einen Webserver.
 
 Sie ist dafür gedacht, Analysedaten an einen Webserver zu senden und vermeidet einige Probleme älterer Techniken zum Senden von Analysedaten, wie z.B. die Verwendung von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
 
@@ -33,7 +33,7 @@ sendBeacon(url, data)
 ### Rückgabewerte
 
 Die **`sendBeacon()`**-Methode gibt `true` zurück, wenn der
-[User Agent](/de/docs/Glossary/user_agent) die `Daten` erfolgreich zur Übertragung in die Warteschlange gestellt hat.
+{{Glossary("user_agent", "User Agent")}} die `Daten` erfolgreich zur Übertragung in die Warteschlange gestellt hat.
 Andernfalls gibt sie `false` zurück.
 
 ## Beschreibung

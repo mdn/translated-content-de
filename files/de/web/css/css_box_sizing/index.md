@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS box sizing** Modul ermöglicht es Entwicklern, festzulegen, wie Elemente ihren Inhalt anpassen oder in einen bestimmten Layout-Kontext passen. Es definiert Größen-, Mindestgrößen- und Maximalgrößen-Eigenschaften und erweitert außerdem die CSS-Größeneigenschaften durch Schlüsselwörter, die größenbasierte [intrinsic size](/de/docs/Glossary/intrinsic_size) und kontextbasierte [extrinsic](/de/docs/Glossary/Intrinsic_Size#extrinsic_sizing) Größe repräsentieren.
+Das **CSS box sizing** Modul ermöglicht es Entwicklern, festzulegen, wie Elemente ihren Inhalt anpassen oder in einen bestimmten Layout-Kontext passen. Es definiert Größen-, Mindestgrößen- und Maximalgrößen-Eigenschaften und erweitert außerdem die CSS-Größeneigenschaften durch Schlüsselwörter, die größenbasierte {{Glossary("intrinsic_size", "intrinsic size")}} und kontextbasierte {{Glossary("Intrinsic_Size#extrinsic_sizing", "extrinsic")}} Größe repräsentieren.
 
 Elemente können entweder extrinsisch oder intrinsisch skaliert werden. Das [CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) definiert seitenrelative Eigenschaften, um die Größe eines Elements explizit oder „extrinsisch“ festzulegen, einschließlich der Eigenschaften `width`, `height`, `padding` und `margin` (zusammen mit den `border`-Eigenschaften, die im [CSS Hintergründe und Grenzen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul definiert sind). Dieses CSS box sizing Modul erweitert das CSS-Boxmodell-Modul, um einem Element zu ermöglichen, intrinsisch skaliert zu werden – die Größe des Elements auf Basis der Größe seines Inhalts festzulegen.
 
@@ -55,7 +55,7 @@ Das [modul für logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_p
 
 ### Glossarbegriffe
 
-- [intrinsic size](/de/docs/Glossary/intrinsic_size)
+- {{Glossary("intrinsic_size", "intrinsic size")}}
 
 ## Leitfäden
 

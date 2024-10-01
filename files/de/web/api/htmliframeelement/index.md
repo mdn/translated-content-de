@@ -28,7 +28,7 @@ _Erbt Eigenschaften von seiner Elternklasse, [`HTMLElement`](/de/docs/Web/API/HT
 - [`HTMLIFrameElement.contentDocument`](/de/docs/Web/API/HTMLIFrameElement/contentDocument) {{ReadOnlyInline}}
   - : Gibt ein [`Document`](/de/docs/Web/API/Document) zurück, das aktive Dokument im verschachtelten Browsing-Kontext des Inline-Frames.
 - [`HTMLIFrameElement.contentWindow`](/de/docs/Web/API/HTMLIFrameElement/contentWindow) {{ReadOnlyInline}}
-  - : Gibt ein [WindowProxy](/de/docs/Glossary/WindowProxy) zurück, den Fenster-Proxy für den verschachtelten Browsing-Kontext.
+  - : Gibt ein {{Glossary("WindowProxy", "WindowProxy")}} zurück, den Fenster-Proxy für den verschachtelten Browsing-Kontext.
 - [`HTMLIFrameElement.credentialless`](/de/docs/Web/API/HTMLIFrameElement/credentialless) {{Experimental_Inline}}
   - : Ein boolescher Wert, der angibt, ob das `<iframe>` ohne Berechtigungsnachweis ist, was bedeutet, dass dessen Inhalt in einem neuen, temporären Kontext geladen wird. Dieser Kontext hat keinen Zugriff auf den gemeinsamen Speicher und die Berechtigungsnachweise des Elternkontexts. Im Gegenzug können die {{httpheader("Cross-Origin-Embedder-Policy")}} (COEP) Einbettungsregeln aufgehoben werden, sodass Dokumente mit gesetztem COEP Drittanbieterdokumente einbetten können, die dies nicht tun. Siehe [IFrame credentialless](/de/docs/Web/Security/IFrame_credentialless) für eine ausführlichere Erklärung.
 - [`HTMLIFrameElement.csp`](/de/docs/Web/API/HTMLIFrameElement/csp) {{Experimental_Inline}}

@@ -77,7 +77,7 @@ observer.observe({ type: "resource", buffered: true });
 
 ## Informationen zur Zeitmessung bei Fremdursprüngen
 
-Wenn [CORS](/de/docs/Glossary/CORS) wirksam ist, werden viele der Zeitmesswerte als Null zurückgegeben, es sei denn, die Zugriffspolitik des Servers erlaubt es, diese Werte zu teilen. Dies erfordert, dass der Server, der die Ressource bereitstellt, den {{httpheader("Timing-Allow-Origin")}} HTTP-Antwortheader mit einem Wert sendet, der den Ursprung oder die Ursprünge spezifiziert, die die eingeschränkten Zeitstempelwerte erhalten dürfen.
+Wenn {{Glossary("CORS", "CORS")}} wirksam ist, werden viele der Zeitmesswerte als Null zurückgegeben, es sei denn, die Zugriffspolitik des Servers erlaubt es, diese Werte zu teilen. Dies erfordert, dass der Server, der die Ressource bereitstellt, den {{httpheader("Timing-Allow-Origin")}} HTTP-Antwortheader mit einem Wert sendet, der den Ursprung oder die Ursprünge spezifiziert, die die eingeschränkten Zeitstempelwerte erhalten dürfen.
 
 Die Eigenschaften, die standardmäßig als 0 zurückgegeben werden, wenn eine Ressource von einem anderen Ursprung als der der Webseite selbst geladen wird: `redirectStart`, `redirectEnd`, `domainLookupStart`, `domainLookupEnd`, `connectStart`, `connectEnd`, `secureConnectionStart`, `requestStart` und `responseStart`.
 

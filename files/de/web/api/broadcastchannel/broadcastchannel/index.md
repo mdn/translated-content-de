@@ -19,7 +19,7 @@ new BroadcastChannel(channelName)
 ### Parameter
 
 - `channelName`
-  - : Ein String, der den Namen des Kanals darstellt; es gibt einen einzigen Kanal mit diesem Namen für alle [browsing contexts](/de/docs/Glossary/browsing_context) mit demselben [origin](/de/docs/Glossary/origin).
+  - : Ein String, der den Namen des Kanals darstellt; es gibt einen einzigen Kanal mit diesem Namen für alle {{Glossary("browsing_context", "browsing contexts")}} mit demselben {{Glossary("origin", "origin")}}.
 
 ## Beispiele
 

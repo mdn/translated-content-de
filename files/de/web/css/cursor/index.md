@@ -326,7 +326,7 @@ Jede `<url>` kann optional von einem Paar durch Leerzeichen getrennten Zahlen ge
 
 ### Symbolgrößenbeschränkungen
 
-Obwohl die Spezifikation die Größe des `cursor`-Bildes nicht begrenzt, beschränken [User Agents](/de/docs/Glossary/user_agent) diese häufig, um potenziellen Missbrauch zu vermeiden. Zum Beispiel sind in Firefox und Chromium-Cursorbilder standardmäßig auf 128x128 Pixel beschränkt, aber es wird empfohlen, die Cursorbildgröße auf 32x32 Pixel zu beschränken. Cursoränderungen mit Bildern, die größer sind als die von den User Agents maximal unterstützte Größe, werden in der Regel einfach ignoriert.
+Obwohl die Spezifikation die Größe des `cursor`-Bildes nicht begrenzt, beschränken {{Glossary("user_agent", "User Agents")}} diese häufig, um potenziellen Missbrauch zu vermeiden. Zum Beispiel sind in Firefox und Chromium-Cursorbilder standardmäßig auf 128x128 Pixel beschränkt, aber es wird empfohlen, die Cursorbildgröße auf 32x32 Pixel zu beschränken. Cursoränderungen mit Bildern, die größer sind als die von den User Agents maximal unterstützte Größe, werden in der Regel einfach ignoriert.
 
 ### Unterstützte Bilddateiformate
 

@@ -43,7 +43,7 @@ scroll-snap-type: unset;
 ### Werte
 
 - `none`
-  - : Wenn der visuelle [Viewport](/de/docs/Glossary/viewport) dieses Scroll-Containers gescrollt wird, müssen Schnapp-Punkte ignoriert werden.
+  - : Wenn der visuelle {{Glossary("viewport", "Viewport")}} dieses Scroll-Containers gescrollt wird, müssen Schnapp-Punkte ignoriert werden.
 - `x`
   - : Der Scroll-Container schnappt nur zu Schnapp-Positionen auf seiner horizontalen Achse.
 - `y`

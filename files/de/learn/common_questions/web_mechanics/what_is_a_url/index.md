@@ -36,7 +36,7 @@ Dieser Artikel befasst sich mit Uniform Resource Locators (URLs), erklärt, was 
 
 ## Zusammenfassung
 
-Eine **URL** (Uniform Resource Locator) ist die Adresse einer einzigartigen Ressource im Internet. Sie ist einer der Hauptmechanismen, die von [Browsern](/de/docs/Glossary/Browser) verwendet werden, um veröffentlichte Ressourcen abzurufen, wie HTML-Seiten, CSS-Dokumente, Bilder und so weiter.
+Eine **URL** (Uniform Resource Locator) ist die Adresse einer einzigartigen Ressource im Internet. Sie ist einer der Hauptmechanismen, die von {{Glossary("Browser", "Browsern")}} verwendet werden, um veröffentlichte Ressourcen abzurufen, wie HTML-Seiten, CSS-Dokumente, Bilder und so weiter.
 
 Theoretisch verweist jede gültige URL auf eine einzigartige Ressource. Praktisch gibt es einige Ausnahmen, die häufigste ist eine URL, die auf eine Ressource verweist, die nicht mehr existiert oder umgezogen ist. Da die durch die URL repräsentierte Ressource und die URL selbst vom Webserver verwaltet werden, liegt es in der Verantwortung des Besitzers des Webservers, diese Ressource und die zugehörige URL sorgfältig zu verwalten.
 
@@ -74,7 +74,7 @@ Der erste Teil der URL ist das _Schema_, das das Protokoll angibt, das der Brows
 
 Es folgt die _Authority_, die durch das Zeichenmuster `://` vom Schema getrennt ist. Wenn vorhanden, enthält die Authority sowohl die _Domain_ (z.B. `www.example.com`) als auch den _Port_ (`80`), getrennt durch ein Doppelpunkt:
 
-- Die Domain gibt an, welcher Webserver angefordert wird. Normalerweise ist dies ein [Domain-Name](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name), aber auch eine [IP-Adresse](/de/docs/Glossary/IP_address) kann verwendet werden (was jedoch selten der Fall ist, da es viel weniger praktisch ist).
+- Die Domain gibt an, welcher Webserver angefordert wird. Normalerweise ist dies ein [Domain-Name](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name), aber auch eine {{Glossary("IP_address", "IP-Adresse")}} kann verwendet werden (was jedoch selten der Fall ist, da es viel weniger praktisch ist).
 - Der Port gibt das technische „Tor“ an, das verwendet wird, um auf die Ressourcen des Webservers zuzugreifen. Er wird normalerweise weggelassen, wenn der Webserver die Standardports des HTTP-Protokolls (80 für HTTP und 443 für HTTPS) verwendet, um den Zugriff auf seine Ressourcen zu gewähren. Andernfalls ist er obligatorisch.
 
 > [!NOTE]
@@ -104,7 +104,7 @@ Es folgt die _Authority_, die durch das Zeichenmuster `://` vom Schema getrennt 
 
 Jede URL kann direkt in die Adressleiste des Browsers eingetippt werden, um zur dahinterliegenden Ressource zu gelangen. Aber das ist nur die Spitze des Eisbergs!
 
-Die [HTML](/de/docs/Glossary/HTML)-Sprache — [die später besprochen wird](/de/docs/Learn/HTML/Introduction_to_HTML) — macht extensiven Gebrauch von URLs:
+Die {{Glossary("HTML", "HTML")}}-Sprache — [die später besprochen wird](/de/docs/Learn/HTML/Introduction_to_HTML) — macht extensiven Gebrauch von URLs:
 
 - um Links zu anderen Dokumenten mit dem {{HTMLElement("a")}}-Element zu erstellen;
 - um ein Dokument mit seinen verbundenen Ressourcen durch verschiedene Elemente wie {{HTMLElement("link")}} oder {{HTMLElement("script")}} zu verknüpfen;
@@ -114,7 +114,7 @@ Die [HTML](/de/docs/Glossary/HTML)-Sprache — [die später besprochen wird](/de
 > [!NOTE]
 > Wenn Sie URLs angeben, um Ressourcen als Teil einer Seite zu laden (z.B. bei Verwendung von `<script>`, `<audio>`, `<img>`, `<video>` usw.), sollten Sie im Allgemeinen nur HTTP und HTTPS-URLs verwenden, mit wenigen Ausnahmen (eine bemerkenswerte ist `data:`; siehe [Data URLs](/de/docs/Web/URI/Schemes/data)). Die Verwendung von FTP ist beispielsweise nicht sicher und wird von modernen Browsern nicht mehr unterstützt.
 
-Andere Technologien wie [CSS](/de/docs/Glossary/CSS) oder [JavaScript](/de/docs/Glossary/JavaScript) nutzen URLs umfangreich, und diese sind wirklich das Herz des Webs.
+Andere Technologien wie {{Glossary("CSS", "CSS")}} oder {{Glossary("JavaScript", "JavaScript")}} nutzen URLs umfangreich, und diese sind wirklich das Herz des Webs.
 
 ## Absolute URLs vs. relative URLs
 

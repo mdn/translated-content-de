@@ -7,15 +7,15 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Identity Provider** (IdP) ist eine Entität in einem [föderierten Identitätssystem](/de/docs/Glossary/federated_identity), die die [Anmeldedaten](/de/docs/Glossary/credential) eines Benutzers verwaltet und Benutzer [authentifizieren](/de/docs/Glossary/authentication) kann.
+Ein **Identity Provider** (IdP) ist eine Entität in einem {{Glossary("federated_identity", "föderierten Identitätssystem")}}, die die {{Glossary("credential", "Anmeldedaten")}} eines Benutzers verwaltet und Benutzer {{Glossary("authentication", "authentifizieren")}} kann.
 
-In föderierten Identitätssystemen lagern [Vertrauensparteien](/de/docs/Glossary/relying_party), die den Zugang zu einer Ressource kontrollieren müssen (zum Beispiel eine Website, die entscheidet, ob ein Benutzer angemeldet wird), den Akt der Authentifizierung der Benutzer an eine dritte Partei aus, der sie vertrauen, autorisieren können. Diese Drittparteien werden Identity Provider genannt.
+In föderierten Identitätssystemen lagern {{Glossary("relying_party", "Vertrauensparteien")}}, die den Zugang zu einer Ressource kontrollieren müssen (zum Beispiel eine Website, die entscheidet, ob ein Benutzer angemeldet wird), den Akt der Authentifizierung der Benutzer an eine dritte Partei aus, der sie vertrauen, autorisieren können. Diese Drittparteien werden Identity Provider genannt.
 
 Beispiele für Identity Provider im Web sind Google, Microsoft und Facebook. Dies ermöglicht es Websites, Benutzern die Anmeldung mit deren Google-, Microsoft- oder Facebook-Konto zu gestatten.
 
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Föderierte Identität](/de/docs/Glossary/Federated_identity)
-  - [Vertrauenspartei](/de/docs/Glossary/Relying_party)
+  - {{Glossary("Federated_identity", "Föderierte Identität")}}
+  - {{Glossary("Relying_party", "Vertrauenspartei")}}
 - [Federated Credential Management (FedCM) API](/de/docs/Web/API/FedCM_API)

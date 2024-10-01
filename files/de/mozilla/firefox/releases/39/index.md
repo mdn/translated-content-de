@@ -36,7 +36,7 @@ Schwerpunkte:
 
 ### HTML
 
-- Eine neue [ARIA](/de/docs/Glossary/ARIA) Rolle, `switch`, wird jetzt unterstützt ([Firefox-Bug 1136563](https://bugzil.la/1136563)).
+- Eine neue {{Glossary("ARIA", "ARIA")}} Rolle, `switch`, wird jetzt unterstützt ([Firefox-Bug 1136563](https://bugzil.la/1136563)).
 - Unterstützung für `<link rel="preconnect">`, die es ermöglicht, eine zukünftige Verbindung vorab aufzubauen, ohne Informationen preiszugeben, wurde implementiert ([Firefox-Bug 1135160](https://bugzil.la/1135160)).
 
 ### JavaScript

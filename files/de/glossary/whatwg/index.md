@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die WHATWG (_Web Hypertext Application Technology Working Group_) ist eine Gemeinschaft, die [Webstandards pflegt und entwickelt](https://spec.whatwg.org/), einschließlich [DOM](/de/docs/Glossary/DOM), Fetch und [HTML](/de/docs/Glossary/HTML). Mitarbeiter von Apple, Mozilla und Opera gründeten WHATWG im Jahr 2004.
+Die WHATWG (_Web Hypertext Application Technology Working Group_) ist eine Gemeinschaft, die [Webstandards pflegt und entwickelt](https://spec.whatwg.org/), einschließlich {{Glossary("DOM", "DOM")}}, Fetch und {{Glossary("HTML", "HTML")}}. Mitarbeiter von Apple, Mozilla und Opera gründeten WHATWG im Jahr 2004.
 
 ## Siehe auch
 

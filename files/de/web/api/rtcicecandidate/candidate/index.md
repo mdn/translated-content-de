@@ -15,7 +15,7 @@ Diese Eigenschaft kann über die `candidate`-Eigenschaft des Objekts konfigurier
 
 ## Wert
 
-Ein String, der die Eigenschaften des Kandidaten beschreibt, direkt entnommen aus dem [SDP](/de/docs/Glossary/SDP)-Attribut `"candidate"`.
+Ein String, der die Eigenschaften des Kandidaten beschreibt, direkt entnommen aus dem {{Glossary("SDP", "SDP")}}-Attribut `"candidate"`.
 Der Kandidaten-String spezifiziert die Netzwerkkonnektivitätsinformationen für den Kandidaten.
 Wenn der `candidate` ein Leerstring (`""`) ist, wurde das Ende der Kandidatenliste erreicht; dieser Kandidat ist als "end-of-candidates"-Marker bekannt.
 
@@ -27,7 +27,7 @@ a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host
 
 wird der entsprechende Wert des `candidate`-Strings sein: `"candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"`.
 
-Der [user agent](/de/docs/Glossary/user_agent) bevorzugt immer Kandidaten mit der höchsten
+Der {{Glossary("user_agent", "user agent")}} bevorzugt immer Kandidaten mit der höchsten
 [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn sonst alle Umstände gleich sind. Im
 obigen Beispiel ist die Priorität `2043278322`. Die Attribute werden alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge angegeben. Die vollständige Liste der
 Attribute für diesen Beispiels-Kandidaten ist:

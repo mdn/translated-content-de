@@ -36,7 +36,7 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften der üb
 - [`lastEventId`](/de/docs/Web/API/MessageEvent/lastEventId) {{ReadOnlyInline}}
   - : Ein String, der eine eindeutige ID für das Ereignis repräsentiert.
 - [`source`](/de/docs/Web/API/MessageEvent/source) {{ReadOnlyInline}}
-  - : Eine _message event source_, die entweder ein [WindowProxy](/de/docs/Glossary/WindowProxy), ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt ist, das den Nachrichtensender repräsentiert.
+  - : Eine _message event source_, die entweder ein {{Glossary("WindowProxy", "WindowProxy")}}, ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt ist, das den Nachrichtensender repräsentiert.
 - [`ports`](/de/docs/Web/API/MessageEvent/ports) {{ReadOnlyInline}}
   - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird (wo zutreffend, z.B. bei der Kanalnachrichtenübermittlung oder beim Senden einer Nachricht an einen Shared Worker).
 

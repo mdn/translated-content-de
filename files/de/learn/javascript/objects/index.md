@@ -7,11 +7,11 @@ l10n:
 
 {{LearnSidebar}}
 
-In JavaScript sind die meisten Dinge Objekte, von den grundlegenden JavaScript-Funktionen wie Arrays bis hin zu den auf JavaScript basierenden Browser-[APIs](/de/docs/Glossary/API). Sie können sogar Ihre eigenen Objekte erstellen, um verwandte Funktionen und Variablen zu effizienten Paketen zu kapseln und als praktische Datenspeicher zu agieren. Die objektbasierte Natur von JavaScript ist wichtig zu verstehen, wenn Sie Ihr Wissen über die Sprache vertiefen möchten, daher haben wir dieses Modul erstellt, um Ihnen zu helfen. Hier lehren wir Objekttheorie und -syntax im Detail und betrachten dann, wie Sie Ihre eigenen Objekte erstellen können.
+In JavaScript sind die meisten Dinge Objekte, von den grundlegenden JavaScript-Funktionen wie Arrays bis hin zu den auf JavaScript basierenden Browser-{{Glossary("API", "APIs")}}. Sie können sogar Ihre eigenen Objekte erstellen, um verwandte Funktionen und Variablen zu effizienten Paketen zu kapseln und als praktische Datenspeicher zu agieren. Die objektbasierte Natur von JavaScript ist wichtig zu verstehen, wenn Sie Ihr Wissen über die Sprache vertiefen möchten, daher haben wir dieses Modul erstellt, um Ihnen zu helfen. Hier lehren wir Objekttheorie und -syntax im Detail und betrachten dann, wie Sie Ihre eigenen Objekte erstellen können.
 
 ## Voraussetzungen
 
-Bevor Sie dieses Modul starten, sollten Sie mit [HTML](/de/docs/Glossary/HTML) und [CSS](/de/docs/Glossary/CSS) vertraut sein. Es wird empfohlen, die Module [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML) und [Einführung in CSS](/de/docs/Learn/CSS/First_steps) durcharbeiten, bevor Sie mit JavaScript beginnen.
+Bevor Sie dieses Modul starten, sollten Sie mit {{Glossary("HTML", "HTML")}} und {{Glossary("CSS", "CSS")}} vertraut sein. Es wird empfohlen, die Module [Einführung in HTML](/de/docs/Learn/HTML/Introduction_to_HTML) und [Einführung in CSS](/de/docs/Learn/CSS/First_steps) durcharbeiten, bevor Sie mit JavaScript beginnen.
 
 Sie sollten auch mit den Grundlagen von JavaScript vertraut sein, bevor Sie JavaScript-Objekte im Detail betrachten. Arbeiten Sie vor diesem Modul die Bereiche [JavaScript erste Schritte](/de/docs/Learn/JavaScript/First_steps) und [JavaScript Bausteine](/de/docs/Learn/JavaScript/Building_blocks) durch.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der [Kryptographie](/de/docs/Glossary/cryptography) ist **Ciphertext** eine verschlüsselte Nachricht, die Informationen übermittelt, aber nicht lesbar ist, es sei denn, sie wird mit dem richtigen [Cipher](/de/docs/Glossary/cipher) und dem richtigen Geheimnis (gewöhnlich ein [Schlüssel](/de/docs/Glossary/key)) [entschlüsselt](/de/docs/Glossary/decryption), wodurch der ursprüngliche [Klartext](/de/docs/Glossary/Plaintext) reproduziert wird. Die Sicherheit eines Ciphertext, und damit die Geheimhaltung der enthaltenen Informationen, hängt davon ab, einen sicheren Cipher zu verwenden und den Schlüssel geheim zu halten.
+In der {{Glossary("cryptography", "Kryptographie")}} ist **Ciphertext** eine verschlüsselte Nachricht, die Informationen übermittelt, aber nicht lesbar ist, es sei denn, sie wird mit dem richtigen {{Glossary("cipher", "Cipher")}} und dem richtigen Geheimnis (gewöhnlich ein {{Glossary("key", "Schlüssel")}}) {{Glossary("decryption", "entschlüsselt")}}, wodurch der ursprüngliche {{Glossary("Plaintext", "Klartext")}} reproduziert wird. Die Sicherheit eines Ciphertext, und damit die Geheimhaltung der enthaltenen Informationen, hängt davon ab, einen sicheren Cipher zu verwenden und den Schlüssel geheim zu halten.
 
 ## Siehe auch
 

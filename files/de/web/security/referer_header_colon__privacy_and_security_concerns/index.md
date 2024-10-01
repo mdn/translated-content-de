@@ -23,7 +23,7 @@ Ein Großteil dieses Risikos kann durch eine sinnvolle Gestaltung von Anwendunge
 
 Sie sollten wann immer möglich {{HTTPMethod("POST")}} anstelle von {{HTTPMethod("GET")}} verwenden, um zu vermeiden, dass sensible Daten über URLs an andere Orte weitergegeben werden.
 
-Sie sollten immer [HTTPS](/de/docs/Glossary/HTTPS) für Ihre Websites verwenden. Dies hat viele Sicherheitsvorteile, einschließlich der Tatsache, dass HTTPS-Sites niemals Referrer-Informationen an nicht-HTTPS-Sites übertragen. Dieser Rat ist jetzt, da der Großteil des Webs HTTPS verwendet, weniger relevant, aber immer noch eine Überlegung wert.
+Sie sollten immer {{Glossary("HTTPS", "HTTPS")}} für Ihre Websites verwenden. Dies hat viele Sicherheitsvorteile, einschließlich der Tatsache, dass HTTPS-Sites niemals Referrer-Informationen an nicht-HTTPS-Sites übertragen. Dieser Rat ist jetzt, da der Großteil des Webs HTTPS verwendet, weniger relevant, aber immer noch eine Überlegung wert.
 
 Darüber hinaus sollten Sie in Erwägung ziehen, jegliche Drittanbieterinhalte (z. B. in {{htmlelement("iframe")}} eingebettete soziale Netzwerk-Widgets) von sicheren Bereichen Ihrer Website, wie Passwort-Zurücksetzen-Seiten, Zahlungsformulare, Login-Bereichen usw., zu entfernen.
 

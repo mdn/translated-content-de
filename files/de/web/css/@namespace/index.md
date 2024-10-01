@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-**`@namespace`** ist eine [At-Regel](/de/docs/Web/CSS/At-rule), die XML-[Namespaces](/de/docs/Glossary/Namespace) definiert, die in einem [CSS](/de/docs/Glossary/CSS)-[Stylesheet](/de/docs/Web/API/StyleSheet) verwendet werden.
+**`@namespace`** ist eine [At-Regel](/de/docs/Web/CSS/At-rule), die XML-{{Glossary("Namespace", "Namespaces")}} definiert, die in einem {{Glossary("CSS", "CSS")}}-[Stylesheet](/de/docs/Web/API/StyleSheet) verwendet werden.
 
 {{EmbedInteractiveExample("pages/tabbed/at-rule-namespace.html", "tabbed-shorter")}}
 

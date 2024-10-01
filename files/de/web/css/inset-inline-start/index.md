@@ -9,7 +9,7 @@ l10n:
 
 Die **`inset-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Anfangs-Inset einer Zeile eines Elements, das je nach Schreibmodus des Elements, dessen Richtung und Textausrichtung einer physischen Verschiebung entspricht. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
-Diese [Inset-Eigenschaft](/de/docs/Glossary/inset_properties) hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline-start.html")}}
 

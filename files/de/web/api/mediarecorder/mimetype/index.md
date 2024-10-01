@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("MediaStream Recording")}}
 
-Die schreibgeschützte Eigenschaft **`mimeType`** des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt den [MIME](/de/docs/Glossary/MIME)-Medientyp zurück, der bei der Erstellung des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekts angegeben wurde. Wenn keiner angegeben wurde, wird der von dem Browser gewählte Typ verwendet. Dies ist das Dateiformat der Datei, die entstehen würde, wenn alle aufgezeichneten Daten auf die Festplatte geschrieben würden.
+Die schreibgeschützte Eigenschaft **`mimeType`** des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Interfaces gibt den {{Glossary("MIME", "MIME")}}-Medientyp zurück, der bei der Erstellung des [`MediaRecorder`](/de/docs/Web/API/MediaRecorder)-Objekts angegeben wurde. Wenn keiner angegeben wurde, wird der von dem Browser gewählte Typ verwendet. Dies ist das Dateiformat der Datei, die entstehen würde, wenn alle aufgezeichneten Daten auf die Festplatte geschrieben würden.
 
 Beachten Sie, dass nicht alle Codecs von einem bestimmten Container unterstützt werden. Wenn Sie Medien mit einem Codec aufzeichnen, der von einem bestimmten Mediencontainer nicht unterstützt wird, funktioniert die resultierende Datei möglicherweise nicht zuverlässig oder überhaupt nicht, wenn Sie versuchen, sie abzuspielen. Weitere Informationen zur Unterstützung von Containern und Codecs in verschiedenen Browsern finden Sie in unserem [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats).
 

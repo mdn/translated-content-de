@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}
 
-Cascading Style Sheets — oder [CSS](/de/docs/Glossary/CSS) — sind die erste Technologie, die Sie nach [HTML](/de/docs/Glossary/HTML) lernen sollten. Während HTML verwendet wird, um die Struktur und Semantik Ihres Inhalts zu definieren, wird CSS verwendet, um den Inhalt zu gestalten und zu layouten. Zum Beispiel können Sie mit CSS die Schriftart, die Farbe, die Größe und den Abstand Ihres Inhalts ändern, ihn in mehrere Spalten aufteilen oder Animationen und andere dekorative Merkmale hinzufügen.
+Cascading Style Sheets — oder {{Glossary("CSS", "CSS")}} — sind die erste Technologie, die Sie nach {{Glossary("HTML", "HTML")}} lernen sollten. Während HTML verwendet wird, um die Struktur und Semantik Ihres Inhalts zu definieren, wird CSS verwendet, um den Inhalt zu gestalten und zu layouten. Zum Beispiel können Sie mit CSS die Schriftart, die Farbe, die Größe und den Abstand Ihres Inhalts ändern, ihn in mehrere Spalten aufteilen oder Animationen und andere dekorative Merkmale hinzufügen.
 
 ## Voraussetzungen
 

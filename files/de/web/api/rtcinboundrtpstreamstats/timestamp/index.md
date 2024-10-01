@@ -14,7 +14,7 @@ Die **`timestamp`**-Eigenschaft des [`RTCInboundRtpStreamStats`](/de/docs/Web/AP
 
 Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der die Zeit angibt, zu der die Aktivität, die durch die Statistiken in diesem Objekt beschrieben wird, aufgezeichnet wurde, in Millisekunden seit dem Beginn des 1. Januar 1970, UTC.
 
-Der Wert sollte innerhalb weniger Millisekunden genau sein, kann aber aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von [Fingerprinting](/de/docs/Glossary/Fingerprinting)-Schutz in Form von verringerter Taktpräzision oder Genauigkeit nicht vollständig präzise sein.
+Der Wert sollte innerhalb weniger Millisekunden genau sein, kann aber aufgrund von Hardware- oder Betriebssystembeschränkungen oder aufgrund von {{Glossary("Fingerprinting", "Fingerprinting")}}-Schutz in Form von verringerter Taktpräzision oder Genauigkeit nicht vollständig präzise sein.
 
 ## Spezifikationen
 

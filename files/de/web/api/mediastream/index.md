@@ -25,7 +25,7 @@ _Dieses Interface erbt Eigenschaften von seinem Elternteil, [`EventTarget`](/de/
 - [`MediaStream.active`](/de/docs/Web/API/MediaStream/active) {{ReadOnlyInline}}
   - : Ein Boolean-Wert, der `true` zurückgibt, wenn der `MediaStream` aktiv ist, oder `false` andernfalls.
 - [`MediaStream.id`](/de/docs/Web/API/MediaStream/id) {{ReadOnlyInline}}
-  - : Ein String, der eine 36 Zeichen lange universell eindeutige Kennung ([UUID](/de/docs/Glossary/UUID)) für das Objekt enthält.
+  - : Ein String, der eine 36 Zeichen lange universell eindeutige Kennung ({{Glossary("UUID", "UUID")}}) für das Objekt enthält.
 
 ## Instanz-Methoden
 

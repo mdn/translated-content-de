@@ -28,11 +28,11 @@ Zusätzlich zu den grundlegenden globalen MathML-Attributen existieren auch folg
 
 - [`data-*`](/de/docs/Web/HTML/Global_attributes/data-*)
 
-  - : Formt eine Klasse von Attributen, genannt benutzerdefinierte Datenattribute, die den Austausch proprietärer Informationen zwischen dem [MathML](/de/docs/Web/MathML) und seiner [DOM](/de/docs/Glossary/DOM) Repräsentation ermöglichen, die von Skripten genutzt werden können. Alle solchen benutzerdefinierten Daten sind über die [`MathMLElement`](/de/docs/Web/API/MathMLElement) Schnittstelle des Elements zugänglich, auf dem das Attribut eingestellt ist. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) Eigenschaft ermöglicht den Zugriff auf diese.
+  - : Formt eine Klasse von Attributen, genannt benutzerdefinierte Datenattribute, die den Austausch proprietärer Informationen zwischen dem [MathML](/de/docs/Web/MathML) und seiner {{Glossary("DOM", "DOM")}} Repräsentation ermöglichen, die von Skripten genutzt werden können. Alle solchen benutzerdefinierten Daten sind über die [`MathMLElement`](/de/docs/Web/API/MathMLElement) Schnittstelle des Elements zugänglich, auf dem das Attribut eingestellt ist. Die [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset) Eigenschaft ermöglicht den Zugriff auf diese.
 
 - [`dir`](/de/docs/Web/MathML/Global_attributes/dir)
 
-  - : Ein [enumiertes](/de/docs/Glossary/Enumerated) Attribut, das die Ausrichtung des MathML-Elements angibt. Es kann folgende Werte haben:
+  - : Ein {{Glossary("Enumerated", "enumiertes")}} Attribut, das die Ausrichtung des MathML-Elements angibt. Es kann folgende Werte haben:
 
     - `ltr`, was _von links nach rechts_ bedeutet und verwendet wird, um mathematische Ausdrücke von links nach rechts darzustellen (z.B. englisch oder marokkanischer Stil);
     - `rtl`, was _von rechts nach links_ bedeutet und verwendet wird, um mathematische Ausdrücke von rechts nach links darzustellen (z.B. Maghreb- oder Machrek-Stil);

@@ -21,7 +21,7 @@ foo(); // Invoke it using the variable
 // foobar
 ```
 
-Wir haben eine _Anonyme Funktion_ in einer [Variablen](/de/docs/Glossary/Variable) zugewiesen und dann diese Variable verwendet, um die Funktion durch Hinzufügen von Klammern `()` am Ende aufzurufen.
+Wir haben eine _Anonyme Funktion_ in einer {{Glossary("Variable", "Variablen")}} zugewiesen und dann diese Variable verwendet, um die Funktion durch Hinzufügen von Klammern `()` am Ende aufzurufen.
 
 > [!NOTE]
 > Auch wenn Ihre Funktion benannt wurde, können Sie den Variablennamen verwenden, um sie aufzurufen. Das Benennen ist hilfreich, wenn Sie Ihren Code debuggen. _Aber es beeinflusst nicht, wie wir sie aufrufen._
@@ -43,7 +43,7 @@ greeting(sayHello, "JavaScript!");
 Wir übergeben unsere `sayHello()` Funktion als Argument an die `greeting()` Funktion, was erklärt, wie wir die Funktion als Wert behandeln.
 
 > [!NOTE]
-> Die Funktion, die wir als Argument an eine andere Funktion übergeben, wird _[Callback-Funktion](/de/docs/Glossary/callback_function)_ genannt. _`sayHello()` ist eine Callback-Funktion._
+> Die Funktion, die wir als Argument an eine andere Funktion übergeben, wird _{{Glossary("callback_function", "Callback-Funktion")}}_ genannt. _`sayHello()` ist eine Callback-Funktion._
 
 ### Eine Funktion zurückgeben
 
@@ -64,6 +64,6 @@ In diesem Beispiel geben wir eine Funktion von einer anderen Funktion zurück - 
 
 - [First-class functions](https://en.wikipedia.org/wiki/First-class_function) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Callback-Funktion](/de/docs/Glossary/Callback_function)
-  - [Funktion](/de/docs/Glossary/Function)
-  - [Variable](/de/docs/Glossary/Variable)
+  - {{Glossary("Callback_function", "Callback-Funktion")}}
+  - {{Glossary("Function", "Funktion")}}
+  - {{Glossary("Variable", "Variable")}}

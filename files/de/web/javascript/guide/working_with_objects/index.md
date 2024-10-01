@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Keyed_collections", "Web/JavaScript/Guide/Using_classes")}}
 
-JavaScript ist auf einem einfachen, objektbasierten Paradigma aufgebaut. Ein Objekt ist eine Sammlung von [Eigenschaften](/de/docs/Glossary/Property/JavaScript), und eine Eigenschaft ist eine Assoziation zwischen einem Namen (oder _Schlüssel_) und einem Wert. Der Wert einer Eigenschaft kann eine Funktion sein, in diesem Fall ist die Eigenschaft als [Methode](/de/docs/Glossary/Method) bekannt.
+JavaScript ist auf einem einfachen, objektbasierten Paradigma aufgebaut. Ein Objekt ist eine Sammlung von {{Glossary("Property/JavaScript", "Eigenschaften")}}, und eine Eigenschaft ist eine Assoziation zwischen einem Namen (oder _Schlüssel_) und einem Wert. Der Wert einer Eigenschaft kann eine Funktion sein, in diesem Fall ist die Eigenschaft als {{Glossary("Method", "Methode")}} bekannt.
 
 Objekte in JavaScript können, wie in vielen anderen Programmiersprachen, mit Objekten im wirklichen Leben verglichen werden. In JavaScript ist ein Objekt eine eigenständige Entität mit Eigenschaften und Typ. Vergleichen Sie es zum Beispiel mit einer Tasse. Eine Tasse ist ein Objekt mit Eigenschaften. Eine Tasse hat eine Farbe, ein Design, Gewicht, ein Material, aus dem sie besteht, usw. Auf die gleiche Weise können JavaScript-Objekte Eigenschaften haben, die ihre Merkmale definieren.
 
@@ -169,7 +169,7 @@ fish.displayType(); // Logs: Fishes
 
 ## Objekte und Eigenschaften
 
-Ein JavaScript-Objekt hat Eigenschaften, die damit verbunden sind. Objekteigenschaften sind im Grunde dasselbe wie Variablen, außer dass sie mit Objekten und nicht mit [Scopes](/de/docs/Glossary/Scope) verbunden sind. Die Eigenschaften eines Objekts definieren die Merkmale des Objekts.
+Ein JavaScript-Objekt hat Eigenschaften, die damit verbunden sind. Objekteigenschaften sind im Grunde dasselbe wie Variablen, außer dass sie mit Objekten und nicht mit {{Glossary("Scope", "Scopes")}} verbunden sind. Die Eigenschaften eines Objekts definieren die Merkmale des Objekts.
 
 Zum Beispiel erstellt dieses Beispiel ein Objekt, das `myCar` genannt wird, mit Eigenschaften `make`, `model` und `year`, mit den Werten `"Ford"`, `"Mustang"` und `1969`:
 

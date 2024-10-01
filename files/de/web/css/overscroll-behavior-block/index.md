@@ -34,7 +34,7 @@ Die `overscroll-behavior-block` Eigenschaft wird als ein Stichwort aus der unten
 - `auto`
   - : Das standardmäßige Überlaufverhalten des Scrollens tritt normal auf.
 - `contain`
-  - : Standardmäßiges Überlaufverhalten des Scrollens (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, wo dieser Wert gesetzt ist. Es tritt jedoch keine [Scroll-Verkettung](/de/docs/Glossary/Scroll_chaining) bei benachbarten Scrollbereichen auf; die darunter liegenden Elemente werden nicht scrollen. Der `contain` Wert deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wisch-Navigation.
+  - : Standardmäßiges Überlaufverhalten des Scrollens (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, wo dieser Wert gesetzt ist. Es tritt jedoch keine {{Glossary("Scroll_chaining", "Scroll-Verkettung")}} bei benachbarten Scrollbereichen auf; die darunter liegenden Elemente werden nicht scrollen. Der `contain` Wert deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wisch-Navigation.
 - `none`
   - : Keine Scroll-Verkettung tritt bei benachbarten Scrollbereichen auf und das standardmäßige Überlaufverhalten des Scrollens wird verhindert.
 

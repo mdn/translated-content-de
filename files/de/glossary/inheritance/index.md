@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Vererbung ist ein Hauptmerkmal der [objektorientierten Programmierung](/de/docs/Glossary/OOP). Die Datenabstraktion kann über mehrere Ebenen hinweg durchgeführt werden, das heißt, [Klassen](/de/docs/Glossary/class) können Superklassen und Unterklassen haben.
+Vererbung ist ein Hauptmerkmal der {{Glossary("OOP", "objektorientierten Programmierung")}}. Die Datenabstraktion kann über mehrere Ebenen hinweg durchgeführt werden, das heißt, {{Glossary("class", "Klassen")}} können Superklassen und Unterklassen haben.
 
-Als App-Entwickler können Sie wählen, welche [Attribute](/de/docs/Glossary/attribute) und [Methoden](/de/docs/Glossary/method) der Superklasse Sie beibehalten und eigene hinzufügen möchten, was die Klassendefinition sehr flexibel macht. Einige Sprachen erlauben es einer Klasse, von mehr als einem Elternteil zu erben (mehrfache Vererbung).
+Als App-Entwickler können Sie wählen, welche {{Glossary("attribute", "Attribute")}} und {{Glossary("method", "Methoden")}} der Superklasse Sie beibehalten und eigene hinzufügen möchten, was die Klassendefinition sehr flexibel macht. Einige Sprachen erlauben es einer Klasse, von mehr als einem Elternteil zu erben (mehrfache Vererbung).
 
 ## Siehe auch
 

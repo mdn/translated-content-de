@@ -31,4 +31,4 @@ Der erste Satz enthält auch ein `span`-Element mit einem blauen Hintergrund. Di
 
 ### Glossareinträge
 
-- [Block (CSS)](/de/docs/Glossary/Block/CSS)
+- {{Glossary("Block/CSS", "Block (CSS)")}}

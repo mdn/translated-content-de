@@ -17,10 +17,10 @@ Der häufigste Anwendungsfall ist das Aktualisieren einer zwischengespeicherten 
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

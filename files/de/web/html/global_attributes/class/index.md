@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`class`** [Globale Attribut](/de/docs/Web/HTML/Global_attributes) ist eine Liste der Klassen des Elements, getrennt durch [ASCII-Leerzeichen](/de/docs/Glossary/Whitespace#in_html).
+Das **`class`** [Globale Attribut](/de/docs/Web/HTML/Global_attributes) ist eine Liste der Klassen des Elements, getrennt durch {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}}.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-class.html","tabbed-standard")}}
 
@@ -19,7 +19,7 @@ Obwohl die Spezifikation keine Anforderungen an die Namen von Klassen stellt, wi
 
 ### Syntax
 
-Das `class`-Attribut ist eine Liste von Klassenwerten, getrennt durch [ASCII-Leerzeichen](/de/docs/Glossary/Whitespace#in_html).
+Das `class`-Attribut ist eine Liste von Klassenwerten, getrennt durch {{Glossary("Whitespace#in_html", "ASCII-Leerzeichen")}}.
 
 Jeder Klassenwert kann beliebige Unicode-Zeichen enthalten (mit Ausnahme von ASCII-Leerzeichen). Wenn jedoch in CSS-Selektoren verwendet, entweder aus JavaScript mit APIs wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector) oder in CSS-Stylesheets, müssen Klassenattributwerte gültige [CSS-Identifier](/de/docs/Web/CSS/ident) sein. Das bedeutet, dass wenn ein Klassenattributwert kein gültiger CSS-Identifier ist (zum Beispiel `my?class` oder `1234`), er vor der Verwendung in einem Selektor entweder mit der Methode [`CSS.escape()`](/de/docs/Web/API/CSS/escape_static) oder [manuell](/de/docs/Web/CSS/ident#escaping_characters) maskiert werden muss.
 

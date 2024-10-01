@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`align-self`** [CSS](/de/docs/Web/CSS)-Eigenschaft überschreibt den Wert von {{cssxref("align-items")}} eines Grid- oder Flex-Items. Im Grid richtet sie das Element innerhalb des [Grid-Bereichs](/de/docs/Glossary/Grid_Areas) aus. Im Flexbox-Layout richtet sie das Element auf der [Querachse](/de/docs/Glossary/cross_axis) aus.
+Die **`align-self`** [CSS](/de/docs/Web/CSS)-Eigenschaft überschreibt den Wert von {{cssxref("align-items")}} eines Grid- oder Flex-Items. Im Grid richtet sie das Element innerhalb des {{Glossary("Grid_Areas", "Grid-Bereichs")}} aus. Im Flexbox-Layout richtet sie das Element auf der {{Glossary("cross_axis", "Querachse")}} aus.
 
 {{EmbedInteractiveExample("pages/css/align-self.html")}}
 
@@ -60,7 +60,7 @@ align-self: unset;
     - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
     - Im statischen Zustand absolut positionierter Layouts verhält sich das Schlüsselwort wie `stretch`.
     - Bei Flex-Items verhält sich das Schlüsselwort wie `stretch`.
-    - Bei Grid-Items führt dieses Schlüsselwort zu einem Verhalten ähnlich `stretch`, außer bei Boxen mit einem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) oder intrinsischen Größen, wo es sich wie `start` verhält.
+    - Bei Grid-Items führt dieses Schlüsselwort zu einem Verhalten ähnlich `stretch`, außer bei Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder intrinsischen Größen, wo es sich wie `start` verhält.
     - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenzellen.
 
 - `self-start`

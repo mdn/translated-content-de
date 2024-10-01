@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Ein **`gatheringstatechange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn sich der Zustand des [ICE](/de/docs/Glossary/ICE)-Kandidatensammelns ändert.
+Ein **`gatheringstatechange`**-Ereignis wird an ein [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) gesendet, wenn sich der Zustand des {{Glossary("ICE", "ICE")}}-Kandidatensammelns ändert.
 
 Der Sammelzustand, dessen aktueller Status in der [`gatheringState`](/de/docs/Web/API/RTCIceTransport/gatheringState)-Eigenschaft des Transportobjekts gefunden werden kann, zeigt an, ob der ICE-Agent damit begonnen hat, Kandidaten auf diesem Transport zu sammeln und, falls ja, ob er dies abgeschlossen hat.
 

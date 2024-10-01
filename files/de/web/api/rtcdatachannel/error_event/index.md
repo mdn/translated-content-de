@@ -35,7 +35,7 @@ Ein [`RTCErrorEvent`](/de/docs/Web/API/RTCErrorEvent). Erbt von [`Event`](/de/do
 _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
 
 - [`error`](/de/docs/Web/API/RTCErrorEvent/error) {{ReadOnlyInline}}
-  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler spezifiziert; dieses Objekt enthält die Art des aufgetretenen Fehlers sowie Informationen darüber, wo der Fehler aufgetreten ist (z. B. welche Zeilennummer im [SDP](/de/docs/Glossary/SDP) oder welcher [SCTP](/de/docs/Glossary/SCTP)-Ursachencode das Problem war).
+  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler spezifiziert; dieses Objekt enthält die Art des aufgetretenen Fehlers sowie Informationen darüber, wo der Fehler aufgetreten ist (z. B. welche Zeilennummer im {{Glossary("SDP", "SDP")}} oder welcher {{Glossary("SCTP", "SCTP")}}-Ursachencode das Problem war).
 
 ## Beispiele
 

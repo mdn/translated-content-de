@@ -10,7 +10,7 @@ l10n:
 
 Der
 **`RTCIceCandidate()`**
-Konstruktor erstellt und gibt ein neues [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Objekt zurück, das konfiguriert werden kann, um einen einzelnen [ICE](/de/docs/Glossary/ICE) Kandidaten zu repräsentieren.
+Konstruktor erstellt und gibt ein neues [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate) Objekt zurück, das konfiguriert werden kann, um einen einzelnen {{Glossary("ICE", "ICE")}} Kandidaten zu repräsentieren.
 
 ## Syntax
 
@@ -44,7 +44,7 @@ new RTCIceCandidate(candidateInfo)
         wäre der entsprechende Wert des `candidate` Strings
         `"candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"`.
 
-        Der [User Agent](/de/docs/Glossary/user_agent) bevorzugt immer Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn alle anderen Faktoren gleich sind.
+        Der {{Glossary("user_agent", "User Agent")}} bevorzugt immer Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn alle anderen Faktoren gleich sind.
         Im obigen Beispiel ist die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge.
         Die vollständige Liste der Attribute für diesen Beispielkandidaten ist:
 
@@ -76,7 +76,7 @@ new RTCIceCandidate(candidateInfo)
     - `usernameFragment` {{optional_inline}}
 
       - : Ein String, der das Benutzername-Fragment enthält (in der Regel in Kurzform als "ufrag" oder "ice-ufrag" bezeichnet).
-        Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeglicher Kommunikation mit dem [STUN](/de/docs/Glossary/STUN) Server).
+        Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich jeglicher Kommunikation mit dem {{Glossary("STUN", "STUN")}} Server).
 
         Der String wird von WebRTC zu Beginn der Sitzung generiert.
         Er kann bis zu 256 Zeichen lang sein, und mindestens 24 Bits müssen zufällige Daten enthalten.

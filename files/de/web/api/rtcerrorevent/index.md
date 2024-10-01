@@ -21,7 +21,7 @@ Die **`RTCErrorEvent`**-Schnittstelle der WebRTC API stellt einen Fehler dar, de
 _Zusätzlich zu den auf der [`Event`](/de/docs/Web/API/Event)-Schnittstelle verfügbaren Standard-Eigenschaften enthält `RTCErrorEvent` auch folgende:_
 
 - [`error`](/de/docs/Web/API/RTCErrorEvent/error) {{ReadOnlyInline}}
-  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler angibt; dieses Objekt enthält den Fehlertyp, Informationen darüber, wo der Fehler aufgetreten ist (wie die Zeilennummer im [SDP](/de/docs/Glossary/SDP) oder welcher [SCTP](/de/docs/Glossary/SCTP)-Fehlercode betroffen war).
+  - : Ein [`RTCError`](/de/docs/Web/API/RTCError)-Objekt, das den aufgetretenen Fehler angibt; dieses Objekt enthält den Fehlertyp, Informationen darüber, wo der Fehler aufgetreten ist (wie die Zeilennummer im {{Glossary("SDP", "SDP")}} oder welcher {{Glossary("SCTP", "SCTP")}}-Fehlercode betroffen war).
 
 ## Instanzmethoden
 

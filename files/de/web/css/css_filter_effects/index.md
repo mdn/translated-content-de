@@ -49,7 +49,7 @@ Um den Code für dieses Filtereffekt-Beispiel zu sehen, [sehen Sie sich den Quel
 - {{cssxref("background-blend-mode")}} CSS-Eigenschaft
 - {{cssxref("mix-blend-mode")}} CSS-Eigenschaft
 
-- [Interpolation](/de/docs/Glossary/interpolation) Glossarbegriff
+- {{Glossary("interpolation", "Interpolation")}} Glossarbegriff
 
 - [`color-interpolation-filters`](/de/docs/Web/SVG/Attribute/color-interpolation-filters) SVG-Eigenschaft
 

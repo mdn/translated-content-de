@@ -47,7 +47,7 @@ cloneNode(deep)
     Wenn `false`, wird nur der Knoten geklont.
     Der Unterbaum, einschließlich jeglichen Textes, den der Knoten enthält, wird nicht geklont.
 
-    Beachten Sie, dass `deep` keinen Einfluss auf [void elements](/de/docs/Glossary/void_element) hat,
+    Beachten Sie, dass `deep` keinen Einfluss auf {{Glossary("void_element", "void elements")}} hat,
     wie die {{HTMLElement("img")}}- und {{HTMLElement("input")}}-Elemente.
 
 ### Rückgabewert

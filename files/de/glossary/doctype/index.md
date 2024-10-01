@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im [HTML](/de/docs/Glossary/HTML) ist der **doctype** die erforderliche `<!doctype html>`-Vorangabe, die am Anfang aller Dokumente zu finden ist. Sein einziger Zweck ist es, zu verhindern, dass ein [Browser](/de/docs/Glossary/browser) in den sogenannten ["quirks mode"](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) wechselt, wenn er ein Dokument rendert; das heißt, der `<!doctype html>` doctype stellt sicher, dass der Browser nach besten Kräften versucht, den relevanten Spezifikationen zu folgen, anstatt einen anderen Rendering-Modus zu verwenden, der mit einigen Spezifikationen inkompatibel ist.
+Im {{Glossary("HTML", "HTML")}} ist der **doctype** die erforderliche `<!doctype html>`-Vorangabe, die am Anfang aller Dokumente zu finden ist. Sein einziger Zweck ist es, zu verhindern, dass ein {{Glossary("browser", "Browser")}} in den sogenannten ["quirks mode"](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) wechselt, wenn er ein Dokument rendert; das heißt, der `<!doctype html>` doctype stellt sicher, dass der Browser nach besten Kräften versucht, den relevanten Spezifikationen zu folgen, anstatt einen anderen Rendering-Modus zu verwenden, der mit einigen Spezifikationen inkompatibel ist.
 
 Der doctype ist nicht case-sensitiv. Die Konvention von MDN-Codebeispielen ist die Verwendung von Kleinbuchstaben, aber es ist auch üblich, ihn als `<!DOCTYPE html>` zu schreiben.
 

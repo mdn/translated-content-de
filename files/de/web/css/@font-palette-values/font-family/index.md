@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) [Descriptor](/de/docs/Glossary/CSS_Descriptor) **`font-family`** wird verwendet, um festzulegen, auf welche `font-family`-Palettenwerte angewendet werden sollen. Diese müssen genau den Werten entsprechen, die beim Festlegen der CSS-[font-family](/de/docs/Web/CSS/font-family) verwendet werden.
+Der [@font-palette-values](/de/docs/Web/CSS/@font-palette-values) {{Glossary("CSS_Descriptor", "Descriptor")}} **`font-family`** wird verwendet, um festzulegen, auf welche `font-family`-Palettenwerte angewendet werden sollen. Diese müssen genau den Werten entsprechen, die beim Festlegen der CSS-[font-family](/de/docs/Web/CSS/font-family) verwendet werden.
 
 ## Syntax
 

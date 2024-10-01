@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefinierten Filtereffekt, indem es atomare Filterprimitiven gruppiert. Es wird selbst nie gerendert, muss jedoch mit dem {{SVGAttr("filter")}}-Attribut bei SVG-Elementen oder der {{cssxref("filter")}} [CSS](/de/docs/Glossary/CSS)-Eigenschaft für SVG/HTML-Elemente verwendet werden.
+Das **`<filter>`** [SVG](/de/docs/Web/SVG)-Element definiert einen benutzerdefinierten Filtereffekt, indem es atomare Filterprimitiven gruppiert. Es wird selbst nie gerendert, muss jedoch mit dem {{SVGAttr("filter")}}-Attribut bei SVG-Elementen oder der {{cssxref("filter")}} {{Glossary("CSS", "CSS")}}-Eigenschaft für SVG/HTML-Elemente verwendet werden.
 
 ## Verwendungskontext
 

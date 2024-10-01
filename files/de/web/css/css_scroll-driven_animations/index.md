@@ -19,7 +19,7 @@ Wenn eine dieser beiden Zeitachsen auf ein animiertes Element angewendet wird, s
 Es ist möglich, die effektive Platzierung der Animation entlang der scroll- und Ansichtsfortschritt-Zeitachsen anzupassen, d.h. Sie können die Position definieren, an der die Animation startet und endet. Dies kann auf verschiedene Weise geschehen:
 
 - Start- und Endwerte des Animationsbereichs können auf die Animation angewendet werden, um die Start- und Endposition der Animation entlang der Zeitachse anzupassen.
-- Ansichtsfortschritt-Zeitachsen können einen Start- und/oder Endeinschub (oder -auszug) aufweisen, um die Position des Scrollports anzupassen (siehe [Scroll container](/de/docs/Glossary/Scroll_container) für weitere Details), in dem das Subject-Element als sichtbar gilt. Anders ausgedrückt, dies ermöglicht Ihnen die Festlegung von Start- und/oder Endeinschub- (oder -auszug) Werten, die die Position der Zeitachse selbst versetzen.
+- Ansichtsfortschritt-Zeitachsen können einen Start- und/oder Endeinschub (oder -auszug) aufweisen, um die Position des Scrollports anzupassen (siehe {{Glossary("Scroll_container", "Scroll container")}} für weitere Details), in dem das Subject-Element als sichtbar gilt. Anders ausgedrückt, dies ermöglicht Ihnen die Festlegung von Start- und/oder Endeinschub- (oder -auszug) Werten, die die Position der Zeitachse selbst versetzen.
 
 ## Scrollgetriebene Animationen in Aktion
 

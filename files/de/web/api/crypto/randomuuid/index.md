@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`randomUUID()`** Methode des [`Crypto`](/de/docs/Web/API/Crypto) Interfaces wird verwendet, um eine v4 [UUID](/de/docs/Glossary/UUID) mit einem kryptographisch sicheren Zufallszahlengenerator zu erzeugen.
+Die **`randomUUID()`** Methode des [`Crypto`](/de/docs/Web/API/Crypto) Interfaces wird verwendet, um eine v4 {{Glossary("UUID", "UUID")}} mit einem kryptographisch sicheren Zufallszahlengenerator zu erzeugen.
 
 ## Syntax
 

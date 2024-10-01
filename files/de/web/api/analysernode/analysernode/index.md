@@ -41,7 +41,7 @@ new AnalyserNode(context, options)
         [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) für weitere Informationen.) Die Nutzung und genaue
         Definition hängen vom Wert von `channelCountMode` ab.
     - `channelCountMode`
-      - : Repräsentiert einen [auflistbaren](/de/docs/Glossary/Enumerated) Wert, der beschreibt, wie die Kanäle zwischen
+      - : Repräsentiert einen {{Glossary("Enumerated", "auflistbaren")}} Wert, der beschreibt, wie die Kanäle zwischen
         den Eingängen und Ausgängen des Knotens abgestimmt werden müssen. (Siehe [`AudioNode.channelCountMode`](/de/docs/Web/API/AudioNode/channelCountMode) für weitere
         Informationen, einschließlich Standardwerten.)
     - `channelInterpretation`

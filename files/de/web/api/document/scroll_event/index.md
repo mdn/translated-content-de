@@ -28,7 +28,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ### Scroll-Event-Drosselung
 
-Da `scroll`-Ereignisse mit hoher Frequenz ausgelöst werden können, sollte der Ereignishandler keine rechenintensiven Operationen wie DOM-Modifikationen ausführen. Es wird stattdessen empfohlen, das Ereignis mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/SetTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu [drosseln](/de/docs/Glossary/throttle), wie folgt.
+Da `scroll`-Ereignisse mit hoher Frequenz ausgelöst werden können, sollte der Ereignishandler keine rechenintensiven Operationen wie DOM-Modifikationen ausführen. Es wird stattdessen empfohlen, das Ereignis mit [`requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame), [`setTimeout()`](/de/docs/Web/API/SetTimeout) oder einem [`CustomEvent`](/de/docs/Web/API/CustomEvent) zu {{Glossary("throttle", "drosseln")}}, wie folgt.
 
 Beachten Sie jedoch, dass Eingabeereignisse und Animationsrahmen ungefähr mit der gleichen Frequenz ausgelöst werden, weshalb die Optimierung unten oft nicht notwendig ist. Dieses Beispiel optimiert das `scroll`-Ereignis für `requestAnimationFrame`.
 

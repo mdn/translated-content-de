@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**WebDAV** (_Web Distributed Authoring and Versioning_) ist eine [HTTP](/de/docs/Glossary/HTTP)-Erweiterung, die es Webentwicklern ermöglicht, ihre Inhalte aus der Ferne von einem Client aus zu aktualisieren.
+**WebDAV** (_Web Distributed Authoring and Versioning_) ist eine {{Glossary("HTTP", "HTTP")}}-Erweiterung, die es Webentwicklern ermöglicht, ihre Inhalte aus der Ferne von einem Client aus zu aktualisieren.
 
-WebDAV wird selten allein verwendet, aber zwei Erweiterungen sind sehr verbreitet: [CalDAV](/de/docs/Glossary/CalDAV) (Fernzugriff auf Kalender) und [CardDAV](/de/docs/Glossary/CardDAV) (Fernzugriff auf ein Adressbuch).
+WebDAV wird selten allein verwendet, aber zwei Erweiterungen sind sehr verbreitet: {{Glossary("CalDAV", "CalDAV")}} (Fernzugriff auf Kalender) und {{Glossary("CardDAV", "CardDAV")}} (Fernzugriff auf ein Adressbuch).
 
 WebDAV ermöglicht es Clients,
 

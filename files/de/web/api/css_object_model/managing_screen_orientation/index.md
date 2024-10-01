@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Screen Orientation API")}}
 
-Der Begriff _Bildschirmorientierung_ bezieht sich darauf, ob ein Browser-[Viewport](/de/docs/Glossary/Viewport) im Querformatmodus ist (d.h. die Breite des Viewports ist größer als seine Höhe) oder im Hochformatmodus (die Höhe des Viewports ist größer als seine Breite).
+Der Begriff _Bildschirmorientierung_ bezieht sich darauf, ob ein Browser-{{Glossary("Viewport", "Viewport")}} im Querformatmodus ist (d.h. die Breite des Viewports ist größer als seine Höhe) oder im Hochformatmodus (die Höhe des Viewports ist größer als seine Breite).
 
 CSS bietet das [`orientation`](/de/docs/Web/CSS/@media/orientation)-Medienmerkmal, um das Layout basierend auf der Bildschirmorientierung anzupassen.
 

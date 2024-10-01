@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Im [HTTP](/de/docs/Glossary/HTTP) ist die **_Content-Negotiation_** der Mechanismus, der verwendet wird, um unterschiedliche [Darstellungen](/de/docs/Glossary/Representation_header) einer Ressource unter derselben URI bereitzustellen, um dem Benutzeragenten zu helfen, die am besten geeignete Darstellung für den Nutzer zu spezifizieren (zum Beispiel, welche Dokumentensprache, welches Bildformat oder welche Inhaltskodierung).
+Im {{Glossary("HTTP", "HTTP")}} ist die **_Content-Negotiation_** der Mechanismus, der verwendet wird, um unterschiedliche {{Glossary("Representation_header", "Darstellungen")}} einer Ressource unter derselben URI bereitzustellen, um dem Benutzeragenten zu helfen, die am besten geeignete Darstellung für den Nutzer zu spezifizieren (zum Beispiel, welche Dokumentensprache, welches Bildformat oder welche Inhaltskodierung).
 
 > [!NOTE]
 > Sie finden einige Nachteile der HTTP-Content-Negotiation in [einer Wiki-Seite von WHATWG](https://wiki.whatwg.org/wiki/Why_not_conneg). HTML bietet Alternativen zur Content-Negotiation, zum Beispiel über das [`<source>`-Element](/de/docs/Web/HTML/Element/source).
@@ -38,7 +38,7 @@ Zusätzlich zu diesen gibt es einen experimentellen Vorschlag, um mehr Header zu
 Auch wenn servergesteuerte Content-Negotiation die häufigste Methode ist, um sich auf eine spezifische Darstellung einer Ressource zu einigen, hat sie mehrere Nachteile:
 
 - Der Server hat kein vollständiges Wissen über den Browser. Selbst mit der Client-Hints-Erweiterung hat er kein vollständiges Wissen über die Fähigkeiten des Browsers. Im Gegensatz zur reaktiven Content-Negotiation, bei der der Client die Wahl trifft, ist die Serverauswahl immer etwas willkürlich.
-- Die Informationen vom Client sind recht ausführlich (HTTP/2-Header-Kompression mildert dieses Problem) und ein Datenschutzrisiko (HTTP [Fingerprinting](/de/docs/Glossary/Fingerprinting)).
+- Die Informationen vom Client sind recht ausführlich (HTTP/2-Header-Kompression mildert dieses Problem) und ein Datenschutzrisiko (HTTP {{Glossary("Fingerprinting", "Fingerprinting")}}).
 - Da mehrere Darstellungen einer bestimmten Ressource gesendet werden, sind gemeinsame Caches weniger effizient, und Serverimplementierungen sind komplexer.
 
 ### Der `Accept`-Header
@@ -54,11 +54,11 @@ Der `Accept`-Header wird vom Browser oder einem anderen Benutzeragenten definier
 
 Der experimentelle {{HTTPHeader("Accept-CH")}}-Header listet Konfigurationsdaten auf, die der Server verwenden kann, um eine geeignete Antwort auszuwählen. Gültige Werte sind:
 
-| Wert             | Bedeutung                                                                                                                                                             |
-| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Wert             | Bedeutung                                                                                                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `Device-Memory`  | Gibt die ungefähre Menge an RAM des Geräts an. Dieser Wert ist eine Annäherung, die durch Runden auf die nächste Potenz von 2 und Teilen dieser Zahl durch 1024 erfolgt. |
-| `Viewport-Width` | Gibt die Breite des Layout-Viewports in CSS-Pixeln an.                                                                                                                                                                 |
-| `Width`          | Gibt die Breite der Ressource in physischen Pixeln an (mit anderen Worten die intrinsische Größe eines Bildes).                                                                                                       |
+| `Viewport-Width` | Gibt die Breite des Layout-Viewports in CSS-Pixeln an.                                                                                                                   |
+| `Width`          | Gibt die Breite der Ressource in physischen Pixeln an (mit anderen Worten die intrinsische Größe eines Bildes).                                                          |
 
 ### Der `Accept-Encoding`-Header
 

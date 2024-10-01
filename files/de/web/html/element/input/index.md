@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<input>`** [HTML](/de/docs/Web/HTML) Element wird verwendet, um interaktive Steuerelemente für webbasierte Formulare zu erstellen, um Daten vom Benutzer zu akzeptieren; es steht eine Vielzahl von Eingabedatentypen und Steuerungs-Widgets zur Verfügung, abhängig von Gerät und [User Agent](/de/docs/Glossary/user_agent). Das `<input>` Element ist eines der mächtigsten und komplexesten in ganz HTML, aufgrund der schieren Anzahl an Kombinationen von Eingabetypen und Attributen.
+Das **`<input>`** [HTML](/de/docs/Web/HTML) Element wird verwendet, um interaktive Steuerelemente für webbasierte Formulare zu erstellen, um Daten vom Benutzer zu akzeptieren; es steht eine Vielzahl von Eingabedatentypen und Steuerungs-Widgets zur Verfügung, abhängig von Gerät und {{Glossary("user_agent", "User Agent")}}. Das `<input>` Element ist eines der mächtigsten und komplexesten in ganz HTML, aufgrund der schieren Anzahl an Kombinationen von Eingabetypen und Attributen.
 
 {{EmbedInteractiveExample("pages/tabbed/input-text.html", "tabbed-shorter")}}
 
@@ -313,42 +313,42 @@ Dieser Abschnitt bietet eine Tabelle, die alle Attribute mit einer kurzen Beschr
 
 Attribute für das `<input>` Element beinhalten die [globalen HTML Attribute](/de/docs/Web/HTML/Global_attributes) und zusätzlich:
 
-| Attribut                                      | Typ(en)                                                                 | Beschreibung                                                                          |
-| --------------------------------------------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| [`accept`](#accept)                           | `file`                                                                  | Hinweis für erwarteten Dateityp in Datei-Upload-Steuerungen                             |
-| [`alt`](#alt)                                 | `image`                                                                 | alt Attribut für den Bildtyp. Erforderlich für Barrierefreiheit                        |
-| [`autocapitalize`](#autocapitalize)           | alle außer `url`, `email` und `password`                                | Steuert die automatische Großschreibung im eingegebenen Text.                          |
-| [`autocomplete`](#autocomplete)               | alle außer `checkbox`, `radio` und Schaltflächen                        | Hinweis für automatische Formularausfüllung                                            |
-| [`capture`](#capture)                         | `file`                                                                  | Eingabemethode zur Medienerfassung in Datei-Upload-Steuerungen                        |
-| [`checked`](#checked)                         | `checkbox`, `radio`                                                     | Ob der Befehl oder die Steuerung aktiviert ist                                         |
-| [`dirname`](#dirname)                         | `hidden`, `text`, `search`, `url`, `tel`, `email`                       | Name des Formularfelds zur Übermittlung der Richtung des Elements in der Formularübermittlung |
-| [`disabled`](#disabled)                       | alle                                                                     | Ob die Steuerelement deaktiviert ist                                                   |
-| [`form`](#form)                               | alle                                                                     | Verknüpft das Steuerungselement mit einem Formularelement                              |
-| [`formaction`](#formaction)                   | `image`, `submit`                                                       | URL zur Verwendung für die Formularübermittlung                                        |
-| [`formenctype`](#formenctype)                 | `image`, `submit`                                                       | Zu verwendender Kodierungstyp des Formulardatensatzes für die Formularübermittlung     |
-| [`formmethod`](#formmethod)                   | `image`, `submit`                                                       | HTTP-Methode zur Verwendung für die Formularübermittlung                               |
-| [`formnovalidate`](#formnovalidate)           | `image`, `submit`                                                       | Umgehung der Formularüberprüfungssteuerung bei der Formularübermittlung                |
-| [`formtarget`](#formtarget)                   | `image`, `submit`                                                       | Browserkontext für die Formularübermittlung                                            |
-| [`height`](#height)                           | `image`                                                                 | Entspricht dem height Attribut für {{htmlelement('img')}}; vertikale Dimension        |
-| [`list`](#list)                               | alle außer `hidden`, `password`, `checkbox`, `radio` und Schaltflächen   | Wert des id-Attributs der {{htmlelement('datalist')}} von automatischen Ausfülloptionen |
-| [`max`](#max)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`    | Maximalwert                                                                           |
-| [`maxlength`](#maxlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                     | Maximale Länge (Anzahl der Zeichen) des `value`                                        |
-| [`min`](#min)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`    | Minimalwert                                                                            |
-| [`minlength`](#minlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                     | Minimale Länge (Anzahl der Zeichen) des `value`                                        |
-| [`multiple`](#multiple)                       | `email`, `file`                                                         | Boolean. Ob mehrere Werte erlaubt sind                                                  |
-| [`name`](#name)                               | alle                                                                     | Name des Steuerelements. Gemeinsam mit dem Formular als Teil eines Namens/Wert-Paars übermittelt |
-| [`pattern`](#pattern)                         | `text`, `search`, `url`, `tel`, `email`, `password`                     | Muster, das `value` entsprechen muss, um gültig zu sein                                  |
-| [`placeholder`](#placeholder)                 | `text`, `search`, `url`, `tel`, `email`, `password`, `number`           | Text, der im Steuerelement erscheint, wenn kein Wert festgelegt ist                     |
-| [`popovertarget`](#popovertarget)             | `button`                                                                | Designiert ein `<input type="button">` als Steuerung für ein Popover-Element            |
-| [`popovertargetaction`](#popovertargetaction) | `button`                                                                | Gibt die Aktion an, die ein Popover-Steuerelement ausführen soll                        |
-| [`readonly`](#readonly)                       | alle außer `hidden`, `range`, `color`, `checkbox`, `radio` und Schaltflächen | Boolean. Der Wert ist nicht bearbeitbar                                                |
-| [`required`](#required)                       | alle außer `hidden`, `range`, `color` und Schaltflächen                  | Boolean. Ein Wert ist erforderlich oder muss überprüft werden, damit das Formular übermittelt werden kann |
-| [`size`](#size)                               | `text`, `search`, `url`, `tel`, `email`, `password`                     | Größe des Steuerelements                                                               |
-| [`src`](#src)                                 | `image`                                                                 | Entspricht dem `src` Attribut für {{htmlelement('img')}}; Adresse der Bildressource    |
-| [`step`](#step)                               | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`    | Inkrementelle Werte, die gültig sind                                                    |
-| [`type`](#type)                               | alle                                                                     | Typ des Steuerelements                                                                 |
-| [`value`](#value)                             | alle außer `image`                                                      | Der Wert des Steuerelements. Wenn im HTML angegeben, entspricht dies dem Anfangswert   |
-| [`width`](#width)                             | `image`                                                                 | Entspricht dem `width` Attribut für {{htmlelement('img')}}                             |
+| Attribut                                      | Typ(en)                                                                      | Beschreibung                                                                                              |
+| --------------------------------------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| [`accept`](#accept)                           | `file`                                                                       | Hinweis für erwarteten Dateityp in Datei-Upload-Steuerungen                                               |
+| [`alt`](#alt)                                 | `image`                                                                      | alt Attribut für den Bildtyp. Erforderlich für Barrierefreiheit                                           |
+| [`autocapitalize`](#autocapitalize)           | alle außer `url`, `email` und `password`                                     | Steuert die automatische Großschreibung im eingegebenen Text.                                             |
+| [`autocomplete`](#autocomplete)               | alle außer `checkbox`, `radio` und Schaltflächen                             | Hinweis für automatische Formularausfüllung                                                               |
+| [`capture`](#capture)                         | `file`                                                                       | Eingabemethode zur Medienerfassung in Datei-Upload-Steuerungen                                            |
+| [`checked`](#checked)                         | `checkbox`, `radio`                                                          | Ob der Befehl oder die Steuerung aktiviert ist                                                            |
+| [`dirname`](#dirname)                         | `hidden`, `text`, `search`, `url`, `tel`, `email`                            | Name des Formularfelds zur Übermittlung der Richtung des Elements in der Formularübermittlung             |
+| [`disabled`](#disabled)                       | alle                                                                         | Ob die Steuerelement deaktiviert ist                                                                      |
+| [`form`](#form)                               | alle                                                                         | Verknüpft das Steuerungselement mit einem Formularelement                                                 |
+| [`formaction`](#formaction)                   | `image`, `submit`                                                            | URL zur Verwendung für die Formularübermittlung                                                           |
+| [`formenctype`](#formenctype)                 | `image`, `submit`                                                            | Zu verwendender Kodierungstyp des Formulardatensatzes für die Formularübermittlung                        |
+| [`formmethod`](#formmethod)                   | `image`, `submit`                                                            | HTTP-Methode zur Verwendung für die Formularübermittlung                                                  |
+| [`formnovalidate`](#formnovalidate)           | `image`, `submit`                                                            | Umgehung der Formularüberprüfungssteuerung bei der Formularübermittlung                                   |
+| [`formtarget`](#formtarget)                   | `image`, `submit`                                                            | Browserkontext für die Formularübermittlung                                                               |
+| [`height`](#height)                           | `image`                                                                      | Entspricht dem height Attribut für {{htmlelement('img')}}; vertikale Dimension                            |
+| [`list`](#list)                               | alle außer `hidden`, `password`, `checkbox`, `radio` und Schaltflächen       | Wert des id-Attributs der {{htmlelement('datalist')}} von automatischen Ausfülloptionen                   |
+| [`max`](#max)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`         | Maximalwert                                                                                               |
+| [`maxlength`](#maxlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                          | Maximale Länge (Anzahl der Zeichen) des `value`                                                           |
+| [`min`](#min)                                 | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`         | Minimalwert                                                                                               |
+| [`minlength`](#minlength)                     | `text`, `search`, `url`, `tel`, `email`, `password`                          | Minimale Länge (Anzahl der Zeichen) des `value`                                                           |
+| [`multiple`](#multiple)                       | `email`, `file`                                                              | Boolean. Ob mehrere Werte erlaubt sind                                                                    |
+| [`name`](#name)                               | alle                                                                         | Name des Steuerelements. Gemeinsam mit dem Formular als Teil eines Namens/Wert-Paars übermittelt          |
+| [`pattern`](#pattern)                         | `text`, `search`, `url`, `tel`, `email`, `password`                          | Muster, das `value` entsprechen muss, um gültig zu sein                                                   |
+| [`placeholder`](#placeholder)                 | `text`, `search`, `url`, `tel`, `email`, `password`, `number`                | Text, der im Steuerelement erscheint, wenn kein Wert festgelegt ist                                       |
+| [`popovertarget`](#popovertarget)             | `button`                                                                     | Designiert ein `<input type="button">` als Steuerung für ein Popover-Element                              |
+| [`popovertargetaction`](#popovertargetaction) | `button`                                                                     | Gibt die Aktion an, die ein Popover-Steuerelement ausführen soll                                          |
+| [`readonly`](#readonly)                       | alle außer `hidden`, `range`, `color`, `checkbox`, `radio` und Schaltflächen | Boolean. Der Wert ist nicht bearbeitbar                                                                   |
+| [`required`](#required)                       | alle außer `hidden`, `range`, `color` und Schaltflächen                      | Boolean. Ein Wert ist erforderlich oder muss überprüft werden, damit das Formular übermittelt werden kann |
+| [`size`](#size)                               | `text`, `search`, `url`, `tel`, `email`, `password`                          | Größe des Steuerelements                                                                                  |
+| [`src`](#src)                                 | `image`                                                                      | Entspricht dem `src` Attribut für {{htmlelement('img')}}; Adresse der Bildressource                       |
+| [`step`](#step)                               | `date`, `month`, `week`, `time`, `datetime-local`, `number`, `range`         | Inkrementelle Werte, die gültig sind                                                                      |
+| [`type`](#type)                               | alle                                                                         | Typ des Steuerelements                                                                                    |
+| [`value`](#value)                             | alle außer `image`                                                           | Der Wert des Steuerelements. Wenn im HTML angegeben, entspricht dies dem Anfangswert                      |
+| [`width`](#width)                             | `image`                                                                      | Entspricht dem `width` Attribut für {{htmlelement('img')}}                                                |
 
 Einige zusätzliche nicht-standardisierte Attribute sind in den Beschreibungen der Standardattribute aufgeführt.
 
@@ -503,7 +503,7 @@ Einige zusätzliche nicht-standardisierte Attribute sind in den Beschreibungen d
 
     Es gibt zwei Sonderfälle:
 
-    1. `_charset_` : Wenn es als Name eines `<input>` Elements vom Typ {{HTMLElement("input/hidden", "hidden")}} verwendet wird, wird der `value` der Eingabe automatisch vom [User Agent](/de/docs/Glossary/user_agent) auf den Zeichensatz gesetzt, der zum Übermitteln des Formulars verwendet wird.
+    1. `_charset_` : Wenn es als Name eines `<input>` Elements vom Typ {{HTMLElement("input/hidden", "hidden")}} verwendet wird, wird der `value` der Eingabe automatisch vom {{Glossary("user_agent", "User Agent")}} auf den Zeichensatz gesetzt, der zum Übermitteln des Formulars verwendet wird.
     2. `isindex`: Aus historischen Gründen ist der Name [`isindex`](https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#attr-fe-name) nicht erlaubt.
 
     Das [`name`](#name) Attribut erstellt einzigartiges Verhalten für Optionsschaltflächen.
@@ -533,7 +533,7 @@ Einige zusätzliche nicht-standardisierte Attribute sind in den Beschreibungen d
   - : Gültig für `text`, `search`, `url`, `tel`, `email` und `password`, das `pattern` Attribut wird verwendet, um einen regulären Ausdruck zu kompilieren, dem der [`value`](#value) der Eingabe entsprechen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript regulärer Ausdruck sein, wie vom {{jsxref("RegExp")}} Typ verwendet und wie in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert. Vorwärts Schrägstriche sollten nicht um den Mustertest spezifiziert werden. Bei der Kompilierung des regulären Ausdrucks gilt:
 
     1. das Muster wird implizit mit `^(?:` und `)$` umschlossen, sodass die Übereinstimmung gegen den gesamten Eingabewert erforderlich ist, d. h. `^(?:<pattern>)$`.
-    2. das `'v'` Flag wird spezifiziert, damit das Muster als Sequenz von Unicode Code-Punkten behandelt wird, anstatt als [ASCII](/de/docs/Glossary/ASCII).
+    2. das `'v'` Flag wird spezifiziert, damit das Muster als Sequenz von Unicode Code-Punkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}.
 
     Wenn das `pattern` Attribut vorhanden, aber nicht spezifiziert oder ungültig ist, wird kein regulärer Ausdruck angewendet, und dieses Attribut wird vollständig ignoriert. Wenn das Musterattribut gültig ist und ein nicht-leerer Wert nicht mit dem Muster übereinstimmt, wird die Einschränkungsvalidierung die Formularübermittlung verhindern. Wenn das [`multiple`](/de/docs/Web/HTML/Attributes/multiple) Attribut vorhanden ist, wird der kompilierte reguläre Ausdruck gegen jeden komma-getrennten Wert abgeglichen.
 
@@ -695,7 +695,7 @@ Die folgenden nicht-standardisierten Attribute sind ebenfalls in einigen Browser
 
 - `incremental` {{non-standard_inline}}
 
-  - : Das Boolean-Attribut `incremental` ist eine WebKit- und Blink-Erweiterung (also von Safari, Opera, Chrome usw. unterstützt), die, falls vorhanden, den [User Agent](/de/docs/Glossary/user_agent) anweist, die Eingabe als Live-Suche zu verarbeiten. Während der Benutzer den Wert des Feldes bearbeitet, sendet der User Agent [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Objekt, das das Suchfeld darstellt. Dies ermöglicht Ihrem Code, die Suchergebnisse in Echtzeit zu aktualisieren, während der Benutzer die Suche bearbeitet.
+  - : Das Boolean-Attribut `incremental` ist eine WebKit- und Blink-Erweiterung (also von Safari, Opera, Chrome usw. unterstützt), die, falls vorhanden, den {{Glossary("user_agent", "User Agent")}} anweist, die Eingabe als Live-Suche zu verarbeiten. Während der Benutzer den Wert des Feldes bearbeitet, sendet der User Agent [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignisse an das [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Objekt, das das Suchfeld darstellt. Dies ermöglicht Ihrem Code, die Suchergebnisse in Echtzeit zu aktualisieren, während der Benutzer die Suche bearbeitet.
 
     Wenn `incremental` nicht angegeben ist, wird das [`search`](/de/docs/Web/API/HTMLInputElement/search_event) Ereignis nur gesendet, wenn der Benutzer ausdrücklich eine Suche einleitet (z.B. durch Drücken der <kbd>Enter</kbd> oder <kbd>Return</kbd>Taste während der Bearbeitung des Feldes).
 

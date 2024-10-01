@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Objects")}}
 
-Die **`globalThis`** globale Eigenschaft enthält den [globalen `this`](/de/docs/Web/JavaScript/Reference/Operators/this#global_context) Wert, der in der Regel dem [globalen Objekt](/de/docs/Glossary/Global_object) ähnelt.
+Die **`globalThis`** globale Eigenschaft enthält den [globalen `this`](/de/docs/Web/JavaScript/Reference/Operators/this#global_context) Wert, der in der Regel dem {{Glossary("Global_object", "globalen Objekt")}} ähnelt.
 
 {{EmbedInteractiveExample("pages/js/globalprops-globalthis.html", "shorter")}}
 
@@ -22,7 +22,7 @@ Das globale `this`-Objekt.
 
 ## Beschreibung
 
-Historisch gesehen erforderte der Zugriff auf das globale Objekt unterschiedliche Syntax in verschiedenen JavaScript-Umgebungen. Im Web können Sie [`window`](/de/docs/Web/API/Window/window), [`self`](/de/docs/Web/API/Window/self) oder [`frames`](/de/docs/Web/API/Window/frames) verwenden - aber in [Web Workers](/de/docs/Web/API/Worker) funktioniert nur `self`. In Node.js funktioniert keiner dieser Zugriffe, stattdessen muss `global` verwendet werden. Das `this`-Schlüsselwort konnte innerhalb von Funktionen, die im nicht-strikten Modus laufen, verwendet werden, aber `this` ist `undefined` in Modulen und innerhalb von Funktionen, die im strikten Modus laufen. Sie können auch `Function('return this')()` verwenden, aber Umgebungen, die {{jsxref("Global_Objects/eval", "eval()")}} deaktivieren, wie [CSP](/de/docs/Glossary/CSP) in Browsern, verhindern die Verwendung von {{jsxref("Function")}} auf diese Weise.
+Historisch gesehen erforderte der Zugriff auf das globale Objekt unterschiedliche Syntax in verschiedenen JavaScript-Umgebungen. Im Web können Sie [`window`](/de/docs/Web/API/Window/window), [`self`](/de/docs/Web/API/Window/self) oder [`frames`](/de/docs/Web/API/Window/frames) verwenden - aber in [Web Workers](/de/docs/Web/API/Worker) funktioniert nur `self`. In Node.js funktioniert keiner dieser Zugriffe, stattdessen muss `global` verwendet werden. Das `this`-Schlüsselwort konnte innerhalb von Funktionen, die im nicht-strikten Modus laufen, verwendet werden, aber `this` ist `undefined` in Modulen und innerhalb von Funktionen, die im strikten Modus laufen. Sie können auch `Function('return this')()` verwenden, aber Umgebungen, die {{jsxref("Global_Objects/eval", "eval()")}} deaktivieren, wie {{Glossary("CSP", "CSP")}} in Browsern, verhindern die Verwendung von {{jsxref("Function")}} auf diese Weise.
 
 Die `globalThis`-Eigenschaft bietet eine standardisierte Möglichkeit, auf den globalen `this`-Wert (und damit auf das globale Objekt selbst) in verschiedenen Umgebungen zuzugreifen. Im Gegensatz zu ähnlichen Eigenschaften wie `window` und `self` funktioniert es garantiert in Fenster- und Nicht-Fenster-Kontexten. Auf diese Weise können Sie auf das globale Objekt konsistent zugreifen, ohne wissen zu müssen, in welcher Umgebung der Code ausgeführt wird. Um Ihnen den Namen zu merken, denken Sie einfach daran, dass im globalen Gültigkeitsbereich der `this`-Wert `globalThis` ist.
 
@@ -48,7 +48,7 @@ Normalerweise muss das globale Objekt nicht explizit angegeben werden – seine 
 console.log(window.Math === Math); // true
 ```
 
-Ein Fall, in dem das globale Objekt jedoch explizit angesprochen werden muss, ist, wenn darauf _geschrieben_ werden soll, üblicherweise für [Polyfills](/de/docs/Glossary/Polyfill).
+Ein Fall, in dem das globale Objekt jedoch explizit angesprochen werden muss, ist, wenn darauf _geschrieben_ werden soll, üblicherweise für {{Glossary("Polyfill", "Polyfills")}}.
 
 Vor `globalThis` war der einzige zuverlässige plattformübergreifende Weg, um das globale Objekt für eine Umgebung zu erhalten, `Function('return this')()`. Dies verursacht jedoch [CSP](/de/docs/Web/HTTP/CSP)-Verletzungen in einigen Einstellungen, daher würden Autoren eine Stückweise-Definition wie diese verwenden (leicht angepasst von der [originalen core-js-Quelle](https://github.com/zloirock/core-js/blob/master/packages/core-js/internals/global-this.js)):
 

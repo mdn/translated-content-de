@@ -20,7 +20,7 @@ Ein String, der die IP-Adresse angibt, von der der Kandidat stammt.
 
 > [!NOTE]
 > Wenn `port` `null` ist — und
-> `port` vom [User-Agent](/de/docs/Glossary/user_agent) unterstützt wird — wird das
+> `port` vom {{Glossary("user_agent", "User-Agent")}} unterstützt wird — wird das
 > Hinzufügen des Kandidaten zu [`addIceCandidate()`](/de/docs/Web/API/RTCPeerConnection/addIceCandidate)
 > fehlschlagen und eine `OperationError`-Ausnahme auslösen.
 
@@ -31,7 +31,7 @@ Es ist wichtig zu beachten, dass WebRTC zwar nicht erfordert, dass die beiden Pe
 `address`-Eigenschaft auf `RTCIceCandidate` _kann_ jedoch mehr
 Informationen über die Quelle des entfernten Peers preisgeben, als der Benutzer erwartet. Die IP-Adresse
 kann verwendet werden, um Informationen über den Standort des entfernten Geräts, die Netzwerkstruktur
-usw. abzuleiten. Sie kann auch zu Zwecken des [Fingerprintings](/de/docs/Glossary/Fingerprinting) verwendet werden.
+usw. abzuleiten. Sie kann auch zu Zwecken des {{Glossary("Fingerprinting", "Fingerprintings")}} verwendet werden.
 
 Die Kandidat-IP-Adressen werden _immer_ über
 `address` der Anwendung offengelegt, und unerwünschte Anwendungen können wiederum potenziell die
@@ -58,7 +58,7 @@ werden alle Host-Kandidaten (Kandidaten, bei denen die IP-Adresse die eigene IP-
 
 ## Nutzungshinweise
 
-Betrachten Sie diese [SDP](/de/docs/Glossary/SDP)-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
+Betrachten Sie diese {{Glossary("SDP", "SDP")}}-Attributzeile (a-line), die einen ICE-Kandidaten beschreibt:
 
 ```plain
 a=candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host

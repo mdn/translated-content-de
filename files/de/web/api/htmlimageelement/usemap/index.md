@@ -10,7 +10,7 @@ l10n:
 
 Die **`useMap`**-Eigenschaft auf der
 [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Schnittstelle spiegelt den Wert des
-[HTML](/de/docs/Glossary/HTML) [`usemap`](/de/docs/Web/HTML/Element/img#usemap)-Attributs wider, welcher eine Zeichenfolge ist,
+{{Glossary("HTML", "HTML")}} [`usemap`](/de/docs/Web/HTML/Element/img#usemap)-Attributs wider, welcher eine Zeichenfolge ist,
 die den Namen der clientseitigen Imagemap angibt, die auf das Bild angewendet werden soll.
 
 ## Wert

@@ -45,7 +45,7 @@ mask-image: unset;
   - : Ein {{cssxref("url_value", "&lt;url&gt;")}} Verweis zu einer {{SVGElement("mask")}} oder zu einem CSS-Bild.
 
     > [!NOTE]
-    > Nur Bildquellen, die über HTTP- und HTTPS-Protokolle bereitgestellt werden, werden aufgrund der [CORS](/de/docs/Glossary/CORS) Richtlinie akzeptiert. Lokal bereitgestellte Bilder, einschließlich relativer oder absoluter `file://` Protokolle, werden nicht akzeptiert. Um URL-Bildquellen lokal zu testen, [richten Sie einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
+    > Nur Bildquellen, die über HTTP- und HTTPS-Protokolle bereitgestellt werden, werden aufgrund der {{Glossary("CORS", "CORS")}} Richtlinie akzeptiert. Lokal bereitgestellte Bilder, einschließlich relativer oder absoluter `file://` Protokolle, werden nicht akzeptiert. Um URL-Bildquellen lokal zu testen, [richten Sie einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
 
 - {{cssxref("&lt;image&gt;")}}
   - : Ein Bildwert, der als Maskenebene verwendet wird.

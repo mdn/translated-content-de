@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das von der [User-Agent](/de/docs/Glossary/user_agent) als grammatisch inkorrekt markiert wurde.
+Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das von der {{Glossary("user_agent", "User-Agent")}} als grammatisch inkorrekt markiert wurde.
 
 ## Zulässige Eigenschaften
 

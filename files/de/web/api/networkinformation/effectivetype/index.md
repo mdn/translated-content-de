@@ -24,5 +24,5 @@ Ein String, der entweder `slow-2g`, `2g`, `3g` oder `4g` ist.
 
 ## Siehe auch
 
-- [Effektiver Verbindungstyp](/de/docs/Glossary/Effective_connection_type)
+- {{Glossary("Effective_connection_type", "Effektiver Verbindungstyp")}}
 - {{HTTPHeader("ECT")}}

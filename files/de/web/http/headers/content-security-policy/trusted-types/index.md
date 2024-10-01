@@ -50,7 +50,7 @@ if (typeof trustedTypes !== "undefined") {
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- [Cross-Site Scripting (XSS)](/de/docs/Glossary/Cross-site_scripting)
+- {{Glossary("Cross-site_scripting", "Cross-Site Scripting (XSS)")}}
 - [DOM-basierte Cross-Site-Scripting-Schwachstellen mit Trusted Types verhindern](https://web.dev/articles/trusted-types)
 - Trusted Types mit dem [DOMPurify](https://github.com/cure53/DOMPurify#what-about-dompurify-and-trusted-types) XSS-Sanitizer
 - [Trusted Types Polyfill](https://github.com/w3c/trusted-types#polyfill)

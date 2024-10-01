@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die direkten Kinder eines [Flex-Containers](/de/docs/Glossary/Flex_Container) (Elemente, bei denen `display: flex` oder `display: inline-flex` gesetzt ist) werden zu **Flex-Items**.
+Die direkten Kinder eines {{Glossary("Flex_Container", "Flex-Containers")}} (Elemente, bei denen `display: flex` oder `display: inline-flex` gesetzt ist) werden zu **Flex-Items**.
 
 Fortlaufende Textzeilen innerhalb von Flex-Containern werden ebenfalls zu Flex-Items.
 

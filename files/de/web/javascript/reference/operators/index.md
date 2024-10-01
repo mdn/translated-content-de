@@ -49,7 +49,7 @@ Linke Werte sind das Ziel einer Zuweisung.
 - {{jsxref("Operators/Property_accessors", "Property accessors", "", 1)}}
   - : Member-Operatoren bieten Zugriff auf eine Eigenschaft oder Methode eines Objekts (`object.property` und `object["property"]`).
 - {{jsxref("Operators/Optional_chaining", "?.")}}
-  - : Der optionale Verkettungsoperator gibt `undefined` zurück, anstatt einen Fehler zu verursachen, wenn ein Verweis [nullish](/de/docs/Glossary/Nullish) ist ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)).
+  - : Der optionale Verkettungsoperator gibt `undefined` zurück, anstatt einen Fehler zu verursachen, wenn ein Verweis {{Glossary("Nullish", "nullish")}} ist ([`null`](/de/docs/Web/JavaScript/Reference/Operators/null) oder [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined)).
 - {{jsxref("Operators/new", "new")}}
   - : Der `new`-Operator erstellt eine Instanz eines Konstruktors.
 - {{jsxref("Operators/new%2Etarget", "new.target")}}

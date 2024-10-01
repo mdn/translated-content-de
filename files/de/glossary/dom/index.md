@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das **DOM** (Document Object Model) ist eine [API](/de/docs/Glossary/API), die Dokumente jeder auf [HTML](/de/docs/Glossary/HTML) oder [XML](/de/docs/Glossary/XML) basierenden Markup-Sprache darstellt und mit ihnen interagiert. Das DOM ist ein im [Browser](/de/docs/Glossary/browser) geladenes Dokumentenmodell, das das Dokument als [node](/de/docs/Glossary/Node/DOM)-Baum oder **DOM-Baum** darstellt, wobei jeder Knoten einen Teil des Dokuments repräsentiert (z. B. ein [element](/de/docs/Glossary/element), eine Textzeichenkette oder ein Kommentar).
+Das **DOM** (Document Object Model) ist eine {{Glossary("API", "API")}}, die Dokumente jeder auf {{Glossary("HTML", "HTML")}} oder {{Glossary("XML", "XML")}} basierenden Markup-Sprache darstellt und mit ihnen interagiert. Das DOM ist ein im {{Glossary("browser", "Browser")}} geladenes Dokumentenmodell, das das Dokument als {{Glossary("Node/DOM", "node")}}-Baum oder **DOM-Baum** darstellt, wobei jeder Knoten einen Teil des Dokuments repräsentiert (z. B. ein {{Glossary("element", "element")}}, eine Textzeichenkette oder ein Kommentar).
 
-Das DOM ist eine der am häufigsten verwendeten [API](/de/docs/Glossary/API)s im [Web](/de/docs/Glossary/World_Wide_Web), da es Code, der in einem Browser läuft, ermöglicht, auf jeden Knoten im Dokument zuzugreifen und mit ihm zu interagieren. Knoten können erstellt, verschoben und geändert werden. Ereignis-Listener können zu Knoten hinzugefügt werden und bei Eintreten eines bestimmten Ereignisses ausgelöst werden.
+Das DOM ist eine der am häufigsten verwendeten {{Glossary("API", "API")}}s im {{Glossary("World_Wide_Web", "Web")}}, da es Code, der in einem Browser läuft, ermöglicht, auf jeden Knoten im Dokument zuzugreifen und mit ihm zu interagieren. Knoten können erstellt, verschoben und geändert werden. Ereignis-Listener können zu Knoten hinzugefügt werden und bei Eintreten eines bestimmten Ereignisses ausgelöst werden.
 
 ## Siehe auch
 

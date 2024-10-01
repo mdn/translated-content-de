@@ -7,7 +7,7 @@ l10n:
 
 {{MathMLRef}}
 
-Das **`dir`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) ist ein [aufgezähltes](/de/docs/Glossary/Enumerated) Attribut, das die Richtung des MathML-Elements angibt.
+Das **`dir`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das die Richtung des MathML-Elements angibt.
 
 ## Syntax
 

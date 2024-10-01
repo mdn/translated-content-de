@@ -36,9 +36,9 @@ Im modernen Bereich der Webentwicklung ist das Lernen über serverseitige Entwic
 
 ## Was ist serverseitige Website-Programmierung?
 
-Webbrowser kommunizieren mit [Webservern](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server) unter Verwendung des **H**yper**T**ext **T**ransfer **P**rotocols ([HTTP](/de/docs/Glossary/HTTP)). Wenn Sie auf einer Webseite einen Link anklicken, ein Formular absenden oder eine Suche ausführen, wird eine **HTTP-Anfrage** von Ihrem Browser zum Zielserver gesendet.
+Webbrowser kommunizieren mit [Webservern](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server) unter Verwendung des **H**yper**T**ext **T**ransfer **P**rotocols ({{Glossary("HTTP", "HTTP")}}). Wenn Sie auf einer Webseite einen Link anklicken, ein Formular absenden oder eine Suche ausführen, wird eine **HTTP-Anfrage** von Ihrem Browser zum Zielserver gesendet.
 
-Die Anfrage enthält eine URL, die die betreffende Ressource identifiziert, eine Methode, die die erforderliche Aktion definiert (zum Beispiel um die Ressource zu holen, zu löschen oder zu posten), und kann zusätzliche Informationen enthalten, die in URL-Parametern kodiert sind (die Feldwertpaare, die über eine [Abfragezeichenfolge](https://en.wikipedia.org/wiki/Query_string) gesendet werden), als POST-Daten (Daten, die durch die [HTTP-POST-Methode](/de/docs/Web/HTTP/Methods/POST) gesendet werden), oder in zugehörigen [Cookies](/de/docs/Glossary/Cookie).
+Die Anfrage enthält eine URL, die die betreffende Ressource identifiziert, eine Methode, die die erforderliche Aktion definiert (zum Beispiel um die Ressource zu holen, zu löschen oder zu posten), und kann zusätzliche Informationen enthalten, die in URL-Parametern kodiert sind (die Feldwertpaare, die über eine [Abfragezeichenfolge](https://en.wikipedia.org/wiki/Query_string) gesendet werden), als POST-Daten (Daten, die durch die [HTTP-POST-Methode](/de/docs/Web/HTTP/Methods/POST) gesendet werden), oder in zugehörigen {{Glossary("Cookie", "Cookies")}}.
 
 Webserver warten auf Anfragen von Clients, verarbeiten sie bei deren Eintreffen und antworten dem Webbrowser mit einer **HTTP-Antwort**. Die Antwort enthält eine Statuszeile, die angibt, ob die Anfrage erfolgreich war (z.B. "HTTP/1.1 200 OK" bei Erfolg).
 
@@ -107,7 +107,7 @@ Einige der häufigsten Verwendungen und Vorteile der serverseitigen Programmieru
 
 Stellen Sie sich vor, wie viele Produkte auf Amazon verfügbar sind, und stellen Sie sich vor, wie viele Beiträge auf Facebook geschrieben wurden? Für jedes Produkt oder jeden Beitrag eine separate statische Seite zu erstellen, wäre völlig unpraktisch.
 
-Die serverseitige Programmierung ermöglicht es uns stattdessen, die Informationen in einer Datenbank zu speichern und HTML und andere Arten von Dateien (z.B. PDFs, Bilder, etc.) dynamisch zu konstruieren und zurückzugeben. Es ist auch möglich, Daten ([JSON](/de/docs/Glossary/JSON), [XML](/de/docs/Glossary/XML), etc.) zurückzugeben, die von geeigneten client-seitigen Web-Frameworks gerendert werden (dies reduziert die Verarbeitungsbelastung auf dem Server und die Menge der zu sendenden Daten).
+Die serverseitige Programmierung ermöglicht es uns stattdessen, die Informationen in einer Datenbank zu speichern und HTML und andere Arten von Dateien (z.B. PDFs, Bilder, etc.) dynamisch zu konstruieren und zurückzugeben. Es ist auch möglich, Daten ({{Glossary("JSON", "JSON")}}, {{Glossary("XML", "XML")}}, etc.) zurückzugeben, die von geeigneten client-seitigen Web-Frameworks gerendert werden (dies reduziert die Verarbeitungsbelastung auf dem Server und die Menge der zu sendenden Daten).
 
 Der Server ist nicht darauf beschränkt, Informationen aus Datenbanken zu senden, und könnte stattdessen das Ergebnis von Software-Tools oder Daten von Kommunikationsdiensten zurückgeben. Der Inhalt kann sogar auf den Typ des Clients abgestimmt werden, der ihn empfängt.
 

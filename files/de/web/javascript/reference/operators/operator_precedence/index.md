@@ -176,7 +176,7 @@ Nachdem alle Operatoren korrekt gruppiert wurden, würden die binären Operatore
 
 Im vorherigen Abschnitt sagten wir, "die höher priorisierten Ausdrücke werden immer zuerst ausgewertet" — dies ist im Allgemeinen wahr, muss jedoch mit der Anerkennung der _Kurzschlussauswertung_ ergänzt werden, bei der ein Operand möglicherweise überhaupt nicht ausgewertet wird.
 
-Kurzschlussauswertung ist Fachjargon für bedingte Auswertung. Zum Beispiel wird im Ausdruck `a && (b + c)`, wenn `a` [falsch](/de/docs/Glossary/falsy) ist, der Unterausdruck `(b + c)` nicht ausgewertet, selbst wenn er gruppiert ist und deshalb eine höhere Priorität als `&&` hat. Wir könnten sagen, dass der logische UND-Operator (`&&`) "gekürzt" ist. Neben dem logischen UND gehören zu den anderen gekürzten Operatoren logisches ODER (`||`), Nullish Coalescing (`??`) und Optional Chaining (`?.`).
+Kurzschlussauswertung ist Fachjargon für bedingte Auswertung. Zum Beispiel wird im Ausdruck `a && (b + c)`, wenn `a` {{Glossary("falsy", "falsch")}} ist, der Unterausdruck `(b + c)` nicht ausgewertet, selbst wenn er gruppiert ist und deshalb eine höhere Priorität als `&&` hat. Wir könnten sagen, dass der logische UND-Operator (`&&`) "gekürzt" ist. Neben dem logischen UND gehören zu den anderen gekürzten Operatoren logisches ODER (`||`), Nullish Coalescing (`??`) und Optional Chaining (`?.`).
 
 ```js-nolint
 a || (b * c); // evaluate `a` first, then produce `a` if `a` is "truthy"

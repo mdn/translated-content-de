@@ -36,7 +36,7 @@ Wenn {{cssxref("overflow-y")}} den Wert `hidden`, `scroll` oder `auto` hat und d
 ### Werte
 
 - `visible`
-  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Innenabstandsrahmens (Padding-Box) des Elements auf den linken und rechten Kanten sichtbar sein. Die Elementbox ist kein [Scroll-Container](/de/docs/Glossary/scroll_container).
+  - : Überlaufender Inhalt wird nicht abgeschnitten und kann außerhalb des Innenabstandsrahmens (Padding-Box) des Elements auf den linken und rechten Kanten sichtbar sein. Die Elementbox ist kein {{Glossary("scroll_container", "Scroll-Container")}}.
 - `hidden`
   - : Überlaufender Inhalt wird falls nötig abgeschnitten, um horizontal in den Innenabstandsrahmen des Elements zu passen. Es werden keine Scrollleisten bereitgestellt.
 - `clip`

@@ -18,7 +18,7 @@ Die Statistiken können abgerufen werden, indem über den [`RTCStatsReport`](/de
 - [`candidateType`](/de/docs/Web/API/RTCIceCandidateStats/candidateType)
   - : Ein String, der einen der Werte in [`RTCIceCandidate.type`](/de/docs/Web/API/RTCIceCandidate/type#value) entspricht und angibt, für welche Art von Kandidaten das Objekt Statistiken liefert.
 - [`deleted`](/de/docs/Web/API/RTCIceCandidateStats/deleted) {{optional_inline}}
-  - : Ein Boolescher Wert, der angibt, ob der Kandidat freigegeben oder gelöscht wurde; der Standardwert ist `false`. Bei lokalen Kandidaten ist der Wert `true`, wenn der Kandidat gelöscht oder freigegeben wurde. Bei Host-Kandidaten bedeutet `true`, dass alle mit dem Kandidaten verbundenen Netzwerkressourcen (in der Regel ein Netzwerk-Socket) bereits freigegeben wurden. Bei [TURN](/de/docs/Glossary/TURN)-Kandidaten ist die TURN-Zuweisung für gelöschte Kandidaten nicht mehr aktiv. Diese Eigenschaft ist für entfernte Kandidaten nicht vorhanden.
+  - : Ein Boolescher Wert, der angibt, ob der Kandidat freigegeben oder gelöscht wurde; der Standardwert ist `false`. Bei lokalen Kandidaten ist der Wert `true`, wenn der Kandidat gelöscht oder freigegeben wurde. Bei Host-Kandidaten bedeutet `true`, dass alle mit dem Kandidaten verbundenen Netzwerkressourcen (in der Regel ein Netzwerk-Socket) bereits freigegeben wurden. Bei {{Glossary("TURN", "TURN")}}-Kandidaten ist die TURN-Zuweisung für gelöschte Kandidaten nicht mehr aktiv. Diese Eigenschaft ist für entfernte Kandidaten nicht vorhanden.
 - [`port`](/de/docs/Web/API/RTCIceCandidateStats/port) {{optional_inline}}
   - : Die vom Kandidaten verwendete Netzwerkportnummer.
 - [`priority`](/de/docs/Web/API/RTCIceCandidateStats/priority) {{optional_inline}}
@@ -26,12 +26,12 @@ Die Statistiken können abgerufen werden, indem über den [`RTCStatsReport`](/de
 - [`protocol`](/de/docs/Web/API/RTCIceCandidateStats/protocol) {{optional_inline}}
   - : Ein String, der das Protokoll (`tcp` oder `udp`) angibt, das zur Datenübertragung auf dem `port` verwendet wird.
 - [`relayProtocol`](/de/docs/Web/API/RTCIceCandidateStats/relayProtocol) {{optional_inline}}
-  - : Ein String, der das Protokoll identifiziert, das von der Endstelle zur Kommunikation mit dem [TURN](/de/docs/Glossary/TURN)-Server verwendet wird; gültige Werte sind `tcp`, `udp` und `tls`.
+  - : Ein String, der das Protokoll identifiziert, das von der Endstelle zur Kommunikation mit dem {{Glossary("TURN", "TURN")}}-Server verwendet wird; gültige Werte sind `tcp`, `udp` und `tls`.
     Nur für lokale Kandidaten vorhanden.
 - [`transportId`](/de/docs/Web/API/RTCIceCandidateStats/transportId)
   - : Ein String, der das Transportobjekt eindeutig identifiziert, das untersucht wurde, um die zugehörigen [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats) des Kandidaten zu erhalten.
 - [`url`](/de/docs/Web/API/RTCIceCandidateStats/url) {{optional_inline}}
-  - : Für lokale Kandidaten ist die `url`-Eigenschaft die [URL](/de/docs/Glossary/URL) des [ICE](/de/docs/Glossary/ICE)-Servers, von dem der Kandidat empfangen wurde.
+  - : Für lokale Kandidaten ist die `url`-Eigenschaft die {{Glossary("URL", "URL")}} des {{Glossary("ICE", "ICE")}}-Servers, von dem der Kandidat empfangen wurde.
     Diese URL stimmt mit derjenigen im [`RTCPeerConnectionIceEvent`](/de/docs/Web/API/RTCPeerConnectionIceEvent)-Objekt überein, das das [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignis darstellt, das den Kandidaten zum lokalen Peer geliefert hat.
 
 ### Gemeinsame Instanz-Eigenschaften

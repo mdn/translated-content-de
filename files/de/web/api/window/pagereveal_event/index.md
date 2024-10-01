@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{seecompattable}}
 
-Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument zum ersten Mal gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem [back/forward cache](/de/docs/Glossary/bfcache) (bfcache) oder [prerender](/de/docs/Glossary/Prerender)).
+Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument zum ersten Mal gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
 
 Dies ist nützlich im Fall von cross-document (MPA) [View-Transitions](/de/docs/Web/API/View_Transitions_API) zur Manipulation einer aktiven Transition von der eingehenden Seite einer Navigation. Beispielsweise könnte man den Übergang überspringen oder die eingehende Übergangsanimation per JavaScript anpassen.
 

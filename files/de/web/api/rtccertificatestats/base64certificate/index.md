@@ -14,7 +14,7 @@ Dies ist im Wesentlichen eine Codierung des ursprünglichen Zertifikats als Stri
 
 ## Wert
 
-Eine [Base64](/de/docs/Glossary/Base64)-Darstellung des DER-codierten Zertifikats.
+Eine {{Glossary("Base64", "Base64")}}-Darstellung des DER-codierten Zertifikats.
 
 ## Spezifikationen
 

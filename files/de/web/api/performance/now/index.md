@@ -36,10 +36,10 @@ Zudem kann `Date.now()` durch System- und Benutzeruhranpassungen, Uhrverschiebun
 
 Die Semantik der `performance.now()`-Methode änderte sich zwischen High Resolution Time Level 1 und Level 2.
 
-| Änderungen            | Level 1                                                                                       | Level 2                                                                                                                                                     |
-| --------------------- | --------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Relativ zu            | [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart) | [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)                                                                                                                       |
-| Auslösende Bedingungen | Dokumentabruf oder Entladeaufforderung (falls vorhanden).                                     | Erstellung des Browsing-Kontextes (falls kein vorheriges Dokument), Entladeaufforderung (falls vorhanden) oder Start der Navigation (wie in HTML definiert, einige Schritte vor dem Abruf). |
+| Änderungen             | Level 1                                                                                    | Level 2                                                                                                                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Relativ zu             | [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart) | [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin)                                                                                                                         |
+| Auslösende Bedingungen | Dokumentabruf oder Entladeaufforderung (falls vorhanden).                                  | Erstellung des Browsing-Kontextes (falls kein vorheriges Dokument), Entladeaufforderung (falls vorhanden) oder Start der Navigation (wie in HTML definiert, einige Schritte vor dem Abruf). |
 
 Die `performance.now()`-Methode war ursprünglich relativ zur [`performance.timing.navigationStart`](/de/docs/Web/API/PerformanceTiming/navigationStart)-Eigenschaft aus der Navigation Timing-Spezifikation. Dies änderte sich, und `performance.now()` ist jetzt relativ zu [`Performance.timeOrigin`](/de/docs/Web/API/Performance/timeOrigin), um das Risiko von Uhrveränderungen beim Vergleich von Zeitstempeln über Webseiten hinweg zu vermeiden.
 
@@ -76,7 +76,7 @@ console.log(`Call to doSomething took ${t1 - t0} milliseconds.`);
 
 ## Sicherheitsanforderungen
 
-Um Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, wird `performance.now()` basierend auf dem Site-Isolationsstatus erweitert.
+Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, wird `performance.now()` basierend auf dem Site-Isolationsstatus erweitert.
 
 - Auflösung in isolierten Kontexten: 5 Mikrosekunden
 - Auflösung in nicht isolierten Kontexten: 100 Mikrosekunden

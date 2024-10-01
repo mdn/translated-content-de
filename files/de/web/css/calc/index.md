@@ -27,7 +27,7 @@ calc(var(--hue) + 180)
 lch(from aquamarine l c calc(h + 180))
 ```
 
-Die `calc()`-Funktion nimmt einen einzelnen Ausdruck als Parameter und das Ergebnis des Ausdrucks wird als Wert für eine CSS-Eigenschaft verwendet. In diesem Ausdruck können die [Operanden](/de/docs/Glossary/operand) mit den unten aufgeführten [Operatoren](/de/docs/Glossary/operator) kombiniert werden. Wenn der Ausdruck mehrere Operanden enthält, verwendet `calc()` die standardmäßigen [Operator-Vorrangregeln](/de/docs/Learn/JavaScript/First_steps/Math#operator_precedence):
+Die `calc()`-Funktion nimmt einen einzelnen Ausdruck als Parameter und das Ergebnis des Ausdrucks wird als Wert für eine CSS-Eigenschaft verwendet. In diesem Ausdruck können die {{Glossary("operand", "Operanden")}} mit den unten aufgeführten {{Glossary("operator", "Operatoren")}} kombiniert werden. Wenn der Ausdruck mehrere Operanden enthält, verwendet `calc()` die standardmäßigen [Operator-Vorrangregeln](/de/docs/Learn/JavaScript/First_steps/Math#operator_precedence):
 
 - `+`
   - : Addiert die angegebenen Operanden.
@@ -54,7 +54,7 @@ Es gibt einige Punkte, die Sie bei `calc()` beachten sollten:
 
 ### Regeln und bewährte Praktiken bei der Verwendung von `calc()`
 
-- Die `+` und `-` Operatoren **müssen von [Leerzeichen](/de/docs/Glossary/whitespace) umgeben sein**. Zum Beispiel wird `calc(50% -8px)` als "ein Prozentsatz gefolgt von einer negativen Länge" geparst — was ein ungültiger Ausdruck ist — während `calc(50% - 8px)` "ein Prozentsatz gefolgt von einem Subtraktionsoperator und einer Länge" darstellt. Ebenso wird `calc(8px + -50%)` als "eine Länge gefolgt von einem Additionsoperator und einem negativen Prozentsatz" behandelt.
+- Die `+` und `-` Operatoren **müssen von {{Glossary("whitespace", "Leerzeichen")}} umgeben sein**. Zum Beispiel wird `calc(50% -8px)` als "ein Prozentsatz gefolgt von einer negativen Länge" geparst — was ein ungültiger Ausdruck ist — während `calc(50% - 8px)` "ein Prozentsatz gefolgt von einem Subtraktionsoperator und einer Länge" darstellt. Ebenso wird `calc(8px + -50%)` als "eine Länge gefolgt von einem Additionsoperator und einem negativen Prozentsatz" behandelt.
 - Die `*` und `/` Operatoren erfordern keine Leerzeichen, aber es wird empfohlen, diese der Konsistenz halber hinzuzufügen.
 - Es ist erlaubt, `calc()`-Funktionen zu verschachteln, in diesem Fall werden die inneren als einfache Klammern behandelt.
 - Bei Längen können Sie `0` nicht verwenden, um `0px` (oder eine andere Längeneinheit) zu bedeuten; stattdessen müssen Sie die Version mit Einheit verwenden: `margin-top: calc(0px + 20px);` ist gültig, während `margin-top: calc(0 + 20px);` ungültig ist.

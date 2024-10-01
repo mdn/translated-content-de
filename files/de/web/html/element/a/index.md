@@ -48,7 +48,7 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
 
       - Der {{HTTPHeader("Content-Disposition")}} HTTP Header
       - Das endgültige Segment im URL [Pfad](/de/docs/Web/API/URL/pathname)
-      - Der [Medientyp](/de/docs/Glossary/MIME_type) (aus dem {{HTTPHeader("Content-Type")}} Header, dem Anfang einer [`data:` URL](/de/docs/Web/URI/Schemes/data) oder [`Blob.type`](/de/docs/Web/API/Blob/type) für eine [`blob:` URL](/de/docs/Web/API/URL/createObjectURL_static))
+      - Der {{Glossary("MIME_type", "Medientyp")}} (aus dem {{HTTPHeader("Content-Type")}} Header, dem Anfang einer [`data:` URL](/de/docs/Web/URI/Schemes/data) oder [`Blob.type`](/de/docs/Web/API/Blob/type) für eine [`blob:` URL](/de/docs/Web/API/URL/createObjectURL_static))
 
     - `filename`: Das Definieren eines Wertes schlägt diesen als Dateinamen vor. Zeichen wie `/` und `\` werden in Unterstriche (`_`) umgewandelt. Dateisysteme können andere Zeichen in Dateinamen verbieten, sodass Browser den vorgeschlagenen Namen bei Bedarf anpassen.
 
@@ -86,10 +86,10 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
   - : Wie viel des [Referrers](/de/docs/Web/HTTP/Headers/Referer) gesendet werden soll, wenn dem Link gefolgt wird.
 
     - `no-referrer`: Der {{HTTPHeader("Referer")}} Header wird nicht gesendet.
-    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}} Header wird nicht an [Ursprünge](/de/docs/Glossary/origin) ohne [TLS](/de/docs/Glossary/TLS) ([HTTPS](/de/docs/Glossary/HTTPS)) gesendet.
-    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), [Host](/de/docs/Glossary/host) und [Port](/de/docs/Glossary/port).
+    - `no-referrer-when-downgrade`: Der {{HTTPHeader("Referer")}} Header wird nicht an {{Glossary("origin", "Ursprünge")}} ohne {{Glossary("TLS", "TLS")}} ({{Glossary("HTTPS", "HTTPS")}}) gesendet.
+    - `origin`: Der gesendete Referrer wird auf den Ursprung der verweisenden Seite beschränkt: sein [Schema](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL), {{Glossary("host", "Host")}} und {{Glossary("port", "Port")}}.
     - `origin-when-cross-origin`: Der an andere Ursprünge gesendete Referrer wird auf das Schema, den Host und den Port beschränkt. Navigationen im gleichen Ursprung enthalten weiterhin den Pfad.
-    - `same-origin`: Ein Referrer wird für [den gleichen Ursprung](/de/docs/Glossary/Same-origin_policy) gesendet, aber Anfragen über Ursprünge hinweg enthalten keine Referrer-Informationen.
+    - `same-origin`: Ein Referrer wird für {{Glossary("Same-origin_policy", "den gleichen Ursprung")}} gesendet, aber Anfragen über Ursprünge hinweg enthalten keine Referrer-Informationen.
     - `strict-origin`: Senden Sie nur den Ursprung des Dokuments als Referrer, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS), senden Sie ihn jedoch nicht an ein weniger sicheres Ziel (HTTPS→HTTP).
     - `strict-origin-when-cross-origin` (Standard): Senden Sie eine vollständige URL, wenn eine Anfrage im gleichen Ursprung erfolgt, senden Sie nur den Ursprung, wenn das Sicherheitsniveau des Protokolls gleich bleibt (HTTPS→HTTPS) und senden Sie keinen Header an ein weniger sicheres Ziel (HTTPS→HTTP).
     - `unsafe-url`: Der Referrer enthält den Ursprung _und_ den Pfad (aber nicht das [Fragment](/de/docs/Web/API/HTMLAnchorElement/hash), [Passwort](/de/docs/Web/API/HTMLAnchorElement/password) oder [Benutzername](/de/docs/Web/API/HTMLAnchorElement/username)). **Dieser Wert ist unsicher**, da er Ursprünge und Pfade von TLS-geschützten Ressourcen an unsichere Ursprünge leakt.
@@ -110,13 +110,13 @@ Die Attribute dieses Elements beinhalten die [globalen Attribute](/de/docs/Web/H
     > Das Setzen von `target="_blank"` auf `<a>` Elementen bietet implizit dasselbe `rel` Verhalten wie das Setzen von [`rel="noopener"`](/de/docs/Web/HTML/Attributes/rel/noopener), das `window.opener` nicht setzt.
 
 - `type`
-  - : Gibt einen Hinweis auf das Format der verlinkten URL mit einem [MIME-Typ](/de/docs/Glossary/MIME_type). Keine eingebaute Funktionalität.
+  - : Gibt einen Hinweis auf das Format der verlinkten URL mit einem {{Glossary("MIME_type", "MIME-Typ")}}. Keine eingebaute Funktionalität.
 
 ### Veraltete Attribute
 
 - `charset` {{Deprecated_Inline}}
 
-  - : Hieß auf die [Zeichenkodierung](/de/docs/Glossary/character_encoding) der verlinkten URL hin.
+  - : Hieß auf die {{Glossary("character_encoding", "Zeichenkodierung")}} der verlinkten URL hin.
 
     > [!NOTE]
     > Dieses Attribut ist veraltet und **sollte von Autoren nicht verwendet werden**. Verwenden Sie den HTTP {{HTTPHeader("Content-Type")}} Header für die verlinkte URL.

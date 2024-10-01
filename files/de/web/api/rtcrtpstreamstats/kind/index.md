@@ -10,7 +10,7 @@ l10n:
 
 Die **`kind`**-Eigenschaft des
 [`RTCRtpStreamStats`](/de/docs/Web/API/RTCRtpStreamStats)-Wörterbuchs ist ein String, der angibt, ob der
-beschriebene [RTP](/de/docs/Glossary/RTP)-Stream Audio- oder Videomedien enthält.
+beschriebene {{Glossary("RTP", "RTP")}}-Stream Audio- oder Videomedien enthält.
 
 Sein Wert ist immer entweder `"audio"` oder `"video"`.
 

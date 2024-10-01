@@ -7,16 +7,16 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Request-Headers`** Request-Header wird von Browsern verwendet, wenn eine [Vorab-Anfrage](/de/docs/Glossary/preflight_request) gesendet wird, um den Server darüber zu informieren, welche [HTTP-Header](/de/docs/Web/HTTP/Headers) der Client möglicherweise bei der eigentlichen Anfrage senden wird (beispielsweise mit [`fetch()`](/de/docs/Web/API/Window/fetch) oder [`XMLHttpRequest.setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)). Der ergänzende serverseitige Header {{HTTPHeader("Access-Control-Allow-Headers")}} wird auf diesen browserseitigen Header antworten.
+Der **`Access-Control-Request-Headers`** Request-Header wird von Browsern verwendet, wenn eine {{Glossary("preflight_request", "Vorab-Anfrage")}} gesendet wird, um den Server darüber zu informieren, welche [HTTP-Header](/de/docs/Web/HTTP/Headers) der Client möglicherweise bei der eigentlichen Anfrage senden wird (beispielsweise mit [`fetch()`](/de/docs/Web/API/Window/fetch) oder [`XMLHttpRequest.setRequestHeader()`](/de/docs/Web/API/XMLHttpRequest/setRequestHeader)). Der ergänzende serverseitige Header {{HTTPHeader("Access-Control-Allow-Headers")}} wird auf diesen browserseitigen Header antworten.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

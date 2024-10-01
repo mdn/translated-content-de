@@ -31,7 +31,7 @@ let settingItem = browser.storage.<storageType>.set(
 
   - : Ein Objekt, das ein oder mehrere Schlüssel/Wert-Paare enthält, die gespeichert werden sollen. Wenn ein Element im Speicher vorhanden ist, wird dessen Wert aktualisiert.
 
-    Werte können [primitive](/de/docs/Glossary/Primitive) Typen (wie eine Zahl, boolean oder string), {{jsxref("Array")}}- oder {{jsxref("Object")}}-Typen sein.
+    Werte können {{Glossary("Primitive", "primitive")}} Typen (wie eine Zahl, boolean oder string), {{jsxref("Array")}}- oder {{jsxref("Object")}}-Typen sein.
 
     Es ist im Allgemeinen nicht möglich, andere Typen wie `Function`, `Date`, `RegExp`, `Set`, `Map`, `ArrayBuffer` usw. zu speichern. Einige nicht unterstützte Typen werden als leeres Objekt wiederhergestellt, während andere dazu führen, dass `set()` einen Fehler auslöst. Das Verhalten ist browser-spezifisch.
 

@@ -39,7 +39,7 @@ Die Typen von Referenzräumen sind in der untenstehenden Tabelle aufgelistet, mi
 - `local`
   - : Ein `XRReferenceSpace`-Trackingraum, dessen nativer Ursprung sich in der Nähe der Position des Betrachters zum Zeitpunkt der Erstellung der Sitzung befindet. Die genaue Position hängt von der zugrunde liegenden Plattform und Implementierung ab. Es wird nicht erwartet, dass der Benutzer sich wesentlich, wenn überhaupt, über seine Ausgangsposition hinaus bewegt, und das Tracking ist für diesen Anwendungsfall optimiert. Für Geräte mit sechs Freiheitsgraden (6DoF) versucht der `local`-Referenzraum, den Ursprung stabil relativ zur Umgebung zu halten.
 - `local-floor`
-  - : Ein `XRReferenceSpace`, ähnlich wie der Typ `local`, außer dass die Ausgangsposition an einem sicheren Ort für den Betrachter platziert wird, wobei der Wert der y-Achse auf 0 am Boden liegt. Wenn dieser Boden nicht bekannt ist, schätzt der [User-Agent](/de/docs/Glossary/user_agent) das Bodenniveau. Wenn das geschätzte Bodenniveau nicht null ist, wird erwartet, dass der Browser es so rundet, dass [Fingerprinting](/de/docs/Glossary/Fingerprinting) vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
+  - : Ein `XRReferenceSpace`, ähnlich wie der Typ `local`, außer dass die Ausgangsposition an einem sicheren Ort für den Betrachter platziert wird, wobei der Wert der y-Achse auf 0 am Boden liegt. Wenn dieser Boden nicht bekannt ist, schätzt der {{Glossary("user_agent", "User-Agent")}} das Bodenniveau. Wenn das geschätzte Bodenniveau nicht null ist, wird erwartet, dass der Browser es so rundet, dass {{Glossary("Fingerprinting", "Fingerprinting")}} vermieden wird (wahrscheinlich auf den nächsten Zentimeter).
 - `unbounded`
   - : Ein `XRReferenceSpace`-Trackingraum, der dem Benutzer völlige Bewegungsfreiheit ermöglicht, möglicherweise über extrem große Distanzen vom Ursprungspunkt. Der Betrachter wird überhaupt nicht verfolgt; das Tracking ist auf Stabilität um die aktuelle Position des Benutzers optimiert, sodass der native Ursprung bei Bedarf entsprechend driften kann.
 - `viewer`
@@ -70,7 +70,7 @@ let offsetTransform = new XRRigidTransform(
 xrReferenceSpace = xrReferenceSpace.getOffsetReferenceSpace(offsetTransform);
 ```
 
-Dies ersetzt den `XRReferenceSpace` durch einen neuen, dessen Ursprung und Orientierung so angepasst sind, dass der neue Ursprung relativ zum aktuellen Ursprung bei (2, 0, 1) liegt und mit einem Einheits-[Quaternion](/de/docs/Glossary/quaternion) gedreht wird, das den Raum so ausrichtet, dass der Betrachter relativ zur vorherigen Weltorientierung gerade nach oben sieht.
+Dies ersetzt den `XRReferenceSpace` durch einen neuen, dessen Ursprung und Orientierung so angepasst sind, dass der neue Ursprung relativ zum aktuellen Ursprung bei (2, 0, 1) liegt und mit einem Einheits-{{Glossary("quaternion", "Quaternion")}} gedreht wird, das den Raum so ausrichtet, dass der Betrachter relativ zur vorherigen Weltorientierung gerade nach oben sieht.
 
 ### Geometrie
 

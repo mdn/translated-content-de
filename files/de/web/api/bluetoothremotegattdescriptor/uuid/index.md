@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTDescriptor.uuid`** gibt die [UUID](/de/docs/Glossary/UUID) des Merkmalbeschreibers zurück.
+Die schreibgeschützte Eigenschaft **`BluetoothRemoteGATTDescriptor.uuid`** gibt die {{Glossary("UUID", "UUID")}} des Merkmalbeschreibers zurück.
 Zum Beispiel `"00002902-0000-1000-8000-00805f9b34fb"` für den Client Characteristic Configuration Descriptor.
 
 ## Wert

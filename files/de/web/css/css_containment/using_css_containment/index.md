@@ -166,7 +166,7 @@ Benutzeragenten haben ein Konzept von Inhalten, die für den Benutzer [relevant 
 - Das Element erscheint im Sichtfeld oder in einem vom Benutzeragenten definierten Rand um das Sichtfeld herum (50% der Sichtfeldabmessungen, um der App Zeit zu geben, sich vorzubereiten, wenn sich die Sichtbarkeit des Elements ändert).
 - Das Element oder sein Inhalt erhält Fokus.
 - Das Element oder sein Inhalt wird ausgewählt, zum Beispiel durch Ziehen über den Text mit dem Mauszeiger oder durch eine andere Hervorhebungsoperation.
-- Das Element oder sein Inhalt wird in die [obere Ebene](/de/docs/Glossary/top_layer) gebracht.
+- Das Element oder sein Inhalt wird in die {{Glossary("top_layer", "obere Ebene")}} gebracht.
 
 Wenn `content-visibility: auto` festgelegt ist und der Browser feststellt, dass der Inhalt für den Benutzer relevant ist, wird der Inhalt vom Browser gerendert.
 

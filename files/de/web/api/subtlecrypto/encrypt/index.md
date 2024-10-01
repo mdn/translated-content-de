@@ -10,7 +10,7 @@ l10n:
 
 Die **`encrypt()`**-Methode der [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Schnittstelle verschlüsselt Daten.
 
-Sie benötigt als Argumente einen [Schlüssel](/de/docs/Glossary/key) zur Verschlüsselung, einige algorithmenspezifische Parameter und die zu verschlüsselnden Daten (auch als "Klartext" bekannt).
+Sie benötigt als Argumente einen {{Glossary("key", "Schlüssel")}} zur Verschlüsselung, einige algorithmenspezifische Parameter und die zu verschlüsselnden Daten (auch als "Klartext" bekannt).
 Sie gibt ein {{jsxref("Promise")}} zurück, das mit den verschlüsselten Daten (auch als "Chiffretext" bekannt) erfüllt wird.
 
 ## Syntax
@@ -33,7 +33,7 @@ encrypt(algorithm, key, data)
   - : Ein [`CryptoKey`](/de/docs/Web/API/CryptoKey), das den zu verwendenden Schlüssel zur Verschlüsselung enthält.
 - `data`
   - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, oder ein {{jsxref("DataView")}},
-    der die zu verschlüsselnden Daten enthält (auch bekannt als [Klartext](/de/docs/Glossary/plaintext)).
+    der die zu verschlüsselnden Daten enthält (auch bekannt als {{Glossary("plaintext", "Klartext")}}).
 
 ### Rückgabewert
 
@@ -52,10 +52,10 @@ Das Promise wird abgelehnt, wenn die folgenden Ausnahmen auftreten:
 
 Die Web Crypto API stellt vier Algorithmen zur Verfügung, die die `encrypt()`- und `decrypt()`-Operationen unterstützen.
 
-Einer dieser Algorithmen — RSA-OAEP — ist ein [Public-Key-Kryptosystem](/de/docs/Glossary/public-key_cryptography).
+Einer dieser Algorithmen — RSA-OAEP — ist ein {{Glossary("public-key_cryptography", "Public-Key-Kryptosystem")}}.
 
-Die anderen drei Verschlüsselungsalgorithmen hier sind alle [symmetrische Algorithmen](/de/docs/Glossary/Symmetric-key_cryptography), und sie basieren alle auf derselben zugrundeliegenden Chiffre, AES (Advanced Encryption Standard).
-Der Unterschied zwischen ihnen liegt im [Modus](/de/docs/Glossary/Block_cipher_mode_of_operation).
+Die anderen drei Verschlüsselungsalgorithmen hier sind alle {{Glossary("Symmetric-key_cryptography", "symmetrische Algorithmen")}}, und sie basieren alle auf derselben zugrundeliegenden Chiffre, AES (Advanced Encryption Standard).
+Der Unterschied zwischen ihnen liegt im {{Glossary("Block_cipher_mode_of_operation", "Modus")}}.
 Die Web Crypto API unterstützt drei verschiedene AES-Modi:
 
 - CTR (Counter Mode)

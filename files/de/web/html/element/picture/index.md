@@ -13,7 +13,7 @@ Der Browser berücksichtigt jedes untergeordnete `<source>`-Element und wählt d
 
 {{EmbedInteractiveExample("pages/tabbed/picture.html", "tabbed-standard")}}
 
-Um zu entscheiden, welche URL geladen wird, prüft der [User Agent](/de/docs/Glossary/user_agent) die `srcset`-, `media`- und `type`-Attribute jedes `<source>`-Elements, um ein kompatibles Bild auszuwählen, das am besten zum aktuellen Layout und den Fähigkeiten des Anzeigegeräts passt.
+Um zu entscheiden, welche URL geladen wird, prüft der {{Glossary("user_agent", "User Agent")}} die `srcset`-, `media`- und `type`-Attribute jedes `<source>`-Elements, um ein kompatibles Bild auszuwählen, das am besten zum aktuellen Layout und den Fähigkeiten des Anzeigegeräts passt.
 
 Das `<img>`-Element erfüllt zwei Zwecke:
 

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`u1`**-Attribut gibt eine Liste von [Unicode](/de/docs/Glossary/Unicode)-Zeichen an (siehe Beschreibung des {{SVGAttr("unicode")}}-Attributs des {{SVGElement("glyph")}}-Elements, um zu erfahren, wie individuelle Unicode-Zeichen ausgedrückt werden) und/oder Bereiche von Unicode-Zeichen, die eine Menge möglicher erster [Glyphen](/de/docs/Glossary/glyph) in einem Kerning-Paar identifizieren.
+Das **`u1`**-Attribut gibt eine Liste von {{Glossary("Unicode", "Unicode")}}-Zeichen an (siehe Beschreibung des {{SVGAttr("unicode")}}-Attributs des {{SVGElement("glyph")}}-Elements, um zu erfahren, wie individuelle Unicode-Zeichen ausgedrückt werden) und/oder Bereiche von Unicode-Zeichen, die eine Menge möglicher erster {{Glossary("glyph", "Glyphen")}} in einem Kerning-Paar identifizieren.
 
 Wenn ein bestimmtes Unicode-Zeichen innerhalb der Menge mehreren entsprechenden `<glyph>`-Elementen zugeordnet ist (d.h. es gibt mehrere `<glyph>`-Elemente mit dem gleichen `unicode`-Attributwert, aber unterschiedlichen {{SVGAttr("glyph-name")}}-Attributwerten), dann sind alle diese Glyphen in der Menge enthalten. Das Komma ist das Trennzeichen; um ein Komma zu kerning, geben Sie das Komma als Teil eines Bereichs von Unicode-Zeichen oder als Glyphenname unter Verwendung des {{SVGAttr("g1")}}-Attributs an. Die Gesamtheit der möglichen ersten Glyphen im Kerning-Paar ist die Vereinigung der durch die `u1`- und `g1`-Attribute angegebenen Glyphen.
 

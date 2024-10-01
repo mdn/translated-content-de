@@ -61,7 +61,7 @@ _Keine Änderungen._
 
 - Einige Unternehmensauthentifizierungsdienste erfordern, dass TLS-Clientzertifikate bei [CORS-Vorab-Anfragen](/de/docs/Web/HTTP/CORS#preflight_requests_and_credentials) gesendet werden. Benutzer dieser Dienste können dieses (nicht spezifikationskonforme) Verhalten mit der Einstellung `network.cors_preflight.allow_client_cert` aktivieren ([Firefox Bug 1511151](https://bugzil.la/1511151)).
 - Die standardmäßige [`Referrer-Policy`](/de/docs/Web/HTTP/Headers/Referrer-Policy) wurde auf [`strict-origin-when-cross-origin`](/de/docs/Web/HTTP/Headers/Referrer-Policy#strict-origin-when-cross-origin) (von `no-referrer-when-downgrade`) geändert, um das Risiko des Lecks von Referrer-Informationen bei cross-origin Anfragen zu verringern ([Firefox Bug 1589074](https://bugzil.la/1589074)).
-- [`Content-Length`](/de/docs/Web/HTTP/Headers/Content-Length) wurde zur Liste der [CORS-safelisted response headers](/de/docs/Glossary/CORS-safelisted_response_header) hinzugefügt ([Firefox Bug 1460299](https://bugzil.la/1460299)).
+- [`Content-Length`](/de/docs/Web/HTTP/Headers/Content-Length) wurde zur Liste der {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response headers")}} hinzugefügt ([Firefox Bug 1460299](https://bugzil.la/1460299)).
 
 ### Sicherheit
 

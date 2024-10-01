@@ -59,7 +59,7 @@ Wenn ein Dialog nicht modal ist — es gibt keinen inaktiven Hintergrund und der
 
 Dieses Teilbeispiel beinhaltet ein `alertdialog`, das in einem Vollbildmodus nicht-scrollbaren Hintergrund eingebettet ist.
 
-Die [`role="alertdialog"`](/de/docs/Web/Accessibility/ARIA/Roles/alertdialog_role) identifiziert das Element, das als Container für das Warndialog dient. Das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) gibt dem Warndialog einen zugänglichen Namen, indem es auf das Element verweist, das den Titel des Warndialogs bereitstellt. Das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) Attribut gibt dem Warndialog eine [zugängliche Beschreibung](/de/docs/Glossary/accessible_description), indem es auf den Warndialoginhalt verweist, der die Hauptnachricht oder den Zweck des Warndialogs beschreibt.
+Die [`role="alertdialog"`](/de/docs/Web/Accessibility/ARIA/Roles/alertdialog_role) identifiziert das Element, das als Container für das Warndialog dient. Das [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) gibt dem Warndialog einen zugänglichen Namen, indem es auf das Element verweist, das den Titel des Warndialogs bereitstellt. Das [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) Attribut gibt dem Warndialog eine {{Glossary("accessible_description", "zugängliche Beschreibung")}}, indem es auf den Warndialoginhalt verweist, der die Hauptnachricht oder den Zweck des Warndialogs beschreibt.
 
 Das `aria-modal="true"` informiert den Nutzer der unterstützenden Technologie, dass der Inhalt unterhalb des Dialogs nicht interaktiv ist, solange das Element mit einer Deklaration `role="alertdialog"` den Fokus hat.
 

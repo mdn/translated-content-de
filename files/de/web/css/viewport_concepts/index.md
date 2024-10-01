@@ -41,7 +41,7 @@ Es gibt mehrere DOM-Eigenschaften, die Ihnen dabei helfen können, die Viewport-
 
 - Die [`Element.clientWidth`](/de/docs/Web/API/Element/clientWidth) des Dokument-Elements ist die innere Breite eines Dokuments in [CSS-Pixeln](/de/docs/Web/HTML/Viewport_meta_tag#screen_density), einschließlich Padding (jedoch ohne Ränder, Abstände oder vertikale Scrollleisten, falls vorhanden). **Dies ist die Viewport-Breite**.
 - Die [`Window.innerWidth`](/de/docs/Web/API/Window/innerWidth) ist die Breite, in CSS-Pixeln, des Browserfenster-Viewports einschließlich, falls gerendert, der vertikalen Scrollleiste.
-- Die [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) ist die Breite der Außenseite des Browserfensters einschließlich aller Fenster-[Chromes](/de/docs/Glossary/chrome).
+- Die [`Window.outerWidth`](/de/docs/Web/API/Window/outerWidth) ist die Breite der Außenseite des Browserfensters einschließlich aller Fenster-{{Glossary("chrome", "Chromes")}}.
 
 In einem Experiment mit diesen Eigenschaften waren `innerWidth` und `outerWidth` gleich, aber `outerHeight` war 100px höher als `innerHeight`. Dies liegt daran, dass `outerHeight` das Browser-Chrome einschließt: Die Messungen wurden in einem Browser mit einer Adressleiste und einer Lesezeichenleiste mit einer Gesamthöhe von 100px vorgenommen, aber ohne Chrome links oder rechts vom Fenster.
 
@@ -124,7 +124,7 @@ In einem SVG-Dokument ist der Viewport der sichtbare Bereich des SVG-Bildes. Sie
 <svg height="300" width="400"></svg>
 ```
 
-In diesem Beispiel hat der Viewport ein [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) von 3:4 und ist standardmäßig 400 mal 300 Einheiten groß, wobei eine Einheit im Allgemeinen einem CSS-Pixel entspricht.
+In diesem Beispiel hat der Viewport ein {{Glossary("aspect_ratio", "Seitenverhältnis")}} von 3:4 und ist standardmäßig 400 mal 300 Einheiten groß, wobei eine Einheit im Allgemeinen einem CSS-Pixel entspricht.
 
 SVG hat auch ein internes Koordinatensystem, das über das [viewBox](/de/docs/Web/SVG/Attribute/viewBox)-Attribut definiert wird, welches nicht zu dieser Viewport-Diskussion gehört.
 

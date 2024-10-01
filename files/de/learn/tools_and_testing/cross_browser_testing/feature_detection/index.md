@@ -86,7 +86,7 @@ In unserer bedingten Anweisung testen wir, ob die {{cssxref("grid-template-colum
 
 #### @supports
 
-CSS verfügt über einen nativen Mechanismus zur Feature-Erkennung: die {{cssxref("@supports")}}-At-Regel. Diese funktioniert ähnlich wie [media queries](/de/docs/Web/CSS/CSS_media_queries), außer dass nicht CSS selektiv je nach Medieneigenschaft wie Auflösung, Bildschirmbreite oder [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) angewendet wird, sondern CSS selektiv je nach Unterstützung einer CSS-Funktion angewendet wird, ähnlich wie `CSS.supports()`.
+CSS verfügt über einen nativen Mechanismus zur Feature-Erkennung: die {{cssxref("@supports")}}-At-Regel. Diese funktioniert ähnlich wie [media queries](/de/docs/Web/CSS/CSS_media_queries), außer dass nicht CSS selektiv je nach Medieneigenschaft wie Auflösung, Bildschirmbreite oder {{Glossary("aspect_ratio", "Seitenverhältnis")}} angewendet wird, sondern CSS selektiv je nach Unterstützung einer CSS-Funktion angewendet wird, ähnlich wie `CSS.supports()`.
 
 Zum Beispiel könnten wir unser vorheriges Beispiel umschreiben, um `@supports` zu verwenden:
 
@@ -160,7 +160,7 @@ Gängige Muster für erkennbare Funktionen umfassen:
     ```
 
     > [!NOTE]
-    > Das doppelte `NOT` im obigen Beispiel (`!!`) ist eine Möglichkeit, den Rückgabewert zu einem "richtigen" booleschen Wert zu zwingen, anstatt zu einem [Truthy](/de/docs/Glossary/Truthy)/[Falsy](/de/docs/Glossary/Falsy)-Wert, der die Ergebnisse verfälschen könnte.
+    > Das doppelte `NOT` im obigen Beispiel (`!!`) ist eine Möglichkeit, den Rückgabewert zu einem "richtigen" booleschen Wert zu zwingen, anstatt zu einem {{Glossary("Truthy", "Truthy")}}/{{Glossary("Falsy", "Falsy")}}-Wert, der die Ergebnisse verfälschen könnte.
 
 - Spezifische Rückgabewerte einer Methode auf einem Element
 
@@ -170,7 +170,7 @@ Gängige Muster für erkennbare Funktionen umfassen:
 
   - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement), setzen Sie eine Eigenschaft auf einen bestimmten Wert und prüfen Sie dann, ob der Wert beibehalten wird. Siehe den Feature-Test in [Dive into HTML \<input> type detection](https://diveinto.html5doctor.com/detect.html#input-types) für ein Beispiel dieses Musters.
 
-Beachten Sie, dass einige Funktionen jedoch bekanntlich nicht erkennbar sind. In diesen Fällen müssen Sie einen anderen Ansatz verwenden, wie z.B. die Verwendung eines [Polyfills](/de/docs/Glossary/Polyfill).
+Beachten Sie, dass einige Funktionen jedoch bekanntlich nicht erkennbar sind. In diesen Fällen müssen Sie einen anderen Ansatz verwenden, wie z.B. die Verwendung eines {{Glossary("Polyfill", "Polyfills")}}.
 
 #### matchMedia
 

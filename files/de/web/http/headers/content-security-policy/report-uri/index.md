@@ -29,7 +29,7 @@ Die Direktive hat an und für sich keine Wirkung, sondern erhält erst in Kombin
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>[Meldedirektive](/de/docs/Glossary/Reporting_directive)</td>
+      <td>{{Glossary("Reporting_directive", "Meldedirektive")}}</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">

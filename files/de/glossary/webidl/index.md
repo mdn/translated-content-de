@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**WebIDL** ist die Schnittstellen-Beschreibungssprache, die verwendet wird, um die [Datentypen](/de/docs/Glossary/type), [Schnittstellen](/de/docs/Glossary/interface), [Methoden](/de/docs/Glossary/method), [Eigenschaften](/de/docs/Glossary/property) und andere Komponenten zu beschreiben, die eine Web-Anwendungsprogrammierschnittstelle ([API](/de/docs/Glossary/API)) bilden. Es verwendet eine etwas stilisierte Syntax, die unabhängig von jeder spezifischen Programmiersprache ist, so dass der zugrunde liegende Code, der zum Erstellen jeder API verwendet wird, in der geeignetsten Sprache geschrieben werden kann, während die Komponenten der API dennoch auf JavaScript-kompatible Konstrukte abgebildet werden können.
+**WebIDL** ist die Schnittstellen-Beschreibungssprache, die verwendet wird, um die {{Glossary("type", "Datentypen")}}, {{Glossary("interface", "Schnittstellen")}}, {{Glossary("method", "Methoden")}}, {{Glossary("property", "Eigenschaften")}} und andere Komponenten zu beschreiben, die eine Web-Anwendungsprogrammierschnittstelle ({{Glossary("API", "API")}}) bilden. Es verwendet eine etwas stilisierte Syntax, die unabhängig von jeder spezifischen Programmiersprache ist, so dass der zugrunde liegende Code, der zum Erstellen jeder API verwendet wird, in der geeignetsten Sprache geschrieben werden kann, während die Komponenten der API dennoch auf JavaScript-kompatible Konstrukte abgebildet werden können.
 
-WebIDL wird in nahezu jeder API-[Spezifikation](/de/docs/Glossary/specification) für das Web verwendet. Aufgrund seines standardisierten Formats und seiner Syntax können die Programmierer, die Webbrowser erstellen, leichter sicherstellen, dass ihre Browser miteinander kompatibel sind, unabhängig davon, wie sie sich entscheiden, den Code zur Implementierung der API zu schreiben.
+WebIDL wird in nahezu jeder API-{{Glossary("specification", "Spezifikation")}} für das Web verwendet. Aufgrund seines standardisierten Formats und seiner Syntax können die Programmierer, die Webbrowser erstellen, leichter sicherstellen, dass ihre Browser miteinander kompatibel sind, unabhängig davon, wie sie sich entscheiden, den Code zur Implementierung der API zu schreiben.
 
 ## Siehe auch
 

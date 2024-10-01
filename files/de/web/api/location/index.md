@@ -112,7 +112,7 @@ document.body.addEventListener("click", (event) => {
 - [`Location.ancestorOrigins`](/de/docs/Web/API/Location/ancestorOrigins) {{ReadOnlyInline}}
   - : Eine statische [`DOMStringList`](/de/docs/Web/API/DOMStringList), die in umgekehrter Reihenfolge die Ursprünge aller übergeordneten Browsing-Kontexte des Dokuments enthält, das mit dem gegebenen `Location`-Objekt verknüpft ist.
 - [`Location.href`](/de/docs/Web/API/Location/href)
-  - : Ein [stringifier](/de/docs/Glossary/stringifier), der einen String mit der gesamten URL zurückgibt. Bei Änderungen navigiert das zugehörige Dokument zur neuen Seite. Es kann von einem anderen Ursprung als das zugehörige Dokument gesetzt werden.
+  - : Ein {{Glossary("stringifier", "stringifier")}}, der einen String mit der gesamten URL zurückgibt. Bei Änderungen navigiert das zugehörige Dokument zur neuen Seite. Es kann von einem anderen Ursprung als das zugehörige Dokument gesetzt werden.
 - [`Location.protocol`](/de/docs/Web/API/Location/protocol)
   - : Ein String, der das Protokollschema der URL enthält, einschließlich des abschließenden `':'`.
 - [`Location.host`](/de/docs/Web/API/Location/host)

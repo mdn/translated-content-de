@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die **`RTCSessionDescription.toJSON()`**-Methode erzeugt eine
-[JSON](/de/docs/Glossary/JSON)-Beschreibung des Objekts. Beide Eigenschaften,
+{{Glossary("JSON", "JSON")}}-Beschreibung des Objekts. Beide Eigenschaften,
 [`type`](/de/docs/Web/API/RTCSessionDescription/type) und
 [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp), sind in dem generierten JSON enthalten.
 
@@ -30,7 +30,7 @@ Ein {{jsxref("JSON")}}-Objekt, das die folgenden Eigenschaften enthält:
 - `type`
   - : Eine der folgenden: `"offer"`, `"answer"`, `"pranswer"` oder `null`.
 - `sdp`
-  - : Entweder `null` oder der [SDP](/de/docs/Glossary/SDP)-Nachrichtenstring, der der Eigenschaft [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) entspricht.
+  - : Entweder `null` oder der {{Glossary("SDP", "SDP")}}-Nachrichtenstring, der der Eigenschaft [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) entspricht.
 
 ## Beispiel
 

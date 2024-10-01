@@ -36,7 +36,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 122, die En
 
 #### Entfernungen
 
-- Unterstützung für `data:` URLs in SVG `<use>` Elemente und über die [`SVGUseElement`](/de/docs/Web/API/SVGUseElement) Schnittstelle entfernt, um [XSS](/de/docs/Glossary/Cross-site_scripting) Angriffe zu verhindern.
+- Unterstützung für `data:` URLs in SVG `<use>` Elemente und über die [`SVGUseElement`](/de/docs/Web/API/SVGUseElement) Schnittstelle entfernt, um {{Glossary("Cross-site_scripting", "XSS")}} Angriffe zu verhindern.
   Die ältere Funktionalität kann durch Setzen der `svg.use-element.data-url-href.allowed` Präferenz auf `true` wieder aktiviert werden, obwohl dies aus Sicherheitsgründen nicht empfohlen wird ([Firefox bug 1806964](https://bugzil.la/1806964)).
 
 ### APIs

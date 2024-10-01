@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("WebRTC")}}
 
-Um Audio-/Videokonferenzen umfassender zu unterstützen, ermöglicht [WebRTC](/de/docs/Web/API/WebRTC_API) das Senden von [DTMF](/de/docs/Glossary/DTMF) an den entfernten Teilnehmer über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Dieser Artikel bietet einen kurzen Überblick darüber, wie DTMF über WebRTC funktioniert, und liefert dann einen Leitfaden für Entwickler, wie man DTMF über eine `RTCPeerConnection` sendet. Das DTMF-System wird oft als "Tonwahl" bezeichnet, nach einem alten Markennamen für das System.
+Um Audio-/Videokonferenzen umfassender zu unterstützen, ermöglicht [WebRTC](/de/docs/Web/API/WebRTC_API) das Senden von {{Glossary("DTMF", "DTMF")}} an den entfernten Teilnehmer über eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection). Dieser Artikel bietet einen kurzen Überblick darüber, wie DTMF über WebRTC funktioniert, und liefert dann einen Leitfaden für Entwickler, wie man DTMF über eine `RTCPeerConnection` sendet. Das DTMF-System wird oft als "Tonwahl" bezeichnet, nach einem alten Markennamen für das System.
 
 WebRTC sendet DTMF-Codes nicht als Audiodaten. Stattdessen werden sie außerhalb der Bandbreite als RTP-Nutzlast gesendet. Beachten Sie jedoch, dass es zwar möglich ist, DTMF mit WebRTC zu _senden_, es jedoch derzeit keinen Weg gibt, _eingehende_ DTMF zu erkennen oder zu empfangen. WebRTC ignoriert aktuell diese Nutzlasten, da die Unterstützung von DTMF in WebRTC in erster Linie für die Verwendung mit älteren Telefonsystemen gedacht ist, die auf DTMF-Töne angewiesen sind, um Aufgaben wie folgende auszuführen:
 

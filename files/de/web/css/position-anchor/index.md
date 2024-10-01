@@ -44,7 +44,7 @@ Das Ankerelement akzeptiert einen oder mehrere `<dashed-ident>` Ankernamen, die 
 
 Wenn es mehrere Ankerelemente mit dem im `position-anchor` Attribut gelisteten Ankernamen gibt, wird das positionierte Element mit dem letzten Ankerelement in der Quellreihenfolge mit diesem Ankernamen verknüpft.
 
-Um ein positioniertes Element an seinen Anker zu binden, muss es relativ zu einem Ankerelement unter Verwendung einer Ankerpositionierungsfunktion platziert werden, wie z. B. mit der {{cssxref("anchor()")}} Funktion (als Wert auf [inset properties](/de/docs/Glossary/inset_properties)) oder der {{cssxref("position-area")}} Eigenschaft.
+Um ein positioniertes Element an seinen Anker zu binden, muss es relativ zu einem Ankerelement unter Verwendung einer Ankerpositionierungsfunktion platziert werden, wie z. B. mit der {{cssxref("anchor()")}} Funktion (als Wert auf {{Glossary("inset_properties", "inset properties")}}) oder der {{cssxref("position-area")}} Eigenschaft.
 
 Wenn der zugehörige Anker versteckt ist, z. B. durch {{cssxref("display", "display: none")}} oder {{cssxref("visibility", "visibility: hidden")}}, oder wenn er Teil der [übersprungenen Inhalte](/de/docs/Web/CSS/CSS_containment/Using_CSS_containment#skips_its_contents) eines anderen Elements ist, weil dieses {{cssxref("content-visibility", "content-visibility: hidden")}} eingestellt hat, wird das Anker positionierte Element nicht angezeigt.
 

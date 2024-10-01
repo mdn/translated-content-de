@@ -7,11 +7,11 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der Programmierung ist ein **Binding** eine Zuordnung eines [Bezeichners](/de/docs/Glossary/identifier) zu einem Wert. Nicht alle Bindings sind [Variablen](/de/docs/Glossary/variable) — zum Beispiel sind Funktions[parameter](/de/docs/Glossary/parameter) und das Binding, das durch den {{jsxref("Statements/try...catch", "catch (e)")}}-Block erstellt wird, im strengen Sinne keine "Variablen". Darüber hinaus werden einige Bindings implizit durch die Programmiersprache erstellt — zum Beispiel {{jsxref("Operators/this", "this")}} und [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) in JavaScript.
+In der Programmierung ist ein **Binding** eine Zuordnung eines {{Glossary("identifier", "Bezeichners")}} zu einem Wert. Nicht alle Bindings sind {{Glossary("variable", "Variablen")}} — zum Beispiel sind Funktions{{Glossary("parameter", "parameter")}} und das Binding, das durch den {{jsxref("Statements/try...catch", "catch (e)")}}-Block erstellt wird, im strengen Sinne keine "Variablen". Darüber hinaus werden einige Bindings implizit durch die Programmiersprache erstellt — zum Beispiel {{jsxref("Operators/this", "this")}} und [`new.target`](/de/docs/Web/JavaScript/Reference/Operators/new.target) in JavaScript.
 
-Ein Binding ist [änderbar](/de/docs/Glossary/mutable), wenn es neu zugewiesen werden kann, und [unveränderbar](/de/docs/Glossary/immutable), wenn dies nicht möglich ist; das bedeutet _nicht_, dass der Wert, den es hält, unveränderbar ist.
+Ein Binding ist {{Glossary("mutable", "änderbar")}}, wenn es neu zugewiesen werden kann, und {{Glossary("immutable", "unveränderbar")}}, wenn dies nicht möglich ist; das bedeutet _nicht_, dass der Wert, den es hält, unveränderbar ist.
 
-Ein Binding wird oft mit einem [Gültigkeitsbereich](/de/docs/Glossary/scope) in Verbindung gebracht. Einige Programmiersprachen erlauben die Neuerstellung von Bindings (auch als Neudeklaration bezeichnet) innerhalb desselben Gültigkeitsbereichs, andere nicht; ob Bindings in JavaScript neu deklariert werden können, hängt von der verwendeten Konstruktion ab, um das Binding zu erstellen.
+Ein Binding wird oft mit einem {{Glossary("scope", "Gültigkeitsbereich")}} in Verbindung gebracht. Einige Programmiersprachen erlauben die Neuerstellung von Bindings (auch als Neudeklaration bezeichnet) innerhalb desselben Gültigkeitsbereichs, andere nicht; ob Bindings in JavaScript neu deklariert werden können, hängt von der verwendeten Konstruktion ab, um das Binding zu erstellen.
 
 ## Siehe auch
 

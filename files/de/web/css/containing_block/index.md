@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die Größe und Position eines Elements werden oft von seinem **Containing Block** beeinflusst. Meistens ist der Containing Block der [Inhaltsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) des nächsten [Block-Level](/de/docs/Glossary/Block-level_content)-Vorfahren des Elements, aber das ist nicht immer der Fall. In diesem Artikel untersuchen wir die Faktoren, die den Containing Block eines Elements bestimmen.
+Die Größe und Position eines Elements werden oft von seinem **Containing Block** beeinflusst. Meistens ist der Containing Block der [Inhaltsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) des nächsten {{Glossary("Block-level_content", "Block-Level")}}-Vorfahren des Elements, aber das ist nicht immer der Fall. In diesem Artikel untersuchen wir die Faktoren, die den Containing Block eines Elements bestimmen.
 
 Wenn ein User-Agent (wie Ihr Browser) ein Dokument layoutet, generiert er für jedes Element einen Kasten. Jeder Kasten ist in vier Bereiche unterteilt:
 
@@ -32,7 +32,7 @@ Der Prozess zur Ermittlung des Containing Blocks hängt vollständig vom Wert de
 
 1. Wenn die `position`-Eigenschaft **`static`**, **`relative`** oder **`sticky`** ist, wird der Containing Block durch den Rand des _Inhaltskastens_ des nächstgelegenen Vorfahrens gebildet, das entweder **ein Block-Container** (wie ein Inline-Block, Block oder Listenelement) ist oder **einen Formatierungskontext etabliert** (wie ein Tabellen-Container, Flex-Container, Grid-Container oder der Block-Container selbst).
 2. Wenn die `position`-Eigenschaft **`absolute`** ist, wird der Containing Block durch den Rand des _Auffüllkastens_ des nächstgelegenen Vorfahren gebildet, der einen `position`-Wert ungleich `static` (`fixed`, `absolute`, `relative` oder `sticky`) hat.
-3. Wenn die `position`-Eigenschaft **`fixed`** ist, wird der Containing Block durch den [Viewport](/de/docs/Glossary/viewport) (bei kontinuierlichen Medien) oder den Bereich der Seite (bei paginierten Medien) etabliert.
+3. Wenn die `position`-Eigenschaft **`fixed`** ist, wird der Containing Block durch den {{Glossary("viewport", "Viewport")}} (bei kontinuierlichen Medien) oder den Bereich der Seite (bei paginierten Medien) etabliert.
 4. Wenn die `position`-Eigenschaft **`absolute`** oder **`fixed`** ist, kann der Containing Block auch durch den Rand des _Auffüllkastens_ des nächstgelegenen Vorfahren gebildet werden, der eines der folgenden Merkmale aufweist:
 
    - Einen {{cssxref("filter")}}, {{cssxref("backdrop-filter")}}, {{cssxref("transform")}} oder {{cssxref("perspective")}}-Wert ungleich `none`.
@@ -268,4 +268,4 @@ p {
 - [Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
 - [Initiale](/de/docs/Web/CSS/initial_value), [berechnete](/de/docs/Web/CSS/computed_value), [verwendete](/de/docs/Web/CSS/used_value) und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)
-- [Intrinsische Größe](/de/docs/Glossary/Intrinsic_size)
+- {{Glossary("Intrinsic_size", "Intrinsische Größe")}}

@@ -42,7 +42,7 @@ console.log(foo.bar);
 // bar is found in foo as a property
 ```
 
-Eine Ausnahme ist das [global object](/de/docs/Glossary/Global_object), das sich an der Spitze der Scope-Kette befindet und dessen Eigenschaften automatisch zu globalen Variablen werden, die ohne Qualifikatoren referenziert werden können.
+Eine Ausnahme ist das {{Glossary("Global_object", "global object")}}, das sich an der Spitze der Scope-Kette befindet und dessen Eigenschaften automatisch zu globalen Variablen werden, die ohne Qualifikatoren referenziert werden können.
 
 ```js
 console.log(globalThis.Math === Math); // true
@@ -124,7 +124,7 @@ const r = 10;
 
 ### Vermeiden der with-Anweisung durch Verwendung einer IIFE
 
-Wenn Sie einen Ausdruck erzeugen, der einen langen Namen mehrmals wiederverwenden muss, und Ihr Ziel darin besteht, diesen langen Namen innerhalb Ihres Ausdrucks zu eliminieren, können Sie den Ausdruck in einer [IIFE](/de/docs/Glossary/IIFE) umschließen und den langen Namen als Argument übergeben.
+Wenn Sie einen Ausdruck erzeugen, der einen langen Namen mehrmals wiederverwenden muss, und Ihr Ziel darin besteht, diesen langen Namen innerhalb Ihres Ausdrucks zu eliminieren, können Sie den Ausdruck in einer {{Glossary("IIFE", "IIFE")}} umschließen und den langen Namen als Argument übergeben.
 
 ```js
 const objectHavingAnEspeciallyLengthyName = { foo: true, bar: false };

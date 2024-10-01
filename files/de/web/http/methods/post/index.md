@@ -9,7 +9,7 @@ l10n:
 
 Die **`POST`** HTTP-Methode sendet Daten an den Server. Der Typ des Rumpfes der Anfrage wird durch den {{HTTPHeader("Content-Type")}} Header angegeben.
 
-Der Unterschied zwischen {{HTTPMethod("PUT")}} und `POST` besteht darin, dass `PUT` [idempotent](/de/docs/Glossary/idempotent) ist: Einmaliges Aufrufen ist nicht anders als mehrmaliges hintereinander Aufrufen (es gibt keine _seitlichen_ Effekte).
+Der Unterschied zwischen {{HTTPMethod("PUT")}} und `POST` besteht darin, dass `PUT` {{Glossary("idempotent", "idempotent")}} ist: Einmaliges Aufrufen ist nicht anders als mehrmaliges hintereinander Aufrufen (es gibt keine _seitlichen_ Effekte).
 Aufeinanderfolgende identische `POST`-Anfragen können zusätzliche Effekte haben, wie das mehrfache Erstellen derselben Bestellung.
 
 [HTML-Formulare](/de/docs/Learn/Forms) senden typischerweise Daten mit `POST`, was normalerweise zu einer Änderung auf dem Server führt.
@@ -17,7 +17,7 @@ Für HTML-Formulare wird das Format/die Kodierung des Rumpfinhalts durch das [`e
 Die Kodierung kann eine der folgenden sein:
 
 - `application/x-www-form-urlencoded`: Die Schlüssel und Werte werden in Schlüssel-Wert-Tupeln kodiert, die durch ein Kaufmännisches Und (`&`) getrennt sind, mit einem Gleichheitszeichen (`=`) zwischen Schlüssel und Wert (z.B. `firstname=Frida&lastname=Kahlo`).
-  Nicht-alphanumerische Zeichen in beiden, Schlüsseln und Werten, werden [prozentkodiert](/de/docs/Glossary/Percent-encoding): Dies ist der Grund, warum dieser Typ nicht für die Verwendung mit Binärdaten geeignet ist, und Sie stattdessen `multipart/form-data` zu diesem Zweck verwenden sollten.
+  Nicht-alphanumerische Zeichen in beiden, Schlüsseln und Werten, werden {{Glossary("Percent-encoding", "prozentkodiert")}}: Dies ist der Grund, warum dieser Typ nicht für die Verwendung mit Binärdaten geeignet ist, und Sie stattdessen `multipart/form-data` zu diesem Zweck verwenden sollten.
 - `multipart/form-data`: Jeder Wert wird als Datenblock („Body Part“) gesendet, mit einem vom User-Agent definierten Trennzeichen (z.B. `boundary="delimiter12345"`), das jedes Teil trennt.
   Die Schlüssel werden im {{HTTPHeader("Content-Disposition")}} Header jedes Teils oder Datenblocks beschrieben.
 - `text/plain`
@@ -42,15 +42,15 @@ Wie in der HTTP 1.1-Spezifikation beschrieben, ist `POST` so konzipiert, dass es
       <td>Ja</td>
     </tr>
     <tr>
-      <th scope="row">[Sicher](/de/docs/Glossary/Safe/HTTP)</th>
+      <th scope="row">{{Glossary("Safe/HTTP", "Sicher")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">[Idempotent](/de/docs/Glossary/Idempotent)</th>
+      <th scope="row">{{Glossary("Idempotent", "Idempotent")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">[Cacheable](/de/docs/Glossary/Cacheable)</th>
+      <th scope="row">{{Glossary("Cacheable", "Cacheable")}}</th>
       <td>Nur wenn Frische-Informationen enthalten sind</td>
     </tr>
     <tr>

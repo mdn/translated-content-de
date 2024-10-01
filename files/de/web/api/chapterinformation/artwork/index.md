@@ -19,7 +19,7 @@ Ein {{jsxref("Array")}} von Objekten. Jedes Objekt enthält die folgenden Eigens
 - `sizes`
   - : Ein String, der eine oder mehrere Größen für die Ressource darstellt. Sein Wert kann das Schlüsselwort `any` sein (was ein skalierbares Vektorformat wie SVG darstellt), oder eine durch Leerzeichen getrennte Liste von Tokens im Format `<Breite in Pixel>x<Höhe in Pixel>` oder `<Breite in Pixel>X<Höhe in Pixel>`. Wenn mehrere Größen angegeben sind, kann der Benutzeragent die für den aktuellen Kontext am besten geeignete Größe laden, vorausgesetzt, diese Größen sind in der verlinkten Ressource verfügbar.
 - `type`
-  - : Ein String, der einen [MIME-Typ](/de/docs/Glossary/MIME_type)-Hinweis darstellt, der es dem Benutzeragenten ermöglicht, Bildtypen zu ignorieren, die er nicht unterstützt. Der Benutzeragent kann jedoch nach dem Herunterladen des Bildes weiterhin MIME-Typ-Erkennung verwenden, um seinen Typ zu bestimmen.
+  - : Ein String, der einen {{Glossary("MIME_type", "MIME-Typ")}}-Hinweis darstellt, der es dem Benutzeragenten ermöglicht, Bildtypen zu ignorieren, die er nicht unterstützt. Der Benutzeragent kann jedoch nach dem Herunterladen des Bildes weiterhin MIME-Typ-Erkennung verwenden, um seinen Typ zu bestimmen.
 
 ## Beispiele
 

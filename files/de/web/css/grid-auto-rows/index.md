@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-auto-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe einer implizit erstellten Grid-Reihe [track](/de/docs/Glossary/grid_tracks) oder ein Muster von Tracks fest.
+Die **`grid-auto-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Größe einer implizit erstellten Grid-Reihe {{Glossary("grid_tracks", "track")}} oder ein Muster von Tracks fest.
 
 {{EmbedInteractiveExample("pages/css/grid-auto-rows.html")}}
 
-Wenn ein Grid-Item in eine Reihe positioniert wird, die nicht explizit durch {{cssxref("grid-template-rows")}} dimensioniert ist, werden implizite [Grid](/de/docs/Glossary/grid) Tracks erstellt, um es aufzunehmen. Dies kann entweder durch explizite Positionierung in eine Reihe, die außerhalb des Bereichs liegt, oder durch den Autoplatzierungsalgorithmus, der zusätzliche Reihen erstellt, geschehen.
+Wenn ein Grid-Item in eine Reihe positioniert wird, die nicht explizit durch {{cssxref("grid-template-rows")}} dimensioniert ist, werden implizite {{Glossary("grid", "Grid")}} Tracks erstellt, um es aufzunehmen. Dies kann entweder durch explizite Positionierung in eine Reihe, die außerhalb des Bereichs liegt, oder durch den Autoplatzierungsalgorithmus, der zusätzliche Reihen erstellt, geschehen.
 
 ## Syntax
 

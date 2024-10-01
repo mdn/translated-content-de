@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das [WebRTC API](/de/docs/Web/API/WebRTC_API)-Ereignis **`icecandidateerror`** wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn ein Fehler bei der Durchführung von ICE-Verhandlungen über einen [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server auftritt. Das Ereignisobjekt ist vom Typ [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent) und enthält Informationen, die den Fehler in gewissem Umfang beschreiben.
+Das [WebRTC API](/de/docs/Web/API/WebRTC_API)-Ereignis **`icecandidateerror`** wird an eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet, wenn ein Fehler bei der Durchführung von ICE-Verhandlungen über einen {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server auftritt. Das Ereignisobjekt ist vom Typ [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent) und enthält Informationen, die den Fehler in gewissem Umfang beschreiben.
 
 Dieses Ereignis kann nicht abgebrochen werden und wird nicht nach außen gereicht.
 
@@ -33,7 +33,7 @@ Ein [`RTCPeerConnectionIceErrorEvent`](/de/docs/Web/API/RTCPeerConnectionIceErro
 _Die `RTCPeerConnectionIceErrorEvent`-Schnittstelle enthält die Eigenschaften, die in der [`Event`](/de/docs/Web/API/Event)-Schnittstelle zu finden sind, sowie die folgenden Eigenschaften:_
 
 - [`address`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/address) {{ReadOnlyInline}}
-  - : Ein String, der die lokale IP-Adresse angibt, die verwendet wird, um mit dem [STUN](/de/docs/Glossary/STUN)- oder [TURN](/de/docs/Glossary/TURN)-Server zur Aushandlung der Verbindung zu kommunizieren, oder `null`, wenn die lokale IP-Adresse noch nicht als Teil eines lokalen ICE-Kandidaten offengelegt wurde.
+  - : Ein String, der die lokale IP-Adresse angibt, die verwendet wird, um mit dem {{Glossary("STUN", "STUN")}}- oder {{Glossary("TURN", "TURN")}}-Server zur Aushandlung der Verbindung zu kommunizieren, oder `null`, wenn die lokale IP-Adresse noch nicht als Teil eines lokalen ICE-Kandidaten offengelegt wurde.
 - [`errorCode`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/errorCode) {{ReadOnlyInline}}
   - : Ein nicht signierter ganzzahliger Wert, der den numerischen [STUN-Fehlercode](https://www.iana.org/assignments/stun-parameters/stun-parameters.xhtml#stun-parameters-6) angibt, der vom STUN- oder TURN-Server zurückgegeben wird. Wenn kein Hostkandidat den Server erreichen kann, wird diese Eigenschaft auf die Nummer 701 gesetzt, die außerhalb des Bereichs gültiger STUN-Fehlercodes liegt. Der 701-Fehler wird nur einmal pro Server-URL ausgelöst und nur, solange der [`icegatheringstate`](/de/docs/Web/API/RTCPeerConnection/icegatheringstate) `gathering` ist.
 - [`errorText`](/de/docs/Web/API/RTCPeerConnectionIceErrorEvent/errorText) {{ReadOnlyInline}}

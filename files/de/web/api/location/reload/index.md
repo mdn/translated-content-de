@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der [Ursprung](/de/docs/Glossary/origin) des Skripts, das die Methode aufruft, nicht der [selbe Ursprung](/de/docs/Glossary/Same-origin_policy) der Seite ist, die ursprünglich durch das [`Location`](/de/docs/Web/API/Location) Objekt beschrieben wird, meist wenn das Skript auf einer anderen Domain gehostet wird.
+  - : Wird ausgelöst, wenn der {{Glossary("origin", "Ursprung")}} des Skripts, das die Methode aufruft, nicht der {{Glossary("Same-origin_policy", "selbe Ursprung")}} der Seite ist, die ursprünglich durch das [`Location`](/de/docs/Web/API/Location) Objekt beschrieben wird, meist wenn das Skript auf einer anderen Domain gehostet wird.
 
 ## Beispiele
 

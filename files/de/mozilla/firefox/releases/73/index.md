@@ -50,7 +50,7 @@ _Keine Änderungen._
 
 #### WebVR
 
-- Die veraltete [WebVR API](/de/docs/Web/API/WebVR_API)—die durch [WebXR](/de/docs/Web/API/WebXR_Device_API), welche sowohl [erweiterte](https://en.wikipedia.org/wiki/Augmented_reality) als auch [virtuelle Realität](https://en.wikipedia.org/wiki/Virtual_reality) Anwendungen unterstützt, ersetzt wurde—benötigt nun [einen sicheren Kontext](/de/docs/Web/API/WebVR_API#api_availability) unter Verwendung des [HTTPS](/de/docs/Glossary/HTTPS) Protokolls, um zu funktionieren. Dies ist aufgrund der Verfügbarkeit empfindlicher Eingabequellen erforderlich, die private Informationen enthalten können ([Firefox Bug 1381645](https://bugzil.la/1381645)).
+- Die veraltete [WebVR API](/de/docs/Web/API/WebVR_API)—die durch [WebXR](/de/docs/Web/API/WebXR_Device_API), welche sowohl [erweiterte](https://en.wikipedia.org/wiki/Augmented_reality) als auch [virtuelle Realität](https://en.wikipedia.org/wiki/Virtual_reality) Anwendungen unterstützt, ersetzt wurde—benötigt nun [einen sicheren Kontext](/de/docs/Web/API/WebVR_API#api_availability) unter Verwendung des {{Glossary("HTTPS", "HTTPS")}} Protokolls, um zu funktionieren. Dies ist aufgrund der Verfügbarkeit empfindlicher Eingabequellen erforderlich, die private Informationen enthalten können ([Firefox Bug 1381645](https://bugzil.la/1381645)).
 
 #### Entfernungen
 

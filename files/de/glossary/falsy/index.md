@@ -7,25 +7,25 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **falsy**-Wert (manchmal auch als **falsey** geschrieben) ist ein Wert, der in einem [Boolean](/de/docs/Glossary/Boolean)-Kontext als falsch betrachtet wird.
+Ein **falsy**-Wert (manchmal auch als **falsey** geschrieben) ist ein Wert, der in einem {{Glossary("Boolean", "Boolean")}}-Kontext als falsch betrachtet wird.
 
-[JavaScript](/de/docs/Glossary/JavaScript) verwendet die [Typkonvertierung](/de/docs/Glossary/Type_Conversion), um jeden Wert in Kontexten, die dies erfordern, in einen Boolean umzuwandeln, wie beispielsweise in [Bedingungen](/de/docs/Glossary/Conditional) und [Schleifen](/de/docs/Glossary/Loop).
+{{Glossary("JavaScript", "JavaScript")}} verwendet die {{Glossary("Type_Conversion", "Typkonvertierung")}}, um jeden Wert in Kontexten, die dies erfordern, in einen Boolean umzuwandeln, wie beispielsweise in {{Glossary("Conditional", "Bedingungen")}} und {{Glossary("Loop", "Schleifen")}}.
 
 Die folgende Tabelle bietet eine vollständige Liste der JavaScript falsy-Werte:
 
-| Wert                         | Typ       | Beschreibung                                                                                                                                         |
-| ---------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [null](/de/docs/Glossary/null)        | Null      | Das Schlüsselwort [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) — die Abwesenheit eines Wertes.                                      |
-| [undefined](/de/docs/Glossary/undefined)   | Undefined | [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) — der primitive Wert.                                                 |
-| `false`                     | Boolean   | Das Schlüsselwort [`false`](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words).                                                   |
-| [NaN](/de/docs/Glossary/NaN)         | Number    | [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) — keine Zahl.                                                                      |
-| `0`                         | Number    | Die {{jsxref("Number")}} Null, einschließlich `0.0`, `0x0`, etc.                                                                                    |
-| `-0`                        | Number    | Die {{jsxref("Number")}} negative Null, einschließlich `-0.0`, `-0x0`, etc.                                                                         |
-| `0n`                        | BigInt    | Die {{jsxref("BigInt")}} Null, einschließlich `0x0n`, etc. Beachten Sie, dass es keine negative {{jsxref("BigInt")}} Null gibt — die Negation von `0n` ist `0n`. |
-| `""`                        | String    | Ein leerer [string](/de/docs/Web/JavaScript/Reference/Global_Objects/String)-Wert, einschließlich `''` und ` `` `.                                |
-| [`document.all`](/de/docs/Web/API/Document/all) | Object    | Das einzige falsy Objekt in JavaScript ist das eingebaute [`document.all`](/de/docs/Web/API/Document/all).                                      |
+| Wert                                            | Typ       | Beschreibung                                                                                                                                                     |
+| ----------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {{Glossary("null", "null")}}                    | Null      | Das Schlüsselwort [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) — die Abwesenheit eines Wertes.                                                     |
+| {{Glossary("undefined", "undefined")}}          | Undefined | [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) — der primitive Wert.                                                                  |
+| `false`                                         | Boolean   | Das Schlüsselwort [`false`](/de/docs/Web/JavaScript/Reference/Lexical_grammar#reserved_words).                                                                   |
+| {{Glossary("NaN", "NaN")}}                      | Number    | [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN) — keine Zahl.                                                                                      |
+| `0`                                             | Number    | Die {{jsxref("Number")}} Null, einschließlich `0.0`, `0x0`, etc.                                                                                                 |
+| `-0`                                            | Number    | Die {{jsxref("Number")}} negative Null, einschließlich `-0.0`, `-0x0`, etc.                                                                                      |
+| `0n`                                            | BigInt    | Die {{jsxref("BigInt")}} Null, einschließlich `0x0n`, etc. Beachten Sie, dass es keine negative {{jsxref("BigInt")}} Null gibt — die Negation von `0n` ist `0n`. |
+| `""`                                            | String    | Ein leerer [string](/de/docs/Web/JavaScript/Reference/Global_Objects/String)-Wert, einschließlich `''` und ` `` `.                                               |
+| [`document.all`](/de/docs/Web/API/Document/all) | Object    | Das einzige falsy Objekt in JavaScript ist das eingebaute [`document.all`](/de/docs/Web/API/Document/all).                                                       |
 
-Die Werte `null` und `undefined` sind auch [nullish](/de/docs/Glossary/nullish).
+Die Werte `null` und `undefined` sind auch {{Glossary("nullish", "nullish")}}.
 
 ## Beispiele
 
@@ -80,7 +80,7 @@ console.log(0 && "dog");
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Truthy](/de/docs/Glossary/Truthy)
-  - [Erzwingung](/de/docs/Glossary/Type_coercion)
-  - [Boolean](/de/docs/Glossary/Boolean)
+  - {{Glossary("Truthy", "Truthy")}}
+  - {{Glossary("Type_coercion", "Erzwingung")}}
+  - {{Glossary("Boolean", "Boolean")}}
 - [Boolean-Erzwingung](/de/docs/Web/JavaScript/Reference/Global_Objects/Boolean#boolean_coercion)

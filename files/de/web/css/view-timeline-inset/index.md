@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung der Position des Scrollports darstellen (siehe [Scroll-Container](/de/docs/Glossary/Scroll_container) für weitere Details), in welchem das Subjektelement einer _benannten View-Progress-Timeline_-Animation als sichtbar angesehen wird. Anders ausgedrückt, können Sie hier Start- und/oder Endwerte für Ein- oder Ausrücken (inset/outset) angeben, die die Position der Timeline verschieben.
+Die **`view-timeline-inset`** [CSS](/de/docs/Web/CSS) Eigenschaft wird verwendet, um einen oder zwei Werte anzugeben, die eine Anpassung der Position des Scrollports darstellen (siehe {{Glossary("Scroll_container", "Scroll-Container")}} für weitere Details), in welchem das Subjektelement einer _benannten View-Progress-Timeline_-Animation als sichtbar angesehen wird. Anders ausgedrückt, können Sie hier Start- und/oder Endwerte für Ein- oder Ausrücken (inset/outset) angeben, die die Position der Timeline verschieben.
 
 Dies kann mit oder anstelle von {{cssxref("animation-range")}} und dessen Langform-Eigenschaften kombiniert werden, die verwendet werden können, um den Befestigungsbereich einer Animation entlang ihrer Timeline festzulegen. Weitere Einzelheiten finden Sie unter [CSS-Scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations).
 

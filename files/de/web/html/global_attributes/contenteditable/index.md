@@ -23,9 +23,9 @@ Wird das Attribut ohne einen Wert angegeben, wie z.B. `<label contenteditable>Ex
 
 Fehlt dieses Attribut oder ist sein Wert ungültig, wird sein Wert von seinem Elternelement _geerbt_: Das Element ist bearbeitbar, wenn sein Elternelement bearbeitbar ist.
 
-Beachten Sie, dass obwohl die erlaubten Werte `true` und `false` beinhalten, dieses Attribut ein _[aufgezähltes](/de/docs/Glossary/Enumerated)_ und kein _Boolean_-Attribut ist.
+Beachten Sie, dass obwohl die erlaubten Werte `true` und `false` beinhalten, dieses Attribut ein _{{Glossary("Enumerated", "aufgezähltes")}}_ und kein _Boolean_-Attribut ist.
 
-Sie können die Farbe, die zum Zeichnen der Texteingabemarkierung ([caret](/de/docs/Glossary/caret)) verwendet wird, mit der CSS-Eigenschaft {{cssxref("caret-color")}} festlegen.
+Sie können die Farbe, die zum Zeichnen der Texteingabemarkierung ({{Glossary("caret", "caret")}}) verwendet wird, mit der CSS-Eigenschaft {{cssxref("caret-color")}} festlegen.
 
 Elemente, die durch das `contenteditable` Attribut bearbeitbar und somit interaktiv gemacht werden, können fokussiert werden. Sie nehmen an der sequentiellen Tastaturnavigation teil. Allerdings werden Elemente mit dem `contenteditable` Attribut, die innerhalb anderer `contenteditable` Elemente verschachtelt sind, standardmäßig nicht zur Tabulatorsequenz hinzugefügt. Sie können die verschachtelten `contenteditable` Elemente zur Tastaturnavigationssequenz hinzufügen, indem Sie den `tabindex` Wert festlegen ([`tabindex="0"`](/de/docs/Web/HTML/Global_attributes/tabindex)).
 

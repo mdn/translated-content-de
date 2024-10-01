@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-[`robots.txt`](/de/docs/Glossary/Robots.txt) ist eine Textdatei, die Robotern (wie etwa Suchmaschinen-Indexern) mitteilt, wie sie sich verhalten sollen, indem sie anweist, bestimmte Pfade auf der Website nicht zu durchsuchen. Sie wird im Stammverzeichnis einer Website platziert.
+{{Glossary("Robots.txt", "`robots.txt`")}} ist eine Textdatei, die Robotern (wie etwa Suchmaschinen-Indexern) mitteilt, wie sie sich verhalten sollen, indem sie anweist, bestimmte Pfade auf der Website nicht zu durchsuchen. Sie wird im Stammverzeichnis einer Website platziert.
 
 ## Problem
 

@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`compositionstart`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor) eine neue Kompositionssitzung startet.
+Das **`compositionstart`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} eine neue Kompositionssitzung startet.
 
-Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) [IME](/de/docs/Glossary/IME) einzugeben.
+Zum Beispiel könnte dieses Ereignis ausgelöst werden, nachdem ein Benutzer beginnt, ein chinesisches Zeichen mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{Glossary("IME", "IME")}} einzugeben.
 
 ## Syntax
 

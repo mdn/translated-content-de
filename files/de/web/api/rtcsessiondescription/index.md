@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCSessionDescription`**-Schnittstelle beschreibt eine Seite einer Verbindung oder potenziellen Verbindung und wie diese konfiguriert ist. Jede `RTCSessionDescription` besteht aus einem Beschreibungs-[`type`](/de/docs/Web/API/RTCSessionDescription/type), der angibt, welchen Teil des Angebot/Ablehnungs-Negotiationsprozesses sie beschreibt, und aus dem [SDP](/de/docs/Glossary/SDP)-Descriptor der Sitzung.
+Die **`RTCSessionDescription`**-Schnittstelle beschreibt eine Seite einer Verbindung oder potenziellen Verbindung und wie diese konfiguriert ist. Jede `RTCSessionDescription` besteht aus einem Beschreibungs-[`type`](/de/docs/Web/API/RTCSessionDescription/type), der angibt, welchen Teil des Angebot/Ablehnungs-Negotiationsprozesses sie beschreibt, und aus dem {{Glossary("SDP", "SDP")}}-Descriptor der Sitzung.
 
 Der Prozess der Verhandlung einer Verbindung zwischen zwei Peers beinhaltet den Austausch von `RTCSessionDescription`-Objekten, wobei jede Beschreibung eine Kombination von Verbindungskonfigurationsoptionen vorschlägt, die der Sender der Beschreibung unterstützt. Sobald die beiden Peers sich auf eine Konfiguration für die Verbindung geeinigt haben, ist die Verhandlung abgeschlossen.
 
@@ -23,14 +23,14 @@ _Die `RTCSessionDescription`-Schnittstelle erbt keine Eigenschaften._
 - [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type) {{ReadOnlyInline}}
   - : Ein Enum, das den Typ der Sitzungsbeschreibung beschreibt.
 - [`RTCSessionDescription.sdp`](/de/docs/Web/API/RTCSessionDescription/sdp) {{ReadOnlyInline}}
-  - : Ein String, der die Sitzung mit [SDP](/de/docs/Glossary/SDP) beschreibt.
+  - : Ein String, der die Sitzung mit {{Glossary("SDP", "SDP")}} beschreibt.
 
 ## Instanzmethoden
 
 _Die `RTCSessionDescription` erbt keine Methoden._
 
 - [`RTCSessionDescription.toJSON()`](/de/docs/Web/API/RTCSessionDescription/toJSON)
-  - : Gibt eine [JSON](/de/docs/Glossary/JSON)-Beschreibung des Objekts zurück. Die Werte beider Eigenschaften, [`type`](/de/docs/Web/API/RTCSessionDescription/type) und [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp), sind im erzeugten JSON enthalten.
+  - : Gibt eine {{Glossary("JSON", "JSON")}}-Beschreibung des Objekts zurück. Die Werte beider Eigenschaften, [`type`](/de/docs/Web/API/RTCSessionDescription/type) und [`sdp`](/de/docs/Web/API/RTCSessionDescription/sdp), sind im erzeugten JSON enthalten.
 
 ## Beispiel
 

@@ -15,8 +15,8 @@ Reason: CORS header 'Origin' cannot be added
 
 ## Was ist schief gelaufen?
 
-Der [User-Agent](/de/docs/Glossary/user_agent) konnte den erforderlichen {{HTTPHeader("Origin")}}
-Header nicht zur [HTTP](/de/docs/Glossary/HTTP)-Anfrage hinzufügen. Alle CORS-Anfragen müssen einen
+Der {{Glossary("user_agent", "User-Agent")}} konnte den erforderlichen {{HTTPHeader("Origin")}}
+Header nicht zur {{Glossary("HTTP", "HTTP")}}-Anfrage hinzufügen. Alle CORS-Anfragen müssen einen
 `Origin` Header haben.
 
 Dies kann passieren, wenn der JavaScript-Code mit erweiterten Berechtigungen ausgeführt wird, die ihm
@@ -25,5 +25,5 @@ beispielsweise Zugriff auf Inhalte mehrerer Domains gewähren.
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [CORS Einführung](/de/docs/Web/HTTP/CORS)

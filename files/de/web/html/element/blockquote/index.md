@@ -22,7 +22,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 
 Laut der Spezifikation muss die Zuschreibung für das Zitat, falls vorhanden, außerhalb des `<blockquote>`-Elements platziert werden.
 
-Um die auf den zitierten Text angewendete Einrückung zu ändern, verwenden Sie die [CSS](/de/docs/Glossary/CSS) {{cssxref("margin-left")}} und/oder {{cssxref("margin-right")}} Eigenschaften oder die {{cssxref("margin")}} Kurzform.
+Um die auf den zitierten Text angewendete Einrückung zu ändern, verwenden Sie die {{Glossary("CSS", "CSS")}} {{cssxref("margin-left")}} und/oder {{cssxref("margin-right")}} Eigenschaften oder die {{cssxref("margin")}} Kurzform.
 
 Um kürzere Zitate inline statt in einem separaten Block einzufügen, verwenden Sie das {{HTMLElement("q")}} (Zitat) Element.
 

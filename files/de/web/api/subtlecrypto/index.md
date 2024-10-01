@@ -89,7 +89,7 @@ Das Gegenteil von `wrapKey()` ist [`unwrapKey()`](/de/docs/Web/API/SubtleCrypto/
 
 #### Speicherung von Schlüsseln
 
-`CryptoKey` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), das es ermöglicht, Schlüssel mithilfe standardmäßiger Web-Storage-APIs zu speichern und abzurufen.
+`CryptoKey` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, das es ermöglicht, Schlüssel mithilfe standardmäßiger Web-Storage-APIs zu speichern und abzurufen.
 
 Die Spezifikation geht davon aus, dass die meisten Entwickler die [IndexedDB-API](/de/docs/Web/API/IndexedDB_API) verwenden, um `CryptoKey`-Objekte anhand eines Schlüsselzeichenspeichers, der für die Anwendung sinnvoll ist, sowie anderer nützlicher Metadaten zu speichern. Dies ermöglicht die Speicherung und den Abruf des `CryptoKey`, ohne dass das zugrunde liegende Schlüsselmateriel der Anwendung oder der JavaScript-Umgebung offengelegt werden muss.
 

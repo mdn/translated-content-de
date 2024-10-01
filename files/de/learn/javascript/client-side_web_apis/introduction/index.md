@@ -46,7 +46,7 @@ _Bildquelle: [Überlastete Steckdose](https://www.flickr.com/photos/easy-pics/95
 In ähnlicher Weise ist es erheblich einfacher, 3D-Grafiken zu programmieren, wenn Sie eine API in einer höherstufigen Sprache wie JavaScript oder Python verwenden, anstatt direkt niedrigstufigen Code (z.B. C oder C++) zu schreiben, der direkt die GPU des Computers oder andere Grafikfunktionen steuert.
 
 > [!NOTE]
-> Siehe auch den [Glossareintrag zu API](/de/docs/Glossary/API) für eine weitere Beschreibung.
+> Siehe auch den {{Glossary("API", "Glossareintrag zu API")}} für eine weitere Beschreibung.
 
 ### APIs in clientseitigem JavaScript
 

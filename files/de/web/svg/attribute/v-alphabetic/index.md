@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`v-alphabetic`** Attribut definiert die Ausrichtungskoordinate für [Glyphen](/de/docs/Glossary/glyph), um eine alphabetische Baseline-Ausrichtung zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum glyphe-spezifischen {{SVGAttr("vert-origin-x")}} Attribut.
+Das **`v-alphabetic`** Attribut definiert die Ausrichtungskoordinate für {{Glossary("glyph", "Glyphen")}}, um eine alphabetische Baseline-Ausrichtung zu erreichen. Der Wert ist ein Offset im Schriftkoordinatensystem relativ zum glyphe-spezifischen {{SVGAttr("vert-origin-x")}} Attribut.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

@@ -17,10 +17,10 @@ Ein `Host`-Header-Feld muss in allen HTTP/1.1-Anforderungsnachrichten gesendet w
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>

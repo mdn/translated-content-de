@@ -140,7 +140,7 @@ Sec-WebSocket-Accept: hash
 ```
 
 - `hash`
-  - : Wenn ein {{HTTPHeader("Sec-WebSocket-Key")}} Header bereitgestellt wurde, wird der Wert dieses Headers berechnet, indem der Wert des Schlüssels genommen und die Zeichenkette "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" daran angehängt wird. Dann wird der [SHA-1](https://en.wikipedia.org/wiki/SHA-1)-Hash dieser verketteten Zeichenkette genommen, was zu einem 20-Byte-Wert führt. Dieser Wert wird dann [base64](/de/docs/Glossary/Base64) kodiert, um den Wert dieser Eigenschaft zu erhalten.
+  - : Wenn ein {{HTTPHeader("Sec-WebSocket-Key")}} Header bereitgestellt wurde, wird der Wert dieses Headers berechnet, indem der Wert des Schlüssels genommen und die Zeichenkette "258EAFA5-E914-47DA-95CA-C5AB0DC85B11" daran angehängt wird. Dann wird der [SHA-1](https://en.wikipedia.org/wiki/SHA-1)-Hash dieser verketteten Zeichenkette genommen, was zu einem 20-Byte-Wert führt. Dieser Wert wird dann {{Glossary("Base64", "base64")}} kodiert, um den Wert dieser Eigenschaft zu erhalten.
 
 ## Referenzen
 

@@ -15,7 +15,7 @@ Reason: CORS header 'Access-Control-Allow-Origin' missing
 
 ## Was ist schiefgelaufen?
 
-Die Antwort auf die [CORS](/de/docs/Glossary/CORS)-Anfrage fehlt der erforderliche
+Die Antwort auf die {{Glossary("CORS", "CORS")}}-Anfrage fehlt der erforderliche
 {{HTTPHeader("Access-Control-Allow-Origin")}}-Header, der verwendet wird, um zu bestimmen, ob die Ressource von Inhalten, die innerhalb des aktuellen Ursprungs operieren, zugänglich ist.
 
 Wenn der Server unter Ihrer Kontrolle steht, fügen Sie den Ursprung der anfragenden Website zu der Menge der Domänen hinzu, denen der Zugriff gestattet ist, indem Sie ihn dem Wert des `Access-Control-Allow-Origin`-Headers hinzufügen.
@@ -63,5 +63,5 @@ add_header 'Access-Control-Allow-Origin' 'https://example.com' always;
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [Einführung in CORS](/de/docs/Web/HTTP/CORS)

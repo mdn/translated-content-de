@@ -38,7 +38,7 @@ repeating-conic-gradient(in hsl shorter hue, red, blue 90deg, green 180deg)
 - `<angular-color-stop>`
   - : Der {{CSSxRef("&lt;color&gt;")}}-Wert eines Farbstopps, gefolgt von einer oder zwei optionalen Stopp-Positionen (ein {{CSSxRef("&lt;angle&gt;")}} entlang der Umfangsachse des Gradienten). Der letzte Farbstop minus dem Winkel des ersten Farbstopps definiert die Größe des sich wiederholenden Verlaufs.
 - `<color-hint>`
-  - : Ein Hinweis zur [Interpolation](/de/docs/Glossary/interpolation), der definiert, wie der Gradient zwischen benachbarten Farbstopps fortschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farbstopps der Gradient die Mitte des Farbübergangs erreichen soll. Wenn sie weggelassen wird, liegt der Mittelpunkt des Farbübergangs zwischen zwei Farbstopps.
+  - : Ein Hinweis zur {{Glossary("interpolation", "Interpolation")}}, der definiert, wie der Gradient zwischen benachbarten Farbstopps fortschreitet. Die Länge definiert, an welchem Punkt zwischen zwei Farbstopps der Gradient die Mitte des Farbübergangs erreichen soll. Wenn sie weggelassen wird, liegt der Mittelpunkt des Farbübergangs zwischen zwei Farbstopps.
 
 > [!NOTE]
 > Die Darstellung von [Farbstopps in CSS-Verläufen](#gradient_with_multiple_color_stops) folgt denselben Regeln wie Farbstopps in [SVG-Verläufen](/de/docs/Web/SVG/Tutorial/Gradients).
@@ -211,7 +211,7 @@ In diesem Interpolationsbeispiel wird das [hsl](/de/docs/Web/CSS/color_value/hsl
 }
 ```
 
-Das Kästchen auf der linken Seite verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau über den kürzeren Bogen auf dem [Farbkreis](/de/docs/Glossary/Color_wheel) übergeht. Das Kästchen auf der rechten Seite verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen geht und durch Grün, Gelb und Orange verläuft.
+Das Kästchen auf der linken Seite verwendet die [kürzere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#shorter), was bedeutet, dass die Farbe direkt von Rot zu Blau über den kürzeren Bogen auf dem {{Glossary("Color_wheel", "Farbkreis")}} übergeht. Das Kästchen auf der rechten Seite verwendet die [längere Interpolation](/de/docs/Web/CSS/hue-interpolation-method#longer), was bedeutet, dass die Farbe von Rot zu Blau über den längeren Bogen geht und durch Grün, Gelb und Orange verläuft.
 
 {{EmbedLiveSample("Interpolating with hue", 240, 200)}}
 

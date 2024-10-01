@@ -9,7 +9,7 @@ l10n:
 
 **Permissions Policy** bietet Mechanismen für Webentwickler, um explizit zu deklarieren, welche Funktionalitäten auf einer Website verwendet werden können und welche nicht. Sie definieren eine Reihe von "Richtlinien", die einschränken, auf welche APIs der Code der Website zugreifen kann oder das Standardverhalten des Browsers für bestimmte Funktionen modifizieren. Dies ermöglicht es Ihnen, bewährte Praktiken durchzusetzen, selbst wenn sich der Code weiterentwickelt – und Drittanbieterinhalte sicherer zusammenzustellen.
 
-Die Permissions Policy ist ähnlich der [Content Security Policy](/de/docs/Glossary/CSP), jedoch werden hier Funktionen statt Sicherheitsverhalten kontrolliert.
+Die Permissions Policy ist ähnlich der {{Glossary("CSP", "Content Security Policy")}}, jedoch werden hier Funktionen statt Sicherheitsverhalten kontrolliert.
 
 Beispiele dafür, was Sie mit der Permissions Policy tun können:
 

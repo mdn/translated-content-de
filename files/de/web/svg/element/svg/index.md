@@ -99,7 +99,7 @@ Um die Abmessungen des iframes zu ändern, versuchen Sie, den gestrichelten rote
   - : Die angezeigte Höhe des rechteckigen Viewports. (Nicht die Höhe seines Koordinatensystems.)
     _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Wie das `svg`-Fragment verformt werden muss, wenn es mit einem anderen [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) angezeigt wird.
+  - : Wie das `svg`-Fragment verformt werden muss, wenn es mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} angezeigt wird.
     _Werttyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("version")}} {{deprecated_inline}}
   - : Welche SVG-Version für den inneren Inhalt des Elements verwendet wird.

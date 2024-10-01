@@ -18,7 +18,7 @@ Gemäß dieser Definition gehören `support.mozilla.org` und `developer.mozilla.
 In einigen Kontexten wird auch das Schema berücksichtigt, wenn Sites unterschieden werden. Dies würde `http://vpl.ca` und `https://vpl.ca` zu unterschiedlichen Sites machen. Die Berücksichtigung des Schemas verhindert, dass eine unsichere (HTTP) Site als die gleiche Site wie eine sichere (HTTPS) Site behandelt wird. Eine Definition, die das Schema berücksichtigt, wird manchmal als _schemeful same-site_ bezeichnet. Diese strengere Definition wird in den Regeln für die Handhabung von [`SameSite`](/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value)-Cookies angewendet.
 
 > [!NOTE]
-> Browser treffen manchmal Sicherheitsentscheidungen (zum Beispiel, welche Ressourcen ein Skript zugreifen kann) basierend auf dem [Ursprung](/de/docs/Glossary/Origin) einer Ressource. Dies ist ein restriktiveres Konzept als die Site und umfasst das Schema, die gesamte Domain und den Port. Siehe auch ["Same-origin policy"](/de/docs/Web/Security/Same-origin_policy).
+> Browser treffen manchmal Sicherheitsentscheidungen (zum Beispiel, welche Ressourcen ein Skript zugreifen kann) basierend auf dem {{Glossary("Origin", "Ursprung")}} einer Ressource. Dies ist ein restriktiveres Konzept als die Site und umfasst das Schema, die gesamte Domain und den Port. Siehe auch ["Same-origin policy"](/de/docs/Web/Security/Same-origin_policy).
 
 ## Beispiele
 
@@ -46,5 +46,5 @@ Dies sind die gleichen Sites oder unterschiedliche Sites, wenn das Schema berüc
 
 - [Was ist eine URL](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL)
 - Verwandte Glossarbegriffe:
-  - [Ursprung](/de/docs/Glossary/Origin)
+  - {{Glossary("Origin", "Ursprung")}}
 - ["Same-origin policy"](/de/docs/Web/Security/Same-origin_policy)

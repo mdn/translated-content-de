@@ -9,7 +9,7 @@ l10n:
 
 **Ecma International** (formell _European Computer Manufacturers Association_) ist eine gemeinnützige Organisation, die Standards in Computerhardware, Kommunikation und Programmiersprachen entwickelt.
 
-Im Web ist sie bekannt als die Organisation, die [die ECMA-262-Spezifikation](https://ecma-international.org/publications-and-standards/standards/ecma-262/) (auch bekannt als [ECMAScript](/de/docs/Glossary/ECMAScript)) pflegt, welche die Kern-Spezifikation für die [JavaScript](/de/docs/Glossary/JavaScript)-Sprache ist.
+Im Web ist sie bekannt als die Organisation, die [die ECMA-262-Spezifikation](https://ecma-international.org/publications-and-standards/standards/ecma-262/) (auch bekannt als {{Glossary("ECMAScript", "ECMAScript")}}) pflegt, welche die Kern-Spezifikation für die {{Glossary("JavaScript", "JavaScript")}}-Sprache ist.
 
 ## Siehe auch
 

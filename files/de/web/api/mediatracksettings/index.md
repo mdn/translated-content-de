@@ -13,7 +13,7 @@ Um mehr darüber zu erfahren, wie Einschränkungen und Einstellungen funktionier
 
 ## Instanz-Eigenschaften
 
-Einige oder alle der folgenden Eigenschaften werden im Objekt enthalten sein, entweder weil sie vom Browser nicht unterstützt werden oder weil sie aufgrund des Kontexts nicht verfügbar sind. Beispielsweise, da [RTP](/de/docs/Glossary/RTP) einige dieser Werte während der Aushandlung einer WebRTC-Verbindung nicht bereitstellt, wird ein Track, der mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert ist, bestimmte Werte, wie [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode) oder [`groupId`](/de/docs/Web/API/MediaTrackSettings/groupId), nicht enthalten.
+Einige oder alle der folgenden Eigenschaften werden im Objekt enthalten sein, entweder weil sie vom Browser nicht unterstützt werden oder weil sie aufgrund des Kontexts nicht verfügbar sind. Beispielsweise, da {{Glossary("RTP", "RTP")}} einige dieser Werte während der Aushandlung einer WebRTC-Verbindung nicht bereitstellt, wird ein Track, der mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) assoziiert ist, bestimmte Werte, wie [`facingMode`](/de/docs/Web/API/MediaTrackSettings/facingMode) oder [`groupId`](/de/docs/Web/API/MediaTrackSettings/groupId), nicht enthalten.
 
 ### Instanz-Eigenschaften aller Medien-Tracks
 

@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`font-size`** Attribut bezieht sich auf die Größe der Schrift von der [Grundlinie](/de/docs/Glossary/baseline/typography) zur Grundlinie, wenn mehrere Textzeilen in einem mehrzeiligen Layout-Umfeld gesetzt werden.
+Das **`font-size`** Attribut bezieht sich auf die Größe der Schrift von der {{Glossary("baseline/typography", "Grundlinie")}} zur Grundlinie, wenn mehrere Textzeilen in einem mehrzeiligen Layout-Umfeld gesetzt werden.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `font-size` als CSS-Eigenschaft verwendet werden. Siehe die CSS {{cssxref("font-size")}} Eigenschaft für weitere Informationen.

@@ -16,9 +16,9 @@ Dies ermöglicht es den Nutzern, Websites zu verwenden, ohne ganze neue Seiten v
 - [Single-page application](https://en.wikipedia.org/wiki/Single-page_application) (Wikipedia)
 - [Verständnis von client-seitigen JavaScript-Frameworks](/de/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks)
 - Verwandte Glossarbegriffe:
-  - [API](/de/docs/Glossary/API)
-  - [AJAX](/de/docs/Glossary/AJAX)
-  - [JavaScript](/de/docs/Glossary/JavaScript)
+  - {{Glossary("API", "API")}}
+  - {{Glossary("AJAX", "AJAX")}}
+  - {{Glossary("JavaScript", "JavaScript")}}
 - Beliebte SPA-Frameworks:
   - [React](https://react.dev/)
   - [Angular](https://angular.dev/)

@@ -8,7 +8,7 @@ l10n:
 {{QuickLinksWithSubpages("/de/docs/Web/URI")}}
 
 > [!WARNING]
-> Die Verwendung von `javascript:` URLs im Web wird nicht empfohlen, da sie zur Ausführung von beliebigem Code führen können, ähnlich wie bei der Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Es kann auch die [Barrierefreiheit](/de/docs/Glossary/accessibility) verringern, da es vom normalen Linkverhalten abweicht.
+> Die Verwendung von `javascript:` URLs im Web wird nicht empfohlen, da sie zur Ausführung von beliebigem Code führen können, ähnlich wie bei der Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Es kann auch die {{Glossary("accessibility", "Barrierefreiheit")}} verringern, da es vom normalen Linkverhalten abweicht.
 
 **JavaScript-URLs**, URLs, die mit dem `javascript:`-Schema beginnen, werden als scheinbare Navigationsziele verwendet, die JavaScript ausführen, wenn der Browser versucht zu navigieren. Wenn die URL zu einem String ausgewertet wird, wird dieser als HTML behandelt und vom Browser gerendert.
 

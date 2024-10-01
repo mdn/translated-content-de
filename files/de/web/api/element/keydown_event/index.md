@@ -95,7 +95,7 @@ function logKey(e) {
 
 ### keydown-Ereignisse mit IME
 
-Seit Firefox 65 werden die `keydown`- und [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignisse nun während der [IME](/de/docs/Glossary/IME)-Komposition ausgelöst, um die Browser-Kompatibilität für CJKT-Benutzer zu verbessern ([Firefox-Bug 354358](https://bugzil.la/354358)). Um alle `keydown`-Ereignisse zu ignorieren, die Teil der Komposition sind, machen Sie etwas wie dies (229 ist ein spezieller Wert, der für einen `keyCode` gesetzt wird, der sich auf ein Ereignis bezieht, das von einem IME verarbeitet wurde):
+Seit Firefox 65 werden die `keydown`- und [`keyup`](/de/docs/Web/API/Element/keyup_event)-Ereignisse nun während der {{Glossary("IME", "IME")}}-Komposition ausgelöst, um die Browser-Kompatibilität für CJKT-Benutzer zu verbessern ([Firefox-Bug 354358](https://bugzil.la/354358)). Um alle `keydown`-Ereignisse zu ignorieren, die Teil der Komposition sind, machen Sie etwas wie dies (229 ist ein spezieller Wert, der für einen `keyCode` gesetzt wird, der sich auf ein Ereignis bezieht, das von einem IME verarbeitet wurde):
 
 ```js
 eventTarget.addEventListener("keydown", (event) => {

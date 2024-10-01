@@ -35,7 +35,7 @@ setTimeout(functionRef, delay, param1, param2, /* …, */ paramN)
 
     Beachten Sie, dass in beiden Fällen die tatsächliche Verzögerung länger als beabsichtigt sein kann; siehe [Gründe für längere Verzögerungen als angegeben](#gründe_für_längere_verzögerungen_als_angegeben) unten.
 
-    Beachten Sie auch, dass wenn der Wert keine Zahl ist, eine implizite [Typkonvertierung](/de/docs/Glossary/Type_coercion) stillschweigend auf den Wert angewendet wird, um ihn in eine Zahl zu konvertieren — was zu unerwarteten und überraschenden Ergebnissen führen kann; siehe [Nichtzahl Verzögerungswerte werden stillschweigend in Zahlen konvertiert](#nichtzahl_verzögerungswerte_werden_stillschweigend_in_zahlen_konvertiert) für ein Beispiel.
+    Beachten Sie auch, dass wenn der Wert keine Zahl ist, eine implizite {{Glossary("Type_coercion", "Typkonvertierung")}} stillschweigend auf den Wert angewendet wird, um ihn in eine Zahl zu konvertieren — was zu unerwarteten und überraschenden Ergebnissen führen kann; siehe [Nichtzahl Verzögerungswerte werden stillschweigend in Zahlen konvertiert](#nichtzahl_verzögerungswerte_werden_stillschweigend_in_zahlen_konvertiert) für ein Beispiel.
 
 - `param1`, …, `paramN` {{optional_inline}}
 
@@ -56,7 +56,7 @@ Um eine Funktion wiederholt (z.B. alle _N_ Millisekunden) aufzurufen, verwenden 
 
 ### Nichtzahl Verzögerungswerte werden stillschweigend in Zahlen konvertiert
 
-Wenn `setTimeout()` mit einem [_delay_](#delay)-Wert aufgerufen wird, der keine Zahl ist, wird eine implizite [Typkonvertierung](/de/docs/Glossary/Type_coercion) stillschweigend angewendet, um den Wert in eine Zahl zu konvertieren. Zum Beispiel verwendet der folgende Code fälschlicherweise den String `"1000"` für den _delay_ Wert, anstatt die Zahl `1000` – aber es funktioniert trotzdem, weil beim Ausführen des Codes der String erzwungen in die Zahl `1000` umgewandelt wird und so der Code 1 Sekunde später ausgeführt wird.
+Wenn `setTimeout()` mit einem [_delay_](#delay)-Wert aufgerufen wird, der keine Zahl ist, wird eine implizite {{Glossary("Type_coercion", "Typkonvertierung")}} stillschweigend angewendet, um den Wert in eine Zahl zu konvertieren. Zum Beispiel verwendet der folgende Code fälschlicherweise den String `"1000"` für den _delay_ Wert, anstatt die Zahl `1000` – aber es funktioniert trotzdem, weil beim Ausführen des Codes der String erzwungen in die Zahl `1000` umgewandelt wird und so der Code 1 Sekunde später ausgeführt wird.
 
 ```js example-bad
 setTimeout(() => {

@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Das **`JSON`** Namespace-Objekt enthält statische Methoden zur Analyse von Werten aus und Umwandlung von Werten in [JavaScript Object Notation](https://json.org/) ([JSON](/de/docs/Glossary/JSON)).
+Das **`JSON`** Namespace-Objekt enthält statische Methoden zur Analyse von Werten aus und Umwandlung von Werten in [JavaScript Object Notation](https://json.org/) ({{Glossary("JSON", "JSON")}}).
 
 ## Beschreibung
 
@@ -85,7 +85,7 @@ DIGIT = %x30-39            ; 0-9
       ; DIGIT equivalent to DIGIT rule in [RFC5234]
 ```
 
-Unwesentliche [Leerzeichen](/de/docs/Glossary/whitespace) können überall, außer innerhalb eines `JSONNumber` (Zahlen dürfen keine Leerzeichen enthalten) oder `JSONString` (wo sie als entsprechendes Zeichen in der Zeichenkette interpretiert werden oder einen Fehler verursachen würden), vorhanden sein. Die Tabulator- (U+0009), Wagenrücklauf- (U+000D), Zeilenvorschub- (U+000A) und Leerzeichen- (U+0020) Zeichen sind die einzigen gültigen Leerzeichen.
+Unwesentliche {{Glossary("whitespace", "Leerzeichen")}} können überall, außer innerhalb eines `JSONNumber` (Zahlen dürfen keine Leerzeichen enthalten) oder `JSONString` (wo sie als entsprechendes Zeichen in der Zeichenkette interpretiert werden oder einen Fehler verursachen würden), vorhanden sein. Die Tabulator- (U+0009), Wagenrücklauf- (U+000D), Zeilenvorschub- (U+000A) und Leerzeichen- (U+0020) Zeichen sind die einzigen gültigen Leerzeichen.
 
 ## Statische Eigenschaften
 

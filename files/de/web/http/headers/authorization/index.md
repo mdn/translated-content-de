@@ -21,10 +21,10 @@ Dieser Header wird bei Cross-Origin-Weiterleitungen entfernt.
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Anforderungsheader](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -104,7 +104,7 @@ Abgesehen von `<auth-scheme>` sind die restlichen Direktiven spezifisch für jed
     - `"auth"`: Authentifizierung
     - `"auth-int"`: Authentifizierung mit Integritätsschutz
 - `cnonce`
-  - : Eine in Anführungszeichen gesetzte [ASCII](/de/docs/Glossary/ASCII)-only Zeichenfolge, die vom Client bereitgestellt wird.
+  - : Eine in Anführungszeichen gesetzte {{Glossary("ASCII", "ASCII")}}-only Zeichenfolge, die vom Client bereitgestellt wird.
     Dies wird sowohl vom Client als auch vom Server verwendet, um eine gegenseitige Authentifizierung bereitzustellen, einen gewissen Nachrichtenschutz zu gewährleisten und "chosen plaintext attacks" zu vermeiden.
     Weitere Informationen finden Sie in der Spezifikation.
 - `nc`
@@ -117,14 +117,14 @@ Abgesehen von `<auth-scheme>` sind die restlichen Direktiven spezifisch für jed
 
 ### Basis-Authentifizierung
 
-Für die `"Basic"`-Authentifizierung werden die Anmeldeinformationen erstellt, indem zuerst der Benutzername und das Passwort durch einen Doppelpunkt verbunden werden (`aladdin:opensesame`), und dann wird die resultierende Zeichenfolge in [`base64`](/de/docs/Glossary/Base64) kodiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
+Für die `"Basic"`-Authentifizierung werden die Anmeldeinformationen erstellt, indem zuerst der Benutzername und das Passwort durch einen Doppelpunkt verbunden werden (`aladdin:opensesame`), und dann wird die resultierende Zeichenfolge in {{Glossary("Base64", "`base64`")}} kodiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
 
 ```http
 Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ```
 
-> **Warnung:** [Base64](/de/docs/Glossary/Base64)-Kodierung kann leicht rückgängig gemacht werden, um den ursprünglichen Namen und das Passwort zu erhalten, daher ist die Basis-Authentifizierung völlig unsicher.
-> [HTTPS](/de/docs/Glossary/HTTPS) wird immer empfohlen, wenn Authentifizierung verwendet wird, aber noch mehr, wenn die `Basic`-Authentifizierung verwendet wird.
+> **Warnung:** {{Glossary("Base64", "Base64")}}-Kodierung kann leicht rückgängig gemacht werden, um den ursprünglichen Namen und das Passwort zu erhalten, daher ist die Basis-Authentifizierung völlig unsicher.
+> {{Glossary("HTTPS", "HTTPS")}} wird immer empfohlen, wenn Authentifizierung verwendet wird, aber noch mehr, wenn die `Basic`-Authentifizierung verwendet wird.
 
 Siehe auch [HTTP-Authentifizierung](/de/docs/Web/HTTP/Authentication) für Beispiele zur Konfiguration von Apache- oder Nginx-Servern, um Ihre Website mit HTTP-Basis-Authentifizierung mit einem Passwort zu schützen.
 

@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/XML")}}
 
-Manchmal müssen Sie [XML](/de/docs/Glossary/XML)-Inhalte analysieren und in einen [DOM](/de/docs/Glossary/DOM)-Baum konvertieren oder umgekehrt einen vorhandenen DOM-Baum in XML serialisieren. In diesem Artikel werden wir die von der Webplattform bereitgestellten Objekte betrachten, die die häufigen Aufgaben des Serialisierens und Parsens von XML erleichtern.
+Manchmal müssen Sie {{Glossary("XML", "XML")}}-Inhalte analysieren und in einen {{Glossary("DOM", "DOM")}}-Baum konvertieren oder umgekehrt einen vorhandenen DOM-Baum in XML serialisieren. In diesem Artikel werden wir die von der Webplattform bereitgestellten Objekte betrachten, die die häufigen Aufgaben des Serialisierens und Parsens von XML erleichtern.
 
 - [`XMLSerializer`](/de/docs/Web/API/XMLSerializer)
   - : Serialisiert DOM-Bäume und wandelt sie in Zeichenfolgen um, die XML enthalten.
@@ -59,7 +59,7 @@ fetch("example.xml")
 
 Dieser Code holt die Ressource als Textzeichenfolge und verwendet dann [`DOMParser.parseFromString()`](/de/docs/Web/API/DOMParser/parseFromString), um ein [`XMLDocument`](/de/docs/Web/API/XMLDocument) zu erstellen.
 
-Wenn das Dokument [HTML](/de/docs/Glossary/HTML) ist, gibt der oben gezeigte Code ein [`Document`](/de/docs/Web/API/Document) zurück. Wenn das Dokument XML ist, ist das resultierende Objekt tatsächlich ein `XMLDocument`. Die beiden Typen sind im Wesentlichen gleich; der Unterschied ist hauptsächlich historisch, obwohl die Unterscheidung auch einige praktische Vorteile hat.
+Wenn das Dokument {{Glossary("HTML", "HTML")}} ist, gibt der oben gezeigte Code ein [`Document`](/de/docs/Web/API/Document) zurück. Wenn das Dokument XML ist, ist das resultierende Objekt tatsächlich ein `XMLDocument`. Die beiden Typen sind im Wesentlichen gleich; der Unterschied ist hauptsächlich historisch, obwohl die Unterscheidung auch einige praktische Vorteile hat.
 
 > [!NOTE]
 > Es gibt tatsächlich auch eine [`HTMLDocument`](/de/docs/Web/API/HTMLDocument)-Schnittstelle, aber sie ist nicht notwendigerweise ein eigenständiger Typ. In einigen Browsern ist sie das, während sie in anderen ein Alias für die `Document`-Schnittstelle ist.

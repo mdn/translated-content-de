@@ -24,7 +24,7 @@ Zu den Attributen dieses Elements gehören die [globalen Attribute](/de/docs/Web
     [`data:`](/de/docs/Web/URI/Schemes/data) und [`javascript:`](/de/docs/Web/URI/Schemes/javascript) URLs sind nicht zulässig.
 - `target`
 
-  - : Ein **Schlüsselwort** oder **benutzerdefinierter Name** des standardmäßigen [Browsing-Kontexts](/de/docs/Glossary/browsing_context), in dem die Ergebnisse der Navigation von {{HTMLElement("a")}}, {{HTMLElement("area")}}, oder {{HTMLElement("form")}}-Elementen ohne explizite `target`-Attribute angezeigt werden sollen. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
+  - : Ein **Schlüsselwort** oder **benutzerdefinierter Name** des standardmäßigen {{Glossary("browsing_context", "Browsing-Kontexts")}}, in dem die Ergebnisse der Navigation von {{HTMLElement("a")}}, {{HTMLElement("area")}}, oder {{HTMLElement("form")}}-Elementen ohne explizite `target`-Attribute angezeigt werden sollen. Die folgenden Schlüsselwörter haben spezielle Bedeutungen:
 
     - `_self` (Standard): Zeigt das Ergebnis im aktuellen Browsing-Kontext an.
     - `_blank`: Zeigt das Ergebnis in einem neuen, unbenannten Browsing-Kontext an.
@@ -76,7 +76,7 @@ Dies geschieht, um Angriffe mit nicht geschlossenem Markup zu verhindern, ein sk
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
-      <td>Kein Inhalt; es ist ein [leeres Element](/de/docs/Glossary/void_element).</td>
+      <td>Kein Inhalt; es ist ein {{Glossary("void_element", "leeres Element")}}.</td>
     </tr>
     <tr>
       <th scope="row">Auslassung des Tags</th>

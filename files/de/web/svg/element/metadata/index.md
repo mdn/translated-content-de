@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`<metadata>`** [SVG](/de/docs/Web/SVG)-Element fügt Metadaten zu SVG-Inhalten hinzu. Metadaten sind strukturierte Informationen über Daten. Der Inhalt von `<metadata>` sollte Elemente aus anderen [XML](/de/docs/Glossary/XML)-[Namensräumen](/de/docs/Glossary/namespace) wie [RDF](/de/docs/Glossary/RDF), [FOAF](<https://en.wikipedia.org/wiki/FOAF_(ontology)>) usw. enthalten.
+Das **`<metadata>`** [SVG](/de/docs/Web/SVG)-Element fügt Metadaten zu SVG-Inhalten hinzu. Metadaten sind strukturierte Informationen über Daten. Der Inhalt von `<metadata>` sollte Elemente aus anderen {{Glossary("XML", "XML")}}-{{Glossary("namespace", "Namensräumen")}} wie {{Glossary("RDF", "RDF")}}, [FOAF](<https://en.wikipedia.org/wiki/FOAF_(ontology)>) usw. enthalten.
 
 ## Verwendungskontext
 

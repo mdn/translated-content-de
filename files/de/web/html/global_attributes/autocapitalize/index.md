@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`autocapitalize`** [Globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein [Aufzählbares](/de/docs/Glossary/Enumerated) Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und, falls ja, auf welche Weise. Dies ist relevant für:
+Das **`autocapitalize`** [Globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "Aufzählbares")}} Attribut, das steuert, ob eingegebener Text automatisch großgeschrieben wird und, falls ja, auf welche Weise. Dies ist relevant für:
 
 - {{htmlelement("input")}} und {{htmlelement("textarea")}} Elemente.
 - Jedes Element mit aktiviertem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable).

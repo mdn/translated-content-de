@@ -10,7 +10,7 @@ l10n:
 
 Die **`EditContext.updateControlBounds()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird verwendet, um das Betriebssystem über die Position und Größe des bearbeitbaren Textbereichs des `EditContext`-Objekts zu informieren.
 
-Rufen Sie diese Methode auf, um dem Betriebssystem die Grenzen des derzeit bearbeitbaren Bereichs mitzuteilen. Sie sollten sie beim Initialisieren des EditContext und immer dann aufrufen, wenn sich die Grenzen des bearbeitbaren Bereichs ändern, z.B. wenn die Webseite in der Größe verändert wird. Diese Grenzen werden verwendet, um plattformabhängige, mit der Bearbeitung verbundene Benutzeroberflächen wie ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME)-Fenster zu positionieren.
+Rufen Sie diese Methode auf, um dem Betriebssystem die Grenzen des derzeit bearbeitbaren Bereichs mitzuteilen. Sie sollten sie beim Initialisieren des EditContext und immer dann aufrufen, wenn sich die Grenzen des bearbeitbaren Bereichs ändern, z.B. wenn die Webseite in der Größe verändert wird. Diese Grenzen werden verwendet, um plattformabhängige, mit der Bearbeitung verbundene Benutzeroberflächen wie ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME)-Fenster zu positionieren.
 
 ## Syntax
 

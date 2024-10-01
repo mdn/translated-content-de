@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-In jeder Programmiersprache ist ein String eine Folge von [Zeichen](/de/docs/Glossary/character), die zur Darstellung von Text verwendet wird.
+In jeder Programmiersprache ist ein String eine Folge von {{Glossary("character", "Zeichen")}}, die zur Darstellung von Text verwendet wird.
 
-In [JavaScript](/de/docs/Glossary/JavaScript) ist ein String einer der [Primitiven Werte](/de/docs/Glossary/Primitive) und das {{jsxref("String")}}-Objekt ist ein [Wrapper](/de/docs/Glossary/wrapper) um einen String-Primitive.
+In {{Glossary("JavaScript", "JavaScript")}} ist ein String einer der {{Glossary("Primitive", "Primitiven Werte")}} und das {{jsxref("String")}}-Objekt ist ein {{Glossary("wrapper", "Wrapper")}} um einen String-Primitive.
 
 ## Siehe auch
 

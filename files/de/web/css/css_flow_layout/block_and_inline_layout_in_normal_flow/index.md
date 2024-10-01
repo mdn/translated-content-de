@@ -105,5 +105,5 @@ In diesem Leitfaden haben wir untersucht, wie Elemente im normalen Fluss als Blo
 
 - [CSS Grundlegendes Box-Modell](/de/docs/Web/CSS/CSS_box_model)
 - _[Normaler Fluss](/de/docs/Learn/CSS/CSS_layout/Normal_Flow)_ - Layout lernen
-- [Inline-Level-Elemente](/de/docs/Glossary/Inline-level_content)
-- [Block-Level-Elemente](/de/docs/Glossary/Block-level_content)
+- {{Glossary("Inline-level_content", "Inline-Level-Elemente")}}
+- {{Glossary("Block-level_content", "Block-Level-Elemente")}}

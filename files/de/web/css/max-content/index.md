@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das `max-content` Größenschlüsselwort repräsentiert die maximale [intrinsische Größe](/de/docs/Glossary/intrinsic_size) des Inhalts. Für Textinhalte bedeutet dies, dass der Inhalt überhaupt nicht umbrochen wird, selbst wenn es zu Überläufen führt.
+Das `max-content` Größenschlüsselwort repräsentiert die maximale {{Glossary("intrinsic_size", "intrinsische Größe")}} des Inhalts. Für Textinhalte bedeutet dies, dass der Inhalt überhaupt nicht umbrochen wird, selbst wenn es zu Überläufen führt.
 
 ## Syntax
 

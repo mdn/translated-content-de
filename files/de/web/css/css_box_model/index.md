@@ -15,7 +15,7 @@ Jede Box hat einen rechteckigen Inhaltsbereich, in dem Text, Bilder und andere I
 
 ![Die Komponenten des CSS-Boxmodells](boxmodel.png)
 
-Das CSS-Boxmodell-Modul definiert physische (oder "seitenbezogene") Eigenschaften wie `width` und `margin-top`. Flussbezogene Eigenschaften wie `inline-size` und `margin-block-start` (die sich auf die Textrichtung beziehen) sind in [logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert. Das Boxmodell-Modul wird durch das [CSS box sizing Modul](/de/docs/Web/CSS/CSS_box_sizing) erweitert, das den [intrinsischen Größenwert](/de/docs/Glossary/intrinsic_size) einführt und das Definieren von [Seitenverhältnissen](/de/docs/Glossary/aspect_ratio) für Elemente ermöglicht, die in mindestens einer Dimension automaßgeschneidert sind.
+Das CSS-Boxmodell-Modul definiert physische (oder "seitenbezogene") Eigenschaften wie `width` und `margin-top`. Flussbezogene Eigenschaften wie `inline-size` und `margin-block-start` (die sich auf die Textrichtung beziehen) sind in [logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) definiert. Das Boxmodell-Modul wird durch das [CSS box sizing Modul](/de/docs/Web/CSS/CSS_box_sizing) erweitert, das den {{Glossary("intrinsic_size", "intrinsischen Größenwert")}} einführt und das Definieren von {{Glossary("aspect_ratio", "Seitenverhältnissen")}} für Elemente ermöglicht, die in mindestens einer Dimension automaßgeschneidert sind.
 
 ## Referenz
 

@@ -9,7 +9,7 @@ l10n:
 {{APIRef("WebRTC")}}
 
 Die `toneBuffer`-Eigenschaft der Schnittstelle [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) gibt eine Zeichenfolge zurück,
-die eine Liste der [DTMF](/de/docs/Glossary/DTMF)-Töne enthält, die derzeit in der Warteschlange stehen, um an den
+die eine Liste der {{Glossary("DTMF", "DTMF")}}-Töne enthält, die derzeit in der Warteschlange stehen, um an den
 Remote-Peer über die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) gesendet zu werden. Um Töne in den Puffer einzufügen,
 rufen Sie [`insertDTMF()`](/de/docs/Web/API/RTCDTMFSender/insertDTMF) auf.
 

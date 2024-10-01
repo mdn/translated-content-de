@@ -33,13 +33,13 @@ updateWith(details)
             - `value`
               - : Eine Zeichenkette mit einem gültigen Dezimalwert, der die Währungsmenge darstellt, die den Zahlungsbetrag bildet. Diese Zeichenkette darf nur ein optionales führendes "-" enthalten, um einen negativen Wert anzuzeigen, gefolgt von einer oder mehreren Ziffern von 0 bis 9 und einem optionalen Dezimalpunkt (".", unabhängig von der Sprache) gefolgt von mindestens einer weiteren Ziffer. Kein Leerzeichen ist erlaubt.
         - `label`
-          - : Eine Zeichenkette, die einen lesbaren Namen oder eine Beschreibung des Artikels oder der Dienstleistung angibt, für den/die die Gebühren erhoben werden. Dies kann dem Benutzer vom [user agent](/de/docs/Glossary/user_agent) angezeigt werden, je nach Design der Schnittstelle.
+          - : Eine Zeichenkette, die einen lesbaren Namen oder eine Beschreibung des Artikels oder der Dienstleistung angibt, für den/die die Gebühren erhoben werden. Dies kann dem Benutzer vom {{Glossary("user_agent", "user agent")}} angezeigt werden, je nach Design der Schnittstelle.
         - `pending`
           - : Ein Boolean, der `true` ist, wenn der angegebene `amount` noch nicht festgelegt ist. Dies kann verwendet werden, um Artikel wie Versand- oder Steuerbeträge anzuzeigen, die von der Auswahl der Versandadresse, der Versandoption oder Ähnlichem abhängen. Der user agent kann diese Informationen anzeigen, ist jedoch nicht dazu verpflichtet.
 
     - `error` {{optional_inline}} {{deprecated_inline}} {{non-standard_inline}}
 
-      - : Eine Zeichenkette, die eine Fehlermeldung angibt, die dem Benutzer präsentiert werden soll. Wenn `updateWith()` aufgerufen wird, bewirkt das Einbeziehen von `error` in die aktualisierten Daten, dass der [user agent](/de/docs/Glossary/user_agent) den Text als allgemeine Fehlermeldung anzeigt. Für feldspezifische Adressfehler verwenden Sie das Feld `shippingAddressErrors`.
+      - : Eine Zeichenkette, die eine Fehlermeldung angibt, die dem Benutzer präsentiert werden soll. Wenn `updateWith()` aufgerufen wird, bewirkt das Einbeziehen von `error` in die aktualisierten Daten, dass der {{Glossary("user_agent", "user agent")}} den Text als allgemeine Fehlermeldung anzeigt. Für feldspezifische Adressfehler verwenden Sie das Feld `shippingAddressErrors`.
 
     - `modifiers` {{optional_inline}}
 

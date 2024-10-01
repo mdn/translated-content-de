@@ -19,7 +19,7 @@ removeProperty(property)
 ### Parameter
 
 - `property`
-  - : Ein String, der den Namen der zu entfernenden Eigenschaft repräsentiert. Mehrwortige Eigenschaftsnamen sind mit Bindestrichen verbunden ([kebab-case](/de/docs/Glossary/kebab_case)) und nicht im [camel-cased](/de/docs/Glossary/camel_case).
+  - : Ein String, der den Namen der zu entfernenden Eigenschaft repräsentiert. Mehrwortige Eigenschaftsnamen sind mit Bindestrichen verbunden ({{Glossary("kebab_case", "kebab-case")}}) und nicht im {{Glossary("camel_case", "camel-cased")}}.
 
 ### Rückgabewert
 

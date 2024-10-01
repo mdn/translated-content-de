@@ -7,14 +7,14 @@ l10n:
 
 {{CSSRef}}
 
-Die **`color-gamut`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) wird verwendet, um CSS-Stile basierend auf dem ungefähren Bereich des von dem [User Agent](/de/docs/Glossary/user_agent) und dem Ausgabegerät unterstützten Farb-[Gamut](/de/docs/Glossary/gamut) anzuwenden.
+Die **`color-gamut`** [CSS](/de/docs/Web/CSS) [Medienfunktion](/de/docs/Web/CSS/@media#media_features) wird verwendet, um CSS-Stile basierend auf dem ungefähren Bereich des von dem {{Glossary("user_agent", "User Agent")}} und dem Ausgabegerät unterstützten Farb-{{Glossary("gamut", "Gamut")}} anzuwenden.
 
 ## Syntax
 
-Die `color-gamut`-Funktion wird als einer der folgenden [Farbräume](/de/docs/Glossary/color_space) als Schlüsselwortwerte angegeben:
+Die `color-gamut`-Funktion wird als einer der folgenden {{Glossary("color_space", "Farbräume")}} als Schlüsselwortwerte angegeben:
 
 - `srgb`
-  - : Der User Agent und das Ausgabegerät können ungefähr den [sRGB](/de/docs/Glossary/Color_space#srgb) Gamut oder mehr unterstützen. Dies umfasst die überwiegende Mehrheit der Farbdisplays.
+  - : Der User Agent und das Ausgabegerät können ungefähr den {{Glossary("Color_space#srgb", "sRGB")}} Gamut oder mehr unterstützen. Dies umfasst die überwiegende Mehrheit der Farbdisplays.
 - `p3`
   - : Der User Agent und das Ausgabegerät können ungefähr den Gamut unterstützen, der durch den [Display P3](https://www.color.org/chardata/rgb/DisplayP3.xalter) Farbraum oder mehr angegeben ist. Der P3 Gamut ist größer und umfasst den sRGB Gamut.
 - `rec2020`

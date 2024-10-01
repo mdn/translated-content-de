@@ -9,7 +9,7 @@ l10n:
 
 Das **CSS scoping**-Modul definiert die Mechanismen zur CSS-Abgrenzung und -Kapselung, wobei der Fokus auf dem [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) [Abgrenzungsmechanismus](https://css.oddbird.net/scope/) liegt.
 
-CSS-Stile sind entweder global oder auf einen [shadow tree](/de/docs/Glossary/shadow_tree) beschränkt. Global abgegrenzte Stile gelten für alle Elemente im Knotentree, die mit dem Selektor übereinstimmen, einschließlich benutzerdefinierter Elemente in diesem Tree, jedoch nicht für die shadow trees, die jedes benutzerdefinierte Element zusammensetzen. Selektoren und ihre zugehörigen Stildefinitionen dringen nicht zwischen den Abgrenzungen durch.
+CSS-Stile sind entweder global oder auf einen {{Glossary("shadow_tree", "shadow tree")}} beschränkt. Global abgegrenzte Stile gelten für alle Elemente im Knotentree, die mit dem Selektor übereinstimmen, einschließlich benutzerdefinierter Elemente in diesem Tree, jedoch nicht für die shadow trees, die jedes benutzerdefinierte Element zusammensetzen. Selektoren und ihre zugehörigen Stildefinitionen dringen nicht zwischen den Abgrenzungen durch.
 
 Innerhalb des CSS eines shadow trees wählen Selektoren keine Elemente außerhalb des Bäume, weder im globalen Umfang noch in anderen shadow trees. Jedes benutzerdefinierte Element hat seinen eigenen shadow tree, der alle Komponenten enthält, die das benutzerdefinierte Element ausmachen (aber nicht das benutzerdefinierte Element selbst, oder den "Host").
 
@@ -54,8 +54,8 @@ Manchmal ist es nützlich, einen Host aus dem Kontext des shadow trees heraus zu
 - HTML {{HTMLElement("slot")}} Element
 - HTML [`slot`](/de/docs/Web/HTML/Global_attributes/slot) Attribut
 
-- [Shadow tree](/de/docs/Glossary/Shadow_tree) Glossarbegriff
-- [DOM](/de/docs/Glossary/DOM) Glossarbegriff
+- {{Glossary("Shadow_tree", "Shadow tree")}} Glossarbegriff
+- {{Glossary("DOM", "DOM")}} Glossarbegriff
 - [Komplexer Selektor](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) Begriff
 - [Selektorliste](/de/docs/Web/CSS/Selector_list) Begriff
 

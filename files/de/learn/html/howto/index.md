@@ -32,7 +32,7 @@ HTML ist spezialisiert auf die Bereitstellung von semantischen Informationen fü
 
 ### Hyperlinks
 
-Ein Hauptgrund, warum HTML verwendet wird, ist die einfache Navigation mit [Hyperlinks](/de/docs/Glossary/hyperlink), die auf viele verschiedene Weisen verwendet werden können:
+Ein Hauptgrund, warum HTML verwendet wird, ist die einfache Navigation mit {{Glossary("hyperlink", "Hyperlinks")}}, die auf viele verschiedene Weisen verwendet werden können:
 
 - [Anleitung zur Erstellung eines Hyperlinks](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks)
 - [Anleitung zur Erstellung eines Inhaltsverzeichnisses mit HTML](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks#active_learning_creating_a_navigation_menu)
@@ -44,7 +44,7 @@ Ein Hauptgrund, warum HTML verwendet wird, ist die einfache Navigation mit [Hype
 
 ### Skripting & Styling
 
-HTML richtet nur die Dokumentstruktur ein. Zur Lösung von Präsentationsfragen verwenden Sie [CSS](/de/docs/Glossary/CSS) oder nutzen Sie Scripting, um Ihre Seite interaktiv zu gestalten.
+HTML richtet nur die Dokumentstruktur ein. Zur Lösung von Präsentationsfragen verwenden Sie {{Glossary("CSS", "CSS")}} oder nutzen Sie Scripting, um Ihre Seite interaktiv zu gestalten.
 
 - [Anleitung zur Verwendung von CSS innerhalb einer Webseite](/de/docs/Learn/CSS/First_steps/How_CSS_works#applying_css_to_the_dom)
 - [Anleitung zur Verwendung von JavaScript innerhalb einer Webseite](/de/docs/Learn/HTML/Howto/Use_JavaScript_within_a_webpage)

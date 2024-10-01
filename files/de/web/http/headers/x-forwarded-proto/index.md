@@ -15,10 +15,10 @@ Eine standardisierte Version dieses Headers ist der HTTP {{HTTPHeader("Forwarded
   <tbody>
     <tr>
       <th scope="row">Headertyp</th>
-      <td>[Anforderungs-Header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

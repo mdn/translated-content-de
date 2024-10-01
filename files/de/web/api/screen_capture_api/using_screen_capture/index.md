@@ -63,7 +63,7 @@ function startCapture(displayMediaOptions) {
 }
 ```
 
-In beiden Fällen antwortet der [User Agent](/de/docs/Glossary/user_agent) mit einer Benutzeroberfläche, die den Benutzer auffordert, den Bildschirmbereich zu wählen, der geteilt werden soll. Beide dieser Implementierungen von `startCapture()` geben den [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der die erfassten Bildschirmbilder enthält.
+In beiden Fällen antwortet der {{Glossary("user_agent", "User Agent")}} mit einer Benutzeroberfläche, die den Benutzer auffordert, den Bildschirmbereich zu wählen, der geteilt werden soll. Beide dieser Implementierungen von `startCapture()` geben den [`MediaStream`](/de/docs/Web/API/MediaStream) zurück, der die erfassten Bildschirmbilder enthält.
 
 Siehe [Optionen und Einschränkungen](#optionen_und_einschränkungen) weiter unten für weitere Informationen darüber, wie Sie den gewünschten Anzeigetyp angeben und andere Möglichkeiten, den resultierenden Stream anzupassen.
 
@@ -101,7 +101,7 @@ Während die Bildschirmübertragung aktiv ist, zeigt die Maschine, die Bildschir
 
 ### Erfassen von freigegebenem Audio
 
-[`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) wird am häufigsten verwendet, um Video vom Bildschirm eines Nutzers (oder Teilen davon) zu erfassen. [User Agents](/de/docs/Glossary/user_agent) können jedoch erlauben, das Audio zusammen mit dem Videoinhalt zu erfassen. Die Quelle dieses Audios könnte das ausgewählte Fenster, das gesamte Audiosystem des Computers oder das Mikrofon des Benutzers (oder eine Kombination aus all dem) sein.
+[`getDisplayMedia()`](/de/docs/Web/API/MediaDevices/getDisplayMedia) wird am häufigsten verwendet, um Video vom Bildschirm eines Nutzers (oder Teilen davon) zu erfassen. {{Glossary("user_agent", "User Agents")}} können jedoch erlauben, das Audio zusammen mit dem Videoinhalt zu erfassen. Die Quelle dieses Audios könnte das ausgewählte Fenster, das gesamte Audiosystem des Computers oder das Mikrofon des Benutzers (oder eine Kombination aus all dem) sein.
 
 Bevor Sie ein Projekt starten, das die Freigabe von Audio erfordert, überprüfen Sie unbedingt die [Browser-Kompatibilität](/de/docs/Web/API/MediaDevices/getDisplayMedia#browser_compatibility) für `getDisplayMedia()`, um zu sehen, ob die von Ihnen gewünschten Browser die Unterstützung für Audio in erfassten Bildschirmstreams haben.
 
@@ -157,7 +157,7 @@ User Agents, die den Datenschutz ernst nehmen, sollten Inhalte verschleiern, die
 
 ### Autorisierung der Erfassung von Anzeigeflächen-Inhalten
 
-Bevor das Streaming der erfassten Bildschirm-Inhalte beginnen kann, bittet der [User Agent](/de/docs/Glossary/user_agent) den Nutzer, die Freigabeanforderung zu bestätigen und die Inhalte auszuwählen, die geteilt werden sollen.
+Bevor das Streaming der erfassten Bildschirm-Inhalte beginnen kann, bittet der {{Glossary("user_agent", "User Agent")}} den Nutzer, die Freigabeanforderung zu bestätigen und die Inhalte auszuwählen, die geteilt werden sollen.
 
 ## Beispiele
 
@@ -331,13 +331,13 @@ Das CSS ist in diesem Beispiel rein kosmetisch. Das Video erhält einen Rahmen, 
 
 #### Ergebnis
 
-Das Endprodukt sieht wie folgt aus. Wenn Ihr Browser die Screen Capture API unterstützt, wird beim Klicken auf "Start Capture" die Benutzeroberfläche des [User Agents](/de/docs/Glossary/user_agent) angezeigt, um einen Bildschirm, ein Fenster oder einen Tab zur Freigabe auszuwählen.
+Das Endprodukt sieht wie folgt aus. Wenn Ihr Browser die Screen Capture API unterstützt, wird beim Klicken auf "Start Capture" die Benutzeroberfläche des {{Glossary("user_agent", "User Agents")}} angezeigt, um einen Bildschirm, ein Fenster oder einen Tab zur Freigabe auszuwählen.
 
 {{EmbedLiveSample("Streaming screen capture", 640, 800, "", "", "", "display-capture")}}
 
 ## Sicherheit
 
-Um zu funktionieren, wenn die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) aktiviert ist, benötigen Sie die `display-capture` Berechtigung. Dies kann mit dem {{HTTPHeader("Permissions-Policy")}} [HTTP](/de/docs/Glossary/HTTP) Header oder—wenn Sie die Screen Capture API in einem {{HTMLElement("iframe")}} verwenden—dem `allow` Attribut des `<iframe>` Elements geschehen.
+Um zu funktionieren, wenn die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) aktiviert ist, benötigen Sie die `display-capture` Berechtigung. Dies kann mit dem {{HTTPHeader("Permissions-Policy")}} {{Glossary("HTTP", "HTTP")}} Header oder—wenn Sie die Screen Capture API in einem {{HTMLElement("iframe")}} verwenden—dem `allow` Attribut des `<iframe>` Elements geschehen.
 
 Zum Beispiel aktiviert diese Zeile in den HTTP-Headern die Screen Capture API für das Dokument und alle eingebetteten {{HTMLElement("iframe")}} Elemente, die vom selben Ursprung geladen werden:
 

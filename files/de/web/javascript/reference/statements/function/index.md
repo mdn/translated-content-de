@@ -7,7 +7,7 @@ l10n:
 
 {{jsSidebar("Statements")}}
 
-Die **`function`**-Deklaration erstellt eine [Bindung](/de/docs/Glossary/binding) einer neuen Funktion zu einem gegebenen Namen.
+Die **`function`**-Deklaration erstellt eine {{Glossary("binding", "Bindung")}} einer neuen Funktion zu einem gegebenen Namen.
 
 Sie können auch Funktionen mithilfe des [`function` Ausdrucks](/de/docs/Web/JavaScript/Reference/Operators/function) definieren.
 
@@ -123,7 +123,7 @@ console.log(
 
 ### Hoisting
 
-Funktionsdeklarationen in JavaScript werden in den oberen Teil der umgebenden Funktion oder des globalen Geltungsbereichs [gehoben](/de/docs/Glossary/Hoisting). Sie können die Funktion verwenden, bevor Sie sie deklariert haben:
+Funktionsdeklarationen in JavaScript werden in den oberen Teil der umgebenden Funktion oder des globalen Geltungsbereichs {{Glossary("Hoisting", "gehoben")}}. Sie können die Funktion verwenden, bevor Sie sie deklariert haben:
 
 ```js
 hoisted(); // Logs "foo"

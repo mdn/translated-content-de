@@ -69,7 +69,7 @@ Für {{SVGElement("animateMotion")}} definiert `path` den Bewegungspfad, ausgedr
 
 ## textPath
 
-Für {{SVGElement("textPath")}} definiert `path` den Pfad, auf dem die [Glyphen](/de/docs/Glossary/glyph) eines {{SVGElement("text")}} Elements gerendert werden. Ein leerer String zeigt an, dass keine Pfaddaten für das Element vorhanden sind. Das bedeutet, dass der Text innerhalb des `<textPath>`-Elements nicht gerendert wird oder zum Begrenzungsrahmen des `<text>`-Elements beiträgt. Wenn das Attribut nicht angegeben wird, wird stattdessen der im {{SVGAttr("href")}} spezifizierte Pfad verwendet.
+Für {{SVGElement("textPath")}} definiert `path` den Pfad, auf dem die {{Glossary("glyph", "Glyphen")}} eines {{SVGElement("text")}} Elements gerendert werden. Ein leerer String zeigt an, dass keine Pfaddaten für das Element vorhanden sind. Das bedeutet, dass der Text innerhalb des `<textPath>`-Elements nicht gerendert wird oder zum Begrenzungsrahmen des `<text>`-Elements beiträgt. Wenn das Attribut nicht angegeben wird, wird stattdessen der im {{SVGAttr("href")}} spezifizierte Pfad verwendet.
 
 <table class="properties">
   <tbody>

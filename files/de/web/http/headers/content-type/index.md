@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Content-Type`** [Repräsentations-Header](/de/docs/Glossary/representation_header) wird verwendet, um den ursprünglichen [Medientyp](/de/docs/Glossary/MIME_type) der Ressource anzugeben, bevor eine Inhaltskodierung vor der Übertragung angewendet wird.
+Der **`Content-Type`** {{Glossary("representation_header", "Repräsentations-Header")}} wird verwendet, um den ursprünglichen {{Glossary("MIME_type", "Medientyp")}} der Ressource anzugeben, bevor eine Inhaltskodierung vor der Übertragung angewendet wird.
 
 In Antworten informiert der `Content-Type`-Header den Client über den Medientyp der zurückgegebenen Daten.
 In Anfragen wie {{HTTPMethod("POST")}} oder {{HTTPMethod("PUT")}} verwendet der Client den `Content-Type`-Header, um den Typ des an den Server gesendeten Inhalts anzugeben.
@@ -24,21 +24,21 @@ Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding"
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Repräsentations-Header](/de/docs/Glossary/Representation_header)</td>
+      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted response header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response header")}}
       </th>
       <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted request header](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
       </th>
       <td>
         Ja, aber Werte dürfen kein <em>CORS-unsafe request header byte</em>: <code>0x00</code>-<code>0x1F</code> (außer <code>0x09</code> (HT)), <code>"():&#x3C;>?@[\]{}</code>, und <code>0x7F</code> (DEL) enthalten.
@@ -68,7 +68,7 @@ Content-Type: multipart/form-data; boundary=ExampleBoundaryString
   - : Der [Medientyp](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) der Ressource oder Daten.
     Kann folgende Parameter enthalten:
 
-    - **`charset`**: Gibt den verwendeten [Zeichenkodierungs](/de/docs/Glossary/character_encoding)-Standard an. Der Wert ist nicht auf Groß- und Kleinschreibung empfindlich, jedoch wird Kleinschreibung bevorzugt.
+    - **`charset`**: Gibt den verwendeten {{Glossary("character_encoding", "Zeichenkodierungs")}}-Standard an. Der Wert ist nicht auf Groß- und Kleinschreibung empfindlich, jedoch wird Kleinschreibung bevorzugt.
     - **`boundary`**: Für mehrteilige Entitäten ist der Parameter `boundary` erforderlich.
       Er wird verwendet, um die Grenzen der verschiedenen Teile der Nachricht zu markieren.
       Der Wert besteht aus 1 bis 70 Zeichen (nicht mit Leerzeichen endend), die in verschiedenen Systemkontexten (z.B. E-Mail-Gateways) als robust bekannt sind.
@@ -159,7 +159,7 @@ comment=Hello!
 
 ### `Content-Type` in einer REST-API mit JSON
 
-Viele [REST](/de/docs/Glossary/REST)-APIs verwenden `application/json` als Inhaltstyp, der für die Kommunikation zwischen Maschinen oder programmatische Interaktionen praktisch ist.
+Viele {{Glossary("REST", "REST")}}-APIs verwenden `application/json` als Inhaltstyp, der für die Kommunikation zwischen Maschinen oder programmatische Interaktionen praktisch ist.
 Das folgende Beispiel zeigt eine {{HTTPStatus("201", "201 Created")}}-Antwort, die das Ergebnis einer erfolgreichen Anfrage zeigt:
 
 ```http

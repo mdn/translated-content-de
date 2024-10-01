@@ -86,4 +86,4 @@ const bObjProto = new Boolean({});
 
 ## Siehe auch
 
-- [Boolean](/de/docs/Glossary/Boolean)
+- {{Glossary("Boolean", "Boolean")}}

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **accessible description** ist die Beschreibung eines Benutzerschnittstellenelements, die zusätzliche Informationen bietet, um Benutzern von unterstützender Technologie zu helfen, das UI-Element und seinen Kontext zu verstehen. Es ist mit einem HTML- oder SVG-Element verbunden und bietet den Benutzern zusätzlichen Kontext über seinen Zweck über das hinaus, was durch den [accessible name](/de/docs/Glossary/accessible_name) des Elements bereitgestellt wird. Dies ist besonders wichtig für Benutzer, die auf Hilfstechnologien wie [Screenreader](/de/docs/Glossary/Screen_reader) angewiesen sind. Die accessible description eines Elements ist Teil des [accessibility tree](/de/docs/Glossary/accessibility_tree).
+Eine **accessible description** ist die Beschreibung eines Benutzerschnittstellenelements, die zusätzliche Informationen bietet, um Benutzern von unterstützender Technologie zu helfen, das UI-Element und seinen Kontext zu verstehen. Es ist mit einem HTML- oder SVG-Element verbunden und bietet den Benutzern zusätzlichen Kontext über seinen Zweck über das hinaus, was durch den {{Glossary("accessible_name", "accessible name")}} des Elements bereitgestellt wird. Dies ist besonders wichtig für Benutzer, die auf Hilfstechnologien wie {{Glossary("Screen_reader", "Screenreader")}} angewiesen sind. Die accessible description eines Elements ist Teil des {{Glossary("accessibility_tree", "accessibility tree")}}.
 
 Zum Beispiel wird der accessible name eines {{htmlelement("table")}} durch seine erste {{htmlelement("caption")}} bereitgestellt. Bei komplexen Datentabellen kann ein bis zwei Sätze, die die Tabelle beschreiben, eine Beschreibung liefern. Dies kann ein Absatz direkt vor oder nach der Tabelle sein, sowohl visuell als auch in der Quellcode-Reihenfolge. Wenn es sich an anderer Stelle in der Quellcode-Reihenfolge befindet oder um die Zuordnung explizit zu machen, kann das Attribut [`aria-describedby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-describedby) verwendet werden, um die Tabelle mit ihrer Beschreibung zu verknüpfen.
 
@@ -25,13 +25,13 @@ Für HTML-Elemente, wenn ein Element keine accessible description hat, muss die 
 
 2. [`aria-description`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-description)-Attribut.
 
-3. Sprachspezifische Merkmale, die an der Berechnung der Beschreibung teilnehmen, wenn das Merkmal nicht bereits verwendet wird, um den [accessible name](/de/docs/Glossary/accessible_name) zu definieren. Beispielsweise:
+3. Sprachspezifische Merkmale, die an der Berechnung der Beschreibung teilnehmen, wenn das Merkmal nicht bereits verwendet wird, um den {{Glossary("accessible_name", "accessible name")}} zu definieren. Beispielsweise:
 
    - Eine {{htmlelement("summary")}} wird durch den Inhalt der {{htmlelement("details")}} beschrieben, in der sie verschachtelt ist.
    - {{htmlelement("input")}}-Buttons (mit Typ-Attribut `button`, `submit` oder `reset`) werden durch den Wert ihres `value`-Attributs beschrieben.
-   - In SVG, der Inhalt des [`<desc>`](/de/docs/Web/SVG/Element/desc)-Elements, falls vorhanden, andernfalls der Text, der in nachfolgenden Textcontainer-Elementen enthalten ist (d. h. [`<text>`](/de/docs/Web/SVG/Element/text)), wenn sie nicht bereits für den [accessible name](/de/docs/Glossary/accessible_name) verwendet werden.
+   - In SVG, der Inhalt des [`<desc>`](/de/docs/Web/SVG/Element/desc)-Elements, falls vorhanden, andernfalls der Text, der in nachfolgenden Textcontainer-Elementen enthalten ist (d. h. [`<text>`](/de/docs/Web/SVG/Element/text)), wenn sie nicht bereits für den {{Glossary("accessible_name", "accessible name")}} verwendet werden.
 
-4. Wenn keine der oben genannten Möglichkeiten eine Beschreibung bietet, wird das [`title`](/de/docs/Web/HTML/Global_attributes#title)-Attribut verwendet, falls der `title` nicht der [accessible name](/de/docs/Glossary/accessible_name) für dieses Element ist.
+4. Wenn keine der oben genannten Möglichkeiten eine Beschreibung bietet, wird das [`title`](/de/docs/Web/HTML/Global_attributes#title)-Attribut verwendet, falls der `title` nicht der {{Glossary("accessible_name", "accessible name")}} für dieses Element ist.
 
 5. Wenn keine der oben genannten Möglichkeiten eine accessible description definiert, bleibt die accessible description leer.
 
@@ -48,7 +48,7 @@ Die Schritte zur Definition der accessible description in HTML sind im [HTML-AAM
 - [Die W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
 - [Accessible Rich Internet Applications (WAI-ARIA)](https://w3c.github.io/aria/)
 - Verwandte Glossarbegriffe:
-  - [Accessibility](/de/docs/Glossary/Accessibility)
-  - [Accessibility tree](/de/docs/Glossary/Accessibility_tree)
-  - [Accessible name](/de/docs/Glossary/Accessible_name)
-  - [ARIA](/de/docs/Glossary/ARIA)
+  - {{Glossary("Accessibility", "Accessibility")}}
+  - {{Glossary("Accessibility_tree", "Accessibility tree")}}
+  - {{Glossary("Accessible_name", "Accessible name")}}
+  - {{Glossary("ARIA", "ARIA")}}

@@ -8,7 +8,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das [Boolean](/de/docs/Glossary/Boolean/HTML) **`required`**-Attribut gibt, falls vorhanden, an, dass der Benutzer einen Wert für die Eingabe angeben muss, bevor das zugehörige Formular übermittelt werden kann.
+Das {{Glossary("Boolean/HTML", "Boolean")}} **`required`**-Attribut gibt, falls vorhanden, an, dass der Benutzer einen Wert für die Eingabe angeben muss, bevor das zugehörige Formular übermittelt werden kann.
 
 Das `required`-Attribut wird von den `{{HTMLElement("input/text","text")}}`, `{{HTMLElement("input/search","search")}}`, `{{HTMLElement("input/url","url")}}`, `{{HTMLElement("input/tel","tel")}}`, `{{HTMLElement("input/email","email")}}`, `{{HTMLElement("input/password","password")}}`, `{{HTMLElement("input/date","date")}}`, `{{HTMLElement("input/month","month")}}`, `{{HTMLElement("input/week","week")}}`, `{{HTMLElement("input/time","time")}}`, `{{HTMLElement("input/datetime-local","datetime-local")}}`, `{{HTMLElement("input/number","number")}}`, `{{HTMLElement("input/checkbox","checkbox")}}`, `{{HTMLElement("input/radio","radio")}}`, `{{HTMLElement("input/file","file")}}`, {{HTMLElement("input")}}-Typen sowie den Formularsteuerelementen {{HTMLElement("select")}} und {{HTMLElement("textarea")}} unterstützt. Wenn es bei einem dieser Eingabetypen und Elemente vorhanden ist, wird die {{cssxref(':required')}}-Pseudoklasse übereinstimmen. Wenn das Attribut nicht enthalten ist, wird die {{cssxref(':optional')}}-Pseudoklasse übereinstimmen.
 

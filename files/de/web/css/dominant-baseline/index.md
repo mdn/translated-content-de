@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`dominant-baseline`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die spezifische [Baseline](/de/docs/Glossary/Baseline/Typography), die verwendet wird, um den Text des Rahmens und die inline-level Inhalte auszurichten. Sie gibt auch die Standardausrichtungs-Baseline aller Boxen an, die an der Baseline-Ausrichtung im Ausrichtungskontext der Box teilnehmen. Falls vorhanden, überschreibt sie das {{SVGAttr("dominant-baseline")}} Attribut der Form.
+Die **`dominant-baseline`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die spezifische {{Glossary("Baseline/Typography", "Baseline")}}, die verwendet wird, um den Text des Rahmens und die inline-level Inhalte auszurichten. Sie gibt auch die Standardausrichtungs-Baseline aller Boxen an, die an der Baseline-Ausrichtung im Ausrichtungskontext der Box teilnehmen. Falls vorhanden, überschreibt sie das {{SVGAttr("dominant-baseline")}} Attribut der Form.
 
 Baselines werden aus der Baseline-Tabelle der Schrift ausgewählt. Gibt es in der üblicherweise verwendeten Schrift keine Baseline-Tabelle oder fehlt ein Eintrag für die gewünschte Baseline, kann der Browser Heuristiken verwenden, um die Position der gewünschten Baseline zu bestimmen.
 

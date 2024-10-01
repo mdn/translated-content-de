@@ -38,11 +38,11 @@ Die `object-fit`-Eigenschaft wird als einzelnes Schlüsselwort angegeben, das au
 ### Werte
 
 - `contain`
-  - : Der ersetzte Inhalt wird skaliert, um sein [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) beizubehalten, während er in den Inhaltsrahmen des Elements passt. Das gesamte Objekt wird so angepasst, dass es den Rahmen füllt, während sein Seitenverhältnis erhalten bleibt. Wenn das Seitenverhältnis nicht mit dem Seitenverhältnis des Rahmens übereinstimmt, wird das Objekt ["letterboxed"](<https://en.wikipedia.org/wiki/Letterboxing_(filming)>).
+  - : Der ersetzte Inhalt wird skaliert, um sein {{Glossary("aspect_ratio", "Seitenverhältnis")}} beizubehalten, während er in den Inhaltsrahmen des Elements passt. Das gesamte Objekt wird so angepasst, dass es den Rahmen füllt, während sein Seitenverhältnis erhalten bleibt. Wenn das Seitenverhältnis nicht mit dem Seitenverhältnis des Rahmens übereinstimmt, wird das Objekt ["letterboxed"](<https://en.wikipedia.org/wiki/Letterboxing_(filming)>).
 - `cover`
   - : Der ersetzte Inhalt wird so dimensioniert, dass er sein Seitenverhältnis beibehält, während er den gesamten Inhaltsrahmen des Elements füllt. Wenn das Seitenverhältnis des Objekts nicht mit dem des Rahmens übereinstimmt, wird das Objekt beschnitten, um zu passen.
 - `fill`
-  - : Der ersetzte Inhalt wird so dimensioniert, dass er den Inhaltsrahmen des Elements vollständig füllt. Das gesamte Objekt füllt den Rahmen vollständig aus. Wenn das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Objekts nicht mit dem des Rahmens übereinstimmt, wird das Objekt gedehnt, um zu passen.
+  - : Der ersetzte Inhalt wird so dimensioniert, dass er den Inhaltsrahmen des Elements vollständig füllt. Das gesamte Objekt füllt den Rahmen vollständig aus. Wenn das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Objekts nicht mit dem des Rahmens übereinstimmt, wird das Objekt gedehnt, um zu passen.
 - `none`
   - : Der ersetzte Inhalt wird nicht neu skaliert.
 - `scale-down`

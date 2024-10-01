@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/WebDriver/Capabilities")}}
 
-Die **`acceptInsecureCerts`-Fähigkeit** gibt an, ob abgelaufene oder ungültige [TLS-Zertifikate](/de/docs/Glossary/TLS) beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) überprüft werden. Wenn die Fähigkeit auf false gesetzt ist, wird ein Fehler mit einem [unsicheren Zertifikat](/de/docs/Web/WebDriver/Errors/InsecureCertificate) zurückgegeben, wenn die Navigation auf Domains mit Zertifikatsproblemen trifft. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate vom Browser bei der Navigation implizit vertraut. Die Fähigkeit gilt für die Dauer der Sitzung.
+Die **`acceptInsecureCerts`-Fähigkeit** gibt an, ob abgelaufene oder ungültige {{Glossary("TLS", "TLS-Zertifikate")}} beim [Navigieren](/de/docs/Web/WebDriver/Commands/NavigateTo) überprüft werden. Wenn die Fähigkeit auf false gesetzt ist, wird ein Fehler mit einem [unsicheren Zertifikat](/de/docs/Web/WebDriver/Errors/InsecureCertificate) zurückgegeben, wenn die Navigation auf Domains mit Zertifikatsproblemen trifft. Andernfalls werden selbstsignierte oder anderweitig ungültige Zertifikate vom Browser bei der Navigation implizit vertraut. Die Fähigkeit gilt für die Dauer der Sitzung.
 
 ## Beispiel
 

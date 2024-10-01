@@ -40,7 +40,7 @@ Die für Video-Tracks verfügbaren Arten sind:
   - : Ein Video-Track, der einen Kommentar enthält. Dies könnte zum Beispiel die Kommentatorspur des Regisseurs
     in einem Film sein.
 - `""` (leerer String)
-  - : Der Track hat keine explizite Art, oder die vom Track bereitgestellte Art wird vom [User-Agent](/de/docs/Glossary/user_agent) nicht erkannt.
+  - : Der Track hat keine explizite Art, oder die vom Track bereitgestellte Art wird vom {{Glossary("user_agent", "User-Agent")}} nicht erkannt.
 
 ## Spezifikationen
 

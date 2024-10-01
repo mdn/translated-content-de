@@ -37,7 +37,7 @@ Vektorgrafiken sind in vielen Fällen sehr nützlich – sie haben kleine Dateig
 Im Web arbeiten Sie mit zwei Bildtypen — **Rastergrafiken** und **Vektorgrafiken**:
 
 - **Rastergrafiken** werden mithilfe eines Pixelrasters definiert — eine Rasterbilddatei enthält Informationen darüber, wo genau jedes Pixel platziert werden soll und welche Farbe es haben sollte. Beliebte Web-Rasterformate sind Bitmap (`.bmp`), PNG (`.png`), JPEG (`.jpg`) und GIF (`.gif`).
-- **Vektorgrafiken** werden mit Algorithmen definiert — eine Vektorgrafikdatei enthält Form- und Pfaddefinitionen, die der Computer verwenden kann, um zu bestimmen, wie das Bild beim Rendern auf dem Bildschirm aussehen soll. Das [SVG](/de/docs/Glossary/SVG)-Format ermöglicht es uns, leistungsstarke Vektorgrafiken für den Einsatz im Web zu erstellen.
+- **Vektorgrafiken** werden mit Algorithmen definiert — eine Vektorgrafikdatei enthält Form- und Pfaddefinitionen, die der Computer verwenden kann, um zu bestimmen, wie das Bild beim Rendern auf dem Bildschirm aussehen soll. Das {{Glossary("SVG", "SVG")}}-Format ermöglicht es uns, leistungsstarke Vektorgrafiken für den Einsatz im Web zu erstellen.
 
 Um Ihnen einen Eindruck von dem Unterschied zwischen beiden zu geben, sehen wir uns ein Beispiel an. Sie finden dieses Beispiel live in unserem GitHub-Repo als [vector-versus-raster.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/adding-vector-graphics-to-the-web/vector-versus-raster.html) — es zeigt zwei scheinbar identische Bilder nebeneinander, einen roten Stern mit einem schwarzen Schlagschatten. Der Unterschied besteht darin, dass das linke Bild eine PNG-Datei und das rechte eine SVG-Grafik ist.
 
@@ -54,7 +54,7 @@ Zudem sind Vektorgrafikdateien deutlich leichter als ihre Rasteräquivalente, da
 
 ## Was ist SVG?
 
-[SVG](/de/docs/Web/SVG) ist eine [XML](/de/docs/Glossary/XML)-basierte Sprache zur Beschreibung von Vektorbildern. Es ist im Grunde genommen Markup, ähnlich wie HTML, nur dass es viele verschiedene Elemente zur Definition der Formen gibt, die Sie in Ihrem Bild erscheinen lassen möchten, und der Effekte, die Sie auf diese Formen anwenden möchten. SVG ist für die Auszeichnung von Grafiken und nicht von Inhalten gedacht. SVG definiert Elemente zur Erstellung grundlegender Formen wie {{svgelement("circle")}} und {{svgelement("rect")}}, sowie Elemente zur Erstellung komplexerer Formen wie {{svgelement("path")}} und {{svgelement("polygon")}}. Zu den fortgeschritteneren SVG-Funktionen gehören {{svgelement("feColorMatrix")}} (Farben mit einer Transformationsmatrix transformieren), {{svgelement("animate")}} (Teile Ihrer Vektorgrafik animieren) und {{svgelement("mask")}} (eine Maske über Ihr Bild legen).
+[SVG](/de/docs/Web/SVG) ist eine {{Glossary("XML", "XML")}}-basierte Sprache zur Beschreibung von Vektorbildern. Es ist im Grunde genommen Markup, ähnlich wie HTML, nur dass es viele verschiedene Elemente zur Definition der Formen gibt, die Sie in Ihrem Bild erscheinen lassen möchten, und der Effekte, die Sie auf diese Formen anwenden möchten. SVG ist für die Auszeichnung von Grafiken und nicht von Inhalten gedacht. SVG definiert Elemente zur Erstellung grundlegender Formen wie {{svgelement("circle")}} und {{svgelement("rect")}}, sowie Elemente zur Erstellung komplexerer Formen wie {{svgelement("path")}} und {{svgelement("polygon")}}. Zu den fortgeschritteneren SVG-Funktionen gehören {{svgelement("feColorMatrix")}} (Farben mit einer Transformationsmatrix transformieren), {{svgelement("animate")}} (Teile Ihrer Vektorgrafik animieren) und {{svgelement("mask")}} (eine Maske über Ihr Bild legen).
 
 Als einfaches Beispiel erstellt der folgende Code einen Kreis und ein Rechteck:
 
@@ -78,7 +78,7 @@ Aus dem obigen Beispiel könnten Sie den Eindruck gewinnen, dass SVG leicht von 
 
 SVG hat einige zusätzliche Vorteile zusätzlich zu den bisher beschriebenen:
 
-- Text in Vektorgrafiken bleibt zugänglich (was auch Ihrem [SEO](/de/docs/Glossary/SEO) zugutekommt).
+- Text in Vektorgrafiken bleibt zugänglich (was auch Ihrem {{Glossary("SEO", "SEO")}} zugutekommt).
 - SVGs eignen sich gut zum Styling/Scripting, da jede Komponente des Bildes ein Element ist, das mittels CSS gestylt oder mittels JavaScript gescriptet werden kann.
 
 Warum also sollte jemand Rastergrafiken gegenüber SVG verwenden wollen? Nun, SVG hat auch einige Nachteile:
@@ -97,7 +97,7 @@ In diesem Abschnitt erläutern wir die verschiedenen Möglichkeiten, wie Sie SVG
 
 ### Der schnelle Weg: `img`-Element
 
-Um eine SVG über ein {{htmlelement("img")}}-Element einzubetten, müssen Sie es nur wie erwartet im src-Attribut referenzieren. Sie benötigen ein `height`- oder ein `width`-Attribut (oder beides, wenn Ihr SVG kein internes [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) hat). Wenn Sie es noch nicht getan haben, lesen Sie bitte [Bilder in HTML](/de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML).
+Um eine SVG über ein {{htmlelement("img")}}-Element einzubetten, müssen Sie es nur wie erwartet im src-Attribut referenzieren. Sie benötigen ein `height`- oder ein `width`-Attribut (oder beides, wenn Ihr SVG kein internes {{Glossary("aspect_ratio", "Seitenverhältnis")}} hat). Wenn Sie es noch nicht getan haben, lesen Sie bitte [Bilder in HTML](/de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML).
 
 ```html
 <img
@@ -183,7 +183,7 @@ Das ist definitiv nicht die beste Methode zur Auswahl:
 #### Nachteile
 
 - `iframe`s haben zwar einen Fallback-Mechanismus, wie Sie sehen können, aber Browser zeigen den Fallback nur an, wenn ihnen die Unterstützung für `iframe`s insgesamt fehlt.
-- Darüber hinaus können Sie, sofern das SVG und Ihre aktuelle Webseite nicht denselben [Ursprung](/de/docs/Glossary/origin) haben, nicht mit JavaScript auf Ihrer Hauptwebseite das SVG manipulieren.
+- Darüber hinaus können Sie, sofern das SVG und Ihre aktuelle Webseite nicht denselben {{Glossary("origin", "Ursprung")}} haben, nicht mit JavaScript auf Ihrer Hauptwebseite das SVG manipulieren.
 
 ## Aktives Lernen: Spielen mit SVG
 

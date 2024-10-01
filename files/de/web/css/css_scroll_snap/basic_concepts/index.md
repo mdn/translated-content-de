@@ -9,7 +9,7 @@ l10n:
 
 Die Eigenschaften im [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul ermöglichen es Ihnen, zu definieren, wie das Scrollen zu bestimmten Punkten einrastet, wenn ein Benutzer durch ein Dokument scrollt.
 
-Das Scroll-Snap-Feature ermöglicht es Ihnen, die Einrastpositionen zu definieren, an denen der Scrollport eines [Scroll-Containers](/de/docs/Glossary/Scroll_container) nach Abschluss eines Scrollvorgangs enden oder "einrasten" kann.
+Das Scroll-Snap-Feature ermöglicht es Ihnen, die Einrastpositionen zu definieren, an denen der Scrollport eines {{Glossary("Scroll_container", "Scroll-Containers")}} nach Abschluss eines Scrollvorgangs enden oder "einrasten" kann.
 
 ## Wichtige Eigenschaften für CSS scroll snap
 

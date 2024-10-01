@@ -9,7 +9,7 @@ l10n:
 
 Das **`<portal>`**-[HTML](/de/docs/Web/HTML)-Element ermöglicht das Einbetten einer anderen HTML-Seite in die aktuelle, um eine reibungslosere Navigation zu neuen Seiten zu ermöglichen.
 
-Ein `<portal>` ist ähnlich einem `<iframe>`. Ein `<iframe>` erlaubt es, einen separaten [Browsenkontext](/de/docs/Glossary/browsing_context) einzubetten. Der eingebettete Inhalt eines `<portal>` ist jedoch stärker eingeschränkt als der eines `<iframe>`. Es kann nicht interagiert werden, und ist deshalb nicht geeignet, um Widgets in ein Dokument einzubetten. Stattdessen fungiert das `<portal>` als Vorschau des Inhalts einer anderen Seite. Es kann zu diesem navigiert werden, was einen nahtlosen Übergang zum eingebetteten Inhalt ermöglicht.
+Ein `<portal>` ist ähnlich einem `<iframe>`. Ein `<iframe>` erlaubt es, einen separaten {{Glossary("browsing_context", "Browsenkontext")}} einzubetten. Der eingebettete Inhalt eines `<portal>` ist jedoch stärker eingeschränkt als der eines `<iframe>`. Es kann nicht interagiert werden, und ist deshalb nicht geeignet, um Widgets in ein Dokument einzubetten. Stattdessen fungiert das `<portal>` als Vorschau des Inhalts einer anderen Seite. Es kann zu diesem navigiert werden, was einen nahtlosen Übergang zum eingebetteten Inhalt ermöglicht.
 
 ## Attribute
 
@@ -22,7 +22,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 
 ## Barrierefreiheit
 
-Die im `<portal>` angezeigte Vorschau ist nicht interaktiv, erhält daher keine Eingabeveranstaltungen oder Fokus. Daher werden die eingebetteten Inhalte des Portals nicht als Elemente im [Barrierefreiheitsbaum](/de/docs/Glossary/accessibility_tree) angezeigt. In das Portal kann navigiert und es kann wie ein Button aktiviert werden. Das Standardverhalten beim Klicken auf das Portal ist seine Aktivierung.
+Die im `<portal>` angezeigte Vorschau ist nicht interaktiv, erhält daher keine Eingabeveranstaltungen oder Fokus. Daher werden die eingebetteten Inhalte des Portals nicht als Elemente im {{Glossary("accessibility_tree", "Barrierefreiheitsbaum")}} angezeigt. In das Portal kann navigiert und es kann wie ein Button aktiviert werden. Das Standardverhalten beim Klicken auf das Portal ist seine Aktivierung.
 
 Portale erhalten ein Standardlabel, welches der Titel der eingebetteten Seite ist. Wenn kein Titel vorhanden ist, wird der sichtbare Text in der Vorschau zusammengefügt, um ein Label zu erstellen. Das [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribut kann verwendet werden, um dies zu überschreiben.
 

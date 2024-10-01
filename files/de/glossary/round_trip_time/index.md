@@ -32,5 +32,5 @@ Im obigen Beispiel wird die durchschnittliche Round Trip Time in der letzten Zei
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Time to First Byte](/de/docs/Glossary/Time_to_First_Byte) (TTFB)
-  - [Latenz](/de/docs/Glossary/Latency)
+  - {{Glossary("Time_to_First_Byte", "Time to First Byte")}} (TTFB)
+  - {{Glossary("Latency", "Latenz")}}

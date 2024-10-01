@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-`flex` ist ein Wert der CSS {{cssxref("display")}}-Eigenschaft. Zusammen mit `inline-flex` bewirkt es, dass das Element, auf das es angewendet wird, zu einem [Flex-Container](/de/docs/Glossary/flex_container) wird, und die Kinder des Elements jeweils zu einem [Flex-Item](/de/docs/Glossary/flex_item) werden. Die Elemente nehmen dann am Flex-Layout teil, und alle Eigenschaften, die im [CSS Flexbox-Layout-Modul](/de/docs/Web/CSS/CSS_flexible_box_layout) definiert sind, können angewendet werden.
+`flex` ist ein Wert der CSS {{cssxref("display")}}-Eigenschaft. Zusammen mit `inline-flex` bewirkt es, dass das Element, auf das es angewendet wird, zu einem {{Glossary("flex_container", "Flex-Container")}} wird, und die Kinder des Elements jeweils zu einem {{Glossary("flex_item", "Flex-Item")}} werden. Die Elemente nehmen dann am Flex-Layout teil, und alle Eigenschaften, die im [CSS Flexbox-Layout-Modul](/de/docs/Web/CSS/CSS_flexible_box_layout) definiert sind, können angewendet werden.
 
 Es gibt auch eine {{cssxref("flex")}}-Eigenschaft, die eine Kurzform für die Flexbox-Eigenschaften {{cssxref("flex-grow")}}, {{cssxref("flex-shrink")}} und {{cssxref("flex-basis")}} ist. Diese Eigenschaft ist nur auf Flex-Container anwendbar.
 

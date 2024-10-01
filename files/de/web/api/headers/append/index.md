@@ -12,7 +12,7 @@ Die **`append()`** Methode des [`Headers`](/de/docs/Web/API/Headers)-Interfaces 
 
 Der Unterschied zwischen [`set()`](/de/docs/Web/API/Headers/set) und `append()` besteht darin, dass, wenn der angegebene Header bereits existiert und mehrere Werte akzeptiert, `set()` den bestehenden Wert mit dem neuen überschreibt, während `append()` den neuen Wert an das Ende der vorhandenen Werte anhängt.
 
-Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten kontrolliert werden. Diese Header umfassen die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) und die [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
+Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten kontrolliert werden. Diese Header umfassen die {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}} und die {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
 
 ## Syntax
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-**Media Queries** ermöglichen es Ihnen, CSS-Stile abhängig vom Medientyp eines Geräts (wie z.B. Druck vs. Bildschirm) oder anderen Merkmalen oder Eigenschaften wie Bildschirmauflösung oder -ausrichtung, [Seitenverhältnis](/de/docs/Glossary/aspect_ratio), Browser-[Viewport](/de/docs/Glossary/viewport)-Breite oder -Höhe, Benutzerpräferenzen wie der Präferenz für reduzierte Bewegung, Datennutzung oder Transparenz anzuwenden.
+**Media Queries** ermöglichen es Ihnen, CSS-Stile abhängig vom Medientyp eines Geräts (wie z.B. Druck vs. Bildschirm) oder anderen Merkmalen oder Eigenschaften wie Bildschirmauflösung oder -ausrichtung, {{Glossary("aspect_ratio", "Seitenverhältnis")}}, Browser-{{Glossary("viewport", "Viewport")}}-Breite oder -Höhe, Benutzerpräferenzen wie der Präferenz für reduzierte Bewegung, Datennutzung oder Transparenz anzuwenden.
 
 Media Queries werden für Folgendes verwendet:
 
@@ -27,7 +27,7 @@ Media Queries sind nicht case-sensitiv.
 
   Der Typ ist optional (wird standardmäßig `all` angenommen) außer bei Verwendung des logischen Operators `only`.
 
-- [Media-Features](/de/docs/Web/CSS/@media#media_features) beschreiben ein spezifisches Merkmal des [User-Agents](/de/docs/Glossary/user_agent), des Ausgabegeräts oder der Umgebung:
+- [Media-Features](/de/docs/Web/CSS/@media#media_features) beschreiben ein spezifisches Merkmal des {{Glossary("user_agent", "User-Agents")}}, des Ausgabegeräts oder der Umgebung:
 
   - {{cssxref("@media/any-hover", "any-hover")}}
   - {{cssxref("@media/any-pointer", "any-pointer")}}
@@ -101,7 +101,7 @@ Da Medientypen Geräte in sehr allgemeinen Begriffen beschreiben, wurden die mei
 
 ## Zielorientierung von Media-Features
 
-Media-Features beschreiben die spezifischen Merkmale eines bestimmten [User-Agents](/de/docs/Glossary/user_agent), Ausgabegeräts oder Umgebung.
+Media-Features beschreiben die spezifischen Merkmale eines bestimmten {{Glossary("user_agent", "User-Agents")}}, Ausgabegeräts oder Umgebung.
 Zum Beispiel können Sie spezifische Stile für Breitbildmonitore, Computer, die Mäuse verwenden, oder Geräte, die unter schlechten Lichtbedingungen verwendet werden, anwenden.
 Dieses Beispiel wendet Stile an, wenn der _primäre_ Eingabemechanismus des Benutzers (wie eine Maus) über Elemente schweben kann:
 
@@ -113,7 +113,7 @@ Dieses Beispiel wendet Stile an, wenn der _primäre_ Eingabemechanismus des Benu
 
 Media-Features sind entweder Bereiche oder diskret.
 
-_Diskrete Features_ beziehen ihren Wert aus einem [aufgezählten](/de/docs/Glossary/enumerated) Satz möglicher Schlüsselwortwerte. Zum Beispiel akzeptiert das diskrete `orientation`-Feature entweder `landscape` oder `portrait`.
+_Diskrete Features_ beziehen ihren Wert aus einem {{Glossary("enumerated", "aufgezählten")}} Satz möglicher Schlüsselwortwerte. Zum Beispiel akzeptiert das diskrete `orientation`-Feature entweder `landscape` oder `portrait`.
 
 ```css
 @media print and (orientation: portrait) {
@@ -122,7 +122,7 @@ _Diskrete Features_ beziehen ihren Wert aus einem [aufgezählten](/de/docs/Gloss
 ```
 
 Viele _Bereichs-Features_ können mit "min-" oder "max-" vorangestellt werden, um "Mindestbedingung" oder "Höchstbedingung" Einschränkungen auszudrücken.
-Zum Beispiel wird dieses CSS Stile nur anwenden, wenn die [Viewport](/de/docs/Glossary/viewport)-Breite Ihres Browsers gleich oder kleiner als 1250px ist:
+Zum Beispiel wird dieses CSS Stile nur anwenden, wenn die {{Glossary("viewport", "Viewport")}}-Breite Ihres Browsers gleich oder kleiner als 1250px ist:
 
 ```css
 @media (max-width: 1250px) {

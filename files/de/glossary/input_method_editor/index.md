@@ -17,4 +17,4 @@ Ein Input Method Editor (IME) ist ein Programm, das eine spezialisierte Benutzer
 
 - [Eingabemethode](https://en.wikipedia.org/wiki/Input_method)
 - Verwandte Glossarbegriffe:
-  - [Internationalisierung (I18N)](/de/docs/Glossary/Internationalization)
+  - {{Glossary("Internationalization", "Internationalisierung (I18N)")}}

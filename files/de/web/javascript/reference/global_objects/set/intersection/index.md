@@ -42,7 +42,7 @@ Und unter Verwendung eines Venn-Diagramms:
 `intersection()` akzeptiert [set-ähnliche Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Set#set-like_objects) als `other`-Parameter. Es erfordert, dass {{jsxref("Operators/this", "this")}} eine tatsächliche {{jsxref("Set")}}-Instanz ist, da die zugrunde liegenden Daten direkt in `this` abgerufen werden, ohne benutzerdefinierten Code aufzurufen. Dann hängt das Verhalten von den Größen von `this` und `other` ab:
 
 - Wenn `this` mehr Elemente enthält als `other.size`, wird `other` durch Aufrufen seiner `keys()`-Methode iteriert, und ein neues Set wird mit allen erzeugten Elementen erstellt, die auch in `this` vorhanden sind.
-- Andernfalls wird über die Elemente von `this` iteriert, und ein neues Set wird mit allen Elementen `e` in `this` erstellt, die `other.has(e)` dazu bringen, einen [wahrheitsgemäßen](/de/docs/Glossary/Truthy) Wert zurückzugeben.
+- Andernfalls wird über die Elemente von `this` iteriert, und ein neues Set wird mit allen Elementen `e` in `this` erstellt, die `other.has(e)` dazu bringen, einen {{Glossary("Truthy", "wahrheitsgemäßen")}} Wert zurückzugeben.
 
 Aufgrund dieser Implementierung hängt die Effizienz von `intersection()` hauptsächlich von der Größe des kleineren Sets zwischen `this` und `other` ab (vorausgesetzt, dass auf Sets in sublinearer Zeit zugegriffen werden kann). Die Reihenfolge der Elemente im zurückgegebenen Set entspricht der des kleineren von `this` und `other`.
 

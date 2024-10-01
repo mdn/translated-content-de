@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**[CSP](/de/docs/Glossary/CSP)-Navigationsrichtlinien** werden in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und bestimmen, zu welchem Ort ein Benutzer navigieren oder ein Formular absenden kann, zum Beispiel.
+**{{Glossary("CSP", "CSP")}}-Navigationsrichtlinien** werden in einem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet und bestimmen, zu welchem Ort ein Benutzer navigieren oder ein Formular absenden kann, zum Beispiel.
 
 Navigationsrichtlinien greifen nicht auf die {{CSP("default-src")}}-Richtlinie zurück.
 
@@ -18,9 +18,9 @@ Siehe [Navigationsrichtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy
 - <https://www.w3.org/TR/CSP/#directives-navigation>
 - Andere Arten von Richtlinien:
 
-  - [Fetch-Richtlinie](/de/docs/Glossary/Fetch_directive)
-  - [Dokumentenrichtlinie](/de/docs/Glossary/Document_directive)
-  - [Reporting-Richtlinie](/de/docs/Glossary/Reporting_directive)
+  - {{Glossary("Fetch_directive", "Fetch-Richtlinie")}}
+  - {{Glossary("Document_directive", "Dokumentenrichtlinie")}}
+  - {{Glossary("Reporting_directive", "Reporting-Richtlinie")}}
   - [`block-all-mixed-content`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content)
   - [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests)
   - [`trusted-types`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/trusted-types)

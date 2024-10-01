@@ -22,7 +22,7 @@ while (condition);
 - `statement`
   - : Eine Anweisung, die mindestens einmal ausgeführt wird und solange erneut ausgeführt wird, wie die Bedingung als wahr ausgewertet wird. Sie können eine [Block-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/block) verwenden, um mehrere Anweisungen auszuführen.
 - `condition`
-  - : Ein Ausdruck, der _nach_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung [als wahr ausgewertet wird](/de/docs/Glossary/Truthy), wird `statement` erneut ausgeführt. Wenn die Bedingung [als falsch ausgewertet wird](/de/docs/Glossary/Falsy), wird die Ausführung mit der Anweisung nach der `do...while`-Schleife fortgesetzt.
+  - : Ein Ausdruck, der _nach_ jedem Durchlauf der Schleife ausgewertet wird. Wenn diese Bedingung {{Glossary("Truthy", "als wahr ausgewertet wird")}}, wird `statement` erneut ausgeführt. Wenn die Bedingung {{Glossary("Falsy", "als falsch ausgewertet wird")}}, wird die Ausführung mit der Anweisung nach der `do...while`-Schleife fortgesetzt.
 
 ## Beschreibung
 

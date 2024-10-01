@@ -72,7 +72,7 @@ Das `step`-Attribut ist eine Zahl, die die Granularität angibt, der der Wert en
 Das `step`-Attribut kann auch auf den Zeichenkettenwert `any` gesetzt werden. Dieser `step`-Wert bedeutet, dass kein Schrittintervall impliziert ist und jeder Wert im angegebenen Bereich akzeptiert wird (unter Vorbehalt anderer Einschränkungen wie [`min`](#min) und [`max`](#max)). Siehe das Beispiel [Setzen von Schritt auf den Wert `any`](#setting_step_to_any), um zu sehen, wie dies in unterstützten Browsern funktioniert.
 
 > [!NOTE]
-> Wenn der vom Benutzer eingegebene Wert nicht den Schrittkonfigurationen entspricht, kann der [Benutzeragent](/de/docs/Glossary/user_agent) den Wert auf den nächsten gültigen Wert runden, wobei Zahlen bevorzugt nach oben gerundet werden, wenn es zwei gleich nahe Optionen gibt.
+> Wenn der vom Benutzer eingegebene Wert nicht den Schrittkonfigurationen entspricht, kann der {{Glossary("user_agent", "Benutzeragent")}} den Wert auf den nächsten gültigen Wert runden, wobei Zahlen bevorzugt nach oben gerundet werden, wenn es zwei gleich nahe Optionen gibt.
 
 Der Standardschrittwert für Bereichseingaben ist 1, der nur ganze Zahlen zulässt, _es sei denn_, die Schrittbasis ist keine ganze Zahl; Wenn Sie z. B. `min` auf -10 und `value` auf 1.5 setzen, erlaubt ein `step` von 1 nur Werte wie 1.5, 2.5, 3.5,… in positiver Richtung und -0.5, -1.5, -2.5,… in negativer Richtung. Siehe das HTML [`step`](/de/docs/Web/HTML/Attributes/step)-Attribut.
 

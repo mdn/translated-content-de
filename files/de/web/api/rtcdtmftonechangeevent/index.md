@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`RTCDTMFToneChangeEvent`**-Schnittstelle repräsentiert Ereignisse, die darauf hinweisen, dass [DTMF](/de/docs/Glossary/DTMF)-Töne begonnen haben zu spielen oder fertig sind. Diese Schnittstelle wird vom [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis verwendet.
+Die **`RTCDTMFToneChangeEvent`**-Schnittstelle repräsentiert Ereignisse, die darauf hinweisen, dass {{Glossary("DTMF", "DTMF")}}-Töne begonnen haben zu spielen oder fertig sind. Diese Schnittstelle wird vom [`tonechange`](/de/docs/Web/API/RTCDTMFSender/tonechange_event)-Ereignis verwendet.
 
 {{InheritanceDiagram}}
 

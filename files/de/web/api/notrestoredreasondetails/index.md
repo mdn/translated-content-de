@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die **`NotRestoredReasonDetails`**-Schnittstelle der [Performance API](/de/docs/Web/API/Performance_API) stellt einen einzigen Grund dar, warum eine navigierte Seite daran gehindert wurde, den Back-/Forward-Cache ([bfcache](/de/docs/Glossary/bfcache)) zu verwenden.
+Die **`NotRestoredReasonDetails`**-Schnittstelle der [Performance API](/de/docs/Web/API/Performance_API) stellt einen einzigen Grund dar, warum eine navigierte Seite daran gehindert wurde, den Back-/Forward-Cache ({{Glossary("bfcache", "bfcache")}}) zu verwenden.
 
 Ein Array von `NotRestoredReasonDetails`-Objekten kann über die [`NotRestoredReasons.reasons`](/de/docs/Web/API/NotRestoredReasons/reasons)-Eigenschaft aufgerufen werden.
 
@@ -19,7 +19,7 @@ Ein Array von `NotRestoredReasonDetails`-Objekten kann über die [`NotRestoredRe
 ## Instanzmethoden
 
 - [`toJSON()`](/de/docs/Web/API/NotRestoredReasonDetails/toJSON) {{Experimental_Inline}}
-  - : Ein [Serializer](/de/docs/Glossary/Serialization); gibt eine JSON-Darstellung des `NotRestoredReasonDetails`-Objekts zurück.
+  - : Ein {{Glossary("Serialization", "Serializer")}}; gibt eine JSON-Darstellung des `NotRestoredReasonDetails`-Objekts zurück.
 
 ## Beispiele
 

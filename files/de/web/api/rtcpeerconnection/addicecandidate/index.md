@@ -58,7 +58,7 @@ addIceCandidate(candidate, successCallback, failureCallback) // deprecated
         "candidate:4234997325 1 udp 2043278322 192.0.2.172 44323 typ host"`
         ```
 
-        Der [User-Agent](/de/docs/Glossary/user_agent) bevorzugt immer Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn alles andere gleich ist.
+        Der {{Glossary("user_agent", "User-Agent")}} bevorzugt immer Kandidaten mit der höchsten [`priority`](/de/docs/Web/API/RTCIceCandidate/priority), wenn alles andere gleich ist.
         Im obigen Beispiel ist die Priorität `2043278322`. Die Attribute sind alle durch ein einzelnes Leerzeichen getrennt und in einer bestimmten Reihenfolge.
         Die vollständige Liste der Attribute für diesen Beispielkandidaten ist:
 
@@ -90,7 +90,7 @@ addIceCandidate(candidate, successCallback, failureCallback) // deprecated
     - `usernameFragment` {{optional_inline}}
 
       - : Eine Zeichenfolge, die das Benutzernamen-Fragment enthält (in der Regel als "ufrag" oder "ice-ufrag" abgekürzt).
-        Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich der Kommunikation mit dem [STUN](/de/docs/Glossary/STUN)-Server).
+        Dieses Fragment, zusammen mit dem ICE-Passwort ("ice-pwd"), identifiziert eindeutig eine einzelne laufende ICE-Interaktion (einschließlich der Kommunikation mit dem {{Glossary("STUN", "STUN")}}-Server).
 
         Die Zeichenfolge wird von WebRTC zu Beginn der Sitzung erzeugt.
         Sie kann bis zu 256 Zeichen lang sein und mindestens 24 Bit müssen zufällige Daten enthalten.

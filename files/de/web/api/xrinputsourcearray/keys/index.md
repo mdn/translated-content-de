@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebXR Device API")}}{{SeeCompatTable}}
 
-Die **`keys()`**-Methode der [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Schnittstelle gibt einen [JavaScript](/de/docs/Glossary/JavaScript)-[`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, der dann verwendet werden kann, um über die Schlüssel zu iterieren, die zur Referenzierung jedes Elements im Array der Eingabequellen verwendet werden.
+Die **`keys()`**-Methode der [`XRInputSourceArray`](/de/docs/Web/API/XRInputSourceArray)-Schnittstelle gibt einen {{Glossary("JavaScript", "JavaScript")}}-[`Iterator`](/de/docs/Web/JavaScript/Reference/Global_Objects/Iterator) zurück, der dann verwendet werden kann, um über die Schlüssel zu iterieren, die zur Referenzierung jedes Elements im Array der Eingabequellen verwendet werden.
 
 ## Syntax
 

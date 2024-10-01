@@ -9,9 +9,9 @@ l10n:
 
 Ein **Uniform Resource Locator** (**URL**) ist eine Textzeichenfolge, die angibt, wo eine Ressource (wie eine Webseite, ein Bild oder ein Video) im Internet zu finden ist.
 
-Im Kontext von [HTTP](/de/docs/Glossary/HTTP) werden URLs als "Webadresse" oder "Link" bezeichnet. Ihr [Browser](/de/docs/Glossary/browser) zeigt URLs in seiner Adressleiste an, zum Beispiel: `https://developer.mozilla.org`. Einige Browser zeigen nur den Teil einer URL nach "//" an, das heißt den [Domainnamen](/de/docs/Glossary/Domain_name).
+Im Kontext von {{Glossary("HTTP", "HTTP")}} werden URLs als "Webadresse" oder "Link" bezeichnet. Ihr {{Glossary("browser", "Browser")}} zeigt URLs in seiner Adressleiste an, zum Beispiel: `https://developer.mozilla.org`. Einige Browser zeigen nur den Teil einer URL nach "//" an, das heißt den {{Glossary("Domain_name", "Domainnamen")}}.
 
-URLs können auch für Dateiübertragungen ([FTP](/de/docs/Glossary/FTP)), E-Mails ([SMTP](/de/docs/Glossary/SMTP)) und andere Anwendungen verwendet werden.
+URLs können auch für Dateiübertragungen ({{Glossary("FTP", "FTP")}}), E-Mails ({{Glossary("SMTP", "SMTP")}}) und andere Anwendungen verwendet werden.
 
 ## Siehe auch
 

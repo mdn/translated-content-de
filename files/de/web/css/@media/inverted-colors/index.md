@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`inverted-colors`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu testen, ob der [User-Agent](/de/docs/Glossary/user_agent) oder das zugrunde liegende Betriebssystem alle Farben invertiert hat.
+Die **`inverted-colors`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) wird verwendet, um zu testen, ob der {{Glossary("user_agent", "User-Agent")}} oder das zugrunde liegende Betriebssystem alle Farben invertiert hat.
 
 Die Invertierung von Farben kann unangenehme Nebeneffekte haben, wie zum Beispiel das Umwandeln von Schatten in Hervorhebungen, was die Lesbarkeit der Inhalte reduzieren kann. Mit diesem Media-Feature können Sie erkennen, ob eine Invertierung stattfindet und die Inhalte entsprechend benutzerfreundlich gestalten.
 

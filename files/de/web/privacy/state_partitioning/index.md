@@ -36,7 +36,7 @@ Unsere aktuelle [Cookie-Standardrichtlinie](/de/docs/Web/Privacy/Storage_Access_
 State Partitioning ist ein anderer Ansatz zur Verhinderung der Verfolgung über Websites hinweg.
 Anstatt den Zugriff auf bestimmte APIs in einem Drittanbieter-Kontext zu blockieren, bietet Firefox eingebetteten Ressourcen einen separaten Speicherbereich für jede oberste Website.
 Genauer gesagt speichert Firefox alle clientseitigen Zustände doppelt, nach dem [Ursprung](https://html.spec.whatwg.org/multipage/browsers.html#origin) der geladenen Ressource und nach der obersten [Seite](https://html.spec.whatwg.org/multipage/browsers.html#site).
-In den meisten Fällen ist die oberste Seite das Schema und [eTLD+1](/de/docs/Glossary/eTLD) der obersten Seite, die vom Benutzer besucht wird.
+In den meisten Fällen ist die oberste Seite das Schema und {{Glossary("eTLD", "eTLD+1")}} der obersten Seite, die vom Benutzer besucht wird.
 
 Im untenstehenden Beispiel ist `example.com` in `A.example` und `B.example` eingebettet.
 Da jedoch der Speicher partitioniert ist, gibt es drei unterschiedliche Speicherbereiche (statt einem).
@@ -91,7 +91,7 @@ Daher werden die folgenden Netzwerk-APIs und -Caches **dauerhaft** durch die obe
 - Favicon-Cache
 - Verbindungspooling
 - Stylesheet-Cache
-- [DNS](/de/docs/Glossary/DNS)
+- {{Glossary("DNS", "DNS")}}
 - HTTP-Authentifizierung
 - [Alt-Svc](/de/docs/Web/HTTP/Headers/Alt-Svc)
 - Spekulative Verbindungen
@@ -103,7 +103,7 @@ Daher werden die folgenden Netzwerk-APIs und -Caches **dauerhaft** durch die obe
 - TLS-Sitzungs-IDs
 - Prefetch
 - Preconnect
-- [CORS-preflight](/de/docs/Glossary/Preflight_request) Cache
+- {{Glossary("Preflight_request", "CORS-preflight")}} Cache
 - WebRTC deviceID
 
 ## Dynamische Partitionierung
@@ -162,11 +162,11 @@ Es gibt mehrere Funktionen in Firefox, die das Testen erleichtern.
 Hier ist ein Überblick über die Nachrichten, die an die Webkonsole gesendet werden, wenn Sie mit dem Speicher in einem Drittanbieter-Kontext interagieren.
 In den folgenden Beispielen ist `a.example` die oberste Website, die den Drittanbieter-Frame `b.example` einbettet.
 
-| Grund                                                                                                                   | Konsolennachricht                                                                                                                               |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Der Speicher eines Drittanbieter-Frames ist partitioniert                                                                            | Ein partitionierter Cookie- oder Speicherkontrollzugriff wurde zu "b.example" bereitgestellt, weil es im Drittanbieter-Kontext geladen wurde und die Speicherpartitionierung aktiviert ist. |
-| Der Zugriff auf nicht partitionierte Cookies wird durch die [Heuristiken des Speicherkontrollzugriffs](#heuristik_des_speicherkontrollzugriffs) gewährt               | Speicherkontrollzugriff automatisch gewährt für die First-Party-Isolierung von "b.example" auf "a.example".                                                            |
-| Der Zugriff auf nicht partitionierte Cookies wird über die [StorageAccessAPI](/de/docs/Web/API/Document/requestStorageAccess) erteilt | Der Speicherzugriff wurde für den Ursprung "b.example" auf "a.example" gewährt.                                                                                         |
+| Grund                                                                                                                                                   | Konsolennachricht                                                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Der Speicher eines Drittanbieter-Frames ist partitioniert                                                                                               | Ein partitionierter Cookie- oder Speicherkontrollzugriff wurde zu "b.example" bereitgestellt, weil es im Drittanbieter-Kontext geladen wurde und die Speicherpartitionierung aktiviert ist. |
+| Der Zugriff auf nicht partitionierte Cookies wird durch die [Heuristiken des Speicherkontrollzugriffs](#heuristik_des_speicherkontrollzugriffs) gewährt | Speicherkontrollzugriff automatisch gewährt für die First-Party-Isolierung von "b.example" auf "a.example".                                                                                 |
+| Der Zugriff auf nicht partitionierte Cookies wird über die [StorageAccessAPI](/de/docs/Web/API/Document/requestStorageAccess) erteilt                   | Der Speicherzugriff wurde für den Ursprung "b.example" auf "a.example" gewährt.                                                                                                             |
 
 ### Dritter-Speicherzugriff löschen
 
@@ -205,11 +205,11 @@ Die Netzwerkpartitionierung kann mit der Voreinstellung `privacy.partition.netwo
 
 Um die dynamische Speicherpartitionierung für alle Websites zu deaktivieren, können Sie die Voreinstellung `network.cookie.cookieBehavior` verwenden:
 
-| Wert | Beschreibung                                                |
-| ----- | ---------------------------------------------------------- |
-| 5     | Lehne (bekannte) Tracker ab und partitioniere Drittanbieterspeicher. |
-| 4     | Nur Tracker ablehnen (Speicherpartitionierung deaktiviert).      |
-| 0     | Alles zulassen                                                  |
+| Wert | Beschreibung                                                         |
+| ---- | -------------------------------------------------------------------- |
+| 5    | Lehne (bekannte) Tracker ab und partitioniere Drittanbieterspeicher. |
+| 4    | Nur Tracker ablehnen (Speicherpartitionierung deaktiviert).          |
+| 0    | Alles zulassen                                                       |
 
 #### Bestimmte Ursprünge von der Partitionierung ausnehmen
 

@@ -7,11 +7,11 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`glyph-name`** Attribut gibt den Namen eines [Glyphen](/de/docs/Glossary/glyph) an.
+Das **`glyph-name`** Attribut gibt den Namen eines {{Glossary("glyph", "Glyphen")}} an.
 
-Es wird empfohlen, dass Glyphennamen innerhalb einer Schriftart eindeutig sind. Die Glyphennamen können in Situationen verwendet werden, in denen [Unicode](/de/docs/Glossary/Unicode)-Zeichennummern nicht genügend Informationen liefern, um auf den richtigen Glyphen zuzugreifen, z. B. wenn es mehrere Glyphen pro Unicode-Zeichen gibt.
+Es wird empfohlen, dass Glyphennamen innerhalb einer Schriftart eindeutig sind. Die Glyphennamen können in Situationen verwendet werden, in denen {{Glossary("Unicode", "Unicode")}}-Zeichennummern nicht genügend Informationen liefern, um auf den richtigen Glyphen zuzugreifen, z. B. wenn es mehrere Glyphen pro Unicode-Zeichen gibt.
 
-Die Glyphennamen können in [Kerning](/de/docs/Glossary/kerning)-Definitionen referenziert werden, die von {{SVGElement("hkern")}} und {{SVGElement("vkern")}} Elementen erstellt wurden.
+Die Glyphennamen können in {{Glossary("kerning", "Kerning")}}-Definitionen referenziert werden, die von {{SVGElement("hkern")}} und {{SVGElement("vkern")}} Elementen erstellt wurden.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

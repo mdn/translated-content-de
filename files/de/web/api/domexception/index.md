@@ -11,7 +11,7 @@ Die **`DOMException`**-Schnittstelle repräsentiert ein anormales Ereignis (eine
 
 Jede Exception hat einen **Namen**, der ein kurzer "PascalCase"-String ist, der den Fehler oder die anormale Bedingung identifiziert.
 
-`DOMException` ist ein [serialisierbares Objekt](/de/docs/Glossary/Serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`DOMException` ist ein {{Glossary("Serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Arbeitern](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 ## Konstruktor
 

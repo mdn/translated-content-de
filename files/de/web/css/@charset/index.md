@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`@charset`**-Regel in [CSS](/de/docs/Web/CSS) legt die Zeichenkodierung fest, die im Stylesheet verwendet wird. Diese Syntax ist nützlich, wenn nicht-[ASCII](/de/docs/Glossary/ASCII)-Zeichen in einigen CSS-Eigenschaften verwendet werden, wie z.B. {{ cssxref("content") }}. Obwohl das erste Zeichen in `@charset` das `@`-Symbol ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/At-rule). Es ist eine spezifische Byte-Sequenz, die nur ganz am Anfang eines Stylesheets platziert werden kann. Keine anderen Zeichen, außer dem Unicode-Byte-Order-Mark, sind davor erlaubt. Es folgt auch nicht den normalen CSS-Syntaxregeln wie der Verwendung von Anführungszeichen oder Leerzeichen.
+Die **`@charset`**-Regel in [CSS](/de/docs/Web/CSS) legt die Zeichenkodierung fest, die im Stylesheet verwendet wird. Diese Syntax ist nützlich, wenn nicht-{{Glossary("ASCII", "ASCII")}}-Zeichen in einigen CSS-Eigenschaften verwendet werden, wie z.B. {{ cssxref("content") }}. Obwohl das erste Zeichen in `@charset` das `@`-Symbol ist, handelt es sich nicht um eine [At-Regel](/de/docs/Web/CSS/At-rule). Es ist eine spezifische Byte-Sequenz, die nur ganz am Anfang eines Stylesheets platziert werden kann. Keine anderen Zeichen, außer dem Unicode-Byte-Order-Mark, sind davor erlaubt. Es folgt auch nicht den normalen CSS-Syntaxregeln wie der Verwendung von Anführungszeichen oder Leerzeichen.
 
 Wenn ein `@charset` nicht als Charset-Deklaration erkannt wird, wird es als normale At-Regel geparst. Das [CSS-Syntax](/de/docs/Web/CSS/CSS_syntax)-Modul hebt dieses Fallback-Verhalten auf und definiert es als unerkannte Legacy-Regel, die beim Grammatik-Checken eines Stylesheets entfernt werden soll.
 
@@ -60,5 +60,5 @@ Da es mehrere Methoden gibt, um die Zeichenkodierung eines Stylesheets festzuleg
 
 ## Siehe auch
 
-- Eintrag im Glossar: [Zeichensatz](/de/docs/Glossary/Character_set)
-- Eintrag im Glossar: [Unicode](/de/docs/Glossary/Unicode)
+- Eintrag im Glossar: {{Glossary("Character_set", "Zeichensatz")}}
+- Eintrag im Glossar: {{Glossary("Unicode", "Unicode")}}

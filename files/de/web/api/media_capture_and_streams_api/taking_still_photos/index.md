@@ -67,7 +67,7 @@ Diese Variablen sind:
 - `width`
   - : Unabhängig von der Größe des eingehenden Videos skalieren wir das resultierende Bild auf eine Breite von 320 Pixeln.
 - `height`
-  - : Die Ausgangshöhe des Bildes wird unter Berücksichtigung der `width` und des [Seitenverhältnisses](/de/docs/Glossary/aspect_ratio) des Streams berechnet.
+  - : Die Ausgangshöhe des Bildes wird unter Berücksichtigung der `width` und des {{Glossary("aspect_ratio", "Seitenverhältnisses")}} des Streams berechnet.
 - `streaming`
   - : Gibt an, ob derzeit ein aktiver Videostream läuft.
 - `video`

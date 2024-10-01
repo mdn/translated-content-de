@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`background-attachment`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Position eines Hintergrundbildes innerhalb des [Ansichtsfensters](/de/docs/Glossary/viewport) fest ist oder mit seinem umgebenden Block scrollt.
+Die **`background-attachment`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Position eines Hintergrundbildes innerhalb des {{Glossary("viewport", "Ansichtsfensters")}} fest ist oder mit seinem umgebenden Block scrollt.
 
 {{EmbedInteractiveExample("pages/css/background-attachment.html")}}
 

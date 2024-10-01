@@ -68,7 +68,7 @@ Dieser Code wird aufgerufen, wann immer der Server eine Nachricht mit dem `event
 
 Das serverseitige Skript, das Ereignisse sendet, muss mit dem MIME-Typ `text/event-stream` antworten. Jede Benachrichtigung wird als Textblock gesendet, der durch ein Paar von Zeilenumbrüchen beendet wird. Einzelheiten zum Format des Ereignisstreams finden Sie unter [Event stream format](#format_des_ereignisstreams).
 
-Der [PHP](/de/docs/Glossary/PHP)-Code für das Beispiel, das wir hier verwenden, ist wie folgt:
+Der {{Glossary("PHP", "PHP")}}-Code für das Beispiel, das wir hier verwenden, ist wie folgt:
 
 ```php
 date_default_timezone_set("America/New_York");
@@ -132,7 +132,7 @@ evtSource.close();
 
 ## Format des Ereignisstreams
 
-Der Ereignisstream ist ein einfacher Datenstrom von Textdaten, der mit [UTF-8](/de/docs/Glossary/UTF-8) codiert sein muss. Nachrichten im Ereignisstrom werden durch ein Paar von Zeilenumbruchzeichen getrennt. Ein Doppelpunkt als erstes Zeichen einer Zeile ist im Wesentlichen ein Kommentar und wird ignoriert.
+Der Ereignisstream ist ein einfacher Datenstrom von Textdaten, der mit {{Glossary("UTF-8", "UTF-8")}} codiert sein muss. Nachrichten im Ereignisstrom werden durch ein Paar von Zeilenumbruchzeichen getrennt. Ein Doppelpunkt als erstes Zeichen einer Zeile ist im Wesentlichen ein Kommentar und wird ignoriert.
 
 > [!NOTE]
 > Die Kommentarlinie kann verwendet werden, um zu verhindern, dass Verbindungen aufgrund von Zeitüberschreitungen unterbrochen werden; ein Server kann regelmäßig einen Kommentar senden, um die Verbindung aufrechtzuerhalten.

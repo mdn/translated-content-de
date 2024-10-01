@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **Namespace-Trennzeichen** (`|`) trennt den Selektor vom Namespace und identifiziert den [Namespace](/de/docs/Glossary/namespace) oder dessen Fehlen für einen Typselektor.
+Der **Namespace-Trennzeichen** (`|`) trennt den Selektor vom Namespace und identifiziert den {{Glossary("namespace", "Namespace")}} oder dessen Fehlen für einen Typselektor.
 
 ```css
 /* Links in the namespace named myNameSpace */

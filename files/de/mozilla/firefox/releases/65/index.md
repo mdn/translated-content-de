@@ -159,7 +159,7 @@ _Keine Änderungen._
 
 ### Sonstiges
 
-- Unterstützung für [WebP](/de/docs/Glossary/WebP)-Bilder wurde hinzugefügt ([Firefox Fehler 1294490](https://bugzil.la/1294490)).
+- Unterstützung für {{Glossary("WebP", "WebP")}}-Bilder wurde hinzugefügt ([Firefox Fehler 1294490](https://bugzil.la/1294490)).
 
   - Darüber hinaus wurde der WebP-MIME-Type (`image/webp`) dem Standard-HTTP-Anforderungs-{{httpheader("Accept")}}-Header für HTML-Dateien hinzugefügt, um die Kompatibilität zwischen Browsern in bestimmten Situationen zu erleichtern ([Firefox Fehler 1507691](https://bugzil.la/1507691)).
 

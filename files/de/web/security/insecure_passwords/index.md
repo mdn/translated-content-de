@@ -9,9 +9,9 @@ l10n:
 
 Login-Formulare über HTTP anzubieten ist besonders gefährlich, da eine Vielzahl von Angriffen gegen sie verwendet werden kann, um das Passwort eines Benutzers zu extrahieren. Netzwerkabhörer könnten das Passwort eines Benutzers stehlen, indem sie das Netzwerk abhören oder die während der Übertragung bereitgestellte Seite modifizieren.
 
-Das [HTTPS](/de/docs/Glossary/HTTPS)-Protokoll ist darauf ausgelegt, Benutzerdaten vor Abhörmaßnahmen (Vertraulichkeit) und vor Modifikationen (Integrität) im Netzwerk zu schützen. Websites, die Benutzerdaten verarbeiten, sollten HTTPS verwenden, um ihre Benutzer vor Angreifern zu schützen. Wenn eine Website HTTP anstelle von HTTPS verwendet, ist es trivial, Benutzerdaten (wie ihre Zugangsdaten) zu stehlen. Dies wurde durch [Firesheep](https://codebutler.github.io/firesheep/) eindrucksvoll demonstriert.
+Das {{Glossary("HTTPS", "HTTPS")}}-Protokoll ist darauf ausgelegt, Benutzerdaten vor Abhörmaßnahmen (Vertraulichkeit) und vor Modifikationen (Integrität) im Netzwerk zu schützen. Websites, die Benutzerdaten verarbeiten, sollten HTTPS verwenden, um ihre Benutzer vor Angreifern zu schützen. Wenn eine Website HTTP anstelle von HTTPS verwendet, ist es trivial, Benutzerdaten (wie ihre Zugangsdaten) zu stehlen. Dies wurde durch [Firesheep](https://codebutler.github.io/firesheep/) eindrucksvoll demonstriert.
 
-Um dieses Problem zu beheben, installieren und konfigurieren Sie ein [TLS](/de/docs/Glossary/TLS)-Zertifikat auf Ihrem Server. Es gibt verschiedene Anbieter, die kostenlose und kostenpflichtige Zertifikate anbieten. Wenn Sie eine Cloud-Plattform nutzen, hat diese möglicherweise eigene Möglichkeiten zur Aktivierung von HTTPS.
+Um dieses Problem zu beheben, installieren und konfigurieren Sie ein {{Glossary("TLS", "TLS")}}-Zertifikat auf Ihrem Server. Es gibt verschiedene Anbieter, die kostenlose und kostenpflichtige Zertifikate anbieten. Wenn Sie eine Cloud-Plattform nutzen, hat diese möglicherweise eigene Möglichkeiten zur Aktivierung von HTTPS.
 
 ## Hinweis zur Passwort-Wiederverwendung
 

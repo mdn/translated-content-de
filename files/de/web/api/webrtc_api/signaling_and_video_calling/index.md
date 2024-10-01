@@ -22,11 +22,11 @@ Um eine WebRTC-Verbindung zwischen zwei Geräten herzustellen, ist die Verwendun
 
 Zuerst benötigen wir den Signalisierungsserver selbst. WebRTC spezifiziert keinen Transportmechanismus für die Signalisierungsinformationen. Sie können alles verwenden, von [WebSocket](/de/docs/Web/API/WebSockets_API) über [`fetch()`](/de/docs/Web/API/Window/fetch) bis hin zu Brieftauben, um die Signalisierungsinformationen zwischen den beiden Peers auszutauschen.
 
-Es ist wichtig zu beachten, dass der Server den Inhalt der Signalisierungsdaten nicht verstehen oder interpretieren muss. Obwohl es sich um [SDP](/de/docs/Glossary/SDP) handelt, spielt das keine große Rolle: Der Inhalt der Nachricht, die über den Signalisierungsserver geht, ist im Grunde eine Black Box. Wichtig ist, dass wenn das [ICE](/de/docs/Glossary/ICE)-Subsystem Sie anweist, Signalisierungsdaten an den anderen Peer zu senden, Sie dies tun und der andere Peer weiß, wie er diese Informationen empfangen und an sein eigenes ICE-Subsystem übermitteln kann. Alles, was Sie tun müssen, ist, die Informationen hin und her zu leiten. Der Inhalt ist für den Signalisierungsserver völlig irrelevant.
+Es ist wichtig zu beachten, dass der Server den Inhalt der Signalisierungsdaten nicht verstehen oder interpretieren muss. Obwohl es sich um {{Glossary("SDP", "SDP")}} handelt, spielt das keine große Rolle: Der Inhalt der Nachricht, die über den Signalisierungsserver geht, ist im Grunde eine Black Box. Wichtig ist, dass wenn das {{Glossary("ICE", "ICE")}}-Subsystem Sie anweist, Signalisierungsdaten an den anderen Peer zu senden, Sie dies tun und der andere Peer weiß, wie er diese Informationen empfangen und an sein eigenes ICE-Subsystem übermitteln kann. Alles, was Sie tun müssen, ist, die Informationen hin und her zu leiten. Der Inhalt ist für den Signalisierungsserver völlig irrelevant.
 
 ### Vorbereitung des Chat-Servers für die Signalisierung
 
-Unser [Chat-Server](https://github.com/mdn/samples-server/tree/master/s/websocket-chat) verwendet die [WebSocket-API](/de/docs/Web/API/WebSockets_API), um Informationen als [JSON](/de/docs/Glossary/JSON)-Zeichenfolgen zwischen jedem Client und dem Server zu senden. Der Server unterstützt mehrere Nachrichtentypen zur Bearbeitung von Aufgaben wie das Registrieren neuer Benutzer, das Festlegen von Benutzernamen und das Senden öffentlicher Chat-Nachrichten.
+Unser [Chat-Server](https://github.com/mdn/samples-server/tree/master/s/websocket-chat) verwendet die [WebSocket-API](/de/docs/Web/API/WebSockets_API), um Informationen als {{Glossary("JSON", "JSON")}}-Zeichenfolgen zwischen jedem Client und dem Server zu senden. Der Server unterstützt mehrere Nachrichtentypen zur Bearbeitung von Aufgaben wie das Registrieren neuer Benutzer, das Festlegen von Benutzernamen und das Senden öffentlicher Chat-Nachrichten.
 
 Um es dem Server zu ermöglichen, Signalisierung und ICE-Aushandlung zu unterstützen, müssen wir den Code aktualisieren. Wir müssen ermöglichen, Nachrichten an einen bestimmten Benutzer zu richten, anstatt sie an alle verbundenen Benutzer zu senden, und sicherstellen, dass nicht erkannte Nachrichtentypen durchgelassen und zugestellt werden, ohne dass der Server wissen muss, was sie sind. Auf diese Weise können wir Signalisierungsnachrichten mit demselben Server senden, anstatt einen separaten Server zu benötigen.
 
@@ -72,7 +72,7 @@ Der Server dieses Beispiels verwendet zeichenfolgenbasierte JSON-objekte zur Kom
 
 #### Austauschen von Sitzungsbeschreibungen
 
-Beim Starten des Signalisierungsprozesses wird von dem Benutzer, der den Anruf initiiert, ein **Angebot** erstellt. Dieses Angebot enthält eine Sitzungsbeschreibung im [SDP](/de/docs/Glossary/SDP)-Format und muss an den empfangenden Benutzer, den wir **Angerufener** nennen werden, übermittelt werden. Der Angerufene antwortet auf das Angebot mit einer **Antwortnachricht**, die ebenfalls eine SDP-Beschreibung enthält. Unser Signalisierungsserver wird WebSocket verwenden, um Angebotsnachrichten mit dem Typ `"video-offer"` zu übertragen, und Antwortnachrichten mit dem Typ `"video-answer"`. Diese Nachrichten enthalten folgende Felder:
+Beim Starten des Signalisierungsprozesses wird von dem Benutzer, der den Anruf initiiert, ein **Angebot** erstellt. Dieses Angebot enthält eine Sitzungsbeschreibung im {{Glossary("SDP", "SDP")}}-Format und muss an den empfangenden Benutzer, den wir **Angerufener** nennen werden, übermittelt werden. Der Angerufene antwortet auf das Angebot mit einer **Antwortnachricht**, die ebenfalls eine SDP-Beschreibung enthält. Unser Signalisierungsserver wird WebSocket verwenden, um Angebotsnachrichten mit dem Typ `"video-offer"` zu übertragen, und Antwortnachrichten mit dem Typ `"video-answer"`. Diese Nachrichten enthalten folgende Felder:
 
 - `type`
   - : Der Nachrichtentyp; entweder `"video-offer"` oder `"video-answer"`.
@@ -83,7 +83,7 @@ Beim Starten des Signalisierungsprozesses wird von dem Benutzer, der den Anruf i
 - `sdp`
   - : Die SDP (Session Description Protocol) Zeichenfolge, die das lokale Ende der Verbindung aus Sicht des Absenders beschreibt (oder das entfernte Ende der Verbindung aus Sicht des Empfängers).
 
-Zu diesem Zeitpunkt wissen die beiden Teilnehmer, welche [Codecs](/de/docs/Web/Media/Formats/WebRTC_codecs) und [Codec-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) für diesen Anruf verwendet werden sollen. Sie wissen jedoch immer noch nicht, wie sie die Mediendaten selbst übertragen können. Hier kommt [Interactive Connectivity Establishment (ICE)](/de/docs/Glossary/ICE) ins Spiel.
+Zu diesem Zeitpunkt wissen die beiden Teilnehmer, welche [Codecs](/de/docs/Web/Media/Formats/WebRTC_codecs) und [Codec-Parameter](/de/docs/Web/Media/Formats/codecs_parameter) für diesen Anruf verwendet werden sollen. Sie wissen jedoch immer noch nicht, wie sie die Mediendaten selbst übertragen können. Hier kommt {{Glossary("ICE", "Interactive Connectivity Establishment (ICE)")}} ins Spiel.
 
 ### Austauschen von ICE-Kandidaten
 
@@ -333,7 +333,7 @@ function createPeerConnection() {
 }
 ```
 
-Beim Verwenden des [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)-Konstruktors spezifizieren wir ein Objekt, das Konfigurationsparameter für die Verbindung bereitstellt. In diesem Beispiel verwenden wir nur einen: `iceServers`. Dies ist ein Array von Objekten, die STUN- und/oder TURN-Server für das [ICE](/de/docs/Glossary/ICE)-Layer beschreiben, die bei dem Versuch verwendet werden, eine Route zwischen Anrufer und Angerufenem zu erstellen. Diese Server werden verwendet, um die beste Route und Protokolle zu bestimmen, die bei der Kommunikation zwischen den Peers verwendet werden sollen, selbst wenn sie hinter einer Firewall sind oder [NAT](/de/docs/Glossary/NAT) verwenden.
+Beim Verwenden des [`RTCPeerConnection()`](/de/docs/Web/API/RTCPeerConnection/RTCPeerConnection)-Konstruktors spezifizieren wir ein Objekt, das Konfigurationsparameter für die Verbindung bereitstellt. In diesem Beispiel verwenden wir nur einen: `iceServers`. Dies ist ein Array von Objekten, die STUN- und/oder TURN-Server für das {{Glossary("ICE", "ICE")}}-Layer beschreiben, die bei dem Versuch verwendet werden, eine Route zwischen Anrufer und Angerufenem zu erstellen. Diese Server werden verwendet, um die beste Route und Protokolle zu bestimmen, die bei der Kommunikation zwischen den Peers verwendet werden sollen, selbst wenn sie hinter einer Firewall sind oder {{Glossary("NAT", "NAT")}} verwenden.
 
 > [!NOTE]
 > Sie sollten immer STUN/TURN-Server verwenden, die Sie besitzen oder zu deren Verwendung Sie eine spezifische Autorisierung haben. Dieses Beispiel verwendet einen bekannten öffentlichen STUN-Server, aber deren Missbrauch ist nicht die feine Art.

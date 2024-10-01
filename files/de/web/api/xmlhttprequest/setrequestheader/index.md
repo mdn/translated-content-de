@@ -16,7 +16,7 @@ Jedes Mal, wenn Sie `setRequestHeader()` nach dem ersten Aufruf verwenden, wird 
 
 Wenn kein {{HTTPHeader("Accept")}}-Header mit dieser Methode gesetzt wurde, wird ein `Accept`-Header mit dem Typ `"*/*"` mit der Anforderung gesendet, wenn [`send()`](/de/docs/Web/API/XMLHttpRequest/send) aufgerufen wird.
 
-Aus Sicherheitsgründen gibt es mehrere [verbotene Header-Namen](/de/docs/Glossary/Forbidden_header_name), deren Werte durch den Benutzeragent gesteuert werden. Jeder Versuch, einen Wert für diese Header aus Frontend-JavaScript-Code zu setzen, wird ohne Warnung oder Fehler ignoriert.
+Aus Sicherheitsgründen gibt es mehrere {{Glossary("Forbidden_header_name", "verbotene Header-Namen")}}, deren Werte durch den Benutzeragent gesteuert werden. Jeder Versuch, einen Wert für diese Header aus Frontend-JavaScript-Code zu setzen, wird ohne Warnung oder Fehler ignoriert.
 
 Zusätzlich kann der HTTP-Header [`Authorization`](/de/docs/Web/HTTP/Headers/Authorization) zu einer Anforderung hinzugefügt werden, wird aber entfernt, wenn die Anforderung plattformübergreifend weitergeleitet wird.
 

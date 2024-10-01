@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Im Kontext von [CSS](/de/docs/Glossary/CSS) (Cascading Style Sheets) bezieht sich der Begriff **_media_** auf das Ziel, auf das das Dokument von der [Rendering-Engine](/de/docs/Glossary/Engine/Rendering) gezeichnet werden soll.
+Im Kontext von {{Glossary("CSS", "CSS")}} (Cascading Style Sheets) bezieht sich der Begriff **_media_** auf das Ziel, auf das das Dokument von der {{Glossary("Engine/Rendering", "Rendering-Engine")}} gezeichnet werden soll.
 
 Typischerweise ist dies ein Bildschirm - es kann jedoch auch ein Drucker, ein Braille-Display oder ein anderer Gerätetyp sein.
 

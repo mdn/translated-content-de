@@ -14,7 +14,7 @@ Die **`timeStamp`**-Eigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces
 
 Dieser Wert ist die Anzahl an Millisekunden, die vom Beginn des Zeitursprungs bis zur Erstellung des Ereignisses vergangen sind. Wenn das globale Objekt ein [`Window`](/de/docs/Web/API/Window) ist, entspricht der Zeitursprung dem Moment, in dem der Benutzer auf den Link geklickt hat oder das Skript, das das Laden des Dokuments initiiert hat. In einem Worker ist der Zeitursprung der Moment der Erstellung des Workers.
 
-Der Wert ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der auf 5 Mikrosekunden (0,005 ms) genau ist, wobei [die Präzision reduziert](#reduzierte_zeitpräzision) wird, um [Fingerabdrücke](/de/docs/Glossary/Fingerprinting) zu verhindern.
+Der Wert ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der auf 5 Mikrosekunden (0,005 ms) genau ist, wobei [die Präzision reduziert](#reduzierte_zeitpräzision) wird, um {{Glossary("Fingerprinting", "Fingerabdrücke")}} zu verhindern.
 
 ## Beispiel
 
@@ -44,7 +44,7 @@ document.body.addEventListener("keypress", getTime);
 
 ## Reduzierte Zeitpräzision
 
-Um Schutz vor Timing-Angriffen und [Fingerabdrücken](/de/docs/Glossary/Fingerprinting) zu bieten, könnte die Präzision von `event.timeStamp` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2 ms festgelegt. Sie können auch `privacy.resistFingerprinting` aktivieren. In diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher Wert größer ist.
+Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerabdrücken")}} zu bieten, könnte die Präzision von `event.timeStamp` je nach Browsereinstellungen gerundet werden. In Firefox ist die Einstellung `privacy.reduceTimerPrecision` standardmäßig aktiviert und auf 2 ms festgelegt. Sie können auch `privacy.resistFingerprinting` aktivieren. In diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher Wert größer ist.
 
 Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `event.timeStamp` immer ein Vielfaches von 2 sein oder ein Vielfaches von 100 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`), wenn `privacy.resistFingerprinting` aktiviert ist.
 

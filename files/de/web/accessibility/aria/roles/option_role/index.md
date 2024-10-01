@@ -37,7 +37,7 @@ Da Nachkommen von `option` darstellend sind, ist der folgende Code gleichwertig:
 <div role="option"><h3 role="presentation">Title of my option</h3></div>
 ```
 
-Aus Sicht eines Benutzers einer assistiven Technologie existiert die Überschrift nicht, da die vorherigen Codebeispiele gleichwertig sind mit dem folgenden im [Zugänglichkeit-Baum](/de/docs/Glossary/Accessibility_tree):
+Aus Sicht eines Benutzers einer assistiven Technologie existiert die Überschrift nicht, da die vorherigen Codebeispiele gleichwertig sind mit dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeit-Baum")}}:
 
 ```html
 <div role="option">Title of my option</div>

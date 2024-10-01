@@ -28,7 +28,7 @@ GET /resources HTTP/1.1
 Host: example.com
 ```
 
-Erwartet der Ursprungsserver, dass Anfragen in [HTTP/3](/de/docs/Glossary/HTTP_3) erfolgen:
+Erwartet der Ursprungsserver, dass Anfragen in {{Glossary("HTTP_3", "HTTP/3")}} erfolgen:
 
 ```http
 HTTP/1.1 426 Upgrade Required

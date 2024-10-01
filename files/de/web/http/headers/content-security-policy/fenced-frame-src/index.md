@@ -18,7 +18,7 @@ Das HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>[Fetch-Direktive](/de/docs/Glossary/Fetch_directive)</td>
+      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
       <th scope="row">Fallback</th>

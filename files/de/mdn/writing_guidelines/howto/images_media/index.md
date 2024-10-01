@@ -153,7 +153,7 @@ Ein gutes Beispiel finden Sie unter [Arbeiten mit dem Animationsinspektor](https
 Darüber hinaus sollten Sie die folgenden Tipps in Betracht ziehen:
 
 - Das Video wird vor dem Einbetten bei YouTube hochgeladen.
-  Wir empfehlen ein 16:9 [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) für diese Verwendung, damit es den gesamten Betrachtungsrahmen ausfüllt und Sie keine unschönen schwarzen Balken oben und unten (oder links und rechts) in Ihrem Video haben.
+  Wir empfehlen ein 16:9 {{Glossary("aspect_ratio", "Seitenverhältnis")}} für diese Verwendung, damit es den gesamten Betrachtungsrahmen ausfüllt und Sie keine unschönen schwarzen Balken oben und unten (oder links und rechts) in Ihrem Video haben.
   Sie können beispielsweise eine Auflösung von 1024×576, 1152×648 oder 1280×720 wählen.
 - Nehmen Sie das Video in HD auf, damit es besser aussieht, wenn es hochgeladen wird.
 - Für DevTools-Videos ist es oft eine gute Idee, ein kontrastreiches Thema zum Seiteninhalt zu wählen. Wählen Sie beispielsweise das dunkle Thema, wenn die Beispielwebseite hell ist. Es ist einfacher zu sehen, was passiert und wo die DevTools beginnen und die Seite endet.
@@ -170,13 +170,13 @@ Falls nicht, empfehlen wir, mit einem einfachen Tool zu beginnen und sich dann z
 
 Die folgende Tabelle bietet einige Empfehlungen für gute Starter-Tools:
 
-| Tool                      | OS                    | Kosten | Post-Produktionsmerkmale verfügbar?  |
-| ------------------------- | --------------------- | ------ | ------------------------------------ |
+| Tool                      | OS                    | Kosten    | Post-Produktionsmerkmale verfügbar?  |
+| ------------------------- | --------------------- | --------- | ------------------------------------ |
 | Open Broadcaster Software | macOS, Windows, Linux | Kostenlos | Ja                                   |
 | CamStudio                 | Windows               | Kostenlos | Begrenzt                             |
-| Camtasia                  | Windows, macOS        | Hoch   | Ja                                   |
+| Camtasia                  | Windows, macOS        | Hoch      | Ja                                   |
 | QuickTime Player          | macOS                 | Kostenlos | Nein, erlaubt nur einfache Aufnahmen |
-| ScreenFlow                | macOS                 | Mittel | Ja                                   |
+| ScreenFlow                | macOS                 | Mittel    | Ja                                   |
 | Kazam                     | Linux                 | Kostenlos | Minimal                              |
 
 ### QuickTime Player Tipps

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Clickjacking** ist ein auf Benutzeroberflächen basierender Angriff, der Website-Benutzer dazu verleitet, unbewusst auf bösartige Links zu klicken. Beim Clickjacking betten die Angreifer ihre bösartigen Links in Schaltflächen oder legitime Seiten einer Website ein. In einer infizierten [Site](/de/docs/Glossary/Site) erhält der Angreifer jedes Mal, wenn ein Benutzer auf einen legitimen Link klickt, vertrauliche Informationen dieses Benutzers, was letztendlich die Privatsphäre des Benutzers im Internet gefährdet.
+**Clickjacking** ist ein auf Benutzeroberflächen basierender Angriff, der Website-Benutzer dazu verleitet, unbewusst auf bösartige Links zu klicken. Beim Clickjacking betten die Angreifer ihre bösartigen Links in Schaltflächen oder legitime Seiten einer Website ein. In einer infizierten {{Glossary("Site", "Site")}} erhält der Angreifer jedes Mal, wenn ein Benutzer auf einen legitimen Link klickt, vertrauliche Informationen dieses Benutzers, was letztendlich die Privatsphäre des Benutzers im Internet gefährdet.
 
 Clickjacking kann durch die Implementierung einer [Content Security Policy (frame-ancestors)](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors) und das Implementieren von [Set-Cookie Attributen](/de/docs/Web/HTTP/Headers/Set-Cookie#attributes) verhindert werden.
 

@@ -21,7 +21,7 @@ Sie sollten einige Kenntnisse über [HTTP](/de/docs/Web/HTTP) besitzen oder sich
 ## Schritt 2 – Überprüfen Sie die bestehenden HTTP-Header-Seiten
 
 - Vorhandene HTTP-Header sind [hier](/de/docs/Web/HTTP/Headers) dokumentiert.
-- Es gibt verschiedene Header-Kategorien: [Anforderungs-Header](/de/docs/Glossary/Request_header), [Antwort-Header](/de/docs/Glossary/Response_header) und [Repräsentations-Header](/de/docs/Glossary/Representation_header).
+- Es gibt verschiedene Header-Kategorien: {{Glossary("Request_header", "Anforderungs-Header")}}, {{Glossary("Response_header", "Antwort-Header")}} und {{Glossary("Representation_header", "Repräsentations-Header")}}.
 - Finden Sie die Kategorie des Headers, den Sie dokumentieren möchten (beachten Sie, dass einige Header je nach Kontext sowohl Anforderungs- als auch Antwort-Header sein können).
 - Gehen Sie zu einer bestehenden Header-Referenzseite, die dieselbe Kategorie hat.
 
@@ -37,7 +37,7 @@ Sie sollten einige Kenntnisse über [HTTP](/de/docs/Web/HTTP) besitzen oder sich
 - Stellen Sie sicher, dass Sie diese Abschnitte enthalten:
 
   - Einführungstext, in dem der Headername (fett) und sein Zweck zusammengefasst werden.
-  - Informationsfeld, das mindestens den Header-Typ und ob der Header ein [forbidden header name](/de/docs/Glossary/Forbidden_header_name) ist, enthält.
+  - Informationsfeld, das mindestens den Header-Typ und ob der Header ein {{Glossary("Forbidden_header_name", "forbidden header name")}} ist, enthält.
   - Ein Syntaxfeld, das alle möglichen Direktiven/Parameter/Werte des HTTP-Headers enthält.
   - Einen Abschnitt, der diese Direktiven/Werte erklärt.
   - Einen Beispielabschnitt, der einen praktischen Anwendungsfall für diesen Header enthält oder zeigt, wo und wie er üblicherweise auftritt.

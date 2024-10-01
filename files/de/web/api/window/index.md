@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Die **`Window`**-Schnittstelle repräsentiert ein Fenster, das ein [DOM](/de/docs/Glossary/DOM)-Dokument enthält; die `document`-Eigenschaft verweist auf das im Fenster geladene [DOM-Dokument](/de/docs/Web/API/Document).
+Die **`Window`**-Schnittstelle repräsentiert ein Fenster, das ein {{Glossary("DOM", "DOM")}}-Dokument enthält; die `document`-Eigenschaft verweist auf das im Fenster geladene [DOM-Dokument](/de/docs/Web/API/Document).
 
 Ein Fenster für ein gegebenes Dokument kann über die [`document.defaultView`](/de/docs/Web/API/Document/defaultView)-Eigenschaft abgerufen werden.
 
@@ -256,7 +256,7 @@ _Diese Schnittstelle erbt Methoden von der Schnittstelle [`EventTarget`](/de/doc
 - [`Window.stop()`](/de/docs/Web/API/Window/stop)
   - : Diese Methode stoppt das Laden des Fensters.
 - [`Window.structuredClone()`](/de/docs/Web/API/Window/structuredClone)
-  - : Erstellt eine [tiefe Kopie](/de/docs/Glossary/Deep_copy) eines gegebenen Werts mit dem [strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+  - : Erstellt eine {{Glossary("Deep_copy", "tiefe Kopie")}} eines gegebenen Werts mit dem [strukturierten Klon-Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 - [`Window.updateCommands()`](/de/docs/Web/API/Window/updateCommands) {{Non-standard_Inline}}
   - : Aktualisiert den Status der Befehle des aktuellen Chrome-Fensters (UI).
 
@@ -347,7 +347,7 @@ Hören Sie auf diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/Even
 - [`pagehide`](/de/docs/Web/API/Window/pagehide_event)
   - : Wird gesendet, wenn der Browser das aktuelle Dokument ausblendet, während er im Prozess ist, um es durch ein anderes Dokument aus der Sitzungsverlauf an dessen Stelle zu zeigen. Dies geschieht zum Beispiel, wenn der Benutzer auf die Schaltfläche "Zurück" klickt oder wenn er auf die Schaltfläche "Vorwärts" klickt, um im Sitzungsverlauf voranzugehen.
 - [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) {{experimental_inline}}
-  - : Wird ausgelöst, wenn ein Dokument zuerst gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem [Back/Forward-Cache](/de/docs/Glossary/bfcache) (bfcache) oder [Prerender](/de/docs/Glossary/Prerender)).
+  - : Wird ausgelöst, wenn ein Dokument zuerst gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "Back/Forward-Cache")}} (bfcache) oder {{Glossary("Prerender", "Prerender")}}).
 - [`pageshow`](/de/docs/Web/API/Window/pageshow_event)
   - : Wird gesendet, wenn der Browser das Dokument aufgrund von Navigationstätigkeiten sichtbar macht, einschließlich nicht nur, wenn die Seite zuerst geladen wird, sondern auch Situationen wie das Navigieren des Benutzers zurück zur Seite, nachdem er zu einer anderen innerhalb desselben Tabs navigiert hat.
 - [`pageswap`](/de/docs/Web/API/Window/pageswap_event) {{experimental_inline}}

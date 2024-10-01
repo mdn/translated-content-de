@@ -8,7 +8,7 @@ l10n:
 {{HTMLSidebar("Global_attributes")}}
 
 Das **`enterkeyhint`** [globale Attribut](/de/docs/Web/HTML/Global_attributes)
-ist ein [aufgezähltes](/de/docs/Glossary/Enumerated) Attribut, das definiert, welches Aktionslabel (oder Symbol) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll.
+ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das definiert, welches Aktionslabel (oder Symbol) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-enterkeyhint.html","tabbed-shorter")}}
 
@@ -26,7 +26,7 @@ oder [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attributen verwenden, 
 
 ### Werte
 
-Das `enterkeyhint`-Attribut ist ein [aufgezähltes](/de/docs/Glossary/Enumerated) Attribut und akzeptiert nur die folgenden Werte:
+Das `enterkeyhint`-Attribut ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut und akzeptiert nur die folgenden Werte:
 
 <table class="no-markdown">
   <thead>

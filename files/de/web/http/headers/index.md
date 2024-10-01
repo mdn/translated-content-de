@@ -8,23 +8,23 @@ l10n:
 
 {{HTTPSidebar}}
 
-**HTTP-Header** ermöglichen es, dem Client und dem Server, zusätzliche Informationen mit einer HTTP-Anfrage oder -Antwort zu übermitteln. Ein HTTP-Header besteht aus seinem nicht groß-/kleinschreibungsempfindlichen Namen gefolgt von einem Doppelpunkt (`:`) und dann von seinem Wert. [Leerzeichen](/de/docs/Glossary/Whitespace) vor dem Wert werden ignoriert.
+**HTTP-Header** ermöglichen es, dem Client und dem Server, zusätzliche Informationen mit einer HTTP-Anfrage oder -Antwort zu übermitteln. Ein HTTP-Header besteht aus seinem nicht groß-/kleinschreibungsempfindlichen Namen gefolgt von einem Doppelpunkt (`:`) und dann von seinem Wert. {{Glossary("Whitespace", "Leerzeichen")}} vor dem Wert werden ignoriert.
 
 Benutzerdefinierte proprietäre Header wurden historisch mit einem `X-` Präfix verwendet, aber diese Konvention wurde im Juni 2012 aufgrund der Unannehmlichkeiten, die entstanden, als nicht standardisierte Felder im [RFC 6648](https://datatracker.ietf.org/doc/html/rfc6648) standardisiert wurden, als veraltet erklärt; weitere Informationen finden Sie im [IANA HTTP Field Name Registry](https://www.iana.org/assignments/http-fields/http-fields.xhtml), dessen ursprünglicher Inhalt in [RFC 4229](https://datatracker.ietf.org/doc/html/rfc4229) definiert wurde.
 Das IANA-Register listet Header auf, einschließlich [Informationen über ihren Status](https://github.com/protocol-registries/http-fields?tab=readme-ov-file#choosing-the-right-status), die "permanent" (durch Standards definiert), "provisional" (neu), "veraltet" (Verwendung wird nicht empfohlen) oder "überholt" (nicht mehr in Gebrauch) sein können.
 
 Header können entsprechend ihren Kontexten gruppiert werden:
 
-- [Anfrageheader](/de/docs/Glossary/Request_header)
+- {{Glossary("Request_header", "Anfrageheader")}}
   - : Enthalten zusätzliche Informationen über die abzurufende Ressource oder über den Client, der die Ressource anfordert.
-- [Antwortheader](/de/docs/Glossary/Response_header)
+- {{Glossary("Response_header", "Antwortheader")}}
   - : Enthalten zusätzliche Informationen über die Antwort, wie deren Standort oder den Server, der sie bereitstellt.
-- [Repräsentationsheader](/de/docs/Glossary/Representation_header)
+- {{Glossary("Representation_header", "Repräsentationsheader")}}
   - : Enthalten Informationen über den Inhalt der Ressource, wie ihren [MIME-Typ](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) oder die angewandte Kodierung/Komprimierung.
-- [Payload-Header](/de/docs/Glossary/Payload_header)
+- {{Glossary("Payload_header", "Payload-Header")}}
   - : Enthalten darstellungsunabhängige Informationen über Nutzdaten, einschließlich der Inhaltlänge und der für den Transport verwendeten Kodierung.
 
-Header können auch entsprechend ihrer Handhabung durch [Proxies](/de/docs/Glossary/Proxy_server) gruppiert werden:
+Header können auch entsprechend ihrer Handhabung durch {{Glossary("Proxy_server", "Proxies")}} gruppiert werden:
 
 - End-to-End-Header
   - : Diese Header _müssen_ an den endgültigen Empfänger der Nachricht übermittelt werden: den Server für eine Anfrage oder den Client für eine Antwort. Zwischenproxies müssen diese Header unverändert weitersenden und Caches müssen sie speichern.
@@ -84,10 +84,10 @@ Header können auch entsprechend ihrer Handhabung durch [Proxies](/de/docs/Gloss
 Für weitere Details lesen Sie den [Artikel zur Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation).
 
 - {{HTTPHeader("Accept")}}
-  - : Informiert den Server über die [Typen](/de/docs/Glossary/MIME_type) von Daten, die zurückgesendet werden können.
+  - : Informiert den Server über die {{Glossary("MIME_type", "Typen")}} von Daten, die zurückgesendet werden können.
 - {{HTTPHeader("Accept-Charset")}} {{deprecated_inline}}
-  - : Bewirbt die vom Client unterstützten [Zeichenkodierungen](/de/docs/Glossary/character_encoding).
-    Sie ist veraltet, da [UTF-8](/de/docs/Glossary/UTF-8) allgegenwärtig geworden ist und die Verwendung des Headers das Client-Fingerprinting erleichtert.
+  - : Bewirbt die vom Client unterstützten {{Glossary("character_encoding", "Zeichenkodierungen")}}.
+    Sie ist veraltet, da {{Glossary("UTF-8", "UTF-8")}} allgegenwärtig geworden ist und die Verwendung des Headers das Client-Fingerprinting erleichtert.
 - {{HTTPHeader("Accept-Encoding")}}
   - : Der Kodierungsalgorithmus, normalerweise ein [Komprimierungsalgorithmus](/de/docs/Web/HTTP/Compression), der auf die zurückgesendete Ressource angewendet werden kann.
 - {{HTTPHeader("Accept-Language")}}
@@ -118,7 +118,7 @@ Für weitere Informationen siehe die [CORS-Dokumentation](/de/docs/Web/HTTP/CORS
 - {{HTTPHeader("Access-Control-Allow-Credentials")}}
   - : Gibt an, ob die Antwort auf die Anfrage offengelegt werden kann, wenn das Berechtigungsflag wahr ist.
 - {{HTTPHeader("Access-Control-Allow-Headers")}}
-  - : Wird als Antwort auf eine [Preflight-Anfrage](/de/docs/Glossary/Preflight_request) verwendet, um anzugeben, welche HTTP-Header beim Ausführen der tatsächlichen Anfrage verwendet werden können.
+  - : Wird als Antwort auf eine {{Glossary("Preflight_request", "Preflight-Anfrage")}} verwendet, um anzugeben, welche HTTP-Header beim Ausführen der tatsächlichen Anfrage verwendet werden können.
 - {{HTTPHeader("Access-Control-Allow-Methods")}}
   - : Gibt die Methoden an, die beim Zugriff auf die Ressource als Antwort auf eine Preflight-Anfrage zulässig sind.
 - {{HTTPHeader("Access-Control-Allow-Origin")}}
@@ -144,11 +144,11 @@ Für weitere Informationen siehe die [CORS-Dokumentation](/de/docs/Web/HTTP/CORS
 ## Integritäts-Digests
 
 - {{HTTPHeader("Content-Digest")}} {{experimental_inline}}
-  - : Bietet einen [Digest](/de/docs/Glossary/digest) des Stream von Oktetten, die in einer HTTP-Nachricht (dem Nachrichtinhalt) eingerahmt sind, abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}.
+  - : Bietet einen {{Glossary("digest", "Digest")}} des Stream von Oktetten, die in einer HTTP-Nachricht (dem Nachrichtinhalt) eingerahmt sind, abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}.
 - {{HTTPHeader("Digest")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Bietet einen [Digest](/de/docs/Glossary/digest) einer Ressource. Siehe {{HTTPHeader("Content-Digest")}} und {{HTTPHeader("Repr-Digest")}}.
+  - : Bietet einen {{Glossary("digest", "Digest")}} einer Ressource. Siehe {{HTTPHeader("Content-Digest")}} und {{HTTPHeader("Repr-Digest")}}.
 - {{HTTPHeader("Repr-Digest")}} {{experimental_inline}}
-  - : Bietet einen [Digest](/de/docs/Glossary/digest) der ausgewählten Darstellung der Zielressource vor der Übertragung. Im Gegensatz zum {{HTTPHeader("Content-Digest")}} berücksichtigt der Digest nicht {{HTTPHeader("Content-Encoding")}} oder {{HTTPHeader("Content-Range")}}.
+  - : Bietet einen {{Glossary("digest", "Digest")}} der ausgewählten Darstellung der Zielressource vor der Übertragung. Im Gegensatz zum {{HTTPHeader("Content-Digest")}} berücksichtigt der Digest nicht {{HTTPHeader("Content-Encoding")}} oder {{HTTPHeader("Content-Range")}}.
 - {{HTTPHeader("Want-Content-Digest")}} {{experimental_inline}}
   - : Kein Wunsch nach einem {{HTTPHeader("Content-Digest")}}-Header. Es ist das `Content-` Analogon zu {{HTTPHeader("Want-Repr-Digest")}}.
 - {{HTTPHeader("Want-Digest")}} {{deprecated_inline}} {{non-standard_inline}}
@@ -225,17 +225,17 @@ Bereichsabfragen sind nützlich für Anwendungen wie Medienplayer, die zufällig
   - : Verhindert, dass andere Domains ein Fenster öffnen/kontrollieren.
 - {{HTTPHeader("Cross-Origin-Resource-Policy")}} (CORP)
   - : Verhindert, dass andere Domains die Antwort der Ressourcen lesen, auf die dieser Header angewendet wurde. Siehe auch [CORP-Erklärungsartikel](/de/docs/Web/HTTP/Cross-Origin_Resource_Policy).
-- {{HTTPHeader("Content-Security-Policy")}} ([CSP](/de/docs/Glossary/CSP))
+- {{HTTPHeader("Content-Security-Policy")}} ({{Glossary("CSP", "CSP")}})
   - : Kontrolliert Ressourcen, die der User-Agent für eine gegebene Seite laden darf.
 - {{HTTPHeader("Content-Security-Policy-Report-Only")}}
-  - : Erlaubt Webentwicklern, mit Richtlinien zu experimentieren, indem sie deren Auswirkungen überwachen, aber nicht durchsetzen. Diese Verletzungsberichte bestehen aus über HTTP gesendeten [JSON](/de/docs/Glossary/JSON)-Dokumenten mittels einer `POST`-Anfrage an die angegebene URI.
+  - : Erlaubt Webentwicklern, mit Richtlinien zu experimentieren, indem sie deren Auswirkungen überwachen, aber nicht durchsetzen. Diese Verletzungsberichte bestehen aus über HTTP gesendeten {{Glossary("JSON", "JSON")}}-Dokumenten mittels einer `POST`-Anfrage an die angegebene URI.
 - {{HTTPHeader("Expect-CT")}} {{deprecated_inline}}
   - : Ermöglicht es Websites, Berichterstattung und Durchsetzung der [Certificate Transparency](/de/docs/Web/Security/Certificate_Transparency) zu aktivieren, um die Verwendung fehlgeschlagener Zertifikate für diese Seite zu erkennen.
 - {{HTTPHeader("Permissions-Policy")}}
   - : Bietet einen Mechanismus, um die Nutzung von Browserfunktionen im eigenen Frame einer Website zu erlauben oder zu verweigern und in {{htmlelement("iframe")}}, die sie einbettet.
 - {{HTTPHeader("Reporting-Endpoints")}} {{experimental_inline}}
   - : Antwortheader, der Website-Inhabern erlaubt, ein oder mehrere Endpunkte zu spezifizieren, die zum Empfang von Fehlern wie CSP-Verletzungsberichten, {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Berichten oder anderen generischen Verletzungen verwendet werden.
-- {{HTTPHeader("Strict-Transport-Security")}} ([HSTS](/de/docs/Glossary/HSTS))
+- {{HTTPHeader("Strict-Transport-Security")}} ({{Glossary("HSTS", "HSTS")}})
   - : Erzwingt die Kommunikation mittels HTTPS anstelle von HTTP.
 - {{HTTPHeader("Upgrade-Insecure-Requests")}}
   - : Sendet ein Signal an den Server, das die Präferenz des Clients für eine verschlüsselte und authentifizierte Antwort ausdrückt und dass es die {{CSP("upgrade-insecure-requests")}}-Direktive erfolgreich handhaben kann.
@@ -252,7 +252,7 @@ Bereichsabfragen sind nützlich für Anwendungen wie Medienplayer, die zufällig
 
 ### Fetch-Metadatenanfrageheader
 
-[Fetch-Metadatenanfrageheader](/de/docs/Glossary/Fetch_metadata_request_header) liefern Informationen über den Kontext, aus dem heraus die Anfrage erstellt wurde. Ein Server kann diese verwenden, um Entscheidungen darüber zu treffen, ob eine Anfrage basierend auf ihrer Quelle und der geplanten Nutzung der Ressource erlaubt sein sollte.
+{{Glossary("Fetch_metadata_request_header", "Fetch-Metadatenanfrageheader")}} liefern Informationen über den Kontext, aus dem heraus die Anfrage erstellt wurde. Ein Server kann diese verwenden, um Entscheidungen darüber zu treffen, ob eine Anfrage basierend auf ihrer Quelle und der geplanten Nutzung der Ressource erlaubt sein sollte.
 
 - {{HTTPHeader("Sec-Fetch-Site")}}
   - : Gibt die Beziehung zwischen dem Ursprungsinitiator und dem Ziel der Anfrage an. Es ist ein Strukturierter Header, dessen Wert ein Token mit möglichen Werten wie `cross-site`, `same-origin`, `same-site` und `none` ist.
@@ -396,9 +396,9 @@ Die [UA-Client-Hints](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) si
 - {{HTTPHeader("Device-Memory")}}
   - : Ungefähre Menge des verfügbaren RAM-Speichers des Clients. Dies ist Teil der [Device Memory API](/de/docs/Web/API/Device_Memory_API).
 - {{HTTPHeader("DPR")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Anfragenheader, der das Clientgerätepixelverhältnis (die Anzahl der physischen Gerätepixel für jedes [CSS-Pixel](/de/docs/Glossary/CSS_pixel)) angibt.
+  - : Anfragenheader, der das Clientgerätepixelverhältnis (die Anzahl der physischen Gerätepixel für jedes {{Glossary("CSS_pixel", "CSS-Pixel")}}) angibt.
 - {{HTTPHeader("Viewport-Width")}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Anfragenheader, der die Breite des Layout-Viewports des Clients in [CSS-Pixeln](/de/docs/Glossary/CSS_pixel) angibt.
+  - : Anfragenheader, der die Breite des Layout-Viewports des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angibt.
 - {{HTTPHeader("Width")}} {{deprecated_inline}} {{non-standard_inline}}
   - : Anfragenheader, der die gewünschte Ressourcebreite in physischen Pixeln angibt (die intrinsische Größe eines Bildes).
 
@@ -409,7 +409,7 @@ Netzwerk-Client-Hints ermöglichen es einem Server zu wählen, welche Informatio
 - {{HTTPHeader("Downlink")}} {{experimental_inline}}
   - : Ungefähre Bandbreite der Verbindung des Clients zum Server in Mbps. Dies ist Teil der [Network Information API](/de/docs/Web/API/Network_Information_API).
 - {{HTTPHeader("ECT")}} {{experimental_inline}}
-  - : Der [effektive Verbindungstyp](/de/docs/Glossary/effective_connection_type) ("Netzwerkprofil"), der am besten zur Latenz und Bandbreite der Verbindung passt. Dies ist Teil der [Network Information API](/de/docs/Web/API/Network_Information_API).
+  - : Der {{Glossary("effective_connection_type", "effektive Verbindungstyp")}} ("Netzwerkprofil"), der am besten zur Latenz und Bandbreite der Verbindung passt. Dies ist Teil der [Network Information API](/de/docs/Web/API/Network_Information_API).
 - {{HTTPHeader("RTT")}} {{experimental_inline}}
   - : Anwendungs-Layer-Rundlaufzeit (RTT) in Millisekunden, die die Serververarbeitungszeit einschließt. Dies ist Teil der [Network Information API](/de/docs/Web/API/Network_Information_API).
 - {{HTTPHeader("Save-Data")}} {{experimental_inline}}

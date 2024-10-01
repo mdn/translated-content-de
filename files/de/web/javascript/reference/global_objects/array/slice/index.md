@@ -7,7 +7,7 @@ l10n:
 
 {{JSRef}}
 
-Die **`slice()`**-Methode von {{jsxref("Array")}}-Instanzen gibt eine [flache Kopie](/de/docs/Glossary/Shallow_copy) eines Abschnitts eines Arrays als neues Array-Objekt zurück, ausgewählt von `start` bis `end` (`end` nicht inbegriffen), wobei `start` und `end` die Indizes der Elemente in diesem Array darstellen. Das Originalarray wird nicht verändert.
+Die **`slice()`**-Methode von {{jsxref("Array")}}-Instanzen gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} eines Abschnitts eines Arrays als neues Array-Objekt zurück, ausgewählt von `start` bis `end` (`end` nicht inbegriffen), wobei `start` und `end` die Indizes der Elemente in diesem Array darstellen. Das Originalarray wird nicht verändert.
 
 {{EmbedInteractiveExample("pages/js/array-slice.html", "taller")}}
 
@@ -39,7 +39,7 @@ Ein neues Array, das die extrahierten Elemente enthält.
 
 ## Beschreibung
 
-Die `slice()`-Methode ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert `this` nicht, sondern gibt stattdessen eine [flache Kopie](/de/docs/Glossary/Shallow_copy) zurück, die einige der gleichen Elemente wie das Originalarray enthält.
+Die `slice()`-Methode ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie verändert `this` nicht, sondern gibt stattdessen eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die einige der gleichen Elemente wie das Originalarray enthält.
 
 Die `slice()`-Methode bewahrt leere Plätze. Wenn der geschnittene Abschnitt [spärlich](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist, ist das zurückgegebene Array ebenfalls spärlich.
 

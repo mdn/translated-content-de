@@ -21,11 +21,11 @@ Der Inhalt des `<summary>`-Elements kann jede Überschrifteninhalt, Klartext ode
 
 Ein `<summary>`-Element darf _nur_ als erstes Kind eines `<details>`-Elements verwendet werden. Wenn der Benutzer auf die Zusammenfassung klickt, wird das übergeordnete `<details>`-Element geöffnet oder geschlossen, und ein [`toggle`](/de/docs/Web/API/HTMLDetailsElement/toggle_event) Ereignis wird an das `<details>`-Element gesendet, das verwendet werden kann, um Sie darüber zu informieren, wann diese Statusänderung eintritt.
 
-Der Inhalt der `<details>` bietet die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) für das `<summary>`.
+Der Inhalt der `<details>` bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für das `<summary>`.
 
 ### Standard-Label-Text
 
-Wenn das erste Kind eines `<details>`-Elements kein `<summary>`-Element ist, wird der [User-Agent](/de/docs/Glossary/user_agent) eine Standardzeichenfolge (normalerweise "Details") als Bezeichnung für das Disclosure-Feld verwenden.
+Wenn das erste Kind eines `<details>`-Elements kein `<summary>`-Element ist, wird der {{Glossary("user_agent", "User-Agent")}} eine Standardzeichenfolge (normalerweise "Details") als Bezeichnung für das Disclosure-Feld verwenden.
 
 ### Standardstil
 

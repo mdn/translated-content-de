@@ -9,7 +9,7 @@ l10n:
 
 Das **`PerformanceEntry`** Objekt kapselt eine einzelne Leistungsmetrik, die Teil der Performance-Zeitleiste des Browsers ist.
 
-Die Performance-API bietet integrierte Metriken, die spezialisierte Unterklassen von `PerformanceEntry` sind. Dazu gehören Einträge für Ressourcenladen, Ereigniszeiten, [First Input Delay](/de/docs/Glossary/first_input_delay) (FID) und mehr.
+Die Performance-API bietet integrierte Metriken, die spezialisierte Unterklassen von `PerformanceEntry` sind. Dazu gehören Einträge für Ressourcenladen, Ereigniszeiten, {{Glossary("first_input_delay", "First Input Delay")}} (FID) und mehr.
 
 Ein Performance-Eintrag kann auch erstellt werden, indem Sie die Methoden [`Performance.mark()`](/de/docs/Web/API/Performance/mark) oder [`Performance.measure()`](/de/docs/Web/API/Performance/measure) zu einem bestimmten Zeitpunkt in einer Anwendung aufrufen. Dies ermöglicht es Ihnen, eigene Metriken zur Performance-Zeitleiste hinzuzufügen.
 

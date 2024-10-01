@@ -15,6 +15,6 @@ Zum Beispiel sind SDK-Bibliotheken für AWS Beispiele für Wrapper.
 
 - [Wrapper function](https://en.wikipedia.org/wiki/Wrapper_function) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - [API](/de/docs/Glossary/API)
-  - [Class](/de/docs/Glossary/Class)
-  - [Function](/de/docs/Glossary/Function)
+  - {{Glossary("API", "API")}}
+  - {{Glossary("Class", "Class")}}
+  - {{Glossary("Function", "Function")}}

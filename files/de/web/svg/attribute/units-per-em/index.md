@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`units-per-em`** Attribut gibt die Anzahl der Koordinateneinheiten auf dem "em Quadrat" an, ein abstraktes Quadrat, dessen Höhe der beabsichtigten Distanz zwischen Zeilen des gleichen Schriftgrads entspricht. Dies ist die Größe des Designrasters, auf dem [Glyphen](/de/docs/Glossary/glyph) angeordnet sind.
+Das **`units-per-em`** Attribut gibt die Anzahl der Koordinateneinheiten auf dem "em Quadrat" an, ein abstraktes Quadrat, dessen Höhe der beabsichtigten Distanz zwischen Zeilen des gleichen Schriftgrads entspricht. Dies ist die Größe des Designrasters, auf dem {{Glossary("glyph", "Glyphen")}} angeordnet sind.
 
 > [!NOTE]
 > Dieser Wert ist fast immer notwendig, da nahezu jedes andere Attribut die Definition eines Designrasters erfordert.

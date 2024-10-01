@@ -51,7 +51,7 @@ Die Verwendung eines `visibility`-Werts von `hidden` auf einem Element entfernt 
 
 ## Interpolation
 
-Bei der Animation werden `visibility`-Werte zwischen _visible_ und _not-visible_ interpoliert. Einer der Start- oder Endwerte muss daher `visible` sein, sonst kann keine [Interpolation](/de/docs/Glossary/interpolation) stattfinden. Der Wert wird als diskreter Schritt interpoliert, wobei Werte der Beschleunigungsfunktion zwischen `0` und `1` zu `visible` und andere Werte der Funktion (die nur am Anfang/Ende der Transition oder als Ergebnis von `cubic-bezier()`-Funktionen mit y-Werten außerhalb von \[0, 1]) zu dem näheren Endpunkt abgebildet werden.
+Bei der Animation werden `visibility`-Werte zwischen _visible_ und _not-visible_ interpoliert. Einer der Start- oder Endwerte muss daher `visible` sein, sonst kann keine {{Glossary("interpolation", "Interpolation")}} stattfinden. Der Wert wird als diskreter Schritt interpoliert, wobei Werte der Beschleunigungsfunktion zwischen `0` und `1` zu `visible` und andere Werte der Funktion (die nur am Anfang/Ende der Transition oder als Ergebnis von `cubic-bezier()`-Funktionen mit y-Werten außerhalb von \[0, 1]) zu dem näheren Endpunkt abgebildet werden.
 
 ## Anmerkungen
 

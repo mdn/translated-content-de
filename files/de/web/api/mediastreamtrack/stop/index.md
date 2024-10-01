@@ -26,7 +26,7 @@ Keine ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Durch den Aufruf von `stop()` wird dem [User-Agent](/de/docs/Glossary/user_agent) mitgeteilt, dass die Quelle des Tracks – ganz gleich, welche Quelle das ist, einschließlich Dateien, Netzwerkstreams oder eine lokale Kamera oder ein Mikrofon – nicht mehr von der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) benötigt wird. Da mehrere Tracks dieselbe Quelle verwenden können (zum Beispiel, wenn zwei Tabs das Mikrofon des Geräts verwenden), wird die Quelle selbst nicht unbedingt sofort gestoppt. Stattdessen wird sie vom Track gelöst und das Track-Objekt gestoppt. Sobald keine Medientracks die Quelle mehr verwenden, kann die Quelle tatsächlich vollständig gestoppt werden.
+Durch den Aufruf von `stop()` wird dem {{Glossary("user_agent", "User-Agent")}} mitgeteilt, dass die Quelle des Tracks – ganz gleich, welche Quelle das ist, einschließlich Dateien, Netzwerkstreams oder eine lokale Kamera oder ein Mikrofon – nicht mehr von der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) benötigt wird. Da mehrere Tracks dieselbe Quelle verwenden können (zum Beispiel, wenn zwei Tabs das Mikrofon des Geräts verwenden), wird die Quelle selbst nicht unbedingt sofort gestoppt. Stattdessen wird sie vom Track gelöst und das Track-Objekt gestoppt. Sobald keine Medientracks die Quelle mehr verwenden, kann die Quelle tatsächlich vollständig gestoppt werden.
 
 Unmittelbar nach dem Aufruf von `stop()` wird die [`readyState`](/de/docs/Web/API/MediaStreamTrack/readyState)-Eigenschaft auf `ended` gesetzt. Beachten Sie, dass das [`ended`](/de/docs/Web/API/MediaStreamTrack/ended_event)-Ereignis in dieser Situation nicht ausgelöst wird.
 

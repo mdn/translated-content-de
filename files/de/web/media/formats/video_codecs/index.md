@@ -601,7 +601,7 @@ Auf kurze Sicht ist AV1 aus diesen Gründen noch nicht bereit, Ihre erste Wahl a
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -627,7 +627,7 @@ Auf kurze Sicht ist AV1 aus diesen Gründen noch nicht bereit, Ihre erste Wahl a
 
 ### AVC (H.264)
 
-Der **Advanced Video Coding** (**AVC**) Standard der MPEG-4-Spezifikation wird durch die identische ITU H.264-Spezifikation und die MPEG-4 Part 10-Spezifikation spezifiziert. Er ist ein auf Bewegungskompensation basierender Codec, der heutzutage weit verbreitet ist für alle Arten von Medien, einschließlich Rundfunkfernsehen, [RTP](/de/docs/Glossary/RTP)-Videokonferenzen und als Video-Codec für Blu-Ray-Discs.
+Der **Advanced Video Coding** (**AVC**) Standard der MPEG-4-Spezifikation wird durch die identische ITU H.264-Spezifikation und die MPEG-4 Part 10-Spezifikation spezifiziert. Er ist ein auf Bewegungskompensation basierender Codec, der heutzutage weit verbreitet ist für alle Arten von Medien, einschließlich Rundfunkfernsehen, {{Glossary("RTP", "RTP")}}-Videokonferenzen und als Video-Codec für Blu-Ray-Discs.
 
 AVC ist sehr flexibel, mit einer Reihe von Profilen mit unterschiedlichen Fähigkeiten; zum Beispiel ist das Constrained Baseline Profile für Videokonferenzen und mobile Szenarien konzipiert, die weniger Bandbreite verwenden als das Main Profile (das in einigen Regionen für das Standard-Definition-Digitalfernsehen verwendet wird) oder das High Profile (das für Blu-Ray Disc-Videos verwendet wird). Die meisten Profile verwenden 8-Bit-Farbkomponenten und 4:2:0 Chroma-Subsampling. Das High 10 Profile fügt Unterstützung für 10-Bit-Farben hinzu, und erweiterte Formen von High 10 fügen 4:2:2 und 4:4:4 Chroma-Subsampling hinzu.
 
@@ -754,7 +754,7 @@ In HTML-Inhalten für Webbrowser ist AVC breit kompatibel und viele Plattformen 
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Ja</td>
@@ -791,7 +791,7 @@ In HTML-Inhalten für Webbrowser ist AVC breit kompatibel und viele Plattformen 
 
 ### H.263
 
-Der **H.263** Codec der ITU wurde hauptsächlich für den Einsatz in Situationen mit geringer Bandbreite entwickelt. Insbesondere konzentriert sich sein Einsatz auf Videokonferenzen über PSTN (Public Switched Telephone Networks), [RTSP](/de/docs/Glossary/RTSP) und SIP (IP-basierte Videokonferenzsysteme). Trotz der Optimierung für Netzwerke mit geringer Bandbreite ist es relativ CPU-intensive und kann auf Computern mit geringerer Leistung möglicherweise nicht gut genug arbeiten. Das Datenformat ist ähnlich wie das von MPEG-4 Teil 2.
+Der **H.263** Codec der ITU wurde hauptsächlich für den Einsatz in Situationen mit geringer Bandbreite entwickelt. Insbesondere konzentriert sich sein Einsatz auf Videokonferenzen über PSTN (Public Switched Telephone Networks), {{Glossary("RTSP", "RTSP")}} und SIP (IP-basierte Videokonferenzsysteme). Trotz der Optimierung für Netzwerke mit geringer Bandbreite ist es relativ CPU-intensive und kann auf Computern mit geringerer Leistung möglicherweise nicht gut genug arbeiten. Das Datenformat ist ähnlich wie das von MPEG-4 Teil 2.
 
 H.263 wurde nie weit auf dem Internet verwendet. Varianten von H.263 wurden als Grundlage für andere proprietäre Formate verwendet, wie z.B. Flash-Video oder den Sorenson-Codec. Allerdings hat kein großer Browser jemals von Haus aus Unterstützung für H.263 enthalten. Bestimmte Medien-Plugins haben Unterstützung für H.263-Medien ermöglicht.
 
@@ -884,7 +884,7 @@ H.263 ist ein proprietäres Format, mit [Patenten](https://www.itu.int/ITU-T/rec
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -1061,7 +1061,7 @@ HEVC ist ein proprietäres Format und von einer Reihe von Patenten abgedeckt. Di
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -1099,7 +1099,7 @@ HEVC ist ein proprietäres Format und von einer Reihe von Patenten abgedeckt. Di
 
 Das Format **MPEG-4 Video Elementar-Stream** (**MP4V-ES**) ist Teil des MPEG-4 Teil 2 Visual-Standards. Während im Allgemeinen MPEG-4 Teil 2 Video von niemandem verwendet wird, da es keinen überzeugenden Wert im Vergleich zu anderen Codecs hat, hat MP4V-ES einige Anwendungen auf mobilen Geräten. MP4V ist im Wesentlichen H.263-Kodierung in einem MPEG-4-Container.
 
-Sein Hauptzweck ist es, verwendet zu werden, um MPEG-4 Audio und Video über eine [RTP](/de/docs/Glossary/RTP) Sitzung zu streamen. MP4V-ES wird jedoch auch verwendet, um MPEG-4 Audio und Video über eine mobile Verbindung mit [3GP](/de/docs/Web/Media/Formats/Containers#3gp) zu übertragen.
+Sein Hauptzweck ist es, verwendet zu werden, um MPEG-4 Audio und Video über eine {{Glossary("RTP", "RTP")}} Sitzung zu streamen. MP4V-ES wird jedoch auch verwendet, um MPEG-4 Audio und Video über eine mobile Verbindung mit [3GP](/de/docs/Web/Media/Formats/Containers#3gp) zu übertragen.
 
 Sie werden dieses Format höchstwahrscheinlich nicht verwenden wollen, da es in bedeutendem Umfang von keinem großen Browser unterstützt wird und ziemlich veraltet ist. Dateien dieses Typs sollten die Erweiterung `.mp4v` haben, werden jedoch manchmal fälschlicherweise als `.mp4` bezeichnet.
 
@@ -1181,7 +1181,7 @@ Sie werden dieses Format höchstwahrscheinlich nicht verwenden wollen, da es in 
     </tr>
     <tr>
       <th scope="row">
-        [RTP](/de/docs/Glossary/RTP) /
+        {{Glossary("RTP", "RTP")}} /
         <a href="/de/docs/Web/API/WebRTC_API">WebRTC</a> kompatibel
       </th>
       <td>Nein</td>
@@ -1213,7 +1213,7 @@ Sie werden dieses Format höchstwahrscheinlich nicht verwenden wollen, da es in 
 
 ### MPEG-1 Teil 2 Video
 
-**MPEG-1 Teil 2 Video** wurde Anfang der 1990er Jahre vorgestellt. Im Gegensatz zu den späteren MPEG-Videostandards wurde MPEG-1 ausschließlich von MPEG erstellt, ohne die Mitwirkung der [ITU](/de/docs/Glossary/ITU).
+**MPEG-1 Teil 2 Video** wurde Anfang der 1990er Jahre vorgestellt. Im Gegensatz zu den späteren MPEG-Videostandards wurde MPEG-1 ausschließlich von MPEG erstellt, ohne die Mitwirkung der {{Glossary("ITU", "ITU")}}.
 
 Da jeder MPEG-2-Dekodierer auch MPEG-1-Video abspielen kann, ist es mit einer Vielzahl von Software- und Hardware-Geräten kompatibel. Es gibt keine aktiven Patente im Zusammenhang mit MPEG-1-Video, sodass es ohne Lizenzierung verwendet werden kann. Allerdings unterstützen nur wenige Webbrowser MPEG-1-Video ohne die Unterstützung eines Plugins, und da die Nutzung von Plugins in Webbrowsern abgelehnt wird, sind diese im Allgemeinen nicht mehr verfügbar. Dies macht MPEG-1 zu einer schlechten Wahl für den Einsatz auf Websites und in Webanwendungen.
 

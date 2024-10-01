@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`animation-composition`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die [Kompositionsoperation](/de/docs/Glossary/composite_operation) an, die verwendet werden soll, wenn mehrere Animationen gleichzeitig die gleiche Eigenschaft beeinflussen.
+Die **`animation-composition`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die {{Glossary("composite_operation", "Kompositionsoperation")}} an, die verwendet werden soll, wenn mehrere Animationen gleichzeitig die gleiche Eigenschaft beeinflussen.
 
 ## Syntax
 

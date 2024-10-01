@@ -56,7 +56,7 @@ Die Eigenschaften sind wie folgt:
 - `"trigger_data"`
   - : Ein String, der Daten repräsentiert, die vom Attributionstrigger stammen und in der Triggerregistrierung (die `"trigger_data"`, die über den zugehörigen {{httpheader("Attribution-Reporting-Register-Trigger")}} Antwortheader festgelegt wurden) eingestellt wird.
 - `"report_id"`
-  - : Ein String, der eine [Universally Unique Identifier (UUID)](/de/docs/Glossary/UUID) für diesen Bericht repräsentiert, die zur Vermeidung doppelter Zählungen verwendet werden kann.
+  - : Ein String, der eine {{Glossary("UUID", "Universally Unique Identifier (UUID)")}} für diesen Bericht repräsentiert, die zur Vermeidung doppelter Zählungen verwendet werden kann.
 - `"source_type"`
   - : Ein String, der entweder `"navigation"` oder `"event"` entspricht, was darauf hinweist, ob die zugehörige Attributionsquelle [navigationsbasiert](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#navigation-based_attribution_sources) oder [ereignisbasiert](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#event-based_attribution_sources) ist.
 - `"randomized_trigger_rate"`
@@ -100,13 +100,13 @@ Ein typischer aggregierbarer Bericht könnte so aussehen:
 Die Eigenschaften sind wie folgt:
 
 - `"shared_info"`
-  - : Dies ist ein serialisiertes JSON-Objekt, das Informationen bereitstellt, die ein Aggregationsdienst verwendet, um einen Zusammenfassungsbericht zu erstellen. Diese Daten sind [verschlüsselt](/de/docs/Glossary/Encryption) unter Verwendung von [AEAD](https://en.wikipedia.org/wiki/Authenticated_encryption), um Manipulationen zu verhindern. Die folgenden Eigenschaften sind in der serialisierten Zeichenkette dargestellt:
+  - : Dies ist ein serialisiertes JSON-Objekt, das Informationen bereitstellt, die ein Aggregationsdienst verwendet, um einen Zusammenfassungsbericht zu erstellen. Diese Daten sind {{Glossary("Encryption", "verschlüsselt")}} unter Verwendung von [AEAD](https://en.wikipedia.org/wiki/Authenticated_encryption), um Manipulationen zu verhindern. Die folgenden Eigenschaften sind in der serialisierten Zeichenkette dargestellt:
     - `"api"`
       - : Ein aufgezählter Wert, der die API repräsentiert, die die Berichterstellung ausgelöst hat. Derzeit wird dies immer gleich `"attribution-reporting"` sein, kann jedoch mit zusätzlichen Werten erweitert werden, um in Zukunft andere APIs zu unterstützen.
     - `"attribution_destination"`
       - : Ein String, der die Attributionsziel-URL [`"destination"`](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Source#destination) darstellt, die in der Quellregistrierung (über den zugehörigen {{httpheader("Attribution-Reporting-Register-Source")}} Antwortheader) festgelegt wurde.
     - `"report_id"`
-      - : Ein String, der eine [Universally Unique Identifier (UUID)](/de/docs/Glossary/UUID) für diesen Bericht repräsentiert, die zur Vermeidung doppelter Zählungen verwendet werden kann.
+      - : Ein String, der eine {{Glossary("UUID", "Universally Unique Identifier (UUID)")}} für diesen Bericht repräsentiert, die zur Vermeidung doppelter Zählungen verwendet werden kann.
     - `"reporting_origin"`
       - : Der Ursprung, der die Berichterstellung ausgelöst hat.
     - `"scheduled_report_time"`
@@ -121,7 +121,7 @@ Die Eigenschaften sind wie folgt:
 
     - `"payload"`
 
-      - : Eine [CBOR](https://cbor.io/) Karte, die über [HPKE](https://datatracker.ietf.org/doc/rfc9180/) verschlüsselt und dann [base64](/de/docs/Glossary/Base64)-codiert ist, mit folgender Struktur:
+      - : Eine [CBOR](https://cbor.io/) Karte, die über [HPKE](https://datatracker.ietf.org/doc/rfc9180/) verschlüsselt und dann {{Glossary("Base64", "base64")}}-codiert ist, mit folgender Struktur:
 
         ```js
         {

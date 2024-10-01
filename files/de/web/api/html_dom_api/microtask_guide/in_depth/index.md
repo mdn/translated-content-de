@@ -95,7 +95,7 @@ Hier betrachten wir, wie die Laufzeit im Detail funktioniert.
 
 Jeder Agent wird von einer [Ereignisschleife](/de/docs/Web/JavaScript/Event_loop) gesteuert, die wiederholt durchlaufen wird. Während jeder Iteration führt sie höchstens eine anstehende JavaScript-Aufgabe aus, dann alle anstehenden Microtasks, und führt dann gegebenenfalls das Rendering und Zeichnung durch, bevor sie erneut durchläuft.
 
-Der Code Ihrer Website oder Anwendung läuft im selben **[Thread](/de/docs/Glossary/thread)**, der dieselbe **Ereignisschleife** teilt, wie die Benutzeroberfläche des Webbrowsers selbst. Dies ist der **[Hauptthread](/de/docs/Glossary/main_thread)**, und zusätzlich zur Ausführung des Hauptcodekörpers Ihrer Site behandelt er auch das Empfangen und Verteilen von Benutzer- und anderen Ereignissen, das Rendern und Zeichnen von Webinhalten und so weiter.
+Der Code Ihrer Website oder Anwendung läuft im selben **{{Glossary("thread", "Thread")}}**, der dieselbe **Ereignisschleife** teilt, wie die Benutzeroberfläche des Webbrowsers selbst. Dies ist der **{{Glossary("main_thread", "Hauptthread")}}**, und zusätzlich zur Ausführung des Hauptcodekörpers Ihrer Site behandelt er auch das Empfangen und Verteilen von Benutzer- und anderen Ereignissen, das Rendern und Zeichnen von Webinhalten und so weiter.
 
 Die Ereignisschleife treibt alles an, was im Browser bezüglich der Interaktion mit dem Benutzer passiert, aber für unsere Zwecke hier ist sie wichtiger, da sie für die Planung und Ausführung jedes Code-Segments verantwortlich ist, das innerhalb ihres Threads läuft.
 
@@ -108,7 +108,7 @@ Es gibt drei Arten von Ereignisschleifen:
 - Worklet-Ereignisschleife
   - : Eine [Worklet](/de/docs/Web/API/Worklet)-Ereignisschleife ist die Ereignisschleife, die Agenten steuert, die den Code für die Worklets eines bestimmten Agenten ausführen. Dies schließt Worklets vom Typ [`Worklet`](/de/docs/Web/API/Worklet) und [`AudioWorklet`](/de/docs/Web/API/AudioWorklet) ein.
 
-Mehrere Fenster, die aus demselben [Ursprung](/de/docs/Glossary/origin) geladen wurden, können auf derselben Ereignisschleife laufen, wobei jede Aufgaben in die Ereignisschleife einreiht, sodass ihre Aufgaben der Reihe nach mit dem Prozessor abgearbeitet werden. Beachten Sie, dass im Web-Sprachgebrauch das Wort "Fenster" tatsächlich "Browser-Level-Container, in dem Webinhalte laufen" bedeutet, einschließlich eines tatsächlichen Fensters, eines Tabs oder eines Frames.
+Mehrere Fenster, die aus demselben {{Glossary("origin", "Ursprung")}} geladen wurden, können auf derselben Ereignisschleife laufen, wobei jede Aufgaben in die Ereignisschleife einreiht, sodass ihre Aufgaben der Reihe nach mit dem Prozessor abgearbeitet werden. Beachten Sie, dass im Web-Sprachgebrauch das Wort "Fenster" tatsächlich "Browser-Level-Container, in dem Webinhalte laufen" bedeutet, einschließlich eines tatsächlichen Fensters, eines Tabs oder eines Frames.
 
 Es gibt spezielle Umstände, unter denen dieses Teilen einer Ereignisschleife zwischen Fenstern mit gemeinsamen Ursprung möglich ist, wie zum Beispiel:
 

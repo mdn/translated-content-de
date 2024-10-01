@@ -30,7 +30,7 @@ Ein **Unicode-Zeichenklassenescape** ist eine Art von [Zeichenklassenescape](/de
     > **Note:** Die [ICU](https://unicode-org.github.io/icu/userguide/strings/unicodeset.html#property-values)-Syntax erlaubt es ebenfalls, den Eigenschaftsnamen `Script` wegzulassen, aber JavaScript unterstützt dies nicht, da meist `Script_Extensions` nützlicher ist als `Script`.
 
 - `property`
-  - : Ein Unicode-Eigenschaftsname. Muss aus [ASCII](/de/docs/Glossary/ASCII)-Buchstaben (`A–Z`, `a–z`) und Unterstrichen (`_`) bestehen und muss einer der [nicht-binären Eigenschaftsnamen](https://tc39.es/ecma262/multipage/text-processing.html#table-nonbinary-unicode-properties) sein.
+  - : Ein Unicode-Eigenschaftsname. Muss aus {{Glossary("ASCII", "ASCII")}}-Buchstaben (`A–Z`, `a–z`) und Unterstrichen (`_`) bestehen und muss einer der [nicht-binären Eigenschaftsnamen](https://tc39.es/ecma262/multipage/text-processing.html#table-nonbinary-unicode-properties) sein.
 - `value`
   - : Ein Unicode-Eigenschaftswert. Muss aus ASCII-Buchstaben (`A–Z`, `a–z`), Unterstrichen (`_`) und Ziffern (`0–9`) bestehen und muss einer der unterstützten Werte sein, die in [`PropertyValueAliases.txt`](https://unicode.org/Public/UCD/latest/ucd/PropertyValueAliases.txt) gelistet sind.
 

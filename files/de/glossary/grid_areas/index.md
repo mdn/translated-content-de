@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Grid-Bereich** ist eine oder mehrere [Grid-Zellen](/de/docs/Glossary/grid_cell), die zusammen einen rechteckigen Bereich im Grid bilden. Grid-Bereiche werden erstellt, wenn Sie ein Element mithilfe der [linienbasierten Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) platzieren oder Bereiche mit [benannten Grid-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
+Ein **Grid-Bereich** ist eine oder mehrere {{Glossary("grid_cell", "Grid-Zellen")}}, die zusammen einen rechteckigen Bereich im Grid bilden. Grid-Bereiche werden erstellt, wenn Sie ein Element mithilfe der [linienbasierten Platzierung](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) platzieren oder Bereiche mit [benannten Grid-Bereichen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas) definieren.
 
 ![Bild zeigt einen hervorgehobenen Grid-Bereich](1_grid_area.png)
 

@@ -47,7 +47,7 @@ Immer wenn ein Element gerendert wird, werden diese Eigenschaften verwendet, um 
 
 - {{cssxref("caret-color")}}
 
-  - : Die Farbe, die beim Zeichnen des [Eingabecursors](/de/docs/Glossary/caret) (manchmal auch als Texteingabecursor bezeichnet) innerhalb des Elements verwendet wird. Dies ist nur in editierbaren Elementen nützlich, wie z.B. {{HTMLElement("input")}} und {{HTMLElement("textarea")}} oder in Elementen, deren HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) auf `true` gesetzt ist.
+  - : Die Farbe, die beim Zeichnen des {{Glossary("caret", "Eingabecursors")}} (manchmal auch als Texteingabecursor bezeichnet) innerhalb des Elements verwendet wird. Dies ist nur in editierbaren Elementen nützlich, wie z.B. {{HTMLElement("input")}} und {{HTMLElement("textarea")}} oder in Elementen, deren HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) auf `true` gesetzt ist.
 
 ### Boxen
 
@@ -97,7 +97,7 @@ Sie können die {{cssxref("border")}}-Kurzschreibweise verwenden, mit der Sie al
 
 ## Farben als Werte in Stylesheets angeben
 
-Nun, da Sie wissen, welche [CSS-Eigenschaften Farben auf Elemente anwenden](#eigenschaften,_die_farbe_haben_können) können, können Sie beginnen, Farben zu Ihren Websites hinzuzufügen. Lassen Sie uns einige Beispiele für die Verwendung von Farben innerhalb eines [Stylesheets](/de/docs/Glossary/stylesheet) betrachten. In diesem Beispiel verwenden wir mehrere der zuvor erwähnten Eigenschaften, wobei das Konzept der Farbverwendung in CSS unabhängig von der Eigenschaft dasselbe ist.
+Nun, da Sie wissen, welche [CSS-Eigenschaften Farben auf Elemente anwenden](#eigenschaften,_die_farbe_haben_können) können, können Sie beginnen, Farben zu Ihren Websites hinzuzufügen. Lassen Sie uns einige Beispiele für die Verwendung von Farben innerhalb eines {{Glossary("stylesheet", "Stylesheets")}} betrachten. In diesem Beispiel verwenden wir mehrere der zuvor erwähnten Eigenschaften, wobei das Konzept der Farbverwendung in CSS unabhängig von der Eigenschaft dasselbe ist.
 
 Betrachten wir zuerst das Ergebnis, bevor wir den Code betrachten, den wir dafür benötigen:
 

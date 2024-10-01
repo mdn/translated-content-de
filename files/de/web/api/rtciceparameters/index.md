@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCIceParameters`** Dictionary gibt das Benutzername-Fragment und das Passwort an, das einer [ICE](/de/docs/Glossary/ICE) Sitzung zugewiesen ist.
+Das **`RTCIceParameters`** Dictionary gibt das Benutzername-Fragment und das Passwort an, das einer {{Glossary("ICE", "ICE")}} Sitzung zugewiesen ist.
 
 Während der ICE-Verhandlung werden das Benutzername-Fragment und das Passwort jedes Peers in einem `RTCIceParameters` Objekt gespeichert, das vom [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport) durch Aufruf seiner Methoden [`getLocalParameters()`](/de/docs/Web/API/RTCIceTransport/getLocalParameters) oder [`getRemoteParameters()`](/de/docs/Web/API/RTCIceTransport/getRemoteParameters) abgerufen werden kann, je nachdem, welches Ende von Interesse ist.
 

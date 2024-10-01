@@ -16,7 +16,7 @@ Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_at
 ## Nutzungshinweise
 
 - Ruby-Annotationen werden verwendet, um die Aussprache von ostasiatischen Zeichen anzuzeigen, wie zum Beispiel japanische Furigana oder taiwanesische Bopomofo-Zeichen. Das `<rb>`-Element wird verwendet, um jedes Segment des Ruby-Basisteils zu trennen.
-- Obwohl `<rb>` kein [void-Element](/de/docs/Glossary/void_element) ist, ist es üblich, nur das öffnende Tag jedes Elements im Quellcode einzufügen, sodass die Ruby-Markierung weniger komplex und leichter lesbar ist. Der Browser kann dann das vollständige Element in der gerenderten Version auffüllen.
+- Obwohl `<rb>` kein {{Glossary("void_element", "void-Element")}} ist, ist es üblich, nur das öffnende Tag jedes Elements im Quellcode einzufügen, sodass die Ruby-Markierung weniger komplex und leichter lesbar ist. Der Browser kann dann das vollständige Element in der gerenderten Version auffüllen.
 - Sie müssen für jedes Basissegment/`<rb>`-Element, das Sie annotieren möchten, ein {{htmlelement("rt")}}-Element einschließen.
 
 ## Beispiele

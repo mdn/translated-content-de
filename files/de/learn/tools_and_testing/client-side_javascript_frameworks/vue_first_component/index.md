@@ -114,7 +114,7 @@ export default {
 
 Dies ist die gleiche Methode, mit der die `HelloWorld`-Komponente früher vom Vue CLI registriert wurde.
 
-Um die `ToDoItem`-Komponente tatsächlich in der App zu rendern, müssen Sie in Ihr `<template>`-Element gehen und sie als `<to-do-item></to-do-item>`-Element aufrufen. Beachten Sie, dass der Dateiname der Komponente und ihre Darstellung in JavaScript im PascalCase geschrieben sind (z.B. `ToDoList`) und das entsprechende benutzerdefinierte Element in [kebab-case](/de/docs/Glossary/kebab_case) (z.B. `<to-do-list>`).
+Um die `ToDoItem`-Komponente tatsächlich in der App zu rendern, müssen Sie in Ihr `<template>`-Element gehen und sie als `<to-do-item></to-do-item>`-Element aufrufen. Beachten Sie, dass der Dateiname der Komponente und ihre Darstellung in JavaScript im PascalCase geschrieben sind (z.B. `ToDoList`) und das entsprechende benutzerdefinierte Element in {{Glossary("kebab_case", "kebab-case")}} (z.B. `<to-do-list>`).
 Es ist notwendig, diese Schreibweise zu verwenden, wenn Sie Vue-Vorlagen [direkt im DOM](https://vuejs.org/guide/essentials/component-basics.html#dom-template-parsing-caveats) schreiben.
 
 1. Erstellen Sie unterhalb der [`<h1>`](/de/docs/Web/HTML/Element/Heading_Elements) ein ungeordnetes Listelement ([`<ul>`](/de/docs/Web/HTML/Element/ul)) mit einem einzigen Listenpunkt ([`<li>`](/de/docs/Web/HTML/Element/li)).

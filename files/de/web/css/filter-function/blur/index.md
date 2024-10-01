@@ -22,7 +22,7 @@ blur(radius)
 ### Parameter
 
 - `radius`
-  - : Der Radius des Weichzeichners, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gaußsche Funktion, d.h. wie viele Pixel auf dem Bildschirm ineinander übergehen; somit erzeugt ein größerer Wert mehr Unschärfe. Ein Wert von `0` lässt die Eingabe unverändert. Der Anfangswert für [Interpolation](/de/docs/Glossary/interpolation) ist `0`. Prozentwerte sind ungültig.
+  - : Der Radius des Weichzeichners, angegeben als {{cssxref("&lt;length&gt;")}}. Er definiert den Wert der Standardabweichung für die Gaußsche Funktion, d.h. wie viele Pixel auf dem Bildschirm ineinander übergehen; somit erzeugt ein größerer Wert mehr Unschärfe. Ein Wert von `0` lässt die Eingabe unverändert. Der Anfangswert für {{Glossary("interpolation", "Interpolation")}} ist `0`. Prozentwerte sind ungültig.
 
 ### Festlegen eines Weichzeichners mit Pixeln und mit rem
 

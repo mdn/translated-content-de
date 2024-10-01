@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`atob()`**-Methode der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) dekodiert einen Datenstring, der mit der [Base64](/de/docs/Glossary/Base64)-Kodierung kodiert wurde. Sie können die [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)-Methode verwenden, um Daten zu kodieren und zu übertragen, die ansonsten Kommunikationsprobleme verursachen könnten, diese dann übertragen und mit der `atob()`-Methode die Daten wieder dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren, übertragen und dekodieren.
+Die **`atob()`**-Methode der Schnittstelle [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) dekodiert einen Datenstring, der mit der {{Glossary("Base64", "Base64")}}-Kodierung kodiert wurde. Sie können die [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)-Methode verwenden, um Daten zu kodieren und zu übertragen, die ansonsten Kommunikationsprobleme verursachen könnten, diese dann übertragen und mit der `atob()`-Methode die Daten wieder dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren, übertragen und dekodieren.
 
-Für die Verwendung mit beliebigen Unicode-Strings siehe den Abschnitt _Das "Unicode-Problem"_ im Glossareintrag [Base64](/de/docs/Glossary/Base64).
+Für die Verwendung mit beliebigen Unicode-Strings siehe den Abschnitt _Das "Unicode-Problem"_ im Glossareintrag {{Glossary("Base64", "Base64")}}.
 
 ## Syntax
 

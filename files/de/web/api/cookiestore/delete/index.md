@@ -46,7 +46,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird, wenn
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL [serialisiert](/de/docs/Glossary/Serialization) werden kann.
+  - : Wird ausgelöst, wenn der Ursprung nicht zu einer URL {{Glossary("Serialization", "serialisiert")}} werden kann.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn das Löschen des durch den angegebenen `name` oder `options` dargestellten Cookies fehlschlägt.
 

@@ -57,7 +57,7 @@ Dies ist ein gängiges Muster für datengetriebene Websites wie Amazon, YouTube,
 - Weniger Daten werden bei jedem Update heruntergeladen, was weniger Bandbreitenverschwendung bedeutet. Dies mag auf einem Desktop mit Breitbandverbindung kein großes Problem sein, aber es ist ein großes Problem auf mobilen Geräten und in Ländern, die keinen allgegenwärtigen schnellen Internetzugang haben.
 
 > [!NOTE]
-> In den frühen Tagen war diese allgemeine Technik als [Asynchronous](/de/docs/Glossary/Asynchronous) JavaScript und XML ([Ajax](/de/docs/Glossary/AJAX)) bekannt, da sie dazu neigte, XML-Daten anzufordern. Dies ist heutzutage normalerweise nicht der Fall (man würde eher JSON anfordern), aber das Ergebnis ist immer noch dasselbe, und der Begriff "Ajax" wird oft verwendet, um die Technik zu beschreiben.
+> In den frühen Tagen war diese allgemeine Technik als {{Glossary("Asynchronous", "Asynchronous")}} JavaScript und XML ({{Glossary("AJAX", "Ajax")}}) bekannt, da sie dazu neigte, XML-Daten anzufordern. Dies ist heutzutage normalerweise nicht der Fall (man würde eher JSON anfordern), aber das Ergebnis ist immer noch dasselbe, und der Begriff "Ajax" wird oft verwendet, um die Technik zu beschreiben.
 
 Um die Geschwindigkeit noch weiter zu erhöhen, speichern einige Websites auch Vermögenswerte und Daten auf dem Computer des Benutzers, wenn sie zuerst angefordert werden. Bei späteren Besuchen werden sie dann stattdessen die lokalen Versionen nutzen, anstatt immer neue Kopien herunterzuladen, wenn die Seite zum ersten Mal geladen wird. Der Inhalt wird nur dann vom Server neu geladen, wenn er aktualisiert wurde.
 

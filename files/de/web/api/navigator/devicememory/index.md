@@ -10,7 +10,7 @@ l10n:
 
 Die **`deviceMemory`** schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt die ungefähre Menge des Gerätespeichers in Gigabyte zurück.
 
-Der angegebene Wert ist ungenau, um [Fingerprinting](/de/docs/Glossary/fingerprinting) einzuschränken. Er wird angenähert, indem er auf die nächste Zweierpotenz abgerundet und dann durch 1024 geteilt wird. Anschließend wird er innerhalb unterer und oberer Grenzen geklemmt, um die Privatsphäre von Besitzern von Geräten mit sehr wenig oder sehr viel Speicher zu schützen.
+Der angegebene Wert ist ungenau, um {{Glossary("fingerprinting", "Fingerprinting")}} einzuschränken. Er wird angenähert, indem er auf die nächste Zweierpotenz abgerundet und dann durch 1024 geteilt wird. Anschließend wird er innerhalb unterer und oberer Grenzen geklemmt, um die Privatsphäre von Besitzern von Geräten mit sehr wenig oder sehr viel Speicher zu schützen.
 
 ## Wert
 

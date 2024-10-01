@@ -14,4 +14,4 @@ Ursprünglich für E-Mail-Anhänge verwendet, hat es sich zum De-facto-Standard 
 
 - [MIME](https://en.wikipedia.org/wiki/MIME) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [MIME Type](/de/docs/Glossary/MIME_Type)
+  - {{Glossary("MIME_Type", "MIME Type")}}

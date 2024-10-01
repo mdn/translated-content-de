@@ -35,7 +35,7 @@ configure(config)
     - `colorSpace`
       - : Ein Objekt, das einen [`VideoColorSpace`](/de/docs/Web/API/VideoColorSpace) darstellt, der die folgenden Mitglieder enthält:
         - `primaries`
-          - : Ein String, der den Farbumfang ([gamut](/de/docs/Glossary/gamut)) der Videoproben darstellt. Einer von:
+          - : Ein String, der den Farbumfang ({{Glossary("gamut", "gamut")}}) der Videoproben darstellt. Einer von:
             - `"bt709"`
             - `"bt470bg"`
             - `"smpte170m"`

@@ -7,7 +7,7 @@ l10n:
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Navigation API")}}
 
-Die **Navigation API** bietet die Möglichkeit, Browser-Navigationsaktionen zu initiieren, abzufangen und zu verwalten. Sie kann auch die Einträge im Verlauf einer Anwendung untersuchen. Dies ist ein Nachfolger früherer Webplattformfunktionen wie der [History API](/de/docs/Web/API/History_API) und [`window.location`](/de/docs/Web/API/Window/location), der ihre Mängel behebt und speziell auf die Bedürfnisse von [Single-Page-Anwendungen (SPAs)](/de/docs/Glossary/SPA) ausgerichtet ist.
+Die **Navigation API** bietet die Möglichkeit, Browser-Navigationsaktionen zu initiieren, abzufangen und zu verwalten. Sie kann auch die Einträge im Verlauf einer Anwendung untersuchen. Dies ist ein Nachfolger früherer Webplattformfunktionen wie der [History API](/de/docs/Web/API/History_API) und [`window.location`](/de/docs/Web/API/Window/location), der ihre Mängel behebt und speziell auf die Bedürfnisse von {{Glossary("SPA", "Single-Page-Anwendungen (SPAs)")}} ausgerichtet ist.
 
 ## Konzepte und Nutzung
 

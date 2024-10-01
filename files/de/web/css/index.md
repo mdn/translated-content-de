@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-**Cascading Style Sheets** (**CSS**) ist eine [Stylesheet](/de/docs/Web/API/StyleSheet)-Sprache, die verwendet wird, um die Präsentation eines Dokumentes zu beschreiben, das in [HTML](/de/docs/Web/HTML) oder [XML](/de/docs/Web/XML/XML_introduction) (einschließlich XML-Dialekten wie [SVG](/de/docs/Web/SVG), [MathML](/de/docs/Web/MathML) oder [XHTML](/de/docs/Glossary/XHTML)) geschrieben wurde. CSS beschreibt, wie Elemente auf dem Bildschirm, auf Papier, in der Sprache oder auf anderen Medien dargestellt werden sollen.
+**Cascading Style Sheets** (**CSS**) ist eine [Stylesheet](/de/docs/Web/API/StyleSheet)-Sprache, die verwendet wird, um die Präsentation eines Dokumentes zu beschreiben, das in [HTML](/de/docs/Web/HTML) oder [XML](/de/docs/Web/XML/XML_introduction) (einschließlich XML-Dialekten wie [SVG](/de/docs/Web/SVG), [MathML](/de/docs/Web/MathML) oder {{Glossary("XHTML", "XHTML")}}) geschrieben wurde. CSS beschreibt, wie Elemente auf dem Bildschirm, auf Papier, in der Sprache oder auf anderen Medien dargestellt werden sollen.
 
 CSS gehört zu den Kernsprachen des **offenen Webs** und ist über Webbrowser gemäß [W3C-Spezifikationen](https://www.w3.org/Style/CSS/#specs) standardisiert. Früher wurde die Entwicklung verschiedener Teile der CSS-Spezifikation synchron durchgeführt, was eine Versionierung der neuesten Empfehlungen ermöglichte. Sie haben vielleicht von CSS1, CSS2.1 oder sogar CSS3 gehört. Es wird niemals ein CSS3 oder CSS4 geben; vielmehr gibt es jetzt nur noch "CSS" mit einzelnen CSS-Modulen, die Versionsnummern haben.
 
@@ -78,5 +78,5 @@ Das [CSS-Layout-Kochbuch](/de/docs/Web/CSS/Layout_cookbook) zielt darauf ab, Rez
 
 ## Siehe auch
 
-- Websprachen, auf die CSS häufig angewendet wird: [HTML](/de/docs/Web/HTML), [SVG](/de/docs/Web/SVG), [MathML](/de/docs/Web/MathML), [XHTML](/de/docs/Glossary/XHTML) und [XML](/de/docs/Web/XML/XML_introduction).
+- Websprachen, auf die CSS häufig angewendet wird: [HTML](/de/docs/Web/HTML), [SVG](/de/docs/Web/SVG), [MathML](/de/docs/Web/MathML), {{Glossary("XHTML", "XHTML")}} und [XML](/de/docs/Web/XML/XML_introduction).
 - [Stack Overflow Fragen zu CSS](https://stackoverflow.com/questions/tagged/css)

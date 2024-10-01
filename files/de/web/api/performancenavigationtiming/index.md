@@ -54,7 +54,7 @@ Das Interface unterstützt auch die folgenden Eigenschaften:
 - [`PerformanceNavigationTiming.loadEventStart`](/de/docs/Web/API/PerformanceNavigationTiming/loadEventStart) {{ReadOnlyInline}}
   - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), das die Zeit unmittelbar bevor der [`load`](/de/docs/Web/API/Window/load_event)-Ereignishandler des aktuellen Dokuments startet, darstellt.
 - [`PerformanceNavigationTiming.notRestoredReasons`](/de/docs/Web/API/PerformanceNavigationTiming/notRestoredReasons) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt, das Berichtsdaten zu den Gründen liefert, warum das aktuelle Dokument von der Nutzung des Back/Forward Caches ([bfcache](/de/docs/Glossary/bfcache)) bei der Navigation ausgeschlossen wurde.
+  - : Ein [`NotRestoredReasons`](/de/docs/Web/API/NotRestoredReasons)-Objekt, das Berichtsdaten zu den Gründen liefert, warum das aktuelle Dokument von der Nutzung des Back/Forward Caches ({{Glossary("bfcache", "bfcache")}}) bei der Navigation ausgeschlossen wurde.
 - [`PerformanceNavigationTiming.redirectCount`](/de/docs/Web/API/PerformanceNavigationTiming/redirectCount) {{ReadOnlyInline}}
   - : Eine Zahl, die die Anzahl der Umleitungen seit der letzten Nicht-Umleitungs-Navigation im aktuellen Browsing-Kontext darstellt.
 - [`PerformanceNavigationTiming.type`](/de/docs/Web/API/PerformanceNavigationTiming/type) {{ReadOnlyInline}}

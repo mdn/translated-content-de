@@ -17,7 +17,7 @@ Dieser Artikel beschreibt die Webtechnologien, die zum Speichern von Daten verwe
 
 Browser speichern die Daten von Websites an verschiedenen Orten, auch Buckets genannt, um das Risiko zu verringern, dass Benutzer im Web verfolgt werden. Meistens verwalten Browser gespeicherte Daten _pro Ursprung_.
 
-Der Begriff _[Ursprung](/de/docs/Glossary/origin)_ ist daher wichtig, um diesen Artikel zu verstehen. Ein Ursprung wird durch ein Schema (wie HTTPS), einen Hostnamen und einen Port definiert. Zum Beispiel gehören `https://example.com` und `https://example.com/app/index.html` zum selben Ursprung, weil sie dasselbe Schema (`https`), denselben Hostnamen (`example.com`) und den Standardport haben.
+Der Begriff _{{Glossary("origin", "Ursprung")}}_ ist daher wichtig, um diesen Artikel zu verstehen. Ein Ursprung wird durch ein Schema (wie HTTPS), einen Hostnamen und einen Port definiert. Zum Beispiel gehören `https://example.com` und `https://example.com/app/index.html` zum selben Ursprung, weil sie dasselbe Schema (`https`), denselben Hostnamen (`example.com`) und den Standardport haben.
 
 Die in diesem Artikel beschriebenen Quoten und Eviktionskriterien gelten für einen gesamten Ursprung, auch wenn dieser Ursprung dazu verwendet wird, mehrere Websites zu betreiben, wie `https://example.com/site1/` und `https://example.com/site2/`.
 
@@ -27,13 +27,13 @@ In einigen Fällen können Browser jedoch entscheiden, die vom Ursprung gespeich
 
 Webentwickler können die folgenden Webtechnologien verwenden, um Daten im Browser zu speichern:
 
-| Technologie                                                                                       | Beschreibung                                                                                                                                                                                                                       |
-| ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Cookies](/de/docs/Web/HTTP/Cookies)                                                           | Ein HTTP-Cookie ist ein kleines Stück Daten, das der Webserver und Browser senden, um zustandsbehaftete Informationen über die Seitennavigation hinweg zu behalten.                                                                |
-| [Web Storage](/de/docs/Web/API/Web_Storage_API)                                                | Die Web Storage API bietet Mechanismen, um Webseiten nur-String-Schlüssel/Wert-Paare zu speichern, einschließlich [`localStorage`](/de/docs/Web/API/Window/localStorage) und [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage). |
-| [IndexedDB](/de/docs/Web/API/IndexedDB_API)                                                    | IndexedDB ist eine Web-API zum Speichern großer Datenstrukturen im Browser und zum Indexieren für eine leistungsstarke Suche.                                                                                                       |
-| [Cache API](/de/docs/Web/API/Cache)                                                            | Die Cache API bietet einen dauerhaften Speichermechanismus für HTTP-Anfrage- und Antwortobjektpaare, der verwendet wird, um Webseiten schneller laden zu lassen.                                                                    |
-| [Origin Private File System (OPFS)](/de/docs/Web/API/File_System_API/Origin_private_file_system) | OPFS bietet ein Dateisystem, das für den Ursprung der Seite privat ist und zum Lesen und Schreiben von Verzeichnissen und Dateien verwendet werden kann.                                                                             |
+| Technologie                                                                                      | Beschreibung                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Cookies](/de/docs/Web/HTTP/Cookies)                                                             | Ein HTTP-Cookie ist ein kleines Stück Daten, das der Webserver und Browser senden, um zustandsbehaftete Informationen über die Seitennavigation hinweg zu behalten.                                                                      |
+| [Web Storage](/de/docs/Web/API/Web_Storage_API)                                                  | Die Web Storage API bietet Mechanismen, um Webseiten nur-String-Schlüssel/Wert-Paare zu speichern, einschließlich [`localStorage`](/de/docs/Web/API/Window/localStorage) und [`sessionStorage`](/de/docs/Web/API/Window/sessionStorage). |
+| [IndexedDB](/de/docs/Web/API/IndexedDB_API)                                                      | IndexedDB ist eine Web-API zum Speichern großer Datenstrukturen im Browser und zum Indexieren für eine leistungsstarke Suche.                                                                                                            |
+| [Cache API](/de/docs/Web/API/Cache)                                                              | Die Cache API bietet einen dauerhaften Speichermechanismus für HTTP-Anfrage- und Antwortobjektpaare, der verwendet wird, um Webseiten schneller laden zu lassen.                                                                         |
+| [Origin Private File System (OPFS)](/de/docs/Web/API/File_System_API/Origin_private_file_system) | OPFS bietet ein Dateisystem, das für den Ursprung der Seite privat ist und zum Lesen und Schreiben von Verzeichnissen und Dateien verwendet werden kann.                                                                                 |
 
 Beachten Sie, dass zusätzlich zu den oben genannten Punkten Browser andere Arten von Daten für einen Ursprung im Browser speichern, wie z. B. [WebAssembly](/de/docs/WebAssembly)-Code-Caching.
 
@@ -87,7 +87,7 @@ Jeder Browser bestimmt mittels eines beliebigen Mechanismus, den er wählt, die 
 In Firefox ist der maximale Speicherplatz, den ein Ursprung im Best-Effort-Modus verwenden kann, der jeweils kleinere von:
 
 - 10% der gesamten Festplattengröße, auf der das Profil des Benutzers gespeichert ist.
-- Oder 10 GiB, was das _Gruppenlimit_ ist, das Firefox für alle Ursprünge anwendet, die Teil derselben [eTLD+1-Domain](/de/docs/Glossary/eTLD) sind.
+- Oder 10 GiB, was das _Gruppenlimit_ ist, das Firefox für alle Ursprünge anwendet, die Teil derselben {{Glossary("eTLD", "eTLD+1-Domain")}} sind.
 
 Ursprünge, denen dauerhafter Speicher gewährt wurde, können bis zu 50% der gesamten Festplattengröße speichern, gedeckelt bei 8 TiB, und unterliegen nicht dem eTLD+1-Gruppenlimit.
 
@@ -96,7 +96,7 @@ Zum Beispiel, wenn das Gerät eine 500 GiB große Festplatte hat, erlaubt Firefo
 - Im Best-Effort-Modus: 10 GiB an Daten zu speichern, was das eTLD+1-Gruppenlimit ist.
 - Im Dauerhaften Modus: 250 GiB, was 50% der gesamten Festplattengröße ist.
 
-Beachten Sie, dass es möglicherweise nicht tatsächlich möglich ist, dass der Ursprung sein Quota erreicht, da es auf Grundlage der **gesamten** Festplattengröße berechnet wird, nicht des aktuell verfügbaren Speicherplatzes. Dies erfolgt aus Sicherheitsgründen, um [Fingerprinting](/de/docs/Glossary/fingerprinting) zu vermeiden.
+Beachten Sie, dass es möglicherweise nicht tatsächlich möglich ist, dass der Ursprung sein Quota erreicht, da es auf Grundlage der **gesamten** Festplattengröße berechnet wird, nicht des aktuell verfügbaren Speicherplatzes. Dies erfolgt aus Sicherheitsgründen, um {{Glossary("fingerprinting", "Fingerprinting")}} zu vermeiden.
 
 #### Chrome und Chromium-basierte Browser
 
@@ -108,7 +108,7 @@ Wie bei Firefox, da dieses Quota basierend auf der gesamten Festplattengröße b
 
 #### Safari
 
-Beginnend mit macOS 14 und iOS 17 gewährt Safari jedem Ursprung bis zu etwa 20% des gesamten Festplattenspeicherplatzes. Wenn der Benutzer es als Web-App auf dem Home-Bildschirm oder dem Dock gespeichert hat, wird dieses Limit auf bis zu 60% der Festplattengröße erhöht. Aus Datenschutzgründen haben [cross-origin](/de/docs/Glossary/Same-origin_policy)-Frames eine separate Quote, die etwa 1/10 ihrer Eltern beträgt.
+Beginnend mit macOS 14 und iOS 17 gewährt Safari jedem Ursprung bis zu etwa 20% des gesamten Festplattenspeicherplatzes. Wenn der Benutzer es als Web-App auf dem Home-Bildschirm oder dem Dock gespeichert hat, wird dieses Limit auf bis zu 60% der Festplattengröße erhöht. Aus Datenschutzgründen haben {{Glossary("Same-origin_policy", "cross-origin")}}-Frames eine separate Quote, die etwa 1/10 ihrer Eltern beträgt.
 
 Zum Beispiel wird ein macOS-Gerät mit einer 1 TiB-Festplatte jeden Ursprung auf circa 200 GiB beschränken. Wenn der Benutzer eine Web-App in seinem Dock speichert, wird dafür ein größeres Limit von etwa 600 GiB gewährt.
 

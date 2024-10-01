@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In [JavaScript](/de/docs/Glossary/JavaScript) ist **Number** ein numerischer Datentyp im [Double-Precision-64-Bit-Gleitkommaformat (IEEE 754)](https://en.wikipedia.org/wiki/Double_precision_floating-point_format). In anderen Programmiersprachen existieren unterschiedliche numerische Typen; zum Beispiel, Integers, Floats, Doubles oder Bignums.
+In {{Glossary("JavaScript", "JavaScript")}} ist **Number** ein numerischer Datentyp im [Double-Precision-64-Bit-Gleitkommaformat (IEEE 754)](https://en.wikipedia.org/wiki/Double_precision_floating-point_format). In anderen Programmiersprachen existieren unterschiedliche numerische Typen; zum Beispiel, Integers, Floats, Doubles oder Bignums.
 
 ## Siehe auch
 
@@ -15,5 +15,5 @@ In [JavaScript](/de/docs/Glossary/JavaScript) ist **Number** ein numerischer Dat
 - Der JavaScript-Typ: [`Number`](/de/docs/Web/JavaScript/Data_structures#number_type)
 - Das JavaScript-Globale Objekt {{jsxref("Number")}}
 - Verwandte Glossarbegriffe:
-  - [JavaScript](/de/docs/Glossary/JavaScript)
-  - [Primitive](/de/docs/Glossary/Primitive)
+  - {{Glossary("JavaScript", "JavaScript")}}
+  - {{Glossary("Primitive", "Primitive")}}

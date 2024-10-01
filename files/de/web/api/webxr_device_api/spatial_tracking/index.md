@@ -179,7 +179,7 @@ Sie können dies tun, indem Sie einen neuen Referenzraum erstellen, der in seine
 
 **_<<<--- dieser Abschnitt hat wahrscheinlich noch Probleme; Korrekturen sind willkommen --->>>_**
 
-Wenn eine Diskontinuität oder ein Bruch im nativen oder effektiven Ursprung eines Referenzraums auftritt, sendet der [User-Agent](/de/docs/Glossary/user_agent) dem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) ein [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event)-Ereignis. Dieses Ereignis zeigt an, dass eine signifikante Änderung der Position des Ursprungs relativ zur Umgebung des Benutzers stattgefunden hat.
+Wenn eine Diskontinuität oder ein Bruch im nativen oder effektiven Ursprung eines Referenzraums auftritt, sendet der {{Glossary("user_agent", "User-Agent")}} dem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) ein [`reset`](/de/docs/Web/API/XRReferenceSpace/reset_event)-Ereignis. Dieses Ereignis zeigt an, dass eine signifikante Änderung der Position des Ursprungs relativ zur Umgebung des Benutzers stattgefunden hat.
 
 Ein `reset` kann auftreten, weil das XR-Gerät die Verbindung für eine Zeit verloren hat, was dazu führte, dass die Bewegungen des Benutzers für eine Weile nicht richtig verfolgt wurden. Bei Wiederherstellung der Verfolgung bedeutet ein `reset`, dass die Verfolgung wiederhergestellt wurde und die neuen Positionsinformationen die tatsächlichen Positionsinformationen darstellen, die von der XR-Hardware bereitgestellt werden, statt zwischengespeicherte oder "best-guess"-Daten.
 

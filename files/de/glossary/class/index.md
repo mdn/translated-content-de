@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In der [objektorientierten Programmierung](/de/docs/Glossary/OOP) definiert eine **Klasse** die Eigenschaften eines [Objekts](/de/docs/Glossary/object). Eine Klasse ist eine Vorlagendefinition der [Eigenschaften](/de/docs/Glossary/property) und [Methoden](/de/docs/Glossary/method) eines Objekts, das "Blueprint", aus dem andere spezifischere Instanzen des Objekts entnommen werden.
+In der {{Glossary("OOP", "objektorientierten Programmierung")}} definiert eine **Klasse** die Eigenschaften eines {{Glossary("object", "Objekts")}}. Eine Klasse ist eine Vorlagendefinition der {{Glossary("property", "Eigenschaften")}} und {{Glossary("method", "Methoden")}} eines Objekts, das "Blueprint", aus dem andere spezifischere Instanzen des Objekts entnommen werden.
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das **RTP Control Protocol** (**RTCP**) ist ein Partnerprotokoll des [RTP](/de/docs/Glossary/RTP). RTCP wird verwendet, um Kontroll- und statistische Informationen über eine RTP-Medienstreaming-Sitzung bereitzustellen.
+Das **RTP Control Protocol** (**RTCP**) ist ein Partnerprotokoll des {{Glossary("RTP", "RTP")}}. RTCP wird verwendet, um Kontroll- und statistische Informationen über eine RTP-Medienstreaming-Sitzung bereitzustellen.
 
 Dies ermöglicht es, Kontroll- und Statistikpakete logisch und funktional vom Medienstreaming zu trennen, während die zugrunde liegende Paketübertragungsschicht genutzt wird, um die RTCP-Signale sowie die RTP- und Medieninhalte zu übertragen.
 

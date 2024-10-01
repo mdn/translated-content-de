@@ -8,7 +8,7 @@ l10n:
 
 {{ApiRef("Location")}}
 
-Die **`toString()`**-[Stringifizierer](/de/docs/Glossary/stringifier)-Methode des
+Die **`toString()`**-{{Glossary("stringifier", "Stringifizierer")}}-Methode des
 [`Location`](/de/docs/Web/API/Location)-Interfaces gibt einen String zurück, der die
 gesamte URL enthält. Es ist eine schreibgeschützte Version von [`Location.href`](/de/docs/Web/API/Location/href).
 

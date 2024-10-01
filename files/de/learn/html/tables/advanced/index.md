@@ -305,7 +305,7 @@ Das Gleiche gilt für Überschriften von mehreren gruppierten Zeilen. Betrachten
 
 Eine Alternative zur Verwendung des `scope`-Attributs ist die Verwendung der [`id`](/de/docs/Web/HTML/Global_attributes#id)- und [`headers`](/de/docs/Web/HTML/Element/td#headers)-Attribute, um Assoziationen zwischen Überschriften und Zellen zu erstellen.
 
-Das `headers`-Attribut nimmt eine Liste von ungeordneten, durch Leerzeichen getrennten [Strings](/de/docs/Glossary/string) an, die jeweils der eindeutigen `id` der `<th>`-Elemente entsprechen, die Überschriften entweder für eine Datumszelle (`<td>`-Element) oder eine andere Überschriftzelle (`<th>`-Element) bereitstellen.
+Das `headers`-Attribut nimmt eine Liste von ungeordneten, durch Leerzeichen getrennten {{Glossary("string", "Strings")}} an, die jeweils der eindeutigen `id` der `<th>`-Elemente entsprechen, die Überschriften entweder für eine Datumszelle (`<td>`-Element) oder eine andere Überschriftzelle (`<th>`-Element) bereitstellen.
 
 Dies gibt Ihrer HTML-Tabelle eine explizite Definition der Position jeder Zelle in der Tabelle, definiert durch die Überschrift(en) für jede Spalte und Zeile, zu der sie gehört, ähnlich wie in einer Tabellenkalkulation. Damit es gut funktioniert, benötigt die Tabelle wirklich sowohl Spalten- als auch Zeilenüberschriften.
 

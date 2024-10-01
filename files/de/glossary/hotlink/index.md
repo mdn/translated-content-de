@@ -15,4 +15,4 @@ Diese Praxis wird ungern gesehen, da sie zu unerwünschtem Bandbreitenverbrauch 
 
 - [Hotlink](https://en.wikipedia.org/wiki/Inline_linking) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [Hyperlink](/de/docs/Glossary/Hyperlink)
+  - {{Glossary("Hyperlink", "Hyperlink")}}

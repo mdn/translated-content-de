@@ -119,7 +119,7 @@ Alle kanonisch äquivalenten Sequenzen sind auch kompatibel, aber nicht umgekehr
 
 Zum Beispiel:
 
-- Der Codepunkt U+FB00 stellt die [Ligatur](/de/docs/Glossary/Ligature) `"ﬀ"` dar. Es ist kompatibel
+- Der Codepunkt U+FB00 stellt die {{Glossary("Ligature", "Ligatur")}} `"ﬀ"` dar. Es ist kompatibel
   mit zwei aufeinanderfolgenden U+0066 Codepunkten (`"ff"`).
 - Der Codepunkt U+24B9 stellt das Symbol
   `"Ⓓ"` dar.

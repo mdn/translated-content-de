@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("DOM")}}
 
-Das [DOM](/de/docs/Glossary/DOM) **`Node`**-Interface ist eine abstrakte Basisklasse, auf der viele andere DOM-API-Objekte basieren, wodurch diese Objekttypen ähnlich und oft austauschbar verwendet werden können. Als abstrakte Klasse gibt es kein einfaches `Node`-Objekt. Alle Objekte, die die `Node`-Funktionalität implementieren, basieren auf einer ihrer Unterklassen. Am bemerkenswertesten sind [`Document`](/de/docs/Web/API/Document), [`Element`](/de/docs/Web/API/Element) und [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
+Das {{Glossary("DOM", "DOM")}} **`Node`**-Interface ist eine abstrakte Basisklasse, auf der viele andere DOM-API-Objekte basieren, wodurch diese Objekttypen ähnlich und oft austauschbar verwendet werden können. Als abstrakte Klasse gibt es kein einfaches `Node`-Objekt. Alle Objekte, die die `Node`-Funktionalität implementieren, basieren auf einer ihrer Unterklassen. Am bemerkenswertesten sind [`Document`](/de/docs/Web/API/Document), [`Element`](/de/docs/Web/API/Element) und [`DocumentFragment`](/de/docs/Web/API/DocumentFragment).
 
 Außerdem wird jede Art von DOM-Knoten durch ein auf `Node` basierendes Interface dargestellt. Dazu gehören [`Attr`](/de/docs/Web/API/Attr), [`CharacterData`](/de/docs/Web/API/CharacterData) (auf denen [`Text`](/de/docs/Web/API/Text), [`Comment`](/de/docs/Web/API/Comment), [`CDATASection`](/de/docs/Web/API/CDATASection) und [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction) basieren) und [`DocumentType`](/de/docs/Web/API/DocumentType).
 
@@ -37,17 +37,17 @@ _Neben den unten aufgeführten Eigenschaften erbt `Node` Eigenschaften von seine
 
   - : Gibt einen `unsigned short` zurück, der den Typ des Knotens darstellt. Mögliche Werte sind:
 
-    | Name                          | Wert  |
-    | ----------------------------- | ----- |
-    | `ELEMENT_NODE`                | `1`   |
-    | `ATTRIBUTE_NODE`              | `2`   |
-    | `TEXT_NODE`                   | `3`   |
-    | `CDATA_SECTION_NODE`          | `4`   |
-    | `PROCESSING_INSTRUCTION_NODE` | `7`   |
-    | `COMMENT_NODE`                | `8`   |
-    | `DOCUMENT_NODE`               | `9`   |
-    | `DOCUMENT_TYPE_NODE`          | `10`  |
-    | `DOCUMENT_FRAGMENT_NODE`      | `11`  |
+    | Name                          | Wert |
+    | ----------------------------- | ---- |
+    | `ELEMENT_NODE`                | `1`  |
+    | `ATTRIBUTE_NODE`              | `2`  |
+    | `TEXT_NODE`                   | `3`  |
+    | `CDATA_SECTION_NODE`          | `4`  |
+    | `PROCESSING_INSTRUCTION_NODE` | `7`  |
+    | `COMMENT_NODE`                | `8`  |
+    | `DOCUMENT_NODE`               | `9`  |
+    | `DOCUMENT_TYPE_NODE`          | `10` |
+    | `DOCUMENT_FRAGMENT_NODE`      | `11` |
 
 - [`Node.nodeValue`](/de/docs/Web/API/Node/nodeValue)
   - : Gibt den Wert des aktuellen Knotens zurück / legt ihn fest.

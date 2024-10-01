@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Intersection Observer API")}}
 
-Die schreibgeschützte **`root`**-Eigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces identifiziert das [`Element`](/de/docs/Web/API/Element) oder [`Document`](/de/docs/Web/API/Document), dessen Grenzen als [Bounding-Box](/de/docs/Glossary/bounding_box) des [Viewports](/de/docs/Glossary/viewport) für das Element behandelt werden, das das Ziel des Beobachters ist.
+Die schreibgeschützte **`root`**-Eigenschaft des [`IntersectionObserver`](/de/docs/Web/API/IntersectionObserver)-Interfaces identifiziert das [`Element`](/de/docs/Web/API/Element) oder [`Document`](/de/docs/Web/API/Document), dessen Grenzen als {{Glossary("bounding_box", "Bounding-Box")}} des {{Glossary("viewport", "Viewports")}} für das Element behandelt werden, das das Ziel des Beobachters ist.
 
 Wenn `root` `null` ist, werden die Grenzen des tatsächlichen Dokuments Viewport verwendet.
 

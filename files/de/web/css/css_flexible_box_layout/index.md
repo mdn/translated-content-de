@@ -33,12 +33,12 @@ Im folgenden Beispiel wurde ein Container auf `display: flex` gesetzt, wodurch d
 
 ### Glossareinträge
 
-- [Flexbox](/de/docs/Glossary/Flexbox)
-- [Flex container](/de/docs/Glossary/Flex_container)
-- [Flex item](/de/docs/Glossary/Flex_item)
-- [Main axis](/de/docs/Glossary/Main_axis)
-- [Cross axis](/de/docs/Glossary/Cross_axis)
-- [Flex](/de/docs/Glossary/Flex)
+- {{Glossary("Flexbox", "Flexbox")}}
+- {{Glossary("Flex_container", "Flex container")}}
+- {{Glossary("Flex_item", "Flex item")}}
+- {{Glossary("Main_axis", "Main axis")}}
+- {{Glossary("Cross_axis", "Cross axis")}}
+- {{Glossary("Flex", "Flex")}}
 
 ## Leitfäden
 
@@ -103,7 +103,7 @@ Im folgenden Beispiel wurde ein Container auf `display: flex` gesetzt, wodurch d
 - {{cssxref("max-content")}} Wert
 - {{cssxref("min-content")}} Wert
 - {{cssxref("fit-content")}} Wert
-- [intrinsische Größe](/de/docs/Glossary/intrinsic_size) Glossarbegriff
+- {{Glossary("intrinsic_size", "intrinsische Größe")}} Glossarbegriff
 
 ## Spezifikationen
 

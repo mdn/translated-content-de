@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<div>`** [HTML](/de/docs/Web/HTML)-Element ist der generische Container für Flussinhalte. Es hat keinen Einfluss auf den Inhalt oder das Layout, bis es auf eine bestimmte Weise mit [CSS](/de/docs/Glossary/CSS) gestylt wird (z.B. wird direktes Styling darauf angewendet oder ein Layout-Modell wie [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) auf sein übergeordnetes Element angewendet).
+Das **`<div>`** [HTML](/de/docs/Web/HTML)-Element ist der generische Container für Flussinhalte. Es hat keinen Einfluss auf den Inhalt oder das Layout, bis es auf eine bestimmte Weise mit {{Glossary("CSS", "CSS")}} gestylt wird (z.B. wird direktes Styling darauf angewendet oder ein Layout-Modell wie [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout) auf sein übergeordnetes Element angewendet).
 
 {{EmbedInteractiveExample("pages/tabbed/div.html","tabbed-standard")}}
 
@@ -87,7 +87,7 @@ Dieses Beispiel erstellt eine beschattete Box, indem ein Stil auf das `<div>` mi
     <tr>
       <th scope="row">Zulässiger Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>.<br />Oder (in [WHATWG](/de/docs/Glossary/WHATWG) HTML): Wenn das übergeordnete Element ein {{HTMLElement("dl")}}-Element ist: ein oder mehrere {{HTMLElement("dt")}}-Elemente, gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML): Wenn das übergeordnete Element ein {{HTMLElement("dl")}}-Element ist: ein oder mehrere {{HTMLElement("dt")}}-Elemente, gefolgt von einem oder mehreren {{HTMLElement("dd")}}-Elementen, optional vermischt mit {{HTMLElement("script")}}- und {{HTMLElement("template")}}-Elementen.
       </td>
     </tr>
     <tr>
@@ -97,7 +97,7 @@ Dieses Beispiel erstellt eine beschattete Box, indem ein Stil auf das `<div>` mi
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a> akzeptiert.<br />Oder (in [WHATWG](/de/docs/Glossary/WHATWG) HTML):
+        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a> akzeptiert.<br />Oder (in {{Glossary("WHATWG", "WHATWG")}} HTML):
         {{HTMLElement("dl")}}-Element.
       </td>
     </tr>

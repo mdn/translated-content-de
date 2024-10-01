@@ -39,9 +39,9 @@ Hyperlinks, meist einfach Links genannt, sind ein grundlegendes Konzept hinter d
 
 1989 sprach Tim Berners-Lee, der Erfinder des Webs, von den drei Säulen, auf denen das Web steht:
 
-1. [URL](/de/docs/Glossary/URL), ein Adressensystem, das Webdokumente verfolgt
-2. [HTTP](/de/docs/Glossary/HTTP), ein Übertragungsprotokoll, um Dokumente anhand ihrer URLs zu finden
-3. [HTML](/de/docs/Glossary/HTML), ein Dokumentenformat, das eingebettete _Hyperlinks_ ermöglicht
+1. {{Glossary("URL", "URL")}}, ein Adressensystem, das Webdokumente verfolgt
+2. {{Glossary("HTTP", "HTTP")}}, ein Übertragungsprotokoll, um Dokumente anhand ihrer URLs zu finden
+3. {{Glossary("HTML", "HTML")}}, ein Dokumentenformat, das eingebettete _Hyperlinks_ ermöglicht
 
 Wie Sie an den drei Säulen sehen können, dreht sich im Web alles um Dokumente und deren Zugriff. Das ursprüngliche Ziel des Webs war es, einen einfachen Weg zu bieten, um Textdokumente zu erreichen, zu lesen und zu navigieren. Seitdem hat sich das Web weiterentwickelt und bietet Zugang zu Bildern, Videos und Binärdaten, aber diese Verbesserungen haben die drei Säulen kaum verändert.
 

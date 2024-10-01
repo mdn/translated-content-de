@@ -80,7 +80,7 @@ Das Weglassen von Anführungszeichen kann auch Probleme verursachen. Im obigen B
 
 ## Boolesche Attribute
 
-Geben Sie keine Werte für boolesche Attribute an (aber geben Sie Werte für [enumerierte](/de/docs/Glossary/enumerated) Attribute an); Sie können einfach den Attributnamen schreiben, um es zu setzen. Zum Beispiel können Sie schreiben:
+Geben Sie keine Werte für boolesche Attribute an (aber geben Sie Werte für {{Glossary("enumerated", "enumerierte")}} Attribute an); Sie können einfach den Attributnamen schreiben, um es zu setzen. Zum Beispiel können Sie schreiben:
 
 ```html example-good
 <input required />
@@ -106,7 +106,7 @@ Verwenden Sie Kleinbuchstaben für alle Elementnamen und Attributnamen/-werte, d
 
 ## Klassennamen und IDs
 
-Verwenden Sie semantische Klassen-/ID-Namen und trennen Sie mehrere Wörter mit Bindestrichen ([kebab case](/de/docs/Glossary/kebab_case)). Verwenden Sie nicht [camel case](/de/docs/Glossary/camel_case). Zum Beispiel:
+Verwenden Sie semantische Klassen-/ID-Namen und trennen Sie mehrere Wörter mit Bindestrichen ({{Glossary("kebab_case", "kebab case")}}). Verwenden Sie nicht {{Glossary("camel_case", "camel case")}}. Zum Beispiel:
 
 ```html example-good
 <p class="editorial-summary">Blah blah blah</p>
@@ -118,7 +118,7 @@ Verwenden Sie semantische Klassen-/ID-Namen und trennen Sie mehrere Wörter mit 
 
 ## Zeichenreferenzen
 
-Verwenden Sie [Zeichenreferenzen](/de/docs/Glossary/character_reference) nicht unnötigerweise — verwenden Sie das tatsächliche Zeichen, wo immer möglich (Sie müssen jedoch Zeichen wie Winkelklammern und Anführungszeichen weiterhin escapen).
+Verwenden Sie {{Glossary("character_reference", "Zeichenreferenzen")}} nicht unnötigerweise — verwenden Sie das tatsächliche Zeichen, wo immer möglich (Sie müssen jedoch Zeichen wie Winkelklammern und Anführungszeichen weiterhin escapen).
 
 Als Beispiel könnten Sie einfach schreiben:
 

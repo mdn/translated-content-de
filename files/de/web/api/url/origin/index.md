@@ -44,4 +44,4 @@ console.log(url.origin); // 'https://mozilla.org:8080'
 ## Siehe auch
 
 - Die [`URL`](/de/docs/Web/API/URL)-Schnittstelle
-- [origin](/de/docs/Glossary/origin) Glossarbegriff
+- {{Glossary("origin", "origin")}} Glossarbegriff

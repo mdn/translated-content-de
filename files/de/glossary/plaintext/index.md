@@ -7,6 +7,6 @@ l10n:
 
 {{GlossarySidebar}}
 
-Plaintext bezeichnet Informationen, die als Eingabe für einen [Verschlüsselungs](/de/docs/Glossary/encryption) [algorithmus](/de/docs/Glossary/algorithm) verwendet werden, oder zu [Chiffretext](/de/docs/Glossary/ciphertext), der entschlüsselt wurde.
+Plaintext bezeichnet Informationen, die als Eingabe für einen {{Glossary("encryption", "Verschlüsselungs")}} {{Glossary("algorithm", "algorithmus")}} verwendet werden, oder zu {{Glossary("ciphertext", "Chiffretext")}}, der entschlüsselt wurde.
 
 Der Begriff wird häufig austauschbar mit dem Begriff _Klartext_ verwendet, der allgemeiner jede Information bezeichnet, wie ein Textdokument, Bild usw., die nicht verschlüsselt wurde und von einem Menschen oder Computer ohne zusätzliche Verarbeitung gelesen werden kann.

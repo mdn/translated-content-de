@@ -22,7 +22,7 @@ Wenn diese Direktive auf `'none'` gesetzt wird, ähnelt dies der {{HTTPHeader("X
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>[Navigationsdirektive](/de/docs/Glossary/Navigation_directive)</td>
+      <td>{{Glossary("Navigation_directive", "Navigationsdirektive")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}} Fallback</th>
@@ -55,7 +55,7 @@ Content-Security-Policy: frame-ancestors <space separated list of sources>;
 
 - \<host-source>
 
-  - : Internet-Hosts nach Name oder IP-Adresse sowie ein optionales [URL](/de/docs/Glossary/URL)-Schema und/oder eine Portnummer, getrennt durch Leerzeichen. Die Adresse der Seite kann ein optionales führendes Wildcard (das Sternchenzeichen, `'*'`) enthalten, und Sie können ein Wildcard (wiederum `'*'`) als Portnummer verwenden, was bedeutet, dass alle legalen Ports für die Quelle gültig sind. Einzelne Anführungszeichen um den Host sind nicht erlaubt.
+  - : Internet-Hosts nach Name oder IP-Adresse sowie ein optionales {{Glossary("URL", "URL")}}-Schema und/oder eine Portnummer, getrennt durch Leerzeichen. Die Adresse der Seite kann ein optionales führendes Wildcard (das Sternchenzeichen, `'*'`) enthalten, und Sie können ein Wildcard (wiederum `'*'`) als Portnummer verwenden, was bedeutet, dass alle legalen Ports für die Quelle gültig sind. Einzelne Anführungszeichen um den Host sind nicht erlaubt.
     Beispiele:
 
     - `http://*.example.com`: Stimmt mit allen Versuchen überein, von einer beliebigen Subdomain von example.com unter Verwendung des `http:` URL-Schemas zu laden.

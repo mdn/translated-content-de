@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Das [Objekt](/de/docs/Glossary/object), zu dem eine gegebene [Eigenschaft](/de/docs/Glossary/property) oder [Methode](/de/docs/Glossary/method) gehört.
+Das {{Glossary("object", "Objekt")}}, zu dem eine gegebene {{Glossary("property", "Eigenschaft")}} oder {{Glossary("method", "Methode")}} gehört.
 
 ## Siehe auch
 

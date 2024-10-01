@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`xlink:show`**-Attribut gibt an, wie eine verlinkte Ressource geöffnet werden soll und ist für [XLink](/de/docs/Glossary/XLink)-fähige Prozessoren gedacht. Im Falle eines Konflikts hat das {{SVGAttr("target")}}-Attribut Vorrang, da es eine größere Bandbreite an Werten ausdrücken kann.
+Das **`xlink:show`**-Attribut gibt an, wie eine verlinkte Ressource geöffnet werden soll und ist für {{Glossary("XLink", "XLink")}}-fähige Prozessoren gedacht. Im Falle eines Konflikts hat das {{SVGAttr("target")}}-Attribut Vorrang, da es eine größere Bandbreite an Werten ausdrücken kann.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

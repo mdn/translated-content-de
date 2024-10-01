@@ -29,7 +29,7 @@ _Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`Event`](/de/do
 - [`UIEvent.sourceCapabilities`](/de/docs/Web/API/UIEvent/sourceCapabilities) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Gibt eine Instanz der `InputDeviceCapabilities`-Schnittstelle zurück, die Informationen über das physische Gerät liefert, das für das Generieren eines Touch-Ereignisses verantwortlich ist.
 - [`UIEvent.view`](/de/docs/Web/API/UIEvent/view) {{ReadOnlyInline}}
-  - : Gibt ein [WindowProxy](/de/docs/Glossary/WindowProxy) zurück, das die Ansicht enthält, die das Ereignis generiert hat.
+  - : Gibt ein {{Glossary("WindowProxy", "WindowProxy")}} zurück, das die Ansicht enthält, die das Ereignis generiert hat.
 - [`UIEvent.which`](/de/docs/Web/API/UIEvent/which) {{Deprecated_Inline}} {{ReadOnlyInline}}
   - : Gibt den numerischen `keyCode` der gedrückten Taste zurück oder den Zeichencode (`charCode`) für eine alphanumerische gedrückte Taste.
 

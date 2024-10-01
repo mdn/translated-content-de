@@ -33,7 +33,7 @@ webSocket = new WebSocket(url, protocols);
     Falls Sie keinen Protokollstring angeben, wird ein leerer String angenommen.
 
 Der Konstruktor löst einen `SecurityError` aus, wenn das Ziel den Zugriff nicht erlaubt.
-Dies kann passieren, wenn Sie versuchen, eine unsichere Verbindung zu verwenden (die meisten [User Agents](/de/docs/Glossary/user_agent) erfordern jetzt eine sichere Verbindung für alle WebSocket-Verbindungen, es sei denn, sie befinden sich auf demselben Gerät oder möglicherweise im selben Netzwerk).
+Dies kann passieren, wenn Sie versuchen, eine unsichere Verbindung zu verwenden (die meisten {{Glossary("user_agent", "User Agents")}} erfordern jetzt eine sichere Verbindung für alle WebSocket-Verbindungen, es sei denn, sie befinden sich auf demselben Gerät oder möglicherweise im selben Netzwerk).
 
 ### Verbindungsfehler
 
@@ -91,7 +91,7 @@ exampleSocket.onopen = (event) => {
 
 ### Verwenden von JSON zum Übertragen von Objekten
 
-Ein praktisches Feature ist die Verwendung von [JSON](/de/docs/Glossary/JSON), um relativ komplexe Daten an den Server zu senden.
+Ein praktisches Feature ist die Verwendung von {{Glossary("JSON", "JSON")}}, um relativ komplexe Daten an den Server zu senden.
 Zum Beispiel kann ein Chat-Programm mit einem Server unter Verwendung eines Protokolls interagieren, das Pakete mit JSON-verkapselten Daten verwendet:
 
 ```js

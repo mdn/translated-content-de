@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("EditContext API")}}{{SeeCompatTable}}
 
-Die **EditContext API** kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die erweiterte Texteingabeerlebnisse unterstützen, wie die Komposition mit einem [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME), Emoji-Auswahl oder andere plattformabhängige, bearbeitungsbezogene Benutzeroberflächen.
+Die **EditContext API** kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die erweiterte Texteingabeerlebnisse unterstützen, wie die Komposition mit einem {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME), Emoji-Auswahl oder andere plattformabhängige, bearbeitungsbezogene Benutzeroberflächen.
 
 Mit der EditContext API erhalten Sie die Flexibilität, Ihren eigenen editierbaren Textbereich mit beliebigen Technologien zu rendern.
 
@@ -18,7 +18,7 @@ Beim Eingeben von Text in einen bearbeitbaren Bereich einer Anwendung sind mehre
 - **Benutzer**
   - : Der Benutzer gibt den Text mittels einer Eingabemethode ein: Tastatur, Maus, Stimme oder andere Eingabemethoden.
 - **Eingabemethodensoftware**
-  - : Die Eingabemethodensoftware wandelt die Eingaben des Benutzers in Text um. Dies könnte zum Beispiel ein [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME) sein, der Tastenanschläge einer Standardtastatur in japanische, chinesische oder koreanische Zeichen umwandelt.
+  - : Die Eingabemethodensoftware wandelt die Eingaben des Benutzers in Text um. Dies könnte zum Beispiel ein {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) sein, der Tastenanschläge einer Standardtastatur in japanische, chinesische oder koreanische Zeichen umwandelt.
 - **Text-Eingabedienst des Betriebssystems**
   - : Der Text-Eingabedienst des Betriebssystems fungiert als Verbindung zwischen der Eingabemethodensoftware und der Anwendung.
 - **Textbearbeitungskontext der Anwendung**

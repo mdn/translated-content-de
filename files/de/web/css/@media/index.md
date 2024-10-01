@@ -56,7 +56,7 @@ _Medientypen_ beschreiben die allgemeine Kategorie eines Geräts. Außer bei Ver
 
 ### Medienfunktionen
 
-_Medienfunktionen_ beschreiben spezifische Eigenschaften des [User-Agent](/de/docs/Glossary/user_agent), des Ausgabegeräts oder der Umgebung. Medienfunktionsausdrücke testen auf ihre Anwesenheit oder ihren Wert und sind völlig optional. Jeder Medienfunktionsausdruck muss von Klammern umgeben sein.
+_Medienfunktionen_ beschreiben spezifische Eigenschaften des {{Glossary("user_agent", "User-Agent")}}, des Ausgabegeräts oder der Umgebung. Medienfunktionsausdrücke testen auf ihre Anwesenheit oder ihren Wert und sind völlig optional. Jeder Medienfunktionsausdruck muss von Klammern umgeben sein.
 
 - {{cssxref("@media/any-hover", "any-hover")}}
   - : Erlaubt irgendein verfügbares Eingabegerät dem Benutzer, über Elemente zu schweben?
@@ -65,7 +65,7 @@ _Medienfunktionen_ beschreiben spezifische Eigenschaften des [User-Agent](/de/do
   - : Ist irgendein verfügbares Eingabegerät ein Zeigegerät, und wenn ja, wie präzise ist es?
     Hinzugefügt in Media Queries Level 4.
 - {{cssxref("@media/aspect-ratio", "aspect-ratio")}}
-  - : Breite-zu-Höhe [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Viewports
+  - : Breite-zu-Höhe {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Viewports
 - {{cssxref("@media/color", "color")}}
   - : Anzahl der Bits pro Farbkomponente des Ausgabegeräts oder null, wenn das Gerät nicht farbig ist
 - {{cssxref("@media/color-gamut", "color-gamut")}}
@@ -184,7 +184,7 @@ Erwägen Sie auch Media Queries oder [HTTP User-Agent-Client-Hinweise](/de/docs/
 
 ## Sicherheit
 
-Da Media Queries Einblicke in die Fähigkeiten - und damit in die Funktionen und das Design - des Geräts geben, mit dem der Benutzer arbeitet, besteht die Möglichkeit, dass sie missbraucht werden könnten, um einen ["Fingerabdruck"](/de/docs/Glossary/Fingerprinting) zu erstellen, der das Gerät identifiziert oder es zumindest bis zu einem gewissen Grad kategorisiert, was für Benutzer unerwünscht sein könnte.
+Da Media Queries Einblicke in die Fähigkeiten - und damit in die Funktionen und das Design - des Geräts geben, mit dem der Benutzer arbeitet, besteht die Möglichkeit, dass sie missbraucht werden könnten, um einen {{Glossary("Fingerprinting", ""Fingerabdruck"")}} zu erstellen, der das Gerät identifiziert oder es zumindest bis zu einem gewissen Grad kategorisiert, was für Benutzer unerwünscht sein könnte.
 
 Aufgrund dieses Potenzials kann ein Browser die zurückgegebenen Werte auf irgendeine Weise verfälschen, um deren Verwendung zur präzisen Identifikation eines Computers zu verhindern. Ein Browser könnte auch zusätzliche Maßnahmen in diesem Bereich anbieten; zum Beispiel, wenn Firefox' "Resist Fingerprinting"-Einstellung aktiviert ist, berichten viele Media Queries Standardwerte anstelle von Werten, die den tatsächlichen Gerätezustand darstellen.
 

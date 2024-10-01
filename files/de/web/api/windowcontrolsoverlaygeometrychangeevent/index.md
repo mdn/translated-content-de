@@ -23,7 +23,7 @@ _Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)
 - [`WindowControlsOverlayGeometryChangeEvent.titlebarAreaRect`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent/titlebarAreaRect) {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Ein [`DOMRect`](/de/docs/Web/API/DOMRect), das die Position und Größe des Titelleistenbereichs darstellt.
 - [`WindowControlsOverlayGeometryChangeEvent.visible`](/de/docs/Web/API/WindowControlsOverlayGeometryChangeEvent/visible) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Ein [Boolean](/de/docs/Glossary/Boolean), das angibt, ob das Fenstersteuerungsoverlay sichtbar ist oder nicht.
+  - : Ein {{Glossary("Boolean", "Boolean")}}, das angibt, ob das Fenstersteuerungsoverlay sichtbar ist oder nicht.
 
 ## Beispiele
 

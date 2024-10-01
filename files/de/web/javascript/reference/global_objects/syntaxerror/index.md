@@ -9,7 +9,7 @@ l10n:
 
 Das **`SyntaxError`**-Objekt repräsentiert einen Fehler, der auftritt, wenn syntaktisch ungültiger Code interpretiert wird. Dieser Fehler wird ausgelöst, wenn die JavaScript-Engine beim Parsen von Code auf Token oder eine Token-Reihenfolge stößt, die nicht mit der Syntax der Sprache übereinstimmen.
 
-`SyntaxError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`SyntaxError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `SyntaxError` ist eine Unterklasse von {{jsxref("Error")}}.
 

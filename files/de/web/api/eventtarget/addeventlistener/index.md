@@ -89,7 +89,7 @@ addEventListener(type, listener, useCapture)
 - `wantsUntrusted` {{optional_inline}} {{non-standard_inline}}
   - : Ein Firefox (Gecko)-spezifischer Parameter. Wenn `true`, empfängt der Listener
     synthetische Ereignisse, die vom Webinhalt gesendet werden (der Standardwert ist `false` für
-    Browser [chrome](/de/docs/Glossary/chrome) und `true` für reguläre Webseiten). Dieser
+    Browser {{Glossary("chrome", "chrome")}} und `true` für reguläre Webseiten). Dieser
     Parameter ist nützlich für Code, der in Add-ons sowie im Browser selbst zu finden ist.
 
 ### Rückgabewert
@@ -327,7 +327,7 @@ das eigentliche Problem; vielmehr ist es das Fehlen einer _statischen_ Funktions
 
 ### Verwendung passiver Listener
 
-Wenn ein Ereignis eine Standardaktion hat — zum Beispiel ein [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis, das standardmäßig den Container scrollt — kann der Browser die Standardaktion im Allgemeinen nicht starten, bis der Ereignis-Listener beendet ist, da er nicht im Voraus weiß, ob der Ereignis-Listener die Standardaktion durch Aufrufen von [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen könnte. Wenn der Ereignis-Listener zu lange braucht, kann dies zu einer bemerkbaren Verzögerung führen, auch bekannt als [Jank](/de/docs/Glossary/jank), bevor die Standardaktion ausgeführt werden kann.
+Wenn ein Ereignis eine Standardaktion hat — zum Beispiel ein [`wheel`](/de/docs/Web/API/Element/wheel_event)-Ereignis, das standardmäßig den Container scrollt — kann der Browser die Standardaktion im Allgemeinen nicht starten, bis der Ereignis-Listener beendet ist, da er nicht im Voraus weiß, ob der Ereignis-Listener die Standardaktion durch Aufrufen von [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbrechen könnte. Wenn der Ereignis-Listener zu lange braucht, kann dies zu einer bemerkbaren Verzögerung führen, auch bekannt als {{Glossary("jank", "Jank")}}, bevor die Standardaktion ausgeführt werden kann.
 
 Indem die `passive` Option auf `true` gesetzt wird, erklärt ein Ereignis-Listener, dass er die Standardaktion nicht abbrechen wird, sodass der Browser die Standardaktion sofort starten kann, ohne auf das Ende des Listeners zu warten. Wenn der Listener dann [`Event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, hat dies keine Wirkung.
 

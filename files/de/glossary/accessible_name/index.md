@@ -38,7 +38,7 @@ Unterstützende Technologien bieten den Nutzern die accessibility name property,
 - [Die W3C Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
 - [Accessible Rich Internet Applications (WAI-ARIA)](https://w3c.github.io/aria/)
 - Verwandte Glossarbegriffe:
-  - [Barrierefreiheit](/de/docs/Glossary/Accessibility)
-  - [Accessibility tree](/de/docs/Glossary/Accessibility_tree)
-  - [Accessible description](/de/docs/Glossary/Accessible_description)
-  - [ARIA](/de/docs/Glossary/ARIA)
+  - {{Glossary("Accessibility", "Barrierefreiheit")}}
+  - {{Glossary("Accessibility_tree", "Accessibility tree")}}
+  - {{Glossary("Accessible_description", "Accessible description")}}
+  - {{Glossary("ARIA", "ARIA")}}

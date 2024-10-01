@@ -30,7 +30,7 @@ Ein `GPUTexture`-Objekt wird mithilfe der Methode [`GPUDevice.createTexture()`](
 - [`sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Eine Zahl, die die Anzahl der Proben des `GPUTexture` darstellt.
 - [`usage`](/de/docs/Web/API/GPUTexture/usage) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Die [bitweisen Flags](/de/docs/Glossary/bitwise_flags), die die erlaubten Nutzungen des `GPUTexture` darstellen.
+  - : Die {{Glossary("bitwise_flags", "bitweisen Flags")}}, die die erlaubten Nutzungen des `GPUTexture` darstellen.
 - [`width`](/de/docs/Web/API/GPUTexture/width) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Eine Zahl, die die Breite des `GPUTexture` in Pixeln darstellt.
 

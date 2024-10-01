@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine statische Methode (oder _statische Funktion_) ist eine [Methode](/de/docs/Glossary/method), die als Mitglied eines [Objekts](/de/docs/Glossary/object) definiert ist, aber direkt vom Konstruktor eines API-Objekts aus zugänglich ist, statt von einer über den Konstruktor erstellten Objektinstanz.
+Eine statische Methode (oder _statische Funktion_) ist eine {{Glossary("method", "Methode")}}, die als Mitglied eines {{Glossary("object", "Objekts")}} definiert ist, aber direkt vom Konstruktor eines API-Objekts aus zugänglich ist, statt von einer über den Konstruktor erstellten Objektinstanz.
 
 In einer [Web-API](/de/docs/Web/API) ist eine statische Methode eine Methode, die von einer Schnittstelle definiert wird, aber aufgerufen werden kann, ohne zuerst ein Objekt dieses Typs zu instanziieren.
 
@@ -34,5 +34,5 @@ myNotification.close();
 - [Static Method](https://www.techopedia.com/definition/24034/static-method-java) auf Techopedia
 - [static](/de/docs/Web/JavaScript/Reference/Classes/static)
 - Verwandte Glossareinträge:
-  - [Object](/de/docs/Glossary/Object)
-  - [Method](/de/docs/Glossary/Method)
+  - {{Glossary("Object", "Object")}}
+  - {{Glossary("Method", "Method")}}

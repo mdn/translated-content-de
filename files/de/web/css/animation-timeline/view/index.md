@@ -63,7 +63,7 @@ animation-timeline: view(x 200px auto);
 
 - inset
 
-  - : Der Wert des Versatzes kann ein oder zwei Werte sein, die entweder `auto` oder ein {{cssxref("length-percentage")}} sein können. Es gibt eine Einfügung (positiv) oder Herausziehung (negativ) des [Scrollport](/de/docs/Glossary/Scroll_container#scrollport) an. Der Versatz wird verwendet, um zu bestimmen, ob sich das Element im Sichtbereich befindet, was die Länge der Animationszeitleiste bestimmt. Mit anderen Worten, die Animation dauert so lange wie das Element im durch den Versatz angepassten Sichtbereich ist.
+  - : Der Wert des Versatzes kann ein oder zwei Werte sein, die entweder `auto` oder ein {{cssxref("length-percentage")}} sein können. Es gibt eine Einfügung (positiv) oder Herausziehung (negativ) des {{Glossary("Scroll_container#scrollport", "Scrollport")}} an. Der Versatz wird verwendet, um zu bestimmen, ob sich das Element im Sichtbereich befindet, was die Länge der Animationszeitleiste bestimmt. Mit anderen Worten, die Animation dauert so lange wie das Element im durch den Versatz angepassten Sichtbereich ist.
 
     - start
       - : Nach innen gerichtete Einfügung vom Beginn des Scrollports.

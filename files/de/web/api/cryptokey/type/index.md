@@ -10,9 +10,9 @@ l10n:
 
 Die schreibgeschützte **`type`**-Eigenschaft der [`CryptoKey`](/de/docs/Web/API/CryptoKey)-Schnittstelle gibt an, welche Art von Schlüssel durch das Objekt dargestellt wird. Sie kann die folgenden Werte haben:
 
-- `"secret"`: Dieser Schlüssel ist ein geheimer Schlüssel zur Verwendung mit einem [symmetrischen Algorithmus](/de/docs/Glossary/Symmetric-key_cryptography).
-- `"private"`: Dieser Schlüssel ist die private Hälfte eines [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) eines [asymmetrischen Algorithmus'](/de/docs/Glossary/Public-key_cryptography).
-- `"public"`: Dieser Schlüssel ist die öffentliche Hälfte eines [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) eines [asymmetrischen Algorithmus'](/de/docs/Glossary/Public-key_cryptography).
+- `"secret"`: Dieser Schlüssel ist ein geheimer Schlüssel zur Verwendung mit einem {{Glossary("Symmetric-key_cryptography", "symmetrischen Algorithmus")}}.
+- `"private"`: Dieser Schlüssel ist die private Hälfte eines [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) eines {{Glossary("Public-key_cryptography", "asymmetrischen Algorithmus'")}}.
+- `"public"`: Dieser Schlüssel ist die öffentliche Hälfte eines [`CryptoKeyPair`](/de/docs/Web/API/CryptoKeyPair) eines {{Glossary("Public-key_cryptography", "asymmetrischen Algorithmus'")}}.
 
 ## Wert
 

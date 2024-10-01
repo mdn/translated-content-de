@@ -8,7 +8,7 @@ l10n:
 
 {{securecontext_header}}{{APIRef("Payment Request API")}}
 
-Die Methode **`canMakePayment()`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) bestimmt, ob die Anfrage so konfiguriert ist, dass sie mit mindestens einer Zahlungsart kompatibel ist, die vom [User-Agent](/de/docs/Glossary/user_agent) unterstützt wird.
+Die Methode **`canMakePayment()`** des [`PaymentRequest`](/de/docs/Web/API/PaymentRequest) bestimmt, ob die Anfrage so konfiguriert ist, dass sie mit mindestens einer Zahlungsart kompatibel ist, die vom {{Glossary("user_agent", "User-Agent")}} unterstützt wird.
 
 Sie können dies vor dem Aufruf von [`show()`](/de/docs/Web/API/PaymentRequest/show) verwenden, um eine optimierte Benutzererfahrung zu bieten, wenn der Browser des Benutzers keine der von Ihnen akzeptierten Zahlungsmethoden verarbeiten kann.
 

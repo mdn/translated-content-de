@@ -10,7 +10,7 @@ l10n:
 
 Die **`delete()`**-Methode der [`Headers`](/de/docs/Web/API/Headers)-Schnittstelle entfernt einen Header aus dem aktuellen `Headers`-Objekt.
 
-Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten gesteuert werden. Diese Header umfassen die [verbotenen Header-Namen](/de/docs/Glossary/Forbidden_header_name) und [verbotenen Antwort-Header-Namen](/de/docs/Glossary/Forbidden_response_header_name).
+Aus Sicherheitsgründen können einige Header nur vom Benutzeragenten gesteuert werden. Diese Header umfassen die {{Glossary("Forbidden_header_name", "verbotenen Header-Namen")}} und {{Glossary("Forbidden_response_header_name", "verbotenen Antwort-Header-Namen")}}.
 
 ## Syntax
 

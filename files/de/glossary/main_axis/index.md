@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Die Hauptachse im [flexbox](/de/docs/Glossary/flexbox) wird durch die Richtung definiert, die durch die {{cssxref("flex-direction")}} Eigenschaft festgelegt ist. Es gibt vier mögliche Werte für `flex-direction`. Diese sind:
+Die Hauptachse im {{Glossary("flexbox", "flexbox")}} wird durch die Richtung definiert, die durch die {{cssxref("flex-direction")}} Eigenschaft festgelegt ist. Es gibt vier mögliche Werte für `flex-direction`. Diese sind:
 
 - `row`
 - `row-reverse`

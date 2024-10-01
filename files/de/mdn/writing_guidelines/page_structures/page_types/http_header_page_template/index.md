@@ -79,18 +79,18 @@ Dies sollte idealerweise ein oder zwei kurze Sätze umfassen.
       <th scope="row">Header-Typ</th>
       <td>
         Kategorie des Headers angeben (oder Kategorien), z.B.
-        [Request header](/de/docs/Glossary/Request_header),
-        [Response header](/de/docs/Glossary/Response_header),
+        {{Glossary("Request_header", "Request header")}},
+        {{Glossary("Response_header", "Response header")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja oder nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-sichergestellter Antwortheader](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-sichergestellter Antwortheader")}}
       </th>
       <td>ja oder nein</td>
     </tr>

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine HTTP-Methode ist **sicher**, wenn sie den Zustand des Servers nicht verändert. Anders ausgedrückt ist eine Methode sicher, wenn sie zu einer Leseoperation führt. Mehrere gebräuchliche HTTP-Methoden sind sicher: {{HTTPMethod("GET")}}, {{HTTPMethod("HEAD")}} oder {{HTTPMethod("OPTIONS")}}. Alle sicheren Methoden sind auch [idempotent](/de/docs/Glossary/idempotent), aber nicht alle idempotenten Methoden sind sicher. Beispielsweise sind {{HTTPMethod("PUT")}} und {{HTTPMethod("DELETE")}} beide idempotent, aber unsicher.
+Eine HTTP-Methode ist **sicher**, wenn sie den Zustand des Servers nicht verändert. Anders ausgedrückt ist eine Methode sicher, wenn sie zu einer Leseoperation führt. Mehrere gebräuchliche HTTP-Methoden sind sicher: {{HTTPMethod("GET")}}, {{HTTPMethod("HEAD")}} oder {{HTTPMethod("OPTIONS")}}. Alle sicheren Methoden sind auch {{Glossary("idempotent", "idempotent")}}, aber nicht alle idempotenten Methoden sind sicher. Beispielsweise sind {{HTTPMethod("PUT")}} und {{HTTPMethod("DELETE")}} beide idempotent, aber unsicher.
 
 Auch wenn sichere Methoden eine schreibgeschützte Semantik haben, können Server ihren Zustand verändern: z.B. können sie Protokolle führen oder Statistiken erfassen. Wichtig ist hier, dass der Client durch Aufrufen einer sicheren Methode selbst keine Serveränderung anfordert und daher keine unnötige Belastung für den Server erzeugt. Browser können sichere Methoden aufrufen, ohne befürchten zu müssen, dem Server Schaden zuzufügen; dies ermöglicht ihnen, Aktivitäten wie Vorabruf ohne Risiko auszuführen. Webcrawler verlassen sich auch auf das Aufrufen sicherer Methoden.
 

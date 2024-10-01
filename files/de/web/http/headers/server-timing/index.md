@@ -13,10 +13,10 @@ Der **`Server-Timing`**-Header kommuniziert eine oder mehrere Metriken und Besch
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Response-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

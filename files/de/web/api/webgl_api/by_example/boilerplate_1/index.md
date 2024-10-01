@@ -11,13 +11,13 @@ Dieses Beispiel beschreibt wiederkehrende Codeabschnitte, die ab jetzt verborgen
 
 ## Boilerplate-Code zur Einrichtung des WebGL-Rendering-Kontexts
 
-Mittlerweile sind Sie es gewohnt, immer wieder die gleichen Stücke von [HTML](/de/docs/Glossary/HTML), [CSS](/de/docs/Glossary/CSS) und [JavaScript](/de/docs/Glossary/JavaScript) zu sehen. Deshalb werden wir sie von nun an verbergen. Dies ermöglicht es uns, uns auf die interessanten Codeabschnitte zu konzentrieren, die für das Lernen von [WebGL](/de/docs/Glossary/WebGL) am relevantesten sind.
+Mittlerweile sind Sie es gewohnt, immer wieder die gleichen Stücke von {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} zu sehen. Deshalb werden wir sie von nun an verbergen. Dies ermöglicht es uns, uns auf die interessanten Codeabschnitte zu konzentrieren, die für das Lernen von {{Glossary("WebGL", "WebGL")}} am relevantesten sind.
 
 Konkret enthält das HTML ein {{HTMLElement("p")}}-Element, das einige beschreibende Texte über die Seite enthält und auch Fehlermeldungen aufnehmen kann; ein {{HTMLElement("canvas")}}-Element; und optional ein {{HTMLElement("button")}}. Das CSS enthält Regeln für `body`, `canvas` und `button`. Alle zusätzlichen nicht-trivialen CSS- und HTML-Codes werden auf den Seiten spezifischer Beispiele angezeigt.
 
 In den folgenden Beispielen werden wir eine JavaScript-Hilfsfunktion `getRenderingContext()` verwenden, um den {{domxref("WebGLRenderingContext","WebGL-Rendering-Kontext", "", 1)}} zu initialisieren. Sie sollten inzwischen verstehen, was diese Funktion tut. Grundsätzlich holt sie den WebGL-Rendering-Kontext vom Canvas-Element, initialisiert den Zeichnungspuffer, löscht ihn schwarz und gibt den initialisierten Kontext zurück. Im Fehlerfall zeigt sie eine Fehlermeldung an und gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
 
-Schließlich wird der gesamte JavaScript-Code in einer unmittelbaren Funktion laufen, was eine gängige JavaScript-Technik ist (siehe [Function](/de/docs/Glossary/Function)). Die Funktionsdeklaration und der Aufruf werden ebenfalls verborgen.
+Schließlich wird der gesamte JavaScript-Code in einer unmittelbaren Funktion laufen, was eine gängige JavaScript-Technik ist (siehe {{Glossary("Function", "Function")}}). Die Funktionsdeklaration und der Aufruf werden ebenfalls verborgen.
 
 ### HTML
 

@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{NextMenu("Learn/HTML/Multimedia_and_embedding/Video_and_audio_content", "Learn/HTML/Multimedia_and_embedding")}}
 
-Am Anfang bestand das Web nur aus Text, was wirklich ziemlich langweilig war. Zum Glück dauerte es nicht lange, bis die Möglichkeit hinzugefügt wurde, Bilder (und andere interessantere Inhaltsarten) in Webseiten einzubetten. Es ist logisch, mit dem bescheidenen {{htmlelement("img")}}-Element zu beginnen, das verwendet wird, um ein einfaches Bild in eine Webseite einzubetten, aber es gibt auch andere Arten von Multimedia, die berücksichtigt werden sollten. In diesem Artikel betrachten wir, wie man es umfassend nutzt, einschließlich der Grundlagen, der Anmerkung mit Beschriftungen mithilfe von {{htmlelement("figure")}} und der Detaillierung, wie es sich zu [CSS](/de/docs/Glossary/CSS) Hintergrundbildern verhält, und wir stellen andere Grafiken vor, die auf der Webplattform verfügbar sind.
+Am Anfang bestand das Web nur aus Text, was wirklich ziemlich langweilig war. Zum Glück dauerte es nicht lange, bis die Möglichkeit hinzugefügt wurde, Bilder (und andere interessantere Inhaltsarten) in Webseiten einzubetten. Es ist logisch, mit dem bescheidenen {{htmlelement("img")}}-Element zu beginnen, das verwendet wird, um ein einfaches Bild in eine Webseite einzubetten, aber es gibt auch andere Arten von Multimedia, die berücksichtigt werden sollten. In diesem Artikel betrachten wir, wie man es umfassend nutzt, einschließlich der Grundlagen, der Anmerkung mit Beschriftungen mithilfe von {{htmlelement("figure")}} und der Detaillierung, wie es sich zu {{Glossary("CSS", "CSS")}} Hintergrundbildern verhält, und wir stellen andere Grafiken vor, die auf der Webplattform verfügbar sind.
 
 <table>
 <caption>Multimedia und Einbetten von Bildern</caption>
@@ -40,7 +40,7 @@ Am Anfang bestand das Web nur aus Text, was wirklich ziemlich langweilig war. Zu
 
 ## Wie fügen wir ein Bild auf einer Webseite ein?
 
-Um ein einfaches Bild auf einer Webseite einzufügen, verwenden wir das {{htmlelement("img")}}-Element. Dies ist ein [leeres Element](/de/docs/Glossary/void_element) (das heißt, es kann keinen Kindinhalt haben und kein End-Tag besitzen), das zwei Attribute benötigt, um nützlich zu sein: `src` und `alt`. Das `src`-Attribut enthält eine URL, die auf das Bild zeigt, das Sie auf der Seite einbetten möchten. Wie beim `href`-Attribut für {{htmlelement("a")}}-Elemente kann das `src`-Attribut eine relative oder absolute URL sein. Ohne ein `src`-Attribut hat ein `img`-Element kein Bild zum Laden.
+Um ein einfaches Bild auf einer Webseite einzufügen, verwenden wir das {{htmlelement("img")}}-Element. Dies ist ein {{Glossary("void_element", "leeres Element")}} (das heißt, es kann keinen Kindinhalt haben und kein End-Tag besitzen), das zwei Attribute benötigt, um nützlich zu sein: `src` und `alt`. Das `src`-Attribut enthält eine URL, die auf das Bild zeigt, das Sie auf der Seite einbetten möchten. Wie beim `href`-Attribut für {{htmlelement("a")}}-Elemente kann das `src`-Attribut eine relative oder absolute URL sein. Ohne ein `src`-Attribut hat ein `img`-Element kein Bild zum Laden.
 
 Das [`alt`-Attribut wird unten beschrieben](#alternativer_text).
 
@@ -70,7 +70,7 @@ Sie könnten das Bild auch mit seiner absoluten URL einbetten, zum Beispiel:
 <img src="https://www.example.com/images/dinosaur.jpg" alt="Dinosaur" />
 ```
 
-Das Verlinken über absolute URLs wird jedoch nicht empfohlen. Sie sollten die Bilder, die Sie auf Ihrer Seite verwenden möchten, auf Ihrem eigenen Server hosten, was in einfachen Setups bedeutet, die Bilder für Ihre Webseite auf demselben Server wie Ihr HTML zu halten. Darüber hinaus ist es effizienter, relative URLs anstelle von absoluten URLs in Bezug auf die Wartung zu verwenden (wenn Sie Ihre Seite auf eine andere Domain verschieben, müssen Sie nicht alle Ihre URLs aktualisieren, um die neue Domain einzuschließen). In fortgeschritteneren Setups könnten Sie ein [CDN (Content Delivery Network)](/de/docs/Glossary/CDN) verwenden, um Ihre Bilder zu liefern.
+Das Verlinken über absolute URLs wird jedoch nicht empfohlen. Sie sollten die Bilder, die Sie auf Ihrer Seite verwenden möchten, auf Ihrem eigenen Server hosten, was in einfachen Setups bedeutet, die Bilder für Ihre Webseite auf demselben Server wie Ihr HTML zu halten. Darüber hinaus ist es effizienter, relative URLs anstelle von absoluten URLs in Bezug auf die Wartung zu verwenden (wenn Sie Ihre Seite auf eine andere Domain verschieben, müssen Sie nicht alle Ihre URLs aktualisieren, um die neue Domain einzuschließen). In fortgeschritteneren Setups könnten Sie ein {{Glossary("CDN", "CDN (Content Delivery Network)")}} verwenden, um Ihre Bilder zu liefern.
 
 Wenn Sie die Bilder nicht selbst erstellt haben, sollten Sie sicherstellen, dass Sie die Erlaubnis haben, sie gemäß den Bedingungen der Lizenz zu verwenden, unter der sie veröffentlicht wurden (siehe unten [Medien-Assets und Lizenzierung](#medien-assets_und_lizenzierung) für weitere Informationen).
 
@@ -181,7 +181,7 @@ Für einen hervorragenden Artikel zur Geschichte dieser Funktion siehe [Setting 
 > [!NOTE]
 > Obwohl es, wie wir gesagt haben, eine gute Praxis ist, die _tatsächliche_ Größe Ihrer Bilder mithilfe von HTML-Attributen anzugeben, sollten Sie diese nicht zum _Ändern der Größe_ von Bildern verwenden.
 >
-> Wenn Sie die Bildgröße zu groß einstellen, erhalten Sie Bilder, die körnig, verschwommen oder zu klein aussehen, und verschwenden Bandbreite, um ein Bild herunterzuladen, das nicht den Anforderungen des Benutzers entspricht. Das Bild kann auch verzerrt aussehen, wenn Sie nicht das korrekte [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) beibehalten. Sie sollten einen Bildeditor verwenden, um Ihr Bild in die richtige Größe zu bringen, bevor Sie es auf Ihrer Webseite platzieren.
+> Wenn Sie die Bildgröße zu groß einstellen, erhalten Sie Bilder, die körnig, verschwommen oder zu klein aussehen, und verschwenden Bandbreite, um ein Bild herunterzuladen, das nicht den Anforderungen des Benutzers entspricht. Das Bild kann auch verzerrt aussehen, wenn Sie nicht das korrekte {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehalten. Sie sollten einen Bildeditor verwenden, um Ihr Bild in die richtige Größe zu bringen, bevor Sie es auf Ihrer Webseite platzieren.
 >
 > Wenn Sie die Größe eines Bildes anpassen müssen, sollten Sie stattdessen [CSS](/de/docs/Learn/CSS) verwenden.
 

@@ -31,7 +31,7 @@ new RTCSessionDescription(options)
     - `type`
       - : **Erforderlich.** Ein String, der verwendet wird, um die `type`-Eigenschaft des neuen `RTCSessionDescription`-Objekts festzulegen. Muss einer der gültigen [`RTCSessionDescription.type`](/de/docs/Web/API/RTCSessionDescription/type) Werte sein.
     - `sdp` {{optional_inline}}
-      - : Ein String, der eine [SDP](/de/docs/Glossary/SDP)-Nachricht beschreibt, die die Sitzung beschreibt. Dieser Wert ist standardmäßig ein leerer String (`""`) und darf nicht `null` sein.
+      - : Ein String, der eine {{Glossary("SDP", "SDP")}}-Nachricht beschreibt, die die Sitzung beschreibt. Dieser Wert ist standardmäßig ein leerer String (`""`) und darf nicht `null` sein.
 
 ## Beispiel
 

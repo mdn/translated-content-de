@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die [Akzentfarbe](/de/docs/Glossary/accent) für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
+Die **`accent-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die {{Glossary("accent", "Akzentfarbe")}} für Benutzeroberflächen-Steuerelemente fest, die von einigen Elementen generiert werden.
 
 {{EmbedInteractiveExample("pages/css/accent-color.html")}}
 

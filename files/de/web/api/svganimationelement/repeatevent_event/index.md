@@ -36,7 +36,7 @@ Ein [`TimeEvent`](/de/docs/Web/API/TimeEvent). Erbt von [`Event`](/de/docs/Web/A
 - [`TimeEvent.detail`](/de/docs/Web/API/TimeEvent/detail) {{ReadOnlyInline}}
   - : Ein `long`, das einige Detailinformationen über das Ereignis angibt, abhängig vom Typ des Ereignisses. Für diesen Ereignistyp gibt er die Wiederholungsnummer für die Animation an.
 - [`TimeEvent.view`](/de/docs/Web/API/TimeEvent/view) {{ReadOnlyInline}}
-  - : Ein [WindowProxy](/de/docs/Glossary/WindowProxy), das das Fenster identifiziert, von dem das Ereignis generiert wurde.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}}, das das Fenster identifiziert, von dem das Ereignis generiert wurde.
 
 ## Beispiele
 

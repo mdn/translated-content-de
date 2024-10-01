@@ -201,7 +201,7 @@ console.log(counter.value()); // 1.
 
 In vorherigen Beispielen hatte jedes Closure seine eigene lexikalische Umgebung. Hier jedoch gibt es eine einzelne lexikalische Umgebung, die von den drei Funktionen geteilt wird: `counter.increment`, `counter.decrement` und `counter.value`.
 
-Die geteilte lexikalische Umgebung wird im Körper einer anonymen Funktion erstellt, _die ausgeführt wird, sobald sie definiert wurde_ (auch bekannt als ein [IIFE](/de/docs/Glossary/IIFE)). Die lexikalische Umgebung enthält zwei private Elemente: eine Variable namens `privateCounter` und eine Funktion namens `changeBy`. Sie können keines dieser privaten Mitglieder von außerhalb der anonymen Funktion aus zugreifen. Stattdessen greifen Sie indirekt auf sie über die drei öffentlichen Funktionen zu, die aus dem anonymen Wrapper zurückgegeben werden.
+Die geteilte lexikalische Umgebung wird im Körper einer anonymen Funktion erstellt, _die ausgeführt wird, sobald sie definiert wurde_ (auch bekannt als ein {{Glossary("IIFE", "IIFE")}}). Die lexikalische Umgebung enthält zwei private Elemente: eine Variable namens `privateCounter` und eine Funktion namens `changeBy`. Sie können keines dieser privaten Mitglieder von außerhalb der anonymen Funktion aus zugreifen. Stattdessen greifen Sie indirekt auf sie über die drei öffentlichen Funktionen zu, die aus dem anonymen Wrapper zurückgegeben werden.
 
 Diese drei öffentlichen Funktionen bilden Closures, die dieselbe lexikalische Umgebung teilen. Dank der lexikalischen Bereichsdefinition von JavaScript haben sie alle Zugriff auf die `privateCounter`-Variable und die `changeBy`-Funktion.
 
@@ -330,7 +330,7 @@ setX(6);
 console.log(getX()); // 6
 ```
 
-Closures können auch über importierte Werte schließen, die als _lebende [Bindungen](/de/docs/Glossary/binding)_ betrachtet werden, da, wenn sich der ursprüngliche Wert ändert, sich der importierte entsprechend ändert.
+Closures können auch über importierte Werte schließen, die als _lebende {{Glossary("binding", "Bindungen")}}_ betrachtet werden, da, wenn sich der ursprüngliche Wert ändert, sich der importierte entsprechend ändert.
 
 ```js
 // myModule.js

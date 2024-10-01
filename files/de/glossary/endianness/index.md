@@ -28,4 +28,4 @@ Der Leitfaden für typisierte Arrays bietet ein Beispiel, das [beliebige Zahlen 
 - [Typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays)
 - [Endianness](https://en.wikipedia.org/wiki/Endianness) (Wikipedia)
 - Verwandte Glossarbegriffe:
-  - [Datenstruktur](/de/docs/Glossary/Data_structure)
+  - {{Glossary("Data_structure", "Datenstruktur")}}

@@ -17,7 +17,7 @@ Das oben Gesagte gilt auch für [XML](/de/docs/Web/XML)-Kommentare. Darüber hin
 
 Kommentare können in einer einzelnen Zeile oder über mehrere Zeilen verwendet werden. Sie können an den folgenden Stellen eingesetzt werden:
 
-- Vor und nach dem [Doctype](/de/docs/Glossary/Doctype)
+- Vor und nach dem {{Glossary("Doctype", "Doctype")}}
 - Vor und nach dem {{HTMLElement("html")}}-Element
 - Als Inhalt der meisten Elemente, ausgenommen: {{HTMLElement("script")}}, {{HTMLElement("style")}}, {{HTMLElement("title")}}, {{HTMLElement("textarea")}}, da diese Elemente ihren Inhalt als Rohtext interpretieren.
 
@@ -53,7 +53,7 @@ lines
 
 ## Hinweise
 
-HTML-Kommentare sind nur als Inhalt zulässig. Sie können nicht innerhalb eines Tags verwendet werden, wie zum Beispiel vor einem HTML-[Attribut](/de/docs/Glossary/Attribute).
+HTML-Kommentare sind nur als Inhalt zulässig. Sie können nicht innerhalb eines Tags verwendet werden, wie zum Beispiel vor einem HTML-{{Glossary("Attribute", "Attribut")}}.
 
 Wie bei den meisten Programmiersprachen, die die `<!-- -->` Kommentarsyntax verwenden, können Kommentare nicht verschachtelt werden. Mit anderen Worten: Die erste Instanz von `-->`, die einer Instanz von `<!--` folgt, schließt den Kommentar.
 

@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die Eigenschaft **`naturalHeight`** des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces ist ein schreibgeschützter Wert, der die intrinsische (natürliche), dichte-korrigierte Höhe des Bildes in [CSS-Pixeln](/de/docs/Glossary/CSS_pixel) zurückgibt.
+Die Eigenschaft **`naturalHeight`** des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces ist ein schreibgeschützter Wert, der die intrinsische (natürliche), dichte-korrigierte Höhe des Bildes in {{Glossary("CSS_pixel", "CSS-Pixeln")}} zurückgibt.
 
 Dies ist die Höhe, die das Bild hat, wenn nichts seine Höhe einschränkt. Wenn Sie keine Höhe für das Bild angeben oder das Bild in einen Container platzieren, der die Bildhöhe entweder begrenzt oder ausdrücklich vorgibt, wird es in dieser Höhe dargestellt.
 

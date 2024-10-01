@@ -13,7 +13,7 @@ Die schreibgeschützte Eigenschaft **`id`** der
 von [`Credential`](/de/docs/Web/API/Credential), der den Bezeichner der aktuellen
 `PublicKeyCredential`-Instanz darstellt.
 
-Diese Eigenschaft ist eine in [base64url kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId).
+Diese Eigenschaft ist eine in {{Glossary("Base64", "base64url kodierte")}} Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId).
 
 > [!NOTE]
 > Diese Eigenschaft darf nur in Top-Level-Kontexten verwendet werden und
@@ -21,7 +21,7 @@ Diese Eigenschaft ist eine in [base64url kodierte](/de/docs/Glossary/Base64) Ver
 
 ## Wert
 
-Ein String, der die in [base64url kodierte](/de/docs/Glossary/Base64) Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) ist.
+Ein String, der die in {{Glossary("Base64", "base64url kodierte")}} Version von [`PublicKeyCredential.rawId`](/de/docs/Web/API/PublicKeyCredential/rawId) ist.
 
 ## Beispiele
 

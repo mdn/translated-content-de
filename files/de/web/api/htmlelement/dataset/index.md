@@ -22,7 +22,7 @@ an dem sie gelesen oder beschrieben werden:
 - In HTML
   - : Der Attributname beginnt mit `data-`. Er kann nur Buchstaben,
     Zahlen, Bindestriche (`-`), Punkte (`.`), Doppelpunkte (`:`)
-    und Unterstriche (`_`) enthalten. Alle [ASCII](/de/docs/Glossary/ASCII)-Großbuchstaben (`A` bis
+    und Unterstriche (`_`) enthalten. Alle {{Glossary("ASCII", "ASCII")}}-Großbuchstaben (`A` bis
     `Z`) werden in Kleinbuchstaben umgewandelt.
 - In JavaScript
   - : Der Eigenschaftsname eines benutzerdefinierten Datenattributs entspricht dem HTML-Attribut

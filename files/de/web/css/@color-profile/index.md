@@ -23,7 +23,7 @@ Die **`@color-profile`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-
   - : Gibt die URL an, von der die Farbprofilinformationen abgerufen werden sollen.
 - `rendering-intent`
 
-  - : Wenn das Farbprofil mehr als eine Rendering-Absicht enthält, ermöglicht dieser Deskriptor, eine auszuwählen, die verwendet werden soll, um zu bestimmen, wie die Farbe auf kleinere [Farbumfang](/de/docs/Glossary/gamut)se abgebildet werden soll, als dieses Profil definiert ist.
+  - : Wenn das Farbprofil mehr als eine Rendering-Absicht enthält, ermöglicht dieser Deskriptor, eine auszuwählen, die verwendet werden soll, um zu bestimmen, wie die Farbe auf kleinere {{Glossary("gamut", "Farbumfang")}}se abgebildet werden soll, als dieses Profil definiert ist.
 
     Wenn verwendet, muss es eines der folgenden Schlüsselwörter sein:
 

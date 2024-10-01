@@ -12,7 +12,7 @@ Die schreibgeschützte Eigenschaft **`destination`** des **[`Request`](/de/docs/
 
 Der String muss einer der folgenden sein: `audio`, `audioworklet`, `document`, `embed`, `fencedframe`, `font`, `frame`, `iframe`, `image`, `json`, `manifest`, `object`, `paintworklet`, `report`, `script`, `sharedworker`, `style`, `track`, `video`, `worker` oder `xslt`, oder der leere String, welcher der Standardwert ist.
 
-Das `destination` wird vom [User-Agent](/de/docs/Glossary/user_agent) verwendet, um zum Beispiel zu bestimmen, welche Regeln für CORS-Zwecke zu befolgen sind oder wie komplizierte Codepfade navigiert werden, die die Behandlung bestimmter Anfragearten beeinflussen.
+Das `destination` wird vom {{Glossary("user_agent", "User-Agent")}} verwendet, um zum Beispiel zu bestimmen, welche Regeln für CORS-Zwecke zu befolgen sind oder wie komplizierte Codepfade navigiert werden, die die Behandlung bestimmter Anfragearten beeinflussen.
 
 Diese Destinationen unterscheiden sich erheblich in ihrer Funktionsweise. Einige sind Datenspeicher, in denen die empfangenen Daten zur späteren Verarbeitung gespeichert werden. Andere sind skriptbasiert, wobei die empfangenen Daten einem Skript überliefert werden, indem sie aufgerufen und die Daten übergeben werden. Skriptbasierte Destinationen beinhalten {{HTMLElement("script")}}-Elemente sowie Ziele, die auf [`Worklet`](/de/docs/Web/API/Worklet) basieren (einschließlich Unterklassen wie [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)) und die auf [`Worker`](/de/docs/Web/API/Worker) basieren, einschließlich [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker).
 

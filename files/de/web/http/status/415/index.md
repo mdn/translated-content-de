@@ -7,9 +7,9 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`415 Unsupported Media Type`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage abgelehnt hat, weil das Nachrichten-[Format](/de/docs/Glossary/HTTP_Content) nicht unterstützt wird.
+Der HTTP-Statuscode **`415 Unsupported Media Type`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt an, dass der Server die Anfrage abgelehnt hat, weil das Nachrichten-{{Glossary("HTTP_Content", "Format")}} nicht unterstützt wird.
 
-Das Formatproblem kann durch den in der Anfrage angegebenen {{HTTPHeader("Content-Type")}} oder {{HTTPHeader("Content-Encoding")}} verursacht werden oder als Ergebnis der Verarbeitung des Inhalts der Anfragenachricht auftreten. Einige Server können strenge Anforderungen an den erwarteten `Content-Type` für Anfragen haben. Zum Beispiel kann das Senden von `UTF8` anstelle von `UTF-8` zur Angabe des [UTF-8](/de/docs/Glossary/UTF-8) Zeichensatzes dazu führen, dass der Server den Medientyp als ungültig betrachtet.
+Das Formatproblem kann durch den in der Anfrage angegebenen {{HTTPHeader("Content-Type")}} oder {{HTTPHeader("Content-Encoding")}} verursacht werden oder als Ergebnis der Verarbeitung des Inhalts der Anfragenachricht auftreten. Einige Server können strenge Anforderungen an den erwarteten `Content-Type` für Anfragen haben. Zum Beispiel kann das Senden von `UTF8` anstelle von `UTF-8` zur Angabe des {{Glossary("UTF-8", "UTF-8")}} Zeichensatzes dazu führen, dass der Server den Medientyp als ungültig betrachtet.
 
 ## Status
 
@@ -46,7 +46,7 @@ Content-Length: 0
 
 ### Ungültiger Content-Type
 
-Im folgenden Beispiel ist der {{HTTPHeader("Content-Type")}}-Header falsch auf URL-kodierte Formulardaten gesetzt, während sich der [Inhalt](/de/docs/Glossary/HTTP_Content) stattdessen im Anfragetext befindet:
+Im folgenden Beispiel ist der {{HTTPHeader("Content-Type")}}-Header falsch auf URL-kodierte Formulardaten gesetzt, während sich der {{Glossary("HTTP_Content", "Inhalt")}} stattdessen im Anfragetext befindet:
 
 ```http
 POST /comments HTTP/1.1

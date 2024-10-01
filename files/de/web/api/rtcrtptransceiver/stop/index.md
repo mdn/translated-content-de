@@ -31,7 +31,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beschreibung
 
-Wenn Sie `stop()` auf einem Transceiver aufrufen, stoppt der Sender sofort das Senden von Medien, und jeder seiner RTP-Streams wird mithilfe der [RTCP](/de/docs/Glossary/RTCP)-`"BYE"`-Nachricht geschlossen.
+Wenn Sie `stop()` auf einem Transceiver aufrufen, stoppt der Sender sofort das Senden von Medien, und jeder seiner RTP-Streams wird mithilfe der {{Glossary("RTCP", "RTCP")}}-`"BYE"`-Nachricht geschlossen.
 Der Empfänger hört dann auf, Medien zu empfangen; der [`track`](/de/docs/Web/API/RTCRtpReceiver/track) des Empfängers wird gestoppt, und die [`direction`](/de/docs/Web/API/RTCRtpTransceiver/direction) des Transceivers wird auf `stopped` geändert.
 Eine Neuverhandlung wird ausgelöst, indem ein [`negotiationneeded`](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event)-Ereignis an die [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) des Transceivers gesendet wird, damit die Verbindung sich an die Änderung anpassen kann.
 

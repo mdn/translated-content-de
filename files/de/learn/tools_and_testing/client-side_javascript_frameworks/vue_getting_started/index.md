@@ -165,7 +165,7 @@ Lassen Sie uns in den `src`-Ordner des Projekts schauen, das wir mit dem CLI ers
 
 `<script>` enthält die gesamte Nicht-Darstellungslogik Ihrer Komponente. Vor allem ist es in Ihrem `<script>`-Tag, wo Sie Komponenten lokal registrieren, Eingaben (props) definieren, den lokalen Zustand verwalten, Methoden definieren und mehr. Ihr Build-Schritt wird dieses Objekt verarbeiten und es (mit Ihrem Template) in eine Vue-Komponente mit einer `render()`-Funktion umwandeln.
 
-Im Fall von `App.vue` werden zwei Komponenten `TheWelcome` und `HelloWorld` durch Importe registriert. Wenn Sie eine Komponente auf diese Weise registrieren, registrieren Sie sie lokal. Lokal registrierte Komponenten können nur innerhalb der Komponenten verwendet werden, die sie registrieren, also müssen Sie sie in jeder Komponentendatei importieren und registrieren, die sie verwenden. Dies ist nützlich für [Tree Shaking](/de/docs/Glossary/Tree_shaking) (Nichtladen von unbenutztem Code) und Paketaufteilung (nur Laden von Code, wenn benötigt), da nicht jede Seite in Ihrer App jede Komponente unbedingt benötigt.
+Im Fall von `App.vue` werden zwei Komponenten `TheWelcome` und `HelloWorld` durch Importe registriert. Wenn Sie eine Komponente auf diese Weise registrieren, registrieren Sie sie lokal. Lokal registrierte Komponenten können nur innerhalb der Komponenten verwendet werden, die sie registrieren, also müssen Sie sie in jeder Komponentendatei importieren und registrieren, die sie verwenden. Dies ist nützlich für {{Glossary("Tree_shaking", "Tree Shaking")}} (Nichtladen von unbenutztem Code) und Paketaufteilung (nur Laden von Code, wenn benötigt), da nicht jede Seite in Ihrer App jede Komponente unbedingt benötigt.
 
 ```vue
 <script setup>

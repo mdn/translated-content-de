@@ -10,7 +10,7 @@ l10n:
 
 Die **`hash`**-Eigenschaft des [`Location`](/de/docs/Web/API/Location)-Interfaces gibt einen String zurück, der ein `'#'` enthält, gefolgt vom Fragmentbezeichner der URL – der ID auf der Seite, die die URL anvisieren möchte.
 
-Das Fragment ist nicht [percent-codiert](/de/docs/Glossary/Percent-encoding). Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
+Das Fragment ist nicht {{Glossary("Percent-encoding", "percent-codiert")}}. Wenn die URL keinen Fragmentbezeichner hat, enthält diese Eigenschaft einen leeren String, `""`.
 
 ## Wert
 

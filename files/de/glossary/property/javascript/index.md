@@ -12,7 +12,7 @@ Eine **JavaScript-Eigenschaft** ist Mitglied eines [Objekts](/de/docs/Web/JavaSc
 Eine Eigenschaft besteht aus den folgenden Teilen:
 
 - Einem _Namen_ (auch als _Schlüssel_ bezeichnet), der entweder ein [String](/de/docs/Web/JavaScript/Reference/Global_Objects/String) oder ein [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol) ist.
-- Einem _Wert_, der jeder JavaScript-Wert sein kann. Eine Eigenschaft, die eine Funktion als Wert hat, kann auch als [Methode](/de/docs/Glossary/method) bezeichnet werden.
+- Einem _Wert_, der jeder JavaScript-Wert sein kann. Eine Eigenschaft, die eine Funktion als Wert hat, kann auch als {{Glossary("method", "Methode")}} bezeichnet werden.
 - Einigen _Attributen_, die festlegen, wie die Eigenschaft gelesen und geschrieben werden kann. Eine Eigenschaft kann die Attribute `configurable`, `enumerable` und `writable` haben.
 
 [Accessor-Eigenschaften](/de/docs/Web/JavaScript/Data_structures#accessor_property) haben keinen tatsächlichen "Wert". Der Wert wird indirekt durch ein Funktionspaar dargestellt, wobei eine (der Getter) beim Lesen des Wertes und eine (der Setter) beim Setzen des Wertes aufgerufen wird. Jedoch verhalten sich Accessor-Eigenschaften wie normale Dateneigenschaften an der Oberfläche, da die Getter- und Setter-Funktionen automatisch aufgerufen werden und in der Regel für JavaScript-Code transparent sind.

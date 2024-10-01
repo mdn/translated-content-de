@@ -32,7 +32,7 @@ Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nac
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie logische Eigenschaften verwenden, um `width` und `height` zu ersetzen, um das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Kästchens bei vertikaler Drehung beizubehalten.
+In dieser Aufgabe möchten wir, dass Sie logische Eigenschaften verwenden, um `width` und `height` zu ersetzen, um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Kästchens bei vertikaler Drehung beizubehalten.
 
 Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 

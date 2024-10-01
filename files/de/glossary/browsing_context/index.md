@@ -16,4 +16,4 @@ Die Kommunikation zwischen Browsing-Kontexten ist stark eingeschränkt. Zwischen
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [Origin](/de/docs/Glossary/Origin)
+  - {{Glossary("Origin", "Origin")}}

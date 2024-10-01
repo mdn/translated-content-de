@@ -97,7 +97,7 @@ Da Nachkommen von `radio` präsentationell sind, ist der folgende Code gleichwer
 <div role="radio"><h6 role="presentation">name of my radio</h6></div>
 ```
 
-Aus der Sicht eines Assistive Technology-Benutzers existiert die Überschrift nicht, da die vorherigen Codeschnipsel dem folgenden im [Zugänglichkeitsbaum](/de/docs/Glossary/Accessibility_tree) äquivalent sind:
+Aus der Sicht eines Assistive Technology-Benutzers existiert die Überschrift nicht, da die vorherigen Codeschnipsel dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeitsbaum")}} äquivalent sind:
 
 ```html
 <div role="radio">name of my radio</div>

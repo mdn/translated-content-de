@@ -17,7 +17,7 @@ am 1. Januar 1970, zu der das Ereignis stattfand, für das die Benachrichtigung 
 
 ## Wert
 
-Eine Zahl, die einen Zeitstempel darstellt, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden.
+Eine Zahl, die einen Zeitstempel darstellt, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden.
 
 ## Beispiele
 

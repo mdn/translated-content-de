@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Objektreferenz** ist ein Link zu einem _[Objekt](/de/docs/Glossary/object)_. Objektreferenzen können genau wie die verknüpften Objekte verwendet werden.
+Eine **Objektreferenz** ist ein Link zu einem _{{Glossary("object", "Objekt")}}_. Objektreferenzen können genau wie die verknüpften Objekte verwendet werden.
 
-Das Konzept der Objektreferenzen wird deutlich, wenn dasselbe Objekt mehr als einer _[Eigenschaft](/de/docs/Glossary/property/javascript)_ zugewiesen wird. Anstatt eine Kopie des Objekts zu speichern, hält jede zugewiesene Eigenschaft Objektreferenzen, die auf dasselbe Objekt verweisen, sodass bei einer Änderung des Objekts alle Eigenschaften, die auf das Objekt verweisen, die Änderung widerspiegeln.
+Das Konzept der Objektreferenzen wird deutlich, wenn dasselbe Objekt mehr als einer _{{Glossary("property/javascript", "Eigenschaft")}}_ zugewiesen wird. Anstatt eine Kopie des Objekts zu speichern, hält jede zugewiesene Eigenschaft Objektreferenzen, die auf dasselbe Objekt verweisen, sodass bei einer Änderung des Objekts alle Eigenschaften, die auf das Objekt verweisen, die Änderung widerspiegeln.
 
 ## Siehe auch
 

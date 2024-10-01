@@ -68,15 +68,15 @@ Der Wert der `max-block-size`-Eigenschaft kann jeder Wert sein, der für die Eig
 Die Werte des `writing-mode` beeinflussen die Zuordnung von `max-block-size` zu `max-width` oder `max-height` wie folgt:
 
 | Werte des `writing-mode`                                                  | `max-block-size` entspricht |
-| ------------------------------------------------------------------------- | ----------------------------- |
-| `horizontal-tb`, `lr`, `lr-tb`, `rl`, `rb`, `rb-rl`                       | {{cssxref("max-height")}}     |
-| `vertical-rl`, `vertical-lr`, `sideways-rl`, `sideways-lr`, `tb`, `tb-rl` | {{cssxref("max-width")}}      |
+| ------------------------------------------------------------------------- | --------------------------- |
+| `horizontal-tb`, `lr`, `lr-tb`, `rl`, `rb`, `rb-rl`                       | {{cssxref("max-height")}}   |
+| `vertical-rl`, `vertical-lr`, `sideways-rl`, `sideways-lr`, `tb`, `tb-rl` | {{cssxref("max-width")}}    |
 
 > [!NOTE]
 > Die `writing-mode` Werte `sideways-lr` und `sideways-rl` wurden spät im Designprozess aus der CSS Writing Modes Level 3 Spezifikation entfernt. Sie könnten in Level 4 wieder eingeführt werden.
 
 > [!NOTE]
-> Die Schreibrichtungen `lr`, `lr-tb`, `rl`, `rb` und `rb-tl` sind in [HTML](/de/docs/Glossary/HTML) Kontexten nicht mehr zulässig; sie dürfen nur in [SVG](/de/docs/Glossary/SVG) 1.x Kontexten verwendet werden.
+> Die Schreibrichtungen `lr`, `lr-tb`, `rl`, `rb` und `rb-tl` sind in {{Glossary("HTML", "HTML")}} Kontexten nicht mehr zulässig; sie dürfen nur in {{Glossary("SVG", "SVG")}} 1.x Kontexten verwendet werden.
 
 ## Formale Definition
 

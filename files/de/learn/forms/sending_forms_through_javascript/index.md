@@ -7,13 +7,13 @@ l10n:
 
 {{LearnSidebar}}
 
-Wenn ein Benutzer ein HTML-Formular absendet, beispielsweise durch Klicken auf den [Absende-Button](/de/docs/Glossary/Submit_button), sendet der Browser eine [HTTP](/de/docs/Web/HTTP)-Anfrage, um die Daten im Formular zu versenden. Anstelle dieses deklarativen Ansatzes verwenden Web-Apps jedoch manchmal JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch), um Daten programmatisch an einen Endpunkt zu senden, der eine Formularübermittlung erwartet. Dieser Artikel erklärt, warum dies ein wichtiger Anwendungsfall ist und wie man es umsetzt.
+Wenn ein Benutzer ein HTML-Formular absendet, beispielsweise durch Klicken auf den {{Glossary("Submit_button", "Absende-Button")}}, sendet der Browser eine [HTTP](/de/docs/Web/HTTP)-Anfrage, um die Daten im Formular zu versenden. Anstelle dieses deklarativen Ansatzes verwenden Web-Apps jedoch manchmal JavaScript-APIs wie [`fetch()`](/de/docs/Web/API/Window/fetch), um Daten programmatisch an einen Endpunkt zu senden, der eine Formularübermittlung erwartet. Dieser Artikel erklärt, warum dies ein wichtiger Anwendungsfall ist und wie man es umsetzt.
 
 ## Warum JavaScript zum Absenden von Formulardaten verwenden?
 
 Die standardmäßige HTML-Formularübermittlung, wie in unserem Artikel über [das Senden von Formulardaten](/de/docs/Learn/Forms/Sending_and_retrieving_form_data) beschrieben, lädt die URL, an die die Daten gesendet wurden, was bedeutet, dass das Browserfenster mit einem vollständigen Seitenladevorgang navigiert.
 
-Viele Web-Apps, insbesondere [Progressive Web Apps](/de/docs/Glossary/progressive_web_apps) und [Single-Page-Apps](/de/docs/Glossary/SPA), verwenden jedoch JavaScript-APIs, um Daten vom Server anzufordern und relevante Teile der Seite zu aktualisieren, wodurch der Aufwand eines vollständigen Seitenladevorgangs vermieden wird.
+Viele Web-Apps, insbesondere {{Glossary("progressive_web_apps", "Progressive Web Apps")}} und {{Glossary("SPA", "Single-Page-Apps")}}, verwenden jedoch JavaScript-APIs, um Daten vom Server anzufordern und relevante Teile der Seite zu aktualisieren, wodurch der Aufwand eines vollständigen Seitenladevorgangs vermieden wird.
 
 Aus diesem Grund verwenden diese Web-Apps HTML-Formulare nur, um Eingaben vom Benutzer zu sammeln, jedoch nicht, um Daten abzusenden. Wenn der Benutzer versucht, die Daten zu senden, übernimmt die Anwendung die Kontrolle und sendet die Daten mithilfe einer JavaScript-API wie [`fetch()`](/de/docs/Web/API/Window/fetch).
 

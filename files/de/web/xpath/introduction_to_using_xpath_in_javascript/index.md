@@ -13,7 +13,7 @@ Die Hauptschnittstelle zur Verwendung von XPath ist die [evaluate](/de/docs/Web/
 
 ## document.evaluate()
 
-Diese Methode wertet [XPath](/de/docs/Web/XPath)-Ausdrücke gegen ein auf [XML](/de/docs/Glossary/XML) basierendes Dokument (einschließlich HTML-Dokumente) aus und gibt ein [`XPathResult`](/de/docs/Web/API/XPathResult)-Objekt zurück, das entweder einen einzelnen Knoten oder eine Menge von Knoten darstellen kann. Die bestehende Dokumentation für diese Methode ist unter [document.evaluate](/de/docs/Web/API/Document/evaluate) zu finden, aber für unsere Bedürfnisse im Moment eher dürftig; eine umfassendere Untersuchung wird unten gegeben.
+Diese Methode wertet [XPath](/de/docs/Web/XPath)-Ausdrücke gegen ein auf {{Glossary("XML", "XML")}} basierendes Dokument (einschließlich HTML-Dokumente) aus und gibt ein [`XPathResult`](/de/docs/Web/API/XPathResult)-Objekt zurück, das entweder einen einzelnen Knoten oder eine Menge von Knoten darstellen kann. Die bestehende Dokumentation für diese Methode ist unter [document.evaluate](/de/docs/Web/API/Document/evaluate) zu finden, aber für unsere Bedürfnisse im Moment eher dürftig; eine umfassendere Untersuchung wird unten gegeben.
 
 ```js
 const xpathResult = document.evaluate(
@@ -344,18 +344,18 @@ let thisitemEl = thislevel.iterateNext();
 
 #### Definierte Konstanten von XPathResult
 
-| Definierte Konstante für Ergebnistyp | Wert | Beschreibung                                                                                                                                                                                          |
-| ------------------------------------ | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ANY_TYPE                             | 0     | Ein Ergebnis-Set, das den Typ enthält, der sich als Natur Ergebnis der Auswertung des Ausdrucks ergibt. Beachten Sie, dass, wenn das Ergebnis ein Knoten-Set ist, UNORDERED_NODE_ITERATOR_TYPE immer der resultierende Typ ist. |
-| NUMBER_TYPE                          | 1     | Ein Ergebnis, das eine einzelne Zahl enthält. Dies ist nützlich, zum Beispiel, in einem XPath-Ausdruck, der die `count()`-Funktion verwendet.                                                       |
-| STRING_TYPE                          | 2     | Ein Ergebnis, das einen einzelnen String enthält.                                                                                                                                                    |
-| BOOLEAN_TYPE                         | 3     | Ein Ergebnis, das einen einzelnen Boolean-Wert enthält. Dies ist nützlich, zum Beispiel, in einem XPath-Ausdruck, der die `not()`-Funktion verwendet.                                               |
-| UNORDERED_NODE_ITERATOR_TYPE         | 4     | Ein Ergebnis-Knoten-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten müssen nicht unbedingt in der gleichen Reihenfolge erscheinen, in der sie im Dokument vorkommen.            |
-| ORDERED_NODE_ITERATOR_TYPE           | 5     | Ein Ergebnis-Knoten-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten im Ergebnis-Set sind in der gleichen Reihenfolge, in der sie im Dokument erscheinen.                     |
-| UNORDERED_NODE_SNAPSHOT_TYPE         | 6     | Ein Ergebnis-Knoten-Set, das Snapshots aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten müssen nicht unbedingt in der gleichen Reihenfolge erscheinen, in der sie im Dokument vorkommen. |
-| ORDERED_NODE_SNAPSHOT_TYPE           | 7     | Ein Ergebnis-Knoten-Set, das Snapshots aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten im Ergebnis-Set sind in der gleichen Reihenfolge, in der sie im Dokument erscheinen.            |
-| ANY_UNORDERED_NODE_TYPE              | 8     | Ein Ergebnis-Knoten-Set, das einen einzelnen Knoten enthält, der dem Ausdruck entspricht. Der Knoten ist nicht unbedingt der erste Knoten im Dokument, der dem Ausdruck entspricht.                   |
-| FIRST_ORDERED_NODE_TYPE              | 9     | Ein Ergebnis-Knoten-Set, das den ersten Knoten im Dokument enthält, der dem Ausdruck entspricht.                                                                                                     |
+| Definierte Konstante für Ergebnistyp | Wert | Beschreibung                                                                                                                                                                                                                    |
+| ------------------------------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ANY_TYPE                             | 0    | Ein Ergebnis-Set, das den Typ enthält, der sich als Natur Ergebnis der Auswertung des Ausdrucks ergibt. Beachten Sie, dass, wenn das Ergebnis ein Knoten-Set ist, UNORDERED_NODE_ITERATOR_TYPE immer der resultierende Typ ist. |
+| NUMBER_TYPE                          | 1    | Ein Ergebnis, das eine einzelne Zahl enthält. Dies ist nützlich, zum Beispiel, in einem XPath-Ausdruck, der die `count()`-Funktion verwendet.                                                                                   |
+| STRING_TYPE                          | 2    | Ein Ergebnis, das einen einzelnen String enthält.                                                                                                                                                                               |
+| BOOLEAN_TYPE                         | 3    | Ein Ergebnis, das einen einzelnen Boolean-Wert enthält. Dies ist nützlich, zum Beispiel, in einem XPath-Ausdruck, der die `not()`-Funktion verwendet.                                                                           |
+| UNORDERED_NODE_ITERATOR_TYPE         | 4    | Ein Ergebnis-Knoten-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten müssen nicht unbedingt in der gleichen Reihenfolge erscheinen, in der sie im Dokument vorkommen.                                     |
+| ORDERED_NODE_ITERATOR_TYPE           | 5    | Ein Ergebnis-Knoten-Set, das alle Knoten enthält, die dem Ausdruck entsprechen. Die Knoten im Ergebnis-Set sind in der gleichen Reihenfolge, in der sie im Dokument erscheinen.                                                 |
+| UNORDERED_NODE_SNAPSHOT_TYPE         | 6    | Ein Ergebnis-Knoten-Set, das Snapshots aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten müssen nicht unbedingt in der gleichen Reihenfolge erscheinen, in der sie im Dokument vorkommen.                          |
+| ORDERED_NODE_SNAPSHOT_TYPE           | 7    | Ein Ergebnis-Knoten-Set, das Snapshots aller Knoten enthält, die dem Ausdruck entsprechen. Die Knoten im Ergebnis-Set sind in der gleichen Reihenfolge, in der sie im Dokument erscheinen.                                      |
+| ANY_UNORDERED_NODE_TYPE              | 8    | Ein Ergebnis-Knoten-Set, das einen einzelnen Knoten enthält, der dem Ausdruck entspricht. Der Knoten ist nicht unbedingt der erste Knoten im Dokument, der dem Ausdruck entspricht.                                             |
+| FIRST_ORDERED_NODE_TYPE              | 9    | Ein Ergebnis-Knoten-Set, das den ersten Knoten im Dokument enthält, der dem Ausdruck entspricht.                                                                                                                                |
 
 ## Siehe auch
 

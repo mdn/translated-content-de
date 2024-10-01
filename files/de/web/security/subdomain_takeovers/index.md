@@ -7,7 +7,7 @@ l10n:
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Eine Subdomain-Übernahme tritt auf, wenn ein Angreifer die Kontrolle über eine Subdomain einer Ziel-Domain erlangt. Typischerweise geschieht dies, wenn die Subdomain im Domain Name System ([DNS](/de/docs/Glossary/DNS)) einen kanonischen Namen ([CNAME](https://en.wikipedia.org/wiki/CNAME_record)) hat, aber kein Host dafür Inhalte bereitstellt. Dies kann passieren, weil entweder ein virtueller Host noch nicht veröffentlicht wurde oder ein virtueller Host entfernt wurde. Ein Angreifer kann diese Subdomain übernehmen, indem er seinen eigenen virtuellen Host bereitstellt und dann eigene Inhalte dafür hostet.
+Eine Subdomain-Übernahme tritt auf, wenn ein Angreifer die Kontrolle über eine Subdomain einer Ziel-Domain erlangt. Typischerweise geschieht dies, wenn die Subdomain im Domain Name System ({{Glossary("DNS", "DNS")}}) einen kanonischen Namen ([CNAME](https://en.wikipedia.org/wiki/CNAME_record)) hat, aber kein Host dafür Inhalte bereitstellt. Dies kann passieren, weil entweder ein virtueller Host noch nicht veröffentlicht wurde oder ein virtueller Host entfernt wurde. Ein Angreifer kann diese Subdomain übernehmen, indem er seinen eigenen virtuellen Host bereitstellt und dann eigene Inhalte dafür hostet.
 
 Wenn ein Angreifer dies tun kann, ist es ihm potenziell möglich, [Cookies](/de/docs/Web/HTTP/Cookies), die von der Hauptdomain gesetzt wurden, zu lesen, [Cross-Site-Scripting](/de/docs/Web/Security/Types_of_attacks#cross-site_scripting_xss) durchzuführen oder [Content Security Policies](/de/docs/Web/HTTP/CSP) zu umgehen, wodurch er in der Lage wäre, geschützte Informationen (einschließlich Anmeldedaten) zu erfassen oder bösartige Inhalte an nichtsahnende Nutzer zu senden.
 
@@ -49,7 +49,7 @@ Das Verhindern von Subdomain-Übernahmen ist eine Frage der Reihenfolge der Vorg
 
 ## Meine Subdomain wurde übernommen. Was soll ich tun?
 
-Wenn Sie feststellen, dass eine Subdomain Ihrer Domain übernommen wurde, ist der erste Schritt, wenn möglich, „den Strom abzuschalten“, indem Sie den DNS-Eintrag für die Subdomain entfernen. Wenn Ihre Seite mehrere Ebenen der Virtualisierung hat (z. B. ein [CDN](/de/docs/Glossary/CDN) zusätzlich zum virtuellen Hosting), müssen Sie möglicherweise jede Ebene untersuchen, um zu sehen, wo genau der Angreifer seinen Anspruch auf virtuellen Host geltend gemacht hat, um Ihre Domain zu übernehmen.
+Wenn Sie feststellen, dass eine Subdomain Ihrer Domain übernommen wurde, ist der erste Schritt, wenn möglich, „den Strom abzuschalten“, indem Sie den DNS-Eintrag für die Subdomain entfernen. Wenn Ihre Seite mehrere Ebenen der Virtualisierung hat (z. B. ein {{Glossary("CDN", "CDN")}} zusätzlich zum virtuellen Hosting), müssen Sie möglicherweise jede Ebene untersuchen, um zu sehen, wo genau der Angreifer seinen Anspruch auf virtuellen Host geltend gemacht hat, um Ihre Domain zu übernehmen.
 
 ## Mehr erfahren
 

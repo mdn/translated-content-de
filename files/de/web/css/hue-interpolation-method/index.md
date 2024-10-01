@@ -24,7 +24,7 @@ decreasing hue
 
 ### Werte
 
-Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem [Farbkreis](/de/docs/Glossary/color_wheel), die den Umfang in zwei mögliche Bögen für die Interpolation schneiden. Beide Bögen beginnen am ersten Radius und enden am zweiten Radius, aber einer verläuft im Uhrzeigersinn und der andere gegen den Uhrzeigersinn.
+Jedes Paar von Farbtonwinkeln entspricht zwei Radien auf dem {{Glossary("color_wheel", "Farbkreis")}}, die den Umfang in zwei mögliche Bögen für die Interpolation schneiden. Beide Bögen beginnen am ersten Radius und enden am zweiten Radius, aber einer verläuft im Uhrzeigersinn und der andere gegen den Uhrzeigersinn.
 
 > [!NOTE]
 > Die folgenden Beschreibungen und Illustrationen basieren auf Farbkreisen, in denen Farbtonwinkel im Uhrzeigersinn zunehmen. Beachten Sie, dass es Farbkreise gibt, bei denen eine Zunahme der Winkel eine gegen den Uhrzeigersinn gerichtete Operation ist.
@@ -38,9 +38,9 @@ Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 36
     - Wenn `θ1 < θ2`, verwende den im Uhrzeigersinn verlaufenden Bogen;
     - Wenn `θ1 > θ2`, verwende den gegen den Uhrzeigersinn verlaufenden Bogen.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                        | `θ1 = 135deg`, `θ2 = 45deg`                                        |
-    | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-    | ![shorter mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png)  | ![shorter mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png)  |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                       | `θ1 = 135deg`, `θ2 = 45deg`                                       |
+    | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+    | ![shorter mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![shorter mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
 
 - `longer`
 
@@ -54,25 +54,25 @@ Für ein Paar von Farbtonwinkeln `θ1` und `θ2`, die auf den Bereich `[0deg, 36
     - Wenn `θ1 < θ2`, verwende den im Uhrzeigersinn verlaufenden Bogen;
     - Wenn `θ1 > θ2`, verwende den gegen den Uhrzeigersinn verlaufenden Bogen.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                      | `θ1 = 135deg`, `θ2 = 45deg`                                      |
-    | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-    | ![longer mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png)  | ![longer mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png)  |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                     | `θ1 = 135deg`, `θ2 = 45deg`                                     |
+    | --------------------------------------------------------------- | --------------------------------------------------------------- |
+    | ![longer mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![longer mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
 
 - `increasing`
 
   - : Verwende den im Uhrzeigersinn verlaufenden Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                           | `θ1 = 135deg`, `θ2 = 45deg`                                          |
-    | --------------------------------------------------------------------- | -------------------------------------------------------------------- |
-    | ![increasing mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png)  | ![increasing mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png)  |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                          | `θ1 = 135deg`, `θ2 = 45deg`                                         |
+    | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
+    | ![increasing mit θ1 = 45deg und θ2 = 135deg](shorter_increasing.png) | ![increasing mit θ1 = 135deg und θ2 = 45deg](longer_increasing.png) |
 
 - `decreasing`
 
   - : Verwende den gegen den Uhrzeigersinn verlaufenden Bogen. Wenn die beiden Radien zusammenfallen, degeneriert der Bogen zu einem einzigen Punkt.
 
-    | `θ1 = 45deg`, `θ2 = 135deg`                                          | `θ1 = 135deg`, `θ2 = 45deg`                                           |
-    | -------------------------------------------------------------------- | --------------------------------------------------------------------- |
-    | ![decreasing mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png)  | ![decreasing mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png)  |
+    | `θ1 = 45deg`, `θ2 = 135deg`                                         | `θ1 = 135deg`, `θ2 = 45deg`                                          |
+    | ------------------------------------------------------------------- | -------------------------------------------------------------------- |
+    | ![decreasing mit θ1 = 45deg und θ2 = 135deg](longer_decreasing.png) | ![decreasing mit θ1 = 135deg und θ2 = 45deg](shorter_decreasing.png) |
 
 Da es nur zwei Bögen zur Auswahl gibt, sind diese Algorithmen paarweise gleichwertig unter bestimmten Umständen. Insbesondere:
 

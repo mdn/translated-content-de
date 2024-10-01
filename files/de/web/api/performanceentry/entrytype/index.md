@@ -30,7 +30,7 @@ Ein String. Der Rückgabewert hängt vom Subtyp des `PerformanceEntry`-Objekts a
 
 - `first-input`
 
-  - : Berichtet die [First Input Delay](/de/docs/Glossary/first_input_delay) (FID).
+  - : Berichtet die {{Glossary("first_input_delay", "First Input Delay")}} (FID).
 
     Die Eintragsinstanz wird ein [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Objekt sein.
 

@@ -13,7 +13,7 @@ l10n:
 
 ### URLs
 
-Die gebräuchlichste Form eines URI ist der Uniform Resource Locator ([URL](/de/docs/Glossary/URL)), der als _Webadresse_ bekannt ist.
+Die gebräuchlichste Form eines URI ist der Uniform Resource Locator ({{Glossary("URL", "URL")}}), der als _Webadresse_ bekannt ist.
 
 ```url
 https://developer.mozilla.org
@@ -57,7 +57,7 @@ http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereI
 
 `http://` ist das [_Schema_](/de/docs/Web/URI/Schemes) der URL und gibt an, welches Protokoll der Browser verwenden muss. Meistens handelt es sich um das HTTP-Protokoll oder seine gesicherte Version HTTPS. Das Web erfordert eines dieser beiden, aber Browser können auch andere Protokolle wie `mailto:` (zum Öffnen eines Mailclients) oder `ftp:` zum Behandeln eines Dateitransfers verarbeiten, daher sollten Sie nicht überrascht sein, solche Protokolle zu sehen. Die [Schema-Referenz](/de/docs/Web/URI/Schemes) bietet eine Liste der gebräuchlichsten Schemata und Dokumentationen zu einigen davon.
 
-Bei der Verwendung von URLs in [HTML](/de/docs/Glossary/HTML)-Inhalten sollten Sie im Allgemeinen nur einige wenige dieser URL-Schemata verwenden. Bei der Referenzierung von Subressourcen – also Dateien, die als Teil eines größeren Dokuments geladen werden – sollten Sie nur die HTTP- und HTTPS-Schemata nutzen. Zunehmend entfernen Browser die Unterstützung für die Verwendung von FTP zum Laden von Subressourcen aus Sicherheitsgründen.
+Bei der Verwendung von URLs in {{Glossary("HTML", "HTML")}}-Inhalten sollten Sie im Allgemeinen nur einige wenige dieser URL-Schemata verwenden. Bei der Referenzierung von Subressourcen – also Dateien, die als Teil eines größeren Dokuments geladen werden – sollten Sie nur die HTTP- und HTTPS-Schemata nutzen. Zunehmend entfernen Browser die Unterstützung für die Verwendung von FTP zum Laden von Subressourcen aus Sicherheitsgründen.
 
 FTP ist noch auf oberster Ebene akzeptabel (z.B. direkt in die URL-Leiste des Browsers eingegeben oder als Ziel eines Links), obwohl einige Browser das Laden von FTP-Inhalten an eine andere Anwendung delegieren können.
 
@@ -67,7 +67,7 @@ Die URI-_Autorität_ ([Authority](/de/docs/Web/URI/Authority)) besteht aus Benut
 
 ![Domain-Name](mdn-url-domain@x2.png)
 
-`www.example.com` ist der _Hostname_ der URI und gibt an, welcher Webserver angefordert wird. Hier verwenden wir einen Domainnamen. Es ist auch möglich, direkt eine [IP-Adresse](/de/docs/Glossary/IP_address) zu verwenden, aber da dies weniger bequem ist, wird es selten gemacht, es sei denn, der Server hat keinen registrierten Domainnamen.
+`www.example.com` ist der _Hostname_ der URI und gibt an, welcher Webserver angefordert wird. Hier verwenden wir einen Domainnamen. Es ist auch möglich, direkt eine {{Glossary("IP_address", "IP-Adresse")}} zu verwenden, aber da dies weniger bequem ist, wird es selten gemacht, es sei denn, der Server hat keinen registrierten Domainnamen.
 
 ![Port](mdn-url-port@x2.png)
 

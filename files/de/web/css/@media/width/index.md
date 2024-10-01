@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`width`**-[CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Breite des [Viewports](/de/docs/Glossary/viewport) (oder der Seitenbox, für [seitengestützte Medien](/de/docs/Web/CSS/CSS_paged_media)) zu prüfen.
+Die **`width`**-[CSS](/de/docs/Web/CSS)-[Medienfunktion](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um die Breite des {{Glossary("viewport", "Viewports")}} (oder der Seitenbox, für [seitengestützte Medien](/de/docs/Web/CSS/CSS_paged_media)) zu prüfen.
 
 ## Syntax
 

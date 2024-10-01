@@ -64,7 +64,7 @@ svg {
 - `optimizeLegibility`
   - : Dieser Wert gibt an, dass der Benutzeragent die Lesbarkeit über Rendergeschwindigkeit und geometrische Präzision priorisieren soll. Der Benutzeragent entscheidet oft, ob Anti-Aliasing-Techniken, eingebaute Schriftartenhinweise oder beides angewendet werden, um den lesbarsten Text zu erzeugen.
 - `geometricPrecision`
-  - : Dieser Wert gibt an, dass der Benutzeragent die geometrische Präzision über Lesbarkeit und Rendergeschwindigkeit betonen soll. Diese Option führt in der Regel dazu, dass der Benutzeragent auf die Verwendung von Hinting verzichtet, sodass [Glyphe](/de/docs/Glossary/glyph)-Umrisse mit vergleichbarer geometrischer Präzision zum Rendern von Pfaddaten gezeichnet werden.
+  - : Dieser Wert gibt an, dass der Benutzeragent die geometrische Präzision über Lesbarkeit und Rendergeschwindigkeit betonen soll. Diese Option führt in der Regel dazu, dass der Benutzeragent auf die Verwendung von Hinting verzichtet, sodass {{Glossary("glyph", "Glyphe")}}-Umrisse mit vergleichbarer geometrischer Präzision zum Rendern von Pfaddaten gezeichnet werden.
 
 ## Spezifikationen
 

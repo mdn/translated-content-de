@@ -17,7 +17,7 @@ Die **`VideoColorSpace`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/Web
 ## Instanz-Eigenschaften
 
 - [`VideoColorSpace.primaries`](/de/docs/Web/API/VideoColorSpace/primaries) {{ReadOnlyInline}}
-  - : Ein String, der das Farbprimär beschreibt, der den Farb[gamut](/de/docs/Glossary/gamut) einer Video-Probe beschreibt.
+  - : Ein String, der das Farbprimär beschreibt, der den Farb{{Glossary("gamut", "gamut")}} einer Video-Probe beschreibt.
 - [`VideoColorSpace.transfer`](/de/docs/Web/API/VideoColorSpace/transfer)
   - : Ein String, der die Übertragungscharakteristika der Video-Proben enthält.
 - [`VideoColorSpace.matrix`](/de/docs/Web/API/VideoColorSpace/matrix)

@@ -22,7 +22,7 @@ Clients, die eine `422`-Antwort erhalten, sollten erwarten, dass das erneute Sen
 ### SHA-Validierungsfehler
 
 Im folgenden Beispiel wird eine Anfrage gesendet, um Dateiinhalte zu aktualisieren ([basierend auf der GitHub-API](https://docs.github.com/en/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents)).
-Das `content`-Feld ist [Base64](/de/docs/Glossary/Base64) kodiert und verwendet `\n` als Zeilenumbruch alle 60 Zeichen, wobei eines die Zeichenkette abschließt:
+Das `content`-Feld ist {{Glossary("Base64", "Base64")}} kodiert und verwendet `\n` als Zeilenumbruch alle 60 Zeichen, wobei eines die Zeichenkette abschließt:
 
 ```http
 PUT /repos/mdn/content/contents/README.md HTTP/1.1

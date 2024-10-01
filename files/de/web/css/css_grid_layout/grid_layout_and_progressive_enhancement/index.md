@@ -171,7 +171,7 @@ Wenn ich die Breite auf `auto` setze, wird dieses Verhalten in älteren Browsern
 
 #### Eine Lösung mit Feature-Queries
 
-_Feature-Queries_ werden Ihnen sehr vertraut vorkommen, wenn Sie jemals eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) verwendet haben, um ein responsives Layout zu erstellen. Anstatt eine [Viewport](/de/docs/Glossary/viewport)-Breite oder ein Merkmal des Browsers oder Geräts zu überprüfen, prüfen wir die Unterstützung eines CSS-Eigenschafts- und Wertpaar mit einer {{cssxref("@supports")}}-Regel. Innerhalb der Feature-Query können wir dann beliebiges CSS schreiben, das wir benötigen, um unser modernes Layout anzuwenden und alles zu entfernen, was für das alte Layout erforderlich ist.
+_Feature-Queries_ werden Ihnen sehr vertraut vorkommen, wenn Sie jemals eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) verwendet haben, um ein responsives Layout zu erstellen. Anstatt eine {{Glossary("viewport", "Viewport")}}-Breite oder ein Merkmal des Browsers oder Geräts zu überprüfen, prüfen wir die Unterstützung eines CSS-Eigenschafts- und Wertpaar mit einer {{cssxref("@supports")}}-Regel. Innerhalb der Feature-Query können wir dann beliebiges CSS schreiben, das wir benötigen, um unser modernes Layout anzuwenden und alles zu entfernen, was für das alte Layout erforderlich ist.
 
 ```css
 @supports (display: grid) {

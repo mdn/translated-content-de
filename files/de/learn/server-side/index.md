@@ -43,6 +43,6 @@ Dieses Thema enthält die folgenden Module. Sie sollten mit dem ersten Modul beg
 - [Node-Server ohne Framework](/de/docs/Learn/Server-side/Node_server_without_framework)
   - : Dieser Artikel bietet einen einfachen statischen Dateiserver, der mit reinem Node.js erstellt wurde, für diejenigen unter Ihnen, die kein Framework verwenden möchten.
 - [Korrekte Konfiguration von Server-MIME-Typen](/de/docs/Learn/Server-side/Configuring_server_MIME_types)
-  - : Die Konfiguration Ihres Servers zum Senden der korrekten [MIME-Typen](/de/docs/Glossary/MIME_type) (auch bekannt als Medientypen oder Inhaltstypen) an Browser ist wichtig, damit Browser den Inhalt ordnungsgemäß verarbeiten und anzeigen können. Es ist auch wichtig, um zu verhindern, dass bösartiger Inhalt als harmloser Inhalt getarnt wird.
+  - : Die Konfiguration Ihres Servers zum Senden der korrekten {{Glossary("MIME_type", "MIME-Typen")}} (auch bekannt als Medientypen oder Inhaltstypen) an Browser ist wichtig, damit Browser den Inhalt ordnungsgemäß verarbeiten und anzeigen können. Es ist auch wichtig, um zu verhindern, dass bösartiger Inhalt als harmloser Inhalt getarnt wird.
 - [Apache-Konfiguration: .htaccess](/de/docs/Learn/Server-side/Apache_Configuration_htaccess)
   - : Apache .htaccess-Dateien ermöglichen es Benutzern, Verzeichnisse des Webservers, den sie kontrollieren, zu konfigurieren, ohne die Hauptkonfigurationsdatei zu ändern.

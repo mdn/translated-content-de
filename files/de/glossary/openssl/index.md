@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-OpenSSL ist eine Open-Source-Implementierung von [TLS](/de/docs/Glossary/TLS) und [SSL](/de/docs/Glossary/SSL).
+OpenSSL ist eine Open-Source-Implementierung von {{Glossary("TLS", "TLS")}} und {{Glossary("SSL", "SSL")}}.
 
 ## Siehe auch
 

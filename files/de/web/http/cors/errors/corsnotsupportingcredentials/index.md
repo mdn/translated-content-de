@@ -15,7 +15,7 @@ Reason: Credential is not supported if the CORS header 'Access-Control-Allow-Ori
 
 ## Was ist schief gelaufen?
 
-Die [CORS](/de/docs/Glossary/CORS)-Anfrage wurde mit gesetztem Credentials-Flag versucht, aber der Server ist so konfiguriert, dass das Platzhaltersymbol (`"*"`) als Wert für {{HTTPHeader("Access-Control-Allow-Origin")}} verwendet wird. Dies erlaubt nicht die Verwendung von Anmeldeinformationen.
+Die {{Glossary("CORS", "CORS")}}-Anfrage wurde mit gesetztem Credentials-Flag versucht, aber der Server ist so konfiguriert, dass das Platzhaltersymbol (`"*"`) als Wert für {{HTTPHeader("Access-Control-Allow-Origin")}} verwendet wird. Dies erlaubt nicht die Verwendung von Anmeldeinformationen.
 
 Um dieses Problem auf der Clientseite zu beheben, stellen Sie sicher, dass der Wert des Credentials-Flags `false` ist, wenn Sie Ihre CORS-Anfrage stellen.
 
@@ -28,5 +28,5 @@ Wenn Sie stattdessen das Verhalten des Servers anpassen müssen, müssen Sie den
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [Einführung in CORS](/de/docs/Web/HTTP/CORS)

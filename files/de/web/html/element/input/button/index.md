@@ -18,7 +18,7 @@ l10n:
 
 ### Schaltfläche mit einem Wert
 
-Das `value`-Attribut eines `<input type="button">` Elements enthält eine Zeichenkette, die als Beschriftung der Schaltfläche verwendet wird. Der `value` liefert die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) der Schaltfläche.
+Das `value`-Attribut eines `<input type="button">` Elements enthält eine Zeichenkette, die als Beschriftung der Schaltfläche verwendet wird. Der `value` liefert die {{Glossary("accessible_description", "zugängliche Beschreibung")}} der Schaltfläche.
 
 ```html
 <input type="button" value="Click Me" />

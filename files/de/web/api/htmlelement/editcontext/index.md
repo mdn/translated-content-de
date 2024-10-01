@@ -10,7 +10,7 @@ l10n:
 
 Die **`editContext`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces ruft das zugeordnete [`EditContext`](/de/docs/Web/API/EditContext)-Objekt eines Elements ab und setzt es.
 
-Die [EditContext API](/de/docs/Web/API/EditContext_API) kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die fortgeschrittene Textein- und -ausgaberfahrungen unterstützen, wie z.B. die [Input Method Editor](/de/docs/Glossary/Input_Method_Editor) (IME) Komposition, Emoji-Auswahl oder andere plattform-spezifische, bearbeitungsbezogene Benutzeroberflächen.
+Die [EditContext API](/de/docs/Web/API/EditContext_API) kann verwendet werden, um Rich-Text-Editoren im Web zu erstellen, die fortgeschrittene Textein- und -ausgaberfahrungen unterstützen, wie z.B. die {{Glossary("Input_Method_Editor", "Input Method Editor")}} (IME) Komposition, Emoji-Auswahl oder andere plattform-spezifische, bearbeitungsbezogene Benutzeroberflächen.
 
 ### Mögliche Elemente
 

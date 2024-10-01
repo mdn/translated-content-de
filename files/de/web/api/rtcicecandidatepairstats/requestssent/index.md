@@ -8,11 +8,11 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`requestsSent`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Wörterbuchs gibt die Gesamtzahl der bisher gesendeten [STUN](/de/docs/Glossary/STUN)-Konnektivitätsanforderungen an, die über die durch dieses Kandidatenpaar beschriebene Verbindung gesendet wurden.
+Die **`requestsSent`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Wörterbuchs gibt die Gesamtzahl der bisher gesendeten {{Glossary("STUN", "STUN")}}-Konnektivitätsanforderungen an, die über die durch dieses Kandidatenpaar beschriebene Verbindung gesendet wurden.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der bisher gesendeten STUN-Konnektivitätsanforderungen über die durch dieses Paar von [ICE](/de/docs/Glossary/ICE)-Kandidaten beschriebene Verbindung spezifiziert.
+Ein ganzzahliger Wert, der die Anzahl der bisher gesendeten STUN-Konnektivitätsanforderungen über die durch dieses Paar von {{Glossary("ICE", "ICE")}}-Kandidaten beschriebene Verbindung spezifiziert.
 
 > [!NOTE]
 > Die gemeldete Anzahl von Anfragen _schließt_ keine

@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`226 IM Used`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Status#successful_responses) zeigt an, dass der Server ein [Delta](/de/docs/Glossary/delta) als Antwort auf eine {{HTTPMethod("GET")}}-Anfrage zurückgibt.
+Der HTTP-Statuscode **`226 IM Used`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Status#successful_responses) zeigt an, dass der Server ein {{Glossary("delta", "Delta")}} als Antwort auf eine {{HTTPMethod("GET")}}-Anfrage zurückgibt.
 Er wird im Kontext von _HTTP-Delta-Codierungen_ verwendet.
 
 IM steht für _Instance Manipulation_, was sich auf den Algorithmus zur Erstellung eines _Deltas_ bezieht.

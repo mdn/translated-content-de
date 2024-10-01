@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Das **`revert`** CSS-Schlüsselwort kehrt den kaskadierten Wert einer Eigenschaft von ihrem aktuellen Wert auf den Wert zurück, den die Eigenschaft gehabt hätte, wenn keine Änderungen durch den aktuellen **[Style Origin](/de/docs/Glossary/style_origin)** am aktuellen Element vorgenommen worden wären. Somit wird die Eigenschaft entweder auf den vom Benutzeragenten gesetzten Wert, den vom Benutzer festgelegten Wert, auf ihren geerbten Wert (falls sie vererbbar ist) oder auf den Anfangswert zurückgesetzt. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschlusseigenschaft {{cssxref("all")}}.
+Das **`revert`** CSS-Schlüsselwort kehrt den kaskadierten Wert einer Eigenschaft von ihrem aktuellen Wert auf den Wert zurück, den die Eigenschaft gehabt hätte, wenn keine Änderungen durch den aktuellen **{{Glossary("style_origin", "Style Origin")}}** am aktuellen Element vorgenommen worden wären. Somit wird die Eigenschaft entweder auf den vom Benutzeragenten gesetzten Wert, den vom Benutzer festgelegten Wert, auf ihren geerbten Wert (falls sie vererbbar ist) oder auf den Anfangswert zurückgesetzt. Es kann auf jede CSS-Eigenschaft angewendet werden, einschließlich der CSS-Kurzschlusseigenschaft {{cssxref("all")}}.
 
 Dieses Schlüsselwort entfernt aus der Kaskade alle überschriebenen Stile, bis der Stil erreicht ist, zu dem zurückgegangen wird.
 

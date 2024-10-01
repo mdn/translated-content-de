@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-template`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) zur Definition von [Grid-Spalten](/de/docs/Glossary/grid_column), [Grid-Zeilen](/de/docs/Glossary/grid_row) und [Grid-Bereichen](/de/docs/Glossary/grid_areas).
+Die **`grid-template`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) zur Definition von {{Glossary("grid_column", "Grid-Spalten")}}, {{Glossary("grid_row", "Grid-Zeilen")}} und {{Glossary("grid_areas", "Grid-Bereichen")}}.
 
 {{EmbedInteractiveExample("pages/css/grid-template.html")}}
 

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Code-Einheit** ist die grundlegende Komponente, die von einem Zeichencodierungssystem (wie UTF-8 oder UTF-16) verwendet wird. Ein Zeichencodierungssystem verwendet eine oder mehrere Code-Einheiten, um einen Unicode-[Codepunkt](/de/docs/Glossary/code_point) zu kodieren.
+Eine **Code-Einheit** ist die grundlegende Komponente, die von einem Zeichencodierungssystem (wie UTF-8 oder UTF-16) verwendet wird. Ein Zeichencodierungssystem verwendet eine oder mehrere Code-Einheiten, um einen Unicode-{{Glossary("code_point", "Codepunkt")}} zu kodieren.
 
 In UTF-16 (dem Codierungssystem, das für JavaScript-Strings verwendet wird) sind Code-Einheiten 16-Bit-Werte. Das bedeutet, dass Operationen wie das Indizieren in einen String oder das Ermitteln der Länge eines Strings auf diesen 16-Bit-Einheiten basieren. Diese Einheiten stimmen nicht immer 1-zu-1 mit dem überein, was wir als Zeichen ansehen könnten.
 

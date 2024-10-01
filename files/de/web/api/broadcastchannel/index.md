@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Broadcast Channel API")}} {{AvailableInWorkers}}
 
-Das **`BroadcastChannel`**-Interface repräsentiert einen benannten Kanal, auf den jeder [Browsing-Kontext](/de/docs/Glossary/browsing_context) eines bestimmten [Ursprungs](/de/docs/Glossary/origin) zugreifen kann. Es ermöglicht die Kommunikation zwischen verschiedenen Dokumenten (in unterschiedlichen Fenstern, Tabs, Frames oder iframes) desselben Ursprungs. Nachrichten werden über ein [`message`](/de/docs/Web/API/BroadcastChannel/message_event)-Ereignis gesendet, das bei allen `BroadcastChannel`-Objekten ausgelöst wird, die den Kanal abhören, mit Ausnahme des Objekts, das die Nachricht gesendet hat.
+Das **`BroadcastChannel`**-Interface repräsentiert einen benannten Kanal, auf den jeder {{Glossary("browsing_context", "Browsing-Kontext")}} eines bestimmten {{Glossary("origin", "Ursprungs")}} zugreifen kann. Es ermöglicht die Kommunikation zwischen verschiedenen Dokumenten (in unterschiedlichen Fenstern, Tabs, Frames oder iframes) desselben Ursprungs. Nachrichten werden über ein [`message`](/de/docs/Web/API/BroadcastChannel/message_event)-Ereignis gesendet, das bei allen `BroadcastChannel`-Objekten ausgelöst wird, die den Kanal abhören, mit Ausnahme des Objekts, das die Nachricht gesendet hat.
 
 {{InheritanceDiagram}}
 

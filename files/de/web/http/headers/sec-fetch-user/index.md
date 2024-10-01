@@ -7,7 +7,7 @@ l10n:
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-User`** [Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_metadata_request_header) wird nur für Anfragen gesendet, die durch eine Benutzeraktivierung initiiert wurden, und sein Wert wird immer `?1` sein.
+Der **`Sec-Fetch-User`** {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} wird nur für Anfragen gesendet, die durch eine Benutzeraktivierung initiiert wurden, und sein Wert wird immer `?1` sein.
 
 Ein Server kann diesen Header verwenden, um zu identifizieren, ob eine Navigationsanfrage von einem Dokument, `iframe`, etc. durch den Benutzer ausgelöst wurde.
 
@@ -15,15 +15,15 @@ Ein Server kann diesen Header verwenden, um zu identifizieren, ob eine Navigatio
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Fetch-Metadaten-Anforderungsheader](/de/docs/Glossary/Fetch_Metadata_Request_Header)</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadaten-Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja (Präfix <code>Sec-</code>)</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-safelisted Anforderungsheader](/de/docs/Glossary/CORS-safelisted_request_header)
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Anforderungsheader")}}
       </th>
       <td>nein</td>
     </tr>

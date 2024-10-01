@@ -84,7 +84,7 @@ Da Nachfahren von `slider` präsent sind, ist der folgende Code gleichwertig:
 <div role="slider"><h3 role="presentation">Temperature in Celsius</h3></div>
 ```
 
-Aus der Sicht des Hilfstechnologie-Benutzers existiert die Überschrift nicht, da die vorherigen Codeschnipsel dem folgenden im [Zugänglichkeit-Baum](/de/docs/Glossary/Accessibility_tree) gleichwertig sind:
+Aus der Sicht des Hilfstechnologie-Benutzers existiert die Überschrift nicht, da die vorherigen Codeschnipsel dem folgenden im {{Glossary("Accessibility_tree", "Zugänglichkeit-Baum")}} gleichwertig sind:
 
 ```html
 <div role="slider">Temperature in Celsius</div>
@@ -173,14 +173,14 @@ Es gibt einige Möglichkeiten, eine Bereichseingabe vertikal zu gestalten. In di
 
 ## Tastaturinteraktionen
 
-| Taste(n)             | Aktion                                                          |
-| -------------------- | --------------------------------------------------------------- |
-| Rechts- und Pfeiltasten nach oben | Erhöhen Sie den ausgewählten Wert um einen Schritt       |
-| Links- und Pfeiltasten nach unten | Verringern Sie den ausgewählten Wert um einen Schritt     |
-| Bild hoch            | (Optional) erhöhen Sie den Wert um einen festgelegten Betrag, der größer ist als ein Schritt |
-| Bild runter          | (Optional) verringern Sie den Wert um einen festgelegten Betrag, der größer ist als ein Schritt |
-| Home                 | Setzen Sie den Schieberegler auf den Minimalwert.                    |
-| Ende                 | Setzen Sie den Schieberegler auf den Maximalwert.                   |
+| Taste(n)                          | Aktion                                                                                          |
+| --------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Rechts- und Pfeiltasten nach oben | Erhöhen Sie den ausgewählten Wert um einen Schritt                                              |
+| Links- und Pfeiltasten nach unten | Verringern Sie den ausgewählten Wert um einen Schritt                                           |
+| Bild hoch                         | (Optional) erhöhen Sie den Wert um einen festgelegten Betrag, der größer ist als ein Schritt    |
+| Bild runter                       | (Optional) verringern Sie den Wert um einen festgelegten Betrag, der größer ist als ein Schritt |
+| Home                              | Setzen Sie den Schieberegler auf den Minimalwert.                                               |
+| Ende                              | Setzen Sie den Schieberegler auf den Maximalwert.                                               |
 
 Für die optionalen <kbd>Bild hoch</kbd> und <kbd>Bild runter</kbd> Tasten sollte die Änderung des Schiebereglerwertes um einen Betrag erfolgen, der größer ist als die Schrittänderungen durch Auf- und Abwärtspfeile.
 

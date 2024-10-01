@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das Attribut **`vert-origin-x`** gibt die x-Koordinate im Schriftkoordinatensystem des Ursprungs eines [Glyphs](/de/docs/Glossary/glyph) an, das beim Zeichnen von vertikal ausgerichtetem Text verwendet wird.
+Das Attribut **`vert-origin-x`** gibt die x-Koordinate im Schriftkoordinatensystem des Ursprungs eines {{Glossary("glyph", "Glyphs")}} an, das beim Zeichnen von vertikal ausgerichtetem Text verwendet wird.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 

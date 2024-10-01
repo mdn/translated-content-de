@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Das `textformatupdate`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn eine Eingabemethoden-Editor- ([Input Method Editor](/de/docs/Glossary/Input_Method_Editor)) Fenster-Komposition stattfindet.
+Das `textformatupdate`-Ereignis der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle wird ausgelöst, wenn eine Eingabemethoden-Editor- ({{Glossary("Input_Method_Editor", "Input Method Editor")}}) Fenster-Komposition stattfindet.
 
 Das Ereignis wird ausgelöst, wenn der IME entscheidet, dass bestimmte Teile des Textes, der gerade komponiert wird, anders formatiert werden sollten, um den Kompositionszustand anzuzeigen.
 

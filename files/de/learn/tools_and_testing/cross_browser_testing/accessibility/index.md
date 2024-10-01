@@ -254,7 +254,7 @@ Im Allgemeinen sollte einfache Funktionalität nur mit dem vorhandenen HTML funk
 > [!NOTE]
 > WebAIMs [Zugängliches JavaScript](https://webaim.org/techniques/javascript/) bietet einige nützliche weitere Details zu Überlegungen für zugängliches JavaScript.
 
-Komplexere JavaScript-Implementierungen können Probleme mit der Barrierefreiheit verursachen — Sie müssen tun, was Sie können. Zum Beispiel wäre es unvernünftig zu erwarten, dass Sie ein komplexes 3D-Spiel, das mit [WebGL](/de/docs/Glossary/WebGL) geschrieben wurde, zu 100 % für eine blinde Person zugänglich machen, aber Sie könnten [Tastatursteuerungen](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) implementieren, damit es für Benutzer ohne Maus verwendbar ist, und das Farbschema ausreichend kontrastreich gestalten, um auch für Menschen mit Farbdefiziten verwendbar zu sein.
+Komplexere JavaScript-Implementierungen können Probleme mit der Barrierefreiheit verursachen — Sie müssen tun, was Sie können. Zum Beispiel wäre es unvernünftig zu erwarten, dass Sie ein komplexes 3D-Spiel, das mit {{Glossary("WebGL", "WebGL")}} geschrieben wurde, zu 100 % für eine blinde Person zugänglich machen, aber Sie könnten [Tastatursteuerungen](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) implementieren, damit es für Benutzer ohne Maus verwendbar ist, und das Farbschema ausreichend kontrastreich gestalten, um auch für Menschen mit Farbdefiziten verwendbar zu sein.
 
 #### Komplexe Funktionalität
 

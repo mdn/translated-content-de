@@ -17,7 +17,7 @@ Zusätzlich zum Standardumfang der [JavaScript](/de/docs/Web/JavaScript)-Funktio
 
 Zwischen Workern und dem Haupt-Thread werden Daten über ein Nachrichtensystem gesendet – beide Seiten senden ihre Nachrichten mithilfe der `postMessage()`-Methode und reagieren auf Nachrichten über den `onmessage`-Event-Handler (die Nachricht befindet sich in der `data`-Eigenschaft des [`message`](/de/docs/Web/API/Worker/message_event)-Events). Die Daten werden kopiert anstatt geteilt.
 
-Worker können wiederum neue Worker erstellen, solange diese Worker im selben [Ursprung](/de/docs/Glossary/origin) wie die übergeordnete Seite gehostet werden.
+Worker können wiederum neue Worker erstellen, solange diese Worker im selben {{Glossary("origin", "Ursprung")}} wie die übergeordnete Seite gehostet werden.
 
 Darüber hinaus können Worker Netzwerk-Anfragen mit den APIs [`fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) machen (obwohl das Attribut [`responseXML`](/de/docs/Web/API/XMLHttpRequest/responseXML) von `XMLHttpRequest` immer `null` sein wird).
 
@@ -125,7 +125,7 @@ Worker können auch andere Worker erstellen, daher sind diese APIs ebenfalls ver
 - [`WorkerLocation`](/de/docs/Web/API/WorkerLocation)
   - : Definiert die absolute Position des Scriptes, das vom [`Worker`](/de/docs/Web/API/Worker) ausgeführt wird.
 - [`SharedWorker`](/de/docs/Web/API/SharedWorker)
-  - : Repräsentiert eine spezifische Art von Worker, der von mehreren [Browsing-Kontexten](/de/docs/Glossary/browsing_context) (d.h. Fenster, Tabs oder IFrames) oder sogar anderen Workern zugegriffen werden kann.
+  - : Repräsentiert eine spezifische Art von Worker, der von mehreren {{Glossary("browsing_context", "Browsing-Kontexten")}} (d.h. Fenster, Tabs oder IFrames) oder sogar anderen Workern zugegriffen werden kann.
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
   - : Repräsentiert den generischen Geltungsbereich eines beliebigen Workers (erfüllt die gleiche Aufgabe wie [`Window`](/de/docs/Web/API/Window) für normalen Webinhalt). Verschiedene Arten von Workern haben Bereichsobjekte, die von dieser Schnittstelle erben und spezifischere Funktionen hinzufügen.
 - [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope)

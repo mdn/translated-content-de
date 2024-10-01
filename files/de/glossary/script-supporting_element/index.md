@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-In einem [HTML](/de/docs/Glossary/HTML)-Dokument sind **script-supporting elements** jene Elemente, die nicht direkt zur Darstellung oder zum Layout der Seite beitragen; stattdessen sind sie entweder Skripte oder enthalten Informationen, die nur von Skripten verwendet werden.
+In einem {{Glossary("HTML", "HTML")}}-Dokument sind **script-supporting elements** jene Elemente, die nicht direkt zur Darstellung oder zum Layout der Seite beitragen; stattdessen sind sie entweder Skripte oder enthalten Informationen, die nur von Skripten verwendet werden.
 
 Diese Elemente können wichtig sein, haben jedoch keinen Einfluss auf die angezeigte Seite, es sei denn, die Skripte der Seite veranlassen sie ausdrücklich dazu.
 

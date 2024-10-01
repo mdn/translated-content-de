@@ -21,7 +21,7 @@ const Früh = "foobar";
 
 Aber die Variable `früh` ist nicht dasselbe wie `Früh`, da JavaScript auf Groß- und Kleinschreibung achtet.
 
-In JavaScript werden Anweisungen [statements](/de/docs/Glossary/Statement) genannt und mit Semikolons (;) getrennt.
+In JavaScript werden Anweisungen {{Glossary("Statement", "statements")}} genannt und mit Semikolons (;) getrennt.
 
 Ein Semikolon ist nach einer Anweisung nicht notwendig, wenn diese in einer eigenen Zeile steht. Wenn jedoch mehr als eine Anweisung in einer Zeile gewünscht ist, _müssen_ sie durch Semikolons getrennt werden.
 
@@ -30,7 +30,7 @@ Ein Semikolon ist nach einer Anweisung nicht notwendig, wenn diese in einer eige
 
 Es wird jedoch als Best Practice angesehen, immer ein Semikolon nach einer Anweisung zu schreiben, auch wenn es nicht unbedingt nötig ist. Diese Praxis reduziert die Wahrscheinlichkeit, dass sich Fehler in den Code einschleichen.
 
-Der Quelltext eines JavaScript-Skripts wird von links nach rechts gescannt und in eine Folge von Eingabeelementen umgewandelt, die _Tokens_, _Steuerzeichen_, _Zeilenenden_, _Kommentare_ oder [Leerzeichen](/de/docs/Glossary/whitespace) sind. (Leerzeichen, Tabulatoren und Zeilenumbrüche werden als Leerzeichen betrachtet.)
+Der Quelltext eines JavaScript-Skripts wird von links nach rechts gescannt und in eine Folge von Eingabeelementen umgewandelt, die _Tokens_, _Steuerzeichen_, _Zeilenenden_, _Kommentare_ oder {{Glossary("whitespace", "Leerzeichen")}} sind. (Leerzeichen, Tabulatoren und Zeilenumbrüche werden als Leerzeichen betrachtet.)
 
 ## Kommentare
 
@@ -76,7 +76,7 @@ JavaScript kennt drei Arten von Variablendeklarationen.
 
 ### Variablen
 
-Sie verwenden Variablen als symbolische Namen für Werte in Ihrer Anwendung. Die Namen von Variablen, sogenannte [Bezeichner](/de/docs/Glossary/Identifier), unterliegen bestimmten Regeln.
+Sie verwenden Variablen als symbolische Namen für Werte in Ihrer Anwendung. Die Namen von Variablen, sogenannte {{Glossary("Identifier", "Bezeichner")}}, unterliegen bestimmten Regeln.
 
 Ein JavaScript-Bezeichner beginnt normalerweise mit einem Buchstaben, Unterstrich (`_`) oder Dollarzeichen (`$`). Nachfolgende Zeichen können auch Ziffern (`0` – `9`) sein. Da JavaScript case-sensitive ist, umfassen Buchstaben die Zeichen `A` bis `Z` (Großbuchstaben) sowie `a` bis `z` (Kleinbuchstaben).
 
@@ -114,11 +114,11 @@ const x; // SyntaxError: Missing initializer in const declaration
 
 ### Variablengeltungsbereich
 
-Eine Variable kann zu einem der folgenden [Geltungsbereiche](/de/docs/Glossary/Scope) gehören:
+Eine Variable kann zu einem der folgenden {{Glossary("Scope", "Geltungsbereiche")}} gehören:
 
 - Globaler Geltungsbereich: Der Standard-Geltungsbereich für alle im Skriptmodus laufenden Code.
 - Modul-Geltungsbereich: Der Geltungsbereich für Code, der im Modulmodus ausgeführt wird.
-- Funktionsgeltungsbereich: Der Geltungsbereich, der mit einer [Funktion](/de/docs/Glossary/function) erstellt wird.
+- Funktionsgeltungsbereich: Der Geltungsbereich, der mit einer {{Glossary("function", "Funktion")}} erstellt wird.
 
 Darüber hinaus können Variablen, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklariert werden, zu einem zusätzlichen Geltungsbereich gehören:
 
@@ -148,7 +148,7 @@ console.log(x); // x is 5
 
 ### Variable Hoisting
 
-Mit `var` deklarierte Variablen werden [gehoistet](/de/docs/Glossary/Hoisting), was bedeutet, dass Sie auf die Variable überall in ihrem Geltungsbereich verweisen können, auch wenn ihre Deklaration noch nicht erreicht wurde. Sie können sich `var`-Deklarationen als "an die Spitze ihres Funktions- oder globalen Geltungsbereichs angehoben" vorstellen. Allerdings ist der Wert immer `undefined`, wenn Sie auf eine Variable zugreifen, bevor sie deklariert wird, da nur ihre _Deklaration_ und _Default-Initialisierung (mit `undefined`)_ gehoistet werden, aber nicht ihre _Wertzuweisung_.
+Mit `var` deklarierte Variablen werden {{Glossary("Hoisting", "gehoistet")}}, was bedeutet, dass Sie auf die Variable überall in ihrem Geltungsbereich verweisen können, auch wenn ihre Deklaration noch nicht erreicht wurde. Sie können sich `var`-Deklarationen als "an die Spitze ihres Funktions- oder globalen Geltungsbereichs angehoben" vorstellen. Allerdings ist der Wert immer `undefined`, wenn Sie auf eine Variable zugreifen, bevor sie deklariert wird, da nur ihre _Deklaration_ und _Default-Initialisierung (mit `undefined`)_ gehoistet werden, aber nicht ihre _Wertzuweisung_.
 
 ```js
 console.log(x === undefined); // true
@@ -186,7 +186,7 @@ console.log(y); // ReferenceError
 let y = 3;
 ```
 
-Im Gegensatz zu `var`-Deklarationen, die nur die Deklaration aber nicht den Wert hoisten, werden [Funktionsdeklarationen](/de/docs/Web/JavaScript/Guide/Functions#function_hoisting) vollständig gehoistet — Sie können die Funktion sicher überall in ihrem Geltungsbereich aufrufen. Weitere Informationen finden Sie im [Glossar-Eintrag zum Hoisting](/de/docs/Glossary/Hoisting).
+Im Gegensatz zu `var`-Deklarationen, die nur die Deklaration aber nicht den Wert hoisten, werden [Funktionsdeklarationen](/de/docs/Web/JavaScript/Guide/Functions#function_hoisting) vollständig gehoistet — Sie können die Funktion sicher überall in ihrem Geltungsbereich aufrufen. Weitere Informationen finden Sie im {{Glossary("Hoisting", "Glossar-Eintrag zum Hoisting")}}.
 
 ### Globale Variablen
 
@@ -241,17 +241,17 @@ console.log(MY_ARRAY); // ['HTML', 'CSS', 'JAVASCRIPT'];
 
 Der neueste ECMAScript-Standard definiert acht Datentypen:
 
-- Sieben Datentypen, die [Primitives](/de/docs/Glossary/Primitive) sind:
+- Sieben Datentypen, die {{Glossary("Primitive", "Primitives")}} sind:
 
-  1. [Boolean](/de/docs/Glossary/Boolean). `true` und `false`.
-  2. [null](/de/docs/Glossary/null). Ein spezielles Schlüsselwort, das einen Nullwert bezeichnet. (Da JavaScript case-sensitive ist, ist `null` nicht dasselbe wie `Null`, `NULL` oder irgendeine andere Variante.)
-  3. [undefined](/de/docs/Glossary/undefined). Eine globale Eigenschaft, deren Wert nicht definiert ist.
-  4. [Number](/de/docs/Glossary/Number). Eine ganze Zahl oder Gleitkommazahl. Zum Beispiel: `42` oder `3.14159`.
-  5. [BigInt](/de/docs/Glossary/BigInt). Eine ganze Zahl mit beliebiger Genauigkeit. Zum Beispiel: `9007199254740992n`.
-  6. [String](/de/docs/Glossary/String). Eine Zeichenfolge, die einen Textwert darstellt. Zum Beispiel: `"Howdy"`.
+  1. {{Glossary("Boolean", "Boolean")}}. `true` und `false`.
+  2. {{Glossary("null", "null")}}. Ein spezielles Schlüsselwort, das einen Nullwert bezeichnet. (Da JavaScript case-sensitive ist, ist `null` nicht dasselbe wie `Null`, `NULL` oder irgendeine andere Variante.)
+  3. {{Glossary("undefined", "undefined")}}. Eine globale Eigenschaft, deren Wert nicht definiert ist.
+  4. {{Glossary("Number", "Number")}}. Eine ganze Zahl oder Gleitkommazahl. Zum Beispiel: `42` oder `3.14159`.
+  5. {{Glossary("BigInt", "BigInt")}}. Eine ganze Zahl mit beliebiger Genauigkeit. Zum Beispiel: `9007199254740992n`.
+  6. {{Glossary("String", "String")}}. Eine Zeichenfolge, die einen Textwert darstellt. Zum Beispiel: `"Howdy"`.
   7. [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol). Ein Datentyp, dessen Instanzen einzigartig und unveränderlich sind.
 
-- und [Object](/de/docs/Glossary/Object)
+- und {{Glossary("Object", "Object")}}
 
 Obwohl diese Datentypen relativ wenige sind, ermöglichen sie es Ihnen, nützliche Operationen mit Ihren Anwendungen durchzuführen. [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) sind die anderen grundlegenden Elemente der Sprache. Während Funktionen technisch eine Art von Objekt sind, können Sie sich Objekte als benannte Container für Werte vorstellen und Funktionen als Prozeduren, die Ihr Skript ausführen kann.
 
@@ -489,7 +489,7 @@ console.log(car.manyCars.b); // Jeep
 console.log(car[7]); // Mazda
 ```
 
-Objekteigenschaftsnamen können jede Zeichenfolge sein, einschließlich der leeren Zeichenfolge. Wenn der Eigenschaftsname kein gültiger JavaScript-[Bezeichner](/de/docs/Glossary/Identifier) oder keine Zahl wäre, muss er in Anführungszeichen eingeschlossen werden.
+Objekteigenschaftsnamen können jede Zeichenfolge sein, einschließlich der leeren Zeichenfolge. Wenn der Eigenschaftsname kein gültiger JavaScript-{{Glossary("Identifier", "Bezeichner")}} oder keine Zahl wäre, muss er in Anführungszeichen eingeschlossen werden.
 
 Eigenschaftsnamen, die keine gültigen Bezeichner sind, können nicht als Punkt (`.`) -Eigenschaften aufgerufen werden.
 
@@ -652,22 +652,22 @@ Zusätzlich zu herkömmlichen Zeichen können Sie auch Sonderzeichen in Zeichenf
 
 Die folgende Tabelle listet die Sonderzeichen, die Sie in JavaScript-Zeichenfolgen verwenden können.
 
-| Zeichen     | Bedeutung                                                                                                                                                                                                                                               |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `\0`        | Null-Byte                                                                                                                                                                                                                                               |
-| `\b`        | Rückschritt                                                                                                                                                                                                                                             |
-| `\f`        | Formularvorschub                                                                                                                                                                                                                                        |
-| `\n`        | Neue Zeile                                                                                                                                                                                                                                              |
-| `\r`        | Wagenrücklauf                                                                                                                                                                                                                                           |
-| `\t`        | Tabulator                                                                                                                                                                                                                                               |
-| `\v`        | Vertikaler Tabulator                                                                                                                                                                                                                                    |
-| `\'`        | Apostroph oder einfaches Anführungszeichen                                                                                                                                                                                                              |
-| `\"`        | Doppelte Anführungszeichen                                                                                                                                                                                                                              |
-| `\\`        | Rückwärtsschrägstrich (Backslash)-Zeichen                                                                                                                                                                                                                |
-| `\XXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch bis zu drei Oktalzahlen `XXX` zwischen `0` und `377`. Zum Beispiel ist `\251` die Oktalsequenz für das Copyright-Symbol.                                                                         |
-| `\xXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch die zwei Hexadezimalzahlen `XX` zwischen `00` und `FF`. Zum Beispiel ist `\xA9` die Hexadezimalsequenz für das Copyright-Symbol.                                                                  |
+| Zeichen     | Bedeutung                                                                                                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `\0`        | Null-Byte                                                                                                                                                                                                                                             |
+| `\b`        | Rückschritt                                                                                                                                                                                                                                           |
+| `\f`        | Formularvorschub                                                                                                                                                                                                                                      |
+| `\n`        | Neue Zeile                                                                                                                                                                                                                                            |
+| `\r`        | Wagenrücklauf                                                                                                                                                                                                                                         |
+| `\t`        | Tabulator                                                                                                                                                                                                                                             |
+| `\v`        | Vertikaler Tabulator                                                                                                                                                                                                                                  |
+| `\'`        | Apostroph oder einfaches Anführungszeichen                                                                                                                                                                                                            |
+| `\"`        | Doppelte Anführungszeichen                                                                                                                                                                                                                            |
+| `\\`        | Rückwärtsschrägstrich (Backslash)-Zeichen                                                                                                                                                                                                             |
+| `\XXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch bis zu drei Oktalzahlen `XXX` zwischen `0` und `377`. Zum Beispiel ist `\251` die Oktalsequenz für das Copyright-Symbol.                                                                       |
+| `\xXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch die zwei Hexadezimalzahlen `XX` zwischen `00` und `FF`. Zum Beispiel ist `\xA9` die Hexadezimalsequenz für das Copyright-Symbol.                                                               |
 | `\uXXXX`    | Das Unicode-Zeichen, angegeben durch die vier Hexadezimalstellen `XXXX`. Zum Beispiel ist `\u00A9` die Unicode-Sequenz für das Copyright-Symbol. Siehe [Unicode-Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals). |
-| `\u{XXXXX}` | Unicode-Codepunkt-Escapes. Zum Beispiel ist `\u{2F804}` das gleiche wie die einfachen Unicode-Escapes `\uD87E\uDC04`.                                                                                                                                   |
+| `\u{XXXXX}` | Unicode-Codepunkt-Escapes. Zum Beispiel ist `\u{2F804}` das gleiche wie die einfachen Unicode-Escapes `\uD87E\uDC04`.                                                                                                                                 |
 
 #### Zeichen maskieren
 

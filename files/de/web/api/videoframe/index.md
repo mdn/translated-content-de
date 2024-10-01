@@ -46,7 +46,7 @@ Erstellte Frames können dann in eine Medienspur umgewandelt werden, zum Beispie
 - [`VideoFrame.visibleRect`](/de/docs/Web/API/VideoFrame/visibleRect) {{ReadOnlyInline}}
   - : Gibt ein [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) zurück, das das sichtbare Rechteck der Pixel für dieses `VideoFrame` beschreibt.
 - [`VideoFrame.displayWidth`](/de/docs/Web/API/VideoFrame/displayWidth) {{ReadOnlyInline}}
-  - : Gibt die Breite des `VideoFrame` zurück, wenn es nach Anwendung von [Seitenverhältnis](/de/docs/Glossary/aspect_ratio)-Anpassungen angezeigt wird.
+  - : Gibt die Breite des `VideoFrame` zurück, wenn es nach Anwendung von {{Glossary("aspect_ratio", "Seitenverhältnis")}}-Anpassungen angezeigt wird.
 - [`VideoFrame.displayHeight`](/de/docs/Web/API/VideoFrame/displayHeight) {{ReadOnlyInline}}
   - : Gibt die Höhe des `VideoFrame` zurück, wenn es nach Anwendung von Seitenverhältnis-Anpassungen angezeigt wird.
 - [`VideoFrame.duration`](/de/docs/Web/API/VideoFrame/duration) {{ReadOnlyInline}}

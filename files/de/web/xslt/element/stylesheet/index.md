@@ -38,7 +38,7 @@ Ein Pseudo-Attribut, das erforderlich ist, um das Dokument als XSLT-Stylesheet z
 - `extension-element-prefixes`
   - : Gibt eine durch Leerzeichen getrennte Liste von Namespace-Präfixen für Erweiterungselemente in diesem Dokument an.
 - `default-collation`
-  - : Gibt die Standard-Kollation an, die von allen [XPath](/de/docs/Glossary/XPath)-Ausdrücken verwendet wird, die in Attributen oder Textwertvorlagen erscheinen, die das Element als Vorfahre haben, es sei denn, es wird durch ein anderes `default-collation`-Attribut auf einem inneren Element überschrieben. Sie bestimmt auch die Kollation, die von bestimmten XSLT-Konstrukten (wie [`<xsl:key>`](/de/docs/Web/XSLT/Element/key) und [`<xsl:for-each-group>`](/de/docs/Web/XSLT/Element/for-each-group)) innerhalb seines Geltungsbereichs verwendet wird.
+  - : Gibt die Standard-Kollation an, die von allen {{Glossary("XPath", "XPath")}}-Ausdrücken verwendet wird, die in Attributen oder Textwertvorlagen erscheinen, die das Element als Vorfahre haben, es sei denn, es wird durch ein anderes `default-collation`-Attribut auf einem inneren Element überschrieben. Sie bestimmt auch die Kollation, die von bestimmten XSLT-Konstrukten (wie [`<xsl:key>`](/de/docs/Web/XSLT/Element/key) und [`<xsl:for-each-group>`](/de/docs/Web/XSLT/Element/for-each-group)) innerhalb seines Geltungsbereichs verwendet wird.
 - `default-mode`
   - : Definiert den Standardwert für das `mode`-Attribut aller [`<xsl:template>`](/de/docs/Web/XSLT/Element/template) und [`<xsl:apply-templates>`](/de/docs/Web/XSLT/Element/apply-templates)-Elemente innerhalb seines Geltungsbereichs.
 - `default-validation`

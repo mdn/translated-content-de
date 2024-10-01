@@ -59,6 +59,6 @@ Einige Begriffe können je nach Kontext mehrere Bedeutungen haben. Um Mehrdeutig
 
 Lassen Sie uns dies mit einem Beispiel veranschaulichen. Der Begriff _Signatur_ kann in mindestens zwei verschiedenen Kontexten unterschiedliche Bedeutungen haben: Sicherheit und Funktion.
 
-1. Die Seite [Glossary/Signature](/de/docs/Glossary/Signature) ist die Begriffsklärungsseite mit dem [`GlossaryDisambiguation`](https://github.com/mdn/yari/blob/main/kumascript/macros/GlossaryDisambiguation.ejs) Makro.
-2. Die Seite [Glossary/Signature/Security](/de/docs/Glossary/Signature/Security) definiert eine Signatur im Sicherheitskontext.
-3. Die Seite [Glossary/Signature/Function](/de/docs/Glossary/Signature/Function) definiert eine Funktionssignatur.
+1. Die Seite {{Glossary("Signature", "Glossary/Signature")}} ist die Begriffsklärungsseite mit dem [`GlossaryDisambiguation`](https://github.com/mdn/yari/blob/main/kumascript/macros/GlossaryDisambiguation.ejs) Makro.
+2. Die Seite {{Glossary("Signature/Security", "Glossary/Signature/Security")}} definiert eine Signatur im Sicherheitskontext.
+3. Die Seite {{Glossary("Signature/Function", "Glossary/Signature/Function")}} definiert eine Funktionssignatur.

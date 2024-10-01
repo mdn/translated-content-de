@@ -9,7 +9,7 @@ l10n:
 
 Ein Viewport stellt ein polygonales (normalerweise rechteckiges) Gebiet in der Computergrafik dar, das derzeit betrachtet wird. In Bezug auf Webbrowser bezieht es sich auf den Teil des Dokuments, den Sie betrachten und der derzeit im Fenster sichtbar ist (oder auf dem Bildschirm, wenn das Dokument im Vollbildmodus betrachtet wird). Inhalte außerhalb des Viewports sind nicht sichtbar, bis sie beim Scrollen in den sichtbaren Bereich gelangen.
 
-Der Teil des Viewports, der derzeit sichtbar ist, wird als **[visual viewport](/de/docs/Glossary/visual_viewport)** bezeichnet. Dieser kann kleiner als der Layout-Viewport sein, zum Beispiel wenn der Benutzer durch Pinch-to-Zoom gezoomt hat. Der [layout viewport](/de/docs/Glossary/layout_viewport) bleibt gleich, aber der visuelle Viewport wurde kleiner.
+Der Teil des Viewports, der derzeit sichtbar ist, wird als **{{Glossary("visual_viewport", "visual viewport")}}** bezeichnet. Dieser kann kleiner als der Layout-Viewport sein, zum Beispiel wenn der Benutzer durch Pinch-to-Zoom gezoomt hat. Der {{Glossary("layout_viewport", "layout viewport")}} bleibt gleich, aber der visuelle Viewport wurde kleiner.
 
 ## Siehe auch
 
@@ -17,5 +17,5 @@ Der Teil des Viewports, der derzeit sichtbar ist, wird als **[visual viewport](/
 - [Viewport](https://en.wikipedia.org/wiki/Viewport) auf Wikipedia
 - [Eine Geschichte von zwei Viewports](https://www.quirksmode.org/mobile/viewports.html) (Quirksmode)
 - Verwandte Glossarbegriffe:
-  - [Visueller Viewport](/de/docs/Glossary/Visual_viewport)
-  - [Layout-Viewport](/de/docs/Glossary/Layout_viewport)
+  - {{Glossary("Visual_viewport", "Visueller Viewport")}}
+  - {{Glossary("Layout_viewport", "Layout-Viewport")}}

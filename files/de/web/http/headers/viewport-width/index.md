@@ -7,19 +7,19 @@ l10n:
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{SecureContext_header}}{{Non-standard_Header}}
 
-Der **`Viewport-Width`** [device client hint](/de/docs/Web/HTTP/Client_hints) Request-Header bietet die Layout-Viewport-Breite des Clients in [CSS-Pixel](/de/docs/Glossary/CSS_pixel). Der Wert wird auf die nächsthöhere ganze Zahl (d.h. aufgerundet) gerundet.
+Der **`Viewport-Width`** [device client hint](/de/docs/Web/HTTP/Client_hints) Request-Header bietet die Layout-Viewport-Breite des Clients in {{Glossary("CSS_pixel", "CSS-Pixel")}}. Der Wert wird auf die nächsthöhere ganze Zahl (d.h. aufgerundet) gerundet.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        [Anforderungs-Header](/de/docs/Glossary/Request_header),
+        {{Glossary("Request_header", "Anforderungs-Header")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Headername](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
       <td>nein</td>
     </tr>
   </tbody>
@@ -45,7 +45,7 @@ Viewport-Width: <number>
 ## Direktiven
 
 - \<number>
-  - : Die Breite des Viewports des Benutzers in [CSS-Pixel](/de/docs/Glossary/CSS_pixel), aufgerundet auf die nächste ganze Zahl.
+  - : Die Breite des Viewports des Benutzers in {{Glossary("CSS_pixel", "CSS-Pixel")}}, aufgerundet auf die nächste ganze Zahl.
 
 ## Beispiele
 

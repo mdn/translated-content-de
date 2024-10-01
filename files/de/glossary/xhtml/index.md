@@ -7,9 +7,9 @@ l10n:
 
 {{GlossarySidebar}}
 
-**XHTML** ist ein Begriff, der historisch verwendet wurde, um [HTML](/de/docs/Web/HTML)-Dokumente zu beschreiben, die gemäß den Syntaxregeln von [XML](/de/docs/Glossary/XML) geschrieben wurden.
+**XHTML** ist ein Begriff, der historisch verwendet wurde, um [HTML](/de/docs/Web/HTML)-Dokumente zu beschreiben, die gemäß den Syntaxregeln von {{Glossary("XML", "XML")}} geschrieben wurden.
 
-Das folgende Beispiel zeigt ein HTML-Dokument und ein entsprechendes "XHTML"-Dokument sowie die zugehörigen [HTTP](/de/docs/Glossary/HTTP) {{HTTPHeader("Content-Type")}}-Header, mit denen sie ausgeliefert werden sollten.
+Das folgende Beispiel zeigt ein HTML-Dokument und ein entsprechendes "XHTML"-Dokument sowie die zugehörigen {{Glossary("HTTP", "HTTP")}} {{HTTPHeader("Content-Type")}}-Header, mit denen sie ausgeliefert werden sollten.
 
 ### HTML-Dokument
 
@@ -49,8 +49,8 @@ In der Praxis werden sehr wenige "XHTML"-Dokumente über das Web mit einem `Cont
 ## Siehe auch
 
 - Verwandte Glossarbegriffe:
-  - [HTML](/de/docs/Glossary/HTML)
-  - [HTML5](/de/docs/Glossary/HTML5)
-  - [SVG](/de/docs/Glossary/SVG)
-  - [MathML](/de/docs/Glossary/MathML)
-  - [XML](/de/docs/Glossary/XML)
+  - {{Glossary("HTML", "HTML")}}
+  - {{Glossary("HTML5", "HTML5")}}
+  - {{Glossary("SVG", "SVG")}}
+  - {{Glossary("MathML", "MathML")}}
+  - {{Glossary("XML", "XML")}}

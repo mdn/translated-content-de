@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des [Viewports](/de/docs/Glossary/viewport) zu testen.
+Die **`aspect-ratio`** [CSS](/de/docs/Web/CSS) [Media-Feature](/de/docs/Web/CSS/@media#media_features) kann verwendet werden, um das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des {{Glossary("viewport", "Viewports")}} zu testen.
 
 ## Syntax
 

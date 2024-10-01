@@ -34,7 +34,7 @@ Wir haben die Grundlagen von CSS kennengelernt, wofür es gedacht ist und wie ma
 Wenn ein Browser ein Dokument anzeigt, muss er den Inhalt des Dokuments mit seinen Stilinformationen kombinieren. Er verarbeitet das Dokument in mehreren Schritten, die wir unten aufgeführt haben. Beachten Sie, dass dies eine sehr vereinfachte Version dessen ist, was passiert, wenn ein Browser eine Webseite lädt, und dass unterschiedliche Browser den Prozess auf unterschiedliche Weise handhaben. Dennoch ist dies ungefähr das, was passiert.
 
 1. Der Browser lädt das HTML (z. B. empfängt er es aus dem Netzwerk).
-2. Er wandelt das [HTML](/de/docs/Glossary/HTML) in ein [DOM](/de/docs/Glossary/DOM) (_Document Object Model_) um. Das DOM repräsentiert das Dokument im Speicher des Computers. Das DOM wird im nächsten Abschnitt etwas genauer erklärt.
+2. Er wandelt das {{Glossary("HTML", "HTML")}} in ein {{Glossary("DOM", "DOM")}} (_Document Object Model_) um. Das DOM repräsentiert das Dokument im Speicher des Computers. Das DOM wird im nächsten Abschnitt etwas genauer erklärt.
 3. Der Browser ruft dann die meisten Ressourcen ab, auf die durch das HTML-Dokument verwiesen wird, wie eingebettete Bilder, Videos und sogar verlinktes CSS! JavaScript wird etwas später im Prozess behandelt, und wir werden hier nicht darüber sprechen, um die Dinge einfacher zu halten.
 4. Der Browser parst das abgerufene CSS und sortiert die verschiedenen Regeln nach ihren Selektortypen in verschiedene "Eimer", z. B. Element, Klasse, ID und so weiter. Basierend auf den gefundenen Selektoren erarbeitet er, welche Regeln auf welche Knoten im DOM angewendet werden sollen, und fügt ihnen erforderliche Stile hinzu (dieser Zwischenschritt wird als Rendertree bezeichnet).
 5. Der Rendertree wird in der Struktur ausgelegt, in der er nach den angewendeten Regeln erscheinen soll.
@@ -46,7 +46,7 @@ Das folgende Diagramm bietet auch eine einfache Ansicht des Prozesses.
 
 ## Über das DOM
 
-Ein DOM hat eine baumartige Struktur. Jedes Element, Attribut und Textstück in der Markup-Sprache wird zu einem [DOM-Knoten](/de/docs/Glossary/Node/DOM) in der Baumstruktur. Die Knoten werden durch ihre Beziehung zu anderen DOM-Knoten definiert. Einige Elemente sind Eltern von Kindknoten, und Kindknoten haben Geschwister.
+Ein DOM hat eine baumartige Struktur. Jedes Element, Attribut und Textstück in der Markup-Sprache wird zu einem {{Glossary("Node/DOM", "DOM-Knoten")}} in der Baumstruktur. Die Knoten werden durch ihre Beziehung zu anderen DOM-Knoten definiert. Einige Elemente sind Eltern von Kindknoten, und Kindknoten haben Geschwister.
 
 Das Verständnis des DOM hilft Ihnen, Ihr CSS zu entwerfen, zu debuggen und zu pflegen, da das DOM der Ort ist, an dem Ihr CSS auf den Inhalt des Dokuments trifft. Wenn Sie beginnen, mit den DevTools des Browsers zu arbeiten, werden Sie im DOM navigieren, während Sie Elemente auswählen, um zu sehen, welche Regeln gelten.
 

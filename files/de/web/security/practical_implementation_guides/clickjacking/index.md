@@ -11,7 +11,7 @@ Die [Content Security Policy](/de/docs/Web/HTTP/CSP) Richtlinie [`frame-ancestor
 
 ## Problem
 
-[Clickjacking](/de/docs/Glossary/Clickjacking) ist ein Angriff, bei dem bösartige Websites Benutzer dazu verleiten, auf Links oder UI-Elemente zu klicken, indem sie diese so erscheinen lassen, als würden sie zu einer vertrauenswürdigen Website gehören, die dem Benutzer bekannt ist. Dies geschieht in der Regel, indem ein Teil oder die gesamte vertrauenswürdige Website über ein `<iframe>` in die bösartige Website eingebettet wird. Ein Button, Link oder ein anderes UI-Element wird dann über diesem Inhalt positioniert, sodass der Benutzer denkt, er würde mit der vertrauenswürdigen Website interagieren, während er in Wirklichkeit mit der bösartigen Website interagiert.
+{{Glossary("Clickjacking", "Clickjacking")}} ist ein Angriff, bei dem bösartige Websites Benutzer dazu verleiten, auf Links oder UI-Elemente zu klicken, indem sie diese so erscheinen lassen, als würden sie zu einer vertrauenswürdigen Website gehören, die dem Benutzer bekannt ist. Dies geschieht in der Regel, indem ein Teil oder die gesamte vertrauenswürdige Website über ein `<iframe>` in die bösartige Website eingebettet wird. Ein Button, Link oder ein anderes UI-Element wird dann über diesem Inhalt positioniert, sodass der Benutzer denkt, er würde mit der vertrauenswürdigen Website interagieren, während er in Wirklichkeit mit der bösartigen Website interagiert.
 
 ## Lösung
 
@@ -26,10 +26,10 @@ Sie sollten alle Versuche, Ihre Website einzubetten, ablehnen, es sei denn, dies
 
 Die entsprechenden Optionen für jede Einstellung sind wie folgt:
 
-| CSP-Wert                             | `X-Frame-Options` Wert         | Beschreibung                                           |
-| ------------------------------------- | ------------------------------- | --------------------------------------------------- |
-| `frame-ancestors 'none'`              | `DENY`                          | Lehnen Sie alle Einbettungsversuche ab.                        |
-| `frame-ancestors 'self'`              | `SAMEORIGIN`                    | Erlauben Sie nur gleiche Ursprungs-Einbettungsversuche.          |
+| CSP-Wert                              | `X-Frame-Options` Wert          | Beschreibung                                                 |
+| ------------------------------------- | ------------------------------- | ------------------------------------------------------------ |
+| `frame-ancestors 'none'`              | `DENY`                          | Lehnen Sie alle Einbettungsversuche ab.                      |
+| `frame-ancestors 'self'`              | `SAMEORIGIN`                    | Erlauben Sie nur gleiche Ursprungs-Einbettungsversuche.      |
 | `frame-ancestors https://example.org` | `ALLOWFROM https://example.org` | Erlauben Sie Einbettungsversuche von der angegebenen Domain. |
 
 > [!NOTE]

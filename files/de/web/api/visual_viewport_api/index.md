@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Visual Viewport")}}
 
-Die **Visual Viewport API** bietet einen expliziten Mechanismus für das Abfragen und Ändern der Eigenschaften des Fensters im [visuellen Viewport](/de/docs/Glossary/visual_viewport). Der visuelle Viewport ist der sichtbare Teil eines Bildschirms, ohne Bildschirmtastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs oder andere Bildschirm-Artefakte, die nicht mit den Abmessungen einer Seite skalieren.
+Die **Visual Viewport API** bietet einen expliziten Mechanismus für das Abfragen und Ändern der Eigenschaften des Fensters im {{Glossary("visual_viewport", "visuellen Viewport")}}. Der visuelle Viewport ist der sichtbare Teil eines Bildschirms, ohne Bildschirmtastaturen, Bereiche außerhalb eines Pinch-Zoom-Bereichs oder andere Bildschirm-Artefakte, die nicht mit den Abmessungen einer Seite skalieren.
 
 ## Konzepte und Verwendung
 
@@ -60,7 +60,7 @@ const windowInfo = document.getElementById("window-info");
 
 Als nächstes definieren wir die beiden Schlüsselfunktionen, die wir ausführen, wenn die Ereignisse ausgelöst werden:
 
-- `scrollUpdater()` wird bei `resize` und `scroll` ausgelöst: Diese Funktion aktualisiert die Position der Informationsbox relativ zum visuellen Viewport, indem sie die Eigenschaften [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) und [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) abfragt und deren Werte verwendet, um die Werte der relevanten [Einpassungseigenschaften](/de/docs/Glossary/inset_properties) zu aktualisieren. Wir ändern auch die Hintergrundfarbe der Informationsbox, um anzuzeigen, dass etwas passiert, und führen die `updateText()`-Funktion aus, um die angezeigten Werte in der Box zu aktualisieren.
+- `scrollUpdater()` wird bei `resize` und `scroll` ausgelöst: Diese Funktion aktualisiert die Position der Informationsbox relativ zum visuellen Viewport, indem sie die Eigenschaften [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) und [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) abfragt und deren Werte verwendet, um die Werte der relevanten {{Glossary("inset_properties", "Einpassungseigenschaften")}} zu aktualisieren. Wir ändern auch die Hintergrundfarbe der Informationsbox, um anzuzeigen, dass etwas passiert, und führen die `updateText()`-Funktion aus, um die angezeigten Werte in der Box zu aktualisieren.
 - Die `scrollEndUpdater()`-Funktion wird bei `scrollend` ausgelöst: Diese stellt die ursprüngliche Farbe der Informationsbox wieder her und führt die `updateText()`-Funktion aus, um sicherzustellen, dass die neuesten Werte bei `scrollend` angezeigt werden.
 
 ```js

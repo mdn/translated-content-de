@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
 
-Die **`btoa()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt einen [Base64](/de/docs/Glossary/Base64)-kodierten [ASCII](/de/docs/Glossary/ASCII)-String aus einem _binären String_ (d. h. einem String, bei dem jedes Zeichen im String als Byte binärer Daten behandelt wird).
+Die **`btoa()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt einen {{Glossary("Base64", "Base64")}}-kodierten {{Glossary("ASCII", "ASCII")}}-String aus einem _binären String_ (d. h. einem String, bei dem jedes Zeichen im String als Byte binärer Daten behandelt wird).
 
 Sie können diese Methode verwenden, um Daten zu kodieren, die ansonsten Kommunikationsprobleme verursachen könnten, diese zu übertragen und dann die Daten mit der [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)-Methode erneut zu dekodieren. Zum Beispiel können Sie Steuerzeichen wie ASCII-Werte 0 bis 31 kodieren.
 
@@ -54,7 +54,7 @@ console.log(self.btoa(ok)); // YQ==
 console.log(self.btoa(notOK)); // error
 ```
 
-Wie Sie diese Einschränkung bei der Arbeit mit beliebigem Unicode-Text umgehen können, finden Sie unter "Das Unicode-Problem" im [Base64](/de/docs/Glossary/Base64)-Glossareintrag.
+Wie Sie diese Einschränkung bei der Arbeit mit beliebigem Unicode-Text umgehen können, finden Sie unter "Das Unicode-Problem" im {{Glossary("Base64", "Base64")}}-Glossareintrag.
 
 ## Spezifikationen
 
@@ -70,4 +70,4 @@ Wie Sie diese Einschränkung bei der Arbeit mit beliebigem Unicode-Text umgehen 
 - [`data` URLs](/de/docs/Web/URI/Schemes/data)
 - [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
 - [`Window.btoa()`](/de/docs/Web/API/Window/btoa): die gleiche Methode, aber in Window-Kontexten.
-- [Base64](/de/docs/Glossary/Base64)
+- {{Glossary("Base64", "Base64")}}

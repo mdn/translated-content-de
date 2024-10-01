@@ -26,11 +26,11 @@ Einige `Headers`-Objekte haben Einschränkungen, ob die Methoden [`set()`](/de/d
 
 - Für Header, die mit dem [`Headers()`](/de/docs/Web/API/Headers/Headers)-Konstruktor erstellt wurden, gibt es keine Einschränkungen bei der Modifikation.
 - Für Header von [`Request`](/de/docs/Web/API/Request)-Objekten:
-  - Wenn der [`mode`](/de/docs/Web/API/Request/mode) der Anfrage `no-cors` ist, können Sie jeden [CORS-freigegebenen Anfrage-Header](/de/docs/Glossary/CORS-safelisted_request_header) Namen/Wert ändern.
-  - Andernfalls können Sie jeden [nicht verbotenen Header](/de/docs/Glossary/forbidden_header_name) Namen/Wert ändern.
+  - Wenn der [`mode`](/de/docs/Web/API/Request/mode) der Anfrage `no-cors` ist, können Sie jeden {{Glossary("CORS-safelisted_request_header", "CORS-freigegebenen Anfrage-Header")}} Namen/Wert ändern.
+  - Andernfalls können Sie jeden {{Glossary("forbidden_header_name", "nicht verbotenen Header")}} Namen/Wert ändern.
 - Für Header von [`Response`](/de/docs/Web/API/Response)-Objekten:
   - Wenn die Antwort mit [`Response.error()`](/de/docs/Web/API/Response/error_static) oder [`Response.redirect()`](/de/docs/Web/API/Response/redirect_static) erstellt wird, oder von einem [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf empfangen wird, sind die Header unveränderlich und können nicht geändert werden.
-  - Andernfalls, wenn die Antwort mit [`Response()`](/de/docs/Web/API/Response/Response) oder [`Response.json()`](/de/docs/Web/API/Response/json_static) erstellt wird, können Sie jeden [nicht verbotenen Antwort-Header](/de/docs/Glossary/forbidden_response_header_name) Namen/Wert ändern.
+  - Andernfalls, wenn die Antwort mit [`Response()`](/de/docs/Web/API/Response/Response) oder [`Response.json()`](/de/docs/Web/API/Response/json_static) erstellt wird, können Sie jeden {{Glossary("forbidden_response_header_name", "nicht verbotenen Antwort-Header")}} Namen/Wert ändern.
 
 Alle Header-Methoden werfen einen {{jsxref("TypeError")}}, wenn Sie versuchen, eine Referenz auf einen Namen zu übergeben, der kein [gültiger HTTP-Headername](https://fetch.spec.whatwg.org/#concept-header-name) ist. Die Mutationsoperationen werfen einen `TypeError`, wenn der Header unveränderlich ist. In jedem anderen Fehlerfall schlagen sie unauffällig fehl.
 

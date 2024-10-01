@@ -39,7 +39,7 @@ HTML zu schreiben ist in Ordnung, aber was passiert, wenn etwas schiefgeht und S
 
 ## Debuggen ist nicht beängstigend
 
-Beim Schreiben irgendeiner Art von Code ist meistens alles in Ordnung, bis zu dem gefürchteten Moment, in dem ein Fehler auftritt — Sie haben etwas falsch gemacht, sodass Ihr Code nicht funktioniert — entweder überhaupt nicht oder nicht ganz so, wie Sie es wollten. Zum Beispiel zeigt das folgende Beispiel einen Fehler, der beim [Kompilieren](/de/docs/Glossary/compile) eines einfachen Programms in der [Rust](https://www.rust-lang.org/) Sprache auftritt.
+Beim Schreiben irgendeiner Art von Code ist meistens alles in Ordnung, bis zu dem gefürchteten Moment, in dem ein Fehler auftritt — Sie haben etwas falsch gemacht, sodass Ihr Code nicht funktioniert — entweder überhaupt nicht oder nicht ganz so, wie Sie es wollten. Zum Beispiel zeigt das folgende Beispiel einen Fehler, der beim {{Glossary("compile", "Kompilieren")}} eines einfachen Programms in der [Rust](https://www.rust-lang.org/) Sprache auftritt.
 
 ![Ein Konsolenfenster zeigt das Ergebnis eines Kompilierungsversuchs eines Rust-Programms mit einem fehlenden Anführungszeichen um einen String in einer print-Anweisung. Die Fehlermeldung lautet: error: unterminated double quote string.](error-message.png)
 
@@ -49,7 +49,7 @@ Debuggen muss allerdings nicht beängstigend sein — der Schlüssel, sich beim 
 
 ## HTML und Debugging
 
-HTML ist nicht so kompliziert zu verstehen wie Rust. HTML wird nicht in eine andere Form kompiliert, bevor der Browser es parst und das Ergebnis anzeigt (es wird _interpretiert_, nicht _kompiliert_). Und die [Element](/de/docs/Glossary/element)-Syntax von HTML ist vermutlich viel leichter zu verstehen als eine "echte Programmiersprache" wie Rust, [JavaScript](/de/docs/Glossary/JavaScript) oder [Python](/de/docs/Glossary/Python). Die Art und Weise, wie Browser HTML parsen, ist deutlich **freizügiger** als die Ausführung von Programmiersprachen, was sowohl ein Vorteil als auch ein Nachteil ist.
+HTML ist nicht so kompliziert zu verstehen wie Rust. HTML wird nicht in eine andere Form kompiliert, bevor der Browser es parst und das Ergebnis anzeigt (es wird _interpretiert_, nicht _kompiliert_). Und die {{Glossary("element", "Element")}}-Syntax von HTML ist vermutlich viel leichter zu verstehen als eine "echte Programmiersprache" wie Rust, {{Glossary("JavaScript", "JavaScript")}} oder {{Glossary("Python", "Python")}}. Die Art und Weise, wie Browser HTML parsen, ist deutlich **freizügiger** als die Ausführung von Programmiersprachen, was sowohl ein Vorteil als auch ein Nachteil ist.
 
 ### Freizügiger Code
 

@@ -21,7 +21,7 @@ Während Kompression auf dem Web immer notwendig ist, ist sie bei Videokonferenz
 
 Bevor man sich codec-spezifische Fähigkeiten und Anforderungen anschaut, gibt es einige allgemeine Anforderungen, die von _jedem_ mit WebRTC verwendeten Codec-Konfiguration erfüllt werden müssen.
 
-Sofern durch das [SDP](/de/docs/Glossary/SDP) nicht anders signalisiert, muss der Webbrowser, der einen WebRTC-Videostream empfängt, in der Lage sein, Video mit mindestens 20 FPS bei einer Mindestauflösung von 320 Pixeln Breite und 240 Pixeln Höhe zu verarbeiten. Es wird ermutigt, dass Video mit einer Bildfrequenz und Größe nicht unter dieser unteren Grenze codiert wird, da dies im Wesentlichen das untere Ende dessen ist, was WebRTC im Allgemeinen handhaben soll.
+Sofern durch das {{Glossary("SDP", "SDP")}} nicht anders signalisiert, muss der Webbrowser, der einen WebRTC-Videostream empfängt, in der Lage sein, Video mit mindestens 20 FPS bei einer Mindestauflösung von 320 Pixeln Breite und 240 Pixeln Höhe zu verarbeiten. Es wird ermutigt, dass Video mit einer Bildfrequenz und Größe nicht unter dieser unteren Grenze codiert wird, da dies im Wesentlichen das untere Ende dessen ist, was WebRTC im Allgemeinen handhaben soll.
 
 SDP unterstützt eine codec-unabhängige Methode zur Spezifikation bevorzugter Videoauflösungen ({{RFC(6236)}}. Dies geschieht durch Senden eines `a=imageattr` SDP-Attributs, um die maximale akzeptable Auflösung anzuzeigen. Der Sender muss diesen Mechanismus jedoch nicht unterstützen, daher muss man darauf vorbereitet sein, Medien in einer anderen Auflösung zu empfangen, als man angefordert hat. Über diese einfache maximale Auflösungsanforderung hinaus können spezifische Codecs weitere Möglichkeiten bieten, um bestimmte Medienkonfigurationen zu erfragen.
 
@@ -101,11 +101,11 @@ Zusätzlich zu den obligatorischen Codecs unterstützen einige Browser auch zus�
 
 VP8, den wir [allgemein beschreiben](/de/docs/Web/Media/Formats/Video_codecs#vp8) im Hauptleitfaden zu den [Video-Codecs, die im Web verwendet werden](/de/docs/Web/Media/Formats/Video_codecs), hat einige spezifische Anforderungen, die befolgt werden müssen, wenn man ihn verwendet, um eine Videospur in einer WebRTC-Verbindung zu kodieren oder dekodieren.
 
-Sofern nicht anders signalisiert, wird VP8 quadratische Pixel verwenden (das heißt, Pixel mit einem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) von 1:1).
+Sofern nicht anders signalisiert, wird VP8 quadratische Pixel verwenden (das heißt, Pixel mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} von 1:1).
 
 #### Weitere Anmerkungen
 
-Das Netzwerk-Payload-Format zum Teilen von VP8 über [RTP](/de/docs/Glossary/RTP) (wie bei der Verwendung von WebRTC) wird in {{RFC(7741, "RTP Payload Format for VP8 Video")}} beschrieben.
+Das Netzwerk-Payload-Format zum Teilen von VP8 über {{Glossary("RTP", "RTP")}} (wie bei der Verwendung von WebRTC) wird in {{RFC(7741, "RTP Payload Format for VP8 Video")}} beschrieben.
 
 ### AVC / H.264
 
@@ -259,13 +259,13 @@ Der gesamte von Opus unterstützte Bereich von Bitraten (6 kbps bis 510 kbps) wi
 
 Bei einer 20-Millisekunden-Framegröße zeigt die folgende Tabelle die empfohlenen Bitraten für verschiedene Medienformen an.
 
-| Medientyp                           | Empfohlener Bitratenbereich |
-| ---------------------------------- | -------------------------- |
-| Schmalband-Sprache (NB)            | 8 bis 12 kbps              |
-| Breitband-Sprache (WB)             | 16 bis 20 kbps             |
-| Vollband-Sprache (FB)              | 28 bis 40 kbps             |
-| Vollband-Mono-Musik (FB mono)      | 48 bis 64 kbps             |
-| Vollband-Stereo-Musik (FB stereo)  | 64 bis 128 kbps            |
+| Medientyp                         | Empfohlener Bitratenbereich |
+| --------------------------------- | --------------------------- |
+| Schmalband-Sprache (NB)           | 8 bis 12 kbps               |
+| Breitband-Sprache (WB)            | 16 bis 20 kbps              |
+| Vollband-Sprache (FB)             | 28 bis 40 kbps              |
+| Vollband-Mono-Musik (FB mono)     | 48 bis 64 kbps              |
+| Vollband-Stereo-Musik (FB stereo) | 64 bis 128 kbps             |
 
 Die Bitrate kann jederzeit angepasst werden. Um Netzwerküberlastungen zu vermeiden, sollte die durchschnittliche Audio-Bitrate die verfügbare Netzwerkbandbreite (abzüglich anderer bekannter oder voraussichtlicher zusätzlicher Bandbreitenanforderungen) nicht überschreiten.
 
@@ -294,7 +294,7 @@ codecList = RTCRtpSender.getCapabilities("video").codecs;
 Jetzt ist `codecList` ein Array von [`codec`](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#codecs) Objekten, von denen jedes eine Codec-Konfiguration beschreibt.
 In der Liste werden auch Einträge für [Retransmission](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#rtx_retransmission) (RTX), [Redundante Kodierung](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#red_redundant_audio_data) (RED) und [Forward Error Correction](/de/docs/Web/API/RTCRtpSender/getCapabilities_static#fec_forward_error_correction) (FEC) vorhanden sein.
 
-Wenn sich die Verbindung im Startprozess befindet, können Sie das [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) Ereignis verwenden, um das Ende der [ICE](/de/docs/Glossary/ICE) Kandidatensammlung zu beobachten und dann die Liste abrufen.
+Wenn sich die Verbindung im Startprozess befindet, können Sie das [`icegatheringstatechange`](/de/docs/Web/API/RTCPeerConnection/icegatheringstatechange_event) Ereignis verwenden, um das Ende der {{Glossary("ICE", "ICE")}} Kandidatensammlung zu beobachten und dann die Liste abrufen.
 
 ```js
 let codecList = null;
@@ -461,13 +461,13 @@ Denken Sie daran, dass die Auswahl eines Codecs, der nicht auf der Liste der obl
 
 ## Sicherheitsaspekte
 
-Es gibt interessante potenzielle Sicherheitsprobleme, die bei der Auswahl und Konfiguration von Codecs auftreten. WebRTC-Video wird mit Datagram Transport Layer Security ([DTLS](/de/docs/Glossary/DTLS)) geschützt, aber es ist theoretisch möglich, dass eine motivierte Partei die Menge an Änderungen erfassen kann, die von Frame zu Frame bei der Verwendung von Codecs mit variabler Bitrate (VBR) auftritt, indem sie die Bitrate des Streams und wie sie sich im Laufe der Zeit ändert, überwacht. Dies könnte potenziell einem Angreifer erlauben, etwas über den Inhalt des Streams zu erlernen, angesichts des Auf und Ab der Bitrate.
+Es gibt interessante potenzielle Sicherheitsprobleme, die bei der Auswahl und Konfiguration von Codecs auftreten. WebRTC-Video wird mit Datagram Transport Layer Security ({{Glossary("DTLS", "DTLS")}}) geschützt, aber es ist theoretisch möglich, dass eine motivierte Partei die Menge an Änderungen erfassen kann, die von Frame zu Frame bei der Verwendung von Codecs mit variabler Bitrate (VBR) auftritt, indem sie die Bitrate des Streams und wie sie sich im Laufe der Zeit ändert, überwacht. Dies könnte potenziell einem Angreifer erlauben, etwas über den Inhalt des Streams zu erlernen, angesichts des Auf und Ab der Bitrate.
 
 Weitere Informationen zu Sicherheitsüberlegungen bei der Verwendung von AVC in WebRTC finden Sie in {{RFC(6184, "RTP Payload Format for H.264 Video: Security Considerations", 9)}}.
 
 ## Medien-Typen für RTP-Payload-Formate
 
-Es kann nützlich sein, sich die [IANA](/de/docs/Glossary/IANA)-Liste der [RTP](/de/docs/Glossary/RTP)-Payload-Format-Medientypen anzusehen; dies ist eine vollständige Liste der MIME-Medientypen, die für die _mögliche_ Verwendung in RTP-Streams definiert sind, wie sie in WebRTC verwendet werden. Die meisten davon werden in WebRTC-Kontexten nicht verwendet, aber die Liste kann dennoch nützlich sein.
+Es kann nützlich sein, sich die {{Glossary("IANA", "IANA")}}-Liste der {{Glossary("RTP", "RTP")}}-Payload-Format-Medientypen anzusehen; dies ist eine vollständige Liste der MIME-Medientypen, die für die _mögliche_ Verwendung in RTP-Streams definiert sind, wie sie in WebRTC verwendet werden. Die meisten davon werden in WebRTC-Kontexten nicht verwendet, aber die Liste kann dennoch nützlich sein.
 
 Siehe auch {{RFC(4855)}}, die das Verzeichnis der Medientypen abdeckt.
 

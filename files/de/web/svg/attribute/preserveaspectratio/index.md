@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das Attribut **`preserveAspectRatio`** gibt an, wie ein Element mit einem `viewBox`, das ein gegebenes [Aspektverhältnis](/de/docs/Glossary/aspect_ratio) bereitstellt, in einen Viewport mit einem anderen Aspektverhältnis passen muss.
+Das Attribut **`preserveAspectRatio`** gibt an, wie ein Element mit einem `viewBox`, das ein gegebenes {{Glossary("aspect_ratio", "Aspektverhältnis")}} bereitstellt, in einen Viewport mit einem anderen Aspektverhältnis passen muss.
 
 Das Aspektverhältnis eines SVG-Bildes wird durch das {{SVGAttr('viewBox')}}-Attribut definiert. Daher hat das `preserveAspectRatio`-Attribut keinen Einfluss auf die Skalierung von SVG, wenn `viewBox` nicht gesetzt ist (außer im Fall des {{SVGElement('image')}}-Elements, wo sich `preserveAspectRatio` anders verhält, wie unten beschrieben).
 

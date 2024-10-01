@@ -35,11 +35,11 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ## Sicherheit
 
-[Transiente Aktivierung](/de/docs/Glossary/Transient_activation) ist erforderlich, wenn `requestPointerLock()` aufgerufen wird. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert. Außerdem muss das zugehörige Dokument des Ziel-Elements im aktiven Zustand sein.
+{{Glossary("Transient_activation", "Transiente Aktivierung")}} ist erforderlich, wenn `requestPointerLock()` aufgerufen wird. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert. Außerdem muss das zugehörige Dokument des Ziel-Elements im aktiven Zustand sein.
 
-Wenn `requestPointerLock()` direkt nach dem Freigeben der Zeigersperre über die Standard-Entsperr-Geste (anstatt durch einen `exitPointerLock()`-Aufruf) aufgerufen wird, schlägt der Aufruf fehl, selbst wenn eine [transiente Aktivierung](/de/docs/Glossary/transient_activation) verfügbar ist.
+Wenn `requestPointerLock()` direkt nach dem Freigeben der Zeigersperre über die Standard-Entsperr-Geste (anstatt durch einen `exitPointerLock()`-Aufruf) aufgerufen wird, schlägt der Aufruf fehl, selbst wenn eine {{Glossary("transient_activation", "transiente Aktivierung")}} verfügbar ist.
 
-Wenn `requestPointerLock()` mit [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) aufgerufen wird, muss zuerst `requestPointerLock()` aufgerufen werden, da [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) den Zustand der [transienten Aktivierung](/de/docs/Glossary/Transient_activation) verbrauchen wird.
+Wenn `requestPointerLock()` mit [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) aufgerufen wird, muss zuerst `requestPointerLock()` aufgerufen werden, da [`requestFullscreen()`](/de/docs/Web/API/Element/requestFullscreen) den Zustand der {{Glossary("Transient_activation", "transienten Aktivierung")}} verbrauchen wird.
 
 Das `allow-pointer-lock` [Sandbox-Token](/de/docs/Web/HTML/Element/iframe#sandbox) muss hinzugefügt werden, wenn `requestPointerLock()` in einem {{htmlelement("iframe")}}-Element aufgerufen wird. Außerdem dürfen keine anderen Elemente in anderen {{htmlelement("iframe")}}-Elementen im Zeigersperrmodus sein.
 

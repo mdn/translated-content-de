@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`getLocalCandidates()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein Array von [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekten zurück, eines für jeden der Kandidaten, die vom lokalen Gerät während der aktuellen [ICE](/de/docs/Glossary/ICE)-Agentensitzung gesammelt wurden.
+Die **`getLocalCandidates()`**-Methode der [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Schnittstelle gibt ein Array von [`RTCIceCandidate`](/de/docs/Web/API/RTCIceCandidate)-Objekten zurück, eines für jeden der Kandidaten, die vom lokalen Gerät während der aktuellen {{Glossary("ICE", "ICE")}}-Agentensitzung gesammelt wurden.
 
 Die lokalen Kandidaten werden von dem ICE-Agenten in diese Liste eingefügt, bevor sie im Rahmen eines [`icecandidate`](/de/docs/Web/API/RTCPeerConnection/icecandidate_event)-Ereignisses an den Code des lokalen Clients übergeben werden, sodass der Client die Kandidaten an den entfernten Peer weiterleiten kann.
 

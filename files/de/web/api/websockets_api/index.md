@@ -39,7 +39,7 @@ Die HTTP-Header werden im [WebSocket-Handshake](/de/docs/Web/API/WebSockets_API/
     Dieser wird im [WebSocket-Öffnungshandshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um zu überprüfen, dass der Client ausdrücklich eine WebSocket-Verbindung öffnen möchte.
     Er wird automatisch vom Browser hinzugefügt.
 - {{HTTPHeader("Sec-WebSocket-Accept")}}
-  - : Ein HTTP-[Antwort-Header](/de/docs/Glossary/response_header), der im _WebSocket-Öffnungshandshake_ verwendet wird, um anzuzeigen, dass der Server bereit ist, zu einer WebSocket-Verbindung zu wechseln.
+  - : Ein HTTP-{{Glossary("response_header", "Antwort-Header")}}, der im _WebSocket-Öffnungshandshake_ verwendet wird, um anzuzeigen, dass der Server bereit ist, zu einer WebSocket-Verbindung zu wechseln.
     Der Wert in der Direktive wird aus dem Wert von `Sec-WebSocket-Key` in der entsprechenden Anfrage berechnet.
 - {{HTTPHeader("Sec-WebSocket-Version")}}
   - : Ein HTTP-Header, der in Anfragen die vom Client verstandene Version des WebSocket-Protokolls angibt.

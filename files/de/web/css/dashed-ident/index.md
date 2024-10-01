@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<dashed-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine beliebige Zeichenkette, die als [Identifier](/de/docs/Glossary/identifier) verwendet wird.
+Der **`<dashed-ident>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine beliebige Zeichenkette, die als {{Glossary("identifier", "Identifier")}} verwendet wird.
 
 ## Syntax
 

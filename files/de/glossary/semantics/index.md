@@ -39,7 +39,7 @@ HTML sollte so kodiert werden, dass es die _Daten_ repräsentiert, die eingefüg
 
 Einige der Vorteile, semantisches Markup zu schreiben, sind folgende:
 
-- Suchmaschinen werden dessen Inhalte als wichtige Schlüsselwörter betrachten, um das Suchranking der Seite zu beeinflussen (siehe [SEO](/de/docs/Glossary/SEO))
+- Suchmaschinen werden dessen Inhalte als wichtige Schlüsselwörter betrachten, um das Suchranking der Seite zu beeinflussen (siehe {{Glossary("SEO", "SEO")}})
 - Screenreader können es als Wegweiser nutzen, um sehbehinderten Nutzern bei der Navigation auf einer Seite zu helfen
 - Das Finden von bedeutungsvollen Codeblöcken ist erheblich einfacher, als durch endlose `div`s mit oder ohne semantische oder namenspäfixierte Klassen zu suchen
 - Es gibt dem Entwickler einen Hinweis auf die Art der einzufügenden Daten
@@ -72,4 +72,4 @@ Dies sind _einige_ der ungefähr 100 semantischen [Elemente](/de/docs/Web/HTML/E
 - [Verwendung von HTML-Abschnitten und -Umrissen](/de/docs/Web/HTML/Element/Heading_Elements#usage_notes) auf MDN
 - [Die Bedeutung von Semantik in der Informatik](https://en.wikipedia.org/wiki/Semantics#Computer_science) auf Wikipedia
 - Verwandte Glossarbegriffe:
-  - [SEO](/de/docs/Glossary/SEO)
+  - {{Glossary("SEO", "SEO")}}

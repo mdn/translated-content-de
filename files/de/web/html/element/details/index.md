@@ -9,11 +9,11 @@ l10n:
 
 Das **`<details>`** [HTML](/de/docs/Web/HTML) Element erstellt ein Ausklapp-Widget, bei dem Informationen nur sichtbar sind, wenn das Widget in den "geöffneten" Zustand umgeschaltet wird. Eine Zusammenfassung oder Beschriftung muss mit dem {{HTMLElement("summary")}}-Element bereitgestellt werden.
 
-Ein Ausklapp-Widget wird typischerweise auf dem Bildschirm mit einem kleinen Dreieck angezeigt, das sich dreht (oder verdreht), um den offenen/geschlossenen Status anzuzeigen, mit einer Beschriftung neben dem Dreieck. Der Inhalt des `<summary>`-Elements wird als Beschriftung für das Ausklapp-Widget verwendet. Der Inhalt des `<details>` bietet die [zugängliche Beschreibung](/de/docs/Glossary/accessible_description) für das `<summary>`.
+Ein Ausklapp-Widget wird typischerweise auf dem Bildschirm mit einem kleinen Dreieck angezeigt, das sich dreht (oder verdreht), um den offenen/geschlossenen Status anzuzeigen, mit einer Beschriftung neben dem Dreieck. Der Inhalt des `<summary>`-Elements wird als Beschriftung für das Ausklapp-Widget verwendet. Der Inhalt des `<details>` bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für das `<summary>`.
 
 {{EmbedInteractiveExample("pages/tabbed/details.html", "tabbed-shorter")}}
 
-Ein `<details>`-Widget kann in einem von zwei Zuständen sein. Der standardmäßige _geschlossene_ Zustand zeigt nur das Dreieck und die Beschriftung innerhalb von `<summary>` an (oder eine [Benutzeragent](/de/docs/Glossary/user_agent)-definierte Standardzeichenfolge, wenn kein `<summary>` vorhanden ist).
+Ein `<details>`-Widget kann in einem von zwei Zuständen sein. Der standardmäßige _geschlossene_ Zustand zeigt nur das Dreieck und die Beschriftung innerhalb von `<summary>` an (oder eine {{Glossary("user_agent", "Benutzeragent")}}-definierte Standardzeichenfolge, wenn kein `<summary>` vorhanden ist).
 
 Wenn der Benutzer auf das Widget klickt oder den Fokus darauf legt und dann die Leertaste drückt, "verdreht" es sich und zeigt seinen Inhalt. Die übliche Verwendung eines sich drehenden oder verdrehenden Dreiecks zur Darstellung des Öffnens oder Schließens des Widgets ist der Grund, warum diese manchmal "Twisty" genannt werden.
 

@@ -22,10 +22,10 @@ Siehe auch den {{HTTPHeader("Transfer-Encoding")}} Antwort-Header für weitere D
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Request header](/de/docs/Glossary/Request_header)</td>
+      <td>{{Glossary("Request_header", "Request header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>ja</td>
     </tr>
   </tbody>
@@ -57,7 +57,7 @@ TE: trailers, deflate;q=0.5
   - : Gibt an, dass der Client bereit ist, Trailer-Felder in einer chunked Transfer-Codierung zu akzeptieren.
 - `q`
   - : Wenn mehrere Transfercodierungen akzeptabel sind, kann der `q`-Parameter der
-    [Qualitätswert](/de/docs/Glossary/Quality_values) Syntax Codierungen nach Präferenz ordnen.
+    {{Glossary("Quality_values", "Qualitätswert")}} Syntax Codierungen nach Präferenz ordnen.
 
 ## Spezifikationen
 

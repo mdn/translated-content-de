@@ -11,13 +11,13 @@ Die Eigenschaften des **CSS overflow** Moduls ermöglichen es Ihnen, scrollbare 
 
 Ein Überlauf tritt auf, wenn der Inhalt eines Elementrahmens über eine oder mehrere Kanten des Rahmens hinausragt. Ein **scrollbarer Überlauf** ist der Inhalt, der außerhalb des Elementrahmens erscheint und für den Sie möglicherweise einen Scrollmechanismus hinzufügen möchten. Die CSS overflow Eigenschaften ermöglichen es Ihnen, zu steuern, was passiert, wenn der Inhalt einen Elementrahmen überläuft.
 
-Mal-Effekte, die den Inhalt überfließen, aber nicht am CSS-Box-Modell teilnehmen, beeinflussen das Layout nicht. Diese Art des Überlaufens wird auch als [Tintenüberlauf](/de/docs/Glossary/ink_overflow) bezeichnet. Beispiele für Tintenüberläufe sind Box-Schattierungen, Rahmenbilder, Textdekoration, überhängende Glyphen und Umrandungen. Tintenüberläufe erweitern nicht den scrollbaren Überlaufbereich.
+Mal-Effekte, die den Inhalt überfließen, aber nicht am CSS-Box-Modell teilnehmen, beeinflussen das Layout nicht. Diese Art des Überlaufens wird auch als {{Glossary("ink_overflow", "Tintenüberlauf")}} bezeichnet. Beispiele für Tintenüberläufe sind Box-Schattierungen, Rahmenbilder, Textdekoration, überhängende Glyphen und Umrandungen. Tintenüberläufe erweitern nicht den scrollbaren Überlaufbereich.
 
 ## Überlauf in Aktion
 
 Verwenden Sie das folgende interaktive Beispiel, um die Auswirkungen verschiedener `overflow` Eigenschaftswerte auf den Inhaltsüberlauf und die Scrollbalken im angrenzenden festgelegten Rahmen zu sehen.
 
-Das Beispiel enthält auch Optionen zum Ändern der Werte der Eigenschaften `overflow-clip-margin` und `width` sowie zum programmgesteuerten Scrollen des Inhalts, falls die overflow-Eigenschaft einen [scroll container](/de/docs/Glossary/scroll_container) erstellt. Wählen Sie `overflow: clip` und sehen Sie sich die Auswirkungen verschiedener `overflow-clip-margin` Werte an. Wählen Sie `overflow: hidden` oder `overflow: scroll` aus, um die verschiedenen `ScrollLeft` und `ScrollTop` Reglereinstellungen zu prüfen.
+Das Beispiel enthält auch Optionen zum Ändern der Werte der Eigenschaften `overflow-clip-margin` und `width` sowie zum programmgesteuerten Scrollen des Inhalts, falls die overflow-Eigenschaft einen {{Glossary("scroll_container", "scroll container")}} erstellt. Wählen Sie `overflow: clip` und sehen Sie sich die Auswirkungen verschiedener `overflow-clip-margin` Werte an. Wählen Sie `overflow: hidden` oder `overflow: scroll` aus, um die verschiedenen `ScrollLeft` und `ScrollTop` Reglereinstellungen zu prüfen.
 
 {{EmbedGHLiveSample("css-examples/modules/overflow.html", '100%', 320)}}
 
@@ -75,8 +75,8 @@ Ein Link ist im Inhaltsrahmen oben enthalten, um die Auswirkungen von Tastaturfo
 - Element [`scrollWidth`](/de/docs/Web/API/Element/scrollWidth) Eigenschaft
 - Element [`scrollHeight`](/de/docs/Web/API/Element/scrollHeight) Eigenschaft
 - Dokument [`scroll`](/de/docs/Web/API/Document/scroll_event) Ereignis
-- [Scroll-Container](/de/docs/Glossary/Scroll_container) Glossarbegriff
-- [Tintenüberlauf](/de/docs/Glossary/Ink_overflow) Glossarbegriff
+- {{Glossary("Scroll_container", "Scroll-Container")}} Glossarbegriff
+- {{Glossary("Ink_overflow", "Tintenüberlauf")}} Glossarbegriff
 
 ## Spezifikationen
 

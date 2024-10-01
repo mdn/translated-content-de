@@ -21,7 +21,7 @@ Sie werden als Optionsfelder bezeichnet, weil sie ähnlich aussehen und funktion
 
 ## Wert
 
-Das `value`-Attribut ist ein String, der den Wert des Optionsfeldes enthält. Der Wert wird dem Nutzer von deren [User-Agent](/de/docs/Glossary/user_agent) niemals angezeigt. Stattdessen wird er verwendet, um zu identifizieren, welches Optionsfeld in einer Gruppe ausgewählt ist.
+Das `value`-Attribut ist ein String, der den Wert des Optionsfeldes enthält. Der Wert wird dem Nutzer von deren {{Glossary("user_agent", "User-Agent")}} niemals angezeigt. Stattdessen wird er verwendet, um zu identifizieren, welches Optionsfeld in einer Gruppe ausgewählt ist.
 
 ### Eine Radiogruppe definieren
 

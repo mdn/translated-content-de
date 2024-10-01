@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`hasBeenActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine [sticky user activation](/de/docs/Glossary/sticky_activation) aufweist.
+Die schreibgeschützte **`hasBeenActive`**-Eigenschaft des [`UserActivation`](/de/docs/Web/API/UserActivation)-Interfaces gibt an, ob das aktuelle Fenster eine {{Glossary("sticky_activation", "sticky user activation")}} aufweist.
 
 ## Wert
 

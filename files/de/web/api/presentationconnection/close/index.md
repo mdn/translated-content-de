@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Presentation API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Wenn die `close()`-Methode auf einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgerufen wird, beginnt der [User Agent](/de/docs/Glossary/user_agent) den Prozess des Schließens der Verbindung, indem er eine leere `closeMessage` sendet mit dem `closeReason` auf `closed` gesetzt.
+Wenn die `close()`-Methode auf einer [`PresentationConnection`](/de/docs/Web/API/PresentationConnection) aufgerufen wird, beginnt der {{Glossary("user_agent", "User Agent")}} den Prozess des Schließens der Verbindung, indem er eine leere `closeMessage` sendet mit dem `closeReason` auf `closed` gesetzt.
 
 ## Syntax
 

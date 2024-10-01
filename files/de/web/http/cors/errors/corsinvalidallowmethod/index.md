@@ -15,7 +15,7 @@ Reason: invalid token 'xyz' in CORS header 'Access-Control-Allow-Methods'
 
 ## Was ist schiefgelaufen?
 
-Die Antwort auf die [CORS](/de/docs/Glossary/CORS)-Anfrage, die vom Server gesendet wurde,
+Die Antwort auf die {{Glossary("CORS", "CORS")}}-Anfrage, die vom Server gesendet wurde,
 enthält einen {{HTTPHeader("Access-Control-Allow-Methods")}}-Header, der mindestens einen
 ungültigen Methodennamen enthält.
 
@@ -24,7 +24,7 @@ Client mitzuteilen, welche [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods) er
 für CORS-Anfragen unterstützt. Der Wert des Headers ist eine durch Kommas getrennte Zeichenkette von HTTP
 Methodennamen, wie {{HTTPMethod("GET")}}, {{HTTPMethod("POST")}} oder
 {{HTTPMethod("HEAD")}}. Wenn einer der angegebenen Werte vom Client
-[User-Agent](/de/docs/Glossary/user_agent) nicht erkannt wird, tritt dieser Fehler auf.
+{{Glossary("user_agent", "User-Agent")}} nicht erkannt wird, tritt dieser Fehler auf.
 
 Dies ist ein Problem, das höchstwahrscheinlich nur serverseitig behoben werden kann, indem
 die Konfiguration des Servers geändert wird, um den ungültigen oder unbekannten Methodennamen im
@@ -34,6 +34,6 @@ ob der verwendete User-Agent oder die HTTP-Bibliothek auf dem Client aktuell ist
 ## Siehe auch
 
 - [CORS-Fehler](/de/docs/Web/HTTP/CORS/Errors)
-- Glossar: [CORS](/de/docs/Glossary/CORS)
+- Glossar: {{Glossary("CORS", "CORS")}}
 - [Einführung in CORS](/de/docs/Web/HTTP/CORS)
 - [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)

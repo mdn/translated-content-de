@@ -30,7 +30,7 @@ Ein neues Array, in das die Unter-Array-Elemente eingefügt wurden.
 
 ## Beschreibung
 
-Die `flat()` Methode ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert `this` nicht, sondern gibt eine [flache Kopie](/de/docs/Glossary/Shallow_copy) zurück, die dieselben Elemente wie das ursprüngliche Array enthält.
+Die `flat()` Methode ist eine [kopierende Methode](/de/docs/Web/JavaScript/Reference/Global_Objects/Array#copying_methods_and_mutating_methods). Sie ändert `this` nicht, sondern gibt eine {{Glossary("Shallow_copy", "flache Kopie")}} zurück, die dieselben Elemente wie das ursprüngliche Array enthält.
 
 Die `flat()` Methode entfernt leere Stellen, wenn das Array, das abgeflacht wird, [spärlich](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) ist. Zum Beispiel, wenn `depth` 1 ist, werden sowohl leere Stellen im Haupt-Array als auch im ersten Level der verschachtelten Arrays ignoriert, aber leere Stellen in tiefer verschachtelten Arrays werden mit den Arrays selbst beibehalten.
 

@@ -52,7 +52,7 @@ _Es ist noch kein aktives Lernen verfügbar. [Bitte, ziehen Sie in Betracht beiz
 
 ### Webseiten erstellen und bearbeiten
 
-Um eine Website zu erstellen und zu bearbeiten, benötigen Sie einen Texteditor. Texteditoren erstellen und ändern unformatierte Textdateien. Andere Formate, wie **[RTF](/de/docs/Glossary/RTF)**, erlauben es, Formatierungen wie Fett- oder Unterstreichungshervorhebung hinzuzufügen. Diese Formate eignen sich nicht zum Schreiben von Webseiten. Sie sollten sorgfältig überlegen, welchen Texteditor Sie verwenden, da Sie viel mit ihm arbeiten werden, während Sie die Website erstellen.
+Um eine Website zu erstellen und zu bearbeiten, benötigen Sie einen Texteditor. Texteditoren erstellen und ändern unformatierte Textdateien. Andere Formate, wie **{{Glossary("RTF", "RTF")}}**, erlauben es, Formatierungen wie Fett- oder Unterstreichungshervorhebung hinzuzufügen. Diese Formate eignen sich nicht zum Schreiben von Webseiten. Sie sollten sorgfältig überlegen, welchen Texteditor Sie verwenden, da Sie viel mit ihm arbeiten werden, während Sie die Website erstellen.
 
 Alle Desktop-Betriebssysteme verfügen über einen grundlegenden Texteditor. Diese Editoren sind alle unkompliziert, bieten jedoch keine speziellen Funktionen für die Webseitenprogrammierung. Wenn Sie etwas Ausgefeilteres möchten, stehen Ihnen viele Drittanbieter-Tools zur Verfügung. Drittanbieter-Editoren bieten oft zusätzliche Funktionen, einschließlich Syntaxfärbung, Autovervollständigung, einklappbare Abschnitte und Codesuche. Hier ist eine kurze Liste von Editoren:
 

@@ -53,7 +53,7 @@ Das effizienteste, am wenigsten blockierende JavaScript, das Sie verwenden könn
 
 Sie sollten auch Ihr JavaScript in mehrere Dateien aufteilen, die kritische und nicht-kritische Teile darstellen. [JavaScript-Module](/de/docs/Web/JavaScript/Guide/Modules) ermöglichen Ihnen dies effizienter als nur mit separaten externen JavaScript-Dateien.
 
-Dann können Sie diese kleineren Dateien optimieren. [Minifizierung](/de/docs/Glossary/Minification) reduziert die Anzahl der Zeichen in Ihrer Datei und damit die Anzahl der Bytes oder das Gewicht Ihres JavaScripts. [Gzipping](/de/docs/Glossary/gzip_compression) komprimiert die Datei weiter und sollte verwendet werden, selbst wenn Sie Ihren Code nicht minifizieren. [Brotli](/de/docs/Glossary/Brotli_compression) ist ähnlich wie Gzip, übertrifft jedoch im Allgemeinen die Gzip-Komprimierung.
+Dann können Sie diese kleineren Dateien optimieren. {{Glossary("Minification", "Minifizierung")}} reduziert die Anzahl der Zeichen in Ihrer Datei und damit die Anzahl der Bytes oder das Gewicht Ihres JavaScripts. {{Glossary("gzip_compression", "Gzipping")}} komprimiert die Datei weiter und sollte verwendet werden, selbst wenn Sie Ihren Code nicht minifizieren. {{Glossary("Brotli_compression", "Brotli")}} ist ähnlich wie Gzip, übertrifft jedoch im Allgemeinen die Gzip-Komprimierung.
 
 Sie können Ihren Code manuell aufteilen und optimieren, aber oft erledigt ein Modulbündler wie [Webpack](https://webpack.js.org/) diese Aufgabe besser.
 

@@ -13,7 +13,7 @@ Dieser Artikel bietet nützliche Hintergrundinformationen über das Web — wie 
 
 Wir werden dies sehr kurz halten, da es viele (detailliertere) Berichte über die Geschichte des Webs gibt, auf die wir später verweisen werden (versuchen Sie auch, "Geschichte des Webs" in Ihrer bevorzugten Suchmaschine zu suchen, wenn Sie an mehr Details interessiert sind).
 
-In den späten 1960er Jahren entwickelte das US-Militär ein Kommunikationsnetzwerk namens [ARPANET](/de/docs/Glossary/Arpanet). Dies kann als Vorläufer des Webs betrachtet werden, da es auf [Paketvermittlung](https://de.wikipedia.org/wiki/Paketvermittlung) basierte und die erste Implementierung des [TCP/IP](https://de.wikipedia.org/wiki/Internetprotokollfamilie) Protokollstapels aufwies. Diese beiden Technologien bilden die Grundlage der Infrastruktur, auf der das Internet aufgebaut ist.
+In den späten 1960er Jahren entwickelte das US-Militär ein Kommunikationsnetzwerk namens {{Glossary("Arpanet", "ARPANET")}}. Dies kann als Vorläufer des Webs betrachtet werden, da es auf [Paketvermittlung](https://de.wikipedia.org/wiki/Paketvermittlung) basierte und die erste Implementierung des [TCP/IP](https://de.wikipedia.org/wiki/Internetprotokollfamilie) Protokollstapels aufwies. Diese beiden Technologien bilden die Grundlage der Infrastruktur, auf der das Internet aufgebaut ist.
 
 Im Jahr 1980 schrieb Tim Berners-Lee (oft als TimBL bezeichnet) ein Notizbuchprogramm namens ENQUIRE, das das Konzept von Links zwischen verschiedenen Knoten aufwies. Klingt vertraut?
 

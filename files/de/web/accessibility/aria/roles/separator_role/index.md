@@ -76,7 +76,7 @@ Da Nachkommen von `separator` präsentational sind, ist der folgende Code äquiv
 <div role="separator"><h3 role="presentation">Title of my separator</h3></div>
 ```
 
-Aus der Perspektive eines Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets äquivalent zu dem Folgenden im [Zugriffsbaum](/de/docs/Glossary/Accessibility_tree) sind:
+Aus der Perspektive eines Benutzers von unterstützender Technologie existiert die Überschrift nicht, da die vorherigen Code-Snippets äquivalent zu dem Folgenden im {{Glossary("Accessibility_tree", "Zugriffsbaum")}} sind:
 
 ```html
 <div role="separator">Title of my separator</div>

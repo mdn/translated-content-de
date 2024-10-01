@@ -16,7 +16,7 @@ Die empfohlene Methode, um Codec-Präferenzen festzulegen, besteht darin, zuerst
 
 Das angegebene Set von Codecs wird für alle zukünftigen Verbindungen verwendet, die diesen Transceiver einschließen, bis diese Methode erneut aufgerufen wird.
 
-Bei der Vorbereitung zur Öffnung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) sollten die Codecs mit `setCodecParameters()` _vor_ dem Aufruf von entweder [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) oder [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) eingestellt werden, da diese die Verhandlung initiieren (und standardmäßig Codec-Parameter aus der Standardkonfiguration des [User-Agents](/de/docs/Glossary/user_agent) verwenden).
+Bei der Vorbereitung zur Öffnung einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) sollten die Codecs mit `setCodecParameters()` _vor_ dem Aufruf von entweder [`RTCPeerConnection.createOffer()`](/de/docs/Web/API/RTCPeerConnection/createOffer) oder [`createAnswer()`](/de/docs/Web/API/RTCPeerConnection/createAnswer) eingestellt werden, da diese die Verhandlung initiieren (und standardmäßig Codec-Parameter aus der Standardkonfiguration des {{Glossary("user_agent", "User-Agents")}} verwenden).
 
 Die Codecs können geändert werden, wenn Sie eine laufende Kommunikation haben, aber Sie müssen zuerst `setCodecParameters()` aufrufen und dann eine neue Verhandlung starten. Eine WebRTC-Anwendung wird bereits Code dafür im [`negotiationneeded` Ereignis-Handler](/de/docs/Web/API/RTCPeerConnection/negotiationneeded_event) haben. Beachten Sie jedoch, dass zum Zeitpunkt des Schreibens das Ereignis nicht automatisch ausgelöst wird, wenn Sie `setCodecParameters()` aufrufen, sodass Sie `onnegotiationneeded` selbst aufrufen müssen.
 
@@ -53,7 +53,7 @@ setCodecPreferences(codecs)
 
     - `sdpFmtpLine` {{optional_inline}}
 
-      - : Eine Zeichenkette, die das format-spezifische Parameterfeld von der `a=fmtp`-Zeile im [SDP](/de/docs/Glossary/SDP) angibt, das dem Codec entspricht, falls das Feld vorhanden ist. Wenn es kein Parameterfeld gibt, wird diese Eigenschaft weggelassen.
+      - : Eine Zeichenkette, die das format-spezifische Parameterfeld von der `a=fmtp`-Zeile im {{Glossary("SDP", "SDP")}} angibt, das dem Codec entspricht, falls das Feld vorhanden ist. Wenn es kein Parameterfeld gibt, wird diese Eigenschaft weggelassen.
 
 ### Rückgabewert
 

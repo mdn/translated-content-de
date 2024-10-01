@@ -20,15 +20,15 @@ Wenn er zum Melden von [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#vio
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Response-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Unzulässiger Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Unzulässiger Header-Name")}}</th>
       <td>nein</td>
     </tr>
     <tr>
       <th scope="row">
-        [CORS-sicherer Response-Header](/de/docs/Glossary/CORS-safelisted_response_header)
+        {{Glossary("CORS-safelisted_response_header", "CORS-sicherer Response-Header")}}
       </th>
       <td>nein</td>
     </tr>

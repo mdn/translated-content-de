@@ -25,7 +25,7 @@ Ein Array von Objekten, das die gelöschten Cookie(s) enthält. Jedes Objekt ent
 - `path`
   - : Ein String, der den Pfad des Cookies enthält.
 - `expires`
-  - : Ein Zeitstempel, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden, der das Ablaufdatum des Cookies enthält.
+  - : Ein Zeitstempel, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden, der das Ablaufdatum des Cookies enthält.
 - `secure`
   - : Ein {{jsxref("boolean")}}, der angibt, ob das Cookie nur in einem sicheren Kontext (HTTPS statt HTTP) verwendet wird.
 - `sameSite`

@@ -34,7 +34,7 @@ Ein Gebietsschema-Identifikator ist ein String, der besteht aus:
 5. Einer oder mehreren BCP 47 Erweiterungssequenzen {{optional_inline}}
 6. Einer privatnutzbaren Erweiterungssequenz {{optional_inline}}
 
-Jeder Subtag und jede Sequenz werden durch Bindestriche getrennt. Gebietsschema-Identifikatoren sind nicht-empfindliche [ASCII](/de/docs/Glossary/ASCII)-Strings. Es ist jedoch konventionell, Initialkappen (der erste Buchstabe wird groß, nachfolgende Buchstaben klein geschrieben) für Schriftsubtags, Großschrift für Regionssubtags und Kleinbuchstaben für alles andere zu verwenden. Zum Beispiel:
+Jeder Subtag und jede Sequenz werden durch Bindestriche getrennt. Gebietsschema-Identifikatoren sind nicht-empfindliche {{Glossary("ASCII", "ASCII")}}-Strings. Es ist jedoch konventionell, Initialkappen (der erste Buchstabe wird groß, nachfolgende Buchstaben klein geschrieben) für Schriftsubtags, Großschrift für Regionssubtags und Kleinbuchstaben für alles andere zu verwenden. Zum Beispiel:
 
 - `"hi"`: Hindi (Sprache)
 - `"de-AT"`: Deutsch (Sprache), wie in Österreich (Region) verwendet

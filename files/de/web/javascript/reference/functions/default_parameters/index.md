@@ -115,7 +115,7 @@ async function f(a = await Promise.resolve(1)) {
 
 ### Übergabe von undefined vs. anderen falsy Werten
 
-Im zweiten Aufruf in diesem Beispiel, selbst wenn das erste Argument explizit auf `undefined` gesetzt wird (jedoch nicht `null` oder andere [falsy](/de/docs/Glossary/falsy) Werte), bleibt der Wert des `num`-Arguments der Standardwert.
+Im zweiten Aufruf in diesem Beispiel, selbst wenn das erste Argument explizit auf `undefined` gesetzt wird (jedoch nicht `null` oder andere {{Glossary("falsy", "falsy")}} Werte), bleibt der Wert des `num`-Arguments der Standardwert.
 
 ```js
 function test(num = 1) {

@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Eine **Zertifizierungsstelle** (CA) ist eine Organisation, die [digitale Zertifikate](/de/docs/Glossary/Digital_certificate) und deren zugehörige [öffentliche Schlüssel](/de/docs/Glossary/Key) [signiert](/de/docs/Glossary/Signature/Security) und somit bestätigt, dass die enthaltenen Informationen und Schlüssel korrekt sind.
+Eine **Zertifizierungsstelle** (CA) ist eine Organisation, die {{Glossary("Digital_certificate", "digitale Zertifikate")}} und deren zugehörige {{Glossary("Key", "öffentliche Schlüssel")}} {{Glossary("Signature/Security", "signiert")}} und somit bestätigt, dass die enthaltenen Informationen und Schlüssel korrekt sind.
 
 Für ein digitales Website-Zertifikat beinhaltet diese Information mindestens den Namen der Organisation, die das digitale Zertifikat angefordert hat (z. B. Mozilla Corporation), die Seite, für die es gilt (z. B. mozilla.org), und die Zertifizierungsstelle.
 

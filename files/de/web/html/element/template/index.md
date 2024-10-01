@@ -7,7 +7,7 @@ l10n:
 
 {{HTMLSidebar}}
 
-Das **`<template>`** [HTML](/de/docs/Web/HTML)-Element dient als Mechanismus zur Aufnahme von [HTML](/de/docs/Glossary/HTML)-Fragmenten, die entweder später über JavaScript verwendet oder sofort in ein Shadow DOM generiert werden können.
+Das **`<template>`** [HTML](/de/docs/Web/HTML)-Element dient als Mechanismus zur Aufnahme von {{Glossary("HTML", "HTML")}}-Fragmenten, die entweder später über JavaScript verwendet oder sofort in ein Shadow DOM generiert werden können.
 
 ## Attribute
 
@@ -15,8 +15,8 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - `shadowrootmode`
 
-  - : Erstellt einen [Shadow Root](/de/docs/Glossary/Shadow_tree) für das übergeordnete Element.
-    Es handelt sich um eine deklarative Version der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) und akzeptiert die gleichen [aufgeführten](/de/docs/Glossary/enumerated) Werte.
+  - : Erstellt einen {{Glossary("Shadow_tree", "Shadow Root")}} für das übergeordnete Element.
+    Es handelt sich um eine deklarative Version der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) und akzeptiert die gleichen {{Glossary("enumerated", "aufgeführten")}} Werte.
 
     - `open`
 

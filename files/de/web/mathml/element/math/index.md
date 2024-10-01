@@ -18,7 +18,7 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 - `display`
 
-  - : Dieses [enumerierte](/de/docs/Glossary/Enumerated) Attribut gibt an, wie das umschlossene MathML-Markup dargestellt werden soll. Es kann einen der folgenden Werte haben:
+  - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, wie das umschlossene MathML-Markup dargestellt werden soll. Es kann einen der folgenden Werte haben:
 
     - `block`, was bedeutet, dass dieses Element in einem eigenen Block außerhalb des aktuellen Textbereichs mit der [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt angezeigt wird.
     - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textbereichs angezeigt wird, mit der [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` gesetzt.

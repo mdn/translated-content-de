@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Workers API")}}{{AvailableInWorkers("worker")}}
 
-Die **`structuredClone()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt eine [tiefe Kopie](/de/docs/Glossary/deep_copy) eines gegebenen Werts unter Verwendung des [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
+Die **`structuredClone()`**-Methode der [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)-Schnittstelle erstellt eine {{Glossary("deep_copy", "tiefe Kopie")}} eines gegebenen Werts unter Verwendung des [Structured Clone Algorithmus](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm).
 
 Die Methode ermöglicht es auch, [transferierbare Objekte](/de/docs/Web/API/Web_Workers_API/Transferable_objects) im ursprünglichen Wert zu _übertragen_ statt sie in das neue Objekt zu klonen. Übertragene Objekte werden vom ursprünglichen Objekt abgelöst und dem neuen Objekt angehängt; sie sind im ursprünglichen Objekt nicht mehr zugänglich.
 
@@ -31,7 +31,7 @@ structuredClone(value, options)
 
 ### Rückgabewert
 
-Eine [tiefe Kopie](/de/docs/Glossary/deep_copy) des ursprünglichen `value`.
+Eine {{Glossary("deep_copy", "tiefe Kopie")}} des ursprünglichen `value`.
 
 ### Ausnahmen
 

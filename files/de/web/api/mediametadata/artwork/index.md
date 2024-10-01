@@ -20,7 +20,7 @@ Ein {{jsxref("Array")}} von Objekten, die jeweils die folgenden Felder enthalten
 - `sizes` {{optional_inline}}
   - : Gibt die Ressource in mehreren Größen an, sodass der User-Agent ein einzelnes Bild nicht skalieren muss. Standardmäßig ist es der leere String (`""`).
 - `type` {{optional_inline}}
-  - : Der [MIME-Typ](/de/docs/Glossary/MIME_type)-Hinweis für den User-Agent, der es ihm ermöglicht, Bilder von Typen zu ignorieren, die er nicht unterstützt. Der User-Agent kann jedoch nach dem Herunterladen des Bildes weiterhin MIME-Type-Sniffing verwenden, um dessen Typ zu bestimmen. Standardmäßig ist es der leere String (`""`).
+  - : Der {{Glossary("MIME_type", "MIME-Typ")}}-Hinweis für den User-Agent, der es ihm ermöglicht, Bilder von Typen zu ignorieren, die er nicht unterstützt. Der User-Agent kann jedoch nach dem Herunterladen des Bildes weiterhin MIME-Type-Sniffing verwenden, um dessen Typ zu bestimmen. Standardmäßig ist es der leere String (`""`).
 
 ## Beispiele
 

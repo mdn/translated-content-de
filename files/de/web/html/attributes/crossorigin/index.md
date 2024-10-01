@@ -12,7 +12,7 @@ Das **`crossorigin`**-Attribut, gültig für die {{HTMLElement("audio")}}, {{HTM
 
 Das `crossorigin`-Inhaltsattribut bei Medienelementen ist ein CORS-Einstellungsattribut.
 
-Diese Attribute sind [aufgezählt](/de/docs/Glossary/Enumerated) und haben die folgenden möglichen Werte:
+Diese Attribute sind {{Glossary("Enumerated", "aufgezählt")}} und haben die folgenden möglichen Werte:
 
 - `anonymous`
   - : Die Anfrage verwendet CORS-Header und das Berechtigungsflag ist auf `'same-origin'` gesetzt. Es erfolgt kein Austausch von **Benutzeranmeldeinformationen** über Cookies, clientseitige TLS-Zertifikate oder HTTP-Authentifizierung, es sei denn, das Ziel ist derselbe Ursprung.

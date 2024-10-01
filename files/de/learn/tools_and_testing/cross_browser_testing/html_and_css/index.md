@@ -247,7 +247,7 @@ Versuchen Sie dieses einfache Beispiel:
    test.style.transform = "rotate(90deg)";
    ```
 
-Während Sie beginnen, den Eigenschaftsnamen nach dem zweiten Punkt zu schreiben (beachten Sie, dass in JavaScript CSS-Eigenschaftsnamen in [lower camel case](/de/docs/Glossary/camel_case), nicht in [kebab-case](/de/docs/Glossary/kebab_case) geschrieben werden), sollte die JavaScript-Konsole beginnen, die Namen der Eigenschaften zu vervollständigen, die im Browser existieren und mit dem, was Sie bisher geschrieben haben, übereinstimmen. Dies ist nützlich, um herauszufinden, welche Eigenschaften in diesem Browser implementiert sind.
+Während Sie beginnen, den Eigenschaftsnamen nach dem zweiten Punkt zu schreiben (beachten Sie, dass in JavaScript CSS-Eigenschaftsnamen in {{Glossary("camel_case", "lower camel case")}}, nicht in {{Glossary("kebab_case", "kebab-case")}} geschrieben werden), sollte die JavaScript-Konsole beginnen, die Namen der Eigenschaften zu vervollständigen, die im Browser existieren und mit dem, was Sie bisher geschrieben haben, übereinstimmen. Dies ist nützlich, um herauszufinden, welche Eigenschaften in diesem Browser implementiert sind.
 
 Wenn Sie moderne Funktionen einfügen müssen, testen Sie diese auf Unterstützung mithilfe von [`@supports`](/de/docs/Web/CSS/@supports), das es Ihnen erlaubt, native Funktionserkennungstests für neue Funktionen durchzuführen und die prefixed oder neue Funktion innerhalb des `@supports`-Blocks zu schachteln.
 

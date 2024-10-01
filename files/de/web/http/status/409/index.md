@@ -9,7 +9,7 @@ l10n:
 
 Der HTTP-Statuscode **`409 Conflict`** [Client-Fehlerantwort](/de/docs/Web/HTTP/Status#client_error_responses) zeigt einen Konflikt der Anfrage mit dem aktuellen Zustand der Zielressource an.
 
-Im [WebDAV](/de/docs/Glossary/WebDAV) Remote-Web-Autoren sind 409-Konfliktantworten Fehler, die an den Client gesendet werden, damit ein Benutzer möglicherweise einen Konflikt lösen und die Anfrage erneut senden kann. Zum Beispiel treten Konflikte auf, wenn eine Anfrage zur Erstellung der Sammlung `/a/b/c/d/` gemacht wird und `/a/b/c/` nicht existiert; die Anfrage muss mit einem 409 fehlschlagen. Zusätzlich kann eine 409-Antwort auftreten, wenn eine Datei hochgeladen wird, die älter ist als die vorhandene auf dem Server, was zu einem Versionskontrollkonflikt führt.
+Im {{Glossary("WebDAV", "WebDAV")}} Remote-Web-Autoren sind 409-Konfliktantworten Fehler, die an den Client gesendet werden, damit ein Benutzer möglicherweise einen Konflikt lösen und die Anfrage erneut senden kann. Zum Beispiel treten Konflikte auf, wenn eine Anfrage zur Erstellung der Sammlung `/a/b/c/d/` gemacht wird und `/a/b/c/` nicht existiert; die Anfrage muss mit einem 409 fehlschlagen. Zusätzlich kann eine 409-Antwort auftreten, wenn eine Datei hochgeladen wird, die älter ist als die vorhandene auf dem Server, was zu einem Versionskontrollkonflikt führt.
 
 In anderen Systemen können 409-Antworten für implementierungsspezifische Zwecke verwendet werden, wie zum Beispiel um anzuzeigen, dass der Server mehrere Anfragen zum Aktualisieren derselben Ressource erhalten hat.
 

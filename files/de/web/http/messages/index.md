@@ -34,7 +34,7 @@ Die Startzeile und die HTTP-Header der HTTP-Nachricht werden zusammen als _Kopf_
 HTTP-Anfragen sind Nachrichten, die vom Client gesendet werden, um eine Aktion auf dem Server zu starten. Ihre _Anforderungszeile_ (request line) enthält drei Elemente:
 
 1. Eine _[HTTP-Methode](/de/docs/Web/HTTP/Methods)_, ein Verb (wie {{HTTPMethod("GET")}}, {{HTTPMethod("PUT")}} oder {{HTTPMethod("POST")}}) oder ein Nomen (wie {{HTTPMethod("HEAD")}} oder {{HTTPMethod("OPTIONS")}}), das die auszuführende Aktion beschreibt. Zum Beispiel gibt `GET` an, dass eine Ressource abgerufen werden soll, oder `POST` bedeutet, dass Daten an den Server gesendet werden (um eine Ressource zu erstellen oder zu ändern oder ein temporäres Dokument zurückzusenden).
-2. Das _Anforderungsziel_ (request target), normalerweise eine [URL](/de/docs/Glossary/URL) oder der absolute Pfad des Protokolls, Ports und der Domäne, die normalerweise durch den Anfragekontext charakterisiert sind. Das Format dieses Anforderungsziels variiert je nach HTTP-Methode. Es kann sein:
+2. Das _Anforderungsziel_ (request target), normalerweise eine {{Glossary("URL", "URL")}} oder der absolute Pfad des Protokolls, Ports und der Domäne, die normalerweise durch den Anfragekontext charakterisiert sind. Das Format dieses Anforderungsziels variiert je nach HTTP-Methode. Es kann sein:
 
    - Ein absoluter Pfad, letztendlich gefolgt von einem `'?'` und einer Abfragezeichenfolge. Dies ist die häufigste Form, bekannt als _Ursprungsform_ (origin form), und wird mit den Methoden `GET`, `POST`, `HEAD` und `OPTIONS` verwendet.
      - `POST / HTTP/1.1`
@@ -56,9 +56,9 @@ HTTP-Anfragen sind Nachrichten, die vom Client gesendet werden, um eine Aktion a
 
 Viele verschiedene Header können in Anfragen erscheinen. Sie können in mehrere Gruppen unterteilt werden:
 
-- [Allgemeine Header](/de/docs/Glossary/General_header), wie {{HTTPHeader("Via")}}, gelten für die Nachricht als Ganzes.
-- [Anforderungsheader](/de/docs/Glossary/Request_header), wie {{HTTPHeader("User-Agent")}} oder {{HTTPHeader("Accept")}}, verfeinern die Anfrage, indem sie sie weiter spezifizieren (wie {{HTTPHeader("Accept-Language")}}), indem sie Kontext geben (wie {{HTTPHeader("Referer")}}) oder sie bedingt einschränken (wie {{HTTPHeader("If-None-Match")}}).
-- [Repräsentationsheader](/de/docs/Glossary/Representation_header) wie {{HTTPHeader("Content-Type")}}, die das ursprüngliche Format der Nachrichtendaten und jede angewendete Kodierung beschreiben (nur vorhanden, wenn die Nachricht einen Text hat).
+- {{Glossary("General_header", "Allgemeine Header")}}, wie {{HTTPHeader("Via")}}, gelten für die Nachricht als Ganzes.
+- {{Glossary("Request_header", "Anforderungsheader")}}, wie {{HTTPHeader("User-Agent")}} oder {{HTTPHeader("Accept")}}, verfeinern die Anfrage, indem sie sie weiter spezifizieren (wie {{HTTPHeader("Accept-Language")}}), indem sie Kontext geben (wie {{HTTPHeader("Referer")}}) oder sie bedingt einschränken (wie {{HTTPHeader("If-None-Match")}}).
+- {{Glossary("Representation_header", "Repräsentationsheader")}} wie {{HTTPHeader("Content-Type")}}, die das ursprüngliche Format der Nachrichtendaten und jede angewendete Kodierung beschreiben (nur vorhanden, wenn die Nachricht einen Text hat).
 
 ![Beispiel von Headern in einer HTTP-Anfrage](http_request_headers3.png)
 
@@ -93,9 +93,9 @@ Eine typische Statuszeile sieht folgendermaßen aus: `HTTP/1.1 404 Not Found`.
 
 Viele verschiedene Header können in Antworten erscheinen. Diese können in mehrere Gruppen unterteilt werden:
 
-- [Allgemeine Header](/de/docs/Glossary/General_header), wie {{HTTPHeader("Via")}}, gelten für die ganze Nachricht.
-- [Antwortheader](/de/docs/Glossary/Response_header), wie {{HTTPHeader("Vary")}} und {{HTTPHeader("Accept-Ranges")}}, geben zusätzliche Informationen über den Server, die nicht in die Statuszeile passen.
-- [Repräsentationsheader](/de/docs/Glossary/Representation_header) wie {{HTTPHeader("Content-Type")}}, die das ursprüngliche Format der Nachrichtendaten und jede angewendete Kodierung beschreiben (nur vorhanden, wenn die Nachricht einen Text hat).
+- {{Glossary("General_header", "Allgemeine Header")}}, wie {{HTTPHeader("Via")}}, gelten für die ganze Nachricht.
+- {{Glossary("Response_header", "Antwortheader")}}, wie {{HTTPHeader("Vary")}} und {{HTTPHeader("Accept-Ranges")}}, geben zusätzliche Informationen über den Server, die nicht in die Statuszeile passen.
+- {{Glossary("Representation_header", "Repräsentationsheader")}} wie {{HTTPHeader("Content-Type")}}, die das ursprüngliche Format der Nachrichtendaten und jede angewendete Kodierung beschreiben (nur vorhanden, wenn die Nachricht einen Text hat).
 
 ![Beispiel von Headern in einer HTTP-Antwort](http_response_headers3.png)
 

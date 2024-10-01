@@ -7,11 +7,11 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-auto-columns`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Größe einer implizit erstellten Rasterspalte [track](/de/docs/Glossary/grid_tracks) oder eines Musters von Spalten fest.
+Die **`grid-auto-columns`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die Größe einer implizit erstellten Rasterspalte {{Glossary("grid_tracks", "track")}} oder eines Musters von Spalten fest.
 
 {{EmbedInteractiveExample("pages/css/grid-auto-columns.html")}}
 
-Wenn ein Rasterelement in eine Spalte positioniert ist, die nicht explizit durch {{cssxref("grid-template-columns")}} dimensioniert ist, werden implizite [Grid](/de/docs/Glossary/grid)-Spuren erstellt, um es zu halten. Dies kann entweder durch explizites Positionieren in einer Spalte geschehen, die außerhalb des Bereichs liegt, oder durch den Algorithmus zur automatischen Platzierung, der zusätzliche Spalten erstellt.
+Wenn ein Rasterelement in eine Spalte positioniert ist, die nicht explizit durch {{cssxref("grid-template-columns")}} dimensioniert ist, werden implizite {{Glossary("grid", "Grid")}}-Spuren erstellt, um es zu halten. Dies kann entweder durch explizites Positionieren in einer Spalte geschehen, die außerhalb des Bereichs liegt, oder durch den Algorithmus zur automatischen Platzierung, der zusätzliche Spalten erstellt.
 
 ## Syntax
 

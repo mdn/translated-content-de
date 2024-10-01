@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Media Capture and Streams")}}
 
-Die **`id`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine Zeichenkette mit einer eindeutigen Kennung (GUID) für die Spur zurückgibt, welche vom [User-Agent](/de/docs/Glossary/user_agent) generiert wird.
+Die **`id`**-Eigenschaft der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack)-Schnittstelle ist eine schreibgeschützte Eigenschaft, die eine Zeichenkette mit einer eindeutigen Kennung (GUID) für die Spur zurückgibt, welche vom {{Glossary("user_agent", "User-Agent")}} generiert wird.
 
 ## Syntax
 

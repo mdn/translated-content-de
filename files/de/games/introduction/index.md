@@ -9,7 +9,7 @@ l10n:
 
 Das moderne Web hat sich schnell zu einer tragfähigen Plattform entwickelt, nicht nur für die Erstellung beeindruckender, hochwertiger Spiele, sondern auch für deren Verbreitung.
 
-Die Bandbreite der möglichen Spiele ist mit Desktop- und nativen Betriebssystem-Pendants vergleichbar. Mit modernen Webtechnologien und einem aktuellen Browser ist es durchaus möglich, beeindruckende, erstklassige Spiele für das Web zu erstellen. Und wir sprechen hier nicht von einfachen Kartenspielen oder Multiplayer-Social-Games, die in früheren Zeiten mit Flash® umgesetzt wurden. Wir reden von 3D-Action-Shootern, Rollenspielen und mehr. Dank massiver Leistungsverbesserungen in der [JavaScript](/de/docs/Web/JavaScript)-Just-in-Time-Compiler-Technologie und neuen APIs können Sie Spiele erstellen, die im Browser (oder auf [HTML5](/de/docs/Glossary/HTML5)-fähigen Geräten) ohne Kompromisse laufen.
+Die Bandbreite der möglichen Spiele ist mit Desktop- und nativen Betriebssystem-Pendants vergleichbar. Mit modernen Webtechnologien und einem aktuellen Browser ist es durchaus möglich, beeindruckende, erstklassige Spiele für das Web zu erstellen. Und wir sprechen hier nicht von einfachen Kartenspielen oder Multiplayer-Social-Games, die in früheren Zeiten mit Flash® umgesetzt wurden. Wir reden von 3D-Action-Shootern, Rollenspielen und mehr. Dank massiver Leistungsverbesserungen in der [JavaScript](/de/docs/Web/JavaScript)-Just-in-Time-Compiler-Technologie und neuen APIs können Sie Spiele erstellen, die im Browser (oder auf {{Glossary("HTML5", "HTML5")}}-fähigen Geräten) ohne Kompromisse laufen.
 
 ## Die HTML-Spielplattform
 

@@ -12,5 +12,5 @@ l10n:
 ## Siehe auch
 
 - Metriken, die First CPU Idle ersetzt haben:
-  - [Time to interactive](/de/docs/Glossary/Time_to_interactive)
+  - {{Glossary("Time_to_interactive", "Time to interactive")}}
 - [Total blocking time](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/)

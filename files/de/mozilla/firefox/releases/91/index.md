@@ -43,7 +43,7 @@ Keine Änderungen
 #### DOM
 
 - Die [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API) ist jetzt standardmäßig in Desktop-Veröffentlichungen von Firefox aktiviert (sie ist seit Version 68 auf Firefox für Android aktiviert).
-  Die API bietet Zugriff auf Informationen, die die Position des [Visual Viewport](/de/docs/Glossary/visual_viewport) relativ zum Dokument sowie zum Inhaltsbereich des Fensters beschreiben.
+  Die API bietet Zugriff auf Informationen, die die Position des {{Glossary("visual_viewport", "Visual Viewport")}} relativ zum Dokument sowie zum Inhaltsbereich des Fensters beschreiben.
   Sie bietet auch Ereignisse, die es ermöglichen, Änderungen am Viewport zu überwachen. ([Firefox-Bug 1551302](https://bugzil.la/1551302)).
 - Die [Gamepad API](/de/docs/Web/API/Gamepad_API) wird nun durch {{httpheader('Feature-Policy/gamepad','Feature-Policy: gamepad')}} geschützt.
   Wenn sie durch die [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy) nicht erlaubt ist, werfen Aufrufe von [`Navigator.getGamepads()`](/de/docs/Web/API/Navigator/getGamepads) einen `SecurityError`-[`DOMException`](/de/docs/Web/API/DOMException),

@@ -9,7 +9,7 @@ l10n:
 
 Das HTML-Element **`<button>`** ist ein interaktives Element, das von einem Benutzer mit einer Maus, Tastatur, einem Finger, einem Sprachbefehl oder anderer unterstützender Technologie aktiviert wird. Sobald es aktiviert ist, führt es eine Aktion aus, wie das Absenden eines [Formulars](/de/docs/Learn/Forms) oder das Öffnen eines Dialogs.
 
-Standardmäßig werden HTML-Buttons in einem Stil dargestellt, der der Plattform ähnelt, auf der der [User-Agent](/de/docs/Glossary/user_agent) ausgeführt wird. Sie können die Darstellung der Buttons jedoch mit [CSS](/de/docs/Web/CSS) ändern.
+Standardmäßig werden HTML-Buttons in einem Stil dargestellt, der der Plattform ähnelt, auf der der {{Glossary("user_agent", "User-Agent")}} ausgeführt wird. Sie können die Darstellung der Buttons jedoch mit [CSS](/de/docs/Web/CSS) ändern.
 
 {{EmbedInteractiveExample("pages/tabbed/button.html", "tabbed-shorter")}}
 
@@ -22,6 +22,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 - [`disabled`](/de/docs/Web/HTML/Attributes/disabled)
   - : Dieses boolesche Attribut verhindert, dass der Benutzer mit dem Button interagiert: Er kann weder gedrückt noch fokussiert werden.
 - `form`
+
   - : Das {{HTMLElement("form")}}-Element, dem der Button zugeordnet werden soll (sein _Formularbesitzer_). Der Wert dieses Attributs muss die `id` eines `<form>` im selben Dokument sein. (Wenn dieses Attribut nicht gesetzt ist, wird der `<button>` mit seinem Vorfahren `<form>`-Element, falls vorhanden, verknüpft.)
 
     Dieses Attribut ermöglicht es Ihnen, `<button>`-Elemente auf `<form>` in jedem Bereich des Dokuments zu beziehen, nicht nur innerhalb eines `<form>`. Es kann auch ein vorangestelltes `<form>`-Element überschreiben.
@@ -29,6 +30,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
 - `formaction`
   - : Die URL, die die vom Button übermittelten Informationen verarbeitet. Überschreibt das [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut des Formularbesitzers des Buttons. Hat keine Wirkung, wenn kein Formularbesitzer vorhanden ist.
 - `formenctype`
+
   - : Wenn der Button ein Absende-Button ist (er befindet sich in/ist mit einem `<form>` verknüpft und hat nicht `type="button"`), wird angegeben, wie die abgesendeten Formulardaten kodiert werden sollen. Mögliche Werte:
 
     - `application/x-www-form-urlencoded`: Der Standard, wenn das Attribut nicht verwendet wird.
@@ -38,20 +40,23 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
     Wenn dieses Attribut angegeben ist, überschreibt es das [`enctype`](/de/docs/Web/HTML/Element/form#enctype)-Attribut des Formularbesitzers des Buttons.
 
 - `formmethod`
+
   - : Wenn der Button ein Absende-Button ist (er befindet sich in/ist mit einem `<form>` verknüpft und hat nicht `type="button"`), gibt dieses Attribut die verwendete [HTTP-Methode](/de/docs/Web/HTTP/Methods) zur Absendung des Formulars an. Mögliche Werte:
 
     - `post`: Die Daten aus dem Formular werden im Body der HTTP-Anfrage eingeschlossen, wenn sie an den Server übermittelt werden. Verwenden Sie dies, wenn das Formular Informationen enthält, die nicht öffentlich sein sollten, wie Anmeldeinformationen.
-    - `get`: Die Formulardaten werden der `action`-URL des Formulars angehängt, mit einem `?` als Trennzeichen, und die resultierende URL wird an den Server gesendet. Verwenden Sie diese Methode, wenn das Formular [keine Nebeneffekte](/de/docs/Glossary/Idempotent) hat, wie Suchformulare.
+    - `get`: Die Formulardaten werden der `action`-URL des Formulars angehängt, mit einem `?` als Trennzeichen, und die resultierende URL wird an den Server gesendet. Verwenden Sie diese Methode, wenn das Formular {{Glossary("Idempotent", "keine Nebeneffekte")}} hat, wie Suchformulare.
     - `dialog`: Diese Methode wird verwendet, um anzuzeigen, dass der Button den mit ihm verbundenen [Dialog](/de/docs/Web/HTML/Element/dialog) schließt und die Formulardaten überhaupt nicht überträgt.
 
     Wenn angegeben, überschreibt dieses Attribut das [`method`](/de/docs/Web/HTML/Element/form#method)-Attribut des Formularbesitzers des Buttons.
 
 - `formnovalidate`
+
   - : Wenn der Button ein Absende-Button ist, gibt dieses boolesche Attribut an, dass das Formular beim Absenden nicht [validiert](/de/docs/Learn/Forms/Form_validation) werden soll. Wenn dieses Attribut angegeben ist, überschreibt es das [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate)-Attribut des Formularbesitzers des Buttons.
 
     Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit)-Elementen verfügbar.
 
 - `formtarget`
+
   - : Wenn der Button ein Absende-Button ist, ist dieses Attribut ein vom Autor definierter Name oder ein standardisiertes Stichwort mit Unterstrich, das angibt, wo die Antwort auf die Formularabsendung angezeigt wird. Dies ist der `name` einer _Browsing-Kontext_ (ein Tab, Fenster oder {{HTMLElement("iframe")}}). Wenn dieses Attribut angegeben ist, überschreibt es das [`target`](/de/docs/Web/HTML/Element/form#target)-Attribut des Formularbesitzers des Buttons. Die folgenden Stichworte haben spezielle Bedeutungen:
 
     - `_self`: Lädt die Antwort im gleichen Browsing-Kontext wie der aktuelle. Dies ist der Standard, wenn das Attribut nicht angegeben ist.
@@ -60,12 +65,15 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
     - `_top`: Lädt die Antwort im obersten Browsing-Kontext (d.h., den Browsing-Kontext, der ein Vorfahre des aktuellen ist und keinen übergeordneten hat). Gibt es keinen übergeordneten, verhält sich diese Option genauso wie `_self`.
 
 - `name`
+
   - : Der Name des Buttons, der als Paar mit dem `value` des Buttons als Teil der Formulardaten übermittelt wird, wenn dieser Button verwendet wird, um das Formular abzusenden.
 
 - `popovertarget`
+
   - : Wandelt ein `<button>`-Element in einen Popover-Kontrollbutton um; nimmt die ID des gesteuerten Popover-Elements als Wert. Weitere Informationen finden Sie auf der [Popover API](/de/docs/Web/API/Popover_API)-Seite.
 
 - `popovertargetaction`
+
   - : Gibt die Aktion an, die bei einem über einen Kontroll-`<button>` gesteuerten Popover-Element ausgeführt werden soll. Mögliche Werte sind:
 
     - `"hide"`
@@ -76,6 +84,7 @@ Die Attribute dieses Elements umfassen die [globalen Attribute](/de/docs/Web/HTM
       - : Der Button wird ein Popover zwischen sichtbar und ausgeblendet umschalten. Wenn das Popover ausgeblendet ist, wird es angezeigt; wenn das Popover sichtbar ist, wird es ausgeblendet. Wenn `popovertargetaction` weggelassen wird, ist `"toggle"` die Standardaktion, die durch den Kontrollbutton ausgeführt wird.
 
 - `type`
+
   - : Das Standardverhalten des Buttons. Mögliche Werte sind:
 
     - `submit`: Der Button sendet die Formulardaten an den Server. Dies ist der Standard, wenn das Attribut für Buttons, die mit einem `<form>` verknüpft sind, nicht angegeben ist oder wenn das Attribut einen leeren oder ungültigen Wert hat.
@@ -103,7 +112,7 @@ Standardmäßig stylen User-Agents Buttons als `display: flow-root`, was einen n
 
 ### Symbol-Buttons
 
-Buttons, die nur ein Symbol anzeigen, haben keinen _[zugänglichen Namen](/de/docs/Glossary/accessible_name)_. Zugängliche Namen bieten Informationen für unterstützende Technologien, wie Bildschirmleser, die auf sie zugreifen, wenn sie das Dokument analysieren und [einen Barrierefreiheitsbaum](/de/docs/Learn/Accessibility/What_is_accessibility#accessibility_apis) erzeugen. Unterstützende Technologien verwenden dann den Barrierefreiheitsbaum, um auf die Inhalte der Seite zuzugreifen und sie zu manipulieren.
+Buttons, die nur ein Symbol anzeigen, haben keinen _{{Glossary("accessible_name", "zugänglichen Namen")}}_. Zugängliche Namen bieten Informationen für unterstützende Technologien, wie Bildschirmleser, die auf sie zugreifen, wenn sie das Dokument analysieren und [einen Barrierefreiheitsbaum](/de/docs/Learn/Accessibility/What_is_accessibility#accessibility_apis) erzeugen. Unterstützende Technologien verwenden dann den Barrierefreiheitsbaum, um auf die Inhalte der Seite zuzugreifen und sie zu manipulieren.
 
 Um einem Symbol-Button einen zugänglichen Namen zu geben, fügen Sie Text in das `<button>`-Element ein, der die Funktionalität des Buttons prägnant beschreibt.
 
@@ -134,7 +143,7 @@ Es lohnt sich jedoch zu beachten, dass das Belassen des Button-Texts Menschen he
 
 #### Größe
 
-Interaktive Elemente wie Buttons sollten eine Fläche haben, die groß genug ist, um leicht aktiviert zu werden. Dies hilft einer Vielzahl von Menschen, einschließlich Menschen mit motorischen Steuerungsproblemen und Menschen, die nicht präzise Eingabemethoden wie einen Stift oder Finger verwenden. Eine Mindestinteraktivitätsgröße von 44×44 [CSS-Pixel](/de/docs/Glossary/CSS_pixel) wird empfohlen.
+Interaktive Elemente wie Buttons sollten eine Fläche haben, die groß genug ist, um leicht aktiviert zu werden. Dies hilft einer Vielzahl von Menschen, einschließlich Menschen mit motorischen Steuerungsproblemen und Menschen, die nicht präzise Eingabemethoden wie einen Stift oder Finger verwenden. Eine Mindestinteraktivitätsgröße von 44×44 {{Glossary("CSS_pixel", "CSS-Pixel")}} wird empfohlen.
 
 - [Understanding Success Criterion 2.5.5: Target Size | W3C Understanding WCAG 2.1](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html)
 - [Target Size and 2.5.5 | Adrian Roselli](https://adrianroselli.com/2019/06/target-size-and-2-5-5.html)

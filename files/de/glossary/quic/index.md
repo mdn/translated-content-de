@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**QUIC** ist ein multiplexed Transportprotokoll, das auf UDP implementiert ist. Es wird anstelle von [TCP](/de/docs/Glossary/TCP) als Transportschicht in HTTP/3 verwendet.
+**QUIC** ist ein multiplexed Transportprotokoll, das auf UDP implementiert ist. Es wird anstelle von {{Glossary("TCP", "TCP")}} als Transportschicht in HTTP/3 verwendet.
 
 QUIC wurde entwickelt, um schnellere Einrichtung und geringere Latenzzeiten für HTTP-Verbindungen zu bieten. Insbesondere:
 

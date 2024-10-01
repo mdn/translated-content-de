@@ -27,7 +27,7 @@ Map.groupBy(items, callbackFn)
 - `items`
   - : Ein [iterable](/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) (wie ein {{jsxref("Array")}}), dessen Elemente gruppiert werden sollen.
 - `callbackFn`
-  - : Eine Funktion, die für jedes Element im Iterable ausgeführt wird. Sie sollte einen Wert ([object](/de/docs/Glossary/object) oder [primitive](/de/docs/Glossary/primitive)) zurückgeben, der die Gruppe des aktuellen Elements angibt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
+  - : Eine Funktion, die für jedes Element im Iterable ausgeführt wird. Sie sollte einen Wert ({{Glossary("object", "object")}} oder {{Glossary("primitive", "primitive")}}) zurückgeben, der die Gruppe des aktuellen Elements angibt. Die Funktion wird mit den folgenden Argumenten aufgerufen:
     - `element`
       - : Das aktuelle Element, das verarbeitet wird.
     - `index`
@@ -41,7 +41,7 @@ Ein {{jsxref("Map")}}-Objekt mit Schlüsseln für jede Gruppe, denen jeweils ein
 
 `Map.groupBy()` ruft eine bereitgestellte `callbackFn`-Funktion einmal für jedes Element eines Iterables auf. Die Callback-Funktion sollte einen Wert zurückgeben, der die Gruppe des zugehörigen Elements angibt. Die von `callbackFn` zurückgegebenen Werte werden als Schlüssel für die von `Map.groupBy()` zurückgegebene {{jsxref("Map")}} verwendet. Jeder Schlüssel hat ein zugeordnetes Array, das alle Elemente enthält, für die der Callback denselben Wert zurückgegeben hat.
 
-Die Elemente in der zurückgegebenen {{jsxref("Map")}} und im ursprünglichen Iterable sind dieselben (keine [tiefen Kopien](/de/docs/Glossary/deep_copy)). Änderungen an der internen Struktur der Elemente werden sowohl im ursprünglichen Iterable als auch in der zurückgegebenen {{jsxref("Map")}} widergespiegelt.
+Die Elemente in der zurückgegebenen {{jsxref("Map")}} und im ursprünglichen Iterable sind dieselben (keine {{Glossary("deep_copy", "tiefen Kopien")}}). Änderungen an der internen Struktur der Elemente werden sowohl im ursprünglichen Iterable als auch in der zurückgegebenen {{jsxref("Map")}} widergespiegelt.
 
 Diese Methode ist nützlich, wenn Sie Informationen gruppieren müssen, die mit einem bestimmten Objekt zusammenhängen, das sich möglicherweise im Laufe der Zeit ändern kann. Denn auch wenn das Objekt modifiziert wird, bleibt es ein gültiger Schlüssel für die zurückgegebene `Map`. Wenn Sie stattdessen eine String-Darstellung für das Objekt erstellen und diese als Gruppierungsschlüssel in {{jsxref("Object.groupBy()")}} verwenden, müssen Sie die Zuordnung zwischen dem ursprünglichen Objekt und seiner Darstellung beibehalten, während sich das Objekt ändert.
 

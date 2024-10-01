@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-column`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb einer [Grid-Spalte](/de/docs/Glossary/grid_column) fest, indem es zur Platzierung im Grid eine Linie, eine Spannweite oder nichts (automatisch) beiträgt. Dadurch werden der Inline-Start- und Inline-Endrand seines [Grid-Bereichs](/de/docs/Glossary/grid_areas) festgelegt.
+Die **`grid-column`** CSS-[Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) legt die Größe und Position eines Grid-Elements innerhalb einer {{Glossary("grid_column", "Grid-Spalte")}} fest, indem es zur Platzierung im Grid eine Linie, eine Spannweite oder nichts (automatisch) beiträgt. Dadurch werden der Inline-Start- und Inline-Endrand seines {{Glossary("grid_areas", "Grid-Bereichs")}} festgelegt.
 
 {{EmbedInteractiveExample("pages/css/grid-column.html")}}
 

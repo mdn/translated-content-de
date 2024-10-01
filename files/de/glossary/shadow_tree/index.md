@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-Ein **Shadow Tree** ist eine versteckte Menge von [DOM](/de/docs/Glossary/DOM)-Knoten, deren oberster [Knoten](/de/docs/Glossary/node/dom) eine **Shadow Root** ist. Die Shadow Root ist der oberste Knoten eines **Shadow DOM** und gehört nicht zum regulären DOM-Baum des Dokuments.
+Ein **Shadow Tree** ist eine versteckte Menge von {{Glossary("DOM", "DOM")}}-Knoten, deren oberster {{Glossary("node/dom", "Knoten")}} eine **Shadow Root** ist. Die Shadow Root ist der oberste Knoten eines **Shadow DOM** und gehört nicht zum regulären DOM-Baum des Dokuments.
 
 Die Shadow Root ist über einen spezifischen DOM-Knoten, der als **Host** bezeichnet wird, mit einem anderen Knotenbaum verbunden. Dieser Host kann Teil eines anderen Shadow Trees oder Teil des regulären DOM-Baums sein. Der Knotenbaum des Hosts einer Shadow Root wird manchmal als **Light Tree** bezeichnet.
 
@@ -23,4 +23,4 @@ Die versteckten DOM-Knoten eines Shadow Trees werden im Allgemeinen nicht von et
 - [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)
 - {{HTMLElement("slot")}}
 - Verwandte Glossarbegriffe:
-  - [Accessibility tree](/de/docs/Glossary/Accessibility_tree)
+  - {{Glossary("Accessibility_tree", "Accessibility tree")}}

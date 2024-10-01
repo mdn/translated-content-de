@@ -19,7 +19,7 @@ Medien mit den {{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elementen 
     </tr>
     <tr>
       <th scope="row">Richtlinientyp</th>
-      <td>[Abrufrichtlinie](/de/docs/Glossary/Fetch_directive)</td>
+      <td>{{Glossary("Fetch_directive", "Abrufrichtlinie")}}</td>
     </tr>
     <tr>
       <th scope="row">{{CSP("default-src")}}-Fallback</th>
@@ -44,7 +44,7 @@ Content-Security-Policy: media-src <source> <source>;
 
 `<source>` kann einer der Werte sein, die in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#sources) aufgeführt sind.
 
-Beachten Sie, dass dieses gleiche Set von Werten in allen [Abrufrichtlinien](/de/docs/Glossary/fetch_directive) (und einer [Reihe anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
+Beachten Sie, dass dieses gleiche Set von Werten in allen {{Glossary("fetch_directive", "Abrufrichtlinien")}} (und einer [Reihe anderer Richtlinien](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#relevant_directives)) verwendet werden kann.
 
 ## Beispiele
 

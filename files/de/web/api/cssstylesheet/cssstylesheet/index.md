@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("CSSOM")}}
 
-Der **`CSSStyleSheet()`** Konstruktor erstellt ein neues [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt, das ein einzelnes [Stylesheet](/de/docs/Glossary/Stylesheet) repräsentiert.
+Der **`CSSStyleSheet()`** Konstruktor erstellt ein neues [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Objekt, das ein einzelnes {{Glossary("Stylesheet", "Stylesheet")}} repräsentiert.
 
 Nachdem ein Stylesheet erstellt wurde, können die Methoden [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace), [`CSSStyleSheet.replaceSync()`](/de/docs/Web/API/CSSStyleSheet/replaceSync), [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule) und [`CSSStyleSheet.deleteRule()`](/de/docs/Web/API/CSSStyleSheet/deleteRule) verwendet werden, um die Regeln des neuen Stylesheets zu ändern.
 

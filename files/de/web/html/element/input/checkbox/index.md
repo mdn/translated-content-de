@@ -46,7 +46,7 @@ Zusätzlich zu den [allgemeinen Attributen](/de/docs/Web/HTML/Element/input#attr
 
 - `checked`
 
-  - : Ein [boolean](/de/docs/Glossary/Boolean/HTML) Attribut, das angibt, ob diese Checkbox standardmäßig angehakt ist (wenn die Seite geladen wird). Es zeigt _nicht_ an, ob diese Checkbox derzeit angehakt ist: Wenn der Zustand der Checkbox geändert wird, spiegelt dieses Inhaltsattribut die Änderung nicht wider. (Nur das `checked` IDL-Attribut des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) wird aktualisiert.)
+  - : Ein {{Glossary("Boolean/HTML", "boolean")}} Attribut, das angibt, ob diese Checkbox standardmäßig angehakt ist (wenn die Seite geladen wird). Es zeigt _nicht_ an, ob diese Checkbox derzeit angehakt ist: Wenn der Zustand der Checkbox geändert wird, spiegelt dieses Inhaltsattribut die Änderung nicht wider. (Nur das `checked` IDL-Attribut des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) wird aktualisiert.)
     > [!NOTE]
     > Im Gegensatz zu anderen Eingabesteuerelementen wird der Wert einer Checkbox nur dann in den übermittelten Daten enthalten, wenn die Checkbox derzeit `checked` ist. In diesem Fall wird der Wert des `value`-Attributes der Checkbox als Eingabewert gemeldet, oder `on`, wenn kein `value` gesetzt ist.
     > Anders als andere Browser bewahrt Firefox standardmäßig [den dynamischen checked-Zustand](https://stackoverflow.com/questions/5985839/bug-with-firefox-disabled-attribute-of-input-not-resetting-when-refreshing) eines `<input>` über Seitennachladungen hinweg. Verwenden Sie das [`autocomplete`](/de/docs/Web/HTML/Element/input#autocomplete) Attribut, um diese Funktion zu steuern.

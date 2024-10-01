@@ -22,7 +22,7 @@ Display-Override-Objekte sind Anzeigemodus-Strings, die möglichen Werte sind:
 
 - `fullscreen`
 
-  - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird keine Benutzeroberfläche des Benutzeragenten [chrome](/de/docs/Glossary/chrome) angezeigt.
+  - : Der gesamte verfügbare Anzeigebereich wird genutzt und es wird keine Benutzeroberfläche des Benutzeragenten {{Glossary("chrome", "chrome")}} angezeigt.
 
 - `minimal-ui`
 

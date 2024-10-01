@@ -9,7 +9,7 @@ l10n:
 
 Die **`inset-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockend-Offset eines Elements, der je nach Schreibrichtung, Richtung und Textausrichtung des Elements auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese [Einfüge-Eigenschaft](/de/docs/Glossary/inset_properties) hat keinen Effekt auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Einfüge-Eigenschaft")}} hat keinen Effekt auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block-end.html")}}
 

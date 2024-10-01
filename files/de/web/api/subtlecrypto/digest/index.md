@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("Web Crypto API")}}{{SecureContext_header}}{{AvailableInWorkers}}
 
-Die **`digest()`** Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces erzeugt einen [Digest](/de/docs/Glossary/digest) der gegebenen Daten. Ein Digest ist ein kurzer, fester Wert, der aus einer variablen Eingabe abgeleitet wird. Kryptografische Digests sollten kollisionsresistent sein, was bedeutet, dass es schwierig ist, zwei verschiedene Eingaben zu finden, die den gleichen Digest-Wert haben.
+Die **`digest()`** Methode des [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)-Interfaces erzeugt einen {{Glossary("digest", "Digest")}} der gegebenen Daten. Ein Digest ist ein kurzer, fester Wert, der aus einer variablen Eingabe abgeleitet wird. Kryptografische Digests sollten kollisionsresistent sein, was bedeutet, dass es schwierig ist, zwei verschiedene Eingaben zu finden, die den gleichen Digest-Wert haben.
 
 Sie nimmt als Argumente einen Bezeichner für den zu verwendenden Digest-Algorithmus und die zu verdauenden Daten. Sie gibt ein {{jsxref("Promise")}} zurück, das mit dem Digest erfüllt wird.
 
@@ -37,7 +37,7 @@ Ein {{jsxref("Promise")}}, das mit einem {{jsxref("ArrayBuffer")}} erfüllt wird
 
 ## Unterstützte Algorithmen
 
-Digest-Algorithmen, auch bekannt als [kryptografische Hash-Funktionen](/de/docs/Glossary/Cryptographic_hash_function),
+Digest-Algorithmen, auch bekannt als {{Glossary("Cryptographic_hash_function", "kryptografische Hash-Funktionen")}},
 verwandeln einen beliebig großen Datenblock in eine Ausgabe fester Größe,
 die normalerweise viel kürzer als die Eingabe ist. Sie haben eine Vielzahl von Anwendungen in der
 Kryptografie.
@@ -98,7 +98,7 @@ Kryptografie.
 > für kryptografische Anwendungen verwendet werden.
 
 > [!NOTE]
-> Wenn Sie wissen möchten, wie man einen Keyed-Hash-Message-Authentication-Code ([HMAC](/de/docs/Glossary/HMAC)) erstellt, müssen Sie stattdessen [SubtleCrypto.sign()](/de/docs/Web/API/SubtleCrypto/sign#hmac) verwenden.
+> Wenn Sie wissen möchten, wie man einen Keyed-Hash-Message-Authentication-Code ({{Glossary("HMAC", "HMAC")}}) erstellt, müssen Sie stattdessen [SubtleCrypto.sign()](/de/docs/Web/API/SubtleCrypto/sign#hmac) verwenden.
 
 ## Beispiele
 

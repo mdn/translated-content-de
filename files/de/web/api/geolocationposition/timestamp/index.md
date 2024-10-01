@@ -12,7 +12,7 @@ Die **`timestamp`** schreibgeschützte Eigenschaft der [`GeolocationPosition`](/
 
 ## Wert
 
-Eine Zahl, die einen Zeitstempel enthält, angegeben als [Unix-Zeit](/de/docs/Glossary/Unix_time) in Millisekunden.
+Eine Zahl, die einen Zeitstempel enthält, angegeben als {{Glossary("Unix_time", "Unix-Zeit")}} in Millisekunden.
 
 ## Spezifikationen
 

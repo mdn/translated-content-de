@@ -30,7 +30,7 @@ _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTML
 - [`HTMLObjectElement.contentDocument`](/de/docs/Web/API/HTMLObjectElement/contentDocument) {{ReadOnlyInline}}
   - : Gibt ein [`Document`](/de/docs/Web/API/Document) zurück, das das aktive Dokument des eingebetteten Browsing-Kontextes des Objekts darstellt, falls vorhanden; ansonsten `null`.
 - [`HTMLObjectElement.contentWindow`](/de/docs/Web/API/HTMLObjectElement/contentWindow) {{ReadOnlyInline}}
-  - : Gibt ein [WindowProxy](/de/docs/Glossary/WindowProxy) zurück, das die Fenster-Proxies des eingebetteten Browsing-Kontextes des Objekts darstellt, falls vorhanden; ansonsten `null`.
+  - : Gibt ein {{Glossary("WindowProxy", "WindowProxy")}} zurück, das die Fenster-Proxies des eingebetteten Browsing-Kontextes des Objekts darstellt, falls vorhanden; ansonsten `null`.
 - [`HTMLObjectElement.data`](/de/docs/Web/API/HTMLObjectElement/data)
   - : Gibt einen String zurück, der das HTML-Attribut [`data`](/de/docs/Web/HTML/Element/object#data) widerspiegelt und die Adresse der Datenressource angibt.
 - [`HTMLObjectElement.declare`](/de/docs/Web/API/HTMLObjectElement/declare) {{deprecated_inline}}

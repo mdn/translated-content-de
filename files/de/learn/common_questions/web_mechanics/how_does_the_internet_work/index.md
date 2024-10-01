@@ -90,7 +90,7 @@ Das ist für Computer perfekt in Ordnung, aber wir Menschen haben Schwierigkeite
 
 ### Internet und das Web
 
-Wie Sie vielleicht bemerken, verwenden wir beim Surfen im Web mit einem Webbrowser normalerweise den Domain-Namen, um eine Website zu erreichen. Bedeutet das, dass Internet und das Web dasselbe sind? So einfach ist es nicht. Wie wir gesehen haben, ist das Internet eine technische Infrastruktur, die es Milliarden von Computern ermöglicht, miteinander verbunden zu sein. Unter diesen Computern können einige Computer (sogenannte _Web-Server_) Nachrichten senden, die für Webbrowser verständlich sind. Das _Internet_ ist eine Infrastruktur, während das _Web_ ein auf dieser Infrastruktur aufgebauter Dienst ist. Es ist erwähnenswert, dass es mehrere andere Dienste gibt, die auf dem Internet aufgebaut sind, wie E-Mail und [IRC](/de/docs/Glossary/IRC).
+Wie Sie vielleicht bemerken, verwenden wir beim Surfen im Web mit einem Webbrowser normalerweise den Domain-Namen, um eine Website zu erreichen. Bedeutet das, dass Internet und das Web dasselbe sind? So einfach ist es nicht. Wie wir gesehen haben, ist das Internet eine technische Infrastruktur, die es Milliarden von Computern ermöglicht, miteinander verbunden zu sein. Unter diesen Computern können einige Computer (sogenannte _Web-Server_) Nachrichten senden, die für Webbrowser verständlich sind. Das _Internet_ ist eine Infrastruktur, während das _Web_ ein auf dieser Infrastruktur aufgebauter Dienst ist. Es ist erwähnenswert, dass es mehrere andere Dienste gibt, die auf dem Internet aufgebaut sind, wie E-Mail und {{Glossary("IRC", "IRC")}}.
 
 ### Intranets und Extranets
 

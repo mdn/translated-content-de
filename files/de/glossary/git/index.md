@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Git** ist ein kostenloses, quelloffenes, verteiltes System zur Verwaltung von Quellcode ([SCM](/de/docs/Glossary/SCM)). Es erleichtert die Handhabung von Codebasen mit verteilten Entwicklungsteams. Was es von früheren SCM-Systemen unterscheidet, ist die Möglichkeit, gängige Operationen (Zweige erstellen, Commits ausführen usw.) auf Ihrer lokalen Entwicklungsmaschine durchzuführen, ohne das Master-Repository ändern oder sogar Schreibzugriff darauf haben zu müssen.
+**Git** ist ein kostenloses, quelloffenes, verteiltes System zur Verwaltung von Quellcode ({{Glossary("SCM", "SCM")}}). Es erleichtert die Handhabung von Codebasen mit verteilten Entwicklungsteams. Was es von früheren SCM-Systemen unterscheidet, ist die Möglichkeit, gängige Operationen (Zweige erstellen, Commits ausführen usw.) auf Ihrer lokalen Entwicklungsmaschine durchzuführen, ohne das Master-Repository ändern oder sogar Schreibzugriff darauf haben zu müssen.
 
 ## Siehe auch
 

@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Die **`grid-template-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Liniennamen und Größenfunktionen der [Rasterzeilen](/de/docs/Glossary/grid_row).
+Die **`grid-template-rows`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Liniennamen und Größenfunktionen der {{Glossary("grid_row", "Rasterzeilen")}}.
 
 {{EmbedInteractiveExample("pages/css/grid-template-rows.html")}}
 

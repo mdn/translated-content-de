@@ -46,7 +46,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 70, die Ent
 
   - {{cssxref("text-decoration-thickness")}}.
   - {{cssxref("text-underline-offset")}}.
-  - {{cssxref("text-decoration-skip-ink")}}. Der Standardwert ist `auto`, was bedeutet, dass Unterstreichen und Überstreichen jetzt standardmäßig unterbrochen werden, wo sie sonst über ein [Glyph](/de/docs/Glossary/glyph) laufen würden.
+  - {{cssxref("text-decoration-skip-ink")}}. Der Standardwert ist `auto`, was bedeutet, dass Unterstreichen und Überstreichen jetzt standardmäßig unterbrochen werden, wo sie sonst über ein {{Glossary("glyph", "Glyph")}} laufen würden.
 
 - Die {{cssxref("display")}}-Eigenschaft akzeptiert jetzt zwei Schlüsselwortwerte, die den inneren und äußeren Anzeigetyp darstellen ([Firefox-Bug 1038294](https://bugzil.la/1038294), [Webkit-Bug 1105868](https://bugzil.la/1105868) und [Webkit-Bug 1557825](https://bugzil.la/1557825)).
 - Die {{cssxref("font-size")}}-Eigenschaft akzeptiert jetzt den neuen Schlüsselwortwert `xxx-large` ([Firefox-Bug 1553545](https://bugzil.la/1553545)).

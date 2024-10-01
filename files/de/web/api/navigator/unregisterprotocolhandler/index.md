@@ -37,7 +37,7 @@ Keiner ({{jsxref("undefined")}}).
   - : Der Benutzeragent hat die Abmeldung blockiert.
     Dies kann passieren, wenn:
     - Das Schema (Protokoll) ungültig ist, wie ein Schema, das der Browser selbst verarbeitet (`https:`, `about:`, etc.)
-    - Der [Ursprung](/de/docs/Glossary/origin) der Handler-URL nicht mit dem Ursprung der Seite übereinstimmt, die diese API aufruft.
+    - Der {{Glossary("origin", "Ursprung")}} der Handler-URL nicht mit dem Ursprung der Seite übereinstimmt, die diese API aufruft.
     - Der Browser fordert, dass diese Funktion in einem sicheren Kontext aufgerufen wird.
     - Der Browser fordert, dass die URL des Handlers über HTTPS erfolgt.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)

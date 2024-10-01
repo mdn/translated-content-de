@@ -33,7 +33,7 @@ Die Statistiken können abgerufen werden, indem man durch den [`RTCStatsReport`]
 <!-- RTCReceivedRtpStreamStats -->
 
 - [`jitter`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/jitter) {{optional_inline}}
-  - : Eine Zahl, die die [Paket-Jitter](/de/docs/Glossary/jitter) für diese Synchronisierungsquelle in Sekunden angibt.
+  - : Eine Zahl, die die {{Glossary("jitter", "Paket-Jitter")}} für diese Synchronisierungsquelle in Sekunden angibt.
 - [`packetsLost`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/packetsLost) {{optional_inline}}
   - : Eine Ganzzahl, die die Gesamtzahl der verlorenen RTP-Pakete für diesen SSRC angibt, gemessen am entfernten Endpunkt. Dieser Wert kann negativ sein, wenn doppelte Pakete empfangen wurden.
 - [`packetsReceived`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/packetsReceived) {{optional_inline}} {{experimental_inline}}
@@ -44,7 +44,7 @@ Die Statistiken können abgerufen werden, indem man durch den [`RTCStatsReport`]
 <!-- RTCRtpStreamStats -->
 
 - [`codecId`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/codecId) {{optional_inline}}
-  - : Ein String, der das Objekt eindeutig identifiziert, das untersucht wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erstellen, das mit diesem [RTP](/de/docs/Glossary/RTP)-Stream verknüpft ist.
+  - : Ein String, der das Objekt eindeutig identifiziert, das untersucht wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erstellen, das mit diesem {{Glossary("RTP", "RTP")}}-Stream verknüpft ist.
 - [`kind`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/kind)
   - : Ein String, der angibt, ob der mit dem Stream verbundene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) ein Audio- oder Videotrack ist.
 - [`ssrc`](/de/docs/Web/API/RTCRemoteInboundRtpStreamStats/ssrc)

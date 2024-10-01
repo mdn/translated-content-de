@@ -7,9 +7,9 @@ l10n:
 
 {{CSSRef}}
 
-Das **CSS overscroll behavior**-Modul bietet Eigenschaften, um das Verhalten eines [Scroll-Containers](/de/docs/Glossary/Scroll_container) zu steuern, wenn seine Scroll-Position den [Scroll-Grenzbereich](/de/docs/Glossary/Scroll_boundary) erreicht. Die Kontrolle dieser Eigenschaft ist besonders nützlich in Szenarien, in denen eingebettete scrollbare Bereiche nicht das Scrollen des übergeordneten Containers auslösen sollen.
+Das **CSS overscroll behavior**-Modul bietet Eigenschaften, um das Verhalten eines {{Glossary("Scroll_container", "Scroll-Containers")}} zu steuern, wenn seine Scroll-Position den {{Glossary("Scroll_boundary", "Scroll-Grenzbereich")}} erreicht. Die Kontrolle dieser Eigenschaft ist besonders nützlich in Szenarien, in denen eingebettete scrollbare Bereiche nicht das Scrollen des übergeordneten Containers auslösen sollen.
 
-Beim Kommentieren eines Blogs könnten Sie bemerken, dass, wenn Ihr Kommentar die Länge des bereitgestellten {{htmlelement("textarea")}} überschreitet, das Scrollen über das Ende des Textbereichs das Scrollen des gesamten Blogs verursacht. Dies liegt daran, dass das Erreichen des Endes eines scrollbaren Bereichs, bekannt als [Scroll-Grenzbereich](/de/docs/Glossary/Scroll_boundary), dazu führen kann, dass anderer Inhalt oder die gesamte Seite scrollen. Diese kontinuierliche Scroll-Erfahrung wird als [Scroll-Verkettung](/de/docs/Glossary/Scroll_chaining) bezeichnet.
+Beim Kommentieren eines Blogs könnten Sie bemerken, dass, wenn Ihr Kommentar die Länge des bereitgestellten {{htmlelement("textarea")}} überschreitet, das Scrollen über das Ende des Textbereichs das Scrollen des gesamten Blogs verursacht. Dies liegt daran, dass das Erreichen des Endes eines scrollbaren Bereichs, bekannt als {{Glossary("Scroll_boundary", "Scroll-Grenzbereich")}}, dazu führen kann, dass anderer Inhalt oder die gesamte Seite scrollen. Diese kontinuierliche Scroll-Erfahrung wird als {{Glossary("Scroll_chaining", "Scroll-Verkettung")}} bezeichnet.
 
 In Situationen, in denen der Inhalt eines Elements größer als sein Container ist und {{cssxref("overflow")}} Scrollen ermöglicht oder standardmäßig zulässt (wie in `<textarea>`), wird bei weiterem Scrollen über den scrollbaren Bereich des Elements das Scrollen im übergeordneten Element oder der darunterliegenden Seite ausgelöst.
 
@@ -29,8 +29,8 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht es, die Aktionen
 
 ### Glossarbegriffe
 
-- [Scroll-Grenzbereich](/de/docs/Glossary/Scroll_boundary)
-- [Scroll-Verkettung](/de/docs/Glossary/Scroll_chaining)
+- {{Glossary("Scroll_boundary", "Scroll-Grenzbereich")}}
+- {{Glossary("Scroll_chaining", "Scroll-Verkettung")}}
 
 ## Leitfäden
 
@@ -50,7 +50,7 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht es, die Aktionen
   - {{CSSxRef("overflow-clip-margin")}} Eigenschaft
   - {{CSSxRef("scroll-behavior")}} Eigenschaft
   - {{CSSxRef("text-overflow")}} Eigenschaft
-- [Scroll-Container](/de/docs/Glossary/Scroll_container) und [scrollport](/de/docs/Glossary/Scroll_container#scrollport) Glossarbegriffe
+- {{Glossary("Scroll_container", "Scroll-Container")}} und {{Glossary("Scroll_container#scrollport", "scrollport")}} Glossarbegriffe
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap) Modul:
 

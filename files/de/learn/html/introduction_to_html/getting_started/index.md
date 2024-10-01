@@ -28,7 +28,7 @@ In diesem Artikel behandeln wir die absoluten Grundlagen von HTML. Um Ihnen den 
 
 ## Was ist HTML?
 
-[HTML](/de/docs/Glossary/HTML) (HyperText Markup Language) ist eine _Auszeichnungssprache_, die Webbrowsern vorgibt, wie die Webseiten, die Sie besuchen, strukturiert werden sollen. Sie kann so komplex oder einfach sein, wie der Webentwickler es möchte. HTML besteht aus einer Reihe von [Elementen](/de/docs/Glossary/Element), die verwendet werden, um verschiedene Teile von Inhalten einzuschließen, einzuwickeln oder _auszuzeichnen_, damit sie in bestimmter Weise erscheinen oder agieren. Die einschließenden [Tags](/de/docs/Glossary/Tag) können Inhalte in einen Hyperlink umwandeln, um zu einer anderen Seite zu verbinden, Wörter kursiv darstellen und mehr. Betrachten Sie beispielsweise die folgende Textzeile:
+{{Glossary("HTML", "HTML")}} (HyperText Markup Language) ist eine _Auszeichnungssprache_, die Webbrowsern vorgibt, wie die Webseiten, die Sie besuchen, strukturiert werden sollen. Sie kann so komplex oder einfach sein, wie der Webentwickler es möchte. HTML besteht aus einer Reihe von {{Glossary("Element", "Elementen")}}, die verwendet werden, um verschiedene Teile von Inhalten einzuschließen, einzuwickeln oder _auszuzeichnen_, damit sie in bestimmter Weise erscheinen oder agieren. Die einschließenden {{Glossary("Tag", "Tags")}} können Inhalte in einen Hyperlink umwandeln, um zu einer anderen Seite zu verbinden, Wörter kursiv darstellen und mehr. Betrachten Sie beispielsweise die folgende Textzeile:
 
 ```plain
 My cat is very grumpy
@@ -208,7 +208,7 @@ Die **Tags müssen in einer Weise öffnen und schließen, dass sie innerhalb ode
 
 ### Leere Elemente
 
-Nicht alle Elemente folgen dem Muster eines öffnenden Tags, Inhalts und eines schließenden Tags. Einige Elemente bestehen aus einem einzigen Tag, das typischerweise verwendet wird, um etwas in das Dokument einzufügen/einzubetten. Solche Elemente werden [leere Elemente](/de/docs/Glossary/void_element) genannt. Zum Beispiel bettet das {{htmlelement("img")}} Element eine Bilddatei auf einer Seite ein:
+Nicht alle Elemente folgen dem Muster eines öffnenden Tags, Inhalts und eines schließenden Tags. Einige Elemente bestehen aus einem einzigen Tag, das typischerweise verwendet wird, um etwas in das Dokument einzufügen/einzubetten. Solche Elemente werden {{Glossary("void_element", "leere Elemente")}} genannt. Zum Beispiel bettet das {{htmlelement("img")}} Element eine Bilddatei auf einer Seite ein:
 
 ```html
 <img
@@ -391,7 +391,7 @@ textarea.onkeyup = () => {
 
 ### Boolesche Attribute
 
-Manchmal werden Attribute ohne Werte geschrieben. Dies ist völlig akzeptabel. Diese werden [Boolesche Attribute](/de/docs/Glossary/Boolean/HTML) genannt. Wenn ein boolesches Attribut ohne Wert oder mit einem beliebigen Wert, selbst `false`, geschrieben wird, ist das boolesche Attribut immer auf true gesetzt. Andernfalls, wenn das Attribut in einem HTML-Tag nicht geschrieben ist, ist das Attribut auf false gesetzt. Die Spezifikation erfordert, dass der Attributwert entweder der leere String ist (einschließlich wenn das Attribut keinen explizit angegebenen Wert hat) oder derselbe wie der Attributname, aber andere Werte funktionieren ebenso. Betrachten Sie zum Beispiel das [`disabled`](/de/docs/Web/HTML/Element/input#disabled) Attribut, das Sie Formulareingabefeldern zuweisen können. (Sie verwenden dies, um die Formulareingabefelder zu deaktivieren, sodass der Benutzer keine Eingaben machen kann. Die deaktivierten Elemente haben typischerweise ein ausgegrautes Aussehen.) Zum Beispiel:
+Manchmal werden Attribute ohne Werte geschrieben. Dies ist völlig akzeptabel. Diese werden {{Glossary("Boolean/HTML", "Boolesche Attribute")}} genannt. Wenn ein boolesches Attribut ohne Wert oder mit einem beliebigen Wert, selbst `false`, geschrieben wird, ist das boolesche Attribut immer auf true gesetzt. Andernfalls, wenn das Attribut in einem HTML-Tag nicht geschrieben ist, ist das Attribut auf false gesetzt. Die Spezifikation erfordert, dass der Attributwert entweder der leere String ist (einschließlich wenn das Attribut keinen explizit angegebenen Wert hat) oder derselbe wie der Attributname, aber andere Werte funktionieren ebenso. Betrachten Sie zum Beispiel das [`disabled`](/de/docs/Web/HTML/Element/input#disabled) Attribut, das Sie Formulareingabefeldern zuweisen können. (Sie verwenden dies, um die Formulareingabefelder zu deaktivieren, sodass der Benutzer keine Eingaben machen kann. Die deaktivierten Elemente haben typischerweise ein ausgegrautes Aussehen.) Zum Beispiel:
 
 ```html
 <input type="text" disabled="disabled" />
@@ -455,7 +455,7 @@ Wenn Sie jedoch eine Art von Anführungszeichen verwenden, können Sie die ander
 </a>
 ```
 
-Um Anführungszeichen innerhalb anderer Anführungszeichen des gleichen Typs (einfach oder doppelt) zu verwenden, nutzen Sie [Zeichenreferenzen](/de/docs/Glossary/character_reference).
+Um Anführungszeichen innerhalb anderer Anführungszeichen des gleichen Typs (einfach oder doppelt) zu verwenden, nutzen Sie {{Glossary("character_reference", "Zeichenreferenzen")}}.
 Zum Beispiel wird das Folgende nicht funktionieren:
 
 ```html-nolint example-bad
@@ -702,15 +702,15 @@ console.log(whitespace);
 
 In HTML sind die Zeichen `<`, `>`, `"`, `'`, und `&` spezielle Zeichen. Sie sind Teile der HTML-Syntax selbst. Wie fügen Sie also eines dieser speziellen Zeichen in Ihren Text ein? Zum Beispiel, wenn Sie ein kaufmännisches Und-Zeichen oder ein kleiner-als-Zeichen verwenden möchten und nicht möchten, dass es als Code interpretiert wird.
 
-Dies tun Sie mit [Zeichenreferenzen](/de/docs/Glossary/character_reference). Diese sind spezielle Codes, die Zeichen darstellen, um in diesen genauen Umständen verwendet zu werden. Jede Zeichenreferenz beginnt mit einem kaufmännischen Und-Zeichen (&), und endet mit einem Semikolon (;).
+Dies tun Sie mit {{Glossary("character_reference", "Zeichenreferenzen")}}. Diese sind spezielle Codes, die Zeichen darstellen, um in diesen genauen Umständen verwendet zu werden. Jede Zeichenreferenz beginnt mit einem kaufmännischen Und-Zeichen (&), und endet mit einem Semikolon (;).
 
-| Literalzeichen | Zeichenreferenzäquivalent        |
-| -------------- | -------------------------------- |
-| <              | `&lt;`                           |
-| >              | `&gt;`                           |
-| "              | `&quot;`                         |
-| '              | `&apos;`                         |
-| &              | `&amp;`                          |
+| Literalzeichen | Zeichenreferenzäquivalent |
+| -------------- | ------------------------- |
+| <              | `&lt;`                    |
+| >              | `&gt;`                    |
+| "              | `&quot;`                  |
+| '              | `&apos;`                  |
+| &              | `&amp;`                   |
 
 Das Zeichenreferenzäquivalent kann leicht gemerkt werden, da der Text, den es verwendet, als weniger als für `&lt;`, Zitat für `&quot;` und ähnlich für andere verstanden werden kann. Um mehr über Entitätsreferenzen zu erfahren, siehe [Liste von XML- und HTML-Zeichenentitätsreferenzen](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references) (Wikipedia).
 

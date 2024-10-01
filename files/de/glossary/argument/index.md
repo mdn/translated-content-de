@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-**Argumente** sind [Werte](/de/docs/Glossary/value) ([primitive](/de/docs/Glossary/primitive) oder [Objekt](/de/docs/Glossary/object)), die als Eingabe an eine [Funktion](/de/docs/Glossary/function) übergeben werden. Verwechseln Sie Argumente nicht mit [Parametern](/de/docs/Glossary/parameter), die die Namen sind, die in der Funktionsdefinition verwendet werden, um die Argumente zu referenzieren.
+**Argumente** sind {{Glossary("value", "Werte")}} ({{Glossary("primitive", "primitive")}} oder {{Glossary("object", "Objekt")}}), die als Eingabe an eine {{Glossary("function", "Funktion")}} übergeben werden. Verwechseln Sie Argumente nicht mit {{Glossary("parameter", "Parametern")}}, die die Namen sind, die in der Funktionsdefinition verwendet werden, um die Argumente zu referenzieren.
 
 Zum Beispiel:
 
@@ -38,9 +38,9 @@ function example(parameter) {
 
 ## Siehe auch
 
-- [Unterschied zwischen Parameter und Argument](/de/docs/Glossary/Parameter#parameters_versus_arguments)
+- {{Glossary("Parameter#parameters_versus_arguments", "Unterschied zwischen Parameter und Argument")}}
 - {{jsxref("Functions/arguments", "arguments")}} JavaScript-Objekt
 - Verwandte Glossarbegriffe:
-  - [Funktion](/de/docs/Glossary/Function)
-  - [Parameter](/de/docs/Glossary/Parameter)
-  - [JavaScript](/de/docs/Glossary/JavaScript)
+  - {{Glossary("Function", "Funktion")}}
+  - {{Glossary("Parameter", "Parameter")}}
+  - {{Glossary("JavaScript", "JavaScript")}}

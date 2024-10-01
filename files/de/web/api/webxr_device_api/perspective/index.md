@@ -15,7 +15,7 @@ In diesem Artikel untersuchen wir Szenarien, in denen sich die Berechnung, Anwen
 
 Jede WebXR-Sitzung, repräsentiert durch ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt, bietet eine Reihe von Optionen, die konfiguriert werden können, indem ein neuer [`XRRenderState`](/de/docs/Web/API/XRRenderState)-Objekt erstellt und der aktualisierte Zustand aktiviert wird, indem die `updateRenderState()`-Methode der Sitzung aufgerufen wird, um die aktuelle Konfiguration zu ersetzen.
 
-Die Mehrheit dieser Werte definiert das [Sichtfrustum](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#the_viewing_frustum) des XR-Geräts; das heißt, den Teil des Sichtfelds des Geräts, der gerendert werden soll. Das Sichtfrustum kann anhand von vier Schlüsseldatenpunkten dargestellt werden: dem Betrachtungswinkel des Sichtfelds, dem [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des gerenderten Bildes sowie den Abständen zu den nahen und fernen Clipping-Ebenen.
+Die Mehrheit dieser Werte definiert das [Sichtfrustum](/de/docs/Web/API/WebGL_API/WebGL_model_view_projection#the_viewing_frustum) des XR-Geräts; das heißt, den Teil des Sichtfelds des Geräts, der gerendert werden soll. Das Sichtfrustum kann anhand von vier Schlüsseldatenpunkten dargestellt werden: dem Betrachtungswinkel des Sichtfelds, dem {{Glossary("aspect_ratio", "Seitenverhältnis")}} des gerenderten Bildes sowie den Abständen zu den nahen und fernen Clipping-Ebenen.
 
 ### Willkommen zur Projektionsmatrix
 

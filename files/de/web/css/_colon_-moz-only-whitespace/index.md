@@ -10,7 +10,7 @@ l10n:
 > [!NOTE]
 > In [Selectors Level 4](https://drafts.csswg.org/selectors-4/#the-empty-pseudo), der {{CSSxRef(":empty")}}-Selektor wurde geändert, um wie `:-moz-only-whitespace` zu funktionieren, aber derzeit unterstützt kein Browser dies.
 
-Die **`:-moz-only-whitespace`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus, die nur Textknoten enthalten, die nur [Leerraum](/de/docs/Glossary/whitespace) enthalten. (Dies schließt Elemente mit leeren Textknoten und Elemente ohne Kindknoten ein.)
+Die **`:-moz-only-whitespace`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus, die nur Textknoten enthalten, die nur {{Glossary("whitespace", "Leerraum")}} enthalten. (Dies schließt Elemente mit leeren Textknoten und Elemente ohne Kindknoten ein.)
 
 ## Syntax
 

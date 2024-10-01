@@ -27,7 +27,7 @@ if (bigDay.getTime() < Date.now()) {
 }
 ```
 
-In der ersten Zeile haben wir eine Instanz der Klasse [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) erstellt und sie `bigDay` genannt. In der zweiten Zeile haben wir eine [Methode](/de/docs/Glossary/Method) [`toLocaleDateString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString) auf der `bigDay`-Instanz aufgerufen, die einen String zurückgibt. Dann haben wir zwei Zahlen verglichen: eine, die von der [`getTime()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)-Methode zurückgegeben wurde, die andere direkt von der Klasse `Date` selbst aufgerufen, als [`Date.now()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now).
+In der ersten Zeile haben wir eine Instanz der Klasse [`Date`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date) erstellt und sie `bigDay` genannt. In der zweiten Zeile haben wir eine {{Glossary("Method", "Methode")}} [`toLocaleDateString()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString) auf der `bigDay`-Instanz aufgerufen, die einen String zurückgibt. Dann haben wir zwei Zahlen verglichen: eine, die von der [`getTime()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/getTime)-Methode zurückgegeben wurde, die andere direkt von der Klasse `Date` selbst aufgerufen, als [`Date.now()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Date/now).
 
 `Date` ist eine eingebaute Klasse von JavaScript. Aus diesem Beispiel können wir einige Grundideen darüber gewinnen, was Klassen tun:
 
@@ -122,7 +122,7 @@ const myInstance = MyClass(); // TypeError: Class constructor MyClass cannot be 
 
 ### Klassen-Deklarationsheben
 
-Im Gegensatz zu Funktionsdeklarationen werden Klassen-Deklarationen nicht [gehoben](/de/docs/Glossary/Hoisting) (oder in einigen Interpretationen gehoben, jedoch mit der Restriktion der temporalen Totzone), was bedeutet, dass Sie eine Klasse nicht verwenden können, bevor sie deklariert ist.
+Im Gegensatz zu Funktionsdeklarationen werden Klassen-Deklarationen nicht {{Glossary("Hoisting", "gehoben")}} (oder in einigen Interpretationen gehoben, jedoch mit der Restriktion der temporalen Totzone), was bedeutet, dass Sie eine Klasse nicht verwenden können, bevor sie deklariert ist.
 
 ```js
 new MyClass(); // ReferenceError: Cannot access 'MyClass' before initialization
@@ -155,7 +155,7 @@ new MyClassLongerName(); // ReferenceError: MyClassLongerName is not defined
 
 Vielleicht ist die wichtigste Aufgabe einer Klasse, als "Fabrik" für Objekte zu fungieren. Wenn wir beispielsweise den `Date`-Konstruktor verwenden, erwarten wir, dass er ein neues Objekt liefert, das das Datumsdatum darstellt, das wir übergeben haben — das wir dann mit anderen Methoden manipulieren können, die die Instanz bereitstellt. In Klassen erfolgt die Instanz-Erstellung durch den [Konstruktor](/de/docs/Web/JavaScript/Reference/Classes/constructor).
 
-Zum Beispiel würden wir eine Klasse namens `Color` erstellen, die eine bestimmte Farbe darstellt. Benutzer erstellen Farben durch übergeben eines [RGB](/de/docs/Glossary/RGB)-Triplets.
+Zum Beispiel würden wir eine Klasse namens `Color` erstellen, die eine bestimmte Farbe darstellt. Benutzer erstellen Farben durch übergeben eines {{Glossary("RGB", "RGB")}}-Triplets.
 
 ```js
 class Color {

@@ -46,7 +46,7 @@ Ein `MediaTrackCapabilities`-Objekt, das den Wert oder Wertebereich angibt, die 
 - `sampleSize`
   - : Ein [`ConstrainULong`](/de/docs/Web/API/MediaTrackConstraints#constrainulong)-Objekt, das die Abtastgröße oder den Bereich der Abtastgrößen enthält.
 - `aspectRatio`
-  - : Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble)-Objekt, das das Video- [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) (Breite in Pixel geteilt durch Höhe in Pixel) oder den Bereich der Seitenverhältnisse enthält.
+  - : Ein [`ConstrainDouble`](/de/docs/Web/API/MediaTrackConstraints#constraindouble)-Objekt, das das Video- {{Glossary("aspect_ratio", "Seitenverhältnis")}} (Breite in Pixel geteilt durch Höhe in Pixel) oder den Bereich der Seitenverhältnisse enthält.
 - `facingMode`
   - : Ein [`ConstrainDOMString`](/de/docs/Web/API/MediaTrackConstraints#constraindomstring)-Objekt, das den Kamerablickmodus enthält. Eine Kamera kann mehrere Ausrichtungen melden, zum Beispiel "left" und "user".
 - `frameRate`

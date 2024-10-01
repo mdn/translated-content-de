@@ -32,7 +32,7 @@ CSS-Nesting trägt zur Lesbarkeit, Modularität und Wartbarkeit von CSS-Styleshe
 
 - [Selektoren und Kombinatoren](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators)
 - [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)
-- [CSS-Präprozessor](/de/docs/Glossary/CSS_preprocessor)
+- {{Glossary("CSS_preprocessor", "CSS-Präprozessor")}}
 
 ## Spezifikationen
 

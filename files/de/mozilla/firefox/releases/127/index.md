@@ -45,7 +45,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 127, die En
 ### APIs
 
 - Die asynchrone [Clipboard API](/de/docs/Web/API/Clipboard_API) wird nun vollständig unterstützt. Die [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Schnittstelle zusammen mit den Methoden [`read()`](/de/docs/Web/API/Clipboard/read) und [`write()`](/de/docs/Web/API/Clipboard/write) der [`Clipboard`](/de/docs/Web/API/Clipboard)-Schnittstelle wurden aktiviert. ([Firefox Bug 1887845](https://bugzil.la/1887845), [Firefox Bug 1858788](https://bugzil.la/1858788)).
-- Alle [HTML-Zeichenreferenzen](/de/docs/Glossary/character_reference) werden nun in [Web Video Text Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)-Hinweisen, Titeltexten, Kommentaren, Anmerkungen usw. unterstützt. ([Firefox Bug 1395924](https://bugzil.la/1395924)).
+- Alle {{Glossary("character_reference", "HTML-Zeichenreferenzen")}} werden nun in [Web Video Text Tracks Format (WebVTT)](/de/docs/Web/API/WebVTT_API)-Hinweisen, Titeltexten, Kommentaren, Anmerkungen usw. unterstützt. ([Firefox Bug 1395924](https://bugzil.la/1395924)).
 - [`WebGLRenderingContext.drawingBufferColorSpace`](/de/docs/Web/API/WebGLRenderingContext/drawingBufferColorSpace) und [`WebGL2RenderingContext.drawingBufferColorSpace`](/de/docs/Web/API/WebGL2RenderingContext) werden jetzt unterstützt. ([Firefox Bug 1885491](https://bugzil.la/1885491)).
 
 ### WebDriver-Komformität (WebDriver BiDi, Marionette)

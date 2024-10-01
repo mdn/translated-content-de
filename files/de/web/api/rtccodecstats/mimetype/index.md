@@ -8,7 +8,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die **`mimeType`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein String, der den [MIME-Typ](/de/docs/Glossary/MIME_type) und Subtyp des Codecs enthält.
+Die **`mimeType`**-Eigenschaft des [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Wörterbuchs ist ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} und Subtyp des Codecs enthält.
 
 Dieser hat die Form `"type/subtype"`, wie zum Beispiel "video/VP8" oder "audio/opus", wie im [IANA-Register der gültigen MIME-Typen](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2) definiert.
 

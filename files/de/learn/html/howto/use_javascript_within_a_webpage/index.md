@@ -32,7 +32,7 @@ Erweitern Sie Ihre Webseiten mit JavaScript. Lernen Sie in diesem Artikel, wie S
 
 ## Über JavaScript
 
-[JavaScript](/de/docs/Glossary/JavaScript) ist eine Programmiersprache, die hauptsächlich clientseitig verwendet wird, um Webseiten interaktiv zu machen. Es ist _möglich_, beeindruckende Webseiten ohne JavaScript zu erstellen, aber JavaScript eröffnet eine ganz neue Ebene an Möglichkeiten.
+{{Glossary("JavaScript", "JavaScript")}} ist eine Programmiersprache, die hauptsächlich clientseitig verwendet wird, um Webseiten interaktiv zu machen. Es ist _möglich_, beeindruckende Webseiten ohne JavaScript zu erstellen, aber JavaScript eröffnet eine ganz neue Ebene an Möglichkeiten.
 
 > [!NOTE]
 > In diesem Artikel besprechen wir den HTML-Code, den Sie benötigen, um JavaScript zur Wirkung zu bringen. Wenn Sie JavaScript selbst lernen möchten, können Sie mit unserem Artikel [JavaScript-Grundlagen](/de/docs/Learn/Getting_started_with_the_web/JavaScript_basics) beginnen. Wenn Sie bereits etwas über JavaScript wissen oder Erfahrung mit anderen Programmiersprachen haben, empfehlen wir Ihnen, direkt in unseren [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide) einzusteigen.

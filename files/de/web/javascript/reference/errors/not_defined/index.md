@@ -1,5 +1,5 @@
 ---
-title: "ReferenceError: \"x\" ist nicht definiert"
+title: 'ReferenceError: "x" ist nicht definiert'
 slug: Web/JavaScript/Reference/Errors/Not_defined
 l10n:
   sourceCommit: 1b2c87c20466d2a3eec9b3551c269f9aff8f5762
@@ -22,7 +22,7 @@ ReferenceError: Can't find variable: x (Safari)
 
 ## Was ist schiefgelaufen?
 
-Es wird auf eine nicht existierende Variable verwiesen. Diese Variable muss deklariert werden, oder Sie müssen sicherstellen, dass sie in Ihrem aktuellen Skript oder [Scope](/de/docs/Glossary/Scope) verfügbar ist.
+Es wird auf eine nicht existierende Variable verwiesen. Diese Variable muss deklariert werden, oder Sie müssen sicherstellen, dass sie in Ihrem aktuellen Skript oder {{Glossary("Scope", "Scope")}} verfügbar ist.
 
 > [!NOTE]
 > Beim Laden einer Bibliothek (wie jQuery) stellen Sie sicher, dass sie
@@ -74,6 +74,6 @@ console.log(numbers()); // 5
 
 ## Siehe auch
 
-- [Scope](/de/docs/Glossary/Scope)
+- {{Glossary("Scope", "Scope")}}
 - [Variablen deklarieren im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Grammar_and_types#declaring_variables)
 - [Funktions-Scope im JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide/Functions#function_scope)

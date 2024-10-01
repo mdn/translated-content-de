@@ -28,7 +28,7 @@ console.log(audioCtx.currentTime);
 
 ## Reduzierte Zeitpräzision
 
-Um Schutz vor Timing-Angriffen und [Fingerprinting](/de/docs/Glossary/Fingerprinting) zu bieten, kann die Präzision von `audioCtx.currentTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Option `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren; in diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
+Um Schutz vor Timing-Angriffen und {{Glossary("Fingerprinting", "Fingerprinting")}} zu bieten, kann die Präzision von `audioCtx.currentTime` je nach Browsereinstellungen gerundet werden. In Firefox ist die Option `privacy.reduceTimerPrecision` standardmäßig aktiviert und beträgt standardmäßig 2 ms. Sie können auch `privacy.resistFingerprinting` aktivieren; in diesem Fall beträgt die Präzision 100 ms oder den Wert von `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`, je nachdem, welcher größer ist.
 
 Zum Beispiel wird mit reduzierter Zeitpräzision das Ergebnis von `audioCtx.currentTime` immer ein Vielfaches von 0,002 sein oder ein Vielfaches von 0,1 (oder `privacy.resistFingerprinting.reduceTimerPrecision.microseconds`) mit aktiviertem `privacy.resistFingerprinting`.
 

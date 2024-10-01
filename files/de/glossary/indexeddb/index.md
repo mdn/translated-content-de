@@ -7,7 +7,7 @@ l10n:
 
 {{GlossarySidebar}}
 
-IndexedDB ist eine Web-[API](/de/docs/Glossary/API) zur Speicherung großer Datenstrukturen in Browsern und deren Indexierung für eine leistungsstarke Suche. Ähnlich wie ein auf [SQL](/de/docs/Glossary/SQL) basierendes [RDBMS](https://en.wikipedia.org/wiki/Relational_database_management_system) ist IndexedDB ein transaktionales Datenbanksystem. Es verwendet jedoch [JavaScript](/de/docs/Glossary/JavaScript)-Objekte anstelle von festen Spaltentabellen zur Speicherung von Daten.
+IndexedDB ist eine Web-{{Glossary("API", "API")}} zur Speicherung großer Datenstrukturen in Browsern und deren Indexierung für eine leistungsstarke Suche. Ähnlich wie ein auf {{Glossary("SQL", "SQL")}} basierendes [RDBMS](https://en.wikipedia.org/wiki/Relational_database_management_system) ist IndexedDB ein transaktionales Datenbanksystem. Es verwendet jedoch {{Glossary("JavaScript", "JavaScript")}}-Objekte anstelle von festen Spaltentabellen zur Speicherung von Daten.
 
 ## Siehe auch
 

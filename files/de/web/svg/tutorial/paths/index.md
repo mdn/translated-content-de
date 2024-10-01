@@ -112,7 +112,7 @@ In diesen Beispielen wäre es wahrscheinlich einfacher, die {{SVGElement("polygo
 
 ## Kurvenbefehle
 
-Es gibt drei verschiedene Befehle, die verwendet werden können, um glatte Kurven zu erstellen. Zwei dieser Kurven sind [Bézier-Kurven](/de/docs/Glossary/Bezier_curve), und die dritte ist ein "Bogen" oder ein Teil eines Kreises. Sie haben möglicherweise bereits praktische Erfahrungen mit Bézier-Kurven mithilfe von Pfadwerkzeugen in Inkscape, Illustrator oder Photoshop gesammelt. Es gibt eine unendliche Anzahl von Bézier-Kurven, aber nur zwei einfache sind in `<path>`-Elementen verfügbar: eine kubische, die mit `C` aufgerufen wird, und eine quadratische, die mit `Q` aufgerufen wird.
+Es gibt drei verschiedene Befehle, die verwendet werden können, um glatte Kurven zu erstellen. Zwei dieser Kurven sind {{Glossary("Bezier_curve", "Bézier-Kurven")}}, und die dritte ist ein "Bogen" oder ein Teil eines Kreises. Sie haben möglicherweise bereits praktische Erfahrungen mit Bézier-Kurven mithilfe von Pfadwerkzeugen in Inkscape, Illustrator oder Photoshop gesammelt. Es gibt eine unendliche Anzahl von Bézier-Kurven, aber nur zwei einfache sind in `<path>`-Elementen verfügbar: eine kubische, die mit `C` aufgerufen wird, und eine quadratische, die mit `Q` aufgerufen wird.
 
 ### Bézier-Kurven
 

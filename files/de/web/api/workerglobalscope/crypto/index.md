@@ -12,7 +12,7 @@ Die **`crypto`** schreibgeschützte Eigenschaft des [`WorkerGlobalScope`](/de/do
 
 Obwohl die Eigenschaft selbst schreibgeschützt ist, sind alle ihre Methoden (und die Methoden ihres
 Unterobjekts, [`SubtleCrypto`](/de/docs/Web/API/SubtleCrypto)) nicht schreibgeschützt und daher anfällig
-für Angriffe durch [Polyfill](/de/docs/Glossary/polyfill).
+für Angriffe durch {{Glossary("polyfill", "Polyfill")}}.
 
 Obwohl `crypto` in allen Workern verfügbar ist, hat das zurückgegebene `Crypto`-Objekt in unsicheren Kontexten nur eine nutzbare Funktion: die [`getRandomValues()`](/de/docs/Web/API/Crypto/getRandomValues)-Methode. Im Allgemeinen sollten Sie diese API nur in sicheren Kontexten verwenden.
 

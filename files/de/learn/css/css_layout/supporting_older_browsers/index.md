@@ -76,7 +76,7 @@ Zum Beispiel unterstützen die meisten Browser die Zwei-Wert-Syntax der {{cssxre
 }
 ```
 
-Ähnlich sorgt dieses [Fehlerbehandlungsverfahren](/de/docs/Web/CSS/CSS_syntax/Error_handling#vendor_prefixes) dafür, dass alte CSS-Codebasen weiterhin funktionieren, selbst wenn veraltete [Browser-Vendor-Präfixe](/de/docs/Glossary/Vendor_Prefix) nicht mehr unterstützt werden. Während Vendor-Präfixe nicht mehr häufig verwendet werden, sollten Sie, falls Sie ein solches Präfix oder einen Wert hinzufügen müssen, darauf achten, den präfixierten Wert vor dem Standardwert zu deklarieren, sodass, wenn unterstützt, der neue Wert den Fallback-Wert überschreibt.
+Ähnlich sorgt dieses [Fehlerbehandlungsverfahren](/de/docs/Web/CSS/CSS_syntax/Error_handling#vendor_prefixes) dafür, dass alte CSS-Codebasen weiterhin funktionieren, selbst wenn veraltete {{Glossary("Vendor_Prefix", "Browser-Vendor-Präfixe")}} nicht mehr unterstützt werden. Während Vendor-Präfixe nicht mehr häufig verwendet werden, sollten Sie, falls Sie ein solches Präfix oder einen Wert hinzufügen müssen, darauf achten, den präfixierten Wert vor dem Standardwert zu deklarieren, sodass, wenn unterstützt, der neue Wert den Fallback-Wert überschreibt.
 
 ### Neue Selektoren verwenden
 

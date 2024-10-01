@@ -7,7 +7,7 @@ l10n:
 
 {{SVGRef}}
 
-Das **`keySplines`**-Attribut definiert eine Reihe von [Bézier-Kurven](/de/docs/Glossary/Bezier_curve)-Kontrollpunkten, die mit der {{SVGAttr("keyTimes")}}-Liste verbunden sind und eine kubische Bézier-Funktion darstellen, die den Verlauf des Intervalls steuert.
+Das **`keySplines`**-Attribut definiert eine Reihe von {{Glossary("Bezier_curve", "Bézier-Kurven")}}-Kontrollpunkten, die mit der {{SVGAttr("keyTimes")}}-Liste verbunden sind und eine kubische Bézier-Funktion darstellen, die den Verlauf des Intervalls steuert.
 
 Dieses Attribut wird ignoriert, es sei denn, das {{SVGAttr("calcMode")}}-Attribut ist auf `spline` gesetzt.
 
@@ -93,4 +93,4 @@ Der Attributwert ist eine durch Semikolons getrennte Liste von Kontrollpunktbesc
 
 ## Siehe auch
 
-- [Bézier-Kurve](/de/docs/Glossary/Bezier_curve)
+- {{Glossary("Bezier_curve", "Bézier-Kurve")}}

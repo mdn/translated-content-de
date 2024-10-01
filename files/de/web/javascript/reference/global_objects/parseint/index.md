@@ -21,7 +21,7 @@ parseInt(string, radix)
 ### Parameter
 
 - `string`
-  - : Eine Zeichenfolge, die mit einer Ganzzahl beginnt. Führende [Whitespace](/de/docs/Glossary/whitespace) in diesem Argument werden ignoriert.
+  - : Eine Zeichenfolge, die mit einer Ganzzahl beginnt. Führende {{Glossary("whitespace", "Whitespace")}} in diesem Argument werden ignoriert.
 - `radix` {{optional_inline}}
 
   - : Eine Ganzzahl zwischen `2` und `36`, die die _Basis_ (das Basissystem in mathematischen Zahlensystemen) der `string` darstellt. Sie wird in eine [32-Bit-Ganzzahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#fixed-width_number_conversion) umgewandelt; wenn sie ungleich null und außerhalb des Bereichs von \[2, 36] nach der Umwandlung ist, gibt die Funktion immer `NaN` zurück. Wenn `0` oder nicht angegeben, wird die Basis basierend auf dem Wert der `string` abgeleitet. Vorsicht — dies standardmäßig _nicht_ immer auf `10`! Die [Beschreibung unten](#beschreibung) erklärt detaillierter, was passiert, wenn `radix` nicht angegeben ist.

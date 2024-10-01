@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebRTC")}}
 
-Die Schnittstelle **`RTCIceCandidate`**—Teil der [WebRTC-API](/de/docs/Web/API/WebRTC_API)—repräsentiert eine Kandidatenkonfiguration für die interaktive Verbindungsherstellung ([ICE](/de/docs/Glossary/ICE)), die verwendet werden kann, um eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu etablieren.
+Die Schnittstelle **`RTCIceCandidate`**—Teil der [WebRTC-API](/de/docs/Web/API/WebRTC_API)—repräsentiert eine Kandidatenkonfiguration für die interaktive Verbindungsherstellung ({{Glossary("ICE", "ICE")}}), die verwendet werden kann, um eine [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu etablieren.
 
 Ein ICE-Kandidat beschreibt die Protokolle und Routen, die WebRTC benötigt, um mit einem entfernten Gerät zu kommunizieren. Beim Start einer WebRTC-Verbindung schlagen normalerweise beide Enden der Verbindung eine Reihe von Kandidaten vor, bis sie sich gegenseitig auf einen einigen, der die Verbindung beschreibt, die sie für die beste halten. WebRTC verwendet dann die Details dieses Kandidaten, um die Verbindung zu initiieren.
 
@@ -31,7 +31,7 @@ Einzelheiten darüber, wie der ICE-Prozess funktioniert, finden Sie unter [Leben
 - [`component`](/de/docs/Web/API/RTCIceCandidate/component) {{ReadOnlyInline}}
   - : Ein String, der angibt, ob der Kandidat ein RTP- oder RTCP-Kandidat ist; sein Wert ist entweder `rtp` oder `rtcp` und wird aus dem `"component-id"`-Feld im `candidate` a-line String abgeleitet.
 - [`foundation`](/de/docs/Web/API/RTCIceCandidate/foundation) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der eine eindeutige Kennung enthält, die für alle Kandidaten des gleichen Typs dieselbe ist, denselben Ursprung (die Adresse, von der der ICE-Agent den Kandidaten gesendet hat) teilt und vom selben [STUN](/de/docs/Glossary/STUN)-Server stammt. Dies dient dazu, die ICE-Leistung zu optimieren, indem Kandidaten priorisiert und korreliert werden, die auf mehreren [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekten erscheinen.
+  - : Gibt einen String zurück, der eine eindeutige Kennung enthält, die für alle Kandidaten des gleichen Typs dieselbe ist, denselben Ursprung (die Adresse, von der der ICE-Agent den Kandidaten gesendet hat) teilt und vom selben {{Glossary("STUN", "STUN")}}-Server stammt. Dies dient dazu, die ICE-Leistung zu optimieren, indem Kandidaten priorisiert und korreliert werden, die auf mehreren [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekten erscheinen.
 - [`port`](/de/docs/Web/API/RTCIceCandidate/port) {{ReadOnlyInline}}
   - : Ein ganzzahliger Wert, der die Portnummer des Kandidaten angibt.
 - [`priority`](/de/docs/Web/API/RTCIceCandidate/priority) {{ReadOnlyInline}}
@@ -45,7 +45,7 @@ Einzelheiten darüber, wie der ICE-Prozess funktioniert, finden Sie unter [Leben
 - [`sdpMid`](/de/docs/Web/API/RTCIceCandidate/sdpMid) {{ReadOnlyInline}}
   - : Ein String, der die Medienstrom-Identifikationsmarkierung des Kandidaten angibt, die den Medienstrom innerhalb der Komponente, mit der der Kandidat verknüpft ist, eindeutig identifiziert, oder `null`, wenn keine solche Verknüpfung besteht.
 - [`sdpMLineIndex`](/de/docs/Web/API/RTCIceCandidate/sdpMLineIndex) {{ReadOnlyInline}}
-  - : Ist er nicht `null`, gibt `sdpMLineIndex` den nullbasierten Index der Medienbeschreibung (wie in [RFC 4566](https://datatracker.ietf.org/doc/html/rfc4566) definiert) im [SDP](/de/docs/Glossary/SDP) an, mit dem der Kandidat verknüpft ist.
+  - : Ist er nicht `null`, gibt `sdpMLineIndex` den nullbasierten Index der Medienbeschreibung (wie in [RFC 4566](https://datatracker.ietf.org/doc/html/rfc4566) definiert) im {{Glossary("SDP", "SDP")}} an, mit dem der Kandidat verknüpft ist.
 - [`tcpType`](/de/docs/Web/API/RTCIceCandidate/tcpType) {{ReadOnlyInline}}
   - : Wenn `protocol` `"tcp"` ist, repräsentiert `tcpType` die Art des TCP-Kandidaten. Andernfalls ist `tcpType` `null`.
 - [`type`](/de/docs/Web/API/RTCIceCandidate/type) {{ReadOnlyInline}}
@@ -56,7 +56,7 @@ Einzelheiten darüber, wie der ICE-Prozess funktioniert, finden Sie unter [Leben
 ## Instanz-Methoden
 
 - [`toJSON()`](/de/docs/Web/API/RTCIceCandidate/toJSON)
-  - : Gibt eine [JSON](/de/docs/Glossary/JSON)-Darstellung der aktuellen Konfiguration des `RTCIceCandidate` zurück.
+  - : Gibt eine {{Glossary("JSON", "JSON")}}-Darstellung der aktuellen Konfiguration des `RTCIceCandidate` zurück.
     Das Format der Darstellung ist dasselbe wie das `candidateInfo`-Objekt, das optional an den [`RTCIceCandidate()`](/de/docs/Web/API/RTCIceCandidate/RTCIceCandidate)-Konstruktor übergeben werden kann, um einen Kandidaten zu konfigurieren.
 
 ## Beispiele

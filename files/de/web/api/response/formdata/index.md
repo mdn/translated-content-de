@@ -35,7 +35,7 @@ Ein {{jsxref("Promise")}}, das mit einem [`FormData`](/de/docs/Web/API/FormData)
   - : Ausgelöst aus einem der folgenden Gründe:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
     - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
-    - Der [MIME](/de/docs/Glossary/MIME)-Typ des Körpers kann nicht aus den im Antwort-Header enthaltenen {{httpheader("Content-Type")}}-Headern bestimmt werden.
+    - Der {{Glossary("MIME", "MIME")}}-Typ des Körpers kann nicht aus den im Antwort-Header enthaltenen {{httpheader("Content-Type")}}-Headern bestimmt werden.
     - Der Körper kann nicht als `FormData`-Objekt geparst werden.
 
 ## Beispiele

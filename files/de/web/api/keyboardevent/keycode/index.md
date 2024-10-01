@@ -27,7 +27,7 @@ IE gibt einfach den nativen virtuellen Keycode-Wert als `KeyboardEvent.keyCode` 
 
 Google Chrome, Chromium und Safari müssen den Wert aus dem Eingabezeichen entscheiden. Wenn das einzugebende Zeichen mit dem US-Tastaturlayout eingegeben werden kann, verwenden sie den `keyCode`-Wert auf dem US-Tastaturlayout.
 
-Firefox erhält `keyCode`-Werte von [ASCII](/de/docs/Glossary/ASCII)-Zeichen, die durch die Taste eingegeben werden können — sogar mit Shift-Modifikatoren oder einem ASCII-fähigen Tastaturlayout. Siehe die folgenden Regeln für Details:
+Firefox erhält `keyCode`-Werte von {{Glossary("ASCII", "ASCII")}}-Zeichen, die durch die Taste eingegeben werden können — sogar mit Shift-Modifikatoren oder einem ASCII-fähigen Tastaturlayout. Siehe die folgenden Regeln für Details:
 
 1. Wenn das System Windows ist und der native Keycode der gedrückten Taste angibt, dass die Taste a-z oder 0-9 ist, verwenden Sie einen Keycode dafür.
 2. Wenn das System Mac ist und der native Keycode der gedrückten Taste angibt, dass die Taste 0-9 ist, verwenden Sie einen Keycode dafür.

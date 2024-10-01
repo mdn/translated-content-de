@@ -8,9 +8,9 @@ l10n:
 
 {{APIRef}}
 
-Das **`compositionend`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein [Eingabemethoden-Editor](/de/docs/Glossary/input_method_editor) die aktuelle Kompositionssitzung abschließt oder abbricht.
+Das **`compositionend`** Ereignis wird ausgelöst, wenn ein Textkompositionssystem wie ein {{Glossary("input_method_editor", "Eingabemethoden-Editor")}} die aktuelle Kompositionssitzung abschließt oder abbricht.
 
-Dieses Ereignis könnte zum Beispiel ausgelöst werden, nachdem ein Benutzer die Eingabe eines chinesischen Zeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) [IME](/de/docs/Glossary/IME) beendet hat.
+Dieses Ereignis könnte zum Beispiel ausgelöst werden, nachdem ein Benutzer die Eingabe eines chinesischen Zeichens mit einem [Pinyin](https://en.wikipedia.org/wiki/Pinyin) {{Glossary("IME", "IME")}} beendet hat.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ _Dieses Interface erbt auch Eigenschaften von seinem Elternteil, [`UIEvent`](/de
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
   - : Gibt die Zeichen zurück, die durch die Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; dies variiert je nach Art des Ereignisses, das das `CompositionEvent` Objekt generiert hat.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}}
-  - : Gibt die Gebietsschema der aktuellen Eingabemethode zurück (z.B. das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem [IME](/de/docs/Glossary/IME) verbunden ist).
+  - : Gibt die Gebietsschema der aktuellen Eingabemethode zurück (z.B. das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem {{Glossary("IME", "IME")}} verbunden ist).
 
 ## Beispiele
 

@@ -21,7 +21,7 @@ Ein Medienelement kann mit einer Reihe von Dateien verknüpft werden, die jeweil
 ## Überblick
 
 WebVTT-Dateien haben einen MIME-Typ von `text/vtt` und die Dateierweiterung `.vtt`.
-Der Inhalt muss mit [UTF-8](/de/docs/Glossary/UTF-8) codiert sein.
+Der Inhalt muss mit {{Glossary("UTF-8", "UTF-8")}} codiert sein.
 
 Die Struktur eines WebVTT besteht aus den folgenden Komponenten, von denen einige optional sind, in dieser Reihenfolge:
 
@@ -216,12 +216,12 @@ Zusatzeinstellungen werden rechts der Zusatz-Zeitangaben hinzugefügt. Es muss e
     - Ein Prozentsatz
       - : Eine ganze Zahl (d.h. ohne Dezimalstellen) zwischen 0 und 100 inklusive, die von einem Prozentzeichen (%) gefolgt werden muss.
 
-    | Zeile        | `vertical` ausgelassen | `vertical:rl` | `vertical:lr` |
-    | ------------ | ---------------------- | ------------- | ------------- |
-    | `line:0`     | oben                   | rechts        | links         |
-    | `line:-1`    | unten                  | links         | rechts        |
-    | `line:0%`    | oben                   | rechts        | links         |
-    | `line:100%`  | unten                  | links         | rechts        |
+    | Zeile       | `vertical` ausgelassen | `vertical:rl` | `vertical:lr` |
+    | ----------- | ---------------------- | ------------- | ------------- |
+    | `line:0`    | oben                   | rechts        | links         |
+    | `line:-1`   | unten                  | links         | rechts        |
+    | `line:0%`   | oben                   | rechts        | links         |
+    | `line:100%` | unten                  | links         | rechts        |
 
 - `position`
 
@@ -236,20 +236,20 @@ Zusatzeinstellungen werden rechts der Zusatz-Zeitangaben hinzugefügt. Es muss e
 
   - : Wenn `vertical` nicht gesetzt ist, gibt `size` die Breite des Textbereichs an. Wenn `vertical` gesetzt ist, gibt `size` die Höhe des Textbereichs an. Der Wert ist ein Prozentsatz zwischen 0 und 100 inklusive.
 
-    | Größe         | `vertical` ausgelassen | `vertical:rl` | `vertical:lr` |
-    | ------------- | ---------------------- | ------------- | ------------- |
-    | `size:100%`   | volle Breite           | volle Höhe    | volle Höhe    |
-    | `size:50%`    | halbe Breite           | halbe Höhe    | halbe Höhe    |
+    | Größe       | `vertical` ausgelassen | `vertical:rl` | `vertical:lr` |
+    | ----------- | ---------------------- | ------------- | ------------- |
+    | `size:100%` | volle Breite           | volle Höhe    | volle Höhe    |
+    | `size:50%`  | halbe Breite           | halbe Höhe    | halbe Höhe    |
 
 - `align`
 
   - : Gibt die Ausrichtung des Textes an. Der Text ist innerhalb des durch die Zusatzeinstellung `size` gegebenen Raums ausgerichtet, falls diese eingestellt ist.
 
-    | Ausrichten     | `vertical` ausgelassen    | `vertical:rl`       | `vertical:lr`       |
-    | -------------- | ------------------------- | ------------------- | ------------------- |
-    | `align:start`  | links                     | oben                | oben                |
-    | `align:center` | zentriert horizontal      | zentriert vertikal  | zentriert vertikal  |
-    | `align:end`    | rechts                    | unten               | unten               |
+    | Ausrichten     | `vertical` ausgelassen | `vertical:rl`      | `vertical:lr`      |
+    | -------------- | ---------------------- | ------------------ | ------------------ |
+    | `align:start`  | links                  | oben               | oben               |
+    | `align:center` | zentriert horizontal   | zentriert vertikal | zentriert vertikal |
+    | `align:end`    | rechts                 | unten              | unten              |
 
 Hier sind einige Beispiele.
 Die erste Zeile zeigt keine Einstellungen. Die zweite Zeile könnte verwendet werden, um Text auf ein Schild oder Etikett zu legen. Die dritte Zeile könnte für einen Titel verwendet werden. Die letzte Zeile könnte für eine asiatische Sprache verwendet werden.
@@ -270,21 +270,21 @@ Die Nutzlast ist der Bereich, in dem der Inhalt des Zusatzes definiert ist, wie 
 Sie kann neue Zeilen enthalten, darf jedoch nicht zwei aufeinanderfolgende neue Zeilen enthalten: Das würde eine Leerzeile erzeugen, die das Ende des Blocks anzeigt.
 
 Eine Zusatztext-Nutzlast darf nicht die Zeichenfolge `-->`, das Kaufzeichen (`&`) oder das Kleiner-als-Zeichen (`<`) enthalten.
-Bei Bedarf können Sie stattdessen eine [Zeichenreferenz](/de/docs/Glossary/character_reference) wie die benannte Zeichenreferenz `&amp;` für Kaufzeichen und `&lt;` für Kleiner-als verwenden.
+Bei Bedarf können Sie stattdessen eine {{Glossary("character_reference", "Zeichenreferenz")}} wie die benannte Zeichenreferenz `&amp;` für Kaufzeichen und `&lt;` für Kleiner-als verwenden.
 Es wird auch empfohlen, die Größer-als-Escape-Sequenz `&gt;` anstelle des Größer-als-Zeichens (`>`) zu verwenden, um Verwirrung mit Tags zu vermeiden.
 Wenn Sie die WebVTT-Datei für Metadaten verwenden, gelten diese Einschränkungen nicht.
 
-Beachten Sie, dass alle großen Browser jede [Zeichenreferenz](/de/docs/Glossary/character_reference) in Zusätzen, Notizen oder anderem Text zulassen.
+Beachten Sie, dass alle großen Browser jede {{Glossary("character_reference", "Zeichenreferenz")}} in Zusätzen, Notizen oder anderem Text zulassen.
 Ältere Browserversionen unterstützen möglicherweise nur den folgenden Teil der benannten Zeichenreferenzen:
 
-| Name               | Zeichen | Escape-Sequenz  |
-| ------------------ | ------- | --------------- |
-| Kaufzeichen        | `&`     | `&amp;`         |
-| Kleiner-als        | `<`     | `&lt;`          |
-| Größer-als         | `>`     | `&gt;`          |
-| Links-nach-rechts-Markierung | _none_    | `&lrm;`         |
-| Rechts-nach-links-Markierung | _none_    | `&rlm;`         |
-| Geschütztes Leerzeichen |          | `&nbsp;`        |
+| Name                         | Zeichen | Escape-Sequenz |
+| ---------------------------- | ------- | -------------- |
+| Kaufzeichen                  | `&`     | `&amp;`        |
+| Kleiner-als                  | `<`     | `&lt;`         |
+| Größer-als                   | `>`     | `&gt;`         |
+| Links-nach-rechts-Markierung | _none_  | `&lrm;`        |
+| Rechts-nach-links-Markierung | _none_  | `&rlm;`        |
+| Geschütztes Leerzeichen      |         | `&nbsp;`       |
 
 ### Zusatznutzlast-Text-Tags
 
@@ -391,7 +391,7 @@ Sie können an beliebiger Stelle in der WebVTT-Datei nach dem Header verwendet w
 NOTE-Blöcke können neue Zeilen enthalten, dürfen jedoch nicht zwei aufeinanderfolgende neue Zeilen enthalten: Das würde eine Leerzeile erzeugen, die das Ende des Blocks anzeigt.
 
 Ein Kommentar darf nicht die Zeichenfolge `-->`, das Kaufzeichen (`&`) oder das Kleiner-als-Zeichen (`<`) enthalten.
-Wenn Sie diese Zeichen verwenden möchten, müssen Sie stattdessen eine [Zeichenreferenz](/de/docs/Glossary/character_reference) wie `&amp;` für Kaufzeichen und `&lt;` für Kleiner-als verwenden.
+Wenn Sie diese Zeichen verwenden möchten, müssen Sie stattdessen eine {{Glossary("character_reference", "Zeichenreferenz")}} wie `&amp;` für Kaufzeichen und `&lt;` für Kleiner-als verwenden.
 Es wird auch empfohlen, die Größer-als-Escape-Sequenz (`&gt;`) anstelle des Größer-als-Zeichens (`>`) zu verwenden, um Verwirrung mit Tags zu vermeiden.
 
 Ein Kommentar besteht aus drei Teilen:

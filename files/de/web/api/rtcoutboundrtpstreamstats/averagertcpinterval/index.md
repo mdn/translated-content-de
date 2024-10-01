@@ -11,7 +11,7 @@ l10n:
 Die **`averageRtcpInterval`**-Eigenschaft
 des [`RTCOutboundRtpStreamStats`](/de/docs/Web/API/RTCOutboundRtpStreamStats)-Wörterbuchs ist ein Gleitkommawert,
 der die durchschnittliche Zeit angibt, die zwischen den Übertragungen von
-[RTCP](/de/docs/Glossary/RTCP)-Paketen in diesem Stream vergehen sollte.
+{{Glossary("RTCP", "RTCP")}}-Paketen in diesem Stream vergehen sollte.
 
 ## Wert
 

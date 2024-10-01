@@ -15,7 +15,7 @@ Ein `TypeError` kann ausgelöst werden, wenn:
 - wenn versucht wird, einen Wert zu ändern, der nicht verändert werden kann; oder
 - wenn versucht wird, einen Wert auf unangemessene Weise zu verwenden.
 
-`TypeError` ist ein [serialisierbares Objekt](/de/docs/Glossary/serializable_object), daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
+`TypeError` ist ein {{Glossary("serializable_object", "serialisierbares Objekt")}}, daher kann es mit [`structuredClone()`](/de/docs/Web/API/Window/structuredClone) geklont oder zwischen [Workers](/de/docs/Web/API/Worker) mit [`postMessage()`](/de/docs/Web/API/Worker/postMessage) kopiert werden.
 
 `TypeError` ist eine Unterklasse von {{jsxref("Error")}}.
 

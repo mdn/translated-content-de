@@ -31,7 +31,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 115, die En
 
 ### HTTP
 
-- Der `Sec-Purpose` HTTP [Fetch Metadata Request Header](/de/docs/Glossary/Fetch_metadata_request_header) ist jetzt in Anfragen zum [Prefetch](/de/docs/Glossary/Prefetch) von Ressourcen enthalten.
+- Der `Sec-Purpose` HTTP {{Glossary("Fetch_metadata_request_header", "Fetch Metadata Request Header")}} ist jetzt in Anfragen zum {{Glossary("Prefetch", "Prefetch")}} von Ressourcen enthalten.
   Dies ermöglicht es Servern, jede spezielle Behandlung zu liefern, die möglicherweise erforderlich ist, wie z.B. die Anpassung des Cache-Ablaufs für die Anfrage ([Firefox-Bug 1836328](https://bugzil.la/1836328)).
 
 ### APIs

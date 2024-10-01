@@ -7,13 +7,13 @@ l10n:
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Antwortheader **`Origin-Agent-Cluster`** wird verwendet, um anzufordern, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einen _origin-basierten [Agenten-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ platziert wird. Das bedeutet, dass Betriebssystemressourcen (beispielsweise der Betriebssystemprozess), die zur Ausführung des Dokuments verwendet werden, nur mit anderen Dokumenten von derselben [Origin](/de/docs/Glossary/origin) geteilt werden sollten.
+Der HTTP-Antwortheader **`Origin-Agent-Cluster`** wird verwendet, um anzufordern, dass das zugehörige [`Document`](/de/docs/Web/API/Document) in einen _origin-basierten [Agenten-Cluster](https://tc39.es/ecma262/#sec-agent-clusters)_ platziert wird. Das bedeutet, dass Betriebssystemressourcen (beispielsweise der Betriebssystemprozess), die zur Ausführung des Dokuments verwendet werden, nur mit anderen Dokumenten von derselben {{Glossary("origin", "Origin")}} geteilt werden sollten.
 
 Der Effekt davon ist, dass ein ressourcenintensives Dokument weniger wahrscheinlich die Leistung von Dokumenten aus anderen Origins beeinträchtigen wird.
 
 Moderne Webbrowser haben eine Mehrprozess-Architektur, in der Seiten von verschiedenen Origins in unterschiedlichen Betriebssystemprozessen ausgeführt werden können. Dies ist wichtig für die Leistung, denn es bedeutet, dass eine ressourcenintensive Seite weniger Einfluss auf andere Seiten hat, die der Nutzer geöffnet hat.
 
-Browser können jedoch in der Regel keine [same-site](/de/docs/Glossary/site), [cross-origin](/de/docs/Glossary/origin)-Seiten in unterschiedlichen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die auf same-site, cross-origin-Kommunikation angewiesen sind. Zum Beispiel werden standardmäßig Seiten von den folgenden zwei Origins in denselben Betriebssystemressourcen ausgeführt:
+Browser können jedoch in der Regel keine {{Glossary("site", "same-site")}}, {{Glossary("origin", "cross-origin")}}-Seiten in unterschiedlichen Prozessen ausführen, aufgrund bestimmter DOM-APIs, die auf same-site, cross-origin-Kommunikation angewiesen sind. Zum Beispiel werden standardmäßig Seiten von den folgenden zwei Origins in denselben Betriebssystemressourcen ausgeführt:
 
 ```plain
 https://apples.example.org
@@ -43,10 +43,10 @@ Um eine solche unvorhersehbare Situation zu vermeiden, sollten Sie diesen Header
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>[Antwort-Header](/de/docs/Glossary/Response_header)</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">[Verbotener Header-Name](/de/docs/Glossary/Forbidden_header_name)</th>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
       <td>nein</td>
     </tr>
   </tbody>

@@ -29,12 +29,12 @@ Keine Änderungen
 ### JavaScript
 
 - Mit {{jsxref("Object.hasOwn()")}} kann getestet werden, ob eine Eigenschaft auf einem Objekt definiert oder geerbt wurde ([Firefox-Bug 1721149](https://bugzil.la/1721149)).
-- Das standardmäßige 5MB-Speicherkontingent steht nun jedem Ursprung zur Verfügung. Das Kontingent galt zuvor für eine gesamte Domänengruppe (auch bekannt als [eTLD+1](/de/docs/Glossary/eTLD)-Domäne; z.B. `*.wikipedia.org`). ([Firefox-Bug 1064466](https://bugzil.la/1064466)).
+- Das standardmäßige 5MB-Speicherkontingent steht nun jedem Ursprung zur Verfügung. Das Kontingent galt zuvor für eine gesamte Domänengruppe (auch bekannt als {{Glossary("eTLD", "eTLD+1")}}-Domäne; z.B. `*.wikipedia.org`). ([Firefox-Bug 1064466](https://bugzil.la/1064466)).
 - Speicherkontingente für [`Window.localStorage`](/de/docs/Web/API/Window/localStorage) werden nun mit der [IndexedDB API](/de/docs/Web/API/IndexedDB_API) und [`Cache`](/de/docs/Web/API/Cache) geteilt ([Firefox-Bug 742822](https://bugzil.la/742822)).
 
 ### HTTP
 
-- Firefox wird eine HTTP-Anfrage automatisch auf HTTPS upgraden, wenn ein verwendbares [HTTPS RR](/de/docs/Glossary/HTTPS_RR) verfügbar ist.
+- Firefox wird eine HTTP-Anfrage automatisch auf HTTPS upgraden, wenn ein verwendbares {{Glossary("HTTPS_RR", "HTTPS RR")}} verfügbar ist.
   Es wird auch die im _HTTPS RR_ bereitgestellten Informationen nutzen, um den Prozess der Herstellung von HTTPS-Verbindungen zu optimieren⁠—dies ist konzeptionell vergleichbar mit der Verwendung des {{HTTPHeader("Alt-Svc")}}-Headers.
   ([Firefox-Bug 1721132](https://bugzil.la/1721132)).
 

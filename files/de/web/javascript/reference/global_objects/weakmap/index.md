@@ -15,7 +15,7 @@ Sie können mehr über `WeakMap` im Abschnitt [WeakMap-Objekt](/de/docs/Web/Java
 
 ## Beschreibung
 
-Schlüssel von WeakMaps müssen garbage-sammlungsfähig sein. Die meisten [primitiven Datentypen](/de/docs/Glossary/Primitive) können willkürlich erstellt werden und haben keine Lebensdauer, daher können sie nicht als Schlüssel verwendet werden. Objekte und [nicht-registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) können als Schlüssel verwendet werden, da sie garbage-sammlungsfähig sind.
+Schlüssel von WeakMaps müssen garbage-sammlungsfähig sein. Die meisten {{Glossary("Primitive", "primitiven Datentypen")}} können willkürlich erstellt werden und haben keine Lebensdauer, daher können sie nicht als Schlüssel verwendet werden. Objekte und [nicht-registrierte Symbole](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) können als Schlüssel verwendet werden, da sie garbage-sammlungsfähig sind.
 
 ### Warum WeakMap?
 

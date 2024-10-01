@@ -64,10 +64,10 @@ Um den Code für diesen Farbsyntax-Konverter zu sehen, [sehen Sie den Quellcode 
 
 ### Glossarbegriffe und Schlüsselwörter
 
-- [Farbraum](/de/docs/Glossary/color_space)
+- {{Glossary("color_space", "Farbraum")}}
 - [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword)
-- [Interpolation](/de/docs/Glossary/interpolation)
-- [RGB](/de/docs/Glossary/RGB)
+- {{Glossary("interpolation", "Interpolation")}}
+- {{Glossary("RGB", "RGB")}}
 - [`transparent`](/de/docs/Web/CSS/named-color#transparent)
 
 ### Schnittstellen
@@ -114,8 +114,8 @@ Um den Code für diesen Farbsyntax-Konverter zu sehen, [sehen Sie den Quellcode 
   - [`stop-color`](/de/docs/Web/SVG/Attribute/stop-color)
   - [`stroke`](/de/docs/Web/SVG/Attribute/stroke)
 - SVG [`color`](/de/docs/Web/SVG/Attribute/color) Attribut
-- [Farbkreis](/de/docs/Glossary/Color_wheel) Glossarbegriff
-- [Interpolation](/de/docs/Glossary/Interpolation) Glossarbegriff
+- {{Glossary("Color_wheel", "Farbkreis")}} Glossarbegriff
+- {{Glossary("Interpolation", "Interpolation")}} Glossarbegriff
 - Die [`@font-palette-values`](/de/docs/Web/CSS/@font-palette-values) At-Regel [`override-colors`](/de/docs/Web/CSS/@font-palette-values/override-colors) Deskriptor
 - Die [`@color-profile`](/de/docs/Web/CSS/@color-profile) At-Regel
 - Die [`color-gamut`](/de/docs/Web/CSS/@media/color-gamut) @media-Funktion

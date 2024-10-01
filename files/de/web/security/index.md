@@ -33,7 +33,7 @@ Webbrowser folgen einem strengen Sicherheitsmodell, das starke Sicherheit für I
 
 ### Same-Origin-Policy und CORS
 
-Die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) ist ein grundlegender Sicherheitsmechanismus des Webs, der einschränkt, wie ein Dokument oder ein Skript, das von einem [Origin](/de/docs/Glossary/origin) geladen wird, mit einer Ressource von einem anderen Origin interagieren kann. Sie hilft dabei, potenziell bösartige Dokumente zu isolieren und mögliche Angriffsvektoren zu reduzieren.
+Die [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy) ist ein grundlegender Sicherheitsmechanismus des Webs, der einschränkt, wie ein Dokument oder ein Skript, das von einem {{Glossary("origin", "Origin")}} geladen wird, mit einer Ressource von einem anderen Origin interagieren kann. Sie hilft dabei, potenziell bösartige Dokumente zu isolieren und mögliche Angriffsvektoren zu reduzieren.
 
 Im Allgemeinen können Dokumente von einem Origin keine Anfragen an andere Origins stellen. Dies macht Sinn, da man nicht möchte, dass Seiten sich gegenseitig stören und unbefugt Daten aufrufen können.
 
@@ -43,7 +43,7 @@ In bestimmten Fällen möchte man jedoch diese Einschränkung lockern, zum Beisp
 
 Das [HTTP](/de/docs/Web/HTTP)-Protokoll wird von Webbrowsern und Servern verwendet, um miteinander zu kommunizieren, Ressourcen anzufordern, Antworten zu geben (z. B. eine angefragte Ressource bereitstellen oder erläutern, warum eine Anfrage fehlgeschlagen ist) und Sicherheitsfunktionen für diese Kommunikation bereitzustellen.
 
-Transport Layer Security (TLS) bietet Sicherheit und Privatsphäre, indem es Daten während des Transports über das Netzwerk verschlüsselt, und ist die Technologie hinter dem [HTTPS](/de/docs/Glossary/HTTPS)-Protokoll. TLS ist gut für die Privatsphäre, da es verhindert, dass Dritte übertragene Daten abfangen und missbrauchen können.
+Transport Layer Security (TLS) bietet Sicherheit und Privatsphäre, indem es Daten während des Transports über das Netzwerk verschlüsselt, und ist die Technologie hinter dem {{Glossary("HTTPS", "HTTPS")}}-Protokoll. TLS ist gut für die Privatsphäre, da es verhindert, dass Dritte übertragene Daten abfangen und missbrauchen können.
 
 Alle Browser bewegen sich in Richtung der standardmäßigen Anforderung von HTTPS; dies ist praktisch bereits der Fall, da man im Web ohne dieses Protokoll nicht viel machen kann.
 
@@ -56,9 +56,9 @@ Verwandte Themen:
 - [Zertifikattransparenz](/de/docs/Web/Security/Certificate_Transparency)
   - : Die Zertifikattransparenz (CT) ist ein offenes Rahmenwerk, das entwickelt wurde, um gegen Fehlvergabe von Zertifikaten zu schützen und diese zu überwachen. Neu ausgestellte Zertifikate werden in öffentlich betriebenen, oft unabhängigen CT-Protokollen "protokolliert". Diese bieten erweitbare, kryptografisch abgesicherte Verzeichnisse ausgestellter TLS-Zertifikate.
 - [Gemischte Inhalte](/de/docs/Web/Security/Mixed_content)
-  - : Eine HTTPS-Seite, die Inhalte enthält, die unter Verwendung von [Klartext](/de/docs/Glossary/Plaintext)-HTTP abgerufen wurden, wird als **gemischte Inhalte** Seite bezeichnet. Solche Seiten sind nur teilweise verschlüsselt, wodurch die unverschlüsselten Inhalte für Abhörer und Man-in-the-Middle-Angreifer zugänglich sind.
+  - : Eine HTTPS-Seite, die Inhalte enthält, die unter Verwendung von {{Glossary("Plaintext", "Klartext")}}-HTTP abgerufen wurden, wird als **gemischte Inhalte** Seite bezeichnet. Solche Seiten sind nur teilweise verschlüsselt, wodurch die unverschlüsselten Inhalte für Abhörer und Man-in-the-Middle-Angreifer zugänglich sind.
 - [Schwache Signaturalgorithmen](/de/docs/Web/Security/Weak_Signature_Algorithm)
-  - : Die Stärke des Hash-Algorithmus, der bei der [Signierung](/de/docs/Glossary/Signature/Security) eines [digitalen Zertifikats](/de/docs/Glossary/digital_certificate) verwendet wird, ist ein entscheidendes Element der Sicherheit des Zertifikats. Einige Signaturalgorithmen sind bekannt als schwach und sollten wo immer möglich vermieden werden.
+  - : Die Stärke des Hash-Algorithmus, der bei der {{Glossary("Signature/Security", "Signierung")}} eines {{Glossary("digital_certificate", "digitalen Zertifikats")}} verwendet wird, ist ein entscheidendes Element der Sicherheit des Zertifikats. Einige Signaturalgorithmen sind bekannt als schwach und sollten wo immer möglich vermieden werden.
 
 ### Sichere Kontexte und Funktionsberechtigungen
 
@@ -66,7 +66,7 @@ Browser steuern die Nutzung von "leistungsstarken Funktionen" auf unterschiedlic
 
 - Benutzer mit unnötigen Benachrichtigungen und anderen UI-Funktionen zu belästigen.
 - Ihre Webcam ohne Vorwarnung einzuschalten, um sie auszuspionieren.
-- Ihren Browser/Ihr System zu blockieren, um [Denial of Service](/de/docs/Glossary/denial_of_service)-Angriffe (DoS) durchzuführen.
+- Ihren Browser/Ihr System zu blockieren, um {{Glossary("denial_of_service", "Denial of Service")}}-Angriffe (DoS) durchzuführen.
 - Daten oder Geld zu stehlen.
 
 Diese "leistungsstarken Funktionen" werden auf folgende Weise kontrolliert:
@@ -103,7 +103,7 @@ Hier sind einige weitere Tipps für sichere Logins:
   > [!NOTE]
   > Einige Phishing-Seiten können sehr raffiniert sein und schwer von einer echten Webseite zu unterscheiden sein. Sie sollten Ihre Benutzer daher darüber aufklären, zufälligen Links in E-Mails und SMS nicht zu vertrauen. Wenn sie eine Nachricht erhalten, die in etwa so lautet: "Dringend, Sie müssen sich jetzt einloggen, um ein Problem zu lösen", sollten sie die Seite direkt in einem neuen Tab aufrufen und versuchen, sich direkt einzuloggen, anstatt auf den Link in der Nachricht zu klicken. Oder sie könnten Sie telefonisch oder per E-Mail kontaktieren, um die erhaltene Nachricht zu besprechen.
 
-- Schützen Sie sich vor Brute-Force-Angriffen auf Anmeldeseiten mit [Rate Limiting](/de/docs/Glossary/rate_limit), Kontosperren nach einer bestimmten Anzahl erfolgloser Versuche und [CAPTCHA-Herausforderungen](https://en.wikipedia.org/wiki/CAPTCHA).
+- Schützen Sie sich vor Brute-Force-Angriffen auf Anmeldeseiten mit {{Glossary("rate_limit", "Rate Limiting")}}, Kontosperren nach einer bestimmten Anzahl erfolgloser Versuche und [CAPTCHA-Herausforderungen](https://en.wikipedia.org/wiki/CAPTCHA).
 - Verwalten Sie Benutzersitzungen mit eindeutigen [Sitzungs-IDs](https://en.wikipedia.org/wiki/Session_ID) und melden Sie Benutzer automatisch ab nach Perioden der Inaktivität.
 
 ### Keine sensiblen Daten in URL-Query-Strings einfügen
@@ -113,13 +113,13 @@ Im Allgemeinen sollten Sie [keine sensiblen Daten in URL-Query-Strings einfügen
 Verwenden Sie `POST`-Anfragen anstelle von `GET`-Anfragen, um diese Probleme zu vermeiden. Unser Artikel [Referer-Header-Richtlinie: Datenschutz- und Sicherheitsbedenken](/de/docs/Web/Security/Referer_header:_privacy_and_security_concerns) beschreibt ausführlicher die Datenschutz- und Sicherheitsrisiken, die mit dem `Referer`-Header verbunden sind, und bietet Ratschläge zur Minderung dieser Risiken.
 
 > [!NOTE]
-> Das Vermeiden der Übertragung von sensiblen Daten in URLs über `GET`-Anfragen kann auch helfen, sich gegen [Cross-Site-Request-Forgery](/de/docs/Glossary/CSRF) und [Replay-Angriffe](https://en.wikipedia.org/wiki/Replay_attack) zu schützen.
+> Das Vermeiden der Übertragung von sensiblen Daten in URLs über `GET`-Anfragen kann auch helfen, sich gegen {{Glossary("CSRF", "Cross-Site-Request-Forgery")}} und [Replay-Angriffe](https://en.wikipedia.org/wiki/Replay_attack) zu schützen.
 
 ### Nutzungsrichtlinien durchsetzen
 
 Erwägen Sie die Verwendung von Webplattform-Funktionen wie der [Content-Security-Policy](/de/docs/Web/HTTP/CSP) (CSP) und der [Permissions-Policy](/de/docs/Web/HTTP/Permissions_Policy), um eine Reihe von Funktions- und Ressourcennutzungsregeln auf Ihrer Webseite durchzusetzen, die es schwieriger machen, Schwachstellen einzuführen.
 
-CSP ermöglicht es Ihnen, eine zusätzliche Sicherheitsebene hinzuzufügen, indem Sie beispielsweise zulassen, dass Bilder oder Skripte nur von bestimmten vertrauenswürdigen Origins geladen werden. Dies hilft, bestimmte Arten von Angriffen zu erkennen und zu mindern, einschließlich Cross-Site-Scripting ([XSS](/de/docs/Glossary/Cross-site_scripting)) und Dateninjektionsangriffen. Diese Angriffe beinhalten eine Reihe von bösartigen Aktivitäten, darunter Datendiebstahl, Seitenverschandelung und Verbreitung von Malware.
+CSP ermöglicht es Ihnen, eine zusätzliche Sicherheitsebene hinzuzufügen, indem Sie beispielsweise zulassen, dass Bilder oder Skripte nur von bestimmten vertrauenswürdigen Origins geladen werden. Dies hilft, bestimmte Arten von Angriffen zu erkennen und zu mindern, einschließlich Cross-Site-Scripting ({{Glossary("Cross-site_scripting", "XSS")}}) und Dateninjektionsangriffen. Diese Angriffe beinhalten eine Reihe von bösartigen Aktivitäten, darunter Datendiebstahl, Seitenverschandelung und Verbreitung von Malware.
 
 Die Berechtigungsrichtlinie arbeitet auf ähnliche Weise, ist jedoch mehr darauf ausgerichtet, den Zugang zu bestimmten "leistungsstarken Funktionen" ([wie zuvor erwähnt](#sichere_kontexte_und_funktionsberechtigungen)) zu erlauben oder zu blockieren.
 
@@ -133,9 +133,9 @@ In Anknüpfung an den vorhergehenden Abschnitt sollten Sie, wenn Sie die Nutzung
 Verwandte Themen:
 
 - [Subresource-Integrität](/de/docs/Web/Security/Subresource_Integrity)
-  - : **Subresource-Integrität** (SRI) ist eine Sicherheitsfunktion, die Browsern ermöglicht, zu überprüfen, ob Ressourcen, die sie abrufen (zum Beispiel von einem [CDN](/de/docs/Glossary/CDN)), ohne unvorhergesehene Manipulation geliefert werden. Sie funktioniert, indem Sie es ermöglichen, einen kryptografischen Hash bereitzustellen, den eine abgerufene Ressource erfüllen muss.
+  - : **Subresource-Integrität** (SRI) ist eine Sicherheitsfunktion, die Browsern ermöglicht, zu überprüfen, ob Ressourcen, die sie abrufen (zum Beispiel von einem {{Glossary("CDN", "CDN")}}), ohne unvorhergesehene Manipulation geliefert werden. Sie funktioniert, indem Sie es ermöglichen, einen kryptografischen Hash bereitzustellen, den eine abgerufene Ressource erfüllen muss.
 - [HTTP Access-Control-Allow-Origin](/de/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)
-  - : Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit anfragendem Code von dem angegebenen [Origin](/de/docs/Glossary/origin) geteilt werden kann.
+  - : Der **`Access-Control-Allow-Origin`** Antwort-Header gibt an, ob die Antwort mit anfragendem Code von dem angegebenen {{Glossary("origin", "Origin")}} geteilt werden kann.
 - [HTTP X-Content-Type-Options](/de/docs/Web/HTTP/Headers/X-Content-Type-Options)
   - : Der **`X-Content-Type-Options`** Antwort-Header ist ein Marker, der vom Server verwendet wird, um anzuzeigen, dass die [MIME-Typen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types), die in den {{HTTPHeader("Content-Type")}}-Headern angegeben sind, nicht geändert werden sollten und befolgt werden müssen. Dieser Header ist ein Weg, um sich vom [MIME-Typ-Sniffing](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types#mime_sniffing) abzumelden, oder, anders gesagt, anzugeben, dass die MIME-Typen absichtlich konfiguriert sind.
 
@@ -154,12 +154,12 @@ Jedes seriöse serverseitige Framework wird für die Validierung von Formularüb
 
 ### Schutz vor Clickjacking
 
-Bei einem [Clickjacking](/de/docs/Glossary/Clickjacking)-Angriff wird ein Benutzer dazu gebracht, auf ein UI-Element zu klicken, das eine andere Aktion als die erwartet ausführt, oft mit dem Ergebnis, dass die vertraulichen Informationen des Benutzers an einen böswilligen Dritten weitergeleitet werden. Dieses Risiko ist inhärent in eingebetteten Inhalten von Drittanbietern, also stellen Sie sicher, dass Sie der Einbettung auf Ihrer Seite vertrauen. Außerdem sollten Sie sich bewusst sein, dass Clickjacking mit Phishing-Techniken kombiniert werden kann. Über Phishing können Sie im vorherigen Abschnitt [Benutzeridentität schützen und Logins verwalten](#benutzeridentität_schützen_und_logins_verwalten) lesen.
+Bei einem {{Glossary("Clickjacking", "Clickjacking")}}-Angriff wird ein Benutzer dazu gebracht, auf ein UI-Element zu klicken, das eine andere Aktion als die erwartet ausführt, oft mit dem Ergebnis, dass die vertraulichen Informationen des Benutzers an einen böswilligen Dritten weitergeleitet werden. Dieses Risiko ist inhärent in eingebetteten Inhalten von Drittanbietern, also stellen Sie sicher, dass Sie der Einbettung auf Ihrer Seite vertrauen. Außerdem sollten Sie sich bewusst sein, dass Clickjacking mit Phishing-Techniken kombiniert werden kann. Über Phishing können Sie im vorherigen Abschnitt [Benutzeridentität schützen und Logins verwalten](#benutzeridentität_schützen_und_logins_verwalten) lesen.
 
 Die folgenden Funktionen können helfen, gegen Clickjacking zu schützen:
 
 - [HTTP X-Frame-Options](/de/docs/Web/HTTP/Headers/X-Frame-Options)
-  - : Der **`X-Frame-Options`** [HTTP](/de/docs/Web/HTTP) Antwort-Header kann verwendet werden, um anzugeben, ob ein Browser eine Seite in einem [`<frame>`](/de/docs/Web/HTML/Element/frame), [`<iframe>`](/de/docs/Web/HTML/Element/iframe), [`<embed>`](/de/docs/Web/HTML/Element/embed) oder [`<object>`](/de/docs/Web/HTML/Element/object) rendern darf. Seiten können dies nutzen, um [Clickjacking](/de/docs/Glossary/Clickjacking)-Angriffe zu vermeiden, indem sichergestellt wird, dass ihre Inhalte nicht in andere Seiten eingebettet werden.
+  - : Der **`X-Frame-Options`** [HTTP](/de/docs/Web/HTTP) Antwort-Header kann verwendet werden, um anzugeben, ob ein Browser eine Seite in einem [`<frame>`](/de/docs/Web/HTML/Element/frame), [`<iframe>`](/de/docs/Web/HTML/Element/iframe), [`<embed>`](/de/docs/Web/HTML/Element/embed) oder [`<object>`](/de/docs/Web/HTML/Element/object) rendern darf. Seiten können dies nutzen, um {{Glossary("Clickjacking", "Clickjacking")}}-Angriffe zu vermeiden, indem sichergestellt wird, dass ihre Inhalte nicht in andere Seiten eingebettet werden.
 - [CSP: frame-ancestors](/de/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors)
   - : Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-ancestors`** Anweisung gibt gültige Eltern an, die eine Seite mit {{HTMLElement("frame")}}, {{HTMLElement("iframe")}}, {{HTMLElement("object")}} oder {{HTMLElement("embed")}} einbetten dürfen.
 

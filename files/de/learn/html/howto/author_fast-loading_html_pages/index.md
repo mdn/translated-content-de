@@ -136,7 +136,7 @@ und sollten die Breiten von Spalten mit den [`<col>`](/de/docs/Web/HTML/Element/
 
 ### Verwenden Sie Lazy Loading für Bilder
 
-Standardmäßig werden Bilder **eagerly** geladen; das bedeutet, dass das Bild sofort heruntergeladen wird, sobald es im HTML verarbeitet wird. Alle eagerly geladenen Bilder werden gerendert, bevor das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis des Fensters gesendet wird. Der Wechsel zum Lazy Loading von Bildern weist den Browser an, die Bilder erst dann zu laden, wenn sie benötigt werden, um das [visuelle Ansichtsfenster](/de/docs/Glossary/visual_viewport) zu zeichnen.
+Standardmäßig werden Bilder **eagerly** geladen; das bedeutet, dass das Bild sofort heruntergeladen wird, sobald es im HTML verarbeitet wird. Alle eagerly geladenen Bilder werden gerendert, bevor das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis des Fensters gesendet wird. Der Wechsel zum Lazy Loading von Bildern weist den Browser an, die Bilder erst dann zu laden, wenn sie benötigt werden, um das {{Glossary("visual_viewport", "visuelle Ansichtsfenster")}} zu zeichnen.
 
 Um ein Bild für Lazy Loading zu markieren, geben Sie dessen [`loading`](/de/docs/Web/HTML/Element/img#loading)-Attribut mit dem Wert `lazy` an. Damit wird das Bild nur geladen, wenn es benötigt wird.
 

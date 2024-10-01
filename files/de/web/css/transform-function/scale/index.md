@@ -35,7 +35,7 @@ scale(sx, sy)
   - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Abszisse (horizontal, x-Komponente) des Skalierungsvektors darstellt.
 - `sy`
   - : Ein {{cssxref("&lt;number&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, das die Ordinate (vertikal, y-Komponente) des Skalierungsvektors darstellt.
-    Wenn nicht definiert, ist sein Standardwert `sx`, was zu einer gleichmäßigen Skalierung führt, die das [Seitenverhältnis](/de/docs/Glossary/aspect_ratio) des Elements bewahrt.
+    Wenn nicht definiert, ist sein Standardwert `sx`, was zu einer gleichmäßigen Skalierung führt, die das {{Glossary("aspect_ratio", "Seitenverhältnis")}} des Elements bewahrt.
 
 <table class="standard-table">
   <thead>

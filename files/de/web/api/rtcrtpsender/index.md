@@ -9,12 +9,12 @@ l10n:
 
 Das **`RTCRtpSender`**-Interface bietet die Möglichkeit, die Kodierung und den Versand eines bestimmten [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) zu einem entfernten Partner zu steuern und Details darüber zu erhalten.
 
-Mit ihm können Sie die für den entsprechenden Track verwendete Kodierung konfigurieren, Informationen über die Medienfähigkeiten des Geräts abrufen usw. Sie können zudem auf einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) zugreifen, der verwendet werden kann, um [DTMF](/de/docs/Glossary/DTMF)-Codes (um das Drücken von Tasten auf einem Telefonwählfeld zu simulieren) an den entfernten Partner zu senden.
+Mit ihm können Sie die für den entsprechenden Track verwendete Kodierung konfigurieren, Informationen über die Medienfähigkeiten des Geräts abrufen usw. Sie können zudem auf einen [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender) zugreifen, der verwendet werden kann, um {{Glossary("DTMF", "DTMF")}}-Codes (um das Drücken von Tasten auf einem Telefonwählfeld zu simulieren) an den entfernten Partner zu senden.
 
 ## Instanz-Eigenschaften
 
 - [`RTCRtpSender.dtmf`](/de/docs/Web/API/RTCRtpSender/dtmf) {{ReadOnlyInline}}
-  - : Ein [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender), der verwendet werden kann, um [DTMF](/de/docs/Glossary/DTMF)-Töne mit `telephone-event` Nutzlasten in der [RTP](/de/docs/Glossary/RTP)-Sitzung, die durch das `RTCRtpSender`-Objekt repräsentiert wird, zu senden. Ist der Wert `null`, unterstützen der Track und/oder die Verbindung kein DTMF. Nur Audio-Tracks können DTMF unterstützen.
+  - : Ein [`RTCDTMFSender`](/de/docs/Web/API/RTCDTMFSender), der verwendet werden kann, um {{Glossary("DTMF", "DTMF")}}-Töne mit `telephone-event` Nutzlasten in der {{Glossary("RTP", "RTP")}}-Sitzung, die durch das `RTCRtpSender`-Objekt repräsentiert wird, zu senden. Ist der Wert `null`, unterstützen der Track und/oder die Verbindung kein DTMF. Nur Audio-Tracks können DTMF unterstützen.
 - [`RTCRtpSender.track`](/de/docs/Web/API/RTCRtpSender/track) {{ReadOnlyInline}}
   - : Der [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack), der vom `RTCRtpSender` verarbeitet wird. Ist `track` `null`, sendet der `RTCRtpSender` nichts.
 - [`RTCRtpSender.transport`](/de/docs/Web/API/RTCRtpSender/transport) {{ReadOnlyInline}}
