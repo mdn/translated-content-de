@@ -78,7 +78,7 @@ Es gibt zwei Typen von Multipart-Typen:
   - : Eine Nachricht, die andere Nachrichten kapselt. Dies kann verwendet werden, um beispielsweise eine E-Mail zu repräsentieren, die eine weitergeleitete Nachricht als Teil ihrer Daten enthält, oder um das Senden sehr großer Nachrichten in Teilen zu ermöglichen, als wären es mehrere Nachrichten. Beispiele sind `message/rfc822` (für weitergeleitete oder beantwortete Nachrichten-Zitate) und `message/partial`, um das automatische Aufteilen einer großen Nachricht in kleinere zu ermöglichen, die vom Empfänger wieder zusammengefügt werden können. [(Siehe Nachrichten-Typen-Register bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#message)
 - `multipart`
   - : Daten, die aus mehreren Komponenten bestehen, die individuell unterschiedliche MIME-Typen haben können. Beispiele sind `multipart/form-data` (für Daten, die mit der [`FormData`](/de/docs/Web/API/FormData) API erzeugt wurden) und `multipart/byteranges` (definiert in {{RFC(7233, "", "5.4.1")}} und verwendet mit {{Glossary("HTTP", "HTTP")}}'s {{HTTPStatus(206)}} "Partial Content" Antwort, die zurückgesandt wird, wenn die abgerufenen Daten nur Teil des Inhalts sind, wie es mit dem {{HTTPHeader("Range")}} Header geliefert wird).
-  [(Siehe Multipart-Typen-Register bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)
+    [(Siehe Multipart-Typen-Register bei IANA)](https://www.iana.org/assignments/media-types/media-types.xhtml#multipart)
 
 ## Wichtige MIME-Typen für Webentwickler
 
