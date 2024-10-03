@@ -151,7 +151,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 Skripte ohne `async`-, `defer`- oder `type="module"`-Attribute sowie Inline-Skripte ohne das `type="module"`-Attribut werden sofort abgerufen und ausgeführt, bevor der Browser weiter mit dem Parsen der Seite fortfahren kann.
 
-Das Skript sollte mit dem `text/javascript`-MIME-Typ ausgeliefert werden, aber Browser sind nachsichtig und blockieren sie nur, wenn das Skript mit einem Bildtyp (`image/*`), einem Videotyp (`video/*`), einem Audiotyp (`audio/*`) oder `text/csv` ausgeliefert wird. 
+Das Skript sollte mit dem `text/javascript`-MIME-Typ ausgeliefert werden, aber Browser sind nachsichtig und blockieren sie nur, wenn das Skript mit einem Bildtyp (`image/*`), einem Videotyp (`video/*`), einem Audiotyp (`audio/*`) oder `text/csv` ausgeliefert wird.
 Wenn das Skript blockiert wird, wird ein `error`-Ereignis an das Element gesendet; andernfalls wird ein `load`-Ereignis gesendet.
 
 ## Beispiele

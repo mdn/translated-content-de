@@ -92,5 +92,5 @@ if ("launchQueue" in window) {
 
 ## Siehe auch
 
-- [Handle files in Progressive Web Apps auf learn.microsoft.com](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files) 
+- [Handle files in Progressive Web Apps auf learn.microsoft.com](https://learn.microsoft.com/en-us/microsoft-edge/progressive-web-apps-chromium/how-to/handle-files)
 - [Let installed web applications be file handlers auf developer.chrome.com](https://developer.chrome.com/docs/capabilities/web-apis/file-handling)
