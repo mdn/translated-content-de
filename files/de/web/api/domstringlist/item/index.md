@@ -3,12 +3,12 @@ title: "DOMStringList: item()-Methode"
 short-title: item()
 slug: Web/API/DOMStringList/item
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`item()`**-Methode gibt einen String aus einer [`DOMStringList`](/de/docs/Web/API/DOMStringList) nach Index zurück.
+Die **`item()`**-Methode gibt einen String aus einer [`DOMStringList`](/de/docs/Web/API/DOMStringList) anhand eines Index zurück.
 
 ## Syntax
 
@@ -16,8 +16,7 @@ Die **`item()`**-Methode gibt einen String aus einer [`DOMStringList`](/de/docs/
 item(index)
 ```
 
-JavaScript bietet auch eine array-ähnliche Syntax in eckigen Klammern, um ein Element aus einer
-`DOMStringList` nach Index zu erhalten:
+JavaScript bietet auch eine array-ähnliche Klammer-Syntax, um ein Element aus einer `DOMStringList` anhand seines Indexes zu erhalten:
 
 ```js
 list[index];
@@ -26,11 +25,11 @@ list[index];
 ### Parameter
 
 - `index`
-  - : Der Index des zu holenden Strings. Der Index ist nullbasiert.
+  - : der Index des Strings, den Sie abrufen möchten. Der Index ist nullbasiert.
 
 ### Rückgabewert
 
-Der String an der Indexposition in der `DOMStringList`; ansonsten `null`, wenn der angegebene Index außerhalb des Bereichs liegt.
+Der String an der Indexposition in der `DOMStringList`; andernfalls `null`, wenn der angegebene Index außerhalb des Bereichs liegt.
 
 ### Ausnahmen
 
