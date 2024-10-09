@@ -3,12 +3,12 @@ title: "AudioContext: suspend()-Methode"
 short-title: suspend()
 slug: Web/API/AudioContext/suspend
 l10n:
-  sourceCommit: 9b8fba1439f6069a90a16023e89e0f8bf363a957
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `suspend()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle stoppt die Fortschreitung der Zeit im Audio-Kontext, pausiert vorübergehend den Zugriff auf die Audio-Hardware und reduziert dabei die CPU-/Batterie-Nutzung — das ist nützlich, wenn eine Anwendung die Audio-Hardware abschalten möchte, weil ein Audio-Kontext für eine Weile nicht verwendet wird.
+Die `suspend()`-Methode der [`AudioContext`](/de/docs/Web/API/AudioContext)-Schnittstelle unterbricht den Zeitfortschritt im Audio-Kontext, was vorübergehend den Zugriff auf die Audio-Hardware stoppt und den CPU-/Batterieverbrauch verringert. Dies ist nützlich, wenn eine Anwendung die Audio-Hardware ausschalten möchte, wenn sie den Audio-Kontext eine Weile nicht benötigt.
 
 Diese Methode führt zu einer `INVALID_STATE_ERR`-Ausnahme, wenn sie auf einem [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext) aufgerufen wird.
 
@@ -24,21 +24,21 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich mit {{jsxref('undefined')}} auflöst. Das Versprechen wird zurückgewiesen, wenn der Kontext bereits geschlossen wurde.
+Ein {{jsxref("Promise")}}, das mit {{jsxref('undefined')}} aufgelöst wird. Das Versprechen wird abgelehnt, wenn der Kontext bereits geschlossen wurde.
 
 ## Beispiele
 
-Der folgende Ausschnitt stammt aus unserer [AudioContext-Zustandsdemo](https://github.com/mdn/webaudio-examples/blob/main/audiocontext-states/index.html) ([siehe es live](https://mdn.github.io/webaudio-examples/audiocontext-states/).) Wenn die Suspendieren/Fortsetzen-Schaltfläche angeklickt wird, wird der [`AudioContext.state`](/de/docs/Web/API/BaseAudioContext/state) abgefragt — wenn er `running` ist, wird `suspend()` aufgerufen; wenn er `suspended` ist, wird [`resume()`](/de/docs/Web/API/AudioContext/resume) aufgerufen. In jedem Fall wird das Textlabel der Schaltfläche entsprechend aktualisiert, sobald das Versprechen erfüllt ist.
+Der folgende Ausschnitt stammt aus unserem [AudioContext-Zustände-Demo](https://github.com/mdn/webaudio-examples/blob/main/audiocontext-states/index.html) ([sehen Sie es live in Aktion](https://mdn.github.io/webaudio-examples/audiocontext-states/).) Wenn die Suspend-/Resume-Schaltfläche angeklickt wird, wird der [`AudioContext.state`](/de/docs/Web/API/BaseAudioContext/state) abgefragt — wenn er `running` ist, wird `suspend()` aufgerufen; wenn er `suspended` ist, wird [`resume()`](/de/docs/Web/API/AudioContext/resume) aufgerufen. In jedem Fall wird die Textbeschriftung der Schaltfläche entsprechend aktualisiert, sobald das Versprechen aufgelöst ist.
 
 ```js
-susresBtn.onclick = () => {
+susResBtn.onclick = () => {
   if (audioCtx.state === "running") {
     audioCtx.suspend().then(() => {
-      susresBtn.textContent = "Resume context";
+      susResBtn.textContent = "Resume context";
     });
   } else if (audioCtx.state === "suspended") {
     audioCtx.resume().then(() => {
-      susresBtn.textContent = "Suspend context";
+      susResBtn.textContent = "Suspend context";
     });
   }
 };

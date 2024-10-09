@@ -1,18 +1,18 @@
 ---
-title: "DOMRectReadOnly: bottom-Eigenschaft"
+title: "DOMRectReadOnly: bottom Eigenschaft"
 short-title: bottom
 slug: Web/API/DOMRectReadOnly/bottom
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`bottom`** des **`DOMRectReadOnly`**-Interfaces gibt den unteren Koordinatenwert des `DOMRect` zurück. (Besitzt den gleichen Wert wie `y + height`, oder `y`, wenn `height` negativ ist.)
+Die schreibgeschützte **`bottom`**-Eigenschaft des **`DOMRectReadOnly`**-Interfaces gibt den unteren Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `y + height` oder `y`, wenn `height` negativ ist.)
 
 ## Wert
 
-Ein Gleitkommawert.
+Ein Double.
 
 ## Spezifikationen
 

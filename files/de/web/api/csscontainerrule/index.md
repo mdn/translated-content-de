@@ -2,38 +2,37 @@
 title: CSSContainerRule
 slug: Web/API/CSSContainerRule
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{ APIRef("CSSOM") }}
 
-Die **`CSSContainerRule`**-Schnittstelle repräsentiert eine einzelne CSS-{{cssxref("@container")}}-Regel.
+Das **`CSSContainerRule`**-Interface repräsentiert eine einzelne CSS {{cssxref("@container")}}-Regel.
 
-Ein Objekt dieses Typs kann verwendet werden, um die Abfragebedingungen für den {{cssxref("@container")}} zu erhalten, zusammen mit dem Container-Namen, sofern einer definiert ist. Beachten Sie, dass der Container-Name und die Abfrage zusammen den "Bedingungstext" definieren, der mit [`CSSConditionRule.conditionText`](/de/docs/Web/API/CSSConditionRule/conditionText) erhalten werden kann.
+Ein Objekt dieses Typs kann verwendet werden, um die Abfragebedingungen für das {{cssxref("@container")}} sowie den Containernamen, falls einer definiert ist, abzurufen. Beachten Sie, dass der Containername und die Abfrage zusammen den "Bedingungstext" definieren, der mit [`CSSConditionRule.conditionText`](/de/docs/Web/API/CSSConditionRule/conditionText) abgerufen werden kann.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 _Erbt Eigenschaften von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSContainerRule.containerName`](/de/docs/Web/API/CSSContainerRule/containerName) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die den Namen eines {{cssxref("@container")}} darstellt, oder eine leere Zeichenkette.
+  - : Gibt einen String zurück, der den Namen eines {{cssxref("@container")}} darstellt, oder einen leeren String.
 - [`CSSContainerRule.containerQuery`](/de/docs/Web/API/CSSContainerRule/containerQuery) {{ReadOnlyInline}}
-  - : Gibt eine Zeichenkette zurück, die die Menge an Merkmalen oder "Container-Bedingungen" repräsentiert, die ausgewertet werden, um festzustellen, ob die Stile im zugehörigen {{cssxref("@container")}} angewendet werden.
+  - : Gibt einen String zurück, der die Menge der Funktionen oder "Containerbedingungen" darstellt, die ausgewertet werden, um zu bestimmen, ob die Stile im zugehörigen {{cssxref("@container")}} angewendet werden.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 _Keine spezifischen Methoden; erbt Methoden von seinen Vorfahren [`CSSConditionRule`](/de/docs/Web/API/CSSConditionRule), [`CSSGroupingRule`](/de/docs/Web/API/CSSGroupingRule) und [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Beispiele
 
-### Unbenannte Container-Regel
+### Ungenannte Container-Regel
 
-Das untenstehende Beispiel definiert eine unbenannte {{cssxref("@container")}}-Regel und zeigt die Eigenschaften der zugehörigen `CSSContainerRule`.
-Das CSS ist dasselbe wie im `@container`-Beispiel [Stile basierend auf der Größe eines Containers festlegen](/de/docs/Web/CSS/@container#setting_styles_based_on_a_containers_size).
+Das folgende Beispiel definiert eine unbenannte {{cssxref("@container")}}-Regel und zeigt die Eigenschaften der zugehörigen `CSSContainerRule` an. Der CSS-Code ist derselbe wie im `@container`-Beispiel [Festlegen von Stilen basierend auf der Größe eines Containers](/de/docs/Web/CSS/@container#setting_styles_based_on_a_containers_size).
 
-Der erste Teil des Codes erstellt einfach eine Liste zum Protokollieren der Eigenschaften der Container-Regel sowie eine JavaScript-`log()`-Methode, um das Hinzufügen der Eigenschaften zu vereinfachen.
+Der erste Teil des Codes erstellt einfach eine Liste zum Protokollieren der Containereigenschaften zusammen mit einer JavaScript-`log()`-Methode, um das Hinzufügen der Eigenschaften zu vereinfachen.
 
 ```html
 <div id="log">
@@ -54,7 +53,7 @@ function log(result) {
 }
 ```
 
-Dann definieren wir das HTML für eine `card` (`<div>`), die innerhalb eines `post` enthalten ist.
+Dann definieren wir das HTML für eine `card` (`<div>`), die in einem `post` enthalten ist.
 
 ```html
 <div class="post">
@@ -65,12 +64,10 @@ Dann definieren wir das HTML für eine `card` (`<div>`), die innerhalb eines `po
 </div>
 ```
 
-Das CSS für das Beispiel wird unten gezeigt.
-Wie im entsprechenden {{cssxref("@container")}}-Beispiel beschrieben, spezifiziert das CSS für das Containerelement den Typ des Containers.
-Der {{cssxref("@container")}} wendet dann eine neue Breite, Schriftgröße und Hintergrundfarbe auf die Karte an, wenn die Breite kleiner als 650px ist.
+Der CSS-Code für das Beispiel wird unten angezeigt. Wie im entsprechenden {{cssxref("@container")}}-Beispiel beschrieben, legt das CSS für das Containerelement den Typ des Containers fest. Das {{cssxref("@container")}} wendet dann eine neue Breite, Schriftgröße und Hintergrundfarbe auf die Karte an, wenn die Breite kleiner als 650px ist.
 
 ```html
-<style id="examplestyles">
+<style id="example-styles">
   /* A container context based on inline size */
   .post {
     container-type: inline-size;
@@ -87,13 +84,10 @@ Der {{cssxref("@container")}} wendet dann eine neue Breite, Schriftgröße und H
 </style>
 ```
 
-Der untenstehende Code ruft das [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) ab, das dem Beispiel unter Verwendung seiner ID zugeordnet ist, und verwendet dann seine `sheet`-Eigenschaft, um das [`StyleSheet`](/de/docs/Web/API/StyleSheet) abzurufen.
-Aus dem `StyleSheet` erhalten wir die Menge der zum Blatt hinzugefügten `cssRules`.
-Da wir den `@container` als zweite Regel oben hinzugefügt haben, können wir auf die zugehörige `CSSContainerRule` zugreifen, indem wir den zweiten Eintrag mit Index "1" in den `cssRules` verwenden.
-Zuletzt protokollieren wir die `containerName`, `containerQuery` und `conditionText` (vererbt) Eigenschaften.
+Der untenstehende Code ruft das mit dem Beispiel verknüpfte [`HTMLStyleElement`](/de/docs/Web/API/HTMLStyleElement) anhand seiner ID ab und verwendet dann seine `sheet`-Eigenschaft, um das [`StyleSheet`](/de/docs/Web/API/StyleSheet) zu erhalten. Aus dem `StyleSheet` erhalten wir die Menge der `cssRules`, die dem Stylesheet hinzugefügt wurden. Da wir das `@container` als zweite Regel hinzugefügt haben, können wir auf die zugehörige `CSSContainerRule` mit dem zweiten Eintrag, Index "1", in den `cssRules` zugreifen. Schließlich protokollieren wir die Eigenschaften `containerName`, `containerQuery` und `conditionText` (geerbt).
 
 ```js
-const exampleStylesheet = document.getElementById("examplestyles").sheet;
+const exampleStylesheet = document.getElementById("example-styles").sheet;
 const exampleRules = exampleStylesheet.cssRules;
 const containerRule = exampleRules[1]; // a CSSContainerRule representing the container rule.
 log(`CSSContainerRule.containerName: "${containerRule.containerName}"`);
@@ -102,20 +96,15 @@ log(`CSSContainerRule.conditionText: "${containerRule.conditionText}"`);
 ```
 
 > [!NOTE]
-> Die Stile für dieses Beispiel sind in einem HTML-`style`-Element mit einer ID definiert, um es dem Code zu erleichtern, das richtige Blatt zu finden.
-> Sie könnten auch die richtigen Blätter für jedes Beispiel im Dokument lokalisieren, indem Sie gegen die Länge indizieren (z.B. `document.styleSheets[document.styleSheets.length-1]`, aber das macht es komplizierter, das richtige Blatt für jedes Beispiel zu bestimmen).
+> Die Stile für dieses Beispiel sind in einem Inline-HTML-`style`-Element mit einer ID definiert, um es dem Code zu erleichtern, das korrekte Stylesheet zu finden. Sie könnten auch die korrekten Stylesheets für jedes Beispiel aus dem Dokument durch Indizierung gegen die Länge auffinden (z.B. `document.styleSheets[document.styleSheets.length-1]`), aber das macht es komplizierter, das korrekte Stylesheet für jedes Beispiel zu ermitteln.
 
-Das Beispielausgabe wird unten gezeigt.
-Der Protokollabschnitt listet den `containerName` auf, der eine leere Zeichenkette ist, da kein Name definiert wurde.
-Die `containerQuery` und `conditionText`-Zeichenketten werden ebenfalls protokolliert und haben den gleichen Wert, da kein Name definiert ist.
-Die Karte sollte den Hintergrund ändern, während die Breite der Seite durch 650px wechselt.
+Das Beispielergebnis wird unten angezeigt. Der Protokollabschnitt listet den `containerName` auf, der ein leerer String ist, da kein Name definiert wurde. Die Strings `containerQuery` und `conditionText` werden ebenfalls protokolliert und haben denselben Wert, da kein Name definiert ist. Die Karte sollte den Hintergrund wechseln, während die Breite der Seite die 650px-Marke überschreitet.
 
 {{EmbedLiveSample("Unnamed container rule","100%","300px")}}
 
 ### Benannte Container-Regel
 
-Das untenstehende Beispiel definiert eine benannte {{cssxref("@container")}}-Regel und zeigt die Eigenschaften der zugehörigen `CSSContainerRule`.
-Das CSS ist dem im `@container`-Beispiel [Erstellen benannter Container-Kontexte](/de/docs/Web/CSS/@container#creating_named_container_contexts) sehr ähnlich.
+Das folgende Beispiel definiert eine benannte {{cssxref("@container")}}-Regel und zeigt die Eigenschaften der zugehörigen `CSSContainerRule` an. Der CSS-Code ist dem im `@container`-Beispiel [Erstellen benannter Containerkontexte](/de/docs/Web/CSS/@container#creating_named_container_contexts) sehr ähnlich.
 
 ```html hidden
 <div id="log">
@@ -136,7 +125,7 @@ function log(result) {
 }
 ```
 
-Zuerst definieren wir das HTML für eine `card` (`<div>`), die in einem `post` enthalten ist (das Beispiel zeigt den Protokollierungscode nicht, da dieser dem im vorherigen Beispiel entspricht).
+Zuerst definieren wir das HTML für eine `card` (`<div>`) innerhalb eines `post` (das Beispiel zeigt den Protokollierungscode nicht, da dieser derselbe ist wie im vorherigen Beispiel).
 
 ```html
 <div class="post">
@@ -147,11 +136,10 @@ Zuerst definieren wir das HTML für eine `card` (`<div>`), die in einem `post` e
 </div>
 ```
 
-Wie in {{cssxref("@container")}} beschrieben, spezifiziert das CSS für das Containerelement den Typ des Containers und kann auch einen Namen für den Container angeben.
-Die Karte hat eine Standardschriftgröße, die für den `@container` namens `sidebar` überschrieben wird, wenn die Mindestbreite größer als 700px ist.
+Wie im {{cssxref("@container")}} beschrieben, gibt das CSS für das Containerelement den Typ des Containers an und kann auch einen Namen für den Container festlegen. Die Karte hat eine Standardschriftgröße, die für das `@container` mit dem Namen `sidebar` überschrieben wird, wenn die Mindestbreite größer als 700px ist.
 
 ```html
-<style id="examplestyles">
+<style id="example-styles">
   .post {
     container-type: inline-size;
     container-name: sidebar;
@@ -170,11 +158,10 @@ Die Karte hat eine Standardschriftgröße, die für den `@container` namens `sid
 </style>
 ```
 
-Der Code zum Abrufen des Blattes und der Regeln ist fast identisch mit dem vorherigen Beispiel.
-Der einzige Unterschied besteht darin, dass wir in diesem Beispiel drei CSS-Regeln haben, sodass wir die zugehörige `CSSContainerRule` durch den dritten Eintrag in den `cssRules` erhalten.
+Der Code zum Abrufen des Stylesheets und der Regeln ist fast identisch mit dem vorherigen Beispiel. Der einzige Unterschied besteht darin, dass wir in diesem Beispiel drei CSS-Regeln haben, sodass wir für die zugehörige `CSSContainerRule` den dritten Eintrag in den `cssRules` abrufen.
 
 ```js
-const exampleStylesheet = document.getElementById("examplestyles").sheet;
+const exampleStylesheet = document.getElementById("example-styles").sheet;
 const exampleRules = exampleStylesheet.cssRules;
 const containerRule = exampleRules[2]; // a CSSContainerRule representing the container rule.
 log(`CSSContainerRule.containerName: "${containerRule.containerName}"`);
@@ -182,10 +169,7 @@ log(`CSSContainerRule.containerQuery: "${containerRule.containerQuery}"`);
 log(`CSSContainerRule.conditionText: "${containerRule.conditionText}"`);
 ```
 
-Das Beispielausgabe wird unten gezeigt.
-Der Protokollabschnitt listet die `containerName` und `containerQuery` Zeichenketten auf.
-Das `conditionText` wird ebenfalls protokolliert und zeigt die Kombination dieser beiden Zeichenketten.
-Der Titel im Kartenabschnitt sollte sich verdoppeln, wenn die Breite der Seite über 700px liegt.
+Das Beispielergebnis wird unten angezeigt. Der Protokollabschnitt listet die Strings `containerName` und `containerQuery` auf. Der `conditionText` wird ebenfalls protokolliert und zeigt die Kombination dieser beiden Strings. Der Titel im Kartenabschnitt sollte doppelt so groß werden, wenn die Breite der Seite 700px überschreitet.
 
 {{EmbedLiveSample("Named container rule","100%","300px")}}
 
@@ -199,7 +183,7 @@ Der Titel im Kartenabschnitt sollte sich verdoppeln, wenn die Breite der Seite �
 
 ## Siehe auch
 
-- CSS {{cssxref("container-name")}}, {{cssxref("container-type")}}, und {{cssxref("container")}} Kurzschreibweise-Eigenschaften
+- CSS {{cssxref("container-name")}}, {{cssxref("container-type")}} und {{cssxref("container")}} Kurzschreibweise
 - [CSS Containment-Modul](/de/docs/Web/CSS/CSS_containment)
 - [Container-Abfragen](/de/docs/Web/CSS/CSS_containment/Container_queries)
-- [Verwendung von Containergrößen- und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)
+- [Verwendung von Containergröße und Stilabfragen](/de/docs/Web/CSS/CSS_containment/Container_size_and_style_queries)

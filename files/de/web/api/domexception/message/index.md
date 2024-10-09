@@ -3,17 +3,16 @@ title: "DOMException: message-Eigenschaft"
 short-title: message
 slug: Web/API/DOMException/message
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{ APIRef("DOM") }}
+{{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`message`** schreibgeschützte Eigenschaft des
-[`DOMException`](/de/docs/Web/API/DOMException)-Interfaces gibt einen String zurück, der eine Nachricht oder Beschreibung darstellt, die mit dem gegebenen [Fehlernamen](/de/docs/Web/API/DOMException#error_names) assoziiert ist.
+Die **`message`**-Eigenschaft der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle gibt eine Zeichenkette zurück, die eine Nachricht oder Beschreibung darstellt, die mit dem gegebenen [Fehlernamen](/de/docs/Web/API/DOMException#error_names) verknüpft ist.
 
 ## Wert
 
-Ein String.
+Eine Zeichenkette.
 
 ## Spezifikationen
 

@@ -2,18 +2,18 @@
 title: font-kerning
 slug: Web/CSS/font-kerning
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
 
-Die **`font-kerning`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Verwendung der in einer Schriftart gespeicherten Kerning-Informationen fest.
+Die **`font-kerning`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, ob die in einer Schriftart gespeicherten Kerning-Informationen verwendet werden.
 
 {{EmbedInteractiveExample("pages/css/font-kerning.html")}}
 
-_Kerning_ definiert, wie Buchstaben verteilt sind. In _wohlkernigen_ Schriftarten sorgt diese Funktion dafür, dass der Zeichenabstand gleichmäßiger und angenehmer zu lesen ist als ohne.
+_Kerning_ definiert, wie Buchstabenabstände gesetzt werden. In _gut gekernten_ Schriften sorgt dieses Merkmal für einen gleichmäßigeren und angenehmeren Lesefluss als dies sonst der Fall wäre.
 
-In dem Bild unten zum Beispiel verwenden die Beispiele auf der linken Seite kein Kerning, während die auf der rechten Seite dies tun:
+In dem unten stehenden Bild verwenden die Beispiele auf der linken Seite kein Kerning, während die auf der rechten Seite es tun:
 
 ![Beispiel für font-kerning](font-kerning.png)
 
@@ -35,11 +35,11 @@ font-kerning: unset;
 ### Werte
 
 - `auto`
-  - : Der Browser entscheidet, ob das Font-Kerning verwendet werden soll oder nicht. Manche Browser deaktivieren zum Beispiel das Kerning bei kleinen Schriftarten, da es die Lesbarkeit beeinträchtigen könnte.
+  - : Der Browser entscheidet, ob Kerning verwendet werden soll oder nicht. Zum Beispiel deaktivieren einige Browser das Kerning bei kleinen Schriften, da das Anwenden die Lesbarkeit des Textes beeinträchtigen könnte.
 - `normal`
-  - : Die in der Schrift gespeicherten Kerning-Informationen müssen angewendet werden.
+  - : Die im Font gespeicherten Kerning-Informationen müssen angewendet werden.
 - `none`
-  - : Die in der Schrift gespeicherten Kerning-Informationen sind deaktiviert.
+  - : Die im Font gespeicherten Kerning-Informationen sind deaktiviert.
 
 ## Formale Definition
 
@@ -51,13 +51,13 @@ font-kerning: unset;
 
 ## Beispiele
 
-### Kerning aktivieren und deaktivieren
+### Aktivieren und Deaktivieren von Kerning
 
 #### HTML
 
 ```html
 <div id="kern"></div>
-<div id="nokern"></div>
+<div id="no-kern"></div>
 <textarea id="input">AV T. ij</textarea>
 ```
 
@@ -69,7 +69,7 @@ div {
   font-family: serif;
 }
 
-#nokern {
+#no-kern {
   font-kerning: none;
 }
 
@@ -83,15 +83,15 @@ div {
 ```js
 const input = document.getElementById("input");
 const kern = document.getElementById("kern");
-const nokern = document.getElementById("nokern");
+const noKern = document.getElementById("no-kern");
 
 input.addEventListener("keyup", () => {
   kern.textContent = input.value; /* Update content */
-  nokern.textContent = input.value;
+  noKern.textContent = input.value;
 });
 
 kern.textContent = input.value; /* Initialize content */
-nokern.textContent = input.value;
+noKern.textContent = input.value;
 ```
 
 {{ EmbedLiveSample('Enabling_and_disabling_kerning') }}

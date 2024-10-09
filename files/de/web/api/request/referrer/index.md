@@ -1,18 +1,18 @@
 ---
-title: "Request: referrer-Eigenschaft"
+title: "Request: Eigenschaft referrer"
 short-title: referrer
 slug: Web/API/Request/referrer
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`referrer`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle wird vom Benutzeragenten als der Referrer der Anfrage festgelegt (z. B. `client`, `no-referrer` oder eine URL).
+Die **`referrer`**-Schreibgeschützte-Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces wird vom Benutzeragenten festgelegt, um den Referrer der Anforderung anzugeben. (z.B. `client`, `no-referrer` oder eine URL.)
 
 > [!NOTE]
 > Wenn der Wert von `referrer` `no-referrer` ist,
-> wird eine leere Zeichenkette zurückgegeben.
+> gibt er eine leere Zeichenkette zurück.
 
 ## Wert
 
@@ -20,7 +20,7 @@ Eine Zeichenkette, die den Referrer der Anfrage darstellt.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript), und speichern dann den Referrer der Anfrage in einer Variablen:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann den Referrer der Anfrage in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

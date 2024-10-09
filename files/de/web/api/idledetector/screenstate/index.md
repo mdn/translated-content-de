@@ -3,20 +3,22 @@ title: "IdleDetector: screenState-Eigenschaft"
 short-title: screenState
 slug: Web/API/IdleDetector/screenState
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: a28ce291736be0291feb822083b92c6f4385d57c
 ---
 
-{{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`screenState`** der Schnittstelle [`IdleDetector`](/de/docs/Web/API/IdleDetector) gibt einen String zurück, der anzeigt, ob der Bildschirm gesperrt ist, entweder `"locked"` oder `"unlocked"`.
+Die schreibgeschützte **`screenState`**-Eigenschaft des [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Interfaces
+gibt einen String zurück, der anzeigt, ob der Bildschirm gesperrt ist, entweder `"locked"` oder
+`"unlocked"`.
 
 ## Wert
 
-Entweder `"locked"` oder `"unlocked"`, wenn [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start) aufgerufen wurde, oder `null` anderweitig.
+Entweder `"locked"` oder `"unlocked"`, wenn [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start) aufgerufen wurde, oder `null` andernfalls.
 
 ## Beispiele
 
-Im folgenden Beispiel gibt der `change` Callback den Status von `userState` und `screenState` in der Konsole aus.
+Im folgenden Beispiel gibt der `change`-Callback den Status von `userState` und `screenState` in der Konsole aus.
 
 ```js
 idleDetector.addEventListener("change", () => {

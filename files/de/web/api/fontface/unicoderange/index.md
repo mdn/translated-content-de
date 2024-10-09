@@ -3,18 +3,18 @@ title: "FontFace: unicodeRange-Eigenschaft"
 short-title: unicodeRange
 slug: Web/API/FontFace/unicodeRange
 l10n:
-  sourceCommit: 5635446aa0127d686183ddd4fd5adcc34be567da
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`unicodeRange`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces liest oder setzt den Bereich der Unicode-Code-Punkte, die die Schriftart umfassen.
+Die **`unicodeRange`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft den Bereich der Unicode-Codierungspunkte ab, die die Schriftart umfassen, oder setzt diesen.
 
-Diese Eigenschaft entspricht dem {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptor.
+Diese Eigenschaft ist äquivalent zu dem {{cssxref("@font-face/unicode-range", "unicode-range")}}-Deskriptor.
 
 ## Wert
 
-Ein String, der einen Deskriptor enthält, wie er in einer Stylesheet-Regel `@font-face` erscheinen würde.
+Ein String, der einen Deskriptor enthält, wie er in einer `@font-face` Regel in einem Stylesheet erscheinen würde.
 
 ## Spezifikationen
 

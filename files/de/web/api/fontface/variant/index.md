@@ -1,20 +1,18 @@
 ---
-title: "FontFace: variant-Eigenschaft"
+title: "FontFace: Eigenschaft variant"
 short-title: variant
 slug: Web/API/FontFace/variant
 l10n:
-  sourceCommit: c28529c0cc75eb5d2de857c923f0a1ebd5145313
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}{{non-standard_header}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}{{non-standard_header}}
 
-Die **`variant`**-Eigenschaft der
-[`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle ruft programmgesteuert Schriftart-Variantenwerte ab oder setzt sie.
+Die **`variant`**-Eigenschaft der [`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle ruft programmatisch Schriftvariantenwerte ab oder setzt diese.
 
 ## Wert
 
-Ein String, der einen Deskriptor enthält, wie er in einer Stilregel eines
-`@font-face`-Regelsatzes definiert wäre.
+Ein String, der einen Deskriptor enthält, wie er in einer `@font-face`-Regel eines Stylesheets definiert wäre.
 
 ## Spezifikationen
 

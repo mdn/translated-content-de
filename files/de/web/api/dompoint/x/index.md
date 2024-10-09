@@ -3,20 +3,22 @@ title: "DOMPoint: x-Eigenschaft"
 short-title: x
 slug: Web/API/DOMPoint/x
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`DOMPoint`** Schnittstelle
-**`x`** enthält die horizontale Koordinate, x, für einen Punkt im Raum.
+Die **`DOMPoint`**-Schnittstelle besitzt die
+**`x`**-Eigenschaft, die die horizontale Koordinate, x, für einen
+Punkt im Raum hält.
 
-Im Allgemeinen bedeuten positive Werte von `x` eine Bewegung nach rechts,
-während negative Werte von `x` eine Bewegung nach links bedeuten, sofern keine Transformationen die Orientierung der Achsen verändert haben.
+Im Allgemeinen bedeuten positive Werte von `x` nach rechts,
+und negative Werte von `x` bedeuten nach links, abgesehen von Transformationen, die die Ausrichtung der Achsen verändert haben könnten.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der den x-Wert der Koordinate für den Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der x-Koordinate für den
+Punkt angibt. Dieser Wert ist **unbegrenzt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert darf {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 

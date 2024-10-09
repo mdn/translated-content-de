@@ -3,10 +3,10 @@ title: "MessageEvent: origin-Eigenschaft"
 short-title: origin
 slug: Web/API/MessageEvent/origin
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 6091080d719b4f0ec1cdc119a21d54a1f1cc1c59
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
 Die schreibgeschützte **`origin`**-Eigenschaft der [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Schnittstelle ist ein String, der den Ursprung des Nachrichtenabsenders darstellt.
 
@@ -34,4 +34,4 @@ myWorker.onmessage = (e) => {
 
 ## Siehe auch
 
-- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich zu dieser Schnittstelle, jedoch in Schnittstellen verwendet, die den Autoren mehr Flexibilität bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich zu dieser Schnittstelle, aber in Schnittstellen verwendet, die den Autoren mehr Flexibilität geben müssen.

@@ -3,12 +3,13 @@ title: "USBDevice: claimInterface()-Methode"
 short-title: claimInterface()
 slug: Web/API/USBDevice/claimInterface
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`claimInterface()`**-Methode der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn die angeforderte Schnittstelle für den exklusiven Zugriff beansprucht ist.
+Die **`claimInterface()`**-Methode der
+[`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn das angeforderte Interface für den exklusiven Zugriff in Anspruch genommen wird.
 
 ## Syntax
 
@@ -19,7 +20,7 @@ claimInterface(interfaceNumber)
 ### Parameter
 
 - `interfaceNumber`
-  - : Der Index einer der vom Gerät unterstützten Schnittstellen. Schnittstellen sind gerätespezifisch.
+  - : Der Index eines der vom Gerät unterstützten Interfaces. Interfaces sind gerätespezifisch.
 
 ### Rückgabewert
 
@@ -27,7 +28,8 @@ Ein {{jsxref("promise")}}.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt `claimInterface()` im Kontext der Verbindung mit einem USB-Gerät.
+Das folgende Beispiel zeigt `claimInterface()` im Kontext der Verbindung
+mit einem USB-Gerät.
 
 ```js
 async function connectDevice(usbDevice) {

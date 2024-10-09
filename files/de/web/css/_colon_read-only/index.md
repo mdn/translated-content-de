@@ -2,12 +2,12 @@
 title: ":read-only"
 slug: Web/CSS/:read-only
 l10n:
-  sourceCommit: 46e39d934e4ec92ba6e30d021343d83dc55c8517
+  sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
 ---
 
 {{CSSRef}}
 
-Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente aus (wie bestimmte {{htmlelement("input")}}-Typen und {{htmlelement("textarea")}}), die vom Benutzer nicht bearbeitet werden können. Elemente, auf die das HTML-Attribut [`readonly`](/de/docs/Web/HTML/Attributes/readonly) keine Wirkung hat (wie [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) und alle anderen Nicht-Formularelemente) werden ebenfalls von der `:read-only` Pseudoklasse ausgewählt. Tatsächlich stimmt `:read-only` mit allem überein, worauf {{cssxref(":read-write")}} nicht zutrifft, was es gleichbedeutend mit `:not(:read-write)` macht.
+Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) wählt Elemente (wie bestimmte {{htmlelement("input")}}-Typen und {{htmlelement("textarea")}}) aus, die vom Benutzer nicht bearbeitet werden können. Elemente, bei denen das HTML-Attribut [`readonly`](/de/docs/Web/HTML/Attributes/readonly) keine Wirkung hat (wie [`<input type="radio">`](/de/docs/Web/HTML/Element/input/radio), [`<input type="checkbox">`](/de/docs/Web/HTML/Element/input/checkbox) und alle anderen Nicht-Formularelemente), werden ebenfalls von der `:read-only` Pseudoklasse ausgewählt. Tatsächlich entspricht `:read-only` allem, was {{cssxref(":read-write")}} nicht entspricht, und ist somit äquivalent zu `:not(:read-write)`.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-read-only.html", "tabbed-shorter")}}
 
@@ -21,11 +21,11 @@ Die **`:read-only`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pse
 
 ## Beispiele
 
-### Bestätigung von Formularinformationen mit schreibgeschützten oder schreibbaren Steuerelementen
+### Bestätigung von Formularinformationen mit schreibgeschützten oder schreibberechtigten Bedienelementen
 
-Ein Anwendungsfall für schreibgeschützte Formularsteuerelemente ist es, dem Benutzer zu ermöglichen, Informationen zu überprüfen und zu bestätigen, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er die Informationen weiterhin zusammen mit dem Rest des Formulars einreichen kann. Dies machen wir im untenstehenden Beispiel.
+Ein Anwendungsfall für schreibgeschützte Formularsteuerungen ist es, dem Benutzer die Möglichkeit zu geben, Informationen zu überprüfen und zu verifizieren, die er möglicherweise in einem früheren Formular eingegeben hat (zum Beispiel Versanddetails), während er trotzdem in der Lage ist, die Informationen zusammen mit dem Rest des Formulars zu übermitteln. Genau dies tun wir im folgenden Beispiel.
 
-Die `:read-only` Pseudoklasse wird verwendet, um alle Stile zu entfernen, die die Eingabefelder wie klickbare Felder aussehen lassen, wodurch sie eher wie schreibgeschützte Absätze wirken. Die `:read-write` Pseudoklasse hingegen wird verwendet, um dem bearbeitbaren `<textarea>` eine ansprechendere Gestaltung zu geben.
+Die `:read-only` Pseudoklasse wird verwendet, um das gesamte Styling zu entfernen, das die Eingabefelder wie anklickbare Felder aussehen lässt, sodass sie mehr wie schreibgeschützte Absätze wirken. Die `:read-write` Pseudoklasse hingegen wird verwendet, um dem bearbeitbaren `<textarea>` ein ansprechenderes Styling zu verleihen.
 
 ```html hidden
 <form>
@@ -147,11 +147,11 @@ textarea:read-write {
 }
 ```
 
-{{EmbedLiveSample("Bestätigung von Formularinformationen mit schreibgeschützten oder schreibbaren Steuerelementen", "100%", 620)}}
+{{EmbedLiveSample("Confirming form information using read-only or read-write controls", "100%", 620)}}
 
-### Styling von schreibgeschützten Nicht-Formular-Steuerelementen
+### Styling nicht-Formular-Steuerelemente im schreibgeschützten Modus
 
-Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente aus – er wählt _jedes_ Element aus, das vom Benutzer nicht bearbeitet werden kann.
+Dieser Selektor wählt nicht nur {{htmlElement("input")}}/{{htmlElement("textarea")}}-Elemente — er wählt _jedes_ Element aus, das vom Benutzer nicht bearbeitet werden kann.
 
 ```html
 <p contenteditable>This paragraph is editable; it is read-write.</p>
@@ -176,7 +176,7 @@ p:read-write {
 }
 ```
 
-{{EmbedLiveSample('Styling_von_schreibgeschützten_Nicht-Formular-Steuerelementen', '100%', 200)}}
+{{EmbedLiveSample('Styling_read-only_non-form_controls', '100%', 200)}}
 
 ## Spezifikationen
 
@@ -189,4 +189,4 @@ p:read-write {
 ## Siehe auch
 
 - {{cssxref(":read-write")}}
-- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable)
+- HTML-Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)

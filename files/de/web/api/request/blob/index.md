@@ -1,14 +1,15 @@
 ---
-title: "Request: blob() Methode"
+title: "Request: blob()-Methode"
 short-title: blob()
 slug: Web/API/Request/blob
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`blob()`** Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle liest den Anfragetext und gibt ihn als ein Promise zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
+Die **`blob()`**-Methode der [`Request`](/de/docs/Web/API/Request)-Schnittstelle
+liest den Anfragetext und gibt ihn als ein Promise zurück, das mit einem [`Blob`](/de/docs/Web/API/Blob) aufgelöst wird.
 
 ## Syntax
 

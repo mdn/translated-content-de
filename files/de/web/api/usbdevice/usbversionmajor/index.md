@@ -3,16 +3,16 @@ title: "USBDevice: usbVersionMajor-Eigenschaft"
 short-title: usbVersionMajor
 slug: Web/API/USBDevice/usbVersionMajor
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 Die schreibgeschützte Eigenschaft **`usbVersionMajor`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist eine von drei Eigenschaften, die die vom Gerät unterstützte USB-Protokollversion deklarieren. Die anderen beiden Eigenschaften sind USBDevice.usbVersionMinor und USBDevice.usbVersionSubminor.
 
 ## Wert
 
-Die letzte von drei Eigenschaften, die die vom Gerät unterstützte USB-Protokollversion deklarieren.
+Die letzte von drei Eigenschaften, die die vom Gerät unterstützte USB-Protokollversion angeben.
 
 ## Spezifikationen
 

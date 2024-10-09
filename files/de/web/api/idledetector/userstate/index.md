@@ -3,12 +3,12 @@ title: "IdleDetector: userState-Eigenschaft"
 short-title: userState
 slug: Web/API/IdleDetector/userState
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: a28ce291736be0291feb822083b92c6f4385d57c
 ---
 
-{{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`userState`** der [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Schnittstelle gibt einen String zurück, der angibt, ob der Benutzer seit dem Aufruf von `start()` mit dem Gerät interagiert hat.
+Die **`userState`**-Eigenschaft des nur-lesbaren [`IdleDetector`](/de/docs/Web/API/IdleDetector)-Interfaces gibt einen String zurück, der anzeigt, ob der Benutzer seit dem Aufruf von `start()` mit dem Gerät interagiert hat.
 
 ## Wert
 

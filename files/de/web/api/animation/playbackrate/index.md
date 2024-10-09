@@ -3,25 +3,25 @@ title: "Animation: playbackRate-Eigenschaft"
 short-title: playbackRate
 slug: Web/API/Animation/playbackRate
 l10n:
-  sourceCommit: ec1006afdf68a5808a48ab6301f9ccff3cd7ecc2
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("Web Animations")}}
 
-Die **`Animation.playbackRate`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt die Wiedergabegeschwindigkeit der Animation zurück oder setzt diese.
+Die **`Animation.playbackRate`**-Eigenschaft der [Web Animations API](/de/docs/Web/API/Web_Animations_API) gibt die Abspielgeschwindigkeit der Animation zurück oder setzt sie.
 
-Animationen haben eine **Wiedergabegeschwindigkeit**, die einen Skalierungsfaktor vom Änderungsrate der Zeitwerte der [`timeline`](/de/docs/Web/API/DocumentTimeline) der Animation zur aktuellen Zeit der Animation bereitstellt. Die Wiedergabegeschwindigkeit ist anfänglich `1`.
+Animationen haben eine **Abspielrate**, die einen Skalierungsfaktor vom Änderungsrat der Zeitwerte der [`timeline`](/de/docs/Web/API/DocumentTimeline) der Animation zur aktuellen Zeit der Animation bietet. Die Abspielrate ist anfänglich `1`.
 
 ## Wert
 
-Nimmt eine Zahl an, die 0, negativ oder positiv sein kann. Negative Werte kehren die Animation um. Der Wert ist ein Skalierungsfaktor, sodass beispielsweise ein Wert von 2 die Wiedergabegeschwindigkeit verdoppeln würde.
+Nimmt eine Zahl an, die 0, negativ oder positiv sein kann. Negative Werte kehren die Animation um. Der Wert ist ein Skalierungsfaktor, sodass ein Wert von 2 beispielsweise die Abspielgeschwindigkeit verdoppeln würde.
 
 > [!NOTE]
-> Das Setzen der `playbackRate` einer Animation auf `0` pausiert die Animation effektiv (allerdings wird ihr [`playstate`](/de/docs/Web/API/Animation/playstate) nicht unbedingt zu `paused`).
+> Das Setzen der `playbackRate` einer Animation auf `0` pausiert die Animation effektiv (allerdings wird ihr [`playState`](/de/docs/Web/API/Animation/playState) nicht unbedingt zu `paused`).
 
 ## Beispiele
 
-Im Beispiel [Wachsende/Schrumpfende Alice Spiel](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010) bewirkt ein Klicken oder Tippen auf die Flasche, dass die Wachstumsanimation von Alice (`aliceChange`) umkehrt und sie schrumpft:
+Im [Growing/Shrinking Alice Game](https://codepen.io/rachelnabors/pen/PNYGZQ?editors=0010)-Beispiel führt ein Klick oder Tipp auf die Flasche dazu, dass die Wachstumsanimation von Alice (`aliceChange`) umgekehrt wird, sodass sie schrumpft:
 
 ```js
 const shrinkAlice = () => {
@@ -34,7 +34,7 @@ bottle.addEventListener("mousedown", shrinkAlice, false);
 bottle.addEventListener("touchstart", shrinkAlice, false);
 ```
 
-Andererseits, führt ein Klicken auf den Kuchen dazu, dass sie "wächst" und `aliceChange` wieder vorwärts abspielt:
+Im Gegensatz dazu führt ein Klick auf den Kuchen dazu, dass sie "wächst", indem `aliceChange` wieder vorwärts abgespielt wird:
 
 ```js
 const growAlice = () => {
@@ -47,7 +47,7 @@ cake.addEventListener("mousedown", growAlice, false);
 cake.addEventListener("touchstart", growAlice, false);
 ```
 
-In einem anderen Beispiel, dem [Red Queen's Race Game](https://codepen.io/rachelnabors/pen/PNGGaV?editors=0010), verlangsamen Alice und die Rote Königin ständig:
+In einem anderen Beispiel, dem [Red Queen's Race Game](https://codepen.io/rachelnabors/pen/PNGGaV?editors=0010), verlangsamen sich Alice und die Rote Königin ständig:
 
 ```js
 setInterval(() => {
@@ -59,7 +59,7 @@ setInterval(() => {
 }, 3000);
 ```
 
-Aber durch Klicken oder Tippen auf sie werden sie schneller, indem ihre `playbackRate` multipliziert wird:
+Aber durch Klicken oder Tippen auf sie beschleunigen sie sich, indem ihre `playbackRate` multipliziert wird:
 
 ```js
 const goFaster = () => {

@@ -3,14 +3,14 @@ title: "CanvasRenderingContext2D: reset() Methode"
 short-title: reset()
 slug: Web/API/CanvasRenderingContext2D/reset
 l10n:
-  sourceCommit: bf8f50a256ded858442d49d532754d830c1a2bcd
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef}}
 
-Die **`CanvasRenderingContext2D.reset()`** Methode der Canvas 2D API setzt den Rendering-Kontext in seinen Standardzustand zurück, sodass er für das Zeichnen von etwas anderem wiederverwendet werden kann, ohne dass alle Eigenschaften explizit zurückgesetzt werden müssen.
+Die **`CanvasRenderingContext2D.reset()`**-Methode der Canvas 2D API setzt den Rendering-Kontext auf seinen Standardzustand zurück, sodass er erneut zum Zeichnen verwendet werden kann, ohne dass alle Eigenschaften explizit zurückgesetzt werden müssen.
 
-Das Zurücksetzen löscht den Hintergrundpuffer, den Zeichenstatusstapel, alle definierten Pfade und Stile. Dies schließt die aktuelle [Transformationsmatrix](/de/docs/Web/API/CanvasRenderingContext2D#transformations), [Composing-Eigenschaften](/de/docs/Web/API/CanvasRenderingContext2D#compositing), den Clippingbereich, die Stricheliste, [Linienstile](/de/docs/Web/API/CanvasRenderingContext2D#line_styles), [Textstile](/de/docs/Web/API/CanvasRenderingContext2D#text_styles), [Schatten](/de/docs/Web/API/CanvasRenderingContext2D#shadows), [Bildglättung](/de/docs/Web/API/CanvasRenderingContext2D#image_smoothing), [Filter](/de/docs/Web/API/CanvasRenderingContext2D#filters) usw. ein.
+Das Zurücksetzen löscht den Backing-Buffer, den Zeichenzustand-Stack, alle definierten Pfade und Stile. Dazu gehören die aktuelle [Transformation](/de/docs/Web/API/CanvasRenderingContext2D#transformations) Matrix, [Compositing](/de/docs/Web/API/CanvasRenderingContext2D#compositing) Eigenschaften, der Clip-Bereich, die Strichliste, [Linienstile](/de/docs/Web/API/CanvasRenderingContext2D#line_styles), [Textstile](/de/docs/Web/API/CanvasRenderingContext2D#text_styles), [Schatten](/de/docs/Web/API/CanvasRenderingContext2D#shadows), [Bildglättung](/de/docs/Web/API/CanvasRenderingContext2D#image_smoothing), [Filter](/de/docs/Web/API/CanvasRenderingContext2D#filters) und so weiter.
 
 ## Syntax
 
@@ -28,9 +28,9 @@ Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Dieses Beispiel zeigt, wie wir `reset()` verwenden können, um den Kontext vollständig zu löschen, bevor neu gezeichnet wird.
+Dieses Beispiel zeigt, wie `reset()` verwendet werden kann, um den Kontext vollständig zu löschen, bevor er neu gezeichnet wird.
 
-Zuerst definieren wir einen Button und eine Leinwand.
+Zuerst definieren wir einen Button und ein Canvas.
 
 ```css
 #toggle-reset {
@@ -43,8 +43,8 @@ Zuerst definieren wir einen Button und eine Leinwand.
 <canvas id="my-house" width="500" height="200"></canvas>
 ```
 
-Der Code holt sich zuerst einen `2d`-Kontext für die Leinwand.
-Dann definiert er Funktionen, die den Kontext zum Zeichnen eines Rechtecks bzw. eines Kreises verwenden können.
+Der Code holt sich zuerst einen `2d`-Kontext für das Canvas.
+Dann werden Funktionen definiert, die den Kontext nutzen können, um ein Rechteck bzw. einen Kreis zu zeichnen.
 
 ```js
 // Get the 2d context
@@ -78,18 +78,18 @@ function drawCircle() {
 }
 ```
 
-Wir zeichnen dann das Rechteck mit seiner Funktion.
-Der Button wechselt zwischen dem Zeichnen des Kreises und des Rechtecks.
-Beachten Sie, wie `reset()` aufgerufen wird, bevor gezeichnet wird, um den Kontext zu löschen.
+Wir zeichnen dann das Rechteck mithilfe seiner Funktion.
+Der Button schaltet das Zeichnen des Kreises und Rechtecks um.
+Beachten Sie, wie `reset()` vor dem Zeichnen aufgerufen wird, um den Kontext zu löschen.
 
 ```js
 drawRect();
 
 // Toggle between circle and rectangle using button
 let toggle = true;
-const mybutton = document.getElementById("toggle-reset");
+const myButton = document.getElementById("toggle-reset");
 
-mybutton.addEventListener("click", () => {
+myButton.addEventListener("click", () => {
   ctx.reset(); // Clear the context!
   if (toggle) {
     drawCircle();
@@ -100,7 +100,7 @@ mybutton.addEventListener("click", () => {
 });
 ```
 
-Das Ergebnis sieht folgendermaßen aus:
+Das Ergebnis sieht so aus:
 
 {{EmbedLiveSample("Examples", 500, 250)}}
 

@@ -1,14 +1,14 @@
 ---
-title: "CanvasPattern: setTransform()-Methode"
+title: "CanvasPattern: setTransform() Methode"
 short-title: setTransform()
 slug: Web/API/CanvasPattern/setTransform
 l10n:
-  sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`CanvasPattern.setTransform()`**-Methode verwendet ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt als Transformationsmatrix des Musters und ruft es für das Muster auf.
+Die **`CanvasPattern.setTransform()`**-Methode verwendet ein [`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt als Transformationsmatrix des Musters und ruft es auf das Muster auf.
 
 ## Syntax
 
@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung der `setTransform`-Methode
 
-Dies ist ein einfaches Codebeispiel, das die `setTransform`-Methode verwendet, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) mit der angegebenen Mustertransformation von einer [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zu erstellen. Das Muster wird angewendet, wenn Sie es als aktuelles [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) festlegen und es mit der [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)-Methode auf die Leinwand gezeichnet wird, zum Beispiel.
+Dies ist nur ein einfaches Codebeispiel, das die `setTransform`-Methode verwendet, um ein [`CanvasPattern`](/de/docs/Web/API/CanvasPattern) mit der angegebenen Mustertransformation aus einer [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zu erstellen. Das Muster wird angewendet, wenn Sie es als aktuelles [`fillStyle`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) festlegen und auf die Leinwand zeichnen, wenn Sie zum Beispiel die [`fillRect()`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect)-Methode verwenden.
 
 #### HTML
 
@@ -46,7 +46,7 @@ const ctx = canvas.getContext("2d");
 const matrix = new DOMMatrix([1, 0.2, 0.8, 1, 0, 0]);
 
 const img = new Image();
-img.src = "canvas_createpattern.png";
+img.src = "canvas_create_pattern.png";
 
 img.onload = () => {
   const pattern = ctx.createPattern(img, "repeat");
@@ -58,7 +58,7 @@ img.onload = () => {
 
 #### Editierbares Demo
 
-Hier ist ein editierbares Demo des obigen Codebeispiels. Versuchen Sie, das Argument von `SetTransform()` zu ändern, um den Effekt zu sehen, den es hat.
+Hier ist ein editierbares Demo des obigen Codebeispiels. Versuchen Sie, das Argument von `SetTransform()` zu ändern, um den Effekt zu sehen, den es hatte.
 
 ```html hidden
 <canvas id="canvas" width="400" height="200" class="playable-canvas"></canvas>
@@ -68,7 +68,7 @@ Hier ist ein editierbares Demo des obigen Codebeispiels. Versuchen Sie, das Argu
 </div>
 <textarea id="code" class="playable-code" style="height:120px">
 const img = new Image();
-img.src = 'canvas_createpattern.png';
+img.src = 'canvas_create_pattern.png';
 img.onload = () => {
   const pattern = ctx.createPattern(img, 'repeat');
   pattern.setTransform(matrix.rotate(-45).scale(1.5));

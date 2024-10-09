@@ -1,18 +1,18 @@
 ---
-title: "DOMRectReadOnly: height-Eigenschaft"
+title: "DOMRectReadOnly: Höhe-Eigenschaft"
 short-title: height
 slug: Web/API/DOMRectReadOnly/height
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`height`** Schreibgeschützte Eigenschaft der **`DOMRectReadOnly`** Schnittstelle repräsentiert die Höhe des `DOMRect`.
+Die schreibgeschützte Eigenschaft **`height`** des **`DOMRectReadOnly`**-Interfaces stellt die Höhe des `DOMRect` dar.
 
 ## Wert
 
-Ein double.
+Ein Doppelwert.
 
 ## Spezifikationen
 

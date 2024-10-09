@@ -3,13 +3,13 @@ title: "ReportingObserver: observe() Methode"
 short-title: observe()
 slug: Web/API/ReportingObserver/observe
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
 ---
 
-{{APIRef("Reporting API")}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}
 
-Die **`observe()`**-Methode des
-[`ReportingObserver`](/de/docs/Web/API/ReportingObserver)-Interfaces weist einen Reporting Observer an, mit dem Sammeln von Berichten in seiner Berichts-Warteschlange zu beginnen.
+Die **`observe()`** Methode des
+[`ReportingObserver`](/de/docs/Web/API/ReportingObserver) Interfaces weist einen Reporting Observer an, mit dem Sammeln von Berichten in seiner Berichtsqueue zu beginnen.
 
 ## Syntax
 

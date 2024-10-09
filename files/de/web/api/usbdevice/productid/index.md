@@ -3,16 +3,16 @@ title: "USBDevice: productId-Eigenschaft"
 short-title: productId
 slug: Web/API/USBDevice/productId
 l10n:
-  sourceCommit: d2b78565fb33a7ebfa7314be61f6a887d2d90ace
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{SeeCompatTable}}{{APIRef("WebUSB API")}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`productId`**-Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist der herstellerdefinierte Code, der ein USB-Gerät identifiziert.
+Die schreibgeschützte Eigenschaft **`productId`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist der vom Hersteller definierte Code, der ein USB-Gerät identifiziert.
 
 ## Wert
 
-Der herstellerdefinierte Code, der ein USB-Gerät identifiziert.
+Der vom Hersteller definierte Code, der ein USB-Gerät identifiziert.
 
 ## Spezifikationen
 

@@ -2,14 +2,17 @@
 title: 206 Partial Content
 slug: Web/HTTP/Status/206
 l10n:
-  sourceCommit: 3f68a9604259dfa862dd741dc88ebc8fb5fa10fe
+  sourceCommit: 783ffd9c1cf35421242e028a1b8743cf2b1918dd
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`206 Partial Content`** für [erfolgreiche Antworten](/de/docs/Web/HTTP/Status#successful_responses) wird als Antwort auf eine [Bereichsanfrage](/de/docs/Web/HTTP/Range_requests) gesendet. Der Antwortinhalt enthält die angeforderten Datenbereiche, wie im {{HTTPHeader("Range")}}-Header der Anfrage angegeben.
+Der HTTP-Statuscode **`206 Partial Content`** [Erfolgsantwort](/de/docs/Web/HTTP/Status#successful_responses) wird als Antwort auf eine [Bereichsanfrage](/de/docs/Web/HTTP/Range_requests) gesendet.
+Der Antworttext enthält die angeforderten Datenbereiche, wie im {{HTTPHeader("Range")}}-Header der Anfrage angegeben.
 
-Das Format der Antwort hängt von der Anzahl der angeforderten Bereiche ab. Wenn ein einzelner Bereich angefordert wird, wird der {{HTTPHeader("Content-Type")}} der gesamten Antwort auf den Typ des Dokuments gesetzt und ein {{HTTPHeader("Content-Range")}} bereitgestellt. Wenn mehrere Bereiche angefordert werden, wird der {{HTTPHeader("Content-Type")}} auf `multipart/byteranges` gesetzt, und jedes Fragment umfasst einen Bereich mit eigenen {{HTTPHeader("Content-Range")}}- und {{HTTPHeader("Content-Type")}}-Headern, die es beschreiben.
+Das Format der Antwort hängt von der Anzahl der angeforderten Bereiche ab.
+Wenn ein einzelner Bereich angefordert wird, wird der gesamte Antwort-{{HTTPHeader("Content-Type")}} auf den Dokumenttyp gesetzt und ein {{HTTPHeader("Content-Range")}} bereitgestellt.
+Wenn mehrere Bereiche angefordert werden, wird der {{HTTPHeader("Content-Type")}} auf `multipart/byteranges` gesetzt, und jedes Fragment deckt einen Bereich ab, mit eigenen {{HTTPHeader("Content-Range")}} und {{HTTPHeader("Content-Type")}}-Headern, die es beschreiben.
 
 ## Status
 
@@ -19,9 +22,10 @@ Das Format der Antwort hängt von der Anzahl der angeforderten Bereiche ab. Wenn
 
 ## Beispiele
 
-### Erhalten einer `206`-Antwort für einen einzelnen angeforderten Bereich
+### Empfang einer `206`-Antwort für einen einzelnen angeforderten Bereich
 
-Das Folgende ist eine Beispielantwort `206`, wenn ein einzelner Bereich von `21010-` (Bytes 21010 bis zum Ende der Datei) einer Bilddatei angefordert wird. Die Antwort enthält {{HTTPHeader("Content-Type")}} von `image/gif`, und der {{HTTPHeader("Content-Range")}} wird bereitgestellt:
+Das Folgende ist eine Musterantwort `206`, wenn ein einzelner Bereich von `21010-` (Bytes 21010 bis zum Ende der Datei) einer Bilddatei angefordert wird.
+Die Antwort enthält {{HTTPHeader("Content-Type")}} von `image/gif` und der {{HTTPHeader("Content-Range")}} wird bereitgestellt:
 
 ```http
 GET /z4d4kWk.gif HTTP/1.1
@@ -42,12 +46,13 @@ Accept-Ranges: bytes
 # 26012 bytes of partial image data…
 ```
 
-### Erhalten einer `206`-Antwort für mehrere angeforderte Bereiche
+### Empfang einer `206`-Antwort für mehrere angeforderte Bereiche
 
-Im Folgenden ist eine Beispielantwort `206` dargestellt, wenn zwei Bereiche einer PDF-Datei angefordert werden. Die Antwort enthält den `multipart/byteranges` {{HTTPHeader("Content-Type")}}, mit einem separaten {{HTTPHeader("Content-Type")}} (`application/pdf`) und {{HTTPHeader("Content-Range")}} für jeden Bereich.
+Das Folgende ist eine Musterantwort `206`, wenn zwei Bereiche einer PDF-Datei angefordert werden.
+Die Antwort enthält den `multipart/byteranges` {{HTTPHeader("Content-Type")}} mit einem separaten {{HTTPHeader("Content-Type")}} (`application/pdf`) und {{HTTPHeader("Content-Range")}} für jeden Bereich.
 
 ```http
-GET /pricelist.pdf HTTP/1.1
+GET /price-list.pdf HTTP/1.1
 Host: example.com
 Range: bytes=234-639,4590-7999
 ```

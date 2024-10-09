@@ -1,14 +1,14 @@
 ---
-title: "FontFace: lineGapOverride Eigenschaft"
+title: "FontFace: lineGapOverride-Eigenschaft"
 short-title: lineGapOverride
 slug: Web/API/FontFace/lineGapOverride
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`lineGapOverride`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace) Interface gibt den Wert des {{cssxref("@font-face/line-gap-override")}} Deskriptors zurück und setzt diesen. Die möglichen Werte sind `normal`, was bedeutet, dass das verwendete Maß aus der Schriftdatei bezogen werden soll, oder ein Prozentsatz.
+Die **`lineGapOverride`**-Eigenschaft der [`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle gibt den Wert des {{cssxref("@font-face/line-gap-override")}}-Deskriptors zurück oder setzt ihn. Die möglichen Werte sind `normal`, was bedeutet, dass die zu verwendende Metrik aus der Schriftart-Datei bezogen werden sollte, oder ein Prozentsatz.
 
 ## Wert
 

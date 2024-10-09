@@ -3,12 +3,13 @@ title: "FontFace: descentOverride-Eigenschaft"
 short-title: descentOverride
 slug: Web/API/FontFace/descentOverride
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`descentOverride`**-Eigenschaft der [`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle gibt den Wert des {{cssxref("@font-face/descent-override")}}-Descriptors zurück und setzt diesen. Die möglichen Werte sind `normal`, was anzeigt, dass die Metrik aus der Schriftartdatei bezogen werden sollte, oder ein Prozentsatz.
+Die **`descentOverride`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt den Wert des {{cssxref("@font-face/descent-override")}}-Descriptors zurück und legt ihn fest.
+Mögliche Werte sind `normal`, was bedeutet, dass das verwendete Maß aus der Schriftartdatei stammen sollte, oder ein Prozentsatz.
 
 ## Wert
 

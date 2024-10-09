@@ -3,12 +3,12 @@ title: "USBDevice: configurations-Eigenschaft"
 short-title: configurations
 slug: Web/API/USBDevice/configurations
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`configurations`**-Eigenschaft des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist ein {{jsxref("array")}} von gerätespezifischen Schnittstellen zur Steuerung eines gekoppelten USB-Geräts.
+Die **`configurations`** ist eine schreibgeschützte Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle und beinhaltet ein {{jsxref("array")}} von gerätespezifischen Schnittstellen zur Steuerung eines gekoppelten USB-Geräts.
 
 ## Wert
 

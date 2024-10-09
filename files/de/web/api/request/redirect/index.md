@@ -1,28 +1,28 @@
 ---
-title: "Request: redirect-Eigenschaft"
+title: "Request: redirect Eigenschaft"
 short-title: redirect
 slug: Web/API/Request/redirect
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`redirect`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Modus, wie Umleitungen behandelt werden.
+Die schreibgeschützte **`redirect`** Eigenschaft der [`Request`](/de/docs/Web/API/Request) Schnittstelle enthält den Modus, wie Weiterleitungen gehandhabt werden.
 
 ## Wert
 
-Ein `RequestRedirect`-Enum-Wert, der einer der folgenden Strings sein kann:
+Ein `RequestRedirect` Aufzählungswert, der einer der folgenden Strings sein kann:
 
 - `follow`
 - `error`
 - `manual`
 
-Wenn bei der Erstellung der Anforderung nicht anders angegeben, erhält es den Standardwert `follow`.
+Wenn bei der Erstellung der Anfrage nicht angegeben, nimmt es den Standardwert `follow` an.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anforderung mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann den `redirect`-Wert der Anforderung in einer Variablen:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request) Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann den `redirect` Wert der Anfrage in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

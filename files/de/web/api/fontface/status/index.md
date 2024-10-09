@@ -3,16 +3,16 @@ title: "FontFace: status-Eigenschaft"
 short-title: status
 slug: Web/API/FontFace/status
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`status`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt einen enumerierten Wert zurück, der den Status der Schriftart angibt. Einer der Werte ist `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
+Die **`status`**-Eigenschaft des schreibgeschützten [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt einen enumerierten Wert zurück, der den Status der Schriftart angibt: entweder `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
 
 ## Wert
 
-Einer der Werte `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
+Einer von `"unloaded"`, `"loading"`, `"loaded"` oder `"error"`.
 
 ## Spezifikationen
 

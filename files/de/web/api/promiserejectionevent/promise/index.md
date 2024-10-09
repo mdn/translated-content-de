@@ -3,12 +3,15 @@ title: "PromiseRejectionEvent: promise-Eigenschaft"
 short-title: promise
 slug: Web/API/PromiseRejectionEvent/promise
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: bcb3ff5a0fd5080c2ce109d0eb17831b6ef57a2d
 ---
 
-{{APIRef("HTML DOM") }}
+{{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`promise`** des [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)-Interfaces zeigt das JavaScript-{{jsxref("Promise")}}, das abgelehnt wurde. Sie können die [`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason)-Eigenschaft des Ereignisses untersuchen, um zu erfahren, warum das `Promise` abgelehnt wurde.
+Die schnittstelle [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent) besitzt die
+schreibgeschützte Eigenschaft **`promise`**, die das JavaScript-
+{{jsxref("Promise")}} angibt, das abgelehnt wurde. Sie können die Eigenschaft
+[`PromiseRejectionEvent.reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) des Ereignisses prüfen, um zu erfahren, warum das Promise abgelehnt wurde.
 
 ## Wert
 
@@ -16,9 +19,11 @@ Das JavaScript-{{jsxref("Promise")}}, das abgelehnt wurde und dessen Ablehnung u
 
 ## Beispiele
 
-Dieses Beispiel horcht auf unbehandelte `Promise`s und richtet, falls der [`reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) ein Objekt mit einem `code`-Feld ist, das den Text "Module not ready" enthält, einen Leerlaufrückruf ein, der die Aufgabe, die nicht korrekt ausgeführt werden konnte, erneut versucht.
+Dieses Beispiel lauscht auf unbehandelte Promises und richtet, falls der
+[`reason`](/de/docs/Web/API/PromiseRejectionEvent/reason) ein Objekt mit einem
+`code`-Feld ist, das den Text "Module not ready" enthält, einen Leerlauf-Callback ein, der die Aufgabe erneut versucht, die nicht korrekt ausgeführt werden konnte.
 
-[`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) wird aufgerufen, um anzuzeigen, dass das `Promise` nun behandelt wurde.
+[`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) wird aufgerufen, um anzuzeigen, dass das Promise jetzt behandelt wurde.
 
 ```js
 window.onunhandledrejection = (event) => {

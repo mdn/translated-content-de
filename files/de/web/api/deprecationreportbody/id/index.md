@@ -3,12 +3,12 @@ title: "DeprecationReportBody: id-Eigenschaft"
 short-title: id
 slug: Web/API/DeprecationReportBody/id
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
 ---
 
-{{APIRef("Reporting API")}}{{SeeCompatTable}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`id`** des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt einen String zurück, der das Feature oder die API darstellt, das veraltet ist. Dies kann verwendet werden, um verwandte Berichte zu gruppieren oder zu zählen.
+Die schreibgeschützte Eigenschaft **`id`** des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interface gibt einen String zurück, der das veraltete Feature oder die API darstellt. Dies kann verwendet werden, um verwandte Berichte zu gruppieren oder zu zählen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und geben dann den Wert von `id` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und drucken dann den Wert von `id` in die Konsole.
 
 ```js
 let options = {

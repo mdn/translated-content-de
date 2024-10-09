@@ -3,16 +3,16 @@ title: "Window: documentPictureInPicture-Eigenschaft"
 short-title: documentPictureInPicture
 slug: Web/API/Window/documentPictureInPicture
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: bac20b9ed34bf5b6427ba9274c99c1737dc309ff
 ---
 
-{{APIRef}}{{seecompattable}}{{SecureContext_Header}}
+{{APIRef("Document Picture-in-Picture API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die **`documentPictureInPicture`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt eine Referenz auf das [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekt für den aktuellen Dokumentkontext zurück.
+Die **`documentPictureInPicture`**-Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces ist eine schreibgeschützte Eigenschaft, die eine Referenz auf das [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekt des aktuellen Dokumentkontexts zurückgibt.
 
 ## Wert
 
-Eine Instanz des [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekts.
+Eine Instanz eines [`DocumentPictureInPicture`](/de/docs/Web/API/DocumentPictureInPicture)-Objekts.
 
 ## Beispiele
 

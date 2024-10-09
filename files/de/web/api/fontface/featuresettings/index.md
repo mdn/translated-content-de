@@ -3,14 +3,14 @@ title: "FontFace: featureSettings-Eigenschaft"
 short-title: featureSettings
 slug: Web/API/FontFace/featureSettings
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`featureSettings`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft selten verwendete Schriftmerkmale ab oder setzt diese, die nicht über die Variableneigenschaften einer Schrift verfügbar sind.
+Die **`featureSettings`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft selten genutzte Font-Features ab oder setzt diese, die nicht in den Variablent-Eigenschaften einer Schriftart verfügbar sind.
 
-Diese Eigenschaft entspricht dem {{cssxref("font-feature-settings")}} Deskriptor.
+Diese Eigenschaft entspricht dem {{cssxref("font-feature-settings")}}-Deskriptor.
 
 ## Wert
 

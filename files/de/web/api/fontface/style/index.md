@@ -3,18 +3,18 @@ title: "FontFace: style-Eigenschaft"
 short-title: style
 slug: Web/API/FontFace/style
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`style`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces holt oder setzt den Stil der Schriftart.
+Die **`style`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft den Stil der Schriftart ab oder legt ihn fest.
 
 Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-style", "font-style")}}-Deskriptor.
 
 ## Wert
 
-Ein String, der die Deskriptoren enthält, die in der `@font-face`-Regel des Stylesheets definiert sind.
+Ein String, der die in der `@font-face`-Regel des Stylesheets definierten Deskriptoren enthält.
 
 ## Spezifikationen
 

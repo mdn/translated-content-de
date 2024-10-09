@@ -1,8 +1,8 @@
 ---
-title: "ARIA: treeitem-Rolle"
+title: "ARIA: Rolle treeitem"
 slug: Web/Accessibility/ARIA/Roles/treeitem_role
 l10n:
-  sourceCommit: 245715b48674c1729cb63417e4a27628e30ae28c
+  sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
 ---
 
 {{AccessibilitySidebar}}
@@ -11,93 +11,93 @@ Ein `treeitem` ist ein Element in einem `tree`.
 
 ## Beschreibung
 
-Ein [`tree`](/de/docs/Web/Accessibility/ARIA/Roles/tree_role) ist eine hierarchische Liste mit über- und untergeordneten Knoten, die erweitert und reduziert werden können. Ein `treeitem` ist ein Knoten in einem `tree`. Die Wurzel des Baums ist `tree`, aber alle Baumknoten sind `treeitem`-Elemente, auch wenn sie selbst verschachtelte `treeitem`-Knoten enthalten.
+Ein [`tree`](/de/docs/Web/Accessibility/ARIA/Roles/tree_role) ist eine hierarchische Liste mit Eltern- und Kindknoten, die erweitert und reduziert werden können. Ein `treeitem` ist ein Knoten in einem `tree`. Die Wurzel des Baumes ist `tree`, aber alle Baumknoten sind `treeitem`-Elemente, auch wenn sie selbst verschachtelte `treeitem`-Knoten besitzen.
 
-Ein Beispiel für einen `tree` ist eine Dateisystemauswahl-Benutzeroberfläche: Eine Baumansicht, die Ordner und Dateien anzeigt. Jeder Ordner und jede Datei ist ein `treeitem`. Ordner, die `treeitem`-Elemente sind, können erweitert werden, um den Inhalt des Ordners anzuzeigen — das können Dateien, Ordner oder beides sein, allesamt `treeitems` — und reduziert werden, um den Inhalt zu verbergen.
+Ein Beispiel für einen `tree` ist eine Benutzeroberfläche zur Dateisystemauswahl: Eine Baumansicht, die Ordner und Dateien anzeigt. Jeder Ordner und jede Datei ist ein `treeitem`. Ordnerelemente, die `treeitem`-Elemente sind, können erweitert werden, um den Inhalt des Ordners anzuzeigen — dies können Dateien, Ordner oder beides sein und sind alle `treeitems` — und können reduziert werden, um den Inhalt auszublenden.
 
-In einer Baumhierarchie hat der _Wurzelknoten_ die Rolle `tree`. Alle anderen Knoten, außer dem Wurzelknoten, haben die Rolle `treeitem`, unabhängig davon, ob sie Kinder haben oder nicht. Ein `treeitem`, das ein übergeordnetes Element ist, ist ein **übergeordneter Knoten**. Ein `treeitem`, das kein übergeordnetes Element ist, ist ein _Endknoten_.
+In einer Baumhierarchie hat der _Wurzelknoten_ die Rolle `tree`. Alle anderen Knoten, außer dem Wurzelknoten, haben die Rolle `treeitem`, unabhängig davon, ob sie Kinder haben oder nicht. Ein `treeitem`, das ein Elternteil ist, ist ein **Elternknoten**. Ein `treeitem`, das kein Elternteil ist, ist ein _Endknoten_.
 
-Baumelemente, die Kinder haben, können erweitert oder reduziert werden, wodurch ihre Kinder angezeigt oder verborgen werden. Ein übergeordneter Knoten, der erweitert ist, sodass seine Kindknoten sichtbar sind, ist ein **offener Knoten**. Ein übergeordneter Knoten, der reduziert ist, sodass die Kindknoten nicht sichtbar sind, ist ein **geschlossener Knoten**.
+Baumelemente, die Kinder haben, können erweitert oder reduziert werden, um ihre Kinder anzuzeigen oder auszublenden. Ein geöffneter Elternknoten, dessen Kindknoten sichtbar sind, ist ein **offener Knoten**. Ein geschlossener Elternknoten, dessen Kindknoten nicht sichtbar sind, ist ein **geschlossener Knoten**.
 
-Jeder übergeordnete Knoten enthält oder besitzt ein Element mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role). Ein übergeordneter Knoten ist eine erweiterbare Sammlung von `treeitem`-Elementen. Diese Kindknoten sind keine direkten Nachfahren des übergeordneten Knotens: Sie sollten stattdessen in einem Element mit der Rolle `group` eingeschlossen sein.
+Jeder Elternknoten enthält oder besitzt ein Element mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role). Ein Elternknoten ist eine erweiterbare Sammlung von `treeitem`-Elementen. Diese Kindknoten sind nicht direkte Nachkommen des Elternknotens: Sie sollten vielmehr in einem Element mit der Rolle `group` eingeschlossen werden.
 
-Jeder übergeordnete Knoten sollte das Attribut [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) enthalten. Es ist auf `false` gesetzt, wenn er geschlossen ist, und auf `true`, wenn er geöffnet ist. Endknoten sollten nicht das Attribut `aria-expanded` enthalten, da die Anwesenheit des Attributs assistiven Technologien anzeigt, dass der Knoten ein übergeordneter Knoten ist.
+Jeder Elternknoten sollte das Attribut [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) enthalten. Es ist auf `false` gesetzt, wenn geschlossen, und `true`, wenn geöffnet. Endknoten sollten das `aria-expanded`-Attribut nicht enthalten, da das Vorhandensein des Attributs assistierenden Technologien anzeigt, dass der Knoten ein Elternteil ist.
 
 > [!NOTE]
-> ARIA-Baumansichten verwenden eine Navigation, die eher nativen Anwendungen ähnelt als Webanwendungen und werden hauptsächlich mit den Pfeiltasten auf der Tastatur anstelle der <kbd>Tab</kbd> navigiert. Diese Form der Navigation ist für die meisten Browser-Inhalte nicht üblich, jedoch normal und erwartet für native Anwendungen. Aus diesem Grund sollten Sie alternative Optionen in Betracht ziehen, um die gewünschte Funktionalität zu erreichen, bevor Sie eine Baumansicht erstellen.
+> ARIA Baumansichten verwenden eine Navigation, die eher nativen Anwendungen als Webanwendungen ähnelt und hauptsächlich mit den Pfeiltasten auf der Tastatur statt mit der <kbd>Tab</kbd>-Taste navigiert wird. Diese Art der Navigation ist für die meisten Browserinhalte nicht üblich, jedoch für native Anwendungen normal und erwartet. Aus diesem Grund sollten Sie alternative Optionen in Betracht ziehen, um die benötigte Funktionalität zu erreichen, bevor Sie eine Baumansicht erstellen.
 
-Jedes Element mit einer `treeitem`-Rolle muss in einem Element mit der Rolle `tree` verschachtelt oder von ihm besessen sein. Baumelemente können ein Kind von `tree`, `treeitem` oder einem Element mit der Rolle `group` sein, das in einem Element mit der Rolle `tree` oder `treeitem` enthalten ist oder von ihm besessen wird. Wenn ein `treeitem` nicht in einem `tree` verschachtelt ist oder in einer von einem `tree` besessenen `group` verschachtelt ist, geben Sie die [`id`](/de/docs/Web/HTML/Global_attributes#id) des `treeitem` im Attributwert [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns) des besitzenden `tree`, `treeitem` oder `group`-Elements an.
+Jedes Element mit der Rolle `treeitem` muss in einem Element mit der Rolle `tree` verschachtelt oder von einem solchen Element besessen sein. Baumelemente können ein Kind von `tree`, `treeitem` oder einem Element mit der Rolle `group` sein, das in einem Element mit der Rolle `tree` oder `treeitem` enthalten oder von diesem besessen ist. Wenn ein `treeitem` nicht innerhalb eines `tree` verschachtelt ist oder nicht in einer `group` verschachtelt ist, die von einem `tree` besessen wird, fügen Sie die [`id`](/de/docs/Web/HTML/Global_attributes/id) des `treeitem` in den Wert des Attributs [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns) auf dem besitzenden `tree`, `treeitem` oder `group`-Element ein.
 
-Bäume können "single-select" sein, sodass Benutzer nur ein `treeitem` für eine Aktion auswählen können, oder "multi-select", bei denen Benutzer mehrere `treeitem`-Knoten für eine Aktion auswählen können. In beiden Fällen muss der Fokus für alle Baum-Nachkommen gesteuert werden, um tastaturzugänglich zu sein.
+Bäume können "einzelselektiv" sein, was es Benutzern ermöglicht, nur ein `treeitem` für eine Aktion auszuwählen, oder "mehrfachselektiv", wobei Benutzer mehr als ein `treeitem` für eine Aktion auswählen können. In beiden Fällen muss der Fokus für alle Baumabkömmlinge verwaltet werden, um tastaturzugänglich zu sein.
 
-In Single-Select-Bäumen kann nur ein Treeitem das Attribut [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected) (oder [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)) auf `true` gesetzt haben. Wenn ein Single-Select-Baum den Fokus erhält, wird, falls kein `treeitem` ausgewählt ist, bevor der Baum den Fokus erhält, der Fokus auf das erste `treeitem` gesetzt. Wenn ein `treeitem` ausgewählt ist, bevor der Baum den Fokus erhält, wird der Fokus auf das einzelne `treeitem` gesetzt, das `aria-selected="true"` gesetzt hat.
+In einzelselektiven Bäumen kann nur ein `treeitem` [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected) (oder [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)) auf `true` gesetzt haben. Wenn ein einzelselektiver Baum den Fokus erhält und kein `treeitem` vorher ausgewählt wurde, bevor der Baum den Fokus erhält, wird der Fokus auf das erste `treeitem` gesetzt. Wenn ein `treeitem` ausgewählt wurde, bevor der Baum den Fokus erhält, wird der Fokus auf das einzelne `treeitem` gesetzt, das `aria-selected="true"` gesetzt hat.
 
-Alle Knoten, die auswählbar, aber nicht ausgewählt sind, haben entweder `aria-selected` oder `aria-checked` auf `false` gesetzt. Wenn der Baum Knoten enthält, die nicht auswählbar sind, sollten weder `aria-selected` noch `aria-checked` enthalten sein, da das Vorhandensein eines der Attribute assistierenden Technologien anzeigt, dass der Knoten auswählbar ist.
+Alle auswählbaren, aber nicht ausgewählten Knoten haben entweder `aria-selected` oder `aria-checked` auf `false` gesetzt. Wenn der Baum Knoten enthält, die nicht auswählbar sind, sollten weder `aria-selected` noch `aria-checked` enthalten sein, da das Vorhandensein eines dieser Attribute assistierenden Technologien signalisiert, dass der Knoten auswählbar ist.
 
-Es kann jeweils nicht mehr als ein Knoten ausgewählt werden, es sei denn, der `tree`-Knoten hat [`aria-multiselectable="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable) gesetzt.
+Nicht mehr als ein Knoten kann gleichzeitig ausgewählt sein, es sei denn, der `tree`-Knoten hat [`aria-multiselectable="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-multiselectable) gesetzt.
 
-Wenn ein Multi-Select-Baum den Fokus erhält und keiner der Baumknoten ausgewählt ist, bevor der Baum den Fokus erhält, wird der Fokus auf das erste `treeitem` gesetzt. Wenn ein oder mehrere Baumknoten ausgewählt sind, bevor der Baum den Fokus erhält, wird der Fokus auf das erste ausgewählte `treeitem` gesetzt.
+Wenn ein mehrfachselektiver Baum den Fokus erhält und keine Baumelemente ausgewählt sind, bevor der Baum den Fokus erhält, wird der Fokus auf das erste `treeitem` gesetzt. Wenn ein oder mehrere Baumelemente ausgewählt sind, bevor der Baum den Fokus erhält, wird der Fokus auf das erste ausgewählte `treeitem` gesetzt.
 
-In Multi-Select-Bäumen haben alle ausgewählten Baumelemente entweder `aria-selected="true"` (oder `aria-checked="true"`) gesetzt. Alle Baumelemente, die auswählbar, aber nicht aktuell ausgewählt sind, sollten `aria-selected="false"` (oder `aria-checked="false"`) gesetzt haben.
+In mehrfachselektiven Bäumen haben alle ausgewählten Baumelemente entweder `aria-selected="true"` (oder `aria-checked="true"`) gesetzt. Alle Baumelementknoten, die auswählbar sind, aber derzeit nicht ausgewählt sind, sollten `aria-selected="false"` (oder `aria-checked="false"`) gesetzt haben.
 
-Entweder `aria-selected` oder `aria-checked` kann verwendet werden, um die Auswahl für `treeitem`-Elemente anzuzeigen. Einige Benutzeroberflächen zeigen die Auswahl in Single-Select-Bäumen mit `aria-selected` an und in Multi-Select-Bäumen mit `aria-checked`.
+Entweder `aria-selected` oder `aria-checked` kann verwendet werden, um die Auswahl für `treeitem`-Elemente anzuzeigen. Einige Benutzeroberflächen verwenden `aria-selected` zur Anzeige der Auswahl in einzelselektiven Bäumen und `aria-checked` in mehrfachselektiven Bäumen.
 
-Die gleichzeitige Verwendung von `aria-selected` und `aria-checked` im selben `tree` wird dringend abgeraten. Verwenden Sie nicht sowohl `aria-selected` als auch `aria-checked` bei Treeitems in einem einzigen Baum, es sei denn, der Sinn und Zweck von `aria-selected` unterscheidet sich von dem von `aria-checked`; der Sinn und Zweck jedes Zustands ist klar, und die Benutzeroberfläche bietet eine separate Methode zur Steuerung jedes Zustands.
+Die Verwendung von sowohl `aria-selected` als auch `aria-checked` im selben `tree` wird dringend abgeraten. Verwenden Sie nicht sowohl `aria-selected` als auch `aria-checked` auf `treeitems` in einem einzigen Baum, es sei denn, die Bedeutung und der Zweck von `aria-selected` unterscheiden sich von der Bedeutung und dem Zweck von `aria-checked`, die Bedeutung und der Zweck jedes Zustands sind offensichtlich, und die Benutzeroberfläche bietet eine separate Methode zur Steuerung jedes Zustandes an.
 
-In Multi-Select-Bäumen sollte der ausgewählte Zustand unabhängig vom Fokus sein. In einem typischen Dateisystem-Navigator kann der Benutzer beispielsweise den Fokus verschieben, um eine beliebige Anzahl von Dateien für eine Aktion wie Kopieren oder Verschieben auszuwählen. Das visuelle Design sollte klar machen, welche Elemente ausgewählt sind und welches Element den Fokus hat.
+In mehrfachselektiven Bäumen sollte der gewählte Zustand unabhängig vom Fokus sein. Zum Beispiel kann der Benutzer in einem typischen Dateisystemnavigator den Fokus verschieben, um eine beliebige Anzahl von Dateien für eine Aktion auszuwählen, wie beispielsweise Kopieren oder Verschieben. Das visuelle Design sollte klar machen, welche Elemente ausgewählt sind und welches Element den Fokus hat.
 
-Wenn die gesamte Menge der verfügbaren Treeitems aufgrund dynamischen Ladens nicht im DOM vorhanden ist, während der Benutzer den Fokus verschiebt oder im Baum scrollt, sollte jedes `treeitem` die Attribute [`aria-level`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level), [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset) spezifiziert haben.
+Wenn der vollständige Satz an verfügbaren `treeitems` aufgrund dynamischen Ladens beim Bewegen des Fokus im Baum oder beim Scrollen nicht im DOM vorhanden ist, sollte jedes `treeitem` [`aria-level`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-level), [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) und [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset) spezifiziert haben.
 
-Ein `treeitem` muss einen zugänglichen Namen haben. Normalerweise kommt dieser Name aus dem Inhalt des `treeitem`. Der zugängliche Name kann auch über [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) gesetzt werden.
+Ein `treeitem` muss einen zugänglichen Namen haben. Im Allgemeinen stammt dieser Name aus dem Inhalt des `treeitem`. Der zugängliche Name kann auch über [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) festgelegt werden.
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
 
-- [`tree`](/de/docs/Web/Accessibility/ARIA/Roles/tree_role) Rolle
-  - : Der Wurzelknoten für die hierarchische Liste von über- und untergeordneten `treeitem`-Knoten, die erweitert und reduziert werden können.
-- [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) Rolle
-  - : Identifiziert eine Gruppe von `treeitem`-Kindknoten.
+- Rolle [`tree`](/de/docs/Web/Accessibility/ARIA/Roles/tree_role)
+  - : Der Wurzelknoten für die hierarchische Liste von Eltern- und Kind-`treeitem`-Knoten, die erweitert und reduziert werden können.
+- Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role)
+  - : Identifiziert eine Menge von `treeitem`-Kindknoten.
 - [`aria-expanded`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
-  - : Setzt sowohl auf dem Wurzel-`tree` als auch auf `group`-Knoten, die Eltern von `treeitem`-Knoten sind, um anzuzeigen, ob die Baumansicht erweitert (`true`) oder reduziert (`false`) ist.
+  - : Setzen Sie auf den Wurzel-`tree` und auf `group`-Knoten, die Eltern von `treeitem`-Knoten sind, um anzuzeigen, ob die Baumansicht erweitert (`true`) oder reduziert (`false`) ist.
 - [`aria-selected`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-selected)
-  - : Auf `true` oder `false` gesetzt, zeigt an, ob ein `treeitem` auswählbar ist und ob es aktuell ausgewählt ist oder nicht.
+  - : Auf `true` oder `false` gesetzt, zeigt ein `treeitem` an, dass es auswählbar ist und ob es derzeit ausgewählt ist.
 - [`aria-checked`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-checked)
-  - : Auf `true` oder `false` gesetzt, zeigt an, ob das `treeitem` angekreuzt werden kann und ob es aktuell angekreuzt ist oder nicht.
+  - : Auf `true` oder `false` gesetzt, zeigt das `treeitem` an, dass es aktiviert werden kann und ob es derzeit aktiviert ist.
 
 ### Tastaturinteraktionen
 
-Für einen vertikal orientierten `tree`, was die Standardausrichtung ist:
+Für einen vertikal orientierten `tree`, der die Standardausrichtung ist:
 
 <table>
 <tr>
 <td><kbd>Rechtspfeil</kbd></td>
 <td>
 <ul>
-<li>Wenn der Fokus auf einem geschlossenen Knoten liegt, wird der Knoten geöffnet; der Fokus bewegt sich nicht.
-<li>Wenn der Fokus auf einem offenen Knoten liegt, bewegt sich der Fokus zum ersten Kindknoten.
-<li>Wenn der Fokus auf einem Endknoten (einem Treeitem ohne Kinder) liegt, passiert nichts.
+<li>Wenn der Fokus auf einem geschlossenen Knoten ist, öffnet er den Knoten; der Fokus bewegt sich nicht.
+<li>Wenn der Fokus auf einem offenen Knoten ist, bewegt sich der Fokus auf den ersten Kindknoten.
+<li>Wenn der Fokus auf einem Endknoten (ein Baumitem ohne Kinder) ist, geschieht nichts.
 </td>
 </tr>
 <tr>
 <td><kbd>Linkspfeil</kbd></td>
 <td>
 <ul>
-<li>Wenn der Fokus auf einem offenen Knoten liegt, wird der Knoten geschlossen.
-<li>Wenn der Fokus auf einem Kindknoten liegt, der entweder ein Endknoten oder ein geschlossener Knoten ist, bewegt sich der Fokus zu seinem übergeordneten Knoten.
-<li>Wenn der Fokus auf einem geschlossenen Baum liegt, passiert nichts.
+<li>Wenn der Fokus auf einem offenen Knoten ist, schließt er den Knoten.
+<li>Wenn der Fokus auf einem Kindknoten ist, der entweder ein Endknoten oder ein geschlossener Knoten ist, bewegt sich der Fokus auf seinen Elternknoten.
+<li>Wenn der Fokus auf einem geschlossenen Baum ist, geschieht nichts.
 </td>
 </tr>
 <tr>
 <td><kbd>Abwärtspfeil</kbd></td>
-<td> Bewegt den Fokus zum nächsten Knoten, der ohne Öffnen oder Schließen eines Knotens fokussierbar ist.
+<td> Bewegt den Fokus zum nächsten Knoten, der fokussierbar ist, ohne einen Knoten zu öffnen oder zu schließen.
 </td>
 </tr>
 <tr>
 <td><kbd>Aufwärtspfeil</kbd></td>
-<td> Bewegt den Fokus zum vorherigen Knoten, der ohne Öffnen oder Schließen eines Knotens fokussierbar ist.
+<td> Bewegt den Fokus zum vorherigen Knoten, der fokussierbar ist, ohne einen Knoten zu öffnen oder zu schließen.
 </td>
 </tr>
 <tr>
-<td><kbd>Home</kbd></td>
+<td><kbd>Pos1</kbd></td>
 <td> Bewegt den Fokus zum ersten Knoten im Baum, ohne einen Knoten zu öffnen oder zu schließen.
 </td>
 </tr>
@@ -108,15 +108,15 @@ Für einen vertikal orientierten `tree`, was die Standardausrichtung ist:
 </tr>
 <tr>
 <td><kbd>Eingabetaste</kbd></td>
-<td>Führt die Standardaktion des aktuell fokussierten Knotens aus. Bei übergeordneten Knoten wird der Knoten geöffnet oder geschlossen. In Single-Select-Bäumen wird, wenn der Knoten keine Kinder hat, der aktuelle Knoten ausgewählt, wenn er nicht bereits ausgewählt ist (was die Standardaktion ist).
+<td>Führt die Standardaktion des aktuell fokussierten Knotens aus. Bei Elternknoten öffnet oder schließt es den Knoten. In einzelselektiven Bäumen, wenn der Knoten keine Kinder hat, wählt er den aktuellen Knoten, wenn er nicht bereits ausgewählt ist (was die Standardaktion ist).
 </td>
 </tr>
 <tr>
 <td>Zeichen eingeben*</td>
 <td>
 <ul>
-<li>Der Fokus bewegt sich zum nächsten Knoten, dessen Name mit dem eingegebenen Zeichen beginnt.
-<li>Wenn mehrere Zeichen schnell hintereinander eingegeben werden, bewegt sich der Fokus zum nächsten Knoten, dessen Name mit der eingegebenen Zeichenkette beginnt.
+<li>Der Fokus bewegt sich zum nächsten Knoten mit einem Namen, der mit dem eingegebenen Zeichen beginnt.
+<li>Wenn mehrere Zeichen schnell hintereinander eingegeben werden, bewegt sich der Fokus zum nächsten Knoten mit einem Namen, der mit der Zeichenfolge der eingegebenen Zeichen beginnt.
 </td>
 </tr>
 <tr>
@@ -127,43 +127,43 @@ Für einen vertikal orientierten `tree`, was die Standardausrichtung ist:
 </tr>
 </table>
 
-\* Type-ahead wird für alle Bäume empfohlen, insbesondere für Bäume mit mehr als 7 Wurzelknoten
+\* Tippvorauswahl wird für alle Bäume empfohlen, insbesondere für Bäume mit mehr als 7 Wurzelknoten
 
-### Multi-Select-Tastaturinteraktionen
+### Mehrfachauswahl-Tastaturinteraktionen
 
-Es gibt zwei Interaktionsmodelle für Multi-Select-Bäume: Während Sie verlangen können, dass Benutzer eine Modifizierertaste wie <kbd>Umschalt</kbd> oder <kbd>Steuerung</kbd> gedrückt halten, während sie die Liste navigieren, um zu vermeiden, dass Auswahlstatus verloren gehen, wird das Modell empfohlen, das keine Modifizierertaste erfordert.
+Es gibt zwei Interaktionsmodelle für mehrfachselektive Bäume: Während Sie verlangen können, dass Benutzer eine Modifikatortaste wie <kbd>Shift</kbd> oder <kbd>Control</kbd> gedrückt halten, während sie in der Liste navigieren, um den Auswählerstatus nicht zu verlieren, wird das Modell empfohlen, das nicht erfordert, dass der Benutzer eine Modifikatortaste hält.
 
-#### Empfohlenes Multi-User-Select-Modell
+#### Empfohlenes Mehrfachauswahlmodell
 
 <table>
 <tr>
 <td><kbd>Leertaste</kbd></td>
-<td> Wechselt den Auswahlstatus des fokussierten Knotens.
+<td> Wechselt den Auswahlzustand des fokussierten Knotens.
 </td>
 </tr>
 <tr>
-<td><kbd>Umschalt + Abwärtspfeil</kbd> (Optional)</td>
-<td> Bewegt den Fokus und wechselt den Auswahlstatus des nächsten Knotens.
+<td><kbd>Shift + Abwärtspfeil</kbd> (Optional)</td>
+<td> Bewegt den Fokus und wechselt den Auswahlzustand des nächsten Knotens.
 </td>
 </tr>
 <tr>
-<td><kbd>Umschalt + Aufwärtspfeil</kbd> (Optional)</td>
-<td> Bewegt den Fokus und wechselt den Auswahlstatus des vorherigen Knotens.
+<td><kbd>Shift + Aufwärtspfeil</kbd> (Optional)</td>
+<td> Bewegt den Fokus und wechselt den Auswahlzustand des vorherigen Knotens.
 </td>
 </tr>
 <tr>
-<td><kbd>Umschalt + Leertaste</kbd> (Optional)</td>
-<td> Wählt zusammenhängende Knoten vom zuletzt ausgewählten Knoten bis zum aktuellen Knoten.
+<td><kbd>Shift + Leertaste</kbd> (Optional)</td>
+<td> Wählt zusammenhängende Knoten vom zuletzt ausgewählten Knoten bis zum aktuellen Knoten aus.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Umschalt + Home</kbd> (Optional)</td>
-<td> Wählt den Knoten im Fokus und alle Knoten bis zum ersten Knoten aus. Optional bewegt sich der Fokus zum ersten Knoten.
+<td><kbd>Strg + Shift + Pos1</kbd> (Optional)</td>
+<td> Wählt den Knoten mit Fokus und alle Knoten bis zum ersten Knoten aus. Optional bewegt es den Fokus zum ersten Knoten.
 </td>
 </tr>
 <tr>
-<td><kbd>Strg + Umschalt + Ende</kbd> (Optional)</td>
-<td> Wählt den Knoten im Fokus und alle Knoten bis zum letzten Knoten aus. Optional bewegt sich der Fokus zum letzten Knoten.
+<td><kbd>Strg + Shift + Ende</kbd> (Optional)</td>
+<td> Wählt den Knoten mit Fokus und alle Knoten bis zum letzten Knoten aus. Optional bewegt es den Fokus zum letzten Knoten.
 </td>
 </tr>
 <tr>
@@ -174,7 +174,7 @@ Es gibt zwei Interaktionsmodelle für Multi-Select-Bäume: Während Sie verlange
 
 ## Beispiele
 
-Im Folgenden wird dargestellt, wie ein Verzeichnis mit Webentwicklungskursen als Baumansicht markiert wird:
+Das folgende Beispiel zeigt, wie man eine Verzeichnisauflistung von Webentwicklungs-Kursen als Baumansicht markieren könnte:
 
 ```html
 <div>
@@ -221,13 +221,13 @@ Im Folgenden wird dargestellt, wie ein Verzeichnis mit Webentwicklungskursen als
 </div>
 ```
 
-Das Obige liefert die Semantik für eine Baumansicht, bietet jedoch keine Interaktivität. Diese muss mit JavaScript hinzugefügt werden.
+Das obige Beispiel bietet die Semantik für eine Baumansicht, liefert jedoch keine Interaktivität. Diese muss mit JavaScript hinzugefügt werden.
 
-Wenn die Baumelemente standardmäßig nicht fokussierbar sind, kann JavaScript verwendet werden, um [`tabIndex="-1"`](/de/docs/Web/HTML/Global_attributes/tabindex) bei allen Treeitems außer demjenigen, das den Fokus erhalten soll, wenn der Benutzer in den Baum tabbt, auf `tabIndex="0"` zu setzen.
+Wenn die Baumelemente standardmäßig nicht fokussierbar sind, kann JavaScript verwendet werden, um [`tabIndex="-1"`](/de/docs/Web/HTML/Global_attributes/tabindex) für alle `treeitems` außer dem, das den Fokus erhalten soll, wenn der Benutzer in den Baum wechselt, das auf `tabIndex="0"` gesetzt werden sollte.
 
-Alle Tastaturfunktionen in den Tastaturinteraktionen und allen Zeigenereignissen müssen programmiert werden, einschließlich Fokusverwaltung, nach oben und unten im Baum navigieren, übergeordnete Knoten erweitern und reduzieren sowie Auswahlverwaltung.
+Die gesamte Tastaturfunktionalität bei Tastaturinteraktionen und alle Zeigereignisse müssen programmiert werden, einschließlich der Fokusverwaltung, des Navigierens im Baum, des Erweiterns und Reduzierens von Elternknoten und der Auswahlverwaltung.
 
-Wenn der Baum mehr als 7 Baumelemente hat, wird empfohlen, eine Type-ahead-Funktionalität einzubauen.
+Wenn der Baum mehr als 7 Baum-Items hat, wird empfohlen, eine Vorauswahlfunktionalität zu implementieren.
 
 ## Spezifikationen
 

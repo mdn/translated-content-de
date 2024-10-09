@@ -3,15 +3,15 @@ title: "EventSource: close() Methode"
 short-title: close()
 slug: Web/API/EventSource/close
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: a166ba48ceb8bccb37c67a0a8856b0e5b12e0135
 ---
 
-{{APIRef('WebSockets API')}}
+{{APIRef("Server Sent Events")}}{{AvailableInWorkers}}
 
-Die **`close()`**-Methode des [`EventSource`](/de/docs/Web/API/EventSource)-Interfaces schließt die Verbindung, falls eine besteht, und setzt das [`EventSource.readyState`](/de/docs/Web/API/EventSource/readyState)-Attribut auf `2` (geschlossen).
+Die **`close()`**-Methode des [`EventSource`](/de/docs/Web/API/EventSource)-Interfaces schließt die Verbindung, wenn eine besteht, und setzt das Attribut [`EventSource.readyState`](/de/docs/Web/API/EventSource/readyState) auf `2` (geschlossen).
 
 > [!NOTE]
-> Falls die Verbindung bereits geschlossen ist, macht die Methode nichts.
+> Wenn die Verbindung bereits geschlossen ist, unternimmt die Methode nichts.
 
 ## Syntax
 
@@ -40,7 +40,7 @@ button.onclick = () => {
 ```
 
 > [!NOTE]
-> Ein vollständiges Beispiel finden Sie auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
+> Ein vollständiges Beispiel finden Sie auf GitHub — siehe [Simple SSE demo using PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
 
 ## Spezifikationen
 

@@ -3,13 +3,13 @@ title: "CustomElementRegistry: whenDefined() Methode"
 short-title: whenDefined()
 slug: Web/API/CustomElementRegistry/whenDefined
 l10n:
-  sourceCommit: 55fe0ef0be11c6d18012d18b355d46f9df60c4db
+  sourceCommit: 0edb4dbed5c7bfbc1dc8f2efd43bb4a5fe52f2d1
 ---
 
 {{APIRef("Web Components")}}
 
 Die **`whenDefined()`** Methode der
-[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das benannte Element definiert ist.
+[`CustomElementRegistry`](/de/docs/Web/API/CustomElementRegistry) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn das benannte Element definiert ist.
 
 ## Syntax
 
@@ -24,13 +24,13 @@ whenDefined(name)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit dem Konstruktor des [benutzerdefinierten Elements](/de/docs/Web/API/Web_components/Using_custom_elements) erfüllt wird, wenn ein benutzerdefiniertes Element mit dem angegebenen Namen definiert wird. Wenn bereits ein benutzerdefiniertes Element mit dem Namen definiert wurde, wird das Promise sofort erfüllt.
+Ein {{jsxref("Promise")}}, das mit dem Konstruktor des [benutzerdefinierten Elements](/de/docs/Web/API/Web_components/Using_custom_elements) erfüllt wird, wenn ein benutzerdefiniertes Element mit dem angegebenen Namen definiert ist. Wenn ein benutzerdefiniertes Element bereits mit dem Namen definiert wurde, wird das Promise sofort erfüllt.
 
-Das Promise wird mit einem `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, wenn der Name kein [gültiger Name für benutzerdefinierte Elemente](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) ist.
+Das Promise wird mit einem `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt, wenn der Name kein [gültiger Name für ein benutzerdefiniertes Element](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) ist.
 
 ## Beispiele
 
-In diesem Beispiel wird `whenDefined()` verwendet, um zu erkennen, wann die benutzerdefinierten Elemente, die ein Menü bilden, definiert werden. Das Menü zeigt Platzhalterinhalte an, bis der eigentliche Menüinhalt bereit steht.
+Dieses Beispiel verwendet `whenDefined()`, um zu erkennen, wann die benutzerdefinierten Elemente, die ein Menü bilden, definiert sind. Das Menü zeigt Platzhalterinhalte an, bis der tatsächliche Menüinhalt bereit ist, angezeigt zu werden.
 
 ```html
 <nav id="menu-container">
@@ -51,9 +51,11 @@ const placeholder = container.querySelector(".menu-placeholder");
 const undefinedElements = container.querySelectorAll(":not(:defined)");
 
 async function removePlaceholder() {
-  const promises = [...undefinedElements].map((button) =>
-    customElements.whenDefined(button.localName),
+  // Filter the elements down to unique localNames
+  const tags = new Set(
+    [...undefinedElements].map((button) => button.localName),
   );
+  const promises = [...tags].map((tag) => customElements.whenDefined(tag));
 
   // Wait for all the children to be upgraded
   await Promise.all(promises);

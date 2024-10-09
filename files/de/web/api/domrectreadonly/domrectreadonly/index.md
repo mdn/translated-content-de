@@ -3,10 +3,10 @@ title: "DOMRectReadOnly: DOMRectReadOnly() Konstruktor"
 short-title: DOMRectReadOnly()
 slug: Web/API/DOMRectReadOnly/DOMRectReadOnly
 l10n:
-  sourceCommit: a631fd40bdc682a82be57be9932c9853a86ac1b5
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
 Der **`DOMRectReadOnly()`** Konstruktor erstellt ein neues [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly) Objekt.
 
@@ -19,9 +19,9 @@ new DOMRectReadOnly(x, y, width, height)
 ### Parameter
 
 - `x`
-  - : Die `x`-Koordinate des Ursprungs von `DOMRectReadOnly`.
+  - : Die `x`-Koordinate des Ursprungs des `DOMRectReadOnly`.
 - `y`
-  - : Die `y`-Koordinate des Ursprungs von `DOMRectReadOnly`.
+  - : Die `y`-Koordinate des Ursprungs des `DOMRectReadOnly`.
 - `width`
   - : Die Breite des `DOMRectReadOnly`.
 - `height`
@@ -29,7 +29,7 @@ new DOMRectReadOnly(x, y, width, height)
 
 ## Beispiele
 
-Um ein neues `DOMRectReadOnly` zu erstellen, können Sie eine Zeile Code wie folgt ausführen:
+Um ein neues `DOMRectReadOnly` zu erstellen, können Sie eine Codezeile wie folgt ausführen:
 
 ```js
 const myDOMRect = new DOMRectReadOnly(0, 0, 100, 100);

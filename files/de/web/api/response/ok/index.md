@@ -1,14 +1,14 @@
 ---
-title: "Response: ok Eigenschaft"
+title: "Response: ok-Eigenschaft"
 short-title: ok
 slug: Web/API/Response/ok
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ok`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle enthält einen Boolean-Wert, der angibt, ob die Antwort erfolgreich war (Status im Bereich 200-299) oder nicht.
+Die **`ok`**-Eigenschaft des [`Response`](/de/docs/Web/API/Response)-Interfaces ist eine schreibgeschützte Boolean-Eigenschaft, die angibt, ob die Antwort erfolgreich war (Status im Bereich 200-299) oder nicht.
 
 ## Wert
 
@@ -16,8 +16,8 @@ Ein Boolean-Wert.
 
 ## Beispiele
 
-In unserem [Fetch-Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/))
-erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor, dem wir einen JPG-Pfad übergeben. Anschließend senden wir diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch), extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen daraus eine Objekt-URL mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen dieses in einem {{htmlelement("img")}} an.
+In unserem [Fetch Response Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors und übergeben ihm einen JPG-Pfad.
+Wir holen dann diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen eine Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static), und zeigen dieses in einem {{htmlelement("img")}} an.
 
 > [!NOTE]
 > Am Anfang des `fetch()`-Blocks protokollieren wir den `ok`-Wert der Antwort in der Konsole.

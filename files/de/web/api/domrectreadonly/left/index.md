@@ -3,12 +3,12 @@ title: "DOMRectReadOnly: left-Eigenschaft"
 short-title: left
 slug: Web/API/DOMRectReadOnly/left
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`left`** der **`DOMRectReadOnly`**-Schnittstelle gibt den linken Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `x` oder `x + width`, wenn `width` negativ ist.)
+Die schreibgeschützte **`left`**-Eigenschaft der **`DOMRectReadOnly`**-Schnittstelle gibt den linken Koordinatenwert des `DOMRect` zurück. (Hat denselben Wert wie `x` oder `x + width`, wenn `width` negativ ist.)
 
 ## Wert
 

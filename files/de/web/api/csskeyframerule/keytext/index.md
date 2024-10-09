@@ -3,12 +3,12 @@ title: "CSSKeyframeRule: keyText-Eigenschaft"
 short-title: keyText
 slug: Web/API/CSSKeyframeRule/keyText
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("CSSOM") }}
 
-Die **`keyText`**-Eigenschaft der [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Schnittstelle repräsentiert den Keyframe-Selektor als eine durch Kommas getrennte Liste von Prozentwerten. Die Schlüsselwörter `from` und `to` entsprechen jeweils 0 % und 100 %.
+Die **`keyText`**-Eigenschaft der Schnittstelle [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) repräsentiert den Keyframe-Selektor als kommaseparierte Liste von Prozentwerten. Die Schlüsselwörter `from` und `to` entsprechen dabei 0 % bzw. 100 %.
 
 ## Wert
 
@@ -17,15 +17,15 @@ Ein String.
 ### Ausnahmen
 
 - {{jsxref("SyntaxError")}}
-  - : Wird ausgelöst, wenn `keyText` mit einem ungültigen Keyframe-Selektor aktualisiert wird, in diesem Fall bleibt `keyText` unverändert.
+  - : Wird ausgelöst, wenn `keyText` mit einem ungültigen Keyframe-Selektor aktualisiert wird. In diesem Fall bleibt `keyText` unverändert.
 
 ## Beispiele
 
-Das CSS beinhaltet eine Keyframes-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
-`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule)-Objekte für jeden Keyframe enthalten wird.
+Das CSS enthält eine `@keyframes`-Regel. Diese wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die durch `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, das einzelne [`CSSKeyFrameRule`](/de/docs/Web/API/CSSKeyFrameRule)-Objekte für jedes Keyframe enthalten wird.
 
 ```css
-@keyframes slidein {
+@keyframes slide-in {
   from {
     transform: translateX(0%);
   }

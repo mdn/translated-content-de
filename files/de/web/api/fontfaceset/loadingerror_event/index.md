@@ -1,18 +1,18 @@
 ---
-title: "FontFaceSet: loadingerror-Ereignis"
+title: "FontFaceSet: loadingerror Ereignis"
 short-title: loadingerror
 slug: Web/API/FontFaceSet/loadingerror_event
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Das `loadingerror`-Ereignis wird ausgelöst, wenn Schriften fertig geladen wurden, aber einige oder alle Schriften nicht geladen werden konnten.
+Das `loadingerror`-Ereignis wird ausgelöst, wenn Schriften das Laden abgeschlossen haben, aber einige oder alle Schriften nicht geladen werden konnten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("loadingerror", (event) => {});
@@ -22,7 +22,7 @@ onloadingerror = (event) => {};
 
 ## Beispiel
 
-Im folgenden Beispiel, falls die Schriftart `Ephesis` nicht geladen werden kann, wird "Font loading error" in die Konsole ausgegeben.
+Im folgenden Beispiel wird, wenn die Schrift `Ephesis` nicht geladen werden kann, "Font loading error" in die Konsole gedruckt.
 
 ```js
 document.fonts.onloadingerror = () => {

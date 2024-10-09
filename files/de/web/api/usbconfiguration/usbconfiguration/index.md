@@ -3,13 +3,14 @@ title: "USBConfiguration: USBConfiguration() Konstruktor"
 short-title: USBConfiguration()
 slug: Web/API/USBConfiguration/USBConfiguration
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 Der **`USBConfiguration()`** Konstruktor
-erstellt ein neues [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt, das Informationen über die Konfiguration des bereitgestellten USB-Geräts mit dem angegebenen Konfigurationswert enthält.
+erstellt ein neues [`USBConfiguration`](/de/docs/Web/API/USBConfiguration) Objekt, das Informationen über
+die Konfiguration auf dem bereitgestellten `USBDevice` mit dem gegebenen Konfigurationswert enthält.
 
 ## Syntax
 
@@ -22,7 +23,7 @@ new USBConfiguration(device, configurationValue)
 - `device`
   - : Gibt das [`USBDevice`](/de/docs/Web/API/USBDevice) an, das Sie konfigurieren möchten.
 - `configurationValue`
-  - : Gibt den [Konfigurationsdeskriptor](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) an, den Sie lesen möchten. Dies ist eine vorzeichenlose Ganzzahl im Bereich von 0 bis 255.
+  - : Gibt den [Konfigurationsdeskriptor](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors) an, den Sie lesen möchten. Dies ist eine nicht signierte Ganzzahl im Bereich von 0 bis 255.
 
 ## Spezifikationen
 

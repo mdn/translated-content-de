@@ -3,16 +3,20 @@ title: "EventSource: withCredentials-Eigenschaft"
 short-title: withCredentials
 slug: Web/API/EventSource/withCredentials
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: a166ba48ceb8bccb37c67a0a8856b0e5b12e0135
 ---
 
-{{APIRef('WebSockets API')}}
+{{APIRef("Server Sent Events")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`withCredentials`**-Eigenschaft des [`EventSource`](/de/docs/Web/API/EventSource)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob das `EventSource`-Objekt mit festgelegten CORS-Anmeldeinformationen instanziiert wurde.
+Die **`withCredentials`** schreibgeschützte Eigenschaft des
+[`EventSource`](/de/docs/Web/API/EventSource)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob
+das `EventSource`-Objekt mit CORS-Zugangsdaten initialisiert wurde.
 
 ## Wert
 
-Ein boolescher Wert, der angibt, ob das `EventSource`-Objekt mit festgelegten CORS-Anmeldeinformationen instanziiert wurde (`true`) oder nicht (`false`, der Standardwert).
+Ein boolescher Wert, der angibt, ob das `EventSource`-Objekt
+mit CORS-Zugangsdaten initialisiert wurde (`true`) oder nicht (`false`,
+der Standard).
 
 ## Beispiele
 
@@ -22,7 +26,7 @@ console.log(evtSource.withCredentials);
 ```
 
 > [!NOTE]
-> Sie finden ein vollständiges Beispiel auf GitHub — siehe [Einfaches SSE-Demo mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
+> Ein vollständiges Beispiel finden Sie auf GitHub – siehe [Einfaches SSE-Demonstrationsbeispiel mit PHP](https://github.com/mdn/dom-examples/tree/main/server-sent-events).
 
 ## Spezifikationen
 

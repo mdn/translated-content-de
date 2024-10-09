@@ -3,14 +3,14 @@ title: "DOMPoint: DOMPoint() Konstruktor"
 short-title: DOMPoint()
 slug: Web/API/DOMPoint/DOMPoint
 l10n:
-  sourceCommit: 381c51574a3e6a07ee09c63493452440f046038d
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Der **`DOMPoint()`** Konstruktor erzeugt und gibt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt zurück, basierend auf den Werten einiger oder aller seiner Eigenschaften.
+Der **`DOMPoint()`** Konstruktor erstellt und gibt ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt zurück, basierend auf den Werten für einige oder alle seiner Eigenschaften.
 
-Sie können auch ein `DOMPoint` erstellen, indem Sie die statische Funktion [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMPoint` oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
+Sie können auch einen `DOMPoint` erstellen, indem Sie die statische Funktion [`DOMPoint.fromPoint()`](/de/docs/Web/API/DOMPoint/fromPoint_static) aufrufen. Diese Funktion akzeptiert jedes Objekt mit den erforderlichen Parametern, einschließlich eines `DOMPoint` oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly).
 
 ## Syntax
 
@@ -35,7 +35,7 @@ new DOMPoint(x, y, z, w)
 
 ## Beispiele
 
-Dieses Beispiel erstellt einen `DOMPoint`, der die obere linke Ecke des aktuellen Fensters darstellt, und erstellt dann einen zweiten Punkt basierend auf dem ersten, der dann sowohl vertikal als auch horizontal um 100 Pixel verschoben wird.
+Dieses Beispiel erstellt einen `DOMPoint`, der die obere linke Ecke des aktuellen Fensters darstellt. Dann wird ein zweiter Punkt basierend auf dem ersten erstellt, der dann um 100 Pixel sowohl vertikal als auch horizontal versetzt wird.
 
 ```js
 const windTopLeft = new DOMPoint(window.screenX, window.screenY);

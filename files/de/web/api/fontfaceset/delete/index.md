@@ -1,16 +1,16 @@
 ---
-title: "FontFaceSet: delete()-Methode"
+title: "FontFaceSet: delete() Methode"
 short-title: delete()
 slug: Web/API/FontFaceSet/delete
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`delete()`**-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces entfernt eine Schriftart aus der Menge.
+Die **`delete()`**-Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle entfernt eine Schriftart aus dem Set.
 
-Schriftarten, die mittels der CSS {{cssxref("@font-face")}}-Regel zur Menge hinzugefügt wurden, bleiben mit dem entsprechenden CSS verbunden und können nicht gelöscht werden.
+Schriftarten, die mithilfe der CSS-{{cssxref("@font-face")}}-Regel zum Set hinzugefügt wurden, bleiben mit dem entsprechenden CSS verbunden und können nicht gelöscht werden.
 
 ## Syntax
 
@@ -21,7 +21,7 @@ delete(font)
 ### Parameter
 
 - `font`
-  - : Ein [`FontFace`](/de/docs/Web/API/FontFace), das aus der Menge entfernt werden soll.
+  - : Ein [`FontFace`](/de/docs/Web/API/FontFace), das aus dem Set entfernt werden soll.
 
 ### Rückgabewert
 

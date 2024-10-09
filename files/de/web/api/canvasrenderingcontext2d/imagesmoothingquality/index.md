@@ -3,17 +3,17 @@ title: "CanvasRenderingContext2D: imageSmoothingQuality-Eigenschaft"
 short-title: imageSmoothingQuality
 slug: Web/API/CanvasRenderingContext2D/imageSmoothingQuality
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef}}
 
-Die **`imageSmoothingQuality`**-Eigenschaft des
-[`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Interfaces, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), ermöglicht es Ihnen, die Qualität der Bildglättung festzulegen.
+Die **`imageSmoothingQuality`**-Eigenschaft der
+[`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)-Schnittstelle, Teil der [Canvas API](/de/docs/Web/API/Canvas_API), ermöglicht es Ihnen, die Qualität der Bildglättung festzulegen.
 
 > [!NOTE]
-> Damit diese Eigenschaft Wirkung zeigt, muss
-> [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) > `true` sein.
+> Damit diese Eigenschaft Wirkung zeigt,
+> muss [`imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled) > `true` sein.
 
 ## Wert
 
@@ -30,7 +30,7 @@ Der Standardwert ist `"low"`.
 
 ## Beispiele
 
-### Bildglättungsqualität einstellen
+### Festlegen der Bildglättungsqualität
 
 Dieses Beispiel verwendet die `imageSmoothingQuality`-Eigenschaft mit einem skalierten Bild.
 
@@ -47,7 +47,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 let img = new Image();
-img.src = "canvas_createpattern.png";
+img.src = "canvas_create_pattern.png";
 img.onload = () => {
   ctx.imageSmoothingQuality = "low";
   ctx.drawImage(img, 0, 0, 300, 150);
@@ -68,6 +68,6 @@ img.onload = () => {
 
 ## Siehe auch
 
-- Das Interface, das diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
+- Die Schnittstelle, die diese Eigenschaft definiert: [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D)
 - [`CanvasRenderingContext2D.imageSmoothingEnabled`](/de/docs/Web/API/CanvasRenderingContext2D/imageSmoothingEnabled)
 - {{cssxref("image-rendering")}}

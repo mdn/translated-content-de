@@ -2,24 +2,24 @@
 title: "-webkit-präfixierte CSS-Erweiterungen"
 slug: Web/CSS/WebKit_Extensions
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 39520e7628ec24665da17b39162ab5d08ef0e1ea
 ---
 
 {{CSSRef}}
 
-Benutzeragenten, die auf WebKit oder Blink basieren, wie Safari und Chrome, unterstützen mehrere spezielle Erweiterungen für [CSS](/de/docs/Web/CSS). Diese Erweiterungen sind mit `-webkit-` vorangestellt.
+Benutzeragenten, die auf WebKit oder Blink basieren, wie Safari und Chrome, unterstützen mehrere spezielle Erweiterungen für [CSS](/de/docs/Web/CSS). Diese Erweiterungen sind mit `-webkit-` präfixiert.
 
-## -webkit-präfixierte Eigenschaften ohne standardisierte Entsprechungen
+## -webkit-präfixierte Eigenschaften ohne standardmäßige Äquivalente
 
 > [!NOTE]
-> Vermeiden Sie die Verwendung auf Websites. Diese Eigenschaften funktionieren nur in WebKit- oder Blink-basierten Browsern, es sei denn, es ist anders angegeben.
+> Verwenden Sie diese nicht auf Websites. Diese Eigenschaften funktionieren nur in WebKit- oder Blink-basierten Browsern, außer wo angegeben.
 
 ### A-C
 
 - {{CSSxRef("-webkit-app-region")}}
 - {{CSSxRef("-webkit-border-horizontal-spacing")}}
 - {{CSSxRef("-webkit-border-vertical-spacing")}}
-- {{CSSxRef("-webkit-box-reflect")}} (unterstützt mit `-webkit-` von jedem Browser aus Kompatibilitätsgründen)
+- {{CSSxRef("-webkit-box-reflect")}} (wird aus Kompatibilitätsgründen von jedem Browser mit `-webkit-` unterstützt)
 - {{CSSxRef("-webkit-column-axis")}}
 - {{CSSxRef("-webkit-column-progression")}}
 - {{CSSxRef("-webkit-cursor-visibility")}}
@@ -53,8 +53,8 @@ Benutzeragenten, die auf WebKit oder Blink basieren, wie Safari und Chrome, unte
 - {{CSSxRef("-webkit-mask-box-image-width")}}
 - {{CSSxRef("-webkit-mask-box-image")}}
 - {{cssxref("-webkit-mask-composite")}}
-- {{CSSxRef("-webkit-mask-position-x")}} (unterstützt mit `-webkit-` von jedem Browser aus Kompatibilitätsgründen)
-- {{CSSxRef("-webkit-mask-position-y")}} (unterstützt mit `-webkit-` von jedem Browser aus Kompatibilitätsgründen)
+- {{CSSxRef("-webkit-mask-position-x")}} (wird aus Kompatibilitätsgründen von jedem Browser mit `-webkit-` unterstützt)
+- {{CSSxRef("-webkit-mask-position-y")}} (wird aus Kompatibilitätsgründen von jedem Browser mit `-webkit-` unterstützt)
 - {{CSSxRef("-webkit-mask-repeat-x")}} (auch ohne Präfix unterstützt)
 - {{CSSxRef("-webkit-mask-repeat-y")}} (auch ohne Präfix unterstützt)
 - {{CSSxRef("-webkit-mask-source-type")}}
@@ -91,94 +91,99 @@ Benutzeragenten, die auf WebKit oder Blink basieren, wie Safari und Chrome, unte
 - {{CSSxRef("-webkit-user-drag")}}
 - {{CSSxRef("-webkit-user-modify")}}
 
-## -webkit-präfixierte Eigenschaften mit standardisierten Entsprechungen
+## -webkit-präfixierte Eigenschaften mit standardmäßigen Äquivalenten
 
-Mehrere alte `-webkit-`-präfixierte Eigenschaften haben standardisierte Entsprechungen. Auch wenn Name und Syntax unterschiedlich sein können, sollten sie überhaupt nicht mehr verwendet werden.
+Mehrere alte `-webkit-`-präfixierte Eigenschaften haben standardmäßige Äquivalente. Auch wenn der Name und die Syntax unterschiedlich sein können, sollten diese überhaupt nicht mehr verwendet werden.
 
-Verwenden Sie für jede von ihnen die angegebene standardisierte Entsprechung.
+Für jede davon verwenden Sie bitte das angegebene standardmäßige Äquivalent.
 
 ### A-B
 
 - `-webkit-border-after`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-end")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-end")}}.
 - `-webkit-border-after-color`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-end-color")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-end-color")}}.
 - `-webkit-border-after-style`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-end-style")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-end-style")}}.
 - `-webkit-border-after-width`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-end-width")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-end-width")}}.
 - `-webkit-border-before`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-start")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-start")}}.
 - `-webkit-border-before-color`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-start-color")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-start-color")}}.
 - `-webkit-border-before-style`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-start-style")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-start-style")}}.
 - `-webkit-border-before-width`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-block-start-width")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-block-start-width")}}.
 - `-webkit-border-end`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-end")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-end")}}.
 - `-webkit-border-end-color`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-end-color")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-end-color")}}.
 - `-webkit-border-end-style`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-end-style")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-end-style")}}.
 - `-webkit-border-end-width`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-end-width")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-end-width")}}.
 - `-webkit-border-start`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-start")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-start")}}.
 - `-webkit-border-start-color`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-start-color")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-start-color")}}.
 - `-webkit-border-start-style`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-start-style")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-start-style")}}.
 - `-webkit-border-start-width`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("border-inline-start-width")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("border-inline-start-width")}}.
 - `-webkit-box-align`
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der Standard-Eigenschaft {{CSSxRef("align-items")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der standardmäßigen Eigenschaft {{CSSxRef("align-items")}}.
 - `-webkit-box-direction`
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der Standard-Eigenschaft {{CSSxRef("flex-direction")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der standardmäßigen Eigenschaft {{CSSxRef("flex-direction")}}.
 - {{CSSxRef("box-flex-group", "-webkit-box-flex-group")}}
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit den Standard-Eigenschaften {{cssxref("flex-basis")}}, {{cssxref("flex-grow")}} und {{cssxref("flex-shrink")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit den standardmäßigen Eigenschaften {{cssxref("flex-basis")}}, {{cssxref("flex-grow")}} und {{cssxref("flex-shrink")}}.
 - `-webkit-box-flex`
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der Standard-Eigenschaft {{CSSxRef("flex-grow")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der standardmäßigen Eigenschaft {{CSSxRef("flex-grow")}}.
 - `-webkit-box-lines`
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der Standard-Eigenschaft {{CSSxRef("flex-flow")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der standardmäßigen Eigenschaft {{CSSxRef("flex-flow")}}.
 - `-webkit-box-ordinal-group`
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der Standard-Eigenschaft {{CSSxRef("order")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der standardmäßigen Eigenschaft {{CSSxRef("order")}}.
 - `-webkit-box-orient`
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der Standard-Eigenschaft {{CSSxRef("flex-direction")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der standardmäßigen Eigenschaft {{CSSxRef("flex-direction")}}.
 - `-webkit-box-pack`
-  - : Verwenden Sie stattdessen das [CSS flexible box layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der Standard-Eigenschaft {{CSSxRef("justify-content")}}.
+  - : Verwenden Sie das [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) mit der standardmäßigen Eigenschaft {{CSSxRef("justify-content")}}.
 
 ### C-I
 
 - `-webkit-column-break-after`
-  - : Verwenden Sie stattdessen das [CSS Multicolumn Layout](/de/docs/Web/CSS/CSS_multicol_layout) mit der Standard-Eigenschaft {{cssxref("break-after")}}.
+  - : Verwenden Sie das [CSS Multispalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) mit der standardmäßigen Eigenschaft {{cssxref("break-after")}}.
 - `-webkit-column-break-before`
-  - : Verwenden Sie stattdessen das [CSS Multicolumn Layout](/de/docs/Web/CSS/CSS_multicol_layout) mit der Standard-Eigenschaft {{cssxref("break-before")}}.
+  - : Verwenden Sie das [CSS Multispalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) mit der standardmäßigen Eigenschaft {{cssxref("break-before")}}.
 - `-webkit-column-break-inside`
-  - : Verwenden Sie stattdessen das [CSS Multicolumn Layout](/de/docs/Web/CSS/CSS_multicol_layout) mit der Standard-Eigenschaft {{cssxref("break-inside")}}.
+  - : Verwenden Sie das [CSS Multispalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout) mit der standardmäßigen Eigenschaft {{cssxref("break-inside")}}.
 - `-webkit-font-feature-settings`
-  - : Verwenden Sie stattdessen die Eigenschaft [`font-feature-settings`](/de/docs/Web/CSS/font-feature-settings).
+  - : Verwenden Sie stattdessen die [`font-feature-settings`](/de/docs/Web/CSS/font-feature-settings)-Eigenschaft.
 - `-webkit-hyphenate-character`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{cssxref("hyphenate-character")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{cssxref("hyphenate-character")}}.
 - `-webkit-initial-letter`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{cssxref("initial-letter")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{cssxref("initial-letter")}}.
 
 ### J-Z
 
 - `-webkit-margin-end`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("margin-block-end")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("margin-block-end")}}.
 - `-webkit-margin-start`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("margin-block-start")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("margin-block-start")}}.
 - `-webkit-padding-after`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("padding-block-end")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("padding-block-end")}}.
 - `-webkit-padding-before`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("padding-block-start")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("padding-block-start")}}.
 - `-webkit-padding-end`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("padding-inline-end")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("padding-inline-end")}}.
 - `-webkit-padding-start`
-  - : Verwenden Sie stattdessen die Standard-Eigenschaft {{CSSxRef("padding-inline-start")}}.
+  - : Verwenden Sie stattdessen die standardmäßige Eigenschaft {{CSSxRef("padding-inline-start")}}.
 
-## Pseudoklassen
+## -webkit-präfixierte Eigenschaftswerte
+
+- `-webkit-fill-available`
+  - : Wird mit Eigenschaften zur Größenbestimmung wie {{CSSxRef("width")}} und {{CSSxRef("height")}} verwendet, um Elementen zu erlauben, den gesamten verfügbaren Platz innerhalb ihres übergeordneten Containers einzunehmen. Der Flexbox `stretch`-Wert (siehe z.B. {{CSSxRef("align-items")}} und {{CSSxRef("justify-items")}}) bietet einen standardmäßigen Ersatz.
+
+## Pseudo-Klassen
 
 - {{CSSxRef(":animating-full-screen-transition", ":-webkit-animating-full-screen-transition")}}
 - {{CSSxRef(":is", ":-webkit-any()")}}
@@ -192,14 +197,14 @@ Verwenden Sie für jede von ihnen die angegebene standardisierte Entsprechung.
 - {{CSSxRef(":full-screen-document",":-webkit-full-screen-document")}}
 - {{CSSxRef(":full-screen-controls-hidden",":-webkit-full-screen-controls-hidden")}}
 
-\* Jetzt standardisiert.
+\* Jetzt standardmäßig.
 
 > [!NOTE]
-> Wenn eine ungültige Pseudoklasse in einer Gruppe von Selektoren enthalten ist, ist die gesamte Selektorliste ungültig.
+> Wenn eine ungültige Pseudo-Klasse innerhalb einer Kette oder Gruppe von Selektoren vorhanden ist, ist die gesamte Selektorliste ungültig.
 
-## Pseudoelemente
+## Pseudo-Elemente
 
-Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser alle mit `::-webkit-` beginnenden Pseudoelemente als gültig.
+Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser alle Pseudo-Elemente, die mit `::-webkit-` beginnen, als gültig.
 
 - {{CSSxRef("::file-selector-button","::-webkit-file-upload-button")}}\*
 - {{CSSxRef("::-webkit-inner-spin-button", "::-webkit-inner-spin-button")}}
@@ -217,12 +222,12 @@ Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser
 - {{CSSxRef("::-webkit-slider-runnable-track", "::-webkit-slider-runnable-track")}}
 - {{CSSxRef("::-webkit-slider-thumb", "::-webkit-slider-thumb")}}
 
-\* Jetzt standardisiert.
+\* Jetzt standardmäßig.
 
 > [!NOTE]
-> Generell gilt: Wenn ein ungültiges Pseudoelement oder eine Pseudoklasse in einer Gruppe von Selektoren enthalten ist, ist die gesamte Selektorliste ungültig. Hat ein Pseudoelement (nicht Pseudoklasse) jedoch ein -webkit-Präfix, wird ab Firefox 63 von Blink-, WebKit- und Gecko-Browsern angenommen, dass es gültig ist, wodurch die Selektorliste nicht ungültig wird.
+> Allgemein gilt, wenn ein ungültiges Pseudo-Element oder eine ungültige Pseudo-Klasse innerhalb einer Kette oder Gruppe von Selektoren vorhanden ist, ist die gesamte Selektorliste ungültig. Wenn ein Pseudo-Element (aber nicht eine Pseudo-Klasse) ein -webkit- Präfix hat, betrachten die Blink-, WebKit- und Gecko-Browser ab Firefox 63 es als gültig, wodurch die Selektorliste nicht ungültig wird.
 
-## Medienfunktionen
+## Media-Features
 
 - {{CSSxRef("@media/-webkit-animation", "-webkit-animation")}}
 - {{CSSxRef("@media/-webkit-device-pixel-ratio", "-webkit-device-pixel-ratio")}}
@@ -232,6 +237,6 @@ Aus Gründen der Web-Kompatibilität behandeln Blink-, WebKit- und Gecko-Browser
 
 ## Siehe auch
 
-- Glossareintrag {{Glossary("Vendor_Prefix", "Vendor Prefix")}}
-- [Mozilla vendor-präfizierte CSS-Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
-- [Styling von Formularelementen im WebKit Trac](https://trac.webkit.org/wiki/Styling%20Form%20Controls)
+- Eintrag im Glossar zu {{Glossary("Vendor_Prefix", "Vendor Prefix")}}
+- [Mozilla vendor-präfixierte CSS-Erweiterungen](/de/docs/Web/CSS/Mozilla_Extensions)
+- [Styling Form Controls auf dem WebKit Trac](https://trac.webkit.org/wiki/Styling%20Form%20Controls)

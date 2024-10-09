@@ -2,14 +2,14 @@
 title: overscroll-behavior-block
 slug: Web/CSS/overscroll-behavior-block
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 9a3940b0231838338f65ae1c37d5b874439a3d43
 ---
 
 {{CSSRef}}
 
-Die **`overscroll-behavior-block`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Blockrichtungsgrenze eines Scrollbereichs erreicht wird.
+Die **`overscroll-behavior-block`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt das Verhalten des Browsers fest, wenn die Grenze einer Scrollfläche in Blockrichtung erreicht wird.
 
-Siehe {{cssxref("overscroll-behavior")}} für eine vollständige Erklärung.
+Eine vollständige Erklärung finden Sie unter {{cssxref("overscroll-behavior")}}.
 
 ## Syntax
 
@@ -27,16 +27,16 @@ overscroll-behavior-block: revert-layer;
 overscroll-behavior-block: unset;
 ```
 
-Die `overscroll-behavior-block` Eigenschaft wird als ein Stichwort aus der unten stehenden Werteliste spezifiziert.
+Die `overscroll-behavior-block`-Eigenschaft wird als Schlüsselwort aus der unten stehenden Liste von Werten angegeben.
 
 ### Werte
 
 - `auto`
-  - : Das standardmäßige Überlaufverhalten des Scrollens tritt normal auf.
+  - : Das Standardverhalten bei Scroll-Überlauf tritt wie gewohnt auf.
 - `contain`
-  - : Standardmäßiges Überlaufverhalten des Scrollens (z.B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, wo dieser Wert gesetzt ist. Es tritt jedoch keine {{Glossary("Scroll_chaining", "Scroll-Verkettung")}} bei benachbarten Scrollbereichen auf; die darunter liegenden Elemente werden nicht scrollen. Der `contain` Wert deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wisch-Navigation.
+  - : Standardverhalten bei Scroll-Überlauf (z. B. "Bounce"-Effekte) wird innerhalb des Elements beobachtet, auf das dieser Wert angewendet wird. Es tritt jedoch kein {{Glossary("Scroll_chaining", "Scroll Chaining")}} in benachbarten Scrollbereichen auf; die darunter liegenden Elemente scrollen nicht. Der Wert `contain` deaktiviert die native Browser-Navigation, einschließlich der vertikalen Pull-to-Refresh-Geste und der horizontalen Wischnavigation.
 - `none`
-  - : Keine Scroll-Verkettung tritt bei benachbarten Scrollbereichen auf und das standardmäßige Überlaufverhalten des Scrollens wird verhindert.
+  - : Kein Scroll Chaining tritt in benachbarte Scrollbereiche auf und das Standardverhalten bei Scroll-Überlauf wird verhindert.
 
 ## Formale Definition
 
@@ -48,11 +48,11 @@ Die `overscroll-behavior-block` Eigenschaft wird als ein Stichwort aus der unten
 
 ## Beispiele
 
-### Verhindern des Block-Overscrollens
+### Verhindern des Block-Überscrollens
 
-In diesem Beispiel haben wir zwei Block-Elemente, eines innerhalb des anderen. Die äußere Box hat eine große {{cssxref("height")}} gesetzt, damit die Seite vertikal scrollt. Die innere Box hat eine kleine {{cssxref("width")}} (und `height`) gesetzt, sodass sie bequem innerhalb des Sichtfensters sitzt, aber ihrem Inhalt wird eine große `height` gegeben, damit er auch vertikal scrollt.
+In diesem Demo haben wir zwei Blockebenen-Boxen, eine in der anderen. Die äußere Box hat eine große {{cssxref("height")}} festgelegt, sodass die Seite vertikal scrollt. Die innere Box hat eine kleine {{cssxref("width")}} (und `height`) festgelegt, sodass sie bequem im Viewport liegt, aber ihr Inhalt hat eine große `height`, sodass er auch vertikal scrollt.
 
-Standardmäßig, wenn die innere Box gescrollt wird und eine Scrollgrenze erreicht ist, beginnt die gesamte Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies in der Blockrichtung zu vermeiden, haben wir `overscroll-behavior-block: contain` auf die innere Box gesetzt.
+Standardmäßig, wenn die innere Box gescrollt wird und eine Scrollgrenze erreicht ist, beginnt die ganze Seite zu scrollen, was wahrscheinlich nicht gewünscht ist. Um dies in Blockrichtung zu verhindern, haben wir `overscroll-behavior-block: contain` auf die innere Box gesetzt.
 
 #### HTML
 
@@ -132,4 +132,8 @@ p {
 
 ## Siehe auch
 
-- [Take control of your scroll: customizing pull-to-refresh and overflow effects](https://developer.chrome.com/blog/overscroll-behavior/#full-demo)
+- {{cssxref("overscroll-behavior")}}
+- {{cssxref("overscroll-behavior-x")}}
+- {{cssxref("overscroll-behavior-y")}}
+- {{cssxref("overscroll-behavior-inline")}}
+- [CSS overscroll behavior](/de/docs/Web/CSS/CSS_overscroll_behavior) Modul

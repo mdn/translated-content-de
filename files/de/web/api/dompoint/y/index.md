@@ -1,24 +1,20 @@
 ---
-title: "DOMPoint: y Eigenschaft"
+title: "DOMPoint: y-Eigenschaft"
 short-title: "y"
 slug: Web/API/DOMPoint/y
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`DOMPoint`** Schnittstelle besitzt die
-Eigenschaft **`y`**, welche die vertikale Koordinate, _y_,
-für einen Punkt im Raum hält.
+Die **`DOMPoint`**-Schnittstelle enthält die **`y`**-Eigenschaft, die die vertikale Koordinate _y_ für einen Punkt im Raum hält.
 
-Sofern keine Transformationen angewendet wurden, um die
-Ausrichtung zu ändern, erhöht sich der Wert von `y` nach unten und verringert sich nach oben.
+Sofern keine Transformationen zur Änderung der Ausrichtung angewendet wurden, nimmt der Wert von `y` nach unten zu und nach oben ab.
 
 ## Wert
 
-Ein Gleitkommawert mit doppelter Genauigkeit, der den Wert der _y_-Koordinate
-für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
+Ein doppelt-genauer Gleitkommawert, der den Wert der _y_-Koordinate für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein).
 
 ## Spezifikationen
 
@@ -31,4 +27,4 @@ für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er 
 ## Siehe auch
 
 - Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x),
-  [`z`](/de/docs/Web/API/DOMPoint/z) und der Perspektivwert, [`w`](/de/docs/Web/API/DOMPoint/w).
+  [`z`](/de/docs/Web/API/DOMPoint/z) und der Perspektivenwert, [`w`](/de/docs/Web/API/DOMPoint/w).

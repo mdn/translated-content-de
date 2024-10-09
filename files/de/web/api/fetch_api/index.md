@@ -2,37 +2,37 @@
 title: Fetch API
 slug: Web/API/Fetch_API
 l10n:
-  sourceCommit: 0c3f18aca2c8a93d3982183f64bf7762c2c310b0
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
 {{DefaultAPISidebar("Fetch API")}} {{AvailableInWorkers}}
 
 Die Fetch API bietet eine Schnittstelle zum Abrufen von Ressourcen (einschließlich über das Netzwerk). Sie ist ein leistungsfähigerer und flexiblerer Ersatz für [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest).
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Die Fetch API verwendet [`Request`](/de/docs/Web/API/Request)- und [`Response`](/de/docs/Web/API/Response)-Objekte (und andere Elemente, die mit Netzwerkanforderungen verbunden sind) sowie verwandte Konzepte wie CORS und die Semantik des HTTP-Origin-Headers.
+Die Fetch API verwendet [`Request`](/de/docs/Web/API/Request)- und [`Response`](/de/docs/Web/API/Response)-Objekte (und andere Dinge, die mit Netzwerkanforderungen zu tun haben), sowie verwandte Konzepte wie CORS und die HTTP-Origin-Header-Semantik.
 
-Um eine Anforderung zu stellen und eine Ressource abzurufen, verwenden Sie die [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode. Sie ist eine globale Methode sowohl in den [`Window`](/de/docs/Web/API/Window)- als auch [`Worker`](/de/docs/Web/API/WorkerGlobalScope)-Kontexten. Dies macht sie in nahezu jedem Kontext verfügbar, in dem Sie Ressourcen abrufen möchten.
+Um eine Anforderung zu stellen und eine Ressource abzurufen, verwenden Sie die [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode. Diese Methode ist global sowohl im [`Window`](/de/docs/Web/API/Window)-Kontext als auch im [`Worker`](/de/docs/Web/API/WorkerGlobalScope)-Kontext verfügbar. Dadurch ist sie in nahezu jedem Kontext verfügbar, in dem Sie Ressourcen abrufen möchten.
 
-Die `fetch()`-Methode erfordert ein obligatorisches Argument, den Pfad zur Ressource, die Sie abrufen möchten. Sie gibt ein {{JSxRef("Promise")}} zurück, das auf die [`Response`](/de/docs/Web/API/Response) auf diese Anforderung aufgelöst wird — sobald der Server mit Headern antwortet — **auch wenn die Serverantwort einen HTTP-Fehlerstatus hat**. Sie können optional auch ein `init`-Optionsobjekt als zweites Argument übergeben (siehe [`Request`](/de/docs/Web/API/Request)).
+Die `fetch()`-Methode nimmt ein obligatorisches Argument, den Pfad zur abzurufenden Ressource. Sie gibt ein {{JSxRef("Promise")}} zurück, das auf die [`Response`](/de/docs/Web/API/Response) dieser Anforderung aufgelöst wird — sobald der Server mit Headern antwortet — **selbst wenn die Serverantwort ein HTTP-Fehlerstatus ist**. Sie können auch optional ein `init'-Optionsobjekt als zweites Argument übergeben (siehe [`Request`](/de/docs/Web/API/Request)).
 
-Sobald eine [`Response`](/de/docs/Web/API/Response) abgerufen wurde, stehen eine Reihe von Methoden zur Verfügung, um festzulegen, was der Inhalt des Bodys ist und wie er behandelt werden soll.
+Sobald eine [`Response`](/de/docs/Web/API/Response) abgerufen wurde, gibt es eine Reihe von Methoden, um festzulegen, was der Inhalt des Körpers ist und wie er behandelt werden soll.
 
-Sie können eine Anforderung und Antwort direkt mit den Konstruktoren [`Request()`](/de/docs/Web/API/Request/Request) und [`Response()`](/de/docs/Web/API/Response/Response) erstellen, aber es ist unüblich, dies direkt zu tun. Stattdessen werden diese eher als Ergebnisse anderer API-Aktionen erstellt (zum Beispiel [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) von Service Workern).
+Sie können eine Anforderung und Antwort direkt mit den Konstruktoren [`Request()`](/de/docs/Web/API/Request/Request) und [`Response()`](/de/docs/Web/API/Response/Response) erstellen, aber es ist selten, dies direkt zu tun. Stattdessen werden sie eher als Ergebnisse anderer API-Aktionen erstellt (zum Beispiel [`FetchEvent.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) von Service Workern).
 
-Erfahren Sie mehr über die Verwendung der Fetch-API-Funktionen unter [Verwendung von Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch).
+Erfahren Sie mehr über die Verwendung der Funktionen der Fetch API in [Using Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch).
 
 ## Fetch-Schnittstellen
 
-- [`fetch()`](/de/docs/Web/API/Window/fetch)
+- [`Window.fetch()`](/de/docs/Web/API/Window/fetch) und [`WorkerGlobalScope.fetch()`](/de/docs/Web/API/WorkerGlobalScope/fetch)
   - : Die `fetch()`-Methode, die zum Abrufen einer Ressource verwendet wird.
 - [`Headers`](/de/docs/Web/API/Headers)
-  - : Repräsentiert Antwort-/Anforderungsheader, mit denen Sie diese abfragen und je nach Ergebnis verschiedene Aktionen durchführen können.
+  - : Stellt Antwort-/Anforderungs-Header dar und ermöglicht es Ihnen, sie abzufragen und je nach Ergebnis unterschiedliche Aktionen durchzuführen.
 - [`Request`](/de/docs/Web/API/Request)
-  - : Repräsentiert eine Ressourcenanforderung.
+  - : Stellt eine Ressourcenanforderung dar.
 - [`Response`](/de/docs/Web/API/Response)
-  - : Repräsentiert die Antwort auf eine Anforderung.
+  - : Stellt die Antwort auf eine Anforderung dar.
 
 ## Spezifikationen
 
@@ -44,7 +44,7 @@ Erfahren Sie mehr über die Verwendung der Fetch-API-Funktionen unter [Verwendun
 
 ## Siehe auch
 
-- [Verwendung von Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [Using Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
 - [HTTP](/de/docs/Web/HTTP)

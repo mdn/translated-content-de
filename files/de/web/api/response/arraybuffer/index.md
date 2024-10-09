@@ -1,15 +1,14 @@
 ---
-title: "Response: arrayBuffer() Methode"
+title: "Response: arrayBuffer()-Methode"
 short-title: arrayBuffer()
 slug: Web/API/Response/arrayBuffer
 l10n:
-  sourceCommit: 889fd7ca9d03276638ec065e47ea967c1a2fc10b
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`arrayBuffer()`** Methode der [`Response`](/de/docs/Web/API/Response) Schnittstelle
-nimmt einen [`Response`](/de/docs/Web/API/Response) Stream und liest ihn bis zum Abschluss. Sie gibt ein Promise zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
+Die **`arrayBuffer()`**-Methode des [`Response`](/de/docs/Web/API/Response)-Interfaces nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus. Sie gibt ein Promise zurück, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
 
 ## Syntax
 
@@ -30,28 +29,26 @@ Ein Promise, das mit einem {{jsxref("ArrayBuffer")}} aufgelöst wird.
 - [`DOMException`](/de/docs/Web/API/DOMException) `AbortError`
   - : Die Anfrage wurde [abgebrochen](/de/docs/Web/API/Fetch_API/Using_Fetch#canceling_a_request).
 - {{jsxref("TypeError")}}
-  - : Wird aus einem der folgenden Gründe geworfen:
+  - : Wird aus einem der folgenden Gründe ausgelöst:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler beim Dekodieren des Inhalts des Körpers (zum Beispiel, weil der {{httpheader("Content-Encoding")}}-Header falsch ist).
+    - Es gab einen Fehler beim Dekodieren des Inhalts des Körpers (zum Beispiel, weil der {{httpheader("Content-Encoding")}} Header falsch ist).
 - {{jsxref("RangeError")}}
-  - : Es gab ein Problem beim Erstellen des zugehörigen `ArrayBuffer`. Beispielsweise, wenn die Datengröße mehr als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) ist.
+  - : Es gab ein Problem bei der Erstellung des zugehörigen `ArrayBuffer`.
+    Zum Beispiel, wenn die Datenmenge größer als [`Number.MAX_SAFE_INTEGER`](/de/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) ist.
 
 ## Beispiele
 
 ### Musik abspielen
 
-In unserem [fetch array buffer live](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-array-buffer) haben wir eine Play-Schaltfläche. Wenn diese gedrückt wird, wird die `getData()` Funktion ausgeführt. Beachten Sie, dass die vollständige Audiodatei vor dem Abspielen heruntergeladen wird. Wenn Sie ogg während des Herunterladens abspielen müssen (streamen), ziehen Sie [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) in Betracht:
+In unserem [fetch array buffer live](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-array-buffer) haben wir einen "Play"-Button. Bei Betätigung wird die `getData()`-Funktion ausgeführt. Beachten Sie, dass das komplette Audio heruntergeladen wird, bevor es abgespielt wird. Wenn Sie OGG während des Downloads abspielen möchten (streamen), sollten Sie [`HTMLAudioElement`](/de/docs/Web/API/HTMLAudioElement) in Betracht ziehen:
 
 ```js
 new Audio("music.ogg").play();
 ```
 
-In `getData()` erstellen wir eine neue Anfrage mit dem
-[`Request()`](/de/docs/Web/API/Request/Request) Konstruktor und verwenden diese, um eine OGG-Musikspur abzurufen. Wir verwenden auch [`AudioContext.createBufferSource`](/de/docs/Web/API/BaseAudioContext/createBufferSource), um eine Audio-Pufferquelle zu erstellen. Wenn das Abrufen erfolgreich ist, lesen wir einen {{jsxref("ArrayBuffer")}} aus der Antwort mit `arrayBuffer()`, dekodieren die Audiodaten mit
-[`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData), setzen die dekodierten Daten als Puffer der Audioquelle (`source.buffer`) und verbinden dann die Quelle mit dem
-[`AudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination).
+In `getData()` erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und verwenden sie, um einen OGG-Musiktrack abzurufen. Wir verwenden auch [`AudioContext.createBufferSource`](/de/docs/Web/API/BaseAudioContext/createBufferSource), um eine Audio-Buffer-Quelle zu erstellen. Wenn das Abrufen erfolgreich ist, lesen wir ein {{jsxref("ArrayBuffer")}} aus der Antwort mit `arrayBuffer()`, dekodieren die Audiodaten mit [`AudioContext.decodeAudioData()`](/de/docs/Web/API/BaseAudioContext/decodeAudioData), legen die dekodierten Daten als den Puffer der Audio-Buffer-Quelle (`source.buffer`) fest und verbinden die Quelle mit dem [`AudioContext.destination`](/de/docs/Web/API/BaseAudioContext/destination).
 
-Sobald `getData()` fertig ist, starten wir die Audioquelle mit `start(0)`, und deaktivieren dann den Play-Button, damit er nicht erneut geklickt werden kann, während er bereits abgespielt wird (dies würde einen Fehler verursachen).
+Sobald `getData()` fertig ist, starten wir die Wiedergabe des Audio-Quellens mit `start(0)` und deaktivieren den "Play"-Button, damit er nicht erneut geklickt werden kann, wenn er bereits spielt (dies würde einen Fehler verursachen.)
 
 ```js
 function getData() {
@@ -85,9 +82,7 @@ play.onclick = () => {
 
 ### Dateien lesen
 
-Der [`Response()`](/de/docs/Web/API/Response/Response) Konstruktor akzeptiert
-[`File`](/de/docs/Web/API/File)s und [`Blob`](/de/docs/Web/API/Blob)s, sodass er verwendet werden kann, um eine
-[`File`](/de/docs/Web/API/File) in andere Formate zu lesen.
+Der [`Response()`](/de/docs/Web/API/Response/Response)-Konstruktor akzeptiert [`File`](/de/docs/Web/API/File)s und [`Blob`](/de/docs/Web/API/Blob)s, sodass er verwendet werden kann, um eine [`File`](/de/docs/Web/API/File) in andere Formate zu lesen.
 
 ```js
 function readFile(file) {

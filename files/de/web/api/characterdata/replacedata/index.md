@@ -1,14 +1,14 @@
 ---
-title: "CharacterData: replaceData() Methode"
+title: "CharacterData: Methode replaceData()"
 short-title: replaceData()
 slug: Web/API/CharacterData/replaceData
 l10n:
-  sourceCommit: 502e8c3f0be95c6f42afe6a72113b029b290b9e8
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("DOM")}}
 
-Die **`replaceData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces entfernt eine bestimmte Anzahl von Zeichen des bestehenden Textes in einem gegebenen `CharacterData`-Knoten und ersetzt diese Zeichen durch den angegebenen Text.
+Die **`replaceData()`** Methode des [`CharacterData`](/de/docs/Web/API/CharacterData) Interfaces entfernt eine bestimmte Anzahl von Zeichen des vorhandenen Textes in einem gegebenen `CharacterData`-Knoten und ersetzt diese Zeichen durch den bereitgestellten Text.
 
 ## Syntax
 
@@ -19,10 +19,10 @@ characterData.replaceData(offset, count, data)
 ### Parameter
 
 - `offset`
-  - : Die Anzahl der Zeichen vom Anfang der Daten, an denen eingefügt werden soll.
-    `0` ist das erste Zeichen der Zeichenkette.
+  - : Die Anzahl der Zeichen vom Beginn der Daten, bei denen eingesetzt wird.
+    `0` ist das erste Zeichen des Strings.
 - `count`
-  - : Die Anzahl der Zeichen, die durch die bereitgestellten Daten ersetzt werden sollen.
+  - : Die Anzahl der Zeichen, die mit den bereitgestellten Daten ersetzt werden sollen.
 - `data`
   - : Die einzufügenden Daten.
 
@@ -33,7 +33,7 @@ Keiner.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `offset` oder `count` negativ ist oder `offset` größer ist als die Länge der enthaltenen Daten.
+  - : Wird ausgelöst, wenn `offset` oder `count` negativ ist oder `offset` größer als die Länge der enthaltenen Daten ist.
 
 ## Beispiel
 
@@ -43,9 +43,9 @@ Keiner.
 
 ```js
 const span = document.querySelector("span");
-const textnode = span.nextSibling;
+const textNode = span.nextSibling;
 
-textnode.replaceData(2, 4, "replaced");
+textNode.replaceData(2, 4, "replaced");
 ```
 
 {{EmbedLiveSample("Example", "100%", 50)}}

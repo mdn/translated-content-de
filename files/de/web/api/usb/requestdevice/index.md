@@ -1,14 +1,16 @@
 ---
-title: "USB: Methode requestDevice()"
+title: "USB: `requestDevice()` Methode"
 short-title: requestDevice()
 slug: Web/API/USB/requestDevice
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{securecontext_header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`requestDevice()`**-Methode des [`USB`](/de/docs/Web/API/USB)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das bei Auffinden des spezifizierten Geräts mit einer Instanz von [`USBDevice`](/de/docs/Web/API/USBDevice) aufgelöst wird. Der Aufruf dieser Funktion löst den Pairing-Prozess des Benutzeragents aus.
+Die **`requestDevice()`** Methode des [`USB`](/de/docs/Web/API/USB)
+Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von
+[`USBDevice`](/de/docs/Web/API/USBDevice) aufgelöst wird, wenn das angegebene Gerät gefunden wird. Durch das Aufrufen dieser Funktion wird der Kopplungsfluss des Benutzers ausgelöst.
 
 ## Syntax
 
@@ -35,13 +37,13 @@ Ein {{JSxRef("Promise")}}, das mit einer Instanz von [`USBDevice`](/de/docs/Web/
 
 ## Sicherheit
 
-[Transiente Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit dieses Feature funktioniert.
+[Vorübergehende Benutzeraktivierung](/de/docs/Web/Security/User_activation) ist erforderlich. Der Benutzer muss mit der Seite oder einem UI-Element interagieren, damit diese Funktion funktioniert.
 
 ## Beispiele
 
-Das folgende Beispiel sucht nach einem von zwei USB-Geräten. Beachten Sie, dass zwei Produkt-IDs angegeben sind. Beide werden an `requestDevice()` übergeben. Dies löst einen Benutzeragenten-Prozess aus, der den Benutzer auffordert, ein Gerät zur Kopplung auszuwählen. Nur das ausgewählte Gerät wird an `then()` übergeben.
+Das folgende Beispiel sucht nach einem von zwei USB-Geräten. Beachten Sie, dass zwei Produkt-IDs angegeben sind. Beide werden an `requestDevice()` übergeben. Dies löst einen Benutzer-Agenten-Fluss aus, der den Benutzer auffordert, ein Gerät zur Kopplung auszuwählen. Nur das ausgewählte Gerät wird an `then()` übergeben.
 
-Die Anzahl der Filter bestimmt nicht die Anzahl der vom Benutzeragenten angezeigten Geräte. Wenn beispielsweise nur ein USB-Gerät mit der Produkt-ID `0xa800` gefunden wird, wird vom Benutzeragenten nur ein Gerät aufgelistet. Wenn der Benutzeragent jedoch zwei der zuerst aufgeführten Geräte und eines des zweiten findet, werden alle drei Geräte aufgelistet.
+Die Anzahl der Filter gibt nicht die Anzahl der vom Benutzer-Agenten angezeigten Geräte an. Wenn beispielsweise nur ein USB-Gerät mit der Produkt-ID `0xa800` gefunden wird, wird nur ein Gerät vom Benutzer-Agenten aufgelistet. Wenn der Benutzer-Agent jedoch zwei der zuerst aufgeführten Geräte und eines des zweiten findet, werden alle drei Geräte aufgelistet.
 
 ```js
 const filters = [

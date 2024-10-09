@@ -3,14 +3,14 @@ title: "FontFace: variationSettings-Eigenschaft"
 short-title: variationSettings
 slug: Web/API/FontFace/variationSettings
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}{{SeeCompatTable}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`variationSettings`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft OpenType- oder TrueType-Schriftartvariationen auf niedrigem Niveau ab oder setzt diese.
+Die **`variationSettings`**-Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces ruft niedrige OpenType- oder TrueType-Schriftartenvariationen ab oder setzt diese.
 
-Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}}-Deskriptor.
+Diese Eigenschaft entspricht dem {{cssxref("@font-face/font-variation-settings", "font-variation-settings")}} Deskriptor.
 
 ## Wert
 

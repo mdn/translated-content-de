@@ -1,25 +1,25 @@
 ---
-title: "DeprecationReportBody: columnNumber Eigenschaft"
+title: "DeprecationReportBody: columnNumber-Eigenschaft"
 short-title: columnNumber
 slug: Web/API/DeprecationReportBody/columnNumber
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
 ---
 
-{{APIRef("Reporting API")}}{{SeeCompatTable}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`columnNumber`** der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Schnittstelle gibt die Zeile in der Quelldatei zurück, in der das veraltete Feature verwendet wurde.
+Die schreibgeschützte Eigenschaft **`columnNumber`** der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Schnittstelle gibt die Zeile in der Quelldatei zurück, in der das veraltete Merkmal verwendet wurde.
 
 > [!NOTE]
-> Diese Eigenschaft ist besonders nützlich in Verbindung mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile) und [`DeprecationReportBody.lineNumber`](/de/docs/Web/API/DeprecationReportBody/lineNumber), da sie die Lokalisierung der Spalte in der Datei und Zeile ermöglicht, in der der Fehler aufgetreten ist.
+> Diese Eigenschaft ist besonders nützlich zusammen mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile) und [`DeprecationReportBody.lineNumber`](/de/docs/Web/API/DeprecationReportBody/lineNumber), da sie die Position der Spalte in dieser Datei und Zeile angibt, in der der Fehler aufgetreten ist.
 
 ## Wert
 
-Ein Integer oder `null`, falls die Spalte nicht bekannt ist.
+Eine Ganzzahl oder `null`, wenn die Spalte nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsmeldungen zu beobachten, und drucken dann den Wert von `columnNumber` in die Konsole.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und geben dann den Wert von `columnNumber` in der Konsole aus.
 
 ```js
 let options = {

@@ -1,19 +1,19 @@
 ---
-title: <input type='submit'>
+title: <input type="submit">
 slug: Web/HTML/Element/input/submit
 l10n:
-  sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
+  sourceCommit: 783ffd9c1cf35421242e028a1b8743cf2b1918dd
 ---
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}} Elemente vom Typ **`submit`** werden als Schaltflächen dargestellt. Wenn das [`click`](/de/docs/Web/API/Element/click_event) Ereignis eintritt (typischerweise, weil der Benutzer auf die Schaltfläche geklickt hat), versucht der {{Glossary("user_agent", "User-Agent")}}, das Formular an den Server zu übermitteln.
+{{HTMLElement("input")}}-Elemente des Typs **`submit`** werden als Schaltflächen dargestellt. Wenn das [`click`](/de/docs/Web/API/Element/click_event)-Ereignis auftritt (typischerweise, weil der Benutzer die Schaltfläche angeklickt hat), versucht der {{Glossary("user_agent", "User Agent")}}, das Formular an den Server zu senden.
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut eines `<input type="submit">` Elements enthält eine Zeichenkette, die als Beschriftung der Schaltfläche angezeigt wird. Ansonsten haben Schaltflächen keinen echten Wert. Der `value`-Wert bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für die Schaltfläche.
+Das `value`-Attribut eines `<input type="submit">`-Elements enthält eine Zeichenkette, die als Beschriftung der Schaltfläche angezeigt wird. Schaltflächen haben ansonsten keinen echten Wert. Der `value` bietet die {{Glossary("accessible_description", "zugängliche Beschreibung")}} für die Schaltfläche.
 
-### Das value-Attribut festlegen
+### Das value-Attribut setzen
 
 ```html
 <input type="submit" value="Send Request" />
@@ -23,7 +23,7 @@ Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut eines `<input type
 
 ### Das value-Attribut weglassen
 
-Wenn Sie keinen `value` angeben, erhält die Schaltfläche eine Standardbeschriftung, die der User-Agent auswählt. Diese Beschriftung wird wahrscheinlich so etwas wie "Submit" oder "Submit Query" sein. Hier ist ein Beispiel für eine Submit-Schaltfläche mit einer Standardbeschriftung in Ihrem Browser:
+Wenn Sie kein `value` angeben, erhält die Schaltfläche eine standardmäßige Beschriftung, die vom User Agent gewählt wird. Diese Beschriftung wird vermutlich in der Art von "Absenden" oder "Anfrage absenden" sein. Hier ist ein Beispiel für eine Absenden-Schaltfläche mit einer Standardbeschriftung in Ihrem Browser:
 
 ```html
 <input type="submit" />
@@ -33,74 +33,74 @@ Wenn Sie keinen `value` angeben, erhält die Schaltfläche eine Standardbeschrif
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den Attributen, die alle {{HTMLElement("input")}} Elemente gemeinsam haben, unterstützen `submit` Schaltflächen die folgenden Attribute.
+Zusätzlich zu den Attributen, die alle {{HTMLElement("input")}}-Elemente gemeinsam haben, unterstützen `submit`-Schaltflächen die folgenden Attribute.
 
 ### formaction
 
-Ein String, der die URL angibt, an die die Daten übermittelt werden sollen. Dies hat Vorrang vor dem [`action`](/de/docs/Web/HTML/Element/form#action)-Attribut auf dem {{HTMLElement("form")}} Element, das das {{HTMLElement("input")}} besitzt.
+Eine Zeichenkette, die die URL angibt, an die die Daten gesendet werden sollen. Diese hat Vorrang vor dem `action`-Attribut des {{HTMLElement("form")}}-Elements, das den {{HTMLElement("input")}} besitzt.
 
-Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}} Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formenctype
 
-Ein String, der die Kodierungsmethode angibt, die verwendet werden soll, wenn die Formulardaten an den Server gesendet werden. Es sind drei zulässige Werte:
+Eine Zeichenkette, die die Kodierungsmethode angibt, die beim Senden der Formulardaten an den Server verwendet werden soll. Es gibt drei zulässige Werte:
 
 - `application/x-www-form-urlencoded`
-  - : Dies ist der Standardwert und sendet die Formulardaten als Zeichenfolge nach der {{Glossary("Percent-encoding", "Prozentkodierung")}} des Textes mithilfe eines Algorithmus wie {{jsxref("encodeURI", "encodeURI()")}}.
+  - : Dieser, der Standardwert, sendet die Formulardaten als Zeichenkette, nachdem der Text unter Verwendung eines Algorithmus wie {{jsxref("encodeURI", "encodeURI()")}} {{Glossary("Percent-encoding", "prozentkodiert")}} wurde.
 - `multipart/form-data`
-  - : Verwendet die [`FormData`](/de/docs/Web/API/FormData) API, um die Daten zu verwalten, wodurch Dateien an den Server gesendet werden können. Sie _müssen_ diesen Kodierungstyp verwenden, wenn Ihr Formular ein {{HTMLElement("input")}} Element mit dem [`type`](/de/docs/Web/HTML/Element/input#type) `file` ([`<input type="file">`](/de/docs/Web/HTML/Element/input/file)) enthält.
+  - : Verwendet die [`FormData`](/de/docs/Web/API/FormData)-API, um die Daten zu verwalten, und ermöglicht das Senden von Dateien an den Server. Sie _müssen_ diesen Kodierungstyp verwenden, wenn Ihr Formular [[`<input type="file">`](/de/docs/Web/HTML/Element/input/file)]-Elemente enthält.
 - `text/plain`
-  - : Klartext; hauptsächlich nützlich zum Debuggen, damit Sie die Daten leicht sehen können, die gesendet werden sollen.
+  - : Klartext; hauptsächlich nur zum Debuggen nützlich, sodass Sie die Daten leicht sehen können, die gesendet werden sollen.
 
-Wenn angegeben, überschreibt der Wert des `formenctype` Attributs das `action` Attribut des besitzenden Formulars.
+Wenn angegeben, überschreibt der Wert des `formenctype`-Attributs das `enctype`-Attribut des Formulars, das diesen `input` besitzt.
 
-Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}} Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formmethod
 
-Ein String, der die HTTP-Methode angibt, die beim Senden der Formulardaten verwendet werden soll; dieser Wert überschreibt jedes [`method`](/de/docs/Web/HTML/Element/form#method) Attribut, das auf dem besitzenden Formular angegeben ist. Zulässige Werte sind:
+Ein String, der die HTTP-Methode angibt, die beim Senden der Formulardaten verwendet werden soll; dieser Wert überschreibt jedes `method`-Attribut, das dem übergeordneten Formular angegeben ist. Zulässige Werte sind:
 
 - `get`
-  - : Eine URL wird erstellt, indem mit der URL begonnen wird, die im `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) Attribut angegeben ist, ein Fragezeichen ("?") angehängt wird, und dann die Formulardaten angefügt werden, kodiert, wie es durch `formenctype` oder das [`enctype`](/de/docs/Web/HTML/Element/form#enctype) Attribut des Formulars beschrieben wird. Diese URL wird dann unter Verwendung einer HTTP {{HTTPMethod("get")}}-Anfrage an den Server gesendet. Diese Methode eignet sich gut für einfache Formulare, die nur {{Glossary("ASCII", "ASCII")}} Zeichen enthalten und keine Nebeneffekte haben. Dies ist der Standardwert.
+  - : Eine URL wird erstellt, indem mit der von `formaction` oder `action` angegebenen URL begonnen wird, ein Fragezeichen ("?") angehängt und dann die Formulardaten angehängt werden, die wie durch `formenctype` oder das `enctype`-Attribut des Formulars beschrieben kodiert sind. Diese URL wird dann mithilfe einer HTTP-{{HTTPMethod("get")}}-Anfrage an den Server gesendet. Diese Methode eignet sich gut für einfache Formulare, die nur {{Glossary("ASCII", "ASCII")}}-Zeichen enthalten und keine Auswirkungen haben. Dies ist der Standardwert.
 - `post`
-  - : Die Formulardaten werden in den Körper der Anfrage eingeschlossen, die an die im `formaction` oder [`action`](/de/docs/Web/HTML/Element/form#action) Attribut angegebene URL gesendet wird, unter Verwendung der HTTP {{HTTPMethod("post")}} Methode. Diese Methode unterstützt komplexe Daten und Dateianhänge.
+  - : Die Formulardaten sind im Body der Anfrage enthalten, die mit der von `formaction` oder `action` angegebenen URL unter Verwendung der HTTP {{HTTPMethod("post")}}-Methode gesendet wird. Diese Methode unterstützt komplexe Daten und Dateianhänge.
 - `dialog`
-  - : Diese Methode zeigt an, dass die Schaltfläche den Dialog schließt, mit dem die Eingabe verbunden ist, und überträgt die Formulardaten überhaupt nicht.
+  - : Diese Methode wird verwendet, um anzuzeigen, dass die Schaltfläche den Dialog schließt, mit dem das Eingabefeld verknüpft ist, und die Formulardaten überhaupt nicht übermittelt.
 
-Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}} Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formnovalidate
 
-Ein boolesches Attribut, das, wenn es vorhanden ist, angibt, dass das Formular vor der Übermittlung an den Server nicht validiert werden soll. Dies überschreibt den Wert des [`novalidate`](/de/docs/Web/HTML/Element/form#novalidate) Attributs auf dem besitzenden Formular.
+Ein Boolean-Attribut, das, wenn es vorhanden ist, spezifiziert, dass das Formular nicht validiert werden soll, bevor es an den Server gesendet wird. Dies überschreibt den Wert des `novalidate`-Attributs auf dem das Element besitzenden Formular.
 
-Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}} Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}}-Elementen verfügbar.
 
 ### formtarget
 
-Ein String, der einen Namen oder ein Schlüsselwort angibt, das angibt, wo die Antwort angezeigt werden soll, die nach der Übermittlung des Formulars empfangen wird. Der String muss der Name eines **Browsing-Kontexts** sein (d.h. eines Tabs, Fensters oder {{HTMLElement("iframe")}}). Ein hier angegebener Wert überschreibt jedes Ziel, das durch das [`target`](/de/docs/Web/HTML/Element/form#target) Attribut des Formulars angeben wird, das dieses Eingabeelement besitzt.
+Ein String, der einen Namen oder ein Schlüsselwort angibt, das angibt, wo die Antwort angezeigt werden soll, die nach dem Absenden des Formulars empfangen wird. Der String muss der Name eines **Browsing Context** sein (das heißt ein Tab, Fenster oder {{HTMLElement("iframe")}}). Ein hier angegebener Wert überschreibt jedes `target`, das durch das `target`-Attribut auf dem das `input` besitzenden {{HTMLElement("form")}} angegeben ist.
 
-Zusätzlich zu den tatsächlichen Namen von Tabs, Fenstern oder Inline-Frames gibt es einige spezielle Schlüsselwörter, die verwendet werden können:
+Zusätzlich zu den eigentlichen Namen von Tabs, Fenstern oder Inline-Rahmen gibt es ein paar spezielle Schlüsselwörter, die verwendet werden können:
 
 - `_self`
-  - : Lädt die Antwort in den gleichen Browsing-Kontext, wie der, der das Formular enthält. Dies ersetzt das aktuelle Dokument durch die empfangenen Daten. Dies ist der Standardwert, der verwendet wird, wenn keiner angegeben ist.
+  - : Lädt die Antwort in denselben Browsing Context wie das, das das Formular enthält. Dies ersetzt das aktuelle Dokument durch die empfangenen Daten. Dies ist der Standardwert, der verwendet wird, wenn keiner angegeben ist.
 - `_blank`
-  - : Lädt die Antwort in einen neuen, unbenannten, Browsing-Kontext. Dies ist typischerweise ein neuer Tab im selben Fenster wie das aktuelle Dokument, kann aber je nach Konfiguration des {{Glossary("user_agent", "User-Agents")}} unterschiedlich sein.
+  - : Lädt die Antwort in einen neuen, unbenannten, Browsing Context. Dies ist typischerweise ein neuer Tab im selben Fenster wie das aktuelle Dokument, kann jedoch abhängig von der Konfiguration des {{Glossary("user_agent", "User Agent")}} variieren.
 - `_parent`
-  - : Lädt die Antwort in den übergeordneten Browsing-Kontext des aktuellen, falls vorhanden. Wenn kein übergeordneter Kontext vorhanden ist, verhält sich dies wie `_self`.
+  - : Lädt die Antwort in den übergeordneten Browsing Context des aktuellen. Falls kein übergeordneter Kontext vorhanden ist, verhält sich dies wie `_self`.
 - `_top`
-  - : Lädt die Antwort in den obersten Browsing-Kontext; dies ist der Browsing-Kontext, der das oberste Element des aktuellen Kontexts ist. Wenn der aktuelle Kontext der oberste ist, verhält sich dies wie `_self`.
+  - : Lädt die Antwort in den obersten Browsing Context; dies ist der Browsing Context, der der oberste Vorfahr des aktuellen Kontextes ist. Ist der aktuelle Kontext der oberste, verhält sich dies wie `_self`.
 
-Dieses Attribut ist auch auf [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}} Elementen verfügbar.
+Dieses Attribut ist auch bei [`<input type="image">`](/de/docs/Web/HTML/Element/input/image) und {{HTMLElement("button")}}-Elementen verfügbar.
 
-## Verwendung von Submit-Schaltflächen
+## Verwendung von Absenden-Schaltflächen
 
-`<input type="submit">` Schaltflächen werden verwendet, um Formulare zu übermitteln. Wenn Sie eine benutzerdefinierte Schaltfläche erstellen und das Verhalten mit JavaScript anpassen möchten, sollten Sie [`<input type="button">`](/de/docs/Web/HTML/Element/input/button) oder besser noch ein {{htmlelement("button")}} Element verwenden.
+`<input type="submit">`-Schaltflächen werden verwendet, um Formulare abzusenden. Wenn Sie eine benutzerdefinierte Schaltfläche erstellen und das Verhalten dann mit JavaScript anpassen möchten, sollten Sie [`<input type="button">`](/de/docs/Web/HTML/Element/input/button) verwenden, oder besser noch ein {{htmlelement("button")}}-Element.
 
-Wenn Sie sich entscheiden, `<button>` Elemente zum Erstellen der Schaltflächen in Ihrem Formular zu verwenden, bedenken Sie Folgendes: Wenn `<button>` sich innerhalb eines {{HTMLElement("form")}} befindet, wird diese Schaltfläche als "Submit"-Schaltfläche behandelt. Daher sollten Sie sich angewöhnen, ausdrücklich anzugeben, welche Schaltfläche die Submit-Schaltfläche ist.
+Wenn Sie sich entscheiden, `<button>`-Elemente zur Erstellung der Schaltflächen in Ihrem Formular zu verwenden, beachten Sie Folgendes: Befindet sich die `<button>` innerhalb eines {{HTMLElement("form")}}, wird diese Schaltfläche als „Absenden“-Schaltfläche behandelt. Sie sollten sich daher angewöhnen, ausdrücklich festzulegen, welche Schaltfläche die Absenden-Schaltfläche ist.
 
-### Eine einfache Submit-Schaltfläche
+### Eine einfache Absenden-Schaltfläche
 
-Wir beginnen mit der Erstellung eines Formulars mit einer einfachen Submit-Schaltfläche:
+Wir beginnen mit der Erstellung eines Formulars mit einer einfachen Absenden-Schaltfläche:
 
 ```html
 <form>
@@ -114,21 +114,21 @@ Wir beginnen mit der Erstellung eines Formulars mit einer einfachen Submit-Schal
 </form>
 ```
 
-Dies wird wie folgt gerendert:
+Dies rendert wie folgt:
 
 {{EmbedLiveSample("A_simple_submit_button", 650, 100)}}
 
-Versuchen Sie, Text in das Textfeld einzugeben und das Formular zu übermitteln.
+Versuchen Sie, etwas Text in das Textfeld einzugeben und dann das Formular abzuschicken.
 
-Beim Senden werden der Datenname/Wert-Paar an den Server gesendet. In diesem Fall wird die Zeichenkette `text=usertext` sein, wobei "usertext" der vom Benutzer eingegebene Text ist, kodiert, um Sonderzeichen zu erhalten. Wohin und wie die Daten gesendet werden, hängt von der Konfiguration des `<form>` ab; siehe [Formulardaten senden](/de/docs/Learn/Forms/Sending_and_retrieving_form_data) für weitere Details.
+Beim Absenden wird das Daten-Namen/Wert-Paar an den Server gesendet. In diesem Fall lautet die Zeichenkette `text=benutzer-text`, wobei „benutzer-text“ der vom Benutzer eingegebene Text ist, der kodiert ist, um Sonderzeichen zu erhalten. Wo und wie die Daten gesendet werden, hängt von der Konfiguration des `<form>` ab; siehe [Senden von Formulardaten](/de/docs/Learn/Forms/Sending_and_retrieving_form_data) für weitere Details.
 
-### Hinzufügen einer Tastenkombination zu einer Submit-Schaltfläche
+### Eine Tastenkombination zu einer Absenden-Schaltfläche hinzufügen
 
-Tastenkombinationen, auch als Zugriffsschlüssel und Tastaturequivalente bekannt, ermöglichen es dem Benutzer, eine Schaltfläche durch Drücken einer Taste oder Tastenkombination auszulösen. Um einer Submit-Schaltfläche eine Tastenkombination hinzuzufügen – wie bei jedem {{HTMLElement("input")}}, bei dem dies sinnvoll ist – verwenden Sie das [`accesskey`](/de/docs/Web/HTML/Global_attributes/accesskey) globale Attribut.
+Tastenkombinationen, auch bekannt als Zugriffstasten und Tastaturäquivalente, ermöglichen es dem Benutzer, eine Schaltfläche mithilfe einer Taste oder Tastenkombination auf der Tastatur auszulösen. Um einer Absenden-Schaltfläche eine Tastenkombination hinzuzufügen – wie Sie es bei jedem {{HTMLElement("input")}} tun würden, für das es sinnvoll ist – verwenden Sie das globale Attribut [`accesskey`](/de/docs/Web/HTML/Global_attributes/accesskey).
 
-In diesem Beispiel ist <kbd>s</kbd> als Zugriffsschlüssel angegeben (Sie müssen <kbd>s</kbd> plus die speziellen Modifikationstasten für Ihre Browser/OS-Kombination drücken). Um Konflikte mit den eigenen Tastenkombinationen des User-Agents zu vermeiden, werden für Zugriffstasten andere Modifikationstasten verwendet als für andere Verknüpfungen auf dem Host-Computer. Siehe [`accesskey`](/de/docs/Web/HTML/Global_attributes/accesskey) für weitere Details.
+In diesem Beispiel wird <kbd>s</kbd> als Zugriffstaste angegeben (Sie müssen <kbd>s</kbd> zusammen mit den bestimmten Modifikatortasten für Ihre Browser-/Betriebssystemkombination drücken). Um Konflikte mit den eigenen Tastenkombinationen des User Agent zu vermeiden, sind anderen Modifikatortasten für Zugriffstasten als für andere Tastenkombinationen auf dem Host-Computer. Weitere Informationen finden Sie unter [`accesskey`](/de/docs/Web/HTML/Global_attributes/accesskey).
 
-Hier ist das vorherige Beispiel mit dem <kbd>s</kbd> Zugriffsschlüssel hinzugefügt:
+Hier ist das vorherige Beispiel mit der Zugriffstaste <kbd>s</kbd> hinzugefügt:
 
 ```html
 <form>
@@ -142,32 +142,32 @@ Hier ist das vorherige Beispiel mit dem <kbd>s</kbd> Zugriffsschlüssel hinzugef
 </form>
 ```
 
-Zum Beispiel im Firefox für Mac, wenn man <kbd>Steuerung</kbd>-<kbd>Wahl</kbd>-<kbd>S</kbd> drückt, wird die Senden-Schaltfläche ausgelöst, während Chrome auf Windows <kbd>Alt</kbd>+<kbd>S</kbd> verwendet.
+Zum Beispiel löst in Firefox für Mac das Drücken von <kbd>Control</kbd>-<kbd>Option</kbd>-<kbd>S</kbd> die Senden-Schaltfläche aus, während Chrome unter Windows <kbd>Alt</kbd>+<kbd>S</kbd> verwendet.
 
 {{EmbedLiveSample("Adding_a_keyboard_shortcut_to_a_submit_button", 650, 100)}}
 
-Das Problem mit dem obigen Beispiel ist, dass der Benutzer nicht weiß, was der Zugriffsschlüssel ist! Dies ist besonders wahr, da die Modifikatoren normalerweise nicht standardisiert sind, um Konflikte zu vermeiden. Beim Erstellen einer Seite sollten Sie sicherstellen, dass diese Informationen auf eine Weise bereitgestellt werden, die das Seitendesign nicht beeinträchtigt (zum Beispiel durch das Bereitstellen eines einfach zugänglichen Links, der Informationen darüber enthält, was die Zugriffstasten der Seite sind). Das Hinzufügen eines Tooltips zur Schaltfläche (durch Verwenden des [`title`](/de/docs/Web/HTML/Global_attributes/title) Attributs) kann auch helfen, obwohl es keine vollständige Lösung für Zugänglichkeitszwecke ist.
+Das Problem beim obigen Beispiel ist, dass der Benutzer nicht weiß, was die Zugriffstaste ist! Dies ist besonders der Fall, da die Modifikatortasten typischerweise nicht standardmäßig sind, um Konflikte zu vermeiden. Bei der Erstellung einer Website sollten Sie diese Informationen auf eine Weise bereitstellen, die das Design der Website nicht beeinträchtigt (zum Beispiel durch einen leicht zugänglichen Link, der auf Informationen verweist, was die Zugriffstasten der Website sind). Das Hinzufügen eines Tooltips zur Schaltfläche (mithilfe des [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attributs) kann ebenfalls helfen, obwohl es keine vollständige Lösung für Barrierefreiheitszwecke darstellt.
 
-### Deaktivieren und Aktivieren einer Submit-Schaltfläche
+### Eine Absenden-Schaltfläche deaktivieren und aktivieren
 
-Um eine Submit-Schaltfläche zu deaktivieren, geben Sie das [`disabled`](/de/docs/Web/HTML/Attributes/disabled) Attribut darauf an wie folgt:
+Um eine Absenden-Schaltfläche zu deaktivieren, fügen Sie das [`disabled`](/de/docs/Web/HTML/Attributes/disabled)-Attribut hinzu, wie folgt:
 
 ```html
 <input type="submit" value="Send" disabled />
 ```
 
-Sie können Schaltflächen zur Laufzeit aktivieren und deaktivieren, indem Sie `disabled` auf `true` oder `false` setzen; in JavaScript sieht das so aus: `btn.disabled = true` oder `btn.disabled = false`.
+Sie können Schaltflächen zur Laufzeit durch Setzen von `disabled` auf `true` oder `false` aktivieren und deaktivieren; in JavaScript sieht dies aus wie `btn.disabled = true` oder `btn.disabled = false`.
 
 > [!NOTE]
-> Siehe die Seite [`<input type="button">`](/de/docs/Web/HTML/Element/input/button#disabling_and_enabling_a_button) für weitere Ideen zum Aktivieren und Deaktivieren von Schaltflächen.
+> Weitere Ideen zum Aktivieren und Deaktivieren von Schaltflächen finden Sie auf der Seite zu [`<input type="button">`](/de/docs/Web/HTML/Element/input/button#disabling_and_enabling_a_button).
 
 ## Validierung
 
-Submit-Schaltflächen beteiligen sich nicht an der Einschränkungsvalidierung; sie haben keinen echten Wert, der beschränkt werden könnte.
+Absenden-Schaltflächen nehmen nicht an der Einschränkungsvalidierung teil; sie haben keinen echten Wert, der eingeschränkt werden könnte.
 
 ## Beispiele
 
-Wir haben oben einfache Beispiele eingefügt. Es gibt wirklich nichts Weiteres über Submit-Schaltflächen zu sagen. Es gibt einen Grund, warum diese Art von Steuerelement manchmal als "einfache Schaltfläche" bezeichnet wird.
+Wir haben oben einfache Beispiele eingefügt. Es gibt eigentlich nicht viel mehr über Absenden-Schaltflächen zu sagen. Es gibt einen Grund, warum diese Art von Steuerung manchmal als „einfache Schaltfläche“ bezeichnet wird.
 
 ## Technische Zusammenfassung
 
@@ -175,7 +175,7 @@ Wir haben oben einfache Beispiele eingefügt. Es gibt wirklich nichts Weiteres �
   <tbody>
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
-      <td>Eine Zeichenkette, die als Beschriftung der Schaltfläche verwendet wird</td>
+      <td>Eine Zeichenkette, die als Schaltflächenbeschriftung verwendet wird</td>
     </tr>
     <tr>
       <td><strong>Ereignisse</strong></td>
@@ -201,7 +201,7 @@ Wir haben oben einfache Beispiele eingefügt. Es gibt wirklich nichts Weiteres �
       <td>Keine</td>
     </tr>
     <tr>
-      <td><strong>Implizierte ARIA-Rolle</strong></td>
+      <td><strong>Implizite ARIA-Rolle</strong></td>
       <td><a href="/de/docs/Web/Accessibility/ARIA/Roles/button_role"><code>button</code></a></td>
     </tr>
   </tbody>
@@ -217,8 +217,8 @@ Wir haben oben einfache Beispiele eingefügt. Es gibt wirklich nichts Weiteres �
 
 ## Siehe auch
 
-- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) Schnittstelle, die es implementiert.
+- {{HTMLElement("input")}} und die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle, die es implementiert.
 - [Formulare und Schaltflächen](/de/docs/Learn/Forms/Basic_native_form_controls#actual_buttons)
 - [HTML-Formulare](/de/docs/Learn/Forms)
-- Das {{HTMLElement("button")}} Element
+- Das {{HTMLElement("button")}}-Element
 - [Kompatibilität von CSS-Eigenschaften](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)

@@ -3,26 +3,20 @@ title: "Request: referrerPolicy-Eigenschaft"
 short-title: referrerPolicy
 slug: Web/API/Request/referrerPolicy
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`referrerPolicy`** der
-[`Request`](/de/docs/Web/API/Request)-Schnittstelle gibt die Referrer-Policy zurück, die bestimmt, welche
-Referrer-Informationen, die im {{HTTPHeader("Referer")}}-Header gesendet werden, mit der Anfrage
-eingeschlossen werden sollen.
+Die schreibgeschützte Eigenschaft **`referrerPolicy`** des [`Request`](/de/docs/Web/API/Request)-Interfaces gibt die Referrer-Richtlinie zurück, die bestimmt, welche Referrer-Informationen in der {{HTTPHeader("Referer")}}-Header mit der Anfrage gesendet werden sollen.
 
 ## Wert
 
-Ein Zeichenfolgenwert, der die `referrerPolicy` der Anfrage darstellt. Für
-weitere Informationen und mögliche Werte siehe die Seite zum {{HTTPHeader("Referrer-Policy")}}-HTTP-Header.
+Ein String, der die `referrerPolicy` der Anfrage repräsentiert. Weitere Informationen und mögliche Werte finden Sie auf der Seite zum {{HTTPHeader("Referrer-Policy")}} HTTP-Header.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem
-[`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie
-das Skript) und speichern die Anfrage-Referrer-Policy in einer Variablen:
+Im folgenden Ausschnitt erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann die Referrer-Richtlinie der Anfrage in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

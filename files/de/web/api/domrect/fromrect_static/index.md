@@ -3,14 +3,13 @@ title: "DOMRect: fromRect() statische Methode"
 short-title: fromRect()
 slug: Web/API/DOMRect/fromRect_static
 l10n:
-  sourceCommit: a0f6bf6f7d148f368f6965255058df1ed1f43839
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`fromRect()`** statische Methode des
-[`DOMRect`](/de/docs/Web/API/DOMRect)-Objekts erstellt ein neues `DOMRect`
-Objekt mit einer angegebenen Position und Abmessungen.
+Die **`fromRect()`**-statische Methode des
+[`DOMRect`](/de/docs/Web/API/DOMRect)-Objekts erstellt ein neues `DOMRect`-Objekt mit einem bestimmten Standort und Abmessungen.
 
 ## Syntax
 
@@ -23,8 +22,8 @@ DOMRect.fromRect(rectangle)
 
 - `rectangle` {{optional_inline}}
 
-  - : Ein Objekt, das die Position und Abmessungen eines Rechtecks angibt. Alle Eigenschaften
-    haben standardmäßig den Wert `0`. Die Eigenschaften sind:
+  - : Ein Objekt, das den Standort und die Abmessungen eines Rechtecks angibt. Alle Eigenschaften
+    standardmäßig auf `0`. Die Eigenschaften sind:
 
     - `x`: Die Koordinate der linken Seite des Rechtecks.
     - `y`: Die Koordinate der oberen Seite des Rechtecks.

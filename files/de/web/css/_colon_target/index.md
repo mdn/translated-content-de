@@ -2,12 +2,12 @@
 title: ":target"
 slug: Web/CSS/:target
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
 ---
 
 {{CSSRef}}
 
-Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein einzigartiges Element (das _Zielelement_) mit einer [`id`](/de/docs/Web/HTML/Global_attributes#id), die mit dem Fragment der URL übereinstimmt.
+Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein einzigartiges Element (das _Zielelement_) mit einer [`id`](/de/docs/Web/HTML/Global_attributes/id), die mit dem Fragment der URL übereinstimmt.
 
 ```css
 /* Selects an element with an ID matching the current URL's fragment */
@@ -16,13 +16,13 @@ Die **`:target`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo
 }
 ```
 
-Zum Beispiel hat die folgende URL ein Fragment (gekennzeichnet durch das _#_-Zeichen), das auf ein Element namens `section2` verweist:
+Zum Beispiel hat die folgende URL ein Fragment (gekennzeichnet durch das _#_-Zeichen), das auf ein Element mit dem Namen `section2` verweist:
 
 ```url
 http://www.example.com/index.html#section2
 ```
 
-Das folgende Element würde durch einen `:target`-Selektor ausgewählt, wenn die aktuelle URL der obigen entspricht:
+Das folgende Element würde durch einen `:target`-Selektor ausgewählt werden, wenn die aktuelle URL der obigen entspricht:
 
 ```html
 <section id="section2">Example</section>
@@ -37,13 +37,13 @@ Das folgende Element würde durch einen `:target`-Selektor ausgewählt, wenn die
 ```
 
 > [!NOTE]
-> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb eines [Webkomponenten](/de/docs/Web/API/Web_components), da die [Shadow Root](/de/docs/Web/API/ShadowRoot) das Zielelement nicht an den Shadow-Baum weitergibt.
+> Aufgrund [eines möglichen Fehlers in der CSS-Spezifikation](https://discourse.wicg.io/t/target-css-does-not-work-because-shadowroot-does-not-set-a-target-element/2070/) funktioniert `:target` nicht innerhalb eines [Web Components](/de/docs/Web/API/Web_components), weil die [Shadow-Root](/de/docs/Web/API/ShadowRoot) das Zielelement nicht in den Shadow-Baum weitergibt.
 
 ## Beispiele
 
 ### Ein Inhaltsverzeichnis
 
-Die `:target`-Pseudoklasse kann verwendet werden, um den Teil einer Seite hervorzuheben, der über ein Inhaltsverzeichnis verlinkt wurde.
+Die `:target`-Pseudoklasse kann verwendet werden, um den Teil einer Seite, auf den von einem Inhaltsverzeichnis aus verwiesen wurde, hervorzuheben.
 
 #### HTML
 

@@ -3,28 +3,28 @@ title: "Request: destination-Eigenschaft"
 short-title: destination
 slug: Web/API/Request/destination
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`destination`** des **[`Request`](/de/docs/Web/API/Request)**-Interfaces gibt einen String zurück, der den Typ des angeforderten Inhalts beschreibt.
+Die schreibgeschützte **`destination`**-Eigenschaft der **[`Request`](/de/docs/Web/API/Request)**-Schnittstelle gibt einen String zurück, der den Typ des angeforderten Inhalts beschreibt.
 
 Der String muss einer der folgenden sein: `audio`, `audioworklet`, `document`, `embed`, `fencedframe`, `font`, `frame`, `iframe`, `image`, `json`, `manifest`, `object`, `paintworklet`, `report`, `script`, `sharedworker`, `style`, `track`, `video`, `worker` oder `xslt`, oder der leere String, welcher der Standardwert ist.
 
-Das `destination` wird vom {{Glossary("user_agent", "User-Agent")}} verwendet, um zum Beispiel zu bestimmen, welche Regeln für CORS-Zwecke zu befolgen sind oder wie komplizierte Codepfade navigiert werden, die die Behandlung bestimmter Anfragearten beeinflussen.
+Das `destination` wird vom {{Glossary("user_agent", "User-Agent")}} verwendet, um beispielsweise zu bestimmen, welches Regelset für CORS-Zwecke zu befolgen ist, oder wie komplexe Codepfade navigiert werden, die beeinflussen, wie spezielle Anforderungstypen behandelt werden.
 
-Diese Destinationen unterscheiden sich erheblich in ihrer Funktionsweise. Einige sind Datenspeicher, in denen die empfangenen Daten zur späteren Verarbeitung gespeichert werden. Andere sind skriptbasiert, wobei die empfangenen Daten einem Skript überliefert werden, indem sie aufgerufen und die Daten übergeben werden. Skriptbasierte Destinationen beinhalten {{HTMLElement("script")}}-Elemente sowie Ziele, die auf [`Worklet`](/de/docs/Web/API/Worklet) basieren (einschließlich Unterklassen wie [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)) und die auf [`Worker`](/de/docs/Web/API/Worker) basieren, einschließlich [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker).
+Diese Ziele unterscheiden sich erheblich in ihrer Funktionsweise. Einige sind Datenspeicher, in denen die empfangenen Daten zur späteren Verarbeitung gespeichert werden. Andere sind skriptbasiert, wobei die empfangenen Daten an ein Skript übergeben werden, indem es aufgerufen wird und die Daten weitergeleitet werden. Skriptbasierte Ziele schließen {{HTMLElement("script")}}-Elemente ein sowie alle auf [`Worklet`](/de/docs/Web/API/Worklet) basierenden Ziele (einschließlich Unterklassen wie [`AudioWorklet`](/de/docs/Web/API/AudioWorklet)), und die auf [`Worker`](/de/docs/Web/API/Worker) basierenden Ziele, einschließlich [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) und [`SharedWorker`](/de/docs/Web/API/SharedWorker).
 
 ## Wert
 
-Ein String, der den Typ des Inhalts angibt, der durch die Anfrage angefordert wird. Dieser Typ ist viel breiter als die üblichen Dokumenttypen (wie `"document"` oder `"manifest"`) und kann kontextbezogene Hinweise wie `"image"`, `"worker"` oder `"audioworklet"` enthalten.
+Ein String, der den Inhaltstyp angibt, nach dem im Request gefragt wird. Dieser Typ ist viel breiter als die üblichen Dokumenttyp-Werte (wie `"document"` oder `"manifest"`) und kann kontextbezogene Hinweise wie `"image"` oder `"worker"` oder `"audioworklet"` enthalten.
 
 Mögliche Werte sind:
 
 - `""`
 
-  - : Der leere String ist der Standardwert und wird für Destinationen verwendet, die keinen eigenen Wert haben. Dies ist der Wert, wenn Anfragen mit den folgenden APIs gestellt werden (unter anderem):
+  - : Der leere String ist der Standardwert und wird für Ziele verwendet, die keinen eigenen Wert haben. Dies ist der Wert, wenn Anfragen mit den folgenden APIs (unter anderem) gestellt werden:
     - [`<a ping>`](/de/docs/Web/HTML/Element/a#ping)
     - [`<area ping>`](/de/docs/Web/HTML/Element/area#ping)
     - [`Cache`](/de/docs/Web/API/Cache)
@@ -37,13 +37,13 @@ Mögliche Werte sind:
 - `"audio"`
   - : Das Ziel sind Audiodaten.
 - `"audioworklet"`
-  - : Das Ziel sind Daten, die durch ein Audio-Worklet verwendet werden.
+  - : Das Ziel sind Daten, die für einen Audioworklet abgerufen werden.
 - `"document"`
   - : Das Ziel ist ein Dokument (HTML oder XML).
 - `"embed"`
   - : Das Ziel ist eingebetteter Inhalt.
 - `"fencedframe"`
-  - : Das Ziel ist ein [fenced frame](/de/docs/Web/API/Fenced_frame_API).
+  - : Das Ziel ist ein [Fenced Frame](/de/docs/Web/API/Fenced_frame_API).
 - `"font"`
   - : Das Ziel ist eine Schriftart.
 - `"image"`
@@ -55,7 +55,7 @@ Mögliche Werte sind:
 - `"object"`
   - : Das Ziel ist ein Objekt.
 - `"paintworklet"`
-  - : Das Ziel ist ein Paint-Worklet.
+  - : Das Ziel ist ein Paint Worklet.
 - `"report"`
   - : Das Ziel ist ein Bericht.
 - `"script"`
@@ -77,7 +77,7 @@ Mögliche Werte sind:
 
 ## Beispiele
 
-Im folgenden Code-Snippet erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann das Ziel der Anfrage:
+Im folgenden Code-Snippet erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann das Ziel der Anfrage:
 
 ```js
 const myRequest = new Request("flowers.jpg");

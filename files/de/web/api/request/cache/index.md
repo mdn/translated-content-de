@@ -3,41 +3,41 @@ title: "Request: cache-Eigenschaft"
 short-title: cache
 slug: Web/API/Request/cache
 l10n:
-  sourceCommit: 74206b3f81736bac558470f36222544cc67ba9e2
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`cache`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle ist schreibgeschützt und enthält den Cache-Modus der Anfrage. Sie steuert, wie die Anfrage mit dem [HTTP-Cache](/de/docs/Web/HTTP/Caching) des Browsers interagiert.
+Die schreibgeschützte Eigenschaft **`cache`** des [`Request`](/de/docs/Web/API/Request)-Interfaces enthält den Cache-Modus der Anfrage. Sie steuert, wie die Anfrage mit dem [HTTP-Cache](/de/docs/Web/HTTP/Caching) des Browsers interagiert.
 
 ## Wert
 
 Ein `RequestCache`-Wert. Die verfügbaren Werte sind:
 
-- `default` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage.
+- `default` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
-  - Wenn es eine Übereinstimmung gibt und diese [frisch](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird sie aus dem Cache zurückgegeben.
-  - Wenn es eine Übereinstimmung gibt, die jedoch [abgelaufen](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server stellen. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
-  - Wenn es keine Übereinstimmung gibt, führt der Browser eine normale Anfrage durch und aktualisiert den Cache mit der heruntergeladenen Ressource.
+  - Wenn es eine Übereinstimmung gibt, die [frisch](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird diese aus dem Cache zurückgegeben.
+  - Wenn es eine Übereinstimmung gibt, die jedoch [abgelaufen](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server senden. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
+  - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
-- `no-store` — Der Browser ruft die Ressource direkt vom entfernten Server ab, ohne vorher im Cache nachzusehen, _und wird den_ Cache nicht mit der heruntergeladenen Ressource aktualisieren.
-- `reload` — Der Browser ruft die Ressource direkt vom entfernten Server ab, ohne vorher im Cache nachzusehen, _aber_ anschließend wird der Cache mit der heruntergeladenen Ressource aktualisiert.
-- `no-cache` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage.
+- `no-store` — Der Browser holt die Ressource vom entfernten Server, ohne zuvor im Cache nachzusehen, _und wird_ den Cache nicht mit der heruntergeladenen Ressource aktualisieren.
+- `reload` — Der Browser holt die Ressource vom entfernten Server, ohne zuvor im Cache nachzusehen, _wird aber danach_ den Cache mit der heruntergeladenen Ressource aktualisieren.
+- `no-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
-  - Wenn es eine Übereinstimmung gibt, _frisch oder abgelaufen,_ wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server stellen. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
-  - Wenn es keine Übereinstimmung gibt, führt der Browser eine normale Anfrage durch und aktualisiert den Cache mit der heruntergeladenen Ressource.
+  - Wenn es eine Übereinstimmung gibt, _frisch oder abgelaufen,_ wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server senden. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
+  - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
-- `force-cache` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage.
+- `force-cache` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache.
 
   - Wenn es eine Übereinstimmung gibt, _frisch oder abgelaufen_, wird sie aus dem Cache zurückgegeben.
-  - Wenn es keine Übereinstimmung gibt, führt der Browser eine normale Anfrage durch und aktualisiert den Cache mit der heruntergeladenen Ressource.
+  - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
-- `only-if-cached` — Der Browser sucht in seinem HTTP-Cache nach einer übereinstimmenden Anfrage. {{experimental_inline}}
+- `only-if-cached` — Der Browser sucht nach einer passenden Anfrage in seinem HTTP-Cache. {{experimental_inline}}
 
   - Wenn es eine Übereinstimmung gibt, _frisch oder abgelaufen_, wird sie aus dem Cache zurückgegeben.
   - Wenn es keine Übereinstimmung gibt, antwortet der Browser mit einem [504 Gateway timeout](/de/docs/Web/HTTP/Status/504)-Status.
 
-  Der Modus `"only-if-cached"` kann nur verwendet werden, wenn der `mode` der Anfrage `"same-origin"` ist. Zwischengespeicherte Weiterleitungen werden befolgt, wenn die `redirect`-Eigenschaft der Anfrage `"follow"` ist und die Weiterleitungen den `"same-origin"`-Modus nicht verletzen.
+  Der `"only-if-cached"`-Modus kann nur verwendet werden, wenn der `mode` einer Anfrage `"same-origin"` ist. Zwischengespeicherte Weiterleitungen werden gefolgt, wenn die `redirect`-Eigenschaft der Anfrage `"follow"` ist und die Weiterleitungen den `"same-origin"`-Modus nicht verletzen.
 
 ## Beispiele
 

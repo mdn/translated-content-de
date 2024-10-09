@@ -3,12 +3,12 @@ title: "USBConfiguration: configurationName-Eigenschaft"
 short-title: configurationName
 slug: Web/API/USBConfiguration/configurationName
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`configurationName`**-Eigenschaft, die nur lesbar ist, der [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Schnittstelle gibt den vom Gerät bereitgestellten Namen zurück, der diese Konfiguration beschreibt. Dieser entspricht dem Wert des String-Beschreibers mit dem Index, der im [`iConfiguration`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des Konfigurationsbeschreibers definiert ist, das diese Konfiguration beschreibt.
+Die schreibgeschützte Eigenschaft **`configurationName`** des [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Interfaces gibt den vom Gerät bereitgestellten Namen zurück, der diese Konfiguration beschreibt. Dies entspricht dem Wert des String-Descriptors, der im [`iConfiguration`](https://www.beyondlogic.org/usbnutshell/usb5.shtml#ConfigurationDescriptors)-Feld des Konfigurationsdeskriptors bereitgestellt wird, welches diese Konfiguration definiert.
 
 ## Wert
 

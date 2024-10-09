@@ -3,15 +3,15 @@ title: "ClipboardItem: ClipboardItem() Konstruktor"
 short-title: ClipboardItem()
 slug: Web/API/ClipboardItem/ClipboardItem
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("Clipboard API")}} {{securecontext_header}}
 
-Der **`ClipboardItem()`** Konstruktor erstellt ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) Objekt, das Daten repräsentiert, die über die Methoden [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) und [`clipboard.read()`](/de/docs/Web/API/Clipboard/read) der [Clipboard API](/de/docs/Web/API/Clipboard_API) gespeichert oder abgerufen werden sollen.
+Der **`ClipboardItem()`**-Konstruktor erstellt ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem)-Objekt, das Daten repräsentiert, die über die [Clipboard API](/de/docs/Web/API/Clipboard_API) mithilfe der Methoden [`clipboard.write()`](/de/docs/Web/API/Clipboard/write) und [`clipboard.read()`](/de/docs/Web/API/Clipboard/read) gespeichert oder abgerufen werden.
 
 > [!NOTE]
-> Die Unterstützung für Bildformate variiert je nach Browser. Sehen Sie in der Browser-Kompatibilitätstabelle für das [`Clipboard`](/de/docs/Web/API/Clipboard) Interface nach.
+> Die Unterstützung von Bildformaten variiert je nach Browser. Siehe die Tabelle zur Browser-Kompatibilität für das [`Clipboard`](/de/docs/Web/API/Clipboard)-Interface.
 
 ## Syntax
 
@@ -23,8 +23,8 @@ new ClipboardItem(data, options)
 ### Parameter
 
 - `data`
-  - : Ein {{jsxref("Object")}} mit dem {{Glossary("MIME_type", "MIME-Typ")}} als Schlüssel und Daten als Wert.
-    Die Daten können als [`Blob`](/de/docs/Web/API/Blob), als {{jsxref("String")}} oder als {{jsxref("Promise")}} dargestellt werden, das sich entweder in einen Blob oder String auflöst.
+  - : Ein {{jsxref("Object")}} mit dem {{Glossary("MIME_type", "MIME-Typ")}} als Schlüssel und den Daten als Wert.
+    Die Daten können als [`Blob`](/de/docs/Web/API/Blob), {{jsxref("String")}} oder {{jsxref("Promise")}} dargestellt werden, die sich entweder zu einem Blob oder String auflöst.
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften:
     - `presentationStyle` {{optional_inline}}
@@ -32,21 +32,21 @@ new ClipboardItem(data, options)
         Der Standardwert ist `unspecified`.
 
 > [!NOTE]
-> Sie können auch mit Text über die Methoden [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) des [`Clipboard`](/de/docs/Web/API/Clipboard) Interfaces arbeiten.
+> Sie können auch mit Text über die Methoden [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) und [`Clipboard.writeText()`](/de/docs/Web/API/Clipboard/writeText) des [`Clipboard`](/de/docs/Web/API/Clipboard)-Interfaces arbeiten.
 
 ## Beispiele
 
-Das folgende Beispiel fordert ein PNG-Bild mit [`fetch()`](/de/docs/Web/API/Window/fetch) und der Methode [`Response.blob()`](/de/docs/Web/API/Response/blob) an, um ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) zu erstellen.
-Dieses Element wird dann mit der Methode [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write) in die Zwischenablage geschrieben.
+Das folgende Beispiel fordert ein PNG-Bild mit [`fetch()`](/de/docs/Web/API/Window/fetch) und in der Folge die Methode [`Response.blob()`](/de/docs/Web/API/Response/blob) an, um ein neues [`ClipboardItem`](/de/docs/Web/API/ClipboardItem) zu erstellen.
+Dieses Element wird dann mithilfe der Methode [`Clipboard.write()`](/de/docs/Web/API/Clipboard/write) in die Zwischenablage geschrieben.
 
 > [!NOTE]
-> Sie können jeweils nur ein Zwischenablageelement übergeben.
+> Sie können jeweils nur ein Zwischenablage-Element übergeben.
 
 ```js
 async function writeClipImg() {
   try {
     if (ClipboardItem.supports("image/png")) {
-      const imgURL = "/myimage.png";
+      const imgURL = "/my-image.png";
       const data = await fetch(imgURL);
       const blob = await data.blob();
       await navigator.clipboard.write([
@@ -75,4 +75,4 @@ async function writeClipImg() {
 ## Siehe auch
 
 - [Clipboard API](/de/docs/Web/API/Clipboard_API)
-- [Image support for Async Clipboard article](https://web.dev/articles/async-clipboard)
+- [Artikel zur Bildunterstützung für asynchrone Zwischenablage](https://web.dev/articles/async-clipboard)

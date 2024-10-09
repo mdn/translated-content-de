@@ -2,12 +2,12 @@
 title: IdleDetector
 slug: Web/API/IdleDetector
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: a28ce291736be0291feb822083b92c6f4385d57c
 ---
 
-{{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("Idle Detection API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`IdleDetector`**-Interface der [Idle Detection API](/de/docs/Web/API/Idle_detection_api) bietet Methoden und Ereignisse zum Erkennen von Benutzeraktivitäten auf einem Gerät oder Bildschirm.
+Das **`IdleDetector`**-Interface der [Idle Detection API](/de/docs/Web/API/Idle_detection_api) bietet Methoden und Ereignisse, um Benutzeraktivität auf einem Gerät oder Bildschirm zu erkennen.
 
 Dieses Interface erfordert einen sicheren Kontext.
 
@@ -18,12 +18,12 @@ Dieses Interface erfordert einen sicheren Kontext.
 - [`IdleDetector()`](/de/docs/Web/API/IdleDetector/IdleDetector) {{Experimental_Inline}}
   - : Erstellt ein neues `IdleDetector`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`IdleDetector.userState`](/de/docs/Web/API/IdleDetector/userState) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen String zurück, der anzeigt, ob der Benutzer innerhalb des Schwellenwerts, der an `start()` übergeben wird, entweder mit dem Bildschirm oder dem Gerät interagiert hat, einer von `"active"` oder `"idle"`. Dieses Attribut gibt `null` zurück, bevor `start()` aufgerufen wird.
+  - : Gibt einen String zurück, der angibt, ob der Benutzer mit dem Bildschirm oder dem Gerät innerhalb der an `start()` übergebenen Schwelle interagiert hat, entweder `"active"` oder `"idle"`. Dieses Attribut gibt `null` zurück, bevor `start()` aufgerufen wird.
 - [`IdleDetector.screenState`](/de/docs/Web/API/IdleDetector/screenState) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen String zurück, der anzeigt, ob der Bildschirm gesperrt ist, einer von `"locked"` oder `"unlocked"`. Dieses Attribut gibt `null` zurück, bevor `start()` aufgerufen wird.
+  - : Gibt einen String zurück, der angibt, ob der Bildschirm gesperrt ist, entweder `"locked"` oder `"unlocked"`. Dieses Attribut gibt `null` zurück, bevor `start()` aufgerufen wird.
 
 ## Ereignisse
 
@@ -33,16 +33,16 @@ Dieses Interface erfordert einen sicheren Kontext.
 ## Statische Methoden
 
 - [`IdleDetector.requestPermission()`](/de/docs/Web/API/IdleDetector/requestPermission_static) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn der Benutzer gewählt hat, ob er dem Ursprung Zugriff auf seinen Leerlaufstatus gewähren möchte. Wird mit `"granted"` bei Zustimmung und `"denied"` bei Ablehnung aufgelöst.
+  - : Gibt ein {{jsxref('Promise')}} zurück, das aufgelöst wird, wenn der Benutzer gewählt hat, ob er dem Ursprung Zugriff auf seinen Leerlaufzustand gewähren möchte. Wird mit `"granted"` bei Annahme und `"denied"` bei Ablehnung aufgelöst.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`IdleDetector.start()`](/de/docs/Web/API/IdleDetector/start) {{Experimental_Inline}}
-  - : Gibt ein `Promise` zurück, das aufgelöst wird, wenn der Detektor beginnt, auf Änderungen des Leerlaufstatus des Benutzers zu hören. `userState` und `screenState` erhalten Anfangswerte. Diese Methode nimmt ein optionales `options`-Objekt mit der `threshold` in Millisekunden, in denen Inaktivität gemeldet werden soll, und `signal` für ein `AbortSignal`, um den Leerlaufdetektor abzubrechen.
+  - : Gibt ein `Promise` zurück, das aufgelöst wird, wenn der Detektor beginnt, Änderungen im Leerlaufzustand des Benutzers zu überwachen. `userState` und `screenState` erhalten Anfangswerte. Diese Methode nimmt ein optionales `options`-Objekt mit der `threshold` in Millisekunden, in der Inaktivität gemeldet werden soll, und `signal` für einen `AbortSignal`, um den Leerlaufdetektor abzubrechen.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt die Erstellung eines Detektors und das Protokollieren von Änderungen am Leerlaufstatus des Benutzers. Ein Button wird verwendet, um die notwendige Benutzeraktivierung vor dem Anfordern der Berechtigung zu erhalten.
+Das folgende Beispiel zeigt die Erstellung eines Detektors und das Protokollieren von Änderungen am Leerlaufzustand des Benutzers. Ein Button wird verwendet, um die notwendige Benutzeraktivierung vor dem Anfordern der Berechtigung zu erhalten.
 
 ```js
 const controller = new AbortController();

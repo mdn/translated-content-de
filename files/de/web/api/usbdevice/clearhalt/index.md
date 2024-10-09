@@ -3,12 +3,12 @@ title: "USBDevice: clearHalt()-Methode"
 short-title: clearHalt()
 slug: Web/API/USBDevice/clearHalt
 l10n:
-  sourceCommit: 216794e76611c18e53222bb8efa570e898e990de
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`clearHalt()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Stopp-Bedingung behoben ist. Eine Stopp-Bedingung tritt auf, wenn ein Datentransfer zum oder vom Gerät den Status `'stall'` hat, was erfordert, dass die Webseite (das _Host_-System, in der USB-Terminologie) diese Bedingung behebt. Weitere Details dazu finden Sie .
+Die **`clearHalt()`**-Methode des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein {{jsxref("promise")}} zurück, das aufgelöst wird, wenn eine Halt-Bedingung bereinigt ist. Eine Halt-Bedingung tritt auf, wenn ein Datenübertragungsstatus zu oder von dem Gerät `'stall'` ist, was erfordert, dass die Webseite (das _Host_-System in USB-Terminologie) diese Bedingung bereinigt. Weitere Details sind im Leitfaden zu finden.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ clearHalt(direction, endpointNumber)
 ### Parameter
 
 - `direction`
-  - : Gibt an, ob die Eingabe oder Ausgabe des Geräts gelöscht werden soll. Gültige Werte sind `'in'` oder `'out'`.
+  - : Gibt an, ob der Eingang oder Ausgang des Geräts bereinigt werden soll. Gültige Werte sind `'in'` oder `'out'`.
 - `endpointNumber`
-  - : Gibt die Nummer des Endpunkts an, der gelöscht werden soll. Das Versprechen wird abgelehnt, wenn ein ungültiger Endpunkt angegeben wird.
+  - : Gibt die Nummer des zu bereinigenden Endpunkts an. Das Versprechen wird abgelehnt, wenn ein ungültiger Endpunkt angegeben wird.
 
 ### Rückgabewert
 
@@ -29,10 +29,10 @@ Ein {{jsxref("promise")}}.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man eine `'stall'`-Bedingung im Ergebnis eines Datentransfers testet und behebt.
+Das folgende Beispiel zeigt, wie eine `'stall'`-Bedingung im Ergebnis einer Datenübertragung getestet und bereinigt wird.
 
 > [!NOTE]
-> Welche Daten an ein USB-Gerät übergeben werden können und wie sie übergeben werden, ist spezifisch und einzigartig für jedes Gerät.
+> Welche Daten an ein USB-Gerät übergeben werden können und wie dies geschieht, ist spezifisch und einzigartig für jedes Gerät.
 
 ```js
 while (true) {

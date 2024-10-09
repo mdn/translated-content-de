@@ -1,19 +1,18 @@
 ---
-title: "DOMPoint: w-Eigenschaft"
+title: "DOMPoint: w Eigenschaft"
 short-title: w
 slug: Web/API/DOMPoint/w
 l10n:
-  sourceCommit: ce85e3fb7865330e4ac2a6dad25db5cf5d27ea74
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`DOMPoint`**-Schnittstelle
-besitzt die **`w`**-Eigenschaft, welche den Perspektivwert, w, eines Punktes im Raum hält.
+Die **`DOMPoint`**–Schnittstellen–Eigenschaft **`w`** hält den Perspektivwert _w_ für einen Punkt im Raum.
 
 ## Wert
 
-Ein doppelt-genauer Gleitkommawert, der den _w_-Perspektivwert für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (d.h., sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist 1,0.
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Perspektivwert _w_ für den Punkt angibt. Dieser Wert ist **unbeschränkt**, was bedeutet, dass er unendlich oder ungültig sein kann (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist 1.0.
 
 ## Spezifikationen
 
@@ -25,5 +24,4 @@ Ein doppelt-genauer Gleitkommawert, der den _w_-Perspektivwert für den Punkt an
 
 ## Siehe auch
 
-- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x),
-  [`y`](/de/docs/Web/API/DOMPoint/y) und [`z`](/de/docs/Web/API/DOMPoint/z).
+- Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPoint/x), [`y`](/de/docs/Web/API/DOMPoint/y) und [`z`](/de/docs/Web/API/DOMPoint/z).

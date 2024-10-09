@@ -2,22 +2,22 @@
 title: inset
 slug: Web/CSS/inset
 l10n:
-  sourceCommit: 09c431e017263c263558df1821f187f76660dde9
+  sourceCommit: 9a3940b0231838338f65ae1c37d5b874439a3d43
 ---
 
 {{CSSRef}}
 
-Die **`inset`**-Eigenschaft von [CSS](/de/docs/Web/CSS) ist eine Abkürzung, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwertsyntax wie die Kurzschrift der {{cssxref("margin")}}-Eigenschaft.
+Die **`inset`**-[CSS](/de/docs/Web/CSS)-Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
 
-Diese {{Glossary("inset_properties", "inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "inset-Eigenschaften")}}, einschließlich `inset`, haben keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset.html")}}
 
-Obwohl sie Teil des Moduls [CSS-Logik-Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert sie keine _logischen_ Versätze. Sie definiert _physische_ Versätze, unabhängig vom Schreibrichtungsmodus des Elements, der Richtung und der Textorientierung.
+Obwohl es Teil des Moduls [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert es keine _logischen_ Verschiebungen. Es definiert _physische_ Verschiebungen, unabhängig vom Schreibmodus, der Richtung und Textausrichtung des Elements.
 
-## Bestandeigenschaften
+## Bestehende Eigenschaften
 
-Diese Eigenschaft ist eine Abkürzung für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - {{Cssxref("top")}}
 - {{Cssxref("right")}}
@@ -63,7 +63,7 @@ Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eig
 
 ## Beispiele
 
-### Versätze für ein Element einstellen
+### Verschiebungen für ein Element setzen
 
 #### HTML
 
@@ -105,6 +105,8 @@ div {
 
 ## Siehe auch
 
-- Die Langform-Box-Versatzeigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}.
-- Die zugeordneten logischen Abkürzungen: {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
-- Die Mehrwertsyntax der {{cssxref("margin")}}-Kurzschrift.
+- {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
+- {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
+- {{cssxref("position")}}
+- [CSS Stellungslayout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)

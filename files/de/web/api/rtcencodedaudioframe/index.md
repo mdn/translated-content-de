@@ -2,35 +2,34 @@
 title: RTCEncodedAudioFrame
 slug: Web/API/RTCEncodedAudioFrame
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`RTCEncodedAudioFrame`** der [WebRTC API](/de/docs/Web/API/WebRTC_API) repräsentiert einen codierten Audio-Frame in der WebRTC-Empfänger- oder -Senderpipeline, der mithilfe einer [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) modifiziert werden kann.
+Der **`RTCEncodedAudioFrame`** der [WebRTC-API](/de/docs/Web/API/WebRTC_API) repräsentiert einen kodierten Audio-Frame in der WebRTC-Empfänger- oder Sender-Pipeline, der möglicherweise mithilfe eines [WebRTC Encoded Transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) modifiziert wird.
 
-Das Interface bietet Methoden und Eigenschaften zum Abrufen von Metadaten über den Frame, sodass sein Format und seine Reihenfolge in der Sequenz der Frames bestimmt werden können. Die `data`-Eigenschaft ermöglicht den Zugriff auf die codierten Framedaten als Buffer, die verschlüsselt oder anderweitig durch eine Transformation modifiziert sein könnten.
+Die Schnittstelle bietet Methoden und Eigenschaften, um Metadaten über den Frame abzurufen, was es ermöglicht, dessen Format und Reihenfolge in der Sequenz der Frames zu bestimmen.
+Die `data`-Eigenschaft gewährt Zugriff auf die kodierten Frame-Daten als Puffer, die möglicherweise verschlüsselt oder anderweitig durch eine Transformation modifiziert sind.
 
-> [!NOTE]
-> Diese Funktion ist in [_Dedizierten_ Web Workern](/de/docs/Web/API/Web_Workers_API#worker_types) verfügbar.
-
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`RTCEncodedAudioFrame.timestamp`](/de/docs/Web/API/RTCEncodedAudioFrame/timestamp) {{ReadOnlyInline}} {{deprecated_inline}} {{non-standard_inline}}
-  - : Gibt den Zeitpunkt zurück, an dem die Abtastung des Frames begann.
+  - : Gibt den Zeitstempel zurück, zu dem die Abtastung des Frames begann.
 - [`RTCEncodedAudioFrame.data`](/de/docs/Web/API/RTCEncodedAudioFrame/data)
-  - : Gibt einen Buffer zurück, der die kodierten Framedaten enthält.
+  - : Gibt einen Puffer zurück, der die kodierten Frame-Daten enthält.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - [`RTCEncodedAudioFrame.getMetadata()`](/de/docs/Web/API/RTCEncodedAudioFrame/getMetadata)
-  - : Gibt die mit dem Frame verbundenen Metadaten zurück.
+  - : Gibt die Metadaten zurück, die mit dem Frame verbunden sind.
 
 ## Beispiele
 
-Dieser Codeausschnitt zeigt einen Handler für das `rtctransform`-Ereignis in einem [`Worker`](/de/docs/Web/API/Worker), der einen [`TransformStream`](/de/docs/Web/API/TransformStream) implementiert, und pipet codierte Frames durch ihn von `event.transformer.readable` zu `event.transformer.writable` (`event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das Pendant auf Worker-Seite von [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)).
+Dieses Codebeispiel zeigt einen Handler für das `rtctransform`-Ereignis in einem [`Worker`](/de/docs/Web/API/Worker), der einen [`TransformStream`](/de/docs/Web/API/TransformStream) implementiert und kodierte Frames durch diesen vom `event.transformer.readable` zu `event.transformer.writable` leitet (`event.transformer` ist ein [`RTCRtpScriptTransformer`](/de/docs/Web/API/RTCRtpScriptTransformer), das Gegenstück auf Worker-Seite zu [`RTCRtpScriptTransform`](/de/docs/Web/API/RTCRtpScriptTransform)).
 
-Wenn der Transformer in einen Audiostream eingesetzt wird, wird die `transform()`-Methode mit einem `RTCEncodedAudioFrame` aufgerufen, sobald ein neuer Frame in `event.transformer.readable` eingereiht wird. Die `transform()`-Methode zeigt, wie dies gelesen, mit einer fiktionalen Verschlüsselungsfunktion modifiziert und anschließend im Controller eingereiht werden könnte (das leitet es letztendlich zu `event.transformer.writable` zurück und dann in die WebRTC-Pipeline).
+Wenn der Transformer in einen Audio-Stream eingefügt wird, wird die `transform()`-Methode mit einem `RTCEncodedAudioFrame` aufgerufen, wann immer ein neuer Frame in `event.transformer.readable` eingereiht wird.
+Die `transform()`-Methode zeigt, wie dies gelesen, mithilfe einer fiktiven Verschlüsselungsfunktion modifiziert und dann im Controller eingereiht werden könnte (dies leitet es letztlich durch zu `event.transformer.writable` und dann zurück in die WebRTC-Pipeline).
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -59,7 +58,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Beachten Sie, dass ausführlichere Beispiele in [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) bereitgestellt werden.
+Beachten Sie, dass vollständigere Beispiele in [Using WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zur Verfügung gestellt werden.
 
 ## Spezifikationen
 

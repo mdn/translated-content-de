@@ -3,12 +3,13 @@ title: "DOMPointReadOnly: DOMPointReadOnly() Konstruktor"
 short-title: DOMPointReadOnly()
 slug: Web/API/DOMPointReadOnly/DOMPointReadOnly
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Der **`DOMPointReadOnly()`**-Konstruktor gibt ein neues [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt zurück, das einen Punkt in einem 2D- oder 3D-Raum darstellt, optional mit Perspektive, dessen Werte nicht durch Skriptcode verändert werden können.
+Der **`DOMPointReadOnly()`**
+Konstruktor gibt ein neues [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) Objekt zurück, das einen Punkt im 2D- oder 3D-Raum repräsentiert, optional mit Perspektive, dessen Werte durch Skriptcode nicht verändert werden können.
 
 ## Syntax
 
@@ -32,15 +33,15 @@ new DOMPointReadOnly(x, y, z, w)
   - : Der Wert der Perspektive, w, als Gleitkommazahl. Der Standardwert ist 1.
 
 > [!NOTE]
-> Jeder dieser Werte ist ein sogenannter _unbeschränkter_ Wert. Zusätzlich zu jedem endlichen Gleitkommawert können Sie spezielle Werte wie ±{{jsxref("Infinity")}} und {{jsxref("NaN")}} verwenden.
+> Jeder dieser Werte wird als _unbeschränkt_ bezeichnet. Neben jedem endlichen Gleitkommawert können Sie spezielle Werte wie ±{{jsxref("Infinity")}} und {{jsxref("NaN")}} verwenden.
 
 ### Rückgabewert
 
-Ein neues [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt, das die angegebene Position im Raum darstellt.
+Ein neues [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) Objekt, das die angegebene Position im Raum repräsentiert.
 
 ## Beispiele
 
-Der folgende Code zeigt das Erstellen von sowohl 2D- als auch 3D-Punkten.
+Der folgende Code zeigt die Erstellung von 2D- und 3D-Punkten.
 
 ```js
 const point2D = new DOMPointReadOnly(50, 25);

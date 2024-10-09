@@ -3,17 +3,17 @@ title: "DOMPoint: fromPoint() statische Methode"
 short-title: fromPoint()
 slug: Web/API/DOMPoint/fromPoint_static
 l10n:
-  sourceCommit: a4675b9077ae32f989c7ecac94f454db2653c4fc
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`fromPoint()`** statische Methode der [`DOMPoint`](/de/docs/Web/API/DOMPoint) Schnittstelle erstellt und gibt ein neues veränderliches `DOMPoint`-Objekt zurück, das von einem Quellpunkt abgeleitet ist.
+Die **`fromPoint()`**-statische Methode des [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Interfaces erstellt und gibt ein neues veränderbares `DOMPoint`-Objekt zurück, basierend auf einem Quellpunkt.
 
 Sie können auch ein neues `DOMPoint`-Objekt mit dem
-[`DOMPoint()`](/de/docs/Web/API/DOMPoint/DOMPoint) Konstruktor erstellen.
+[`DOMPoint()`](/de/docs/Web/API/DOMPoint/DOMPoint)-Konstruktor erstellen.
 
-Obwohl diese Schnittstelle auf `DOMPointReadOnly` basiert, ist sie nicht unveränderlich;
+Obwohl dieses Interface auf `DOMPointReadOnly` basiert, ist es nicht schreibgeschützt;
 die Eigenschaften innerhalb können nach Belieben geändert werden.
 
 ## Syntax
@@ -26,38 +26,37 @@ DOMPoint.fromPoint(sourcePoint)
 
 - `sourcePoint`
 
-  - : Eine Instanz von [`DOMPoint`](/de/docs/Web/API/DOMPoint) oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly), oder ein Objekt, das die folgenden Eigenschaften enthält, aus denen die Werte der Eigenschaften des neuen Punkts entnommen werden:
+  - : Eine [`DOMPoint`](/de/docs/Web/API/DOMPoint)- oder [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Instanz oder ein Objekt mit den folgenden Eigenschaften, aus dem die Werte der neuen Punkt-Eigenschaften übernommen werden:
 
     - `x`
-      - : Ein nicht eingeschränkter Gleitkommawert, der die `x`-Koordinate des Punkts im Raum angibt. Dies ist in der Regel die horizontale Koordinate, wobei positive Werte nach rechts und negative Werte nach links zeigen. Der Standardwert ist `0`.
+      - : Ein uneingeschränkter Gleitkommawert, der die `x`-Koordinate des Punkts im Raum angibt. Das ist im Allgemeinen die horizontale Koordinate, wobei positive Werte nach rechts und negative Werte nach links weisen. Der Standardwert ist `0`.
     - `y`
-      - : Eine nicht eingeschränkte Gleitkommazahl, die die `y`-Koordinate des Punkts angibt. Dies ist die vertikale Koordinate, und abgesehen von Transformationen am Koordinatensystem sind positive Werte nach unten und negative Werte nach oben zum oberen Bildschirmrand gerichtet. Der Standardwert ist `0`.
+      - : Ein uneingeschränkter Gleitkommawert, der die `y`-Koordinate des Punkts angibt. Dies ist die vertikale Koordinate, und sofern keine Transformationen auf das Koordinatensystem angewendet werden, sind positive Werte abwärts und negative Werte aufwärts in Richtung der oberen Bildschirmseite. Der Standardwert ist `0`.
     - `z`
-      - : Ein nicht eingeschränkter Gleitkommawert, der die `z`-Koordinate des Punkts angibt, was (unter der Annahme keiner Transformationen, die die Situation ändern) die Tiefenkoordinate ist; positive Werte sind näher beim Benutzer und negative Werte ziehen sich zurück in den Bildschirm. Der Standardwert ist `0`.
+      - : Ein uneingeschränkter Gleitkommawert, der die `z`-Koordinate des Punkts angibt, was (unter der Annahme, dass keine die Situation verändernden Transformationen angewendet wurden) die Tiefenkoordinate ist; positive Werte sind näher beim Nutzer und negative Werte ziehen sich in den Bildschirm zurück. Der Standardwert ist `0`.
     - `w`
-      - : Der Perspektivwert `w` des Punkts, angegeben als nicht eingeschränkte Gleitkommazahl. Der Standardwert ist `1`.
+      - : Der Perspektivwert `w` des Punkts, angegeben als ein uneingeschränkter Gleitkommawert. Der Standardwert ist `1`.
 
 ### Rückgabewert
 
-Ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint) Objekt, dessen Koordinaten- und Perspektivwerte
-mit denen des Quellpunkts identisch sind. Die Eigenschaften des Punkts sind veränderlich und können
-jederzeit geändert werden.
+Ein neues [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt, dessen Koordinaten- und Perspektivwerte
+identisch mit denen im Quellpunkt sind. Die Eigenschaften des Punkts sind veränderbar und können jederzeit geändert werden.
 
 ## Beispiele
 
-### Erstellung eines veränderlichen Punkts aus einem unveränderlichen Punkt
+### Erstellen eines veränderbaren Punkts aus einem schreibgeschützten Punkt
 
-Wenn Sie ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) Objekt haben, können Sie leicht eine veränderliche
+Wenn Sie ein [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly)-Objekt haben, können Sie leicht eine veränderbare
 Kopie dieses Punkts erstellen:
 
 ```js
 const mutablePoint = DOMPoint.fromPoint(readOnlyPoint);
 ```
 
-### Erstellung eines 2D-Punkts
+### Erstellen eines 2D-Punkts
 
-Dieses Beispiel erstellt einen 2D-Punkt und gibt ein Inline-Objekt an, das die Werte enthält, die für [`x`](/de/docs/Web/API/DOMPointReadOnly/x) und [`y`](/de/docs/Web/API/DOMPointReadOnly/y) verwendet werden sollen.
-Die _z_- und _w_-Eigenschaften dürfen ihre Standardwerte beibehalten (jeweils 0 und 1).
+Dieses Beispiel erstellt einen 2D-Punkt, indem ein Inline-Objekt angegeben wird, das die verwendeten Werte für [`x`](/de/docs/Web/API/DOMPointReadOnly/x) und [`y`](/de/docs/Web/API/DOMPointReadOnly/y) enthält.
+Die _z_- und _w_-Eigenschaften können ihre Standardwerte behalten (0 bzw. 1).
 
 ```js
 const center = DOMPoint.fromPoint({ x: 75, y: -50, z: -55, w: 0.25 });

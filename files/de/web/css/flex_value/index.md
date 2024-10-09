@@ -2,16 +2,16 @@
 title: <flex>
 slug: Web/CSS/flex_value
 l10n:
-  sourceCommit: fb409b8972e7c03d7eb284466433a28efb850ef5
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
 
-Der **`<flex>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine flexible Länge innerhalb eines Raster-Containers. Er wird in {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und anderen damit verbundenen Eigenschaften verwendet.
+Der **`<flex>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) bezeichnet eine flexible Länge innerhalb eines Grid-Containers. Er wird in {{cssxref("grid-template-columns")}}, {{cssxref("grid-template-rows")}} und anderen verwandten Eigenschaften verwendet.
 
 ## Syntax
 
-Der `<flex>` Datentyp wird als eine {{cssxref("&lt;number&gt;")}} gefolgt von der Einheit `fr` spezifiziert. Die `fr` Einheit repräsentiert einen Bruchteil des verbleibenden Platzes im Raster-Container. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen der Einheit und der Zahl.
+Der `<flex>` Datentyp wird als {{cssxref("&lt;number&gt;")}} gefolgt von der Einheit `fr` angegeben. Die `fr`-Einheit repräsentiert einen Bruchteil des verbleibenden Raums im Grid-Container. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen der Einheit und der Zahl.
 
 ## Beispiele
 
@@ -22,7 +22,7 @@ Der `<flex>` Datentyp wird als eine {{cssxref("&lt;number&gt;")}} gefolgt von de
 2.5fr  /* Using a float value */
 ```
 
-### Beispiel für die Verwendung in einer Spur-Definition für das CSS-Raster-Layout
+### Beispiel für die Verwendung in einer Track-Auflistung für CSS-Grid-Layout
 
 ```css
 .grid {
@@ -41,4 +41,4 @@ Der `<flex>` Datentyp wird als eine {{cssxref("&lt;number&gt;")}} gefolgt von de
 
 ## Siehe auch
 
-- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout)
+- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout)

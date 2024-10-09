@@ -3,14 +3,14 @@ title: "Response: json() Methode"
 short-title: json()
 slug: Web/API/Response/json
 l10n:
-  sourceCommit: 889fd7ca9d03276638ec065e47ea967c1a2fc10b
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`json()`** Methode des [`Response`](/de/docs/Web/API/Response)-Interfaces nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn vollständig aus. Sie gibt ein Promise zurück, das sich mit dem Ergebnis des Parsens des Textkörpers als {{JSxRef("JSON")}} auflöst.
+Die **`json()`** Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle nimmt einen [`Response`](/de/docs/Web/API/Response)-Stream und liest ihn bis zum Ende. Sie gibt ein Promise zurück, das mit dem Ergebnis der Analyse des Rumpftexts als {{JSxRef("JSON")}} aufgelöst wird.
 
-Beachten Sie, dass trotz der Namensgebung `json()`, das Ergebnis kein JSON ist, sondern das Ergebnis der Verarbeitung von JSON als Eingabe, um ein JavaScript-Objekt zu erzeugen.
+Beachten Sie, dass der Name der Methode `json()` zwar auf JSON hinweist, das Ergebnis jedoch kein JSON ist, sondern das Resultat der Analyse von JSON-Eingaben, um ein JavaScript-Objekt zu erzeugen.
 
 ## Syntax
 
@@ -24,7 +24,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das sich zu einem JavaScript-Objekt auflöst. Dieses Objekt könnte alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
+Ein {{jsxref("Promise")}}, das zu einem JavaScript-Objekt aufgelöst wird. Dieses Objekt kann alles sein, was durch JSON dargestellt werden kann — ein Objekt, ein Array, ein String, eine Zahl…
 
 ### Ausnahmen
 
@@ -33,15 +33,15 @@ Ein {{jsxref("Promise")}}, das sich zu einem JavaScript-Objekt auflöst. Dieses 
 - {{jsxref("TypeError")}}
   - : Ausgelöst aus einem der folgenden Gründe:
     - Der Antwortkörper ist [gestört oder gesperrt](/de/docs/Web/API/Fetch_API/Using_Fetch#locked_and_disturbed_streams).
-    - Es gab einen Fehler beim Dekodieren des Körperinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}} Header falsch ist).
+    - Es gab einen Fehler beim Dekodieren des Rumpfinhalts (zum Beispiel, weil der {{httpheader("Content-Encoding")}} Header falsch ist).
 - {{jsxref("SyntaxError")}}
-  - : Der Antwortkörper kann nicht als JSON geparst werden.
+  - : Der Antwortkörper kann nicht als JSON analysiert werden.
 
 ## Beispiele
 
 In unserem [fetch JSON Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-json) (führen Sie [fetch JSON live aus](https://mdn.github.io/dom-examples/fetch/fetch-json/)),
-erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und verwenden sie, um eine `.json`-Datei abzurufen.
-Wenn der Abruf erfolgreich ist, lesen und parsen wir die Daten mit `json()`, dann lesen wir erwartungsgemäß Werte aus den resultierenden Objekten aus und fügen sie in Listenelemente ein, um unsere Produktdaten anzuzeigen.
+erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor und verwenden diese, um eine `.json`-Datei abzurufen.
+Wenn das Abrufen erfolgreich ist, lesen und analysieren wir die Daten mit `json()`, lesen dann die Werte aus den resultierenden Objekten aus, wie Sie es erwarten würden, und fügen sie in Listenelemente ein, um unsere Produktdaten anzuzeigen.
 
 ```js
 const myList = document.querySelector("ul");

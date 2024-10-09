@@ -1,14 +1,14 @@
 ---
-title: "FontFaceSet: forEach()-Methode"
+title: "FontFaceSet: forEach() Methode"
 short-title: forEach()
 slug: Web/API/FontFaceSet/forEach
 l10n:
-  sourceCommit: 391e96a066cb4802470b295e72144825b4164871
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`forEach()`**-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces führt eine bereitgestellte Funktion für jeden Wert im `FontFaceSet`-Objekt aus.
+Die **`forEach()`** Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interface führt eine bereitgestellte Funktion für jeden Wert im `FontFaceSet` Objekt aus.
 
 ## Syntax
 
@@ -20,9 +20,9 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Funktion, die für jedes Element ausgeführt wird, mit drei Argumenten:
+  - : Funktion, die für jedes Element ausgeführt wird und drei Argumente übernimmt:
     - `value`, `key`
-      - : Das aktuelle Element, das im `FontFaceSet` verarbeitet wird. Da es in einem `FontFaceSet` keine Schlüssel gibt, wird der Wert für beide Argumente übergeben.
+      - : Das aktuelle Element, das im `FontFaceSet` verarbeitet wird. Da es keine Schlüssel in einem `FontFaceSet` gibt, wird der Wert für beide Argumente übergeben.
     - `set`
       - : Das `FontFaceSet`, auf dem `forEach()` aufgerufen wurde.
 - `thisArg`
@@ -30,7 +30,7 @@ forEach(callbackFn, thisArg)
 
 ### Rückgabewert
 
-Undefiniert.
+Undefined.
 
 ## Spezifikationen
 

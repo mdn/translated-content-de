@@ -2,16 +2,16 @@
 title: text-underline-offset
 slug: Web/CSS/text-underline-offset
 l10n:
-  sourceCommit: 37163d27e0625a83a3f8633fe58b9041867adeaa
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft **`text-underline-offset`** legt die Versatzentfernung einer unterstrichenen Textdekoration fest, die mit {{cssxref("text-decoration")}} angewendet wird.
+Die **`text-underline-offset`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Versatzabstand einer Unterstrich-Textdekoration (angewandt mit {{cssxref("text-decoration")}}) von ihrer ursprünglichen Position fest.
 
 {{EmbedInteractiveExample("pages/css/text-underline-offset.html")}}
 
-`text-underline-offset` ist kein Bestandteil der Abkürzung {{cssxref('text-decoration')}}. Während ein Element mehrere `text-decoration`-Linien haben kann, wirkt sich `text-underline-offset` nur auf Unterstreichungen aus und **nicht** auf andere mögliche Linieneffekte wie `overline` oder `line-through`.
+`text-underline-offset` ist kein Teil der {{cssxref('text-decoration')}} Kurzschreibweise. Während ein Element mehrere `text-decoration` Linien haben kann, beeinflusst `text-underline-offset` nur die Unterstreichung und **nicht** andere mögliche Linien-Dekorationsoptionen wie `overline` oder `line-through`.
 
 ## Syntax
 
@@ -34,16 +34,16 @@ text-underline-offset: revert-layer;
 text-underline-offset: unset;
 ```
 
-Die Eigenschaft `text-underline-offset` wird als ein einzelner Wert aus der unten stehenden Liste angegeben.
+Die `text-underline-offset` Eigenschaft wird als einzelner Wert aus der unten aufgeführten Liste spezifiziert.
 
 ### Werte
 
 - `auto`
-  - : Der Browser wählt den passenden Versatz für Unterstreichungen.
+  - : Der Browser wählt den geeigneten Versatz für Unterstriche.
 - `<length>`
-  - : Gibt den Versatz von Unterstreichungen als {{cssxref('length')}} an und überschreibt den Vorschlag durch die Schriftartdatei sowie die Standardeinstellung des Browsers. Es wird empfohlen, `em`-Einheiten zu verwenden, damit sich der Versatz mit der Schriftgröße skaliert.
+  - : Spezifiziert den Versatz von Unterstrichen als {{cssxref('length')}}, wobei der Vorschlag der Schriftartdatei und die Standardeinstellung des Browsers überschrieben werden. Es wird empfohlen, `em` Einheiten zu verwenden, damit der Versatz mit der Schriftgröße skaliert.
 - `<percentage>`
-  - : Gibt den Versatz von Unterstreichungen als {{cssxref('percentage')}} von **1 em** in der Schriftart des Elements an. Ein Prozentsatz wird als relativer Wert vererbt und skaliert daher mit Änderungen der Schrift. Für eine bestimmte Anwendung dieser Eigenschaft bleibt der Versatz über die gesamte Box, auf die die Unterstreichung angewendet wird, konstant, auch wenn es Kindelemente mit unterschiedlichen Schriftgrößen oder vertikaler Ausrichtung gibt.
+  - : Spezifiziert den Versatz von Unterstrichen als {{cssxref('percentage')}} von **1 em** in der Schriftart des Elements. Ein Prozentsatz erbt als relativer Wert und skaliert daher mit Änderungen der Schrift. Für eine gegebene Anwendung dieser Eigenschaft ist der Versatz über das gesamte Kästchen hinweg konstant, auf das der Unterstrich angewendet wird, selbst wenn es Kindelemente mit unterschiedlichen Schriftgrößen oder vertikalen Ausrichtungen gibt.
 
 ## Formale Definition
 
@@ -58,9 +58,9 @@ Die Eigenschaft `text-underline-offset` wird als ein einzelner Wert aus der unte
 ### Demonstration von text-underline-offset
 
 ```html
-<p class="oneline">Here's some text with an offset wavy red underline!</p>
+<p class="one-line">Here's some text with an offset wavy red underline!</p>
 <br />
-<p class="twolines">
+<p class="two-lines">
   This text has lines both above and below it. Only the bottom one is offset.
 </p>
 ```
@@ -71,7 +71,7 @@ p {
   text-underline-offset: 1em;
 }
 
-.twolines {
+.two-lines {
   text-decoration-color: purple;
   text-decoration-line: underline overline;
 }

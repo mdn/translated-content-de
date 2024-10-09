@@ -3,12 +3,12 @@ title: "DOMRectReadOnly: x Eigenschaft"
 short-title: x
 slug: Web/API/DOMRectReadOnly/x
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`x`** der Schnittstelle **`DOMRectReadOnly`** repräsentiert die x-Koordinate des Ursprungs des `DOMRect`.
+Die **`x`** schreibgeschützte Eigenschaft des **`DOMRectReadOnly`**-Interfaces repräsentiert die x-Koordinate des Ursprungs des `DOMRect`.
 
 ## Wert
 

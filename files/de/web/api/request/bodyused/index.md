@@ -3,14 +3,12 @@ title: "Request: bodyUsed-Eigenschaft"
 short-title: bodyUsed
 slug: Web/API/Request/bodyUsed
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`bodyUsed`**-Eigenschaft des
-[`Request`](/de/docs/Web/API/Request)-Interfaces ist ein boolescher Wert, der anzeigt,
-ob der Anfragetext bereits gelesen wurde.
+Die **`bodyUsed`** schreibgeschützte Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle ist ein boolescher Wert, der anzeigt, ob der Anfrageinhalt bereits gelesen wurde.
 
 ## Wert
 

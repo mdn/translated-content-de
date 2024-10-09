@@ -1,14 +1,14 @@
 ---
-title: "FontFaceSet: values()-Methode"
+title: "FontFaceSet: values() Methode"
 short-title: values()
 slug: Web/API/FontFaceSet/values
 l10n:
-  sourceCommit: b65bc7f59299b2bec8f428f3cdae15ca4be2ac0d
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`values()`**-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `FontFaceSet`-Objekt in Einfügereihenfolge liefert.
+Die **`values()`** Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Interfaces gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `FontFaceSet` Objekt in Einfügereihenfolge liefert.
 
 ## Syntax
 

@@ -3,12 +3,12 @@ title: "DeprecationReportBody: message-Eigenschaft"
 short-title: message
 slug: Web/API/DeprecationReportBody/message
 l10n:
-  sourceCommit: 53b1989260054e651bcf001bacee9b843b8ca9c8
+  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
 ---
 
-{{APIRef("Reporting API")}}{{SeeCompatTable}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`message`**-Eigenschaft des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt eine lesbare Beschreibung der Veraltung zurück. Dies entspricht in der Regel der Nachricht, die ein Browser in seiner DevTools-Konsole bezüglich eines veralteten Features anzeigt.
+Die schreibgeschützte Eigenschaft **`message`** des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt eine für Menschen lesbare Beschreibung der Veraltung zurück. Diese stimmt in der Regel mit der Nachricht überein, die ein Browser in seiner DevTools-Konsole bezüglich eines veralteten Features anzeigt.
 
 ## Wert
 

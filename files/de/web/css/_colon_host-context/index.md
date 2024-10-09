@@ -2,19 +2,25 @@
 title: ":host-context()"
 slug: Web/CSS/:host-context
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: c9b949bbb01b28ade06d3cd5bb8fb279238c524c
 ---
 
 {{CSSRef}}
 
-Die **`:host-context()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) Funktion wählt den Shadow-Host des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) aus, der das CSS enthält, in dem sie verwendet wird (damit Sie ein benutzerdefiniertes Element von innerhalb seines Shadow DOMs auswählen können) — jedoch nur, wenn der Selektor, der als Parameter der Funktion übergeben wird, mit dem/den Vorfahren des Shadow-Hosts in der Hierarchie des DOMs übereinstimmt, in der es sich befindet.
+Die **`:host-context()`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ermöglicht es Ihnen, Elemente innerhalb eines [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) unterschiedlich zu stylen, basierend auf dem Selektor des Shadow Hosts (dem Element, das die Shadow-Root enthält) und seinen DOM-Vorfahren.
 
-Mit anderen Worten, dies ermöglicht es einem benutzerdefinierten Element oder allem innerhalb des Shadow DOMs eines benutzerdefinierten Elements, unterschiedliche Stile basierend auf seiner Position innerhalb des äußeren DOMs oder der auf Vorfahrelemente angewandten Klassen/Attribute anzuwenden.
+Normalerweise sind Elemente innerhalb eines Shadow DOM vom DOM außerhalb davon isoliert. Die `:host-context()` erlaubt es Ihnen, "außen" nachzusehen, ob eines der Vorfahrenelemente des Elements einem bestimmten CSS-Selektor entspricht. Zum Beispiel könnte eine andere Textfarbe auf Elemente innerhalb einer Shadow-Root angewendet werden, wenn eine `.dark-theme`-Klasse zu `<body>` hinzugefügt wird.
 
-Eine typische Verwendung davon ist mit einem Nachfahren-Selektor-Ausdruck — zum Beispiel `h1` — um nur Instanzen des benutzerdefinierten Elements auszuwählen, die sich innerhalb eines `<h1>` befinden. Eine weitere typische Verwendung wäre, inneren Elementen zu ermöglichen, auf Klassen oder Attribute auf beliebigen Vorfahrelementen zu reagieren - zum Beispiel, um eine andere Textfarbe anzuwenden, wenn eine `.dark-theme`-Klasse auf `<body>` angewendet wird.
+Denken Sie daran wie folgt: Stellen Sie sich vor, Sie haben ein `<greenhouse>`-benutzerdefiniertes Element mit einem `<chameleon>` darin. Hier ist das `<greenhouse>` der Shadow DOM-Host und das `<chameleon>`-Element befindet sich innerhalb des Shadow DOM. Die `:host-context()` lässt das `<chameleon>` sein Erscheinungsbild basieren auf dem Umfeld des `<greenhouse>` ändern. Wenn das `<greenhouse>` an einem sonnigen Ort steht (hat eine "sunny-theme"-Klasse), wird das `<chameleon>` gelb. Wenn das `<greenhouse>` an einem schattigen Ort steht (stattdessen eine "shady-theme"-Klasse angewendet), wird das `<chameleon>` blau.
+
+Dieser Selektor durchbricht alle Shadow-Bereiche. Er sucht nach dem sonnigen oder schattigen Thema, das direkt auf das `<greenhouse>` angewendet wird oder auf einen der Vorfahren und Vorfahren-DOMs des Hosts, bis zum Dokumenten-Root hinauf.
+
+Um den Selektor nur auf den `<greenhouse>`-Host direkt zu beschränken oder die Auswahl auf das DOM des Hosts zu begrenzen, verwenden Sie stattdessen die {{cssxref(":host")}} oder die {{cssxref(":host_function", ":host()")}} Pseudoklasse.
 
 > [!NOTE]
-> Dies hat keine Wirkung, wenn es außerhalb eines Shadow DOMs verwendet wird.
+> Dies hat keine Wirkung, wenn es außerhalb eines Shadow DOM verwendet wird.
+
+Die [Spezifität](/de/docs/Web/CSS/Specificity) von `:host-context()` entspricht der einer [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), plus die Spezifität des Selektors, der als Argument der Funktion übergeben wird.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-host-context.html", "tabbed-shorter")}}
 
@@ -46,11 +52,11 @@ p {
 
 ## Beispiele
 
-### Selektive Gestaltung von Shadow-Hosts
+### Selektive Stilgebung von Shadow Hosts
 
-Die folgenden Snippets stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([sehen Sie es sich auch live an](https://mdn.github.io/web-components-examples/host-selectors/)).
+Die folgenden Snippets stammen aus unserem [host-selectors Beispiel](https://github.com/mdn/web-components-examples/tree/main/host-selectors) ([siehe auch live](https://mdn.github.io/web-components-examples/host-selectors/)).
 
-In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<context-span>` — das Sie um Text herum platzieren können:
+In diesem Beispiel haben wir ein einfaches benutzerdefiniertes Element — `<context-span>` — mit dem Sie Text umschließen können:
 
 ```html
 <h1>
@@ -77,7 +83,7 @@ style.textContent =
   ":host { background: rgb(0 0 0 / 10%); padding: 2px 5px; }";
 ```
 
-Die `:host-context(h1) { font-style: italic; }` und `:host-context(h1):after { content: " - no links in headers!" }` Regeln gestalten die Instanz des `<context-span>` Elements (den Shadow-Host in diesem Fall) innerhalb des `<h1>`. Wir haben es verwendet, um klarzustellen, dass das benutzerdefinierte Element nicht innerhalb des `<h1>` in unserem Design erscheinen sollte.
+Die Regeln `:host-context(h1) { font-style: italic; }` und `:host-context(h1):after { content: " - no links in headers!" }` stylen die Instanz des `<context-span>`-Elements (in diesem Fall der Shadow Host) innerhalb des `<h1>`. Wir haben es verwendet, um klarzumachen, dass das benutzerdefinierte Element nicht innerhalb des `<h1>` in unserem Design erscheinen sollte.
 
 ## Spezifikationen
 
@@ -89,7 +95,7 @@ Die `:host-context(h1) { font-style: italic; }` und `:host-context(h1):after { c
 
 ## Siehe auch
 
-- [Webkomponenten](/de/docs/Web/API/Web_components)
+- [Web Components](/de/docs/Web/API/Web_components)
 - CSS {{cssxref(":host")}} Pseudoklasse
 - CSS {{cssxref(":host_function", ":host()")}} Pseudoklasse
 - CSS {{cssxref(":state",":state()")}} Pseudoklasse

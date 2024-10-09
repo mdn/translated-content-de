@@ -1,16 +1,16 @@
 ---
-title: "Response: json() statische Methode"
+title: "Response: json()-statische Methode"
 short-title: json()
 slug: Web/API/Response/json_static
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`json()`** statische Methode der [`Response`](/de/docs/Web/API/Response)-Schnittstelle gibt ein `Response` zurück, das die bereitgestellten JSON-Daten als Body enthält und einen {{HTTPHeader("Content-Type")}}-Header, der auf `application/json` gesetzt ist. Der Status der Antwort, die Statusnachricht und zusätzliche Header können ebenfalls festgelegt werden.
+Die **`json()`**-statische Methode des [`Response`](/de/docs/Web/API/Response)-Interfaces gibt eine `Response` zurück, die die angegebenen JSON-Daten als Body enthält und einen {{HTTPHeader("Content-Type")}}-Header, der auf `application/json` gesetzt ist. Der Antwortstatus, Statusmeldung und zusätzliche Header können ebenfalls festgelegt werden.
 
-Die Methode erleichtert das Erstellen von `Response`-Objekten, um JSON-kodierte Daten zurückzugeben. [Service Worker](/de/docs/Web/API/Service_Worker_API) beispielsweise fangen Fetch-Anfragen auf, die von einem Browser gestellt werden, und könnten `json()` verwenden, um ein `Response`-Objekt aus zwischengespeicherten JSON-Daten zu konstruieren, das an den Hauptthread zurückgegeben wird. Die `json()`-Methode kann auch in Servercode verwendet werden, um JSON-Daten für {{Glossary("SPA", "Single-Page-Anwendungen")}} und alle anderen Anwendungen, bei denen eine JSON-Antwort erwartet wird, zurückzugeben.
+Die Methode erleichtert das Erstellen von `Response`-Objekten zum Zurückgeben von JSON-codierten Daten. [Service Worker](/de/docs/Web/API/Service_Worker_API) zum Beispiel fangen Fetch-Anfragen, die von einem Browser gesendet werden, ab und könnten `json()` verwenden, um eine `Response` aus zwischengespeicherten JSON-Daten zu erstellen, die an den Hauptthread zurückgegeben wird. Die `json()`-Methode kann auch im Servercode verwendet werden, um JSON-Daten für {{Glossary("SPA", "Single-Page-Anwendungen")}} und alle anderen Anwendungen, bei denen eine JSON-Antwort erwartet wird, zurückzugeben.
 
 ## Syntax
 
@@ -22,19 +22,17 @@ Response.json(data, options)
 ### Parameter
 
 - `data`
-  - : Die JSON-Daten, die als Antwortbody verwendet werden sollen.
+  - : Die JSON-Daten, die als Antwort-Body verwendet werden sollen.
 - `options` {{optional_inline}}
 
-  - : Ein Optionsobjekt, das Einstellungen für die Antwort enthält, einschließlich des Statuscodes, des Statustexts und der Header.
-    Dies ist dasselbe wie der Optionsparameter des [`Response()`](/de/docs/Web/API/Response/Response)-Konstruktors.
+  - : Ein Optionsobjekt, das Einstellungen für die Antwort enthält, einschließlich Statuscode, Statusmeldung und Header. Dies entspricht dem Optionsparameter des [`Response()`](/de/docs/Web/API/Response/Response)-Konstruktors.
 
     - `status`
-      - : Der Statuscode für die Antwort, zum Beispiel `200`.
+      - : Der Statuscode für die Antwort, wie z. B. `200`.
     - `statusText`
-      - : Die Statusnachricht, die mit dem Statuscode verknüpft ist.
-        Für einen Status von `200` könnte dies `OK` sein.
+      - : Die Statusmeldung, die mit dem Statuscode verknüpft ist. Bei einem Status von `200` könnte dies `OK` sein.
     - `headers`
-      - : Beliebige Header, die Sie Ihrer Antwort hinzufügen möchten, enthalten in einem [`Headers`](/de/docs/Web/API/Headers)-Objekt oder einem Objektliteral von {{jsxref("String")}}-Schlüssel/Wert-Paaren (siehe [HTTP-Header](/de/docs/Web/HTTP/Headers) für eine Referenz).
+      - : Alle Header, die Sie Ihrer Antwort hinzufügen möchten, enthalten in einem [`Headers`](/de/docs/Web/API/Headers)-Objekt oder Objektliteral von {{jsxref("String")}}-Schlüssel/Wert-Paaren (siehe [HTTP-Header](/de/docs/Web/HTTP/Headers) für eine Referenz).
 
 ### Rückgabewert
 
@@ -43,8 +41,7 @@ Ein [`Response`](/de/docs/Web/API/Response)-Objekt.
 ### Ausnahmen
 
 - `TypeError`
-  - : Wird ausgelöst, wenn `data` nicht in einen JSON-String konvertiert werden kann.
-    Dies könnte passieren, wenn die Daten ein JavaScript-Objekt mit Methoden oder mit einer zirkulären Referenz sind oder wenn das übergebene Objekt `undefined` ist.
+  - : Wird ausgelöst, wenn `data` nicht in einen JSON-String konvertiert werden kann. Dies könnte passieren, wenn die Daten ein JavaScript-Objekt mit Methode oder einer zirkulären Referenz sind, oder wenn das übergebene Objekt `undefined` ist.
 
 ## Beispiele
 
@@ -76,14 +73,14 @@ async function logResponse(response) {
 }
 ```
 
-Der untenstehende Code erstellt ein `Response`-Objekt mit JSON-Body `{ my: "data" }` und Header auf `application/json` gesetzt.
+Der untenstehende Code erstellt ein `Response`-Objekt mit JSON-Body `{ my: "data" }` und Header, der auf `application/json` gesetzt ist.
 
 ```js
 const jsonResponse = Response.json({ my: "data" });
 logResponse(jsonResponse);
 ```
 
-Das Objekt hat die folgenden Eigenschaften. Beachten Sie, dass der Body und der Header wie erwartet gesetzt sind und der Standardstatus auf `200` eingestellt ist.
+Das Objekt hat die folgenden Eigenschaften. Beachten Sie, dass der Body und der Header wie erwartet gesetzt sind und der Standardstatus auf `200` gesetzt ist.
 
 {{EmbedLiveSample('Response with JSON data','100%', '170')}}
 
@@ -115,7 +112,7 @@ async function logResponse(response) {
 }
 ```
 
-Der untenstehende Code erstellt ein `Response`-Objekt mit JSON-Body `{ some: "data", more: "information" }` und Header auf `application/json` gesetzt. Es setzt auch den Status auf `307` und setzt den entsprechenden Statustext ("Temporary Redirect").
+Der untenstehende Code erstellt ein `Response`-Objekt mit JSON-Body `{ some: "data", more: "information" }` und Header, der auf `application/json` gesetzt ist. Es setzt außerdem den Status auf `307` und setzt den entsprechenden Status-Text ("Temporary Redirect").
 
 ```js
 const jsonResponse = Response.json(
@@ -125,7 +122,7 @@ const jsonResponse = Response.json(
 logResponse(jsonResponse);
 ```
 
-Das Objekt hat die folgenden Eigenschaften, die wie erwartet gesetzt sind. Beachten Sie, dass die `ok`-Eigenschaft der Antwort auf `false` geändert wurde, da der Statuswert nicht im Bereich von 200 bis 299 liegt.
+Das Objekt hat die folgenden Eigenschaften, die wie erwartet gesetzt sind. Beachten Sie, dass sich die `ok`-Eigenschaft der Antwort auf `false` ändert, da der Statuswert nicht im Bereich von 200 bis 299 liegt.
 
 {{EmbedLiveSample('Response with JSON data and options','100%', '170')}}
 

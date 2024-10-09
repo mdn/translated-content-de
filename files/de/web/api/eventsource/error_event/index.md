@@ -1,20 +1,20 @@
 ---
-title: "EventSource: Fehlerereignis"
-short-title: Fehler
+title: "EventSource: error-Ereignis"
+short-title: error
 slug: Web/API/EventSource/error_event
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: a166ba48ceb8bccb37c67a0a8856b0e5b12e0135
 ---
 
-{{APIRef}}
+{{APIRef("Server Sent Events")}}{{AvailableInWorkers}}
 
-Das `error`-Ereignis der [`EventSource`](/de/docs/Web/API/EventSource)-API wird ausgelöst, wenn eine Verbindung zu einer Ereignisquelle nicht geöffnet werden kann.
+Das **`error`**-Ereignis der [`EventSource`](/de/docs/Web/API/EventSource) API wird ausgelöst, wenn eine Verbindung zu einer Ereignisquelle nicht geöffnet werden kann.
 
-Dieses Ereignis kann nicht abgebrochen werden und löst keine Bubbling-Effekte aus.
+Dieses Ereignis kann nicht abgebrochen werden und steigt nicht auf.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Event-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -52,6 +52,6 @@ evtSource.onerror = (e) => {
 
 ## Siehe auch
 
-- [Verwendung von Server-Sent Events](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
+- [Verwendung von servergesendeten Ereignissen](/de/docs/Web/API/Server-sent_events/Using_server-sent_events)
 - [`open`](/de/docs/Web/API/EventSource/open_event)
 - [`message`](/de/docs/Web/API/EventSource/message_event)

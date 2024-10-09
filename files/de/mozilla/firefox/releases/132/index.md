@@ -2,12 +2,12 @@
 title: Firefox 132 für Entwickler
 slug: Mozilla/Firefox/Releases/132
 l10n:
-  sourceCommit: e8d7c91c9cc01f9dea6b0675389d6f9761f9f15d
+  sourceCommit: a96eef6122bc94bec451a2dbc1a59b280afcd450
 ---
 
 {{FirefoxSidebar}}
 
-Dieser Artikel bietet Informationen über die Änderungen in Firefox 132, die Entwickler betreffen. Firefox 132 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#beta) und wird am [29. Oktober 2024](https://whattrainisitnow.com/release/?version=132) veröffentlicht.
+Dieser Artikel enthält Informationen über die Änderungen in Firefox 132, die Entwickler betreffen. Firefox 132 ist die aktuelle [Beta-Version von Firefox](https://www.mozilla.org/en-US/firefox/channel/desktop/#beta) und wird am [29. Oktober 2024](https://whattrainisitnow.com/release/?version=132) veröffentlicht.
 
 ## Änderungen für Webentwickler
 
@@ -15,27 +15,27 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 132, die En
 
 ### HTML
 
-#### Entfernungen
+#### Entfernt
 
 ### CSS
 
-#### Entfernungen
+#### Entfernt
 
 ### JavaScript
 
-#### Entfernungen
+#### Entfernt
 
 ### SVG
 
-#### Entfernungen
+#### Entfernt
 
 ### HTTP
 
-#### Entfernungen
+#### Entfernt
 
 ### Sicherheit
 
-#### Entfernungen
+#### Entfernt
 
 ### APIs
 
@@ -43,11 +43,11 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 132, die En
 
 #### Medien, WebRTC und Web Audio
 
-#### Entfernungen
+#### Entfernt
 
 ### WebAssembly
 
-#### Entfernungen
+#### Entfernt
 
 ### WebDriver-Konformität (WebDriver BiDi, Marionette)
 
@@ -59,13 +59,15 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 132, die En
 
 ## Änderungen für Add-on-Entwickler
 
-### Entfernungen
+### Entfernt
 
-### Sonstiges
+### Sonstige
 
 ## Experimentelle Web-Features
 
-Diese Features sind neu in Firefox 132 enthalten, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Funktionen werden in Firefox 132 neu ausgeliefert, sind aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der Seite `about:config` nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+
+- **`Promise.try()`**: <code>javascript.options.experimental.promise_try</code>. {{jsxref("Promise.try()")}} ist eine bequeme Methode, die einen Rückruf jeglicher Art (gibt zurück oder wirft, synchron oder asynchron) entgegennimmt und ihr Ergebnis in einem {{jsxref("Promise")}} verpackt, so dass Promise-Semantiken (z.B. {{jsxref("Promise.then", ".then()")}}, {{jsxref("Promise.catch", ".catch()")}}) verwendet werden können, um es zu verwalten ([Firefox-Bug 1905364](https://bugzil.la/1905364)).
 
 ## Ältere Versionen
 

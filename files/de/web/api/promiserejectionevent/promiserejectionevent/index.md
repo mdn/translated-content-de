@@ -1,18 +1,18 @@
 ---
-title: "PromiseRejectionEvent: PromiseRejectionEvent()-Konstruktor"
+title: "PromiseRejectionEvent: PromiseRejectionEvent() Konstruktor"
 short-title: PromiseRejectionEvent()
 slug: Web/API/PromiseRejectionEvent/PromiseRejectionEvent
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: bcb3ff5a0fd5080c2ce109d0eb17831b6ef57a2d
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
-Der **`PromiseRejectionEvent()`**-Konstruktor gibt ein neues [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)-Objekt zurück, das Ereignisse darstellt, die ausgelöst werden, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird.
+Der **`PromiseRejectionEvent()`** Konstruktor gibt ein neues [`PromiseRejectionEvent`](/de/docs/Web/API/PromiseRejectionEvent)-Objekt zurück, das Ereignisse darstellt, die ausgelöst werden, wenn ein JavaScript-{{jsxref("Promise")}} abgelehnt wird.
 
-Mit Ereignissen der Promise-Ablehnung ist es möglich, fehlgeschlagene Promises zu erkennen und zu melden, deren Fehlschläge unbemerkt bleiben. Es wird auch einfacher, einen globalen Fehlerbehandler zu schreiben.
+Mit Promise-Ablehnungsereignissen wird es möglich, Promises zu erkennen und zu melden, die fehlschlagen und deren Fehler unbemerkt bleiben. Es wird auch einfacher, einen globalen Fehlerbehandler zu schreiben.
 
-Es gibt zwei Arten von `PromiseRejectionEvent`: [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event) wird von der JavaScript-Laufzeit gesendet, wenn ein Promise abgelehnt wird, aber die Ablehnung unbehandelt bleibt. Ein [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)-Ereignis wird ausgelöst, wenn ein Promise abgelehnt wird, aber die Ablehnung von einem Ablehnungs-Handler abgefangen wird.
+Es gibt zwei Arten von `PromiseRejectionEvent`: [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event) wird von der JavaScript-Laufzeit gesendet, wenn ein Promise abgelehnt wird, die Ablehnung jedoch nicht behandelt wird. Ein [`rejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)-Ereignis wird ausgegeben, wenn ein Promise abgelehnt wird, die Ablehnung jedoch von einem Ablehnungsbehandler erfasst wird.
 
 ## Syntax
 
@@ -23,21 +23,22 @@ new PromiseRejectionEvent(type, options)
 ### Parameter
 
 - `type`
-  - : Ein string mit dem Namen des Ereignisses. Er ist case-sensitiv, und Browser setzen ihn auf `rejectionhandled` oder `unhandledrejection`.
+  - : Ein String mit dem Namen des Ereignisses.
+    Es ist case-sensitiv und Browser setzen es auf `rejectionhandled` oder `unhandledrejection`.
 - `options`
-  - : Ein Objekt, das zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `promise`
-      - : Das {{jsxref("Promise")}}, das abgelehnt wurde.
+      - : Das abgelehnte {{jsxref("Promise")}}.
     - `reason`
-      - : Ein beliebiger Wert oder ein {{jsxref("Object")}}, das den Grund für die Ablehnung des Promises darstellt. Dies kann alles sein, von einem numerischen Fehlercode bis hin zu einem Fehlerstring oder einem Objekt, das detaillierte Informationen enthält, die die Situation beschreiben, die zur Ablehnung des Promises geführt hat.
+      - : Jeder Wert oder ein {{jsxref("Object")}}, der den Grund für die Ablehnung des Promises darstellt. Dies kann alles sein, von einem numerischen Fehlercode über eine Fehlerzeichenkette bis hin zu einem Objekt, das detaillierte Informationen über die Situation enthält, die zum Ablehnen des Promises geführt hat.
 
 ### Rückgabewert
 
-Ein neues `PromiseRejectionEvent`-Objekt, das gemäß den angegebenen Parametern konfiguriert ist.
+Ein neues `PromiseRejectionEvent`-Objekt, konfiguriert gemäß den durch die Parameter spezifizierten Einstellungen.
 
 ## Beispiele
 
-Dieses Beispiel erstellt ein neues [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)-Ereignis für das Promise `myPromise` mit dem Grund "My house is on fire". Der `reason` könnte genauso gut eine Zahl oder ein Objekt mit detaillierten Informationen sein, einschließlich der Wohnadresse, wie ernst der Brand ist, und der Telefonnummer eines Notfallkontakts, der benachrichtigt werden sollte.
+Dieses Beispiel erstellt ein neues [`unhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)-Ereignis für das Promise `myPromise`, wobei der Grund der String "My house is on fire" ist. Der `reason` könnte genauso gut eine Zahl oder sogar ein Objekt mit detaillierten Informationen wie der Hausadresse, der Ernsthaftigkeit des Brandes und der Telefonnummer eines Notfallkontakts sein, der benachrichtigt werden sollte.
 
 ```js
 let myRejectionEvent = new PromiseRejectionEvent("unhandledrejection", {

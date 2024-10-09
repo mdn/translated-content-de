@@ -3,12 +3,13 @@ title: "USBDevice: configuration-Eigenschaft"
 short-title: configuration
 slug: Web/API/USBDevice/configuration
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`configuration`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt für das derzeit ausgewählte Interface eines verbundenen USB-Geräts zurück.
+Die **`configuration`**-Nur-Leseeigenschaft des
+[`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces gibt ein [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt für das derzeit ausgewählte Interface eines verbundenen USB-Geräts zurück.
 
 ## Wert
 
@@ -16,7 +17,8 @@ Ein [`USBConfiguration`](/de/docs/Web/API/USBConfiguration)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet diese Eigenschaft, um das Vorhandensein einer USBConfiguration-Eigenschaft zu testen, um eine Konfiguration auszuwählen, bevor es ein Interface beansprucht.
+Das folgende Beispiel nutzt diese Eigenschaft, um das Vorhandensein einer
+USBConfiguration-Eigenschaft zu prüfen, um vor dem Beanspruchen eines Interfaces eine Konfiguration auszuwählen.
 
 ```js
 async function connectDevice(usbDevice) {

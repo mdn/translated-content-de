@@ -1,17 +1,14 @@
 ---
-title: "CharacterData: Methode insertData()"
+title: "CharacterData: insertData()-Methode"
 short-title: insertData()
 slug: Web/API/CharacterData/insertData
 l10n:
-  sourceCommit: 502e8c3f0be95c6f42afe6a72113b029b290b9e8
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("DOM")}}
 
-Die **`insertData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces
-fügt die bereitgestellten Daten in die aktuellen Daten dieses `CharacterData`-Knotens ein,
-an dem angegebenen Offset ab dem Anfang der vorhandenen Daten.
-Die bereitgestellten Daten werden in die vorhandenen Daten eingefügt.
+Die **`insertData()`**-Methode der [`CharacterData`](/de/docs/Web/API/CharacterData)-Schnittstelle fügt die bereitgestellten Daten in die aktuellen Daten dieses `CharacterData`-Nodes ein, und zwar an der angegebenen Position ab dem Beginn der vorhandenen Daten. Die bereitgestellten Daten werden in die vorhandenen Daten eingefügt.
 
 ## Syntax
 
@@ -22,8 +19,7 @@ characterData.insertData(offset, data)
 ### Parameter
 
 - `offset`
-  - : Die Anzahl der Zeichen, an denen die bereitgestellten Daten eingesetzt werden sollen.
-    `0` ist das erste Zeichen der Zeichenkette.
+  - : Die Offset-Anzahl der Zeichen, bei der die bereitgestellten Daten eingefügt werden sollen. `0` ist das erste Zeichen der Zeichenkette.
 - `data`
   - : Die einzufügenden Daten.
 
@@ -34,7 +30,7 @@ Keiner.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Offset negativ oder größer als die Länge der enthaltenen Daten ist.
+  - : Wird ausgelöst, wenn der Offset negativ oder größer ist als die Länge der enthaltenen Daten.
 
 ## Beispiel
 
@@ -44,9 +40,9 @@ Keiner.
 
 ```js
 const span = document.querySelector("span");
-const textnode = span.nextSibling;
+const textNode = span.nextSibling;
 
-textnode.insertData(2, "long ");
+textNode.insertData(2, "long ");
 ```
 
 {{EmbedLiveSample("Example", "100%", 50)}}

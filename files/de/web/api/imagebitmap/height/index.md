@@ -3,12 +3,16 @@ title: "ImageBitmap: height-Eigenschaft"
 short-title: height
 slug: Web/API/ImageBitmap/height
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: e899c6240801be991f92571b36132a1b6b387462
 ---
 
-{{APIRef("Canvas API")}}
+{{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ImageBitmap.height`**-Eigenschaft gibt die Höhe des [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekts in CSS-Pixeln zurück.
+Die schreibgeschützte Eigenschaft **`ImageBitmap.height`** gibt die Höhe des [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekts in CSS-Pixeln zurück.
+
+## Wert
+
+Eine Zahl, die die Höhe des [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekts in CSS-Pixeln darstellt.
 
 ## Spezifikationen
 

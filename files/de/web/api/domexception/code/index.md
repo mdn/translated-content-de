@@ -3,18 +3,18 @@ title: "DOMException: code-Eigenschaft"
 short-title: code
 slug: Web/API/DOMException/code
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{ APIRef("DOM") }} {{deprecated_header}}
+{{APIRef("DOM")}}{{AvailableInWorkers}}{{deprecated_header}}
 
-Die schreibgeschützte **`code`**-Eigenschaft der [`DOMException`](/de/docs/Web/API/DOMException)-Schnittstelle gibt eine der veralteten [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names) oder `0` zurück, wenn keine übereinstimmen.
+Die **`code`**-Eigenschaft des [`DOMException`](/de/docs/Web/API/DOMException)-Interfaces, die nur lesbar ist, gibt einen der veralteten [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names) zurück, oder `0`, wenn keine übereinstimmen.
 
-Dieses Feld wird aus historischen Gründen verwendet. Neue DOM-Ausnahmen verwenden dies nicht mehr: Sie legen diese Informationen im [`DOMException.name`](/de/docs/Web/API/DOMException/name)-Attribut ab.
+Dieses Feld wird aus historischen Gründen verwendet. Neue DOM-Ausnahmen verwenden dies nicht mehr: Sie fügen diese Information in das [`DOMException.name`](/de/docs/Web/API/DOMException/name)-Attribut ein.
 
 ## Wert
 
-Eine der [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names) oder `0`, wenn keine übereinstimmen.
+Eine der [Fehlercode-Konstanten](/de/docs/Web/API/DOMException#error_names), oder `0`, wenn keine übereinstimmen.
 
 ## Spezifikationen
 

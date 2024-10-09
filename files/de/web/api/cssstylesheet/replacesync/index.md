@@ -3,14 +3,14 @@ title: "CSSStyleSheet: Methode replaceSync()"
 short-title: replaceSync()
 slug: Web/API/CSSStyleSheet/replaceSync
 l10n:
-  sourceCommit: c7edf2734fccb185c5e93ee114ea3d5edc0177b5
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`replaceSync()`**-Methode des [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Interfaces ersetzt synchron den Inhalt des Stylesheets mit dem übergebenen Inhalt.
+Die **`replaceSync()`**-Methode der [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)-Schnittstelle ersetzt synchron den Inhalt des Stylesheets mit dem übergebenen Inhalt.
 
-Die Methoden `replaceSync()` und [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace) können nur auf einem Stylesheet verwendet werden, das mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor erstellt wurde.
+Die Methoden `replaceSync()` und [`CSSStyleSheet.replace()`](/de/docs/Web/API/CSSStyleSheet/replace) können nur bei einem Stylesheet verwendet werden, das mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor erstellt wurde.
 
 ## Syntax
 
@@ -22,10 +22,10 @@ replaceSync(text)
 
 - `text`
 
-  - : Ein String, der die Stilregeln enthält, um den Inhalt des Stylesheets zu ersetzen. Wenn der String keine parsebare Liste von Regeln enthält, wird der Wert auf einen leeren String gesetzt.
+  - : Ein String, der die Stilregeln enthält, um den Inhalt des Stylesheets zu ersetzen. Wenn der String keine parsbare Liste von Regeln enthält, wird der Wert auf einen leeren String gesetzt.
 
     > [!NOTE]
-    > Wenn einige der in `text` übergebenen Regeln ein externes Stylesheet sind, das mit der {{cssxref("@import")}}-Regel importiert wurde, werden diese Regeln entfernt und eine Warnung wird in der Konsole ausgegeben.
+    > Wenn eine der in `text` übergebenen Regeln ein externes Stylesheet ist, das mit der {{cssxref("@import")}}-Regel importiert wurde, werden diese Regeln entfernt, und eine Warnung wird in die Konsole ausgegeben.
 
 ### Rückgabewert
 
@@ -34,11 +34,11 @@ Keiner (`undefined`).
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn das Stylesheet nicht mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor erstellt wurde oder wenn das Stylesheet als unveränderlich gekennzeichnet ist.
+  - : Wird ausgelöst, wenn das Stylesheet nicht mit dem [`CSSStyleSheet()`](/de/docs/Web/API/CSSStyleSheet/CSSStyleSheet)-Konstruktor erstellt wurde oder das Stylesheet als nicht modifizierbar gekennzeichnet ist.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues Stylesheet erstellt und es werden zwei CSS-Regeln mit `replaceSync` hinzugefügt.
+Im folgenden Beispiel wird ein neues Stylesheet erstellt und zwei CSS-Regeln werden mit `replaceSync` hinzugefügt.
 
 ```js
 const stylesheet = new CSSStyleSheet();
@@ -56,5 +56,5 @@ stylesheet.replaceSync("body { font-size: 1.4em; } p { color: red; }");
 
 ## Siehe auch
 
-- [Konstruktible Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
+- [Konstruktion von Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)
 - [Verwendung des Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)

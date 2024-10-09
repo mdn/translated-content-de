@@ -2,76 +2,67 @@
 title: "ARIA: menu Rolle"
 slug: Web/Accessibility/ARIA/Roles/menu_role
 l10n:
-  sourceCommit: 019ca5c9ce641bfa02825e1ba0444f35dfb646cc
+  sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
 ---
 
 {{AccessibilitySidebar}}
 
-Die `menu` Rolle ist eine Art Komposit-Widget, das eine Liste von Auswahlmöglichkeiten für den Benutzer bietet.
+Die `menu`-Rolle ist eine Art zusammengesetztes Widget, das dem Benutzer eine Liste von Auswahlmöglichkeiten bietet.
 
 ## Beschreibung
 
-Ein `menu` stellt im Allgemeinen eine Gruppierung von üblichen Aktionen oder Funktionen dar, die der Benutzer ausführen kann. Die `menu` Rolle ist geeignet, wenn eine Liste von Menüelementen in einer Art und Weise präsentiert wird, die einem Menü in einer Desktop-Anwendung ähnelt. Untermenüs, auch bekannt als Kontextmenüs, haben ebenfalls die Rolle `menu`.
+Ein `menu` stellt im Allgemeinen eine Gruppierung von üblichen Aktionen oder Funktionen dar, die der Benutzer ausführen kann. Die `menu`-Rolle ist geeignet, wenn eine Liste von Menüelementen in einer Art und Weise präsentiert wird, die einem Menü in einer Desktop-Anwendung ähnelt. Untermenüs, auch bekannt als Pop-up-Menüs, haben ebenfalls die Rolle `menu`.
 
-Während der Begriff "Menü" häufig als beschreibender Begriff für die Navigation auf Websites verwendet wird, ist die `menu` Rolle für eine Liste von Aktionen oder Funktionen gedacht, die komplexe Funktionalitäten erfordern, wie z. B. die Verwaltung des Fokus in Komposit-Widgets und die Navigation mit dem ersten Zeichen.
+Während der Begriff "Menü" allgemein verwendet wird, um die Seitennavigation zu beschreiben, ist die `menu`-Rolle für eine Liste von Aktionen oder Funktionen gedacht, die eine komplexe Funktionalität erfordern, wie z.B. das Fokusmanagement für zusammengesetzte Widgets und die Navigation über den ersten Buchstaben.
 
-Ein Menü kann eine dauerhaft sichtbare Liste von Steuerungen oder ein Widget sein, das geöffnet und geschlossen werden kann. Ein geschlossenes `menu` Widget wird normalerweise geöffnet, indem ein Menüschalter aktiviert wird, ein Element in einem Menü ausgewählt wird, das ein Untermenü öffnet, oder durch Ausführen eines Befehls, wie etwa <kbd>Shift + F10</kbd> in Windows, das ein kontextspezifisches Menü öffnet.
+Ein Menü kann eine dauerhaft sichtbare Liste von Steuerungen sein oder ein Widget, das geöffnet und geschlossen werden kann. Ein geschlossenes `menu`-Widget wird in der Regel geöffnet oder sichtbar gemacht, indem eine Menütaste aktiviert, ein Element in einem Menü ausgewählt wird, das ein Untermenü öffnet, oder ein Befehl aufgerufen wird, wie z.B. <kbd>Shift + F10</kbd> in Windows, das ein kontextspezifisches Menü öffnet.
 
-Wenn ein Benutzer eine Auswahl in einem geöffneten Menü aktiviert, schließt sich das Menü normalerweise. Wenn die Menüauswahl ein Untermenü aufruft, bleibt das Menü geöffnet und das Untermenü wird angezeigt.
+Wenn ein Benutzer eine Auswahl in einem geöffneten Menü aktiviert, schließt sich das Menü in der Regel. Wenn die Menüauswahl ein Untermenü aufruft, bleibt das Menü geöffnet und das Untermenü wird angezeigt.
 
-Wenn ein Menü geöffnet wird, wird der Tastaturfokus auf das erste Menüelement gesetzt. Um tastaturzugänglich zu sein, müssen Sie den [Fokus verwalten](https://usability.yale.edu/web-accessibility/articles/focus-keyboard-operability) für alle Nachkommen: alle Menüelemente innerhalb des `menu` sind fokussierbar. Der Menüschalter, der das Menü öffnet, und die Menüelemente, nicht jedoch das Menü selbst, sind die fokussierbaren Elemente.
+Wenn ein Menü geöffnet wird, wird der Tastaturfokus auf das erste Menüelement gesetzt. Um Tastaturzugänglichkeit zu gewährleisten, müssen Sie den [Fokus verwalten](https://usability.yale.edu/web-accessibility/articles/focus-keyboard-operability) für alle Nachkommen: alle Menüeinträge innerhalb des `menu` sind fokussierbar. Die Menütaste, die das Menü öffnet, und die Menüeinträge, nicht das Menü selbst, sind die fokussierbaren Elemente.
 
-Menüelemente umfassen [`menuitem`](/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role) und [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role). [Deaktivierte](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled) Menüelemente sind fokussierbar, können aber nicht aktiviert werden.
+Menüeinträge umfassen [`menuitem`](/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role) und [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role). [Deaktivierte](/de/docs/Web/Accessibility/ARIA/Attributes/aria-disabled) Menüelemente sind fokussierbar, aber nicht aktivierbar.
 
-Menüelemente können in Elementen mit der [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) Rolle gruppiert und durch Elemente mit der Rolle [`separator`](/de/docs/Web/Accessibility/ARIA/Roles/separator_role) getrennt werden. Weder `group` noch `separator` erhalten Fokus oder sind interaktiv.
+Menüeinträge können in Elementen mit der Rolle [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) gruppiert und durch Elemente mit der Rolle [`separator`](/de/docs/Web/Accessibility/ARIA/Roles/separator_role) getrennt werden. Weder `group` noch `separator` erhalten Fokus oder sind interaktiv.
 
-Wenn ein `menu` als Ergebnis einer Kontextaktion geöffnet wird, kann <kbd>Escape</kbd> oder <kbd>Enter</kbd> den Fokus auf den auslösenden Kontext zurücksetzen. Wenn der Fokus auf dem Menüschalter war, öffnet <kbd>Enter</kbd> das Menü und gibt den Fokus auf das erste Menüelement. Wenn der Fokus auf dem Menü selbst liegt, schließt <kbd>Escape</kbd> das Menü und setzt den Fokus auf den Menüschalter oder das übergeordnete Menübalkenelement (oder die Kontextaktion, die das Menü geöffnet hat).
+Wenn ein `menu` als Ergebnis einer Kontextaktion geöffnet wird, kann <kbd>Escape</kbd> oder <kbd>Enter</kbd> den Fokus auf den auslösenden Kontext zurückbringen. Wenn der Fokus auf der Menütaste lag, öffnet <kbd>Enter</kbd> das Menü und gibt den Fokus auf das erste Menüelement. Wenn der Fokus auf dem Menü selbst ist, schließt <kbd>Escape</kbd> das Menü und gibt den Fokus auf die Menütaste oder das übergeordnete Menüleistelement (oder die Kontextaktion, die das Menü geöffnet hat) zurück.
 
-Elemente mit der Rolle `menu` haben einen impliziten [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation) Wert von `vertikal`. Für horizontal ausgerichtete Menüs verwenden Sie [`aria-orientation="horizontal"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation).
+Elemente mit der Rolle `menu` haben einen impliziten [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation) Wert von `vertical`. Für horizontal ausgerichtete Menüs verwenden Sie [`aria-orientation="horizontal"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation).
 
-Wenn das Menü visuell persistent ist, erwägen Sie die [`menubar`](/de/docs/Web/Accessibility/ARIA/Roles/menubar_role) Rolle stattdessen.
+Wenn das Menü visuell persistent ist, überlegen Sie, die Rolle [`menubar`](/de/docs/Web/Accessibility/ARIA/Roles/menubar_role) zu verwenden.
 
-### Zugehörige WAI-ARIA Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
-- [`menuitem`](/de/docs/Web/Accessibility/ARIA/Roles/menuitem_role), [`menuitemcheckbox`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role), und [`menuitemradio`](/de/docs/Web/Accessibility/ARIA/Roles/menuitemradio_role) Rollen
-  - : Rollen von Elementen innerhalb eines `menu` oder `menubar`, die kollektiv als "Menüelemente" bekannt sind und fokussierbar sein müssen.
-- [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) Rolle
-  - : Menüelemente können in einem [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) verschachtelt werden
-- [`separator`](/de/docs/Web/Accessibility/ARIA/Roles/separator_role) Rolle
+- Rollen von Elementen, die in einem enthaltenden `menu` oder `menubar` enthalten sind, bekannt zusammenfassend als "Menüelemente". Diese müssen den Fokus erhalten können.
+- Menüelemente können in einem [`group`](/de/docs/Web/Accessibility/ARIA/Roles/group_role) verschachtelt werden.
+- Ein Trenner, der Abschnitte von Inhalten oder Gruppen von Menüelementen innerhalb des Menüs trennt und unterscheidet.
 
-  - : Ein Trenner, der Abschnitte von Inhalten oder Gruppen von Menüelementen innerhalb des Menüs voneinander unterscheidet
-
-- [`tabindex`](/de/docs/Web/HTML/Global_attributes#tabindex) Attribut
-  - : Der `menu` Container hat `tabindex` auf `-1` oder `0` gesetzt, und jedes Element im Menü hat `tabindex` auf `-1`.
-- [`aria-activedescendant`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant)
-  - : Setzt auf die ID des fokussierten Elements, falls vorhanden.
-- [`aria-orientation`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-orientation)
-  - : Gibt an, ob die Menüausrichtung horizontal oder vertikal ist; Standard ist `vertikal`, wenn ausgelassen.
-- [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
-  - : Das `menu` muss einen zugänglichen Namen haben. Verwenden Sie `aria-labelledby`, wenn ein sichtbares Label vorhanden ist, ansonsten verwenden Sie `aria-label`. Entweder setzen Sie `aria-labelledby` auf die `id` des `menuitem` oder `button`, das seine Anzeige steuert, oder verwenden Sie `aria-label`, um das Label zu definieren.
-- [`aria-owns`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-owns)
-  - : Nur beim Menücontainer setzen, um Elemente einzubeziehen, die keine DOM-Kinder des Containers sind. Wenn gesetzt, erscheinen diese Elemente in der Lese-Reihenfolge in der angegebenen Reihenfolge und nach allen DOM-Kindern. Stellen Sie sicher, dass die visuelle Fokus-Reihenfolge mit dieser assistiven Technologie-Lesereihenfolge übereinstimmt, wenn Sie den Fokus verwalten.
+  - Das `menu`-Container hat `tabindex` auf `-1` oder `0` gesetzt, und jedes Element im Menü hat `tabindex` auf `-1`.
+  - : Setzen Sie auf die ID des fokussierten Elements, falls vorhanden.
+  - : Zeigt an, ob die Menürichtung horizontal oder vertikal ist; standardmäßig `vertical`, falls weggelassen.
+  - : Das `menu` benötigt einen zugänglichen Namen. Verwenden Sie `aria-labelledby`, falls ein sichtbares Label vorhanden ist, andernfalls verwenden Sie `aria-label`. Entweder das `aria-labelledby` auf die `id` des `menuitem` oder `button` setzen, der die Anzeige steuert, oder `aria-label` verwenden, um das Label zu definieren.
+  - : Nur auf den Menücontainer setzen, um Elemente einzuschließen, die keine DOM-Kinder des Containers sind. Wenn gesetzt, erscheinen diese Elemente in der Reihenfolge, in der sie referenziert werden, und nach allen Elementen, die DOM-Kinder sind. Beim Verwalten des Fokus sicherstellen, dass die visuelle Fokusreihenfolge mit dieser Lesereihenfolge für Hilfstechnologien übereinstimmt.
 
 ### Tastaturinteraktionen
 
 - <kbd>Space</kbd> / <kbd>Enter</kbd>
-  - : Wenn das Element ein übergeordnetes Menüelement ist, öffnet es das Untermenü und verschiebt den Fokus auf das erste Element im Untermenü. Andernfalls aktiviert es das Menüelement, das neue Inhalte lädt und den Fokus auf die Überschrift setzt, die den Inhalt betitelt.
+  - : Wenn das Element ein übergeordnetes Menüelement ist, öffnet es das Untermenü und verschiebt den Fokus auf das erste Element im Untermenü. Andernfalls wird das Menüelement aktiviert, das neue Inhalte lädt und den Fokus auf die Überschrift legt, die die Inhalte betitelt.
 - <kbd>Escape</kbd>
-  - : Wenn Sie sich in einem Untermenü befinden, schließt es das Untermenü und verschiebt den Fokus auf das übergeordnete Menü- oder Menübalkenelement.
-- <kbd>Right Arrow</kbd>
-  - : In einer Menübalken bewegt sich der Fokus auf das nächste Element im Menübalken. Wenn der Fokus auf dem letzten Element liegt, wird der Fokus auf das erste Element verschoben. Wenn Sie sich in einem Untermenü befinden und der Fokus auf einem Element liegt, das kein Untermenü hat, schließt es das Untermenü und verschiebt den Fokus auf das nächste Element im Menübalken. Andernfalls öffnet es das Untermenü des neu fokussierten Menübalkenelements unter Beibehaltung des Fokus auf diesem übergeordneten Menübalkenelement. Wenn nicht in einer Menübalken oder Untermenü und nicht auf einem `menuitem` mit einem Untermenü, falls der Fokus nicht das letzte fokussierbare Element im Menü ist, verschiebt es optional den Fokus auf das nächste fokussierbare Element.
-- <kbd>Left Arrow</kbd>
-  - : Verschiebt den Fokus auf das vorherige Element im Menübalken. Wenn der Fokus auf dem ersten Element liegt, wird der Fokus auf das letzte Element verschoben. Wenn Sie sich in einem Untermenü befinden, schließt es das Untermenü und verschiebt den Fokus auf das übergeordnete Menüelement. Wenn nicht in einem Menübalken oder Untermenü, falls der Fokus nicht das erste fokussierbare Element im Menü ist, verschiebt es optional den Fokus auf das letzte fokussierbare Element.
-- <kbd>Down Arrow</kbd>
+  - : Schließt ein Untermenü und verschiebt den Fokus auf das übergeordnete Menü oder Menüleistelement.
+- <kbd>Rechte Pfeiltaste</kbd>
+  - : In einer Menüleiste bewegt den Fokus zum nächsten Element in der Menüleiste. Wenn der Fokus auf dem letzten Element ist, bewegt er den Fokus auf das erste Element. In einem Untermenü, wenn der Fokus auf einem Element ist, das kein Untermenü hat, schließt es das Untermenü und verschiebt den Fokus auf das nächste Element in der Menüleiste. Andernfalls öffnet es das Untermenü des neu fokussierten Menüleistelements, während der Fokus auf diesem übergeordneten Menüleistelement bleibt. Wenn nicht in einer Menüleiste oder einem Untermenü und nicht auf einem `menuitem` mit einem Untermenü, wenn der Fokus nicht das letzte fokussierbare Element im Menü ist, verschiebt er optional den Fokus zum nächsten fokussierbaren Element.
+- <kbd>Linke Pfeiltaste</kbd>
+  - : Verschiebt den Fokus zum vorherigen Element in der Menüleiste. Wenn der Fokus auf dem ersten Element ist, bewegt er den Fokus auf das letzte Element. In einem Untermenü schließt es das Untermenü und verschiebt den Fokus auf das übergeordnete Menüelement. Wenn nicht in einer Menüleiste oder einem Untermenü, wenn der Fokus nicht das erste fokussierbare Element im Menü ist, verschiebt er optional den Fokus auf das letzte fokussierbare Element.
+- <kbd>Pfeil nach unten</kbd>
   - : Öffnet das Untermenü und verschiebt den Fokus auf das erste Element im Untermenü.
-- <kbd>Up Arrow</kbd>
+- <kbd>Pfeil nach oben</kbd>
   - : Öffnet das Untermenü und verschiebt den Fokus auf das letzte Element im Untermenü.
 - <kbd>Home</kbd>
-  - : Verschiebt den Fokus auf das erste Element im Menübalken.
+  - : Verschiebt den Fokus auf das erste Element in der Menüleiste.
 - <kbd>End</kbd>
-  - : Verschiebt den Fokus auf das letzte Element im Menübalken.
-- Jede Zeichen-Taste
-  - : Verschiebt den Fokus auf das nächste Element im Menübalken, dessen Name mit dem getippten Zeichen beginnt. Wenn keines der Elemente einen Namen hat, der mit dem getippten Zeichen beginnt, bewegt sich der Fokus nicht.
+  - : Verschiebt den Fokus auf das letzte Element in der Menüleiste.
+- Beliebige Zeichentaste
+  - : Verschiebt den Fokus zum nächsten Element in der Menüleiste, dessen Name mit dem eingegebenen Zeichen beginnt. Wenn keines der Elemente einen Namen hat, der mit dem eingegebenen Zeichen beginnt, bewegt sich der Fokus nicht.
 
 ## Beispiele
 
@@ -113,13 +104,13 @@ Unten sind zwei Beispiele für Menüimplementierungen.
 </div>
 ```
 
-Um dieses Standardmäßig barrierefreie Navigationswidget schrittweise zu verbessern, sollte die Klasse zum Ausblenden des `menu` und das Hinzufügen von `tabindex="-1"` zum interaktiven `menuitem` Inhalt mit JavaScript beim Laden hinzugefügt werden.
+Um dieses Navigations-Widget, das standardmäßig zugänglich ist, schrittweise zu verbessern, sollten die Klasse zum Verstecken des `menu` und die Aufnahme von `tabindex="-1"` auf den interaktiven `menuitem`-Inhalt beim Laden mit JavaScript hinzugefügt werden.
 
-Wenn ein "menu" für die Navigation auf der Website enthalten ist, verwenden Sie nicht die `menu` Rolle. Verwenden Sie stattdessen für die Hauptnavigation der Website das native HTML {{HTMLElement('nav')}}-Element oder einfach eine Liste von Links. Die `menu` Rolle sollte für Komposit-Widgets reserviert werden, die ein Fokusmanagement erfordern. Siehe [ARIA-Praktiken für Offenlegungsnavigation](https://www.w3.org/TR/wai-aria-practices-1.2/examples/disclosure/disclosure-navigation.html) für eine Erklärung und zusätzliche Beispiele.
+Verwenden Sie beim Einfügen eines "menu" für die Seitennavigation nicht die `menu`-Rolle. Verwenden Sie lieber das native HTML-{{HTMLElement('nav')}}-Element oder einfach eine Liste von Links für die Hauptnavigation der Website. Die `menu`-Rolle sollte für zusammengesetzte Widgets reserviert werden, die ein Fokusmanagement erfordern. Siehe [ARIA-Praktiken für Disclosure-Navigation](https://www.w3.org/TR/wai-aria-practices-1.2/examples/disclosure/disclosure-navigation.html) für eine Erklärung und zusätzliche Beispiele.
 
-### Beispiel 2: Menübalken-Untermenü-Optionenauswahl
+### Beispiel 2: Menüleisten-Untermenü-Optionenwähler
 
-Der folgende Codeausschnitt ist ein Popup-Menü, das in einem Menübalken verschachtelt ist. Es wird angezeigt, wenn der Menüschalter aktiviert wird. Es ist ein Menü, um die Textfarbe aus einer Liste von Farboptionen auszuwählen:
+Der folgende Codeausschnitt ist ein Popup-Menü, das in einer Menüleiste verschachtelt ist. Es wird angezeigt, wenn die Menütaste aktiviert ist. Es ist ein Menü zur Auswahl der Textfarbe aus einer Liste von Farboptionen:
 
 ```html
 <div>
@@ -158,17 +149,17 @@ Der folgende Codeausschnitt ist ein Popup-Menü, das in einem Menübalken versch
 </div>
 ```
 
-Der Schalter, der das Menü öffnet, hat [`aria-haspopup="menu"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup) gesetzt, um explizit anzugeben, dass das Popup, das er steuert, ein `menu` ist.
+Die Schaltfläche, die das Menü öffnet, hat [`aria-haspopup="menu"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-haspopup) gesetzt, das explizit angibt, dass das Popup, das es steuert, ein `menu` ist.
 
-Damit ein Menü geöffnet werden kann, interagiert der Benutzer normalerweise mit einem Menüknopf als Öffner. Der Menüknopf muss fokussierbar sein und sowohl auf Klick- als auch auf Tastaturereignisse reagieren. Bei Fokus sollte die Auswahl von <kbd>Enter</kbd>, <kbd>Space</kbd>, <kbd>Down Arrow</kbd> oder <kbd>Up Arrow</kbd> das Menü öffnen und den Fokus auf ein Menüelement setzen.
+Um ein Menü zu öffnen, interagiert der Benutzer in der Regel mit einer Menütaste als Öffner. Die Menütaste muss fokussierbar sein und sowohl auf Klick- als auch auf Tastaturereignisse reagieren. Bei Fokus sollten <kbd>Enter</kbd>, <kbd>Space</kbd>, <kbd>Down Arrow</kbd> oder die <kbd>Up Arrow</kbd> das Menü öffnen und den Fokus auf ein Menüelement setzen.
 
-Das Öffnen und Schließen des Menüs schaltet das [`aria-expanded="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) Attribut auf dem Knopf um. Es wird hinzugefügt, wenn das Menü geöffnet ist. Entfernt oder auf `false` gesetzt, wenn das Menü geschlossen ist. Der Wert `true` zeigt an, dass das Menü angezeigt wird und das Aktivieren des Menüknopfs das Menü schließt.
+Das Öffnen und Schließen des Menüs toggelt das Attribut [`aria-expanded="true"`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) auf der Schaltfläche. Es wird hinzugefügt, wenn das Menü geöffnet ist. Es wird entfernt oder auf `false` gesetzt, wenn das Menü geschlossen ist. Der Wert `true` gibt an, dass das Menü angezeigt wird und dass das Aktivieren der Menütaste das Menü schließt.
 
-Wenn das Menü geöffnet ist, erhält der Knopf normalerweise keinen Fokus, während Benutzer durch die Menüelemente navigieren. Stattdessen schließt <kbd>Escape</kbd> und optional <kbd>Shift + Tab</kbd> das Menü und gibt den Fokus auf den Menüknopf zurück.
+Wenn das Menü geöffnet ist, erhält die Schaltfläche selbst im Allgemeinen keinen Fokus, da Benutzer durch die Artikelliste navigieren. Vielmehr schließt <kbd>Escape</kbd> und optional <kbd>Shift + Tab</kbd> das Menü und kehrt den Fokus zur Menütaste zurück.
 
-Die `menu` Rolle wurde auf das {{HTMLElement('ul')}} gesetzt, um das `<ul>` Element als Menü zu identifizieren.
+Die `menu`-Rolle wurde auf dem {{HTMLElement('ul')}} gesetzt, das `<ul>`-Element als ein Menü identifizierend.
 
-Das Anzeigen und Ausblenden des Menüs kann mit CSS erfolgen. Zum Beispiel können wir in diesen Codebeispielen den Attribut- und Nachbarselektor verwenden, um die Sichtbarkeit des Menüs umzuschalten:
+Das Anzeigen und Verbergen des Menüs kann mit CSS erfolgen. So können in diesen Codebeispielen der Attribut- und Nachbarselektor verwendet werden, um die Sichtbarkeit des Menüs zu schalten:
 
 ```css
 [role="menu"] {
@@ -179,7 +170,7 @@ Das Anzeigen und Ausblenden des Menüs kann mit CSS erfolgen. Zum Beispiel könn
 }
 ```
 
-Das Navigationsbeispiel hat einen statischen Knopf. Das Untermenü-Beispiel hat einen Knopf, der aktualisiert wird, wenn der Benutzer einen neuen Wert wählt. In diesem Fall ist `aria-label="Text Color: purple"` auf das `menu` Element gesetzt. Es definiert den zugänglichen Namen für das Menü als "Textfarbe: lila"; der den Zweck des Menüs (Auswahl einer Textfarbe) und den aktuellen Wert (lila) identifiziert. Wenn eine neue Farbe ausgewählt wird, sollte der Wert der `aria-label` Eigenschaft ebenfalls aktualisiert werden.
+Das Navigationsbeispiel hat eine statische Schaltfläche. Das Untermenübeispiel hat eine Schaltfläche, die aktualisiert wird, wenn der Benutzer einen neuen Wert auswählt. In diesem Fall wird `aria-label="Text Color: purple"` auf dem `menu`-Element gesetzt. Es definiert den zugänglichen Namen für das Menü als "Textfarbe: lila"; identifiziert den Zweck des Menüs (Auswahl einer Textfarbe) und den aktuellen Wert (lila). Wenn eine neue Farbe ausgewählt wird, sollte der Wert der `aria-label`-Eigenschaft ebenfalls aktualisiert werden.
 
 ## Spezifikationen
 

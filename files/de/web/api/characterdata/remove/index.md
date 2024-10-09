@@ -1,14 +1,14 @@
 ---
-title: "CharacterData: remove() Methode"
+title: "CharacterData: remove()-Methode"
 short-title: remove()
 slug: Web/API/CharacterData/remove
 l10n:
-  sourceCommit: 8374946642c18a9cc4bf510de767011124e832a2
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("DOM")}}
 
-Die **`remove()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData) entfernt den im Knoten enthaltenen Text.
+Die **`remove()`**-Methode von [`CharacterData`](/de/docs/Web/API/CharacterData) entfernt den Text, der im Knoten enthalten ist.
 
 ## Syntax
 
@@ -30,12 +30,12 @@ Keine.
 
 ```js
 const span = document.querySelector("span");
-const textnode = span.nextSibling;
+const textNode = span.nextSibling;
 
-textnode.remove(); // Removes the text
+textNode.remove(); // Removes the text
 ```
 
-{{EmbedLiveSample("Beispiel", "100%", 50)}}
+{{EmbedLiveSample("Example", "100%", 50)}}
 
 ## Spezifikationen
 

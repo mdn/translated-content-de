@@ -3,12 +3,12 @@ title: "ImageBitmap: close() Methode"
 short-title: close()
 slug: Web/API/ImageBitmap/close
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: e899c6240801be991f92571b36132a1b6b387462
 ---
 
-{{APIRef("Canvas API")}}
+{{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`ImageBitmap.close()`**-Methode entsorgt alle grafischen Ressourcen, die mit einem `ImageBitmap` verbunden sind.
+Die **`ImageBitmap.close()`**-Methode entsorgt alle grafischen Ressourcen, die mit einem `ImageBitmap` assoziiert sind.
 
 ## Syntax
 

@@ -3,12 +3,12 @@ title: "CharacterData: Methode deleteData()"
 short-title: deleteData()
 slug: Web/API/CharacterData/deleteData
 l10n:
-  sourceCommit: 502e8c3f0be95c6f42afe6a72113b029b290b9e8
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("DOM")}}
 
-Die **`deleteData()`** Methode der [`CharacterData`](/de/docs/Web/API/CharacterData) Schnittstelle entfernt alle oder einen Teil der Daten von diesem `CharacterData` Knoten.
+Die **`deleteData()`**-Methode des [`CharacterData`](/de/docs/Web/API/CharacterData)-Interfaces entfernt alle oder einen Teil der Daten aus diesem `CharacterData`-Knoten.
 
 ## Syntax
 
@@ -19,19 +19,18 @@ characterData.deleteData(offset, count)
 ### Parameter
 
 - `offset`
-  - : Die Anzahl der Bytes vom Beginn der Daten, ab dem entfernt werden soll.
-    `0` ist das erste Zeichen der Zeichenkette.
+  - : Die Anzahl der Bytes vom Beginn der Daten, ab denen entfernt werden soll. `0` ist das erste Zeichen des Strings.
 - `count`
   - : Die Anzahl der zu entfernenden Bytes.
 
 ### Rückgabewert
 
-Keine.
+Keiner.
 
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn `offset` größer als die Länge der enthaltenen Daten ist.
+  - : Wird ausgelöst, wenn `offset` größer ist als die Länge der enthaltenen Daten.
 
 ## Beispiel
 
@@ -41,9 +40,9 @@ Keine.
 
 ```js
 const span = document.querySelector("span");
-const textnode = span.nextSibling;
+const textNode = span.nextSibling;
 
-textnode.deleteData(1, 5);
+textNode.deleteData(1, 5);
 ```
 
 {{EmbedLiveSample("Example", "100%", 50)}}

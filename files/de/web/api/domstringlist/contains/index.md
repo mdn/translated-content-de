@@ -1,12 +1,12 @@
 ---
-title: "DOMStringList: contains() Methode"
+title: "DOMStringList: contains()-Methode"
 short-title: contains()
 slug: Web/API/DOMStringList/contains
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{AvailableInWorkers}}
 
 Die **`contains()`**-Methode gibt einen Boolean zurück, der angibt, ob der angegebene String in der Liste enthalten ist.
 
@@ -19,7 +19,7 @@ contains(string)
 ### Parameter
 
 - `string`
-  - : Ein String, dessen Vorhandensein in der Liste Sie überprüfen möchten.
+  - : Ein String, von dem Sie prüfen möchten, ob er in der Liste existiert.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Ein Boolean, der angibt, ob der angegebene String in der Liste enthalten ist.
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn kein Argument angegeben ist.
+  - : Wird ausgelöst, wenn kein Argument angegeben wird.
 
 ## Spezifikationen
 

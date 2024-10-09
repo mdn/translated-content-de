@@ -1,16 +1,16 @@
 ---
-title: "AudioDestinationNode: maxChannelCount-Eigenschaft"
+title: "AudioDestinationNode: Eigenschaft maxChannelCount"
 short-title: maxChannelCount
 slug: Web/API/AudioDestinationNode/maxChannelCount
 l10n:
-  sourceCommit: 135b8311a5e3d12789e8421845be3ce026ef72b8
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `maxchannelCount`-Eigenschaft des [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode)-Interfaces ist eine `unsigned long`, die die maximale Anzahl an Kanälen definiert, die das physische Gerät verarbeiten kann.
+Die Eigenschaft `maxChannelCount` des [`AudioDestinationNode`](/de/docs/Web/API/AudioDestinationNode)-Interfaces ist ein `unsigned long`, der die maximale Anzahl der Kanäle definiert, die das physische Gerät verarbeiten kann.
 
-Die [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount)-Eigenschaft kann zwischen 0 und diesem Wert (beide eingeschlossen) gesetzt werden. Wenn `maxChannelCount` `0` ist, wie im [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext), kann die Anzahl der Kanäle nicht geändert werden.
+Die Eigenschaft [`AudioNode.channelCount`](/de/docs/Web/API/AudioNode/channelCount) kann zwischen 0 und diesem Wert (beide inklusive) festgelegt werden. Wenn `maxChannelCount` `0` ist, wie im [`OfflineAudioContext`](/de/docs/Web/API/OfflineAudioContext), kann die Anzahl der Kanäle nicht geändert werden.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein `unsigned long`.
 
 ## Beispiele
 
-Das Folgende würde ein einfaches Audio-Setup mit einem `AudioDestinationNode` mit `maxChannelCount` von 2 einrichten:
+Das folgende Beispiel richtet einen einfachen Audiographen ein, der einen `AudioDestinationNode` mit einem `maxChannelCount` von 2 aufweist:
 
 ```js
 const audioCtx = new AudioContext();

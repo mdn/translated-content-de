@@ -3,12 +3,14 @@ title: "MessageEvent: lastEventId-Eigenschaft"
 short-title: lastEventId
 slug: Web/API/MessageEvent/lastEventId
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 6091080d719b4f0ec1cdc119a21d54a1f1cc1c59
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`lastEventId`** des [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces ist ein String, der eine eindeutige ID für das Ereignis darstellt.
+Die schreibgeschützte Eigenschaft **`lastEventId`** des
+[`MessageEvent`](/de/docs/Web/API/MessageEvent)-Interfaces ist ein String, der eine
+eindeutige ID für das Ereignis darstellt.
 
 ## Wert
 
@@ -34,4 +36,5 @@ myWorker.onmessage = (e) => {
 
 ## Siehe auch
 
-- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich diesem Interface, jedoch in Interfaces verwendet, die den Autoren mehr Flexibilität bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich diesem Interface, wird jedoch in
+  Interfaces verwendet, die den Autoren mehr Flexibilität bieten müssen.

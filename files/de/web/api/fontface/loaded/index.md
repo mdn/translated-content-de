@@ -3,16 +3,16 @@ title: "FontFace: loaded-Eigenschaft"
 short-title: loaded
 slug: Web/API/FontFace/loaded
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`loaded`** schreibgeschützte Eigenschaft des [`FontFace`](/de/docs/Web/API/FontFace)-Interfaces gibt ein {{jsxref('Promise')}} zurück, das mit dem aktuellen `FontFace`-Objekt aufgelöst wird, wenn die im Konstruktor des Objekts angegebene Schriftart fertig geladen ist, oder mit einem `SyntaxError` abgelehnt wird.
+Die **`loaded`** schreibgeschützte Eigenschaft der [`FontFace`](/de/docs/Web/API/FontFace)-Schnittstelle gibt ein {{jsxref('Promise')}} zurück, das mit dem aktuellen `FontFace`-Objekt aufgelöst wird, wenn die im Konstruktor des Objekts angegebene Schriftart geladen ist, oder mit einem `SyntaxError` abgelehnt wird.
 
 ## Wert
 
-Ein {{jsxref('Promise')}} das mit dem aktuellen `FontFace`-Objekt aufgelöst wird.
+Ein {{jsxref('Promise')}}, das mit dem aktuellen `FontFace`-Objekt aufgelöst wird.
 
 ## Spezifikationen
 

@@ -1,14 +1,14 @@
 ---
-title: "DOMRectReadOnly: Eigenschaft y"
+title: "DOMRectReadOnly: y Eigenschaft"
 short-title: "y"
 slug: Web/API/DOMRectReadOnly/y
 l10n:
-  sourceCommit: 7b3ccaec4a93584da12939587ea746acaabe30bc
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`y`** des **`DOMRectReadOnly`** Interfaces repräsentiert die y-Koordinate des Ursprungs des `DOMRect`.
+Die schreibgeschützte Eigenschaft **`y`** des **`DOMRectReadOnly`**-Interfaces repräsentiert die y-Koordinate des Ursprungs des `DOMRect`.
 
 ## Wert
 

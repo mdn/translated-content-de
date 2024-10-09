@@ -3,12 +3,12 @@ title: "Request: url-Eigenschaft"
 short-title: url
 slug: Web/API/Request/url
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`url`** schreibgeschützte Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces enthält die URL der Anfrage.
+Die **`url`**-Eigenschaft des [`Request`](/de/docs/Web/API/Request) Interfaces ist schreibgeschützt und enthält die URL der Anfrage.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der die URL der Anfrage angibt.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor (für eine Bilddatei im gleichen Verzeichnis wie das Skript) und speichern dann die URL der Anfrage in einer Variablen:
+Im folgenden Beispiel erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request) Konstruktor (für eine Bilddatei im selben Verzeichnis wie das Skript), und speichern dann die URL der Anfrage in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

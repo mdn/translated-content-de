@@ -2,15 +2,15 @@
 title: user-modify
 slug: Web/CSS/user-modify
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
 ---
 
 {{CSSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
 
-Die **`user-modify`** Eigenschaft hat in Firefox keine Wirkung. Ursprünglich war geplant, damit festzulegen, ob der Inhalt eines Elements von einem Benutzer bearbeitet werden kann oder nicht.
+Die **`user-modify`** Eigenschaft hat in Firefox keine Wirkung. Ursprünglich war geplant, zu bestimmen, ob der Inhalt eines Elements von einem Benutzer bearbeitet werden kann.
 
 > [!WARNING]
-> Diese Eigenschaft wurde durch das [`contenteditable`](/de/docs/Web/HTML/Global_attributes#contenteditable) Attribut ersetzt.
+> Diese Eigenschaft wurde durch das [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) Attribut ersetzt.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ user-modify: revert;
 user-modify: unset;
 ```
 
-Die `-moz-user-modify` Eigenschaft wird als eines der Schlüsselwortwerte aus der untenstehenden Liste angegeben.
+Die `-moz-user-modify` Eigenschaft wird als eines der Schlüsselwortwerte aus der unten stehenden Liste angegeben.
 
 ### Werte
 
@@ -36,7 +36,7 @@ Die `-moz-user-modify` Eigenschaft wird als eines der Schlüsselwortwerte aus de
 - `read-write`
   - : Der Benutzer kann Inhalte lesen und schreiben.
 - `read-write-plaintext-only`
-  - : Wie `read-write`, jedoch geht die Rich-Text-Formatierung verloren.
+  - : Wie `read-write`, aber die Formatierung von Rich Text geht verloren.
 - `write-only`
   - : Der Benutzer kann den Inhalt bearbeiten, aber nicht lesen.
 
@@ -66,7 +66,7 @@ user-modify =
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

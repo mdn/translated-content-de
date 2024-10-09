@@ -3,14 +3,12 @@ title: "EventSource: url-Eigenschaft"
 short-title: url
 slug: Web/API/EventSource/url
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: a166ba48ceb8bccb37c67a0a8856b0e5b12e0135
 ---
 
-{{APIRef('WebSockets API')}}
+{{APIRef("Server Sent Events")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`url`**-Eigenschaft der
-[`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle gibt einen String zurück, der die
-URL der Quelle darstellt.
+Die schreibgeschützte **`url`**-Eigenschaft des [`EventSource`](/de/docs/Web/API/EventSource)-Interfaces gibt einen String zurück, der die URL der Quelle darstellt.
 
 ## Wert
 

@@ -3,27 +3,21 @@ title: "Response: type-Eigenschaft"
 short-title: type
 slug: Web/API/Response/type
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`type`**-Eigenschaft der [`Response`](/de/docs/Web/API/Response)-Schnittstelle ist schreibgeschützt und enthält den Typ der Antwort.
-Er kann einer der folgenden sein:
+Die schreibgeschützte **`type`**-Eigenschaft des [`Response`](/de/docs/Web/API/Response)-Interfaces enthält den Typ der Antwort. Sie kann einen der folgenden Werte haben:
 
-- `basic`: Normale, gleiche Herkunft-Antwort, mit allen Headern außer "Set-Cookie" freigelegt.
-- `cors`: Die Antwort wurde von einer gültigen Cross-Origin-Anfrage empfangen. [Bestimmte Header und der Inhalt](https://fetch.spec.whatwg.org/#concept-filtered-response-cors) können abgerufen werden.
-- `error`: Netzwerkfehler.
-  Keine nützlichen Informationen zur Beschreibung des Fehlers sind verfügbar.
-  Der Status der Response ist 0, Header sind leer und unveränderlich.
-  Dies ist der Typ für eine Response, die von `Response.error()` erhalten wurde.
-- `opaque`: Antwort für eine "no-cors"-Anfrage an eine Cross-Origin-Ressource.
-  [Stark eingeschränkt](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque).
-- `opaqueredirect`: Die Fetch-Anfrage wurde mit `redirect: "manual"` gemacht.
-  Der Status der Response ist 0, Header sind leer, Body ist null und der Trailer ist leer.
+- `basic`: Normale Antwort aus demselben Ursprung, bei der alle Header bis auf "Set-Cookie" freigelegt sind.
+- `cors`: Antwort wurde von einer gültigen Cross-Origin-Anfrage empfangen. [Bestimmte Header und der Body](https://fetch.spec.whatwg.org/#concept-filtered-response-cors) können abgerufen werden.
+- `error`: Netzwerkfehler. Es sind keine nützlichen Informationen zur Beschreibung des Fehlers verfügbar. Der Status der Antwort ist 0, die Header sind leer und unveränderlich. Dies ist der Typ für eine Antwort, die von `Response.error()` erhalten wird.
+- `opaque`: Antwort für eine "no-cors"-Anfrage an eine Cross-Origin-Ressource. [Stark eingeschränkt](https://fetch.spec.whatwg.org/#concept-filtered-response-opaque).
+- `opaqueredirect`: Die Fetch-Anfrage wurde mit `redirect: "manual"` gemacht. Der Status der Antwort ist 0, die Header sind leer, der Body ist null und der Trailer ist leer.
 
 > [!NOTE]
-> Eine "error"-Response wird nie wirklich für das Skript freigegeben: Eine solche Antwort auf ein [`fetch()`](/de/docs/Web/API/Window/fetch) würde das Versprechen ablehnen.
+> Eine "error"-Antwort wird niemals wirklich einem Skript ausgesetzt: Eine solche Antwort auf ein [`fetch()`](/de/docs/Web/API/Window/fetch) würde das Versprechen ablehnen.
 
 ## Wert
 
@@ -31,10 +25,9 @@ Ein `ResponseType`-String, der den Typ der Antwort angibt.
 
 ## Beispiele
 
-In unserem [Fetch-Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch-Response-Live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor, indem wir ihm einen JPG-Pfad übergeben.
-Wir holen dann diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen eine Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese in einem {{htmlelement("img")}} an.
+In unserem [Fetch-Response-Beispiel](https://github.com/mdn/dom-examples/tree/main/fetch/fetch-response) (siehe [Fetch Response live](https://mdn.github.io/dom-examples/fetch/fetch-response/)) erstellen wir ein neues [`Request`](/de/docs/Web/API/Request)-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor, indem wir ihm einen JPG-Pfad übergeben. Anschließend rufen wir diese Anfrage mit [`fetch()`](/de/docs/Web/API/Window/fetch) ab, extrahieren ein Blob aus der Antwort mit [`Response.blob`](/de/docs/Web/API/Response/blob), erstellen eine Objekt-URL daraus mit [`URL.createObjectURL()`](/de/docs/Web/API/URL/createObjectURL_static) und zeigen diese in einem {{htmlelement("img")}} an.
 
-Beachten Sie, dass wir oben im `fetch()`-Block den `type` der Antwort in die Konsole protokollieren.
+Beachten Sie, dass wir am Anfang des `fetch()`-Blocks den Antwort-`type` in die Konsole protokollieren.
 
 ```js
 const myImage = document.querySelector("img");

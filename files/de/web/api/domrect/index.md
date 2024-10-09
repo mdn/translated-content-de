@@ -2,14 +2,14 @@
 title: DOMRect
 slug: Web/API/DOMRect
 l10n:
-  sourceCommit: 1b094710cd2816a6669ce616b6f56d0a5b25e6ad
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
 Ein **`DOMRect`** beschreibt die Größe und Position eines Rechtecks.
 
-Die Art des von `DOMRect` dargestellten Kastens wird durch die Methode oder Eigenschaft bestimmt, die ihn zurückgegeben hat. Zum Beispiel spezifiziert [`Range.getBoundingClientRect()`](/de/docs/Web/API/Range/getBoundingClientRect) das Rechteck, das den Inhalt des Bereichs mit solchen Objekten umgibt.
+Die Art der Box, die durch das `DOMRect` dargestellt wird, wird durch die Methode oder Eigenschaft festgelegt, die es zurückgibt. Zum Beispiel gibt [`Range.getBoundingClientRect()`](/de/docs/Web/API/Range/getBoundingClientRect) das Rechteck an, das den Inhalt des Bereichs mit solchen Objekten umschließt.
 
 Es erbt von seinem Elternteil, [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly).
 
@@ -46,7 +46,7 @@ _`DOMRect` erbt Eigenschaften von seinem Elternteil, [`DOMRectReadOnly`](/de/doc
 _`DOMRect` kann auch statische Methoden von seinem Elternteil, [`DOMRectReadOnly`](/de/docs/Web/API/DOMRectReadOnly), erben._
 
 - [`DOMRect.fromRect()`](/de/docs/Web/API/DOMRect/fromRect_static)
-  - : Erstellt ein neues `DOMRect`-Objekt mit einem gegebenen Standort und Abmessungen.
+  - : Erstellt ein neues `DOMRect`-Objekt mit einem bestimmten Ort und Abmessungen.
 
 ## Instanz-Methoden
 

@@ -1,9 +1,9 @@
 ---
-title: "CharacterData: data-Eigenschaft"
+title: "CharacterData: data Eigenschaft"
 short-title: data
 slug: Web/API/CharacterData/data
 l10n:
-  sourceCommit: 4656260748aea78929639c4bf776d643d9911a82
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("DOM")}}
@@ -14,14 +14,14 @@ Die **`data`**-Eigenschaft der [`CharacterData`](/de/docs/Web/API/CharacterData)
 
 Ein String mit den Zeicheninformationen, die im [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthalten sind.
 
-Wenn auf den `null`-Wert gesetzt, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, sodass `cd.data = null` gleichbedeutend mit `cd.data = ""` ist.
+Wenn sie auf den `null`-Wert gesetzt wird, wird dieser `null`-Wert in den leeren String (`""`) umgewandelt, so dass `cd.data = null` gleichbedeutend mit `cd.data = ""` ist.
 
 ## Beispiel
 
 > **Note:** [`CharacterData`](/de/docs/Web/API/CharacterData) ist eine abstrakte Schnittstelle.
-> Die untenstehenden Beispiele verwenden zwei konkrete Schnittstellen, die sie implementieren: [`Text`](/de/docs/Web/API/Text) und [`Comment`](/de/docs/Web/API/Comment).
+> Die untenstehenden Beispiele verwenden zwei konkrete Schnittstellen, die sie implementieren, [`Text`](/de/docs/Web/API/Text) und [`Comment`](/de/docs/Web/API/Comment).
 
-### Lesen eines Kommentars mithilfe von data
+### Lesen eines Kommentars mit data
 
 ```html
 <!-- This is an HTML comment -->
@@ -37,7 +37,7 @@ output.value = comment.data;
 
 {{EmbedLiveSample("Reading_a_comment_using_data", "100%", 50)}}
 
-### Setzen des Inhalts eines Textknotens mithilfe von data
+### Setzen des Inhalts eines Textknotens mit data
 
 ```html
 <span>Result: </span>Not set.
@@ -45,9 +45,9 @@ output.value = comment.data;
 
 ```js
 const span = document.querySelector("span");
-const textnode = span.nextSibling;
+const textNode = span.nextSibling;
 
-textnode.data = "This text has been set using 'textnode.data'.";
+textNode.data = "This text has been set using 'textNode.data'.";
 ```
 
 {{EmbedLiveSample("Setting_the_content_of_a_text_node_using_data", "100%", 50)}}
@@ -62,4 +62,4 @@ textnode.data = "This text has been set using 'textnode.data'.";
 
 ## Siehe auch
 
-- [`CharacterData.length`](/de/docs/Web/API/CharacterData/length), das die Länge der in dem [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten enthaltenen Daten zurückgibt.
+- [`CharacterData.length`](/de/docs/Web/API/CharacterData/length) gibt die Länge der Daten im [`CharacterData`](/de/docs/Web/API/CharacterData)-Knoten zurück.

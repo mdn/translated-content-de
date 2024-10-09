@@ -2,12 +2,12 @@
 title: line-break
 slug: Web/CSS/line-break
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
 
-Die **`line-break`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie Zeilen von chinesischem, japanischem oder koreanischem (CJK) Text bei der Arbeit mit Satzzeichen und Symbolen gebrochen werden.
+Die **`line-break`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, wie Zeilen von chinesischen, japanischen oder koreanischen (CJK) Texten bei der Arbeit mit Satzzeichen und Symbolen umbrochen werden.
 
 {{EmbedInteractiveExample("pages/css/line-break.html")}}
 
@@ -32,15 +32,15 @@ line-break: unset;
 ### Werte
 
 - `auto`
-  - : Bricht Text nach der standardmäßigen Zeilenbruchregel.
+  - : Bricht den Text unter Verwendung der Standardzeilenumbruchregel.
 - `loose`
-  - : Bricht Text nach der am wenigsten restriktiven Zeilenbruchregel. Wird typischerweise für kurze Zeilen verwendet, wie in Zeitungen.
+  - : Bricht den Text unter Verwendung der am wenigsten restriktiven Zeilenumbruchregel. Wird typischerweise für kurze Zeilen verwendet, wie in Zeitungen.
 - `normal`
-  - : Bricht Text nach der gebräuchlichsten Zeilenbruchregel.
+  - : Bricht den Text unter Verwendung der häufigsten Zeilenumbruchregel.
 - `strict`
-  - : Bricht Text nach der strengsten Zeilenbruchregel.
+  - : Bricht den Text unter Verwendung der strengsten Zeilenumbruchregel.
 - `anywhere`
-  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeicheneinheit, einschließlich um jegliches Satzzeichen oder erhaltene Leerzeichen oder mitten in Wörtern, ohne Rücksicht auf Verbote gegen Zeilenumbrüche, selbst jene, die von Zeichen der Klassen GL, WJ oder ZWJ eingeführt wurden oder durch die {{cssxref("word-break")}}-Eigenschaft vorgeschrieben sind. Die unterschiedlichen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
+  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeicheneinheit, einschließlich um jedes Satzzeichen oder erhaltene Leerzeichen oder in der Mitte von Wörtern, ohne Berücksichtigung eines Verbots gegen Zeilenumbrüche, sogar solche, die durch Zeichen mit der GL-, WJ- oder ZWJ-Zeichenklasse eingeführt wurden, oder wie durch die {{cssxref("word-break")}} Eigenschaft vorgeschrieben. Die verschiedenen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Die Silbentrennung wird nicht angewendet.
 
 ## Formale Definition
 
@@ -54,25 +54,25 @@ line-break: unset;
 
 ### Textumbruch einstellen
 
-Überprüfen Sie, ob der Text vor "々", "ぁ" und "。" umbrochen wird.
+Sehen Sie, ob der Text vor "々", "ぁ" und "。" umbrochen wird.
 
 #### HTML
 
 ```html
 <div lang="ja">
-  <p class="wrapbox auto">
+  <p class="wrap-box auto">
     auto:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
   </p>
-  <p class="wrapbox loose">
+  <p class="wrap-box loose">
     loose:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
   </p>
-  <p class="wrapbox normal">
+  <p class="wrap-box normal">
     normal:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
   </p>
-  <p class="wrapbox strict">
+  <p class="wrap-box strict">
     strict:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
   </p>
-  <p class="wrapbox anywhere">
+  <p class="wrap-box anywhere">
     anywhere:<br />そこは湖のほとりで木々が輝いていた。<br />その景色に、美しいなぁと思わずつぶやいた。
   </p>
 </div>
@@ -81,7 +81,7 @@ line-break: unset;
 #### CSS
 
 ```css
-.wrapbox {
+.wrap-box {
   width: 10em;
   margin: 0.5em;
   white-space: normal;

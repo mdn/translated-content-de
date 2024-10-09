@@ -3,23 +3,23 @@ title: "InterventionReportBody: lineNumber-Eigenschaft"
 short-title: lineNumber
 slug: Web/API/InterventionReportBody/lineNumber
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
 ---
 
-{{APIRef("Reporting API")}}{{SeeCompatTable}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`lineNumber`** der [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Schnittstelle gibt die Zeile in der Quelldatei zurück, in der die Intervention aufgetreten ist.
+Die schreibgeschützte Eigenschaft **`lineNumber`** des [`InterventionReportBody`](/de/docs/Web/API/InterventionReportBody)-Interfaces gibt die Zeile in der Quelldatei zurück, in der die Intervention aufgetreten ist.
 
 > [!NOTE]
-> Diese Eigenschaft ist am nützlichsten in Verbindung mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile), da sie es ermöglicht, die Zeile in der Datei zu lokalisieren, in der die Funktion verwendet wird.
+> Diese Eigenschaft ist besonders nützlich in Kombination mit [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile), da sie ermöglicht, die Zeile in dieser Datei zu lokalisieren, in der das Feature verwendet wird.
 
 ## Wert
 
-Ein ganzzahliger Wert, oder `null`, wenn die Zeile nicht bekannt ist.
+Ein Integer oder `null`, wenn die Zeile nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und geben dann den Wert von `lineNumber` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Eingriffsberichte zu beobachten, und geben dann den Wert von `lineNumber` in der Konsole aus.
 
 ```js
 const options = {

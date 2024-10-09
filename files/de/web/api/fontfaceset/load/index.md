@@ -1,12 +1,12 @@
 ---
-title: "FontFaceSet: load()-Methode"
+title: "FontFaceSet: load() Methode"
 short-title: load()
 slug: Web/API/FontFaceSet/load
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
 Die `load()`-Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) erzwingt das Laden aller in den Parametern angegebenen Schriftarten.
 
@@ -20,9 +20,9 @@ load(font, text)
 ### Parameter
 
 - `font`
-  - : Eine Schriftart-Spezifikation unter Verwendung der CSS-Wertsyntax, z.B. "italic bold 16px Roboto"
+  - : eine Schriftangabe unter Verwendung der CSS-Wertsyntax, z.B. "italic bold 16px Roboto"
 - `text`
-  - : Beschränkt die Schriftarten auf solche, deren Unicode-Bereich mindestens ein Zeichen im Text enthält. Dies [überprüft nicht die Abdeckung einzelner Glyphen](https://lists.w3.org/Archives/Public/www-style/2015Aug/0330.html).
+  - : beschränkt die Schriftarten auf diejenigen, deren Unicode-Bereich mindestens eines der Zeichen im Text enthält. Dies [prüft nicht die Abdeckung einzelner Glyphen](https://lists.w3.org/Archives/Public/www-style/2015Aug/0330.html).
 
 ### Rückgabewert
 
@@ -30,7 +30,7 @@ Ein {{jsxref("Promise")}}, der mit einem {{jsxref("Array")}} von geladenen [`Fon
 
 ## Beispiele
 
-Das folgende Beispiel gibt ein Promise zurück, das je nach Erfolg des Ladens von "MyFont" erfüllt oder abgelehnt wird. Der Code in `then()` kann von der Verfügbarkeit dieser Schriftart ausgehen.
+Das folgende Beispiel gibt ein Versprechen zurück, das je nach Erfolg des Ladens von "MyFont" erfüllt oder abgelehnt wird. Der Code in `then()` kann die Verfügbarkeit dieser Schriftart annehmen.
 
 ```js
 document.fonts.load("12px MyFont", "ß").then(/* ... */);

@@ -2,12 +2,12 @@
 title: USBIsochronousOutTransferPacket
 slug: Web/API/USBIsochronousOutTransferPacket
 l10n:
-  sourceCommit: 3ca86db64959ed9dc6c8021dc3eb89e82a6628c7
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Das `USBIsochronousOutTransferPacket`-Interface der [WebUSB API](/de/docs/Web/API/WebUSB_API) ist Teil der Antwort auf einen Aufruf der Methode `isochronousTransferOut()` des `USBDevice`-Interfaces. Es repräsentiert den Status eines einzelnen Pakets aus einer Anfrage, um Daten vom USB-Host an das USB-Gerät über einen isochronen Endpunkt zu übertragen.
+Die `USBIsochronousOutTransferPacket`-Schnittstelle der [WebUSB API](/de/docs/Web/API/WebUSB_API) ist Teil der Antwort von einem Aufruf der `isochronousTransferOut()`-Methode der `USBDevice`-Schnittstelle. Sie repräsentiert den Status eines einzelnen Pakets aus einer Anforderung, Daten vom USB-Host zu einem USB-Gerät über einen Isochronen-Endpunkt zu übertragen.
 
 ## Konstruktor
 
@@ -20,10 +20,10 @@ Das `USBIsochronousOutTransferPacket`-Interface der [WebUSB API](/de/docs/Web/AP
   - : Gibt die Anzahl der Bytes aus dem Paket zurück, die an das Gerät gesendet wurden.
 - [`USBIsochronousOutTransferPacket.status`](/de/docs/Web/API/USBIsochronousOutTransferPacket/status) {{ReadOnlyInline}} {{Experimental_Inline}}
 
-  - : Gibt den Status der Übertragungsanfrage zurück, einer der folgenden:
+  - : Gibt den Status der Transferanfrage zurück, eine der folgenden Optionen:
 
-    - `"ok"` - Die Übertragung war erfolgreich.
-    - `"stall"` - Das Gerät hat einen Fehler angezeigt, indem es eine Stall-Bedingung am Endpunkt erzeugte. Ein Stall an einem isochronen Endpunkt muss nicht geklärt werden.
+    - `"ok"` - Der Transfer war erfolgreich.
+    - `"stall"` - Das Gerät hat einen Fehler angezeigt, indem es eine Stallsituation auf dem Endpunkt erzeugt hat. Ein Stall auf einem Isochronen-Endpunkt muss nicht behoben werden.
 
 ## Spezifikationen
 

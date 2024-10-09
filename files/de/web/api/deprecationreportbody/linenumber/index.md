@@ -3,23 +3,23 @@ title: "DeprecationReportBody: lineNumber-Eigenschaft"
 short-title: lineNumber
 slug: Web/API/DeprecationReportBody/lineNumber
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
 ---
 
-{{APIRef("Reporting API")}}{{SeeCompatTable}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`lineNumber`**-Eigenschaft des [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Interfaces gibt die Zeile in der Quelldatei zurück, in der das veraltete Merkmal verwendet wurde.
+Die schreibgeschützte **`lineNumber`**-Eigenschaft der [`DeprecationReportBody`](/de/docs/Web/API/DeprecationReportBody)-Schnittstelle gibt die Zeile in der Quelldatei zurück, in der das veraltete Feature verwendet wurde.
 
 > [!NOTE]
-> Diese Eigenschaft ist besonders nützlich zusammen mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile), da sie die Lokalisierung der Zeile in der Datei ermöglicht, in der der Fehler aufgetreten ist.
+> Diese Eigenschaft ist am nützlichsten in Verbindung mit [`DeprecationReportBody.sourceFile`](/de/docs/Web/API/DeprecationReportBody/sourceFile), da sie die Lokalisierung der Zeile in dieser Datei ermöglicht, in der der Fehler auftrat.
 
 ## Wert
 
-Ein Integer oder `null`, wenn die Zeile nicht bekannt ist.
+Eine Ganzzahl oder `null`, wenn die Zeile nicht bekannt ist.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Verwendungsberichte zu beobachten, und geben dann den Wert von `lineNumber` in der Konsole aus.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Veraltungsberichte zu beobachten, und geben dann den Wert von `lineNumber` in der Konsole aus.
 
 ```js
 let options = {

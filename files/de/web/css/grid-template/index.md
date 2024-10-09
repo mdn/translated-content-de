@@ -2,16 +2,16 @@
 title: grid-template
 slug: Web/CSS/grid-template
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
 
-Die **`grid-template`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) zur Definition von {{Glossary("grid_column", "Grid-Spalten")}}, {{Glossary("grid_row", "Grid-Zeilen")}} und {{Glossary("grid_areas", "Grid-Bereichen")}}.
+Die **`grid-template`** [CSS](/de/docs/Web/CSS) Eigenschaft ist eine [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) zur Definition von {{Glossary("grid_column", "Rasterspalten")}}, {{Glossary("grid_row", "Rasterreihen")}} und {{Glossary("grid_areas", "Rasterbereichen")}}.
 
 {{EmbedInteractiveExample("pages/css/grid-template.html")}}
 
-## Zusammengesetzte Eigenschaften
+## Zusätzliche Eigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -28,7 +28,7 @@ grid-template: none;
 /* grid-template-rows / grid-template-columns values */
 grid-template: 100px 1fr / 50px 1fr;
 grid-template: auto 1fr / auto 1fr auto;
-grid-template: [linename] 100px / [columnname1] 30% [columnname2] 70%;
+grid-template: [line-name] 100px / [column-name1] 30% [column-name2] 70%;
 grid-template: fit-content(100px) / fit-content(40%);
 
 /* grid-template-areas grid-template-rows / grid-template-column values */
@@ -54,18 +54,18 @@ grid-template: unset;
 ### Werte
 
 - `none`
-  - : Ist ein Schlüsselwort, das alle drei Langform-Eigenschaften auf `none` setzt, was bedeutet, dass es kein explizites Grid gibt. Es gibt keine benannten Grid-Bereiche. Zeilen und Spalten werden implizit generiert; ihre Größe wird durch die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} bestimmt.
+  - : Ist ein Schlüsselwort, das alle drei ausführlichen Eigenschaften auf `none` setzt, was bedeutet, dass kein explizites Raster vorhanden ist. Es gibt keine benannten Rasterbereiche. Reihen und Spalten werden implizit generiert; ihre Größe wird durch die Eigenschaften {{cssxref("grid-auto-rows")}} und {{cssxref("grid-auto-columns")}} bestimmt.
 - `<'grid-template-rows'> / <'grid-template-columns'>`
-  - : Setzt {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} auf die angegebenen Werte und {{cssxref("grid-template-areas")}} auf `none`.
+  - : Setzt {{cssxref("grid-template-rows")}} und {{cssxref("grid-template-columns")}} auf die angegebenen Werte und setzt {{cssxref("grid-template-areas")}} auf `none`.
 - `[ <line-names>? <string> <track-size>? <line-names>? ]+ [ / <explicit-track-list> ]?`
 
-  - : Setzt {{cssxref("grid-template-areas")}} auf die aufgeführten Zeichenfolgen, {{cssxref("grid-template-rows")}} auf die Track-Größen nach jeder Zeichenfolge (füllt `auto` für fehlende Größen ein), integriert die benannten Linien, die vor/nach jeder Größe definiert sind, und {{cssxref("grid-template-columns")}} auf die Track-Liste, die nach dem Schrägstrich angegeben ist (oder `none`, falls nicht angegeben).
+  - : Setzt {{cssxref("grid-template-areas")}} auf die aufgelisteten Zeichenfolgen, {{cssxref("grid-template-rows")}} auf die Spurgrößen, die auf jede Zeichenfolge folgen (eine fehlende Größe wird durch `auto` ergänzt), und fügt die benannten Linien vor/nach jeder Größe ein, und {{cssxref("grid-template-columns")}} auf die nach dem Schrägstrich angegebene Spurauflistung (oder `none`, wenn nicht angegeben).
 
     > [!NOTE]
-    > Die {{cssxref("repeat", "repeat()")}} Funktion ist in diesen Track-Listen nicht erlaubt, da die Tracks visuell eins zu eins mit den Zeilen/Spalten in der "ASCII-Kunst" ausgerichtet sein sollen.
+    > Die {{cssxref("repeat", "repeat()")}} Funktion ist in diesen Spurauflistungen nicht erlaubt, da die Spuren dazu gedacht sind, visuell eins zu eins mit den Reihen/Spalten in der "ASCII-Kunst" auszurichten.
 
 > [!NOTE]
-> Die {{cssxref("grid")}} Kurzschreibweise akzeptiert die gleiche Syntax, setzt aber auch die impliziten Grid-Eigenschaften auf ihre Anfangswerte zurück. Verwenden Sie `grid` (im Gegensatz zu `grid-template`), um zu verhindern, dass diese Werte separat kaskadieren.
+> Die {{cssxref("grid")}} Kurzschreibweise akzeptiert die gleiche Syntax, setzt jedoch auch die impliziten Rasteigenschaften auf ihre Anfangswerte zurück. Verwenden Sie `grid` (anstatt `grid-template`), um zu verhindern, dass diese Werte separat kaskadieren.
 
 ## Formale Definition
 
@@ -77,7 +77,7 @@ grid-template: unset;
 
 ## Beispiele
 
-### Definition einer Grid-Vorlage
+### Definition einer Rastervorlage
 
 #### CSS
 
@@ -142,6 +142,6 @@ footer {
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
-- [Linienbasierte Platzierung mit CSS-Grid](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
-- [Grid-Vorlagenbereiche: Kurzschreibweisen der Grid-Definition](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
+- [Zeilenbasierte Platzierung mit CSS-Raster](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement)
+- [Rastervorlage Bereiche: Rasterdefinitions-Kurzschreibweisen](/de/docs/Web/CSS/CSS_grid_layout/Grid_template_areas#grid_definition_shorthands)
 - Video: [Grid template shorthand](https://gridbyexample.com/video/grid-template-shorthand/)

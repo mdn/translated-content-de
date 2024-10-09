@@ -2,21 +2,21 @@
 title: ImageBitmap
 slug: Web/API/ImageBitmap
 l10n:
-  sourceCommit: 58d79e9c2206e0a604cd4d7f6fba5181262af420
+  sourceCommit: e899c6240801be991f92571b36132a1b6b387462
 ---
 
-{{APIRef("Canvas API")}}
+{{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`ImageBitmap`**-Schnittstelle repräsentiert ein Bitmap-Bild, das ohne übermäßige Latenz auf ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann aus einer Vielzahl von Quellobjekten mithilfe der Fabrikmethode [`Window.createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap) oder [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap) erstellt werden. `ImageBitmap` bietet einen asynchronen und ressourcensparenden Weg, um Texturen für das Rendering in WebGL vorzubereiten.
+Das **`ImageBitmap`**-Interface stellt ein Bitmap-Bild dar, das ohne unangemessene Verzögerung in ein {{HTMLElement("canvas")}} gezeichnet werden kann. Es kann mit einer Vielzahl von Quellobjekten unter Verwendung der Fabrikmethoden [`Window.createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap) oder [`WorkerGlobalScope.createImageBitmap()`](/de/docs/Web/API/WorkerGlobalScope/createImageBitmap) erstellt werden. `ImageBitmap` bietet einen asynchronen und ressourceneffizienten Weg, um Texturen für das Rendering in WebGL vorzubereiten.
 
 `ImageBitmap` ist ein [transferierbares Objekt](/de/docs/Web/API/Web_Workers_API/Transferable_objects).
 
 ## Instanz-Eigenschaften
 
 - [`ImageBitmap.height`](/de/docs/Web/API/ImageBitmap/height) {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die Höhe in CSS-Pixeln des `ImageData` repräsentiert.
+  - : Ein `unsigned long`, der die Höhe in CSS-Pixeln des `ImageData` darstellt.
 - [`ImageBitmap.width`](/de/docs/Web/API/ImageBitmap/width) {{ReadOnlyInline}}
-  - : Ein `unsigned long`, der die Breite in CSS-Pixeln des `ImageData` repräsentiert.
+  - : Ein `unsigned long`, der die Breite in CSS-Pixeln des `ImageData` darstellt.
 
 ## Instanz-Methoden
 

@@ -1,14 +1,14 @@
 ---
-title: "WorkerNavigator: mediaCapabilities Eigenschaft"
+title: "WorkerNavigator: mediaCapabilities-Eigenschaft"
 short-title: mediaCapabilities
 slug: Web/API/WorkerNavigator/mediaCapabilities
 l10n:
-  sourceCommit: e8fe043f7d2ad7cd9804d1bf96e0310949f1dac7
+  sourceCommit: 49f6e40b12be0d6d897d3dab09caafbc093f7677
 ---
 
-{{APIRef("HTML DOM")}}{{AvailableInWorkers("worker")}}
+{{APIRef("Media Capabilities API")}}{{AvailableInWorkers("worker")}}
 
-Die schreibgeschützte **`mediaCapabilities`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein gegebenes Format und die Ausgabefähigkeiten (wie durch die [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) definiert) bereitstellen kann.
+Die schreibgeschützte **`mediaCapabilities`**-Eigenschaft des [`WorkerNavigator`](/de/docs/Web/API/WorkerNavigator)-Interfaces verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Decodierungs- und Codierungsfähigkeiten für ein gegebenes Format und die Ausgabefähigkeiten (wie sie durch die [Media Capabilities API](/de/docs/Web/API/Media_Capabilities_API) definiert sind) offenlegen kann.
 
 ## Wert
 

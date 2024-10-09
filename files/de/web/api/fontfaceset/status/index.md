@@ -3,16 +3,16 @@ title: "FontFaceSet: status-Eigenschaft"
 short-title: status
 slug: Web/API/FontFaceSet/status
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`status`**-Eigenschaft des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Interfaces gibt den Ladezustand der Schriften im Set zurück.
+Die schreibgeschützte **`status`**-Eigenschaft der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)-Schnittstelle gibt den Ladezustand der Schriftarten im Set zurück.
 
 ## Wert
 
-Einer von:
+Einer der folgenden:
 
 - `"loading"`
 - `"loaded"`

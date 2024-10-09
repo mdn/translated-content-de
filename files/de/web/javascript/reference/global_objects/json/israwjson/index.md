@@ -2,12 +2,12 @@
 title: JSON.isRawJSON()
 slug: Web/JavaScript/Reference/Global_Objects/JSON/isRawJSON
 l10n:
-  sourceCommit: 91e28c4fca37647aeae71365d811d0cca9024fe0
+  sourceCommit: 47962c4ebad5a138673422ec63a282ab9a63d454
 ---
 
-{{JSRef}}{{SeeCompatTable}}
+{{JSRef}}
 
-Die **`JSON.isRawJSON()`** statische Methode prüft, ob ein Wert ein Objekt ist, das von {{jsxref("JSON.rawJSON()")}} zurückgegeben wurde.
+Die statische Methode **`JSON.isRawJSON()`** prüft, ob ein Wert ein von {{jsxref("JSON.rawJSON()")}} zurückgegebenes Objekt ist.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ JSON.isRawJSON(value)
 ### Parameter
 
 - `value`
-  - : Der zu prüfende Wert.
+  - : Der zu testende Wert.
 
 ### Rückgabewert
 
@@ -26,13 +26,13 @@ JSON.isRawJSON(value)
 
 ## Beschreibung
 
-"Raw JSON" Objekte werden bei der Serialisierung in JSON so behandelt, als ob sie bereits ein JSON-Stück wären. Aufgrund der Funktionsweise von {{jsxref("JSON.rawJSON()")}} ist das rohe JSON garantiert syntaktisch gültiges JSON. Weitere Informationen zur Form und zum Verhalten von Raw JSON Objekten finden Sie unter {{jsxref("JSON.rawJSON()")}}. Diese Methode existiert, um anderen Serialisierungsbibliotheken zu ermöglichen, ein ähnliches Verhalten wie `JSON.stringify()` für rohe JSON-Objekte zu implementieren.
+"Raw JSON"-Objekte werden bei der Serialisierung zu JSON so behandelt, als wären sie bereits ein Stück JSON. Darüber hinaus ist das rohe JSON aufgrund der Funktionsweise von {{jsxref("JSON.rawJSON()")}} garantiert syntaktisch gültiges JSON. Weitere Informationen zur Form und zum Verhalten von Raw JSON-Objekten finden Sie unter {{jsxref("JSON.rawJSON()")}}. Diese Methode existiert, um es anderen Serialisierungsbibliotheken zu ermöglichen, ein ähnliches Verhalten wie `JSON.stringify()` für Raw JSON-Objekte zu implementieren.
 
 ## Beispiele
 
 ### Verwendung von JSON.isRawJSON()
 
-Das folgende Beispiel zeigt, wie `JSON.isRawJSON()` verwendet wird, um zu testen, ob ein Objekt von `JSON.rawJSON()` zurückgegeben wurde. Es implementiert einen benutzerdefinierten Serializer, der Daten in ein YAML-ähnliches Format serialisiert.
+Das folgende Beispiel zeigt, wie `JSON.isRawJSON()` verwendet wird, um zu testen, ob ein Objekt von `JSON.rawJSON()` zurückgegeben wurde. Es implementiert einen benutzerdefinierten Serialisierer, der Daten in ein YAML-ähnliches Format serialisiert.
 
 ```js
 function mySerializer(value, indent = "") {
@@ -77,7 +77,7 @@ console.log(
 //     userId: 56789012345678901234
 ```
 
-Wenn im obigen Beispiel die `userId`-Werte nicht durch `JSON.rawJSON()` erzeugt wurden, sondern direkt als Zahlen übergeben wurden, dann würden wir aufgrund der JS-Gleitkommapräzisionsbegrenzungen einen Präzisionsverlust erleiden.
+Wenn in dem obigen Beispiel die `userId`-Werte nicht durch `JSON.rawJSON()` erstellt, sondern direkt als Zahlen übergeben wurden, dann kommt es aufgrund von JS-Gleitkomma-Präzisionsbeschränkungen zu einem Präzisionsverlust.
 
 ```js
 console.log(

@@ -3,12 +3,12 @@ title: "CSSKeyframesRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSKeyframesRule/name
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("CSSOM") }}
 
-Die **`name`**-Eigenschaft des [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule)-Interfaces ruft den Namen der Animation ab und legt ihn fest, wie er von der {{cssxref("animation-name")}}-Eigenschaft verwendet wird.
+Die **`name`**-Eigenschaft der Schnittstelle [`CSSKeyframeRule`](/de/docs/Web/API/CSSKeyframeRule) ruft den Namen der Animation ab und setzt ihn, wie er von der {{cssxref("animation-name")}}-Eigenschaft verwendet wird.
 
 ## Wert
 
@@ -16,11 +16,11 @@ Ein String.
 
 ## Beispiele
 
-Das CSS enthält eine Schlüsselbild-At-Regel. Dies wird die erste von `document.styleSheets[0].cssRules` zurückgegebene [`CSSRule`](/de/docs/Web/API/CSSRule) sein.
-`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, dessen `name` auf "slidein" gesetzt ist.
+Das CSS enthält eine Keyframes-At-Regel. Dies wird die erste [`CSSRule`](/de/docs/Web/API/CSSRule) sein, die von `document.styleSheets[0].cssRules` zurückgegeben wird.
+`myRules[0]` gibt ein [`CSSKeyframesRule`](/de/docs/Web/API/CSSKeyframesRule)-Objekt zurück, bei dem `name` auf `"slide-in"` gesetzt ist.
 
 ```css
-@keyframes slidein {
+@keyframes slide-in {
   from {
     transform: translateX(0%);
   }
@@ -34,7 +34,7 @@ Das CSS enthält eine Schlüsselbild-At-Regel. Dies wird die erste von `document
 ```js
 let myRules = document.styleSheets[0].cssRules;
 let keyframes = myRules[0]; // a CSSKeyframesRule
-console.log(keyframes.name); // "slidein"
+console.log(keyframes.name); // "slide-in"
 ```
 
 ## Spezifikationen

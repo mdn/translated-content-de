@@ -3,13 +3,13 @@ title: "DOMMatrix: DOMMatrix() Konstruktor"
 short-title: DOMMatrix()
 slug: Web/API/DOMMatrix/DOMMatrix
 l10n:
-  sourceCommit: 6197320c2f25a975ee4f7df4b8d5b48bf8d01562
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Der **`DOMMatrix`**-Konstruktor erstellt ein neues
-[`DOMMatrix`](/de/docs/Web/API/DOMMatrix)-Objekt, welches 4x4-Matrizen repräsentiert und für 2D- und 3D-Operationen geeignet ist.
+Der **`DOMMatrix`** Konstruktor erstellt ein neues
+[`DOMMatrix`](/de/docs/Web/API/DOMMatrix) Objekt, das 4x4 Matrizen darstellt, geeignet für 2D- und 3D-Operationen.
 
 ## Syntax
 
@@ -22,12 +22,12 @@ new DOMMatrix(init)
 
 - `init` {{optional_inline}}
 
-  - : Ein Array aus Zahlen, das die Matrix angibt, die Sie erstellen möchten, oder ein CSS-Transformations-String.
+  - : Ein Array von Zahlen, das die Matrix angibt, die Sie erstellen möchten, oder ein CSS-Transformations-String.
 
-    Wird ein Array von Zahlen übergeben, hängt das Verhalten von der Länge des Arrays ab:
+    Falls ein Array von Zahlen übergeben wird, hängt das Verhalten von der Länge des Arrays ab:
 
-    - Bei einem 6-Elemente-Array von Komponenten in der Form `[a, b, c, d, e, f]` wird eine 2D-Matrix erstellt, die mit den angegebenen Komponenten initialisiert wird.
-    - Bei einem 16-Elemente-Array von Komponenten (in der Spalten-major-Ordnung) in der Form `[m11, m12, m13, …, m42, m43, m44]` wird eine 3D-Matrix erstellt, die mit den angegebenen Komponenten initialisiert wird.
+    - Für ein 6-Elemente-Array von Komponenten in der Form `[a, b, c, d, e, f]` wird eine 2D-Matrix erstellt und mit den bereitgestellten Komponenten initialisiert.
+    - Für ein 16-Elemente-Array von Komponenten (in Spalten-Major-Ordnung) in der Form `[m11, m12, m13, …, m42, m43, m44]` wird eine 3D-Matrix erstellt und mit den bereitgestellten Komponenten initialisiert.
 
 ## Beispiele
 

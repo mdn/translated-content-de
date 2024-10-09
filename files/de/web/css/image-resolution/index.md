@@ -2,14 +2,14 @@
 title: image-resolution
 slug: Web/CSS/image-resolution
 l10n:
-  sourceCommit: 75326725db2daa924618e58ae31a43345c7a16dc
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`image-resolution`** [CSS](/de/docs/Web/CSS)-Eigenschaft gibt die intrinsische Auflösung aller Rasterbilder an, die im oder auf dem Element verwendet werden. Sie beeinflusst Inhaltsbilder wie ersetzte Elemente und erzeugten Inhalt sowie dekorative Bilder wie `background-image`.
+Die **`image-resolution`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die intrinsische Auflösung aller Rasterbilder an, die in oder auf dem Element verwendet werden. Sie betrifft Inhaltsbilder wie ersetzte Elemente und generierte Inhalte sowie dekorative Bilder wie `background-image`.
 
-Die Bildauflösung wird als die Anzahl der Bildpixel pro Längeneinheit definiert, z.B. Pixel pro Inch. Standardmäßig geht CSS von einer Auflösung von einem Bildpixel pro CSS-Px-Einheit aus; jedoch erlaubt die `image-resolution`-Eigenschaft, eine andere Auflösung anzugeben.
+Die Bildauflösung wird als Anzahl der Bildpixel pro Längeneinheit definiert, z.B. Pixel pro Zoll. Standardmäßig geht CSS von einer Auflösung von einem Bildpixel pro CSS px Einheit aus; die Eigenschaft `image-resolution` erlaubt jedoch die Angabe einer anderen Auflösung.
 
 ## Syntax
 
@@ -32,12 +32,12 @@ image-resolution: unset;
 - {{cssxref("&lt;resolution&gt;")}}
   - : Gibt die intrinsische Auflösung explizit an.
 - `from-image`
-  - : Verwendet die intrinsische Auflösung, wie sie im Bildformat angegeben ist. Wenn das Bild keine eigene Auflösung angibt, wird die explizit angegebene Auflösung verwendet (falls vorhanden), andernfalls wird auf `1dppx` (1 Bildpixel pro CSS-Px-Einheit) zurückgegriffen.
+  - : Verwendet die intrinsische Auflösung, wie sie durch das Bildformat angegeben wird. Wenn das Bild seine eigene Auflösung nicht angibt, wird die explizit angegebene Auflösung verwendet (falls vorhanden), andernfalls ist der Standard `1dppx` (1 Bildpixel pro CSS px Einheit).
 - `snap`
-  - : Wenn das `snap`-Schlüsselwort angegeben ist, wird die berechnete Auflösung auf den nächstgelegenen Wert gerundet, der ein Bildpixel auf eine ganze Anzahl von Gerätepixeln abbilden würde. Wenn die Auflösung vom Bild übernommen wird, ist die verwendete intrinsische Auflösung die native Auflösung des Bildes, entsprechend angepasst.
+  - : Wenn das Schlüsselwort `snap` angegeben ist, wird die berechnete Auflösung zur nächsten Zahl gerundet, die ein Bildpixel einer ganzen Zahl von Gerätepixeln zuordnet. Wenn die Auflösung vom Bild genommen wird, dann ist die verwendete intrinsische Auflösung die nativen Auflösung des Bildes, ebenfalls angepasst.
 
 > [!NOTE]
-> Da Vektorformate wie SVG keine intrinsische Auflösung haben, hat diese Eigenschaft keine Auswirkung auf Vektorbilder.
+> Da Vektorformate wie SVG keine intrinsische Auflösung haben, hat diese Eigenschaft keine Auswirkungen auf Vektorbilder.
 
 ## Formale Definition
 
@@ -49,24 +49,24 @@ image-resolution: unset;
 
 ## Beispiele
 
-### Einstellung einer hohen DPI für den Druck
+### Eine hohe dpi für den Druck einstellen
 
-Beim Drucken des Dokuments sollte eine höhere Auflösung verwendet werden.
+Verwenden Sie beim Drucken des Dokuments eine höhere Auflösung.
 
 ```css
 @media print {
-  .myimage {
+  .my-image {
     image-resolution: 300dpi;
   }
 }
 ```
 
-### Bildauflösung mit Fallback verwenden
+### Verwenden der Bildauflösung mit Fallback
 
-Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwenden Sie 300dpi anstelle der Standardauflösung von 1dppx.
+Verwendet die Auflösung aus dem Bild. Wenn das Bild keine Auflösung hat, verwenden Sie 300dpi anstelle des Standards 1dppx.
 
 ```css
-.myimage {
+.my-image {
   image-resolution: from-image 300dpi;
 }
 ```
@@ -82,4 +82,4 @@ Derzeit unterstützt kein Browser diese Eigenschaft.
 ## Siehe auch
 
 - Andere bildbezogene CSS-Eigenschaften: {{cssxref("object-fit")}}, {{cssxref("object-position")}}, {{cssxref("image-orientation")}}, {{cssxref("image-rendering")}}.
-- [Chromium-Fehler: 1086473](https://crbug.com/1086473).
+- [Chromium Bug: 1086473](https://crbug.com/1086473).

@@ -3,10 +3,10 @@ title: "MessageEvent: MessageEvent() Konstruktor"
 short-title: MessageEvent()
 slug: Web/API/MessageEvent/MessageEvent
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: 6091080d719b4f0ec1cdc119a21d54a1f1cc1c59
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("HTML DOM")}}{{AvailableInWorkers}}
 
 Der **`MessageEvent()`** Konstruktor erstellt ein neues [`MessageEvent`](/de/docs/Web/API/MessageEvent)-Objekt.
 
@@ -21,24 +21,27 @@ new MessageEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist groß- und kleinschreibungssensitiv und wird von Browsern immer auf `message` gesetzt.
+    Er ist case-sensitive, und Browser setzen ihn immer auf `message`.
 - `options` {{optional_inline}}
-  - : Ein Objekt, das zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften folgende Eigenschaften haben kann:
+  - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `data` {{optional_inline}}
-      - : Die Daten, die im MessageEvent enthalten sein sollen.
-        Dies kann jeder Datentyp sein und wird, falls nicht angegeben, standardmäßig auf `null` gesetzt.
+      - : Die Daten, die Sie im MessageEvent enthalten möchten.
+        Dies kann von jedem Datentyp sein und wird standardmäßig auf `null` gesetzt, wenn nicht angegeben.
     - `origin` {{optional_inline}}
-      - : Ein String, der den Ursprung des Nachrichtenemitters repräsentiert.
-        Wird standardmäßig auf einen leeren String (`''`) gesetzt, wenn nicht angegeben.
+      - : Ein String, der den Ursprung des Nachrichtenabsenders darstellt.
+        Dies hat standardmäßig einen leeren String (`''`), wenn nicht angegeben.
     - `lastEventId` {{optional_inline}}
-      - : Ein String, der eine eindeutige ID für das Ereignis repräsentiert.
-        Wird standardmäßig auf einen leeren String ("") gesetzt, wenn nicht angegeben.
+      - : Ein String, der eine eindeutige ID für das Ereignis darstellt.
+        Dies hat standardmäßig einen leeren String ("") wenn nicht angegeben.
     - `source` {{optional_inline}}
-      - : Eine `MessageEventSource` (die ein [`Window`](/de/docs/Web/API/Window), ein [`MessagePort`](/de/docs/Web/API/MessagePort) oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)-Objekt sein kann), das den Nachrichtenemitter repräsentiert.
-        Wird standardmäßig auf `null` gesetzt, wenn nicht festgelegt.
+      - : Ein `MessageEventSource` (welches ein [`Window`](/de/docs/Web/API/Window), ein [`MessagePort`](/de/docs/Web/API/MessagePort),
+        oder ein [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) Objekt sein kann) das den Nachrichtenabsender darstellt.
+        Dies wird auf `null` gesetzt, wenn nicht angegeben.
     - `ports` {{optional_inline}}
-      - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die die Ports darstellen, die mit dem Kanal verbunden sind, durch den die Nachricht gesendet wird, wo dies angemessen ist (z.B. im Kanal-Messaging oder beim Senden einer Nachricht an einen Shared Worker).
-        Wird standardmäßig auf ein leeres Array (`[]`) gesetzt, wenn nicht angegeben.
+      - : Ein Array von [`MessagePort`](/de/docs/Web/API/MessagePort)-Objekten, die
+        die Ports darstellen, die mit dem Kanal verbunden sind, über den die Nachricht gesendet wird, wo angebracht
+        (z. B. im Kanal-Messaging oder beim Senden einer Nachricht an einen Shared Worker).
+        Dies wird standardmäßig auf ein leeres Array (`[]`) gesetzt, wenn nicht angegeben.
 
 ### Rückgabewert
 
@@ -62,4 +65,4 @@ const myMessage = new MessageEvent("message", {
 
 ## Siehe auch
 
-- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich dieser Schnittstelle, aber verwendet in Schnittstellen, die den Autoren mehr Flexibilität bieten müssen.
+- [`ExtendableMessageEvent`](/de/docs/Web/API/ExtendableMessageEvent) — ähnlich zu dieser Schnittstelle, aber verwendet in Schnittstellen, die den Autoren mehr Flexibilität geben müssen.

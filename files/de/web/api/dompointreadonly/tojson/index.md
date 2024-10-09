@@ -3,12 +3,12 @@ title: "DOMPointReadOnly: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/DOMPointReadOnly/toJSON
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die Methode `toJSON()` von [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) gibt ein Objekt zurück, das die {{Glossary("JSON", "JSON")}}-Form des Punktobjekts liefert.
+Die Methode `toJSON()` der [`DOMPointReadOnly`](/de/docs/Web/API/DOMPointReadOnly) gibt ein Objekt zurück, das die {{Glossary("JSON", "JSON")}}-Form des Punktobjekts liefert.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt, dessen Eigenschaften auf die Werte im `DOMPoint` oder `DOMPointReadOnly` gesetzt sind, auf dem die Methode aufgerufen wurde.
+Ein neues Objekt, dessen Eigenschaften auf die Werte im `DOMPoint` oder `DOMPointReadOnly`, auf dem die Methode aufgerufen wurde, gesetzt sind.
 
 ## Beispiele
 

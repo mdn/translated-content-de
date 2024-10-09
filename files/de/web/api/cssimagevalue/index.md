@@ -2,14 +2,14 @@
 title: CSSImageValue
 slug: Web/API/CSSImageValue
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
 ---
 
 {{APIRef("CSS Typed Object Model API")}}
 
-Die **`CSSImageValue`** Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild erfordern, zum Beispiel {{cssxref('background-image')}}, {{cssxref('list-style-image')}}, oder {{cssxref('border-image-source')}}.
+Die **`CSSImageValue`**-Schnittstelle der [CSS Typed Object Model API](/de/docs/Web/API/CSS_Object_Model#css_typed_object_model) repräsentiert Werte für Eigenschaften, die ein Bild erfordern, wie beispielsweise {{cssxref('background-image')}}, {{cssxref('list-style-image')}} oder {{cssxref('border-image-source')}}.
 
-Das CSSImageValue-Objekt repräsentiert ein [`<image>`](/de/docs/Web/CSS/image), das eine URL beinhaltet, wie zum Beispiel [`url()`](/de/docs/Web/CSS/url_function) oder [`image()`](/de/docs/Web/CSS/image), jedoch nicht [`linear-gradient()`](/de/docs/Web/CSS/gradient/linear-gradient) oder [`element()`](/de/docs/Web/CSS/element).
+Das CSSImageValue-Objekt stellt ein [`<image>`](/de/docs/Web/CSS/image) dar, das eine URL enthält, wie [`url()`](/de/docs/Web/CSS/url_function) oder [`image()`](/de/docs/Web/CSS/image), jedoch nicht [`linear-gradient()`](/de/docs/Web/CSS/gradient/linear-gradient) oder [`element()`](/de/docs/Web/CSS/element).
 
 {{InheritanceDiagram}}
 
@@ -36,11 +36,11 @@ button {
   display: inline-block;
   min-height: 100px;
   min-width: 100px;
-  background: no-repeat 5% center url(magicwand.png) aqua;
+  background: no-repeat 5% center url(magic-wand.png) aqua;
 }
 ```
 
-Wir erhalten die Stilkarte des Elements. Dann holen wir das Hintergrundbild mit get() aus der Stilkarte und wandeln es in eine Zeichenkette um:
+Wir erhalten die Stilkarte des Elements. Anschließend rufen wir das Hintergrundbild aus der Stilkarte ab und konvertieren es in einen String:
 
 ```js
 // get the element
@@ -54,7 +54,7 @@ console.log(allComputedStyles.get("background-image"));
 console.log(allComputedStyles.get("background-image").toString());
 ```
 
-{{EmbedLiveSample("Examples", 120, 300)}}
+{{EmbedLiveSample("Beispiele", 120, 300)}}
 
 ## Spezifikationen
 

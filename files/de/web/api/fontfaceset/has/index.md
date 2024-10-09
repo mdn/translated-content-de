@@ -3,12 +3,12 @@ title: "FontFaceSet: has() Methode"
 short-title: has()
 slug: Web/API/FontFaceSet/has
 l10n:
-  sourceCommit: 339595951b78774e951b1a9d215a6db6b856f6b2
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`has()`** Methode des [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Schnittstelle gibt einen {{jsxref("Boolean")}} zurück, der angibt, ob ein Element mit dem gegebenen Wert vorhanden ist.
+Die **`has()`** Methode der [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) Schnittstelle gibt ein {{jsxref("Boolean")}} zurück, das angibt, ob ein Element mit dem angegebenen Wert vorhanden ist.
 
 ## Syntax
 
@@ -19,11 +19,11 @@ has(value)
 ### Parameter
 
 - `value`
-  - : Der Wert, auf den im `FontFaceSet` Objekt getestet werden soll.
+  - : Der Wert, der im `FontFaceSet`-Objekt überprüft werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Boolean")}}, `true` wenn `value` im `FontFaceSet` existiert.
+Ein {{jsxref("Boolean")}}, `true` wenn der `value` im `FontFaceSet` vorhanden ist.
 
 ## Spezifikationen
 

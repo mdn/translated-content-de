@@ -3,12 +3,12 @@ title: "USBDevice: serialNumber-Eigenschaft"
 short-title: serialNumber
 slug: Web/API/USBDevice/serialNumber
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: a10e3f00a346a0ec35380513f65915849d99f895
 ---
 
-{{SeeCompatTable}}{{APIRef("WebUSB API")}}{{SecureContext_Header}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`serialNumber`** des [`USBDevice`](/de/docs/Web/API/USBDevice)-Interfaces ist die vom Hersteller definierte Seriennummer für das spezifische USB-Gerät.
+Die **`serialNumber`** schreibgeschützte Eigenschaft der [`USBDevice`](/de/docs/Web/API/USBDevice)-Schnittstelle ist die vom Hersteller definierte Seriennummer für das spezifische USB-Gerät.
 
 ## Wert
 

@@ -3,12 +3,12 @@ title: "Request: body-Eigenschaft"
 short-title: body
 slug: Web/API/Request/body
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`body`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) mit den im Antrag hinzugefügten Inhalt. Beachten Sie, dass eine Anfrage, die die `GET`- oder `HEAD`-Methode verwendet, keinen Body haben kann und in diesen Fällen `null` zurückgegeben wird.
+Die schreibgeschützte **`body`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält einen [`ReadableStream`](/de/docs/Web/API/ReadableStream) mit dem Inhalt des Bodys, der der Anfrage hinzugefügt wurde. Beachten Sie, dass eine Anfrage, die die `GET`- oder `HEAD`-Methode verwendet, keinen Body haben kann und in diesen Fällen `null` zurückgegeben wird.
 
 ## Wert
 

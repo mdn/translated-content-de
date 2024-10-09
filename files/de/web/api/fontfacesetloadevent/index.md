@@ -2,14 +2,14 @@
 title: FontFaceSetLoadEvent
 slug: Web/API/FontFaceSetLoadEvent
 l10n:
-  sourceCommit: c88a329069328522a5c20c054f9dbced9967dbd4
+  sourceCommit: 3b7232826ab98368d06ebf8b021886e4a544de93
 ---
 
-{{APIRef("CSS Font Loading API")}}
+{{APIRef("CSS Font Loading API")}}{{AvailableInWorkers}}
 
-Die **`FontFaceSetLoadEvent`**-Schnittstelle der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) repräsentiert Ereignisse, die bei einem [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) ausgelöst werden, nachdem es mit dem Laden von Schriftarten begonnen hat.
+Die **`FontFaceSetLoadEvent`**-Schnittstelle der [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) repräsentiert Ereignisse, die an einem [`FontFaceSet`](/de/docs/Web/API/FontFaceSet) ausgelöst werden, nachdem das Laden von Schriftartensätzen beginnt.
 
-Ereignisse werden ausgelöst, wenn das Laden der Schriftarten beginnt ([`loading`](/de/docs/Web/API/FontFaceSet/loading_event)), das Laden abgeschlossen ist ([`loadingdone`](/de/docs/Web/API/FontFaceSet/loadingdone_event)) oder beim Laden einer der Schriftarten ein Fehler auftritt ([`loadingerror`](/de/docs/Web/API/FontFaceSet/loadingerror_event)).
+Ereignisse werden ausgelöst, wenn das Laden der Schriftarten beginnt ([`loading`](/de/docs/Web/API/FontFaceSet/loading_event)), das Laden abgeschlossen ist ([`loadingdone`](/de/docs/Web/API/FontFaceSet/loadingdone_event)) oder ein Fehler beim Laden einer der Schriftarten auftritt ([`loadingerror`](/de/docs/Web/API/FontFaceSet/loadingerror_event)).
 
 {{InheritanceDiagram}}
 
@@ -24,7 +24,7 @@ _Erbt auch Eigenschaften von seinem Elternteil [`Event`](/de/docs/Web/API/Event)
 
 - [`FontFaceSetLoadEvent.fontfaces`](/de/docs/Web/API/FontFaceSetLoadEvent/fontfaces) {{ReadOnlyInline}}
   - : Gibt ein Array von [`FontFace`](/de/docs/Web/API/FontFace)-Instanzen zurück.
-    Abhängig vom Ereignis enthält das Array Schriftarten, die gerade geladen werden (`loading`), erfolgreich geladen wurden (`loadingdone`) oder beim Laden fehlgeschlagen sind (`loadingerror`).
+    Abhängig vom Ereignis enthält das Array Schriftarten, die geladen werden (`loading`), erfolgreich geladen wurden (`loadingdone`) oder beim Laden gescheitert sind (`loadingerror`).
 
 ## Instanz-Methoden
 

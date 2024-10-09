@@ -1,14 +1,14 @@
 ---
-title: "Request: signal-Eigenschaft"
+title: "Request: Signal-Eigenschaft"
 short-title: signal
 slug: Web/API/Request/signal
 l10n:
-  sourceCommit: 989453176fd8756828b34b743a677a797d897156
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`signal`**-Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces gibt das [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück, das mit der Anforderung verbunden ist.
+Die schreibgeschützte **`signal`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle gibt das mit der Anfrage verbundene [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
 
 ## Wert
 

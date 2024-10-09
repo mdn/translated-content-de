@@ -2,7 +2,7 @@
 title: font-feature-settings
 slug: Web/CSS/font-feature-settings
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
@@ -33,23 +33,23 @@ font-feature-settings: revert-layer;
 font-feature-settings: unset;
 ```
 
-Wann immer möglich, sollten Web-Autoren stattdessen die {{cssxref("font-variant")}} Kurzschreibweise oder eine zugehörige Langfassung wie {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-numeric")}} oder {{cssxref("font-variant-position")}} verwenden.
+Wann immer möglich, sollten Web-Autoren stattdessen die {{cssxref("font-variant")}} Kurzschreibweise oder eine dazugehörige Langform-Eigenschaft wie {{cssxref("font-variant-ligatures")}}, {{cssxref("font-variant-caps")}}, {{cssxref("font-variant-east-asian")}}, {{cssxref("font-variant-alternates")}}, {{cssxref("font-variant-numeric")}} oder {{cssxref("font-variant-position")}} verwenden.
 
-Diese führen zu effektiveren, vorhersehbareren und verständlicheren Ergebnissen als `font-feature-settings`, was eine niedrigstufige Funktion ist, die für spezielle Fälle gedacht ist, in denen es keine andere Möglichkeit gibt, auf ein OpenType-Schriftmerkmal zuzugreifen oder es zu aktivieren. Insbesondere sollte `font-feature-settings` nicht zur Aktivierung von Kapitälchen verwendet werden.
+Diese führen zu effektiveren, vorhersagbaren und verständlicheren Ergebnissen als `font-feature-settings`, das eine Low-Level-Funktion ist, die entwickelt wurde, um spezielle Fälle zu behandeln, in denen es keinen anderen Weg gibt, ein OpenType-Schriftmerkmal zu aktivieren oder darauf zuzugreifen. Insbesondere sollte `font-feature-settings` nicht verwendet werden, um Kapitälchen zu aktivieren.
 
 ### Werte
 
-Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als eine durch Kommas getrennte Liste von `<feature-tag-value>` Werten angegeben. Beim Rendern von Text wird die Liste der OpenType `<feature-tag-value>` Werte an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren.
+Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als eine kommaseparierte Liste von `<feature-tag-value>` Werten angegeben. Beim Rendern von Text werden die Liste der OpenType `<feature-tag-value>` Werte an die Textlayout-Engine übergeben, um Schriftmerkmale zu aktivieren oder zu deaktivieren.
 
 - `normal`
-  - : Gibt an, dass der Text mit den Standardeinstellungen der Schriftart layoutet wird. Dies ist der Standardwert.
+  - : Gibt an, dass Text mit den Standardeinstellungen der Schriftart formatiert wird. Dies ist der Standardwert.
 - `<feature-tag-value>`
 
-  - : Repräsentiert ein durch Leerzeichen getrenntes Tupel, bestehend aus einem Tag-Namen und einem optionalen Wert.
+  - : Stellt ein durch Leerzeichen getrenntes Tupel dar, bestehend aus einem Tag-Namen und einem optionalen Wert.
 
-    Der Tag-Name ist immer ein {{cssxref("&lt;string&gt;")}} von vier {{Glossary("ASCII", "ASCII")}} Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepunktbereichs enthält, ist der Deskriptor ungültig.
+    Der Tag-Name ist immer eine {{cssxref("&lt;string&gt;")}} von vier {{Glossary("ASCII", "ASCII")}} Zeichen. Wenn der Tag-Name mehr oder weniger Zeichen hat oder Zeichen außerhalb des `U+20` – `U+7E` Codepunktbereichs enthält, ist der Deskriptor ungültig.
 
-    Der optionale Wert kann eine positive Ganzzahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert festgelegt ist, ist der Standard `1`. Für nicht-boolean OpenType-Funktionen (z.B. [stilistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert ein bestimmtes zu wählendes Glyph; für boolesche Funktionen schaltet der Wert die Funktion ein oder aus.
+    Der optionale Wert kann eine positive Ganzzahl oder das Schlüsselwort `on` oder `off` sein. Die Schlüsselwörter `on` und `off` sind Synonyme für die Werte `1` und `0`. Wenn kein Wert angegeben ist, ist der Standardwert `1`. Für nicht-boolesche OpenType-Funktionen (z. B. [stilistische Alternativen](https://learn.microsoft.com/en-ca/typography/opentype/spec/features_pt#tag-salt)) impliziert der Wert die Auswahl eines bestimmten Glyphen; für boolesche Funktionen aktiviert oder deaktiviert der Wert die Funktion.
 
 ## Formale Definition
 
@@ -61,31 +61,31 @@ Diese Eigenschaft wird entweder als das Schlüsselwort `normal` oder als eine du
 
 ## Beispiele
 
-### Aktivierung verschiedener Schriftfunktionen
+### Aktivierung verschiedener Schriftmerkmale
 
 ```css
 /* use small-cap alternate glyphs */
-.smallcaps {
+.small-caps {
   font-feature-settings: "smcp" on;
 }
 
 /* convert both upper and lowercase to small caps (affects punctuation also) */
-.allsmallcaps {
+.all-small-caps {
   font-feature-settings: "c2sc", "smcp";
 }
 
 /* use zeros with a slash through them to differentiate from "O" */
-.nicezero {
+.nice-zero {
   font-feature-settings: "zero";
 }
 
 /* enable historical forms */
-.hist {
+.historical {
   font-feature-settings: "hist";
 }
 
 /* disable common ligatures, usually on by default */
-.noligs {
+.no-ligatures {
   font-feature-settings: "liga" 0;
 }
 
@@ -105,7 +105,7 @@ td.tabular {
 }
 
 /* enable stylistic set 7 */
-.fancystyle {
+.fancy-style {
   font-family: Gabriola;
   font-feature-settings: "ss07";
 }

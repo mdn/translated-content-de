@@ -2,37 +2,37 @@
 title: InterventionReportBody
 slug: Web/API/InterventionReportBody
 l10n:
-  sourceCommit: 4458494807b6f4898d504b6c0af0a45f8031cbf3
+  sourceCommit: a7d66cf8b1251dc43f4b35c8060b95df69f58a0a
 ---
 
-{{APIRef("Reporting API")}}{{SeeCompatTable}}
+{{APIRef("Reporting API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Das `InterventionReportBody`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Inhalt eines Interventionsberichts.
+Das `InterventionReportBody`-Interface der [Reporting API](/de/docs/Web/API/Reporting_API) repräsentiert den Inhalt eines Eingriffsberichts.
 
-Ein Interventionsbericht wird erstellt, wenn die Nutzung einer Funktion in einem Webdokument vom Browser aus Gründen wie Sicherheit, Leistung oder Nutzerverärgerung blockiert wurde. So könnte beispielsweise ein Skript gestoppt worden sein, weil es den Browser erheblich verlangsamt, oder die Autoplay-Richtlinie des Browsers hat das Abspielen von Audio ohne einen auslösenden Nutzerbefehl blockiert.
+Ein Eingriffsbericht wird erstellt, wenn die Verwendung einer Funktion in einem Webdokument vom Browser aus Gründen wie Sicherheit, Leistung oder Benutzerbelästigung blockiert wurde. Beispielsweise wurde ein Skript gestoppt, weil es den Browser erheblich verlangsamt hat, oder die Autoplay-Richtlinie des Browsers hat das Abspielen von Audio ohne eine Benutzerinteraktion blockiert.
 
-Ein Abkündigungsbericht wird erstellt, wenn eine veraltete Funktion (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird, das von einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) beobachtet wird. Zusätzlich zur Unterstützung dieser API hängt das Erhalten nützlicher Interventionswarnungen davon ab, dass Browser-Anbieter diese Warnungen für die relevanten Funktionen hinzufügen.
+Ein Veralterungsbericht wird erstellt, wenn eine veraltete Funktion (zum Beispiel eine veraltete API-Methode) in einem Dokument verwendet wird, das von einem [`ReportingObserver`](/de/docs/Web/API/ReportingObserver) überwacht wird. Zusätzlich zur Unterstützung dieser API ist es erforderlich, dass Browseranbieter nützliche Eingriffswarnungen für die relevanten Funktionen hinzufügen.
 
 {{InheritanceDiagram}}
 
-## Constructor
+## Konstruktor
 
-Eine Instanz von `InterventionReportBody` wird als der Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben, wenn [`Report.Type`](/de/docs/Web/API/Report/Type) `intervention` ist. Das Interface hat keinen Konstruktor.
+Eine Instanz von `InterventionReportBody` wird als Wert von [`Report.body`](/de/docs/Web/API/Report/body) zurückgegeben, wenn [`Report.Type`](/de/docs/Web/API/Report/Type) `intervention` ist. Das Interface hat keinen Konstruktor.
 
 ## Instanz-Eigenschaften
 
 Dieses Interface erbt auch Eigenschaften von [`ReportBody`](/de/docs/Web/API/ReportBody).
 
 - [`InterventionReportBody.id`](/de/docs/Web/API/InterventionReportBody/id) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Ein String, der die Intervention darstellt, die den Bericht generiert hat. Dies kann zur Gruppierung von Berichten verwendet werden.
+  - : Ein String, der den Eingriff repräsentiert, der den Bericht erzeugt hat. Dies kann verwendet werden, um Berichte zu gruppieren.
 - [`InterventionReportBody.message`](/de/docs/Web/API/InterventionReportBody/message) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Ein String mit einer menschenlesbaren Beschreibung der Intervention, einschließlich Informationen, wie die Intervention vermieden werden könnte. Dies entspricht normalerweise der Nachricht, die ein Browser in seiner DevTools-Konsole anzeigt, wenn eine Intervention angewendet wird, sofern eine vorhanden ist.
+  - : Ein String, der eine menschenlesbare Beschreibung des Eingriffs enthält, einschließlich Informationen darüber, wie der Eingriff vermieden werden könnte. Dies entspricht typischerweise der Nachricht, die ein Browser in seiner DevTools-Konsole anzeigt, wenn ein Eingriff vorgenommen wird, falls verfügbar.
 - [`InterventionReportBody.sourceFile`](/de/docs/Web/API/InterventionReportBody/sourceFile) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Ein String, der den Pfad zur Quelldatei enthält, in der die Intervention aufgetreten ist, falls bekannt, oder `null` andernfalls.
+  - : Ein String, der den Pfad zur Quelldatei enthält, in der der Eingriff stattgefunden hat, falls bekannt, oder `null` andernfalls.
 - [`InterventionReportBody.lineNumber`](/de/docs/Web/API/InterventionReportBody/lineNumber) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Ein String, der die Zeile in der Quelldatei darstellt, in der die Intervention aufgetreten ist, falls bekannt, oder `null` andernfalls.
+  - : Ein String, der die Zeile in der Quelldatei darstellt, in der der Eingriff stattgefunden hat, falls bekannt, oder `null` andernfalls.
 - [`InterventionReportBody.columnNumber`](/de/docs/Web/API/InterventionReportBody/columnNumber) {{experimental_inline}} {{ReadOnlyInline}}
-  - : Ein String, der die Spalte in der Quelldatei darstellt, in der die Intervention aufgetreten ist, falls bekannt, oder `null` andernfalls.
+  - : Ein String, der die Spalte in der Quelldatei darstellt, in der der Eingriff stattgefunden hat, falls bekannt, oder `null` andernfalls.
 
 ## Instanz-Methoden
 
@@ -43,7 +43,7 @@ Dieses Interface erbt auch Methoden von [`ReportBody`](/de/docs/Web/API/ReportBo
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Interventionsberichte zu beobachten, und drucken dann die Details jeder Eigenschaft des ersten Berichts in die Konsole.
+In diesem Beispiel erstellen wir einen neuen [`ReportingObserver`](/de/docs/Web/API/ReportingObserver), um Eingriffsberichte zu beobachten, und geben dann Details jeder Eigenschaft des ersten Berichts in der Konsole aus.
 
 ```js
 const options = {
@@ -73,4 +73,4 @@ const observer = new ReportingObserver((reports, observer) => {
 ## Siehe auch
 
 - [Reporting API](/de/docs/Web/API/Reporting_API)
-- [The Reporting API](https://developer.chrome.com/docs/capabilities/web-apis/reporting-api)
+- [Die Reporting API](https://developer.chrome.com/docs/capabilities/web-apis/reporting-api)

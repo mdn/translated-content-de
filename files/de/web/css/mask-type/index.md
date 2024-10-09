@@ -2,14 +2,14 @@
 title: mask-type
 slug: Web/CSS/mask-type
 l10n:
-  sourceCommit: 1c4eb0bfb5f72a26fcc21a83fac91aa3e66c2fb8
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
 
-Die **`mask-type`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob ein SVG-{{svgElement("mask")}}-Element als _Luminanz- oder Alphamaske_ verwendet wird. Sie gilt für das `<mask>`-Element selbst.
+Die **`mask-type`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein SVG {{svgElement("mask")}}-Element als _Luminanz- oder_ _Alpha-Maske_ verwendet wird. Sie gilt für das `<mask>`-Element selbst.
 
-Diese Eigenschaft kann durch die {{cssxref("mask-mode")}}-Eigenschaft überschrieben werden, die denselben Effekt hat, jedoch auf das Element angewendet wird, bei dem die Maske verwendet wird. Alphamasken werden in der Regel schneller gerendert.
+Diese Eigenschaft kann durch die {{cssxref("mask-mode")}}-Eigenschaft überschrieben werden, die denselben Effekt hat, aber auf das Element angewendet wird, bei dem die Maske verwendet wird. Alpha-Masken werden im Allgemeinen schneller gerendert.
 
 ## Syntax
 
@@ -31,9 +31,9 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 ### Werte
 
 - `luminance`
-  - : Ist ein Schlüsselwort, das angibt, dass das zugehörige Maskenbild eine Luminanzmaske ist, d.h., dass seine [relative Luminanz](https://en.wikipedia.org/wiki/Luminance_%28relative%29)-Werte verwendet werden müssen, wenn es angewendet wird.
+  - : Ist ein Schlüsselwort, das angibt, dass das zugehörige Maskenbild eine Luminanzmaske ist, d. h., dass seine [relative Luminanz](https://en.wikipedia.org/wiki/Luminance_%28relative%29)-Werte beim Anwenden verwendet werden müssen.
 - `alpha`
-  - : Ist ein Schlüsselwort, das angibt, dass das zugehörige Maskenbild eine Alphamaske ist, d.h., dass seine [Alpha-Kanal](https://en.wikipedia.org/wiki/Alpha_compositing)-Werte verwendet werden müssen, wenn es angewendet wird.
+  - : Ist ein Schlüsselwort, das angibt, dass das zugehörige Maskenbild eine Alpha-Maske ist, d. h., dass seine [Alpha-Kanal](https://en.wikipedia.org/wiki/Alpha_compositing)-Werte beim Anwenden verwendet werden müssen.
 
 ## Formale Definition
 
@@ -45,12 +45,12 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 
 ## Beispiele
 
-### Einstellen einer Alphamaske
+### Eine Alpha-Maske festlegen
 
 #### HTML
 
 ```html
-<div class="redsquare"></div>
+<div class="red-square"></div>
 <svg
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 #### CSS
 
 ```css
-.redsquare {
+.red-square {
   height: 100px;
   width: 100px;
   background-color: rgb(128 128 128);
@@ -87,12 +87,12 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 
 {{EmbedLiveSample('Setting_an_alpha_mask', '100%', '102')}}
 
-### Einstellen einer Luminanzmaske
+### Eine Luminanzmaske festlegen
 
 #### HTML
 
 ```html
-<div class="redsquare"></div>
+<div class="red-square"></div>
 <svg
   version="1.1"
   xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ Die `mask-type`-Eigenschaft wird als eines der unten aufgeführten Schlüsselwor
 #### CSS
 
 ```css
-.redsquare {
+.red-square {
   height: 100px;
   width: 100px;
   background-color: rgb(128 128 128);

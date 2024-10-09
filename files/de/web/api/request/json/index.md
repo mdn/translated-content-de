@@ -1,16 +1,17 @@
 ---
-title: "Request: json()-Methode"
+title: "Request: json() Methode"
 short-title: json()
 slug: Web/API/Request/json
 l10n:
-  sourceCommit: 954612667bafd71241a93e8554e8f11afc474ff3
+  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
 ---
 
-{{APIRef("Fetch API")}}
+{{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die **`json()`**-Methode des [`Request`](/de/docs/Web/API/Request)-Interfaces liest den Anfragekörper und gibt ein Promise zurück, das mit dem Ergebnis der Verarbeitung des Körpertexts als {{JSxRef("JSON")}} aufgelöst wird.
+Die **`json()`** Methode des [`Request`](/de/docs/Web/API/Request) Interfaces
+liest den Anfragetext und gibt ihn als Promise zurück, das mit dem Ergebnis des Parsens des Textes als {{JSxRef("JSON")}} aufgelöst wird.
 
-Beachten Sie, dass trotz des Namens der Methode `json()` das Ergebnis kein JSON ist, sondern das Resultat der Eingabe eines JSON, das geparst wird, um ein JavaScript-Objekt zu erzeugen.
+Beachten Sie, dass das Ergebnis, trotz des Namens der Methode `json()`, kein JSON ist, sondern das Ergebnis des Parsens von JSON als Eingabe, um ein JavaScript-Objekt zu erzeugen.
 
 ## Syntax
 

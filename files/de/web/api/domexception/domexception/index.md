@@ -3,12 +3,13 @@ title: "DOMException: DOMException()-Konstruktor"
 short-title: DOMException()
 slug: Web/API/DOMException/DOMException
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 24bd423551fb4a36f47790cab237a2d157a990a7
 ---
 
-{{ APIRef("DOM") }}
+{{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Der **`DOMException()`**-Konstruktor gibt ein [`DOMException`](/de/docs/Web/API/DOMException)-Objekt mit einer angegebenen Nachricht und einem Namen zurück.
+Der **`DOMException()`**-Konstruktor gibt ein
+[`DOMException`](/de/docs/Web/API/DOMException)-Objekt mit einer angegebenen Nachricht und einem Namen zurück.
 
 ## Syntax
 
@@ -23,7 +24,7 @@ new DOMException(message, name)
 - `message` {{optional_inline}}
   - : Eine Beschreibung der Ausnahme. Wenn nicht vorhanden, wird der leere String `''` verwendet.
 - `name` {{optional_inline}}
-  - : Ein String. Wenn der angegebene Name ein [standardisierter Fehlername](/de/docs/Web/API/DOMException#error_names) ist, dann wird das Abrufen der [`code`](/de/docs/Web/API/DOMException/code)-Eigenschaft des `DOMException`-Objekts die Codenummer zurückgeben, die dem angegebenen Namen entspricht.
+  - : Ein String. Wenn der angegebene Name ein [standardmäßiger Fehlername](/de/docs/Web/API/DOMException#error_names) ist, dann gibt das Abrufen der [`code`](/de/docs/Web/API/DOMException/code)-Eigenschaft des `DOMException`-Objekts die Codenummer zurück, die dem angegebenen Namen entspricht. Wenn nicht vorhanden, wird der String `'Error'` verwendet.
 
 ### Rückgabewert
 
@@ -31,7 +32,7 @@ Ein neu erstelltes [`DOMException`](/de/docs/Web/API/DOMException)-Objekt.
 
 ## Beispiele
 
-In diesem Beispiel führt das Drücken des Buttons dazu, dass eine benutzerdefinierte `DOMException` ausgelöst wird, die dann abgefangen wird und die benutzerdefinierte Fehlermeldung in einem Alert angezeigt wird.
+In diesem Beispiel führt das Drücken des Buttons dazu, dass eine benutzerdefinierte `DOMException` ausgelöst wird, die dann abgefangen und die benutzerdefinierte Fehlermeldung in einem Alert angezeigt wird.
 
 ### HTML
 
@@ -69,4 +70,4 @@ button.onclick = () => {
 
 ## Siehe auch
 
-- [Ein Polyfill des `DOMException`-Konstruktors](https://github.com/zloirock/core-js#domexception) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar
+- [Ein Polyfill des `DOMException`-Konstruktors](https://github.com/zloirock/core-js#domexception) ist in [`core-js`](https://github.com/zloirock/core-js) verfügbar.

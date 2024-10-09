@@ -2,12 +2,12 @@
 title: Class selectors
 slug: Web/CSS/Class_selectors
 l10n:
-  sourceCommit: 20bdf7642c972e32e3ebf5ce4ac5631b84308b8f
+  sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
 ---
 
 {{CSSRef}}
 
-Der [CSS](/de/docs/Web/CSS) **Class-Selektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes#class)-Attributs aus.
+Der [CSS](/de/docs/Web/CSS) **Klassen-Selektor** entspricht Elementen basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attributs.
 
 ```css
 /* All elements with class="spacious" */
@@ -39,11 +39,11 @@ Beachten Sie, dass dies dem folgenden [Attribut-Selektor](/de/docs/Web/CSS/Attri
 [class~=class_name] { style properties }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Bezeichner](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Bezeichner sind, müssen [maskiert](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Class-Selektoren verwendet werden können.
+Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML `class` Attribute, die keine gültigen CSS-Identifier sind, müssen [maskiert](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassen-Selektoren verwendet werden können.
 
 ## Beispiele
 
-### Gültige Class-Selektoren
+### Gültige Klassen-Selektoren
 
 #### HTML
 
@@ -97,9 +97,9 @@ that contain characters which must be escaped in CSS -->
 
 {{EmbedLiveSample('Examples', "", 300)}}
 
-### Ungültige Class-Selektoren
+### Ungültige Klassen-Selektoren
 
-Die Class-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner und werden ignoriert.
+Die Klassen-Selektoren in den folgenden Regeln sind keine gültigen CSS-Identifier und werden ignoriert.
 
 ```css example-bad
 .item?one {
@@ -122,4 +122,4 @@ Die Class-Selektoren in den folgenden Regeln sind keine gültigen CSS-Bezeichner
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [Learn CSS: Selectors](/de/docs/Learn/CSS/Building_blocks/Selectors)

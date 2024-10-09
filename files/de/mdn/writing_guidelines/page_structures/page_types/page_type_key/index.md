@@ -1,13 +1,13 @@
 ---
-title: Der page-type Frontmatter-Schlüssel
+title: Der Frontmatter-Schlüssel page-type
 slug: MDN/Writing_guidelines/Page_structures/Page_types/Page_type_key
 l10n:
-  sourceCommit: 0d48cf6e0077ba01ad6f400a1744093f84de7dff
+  sourceCommit: 80bd9814dd74f53618d4399445fe26a800b6b84e
 ---
 
 {{MDNSidebar}}
 
-Der `page-type`-Schlüssel in Frontmatter beschreibt den Typ einer MDN-Seite. Dies ermöglicht es MDN-Inhaltstools, die Inhaltsprüfung und die Seitenleiste besser zu automatisieren.
+Der Frontmatter-Schlüssel `page-type` beschreibt den Typ einer MDN-Seite. Dies ermöglicht es den MDN-Inhaltstools, die Inhaltsprüfung und die Organisation der Sidebar besser zu automatisieren.
 
 Wie jeder andere Frontmatter-Schlüssel wird der `page-type`-Schlüssel im YAML am Anfang von "index.md" angegeben:
 
@@ -20,33 +20,33 @@ browser-compat: api.Geolocation.getCurrentPosition
 ---
 ```
 
-Jeder Hauptbereich der Website — JavaScript, CSS und so weiter — hat eine Reihe von bereichsspezifischen `page-type`-Werten, und es gibt auch eine Reihe von generischen Werten, die in jedem Bereich der Website erscheinen können.
+Jeder Hauptbereich der Seite — JavaScript, CSS usw. — hat eine Reihe von bereichsspezifischen `page-type`-Werten. Es gibt auch eine Reihe von generischen Werten, die in jedem Bereich der Seite erscheinen können.
 
 ## Generische Seitentypen
 
 Diese Seitentypen sind nicht spezifisch für einen bestimmten MDN-Technologiebereich:
 
-- `guide`: eine generische Leitfaden-Seite ohne spezielle Struktur.
+- `guide`: eine generische Leitfaden-Seite ohne spezifische Struktur.
 - `landing-page`: eine Seite, die hauptsächlich als Navigationshilfe dient und Links zu anderen Seiten auflistet.
-- `how-to`: eine Seite, die hauptsächlich als zielorientierter Anleitung-Artikel dient.
-- `tutorial`: eine Seite, die die Übersichtsseite eines lernorientierten Artikels ist.
+- `how-to`: eine Seite, die hauptsächlich als zielorientierter Anleitung-Artikel fungiert.
+- `tutorial`: eine Seite, die die Übersicht einer lernorientierten Artikelreihe ist.
 - `tutorial-chapter`: eine Seite, die Teil eines mehrteiligen Tutorials ist.
 
 ## Bereichsspezifische Seitentypen
 
-Dieser Abschnitt listet Seitentypen auf, die für einen bestimmten Bereich von MDN spezifisch sind.
+Dieser Abschnitt listet Seitentypen auf, die spezifisch für einen einzigen Bereich von MDN sind.
 
-### Seitentypen des Lernbereichs
+### Lernbereich-Seitentypen
 
-Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Lernen](/de/docs/Learn) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der generischen Seitentypwerte sein.
+Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Lernen](/de/docs/Learn) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der generischen Wert sein.
 
-- `learn-topic`: eine Übersicht über ein Thema, das heißt, eine Sammlung von Modulen wie [_CSS_](/de/docs/Learn/CSS).
-- `learn-module`: eine Übersicht über ein Modul, das heißt, eine geordnete Sammlung von Leitfäden wie [_Einführung in HTML_](/de/docs/Learn/HTML/Introduction_to_HTML).
+- `learn-topic`: eine Übersicht über ein Thema, das heißt eine Sammlung von Modulen wie [_CSS_](/de/docs/Learn/CSS).
+- `learn-module`: eine Übersicht über ein Modul, das heißt eine geordnete Sammlung von Leitfäden, wie [_Einführung in HTML_](/de/docs/Learn/HTML/Introduction_to_HTML).
 - `learn-module-chapter`: ein Leitfaden, der Teil eines Moduls ist, wie [_Mobile Accessibility_](/de/docs/Learn/Accessibility/Mobile).
-- `learn-module-assessment`: ein spezieller Leitfaden mit einer Aktivität, die das Verständnis eines Moduls oder eines Teils davon bewertet, wie [_Testen Sie Ihre Fähigkeiten: Grundlegende Steuerelemente_](/de/docs/Learn/Forms/Test_your_skills:_Basic_controls).
-- `learn-faq`: die Antwort auf eine spezifische Frage zur Webentwicklung, wie [_Was ist ein Domain-Name?_](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name).
+- `learn-module-assessment`: ein spezieller Leitfaden mit einer Aktivität, die es ermöglicht, das Verständnis eines Moduls oder eines Teils davon zu bewerten, wie [_Testen Sie Ihre Kenntnisse: grundlegende Steuerelemente_](/de/docs/Learn/Forms/Test_your_skills:_Basic_controls).
+- `learn-faq`: die Antwort auf eine konkrete Frage zur Webentwicklung, wie [_Was ist ein Domainname?_](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_domain_name).
 
-### Seitentypen der Barrierefreiheit
+### Barrierefreiheit-Seitentypen
 
 Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/Barrierefreiheit](/de/docs/Web/Accessibility) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der [generischen Seitentypen](#generische_seitentypen) sein.
 
@@ -57,18 +57,18 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/Barrierefreihei
 
 Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/CSS](/de/docs/Web/CSS) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der [generischen Seitentypen](#generische_seitentypen) sein.
 
-- `css-at-rule`: eine [at-rule](/de/docs/Web/CSS/At-rule), wie {{cssxref("@media")}}.
-- `css-at-rule-descriptor`: ein at-rule-Deskriptor, wie [`@counter-style/prefix`](/de/docs/Web/CSS/@counter-style/prefix).
-- `css-combinator`: ein Kombinator, wie der [Nachfahr-Kombinator](/de/docs/Web/CSS/Descendant_combinator).
+- `css-at-rule`: eine [At-Regel](/de/docs/Web/CSS/At-rule), wie {{cssxref("@media")}}.
+- `css-at-rule-descriptor`: ein At-Regel-Deskriptor, wie [`@counter-style/prefix`](/de/docs/Web/CSS/@counter-style/prefix).
+- `css-combinator`: ein Kombinator, wie der [Nachkommenschaftskombinator](/de/docs/Web/CSS/Descendant_combinator).
 - `css-function`: eine [Funktion](/de/docs/Web/CSS/CSS_Functions), wie {{cssxref("max")}}.
 - `css-keyword`: ein Schlüsselwort, wie {{cssxref("inherit")}}.
 - `css-media-feature`: eine [Medienfunktion](/de/docs/Web/CSS/@media#media_features), wie [`hover`](/de/docs/Web/CSS/@media/hover).
 - `css-module`: ein Modul, wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations).
 - `css-property`: eine Eigenschaft, wie {{cssxref("background-color")}}.
 - `css-pseudo-class`: eine [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes), wie {{cssxref(":enabled")}}.
-- `css-pseudo-element`: ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), wie {{cssxref("::before")}}.
-- `css-selector`: ein [grundlegender Selektor](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#basic_selectors), wie der [Klassenselektor](/de/docs/Web/CSS/Class_selectors).
-- `css-shorthand-property`: eine [Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties), wie {{cssxref("background")}}.
+- `css-pseudo-element`: ein [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements), wie {{cssxref("::before")}}.
+- `css-selector`: ein [Grundlegender Selektor](/de/docs/Web/CSS/CSS_selectors/Selectors_and_combinators#basic_selectors), wie der [Klassenselektor](/de/docs/Web/CSS/Class_selectors).
+- `css-shorthand-property`: eine [Kurzschreibweise einer Eigenschaft](/de/docs/Web/CSS/Shorthand_properties), wie {{cssxref("background")}}.
 - `css-type`: ein [Datentyp](/de/docs/Web/CSS/CSS_Types), wie [`<color>`](/de/docs/Web/CSS/color_value).
 
 ### Glossar-Seitentypen
@@ -90,11 +90,11 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/HTML](/de/docs/
 
 Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/HTTP](/de/docs/Web/HTTP) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der [generischen Seitentypen](#generische_seitentypen) sein.
 
-- `http-csp-directive`: eine [CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy)-Direktive, wie [`script-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
-- `http-cors-error`: ein [CORS](/de/docs/Web/HTTP/CORS)-Fehler, wie [`CORSDidNotSucceed`](/de/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed).
-- `http-permissions-policy-directive`: eine [`Permissions-Policy`](/de/docs/Web/HTTP/Headers/Permissions-Policy)-Direktive, wie [`accelerometer`](/de/docs/Web/HTTP/Headers/Permissions-Policy/accelerometer).
+- `http-csp-directive`: eine [CSP](/de/docs/Web/HTTP/Headers/Content-Security-Policy) Direktive, wie [`script-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src).
+- `http-cors-error`: ein [CORS](/de/docs/Web/HTTP/CORS) Fehler, wie [`CORSDidNotSucceed`](/de/docs/Web/HTTP/CORS/Errors/CORSDidNotSucceed).
+- `http-permissions-policy-directive`: eine [`Permissions-Policy`](/de/docs/Web/HTTP/Headers/Permissions-Policy) Direktive, wie [`accelerometer`](/de/docs/Web/HTTP/Headers/Permissions-Policy/accelerometer).
 - `http-header`: ein [HTTP-Header](/de/docs/Web/HTTP/Headers), wie [`Referer`](/de/docs/Web/HTTP/Headers/Referer).
-- `http-method`: eine [HTTP-Anforderungsmethode](/de/docs/Web/HTTP/Methods) wie [`GET`](/de/docs/Web/HTTP/Methods/GET).
+- `http-method`: eine [HTTP-Anfragemethode](/de/docs/Web/HTTP/Methods) wie [`GET`](/de/docs/Web/HTTP/Methods/GET).
 - `http-status-code`: ein [HTTP-Antwortstatuscode](/de/docs/Web/HTTP/Status), wie [`404`](/de/docs/Web/HTTP/Status/404).
 
 ### JavaScript-Seitentypen
@@ -103,17 +103,17 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/JavaScript](/de
 
 - `javascript-class`: eine Definition eines eingebauten Objekts, wie [`Array`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array).
 - `javascript-constructor`: ein Objektkonstruktor, wie [`Array()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array).
-- `javascript-error`: ein Fehler, wie [RangeError: invalid array length](/de/docs/Web/JavaScript/Reference/Errors/Invalid_array_length).
+- `javascript-error`: ein Fehler, wie [RangeError: ungültige Array-Länge](/de/docs/Web/JavaScript/Reference/Errors/Invalid_array_length).
 - `javascript-function`: eine eingebaute Funktion, die keine Objektmethode ist, wie [`encodeURI()`](/de/docs/Web/JavaScript/Reference/Global_Objects/encodeURI).
 - `javascript-global-property`: eine globale Eigenschaft wie [`NaN`](/de/docs/Web/JavaScript/Reference/Global_Objects/NaN).
-- `javascript-instance-accessor-property`: eine Accessor-Eigenschaft auf einer Objektinstanz, wie [`Map.prototype.size`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/size).
-- `javascript-instance-data-property`: eine Dateneigenschaft auf einer Objektinstanz, wie die [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length)-Eigenschaft von `Array`.
+- `javascript-instance-accessor-property`: eine Zugriffseigenschaft auf einer Objektinstanz, wie [`Map.prototype.size`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/size).
+- `javascript-instance-data-property`: eine Dateneigenschaft auf einer Objektinstanz, wie die [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/length) Eigenschaft von `Array`.
 - `javascript-instance-method`: eine Methode auf einer Objektinstanz, wie [`Array.prototype.at()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/at).
-- `javascript-language-feature`: ein Teil der JavaScript-Syntax, der in keine andere Kategorie passt, wie [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters).
+- `javascript-language-feature`: ein Teil der JavaScript-Syntax, die in keine andere Kategorie passt, wie [Rest-Parameter](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters).
 - `javascript-namespace`: ein Objekt, das nicht instanziierbar ist und nur statische Mitglieder hat, wie [`Math`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math).
 - `javascript-operator`: ein Operator, wie [Addition (+)](/de/docs/Web/JavaScript/Reference/Operators/Addition).
 - `javascript-statement`: eine Anweisung, wie [`switch`](/de/docs/Web/JavaScript/Reference/Statements/switch).
-- `javascript-static-accessor-property`: eine statische Accessor-Eigenschaft, wie [`RegExp.lastMatch`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastMatch).
+- `javascript-static-accessor-property`: eine statische Zugriffseigenschaft, wie [`RegExp.lastMatch`](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/lastMatch).
 - `javascript-static-data-property`: eine statische Dateneigenschaft, wie [`Math.E`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E).
 - `javascript-static-method`: eine statische Methode, wie [`Array.from()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/from).
 
@@ -135,8 +135,7 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/SVG](/de/docs/W
 
 Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/API](/de/docs/Web/API) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der [generischen Seitentypen](#generische_seitentypen) sein.
 
-- `web-api-overview`: gibt eine Übersicht über eine Web-API, wie die [Fetch-API](/de/docs/Web/API/Fetch_API).
-- `web-api-global-function`: eine globale Funktion, wie [`fetch()`](/de/docs/Web/API/Window/fetch).
+- `web-api-overview`: bietet einen Überblick über eine Web-API, wie die [Fetch API](/de/docs/Web/API/Fetch_API).
 - `web-api-interface`: eine Web-API-Schnittstelle, wie [`Request`](/de/docs/Web/API/Request).
 - `web-api-constructor`: ein Konstruktor, wie [`Request()`](/de/docs/Web/API/Request/Request).
 - `web-api-instance-method`: eine Instanzmethode, wie [`cache.add()`](/de/docs/Web/API/Cache/add).
@@ -149,9 +148,9 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/API](/de/docs/W
 
 ### WebAssembly-Seitentypen
 
-Dieser Abschnitt listet `page-type`-Werte für Seiten unter [WebAssembly](/de/docs/WebAssembly) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der generischen Seitentypen sein.
+Dieser Abschnitt listet `page-type`-Werte für Seiten unter [WebAssembly/](/de/docs/WebAssembly) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der generischen Seitentypen sein.
 
-- `webassembly-function`: eine globale Funktion, die eine Methode direkt unter dem `WebAssembly`-Objekt ist, das als Namensraum fungiert, wie [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static).
+- `webassembly-function`: eine globale Funktion, das ist eine Methode direkt unter dem `WebAssembly`-Objekt, das als Namensraum dient, wie [`WebAssembly.instantiate()`](/de/docs/WebAssembly/JavaScript_interface/instantiate_static).
 - `webassembly-constructor`: ein Konstruktor, wie [`WebAssembly.Exception()`](/de/docs/WebAssembly/JavaScript_interface/Exception/Exception).
 - `webassembly-interface`: eine WebAssembly-Schnittstelle, wie [`WebAssembly.LinkError`](/de/docs/WebAssembly/JavaScript_interface/LinkError).
 - `webassembly-instance-property`: eine Instanzeigenschaft, wie [`WebAssembly.Instance.exports`](/de/docs/WebAssembly/JavaScript_interface/Instance/exports).
@@ -163,9 +162,9 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [WebAssembly](/de/do
 
 Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/WebDriver](/de/docs/Web/WebDriver) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der [generischen Seitentypen](#generische_seitentypen) sein.
 
-- `webdriver-command`: ein Webdriver-Befehl, wie [`CloseWindow`](/de/docs/Web/WebDriver/Commands/CloseWindow).
-- `webdriver-capability`: eine Webdriver-Fähigkeit, wie [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Capabilities/acceptInsecureCerts).
-- `webdriver-error`: ein Webdriver-Fehler, wie [Insecure certificate](/de/docs/Web/WebDriver/Errors/InsecureCertificate).
+- `webdriver-command`: ein WebDriver-Befehl, wie [`CloseWindow`](/de/docs/Web/WebDriver/Commands/CloseWindow).
+- `webdriver-capability`: eine WebDriver-Fähigkeit, wie [`acceptInsecureCerts`](/de/docs/Web/WebDriver/Capabilities/acceptInsecureCerts).
+- `webdriver-error`: ein WebDriver-Fehler, wie [Unsicheres Zertifikat](/de/docs/Web/WebDriver/Errors/InsecureCertificate).
 
 ### WebExtensions-Seitentypen
 
@@ -194,7 +193,7 @@ Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/XPath](/de/docs
 
 Dieser Abschnitt listet `page-type`-Werte für Seiten unter [Web/XSLT](/de/docs/Web/XSLT) auf. Jede Seite in diesem Teil des Baumes muss einen `page-type` haben, und sein Wert muss einer der unten aufgeführten oder einer der [generischen Seitentypen](#generische_seitentypen) sein.
 
-- `xslt-element`: ein Element von XSLT, wie [`<xsl:message>`](/de/docs/Web/XSLT/Element/message).
+- `xslt-element`: ein XSLT-Element, wie [`<xsl:message>`](/de/docs/Web/XSLT/Element/message).
 
 ### EXSLT-Seitentypen
 

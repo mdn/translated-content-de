@@ -2,19 +2,19 @@
 title: resize
 slug: Web/CSS/resize
 l10n:
-  sourceCommit: 2251b205631a0bfa4db91f3be794ce30054b8749
+  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
 ---
 
 {{CSSRef}}
 
-Die **`resize`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element größenveränderbar ist und, falls ja, in welche Richtungen.
+Die **`resize`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob ein Element skalierbar ist, und wenn ja, in welche Richtungen.
 
 {{EmbedInteractiveExample("pages/css/resize.html")}}
 
 `resize` gilt nicht für die folgenden:
 
 - Inline-Elemente
-- Block-Elemente, für die die {{cssxref("overflow")}}-Eigenschaft auf `visible` oder `clip` gesetzt ist
+- Block-Elemente, für die die {{cssxref("overflow")}} Eigenschaft auf `visible` oder `clip` gesetzt ist
 
 ## Syntax
 
@@ -35,22 +35,22 @@ resize: revert-layer;
 resize: unset;
 ```
 
-Die `resize`-Eigenschaft wird als einzelner Schlüsselwortwert aus der folgenden Liste angegeben.
+Die `resize` Eigenschaft wird als einzelner Schlüsselwert aus der untenstehenden Liste angegeben.
 
 ### Werte
 
 - `none`
-  - : Das Element bietet keine benutzerkontrollierte Methode zum Ändern seiner Größe.
+  - : Das Element bietet keine benutzerkontrollierte Möglichkeit zur Größenänderung an.
 - `both`
-  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es sowohl horizontal als auch vertikal zu vergrößern oder zu verkleinern.
+  - : Das Element zeigt einen Mechanismus, der es dem Benutzer ermöglicht, es sowohl horizontal als auch vertikal zu skalieren.
 - `horizontal`
-  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in horizontaler Richtung zu vergrößern oder zu verkleinern.
+  - : Das Element zeigt einen Mechanismus zur Skalierung in _horizontaler_ Richtung an.
 - `vertical`
-  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in vertikaler Richtung zu vergrößern oder zu verkleinern.
+  - : Das Element zeigt einen Mechanismus zur Skalierung in _vertikaler_ Richtung an.
 - `block`
-  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in der Block-Richtung (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}}- und {{cssxref("direction")}}-Wert) zu vergrößern oder zu verkleinern.
+  - : Das Element zeigt einen Mechanismus zur Skalierung in _block_-Richtung an (entweder horizontal oder vertikal, abhängig vom Wert der {{cssxref("writing-mode")}} und {{cssxref("direction")}}).
 - `inline`
-  - : Das Element zeigt einen Mechanismus an, der dem Benutzer erlaubt, es in der Inline-Richtung (entweder horizontal oder vertikal, abhängig vom {{cssxref("writing-mode")}}- und {{cssxref("direction")}}-Wert) zu vergrößern oder zu verkleinern.
+  - : Das Element zeigt einen Mechanismus zur Skalierung in _inline_-Richtung an (entweder horizontal oder vertikal, abhängig vom Wert der {{cssxref("writing-mode")}} und {{cssxref("direction")}}).
 
 ## Formale Definition
 
@@ -62,9 +62,9 @@ Die `resize`-Eigenschaft wird als einzelner Schlüsselwortwert aus der folgenden
 
 ## Beispiele
 
-### Deaktivierung der Größenänderbarkeit von Textbereichen
+### Deaktivieren der Skalierbarkeit von Textbereichen
 
-In vielen Browsern sind {{HTMLElement("textarea")}}-Elemente standardmäßig größenveränderbar. Sie können dieses Verhalten mit der `resize`-Eigenschaft überschreiben.
+In vielen Browsern sind {{HTMLElement("textarea")}} Elemente standardmäßig skalierbar. Sie können dieses Verhalten mit der `resize` Eigenschaft überschreiben.
 
 #### HTML
 
@@ -82,11 +82,11 @@ textarea {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Disabling_resizability_of_textareas","200","100")}}
+{{EmbedLiveSample("Disabling_resizability_of_text_areas","200","100")}}
 
 ### Verwendung von resize mit beliebigen Elementen
 
-Sie können die `resize`-Eigenschaft verwenden, um beliebige Elemente größenveränderbar zu machen. Im folgenden Beispiel enthält ein größenveränderbares {{HTMLElement("div")}} einen größenveränderbaren Absatz ({{HTMLElement("p")}}-Element).
+Sie können die `resize` Eigenschaft verwenden, um jedes Element skalierbar zu machen. Im folgenden Beispiel enthält ein skalierbares {{HTMLElement("div")}} einen skalierbaren Absatz ({{HTMLElement("p")}} Element).
 
 #### HTML
 

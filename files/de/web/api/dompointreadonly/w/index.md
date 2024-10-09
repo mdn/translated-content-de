@@ -1,26 +1,21 @@
 ---
-title: "DOMPointReadOnly: w-Eigenschaft"
+title: "DOMPointReadOnly: Eigenschaft w"
 short-title: w
 slug: Web/API/DOMPointReadOnly/w
 l10n:
-  sourceCommit: 41a8b9c9832359d445d136b6d7a8a28737badc6b
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`DOMPointReadOnly`**-Schnittstelle hat die
-**`w`**-Eigenschaft, die den Perspektivwert des Punktes,
-`w`, für einen schreibgeschützten Punkt im Raum enthält.
+Die **`DOMPointReadOnly`** Schnittstelle hat die
+Eigenschaft **`w`**, die den Perspektivwert `w` für einen schreibgeschützten Punkt im Raum hält.
 
-Wenn Ihr Skript die Möglichkeit erfordern sollte,
-den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)
-Objekt verwenden.
+Wenn Ihr Skript in der Lage sein muss, den Wert dieser Eigenschaft zu ändern, sollten Sie stattdessen das [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekt verwenden.
 
 ## Wert
 
-Ein doppeltgenauer Gleitkommawert, der den `w`-Perspektivwert
-für den Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder
-{{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist `1.0`.
+Ein Gleitkommawert mit doppelter Genauigkeit, der den Perspektivwert `w` für den Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass er unendlich oder ungültig sein darf (das heißt, sein Wert kann {{jsxref("NaN")}} oder {{jsxref("Infinity", "±Infinity")}} sein). Der Standardwert ist `1.0`.
 
 ## Spezifikationen
 
@@ -33,4 +28,4 @@ für den Punkt angibt. Dieser Wert ist **uneingeschränkt**, was bedeutet, dass 
 ## Siehe auch
 
 - Die anderen Koordinateneigenschaften: [`x`](/de/docs/Web/API/DOMPointReadOnly/x),
-  [`y`](/de/docs/Web/API/DOMPointReadOnly/y), und [`z`](/de/docs/Web/API/DOMPointReadOnly/z).
+  [`y`](/de/docs/Web/API/DOMPointReadOnly/y) und [`z`](/de/docs/Web/API/DOMPointReadOnly/z).

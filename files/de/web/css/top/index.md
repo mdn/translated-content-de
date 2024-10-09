@@ -2,27 +2,27 @@
 title: top
 slug: Web/CSS/top
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 9a3940b0231838338f65ae1c37d5b874439a3d43
 ---
 
 {{CSSRef}}
 
-Die **`top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die vertikale Position eines [positionierten Elements](/de/docs/Web/CSS/position) fest. Diese {{Glossary("inset_properties", "Einfassungs-Eigenschaft")}} hat keine Auswirkung auf nicht-positionierte Elemente.
+Die **`top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die vertikale Position eines [positionierten Elements](/de/docs/Web/CSS/position) fest. Diese {{Glossary("inset_properties", "Einsetzeigenschaft")}} hat keine Auswirkung auf nicht-positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/top.html")}}
 
-Die Wirkung von `top` hängt davon ab, wie das Element positioniert ist (d. h. vom Wert der {{cssxref("position")}} Eigenschaft):
+Die Wirkung von `top` hängt davon ab, wie das Element positioniert ist (d.h. vom Wert der {{cssxref("position")}} Eigenschaft):
 
-- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `top`-Eigenschaft den Abstand zwischen dem äußeren Rand der oberen Kante des Elements und der inneren Grenze der oberen Kante seines umgebenden Blocks an, oder, im Fall von [anker-positionierten Elementen](/de/docs/Web/CSS/CSS_anchor_positioning/Using), wenn die {{cssxref("anchor()")}} Funktion innerhalb des Werts verwendet wird, relativ zur angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side) Kante. Die `top`-Eigenschaft ist [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `top`, `bottom`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
-- Wenn `position` auf `relative` gesetzt ist, gibt die `top`-Eigenschaft den Abstand an, um den die obere Kante des Elements unterhalb ihrer normalen Position verschoben wird.
-- Wenn `position` auf `sticky` gesetzt ist, wird die `top`-Eigenschaft zur Berechnung des sticky-constraint Rechtecks verwendet.
-- Wenn `position` auf `static` gesetzt ist, hat die `top`-Eigenschaft _keine Wirkung_.
+- Wenn `position` auf `absolute` oder `fixed` gesetzt ist, gibt die `top` Eigenschaft den Abstand zwischen dem äußeren Rand der oberen Kante des Elements und der inneren Grenze der oberen Kante seines enthaltenden Blocks an, oder, im Fall von [Anker-positionierten Elementen](/de/docs/Web/CSS/CSS_anchor_positioning/Using), wenn die {{cssxref("anchor()")}} Funktion innerhalb des Werts verwendet wird, relativ zu der angegebenen [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side) Kante. Die `top` Eigenschaft ist [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit den Werten `top`, `bottom`, `start`, `end`, `self-start`, `self-end`, `center` und `<percentage>`.
+- Wenn `position` auf `relative` gesetzt ist, gibt die `top` Eigenschaft den Abstand an, den die obere Kante des Elements unterhalb seiner normalen Position verschoben ist.
+- Wenn `position` auf `sticky` gesetzt ist, wird die `top` Eigenschaft verwendet, um das Sticky-Beschränkungsrechteck zu berechnen.
+- Wenn `position` auf `static` gesetzt ist, hat die `top` Eigenschaft _keine Wirkung_.
 
 Wenn sowohl `top` als auch {{cssxref("bottom")}} Werte angegeben sind, gibt es drei verschiedene Fälle:
 
-- Wenn `position` auf `absolute` oder `fixed` gesetzt ist und {{cssxref("height")}} nicht angegeben ist (entweder `auto` oder `100%`), werden sowohl die `top` als auch `bottom` Werte berücksichtigt.
-- Wenn `position` auf `relative` gesetzt ist oder `height` eingeschränkt ist, hat die `top`-Eigenschaft Vorrang und die `bottom`-Eigenschaft wird ignoriert.
-- Wenn `position` auf `sticky` gesetzt ist, werden sowohl `top` als auch `bottom` Werte berücksichtigt. Dies bedeutet, dass sich ein sticky-Element innerhalb seines umgebenden Blocks potenziell nach oben und unten bewegen kann, basierend auf den Werten dieser beiden Eigenschaften, solange der Positionsrahmen des Elements innerhalb seines umgebenden Blocks bleibt.
+- Wenn `position` auf `absolute` oder `fixed` gesetzt ist und {{cssxref("height")}} ist nicht angegeben (entweder `auto` oder `100%`), werden sowohl die `top` als auch die `bottom` Werte beachtet.
+- Wenn `position` auf `relative` gesetzt ist oder `height` eingeschränkt ist, hat die `top` Eigenschaft Vorrang und die `bottom` Eigenschaft wird ignoriert.
+- Wenn `position` auf `sticky` gesetzt ist, werden sowohl `top` als auch `bottom` Werte berücksichtigt. Dies bedeutet, dass sich ein Sticky-Element potenziell auf und ab innerhalb seines enthaltenden Blocks bewegen kann, basierend auf den Werten dieser beiden Eigenschaften, solange die Positionsbox des Elements innerhalb seines enthaltenden Blocks bleibt.
 
 ## Syntax
 
@@ -51,23 +51,23 @@ top: unset;
 
 - {{cssxref("&lt;length&gt;")}}
 
-  - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}, der folgendes darstellt:
+  - : Ein negativer, null oder positiver {{cssxref("&lt;length&gt;")}}, der darstellt:
 
-    - für _absolut positionierte Elemente_, den Abstand zur oberen Kante des umgebenden Blocks.
-    - für [_anker-positionierte Elemente_](/de/docs/Web/CSS/CSS_anchor_positioning/Using#using_inset_properties_with_anchor_function_values), wird die {{cssxref("anchor()")}} Funktion auf einen {{cssxref("&lt;length&gt;")}} Wert aufgelöst, der relativ zur Position der oberen oder unteren Kante des zugehörigen _Ankerelements_ ist.
+    - für _absolut positionierte Elemente_, den Abstand zur oberen Kante des enthaltenden Blocks.
+    - für [_Anker-positionierte Elemente_](/de/docs/Web/CSS/CSS_anchor_positioning/Using#using_inset_properties_with_anchor_function_values) löst sich die {{cssxref("anchor()")}} Funktion zu einem {{cssxref("&lt;length&gt;")}} Wert relativ zur Position der oberen oder unteren Kante des zugehörigen _Ankerelements_ auf.
     - für _relativ positionierte Elemente_, den Abstand, um den das Element unterhalb seiner normalen Position verschoben wird.
 
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Ein {{cssxref("&lt;percentage&gt;")}} der Höhe des umgebenden Blocks.
+  - : Ein {{cssxref("&lt;percentage&gt;")}} der Höhe des enthaltenden Blocks.
 - `auto`
 
   - : Gibt an, dass:
 
-    - für _absolut positionierte Elemente_, die Position des Elements auf der {{Cssxref("bottom")}} Eigenschaft basiert, während `height: auto` als auf den Inhalt basierende Höhe behandelt wird; oder wenn `bottom` ebenfalls `auto` ist, wird das Element dort positioniert, wo es vertikal positioniert werden sollte, wenn es ein statisches Element wäre.
-    - für _relativ positionierte Elemente_, der Abstand des Elements von seiner normalen Position auf der {{Cssxref("bottom")}} Eigenschaft basiert; oder wenn `bottom` ebenfalls `auto` ist, wird das Element vertikal überhaupt nicht verschoben.
+    - für _absolut positionierte Elemente_, basiert die Position des Elements auf der {{Cssxref("bottom")}} Eigenschaft, während `height: auto` als eine Höhe basierend auf dem Inhalt behandelt wird; oder wenn `bottom` ebenfalls `auto` ist, wird das Element dort positioniert, wo es vertikal positioniert sein sollte, wenn es ein statisches Element wäre.
+    - für _relativ positionierte Elemente_, basiert der Abstand des Elements von seiner normalen Position auf der {{Cssxref("bottom")}} Eigenschaft; oder wenn `bottom` ebenfalls `auto` ist, wird das Element überhaupt nicht vertikal verschoben.
 
 - `inherit`
-  - : Gibt an, dass der Wert derselbe ist wie der berechnete Wert seines Elternelements (was möglicherweise nicht sein umgebender Block ist). Dieser berechnete Wert wird dann behandelt, als ob er ein {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, oder das `auto` Schlüsselwort wäre.
+  - : Gibt an, dass der Wert derselbe ist wie der berechnete Wert des Elternelements (was nicht unbedingt der enthaltende Block sein muss). Dieser berechnete Wert wird dann behandelt, als wäre er ein {{cssxref("&lt;length&gt;")}}, {{cssxref("&lt;percentage&gt;")}}, oder das `auto` Schlüsselwort.
 
 ## Formale Definition
 
@@ -113,6 +113,9 @@ div {
 
 ## Siehe auch
 
-- {{cssxref("inset")}}, die Kurzform für alle verwandten Eigenschaften: {{cssxref("bottom")}}, {{cssxref("left")}}, und {{cssxref("right")}}
-- Die zugeordneten logischen Eigenschaften: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}} und die Kurzformen {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
+- {{cssxref("bottom")}}, {{cssxref("left")}}, und {{cssxref("right")}}
+- {{cssxref("inset")}} Kurzform
+- {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
+- {{cssxref("inset-block")}} und {{cssxref("inset-inline")}} Kurzformen
 - {{cssxref("position")}}
+- [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul

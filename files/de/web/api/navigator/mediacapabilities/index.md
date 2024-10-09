@@ -3,12 +3,12 @@ title: "Navigator: mediaCapabilities-Eigenschaft"
 short-title: mediaCapabilities
 slug: Web/API/Navigator/mediaCapabilities
 l10n:
-  sourceCommit: 7b565c5f4610bea19c844f35532853624d87cde3
+  sourceCommit: 49f6e40b12be0d6d897d3dab09caafbc093f7677
 ---
 
-{{APIRef("HTML DOM")}}
+{{APIRef("Media Capabilities API")}}
 
-Die **`mediaCapabilities`** schreibgeschützte Eigenschaft des [`Navigator`](/de/docs/Web/API/Navigator)-Interfaces verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Dekodierungs- und Kodierungsfähigkeiten für ein bestimmtes Medienformat und die Ausgabeoptionen bereitstellen kann.
+Die **`mediaCapabilities`** schreibgeschützte Eigenschaft der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle verweist auf ein [`MediaCapabilities`](/de/docs/Web/API/MediaCapabilities)-Objekt, das Informationen über die Decodierungs- und Encodierungsfähigkeiten für ein gegebenes Medienformat und Ausgabefähigkeiten bereitstellen kann.
 
 ## Wert
 

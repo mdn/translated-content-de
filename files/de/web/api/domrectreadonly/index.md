@@ -2,19 +2,19 @@
 title: DOMRectReadOnly
 slug: Web/API/DOMRectReadOnly
 l10n:
-  sourceCommit: a631fd40bdc682a82be57be9932c9853a86ac1b5
+  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
 ---
 
-{{APIRef("Geometry Interfaces")}}
+{{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`DOMRectReadOnly`**-Schnittstelle spezifiziert die Standard-Eigenschaften (ebenfalls verwendet von [`DOMRect`](/de/docs/Web/API/DOMRect)), um ein Rechteck zu definieren, dessen Eigenschaften unveränderlich sind.
+Die **`DOMRectReadOnly`** Schnittstelle spezifiziert die Standard-Eigenschaften (auch verwendet von [`DOMRect`](/de/docs/Web/API/DOMRect)), um ein Rechteck zu definieren, dessen Eigenschaften unveränderlich sind.
 
 ## Konstruktor
 
 - [`DOMRectReadOnly()`](/de/docs/Web/API/DOMRectReadOnly/DOMRectReadOnly)
-  - : Definiert, um ein neues `DOMRectReadOnly`-Objekt zu erstellen.
+  - : Definiert, um ein neues `DOMRectReadOnly` Objekt zu erstellen.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`DOMRectReadOnly.x`](/de/docs/Web/API/DOMRectReadOnly/x) {{ReadOnlyInline}}
   - : Gibt die x-Koordinate des Ursprungs des `DOMRectReadOnly` zurück.
@@ -36,7 +36,7 @@ Die **`DOMRectReadOnly`**-Schnittstelle spezifiziert die Standard-Eigenschaften 
 ## Statische Methoden
 
 - [`DOMRectReadOnly.fromRect()`](/de/docs/Web/API/DOMRectReadOnly/fromRect_static)
-  - : Erstellt ein neues `DOMRectReadOnly`-Objekt mit einer gegebenen Position und Größe.
+  - : Erstellt ein neues `DOMRectReadOnly` Objekt mit einem gegebenen Standort und Dimensionen.
 
 ## Spezifikationen
 
