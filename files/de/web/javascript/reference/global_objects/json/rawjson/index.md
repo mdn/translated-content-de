@@ -2,12 +2,12 @@
 title: JSON.rawJSON()
 slug: Web/JavaScript/Reference/Global_Objects/JSON/rawJSON
 l10n:
-  sourceCommit: 47962c4ebad5a138673422ec63a282ab9a63d454
+  sourceCommit: 88da904e9e2dc2c35d5608916242a60b8bdcbe3c
 ---
 
 {{JSRef}}
 
-Die statische Methode **`JSON.rawJSON()`** erstellt ein "rohes JSON"-Objekt, das ein Stück JSON-Text enthält. Wenn es in JSON serialisiert wird, wird das rohe JSON-Objekt behandelt, als ob es bereits ein Stück JSON wäre. Dieser Text muss gültiges JSON sein.
+Die **`JSON.rawJSON()`** statische Methode erstellt ein "rohes JSON"-Objekt, das einen JSON-Text enthält. Bei der Serialisierung zu JSON wird das rohe JSON-Objekt behandelt, als ob es bereits ein Stück JSON ist. Dieser Text muss gültiges JSON sein.
 
 ## Syntax
 
@@ -18,16 +18,16 @@ JSON.rawJSON(string)
 ### Parameter
 
 - `string`
-  - : Der JSON-Text. Muss gültiges JSON sein, das einen primitiven Wert darstellt.
+  - : Der JSON-Text. Muss gültiges JSON **für einen primitiven Wert darstellen**.
 
 ### Rückgabewert
 
-Ein Objekt, das verwendet werden kann, um JSON-Text mit dem exakt gleichen Inhalt wie der angegebene `string` zu erstellen, ohne Anführungszeichen um den String selbst. Dieses Objekt [hat das `null`-Prototype](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) und [ist eingefroren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) (damit es niemals versehentlich durch irgendeine Art von primitiver Konvertierung als reguläres Objekt serialisiert wird), und hat folgende Eigenschaft:
+Ein Objekt, das verwendet werden kann, um JSON-Text mit dem exakt gleichen Inhalt wie der bereitgestellte `string` zu erstellen, ohne Anführungszeichen um den String selbst. Dieses Objekt [hat den Prototyp `null`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) und [ist eingefroren](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze) (damit es niemals versehentlich als reguläres Objekt durch eine Art von primitiver Umwandlung serialisiert wird) und verfügt über folgende Eigenschaft:
 
 - `rawJSON`
-  - : Der ursprüngliche JSON-`string`.
+  - : Der ursprüngliche JSON `string`, der bereitgestellt wurde.
 
-Zudem hat es eine [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties), die es als ein rohes JSON-Objekt markiert. Dies ermöglicht es, dass es von {{jsxref("JSON.stringify()")}} und {{jsxref("JSON.isRawJSON()")}} identifiziert werden kann.
+Darüber hinaus besitzt es eine [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classes/Private_properties), die es als rohes JSON-Objekt kennzeichnet. Dies ermöglicht es, von {{jsxref("JSON.stringify()")}} und {{jsxref("JSON.isRawJSON()")}} identifiziert zu werden.
 
 ### Ausnahmen
 
@@ -36,16 +36,16 @@ Zudem hat es eine [private Eigenschaft](/de/docs/Web/JavaScript/Reference/Classe
 
 ## Beschreibung
 
-Ein rohes JSON-Objekt kann als eine unveränderliche, atomare Datenstruktur wie jede Art von [Primitive](/de/docs/Web/JavaScript/Data_structures#primitive_values) angesehen werden. Es ist kein reguläres Objekt und enthält keine Daten außer dem rohen JSON-Text. Es wird verwendet, um Daten zu "prä-serialisieren" in Formate, die `JSON.stringify` selbst aus verschiedenen Gründen nicht erzeugen kann. Der häufigste Anwendungsfall ist das Problem des Präzisionsverlusts bei Gleitkommazahlen. Zum Beispiel:
+Ein rohes JSON-Objekt kann als eine unveränderliche, atomare Datenstruktur angesehen werden, ähnlich wie jede Art von [Primitiv](/de/docs/Web/JavaScript/Data_structures#primitive_values). Es ist kein reguläres Objekt und enthält keine anderen Daten als den rohen JSON-Text. Es wird verwendet, um Daten auf "vor-serialisierte" Formate zu bringen, die `JSON.stringify` aus verschiedenen Gründen nicht erzeugen kann. Der häufigste Anwendungsfall ist das Problem des Verlusts von Genauigkeit bei Fließkommazahlen. Zum Beispiel:
 
 ```js
 JSON.stringify({ value: 12345678901234567890 });
 // {"value":12345678901234567000}
 ```
 
-Der Wert ist nicht mehr genau gleich dem ursprünglichen Wert! Das liegt daran, dass JavaScript zur Darstellung aller Zahlen das Gleitkommadarstellungsverfahren verwendet und daher nicht alle Ganzzahlen exakt darstellen kann. Das Zahlenliteral `12345678901234567890` wird bereits beim Parsen durch JavaScript auf die nächst repräsentierbare Zahl gerundet.
+Der Wert ist nicht mehr genau gleich dem ursprünglichen Wert! Das liegt daran, dass JavaScript Fließkommadarstellungen für alle Zahlen verwendet, sodass es nicht alle Ganzzahlen genau darstellen kann. Das Zahlenliteral `12345678901234567890` wird bereits auf die nächstliegende darstellbare Zahl gerundet, wenn es von JavaScript geparst wird.
 
-Ohne `JSON.rawJSON` gibt es keine Möglichkeit, `JSON.stringify` zu verwenden, um das Zahlenliteral `12345678901234567000` zu erzeugen, da es einfach keinen entsprechenden JavaScript-Zahlenwert gibt. Mit rohem JSON können Sie direkt angeben, wie `JSON.stringify()` einen bestimmten Wert serialisieren soll:
+Ohne `JSON.rawJSON` gibt es keine Möglichkeit, `JSON.stringify` anzuweisen, das Zahlenliteral `12345678901234567890` zu erzeugen, da es keinen entsprechenden JavaScript-Zahlenwert gibt. Mit rohem JSON können Sie `JSON.stringify()` direkt mitteilen, wie ein bestimmter Wert stringifiziert werden soll:
 
 ```js
 const rawJSON = JSON.rawJSON("12345678901234567890");
@@ -53,9 +53,9 @@ JSON.stringify({ value: rawJSON });
 // {"value":12345678901234567890}
 ```
 
-Ein vollständigeres Beispiel finden Sie unter [Verlustfreie Zahl-Serialisierung](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON#using_json_numbers).
+Ein vollständigeres Beispiel dazu finden Sie unter [Verlustfreie Zahlenserialization](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON#using_json_numbers).
 
-Beachten Sie, dass, obwohl wir einen String an `JSON.rawJSON()` übergeben haben, er in der endgültigen JSON dennoch eine Zahl wird. Dies liegt daran, dass der String den wörtlichen JSON-Text darstellt. Wenn Sie einen String serialisieren möchten, sollten Sie `JSON.rawJSON()` mit einem String-Wert in Anführungszeichen verwenden:
+Beachten Sie, dass wir, obwohl wir einen String an `JSON.rawJSON()` übergeben haben, es dennoch im endgültigen JSON eine Zahl wird. Dies liegt daran, dass der String den unveränderten JSON-Text darstellt. Wenn Sie einen String serialisieren möchten, sollten Sie `JSON.rawJSON()` mit einem in Anführungszeichen eingeschlossenen Stringwert verwenden:
 
 ```js
 const rawJSON = JSON.rawJSON('"Hello world"');
@@ -63,7 +63,7 @@ JSON.stringify({ value: rawJSON });
 // {"value":"Hello world"}
 ```
 
-`JSON.rawJSON` ermöglicht es Ihnen, beliebigen JSON-Text einzufügen, erlaubt jedoch nicht die Erstellung ungültiger JSON. Alles, was durch die JSON-Syntax nicht erlaubt war, ist auch durch `JSON.rawJSON()` nicht erlaubt:
+`JSON.rawJSON` erlaubt Ihnen, beliebigen JSON-Text einzufügen, erlaubt aber nicht, ungültiges JSON zu erstellen. Alles, was durch die JSON-Syntax nicht erlaubt war, ist auch durch `JSON.rawJSON()` nicht erlaubt:
 
 ```js example-bad
 const rawJSON = JSON.rawJSON('"Hello\nworld"'); // Syntax error, because line breaks are not allowed in JSON strings
@@ -73,7 +73,7 @@ Darüber hinaus können Sie `JSON.rawJSON()` nicht verwenden, um JSON-Objekte od
 
 ## Beispiele
 
-### Verwendung von JSON.rawJSON() zur Erstellung von JSON-Ausdrücken verschiedener Typen
+### Verwendung von JSON.rawJSON() zur Erstellung von JSON-Ausdrücken unterschiedlicher Typen
 
 ```js
 const numJSON = JSON.rawJSON("123");
@@ -93,7 +93,7 @@ console.log(
 // {"age":123,"message":"Hello world","isActive":true,"nothing":null}
 ```
 
-Jedoch können Sie `JSON.rawJSON()` nicht verwenden, um JSON-Objekte oder Arrays zu erstellen:
+Allerdings können Sie `JSON.rawJSON()` nicht verwenden, um JSON-Objekte oder Arrays zu erstellen:
 
 ```js example-bad
 const arrJSON = JSON.rawJSON("[1, 2, 3]");
@@ -103,13 +103,13 @@ const objJSON = JSON.rawJSON('{"a": 1, "b": 2}');
 
 ### Verwendung von JSON.rawJSON() zur Erstellung von escaped String-Literalen
 
-Neben Zahlen gibt es nur einen weiteren Typ, der keine Eins-zu-eins-Entsprechung zwischen JavaScript-Werten und JSON-Text hat: Strings. Wenn Strings in JSON serialisiert werden, werden alle Codepunkte, außer denen, die in JSON-String-Literals nicht erlaubt sind (wie zum Beispiel Zeilenumbrüche), wörtlich ausgegeben:
+Neben Zahlen gibt es nur einen weiteren Typ, der keine Eins-zu-Eins-Entsprechung zwischen JavaScript-Werten und JSON-Text hat: Strings. Wenn Strings zu JSON serialisiert werden, werden alle Codepunkte, außer denen, die in JSON-String-Literalen nicht erlaubt sind (wie z.B. Zeilenumbrüche), wörtlich gedruckt:
 
 ```js
 console.log(JSON.stringify({ value: "\ud83d\ude04" })); // {"value":"😄"}
 ```
 
-Dies kann unerwünscht sein, da der Empfänger dieses Strings möglicherweise Unicode unterschiedlich behandelt. Um die Interoperabilität zu verbessern, können Sie explizit angeben, dass der String mit Escape-Sequenzen serialisiert werden soll:
+Dies ist möglicherweise nicht wünschenswert, da der Empfänger dieses Strings Unicode anders behandeln könnte. Um die Interoperabilität zu verbessern, können Sie explizit den String mit Escape-Sequenzen angeben, der serialisiert werden soll:
 
 ```js
 const rawJSON = JSON.rawJSON('"\\ud83d\\ude04"');

@@ -3,30 +3,47 @@ title: "Notification: silent-Eigenschaft"
 short-title: silent
 slug: Web/API/Notification/silent
 l10n:
-  sourceCommit: e011d5695b264ced5a3f4bb822ca7904e23b7e83
+  sourceCommit: 79f5e2c8ed9833f409e9054e69e02798b83422d1
 ---
 
 {{APIRef("Web Notifications")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`silent`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces ist eine schreibgeschützte Eigenschaft, die angibt, ob die Benachrichtigung lautlos erfolgen soll, d. h. ohne Ton oder Vibrationen, unabhängig von den Geräteeinstellungen. Dies wird in der `silent`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors angegeben.
+Die schreibgeschützte **`silent`**-Eigenschaft des [`Notification`](/de/docs/Web/API/Notification)-Interfaces gibt an, ob die Benachrichtigung stumm sein soll, d.h. keine Geräusche oder Vibrationen sollten ausgegeben werden, unabhängig von den Geräteeinstellungen. Dies wird über die `silent`-Option des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors gesteuert.
 
 ## Wert
 
-Ein boolescher Wert oder `null`. Wenn `true`, erfolgt die Benachrichtigung lautlos; wenn `null`, werden die Standardeinstellungen des Geräts berücksichtigt.
+Ein boolescher Wert oder `null`. Wenn auf `true` gesetzt, ist die Benachrichtigung stumm; wenn auf `null` gesetzt (der Standardwert), werden die Standardeinstellungen des Geräts respektiert.
 
 ## Beispiele
 
-Das folgende Snippet soll eine lautlose Benachrichtigung auslösen; ein einfaches `options`-Objekt wird erstellt und dann die Benachrichtigung mithilfe des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors ausgelöst.
+Das folgende Beispiel löst eine stumme Benachrichtigung aus. Ein `options`-Objekt wird erstellt, und die Benachrichtigung wird als Reaktion auf einen Button-Klick unter Verwendung des [`Notification()`](/de/docs/Web/API/Notification/Notification)-Konstruktors ausgelöst. Der Code umfasst auch eine rudimentäre Berechtigungsbehandlung, die die Erlaubnis des Nutzers anfordert, Benachrichtigungen auszulösen, falls diese noch nicht erteilt wurde.
 
 ```js
+const btn = document.querySelector("button");
+
 const options = {
-  body: "Your code submission has received 3 new review comments.",
+  body: "No annoying pings or vibrations?",
   silent: true,
 };
 
-const n = new Notification("New review activity", options);
+function requestSilentNotification() {
+  const n = new Notification("Silent notification", options);
+  console.log(n.silent); // should return true
+}
 
-console.log(n.silent); // true
+btn.addEventListener("click", () => {
+  if (Notification.permission === "granted") {
+    requestSilentNotification();
+  } else {
+    Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        requestSilentNotification();
+      } else {
+        console.log("Notification permission was not granted");
+      }
+    });
+  }
+});
 ```
 
 ## Spezifikationen
