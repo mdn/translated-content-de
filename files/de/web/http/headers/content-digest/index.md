@@ -2,22 +2,22 @@
 title: Content-Digest
 slug: Web/HTTP/Headers/Content-Digest
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: 488e1953f44909cbeb419f0e2133cc28ca069f84
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{HTTPSidebar}}
 
-Der **`Content-Digest`** Antwort- oder Anfrage-Header liefert einen {{Glossary("digest", "Digest")}} des eigentlichen Nachrichteninhalts, des in einer HTTP-Nachricht gerahmten Oktettstroms. Somit ist `Content-Digest` unter anderem abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}, jedoch nicht abhängig, beispielsweise, von {{HTTPHeader("Transfer-Encoding")}} von HTTP/1.1. `Content-Digest` kann mit {{HTTPHeader("Repr-Digest")}} übereinstimmen, wenn eine Repräsentation in einer einzelnen Nachricht gesendet wurde.
+Der **`Content-Digest`** Antwort- oder Anfrage-Header liefert einen {{Glossary("digest", "Digest")}} des tatsächlichen Nachrichteninhalts, des Datenstroms aus Oktetten, der in einer HTTP-Nachricht gerahmt ist. Daher ist `Content-Digest` unter anderem abhängig von {{HTTPHeader("Content-Encoding")}} und {{HTTPHeader("Content-Range")}}, jedoch nicht abhängig beispielsweise von HTTP/1.1's {{HTTPHeader("Transfer-Encoding")}}. `Content-Digest` kann mit {{HTTPHeader("Repr-Digest")}} übereinstimmen, wenn eine Repräsentation in einer einzelnen Nachricht gesendet wurde.
 
-In diesem Kontext bezieht sich _Inhalt_ auf eine bestimmte Oktett-Darstellung der [ausgewählten Darstellung](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource.
+In diesem Zusammenhang bezieht sich _content_ auf eine bestimmte Oktett-Repräsentation der [ausgewählten Repräsentation](https://www.rfc-editor.org/rfc/rfc9110#section-6.4) der Zielressource.
 
-Ein Client kann anfordern, dass ein Server einen `Content-Digest` sendet, indem er {{HTTPHeader("Want-Content-Digest")}} verwendet.
+Ein Client kann anfordern, dass ein Server einen `Content-Digest` ausgibt, indem er {{HTTPHeader("Want-Content-Digest")}} verwendet.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
+      <td>{{Glossary("Representation_header", "Repräsentationsheader")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
@@ -28,10 +28,10 @@ Ein Client kann anfordern, dass ein Server einen `Content-Digest` sendet, indem 
 
 ## Syntax
 
-`Content-Digest` beschreibt ein [RFC8941-Dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit Schlüsseln, die Namen von Digest-Algorithmen sind, und Werten, die den Digest in Bytes darstellen (oder einen ganzzahligen Digest für ältere Digest-Algorithmen).
+`Content-Digest` beschreibt ein [RFC8941 Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit seinen Schlüsseln als Namen der Digest-Algorithmen und seinen Werten als Digest in Bytes (oder einem ganzzahligen Digest für ältere Digest-Algorithmen).
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standard-base64-codierten Digest-Bytes als Teil der [Dictionary-Syntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences) in Doppelpunkte (`:`, ASCII 0x3A) eingeschlossen.
+> Im Gegensatz zu früheren Entwürfen der Spezifikation sind die standard-base64-kodierten Digest-Bytes als Teil der [Wörterbuch-Syntax](https://www.rfc-editor.org/rfc/rfc8941#name-byte-sequences) in Doppelpunkte (`:`, ASCII 0x3A) gehüllt.
 
 ```http
 Content-Digest: <digest-algorithm>=:<standard-padded-base64-digest-value>:, ...
@@ -55,7 +55,7 @@ Content-Digest: md5=:+thA//8pGVGk2VYuJkFNvA==:, unixsum=26869
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Dieser Header hat keine spezifikationsdefinierte Browser-Integration ("Browser-Kompatibilität" trifft nicht zu). Entwickler können HTTP-Header mit `fetch()` setzen und abrufen, um anwendungsspezifisches Implementierungsverhalten bereitzustellen.
 
 ## Siehe auch
 

@@ -2,12 +2,12 @@
 title: Want-Repr-Digest
 slug: Web/HTTP/Headers/Want-Repr-Digest
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: 488e1953f44909cbeb419f0e2133cc28ca069f84
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{HTTPSidebar}}
 
-Der **`Want-Repr-Digest`** Anfrage- oder Antwort-Header gibt den Wunsch nach einem {{HTTPHeader("Repr-Digest")}} Header an.
+Der **`Want-Repr-Digest`**-Anforderungs- oder Antwort-Header gibt den Wunsch nach einem {{HTTPHeader("Repr-Digest")}}-Header an.
 
 <table class="properties">
   <tbody>
@@ -24,14 +24,14 @@ Der **`Want-Repr-Digest`** Anfrage- oder Antwort-Header gibt den Wunsch nach ein
 
 ## Syntax
 
-`Want-Repr-Digest` beschreibt ein [RFC8941-Dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2), wobei seine Schlüssel Hashing-Algorithmen sind und seine Werte die Ganzzahlen `0` (bedeutet "nicht akzeptabel") oder `1` bis `9` (übermitteln aufsteigende, relative, gewichtete Präferenz) sind.
+`Want-Repr-Digest` beschreibt ein [RFC8941-Dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit Schlüsseln, die Hash-Algorithmen sind, und Werten, die die Ganzzahlen `0` (bedeutet "nicht akzeptabel") oder `1` bis `9` (die in aufsteigender Reihenfolge relative, gewichtete Präferenzen ausdrücken) sind.
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über {{Glossary("Quality_values", "q-Werte")}} deklariert.
+> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über {{Glossary("Quality_values", "q-values")}} deklariert.
 
 ## Direktiven
 
-Für zulässige Digest-Algorithmen siehe {{HTTPHeader("Repr-Digest")}}.
+Erlaubte Digest-Algorithmen finden Sie unter {{HTTPHeader("Repr-Digest")}}.
 
 ## Beispiele
 
@@ -46,7 +46,7 @@ Want-Repr-Digest: sha-512=10, sha-256=1, md5=0
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Dieser Header hat keine spezifikationsdefinierte Browser-Integration ("Browser-Kompatibilität" ist nicht anwendbar). Entwickler können HTTP-Header mit `fetch()` festlegen und abrufen, um eine anwendungsspezifische Implementierungsverhalten bereitzustellen.
 
 ## Siehe auch
 

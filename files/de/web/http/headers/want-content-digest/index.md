@@ -2,18 +2,18 @@
 title: Want-Content-Digest
 slug: Web/HTTP/Headers/Want-Content-Digest
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: 488e1953f44909cbeb419f0e2133cc28ca069f84
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}
+{{HTTPSidebar}}
 
-Der **`Want-Content-Digest`** Anforderungs- oder Antwortheader gibt den Wunsch nach einem {{HTTPHeader("Content-Digest")}} Header an. Es ist das `Content-`-Äquivalent von {{HTTPHeader("Want-Repr-Digest")}}.
+Der Anforderungs- oder Antwort-Header **`Want-Content-Digest`** gibt den Wunsch nach einem {{HTTPHeader("Content-Digest")}}-Header an. Es ist das `Content-` Gegenstück zu {{HTTPHeader("Want-Repr-Digest")}}.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation_header", "Repräsentation-Header")}}</td>
+      <td>{{Glossary("Representation_header", "Darstellungs-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
@@ -24,14 +24,14 @@ Der **`Want-Content-Digest`** Anforderungs- oder Antwortheader gibt den Wunsch n
 
 ## Syntax
 
-`Want-Content-Digest` beschreibt ein [RFC8941 Wörterbuch](https://www.rfc-editor.org/rfc/rfc8941#section-3.2) mit seinen Schlüsseln als Hashing-Algorithmen und seinen Werten als Ganzzahlen `0` (bedeutet "nicht akzeptabel") oder `1` bis `9` (vermitteln aufsteigende, relative, gewichtete Präferenz).
+`Want-Content-Digest` beschreibt ein [RFC8941 dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2), bei dem die Schlüssel Hashing-Algorithmen und die Werte die Ganzzahlen `0` (bedeutet „nicht akzeptabel“) oder `1` bis `9` (was steigende, relative, gewichtete Präferenz vermittelt) sind.
 
 > [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über {{Glossary("Quality_values", "q-Werte")}} angegeben.
+> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über {{Glossary("Quality_values", "q-Werte")}} deklariert.
 
-## Direktiven
+## Anweisungen
 
-Zulässige Digest-Algorithmen finden Sie unter {{HTTPHeader("Repr-Digest")}}.
+Für zulässige Digest-Algorithmen siehe {{HTTPHeader("Repr-Digest")}}.
 
 ## Beispiele
 
@@ -46,7 +46,8 @@ Want-Content-Digest: md5=0
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Dieser Header hat keine spezifikationsdefinierte Browser-Integration (die "Browser-Kompatibilität" trifft nicht zu).
+Entwickler können HTTP-Header mit `fetch()` setzen und abrufen, um ein anwendungsspezifisches Implementierungsverhalten bereitzustellen.
 
 ## Siehe auch
 
