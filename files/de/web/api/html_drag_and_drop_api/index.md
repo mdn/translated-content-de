@@ -2,49 +2,49 @@
 title: HTML Drag and Drop API
 slug: Web/API/HTML_Drag_and_Drop_API
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
 ---
 
 {{DefaultAPISidebar("HTML Drag and Drop API")}}
 
-Die **HTML Drag and Drop**-Schnittstellen ermöglichen es Anwendungen, Drag-and-Drop-Funktionen in Browsern zu nutzen.
+HTML Drag-and-Drop-Schnittstellen ermöglichen es Anwendungen, Drag-and-Drop-Funktionen in Browsern zu verwenden.
 
-Der Benutzer kann mit der Maus _draggable_ Elemente auswählen, diese Elemente zu einem _droppable_ Element ziehen und durch Loslassen der Maustaste ablegen. Eine durchscheinende Darstellung der _draggable_ Elemente folgt dem Zeiger während der Ziehoperation.
+Der Benutzer kann _ziehbare_ Elemente mit der Maus auswählen, diese Elemente zu einem _ablegbaren_ Element ziehen und sie durch Loslassen der Maustaste ablegen. Eine durchscheinende Darstellung der _ziehbaren_ Elemente folgt dem Zeiger während des Ziehvorgangs.
 
-Sie können anpassen, welche Elemente _draggable_ werden können, welche Art von Rückmeldung die _draggable_ Elemente erzeugen und welche _droppable_ Elemente vorhanden sind.
+Sie können anpassen, welche Elemente _ziehbar_ werden können, die Art des Feedbacks, das die _ziehbaren_ Elemente erzeugen, und die _ablegbaren_ Elemente.
 
-Dieser Überblick über HTML Drag and Drop enthält eine Beschreibung der Schnittstellen, grundlegende Schritte zur Hinzufügung von Drag-and-Drop-Unterstützung in einer Anwendung und eine Interoperabilitätsübersicht der Schnittstellen.
+Dieser Überblick über HTML Drag and Drop enthält eine Beschreibung der Schnittstellen, grundlegende Schritte, um Drag-and-Drop-Unterstützung zu einer Anwendung hinzuzufügen, und eine Zusammenfassung der Interoperabilität der Schnittstellen.
 
-## Konzepte und Anwendung
+## Konzepte und Verwendung
 
-### Drag Events
+### Drag-Ereignisse
 
-HTML Drag-and-Drop verwendet das [DOM-Ereignismodell](/de/docs/Web/API/Event) und _[Drag Events](/de/docs/Web/API/DragEvent)_, die von [Mausereignissen](/de/docs/Web/API/MouseEvent) erben. Eine typische _Drag-Operation_ beginnt, wenn ein Benutzer ein _draggable_ Element auswählt, fortfährt, wenn der Benutzer das Element zu einem _droppable_ Element zieht, und endet, wenn der Benutzer das gezogene Element wieder freigibt.
+HTML Drag-and-Drop verwendet das [DOM-Ereignismodell](/de/docs/Web/API/Event) und _[Drag-Ereignisse](/de/docs/Web/API/DragEvent)_, die von [Mausereignissen](/de/docs/Web/API/MouseEvent) geerbt werden. Ein typischer _Drag-Vorgang_ beginnt, wenn ein Benutzer ein _ziehbares_ Element auswählt, fortgesetzt wird, wenn der Benutzer das Element zu einem _ablegbaren_ Element zieht, und endet, wenn der Benutzer das gezogene Element loslässt.
 
-Während der Drag-Operationen werden mehrere Ereignistypen ausgelöst, und einige Ereignisse können viele Male ausgelöst werden, wie die [`drag`](/de/docs/Web/API/HTMLElement/drag_event)- und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)-Ereignisse.
+Während Ziehvorgängen werden mehrere Ereignistypen ausgelöst, und einige Ereignisse können viele Male ausgelöst werden, wie zum Beispiel die Ereignisse [`drag`](/de/docs/Web/API/HTMLElement/drag_event) und [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event).
 
-Jeder [Drag-Ereignistyp](/de/docs/Web/API/DragEvent#event_types) hat einen zugehörigen Ereignis-Handler:
+Jeder [Drag-Ereignistyp](/de/docs/Web/API/DragEvent#event_types) hat einen zugeordneten Ereignishandler:
 
-| Ereignis                                                    | Wird ausgelöst, wenn...                                                                                                                                                                                         |
-| ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`drag`](/de/docs/Web/API/HTMLElement/drag_event)           | ...ein _gezogenes Element_ (Element oder Textauswahl) gezogen wird.                                                                                                                                             |
-| [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)     | ...eine Drag-Operation endet (wie durch das Loslassen einer Maustaste oder das Drücken der Esc-Taste; siehe [Abschluss eines Drags](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#finishing_a_drag).) |
-| [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) | ...ein gezogenes Element ein gültiges Ziel betritt. (Siehe [Festlegen von Drop-Zielen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).)                                       |
-| [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) | ...ein gezogenes Element ein gültiges Ziel verlässt.                                                                                                                                                            |
-| [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)   | ...ein gezogenes Element über ein gültiges Ziel gezogen wird, alle paar hundert Millisekunden.                                                                                                                  |
-| [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) | ...der Benutzer beginnt, ein Element zu ziehen. (Siehe [Beginn einer Drag-Operation](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#starting_a_drag_operation).)                                       |
-| [`drop`](/de/docs/Web/API/HTMLElement/drop_event)           | ...ein Element auf ein gültiges Ziel fallen gelassen wird. (Siehe [Durchführung eines Drops](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#performing_a_drop).)                                       |
+| Ereignis                                                    | Wird ausgelöst, wenn...                                                                                                                                                                                      |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`drag`](/de/docs/Web/API/HTMLElement/drag_event)           | ...ein _gezogenes Element_ (Element oder Textauswahl) gezogen wird.                                                                                                                                          |
+| [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)     | ...ein Ziehvorgang endet (wie das Loslassen einer Maustaste oder das Drücken der Esc-Taste; siehe [Abschluss eines Ziehvorgangs](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#finishing_a_drag).) |
+| [`dragenter`](/de/docs/Web/API/HTMLElement/dragenter_event) | ...ein gezogenes Element ein gültiges Ziel betritt. (Siehe [Festlegen von Zielen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets).)                                         |
+| [`dragleave`](/de/docs/Web/API/HTMLElement/dragleave_event) | ...ein gezogenes Element ein gültiges Ziel verlässt.                                                                                                                                                         |
+| [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)   | ...ein gezogenes Element über ein gültiges Ziel gezogen wird, alle paar Hundert Millisekunden.                                                                                                               |
+| [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) | ...der Benutzer beginnt, ein Element zu ziehen. (Siehe [Start eines Zieh-Vorgangs](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#starting_a_drag_operation).)                                      |
+| [`drop`](/de/docs/Web/API/HTMLElement/drop_event)           | ...ein Element auf ein gültiges Ziel fallen gelassen wird. (Siehe [Ausführen eines Drops](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#performing_a_drop).)                                       |
 
 > [!NOTE]
-> Weder `dragstart`- noch `dragend`-Ereignisse werden ausgelöst, wenn eine Datei aus dem Betriebssystem in den Browser gezogen wird.
+> Weder `dragstart` noch `dragend` Ereignisse werden ausgelöst, wenn eine Datei vom Betriebssystem in den Browser gezogen wird.
 
 ### Die Grundlagen
 
-Dieser Abschnitt ist eine Zusammenfassung der grundlegenden Schritte, um einer Anwendung Drag-and-Drop-Funktionalität hinzuzufügen.
+Dieser Abschnitt ist eine Zusammenfassung der grundlegenden Schritte, um eine Drag-and-Drop-Funktionalität zu einer Anwendung hinzuzufügen.
 
-#### Bestimmen, was draggable ist
+#### Identifizieren, was ziehbar ist
 
-Um ein Element _draggable_ zu machen, muss das [`draggable`](/de/docs/Web/HTML/Global_attributes#draggable)-Attribut und der [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event)-Ereignishandler hinzugefügt werden, wie im folgenden Codebeispiel gezeigt:
+Um ein Element _ziehbar_ zu machen, muss das Attribut [`draggable`](/de/docs/Web/HTML/Global_attributes/draggable) und der [`dragstart`](/de/docs/Web/API/HTMLElement/dragstart_event) Ereignishandler hinzugefügt werden, wie im folgenden Codebeispiel gezeigt:
 
 ```html
 <script>
@@ -64,16 +64,16 @@ Um ein Element _draggable_ zu machen, muss das [`draggable`](/de/docs/Web/HTML/G
 <p id="p1" draggable="true">This element is draggable.</p>
 ```
 
-Weitere Informationen finden Sie unter:
+Für weitere Informationen siehe:
 
-- [Draggable-Attributreferenz](/de/docs/Web/HTML/Global_attributes/draggable)
-- [Leitfaden zu Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#the_draggable_attribute)
+- [Draggable-Attribut-Referenz](/de/docs/Web/HTML/Global_attributes/draggable)
+- [Leitfaden für Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#the_draggable_attribute)
 
 #### Definieren der Drag-Daten
 
-Die Anwendung ist frei, eine beliebige Anzahl von Datenobjekten in eine Drag-Operation einzubeziehen. Jedes Datenobjekt ist eine Zeichenkette eines bestimmten `Typs` — typischerweise ein MIME-Typ wie `text/html`.
+Die Anwendung ist frei, eine beliebige Anzahl von Datenobjekten in einen Ziehvorgang einzubeziehen. Jedes Datenobjekt ist ein String eines bestimmten `type` — typischerweise ein MIME-Typ wie `text/html`.
 
-Jedes [`DragEvent`](/de/docs/Web/API/DragEvent) hat eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft, die die Daten des Ereignisses _hält_. Diese Eigenschaft (ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt) hat auch Methoden, um Drag-Daten zu _verwalten_. Die [`setData()`](/de/docs/Web/API/DataTransfer/setData)-Methode wird verwendet, um ein Element zu den Drag-Daten hinzuzufügen, wie im folgenden Beispiel gezeigt.
+Jeder [`DragEvent`](/de/docs/Web/API/DragEvent) hat eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) Eigenschaft, die die Daten des Ereignisses _enthält_. Diese Eigenschaft (die ein [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt ist) hat auch Methoden, um _Drag-Daten zu verwalten_. Die Methode [`setData()`](/de/docs/Web/API/DataTransfer/setData) wird verwendet, um ein Objekt zu den Drag-Daten hinzuzufügen, wie im folgenden Beispiel gezeigt.
 
 ```js
 function dragstartHandler(ev) {
@@ -87,12 +87,12 @@ function dragstartHandler(ev) {
 }
 ```
 
-- Für eine Liste der gängigen Datentypen, die in Drag-and-Drop verwendet werden (z.B. Text, HTML, Links und Dateien), siehe [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types).
-- Weitere Informationen zu Drag-Daten finden Sie unter [Drag-Daten](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#drag_data).
+- Für eine Liste der gebräuchlichen Datentypen, die beim Drag-and-Drop verwendet werden (wie Text, HTML, Links und Dateien), siehe [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types).
+- Für weitere Informationen über Drag-Daten, siehe [Drag-Daten](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#drag_data).
 
 #### Definieren des Drag-Bildes
 
-Standardmäßig stellt der Browser ein Bild bereit, das während einer Drag-Operation neben dem Zeiger angezeigt wird. Eine Anwendung kann jedoch mit der [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage)-Methode ein benutzerdefiniertes Bild definieren, wie im folgenden Beispiel gezeigt.
+Standardmäßig liefert der Browser ein Bild, das während eines Ziehvorgangs neben dem Zeiger erscheint. Eine Anwendung kann jedoch mit der Methode [`setDragImage()`](/de/docs/Web/API/DataTransfer/setDragImage) ein benutzerdefiniertes Bild definieren, wie im folgenden Beispiel gezeigt.
 
 ```js
 // Create an image and then use it for the drag image.
@@ -105,21 +105,21 @@ function dragstartHandler(ev) {
 }
 ```
 
-Weitere Informationen über Drag-Rückmeldebilder finden Sie in:
+Erfahren Sie mehr über Drag-Feedback-Bilder in:
 
-- [Festlegen des Drag-Rückmeldebildes](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#setting_the_drag_feedback_image)
+- [Festlegen des Drag-Feedback-Bildes](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#setting_the_drag_feedback_image)
 
-#### Definieren des Drop-Effekts
+#### Definieren der Drop-Effekt
 
-Die [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft wird verwendet, um die Rückmeldung zu steuern, die dem Benutzer während einer Drag-and-Drop-Operation gegeben wird. Sie beeinflusst typischerweise, welchen Cursor der Browser beim Ziehen anzeigt. Beispielsweise kann beim Überhovern mit dem Benutzer über ein Drop-Ziel der Cursor des Browsers den Typ der durchgeführten Operation anzeigen.
+Die Eigenschaft [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) wird verwendet, um das Feedback zu steuern, das dem Benutzer während eines Drag-and-Drop-Vorgangs gegeben wird. Sie beeinflusst in der Regel, welcher Cursor der Browser beim Ziehen anzeigt. Zum Beispiel kann, wenn der Benutzer über ein Ziel schwebt, der Cursor des Browsers anzeigen, welche Art von Vorgang vorgenommen wird.
 
 Drei Effekte können definiert werden:
 
-1. **`copy`** gibt an, dass die gezogenen Daten von ihrem aktuellen Standort zum Drop-Standort kopiert werden.
-2. **`move`** gibt an, dass die gezogenen Daten von ihrem aktuellen Standort zum Drop-Standort verschoben werden.
-3. **`link`** gibt an, dass eine Art von Beziehung oder Verbindung zwischen dem Quell- und Drop-Standort erstellt wird.
+1. **`copy`** zeigt an, dass die gezogenen Daten von ihrem derzeitigen Standort zum Zielort kopiert werden.
+2. **`move`** zeigt an, dass die gezogenen Daten von ihrem derzeitigen Standort zum Zielort verschoben werden.
+3. **`link`** zeigt an, dass eine Art Beziehung oder Verbindung zwischen den Quell- und Zielorten hergestellt wird.
 
-Während der Drag-Operation können Drag-Effekte geändert werden, um anzuzeigen, dass bestimmte Effekte an bestimmten Standorten erlaubt sind.
+Während des Ziehvorgangs können Zieh-Effekte modifiziert werden, um anzuzeigen, dass an bestimmten Orten bestimmte Effekte erlaubt sind.
 
 Das folgende Beispiel zeigt, wie diese Eigenschaft verwendet wird.
 
@@ -129,15 +129,15 @@ function dragstartHandler(ev) {
 }
 ```
 
-Weitere Details finden Sie unter:
+Für weitere Details siehe:
 
-- [Drag-Effekte](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#drag_effects)
+- [Zieh-Effekte](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#drag_effects)
 
 #### Definieren einer Drop-Zone
 
-Standardmäßig verhindert der Browser, dass etwas passiert, wenn etwas auf die meisten HTML-Elemente fallengelassen wird. Um dieses Verhalten zu ändern, damit ein Element eine _Drop-Zone_ oder _droppable_ wird, muss das Element sowohl auf die [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event)- als auch auf die [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignisse hören.
+Standardmäßig verhindert der Browser, dass etwas passiert, wenn etwas auf die meisten HTML-Elemente fallen gelassen wird. Um dieses Verhalten zu ändern, damit ein Element eine _Drop-Zone_ wird oder _abgelegt_ werden kann, muss das Element auf die Ereignisse [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) und [`drop`](/de/docs/Web/API/HTMLElement/drop_event) hören.
 
-Das folgende Beispiel zeigt, wie Sie diese Attribute verwenden, und enthält grundlegende Ereignis-Handler für jedes Attribut.
+Das folgende Beispiel zeigt, wie diese Attribute verwendet werden und beinhaltet grundlegende Ereignishandler für jedes Attribut.
 
 ```html
 <script>
@@ -158,19 +158,19 @@ Das folgende Beispiel zeigt, wie Sie diese Attribute verwenden, und enthält gru
 </p>
 ```
 
-Beachten Sie, dass jeder Handler [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, um zusätzliche Ereignisverarbeitung für dieses Ereignis zu verhindern (wie [Touch-Ereignisse](/de/docs/Web/API/Touch_events) oder [Pointer-Ereignisse](/de/docs/Web/API/Pointer_events)).
+Beachten Sie, dass jeder Handler [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) aufruft, um eine zusätzliche Ereignisverarbeitung für dieses Ereignis zu verhindern (wie [Touch-Ereignisse](/de/docs/Web/API/Touch_events) oder [Zeigerereignisse](/de/docs/Web/API/Pointer_events)).
 
-Weitere Informationen finden Sie unter:
+Für weitere Informationen siehe:
 
-- [Festlegen von Drop-Zielen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets)
+- [Festlegen von Zielorten](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#specifying_drop_targets)
 
-#### Umgang mit der Drop-Wirkung
+#### Umgang mit dem Drop-Effekt
 
-Der Handler für das [`drop`](/de/docs/Web/API/HTMLElement/drop_event)-Ereignis ist frei, die Drag-Daten auf eine anwendungsspezifische Weise zu verarbeiten.
+Der Handler für das [`drop`](/de/docs/Web/API/HTMLElement/drop_event) Ereignis ist frei, die Drag-Daten in einer anwendungsspezifischen Weise zu verarbeiten.
 
-Typischerweise verwendet eine Anwendung die [`getData()`](/de/docs/Web/API/DataTransfer/getData)-Methode, um Drag-Elemente abzurufen und sie entsprechend zu verarbeiten. Darüber hinaus können sich Anwendungselemente je nach Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) und/oder Zustand der Modifikationstasten unterscheiden.
+Typischerweise verwendet eine Anwendung die Methode [`getData()`](/de/docs/Web/API/DataTransfer/getData), um Ziehobjekte abzurufen und sie dann entsprechend zu verarbeiten. Zusätzlich können Semantiken der Anwendung je nach Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) und/oder dem Status der Modifikator-Tasten unterschiedlich sein.
 
-Das folgende Beispiel zeigt einen Drop-Handler, der die `id` des Quell-Elements aus den Drag-Daten abruft und dann die `id` verwendet, um das Quell-Element zum Drop-Element zu bewegen:
+Das folgende Beispiel zeigt einen Drop-Handler, der die `id` des Quell-Elements von den Drag-Daten abruft und dann die `id` verwendet, um das Quell-Element zum Zielelement zu verschieben:
 
 ```html
 <script>
@@ -202,45 +202,45 @@ Das folgende Beispiel zeigt einen Drop-Handler, der die `id` des Quell-Elements 
 </div>
 ```
 
-Weitere Informationen finden Sie unter:
+Für weitere Informationen siehe:
 
-- [Durchführen eines Drops](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#performing_a_drop)
+- [Ausführen eines Drops](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#performing_a_drop)
 
-#### Drag-Ende
+#### Ende des Drag-Vorgangs
 
-Am Ende einer Drag-Operation wird das [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis am \_Quell-\_Element ausgelöst — dem Element, das das Ziel des Drag-Beginns war.
+Am Ende eines Ziehvorgangs wird das Ereignis [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) am _Quell_-Element ausgelöst — dem Element, das das Ziel des Ziehstarts war.
 
-Dieses Ereignis wird unabhängig davon ausgelöst, ob das Drag abgeschlossen oder abgebrochen wurde. Der [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event)-Ereignis-Handler kann den Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect)-Eigenschaft überprüfen, um festzustellen, ob die Drag-Operation erfolgreich war oder nicht.
+Dieses Ereignis wird unabhängig davon ausgelöst, ob der Ziehvorgang abgeschlossen oder abgebrochen wurde. Der [`dragend`](/de/docs/Web/API/HTMLElement/dragend_event) Ereignishandler kann den Wert der [`dropEffect`](/de/docs/Web/API/DataTransfer/dropEffect) Eigenschaft überprüfen, um festzustellen, ob der Ziehvorgang erfolgreich war oder nicht.
 
-Weitere Informationen zum Umgang mit dem Ende einer Drag-Operation finden Sie unter:
+Für weitere Informationen über die Behandlung des Endes eines Ziehvorgangs siehe:
 
-- [Abschluss eines Drags](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#finishing_a_drag)
+- [Abschluss eines Ziehvorgangs](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations#finishing_a_drag)
 
 ## Schnittstellen
 
-Die HTML Drag and Drop-Schnittstellen sind [`DragEvent`](/de/docs/Web/API/DragEvent), [`DataTransfer`](/de/docs/Web/API/DataTransfer), [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) und [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList).
+Die HTML Drag-and-Drop-Schnittstellen sind [`DragEvent`](/de/docs/Web/API/DragEvent), [`DataTransfer`](/de/docs/Web/API/DataTransfer), [`DataTransferItem`](/de/docs/Web/API/DataTransferItem), und [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList).
 
-Die [`DragEvent`](/de/docs/Web/API/DragEvent)-Schnittstelle hat einen Konstruktor und eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer)-Eigenschaft, die ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt ist.
+Die [`DragEvent`](/de/docs/Web/API/DragEvent) Schnittstelle hat einen Konstruktor und eine [`dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) Eigenschaft, die ein [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt ist.
 
-[`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekte enthalten den Status des Drag-Ereignisses, wie die Art des Drags (z.B. `copy` oder `move`), die Drag-Daten (ein oder mehrere Objekte) und den MIME-Typ jedes _Drag-Objekts_. [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekte haben auch Methoden, um Elemente zu den Drag-Daten hinzuzufügen oder zu entfernen.
+[`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekte enthalten den Zustand des Ziehereignisses, wie die Art des Ziehens (wie `copy` oder `move`), die Daten des Ziehvorgangs (ein oder mehrere Objekte), und den MIME-Typ jedes _Ziehobjekts_. [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekte haben auch Methoden, um Elemente zu den Daten des Ziehvorgangs hinzuzufügen oder zu entfernen.
 
-Die [`DragEvent`](/de/docs/Web/API/DragEvent)- und [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Schnittstellen sollten die einzigen sein, die benötigt werden, um HTML Drag-and-Drop-Fähigkeiten zu einer Anwendung hinzuzufügen.
+Die Schnittstellen [`DragEvent`](/de/docs/Web/API/DragEvent) und [`DataTransfer`](/de/docs/Web/API/DataTransfer) sollten die einzigen sein, die benötigt werden, um HTML Drag-and-Drop-Funktionen zu einer Anwendung hinzuzufügen.
 
-Jedes [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt enthält eine [`items`](/de/docs/Web/API/DataTransfer/items)-Eigenschaft, die eine [`list`](/de/docs/Web/API/DataTransferItemList) von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten ist. Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt stellt ein einzelnes _Drag-Objekt_ dar, jeweils mit einer [`kind`](/de/docs/Web/API/DataTransferItem/kind)-Eigenschaft (entweder `string` oder `file`) und einer [`type`](/de/docs/Web/API/DataTransferItem/type)-Eigenschaft für den MIME-Typ des Datenobjekts. Das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekt hat auch Methoden, um die Daten des Drag-Objekts abzurufen.
+Jedes [`DataTransfer`](/de/docs/Web/API/DataTransfer) Objekt enthält eine [`items`](/de/docs/Web/API/DataTransfer/items) Eigenschaft, die eine [`list`](/de/docs/Web/API/DataTransferItemList) von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekten ist. Ein [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt stellt ein einzelnes _Ziehobjekt_ dar, jedes mit einer [`kind`](/de/docs/Web/API/DataTransferItem/kind) Eigenschaft (entweder `string` oder `file`) und einer [`type`](/de/docs/Web/API/DataTransferItem/type) Eigenschaft für den MIME-Typ des Datenobjekts. Das [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekt hat auch Methoden, um die Daten des Ziehobjekts abzurufen.
 
-Das [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Objekt ist eine Liste von [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Objekten. Die Listen-Objekt hat Methoden, um ein Drag-Objekt zur Liste hinzuzufügen, ein Drag-Objekt aus der Liste zu entfernen und die Liste von allen Drag-Objekten zu löschen.
+Das [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) Objekt ist eine Liste der [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) Objekte. Das Listenobjekt hat Methoden, um ein Ziehobjekt zur Liste hinzuzufügen, ein Ziehobjekt aus der Liste zu entfernen und die Liste von allen Ziehobjekten zu leeren.
 
-Ein wesentlicher Unterschied zwischen den [`DataTransfer`](/de/docs/Web/API/DataTransfer)- und [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)-Schnittstellen ist, dass erstere die synchrone [`getData()`](/de/docs/Web/API/DataTransfer/getData)-Methode verwendet, um auf die Daten eines Drag-Elements zuzugreifen, während letztere stattdessen die asynchrone [`getAsString()`](/de/docs/Web/API/DataTransferItem/getAsString)-Methode verwendet.
+Ein wesentlicher Unterschied zwischen den Schnittstellen [`DataTransfer`](/de/docs/Web/API/DataTransfer) und [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) ist, dass erstere die synchrone [`getData()`](/de/docs/Web/API/DataTransfer/getData) Methode verwendet, um auf die Daten eines Ziehobjekts zuzugreifen, während letztere die asynchrone [`getAsString()`](/de/docs/Web/API/DataTransferItem/getAsString) Methode verwendet.
 
-> **Hinweis:** [`DragEvent`](/de/docs/Web/API/DragEvent) und [`DataTransfer`](/de/docs/Web/API/DataTransfer) werden in Desktop-Browsern umfassend unterstützt. Die [`DataTransferItem`](/de/docs/Web/API/DataTransferItem)- und [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList)-Schnittstellen haben jedoch nur eine begrenzte Browser-Unterstützung. Siehe [Interoperabilität](#interoperability) für weitere Informationen zur Drag-and-Drop-Interoperabilität.
+> **Hinweis:** [`DragEvent`](/de/docs/Web/API/DragEvent) und [`DataTransfer`](/de/docs/Web/API/DataTransfer) werden auf Desktop-Browsern breit unterstützt. Die Schnittstellen [`DataTransferItem`](/de/docs/Web/API/DataTransferItem) und [`DataTransferItemList`](/de/docs/Web/API/DataTransferItemList) haben jedoch eine begrenzte Browser-Unterstützung. Siehe [Interoperabilität](#interoperability) für weitere Informationen zur Drag-and-Drop-Interoperabilität.
 
 ## Beispiele
 
-- [Kopieren und Bewegen von Elementen mit der `DataTransfer`-Schnittstelle](https://mdn.github.io/dom-examples/drag-and-drop/copy-move-DataTransfer.html)
-- [Kopieren und Bewegen von Elementen mit der `DataTransferListItem`-Schnittstelle](https://mdn.github.io/dom-examples/drag-and-drop/copy-move-DataTransferItemList.html)
+- [Kopieren und Verschieben von Elementen mit der `DataTransfer` Schnittstelle](https://mdn.github.io/dom-examples/drag-and-drop/copy-move-DataTransfer.html)
+- [Kopieren und Verschieben von Elementen mit der `DataTransferListItem` Schnittstelle](https://mdn.github.io/dom-examples/drag-and-drop/copy-move-DataTransferItemList.html)
 - Ziehen und Ablegen von Dateien (nur Firefox): <https://jsfiddle.net/9C2EF/>
 - Ziehen und Ablegen von Dateien (Alle Browser): [https://jsbin.com/hiqasek/](https://jsbin.com/hiqasek/edit?html,js,output)
-- Ein Parkprojekt mit der Drag and Drop API: <https://park.glitch.me/> (Sie können [hier](https://glitch.com/edit/#!/park) bearbeiten)
+- Ein Parkprojekt unter Verwendung der Drag and Drop API: <https://park.glitch.me/> (Bearbeitung möglich [hier](https://glitch.com/edit/#!/park))
 
 ## Spezifikationen
 
@@ -248,7 +248,7 @@ Ein wesentlicher Unterschied zwischen den [`DataTransfer`](/de/docs/Web/API/Data
 
 ## Siehe auch
 
-- [Drag-Operationen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
+- [Drag-Vorgänge](/de/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations)
 - [Empfohlene Drag-Typen](/de/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types)
-- [HTML Living Standard: Drag and Drop](https://html.spec.whatwg.org/multipage/interaction.html#dnd)
+- [HTML-Living-Standard: Drag and Drop](https://html.spec.whatwg.org/multipage/interaction.html#dnd)
 - [Drag and Drop Interoperabilitätsdaten von CanIUse](https://caniuse.com/#search=draganddrop)

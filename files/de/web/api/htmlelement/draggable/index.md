@@ -3,22 +3,22 @@ title: "HTMLElement: draggable-Eigenschaft"
 short-title: draggable
 slug: Web/API/HTMLElement/draggable
 l10n:
-  sourceCommit: 71790d0ff0ecd94a2d734f81d98a3317b61aa468
+  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
 ---
 
 {{APIRef("HTML Drag and Drop API")}}
 
-Die **`draggable`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces liest und setzt ein {{jsxref("Boolean")}}-Primitiv, das angibt, ob das Element ziehbar ist.
+Die **`draggable`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces ruft einen {{jsxref("Boolean")}}-Wert ab oder setzt ihn, der angibt, ob das Element ziehbar ist.
 
 Sie spiegelt den Wert des globalen HTML-Attributs [`draggable`](/de/docs/Web/HTML/Global_attributes/draggable) wider.
 
 ## Wert
 
-Ein {{jsxref("Boolean")}}-Primitiv, das `true` ist, wenn das Element ziehbar ist, andernfalls `false`.
+Ein {{jsxref("Boolean")}}-Wert, der `true` ist, wenn das Element ziehbar ist, andernfalls `false`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Fähigkeit des Elements, per Skript gezogen zu werden, aktiviert oder deaktiviert werden kann:
+Das folgende Beispiel zeigt, wie die Fähigkeit eines Elements, gezogen zu werden, mittels Skript aktiviert oder deaktiviert werden kann:
 
 ```js
 const draggableElement = document.querySelector(".draggable-element");
@@ -45,5 +45,5 @@ if (notDraggableElement.draggable) {
 
 ## Siehe auch
 
-- Globales HTML-Attribut [`draggable`](/de/docs/Web/HTML/Global_attributes#draggable)
-- Überblick über die [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API)
+- [`draggable`](/de/docs/Web/HTML/Global_attributes/draggable) globales HTML-Attribut
+- [HTML Drag and Drop API](/de/docs/Web/API/HTML_Drag_and_Drop_API) Übersicht

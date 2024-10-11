@@ -1,24 +1,24 @@
 ---
-title: "HTMLElement: translate-Eigenschaft"
+title: "HTMLElement: translate Eigenschaft"
 short-title: translate
 slug: Web/API/HTMLElement/translate
 l10n:
-  sourceCommit: 1442377111a1649dfce278eac688e06efce34b83
+  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`translate`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt an, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knotenkinder bei der Lokalisierung der Seite übersetzt werden sollen oder ob sie unverändert bleiben sollen.
+Die **`translate`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces gibt an, ob die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder beim Lokalisieren der Seite übersetzt werden sollen oder ob sie unverändert bleiben.
 
-Sie spiegelt den Wert des globalen HTML-Attributs [`translate`](/de/docs/Web/HTML/Global_attributes/translate) wider.
+Sie spiegelt den Wert des [`translate`](/de/docs/Web/HTML/Global_attributes/translate) globalen HTML-Attributs wider.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knotenkinder bei der Lokalisierung der Seite übersetzt werden sollen, andernfalls `false`.
+Ein boolescher Wert, der `true` ist, wenn die Attributwerte eines Elements und die Werte seiner [`Text`](/de/docs/Web/API/Text)-Knoten-Kinder beim Lokalisieren der Seite übersetzt werden sollen, andernfalls `false`.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Übersetzung per Skript aktiviert oder deaktiviert wird:
+Das folgende Beispiel zeigt, wie die Übersetzung über Skript aktiviert oder deaktiviert wird:
 
 ```html
 <div>
@@ -60,4 +60,4 @@ controller.addEventListener("change", (e) => {
 
 ## Siehe auch
 
-- HTML-Globalattribut [`translate`](/de/docs/Web/HTML/Global_attributes#translate)
+- [`translate`](/de/docs/Web/HTML/Global_attributes/translate) globales HTML-Attribut

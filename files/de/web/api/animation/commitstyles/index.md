@@ -3,16 +3,16 @@ title: "Animation: commitStyles() Methode"
 short-title: commitStyles()
 slug: Web/API/Animation/commitStyles
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
 ---
 
 {{APIRef("Web Animations")}}
 
-Die `commitStyles()` Methode der [`Animation`](/de/docs/Web/API/Animation) Schnittstelle des [Web Animations API](/de/docs/Web/API/Web_Animations_API) schreibt die [berechneten Werte](/de/docs/Web/CSS/computed_value) der aktuellen Stile der Animation in das [`style`](/de/docs/Web/HTML/Global_attributes#style) Attribut des Ziel-Elements. `commitStyles()` funktioniert selbst dann, wenn die Animation [automatisch entfernt wurde](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations).
+Die `commitStyles()` Methode des [Web Animations API](/de/docs/Web/API/Web_Animations_API)'s [`Animation`](/de/docs/Web/API/Animation) Interface schreibt die [berechneten Werte](/de/docs/Web/CSS/computed_value) der aktuellen Stile der Animation in das [`style`](/de/docs/Web/HTML/Global_attributes/style) Attribut des Ziel-Elements. `commitStyles()` funktioniert auch, wenn die Animation [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wurde.
 
-`commitStyles()` kann in Kombination mit `fill` verwendet werden, um den Endzustand einer Animation nach deren Abschluss bestehen zu lassen. Derselbe Effekt könnte auch nur mit `fill` erzielt werden, aber [die Verwendung von Animationen mit unbegrenztem Füllverhalten wird nicht empfohlen](https://drafts.csswg.org/web-animations-1/#fill-behavior). Animationen [haben Vorrang vor allen statischen Stilen](/de/docs/Web/CSS/Cascade#cascading_order), sodass eine unbegrenzt füllende Animation verhindern kann, dass das Ziel-Element jemals normal gestylt wird.
+`commitStyles()` kann in Kombination mit `fill` verwendet werden, um den Endzustand einer Animation nach deren Ende beizubehalten. Der gleiche Effekt könnte auch nur mit `fill` erreicht werden, aber [die Verwendung von unendlich füllenden Animationen wird nicht empfohlen](https://drafts.csswg.org/web-animations-1/#fill-behavior). Animationen [haben Vorrang vor allen statischen Stilen](/de/docs/Web/CSS/Cascade#cascading_order), sodass eine unendlich füllende Animation verhindern kann, dass das Ziel-Element jemals normal gestylt wird.
 
-Durch die Verwendung von `commitStyles()` wird der Stilzustand in das [`style`](/de/docs/Web/HTML/Global_attributes#style) Attribut des Elements geschrieben, wo sie normal modifiziert und ersetzt werden können.
+Durch die Verwendung von `commitStyles()` wird der Stilzustand in das [`style`](/de/docs/Web/HTML/Global_attributes/style) Attribut des Elements geschrieben, wo sie wie normale Stile modifiziert und ersetzt werden können.
 
 ## Syntax
 
@@ -26,17 +26,17 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Den Endzustand einer Animation festlegen
+### Festschreiben des Endzustands einer Animation
 
-In diesem Beispiel haben wir zwei Schaltflächen, beschriftet mit "Styles festschreiben" und "Vorwärts füllen". Beide Schaltflächen animieren, wenn Sie darauf klicken, und beide halten den Endzustand der Animation aufrecht.
+In diesem Beispiel gibt es zwei Schaltflächen, mit den Beschriftungen "Stile festschreiben" und "Vorwärts füllen". Beide Schaltflächen führen eine Animation aus, wenn Sie sie anklicken, und beide Schaltflächen behalten den Endzustand der Animation bei.
 
-Der Unterschied besteht jedoch darin, dass "Vorwärts füllen" nur `fill: "forwards"` verwendet, um den Endzustand der Animation zu bewahren: Das bedeutet, dass der Browser den Zustand der Animation auf unbestimmte Zeit oder bis zur automatischen Entfernung aufrechterhalten muss.
+Der Unterschied ist jedoch, dass "Vorwärts füllen" nur `fill: "forwards"` verwendet, um den Endzustand der Animation beizubehalten: Dies bedeutet, dass der Browser den Zustand der Animation unendlich lang beibehalten muss, oder bis er automatisch entfernt werden kann.
 
-Die Schaltfläche "Styles festschreiben" wartet jedoch, bis die Animation fertig ist, ruft dann `commitStyles()` auf und storniert die Animation, sodass der abgeschlossene Stil als Wert des `style` Attributs und nicht als Animationszustand festgelegt wird.
+Die Schaltfläche "Stile festschreiben" hingegen wartet darauf, dass die Animation endet, ruft dann `commitStyles()` auf und storniert anschließend die Animation, sodass der abgeschlossene Stil als Wert des `style` Attributs festgehalten wird, anstatt als Animationszustand.
 
 #### HTML
 
@@ -102,4 +102,4 @@ fillForwards.addEventListener("click", async (event) => {
 ## Siehe auch
 
 - [Web Animations API](/de/docs/Web/API/Web_Animations_API)
-- [`Animation`](/de/docs/Web/API/Animation) für andere Methoden und Eigenschaften, die Sie zur Steuerung von Web-Seiten-Animationen verwenden können.
+- [`Animation`](/de/docs/Web/API/Animation) für weitere Methoden und Eigenschaften, die Sie verwenden können, um Animationen auf Webseiten zu steuern.

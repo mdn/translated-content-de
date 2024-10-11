@@ -2,22 +2,22 @@
 title: CSS-Animationen
 slug: Web/CSS/CSS_animations
 l10n:
-  sourceCommit: 6172456ad66f9f41ad1a3a3a6dfe642d91f977be
+  sourceCommit: c0daf1f038fdbdb62d71bfdeaf3a0a083660792c
 ---
 
 {{CSSRef}}
 
-Das **CSS-Animations**-Modul ermöglicht es Ihnen, die Werte von CSS-Eigenschaften wie `background-position` und `transform` über die Zeit hinweg mittels Keyframes zu animieren. Jedes Keyframe beschreibt, wie das animierte Element zu einem bestimmten Zeitpunkt während der Animationssequenz dargestellt werden soll. Sie können die Eigenschaften im Animationsmodul verwenden, um die Dauer, Anzahl der Wiederholungen, verzögerter Start und andere Aspekte einer Animation zu steuern.
+Das Modul **CSS-Animationen** ermöglicht es Ihnen, die Werte von CSS-Eigenschaften wie `background-position` und `transform` über die Zeit mithilfe von `Keyframes` zu animieren. Jedes Keyframe beschreibt, wie das animierte Element zu einem bestimmten Zeitpunkt während der Animationssequenz angezeigt werden soll. Sie können die Eigenschaften im Animationsmodul verwenden, um die Dauer, die Anzahl der Wiederholungen, den verzögerten Start und andere Aspekte einer Animation zu steuern.
 
 ### Animationen in Aktion
 
-Um die Animation im folgenden Kasten zu sehen, klicken Sie auf das Kontrollkästchen "Animation abspielen" oder bewegen Sie den Cursor über den Kasten. Während die Animation aktiv ist, ändert die Wolke oben ihre Form, Schneeflocken fallen und das Schnee-Niveau unten steigt an. Um die Animation zu pausieren, deaktivieren Sie das Kontrollkästchen oder bewegen Sie Ihren Cursor aus dem Kasten.
+Um die Animation im unten stehenden Kasten zu sehen, klicken Sie auf das Kontrollkästchen 'Play the animation' oder bewegen Sie den Cursor über den Kasten. Wenn die Animation aktiv ist, verändert die Wolke oben ihre Form, Schneeflocken fallen und der Schneepegel am Boden steigt. Um die Animation zu pausieren, deaktivieren Sie das Kontrollkästchen oder entfernen Sie den Cursor vom Kasten.
 
 {{EmbedGHLiveSample("css-examples/modules/animation.html", '100%', 650)}}
 
-Diese Beispielsanimation verwendet {{cssxref("animation-iteration-count")}}, um die Flocken wiederholt fallen zu lassen, {{cssxref("animation-direction")}}, um die Wolke hin und her zu bewegen, {{cssxref("animation-fill-mode")}}, um das Schnee-Niveau als Reaktion auf die Wolkenbewegung anzuheben, und {{cssxref("animation-play-state")}}, um die Animation zu pausieren.
+Diese Beispielanimation verwendet {{cssxref("animation-iteration-count")}}, um die Flocken wiederholt fallen zu lassen, {{cssxref("animation-direction")}}, um die Wolke hin- und her zu bewegen, {{cssxref("animation-fill-mode")}}, um den Schneepegel als Reaktion auf die Wolkenbewegung anzuheben, und {{cssxref("animation-play-state")}}, um die Animation zu pausieren.
 
-Um den Code für diese Animation zu sehen, [sehen Sie den Quelltext auf GitHub](https://github.com/mdn/css-examples/blob/main/modules/animation.html).
+Um den Code für diese Animation zu sehen, [sehen Sie sich den Quellcode auf GitHub an](https://github.com/mdn/css-examples/blob/main/modules/animation.html).
 
 ## Referenz
 
@@ -41,7 +41,7 @@ Um den Code für diese Animation zu sehen, [sehen Sie den Quelltext auf GitHub](
 
 ### Ereignisse
 
-Alle Animationen, selbst die mit einer Dauer von 0 Sekunden, lösen Animationsereignisse aus.
+Alle Animationen, selbst die mit einer Dauer von 0 Sekunden, lösen Animationsevents aus.
 
 - [`animationstart`](/de/docs/Web/API/Element/animationstart_event)
 - [`animationend`](/de/docs/Web/API/Element/animationend_event)
@@ -57,10 +57,10 @@ Alle Animationen, selbst die mit einer Dauer von 0 Sekunden, lösen Animationser
 
 ## Leitfäden
 
-- [CSS-Animationen verwenden](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
-  - : Schritt-für-Schritt-Tutorial zur Erstellung von Animationen mithilfe von CSS. Dieser Artikel beschreibt die animationsbezogenen CSS-Eigenschaften und -At-Regeln und wie sie miteinander interagieren.
+- [Verwendung von CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations)
+  - : Schritt-für-Schritt-Anleitung, wie man Animationen mit CSS erstellt. Dieser Artikel beschreibt die mit Animationen verbundenen CSS-Eigenschaften und die At-Regel und wie sie miteinander interagieren.
 - [Verwendung der Web Animations API](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API)
-  - : Häufige Animationsanforderungen, die mit wenigen Zeilen JavaScript gelöst werden können.
+  - : Gemeinsame Animationsanforderungen, die mit wenigen Zeilen JavaScript gelöst werden können.
 
 ## Verwandte Konzepte
 
@@ -75,7 +75,8 @@ Alle Animationen, selbst die mit einer Dauer von 0 Sekunden, lösen Animationser
 
 ## Siehe auch
 
-- [CSS scrollgesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
-- Eigenschaften im [transitions](/de/docs/Web/CSS/CSS_transitions) CSS-Modul, um Animationen basierend auf Benutzeraktionen auszulösen
-- Das {{htmlelement("canvas")}} HTML-Element zusammen mit der [Canvas API](/de/docs/Web/API/Canvas_API) und [WebGL API](/de/docs/Web/API/WebGL_API), um Grafiken und Animationen zu zeichnen
-- Die [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle für alle animationsbezogenen Element-Schnittstellen, einschließlich [`SVGAnimateElement`](/de/docs/Web/API/SVGAnimateElement), [`SVGSetElement`](/de/docs/Web/API/SVGSetElement), [`SVGAnimateColorElement`](/de/docs/Web/API/SVGAnimateColorElement), [`SVGAnimateMotionElement`](/de/docs/Web/API/SVGAnimateMotionElement), und [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement)
+- [CSS scroll-gesteuerte Animationen](/de/docs/Web/CSS/CSS_scroll-driven_animations)
+- Eigenschaften im [Transitions](/de/docs/Web/CSS/CSS_transitions) CSS-Modul, um Animationen basierend auf Benutzeraktionen auszulösen
+- Die {{cssxref("interpolate-size")}} Eigenschaft und {{cssxref("calc-size()")}} Funktion, um Animationen zu und von {{Glossary("Intrinsic_Size", "intrinsic size values")}} zu ermöglichen.
+- Das {{htmlelement("canvas")}} HTML-Element zusammen mit der [Canvas API](/de/docs/Web/API/Canvas_API) und [WebGL API](/de/docs/Web/API/WebGL_API) zum Zeichnen von Grafiken und Animationen
+- Die [`SVGAnimationElement`](/de/docs/Web/API/SVGAnimationElement) Schnittstelle für alle animationbezogenen Element-Schnittstellen, einschließlich [`SVGAnimateElement`](/de/docs/Web/API/SVGAnimateElement), [`SVGSetElement`](/de/docs/Web/API/SVGSetElement), [`SVGAnimateColorElement`](/de/docs/Web/API/SVGAnimateColorElement), [`SVGAnimateMotionElement`](/de/docs/Web/API/SVGAnimateMotionElement) und [`SVGAnimateTransformElement`](/de/docs/Web/API/SVGAnimateTransformElement)

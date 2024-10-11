@@ -3,36 +3,36 @@ title: "HTMLElement: autocapitalize-Eigenschaft"
 short-title: autocapitalize
 slug: Web/API/HTMLElement/autocapitalize
 l10n:
-  sourceCommit: f58b59a00199bb177beefa245f104ecbd86dae5c
+  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`autocapitalize`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert das Kapitalisierungsverhalten eines Elements für Benutzereingaben. Sie ist für alle HTML-Elemente verfügbar, hat jedoch nicht auf alle einen Effekt, einschließlich:
+Die **`autocapitalize`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces repräsentiert das Verhalten der Großschreibung für Benutzereingaben des Elements. Sie ist auf allen HTML-Elementen verfügbar, wirkt sich jedoch nicht auf alle aus, einschließlich:
 
-- {{htmlelement("input")}} und {{htmlelement("textarea")}}-Elemente.
-- Jedes Element mit der [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Eigenschaft.
+- {{htmlelement("input")}}- und {{htmlelement("textarea")}}-Elemente.
+- Jedes Element mit aktiviertem [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable).
 
-`autocapitalize` beeinflusst das Verhalten beim Tippen auf einer physischen Tastatur nicht. Es beeinflusst das Verhalten anderer Eingabemethoden, wie virtuelle Tastaturen auf mobilen Geräten und Spracheingaben. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem beispielsweise automatisch der erste Buchstabe jedes Satzes groß geschrieben wird.
+`autocapitalize` beeinflusst das Verhalten beim Tippen auf einer physischen Tastatur nicht. Es betrifft das Verhalten anderer Eingabemechanismen wie virtuelle Tastaturen auf mobilen Geräten und Spracheingaben. Dies kann Benutzern helfen, die Dateneingabe schneller und einfacher zu gestalten, indem zum Beispiel automatisch der erste Buchstabe jedes Satzes großgeschrieben wird.
 
-Es spiegelt den Wert des [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize)-HTML-Globalattributs wider.
+Es spiegelt den Wert des globalen HTML-Attributs [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize) wider.
 
 ## Wert
 
-Ein String, der das Kapitalisierungsverhalten eines Elements für Benutzereingaben repräsentiert. Gültige Werte sind wie folgt:
+Ein String, der das Großschreibungsverhalten für Benutzereingaben des Elements repräsentiert. Gültige Werte sind wie folgt:
 
 - `none` oder `off`
-  - : Es sollte keine Autokapitalisierung angewendet werden, das heißt, alle Buchstaben sollen standardmäßig klein geschrieben werden.
+  - : Es sollte keine automatische Großschreibung angewendet werden, d.h., alle Buchstaben sollten standardmäßig kleingeschrieben werden.
 - `sentences` oder `on`
-  - : Der erste Buchstabe jedes Satzes sollte standardmäßig groß geschrieben werden; alle anderen Buchstaben sollten standardmäßig klein geschrieben werden.
+  - : Der erste Buchstabe jedes Satzes sollte standardmäßig großgeschrieben werden; alle anderen Buchstaben sollten kleingeschrieben werden.
 - `words`
-  - : Der erste Buchstabe jedes Wortes sollte standardmäßig groß geschrieben werden; alle anderen Buchstaben sollten standardmäßig klein geschrieben werden.
+  - : Der erste Buchstabe jedes Wortes sollte standardmäßig großgeschrieben werden; alle anderen Buchstaben sollten kleingeschrieben werden.
 - `characters`
-  - : Alle Buchstaben sollten standardmäßig groß geschrieben werden.
+  - : Alle Buchstaben sollten standardmäßig großgeschrieben werden.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie das Kapitalisierungsverhalten für Benutzereingaben mit einem Skript gesteuert werden kann:
+Das folgende Beispiel zeigt, wie das Großschreibungsverhalten für Benutzereingaben über ein Skript gesteuert werden kann:
 
 ```html
 <div>Current capitalization behavior is: <span id="ac-label"></span></div>
@@ -72,4 +72,4 @@ controller.addEventListener("input", (e) => {
 
 ## Siehe auch
 
-- [`autocapitalize`](/de/docs/Web/HTML/Global_attributes#autocapitalize) HTML-Globalattribut
+- [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize) globales HTML-Attribut

@@ -2,29 +2,29 @@
 title: itemscope
 slug: Web/HTML/Global_attributes/itemscope
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 816cc4d4a5a318a23222946b6981bb92b499aebb
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-**`itemscope`** ist ein boolesches [globales Attribut](/de/docs/Web/HTML/Global_attributes), das den Umfang der zugehörigen Metadaten definiert. Durch das Festlegen des **`itemscope`**-Attributs für ein Element wird ein neuer Datensatz erstellt, der zu einer Anzahl von Name-Wert-Paaren führt, die dem Element zugeordnet sind.
+**`itemscope`** ist ein boolesches [globales Attribut](/de/docs/Web/HTML/Global_attributes), das den Umfang der zugeordneten Metadaten definiert. Durch das Festlegen des **`itemscope`**-Attributs für ein Element wird ein neuer Eintrag erstellt, der eine Reihe von Name-Wert-Paaren umfasst, die dem Element zugeordnet sind.
 
-Ein verwandtes Attribut, [`itemtype`](/de/docs/Web/HTML/Global_attributes/itemtype), wird verwendet, um die gültige URL eines Vokabulars anzugeben (wie [schema.org](https://schema.org/)), das den Artikel und seinen Eigenschaften-Kontext beschreibt. In jedem der folgenden Beispiele stammt das Vokabular von [schema.org](https://schema.org/).
+Ein verwandtes Attribut, [`itemtype`](/de/docs/Web/HTML/Global_attributes/itemtype), wird verwendet, um die gültige URL eines Vokabulars (wie [schema.org](https://schema.org/)) anzugeben, das den Eintrag und dessen Eigenschaften im Kontext beschreibt. In jedem der folgenden Beispiele stammt das Vokabular von [schema.org](https://schema.org/).
 
-Jedes HTML-Element kann ein `itemscope`-Attribut angegeben haben. Ein `itemscope`-Element, das nicht mit einem `itemtype` verbunden ist, muss mit einem `itemref` assoziiert sein.
+Jedes HTML-Element kann ein `itemscope`-Attribut haben. Ein `itemscope`-Element, das keinen zugeordneten `itemtype` hat, muss einen zugeordneten `itemref` haben.
 
 > [!NOTE]
-> Weitere Informationen über `itemtype`-Attribute finden Sie unter <https://schema.org/Thing>
+> Weitere Informationen zu `itemtype`-Attributen finden Sie unter <https://schema.org/Thing>
 
-### itemscope-ID-Attribute
+### itemscope id Attribute
 
-Wenn Sie das `itemscope`-Attribut für ein Element festlegen, wird ein neuer Eintrag erstellt. Der Eintrag besteht aus einer Gruppe von Name-Wert-Paaren. Für Elemente mit einem `itemscope`-Attribut und einem `itemtype`-Attribut können Sie auch ein [`id`](/de/docs/Web/HTML/Global_attributes#id)-Attribut angeben. Sie können das `id`-Attribut verwenden, um einen globalen Bezeichner für den neuen Eintrag zu festlegen. Ein globaler Bezeichner ermöglicht es, dass der Eintrag in Beziehung zu anderen auf Webseiten gefundenen Einträgen steht.
+Wenn Sie das `itemscope`-Attribut für ein Element festlegen, wird ein neuer Eintrag erstellt. Der Eintrag besteht aus einer Gruppe von Name-Wert-Paaren. Für Elemente mit einem `itemscope`-Attribut und einem `itemtype`-Attribut können Sie auch ein [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut festlegen. Sie können das `id`-Attribut verwenden, um einen globalen Bezeichner für den neuen Eintrag festzulegen. Ein globaler Bezeichner ermöglicht es, den Eintrag mit anderen Einträgen auf Webseiten im gesamten Web in Beziehung zu setzen.
 
 ## Beispiele
 
 ### Strukturierte Daten für einen Film darstellen
 
-Im folgenden Beispiel ist der `itemtype` als "http\://schema.org/Movie" angegeben, und es werden vier zugehörige `itemprop`-Attribute spezifiziert.
+Das folgende Beispiel gibt den `itemtype` als "http\://schema.org/Movie" an und spezifiziert vier zugehörige `itemprop`-Attribute.
 
 <table class="standard-table">
   <tbody>
@@ -35,8 +35,8 @@ Im folgenden Beispiel ist der `itemtype` als "http\://schema.org/Movie" angegebe
     </tr>
     <tr>
       <td>itemprop</td>
-      <td>(Name von itemprop)</td>
-      <td>(Wert von itemprop)</td>
+      <td>(itemprop name)</td>
+      <td>(itemprop value)</td>
     </tr>
     <tr>
       <td>itemprop</td>
@@ -75,7 +75,7 @@ Im folgenden Beispiel ist der `itemtype` als "http\://schema.org/Movie" angegebe
 
 ### Strukturierte Daten für ein Rezept darstellen
 
-Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attribut setzt den Umfang seines entsprechenden `itemtype`-Attributs fest. Die `itemtype`s, `Recipe`, `AggregateRating` und `NutritionInformation` im folgenden Beispiel sind Teil der strukturierten Daten von [schema.org](https://www.schema.org/) für ein Rezept, wie durch den ersten `itemtype` `http://schema.org/Recipe` angegeben.
+In dem folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attribut legt den Umfang seines zugehörigen `itemtype`-Attributs fest. Die `itemtype`s, `Recipe`, `AggregateRating` und `NutritionInformation` im folgenden Beispiel sind Bestandteil der strukturierten Daten von [schema.org](https://www.schema.org/) für ein Rezept, wie sie durch das erste `itemtype`, `http://schema.org/Recipe`, festgelegt sind.
 
 <table class="standard-table">
   <tbody>
@@ -87,7 +87,7 @@ Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attr
     <tr>
       <td>itemprop</td>
       <td>name</td>
-      <td>Grandmas Feiertags-Apfelkuchen</td>
+      <td>Omas Feiertags-Apfelkuchen</td>
     </tr>
     <tr>
       <td>itemprop</td>
@@ -103,8 +103,7 @@ Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attr
       <td>itemprop</td>
       <td>description</td>
       <td>
-        Dies ist das Apfelkuchenrezept meiner Großmutter. Ich füge gerne eine Prise
-        Muskat hinzu.
+        Dies ist das Apfelkuchen-Rezept meiner Großmutter. Ich füge gerne eine Prise Muskat hinzu.
       </td>
     </tr>
     <tr>
@@ -125,12 +124,12 @@ Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attr
     <tr>
       <td>itemprop</td>
       <td>recipeYield</td>
-      <td>1 Kuchen à 9" (8 Portionen)</td>
+      <td>1 9" Kuchen (8 Portionen)</td>
     </tr>
     <tr>
       <td>itemprop</td>
       <td>recipeIngredient</td>
-      <td>Dünn geschnittene Äpfel: 6 Tassen</td>
+      <td>Fein geschnittene Äpfel: 6 Tassen</td>
     </tr>
     <tr>
       <td>itemprop</td>
@@ -141,8 +140,7 @@ Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attr
       <td>itemprop</td>
       <td>recipeInstructions</td>
       <td>
-        1. Äpfel schneiden und schälen 2. Zucker und Zimt mischen. Für saure Äpfel
-        zusätzlichen Zucker verwenden.
+        1. Äpfel schneiden und schälen 2. Zucker und Zimt mischen. Für saure Äpfel zusätzlichen Zucker verwenden.
       </td>
     </tr>
     <tr>
@@ -193,7 +191,7 @@ Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attr
 </table>
 
 > [!NOTE]
-> Ein praktisches Werkzeug zum Extrahieren von Microdata-Strukturen aus HTML ist das [Rich Results Testing Tool](https://search.google.com/test/rich-results) von Google. Probieren Sie es auf dem hier gezeigten HTML aus.
+> Ein praktisches Tool zum Extrahieren von Mikrodatensätzen aus HTML ist Googles [Rich Results Testing Tool](https://search.google.com/test/rich-results). Probieren Sie es mit dem hier gezeigten HTML aus.
 
 #### HTML
 
@@ -260,7 +258,7 @@ Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attr
 </div>
 ```
 
-#### Ergebnisse
+#### Ergebnis
 
 {{EmbedLiveSample('Strukturierte Daten für ein Rezept darstellen', '', '550')}}
 
@@ -270,8 +268,8 @@ Im folgenden Beispiel gibt es vier `itemscope`-Attribute. Jedes `itemscope`-Attr
 
 ## Siehe auch
 
-- [Andere globale Attribute](/de/docs/Web/HTML/Global_attributes)
-- Andere mit Microdata verbundene globale Attribute:
+- [Andere verschiedene globale Attribute](/de/docs/Web/HTML/Global_attributes)
+- Andere mit Mikrodatensätzen zusammenhängende globale Attribute:
 
   - [`itemid`](/de/docs/Web/HTML/Global_attributes/itemid)
   - [`itemprop`](/de/docs/Web/HTML/Global_attributes/itemprop)
