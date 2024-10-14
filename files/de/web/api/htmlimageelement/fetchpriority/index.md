@@ -1,33 +1,38 @@
 ---
-title: "HTMLImageElement: fetchPriority-Eigenschaft"
+title: "HTMLImageElement: fetchPriority Eigenschaft"
 short-title: fetchPriority
 slug: Web/API/HTMLImageElement/fetchPriority
 l10n:
-  sourceCommit: f8b524a5fbdedf04ed5d3bac2200c33c5eda8148
+  sourceCommit: ca8be373334524886ee437112d7eae180a59be48
 ---
 
-{{APIRef}}
+{{APIRef("HTML DOM")}}
 
-Die **`fetchPriority`**-Eigenschaft des
-[`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces stellt einen Hinweis für den Browser dar, wie er das Laden des Bildes im Vergleich zu anderen Bildern priorisieren sollte.
+Die **`fetchPriority`** Eigenschaft des [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement)-Interfaces repräsentiert einen Hinweis für den Browser, wie er das Herunterladen eines bestimmten Bildes im Vergleich zu anderen Bildern priorisieren sollte.
+Sie spiegelt das [`fetchpriority`](/de/docs/Web/HTML/Element/img#fetchpriority)-Attribut des entsprechenden {{htmlelement("img")}} Elements wider.
+
+Die Eigenschaft ermöglicht es einem Entwickler, dem Browser mitzuteilen, dass das frühzeitige Herunterladen eines bestimmten Bildes für das Benutzererlebnis wichtiger oder weniger wichtig ist, als der Browser vernünftigerweise bei der Zuweisung einer internen Priorität ableiten kann.
+Dies ermöglicht es dem Browser, die Priorität zu erhöhen oder zu verringern und das Bild möglicherweise früher oder später zu laden, als es sonst der Fall wäre.
+Die Eigenschaft sollte sparsam verwendet werden, da übermäßige oder falsche Priorisierung die Leistung beeinträchtigen kann.
+
+Die Abrufpriorität kann verwendet werden, um das [Preloading](/de/docs/Web/HTML/Attributes/rel/preload) zu ergänzen, indem die Priorität vor weniger wichtigen Ressourcen, die eine höhere Standardpriorität haben, erhöht wird.
+Wenn ein Entwickler zum Beispiel weiß, dass ein bestimmtes Bild erheblich zum {{Glossary("Largest_contentful_paint", "Largest contentful paint")}} (LCP) der Website beiträgt, könnte er ein [`<link rel="preload">`](/de/docs/Web/HTML/Attributes/rel/preload) für das Bild hinzufügen und dann die Priorität weiter mit der `fetchpriority` Eigenschaft erhöhen.
+
+Bitte beachten Sie, dass sowohl die interne Priorität eines jeden Abrufvorgangs als auch der Einfluss von `fetchPriority` auf die Priorität vollständig vom Browser abhängen.
 
 ## Wert
 
-Ein String, der den Prioritätshinweis darstellt. Mögliche Werte sind:
+Ein String, der den Prioritätshinweis darstellt.
+Mögliche Werte sind:
 
 - `high`
-  - : Das Bild wird mit hoher Priorität im Vergleich zu anderen Bildern geladen.
+  - : Das Bild mit hoher Priorität im Vergleich zu anderen Bildern mit derselben internen Priorisierung abrufen.
 - `low`
-  - : Das Bild wird mit niedriger Priorität im Vergleich zu anderen Bildern geladen.
+  - : Das Bild mit niedriger Priorität im Vergleich zu anderen Bildern mit derselben internen Priorisierung abrufen.
 - `auto`
-  - : Standardmodus, der keine Präferenz für die Ladepriorität angibt.
-    Der Browser entscheidet, was das Beste für den Benutzer ist.
-
-Die `fetchPriority`-Eigenschaft ermöglicht es Ihnen, hohe oder niedrige Priorität für das Laden von Bildern anzugeben. Dies kann nützlich sein, wenn es auf {{HTMLElement("img")}}-Elemente angewendet wird, um anzuzeigen, dass Bilder früh im Ladeprozess für die Benutzererfahrung "wichtig" sind.
-
-Die Auswirkungen des Hinweises auf das Ressourcenladen sind browserspezifisch, daher sollten Sie Tests auf mehreren Browser-Engines durchführen.
-
-Verwenden Sie es sparsam für Ausnahmefälle, in denen der Browser möglicherweise nicht in der Lage ist, automatisch die beste Ladeweise zu bestimmen. Übermäßiger Gebrauch kann zu Leistungseinbußen führen.
+  - : Keine Benutzervorgabe für die Abrufpriorität festlegen.
+    Dies ist der Standardwert.
+    Er wird verwendet, wenn kein Wert festgelegt ist oder ein ungültiger Wert gesetzt ist.
 
 ## Beispiele
 
@@ -49,3 +54,5 @@ img.src = "img/logo.png";
 
 - [`HTMLLinkElement.fetchPriority`](/de/docs/Web/API/HTMLLinkElement/fetchPriority)
 - [`HTMLScriptElement.fetchPriority`](/de/docs/Web/API/HTMLScriptElement/fetchPriority)
+- HTTP {{httpheader("Link")}} Header
+- [Optimieren Sie das Laden von Ressourcen mit der Fetch Priority API](https://web.dev/articles/fetch-priority?hl=en#browser_priority_and_fetchpriority) für Informationen darüber, wie diese API die Prioritäten in Chrome beeinflusst.

@@ -2,30 +2,30 @@
 title: "CSP: report-to"
 slug: Web/HTTP/Headers/Content-Security-Policy/report-to
 l10n:
-  sourceCommit: 6b4c6ac616502ec3378cfa5f42a9724d4e5a3f18
+  sourceCommit: b41e47c601e1858610e314bbb4157b923de053c8
 ---
 
 {{HTTPSidebar}}
 
-Die `Content-Security-Policy`-**`report-to`**-Richtlinie gibt den Namen des Endpunkts an, den der Browser für das Melden von CSP-Verstößen verwenden soll.
+Die `Content-Security-Policy`-Direktive **`report-to`** gibt den Namen des Endpunkts an, den der Browser für das Melden von CSP-Verstößen verwenden soll.
 
-Tritt ein CSP-Verstoß auf, wird ein Bericht erstellt, der eine serialisierte [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Objektinstanz enthält. Dieser Bericht wird an die URL gesendet, die dem Endpunktnamen entspricht, unter Verwendung der generischen Mechanismen, die in der [Reporting-API](/de/docs/Web/API/Reporting_API) definiert sind.
+Wenn ein CSP-Verstoß auftritt, wird ein Bericht erstellt, der eine serialisierte Instanz des [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Objekts enthält. Dieser Bericht wird an die URL gesendet, die dem Endpunktnamen entspricht, unter Verwendung der generischen Mechanismen, die in der [Reporting API](/de/docs/Web/API/Reporting_API) definiert sind.
 
-Der Server muss die Zuordnung zwischen Endpunktnamen und ihren entsprechenden URLs separat im {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header bereitstellen.
+Der Server muss die Zuordnung zwischen Endpunktnamen und ihren entsprechenden URLs im {{HTTPHeader("Reporting-Endpoints")}}-HTTP-Antwortheader separat bereitstellen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">CSP-Version</th>
-      <td>1</td>
+      <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Richtlinientyp</th>
-      <td>{{Glossary("Reporting_directive", "Reporting directive")}}</td>
+      <th scope="row">Direktiventyp</th>
+      <td>{{Glossary("Reporting_directive", "Reporting-Direktive")}}</td>
     </tr>
     <tr>
       <th colspan="2" scope="row">
-        Diese Richtlinie wird nicht im {{HTMLElement("meta")}}-Element unterstützt.
+        Diese Direktive wird nicht im {{HTMLElement("meta")}}-Element unterstützt.
       </th>
     </tr>
   </tbody>
@@ -37,11 +37,11 @@ Der Server muss die Zuordnung zwischen Endpunktnamen und ihren entsprechenden UR
 Content-Security-Policy: …; report-to <endpoint_name>
 ```
 
-`<endpoint_name>` ist der Name eines Endpunkts, der im {{HTTPHeader("Reporting-Endpoints")}} HTTP-Antwort-Header bereitgestellt wird. Es kann auch der Name einer Gruppe sein, die vom Server im {{HTTPHeader("Report-To")}} {{deprecated_inline}} HTTP-Antwort-Header bereitgestellt wird.
+`<endpoint_name>` ist der Name eines Endpunkts, der vom {{HTTPHeader("Reporting-Endpoints")}}-HTTP-Antwortheader bereitgestellt wird. Es kann auch der Name einer Gruppe sein, die vom Server im {{HTTPHeader("Report-To")}} {{deprecated_inline}}-HTTP-Antwortheader bereitgestellt wird.
 
 ### Syntax des Verstoßberichts
 
-Ein CSP-Verstoßbericht ist ein JSON-serialisiertes [`Report`](/de/docs/Web/API/Report)-Objekt mit einer `type`-Eigenschaft, die den Wert `"csp-violation"` hat, und einem `body`, der die serialisierte Form eines [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Objekts ist (siehe die jeweiligen Objekte für ihre Eigenschaftsdefinitionen). Berichte werden über eine `POST`-Operation mit einem {{HTTPHeader("Content-Type")}} von `application/reports+json` an die Zielendpunkte gesendet.
+Ein CSP-Verstoßbericht ist eine JSON-serialisierte [`Report`](/de/docs/Web/API/Report)-Objektinstanz mit einer `type`-Eigenschaft, die den Wert `"csp-violation"` hat, und einem `body`, der die serialisierte Form eines [`CSPViolationReportBody`](/de/docs/Web/API/CSPViolationReportBody)-Objekts ist (siehe die jeweiligen Objekte für ihre Eigenschaftsdefinitionen). Berichte werden über eine `POST`-Operation mit einem {{HTTPHeader("Content-Type")}} von `application/reports+json` an den/die Zielendpunkt(e) gesendet.
 
 Das JSON für einen einzelnen Bericht könnte so aussehen:
 
@@ -69,25 +69,25 @@ Das JSON für einen einzelnen Bericht könnte so aussehen:
 
 ## Nutzungshinweise
 
-Die `report-to`-Richtlinie soll `report-uri` ersetzen, und Browser, die `report-to` unterstützen, ignorieren die `report-uri`-Richtlinie. Bis `report-to` jedoch weit unterstützt wird, können Sie beide Header angeben, wie gezeigt:
+Die Direktive `report-to` soll `report-uri` ersetzen, und Browser, die `report-to` unterstützen, ignorieren die Direktive `report-uri`. Solange `report-to` jedoch nicht umfassend unterstützt wird, können Sie beide Header angeben, wie gezeigt:
 
 ```http
 Content-Security-Policy: …; report-uri https://endpoint.example.com; report-to endpoint_name
 ```
 
-Beachten Sie, dass andere Beispiele in diesem Thema `report-uri` nicht anzeigen.
+Beachten Sie, dass in anderen Beispielen in diesem Thema `report-uri` nicht angezeigt wird.
 
 ## Beispiele
 
-### Einstellen eines Endpunkts für CSP-Verstoßberichte
+### Festlegen eines CSP-Verstoßberichts-Endpunkts
 
-Ein Server kann die Zuordnung zwischen Endpunktnamen und URLs mit dem {{HTTPHeader("Reporting-Endpoints")}} Header in der HTTP-Antwort definieren. Jeder Name kann verwendet werden: hier haben wir `name-of-endpoint` gewählt.
+Ein Server kann die Zuordnung zwischen Endpunktnamen und URLs mit dem {{HTTPHeader("Reporting-Endpoints")}}-Header in der HTTP-Antwort definieren. Jeder Name kann verwendet werden: hier haben wir `name-of-endpoint` gewählt.
 
 ```http
 Reporting-Endpoints: name-of-endpoint="https://example.com/csp-reports"
 ```
 
-Der Server kann diesen Endpunktnamen als Ziel für das Senden von CSP-Verstoßberichten mit der `report-to`-Richtlinie festlegen:
+Der Server kann diesen Endpunktnamen als Ziel für die Übermittlung von CSP-Verstoßberichten verwenden, indem er die Direktive `report-to` verwendet:
 
 ```http
 Content-Security-Policy: default-src 'self'; report-to name-of-endpoint
@@ -106,4 +106,4 @@ Content-Security-Policy: default-src 'self'; report-to name-of-endpoint
 - {{HTTPHeader("Reporting-Endpoints")}}
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{HTTPHeader("Content-Security-Policy-Report-Only")}}
-- [Reporting-API](/de/docs/Web/API/Reporting_API)
+- [Reporting API](/de/docs/Web/API/Reporting_API)
