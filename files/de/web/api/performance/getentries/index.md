@@ -1,20 +1,20 @@
 ---
-title: "Performance: getEntries() Methode"
+title: "Leistung: `getEntries()`-Methode"
 short-title: getEntries()
 slug: Web/API/Performance/getEntries
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die Methode **`getEntries()`** gibt ein Array aller [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die derzeit in der Performance-Zeitleiste vorhanden sind.
+Die **`getEntries()`**-Methode gibt ein Array aller [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte zurück, die derzeit in der Leistungschronologie vorhanden sind.
 
-Wenn Sie nur an Performance-Einträgen bestimmter Typen oder mit bestimmten Namen interessiert sind, siehe [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) und [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName).
+Wenn Sie nur an Leistungsdatensätzen bestimmter Typen oder mit bestimmten Namen interessiert sind, siehe [`getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) und [`getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName).
 
 > [!NOTE]
-> Diese Methode benachrichtigt Sie nicht über neue Performance-Einträge; Sie erhalten nur die Einträge, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste vorhanden sind.
-> Um Benachrichtigungen über Einträge zu erhalten, sobald diese verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
+> Diese Methode benachrichtigt Sie nicht über neue Leistungsdatensätze; Sie erhalten nur Datensätze, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungschronologie vorhanden sind.
+> Um Benachrichtigungen über Datensätze zu erhalten, sobald sie verfügbar werden, verwenden Sie einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver).
 
 Die folgenden Eintragstypen werden von dieser Methode überhaupt nicht unterstützt und werden nicht zurückgegeben, selbst wenn Einträge für diese Typen existieren könnten:
 
@@ -38,13 +38,13 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge sein.
+Ein {{jsxref("Array")}} von [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten. Die Elemente sind in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge angeordnet.
 
 ## Beispiele
 
-### Protokollierung aller Performance-Marker und -Messungen
+### Protokollierung aller Leistungsmarker und -messungen
 
-Angenommen, Sie haben Ihre eigenen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)- und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte an geeigneten Stellen in Ihrem Code erstellt, dann könnten Sie alle im Konsolenprotokoll wie folgt ausgeben:
+Angenommen, Sie haben Ihre eigenen [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)- und [`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)-Objekte an geeigneten Stellen in Ihrem Code erstellt, möchten Sie möglicherweise alle an die Konsole protokollieren, wie folgt:
 
 ```js
 // Example markers/measures

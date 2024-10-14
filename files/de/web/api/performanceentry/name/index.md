@@ -3,12 +3,12 @@ title: "PerformanceEntry: name-Eigenschaft"
 short-title: name
 slug: Web/API/PerformanceEntry/name
 l10n:
-  sourceCommit: 99a75e695dbb46731dca4757e9d4c42d80bb52fc
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}} {{AvailableInWorkers}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`name`**-Eigenschaft der [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Schnittstelle ist ein String, der den Namen eines Performance-Eintrags darstellt. Sie fungiert als Identifikator, muss jedoch nicht eindeutig sein. Der Wert hängt von der Unterklasse ab.
+Die schreibgeschützte **`name`**-Eigenschaft des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Interfaces ist ein String, der den Namen eines Performance-Eintrags darstellt. Er fungiert als Bezeichner, muss jedoch nicht eindeutig sein. Der Wert hängt von der Unterklasse ab.
 
 ## Wert
 
@@ -62,20 +62,20 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
     <tr>
       <td>[`PerformanceMark`](/de/docs/Web/API/PerformanceMark)</td>
       <td>
-        Der Name, der bei der Erstellung der Markierung durch Aufruf von
-        [`performance.mark()`](/de/docs/Web/API/Performance/mark) verwendet wurde.
+        Der beim Erstellen der Marke durch Aufruf von
+        [`performance.mark()`](/de/docs/Web/API/Performance/mark) verwendete Name.
       </td>
     </tr>
     <tr>
       <td>[`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)</td>
       <td>
-        Der Name, der bei der Erstellung der Messung durch Aufruf von
-        [`performance.measure()`](/de/docs/Web/API/Performance/measure) verwendet wurde.
+        Der beim Erstellen der Messung durch Aufruf von
+        [`performance.measure()`](/de/docs/Web/API/Performance/measure) verwendete Name.
       </td>
     </tr>
     <tr>
       <td>[`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)</td>
-      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anforderung umgeleitet wird.</td>
+      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, auch wenn die Anfrage umgeleitet wird.</td>
     </tr>
     <tr>
       <td>[`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)</td>
@@ -88,7 +88,7 @@ Ein String. Der Wert hängt von der Unterklasse des `PerformanceEntry`-Objekts a
     </tr>
     <tr>
       <td>[`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)</td>
-      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, selbst wenn die Anforderung umgeleitet wird.</td>
+      <td>Die aufgelöste URL der angeforderten Ressource. Dieser Wert ändert sich nicht, auch wenn die Anfrage umgeleitet wird.</td>
     </tr>
     <tr>
       <td>[`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)</td>
@@ -123,7 +123,7 @@ performance.getEntriesByType("resource").forEach((entry) => {
 
 ### Performance-Einträge nach Namen abrufen
 
-Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, die es Ihnen ermöglichen, Performance-Einträge direkt nach Namen abzurufen. Sie benötigen dafür nicht unbedingt die `name`-Eigenschaft, sondern können [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
+Sowohl [`Performance`](/de/docs/Web/API/Performance) als auch [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) bieten Methoden, mit denen Sie Performance-Einträge direkt nach Namen abrufen können. Sie benötigen dazu nicht unbedingt die `name`-Eigenschaft, stattdessen können Sie [`Performance.getEntriesByName()`](/de/docs/Web/API/Performance/getEntriesByName) oder [`PerformanceObserverEntryList.getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) verwenden.
 
 ```js
 // Log all marks named "debug-marks" at this point in time

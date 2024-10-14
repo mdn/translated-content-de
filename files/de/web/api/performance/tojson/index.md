@@ -1,14 +1,14 @@
 ---
-title: "Performance: toJSON() Methode"
+title: "Performance: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/Performance/toJSON
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`** Methode des [`Performance`](/de/docs/Web/API/Performance) Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`Performance`](/de/docs/Web/API/Performance) Objekts zurück.
+Die **`toJSON()`**-Methode des [`Performance`](/de/docs/Web/API/Performance)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`Performance`](/de/docs/Web/API/Performance)-Objekts zurück.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`Performance`](/de/docs/Web/API/Performance) Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`Performance`](/de/docs/Web/API/Performance)-Objekts darstellt.
 
-Das zurückgegebene JSON enthält nicht die [`eventCounts`](/de/docs/Web/API/Performance/eventCounts) Eigenschaft, da sie vom Typ [`EventCounts`](/de/docs/Web/API/EventCounts) ist, welcher keine `toJSON()` Operation bereitstellt.
+Das zurückgegebene JSON enthält nicht die Eigenschaft [`eventCounts`](/de/docs/Web/API/Performance/eventCounts), da diese vom Typ [`EventCounts`](/de/docs/Web/API/EventCounts) ist, welches keine `toJSON()`-Operation bereitstellt.
 
 > [!NOTE]
-> Das JSON-Objekt enthält die Serialisierung der veralteten [`performance.timing`](/de/docs/Web/API/Performance/timing) und [`performance.navigation`](/de/docs/Web/API/Performance/navigation) Eigenschaften. Um eine JSON-Darstellung der neueren [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming) Schnittstelle zu erhalten, rufen Sie stattdessen [`PerformanceNavigationTiming.toJSON()`](/de/docs/Web/API/PerformanceNavigationTiming/toJSON) auf.
+> Das JSON-Objekt enthält die Serialisierung der veralteten Eigenschaften [`performance.timing`](/de/docs/Web/API/Performance/timing) und [`performance.navigation`](/de/docs/Web/API/Performance/navigation). Um eine JSON-Darstellung des neueren [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)-Interfaces zu erhalten, rufen Sie stattdessen [`PerformanceNavigationTiming.toJSON()`](/de/docs/Web/API/PerformanceNavigationTiming/toJSON) auf.
 
 ## Beispiele
 
-### Verwendung der toJSON Methode
+### Verwendung der toJSON-Methode
 
-In diesem Beispiel gibt der Aufruf von `performance.toJSON()` eine JSON-Darstellung des `Performance` Objekts zurück.
+In diesem Beispiel gibt der Aufruf von `performance.toJSON()` eine JSON-Darstellung des `Performance`-Objekts zurück.
 
 ```js
 performance.toJSON();
@@ -74,7 +74,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(performance)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es ruft `toJSON()` automatisch auf.
+Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(performance)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; dies wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

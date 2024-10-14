@@ -3,12 +3,12 @@ title: "PerformanceServerTiming: toJSON()-Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceServerTiming/toJSON
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode der Schnittstelle [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming) ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts zurück.
+Die **`toJSON()`**-Methode des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Interfaces ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts zurück.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts darstellt.
+Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceServerTiming`](/de/docs/Web/API/PerformanceServerTiming)-Objekts ist.
 
 ## Beispiele
 
@@ -34,9 +34,9 @@ Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timin
 Server-Timing: cache;desc="Cache Read";dur=23.2
 ```
 
-Die `serverTiming`-Einträge können in `navigation` und `resource`-Einträgen vorhanden sein.
+Die `serverTiming`-Einträge können sich in `navigation` und `resource` Einträgen befinden.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der benachrichtigt, wenn neue `navigation`- und `resource`-Performance-Einträge im Leistungsdiagramm des Browsers erfasst werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation` und `resource` Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -62,7 +62,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 }
 ```
 
-Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(serverEntry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(serverEntry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es ruft automatisch `toJSON()` auf.
 
 ## Spezifikationen
 

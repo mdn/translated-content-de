@@ -3,16 +3,16 @@ title: "PerformanceMeasure: detail-Eigenschaft"
 short-title: detail
 slug: Web/API/PerformanceMeasure/detail
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`detail`**-Eigenschaft gibt beliebige Metadaten zurück, die beim Erstellen der Markierung enthalten waren (unter Verwendung von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
+Die schreibgeschützte **`detail`**-Eigenschaft gibt beliebige Metadaten zurück, die beim Erstellen der Markierung enthalten waren (wenn [`performance.measure()`](/de/docs/Web/API/Performance/measure) verwendet wird).
 
 ## Wert
 
-Gibt den Wert zurück, auf den er gesetzt wurde (aus `markOptions` von [`performance.measure()`](/de/docs/Web/API/Performance/measure)).
+Gibt den Wert zurück, auf den sie (aus `markOptions` von [`performance.measure()`](/de/docs/Web/API/Performance/measure)) gesetzt wurde.
 
 ## Beispiele
 

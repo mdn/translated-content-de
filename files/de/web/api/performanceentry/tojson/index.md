@@ -3,12 +3,12 @@ title: "PerformanceEntry: toJSON() Methode"
 short-title: toJSON()
 slug: Web/API/PerformanceEntry/toJSON
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`toJSON()`**-Methode ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts zurück.
+Die **`toJSON()`** Methode ist ein {{Glossary("Serialization", "Serializer")}}; sie gibt eine JSON-Darstellung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts zurück.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("JSON")}}-Objekt, das die Serialisierung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts darstellt.
+Ein {{jsxref("JSON")}} Objekt, das die Serialisierung des [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekts ist.
 
 ## Beispiele
 
-### Verwendung der toJSON-Methode
+### Verwendung der toJSON Methode
 
 In diesem Beispiel gibt der Aufruf von `entry.toJSON()` eine JSON-Darstellung des [`PerformanceMark`](/de/docs/Web/API/PerformanceMark)-Objekts zurück.
 
@@ -57,7 +57,7 @@ Dies würde ein JSON-Objekt wie folgt protokollieren:
 
 Beachten Sie, dass es die [`detail`](/de/docs/Web/API/PerformanceMark/detail)-Eigenschaft von `PerformanceMark` nicht enthält.
 
-Um einen JSON-String zu erhalten, können Sie direkt [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) verwenden; diese wird `toJSON()` automatisch aufrufen.
+Um einen JSON-String zu erhalten, können Sie [`JSON.stringify(entry)`](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) direkt verwenden; es wird `toJSON()` automatisch aufrufen.
 
 ## Spezifikationen
 

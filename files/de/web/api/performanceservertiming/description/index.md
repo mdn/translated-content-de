@@ -3,21 +3,20 @@ title: "PerformanceServerTiming: description-Eigenschaft"
 short-title: description
 slug: Web/API/PerformanceServerTiming/description
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`description`** schreibgeschützte Eigenschaft gibt einen
-Zeichenkettenwert der vom Server angegebenen Metrikbeschreibung oder eine leere Zeichenkette zurück.
+Die schreibgeschützte **`description`**-Eigenschaft gibt einen Zeichenfolgenwert der vom Server festgelegten Metrikbeschreibung oder eine leere Zeichenfolge zurück.
 
 ## Wert
 
-Eine Zeichenkette.
+Eine Zeichenfolge.
 
 ## Beispiele
 
-### Server-Timing-Einträge protokollieren
+### Protokollierung von Server-Timing-Einträgen
 
 Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timing")}}-Header sendet. Zum Beispiel:
 
@@ -25,9 +24,9 @@ Server-Timing-Metriken erfordern, dass der Server den {{HTTPHeader("Server-Timin
 Server-Timing: cache;desc="Cache Read";dur=23.2
 ```
 
-Die `serverTiming`-Einträge können auf `navigation`- und `resource`-Einträgen vorhanden sein.
+Die `serverTiming`-Einträge können in `navigation`- und `resource`-Einträgen vorkommen.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`- und `resource`-Performance-Einträge benachrichtigt, was sie im Performance-Zeitstrahl des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `navigation`- und `resource`-Performance-Einträge benachrichtigt, während diese in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge zuzugreifen, die vor der Erstellung des Observers existierten.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -46,7 +45,7 @@ const observer = new PerformanceObserver((list) => {
 );
 ```
 
-Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`- und `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode im Performance-Zeitstrahl des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `navigation`- und `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 for (const entryType of ["navigation", "resource"]) {

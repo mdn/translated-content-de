@@ -1,14 +1,14 @@
 ---
-title: "PerformanceObserverEntryList: getEntries()-Methode"
+title: "PerformanceObserverEntryList: getEntries() Methode"
 short-title: getEntries()
 slug: Web/API/PerformanceObserverEntryList/getEntries
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`getEntries()`**-Methode des [`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)-Interfaces gibt eine Liste explizit beobachteter [Performance-Entry](/de/docs/Web/API/PerformanceEntry)-Objekte zurück. Die Mitglieder der Liste werden durch die Menge der in dem Aufruf der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode angegebenen [Entry-Typen](/de/docs/Web/API/PerformanceEntry/entryType) bestimmt. Die Liste ist in der Callback-Funktion des Observers verfügbar (als erster Parameter im Callback).
+Die **`getEntries()`**-Methode des [`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)-Interfaces gibt eine Liste von explizit beobachteten [Performance-Eintrag](/de/docs/Web/API/PerformanceEntry) Objekten zurück. Die Mitglieder der Liste werden durch den Satz von [Eintragstypen](/de/docs/Web/API/PerformanceEntry/entryType) bestimmt, der im Aufruf der [`observe()`](/de/docs/Web/API/PerformanceObserver/observe)-Methode angegeben wurde. Die Liste ist in der Callback-Funktion des Beobachters verfügbar (als erster Parameter im Callback).
 
 ## Syntax
 
@@ -18,11 +18,11 @@ getEntries()
 
 ### Rückgabewert
 
-Eine Liste explizit beobachteter [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekte. Die Elemente werden in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge angeordnet sein. Wenn keine Objekte gefunden werden, wird eine leere Liste zurückgegeben.
+Eine Liste von explizit beobachteten [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry)-Objekten. Die Einträge sind in chronologischer Reihenfolge basierend auf der [`startTime`](/de/docs/Web/API/PerformanceEntry/startTime) der Einträge. Wenn keine Objekte gefunden werden, wird eine leere Liste zurückgegeben.
 
 ## Beispiele
 
-### Verwendung von getEntries, getEntriesByName und getEntriesByType
+### Arbeiten mit getEntries, getEntriesByName und getEntriesByType
 
 Das folgende Beispiel zeigt den Unterschied zwischen den Methoden `getEntries()`, [`getEntriesByName()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByName) und [`getEntriesByType()`](/de/docs/Web/API/PerformanceObserverEntryList/getEntriesByType).
 

@@ -3,24 +3,24 @@ title: "PerformanceResourceTiming: workerStart-Eigenschaft"
 short-title: workerStart
 slug: Web/API/PerformanceResourceTiming/workerStart
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`workerStart`** des [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Interfaces gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar vor der Auslösung des [`FetchEvent`](/de/docs/Web/API/FetchEvent) zurück, wenn ein Service Worker-Thread bereits läuft, oder unmittelbar bevor der Service Worker-Thread gestartet wird, falls er noch nicht läuft. Wenn die Ressource nicht von einem Service Worker abgefangen wird, gibt die Eigenschaft immer 0 zurück.
+Die schreibgeschützte Eigenschaft **`workerStart`** der Schnittstelle [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming) gibt einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar vor dem Dispatchen des [`FetchEvent`](/de/docs/Web/API/FetchEvent) zurück, wenn ein Service Worker-Thread bereits läuft, oder unmittelbar bevor der Service Worker-Thread gestartet wird, falls er noch nicht läuft. Wenn die Ressource nicht von einem Service Worker abgefangen wird, gibt die Eigenschaft immer 0 zurück.
 
 ## Wert
 
-Die `workerStart`-Eigenschaft kann die folgenden Werte haben:
+Die `workerStart`-Eigenschaft kann folgende Werte haben:
 
 - Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp).
 - `0`, wenn kein Service Worker verwendet wird.
-- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwortheader verwendet wird.
+- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header nicht verwendet wird.
 
 ## Beispiele
 
-### Messung der Verarbeitungszeit von ServiceWorkern
+### Messung der Verarbeitungszeit von ServiceWorker
 
 Die Eigenschaften `workerStart` und [`fetchStart`](/de/docs/Web/API/PerformanceResourceTiming/fetchStart) können verwendet werden, um die Verarbeitungszeit eines [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) zu messen.
 
@@ -28,7 +28,7 @@ Die Eigenschaften `workerStart` und [`fetchStart`](/de/docs/Web/API/PerformanceR
 const workerProcessingTime = entry.fetchStart - entry.workerStart;
 ```
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Leistungseinträge benachrichtigt, wenn sie in der Leistungstimeline des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Beobachtererstellung zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der benachrichtigt, wenn neue `resource`-Performance-Einträge in der Performance-Zeitleiste des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -45,7 +45,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Leistungseinträge zeigt, die in der Leistungstimeline des Browsers zum Zeitpunkt des Aufrufs dieser Methode vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -59,11 +59,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Timing-Informationen bei Cross-Origin-Anfragen
+### Informationen zur Cross-Origin-Timing
 
-Wenn der Wert der `workerStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um Timing-Informationen bei Cross-Origin-Anfragen sehen zu können, muss der HTTP-Antwortheader {{HTTPHeader("Timing-Allow-Origin")}} gesetzt werden.
+Wenn der Wert der `workerStart`-Eigenschaft `0` ist, könnte die Ressource eine Cross-Origin-Anfrage sein. Um Timing-Informationen für Cross-Origin zu sehen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Zum Beispiel sollte die Cross-Origin-Ressource, um `https://developer.mozilla.org` zu erlauben, Timing-Ressourcen zu sehen, senden:
+Um beispielsweise `https://developer.mozilla.org` das Sehen von Timing-Ressourcen zu erlauben, sollte die Cross-Origin-Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

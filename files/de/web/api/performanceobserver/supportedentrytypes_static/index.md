@@ -1,26 +1,26 @@
 ---
-title: "PerformanceObserver: static property supportedEntryTypes"
+title: "PerformanceObserver: static Eigenschaft supportedEntryTypes"
 short-title: supportedEntryTypes
 slug: Web/API/PerformanceObserver/supportedEntryTypes_static
 l10n:
-  sourceCommit: 90fa4c2688482c0f9edb0e6e667e640c99c97768
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die statische, schreibgeschützte Eigenschaft **`supportedEntryTypes`** der [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)-Schnittstelle gibt ein Array der vom Benutzeragent unterstützten [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Werte zurück.
+Die statische, schreibgeschützte Eigenschaft **`supportedEntryTypes`** des [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) Interfaces gibt ein Array der vom User-Agent unterstützten [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) Werte zurück.
 
-Da die Liste der unterstützten Einträge je nach Browser variiert und sich entwickelt, können Webentwickler mit dieser Eigenschaft prüfen, welche verfügbar sind.
+Da die Liste der unterstützten Einträge je nach Browser variiert und sich weiterentwickelt, ermöglicht diese Eigenschaft Webentwicklern zu überprüfen, welche Einträge verfügbar sind.
 
 ## Wert
 
-Ein Array von [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Werten.
+Ein Array von [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) Werten.
 
 ## Beispiele
 
-### Verwenden der Konsole, um unterstützte Typen zu überprüfen
+### Verwendung der Konsole zur Überprüfung unterstützter Typen
 
-Um herauszufinden, welche [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType)-Werte ein Browser unterstützt, geben Sie <kbd>PerformanceObserver.supportedEntryTypes</kbd> in die Konsole ein. Dies gibt ein Array der unterstützten Werte zurück.
+Um herauszufinden, welche [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) Werte ein Browser unterstützt, geben Sie <kbd>PerformanceObserver.supportedEntryTypes</kbd> in die Konsole ein. Dies wird ein Array der unterstützten Werte zurückgeben.
 
 ```js
 PerformanceObserver.supportedEntryTypes;
@@ -29,9 +29,9 @@ PerformanceObserver.supportedEntryTypes;
 // returns ["mark", "measure", "resource"] in a worker thread in Chrome 129
 ```
 
-### Überprüfen nicht unterstützter Typen
+### Überprüfung nicht unterstützter Typen
 
-Die folgende Funktion prüft die Unterstützung eines Arrays möglicher Entry-Typen. Die nicht unterstützten Typen werden in die Konsole protokolliert, diese Information könnte jedoch auch auf clientseitige Analysen protokolliert werden, um anzuzeigen, dass der jeweilige Typ nicht beobachtet werden konnte.
+Die folgende Funktion prüft die Unterstützung eines Arrays möglicher Eintragstypen. Die nicht unterstützten Typen werden in der Konsole protokolliert, jedoch könnte diese Information auch an clientseitige Analysen übermittelt werden, um anzuzeigen, dass der besondere Typ nicht beobachtet werden konnte.
 
 ```js
 function detectSupport(entryTypes) {

@@ -3,30 +3,30 @@ title: "PerformanceResourceTiming: responseStatus-Eigenschaft"
 short-title: responseStatus
 slug: Web/API/PerformanceResourceTiming/responseStatus
 l10n:
-  sourceCommit: b695ba7dbc0a4fc581e20daf358ac068133c664a
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`responseStatus`**-Eigenschaft repräsentiert den HTTP-Antwortstatuscode, der beim Abrufen der Ressource zurückgegeben wird.
+Die schreibgeschützte Eigenschaft **`responseStatus`** repräsentiert den HTTP-Antwortstatuscode, der beim Abrufen der Ressource zurückgegeben wird.
 
 Diese Eigenschaft entspricht [`Response.status`](/de/docs/Web/API/Response/status) aus der [Fetch API](/de/docs/Web/API/Fetch_API).
 
 ## Wert
 
-Die `responseStatus`-Eigenschaft kann die folgenden Werte haben:
+Die `responseStatus`-Eigenschaft kann die folgenden Werte annehmen:
 
-- Eine Zahl, die den [HTTP-Antwortstatuscode](/de/docs/Web/HTTP/Status) angibt, der beim Abrufen der Ressource zurückgegeben wurde.
+- Eine Zahl, die den [HTTP-Antwortstatuscode](/de/docs/Web/HTTP/Status) angibt, der beim Abrufen der Ressource zurückgegeben wird.
 - `0`, wenn die [CORS](/de/docs/Web/HTTP/CORS)-Prüfung fehlschlägt.
-- `0` für cross-origin {{HTMLElement("iframe")}}-Objekte.
+- `0` für plattformübergreifende {{HTMLElement("iframe")}}-Objekte.
 
 ## Beispiele
 
-### Überprüfen, ob ein Cache getroffen wurde
+### Überprüfung, ob ein Cache getroffen wurde
 
-Die `responseStatus`-Eigenschaft kann verwendet werden, um nach zwischengespeicherten Ressourcen mit einem {{HTTPStatus("304")}} `Not Modified`-Antwortstatuscode zu prüfen.
+Die `responseStatus`-Eigenschaft kann verwendet werden, um zwischengespeicherte Ressourcen mit einem {{HTTPStatus("304")}} `Not Modified`-Antwortstatuscode zu überprüfen.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource` Performance-Einträge benachrichtigt, während sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge informiert, während sie in der Leistungstimeline des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers vorhanden waren.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -40,7 +40,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die in der Leistungstimeline des Browsers zum Zeitpunkt des Aufrufs dieser Methode vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -51,13 +51,13 @@ resources.forEach((entry) => {
 });
 ```
 
-Alternativ, wenn `responseStatus` nicht verfügbar ist, können Sie überprüfen, ob die [`transferSize`](/de/docs/Web/API/PerformanceResourceTiming/transferSize)-Eigenschaft `0` zurückgegeben hat.
+Alternativ, wenn `responseStatus` nicht verfügbar ist, können Sie prüfen, ob die [`transferSize`](/de/docs/Web/API/PerformanceResourceTiming/transferSize)-Eigenschaft `0` zurückgegeben hat.
 
-### Cross-Origin-Antwortstatuscodes
+### Plattformübergreifende Antwortstatuscodes
 
-Wenn der Wert der `responseStatus`-Eigenschaft `0` ist, könnte es sich um eine cross-origin-Anfrage handeln. Um die Anzeige von cross-origin-Antwortstatuscodes zu ermöglichen, muss der [CORS](/de/docs/Web/HTTP/CORS) {{HTTPHeader("Access-Control-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
+Wenn der Wert der `responseStatus`-Eigenschaft `0` ist, könnte die Ressource eine plattformübergreifende Anfrage sein. Um plattformübergreifende Antwortstatuscodes anzuzeigen, muss der [CORS](/de/docs/Web/HTTP/CORS) {{HTTPHeader("Access-Control-Allow-Origin")}} HTTP-Antwortheader gesetzt werden.
 
-Um beispielsweise `https://developer.mozilla.org` die Ansicht der Antwortstatuscodes zu erlauben, sollte die cross-origin-Ressource senden:
+Um beispielsweise `https://developer.mozilla.org` zu erlauben, Antwortstatuscodes zu sehen, sollte die plattformübergreifende Ressource senden:
 
 ```http
 Access-Control-Allow-Origin: https://developer.mozilla.org

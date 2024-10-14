@@ -2,12 +2,12 @@
 title: PerformanceObserver
 slug: Web/API/PerformanceObserver
 l10n:
-  sourceCommit: 381c51574a3e6a07ee09c63493452440f046038d
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}} {{AvailableInWorkers}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Das **`PerformanceObserver`**-Interface wird verwendet, um Ereignisse der Leistungsüberwachung zu beobachten und über neue [Leistungseinträge](/de/docs/Web/API/PerformanceEntry) benachrichtigt zu werden, wenn sie in der _Leistungszeitleiste_ des Browsers aufgezeichnet werden.
+Das **`PerformanceObserver`**-Interface wird verwendet, um Leistungsmessevorgänge zu beobachten und über neue [Performance-Einträge](/de/docs/Web/API/PerformanceEntry) benachrichtigt zu werden, sobald diese in der _Performance-Zeitleiste_ des Browsers aufgezeichnet werden.
 
 ## Konstruktor
 
@@ -22,17 +22,17 @@ Das **`PerformanceObserver`**-Interface wird verwendet, um Ereignisse der Leistu
 ## Instanzmethoden
 
 - [`PerformanceObserver.observe()`](/de/docs/Web/API/PerformanceObserver/observe)
-  - : Legt die zu beobachtenden Eintragstypen fest. Die Callback-Funktion des Performance Observers wird aufgerufen, wenn ein Leistungseintrag für einen der angegebenen `entryTypes` aufgezeichnet wird.
+  - : Gibt die zu beobachtenden Eintragstypen an. Die Callback-Funktion des Leistungsbeobachters wird aufgerufen, wenn ein Leistungs-Eintrag für einen der angegebenen `entryTypes` aufgezeichnet wird.
 - [`PerformanceObserver.disconnect()`](/de/docs/Web/API/PerformanceObserver/disconnect)
-  - : Stoppt den Performance Observer Callback, damit er keine Leistungseinträge mehr empfängt.
+  - : Beendet die Leistung des Beobachters, um Leistungs-Einträge zu empfangen.
 - [`PerformanceObserver.takeRecords()`](/de/docs/Web/API/PerformanceObserver/takeRecords)
-  - : Gibt die aktuelle Liste der im Performance Observer gespeicherten Leistungseinträge zurück und leert sie.
+  - : Gibt die aktuelle Liste der im Leistungsbeobachter gespeicherten Leistungs-Einträge zurück und leert diese.
 
 ## Beispiele
 
-### Einen PerformanceObserver erstellen
+### Erstellung eines PerformanceObserver
 
-Das folgende Beispiel erstellt einen `PerformanceObserver`, der "mark"- ([`PerformanceMark`](/de/docs/Web/API/PerformanceMark)) und "measure"- ([`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)) Ereignisse überwacht. Der `perfObserver`-Callback liefert eine `list` ([`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)), die es Ihnen ermöglicht, beobachtete Leistungseinträge abzurufen.
+Das folgende Beispiel erstellt einen `PerformanceObserver`, der auf "mark" ([`PerformanceMark`](/de/docs/Web/API/PerformanceMark)) und "measure" ([`PerformanceMeasure`](/de/docs/Web/API/PerformanceMeasure)) Ereignisse achtet. Der Callback `perfObserver` liefert eine `list` ([`PerformanceObserverEntryList`](/de/docs/Web/API/PerformanceObserverEntryList)), die Ihnen ermöglicht, beobachtete Leistungs-Einträge abzurufen.
 
 ```js
 function perfObserver(list, observer) {

@@ -3,24 +3,24 @@ title: "PerformanceResourceTiming: initiatorType-Eigenschaft"
 short-title: initiatorType
 slug: Web/API/PerformanceResourceTiming/initiatorType
 l10n:
-  sourceCommit: aa8fa82a902746b0bd97839180fc2b5397088140
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`initiatorType`** ist ein String, der die Webplattform-Funktion darstellt, die das Laden der Ressource initiiert hat.
+Die **`initiatorType`**-Eigenschaft ist eine schreibgeschützte Zeichenfolge, die die Webplattform-Funktion repräsentiert, die das Laden der Ressource initiiert hat.
 
 > [!NOTE]
-> Diese Eigenschaft repräsentiert nicht den Typ des abgerufenen Inhalts. Eine `.css`-Datei kann mithilfe eines {{HTMLElement("link")}}-Elements abgerufen werden, was zu einem `initiatorType` von `link` führt. Beim Laden von Bildern mit `background: url()` in einer CSS-Datei wird `initiatorType` `css` und nicht `img` sein.
+> Diese Eigenschaft repräsentiert nicht den Typ des abgerufenen Inhalts. Eine `.css`-Datei kann beispielsweise mit einem {{HTMLElement("link")}}-Element abgerufen werden, was zu einem `initiatorType` von `link` führt. Wenn Bilder mit `background: url()` in einer CSS-Datei geladen werden, ist der `initiatorType` `css` und nicht `img`.
 
 ## Wert
 
-Die Eigenschaft `initiatorType` kann die folgenden Werte haben oder `other`, wenn keine der Bedingungen zutrifft.
+Die Eigenschaft `initiatorType` kann folgende Werte haben oder `other`, falls keine der Bedingungen zutrifft.
 
 - `audio`
-  - : Wenn die Anfrage durch das `src`-Attribut eines {{HTMLElement("audio")}}-Elements initiiert wurde.
+  - : Wenn die Anfrage von einem {{HTMLElement("audio")}}-Element mit dem `src`-Attribut initiiert wurde.
 - `beacon`
-  - : Wenn die Anfrage durch die [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)-Methode initiiert wurde.
+  - : Wenn die Anfrage durch eine [`navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon)-Methode initiiert wurde.
 - `body`
   - : Wenn die Anfrage durch das `background`-Attribut eines {{HTMLElement("body")}}-Elements initiiert wurde.
 - `css`
@@ -30,7 +30,7 @@ Die Eigenschaft `initiatorType` kann die folgenden Werte haben oder `other`, wen
 - `embed`
   - : Wenn die Anfrage durch das `src`-Attribut eines {{HTMLElement("embed")}}-Elements initiiert wurde.
 - `fetch`
-  - : Wenn die Anfrage durch die [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode initiiert wurde.
+  - : Wenn die Anfrage durch eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Methode initiiert wurde.
 - `frame`
   - : Wenn die Anfrage durch das Laden eines {{HTMLElement("frame")}}-Elements initiiert wurde.
 - `iframe`
@@ -42,7 +42,7 @@ Die Eigenschaft `initiatorType` kann die folgenden Werte haben oder `other`, wen
 - `img`
   - : Wenn die Anfrage durch das `src`- oder `srcset`-Attribut eines {{HTMLElement("img")}}-Elements initiiert wurde.
 - `input`
-  - : Wenn die Anfrage durch ein {{HTMLElement("input")}}-Element des Typs `image` initiiert wurde.
+  - : Wenn die Anfrage durch ein {{HTMLElement("input")}}-Element vom Typ `image` initiiert wurde.
 - `link`
   - : Wenn die Anfrage durch ein {{HTMLElement("link")}}-Element initiiert wurde.
 - `navigation`
@@ -62,11 +62,11 @@ Die Eigenschaft `initiatorType` kann die folgenden Werte haben oder `other`, wen
 
 ## Beispiele
 
-### Ressourcen filtern
+### Filtern von Ressourcen
 
-Die `initiatorType`-Eigenschaft kann verwendet werden, um nur bestimmte Ressourcentiming-Einträge zu erhalten. Zum Beispiel nur diejenigen, die durch {{HTMLElement("script")}}-Elemente initiiert wurden.
+Die `initiatorType`-Eigenschaft kann verwendet werden, um nur spezifische Ressourcentiming-Einträge zu erhalten. Beispielsweise nur diejenigen, die durch {{HTMLElement("script")}}-Elemente initiiert wurden.
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge benachrichtigt, sobald sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge zuzugreifen, die vor der Erstellung des Observers existieren.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Leistungseinträge benachrichtigt, während sie in der Leistungstimeline des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -79,7 +79,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur die `resource`-Leistungseinträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungstimeline des Browsers vorhanden sind:
 
 ```js
 const scripts = performance.getEntriesByType("resource").filter((entry) => {

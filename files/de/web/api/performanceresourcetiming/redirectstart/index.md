@@ -3,36 +3,36 @@ title: "PerformanceResourceTiming: redirectStart-Eigenschaft"
 short-title: redirectStart
 slug: Web/API/PerformanceResourceTiming/redirectStart
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`redirectStart`**-Eigenschaft ist eine schreibgeschützte Eigenschaft, die einen [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp) zurückgibt, der die Startzeit des Abrufs darstellt, welcher die Weiterleitung initiiert.
+Die schreibgeschützte **`redirectStart`**-Eigenschaft gibt einen [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) zurück, der die Startzeit des Abrufs repräsentiert, der die Umleitung initiiert.
 
-Wenn es beim Abrufen der Ressource HTTP-Weiterleitungen gibt und eine der Weiterleitungen nicht vom gleichen Ursprung wie das aktuelle Dokument stammt, aber der Timing Allow Check Algorithmus für jede weitergeleitete Ressource besteht, gibt diese Eigenschaft die Startzeit des Abrufs zurück, der die Weiterleitung initiiert; andernfalls wird null zurückgegeben.
+Wenn es HTTP-Umleitungen beim Abrufen der Ressource gibt und wenn eine der Umleitungen nicht vom gleichen Ursprung wie das aktuelle Dokument stammt, aber der Timing-Allow-Check-Algorithmus für jede umgeleitete Ressource besteht, gibt diese Eigenschaft die Startzeit des Abrufs zurück, der die Umleitung initiiert; andernfalls wird null zurückgegeben.
 
-Um die Anzahl der Weiterleitungen zu ermitteln, siehe auch [`PerformanceNavigationTiming.redirectCount`](/de/docs/Web/API/PerformanceNavigationTiming/redirectCount).
+Um die Anzahl der Umleitungen zu ermitteln, siehe auch [`PerformanceNavigationTiming.redirectCount`](/de/docs/Web/API/PerformanceNavigationTiming/redirectCount).
 
 ## Wert
 
 Die `redirectStart`-Eigenschaft kann folgende Werte haben:
 
-- Ein [`timestamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit des Abrufs darstellt, welcher die Weiterleitung initiiert.
-- `0`, wenn es keine Weiterleitung gibt.
-- `0`, wenn es sich bei der Ressource um eine Cross-Origin-Anfrage handelt und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
+- Ein [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp), der die Startzeit des Abrufs darstellt, der die Umleitung initiiert.
+- `0`, wenn es keine Umleitung gibt.
+- `0`, wenn die Ressource eine anfrageübergreifende Abfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
-### Messung der Weiterleitungszeit
+### Messung der Umleitungszeit
 
-Die Eigenschaften `redirectStart` und [`redirectEnd`](/de/docs/Web/API/PerformanceResourceTiming/redirectEnd) können verwendet werden, um zu messen, wie lange die Weiterleitung dauert.
+Die Eigenschaften `redirectStart` und [`redirectEnd`](/de/docs/Web/API/PerformanceResourceTiming/redirectEnd) können verwendet werden, um zu messen, wie lange die Umleitung dauert.
 
 ```js
 const redirect = entry.redirectEnd - entry.redirectStart;
 ```
 
-Ein Beispiel, das einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwendet, der über neue `resource`-Leistungen benachrichtigt, während sie in der Performance-Zeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erzeugung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der neue `resource` Performance-Einträge meldet, sobald sie in der Leistungszeitleiste des Browsers erfasst werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -47,7 +47,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Ein Beispiel, das [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType) verwendet, das nur die `resource`-Leistungseinträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitleiste des Browsers vorhanden sind:
+Beispiel unter Verwendung von [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource` Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitleiste des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -59,11 +59,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Cross-Origin-Timing-Informationen
+### Timing-Informationen bei anfrageübergreifenden Anfragen
 
-Wenn der Wert der `redirectStart`-Eigenschaft `0` ist, könnte es sich bei der Ressource um eine Cross-Origin-Anfrage handeln. Um Cross-Origin-Timing-Informationen sehen zu können, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
+Wenn der Wert der `redirectStart`-Eigenschaft `0` ist, könnte die Ressource eine anfrageübergreifende Anfrage sein. Um anfrageübergreifende Timing-Informationen zu sehen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
 
-Zum Beispiel sollte die Cross-Origin-Ressource, um `https://developer.mozilla.org` die Sicht auf Timing-Ressourcen zu erlauben, senden:
+Zum Beispiel, um `https://developer.mozilla.org` den Zugriff auf Timing-Ressourcen zu erlauben, sollte die anfrageübergreifende Ressource senden:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org

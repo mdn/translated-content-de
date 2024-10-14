@@ -3,31 +3,31 @@ title: "PerformanceResourceTiming: deliveryType-Eigenschaft"
 short-title: deliveryType
 slug: Web/API/PerformanceResourceTiming/deliveryType
 l10n:
-  sourceCommit: 44cf523714745d626317192bfbe849b47144f3ab
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}{{SeeCompatTable}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`deliveryType`**-Eigenschaft ist eine schreibgeschützte Zeichenfolge, die angibt, wie die Ressource geliefert wurde — zum Beispiel aus dem Cache oder von einem Navigations-Prefetch.
+Die **`deliveryType`**-Eigenschaft ist eine schreibgeschützte Zeichenkette, die angibt, wie die Ressource bereitgestellt wurde — zum Beispiel aus dem Cache oder über ein navigational prefetch.
 
 ## Wert
 
-Eine Zeichenfolge, die einen der folgenden Werte annehmen kann:
+Eine Zeichenkette, die einer der folgenden Werte sein kann:
 
 - `"cache"`
   - : Die Ressource wurde aus dem Cache abgerufen.
 - `"navigational-prefetch"` {{experimental_inline}}
-  - : Die Ressource wurde aus einer vorab abgerufenen Antwort abgerufen, die in einem Arbeitsspeicher-Cache über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) gespeichert wurde.
-- `""` (leere Zeichenfolge)
-  - : Wird zurückgegeben, wenn keiner der oben genannten Lieferarten zutrifft.
+  - : Die Ressource wurde von einer vorab abgerufenen Antwort aus einem im Speicher befindlichen Cache über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) abgerufen.
+- `""` (leere Zeichenkette)
+  - : Wird zurückgegeben, wenn keiner der oben genannten Bereitstellungstypen zutrifft.
 
 ## Beispiele
 
 ### Filtern von Ressourcen
 
-Die `deliveryType`-Eigenschaft kann verwendet werden, um spezifische Ressourcentiming-Einträge zu erhalten; zum Beispiel nur diejenigen, die zwischengespeichert wurden.
+Die `deliveryType`-Eigenschaft kann verwendet werden, um nur bestimmte Ressourcentiming-Einträge zu erhalten; zum Beispiel nur solche, die zwischengespeichert wurden.
 
-Das folgende Beispiel verwendet einen [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), um bei neuen `resource`-Performance-Einträgen zu benachrichtigen, wenn diese in der Leistungstimeline des Browsers aufgezeichnet werden. Die Option `buffered` wird verwendet, um auf Einträge von vor der Erstellung des Beobachters zuzugreifen.
+Im folgenden Beispiel wird ein [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) verwendet, um über neue `resource`-Performance-Einträge zu informieren, sobald sie in der Performance-Zeitleiste des Browsers erfasst werden. Die `buffered`-Option wird verwendet, um Einträge aus der Zeit vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -40,7 +40,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Das folgende Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs der Methode in der Leistungstimeline des Browsers vorhanden sind.
+Das folgende Beispiel verwendet [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge zeigt, die im Zeitpunkt des Aufrufens der Methode in der Performance-Zeitleiste des Browsers vorhanden sind.
 
 ```js
 const scripts = performance.getEntriesByType("resource").filter((entry) => {

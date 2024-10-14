@@ -1,18 +1,18 @@
 ---
-title: "PerformanceObserver: observe()-Methode"
+title: "PerformanceObserver: observe() Methode"
 short-title: observe()
 slug: Web/API/PerformanceObserver/observe
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die **`observe()`**-Methode des Interfaces **[`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)** wird verwendet, um die Menge der zu beobachtenden Performance-Entry-Typen anzugeben.
+Die **`observe()`** Methode des **[`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver)** Interface wird verwendet, um die Menge der zu beobachtenden Performance-Eintragstypen festzulegen.
 
-Siehe [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) für eine Liste von Entry-Typen und [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) für eine Liste der Entry-Typen, die der Benutzeragent unterstützt.
+Siehe [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) für eine Liste von Eintragstypen und [`PerformanceObserver.supportedEntryTypes`](/de/docs/Web/API/PerformanceObserver/supportedEntryTypes_static) für eine Liste von Eintragstypen, die vom Benutzeragenten unterstützt werden.
 
-Wenn ein passender Performance-Entry aufgezeichnet wird, wird die Callback-Funktion des Performance-Observers aufgerufen, die beim Erstellen des [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) festgelegt wurde.
+Wenn ein übereinstimmender Performance-Eintrag aufgezeichnet wird, wird die Callback-Funktion des PerformanceObservers aufgerufen, die beim Erstellen des [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver) festgelegt wurde.
 
 ## Syntax
 
@@ -27,17 +27,17 @@ observe(options)
   - : Ein Objekt mit den folgenden möglichen Mitgliedern:
 
     - `buffered`
-      - : Ein boolesches Flag, um anzugeben, ob gepufferte Einträge in den Puffer des Beobachters eingereiht werden sollen. Muss nur mit der `type`-Option verwendet werden.
+      - : Ein boolesches Flag, das angibt, ob zwischengespeicherte Einträge in den Puffer des Observers gestellt werden sollen. Muss nur mit der `type` Option verwendet werden.
     - `durationThreshold`
-      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Schwellenwert für [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming)-Einträge definiert. Standardmäßig auf 104ms gesetzt und auf das nächste von 8ms gerundet. Der niedrigste mögliche Schwellenwert ist 16ms. Darf nicht zusammen mit der `entryTypes`-Option verwendet werden.
+      - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Schwellenwert für [`PerformanceEventTiming`](/de/docs/Web/API/PerformanceEventTiming) Einträge definiert. Standardwert ist 104ms und wird auf das nächste Vielfache von 8ms gerundet. Der niedrigste mögliche Schwellenwert ist 16ms. Darf nicht zusammen mit der Option `entryTypes` verwendet werden.
     - `entryTypes`
 
-      - : Ein Array von Strings, wobei jeder String einen Performance-Entry-Typ angibt, der beobachtet werden soll. Darf nicht zusammen mit den Optionen `type`, `buffered` oder `durationThreshold` verwendet werden.
+      - : Ein Array von Zeichenfolgen, die jeweils einen zu beobachtenden Performance-Eintragstyp spezifizieren. Darf nicht zusammen mit den Optionen `type`, `buffered` oder `durationThreshold` verwendet werden.
 
-        Siehe [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) für eine Liste gültiger Performance-Entry-Typ-Namen. Nicht erkannte Typen werden ignoriert, obwohl der Browser möglicherweise eine Warnmeldung in der Konsole ausgibt, um Entwicklern bei der Fehlersuche zu helfen. Wenn keine gültigen Typen gefunden werden, hat `observe()` keine Wirkung.
+        Siehe [`PerformanceEntry.entryType`](/de/docs/Web/API/PerformanceEntry/entryType) für eine Liste gültiger Performance-Eintragstypnamen. Nicht erkannte Typen werden ignoriert, obwohl der Browser möglicherweise eine Warnmeldung an die Konsole ausgibt, um Entwicklern zu helfen, ihren Code zu debuggen. Wenn keine gültigen Typen gefunden werden, hat `observe()` keine Wirkung.
 
     - `type`
-      - : Ein einzelner String, der genau einen Performance-Entry-Typ angibt, der beobachtet werden soll. Darf nicht zusammen mit der `entryTypes`-Option verwendet werden.
+      - : Eine einzelne Zeichenfolge, die genau einen zu beobachtenden Performance-Eintragstyp spezifiziert. Darf nicht zusammen mit der Option `entryTypes` verwendet werden.
 
 ### Rückgabewert
 
@@ -45,9 +45,9 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-### Beobachten mehrerer Performance-Entry-Typen
+### Beobachtung mehrerer Performance-Eintragstypen
 
-Dieses Beispiel erstellt einen `PerformanceObserver` und überwacht die `"mark"`- und `"measure"`-Entry-Typen, wie sie durch die `entryTypes`-Option in der `observe()`-Methode angegeben sind.
+Dieses Beispiel erstellt einen `PerformanceObserver` und beobachtet die Eintragstypen `"mark"` und `"measure"`, wie es durch die `entryTypes` Option in der `observe()` Methode festgelegt wird.
 
 ```js
 const observer = new PerformanceObserver((list, obj) => {
@@ -58,9 +58,9 @@ const observer = new PerformanceObserver((list, obj) => {
 observer.observe({ entryTypes: ["mark", "measure"] });
 ```
 
-### Beobachten eines einzelnen Performance-Entry-Typs
+### Beobachtung eines einzelnen Performance-Eintragstyps
 
-Im folgenden Beispiel werden gepufferte Ereignisse abgerufen und neuere Ereignisse für Ressourcentiming-Ereignisse ([`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)) abonniert, indem die `buffered`- und `type`-Konfigurationsoptionen verwendet werden. Wann immer Sie den Beobachter so konfigurieren müssen, dass die `buffered`- oder `durationThreshold`-Option verwendet wird, verwenden Sie `type` anstelle von `entryType`. Das Sammeln mehrerer Typen von Performance-Entry-Typen funktioniert ansonsten nicht.
+Das folgende Beispiel ruft zwischengespeicherte Ereignisse ab und abonniert neuere Ereignisse für Ressourcentimings ([`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)) unter Verwendung der Konfigurationsoptionen `buffered` und `type`. Wann immer Sie den Observer so konfigurieren müssen, dass er die Option `buffered` oder `durationThreshold` verwendet, verwenden Sie `type` anstelle von `entryType`. Andernfalls wird das Sammeln mehrerer Typen von Performance-Einträgen nicht funktionieren.
 
 ```js
 const observer = new PerformanceObserver((list, obj) => {

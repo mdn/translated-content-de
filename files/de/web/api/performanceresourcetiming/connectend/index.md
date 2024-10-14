@@ -3,32 +3,32 @@ title: "PerformanceResourceTiming: connectEnd-Eigenschaft"
 short-title: connectEnd
 slug: Web/API/PerformanceResourceTiming/connectEnd
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
 ---
 
-{{APIRef("Performance API")}}
+{{APIRef("Performance API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`connectEnd`** gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nach dem Abschluss der Verbindung zum Server durch den Browser zurück, um die Ressource abzurufen. Der Zeitstempelwert umfasst das Zeitintervall, das benötigt wird, um die Transportverbindung herzustellen, sowie andere Zeitintervalle wie TLS-Handshake und [SOCKS](https://en.wikipedia.org/wiki/SOCKS)-Authentifizierung.
+Die schreibgeschützte Eigenschaft **`connectEnd`** gibt den [`Zeitstempel`](/de/docs/Web/API/DOMHighResTimeStamp) unmittelbar nach dem Abschluss der Verbindungserstellung durch den Browser mit dem Server, um die Ressource abzurufen, zurück. Der Zeitstempelwert umfasst das Zeitintervall zum Aufbau der Transportverbindung sowie andere Zeitintervalle wie TLS-Handshake und [SOCKS](https://en.wikipedia.org/wiki/SOCKS)-Authentifizierung.
 
 ## Wert
 
 Die `connectEnd`-Eigenschaft kann die folgenden Werte haben:
 
-- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit nach der Herstellung einer Verbindung darstellt.
-- `0`, wenn die Ressource unmittelbar aus einem Cache abgerufen wurde.
-- `0`, wenn es sich bei der Ressource um eine Cross-Origin-Anfrage handelt und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
+- Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit nach dem Aufbau einer Verbindung darstellt.
+- `0`, wenn die Ressource sofort aus einem Cache abgerufen wurde.
+- `0`, wenn die Ressource eine Cross-Origin-Anfrage ist und kein {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header verwendet wird.
 
 ## Beispiele
 
 ### Messung der TCP-Handshake-Zeit
 
-Die Eigenschaften `connectEnd` und [`connectStart`](/de/docs/Web/API/PerformanceResourceTiming/connectStart) können verwendet werden, um zu messen, wie lange der TCP-Handshake dauert.
+Die Eigenschaften `connectEnd` und [`connectStart`](/de/docs/Web/API/PerformanceResourceTiming/connectStart) können verwendet werden, um die Dauer des TCP-Handshakes zu messen.
 
 ```js
 const tcp = entry.connectEnd - entry.connectStart;
 ```
 
-Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der über neue `resource`-Performance-Einträge informiert, sobald sie in der Leistungszeitleiste des Browsers aufgezeichnet werden. Verwenden Sie die Option `buffered`, um auf Einträge von vor der Erstellung des Observers zuzugreifen.
+Beispiel mit einem [`PerformanceObserver`](/de/docs/Web/API/PerformanceObserver), der neue `resource`-Performance-Einträge meldet, sobald sie in der Performance-Zeitachse des Browsers aufgezeichnet werden. Verwenden Sie die `buffered`-Option, um auf Einträge vor der Erstellung des Observers zuzugreifen.
 
 ```js
 const observer = new PerformanceObserver((list) => {
@@ -43,7 +43,7 @@ const observer = new PerformanceObserver((list) => {
 observer.observe({ type: "resource", buffered: true });
 ```
 
-Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), das nur `resource`-Performance-Einträge anzeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Leistungszeitleiste des Browsers vorhanden sind:
+Beispiel mit [`Performance.getEntriesByType()`](/de/docs/Web/API/Performance/getEntriesByType), die nur `resource`-Performance-Einträge zeigt, die zum Zeitpunkt des Aufrufs dieser Methode in der Performance-Zeitachse des Browsers vorhanden sind:
 
 ```js
 const resources = performance.getEntriesByType("resource");
@@ -55,11 +55,11 @@ resources.forEach((entry) => {
 });
 ```
 
-### Timing-Informationen bei Cross-Origin-Anfragen
+### Cross-Origin-Zeitinformationen
 
-Wenn der Wert der `connectEnd`-Eigenschaft `0` ist, könnte es sich bei der Ressource um eine Cross-Origin-Anfrage handeln. Um Timing-Informationen bei Cross-Origin-Anfragen sichtbar zu machen, muss der {{HTTPHeader("Timing-Allow-Origin")}} HTTP-Antwort-Header gesetzt werden.
+Wenn der Wert der `connectEnd`-Eigenschaft `0` ist, könnte es sich um eine Cross-Origin-Anfrage handeln. Um Cross-Origin-Zeitinformationen sichtbar zu machen, muss der HTTP-Antwort-Header {{HTTPHeader("Timing-Allow-Origin")}} gesetzt werden.
 
-Zum Beispiel, um `https://developer.mozilla.org` den Zugriff auf Timing-Ressourcen zu ermöglichen, sollte die Cross-Origin-Ressource senden:
+Zum Beispiel sollte die Cross-Origin-Ressource Folgendes senden, um `https://developer.mozilla.org` das Einsehen von Timing-Ressourcen zu erlauben:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org
