@@ -1,38 +1,38 @@
 ---
-title: "HTMLTableCellElement: scope Eigenschaft"
+title: "HTMLTableCellElement: scope property"
 short-title: scope
 slug: Web/API/HTMLTableCellElement/scope
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`scope`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement) Interfaces gibt den Geltungsbereich einer {{HTMLElement("th")}}-Zelle an.
+Die **`scope`**-Eigenschaft der [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Schnittstelle gibt den Geltungsbereich einer {{HTMLElement("th")}}-Zelle an.
 
-Kopfzellen können mithilfe des `scope`-Attributs so konfiguriert werden, dass sie auf eine bestimmte Zeile oder Spalte angewendet werden oder auf die Zellen, die im aktuellen Zeilengruppenbereich noch nicht abgedeckt sind (das heißt, im selben übergeordneten {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} oder {{HTMLElement("tfoot")}} Element). Wenn kein Wert für `scope` angegeben ist, ist die Kopfzeile nicht direkt mit Zellen auf diese Weise verbunden. Erlaubte Werte für `scope` sind:
+Kopfzellen können mit dem `scope`-Attribut so konfiguriert werden, dass sie auf eine bestimmte Zeile oder Spalte angewendet werden oder auf die noch nicht zugewiesenen Zellen innerhalb der aktuellen Zeilengruppe (das heißt, dasselbe übergeordnete {{HTMLElement("thead")}}, {{HTMLElement("tbody")}} oder {{HTMLElement("tfoot")}}-Element). Wenn kein Wert für `scope` angegeben ist, wird die Kopfzeile nicht direkt mit den Zellen in dieser Weise verknüpft. Erlaubte Werte für `scope` sind:
 
 > [!NOTE]
-> Dieses Attribut hat keine visuelle Wirkung in Browsern. Es fügt semantische Informationen hinzu, um unterstützenden Technologien wie Bildschirmleseprogrammen zu helfen, die Tabelle auf eine kohärentere Weise darzustellen.
+> Diese Eigenschaft hat keinen visuellen Effekt in Browsern. Sie fügt semantische Informationen hinzu, die unterstützenden Technologien wie Bildschirmlesegeräten helfen, die Tabelle auf eine kohärentere Weise darzustellen.
 
 ## Wert
 
 Einer der folgenden Werte:
 
 - `col`
-  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Spalte (oder Spalten, wenn `colspan` ebenfalls verwendet wird), bis zum Ende der Spalte oder bis ein anderes `<th>` in der Spalte einen neuen Geltungsbereich festlegt.
+  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Spalte (oder Spalten, wenn `colspan` ebenfalls verwendet wird), bis entweder das Ende der Spalte erreicht ist oder eine andere `<th>`-Zelle in der Spalte einen neuen Geltungsbereich festlegt.
 - `colgroup`
-  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Spaltengruppe, die noch keinen Geltungsbereich haben. Dieser Wert ist nur erlaubt, wenn sich die Zelle in einer Spaltengruppe befindet.
+  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Spaltengruppe, die noch keinen Geltungsbereich haben. Dieser Wert ist nur zulässig, wenn sich die Zelle in einer Spaltengruppe befindet.
 - `row`
-  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Zeile (oder Zeilen, wenn `rowspan` ebenfalls verwendet wird), bis zum Ende der Zeile oder bis ein anderes `<th>` in derselben Zeile einen neuen Geltungsbereich festlegt.
+  - : Die Kopfzelle gilt für die folgenden Zellen in derselben Zeile (oder Zeilen, wenn `rowspan` ebenfalls verwendet wird), bis entweder das Ende der Zeile erreicht ist oder eine andere `<th>`-Zelle in derselben Zeile einen neuen Geltungsbereich festlegt.
 - `rowgroup`
-  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Zeilengruppe, die noch keinen Geltungsbereich haben. Dieser Wert ist nur erlaubt, wenn sich die Zelle in einer Zeilengruppe befindet.
+  - : Die Kopfzelle gilt für alle Zellen in der aktuellen Zeilengruppe, die noch keinen Geltungsbereich haben. Dieser Wert ist nur zulässig, wenn sich die Zelle in einer Zeilengruppe befindet.
 - Der leere String (`""`)
-  - : Die Kopfzelle hat keinen vordefinierten Geltungsbereich; der Benutzeragent wird den Geltungsbereich basierend auf kontextuellen Hinweisen feststellen.
+  - : Die Kopfzelle hat keinen vordefinierten Geltungsbereich; der Nutzeragent wird den Geltungsbereich basierend auf kontextuellen Hinweisen festlegen.
 
 ## Beispiele
 
-Dieses Beispiel fügt eine Bezeichnung für alle Zellennummern der ersten Zeile des `tbody` hinzu.
+Dieses Beispiel fügt ein Label zu allen Zellnummern der ersten Zeile des `tbody` hinzu.
 
 ### HTML
 

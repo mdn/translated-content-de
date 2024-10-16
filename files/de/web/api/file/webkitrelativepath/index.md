@@ -1,28 +1,28 @@
 ---
-title: "File: webkitRelativePath-Eigenschaft"
+title: "Datei: webkitRelativePath-Eigenschaft"
 short-title: webkitRelativePath
 slug: Web/API/File/webkitRelativePath
 l10n:
-  sourceCommit: 367b982b93c07f7f99e7bb768a6bf326fa5198e6
+  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
 ---
 
 {{APIRef("File and Directory Entries API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`webkitRelativePath`**-Eigenschaft des [`File`](/de/docs/Web/API/File)-Interfaces
-enthält einen String, der den relativen Pfad der Datei zu dem vom Benutzer ausgewählten Verzeichnis in einem {{HTMLElement("input")}}-Element mit gesetztem [`webkitdirectory`](/de/docs/Web/HTML/Element/input#webkitdirectory)-Attribut angibt.
+Die **`webkitRelativePath`** schreibgeschützte Eigenschaft des [`File`](/de/docs/Web/API/File)-Interfaces
+enthält einen String, der den Pfad der Datei relativ zu dem Verzeichnis angibt, das der Benutzer in einem {{HTMLElement("input")}}-Element mit gesetztem [`webkitdirectory`](/de/docs/Web/HTML/Element/input#webkitdirectory)-Attribut ausgewählt hat.
 
 ## Wert
 
-Ein String, der den Pfad der Datei relativ zu dem vom Benutzer ausgewählten übergeordneten Verzeichnis enthält.
+Ein String, der den Pfad der Datei relativ zu dem übergeordneten Verzeichnis enthält, das der Benutzer ausgewählt hat.
 
 ## Beispiel
 
-In diesem Beispiel wird ein Verzeichnis-Auswahldialog angezeigt, der es dem Benutzer ermöglicht, ein oder mehrere Verzeichnisse auszuwählen. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis eintritt, wird eine Liste aller Dateien innerhalb der ausgewählten Verzeichnishierarchien erzeugt und angezeigt.
+In diesem Beispiel wird ein Verzeichnis-Auswahlfenster dargestellt, das den Benutzer ein oder mehrere Verzeichnisse auswählen lässt. Wenn das [`change`](/de/docs/Web/API/HTMLElement/change_event)-Ereignis eintritt, wird eine Liste aller Dateien innerhalb der ausgewählten Verzeichnishierarchien erstellt und angezeigt.
 
 ### HTML
 
 ```html
-<input type="file" id="filepicker" name="fileList" webkitdirectory multiple />
+<input type="file" id="file-picker" name="fileList" webkitdirectory multiple />
 <output id="output"></output>
 ```
 
@@ -37,9 +37,9 @@ output {
 
 ```js
 const output = document.getElementById("output");
-const filepicker = document.getElementById("filepicker");
+const filePicker = document.getElementById("file-picker");
 
-filepicker.addEventListener("change", (event) => {
+filePicker.addEventListener("change", (event) => {
   const files = event.target.files;
 
   for (const file of files) {

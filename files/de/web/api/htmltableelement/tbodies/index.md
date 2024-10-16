@@ -3,19 +3,16 @@ title: "HTMLTableElement: tBodies-Eigenschaft"
 short-title: tBodies
 slug: Web/API/HTMLTableElement/tBodies
 l10n:
-  sourceCommit: 595cba0e07c70eda7f08a12890e00ea0281933d3
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`HTMLTableElement.tBodies`** gibt eine
-lebendige [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der Körper in einem {{htmlElement("table")}} zurück.
+Die **`HTMLTableElement.tBodies`**-Eigenschaft gibt eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der `tbody`-Elemente in einem {{htmlElement("table")}} zurück.
 
-Obwohl die Eigenschaft schreibgeschützt ist, ist das zurückgegebene Objekt lebendig und ermöglicht die
-Änderung seines Inhalts.
+Obwohl die Eigenschaft schreibgeschützt ist, ist das zurückgegebene Objekt live und erlaubt die Modifikation seines Inhalts.
 
-Die zurückgegebene Sammlung umfasst implizite {{HTMLElement("tbody")}}-Elemente. Zum
-Beispiel:
+Die zurückgegebene Sammlung umfasst implizite {{HTMLElement("tbody")}}-Elemente. Zum Beispiel:
 
 ```html
 <table>
@@ -25,19 +22,18 @@ Beispiel:
 </table>
 ```
 
-Das aus dem obigen HTML generierte HTML-DOM wird ein {{HTMLElement("tbody")}}-Element
-beinhalten, auch wenn die Tags im Quell-HTML nicht enthalten sind.
+Das vom obigen HTML generierte HTML DOM wird ein {{HTMLElement("tbody")}}-Element haben, obwohl die Tags im Quell-HTML nicht enthalten sind.
 
 ## Wert
 
-Eine lebendige [`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
+Eine Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection).
 
 ## Beispiele
 
-Dieses Snippet ermittelt die Anzahl der Körper in einer Tabelle.
+Dieser Code-Ausschnitt ermittelt die Anzahl der `tbody`-Elemente in einer Tabelle.
 
 ```js
-mytable.tBodies.length;
+myTable.tBodies.length;
 ```
 
 ## Spezifikationen

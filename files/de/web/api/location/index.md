@@ -2,16 +2,16 @@
 title: Location
 slug: Web/API/Location
 l10n:
-  sourceCommit: ab007c32f6ef1f5d426f8ff806c67652692e4108
+  sourceCommit: b4eee94172dd5e421502da81cb812fc6672edc66
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`Location`**-Schnittstelle repräsentiert den Standort (URL) des Objekts, mit dem sie verknüpft ist. Änderungen an ihr werden auf das Objekt übertragen, auf das sie sich bezieht. Sowohl die [`Document`](/de/docs/Web/API/Document)- als auch die [`Window`](/de/docs/Web/API/Window)-Schnittstelle haben eine solche verknüpfte `Location`, die über [`Document.location`](/de/docs/Web/API/Document/location) und [`Window.location`](/de/docs/Web/API/Window/location) zugänglich ist.
+Das **`Location`** Interface repräsentiert die Position (URL) des Objekts, mit dem es verknüpft ist. Änderungen daran werden auf das betreffende Objekt angewendet. Sowohl das [`Document`](/de/docs/Web/API/Document) als auch das [`Window`](/de/docs/Web/API/Window) Interface haben ein solches verknüpftes `Location`, das über [`Document.location`](/de/docs/Web/API/Document/location) bzw. [`Window.location`](/de/docs/Web/API/Window/location) zugänglich ist.
 
-## Aufbau einer Location
+## Aufbau von Location
 
-Fahren Sie mit der Maus über die URL-Segmente unten, um deren Bedeutung hervorzuheben:
+Bewegen Sie die Maus über die URL-Segmente unten, um ihre Bedeutung hervorzuheben:
 
 ```html hidden
 <span id="href" title="href"
@@ -42,7 +42,7 @@ body {
   text-align: center;
   vertical-align: middle;
   font-family: Georgia;
-  font-size: 175%;
+  font-size: 200%;
   line-height: 1em;
   white-space: nowrap;
 }
@@ -64,7 +64,7 @@ body {
   width: 100%;
   left: 50%;
   margin-left: -50%;
-  font-size: 60%;
+  font-size: 50%;
   line-height: 1.5;
   background: black;
 }
@@ -110,36 +110,36 @@ document.body.addEventListener("click", (event) => {
 ## Instanz-Eigenschaften
 
 - [`Location.ancestorOrigins`](/de/docs/Web/API/Location/ancestorOrigins) {{ReadOnlyInline}}
-  - : Eine statische [`DOMStringList`](/de/docs/Web/API/DOMStringList), die in umgekehrter Reihenfolge die Ursprünge aller übergeordneten Browsing-Kontexte des Dokuments enthält, das mit dem gegebenen `Location`-Objekt verknüpft ist.
+  - : Eine statische [`DOMStringList`](/de/docs/Web/API/DOMStringList), die in umgekehrter Reihenfolge die Ursprünge aller übergeordneten Browsing-Kontexte des Dokuments enthält, das mit dem gegebenen `Location` Objekt verknüpft ist.
 - [`Location.href`](/de/docs/Web/API/Location/href)
-  - : Ein {{Glossary("stringifier", "stringifier")}}, der einen String mit der gesamten URL zurückgibt. Bei Änderungen navigiert das zugehörige Dokument zur neuen Seite. Es kann von einem anderen Ursprung als das zugehörige Dokument gesetzt werden.
+  - : Ein {{Glossary("stringifier", "stringifier")}}, der eine Zeichenfolge mit der gesamten URL zurückgibt. Bei einer Änderung navigiert das zugehörige Dokument zur neuen Seite. Es kann von einem anderen Ursprung als dem des zugehörigen Dokuments gesetzt werden.
 - [`Location.protocol`](/de/docs/Web/API/Location/protocol)
-  - : Ein String, der das Protokollschema der URL enthält, einschließlich des abschließenden `':'`.
+  - : Eine Zeichenfolge, die das Protokollschema der URL, einschließlich des abschließenden `':'`, enthält.
 - [`Location.host`](/de/docs/Web/API/Location/host)
-  - : Ein String, der den Host enthält, also der _hostname_, ein `':'` und der _port_ der URL.
+  - : Eine Zeichenfolge, die den Host, das heißt den _hostname_, einen `':'` und den _port_ der URL, enthält.
 - [`Location.hostname`](/de/docs/Web/API/Location/hostname)
-  - : Ein String, der die Domain der URL enthält.
+  - : Eine Zeichenfolge, die die Domain der URL enthält.
 - [`Location.port`](/de/docs/Web/API/Location/port)
-  - : Ein String, der die Portnummer der URL enthält.
+  - : Eine Zeichenfolge, die die Portnummer der URL enthält.
 - [`Location.pathname`](/de/docs/Web/API/Location/pathname)
-  - : Ein String, der einen anfänglichen `'/'`, gefolgt vom Pfad der URL enthält, jedoch ohne die Query-String oder das Fragment.
+  - : Eine Zeichenfolge, die ein anfängliches `'/'` gefolgt vom Pfad der URL enthält, ohne die Query-String oder den Fragment.
 - [`Location.search`](/de/docs/Web/API/Location/search)
-  - : Ein String, der ein `'?'`, gefolgt von den Parametern oder dem "Query-String" der URL enthält. Moderne Browser bieten [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get) und [`URL.searchParams`](/de/docs/Web/API/URL/searchParams) an, um das Parsen der Parameter aus dem Query-String zu erleichtern.
+  - : Eine Zeichenfolge, die ein `'?'` gefolgt von den Parametern oder dem "Query-String" der URL enthält. Moderne Browser bieten [`URLSearchParams`](/de/docs/Web/API/URLSearchParams/get) und [`URL.searchParams`](/de/docs/Web/API/URL/searchParams) an, um das Herausparsen der Parameter aus dem Query-String zu erleichtern.
 - [`Location.hash`](/de/docs/Web/API/Location/hash)
-  - : Ein String, der ein `'#'`, gefolgt vom Fragmentbezeichner der URL enthält.
+  - : Eine Zeichenfolge, die ein `'#'` gefolgt von der Fragmentkennung der URL enthält.
 - [`Location.origin`](/de/docs/Web/API/Location/origin) {{ReadOnlyInline}}
-  - : Gibt einen String zurück, der die kanonische Form des Ursprungs des spezifischen Standorts enthält.
+  - : Gibt eine Zeichenfolge zurück, die die kanonische Form des Ursprungs des jeweiligen Standorts enthält.
 
 ## Instanz-Methoden
 
 - [`Location.assign()`](/de/docs/Web/API/Location/assign)
-  - : Lädt die Ressource an der im Parameter angegebenen URL.
+  - : Lädt die Ressource unter der im Parameter angegebenen URL.
 - [`Location.reload()`](/de/docs/Web/API/Location/reload)
-  - : Lädt die aktuelle URL neu, ähnlich wie die Aktualisierungsschaltfläche.
+  - : Lädt die aktuelle URL neu, ähnlich der Aktualisieren-Schaltfläche.
 - [`Location.replace()`](/de/docs/Web/API/Location/replace)
-  - : Ersetzt die aktuelle Ressource durch die an der angegebenen URL (leitet zur angegebenen URL weiter). Der Unterschied zur `assign()`-Methode und zum Setzen der `href`-Eigenschaft besteht darin, dass nach Verwendung von `replace()` die aktuelle Seite nicht in der Sitzungs-[`History`](/de/docs/Web/API/History) gespeichert wird, was bedeutet, dass der Benutzer die _Zurück_-Taste nicht verwenden kann, um zu ihr zu navigieren.
+  - : Ersetzt die aktuelle Ressource durch die an der angegebenen URL (leitet zur angegebenen URL weiter). Der Unterschied zur Methode `assign()` und beim Setzen der `href`-Eigenschaft besteht darin, dass nach der Verwendung von `replace()` die aktuelle Seite nicht in der Sitzungs-[`History`](/de/docs/Web/API/History) gespeichert wird, was bedeutet, dass der Benutzer nicht die _Zurück_-Schaltfläche verwenden kann, um zu ihr zu navigieren.
 - [`Location.toString()`](/de/docs/Web/API/Location/toString)
-  - : Gibt einen String zurück, der die gesamte URL enthält. Es ist ein Synonym für [`Location.href`](/de/docs/Web/API/Location/href), kann jedoch nicht verwendet werden, um den Wert zu ändern.
+  - : Gibt eine Zeichenfolge zurück, die die gesamte URL enthält. Es ist ein Synonym für [`Location.href`](/de/docs/Web/API/Location/href), kann jedoch nicht verwendet werden, um den Wert zu ändern.
 
 ## Beispiele
 
@@ -170,4 +170,4 @@ location.assign("http://another.site"); // load another page
 ## Siehe auch
 
 - Zwei `Location`-Eigenschaften: [`Window.location`](/de/docs/Web/API/Window/location) und [`Document.location`](/de/docs/Web/API/Document/location).
-- Schnittstellen zur URL-Manipulation: [`URL`](/de/docs/Web/API/URL) und [`URLSearchParams`](/de/docs/Web/API/URLSearchParams).
+- URL-Manipulationsschnittstellen: [`URL`](/de/docs/Web/API/URL) und [`URLSearchParams`](/de/docs/Web/API/URLSearchParams).

@@ -1,20 +1,20 @@
 ---
-title: "HTMLElement: drop Ereignis"
+title: "HTMLElement: drop event"
 short-title: drop
 slug: Web/API/HTMLElement/drop_event
 l10n:
-  sourceCommit: ea4425b74ae0dc1ec17737b4e28d8df2b73f1eae
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef}}
 
-Das **`drop`** Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf einem gültigen Ablageziel abgelegt wird. Um sicherzustellen, dass das `drop` Ereignis immer wie erwartet ausgelöst wird, sollten Sie immer einen Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) in dem Teil Ihres Codes einfügen, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis behandelt.
+Das **`drop`** Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl auf ein gültiges Ziel fallen gelassen wird. Um sicherzustellen, dass das `drop` Ereignis immer wie erwartet ausgelöst wird, sollten Sie immer einen Aufruf von [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) im Teil Ihres Codes einfügen, der das [`dragover`](/de/docs/Web/API/HTMLElement/dragover_event) Ereignis verarbeitet.
 
-Dieses Ereignis ist abbrechbar und kann bis zum [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) Objekt hoch blubbern.
+Dieses Ereignis kann abgebrochen werden und kann bis zu den [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) Objekten hochblasen.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("drop", (event) => {});
@@ -39,13 +39,13 @@ _Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften von der
 
 ### Ein minimales Drag-and-Drop-Beispiel
 
-In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie, das Element zu greifen, es über den anderen Container zu ziehen und es freizugeben.
 
-Wir verwenden hier drei Ereignis-Handler:
+Wir verwenden hier drei Ereignishandler:
 
-- im `dragstart` Ereignis-Handler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat
-- im `dragover` Ereignis-Handler für den Ziel-Container rufen wir `event.preventDefault()` auf, wodurch es in der Lage ist, `drop` Ereignisse zu empfangen.
-- im `drop` Ereignis-Handler für die Ablagezone behandeln wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Ablagezone.
+- Im `dragstart` Ereignishandler erhalten wir eine Referenz zu dem Element, das der Benutzer gezogen hat.
+- Im `dragover` Ereignishandler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop` Ereignisse zu empfangen.
+- Im `drop` Ereignishandler für die Zielzone bearbeiten wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Zielzone.
 
 Für ein vollständigeres Beispiel für Drag and Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
 
@@ -55,7 +55,7 @@ Für ein vollständigeres Beispiel für Drag and Drop siehe die Seite für das [
 <div class="dropzone">
   <div id="draggable" draggable="true">This div is draggable</div>
 </div>
-<div class="dropzone" id="droptarget"></div>
+<div class="dropzone" id="drop-target"></div>
 ```
 
 #### CSS
@@ -91,7 +91,7 @@ source.addEventListener("dragstart", (event) => {
   dragged = event.target;
 });
 
-const target = document.getElementById("droptarget");
+const target = document.getElementById("drop-target");
 target.addEventListener("dragover", (event) => {
   // prevent default to allow drop
   event.preventDefault();

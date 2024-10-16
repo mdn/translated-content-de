@@ -3,7 +3,7 @@ title: "HTMLFormElement: acceptCharset-Eigenschaft"
 short-title: acceptCharset
 slug: Web/API/HTMLFormElement/acceptCharset
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef("HTML DOM")}}
@@ -17,7 +17,7 @@ Ein String.
 ## Beispiele
 
 ```js
-let inputs = document.forms["myform"].acceptCharset;
+let inputs = document.forms["my-form"].acceptCharset;
 ```
 
 ## Spezifikationen

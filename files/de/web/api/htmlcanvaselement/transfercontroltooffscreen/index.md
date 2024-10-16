@@ -1,14 +1,14 @@
 ---
-title: "HTMLCanvasElement: transferControlToOffscreen()-Methode"
+title: "HTMLCanvasElement: transferControlToOffscreen() Methode"
 short-title: transferControlToOffscreen()
 slug: Web/API/HTMLCanvasElement/transferControlToOffscreen
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef("Canvas API")}}
 
-Die **`HTMLCanvasElement.transferControlToOffscreen()`**-Methode überträgt die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt, entweder im Haupt-Thread oder in einem Worker.
+Die **`HTMLCanvasElement.transferControlToOffscreen()`** Methode überträgt die Kontrolle an ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt, entweder im Haupt-Thread oder in einem Worker.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt.
+Ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt im Haupt-Thread übertragen wird.
+Das folgende Beispiel zeigt, wie die Kontrolle an ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt im Haupt-Thread übertragen wird.
 
 ```js
 const htmlCanvas = document.createElement("canvas");
@@ -36,11 +36,11 @@ const gl = offscreen.getContext("webgl");
 // Some drawing using the gl context…
 ```
 
-Das folgende Beispiel zeigt, wie die Kontrolle auf ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Objekt in einem Worker übertragen wird.
+Das folgende Beispiel zeigt, wie die Kontrolle an ein [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) Objekt in einem Worker übertragen wird.
 
 ```js
 const offscreen = document.querySelector("canvas").transferControlToOffscreen();
-const worker = new Worker("myworkerurl.js");
+const worker = new Worker("my-worker-url.js");
 worker.postMessage({ canvas: offscreen }, [offscreen]);
 ```
 

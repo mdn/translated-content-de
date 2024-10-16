@@ -3,16 +3,16 @@ title: "HTMLElement: offsetLeft-Eigenschaft"
 short-title: offsetLeft
 slug: Web/API/HTMLElement/offsetLeft
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die schreibgeschützte Eigenschaft **`HTMLElement.offsetLeft`** gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements nach links innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens verschoben ist.
+Die **`HTMLElement.offsetLeft`** Nur-Lese-Eigenschaft gibt die Anzahl der Pixel zurück, um die die _obere linke Ecke_ des aktuellen Elements innerhalb des [`HTMLElement.offsetParent`](/de/docs/Web/API/HTMLElement/offsetParent)-Knotens nach links versetzt ist.
 
-Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` den Rahmen eines Elements relativ zum `offsetParent`.
+Für Block-Elemente beschreiben `offsetTop`, `offsetLeft`, `offsetWidth` und `offsetHeight` den Rahmenkasten eines Elements relativ zum `offsetParent`.
 
-Bei Inline-Elementen (wie **span**), die von einer Zeile zur nächsten umbrochen werden können, beschreiben `offsetTop` und `offsetLeft` die Positionen des _ersten_ Rahmenkastens (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um seine Breite und Höhe zu erhalten), während `offsetWidth` und `offsetHeight` die Abmessungen des _umschließenden_ Rahmenkastens beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um seine Position zu erhalten). Daher wird ein Kasten mit den Ecken `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` kein umschließender Kasten für ein Span mit umbrochenem Text sein.
+Für Inline-Elemente (wie **span**), die von einer Zeile zur nächsten umbrochen werden können, beschreiben `offsetTop` und `offsetLeft` jedoch die Positionen des _ersten_ Rahmenkastens (verwenden Sie [`Element.getClientRects()`](/de/docs/Web/API/Element/getClientRects), um dessen Breite und Höhe zu ermitteln), während `offsetWidth` und `offsetHeight` die Abmessungen des _umschließenden_ Rahmenkastens beschreiben (verwenden Sie [`Element.getBoundingClientRect()`](/de/docs/Web/API/Element/getBoundingClientRect), um dessen Position zu ermitteln). Daher wird eine Box mit den Werten `offsetLeft`, `offsetTop`, `offsetWidth` und `offsetHeight` kein Begrenzungsrahmen für einen span mit umbrochenem Text sein.
 
 ## Wert
 
@@ -29,15 +29,15 @@ if (tOLeft > 5) {
 }
 ```
 
-Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Div mit blauem Rahmen umbrochen wird, und eine rote Box, von der man denken könnte, dass sie die Grenzen des Spans beschreibt.
+Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines div mit einem blauen Rahmen umbrochen wird, und einen roten Kasten, von dem man meinen könnte, er sollte die Grenzen des span beschreiben.
 
-![Ein Satz, der lautet: Kurzer Span. Dieser Text befindet sich vollständig innerhalb eines Div mit blauem Rahmen. Ein Satz, der lautet: Langer Span, der innerhalb dieses Div umbrochen wird. Die Wörter "langer Span, der umbrochen wird" befinden sich in einer Box mit rotem Rahmen. Die Wörter "innerhalb dieses Div" befinden sich im Div mit dem blauen Rahmen.](offsetleft.jpg)
+![Ein Satz, der lautet: Kurzer span. Dieser Text befindet sich vollständig innerhalb eines div mit einem blauen Rahmen. Ein Satz, der lautet: Langer span, der innerhalb dieses div umbricht. Die Worte "langer span, der umbricht" befinden sich in einem Kasten mit rotem Rahmen. Die Worte "innerhalb dieses div" befinden sich innerhalb des div mit dem blauen Rahmen.](offsetleft.jpg)
 
 ```html
 <div
   style="width: 300px; border-color:blue; border-style:solid; border-width:1;">
   <span>Short span. </span>
-  <span id="longspan">Long span that wraps within this div.</span>
+  <span id="long-span">Long span that wraps within this div.</span>
 </div>
 
 <div
@@ -46,11 +46,11 @@ Dieses Beispiel zeigt einen 'langen' Satz, der innerhalb eines Div mit blauem Ra
 
 <script>
   const box = document.getElementById("box");
-  const longspan = document.getElementById("longspan");
-  box.style.left = longspan.offsetLeft + document.body.scrollLeft + "px";
-  box.style.top = longspan.offsetTop + document.body.scrollTop + "px";
-  box.style.width = longspan.offsetWidth + "px";
-  box.style.height = longspan.offsetHeight + "px";
+  const longSpan = document.getElementById("long-span");
+  box.style.left = longSpan.offsetLeft + document.body.scrollLeft + "px";
+  box.style.top = longSpan.offsetTop + document.body.scrollTop + "px";
+  box.style.width = longSpan.offsetWidth + "px";
+  box.style.height = longSpan.offsetHeight + "px";
 </script>
 ```
 

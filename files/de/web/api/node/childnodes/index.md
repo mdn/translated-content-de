@@ -1,45 +1,45 @@
 ---
-title: "Node: Eigenschaft childNodes"
+title: "Node: childNodes-Eigenschaft"
 short-title: childNodes
 slug: Web/API/Node/childNodes
 l10n:
-  sourceCommit: cfb7587e3e3122630ad6cbd94d834ecadbe0a746
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`childNodes`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt eine Live-[`NodeList`](/de/docs/Web/API/NodeList) der Kind-[`Knoten`](/de/docs/Web/API/Node) des angegebenen Elements zurück, wobei der erste Kindknoten den Index `0` erhält. Kindknoten umfassen Elemente, Text und Kommentare.
+Die schreibgeschützte **`childNodes`**-Eigenschaft der [`Node`](/de/docs/Web/API/Node)-Schnittstelle gibt eine Live-`NodeList` der Kind-`nodes` des gegebenen Elements zurück, wobei dem ersten Kindknoten der Index `0` zugewiesen wird. Kindknoten umfassen Elemente, Text und Kommentare.
 
 > [!NOTE]
-> Die `NodeList` ist live, was bedeutet, dass sich ihr Inhalt ändert, sobald neue Kinder hinzugefügt oder entfernt werden.
+> Dass die [`NodeList`](/de/docs/Web/API/NodeList) live ist, bedeutet, dass sich ihr Inhalt ändert, jedes Mal wenn neue Kinder hinzugefügt oder entfernt werden.
 >
-> Browser fügen einem Dokument Textknoten hinzu, um Leerzeichen im Quellmarkup darzustellen. Daher kann ein Knoten, der zum Beispiel mit `Node.childNodes[0]` abgerufen wird, auf einen Leerzeichentextknoten verweisen, anstatt auf das eigentliche Element, das der Autor abrufen wollte.
+> Browser fügen Textknoten in ein Dokument ein, um Leerzeichen im Quellmarkup darzustellen. Daher kann ein Knoten, der zum Beispiel mit `Node.childNodes[0]` abgerufen wird, sich auf einen Leerzeichen-Textknoten beziehen, anstatt auf das tatsächliche Element, das der Autor in der Absicht hatte zu erhalten.
 >
-> Weitere Informationen finden Sie unter [Leerzeichen im DOM](/de/docs/Web/API/Document_Object_Model/Whitespace).
+> Siehe [Leerzeichen im DOM](/de/docs/Web/API/Document_Object_Model/Whitespace) für mehr Informationen.
 
-Die Elemente in der Sammlung von Knoten sind Objekte, keine Zeichenfolgen. Um Daten von Knotenobjekten zu erhalten, verwenden Sie deren Eigenschaften. Um beispielsweise den Namen des ersten childNode zu erhalten, können Sie `elementNodeReference.childNodes[0].nodeName` verwenden.
+Die Elemente innerhalb der Sammlung von Knoten sind Objekte, keine Zeichenketten. Um Daten aus Knotenobjekten zu erhalten, verwenden Sie deren Eigenschaften. Um beispielsweise den Namen des ersten `childNode` zu erhalten, können Sie `elementNodeReference.childNodes[0].nodeName` verwenden.
 
-Das [`document`](/de/docs/Web/API/Document)-Objekt selbst hat zwei Kinder: die Doctype-Deklaration und das Root-Element, das normalerweise als `documentElement` bezeichnet wird. In HTML-Dokumenten ist letzteres das {{HTMLElement("html")}}-Element.
+Das [`document`](/de/docs/Web/API/Document)-Objekt selbst hat zwei Kinder: die Doctype-Deklaration und das Wurzelelement, das typischerweise als `documentElement` bezeichnet wird. In HTML-Dokumenten ist letzteres das {{HTMLElement("html")}}-Element.
 
-Es ist wichtig zu beachten, dass `childNodes` _alle_ Kindknoten umfasst, einschließlich Nicht-Element-Knoten wie Text und Kommentar. Um eine Sammlung zu erhalten, die nur Elemente enthält, verwenden Sie stattdessen [`Element.children`](/de/docs/Web/API/Element/children).
+Es ist wichtig zu beachten, dass `childNodes` _alle_ Kindknoten einschließt, einschließlich Nicht-Element-Knoten wie Text und Kommentar. Um eine Sammlung zu erhalten, die nur Elemente enthält, verwenden Sie stattdessen [`Element.children`](/de/docs/Web/API/Element/children).
 
 ## Wert
 
-Eine Live-[`NodeList`](/de/docs/Web/API/NodeList), die die Kinder des Knotens enthält.
+Eine Live-`NodeList`, die die Kinder des Knotens enthält.
 
 > [!NOTE]
-> Mehrere Aufrufe von `childNodes` geben die _gleiche_ [`NodeList`](/de/docs/Web/API/NodeList) zurück.
+> Mehrere Aufrufe von `childNodes` geben die _gleiche_ `NodeList` zurück.
 
 ## Beispiele
 
 ### Einfache Verwendung
 
 ```js
-// Note that parg is an object reference to a <p> element
+// Note that para is an object reference to a <p> element
 
 // First check that the element has child nodes
-if (parg.hasChildNodes()) {
-  let children = parg.childNodes;
+if (para.hasChildNodes()) {
+  let children = para.childNodes;
 
   for (const node of children) {
     // Do something with each child as children[i]

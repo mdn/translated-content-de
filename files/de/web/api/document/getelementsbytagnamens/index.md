@@ -1,14 +1,14 @@
 ---
-title: "Document: getElementsByTagNameNS() Methode"
+title: "Dokumentation: getElementsByTagNameNS() Methode"
 short-title: getElementsByTagNameNS()
 slug: Web/API/Document/getElementsByTagNameNS
 l10n:
-  sourceCommit: a2a069e9e9a1a2375d57591e8b6cb878bd4dde97
+  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
 ---
 
 {{APIRef("DOM")}}
 
-Gibt eine Liste von Elementen mit dem angegebenen Tag-Namen zurück, die zum angegebenen Namensraum gehören. Das gesamte Dokument wird durchsucht, einschließlich des Stammknotens.
+Gibt eine Liste von Elementen mit dem gegebenen Tag-Namen zurück, die zum angegebenen Namensraum gehören. Das gesamte Dokument wird durchsucht, einschließlich des Wurzelknotens.
 
 ## Syntax
 
@@ -25,7 +25,7 @@ getElementsByTagNameNS(namespace, name)
   - : Entweder der lokale Name der zu suchenden Elemente oder der spezielle Wert `*`, der alle Elemente abgleicht (siehe [`element.localName`](/de/docs/Web/API/Element/localName)).
 
     > [!NOTE]
-    > Im Gegensatz zu [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName) sind die Parameter für `getElementsByTagNameNS()` groß-/kleinschreibungssensitiv.
+    > Im Gegensatz zu [`document.getElementsByTagName()`](/de/docs/Web/API/Document/getElementsByTagName) sind die Parameter für `getElementsByTagNameNS()` case-sensitiv.
 
 ### Rückgabewert
 
@@ -33,11 +33,15 @@ Ein Live-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der gefundenen Elem
 
 ## Beispiele
 
-Im folgenden Beispiel beginnt `getElementsByTagNameNS` von einem bestimmten Elternelement aus und durchsucht rekursiv von oben nach unten durch das DOM ab diesem Elternelement, um Kindelemente zu finden, die mit dem Tag `name` Parameter übereinstimmen.
+Im folgenden Beispiel beginnt `getElementsByTagNameNS` von einem bestimmten
+Elternelement aus und sucht rekursiv von oben nach unten durch das DOM ab diesem
+Elternelement, wobei nach Kindelementen gesucht wird, die dem Tag-`name`-Parameter entsprechen.
 
-Beachten Sie, dass, wenn der Knoten, auf dem `getElementsByTagName` aufgerufen wird, nicht der `document`-Knoten ist, in der Tat die [`element.getElementsByTagNameNS`](/de/docs/Web/API/Element/getElementsByTagNameNS) Methode verwendet wird.
+Beachten Sie, dass wenn der Knoten, auf dem `getElementsByTagName` aufgerufen wird, nicht
+der `document`-Knoten ist, tatsächlich die
+[`element.getElementsByTagNameNS`](/de/docs/Web/API/Element/getElementsByTagNameNS)-Methode verwendet wird.
 
-Um das folgende Beispiel zu verwenden, kopieren Sie es einfach in eine neue Datei, die mit der Erweiterung .xhtml gespeichert wird.
+Um das folgende Beispiel zu verwenden, kopieren Sie es einfach und fügen Sie es in eine neue Datei ein, die mit der .xhtml-Erweiterung gespeichert wird.
 
 ```html
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">

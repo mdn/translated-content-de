@@ -3,7 +3,7 @@ title: "HTMLInputElement: multiple-Eigenschaft"
 short-title: multiple
 slug: Web/API/HTMLInputElement/multiple
 l10n:
-  sourceCommit: 0439b2541593acbc358e921ff9ff0bf6510c81e3
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{ APIRef("HTML DOM") }}
@@ -17,11 +17,11 @@ Ein boolescher Wert.
 ## Beispiele
 
 ```html
-<input id="myfileinput" type="file" multiple />
+<input id="my-file-input" type="file" multiple />
 ```
 
 ```js
-let fileInput = document.getElementById("myfileinput");
+let fileInput = document.getElementById("my-file-input");
 
 if (fileInput.multiple) {
   // Loop fileInput.files
@@ -45,4 +45,4 @@ if (fileInput.multiple) {
 ## Siehe auch
 
 - [FileList](/de/docs/Web/API/FileList)
-- [Bug 523771](https://bugzil.la/523771) - Unterstützung für \<input type=file multiple>
+- [Bug 523771](https://bugzil.la/523771) - Support \<input type=file multiple>

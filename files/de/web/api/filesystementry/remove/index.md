@@ -3,14 +3,14 @@ title: "FileSystemEntry: remove() Methode"
 short-title: remove()
 slug: Web/API/FileSystemEntry/remove
 l10n:
-  sourceCommit: e4cc8b707a1056c14a6316079798b95cb39b725f
+  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Die Methode **`remove()`** der Schnittstelle [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
+Die Methode **`remove()`** des [`FileSystemEntry`](/de/docs/Web/API/FileSystemEntry) Interfaces löscht die Datei oder das Verzeichnis aus dem Dateisystem. Verzeichnisse müssen leer sein, bevor sie entfernt werden können.
 
-Um ein Verzeichnis rekursiv zu löschen sowie alle seine Inhalte und Unterverzeichnisse, rufen Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) auf.
+Um ein Verzeichnis, seinen gesamten Inhalt und seine Unterverzeichnisse rekursiv zu entfernen, rufen Sie stattdessen [`FileSystemDirectoryEntry.removeRecursively()`](/de/docs/Web/API/FileSystemDirectoryEntry/removeRecursively) auf.
 
 ## Syntax
 
@@ -33,15 +33,15 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `FileError.INVALID_MODIFICATION_ERR`
-  - : Der angegebene Eintrag war das Stammverzeichnis des Dateisystems oder der angegebene Eintrag ist ein Verzeichnis, das nicht leer ist.
+  - : Der angegebene Eintrag war das Wurzelverzeichnis des Dateisystems, oder der angegebene Eintrag ist ein Verzeichnis, das nicht leer ist.
 - `FileError.INVALID_STATE_ERR`
-  - : Der zwischengespeicherte Zustand des Dateisystems ist inkonsistent mit seinem Zustand auf der Festplatte, daher konnte die Datei aus Sicherheitsgründen nicht gelöscht werden.
+  - : Der zwischengespeicherte Zustand des Dateisystems ist nicht mit seinem Zustand auf der Festplatte konsistent, so dass die Datei aus Sicherheitsgründen nicht gelöscht werden konnte.
 - `FileError.NO_MODIFICATION_ALLOWED_ERR`
-  - : Der Zustand des Dateisystems erlaubt das Entfernen der Datei oder des Verzeichnisses nicht.
+  - : Der Zustand des Dateisystems erlaubt es nicht, die Datei oder das Verzeichnis zu entfernen.
 - `FileError.NOT_FOUND_ERR`
   - : Die Datei oder das Verzeichnis existiert nicht.
 - `FileError.SECURITY_ERR`
-  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbeschränkungen nicht entfernt werden, oder weil zu viele Aufrufe an Dateiresourcen gemacht werden.
+  - : Der Eintrag konnte aufgrund von Berechtigungen oder anderen Zugriffsbeschränkungen nicht entfernt werden, oder weil zu viele Aufrufe auf Dateiresourcen gemacht werden.
 
 ## Beispiele
 
@@ -49,7 +49,7 @@ Dieses Beispiel löscht eine temporäre Arbeitsdatei.
 
 ```js
 workingDirectory.getFile(
-  "tmp/workfile.json",
+  "tmp/work-file.json",
   {},
   (fileEntry) => {
     fileEntry.remove(() => {

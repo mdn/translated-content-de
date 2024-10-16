@@ -1,14 +1,14 @@
 ---
-title: "Document: Methode createComment()"
+title: "Dokument: createComment()-Methode"
 short-title: createComment()
 slug: Web/API/Document/createComment
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
 ---
 
 {{APIRef("DOM")}}
 
-Die Methode **`createComment()`** erstellt einen neuen Kommentar-Knoten und gibt ihn zurück.
+**`createComment()`** erstellt einen neuen Kommentarknoten und gibt ihn zurück.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ createComment(data)
 ### Parameter
 
 - `data`
-  - : Ein String, der die in den Kommentar einzufügenden Daten enthält.
+  - : Ein String, der die dem Kommentar hinzuzufügenden Daten enthält.
 
 ### Rückgabewert
 
@@ -28,14 +28,14 @@ Ein neues [`Comment`](/de/docs/Web/API/Comment)-Objekt.
 ## Beispiele
 
 ```js
-const docu = new DOMParser().parseFromString("<xml></xml>", "application/xml");
-const comment = docu.createComment(
+const doc = new DOMParser().parseFromString("<xml></xml>", "application/xml");
+const comment = doc.createComment(
   "This is a not-so-secret comment in your document",
 );
 
-docu.querySelector("xml").appendChild(comment);
+doc.querySelector("xml").appendChild(comment);
 
-console.log(new XMLSerializer().serializeToString(docu));
+console.log(new XMLSerializer().serializeToString(doc));
 // Displays: <xml><!--This is a not-so-secret comment in your document--></xml>
 ```
 

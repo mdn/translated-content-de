@@ -2,20 +2,20 @@
 title: Fills und Strokes
 slug: Web/SVG/Tutorial/Fills_and_Strokes
 l10n:
-  sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
+  sourceCommit: 2b26cc6e576d23f68fdf992767da81de9707965e
 ---
 
 {{SVGRef}}
 
 {{ PreviousNext("Web/SVG/Tutorial/Paths", "Web/SVG/Tutorial/Gradients") }}
 
-Es gibt mehrere Möglichkeiten, Formen zu färben (einschließlich der Spezifizierung von Attributen am Objekt) unter Verwendung von inline {{Glossary("CSS", "CSS")}}, einem eingebetteten CSS-Abschnitt oder einer externen CSS-Datei. Die meisten {{Glossary("SVG", "SVG")}}, die Sie im Web finden, verwenden inline CSS, aber es gibt Vor- und Nachteile, die mit jedem Typ verbunden sind.
+Es gibt mehrere Möglichkeiten, Formen zu färben (einschließlich der Angabe von Attributen am Objekt) mithilfe von inline {{Glossary("CSS", "CSS")}}, einem eingebetteten CSS-Abschnitt oder einer externen CSS-Datei. Die meisten {{Glossary("SVG", "SVG")}}, die Sie im Internet finden, verwenden inline CSS, aber es gibt Vorteile und Nachteile im Zusammenhang mit jedem Typ.
 
 ## Fill- und Stroke-Attribute
 
 ### Malen
 
-Grundlegende Farbgebung kann erreicht werden, indem zwei Attribute am Knoten gesetzt werden: `fill` und `stroke`. Mit `fill` wird die Farbe innerhalb des Objekts gesetzt, und `stroke` setzt die Farbe der Linie, die um das Objekt gezeichnet wird. Sie können dieselben CSS-Farbbenennungen verwenden, die Sie in HTML verwenden, sei es Farbnamen (wie `red`), rgb-Werte (wie `rgb(255 0 0)`), hex-Werte usw.
+Grundfarben können durch Setzen von zwei Attributen am Knoten festgelegt werden: `fill` und `stroke`. Mit `fill` wird die Farbe innerhalb des Objekts festgelegt und mit `stroke` die Farbe der Linie, die um das Objekt gezeichnet wird. Sie können dieselben CSS-Farbschemata verwenden, die Sie in HTML verwenden, egal ob es sich um Farbnamen (wie `red`), RGB-Werte (wie `rgb(255 0 0)`), Hex-Werte usw. handelt.
 
 ```html
 <?xml version="1.0" standalone="no"?>
@@ -35,13 +35,13 @@ Grundlegende Farbgebung kann erreicht werden, indem zwei Attribute am Knoten ges
 
 {{EmbedLiveSample("Painting", "100%", 150)}}
 
-Darüber hinaus können Sie die Deckkraft von entweder `fill` oder `stroke` separat in SVG angeben. Diese werden durch die Attribute `fill-opacity` und `stroke-opacity` gesteuert.
+Zusätzlich können Sie in SVG die Deckkraft von entweder `fill` oder `stroke` separat angeben. Diese werden durch die Attribute `fill-opacity` und `stroke-opacity` gesteuert.
 
 ### Stroke
 
-Zusätzlich zu seinen Farbeigenschaften gibt es einige andere Attribute, die verfügbar sind, um zu steuern, wie ein Stroke auf einer Linie gezeichnet wird.
+Zusätzlich zu seinen Farbeigenschaften gibt es einige weitere Attribute, um zu steuern, wie ein Strich auf einer Linie gezeichnet wird.
 
-![Das Attribut stroke-linecap ändert das Aussehen der Enden dieser Linien: square fügt einen quadratischen Abschluss hinzu, round bietet einen abgerundeten Abschluss, und butt entfernt die Abschlüsse](svg_stroke_linecap_example.png)
+![Das Attribut stroke-linecap ändert das Aussehen dieser Strichenden: square fügt eine quadratische Kappe hinzu, round sorgt für eine abgerundete Kappe, und butt entfernt die Kappe.](svg_stroke_linecap_example.png)
 
 ```xml
 <?xml version="1.0" standalone="no"?>
@@ -52,19 +52,19 @@ Zusätzlich zu seinen Farbeigenschaften gibt es einige andere Attribute, die ver
 </svg>
 ```
 
-Das `stroke-width`-Attribut definiert die Breite dieses Strokes. Strokes werden zentriert um den Pfad gezeichnet. Im obigen Beispiel wird der Pfad in Pink gezeigt und der Stroke in Schwarz.
+Das Attribut `stroke-width` definiert die Breite dieses Strichs. Striche werden zentriert um den Pfad gezeichnet. Im obigen Beispiel wird der Pfad in Pink und der Strich in Schwarz gezeigt.
 
-Das zweite Attribut, das Strokes beeinflusst, ist das `stroke-linecap`-Attribut, wie oben demonstriert. Dies steuert die Form der Enden von Linien.
+Das zweite Attribut, das Striche beeinflusst, ist das eigens demonstrierte Attribut `stroke-linecap`. Dieses steuert die Form der Enden von Linien.
 
 Es gibt drei mögliche Werte für `stroke-linecap`:
 
-- `butt` schließt die Linie mit einem geraden Rand ab, der normal (im 90-Grad-Winkel) zur Richtung des Strokes ist und dessen Ende kreuzt.
-- `square` hat im Wesentlichen das gleiche Erscheinungsbild, dehnt jedoch den Stroke etwas über den tatsächlichen Pfad hinaus. Die Strecke, die der Stroke über den Pfad hinausgeht, beträgt die Hälfte der `stroke-width`.
-- `round` erzeugt einen abgerundeten Effekt am Ende des Strokes. Der Radius dieser Kurve wird ebenfalls durch die `stroke-width` gesteuert.
+- `butt` schließt die Linie mit einer geraden Kante ab, die normal (im 90-Grad-Winkel) zur Richtung des Strichs steht und dessen Ende durchquert.
+- `square` hat im Wesentlichen das gleiche Aussehen, dehnt den Strich jedoch leicht über den tatsächlichen Pfad hinaus. Der Abstand, den der Strich über den Pfad hinausgeht, beträgt die Hälfte der `stroke-width`.
+- `round` erzeugt einen abgerundeten Effekt am Ende des Strichs. Der Radius dieser Krümmung wird ebenfalls durch die `stroke-width` gesteuert.
 
-Verwenden Sie `stroke-linejoin`, um zu kontrollieren, wie die Verbindung zwischen zwei Liniensegmenten gezeichnet wird.
+Verwenden Sie `stroke-linejoin`, um zu steuern, wie die Verbindung zwischen zwei Liniensegmenten gezeichnet wird.
 
-![Das Attribut stroke-linejoin ändert das Aussehen an dem Punkt, an dem sich zwei Linien verbinden, wobei miter eine abgewinkelte Verbindung erzeugt, round die Ecke abrundet und bevel eine abgeschrägte Kante erzeugt, die die Ecke abflacht.](svg_stroke_linejoin_example.png)
+![Das Attribut stroke-linejoin verändert das Aussehen an der Stelle, an der zwei Linien zusammentreffen, wobei miter eine eckige Verbindung schafft, round die Ecke abrundet und bevel eine abgeschrägte Kante schafft, die die Ecke abflacht.](svg_stroke_linejoin_example.png)
 
 ```xml
 <?xml version="1.0" standalone="no"?>
@@ -80,11 +80,11 @@ Verwenden Sie `stroke-linejoin`, um zu kontrollieren, wie die Verbindung zwische
 </svg>
 ```
 
-Jede dieser Polylinien hat zwei Segmente. Die Verbindung, an der sich die beiden treffen, wird durch das `stroke-linejoin`-Attribut gesteuert. Für dieses Attribut gibt es drei mögliche Werte. `miter` verlängert die Linie leicht über ihre normale Breite hinaus, um eine quadratische Ecke zu erzeugen, bei der nur ein Winkel verwendet wird. `round` erzeugt ein abgerundetes Liniensegment. `bevel` erstellt einen neuen Winkel, um den Übergang zwischen den beiden Segmenten zu erleichtern.
+Jede dieser Polylinien hat zwei Segmente. Die Verbindung, an der sich die beiden treffen, wird durch das Attribut `stroke-linejoin` gesteuert. Es gibt drei mögliche Werte für dieses Attribut. `miter` verlängert die Linie leicht über ihre normale Breite hinaus, um eine rechtwinklige Ecke zu erzeugen, bei der nur ein Winkel verwendet wird. `round` erzeugt ein abgerundetes Liniensegment. `bevel` schafft einen neuen Winkel, um den Übergang zwischen den beiden Segmenten zu unterstützen.
 
-Schließlich können Sie auch gestrichelte Linientypen auf einem Stroke verwenden, indem Sie das `stroke-dasharray`-Attribut spezifizieren.
+Schließlich können Sie auch gestrichelte Linientypen auf einen Strich anwenden, indem Sie das Attribut `stroke-dasharray` angeben.
 
-![Zwei benutzerdefinierte gestrichelte Linien, eine mit gleichmäßig verteilten Strichen und eine andere mit einem Langstrich-Kurzstrich unter Verwendung eines stroke-dasharray-Attributwerts.](svg_stroke_dasharray_example.png)
+![Zwei benutzerdefinierte gestrichelte Linien, eine mit gleichmäßig verteilten Strichen und die andere mit einem Langstrich-Kurzstrich unter Verwendung eines stroke-dasharray-Attributwerts.](svg_stroke_dasharray_example.png)
 
 ```xml
 <?xml version="1.0" standalone="no"?>
@@ -96,15 +96,15 @@ Schließlich können Sie auch gestrichelte Linientypen auf einem Stroke verwende
 </svg>
 ```
 
-Das `stroke-dasharray`-Attribut kann eine Reihe von durch Kommas und/oder Leerzeichen getrennten Zahlen als Argument annehmen.
+Das Attribut `stroke-dasharray` kann eine Reihe durch Kommas und/oder Leerzeichen getrennte Zahlen als Argument annehmen.
 
-Die erste Zahl gibt einen Abstand für den gefüllten Bereich an, und die zweite einen Abstand für den ungefüllten Bereich. Im obigen Beispiel füllt der zweite Pfad 5 Pixeleinheiten und hat 5 leere Einheiten bis zum nächsten Strich von 5 Einheiten. Sie können mehr Zahlen angeben, wenn Sie ein komplizierteres Strichmuster wünschen. Das erste Beispiel gibt drei Zahlen an, in welchem Fall der Renderer die Zahlen zweimal durchläuft, um ein gleichmäßiges Muster zu erstellen. Der erste Pfad rendert also 5 gefüllte, 10 leere, 5 gefüllte und wiederholt dann, um 5 leere, 10 gefüllte, 5 leere zu erstellen. Das Muster wiederholt sich dann.
+Die erste Zahl gibt einen Abstand für den gefüllten Bereich an und die zweite einen Abstand für den ungefüllten Bereich. Im obigen Beispiel füllt der zweite Pfad 5 Pixeleinheiten, mit 5 leeren Einheiten bis zum nächsten Strich von 5 Einheiten. Sie können mehr Zahlen angeben, wenn Sie ein komplizierteres Strichmuster wünschen. Das erste Beispiel gibt drei Zahlen an, wobei der Renderer die Zahlen zweimal durchläuft, um ein gleichmäßiges Muster zu erzeugen. So rendert der erste Pfad 5 gefüllte, 10 leere, 5 gefüllte und dann wiederholt sich das Muster mit 5 leeren, 10 gefüllten, 5 leeren Einheiten. Das Muster wiederholt sich dann.
 
-Es gibt zusätzliche `stroke`- und `fill`-Eigenschaften, einschließlich `fill-rule`, die spezifiziert, wie Formen eingefärbt werden, die sich selbst überlappen; [`stroke-miterlimit`](/de/docs/Web/SVG/Attribute/stroke-miterlimit), die festlegt, ob ein Stroke Mitren zeichnen soll; und [stroke-dashoffset](/de/docs/Web/SVG/Attribute/stroke-dashoffset), der festlegt, wo eine Strichmusterreihe auf einer Linie beginnen soll.
+Es gibt zusätzliche `stroke`- und `fill`-Eigenschaften, einschließlich `fill-rule`, welches angibt, wie überlappende Formen eingefärbt werden sollen; [`stroke-miterlimit`](/de/docs/Web/SVG/Attribute/stroke-miterlimit), welches bestimmt, ob ein Strich Mitren zeichnen soll; und [stroke-dashoffset](/de/docs/Web/SVG/Attribute/stroke-dashoffset), welches angibt, wo ein Strichmuster auf einer Linie beginnen soll.
 
-### Malreihenfolge
+### Auftrag der Farbe
 
-Die Reihenfolge, in der `fill` und `stroke` gemalt werden, kann mit dem [`paint-order`](/de/docs/Web/SVG/Attribute/paint-order)-Attribut gesteuert werden.
+Die Reihenfolge, in der Fill und Stroke gezeichnet werden, kann mit dem Attribut [`paint-order`](/de/docs/Web/SVG/Attribute/paint-order) gesteuert werden.
 
 ```html
 <?xml version="1.0" standalone="no"?>
@@ -127,23 +127,23 @@ Die Reihenfolge, in der `fill` und `stroke` gemalt werden, kann mit dem [`paint-
 
 {{EmbedLiveSample("Paint order", "100%", 180)}}
 
-Im Fall der ersten Form wurde der `fill` vor dem `stroke` gerendert, sodass der schwarze `stroke` über dem `fill` erscheint.
-Im Fall der zweiten Form wurde der `stroke` vor dem `fill` gerendert.
+Im Fall der ersten Form wurde der Fill vor dem Stroke gerendert, sodass der schwarze Stroke über dem Fill erscheint.
+Im Fall der zweiten Form wurde der Stroke vor dem Fill gerendert.
 
 ## Verwendung von CSS
 
-Zusätzlich zum Setzen von Attributen auf Objekten können Sie auch CSS verwenden, um Füllungen und Strokes zu stylen. Nicht alle Attribute können über CSS gesetzt werden. Attribute, die sich mit Malen und Füllen beschäftigen, sind normalerweise verfügbar, sodass `fill`, `stroke`, `stroke-dasharray` usw. auf diese Weise festgelegt werden können, zusätzlich zu den unten gezeigten Gradienten- und Muster-Versionen. Attribute wie `width`, `height` oder {{SVGElement("path")}}-Befehle können nicht über CSS gesetzt werden. Es ist am einfachsten, einfach zu testen und herauszufinden, was verfügbar ist und was nicht.
+Neben dem Setzen von Attributen an Objekten können Sie auch CSS verwenden, um Fill und Stroke zu stylen. Nicht alle Attribute können über CSS gesetzt werden. Attribute, die sich mit Malen und Füllen beschäftigen, sind normalerweise verfügbar, sodass `fill`, `stroke`, `stroke-dasharray` usw. auf diese Weise gesetzt werden können, zusätzlich zu den unten gezeigten Farbverlaufs- und Mustervarianten. Attribute wie `width`, `height` oder {{SVGElement("path")}}-Befehle können nicht über CSS gesetzt werden. Es ist am einfachsten, es einfach zu testen und herauszufinden, was verfügbar ist und was nicht.
 
 > [!NOTE]
-> Die [SVG-Spezifikation](https://www.w3.org/TR/SVG/propidx.html) unterscheidet streng zwischen Attributen, die _Eigenschaften_ sind, und anderen Attributen. Erstere können mit CSS modifiziert werden, letztere nicht.
+> Die [SVG-Spezifikation](https://www.w3.org/TR/SVG/propidx.html) unterscheidet strikt zwischen Attributen, die _Eigenschaften_ sind, und anderen Attributen. Die ersteren können mit CSS modifiziert werden, die letzteren nicht.
 
-CSS kann inline mit dem Element über das `style`-Attribut eingefügt werden:
+CSS kann inline mit dem Element mittels des `style`-Attributs eingefügt werden:
 
 ```xml
  <rect x="10" height="180" y="10" width="180" style="stroke: black; fill: red;"/>
 ```
 
-Oder es kann in einen speziellen Stilabschnitt verschoben werden, den Sie einfügen. Statt eines solchen Abschnitts in einen `<head>`-Bereich wie in HTML einzufügen, wird es in einem Bereich namens {{SVGElement("defs")}} eingefügt.
+Oder es kann in einen speziellen Stilabschnitt verschoben werden, den Sie einfügen. Statt eines solchen Abschnitts in einen `<head>`-Abschnitt wie in HTML zu schieben, wird er jedoch in einen Bereich namens {{SVGElement("defs")}} eingefügt.
 
 {{SVGElement("defs")}} steht für Definitionen, und hier können Sie Elemente erstellen, die nicht direkt im SVG erscheinen, aber von anderen Elementen verwendet werden.
 
@@ -163,7 +163,7 @@ Oder es kann in einen speziellen Stilabschnitt verschoben werden, den Sie einfü
 </svg>
 ```
 
-Das Verschieben von Styles in einen solchen Bereich kann es einfacher machen, Eigenschaften von großen Gruppen von Elementen anzupassen. Sie können auch Dinge wie die **`:hover` Pseudo-Klasse** verwenden, um Rollover-Effekte zu erzeugen:
+Die Verschiebung von Stilen in einen solchen Bereich kann es einfacher machen, Eigenschaften bei großen Gruppen von Elementen zu ändern. Sie können auch Dinge wie die **`:hover`-Pseudo-Klasse** verwenden, um Rollover-Effekte zu erstellen:
 
 ```css
 #MyRect:hover {
@@ -172,7 +172,7 @@ Das Verschieben von Styles in einen solchen Bereich kann es einfacher machen, Ei
 }
 ```
 
-Sie können auch ein externes Stylesheet für Ihre CSS-Regeln durch die [normale XML-Stylesheet-Syntax](https://www.w3.org/TR/xml-stylesheet/) angeben:
+Sie können auch ein externes Stylesheet für Ihre CSS-Regeln über die [normale XML-Stilesheetsyntax](https://www.w3.org/TR/xml-stylesheet/) angeben:
 
 ```xml
 <?xml version="1.0" standalone="no"?>
@@ -183,7 +183,7 @@ Sie können auch ein externes Stylesheet für Ihre CSS-Regeln durch die [normale
 </svg>
 ```
 
-Wo `style.css` ungefähr so aussieht:
+Wobei `style.css` etwa folgendermaßen aussieht:
 
 ```css
 #MyRect {

@@ -3,21 +3,21 @@ title: EXT_shader_texture_lod Erweiterung
 short-title: EXT_shader_texture_lod
 slug: Web/API/EXT_shader_texture_lod
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
 ---
 
 {{APIRef("WebGL")}}
 
-Die **`EXT_shader_texture_lod`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt zusätzliche Texturfunktionen zur OpenGL ES Shading Language hinzu, die dem Shader-Entwickler explizite Kontrolle über LOD ([Level of detail](https://en.wikipedia.org/wiki/Level_of_detail)) bieten.
+Die **`EXT_shader_texture_lod`** Erweiterung ist Teil der [WebGL API](/de/docs/Web/API/WebGL_API) und fügt der OpenGL ES Shading Language zusätzliche Texturfunktionen hinzu, die dem Shader-Autor explizite Kontrolle über den LOD ([Detailstufe](https://de.wikipedia.org/wiki/Level_of_detail)) geben.
 
-WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen, siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
+WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwenden von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Lehrgang](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar. Es erfordert GLSL `#version 300 es`.
+> Diese Erweiterung steht nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte zur Verfügung. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. Es erfordert GLSL `#version 300 es`.
 
 ## GLSL eingebaute Funktionen
 
-Die folgenden neuen Funktionen können in GLSL-Shadercode verwendet werden, wenn diese Erweiterung aktiviert ist:
+Die folgenden neuen Funktionen können im GLSL-Shadercode verwendet werden, falls diese Erweiterung aktiviert ist:
 
 ```cpp
 vec4 texture2DLodEXT(sampler2D sampler, vec2 coord, float lod)
@@ -46,11 +46,11 @@ Shadercode, der Artefakte beim Umwickeln von Texturkoordinaten vermeidet:
   #extension GL_OES_standard_derivatives : enable
 
   uniform sampler2D myTexture;
-  varying vec2 texcoord;
+  varying vec2 texCoord;
 
   void main(){
-    gl_FragColor = texture2DGradEXT(myTexture, mod(texcoord, vec2(0.1, 0.5)),
-                                    dFdx(texcoord), dFdy(texcoord));
+    gl_FragColor = texture2DGradEXT(myTexture, mod(texCoord, vec2(0.1, 0.5)),
+                                    dFdx(texCoord), dFdy(texCoord));
   }
 </script>
 ```

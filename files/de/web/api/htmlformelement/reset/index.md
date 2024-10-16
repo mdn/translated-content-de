@@ -3,16 +3,16 @@ title: "HTMLFormElement: reset() Methode"
 short-title: reset()
 slug: Web/API/HTMLFormElement/reset
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLFormElement.reset()`**-Methode stellt die Standardwerte eines Formularelements wieder her. Diese Methode tut dasselbe wie das Klicken auf die [`<input type="reset">`](/de/docs/Web/HTML/Element/input/reset)-Steuerung des Formulars.
+Die **`HTMLFormElement.reset()`** Methode stellt die Standardwerte eines Formularelements wieder her. Diese Methode funktioniert ebenso wie das Klicken auf das [`<input type="reset">`](/de/docs/Web/HTML/Element/input/reset) Kontroll-Element des Formulars.
 
-Wenn eine Formularkontrolle (wie ein Zurücksetzen-Button) einen Namen oder eine ID von _reset_ hat, wird die `reset`-Methode des Formulars maskiert. Sie setzt keine anderen Attribute im Eingabefeld zurück, wie zum Beispiel `disabled`.
+Wenn ein Formularelement (wie ein Zurücksetz-Button) einen Namen oder eine ID _reset_ hat, wird es die `reset`-Methode des Formulars überdecken. Es setzt keine anderen Attribute im Eingabeelement zurück, wie zum Beispiel `disabled`.
 
-Beachten Sie, dass wenn [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) aufgerufen wird, um den Wert eines bestimmten Attributs festzulegen, ein nachfolgender Aufruf von `reset()` das Attribut nicht auf seinen Standardwert zurücksetzt, sondern stattdessen das Attribut bei dem von [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) gesetzten Wert belässt.
+Beachten Sie, dass wenn [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) aufgerufen wird, um den Wert eines bestimmten Attributs zu setzen, ein anschließender Aufruf von `reset()` das Attribut nicht auf seinen Standardwert zurücksetzt, sondern es bei dem Wert belässt, den der Aufruf von [`setAttribute()`](/de/docs/Web/API/Element/setAttribute) gesetzt hat.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
 ```js
-document.getElementById("myform").reset();
+document.getElementById("my-form").reset();
 ```
 
 ## Spezifikationen

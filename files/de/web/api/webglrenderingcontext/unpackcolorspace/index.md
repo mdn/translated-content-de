@@ -3,14 +3,14 @@ title: "WebGLRenderingContext: unpackColorSpace-Eigenschaft"
 short-title: unpackColorSpace
 slug: Web/API/WebGLRenderingContext/unpackColorSpace
 l10n:
-  sourceCommit: 47962c4ebad5a138673422ec63a282ab9a63d454
+  sourceCommit: 72a2131decd44410a5c2acb9d4d5c1c7c6340e6a
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGLRenderingContext.unpackColorSpace`**-Eigenschaft gibt den Farbraum an, in den beim Importieren von Texturen konvertiert werden soll. Neben dem Standard (`srgb`) kann der `display-p3` Farbraum verwendet werden.
+Die **`WebGLRenderingContext.unpackColorSpace`**-Eigenschaft gibt den Farbraum an, in den umgewandelt werden soll, wenn Texturen importiert werden. Neben dem Standardwert (`srgb`) kann auch der `display-p3`-Farbraum verwendet werden.
 
-Mögliche Quellen für Texturbilder sind die folgenden:
+Quellen für Texturbilder können folgende sein:
 
 - [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)
 - [`ImageData`](/de/docs/Web/API/ImageData)
@@ -20,22 +20,22 @@ Mögliche Quellen für Texturbilder sind die folgenden:
 - [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)
 - [`VideoFrame`](/de/docs/Web/API/VideoFrame)
 
-Texturen werden mit den Methoden [`WebGLRenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und [`WebGLRenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D) importiert, und die Konvertierung in den angegebenen `unpackColorSpace`-Farbraum erfolgt während des Imports.
+Texturen werden mit den Methoden [`WebGL2RenderingContext.texImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texImage2D) und [`WebGL2RenderingContext.texSubImage2D()`](/de/docs/Web/API/WebGLRenderingContext/texSubImage2D) importiert, und die Umwandlung in den angegebenen `unpackColorSpace`-Farbraum erfolgt während des Imports.
 
-Beachten Sie, dass dies nicht auf [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) zutrifft, wenn der `UNPACK_COLORSPACE_CONVERSION_WEBGL` Pixel-Speicherparameter auf `NONE` gesetzt ist.
+Beachten Sie, dass dies nicht für [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) gilt, wenn der `UNPACK_COLORSPACE_CONVERSION_WEBGL`-Pixel-Speicherparameter auf `NONE` gesetzt ist.
 
 ## Wert
 
-Diese Eigenschaft kann die folgenden Werte haben:
+Diese Eigenschaft kann folgende Werte haben:
 
-- `"srgb"` wählt den [sRGB-Farbraum](https://de.wikipedia.org/wiki/SRGB). Dies ist der Standardwert.
-- `"display-p3"` wählt den [display-p3-Farbraum](https://de.wikipedia.org/wiki/DCI-P3).
+- `"srgb"` wählt den [sRGB-Farbraum](https://en.wikipedia.org/wiki/SRGB). Dies ist der Standardwert.
+- `"display-p3"` wählt den [display-p3-Farbraum](https://en.wikipedia.org/wiki/DCI-P3).
 
 Wenn ein ungültiger Wert angegeben wird, bleibt der Wert von `unpackColorSpace` unverändert.
 
 ## Beispiele
 
-### Konvertieren von sRGB-ImageData zu display-p3 in einer Textur
+### Konvertieren von sRGB ImageData zu display-p3 in einer Textur
 
 ```js
 const canvas = document.getElementById("canvas");

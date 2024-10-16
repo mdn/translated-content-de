@@ -3,12 +3,12 @@ title: "HTMLDialogElement: returnValue-Eigenschaft"
 short-title: returnValue
 slug: Web/API/HTMLDialogElement/returnValue
 l10n:
-  sourceCommit: 5ce6d5b38ec46374bbbf50b84b6105b5d1750911
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces ruft den Rückgabewert für das {{htmlelement("dialog")}}-Element ab oder legt ihn fest, normalerweise um anzugeben, welcher Button vom Benutzer zum Schließen gedrückt wurde.
+Die **`returnValue`**-Eigenschaft des [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Interfaces erhält oder setzt den Rückgabewert für das {{htmlelement("dialog")}}, üblicherweise um anzugeben, welche Schaltfläche der Benutzer gedrückt hat, um es zu schließen.
 
 ## Wert
 
@@ -16,7 +16,10 @@ Ein String, der den `returnValue` des Dialogs darstellt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt einen Button, um ein {{htmlelement("dialog")}} mit einem Formular über die `showModal()`-Methode zu öffnen. Das Skript weist dem `returnValue` einen anfänglichen Wert von `initialValue` zu. Der Bestätigungsbutton (`confirmBtn`) sendet das Formular mit Validierung ab und der "X"-Button sendet das Formular ohne Validierung ab. Das Absenden eines Formulars mit `method="dialog"` schließt den Dialog und setzt den Rückgabewert auf den `value`, falls vorhanden, der `button`- oder `input`-Elemente vom Typ `submit`. Der Reset-Button hat einen Ereignishandler, der den Dialog schließt; er hat keinen Einfluss auf den `returnValue`. Ebenso wenig hat das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste eine Auswirkung.
+Das folgende Beispiel zeigt eine Schaltfläche zum Öffnen eines {{htmlelement("dialog")}} mit einem Formular über die Methode `showModal()`.
+Das Skript weist der `returnValue` initial den Wert `initialValue` zu.
+Die Bestätigungsschaltfläche (`confirmBtn`) sendet das Formular mit Validierung, und die "X"-Schaltfläche sendet das Formular ohne Validierung. Das Senden eines Formulars mit `method="dialog"` schließt den Dialog und setzt den Rückgabewert auf den `value`, falls vorhanden, der `button`- oder `input`-Elemente vom Typ `submit`.
+Die Zurücksetzen-Schaltfläche hat einen Ereignis-Handler, der den Dialog schließt; sie hat keinen Einfluss auf den `returnValue`. Auch das Schließen des Dialogs mit der <kbd>Esc</kbd>-Taste hat keinen Einfluss.
 
 ```html
 <!-- Simple pop-up dialog box containing a form -->
@@ -26,7 +29,7 @@ Das folgende Beispiel zeigt einen Button, um ein {{htmlelement("dialog")}} mit e
       type="submit"
       aria-label="close"
       value="X"
-      name="Xbutton"
+      name="x-button"
       formnovalidate />
     <p>
       <label

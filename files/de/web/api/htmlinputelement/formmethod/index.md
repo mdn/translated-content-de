@@ -1,18 +1,18 @@
 ---
-title: "HTMLInputElement: formMethod-Eigenschaft"
+title: "HTMLInputElement: Eigenschaft formMethod"
 short-title: formMethod
 slug: Web/API/HTMLInputElement/formMethod
 l10n:
-  sourceCommit: 8bbefa76803785b6e0e1d278679c38b092e6b234
+  sourceCommit: 0f7f70e7fd76f8e32cd02261bc10630d753fbf0b
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`formMethod`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces ist die {{Glossary("HTTP", "HTTP")}}-Methode, die zum Absenden des {{HtmlElement("form")}} verwendet wird, wenn das {{HTMLElement("input")}}-Element die Steuerung ist, die das Formular absendet. Sie spiegelt den Wert des `formmethod`-Attributs des `<input>`-Elements wider.
+Die **`formMethod`**-Eigenschaft der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle ist die {{Glossary("HTTP", "HTTP")}}-Methode, die verwendet wird, um das {{HtmlElement("form")}} zu übermitteln, wenn das {{HTMLElement("input")}}-Element das Steuerelement ist, das das Formular übermittelt. Sie spiegelt den Wert des `formmethod`-Attributs des `<input>`-Elements wider.
 
-Diese Eigenschaft ist nur gültig für [`submit`](/de/docs/Web/HTML/Element/input/submit) und [`image`](/de/docs/Web/HTML/Element/input/image) `<input>`-Elemente.
+Diese Eigenschaft ist nur für [`submit`](/de/docs/Web/HTML/Element/input/submit)- und [`image`](/de/docs/Web/HTML/Element/input/image)-`<input>`-Elemente gültig.
 
-Der Wert überschreibt die [`method`](/de/docs/Web/API/HTMLFormElement/method)-Eigenschaft des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces, wenn das Formular über das `input` abgesendet wird. Diese Eigenschaft kann abgerufen oder gesetzt werden. Wird sie mit einem leeren oder ungültigen Wert gesetzt, ist der ungültige Standardwert `"get"`. Wenn sie überhaupt nicht gesetzt ist, ist der Wert der leere String (`""`).
+Der Wert überschreibt die [`method`](/de/docs/Web/API/HTMLFormElement/method)-Eigenschaft der [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle, wenn das Formular über das Input-Element gesendet wird. Diese Eigenschaft kann abgerufen oder gesetzt werden. Wenn sie mit einem leeren oder ungültigen Wert gesetzt wird, ist der ungültige Standardwert `"get"`. Wenn sie überhaupt nicht gesetzt wird, ist der Wert die leere Zeichenkette (`""`).
 
 ## Wert
 
@@ -41,4 +41,4 @@ inputElement.formMethod = "post";
 - [`HTMLFormElement.method`](/de/docs/Web/API/HTMLFormElement/method)
 - [`<input type="submit">`](/de/docs/Web/HTML/Element/input/submit)
 - [`<input type="image">`](/de/docs/Web/HTML/Element/input/image)
-- [Senden von Formulardaten](/de/docs/Learn/Forms/Sending_and_retrieving_form_data)
+- [Formulardaten senden](/de/docs/Learn/Forms/Sending_and_retrieving_form_data)

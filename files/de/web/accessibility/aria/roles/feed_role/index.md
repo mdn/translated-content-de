@@ -1,13 +1,13 @@
 ---
-title: "ARIA: feed-Rolle"
+title: "ARIA: feed Rolle"
 slug: Web/Accessibility/ARIA/Roles/feed_role
 l10n:
-  sourceCommit: 019ca5c9ce641bfa02825e1ba0444f35dfb646cc
+  sourceCommit: 2b26cc6e576d23f68fdf992767da81de9707965e
 ---
 
 {{AccessibilitySidebar}}
 
-Ein `feed` ist eine dynamische scrollbare `list` von `articles`, bei der Artikel am Anfang oder Ende der Liste hinzugefügt oder entfernt werden, während die Benutzerin oder der Benutzer scrollt. Ein `feed` ermöglicht es Screenreadern, den Lesemodus-Cursor zu verwenden, um durch einen Strom von reichhaltigen Inhalten zu lesen und zu scrollen, der durch das Laden weiterer Inhalte beim Lesen möglicherweise endlos weiter scrollen kann.
+Ein `feed` ist eine dynamische scrollbare `list` von `articles`, bei der Artikel an beiden Enden der Liste hinzugefügt oder entfernt werden können, während der Benutzer scrollt. Ein `feed` ermöglicht es Screenreadern, den Lese-Cursor im Browsemode zu verwenden, um durch einen Stream von reichhaltigem Inhalt zu lesen und zu scrollen, der möglicherweise unendlich weiterscrollt, indem mehr Inhalte geladen werden, während der Benutzer liest.
 
 ```html
 <section role="feed" aria-busy="false">
@@ -21,62 +21,63 @@ Ein `feed` ist eine dynamische scrollbare `list` von `articles`, bei der Artikel
 
 ## Beschreibung
 
-Ein `feed` ist eine Art von [`list`](/de/docs/Web/Accessibility/ARIA/Roles/list_role), die tragende Rolle für scrollbare [`articles`](/de/docs/Web/Accessibility/ARIA/Roles/article_role), bei der das Scrollen dazu führen kann, dass Artikel am Anfang oder Ende der Liste hinzugefügt werden. Die Rolle ermöglicht es unterstützender Technologie, den Lesemodus-Cursor sowohl zum Lesen als auch zum Scrollen durch einen Strom von reichhaltigen Inhalten zu verwenden, der durch das Laden weiterer Inhalte beim Lesen möglicherweise endlos weiter scrollen kann. Beispiele sind ein RSS-Feed, Nachrichten-Feeds, soziale Medien-Feeds wie Facebook, Instagram oder Mastodon, oder sogar eine Liste verwandter Produkte auf einer E-Commerce-Seite. Diese Streams können begrenzt oder unendlich sein und laden beim Scrollen der Benutzerin oder des Benutzers weitere Inhalte. Die Implementierung des `feed`-Musters ermöglicht es einem Screenreader, Inhalte im Lesemodus zuverlässig zu lesen und das Laden von Feed-Inhalten auszulösen.
+Ein `feed` ist eine Art von [`list`](/de/docs/Web/Accessibility/ARIA/Roles/list_role), die als Container-Rolle für scrollbare [`articles`](/de/docs/Web/Accessibility/ARIA/Roles/article_role) dient, bei denen das Scrollen dazu führen kann, dass Artikel oben oder unten an die Liste hinzugefügt werden. Die Rolle ermöglicht es unterstützender Technologie, den Lese-Cursor im Browsemode zu verwenden, um durch einen Stream von reichhaltigem Inhalt zu lesen und zu scrollen, der möglicherweise unendlich weiterscrollt, indem mehr Inhalte geladen werden, während der Benutzer liest. Beispiele schließen unter anderem einen RSS-Feed, Nachrichten-Feeds, soziale Medien-Feeds wie Facebook, Instagram oder Mastodon oder sogar eine Liste verwandter Produkte auf einer E-Commerce-Seite ein. Diese Streams können begrenzt oder unendlich sein und mehr Inhalte laden, wenn der Benutzer scrollt. Die Implementierung des `feed`-Musters erlaubt es einem Screenreader, den Feed-Inhalt zuverlässig zu lesen und das Laden von Inhalten im Lesemodus auszulösen.
 
-Im Gegensatz zu den Dokumentstruktur-Elementen, die statische HTML-Elemente repräsentieren, erfordert die `feed`-Rolle spezifische Interaktionen und Implementierungen der Tastaturnavigation. Der `feed` ist ein Containerelement, dessen Kinder {{HTMLElement('article')}}s sind oder die Rolle `article` haben. Jeder Artikel innerhalb eines `feed` sollte fokussierbar sein, mit einem `tabindex` von 0 oder -1. Ein Artikel sollte in den Ansichtsbereich gescrollt werden, wenn er oder ein untergeordnetes Element den Fokus erhält. Wenn die Hinzufügung von Artikeln den Hauptbrowser-Thread beansprucht, stellen Sie sicher, `aria-busy="true"` auf dem `feed` selbst zu setzen, und setzen Sie dieses zurück auf `false`, wenn die Verarbeitung endet, sonst sieht die Benutzerin oder der Benutzer die Updates möglicherweise nicht.
+Im Gegensatz zu den Dokumentstruktur-Elementen, die statische HTML-Elemente darstellen, erfordert die `feed`-Rolle spezifische Interaktionen und die Implementierung der Tastaturnavigation. Der `feed` ist ein Container-Element, dessen Kinder {{HTMLElement('article')}}s sind oder die Rolle `article` haben. Jeder Artikel innerhalb eines Feeds sollte fokussierbar sein, mit einem Tabindex von 0 oder -1. Ein Artikel sollte in den sichtbaren Bereich gescrollt werden, wenn er oder ein Nachfahre-Element den Fokus erhält. Wenn das Hinzufügen von Artikeln den Haupt-Browser-Thread beansprucht, stellen Sie sicher, dass `aria-busy="true"` auf dem Feed selbst gesetzt ist, und setzen Sie es zurück auf `false`, wenn die Verarbeitung endet, sonst sieht der Benutzer möglicherweise keine Aktualisierungen.
 
-Wenn die Anzahl der Artikel bekannt ist, setzen Sie [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) auf die Artikel selbst. Wenn jedoch die Gesamtanzahl extrem groß, unbestimmt oder sich häufig ändert, setzen Sie `aria-setsize="-1"` um anzuzeigen, dass die Größe des `feed` nicht bekannt ist.
+Wenn die Anzahl der Artikel bekannt ist, setzen Sie [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize) auf die Artikel selbst. Wenn die Gesamtzahl jedoch extrem groß, unbestimmt oder sich häufig ändert, setzen Sie `aria-setsize="-1"`, um anzuzeigen, dass die Größe des Feeds nicht bekannt ist.
 
-Ein weiteres Merkmal des `feed`-Musters ist das oberflächliche Lesen: Artikel innerhalb eines `feed` können sowohl einen zugänglichen Namen mit [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) als auch eine Beschreibung mit `aria-describedby` enthalten, was Screenreadern vorschlägt, welche Elemente nach dem Label gesprochen werden sollen, wenn nach Artikeln navigiert wird. Durch das Identifizieren der Elemente innerhalb eines Artikels, die den Titel und den Hauptinhalt bieten, können unterstützende Technologien Funktionen bereitstellen, die es Benutzerinnen und Benutzern ermöglichen, von Artikel zu Artikel zu springen und effizient zu erkennen, welche Artikel sie lesen möchten.
+Ein weiteres Merkmal des Feed-Musters ist das Überlesen: Artikel innerhalb eines Feeds können sowohl einen zugänglichen Namen mit dem [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) als auch eine Beschreibung mit einem `aria-describedby` enthalten, was Screenreadern vorschlägt, welche Elemente nach dem Label zu sprechen sind, wenn sie nach Artikel navigieren. Durch die Identifizierung der Elemente innerhalb eines Artikels, die den Titel und den Hauptinhalt bieten, können unterstützende Technologien Funktionen bereitstellen, die es Benutzern ermöglichen, von Artikel zu Artikel zu springen und effizient zu erkennen, welche Artikel sie lesen möchten.
 
-Das `feed`-Muster ermöglicht eine zuverlässige Interaktion mit dem Lese-Modus der unterstützenden Technologie durch die Festlegung der folgenden Interoperabilitätsvereinbarung zwischen der Webseite und unterstützenden Technologien:
+Das Feed-Muster ermöglicht eine zuverlässige Interaktion im Lesemodus der unterstützenden Technologie, indem es die folgende Interoperabilitätsvereinbarung zwischen der Webseite und den unterstützenden Technologien herstellt:
 
-Im Kontext eines `feed` ist der Webseiten-Code verantwortlich für:
+Im Kontext eines Feeds ist der Webseiten-Code verantwortlich für:
 
-- Angemessenes visuelles Scrollen des Inhalts basierend darauf, welcher Artikel DOM-Fokus enthält.
-- Laden oder Entfernen von `feed`-Artikeln basierend darauf, welcher Artikel DOM-Fokus enthält.
+- Angemessenes visuelles Scrollen des Inhalts basierend darauf, welcher Artikel den DOM-Fokus enthält.
+- Laden oder Entfernen von Feed-Artikeln basierend darauf, welcher Artikel den DOM-Fokus enthält.
 
 ### Tastatur-Interaktionen
 
-Es wird empfohlen, die folgende oder eine ähnliche Benutzeroberfläche zu unterstützen, wenn der Fokus innerhalb des `feed` ist:
+Es wird empfohlen, die folgende oder eine ähnliche Schnittstelle zu unterstützen, wenn der Fokus innerhalb des Feeds liegt:
 
-- <kbd>Page Down</kbd>: Fokussierung auf den nächsten Artikel.
-- <kbd>Page Up</kbd>: Fokussierung auf den vorherigen Artikel.
-- <kbd>Control + End</kbd>: Fokussierung auf das erste fokussierbare Element nach dem `feed`.
-- <kbd>Control + Home</kbd>: Fokussierung auf das erste fokussierbare Element vor dem `feed`.
+- <kbd>Bild runter</kbd>: Fokus auf den nächsten Artikel bewegen.
+- <kbd>Bild hoch</kbd>: Fokus auf den vorherigen Artikel bewegen.
+- <kbd>Strg + Ende</kbd>: Fokus auf das erste fokussierbare Element nach dem Feed bewegen.
+- <kbd>Strg + Pos1</kbd>: Fokus auf das erste fokussierbare Element vor dem Feed bewegen.
 
-Befindet sich ein `feed` innerhalb eines `feed`, wie z.B. ein Kommentar-Feed innerhalb eines Feeds von Blogbeiträgen, ist es üblich, mit der <kbd>Tab</kbd>-Taste in den geschachtelten `feed` zu tabben und eine andere Taste bereitzustellen, wie <kbd>Alt + Page Down</kbd>, um von einem "äußeren" Artikel zum ersten Element im geschachtelten `feed` dieses Artikels zu navigieren. Zwischen dem geschachtelten `feed` und dem Haupt-`feed` navigieren Sie mit <kbd>Control + End</kbd>, wodurch der Fokus vom inneren `feed` auf den nächsten Artikel im äußeren `feed` verschoben wird.
+Wenn ein Feed innerhalb eines Feeds verschachtelt ist, wie beispielsweise ein Kommentarfeed innerhalb eines Blogposts-Feeds, besteht die Konvention darin, mit der <kbd>Tab</kbd>-Taste in den verschachtelten Feed zu gelangen und einen weiteren Schlüssel, wie zum Beispiel <kbd>Alt + Bild runter</kbd>, bereitzustellen, um von einem 'äußeren' Artikel zum ersten Element im verschachtelten Feed dieses Artikels zu navigieren. Wechseln Sie zwischen dem verschachtelten Feed und dem Hauptfeed mit <kbd>Strg + Ende</kbd>, um den Fokus vom inneren Feed auf den nächsten Artikel im äußeren Feed zu bewegen.
 
 ### <abbr title="Accessible Rich Internet Applications">WAI-ARIA</abbr> Rollen, Zustände und Eigenschaften
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)
 
-  - : Wenn der `feed` keinen sichtbaren Titel hat, hat das `feed`-Element ein Label, das mit `aria-label` angegeben ist. Wenn es eines hat, siehe `aria-labelledby`.
+  - : Wenn der Feed keinen sichtbaren Titel hat, hat das `feed`-Element ein mit `aria-label` angegebenes Label. Wenn es einen hat, siehe `aria-labelledby`.
 
 - [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
 
-  - : Wenn der `feed` einen sichtbaren Titel hat, hat das `feed`-Element `aria-labelledby`, das auf das Element verweist, das den Titel enthält. Wenn nicht, fügen Sie ein `aria-label` hinzu.
+  - : Wenn der Feed einen sichtbaren Titel hat, hat das `feed`-Element `aria-labelledby`, das auf das Element verweist, das den Titel enthält. Falls nicht, fügen Sie ein `aria-label` hinzu.
 
 - [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy)
 
-  - : Wenn beschäftigt, wie z.B. wenn Artikel hinzugefügt oder aus dem `feed` entfernt werden, setzen Sie `aria-busy="true"` während des Aktualisierungsvorgangs. Stellen Sie sicher, dass es auf `false` zurückgesetzt wird, wenn die Operation abgeschlossen ist, oder die Änderungen werden möglicherweise nicht sichtbar.
+  - : Wenn beschäftigt, wie wenn Artikel zum `feed` hinzugefügt oder daraus entfernt werden, setzen Sie `aria-busy="true"` während des Aktualisierungsvorgangs. Stellen Sie sicher, dass es nach Abschluss der Operation zurück auf `false` gesetzt wird, oder die Änderungen könnten nicht sichtbar werden.
 
 - article
-  - : Jeder Inhaltsabschnitt in einem `feed` sollte in einem `<article>` oder einem Element mit der Rolle [`article`](/de/docs/Web/Accessibility/ARIA/Roles/article_role) enthalten sein. Jeder `article` sollte ein `aria-labelledby` haben, das auf den Artikeltitel oder ein anderes Kind verweist, das als unterscheidendes Label dienen kann. Jeder Artikel sollte vorzugsweise `aria-describedby` haben, das auf ein oder mehrere Elemente innerhalb des Artikels verweist, die als Hauptinhalt des Artikels dienen. Jedes `article`-Element hat [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset) auf einen Wert gesetzt, der seine Position im `feed` darstellt, und [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize), das auf einen Wert gesetzt ist, der entweder die Gesamtanzahl der geladenen Artikel oder die gesamte Anzahl im `feed` darstellt, je nachdem, welcher Wert für Benutzerinnen und Benutzer hilfreicher ist. Wenn die Gesamtanzahl im `feed` nicht bekannt ist, setzen Sie `aria-setsize="-1"`.
+  - : Jeder Abschnitt von Inhalten in einem Feed sollte in einem `<article>` oder einem Element mit der Rolle [`article`](/de/docs/Web/Accessibility/ARIA/Roles/article_role) enthalten sein. Jeder `article` sollte ein `aria-labelledby` haben, das auf den Artikeltitel oder ein anderes Kind verweist, das als unterscheidendes Label dienen kann. Jeder Artikel sollte vorzugsweise `aria-describedby` haben, das auf ein oder mehrere Elemente innerhalb des Artikels verweist, die als Hauptinhalt des Artikels gelten. Jedes `article`-Element hat [`aria-posinset`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-posinset), das auf einen Wert gesetzt ist, der seine Position im Feed repräsentiert, und ein [`aria-setsize`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-setsize), das auf einen Wert gesetzt ist, der entweder die Gesamtzahl der geladenen Artikel oder die Gesamtanzahl im Feed darstellt, je nachdem, welcher Wert den Benutzern hilfreicher ist. Wenn die Gesamtanzahl im Feed nicht bekannt ist, setzen Sie `aria-setsize="-1"`.
 
 ### Erforderliche JavaScript-Funktionen
 
-Keine, außer, wie von Attributen erforderlich. Zum Beispiel das Setzen von [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy) auf `true` während des Aktualisierungsvorgangs, falls erforderlich, und dann auf `false` nach Abschluss.
+Keine, außer wie von Attributen erforderlich. Zum Beispiel das Setzen von [`aria-busy`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-busy) auf `true` während des Aktualisierungsvorgangs, falls nötig, und auf `false` bei Abschluss.
 
-Hinweis: Es liegt in der Verantwortung der Autorin oder des Autors, das "obige" Tastaturverhalten anzuwenden.
+> [!NOTE]
+> Es liegt in der Verantwortung des Autors, das oben erwähnte Tastaturverhalten anzuwenden.
 
 ## Beispiele
 
-[Beispielimplementierung des `Feed`-Musters](https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/)
+[Beispielhafte Implementierung des Feed-Musters](https://www.w3.org/WAI/ARIA/apg/patterns/feed/examples/feed/)
 
-## Bewährte Praktiken
+## Best Practices
 
-Um eine gute Benutzererfahrung sicherzustellen, vermeiden Sie das Einfügen oder Entfernen von Artikeln in der Mitte eines `feed`, laden Sie neue Artikel, bevor der Benutzer das Ende des `feed` erreicht hat, und bieten Sie Tastaturbefehle an, um den Fokus zwischen den Artikeln zu bewegen, damit Tastaturnutzende durch Ihren `feed` navigieren können. Siehe [Tastatur-Interaktionen](#tastatur-interaktionen).
+Um eine gute Benutzererfahrung sicherzustellen, vermeiden Sie das Einfügen oder Entfernen von Artikeln in der Mitte eines `feed`, laden Sie neue Artikel, bevor der Benutzer das Ende des Feeds erreicht, und stellen Sie Tastaturbefehle zur Verfügung, um den Fokus zwischen Artikeln zu bewegen, sodass Tastenbenutzer durch Ihren Feed navigieren können. Siehe [Tastatur-Interaktionen](#tastatur-interaktionen).
 
 ## Spezifikationen
 
@@ -84,7 +85,7 @@ Um eine gute Benutzererfahrung sicherzustellen, vermeiden Sie das Einfügen oder
 
 ## Siehe auch
 
-- Das HTML {{HTMLElement('article')}} Element
-- Das {{HTMLElement('ul')}} ungeordnete Listen-Element
+- Das HTML {{HTMLElement('article')}}-Element
+- Das {{HTMLElement('ul')}}-Element einer ungeordneten Liste
 - [ARIA: `article` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/article_role)
 - [ARIA: `list` Rolle](/de/docs/Web/Accessibility/ARIA/Roles/list_role)

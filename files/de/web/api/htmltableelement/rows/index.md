@@ -3,38 +3,29 @@ title: "HTMLTableElement: rows-Eigenschaft"
 short-title: rows
 slug: Web/API/HTMLTableElement/rows
 l10n:
-  sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)
-Eigenschaft **`rows`** gibt eine Live-
-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection) aller Zeilen in der Tabelle zurück, einschließlich der Zeilen,
-die innerhalb von {{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} und
-{{HTMLElement("tbody")}}-Elementen enthalten sind.
+Die schreibgeschützte [`HTMLTableElement`](/de/docs/Web/API/HTMLTableElement)-Eigenschaft **`rows`** gibt ein
+dynamisches [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) aller Zeilen in der Tabelle zurück, einschließlich der Zeilen, die in den {{HTMLElement("thead")}}, {{HTMLElement("tfoot")}} und {{HTMLElement("tbody")}}-Elementen enthalten sind.
 
-Obwohl die Eigenschaft selbst schreibgeschützt ist, ist das zurückgegebene Objekt live und erlaubt die
-Änderung seines Inhalts.
+Obwohl die Eigenschaft selbst schreibgeschützt ist, ist das zurückgegebene Objekt dynamisch und erlaubt die Änderung seines Inhalts.
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine sich live aktualisierende Liste der
-[`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Objekte bereitstellt, die alle {{HTMLElement("tr")}}
-Elemente in der Tabelle repräsentieren. Dies bietet einen schnellen Zugriff auf alle Zeilen der Tabelle,
-ohne sie manuell suchen zu müssen.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die eine dynamisch aktualisierende Liste der [`HTMLTableRowElement`](/de/docs/Web/API/HTMLTableRowElement)-Objekte bereitstellt, die alle {{HTMLElement("tr")}}-Elemente in der Tabelle repräsentieren. Dies ermöglicht einen schnellen Zugriff auf alle Tabellenzeilen, ohne manuell danach suchen zu müssen.
 
 ## Beispiele
 
 ```js
-myrows = mytable.rows;
-firstRow = mytable.rows[0];
-lastRow = mytable.rows.item(mytable.rows.length - 1);
+myRows = myTable.rows;
+firstRow = myTable.rows[0];
+lastRow = myTable.rows.item(myTable.rows.length - 1);
 ```
 
-Dies zeigt, wie Sie sowohl den indizierten Zugriff als auch die
-[`HTMLCollection.item()`](/de/docs/Web/API/HTMLCollection/item)-Methode verwenden können, um einzelne Zeilen in der
-Tabelle zu erhalten.
+Dies demonstriert, wie Sie sowohl den indexierten Zugriff als auch die Methode [`HTMLCollection.item()`](/de/docs/Web/API/HTMLCollection/item) verwenden können, um einzelne Zeilen in der Tabelle zu erhalten.
 
 ## Spezifikationen
 

@@ -1,21 +1,21 @@
 ---
-title: "Node: nodeName-Eigenschaft"
+title: "Knoten: nodeName-Eigenschaft"
 short-title: nodeName
 slug: Web/API/Node/nodeName
 l10n:
-  sourceCommit: ee846961725e36cf7bb407afe7a2df82d2860658
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`nodeName`**-Eigenschaft von [`Node`](/de/docs/Web/API/Node) gibt den Namen des aktuellen Knotens als Zeichenfolge zurück.
+Die schreibgeschützte **`nodeName`**-Eigenschaft des [`Node`](/de/docs/Web/API/Node) gibt den Namen des aktuellen Knotens als Zeichenfolge zurück.
 
 ## Wert
 
-Eine Zeichenfolge. Werte für die verschiedenen Arten von Knoten sind:
+Eine Zeichenfolge. Werte für die verschiedenen Knotentypen sind:
 
 - [`Attr`](/de/docs/Web/API/Attr)
-  - : Der Wert von [`Attr.name`](/de/docs/Web/API/Attr/name), das heißt der _qualifizierte Name_ des Attributs.
+  - : Der Wert von [`Attr.name`](/de/docs/Web/API/Attr/name), das ist der _qualifizierte Name_ des Attributs.
 - [`CDATASection`](/de/docs/Web/API/CDATASection)
   - : Die Zeichenfolge `"#cdata-section"`.
 - [`Comment`](/de/docs/Web/API/Comment)
@@ -27,8 +27,8 @@ Eine Zeichenfolge. Werte für die verschiedenen Arten von Knoten sind:
 - [`DocumentType`](/de/docs/Web/API/DocumentType)
   - : Der Wert von [`DocumentType.name`](/de/docs/Web/API/DocumentType/name)
 - [`Element`](/de/docs/Web/API/Element)
-  - : Der Wert von [`Element.tagName`](/de/docs/Web/API/Element/tagName), das heißt der _Großbuchstabenname_ des Element-Tags, wenn ein HTML-Element vorliegt,
-    oder das _Kleinbuchstabenelement_-Tag, wenn ein XML-Element (wie ein SVG- oder MATHML-Element) vorliegt.
+  - : Der Wert von [`Element.tagName`](/de/docs/Web/API/Element/tagName), das ist der _Großbuchstabenname_ des Element-Tags, wenn es sich um ein HTML-Element handelt,
+    oder das _Kleinbuchstabenelement-Tag_, wenn es sich um ein XML-Element (wie ein SVG- oder MathML-Element) handelt.
 - [`ProcessingInstruction`](/de/docs/Web/API/ProcessingInstruction)
   - : Der Wert von [`ProcessingInstruction.target`](/de/docs/Web/API/ProcessingInstruction/target)
 - [`Text`](/de/docs/Web/API/Text)
@@ -36,7 +36,7 @@ Eine Zeichenfolge. Werte für die verschiedenen Arten von Knoten sind:
 
 ## Beispiel
 
-Dieses Beispiel zeigt die Knotennamen mehrerer Knoten
+Dieses Beispiel zeigt die Knotennamen mehrerer Knoten an
 
 ```html
 This is some HTML:
@@ -50,7 +50,7 @@ Text <span>Text</span> Text<br />
 <output id="result">Not calculated yet.</output>
 ```
 
-und das folgende Skript:
+und folgendes Skript:
 
 ```js
 let node = document.querySelector("body").firstChild;

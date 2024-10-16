@@ -3,18 +3,18 @@ title: "HTMLTableCellElement: abbr-Eigenschaft"
 short-title: abbr
 slug: Web/API/HTMLTableCellElement/abbr
 l10n:
-  sourceCommit: 4dec42ed700040565e8af0e14ff104054ebc20f5
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{ APIRef("HTML DOM") }}
 
 Die **`abbr`**-Eigenschaft des [`HTMLTableCellElement`](/de/docs/Web/API/HTMLTableCellElement)-Interfaces
-zeigt eine Abkürzung an, die mit der Zelle verbunden ist. Wenn die Zelle keine Kopfzelle {{HTMLElement("th")}} darstellt, wird sie ignoriert.
+gibt eine Abkürzung an, die mit der Zelle verbunden ist. Wenn die Zelle keine Header-Zelle {{HTMLElement("th")}} darstellt, wird sie ignoriert.
 
 Sie spiegelt das `abbr`-Attribut des {{HTMLElement("th")}}-Elements wider.
 
 > [!NOTE]
-> Diese Eigenschaft hat keine visuelle Auswirkung in Browsern. Sie fügt Informationen hinzu, um unterstützende Technologien wie Screenreader zu unterstützen, die diese Abkürzung verwenden können.
+> Diese Eigenschaft hat keine visuelle Wirkung in Browsern. Sie fügt zusätzliche Informationen hinzu, um unterstützende Technologien wie Bildschirmlesegeräte zu unterstützen, die diese Abkürzung verwenden können.
 
 ## Wert
 
@@ -22,7 +22,7 @@ Ein String.
 
 ## Beispiele
 
-Dieses Beispiel fügt Präfixe mit der Abkürzung hinzu, die dem Zeilenkopf jeder ersten Zelle zugeordnet ist.
+Dieses Beispiel fügt Präfixe mit der Abkürzung hinzu, die mit dem Zeilenheader jeder ersten Zelle verbunden sind.
 
 ### HTML
 

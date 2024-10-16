@@ -1,20 +1,20 @@
 ---
-title: "HTMLElement: dragover Ereignis"
+title: "HTMLElement: dragover-Ereignis"
 short-title: dragover
 slug: Web/API/HTMLElement/dragover_event
 l10n:
-  sourceCommit: ea4425b74ae0dc1ec17737b4e28d8df2b73f1eae
+  sourceCommit: d47348199a379f68bea876a403eb510628ec4ccb
 ---
 
 {{APIRef}}
 
-Das `dragover` Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl über ein gültiges Ziel gezogen wird (alle paar hundert Millisekunden).
+Das `dragover`-Ereignis wird ausgelöst, wenn ein Element oder eine Textauswahl über ein gültiges Zielobjekt gezogen wird (alle paar hundert Millisekunden).
 
-Dieses Ereignis kann abgebrochen werden und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) hinaufblubbern.
+Dieses Ereignis ist abbrechbar und kann bis zu den Objekten [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) blubbern.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
 
 ```js
 addEventListener("dragover", (event) => {});
@@ -30,7 +30,7 @@ Ein [`DragEvent`](/de/docs/Web/API/DragEvent). Erbt von [`Event`](/de/docs/Web/A
 
 ## Ereigniseigenschaften
 
-_Neben den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordneten Schnittstelle, [`Event`](/de/docs/Web/API/Event), verfügbar._
+_Zusätzlich zu den unten aufgeführten Eigenschaften sind Eigenschaften aus der übergeordneten Schnittstelle [`Event`](/de/docs/Web/API/Event) verfügbar._
 
 - [`DragEvent.dataTransfer`](/de/docs/Web/API/DragEvent/dataTransfer) {{ReadOnlyInline}}
   - : Die Daten, die während einer Drag-and-Drop-Interaktion übertragen werden.
@@ -39,15 +39,15 @@ _Neben den unten aufgeführten Eigenschaften sind Eigenschaften der übergeordne
 
 ### Ein minimales Drag-and-Drop-Beispiel
 
-In diesem Beispiel haben wir ein verschiebbares Element in einem Container. Versuchen Sie, das Element zu greifen, über den anderen Container zu ziehen und loszulassen.
+In diesem Beispiel haben wir ein ziehbares Element innerhalb eines Containers. Versuchen Sie das Element zu greifen, es über den anderen Container zu ziehen und es loszulassen.
 
-Hier verwenden wir drei Ereignis-Handler:
+Wir verwenden hier drei Ereignishandler:
 
-- Im `dragstart` Ereignis-Handler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat.
-- Im `dragover` Ereignis-Handler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop` Ereignisse zu empfangen.
-- Im `drop` Ereignis-Handler für die Ablagezone verarbeiten wir das Verschieben des verschiebbaren Elements vom ursprünglichen Container zur Ablagezone.
+- Im `dragstart`-Ereignishandler erhalten wir eine Referenz auf das Element, das der Benutzer gezogen hat
+- Im `dragover`-Ereignishandler für den Zielcontainer rufen wir `event.preventDefault()` auf, was es ermöglicht, `drop`-Ereignisse zu empfangen.
+- Im `drop`-Ereignishandler für die Zielzone verarbeiten wir das Verschieben des ziehbaren Elements vom ursprünglichen Container zur Zielzone.
 
-Für ein vollständiges Beispiel zu Drag and Drop siehe die Seite für das [`drag`](/de/docs/Web/API/HTMLElement/drag_event) Ereignis.
+Für ein vollständiges Beispiel für Drag and Drop siehe die Seite zum [`drag`](/de/docs/Web/API/HTMLElement/drag_event)-Ereignis.
 
 #### HTML
 
@@ -55,7 +55,7 @@ Für ein vollständiges Beispiel zu Drag and Drop siehe die Seite für das [`dra
 <div class="dropzone">
   <div id="draggable" draggable="true">This div is draggable</div>
 </div>
-<div class="dropzone" id="droptarget"></div>
+<div class="dropzone" id="drop-target"></div>
 ```
 
 #### CSS
@@ -91,7 +91,7 @@ source.addEventListener("dragstart", (event) => {
   dragged = event.target;
 });
 
-const target = document.getElementById("droptarget");
+const target = document.getElementById("drop-target");
 target.addEventListener("dragover", (event) => {
   // prevent default to allow drop
   event.preventDefault();

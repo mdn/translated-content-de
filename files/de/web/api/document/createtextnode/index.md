@@ -1,9 +1,9 @@
 ---
-title: "Document: Methode createTextNode()"
+title: "Dokument: createTextNode() Methode"
 short-title: createTextNode()
 slug: Web/API/Document/createTextNode
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: f216422c99b6c7014e398803b70600501bce8a48
 ---
 
 {{APIRef("DOM")}}
@@ -34,10 +34,10 @@ Ein [`Text`](/de/docs/Web/API/Text)-Knoten.
     <title>createTextNode example</title>
     <script>
       function addTextNode(text) {
-        const newtext = document.createTextNode(text);
+        const newText = document.createTextNode(text);
         const p1 = document.getElementById("p1");
 
-        p1.appendChild(newtext);
+        p1.appendChild(newText);
       }
     </script>
   </head>
