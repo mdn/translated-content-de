@@ -2,7 +2,7 @@
 title: onStateChanged
 slug: Mozilla/Add-ons/WebExtensions/API/captivePortal/onStateChanged
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
 ---
 
 {{AddonSidebar}}
@@ -20,30 +20,30 @@ browser.captivePortal.onStateChanged.hasListener(listener)
 Ereignisse haben drei Funktionen:
 
 - `addListener(listener)`
-  - : Fügt einen Listener zu diesem Ereignis hinzu.
+  - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der Listener, der entfernt werden soll.
+  - : Beendet das Zuhören auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, `false` andernfalls.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn er zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
 - `listener`
 
-  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
+  - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird folgendes Argument übergeben:
 
     - `details`
-      - : `string` Der Status des Captive Portals, einer von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal`.
+      - : `string` Der Status des Captive Portals, der einer von `unknown`, `not_captive`, `unlocked_portal` oder `locked_portal` ist.
 
 ## Beispiele
 
-Behandeln einer Änderung im Captive Portal-Status:
+Behandeln Sie eine Änderung im Captive-Portal-Status:
 
 ```js
-function handlePortalStatus(portalstatusInfo) {
-  console.log(`The portal status is now: ${portalstatusInfo.details}`);
+function handlePortalStatus(portalStatusInfo) {
+  console.log(`The portal status is now: ${portalStatusInfo.details}`);
 }
 
 browser.captivePortal.onStateChanged.addListener(handlePortalStatus);

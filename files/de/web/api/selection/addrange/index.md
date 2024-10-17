@@ -1,14 +1,14 @@
 ---
-title: "Selection: addRange()-Methode"
+title: "Auswahl: addRange()-Methode"
 short-title: addRange()
 slug: Web/API/Selection/addRange
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{ ApiRef("DOM") }}
 
-Die **`Selection.addRange()`**-Methode fügt einem [`Selection`](/de/docs/Web/API/Selection) ein [`Range`](/de/docs/Web/API/Range) hinzu.
+Die **`Selection.addRange()`**-Methode fügt einer [`Selection`](/de/docs/Web/API/Selection) ein [`Range`](/de/docs/Web/API/Range) hinzu.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ addRange(range)
 ### Parameter
 
 - `range`
-  - : Ein [`Range`](/de/docs/Web/API/Range)-Objekt, das der [`Selection`](/de/docs/Web/API/Selection) hinzugefügt wird.
+  - : Ein [`Range`](/de/docs/Web/API/Range)-Objekt, das zur [`Selection`](/de/docs/Web/API/Selection) hinzugefügt wird.
 
 ### Rückgabewert
 
@@ -28,7 +28,7 @@ Keiner ({{jsxref("undefined")}}).
 ## Beispiele
 
 > [!NOTE]
-> Derzeit unterstützt nur Firefox mehrere Auswahlbereiche, andere Browser fügen keine neuen Bereiche zur Auswahl hinzu, wenn bereits einer vorhanden ist.
+> Derzeit unterstützt nur Firefox mehrere Auswahlbereiche, andere Browser werden keine neuen Bereiche zur Auswahl hinzufügen, wenn diese bereits einen enthält.
 
 ### HTML
 
@@ -47,13 +47,13 @@ let button = document.querySelector("button");
 
 button.addEventListener("click", () => {
   const selection = window.getSelection();
-  const strongs = document.getElementsByTagName("strong");
+  const strongElems = document.getElementsByTagName("strong");
 
   if (selection.rangeCount > 0) {
     selection.removeAllRanges();
   }
 
-  for (const node of strongs) {
+  for (const node of strongElems) {
     const range = document.createRange();
     range.selectNode(node);
     selection.addRange(range);
@@ -75,4 +75,4 @@ button.addEventListener("click", () => {
 
 ## Siehe auch
 
-- [`Selection`](/de/docs/Web/API/Selection), das Interface, zu dem diese Methode gehört
+- [`Selection`](/de/docs/Web/API/Selection), die Schnittstelle, zu der diese Methode gehört

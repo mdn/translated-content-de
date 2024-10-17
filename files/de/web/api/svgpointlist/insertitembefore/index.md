@@ -1,14 +1,14 @@
 ---
-title: "SVGPointList: insertItemBefore()-Methode"
+title: "SVGPointList: insertItemBefore() Methode"
 short-title: insertItemBefore()
 slug: Web/API/SVGPointList/insertItemBefore
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("SVG")}}
 
-Die **`insertItemBefore()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle fügt einen [`point`](/de/docs/Web/API/SVGPoint) vor einem anderen Element in der Liste ein.
+Die **`insertItemBefore()`** Methode des [`SVGPointList`](/de/docs/Web/API/SVGPointList) Interfaces fügt einen [`point`](/de/docs/Web/API/SVGPoint) vor einem anderen Element in der Liste ein.
 
 ## Syntax
 
@@ -19,9 +19,9 @@ insertItemBefore(obj, index)
 ### Parameter
 
 - `obj`
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des einzufügenden Punkts enthält.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des einzufügenden Punktes enthält.
 - `index`
-  - : Der Index des Elements, vor dem das Objekt eingefügt werden soll. Wenn der übergebene Index größer als die Länge der Liste ist, wird der Index auf die Listenlänge gesetzt und das Element vor dem letzten Element in der Liste eingefügt.
+  - : Der Index des Elements, vor dem das Objekt eingefügt werden soll. Wenn der übergebene Index größer als die Länge der Liste ist, wird der Index auf die Listenlänge gesetzt und das Element wird vor dem letzten Element der Liste eingefügt.
 
 ### Rückgabewert
 
@@ -34,7 +34,7 @@ Das eingefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und vor dem Punkt an Index `2` eingefügt.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neuer [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und vor dem Punkt mit dem Index `2` eingefügt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -48,10 +48,10 @@ Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fü
 
 ```js
 let example = document.getElementById("example");
-let svgpoint = document.getElementById("svg").createSVGPoint();
-svgpoint.y = 10;
-svgpoint.x = 10;
-console.log(example.points.insertItemBefore(svgpoint, 2));
+let svgPoint = document.getElementById("svg").createSVGPoint();
+svgPoint.y = 10;
+svgPoint.x = 10;
+console.log(example.points.insertItemBefore(svgPoint, 2));
 ```
 
 ## Spezifikationen

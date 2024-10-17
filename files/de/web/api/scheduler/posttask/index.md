@@ -1,29 +1,29 @@
 ---
-title: "Scheduler: postTask()-Methode"
+title: "Scheduler: postTask() Methode"
 short-title: postTask()
 slug: Web/API/Scheduler/postTask
 l10n:
-  sourceCommit: 1b4e6d1156e8471d38deeea1567c35ef412c5f42
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("Prioritized Task Scheduling API")}}{{AvailableInWorkers}}
 
-Die **`postTask()`**-Methode der [`Scheduler`](/de/docs/Web/API/Scheduler)-Schnittstelle wird verwendet, um Aufgaben hinzuzufügen, die gemäß ihrer [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) [geplant](/de/docs/Web/API/Prioritized_Task_Scheduling_API) werden.
+Die **`postTask()`**-Methode des [`Scheduler`](/de/docs/Web/API/Scheduler)-Interfaces wird verwendet, um Aufgaben hinzuzufügen, die entsprechend ihrer [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) [geplant](/de/docs/Web/API/Prioritized_Task_Scheduling_API) werden.
 
-Die Methode ermöglicht es Benutzern optional eine minimale Verzögerung anzugeben, bevor die Aufgabe ausgeführt wird, eine Priorität für die Aufgabe und ein Signal, das zur Änderung der Aufgabenpriorität und/oder zum Abbrechen der Aufgabe verwendet werden kann.
-Sie gibt ein Versprechen zurück, das mit dem Ergebnis der Aufgabenrückruffunktion aufgelöst oder mit dem Abbruchgrund oder einem Fehler, der in der Aufgabe geworfen wird, abgelehnt wird.
+Die Methode erlaubt es Benutzer\*innen, optional eine minimale Verzögerung anzugeben, bevor die Aufgabe ausgeführt wird, eine Priorität für die Aufgabe festzulegen und ein Signal zu übergeben, das verwendet werden kann, um die Priorität der Aufgabe zu ändern und/oder die Aufgabe abzubrechen.
+Sie gibt ein Promise zurück, das mit dem Ergebnis der Aufgaben-Rückruffunktion aufgelöst oder mit dem Abbruchsgrund oder einem in der Aufgabe geworfenen Fehler abgelehnt wird.
 
-Die Aufgabenpriorität kann [änderbar oder unveränderlich](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) sein.
-Wenn die Aufgabenpriorität niemals geändert werden muss, sollte sie über den `options.priority`-Parameter festgelegt werden (jede über ein Signal festgelegte Priorität wird dann ignoriert).
-Es kann immer noch ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) (das keine Priorität hat) oder ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) an den `options.signal`-Parameter übergeben werden, um die Aufgabe abzubrechen.
+Die Aufgabenpriorität kann [veränderlich oder unveränderlich](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) sein.
+Wenn sich die Aufgabenpriorität niemals ändern muss, sollte sie mit dem Parameter `options.priority` festgelegt werden (jede Priorität, die über ein Signal festgelegt wird, wird dann ignoriert).
+Sie können dennoch ein [`AbortSignal`](/de/docs/Web/API/AbortSignal) (das keine Priorität hat) oder ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) an den Parameter `options.signal` übergeben, um die Aufgabe abzubrechen.
 
-Wenn die Aufgabenpriorität möglicherweise geändert werden muss, darf der `options.priority`-Parameter nicht gesetzt werden.
-Stattdessen sollte ein [`TaskController`](/de/docs/Web/API/TaskController) erstellt werden, und dessen [`TaskSignal`](/de/docs/Web/API/TaskSignal) sollte an `options.signal` übergeben werden.
-Die Aufgabenpriorität wird vom Signalpriorität initialisiert und kann später mit dem zugehörigen [`TaskController`](/de/docs/Web/API/TaskController) des Signals geändert werden.
+Falls die Aufgabenpriorität möglicherweise geändert werden muss, darf der Parameter `options.priority` nicht festgelegt werden.
+Stattdessen sollte ein [`TaskController`](/de/docs/Web/API/TaskController) erstellt werden, und sein [`TaskSignal`](/de/docs/Web/API/TaskSignal) sollte an `options.signal` übergeben werden.
+Die Aufgabenpriorität wird von der Signalpriorität initialisiert und kann später mit dem zugehörigen [`TaskController`](/de/docs/Web/API/TaskController) geändert werden.
 
 Wenn keine Priorität festgelegt ist, wird die Aufgabenpriorität standardmäßig auf [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible) gesetzt.
 
-Wenn eine Verzögerung angegeben und größer als 0 ist, wird die Ausführung der Aufgabe um mindestens so viele Millisekunden verzögert.
+Wenn eine Verzögerung angegeben und größer als 0 ist, wird die Ausführung der Aufgabe um mindestens diese Anzahl von Millisekunden verzögert.
 Andernfalls wird die Aufgabe sofort zur Priorisierung geplant.
 
 ## Syntax
@@ -37,8 +37,8 @@ postTask(callback, options)
 
 - `callback`
 
-  - : Eine Callback-Funktion, die die Aufgabe implementiert.
-    Der Rückgabewert des Callbacks wird verwendet, um das von dieser Funktion zurückgegebene Versprechen aufzulösen.
+  - : Eine Rückruffunktion, die die Aufgabe implementiert.
+    Der Rückgabewert des Rückrufs wird verwendet, um das von dieser Funktion zurückgegebene Promise zu lösen.
 
 - `options` {{optional_inline}}
 
@@ -48,24 +48,24 @@ postTask(callback, options)
 
       - : Die unveränderliche [Priorität](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) der Aufgabe.
         Eine der folgenden: [`"user-blocking"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-blocking), [`"user-visible"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#user-visible), [`"background"`](/de/docs/Web/API/Prioritized_Task_Scheduling_API#background).
-        Wenn gesetzt, wird diese Priorität für die Lebensdauer der Aufgabe verwendet und die auf dem `signal` gesetzte Priorität ignoriert.
+        Wenn gesetzt, wird diese Priorität für die Lebensdauer der Aufgabe verwendet, und Priorität, die im `signal` gesetzt ist, wird ignoriert.
 
     - `signal` {{optional_inline}}
 
-      - : Ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) oder [`AbortSignal`](/de/docs/Web/API/AbortSignal), das verwendet werden kann, um die Aufgabe abzubrechen (von seinem zugehörigen Controller).
+      - : Ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) oder [`AbortSignal`](/de/docs/Web/API/AbortSignal), das verwendet werden kann, um die Aufgabe abzubrechen (aus ihrem zugehörigen Controller).
 
-        Wenn der `options.priority`-Parameter gesetzt ist, kann die Aufgabenpriorität nicht geändert werden, und jeder Priorität auf dem Signal wird ignoriert.
-        Andernfalls, wenn das Signal ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) ist, wird seine Priorität verwendet, um die anfängliche Aufgabenpriorität festzulegen, und der Signal-Controller kann es später verwenden, um die Aufgabenpriorität zu ändern.
+        Wenn der Parameter `options.priority` gesetzt ist, kann die Aufgabenpriorität nicht geändert werden, und jegliche Priorität am Signal wird ignoriert.
+        Andernfalls, wenn das Signal ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) ist, wird dessen Priorität verwendet, um die anfängliche Aufgabenpriorität festzulegen, und der Controller des Signals kann sie später verwenden, um die Aufgabenpriorität zu ändern.
 
     - `delay` {{optional_inline}}
-      - : Die minimale Zeitspanne, nach der die Aufgabe zur Planerwarteschlange hinzugefügt wird, in ganzen Millisekunden.
-        Die tatsächliche Verzögerung kann höher sein als angegeben, wird aber nicht geringer sein.
+      - : Die minimale Zeitspanne, nach welcher die Aufgabe zur Scheduler-Warteschlange hinzugefügt wird, in ganzen Millisekunden.
+        Die tatsächliche Verzögerung kann höher als angegeben sein, wird aber nicht geringer sein.
         Die Standardverzögerung ist 0.
 
 ### Rückgabewert
 
-Gibt ein {{jsxref("Promise")}} zurück, das mit dem Rückgabewert der `callback`-Funktion aufgelöst wird oder das mit dem Abbruchgrund des `signal` ([`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason)) abgelehnt werden kann.
-Das Versprechen kann auch mit einem von der Callback-Funktion während der Ausführung geworfenen Fehler abgelehnt werden.
+Gibt ein {{jsxref("Promise")}} zurück, das mit dem Rückgabewert der `callback`-Funktion aufgelöst wird oder möglicherweise mit dem Abbruchsgrund des `signal` ([`AbortSignal.reason`](/de/docs/Web/API/AbortSignal/reason)) abgelehnt wird.
+Das Promise kann auch mit einem Fehler abgelehnt werden, der während der Ausführung des Rückrufs geworfen wird.
 
 ## Beispiele
 
@@ -73,9 +73,9 @@ Die folgenden Beispiele sind leicht vereinfachte Versionen der Live-Beispiele, d
 
 ### Funktionsüberprüfung
 
-Prüfen Sie, ob eine priorisierte Aufgabenplanung durch Testen der `scheduler`-Eigenschaft im globalen Kontext unterstützt wird (zum Beispiel [`Window.scheduler`](/de/docs/Web/API/Window/scheduler) im Fensterskontext oder [`WorkerGlobalScope.scheduler`](/de/docs/Web/API/WorkerGlobalScope/scheduler) im Worker-Kontext).
+Überprüfen, ob die priorisierte Aufgabenplanung unterstützt wird, indem die `scheduler`-Eigenschaft im globalen Gültigkeitsbereich getestet wird (z. B. [`Window.scheduler`](/de/docs/Web/API/Window/scheduler) im Gültigkeitsbereich des Fensters oder [`WorkerGlobalScope.scheduler`](/de/docs/Web/API/WorkerGlobalScope/scheduler) im Worker-Gültigkeitsbereich).
 
-Zum Beispiel protokolliert der unten stehende Code "Feature: Supported", wenn die API in diesem Browser unterstützt wird.
+Zum Beispiel wird im folgenden Code "Funktion: Unterstützt" protokolliert, wenn die API in diesem Browser unterstützt wird.
 
 ```js
 // Check that feature is supported
@@ -88,12 +88,12 @@ if ("scheduler" in globalThis) {
 
 ### Grundlegende Verwendung
 
-Aufgaben werden gepostet, indem eine Callback-Funktion (Aufgabe) im ersten Argument angegeben wird, und ein optionales zweites Argument verwendet werden kann, um eine Aufgabenpriorität, ein Signal und/oder eine Verzögerung anzugeben.
-Die Methode gibt ein {{jsxref("Promise")}} zurück, das mit dem Rückgabewert der Callback-Funktion aufgelöst wird oder mit einem Abbruchfehler oder einem innerhalb der Funktion geworfenen Fehler abgelehnt wird.
+Aufgaben werden durch Angabe einer Rückruffunktion (Aufgabe) im ersten Argument übergeben, und ein optionales zweites Argument kann verwendet werden, um eine Aufgabenpriorität, ein Signal und/oder eine Verzögerung anzugeben.
+Die Methode gibt ein {{jsxref("Promise")}} zurück, das mit dem Rückgabewert der Rückruffunktion aufgelöst wird oder mit entweder einem Abbruchfehler oder einem Fehler, der in der Funktion geworfen wurde, abgelehnt wird.
 
-Da sie ein Versprechen zurückgibt, kann `postTask()` [mit anderen Versprechen verkettet werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#chained_promises).
-Unten zeigen wir, wie Sie darauf warten können, dass das Versprechen mit [`then`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) aufgelöst oder mit [`catch`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) abgelehnt wird.
-Die Priorität ist nicht angegeben, sodass die Standardpriorität `user-visible` verwendet wird.
+Da sie ein Promise zurückgibt, kann `postTask()` mit anderen Versprechen [verkettet werden](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise#chained_promises).
+Im Folgenden zeigen wir, wie Sie auf die Lösung des Versprechens warten, indem Sie [`then`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) verwenden oder mit [`catch`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) ablehnen.
+Die Priorität ist nicht angegeben, daher wird die Standardpriorität `user-visible` verwendet.
 
 ```js
 // A function that defines a task
@@ -109,8 +109,8 @@ scheduler
   .catch((error) => console.error("Error:", error)); // Log error or abort
 ```
 
-Die Methode kann auch mit [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) innerhalb einer [asynchronen Funktion](/de/docs/Web/JavaScript/Reference/Statements/async_function) verwendet werden.
-Der unten stehende Code zeigt, wie Sie diesen Ansatz verwenden könnten, um auf eine `user-blocking`-Aufgabe zu warten.
+Die Methode kann auch mit [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) innerhalb einer [async function](/de/docs/Web/JavaScript/Reference/Statements/async_function) verwendet werden.
+Der folgende Code zeigt, wie Sie diesen Ansatz verwenden könnten, um auf eine `user-blocking`-Aufgabe zu warten.
 
 ```js
 function myTask2() {
@@ -128,16 +128,16 @@ runTask2();
 
 ### Dauerhafte Prioritäten
 
-[Aufgabenprioritäten](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) können mit dem `priority`-Parameter im optionalen zweiten Argument festgelegt werden.
+[Aufgabenprioritäten](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) können mit dem Parameter `priority` im optionalen zweiten Argument festgelegt werden.
 Prioritäten, die auf diese Weise festgelegt werden, können nicht geändert werden (sind [unveränderlich](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority)).
 
-Unten posten wir zwei Gruppen von drei Aufgaben, jedes Mitglied in umgekehrter Prioritätsreihenfolge.
+Nachfolgend posten wir zwei Gruppen von drei Aufgaben, jedes Mitglied in umgekehrter Reihenfolge der Priorität.
 Die letzte Aufgabe hat die Standardpriorität.
-Beim Ausführen protokolliert jede Aufgabe einfach die erwartete Reihenfolge (wir warten nicht auf das Ergebnis, da wir dies nicht müssen, um die Ausführungsreihenfolge zu zeigen).
+Beim Ausführen protokolliert jede Aufgabe einfach ihre erwartete Reihenfolge (wir warten nicht auf das Ergebnis, weil wir das nicht müssen, um die Reihenfolge der Ausführung zu zeigen).
 
 ```js
 // three tasks, in reverse order of priority
-scheduler.postTask(() => console.log("bckg 1"), { priority: "background" });
+scheduler.postTask(() => console.log("bkg 1"), { priority: "background" });
 scheduler.postTask(() => console.log("usr-vis 1"), {
   priority: "user-visible",
 });
@@ -146,7 +146,7 @@ scheduler.postTask(() => console.log("usr-blk 1"), {
 });
 
 // three more tasks, in reverse order of priority
-scheduler.postTask(() => console.log("bckg 2"), { priority: "background" });
+scheduler.postTask(() => console.log("bkg 2"), { priority: "background" });
 scheduler.postTask(() => console.log("usr-vis 2"), {
   priority: "user-visible",
 });
@@ -160,7 +160,7 @@ scheduler.postTask(() => {
 });
 ```
 
-Die erwartete Ausgabe wird unten gezeigt: Aufgaben werden in Prioritätsreihenfolge und anschließend in Deklarationsreihenfolge ausgeführt.
+Das erwartete Ergebnis wird unten gezeigt: Aufgaben werden in Prioritätsreihenfolge und dann in Deklarationsreihenfolge ausgeführt.
 
 ```plain
 usr-blk 1
@@ -168,22 +168,22 @@ usr-blk 2
 usr-vis 1
 usr-vis 2
 usr-vis 3 (default)
-bckg 1
-bckg 2
+bkg 1
+bkg 2
 ```
 
-### Aufgabenprioritäten ändern
+### Änderung der Aufgabenprioritäten
 
-[Aufgabenprioritäten](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) können auch ihren Anfangswert von einem [`TaskSignal`](/de/docs/Web/API/TaskSignal) übernehmen, das im optionalen zweiten Argument an `postTask()` übergeben wird.
-Wenn auf diese Weise festgelegt, kann die Priorität der Aufgabe [dann geändert werden](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) mit dem mit dem Signal verbundenen Controller.
+[Aufgabenprioritäten](/de/docs/Web/API/Prioritized_Task_Scheduling_API#task_priorities) können ihren Anfangswert auch aus einem [`TaskSignal`](/de/docs/Web/API/TaskSignal) erhalten, das im optionalen zweiten Argument an `postTask()` übergeben wird.
+Wenn so festgelegt, kann die Priorität der Aufgabe [dann geändert werden](/de/docs/Web/API/Prioritized_Task_Scheduling_API#mutable_and_immutable_task_priority) mit dem Controller, der dem Signal zugeordnet ist.
 
 > [!NOTE]
-> Das Setzen und Ändern von Aufgabenprioritäten durch ein Signal funktioniert nur, wenn das `options.priority`-Argument von `postTask()` nicht gesetzt ist und wenn das `options.signal` ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) (und kein [`AbortSignal`](/de/docs/Web/API/AbortSignal)) ist.
+> Das Setzen und Ändern von Aufgabenprioritäten mit einem Signal funktioniert nur, wenn das Argument `options.priority` an `postTask()` nicht festgelegt ist und wenn das `options.signal` ein [`TaskSignal`](/de/docs/Web/API/TaskSignal) (und kein [`AbortSignal`](/de/docs/Web/API/AbortSignal)) ist.
 
-Der unten stehende Code zeigt zunächst, wie ein [`TaskController`](/de/docs/Web/API/TaskController) erstellt wird, der die anfängliche Priorität seines Signals im [`TaskController()` Konstruktor](/de/docs/Web/API/TaskController/TaskController) auf `user-blocking` setzt.
+Der Code unten zeigt zunächst, wie Sie einen [`TaskController`](/de/docs/Web/API/TaskController) erstellen, wobei die anfängliche Priorität seines Signals auf `user-blocking` im [`TaskController()`-Konstruktor](/de/docs/Web/API/TaskController/TaskController) gesetzt wird.
 
-Wir verwenden dann `addEventListener()`, um einen Ereignis-Listener zum Signal des Controllers hinzuzufügen (alternativ könnten wir die `TaskSignal.onprioritychange`-Eigenschaft verwenden, um einen Ereignishandler hinzuzufügen).
-Der Ereignishandler verwendet [`previousPriority`](/de/docs/Web/API/TaskPriorityChangeEvent/previousPriority) des Ereignisses, um die ursprüngliche Priorität zu erhalten, und [`TaskSignal.priority`](/de/docs/Web/API/TaskSignal/priority) des Ereignisziels, um die neue/aktuelle Priorität zu erhalten.
+Wir verwenden dann `addEventListener()`, um einen Ereignis-Listener an das Signal des Controllers hinzuzufügen (wir könnten alternativ die `TaskSignal.onprioritychange` Eigenschaft verwenden, um einen Ereignishandler hinzuzufügen).
+Der Ereignishandler verwendet [`previousPriority`](/de/docs/Web/API/TaskPriorityChangeEvent/previousPriority) am Ereignis, um die ursprüngliche Priorität zu erhalten, und [`TaskSignal.priority`](/de/docs/Web/API/TaskSignal/priority) am Ereignisziel, um die neue/aktuelle Priorität zu erhalten.
 
 ```js
 // Create a TaskController, setting its signal priority to 'user-blocking'
@@ -197,7 +197,7 @@ controller.signal.addEventListener("prioritychange", (event) => {
 });
 ```
 
-Schließlich wird die Aufgabe gepostet, das Signal übergeben, und dann ändern wir sofort die Priorität auf `background`, indem wir [`TaskController.setPriority()`](/de/docs/Web/API/TaskController/setPriority) auf dem Controller aufrufen.
+Schließlich wird die Aufgabe gepostet, wobei das Signal übergeben wird, und dann ändern wir sofort die Priorität auf `background`, indem wir [`TaskController.setPriority()`](/de/docs/Web/API/TaskController/setPriority) auf dem Controller aufrufen.
 
 ```js
 // Post task using the controller's signal.
@@ -208,8 +208,8 @@ scheduler.postTask(() => console.log("Task 1"), { signal: controller.signal });
 controller.setPriority("background");
 ```
 
-Die erwartete Ausgabe wird unten gezeigt.
-Beachten Sie, dass in diesem Fall die Priorität geändert wird, bevor die Aufgabe ausgeführt wird, sie könnte aber genauso gut während der Aufgabenlaufzeit geändert werden.
+Das erwartete Ergebnis wird unten gezeigt.
+Beachten Sie, dass in diesem Fall die Priorität geändert wird, bevor die Aufgabe ausgeführt wird, aber sie könnte ebenso während der Ausführung der Aufgabe geändert werden.
 
 ```js
 // Expected output
@@ -219,13 +219,13 @@ Beachten Sie, dass in diesem Fall die Priorität geändert wird, bevor die Aufga
 
 ### Aufgaben abbrechen
 
-Aufgaben können sowohl mit [`TaskController`](/de/docs/Web/API/TaskController) als auch mit [`AbortController`](/de/docs/Web/API/AbortController) auf genau dieselbe Weise abgebrochen werden.
+Aufgaben können sowohl mit [`TaskController`](/de/docs/Web/API/TaskController) als auch mit [`AbortController`](/de/docs/Web/API/AbortController) abgebrochen werden, auf genau dieselbe Weise.
 Der einzige Unterschied besteht darin, dass Sie [`TaskController`](/de/docs/Web/API/TaskController) verwenden müssen, wenn Sie auch die Aufgabenpriorität festlegen möchten.
 
-Der unten stehende Code erstellt einen Controller und übergibt dessen Signal an die Aufgabe.
+Der untenstehende Code erstellt einen Controller und übergibt dessen Signal an die Aufgabe.
 Die Aufgabe wird dann sofort abgebrochen.
-Dies führt dazu, dass das Versprechen mit einem `AbortError` abgelehnt wird, der im `catch`-Block abgefangen und protokolliert wird.
-Beachten Sie, dass wir auch auf das [`abort` Ereignis](/de/docs/Web/API/AbortSignal/abort_event) warten könnten, das auf dem [`TaskSignal`](/de/docs/Web/API/TaskSignal) oder [`AbortSignal`](/de/docs/Web/API/AbortSignal) ausgelöst wird, und den Abbruch dort protokollieren könnten.
+Dies führt dazu, dass das Promise mit einem `AbortError` abgelehnt wird, der im `catch`-Block abgefangen und protokolliert wird.
+Beachten Sie, dass wir auch das [`abort` event](/de/docs/Web/API/AbortSignal/abort_event) hören könnten, das auf dem [`TaskSignal`](/de/docs/Web/API/TaskSignal) oder [`AbortSignal`](/de/docs/Web/API/AbortSignal) ausgelöst wird, und den Abbruch dort protokollieren könnten.
 
 ```js
 // Declare a TaskController with default priority
@@ -244,11 +244,11 @@ abortTaskController.abort();
 
 ### Aufgaben verzögern
 
-Aufgaben können verzögert werden, indem eine ganze Zahl von Millisekunden im `options.delay`-Parameter von `postTask()` angegeben wird.
-Dies fügt die Aufgabe effektiv zur priorisierten Warteschlange mit einem Timeout hinzu, wie es mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) erstellt werden könnte.
-Die `delay` ist die minimale Zeitspanne, bevor die Aufgabe dem Planer hinzugefügt wird; sie kann länger sein.
+Aufgaben können verzögert werden, indem eine ganze Anzahl von Millisekunden im Parameter `options.delay` an `postTask()` angegeben wird.
+Dies fügt die Aufgabe effektiv in die priorisierte Warteschlange in einem Timeout hinzu, wie es mit [`setTimeout()`](/de/docs/Web/API/Window/setTimeout) erstellt werden könnte.
+Die `delay` ist die minimale Zeitspanne, bevor die Aufgabe zum Scheduler hinzugefügt wird; sie kann länger dauern.
 
-Der unten stehende Code zeigt zwei Aufgaben, die mit einer Verzögerung (als Pfeilfunktionen) hinzugefügt werden.
+Der Code unten zeigt zwei hinzugefügte Aufgaben (als Arrow-Funktionen) mit einer Verzögerung.
 
 ```js
 // Post task as arrow function with delay of 2 seconds

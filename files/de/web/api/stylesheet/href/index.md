@@ -3,22 +3,22 @@ title: "StyleSheet: href-Eigenschaft"
 short-title: href
 slug: Web/API/StyleSheet/href
 l10n:
-  sourceCommit: 39dfa52277f598a99d5a6f5432347fb5d9052a99
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`href`**-Eigenschaft des [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Interfaces gibt den Speicherort des Stylesheets zurück.
+Die **`href`**-Eigenschaft der [`StyleSheet`](/de/docs/Web/API/StyleSheet)-Schnittstelle gibt den Speicherort des Stylesheets zurück.
 
 Diese Eigenschaft ist schreibgeschützt.
 
 ## Wert
 
-Ein String, der die URI des Stylesheets enthält.
+Ein String, der den URI des Stylesheets enthält.
 
 ## Beispiele
 
-Auf einem lokalen Windows-Computer:
+Auf einem lokalen Windows-Rechner:
 
 ```html
 <!doctype html>
@@ -29,24 +29,23 @@ Auf einem lokalen Windows-Computer:
     <title>href example</title>
     <link rel="styleSheet" href="example.css" />
     <script>
-      function sref() {
+      function printRef() {
         alert(document.styleSheets[0].href);
       }
     </script>
   </head>
   <body>
     <div class="thunder">Thunder</div>
-    <button onclick="sref()">ss</button>
+    <button onclick="printRef()">ss</button>
   </body>
 </html>
 ```
 
-Gibt "file:////C:/Windows/Desktop/example.css" zurück
+Gibt "file:////C:/Windows/Desktop/example.css" zurück.
 
 ## Hinweise
 
-Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs sein Speicherort.
-Bei eingebetteten Stylesheets ist der Wert dieses Attributs `null`.
+Wenn das Stylesheet ein verlinktes Stylesheet ist, ist der Wert seines Attributs dessen Speicherort. Für Inline-Stylesheets ist der Wert dieses Attributs `null`.
 
 ## Spezifikationen
 

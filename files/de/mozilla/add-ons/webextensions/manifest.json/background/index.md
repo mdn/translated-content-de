@@ -1,8 +1,8 @@
 ---
-title: background
+title: Hintergrund
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/background
 l10n:
-  sourceCommit: ed9ebd794add41de1f2e759502b73e8650afe56b
+  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
 ---
 
 {{AddonSidebar}}
@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -34,15 +34,15 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den `background`-Schlüssel, um ein oder mehrere Hintergrundskripte, eine Hintergrundseite oder einen Service-Worker in Ihre Erweiterung einzufügen.
+Verwenden Sie den `background`-Schlüssel, um ein oder mehrere Background-Skripte, eine Hintergrundseite oder einen Service Worker in Ihre Erweiterung einzubeziehen.
 
-Hintergrundskripte sind der Ort, um Code zu platzieren, der einen langfristigen Zustand aufrechterhalten oder langfristige Operationen unabhängig von der Lebensdauer bestimmter Webseiten oder Browserfenster durchführen muss.
+Background-Skripte sind der Ort, an dem Sie Code hinterlegen, der einen langfristigen Zustand aufrechterhalten oder langfristige Operationen unabhängig von der Lebensdauer bestimmter Webseiten oder Browserfenster durchführen muss.
 
-Hintergrundskripte werden geladen, sobald die Erweiterung geladen wird und bleiben geladen, bis die Erweiterung deaktiviert oder deinstalliert wird, es sei denn, `persistent` ist als `false` angegeben. Sie können in dem Skript jede WebExtension-API verwenden, wenn Sie die notwendigen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) beantragt haben.
+Background-Skripte werden geladen, sobald die Erweiterung geladen wird, und bleiben geladen, bis die Erweiterung deaktiviert oder deinstalliert wird, es sei denn, `persistent` ist als `false` angegeben. Sie können in dem Skript jede WebExtension-API nutzen, sofern Sie die notwendigen [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) angefordert haben.
 
-Siehe [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) für weitere Details.
+Siehe [Background scripts](/de/docs/Mozilla/Add-ons/WebExtensions/Background_scripts) für weitere Details.
 
-Der `background`-Schlüssel ist ein Objekt, das eine der folgenden Eigenschaften haben muss (für weitere Informationen darüber, wie diese Eigenschaften unterstützt werden, siehe [Browser-Unterstützung](#browser-unterstützung)):
+Der `background`-Schlüssel ist ein Objekt, das eine der folgenden Eigenschaften haben muss (für weitere Informationen zur Unterstützung dieser Eigenschaften siehe [Browser-Kompatibilität](#browser-kompatibilität)):
 
 <table class="standard-table">
   <tbody>
@@ -50,10 +50,10 @@ Der `background`-Schlüssel ist ein Objekt, das eine der folgenden Eigenschaften
       <td><code>page</code></td>
       <td>
         <p>
-          Wenn Sie speziellen Inhalt in der Hintergrundseite benötigen, können Sie eine Seite mit der Eigenschaft <code>page</code> definieren. Dies ist ein <code>String</code>, der einen relativen Pfad zur manifest.json-Datei zu einem HTML-Dokument darstellt, das in Ihrem Erweiterungsbundle enthalten ist.
+          Wenn Sie spezifische Inhalte auf der Hintergrundseite benötigen, können Sie eine Seite mit der <code>page</code>-Eigenschaft definieren. Dies ist ein <code>String</code>, der einen Pfad relativ zur Datei manifest.json zu einem HTML-Dokument in Ihrem Erweiterungspaket darstellt.
         </p>
         <p>
-          Wenn Sie diese Eigenschaft verwenden, können Sie keine Hintergrundskripte mit <code>scripts</code> angeben, aber Sie können Skripte von der Seite einfügen, genau wie eine normale Webseite.
+          Wenn Sie diese Eigenschaft verwenden, können Sie keine Background-Skripte mit <code>scripts</code> angeben, aber Sie können Skripte von der Seite einbinden, genau wie bei einer normalen Webseite.
         </p>
       </td>
     </tr>
@@ -61,16 +61,16 @@ Der `background`-Schlüssel ist ein Objekt, das eine der folgenden Eigenschaften
       <td><code>scripts</code></td>
       <td>
         <p>
-          Ein <code>Array</code> von <code>Strings</code>, von denen jeder ein Pfad zu einer JavaScript-Quelle ist. Der Pfad ist relativ zur manifest.json-Datei selbst. Dies sind die Skripte, die auf der Hintergrundseite der Erweiterung ausgeführt werden.
+          Ein <code>Array</code> von <code>Strings</code>, von denen jeder ein Pfad zu einer JavaScript-Quelle ist. Der Pfad ist relativ zur Datei manifest.json selbst. Diese sind die Skripte, die auf der Hintergrundseite der Erweiterung ausgeführt werden.
         </p>
-        <p>Die Skripte teilen sich den gleichen globalen Kontext <code>window</code>.</p>
+        <p>Die Skripte teilen sich den gleichen globalen <code>window</code>-Kontext.</p>
         <p>Die Skripte werden in der Reihenfolge geladen, in der sie im Array erscheinen.</p>
         <p>
-          Wenn Sie <code>scripts</code> angeben, wird eine leere Seite erstellt, auf der Ihre Skripte laufen.
+          Wenn Sie <code>scripts</code> angeben, wird eine leere Seite erstellt, auf der Ihre Skripte ausgeführt werden.
         </p>
         <div class="note">
           <p>
-            <strong>Hinweis:</strong> Wenn Sie ein Skript von einem entfernten Standort mit dem <code>&#x3C;script></code>-Tag laden möchten (z.B. <code>&#x3C;script src = "https://code.jquery.com/jquery-3.6.0.min.js"></code>), müssen Sie den <code><a href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy">content_security_policy</a></code>-Schlüssel in der manifest.json-Datei Ihrer Erweiterung ändern.
+            <strong>Hinweis:</strong> Wenn Sie ein Skript von einem entfernten Standort mit dem <code>&#x3C;script></code>-Tag abrufen möchten (z. B. <code>&#x3C;script src = "https://code.jquery.com/jquery-3.6.0.min.js"></code>), müssen Sie den <code><a href="/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/content_security_policy">content_security_policy</a></code>-Schlüssel in der manifest.json-Datei Ihrer Erweiterung ändern.
           </p>
         </div>
       </td>
@@ -79,7 +79,7 @@ Der `background`-Schlüssel ist ein Objekt, das eine der folgenden Eigenschaften
       <td><code>service_worker</code></td>
       <td>
         <p>
-          Geben Sie eine JavaScript-Datei als Service-Worker der Erweiterung an. Ein Service-Worker ist ein Hintergrundskript, das als Hauptereignishandler der Erweiterung fungiert.
+          Geben Sie eine JavaScript-Datei als die Erweiterung <a href="/de/docs/Web/API/Service_Worker_API">service worker</a> an. Ein Service Worker ist ein Hintergrundskript, das als Hauptereignishandler der Erweiterung fungiert.
         </p>
       </td>
     </tr>
@@ -94,14 +94,13 @@ Der `background`-Schlüssel kann auch diese optionale Eigenschaft enthalten:
       <td><code>persistent</code></td>
       <td>
         <p>Ein <code>Boolean</code>-Wert.</p>
-        <p>Wenn diese Eigenschaft weggelassen wird, ist der Standardwert <code>true</code> in Manifest V2 und <code>false</code> in Manifest V3. In Manifest V3 führt die Einstellung auf <code>true</code> zu einem Fehler.</p>
+        <p>Wenn diese Eigenschaft weggelassen wird, ist der Standardwert <code>true</code> in Manifest V2 und <code>false</code> in Manifest V3. Setzen auf <code>true</code> in Manifest V3 führt zu einem Fehler.</p>
         <ul>
           <li>
-            <code>true</code> bedeutet, dass die Hintergrundseite im Speicher gehalten wird von dem Zeitpunkt, an dem die Erweiterung geladen wird oder der Browser startet, bis die Erweiterung entladen oder deaktiviert wird, oder der Browser geschlossen wird (das heißt, die Hintergrundseite ist persistent).
+            <code>true</code> bedeutet, dass die Hintergrundseite im Speicher gehalten wird, von dem Zeitpunkt an, an dem die Erweiterung geladen wird oder der Browser gestartet wird, bis die Erweiterung entladen oder deaktiviert wird, oder der Browser geschlossen wird (d. h. die Hintergrundseite ist persistent).
           </li>
           <li>
-            <code>false</code> bedeutet, dass die Hintergrundseite möglicherweise aus dem Speicher entladen wird, wenn sie inaktiv ist, und bei Bedarf neu erstellt wird. Solche Hintergrundseiten werden oft als Ereignisseiten bezeichnet, weil sie in den Speicher geladen werden, um der Hintergrundseite zu ermöglichen, die Ereignisse zu verarbeiten, für die sie Listener hinzugefügt hat. Die Registrierung von Listenern ist persistent, wenn die Seite aus dem Speicher entladen wird, aber andere Werte sind nicht persistent. Wenn Sie Daten in einer Ereignisseite persistent speichern möchten, sollten Sie die
-            <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/storage">storage API</a> verwenden.
+            <code>false</code> bedeutet, dass die Hintergrundseite aus dem Speicher entladen werden kann, wenn sie nicht aktiv ist, und bei Bedarf neu erstellt wird. Solche Hintergrundseiten werden oft als Ereignisseiten bezeichnet, da sie in den Speicher geladen werden, um es der Hintergrundseite zu ermöglichen, die Ereignisse zu bearbeiten, zu denen sie Listener hinzugefügt hat. Die Registrierung von Listenern ist persistent, wenn die Seite aus dem Speicher entladen wird, aber andere Werte sind nicht persistent. Wenn Sie Daten persistent in einer Ereignisseite speichern möchten, sollten Sie die <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/storage">Storage-API</a> verwenden.
           </li>
         </ul>
       </td>
@@ -113,34 +112,34 @@ Der `background`-Schlüssel kann auch diese optionale Eigenschaft enthalten:
         <p>Bestimmt, ob die in <code>"scripts"</code> angegebenen Skripte als ES-Module geladen werden.</p>
         <ul>
           <li>
-            <code>classic</code> bedeutet, dass die Hintergrundskripte oder Service-Worker nicht als ES-Modul eingeschlossen sind.
+            <code>classic</code> bedeutet, dass die Background-Skripte oder Service Worker nicht als ES-Modul einbezogen werden.
           </li>
           <li>
-            <code>module</code> bedeutet, dass die Hintergrundskripte oder Service-Worker als ES-Modul eingeschlossen sind. Dies ermöglicht es der Hintergrundseite oder dem Service-Worker, Code mit <code>import</code> einzufügen.
+            <code>module</code> bedeutet, dass die Background-Skripte oder Service Worker als ES-Modul einbezogen werden. Dies ermöglicht es der Hintergrundseite oder dem Service Worker, Code zu <code>import</code>ieren.
           </li>
         </ul>
-        <p>Wenn diese Eigenschaft weggelassen wird, ist der Standardwert <code>classic</code>.</p>
+        <p>Wenn weggelassen, lautet der Standardwert dieser Eigenschaft <code>classic</code>.</p>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Browser-Unterstützung
+## Browser-Kompatibilität
 
 Die Unterstützung für die Eigenschaften `scripts`, `page` und `service_worker` variiert zwischen den Browsern wie folgt:
 
 - Chrome:
   - unterstützt `background.service_worker`.
   - unterstützt `background.scripts` (und `background.page`) nur in Manifest V2-Erweiterungen.
-  - Vor Chrome 121 verweigert Chrome das Laden einer Manifest V3-Erweiterung mit `background.scripts` oder `background.page`. Ab Chrome 121 wird ihre Präsenz in einer Manifest V3-Erweiterung ignoriert.
+  - Vor Chrome 121 weigert sich Chrome, eine Manifest V3-Erweiterung zu laden, wenn `background.scripts` oder `background.page` vorhanden sind. Ab Chrome 121 wird ihre Anwesenheit in einer Manifest V3-Erweiterung ignoriert.
 - Firefox:
-  - `background.service_worker` wird nicht unterstützt (siehe [Firefox Bug 1573659](https://bugzil.la/1573659)).
-  - unterstützt `background.scripts` (oder `background.page`), wenn `service_worker` nicht angegeben ist oder das Service-Worker-Feature deaktiviert ist. Vor Firefox 120 startete Firefox die Hintergrundseite nicht, wenn `service_worker` vorhanden war (siehe [Firefox Bug 1860304](https://bugzil.la/1860304)). Ab Firefox 121 startet die Hintergrundseite wie erwartet, unabhängig vom Vorhandensein von `service_worker`.
+  - `background.service_worker` wird nicht unterstützt (siehe [Firefox-Fehler 1573659](https://bugzil.la/1573659)).
+  - unterstützt `background.scripts` (oder `background.page`), wenn `service_worker` nicht angegeben oder die Service Worker-Funktion deaktiviert ist. Vor Firefox 120 startete Firefox die Hintergrundseite nicht, wenn `service_worker` vorhanden war (siehe [Firefox-Fehler 1860304](https://bugzil.la/1860304)). Ab Firefox 121 startet die Hintergrundseite wie erwartet, unabhängig von der Anwesenheit von `service_worker`.
 - Safari:
   - unterstützt `background.service_worker`.
   - unterstützt `background.scripts` (oder `background.page`), wenn `service_worker` nicht angegeben ist.
 
-Zur Veranschaulichung, dies ist ein einfaches Beispiel für eine Cross-Browser-Erweiterung, die `scripts` und `service_worker` unterstützt. Das Beispiel hat diese manifest.json-Datei:
+Zur Veranschaulichung hier ein einfaches Beispiel für eine plattformübergreifende Erweiterung, die `scripts` und `service_worker` unterstützt. Das Beispiel hat folgende manifest.json-Datei:
 
 ```json
 {
@@ -162,15 +161,15 @@ if (typeof browser == "undefined") {
   globalThis.browser = chrome;
 }
 browser.runtime.onInstalled.addListener(() => {
-  browser.tabs.create({ url: "http://example.com/firstrun.html" });
+  browser.tabs.create({ url: "http://example.com/first-run.html" });
 });
 ```
 
 Wenn die Erweiterung ausgeführt wird, passiert Folgendes:
 
-- In Chrome wird die Eigenschaft `service_worker` verwendet, und ein Service-Worker startet, der den Tab öffnet, da Chrome in einer Manifest V3-Erweiterung nur Service-Worker für Hintergrundskripte unterstützt.
-- In Firefox wird die Eigenschaft `scripts` verwendet, und ein Skript startet, das den Tab öffnet, da Firefox nur Skripte für Hintergrundskripte unterstützt.
-- In Safari wird die Eigenschaft `service_worker` verwendet, und ein Service-Worker startet, der den Tab öffnet, da Safari Service-Workern für Hintergrundskripte Priorität einräumt.
+- in Chrome wird die `service_worker`-Eigenschaft verwendet, und ein Service Worker wird gestartet, der den Tab öffnet, da Chrome in einer Manifest V3-Erweiterung nur Service Worker für Hintergrundskripte unterstützt.
+- in Firefox wird die `scripts`-Eigenschaft verwendet, und ein Skript startet, das den Tab öffnet, da Firefox nur Skripte für Hintergrundskripte unterstützt.
+- in Safari wird die `service_worker`-Eigenschaft verwendet, und ein Service Worker wird gestartet, der den Tab öffnet, da Safari der Verwendung von Service Workern für Hintergrundskripte Vorrang einräumt.
 
 ## Beispiele
 
@@ -180,7 +179,7 @@ Wenn die Erweiterung ausgeführt wird, passiert Folgendes:
   }
 ```
 
-Zwei Hintergrundskripte laden.
+Laden Sie zwei Background-Skripte.
 
 ```json
   "background": {
@@ -188,7 +187,7 @@ Zwei Hintergrundskripte laden.
   }
 ```
 
-Eine benutzerdefinierte Hintergrundseite laden.
+Laden Sie eine benutzerdefinierte Hintergrundseite.
 
 ## Browser-Kompatibilität
 

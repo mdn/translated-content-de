@@ -1,14 +1,14 @@
 ---
-title: "SVGPointList: replaceItem() Methode"
+title: "SVGPointList: replaceItem()-Methode"
 short-title: replaceItem()
 slug: Web/API/SVGPointList/replaceItem
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("SVG")}}
 
-Die **`replaceItem()`** Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList) Schnittstelle ersetzt einen [`point`](/de/docs/Web/API/SVGPoint) in der Liste.
+Die **`replaceItem()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle ersetzt einen [`point`](/de/docs/Web/API/SVGPoint) in der Liste.
 
 ## Syntax
 
@@ -19,13 +19,13 @@ replaceItem(obj, index)
 ### Parameter
 
 - `obj`
-  - : Ein [`point`](/de/docs/Web/API/SVGPoint) Objekt, das die Koordinaten des einzufügenden Punktes enthält.
+  - : Ein [`point`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des zu einzufügenden Punktes enthält.
 - `index`
   - : Der Index des zu ersetzenden Elements.
 
 ### Rückgabewert
 
-Das neue [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt.
+Das neue [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ### Ausnahmen
 
@@ -50,10 +50,10 @@ Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fün
 
 ```js
 let example = document.getElementById("example");
-let svgpoint = document.getElementById("svg").createSVGPoint();
-svgpoint.y = 10;
-svgpoint.x = 10;
-console.log(example.points.replaceItem(svgpoint, 1));
+let svgPoint = document.getElementById("svg").createSVGPoint();
+svgPoint.y = 10;
+svgPoint.x = 10;
+console.log(example.points.replaceItem(svgPoint, 1));
 ```
 
 ## Spezifikationen

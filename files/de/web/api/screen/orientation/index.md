@@ -3,12 +3,12 @@ title: "Screen: orientation-Eigenschaft"
 short-title: orientation
 slug: Web/API/Screen/orientation
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("Screen Orientation API")}}
 
-Die schreibgeschützte **`orientation`**-Eigenschaft der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle gibt die aktuelle Ausrichtung des Bildschirms zurück.
+Die **`orientation`**-Eigenschaft, eine schreibgeschützte Eigenschaft der [`Screen`](/de/docs/Web/API/Screen)-Schnittstelle, gibt die aktuelle Ausrichtung des Bildschirms zurück.
 
 ## Wert
 
@@ -24,11 +24,11 @@ switch (screen.orientation.type) {
     console.log("That looks good.");
     break;
   case "landscape-secondary":
-    console.log("Mmmh… the screen is upside down!");
+    console.log("Mmm… the screen is upside down!");
     break;
   case "portrait-secondary":
   case "portrait-primary":
-    console.log("Mmmh… you should rotate your device to landscape");
+    console.log("Mmm… you should rotate your device to landscape");
     break;
   default:
     console.log("The orientation API isn't supported in this browser :(");
@@ -47,4 +47,4 @@ switch (screen.orientation.type) {
 
 - [`ScreenOrientation`](/de/docs/Web/API/ScreenOrientation)
 - [`orientationchange`](/de/docs/Web/API/Screen/orientationchange_event) Ereignis
-- [Verwaltung der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
+- [Verwalten der Bildschirmausrichtung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)

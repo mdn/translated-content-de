@@ -3,12 +3,12 @@ title: "TextTrackCue: track-Eigenschaft"
 short-title: track
 slug: Web/API/TextTrackCue/track
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("WebVTT")}}
 
-Die schreibgeschützte **`track`**-Eigenschaft des [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Interfaces gibt das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt zurück, zu dem diese Cue gehört.
+Die schreibgeschützte **`track`**-Eigenschaft der [`TextTrackCue`](/de/docs/Web/API/TextTrackCue)-Schnittstelle gibt das [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt zurück, zu dem dieses Cue gehört.
 
 ## Wert
 
@@ -16,15 +16,15 @@ Ein [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt.
 
 ## Beispiele
 
-Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) (das von `TextTrackCue` erbt) erstellt und dann zu einem Track hinzugefügt. Der Wert von `track` wird in der Konsole ausgegeben.
+Im folgenden Beispiel wird ein neues [`VTTCue`](/de/docs/Web/API/VTTCue) (das von `TextTrackCue` erbt) erstellt und dann einem Track hinzugefügt. Der Wert von `track` wird in die Konsole ausgegeben.
 
 ```js
-let video = document.querySelector("video");
-let captiontrack = video.addTextTrack("captions", "Captions", "en");
-captiontrack.mode = "showing";
+const video = document.querySelector("video");
+const captionTrack = video.addTextTrack("captions", "Captions", "en");
+captionTrack.mode = "showing";
 
-let cue1 = new VTTCue(0, 0.9, "Hildy!");
-captiontrack.addCue(cue1);
+const cue1 = new VTTCue(0, 0.9, "Hildy!");
+captionTrack.addCue(cue1);
 console.log(cue1.track); // a TextTrack object.
 ```
 

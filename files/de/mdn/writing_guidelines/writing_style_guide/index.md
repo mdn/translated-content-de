@@ -1,168 +1,155 @@
 ---
-title: Schreibstil-Leitfaden
+title: Schreibstilleitfaden
 slug: MDN/Writing_guidelines/Writing_style_guide
 l10n:
-  sourceCommit: 583d48191a7a8605d831aff357bef6cc63aef2e3
+  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
 ---
 
 {{MDNSidebar}}
 
-Dieser Schreibstil-Leitfaden beschreibt, wie Inhalte auf MDN Web Docs verfasst, organisiert, geschrieben und formatiert werden sollten.
+Dieser Schreibstilleitfaden beschreibt, wie Inhalte auf MDN Web Docs geschrieben, organisiert, buchstabiert und formatiert werden sollten.
 
-Diese Richtlinien dienen dazu, die Konsistenz von Sprache und Stil auf der gesamten Website sicherzustellen. Nichtsdestotrotz sind wir mehr an den Inhalten als an deren Formatierung interessiert, sodass Sie sich nicht verpflichtet fühlen sollten, den gesamten Schreibstil-Leitfaden zu lernen, bevor Sie beitragen. Seien Sie jedoch nicht verärgert oder überrascht, wenn ein anderer Mitwirkender später Ihre Arbeit bearbeitet, um sie mit diesem Leitfaden in Einklang zu bringen. Die Reviewer könnten Sie auch auf diesen Stil-Leitfaden hinweisen, wenn Sie einen Inhalts-Pull-Request einreichen.
+Diese Richtlinien sollen sicherstellen, dass Sprache und Stil auf der gesamten Website konsistent sind. Dennoch legen wir mehr Wert auf den Inhalt als auf die Formatierung, also fühlen Sie sich nicht verpflichtet, den gesamten Leitfaden zu lernen, bevor Sie einen Beitrag leisten. Seien Sie jedoch nicht verärgert oder überrascht, wenn ein anderer Mitwirkender Ihre Arbeit später bearbeitet, um diesen Leitfaden zu entsprechen. Die Gutachter könnten Sie auch auf diesen Stilleitfaden hinweisen, wenn Sie einen Inhalts-Pull-Request einreichen.
 
 > [!NOTE]
-> Die sprachlichen Aspekte dieses Leitfadens gelten in erster Linie für englischsprachige Dokumentation. Andere Sprachen können (und sind eingeladen, dies zu tun) ihre eigenen Stil-Leitfäden erstellen. Diese sollten als Unterseiten der jeweiligen Lokalisierungsteams veröffentlicht werden. Dieser Leitfaden sollte jedoch immer noch für die Formatierung und Organisation der Inhalte konsultiert werden.
+> Die sprachlichen Aspekte dieses Leitfadens beziehen sich hauptsächlich auf englischsprachige Dokumentationen. Andere Sprachen können (und sind eingeladen) ihre eigenen Stilrichtlinien zu erstellen. Diese sollten als Unterseiten der jeweiligen Lokalisierungsteams-Seite veröffentlicht werden. Dennoch sollte dieser Leitfaden auch für das Formatieren und Organisieren von Inhalten konsultiert werden.
 
-Nach der Auflistung der allgemeinen Schreibrichtlinien beschreibt dieser Leitfaden den empfohlenen Schreibstil für MDN Web Docs und dann, wie verschiedene Komponenten auf einer Seite formatiert werden sollen, wie z. B. Listen und Titel.
+Nach der Auflistung der allgemeinen Schreibrichtlinien beschreibt dieser Leitfaden den empfohlenen Schreibstil für MDN Web Docs und anschließend, wie verschiedene Komponenten auf einer Seite, wie Listen und Titel, formatiert werden sollen.
 
 ## Allgemeine Schreibrichtlinien
 
-Das Ziel ist es, Seiten zu schreiben, die alle Informationen enthalten, die Leser für das Verständnis des behandelten Themas benötigen könnten.
+Das Ziel ist es, Seiten zu schreiben, die alle Informationen enthalten, die Leser benötigen, um das jeweilige Thema zu verstehen.
 
 Die folgenden Unterabschnitte bieten Empfehlungen, um dies zu erreichen:
 
 - [Berücksichtigen Sie Ihr Zielpublikum](#berücksichtigen_sie_ihr_zielpublikum)
 - [Berücksichtigen Sie die drei Cs des Schreibens](#berücksichtigen_sie_die_drei_cs_des_schreibens)
 - [Schließen Sie relevante Beispiele ein](#schließen_sie_relevante_beispiele_ein)
-- [Bieten Sie eine beschreibende Einführung](#bieten_sie_eine_beschreibende_einführung)
+- [Bieten Sie eine beschreibende Einführung an](#bieten_sie_eine_beschreibende_einführung_an)
 - [Verwenden Sie inklusive Sprache](#verwenden_sie_inklusive_sprache)
 - [Schreiben Sie mit SEO im Hinterkopf](#schreiben_sie_mit_seo_im_hinterkopf)
 
 ### Berücksichtigen Sie Ihr Zielpublikum
 
-Behalten Sie beim Schreiben den Zielkreis Ihres Inhalts im Hinterkopf. Beispielsweise muss eine Seite über fortgeschrittene Netzwerktechniken wahrscheinlich nicht so sehr ins Detail gehen über grundlegende Netzwerkkonzepte wie eine typische Seite über Netzwerke. Denken Sie daran, dass dies Richtlinien sind. Einige dieser Tipps mögen nicht in jedem Fall zutreffen.
+Behalten Sie das Zielpublikum für die Inhalte, die Sie schreiben, im Hinterkopf. Eine Seite über fortgeschrittene Netzwerktechniken muss beispielsweise wahrscheinlich nicht so detailliert auf grundlegende Netzwerk-Konzepte eingehen wie die typische Seite über Netzwerk. Beachten Sie, dass dies Richtlinien sind. Einige dieser Tipps sind möglicherweise nicht in jedem Fall anwendbar.
 
 ### Berücksichtigen Sie die drei Cs des Schreibens
 
-Die drei Cs des guten Schreibens sind, klar, prägnant und konsistent zu schreiben.
+Die drei Cs des guten Schreibens sind Klarheit, Knappheit und Konsistenz.
 
-- **Klar**: Stellen Sie sicher, dass Ihr Schreiben klar und einfach ist. Verwenden Sie im Allgemeinen den aktiven Sprachstil und eindeutige Pronomen. Schreiben Sie kurze Sätze und halten Sie sich an eine Idee pro Satz. Definieren Sie neue Begriffe, bevor Sie sie verwenden, unter Berücksichtigung des Zielpublikums.
-- **Prägnant**: Beim Verfassen eines Dokuments ist es wichtig zu wissen, wie viel man sagen muss. Wenn Sie zu viele Details geben, wird die Seite mühsam zu lesen sein und selten benutzt werden.
-- **Konsistent**: Stellen Sie sicher, dass Sie die gleiche Wortwahl konsistent auf der gesamten Seite und über mehrere Seiten hinweg beibehalten.
+- **Klar**: Stellen Sie sicher, dass Ihr Schreiben klar und einfach ist. Verwenden Sie generell die aktive Stimme und eindeutige Pronomen. Schreiben Sie kurze Sätze und bleiben Sie bei einer Idee pro Satz. Definieren Sie neue Begriffe, bevor Sie sie verwenden.
+- **Kompakt**: Beim Schreiben eines Dokuments ist es wichtig zu wissen, wie viel Sie sagen müssen. Wenn Sie zu viele Details angeben, wird die Seite mühsam zu lesen und selten verwendet.
+- **Konsistent**: Stellen Sie sicher, dass Sie denselben Wortlaut konsistent auf der Seite und über mehrere Seiten hinweg verwenden.
 
 ### Schließen Sie relevante Beispiele ein
 
-Im Allgemeinen fügen Sie Beispiele oder reale Szenarien hinzu, um den von Ihnen geschriebenen Inhalt besser zu erklären. Dies hilft den Lesern, konzeptionelle und prozedurale Informationen auf eine konkretere und praktischere Weise zu verstehen.
+Fügen Sie im Allgemeinen Beispiele oder reale Szenarien hinzu, um den von Ihnen geschriebenen Inhalt besser zu erklären. Dies hilft den Lesern, konzeptionelle und prozedurale Informationen auf eine greifbarere und praktischere Weise zu verstehen.
 
-Sie sollten Beispiele verwenden, um zu verdeutlichen, wofür jeder Parameter verwendet wird, und um spezielle Fälle, die möglicherweise existieren, zu klären. Sie können auch Beispiele verwenden, um Lösungen für allgemeine Aufgaben und Lösungen für Probleme, die auftreten können, zu demonstrieren.
+Sie sollten Beispiele verwenden, um klarzustellen, wofür jeder Parameter verwendet wird, und um Unklarheiten zu klären, die möglicherweise auftreten. Sie können auch Beispiele verwenden, um Lösungen für häufige Aufgaben und Lösungen für Probleme zu demonstrieren, die auftreten können.
 
-### Bieten Sie eine beschreibende Einführung
+### Bieten Sie eine beschreibende Einführung an
 
-Stellen Sie sicher, dass der Eröffnungsabschnitt vor der ersten Überschrift die Informationen, die auf der Seite behandelt werden, angemessen zusammenfasst und möglicherweise, was Leser nach dem Durcharbeiten der Inhalte erreichen können werden. So kann ein Leser schnell feststellen, ob die Seite für seine Anliegen und gewünschten Lernziele relevant ist.
+Stellen Sie sicher, dass der einleitende Absatz bzw. die einleitenden Absätze vor der ersten Überschrift die Informationen zusammenfasst, die die Seite abdecken wird und was die Leser möglicherweise erreichen können, nachdem sie den Inhalt durchgegangen sind. Auf diese Weise können die Leser schnell feststellen, ob die Seite für ihre Bedenken und gewünschten Lernziele relevant ist.
 
-In einem Leitfaden oder Tutorial sollte der einleitende Absatz die Leser über die behandelten Themen informieren sowie das erwartete Vorwissen, das der Leser benötig, falls vorhanden. Der Einleitungsabschnitt sollte die dokumentierten oder diskutierten Technologien und/oder APIs erwähnen und Links zu verwandten Informationen enthalten. Er sollte auch Hinweise auf Situationen bieten, in denen der Inhalt des Artikels nützlich sein könnte.
+In einem Leitfaden oder Tutorial sollten die einleitenden Absätze den Lesern mitteilen, welche Themen behandelt werden und welches Vorwissen vorausgesetzt wird, falls vorhanden. Der einleitende Absatz sollte die Technologien und/oder APIs erwähnen, die dokumentiert oder besprochen werden, mit Links zu den zugehörigen Informationen, und er sollte hinweisen, in welchen Situationen die Inhalte des Artikels nützlich sein könnten.
 
-- **Beispiel für eine kurze Einführung**: Dieses Beispiel einer Einführung ist viel zu kurz. Es lässt zu viele Informationen aus, wie z.B. was es genau bedeutet, Text zu "umranden", wo der Text gezeichnet wird, und so weiter.
+- **Beispiel für eine kurze Einführung**: Dieses Beispiel für eine Einführung ist viel zu kurz. Es werden zu viele Informationen ausgelassen, wie z.B. was es genau bedeutet, Text zu "umschließen", wo der Text gezeichnet wird usw.
 
-  > **`CanvasRenderingContext2D.strokeText()`** zeichnet einen Textstring.
+  > **`CanvasRenderingContext2D.strokeText()`** zeichnet eine Zeichenfolge.
 
-- **Beispiel für eine lange Einführung**: Dieses Beispiel enthält eine aktualisierte Einführung, aber jetzt ist es viel zu lang.
-  Zu viele Details sind enthalten, und der Text geht zu sehr in die Beschreibung anderer Methoden und Eigenschaften. Stattdessen sollte die Einführung sich auf die `strokeText()` Methode konzentrieren und auf die entsprechenden Leitfäden verweisen, in denen die anderen Details beschrieben sind.
+- **Beispiel für eine lange Einführung**: Dieses Beispiel hat eine aktualisierte Einführung, aber jetzt ist sie viel zu lang. Es sind zu viele Details enthalten, und der Text neigt dazu, andere Methoden und Eigenschaften zu sehr zu beschreiben. Stattdessen sollte sich die Einführung auf die `strokeText()`-Methode konzentrieren und auf die entsprechenden Leitfäden verweisen, in denen die anderen Details beschrieben werden.
 
-  > Wenn aufgerufen, umrandet die Canvas 2D API Methode **`CanvasRenderingContext2D.strokeText()`** die Zeichen im angegebenen Textstring, beginnend bei den angegebenen Koordinaten und unter Verwendung der aktuellen Stiftfarbe.
-  > Im Vokabular der Computergrafik bedeutet "umranden", die Umrisse der Glyphen im String zu zeichnen, ohne den Inhalt jedes Zeichens mit Farbe zu füllen.
+  > Wenn die Canvas 2D API-Methode **`CanvasRenderingContext2D.strokeText()`** aufgerufen wird, umschließt sie die Zeichen in der angegebenen Zeichenfolge beginnend bei den angegebenen Koordinaten, unter Verwendung der aktuellen Stiftfarbe. In der Terminologie der Computergrafik bedeutet "Text umschließen", die Umrisse der Schriftzeichen in der Zeichenfolge zu zeichnen, ohne den Inhalt jedes Zeichens mit Farbe zu füllen.
   >
-  > Der Text wird mit der aktuellen Schriftart des Kontexts gezeichnet, wie sie in der [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) Eigenschaft des Kontexts angegeben ist.
+  > Der Text wird mit Hilfe der aktuellen Schrift des Kontexts gezeichnet, wie er in der [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font)-Eigenschaft des Kontexts spezifiziert ist.
   >
-  > Die Positionierung des Textes relativ zu den angegebenen Koordinaten wird durch die Eigenschaften `textAlign`, `textBaseline` und `direction` des Kontexts bestimmt.
-  > `textAlign` steuert die Platzierung des Strings relativ zur angegebenen X-Koordinate; wenn der Wert `"center"` ist, wird der String beginnend bei `x - (stringBreite / 2)` gezeichnet, sodass die angegebene X-Koordinate in der Mitte des Strings liegt.
-  > Wenn der Wert `"left"` ist, wird der String beginnend bei dem angegebenen Wert von `x` gezeichnet.
-  > Und wenn `textAlign` `"right"` ist, wird der Text so gezeichnet, dass er an der angegebenen X-Koordinate endet.
+  > Die Platzierung des Texts relativ zu den angegebenen Koordinaten wird von den `textAlign`, `textBaseline` und `direction` Eigenschaften des Kontexts bestimmt. `textAlign` steuert die Platzierung der Zeichenfolge relativ zur angegebenen X-Koordinate; wenn der Wert `"center"` ist, wird die Zeichenfolge beginnend bei `x - (stringWidth / 2)` gezeichnet, wobei die angegebene X-Koordinate sich in der Mitte der Zeichenfolge befindet. Ist der Wert `"left"`, wird die Zeichenfolge beginnend beim angegebenen Wert von `x` gezeichnet. Und wenn `textAlign` `"right"` ist, wird der Text so gezeichnet, dass er an der angegebenen X-Koordinate endet.
   >
   > (…)
   >
-  > Sie können optional einen vierten Parameter angeben, mit dem Sie eine maximale Breite für den String, in Pixeln, angeben können.
-  > Wenn Sie diesen Parameter angeben, wird der Text horizontal zusammengedrückt oder skaliert (oder auf andere Weise angepasst), um in einen so breiten Raum zu passen, wenn er gezeichnet wird.
+  > Sie können optional einen vierten Parameter angeben, mit dem Sie eine maximale Breite der Zeichenfolge in Pixeln festlegen können. Wenn Sie diesen Parameter angeben, wird der Text bei der Ausführung horizontal komprimiert oder skaliert (oder anderweitig angepasst), um in einen derart breiten Bereich zu passen.
   >
-  > Sie können die **`fillText()`** Methode aufrufen, um die Zeichen eines Strings mit Farbe zu füllen, anstatt nur die Umrisse der Zeichen zu zeichnen.
+  > Sie können die **`fillText()`**-Methode aufrufen, um die Zeichen der Zeichenfolge farblich auszufüllen anstatt nur deren Umrisse zu zeichnen.
 
-- **Beispiel für eine angemessene Einführung**: Hier sehen wir eine viel bessere Übersicht für die `strokeText()` Methode.
+- **Beispiel für eine angemessene Einführung**: Hier sehen wir einen viel besseren Überblick über die `strokeText()`-Methode.
 
-  > Die [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) Methode **`strokeText()`**, Teil der [Canvas 2D API](/de/docs/Web/API/Canvas_API), umrandet (zeichnet die Umrisse der) Zeichen eines angegebenen Textstrings, verankert an der Position, die durch die angegebenen X- und Y-Koordinaten angedeutet wird.
-  > Der Text wird mit der aktuellen [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) des Kontexts gezeichnet und wird gemäß den Eigenschaften [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign), [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction) ausgerichtet und justiert.
+  > Die Methode [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D) **`strokeText()`**, Teil der [Canvas 2D API](/de/docs/Web/API/Canvas_API), umschließt (zeichnet die Umrisse der) Zeichen einer angegebenen Zeichenfolge, verankert an der Position, die durch die gegebenen X- und Y-Koordinaten angezeigt wird. Der Text wird mit Hilfe der aktuellen [`font`](/de/docs/Web/API/CanvasRenderingContext2D/font) des Kontexts gezeichnet und gemäß den [`textAlign`](/de/docs/Web/API/CanvasRenderingContext2D/textAlign) , [`textBaseline`](/de/docs/Web/API/CanvasRenderingContext2D/textBaseline) und [`direction`](/de/docs/Web/API/CanvasRenderingContext2D/direction)-Eigenschaften gerechtfertigt und ausgerichtet.
   >
-  > Für weitere Details und Beispiele, siehe den Abschnitt [Text](/de/docs/Learn/JavaScript/Client-side_web_APIs/Drawing_graphics#text) auf der Seite zum Zeichnen von Grafiken sowie unseren Hauptartikel zu diesem Thema, [Text zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text).
+  > Für weitere Details und Beispiele sehen Sie sich den [Text](/de/docs/Learn/JavaScript/Client-side_web_APIs/Drawing_graphics#text)-Abschnitt auf der Zeichnen von Grafiken-Seite sowie unseren Hauptartikel zu diesem Thema, [Text zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text), an.
 
 ### Verwenden Sie inklusive Sprache
 
-MDN hat ein breites und vielfältiges Publikum.
-Wir empfehlen dringend, die Texte so inklusiv wie möglich zu halten.
-Hier sind einige Alternativen zu häufig verwendeten Begriffen in der Dokumentation:
+MDN hat ein breites und vielfältiges Publikum. Wir ermutigen Sie nachdrücklich, die Texte so inklusiv wie möglich zu halten. Hier sind einige Alternativen zu gängigen Begriffen, die in der Dokumentation verwendet werden:
 
 - Vermeiden Sie die Begriffe **master** und **slave** und verwenden Sie stattdessen **main** und **replica**.
 - Ersetzen Sie **whitelist** und **blacklist** durch **allowlist** und **denylist**.
 - **Sanity** sollte durch **coherence** ersetzt werden.
-- Anstelle von **dummy**, verwenden Sie **placeholder**.
-- Sie sollten die Begriffe **crazy** und **insane** in Dokumentationen nicht verwenden; falls doch, ziehen Sie in Betracht **fantastic** zu verwenden.
+- Anstelle von **dummy** verwenden Sie **placeholder**.
+- Sie sollten die Begriffe **crazy** und **insane** nicht in der Dokumentation verwenden müssen; falls dies jedoch der Fall sein sollte, sollten Sie stattdessen **fantastic** in Betracht ziehen.
 
-Es ist am besten, in jedem Text, in dem das Geschlecht für das Thema unerheblich ist, geschlechtsneutrale Sprache zu verwenden.
-Wenn Sie beispielsweise über die Handlungen eines bestimmten Mannes sprechen, ist die Verwendung von "er"/"sein" in Ordnung; aber wenn das Subjekt eine Person beiderlei Geschlechts ist, ist "er"/"sein" nicht angemessen.
+Am besten verwenden Sie genderneutrale Sprache in jedem Text, bei dem das Geschlecht für das Thema irrelevant ist. Wenn Sie beispielsweise über die Handlungen eines bestimmten Mannes sprechen, ist die Verwendung von "er"/"sein" in Ordnung; aber wenn es sich um eine Person eines beliebigen Geschlechts handelt, ist "er"/"sein" nicht angemessen.
 
-Betrachten wir die folgenden Beispiele:
+Schauen wir uns die folgenden Beispiele an:
 
-- **Falsch**: "Ein Bestätigungsdialog fragt den Benutzer, ob er der Webseite die Verwendung seiner Webcam erlauben möchte."
-- **Falsch**: "Ein Bestätigungsdialog fragt die Benutzerin, ob sie der Webseite die Verwendung ihrer Webcam erlauben möchte."
+- **Falsch**: "Ein Bestätigungsdialog fragt den Benutzer, ob er der Webseite erlauben möchte, seine Webcam zu verwenden."
+- **Falsch**: "Ein Bestätigungsdialog fragt den Benutzer, ob sie der Webseite erlauben möchte, ihre Webcam zu verwenden."
 
-Beide Versionen sind geschlechtsspezifisch. Um dies zu beheben, verwenden Sie geschlechtsneutrale Pronomen wie folgt:
+Beide Versionen sind geschlechtsspezifisch. Um dies zu korrigieren, verwenden Sie genderneutrale Pronomen, wie folgt:
 
-- **Richtig**: "Ein Bestätigungsdialog fragt den Benutzer, ob sie der Webseite die Verwendung ihrer Webcam erlauben möchten."
+- **Richtig**: "Ein Bestätigungsdialog fragt den Benutzer, ob sie der Webseite erlauben wollen, ihre Webcam zu verwenden."
 
 > [!NOTE]
-> MDN Web Docs erlaubt die Verwendung des dritten Plurals, allgemein bekannt als "[Singular 'they'](https://en.wikipedia.org/wiki/Singular_they).". Die geschlechtsneutralen Pronomen umfassen "they," "them", "their," und "theirs".
+> MDN Web Docs erlaubt die Verwendung der dritten Person Mehrzahl, allgemein bekannt als "[singular 'they'](https://en.wikipedia.org/wiki/Singular_they)". Die geschlechtsneutralen Pronomen sind "sie", "ihnen", "ihrer" und "ihres".
 
-Eine andere Option besteht darin, die Benutzer zu pluralisieren, wie folgt:
+Eine andere Möglichkeit besteht darin, die Benutzer im Plural zu nennen, wie folgt:
 
-- **Richtig**: "Ein Bestätigungsdialog fragt die Benutzer, ob sie der Webseite die Verwendung ihrer Webcams erlauben möchten."
+- **Richtig**: "Ein Bestätigungsdialog fragt die Benutzer, ob sie der Webseite erlauben wollen, ihre Webcams zu verwenden."
 
-Die beste Lösung ist natürlich, die Pronomen umzuformulieren und zu eliminieren:
+Die beste Lösung ist natürlich, die Pronomen zu überarbeiten und zu eliminieren:
 
-- **Richtig**: "Ein Bestätigungsdialog, der um die Zustimmung des Benutzers zur Webcam-Nutzung bittet, erscheint."
-- **Richtig**: "Ein Bestätigungsdialogfeld, das den Benutzer um Erlaubnis zur Webcam-Nutzung bittet, erscheint."
+- **Richtig**: "Ein Bestätigungsdialog erscheint, der die Erlaubnis des Benutzers für den Zugriff auf die Webcam anfordert."
+- **Richtig**: "Ein Bestätigungsdialogfeld, das den Benutzer um Erlaubnis zur Verwendung der Webcam bittet, erscheint."
 
-Dieses letzte Beispiel ist wahrscheinlich besser.
-Zum einen ist es grammatikalisch korrekter, es entfernt jedoch einige der Komplexitäten, die mit der Geschlechterhandhabung in verschiedenen Sprachen verbunden sind, die möglicherweise völlig unterschiedliche Geschlechtregeln haben.
-Diese Lösung kann die Übersetzung sowohl für Leser als auch Übersetzer erleichtern.
+Dieses letzte Beispiel, wie man mit dem Problem umgeht, ist wohl besser. Es ist nicht nur grammatikalisch korrekter, sondern beseitigt auch einige der Komplexität, die mit der Handhabung von Geschlechtern in verschiedenen Sprachen verbunden ist, die möglicherweise völlig unterschiedliche Geschlechtsregeln haben. Diese Lösung kann die Übersetzung sowohl für Leser als auch für Übersetzer erleichtern.
 
 ### Schreiben Sie mit SEO im Hinterkopf
 
-Obwohl das primäre Ziel jeglichen Schreibens auf MDN Web Docs immer das Erklären und Informieren über offene Webtechnologien sein sollte, damit Entwickler schnell lernen können, was sie tun möchten, oder um die kleinen Details zu finden, die sie wissen müssen, um ihren Code zu perfektionieren, ist es wichtig, dass sie das Material, das wir schreiben, _finden_ können. Wir können dies erreichen, indem wir an die Suchmaschinenoptimierung ({{Glossary("SEO", "SEO")}}) beim Schreiben denken.
+Während das Hauptziel jedes Schreibens auf MDN Web Docs immer sein sollte, über offene Webtechnologie zu erklären und zu informieren, damit Entwickler schnell lernen können, was sie tun möchten oder um die kleinen Details zu finden, die sie wissen müssen, um ihren Code zu perfektionieren, ist es wichtig, dass sie das Material, das wir schreiben, _finden_ können. Wir können dies erreichen, indem wir die Suchmaschinenoptimierung ({{Glossary("SEO", "SEO")}}) beim Schreiben im Hinterkopf behalten.
 
-Dieser Abschnitt behandelt die Standardpraktiken, Empfehlungen und Anforderungen für Inhalte, um sicherzustellen, dass Suchmaschinen unser Material leicht kategorisieren und indizieren können, damit Leser alles finden können, was sie benötigen. Die SEO-Richtlinien beinhalten, dass sichergestellt wird, dass jede Seite, an der Autoren und Redakteure arbeiten, einigermaßen gut gestaltet, geschrieben und markiert wird, um den Suchmaschinen den Kontext und die Hinweise zu geben, die sie benötigen, um die Artikel richtig zu indizieren.
+Dieser Abschnitt behandelt die Standardpraktiken, Empfehlungen und Anforderungen für Inhalte, um sicherzustellen, dass Suchmaschinen unsere Materialien leicht kategorisieren und indizieren können, damit die Leser leicht finden können, was sie brauchen. Die SEO-Richtlinien beinhalten die Sicherstellung, dass jede Seite, an der Schreiber und Redakteure arbeiten, vernünftig gestaltet, geschrieben und mit Markierungen versehen ist, um den Suchmaschinen den Kontext und die Hinweise zu geben, die sie benötigen, um die Artikel richtig zu indizieren.
 
-Die folgende Checkliste ist gut im Hinterkopf zu behalten, während Sie Inhalte schreiben und überprüfen, um sicherzustellen, dass die Seite und ihre Nachbarn richtig von den Suchmaschinen indiziert werden:
+Die folgende Checkliste ist gut zu beachten, während Sie Inhalte schreiben und überprüfen, um sicherzustellen, dass die Seite und ihre Nachbarn richtig von Suchmaschinen indiziert werden:
 
-- **Stellen Sie sicher, dass Seiten nicht zu ähnlich sind**: Wenn der Inhalt auf verschiedenen Seiten textuell ähnlich ist, werden Suchmaschinen annehmen, dass die Seiten über dasselbe Thema sind, selbst wenn sie das nicht sind.
-  Wenn eine Schnittstelle beispielsweise die Eigenschaften `width` und `height` aufweist, ist es leicht, dass der Text auf den beiden Seiten zur Dokumentation dieser beiden Eigenschaften überraschend ähnlich ist, mit nur wenigen ausgetauschten Worten und unter Verwendung desselben Beispiels. Dies macht es für Suchmaschinen schwierig zu wissen, welche welche ist, und sie teilen sich den Page-Rank, wodurch beide schwerer zu finden sind, als sie sein sollten.
+- **Stellen Sie sicher, dass Seiten nicht zu ähnlich sind**: Wenn der Inhalt auf verschiedenen Seiten textuell ähnlich ist, gehen Suchmaschinen davon aus, dass die Seiten über dasselbe Thema sind, selbst wenn sie es nicht sind. Zum Beispiel, wenn eine Schnittstelle die Eigenschaften `width` und `height` hat, ist es leicht, dass der Text auf den beiden Seiten, die diese beiden Eigenschaften dokumentieren, überraschend ähnlich ist, mit nur wenigen ausgetauschten Worten und derselben Beispielnutzung. Dies macht es Suchmaschinen schwer zu wissen, was was ist, und sie teilen sich am Ende den Page Rank, was dazu führt, dass beide schwerer zu finden sind, als sie es sein sollten.
 
-  Es ist daher wichtig sicherzustellen, dass jede Seite ihren eigenen Inhalt hat. Hier sind einige Vorschläge, um Ihnen dies zu ermöglichen:
+  Es ist dann wichtig, sicherzustellen, dass jede Seite ihren eigenen Inhalt hat. Hier sind einige Vorschläge, um dies zu ermöglichen:
 
-  - **Erklären Sie mehr einzigartige Konzepte**: Berücksichtigen Sie Anwendungsfälle, bei denen es möglicherweise mehr Unterschiede gibt, als man denkt. Bei der Dokumentation der Eigenschaften `width` und `height` beispielsweise könnten Sie über die unterschiedlichen Verwendungen des horizontalen Raums und des vertikalen Raums sprechen und eine Diskussion über die entsprechenden Konzepte führen. Vielleicht können Sie die Verwendung von `width` im Hinblick auf das Platzschaffen für eine Seitenleiste erwähnen, während Sie `height` verwenden, um vertikales Scrollen oder Fußzeilen zu verwalten. Auch das Einbeziehen von Informationen über Barrierefreiheit ist eine nützliche und wichtige Idee.
-  - **Verwenden Sie unterschiedliche Beispiele**: Beispiele in diesen Situationen sind oft noch ähnlicher als der Fließtext, da die Beispiele möglicherweise sowohl (oder alle) der ähnlichen Methoden oder Eigenschaften verwenden, sodass sie beim erneuten Verwenden keine wirklichen Änderungen erfordern. Also werfen Sie das Beispiel weg und schreiben Sie ein neues, oder bieten Sie zumindest mehrere Beispiele an, wobei zumindest einige von ihnen unterschiedlich sind.
-  - **Fügen Sie Beschreibungen für Beispiele hinzu**: Sowohl ein Überblick darüber, was das Beispiel tut, als auch eine Abdeckung dessen, wie es funktioniert, in einem angemessenen Detaillierungsgrad angesichts der Komplexität des Themas und des Zielpublikums, sollten enthalten sein.
+  - **Erklären Sie mehr einzigartige Konzepte**: Betrachten Sie Anwendungsfälle, bei denen es möglicherweise mehr Unterschiede gibt, als man denkt. Zum Beispiel im Fall der Dokumentation von `width`- und `height`-Eigenschaften könnten Sie vielleicht über die unterschiedlichen Verwendungen von horizontalem und vertikalem Raum schreiben und eine Diskussion über die entsprechenden Konzepte bereitstellen. Vielleicht können Sie die Verwendung von `width` im Hinblick auf die Schaffung von Platz für eine Seitenleiste erwähnen, während Sie `height` zur Handhabung des vertikalen Scrollens oder der Füße verwenden. Informationen zu Barrierefreiheitsaspekten sind ebenfalls eine nützliche und wichtige Idee.
+  - **Verwenden Sie unterschiedliche Beispiele**: Beispiele in diesen Situationen ähneln oft sogar noch mehr dem Text des Hauptteils, weil die Beispiele von Anfang an beide (oder alle) ähnlichen Methoden oder Eigenschaften verwenden können, was keine wirklichen Änderungen beim Wiederverwenden erfordert. Also werfen Sie das Beispiel weg und schreiben Sie ein neues, oder zumindest mehrere Beispiele bereitstellen, von denen zumindest einige unterschiedlich sind.
+  - **Fügen Sie Beschreibungen für Beispiele hinzu**: Sowohl eine Übersicht darüber, was das Beispiel tut, als auch eine Behandlung dessen, wie es funktioniert, in einem angemessenen Detaillierungsgrad angesichts der Komplexität des Themas und des Zielpublikums, sollte enthalten sein.
 
-  Der einfachste Weg, um zu vermeiden, zu ähnlich zu sein, besteht natürlich darin, wenn die Zeit es erlaubt, jeden Artikel von Grund auf neu zu schreiben.
+  Der einfachste Weg, um übermäßige Ähnlichkeiten zu vermeiden, ist natürlicherweise, jeden Artikel von Grund auf neu zu schreiben, wenn die Zeit es erlaubt.
 
-- **Stellen Sie sicher, dass Seiten nicht zu kurz sind**: Wenn der Inhalt auf einer Seite zu wenig ist (sogenannte "dünne Seiten" im SEO-Jargon), werden Suchmaschinen solche Seiten nicht genau (oder gar nicht) katalogisieren. Zu kurze Inhaltsseiten sind schwer zu finden. Als Leitprinzip sollten Seiten auf MDN Web Docs nicht kürzer als etwa 300 Wörter sein. Erfinden Sie keinen Text künstlich dazu, aber sehen Sie diese Richtlinie als Mindestziel an, wann immer es möglich ist.
+- **Stellen Sie sicher, dass Seiten nicht zu kurz sind**: Wenn der Inhalt auf einer Seite zu wenig ist (in der SEO-Sprache als "dünne Seiten" bezeichnet), werden solche Seiten von Suchmaschinen nicht genau katalogisiert (oder überhaupt nicht). Übermäßig kurze Inhaltsseiten sind schwer zu finden. Als Leitprinzip stellen Sie sicher, dass Seiten auf MDN Web Docs nicht kürzer als etwa 300 Wörter sind. Blähen Sie eine Seite nicht künstlich auf, sondern behandeln Sie diese Richtlinie als Mindestziel, wenn möglich.
 
-  Hier sind einige grundlegende Richtlinien, um Ihnen zu helfen, Seiten zu erstellen, die genug Inhalt haben, um richtig durchsuchbar zu sein, ohne sie mit unnötigem Text zu überladen:
+  Hier einige grundlegende Richtlinien, die Ihnen helfen, Seiten zu erstellen, die genug Inhalt haben, um ordnungsgemäß auffindbar zu sein, ohne sie mit unnötigem Text zu überfüllen:
 
-  - **Vermeiden Sie Stubs**: Offensichtlich, wenn der Artikel ein Stub ist oder Inhalte fehlen, fügen Sie diese hinzu. Wir bemühen uns, "Stub"-Seiten auf MDN Web Docs zu vermeiden, obwohl es sie gibt, aber es gibt viele Seiten, denen große Teile ihres Inhalts fehlen.
-  - **Überprüfen Sie die Seitenstruktur**: Überprüfen Sie die Seite, um sicherzustellen, dass sie für den [Seitentyp](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types), den sie hat, richtig strukturiert ist. Stellen Sie sicher, dass alle Abschnitte vorhanden sind und angemessene Inhalte haben.
-  - **Stellen Sie die Vollständigkeit sicher**: Überprüfen Sie die Abschnitte, um sicherzustellen, dass keine Informationen fehlen. Stellen Sie sicher, dass alle Parameter aufgelistet und erklärt sind. Stellen Sie sicher, dass alle Ausnahmen abgedeckt sind - dies ist ein besonders häufiger Bereich, in dem Inhalte fehlen.
-  - **Stellen Sie sicher, dass alle Konzepte vollständig ausgearbeitet sind**: Es ist einfach, eine schnelle Erklärung zu geben, aber achten Sie darauf, dass alle Feinheiten abgedeckt sind. Gibt es spezielle Fälle? Gibt es bekannte Einschränkungen, die der Leser kennen sollte?
-  - **Fügen Sie Beispiele hinzu**: Beispiele sollten alle Parameter abdecken oder zumindest die Parameter (oder Eigenschaften, oder Attribute), die Benutzer vom Anfänger- bis hin zu mittleren Niveau wahrscheinlich verwenden, sowie alle fortgeschrittenen, die zusätzliche Erklärungen erfordern. Jedes Beispiel sollte mit einem Überblick darüber beginnen, was das Beispiel tun wird, welches zusätzliche Wissen möglicherweise benötigt wird, um es zu verstehen usw. Nach dem Beispiel (oder eingebettet zwischen die Teile des Beispiels) sollte Text sein, der erklärt, wie der Code funktioniert. Gehen Sie nicht sparsam mit den Details oder der Fehlerbehandlung in den Beispielen um. Denken Sie daran, dass die Benutzer _sehr wahrscheinlich_ Ihr Beispiel kopieren und einfügen, um es in ihren eigenen Projekten zu verwenden und Ihr Code _wird_ auf produktiven Seiten enden! Siehe unsere [Leitlinien für Codebeispiele](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide) für weitere nützliche Informationen.
-  - **Erklären Sie Anwendungsfälle**: Wenn es besonders häufige Anwendungsfälle für die beschriebene Funktion gibt, sprechen Sie darüber! Statt davon auszugehen, dass ein Benutzer herausfindet, dass die dokumentierte Methode verwendet werden kann, um ein häufiges Entwicklungsproblem zu lösen, fügen Sie einen Abschnitt über diesen Anwendungsfall mit einem Beispiel und Text hinzu, der erklärt, wie das Beispiel funktioniert.
-  - **Fügen Sie Bildinformationen hinzu**: Fügen Sie einen angemessenen [`alt`](/de/docs/Web/HTML/Element/img#alt) Text zu allen Bildern und Diagrammen hinzu. Dieser Text sowie Bildunterschriften für Tabellen und andere Abbildungen sind wichtig, da Spinnen keine Bilder durchsuchen können, und so ermöglicht der `alt`-Text Suchmaschinen-Crawlern zu verstehen, welchen Inhalt die eingebetteten Medien enthalten.
+  - **Vermeiden Sie Platzhalter**: Offensichtlich gibt es, wenn der Artikel ein Platzhalter ist oder Inhalte fehlen, füge ihn hinzu. Wir versuchen auf MDN Web Docs, explizite "Platzhalter"-Seiten zu vermeiden, obwohl sie existieren, aber es gibt viele Seiten, denen große Teile ihres Inhalts fehlen.
+  - **Überprüfen Sie den Seitenaufbau**: Überprüfen Sie die Seite, um sicherzustellen, dass sie richtig für den [Seitentyp](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types) strukturiert ist. Stellen Sie sicher, dass alle Abschnitte vorhanden sind und geeignete Inhalte haben.
+  - **Sicherstellen der Vollständigkeit**: Überprüfen Sie die Abschnitte, um sicherzustellen, dass keine Informationen fehlen. Stellen Sie sicher, dass alle Parameter aufgelistet und erklärt sind. Stellen Sie sicher, dass alle Ausnahmen behandelt werden — dies ist ein besonders häufiger Ort, an dem Inhalte fehlen.
+  - **Stellen Sie sicher, dass alle Konzepte vollständig ausgearbeitet sind**: Es ist einfach, eine schnelle Erklärung von etwas zu geben, aber stellen Sie sicher, dass alle Nuancen behandelt werden. Gibt es spezielle Fälle? Gibt es bekannte Einschränkungen, die der Leser wissen muss?
+  - **Beispiele hinzufügen**: Es sollten Beispiele für alle Parameter oder zumindest die Parameter (oder Eigenschaften, oder Attribute) vorhanden sein, die Benutzer vom Anfänger- bis mittleren Bereich wahrscheinlich verwenden werden, sowie alle fortgeschrittenen, die zusätzliche Erklärung erfordern. Jedes Beispiel sollte von einer Übersicht dessen, was das Beispiel tun wird, was zusätzliches Wissen benötigt wird, um es zu verstehen, und so weiter. Nach dem Beispiel (oder unter Einfügen von Teilen des Beispiels) sollte Text hinzugefügt werden, der erklärt, wie der Code funktioniert. Knausern Sie nicht bei den Details oder der Behandlung von Fehlern in Beispielen. Bedenken Sie, dass Benutzer _werden_ Ihr Beispiel kopieren und einfügen, um es in ihren eigenen Projekten zu verwenden, und Ihr Code wird am Ende in Produktionsseiten verwendet! Siehe unsere [Richtlinien für Codebeispiele](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide) für weitere nützliche Informationen.
+  - **Erklären Sie Anwendungsfälle**: Wenn es besonders häufige Anwendungsfälle für das beschriebene Feature gibt, sprechen Sie darüber! Anstatt davon auszugehen, dass ein Benutzer selbst herausfindet, dass die dokumentierte Methode verwendet werden kann, um ein häufiges Entwicklungsproblem zu lösen, fügen Sie tatsächlich einen Abschnitt über diesen Anwendungsfall mit einem Beispiel hinzu und fügen Sie Text hinzu, der erklärt, wie das Beispiel funktioniert.
+  - **Bildinformationen hinzufügen**: Fügen Sie passende [`alt`](/de/docs/Web/HTML/Element/img#alt)-Texte für alle Bilder und Diagramme hinzu. Dieser Text sowie Bildunterschriften in Tabellen und anderen Abbildungen zählen, da "Spinnen" Bilder nicht durchsuchen können, und daher beschreibt der `alt`-Text den Suchmaschinen-Crawlern, welchen Inhalt das eingebettete Medium enthält.
     > [!NOTE]
-    > Es wird nicht empfohlen, zu viele Schlüsselwörter oder Schlüsselwörter, die nicht im Zusammenhang mit der Funktion stehen, in einem Versuch, das Suchmaschinenranking zu manipulieren, zu verwenden; dieses Verhalten ist leicht zu erkennen und neigt dazu, negativ gewertet zu werden.
-    > Ebenso sollten Sie KEINEN wiederholten, unhilfreichen Materialblöcke oder Schlüsselwörter auf der eigentlichen Seite hinzufügen, um die Seitengröße und das Suchranking zu verbessern. Dies schadet mehr als es nützt, sowohl der Lesbarkeit der Inhalte als auch unseren Suchergebnissen.
+    > Es wird nicht empfohlen, zu viele Schlüsselwörter oder Schlüsselwörter, die nicht mit dem Feature zusammenhängen, in einem Versuch hinzuzufügen, das Suchmaschinen-Ranking zu manipulieren; diese Art von Verhalten ist leicht zu erkennen und wird dazu neigen, eine Strafe zu erhalten.
+    > Ebenso **fügen Sie keine** sich wiederholenden, unhilfreichen Materialien oder Schlüsselförmige Massen innerhalb der tatsächlichen Seite hinzu, um zu versuchen, die Größe der Seite und das Suchranking zu verbessern. Dies schadet mehr, sowohl der Lesbarkeit des Inhalts als auch unseren Suchergebnissen.
 
-- **Fokussieren Sie sich auf den Themeninhalt**: Es ist weitaus besser, Inhalte um das Thema der Seite herumzuschreiben als um ein spezifisches Schlüsselwort. Es ist sehr wahrscheinlich, dass es viele Schlüsselwörter gibt, die Sie für ein bestimmtes Thema einfügen könnten; tatsächlich kompilieren viele SEOs eine Liste von 5-100 verschiedenen Schlüsselwörtern (dabei variierend zwischen kurzen, mittleren und langen, spezialisierteren Schlüsselwörtern), die in ihrem Artikel verwendet werden sollen, abhängig von der Länge. Eine solche Diversifizierung Ihrer Ausdrucksweise führt zu weniger Wiederholung.
+- **Fokus auf den Themeninhalt**: Es ist weitaus besser, Inhalte rund um das Thema der Seite zu schreiben als ein bestimmtes Schlüsselwort. Es ist sehr wahrscheinlich, dass es viele Schlüsselwörter gibt, die Sie für ein bestimmtes Thema einbeziehen könnten; viele SEOs zusammengestellte eine Liste von 5 bis 100 verschiedenen Schlüsselwörtern (unterschiedlich zwischen kurzen, mittleren und langschwänzigen Schlüsselwörtern) in ihrem Artikel zu enthalten, je nach Länge. Das Festlegen diversifiziert Ihre Formulierung und führt zu weniger Wiederholungen.
 
 ## Schreibstil
 
-Abgesehen davon, dass Sie grammatikalisch korrekte Sätze in Englisch schreiben, empfehlen wir Ihnen, diese Richtlinien zu befolgen, um Inhalte auf MDN Web Docs konsistent zu halten.
+Außer dem Schreiben grammatikalisch korrekter Sätze auf Englisch empfehlen wir, diese Richtlinien zu befolgen, um Konsistenz des Inhalts über MDN Web Docs hinweg sicherzustellen.
 
 - [Abkürzungen und Akronyme](#abkürzungen_und_akronyme)
 - [Großschreibung](#großschreibung)
@@ -173,97 +160,97 @@ Abgesehen davon, dass Sie grammatikalisch korrekte Sätze in Englisch schreiben,
 - [Kommas](#kommas)
 - [Bindestriche](#bindestriche)
 - [Rechtschreibung](#rechtschreibung)
-- [Begriffswahl](#begriffswahl)
-- [Stilrichtung](#stilrichtung)
+- [Terminologie](#terminologie)
+- [Stimme](#stimme)
 
 ### Abkürzungen und Akronyme
 
-Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein Akronym ein neues Wort ist, das aus den Anfangsbuchstaben jedes Wortes eines Ausdrucks gebildet wird. Dieser Abschnitt beschreibt Richtlinien für Abkürzungen und Akronyme.
+Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein Akronym ein neues Wort ist, das mit dem ersten Buchstaben jedes Wortes eines Satzes erstellt wurde. Dieser Abschnitt beschreibt Richtlinien für Abkürzungen und Akronyme.
 
-- **Erweiterungen**: Bei der ersten Erwähnung eines Begriffs auf einer Seite, erweitern Sie Akronyme, die Benutzern wahrscheinlich unbekannt sind. Im Zweifelsfall den Begriff erweitern. Noch besser, verlinken Sie ihn auf den Artikel oder die [Glossar](/de/docs/Glossary)-Eintrag, der die Technologie beschreibt.
+- **Erweiterungen**: Bei der ersten Erwähnung eines Begriffs auf einer Seite sollten Akronyme, die den Benutzern wahrscheinlich unbekannt sind, erweitert werden. Im Zweifelsfall erweitern Sie den Begriff. Besser noch, verlinken Sie es mit dem Artikel oder Eintrag im [Glossar](/de/docs/Glossary), der die Technologie beschreibt.
 
-  - **Richtig**: "XUL (XML User Interface Language) ist Mozillas XML-basierte Sprache ..."
-  - **Falsch**: "XUL ist Mozillas XML-basierte Sprache ..."
+  - **Richtig**: "XUL (XML User Interface Language) ist Mozillas auf XML basierende Sprache ..."
+  - **Falsch**: "XUL ist Mozillas auf XML basierende Sprache ..."
 
-- **Großschreibung und Punkte**: Verwenden Sie durchgehende Großbuchstaben und verzichten Sie auf Punkte in allen Abkürzungen und Akronymen, einschließlich Organisationen wie "US" und "UN".
+- **Großschreibung und Punkte**: Verwenden Sie vollständig Großbuchstaben und löschen Sie Punkte in allen Abkürzungen und Akronymen, einschließlich Organisationen wie "US" und "UN".
 
   - **Richtig**: XUL
   - **Falsch**: X.U.L.; Xul
 
-- **Lateinische Abkürzungen**: Sie können im Ausdruck in Klammern und Notizen, allgemeine lateinische Abkürzungen (etc., i.e., e.g.) verwenden. Verwenden Sie Punkte in diesen Abkürzungen, gefolgt von einem Komma oder einem anderen geeigneten Satzzeichen.
+- **Latienische Abkürzungen**: Sie können gebräuchliche Lateinische Abkürzungen (etc., i.e., e.g.) in Klammern setzen und verwenden. Verwenden Sie Punkte in diesen Abkürzungen, gefolgt von einem Komma oder anderen geeigneten Satzzeichen.
 
-  - **Richtig**: Webbrowser (e.g., Firefox) können verwendet werden ...
-  - **Falsch**: Webbrowser e.g. Firefox können verwendet werden ...
-  - **Falsch**: Webbrowser, e.g. Firefox, können verwendet werden ...
+  - **Richtig**: Webbrowser (z.B., Firefox) können verwendet werden ...
+  - **Falsch**: Webbrowser zB Firefox können verwendet werden ...
+  - **Falsch**: Webbrowser, eg. Firefox, können verwendet werden ...
   - **Falsch**: Webbrowser, (eg: Firefox) können verwendet werden ...
 
-  Im normalen Text (d.h. außerhalb von Notizen oder Klammern), verwenden Sie die englischsprachige Entsprechung der Abkürzung.
+  In regulärem Text (d.h., Text außerhalb der Anmerkungen oder Klammern), verwenden Sie das englische Äquivalent der Abkürzung.
 
-  - **Richtig**: ... Webbrowser usw.
+  - **Richtig**: ... Webbrowser und so weiter.
   - **Falsch**: ... Webbrowser, etc.
 
   - **Richtig**: Webbrowser wie Firefox können verwendet werden ...
   - **Falsch**: Webbrowser e.g. Firefox können verwendet werden ...
 
-  Die folgende Tabelle fasst die Bedeutungen und englischen Entsprechungen der lateinischen Abkürzungen zusammen:
+  Die folgende Tabelle fasst die Bedeutungen und englischen Äquivalente lateinischer Abkürzungen zusammen:
 
-  | Abbrev | Latein           | Englisch                     |
-  | ------ | ---------------- | ---------------------------- |
-  | cf.    | _confer_         | vergleichen                  |
-  | e.g.   | _exempli gratia_ | zum Beispiel                 |
-  | et al. | _et alii_        | und andere                   |
-  | etc.   | _et cetera_      | und so weiter, usw.          |
-  | i.e.   | _id est_         | das heißt, in anderen Worten |
-  | N.B.   | _nota bene_      | wohlbemerkt                  |
-  | P.S.   | _post scriptum_  | Nachschrift                  |
+  | Abk.   | Latein           | Englisch                      |
+  | ------ | ---------------- | ----------------------------- |
+  | cf.    | _confer_         | vergleichen                   |
+  | e.g.   | _exempli gratia_ | zum Beispiel                  |
+  | et al. | _et alii_        | und andere                    |
+  | etc.   | _et cetera_      | und so weiter, usw.           |
+  | i.e.   | _id est_         | das heißt, mit anderen Worten |
+  | N.B.   | _nota bene_      | merke wohl                    |
+  | P.S.   | _post scriptum_  | Nachschrift                   |
 
   > [!NOTE]
-  > Überlegen Sie immer, ob es wirklich vorteilhaft ist, eine lateinische Abkürzung zu verwenden. Einige dieser Abkürzungen werden so selten verwendet, dass viele Leser entweder ihre Bedeutung verwirren oder sie nicht verstehen werden.
+  > Überlegen Sie immer, ob es wirklich vorteilhaft ist, eine Lateinische Abkürzung zu verwenden. Einige davon werden so selten verwendet, dass viele Leser entweder ihre Bedeutungen verwirren oder nicht verstehen werden.
   >
-  > Vergewissern Sie sich auch, dass _Sie_ sie korrekt verwenden, wenn Sie sich dafür entscheiden, sie zu verwenden. Zum Beispiel, passen Sie auf, "e.g." nicht mit "i.e." zu verwechseln, was ein häufiger Fehler ist.
+  > Stellen Sie außerdem sicher, dass _Sie_ sie korrekt verwenden, wenn Sie sich dafür entscheiden. Zum Beispiel achten Sie darauf, "e.g." nicht mit "i.e." zu verwechseln, was ein häufiger Fehler ist.
 
-- **Plural von Abkürzungen und Akronymen**: Für Plurale von Abkürzungen und Akronymen, fügen Sie ein _s_ hinzu. Verwenden Sie keinen Apostrophen. Niemals. Bitte.
+- **Mehrzahl von Abkürzungen und Akronymen**: Verwenden Sie `_s_` um die Mehrzahl von Abkürzungen und Akronymen zu bilden. Verwenden Sie keinen Apostroph. Niemals. Bitte.
 
   - **Richtig**: CD-ROMs
   - **Falsch**: CD-ROM's
 
-- **"Versus", "vs.", und "v."**: Wenn Sie die Abkürzung verwenden, wird "vs." gegenüber "v." bevorzugt und kann in Überschriften verwendet werden. Andernfalls verwenden Sie die ausgeschriebene Form "versus" im Text.
+- **"Versus", "vs.", und "v."**: Bei Verwendung der Verkürzung wird "vs." bevorzugt gegenüber "v." und kann in Überschriften verwendet werden. Andernfalls verwenden Sie im Text die ausgeschriebene Form "versus".
 
-  - **Richtig**: dies vs. das
-  - **Falsch**: dies v. das
-  - **Richtig**: dies versus das
+  - **Richtig**: this vs. that
+  - **Falsch**: this v. that
+  - **Richtig**: this versus that
 
 ### Großschreibung
 
-Verwenden Sie Standard-Großschreibungsregeln im Fließtext und verwenden Sie "World Wide Web" in Großbuchstaben. Es ist akzeptabel, "web" (allein verwendet oder als Modifikator) und "internet" in Kleinbuchstaben zu schreiben.
+Verwenden Sie standardmäßige englische Großschreibungsregeln im Text und schreiben Sie "World Wide Web" groß. Es ist akzeptabel, "web" (alleinstehend oder als Modifikator) und "internet" klein zu schreiben.
 
 > [!NOTE]
-> Diese Richtlinie ist eine Änderung gegenüber einer früheren Version dieses Leitfadens, sodass Sie auf viele Instanzen von "Web" und "Internet" bei MDN stoßen werden.
-> Fühlen Sie sich frei, diese zu ändern, während Sie andere Änderungen vornehmen, aber bearbeiten Sie einen Artikel nicht nur, um die Großschreibung zu ändern.
+> Diese Richtlinie stellt eine Änderung gegenüber einer früheren Version dieses Leitfadens dar, sodass Sie auf MDN eventuell viele Fälle von "Web" und "Internet" finden.
+> Fühlen Sie sich frei, diese zu ändern, während Sie andere Änderungen vornehmen, aber es ist nicht notwendig, einen Artikel nur zur Änderung der Großschreibung zu bearbeiten.
 
-Tastaturtasten sollten die Satzstil-Großschreibung verwenden, nicht die Großbuchstaben-Großschreibung.
-Zum Beispiel, "<kbd>Enter</kbd>" nicht "<kbd>ENTER</kbd>".
+Tastaturtasten sollten die Satzstil-Großschreibung verwenden, nicht die vollständige Großschreibung.
+Beispielsweise "<kbd>Enter</kbd>" nicht "<kbd>ENTER</kbd>".
 Die einzige Ausnahme ist, dass Sie "<kbd>ESC</kbd>" verwenden können, um die "<kbd>Escape</kbd>"-Taste abzukürzen.
 
-Bestimmte Wörter sollten immer großgeschrieben werden, wie z. B. Markennamen, die Großbuchstaben enthalten, oder Wörter, die aus dem Namen einer Person abgeleitet sind (es sei denn, das Wort wird innerhalb von Code verwendet und die Syntax des Codes erfordert eine Kleinschreibung).
-Einige Beispiele beinhalten:
+Bestimmte Wörter sollten immer großgeschrieben sein, wie eingetragene Marken mit Großbuchstaben oder Worte, die vom Namen einer Person abgeleitet sind (es sei denn, das Wort wird innerhalb von Code verwendet und die Codesyntax erfordert Kleinschreibung).
+Einige Beispiele sind:
 
 - Boolean (benannt nach dem englischen Mathematiker und Logiker [George Boole](https://en.wikipedia.org/wiki/George_Boole))
-- JavaScript (ein Warenzeichen von Oracle Corporation, es sollte immer als Warenzeichen geschrieben werden)
-- Python, TypeScript, Django und andere Programmiersprachen- und Framework-Namen
+- JavaScript (eine eingetragene Marke der Oracle Corporation, sie sollte immer als Marke geschrieben werden)
+- Python, TypeScript, Django und andere Programmiersprachen und Framework-Namen
 
 ### Kontraktionen
 
-Unser Schreibstil tendiert dazu, informell zu sein, daher sollten Sie sich frei fühlen, Kontraktionen zu verwenden (z. B. "don't", "can't", "shouldn't"), wenn Sie es bevorzugen.
+Unser Schreibstil neigt dazu, zwanglos zu sein, also können Sie sich frei fühlen, Kontraktionen (z.B., "don't", "can't", "shouldn't") zu verwenden, wenn Sie es bevorzugen.
 
 ### Zahlen und Ziffern
 
-- **Kommas**: Im Fließtext verwenden Sie Kommas nur in fünfstelligen und größeren Zahlen.
+- **Kommas**: In fortlaufendem Text verwenden Sie Kommas nur bei fünfstelligen und größeren Zahlen.
 
   - **Richtig**: 4000; 54,000
   - **Falsch**: 4,000; 54000
 
-- **Daten**: Für Daten (nicht in Code-Beispielen enthalten), verwenden Sie das Format "January 1, 1900".
+- **Daten**: Für Daten (nicht einschließend Daten in Codebeispielen), verwenden Sie das Format "January 1, 1900".
 
   - **Richtig**: February 24, 1906
   - **Falsch**: February 24th, 1906; 24 February, 1906; 24/02/1906
@@ -273,57 +260,57 @@ Unser Schreibstil tendiert dazu, informell zu sein, daher sollten Sie sich frei 
   - **Richtig**: 1906/02/24
   - **Falsch**: 02/24/1906; 24/02/1906; 02/24/06
 
-- **Jahrzehnte**: Verwenden Sie das Format "1990s". Verwenden Sie keinen Apostrophen.
+- **Jahrzehnte**: Verwenden Sie das Format "1990s". Verwenden Sie keinen Apostroph.
 
   - **Richtig**: 1920s
   - **Falsch**: 1920's
 
-- **Plural von Ziffern**: Fügen Sie "s" hinzu. Verwenden Sie keinen Apostrophen.
+- **Mehrzahl von Ziffern**: Fügen Sie "_s_" hinzu. Verwenden Sie keinen Apostroph.
 
   - **Richtig**: 486s
   - **Falsch**: 486's
 
 ### Pluralbildung
 
-Verwenden Sie englische Pluralformen, nicht die latein- oder griechisch-beeinflussten Formen.
+Verwenden Sie Pluralformen in englischem Stil und nicht die durch Latein oder Griechisch beeinflussten Formen.
 
 - **Richtig**: syllabuses, octopuses
 - **Falsch**: syllabi, octopi
 
 ### Apostrophe und Anführungszeichen
 
-Verwenden Sie keine "kurvenreichen" Anführungszeichen und Apostrophe. Auf MDN Web Docs verwenden wir nur gerade Anführungszeichen und Apostrophe. Dies liegt daran, dass wir uns für eines von beiden entscheiden müssen, um konsistent zu bleiben. Wenn kurvenreiche Anführungszeichen oder Apostrophe in Code-Snippets, selbst in Inline-Snippets, auftauchen, können Leser diese möglicherweise kopieren und einfügen, in der Erwartung, dass sie funktionieren (was sie nicht tun).
+Verwenden Sie keine "geschwungenen" Anführungszeichen und Anführungsstriche. Auf MDN Web Docs verwenden wir nur gerade Anführungszeichen und Apostrophe. Dies ist notwendig, weil wir eins von beiden wählen müssen, um Konsistenz zu erhalten. Wenn geschwungene Anführungszeichen oder Apostrophe in Codeausschnitte gelangen, selbst in Inline-Code, könnten Leser sie kopieren und einfügen und erwarten, dass sie funktionieren (was sie nicht tun werden).
 
-- **Richtig**: Please don't use "curly quotes."
-- **Falsch**: Please don&rsquo;t use &ldquo;curly quotes.&rdquo;
+- **Richtig**: Bitte verwenden Sie keine "geschwungenen Anführungszeichen."
+- **Falsch**: Bitte verwenden Sie keine &rsquo;geschwungenen Anf&uuml;hrungszeichen.&rsquo;
 
 ### Kommas
 
-In der folgenden Liste werden einige der häufigen Situationen beschrieben, bei denen wir uns der Regeln für die Komma-Verwendung bewusst sein müssen:
+Die nachstehende Liste beschreibt einige der gängigen Situationen, in denen wir uns der Komma-Nutzungsregeln bewusst sein müssen:
 
-- **Nach einleitenden Klauseln**: Eine einleitende Klausel ist eine abhängige Klausel, die normalerweise am Anfang eines Satzes zu finden ist. Verwenden Sie ein Komma nach einer einleitenden Klausel, um sie von der folgenden unabhängigen Klausel zu trennen.
+- **Nach einleitenden Phrasen**: Eine einleitende Phrase ist eine abhängige Phrase, die sich normalerweise am Anfang eines Satzes findet. Verwenden Sie nach einer einleitenden Phrase ein Komma, um diese von der folgenden unabhängigen Phrase zu trennen.
 
   - Beispiel 1:
-    - **Richtig**: "In diesem Beispiel, werden Sie sehen, wie man ein Komma verwendet."
+    - **Richtig**: "In diesem Beispiel werden Sie sehen, wie man ein Komma verwendet."
     - **Falsch**: "In diesem Beispiel werden Sie sehen, wie man ein Komma verwendet."
   - Beispiel 2:
-    - **Richtig**: "Wenn Sie nach Richtlinien suchen, sind Sie hier richtig."
-    - **Falsch**: "Wenn Sie nach Richtlinien suchen sind Sie hier richtig."
+    - **Richtig**: "Wenn Sie nach Richtlinien suchen, sind Sie an der richtigen Stelle."
+    - **Falsch**: "Wenn Sie nach Richtlinien suchen sind Sie an der richtigen Stelle."
   - Beispiel 3:
-    - **Richtig**: "Auf mobilen Plattformen, erhalten Sie in der Regel ein numerisches Tastenfeld zum Eingeben von Daten."
-    - **Falsch**: "Auf mobilen Plattformen erhalten Sie in der Regel ein numerisches Tastenfeld zum Eingeben von Daten."
+    - **Richtig**: "Auf mobilen Plattformen erhalten Sie tendenziell eine numerische Tastatur zum Eingeben von Daten."
+    - **Falsch**: "Auf mobilen Plattformen erhalten Sie tendenziell eine numerische Tastatur zum Eingeben von Daten."
 
-- **Vor Konjunktionen**: Das Serienkomma (auch bekannt als "Oxford Komma") ist das Komma, das vor der Konjunktion in einer Reihe von drei oder mehr Elementen erscheint. Auf MDN Web Docs verwenden wir das Serienkomma. Kommas trennen auch jedes Element der Liste.
+- **Vor Konjunktionen**: Das serielle Komma (auch bekannt als "das Oxford-Komma") ist das Komma, das vor der Konjunktion in einer Reihe von drei oder mehr Elementen erscheint. Auf MDN Web Docs verwenden wir das serielle Komma. Kommas trennen auch jedes Element der Liste.
 
-  - **Richtig**: "I will travel on trains, planes, and automobiles."
-  - **Falsch**: "I will travel on trains, planes and automobiles."
+  - **Richtig**: "Ich werde mit Zügen, Flugzeugen und Autos reisen."
+  - **Falsch**: "Ich werde mit Zügen, Flugzeugen und Autos reisen."
 
-  Verwenden Sie kein Komma vor "and" und "or" in einer Liste mit zwei Elementen.
+  Verwenden Sie kein Komma vor "und" und "oder" in einer Liste, die zwei Gegenstände enthält.
 
-  - **Richtig**: "Mein Hund ist niedlich und intelligent."
-  - **Falsch**: "Mein Hund ist niedlich, und intelligent."
+  - **Richtig**: "Mein Hund ist niedlich und schlau."
+  - **Falsch**: "Mein Hund ist niedlich, und schlau."
 
-  Verwenden Sie ein Komma vor den Konjunktionen "und", "aber", und "oder", wenn sie zwei unabhängige Klauseln verbinden. Wenn der Satz jedoch mit der Konjunktion sehr lang oder komplex wird, sollten Sie ihn in zwei Sätze umschreiben.
+  Verwenden Sie ein Komma vor den Konjunktionen "und", "aber" und "oder", wenn sie zwei unabhängige Klauseln verbinden. Wenn der Satz jedoch sehr lang oder komplex mit der Konjunktion wird, überlegen Sie, ob Sie ihn in zwei Sätze umschreiben.
 
   - Beispiel 1:
     - **Richtig**: "Sie können diesen Schritt ausführen, aber Sie müssen auf die Dateieinstellung achten."
@@ -332,79 +319,81 @@ In der folgenden Liste werden einige der häufigen Situationen beschrieben, bei 
     - **Richtig**: "Mein Vater ist streng aber liebevoll."
     - **Falsch**: "Mein Vater ist streng, aber liebevoll."
 
-- **Vor "dass" und "welches"**: Eine einschränkende Klausel ist essenziell für den Sinn des Satzes und benötigt keine Kommas, um sie vom restlichen Satz abzugrenzen. Eine einschränkende Klausel wird normalerweise durch "dass" eingeführt und **sollte nicht** durch ein Komma eingeführt werden.
+- **Vor "dass" und "welches"**: Eine restriktive Klausel ist wesentlich für die Bedeutung des Satzes und benötigt keine Kommas, um sich vom restlichen Satz abzuheben. Eine restriktive Klausel wird normalerweise durch "dass" eingeführt und sollte **nicht** durch ein Komma vorangehen.
 
-  - **Richtig**: "Wir haben einen Kurs zusammengestellt, der alle notwendigen Informationen enthält, die Sie benötigen, um Ihr Ziel zu erreichen."
-  - **Falsch**: "Wir haben einen Kurs zusammengestellt, dass alle notwendigen Informationen enthält, die Sie benötigen, um Ihr Ziel zu erreichen."
+  - **Richtig**: "Wir haben einen Kurs zusammengestellt, der alle wesentlichen Informationen enthält, die Sie benötigen, um Ihr Ziel zu erreichen."
+  - **Falsch**: "Wir haben einen Kurs zusammengestellt, dass alle wesentlichen Informationen enthält, die Sie benötigen, um Ihr Ziel zu erreichen."
 
-  Eine nicht einschränkende Klausel bietet zusätzliche Informationen und ist nicht essenziell für den Sinn des Satzes. Eine nicht einschränkende Klausel wird normalerweise durch "welches" eingeführt und sollte durch ein Komma eingeleitet werden.
+  Eine nicht einschränkende Klausel bietet zusätzliche Informationen und ist nicht wesentlich für die Bedeutung des Satzes. Eine nicht einschränkende Klausel wird normalerweise durch "welches" eingeführt und sollte durch ein Komma vorangehen.
 
-  - **Richtig**: "Sie schreiben eine Richtlinie, welche eine erlaubte Liste von Ursprüngen für jede Funktion ist."
-  - **Falsch**: "Sie schreiben eine Richtlinie welche eine erlaubte Liste von Ursprüngen für jede Funktion ist."
+  - **Richtig**: "Sie schreiben eine Richtlinie, welche eine erlaubte Liste von Ursprungsorten für jedes Merkmal ist."
+  - **Falsch**: "Sie schreiben eine Richtlinie welche eine erlaubte Liste von Ursprungsorten für jedes Merkmal ist."
 
 - **Vor "wie zum Beispiel"**: Wenn "wie zum Beispiel" Teil einer nicht einschränkenden Klausel ist und der restliche Satz eine unabhängige Klausel ist, verwenden Sie ein Komma vor "wie zum Beispiel".
 
-  - **Richtig**: "Das Array-Objekt hat Methoden zum Manipulieren von Arrays auf verschiedene Weise, wie z.B. sie zu verbinden, umzukehren und zu sortieren."
-  - **Falsch**: "Das Array-Objekt hat Methoden zum Manipulieren von Arrays auf verschiedene Weise wie z.B. sie zu verbinden, umzukehren und zu sortieren."
+  - **Richtig**: "Das Array-Objekt hat Methoden zum Manipulieren von Arrays auf verschiedene Arten, zum Beispiel durch das Verbinden, Umdrehen und Sortieren."
+  - **Falsch**: "Das Array-Objekt hat Methoden zum Manipulieren von Arrays auf verschiedene Arten wie das Verbinden, Umdrehen, und das Sortieren."
 
-  Das folgende Beispiel zeigt, wann man kein Komma mit "wie zum Beispiel" verwenden sollte. Hier ist die Klausel mit "wie zum Beispiel" essenziell für den Sinn des Satzes.
+  Das folgende Beispiel zeigt, wann kein Komma mit "wie zum Beispiel" verwendet wird. Hier ist die Klausel mit "wie zum Beispiel" wesentlich für die Bedeutung des Satzes.
 
-  - **Richtig**: "Webanwendungen werden mächtiger, indem sie Funktionen wie Audio- und Videomanipulation sowie Zugang zu Rohdaten durch WebSockets hinzuzufügen."
-  - **Falsch**: "Webanwendungen werden mächtiger, indem sie Funktionen, wie Audio- und Videomanipulation, sowie Zugang zu Rohdaten durch WebSockets hinzuzufügen."
+  - **Richtig**: "Webanwendungen werden durch das Hinzufügen von Funktionen wie Audios und Video-Manipulationen immer leistungsfähiger und ermöglichen den Zugriff auf rohe Daten über WebSockets."
+  - **Falsch**: "Webanwendungen werden durch das Hinzufügen von Funktionen, wie Audios und Video-Manipulationen, und die Zugänglichkeit zu rohen Daten über WebSockets immer leistungsfähiger."
 
 ### Bindestriche
 
-Zusammengesetzte Wörter sollten nur dann mit Bindestrich geschrieben werden, wenn der letzte Buchstabe des Präfixes ein Vokal ist und derselbe ist wie der erste Buchstabe der Wurzel.
+Zusammengesetzte Wörter sollten nur dann getrennt geschrieben werden, wenn der letzte Buchstabe des Präfixes ein Vokal ist, der derselbe wie der erste Buchstabe der Wurzel ist.
 
 - **Richtig**: re-elect, co-op, email
 - **Falsch**: reelect, coop, e&#45;mail
 
 ### Rechtschreibung
 
-Verwenden Sie die amerikanische Rechtschreibung.
+Verwenden Sie American-English Schreibweise.
 
-Im Allgemeinen verwenden Sie den ersten Eintrag bei [Dictionary.com](https://www.dictionary.com/), es sei denn, dieser Eintrag ist als Varianten- oder hauptsächlich in einer nicht-amerikanischen Form des Englischen verwendete Schreibweise aufgeführt.
-Wenn Sie beispielsweise [„behaviour“](https://www.dictionary.com/browse/behaviour) (mit einem zusätzlichen _u_) suchen, finden Sie den Hinweis „Chiefly British“ (Hauptsächlich britisch) gefolgt von einem Link zur amerikanischen Standardform, [„behavior“](https://www.dictionary.com/browse/behavior).
-Verwenden Sie keine Variantenrechtschreibung.
+Im Allgemeinen verwenden Sie den ersten Eintrag auf [Dictionary.com](https://www.dictionary.com/), es sei denn, dieser Eintrag wird als eine Variante oder hauptsächlich in der nicht-amerikanischen Form von Englisch verwendet.
+Wenn Sie zum Beispiel ["behaviour"](https://www.dictionary.com/browse/behaviour) (mit einem zusätzlichen _u_ der amerikanischen Standardform hinzugefügt) nachschlagen, finden Sie den Ausdruck "Chiefly British" gefolgt von einem Link zur amerikanischen Standardform, ["behavior"](https://www.dictionary.com/browse/behavior).
+Verwenden Sie keine Variantenschreibweise.
+
+<!-- cSpell:ignore localise behaviour colour -->
 
 - **Richtig**: localize, behavior, color
 - **Falsch**: localise, behaviour, colour
 
-### Begriffswahl
+### Terminologie
 
-Diese sind unsere Empfehlungen zur Nutzung bestimmter technischer Begriffe:
+Hier sind unsere Empfehlungen zur Verwendung bestimmter technischer Begriffe:
 
-- **HTML-Elemente**: Verwenden Sie den Begriff "element", um sich auf HTML- und XML-Elemente zu beziehen, anstelle von "tag". Darüber hinaus sollte das Element in spitze Klammern "<>" eingefasst und mit Backticks (\`) formatiert werden. Beispielsweise wird die Verwendung von \<input\> innerhalb von Backticks als `<input>` formatiert, wie erwartet.
+- **HTML-Elemente**: Verwenden Sie den Begriff "Element", um sich auf HTML- und XML-Elemente zu beziehen, anstatt "Tag". Darüber hinaus sollte das Element in spitze Klammern "<>" gesetzt und mit Hilfe von Backticks (\`) gestylt werden. Beispielsweise wird die Verwendung von \<input\> innerhalb von Backticks als `<input>` gesstylt, wie erwartet.
 
   - **Richtig**: das `<span>` Element
-  - **Falsch**: das span tag
+  - **Falsch**: der span Tag
 
-  Auf MDN können Sie optional das HTML-Element im [`HTMLElement` Macro](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) angeben, das das Element formatiert, die Klammern "<>" hinzufügt und einen Link zu dessen Referenzseite erstellt.
+  Auf MDN können Sie optional das HTML-Element im [`HTMLElement`-Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) spezifizieren, das das Element formatiert, die spitzen Klammern "<>" hinzufügt und einen Link zur Referenzseite hinzufügt.
 
-  - **Mit Backticks**: `<span>`
-  - **Mit dem Macro**: {{HTMLElement("span")}} (source in markdown: \\{{HTMLElement("span")\}})
+  - **Using backticks**: `<span>`
+  - **Using the macro**: {{HTMLElement("span")}} (Quelltext in Markdown: \\{{HTMLElement("span")\}})
 
-- **Parameter vs. Argumente**: Der bevorzugte Begriff auf MDN Web Docs ist **Parameter**. Bitte vermeiden Sie, soweit möglich, den Begriff "Argumente" zu verwenden.
+- **Parameter vs. Argumente**: Der bevorzugte Begriff auf MDN Web Docs ist **Parameter**. Vermeiden Sie so weit wie möglich den Begriff "Argumente", um Konsistenz zu wahren.
 
-- **Benutzeroberflächenaktionen**: Beschreiben Sie in Aufgabenabfolgen Benutzeroberflächenaktionen im Imperativ. Geben Sie das Benutzeroberflächenelement durch sein Label und seine Art an.
+- **Benutzeroberflächenaktionen**: Beschreiben Sie in Tasksequenzen Benutzeroberflächenaktionen im Imperativ. Identifizieren Sie das Benutzeroberflächenelement anhand seines Labels und seines Typs.
 
   - **Richtig**: "Klicken Sie auf die Schaltfläche Bearbeiten."
   - **Falsch**: "Klicken Sie auf Bearbeiten."
 
-### Stilrichtung
+### Stimme
 
-Während die aktive Form bevorzugt wird, ist die passive Form auch akzeptabel, da unser Inhalt einen informellen Stil hat.
-Versuchen Sie jedoch, konsistent zu bleiben.
+Obwohl die aktive Stimme bevorzugt wird, ist die passive Stimme auch akzeptabel, angesichts des informellen Stils unserer Inhalte.
+Versuchen Sie jedoch, konsistent zu sein.
 
 ## Seitenkomponenten
 
-Dieser Abschnitt listet die Richtlinien auf, die für verschiedene Teile jeder Seite beachtet werden sollten, wie Überschriften, Anmerkungen, Links und Beispiele.
+Dieser Abschnitt listet die Richtlinien auf, die für die verschiedenen Teile jeder Seite, wie Überschriften, Hinweise, Links und Beispiele, befolgt werden sollten.
 
-- [Code Beispiele](#code_beispiele)
-- [Verweise (Verlinkung)](#cross-references_linking)
+- [Programmbeispiele](#programmbeispiele)
+- [Querverweise (Verknüpfung)](#cross-references_linking)
 - [Externe Links](#externe_links)
 - [Verkürzte URLs (Shortlinks)](#shortened_urls_shortlinks)
-- [Überschriftsstufen](#überschriftsstufen)
+- [Überschriftenebenen](#überschriftenebenen)
 - [Bilder und andere Medien](#bilder_und_andere_medien)
 - [Listen](#listen)
 - [Siehe auch Abschnitt](#siehe_auch_abschnitt)
@@ -412,266 +401,269 @@ Dieser Abschnitt listet die Richtlinien auf, die für verschiedene Teile jeder S
 - [Slugs](#slugs)
 - [Titel](#titel)
 
-### Code Beispiele
+### Programmbeispiele
 
-Eine Seite auf MDN Web Docs kann mehrere Codebeispiele enthalten. Die folgende Liste zeigt einige empfohlene Praktiken beim Schreiben eines Codebeispiels für MDN Web Docs:
+Eine Seite auf den MDN Web Docs kann mehr als ein Programmbeispiel enthalten. Die folgende Liste enthält einige empfohlene Praktiken beim Schreiben eines Programmbeispiels für MDN Web Docs:
 
-- Jedes Beispielcode-Stück sollte Folgendes enthalten:
-  - **Überschrift**: Eine kurze `###` (`<h3>`) Überschrift, die das durch das Codebeispiel demonstrierte Szenario beschreibt. Zum Beispiel, "Verwendung von Offset-Druck" und "Zurücksetzen auf Stil in der vorherigen Ebene".
-  - **Beschreibung**: Eine kurze Beschreibung vor dem Beispielcode, die die Details des Beispiels nennt, auf die Sie die Aufmerksamkeit des Lesers richten möchten. Beispielsweise "Im folgenden Beispiel sind zwei Kaskadierungsebenen in der CSS-Datei definiert, `basis` und `special`."
+- Jedes Stück Beispielcode sollte Folgendes enthalten:
+  - **Überschrift**: Eine kurze `###` (`<h3>`) Überschrift, die das Szenario beschreibt, das im Code-Beispiel demonstriert wird. Zum Beispiel "Verwendung des Offset-Drucks" und "Zurücksetzen auf den Stil in der vorherigen Ebene".
+  - **Beschreibung**: Eine kurze Beschreibung vor dem Beispielcode, die die spezifischen Aspekte des Beispiels angibt, auf die Sie die Aufmerksamkeit des Lesers lenken möchten. Zum Beispiel, "Im folgenden Beispiel sind zwei Kaskadenschichten im CSS definiert, `base` und `special`."
   - **Erklärung des Ergebnisses**: Eine Erklärung nach dem Beispielcode, die das Ergebnis beschreibt und wie der Code funktioniert.
-- Im Allgemeinen sollte das Codebeispiel nicht nur die Syntax des Features und wie es verwendet wird, demonstrieren, sondern auch den Zweck und die Situationen hervorheben, in denen ein Webentwickler das Feature verwenden möchte oder benötigt.
-- Wenn Sie mit einem großen Beispielcode arbeiten, kann es sinnvoll sein, ihn in kleinere logische Teile zu zerlegen, damit sie einzeln beschrieben werden können.
-- Wenn Sie [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) hinzufügen, ist es hilfreich zu wissen, dass alle Codeblöcke desselben Typs (HTML, CSS und JavaScript) zu einem einzigen Codeblock zusammengefügt werden, bevor das Beispiel ausgeführt wird. Dies erlaubt es Ihnen, den Code in mehrere Segmente zu unterteilen, jedes optional mit eigenen Beschreibungen, Überschriften usw. Dies macht die Dokumentation von Code unglaublich mächtig und flexibel.
+- Im Allgemeinen sollte das Codebeispiel nicht nur die Syntax des Features und seinen Anwendungsfall demonstrieren, sondern auch den Zweck und die Situationen hervorheben, in denen ein Webentwickler das Feature möglicherweise verwenden möchten oder müssen.
+- Wenn Sie mit einem großen Stück Beispielcode arbeiten, kann es sinnvoll sein, ihn in kleinere logische Teile aufzuteilen, damit sie individuell beschrieben werden können.
+- Beim Hinzufügen von [live samples](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) ist es hilfreich, sich bewusst zu sein, dass alle Codeblöcke des Beispiels, die den gleichen Typ (HTML, CSS und JavaScript) haben, vor dem Ausführen des Beispiels miteinander verkettet werden. Dies ermöglicht es Ihnen, den Code in mehrere Segmente zu unterteilen, die jeweils optional eigene Beschreibungen, Überschriften und so weiter haben. Dies macht das Dokumentieren von Code unglaublich leistungsstark und flexibel.
 
-Um mehr darüber zu erfahren, wie man Codebeispiele für MDN Web Docs stylt oder formatiert, siehe [Leitlinien für das Styling von Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide).
+Um zu erfahren, wie man Programmbeispiele für MDN Web Docs formatiert oder formatiert, sehen Sie sich [Richtlinien zum Stil von Programmbeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide) an.
 
-### Verweise (Verlinkung)
+### Querverweise (Verknüpfung)
 
-Wenn Sie auf eine andere Seite oder einen Abschnitt einer Seite auf MDN mit ihrem Titel verweisen, verwenden Sie Großbuchstaben in Satzform im Linktext (entsprechen Sie dem Seiten- oder Abschnittstitel). Verwenden Sie Großbuchstaben in Satzform im Linktext, auch wenn dies vom verlinkten Seitentitel oder Abschnittstitel abweicht (es könnte sein, dass die Großbuchstaben im Seiten- oder Abschnittstitel nicht korrekt sind). Verwenden Sie keine Anführungszeichen um den Linktext. Um auf eine Seite auf MDN mit ihrem Titel zu verweisen, verwenden Sie den folgenden Stil:
+Wenn Sie eine andere Seite oder einen Abschnitt einer Seite auf MDN per Titel verweisen, folgen Sie der Satzgroßschreibung im Linktext (gleich wie im Titel der Seite oder des Abschnitts). Verwenden Sie die Satzgroßschreibung im Linktext, auch wenn es sich im Titel der Seite oder des Abschnitts unterscheidet (es könnte sein, dass die Schreibweise im Titel der Seite oder des Abschnitts falsch ist). Verwenden Sie keine Anführungszeichen um den Linktext. Um auf eine Seite von MDN durch den Titel zu verweisen, verwenden Sie den folgenden Stil:
 
-- **Richtig**: "Siehe den [Ordering flex items](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items) Leitfaden."
-- **Falsch**: "Siehe den "[Ordering flex items](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)" Leitfaden."
+- **Richtig**: "Siehe den [Ordering flex items](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)-Leitfaden."
+- **Falsch**: "Siehe den "[Ordering flex items](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)"-Leitfaden."
 
-Befolgen Sie denselben Stil, wenn Sie auf einen Abschnitt auf einer Seite verlinken, wie unten gezeigt:
+Folgen Sie einem ähnlichen Stil, wenn Sie auf einen Abschnitt auf einer Seite verweisen, wie unten gezeigt:
 
-- **Richtig**: "Für weitere Informationen sehen Sie den Abschnitt [Allocation in JavaScript](/de/docs/Web/JavaScript/Memory_management#allocation_in_javascript) auf der _Memory management_ Seite."
+- **Richtig**: "Für weitere Informationen siehe den [Allocation in JavaScript](/de/docs/Web/JavaScript/Memory_management#allocation_in_javascript)-Abschnitt auf der _Memory management_-Seite."
 
-Wenn der Abschnitt, zu dem Sie verlinken, auf derselben Seite ist, können Sie mit den Worten "oben" oder "unten" auf die Position des Abschnitts hinweisen.
+Wenn sich der Abschnitt, auf den Sie sich beziehen, auf derselben Seite befindet, können Sie auf den Standort des Abschnitts mit den Worten "oben" oder "unten" hinweisen.
 
-- **Richtig**: "Dieses Konzept ist ausführlicher im [Accessibility](/de/docs/Web/CSS/gradient/repeating-conic-gradient#accessibility) Abschnitt unten beschrieben."
+- **Richtig**: "Dieses Konzept wird im [Accessibility](/de/docs/Web/CSS/gradient/repeating-conic-gradient#accessibility)-Abschnitt unten ausführlicher beschrieben."
 
-Sie können einen Teil eines Satzes mit einem Artikel oder einem Abschnitt eines Artikels verlinken. Achten Sie darauf, beschreibende Sätze als Linktext zu verwenden, um genug Kontext für die verlinkte Seite zu bieten.
+Sie können einen Teil eines Satzes oder Artikels mit der Sektion eines Artikels verknüpfen. Achten Sie darauf, beschreibende Phrasen als Linktexte zu verwenden, um genügend Kontext für die verlinkte Seite bereitzustellen.
 
-- **Richtig**: "Erfahren Sie mehr darüber, [wie man Flex-Items anordnet](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)."
+- **Richtig**: "Erfahren Sie mehr über [wie man Flex-Objekte bestellt](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items)."
 - **Falsch**: "Klicken Sie [hier](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items), um mehr zu erfahren."
 - **Falsch**: "Lesen Sie [diesen Artikel](/de/docs/Web/CSS/CSS_flexible_box_layout/Ordering_flex_items), um mehr zu erfahren."
 
-Auf MDN gibt es eine andere Möglichkeit, auf eine Referenzseite zu verlinken, indem ein Macro verwendet wird. Diese Makros werden auf der Seite [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) beschrieben. Beispielsweise verwenden Sie das `HTMLElement` Macro, um auf die Referenzseite eines HTML-Elements zu verlinken, und das `CSSxRef` Macro, um auf die Referenzseite einer CSS-Eigenschaft zu verlinken.
+Auf dem MDN gibt es eine andere Möglichkeit, auf eine Referenzseite zu verlinken, indem Sie ein Makro verwenden. Diese Makros werden auf der Seite [Häufig verwendete Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) beschrieben. Um beispielsweise auf die Referenzseite eines HTML-Elements zu verlinken, verwenden Sie das `HTMLElement`-Makro, und um auf die Referenzseite einer CSS-Eigenschaft zu verlinken, verwenden Sie das `CSSxRef`-Makro.
 
-Wir befolgen ähnliche Verweisrichtlinien in den [Siehe auch](#siehe_auch) Abschnitten am Ende von Referenzseiten, Glossarseiten und Leitfäden.
+Wir folgen ähnlichen Querverweis-Richtlinien in den [Siehe auch](#siehe_auch)-Abschnitten am Ende der Referenzseiten, Glossarseiten und Leitfäden.
 
 ### Externe Links
 
-Externe Links sind unter bestimmten Umständen auf MDN Web Docs erlaubt. Verwenden Sie die in diesem Abschnitt beschriebenen Richtlinien, um zu entscheiden, ob es in Ordnung ist, einen externen Link auf MDN Web Docs hinzuzufügen oder nicht. Ihr Pull-Request zum Hinzufügen eines externen Links wird abgelehnt, wenn er nicht den hier beschriebenen Richtlinien entspricht.
+Externe Links sind auf MDN Web Docs in bestimmten Situationen erlaubt. Verwenden Sie die in diesem Abschnitt beschriebenen Richtlinien, um zu entscheiden, ob es in Ordnung ist, einen externen Link auf MDN Web Docs aufzunehmen. Ihr Pull Request zur Hinzufügung eines externen Links wird abgelehnt, wenn es nicht die in diesen Richtlinien beschriebenen Anforderungen erfüllt.
 
-Im Allgemeinen sollten Sie bei der Erwägung, einen externen Link hinzuzufügen, sicherstellen, dass das Risiko minimal ist:
+Im Allgemeinen, wenn Sie darüber nachdenken, einen externen Link hinzuzufügen, müssen Sie sicherstellen, dass das Risiko minimal ist, dass Folgendes passiert:
 
-- Kaputte oder veraltete Links
-- Eindruck von Unterstützung, insbesondere bei kommerziellen Produkten oder Dienstleistungen
-- Versuch, MDN Web Docs zum Verteilen von Spam zu nutzen
-- Kurzlinks, die das Ziel des Links verschleiern
+- Gebrochene oder veraltete Links
+- Der Eindruck von Unterstützung, insbesondere für kommerzielle Produkte oder Dienstleistungen
+- Der Versuch, MDN Web Docs zur Verbreitung von Spam zu nutzen
+- Shortlinks, die das Ziel der Verknüpfung verschleiern
 
 > [!NOTE]
-> Bevor Sie einen externen Link hinzufügen, sollten Sie in Betracht ziehen, Inhalte innerhalb von MDN Web Docs zu referenzieren. Interne Links sind leichter zu pflegen und machen den gesamten Wert der MDN Web Docs für Leser höher.
+> Bevor Sie einen externen Link hinzufügen, sollten Sie in Betracht ziehen, Inhalte innerhalb von MDN Web Docs zu verknüpfen. Interne Links sind einfacher zu warten und machen das Ganze von MDN Web Docs wertvoller für Leser.
 
-- **Gute externe Links**: Gute externe Links führen Leser zu Ressourcen, die relevant, langlebig und weithin vertrauenswürdig sind. Sie sollten es bevorzugen, Links zu externen Inhalten hinzuzufügen, die:
+- **Gute externe Links**: Gute externe Links leiten Leser zu Ressourcen, die relevant, langlebig und weithin vertrauenswürdig sind. Sie sollten bevorzugen, Links zu externen Inhalten hinzuzufügen, die so sind:
 
-  - Einzigartig oder unverzichtbar sind (z.B. ein IETF RFC)
-  - Notwendig für Quellangaben, Zitationen oder Anerkennungen sind (z.B. als Teil einer Creative Commons Attribution)
-  - Wahrscheinlicher sind, für das Thema aktuelle Informationen bereitzustellen, als solche Inhalte auf MDN Web Docs selbst zu integrieren (z.B. die Release Notes eines Anbieters)
-  - Open Source oder Community-getrieben sind, ähnlich wie MDN Web Docs
+  - Einzigartig oder unentbehrlich (z.B. ein IETF RFC)
+  - Erforderlich für Zitation, Zitat oder Anerkennung (z.B. als Teil eines Creative-Commons-Anerkennung)
+  - Mehr wahrscheinlich für das Thema aufrechterhalten, als solche Inhalte auf MDN Web Docs selbst aufzunehmen (z.B. die Versionshinweise eines Anbieters)
+  - Open Source oder Community-getrieben, wie MDN Web Docs selbst
 
-- **Schlechte externe Links**: Schlechte externe Links sind nicht relevant, unüberschaubar, unzugänglich oder stellen für Leser sonstige Barrieren dar. Vermeiden Sie es, Links zu externen Inhalten hinzuzufügen, die:
+- **Schlechte externe Links**: Schlechte externe Links fehlen Relevanz, Wartbarkeit, Zugänglichkeit oder haben anderweitig Hindernisse für Leser. Vermeiden Sie das Hinzufügen von Links zu externen Inhalten, die so sind:
 
-  - Generisch oder unspezifisch sind (z.B. die Startseite eines Anbieters, anstelle der zugehörigen Dokumentation)
-  - Flüchtig oder ungewartet sind (z.B. eine einmalige Ankündigung)
-  - Selbstlinkend oder eigenwerbend sind (z.B. die eigene Arbeit des Autors außerhalb von MDN Web Docs)
-  - Gebührenpflichtig sind (z.B. ein teurer Kurs, der für Freizeitentwickler, Studenten oder Leser in einkommensniedrigen Ländern unerschwinglich ist)
-  - Unzugänglich sind (z.B. ein Video ohne Untertitel)
+  - Generisch oder unspezifisch (z.B. die Homepage eines Anbieters, anstatt die zugehörige Dokumentation)
+  - Flüchtig oder nicht gepflegt (z.B. eine einmalige Ankündigung)
+  - Selbstverknüpfend oder selbstpropagierend (z.B. die eigene Arbeit des Autors außerhalb von MDN Web Docs)
+  - Bezahlt (z.B. ein teurer Kurs, der für Hobbyisten, Studenten oder Leser in einkommensschwachen Länder nicht zugänglich ist)
+  - Nicht zugänglich (z.B. ein Video ohne Untertitel)
 
-- **Links, die selbstbewerbend oder Spam sind**: Während ein persönlicher Blogpost, ein Vortrag auf einer Konferenz oder ein GitHub-Repository durchaus Wert haben, kann das Verlinken zu Ihren eigenen Ressourcen den Anschein eines Interessenkonflikts erwecken. Überlegen Sie sich sehr genau, bevor Sie Links zu Ressourcen hinzufügen, mit denen Sie eine geschäftliche oder persönliche Verbindung haben.
+- **Links, die selbstfördernd oder Spam sind**: Während ein persönlicher Blogpost, Vortrag auf einer Konferenz oder GitHub_repository einen Wert hat, kann das Verknüpfen Ihrer eigenen Ressourcen das Erscheinungsbild eines Interessenkonflikts schaffen. Überlegen Sie zweimal, bevor Sie Links zu Ressourcen hinzufügen, mit denen Sie eine geschäftliche oder persönliche Verbindung haben.
 
   > [!NOTE]
-  > Wenn Sie eine geschäftliche oder persönliche Beziehung zum Ziel eines Links haben, müssen Sie diese Beziehung in Ihrem Pull-Request offenlegen. Das Nichterfüllen dieser Anforderung könnte Ihre weitere Teilnahme an MDN Web Docs gefährden.
+  > Wenn Sie eine geschäftliche oder persönliche Beziehung zum Ziel eines Links haben, müssen Sie diese Beziehung in Ihrem Pull Request offenlegen. Wenn Sie dies versäumen, kann dies Ihre weitere Teilnahme mit MDN Web Docs gefährden.
 
-  Manchmal sind solche Links relevant und angemessen. Beispielsweise, wenn Sie Herausgeber einer Spezifikation sind und zur Dokumentation zu dieser Spezifikation beitragen, dann wird erwartet und ist akzeptabel, dass Sie auf diese Spezifikation verlinken. Aber Sie müssen die Beziehung zwischen Ihnen und dem Link offenlegen.
+  Manchmal sind solche Links relevant und angemessen. Beispielsweise, wenn Sie der Herausgeber einer Spezifikation sind und an der Dokumentation zu dieser Spezifikation mitwirken, dann wird erwartet und akzeptiert, dass Sie diese Spezifikation verlinken. Aber Sie müssen die Beziehung zwischen Ihnen und dem Link offenlegen.
 
 ### Verkürzte URLs (Shortlinks)
 
-Ein URL-Kürzungsdienst (wie TinyURL oder Bitly) kann großartig sein, um lange Links in kurze, leichter zu merkende URLs (auch als "Shortlinks" bekannt) umzuwandeln. Sie verschleiern jedoch auch das Ziel der URL. Darüber hinaus kann bei bestimmten Kürzungsdiensten das Ziel nach deren Erzeugung geändert werden, ein Feature, das zu böswilligen Zwecken genutzt werden könnte.
+Ein URL-Shortener (wie TinyURL oder Bitly) kann nützlich sein, um lange Links in kleine, leichter zu merkende URLs zu verkürzen (auch "shortlinks" genannt). Allerdings verschleiern sie auch das Ziel der URL. Mit bestimmten Shortenern kann das Ziel nach ihrer Erstellung geändert werden, was zu böswilligen Zwecken ausgenutzt werden kann.
 
-Verwenden Sie keine Links, die über Drittanbieter-basierte (benutzergenerierbare) URL-Kürzungsdienste erstellt wurden. Wenn beispielsweise `https://myshort.link/foobar` eine kurze URL ist, die von einem zufälligen Benutzer generiert wurde und auf `https://example.com/somelongURL/details/show?page_id=foobar` weiterleitet, verwenden Sie die längere `example.com` URL.
+Verwenden Sie keine Links, die über von Dritten (benutzergenerierte) URL-Shortener erstellt wurden. Zum Beispiel, wenn `https://myshort.link/foobar` eine Short-URL ist, die von einem Benutzer zufällig erstellt und auf `https://example.com/somelongURL/details/show?page_id=foobar` weitergeleitet wird, verwenden Sie die längere `example.com`-URL.
 
-Auf der anderen Seite sind vom Unternehmen direkt gepflegte Kurzlinks, die von den Organisationen, die auch die Ziel-URLs warten, gepflegt werden, empfohlen. `https://bugzil.la` wird von Mozilla betrieben und ist ein URL-Kürzer-Tool, das auf `https://bugzilla.mozilla.org/` verweist, welches auch eine von Mozilla betriebene Domain ist. In diesem Fall verwenden Sie die kürzere URL. Beispielsweise verwenden Sie `https://bugzil.la/1682349` anstelle von `https://bugzilla.mozilla.org/show_bug.cgi?id=1682349`.
+Auf der anderen Seite, von der Organisationen unterhaltene verkürzte URLs, die ebenfalls die Ziele-URLs unterhalten, sind zu bevorzugen. `https://bugzil.la` wird von Mozilla besessen und betrieben und ist ein URL-Shortener, der auf `https://bugzilla.mozilla.org/` weiterleitet, was ebenfalls ein von Mozilla besessenes Domain ist. In diesem Fall verwenden Sie den kürzeren URL. Verwenden Sie zum Beispiel `https://bugzil.la/1682349` anstelle von `https://bugzilla.mozilla.org/show_bug.cgi?id=1682349`.
 
-### Überschriftsstufen
+### Überschriftenebenen
 
-Wenn mit einem neuen Absatz ein neuer Abschnitt beginnt, sollte eine Überschrift hinzugefügt werden.
-Verwenden Sie diese Markdown-Überschriftsstufen in absteigender Reihenfolge, ohne Stufen zu überspringen: `##`, dann `###`, und dann `####`; diese übersetzen sich zu den [HTML Überschriftstags](/de/docs/Web/HTML/Element/Heading_Elements) `<h2>`, `<h3>`, und `<h4>`-Tags, jeweils.
+Wenn ein neuer Absatz einen neuen Abschnitt beginnt, sollte eine Überschrift hinzugefügt werden.
+Verwenden Sie nacheinander abnehmende Markdown-Überschriftsebenen, ohne Ebenen zu überspringen: `##`, dann `###`, und dann `####`; diese werden in die [HTML-Überschrift-Elemente](/de/docs/Web/HTML/Element/Heading_Elements) `<h2>`, `<h3>`, und `<h4>`-Tags übersetzt, bzw.
 
-`##` ist die höchste erlaubte Stufe, da `#` dem Seitentitel vorbehalten ist.
-Wir empfehlen, nicht mehr als drei Überschriftsebenen hinzuzufügen. Wenn Sie das Bedürfnis haben, eine vierte Überschriftsebene hinzuzufügen, erwägen Sie, den Artikel in mehrere kleinere Artikel mit einer Übersichtsseite aufzuteilen. Alternativ können Sie prüfen, ob Sie die Informationen in Aufzählungspunkten präsentieren können, um die Hinzufügung einer viertstufigen Überschrift zu vermeiden.
+`##` ist die höchstzulässige Ebene, da `#` dem Seitentitel reserviert ist.
+Wir empfehlen, nicht mehr als drei Ebenen von Überschrift hinzuzufügen. Wenn Sie das Bedürfnis verspüren, die vierte Überschriftsebene hinzuzufügen, überlegen Sie, ob Sie den Artikel in mehrere kleinere Artikel mit einer zentralen Seite aufteilen können. Alternativ überlegen Sie, ob Sie die Informationen in Aufzählungspunkten präsentieren können, um die Hinzufügung von Ebene vier Überschrift zu vermeiden.
 
-Behalten Sie die folgenden Dos und Don'ts im Hinterkopf, wenn Sie Überschriften für Unterabschnitte erstellen:
+Beachten Sie die folgenden Dos und Don’ts während der Erstellung von Überschriften für Untersektionen:
 
-- **Erstellen Sie keine einzelnen Unterabschnitte.** Untergliedern Sie kein Thema in ein einziges Unterthema.
-  Es sollten entweder zwei oder mehr Unterüberschriften sein oder gar keine.
-- **Verwenden Sie keine Inline-Stile, Klassen oder Makros innerhalb von Überschriften.** Sie können jedoch Backticks verwenden, um Codebegriffe zu kennzeichnen (z. B. "Using `FooBar` Interface").
-- **Erstellen Sie keine "Bumping Heads".** Dies sind Überschriften, die unmittelbar von einer Unterüberschrift gefolgt werden, ohne dass dazwischen ein erklärender Text steht.
-  Dies sieht nicht gut aus und lässt Leser ohne erklärenden Text am Anfang des äußeren Abschnitts stehen.
+- **Keine Einzel-Unterabschnitte erstellen**. Unterteilen Sie ein Thema nicht in ein einziges Unterthema.
+  Entweder es gibt zwei oder mehr Unterüberschriften oder gar keine.
+- **Keine Inline-Stile, Klassen oder Makros innerhalb von Überschriften verwenden**. Sie können jedoch Backticks verwenden, um Codebegriffe zu kennzeichnen (z.B. "Verwendung der `FooBar`-Schnittstelle").
+- **Keine direkt aufeinanderfolgenden Überschriften erstellen**. Diese sind Überschriften, gefolgt von einer Unterüberschrift, ohne Textinhalt dazwischen.
+  Das sieht nicht gut aus und lässt Leser ohne erläuternden Text zu Beginn des äußeren Abschnitts.
 
 ### Bilder und andere Medien
 
-Wenn Sie Bilder oder andere Medien auf einer Seite einfügen, befolgen Sie diese Richtlinien:
+Wenn Sie Bilder oder andere Medien auf einer Seite einfügen, beachten Sie diese Richtlinien:
 
-- Stellen Sie sicher, dass die Medienlizenz ihr 사용 erlaubt. Versuchen Sie, Medien zu verwenden, die eine sehr offene Lizenz haben, wie zum Beispiel [CC0](https://creativecommons.org/public-domain/cc0/) oder zumindest eine, die mit unserer allgemeinen Inhaltslizenz — [Creative Commons Attribution-ShareAlike Lizenz](https://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA) — kompatibel ist.
-- Für Bilder, lassen Sie sie durch <https://tinypng.com> oder <https://imageoptim.com> laufen, um die Seitengröße zu reduzieren.
-- Für `SVG`, lassen Sie den Code durch [SVGOMG](https://jakearchibald.github.io/svgomg/), und stellen Sie sicher, dass die `SVG`-Datei eine leere Zeile am Ende der Datei hat.
+- Stellen Sie sicher, dass die Medienlizenz Ihnen erlaubt, sie zu verwenden. Versuchen Sie, Medien zu verwenden, die eine sehr großzügige Lizenz wie [CC0](https://creativecommons.org/public-domain/cc0/) oder zumindest eine kompatible mit unserer allgemeinen Content-Lizenz besitzen — [Creative Commons Attribution-ShareAlike Lizenz](https://creativecommons.org/licenses/by-sa/2.5/) (CC-BY-SA).
+- Reduzieren Sie bei Bildern deren Gewicht durch Optimierungstools wie <https://tinypng.com> oder <https://imageoptim.com>.
+- Lassen Sie den `SVG`-Code durch [SVGOMG](https://jakearchibald.github.io/svgomg/) laufen, und stellen Sie sicher, dass die `SVG`-Datei am Ende eine leere Zeile enthält.
 - Jedes Bild muss [beschreibenden `alt` Text enthalten](/de/docs/MDN/Writing_guidelines/Howto/Images_media#adding_alternative_text_to_images).
 
 ### Listen
 
-Listen sollten auf allen Seiten konsistent formatiert und strukturiert sein.
-Einzelne Listeneinträge sollten mit einer geeigneten Zeichensetzung geschrieben werden, unabhängig vom Listenformat.
-Abhängig von der Art der Liste, die Sie erstellen, möchten Sie jedoch Ihr Schreiben anpassen, wie in den untenstehenden Abschnitten beschrieben. In beiden Fällen, fügen Sie einen Einleitungssatz hinzu, der die Informationen in der Liste beschreibt.
+Listen sollten über alle Seiten hinweg konsistent formatiert und strukturiert werden.
+Einzelne Listenelemente sollten mit geeigneter Interpunktion geschrieben werden, unabhängig vom Format der Liste.
+Je nachdem, welche Art von Liste Sie erstellen möchten, sollten Sie Ihr Schreiben wie in den nachfolgenden Abschnitten beschrieben anpassen.
+Fügen Sie in beiden Fällen einen einleitenden Satz ein, der die Informationen in der Liste beschreibt.
 
-- **Aufzählungslisten**: Aufzählungslisten sollten verwendet werden, um verwandte, prägnante Informationsstücke zu gruppieren. Jeder Eintrag in der Liste sollte einen ähnlichen Satzaufbau haben. Sätze und Phrasen (d.h. Satzfragmente, denen ein Verb oder Subjekt oder beides fehlen) in Aufzählungslisten sollten Standardzeichensetzung verwenden - Sätze enden mit Punkten, Phrasen nicht.
+- **Aufzählungslisten**: Aufzählungslisten sollten verwendet werden, um verwandte kurze Informationen zu gruppieren.
+  Jedes Element in der Liste sollte eine ähnliche Satzstruktur folgen. Sätze und Phrasen (d.h. Satzfragmente, denen ein Verb oder ein Subjekt oder beide fehlen) in Aufzählungslisten sollten die Standardzeichen – Sätze enden mit Punkten, Sätze nicht – enthalten.
 
-  Wenn es mehrere Sätze in einem Listeneintrag gibt, muss ein Punkt am Ende jedes Satzes erscheinen, einschließlich des finalen Satzes des Eintrags, so wie es bei einem Absatz erwartet würde. Dies ist ein Beispiel für eine korrekt strukturierte Aufzählungsliste:
+  Wenn es mehrere Sätze in einem Listenelement gibt, muss ein Punkt am Ende jedes Satzes stehen, inklusive dem letzten Satz des Elements, wie es in einem Absatz erwartet werden würde. Dies ist ein Beispiel für eine korrekt strukturierte Aufzählungsliste:
 
-  > In diesem Beispiel sollten wir enthalten:
+  > In diesem Beispiel sollten wir Folgendes einschließen:
   >
   > - Eine Bedingung, mit einer kurzen Erklärung.
   > - Eine ähnliche Bedingung, mit einer kurzen Erklärung.
-  > - Noch eine Bedingung, mit etwas weiter gehender Erklärung.
+  > - Noch eine Bedingung, mit einer weiteren Erklärung.
 
-  Beachten Sie, wie die gleiche Satzstruktur von Aufzählungspunkt zu Aufzählungspunkt wiederholt wird. In diesem Beispiel nennt jeder Punkt eine Bedingung gefolgt von einem Komma und einer kurzen Erklärung, und jeder Punkt in der Liste endet mit einem Punkt.
+  Beachten Sie, wie dieselbe Satzstruktur sich von Punkt zu Punkt wiederholt. In diesem Beispiel geben die Aufzählungspunkte jeweils eine Bedingung an, gefolgt von einem Komma und einer kurzen Erklärung, und jedes Listenelement endet mit einem Punkt.
 
-  Wenn die Listeneinträge unvollständige Sätze enthalten, ist kein Punkt am Ende erforderlich. Zum Beispiel:
+  Enthält der Listeneintrag unvollständige Sätze, ist am Ende kein Punkt erforderlich. Zum Beispiel:
 
-  > Die folgenden farbbezogenen Eigenschaften werden in diesem Szenario nützlich sein:
+  > Die folgenden farbbezogenen Eigenschaften werden in diesem Szenario hilfreich sein:
   >
-  > - propertyA: Setzt die Hintergrundfarbe
-  > - propertyB: Fügt Schatten zu Text hinzu
+  > - propertyA: Legt die Hintergrundfarbe fest
+  > - propertyB: Fügt dem Text einen Schatten hinzu
 
-  Wenn ein oder mehr Listeneinträge vollständige Sätze sind, verwenden Sie einen Punkt nach jedem Listeneintrag, selbst wenn ein Listeneintrag drei oder weniger Wörter enthält. Versuchen Sie jedoch soweit wie möglich, für alle Einträge in einer Liste dieselbe Struktur zu folgen; stellen Sie sicher, dass alle Listeneinträge entweder vollständige Sätze sind oder Phrasen.
+  Enthält ein Listenelement vollständige Sätze, verwenden Sie nach jedem Listenelement einen Punkt, auch wenn ein Listenelement drei oder weniger Wörter enthält. Dennoch sollten, wenn möglich, alle Elemente in einer Liste der gleichen Struktur folgen; stellen Sie sicher, dass alle Listenelemente entweder vollständige Sätze oder Phrasen sind.
 
-- **Nummerierte Listen**: Nummerierte Listen werden hauptsächlich verwendet, um Schritte in einer Reihe von Anweisungen zu nummerieren. Da Anweisungen komplex sein können, hat Klarheit Vorrang, insbesondere wenn der Text in jedem Listeneintrag umfangreich ist. Wie bei Aufzählungslisten befolgen Sie die Standardzeichensetzung. Dies ist ein Beispiel für eine korrekt strukturierte nummerierte Liste:
+- **Nummerierte Listen**: Nummerierte Listen werden primär verwendet, um Schritte in einer Menge von Anweisungen aufzuzählen. Da Anweisungen komplex sein können, ist Klarheit eine Priorität, insbesondere wenn der Text in jedem Listenelement sehr lang ist. Wie bei Aufzählungslisten wird die Standardzeichensetzung verwendet. Dies ist ein Beispiel für eine korrekt strukturierte nummerierte Liste:
 
   > Um eine nummerierte Liste korrekt zu strukturieren, sollten Sie:
   >
-  > 1. Mit einer Überschrift oder kurzem Absatz zur Einführung der Anweisungen beginnen. Es ist wichtig dem Benutzer Kontext zu bieten, bevor die Anweisungen beginnen.
-  > 2. Beginnen Sie, Ihre Anweisungen zu erstellen, und halten Sie jeden Schritt in seinem eigenen nummerierten Eintrag.
-  >    Ihre Anweisungen könnten recht umfangreich sein, daher ist es wichtig klar zu schreiben und korrekte Zeichensetzung zu verwenden.
-  > 3. Nachdem Sie Ihre Anweisungen abgeschlossen haben, folgen Sie der nummerierten Liste mit einer kurzen abschließenden Zusammenfassung oder Erklärung über das erwartete Ergebnis nach der Fertigstellung.
+  > 1. Mit einer Überschrift oder einem kurzen Absatz zur Einführung der Anweisungen beginnen.
+  >    Es ist wichtig, dem Benutzer Kontext zu bieten, bevor mit den Anweisungen begonnen wird.
+  > 2. Beginnen Sie mit dem Erstellen Ihrer Anweisungen, und halten Sie jeden Schritt in seinem eigenen nummerierten Element.
+  >    Ihre Anweisungen können sehr ausführlich sein, daher ist es wichtig, klar zu schreiben und die korrekte Interpunktion zu verwenden.
+  > 3. Nachdem Sie Ihre Anleitungen beendet haben, fügen Sie eine kurze Zusammenfassung im Schlussteil oder eine Erklärung darüber, welches Ergebnis erwartet wird, hinzu.
 
-  Der folgende Absatz ist ein Beispiel für das Schreiben einer abschließenden Erklärung für die obige Liste:
+  Die folgende ist ein Beispiel für das Schreiben einer abschließenden Erklärung für die obige Liste:
 
-  > Wir haben eine kurze nummerierte Liste erstellt, die Anweisungen enthält, um eine nummerierte Liste mit der korrekten Formatierung zu erstellen.
+  > Wir haben eine kurze nummerierte Liste erstellt, die anleitende Schritte enthält, um eine nummerierte Liste mit der korrekten Formatierung zu erstellen.
 
-  Beachten Sie, wie die Einträge in nummerierten Listen wie kurze Absätze lesen. Da nummerierte Listen routinemäßig zu Anleitungszwecken oder zum Durchführen eines geordneten Verfahrens verwendet werden, achten Sie darauf, jeden Eintrag fokussiert zu halten: ein nummerierter Eintrag pro Schritt.
+  Beachten Sie, wie die Elemente in nummerierten Listen wie kurze Absätze wirken. Da nummerierte Listen routinemäßig für Anleitungszwecke oder um jemanden durch ein Verwaltungs- oder Ordnungsverfahren zu begleiten, sollte jedes Element fokussiert bleiben: Ein nummerierter Eintrag pro Schritt.
 
 ### Siehe auch Abschnitt
 
-Die meisten der Leitfäden, Referenzseiten und sogar Glossarseiten auf MDN Web Docs enthalten einen _Siehe auch_ Abschnitt am Ende des Artikels. Dieser Abschnitt enthält [Verweise](#cross-references_linking) auf verwandte Themen innerhalb von MDN und manchmal Links zu verwandten externen Artikeln. Beispielsweise ist dies der [Siehe auch Abschnitt](/de/docs/Web/CSS/@layer#see_also) für die `@layer` Seite.
+Die meisten Leitfäden, Referenzseiten und sogar Glossarseiten auf MDN Web Docs enthalten einen _Siehe auch_-Abschnitt am Ende des Artikels. Dieser Abschnitt enthält [Querverweise](#cross-references_linking) auf verwandte Themen innerhalb des MDN und manchmal Links zu verwandten externen Artikeln. Zum Beispiel ist dies der [Siehe auch-Abschnitt](/de/docs/Web/CSS/@layer#see_also) für die `@layer`-Seite.
 
-Im Allgemeinen stellen Sie die Links in einem Siehe auch Abschnitt im [Aufzählungslisten](#listen) Format vor, wobei jeder Punkt in der Liste ein Ausdruck ist. Im Bereich [Webentwicklung lernen](/de/docs/Learn) bei MDN folgt der Siehe auch Abschnitt jedoch dem [Definitionslisten](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#definition_lists) Format.
+In der Regel präsentieren Sie die Links in einem "Siehe auch"-Abschnitt im [Aufzählungslistenformat](#listen), wobei jedes Element in der Liste als Phrase formuliert ist. In den [Lernen Webentwicklung](/de/docs/Learn) Bereichen auf MDN folgt der "Siehe auch"-Abschnitt der [Definitionsliste](/de/docs/MDN/Writing_guidelines/Howto/Markdown_in_MDN#definition_lists) Formatierung.
 
-Um die Konsistenz über MDN Web Docs aufrechtzuerhalten, behalten Sie die folgenden Richtlinien im Kopf, während Sie einen Siehe auch Abschnitt hinzufügen oder aktualisieren.
+Um die Konsistenz auf MDN Web Docs zu bewahren, beachten Sie folgende Richtlinien, während dem Hinzufügen oder Aktualisieren eines "Siehe auch"-Abschnitts.
 
-#### Link-Text
+#### Linktext
 
-- Der Link-Text sollte mit dem Titel der Seite oder des Abschnitts, der verlinkt werden soll, identisch sein. Zum Beispiel wird der Link-Text zu dieser [ARIA](/de/docs/Web/Accessibility/ARIA/Attributes) Seite mit dem Titel "ARIA Zustände und Eigenschaften", wie folgt lauten:
-  - **Richtig**: [ARIA Zustände und Eigenschaften](/de/docs/Web/Accessibility/ARIA/Attributes)
-- Verwenden Sie Großbuchstaben in Satzform im Link-Text, auch wenn dies vom verlinkten Seitentitel oder Abschnittstitel abweicht. Es könnte sein, dass die Großbuchstaben im Seiten- oder Abschnittstitel nicht korrekt sind. Zum Beispiel, der Link-Text zur [Quirks Mode](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) Seite in korrekter Großbuchstabenform ist:
-  - **Richtig**: [Quirks Mode](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode)
-- Verwenden Sie auch bei externen Links Großbuchstaben in Satzform, selbst wenn die Großschreibung auf der Zielartikel-Seite anders ist. Dies dient der Konsistenz bei MDN Web Docs. Ausnahmen umfassen Buchnamen.
-- Auf MDN können Sie optional ein Macro verwenden, um auf eine Seite zu verlinken, wie im Abschnitt [Verlinkung von Seiten in Referenzen](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) auf der _Häufig verwendete Makros_ Seite erklärt. Die Verwendung des Macros fügt Code-Formatierung in das Schlüsselwort im Link-Text ein, wie im nächsten Beispiel gezeigt.
-- Kein Artikel ("Ein", "Eine", "Der") wird am Anfang des Link-Listeneintrags benötigt. Kein Punkt ist am Ende des Listeneintrags erforderlich, da er unweigerlich ein Begriff oder Ausdruck sein wird.
+- Der Linktext sollte derselbe sein wie der Titel der Seite oder des Abschnitts, auf den verwiesen wird. Zum Beispiel, der Linktext zu dieser [ARIA](/de/docs/Web/Accessibility/ARIA/Attributes) Seite mit dem Seitentitel "ARIA-Zustände und Eigenschaften" wird so sein:
+  - **Richtig**: [ARIA-Zustände und Eigenschaften](/de/docs/Web/Accessibility/ARIA/Attributes)
+- Verwenden Sie die Satzgroßschreibung im Linktext, auch wenn sich diese von dem Titel der verknüpften Seite oder des Abschnitts unterscheidet. Es könnte sein, dass die Schreibweise auf der verlinkten Seite oder dem Abschnitt nicht korrekt ist. Zum Beispiel, der Linktext zur [Quirks Modus](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode) Seite im korrekten Satzcasus wird folgendermaßen sein:
+  - **Richtig**: [Quirks Modus](/de/docs/Web/HTML/Quirks_Mode_and_Standards_Mode)
+- Auch für externe Links verwenden Sie die Satzgroßschreibung, selbst dann, wenn im Zieltitel des Artikels die Groß-/Kleinschreibung unterschiedlich ist. Dies dient dem Zweck, auf MDN Web Docs die Konsistenz zu gewährleisten. Ausnahmen umfassen den Namen von Büchern.
+- Auf MDN kann man optional ein Makro nutzen, um auf eine Seite zu verlinken, was im [Seitenverweise verlinken](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) Abschnitt auf der _Häufig verwendete Makros_ Seite erklärt wird. Die Verwendung des Makros wird die Code-Formatierung des Schlüsselwortes im Linktext hinzufügen, wie im nächsten Beispiel dargestellt.
+- Kein Artikel ("Ein", "Eine", "Der") wird benötigt am Anfang des Listenelements der Verknüpfung. Keinerlei Zeichensatz wird benötigt am Ende des Listenelements, weil es in der Regel [Läuterungen](#programmbeispiele) oder eine Phrase sein wird.
   - **Richtig**: [`revert-layer`](/de/docs/Web/CSS/revert-layer)
   - **Falsch**: Der [`revert-layer`](/de/docs/Web/CSS/revert-layer) Schlüsselwort.
   - **Richtig**: [HTML DOM API](/de/docs/Web/API/HTML_DOM_API)
   - **Falsch**: Die [HTML DOM API](/de/docs/Web/API/HTML_DOM_API)
-- Wie in den obigen Beispielen gezeigt, verwenden Sie Backticks (\`) zur Codeformatierung für Schlüsselwörter und Literalen im Link-Text, auch wenn die Formatierung im Seiten- oder Abschnittstitel nicht verwendet wird. Beispielsweise wird für den Seitentitel "Array() Konstruktor" der Link-Text als [`Array()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array) formatiert.
+- Wie in den obigen Beispielen gezeigt, fügen Sie die Code-Formatierung durch Backticks (\`) zu Schlüsselworten und Literalen im Linktext hinzu, auch wenn die Formatierung nicht in Seitentiteln und Abschnittstiteln verwendet wird. Zum Beispiel wird für den Seitentitel "Array() Konstruktor" der Linktext sein: [`Array()` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/Array).
 
 #### Beschreibender Text
 
-- Halten Sie den beschreibenden Text rund um den Link minimal. Im Falle einer Beschreibung fügen Sie sie nach dem Link-Text und einem Doppelpunkt hinzu. Formulieren Sie die Beschreibung als Phrase ohne Endzeichensetzung. Halten Sie den ganzen verlinkten Text am Anfang, um die Scannbarkeit der Linkliste zu erleichtern.
-  - **Richtig**: {{cssxref(":checked")}}, {{cssxref(":indeterminate")}}: CSS-Selektoren zum Stylen von Checkboxes
-- Verwenden Sie nicht die Konjunktion "und" vor dem letzten Element in der Serie.
+- Halten Sie den beschreibenden Text um den Link herum minimal. Im Fall einer Beschreibung, fügen Sie ihn nach dem Linktext und einem Doppelpunkt hinzu. Formulieren Sie die Beschreibung als Phrase, ohne abschließende Zeichensatz. Halten Sie den gesamten verlinkten Text zu Beginn der Phrase, um das Scannen der Linkliste zu erleichtern.
+  - **Richtig**: {{cssxref(":checked")}}, {{cssxref(":indeterminate")}}: CSS-Selektoren zum Styling von Kontrollkästchen
+- Verwenden Sie nicht die Konjunktion "und" vor dem letzten Element in der Reihe.
   - **Richtig**: {{cssxref("background-color")}}, {{cssxref("border-color")}}, {{cssxref("color")}}, {{cssxref("caret-color")}}, {{cssxref("column-rule-color")}}, {{cssxref("outline-color")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-emphasis-color")}}, {{cssxref("text-shadow")}}: Andere farbbezogene Eigenschaften
-- Für externe Links versuchen Sie, die Quell-Website und das Erscheinungs- oder Aktualisierungsjahr (in Klammern) wann immer möglich und angemessen anzugeben. Das Bereitstellen dieser Information im Voraus gibt Lesern eine klare Vorstellung davon, wo sie hin gelangen, sobald sie auf den Link klicken. Das Erscheinungs- oder Aktualisierungsdatum bietet Lesern eine Leitlinie zur Bewertung der Relevanz des verlinkten Artikels und hilft auch MDN-Pflegern, Links zu Artikeln zu überprüfen, die lange nicht aktualisiert wurden. Wenn Sie beispielsweise einen Link zu einem Artikel auf Wikipedia bereitstellen, können Sie das Veröffentlichungs-/Aktualisierungsdatum ignorieren. Der Listeneintrag unten ist ein Beispiel für das Hinzufügen eines Links zum externen Artikel [Top-level await](https://v8.dev/features/top-level-await) im Abschnitt Siehe auch zusammen mit der Quell- und Jahresinformation:
+- Für externe Links, bitte versuchen Sie, die Quell-Website und das Erscheinungsjahr oder zuletzt Update hinzufügen (in Klammern), wann immer es praktikabel und angebracht ist. Das Zugeben dieser Informationen kämpft die Leser im Voraus eine klare Vorstellung zu geben, das Ziel, sie erreichen werden, und hilft MDN Verantwortlichen zu überprüfen Links zu Artikeln, die nicht für eine lange Zeit aktualisiert worden sind. Wenn Sie einen Link zu einem Artikel auf Wikipedia einfügen, können Sie das Veröffentlichungs-/Update-Datum ignorieren. Das folgende Listenbeispiel zeigt, wie man Top-level await: [Top-level await](https://v8.dev/features/top-level-await) auf v8.dev (2019) in einem externe Artikellinks im "Siehe auch"-Abschnitt plant.
   - **Richtig**: [Top-level await](https://v8.dev/features/top-level-await) auf v8.dev (2019)
-- Für externe Links zu Büchern können Sie auch die Namen der Autoren angeben. Einige Beispiele finden Sie im Abschnitt [Weiterlesen](#language_grammar_and_spelling) unten. Verzichten Sie darauf, Autoren für Blogposts oder GitHub-Repositories anzugeben, auf die Sie möglicherweise verlinken.
+- Für externe Links zu Büchern, können Sie auch die Namen der Autoren angeben. Sie können einige Beispiele in dem [Weiterführende Lektüre](/de/docs/MDN/Writing_guidelines/Howto/Language_grammar_and_spelling) Abschnitt unten sehen. Vermeiden Sie es, Autorennamen für Blogbeiträge oder GitHub-Repositories, die Sie möglicherweise verlinken, hinzuzufügen.
 
 #### Reihenfolge der Links
 
-- Listen Sie die Links zu den MDN-Seiten in der Reihenfolge der Referenzseiten zuerst, gefolgt von Links zu verwandten Leitfäden und Tutorialseiten. Diese empfohlene Reihenfolge dient hauptsächlich der Verbesserbarkeit der Scannbarkeit der Elemente in der Liste.
-- Wenn die Liste eine Mischung aus internen und externen Links ist, listen Sie zunächst die internen Links und dann die externen.
-- Innerhalb der Gruppen interner und externer Links, befolgen Sie eine alphabetische oder einfache zu fortgeschrittene Reihenfolge, je nachdem, was für den Kontext mehr Sinn macht.
+- Listen Sie die Links zu den MDN-Seiten in der Reihenfolge der Referenzseiten zuerst auf, gefolgt von Links zu den zugehörigen Leitfäden und Tutorial-Seiten. Diese vorgeschlagene Reihenfolge dient hauptsächlich der besseren Scannbarkeit der Elemente in der Liste.
+- Wenn die Liste eine Mischung aus internen und externen Links ist, listen Sie zuerst die internen und dann die externen Links auf.
+- Innerhalb jeder Gruppe von internen und externen Links, folgen Sie alphabetisch oder einer einfachen bis fortgeschrittenen Reihenfolge, was mehr Sinn für den Kontext ergibt.
 
 ### Unterseiten
 
-Wenn Sie Artikel zu einem Thema oder Bereich hinzufügen müssen, tun Sie dies normalerweise, indem Sie eine Übersichtseite erstellen und dann Unterseiten für jeden einzelnen Artikel hinzufügen.
-Die Übersichtseite sollte mit einem Absatz oder zwei beginnen, die das Thema oder die Technologie beschreiben, und dann eine Liste der Unterseiten mit Beschreibungen jeder Seite bereitstellen.
-Sie können die Einfügung von Seiten in die Liste mit einigen von uns erstellten Makros automatisieren.
+Wenn Sie einige Artikel über ein Thema oder Fachgebiet hinzufügen müssen, werden Sie normalerweise eine Einstiegsseite erstellen und dann Unterseiten für jeden der einzelnen Artikel hinzufügen.
+Die Einstiegsseite sollte mit einem Absatz oder zwei sein Thema oder Technologie beschreibend öffnen, dann eine Liste der Unterseiten mit Beschreibungen der einzelnen Seiten zur Verfügung stellen.
+Sie können das Einfügen von Seiten in die Liste mit einigen Makros, die wir erstellt haben, automatisieren.
 
-Zum Beispiel betrachten Sie den [JavaScript](/de/docs/Web/JavaScript) Leitfaden, der wie folgt strukturiert ist:
+Zum Beispiel beachten Sie die [JavaScript](/de/docs/Web/JavaScript) Leitfaden, das wie folgt strukturiert ist:
 
-- [JavaScript/Guide](/de/docs/Web/JavaScript/Guide) – Hauptinhaltsverzeichnis
-- [JavaScript/Guide/JavaScript Übersicht](/de/docs/Web/JavaScript/Guide/Introduction)
-- [JavaScript/Guide/Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
-- [JavaScript/Guide/Details des Objektmodells](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
+- [JavaScript/Guide](/de/docs/Web/JavaScript/Guide) – Haupt-Tabelle-die-Inhalt-Seite
+- [JavaScript/Guide/JavaScript Overview](/de/docs/Web/JavaScript/Guide/Introduction)
+- [JavaScript/Guide/Functions](/de/docs/Web/JavaScript/Guide/Functions)
+- [JavaScript/Guide/Details of the Object Model](/de/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
-Versuchen Sie zu vermeiden, Ihren Artikel an der Spitze der Hierarchie zu platzieren, da dies die Seite verlangsamt und die Suche und Navigation auf der Seite weniger effektiv macht.
+Versuchen Sie zu vermeiden, Ihren Artikel ganz oben in die Hierarchie zu setzen, was die Seite verlangsamt und die Suche und Navigations-Seite weniger effektiv macht.
 
 ### Slugs
 
-Der Seitentitel, der oben auf der Seite angezeigt wird, kann sich vom Seiten-"Slug" unterscheiden, bei dem es sich um den Teil der Seiten-URL handelt, der nach `<locale>/docs/` folgt. Behalten Sie die folgenden Richtlinien im Kopf, wenn Sie einen Slug definieren:
+Der Seitentitel, der oben auf der Seite angezeigt wird, kann von dem der Seitenslug sein, das ist der Teil der URL der Seite, der auf `<locale>/docs/` folgt, unterscheiden. Behalten Sie die folgenden Richtlinien im Kopf, wenn Sie einen Slug definieren:
 
-- Slugs sollten kurz gehalten werden. Wenn eine neue Ebene der Hierarchie erstellt wird, sollte die Komponente der neuen Ebene im Slug nur ein oder zwei Wörter lang sein.
-- Slugs sollten für eine mehrwortige Komponente einen Unterstrich verwenden, wie z.B. `Getting_started` in `/de/docs/Learn/HTML/Introduction_to_HTML/Getting_started`.
-- Befolgen Sie die Großbuchstaben in Satzform auch bei Slugs für jede Komponente, wie etwa `Getting_started` im vorherigen Beispiel.
+- Die Slugs sollten kurz gehalten werden. Bei der Erstellung einer neuen Hierarchieebene sollte die neue Ebene Komponente im Slug nur ein Wort oder zwei sein.
+- Die Slugs sollten einen Unterstrich für eine Mehrwort-Komponente verwenden, wie `Getting_started` in `/de/docs/Learn/HTML/Introduction_to_HTML/Getting_started`.
+- Folgen Sie der Satzgroßschreibung auch für jeden Komponent im Slug, wie `Getting_started` im obigen Beispiel.
 
 ### Titel
 
-Seitentitel werden bei den Suchergebnissen verwendet und strukturieren auch die Seitenhierarchie in der Brotkrumenliste oben auf der Seite. Ein Seitentitel kann sich vom "Slug" der Seite unterscheiden, wie im Abschnitt [Slugs](#slugs) erklärt.
+Seitentitel werden in Suchergebnissen verwendet und auch genutzt, um die Seitenhierarchie in der Brotkrümeliste oben auf der Seite zu strukturieren. Ein Seitentitel kann von dem der Seitenslug sein, wie im [Slugs](#slugs) Abschnitt erklärt.
 
-Behalten Sie die folgenden Richtlinien im Kopf, wenn Sie Titel schreiben:
+Behalten Sie die folgenden Richtlinien im Kopf beim Schreiben von Titeln:
 
-- **Großschreibungsstil**: Auf MDN Web Docs sollten Seitentitel und Abschnittsüberschriften den Satzstil in Sachen Großschreibung verwenden (nur das erste Wort und Eigennamen werden großgeschrieben), anstelle des Schlagzeilenstils:
+- **Großschreibung Stil**: Auf MDN Web Docs sollten Seitentitel und Abschnittsüberschriften satzartigen Kapitalisierungsstil (nur das erste Wort und Eigennamen groß schreiben) umfassen anstelle von Schlagzeilen-Kapitalisierungsstil:
 
-  - **Richtig**: "Eine neue Methode für das Erstellen von JavaScript Rollovern"
-  - **Falsch**: "Eine Neue Methode Für Das Erstellen Von JavaScript Rollovern"
+  - **Richtig**: "Eine neue Methode zur Erstellung von JavaScript Rollovers"
+  - **Falsch**: "Eine Neue Methode Zur Erstellung Von JavaScript Rollovers"
 
-  Wir haben viele ältere Seiten, die geschrieben wurden, bevor diese Stilregel eingeführt wurde. Fühlen Sie sich frei, sie bei Bedarf zu aktualisieren, wenn Sie möchten. Wir arbeiten nach und nach daran.
+  Wir haben viele ältere Seiten, die vor dem Aufbau dieser Stilregel geschrieben wurden. Sie dürfen dies beheben, wenn Sie es mögen. Wir kommen allmählich zu ihnen.
 
-- **Allgemeine Richtlinien**: Zu entscheiden, was Sie dokumentieren möchten und wie Sie diesen Inhalt strukturieren, ist einer der ersten Schritte beim Schreiben. Eine Inhaltsübersicht zu schreiben, kann Ihnen helfen zu entscheiden, wie Sie Informationen ordnen möchten. Behandeln Sie einfache Konzepte zuerst und gehen Sie dann zu komplizierteren und fortgeschrittenen Konzepten über. Behandeln Sie konzeptionelle Informationen zuerst und gehen Sie dann zu aktionsorientierten Themen über.
+- **Allgemeine Richtlinien**: Die Entscheidung, was Sie dokumentieren möchten und wie Sie diesen Inhalt strukturieren werden, ist einer der ersten Schritte beim Schreiben. Das Schreiben einer Themenübersicht kann Ihnen helfen zu entscheiden, wie Sie Informationen ordnen möchten. Behandeln Sie einfache Konzepte zuerst und gehen Sie dann zu komplizierteren und fortgeschrittenen Konzepten. Decken Sie konzeptionelle Informationen zuerst ab und gehen Sie dann zu aktionsorientierten Themen über.
 
-  Behalten Sie die folgenden Richtlinien im Kopf, wenn Sie Titel für eine Seite und Abschnitte oder Unterabschnitte schreiben:
+  Halten Sie die folgenden Richtlinien im Kopf beim Schreiben von Titeln für eine Seite und deren Abschnitte oder Unterabschnitte:
 
-  - **Von höher zu niedriger gehen**: Wie im Abschnitt [Überschriftsstufen](#überschriftsstufen) erwähnt, gehen Sie von höheren `##` zu niedrigeren `####`, ohne Ebenen zu überspringen. Verwenden Sie höhere Überschriften für breitere Einführungsüberschriften und spezifischere Titel weiter unten.
-  - **Logisch gruppieren**: Stellen Sie sicher, dass alle verwandten Unterabschnitte logisch unter einer höheren Überschrift zusammengefasst sind. Titel zu verschiedenen Abschnitten zu benennen, kann Ihnen dabei helfen.
-  - **Halten Sie Titel kurz**: Kürzere Titel lassen sich leichter im Text und im Inhaltsverzeichnis scannen.
-  - **Halten Sie Titel spezifisch**: Verwenden Sie den Titel, um die spezifischen Informationen zu vermitteln, die im Abschnitt behandelt werden. Zum Beispiel, wenn ein Abschnitt HTML-Elemente einführt, verwenden Sie den Titel "HTML-Elemente" anstatt "Einführung" oder "Überblick".
-  - **Halten Sie Titel fokussiert**: Verwenden Sie den Titel, um ein Ziel zu vermitteln — eine einzige Idee oder ein Konzept, das in diesem Abschnitt behandelt wird. Diesbezüglich vermeiden Sie, soweit möglich, die Verwendung der Konjunktion "und" in einem Titel.
-  - **Parallelität verwenden**: Verwenden Sie ähnliche Sprache für Titel auf derselben Überschriftsebene. Wenn eine `###` Überschriftsebene zum Beispiel Gerundium-Wörter verwendet, das heißt Wörter, die auf "-ing" enden, wie "Installieren", versuchen Sie alle Titel auf dieser Überschriftsebene mit Gerundien zu schreiben. Wenn ein Titel mit einem Imperativ-Verb beginnt, wie "verwenden", "konfigurieren", dann schreiben Sie alle Titel auf dieser Überschriftsebene beginnend mit einem Imperativ-Verb.
-  - **Häufige Begriffe in niedrigerer Überschrift vermeiden**: Wiederholen Sie keinen Text des Titels einer höheren Überschrift in niedrigeren Titeln. Beispielsweise benennen Sie in einem Abschnitt mit dem Titel "Kommas", den Titel eines Unterabschnitts "Nach einleitenden Klauseln" statt "Kommas nach einleitenden Klauseln".
-  - **Beginnen Sie nicht mit einem Artikel**: Vermeiden Sie, Titel mit Artikeln "ein", "eine" oder "der" zu beginnen.
-  - **Einführende Informationen hinzufügen**: Fügen Sie nach einem Titel einige einleitende Informationen hinzu, um zu erklären, was im Abschnitt behandelt wird.
+  - **Von höher zu niedriger gehen**: Wie im [Überschriftenebenen](#überschriftenebenen)-Abschnitt erklärt, gehen Sie von höheren `##` zu niedrigeren `####`, ohne Ebenen zu überspringen. Verwenden Sie höhere Überschriftenebenen für umfassendere Einführungstitel und verwenden Sie genauere Titel, während Sie zu niedrigeren Überschriftenebenen voranschreiten.
+  - **Logisch gruppieren**: Stellen Sie sicher, dass alle verwandten Unterabschnitte logisch unter einer höheren Überschriftenebene gruppiert sind. Das Benennen von Überlegungen zu den Titeln der verschiedenen Abschnitte kann Ihnen in dieser Übung helfen.
+  - **Titel kurz halten**: Kürzere Titel sind einfacher in Text und im Inhaltsverzeichnis zu durchsuchen.
+  - **Titel spezifisch halten**: Verwenden Sie den Titel, um die spezifischen Informationen zu vermitteln, die im Abschnitt behandelt werden. Zum Beispiel für einen Abschnitt, der HTML-Elemente einführt, verwenden Sie den Titel "HTML Elemente" anstelle von "Einführung" oder "Übersicht".
+  - **Titel fokussiert halten**: Verwenden Sie den Titel, um einen bestimmten Zweck zu vermitteln — eine einzelne Idee oder ein Konzept, das in diesem Abschnitt behandelt wird. Zu diesem Zweck vermeiden Sie so weit wie möglich die Verwendung der Konjunktion "und" in einem Titel.
+  - **Benutzen Sie parallele Konstruktion**: Verwenden Sie eine ähnliche Sprache für Titel derselben Überschriftenebene. Zum Beispiel, wenn ein `###`-Titel Verben in ing-Form verwendet, wie "Installing", versuchen dann alle Titel auf dieser Überschriftenebene mit Verben in ing-Formlichen zu schreiben. Beginnen Sie die Titel dieser Überschriftenebene mit einem Imperativverb, wenn ein Titel mit einem Imperativverb, wie z.B. "Use", "Configure", beginnt.
+  - **Vermeiden wiederholte Text im niedrigeren Überschriftenebene**: Wiederholen Sie nicht den im Titel der höheren Überschriftenebene enthaltenen Text in niedrigeren Überschriftentiteln. Zum Beispiel in einem Abschnitt betitelt "Kommas", benennen Sie den Titel eines Unterabschnitts "Nach einführenden Phrasen" anstelle von "Kommas nach einführenden Phrasen".
+  - **Beginnen Sie nicht mit einem Artikel**: Vermeiden Sie möglichst, mit Artikeln "ein", "eine", "der" zu beginnen.
+  - **Fügen Sie einleitende Informationen hinzu**: Fügen Sie nach einem Titel einen einleitenden Text hinzu, um zu erklären, was im Abschnitt behandelt wird.
 
 ## Siehe auch
 
-- [Leitlinien zum Schreiben von Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide)
-- [Leitlinien für das Schreiben von HTML-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/HTML)
-- [Leitlinien zum Schreiben von CSS-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/CSS)
-- [Leitlinien für das Schreiben von JavaScript-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript)
-- [Leitlinien für das Schreiben von Shell-Prompt-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/Shell)
+- [Richtlinien zum Schreiben von Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide)
+- [Richtlinien für das Schreiben von HTML-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/HTML)
+- [Richtlinien für das Schreiben von CSS-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/CSS)
+- [Richtlinien für das Schreiben von JavaScript-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript)
+- [Richtlinien für das Schreiben von Shell-Prompt-Codebeispielen](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/Shell)
 
-## Weiterlesen
+## Weiterführende Lektüre
 
-### Andere Stil-Leitfäden
+### Andere Leitfäden
 
-Wenn Sie Fragen zur Nutzung und zum Stil haben, die hier nicht behandelt werden, empfehlen wir, den [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/) oder das [Chicago Manual of Style](https://www.chicagomanualofstyle.org/) zu konsultieren.
+Falls Sie Fragen zur Verwendung und zum Stil haben, die hier nicht behandelt werden, empfehlen wir die [Microsoft Writing Style Guide](https://learn.microsoft.com/en-us/style-guide/welcome/) oder den [Chicago Manual of Style](https://www.chicagomanualofstyle.org/).
 
 ### Sprache, Grammatik und Rechtschreibung
 
-Wenn Sie daran interessiert sind, Ihre Schreib- und Bearbeitungsfähigkeiten zu verbessern, könnten die folgenden Ressourcen nützlich für Sie sein.
+Wenn Sie daran interessiert sind, Ihre Schreib- und Bearbeitungsfähigkeiten zu verbessern, finden Sie möglicherweise die folgenden Ressourcen hilfreich.
 
-- [Common errors in English usage](https://brians.wsu.edu/common-errors-in-english-usage/) auf brians.wsu.edu
-- [English grammar FAQ](https://websites.umich.edu/~jlawler/aue.html) auf alt-usage-english.org
-- [English language and usage](https://english.stackexchange.com/) auf english.stackexchange.com: Frage- und Antwortseite zur Verwendung der englischen Sprache
-- [Merriam-Webster's Concise Dictionary of English Usage](https://books.google.com/books?id=UDIjAQAAIAAJ) auf google.com/books (veröffentlicht 2002): Wissenschaftlich, aber benutzerfreundlich, evidenzbasierter Rat; sehr gut für Nicht-Muttersprachler geeignet, besonders für Präpositionsbenutzung
+- [Häufige Fehler in der englischen Nutzung](https://brians.wsu.edu/common-errors-in-english-usage/) auf brians.wsu.edu
+- [FAQ zur englischen Grammatik](https://websites.umich.edu/~jlawler/aue.html) auf alt-usage-english.org
+- [Englische Sprache und Nutzung](https://english.stackexchange.com/) auf english.stackexchange.com: Frage- und Antwortseite zur Nutzung der englischen Sprache
+- [Merriam-Webster's Concise Dictionary of English Usage](https://books.google.com/books?id=UDIjAQAAIAAJ) auf google.com/books (veröffentlicht 2002): Wissenschaftlich, aber benutzerfreundlich, evidenzbasierte Beratung; sehr nützlich für Nicht-Muttersprachler, insbesondere für Präpositionsverwendung
 - [On Writing Well](https://www.harpercollins.com/products/on-writing-well-william-zinsser) von William Zinsser auf harpercollins.com (veröffentlicht 2016)
 - [Style: Lessons in Clarity and Grace](https://books.google.com/books?id=QjskvgEACAAJ) von Joseph Williams und Gregory Colomb auf google.com/books (veröffentlicht 2019)

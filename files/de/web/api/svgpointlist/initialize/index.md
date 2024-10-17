@@ -1,14 +1,14 @@
 ---
-title: "SVGPointList: initialize() Methode"
+title: "SVGPointList: initialize()-Methode"
 short-title: initialize()
 slug: Web/API/SVGPointList/initialize
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("SVG")}}
 
-Die **`initialize()`**-Methode des [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Interfaces leert die Liste und fügt dann ein einzelnes neues [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt zur Liste hinzu.
+Die **`initialize()`**-Methode der [`SVGPointList`](/de/docs/Web/API/SVGPointList)-Schnittstelle löscht die Liste und fügt dann ein einzelnes neues [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt zur Liste hinzu.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ initialize(obj)
 ### Parameter
 
 - `obj`
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des Punkts enthält, der hinzugefügt werden soll, wenn die Liste initialisiert wird.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des Punktes enthält, der hinzugefügt werden soll, wenn die Liste initialisiert wird.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Das hinzugefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 ### Ausnahmen
 
 - `NoModificationAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Liste schreibgeschützt ist.
+  - : Wird geworfen, wenn die Liste nur-lesbar ist.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die Rückgabe von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) ergibt den Wert `5`. Nach dem Aufruf von `initialize()` ergibt die Rückgabe von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) den Wert `1`.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Die Rückgabe von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) gibt den Wert `5` zurück. Nach dem Aufruf von `initialize()` gibt die Rückgabe von [`SVGPointList.length`](/de/docs/Web/API/SVGPointList/length) den Wert `1` zurück.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -47,8 +47,8 @@ Das folgende Beispiel zeigt ein SVG, das eine {{SVGElement("polyline")}} mit fü
 ```js
 let example = document.getElementById("example");
 console.log(example.points.length); //5;
-let svgpoint = document.getElementById("svg").createSVGPoint();
-example.points.initialize(svgpoint);
+let svgPoint = document.getElementById("svg").createSVGPoint();
+example.points.initialize(svgPoint);
 console.log(example.points.length); //1
 ```
 

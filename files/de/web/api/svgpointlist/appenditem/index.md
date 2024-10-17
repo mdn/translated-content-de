@@ -1,9 +1,9 @@
 ---
-title: "SVGPointList: Methode appendItem()"
+title: "SVGPointList: appendItem() Methode"
 short-title: appendItem()
 slug: Web/API/SVGPointList/appendItem
 l10n:
-  sourceCommit: 101ffc9479db6aaa530f2aac3992734dd97d1b86
+  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
 ---
 
 {{APIRef("SVG")}}
@@ -19,11 +19,11 @@ appendItem(obj)
 ### Parameter
 
 - `obj`
-  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt, das die Koordinaten des hinzuzufügenden Punktes enthält.
+  - : Ein [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt, das die Koordinaten des anzufügenden Punktes enthält.
 
 ### Rückgabewert
 
-Das angehängte [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt.
+Das angefügte [`SVGPoint`](/de/docs/Web/API/SVGPoint)-Objekt.
 
 ### Ausnahmen
 
@@ -32,7 +32,7 @@ Das angehängte [`SVGPoint`](/de/docs/Web/API/SVGPoint) Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neuer [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und der Liste hinzugefügt.
+Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fünf Koordinatenpaaren enthält. Ein neues [`SVGPoint`](/de/docs/Web/API/SVGPoint) wird erstellt und der Liste hinzugefügt.
 
 ```html
 <svg id="svg" viewBox="-10 -10 120 120" xmlns="http://www.w3.org/2000/svg">
@@ -46,10 +46,10 @@ Das folgende Beispiel zeigt ein SVG, das ein {{SVGElement("polyline")}} mit fün
 
 ```js
 let example = document.getElementById("example");
-let svgpoint = document.getElementById("svg").createSVGPoint();
-svgpoint.y = 10;
-svgpoint.x = 10;
-console.log(example.points.appendItem(svgpoint));
+let svgPoint = document.getElementById("svg").createSVGPoint();
+svgPoint.y = 10;
+svgPoint.x = 10;
+console.log(example.points.appendItem(svgPoint));
 ```
 
 ## Spezifikationen

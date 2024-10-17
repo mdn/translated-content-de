@@ -1,28 +1,28 @@
 ---
-title: Richtlinien für das Schreiben von HTML-Codebeispielen
+title: Richtlinien zum Schreiben von HTML-Codebeispielen
 slug: MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/HTML
 l10n:
-  sourceCommit: 5026c14bd6d2b6b377289aadac7eceae9282e806
+  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
 ---
 
 {{MDNSidebar}}
 
-Die folgenden Richtlinien beschreiben, wie HTML-Beispielcode für MDN Web Docs geschrieben werden sollte.
+Die folgenden Richtlinien beschreiben, wie HTML-Beispielcode für die MDN Web Docs geschrieben werden soll.
 
 ## Allgemeine Richtlinien für HTML-Codebeispiele
 
-### Auswahl eines Formats
+### Format wählen
 
-Meinungen über korrekte Einrückungen, Leerzeichen und Zeilenlängen sind stets kontrovers gewesen. Diskussionen über diese Themen lenken von der Erstellung und Pflege von Inhalten ab.
+Meinungen über die richtige Einrückung, Leerzeichen und Zeilenlängen waren schon immer umstritten. Diskussionen zu diesen Themen lenken von der Erstellung und Pflege von Inhalten ab.
 
-Bei MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatter, um den Codestil konsistent zu halten (und um themenfremde Diskussionen zu vermeiden). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) konsultieren, um die aktuellen Regeln zu erfahren, und die [Prettier-Dokumentation](https://prettier.io/docs/en/index.html) lesen.
+Auf den MDN Web Docs verwenden wir [Prettier](https://prettier.io/) als Code-Formatter, um den Code-Stil konsistent zu halten (und um themenfremde Diskussionen zu vermeiden). Sie können unsere [Konfigurationsdatei](https://github.com/mdn/content/blob/main/.prettierrc.json) einsehen, um sich über die aktuellen Regeln zu informieren und die [Prettier-Dokumentation](https://prettier.io/docs/en/index.html) zu lesen.
 
-Prettier formatiert den gesamten Code und hält den Stil konsistent. Dennoch gibt es ein paar zusätzliche Regeln, die Sie befolgen müssen.
+Prettier formatiert den gesamten Code und hält den Stil konsistent. Dennoch gibt es einige zusätzliche Regeln, die Sie befolgen müssen.
 
 ## Vollständiges HTML-Dokument
 
 > [!NOTE]
-> Die Richtlinien in diesem Abschnitt gelten nur, wenn Sie ein vollständiges HTML-Dokument anzeigen müssen. Ein Snippet reicht normalerweise aus, um eine Funktion zu demonstrieren. Wenn Sie das [EmbedLiveSample-Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#traditional_live_samples) verwenden, fügen Sie einfach das HTML-Snippet ein; es wird automatisch in ein vollständiges HTML-Dokument eingefügt, wenn es angezeigt wird.
+> Die Richtlinien in diesem Abschnitt gelten nur, wenn Sie ein vollständiges HTML-Dokument anzeigen müssen. Ein Snippet ist normalerweise ausreichend, um ein Feature zu demonstrieren. Wenn Sie das [EmbedLiveSample-Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#traditional_live_samples) verwenden, fügen Sie einfach das HTML-Snippet ein; es wird beim Anzeigen automatisch in ein vollständiges HTML-Dokument eingefügt.
 
 ### Doctype
 
@@ -34,13 +34,13 @@ Sie sollten den HTML5-Doctype verwenden. Er ist kurz, leicht zu merken und abwä
 
 ### Dokumentensprache
 
-Legen Sie die Dokumentensprache mit dem [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut auf Ihrem {{htmlelement("html")}}-Element fest:
+Setzen Sie die Dokumentensprache mit dem [`lang`](/de/docs/Web/HTML/Global_attributes/lang)-Attribut an Ihrem {{htmlelement("html")}}-Element:
 
 ```html example-good
 <html lang="en-US"></html>
 ```
 
-Dies ist gut für Barrierefreiheit und Suchmaschinen, hilft bei der Lokalisierung von Inhalten und erinnert die Menschen daran, bewährte Praktiken zu verwenden.
+Dies ist gut für die Barrierefreiheit und Suchmaschinen, hilft bei der Lokalisierung von Inhalten und erinnert daran, bewährte Praktiken zu verwenden.
 
 ### Zeichensatz des Dokuments
 
@@ -50,21 +50,21 @@ Sie sollten auch den Zeichensatz Ihres Dokuments wie folgt definieren:
 <meta charset="utf-8" />
 ```
 
-Verwenden Sie UTF-8, es sei denn, Sie haben einen sehr guten Grund, es nicht zu tun; es deckt alle Zeichenbedürfnisse so ziemlich unabhängig von der Sprache ab, die Sie in Ihrem Dokument verwenden.
+Verwenden Sie UTF-8, es sei denn, Sie haben einen sehr guten Grund, dies nicht zu tun; es deckt nahezu alle Zeichenbedürfnisse unabhängig von der verwendeten Sprache im Dokument ab.
 
 ### Viewport-Meta-Tag
 
-Schließlich sollten Sie immer das Viewport-Meta-Tag in Ihrem HTML-{{HTMLElement("head")}} hinzufügen, um dem Codebeispiel eine bessere Chance zu geben, auf Mobilgeräten zu funktionieren. Sie sollten mindestens das Folgende in Ihr Dokument aufnehmen, das bei Bedarf später modifiziert werden kann:
+Schließlich sollten Sie immer das Viewport-Meta-Tag in Ihrem HTML-{{HTMLElement("head")}} hinzufügen, um dem Codebeispiel eine bessere Chance zu geben, auf mobilen Geräten zu funktionieren. Sie sollten mindestens Folgendes in Ihrem Dokument enthalten, was später nach Bedarf angepasst werden kann:
 
 ```html example-good
 <meta name="viewport" content="width=device-width" />
 ```
 
-Weitere Details finden Sie unter [Using the viewport meta tag to control layout on mobile browsers](/de/docs/Web/HTML/Viewport_meta_tag).
+Siehe [Verwendung des Viewport-Meta-Tags zur Steuerung des Layouts auf mobilen Browsern](/de/docs/Web/HTML/Viewport_meta_tag) für weitere Details.
 
 ## Attribute
 
-Sie sollten alle Attributwerte in doppelte Anführungszeichen setzen. Es ist verlockend, Anführungszeichen wegzulassen, da HTML5 dies zulässt, aber das Markup ist ordentlicher und einfacher zu lesen, wenn Sie sie einschließen. Zum Beispiel ist dies besser:
+Sie sollten alle Attributwerte in Anführungszeichen setzen. Es ist verlockend, Anführungszeichen wegzulassen, da HTML5 dies erlaubt, aber Markup ist übersichtlicher und leichter zu lesen, wenn Sie sie einfügen. Zum Beispiel ist dies besser:
 
 ```html example-good
 <img src="images/logo.jpg" alt="A circular globe icon" class="no-border" />
@@ -76,25 +76,25 @@ Sie sollten alle Attributwerte in doppelte Anführungszeichen setzen. Es ist ver
 <img src=images/logo.jpg alt=A circular globe icon class=no-border>
 ```
 
-Das Weglassen von Anführungszeichen kann auch Probleme verursachen. Im obigen Beispiel wird das `alt`-Attribut als mehrere Attribute interpretiert, da keine Anführungszeichen vorhanden sind, um anzugeben, dass "A circular globe icon" ein einzelner Attributwert ist.
+Das Weglassen von Anführungszeichen kann auch Probleme verursachen. Im obigen Beispiel wird das `alt`-Attribut als mehrere Attribute interpretiert, da keine Anführungszeichen angeben, dass "A circular globe icon" ein einzelner Attributwert ist.
 
 ## Boolean-Attribute
 
-Schließen Sie keine Werte für Boolean-Attribute ein (aber schließen Sie Werte für {{Glossary("enumerated", "enumerierte")}} Attribute ein); Sie können einfach den Attributnamen schreiben, um ihn festzulegen. Zum Beispiel können Sie schreiben:
+Setzen Sie keine Werte für Boolean-Attribute (aber setzen Sie Werte für {{Glossary("enumerated", "enumerierte")}} Attribute); Sie können einfach den Attributnamen schreiben, um es zu setzen. Zum Beispiel können Sie schreiben:
 
 ```html example-good
 <input required />
 ```
 
-Dies ist vollkommen verständlich und funktioniert einwandfrei. Wenn ein Boolean-HTML-Attribut vorhanden ist, ist der Wert true. Während das Einfügen eines Wertes funktionieren wird, ist es nicht notwendig und fehlerhaft:
+Dies ist vollkommen verständlich und funktioniert einwandfrei. Ist ein Boolean-HTML-Attribut vorhanden, ist der Wert wahr. Auch wenn das Hinzufügen eines Wertes funktionieren würde, ist es nicht notwendig und falsch:
 
 ```html example-bad
 <input required="required" />
 ```
 
-## Groß- und Kleinschreibung
+## Groß-/Kleinschreibung
 
-Verwenden Sie Kleinbuchstaben für alle Element- und Attributnamen/-werte, da es ordentlicher aussieht und Sie Markup schneller schreiben können. Zum Beispiel:
+Verwenden Sie Kleinbuchstaben für alle Elementnamen und Attributnamen/-werte, weil es übersichtlicher aussieht und Sie Markup schneller schreiben können. Zum Beispiel:
 
 ```html example-good
 <p class="nice">This looks nice and neat</p>
@@ -106,7 +106,7 @@ Verwenden Sie Kleinbuchstaben für alle Element- und Attributnamen/-werte, da es
 
 ## Klassen- und ID-Namen
 
-Verwenden Sie semantische Klassen-/ID-Namen und trennen Sie mehrere Wörter mit Bindestrichen ({{Glossary("kebab_case", "kebab-case")}}). Verwenden Sie nicht das {{Glossary("camel_case", "camel-case")}}. Zum Beispiel:
+Verwenden Sie semantische Klassen/ID-Namen und trennen Sie mehrere Wörter mit Bindestrichen ({{Glossary("kebab_case", "kebab case")}}). Verwenden Sie nicht {{Glossary("camel_case", "camel case")}}. Zum Beispiel:
 
 ```html example-good
 <p class="editorial-summary">Blah blah blah</p>
@@ -118,7 +118,7 @@ Verwenden Sie semantische Klassen-/ID-Namen und trennen Sie mehrere Wörter mit 
 
 ## Zeichenreferenzen
 
-Verwenden Sie keine {{Glossary("character_reference", "Zeichenreferenzen")}} unnötigerweise - verwenden Sie das tatsächliche Zeichen, wo immer möglich (Sie müssen immer noch Zeichen wie spitze Klammern und Anführungszeichen maskieren).
+Verwenden Sie keine {{Glossary("character_reference", "Zeichenreferenzen")}} unnötig — verwenden Sie soweit möglich das Literalzeichen (Sie müssen immer noch Zeichen wie spitze Klammern und Anführungszeichen escapen).
 
 Zum Beispiel könnten Sie einfach schreiben:
 
@@ -126,7 +126,7 @@ Zum Beispiel könnten Sie einfach schreiben:
 <p>© 2018 Me</p>
 ```
 
-Stattdessen von:
+Anstatt:
 
 ```html example-bad
 <p>&copy; 2018 Me</p>
@@ -134,10 +134,10 @@ Stattdessen von:
 
 ## HTML-Elemente
 
-Es gibt einige Regeln für das Schreiben über HTML-Elemente auf MDN Web Docs. Das Einhalten dieser Regeln sorgt für konsistente Beschreibungen von Elementen und ihren Komponenten und stellt außerdem sicher, dass korrekt auf detaillierte Dokumentation verlinkt wird.
+Es gibt einige Regeln für das Schreiben über HTML-Elemente auf MDN Web Docs. Die Einhaltung dieser Regeln sorgt für konsistente Beschreibungen von Elementen und ihren Komponenten und gewährleistet korrekte Verlinkungen zu detaillierter Dokumentation.
 
-- **Elementnamen**: Verwenden Sie das [`HTMLElement`](https://github.com/mdn/yari/blob/main/kumascript/macros/HTMLElement.ejs)-Makro, das einen Link zur MDN Web Docs-Seite für dieses Element erstellt. Zum Beispiel erzeugt das Schreiben von `\{{HTMLElement("title")}}` "{{HTMLElement("title")}}".
-  Wenn Sie keinen Link erstellen möchten, **schließen Sie den Namen in spitze Klammern ein** und verwenden Sie das Format "Inline-Code" (z.B. `<title>`).
-- **Attributnamen**: Verwenden Sie das Format "Inline-Code", um Attributnamen in `Code-Schriftart` zu setzen.
-  Zusätzlich setzen Sie sie in **`fett`**, wenn das Attribut im Zusammenhang mit einer Erklärung erwähnt wird, was es tut oder wenn es erstmals auf der Seite erwähnt wird.
-- **Attributwerte**: Verwenden Sie das Format "Inline-Code", um `<code>` auf Attributwerte anzuwenden, und verwenden Sie keine Anführungszeichen um Zeichenfolgenwerte, es sei denn, sie sind durch die Syntax eines Code-Beispiels erforderlich. Zum Beispiel: "Wenn das `type`-Attribut eines `<input>`-Elements auf `email` oder `tel` gesetzt ist ...".
+- **Elementnamen**: Verwenden Sie das [`HTMLElement`](https://github.com/mdn/yari/blob/main/kumascript/macros/HTMLElement.ejs)-Makro, das einen Link zur entsprechenden MDN Web Docs-Seite für dieses Element erstellt. Zum Beispiel erzeugt das Schreiben von `\{{HTMLElement("title")}}` "{{HTMLElement("title")}}".
+  Wenn Sie keinen Link erstellen möchten, **setzen Sie den Namen in spitze Klammern** und verwenden Sie den Stil "Inline Code" (z. B. `<title>`).
+- **Attributnamen**: Verwenden Sie den Stil "Inline Code", um Attributnamen in `code font` zu formatieren.
+  Setzen Sie sie zusätzlich in **`fett`**, wenn das Attribut im Zusammenhang mit einer Erklärung erwähnt wird, was es bewirkt oder wenn es zum ersten Mal auf der Seite verwendet wird.
+- **Attributwerte**: Verwenden Sie den Stil "Inline Code", um `<code>` auf Attributwerte anzuwenden, und verwenden Sie keine Anführungszeichen um Zeichenfolgenwerte, es sei denn, sie sind durch die Syntax eines Codesamples erforderlich. Zum Beispiel: "Wenn das `type`-Attribut eines `<input>`-Elements auf `email` oder `tel` gesetzt ist ...".

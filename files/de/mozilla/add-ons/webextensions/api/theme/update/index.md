@@ -2,14 +2,14 @@
 title: theme.update()
 slug: Mozilla/Add-ons/WebExtensions/API/theme/update
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: acc6ec7d08ede0727a68cbc696e983c572940f62
 ---
 
 {{AddonSidebar}}
 
-Aktualisiert das Browser-Theme gemäß dem Inhalt des {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekts.
+Aktualisiert das Browser-Theme gemäß dem Inhalt des {{WebExtAPIRef("theme.Theme", "Theme")}} Objekts.
 
-Um diese Methode zu verwenden, muss eine Erweiterung die "theme" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) in ihrer [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei anfordern.
+Um diese Methode zu verwenden, muss eine Erweiterung im [manifest.json](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json) Datei die "theme" [Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) anfordern.
 
 ## Syntax
 
@@ -23,16 +23,16 @@ browser.theme.update(
 ### Parameter
 
 - `windowId` {{optional_inline}}
-  - : `integer`. Die ID eines Fensters. Wenn dieser Wert angegeben wird, wird das Theme nur auf dieses Fenster angewendet. Wenn er weggelassen wird, wird das Theme auf alle Fenster angewendet.
+  - : `integer`. Die ID eines Fensters. Wenn dies angegeben ist, wird das Theme nur auf dieses Fenster angewendet. Wenn es weggelassen wird, wird das Theme auf alle Fenster angewendet.
 - `theme`
-  - : `object`. Ein {{WebExtAPIRef("theme.Theme", "Theme")}}-Objekt, das Werte für die UI-Elemente angibt, die Sie ändern möchten.
+  - : `object`. Ein {{WebExtAPIRef("theme.Theme", "Theme")}} Objekt, das die Werte für die UI-Elemente angibt, die Sie ändern möchten.
 
 ## Beispiele
 
-Setzt das Browser-Theme, um eine Sonnengrafik mit einer passenden Hintergrundfarbe zu verwenden:
+Setzt das Browser-Theme, um eine Sonnengrafik mit einer komplementären Hintergrundfarbe zu verwenden:
 
 ```js
-const suntheme = {
+const sunTheme = {
   images: {
     theme_frame: "sun.jpg",
   },
@@ -42,10 +42,10 @@ const suntheme = {
   },
 };
 
-browser.theme.update(suntheme);
+browser.theme.update(sunTheme);
 ```
 
-Setzt das Theme nur für das fokussierte Fenster:
+Setzen Sie das Theme nur für das fokussierte Fenster:
 
 ```js
 const day = {
