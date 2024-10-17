@@ -1,14 +1,14 @@
 ---
-title: "Request: Signal-Eigenschaft"
+title: "Anfrage: signal-Eigenschaft"
 short-title: signal
 slug: Web/API/Request/signal
 l10n:
-  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
+  sourceCommit: 242b21a3650efeec0d5d2c74cbd171891748c115
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`signal`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle gibt das mit der Anfrage verbundene [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
+Die schreibgeschützte **`signal`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle gibt das mit der Anfrage verknüpfte [`AbortSignal`](/de/docs/Web/API/AbortSignal) zurück.
 
 ## Wert
 
@@ -30,9 +30,9 @@ req.signal.addEventListener("abort", () => {
 
 // In case of abort, log the AbortSignal reason, if any
 fetch(req).catch(() => {
-  if (signal.aborted) {
-    if (signal.reason) {
-      console.log(`Request aborted with reason: ${signal.reason}`);
+  if (req.signal.aborted) {
+    if (req.signal.reason) {
+      console.log(`Request aborted with reason: ${req.signal.reason}`);
     } else {
       console.log("Request aborted but no reason was given.");
     }

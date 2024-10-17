@@ -3,12 +3,12 @@ title: "HIDDevice: sendReport()-Methode"
 short-title: sendReport()
 slug: Web/API/HIDDevice/sendReport
 l10n:
-  sourceCommit: 4458494807b6f4898d504b6c0af0a45f8031cbf3
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`sendReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle sendet einen Ausgabereport an das HID-Gerät.
+Die **`sendReport()`**-Methode des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces sendet einen Ausgabereport an das HID-Gerät.
 
 Die `reportId` für jedes der von diesem Gerät unterstützten Reportformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
@@ -21,13 +21,13 @@ sendReport(reportId, data)
 ### Parameter
 
 - `reportId`
-  - : Eine 8-Bit-Report-ID. Wenn das HID-Gerät keine Report-IDs verwendet, senden Sie `0`.
+  - : Eine 8-Bit-Report-ID. Falls das HID-Gerät keine Report-IDs verwendet, senden Sie `0`.
 - `data`
-  - : Bytes als ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}.
+  - : Bytes als {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Report gesendet wurde.
+Ein {{jsxref("Promise")}}, das auf `undefined` aufgelöst wird, sobald der Report gesendet wurde.
 
 ### Ausnahmen
 
@@ -36,7 +36,7 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Repor
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie man ein Joy-Con-Gerät mit Ausgabereports zum Vibrieren bringt. Weitere Beispiele und Live-Demos finden Sie im Artikel [Connecting to uncommon HID devices](https://developer.chrome.com/docs/capabilities/hid).
+Das folgende Beispiel zeigt, wie man ein Joy-Con-Gerät mit Hilfe von Ausgabereports zum Vibrieren bringt. Sie können weitere Beispiele und Live-Demos im Artikel [Verbindung mit ungewöhnlichen HID-Geräten](https://developer.chrome.com/docs/capabilities/hid) sehen.
 
 ```js
 // First, send a command to enable vibration.

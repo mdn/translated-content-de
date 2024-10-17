@@ -1,137 +1,156 @@
 ---
-title: API-Konstruktor-Subseitenvorlage
+title: API-Konstruktor-Unterseitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/API_constructor_subpage_template
 l10n:
-  sourceCommit: a4ae225903c2784a3d74b43f311e05f208e42c91
+  sourceCommit: ad385725ed5713e9d384e505424bba227577e62d
 ---
 
 {{MDNSidebar}}
 
-> **Note:** _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung_
+> **Hinweis:** _Entfernen Sie diesen gesamten erläuternden Hinweis vor der Veröffentlichung_
 >
 > ---
 >
-> **Seiten-Frontmatter:**
+> **Seiten-Vordergrundinformationen:**
 >
-> Das Frontmatter am Anfang der Seite wird verwendet, um "Seiten-Metadaten" zu definieren.
-> Die Werte sollten entsprechend für den Konstruktor aktualisiert werden.
+> Die Vordergrundinformationen am Anfang der Seite werden verwendet, um "Seiten-Metadaten" zu definieren.
+> Die Werte sollten für den Konstruktor entsprechend aktualisiert werden.
 >
 > ```md
 > ---
-> title: NameOfTheParentInterface: NameOfTheConstructor() constructor
-> slug: Web/API/NameOfTheParentInterface/NameOfTheConstructor
+> title: NameDesElterninterfaces: NameDesKonstruktors() constructor
+> slug: Web/API/NameDesElterninterfaces/NameDesKonstruktors
 > page-type: web-api-constructor
 > status:
 >   - experimental
 >   - deprecated
 >   - non-standard
-> browser-compat: path.to.feature.NameOfTheConstructor
+> browser-compat: path.to.feature.NameDesKonstruktors
 > ---
 > ```
 >
 > - **title**
 >   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
->     Formatieren Sie dies als `NameOfTheParentInterface: NameOfTheConstructor() constructor`.
->     Zum Beispiel hat der [Request()](/de/docs/Web/API/Request/Request) Konstruktor einen _title_ von `Request: Request() constructor`.
+>     Formatieren Sie als `NameDesElterninterfaces: NameDesKonstruktors() constructor`.
+>     Zum Beispiel hat der [Request()](/de/docs/Web/API/Request/Request) Konstruktor einen _Titel_ von `Request: Request() constructor`.
 > - **slug**
 >   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
->     Dies wird formatiert wie `Web/API/NameOfTheParentInterface/NameOfTheConstructor`.
->     Beachten Sie, dass der Name der Konstruktorfunktion im Slug die Klammern weglässt (es endet in `NameOfTheConstructor` und nicht `NameOfTheConstructor()`).
+>     Dies wird formatiert wie `Web/API/NameDesElterninterfaces/NameDesKonstruktors`.
+>     Beachten Sie, dass der Name der Konstruktorfunktion im Slug die Klammern weglässt (es endet mit `NameDesKonstruktors` und nicht `NameDesKonstruktors()`).
 > - **page-type**
->   - : Der `page-type` Schlüssel für Web/API Konstruktoren ist immer `web-api-constructor`.
+>   - : Der `page-type`-Schlüssel für Web/API-Konstruktoren ist immer `web-api-constructor`.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das eine oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
+>   - : Kennzeichnungsflags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
 > - **browser-compat**
 >
->   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheConstructor` mit der Abfragezeichenfolge für den Konstruktor im [Browser compat data repo](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Abschnitte "Kompatibilität" und "Spezifikation" auszufüllen (ersetzt die `\{{Compat}}` und `\{{Specifications}}` Makros).
+>   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameDesKonstruktors` mit der Abfragezeichenfolge für den Konstruktor im [Browser-Compat-Daten-Repo](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte auszufüllen (Ersetzung der `\{{Compat}}` und `\{{Specifications}}` Makros).
 >
->     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für den API-Konstruktor in unserem [Browser compat data repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag für die API muss Spezifikationsinformationen enthalten.
->     Siehe unseren [Leitfaden zur Vorgehensweise](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+>     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für den API-Konstruktor in unserem [Browser-Compat-Daten-Repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag für die API muss Spezifikationsinformationen enthalten.
+>     Siehe unseren [Leitfaden hierzu](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > ---
 >
-> **Oberste-Seiten-Makros**
+> **Top-of-page-Makros**
 >
-> Eine Reihe von Makroaufrufen erscheint am Anfang des Inhaltsabschnitts (unmittelbar unter dem Seiten-Frontmatter).
-> Diese Makros werden vom Toolchain automatisch hinzugefügt (es ist nicht nötig, sie hinzuzufügen/zu entfernen):
+> Eine Reihe von Makroaufrufen erscheint oben im Inhaltsbereich (unmittelbar unter den Seiten-Vordergrundinformationen).
 >
-> - `\{{SeeCompatTable}}` — generiert ein **Dies ist eine experimentelle Technologie**-Banner, das angibt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn sie experimentell ist und die Technologie in Firefox hinter einem Pref verborgen ist, sollten Sie auch einen Eintrag dafür auf der [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) Seite ausfüllen.
-> - `\{{Deprecated_Header}}` — generiert ein **Veraltet**-Banner, das anzeigt, dass die Nutzung der Technologie [unerwünscht](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — generiert ein **Nicht-standardisiert**-Banner, das anzeigt, dass das Feature nicht Teil einer Spezifikation ist.
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht notwendig, sie hinzuzufügen/zu entfernen):
 >
-> Sie sollten die folgenden Makros gemäß dem unten stehenden Rat aktualisieren oder löschen:
+> - `\{{SeeCompatTable}}` — dies generiert ein **Dies ist eine experimentelle Technologie**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn es experimentell ist und die Technologie hinter einem Präfix in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür in der Seite [Experimentelle Features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}` — dies generiert ein **Veraltet**-Banner, das darauf hinweist, dass die Nutzung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
+> - `\{{Non-standard_Header}}` — dies generiert ein **Nicht-standard**-Banner, das darauf hinweist, dass das Feature nicht Teil einer Spezifikation ist.
 >
-> - `\{{SecureContext_Header}}` — generiert ein **Sicherer Kontext**-Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
+> Sie sollten die folgenden Makros gemäß den untenstehenden Hinweisen aktualisieren oder löschen:
+>
+> - `\{{SecureContext_Header}}` — dies generiert ein **Sicherer Kontext**-Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
 >   Wenn nicht, können Sie den Makroaufruf entfernen.
->   Wenn es der Fall ist, sollten Sie auch einen Eintrag dafür auf der [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) Seite ausfüllen.
-> - `\{{APIRef("GroupDataName")}}` — generiert die Referenz-Sidebar auf der linken Seite, die Schnellverweis-Links zeigt, die mit der aktuellen Seite in Zusammenhang stehen.
->   Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) die gleiche Sidebar, die auf die anderen Seiten in der API verweist.
->   Um die korrekte Sidebar für Ihre API zu generieren, müssen Sie einen `GroupData` Eintrag in unserem GitHub-Repo hinzufügen und den Namen des Eintrags im Makroaufruf anstelle von _GroupDataName_ platzieren.
->   Siehe unseren [Leitfaden zu API-Referenz-Sidebars](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) für Informationen, wie dies zu tun ist. Denken Sie daran, das `\{{MDNSidebar}}` Makro zu entfernen, wenn Sie diese Seite kopieren.
+>   Wenn ja, sollten Sie auch einen Eintrag dafür auf der Seite [Features, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
+> - `\{{AvailableInWorkers}}` — dies generiert eine **Verfügbar in Workern**-Notiz, die darauf hinweist, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+>   Wenn sie nur im Fensterkontext verfügbar ist, können Sie den Makroaufruf entfernen.
+>   Wenn sie auch im Worker-Kontext oder nur dort verfügbar ist, müssen Sie möglicherweise einen Parameter aufgrund der Verfügbarkeit übergeben (sehen Sie sich den [\\{{AvailableInWorkers}}-Makroquellcode](https://github.com/mdn/yari/blob/main/kumascript/macros/AvailableInWorkers.ejs) für alle verfügbaren Werte an), Sie müssen möglicherweise auch einen Eintrag auf der Seite [Web-APIs, die in Workern verfügbar sind](/de/docs/Web/API/Web_Workers_API#supported_web_apis) ausfüllen.
+> - `\{{APIRef("GroupDataName")}}` — dies generiert die Referenz-Sidebar auf der linken Seite, die Schnellverweise auf die aktuelle Seite zeigt.
+>   Zum Beispiel hat jede Seite der [WebVR API](/de/docs/Web/API/WebVR_API) die gleiche Sidebar, die auf die anderen Seiten im API verweist.
+>   Um die richtige Sidebar für Ihre API zu generieren, müssen Sie einen `GroupData`-Eintrag in unser GitHub-Repo hinzufügen und den Namen des Eintrags im Makroaufruf anstelle von _GroupDataName_ eingeben.
+>   Siehe unseren [API-Referenz-Sidebars](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) Leitfaden für Informationen dazu.
+> - Denken Sie daran, das `\{{MDNSidebar}}` Makro zu entfernen, wenn Sie diese Seite kopieren.
 >
-> Fügen Sie keine Statuskopfzeilen-Makros manuell hinzu. Beziehen Sie sich auf den Abschnitt [Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Status der Seite hinzuzufügen.
+> Status-Header-Makros nicht manuell bereitstellen. Beziehen Sie sich auf den Abschnitt [Anleitung zum Hinzufügen oder Aktualisieren von Feature-Status](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Status zur Seite hinzuzufügen.
 >
-> Beispiele der **Sicherer Kontext**-, **Experimentelle**, **Veraltete** und **Nicht-standardisierte** Banner werden direkt nach diesem Hinweisblock gezeigt.
+> Beispiele für die **Sicherer Kontext**, **Verfügbar in Workern**, **Experimentell**, **Veraltet** und **Nicht-standard**-Banner sind direkt nach diesem Hinweisblock gezeigt.
 >
 > _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen._
 
-{{SecureContext_Header}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{SecureContext_Header}}{{AvailableInWorkers}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz — beginnen Sie damit, den Konstruktor zu benennen und zu sagen, was er tut.
+Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz — beginnen Sie mit dem Benennen des Konstruktors und was er tut.
 Dies sollte idealerweise ein oder zwei kurze Sätze sein.
-Sie könnten den größten Teil davon aus der Zusammenfassung des Konstruktors auf der entsprechenden API-Referenzseite kopieren.
+Sie könnten die meisten davon von der Zusammenfassung des Konstruktors auf der entsprechenden API-Referenzseite kopieren.
 
 ## Syntax
 
-Füllen Sie eine Syntax-Box entsprechend den Richtlinien in unserem Artikel zu [Syntax-Abschnitten](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections) aus.
+Füllen Sie eine Syntaxbox aus, gemäß den Richtlinien in unserem Artikel zu [Syntaxsektionen](/de/docs/MDN/Writing_guidelines/Page_structures/Syntax_sections).
 
 ### Parameter
 
 - `parameter1` {{optional_inline}}
-  - : Fügen Sie hier eine kurze Beschreibung des Parameters und dessen Funktion hinzu. Fügen Sie einen Begriff und eine Definition für jeden Parameter hinzu.
+  - : Fügen Sie hier eine kurze Beschreibung des Parameters und seiner Funktion ein. Fügen Sie für jeden Parameter einen Begriff und eine Definition hinzu.
     Wenn der Parameter nicht optional ist, entfernen Sie den \\{{optional_inline}} Makroaufruf.
 - `parameter2`
   - : etc.
 
 ### Rückgabewert
 
-Fügen Sie eine Beschreibung des Rückgabewertes des Konstruktors hinzu, einschließlich des Datentyps und dessen Bedeutung.
-Dies ist normalerweise nur "Eine Instanz des `\{{domxref("NameOfTheParentInterface")}}`-Objekts."
+Fügen Sie eine Beschreibung des Rückgabewerts des Konstruktors hinzu, einschließlich des Datentyps und was er darstellt.
+Normalerweise ist dies einfach "Eine Instanz des `\{{domxref("NameDesElterninterfaces")}}` Objekts."
 
 _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in der Markdown-Datei._
 
 ### Ausnahmen
 
-Fügen Sie eine Liste aller Ausnahmen hinzu, die der Konstruktor auslösen kann. Fügen Sie einen Begriff und eine Definition für jede Ausnahme hinzu.
+Fügen Sie eine Liste aller Ausnahmen hinzu, die der Konstruktor aufwerfen kann. Fügen Sie für jede Ausnahme einen Begriff und eine Definition hinzu.
 
 - `Exception1`
-  - : Fügen Sie Beschreibungen hinzu, wie die Ausnahme ausgelöst wird.
+  - : Beschreibungen hinzufügen, wie die Ausnahme ausgelöst wird.
 - `Exception2`
-  - : Fügen Sie Beschreibungen hinzu, wie die Ausnahme ausgelöst wird.
+  - : Beschreibungen hinzufügen, wie die Ausnahme ausgelöst wird.
+
+Beachten Sie, dass wir zwei Arten von Ausnahmen haben: [`DOMException`](/de/docs/Web/API/DOMException)-Objekte und reguläre JavaScript-Ausnahmen, wie {{jsxref("TypeError")}} und {{jsxref("RangeError")}}. Ein Webentwickler muss wissen:
+
+- welches Objekt geworfen wird
+- für Ausnahmen, die `DOMException`-Objekte sind, der `name` der Ausnahme.
+
+Hier ist ein Beispiel, bei dem eine Methode eine `DOMException` mit einem Namen von `IndexSizeError`, eine zweite `DOMException` mit einem Namen von `InvalidNodeTypeError` und eine JavaScript-Ausnahme vom Typ `TypeError` auslösen kann:
+
+- `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst …
+- `InvalidNodeTypeError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Ausgelöst …
+- {{jsxref("TypeError")}}
+  - : Ausgelöst …
 
 ## Beispiele
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift mit dem Namen des Beispiels haben. Die Überschrift sollte beschreibend dafür sein, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift haben, die das Beispiel benennt. Die Überschrift sollte beschreibend dafür sein, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Siehe unseren Leitfaden zur Vorgehensweise, um [Code-Beispiele hinzuzufügen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
+Siehe unseren Leitfaden, wie Sie [Codebeispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) hinzufügen, für weitere Informationen.
 
 > [!NOTE]
 > Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite gegeben sind.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und weitere Beispiele auf einer anderen Seite haben:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine letzte H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Beispielsweise:
 >
 > ```md
 > ## Beispiele
 >
-> ### Verwendung der fetch API
+> ### Verwendung der Fetch-API
 >
-> Beispiel der Fetch
+> Beispiel für Fetch
 >
 > ### Weitere Beispiele
 >
@@ -140,12 +159,12 @@ Siehe unseren Leitfaden zur Vorgehensweise, um [Code-Beispiele hinzuzufügen](/d
 >
 > **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Beispielsweise:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele dieser API siehe [die Seite zu fetch()](https://example.org/).
+> Für Beispiele dieser API, siehe [die Seite zur fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -162,8 +181,8 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit der aktuellen API in Verbindung stehen. Für weitere Richtlinien beachten Sie den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle API beziehen. Für weitere Richtlinien siehe den [Abschnitt Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
 
 - link1
 - link2
-- externer_link (Jahr)
+- external_link (year)

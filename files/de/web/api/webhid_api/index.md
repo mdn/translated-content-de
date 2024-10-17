@@ -2,27 +2,27 @@
 title: WebHID API
 slug: Web/API/WebHID_API
 l10n:
-  sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{DefaultAPISidebar("WebHID API")}}{{SeeCompatTable}}
+{{DefaultAPISidebar("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Ein Human Interface Device (HID) ist eine Art von Gerät, das Eingaben von Menschen entgegennimmt oder Ausgaben an Menschen liefert. Es bezieht sich auch auf das HID-Protokoll, einen Standard für die bidirektionale Kommunikation zwischen einem Host und einem Gerät, der das Installationsverfahren vereinfachen soll. Das HID-Protokoll wurde ursprünglich für USB-Geräte entwickelt, aber seitdem über viele andere Protokolle, einschließlich Bluetooth, implementiert.
+Ein Human Interface Device (HID) ist ein Gerätetyp, der Eingaben von oder Ausgaben an Menschen liefert. Es bezieht sich auch auf das HID-Protokoll, einen Standard für die bidirektionale Kommunikation zwischen einem Host und einem Gerät, das entwickelt wurde, um das Installationsverfahren zu vereinfachen. Das HID-Protokoll wurde ursprünglich für USB-Geräte entwickelt, aber es wurde seitdem über viele andere Protokolle hinaus implementiert, einschließlich Bluetooth.
 
 ## Schnittstellen
 
 - [`HID`](/de/docs/Web/API/HID)
-  - : Bietet Methoden zum Verbinden mit HID-Geräten, Listung der angeschlossenen HID-Geräte und Ereignishandler für angeschlossene HID-Geräte.
+  - : Bietet Methoden zum Verbinden mit HID-Geräten, zum Auflisten angehängter HID-Geräte und Ereignishandlern für verbundene HID-Geräte.
 - [`HIDDevice`](/de/docs/Web/API/HIDDevice)
-  - : Repräsentiert ein HID-Gerät. Es ist möglich, dass ein einzelnes physisches Gerät durch mehrere `HIDDevice`-Objekte dargestellt wird.
+  - : Repräsentiert ein HID-Gerät. Es ist möglich, dass ein physisches Gerät durch mehrere `HIDDevice`-Objekte repräsentiert wird.
 - [`HIDInputReportEvent`](/de/docs/Web/API/HIDInputReportEvent)
-  - : Wird an das `HIDDevice`-[`inputreport`](/de/docs/Web/API/HIDDevice/inputreport_event)-Ereignis übergeben, wenn ein Eingabebereich von einem zugehörigen HID-Gerät empfangen wird.
+  - : Wird an das `HIDDevice`- [`inputreport`](/de/docs/Web/API/HIDDevice/inputreport_event) Ereignis übergeben, wenn ein Eingabebericht von einem zugeordneten HID-Gerät empfangen wird.
 - [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent)
-  - : Wird an `HID`-[`connect`](/de/docs/Web/API/HID/connect_event)- und [`disconnect`](/de/docs/Web/API/HID/disconnect_event)-Ereignisse übergeben, wenn ein Gerät verbunden oder getrennt wird.
+  - : Wird an `HID`- [`connect`](/de/docs/Web/API/HID/connect_event) und [`disconnect`](/de/docs/Web/API/HID/disconnect_event) Ereignisse übergeben, wenn ein Gerät verbunden oder getrennt wird.
 
 ## Beispiele
 
-Sie können mit der [`requestDevice()`](/de/docs/Web/API/HID/requestDevice)-Methode eine Verbindung zu einem Gerät herstellen. In diesem Fall wählen wir aus allen verfügbaren Geräten aus.
+Sie können mit der Methode [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) eine Verbindung zu einem Gerät herstellen. In diesem Fall wählen wir aus allen verfügbaren Geräten aus.
 
 ```js
 const device = await navigator.hid.requestDevice({ filters: [] });
@@ -30,7 +30,7 @@ const device = await navigator.hid.requestDevice({ filters: [] });
 // Select one and click on `Connect` button. Then the device will be an array with the selected device in it.
 ```
 
-Wir können alle Geräte abrufen, für die die Website zuvor Zugriffsberechtigungen erhalten hat, und die Gerätenamen in die Konsole protokollieren.
+Wir können alle Geräte abrufen, für die der Website zuvor Zugriff gewährt wurde, und die Gerätenamen in der Konsole protokollieren.
 
 ```js
 let devices = await navigator.hid.getDevices();

@@ -1,14 +1,14 @@
 ---
-title: "HID: `getDevices()`-Methode"
+title: "HID: getDevices()-Methode"
 short-title: getDevices()
 slug: Web/API/HID/getDevices
 l10n:
-  sourceCommit: b6984118ac9482e683a654edfefa4b426ca3c7ca
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`getDevices()`**-Methode der [`HID`](/de/docs/Web/API/HID)-Schnittstelle ruft eine Liste der verbundenen HID-Geräte ab, auf die der Benutzer zuvor durch einen Aufruf von [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) Zugriff gewährt hat.
+Die **`getDevices()`**-Methode des [`HID`](/de/docs/Web/API/HID)-Interfaces erhält eine Liste von verbundenen HID-Geräten, auf die der Benutzer zuvor im Rahmen eines [`requestDevice()`](/de/docs/Web/API/HID/requestDevice)-Aufrufs Zugriff gewährt hat.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, der mit einer Liste von [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekten erfüllt wird.
+Ein {{jsxref("Promise")}}, das mit einer Liste von [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekten aufgelöst wird.
 
 ## Beispiele
 
-Das folgende Beispiel ruft eine Liste von Geräten ab und protokolliert die Gerätenamen in der Konsole.
+Das folgende Beispiel erhält eine Liste von Geräten und protokolliert die Gerätenamen in der Konsole.
 
 ```js
 document.addEventListener("DOMContentLoaded", async () => {

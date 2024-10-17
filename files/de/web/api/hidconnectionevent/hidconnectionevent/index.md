@@ -3,12 +3,12 @@ title: "HIDConnectionEvent: HIDConnectionEvent() Konstruktor"
 short-title: HIDConnectionEvent()
 slug: Web/API/HIDConnectionEvent/HIDConnectionEvent
 l10n:
-  sourceCommit: 367b6392294e801f028be1657c5957fe11e6f6f7
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Der **`HIDConnectionEvent()`** Konstruktor erzeugt ein neues [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent) Objekt. Typischerweise wird dieser Konstruktor nicht verwendet, da Ereignisse erstellt werden, wenn sich der Verbindungsstatus eines Geräts ändert.
+Der **`HIDConnectionEvent()`** Konstruktor erstellt ein neues [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent)-Objekt. Typischerweise wird dieser Konstruktor nicht verwendet, da Ereignisse erstellt werden, wenn sich der Verbindungsstatus eines Geräts ändert.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ new HIDConnectionEvent(type, options)
 
 - `type`
   - : Ein String mit dem Namen des Ereignisses.
-    Er ist case-sensitive und Browser setzen ihn auf `connect` oder `disconnect`.
+    Er unterscheidet zwischen Groß- und Kleinschreibung und Browser setzen ihn auf `connect` oder `disconnect`.
 - `options`
   - : Ein Objekt, das _zusätzlich zu den in [`Event()`](/de/docs/Web/API/Event/Event) definierten Eigenschaften_ die folgenden Eigenschaften haben kann:
     - `device`
-      - : Die [`HIDDevice`](/de/docs/Web/API/HIDDevice) Instanz, die das verbundene oder getrennte Gerät repräsentiert.
+      - : Die [`HIDDevice`](/de/docs/Web/API/HIDDevice) Instanz, die das ein- oder ausgesteckte Gerät repräsentiert.
 
 ### Rückgabewert
 
-Ein neues [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent) Objekt.
+Ein neues [`HIDConnectionEvent`](/de/docs/Web/API/HIDConnectionEvent)-Objekt.
 
 ## Spezifikationen
 

@@ -3,12 +3,12 @@ title: "HIDDevice: sendFeatureReport()-Methode"
 short-title: sendFeatureReport()
 slug: Web/API/HIDDevice/sendFeatureReport
 l10n:
-  sourceCommit: 4458494807b6f4898d504b6c0af0a45f8031cbf3
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`sendFeatureReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle sendet einen Feature-Bericht an das HID-Gerät. Feature-Berichte sind ein Mittel für HID-Geräte und Anwendungen, um nicht standardisierte HID-Daten auszutauschen.
+Die **`sendFeatureReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle sendet einen Feature-Report an das HID-Gerät. Feature-Reports sind eine Möglichkeit für HID-Geräte und Anwendungen, nicht standardisierte HID-Daten auszutauschen.
 
 Die `reportId` für jedes der von diesem Gerät unterstützten Berichtsformate kann von [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
@@ -21,13 +21,13 @@ sendFeatureReport(reportId, data)
 ### Parameter
 
 - `reportId`
-  - : Eine 8-Bit-Berichts-ID. Falls das HID-Gerät keine Berichts-IDs verwendet, senden Sie `0`.
+  - : Eine 8-Bit-Berichts-ID. Wenn das HID-Gerät keine Berichts-IDs verwendet, senden Sie `0`.
 - `data`
-  - : Bytes als ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}.
+  - : Bytes als {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}} oder ein {{jsxref("DataView")}}.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Bericht gesendet wurde.
+Ein {{jsxref("Promise")}}, das aufgelöst wird mit `undefined`, sobald der Report gesendet wurde.
 
 ### Ausnahmen
 
@@ -36,7 +36,7 @@ Ein {{jsxref("Promise")}}, das mit `undefined` aufgelöst wird, sobald der Beric
 
 ## Beispiele
 
-Im folgenden Beispiel lässt `sendFeatureReport()` ein Gerät blinken. Weitere Beispiele und Live-Demos finden Sie im Artikel [Verbindung zu ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
+Im folgenden Beispiel sorgt `sendFeatureReport()` dafür, dass ein Gerät blinkt. Weitere Beispiele und Live-Demos finden Sie im Artikel [Verbinden mit ungewöhnlichen HID-Geräten](https://developer.chrome.com/docs/capabilities/hid).
 
 ```js
 const reportId = 1;

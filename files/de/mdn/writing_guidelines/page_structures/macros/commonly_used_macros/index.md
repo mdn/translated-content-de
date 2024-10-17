@@ -2,39 +2,39 @@
 title: Häufig verwendete Makros
 slug: MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: ad385725ed5713e9d384e505424bba227577e62d
 ---
 
 {{MDNSidebar}}
 
-Diese Seite listet viele der allgemeinen Makros auf, die für die Nutzung auf MDN erstellt wurden. Für weitere Informationen zur Anwendung dieser Makros siehe [Verwendung von Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros).
+Diese Seite listet viele der universell einsetzbaren Makros auf, die für die Nutzung auf MDN erstellt wurden. Für zusätzliche Anleitungen zur Verwendung dieser Makros siehe [Verwendung von Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros).
 
-Weitere Informationen zu Makros, die selten verwendet werden, nur in speziellen Kontexten genutzt werden oder veraltet sind, finden Sie unter [Andere Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Other).
+Informationen zu Makros, die selten verwendet, nur in speziellen Kontexten genutzt oder veraltet sind, finden Sie unter [Andere Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Other).
 
 ## Verlinkung
 
 MDN bietet eine Reihe von Link-Makros, um das Erstellen von Links zu Referenzseiten, Glossareinträgen und anderen Themen zu erleichtern.
 
-Link-Makros werden gegenüber normalen Markdown-Links empfohlen, da sie kürzer und übersetzungsfreundlich sind. Zum Beispiel muss ein mit einem Makro erstellter Glossar- oder Referenzlink nicht übersetzt werden: In anderen Sprachversionen wird er automatisch auf die korrekte Version der Datei verlinken.
+Link-Makros werden gegenüber normalen Markdown-Links empfohlen, da sie prägnant und übersetzungsfreundlich sind. Zum Beispiel muss ein mit einem Makro erstellter Glossar- oder Referenzlink nicht übersetzt werden: In anderen Lokalisierungen wird er automatisch auf die korrekte Dateiversion verlinken.
 
 ### Glossar-Links
 
-Das [`Glossary`](https://github.com/mdn/yari/blob/main/kumascript/macros/Glossary.ejs) Makro erstellt einen Link zu einem bestimmten Begriffseintrag im MDN-[Glossar](/de/docs/Glossary). Dieses Makro akzeptiert einen obligatorischen und einen optionalen Parameter:
+Das [`Glossary`](https://github.com/mdn/yari/blob/main/kumascript/macros/Glossary.ejs) Makro erstellt einen Link zu einem spezifizierten Eintrag im MDN-[Glossar](/de/docs/Glossary). Dieses Makro akzeptiert einen erforderlichen und einen optionalen Parameter:
 
-1. Der Name des Begriffs (z.B. "HTML"): `\{{Glossary("HTML")}}` ergibt {{Glossary("HTML", "HTML")}}
+1. Der Name des Begriffs (wie "HTML"): `\{{Glossary("HTML")}}` ergibt {{Glossary("HTML", "HTML")}}
 2. Optional: Der Text, der im Artikel anstelle des Begriffsnamens angezeigt werden soll: `\{{Glossary("CSS", "Cascading Style Sheets")}}` ergibt {{Glossary("CSS", "Cascading Style Sheets")}}
 
-### Verlinkung zu Referenzseiten
+### Verlinkung zu Seiten in Referenzen
 
-Es gibt Makros für die spracheunabhängige Verlinkung zu Seiten in spezifischen Referenzbereichen von MDN: JavaScript, CSS, HTML-Elemente, SVG, etc.
+Es gibt Makros für die lokalisierungsunabhängige Verlinkung zu Seiten in bestimmten Referenzbereichen von MDN: JavaScript, CSS, HTML-Elemente, SVG usw.
 
-Die Makros sind einfach zu verwenden. Sie müssen nur den Namen des zu verlinkenden Elements im ersten Argument angeben. Die meisten Makros akzeptieren auch ein zweites Argument, mit dem Sie den anzuzeigenden Text ändern können (Dokumentation finden Sie in den Links in der linken Tabellenspalte unten).
+Die Makros sind einfach zu verwenden. Im Minimalfall müssen Sie nur den Namen des Objekts, zu dem verlinkt werden soll, als erstes Argument angeben. Die meisten Makros nehmen auch ein zweites Argument an, mit dem Sie den angezeigten Text ändern können (Dokumentation finden Sie in den Links in der ganz linken Spalte unten).
 
 <table class="standard-table">
   <thead>
     <tr>
       <th>Makro</th>
-      <th>Verlinkt auf Seite unter</th>
+      <th>Verlinkt zur Seite unter</th>
       <th>Beispiel</th>
     </tr>
   </thead>
@@ -59,7 +59,7 @@ Die Makros sind einfach zu verwenden. Sie müssen nur den Namen des zu verlinken
         <code>\{{DOMxRef("Document")}}</code> oder <code>\{{DOMxRef("document")}}</code> ergibt [`Document`](/de/docs/Web/API/Document),<br />
         <code>\{{DOMxRef("document.getElementsByName()")}}</code> ergibt [`document.getElementsByName()`](/de/docs/Web/API/Document/getElementsByName)<br />
         <code>\{{DOMxRef("Node")}}</code> ergibt [`Node`](/de/docs/Web/API/Node).<br />
-        Sie können den anzuzeigenden Text mit einem zweiten Parameter ändern: <code>\{{DOMxRef("document.getElementsByName()","getElementsByName()")}}</code> ergibt [`getElementsByName()`](/de/docs/Web/API/Document/getElementsByName).
+        Sie können den angezeigten Text mit einem zweiten Parameter ändern: <code>\{{DOMxRef("document.getElementsByName()","getElementsByName()")}}</code> ergibt [`getElementsByName()`](/de/docs/Web/API/Document/getElementsByName).
       </td>
     </tr>
     <tr>
@@ -67,7 +67,7 @@ Die Makros sind einfach zu verwenden. Sie müssen nur den Namen des zu verlinken
         <a href="https://github.com/mdn/yari/blob/main/kumascript/macros/HTMLElement.ejs">HTMLElement</a>
       </td>
       <td>
-        <a href="/de/docs/Web/HTML/Element">HTML-Elemente-Referenz</a> (/Web/HTML/Element)
+        <a href="/de/docs/Web/HTML/Element">HTML-Elemente Referenz</a> (/Web/HTML/Element)
       </td>
       <td>
         <code>\{{HTMLElement("select")}}</code> ergibt {{HTMLElement("select")}}
@@ -89,7 +89,7 @@ Die Makros sind einfach zu verwenden. Sie müssen nur den Namen des zu verlinken
         <a href="https://github.com/mdn/yari/blob/main/kumascript/macros/SVGAttr.ejs">SVGAttr</a>
       </td>
       <td>
-        <a href="/de/docs/Web/SVG/Attribute">SVG-Attribut-Referenz</a> (/Web/SVG/Attribute).
+        <a href="/de/docs/Web/SVG/Attribute">SVG-Attributreferenz</a> (/Web/SVG/Attribute).
       </td>
       <td>
         <code>\{{SVGAttr("d")}}</code> ergibt {{SVGAttr("d")}}
@@ -101,7 +101,7 @@ Die Makros sind einfach zu verwenden. Sie müssen nur den Namen des zu verlinken
           href="https://github.com/mdn/yari/blob/main/kumascript/macros/SVGElement.ejs">SVGElement</a>
       </td>
       <td>
-        <a href="/de/docs/Web/SVG/Attribute">SVG-Element-Referenz</a> (/Web/SVG/Element).
+        <a href="/de/docs/Web/SVG/Attribute">SVG-Element referenz</a> (/Web/SVG/Element).
       </td>
       <td>
         <code>\{{SVGElement("view")}}</code> ergibt {{SVGElement("view")}}
@@ -143,36 +143,36 @@ Die Makros sind einfach zu verwenden. Sie müssen nur den Namen des zu verlinken
   </tbody>
 </table>
 
-### Navigationshilfen für mehrseitige Leitfäden
+### Navigationselemente für mehrseitige Leitfäden
 
-[`Previous`](https://github.com/mdn/yari/blob/main/kumascript/macros/Previous.ejs), [`Next`](https://github.com/mdn/yari/blob/main/kumascript/macros/Next.ejs) und [`PreviousNext`](https://github.com/mdn/yari/blob/main/kumascript/macros/PreviousNext.ejs) bieten Navigationssteuerung für Artikel, die Teil von Sequenzen sind. Für die einseitigen Vorlagen ist der einzige benötigte Parameter der Wiki-Standort des vorherigen oder nächsten Artikels in der Sequenz. Für [`PreviousNext`](https://github.com/mdn/yari/blob/main/kumascript/macros/PreviousNext.ejs) sind die zwei benötigten Parameter die Wiki-Standorte der entsprechenden Artikel. Der erste Parameter ist für den vorherigen Artikel und der zweite für den nächsten Artikel.
+[`Previous`](https://github.com/mdn/yari/blob/main/kumascript/macros/Previous.ejs), [`Next`](https://github.com/mdn/yari/blob/main/kumascript/macros/Next.ejs) und [`PreviousNext`](https://github.com/mdn/yari/blob/main/kumascript/macros/PreviousNext.ejs) bieten Navigationskontrollen für Artikel, die Teil einer Sequenz sind. Für die Einweg-Vorlagen ist nur der Wiki-Standort des vorherigen oder nächsten Artikels in der Sequenz erforderlich. Für [`PreviousNext`](https://github.com/mdn/yari/blob/main/kumascript/macros/PreviousNext.ejs) sind die beiden erforderlichen Parameter die Wiki-Standorte der entsprechenden Artikel. Der erste Parameter ist für den vorherigen Artikel und der zweite für den nächsten Artikel.
 
-## Codebeispiele
+## Code-Beispiele
 
 ### Live-Beispiele
 
-- [`EmbedLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedLiveSample.ejs) ermöglicht das Einbetten der Ausgabe eines Codebeispiels auf einer Seite, wie in [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
-- [`LiveSampleLink`](https://github.com/mdn/yari/blob/main/kumascript/macros/LiveSampleLink.ejs) erstellt einen Link zu einer Seite, die die Ausgabe eines Codebeispiels enthält, wie in [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
-- [`EmbedGHLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedGHLiveSample.ejs) ermöglicht das Einbetten von Live-Beispielen von GitHub-Seiten. Weitere Informationen finden Sie unter [GitHub Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#github_live_samples).
+- [`EmbedLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedLiveSample.ejs) lässt Sie die Ausgabe eines Code-Beispiels auf einer Seite einbetten, wie in [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
+- [`LiveSampleLink`](https://github.com/mdn/yari/blob/main/kumascript/macros/LiveSampleLink.ejs) erstellt einen Link zu einer Seite, die die Ausgabe eines Code-Beispiels auf einer Seite enthält, wie in [Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples) beschrieben.
+- [`EmbedGHLiveSample`](https://github.com/mdn/yari/blob/main/kumascript/macros/EmbedGHLiveSample.ejs) ermöglicht das Einbetten von Live-Beispielen von GitHub-Seiten. Mehr Informationen finden Sie unter [GitHub-Live-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples#github_live_samples).
 
-## Generierung von Seitenleisten
+## Seitengenerierung
 
-Es gibt Vorlagen für fast jede große Sammlung von Seiten. Sie verlinken typischerweise zurück zur Hauptseite der Referenz/Leitfaden/Tutorial (dies ist oft notwendig, da unsere Brotkrümel-Navigation dies manchmal nicht kann) und ordnen den Artikel der entsprechenden Kategorie zu.
+Es gibt Vorlagen für fast jede große Sammlung von Seiten. Sie verlinken typischerweise zurück zur Hauptseite der Referenz/Leitfaden/Anleitung (dies ist oft notwendig, weil unsere Brotkrumen dies manchmal nicht können) und ordnen den Artikel in die entsprechende Kategorie ein.
 
 - [`CSSRef`](https://github.com/mdn/yari/blob/main/kumascript/macros/CSSRef.ejs) generiert die Seitenleiste für CSS-Referenzseiten.
 - [`HTMLSidebar`](https://github.com/mdn/yari/blob/main/kumascript/macros/HTMLSidebar.ejs) generiert die Seitenleiste für HTML-Referenzseiten.
-- [`APIRef`](https://github.com/mdn/yari/blob/main/kumascript/macros/APIRef.ejs) generiert die Seitenleiste für Web API-Referenzseiten.
+- [`APIRef`](https://github.com/mdn/yari/blob/main/kumascript/macros/APIRef.ejs) generiert die Seitenleiste für Web-API-Referenzseiten.
 
 ## Allgemeine Formatierung
 
-### Inline-Indikatoren für API-Dokumentation
+### Inline-Indikatoren für API-Dokumentationen
 
-[`optional_inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/optional_inline.ejs) und [`ReadOnlyInline`](https://github.com/mdn/yari/blob/main/kumascript/macros/ReadOnlyInline.ejs) werden in API-Dokumentationen verwendet, normalerweise wenn die Liste der Eigenschaften eines Objekts oder Parameter einer Funktion beschrieben werden.
+[`Optional_Inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/optional_inline.ejs) und [`ReadOnlyInline`](https://github.com/mdn/yari/blob/main/kumascript/macros/ReadOnlyInline.ejs) werden in API-Dokumentationen verwendet, üblicherweise wenn die Liste der Eigenschaften eines Objekts oder Parameter einer Funktion beschrieben werden.
 
 Verwendung: `\{{Optional_Inline}}` oder `\{{ReadOnlyInline}}`. Beispiel:
 
 - `isCustomObject` {{ReadOnlyInline}}
-  - : Gibt an, ob das Objekt, wenn `true`, ein benutzerdefiniertes ist.
+  - : Zeigt an, ob `true`, dass das Objekt ein benutzerdefiniertes ist.
 - `parameterX` {{optional_inline}}
   - : Blah blah blah…
 
@@ -180,9 +180,9 @@ Verwendung: `\{{Optional_Inline}}` oder `\{{ReadOnlyInline}}`. Beispiel:
 
 ### Inline-Indikatoren ohne zusätzliche Parameter
 
-#### Nicht standardisiert
+#### Nicht-standardisiert
 
-[`non-standard_inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/Non-standard_Inline.ejs) fügt ein Inline-Zeichen ein, das angibt, dass die API nicht standardisiert ist und sich nicht auf einem Standardtrack befindet.
+[`Non-standard_Inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/Non-standard_Inline.ejs) fügt eine Inline-Markierung ein, die angibt, dass die API nicht standardisiert und nicht in einer Standardspur ist.
 
 ##### Syntax
 
@@ -194,7 +194,7 @@ Verwendung: `\{{Optional_Inline}}` oder `\{{ReadOnlyInline}}`. Beispiel:
 
 #### Experimentell
 
-[`experimental_inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/experimental_inline.ejs) fügt ein Inline-Zeichen ein, das angibt, dass die API nicht weit verbreitet implementiert ist und sich in Zukunft ändern könnte. Weitere Informationen zur Definition **experimentell** finden Sie in der Dokumentation [Experimentell, veraltet und überholt](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
+[`Experimental_Inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/experimental_inline.ejs) fügt eine Inline-Markierung ein, die angibt, dass die API nicht weit verbreitet implementiert ist und sich in Zukunft ändern könnte. Für weitere Informationen zur Definition **experimentell** siehe die [Experimentell, veraltet und obsolete](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete) Dokumentation.
 
 ##### Syntax
 
@@ -204,11 +204,11 @@ Verwendung: `\{{Optional_Inline}}` oder `\{{ReadOnlyInline}}`. Beispiel:
 
 - Icon: {{Experimental_Inline}}
 
-### Inline-Indikatoren, die die Angabe der Technologie unterstützen
+### Inline-Indikatoren mit Unterstützung für die Angabe der Technologie
 
 #### Veraltet
 
-[`deprecated_inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/Deprecated_Inline.ejs) fügt ein veraltetes Inline-Zeichen ein ({{Deprecated_Inline}}), um die Nutzung einer offiziell veralteten (oder entfernten) API zu entmutigen. Weitere Informationen zur Definition **veraltet** finden Sie in der Dokumentation [Experimentell, veraltet und überholt](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete).
+[`Deprecated_Inline`](https://github.com/mdn/yari/blob/main/kumascript/macros/Deprecated_Inline.ejs) fügt eine Inline-Markierung ({{Deprecated_Inline}}) ein, um von der Nutzung einer offiziell veralteten (oder entfernten) API abzuraten. Für weitere Informationen zur Definition **veraltet**, siehe die [Experimentell, veraltet und obsolete](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete) Dokumentation.
 
 ##### Syntax
 
@@ -218,18 +218,20 @@ Verwendung: `\{{Optional_Inline}}` oder `\{{ReadOnlyInline}}`. Beispiel:
 
 - Icon: {{Deprecated_Inline}}
 
-### Seiten- oder Abschnittskopf-Indikatoren
+### Header-Indikatoren für Seiten oder Abschnitte
 
-Diese Vorlagen haben die gleichen semantischen Bedeutungen wie ihre Inline-Gegenstücke, die oben beschrieben sind. Die Vorlagen sollten direkt unter dem Haupttitel der Seite (oder der Brotkrümel-Navigation, falls verfügbar) auf der Referenzseite platziert werden. Sie können auch verwendet werden, um einen Abschnitt auf einer Seite zu kennzeichnen.
+Diese Vorlagen haben dieselbe Semantik wie ihre Inline-Pendants, die oben beschrieben sind. Die Vorlagen sollten direkt unter dem Hauptseitentitel (oder der Brotkrumnavigation, falls verfügbar) in der Referenzseite platziert werden. Sie können auch verwendet werden, um einen Abschnitt auf einer Seite zu kennzeichnen.
 
-- [`non-standard_header`](https://github.com/mdn/yari/blob/main/kumascript/macros/Non-standard_Header.ejs): `\{{Non-standard_Header}}` {{Non-standard_Header}}
-- [`SeeCompatTable`](https://github.com/mdn/yari/blob/main/kumascript/macros/SeeCompatTable.ejs) wird auf Seiten verwendet, die [experimentelle Funktionen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) dokumentieren. Beispiel: `\{{SeeCompatTable}}` {{SeeCompatTable}}
-- [`deprecated_header`](https://github.com/mdn/yari/blob/main/kumascript/macros/Deprecated_Header.ejs): `\{{Deprecated_Header}}` {{Deprecated_Header}}
-- [`secureContext_header`](https://github.com/mdn/yari/blob/main/kumascript/macros/secureContext_header.ejs). Soll auf Hauptseiten wie Schnittstellenseiten, API-Übersichtsseiten und API-Einstiegspunkten (z.B. `navigator.xyz`) verwendet werden, aber normalerweise nicht auf Unterseiten wie Methoden- und Eigenschaftsseiten. Beispiel: `\{{SecureContext_Header}}` {{SecureContext_Header}}
+- [`Non-standard_Header`](https://github.com/mdn/yari/blob/main/kumascript/macros/Non-standard_Header.ejs): `\{{Non-standard_Header}}` {{Non-standard_Header}}
+- [`SeeCompatTable`](https://github.com/mdn/yari/blob/main/kumascript/macros/SeeCompatTable.ejs) wird auf Seiten verwendet, die [experimentelle Features](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) dokumentieren.
+  Beispiel: `\{{SeeCompatTable}}` {{SeeCompatTable}}
+- [`Deprecated_Header`](https://github.com/mdn/yari/blob/main/kumascript/macros/Deprecated_Header.ejs): `\{{Deprecated_Header}}` {{Deprecated_Header}}
+- [`SecureContext_Header`](https://github.com/mdn/yari/blob/main/kumascript/macros/secureContext_header.ejs).
+  Sollte auf Hauptseiten wie Schnittstellenseiten, API-Übersichtsseiten und API-Einstiegspunkten (z.B. `navigator.xyz`) aber normalerweise nicht auf Unterseiten wie Methoden und Eigenschaftsseiten verwendet werden. Beispiel: `\{{SecureContext_Header}}` {{SecureContext_Header}}
 
-#### Anzeige, dass eine Funktion in Web-Workern verfügbar ist
+#### Kennzeichnung, dass ein Feature in Web-Workern verfügbar ist
 
-Das Makro [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascript/macros/AvailableInWorkers.ejs) fügt einen lokalisierten Hinweis ein, der anzeigt, dass eine Funktion im Kontext eines [Web Workers](/de/docs/Web/API/Web_Workers_API) verfügbar ist. Sie können das Argument `window_and_worker_except_service` verwenden, um anzuzeigen, dass eine Funktion in Web Workern funktioniert, außer in Service Workern.
+Das [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascript/macros/AvailableInWorkers.ejs) Makro fügt eine lokalisierte Notiz ein, die anzeigt, dass ein Feature in einem [worker context](/de/docs/Web/API/Web_Workers_API) verfügbar ist. Sie können auch einige Argumente übergeben, um anzugeben, dass ein Feature in einem bestimmten Worker-Kontext funktioniert.
 
 ##### Syntax
 
@@ -243,21 +245,21 @@ Das Makro [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascrip
 {{AvailableInWorkers}}
 {{AvailableInWorkers("window_and_worker_except_service")}}
 
-## Browser-Kompatibilität und Spezifikationsmakros
+## Makros für Browser-Kompatibilität und Spezifikation
 
-Die folgenden Makros sind auf allen Referenzseiten enthalten, werden aber von allen Seitentypen unterstützt:
+Die folgenden Makros sind auf allen Referenzseiten enthalten, werden jedoch auch von allen Seitentypen unterstützt:
 
 - `\{{Compat}}` / `\{{Compat(&lt;feature>)}}` / `\{{Compat(&lt;feature>, &lt;depth>)}}`
 
-  - : Generiert eine [Kompatibilitätstabelle](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für die übergebene Funktion als Parameter. Wenn kein Parameter enthalten ist, wird standardmäßig die durch `browser-compat` im Frontmatter definierte Funktion genutzt. Ein optionaler parameter für die Tiefe gibt an, wie tief untergeordnete Funktionen zur Tabelle hinzugefügt werden sollen. Die Tiefe, falls nicht angegeben, beträgt standardmäßig 1, was bedeutet, dass nur die erste Ebene der Unterfunktionen-Daten von BCD in die Tabelle aufgenommen wird.
+  - : Generiert eine [Kompatibilitätstabelle](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) für das angegebene Feature im Parameter. Wenn kein Parameter enthalten ist, wird standardmäßig auf die in `browser-compat` im Frontmatter definierten Features gesetzt. Ein optionaler Tiefenparameter legt fest, wie tief Unterspezifikationen zur Tabelle hinzugefügt werden sollen. Die Tiefe, wenn weggelassen, beträgt 1, was bedeutet, dass nur die erste Ebene der Unterspezifikationsdaten aus BCD in die Tabelle aufgenommen wird.
 
 - `\{{Specifications}}` / `\{{Specifications(&lt;feature>)}}`
-  - : Bezieht die Spezifikation für die im Parameter angegebene Funktion ein. Wenn kein Parameter übergeben wird, wird die im `spec_urls` des Frontmatters angegebene Spezifikation verwendet, falls vorhanden, oder aus den in den Browser-Kompatibilitätsdaten angegebenen Spezifikationen, die durch `browser-compat` im Frontmatter definiert sind. Die Spezifikation wird als externer Link gerendert.
+  - : Enthält die Spezifikation für das angegebene Feature im Parameter. Wenn kein Parameter übergeben wird, wird die aufgelistete Spezifikation durch den Wert für `spec_urls` im Frontmatter definiert, falls vorhanden, oder aus der in den Browser-Kompatibilitätsdaten unter `browser-compat` im Frontmatter definierten Spezifikation. Die Spezifikation wird als externer Link gerendert.
 
 ## Siehe auch
 
 - [Seitenleisten-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Sidebars)
-- [Seitenvorlagen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#page_templates)
-- [Seitenelemente](/de/docs/MDN/Writing_guidelines/Writing_style_guide#page_components)
-- [Makros zum Feature-Status](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)
+- [Seitentemplates](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#page_templates)
+- [Seitenkomponenten](/de/docs/MDN/Writing_guidelines/Writing_style_guide#page_components)
+- [Feature-Status-Makros](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status)
 - [Liste der Makros](https://github.com/mdn/yari/tree/main/kumascript/macros) auf GitHub

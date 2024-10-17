@@ -1,18 +1,18 @@
 ---
-title: "HIDDevice: Eigenschaft opened"
+title: "HIDDevice: opened Eigenschaft"
 short-title: opened
 slug: Web/API/HIDDevice/opened
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`opened`** schreibgeschützte Eigenschaft des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt `true` zurück, wenn die Verbindung zum [`HIDDevice`](/de/docs/Web/API/HIDDevice) geöffnet und bereit ist, Daten zu übertragen.
+Die schreibgeschützte **`opened`**-Eigenschaft des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt true zurück, wenn die Verbindung zum [`HIDDevice`](/de/docs/Web/API/HIDDevice) geöffnet ist und bereit, Daten zu übertragen.
 
 ## Wert
 
-Ein boolescher Wert, `true`, wenn die Verbindung geöffnet ist.
+Ein boolescher Wert, der true ist, wenn die Verbindung geöffnet ist.
 
 ## Beispiele
 

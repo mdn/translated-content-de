@@ -2,12 +2,12 @@
 title: HID
 slug: Web/API/HID
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`HID`**-Schnittstelle bietet Methoden zum Verbinden mit _HID-Geräten_, zum Auflisten angeschlossener HID-Geräte und Ereignisbehandler für verbundene HID-Geräte.
+Die **`HID`**-Schnittstelle bietet Methoden zum Verbinden mit _HID-Geräten_, zum Auflisten angeschlossener HID-Geräte und Ereignis-Handler für verbundene HID-Geräte.
 
 {{InheritanceDiagram}}
 
@@ -20,9 +20,9 @@ _Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`EventTarget`](
 _Diese Schnittstelle erbt auch Methoden ihres Elternteils, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`getDevices()`](/de/docs/Web/API/HID/getDevices) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von verbundenen [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekten aufgelöst wird.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von verbundenen HID-Geräten aufgelöst wird, auf die der Nutzer zuvor in einer Antwort auf einen [`requestDevice()`](/de/docs/Web/API/HID/requestDevice)-Aufruf Zugriff gewährt hat.
 - [`requestDevice()`](/de/docs/Web/API/HID/requestDevice) {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von verbundenen [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekten aufgelöst wird. Der Aufruf dieser Funktion löst den Berechtigungsablauf des Benutzeragenten aus, um die Berechtigung zu erhalten, auf ein ausgewähltes Gerät aus der zurückgegebenen Geräteliste zuzugreifen.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von verbundenen [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Objekten aufgelöst wird. Der Aufruf dieser Funktion wird den Berechtigungsablauf des Benutzeragenten auslösen, um die Berechtigung zum Zugriff auf ein ausgewähltes Gerät aus der zurückgegebenen Geräteliste zu erlangen.
 
 ### Ereignisse
 

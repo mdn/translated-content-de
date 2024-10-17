@@ -3,12 +3,12 @@ title: "HIDDevice: productName-Eigenschaft"
 short-title: productName
 slug: Web/API/HIDDevice/productName
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`productName`**-Leseeigenschaft des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt den Produktnamen des angeschlossenen HID-Geräts zurück.
+Die schreibgeschützte Eigenschaft **`productName`** des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt den Produktnamen des verbundenen HID-Geräts zurück.
 
 ## Wert
 

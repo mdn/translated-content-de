@@ -3,12 +3,12 @@ title: "HIDDevice: receiveFeatureReport()-Methode"
 short-title: receiveFeatureReport()
 slug: Web/API/HIDDevice/receiveFeatureReport
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die **`receiveFeatureReport()`**-Methode der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle empfängt einen Feature-Bericht vom HID-Gerät. Feature-Berichte sind eine Möglichkeit für HID-Geräte und Anwendungen, nicht standardisierte HID-Daten auszutauschen.
+Die **`receiveFeatureReport()`**-Methode des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces empfängt einen Feature-Bericht vom HID-Gerät. Feature-Berichte sind ein Mittel, mit dem HID-Geräte und Anwendungen nicht standardisierte HID-Daten austauschen.
 
 Die `reportId` für jedes der von diesem Gerät unterstützten Berichtsformate kann aus [`HIDDevice.collections`](/de/docs/Web/API/HIDDevice/collections) abgerufen werden.
 
@@ -30,7 +30,7 @@ Ein {{jsxref("Promise")}}, das mit einem {{jsxref("DataView")}}-Objekt aufgelös
 ### Ausnahmen
 
 - `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Empfang des Berichts aus irgendeinem Grund fehlschlägt.
+  - : Wird ausgelöst, wenn das Empfangen des Berichts aus irgendeinem Grund fehlschlägt.
 
 ## Beispiele
 

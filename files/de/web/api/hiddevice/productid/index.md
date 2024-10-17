@@ -1,14 +1,14 @@
 ---
-title: "HIDDevice: productId Eigenschaft"
+title: "HIDDevice: productId-Eigenschaft"
 short-title: productId
 slug: Web/API/HIDDevice/productId
 l10n:
-  sourceCommit: a3d9f61a8990ba7b53bda9748d1f26a9e9810b18
+  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
 ---
 
-{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}
+{{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
 
-Die schreibgesch체tzte Eigenschaft **`productId`** des [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Interfaces gibt die Produkt-ID des verbundenen HID-Ger채ts zur체ck.
+Die schreibgesch체tzte **`productId`**-Eigenschaft der [`HIDDevice`](/de/docs/Web/API/HIDDevice)-Schnittstelle gibt die Produkt-ID des verbundenen HID-Ger채ts zur체ck.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein Integer. Wenn das Ger채t keine Produkt-ID hat oder die Produkt-ID nicht zug�
 
 ## Beispiele
 
-Das folgende Beispiel ruft Ger채te mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) ab und protokolliert den Wert von `productId` in der Konsole.
+Das folgende Beispiel ruft Ger채te mit [`HID.getDevices()`](/de/docs/Web/API/HID/getDevices) ab und gibt den Wert von `productId` in der Konsole aus.
 
 ```js
 document.addEventListener("DOMContentLoaded", async () => {

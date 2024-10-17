@@ -1,19 +1,20 @@
 ---
-title: API-Referenzseitentemplate
+title: API-Referenzseitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/API_reference_page_template
 l10n:
-  sourceCommit: a4ae225903c2784a3d74b43f311e05f208e42c91
+  sourceCommit: ad385725ed5713e9d384e505424bba227577e62d
 ---
 
 {{MDNSidebar}}
 
-> **Note:** _Entfernen Sie diese gesamte erläuternde Anmerkung vor der Veröffentlichung._
+> **Hinweis:** _Entfernen Sie diesen gesamten erklärenden Hinweis vor der Veröffentlichung._
 >
 > ---
 >
-> **Page front matter:**
+> **Seitenmetadaten:**
 >
-> Die Frontmatter am Anfang der Seite wird verwendet, um "Seiten-Metadaten" zu definieren. Die Werte sollten entsprechend auf die jeweilige Eigenschaft aktualisiert werden.
+> Der Front-Matter-Block oben auf der Seite wird verwendet, um "Seitenmetadaten" zu definieren.
+> Die Werte sollten entsprechend für die entsprechende Eigenschaft aktualisiert werden.
 >
 > ```md
 > ---
@@ -29,52 +30,57 @@ l10n:
 > ```
 >
 > - **title**
->   - : Der im Titelbereich der Seite angezeigte Titel. Dies ist nur der Name der Schnittstelle. Zum Beispiel hat die [Request](/de/docs/Web/API/Request) Schnittstellenseite einen _title_ von _Request_.
+>   - : Titelüberschrift, die oben auf der Seite angezeigt wird. Dies ist nur der Name der Schnittstelle. Zum Beispiel hat die [Request](/de/docs/Web/API/Request) Schnittstellenseite einen _Titel_ von _Request_.
 > - **slug**
->   - : Das Ende des URL-Pfades nach `https://developer.mozilla.org/de/docs/`). Dies wird formatiert wie `Web/API/NameOfTheParentInterface`. Zum Beispiel ist der [Request](/de/docs/Web/API/Request) slug "Web/API/Request".
+>   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`). Dies wird formatiert wie `Web/API/NameOfTheParentInterface`. Zum Beispiel ist der [Request](/de/docs/Web/API/Request) Slug "Web/API/Request".
 > - **page-type**
->   - : Der `page-type` Schlüssel für Web/API Schnittstellen ist immer `web-api-interface`.
+>   - : Der `page-type` Schlüssel für Web/API-Schnittstellen ist immer `web-api-interface`.
 > - **status**
->   - : Flags, die den Status dieses Features beschreiben. Ein Array, das eine oder mehrere der folgenden Werte enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Feature-Status hinzufügen oder aktualisieren"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
+>   - : Flags, die den Status dieser Funktion beschreiben. Ein Array, das eines oder mehrere der folgenden enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf Werten in den Browser-Kompatibilitätsdaten für die Funktion gesetzt. Siehe ["Anleitung zum Hinzufügen oder Aktualisieren von Funktionsstatus"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
 > - **browser-compat**
 >
->   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheMethod` mit der Abfragezeichenfolge für die Methode im [Browser compat data repo](https://github.com/mdn/browser-compat-data). Die Toolchain verwendet den Schlüssel, um automatisch die Kompatibilitäts- und Spezifikationsabschnitte auszufüllen (ersetzt die `\{{Compat}}` und `\{{Specifications}}` Makros).
+>   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheMethod` mit dem Abfragestring für die Methode im [Browser compat data repo](https://github.com/mdn/browser-compat-data). Die Toolchain verwendet den Schlüssel automatisch, um die Abschnitte zur Kompatibilität und Spezifikation zu füllen (die `\{{Compat}}` und `\{{Specifications}}` Makros ersetzen).
 >
-> Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die API-Methode in unserem [Browser compat data repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen und der Eintrag für die API Spezifikationsinformationen enthalten muss.
+> Beachten Sie, dass Sie möglicherweise zunächst einen Eintrag für die API-Methode in unserem [Browser compat data repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag für die API muss Spezifikationsinformationen enthalten.
 >
-> Siehe unseren [Leitfaden, wie man dies macht](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
+> Siehe unseren [Leitfaden dazu, wie dies zu tun ist](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > ---
 >
-> **Makros am Anfang der Seite**
+> **Makros am Seitenanfang**
 >
-> Standardmäßig gibt es fünf Makroaufrufe am Anfang eines Templates. Sie sollten diese gemäß den untenstehenden Ratschlägen aktualisieren oder löschen.
+> Eine Reihe von Makroaufrufen erscheint am Anfang des Inhaltsbereichs (unmittelbar unter dem Seitenmetadatenblock).
 >
-> - `\{{APIRef("<em>GroupDataName</em>")}}` — dies generiert die seitliche Referenzleiste, die schnelle Referenzlinks zeigt, die mit der aktuellen Seite verwandt sind. Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) dieselbe Seitenleiste, die auf die anderen Seiten der API verweist. Um die korrekte Seitenleiste für Ihre API zu generieren, müssen Sie einen GroupData-Eintrag in unserem KumaScript GitHub Repo hinzufügen und den Namen des Eintrags im Makroaufruf anstelle von _GroupDataName_ einfügen. Siehe unseren [API-Referenzseitenleisten-](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) Leitfaden für Informationen, wie dies zu tun ist.
-> - `\{{SeeCompatTable}}` — dies generiert ein **Dies ist eine experimentelle Technologie** Banner, das anzeigt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist. Wenn es experimentell ist und die Technologie hinter einer Voreinstellung in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimental features in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — dies generiert ein **Veraltet** Banner, das anzeigt, dass die Technologie [veraltet](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
-> - `\{{Non-standard_Header}}` — dies generiert ein **Non-standard** Banner, das anzeigt, dass das Feature nicht Teil einer Spezifikation ist.
-> - `\{{SecureContext_Header}}` — dies generiert ein **Sicherer Kontexts** Banner, das anzeigt, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist. Wenn dem nicht so ist, können Sie den Makroaufruf entfernen. Wenn es so ist, sollten Sie auch einen Eintrag auf der Seite [Features restricted to secure contexts](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
-> - `\{{Interface_Overview("<em>GroupDataName</em>")}} {{Experimental_Inline}}` — dies generiert den Hauptteil der Seite (Konstruktor, Eigenschaften, Methoden und Ereignisse).
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht nötig, sie hinzuzufügen oder zu entfernen):
 >
-> Bieten Sie Statusheader-Makros nicht manuell an. Beziehen Sie sich auf den Abschnitt ["Feature-Status hinzufügen oder aktualisieren"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Statuse zur Seite hinzuzufügen.
+> - `\{{SeeCompatTable}}` — erzeugt ein **Dies ist eine experimentelle Technologie** Banner, das angibt, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist. Wenn sie experimentell ist und die Technologie hinter einem Pref in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}` — erzeugt ein **Veraltet** Banner, das anzeigt, dass die Technologie [veraltet](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) ist.
+> - `\{{Non-standard_Header}}` — erzeugt ein **Nicht-standard** Banner, das darauf hinweist, dass die Funktion nicht Teil einer Spezifikation ist.
 >
-> Beispiele für die **Sicherer Kontext**, **Experimentell**, **Veraltet** und **Non-standard** Banner sind direkt nach diesem Hinweisblock gezeigt.
+> Sie sollten die folgenden Makros gemäß den nachstehenden Ratschlägen aktualisieren oder löschen:
 >
-> _Denken Sie daran, diesen gesamten erläuternden Hinweis vor der Veröffentlichung zu entfernen._
+> - `\{{SecureContext_Header}}` — erzeugt ein **Sicherer Kontext** Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist. Wenn dies nicht der Fall ist, können Sie den Makroaufruf entfernen. Wenn dies der Fall ist, sollten Sie auch einen Eintrag dafür auf der Seite [Auf sichere Kontexte beschränkte Funktionen](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
+> - `\{{AvailableInWorkers}}` — erzeugt einen **Verfügbar in Workern** Hinweis, der darauf hinweist, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist. Wenn sie nur im Fensterkontext verfügbar ist, können Sie den Makroaufruf entfernen. Wenn sie auch oder nur im Worker-Kontext verfügbar ist, müssen Sie möglicherweise einen Parameter dafür übergeben, aufgrund ihrer Verfügbarkeit (siehe [\\{{AvailableInWorkers}} Makro-Quellcode](https://github.com/mdn/yari/blob/main/kumascript/macros/AvailableInWorkers.ejs) für alle verfügbaren Werte), Sie müssen möglicherweise auch einen Eintrag dafür auf der Seite [Web-APIs, die in Workern verfügbar sind](/de/docs/Web/API/Web_Workers_API#supported_web_apis) ausfüllen.
+> - `\{{APIRef("GroupDataName")}}` — erzeugt die linke Referenz-Sidebar, die schnelle Referenzlinks zeigt, die mit der aktuellen Seite verknüpft sind. Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) die gleiche Sidebar, die auf die anderen Seiten in der API verweist. Um die korrekte Sidebar für Ihre API zu erzeugen, müssen Sie einen GroupData-Eintrag in unser KumaScript GitHub-Repo hinzufügen und den Namen des Eintrags innerhalb des Makroaufrufs anstelle von _GroupDataName_ einfügen. Siehe unseren [Leitfaden zu API-Referenz-Sidebars](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) für Informationen, wie dies zu tun ist.
+>
+> Statusheader-Makros nicht manuell bereitstellen. Siehe den Abschnitt ["Anleitung zum Hinzufügen oder Aktualisieren von Funktionsstatus"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses) um diese Status zur Seite hinzuzufügen.
+>
+> Beispiele der **Sicherer Kontext**, **Verfügbar in Workern**, **Experimentell**, **Veraltet** und **Nicht-standard** Banner werden direkt nach diesem Hinweisblock gezeigt.
+>
+> _Denken Sie daran, diesen gesamten erklärenden Hinweis vor der Veröffentlichung zu entfernen._
 
-{{SecureContext_Header}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
+{{SecureContext_Header}}{{AvailableInWorkers}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Der Zusammenfassungsabsatz — beginnen Sie mit der Benennung der Schnittstelle, sagen Sie, zu welcher API sie gehört, und was sie tut. Dies sollte idealerweise ein oder zwei kurze Sätze umfassen. Sie könnten den Großteil davon aus der Zusammenfassung der Schnittstelle auf der entsprechenden API-Landingpage kopieren.
+Der Zusammenfassungsabsatz — beginnen Sie mit dem Benennen der Schnittstelle, sagen Sie, zu welcher API sie gehört und was sie tut. Dies sollte idealerweise ein oder zwei kurze Sätze sein. Sie könnten den größten Teil davon aus der Zusammenfassung der Schnittstelle auf der entsprechenden API-Landingpage kopieren.
 
 {{InheritanceDiagram}}
 
-_Um das [domxref-Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) in den folgenden Abschnitten zu verwenden, entfernen Sie die Backticks und den Backslash in der Markdown-Datei._
+_Um das [domxref Makro](/de/docs/MDN/Writing_guidelines/Page_structures/Macros/Commonly_used_macros#linking_to_pages_in_references) in den untenstehenden Abschnitten zu verwenden, entfernen Sie die Backticks und den Backslash in der Markdown-Datei._
 
 ## Konstruktor
 
 - `\{{DOMxRef("NameOfTheInterface.NameOfTheInterface", "NameOfTheInterface()")}}`
-  - : Erstellt eine neue Instanz des Objekts `NameOfTheInterface`.
+  - : Erstellt eine neue Instanz des `NameOfTheInterface`-Objekts.
 
 ## Statische Eigenschaften
 
@@ -82,21 +88,21 @@ _Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, `\{{DOMxRef("
 
 Fügen Sie einen Begriff und eine Definition für jede Eigenschaft ein.
 
-- `\{{DOMxRef("NameOfTheInterface.staticProperty1")}}` {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Geben Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion an. Wenn die Eigenschaft nicht schreibgeschützt/experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+- `\{{DOMxRef("NameOfTheInterface.staticProperty1")}}` {{ReadOnlyInline}} {{Experimental_Inline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Fügen Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion hinzu. Wenn die Eigenschaft nicht readonly/experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 - `\{{DOMxRef("NameOfTheInterface.staticProperty2")}}`
-  - : Geben Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion an. Wenn die Eigenschaft nicht schreibgeschützt/experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+  - : Fügen Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion hinzu. Wenn die Eigenschaft nicht readonly/experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 
-## Instanz Eigenschaften
+## Instanz-Eigenschaften
 
 _Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, `\{{DOMxRef("NameOfParentInterface")}}`._ (Hinweis: Wenn die Schnittstelle nicht von einer anderen Schnittstelle erbt, entfernen Sie diese ganze Zeile.)
 
 Fügen Sie einen Begriff und eine Definition für jede Eigenschaft ein.
 
-- `\{{DOMxRef("NameOfTheInterface.property1")}}` {{ReadOnlyInline}} {{Deprecated_Inline}}
-  - : Geben Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion an. Wenn die Eigenschaft nicht schreibgeschützt/experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+- `\{{DOMxRef("NameOfTheInterface.property1")}}` {{ReadOnlyInline}} {{Experimental_Inline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Fügen Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion hinzu. Wenn die Eigenschaft nicht readonly/experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 - `\{{DOMxRef("NameOfTheInterface.property2")}}`
-  - : Geben Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion an. Wenn die Eigenschaft nicht schreibgeschützt/experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+  - : Fügen Sie hier eine kurze Beschreibung der Eigenschaft und ihrer Funktion hinzu. Wenn die Eigenschaft nicht readonly/experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 
 ## Statische Methoden
 
@@ -104,72 +110,74 @@ _Erbt auch Methoden von seiner übergeordneten Schnittstelle, `\{{DOMxRef("NameO
 
 Fügen Sie einen Begriff und eine Definition für jede Methode ein.
 
-- `\{{DOMxRef("NameOfTheInterface.staticMethod1()")}}` {{Experimental_Inline}} {{Deprecated_Inline}}
-  - : Geben Sie hier eine kurze Beschreibung der Methode und ihrer Funktion an. Wenn die Methode nicht experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+- `\{{DOMxRef("NameOfTheInterface.staticMethod1()")}}` {{Experimental_Inline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Fügen Sie hier eine kurze Beschreibung der Methode und ihrer Funktion hinzu. Wenn die Methode nicht experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 - `\{{DOMxRef("NameOfTheInterface.staticMethod2()")}}`
-  - : Geben Sie hier eine kurze Beschreibung der Methode und ihrer Funktion an. Wenn die Methode nicht experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+  - : Fügen Sie hier eine kurze Beschreibung der Methode und ihrer Funktion hinzu. Wenn die Methode nicht experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 
-## Instanz Methoden
+## Instanz-Methoden
 
 _Erbt auch Methoden von seiner übergeordneten Schnittstelle, `\{{DOMxRef("NameOfParentInterface")}}`._ (Hinweis: Wenn die Schnittstelle nicht von einer anderen Schnittstelle erbt, entfernen Sie diese ganze Zeile.)
 
 Fügen Sie einen Begriff und eine Definition für jede Methode ein.
 
-- `\{{DOMxRef("NameOfTheInterface.method1()")}}` {{Experimental_Inline}} {{Deprecated_Inline}}
-  - : Geben Sie hier eine kurze Beschreibung der Methode und ihrer Funktion an. Wenn die Methode nicht experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+- `\{{DOMxRef("NameOfTheInterface.method1()")}}` {{Experimental_Inline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Fügen Sie hier eine kurze Beschreibung der Methode und ihrer Funktion hinzu. Wenn die Methode nicht experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 - `\{{DOMxRef("NameOfTheInterface.method2()")}}`
-  - : Geben Sie hier eine kurze Beschreibung der Methode und ihrer Funktion an. Wenn die Methode nicht experimentell/veraltet ist, entfernen Sie die zugehörigen Makroaufrufe.
+  - : Fügen Sie hier eine kurze Beschreibung der Methode und ihrer Funktion hinzu. Wenn die Methode nicht experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 
 ## Ereignisse
 
 _Erbt auch Ereignisse von seiner übergeordneten Schnittstelle, `\{{DOMxRef("NameOfParentInterface")}}`._ (Hinweis: Wenn die Schnittstelle nicht von einer anderen Schnittstelle erbt, entfernen Sie diese ganze Zeile.)
 
-Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) angehört werden oder durch Zuordnung eines Event-Listeners zur `oneventname` Eigenschaft dieser Schnittstelle.
+Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) angehört werden oder indem ein Ereignis-Listener der `oneventname`-Eigenschaft dieser Schnittstelle zugewiesen wird.
 
-- [`eventname1`](#)
-  - : Ausgelöst, wenn (fügen Sie die Beschreibung ein, wann das Ereignis ausgelöst wird).
-    Auch über die `oneventname1` Eigenschaft verfügbar.
-- [`eventname2`](#)
-  - : Ausgelöst, wenn _(fügen Sie eine Beschreibung ein, wann das Ereignis ausgelöst wird)_.
-    Auch über die `oneventname2` Eigenschaft verfügbar.
+- `\{{DOMxRef("NameOfTheInterface.event1", "event1")}}` {{Experimental_Inline}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Wird ausgelöst, wenn (fügen Sie die Beschreibung ein, wann das Ereignis ausgelöst wird).
+    Auch über die `oneventname1`-Eigenschaft verfügbar.
+    Wenn das Ereignis nicht experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
+- `\{{DOMxRef("NameOfTheInterface.event2", "event2")}}`
+  - : Wird ausgelöst, wenn (fügen Sie die Beschreibung ein, wann das Ereignis ausgelöst wird).
+    Auch über die `oneventname2`-Eigenschaft verfügbar.
+    Wenn das Ereignis nicht experimentell/veraltet/nicht standardisiert ist, entfernen Sie die entsprechenden Makroaufrufe.
 
 ## Beispiele
 
-Beachten Sie, dass wir die Mehrzahl "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
+Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur ein Beispiel enthält.
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel macht. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreiben, was das Beispiel tut. Zum Beispiel sagt "Ein einfaches Beispiel" nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Siehe unseren Leitfaden, wie man [Code-Beispiele](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) hinzufügt, für weitere Informationen.
+Siehe unseren Leitfaden zum Hinzufügen von [Code-Beispielen](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für weitere Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele auf einer anderen Seite verlinken.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite angegeben sind.
 >
 > **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Mehr Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie für jedes Beispiel auf dieser Seite eine H3-Überschrift (`###`) ein und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter der Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> ### Verwendung der Fetch API
+> ### Verwendung der Fetch-API
 >
-> Beispiel des Abrufs
+> Beispiel von Fetch
 >
-> ### Mehr Beispiele
+> ### Weitere Beispiele
 >
 > Links zu weiteren Beispielen auf anderen Seiten
 > ```
 >
 > **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie nur die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele dieser API siehe [die Seite zum Abrufen()](https://example.org/).
+> Für Beispiele dieser API, siehe [die Seite über fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -186,8 +194,8 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Schließen Sie Links zu Referenzseiten und Leitfäden ein, die sich auf die aktuelle API beziehen. Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil Leitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit der aktuellen API verknüpft sind. Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
 
 - link1
 - link2
-- external_link (Jahr)
+- external_link (year)
