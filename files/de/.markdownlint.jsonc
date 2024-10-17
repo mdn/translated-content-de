@@ -15,9 +15,8 @@
     "spaces_per_tab": 2,
   },
   "line-length": false,
-  "no-duplicate-heading": {
-    "siblings_only": true,
-  },
+  // Disabled in de, because translations occasionally cause duplicate headings.
+  "no-duplicate-heading": false,
   "single-title": {
     "front_matter_title": "^\\s*title\\s*[:=]",
   },
