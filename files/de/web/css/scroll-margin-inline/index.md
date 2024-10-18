@@ -2,16 +2,16 @@
 title: scroll-margin-inline
 slug: Web/CSS/scroll-margin-inline
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
 ---
 
 {{CSSRef}}
 
-Die CSS-Kurzschreibweise `scroll-margin-inline` legt die Scroll-Margen eines Elements in der Inline-Dimension fest.
+Die `scroll-margin-inline` [Kurzschreibweiseigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Inline-Dimension.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-inline.html")}}
 
-## Zusammengesetzte Eigenschaften
+## Bestandeigenschaften
 
 Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
@@ -40,7 +40,7 @@ scroll-margin-inline: unset;
 
 ## Beschreibung
 
-Die Werte für die Scroll-Marge stellen Versätze dar, die den Scroll-Snap-Bereich definieren, der für das Einrasten dieses Kastens in den Snapport verwendet wird. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, dessen rechteckiger Begrenzungskasten (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Versätze hinzugefügt werden.
+Die scroll-margin-Werte repräsentieren Versätze, die den Scroll-Snap-Bereich definieren, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu fangen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Randbox genommen, die rechteckige Begrenzungsbox (Achsen-ausgerichtet im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Versätze hinzugefügt werden.
 
 ## Formale Definition
 
@@ -54,9 +54,9 @@ Die Werte für die Scroll-Marge stellen Versätze dar, die den Scroll-Snap-Berei
 
 ### Einfache Demonstration
 
-Dieses Beispiel implementiert etwas sehr Ähnliches zum obigen interaktiven Beispiel, außer dass wir hier erklären werden, wie es umgesetzt wird.
+Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, außer dass wir Ihnen hier erklären, wie es implementiert wird.
 
-Das Ziel hierbei ist es, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte einrasten, nah, aber nicht ganz am rechten Rand jedes Blocks.
+Das Ziel hier ist es, vier horizontal-scrollbare Blöcke zu erstellen, bei denen der zweite und dritte Block einrasten, nahe, aber nicht ganz am rechten Rand jedes Blocks.
 
 #### HTML
 
@@ -73,7 +73,7 @@ Das HTML, das die Blöcke darstellt, ist sehr einfach:
 
 #### CSS
 
-Gehen wir den CSS-Code durch. Der äußere Container wird wie folgt gestylt:
+Lassen Sie uns den CSS durchgehen. Der äußere Container wird so gestylt:
 
 ```css
 .scroller {
@@ -88,9 +88,9 @@ Gehen wir den CSS-Code durch. Der äußere Container wird wie folgt gestylt:
 }
 ```
 
-Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, was festlegt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt endet.
+Die wichtigsten Teile, die sich auf das Scroll-Snapping beziehen, sind `overflow-x: scroll`, was sicherstellt, dass der Inhalt scrollt und nicht verborgen wird, und `scroll-snap-type: x mandatory`, was vorgibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt zum Stillstand kommen wird.
 
-Die Kindelemente sind wie folgt gestylt:
+Die untergeordneten Elemente werden wie folgt gestylt:
 
 ```css
 .scroller > div {
@@ -111,9 +111,9 @@ Die Kindelemente sind wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, was angibt, dass die rechten Randseiten (die "Enden" entlang der x-Achse, in unserem Fall) die vorgesehenen Snap-Punkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: end`, welcher angibt, dass die rechten Ränder (die "Enden" entlang der x-Achse, in unserem Fall) die festgelegten Snap-Punkte sind.
 
-Zuletzt geben wir die Scroll-Margenwerte an, für das zweite und dritte Kindelement jeweils unterschiedlich:
+Zuletzt spezifizieren wir die Scroll-Margen-Werte, ein anderer für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -125,14 +125,14 @@ Zuletzt geben wir die Scroll-Margenwerte an, für das zweite und dritte Kindelem
 }
 ```
 
-Dies bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen auf `1rem` außerhalb der Inline-Endkante des zweiten `<div>` und `2rems` außerhalb der Inline-Endkante des dritten `<div>` einrastet.
+Das bedeutet, dass beim Scrollen über die mittleren Kindelemente das Scrollen auf `1rem` außerhalb des Inline-Endrandes des zweiten `<div>` und `2rems` außerhalb des Inline-Endrandes des dritten `<div>` einrastet.
 
 > [!NOTE]
-> Hier setzen wir `scroll-margin` am Anfang _und_ Ende der Inline-Achse (x in unserem Fall), aber nur die Endkante ist wirklich relevant. Es würde hier ebenso funktionieren, nur eine Scroll-Marge auf dieser einen Kante zu setzen, zum Beispiel mit `scroll-margin-inline: 0 1rem`, oder `scroll-margin-inline-end: 1rem`.
+> Hier setzen wir `scroll-margin` sowohl am Start _als auch_ am Ende der Inline-Achse (x in unserem Fall), aber nur der Endrand ist wirklich relevant. Es würde hier genauso gut funktionieren, nur eine Scroll-Marge an diesem einen Rand zu setzen, zum Beispiel mit `scroll-margin-inline: 0 1rem`, oder `scroll-margin-inline-end: 1rem`.
 
 #### Ergebnis
 
-Probieren Sie es selbst aus:
+Versuchen Sie es selbst:
 
 {{EmbedLiveSample('Simple_demonstration', '100%', 300)}}
 

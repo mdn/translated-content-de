@@ -2,12 +2,12 @@
 title: scroll-margin-top
 slug: Web/CSS/scroll-margin-top
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-top` definiert den oberen Rand des Scroll-Snap-Bereichs, der dafür verwendet wird, dieses Feld mit dem Snapport auszurichten. Der Scroll-Snap-Bereich wird bestimmt, indem das transformierte Border-Box genommen wird, dessen rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) ermittelt und dann die angegebenen Ränder hinzugefügt werden.
+Die Eigenschaft `scroll-margin-top` definiert den oberen Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} anzuschnappen. Der Scroll-Snap-Bereich wird durch die Transformation des Rahmenkastens bestimmt, dann wird das rechteckige Begrenzungsfeld (achsenparallel im Koordinatenraum des Scroll-Containers) ermittelt, und schließlich werden die angegebenen Abstände hinzugefügt.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-top.html")}}
 

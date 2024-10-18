@@ -1,18 +1,26 @@
 ---
-title: Scroll container
+title: Scroll-Container
 slug: Glossary/Scroll_container
 l10n:
-  sourceCommit: dfad9eccce7c2f11c195003ec1cbd7b0fd9db577
+  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
 ---
 
 {{GlossarySidebar}}
 
-Ein **Scroll-Container** ist eine Elementbox, in der Inhalte gescrollt werden können, unabhängig davon, ob Scrollleisten vorhanden sind oder nicht. Ein User-Agent fügt einer Elementbox Scrollleisten hinzu, um sie zu einem Scroll-Container zu machen, wenn die CSS-{{cssxref("overflow")}}-Eigenschaft auf `scroll` gesetzt ist oder wenn `overflow` auf `auto` gesetzt ist _und_ der Inhalt den Container überläuft.
+Ein **Scroll-Container** ist ein Elementkasten, in dem der Inhalt gescrollt werden kann, unabhängig davon, ob Scrollbalken vorhanden sind oder nicht. Ein User-Agent fügt einem Elementkasten Scrollbalken hinzu, um ihn zu einem Scroll-Container zu machen, wenn die CSS-Eigenschaft {{cssxref("overflow")}} auf `scroll` gesetzt ist oder wenn `overflow` auf `auto` gesetzt ist _und_ der Inhalt den Container überläuft.
 
-Wenn der Inhalt einer Elementbox aus ihrem Begrenzungsrahmen herausragt, können Benutzer Scrollleisten verwenden, um durch den abgeschnittenen Inhalt zu scrollen, der sonst nicht sichtbar ist.
+Wenn der Inhalt eines Elementkastens seinen Begrenzungskasten überläuft, können Benutzer Scrollbalken verwenden, um durch den abgeschnittenen Inhalt zu scrollen, der ansonsten vor der Ansicht verborgen ist.
 
-Ein Scroll-Container umfasst einen Scrollport und Scrollleisten.
+Ein Scroll-Container umfasst einen Scrollport und Scrollbalken.
 
 ## Scrollport
 
-Der Scrollport ist der sichtbare Teil eines Scroll-Containers und entspricht der Innenabstandbox des Scroll-Containers. Die Scrollleisten werden verwendet, um Inhalte in den Scrollport hinein- und herauszubewegen, sodass der Inhalt betrachtet werden kann.
+Der Scrollport ist der sichtbare Teil eines Scroll-Containers und fällt mit dem Innenabstand des Scroll-Containers zusammen. Die Scrollbalken werden verwendet, um Inhalte in den und aus dem Scrollport zu bewegen, damit die Inhalte angezeigt werden können.
+
+## Siehe auch
+
+- [CSS-Bausteine: Überlaufender Inhalt](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)
+- {{Glossary("Scroll_snap", "Scroll-Snapping")}}, einschließlich {{Glossary("Scroll_snap#scroll_snap_container", "Scroll-Snap-Container")}}
+- [CSS-Overflow](/de/docs/Web/CSS/CSS_overflow)-Modul
+- [CSS-Overscroll-Verhalten](/de/docs/Web/CSS/CSS_overscroll_behavior)-Modul
+- [CSS-Scroll-Snap](/de/docs/Web/CSS/CSS_scroll_snap)-Modul

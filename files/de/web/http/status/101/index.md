@@ -2,16 +2,16 @@
 title: 101 Switching Protocols
 slug: Web/HTTP/Status/101
 l10n:
-  sourceCommit: 718c0595a624add5e009ca4ec5266b77f8d14243
+  sourceCommit: bd4d7bc4176d9f67297e3940ae7163a258f07ef5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`101 Switching Protocols`** [informational response](/de/docs/Web/HTTP/Status#information_responses) gibt das Protokoll an, zu dem ein Server gewechselt hat.
-Das Protokoll wird im {{HTTPHeader("Upgrade")}}-Header der Anfrage angegeben, die vom Client empfangen wurde.
+Der HTTP-Statuscode **`101 Switching Protocols`** [informational response](/de/docs/Web/HTTP/Status#informational_responses) zeigt an, zu welchem Protokoll ein Server gewechselt hat.
+Das Protokoll wird im {{HTTPHeader("Upgrade")}}-Anforderungsheader angegeben, der von einem Client empfangen wird.
 
-Der Server fügt einen {{HTTPHeader("Upgrade")}}-Header in diese Antwort ein, um das Protokoll anzuzeigen, dem er zugestimmt hat zu wechseln.
-Der Prozess wird im [Leitfaden zum Protokollwechselmechanismus](/de/docs/Web/HTTP/Protocol_upgrade_mechanism) ausführlich beschrieben.
+Der Server fügt einen {{HTTPHeader("Upgrade")}}-Header in diese Antwort ein, um das Protokoll anzuzeigen, zu dem er zugestimmt hat, zu wechseln.
+Der Prozess wird ausführlich im [Leitfaden zum Protokollwechselmechanismus](/de/docs/Web/HTTP/Protocol_upgrade_mechanism) beschrieben.
 
 ## Status
 
@@ -21,13 +21,13 @@ Der Prozess wird im [Leitfaden zum Protokollwechselmechanismus](/de/docs/Web/HTT
 
 ## Beispiele
 
-### Wechsel zu WebSockets
+### Wechsel der Protokolle zu WebSockets
 
-Das folgende Beispiel zeigt, wie ein Protokollwechsel mit [WebSockets](/de/docs/Web/API/WebSockets_API) verwendet werden kann.
-Ein Client sendet eine {{HTTPMethod("GET")}}-HTTP-Anfrage mit einem {{HTTPHeader("Upgrade")}}-Header, der ebenfalls im {{HTTPHeader("Connection")}}-Header aufgeführt sein muss.
-Der Server stimmt dem Protokollwechsel zu, indem er mit einer 101-Antwort antwortet, was bedeutet, dass die Verbindung von HTTP zu WebSocket gewechselt hat.
-Ab diesem Punkt können Client und Server nun WebSocket-Daten austauschen.
-Informationen darüber, wie `Sec-WebSocket-*`-Header für das Handshake-Verfahren gesetzt werden können, finden Sie in den [WebSocket-spezifischen Headers](/de/docs/Web/HTTP/Protocol_upgrade_mechanism#websocket-specific_headers).
+Das folgende Beispiel zeigt, wie der Wechsel der Protokolle mit [WebSockets](/de/docs/Web/API/WebSockets_API) verwendet werden könnte.
+Ein Client sendet eine {{HTTPMethod("GET")}} HTTP-Anfrage mit einem {{HTTPHeader("Upgrade")}}-Header, der ebenfalls im {{HTTPHeader("Connection")}}-Header aufgeführt sein muss.
+Der Server stimmt dem Protokollwechsel zu und gibt eine 101-Antwort zurück, was bedeutet, dass die Verbindung von HTTP zu WebSocket gewechselt hat.
+An diesem Punkt können der Client und der Server nun beginnen, WebSocket-Daten auszutauschen.
+Informationen darüber, wie man `Sec-WebSocket-*`-Header für das Aushandeln eines Handshakes festlegt, finden Sie in den [WebSocket-spezifischen Headern](/de/docs/Web/HTTP/Protocol_upgrade_mechanism#websocket-specific_headers).
 
 ```http
 GET /notifications HTTP/1.1

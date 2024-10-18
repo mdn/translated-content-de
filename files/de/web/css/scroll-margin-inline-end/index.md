@@ -2,12 +2,12 @@
 title: scroll-margin-inline-end
 slug: Web/CSS/scroll-margin-inline-end
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-inline-end` definiert den Außenabstand des Scroll-Schnappbereichs am Ende der Inline-Dimension, der verwendet wird, um dieses Element an den Snapport zu schnappen. Der Scroll-Schnappbereich wird durch das Transformieren des Randrahmens und das Finden seines rechteckigen Begrenzungsrahmens (achsenparallel im Koordinatenraum des Scrollcontainers) bestimmt, dann werden die angegebenen Abstände hinzugefügt.
+Die Eigenschaft `scroll-margin-inline-end` definiert den Rand des Scroll-Snap-Bereichs am Ende der Inline-Dimension, der verwendet wird, um dieses Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu snappen. Der Scroll-Snap-Bereich wird durch das transformierte Rand-Box bestimmt, indem sein rechteckiger Begrenzungsrahmen (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden wird, und dann die angegebenen Erweiterungen hinzugefügt werden.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-inline-end.html")}}
 
@@ -29,7 +29,7 @@ scroll-margin-inline-end: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Abstand vom Inline-Ende des Scrollcontainers.
+  - : Eine Erweiterung von der Inline-Endkante des Scroll-Containers.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ scroll-margin-inline-end: unset;
 
 Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, außer dass wir Ihnen hier erklären, wie es implementiert ist.
 
-Das Ziel hier ist es, vier horizontal scrollbare Blöcke zu erstellen, wobei der zweite und dritte Block in Position einrasten, nahe, aber nicht ganz am rechten Rand jedes Blocks.
+Das Ziel hier ist, vier horizontal scrollende Blöcke zu erstellen, von denen der zweite und dritte in Position schnappen, nahe, aber nicht ganz am rechten Rand jedes Blocks.
 
 #### HTML
 
@@ -62,7 +62,7 @@ Das HTML, das die Blöcke darstellt, ist sehr einfach:
 
 #### CSS
 
-Sehen wir uns das CSS an. Der äußere Container wird wie folgt gestaltet:
+Lassen Sie uns durch das CSS gehen. Der äußere Container wird so gestylt:
 
 ```css
 .scroller {
@@ -77,9 +77,9 @@ Sehen wir uns das CSS an. Der äußere Container wird wie folgt gestaltet:
 }
 ```
 
-Die Hauptbestandteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Schnappunkt zum Stillstand kommt.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass die Inhalte scrollen und nicht verborgen werden, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer auf einem Snap-Punkt endet.
 
-Die Kindelemente sind wie folgt gestaltet:
+Die Kindelemente werden wie folgt gestylt:
 
 ```css
 .scroller > div {
@@ -100,9 +100,9 @@ Die Kindelemente sind wie folgt gestaltet:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, wodurch spezifiziert wird, dass die rechten Ränder (die "Enden" entlang der X-Achse, in unserem Fall) die bestimmten Schnappunkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: end`, was angibt, dass die rechten Ränder (die "Enden" entlang der x-Achse in unserem Fall) die festgelegten Snap-Punkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margin-Werte, unterschiedliche für das zweite und dritte Kindelement:
+Zum Schluss spezifizieren wir die Scroll-Margin-Werte, einen anderen für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -114,7 +114,7 @@ Zuletzt spezifizieren wir die Scroll-Margin-Werte, unterschiedliche für das zwe
 }
 ```
 
-Das bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen bei `1rem` außerhalb des Inline-Endrandes des zweiten `<div>` einrastet und bei `2rems` außerhalb des Inline-Endrandes des dritten `<div>`.
+Das bedeutet, dass beim Scrollen an den mittleren Kindelementen das Scrollen zu `1rem` außerhalb der Inline-Endkante des zweiten `<div>` und `2rems` außerhalb der Inline-Endkante des dritten `<div>` snappt.
 
 #### Ergebnis
 
@@ -133,4 +133,4 @@ Probieren Sie es selbst aus:
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)

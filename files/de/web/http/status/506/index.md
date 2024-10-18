@@ -2,16 +2,18 @@
 title: 506 Variant Also Negotiates
 slug: Web/HTTP/Status/506
 l10n:
-  sourceCommit: f584f1b27f9f3b78c95122c560f5135866a87eb0
+  sourceCommit: bd4d7bc4176d9f67297e3940ae7163a258f07ef5
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Statuscode **`506 Variant Also Negotiates`** [Server-Fehlerantwort](/de/docs/Web/HTTP/Status#server_error_responses) wird während der transparenten Inhaltsverhandlung (Transparent Content Negotiation, TCN) zurückgegeben, wenn ein rekursiver Loop im Prozess der Auswahl einer Ressource vorliegt.
+Der HTTP-Statuscode für den **`506 Variant Also Negotiates`** [Serverfehler](/de/docs/Web/HTTP/Status#server_error_responses) wird während der Inhaltsverhandlung zurückgegeben, wenn es eine rekursive Schleife im Prozess der Ressourcenauswahl gibt.
 
-Transparente Inhaltsverhandlung ermöglicht es einem Client und einem Server, gemeinsam die beste Variante einer gegebenen Ressource zu bestimmen, wenn der Server mehrere Varianten besitzt. Ein Server sendet einen `506`-Statuscode aufgrund fehlerhafter Serverkonfigurationen, die zu zirkulären Referenzen bei der Erstellung von Antworten führen.
+[Agenten-gesteuerte Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#agent-driven_negotiation) ermöglicht es einem Client und einem Server, gemeinsam die beste Variante einer gegebenen Ressource zu bestimmen, wenn der Server mehrere Varianten hat.
+Ein Server sendet einen `506`-Statuscode aufgrund einer Serverfehlkonfiguration, die zu zirkulären Referenzen bei der Erstellung von Antworten führt.
 
-Transparente Inhaltsverhandlung wird in den meisten modernen Browsern nicht unterstützt, da die Implementierung komplex ist, eine Standardisierung fehlt, wie Clients automatisch aus Antworten auswählen, und zusätzliche Round-Trips die Interaktion zwischen Client und Server verlangsamen. [Servergesteuerte Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist weitaus häufiger, wobei ein Server direkt die am besten geeignete Ressource für den Client basierend auf den Anforderungsheadern ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}} usw.) auswählt.
+Aufgrund des Mangels an Standardisierung, wie Clients automatisch aus Antworten auswählen, und der zusätzlichen Round-Trips, die die Client-Server-Interaktion verlangsamen, wird dieser Mechanismus selten verwendet.
+[Server-gesteuerte Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation#server-driven_content_negotiation) ist weitaus häufiger, bei der der Server basierend auf den Anfrage-Headern des Clients ({{HTTPHeader("Accept-Language")}}, {{HTTPHeader("Accept")}}, usw.) direkt die passendste Ressource auswählt.
 
 ## Status
 
@@ -27,13 +29,14 @@ Transparente Inhaltsverhandlung wird in den meisten modernen Browsern nicht unte
 
 ### Ressource mit Varianten
 
-Im folgenden Beispiel fordert ein Client eine Seite im `fr`-Locale mithilfe des {{HTTPHeader("Accept-Language")}}-Headers an. Dies kann mit curl durchgeführt werden:
+Im folgenden Beispiel fordert ein Client eine Seite im `fr`-Lokalisierung mit dem {{HTTPHeader("Accept-Language")}}-Header an.
+Dies kann mit curl durchgeführt werden:
 
 ```bash
 curl  -H "Negotiate: trans" -H "Accept-Language: fr;" http://example.com/index
 ```
 
-Dies führt zu der folgenden Anfrage:
+Dies erzeugt die folgende Anfrage:
 
 ```http
 GET /index HTTP/1.1
@@ -44,7 +47,8 @@ Negotiate: trans
 Accept-Language: fr
 ```
 
-Aufgrund einer fehlerhaften Serverkonfiguration verweist die Variante für `fr` auf eine [type map](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps), die selbst transparente Verhandlungen verursacht. Der Server kann diesen Zustand durch das Vorhandensein eines `TCN`-Headers in einer Auswahlantwort erkennen, bevor sie gesendet wird:
+Aufgrund einer Serverfehlkonfiguration verweist die Variante für `fr` auf eine [Typenkarte](https://httpd.apache.org/docs/trunk/mod/mod_negotiation.html#typemaps), die selbst eine transparente Verhandlung auslösen kann.
+Der Server kann diesen Zustand erkennen, indem er in einer Auswahlantwort vor dem Senden das Vorhandensein eines `TCN`-Headers überprüft:
 
 ```http
 HTTP/1.1 506 Variant Also Negotiates
@@ -74,4 +78,4 @@ Alternates: {"index.html.en" 1 {type text/html} {language en} {length 48}}, {"an
 - [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation)
 - [HTTP-Antwortstatuscodes](/de/docs/Web/HTTP/Status)
 - [Inhaltsverhandlung](https://httpd.apache.org/docs/2.4/content-negotiation.html) in der Apache HTTP Server-Dokumentation
-- [Apache httpd `mod_negotiation.c` Quelle](https://github.com/apache/httpd/blob/6a2433cb3fbc30c8a55f450a046e4b0f69e73143/modules/mappers/mod_negotiation.c#L2687-L2691), die Bedingungen zeigt, die die `HTTP_VARIANT_ALSO_VARIES`-Antwort triggern.
+- [Apache httpd `mod_negotiation.c` Source](https://github.com/apache/httpd/blob/6a2433cb3fbc30c8a55f450a046e4b0f69e73143/modules/mappers/mod_negotiation.c#L2687-L2691), die Bedingungen zeigt, die eine `HTTP_VARIANT_ALSO_VARIES`-Antwort auslösen.

@@ -2,12 +2,12 @@
 title: scroll-margin-block-end
 slug: Web/CSS/scroll-margin-block-end
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-block-end` definiert den Rand des Scroll-Snap-Bereichs am Ende der Blockdimension, die verwendet wird, um diese Box an das Snapport zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, dessen rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und anschließend die angegebenen Ausdehnungen hinzugefügt werden.
+Die Eigenschaft `scroll-margin-block-end` definiert den Rand des "scroll snap"-Bereichs am Ende der Block-Dimension, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "snapport")}} zu schnappen. Der "scroll snap"-Bereich wird durch das Transformieren der Randbox bestimmt, indem dessen rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden wird und dann die angegebenen Ränder hinzugefügt werden.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-block-end.html")}}
 
@@ -29,7 +29,7 @@ scroll-margin-block-end: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Eine Ausdehnung vom Blockendrand des Scroll-Containers.
+  - : Ein Vorsprung von der Blockendkante des Scroll-Containers.
 
 ## Formale Definition
 
@@ -49,5 +49,5 @@ scroll-margin-block-end: unset;
 
 ## Siehe auch
 
-- [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
+- [CSS Scroll Snap](/de/docs/Web/CSS/CSS_scroll_snap)
 - [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)

@@ -2,12 +2,12 @@
 title: scroll-margin-right
 slug: Web/CSS/scroll-margin-right
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-right` definiert den rechten Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Feld an den Snapport zu schnappen. Der Scroll-Snap-Bereich wird ermittelt, indem der transformierte Rahmenkasten (border box) genommen, sein rechteckiger Begrenzungskasten (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Aufsätze hinzugefügt werden.
+Die Eigenschaft `scroll-margin-right` definiert den rechten Rand des Scroll-Snap-Bereichs, der verwendet wird, um dieses Element an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu schnappen. Der Scroll-Snap-Bereich wird bestimmt, indem man die transformierte Rahmenbox nimmt, ihre rechteckige Begrenzungsbox (achsen-zugeordnet im Koordinatenraum des Scroll-Containers) findet und die angegebenen Abstände hinzufügt.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-right.html")}}
 
@@ -29,7 +29,7 @@ scroll-margin-right: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Aufsatz vom rechten Rand des Scroll-Containers.
+  - : Ein Abstand von der rechten Kante des Scroll-Containers.
 
 ## Formale Definition
 

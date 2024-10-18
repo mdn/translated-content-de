@@ -2,12 +2,12 @@
 title: scroll-margin-block-start
 slug: Web/CSS/scroll-margin-block-start
 l10n:
-  sourceCommit: 835d6632d59993861a0458510402787f8a2c3cb3
+  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
 ---
 
 {{CSSRef}}
 
-Die Eigenschaft `scroll-margin-block-start` definiert den Rand des Scroll-Schnappbereichs am Beginn der Blockdimension, der zum Einrasten dieser Box an den Schnappbereich verwendet wird. Der Scroll-Schnappbereich wird bestimmt, indem der transformierte Rahmen der Box genommen wird, seine rechteckige Begrenzungsbox (achsenbündig im Koordinatenraum des Scroll-Containers) gefunden wird und dann die angegebenen Vorlagen hinzugefügt werden.
+Die Eigenschaft `scroll-margin-block-start` definiert den Rand des Scroll-Snap-Bereichs am Anfang der Blockdimension, der verwendet wird, um dieses Feld an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu snappen. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Rahmenkasten genommen, dessen rechteckige Begrenzungsbox (achsenparallel im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Erweiterungen hinzugefügt werden.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-block-start.html")}}
 
@@ -29,7 +29,7 @@ scroll-margin-block-start: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Vorlauf von der Blockanfangskante des Scroll-Containers.
+  - : Eine Erweiterung vom Anfangsrand der Blockseite des Scroll-Containers.
 
 ## Formale Definition
 
@@ -50,4 +50,4 @@ scroll-margin-block-start: unset;
 ## Siehe auch
 
 - [CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap)
+- [Gut kontrolliertes Scrollen mit CSS Scroll Snap](https://web.dev/articles/css-scroll-snap)
