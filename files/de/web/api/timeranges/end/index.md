@@ -3,12 +3,12 @@ title: "TimeRanges: end()-Methode"
 short-title: end()
 slug: Web/API/TimeRanges/end
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: c1cb822be8f98ffb74da278fa1a01dc27d3a57b9
 ---
 
 {{APIRef("DOM")}}
 
-Die **`end()`**-Methode des [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Interfaces gibt den Zeitversatz zurück, bei dem ein angegebener Zeitbereich endet.
+Die **`end()`**-Methode des [`TimeRanges`](/de/docs/Web/API/TimeRanges)-Interfaces gibt den Zeitversatz (in Sekunden) zurück, zu dem ein angegebener Zeitraum endet.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ end(index)
 ### Parameter
 
 - `index`
-  - : Die Nummer des Bereichs, für den die Endzeit zurückgegeben werden soll.
+  - : Die Bereichsnummer, für die die Endzeit zurückgegeben werden soll.
 
 ### Rückgabewert
 
@@ -28,11 +28,11 @@ Eine Zahl.
 ### Ausnahmen
 
 - `IndexSizeError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der angegebene Index nicht mit einem vorhandenen Bereich übereinstimmt.
+  - : Wird ausgelöst, wenn der angegebene Index keinem vorhandenen Bereich entspricht.
 
 ## Beispiele
 
-Gegeben ist ein Videoelement mit der ID `"myVideo"`:
+Gegeben ist ein Video-Element mit der ID `"myVideo"`:
 
 ```js
 const v = document.getElementById("myVideo");
