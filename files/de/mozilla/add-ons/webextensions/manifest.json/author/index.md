@@ -28,7 +28,7 @@ l10n:
   </tbody>
 </table>
 
-Der Autor der Erweiterung, der zur Anzeige in der Benutzeroberfläche des Browsers vorgesehen ist. Wenn der [developer](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer) Schlüssel angegeben ist und die Eigenschaft "name" enthält, wird er den author-Schlüssel überschreiben. Es gibt keine Möglichkeit, mehrere Autoren anzugeben.
+Der Autor der Erweiterung, vorgesehen zur Anzeige in der Benutzeroberfläche des Browsers. Wenn der [developer](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel angegeben ist und er die Eigenschaft "name" enthält, wird dieser den Autor-Schlüssel überschreiben. Es gibt keine Möglichkeit, mehrere Autoren anzugeben.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

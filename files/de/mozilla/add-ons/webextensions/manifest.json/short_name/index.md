@@ -23,12 +23,12 @@ l10n:
     </tr>
     <tr>
       <th scope="row">Beispiel</th>
-      <td><pre class="brush: json">"short_name": "Meine Erweiterung"</pre></td>
+      <td><pre class="brush: json">"short_name": "My Extension"</pre></td>
     </tr>
   </tbody>
 </table>
 
-Kurzer Name für die Erweiterung. Wenn angegeben, wird dieser in Kontexten verwendet, in denen das [name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)-Feld zu lang ist. Es wird empfohlen, dass der kurze Name nicht mehr als 12 Zeichen umfasst. Wenn das Feld für den kurzen Namen nicht in der manifest.json enthalten ist, wird stattdessen name verwendet und kann gekürzt werden.
+Kurzer Name für die Erweiterung. Falls angegeben, wird dieser in Kontexten verwendet, in denen das [name](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/name)-Feld zu lang ist. Es wird empfohlen, dass der kurze Name 12 Zeichen nicht überschreitet. Wenn das Feld für den kurzen Namen nicht in manifest.json enthalten ist, wird stattdessen der Name verwendet und möglicherweise gekürzt.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

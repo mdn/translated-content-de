@@ -18,7 +18,7 @@ l10n:
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -35,9 +35,9 @@ l10n:
   </tbody>
 </table>
 
-Der Name des Entwicklers der Erweiterung und die URL zu seiner Homepage, vorgesehen für die Anzeige in der Benutzeroberfläche des Browsers.
+Der Name des Entwicklers der Erweiterung und die URL seiner Homepage, die zur Anzeige in der Benutzeroberfläche des Browsers vorgesehen sind.
 
-Das Objekt und beide seiner Eigenschaften sind optional. Die Eigenschaften "name" und "url" überschreiben, falls vorhanden, die Schlüssel [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author) und [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url). Dieses Objekt erlaubt es nur, einen einzigen Entwicklernamen und eine URL anzugeben.
+Das Objekt und beide seiner Eigenschaften sind optional. Die Eigenschaften "name" und "url", falls vorhanden, überschreiben die Schlüssel [author](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/author) und [homepage_url](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/homepage_url). Dieses Objekt erlaubt es nur, einen einzelnen Entwicklernamen und eine URL anzugeben.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

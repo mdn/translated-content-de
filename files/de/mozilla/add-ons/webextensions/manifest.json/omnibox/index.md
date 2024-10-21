@@ -14,11 +14,11 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
     <tr>
@@ -36,9 +36,9 @@ l10n:
 
 Verwenden Sie den `omnibox`-Schlüssel, um ein Omnibox-Schlüsselwort für Ihre Erweiterung zu definieren.
 
-Wenn der Benutzer dieses Schlüsselwort in die Adressleiste des Browsers eingibt, gefolgt von einem Leerzeichen, werden alle nachfolgenden Zeichen an die Erweiterung unter Verwendung der [`omnibox`](/de/docs/Mozilla/Add-ons/WebExtensions/API/omnibox)-API gesendet. Die Erweiterung kann dann die Vorschlagsliste der Adressleiste mit eigenen Vorschlägen ausfüllen.
+Wenn der Benutzer dieses Schlüsselwort in die Adressleiste des Browsers eingibt, gefolgt von einem Leerzeichen, werden alle nachfolgenden Zeichen mit der [`omnibox`](/de/docs/Mozilla/Add-ons/WebExtensions/API/omnibox) API an die Erweiterung gesendet. Die Erweiterung wird dann in der Lage sein, die Vorschlagsliste der Adressleiste mit eigenen Vorschlägen zu füllen.
 
-Wenn zwei oder mehr Erweiterungen dasselbe Schlüsselwort definieren, erhält die zuletzt installierte Erweiterung die Kontrolle über das Schlüsselwort. Alle zuvor installierten Erweiterungen, die dasselbe Schlüsselwort definiert haben, können die `omnibox`-API nicht mehr verwenden.
+Wenn zwei oder mehr Erweiterungen dasselbe Schlüsselwort definieren, wird die zuletzt installierte Erweiterung das Schlüsselwort kontrollieren. Alle zuvor installierten Erweiterungen, die dasselbe Schlüsselwort definiert haben, werden die `omnibox` API nicht mehr verwenden können.
 
 ## Beispiel
 

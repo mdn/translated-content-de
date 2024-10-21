@@ -1,5 +1,5 @@
 ---
-title: Type Selectors
+title: Typselektoren
 slug: Web/CSS/Type_selectors
 l10n:
   sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der CSS-**Typ-Selektor** wählt Elemente basierend auf dem Knotennamen aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
+Der CSS-**Typselektor** erfasst Elemente anhand des Knotennamens. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
 
 ```css
 /* All <a> elements. */
@@ -16,11 +16,11 @@ a {
 }
 ```
 
-Typ-Selektoren können mit Namensräumen versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Das ist nützlich, wenn Dokumente bearbeitet werden, die mehrere Namensräume enthalten, wie HTML mit eingebetteten SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Typselektoren können bei Verwendung von {{CSSXref("@namespace")}} mit Namespaces versehen werden. Dies ist nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML oder XML, das mehrere Vokabulare mischt.
 
-- `ns|h1` - passt auf `<h1>`-Elemente im Namensraum _ns_
-- `*|h1` - passt auf alle `<h1>`-Elemente
-- `|h1` - passt auf alle `<h1>`-Elemente ohne einen deklarierten Namensraum
+- `ns|h1` - erfasst `<h1>`-Elemente im Namespace _ns_
+- `*|h1` - erfasst alle `<h1>`-Elemente
+- `|h1` - erfasst alle `<h1>`-Elemente ohne deklarierten Namespace
 
 ## Syntax
 
@@ -50,9 +50,9 @@ span {
 
 {{EmbedLiveSample('Examples', '100%', 150)}}
 
-### Namensräume
+### Namespaces
 
-In diesem Beispiel wird der Selektor nur auf `<h1>`-Elemente im Beispiel-Namensraum passen.
+In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namespace erfassen.
 
 ```css
 @namespace example url(http://www.example.com/);
@@ -71,5 +71,5 @@ example|h1 {
 
 ## Siehe auch
 
-- [CSS Selectors](/de/docs/Web/CSS/CSS_selectors)
+- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
 - [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)

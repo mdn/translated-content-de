@@ -14,7 +14,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -34,7 +34,7 @@ l10n:
 
 URL für die Startseite der Erweiterung.
 
-Wenn ein [Entwickler](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel mit der Eigenschaft "url" und "homepage_url" definiert sind, verwendet Firefox "developer.url", während Opera "homepage_url" nutzt. Chrome und Safari unterstützen den "developer"-Schlüssel nicht.
+Wenn ein [developer](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/developer)-Schlüssel mit der "url"-Eigenschaft und "homepage_url" definiert sind, verwendet Firefox "developer.url", während Opera "homepage_url" verwendet. Chrome und Safari unterstützen den "developer"-Schlüssel nicht.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

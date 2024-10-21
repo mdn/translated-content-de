@@ -18,25 +18,25 @@ l10n:
       <td>Nein</td>
     </tr>
     <tr>
-      <th scope="row">Manifest-Version</th>
+      <th scope="row">Manifestversion</th>
       <td>2 oder höher</td>
     </tr>
   </tbody>
 </table>
 
-Der `icons`-Schlüssel legt Icons für Ihre Erweiterung fest. Diese Icons werden verwendet, um die Erweiterung in Komponenten wie dem Add-ons-Manager darzustellen.
+Der Schlüssel `icons` spezifiziert Symbole für Ihre Erweiterung. Diese Symbole werden verwendet, um die Erweiterung in Komponenten wie dem Add-ons-Manager darzustellen.
 
-Er besteht aus Schlüssel-Wert-Paaren von Bildgröße in px und Bildpfad relativ zum Stammverzeichnis der Erweiterung.
+Er besteht aus Schlüssel-Wert-Paaren von Bildgrößen in px und Bildpfaden relativ zum Stammverzeichnis der Erweiterung.
 
-Wenn `icons` nicht angegeben ist, wird standardmäßig ein Standarderweiterungssymbol verwendet.
+Wenn `icons` nicht angegeben wird, wird standardmäßig ein Standarderweiterungssymbol verwendet.
 
-Sie sollten mindestens ein Hauptsymbol der Erweiterung angeben, idealerweise in der Größe 48x48 px. Dies ist das Standardsymbol, das im Add-ons-Manager verwendet wird. Sie können jedoch Icons jeder Größe angeben, und Firefox wird versuchen, das beste Symbol zur Anzeige in verschiedenen Komponenten zu finden.
+Sie sollten mindestens ein Hauptsymbol der Erweiterung angeben, idealerweise 48x48 px groß. Dies ist das Standardsymbol, das im Add-ons-Manager verwendet wird. Sie können jedoch Symbole in beliebiger Größe angeben, und Firefox versucht, das beste Symbol zur Anzeige in verschiedenen Komponenten zu finden.
 
-Firefox berücksichtigt die Bildschirmauflösung bei der Auswahl eines Symbols. Um Benutzern mit hochauflösenden Displays, wie Retina-Displays, die bestmögliche visuelle Erfahrung zu bieten, stellen Sie verdoppelte Versionen aller Ihrer Icons bereit.
+Firefox berücksichtigt die Bildschirmauflösung bei der Auswahl eines Symbols. Um den Benutzern mit hochauflösenden Displays, wie Retina-Displays, das beste visuelle Erlebnis zu bieten, stellen Sie doppelt so große Versionen aller Ihrer Symbole bereit.
 
 ## Beispiel
 
-Die Schlüssel im `icons`-Objekt geben die Symbolgröße in px an, die Werte geben den relativen Symbolpfad an. Dieses Beispiel enthält ein 48px-Erweiterungssymbol und eine größere Version für hochauflösende Displays.
+Die Schlüssel im `icons` Objekt geben die Symbolgröße in px an, die Werte den relativen Symbolpfad. Dieses Beispiel enthält ein 48px-Erweiterungssymbol und eine größere Version für hochauflösende Displays.
 
 ```json
 "icons": {
@@ -47,9 +47,9 @@ Die Schlüssel im `icons`-Objekt geben die Symbolgröße in px an, die Werte geb
 
 ## SVG
 
-Sie können SVG verwenden, und der Browser wird Ihr Symbol entsprechend skalieren. Es gibt jedoch derzeit zwei Einschränkungen:
+Sie können SVG verwenden und der Browser wird Ihr Symbol entsprechend skalieren. Es gibt jedoch derzeit zwei Einschränkungen:
 
-1. Sie müssen ein viewBox im Bild angeben. Zum Beispiel:
+1. Sie müssen eine ViewBox im Bild angeben. Zum Beispiel:
 
    ```html
    <svg
@@ -71,13 +71,13 @@ Sie können SVG verwenden, und der Browser wird Ihr Symbol entsprechend skaliere
    ```
 
 > [!NOTE]
-> Es ist bekannt, dass nur Firefox SVG-Icons unterstützt. Chromium hat einen Fehler bezüglich [nicht unterstützter SVG-Icons](https://crbug.com/29683).
+> Es ist bekannt, dass nur Firefox SVG-Symbole unterstützt. Chromium hat einen Fehler bezüglich [nicht unterstützter SVG-Symbole](https://crbug.com/29683).
 
 > [!NOTE]
-> Denken Sie daran, das `xmlns`-Attribut bei der Erstellung des SVG einzuschließen. Andernfalls kann Firefox das Symbol nicht anzeigen.
+> Denken Sie daran, das `xmlns`-Attribut beim Erstellen des SVGs einzuschließen. Andernfalls kann Firefox das Symbol nicht anzeigen.
 
 > [!NOTE]
-> Wenn Sie ein Programm wie Inkscape zur Erstellung von SVG verwenden, möchten Sie es möglicherweise als "einfachen SVG" speichern. Firefox könnte durch verschiedene spezielle Namensräume verwirrt werden und Ihr Symbol nicht anzeigen.
+> Wenn Sie ein Programm wie Inkscape zum Erstellen von SVG verwenden, möchten Sie es möglicherweise als "plain SVG" speichern. Firefox könnte durch verschiedene spezielle Namensräume verwirrt werden und Ihr Symbol nicht anzeigen.
 
 ## Browser-Kompatibilität
 

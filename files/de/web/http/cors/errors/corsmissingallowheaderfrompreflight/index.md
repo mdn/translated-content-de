@@ -1,5 +1,5 @@
 ---
-title: "Reason: fehlendes Token 'xyz' im CORS-Header 'Access-Control-Allow-Headers' vom CORS-Vorflugkanal"
+title: "Reason: missing token 'xyz' in CORS header 'Access-Control-Allow-Headers' from CORS preflight channel"
 slug: Web/HTTP/CORS/Errors/CORSMissingAllowHeaderFromPreflight
 l10n:
   sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
@@ -13,11 +13,11 @@ l10n:
 Reason: missing token 'xyz' in CORS header 'Access-Control-Allow-Headers' from CORS preflight channel
 ```
 
-## Was ist schief gelaufen?
+## Was ist schiefgelaufen?
 
-Der `Access-Control-Allow-Headers`-Header wird vom Server gesendet, um dem Client mitzuteilen, welche Header er für {{Glossary("CORS", "CORS")}}-Anfragen unterstützt. Der Wert von `Access-Control-Allow-Headers` sollte eine kommaseparierte Liste von Header-Namen sein, wie `X-Custom-Information` oder einen der standardmäßigen, aber nicht grundlegenden Header-Namen (die immer erlaubt sind).
+Der `Access-Control-Allow-Headers`-Header wird vom Server gesendet, um dem Client mitzuteilen, welche Header er für {{Glossary("CORS", "CORS")}}-Anfragen unterstützt. Der Wert von `Access-Control-Allow-Headers` sollte eine durch Kommas getrennte Liste von Header-Namen sein, wie `X-Custom-Information` oder jeder der standardmäßigen, aber nicht grundlegenden Header-Namen (die immer erlaubt sind).
 
-Dieser Fehler tritt auf, wenn versucht wird, einen Header zu präsidieren, der nicht ausdrücklich erlaubt ist (das heißt, er ist nicht in der Liste enthalten, die durch den `Access-Control-Allow-Headers`-Header angegeben ist, der vom Server gesendet wird). Um dies zu beheben, muss der Server so aktualisiert werden, dass er den angegebenen Header zulässt, oder Sie müssen die Verwendung dieses Headers vermeiden.
+Dieser Fehler tritt auf, wenn versucht wird, einen Header vorzubereiten, der nicht ausdrücklich erlaubt ist (d. h., er ist nicht in der Liste enthalten, die durch den vom Server gesendeten `Access-Control-Allow-Headers`-Header angegeben ist). Um dies zu beheben, muss der Server aktualisiert werden, sodass er den angegebenen Header erlaubt, oder Sie müssen die Verwendung dieses Headers vermeiden.
 
 ## Siehe auch
 

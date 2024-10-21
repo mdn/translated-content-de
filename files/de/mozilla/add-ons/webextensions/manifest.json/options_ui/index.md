@@ -11,7 +11,7 @@ l10n:
   <tbody>
     <tr>
       <th scope="row">Typ</th>
-      <td><code>Objekt</code></td>
+      <td><code>Object</code></td>
     </tr>
     <tr>
       <th scope="row">Verpflichtend</th>
@@ -34,15 +34,16 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `options_ui`, um eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) für Ihre Erweiterung zu definieren. Diese Seite verwenden Sie, um den Nutzern die Möglichkeit zu geben, die Einstellungen Ihrer Erweiterung zu ändern.
+Verwenden Sie den Schlüssel `options_ui`, um eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) für Ihre Erweiterung zu definieren. Auf dieser Seite können Sie den Benutzern ermöglichen, die Einstellungen Ihrer Erweiterung zu ändern.
 
-Die Art und Weise, wie der Nutzer die Seite öffnet, ist browserabhängig und hängt auch von der Einstellung `open_in_tab` ab. Ihre Erweiterung kann die Seite auch mit {{WebExtAPIRef("runtime.openOptionsPage()")}} öffnen.
+Die Art und Weise, wie der Benutzer die Seite öffnet, hängt vom Browser und auch von der Einstellung `open_in_tab` ab. Ihre Erweiterung kann die Seite auch mit {{WebExtAPIRef("runtime.openOptionsPage()")}} öffnen.
 
-Sie geben `options_ui` als Pfad zu einer HTML-Datei an, die zusammen mit Ihrer Erweiterung verpackt ist. Die HTML-Datei kann CSS- und JavaScript-Dateien enthalten, genau wie eine normale Webseite. Im Gegensatz zu einer normalen Seite kann das JavaScript jedoch alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) nutzen, für die die Erweiterung [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat. Es wird jedoch in einem anderen Kontext als Ihre Hintergrundskripte ausgeführt.
+Sie geben `options_ui` als Pfad zu einer HTML-Datei an, die mit Ihrer Erweiterung verpackt ist. Die HTML-Datei kann CSS- und JavaScript-Dateien enthalten, genau wie eine normale Webseite. Anders als bei einer normalen Seite kann das JavaScript jedoch alle [WebExtension-APIs](/de/docs/Mozilla/Add-ons/WebExtensions/API) verwenden, für die die Erweiterung [Berechtigungen](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions) hat. Es wird jedoch in einem anderen Kontext als Ihre Hintergrundskripte ausgeführt.
 
-Wenn Sie Daten oder Funktionen zwischen dem JavaScript auf Ihrer **Optionsseite** und Ihrem **Hintergrundskript/Ihren Hintergrundskripten** teilen möchten, können Sie dies direkt tun, indem Sie eine Referenz zum [Window](/de/docs/Web/API/Window) Ihrer Hintergrundskripte mit {{WebExtAPIRef("extension.getBackgroundPage()")}} oder eine Referenz zum [`Window`](/de/docs/Web/API/Window) einer der innerhalb Ihrer Erweiterung laufenden Seiten mit {{WebExtAPIRef("extension.getViews()")}} erhalten. Alternativ können Sie zwischen dem JavaScript Ihrer Optionsseite und Ihrem Hintergrundskript/Ihren Hintergrundskripten mit {{WebExtAPIRef("runtime.sendMessage()")}}, {{WebExtAPIRef("runtime.onMessage")}} oder {{WebExtAPIRef("runtime.connect()")}} kommunizieren. Letztere (oder die entsprechenden {{WebExtAPIRef("runtime.Port")}}) können auch verwendet werden, um Optionen zwischen Ihrem [Hintergrundskript/Ihren Hintergrundskripten](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) und Ihren **[Inhalts-Skripten](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)** zu teilen.
+Wenn Sie Daten oder Funktionen direkt zwischen dem JavaScript auf Ihrer **Optionsseite** und Ihrem **Hintergrundskript(en)** teilen möchten, können Sie dies tun, indem Sie eine Referenz zum [Window](/de/docs/Web/API/Window) Ihrer Hintergrundskripte über {{WebExtAPIRef("extension.getBackgroundPage()")}} oder eine Referenz zum [`Window`](/de/docs/Web/API/Window) einer beliebigen Seite, die innerhalb Ihrer Erweiterung ausgeführt wird, mit {{WebExtAPIRef("extension.getViews()")}} erhalten. Alternativ können Sie zwischen dem JavaScript für Ihre Optionsseite und Ihrem Hintergrundskript(en) über {{WebExtAPIRef("runtime.sendMessage()")}}, {{WebExtAPIRef("runtime.onMessage")}} oder {{WebExtAPIRef("runtime.connect()")}} kommunizieren.
+Die letztgenannten (oder Äquivalente von {{WebExtAPIRef("runtime.Port")}}) können auch verwendet werden, um Optionen zwischen Ihrem [Hintergrundskript(en)](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) und Ihrem **[Inhaltsskript(en).](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)** zu teilen.
 
-Im Allgemeinen sollten Sie Optionen, die auf Optionsseiten geändert werden, mit der {{WebExtAPIRef("storage", "storage API", "", "true")}} entweder in {{WebExtAPIRef("storage.sync")}} (wenn Sie möchten, dass die Einstellungen auf allen Instanzen dieses Browsers, in denen der Nutzer angemeldet ist, synchronisiert werden) oder in {{WebExtAPIRef("storage.local")}} (wenn die Einstellungen lokal auf dem aktuellen Rechner/Profil gespeichert werden sollen) speichern. Wenn Sie dies tun und Ihre [Hintergrundskripte](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) (oder [Inhalts-Skripte](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)) über die Änderung informiert werden müssen, könnten Ihre Skripte einen Listener zu {{WebExtAPIRef("storage.onChanged")}} hinzufügen.
+Im Allgemeinen sollten Sie die auf Optionsseiten geänderten Einstellungen mit der {{WebExtAPIRef("storage", "storage API", "", "true")}} speichern, entweder in {{WebExtAPIRef("storage.sync")}} (wenn Sie möchten, dass die Einstellungen über alle Instanzen dieses Browsers, bei denen der Benutzer angemeldet ist, synchronisiert werden) oder in {{WebExtAPIRef("storage.local")}} (wenn die Einstellungen lokal auf dem aktuellen Rechner/Profil gespeichert werden). Wenn Sie dies tun und Ihr [Hintergrundskript(e)](/de/docs/Mozilla/Add-ons/WebExtensions/Anatomy_of_a_WebExtension#background_scripts) (oder [Inhaltsskript(e)](/de/docs/Mozilla/Add-ons/WebExtensions/Content_scripts)) über die Änderung informiert werden müssen, könnten Ihre Skripte entscheiden, einen Listener zu {{WebExtAPIRef("storage.onChanged")}} hinzuzufügen.
 
 ## Syntax
 
@@ -69,14 +70,14 @@ Der Schlüssel `options_ui` ist ein Objekt mit folgendem Inhalt:
       </td>
       <td><code>Boolean</code></td>
       <td>
-        <p>Optional, Standardwert ist:</p>
+        <p>Optional, standardmäßig:</p>
           <ul>
             <li><code>true</code> in Manifest V2 und vor Firefox 115 in Manifest V3.</li>
             <li><code>false</code> in Manifest V3 ab Firefox 115.</li>
           </ul>
         <div class="notecard warning">
           <p>
-            Setzen Sie <code>browser_style</code> nicht auf true: es wird in Manifest V3 ab Firefox 118 nicht unterstützt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3 Migration für <code>browser_style</code></a>.
+            Setzen Sie <code>browser_style</code> nicht auf true: Es wird in Manifest V3 ab Firefox 118 nicht unterstützt. Siehe <a href="/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles#manifest_v3_migration">Manifest V3-Migration für <code>browser_style</code></a>.
           </p>
         </div>
         <p>
@@ -93,13 +94,13 @@ Der Schlüssel `options_ui` ist ein Objekt mit folgendem Inhalt:
       <td><code>Boolean</code></td>
       <td>
         <ul>
-          <li>Wenn <code>false</code>, öffnet sich die Optionsseite im Add-on-Manager des Browsers.</li>
+          <li>Wenn <code>false</code>, wird die Optionsseite im Add-on-Manager des Browsers geöffnet.</li>
         <li>
-          Wenn <code>true</code>, öffnet sich die Optionsseite in einem normalen
-          Browser-Tab.
+          Wenn <code>true</code>, wird die Optionsseite in einem normalen Browser-
+          Tab geöffnet.
         </li>
         </ul>
-        <p>Standardwert ist <code>false</code>.</p>
+        <p>Standardmäßig <code>false</code>.</p>
       </td>
     </tr>
     <tr>
@@ -108,11 +109,10 @@ Der Schlüssel `options_ui` ist ein Objekt mit folgendem Inhalt:
       <td>
         <p>Verpflichtend.</p>
         <p>
-          Der Pfad zu einer HTML-Datei, die die Spezifikation Ihrer Optionsseite
-          enthält.
+          Der Pfad zu einer HTML-Datei, die die Spezifikation Ihrer Optionsseite enthält.
         </p>
         <p>
-          Der Pfad ist relativ zur Position von
+          Der Pfad ist relativ zur Position der
           <code>manifest.json</code> selbst.
         </p>
       </td>
@@ -135,5 +135,5 @@ Der Schlüssel `options_ui` ist ein Objekt mit folgendem Inhalt:
 ## Siehe auch
 
 - [`options_page`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_page) {{deprecated_inline}}
-- [Browserstile](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles)
+- [Browser-Stile](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles)
 - [Optionsseiten](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages)

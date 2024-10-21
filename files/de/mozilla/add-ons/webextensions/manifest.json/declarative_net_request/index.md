@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Erforderlich</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -38,16 +38,16 @@ l10n:
   </tbody>
 </table>
 
-Spezifizieren Sie statische Regelsätze zur Verwendung mit {{WebExtAPIRef("declarativeNetRequest")}}. Weitere Informationen zur Anzahl der Regelsätze, aktivierten Regelsätzen und Regeln, die angegeben werden können, finden Sie unter [statische Regelsatzgrenzen](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
+Spezifizieren Sie statische Regelsets zur Verwendung mit {{WebExtAPIRef("declarativeNetRequest")}}. Weitere Informationen zu der Anzahl der Regelsets, aktivierten Regelsets und Regeln, die angegeben werden können, finden Sie unter [statische Regelset-Limits](/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#static_ruleset_limits).
 
-Weitere Informationen zu Berechtigungserfordernissen finden Sie unter <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions">Berechtigungen</a>.
+Weitere Informationen zu den Berechtigungsanforderungen finden Sie unter <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#permissions">Berechtigungen</a>.
 
 > [!NOTE]
 > Eine Regel mit nicht erkannten Eigenschaften wird geladen, wenn sie ansonsten gültig ist, das heißt, nicht erkannte Eigenschaften werden ignoriert. Vor Firefox 128 wurde eine Regel mit nicht erkannten Eigenschaften als ungültig betrachtet und nicht geladen.
 
 ## Syntax
 
-Der `"declarative_net_request"` Schlüssel ist ein Objekt, das die Eigenschaft `"rule_resources"` enthalten muss, ein Array, das mindestens ein Objekt mit diesen Eigenschaften enthalten muss:
+Der Schlüssel `"declarative_net_request"` ist ein Objekt, das die Eigenschaft `"rule_resources"` enthalten muss, ein Array, das mindestens ein Objekt mit diesen Eigenschaften umfassen muss:
 
 <table class="fullwidth-table standard-table">
   <thead>
@@ -61,17 +61,17 @@ Der `"declarative_net_request"` Schlüssel ist ein Objekt, das die Eigenschaft `
     <tr>
       <td><code>"id"</code></td>
       <td><code>String</code></td>
-      <td>Eine nicht leere Zeichenfolge, die den Regelsatz eindeutig identifiziert. IDs, die mit '_' beginnen, sind für die interne Verwendung reserviert.</td>
+      <td>Eine nicht-leere Zeichenkette, die das Regelset eindeutig identifiziert. IDs, die mit '_' beginnen, sind für internen Gebrauch reserviert.</td>
     </tr>
     <tr>
       <td><code>"enabled"</code></td>
       <td><code>Boolean</code></td>
-      <td>Gibt an, ob der Regelsatz standardmäßig aktiviert ist. Die Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets")}} kann verwendet werden, um einen Regelsatz zur Laufzeit zu aktivieren oder zu deaktivieren.</td>
+      <td>Gibt an, ob das Regelset standardmäßig aktiviert ist. Die Methode {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets")}} kann verwendet werden, um ein Regelset zur Laufzeit zu aktivieren oder zu deaktivieren.</td>
     </tr>
     <tr>
       <td><code>"path"</code></td>
       <td><code>String</code></td>
-      <td>Der Pfad des JSON-Regelsatzes relativ zum Erweiterungsverzeichnis. Siehe den Abschnitt <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">Regeln</a> der <code>declarativeNetRequest</code> API für Informationen über den Inhalt der Regelsatz-JSON-Datei.</td>
+      <td>Der Pfad des JSON-Regelsets relativ zum Erweiterungsverzeichnis. Siehe den Abschnitt <a href="/de/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest#rules">Regeln</a> der <code>declarativeNetRequest</code>-API für Informationen über den Inhalt der Regelset-JSON-Datei.</td>
     </tr>
   </tbody>
 </table>
@@ -94,7 +94,7 @@ Der `"declarative_net_request"` Schlüssel ist ein Objekt, das die Eigenschaft `
 
 ## Beispielerweiterungen
 
-<!-- Ideally we'd use the WebExtExamples template, but examples are not categorized by manifest keys yet - https://github.com/mdn/webextensions-examples/issues/524 -->
+<!-- Idealerweise würden wir die WebExtExamples-Vorlage verwenden, aber Beispiele sind noch nicht nach Manifest-Schlüsseln kategorisiert - https://github.com/mdn/webextensions-examples/issues/524 -->
 
 - [dnr-block-only](https://github.com/mdn/webextensions-examples/tree/main/dnr-block-only)
 - [dnr-redirect-url](https://github.com/mdn/webextensions-examples/tree/main/dnr-redirect-url)

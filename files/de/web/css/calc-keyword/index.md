@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der **`<calc-keyword>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert wohldefinierte Konstanten wie `e` und `pi`. Anstatt Autoren zu verlangen, mehrere Stellen dieser mathematischen Konstanten manuell einzugeben oder zu berechnen, werden einige davon direkt von CSS aus Bequemlichkeit bereitgestellt.
+Der **`<calc-keyword>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert gut definierte Konstanten wie `e` und `pi`. Anstatt dass Autoren mehrere Stellen dieser mathematischen Konstanten manuell eintippen oder sie berechnen müssen, stellt CSS einige davon zur Bequemlichkeit direkt bereit.
 
 ## Syntax
 
@@ -25,33 +25,33 @@ Der `<calc-keyword>`-Typ definiert numerische Konstanten, die in [CSS-Mathematik
 
 - `infinity` & `-infinity`
 
-  - : Ein unendlicher Wert, der den größten/kleinsten möglichen Wert anzeigt.
+  - : Ein unendlicher Wert, der den größtmöglichen/kleinmöglichsten Wert anzeigt.
 
 - `NaN`
 
-  - : Ein Wert, der "Not a Number" in kanonischer Schreibweise repräsentiert.
+  - : Ein Wert, der "Not a Number" in kanonischer Groß-/Kleinschreibung repräsentiert.
 
 ### Hinweise
 
-Das Serialisieren der Argumente innerhalb von [`calc()`](/de/docs/Web/CSS/calc) erfolgt nach dem IEEE-754-Standard für Gleitkomma-Mathematik, was bedeutet, dass es einige Fälle gibt, die in Bezug auf Konstanten wie `infinity` und `NaN` zu beachten sind:
+Das Serialisieren der Argumente innerhalb von [`calc()`](/de/docs/Web/CSS/calc) folgt dem IEEE-754-Standard für Gleitkomma-Mathematik, was bedeutet, dass es einige Fälle gibt, die im Zusammenhang mit Konstanten wie `infinity` und `NaN` zu beachten sind:
 
-- Eine Division durch Null führt je nach Vorzeichen des Zählers zu positivem oder negativem `infinity`.
-- Das Addieren, Subtrahieren oder Multiplizieren von `infinity` mit irgendetwas wird `infinity` zurückgeben, es sei denn, es erzeugt `NaN` (siehe unten).
-- Jede Operation mit mindestens einem `NaN`-Argument wird `NaN` zurückgeben.
-  Das bedeutet, dass `0 / 0`, `infinity / infinity`, `0 * infinity`, `infinity + (-infinity)` und `infinity - infinity` alle `NaN` zurückgeben werden.
+- Division durch null ergibt positives oder negatives `infinity`, abhängig vom Vorzeichen des Zählers.
+- Das Addieren, Subtrahieren oder Multiplizieren von `infinity` mit irgendetwas ergibt `infinity`, es sei denn, es entsteht `NaN` (siehe unten).
+- Jede Operation mit mindestens einem `NaN`-Argument ergibt `NaN`.
+  Das bedeutet, dass `0 / 0`, `infinity / infinity`, `0 * infinity`, `infinity + (-infinity)` und `infinity - infinity` alle `NaN` zurückgeben.
 
 - Positive und negative Null sind mögliche Werte (`0⁺` und `0⁻`).
   Dies hat folgende Auswirkungen:
-  - Eine Multiplikation oder Division, die Null ergibt, mit genau einem negativen Argument (`-5 * 0` oder `1 / (-infinity)`) oder negativem Ergebnis aus Kombinationen in den anderen Mathematikfunktionen wird `0⁻` zurückgeben.
-  - `0⁻ + 0⁻` oder `0⁻ - 0` wird `0⁻` zurückgeben.
-    Alle anderen Additionen oder Subtraktionen, die zu einer Null führen würden, werden `0⁺` zurückgeben.
-  - Die Multiplikation oder Division von `0⁻` mit einer positiven Zahl (einschließlich `0⁺`) wird ein negatives Ergebnis zurückgeben (entweder `0⁻` oder `-infinity`), während die Multiplikation oder Division von `0⁻` mit einer negativen Zahl ein positives Ergebnis zurückgeben wird.
+  - Multiplikation oder Division, die null mit genau einem negativen Argument (`-5 * 0` oder `1 / (-infinity)`) ergibt, oder negative Ergebnisse aus Kombinationen in den anderen Mathematikfunktionen, geben `0⁻` zurück.
+  - `0⁻ + 0⁻` oder `0⁻ - 0` ergibt `0⁻`.
+    Alle anderen Additionen oder Subtraktionen, die null ergeben würden, ergeben `0⁺`.
+  - Multiplikation oder Division von `0⁻` mit einer positiven Zahl (einschließlich `0⁺`) ergibt ein negatives Ergebnis (entweder `0⁻` oder `-infinity`), während Multiplikation oder Division von `0⁻` mit einer negativen Zahl ein positives Ergebnis ergibt.
 
-Beispiele, wie diese Regeln angewendet werden, sind im Abschnitt [Unendlichkeit, NaN und Division durch Null](#infinity_nan_and_division_by_zero) zu sehen.
+Beispiele dafür, wie diese Regeln angewendet werden, finden Sie im Abschnitt [Infinity, NaN und Division durch null](#infinity_nan_and_division_by_zero).
 
 > [!NOTE]
-> Es ist selten notwendig, `infinity` als Argument in `calc()` zu verwenden, aber es kann verwendet werden, um harte "magische Zahlen" zu vermeiden oder sicherzustellen, dass ein bestimmter Wert immer größer als ein anderer Wert ist.
-> Es kann nützlich sein, wenn Sie deutlich machen müssen, dass eine Eigenschaft den "größtmöglichen Wert" für diesen Datentyp hat.
+> Es ist selten notwendig, `infinity` als Argument in `calc()` zu verwenden, aber es kann genutzt werden, um harte "magische Zahlen" zu vermeiden oder sicherzustellen, dass ein bestimmter Wert immer größer als ein anderer Wert ist.
+> Es kann nützlich sein, um deutlich zu machen, dass eine Eigenschaft "den größtmöglichen Wert" für diesen Datentyp hat.
 
 ### Formale Syntax
 
@@ -59,22 +59,22 @@ Beispiele, wie diese Regeln angewendet werden, sind im Abschnitt [Unendlichkeit,
 
 ## Beschreibung
 
-Mathematische Konstanten können nur innerhalb von [CSS-Mathematikfunktionen](/de/docs/Web/CSS/CSS_Functions#math_functions) für Berechnungen verwendet werden. Mathematische Konstanten sind keine CSS-Schlüsselwörter, aber wenn sie außerhalb einer Berechnung verwendet werden, werden sie wie jedes andere Schlüsselwort behandelt.
+Mathematische Konstanten können nur innerhalb von [CSS-Mathematikfunktionen](/de/docs/Web/CSS/CSS_Functions#math_functions) für Berechnungen verwendet werden. Mathematikkonstanten sind keine CSS-Schlüsselwörter, aber wenn sie außerhalb einer Berechnung verwendet werden, werden sie wie jedes andere Schlüsselwort behandelt.
 Zum Beispiel:
 
-- `animation-name: pi;` bezieht sich auf eine Animation mit dem Namen "pi", nicht auf die numerische Konstante `pi`.
+- `animation-name: pi;` bezieht sich auf eine Animation namens "pi", nicht auf die numerische Konstante `pi`.
 - `line-height: e;` ist ungültig, aber `line-height: calc(e);` ist gültig.
 - `rotate(1rad * pi);` funktioniert nicht, da {{CSSxRef("transform-function/rotate", "rotate()")}} keine Mathematikfunktion ist. Verwenden Sie `rotate(calc(1rad * pi));`
 
-In Mathematikfunktionen werden `<calc-keyword>`-Werte als {{CSSxRef("number")}}-Werte ausgewertet, daher agieren `e` und `pi` als numerische Konstanten.
+In Mathematikfunktionen werden `<calc-keyword>`-Werte als {{CSSxRef("number")}}-Werte ausgewertet, daher verhalten sich `e` und `pi` wie numerische Konstanten.
 
-Sowohl `infinity` als auch `NaN` sind leicht unterschiedlich, sie werden als degenerierte numerische Konstanten betrachtet.
-Obwohl sie technisch gesehen keine Zahlen sind, verhalten sie sich wie {{CSSxRef("number")}}-Werte, so dass zum Beispiel, um eine unendliche {{CSSxRef("length")}} zu erhalten, ein Ausdruck wie `calc(infinity * 1px)` erforderlich ist.
+Sowohl `infinity` als auch `NaN` sind leicht anders, sie werden als degenerierte numerische Konstanten betrachtet.
+Obwohl sie technisch keine Zahlen sind, verhalten sie sich wie {{CSSxRef("number")}}-Werte. Um beispielsweise eine unendliche {{CSSxRef("length")}} zu erhalten, ist ein Ausdruck wie `calc(infinity * 1px)` erforderlich.
 
-Die Werte `infinity` und `NaN` sind hauptsächlich enthalten, um die Serialisierung einfacher und offensichtlicher zu machen, können aber verwendet werden, um einen "größtmöglichen Wert" anzugeben, da ein unendlicher Wert auf den erlaubten Bereich beschränkt ist.
-Es ist selten, dass dies vernünftig ist, aber die Verwendung von Infinity ist viel einfacher als einfach eine riesige Zahl in ein Stylesheet zu setzen oder magische Zahlen hart zu kodieren.
+Die Werte `infinity` und `NaN` sind hauptsächlich enthalten, um die Serialisierung einfacher und offensichtlicher zu gestalten, können jedoch verwendet werden, um einen "größtmöglichen Wert" anzuzeigen, da ein unendlicher Wert auf den erlaubten Bereich begrenzt ist.
+In der Praxis ist dies selten sinnvoll, aber wenn Sie Infinity verwenden, ist es viel einfacher, als einfach eine riesige Zahl in ein Stylesheet zu setzen oder magische Zahlen hart zu codieren.
 
-Alle Konstanten sind nicht case-sensitiv, außer `NaN`, was `calc(Pi)`, `calc(E)` und `calc(InFiNiTy)` gültig macht:
+Alle Konstanten sind nicht case-sensitiv außer `NaN`, was `calc(Pi)`, `calc(E)` und `calc(InFiNiTy)` gültig macht:
 
 ```plain example-good
 e
@@ -101,7 +101,7 @@ NAN
 
 ### Verwendung von e und pi in `calc()`
 
-Das folgende Beispiel zeigt, wie `e` in `calc()` verwendet wird, um ein Element mit einem exponentiell zunehmenden Winkel zu drehen.
+Das folgende Beispiel zeigt, wie `e` innerhalb von `calc()` verwendet wird, um ein Element mit einem exponentiell zunehmenden Winkel zu drehen.
 Die zweite Box zeigt, wie `pi` innerhalb einer [`sin()`](/de/docs/Web/CSS/sin)-Funktion verwendet wird.
 
 ```css hidden
@@ -175,9 +175,9 @@ piInput.addEventListener("input", function () {
 
 {{EmbedLiveSample('Using_e_and_pi_in_calc', 'auto', '200')}}
 
-### Unendlichkeit, NaN und Division durch Null
+### Infinity, NaN und Division durch null
 
-Das folgende Beispiel zeigt den berechneten Wert der `width`-Eigenschaft bei einer Division durch Null, gefolgt davon, wie die Serialisierung mit verschiedenen `calc()`-Konstanten aussieht, wenn sie in der Konsole angesehen werden:
+Das folgende Beispiel zeigt den berechneten Wert der `width`-Eigenschaft bei Division durch null, gefolgt davon, wie die Serialisierung mit verschiedenen `calc()`-Konstanten aussieht, wenn sie in der Konsole angezeigt wird:
 
 ```html
 <div></div>

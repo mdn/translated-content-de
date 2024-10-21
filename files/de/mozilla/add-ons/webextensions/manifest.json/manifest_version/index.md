@@ -14,7 +14,7 @@ l10n:
       <td><code>Number</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Verbindlich</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -24,7 +24,7 @@ l10n:
   </tbody>
 </table>
 
-Dieser Schlüssel gibt die Version der manifest.json an, die von dieser Erweiterung verwendet wird.
+Dieser Schlüssel gibt die Version der `manifest.json` an, die von dieser Erweiterung verwendet wird.
 
 ## Beispiel
 

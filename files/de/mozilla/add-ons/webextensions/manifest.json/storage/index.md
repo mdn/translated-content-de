@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Obligatorisch</th>
+      <th scope="row">Verpflichtend</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -34,16 +34,16 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den `storage`-Schlüssel, um den Namen der Schema-Datei anzugeben, die die Struktur der Daten im verwalteten Speicher definiert.
+Verwenden Sie den Schlüssel `storage`, um den Namen der Schema-Datei anzugeben, die die Struktur der Daten im verwalteten Speicher definiert.
 
-Verwaltete Daten erklären die von der App unterstützten Unternehmensrichtlinien. Richtlinien sind Optionen ähnlich, werden jedoch von einem Systemadministrator anstelle des Benutzers konfiguriert, sodass die App für alle Benutzer einer Organisation konfiguriert werden kann.
+Verwaltete Daten deklarieren die von der App unterstützten Unternehmensrichtlinien. Richtlinien sind Optionen ähnlich, werden jedoch von einem Systemadministrator statt vom Benutzer konfiguriert, wodurch die App für alle Benutzer einer Organisation konfiguriert werden kann.
 
-Nachdem die Richtlinien deklariert wurden, werden sie über die {{WebExtAPIRef("storage.managed")}} API gelesen. Wenn jedoch ein Richtlinienwert nicht dem Schema entspricht, wird er von der `storage.managed` API nicht veröffentlicht. Es liegt an der App, die vom Administrator konfigurierten Richtlinien durchzusetzen.
+Nach der Deklaration der Richtlinien werden diese über die {{WebExtAPIRef("storage.managed")}} API ausgelesen. Wenn ein Richtlinienwert jedoch nicht dem Schema entspricht, wird er nicht von der `storage.managed` API veröffentlicht. Es liegt in der Verantwortung der App, die vom Administrator konfigurierten Richtlinien durchzusetzen.
 
 > [!NOTE]
-> Firefox definiert kein Schema für den verwalteten Speicher, siehe {{WebExtAPIRef("storage.managed")}} für weitere Details.
+> Firefox definiert kein Schema für verwalteten Speicher, siehe {{WebExtAPIRef("storage.managed")}} für weitere Details.
 
-Der `storage`-Schlüssel ist ein Objekt, das die folgende erforderliche Eigenschaft besitzt:
+Der Schlüssel `storage` ist ein Objekt, das die folgende erforderliche Eigenschaft hat:
 
 <table class="standard-table">
   <tbody>
@@ -65,4 +65,4 @@ Der `storage`-Schlüssel ist ein Objekt, das die folgende erforderliche Eigensch
 
 > [!NOTE]
 >
-> Diese Seite enthält Details von der Chrome-Entwickler-Website-Seite [Manifest for storage areas](https://developer.chrome.com/docs/extensions/mv2/manifest/storage/), die hier unter der Creative Commons Attribution 3.0 United States-Lizenz enthalten sind.
+> Diese Seite enthält Details von der Chrome-Entwickler-Website-Seite [Manifest for storage areas](https://developer.chrome.com/docs/extensions/mv2/manifest/storage/), die hier unter der Creative Commons Attribution 3.0 United States License enthalten sind.

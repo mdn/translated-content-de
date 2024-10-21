@@ -28,7 +28,7 @@ l10n:
 "protocol_handlers": [
   {
     "protocol": "ircs",
-    "name": "IRC Mozilla Extension",
+    "name": "IRC Mozilla Erweiterung",
     "uriTemplate": "https://irccloud.mozilla.com/#!/%s"
   }
 ]</pre
@@ -38,28 +38,28 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie diesen Schlüssel, um einen oder mehrere webbasierte Protokoll-Handler zu registrieren.
+Verwenden Sie diesen Schlüssel, um einen oder mehrere webbasierten Protokoll-Handler zu registrieren.
 
-Ein Protokoll-Handler ist eine Anwendung, die weiß, wie bestimmte Arten von Links gehandhabt werden: Zum Beispiel ist ein Mail-Client ein Protokoll-Handler für "mailto:" Links. Wenn der Benutzer auf einen "mailto:" Link klickt, öffnet der Browser die als Handler für das "mailto:" Protokoll ausgewählte Anwendung (oder bietet ihm eine Auswahl an Handlern an, abhängig von seinen Einstellungen).
+Ein Protokoll-Handler ist eine Anwendung, die weiß, wie bestimmte Arten von Links gehandhabt werden: Zum Beispiel ist ein E-Mail-Client ein Protokoll-Handler für "mailto:"-Links. Wenn der Benutzer auf einen "mailto:"-Link klickt, öffnet der Browser die als Handler für das "mailto:"-Protokoll ausgewählte Anwendung (oder bietet eine Auswahl von Handlern an, abhängig von den Einstellungen).
 
 > [!NOTE]
-> Standardmäßig laufen Erweiterungen nicht in privaten Browsersitzungen. Da Protokoll-Handler Teil der Erweiterung sind, funktionieren sie standardmäßig nicht in privaten Fenstern. Ob eine Erweiterung auf private Browsersitzungen zugreifen kann und ihre Protokoll-Handler aktiv werden, liegt in der Kontrolle des Benutzers. Für Details siehe [Erweiterungen im Privaten Modus](https://support.mozilla.org/en-US/kb/extensions-private-browsing). Ihre Erweiterung kann überprüfen, ob sie auf private Browsersitzungen zugreifen kann, indem sie {{WebExtAPIRef("extension.isAllowedIncognitoAccess")}} verwendet.
+> Standardmäßig laufen Erweiterungen nicht in privaten Browserfenstern. Da Protokoll-Handler Teil der Erweiterung sind, funktionieren sie standardmäßig nicht in privaten Browserfenstern. Ob eine Erweiterung auf private Browserfenster zugreifen kann und ihre Protokoll-Handler aktiv werden, unterliegt der Kontrolle des Benutzers. Für Details siehe [Erweiterungen im privaten Modus](https://support.mozilla.org/en-US/kb/extensions-private-browsing). Ihre Erweiterung kann überprüfen, ob sie auf private Browserfenster zugreifen kann, indem sie {{WebExtAPIRef("extension.isAllowedIncognitoAccess")}} verwendet.
 
-Mit diesem Schlüssel können Sie eine Website als Handler für ein bestimmtes Protokoll registrieren. Die Syntax und Semantik dieses Schlüssels ist sehr ähnlich der Funktion [`Navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler), mit dem Unterschied, dass bei `registerProtocolHandler()` eine Website sich nur selbst als Handler registrieren kann.
+Mit diesem Schlüssel können Sie eine Website als Handler für ein bestimmtes Protokoll registrieren. Die Syntax und Semantik dieses Schlüssels ähneln der Funktion [`Navigator.registerProtocolHandler()`](/de/docs/Web/API/Navigator/registerProtocolHandler), mit der Ausnahme, dass bei `registerProtocolHandler()` sich eine Website nur selbst als Handler registrieren kann.
 
 Jeder Protokoll-Handler hat drei Eigenschaften, die alle verpflichtend sind:
 
 - `protocol`
 
-  - : Ein String, der das Protokoll definiert. Dies muss entweder sein:
+  - : Eine Zeichenkette, die das Protokoll definiert. Diese muss entweder sein:
 
-    - einer der folgenden: "bitcoin", "dat", "dweb", "ftp", "geo", "gopher", "im", "ipfs", "ipns", "irc", "ircs", "magnet", "mailto", "matrix", "mms", "news", "nntp", "sip", "sms", "smsto", "ssb", "ssh", "tel", "urn", "webcal", "wtai", "xmpp".
-    - ein String, der aus einem benutzerdefinierten Namen besteht, der mit "web+" oder "ext+" beginnt. Zum Beispiel: "web+foo" oder "ext+foo". Der benutzerdefinierte Name darf nur aus Kleinbuchstaben im {{Glossary("ASCII", "ASCII")}} bestehen. Es wird empfohlen, dass Erweiterungen die Form "ext+" verwenden.
+    - eines der folgenden: "bitcoin", "dat", "dweb", "ftp", "geo", "gopher", "im", "ipfs", "ipns", "irc", "ircs", "magnet", "mailto", "matrix", "mms", "news", "nntp", "sip", "sms", "smsto", "ssb", "ssh", "tel", "urn", "webcal", "wtai", "xmpp".
+    - eine Zeichenkette, die aus einem benutzerdefinierten Namen besteht, der mit "web+" oder "ext+" vorangestellt ist. Zum Beispiel: "web+foo" oder "ext+foo". Der benutzerdefinierte Name darf nur aus Kleinbuchstaben und {{Glossary("ASCII", "ASCII")}}-Zeichen bestehen. Es wird empfohlen, dass Erweiterungen die Form "ext+" verwenden.
 
 - `name`
-  - : Ein String, der den Namen des Protokoll-Handlers darstellt. Dieser wird dem Benutzer angezeigt, wenn er gefragt wird, ob er möchte, dass dieser Handler den Link öffnet.
+  - : Eine Zeichenkette, die den Namen des Protokoll-Handers darstellt. Dieser wird dem Benutzer angezeigt, wenn er gefragt wird, ob er möchte, dass dieser Handler den Link öffnet.
 - `uriTemplate`
-  - : Ein String, der die URL des Handlers darstellt. Dieser String muss "%s" als Platzhalter enthalten: Dieser wird durch die kodierte URL des Dokuments ersetzt, das behandelt werden soll. Diese URL kann eine tatsächliche URL, eine Telefonnummer, eine E-Mail-Adresse oder ähnliches sein. Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
+  - : Eine Zeichenkette, die die URL des Handlers darstellt. Diese Zeichenkette muss "%s" als Platzhalter enthalten: dieser wird durch die escapte URL des zu behandelnden Dokuments ersetzt. Diese URL kann eine echte URL, oder es könnte eine Telefonnummer, E-Mail-Adresse oder dergleichen sein. Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 
 ## Beispiel
 

@@ -1,5 +1,5 @@
 ---
-title: Class selectors
+title: Klassenselektoren
 slug: Web/CSS/Class_selectors
 l10n:
   sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
@@ -7,7 +7,7 @@ l10n:
 
 {{CSSRef}}
 
-Der [CSS](/de/docs/Web/CSS) **Klassen-Selektor** entspricht Elementen basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attributs.
+Der [CSS](/de/docs/Web/CSS) **Klassenselektor** selektiert Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attributs.
 
 ```css
 /* All elements with class="spacious" */
@@ -33,17 +33,17 @@ li.spacious.elegant {
 .class_name { style properties }
 ```
 
-Beachten Sie, dass dies dem folgenden [Attribut-Selektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
+Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attribute_selectors) entspricht:
 
 ```css
 [class~=class_name] { style properties }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML `class` Attribute, die keine gültigen CSS-Identifier sind, müssen [maskiert](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassen-Selektoren verwendet werden können.
+Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML `class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
-### Gültige Klassen-Selektoren
+### Gültige Klassenselektoren
 
 #### HTML
 
@@ -97,9 +97,9 @@ that contain characters which must be escaped in CSS -->
 
 {{EmbedLiveSample('Examples', "", 300)}}
 
-### Ungültige Klassen-Selektoren
+### Ungültige Klassenselektoren
 
-Die Klassen-Selektoren in den folgenden Regeln sind keine gültigen CSS-Identifier und werden ignoriert.
+Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifier und werden ignoriert.
 
 ```css example-bad
 .item?one {
@@ -122,4 +122,4 @@ Die Klassen-Selektoren in den folgenden Regeln sind keine gültigen CSS-Identifi
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [Learn CSS: Selectors](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)

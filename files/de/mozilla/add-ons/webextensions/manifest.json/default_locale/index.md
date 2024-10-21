@@ -14,7 +14,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>
         Bedingt: muss vorhanden sein, wenn das Verzeichnis _locales vorhanden ist,
         muss andernfalls fehlen.

@@ -28,9 +28,9 @@ l10n:
   </tbody>
 </table>
 
-Zusätzlich zum [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Feld, das für Aktualisierungszwecke verwendet wird, kann [version_name](https://developer.chrome.com/docs/extensions/reference/manifest/version) auf eine beschreibende Versionszeichenfolge gesetzt werden und wird für Anzeigezwecke verwendet, wenn es vorhanden ist.
+Zusätzlich zum [version](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version)-Feld, das für Aktualisierungszwecke verwendet wird, kann [version_name](https://developer.chrome.com/docs/extensions/reference/manifest/version) auf einen beschreibenden Versionsstring gesetzt werden und wird für Anzeigezwecke verwendet, wenn es vorhanden ist.
 
-Wenn kein **version_name** vorhanden ist, wird das **version**-Feld ebenfalls für Anzeigezwecke verwendet.
+Falls kein **version_name** vorhanden ist, wird das **version**-Feld ebenfalls für Anzeigezwecke verwendet.
 
 ## Browser-Kompatibilität
 

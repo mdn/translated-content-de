@@ -14,7 +14,7 @@ l10n:
       <td><code>Boolean</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Obligatorisch</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -30,11 +30,11 @@ l10n:
 
 {{Non-standard_Header}}
 
-Gibt an, ob die App oder Erweiterung offline funktionieren soll. Wenn Chrome erkennt, dass es offline ist, werden Apps mit diesem auf `true` gesetzten Feld auf der Neuen-Tab-Seite hervorgehoben.
+Ob die App oder Erweiterung offline arbeiten soll. Wenn Chrome erkennt, dass es offline ist, werden Apps mit diesem auf `true` gesetzten Feld auf der Seite „Neuer Tab“ hervorgehoben.
 
-Ab Chrome 35 wird davon ausgegangen, dass Apps (ab 2018 nur ChromeOS) offline-fähig sind, und der Standardwert von `"offline_enabled"` ist `true`, es sei denn, die Berechtigung `"webview"` wird angefordert. In diesem Fall wird angenommen, dass Netzwerkverbindung erforderlich ist, und `"offline_enabled"` hat standardmäßig den Wert `false`.
+Seit Chrome 35 wird angenommen, dass Apps (ab 2018 nur auf ChromeOS) offlinefähig sind, und der Standardwert von `"offline_enabled"` ist `true`, es sei denn, die Berechtigung `"webview"` wird angefordert. In diesem Fall wird angenommen, dass eine Netzwerkverbindung erforderlich ist, und `"offline_enabled"` ist standardmäßig `false`.
 
-Der Wert `"offline_enabled"` wird auch verwendet, um festzustellen, ob eine Netzwerkkonnektivitätsprüfung durchgeführt wird, wenn eine App im [ChromeOS-Kioskmodus](https://developer.chrome.com/docs/apps/manifest/kiosk_enabled/) gestartet wird. Eine Netzwerkkonnektivitätsprüfung wird durchgeführt, wenn Apps nicht offline-fähig sind, und der Start der App wird zurückgestellt, bis das Gerät eine Verbindung zum Internet hergestellt hat.
+Der Wert von `"offline_enabled"` wird auch verwendet, um zu bestimmen, ob eine Netzwerkverbindungsprüfung durchgeführt wird, wenn eine App im [ChromeOS-Kioskmode](https://developer.chrome.com/docs/apps/manifest/kiosk_enabled/) gestartet wird. Eine Netzwerkverbindungsprüfung wird durchgeführt, wenn Apps nicht offlinefähig sind, und der App-Start wird zurückgestellt, bis das Gerät eine Verbindung zum Internet herstellt.
 
 ## Browser-Kompatibilität
 

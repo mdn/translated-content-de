@@ -32,14 +32,14 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den `incognito`-Schlüssel, um zu steuern, wie die Erweiterung mit privaten Browserfenstern arbeitet.
+Verwenden Sie den `incognito`-Schlüssel, um zu steuern, wie die Erweiterung mit privaten Browsing-Fenstern arbeitet.
 
 > [!NOTE]
-> Standardmäßig werden Erweiterungen in privaten Browserfenstern nicht ausgeführt. Ob eine Erweiterung auf private Browserfenster zugreifen kann, liegt in der Kontrolle des Benutzers. Für Details siehe [Erweiterungen im privaten Modus](https://support.mozilla.org/en-US/kb/extensions-private-browsing). Ihre Erweiterung kann überprüfen, ob sie auf private Browserfenster zugreifen kann, indem sie {{WebExtAPIRef("extension.isAllowedIncognitoAccess")}} verwendet.
+> Standardmäßig laufen Erweiterungen nicht in privaten Browsing-Fenstern. Ob eine Erweiterung auf private Browsing-Fenster zugreifen kann, liegt in der Kontrolle des Benutzers. Für Details siehe [Erweiterungen im privaten Modus](https://support.mozilla.org/en-US/kb/extensions-private-browsing). Ihre Erweiterung kann prüfen, ob sie auf private Browsing-Fenster zugreifen kann, indem sie {{WebExtAPIRef("extension.isAllowedIncognitoAccess")}} verwendet.
 
 Dies ist ein String, der einen der folgenden Werte annehmen kann:
 
-- "spanning" (die Standardeinstellung): Die Erweiterung sieht Ereignisse aus privaten und nicht privaten Fenstern und Tabs. Fenster und Tabs erhalten eine `incognito`-Eigenschaft im [`Window`](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/Window) oder [`Tab`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab), die sie repräsentiert. Diese Eigenschaft zeigt an, ob das Objekt privat ist oder nicht:
+- "spanning" (Standard): Die Erweiterung sieht Ereignisse aus privaten und nicht-privaten Fenstern und Tabs. Fenster und Tabs erhalten eine `incognito`-Eigenschaft im [`Window`](/de/docs/Mozilla/Add-ons/WebExtensions/API/windows/Window) oder [`Tab`](/de/docs/Mozilla/Add-ons/WebExtensions/API/tabs/Tab), die sie repräsentiert. Diese Eigenschaft zeigt an, ob das Objekt privat ist oder nicht:
 
   ```js
   browser.windows.getLastFocused().then((windowInfo) => {
@@ -47,10 +47,10 @@ Dies ist ein String, der einen der folgenden Werte annehmen kann:
   });
   ```
 
-- "split": Die Erweiterung ist zwischen privaten und nicht privaten Fenstern aufgeteilt. Es laufen effektiv zwei Kopien der Erweiterung: eine sieht nur nicht private Fenster, die andere sieht nur private Fenster. Jede Kopie hat isolierten Zugriff auf Web-APIs (zum Beispiel wird [`localStorage`](/de/docs/Web/API/Window/localStorage) nicht geteilt). Allerdings wird die WebExtension-API [`storage.local`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/local) geteilt.
+- "split": Die Erweiterung ist zwischen privaten und nicht-privaten Fenstern aufgeteilt. Es laufen effektiv zwei Kopien der Erweiterung: eine sieht nur nicht-private Fenster, die andere sieht nur private Fenster. Jede Kopie hat isolierten Zugriff auf Web-APIs (zum Beispiel wird [`localStorage`](/de/docs/Web/API/Window/localStorage) nicht geteilt). Allerdings wird die WebExtension API [`storage.local`](/de/docs/Mozilla/Add-ons/WebExtensions/API/storage/local) geteilt.
 
   > [!NOTE]
-  > Firefox unterstützt den "split"-Modus nicht. Erweiterungen, die diese Option in Firefox anfordern, werden mit "not_allowed" installiert.
+  > Firefox unterstützt den "split"-Modus nicht. Erweiterungen, die diese Option in Firefox anfordern, werden mit der Einstellung "not_allowed" installiert.
 
 - "not_allowed": Private Tabs und Fenster sind für die Erweiterung unsichtbar.
 

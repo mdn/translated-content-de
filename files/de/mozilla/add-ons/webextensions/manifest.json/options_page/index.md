@@ -30,13 +30,13 @@ l10n:
   </tbody>
 </table>
 
-Verwenden Sie den Schlüssel `options_page`, um eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) zu definieren, die in einem neuen Tab geöffnet wird. Sie verwenden diese Seite, um den Benutzern das Ändern der Einstellungen Ihrer Erweiterung zu ermöglichen.
+Verwenden Sie den Schlüssel `options_page`, um eine [Optionsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages) zu definieren, die in einem neuen Tab geöffnet wird. Sie verwenden diese Seite, um es Benutzern zu ermöglichen, die Einstellungen Ihrer Erweiterung zu ändern.
 
-Die Art und Weise, wie der Benutzer die Seite öffnet, ist browserabhängig. In Firefox öffnet sich die Seite, wenn das Symbol der Erweiterung angeklickt wird. Ihre Erweiterung kann die Seite auch durch die Verwendung von {{WebExtAPIRef("runtime.openOptionsPage()")}} öffnen.
+Die Art und Weise, wie der Benutzer die Seite öffnet, ist browserabhängig. In Firefox wird die Seite geöffnet, wenn auf das Symbol der Erweiterung geklickt wird. Ihre Erweiterung kann die Seite auch mithilfe von {{WebExtAPIRef("runtime.openOptionsPage()")}} öffnen.
 
-Alternativ können Sie den Schlüssel [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) mit `open_in_tab` auf `true` verwenden. Wenn `options_ui` angegeben ist, wird `options_page` ignoriert.
+Alternativ können Sie den Schlüssel [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) verwenden, wobei `open_in_tab` auf `true` gesetzt ist. Wenn `options_ui` angegeben ist, wird `options_page` ignoriert.
 
-Siehe [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui) für weitere Informationen zur Entwicklung einer Einstellungsseite.
+Weitere Informationen zur Entwicklung einer Einstellungsseite finden Sie unter [`options_ui`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/options_ui).
 
 ## Beispiel
 

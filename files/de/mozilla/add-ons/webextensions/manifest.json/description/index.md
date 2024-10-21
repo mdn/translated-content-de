@@ -14,7 +14,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -25,14 +25,14 @@ l10n:
       <th scope="row">Beispiel</th>
       <td>
         <pre class="brush: json">
-"description": "Replaces pictures with pictures of cats."</pre
+"description": "Ersetzt Bilder durch Bilder von Katzen."</pre
         >
       </td>
     </tr>
   </tbody>
 </table>
 
-Eine kurze Beschreibung der Erweiterung, die zur Anzeige in der Benutzeroberfläche des Browsers bestimmt ist. In Firefox und Chrome kann dieser Wert bis zu 132 Zeichen lang sein. Das Limit in anderen Browsern kann abweichen.
+Eine kurze Beschreibung der Erweiterung, die für die Anzeige in der Benutzeroberfläche des Browsers vorgesehen ist. In Firefox und Chrome kann dieser Wert bis zu 132 Zeichen lang sein. Das Limit in anderen Browsern kann abweichen.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

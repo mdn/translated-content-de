@@ -14,7 +14,7 @@ l10n:
       <td><code>String</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Ja</td>
     </tr>
     <tr>
@@ -26,11 +26,11 @@ l10n:
 
 Name der Erweiterung. Dieser wird verwendet, um die Erweiterung in der Benutzeroberfläche des Browsers und auf Websites wie addons.mozilla.org zu identifizieren.
 
-Es ist eine gute Praxis, den Namen kurz genug zu halten, damit er in der Benutzeroberfläche angezeigt werden kann. Auch die Länge des Namens einer veröffentlichten Erweiterung kann begrenzt sein. Zum Beispiel, ab Februar 2024:
+Es ist eine gute Praxis, den Namen kurz genug zu halten, um ihn in der Benutzeroberfläche anzuzeigen. Außerdem kann die Länge des Namens einer veröffentlichten Erweiterung begrenzt sein. Zum Beispiel, ab Februar 2024:
 
 - addons.mozilla.org akzeptiert maximal 50 Zeichen.
-- Der Chrome Web Store akzeptiert maximal 75 Zeichen.
-- Der Microsoft Edge Addons Store akzeptiert maximal 45 Zeichen.
+- der Chrome Web Store akzeptiert maximal 75 Zeichen.
+- der Microsoft Edge Addons Store akzeptiert maximal 45 Zeichen.
 
 Diese Einschränkungen gelten nicht für selbst gehostete Erweiterungen oder Erweiterungen, die außerhalb der Stores verteilt werden.
 
