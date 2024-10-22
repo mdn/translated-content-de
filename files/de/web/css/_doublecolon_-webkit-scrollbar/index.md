@@ -2,40 +2,40 @@
 title: "::-webkit-scrollbar"
 slug: Web/CSS/::-webkit-scrollbar
 l10n:
-  sourceCommit: ae0fdf44f8195a1406b170670832ac510ce03764
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Das `::-webkit-scrollbar` CSS-Pseudoelement beeinflusst das Erscheinungsbild des Scrollbalkens eines Elements, wenn es überlaufbar ist.
+Das CSS-Pseudoelement `::-webkit-scrollbar` beeinflusst den Stil des Scrollbalkens eines Elements, wenn es überlaufend scrollbar ist.
 
-Die Standard-Eigenschaften {{cssxref("scrollbar-color")}} und {{cssxref("scrollbar-width")}} können als Alternativen für Browser verwendet werden, die dieses Pseudoelement und die verwandten `::-webkit-scrollbar-*` -Pseudoelemente nicht unterstützen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
+Die standardmäßigen Eigenschaften {{cssxref("scrollbar-color")}} und {{cssxref("scrollbar-width")}} können als Alternativen für Browser verwendet werden, die dieses Pseudoelement und die zugehörigen `::-webkit-scrollbar-*` Pseudoelemente nicht unterstützen (siehe [Browser-Kompatibilität](#browser-kompatibilität)).
 
 > [!NOTE]
-> Wenn {{cssxref("scrollbar-color")}} und {{cssxref("scrollbar-width")}} unterstützt werden und irgendeinen anderen Wert als `auto` haben, überschreiben sie das Styling von `::-webkit-scrollbar-*`.
-> Weitere Details finden Sie unter [Hinzufügen eines Fallbacks für Scrollbar-Stile](#hinzufügen_eines_fallbacks_für_scrollbar-stile).
+> Wenn {{cssxref("scrollbar-color")}} und {{cssxref("scrollbar-width")}} unterstützt werden und einen anderen Wert als `auto` haben, überschreiben sie das `::-webkit-scrollbar-*` Styling.
+> Weitere Informationen finden Sie unter [Hinzufügen eines Fallbacks für Scrollbalken-Stile](#hinzufügen_eines_fallbacks_für_scrollbalken-stile).
 
-## CSS Scrollbar-Selektoren
+## CSS-Scrollbar-Selektoren
 
 Sie können die folgenden Pseudoelemente verwenden, um verschiedene Teile des Scrollbalkens für WebKit-Browser anzupassen:
 
 - `::-webkit-scrollbar` — der gesamte Scrollbalken.
-- `::-webkit-scrollbar-button` — die Tasten auf dem Scrollbalken (Pfeile, die auf- und abwärts zeigen und jeweils eine Zeile scrollen).
+- `::-webkit-scrollbar-button` — die Tasten auf dem Scrollbalken (Pfeile, die nach oben und unten zeigen und jeweils eine Zeile scrollen).
 - `::-webkit-scrollbar:horizontal{}` — der horizontale Scrollbalken.
-- `::-webkit-scrollbar-thumb` — der ziehbare Scrollgriff.
-- `::-webkit-scrollbar-track` — die Bahn (Fortschrittsanzeige) des Scrollbalkens, wo es eine graue Leiste auf einer weißen Leiste gibt.
-- `::-webkit-scrollbar-track-piece` — der Teil der Bahn (Fortschrittsanzeige), die nicht vom Griff abgedeckt wird.
+- `::-webkit-scrollbar-thumb` — der verschiebbare Scrollgriff.
+- `::-webkit-scrollbar-track` — die Schiene (Fortschrittsbalken) des Scrollbalkens, bei der ein grauer Balken auf einem weißen Balken liegt.
+- `::-webkit-scrollbar-track-piece` — der Teil der Schiene (Fortschrittsbalken), der nicht vom Griff bedeckt ist.
 - `::-webkit-scrollbar:vertical{}` — der vertikale Scrollbalken.
-- `::-webkit-scrollbar-corner` — die untere Ecke des Scrollbalkens, an dem sich horizontaler und vertikaler Scrollbalken treffen. Dies ist oft die untere rechte Ecke des Browserfensters.
-- `::-webkit-resizer` — der ziehbare Anpassungsgriff, der in der unteren Ecke einiger Elemente erscheint.
+- `::-webkit-scrollbar-corner` — die untere Ecke des Scrollbalkens, in der sich horizontale und vertikale Scrollbalken treffen. Dies ist oft die untere rechte Ecke des Browserfensters.
+- `::-webkit-resizer` — der ziehbare Griff zum Ändern der Größe, der in der unteren Ecke einiger Elemente erscheint.
 
 ## Barrierefreiheit
 
-Autoren sollten vermeiden, Scrollbalken zu stylen, da das Verändern des Erscheinungsbilds von Scrollbalken abseits der Voreinstellungen die [externe Konsistenz verletzt](https://inclusivedesignprinciples.info/#be-consistent), was die Benutzerfreundlichkeit negativ beeinträchtigt. Wenn Sie Scrollbalken stylen, stellen Sie sicher, dass genügend Farbkontrast vorhanden ist und die Touch-Ziele mindestens 44px breit und hoch sind. Siehe [Techniken für WCAG 2.0: G183: Verwendung eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html) und [Verständnis von WCAG 2.1: Zielgröße](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
+Autoren sollten vermeiden, Scrollbalken zu stylen, da das Ändern des Erscheinungsbildes von Scrollbalken von der Standardeinstellung abweicht und die [externe Konsistenz unterbricht](https://inclusivedesignprinciples.info/#be-consistent), was die Benutzerfreundlichkeit negativ beeinflusst. Wenn Sie Scrollbalken stylen, stellen Sie sicher, dass es genügend Farbkontrast gibt und dass Berührungsziele mindestens 44px breit und hoch sind. Siehe [Techniken für WCAG 2.0: G183: Verwenden eines Kontrastverhältnisses von 3:1](https://www.w3.org/TR/WCAG20-TECHS/G183.html) und [Verständnis von WCAG 2.1: Zielgröße](https://www.w3.org/WAI/WCAG21/Understanding/target-size.html).
 
 ## Beispiele
 
-### Scrollbars mit `-webkit-scrollbar` stylen
+### Scrollbalken stylen mit `-webkit-scrollbar`
 
 #### CSS
 
@@ -111,14 +111,14 @@ Autoren sollten vermeiden, Scrollbalken zu stylen, da das Verändern des Erschei
 
 {{EmbedLiveSample("styling_scrollbars_using_-webkit-scrollbar", 600, 300)}}
 
-### Hinzufügen eines Fallbacks für Scrollbar-Stile
+### Hinzufügen eines Fallbacks für Scrollbalken-Stile
 
-Sie können ein {{cssxref("@supports")}}-Regelwerk verwenden, um zu erkennen, ob ein Browser die Standard-Eigenschaften {{cssxref("scrollbar-color")}} und {{cssxref("scrollbar-width")}} unterstützt, und andernfalls ein Fallback mit `::-webkit-scrollbar-*`-Pseudoelementen verwenden. Das folgende Beispiel zeigt, wie Farben auf Scrollbalken angewendet werden, indem {{cssxref("scrollbar-color")}} verwendet wird, wenn dies unterstützt wird, und `::-webkit-scrollbar-*`-Pseudoelemente, wenn nicht.
+Sie können eine {{cssxref("@supports")}} Regel verwenden, um zu erkennen, ob ein Browser die standardmäßigen {{cssxref("scrollbar-color")}} und {{cssxref("scrollbar-width")}} Eigenschaften unterstützt, und andernfalls einen Fallback mit `::-webkit-scrollbar-*` Pseudoelementen verwenden. Das folgende Beispiel zeigt, wie Farben auf Scrollbalken angewendet werden, wenn {{cssxref("scrollbar-color")}} unterstützt wird und `::-webkit-scrollbar-*` Pseudoelemente, wenn nicht.
 
 #### HTML
 
 ```html
-<div class="scrollbox">
+<div class="scroll-box">
   <h1>Yoshi</h1>
   <p>
     Yoshi is a fictional dinosaur who appears in video games published by
@@ -139,7 +139,7 @@ Sie können ein {{cssxref("@supports")}}-Regelwerk verwenden, um zu erkennen, ob
 #### CSS
 
 ```css hidden
-.scrollbox {
+.scroll-box {
   overflow: auto;
   width: 20rem;
   height: 5rem;
@@ -152,17 +152,17 @@ Sie können ein {{cssxref("@supports")}}-Regelwerk verwenden, um zu erkennen, ob
 ```css
 /* For browsers that support `scrollbar-*` properties */
 @supports (scrollbar-color: auto) {
-  .scrollbox {
+  .scroll-box {
     scrollbar-color: aquamarine cornflowerblue;
   }
 }
 
 /* Otherwise, use `::-webkit-scrollbar-*` pseudo-elements */
 @supports selector(::-webkit-scrollbar) {
-  .scrollbox::-webkit-scrollbar {
+  .scroll-box::-webkit-scrollbar {
     background: aquamarine;
   }
-  .scrollbox::-webkit-scrollbar-thumb {
+  .scroll-box::-webkit-scrollbar-thumb {
     background: cornflowerblue;
   }
 }
@@ -170,13 +170,13 @@ Sie können ein {{cssxref("@supports")}}-Regelwerk verwenden, um zu erkennen, ob
 
 #### Ergebnis
 
-Im folgenden Beispiel können Sie die umrandete Box vertikal scrollen, um den Effekt des Stylens des Scrollbalkens zu sehen.
+Im untenstehenden Beispiel können Sie die umrandete Box vertikal scrollen, um die Wirkung des Scrollbalken-Stylings zu sehen.
 
 {{EmbedLiveSample("adding_a_fallback_to_standard_scrollbar_style_properties")}}
 
 ## Spezifikationen
 
-Teil keiner Spezifikation.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -186,6 +186,6 @@ Teil keiner Spezifikation.
 
 - {{CSSxRef("scrollbar-width")}}
 - {{CSSxRef("scrollbar-color")}}
-- [Verwenden Sie keine benutzerdefinierten Scrollbars](https://ericwbailey.website/published/dont-use-custom-css-scrollbars/) (2023)
-- [Scrollbar-Styling](https://developer.chrome.com/docs/css-ui/scrollbar-styling) auf developer.chrome.com (2024)
-- [Styling Scrollbars](https://webkit.org/blog/363/styling-scrollbars/) auf WebKit.org (2009)
+- [Verwenden Sie keine benutzerdefinierten Scrollbalken](https://ericwbailey.website/published/dont-use-custom-css-scrollbars/) (2023)
+- [Scrollbar-Stil](https://developer.chrome.com/docs/css-ui/scrollbar-styling) auf developer.chrome.com (2024)
+- [Scrollbars stylen](https://webkit.org/blog/363/styling-scrollbars/) auf WebKit.org (2009)

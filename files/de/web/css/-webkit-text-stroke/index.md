@@ -2,12 +2,12 @@
 title: "-webkit-text-stroke"
 slug: Web/CSS/-webkit-text-stroke
 l10n:
-  sourceCommit: c23237c82089ca6c56946ce1be95f11646823b53
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt die [Breite](/de/docs/Web/CSS/length) und [Farbe](/de/docs/Web/CSS/color_value) von Umrandungen für Textzeichen fest. Diese Eigenschaft ist eine Kurzform für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
+Die **`-webkit-text-stroke`** [CSS](/de/docs/Web/CSS) Eigenschaft spezifiziert die [Breite](/de/docs/Web/CSS/length) und [Farbe](/de/docs/Web/CSS/color_value) der Konturen für Textzeichen. Dies ist eine Kurzform-Eigenschaft für die Langform-Eigenschaften {{cssxref("-webkit-text-stroke-width")}} und {{cssxref("-webkit-text-stroke-color")}}.
 
 ```css
 /* Width and color values */
@@ -34,9 +34,9 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Breite der Umrandung.
+  - : Die Breite der Kontur.
 - {{cssxref("&lt;color&gt;")}}
-  - : Die Farbe der Umrandung.
+  - : Die Farbe der Kontur.
 
 ## Formale Definition
 
@@ -48,7 +48,7 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 ## Beispiele
 
-### Hinzufügen einer roten Textrandlinie
+### Hinzufügen einer roten Textkontur
 
 #### HTML
 
@@ -80,8 +80,8 @@ Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 ## Siehe auch
 
-- [Blog-Beitrag auf Surfin' Safari, der diese Funktion ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
-- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
+- [Artikel auf CSS-Tricks, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-fill-color")}}

@@ -2,12 +2,12 @@
 title: font-display
 slug: Web/CSS/@font-face/font-display
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) At-Regel bestimmt, wie eine Schriftart abhängig davon angezeigt wird, ob und wann sie heruntergeladen und einsatzbereit ist.
+Der **`font-display`** Deskriptor für die [`@font-face`](/de/docs/Web/CSS/@font-face) Regel bestimmt, wie eine Schriftart basierend darauf, ob und wann sie heruntergeladen und einsatzbereit ist, angezeigt wird.
 
 ## Syntax
 
@@ -23,28 +23,27 @@ font-display: optional;
 ### Werte
 
 - `auto`
-  - : Die Schriftart-Anzeigestrategie wird vom User-Agent definiert.
+  - : Die Strategie zur Anzeige der Schriftart wird vom Benutzeragenten definiert.
 - `block`
-  - : Gibt der Schriftart ein kurzes Blockintervall und ein unendliches Swap-Intervall.
+  - : Gibt der Schriftart ein kurzes Sperrzeitfenster und ein unendliches Swap-Fenster.
 - `swap`
-  - : Gibt der Schriftart ein extrem kurzes Blockintervall und ein unendliches Swap-Intervall.
+  - : Gibt der Schriftart ein extrem kurzes Sperrzeitfenster und ein unendliches Swap-Fenster.
 - `fallback`
-  - : Gibt der Schriftart ein extrem kurzes Blockintervall und ein kurzes Swap-Intervall.
+  - : Gibt der Schriftart ein extrem kurzes Sperrzeitfenster und ein kurzes Swap-Fenster.
 - `optional`
-  - : Gibt der Schriftart ein extrem kurzes Blockintervall und kein Swap-Intervall.
+  - : Gibt der Schriftart ein extrem kurzes Sperrzeitfenster und kein Swap-Fenster.
 
 > [!NOTE]
-> In Firefox geben die Voreinstellungen `gfx.downloadable_fonts.fallback_delay`
-> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer
-> der "kurzen" und "extrem kurzen" Intervalle an.
+> In Firefox geben die Einstellungen `gfx.downloadable_fonts.fallback_delay`
+> und `gfx.downloadable_fonts.fallback_delay_short` die Dauer der "kurzen" und "extrem kurzen" Zeiträume an.
 
 ## Beschreibung
 
-Der Schriftarten-Anzeigezeitstrahl basiert auf einem Timer, der startet, sobald der User-Agent versucht, eine gegebene heruntergeladene Schriftart zu verwenden. Der Zeitstrahl ist in die drei unten stehenden Perioden unterteilt, die das Rendering-Verhalten aller Elemente bestimmen, die die Schriftart verwenden:
+Die Zeitleiste für die Schriftanzeige basiert auf einem Timer, der startet, sobald der Benutzeragent versucht, eine heruntergeladene Schriftart zu verwenden. Die Zeitleiste ist in die folgenden drei Perioden unterteilt, die das Renderverhalten von Elementen diktieren, die die Schriftart verwenden:
 
-- Schriftblockperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine _unsichtbare_ Ersatzschriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
-- Schrift-Swapperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine Ersatzschriftart rendern. Wenn die Schriftart während dieser Periode erfolgreich geladen wird, wird sie normal verwendet.
-- Schriftfehlperiode: Wenn die Schriftart nicht geladen ist, behandelt der User-Agent sie als fehlgeschlagenen Ladevorgang, der zu normalem Schriftart-Fallback führt.
+- Schriftblockperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine _unsichtbare_ Fallback-Schrift verwenden. Wenn die Schriftart während dieses Zeitraums erfolgreich geladen wird, wird sie normal verwendet.
+- Schriftumtauschperiode: Wenn die Schriftart nicht geladen ist, muss jedes Element, das versucht, sie zu verwenden, eine Fallback-Schrift verwenden. Wenn die Schriftart während dieses Zeitraums erfolgreich geladen wird, wird sie normal verwendet.
+- Schriftfehlerperiode: Wenn die Schriftart nicht geladen ist, behandelt der Benutzeragent sie als fehlgeschlagenen Ladevorgang und verursacht normales Schrift-Fallback.
 
 ## Formale Definition
 
@@ -56,14 +55,14 @@ Der Schriftarten-Anzeigezeitstrahl basiert auf einem Timer, der startet, sobald 
 
 ## Beispiele
 
-### Festlegen der Ersatzschriftart-Anzeigen
+### Fallback für font-display spezifizieren
 
 ```css
 @font-face {
   font-family: ExampleFont;
   src:
-    url(/path/to/fonts/examplefont.woff) format("woff"),
-    url(/path/to/fonts/examplefont.eot) format("eot");
+    url(/path/to/fonts/example-font.woff) format("woff"),
+    url(/path/to/fonts/example-font.eot) format("eot");
   font-weight: 400;
   font-style: normal;
   font-display: fallback;

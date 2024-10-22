@@ -1,27 +1,27 @@
 ---
-title: CSS Transforms verwenden
+title: Verwendung von CSS-Transformationen
 slug: Web/CSS/CSS_transforms/Using_CSS_transforms
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Durch die Modifikation des Koordinatenraums verändern **CSS Transforms** die Form und Position des betroffenen Inhalts, ohne den normalen Dokumentenfluss zu stören. Dieser Leitfaden bietet eine Einführung in die Verwendung von Transforms.
+Durch die Modifizierung des Koordinatenraums ändern **CSS-Transformationen** die Form und Position des betroffenen Inhalts, ohne den normalen Dokumentenfluss zu stören. Dieser Leitfaden bietet eine Einführung in die Verwendung von Transformationen.
 
-CSS Transforms werden über eine Reihe von CSS-Eigenschaften implementiert, die es Ihnen ermöglichen, affine lineare Transformationen auf HTML-Elemente anzuwenden. Diese Transformationen umfassen Drehung, Schrägstellung, Skalierung und Translation sowohl in der Ebene als auch im 3D-Raum.
+CSS-Transformationen werden mit einer Reihe von CSS-Eigenschaften implementiert, die es Ihnen erlauben, affine lineare Transformationen auf HTML-Elemente anzuwenden. Diese Transformationen umfassen Drehung, Schrägstellung, Skalierung und Translation sowohl in der Ebene als auch im 3D-Raum.
 
 > [!WARNING]
-> Nur transformierbare Elemente können `transform`iert werden; das heißt, alle Elemente, deren Layout durch das CSS [Boxmodell](/de/docs/Web/CSS/CSS_box_model) bestimmt wird, mit Ausnahme von: [nicht ersetzte Inline-Boxen](/de/docs/Web/CSS/Visual_formatting_model#inline-level_and_block-level_boxes), [Table-Column-Boxen](/de/docs/Web/HTML/Element/col) und [Table-Column-Group-Boxen](/de/docs/Web/HTML/Element/colgroup).
+> Nur transformierbare Elemente können `transform`iert werden; das heißt, alle Elemente, deren Layout durch das CSS-[Box-Modell](/de/docs/Web/CSS/CSS_box_model) geregelt wird, mit Ausnahme von: [nicht ersetzten Inline-Boxen](/de/docs/Web/CSS/Visual_formatting_model#inline-level_and_block-level_boxes), [Tabellenspalten-Boxen](/de/docs/Web/HTML/Element/col) und [Tabellenspalten-Gruppen-Boxen](/de/docs/Web/HTML/Element/colgroup).
 
-## Eigenschaften von CSS Transforms
+## CSS-Transformations-Eigenschaften
 
-Zwei wesentliche Eigenschaften werden zur Definition von CSS Transforms verwendet: {{cssxref("transform")}} (oder die einzelnen {{cssxref('translate')}}, {{cssxref('rotate')}}, und {{cssxref('scale')}} Eigenschaften) sowie {{cssxref("transform-origin")}}.
+Zwei Haupteigenschaften werden verwendet, um CSS-Transformationen zu definieren: {{cssxref("transform")}} (oder die individuellen {{cssxref('translate')}}, {{cssxref('rotate')}}, und {{cssxref('scale')}} Eigenschaften) und {{cssxref("transform-origin")}}.
 
 - {{cssxref("transform-origin")}}
-  - : Gibt die Position des Ursprungs an. Standardmäßig befindet er sich in der Mitte des Elements und kann verschoben werden. Er wird von mehreren Transforms verwendet, wie z.B. Drehungen, Skalierungen oder Schrägstellungen, die einen bestimmten Punkt als Parameter benötigen.
+  - : Gibt die Position des Ursprungs an. Standardmäßig befindet er sich in der Mitte des Elements und kann verschoben werden. Es wird von mehreren Transformationen wie Drehung, Skalierung oder Schrägstellung verwendet, die einen spezifischen Punkt als Parameter benötigen.
 - {{cssxref("transform")}}
-  - : Gibt die auf das Element anzuwendenden Transforms an. Es ist eine durch Leerzeichen getrennte Liste von Transforms, die nacheinander angewendet werden, wie es durch den Kompositionsvorgang gefordert wird. Zusammengesetzte Transforms werden effektiv in der Reihenfolge von rechts nach links angewendet.
+  - : Gibt die Transformationen an, die auf das Element angewendet werden. Es ist eine durch Leerzeichen getrennte Liste von Transformationen, die nacheinander, wie durch die Zusammensetzungsoperation angefordert, angewendet werden. Zusammengesetzte Transformationen werden effektiv in der Reihenfolge von rechts nach links angewendet.
 
 ## Beispiele
 
@@ -31,7 +31,7 @@ Hier ist ein unverändertes Bild des MDN-Logos:
 
 ### Drehung
 
-Hier ist das MDN-Logo um 90 Grad von seiner unteren linken Ecke gedreht.
+Hier ist das MDN-Logo um 90 Grad ab seiner unteren linken Ecke gedreht.
 
 ```html
 <img
@@ -45,7 +45,7 @@ Hier ist das MDN-Logo um 90 Grad von seiner unteren linken Ecke gedreht.
 
 ### Schrägstellung und Translation
 
-Hier ist das MDN-Logo, um 10 Grad geneigt und um 150 Pixel auf der X-Achse übersetzt.
+Hier ist das MDN-Logo, um 10 Grad geneigt und um 150 Pixel auf der X-Achse verschoben.
 
 ```html
 <img
@@ -59,19 +59,19 @@ Hier ist das MDN-Logo, um 10 Grad geneigt und um 150 Pixel auf der X-Achse über
 
 ## 3D-spezifische CSS-Eigenschaften
 
-Die Durchführung von CSS-Transformationen im 3D-Raum ist etwas komplexer. Sie müssen damit beginnen, den 3D-Raum durch die Vorgabe einer Perspektive zu konfigurieren, und dann konfigurieren, wie sich Ihre 2D-Elemente in diesem Raum verhalten werden.
+Das Durchführen von CSS-Transformationen im 3D-Raum ist etwas komplexer. Sie müssen mit der Konfiguration des 3D-Raums beginnen, indem Sie ihm eine Perspektive geben, und dann konfigurieren, wie sich Ihre 2D-Elemente in diesem Raum verhalten.
 
 ### Perspektive
 
-Das erste Element, das festgelegt werden muss, ist die {{cssxref("perspective")}}. Die Perspektive ist das, was uns den 3D-Eindruck verleiht. Je weiter die Elemente vom Betrachter entfernt sind, desto kleiner erscheinen sie.
+Das erste Element, das Sie festlegen müssen, ist die {{cssxref("perspective")}}. Die Perspektive ist das, was uns den 3D-Eindruck vermittelt. Je weiter die Elemente vom Betrachter entfernt sind, desto kleiner erscheinen sie.
 
-#### Perspektive einstellen
+#### Perspektive festlegen
 
-Dieses Beispiel zeigt einen Würfel mit der Perspektive an verschiedenen Positionen. Wie schnell der Würfel verkleinert wird, wird durch die {{cssxref("perspective")}}-Eigenschaft definiert. Je kleiner der Wert ist, desto tiefer ist die Perspektive.
+Dieses Beispiel zeigt einen Würfel mit der Perspektive, die an verschiedenen Positionen eingestellt ist. Wie schnell der Würfel schrumpft, wird durch die {{ cssxref("perspective") }}-Eigenschaft definiert. Je kleiner ihr Wert ist, desto tiefer ist die Perspektive.
 
 ##### HTML
 
-Der folgende HTML-Code erstellt vier Kopien derselben Box, wobei die Perspektive auf verschiedene Werte eingestellt ist.
+Das nachfolgende HTML erstellt vier Kopien derselben Box, bei denen die Perspektive auf verschiedene Werte eingestellt ist.
 
 ```html
 <table>
@@ -142,7 +142,7 @@ Der folgende HTML-Code erstellt vier Kopien derselben Box, wobei die Perspektive
 
 ##### CSS
 
-Der CSS-Code legt Klassen fest, die verwendet werden können, um die Perspektive auf unterschiedliche Entfernungen einzustellen. Er enthält auch Klassen für die Container-Box und den Würfel selbst sowie für jede seiner Flächen.
+Das CSS legt Klassen fest, die verwendet werden können, um die Perspektive auf unterschiedliche Entfernungen einzustellen. Es enthält auch Klassen für die Container-Box und den Würfel selbst sowie für jede seiner Flächen.
 
 ```css
 /* Shorthand classes for different perspective values */
@@ -238,11 +238,11 @@ td {
 
 {{EmbedLiveSample('Setting_perspective', 660, 700)}}
 
-Das zweite Element, das konfiguriert werden muss, ist die Position des Betrachters, mit der Eigenschaft {{cssxref("perspective-origin")}}. Standardmäßig ist die Perspektive auf den Betrachter zentriert, was nicht immer angemessen ist.
+Das zweite Element, das konfiguriert werden muss, ist die Position des Betrachters, mit der {{ cssxref("perspective-origin") }}-Eigenschaft. Standardmäßig ist die Perspektive zentriert auf den Betrachter, was nicht immer angemessen ist.
 
-#### Ursprung der Perspektive ändern
+#### Den Ursprung der Perspektive ändern
 
-Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
+Dieses Beispiel zeigt Würfel mit beliebten `perspective-origin`-Werten.
 
 ##### HTML
 
@@ -251,7 +251,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: top left;</code></figcaption>
     <div class="container">
-      <div class="cube potl">
+      <div class="cube po-tl">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -265,7 +265,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: top;</code></figcaption>
     <div class="container">
-      <div class="cube potm">
+      <div class="cube po-tm">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -279,7 +279,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: top right;</code></figcaption>
     <div class="container">
-      <div class="cube potr">
+      <div class="cube po-tr">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -293,7 +293,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: left;</code></figcaption>
     <div class="container">
-      <div class="cube poml">
+      <div class="cube po-ml">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -307,7 +307,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: 50% 50%;</code></figcaption>
     <div class="container">
-      <div class="cube pomm">
+      <div class="cube po-mm">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -321,7 +321,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: right;</code></figcaption>
     <div class="container">
-      <div class="cube pomr">
+      <div class="cube po-mr">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -335,7 +335,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: bottom left;</code></figcaption>
     <div class="container">
-      <div class="cube pobl">
+      <div class="cube po-bl">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -349,7 +349,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: bottom;</code></figcaption>
     <div class="container">
-      <div class="cube pobm">
+      <div class="cube po-bm">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -363,7 +363,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: bottom right;</code></figcaption>
     <div class="container">
-      <div class="cube pobr">
+      <div class="cube po-br">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -377,7 +377,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: -200% -200%;</code></figcaption>
     <div class="container">
-      <div class="cube po200200neg">
+      <div class="cube po-200200neg">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -391,7 +391,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: 200% 200%;</code></figcaption>
     <div class="container">
-      <div class="cube po200200pos">
+      <div class="cube po-200200pos">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -405,7 +405,7 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
   <figure>
     <figcaption><code>perspective-origin: 200% -200%;</code></figcaption>
     <div class="container">
-      <div class="cube po200200">
+      <div class="cube po-200200">
         <div class="face front">1</div>
         <div class="face back">2</div>
         <div class="face right">3</div>
@@ -422,40 +422,40 @@ Dieses Beispiel zeigt Würfel mit gängigen `perspective-origin`-Werten.
 
 ```css
 /* perspective-origin values (unique per example) */
-.potl {
+.po-tl {
   perspective-origin: top left;
 }
-.potm {
+.po-tm {
   perspective-origin: top;
 }
-.potr {
+.po-tr {
   perspective-origin: top right;
 }
-.poml {
+.po-ml {
   perspective-origin: left;
 }
-.pomm {
+.po-mm {
   perspective-origin: 50% 50%;
 }
-.pomr {
+.po-mr {
   perspective-origin: right;
 }
-.pobl {
+.po-bl {
   perspective-origin: bottom left;
 }
-.pobm {
+.po-bm {
   perspective-origin: bottom;
 }
-.pobr {
+.po-br {
   perspective-origin: bottom right;
 }
-.po200200neg {
+.po-200200neg {
   perspective-origin: -200% -200%;
 }
-.po200200pos {
+.po-200200pos {
   perspective-origin: 200% 200%;
 }
-.po200200 {
+.po-200200 {
   perspective-origin: 200% -200%;
 }
 
@@ -530,12 +530,12 @@ section {
 
 {{EmbedLiveSample('Changing_the_perspective_origin', '100%', 700)}}
 
-Nachdem Sie dies getan haben, können Sie am Element im 3D-Raum arbeiten.
+Sobald Sie dies getan haben, können Sie das Element im 3D-Raum bearbeiten.
 
 ## Siehe auch
 
-- Die [CSS `transform`-Eigenschaft](/de/docs/Web/CSS/transform) und die [CSS `<transform-function>`-Datentypen](/de/docs/Web/CSS/transform-function)
+- Die [CSS `transform`-Eigenschaft](/de/docs/Web/CSS/transform) und die [CSS `<transform-function>` Datentypen](/de/docs/Web/CSS/transform-function)
 - Die individuellen Transformations-Eigenschaften: {{cssxref('translate')}}, {{cssxref('rotate')}}, und {{cssxref('scale')}} (Es gibt keine `skew`-Eigenschaft)
-- [Verwendung der Geräteausrichtung mit 3D-Transforms](/de/docs/Web/API/Device_orientation_events/Using_device_orientation_with_3D_transforms)
-- [Einführung in CSS 3D-Transforms](https://3dtransforms.desandro.com/) (Blogbeitrag von David DeSandro)
-- [CSS Transform Playground](https://css-transform.moro.es/) (Online-Tool zur Visualisierung von CSS-Transform-Funktionen)
+- [Verwendung der Geräteausrichtung mit 3D-Transformationen](/de/docs/Web/API/Device_orientation_events/Using_device_orientation_with_3D_transforms)
+- [Einführung in CSS-3D-Transformationen](https://3dtransforms.desandro.com/) (Blogbeitrag von David DeSandro)
+- [CSS Transform Playground](https://css-transform.moro.es/) (Online-Tool zur Visualisierung von CSS-Transformationsfunktionen)

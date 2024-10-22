@@ -2,39 +2,49 @@
 title: short_name
 slug: Web/Manifest/short_name
 l10n:
-  sourceCommit: 07f0cf4375aaa02e1071d8bd0e8518db7609b7a9
+  sourceCommit: 5d4cc96f432d408b898dbdc8f39f1cab36d3af59
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">Typ</th>
-      <td><code>String</code></td>
-    </tr>
-  </tbody>
-</table>
+Das `short_name` Manifestmitglied wird verwendet, um einen kurzen Namen für Ihre Webanwendung anzugeben. Dieser kann genutzt werden, wenn der vollständige [`name`](/de/docs/Web/Manifest/name) für den verfügbaren Platz zu lang ist.
 
-Das `short_name`-Mitglied ist eine Zeichenkette, die den Namen der Webanwendung darstellt, der angezeigt wird, wenn nicht genügend Platz verfügbar ist, um [`name`](/de/docs/Web/Manifest/name) darzustellen (z. B. als Beschriftung für ein Symbol auf dem Startbildschirm des Telefons). `short_name` ist richtungsfähig, was bedeutet, dass es je nach Wert der [`dir`](/de/docs/Web/Manifest) und [`lang`](/de/docs/Web/Manifest)-Manifestmitglieder von links nach rechts oder von rechts nach links angezeigt werden kann.
+## Syntax
+
+```json-nolint
+/* Short names of web apps */
+"short_name": "TaskPlanner"
+"short_name": "RecipePantry"
+```
+
+### Werte
+
+- `short_name`
+  - : Ein String, der eine kurze Version des [`name`](/de/docs/Web/Manifest/name) Ihrer Web-App angibt.
+
+## Beschreibung
+
+Browser können `short_name` anstelle von [`name`](/de/docs/Web/Manifest/name) verwenden, wenn nicht genügend Platz zur Anzeige des vollständigen Namens vorhanden ist, wie z.B. auf dem Startbildschirm eines Geräts, im Anwendungsschalter oder in anderen platzbeschränkten Kontexten.
+
+Beachten Sie die folgenden Punkte bei der Auswahl eines kurzen Namens für Ihre Web-App:
+
+- Er sollte eine prägnante Version des `name` Ihrer App sein.
+- Während Sie auf Kürze achten, sollte er dennoch erkennbar und sinnvoll sein.
+- Überlegen Sie, wie er in platzbeschränkten Kontexten erscheinen wird.
+- Beachten Sie dieselben Richtlinien für kulturelle Sensibilität und Markenzeichen wie für `name`.
 
 ## Beispiele
 
-Einfaches `short_name` in einer von links nach rechts verlaufenden Sprache:
+### Hinzufügen eines kurzen Namens für Ihre Web-App
+
+Betrachten Sie eine Web-App, die Benutzern hilft, ihre Wanderabenteuer zu planen und zu protokollieren. Der `name` wurde als `Trail Navigator` definiert. Ein `short_name` kann dem Manifest wie folgt hinzugefügt werden:
 
 ```json
-"name": "Awesome application",
-"short_name": "Awesome app"
+"name": "Trail Navigator",
+"short_name": "TrailNav"
 ```
 
-`short_name` in Arabisch, das von rechts nach links angezeigt wird:
-
-```json
-"dir": "rtl",
-"lang": "ar",
-"name": "تطبيق رائع",
-"short_name": "رائع"
-```
+Der kürzere Name der App `TrailNav` ist prägnant und für platzbegrenzte Kontexte geeignet. Er hält die Verbindung zum vollständigen Namen der App aufrecht und ist leicht zu merken.
 
 ## Spezifikationen
 
@@ -43,3 +53,8 @@ Einfaches `short_name` in einer von links nach rechts verlaufenden Sprache:
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`name`](/de/docs/Web/Manifest/name) Manifestmitglied
+- [Das Web-App-Manifest](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable#the_web_app_manifest) zum Installierbar-Machen Ihrer Web-App

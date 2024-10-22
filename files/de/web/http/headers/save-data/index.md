@@ -2,21 +2,21 @@
 title: Save-Data
 slug: Web/HTTP/Headers/Save-Data
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: bd48972c8a9c2acf3b8fa6e41248d0952eb0c406
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der **`Save-Data`** [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#network_client_hints) im Anfrage-Headerfeld ist ein boolescher Wert, der die Präferenz des Clients für eine reduzierte Datennutzung anzeigt. Dies könnte aus Gründen wie hohen Übertragungskosten, langsamen Verbindungsgeschwindigkeiten usw. der Fall sein.
+Das **`Save-Data`** [Netzwerk-Client-Hint](/de/docs/Web/HTTP/Client_hints#network_client_hints) Anforderungsheaderfeld ist ein boolescher Wert, der die Präferenz des Clients für eine reduzierte Datennutzung angibt. Dies könnte aus Gründen wie hohen Übertragungskosten, langsamen Verbindungsgeschwindigkeiten usw. sein.
 
-**`Save-Data`** ist ein [Hinweis mit niedriger Entropie](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) und kann daher vom Client gesendet werden, auch wenn er nicht von dem Server mittels eines {{HTTPHeader("Accept-CH")}} Antwort-Headers angefordert wurde. Darüber hinaus sollte er verwendet werden, um die zum Client gesendeten Daten zu reduzieren, unabhängig von den Werten anderer Client-Hinweise, die die Netzwerkfähigkeit anzeigen, wie {{HTTPHeader("Downlink")}} und {{HTTPHeader("RTT")}}.
+**`Save-Data`** ist ein [Low-Entropy-Hinweis](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) und kann daher vom Client gesendet werden, selbst wenn dieser nicht vom Server mit einem {{HTTPHeader("Accept-CH")}} Antwortheader angefordert wurde. Darüber hinaus sollte es verwendet werden, um die an den Client gesendeten Daten zu reduzieren, unabhängig von den Werten anderer Client-Hinweise, die die Netzwerkkapazität angeben, wie z. B. {{HTTPHeader("Downlink")}} und {{HTTPHeader("RTT")}}.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Request-Header")}},
+        {{Glossary("Request_header", "Anforderungsheader")}},
         <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
@@ -26,17 +26,17 @@ Der **`Save-Data`** [Netzwerk-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#net
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-sichere Antwortheader")}}
       </th>
       <td>nein</td>
     </tr>
   </tbody>
 </table>
 
-Ein Wert von `On` zeigt an, dass der Benutzer ausdrücklich in einen Modus mit reduzierter Datennutzung auf dem Client eingewilligt hat. Wenn dies den Ursprüngen mitgeteilt wird, können sie alternative Inhalte bereitstellen, um die heruntergeladenen Daten zu reduzieren, wie z.B. kleinere Bild- und Videoressourcen, unterschiedliche Markup- und Styling-Optionen, deaktivierte Abfragen und automatische Aktualisierungen usw.
+Ein Wert von `On` zeigt ein explizites Opt-in des Benutzers in einen Modus mit reduzierter Datennutzung auf dem Client an. Wenn dies den Ursprüngen mitgeteilt wird, können sie alternative Inhalte liefern, um die heruntergeladenen Daten zu reduzieren, wie z. B. kleinere Bild- und Videoressourcen, unterschiedliche Markup- und Stilgestaltungen, deaktivierte Abfragen und automatische Updates usw.
 
 > [!NOTE]
-> Die Deaktivierung von HTTP/2 Server Push ({{RFC("7540", "Server Push", "8.2")}}) kann ebenfalls wünschenswert sein, um Daten-Downloads zu reduzieren.
+> Das Deaktivieren von HTTP/2 Server Push ({{RFC("7540", "Server Push", "8.2")}}) kann die Daten-Downloads reduzieren. Beachten Sie, dass diese Funktion standardmäßig in den meisten großen Browser-Engines nicht mehr unterstützt wird.
 
 ## Syntax
 
@@ -47,12 +47,11 @@ Save-Data: <sd-token>
 ## Direktiven
 
 - `<sd-token>`
-  - : Ein Wert, der angibt, ob der Client in den Modus mit reduzierter Datennutzung wechseln möchte.
-    `on` bedeutet ja, während `off` (der Standard) nein bedeutet.
+  - : Ein Wert, der angibt, ob der Client in den Modus mit reduzierter Datennutzung wechseln möchte. `on` gibt Ja an, während `off` (der Standard) Nein angibt.
 
 ## Beispiele
 
-Der {{HTTPHeader("Vary")}} Header sorgt dafür, dass der Inhalt korrekt zwischengespeichert wird (zum Beispiel, um sicherzustellen, dass dem Benutzer nicht ein Bild niedrigerer Qualität aus dem Cache bereitgestellt wird, wenn der `Save-Data` Header nicht mehr vorhanden ist \[_z.B._ nach dem Wechsel von Mobilfunk zu Wi-Fi]).
+Der {{HTTPHeader("Vary")}} Header stellt sicher, dass der Inhalt korrekt zwischengespeichert wird (zum Beispiel um sicherzustellen, dass dem Benutzer kein qualitativ minderwertiges Bild aus dem Cache serviert wird, wenn der `Save-Data` Header nicht mehr vorhanden ist, _z. B._ nach dem Wechsel von Mobilfunk zu WLAN).
 
 ### Mit `Save-Data: on`
 
@@ -107,9 +106,9 @@ Content-Type: image/jpeg
 
 ## Siehe auch
 
-- [Helfen Sie Ihren Benutzern Daten zu sparen - CSS Tricks](https://css-tricks.com/help-users-save-data/)
-- [Bereitstellung schneller und leichter Anwendungen mit Save-Data - web.dev](https://web.dev/articles/optimizing-content-efficiency-save-data)
-- {{HTTPHeader("Vary")}} Header, der darauf hinweist, dass der bereitgestellte Inhalt je nach Wert von `Save-Data` variiert (siehe [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary))
+- [Help Your Users `Save-Data` - CSS Tricks](https://css-tricks.com/help-users-save-data/)
+- [Delivering Fast and Light Applications with Save-Data - web.dev](https://web.dev/articles/optimizing-content-efficiency-save-data)
+- {{HTTPHeader("Vary")}} Header, der anzeigt, dass der servierte Inhalt je nach Wert von `Save-Data` variiert (siehe [HTTP Caching > Vary](/de/docs/Web/HTTP/Caching#vary))
 - CSS @media Feature [`prefers-reduced-data`](/de/docs/Web/CSS/@media/prefers-reduced-data) {{experimental_inline}}
 - [Verbesserung der Benutzer-Privatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - [`NetworkInformation.saveData`](/de/docs/Web/API/NetworkInformation/saveData)

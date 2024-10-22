@@ -2,12 +2,12 @@
 title: "-webkit-text-stroke-width"
 slug: Web/CSS/-webkit-text-stroke-width
 l10n:
-  sourceCommit: 6524cd024fcf544635f8dfb63102c669d4666cbd
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite des Umrisses für Text fest.
+Die **`-webkit-text-stroke-width`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Breite des Umrisses für Text an.
 
 ## Syntax
 
@@ -92,7 +92,7 @@ p {
 
 ## Siehe auch
 
-- [Surfin' Safari Blogbeitrag, der diese Funktion ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
+- [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
 - [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke")}}

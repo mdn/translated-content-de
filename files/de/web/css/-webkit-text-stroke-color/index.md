@@ -2,12 +2,12 @@
 title: "-webkit-text-stroke-color"
 slug: Web/CSS/-webkit-text-stroke-color
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strich-[Farbe](/de/docs/Web/CSS/color_value) der Textzeichen fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
+Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Strich-[Farbe](/de/docs/Web/CSS/color_value) von Textzeichen fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
 
 ## Syntax
 
@@ -40,7 +40,7 @@ Die **`-webkit-text-stroke-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die
 
 ## Beispiele
 
-### Variierung der Strichfarbe
+### Ändern der Strichfarbe
 
 #### HTML
 
@@ -81,8 +81,8 @@ colorPicker.addEventListener("change", (evt) => {
 
 ## Siehe auch
 
-- [Surfin' Safari Blogpost, der diese Funktion ankündigt](https://webkit.org/blog/85/introducing-text-stroke/)
-- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [Einführung von Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
+- [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-fill-color")}}
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke")}}

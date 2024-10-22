@@ -2,14 +2,14 @@
 title: font-family
 slug: Web/CSS/@font-face/font-family
 l10n:
-  sourceCommit: 418b3ebf6464716649125199385c39d86c944973
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Der **`font-family`** CSS-Deskriptor legt die Schriftfamilie für eine Schrift fest, die in einer {{cssxref("@font-face")}} At-Regel angegeben ist.
+Der CSS-Descriptor **`font-family`** legt die Schriftfamilie für eine Schrift fest, die in einer {{cssxref("@font-face")}}-At-Regel angegeben wird.
 
-Der Wert wird für die Namensübereinstimmung mit einem bestimmten `@font-face` verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family) Eigenschaft gestylt werden. Jeder Name kann verwendet werden, und dies überschreibt jeden im zugrunde liegenden Schriftsatz angegebenen Namen.
+Der Wert wird für die Namensanpassung gegen einen bestimmten `@font-face` verwendet, wenn Elemente mit der [`font-family`](/de/docs/Web/CSS/font-family)-Eigenschaft gestylt werden. Jeder Name kann verwendet werden, und dies überschreibt jeden Namen, der in den zugrunde liegenden Schriftdaten angegeben ist.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ font-family: "font family";
 font-family: "another font family";
 
 /* <custom-ident> value */
-font-family: examplefont;
+font-family: example-font;
 ```
 
 ### Werte

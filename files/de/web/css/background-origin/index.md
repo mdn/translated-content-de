@@ -2,12 +2,12 @@
 title: background-origin
 slug: Web/CSS/background-origin
 l10n:
-  sourceCommit: 9c8c461dc350668ad326fa9aad604ce9da800df2
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`background-origin`**-[CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: von Beginn der Grenze, innerhalb der Grenze oder innerhalb des Polsters.
+Die **`background-origin`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den Ursprung des Hintergrunds fest: vom Randbeginn, innerhalb des Randes oder innerhalb des Innenabstands.
 
 {{EmbedInteractiveExample("pages/css/background-origin.html")}}
 
@@ -29,16 +29,16 @@ background-origin: revert-layer;
 background-origin: unset;
 ```
 
-Die Eigenschaft `background-origin` wird als einer der unten aufgef체hrten Schl체sselwortwerte angegeben.
+Die Eigenschaft `background-origin` wird als eines der unten aufgef체hrten Schl체sselwortwerte angegeben.
 
 ### Werte
 
 - `border-box`
-  - : Der Hintergrund ist relativ zum Randkasten positioniert.
+  - : Der Hintergrund wird relativ zur Randbox positioniert.
 - `padding-box`
-  - : Der Hintergrund ist relativ zum Polsterkasten positioniert.
+  - : Der Hintergrund wird relativ zur Innenabstandsbox positioniert.
 - `content-box`
-  - : Der Hintergrund ist relativ zum Inhaltkasten positioniert.
+  - : Der Hintergrund wird relativ zur Inhaltsbox positioniert.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Die Eigenschaft `background-origin` wird als einer der unten aufgef체hrten Schl�
 
 ## Beispiele
 
-### Einstellungen der Hintergrundurspr체nge
+### Hintergrund-Urspr체nge festlegen
 
 ```css
 .example {
@@ -74,7 +74,7 @@ Die Eigenschaft `background-origin` wird als einer der unten aufgef체hrten Schl�
 
 ```css
 div {
-  background-image: url("logo.jpg"), url("mainback.png"); /* Applies two images to the background */
+  background-image: url("logo.jpg"), url("main-back.png"); /* Applies two images to the background */
   background-position:
     top right,
     0px 0px;
@@ -82,9 +82,9 @@ div {
 }
 ```
 
-### Verwendung von zwei Gradienten
+### Verwendung von zwei Verl채ufen
 
-In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Gradient verwendet den `padding-box` als `background-origin`, und daher sitzt der Hintergrund innerhalb des Rands. Der zweite verwendet den `content-box` und wird daher nur hinter dem Inhalt angezeigt.
+In diesem Beispiel hat die Box einen dicken gepunkteten Rand. Der erste Verlauf verwendet die `padding-box` als `background-origin`, und daher sitzt der Hintergrund innerhalb des Randes. Der zweite verwendet die `content-box` und wird daher nur hinter dem Inhalt angezeigt.
 
 ```css
 .box {

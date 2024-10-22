@@ -2,12 +2,12 @@
 title: backdrop-filter
 slug: Web/CSS/backdrop-filter
 l10n:
-  sourceCommit: 1c4eb0bfb5f72a26fcc21a83fac91aa3e66c2fb8
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`backdrop-filter`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihnen, grafische Effekte wie Weichzeichnen oder Farbverschiebung auf den Bereich hinter einem Element anzuwenden. Da sie auf alles _hinter_ dem Element angewendet wird, muss das Element oder sein Hintergrund transparent oder teilweise transparent sein, um den Effekt sichtbar zu machen.
+Die **`backdrop-filter`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, grafische Effekte wie Unschärfe oder Farbverschiebung auf den Bereich hinter einem Element anzuwenden. Da sie auf alles hinter dem Element angewendet wird, muss das Element oder sein Hintergrund transparent oder teilweise transparent sein, um den Effekt zu sehen.
 
 {{EmbedInteractiveExample("pages/css/backdrop-filter.html")}}
 
@@ -18,7 +18,7 @@ Die **`backdrop-filter`** [CSS](/de/docs/Web/CSS)-Eigenschaft ermöglicht es Ihn
 backdrop-filter: none;
 
 /* URL to SVG filter */
-backdrop-filter: url(commonfilters.svg#filter);
+backdrop-filter: url(common-filters.svg#filter);
 
 /* <filter-function> values */
 backdrop-filter: blur(2px);
@@ -46,9 +46,9 @@ backdrop-filter: unset;
 ### Werte
 
 - `none`
-  - : Es wird kein Filter auf den Hintergrund angewendet.
+  - : Kein Filter wird auf den Hintergrund angewendet.
 - `<filter-function-list>`
-  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("&lt;filter-function&gt;")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Element/filter), der auf den Hintergrund angewendet wird. CSS `<filter-function>`s umfassen {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}}, und {{CSSxRef("filter-function/sepia", "sepia()")}}.
+  - : Eine durch Leerzeichen getrennte Liste von {{cssxref("&lt;filter-function&gt;")}}s oder ein [SVG-Filter](/de/docs/Web/SVG/Element/filter), der auf den Hintergrund angewendet wird. CSS `<filter-function>`s beinhalten {{CSSxRef("filter-function/blur", "blur()")}}, {{CSSxRef("filter-function/brightness", "brightness()")}}, {{CSSxRef("filter-function/contrast", "contrast()")}}, {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}, {{CSSxRef("filter-function/grayscale", "grayscale()")}}, {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}, {{CSSxRef("filter-function/invert", "invert()")}}, {{CSSxRef("filter-function/opacity", "opacity()")}}, {{CSSxRef("filter-function/saturate", "saturate()")}}, und {{CSSxRef("filter-function/sepia", "sepia()")}}.
 
 ## Formale Definition
 
@@ -125,5 +125,5 @@ body {
 - {{cssxref("filter")}}
 - {{cssxref("&lt;filter-function&gt;")}}
 - {{cssxref("background-blend-mode")}}, {{cssxref("mix-blend-mode")}}
-- [CSS filter effects](/de/docs/Web/CSS/CSS_filter_effects)
-- [CSS compositing and blending](/de/docs/Web/CSS/CSS_compositing_and_blending)
+- [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects)
+- [CSS-Komposition und Blending](/de/docs/Web/CSS/CSS_compositing_and_blending)

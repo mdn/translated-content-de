@@ -2,17 +2,17 @@
 title: ":-moz-window-inactive"
 slug: Web/CSS/:-moz-window-inactive
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}{{Non-standard_header}}
 
-Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die ein Element abgleicht, während es sich in einem inaktiven Fenster befindet.
+Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) ist eine [Mozilla-Erweiterung](/de/docs/Web/CSS/Mozilla_Extensions), die jedes Element anspricht, während es sich in einem inaktiven Fenster befindet.
 
-`:-moz-window-inactive` funktioniert auch in Inhalt-HTML-Dokumenten.
+`:-moz-window-inactive` funktioniert auch in HTML-Inhaltsdokumenten.
 
 > [!NOTE]
-> Vor der Hinzufügung dieser Pseudoklasse wurde das Vergeben unterschiedlicher Stile an Hintergrundfenster durch das Setzen eines Attributs (`active="true"`) auf dem obersten XUL-Chrome-Fenster erreicht. Dieses Attribut wird nicht mehr verwendet.
+> Vor der Einführung dieser Pseudoklasse erfolgte die Vergabe unterschiedlicher Stile für Hintergrundfenster durch das Setzen eines Attributs (`active="true"`) im obersten XUL-Chrome-Fenster. Dieses Attribut wird nicht mehr verwendet.
 
 ## Syntax
 
@@ -24,12 +24,12 @@ Die **`:-moz-window-inactive`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/
 
 ## Beispiele
 
-Dieses Beispiel ändert das Aussehen des Hintergrunds einer Box, abhängig davon, ob ihr Fenster aktiv oder inaktiv ist.
+Dieses Beispiel verändert das Erscheinungsbild des Hintergrundes einer Box, abhängig davon, ob ihr Fenster aktiv ist oder nicht.
 
 ### HTML
 
 ```html
-<div id="mybox">
+<div id="my-box">
   <p>This is a box!</p>
 </div>
 ```
@@ -37,26 +37,26 @@ Dieses Beispiel ändert das Aussehen des Hintergrunds einer Box, abhängig davon
 ### CSS
 
 ```css
-#mybox {
+#my-box {
   background: linear-gradient(to bottom, yellow, cyan);
   width: 200px;
   height: 200px;
 }
 
-#mybox:-moz-window-inactive {
+#my-box:-moz-window-inactive {
   background: cyan;
 }
 ```
 
 ### Ergebnis
 
-Das Ergebnis dieses Codes wird unten angezeigt. Sie können dies auch als {{LiveSampleLink('Examples', 'separate page')}} betrachten.
+Das Ergebnis dieses Codes wird unten gezeigt. Sie können dies auch als {{LiveSampleLink('Beispiele', 'separate Seite')}} ansehen.
 
 {{EmbedLiveSample('Examples', 220, 220)}}
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Kein Teil eines Standards.
 
 ## Browser-Kompatibilität
 
@@ -69,4 +69,4 @@ Teil keiner Norm.
 
   - [`:active`](/de/docs/Web/CSS/:active)
 
-- Die Eigenschaft [`Document.activeElement`](/de/docs/Web/API/Document/activeElement) für reguläre DOMs und die Eigenschaft [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement) für Wurzeln des [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM).
+- Die [`Document.activeElement`](/de/docs/Web/API/Document/activeElement)-Eigenschaft für reguläre DOMs und die [`ShadowRoot.activeElement`](/de/docs/Web/API/ShadowRoot/activeElement)-Eigenschaft für [shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM)-Wurzeln.

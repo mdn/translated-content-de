@@ -2,30 +2,30 @@
 title: "Benutzerdefinierte Eigenschaften (--*): CSS-Variablen"
 slug: Web/CSS/--*
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Eigenschaftsnamen, die mit `--` vorangestellt sind, wie `--example-name`, repräsentieren _benutzerdefinierte Eigenschaften_, die einen Wert enthalten, der in anderen Deklarationen mittels der {{cssxref("var", "var()")}} Funktion verwendet werden kann.
+Eigenschaftsnamen, die mit `--` beginnen, wie `--example-name`, repräsentieren _benutzerdefinierte Eigenschaften_, die einen Wert enthalten, der in anderen Deklarationen mit der {{cssxref("var", "var()")}}-Funktion verwendet werden kann.
 
-Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf denen sie deklariert werden und nehmen an der Kaskade teil: Der Wert einer solchen benutzerdefinierten Eigenschaft ist der der Deklaration, die durch den Kaskadenalgorithmus entschieden wird.
+Benutzerdefinierte Eigenschaften sind auf das Element/die Elemente beschränkt, auf denen sie deklariert werden, und nehmen an der Kaskade teil: Der Wert einer solchen benutzerdefinierten Eigenschaft ist derjenige aus der Deklaration, die durch den Kaskadenalgorithmus entschieden wird.
 
 {{CSSInfo}}
 
 ## Syntax
 
 ```css
---somekeyword: left;
---somecolor: #0000ff;
---somecomplexvalue: 3px 6px rgb(20 32 54);
+--some-keyword: left;
+--some-color: #0000ff;
+--some-complex-value: 3px 6px rgb(20 32 54);
 ```
 
 - `<declaration-value>`
-  - : Dieser Wert entspricht jeder Sequenz von einem oder mehreren Token, solange die Sequenz kein nicht erlaubtes Token enthält. Er repräsentiert die Gesamtheit dessen, was eine gültige Deklaration als Wert haben kann.
+  - : Dieser Wert entspricht einer beliebigen Sequenz von einem oder mehreren Token, solange die Sequenz kein nicht erlaubtes Token enthält. Es repräsentiert die Gesamtheit dessen, was eine gültige Deklaration als ihren Wert haben kann.
 
 > [!NOTE]
-> Namen von benutzerdefinierten Eigenschaften sind groß-/kleinschreibungssensitiv — `--my-color` wird als separate benutzerdefinierte Eigenschaft zu `--My-color` behandelt.
+> Benutzerdefinierte Eigenschaftsnamen sind case-sensitive — `--my-color` wird als separate benutzerdefinierte Eigenschaft zu `--My-color` behandelt.
 
 ## Beispiel
 
@@ -87,7 +87,7 @@ Benutzerdefinierte Eigenschaften sind auf das/die Element(e) beschränkt, auf de
 
 ## Siehe auch
 
-- Die {{cssxref("var", "var()")}} Funktion
-- {{cssxref("@property")}} At-Regel
-- [Verwendung von benutzerdefinierten CSS-Eigenschaften (Variablen)](/de/docs/Web/CSS/Using_CSS_custom_properties) Leitfaden
-- [CSS-Benutzerdefinierte Eigenschaften für Kaskadenvariablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul
+- Die {{cssxref("var", "var()")}}-Funktion
+- {{cssxref("@property")}} at-Regel
+- [Verwendung von CSS-Benutzereigenschaften (Variablen)](/de/docs/Web/CSS/Using_CSS_custom_properties) Leitfaden
+- [CSS-Benutzereigenschaften für kaskadierende Variablen](/de/docs/Web/CSS/CSS_cascading_variables) Modul

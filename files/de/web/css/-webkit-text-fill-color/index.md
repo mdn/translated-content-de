@@ -2,12 +2,12 @@
 title: "-webkit-text-fill-color"
 slug: Web/CSS/-webkit-text-fill-color
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die Füllung der Zeichenfarbe eines Textes an. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
+Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Füllfarbe der Zeichen eines Textes fest. Wenn diese Eigenschaft nicht gesetzt ist, wird der Wert der {{cssxref("color")}} Eigenschaft verwendet.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Die **`-webkit-text-fill-color`** [CSS](/de/docs/Web/CSS) Eigenschaft gibt die F
 ### Werte
 
 - `<color>`
-  - : Die vordere Füllfarbe des Textinhalts des Elements.
+  - : Die Füllfarbe des Vordergrunds des Textinhalts des Elements.
 
 ## Formale Definition
 
@@ -72,8 +72,8 @@ p {
 
 ## Siehe auch
 
-- [Surfin' Safari Blog-Beitrag zur Ankündigung dieses Features](https://webkit.org/blog/85/introducing-text-stroke/)
-- [CSS-Tricks Artikel, der dieses Feature erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
+- [Introducing Text-Stroke](https://webkit.org/blog/85/introducing-text-stroke/) auf webkit.org (2006)
+- [CSS-Tricks Artikel, der diese Funktion erklärt](https://css-tricks.com/adding-stroke-to-web-text/)
 - {{cssxref("-webkit-text-stroke-color")}}
 - {{cssxref("-webkit-text-stroke-width")}}
 - {{cssxref("-webkit-text-stroke")}}

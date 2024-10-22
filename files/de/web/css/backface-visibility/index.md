@@ -2,16 +2,16 @@
 title: backface-visibility
 slug: Web/CSS/backface-visibility
 l10n:
-  sourceCommit: 1c4eb0bfb5f72a26fcc21a83fac91aa3e66c2fb8
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`backface-visibility`**-[CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
+Die **`backface-visibility`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Rückseite eines Elements sichtbar ist, wenn sie dem Benutzer zugewandt ist.
 
 {{EmbedInteractiveExample("pages/css/backface-visibility.html")}}
 
-Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl im 2D unsichtbar, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum dreht. (Diese Eigenschaft hat keine Auswirkung auf 2D-Transformationen, die keine Perspektive haben.)
+Die Rückseite eines Elements ist ein Spiegelbild seiner Vorderseite. Obwohl in 2D unsichtbar, kann die Rückseite sichtbar werden, wenn eine Transformation das Element im 3D-Raum dreht. (Diese Eigenschaft hat keine Auswirkung auf 2D-Transformationen, die keine Perspektive haben.)
 
 ## Syntax
 
@@ -28,14 +28,14 @@ backface-visibility: revert-layer;
 backface-visibility: unset;
 ```
 
-Die Eigenschaft `backface-visibility` wird als eines der unten aufgeführten Schlüsselwörter angegeben.
+Die `backface-visibility` Eigenschaft wird als eines der unten aufgeführten Schlüsselwörter angegeben.
 
 ### Werte
 
 - `visible`
   - : Die Rückseite ist sichtbar, wenn sie dem Benutzer zugewandt ist.
 - `hidden`
-  - : Die Rückseite ist verborgen, wodurch das Element unsichtbar wird, wenn es vom Benutzer abgewandt ist.
+  - : Die Rückseite ist verborgen, was das Element effektiv unsichtbar macht, wenn es vom Benutzer abgewandt ist.
 
 ## Formale Definition
 
@@ -62,7 +62,7 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit und
   <tr>
     <td>
       <div class="container">
-        <div class="cube showbf">
+        <div class="cube show-bf">
           <div class="face front">1</div>
           <div class="face back">2</div>
           <div class="face right">3</div>
@@ -78,7 +78,7 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit und
     </td>
     <td>
       <div class="container">
-        <div class="cube hidebf">
+        <div class="cube hide-bf">
           <div class="face front">1</div>
           <div class="face back">2</div>
           <div class="face right">3</div>
@@ -98,11 +98,11 @@ Dieses Beispiel zeigt einen Würfel mit transparenten Flächen und einen mit und
 ```css
 /* Classes that will show or hide the
    three back faces of the "cube" */
-.showbf div {
+.show-bf div {
   backface-visibility: visible;
 }
 
-.hidebf div {
+.hide-bf div {
   backface-visibility: hidden;
 }
 

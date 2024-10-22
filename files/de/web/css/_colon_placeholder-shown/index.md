@@ -2,12 +2,12 @@
 title: ":placeholder-shown"
 slug: Web/CSS/:placeholder-shown
 l10n:
-  sourceCommit: 5fea7c9593f5e4b4ef13ec65064acf1eabf01e4e
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert ein beliebiges {{HTMLElement("input")}} oder {{HTMLElement("textarea")}} Element, das derzeit einen [Platzhalter-Text](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
+Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das aktuell [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-placeholder-shown.html", "tabbed-shorter")}}
 
@@ -52,7 +52,7 @@ input:placeholder-shown {
 
 ### Überlaufender Text
 
-Wenn die Formularfelder zu klein sind, kann der Platzhalter-Text auf unerwünschte Weise abgeschnitten werden. Sie können die Eigenschaft {{cssxref("text-overflow")}} verwenden, um die Anzeige von überlaufendem Text zu ändern.
+Wenn Formularfelder zu klein sind, kann Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die Eigenschaft {{cssxref("text-overflow")}} verwenden, um die Anzeige von überlaufendem Text zu ändern.
 
 #### HTML
 
@@ -96,7 +96,7 @@ Das folgende Beispiel hebt das Studenten-ID-Feld mit einem benutzerdefinierten S
       pattern="[0-9]{8}"
       title="8 digit ID"
       id="sid"
-      class="studentid"
+      class="student-id"
       placeholder="8 digit id" />
   </p>
   <input type="submit" />
@@ -111,7 +111,7 @@ input {
   color: black;
 }
 
-input.studentid:placeholder-shown {
+input.student-id:placeholder-shown {
   background-color: yellow;
   color: red;
   font-style: italic;
@@ -132,6 +132,6 @@ input.studentid:placeholder-shown {
 
 ## Siehe auch
 
-- Das {{CSSxRef("::placeholder")}} Pseudoelement gestaltet den Platzhalter _selbst_.
+- Das {{CSSxRef("::placeholder")}} Pseudoelement stylt den Platzhalter _selbst_.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
 - [HTML-Formulare](/de/docs/Learn/Forms)

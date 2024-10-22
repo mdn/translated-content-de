@@ -2,12 +2,12 @@
 title: border-left-color
 slug: Web/CSS/border-left-color
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
 ---
 
 {{CSSRef}}
 
-Die **`border-left-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des linken [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den verkürzten CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-left")}} gesetzt werden.
+Die **`border-left-color`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Farbe des linken [Rahmens](/de/docs/Web/CSS/border) eines Elements fest. Sie kann auch mit den abgekürzten CSS-Eigenschaften {{cssxref("border-color")}} oder {{cssxref("border-left")}} gesetzt werden.
 
 {{EmbedInteractiveExample("pages/css/border-left-color.html")}}
 
@@ -30,7 +30,7 @@ border-left-color: revert-layer;
 border-left-color: unset;
 ```
 
-Die `border-left-color`-Eigenschaft wird als einzelner Wert angegeben.
+Die `border-left-color` Eigenschaft wird als einzelner Wert angegeben.
 
 ### Werte
 
@@ -47,15 +47,15 @@ Die `border-left-color`-Eigenschaft wird als einzelner Wert angegeben.
 
 ## Beispiele
 
-### Ein einfaches `<div>` mit einem Rahmen
+### Ein einfaches Div mit einem Rahmen
 
 #### HTML
 
 ```html
-<div class="mybox">
+<div class="my-box">
   <p>
     This is a box with a border around it. Note which side of the box is
-    <span class="redtext">red</span>.
+    <span class="red-text">red</span>.
   </p>
 </div>
 ```
@@ -63,13 +63,13 @@ Die `border-left-color`-Eigenschaft wird als einzelner Wert angegeben.
 #### CSS
 
 ```css
-.mybox {
+.my-box {
   border: solid 0.3em gold;
   border-left-color: red;
   width: auto;
 }
 
-.redtext {
+.red-text {
   color: red;
 }
 ```
@@ -88,7 +88,7 @@ Die `border-left-color`-Eigenschaft wird als einzelner Wert angegeben.
 
 ## Siehe auch
 
-- Die rahmenbezogenen CSS-Kurzschreibweisen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, und {{Cssxref("border-color")}}.
+- Die CSS-Kurzschreibweiseigenschaften im Zusammenhang mit Rahmen: {{Cssxref("border")}}, {{Cssxref("border-left")}}, und {{Cssxref("border-color")}}.
 - Die farbbezogenen CSS-Eigenschaften für die anderen Rahmen: {{Cssxref("border-right-color")}}, {{Cssxref("border-bottom-color")}}, und {{Cssxref("border-top-color")}}.
-- Die anderen rahmenbezogenen CSS-Eigenschaften, die auf denselben Rahmen angewendet werden: {{cssxref("border-left-style")}} und {{cssxref("border-left-width")}}.
-- Der Standardfarbwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword).
+- Die anderen rahmenbezogenen CSS-Eigenschaften, die sich auf denselben Rahmen beziehen: {{cssxref("border-left-style")}} und {{cssxref("border-left-width")}}.
+- Der Standardwert [`currentcolor`](/de/docs/Web/CSS/color_value#currentcolor_keyword) der Farbe.
