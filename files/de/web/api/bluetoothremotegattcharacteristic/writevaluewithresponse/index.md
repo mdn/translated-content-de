@@ -3,12 +3,12 @@ title: "BluetoothRemoteGATTCharacteristic: writeValueWithResponse()-Methode"
 short-title: writeValueWithResponse()
 slug: Web/API/BluetoothRemoteGATTCharacteristic/writeValueWithResponse
 l10n:
-  sourceCommit: 7972ac25580ffbfb160e6d40013bbab3013d7cbe
+  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
 ---
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Die Methode **`BluetoothRemoteGATTCharacteristic.writeValueWithResponse()`** setzt die `value`-Eigenschaft eines [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic)-Objekts auf die Bytes, die in einem gegebenen {{JSxRef("ArrayBuffer")}} enthalten sind, [schreibt den Charakteristikwert mit erforderlicher Antwort](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue) und gibt das resultierende {{JSxRef("Promise")}} zurück.
+Die **`BluetoothRemoteGATTCharacteristic.writeValueWithResponse()`**-Methode setzt die `value`-Eigenschaft eines [`BluetoothRemoteGATTCharacteristic`](/de/docs/Web/API/BluetoothRemoteGATTCharacteristic)-Objekts auf die Bytes, die in einem gegebenen {{JSxRef("ArrayBuffer")}} enthalten sind, [schreibt den Charakteristikwert mit erforderlicher Antwort](https://webbluetoothcg.github.io/web-bluetooth/#writecharacteristicvalue) und gibt das resultierende {{JSxRef("Promise")}} zurück.
 
 ## Syntax
 
@@ -32,5 +32,3 @@ Ein {{jsxref("Promise")}}.
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{APIRef("Web Bluetooth")}}

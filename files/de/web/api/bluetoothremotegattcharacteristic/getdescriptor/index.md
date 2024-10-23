@@ -3,13 +3,14 @@ title: "BluetoothRemoteGATTCharacteristic: getDescriptor()-Methode"
 short-title: getDescriptor()
 slug: Web/API/BluetoothRemoteGATTCharacteristic/getDescriptor
 l10n:
-  sourceCommit: 89c435da452257b944b403cc9e45036fcb22590e
+  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
 ---
 
 {{APIRef("Bluetooth API")}}{{SeeCompatTable}}{{SecureContext_Header}}
 
 Die **`BluetoothRemoteGATTCharacteristic.getDescriptor()`**-Methode
-gibt ein {{jsxref("Promise")}} zurück, das auf den ersten [`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor) für eine gegebene Descriptor-UUID aufgelöst wird.
+gibt ein {{jsxref("Promise")}} zurück, das auf das
+erste [`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor) für eine gegebene Descriptor-UUID aufgelöst wird.
 
 ## Syntax
 
@@ -23,7 +24,8 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das auf den ersten [`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor) aufgelöst wird.
+Ein {{jsxref("Promise")}}, das auf das
+erste [`BluetoothRemoteGATTDescriptor`](/de/docs/Web/API/BluetoothRemoteGATTDescriptor) aufgelöst wird.
 
 ## Spezifikationen
 
@@ -32,5 +34,3 @@ Ein {{jsxref("Promise")}}, das auf den ersten [`BluetoothRemoteGATTDescriptor`](
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-{{APIRef("Web Bluetooth")}}

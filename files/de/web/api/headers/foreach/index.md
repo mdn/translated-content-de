@@ -3,7 +3,7 @@ title: "Headers: forEach() Methode"
 short-title: forEach()
 slug: Web/API/Headers/forEach
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
 ---
 
 {{APIRef("Fetch API")}} {{AvailableInWorkers}}
@@ -20,13 +20,13 @@ forEach(callbackFn, thisArg)
 ### Parameter
 
 - `callbackFn`
-  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Sie nimmt die folgenden Argumente entgegen:
+  - : Funktion, die für jeden Eintrag in der Map ausgeführt wird. Es nimmt die folgenden Argumente:
     - `value`
       - : Wert des aktuell besuchten Header-Eintrags.
     - `key`
       - : Name des aktuell besuchten Header-Eintrags.
     - `object`
-      - : Das Headers-Objekt, das durchlaufen wird.
+      - : Das Headers-Objekt, das iteriert wird.
 - `thisArg` {{Optional_Inline}}
   - : Wert, der als `this` verwendet wird, wenn `callback` ausgeführt wird.
 
@@ -36,11 +36,11 @@ forEach(callbackFn, thisArg)
 
 ## Beschreibung
 
-Die `Headers.forEach()`-Methode führt den bereitgestellten Callback einmal für jeden existierenden Schlüssel der Headers aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Schlüssel ausgeführt, die vorhanden sind, aber den Wert `undefined` haben.
+Die `Headers.forEach()`-Methode führt den bereitgestellten Callback einmal für jeden tatsächlich vorhandenen Schlüssel der Headers aus. Sie wird nicht für Schlüssel aufgerufen, die gelöscht wurden. Sie wird jedoch für Schlüssel ausgeführt, die vorhanden sind, aber den Wert undefined haben.
 
 ## Beispiele
 
-### Anzeigen der Inhalte eines Headers-Objekts
+### Inhalt eines Headers-Objekts ausdrucken
 
 Der folgende Code protokolliert eine Zeile für jeden Schlüssel/Wert im `myHeaders`-Objekt.
 
@@ -67,7 +67,7 @@ cookie ==> This is a demo cookie
 
 ## Browser-Kompatibilität
 
-{{compat}}
+{{Compat}}
 
 ## Siehe auch
 

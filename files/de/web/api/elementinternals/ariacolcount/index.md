@@ -3,15 +3,15 @@ title: "ElementInternals: ariaColCount-Eigenschaft"
 short-title: ariaColCount
 slug: Web/API/ElementInternals/ariaColCount
 l10n:
-  sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
+  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
 ---
 
 {{APIRef("Web Components")}}
 
-Die **`ariaColCount`**-Eigenschaft des [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Interfaces spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount)-Attributs wider, welches die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
+Die **`ariaColCount`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-colcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-colcount)-Attributs wider, welches die Anzahl der Spalten in einer Tabelle, einem Raster oder einem Baumraster definiert.
 
 > [!NOTE]
-> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantiken auf einem benutzerdefinierten Element zu definieren. Diese können durch autorendefinierte Attribute überschrieben werden, stellen jedoch sicher, dass Standardsemantiken erhalten bleiben, falls der Autor diese Attribute löscht oder sie gar nicht erst hinzufügt. Weitere Informationen finden Sie im [Accessibility Object Model Erklärungsdokument](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
+> Das Setzen von aria-Attributen auf `ElementInternals` ermöglicht es, Standardsemantik auf einem benutzerdefinierten Element zu definieren. Diese können durch benutzerdefinierte Attribute überschrieben werden, stellen aber sicher, dass die Standardsemantik erhalten bleibt, falls der Autor diese Attribute löscht oder sie überhaupt nicht hinzufügt. Für mehr Informationen siehe das [Accessibility Object Model Erklärstück](https://wicg.github.io/aom/explainer.html#default-semantics-for-custom-elements-via-the-elementinternals-object).
 
 ## Wert
 
@@ -33,4 +33,6 @@ this.internals_.ariaColCount = "3";
 
 {{Compat}}
 
-- [ARIA: Tabellenrolle](/de/docs/Web/Accessibility/ARIA/Roles/table_role)
+## Siehe auch
+
+- [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

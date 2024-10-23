@@ -2,12 +2,12 @@
 title: line-break
 slug: Web/CSS/line-break
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: 42d7bb6c3ed8e7e51cd71aa17165c28b58f5c4e7
 ---
 
 {{CSSRef}}
 
-Die **`line-break`**-Eigenschaft von [CSS](/de/docs/Web/CSS) legt fest, wie Zeilen von chinesischen, japanischen oder koreanischen (CJK) Texten bei der Arbeit mit Satzzeichen und Symbolen umbrochen werden.
+Die **`line-break`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Zeilen chinesischen, japanischen oder koreanischen (CJK) Textes beim Arbeiten mit Satzzeichen und Symbolen umbrochen werden.
 
 {{EmbedInteractiveExample("pages/css/line-break.html")}}
 
@@ -32,15 +32,15 @@ line-break: unset;
 ### Werte
 
 - `auto`
-  - : Bricht den Text unter Verwendung der Standardzeilenumbruchregel.
+  - : Bricht Text mit der Standardregel für Zeilenumbrüche um.
 - `loose`
-  - : Bricht den Text unter Verwendung der am wenigsten restriktiven Zeilenumbruchregel. Wird typischerweise für kurze Zeilen verwendet, wie in Zeitungen.
+  - : Bricht Text mit der am wenigsten restriktiven Regel für Zeilenumbrüche um. Typischerweise verwendet für kurze Zeilen, wie z.B. in Zeitungen.
 - `normal`
-  - : Bricht den Text unter Verwendung der häufigsten Zeilenumbruchregel.
+  - : Bricht Text mit der häufigsten Regel für Zeilenumbrüche um.
 - `strict`
-  - : Bricht den Text unter Verwendung der strengsten Zeilenumbruchregel.
+  - : Bricht Text mit der strengsten Regel für Zeilenumbrüche um.
 - `anywhere`
-  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeicheneinheit, einschließlich um jedes Satzzeichen oder erhaltene Leerzeichen oder in der Mitte von Wörtern, ohne Berücksichtigung eines Verbots gegen Zeilenumbrüche, sogar solche, die durch Zeichen mit der GL-, WJ- oder ZWJ-Zeichenklasse eingeführt wurden, oder wie durch die {{cssxref("word-break")}} Eigenschaft vorgeschrieben. Die verschiedenen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Die Silbentrennung wird nicht angewendet.
+  - : Es gibt eine weiche Umbruchmöglichkeit um jede typografische Zeicheneinheit, einschließlich um beliebige Satzzeichen oder erhaltene Leerzeichen, oder in der Mitte von Wörtern, ohne Beachtung von Verboten gegen Zeilenumbrüche, selbst solche, die durch Zeichen der GL-, WJ- oder ZWJ-Zeichenklasse eingeführt wurden oder durch die {{cssxref("word-break")}} Eigenschaft auferlegt sind. Die verschiedenen Umbruchmöglichkeiten dürfen nicht priorisiert werden. Silbentrennung wird nicht angewendet.
 
 ## Formale Definition
 
@@ -117,4 +117,6 @@ Sehen Sie, ob der Text vor "々", "ぁ" und "。" umbrochen wird.
 
 {{Compat}}
 
-- [CSS und internationaler Text](https://www.w3.org/International/articles/css3-text/)
+## Siehe auch
+
+- [CSS und internationaler Text](https://www.w3.org/International/articles/css3-text/) auf W3C

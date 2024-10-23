@@ -3,12 +3,12 @@ title: "Element: ariaRowCount-Eigenschaft"
 short-title: ariaRowCount
 slug: Web/API/Element/ariaRowCount
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: 0eeaa04378b34bce70e618ee20434e1193cdec17
 ---
 
 {{APIRef("DOM")}}
 
-Die **`ariaRowCount`**-Eigenschaft des [`Element`](/de/docs/Web/API/Element)-Interfaces spiegelt den Wert des [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowcount)-Attributs wider, welches die Gesamtanzahl der Zeilen in einer Tabelle, einem Gitter oder einem Baumgitter definiert.
+Die **`ariaRowCount`**-Eigenschaft der [`Element`](/de/docs/Web/API/Element)-Schnittstelle spiegelt den Wert des [`aria-rowcount`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-rowcount)-Attributs wider, welches die Gesamtzahl der Zeilen in einer Tabelle, einem Raster oder einem Baumraster definiert.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String, der eine Ganzzahl enthält.
 
 ## Beispiele
 
-In diesem Beispiel wird das `aria-rowcount`-Attribut des Elements mit der ID `semantic-table` auf "100" gesetzt, was die Gesamtanzahl der Zeilen in der Tabelle darstellt, nicht die aktuell sichtbaren Zeilen. Mit `ariaRowCount` aktualisieren wir den Wert auf "101".
+In diesem Beispiel wird das `aria-rowcount`-Attribut des Elements mit der ID `semantic-table` auf "100" gesetzt, was die Gesamtzahl der Zeilen in der Tabelle darstellt, nicht die aktuell sichtbaren Zeilen. Mithilfe von `ariaRowCount` aktualisieren wir den Wert auf "101".
 
 ```html
 <table
@@ -71,5 +71,7 @@ console.log(el.ariaRowCount); // 101
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
 
 - [ARIA: table role](/de/docs/Web/Accessibility/ARIA/Roles/table_role)

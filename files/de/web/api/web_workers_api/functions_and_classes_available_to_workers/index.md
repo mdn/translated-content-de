@@ -1,23 +1,23 @@
 ---
-title: Funktionen und Klassen, die Web-Workern zur Verfügung stehen
+title: Verfügbare Funktionen und Klassen für Web Worker
 slug: Web/API/Web_Workers_API/Functions_and_classes_available_to_workers
 l10n:
-  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
+  sourceCommit: 376a2756e066d887300609a252d11422b6b15487
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-Zusätzlich zum Standard-Funktionssatz von [JavaScript](/de/docs/Web/JavaScript) (wie z. B. {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}}, etc.) gibt es eine Vielzahl von Funktionen, die Workern vom DOM zur Verfügung stehen. Dieser Artikel bietet eine Liste dieser Funktionen.
+Zusätzlich zum Standardset an [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie z.B. {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}}, etc.) gibt es eine Vielzahl von Funktionen, die aus dem DOM für Worker verfügbar sind. Dieser Artikel bietet eine Liste dieser Funktionen.
 
-## Worker-Kontexte und Funktionen
+## Worker-Kontexte & Funktionen
 
-**Worker laufen in einem anderen globalen Kontext als das aktuelle Fenster!** Während [`Window`](/de/docs/Web/API/Window) nicht direkt Workern zur Verfügung steht, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und werden Workern durch ihre eigenen von [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) abgeleiteten Kontexte zur Verfügung gestellt:
+**Worker laufen in einem anderen globalen Kontext als das aktuelle Fenster!** Während [`Window`](/de/docs/Web/API/Window) nicht direkt für Worker verfügbar ist, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und über ihre eigenen auf [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) basierenden Kontexte für Worker verfügbar gemacht:
 
 - [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) für dedizierte Worker
-- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für gemeinsame Worker
+- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für geteilte Worker
 - [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) für [Service Worker](/de/docs/Web/API/Service_Worker_API)
 
-Einige der Funktionen (ein Teil davon), die allen Workern und dem Haupt-Thread gemeinsam sind (aus `WindowOrWorkerGlobalScope`), sind:
+Einige der Funktionen (eine Teilmenge), die allen Workern und dem Hauptthread gemeinsam sind (aus `WindowOrWorkerGlobalScope`), sind:
 
 - [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
 - [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
@@ -39,10 +39,10 @@ Die folgenden Funktionen sind **nur** für Worker verfügbar:
 - [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (alle Worker)
 - [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur dedizierte Worker)
 
-## Im Web verfügbare APIs in Workern
+## Web-APIs verfügbar in Workern
 
 > [!NOTE]
-> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann allgemein angenommen werden, dass sie in Web-Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/Funktion auch über die Website testen: <https://worker-playground.glitch.me/>
+> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann allgemein angenommen werden, dass sie in Web Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/Funktion auch mit der Seite testen: <https://worker-playground.glitch.me/>
 
 Die folgenden Web-APIs sind für Worker verfügbar:
 
@@ -52,11 +52,13 @@ Die folgenden Web-APIs sind für Worker verfügbar:
 - [Broadcast Channel API](/de/docs/Web/API/Broadcast_Channel_API)
 - [Canvas API](/de/docs/Web/API/Canvas_API)
 - [Channel Messaging API](/de/docs/Web/API/Channel_Messaging_API)
-- [Console API](/de/docs/Web/API/Console_API)
 - [Compression Streams API](/de/docs/Web/API/Compression_Streams_API)
+- [Compute Pressure API](/de/docs/Web/API/Compute_Pressure_API)
+- [Console API](/de/docs/Web/API/Console_API)
+- [Content Index API](/de/docs/Web/API/Content_Index_API)
+- [Cookie Store API](/de/docs/Web/API/Cookie_Store_API) (nur Service Worker)
 - [CSS Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API)
-- [`CustomEvent`](/de/docs/Web/API/CustomEvent)
-- [Encoding API](/de/docs/Web/API/Encoding_API) (z. B. [`TextEncoder`](/de/docs/Web/API/TextEncoder), [`TextDecoder`](/de/docs/Web/API/TextDecoder))
+- [Encoding API](/de/docs/Web/API/Encoding_API)
 - [Fetch API](/de/docs/Web/API/Fetch_API)
 - [File API](/de/docs/Web/API/File_API)
 - [File System API](/de/docs/Web/API/File_System_API)
@@ -71,25 +73,27 @@ Die folgenden Web-APIs sind für Worker verfügbar:
 - [Permissions API](/de/docs/Web/API/Permissions_API)
 - [Prioritized Task Scheduling API](/de/docs/Web/API/Prioritized_Task_Scheduling_API)
 - [Push API](/de/docs/Web/API/Push_API)
-- [Server-sent events](/de/docs/Web/API/Server-sent_events)
+- [Reporting API](/de/docs/Web/API/Reporting_API)
+- [Server-Sent Events](/de/docs/Web/API/Server-Sent_Events)
 - [Service Worker API](/de/docs/Web/API/Service_Worker_API)
 - [Streams API](/de/docs/Web/API/Streams_API)
 - [Trusted Types API](/de/docs/Web/API/Trusted_Types_API)
-- [URL API](/de/docs/Web/API/URL_API) (z. B. [`URL`](/de/docs/Web/API/URL))
+- [URL API](/de/docs/Web/API/URL_API)
 - [URL Pattern API](/de/docs/Web/API/URL_Pattern_API)
 - [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [WebCodecs API](/de/docs/Web/API/WebCodecs_API)
-- [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) (z. B. [`Crypto`](/de/docs/Web/API/Crypto))
-- [WebHID API](/de/docs/Web/API/WebHID_API) (nur dedizierte und Service Worker)
+- [Web Crypto API](/de/docs/Web/API/Web_Crypto_API)
 - [Web Locks API](/de/docs/Web/API/Web_Locks_API)
 - [Web Serial API](/de/docs/Web/API/Web_Serial_API)
 - [Web Periodic Background Synchronization API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API)
+- [WebCodecs API](/de/docs/Web/API/WebCodecs_API)
+- [WebGL API](/de/docs/Web/API/WebGL_API)
 - [WebGPU API](/de/docs/Web/API/WebGPU_API)
+- [WebHID API](/de/docs/Web/API/WebHID_API) (nur dedizierte und Service Worker)
 - [WebUSB API](/de/docs/Web/API/WebUSB_API)
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API)
 
-Worker können auch andere Worker generieren, sodass diese APIs ebenfalls verfügbar sind:
+Worker können auch andere Worker hervorbringen, daher sind diese APIs ebenfalls verfügbar:
 
 - [`Worker`](/de/docs/Web/API/Worker)
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)
@@ -98,5 +102,5 @@ Worker können auch andere Worker generieren, sodass diese APIs ebenfalls verfü
 
 ## Siehe auch
 
-- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
 - [`Worker`](/de/docs/Web/API/Worker)
