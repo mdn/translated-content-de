@@ -2,22 +2,22 @@
 title: Proxy-Authorization
 slug: Web/HTTP/Headers/Proxy-Authorization
 l10n:
-  sourceCommit: bb23abe84f0f4da3cf5d72a66d356cf5f9e3cfa2
+  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Request-Header **`Proxy-Authorization`** enthält die Anmeldedaten, um einen User-Agent bei einem Proxy-Server zu authentifizieren, normalerweise nachdem der Server mit einem {{HTTPStatus("407")}} `Proxy Authentication Required`-Status und dem {{HTTPHeader("Proxy-Authenticate")}}-Header geantwortet hat.
+Der HTTP **`Proxy-Authorization`** {{Glossary("request_header", "Anforderungsheader")}} enthält die Anmeldedaten, um einen Client bei einem Proxy-Server zu authentifizieren, typischerweise nachdem der Server mit einem {{HTTPStatus("407", "407 Proxy Authentication Required")}}-Status mit dem {{HTTPHeader("Proxy-Authenticate")}}-Header geantwortet hat.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Request-Header")}}</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -25,32 +25,37 @@ Der HTTP-Request-Header **`Proxy-Authorization`** enthält die Anmeldedaten, um 
 ## Syntax
 
 ```http
-Proxy-Authorization: <type> <credentials>
+Proxy-Authorization: <auth-scheme> <credentials>
 ```
 
 ## Direktiven
 
-- \<type>
-  - : [Authentifizierungs-Typ](/de/docs/Web/HTTP/Authentication#authentication_schemes). Ein gebräuchlicher Typ ist ["Basic"](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme).
-    Siehe auch das [IANA-Register der Authentifizierungs-Schemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml).
-- \<credentials>
-
-  - : Die Anmeldedaten werden folgendermaßen konstruiert:
-
-    - Der Benutzername und das Passwort werden mit einem Doppelpunkt
-      kombiniert (`aladdin:opensesame`).
-    - Der resultierende String wird {{Glossary("Base64", "Base64")}}
-      codiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
-
-    > [!NOTE]
-    > Base64-Codierung bedeutet nicht Verschlüsselung oder Hashing! Diese
-    > Methode ist genauso sicher wie das Senden der Anmeldedaten im Klartext (Base64 ist eine
-    > reversible Codierung). Es ist vorzuziehen, HTTPS in Verbindung mit der Basis-Authentifizierung zu verwenden.
+- `<auth-scheme>`
+  - : Token, das das [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes) angibt, wie z. B. `Basic`, `Bearer` usw.
+    Das [IANA-Register der Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml) führt eine vollständige Liste der verfügbaren Typen.
+- `<credentials>`
+  - : Anmeldedaten, die für das Authentifizierungsschema verwendet werden.
 
 ## Beispiele
 
+### Basic-Authentifizierung
+
+Bei `Basic`-Authentifizierung werden Anmeldedaten im Format `<username>:<password>` gesendet (zum Beispiel `aladdin:opensesame`).
+Der resultierende String wird dann {{Glossary("Base64", "base64")}} kodiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
+
 ```http
 Proxy-Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
+```
+
+> [!WARNING]
+> Base64-Kodierung ist umkehrbar und bietet daher keine kryptografische Sicherheit.
+> Diese Methode kann als äquivalent zum Senden der Anmeldedaten im Klartext betrachtet werden.
+> Die Verwendung von {{Glossary("HTTPS", "HTTPS")}} wird immer empfohlen, insbesondere jedoch bei der Nutzung von `Basic`-Authentifizierung.
+
+### Bearer-Authentifizierung (Auth-Token)
+
+```http
+Proxy-Authorization: Bearer kNTktNTA1My00YzLT1234
 ```
 
 ## Spezifikationen

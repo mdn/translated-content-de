@@ -3,20 +3,38 @@ title: "console: table() statische Methode"
 short-title: table()
 slug: Web/API/console/table_static
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.table()`** statische Methode zeigt tabellarische Daten als Tabelle an.
+Die statische Methode **`console.table()`** zeigt tabellarische Daten als Tabelle an.
 
-Diese Funktion erfordert ein obligatorisches Argument `data`, welches ein Array oder ein Objekt sein muss, sowie einen optionalen zusätzlichen Parameter `columns`.
+## Syntax
 
-Sie protokolliert `data` als Tabelle. Jedes Element im Array (oder jede aufzählbare Eigenschaft, wenn `data` ein Objekt ist) wird eine Zeile in der Tabelle sein.
+```js-nolint
+console.table(data)
+console.table(data, columns)
+```
 
-Die erste Spalte in der Tabelle wird als `(index)` bezeichnet. Wenn `data` ein Array ist, dann sind dessen Werte die Array-Indizes. Wenn `data` ein Objekt ist, dann sind dessen Werte die Eigenschaftsnamen. Beachten Sie, dass `console.table` (in Firefox) auf die Anzeige von 1000 Zeilen beschränkt ist (die erste Zeile ist der benannte Index).
+Diese Funktion benötigt ein obligatorisches Argument `data`, das ein Array oder ein Objekt sein muss, und einen zusätzlichen optionalen Parameter `columns`.
 
-### Sammlungen primitiver Typen
+Sie gibt `data` als Tabelle aus. Jedes Element im Array (oder auflistbare Eigenschaft, wenn `data` ein Objekt ist) wird eine Zeile in der Tabelle sein.
+
+Die erste Spalte in der Tabelle wird als `(index)` beschriftet. Wenn `data` ein Array ist, dann sind seine Werte die Array-Indizes. Wenn `data` ein Objekt ist, dann sind seine Werte die Eigenschaftsnamen. Beachten Sie, dass `console.table` (in Firefox) auf die Anzeige von 1000 Zeilen begrenzt ist (die erste Zeile ist der beschriftete Index).
+
+### Parameter
+
+- `data`
+  - : Die anzuzeigenden Daten. Dies muss entweder ein Array oder ein Objekt sein.
+- `columns`
+  - : Ein Array, das die Namen der Spalten enthält, die in der Ausgabe enthalten sein sollen.
+
+### Rückgabewert
+
+Keiner ({{jsxref("undefined")}}).
+
+### Sammlungen von primitiven Typen
 
 Das `data`-Argument kann ein Array oder ein Objekt sein.
 
@@ -28,9 +46,9 @@ console.table(["apples", "oranges", "bananas"]);
 
 | (index) | Werte     |
 | ------- | --------- |
-| 0       | 'Äpfel'   |
-| 1       | 'Orangen' |
-| 2       | 'Bananen' |
+| 0       | 'apples'  |
+| 1       | 'oranges' |
+| 2       | 'bananas' |
 
 ```js
 // an object whose properties are strings
@@ -50,9 +68,9 @@ console.table(me);
 | firstName | 'Tyrone' |
 | lastName  | 'Jones'  |
 
-### Sammlungen zusammengesetzter Typen
+### Sammlungen von zusammengesetzten Typen
 
-Wenn die Elemente im Array oder die Eigenschaften im Objekt selbst Arrays oder Objekte sind, werden deren Elemente oder Eigenschaften in der Zeile, eins pro Spalte, aufgezählt:
+Wenn die Elemente im Array oder die Eigenschaften im Objekt selbst Arrays oder Objekte sind, werden deren Elemente oder Eigenschaften in der Zeile aufgelistet, eines pro Spalte:
 
 ```js
 // an array of arrays
@@ -112,9 +130,9 @@ console.table(family);
 | father   | 'Tyrone'  | 'Jones'  |
 | mother   | 'Janet'   | 'Jones'  |
 
-### Beschränkung der angezeigten Spalten
+### Einschränken der angezeigten Spalten
 
-Standardmäßig listet `console.table()` alle Elemente in jeder Zeile auf. Sie können den optionalen `columns`-Parameter verwenden, um eine Auswahl von Spalten anzuzeigen:
+Standardmäßig listet `console.table()` alle Elemente in jeder Zeile auf. Sie können den optionalen Parameter `columns` verwenden, um eine Untermenge der anzuzeigenden Spalten auszuwählen:
 
 ```js
 // an array of objects, logging only firstName
@@ -137,27 +155,9 @@ console.table([tyrone, janet, maria], ["firstName"]);
 | 1       | 'Janet'   |
 | 2       | 'Maria'   |
 
-### Sortierung von Spalten
+### Sortieren von Spalten
 
-Sie können die Tabelle nach einer bestimmten Spalte sortieren, indem Sie auf das Label dieser Spalte klicken.
-
-## Syntax
-
-```js-nolint
-table(data)
-table(data, columns)
-```
-
-### Parameter
-
-- `data`
-  - : Die anzuzeigenden Daten. Dies muss entweder ein Array oder ein Objekt sein.
-- `columns`
-  - : Ein Array, das die Namen der einzuschließenden Spalten im Output enthält.
-
-### Rückgabewert
-
-Keiner ({{jsxref("undefined")}}).
+Sie können die Tabelle nach einer bestimmten Spalte sortieren, indem Sie auf das Etikett dieser Spalte klicken.
 
 ## Spezifikationen
 
@@ -170,5 +170,5 @@ Keiner ({{jsxref("undefined")}}).
 ## Siehe auch
 
 - [Microsoft Edges Dokumentation für `console.table()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#table)
-- [Node.JS Dokumentation für `console.table()`](https://nodejs.org/docs/latest/api/console.html#consoletabletabulardata-properties)
+- [Node.JS-Dokumentation für `console.table()`](https://nodejs.org/docs/latest/api/console.html#consoletabletabulardata-properties)
 - [Google Chromes Dokumentation für `console.table()`](https://developer.chrome.com/docs/devtools/console/api/#table)

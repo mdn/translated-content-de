@@ -3,39 +3,39 @@ title: "console: assert() statische Methode"
 short-title: assert()
 slug: Web/API/console/assert_static
 l10n:
-  sourceCommit: 18a5b7e39a1cb4653207cc476c681120cc62d260
+  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.assert()`** schreibt eine Fehlermeldung in die Konsole, wenn die Behauptung falsch ist. Wenn die Behauptung wahr ist, passiert nichts.
+Die **`console.assert()`** statische Methode schreibt eine Fehlermeldung in die Konsole, wenn die Aussage falsch ist. Wenn die Aussage wahr ist, passiert nichts.
 
 ## Syntax
 
 ```js-nolint
-assert(assertion)
+console.assert(assertion)
 
-assert(assertion, val1)
-assert(assertion, val1, val2)
-assert(assertion, val1, val2, /* …, */ valN)
+console.assert(assertion, val1)
+console.assert(assertion, val1, val2)
+console.assert(assertion, val1, val2, /* …, */ valN)
 
-assert(assertion, msg)
-assert(assertion, msg, subst1)
-assert(assertion, msg, subst1, /* …, */ substN)
+console.assert(assertion, msg)
+console.assert(assertion, msg, subst1)
+console.assert(assertion, msg, subst1, /* …, */ substN)
 ```
 
 ### Parameter
 
 - `assertion`
-  - : Beliebiger boolescher Ausdruck. Wenn die Behauptung falsch ist, wird eine generische Nachricht, die auf den Aussagefehler hinweist, in die Konsole geschrieben.
+  - : Jede boolesche Ausdruck. Wenn die Aussage falsch ist, wird eine generische Meldung, die auf den Fehler hinweist, in die Konsole geschrieben.
 - `val1` … `valN`
-  - : Eine Liste von JavaScript-Werten zur Ausgabe. Eine Darstellung jedes dieser Werte wird nach einer generischen Fehlermeldung (die sich von der Nachricht unterscheiden kann, die ausgegeben wird, wenn diese Werte nicht vorhanden sind) in der angegebenen Reihenfolge mit einer Art Trennung zwischen der Nachricht und jedem von ihnen in die Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` eine Zeichenkette ist, der im Folgenden beschrieben wird.
+  - : Eine Liste von JavaScript-Werten zur Ausgabe. Eine Darstellung jedes dieser Werte wird nach einer generischen Fehlermeldung in die Konsole ausgegeben (die von der Meldung abweichen kann, wenn diese Werte nicht vorhanden sind) in der gegebenen Reihenfolge mit einer Art Trennung zwischen der Meldung und jedem von ihnen. Es gibt einen Sonderfall, wenn `obj1` ein String ist, der anschließend beschrieben wird.
 - `msg`
-  - : Eine JavaScript-Zeichenkette, die null oder mehr Ersetzungszeichenfolgen enthält, die durch `subst1` bis `substN` in aufeinanderfolgender Reihenfolge bis zur Anzahl der Ersetzungszeichenfolgen ersetzt werden. Ein Doppelpunkt, ein Leerzeichen und dann die ersetzte Zeichenkette werden an die generische Fehlermeldung angehängt, um eine detaillierte Fehlermeldung zu bilden, und das Ergebnis wird in die Konsole ausgegeben. Siehe [Verwendung von Zeichenfolgenersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
+  - : Ein JavaScript-String, der null oder mehr Ersetzungs-Strings enthält, die in aufeinander folgender Reihenfolge mit `subst1` bis `substN` ersetzt werden, bis zur Anzahl der Ersetzungs-Strings. Ein Doppelpunkt, ein Leerzeichen und dann der ersetzte String werden angehängt, um eine detaillierte Fehlermeldung zu bilden, und das Ergebnis wird in die Konsole ausgegeben. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
 - `subst1` … `substN`
-  - : JavaScript-Werte, mit denen Ersetzungszeichenfolgen innerhalb von `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungszeichenfolgen gibt, werden die zusätzlichen Werte nach der detaillierten Fehlermeldung auf die gleiche Weise in die Konsole geschrieben, als gäbe es kein Formatzeichen.
+  - : JavaScript-Werte, mit denen Ersetzungs-Strings innerhalb von `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungs-Strings gibt, werden die zusätzlichen Werte nach der detaillierten Fehlermeldung auf dieselbe Weise in die Konsole ausgegeben, wie wenn kein Format-String vorhanden ist.
 
-Siehe [Text in die Konsole ausgeben](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Siehe [Ausgabe von Text in die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
 
 ### Rückgabewert
 
@@ -43,7 +43,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Codebeispiel demonstriert die Verwendung eines JavaScript-Objekts nach der Behauptung:
+Das folgende Codebeispiel demonstriert die Verwendung eines JavaScript-Objekts nach der Aussage:
 
 ```js
 const errorMsg = "the # is not even";
@@ -71,5 +71,5 @@ for (let number = 2; number <= 5; number++) {
 ## Siehe auch
 
 - [Microsoft Edges Dokumentation zu `console.assert()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#assert)
-- [Node.JS Dokumentation zu `console.assert()`](https://nodejs.org/docs/latest/api/console.html#consoleassertvalue-message)
+- [Node.JS-Dokumentation zu `console.assert()`](https://nodejs.org/docs/latest/api/console.html#consoleassertvalue-message)
 - [Google Chromes Dokumentation zu `console.dir()`](https://developer.chrome.com/docs/devtools/console/api/#dir)

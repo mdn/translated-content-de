@@ -3,32 +3,32 @@ title: "console: info() statische Methode"
 short-title: info()
 slug: Web/API/console/info_static
 l10n:
-  sourceCommit: 18a5b7e39a1cb4653207cc476c681120cc62d260
+  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.info()`** statische Methode gibt eine Nachricht auf der Konsole auf dem "Info"-Log-Level aus. Die Nachricht wird nur angezeigt, wenn die Konsole so konfiguriert ist, dass sie Info-Ausgaben darstellt. In den meisten Fällen wird das Log-Level innerhalb der Konsole-UI konfiguriert. Die Nachricht kann eine spezielle Formatierung erhalten, wie z.B. ein kleines "i"-Symbol daneben.
+Die statische Methode **`console.info()`** gibt eine Nachricht auf der Konsole auf der Logebene "info" aus. Die Nachricht wird dem Benutzer nur angezeigt, wenn die Konsole so konfiguriert ist, dass sie Info-Ausgaben anzeigt. In den meisten Fällen wird das Log-Level innerhalb der Konsole-UI konfiguriert. Die Nachricht kann eine spezielle Formatierung erhalten, wie z.B. ein kleines "i"-Symbol daneben.
 
 ## Syntax
 
 ```js-nolint
-info(val1)
-info(val1, /* …, */ valN)
-info(msg)
-info(msg, subst1, /* …, */ substN)
+console.info(val1)
+console.info(val1, /* …, */ valN)
+console.info(msg)
+console.info(msg, subst1, /* …, */ substN)
 ```
 
 ### Parameter
 
 - `val1` … `valN`
-  - : Eine Liste von JavaScript-Werten, die ausgegeben werden sollen. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art von Trennung dazwischen auf der Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` ein String ist, der anschließend beschrieben wird.
+  - : Eine Liste von JavaScript-Werten, die ausgegeben werden sollen. Eine Darstellung jedes dieser Werte wird in der angegebenen Reihenfolge mit einer Art Trennung zwischen ihnen an die Konsole ausgegeben. Es gibt einen Sonderfall, wenn `obj1` ein String ist, der anschließend beschrieben wird.
 - `msg`
-  - : Ein JavaScript-String mit null oder mehr Ersetzungsstrings, die in aufsteigender Reihenfolge durch `subst1` bis `substN` ersetzt werden, bis zur Anzahl der Ersetzungsstrings. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
+  - : Ein JavaScript-String, der null oder mehr Ersetzungsstrings enthält, die mit `subst1` bis `substN` in aufeinanderfolgender Reihenfolge bis zur Anzahl der Ersetzungsstrings ersetzt werden. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
 - `subst1` … `substN`
-  - : JavaScript-Werte, mit denen Ersetzungsstrings innerhalb `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungsstrings gibt, werden die zusätzlichen Werte selbst nach der ausführlichen Assert-Nachricht auf die Konsole geschrieben, in der gleichen Art und Weise, wie es der Fall ist, wenn es keinen Formatstring gibt.
+  - : JavaScript-Werte, die zur Ersetzung von Ersetzungsstrings innerhalb von `msg` verwendet werden. Wenn es mehr Ersetzungswerte als Ersetzungsstrings gibt, werden die zusätzlichen Werte selbst nach der detaillierten Assertionsnachricht auf die gleiche Weise wie ohne Format-String an die Konsole ausgegeben.
 
-Siehe [Textausgabe auf die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
+Weitere Einzelheiten finden Sie unter [Ausgabe von Text an die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console).
 
 ### Rückgabewert
 

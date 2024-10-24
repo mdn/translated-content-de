@@ -2,19 +2,19 @@
 title: Reporting-Endpoints
 slug: Web/HTTP/Headers/Reporting-Endpoints
 l10n:
-  sourceCommit: 6b4c6ac616502ec3378cfa5f42a9724d4e5a3f18
+  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Reporting-Endpoints`** Response-Header ermöglicht es Website-Administratoren, einen oder mehrere Endpunkte festzulegen, an die Berichte gesendet werden können, die von der [Reporting API](/de/docs/Web/API/Reporting_API) erzeugt werden.
+Der HTTP **`Reporting-Endpoints`** {{Glossary("response_header", "Response-Header")}} ermöglicht es Website-Administratoren, einen oder mehrere Endpunkte zu spezifizieren, an die Berichte gesendet werden können, die von der [Reporting API](/de/docs/Web/API/Reporting_API) generiert werden.
 
-Die Endpunkte können beispielsweise als Ziele zum Senden von CSP-Verstoßberichten, {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Berichten oder anderen allgemeinen Verstößen verwendet werden.
+Die Endpunkte können beispielsweise als Ziele für das Senden von CSP-Verstoßberichten, {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Berichten oder anderen generischen Verstößen genutzt werden.
 
-Wenn er zum Melden von [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#violation_reporting) Fehlern verwendet wird, wird der Header in Kombination mit der {{HTTPHeader("Content-Security-Policy")}}-Header {{CSP("report-to")}}-Direktive verwendet. Für weitere Details zur Einrichtung der CSP-Berichterstattung siehe die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#violation_reporting) Dokumentation.
+Wenn dieser Header zur Berichterstattung von [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#violation_reporting)-Fehlern verwendet wird, erfolgt dies in Kombination mit dem {{HTTPHeader("Content-Security-Policy")}}-Header {{CSP("report-to")}}-Direktive. Für weitere Einzelheiten zur Einrichtung der CSP-Berichterstattung siehe die [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#violation_reporting) Dokumentation.
 
 > [!NOTE]
-> Dieser Header ersetzt {{HTTPHeader("Report-To")}} {{deprecated_inline}} für die Deklaration von Endpunkten und sollte bevorzugt verwendet werden.
+> Dieser Header ersetzt {{HTTPHeader("Report-To")}} {{deprecated_inline}} zur Deklaration von Endpunkten und sollte bevorzugt verwendet werden.
 
 <table class="properties">
   <tbody>
@@ -23,14 +23,14 @@ Wenn er zum Melden von [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#vio
       <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Unzulässiger Header-Name")}}</th>
-      <td>nein</td>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-sicherer Response-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
       </th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -42,29 +42,29 @@ Reporting-Endpoints: <endpoint>
 Reporting-Endpoints: <endpoint>, <endpoint>
 ```
 
-- \<endpoint>
-  - : Ein Reporting-Endpunkt im Format `{endpoint-name}="{URL}"`.
-    Die Endpunkte müssen gültige URIs als Strings im Format `endpoint-name-"{report-URL}"` haben und nicht sichere Endpunkte werden ignoriert.
+- `<endpoint>`
+  - : Ein Reporting-Endpunkt im Format `<endpoint-name>="<URL>"`.
+    Die Endpunkte müssen gültige URIs in Anführungszeichen enthalten (z.B. `my-endpoint="https://example.com/reports"`) und nicht sichere Endpunkte werden ignoriert.
     Eine durch Kommas getrennte Liste von Endpunkten kann angegeben werden.
 
 ## Beispiele
 
-### Einen CSP-Verstoßberichts-Endpunkt festlegen
+### Einen CSP-Verstoßbericht-Endpunkt festlegen
 
-Das folgende Beispiel zeigt, wie der `Reporting-Endpoints` Response-Header in Verbindung mit dem {{HTTPHeader("Content-Security-Policy")}} Header verwendet wird, um anzugeben, wohin CSP-Verstoßberichte gesendet werden:
+Das folgende Beispiel zeigt, wie der `Reporting-Endpoints`-Response-Header in Verbindung mit dem {{HTTPHeader("Content-Security-Policy")}}-Header verwendet wird, um anzugeben, wohin CSP-Verstoßberichte gesendet werden:
 
 ```http
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"
 Content-Security-Policy: default-src 'self'; report-to csp-endpoint
 ```
 
-### Mehrere Reporting-Endpunkte angeben
+### Mehrere Reporting-Endpunkte spezifizieren
 
-Es ist möglich, mehrere Endpunkte anzugeben, die für verschiedene Arten von Verstoßberichten verwendet werden können:
+Es ist möglich, mehrere Endpunkte anzugeben, die für verschiedene Arten von Verstoßberichten verwendet werden können.
 
 ```http
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports",
-                     hpkp-endpoint="https://example.com/hpkp-reports"
+                     permissions-endpoint="https://example.com/permissions-policy-reports"
 ```
 
 ## Spezifikationen
@@ -77,7 +77,7 @@ Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports",
 
 ## Siehe auch
 
-- {{HTTPHeader("Content-Security-Policy")}}
-- {{CSP("report-to")}}-Direktive
-- [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#violation_reporting) Leitfaden
 - [Reporting API](/de/docs/Web/API/Reporting_API)
+- [Content Security Policy (CSP)](/de/docs/Web/HTTP/CSP#violation_reporting) Leitfaden
+- {{HTTPHeader("Content-Security-Policy")}}-Header
+- {{CSP("report-to")}}-Direktive

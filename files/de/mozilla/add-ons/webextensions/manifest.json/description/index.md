@@ -2,7 +2,7 @@
 title: description
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/description
 l10n:
-  sourceCommit: d86e14de2e66319fc0a0ec0539a05400dea5a453
+  sourceCommit: 26ecea937d9349e3526b7acd93f3b33135fe2c26
 ---
 
 {{AddonSidebar}}
@@ -32,7 +32,7 @@ l10n:
   </tbody>
 </table>
 
-Eine kurze Beschreibung der Erweiterung, die für die Anzeige in der Benutzeroberfläche des Browsers vorgesehen ist. In Firefox und Chrome kann dieser Wert bis zu 132 Zeichen lang sein. Das Limit in anderen Browsern kann abweichen.
+Eine kurze Beschreibung der Erweiterung, die zur Anzeige in der Benutzeroberfläche des Browsers vorgesehen ist. In Chromium-Browsern kann dieser Wert bis zu 132 Zeichen umfassen. Die Begrenzung in anderen Browsern kann abweichen.
 
 Dies ist eine [lokalisierbare Eigenschaft](/de/docs/Mozilla/Add-ons/WebExtensions/Internationalization#internationalizing_manifest.json).
 

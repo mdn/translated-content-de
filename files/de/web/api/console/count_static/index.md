@@ -3,32 +3,32 @@ title: "console: count() statische Methode"
 short-title: count()
 slug: Web/API/console/count_static
 l10n:
-  sourceCommit: 70e41990a80a37f95b61267defd1036f524b5731
+  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.count()`** statische Methode protokolliert die Anzahl der Aufrufe dieser bestimmten `count()`-Methode.
+Die statische Methode **`console.count()`** protokolliert, wie oft dieser spezielle Aufruf von `count()` aufgerufen wurde.
 
 ## Syntax
 
 ```js-nolint
-count()
-count(label)
+console.count()
+console.count(label)
 ```
 
 ### Parameter
 
 - `label` {{Optional_Inline}}
-  - : Ein String. Wenn angegeben, gibt `count()` die Anzahl der Aufrufe mit diesem Label aus. Wird es weggelassen, verhält sich `count()` so, als wäre es mit dem Label "default" aufgerufen worden.
+  - : Ein String. Wenn angegeben, gibt `count()` die Anzahl der Aufrufe mit diesem Label aus. Wenn weggelassen, verhält sich `count()`, als wäre es mit dem Label "default" aufgerufen worden.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Zum Beispiel bei folgendem Code:
+Zum Beispiel, bei folgendem Code:
 
 ```js
 function greet(user) {
@@ -42,7 +42,7 @@ greet();
 console.count();
 ```
 
-Die Konsolenausgabe wird ungefähr so aussehen:
+Sieht die Konsolenausgabe ungefähr so aus:
 
 ```plain
 "default: 1"
@@ -53,7 +53,7 @@ Die Konsolenausgabe wird ungefähr so aussehen:
 
 Das Label wird als `default` angezeigt, da kein explizites Label angegeben wurde.
 
-Wenn wir die Variable `user` als `label`-Argument bei der ersten Verwendung von `console.count()` übergeben und den String "alice" bei der zweiten:
+Wenn wir die Variable `user` als `label`-Argument beim ersten Aufruf von `console.count()` übergeben und den String "alice" beim zweiten:
 
 ```js
 function greet(user) {
@@ -67,7 +67,7 @@ greet("alice");
 console.count("alice");
 ```
 
-Werden wir eine Ausgabe wie diese sehen:
+Erhalten wir eine Ausgabe wie diese:
 
 ```plain
 "bob: 1"
@@ -76,7 +76,7 @@ Werden wir eine Ausgabe wie diese sehen:
 "alice: 3"
 ```
 
-Wir führen jetzt separate Zählungen basierend nur auf dem Wert des `label`.
+Wir führen jetzt separate Zählungen nur basierend auf dem Wert von `label`.
 
 ## Spezifikationen
 
@@ -88,6 +88,6 @@ Wir führen jetzt separate Zählungen basierend nur auf dem Wert des `label`.
 
 ## Siehe auch
 
-- [Microsoft Edges Dokumentation für `console.count()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#count)
-- [Node.JS Dokumentation für `console.count()`](https://nodejs.org/docs/latest/api/console.html#consolecountlabel)
-- [Google Chromes Dokumentation für `console.count()`](https://developer.chrome.com/docs/devtools/console/api/#count)
+- [Microsoft Edge-Dokumentation für `console.count()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#count)
+- [Node.JS-Dokumentation für `console.count()`](https://nodejs.org/docs/latest/api/console.html#consolecountlabel)
+- [Google Chrome-Dokumentation für `console.count()`](https://developer.chrome.com/docs/devtools/console/api/#count)

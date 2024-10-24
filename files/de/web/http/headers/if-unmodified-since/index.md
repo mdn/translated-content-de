@@ -2,27 +2,27 @@
 title: If-Unmodified-Since
 slug: Web/HTTP/Headers/If-Unmodified-Since
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
 ---
 
 {{HTTPSidebar}}
 
-Der HyperText Transfer Protocol (HTTP) **`If-Unmodified-Since`** Anforderungsheader macht die Anfrage für die Ressource bedingt: Der Server wird die angeforderte Ressource senden oder sie im Falle einer {{HTTPMethod("POST")}} oder einer anderen nicht-{{Glossary("Safe/HTTP", "sicheren")}} Methode akzeptieren, nur wenn die Ressource nicht nach dem in diesem HTTP-Header angegebenen Datum geändert wurde. Wenn die Ressource nach dem angegebenen Datum geändert wurde, wird die Antwort ein {{HTTPStatus("412", "412 Precondition Failed")}} Fehler sein.
+Der HTTP-**`If-Unmodified-Since`**-{{Glossary("request_header", "Request-Header")}} macht die Anfrage nach der Ressource [bedingt](/de/docs/Web/HTTP/Conditional_requests). Der Server sendet die angeforderte Ressource (oder akzeptiert sie im Fall eines {{HTTPMethod("POST")}} oder einer anderen nicht-{{Glossary("Safe/HTTP", "sicheren")}} Methode) nur, wenn die Ressource auf dem Server nach dem Datum im Anforderungsheader nicht geändert wurde. Wenn die Ressource nach dem angegebenen Datum geändert wurde, wird die Antwort ein {{HTTPStatus("412", "412 Precondition Failed")}}-Fehler sein.
 
-Der **`If-Unmodified-Since`** HTTP-Header wird häufig in den folgenden Situationen verwendet:
+Der `If-Unmodified-Since`-Header wird häufig in den folgenden Situationen verwendet:
 
-- In Verbindung mit nicht-{{Glossary("Safe/HTTP", "sicheren")}} Methoden, wie {{HTTPMethod("POST")}}, kann dieser Header verwendet werden, um eine [optimistische Parallelitätskontrolle](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) zu implementieren, wie es einige Wikis tun: Bearbeitungen werden abgelehnt, wenn das gespeicherte Dokument seit der ursprünglichen Abruf verändert wurde.
-- In Verbindung mit einer Bereichsanfrage mittels des {{HTTPHeader("Range")}} Headers kann dieser Header verwendet werden, um sicherzustellen, dass das neu angeforderte Fragment aus einem unveränderten Dokument stammt.
+- In Verbindung mit nicht-{{Glossary("Safe/HTTP", "sicheren")}} Methoden wie {{HTTPMethod("POST")}} kann dieser Header verwendet werden, um eine [optimistische Nebenläufigkeitskontrolle](https://en.wikipedia.org/wiki/Optimistic_concurrency_control) zu implementieren, wie dies bei einigen Wikis der Fall ist: Revisionen werden abgelehnt, wenn das gespeicherte Dokument seit dem ursprünglichen Abruf geändert wurde, um Konflikte zu vermeiden.
+- In Verbindung mit einer Bereichsanfrage unter Verwendung des {{HTTPHeader("Range")}}-Headers kann dieser Header verwendet werden, um sicherzustellen, dass das neu angeforderte Fragment von einem unveränderten Dokument stammt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -35,22 +35,22 @@ If-Unmodified-Since: <day-name>, <day> <month> <year> <hour>:<minute>:<second> G
 
 ## Direktiven
 
-- \<day-name>
-  - : Eine 3-Buchstaben-Beschreibung des Wochentags. Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", oder "Sun" (beachten Sie die Groß- und Kleinschreibung).
-- \<day>
-  - : Eine zweistellige Tageszahl des Monats. Beispiele: "04", "23".
-- \<month>
-  - : Eine 3-Buchstaben-Beschreibung des Monats. Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" (beachten Sie die Groß- und Kleinschreibung).
-- \<year>
-  - : Eine vierstellige Jahreszahl. Beispiele: "1990", "2016".
-- \<hour>
-  - : Eine zweistellige Stundenzahl basierend auf einem 24-Stunden-System. Beispiele: "09", "23".
-- \<minute>
-  - : Eine zweistellige Minutenzahl. Beispiele: "04", "59".
-- \<second>
-  - : Eine zweistellige Sekundenzahl. Beispiele: "04", "59".
-- `GMT`
-  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT ausgedrückt, niemals in Ortszeit.
+- `<day-name>`
+  - : Einer von "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", oder "Sun" (groß-/kleinschreibungssensitiv).
+- `<day>`
+  - : Zweistellige Tageszahl, z.B. "04" oder "23".
+- `<month>`
+  - : Einer von "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" (groß-/kleinschreibungssensitiv).
+- `<year>`
+  - : Vierstellige Jahreszahl, z.B. "1990" oder "2016".
+- `<hour>`
+  - : Zweistellige Stundenzahl, z.B. "09" oder "23".
+- `<minute>`
+  - : Zweistellige Minutenzahl, z.B. "04" oder "59".
+- `<second>`
+  - : Zweistellige Sekundenzahl, z.B. "04" oder "59".
+- GMT
+  - : Greenwich Mean Time. HTTP-Daten werden immer in GMT und niemals in Ortszeit angegeben.
 
 ## Beispiele
 
@@ -68,9 +68,8 @@ If-Unmodified-Since: Wed, 21 Oct 2015 07:28:00 GMT
 
 ## Siehe auch
 
+- [HTTP Bedingte Anfragen](/de/docs/Web/HTTP/Conditional_requests) Leitfaden
 - {{HTTPHeader("Last-Modified")}}
-- {{HTTPHeader("If-Modified-Since")}}
-- {{HTTPHeader("If-Match")}}
-- {{HTTPHeader("If-None-Match")}}
-- {{HTTPHeader("Range")}}
-- {{HTTPStatus("412", "412 Precondition Failed")}}
+- {{HTTPHeader("If-Range")}}, {{HTTPHeader("Range")}} Bereichsanforderungs-Header
+- {{HTTPHeader("If-Match")}}, {{HTTPHeader("If-Modified-Since")}}, {{HTTPHeader("If-None-Match")}} bedingte Anforderungs-Header
+- {{HTTPStatus("304", "304 Not Modified")}}, {{HTTPStatus("412", "412 Precondition Failed")}} Antwortstatuscodes

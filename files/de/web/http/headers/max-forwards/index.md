@@ -2,24 +2,24 @@
 title: Max-Forwards
 slug: Web/HTTP/Headers/Max-Forwards
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
 ---
 
 {{HTTPSidebar}}
 
-Der **`Max-Forwards`** Anforderungs-HTTP-Header wird mit der [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE) Methode verwendet, um die Anzahl der Knoten (normalerweise Proxys) zu begrenzen, die eine Anfrage durchläuft. Sein Wert ist eine Ganzzahl, die die _maximale Anzahl_ von Knoten angibt, die es passieren muss. An jedem Knoten wird der Wert dekrementiert und die `TRACE`-Anfrage wird zum nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der empfangene Wert von `Max-Forwards` null ist. Die Anfrage wird dann, abgesehen von einigen Headern, als der Körper einer `200 OK` Antwort zurückgesendet.
+Der HTTP **`Max-Forwards`** {{Glossary("request_header", "Request-Header")}} wird mit der {{HTTPMethod("TRACE")}}-Methode verwendet, um die Anzahl der Knoten (in der Regel {{Glossary("Proxy_server", "Proxys")}}) zu begrenzen, durch die die Anfrage geleitet wird. Sein Wert ist eine ganze Zahl, die die _maximale Anzahl_ von Knoten angibt, die es durchlaufen muss. Bei jedem Knoten wird der Wert dekrementiert und die `TRACE`-Anfrage wird an den nächsten Knoten weitergeleitet, bis das Ziel erreicht ist oder der erhaltene Wert von `Max-Forwards` null ist. Die Anfrage wird dann (ohne sensible Header, wo dies angemessen ist) als Körper einer {{HTTPStatus("200")}}-Antwort zurückgesendet. Dies ermöglicht es dem Client, zu sehen, was am anderen Ende der Anfragestrecke empfangen wird (der {{HTTPHeader("Via")}}-Header ist von besonderem Interesse) für Test- oder Diagnosezwecke.
 
-Wenn der `Max-Forwards` Header in einer `TRACE`-Anfrage nicht vorhanden ist, wird ein Knoten davon ausgehen, dass es keine maximale Anzahl von Weiterleitungen gibt.
+Wenn der `Max-Forwards`-Header in einer `TRACE`-Anfrage nicht vorhanden ist, geht ein Knoten davon aus, dass es keine maximale Anzahl von Weiterleitungen gibt.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -43,8 +43,9 @@ Max-Forwards: 10
 
 ## Browser-Kompatibilität
 
-Diese Funktion ist weder auf Browser abgestimmt noch in Browsern implementiert.
+Diese Funktion ist weder auf Browser ausgerichtet noch in ihnen implementiert.
 
 ## Siehe auch
 
-- Die HTTP [`TRACE`](/de/docs/Web/HTTP/Methods/TRACE) Methode
+- {{HTTPMethod("TRACE")}}-Methode
+- {{HTTPStatus("405", "405 Method Not Allowed")}}

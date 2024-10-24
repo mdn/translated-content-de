@@ -2,33 +2,36 @@
 title: Pragma
 slug: Web/HTTP/Headers/Pragma
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: cadc98b0f5f2a770c6ab9b1ca0bf31a90378c6df
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}
 
-Der HTTP/1.0-Allgemeinheader **`Pragma`** ist ein implementierungsspezifischer Header, der entlang der Anfrage-Antwort-Kette verschiedene Auswirkungen haben kann. Dieser Header dient der Abwärtskompatibilität mit den HTTP/1.0-Caches, die keinen HTTP/1.1-Header {{HTTPHeader("Cache-Control")}} besitzen.
+Der HTTP-Header **`Pragma`** ist ein implementationsspezifischer Header, der entlang der Anforderungs-Antwort-Kette verschiedene Effekte haben kann.
+Dieser Header dient der Abwärtskompatibilität mit HTTP/1.0-Caches, die den HTTP/1.1-Header {{HTTPHeader("Cache-Control")}} nicht unterstützen.
 
-> **Note:** `Pragma` ist nicht für HTTP-Antworten spezifiziert und daher kein zuverlässiger Ersatz für den allgemeinen HTTP/1.1 `Cache-Control`-Header, obwohl sein Verhalten das gleiche ist wie bei `Cache-Control: no-cache`, wenn das `Cache-Control`-Headerfeld in einer Anfrage weggelassen wird. Verwenden Sie `Pragma` nur zur Abwärtskompatibilität mit HTTP/1.0-Clients.
+> [!NOTE]
+> Der `Pragma`-Header ist für HTTP-Antworten nicht spezifiziert und ist daher kein verlässlicher Ersatz für den HTTP/1.1-Header `Cache-Control`, obwohl sein Verhalten dem von `Cache-Control: no-cache` entspricht, wenn das `Cache-Control`-Header-Feld in einer Anforderung weggelassen wird.
+> Verwenden Sie `Pragma` nur für die Abwärtskompatibilität mit HTTP/1.0-Clients.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Request header")}},
-        {{Glossary("Response_header", "Response header")}} (Antwortverhalten ist nicht spezifiziert und daher implementierungsspezifisch).
+        {{Glossary("Request_header", "Anforderungs-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}} (das Verhalten in der Antwort ist nicht spezifiziert und implementationsspezifisch).
       </td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Antwort-Header")}}
       </th>
-      <td>ja</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -41,8 +44,8 @@ Pragma: no-cache
 
 ## Direktiven
 
-- no-cache
-  - : Entspricht `Cache-Control: no-cache`. Erzwingt, dass Caches die Anfrage an den Ursprungsserver zur Validierung senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
+- `no-cache`
+  - : Entspricht `Cache-Control: no-cache`. Zwingt Caches, die Anfrage zur Validierung an den Origin-Server zu senden, bevor eine zwischengespeicherte Kopie freigegeben wird.
 
 ## Beispiele
 

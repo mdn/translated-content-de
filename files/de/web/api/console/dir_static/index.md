@@ -3,24 +3,24 @@ title: "console: dir() statische Methode"
 short-title: dir()
 slug: Web/API/console/dir_static
 l10n:
-  sourceCommit: c607327eeabe92adedfb45e37e35d24f320d3e88
+  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.dir()`** zeigt eine Liste der Eigenschaften des angegebenen JavaScript-Objekts an. In Browser-Konsolen wird die Ausgabe als hierarchische Liste mit Aufklappdreiecken präsentiert, die es Ihnen ermöglichen, die Inhalte von Kindobjekten zu sehen.
+Die statische Methode **`console.dir()`** zeigt eine Liste der Eigenschaften des angegebenen JavaScript-Objekts an. In Browserkonsolen wird die Ausgabe als hierarchische Liste mit Aufklappdreiecken präsentiert, die es Ihnen ermöglichen, die Inhalte von Kind-Objekten einzusehen.
 
-Im Gegensatz zu anderen Protokollierungsmethoden versucht `console.dir()` nicht, das Objekt schön darzustellen. Wenn Sie zum Beispiel ein DOM-Element an `console.dir()` übergeben, wird es nicht wie im Elementinspektor angezeigt, sondern es wird stattdessen eine Liste von Eigenschaften angezeigt.
+Anders als andere Protokollierungsmethoden versucht `console.dir()` nicht, das Objekt formatiert darzustellen. Wenn Sie zum Beispiel ein DOM-Element an `console.dir()` übergeben, wird es nicht wie im Element-Inspektor angezeigt, sondern es wird eine Liste der Eigenschaften gezeigt.
 
-![Ein Screenshot der Firefox-Konsole, in dem console.dir(document.location) ausgeführt wird. Wir können die URL der Seite sehen, gefolgt von einem Block von Eigenschaften. Wenn die Eigenschaft eine Funktion oder ein Objekt ist, wird ein Aufklappdreieck vorangestellt.](console-dir.png)
+![Ein Screenshot der Firefox-Konsole, in der console.dir(document.location) ausgeführt wird. Wir sehen die URL der Seite, gefolgt von einem Block von Eigenschaften. Wenn die Eigenschaft eine Funktion oder ein Objekt ist, wird ein Aufklappdreieck vorangestellt.](console-dir.png)
 
-In Laufzeitumgebungen wie {{Glossary("Node.js", "Node")}} und {{Glossary("Deno", "Deno")}}, wo Konsolenausgaben an das Terminal gehen und daher nicht interaktiv sind, bietet der `options`-Parameter eine Möglichkeit, die Darstellung des Objekts anzupassen.
+In Laufzeitumgebungen wie {{Glossary("Node.js", "Node")}} und {{Glossary("Deno", "Deno")}}, wo die Konsolenausgabe an das Terminal geht und daher nicht interaktiv ist, bietet der `options`-Parameter eine Möglichkeit, die Darstellung des Objekts anzupassen.
 
 ## Syntax
 
 ```js-nolint
-dir(object)
-dir(object, options)
+console.dir(object)
+console.dir(object, options)
 ```
 
 ### Parameter
@@ -30,15 +30,15 @@ dir(object, options)
 - `options` {{optional_inline}}
   - : Ein Objekt mit den folgenden Eigenschaften, alle optional:
     - `colors` {{non-standard_inline}} {{optional_inline}}
-      - : Ein boolescher Wert: Wenn `true`, werden die Eigenschaften des Objekts entsprechend ihrem Typ formatiert. Standard ist `true`.
+      - : Ein boolescher Wert: Wenn `true`, werden die Eigenschaften des Objekts entsprechend ihrem Typ stilisiert. Standardmäßig `true`.
     - `depth` {{non-standard_inline}} {{optional_inline}}
-      - : Eine Zahl, die die Anzahl der Verschachtelungsebenen angibt, die gedruckt werden sollen, wenn ein Objekt andere Objekte oder Arrays enthält. Der Wert `null` bedeutet: alle Ebenen drucken. Standard ist 2.
+      - : Eine Zahl, die die Anzahl der Verschachtelungsebenen repräsentiert, die gedruckt werden, wenn ein Objekt andere Objekte oder Arrays enthält. Der Wert `null` bedeutet: alle Ebenen drucken. Standardmäßig 2.
     - `showHidden` {{non-standard_inline}} {{optional_inline}}
-      - : Ein boolescher Wert: Wenn `true`, werden nicht aufzählbare und Symbol-Eigenschaften des Objekts gedruckt. Standard ist `false`.
+      - : Ein boolescher Wert: Wenn `true`, werden die nicht aufzählbaren und Symbol-Eigenschaften des Objekts angezeigt. Standardmäßig `false`.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -50,6 +50,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Microsoft Edge-Dokumentation zu `console.dir()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#dir)
-- [Node.JS-Dokumentation zu `console.dir()`](https://nodejs.org/docs/latest/api/console.html#consoledirobj-options)
-- [Google Chrome-Dokumentation zu `console.dir()`](https://developer.chrome.com/docs/devtools/console/api/#dir)
+- [Microsoft Edge Dokumentation für `console.dir()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#dir)
+- [Node.JS Dokumentation für `console.dir()`](https://nodejs.org/docs/latest/api/console.html#consoledirobj-options)
+- [Google Chrome Dokumentation für `console.dir()`](https://developer.chrome.com/docs/devtools/console/api/#dir)

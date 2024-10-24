@@ -1,20 +1,20 @@
 ---
-title: "console: group() statische Methode"
+title: "console: group() Methode"
 short-title: group()
 slug: Web/API/console/group_static
 l10n:
-  sourceCommit: d2b78565fb33a7ebfa7314be61f6a887d2d90ace
+  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.group()`** erstellt eine neue Inline-Gruppe im [Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Log, wodurch alle nachfolgenden Konsolennachrichten um eine Stufe weiter eingerückt werden, bis [`console.groupEnd()`](/de/docs/Web/API/Console/groupEnd_static) aufgerufen wird.
+Die statische Methode **`console.group()`** erstellt eine neue Inline-Gruppe im [Webkonsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html) Log, wodurch alle nachfolgenden Konsolennachrichten um eine zusätzliche Ebene eingerückt werden, bis [`console.groupEnd()`](/de/docs/Web/API/Console/groupEnd_static) aufgerufen wird.
 
 ## Syntax
 
 ```js-nolint
-group()
-group(label)
+console.group()
+console.group(label)
 ```
 
 ### Parameter
@@ -24,13 +24,13 @@ group(label)
 
 ### Rückgabewert
 
-None ({{jsxref("undefined")}}).
+Keiner ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Sie können verschachtelte Gruppen verwenden, um Ihre Ausgaben zu organisieren, indem Sie visuell verwandte Nachrichten zusammenführen. Um einen neuen verschachtelten Block zu erstellen, rufen Sie `console.group()` auf. Die Methode `console.groupCollapsed()` ist ähnlich, aber der neue Block ist zusammengeklappt und erfordert das Klicken auf eine Offenlegungsfläche, um ihn zu lesen.
+Sie können verschachtelte Gruppen verwenden, um Ihre Ausgabe zu organisieren und visuell verwandte Nachrichten zuzuordnen. Um einen neuen verschachtelten Block zu erstellen, rufen Sie `console.group()` auf. Die Methode `console.groupCollapsed()` ist ähnlich, aber der neue Block ist eingeklappt und erfordert das Klicken auf eine Offenlegungsschaltfläche, um ihn zu lesen.
 
-Um die aktuelle Gruppe zu verlassen, rufen Sie `console.groupEnd()` auf. Zum Beispiel erzeugt der folgende Code:
+Um die aktuelle Gruppe zu verlassen, rufen Sie `console.groupEnd()` auf. Zum Beispiel sieht der Code so aus:
 
 ```js
 console.log("This is the outer level");
@@ -47,9 +47,9 @@ console.log("Back to the outer level");
 
 Die Ausgabe sieht so aus:
 
-![Ein Screenshot von verschachtelten Nachrichten in der Konsolenausgabe.](nesting.png)
+![Ein Screenshot von Nachrichten, die in der Konsolenausgabe verschachtelt sind.](nesting.png)
 
-Weitere Details finden Sie unter [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console).
+Weitere Informationen finden Sie unter [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console).
 
 ## Spezifikationen
 

@@ -3,17 +3,17 @@ title: "console: dirxml() statische Methode"
 short-title: dirxml()
 slug: Web/API/console/dirxml_static
 l10n:
-  sourceCommit: 2288418f34f0b8d29188010a7005b84d2157526f
+  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
 ---
 
 {{APIRef("Console API")}}
 
-Die **`console.dirxml()`** statische Methode zeigt einen interaktiven Baum der untergeordneten Elemente des angegebenen XML/HTML-Elements an. Falls es nicht möglich ist, als Element anzuzeigen, wird stattdessen die JavaScript-Objekt-Ansicht angezeigt. Die Ausgabe wird als hierarchische Auflistung erweiterbarer Knoten präsentiert, die es Ihnen ermöglicht, die Inhalte der Kindknoten zu sehen.
+Die statische Methode **`console.dirxml()`** zeigt einen interaktiven Baum der Nachfahrelemente des angegebenen XML/HTML-Elements an. Wenn es nicht möglich ist, es als Element darzustellen, wird die JavaScript-Objektansicht stattdessen angezeigt. Die Ausgabe wird als hierarchische Liste von erweiterbaren Knoten präsentiert, die es Ihnen ermöglichen, den Inhalt von Kindknoten zu sehen.
 
 ## Syntax
 
 ```js-nolint
-dirxml(object)
+console.dirxml(object)
 ```
 
 ### Parameter
