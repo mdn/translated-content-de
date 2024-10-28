@@ -2,12 +2,12 @@
 title: <munderover>
 slug: Web/MathML/Element/munderover
 l10n:
-  sourceCommit: 07f0cf4375aaa02e1071d8bd0e8518db7609b7a9
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<munderover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Akzente oder Grenzen sowohl unter als auch über einem Ausdruck anzubringen.
+Das **`<munderover>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Akzente oder Grenzen sowohl unter als auch über einem Ausdruck anzubringen.
 
 Es verwendet die folgende Syntax: `<munderover> base underscript overscript </munderover>`
 
@@ -16,9 +16,9 @@ Es verwendet die folgende Syntax: `<munderover> base underscript overscript </mu
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Überskript als Akzent behandelt werden soll (d. h. größer und näher am Basisausdruck gezeichnet werden soll).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), der angibt, ob das oberskript als Akzent behandelt werden soll (d.h. größer und näher an den Basis-Ausdruck gezeichnet).
 - `accentunder`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Unterskript als Akzent behandelt werden soll (d. h. größer und näher am Basisausdruck gezeichnet werden soll).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), der angibt, ob das unterscript als Akzent behandelt werden soll (d.h. größer und näher an den Basis-Ausdruck gezeichnet).
 
 ## Beispiele
 
@@ -41,6 +41,19 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 {{ EmbedLiveSample('munderover_example', 700, 200, "", "") }}
 
+## Technische Übersicht
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -51,5 +64,5 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("munder") }} (Unterskript)
-- {{ MathMLElement("mover") }} (Überskript)
+- {{ MathMLElement("munder") }} (Unterscript)
+- {{ MathMLElement("mover") }} (Oberscript)

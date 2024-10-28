@@ -2,14 +2,14 @@
 title: Beispiel
 slug: Web/SVG/Namespaces_Crash_Course/Example
 l10n:
-  sourceCommit: e633202a8cda3c340a0510c27f3902f743275140
+  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
 ---
 
 {{SVGRef}}
 
-In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und den [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Partikeln" zu animieren. Diese Partikel folgen zwei einfachen Prinzipien. Erstens versucht jedes Partikel, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Partikel, sich von der durchschnittlichen Position der Partikel weg zu bewegen. In Kombination entsteht dieses sehr natürlich aussehende Verhalten.
+In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Motes" zu animieren. Diese Motes folgen zwei einfachen Prinzipien. Erstens versucht jedes Mote, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Mote, sich von der durchschnittlichen Mote-Position zu entfernen. Kombiniert ergibt dies ein sehr natürlich aussehendes Verhalten.
 
-[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den Best Practices von 2006 geschrieben. Das untenstehende Beispiel wurde an moderne JavaScript-Best-Practices angepasst. Beide funktionieren.
+[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den besten Praktiken von 2006 geschrieben. Das untenstehende Beispiel wurde an moderne JavaScript-Best-Practices angepasst. Beide funktionieren.
 
 ```xml
 <?xml version='1.0'?>
@@ -53,14 +53,14 @@ cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
     </p>
 
     <div>
-    (C) 2006 <a id='emailme' href='#'>Nick Johnson</a>
+    (C) 2006 <a id='email-me' href='#'>Nick Johnson</a>
 
     <script type='text/javascript'>
     <![CDATA[
       // foil spam bots
       let email = '@riovia.net';
       email ='nick' + email;
-      document.getElementById('emailme').href = 'mailto:'+email;
+      document.getElementById('email-me').href = 'mailto:'+email;
     ]]>
     </script>
     This software is free for you to use in any way whatsoever,

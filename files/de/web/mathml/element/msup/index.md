@@ -2,12 +2,12 @@
 title: <msup>
 slug: Web/MathML/Element/msup
 l10n:
-  sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<msup>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einem Ausdruck einen Hochstapler hinzuzufügen.
+Das **`<msup>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einem Ausdruck einen hochgestellten Index anzufügen.
 
 Es verwendet die folgende Syntax: `<msup> base superscript </msup>`.
 
@@ -16,7 +16,7 @@ Es verwendet die folgende Syntax: `<msup> base superscript </msup>`.
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende veraltete Attribut:
 
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindestverschiebung der Basislinie des Hochstaplers nach oben angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die minimale Menge angibt, um die Basislinie des Hochgestellten nach oben zu verschieben.
 
 > [!NOTE]
 > Für das `superscriptshift`-Attribut können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
@@ -34,6 +34,19 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 {{EmbedLiveSample('Examples')}}
 
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -44,6 +57,6 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Tiefstapler)
-- {{ MathMLElement("msubsup") }} (Tiefstapler-Hochstapler-Paar)
-- {{ MathMLElement("mmultiscripts") }} (Vorskripte und Tensorindizes)
+- {{ MathMLElement("msub") }} (Tiefgestellt)
+- {{ MathMLElement("msubsup") }} (Paar aus tief- und hochgestellt)
+- {{ MathMLElement("mmultiscripts") }} (Vorschriften und Tensorindizes)

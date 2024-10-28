@@ -2,19 +2,19 @@
 title: <mover>
 slug: Web/MathML/Element/mover
 l10n:
-  sourceCommit: 07f0cf4375aaa02e1071d8bd0e8518db7609b7a9
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<mover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einen Akzent oder eine Grenze über einem Ausdruck anzubringen. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
+Das **`<mover>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einen Akzent oder eine Grenze über einem Ausdruck zu platzieren. Verwenden Sie die folgende Syntax: `<mover> base overscript </mover>`
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende Attribut:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie folgendes Attribut:
 
 - `accent`
-  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Überskript als Akzent behandelt werden soll (d. h. größer und näher am Basisausdruck gezeichnet wird).
+  - : Ein [`<boolean>`](/de/docs/Web/MathML/Values#mathml-specific_types), das angibt, ob das Overscript als Akzent behandelt werden soll (d.h. größer und näher zum Basisausdruck gezeichnet).
 
 ## Beispiele
 
@@ -35,6 +35,19 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 {{ EmbedLiveSample('mover_example', 700, 200, "", "") }}
 
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -45,5 +58,5 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 ## Siehe auch
 
-- {{ MathMLElement("munder") }} (Unterskript)
-- {{ MathMLElement("munderover") }} (Unterskript-Überskript-Paar)
+- {{ MathMLElement("munder") }} (Unterscript)
+- {{ MathMLElement("munderover") }} (Paar aus Unterscript und Overscript)

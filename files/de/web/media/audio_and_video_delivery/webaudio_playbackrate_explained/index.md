@@ -1,29 +1,29 @@
 ---
-title: Web Audio playbackRate erklärt
+title: Web Audio `playbackRate` erklärt
 slug: Web/Media/Audio_and_video_delivery/WebAudio_playbackRate_explained
 l10n:
-  sourceCommit: 1d306a49f1584c1117bdf14d9b64bb0769d81c07
+  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
 ---
 
 {{QuickLinksWithSubPages("/de/docs/Web/Media")}}
 
-Die [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) Eigenschaft der {{ htmlelement("audio") }} und {{ htmlelement("video") }} Elemente erlaubt es uns, die Geschwindigkeit oder das Tempo zu ändern, mit dem ein Webaudio- oder Videostück abgespielt wird. Dieser Artikel erklärt `playbackRate` im Detail.
+Die [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) Eigenschaft der {{ htmlelement("audio") }} und {{ htmlelement("video") }} Elemente ermöglicht es uns, die Geschwindigkeit oder das Tempo, mit dem ein Webaudio- oder Videostück abgespielt wird, zu ändern. Dieser Artikel erklärt `playbackRate` im Detail.
 
-## Grundlagen von playbackRate
+## Grundlagen von `playbackRate`
 
-Beginnen wir mit einem kurzen Beispiel zur Verwendung von `playbackRate`:
+Lassen Sie uns mit einem kurzen Beispiel zur Verwendung von `playbackRate` beginnen:
 
 ```js
 const audio = document.createElement("audio");
-audio.setAttribute("src", "audiofile.mp3");
+audio.setAttribute("src", "audio-file.mp3");
 audio.playbackRate = 0.5;
 ```
 
-Hier erzeugen wir ein {{ htmlelement("audio") }} Element und setzen dessen `src` auf eine Datei unserer Wahl. Als nächstes setzen wir `playbackRate` auf 0,5, was der halben normalen Geschwindigkeit entspricht (der `playbackRate` ist ein Multiplikator, der auf die ursprüngliche Rate angewendet wird).
+Hier erstellen wir ein {{ htmlelement("audio") }} Element und setzen sein `src` auf eine Datei unserer Wahl. Anschließend setzen wir die `playbackRate` auf 0.5, was die Hälfte der normalen Geschwindigkeit darstellt (der `playbackRate` ist ein Multiplikator, der auf die ursprüngliche Geschwindigkeit angewendet wird).
 
 ## Ein vollständiges Beispiel
 
-Lassen Sie uns zuerst ein {{ htmlelement("video") }} Element erstellen und Video- und Wiedergabegeschwindigkeitssteuerungen in HTML einrichten:
+Lassen Sie uns zunächst ein {{ htmlelement("video") }} Element erstellen und Steuerungen für Video und Abspielgeschwindigkeit in HTML einrichten:
 
 ```html
 <video id="myVideo" controls>
@@ -41,7 +41,7 @@ Lassen Sie uns zuerst ein {{ htmlelement("video") }} Element erstellen und Video
 </form>
 ```
 
-Und einige JavaScript darauf anwenden:
+Und dann etwas JavaScript darauf anwenden:
 
 ```js
 window.onload = () => {
@@ -60,25 +60,25 @@ window.onload = () => {
 };
 ```
 
-Schließlich horchen wir auf das `input` Ereignis, das auf dem {{ htmlelement("input") }} Element ausgelöst wird, damit wir auf die Änderung der Wiedergabegeschwindigkeitssteuerung reagieren können.
+Schließlich lauschen wir auf das `input` Ereignis, das auf dem {{ htmlelement("input") }} Element ausgelöst wird, sodass wir auf die Änderung der Steuerung der Wiedergabegeschwindigkeit reagieren können.
 
-> **Note:** [Probieren Sie dieses Beispiel live aus](https://jsbin.com/UGIxoJis/1/edit) und versuchen Sie, die Wiedergabegeschwindigkeit zu ändern, um den Effekt zu sehen.
+> **Note:** [Probieren Sie dieses Beispiel live aus](https://jsbin.com/UGIxoJis/1/edit) und versuchen Sie, die Steuerung der Wiedergabegeschwindigkeit anzupassen, um den Effekt zu sehen.
 
-## defaultPlaybackRate und ratechange
+## `defaultPlaybackRate` und `ratechange`
 
-Zusätzlich zu `playbackRate` haben wir auch eine `defaultPlaybackRate` Eigenschaft zur Verfügung, die es uns ermöglicht, die Standard-Wiedergabegeschwindigkeit festzulegen: die Wiedergabegeschwindigkeit, auf die das Medium zurückgesetzt wird; beispielsweise wenn wir die Quelle des Videos ändern oder (in einigen Browsern) wenn ein `ended` Ereignis generiert wird.
+Zusätzlich zu `playbackRate` steht uns auch die `defaultPlaybackRate` Eigenschaft zur Verfügung, die es uns ermöglicht, die Standardwiedergabegeschwindigkeit festzulegen: die Wiedergabegeschwindigkeit, auf die das Medium zurückgesetzt wird, wenn zum Beispiel die Quelle des Videos geändert wird oder (in einigen Browsern) wenn ein `ended` Ereignis generiert wird.
 
-Die `defaultPlaybackRate` ermöglicht es uns also, die Wiedergabegeschwindigkeit _vor_ dem Abspielen des Mediums festzulegen, während `playbackRate` es uns erlaubt, sie während der Wiedergabe des Mediums zu ändern.
+`defaultPlaybackRate` ermöglicht es uns also, die Wiedergabegeschwindigkeit _vor_ der Wiedergabe des Mediums einzustellen, während `playbackRate` es uns erlaubt, sie während der Wiedergabe des Mediums zu ändern.
 
 Es gibt auch ein Ereignis namens `ratechange`, das jedes Mal ausgelöst wird, wenn sich die `playbackRate` ändert.
 
-### Hinweise
+### Anmerkungen
 
-- Die meisten Browser stoppen die Audiowiedergabe außerhalb der `playbackRate` Grenzen von 0,5 und 4, wodurch das Video stumm weiterläuft. Für die meisten Anwendungen wird empfohlen, den Bereich auf zwischen 0,5 und 4 zu begrenzen.
-- Die Tonhöhe der Tonspur ändert sich nicht, wenn `playbackRate` verändert wird.
+- Die meisten Browser stoppen das Abspielen von Audio außerhalb der `playbackRate` Grenzen von 0.5 und 4 und lassen das Video stumm weiterlaufen. Für die meisten Anwendungen wird empfohlen, den Bereich auf zwischen 0.5 und 4 zu begrenzen.
+- Die Tonhöhe des Audiospuren ändert sich nicht, wenn `playbackRate` angepasst wird.
 - Negative Werte, die anzeigen, dass das Medium rückwärts abgespielt werden soll, werden von den meisten Browsern derzeit nicht unterstützt.
 
 ## Siehe auch
 
 - [Hyperaudio's Playback Rate Test](https://hyperaud.io/lab/pbr-test/)
-- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die die [`playbackrate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) Eigenschaft definiert.
+- [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement): Schnittstelle, die die [`playbackRate`](/de/docs/Web/API/HTMLMediaElement/playbackRate) Eigenschaft definiert.

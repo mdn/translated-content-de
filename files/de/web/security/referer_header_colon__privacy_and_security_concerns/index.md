@@ -1,49 +1,49 @@
 ---
-title: "Referer-Header: Datenschutz- und Sicherheitsbedenken"
+title: "`Referer` Header: Datenschutz- und Sicherheitsbedenken"
 slug: Web/Security/Referer_header:_privacy_and_security_concerns
 l10n:
-  sourceCommit: 392ce991114e55e2187510b640ab545d09258a16
+  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Security")}}
 
-Es gibt Datenschutz- und Sicherheitsrisiken, die mit dem [Referer HTTP-Header](/de/docs/Web/HTTP/Headers/Referer) verbunden sind. Dieser Artikel beschreibt diese und bietet Ratschläge zur Minderung dieser Risiken.
+Es gibt Datenschutz- und Sicherheitsrisiken im Zusammenhang mit dem [Referer HTTP-Header](/de/docs/Web/HTTP/Headers/Referer). Dieser Artikel beschreibt diese und bietet Ratschläge zur Minderung dieser Risiken.
 
 ## Das Referrer-Problem
 
-Der {{httpheader("Referer")}} (sic)-Header enthält die Adresse einer Anfrage (zum Beispiel die Adresse der vorherigen Webseite, von der ein Link zur derzeit angeforderten Seite gefolgt wurde, oder die Adresse einer Seite, die ein Bild oder eine andere Ressource lädt). Dies hat viele recht harmlose Verwendungen, einschließlich Analytik, Protokollierung oder optimiertes Caching. Es gibt jedoch problematischere Verwendungen wie das Tracking oder den Diebstahl von Informationen oder auch nur Nebeneffekte wie das unbeabsichtigte Leaken sensibler Informationen.
+Der {{httpheader("Referer")}}-Header enthält die Adresse einer Anfrage (zum Beispiel die Adresse der vorherigen Webseite, von der ein Link zur aktuell angeforderten Seite gefolgt wurde, oder die Adresse einer Seite, die ein Bild oder eine andere Ressource lädt). Dies hat viele ziemlich harmlose Verwendungen, einschließlich Analysen, Protokollierung oder optimiertes Caching. Es gibt jedoch auch problematischere Verwendungen wie Tracking oder Informationsdiebstahl, oder auch Nebenwirkungen wie das ungewollte Leaken von sensiblen Informationen.
 
-Betrachten Sie zum Beispiel eine "Passwort zurücksetzen"-Seite mit einem sozialen Medienlink in einer Fußzeile. Wenn der Link gefolgt wird, könnte die Social-Media-Seite je nach Weitergabe der Informationen die URL zum Zurücksetzen des Passworts erhalten und möglicherweise die freigegebenen Informationen nutzen, was die Sicherheit eines Benutzers gefährden könnte.
+Zum Beispiel kann eine "Passwort zurücksetzen"-Seite mit einem sozialen Medienlink im Footer, wenn der Link gefolgt wurde, je nachdem wie Informationen geteilt werden, dazu führen, dass die soziale Medienseite die URL zum Zurücksetzen des Passworts erhält und möglicherweise die geteilten Informationen weiterhin nutzen kann, was die Sicherheit eines Nutzers beeinträchtigen könnte.
 
-Nach demselben Prinzip könnte ein Bild von einer Drittanbieter-Seite, das in Ihre Seite eingebettet ist, dazu führen, dass sensible Informationen an den Drittanbieter weitergeleitet werden. Selbst wenn die Sicherheit nicht gefährdet ist, könnten die Informationen etwas sein, was der Benutzer nicht teilen möchte.
+Nach derselben Logik könnte ein Bild von einer Drittanbieter-Website, das in Ihre Seite eingebettet ist, dazu führen, dass sensible Informationen an den Drittanbieter geleakt werden. Selbst wenn die Sicherheit nicht gefährdet ist, könnten es Informationen sein, die der Benutzer nicht teilen möchte.
 
-## Wie können wir dies beheben?
+## Wie können wir das beheben?
 
-Ein Großteil dieses Risikos kann durch eine sinnvolle Gestaltung von Anwendungen gemindert werden. Eine sinnvolle Anwendung würde solche Risiken beseitigen, indem sie Einmal-Passwort-Zurücksetzen-URLs erstellt oder sie mit einem einzigartigen Benutzertoken kombiniert. Das Risiko kann auch durch die Übertragung sensibler Daten auf sicherere Weise reduziert werden.
+Ein Großteil dieses Risikos kann durch ein vernünftiges Design von Anwendungen gemindert werden. Eine sinnvolle Anwendung würde solche Risiken durch die Erstellung von einmaligen URLs zum Zurücksetzen von Passwörtern beseitigen oder sie mit einem eindeutigen Benutzertoken kombinieren. Das Risiko kann auch durch die sichere Übertragung sensibler Daten verringert werden.
 
-Sie sollten wann immer möglich {{HTTPMethod("POST")}} anstelle von {{HTTPMethod("GET")}} verwenden, um zu vermeiden, dass sensible Daten über URLs an andere Orte weitergegeben werden.
+Sie sollten {{HTTPMethod("POST")}} anstelle von {{HTTPMethod("GET")}} verwenden, wo immer dies möglich ist, um zu vermeiden, dass sensible Daten über URLs an andere Orte übermittelt werden.
 
-Sie sollten immer {{Glossary("HTTPS", "HTTPS")}} für Ihre Websites verwenden. Dies hat viele Sicherheitsvorteile, einschließlich der Tatsache, dass HTTPS-Sites niemals Referrer-Informationen an nicht-HTTPS-Sites übertragen. Dieser Rat ist jetzt, da der Großteil des Webs HTTPS verwendet, weniger relevant, aber immer noch eine Überlegung wert.
+Sie sollten immer {{Glossary("HTTPS", "HTTPS")}} für Ihre Websites verwenden. Dies hat viele Sicherheitsvorteile, einschließlich der Tatsache, dass HTTPS-Seiten niemals Referrer-Informationen an nicht-HTTPS-Seiten übertragen. Dieser Rat ist jetzt weniger relevant, da ein Großteil des Webs HTTPS verwendet, aber es ist dennoch eine berücksichtigenswerte Überlegung.
 
-Darüber hinaus sollten Sie in Erwägung ziehen, jegliche Drittanbieterinhalte (z. B. in {{htmlelement("iframe")}} eingebettete soziale Netzwerk-Widgets) von sicheren Bereichen Ihrer Website, wie Passwort-Zurücksetzen-Seiten, Zahlungsformulare, Login-Bereichen usw., zu entfernen.
+Zusätzlich sollten Sie in Betracht ziehen, jeglichen Drittanbieter-Inhalt (z.B. soziale Netzwerkwidgets, die in {{htmlelement("iframe")}} eingebettet sind) aus sicheren Bereichen Ihrer Website zu entfernen, wie z.B. Passwortzurücksetzungsseiten, Zahlungsformulare, Login-Bereiche usw.
 
-Sie können solche Risiken auch durch folgende Maßnahmen mindern:
+Sie können solche Risiken auch mit folgenden Maßnahmen mindern:
 
-- Den {{httpheader("Referrer-Policy")}}-Header auf Ihrem Server verwenden, um zu steuern, welche Informationen über den {{httpheader("Referer")}}-Header gesendet werden. Eine Direktive wie `no-referrer` würde den Referer-Header vollständig weglassen.
-- Das `referrerpolicy`-Attribut an HTML-Elementen verwenden, die Gefahr laufen, solche Informationen zu leaken (wie {{HTMLElement("img")}} und {{HTMLElement("a")}}). Dieses kann beispielsweise auf `no-referrer` eingestellt werden, um den Versand des `Referer`-Headers vollständig zu stoppen.
-- Das [`rel`](/de/docs/Web/HTML/Attributes/rel)-Attribut auf [`noreferrer`](/de/docs/Web/HTML/Attributes/rel/noreferrer) an HTML-Elementen setzen, die Gefahr laufen, solche Informationen zu leaken (wie {{HTMLElement("form")}} und {{HTMLElement("a")}}).
-- Ein {{HTMLElement("meta")}}-Element mit einem [name](/de/docs/Web/HTML/Element/meta#name) von `referrer` und dem Inhalt `no-referrer` verwenden, um den Referer-Header für das gesamte Dokument zu deaktivieren. Siehe [Referrer-Policy Integration with HTML](/de/docs/Web/HTTP/Headers/Referrer-Policy#integration_with_html).
-- Die [Exit page](https://geekthis.net/post/hide-http-referer-headers/#exit-page-redirect)-Technik.
+- Der {{httpheader("Referrer-Policy")}}-Header auf Ihrem Server, um zu kontrollieren, welche Informationen über den {{httpheader("Referer")}}-Header gesendet werden. Beispielsweise würde eine Direktive von `no-referrer` den Referer-Header vollständig weglassen.
+- Das `referrerpolicy`-Attribut an HTML-Elementen, die in Gefahr sind, solche Informationen zu leaken (wie {{HTMLElement("img")}} und {{HTMLElement("a")}}). Dieses kann zum Beispiel auf `no-referrer` gesetzt werden, um das Senden des `Referer`-Headers vollständig zu stoppen.
+- Das [`rel`](/de/docs/Web/HTML/Attributes/rel) Attribut auf [`noreferrer`](/de/docs/Web/HTML/Attributes/rel/noreferrer) gesetzt für HTML-Elemente, die in Gefahr sind, solche Informationen zu leaken (wie {{HTMLElement("form")}} und {{HTMLElement("a")}}).
+- Ein {{HTMLElement("meta")}}-Element mit einem [name](/de/docs/Web/HTML/Element/meta#name) von `referrer` und dem Inhalt `no-referrer`, um den Referer-Header für das gesamte Dokument zu deaktivieren. Siehe [Referrer-Policy Integration mit HTML](/de/docs/Web/HTTP/Headers/Referrer-Policy#integration_with_html).
+- Die [Exit-Page](https://geekthis.net/post/hide-http-referer-headers/#exit-page-redirect) Technik.
 
-Sicherheitsbewusste serverseitige Frameworks tendieren dazu, eingebaute Maßnahmen gegen solche Probleme zu haben, zum Beispiel:
+Sicherheitsbewusste serverseitige Frameworks tendieren dazu, eingebaute Milderungen für solche Probleme zu haben, zum Beispiel:
 
-- [Sicherheit in Django](https://docs.djangoproject.com/en/stable/topics/security/) (siehe besonders [Schutz vor Cross-Site-Request-Forgery (CSRF)](https://docs.djangoproject.com/en/stable/topics/security/#cross-site-request-forgery-csrf-protection)).
-- [helmetjs referrer-policy](https://github.com/helmetjs/helmet/tree/main/middlewares/referrer-policy) – Middleware zur Einstellung der Referrer-Policy in Node.js/Express-Apps (siehe auch [helmetjs](https://github.com/helmetjs) für weitere Sicherheitsvorkehrungen).
+- [Sicherheit in Django](https://docs.djangoproject.com/en/stable/topics/security/) (insbesondere siehe [Cross site request forgery (CSRF) Schutz](https://docs.djangoproject.com/en/stable/topics/security/#cross-site-request-forgery-csrf-protection)).
+- [Helmet referrer-policy](https://github.com/helmetjs/helmet/tree/main/middlewares/referrer-policy) — Middleware zum Setzen der Referrer-Policy in Node.js/Express-Anwendungen (siehe auch [Helmet](https://github.com/helmetjs) für weitere Sicherheitsvorkehrungen).
 
 ## Richtlinien und Anforderungen
 
-Es wäre sinnvoll, eine Reihe von Sicherheits- und Datenschutzanforderungen für Ihr Projektteam/Ihre Projektteams zu schreiben, die den Einsatz solcher Funktionen zur Minderung der damit verbundenen Risiken spezifizieren. Sie sollten sich die Hilfe eines Web-Sicherheitsexperten holen, um diese Anforderungen zu formulieren, und sowohl die Bedürfnisse und das Wohl der Benutzer als auch andere Themen wie Richtlinien und Vorschriften berücksichtigen, die durch Gesetze wie die [EU-Datenschutz-Grundverordnung](https://gdpr.eu/) (GDPR) durchgesetzt werden.
+Es wäre sinnvoll, für Ihr Projektteam Sicherheits- und Datenschutzanforderungen zu formulieren, die den Einsatz solcher Funktionen zur Minderung der verbundenen Risiken festlegen. Sie sollten die Hilfe eines Websicherheitsexperten in Anspruch nehmen, um diese Anforderungen zu formulieren, und sowohl die Bedürfnisse und das Wohl der Nutzer als auch andere Themen wie Richtlinien und durch Gesetze wie die [EU-Datenschutz-Grundverordnung](https://gdpr.eu/) (GDPR) durchgesetzte Vorschriften berücksichtigen.
 
 ## Siehe auch
 
-- [Mozilla-Sicherheitsteam-Richtlinien zur Referrer-Policy](https://infosec.mozilla.org/guidelines/web_security.html#referrer-policy)
+- [Richtlinien des Mozilla-Sicherheitsteams zur Referrer-Policy](https://infosec.mozilla.org/guidelines/web_security.html#referrer-policy)

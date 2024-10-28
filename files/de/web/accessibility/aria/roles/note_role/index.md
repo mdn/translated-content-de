@@ -1,22 +1,22 @@
 ---
-title: "ARIA: note Rolle"
+title: "ARIA: note-Rolle"
 slug: Web/Accessibility/ARIA/Roles/note_role
 l10n:
-  sourceCommit: 019ca5c9ce641bfa02825e1ba0444f35dfb646cc
+  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
 ---
 
 {{AccessibilitySidebar}}
 
-Eine `note` Rolle schlägt einen Abschnitt vor, dessen Inhalt parenthetisch oder zusätzlich zum Hauptinhalt ist.
+Eine `note`-Rolle deutet auf einen Abschnitt hin, dessen Inhalt ergänzend oder nebensächlich zum Hauptinhalt ist.
 
 ## Beschreibung
 
-Die `note` Rolle kann zu parenthetischem oder zusätzlichem Inhalt hinzugefügt werden, wenn kein anderes natives Element oder eine andere Rolle entsprechend passt.
+Die `note`-Rolle kann zu ergänzenden oder nebensächlichen Inhalten hinzugefügt werden, wenn kein anderes nativer Element oder keine andere Rolle passt.
 
-### Zugehörige WAI-ARIA-Rollen, Zustände und Eigenschaften
+### Zugehörige WAI-ARIA-Rollen, -Zustände und -Eigenschaften
 
 - [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) oder [`aria-labelledby`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby) (optional)
-  - : Eine Anmerkung zu benennen ist optional, kann aber Benutzern von Screenreadern helfen, ihren Kontext und Zweck zu verstehen. Der Name kann mit `aria-labelledby` bereitgestellt werden, wenn ein sichtbares Label vorhanden ist, andernfalls mit `aria-label`.
+  - : Eine Anmerkung zu benennen ist optional, kann aber Benutzern von Screenreadern helfen, ihren Kontext und Zweck besser zu verstehen. Der Name kann mithilfe von `aria-labelledby` angegeben werden, wenn ein sichtbares Label vorhanden ist, andernfalls mit `aria-label`.
 
 ## Beispiele
 
@@ -30,7 +30,7 @@ Die `note` Rolle kann zu parenthetischem oder zusätzlichem Inhalt hinzugefügt 
 …
 <h2>Career</h2>
 …
-<p role="note" class="hilitebox">
+<p role="note" class="highlight-box">
   At the height of the depression, Madam C. J. Walker trained 20,000 women to
   sell hair pomade door-to-door
 </p>
@@ -38,7 +38,7 @@ Die `note` Rolle kann zu parenthetischem oder zusätzlichem Inhalt hinzugefügt 
 …
 ```
 
-Im obigen Wikipedia-Stil-Eintrag für Madam C.J. Walker könnte die `hilitebox` mit der Rolle `note` ein {{HTMLElement('blockquote')}} gewesen sein, wenn sie ein Zitat enthielt, oder ein {{HTMLElement('figcaption')}} in einem {{HTMLElement('figure')}} wenn ein zugehöriges Bild vorhanden war. Da in diesem Fall keines davon sinnvoll war, wurde die `note` Rolle hinzugefügt, um dem parenthetischen Inhalt Semantik zu verleihen.
+Im obigen Wikipedia-ähnlichen Eintrag über Madam C.J. Walker hätte der `highlight-box` mit der Rolle `note` ein {{HTMLElement('blockquote')}} sein können, wenn es ein Zitat enthielt, oder ein {{HTMLElement('figcaption')}} in einer {{HTMLElement('figure')}}, wenn ein zugehöriges Bild vorhanden wäre. In diesem Fall, da keines dieser Elemente sinnvoll war, wurde die `note`-Rolle hinzugefügt, um dem ergänzenden Inhalt eine Semantik zu verleihen.
 
 ## Spezifikationen
 
@@ -46,4 +46,4 @@ Im obigen Wikipedia-Stil-Eintrag für Madam C.J. Walker könnte die `hilitebox` 
 
 ## Siehe auch
 
-- [Dokumentenstrukturrollen](/de/docs/Web/Accessibility/ARIA/Roles#1._document_structure_roles)
+- [Dokumentstrukturrollen](/de/docs/Web/Accessibility/ARIA/Roles#1._document_structure_roles)

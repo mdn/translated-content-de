@@ -1,17 +1,17 @@
 ---
-title: "GPUDevice: Methode createRenderPipelineAsync()"
+title: "GPUDevice: createRenderPipelineAsync() Methode"
 short-title: createRenderPipelineAsync()
 slug: Web/API/GPUDevice/createRenderPipelineAsync
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 72bace50985179da02929a4cf9e9aa3f4bf4b395
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createRenderPipelineAsync()`** Methode des [`GPUDevice`](/de/docs/Web/API/GPUDevice) Interfaces gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) erfüllt wird. Dieses kann die Vertex- und Fragment-Shader-Stufen steuern und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden, sobald die Pipeline ohne Verzögerung genutzt werden kann.
+Die **`createRenderPipelineAsync()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) erfüllt wird. Diese kann die Vertex- und Fragment-Shader-Stufen steuern und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden, sobald die Pipeline ohne Verzögerungen genutzt werden kann.
 
 > [!NOTE]
-> Es ist im Allgemeinen vorzuziehen, diese Methode anstelle von [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) zu verwenden, wann immer dies möglich ist, da sie das Blockieren der Ausführung von GPU-Operationen bei der Pipeline-Kompilierung verhindert.
+> Es ist allgemein vorzuziehen, diese Methode über [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) zu verwenden, wann immer möglich, da sie die Blockierung der GPU-Betriebsausführung bei der Pipeline-Kompilierung verhindert.
 
 ## Syntax
 
@@ -26,34 +26,35 @@ createRenderPipelineAsync(descriptor)
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) Objektinstanz erfüllt wird, wenn die erstellte Pipeline bereit ist, ohne zusätzliche Verzögerung verwendet zu werden.
+Ein {{jsxref("Promise")}}, das mit einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Objektinstanz erfüllt wird, wenn die erstellte Pipeline bereit ist, ohne zusätzliche Verzögerung genutzt zu werden.
 
 ### Validierung
 
-Wenn die Pipeline-Erstellung fehlschlägt und die resultierende Pipeline dadurch ungültig wird, wird das zurückgegebene Promise mit einem [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) abgelehnt:
+Falls die Erstellung der Pipeline fehlschlägt und die resultierende Pipeline daher ungültig wird, wird das zurückgegebene Promise mit einem [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) abgelehnt:
 
-- Wenn dies aufgrund eines internen Fehlers geschieht, hat der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"internal"`.
-- Wenn dies aufgrund eines Validierungsfehlers geschieht, hat der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"validation"`.
+- Bei einem internen Fehler wird der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"internal"` haben.
+- Bei einem Validierungsfehler wird der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"validation"` haben.
 
-Ein Validierungsfehler kann auftreten, wenn eines der Folgenden falsch ist:
+Ein Validierungsfehler kann auftreten, wenn eines der folgenden Kriterien nicht erfüllt ist:
 
-- Für `depthStencil` Objekte:
-  - `format` ist ein [`depth-or-stencil`](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) Format.
+- Für `depthStencil`-Objekte:
+  - `format` ist ein [`depth-or-stencil`](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format)-Format.
+  - Die Eigenschaften [`depthBias`](#depthbias), [`depthBiasClamp`](#depthbiasclamp) und [`depthBiasSlopeScale`](#depthbiasslopescale) sind für Linien- und Punkt-Topologien auf <code>0</code> gesetzt, d.h., wenn [`topology`](#topology) auf `"line-list"`, `"line-strip"` oder `"point-list"` gesetzt ist.
   - Wenn `depthWriteEnabled` `true` ist oder `depthCompare` nicht `"always"` ist, hat `format` eine Tiefenkomponente.
-  - Wenn `stencilFront` oder `stencilBack`-Eigenschaften nicht auf ihren Standardwerten sind, hat `format` eine Stencil-Komponente.
-- Für `fragment` Objekte:
-  - `targets.length` ist kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)'s `maxColorAttachments` [Limit](/de/docs/Web/API/GPUSupportedLimits).
+  - Wenn die Eigenschaften von `stencilFront` oder `stencilBack` nicht auf ihren Standardwerten sind, hat `format` eine Stencil-Komponente.
+- Für `fragment`-Objekte:
+  - `targets.length` ist kleiner oder gleich dem `maxColorAttachments` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
   - Für jedes `target` ist das numerische Äquivalent von `writeMask` kleiner als 16.
-  - Wenn eine der verwendeten Blendfaktor-Operationen den Quell-Alpha-Kanal benutzt (zum Beispiel `"src-alpha-saturated"`), hat die Ausgabe einen Alpha-Kanal (das heißt, es muss ein `vec4` sein).
+  - Wenn irgendeine der verwendeten Blend-Faktor-Operationen den Quell-Alpha-Kanal nutzt (zum Beispiel `"src-alpha-saturated"`), muss das Ergebnis einen Alpha-Kanal haben (das heißt, es muss ein `vec4` sein).
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) bieten viele weitere Beispiele.
+> Die [WebGPU-Proben](https://webgpu.github.io/webgpu-samples/) enthalten viele weitere Beispiele.
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel zeigt ein grundlegendes Beispiel für den Aufbau eines gültigen Render-Pipeline-Deskriptor-Objekts, das dann verwendet wird, um eine [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) über einen `createRenderPipelineAsync()`-Aufruf zu erstellen.
+Das folgende Beispiel zeigt ein einfaches Beispiel für die Konstruktion eines gültigen Render-Pipeline-Beschreibungsobjekts, das dann verwendet wird, um eine [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) über einen `createRenderPipelineAsync()`-Aufruf zu erstellen.
 
 ```js
 async function init() {

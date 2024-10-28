@@ -2,24 +2,24 @@
 title: <annotation-xml>
 slug: Web/MathML/Element/annotation-xml
 l10n:
-  sourceCommit: 88171d31074babf2bf3b1ad59ed7933d886dd37f
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<annotation-xml>`** [MathML](/de/docs/Web/MathML)-Element enthält eine Annotation zum MathML-Ausdruck im {{Glossary("XML", "XML")}}-Format, beispielsweise [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}}.
+Das **`<annotation-xml>`** [MathML](/de/docs/Web/MathML)-Element enthält eine Annotation zur MathML-Ausdruck im {{Glossary("XML", "XML")}}-Format, zum Beispiel [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}}.
 
 > [!NOTE]
-> Annotationen sollen nicht von Browsern gerendert werden und sind standardmäßig ausgeblendet. Allerdings rendern Firefox und Safari einige Annotationsformate, wenn das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
+> Annotationen sollen nicht von Browsern gerendert werden und sind standardmäßig verborgen. Jedoch rendern Firefox und Safari einige Annotation-Formate, wenn das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden Attribute:
 
 - `encoding`
-  - : Die Kodierung der semantischen Information in der Annotation (z.B. `"application/mathml+xml"`, `"application/mathml-presentation+xml"`, `"application/mathml-content+xml"`)
+  - : Die Kodierung der semantischen Informationen in der Annotation (z.B. `"application/mathml+xml"`, `"application/mathml-presentation+xml"`, `"application/mathml-content+xml"`)
 - `src` {{deprecated_inline}}
-  - : Der Speicherort einer externen Quelle für semantische Informationen.
+  - : Der Ort einer externen Quelle für semantische Informationen.
 
 ## Beispiel
 
@@ -78,6 +78,19 @@ body {
 ```
 
 {{ EmbedLiveSample('example', 700, 200, "", "") }}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

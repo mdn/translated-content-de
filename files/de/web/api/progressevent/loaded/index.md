@@ -1,16 +1,16 @@
 ---
-title: "ProgressEvent: loaded Eigenschaft"
+title: "ProgressEvent: loaded-Eigenschaft"
 short-title: loaded
 slug: Web/API/ProgressEvent/loaded
 l10n:
-  sourceCommit: 6b8c7b7dade8173f148031a0695bbf609e10f9f9
+  sourceCommit: 87d974f5a37297d2b95ded0cd7a4301dacb3d3d8
 ---
 
 {{APIRef("XMLHttpRequest API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte **`ProgressEvent.loaded`**-Eigenschaft ist eine 64-Bit-Integer ohne Vorzeichen, die die Größe der bereits übertragenen oder verarbeiteten Daten in Bytes angibt. Das Verhältnis kann berechnet werden, indem `ProgressEvent.total` durch den Wert dieser Eigenschaft geteilt wird. Beim Herunterladen einer Ressource über HTTP zählt dies nur den Körper der HTTP-Nachricht und schließt Header und andere Overhead-Daten nicht ein.
+Die **`ProgressEvent.loaded`**-Eigenschaft (nur lesbar) ist ein 64-Bit-Integer ohne Vorzeichen, das die Größe der bereits übertragenen oder verarbeiteten Daten in Bytes angibt. Das Verhältnis kann berechnet werden, indem der Wert dieser Eigenschaft durch `ProgressEvent.total` geteilt wird. Beim Herunterladen einer Ressource über HTTP wird nur der Body der HTTP-Nachricht gezählt, Header und anderer Overhead werden nicht berücksichtigt.
 
-Beachten Sie, dass bei komprimierten Anfragen unbekannter Gesamtgröße `loaded` je nach Browser die Größe der komprimierten oder dekomprimierten Daten enthalten kann. Ab 2024 enthält es in Firefox die Größe der komprimierten Daten und in Chrome die Größe der unkomprimierten Daten.
+Beachten Sie, dass bei komprimierten Anfragen unbekannter Gesamtlänge `loaded` je nach Browser die Größe der komprimierten oder dekomprimierten Daten enthalten kann. Stand 2024 enthält es in Firefox die Größe der komprimierten Daten und in Chrome die Größe der unkomprimierten Daten.
 
 ## Wert
 
@@ -26,4 +26,4 @@ Eine Zahl.
 
 ## Siehe auch
 
-- Die [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Schnittstelle, zu der es gehört.
+- Das [`ProgressEvent`](/de/docs/Web/API/ProgressEvent)-Interface, zu dem es gehört.

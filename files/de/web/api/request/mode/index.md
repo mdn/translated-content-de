@@ -1,46 +1,50 @@
 ---
-title: "Request: mode-Eigenschaft"
+title: "Anfrage: mode-Eigenschaft"
 short-title: mode
 slug: Web/API/Request/mode
 l10n:
-  sourceCommit: 121546ed0718e92b3f99ae99b1a45869ea68ebe7
+  sourceCommit: 0129176c2bb0e16af7577067191f0889326fad73
 ---
 
 {{APIRef("Fetch API")}}{{AvailableInWorkers}}
 
-Die schreibgeschützte Eigenschaft **`mode`** der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Modus der Anfrage (z.B. `cors`, `no-cors`, `same-origin`, `navigate` oder `websocket`). Dies wird verwendet, um zu bestimmen, ob Cross-Origin-Anfragen zu gültigen Antworten führen und welche Eigenschaften der Antwort lesbar sind.
+Die **`mode`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält den Modus der Anfrage (z.B. `cors`, `no-cors`, `same-origin` oder `navigate`). Diese wird verwendet, um zu bestimmen, ob Anfragen über verschiedene Ursprünge zu gültigen Antworten führen und welche Eigenschaften der Antwort lesbar sind.
+
+Um eine Anfrage mit einem spezifischen Modus zu konstruieren, übergeben Sie den gewünschten Wert als [`RequestInit.mode`](/de/docs/Web/API/RequestInit#mode)-Option an den [`Request.Request()`](/de/docs/Web/API/Request/Request)-Konstruktor.
+
+Beachten Sie, dass das Festlegen bestimmter Modi, insbesondere `no-cors`, Einschränkungen bezüglich der verwendbaren Anfragemethoden und Header mit sich bringt und verhindert, dass JavaScript auf die Antwort-Header oder den -Body zugreift. Siehe die Dokumentation zu [`RequestInit.mode`](/de/docs/Web/API/RequestInit#mode) für weitere Details.
 
 ## Wert
 
-- Ein `RequestMode`-Wert.
+Einer der folgenden Werte:
 
-  - : Der zugeordnete _Modus_, dessen verfügbare Werte sind:
+- `same-origin`
 
-    - `same-origin`
-      - : Wenn eine Anfrage mit diesem Modus an eine andere Herkunft gestellt wird, ist das Ergebnis ein Fehler. Sie könnten dies verwenden, um sicherzustellen, dass eine Anfrage immer an Ihre Herkunft gestellt wird.
-    - `no-cors`
-      - : Verhindert, dass die Methode etwas anderes als `HEAD`, `GET` oder `POST` ist, und dass die Header etwas anderes als {{Glossary("CORS-safelisted_request_header", "CORS-Whitelist-Anfrage-Header")}} sind.
-        Wenn irgendwelche ServiceWorker diese Anfragen abfangen, dürfen sie keine Header hinzufügen oder überschreiben, außer denen, die {{Glossary("CORS-safelisted_request_header", "CORS-Whitelist-Anfrage-Header")}} sind.
-        Darüber hinaus darf JavaScript keine Eigenschaften der resultierenden [`Response`](/de/docs/Web/API/Response) zugreifen.
-        Dies stellt sicher, dass ServiceWorker die Semantik des Webs nicht beeinflussen und verhindert Sicherheits- und Datenschutzprobleme, die durch das Übertragen von Daten über Domains hinweg entstehen können.
-    - `cors`
-      - : Ermöglicht Cross-Origin-Anfragen, zum Beispiel um auf verschiedene von Drittanbietern angebotene APIs zuzugreifen. Diese sollen dem [CORS-Protokoll](/de/docs/Web/HTTP/CORS) entsprechen. Nur ein [begrenztes Set](https://fetch.spec.whatwg.org/#concept-filtered-response-cors) von Headern ist in der [`Response`](/de/docs/Web/API/Response) sichtbar, aber der Inhalt ist lesbar.
-    - `navigate`
-      - : Ein Modus zur Unterstützung der Navigation. Der `navigate`-Wert ist dafür gedacht, nur von HTML-Navigation verwendet zu werden. Eine Navigationsanfrage wird nur beim Navigieren zwischen Dokumenten erstellt.
-    - `websocket`
-      - : Ein spezieller Modus, der nur beim Aufbau einer [WebSocket](/de/docs/Web/API/WebSockets_API)-Verbindung verwendet wird.
+  - : Verhindert Anfragen über verschiedene Ursprünge. Wenn eine Anfrage mit diesem Modus an einen anderen Ursprung gesendet wird, führt dies zu einem Fehler.
+
+- `no-cors`
+
+  - : Deaktiviert CORS für Anfragen über verschiedene Ursprünge. Die Antwort ist _undurchsichtig_, was bedeutet, dass ihre Header und der Body für JavaScript nicht verfügbar sind.
+
+- `cors`
+
+  - : Wenn die Anfrage einen anderen Ursprung hat, wird der [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS)-Mechanismus verwendet.
+
+- `navigate`
+
+  - : Ein Modus zur Unterstützung der Navigation. Der `navigate`-Wert ist dafür vorgesehen, nur von HTML-Navigation verwendet zu werden. Eine Navigationsanfrage wird nur während der Navigation zwischen Dokumenten erstellt.
 
 ### Standardmodus
 
-Anfragen können auf verschiedene Weise initiiert werden, und der Modus für eine Anfrage hängt von der spezifischen Methode ab, durch die sie initiiert wurde.
+Anfragen können auf verschiedene Weise initiiert werden, und der Modus einer Anfrage hängt von der spezifischen Methode ab, durch die sie initiiert wurde.
 
-Zum Beispiel, wenn ein `Request`-Objekt mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors erstellt wird, wird der Wert der `mode`-Eigenschaft für diese `Request` auf `cors` gesetzt.
+Zum Beispiel wird, wenn ein `Request`-Objekt mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor erstellt wird, der Wert der `mode`-Eigenschaft für diese `Request` auf `cors` gesetzt.
 
-Für Anfragen, die anders als durch den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor erstellt werden, wird jedoch typischerweise `no-cors` als Modus verwendet; zum Beispiel für eingebettete Ressourcen, bei denen die Anfrage aus einem Markup initiiert wird, es sei denn, das Attribut [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin) ist vorhanden, wird die Anfrage in den meisten Fällen im `no-cors`-Modus ausgeführt — das heißt, für die {{HTMLElement("link")}}- oder {{HTMLElement("script")}}-Elemente (außer bei Verwendung mit Modulen), oder {{HTMLElement("img")}}, {{HTMLElement("audio")}}, {{HTMLElement("video")}}, {{HTMLElement("object")}}, {{HTMLElement("embed")}} oder {{HTMLElement("iframe")}}-Elementen.
+Für Anfragen, die nicht durch den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor erstellt werden, wird jedoch typischerweise `no-cors` als Modus verwendet; beispielsweise für eingebettete Ressourcen, bei denen die Anfrage aus dem Markup initiiert wird. Sofern das [`crossorigin`](/de/docs/Web/HTML/Attributes/crossorigin)-Attribut nicht vorhanden ist, wird die Anfrage in den meisten Fällen im `no-cors`-Modus gestellt — das gilt für die {{HTMLElement("link")}}- oder {{HTMLElement("script")}}-Elemente (außer bei Verwendung mit Modulen) oder die {{HTMLElement("img")}}, {{HTMLElement("audio")}}, {{HTMLElement("video")}}, {{HTMLElement("object")}}, {{HTMLElement("embed")}} oder {{HTMLElement("iframe")}}-Elemente.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann den Anfragemodus in einer Variablen:
+Im folgenden Ausschnitt erstellen wir eine neue Anfrage mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors (für eine Bilddatei im selben Verzeichnis wie das Skript) und speichern dann den Anfragemodus in einer Variablen:
 
 ```js
 const myRequest = new Request("flowers.jpg");

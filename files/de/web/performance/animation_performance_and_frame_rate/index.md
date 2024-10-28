@@ -1,64 +1,64 @@
 ---
-title: Animationsleistung und Bildfrequenz
+title: Animationsleistung und Bildrate
 slug: Web/Performance/Animation_performance_and_frame_rate
 l10n:
-  sourceCommit: e74627e6fd9ba19696b918c2bdddfff8aa160787
+  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
 ---
 
 {{QuickLinksWithSubPages("Web/Performance")}}
 
-Animationen im Web können mittels [`SVG`](/de/docs/Web/API/SVGAnimationElement), [`JavaScript`](/de/docs/Web/API/Window/requestAnimationFrame), einschließlich {{htmlelement('canvas')}} und [`WebGL`](/de/docs/Web/API/WebGL_API), CSS {{cssxref('animation')}}, {{htmlelement('video')}}, animierten Gifs und sogar animierten PNGs sowie anderen Bildtypen realisiert werden. Die Leistungskosten beim Animieren einer CSS-Eigenschaft können von Eigenschaft zu Eigenschaft variieren, und das Animieren von aufwendigen CSS-Eigenschaften kann zu {{Glossary("jank", "Ruckeln")}} führen, wenn der Browser Probleme hat, eine flüssige {{Glossary("FPS", "Bildfrequenz")}} zu erreichen.
+Animationen im Web können über [`SVG`](/de/docs/Web/API/SVGAnimationElement), [`JavaScript`](/de/docs/Web/API/Window/requestAnimationFrame), einschließlich {{htmlelement('canvas')}} und [`WebGL`](/de/docs/Web/API/WebGL_API), CSS {{cssxref('animation')}}, {{htmlelement('video')}}, animierte GIFs und sogar animierte PNGs und andere Bildtypen erstellt werden. Die Leistungskosten für die Animation einer CSS-Eigenschaft können je nach Eigenschaft variieren, und die Animation teurer CSS-Eigenschaften kann zu {{Glossary("jank", "Ruckeln")}} führen, wenn der Browser Schwierigkeiten hat, eine flüssige {{Glossary("FPS", "Bildrate")}} zu erreichen.
 
-Für animierte Medien wie Videos und animierte Gifs ist die Hauptsorge hinsichtlich der Leistung die Dateigröße - das schnelle Herunterladen der Datei, um die Leistung nicht negativ zu beeinträchtigen, stellt das größte Problem dar. Codebasierte Animationen, sei es in CSS, SVG, \<canvas>, WebGL oder andere JavaScript-Animationen, können Leistungsprobleme verursachen, selbst wenn der Bandbreitenaufwand gering ist. Diese Animationen können die CPU belasten und/oder Ruckeln verursachen.
+Bei animierten Medien, wie Videos und animierten GIFs, ist die Hauptanforderung die Dateigröße - das schnelle Herunterladen der Datei, um die Leistung nicht negativ zu beeinflussen, ist das größte Problem. Code-basierte Animationen, sei es CSS, SVG, `<canvas>`, WebGL oder andere JavaScript-Animationen, können Leistungsprobleme verursachen, selbst wenn der Bandbreitenaufwand gering ist. Diese Animationen können die CPU belasten und/oder zu Ruckeln führen.
 
-Nutzer erwarten, dass alle Schnittstelleninteraktionen flüssig sind und alle Benutzeroberflächen reaktionsschnell. Animationen können dazu beitragen, dass eine Website schneller und reaktionsschnell wirkt, können aber auch dazu führen, dass eine Website langsamer und ruckelig erscheint, wenn sie nicht korrekt umgesetzt werden. Reaktionsschnelle Benutzeroberflächen haben eine Bildrate von 60 Bildern pro Sekunde (fps). Auch wenn es nicht immer möglich ist, 60fps aufrechtzuerhalten, ist es wichtig, eine hohe und gleichmäßige Bildrate für alle Animationen beizubehalten.
+Benutzer erwarten, dass alle Schnittstelleninteraktionen reibungslos sind und alle Benutzeroberflächen reaktionsschnell sind. Animation kann helfen, eine Seite schneller und reaktionsschnell erscheinen zu lassen, aber Animationen können eine Seite auch langsamer und ruckelig erscheinen lassen, wenn sie nicht korrekt durchgeführt werden. Reaktionsschnelle Benutzeroberflächen haben eine Bildrate von 60 Frames pro Sekunde (fps). Während es nicht immer möglich ist, 60fps aufrechtzuerhalten, ist es wichtig, eine hohe und stetige Bildrate für alle Animationen zu gewährleisten.
 
-Mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) geben Sie eine Anzahl von [Schlüsselbildern](/de/docs/Web/CSS/@keyframes) an, von denen jedes mit CSS das Erscheinungsbild des Elements in einem bestimmten Stadium der Animation definiert. Der Browser erstellt die Animation als Übergang von jedem Schlüsselbild zum nächsten.
+Mit [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) geben Sie eine Anzahl von [Keyframes](/de/docs/Web/CSS/@keyframes) an, von denen jedes CSS verwendet, um das Erscheinungsbild des Elements in einem bestimmten Stadium der Animation zu definieren. Der Browser erstellt die Animation als Übergang von jedem Keyframe zum nächsten.
 
-Im Vergleich zur Animation von Elementen mit JavaScript können CSS-Animationen einfacher zu erstellen sein. Sie können auch eine bessere Leistung bieten, da sie dem Browser mehr Kontrolle darüber geben, wann einzelne Bilder gerendert werden, und gegebenenfalls Bilder weglassen.
+Im Vergleich zur Animation von Elementen mit JavaScript können CSS-Animationen einfacher zu erstellen sein. Sie können auch eine bessere Leistung bieten, da sie dem Browser mehr Kontrolle darüber geben, wann Frames gerendert werden müssen und gegebenenfalls Frames fallen zu lassen.
 
-Allerdings können die Leistungskosten bei der Änderung einer CSS-Eigenschaft von einer Eigenschaft zur anderen variieren. Es wird allgemein akzeptiert, dass 60 Bilder pro Sekunde die Rate ist, bei der Animationen flüssig erscheinen. Für eine Rate von 60 Bildern pro Sekunde hat der Browser 16,7 Millisekunden Zeit, um Skripte auszuführen, Stile und Layouts bei Bedarf neu zu berechnen und den aktualisierten Bereich neu zu zeichnen. Langsame Skripte und das Animieren kostspieliger CSS-Eigenschaften können zu {{Glossary("Jank", "Ruckeln")}} führen, da der Browser um eine flüssige Bildrate kämpft.
+Jedoch können die Leistungskosten für die Modifikation einer CSS-Eigenschaft von einer Eigenschaft zur anderen variieren. Es wird allgemein akzeptiert, dass 60 Frames pro Sekunde die Rate ist, bei der Animationen flüssig erscheinen. Für eine Rate von 60 Frames pro Sekunde hat der Browser 16,7 Millisekunden, um Skripte auszuführen, Stile und Layouts bei Bedarf neu zu berechnen und den aktualisierten Bereich neu zu zeichnen. Langsame Skripte und das Animieren teurer CSS-Eigenschaften können zu {{Glossary("Jank", "Ruckeln")}} führen, wenn der Browser Schwierigkeiten hat, eine flüssige Bildrate zu erreichen.
 
 ## Der Rendering-Wasserfall
 
-Der Prozess, den ein Browser verwendet, um Änderungen an einer Seite zu zeichnen, wenn ein Element CSS-Eigenschaften animiert, kann als Wasserfall beschrieben werden, der aus den folgenden Schritten besteht:
+Der Prozess, den ein Browser verwendet, um Änderungen an einer Seite zu rendern, wenn ein Element CSS-Eigenschaften animiert, kann als Wasserfall beschrieben werden, der aus den folgenden Schritten besteht:
 
-![Ablaufdiagramm des CSS-Rendering-Wasserfalls. Die Schritte sind in Reihenfolge: Stil neu berechnen, Layout und Zeichnen.](css-rendering-waterfall.png)
+![Ablaufdiagramm des CSS-Rendering-Wasserfalls. In der Reihenfolge sind die Schritte Neuberechnung des Stils, Layout und Zeichen.](css-rendering-waterfall.png)
 
-1. **Stil neu berechnen**: Wenn sich eine Eigenschaft eines Elements ändert, muss der Browser die berechneten Stile neu berechnen.
-2. **Layout**: Anschließend verwendet der Browser die berechneten Stile, um die Position und Geometrie der Elemente zu ermitteln. Dieser Vorgang wird als "Layout" bezeichnet, aber manchmal auch "Reflow" genannt.
-3. **Zeichnen**: Schließlich muss der Browser die Elemente auf dem Bildschirm neu zeichnen. Ein letzter Schritt, der in dieser Sequenz nicht gezeigt wird: Die Seite kann in Ebenen aufgeteilt werden, die unabhängig voneinander gezeichnet und dann in einem Prozess namens "Komposition" kombiniert werden.
+1. **Neuberechnung des Stils**: Wenn sich eine Eigenschaft eines Elements ändert, muss der Browser die berechneten Stile neu berechnen.
+2. **Layout**: Danach verwendet der Browser die berechneten Stile, um die Position und Geometrie der Elemente zu bestimmen. Dieser Vorgang wird als "Layout" bezeichnet, wird aber manchmal auch als "Neufluss" bezeichnet.
+3. **Zeichen**: Schließlich muss der Browser die Elemente auf dem Bildschirm neu zeichnen. Ein letzter Schritt ist in dieser Sequenz nicht gezeigt: Die Seite kann in Ebenen aufgeteilt werden, die unabhängig voneinander gezeichnet und dann in einem Prozess namens "Komposition" kombiniert werden.
 
-Diese Sequenz muss in ein einzelnes Bild passen, da der Bildschirm erst aktualisiert wird, wenn sie abgeschlossen ist.
+Diese Sequenz muss in einen einzigen Frame passen, da der Bildschirm erst aktualisiert wird, wenn sie abgeschlossen ist.
 
-## Die Kosten von CSS-Eigenschaften
+## Kosten von CSS-Eigenschaften
 
-Im Kontext des Rendering-Wasserfalls sind einige Eigenschaften kostspieliger als andere:
+Im Kontext des Rendering-Wasserfalls sind einige Eigenschaften teurer als andere:
 
-- Eigenschaften, die die **Geometrie** oder **Position** eines Elements beeinflussen, lösen folgende Schritte aus:
+- Eigenschaften, die die **Geometrie** oder **Position** eines Elements beeinflussen, lösen aus:
 
-  - Stil neu berechnen
+  - Stil-Neuberechnung
   - Layout
-  - Zeichnen
+  - Neuzeichnen
 
-  Beispielsweise: {{cssxref("left")}}, {{cssxref("max-width")}}, {{cssxref("border-width")}}, {{cssxref("margin-left")}}, {{cssxref("font-size")}}
+  Zum Beispiel: {{cssxref("left")}}, {{cssxref("max-width")}}, {{cssxref("border-width")}}, {{cssxref("margin-left")}}, {{cssxref("font-size")}}
 
-- Eigenschaften, die weder Geometrie noch Position beeinflussen und nicht in ihrer eigenen Ebene gerendert werden, lösen kein Layout aus. Sie lösen jedoch aus:
+- Eigenschaften, die die Geometrie oder Position _nicht_ beeinflussen und _nicht in ihrer eigenen Ebene gezeichnet_ werden, lösen _kein_ Layout aus. Sie lösen aus:
 
-  - Stil neu berechnen
-  - Zeichnen
+  - Stil-Neuberechnung
+  - Neuzeichnen
 
-  Beispielsweise: {{cssxref("color")}}
+  Zum Beispiel: {{cssxref("color")}}
 
-- Eigenschaften, die in ihrer **eigenen Ebene** gerendert werden, lösen nicht einmal ein Neuzeichnen aus, da die Aktualisierung in der **Komposition** behandelt wird. Diese lösen jedoch aus:
+- Eigenschaften, die **in ihrer eigenen Ebene** gezeichnet werden, lösen nicht einmal ein Neuzeichnen aus, da das Update in der **Komposition** behandelt wird. Diese lösen aus:
 
-  - Stil neu berechnen
+  - Stil-Neuberechnung
 
-  Beispielsweise: {{cssxref("transform")}}, {{cssxref("opacity")}}
+  Zum Beispiel: {{cssxref("transform")}}, {{cssxref("opacity")}}
 
 ## Entwicklerwerkzeuge
 
-Die meisten Webbrowser enthalten Werkzeuge, die Einblicke in die Arbeit des Browsers bieten, wenn er Elemente einer Seite animiert. Mit diesen Tools können Sie die Animationsbildrate einer Anwendung messen und Leistungsengpässe diagnostizieren, falls welche gefunden werden.
+Die meisten Webbrowser enthalten Werkzeuge, um Einblick in die Arbeit zu geben, die der Browser leistet, wenn er Elemente einer Seite animiert. Mit diesen Werkzeugen können Sie die Animationsbildrate einer Anwendung messen und Leistungsengpässe diagnostizieren, falls solche gefunden werden.
 
-- [Chrome Performance Tools](https://developer.chrome.com/docs/devtools/#performance)
-- [Firefox Performance Tools](https://firefox-source-docs.mozilla.org/devtools-user/performance/)
+- [Chrome-Leistungstools](https://developer.chrome.com/docs/devtools/#performance)
+- [Firefox-Leistungstools](https://firefox-source-docs.mozilla.org/devtools-user/performance/)

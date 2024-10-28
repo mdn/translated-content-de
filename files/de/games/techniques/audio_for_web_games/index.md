@@ -2,58 +2,58 @@
 title: Audio für Webspiele
 slug: Games/Techniques/Audio_for_Web_Games
 l10n:
-  sourceCommit: b0d4232c133f19213742db2286d2c293ce71f674
+  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
 ---
 
 {{GamesSidebar}}
 
-Audio ist ein wichtiger Bestandteil jedes Spiels; es bietet Feedback und Atmosphäre. Webbasierte Audio-Technologien entwickeln sich schnell weiter, aber es gibt immer noch viele Unterschiede zwischen den Browsern, die es zu überwinden gilt. Oft müssen wir entscheiden, welche Audioelemente für das Spielerlebnis unverzichtbar sind und welche zwar wünschenswert, aber nicht essenziell sind, und entsprechend eine Strategie entwickeln. Dieser Artikel bietet einen ausführlichen Leitfaden zur Implementierung von Audio für Webspiele, wobei darauf geachtet wird, was derzeit über ein möglichst breites Spektrum an Plattformen hinweg funktioniert.
+Audio ist ein wichtiger Bestandteil jedes Spiels; es fügt Feedback und Atmosphäre hinzu. Web-basiertes Audio entwickelt sich schnell, aber es gibt immer noch viele Unterschiede zwischen Browsern, die es zu navigieren gilt. Oft müssen wir entscheiden, welche Teile des Audios für das Spielerlebnis unverzichtbar sind und welche zwar schön, aber nicht essenziell sind, und entsprechend eine Strategie entwickeln. Dieser Artikel bietet einen detaillierten Leitfaden zur Implementierung von Audio für Webspiele und untersucht, was aktuell auf so vielen Plattformen wie möglich funktioniert.
 
-## Mobile Audio-Einschränkungen
+## Hinweise für mobiles Audio
 
-Die mit Abstand schwierigsten Plattformen, um Web-Audio-Unterstützung bereitzustellen, sind mobile Plattformen. Leider sind dies auch die Plattformen, die häufig zum Spielen von Spielen verwendet werden. Es gibt einige Unterschiede zwischen Desktop- und mobilen Browsern, die Browseranbieter dazu veranlasst haben könnten, Entscheidungen zu treffen, die Web-Audio für Spieleentwickler schwer umsetzbar machen. Lassen Sie uns diese nun näher betrachten.
+Bei weitem die schwierigsten Plattformen, um Unterstützung für Web-Audio bereitzustellen, sind mobile Plattformen. Leider sind dies auch die Plattformen, die oft zum Spielen genutzt werden. Es gibt einige Unterschiede zwischen Desktop- und mobilen Browsern, die Browseranbieter möglicherweise dazu veranlasst haben, Entscheidungen zu treffen, die es Spieleentwicklern erschweren, mit Web-Audio zu arbeiten. Betrachten wir diese nun.
 
 ### Autoplay
 
-Die Autoplay-Richtlinien von Browsern betreffen nun sowohl Desktop- als auch mobile Browser. Weitere Informationen dazu finden Sie [hier auf der Google Developers-Website](https://developer.chrome.com/blog/autoplay/).
+Die Autoplay-Politik betrifft nun Desktop _und_ mobile Browser. Weitere Informationen dazu finden Sie [hier auf der Google Developers-Seite](https://developer.chrome.com/blog/autoplay/).
 
-Es ist erwähnenswert, dass Autoplay mit Ton erlaubt ist, wenn:
+Es ist wichtig zu beachten, dass Autoplay mit Ton erlaubt ist, wenn:
 
 - der Nutzer mit der Domain interagiert hat.
-- auf dem Mobilgerät der Nutzer die [Anwendung installierbar gemacht hat](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
+- auf mobilen Geräten der Benutzer [die Anwendung installierbar gemacht hat](/de/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable).
 
-Viele Browser ignorieren Anfragen Ihres Spiels, Audio automatisch abzuspielen; stattdessen muss die Audiowiedergabe durch ein vom Nutzer initiiertes Ereignis wie einen Klick oder ein Tippen gestartet werden. Dies bedeutet, dass Sie Ihre Audiowiedergabe entsprechend strukturieren müssen. Dies wird normalerweise dadurch abgemildert, dass das Audio im Voraus geladen und bei einem vom Nutzer initiierten Ereignis vorbereitet wird.
+Viele Browser ignorieren Anfragen Ihres Spiels, Audio automatisch abzuspielen; stattdessen muss die Audiowiedergabe durch ein benutzerinitiiertes Ereignis wie einen Klick oder Tipp gestartet werden. Das bedeutet, dass Sie Ihre Audiowiedergabe entsprechend strukturieren müssen. Üblicherweise wird dies gemildert, indem das Audio im Voraus geladen und auf ein benutzerinitiiertes Ereignis vorbereitet wird.
 
-Für passiveres Autoplay von Audio, zum Beispiel Hintergrundmusik, die sofort beim Laden eines Spiels beginnt, besteht ein Trick darin, _jedes_ vom Nutzer initiierte Ereignis zu erkennen und die Wiedergabe dann zu starten. Für andere, aktivere Sounds, die während des Spiels verwendet werden sollen, können wir in Betracht ziehen, diese sofort vorzubereiten, sobald ein _Start_-Knopf gedrückt wird.
+Für passiveres Audio-Autoplay, beispielsweise Hintergrundmusik, die sofort nach dem Laden eines Spiels startet, ist ein Trick, _jedes_ benutzerinitiierte Ereignis zu erkennen und die Wiedergabe dann zu starten. Für andere aktiver genutzte Geräusche im Spiel könnten wir erwägen, sie vorzubereiten, sobald etwas wie ein _Start_-Button gedrückt wird.
 
-Um Audio auf diese Weise vorzubereiten, möchten wir einen Teil davon abspielen; aus diesem Grund ist es nützlich, einen Moment der Stille am Ende Ihrer Audioaufnahme einzufügen. Durch das Springen zu dieser Stille, das Abspielen und anschließende Pausieren können wir jetzt JavaScript verwenden, um diese Datei zu beliebigen Zeitpunkten abzuspielen. Weitere Informationen zu [besten Praktiken mit der Autoplay-Richtlinie finden Sie hier](/de/docs/Web/API/Web_Audio_API/Best_practices#autoplay_policy).
-
-> [!NOTE]
-> Das Abspielen eines Teils Ihrer Datei mit Null-Lautstärke könnte ebenfalls funktionieren, wenn der Browser Ihnen erlaubt, die Lautstärke zu ändern (siehe unten). Beachten Sie auch, dass das sofortige Pausieren Ihrer Audio-Datei nicht garantiert, dass kein kleines Stück Audio abgespielt wird.
+Um Audio derart vorzubereiten, möchten wir einen Teil davon abspielen; deshalb ist es nützlich, einen Moment der Stille am Ende Ihres Audiobeispiels zu haben. Zu diesem Stillemoment zu springen, ihn abzuspielen und dann zu pausieren bedeutet, dass wir diese Datei nun mithilfe von JavaScript zu beliebigen Zeitpunkten abspielen können. Weitere Informationen zu den [besten Praktiken mit der Autoplay-Politik finden Sie hier](/de/docs/Web/API/Web_Audio_API/Best_practices#autoplay_policy).
 
 > [!NOTE]
-> Das Hinzufügen einer Web-App zum Startbildschirm Ihres Mobilgeräts kann dessen Fähigkeiten verändern. Im Fall von Autoplay auf iOS scheint dies derzeit der Fall zu sein. Wenn möglich, sollten Sie Ihren Code auf mehreren Geräten und Plattformen testen, um zu sehen, wie er funktioniert.
-
-### Volumen
-
-Die programmatische Lautstärkeregelung kann in mobilen Browsern deaktiviert sein. Der oft angegebene Grund ist, dass der Nutzer die Lautstärke auf Betriebssystemebene steuern sollte und dies nicht außer Kraft gesetzt werden sollte.
-
-### Pufferung und Vorladen
-
-Wahrscheinlich als Versuch, den übermäßigen mobilen Datenverbrauch zu minimieren, stellen wir oft fest, dass das Puffern vor dem Initiieren der Wiedergabe deaktiviert ist. Puffern ist der Prozess, bei dem der Browser die Medien im Voraus herunterlädt, was wir oft tun müssen, um eine reibungslose Wiedergabe zu gewährleisten.
-
-Das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Interface bietet [viele Eigenschaften](/de/docs/Web/API/HTMLMediaElement#instance_properties), um festzustellen, ob ein Track in einem abspielbaren Zustand ist.
+> Das Abspielen eines Teils Ihrer Datei bei Null Lautstärke könnte ebenfalls funktionieren, wenn der Browser es erlaubt, die Lautstärke zu ändern (siehe unten). Beachten Sie auch, dass das sofortige Abspielen und Pausieren Ihres Audios nicht garantiert, dass ein kleines Stück Audio nicht abgespielt wird.
 
 > [!NOTE]
-> In vielerlei Hinsicht ist das Konzept des Pufferings veraltet. Solange Bereichsanforderungen (byte-range requests) akzeptiert werden (was das Standardverhalten ist), sollten wir zu einem bestimmten Punkt im Audio springen können, ohne vorherigen Inhalt herunterladen zu müssen. Dennoch ist das Vorladen nützlich — ohne dieses würde immer eine Art von Client-Server-Kommunikation erforderlich sein, bevor die Wiedergabe beginnen kann.
+> Das Hinzufügen einer Web-App zum Startbildschirm Ihres Mobiltelefons kann deren Fähigkeiten verändern. Im Fall von Autoplay auf iOS scheint dies derzeit der Fall zu sein. Wenn möglich, sollten Sie Ihren Code auf mehreren Geräten und Plattformen testen, um zu sehen, wie er funktioniert.
+
+### Lautstärke
+
+Die programmatische Lautstärkeregelung kann in mobilen Browsern deaktiviert sein. Der oft gegebene Grund ist, dass der Benutzer die Lautstärke auf der Betriebssystemebene kontrollieren und diese nicht überschrieben werden sollte.
+
+### Puffern und Vorladen
+
+Wahrscheinlich als Versuch, den unkontrollierten mobilen Netzwerkdatenverbrauch zu mildern, stellen wir oft fest, dass das Puffern deaktiviert ist, bevor die Wiedergabe initiiert wurde. Puffern ist der Prozess, bei dem der Browser das Medium im Voraus herunterlädt, was oft nötig ist, um eine gleichmäßige Wiedergabe zu gewährleisten.
+
+Das [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) Interface bietet [viele Eigenschaften](/de/docs/Web/API/HTMLMediaElement#instance_properties), die helfen zu bestimmen, ob ein Track in einem abspielbaren Zustand ist.
+
+> [!NOTE]
+> In vielerlei Hinsicht ist das Konzept des Pufferens ein veraltetes. Solange Anfragen mit Byte-Bereichen akzeptiert werden (was das Standardverhalten ist), sollten wir in der Lage sein, zu einem bestimmten Punkt im Audio zu springen, ohne die vorhergehenden Inhalte herunterladen zu müssen. Trotzdem ist das Vorladen nützlich — ohne Vorladen wären immer einige client-server-Kommunikationen erforderlich, bevor die Wiedergabe beginnen kann.
 
 ### Gleichzeitige Audiowiedergabe
 
-Eine Anforderung vieler Spiele ist die Notwendigkeit, mehrere Audios gleichzeitig abzuspielen; beispielsweise könnte es Hintergrundmusik geben, die zusammen mit Soundeffekten für verschiedene Dinge im Spiel abgespielt wird. Obwohl sich die Situation mit der Einführung der [Web Audio API](/de/docs/Web/API/Web_Audio_API) bald verbessern wird, führt die derzeit am weitesten verbreitete Methode — die Verwendung des einfachen {{htmlelement("audio")}} Elements — zu lückenhaften Ergebnissen auf mobilen Geräten.
+Eine Anforderung vieler Spiele ist die Notwendigkeit, mehr als ein Audiosignal gleichzeitig abzuspielen; beispielsweise könnte Hintergrundmusik zusammen mit Soundeffekten für verschiedene Ereignisse im Spiel abgespielt werden. Obwohl sich die Situation mit der Einführung der [Web Audio API](/de/docs/Web/API/Web_Audio_API) bald verbessert, führt die derzeit am weitesten unterstützte Methode — die Verwendung des standardmäßigen {{htmlelement("audio")}} Elements — zu uneinheitlichen Ergebnissen auf mobilen Geräten.
 
 ### Testen und Unterstützung
 
-Hier ist eine Tabelle, die zeigt, welche mobilen Plattformen die oben besprochenen Funktionen unterstützen.
+Hier ist eine Tabelle, die zeigt, welche mobilen Plattformen die oben genannten Funktionen unterstützen.
 
 <table class="standard-table">
   <caption>
@@ -65,7 +65,7 @@ Hier ist eine Tabelle, die zeigt, welche mobilen Plattformen die oben besprochen
       <th scope="col">Version</th>
       <th scope="col">Gleichzeitige Wiedergabe</th>
       <th scope="col">Autoplay</th>
-      <th scope="col">Lautstärkeregelung</th>
+      <th scope="col">Lautstärkeanpassung</th>
       <th scope="col">Vorladen</th>
     </tr>
   </thead>
@@ -121,37 +121,37 @@ Hier ist eine Tabelle, die zeigt, welche mobilen Plattformen die oben besprochen
   </tbody>
 </table>
 
-Es gibt hier eine [vollständige Kompatibilitätstabelle für mobile und Desktop-HTMLMediaElement-Unterstützung](/de/docs/Web/API/HTMLMediaElement#browser_compatibility).
+Hier finden Sie ein [vollständiges Kompatibilitätsdiagramm für die Unterstützung von mobilen und Desktop-HTMLMediaElementen](/de/docs/Web/API/HTMLMediaElement#browser_compatibility).
 
 > [!NOTE]
-> Die gleichzeitige Audiowiedergabe wird mit unserem [Testbeispiel für gleichzeitige Audio-Wiedergabe](https://jsfiddle.net/dmkyaq0r/) getestet, bei dem versucht wird, drei Audiodateien gleichzeitig mit der Standard-Audio-API abzuspielen.
+> Die gleichzeitige Audiowiedergabe wird mit unserem [Beispiel für gleichzeitige Audiowiedergabe getestet](https://jsfiddle.net/dmkyaq0r/), bei dem versucht wird, drei Audiosignale gleichzeitig mit der Standard-Audio-API abzuspielen.
 
 > [!NOTE]
-> Einfache Autoplay-Funktionalität wird mit unserem [Autoplay-Testbeispiel](https://jsfiddle.net/vpdspp2b/) getestet.
+> Die einfache Autoplay-Funktionalität wird mit unserem [Autoplay-Testbeispiel](https://jsfiddle.net/vpdspp2b/) getestet.
 
 > [!NOTE]
-> Die Veränderbarkeit der Lautstärke wird mit unserem [Lautstärke-Testbeispiel](https://jsfiddle.net/7ta12vw4/) getestet.
+> Die Lautstärkeänderbarkeit wird mit unserem [Lautstärketestbeispiel](https://jsfiddle.net/7ta12vw4/) getestet.
 
-## Mobile Umgehungsmöglichkeiten
+## Mobile Lösungen
 
-Auch wenn mobile Browser Probleme bereiten können, gibt es Möglichkeiten, die oben beschriebenen Probleme zu umgehen.
+Obwohl mobile Browser Probleme bereiten können, gibt es Möglichkeiten, die oben beschriebenen Probleme zu umgehen.
 
-### Audiosprites
+### Audio-Sprites
 
-Audiosprites leihen ihren Namen von [CSS-Sprites](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS), einer visuellen Technik zur Verwendung von CSS mit einer einzigen Grafikquelle, um sie in eine Reihe von Sprites aufzuteilen. Wir können das gleiche Prinzip auf Audio anwenden, so dass wir anstelle einer Menge kleiner Audio-Dateien, die Zeit zum Laden und Abspielen benötigen, eine größere Audiodatei haben, die alle kleineren Audioausschnitte enthält, die wir benötigen. Um einen bestimmten Sound aus der Datei abzuspielen, verwenden wir einfach die bekannten Start- und Stop-Zeiten für jedes Audiosprite.
+Audio-Sprites leihen sich ihren Namen von [CSS-Sprites](/de/docs/Web/CSS/CSS_images/Implementing_image_sprites_in_CSS), einer visuellen Technik, um CSS mit einer einzelnen Grafikressource zu nutzen, um sie in eine Reihe von Sprites aufzuteilen. Wir können das gleiche Prinzip auf Audio anwenden, sodass wir anstelle von vielen kleinen Audiodateien, die Zeit zum Laden und Abspielen benötigen, eine größere Audiodatei haben, die alle kleineren Audioclips enthält, die wir benötigen. Um einen bestimmten Sound aus der Datei abzuspielen, verwenden wir einfach die bekannten Start- und Stopzeiten für jedes Audio-Sprite.
 
-Der Vorteil ist, dass wir ein Stück Audio vorbereiten und unsere Sprites bereit zur Wiedergabe haben können. Dazu können wir einfach das größere Stück Audio abspielen und sofort pausieren. Sie reduzieren auch die Anzahl der Serveranfragen und sparen Bandbreite.
+Der Vorteil ist, dass wir ein Stück Audio vorbereiten können und unsere Sprites bereit sind. Dazu können wir einfach das größere Stück Audio abspielen und sofort pausieren. So können Sie auch die Anzahl der Serveranfragen reduzieren und Bandbreite sparen.
 
 ```js
 const myAudio = document.createElement("audio");
-myAudio.src = "mysprite.mp3";
+myAudio.src = "my-sprite.mp3";
 myAudio.play();
 myAudio.pause();
 ```
 
-Sie müssen die aktuelle Zeit abtasten, um zu wissen, wann gestoppt werden muss. Wenn Sie Ihre einzelnen Sounds um mindestens 500 ms auseinander stellen, sollte das `timeUpdate` Event (das alle 250 ms ausgelöst wird) ausreichend sein. Ihre Dateien können etwas länger sein, als sie streng genommen sein müssen, aber Stille komprimiert sich gut.
+Sie müssen die aktuelle Zeit abtasten, um zu wissen, wann Sie stoppen müssen. Wenn Sie Ihre einzelnen Geräusche um mindestens 500 ms voneinander trennen, sollte das `timeUpdate`-Ereignis (das alle 250 ms ausgelöst wird) ausreichend sein. Ihre Dateien könnten etwas länger sein, als es unbedingt nötig wäre, aber Stille komprimiert gut.
 
-Hier ist ein Beispiel für einen Audiosprite-Player — zuerst richten wir die Benutzeroberfläche in HTML ein:
+Hier ist ein Beispiel für einen Audio-Sprite-Player — zunächst richten wir die Benutzeroberfläche in HTML ein:
 
 ```html
 <audio id="myAudio" src="http://jPlayer.org/tmp/countdown.mp3"></audio>
@@ -167,9 +167,9 @@ Hier ist ein Beispiel für einen Audiosprite-Player — zuerst richten wir die B
 <button data-start="0" data-stop="1">9</button>
 ```
 
-Nun haben wir Tasten mit Start- und Stoppzeiten in Sekunden. Die "countdown.mp3"-MP3-Datei besteht aus einer Nummer, die alle 2 Sekunden gesprochen wird, die Idee dabei ist, diese Nummer abzuspielen, wenn die entsprechende Taste gedrückt wird.
+Jetzt haben wir Tasten mit Start- und Stoppzeiten in Sekunden. Die "countdown.mp3"-Datei besteht aus einer Zahl, die alle 2 Sekunden gesprochen wird, wobei die Idee ist, dass wir diese Zahl zurückspielen, wenn die entsprechende Taste gedrückt wird.
 
-Lassen Sie uns etwas JavaScript hinzufügen, um dies zum Laufen zu bringen:
+Fügen wir nun etwas JavaScript hinzu, um dies zum Laufen zu bringen:
 
 ```js
 const myAudio = document.getElementById("myAudio");
@@ -200,48 +200,48 @@ myAudio.addEventListener(
 ```
 
 > [!NOTE]
-> Sie können [unseren Audiosprite-Player live ausprobieren](https://jsfiddle.net/59vwaame/) auf JSFiddle.
+> Sie können [unseren Audio-Sprite-Player live](https://jsfiddle.net/59vwaame/) auf JSFiddle ausprobieren.
 
 > [!NOTE]
-> Auf mobilen Geräten müssen wir möglicherweise diesen Code von einem vom Nutzer initiierten Ereignis auslösen, wie oben beschrieben.
+> Auf mobilen Geräten müssen wir diesen Code möglicherweise von einem benutzerinitiierten Ereignis wie dem Drücken einer Starttaste auslösen, wie oben beschrieben.
 
 > [!NOTE]
-> Achten Sie auf Bitraten. Wenn Sie Ihr Audio mit niedrigeren Bitraten codieren, erhalten Sie kleinere Dateigrößen, aber geringere Suchgenauigkeit.
+> Achtung bei Bitraten. Das Kodieren Ihres Audios mit niedrigeren Bitraten bedeutet kleinere Dateigrößen, aber geringere Suchgenauigkeit.
 
 ### Hintergrundmusik
 
-Musik in Spielen kann einen starken emotionalen Effekt haben. Sie können verschiedene Musikproben mischen und anpassen und, vorausgesetzt, Sie können die Lautstärke Ihres Audioelements steuern, könnten Sie verschiedene Musikstücke überblenden. Mit der Methode [`playbackRate()`](/de/docs/Web/API/HTMLMediaElement/playbackRate) können Sie sogar die Geschwindigkeit Ihrer Musik anpassen, ohne die Tonhöhe zu beeinträchtigen, um sie besser mit der Aktion zu synchronisieren.
+Musik in Spielen kann eine starke emotionale Wirkung haben. Sie können verschiedene Musikstücke mixen und anpassen und, vorausgesetzt, Sie können die Lautstärke Ihres Audio-Elements steuern, verschiedene Musikstücke überblenden. Mit der Methode [`playbackRate()`](/de/docs/Web/API/HTMLMediaElement/playbackRate) können Sie sogar die Geschwindigkeit Ihrer Musik anpassen, ohne die Tonhöhe zu beeinflussen, um sie besser mit der Action abzustimmen.
 
-All dies ist mit dem Standard-{{htmlelement("audio")}} Element und dem dazugehörigen [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) möglich, aber es wird viel einfacher und flexibler mit der fortgeschritteneren [Web Audio API](/de/docs/Web/API/Web_Audio_API). Schauen wir uns dies als nächstes an.
+All dies ist mit dem standardmäßigen {{htmlelement("audio")}} Element und dem zugehörigen [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) möglich, wird aber mit der fortschrittlicheren [Web Audio API](/de/docs/Web/API/Web_Audio_API) viel einfacher und flexibler. Lassen Sie uns das als Nächstes betrachten.
 
 ### Web Audio API für Spiele
 
-Die Web Audio API wird in allen modernen Desktop- und mobilen Browsern unterstützt, mit Ausnahme von Opera Mini. In diesem Zusammenhang ist es in vielen Situationen akzeptabel, die Web Audio API zu verwenden (siehe die [„Can I use Web Audio API“-Seite](https://caniuse.com/#feat=audio-api) für mehr Informationen zur Browserkompatibilität). Die Web Audio API ist eine fortgeschrittene Audio-JavaScript-API, die ideal für Spielaudio geeignet ist. Entwickler können Audio erzeugen, Audioproben manipulieren sowie Sound im 3D-Spielraum positionieren.
+Die Web Audio API wird von allen modernen Desktop- und mobilen Browsern unterstützt, mit Ausnahme von Opera Mini. Mit diesem Wissen ist es in vielen Situationen akzeptabel, die Web Audio API zu verwenden (siehe die [Kann ich die Web Audio API verwenden-Seite](https://caniuse.com/#feat=audio-api) für mehr Informationen zur Browser-Kompatibilität). Die Web Audio API ist eine fortgeschrittene Audio-JavaScript-API, die ideal für Spielesound ist. Entwickler können Audio generieren und Audioproben manipulieren sowie Klang im 3D-Spielraum positionieren.
 
-Eine machbare Browser-übergreifende Strategie wäre es, grundlegendes Audio mit dem Standard-`<audio>`-Element bereitzustellen und, wo unterstützt, das Erlebnis mit der Web Audio API zu verbessern.
+Eine machbare Cross-Browser-Strategie wäre es, grundständiges Audio mithilfe des standardmäßigen `<audio>`-Elements bereitzustellen und, wo unterstützt, die Erfahrung mit der Web Audio API zu verbessern.
 
 > [!NOTE]
-> Erheblich ist, dass iOS Safari nun die Web Audio API unterstützt, was bedeutet, dass es nun möglich ist, webbasierte Spiele mit Audio in nativer Qualität für iOS zu erstellen.
+> Bedeutend ist, dass iOS Safari nun die Web Audio API unterstützt, was bedeutet, dass es nun möglich ist, webbasierte Spiele mit nativer Audioqualität für iOS zu entwickeln.
 
-Da die Web Audio API eine präzise Zeitsteuerung und Kontrolle der Audiowiedergabe ermöglicht, können wir sie verwenden, um Samples zu spezifischen Momenten abzuspielen, was ein wichtiger immersiver Aspekt des Spielens ist. Schließlich möchten Sie, dass diese Explosionen von einem donnernden Knall begleitet werden und nicht erst danach auftreten.
+Da die Web Audio API präzises Timing und Kontrolle der Audiowiedergabe ermöglicht, können wir sie nutzen, um Samples zu bestimmten Zeitpunkten abzuspielen, was ein entscheidender immersiver Aspekt des Gaming-Erlebnisses ist. Sie wollen schließlich, dass diese Explosionen von einem donnernden Boom begleitet werden, nicht danach.
 
 ### Hintergrundmusik mit der Web Audio API
 
-Obwohl wir das `<audio>`-Element verwenden können, um lineare Hintergrundmusik bereitzustellen, die sich nicht in Reaktion auf die Spielumgebung ändert, ist die Web Audio API ideal für die Implementierung eines dynamischeren Musikerlebnisses. Sie möchten möglicherweise, dass sich die Musik ändert, abhängig davon, ob Sie versuchen, Spannung aufzubauen oder den Spieler in irgendeiner Weise zu ermutigen. Musik ist ein wichtiger Bestandteil des Spielerlebnisses und, abhängig von der Art des Spiels, das Sie erstellen, möchten Sie möglicherweise erheblichen Aufwand in die Umsetzung investieren.
+Obwohl wir das `<audio>`-Element verwenden können, um lineare Hintergrundmusik zu liefern, die nicht auf die Spielumgebung reagiert, ist die Web Audio API ideal, um ein dynamischeres Musikerlebnis zu implementieren. Sie möchten möglicherweise, dass sich die Musik je nach Situation ändert, um Spannung aufzubauen oder den Spieler auf gewisse Weise zu ermutigen. Musik ist ein wichtiger Teil des Spielerlebnisses und je nach Art des Spiels, das Sie erstellen, möchten Sie vielleicht erhebliche Anstrengungen unternehmen, um es richtig hinzubekommen.
 
-Eine Möglichkeit, Ihren Musik-Soundtrack dynamischer zu gestalten, besteht darin, diesen in Komponenten-Loops oder Tracks aufzuspalten. Dies ist oft die Art und Weise, wie Musiker ohnehin Musik komponieren, und die Web Audio API ist extrem gut darin, diese Teile im Einklang zu halten. Sobald Sie die verschiedenen Tracks haben, die Ihr Musikstück bilden, können Sie passende Tracks hinzufügen oder entfernen.
+Eine Methode, mit der Sie Ihr Musik-Soundtrack dynamischer gestalten können, besteht darin, ihn in Komponentenloops oder -tracks zu unterteilen. Dies ist oft die Art und Weise, wie Musiker Musik komponieren, und die Web Audio API ist extrem gut darin, diese Teile synchron zu halten. Sobald Sie die verschiedenen Tracks, die Ihr Stück ausmachen, haben, können Sie sie nach Bedarf ein- und ausblenden.
 
-Sie können auch Filter oder Effekte auf die Musik anwenden. Ist Ihr Charakter in einer Höhle? Erhöhen Sie den Nachhall. Vielleicht haben Sie Unterwasserszenen, in denen Sie einen Filter anwenden könnten, der den Klang dämpft.
+Sie können auch Filter oder Effekte auf die Musik anwenden. Ist Ihre Spielfigur in einer Höhle? Erhöhen Sie das Echo. Vielleicht haben Sie Unterwasserszenen, während derer Sie einen Filter anwenden könnten, der den Klang dämpft.
 
-Schauen wir uns einige Techniken der Web Audio API an, um Musik dynamisch von den Basistracks anzupassen.
+Lassen Sie uns einige Techniken der Web Audio API betrachten, um Musik dynamisch aus ihren Basistracks anzupassen.
 
 ### Laden Ihrer Tracks
 
-Mit der Web Audio API können Sie einzelne Tracks und Loops separat mit der [Fetch API](/de/docs/Web/API/Fetch_API) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) laden, was bedeutet, dass Sie sie synchron oder parallel laden können. Das synchrone Laden könnte bedeuten, dass Teile Ihrer Musik früher bereit sind und Sie mit deren Wiedergabe beginnen können, während andere noch laden.
+Mit der Web Audio API können Sie separate Tracks und Loops individuell mit der [Fetch API](/de/docs/Web/API/Fetch_API) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) laden, was bedeutet, dass Sie sie synchron oder parallel laden können. Synchrones Laden könnte bedeuten, dass Teile Ihrer Musik früher verfügbar sind und Sie sie abspielen können, während andere geladen werden.
 
-So oder so möchten Sie solche Tracks oder Loops synchronisieren. Die Web Audio API enthält das Konzept einer internen Uhr, die zu ticken beginnt, sobald Sie einen Audio-Kontext erstellen. Sie müssen die Zeit zwischen der Erstellung eines Audio-Kontexts und dem Beginn des Abspielens des ersten Tracks berücksichtigen. Die Aufzeichnung dieses Offsets und das Abfragen der aktuellen Zeit des abgespielten Tracks gibt Ihnen genügend Informationen, um separate Stücke des Audios zu synchronisieren.
+Wie dem auch sei, Sie möchten möglicherweise Tracks oder Loops synchronisieren. Die Web Audio API enthält das Konzept einer internen Uhr, die zu ticken beginnt, sobald Sie einen Audiokontext erstellen. Sie müssen die Zeit zwischen dem Erstellen eines Audiokontextes und dem Zeitpunkt, an dem der erste Audiotrack zu spielen beginnt, berücksichtigen. Die Aufzeichnung dieses Offsets und das Abfragen der aktuellen Zeit des spielenden Tracks gibt Ihnen genug Informationen, um separate Stücke Audio zu synchronisieren.
 
-Um dies in Aktion zu sehen, legen wir einige getrennte Tracks bereit:
+Um dies in Aktion zu sehen, legen wir einige separate Tracks dar:
 
 ```html
 <section id="tracks">
@@ -288,23 +288,23 @@ Um dies in Aktion zu sehen, legen wir einige getrennte Tracks bereit:
 </section>
 ```
 
-Alle diese Tracks haben das gleiche Tempo und sollen synchronisiert miteinander abgespielt werden, daher müssen wir sicherstellen, dass sie geladen und dem API _verfügbar_ sind, bevor wir sie abspielen können. Dies können wir mit der `async`/`await` Funktionalität in JavaScript tun.
+All diese Tracks haben dasselbe Tempo und sollen miteinander synchronisiert werden, daher müssen wir sicherstellen, dass sie geladen und für die API verfügbar sind _bevor_ wir sie abspielen können. Wir können dies mit der [`async`](/de/docs/Web/JavaScript/Reference/Statements/async_function)/[`await`](/de/docs/Web/JavaScript/Reference/Operators/await)-Funktionalität von JavaScript tun.
 
-Sobald sie zur Wiedergabe verfügbar sind, müssen wir sicherstellen, dass sie zu dem Punkt starten, an dem sich andere Tracks möglicherweise befinden, damit sie synchron bleiben.
+Sobald sie abgespielt werden können, müssen wir sicherstellen, dass sie zu dem Punkt starten, an dem andere Tracks möglicherweise spielen, damit sie sich synchronisieren.
 
-Erstellen wir unseren Audio-Kontext:
+Erstellen wir unseren Audiokontext:
 
 ```js
 const audioCtx = new AudioContext();
 ```
 
-Jetzt wählen wir alle {{htmlelement("li")}} Elemente aus; später können wir diese Elemente nutzen, um uns Zugang zum Track-Dateipfad und jedem einzelnen Abspiel-Button zu verschaffen.
+Suchen wir nun alle {{htmlelement("li")}} Elemente aus; später können wir diese Elemente nutzen, um Zugriff auf den Track-Dateipfad und die einzelnen Wiedergabeknöpfe zu erhalten.
 
 ```js
 const trackEls = document.querySelectorAll("li");
 ```
 
-Wir möchten sicherstellen, dass jede Datei geladen und in einen Puffer dekodiert wurde, bevor wir sie verwenden, also lassen Sie uns eine `async` Funktion erstellen, die es uns ermöglicht, dies zu tun:
+Wir möchten sicherstellen, dass jede Datei geladen und in einen Puffer dekodiert wurde, bevor wir sie verwenden, daher erstellen wir eine `async`-Funktion, die uns dies ermöglicht:
 
 ```js
 async function getFile(filepath) {
@@ -315,9 +315,9 @@ async function getFile(filepath) {
 }
 ```
 
-Wir können dann den `await` Operator verwenden, wenn wir diese Funktion aufrufen, was sicherstellt, dass wir nachfolgende Codezeilen ausführen können, wenn es fertig ist.
+Wir können dann den `await`-Operator verwenden, um diese Funktion aufzurufen, was sicherstellt, dass wir nachfolgende Codeausführungen ausführen können, wenn sie fertig ist.
 
-Lassen Sie uns eine weitere `async` Funktion erstellen, um das Sample einzurichten — wir können die beiden async Funktionen in einem schönen Promise-Muster kombinieren, um weitere Aktionen auszuführen, wenn jede Datei geladen und gepuffert wurde:
+Lassen Sie uns eine weitere `async`-Funktion erstellen, um die Probe einzurichten — wir können die beiden `async`-Funktionen in einem schönen Versprechens-Muster kombinieren, um weitere Aktionen auszuführen, wenn jede Datei geladen und gepuffert ist:
 
 ```js
 async function loadFile(filePath) {
@@ -326,9 +326,9 @@ async function loadFile(filePath) {
 }
 ```
 
-Erstellen wir ebenfalls eine `playTrack()` Funktion, die wir aufrufen können, sobald eine Datei heruntergeladen wurde. Wir benötigen hier einen Offset, so dass, wenn eine Datei bereits abgespielt wird, wir einen Eintrag haben, wie weit durchgegangen werden muss, um eine andere Datei zu starten.
+Lassen Sie uns auch eine `playTrack()`-Funktion erstellen, die wir aufrufen können, wenn eine Datei abgerufen wurde. Wir benötigen hier einen Offset, sodass, wenn wir eine Datei gestartet haben, wir eine Aufzeichnung davon haben, wie weit durch eine andere Datei abgespielt werden sollte.
 
-`start()` nimmt zwei optionale Parameter. Der erste ist, wann die Wiedergabe beginnen soll, und der zweite ist das Wo, welches unser Offset ist.
+`start()` nimmt zwei optionale Parameter an. Der erste ist, wann die Wiedergabe beginnen soll, und der zweite ist wo, was unser Offset ist.
 
 ```js
 let offset = 0;
@@ -349,7 +349,7 @@ function playTrack(audioBuffer) {
 }
 ```
 
-Schließlich lassen Sie uns über unsere `<li>` Elemente iterieren, die korrekte Datei für jedes Element abrufen und dann die Wiedergabe ermöglichen, indem wir den "loading" Text ausblenden und den Play-Button anzeigen:
+Zum Schluss schleifen wir über unsere `<li>`-Elemente, holen die richtige Datei für jedes Einzelne und erlauben dann die Wiedergabe, indem wir den "Ladetext" verstecken und den Wiedergabeknopf anzeigen:
 
 ```js
 trackEls.forEach((el, i) => {
@@ -384,18 +384,18 @@ trackEls.forEach((el, i) => {
 ```
 
 > [!NOTE]
-> Sie können [dieses Demo hier in Aktion sehen](https://mdn.github.io/webaudio-examples/multi-track/) und [den Quellcode hier einsehen](https://github.com/mdn/webaudio-examples/tree/main/multi-track).
+> Sie können [dieses Demo hier in Aktion sehen](https://mdn.github.io/webaudio-examples/multi-track/) und [den Quellcode hier anzeigen](https://github.com/mdn/webaudio-examples/tree/main/multi-track).
 
-Im Kontext Ihrer Spielwelt können Sie Loops und Samples haben, die in unterschiedlichen Umständen abgespielt werden, und es kann nützlich sein, in der Lage zu sein, mit anderen Tracks zu synchronisieren, um ein nahtloseres Erlebnis zu erzielen.
+Im Kontext Ihrer Spielewelt könnten Sie Loops und Samples haben, die in verschiedenen Situationen abgespielt werden und es kann nützlich sein, mit anderen Tracks zu synchronisieren für ein nahtloseres Erlebnis.
 
 > [!NOTE]
-> Dieses Beispiel wartet nicht darauf, dass der Takt endet, bevor das nächste Stück eingeführt wird; wir könnten dies tun, wenn wir die BPM (Schläge pro Minute) der Tracks kennen würden.
+> Dieses Beispiel wartet nicht darauf, dass der Beat endet, bevor das nächste Stück eingeführt wird; wir könnten dies tun, wenn wir die BPM (Beats Per Minute) der Tracks wüssten.
 
-Es kann natürlicher klingen, wenn der neue Track auf dem Takt/Takt/Ph. etc. einsetzt, in den Sie Ihre Hintergrundmusik unterteilt haben.
+Es könnte sein, dass die Einführung eines neuen Tracks natürlicher klingt, wenn sie auf den Beat/Takt/Phrase oder welche Einheiten auch immer Sie verwenden möchten, um Ihre Hintergrundmusik zu segmentieren, erfolgen.
 
-Um dies zu tun, bevor Sie den Track abspielen, den Sie synchronisieren möchten, sollten Sie berechnen, wie lange es bis zum Beginn des nächsten Takt/Takt/Ph. etc. dauert.
+Um dies zu tun, bevor Sie den Track synchronisieren, den Sie abspielen möchten, sollten Sie berechnen, wie lange es bis zum Beginn des nächsten Beats/Takts etc. dauert.
 
-Hier ist ein wenig Code, der ein Tempo (die Zeit in Sekunden Ihres Takt/Takt) gegeben, berechnet, wie lange zu warten ist, bis Sie das nächste Stück abspielen — Sie geben den resultierenden Wert der `start()` Funktion mit dem ersten Parameter, welcher die absolute Zeit, wann die Wiedergabe beginnen soll, annimmt. Beachten Sie, dass der zweite Parameter (wo im neuen Track abgespielt werden soll) relativ ist:
+Hier ist ein bisschen Code, der bei gegebener Geschwindigkeit (die Zeit in Sekunden Ihres Beats/Takts) berechnet, wie lange Sie warten müssen, bevor Sie den nächsten Teil spielen — Sie geben den resultierenden Wert an die `start()`-Funktion mit dem ersten Parameter, der die absolute Zeit angibt, zu der die Wiedergabe beginnen sollte. Beachten Sie, dass der zweite Parameter (wo der neue Track beginnen soll) relativ ist:
 
 ```js
 if (offset === 0) {
@@ -411,29 +411,29 @@ if (offset === 0) {
 ```
 
 > [!NOTE]
-> Sie können [unseren Wartezeit-Rechner-Code ausprobieren](https://jsfiddle.net/c87z11jj/2/) hier, auf JSFiddle (ich habe hierbei zur Taktleiste synchronisiert).
+> Sie können unseren [Wartezeitrechner-Code hier ausprobieren](https://jsfiddle.net/c87z11jj/2/), auf JSFiddle (ich habe zur Bar synchronisiert in diesem Fall).
 
 > [!NOTE]
-> Wenn der erste Parameter 0 ist oder weniger als die `currentTime` des Kontextes, beginnt die Wiedergabe sofort.
+> Wenn der erste Parameter 0 oder kleiner als der Kontext `currentTime` ist, beginnt die Wiedergabe sofort.
 
-### Positionales Audio
+### Positionsaudio
 
-Positional Audio kann eine wichtige Technik sein, um Audio zu einem wesentlichen Bestandteil eines immersiven Spielerlebnisses zu machen. Die Web Audio API ermöglicht es uns nicht nur, eine Reihe von Audioquellen im dreidimensionalen Raum zu positionieren, sondern ermöglicht es uns auch, Filter anzuwenden, die dieses Audio realistischer erscheinen lassen.
+Positionsaudio kann eine wichtige Technik sein, um Audio zu einem zentralen Bestandteil eines immersiven Spielerlebnisses zu machen. Die Web Audio API ermöglicht uns nicht nur, eine Reihe von Audiokontakten im dreidimensionalen Raum zu positionieren, sondern sie kann uns auch erlauben, Filter anzuwenden, die dieses Audio realistischer erscheinen lassen.
 
-Der [`pannerNode`](/de/docs/Web/API/PannerNode) nutzt die Positionierungsmöglichkeiten der Web Audio API, so dass wir dem Spieler weitere Informationen über die Spielwelt vermitteln können. Es gibt hier ein [Tutorial](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics), um den `pannerNode` genauer zu verstehen.
+Der [`pannerNode`](/de/docs/Web/API/PannerNode) nutzt die Positionsfähigkeiten der Web Audio API, sodass wir dem Spieler weitere Informationen über die Spielwelt übermitteln können. Es gibt ein [Tutorial hier](/de/docs/Web/API/Web_Audio_API/Web_audio_spatialization_basics), um den `pannerNode` im Detail besser zu verstehen.
 
-Wir können in Beziehung setzen:
+Wir können Folgendes übermitteln:
 
 - Die Position von Objekten
 - Die Richtung und Bewegung von Objekten
-- Die Umgebung (höhlenartig, unter Wasser, etc.)
+- Die Umgebung (höhlenhaft, unter Wasser, etc.)
 
-Dies ist besonders nützlich in einer dreidimensionalen Umgebung, die mit WebGL gerendert wird, wo die Web Audio API es möglich macht, Audio mit den Objekten und Ansichten zu verbinden.
+Dies ist besonders nützlich in einer dreidimensionalen Umgebung, die mit WebGL gerendert wird, wo die Web Audio API es ermöglicht, Audio an die Objekte und Standpunkte zu binden.
 
 ## Siehe auch
 
 - [Web Audio API auf MDN](/de/docs/Web/API/Web_Audio_API)
 - [`<audio>` auf MDN](/de/docs/Web/HTML/Element/audio)
-- [Songs of Diridum: Die Web Audio API an ihre Grenzen bringen](https://hacks.mozilla.org/2013/10/songs-of-diridum-pushing-the-web-audio-api-to-its-limits/)
-- [HTML5 Audio wirklich auf Mobilgeräten zum Laufen bringen](https://pupunzi.open-lab.com/2013/03/13/making-html5-audio-actually-work-on-mobile/)
-- [Audiosprites (und Lösungen für iOS)](https://remysharp.com/2010/12/23/audio-sprites/)
+- [Songs of Diridum: Pushing the Web Audio API to Its Limits](https://hacks.mozilla.org/2013/10/songs-of-diridum-pushing-the-web-audio-api-to-its-limits/)
+- [Making HTML5 Audio Actually Work on Mobile](https://pupunzi.open-lab.com/2013/03/13/making-html5-audio-actually-work-on-mobile/)
+- [Audio-Sprites (und Korrekturen für iOS)](https://remysharp.com/2010/12/23/audio-sprites/)

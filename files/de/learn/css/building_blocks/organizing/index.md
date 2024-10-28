@@ -2,12 +2,12 @@
 title: Organisieren Ihres CSS
 slug: Learn/CSS/Building_blocks/Organizing
 l10n:
-  sourceCommit: a966a8b4eade72a13de8a688c13f2d5056321f02
+  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/CSS/Building_blocks/Debugging_CSS", "Learn/CSS/Building_blocks/Fundamental_CSS_comprehension", "Learn/CSS/Building_blocks")}}
 
-Wenn Sie beginnen, an größeren Stylesheets und großen Projekten zu arbeiten, werden Sie feststellen, dass es herausfordernd sein kann, eine riesige CSS-Datei zu verwalten. In diesem Artikel werfen wir einen kurzen Blick auf einige Best Practices für das Schreiben Ihres CSS, um es leicht wartbar zu machen, und auf einige der Lösungen, die andere verwenden, um die Wartbarkeit zu verbessern.
+Wenn Sie anfangen, an größeren Stylesheets und großen Projekten zu arbeiten, werden Sie feststellen, dass die Pflege einer umfangreichen CSS-Datei herausfordernd sein kann. In diesem Artikel werfen wir einen kurzen Blick auf einige Best Practices beim Schreiben Ihres CSS, um es leicht wartbar zu machen, und einige der Lösungen, die andere verwenden, um die Wartbarkeit zu verbessern.
 
 <table>
   <tbody>
@@ -17,52 +17,55 @@ Wenn Sie beginnen, an größeren Stylesheets und großen Projekten zu arbeiten, 
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, grundlegende Kenntnisse im
+        >, Grundkenntnisse im Umgang mit
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >Umgang mit Dateien</a
-        >, HTML-Grundlagen (siehe
+          >Dateien</a
+        >, HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >), und eine Vorstellung davon, wie CSS funktioniert (siehe
-        <a href="/de/docs/Learn/CSS/First_steps">CSS erste Schritte</a>.)
+        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
+        <a href="/de/docs/Learn/CSS/First_steps">CSS Erste Schritte</a>.)
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen Sie einige Tipps und Best Practices zum Organisieren von Stylesheets, und finden Sie heraus, welche Namenskonventionen und Werkzeuge häufig verwendet werden, um bei der Organisation von CSS und der Teamarbeit zu helfen.
+        Einige Tipps und Best Practices zum Organisieren von Stylesheets zu
+        erlernen und sich über einige der Namenskonventionen und Werkzeuge im
+        alltäglichen Gebrauch zu informieren, die bei der CSS-Organisation und
+        der Teamarbeit helfen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Tipps, um Ihr CSS übersichtlich zu halten
+## Tipps, um Ihr CSS ordentlich zu halten
 
-Hier sind einige allgemeine Vorschläge, wie Sie Ihre Stylesheets organisiert und übersichtlich halten können.
+Hier sind einige allgemeine Vorschläge, wie Sie Ihre Stylesheets organisiert und ordentlich halten können.
 
-### Hat Ihr Projekt eine Coding Style Guide?
+### Hat Ihr Projekt einen Coding-Style-Leitfaden?
 
-Wenn Sie mit einem Team an einem bestehenden Projekt arbeiten, sollten Sie zunächst prüfen, ob das Projekt einen bestehenden Style Guide für CSS hat. Der Team-Style Guide sollte immer Ihren persönlichen Vorlieben vorgezogen werden. Es gibt oft keinen richtigen oder falschen Weg, Dinge zu tun, aber Konsistenz ist wichtig.
+Wenn Sie im Team an einem bestehenden Projekt arbeiten, sollten Sie zunächst prüfen, ob das Projekt einen vorhandenen Style-Leitfaden für CSS hat. Der Team-Style-Leitfaden sollte immer Vorrang vor Ihren persönlichen Vorlieben haben. Es gibt oft keine richtige oder falsche Art, Dinge zu tun, aber Konsistenz ist wichtig.
 
-Schauen Sie sich zum Beispiel die [CSS-Richtlinien für MDN-Code-Beispiele](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/CSS) an.
+Werfen Sie zum Beispiel einen Blick auf die [CSS-Richtlinien für MDN-Codebeispiele](/de/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/CSS).
 
-### Halten Sie es konsistent
+### Halten Sie es konsequent
 
-Wenn Sie die Regeln für das Projekt festlegen oder alleine arbeiten, dann ist das Wichtigste, die Dinge konsistent zu halten. Konsistenz kann auf verschiedene Arten angewendet werden, zum Beispiel das gleiche Namenskonventionen für Klassen verwenden, eine Methode zur Beschreibung von Farben wählen oder einheitliche Formatierung beibehalten. (Zum Beispiel, werden Sie Tabs oder Leerzeichen verwenden, um Ihren Code einzurücken? Wenn Leerzeichen, wie viele?)
+Wenn Sie die Regeln für das Projekt festlegen dürfen oder alleine arbeiten, dann ist das Wichtigste, die Dinge konsequent zu halten. Konsistenz kann auf viele Arten angewendet werden, wie zum Beispiel dieselben Namenskonventionen für Klassen zu verwenden, eine Methode zur Farbbeschreibung zu wählen oder einheitliches Formatieren beizubehalten (z.B. verwenden Sie Tabs oder Leerzeichen zum Einrücken Ihres Codes? Wie viele Leerzeichen, falls Sie Leerzeichen verwenden?).
 
-Wenn Sie ein Set von Regeln haben, dem Sie immer folgen, reduziert dies den mentalen Aufwand beim Schreiben von CSS, da einige der Entscheidungen schon getroffen sind.
+Eine Reihe von Regeln, denen Sie immer folgen, reduziert die Menge des erforderlichen mentalen Aufwands beim Schreiben von CSS, da einige Entscheidungen bereits getroffen sind.
 
 ### Lesbares CSS formatieren
 
-Es gibt einige Möglichkeiten, wie CSS formatiert werden kann. Einige Entwickler setzen alle Regeln auf eine einzelne Zeile, wie unten gezeigt:
+Es gibt mehrere Arten, CSS zu formatieren. Einige Entwickler setzen alle Regeln in eine einzige Zeile, wie folgt:
 
 ```css-nolint
 .box {background-color: #567895; }
 h2 {background-color: black; color: white; }
 ```
 
-Andere Entwickler ziehen es vor, alles auf eine neue Zeile zu setzen:
+Andere Entwickler bevorzugen es, alles auf eine neue Zeile zu setzen:
 
 ```css
 .box {
@@ -75,18 +78,18 @@ h2 {
 }
 ```
 
-CSS ist es egal, welche Methode Sie verwenden. Wir finden persönlich, dass es lesbarer ist, wenn jedes Eigenschaft-Werte-Paar auf einer neuen Zeile steht.
+CSS ist dies egal. Wir persönlich finden, dass es lesbarer ist, jedes Eigenschafts-Wert-Paar in eine neue Zeile zu setzen.
 
 ### Kommentieren Sie Ihr CSS
 
-Das Hinzufügen von Kommentaren zu Ihrem CSS wird jedem zukünftigen Entwickler helfen, mit Ihrer CSS-Datei zu arbeiten, und wird auch Ihnen helfen, wenn Sie nach einer Pause zum Projekt zurückkehren.
+Das Hinzufügen von Kommentaren zu Ihrem CSS wird jedem zukünftigen Entwickler helfen, mit Ihrer CSS-Datei zu arbeiten, und hilft auch Ihnen, wenn Sie nach einer Pause zum Projekt zurückkehren.
 
 ```css
 /* This is a CSS comment
 It can be broken onto multiple lines. */
 ```
 
-Ein guter Tipp ist es, einen Block von Kommentaren zwischen logische Abschnitte in Ihrem Stylesheet hinzuzufügen, um es beim Durchsuchen schnell finden zu können oder sogar um sich etwas zu geben, wonach Sie suchen können, um direkt zu diesem Teil des CSS zu springen. Wenn Sie eine Zeichenfolge verwenden, die im Code nicht vorkommt, können Sie von Abschnitt zu Abschnitt springen, indem Sie danach suchen — unten haben wir `||` verwendet.
+Ein guter Tipp ist, auch einen Block von Kommentaren zwischen logisch zusammengehörenden Abschnitten in Ihrem Stylesheet hinzuzufügen, um diese schnell lokalisieren zu können, wenn man es durchscannt, oder um etwas zu haben, wonach man suchen kann, um direkt zu diesem Teil des CSS zu springen. Wenn Sie einen String verwenden, der im Code nicht vorkommt, können Sie von Abschnitt zu Abschnitt springen, indem Sie danach suchen — unten haben wir `||` verwendet.
 
 ```css
 /* || General styles */
@@ -102,9 +105,9 @@ Ein guter Tipp ist es, einen Block von Kommentaren zwischen logische Abschnitte 
 /* … */
 ```
 
-Sie brauchen nicht alles in Ihrem CSS zu kommentieren, da vieles selbsterklärend ist. Was Sie kommentieren sollten, sind die Dinge, bei denen Sie eine bestimmte Entscheidung aus einem bestimmten Grund getroffen haben.
+Sie müssen nicht jede einzelne Sache in Ihrem CSS kommentieren, da viel davon selbsterklärend sein wird. Kommentieren sollten Sie die Dinge, bei denen Sie eine bestimmte Entscheidung aus einem bestimmten Grund getroffen haben.
 
-Vielleicht haben Sie eine CSS-Eigenschaft auf eine bestimmte Weise verwendet, um ältere Browser-Inkompatibilitäten zu umgehen, zum Beispiel:
+Vielleicht haben Sie eine CSS-Eigenschaft auf eine spezifische Weise verwendet, um ältere Browser-Inkompatibilitäten zu umgehen, zum Beispiel:
 
 ```css
 .box {
@@ -113,11 +116,11 @@ Vielleicht haben Sie eine CSS-Eigenschaft auf eine bestimmte Weise verwendet, um
 }
 ```
 
-Vielleicht sind Sie einem Tutorial gefolgt, um etwas zu erreichen, und das CSS ist nicht sehr selbsterklärend oder erkennbar. In diesem Fall könnten Sie die URL des Tutorials in die Kommentare einfügen. Sie werden sich selbst danken, wenn Sie nach einem Jahr oder so zu diesem Projekt zurückkehren und sich vage erinnern, dass es ein großartiges Tutorial zu diesem Thema gab, aber nicht mehr wissen, woher es stammt.
+Vielleicht haben Sie ein Tutorial befolgt, um etwas zu erreichen, und das CSS ist nicht sehr selbsterklärend oder erkennbar. In diesem Fall könnten Sie die URL des Tutorials zu den Kommentaren hinzufügen. Sie werden sich selbst dankbar sein, wenn Sie nach einem Jahr zu diesem Projekt zurückkehren und sich vage erinnern, dass es ein großartiges Tutorial zu diesem Thema gab, aber nicht mehr wissen, woher es stammt.
 
 ### Erstellen Sie logische Abschnitte in Ihrem Stylesheet
 
-Es ist eine gute Idee, alle allgemeinen Stile zuerst im Stylesheet zu haben. Das bedeutet alle Stile, die im Allgemeinen angewendet werden, es sei denn, Sie tun etwas Besonderes mit diesem Element. Sie werden normalerweise Regeln für folgende Elemente festlegen:
+Es ist eine gute Idee, alle allgemeinen Stile zuerst im Stylesheet zu haben. Das bedeutet alle Stile, die im Allgemeinen gelten, es sei denn, Sie tun etwas Besonderes mit diesem Element. In der Regel haben Sie Regeln für:
 
 - `body`
 - `p`
@@ -126,7 +129,7 @@ Es ist eine gute Idee, alle allgemeinen Stile zuerst im Stylesheet zu haben. Das
 - Die `table`-Eigenschaften
 - Links
 
-In diesem Abschnitt des Stylesheets stellen wir das Standard-Styling für den Text auf der Seite bereit und richten ein Standard-Styling für Datentabellen und Listen usw. ein.
+In diesem Abschnitt des Stylesheets bieten wir Standardstile für den Text auf der Website, richten einen Standardstil für Datentabellen und Listen ein und so weiter.
 
 ```css
 /* || GENERAL STYLES */
@@ -151,12 +154,12 @@ blockquote {
 }
 ```
 
-Nach diesem Abschnitt könnten wir einige Utility-Klassen definieren, zum Beispiel eine Klasse, die den Standard-Listenstil für Listen entfernt, die wir als Flex-Elemente oder auf andere Weise anzeigen möchten. Wenn Sie einige Styling-Optionen haben, von denen Sie wissen, dass Sie sie auf viele verschiedene Elemente anwenden möchten, können sie in diesem Abschnitt platziert werden.
+Nach diesem Abschnitt könnten wir einige Utility-Klassen definieren, zum Beispiel eine Klasse, die den Standard-Listentyp für Listen entfernt, die wir als Flex-Items oder auf andere Weise darstellen möchten. Wenn Sie einige Styling-Optionen haben, die Sie auf viele verschiedene Elemente angewendet sehen möchten, können sie in diesem Abschnitt untergebracht werden.
 
 ```css
 /* || UTILITIES */
 
-.nobullets {
+.no-bullets {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -165,10 +168,10 @@ Nach diesem Abschnitt könnten wir einige Utility-Klassen definieren, zum Beispi
 /* … */
 ```
 
-Dann können wir alles hinzufügen, was siteweit verwendet wird. Das könnten Dinge wie das grundlegende Seitenlayout, das Header- und Navigationsstyling usw. sein.
+Dann können wir alles hinzufügen, was standortweit verwendet wird. Das könnten Dinge wie das grundlegende Seitenlayout, die Kopfzeilen-, Navigationsstile und so weiter sein.
 
 ```css
-/* || SITEWIDE */
+/* SITEWIDE */
 
 .main-nav {
   /* … */
@@ -179,7 +182,7 @@ Dann können wir alles hinzufügen, was siteweit verwendet wird. Das könnten Di
 }
 ```
 
-Schließlich werden wir CSS für spezifische Dinge einfügen, unterteilt nach Kontext, Seite oder sogar Komponente, in der sie verwendet werden.
+Schließlich fügen wir CSS für spezifische Dinge hinzu, aufgeschlüsselt nach Kontext, Seite oder sogar Komponente, in der sie verwendet werden.
 
 ```css
 /* || STORE PAGES */
@@ -193,11 +196,11 @@ Schließlich werden wir CSS für spezifische Dinge einfügen, unterteilt nach Ko
 }
 ```
 
-Indem Sie die Dinge auf diese Weise ordnen, haben wir zumindest eine Vorstellung davon, in welchem Teil des Stylesheets wir nach etwas suchen, das wir ändern möchten.
+Durch die Anordnung der Dinge auf diese Weise haben wir zumindest eine Vorstellung davon, in welchem Teil des Stylesheets wir nach etwas suchen werden, das wir ändern möchten.
 
-### Vermeiden Sie zu spezifische Selektoren
+### Vermeiden Sie übermäßig spezifische Selektoren
 
-Wenn Sie sehr spezifische Selektoren erstellen, werden Sie oft feststellen, dass Sie Teile Ihres CSS duplizieren müssen, um die gleichen Regeln auf ein anderes Element anzuwenden. Zum Beispiel könnten Sie einen Selektor wie unten gezeigt haben, der die Regel auf ein `<p>` mit einer Klasse von `box` innerhalb eines `<article>` mit einer Klasse von `main` anwendet.
+Wenn Sie sehr spezifische Selektoren erstellen, werden Sie oft feststellen, dass Sie große Teile Ihres CSS duplizieren müssen, um dieselben Regeln auf ein anderes Element anzuwenden. Zum Beispiel könnten Sie den unten stehenden Selektor haben, der die Regel auf ein `<p>` mit einer Klasse von `box` innerhalb eines `<article>` mit einer Klasse von `main` anwendet.
 
 ```css
 article.main p.box {
@@ -205,7 +208,7 @@ article.main p.box {
 }
 ```
 
-Wenn Sie dann die gleichen Regeln auf etwas außerhalb von `main` oder auf etwas anderes als ein `<p>` anwenden wollten, müssten Sie einen anderen Selektor zu diesen Regeln hinzufügen oder ein völlig neues Regelset erstellen. Stattdessen könnten Sie den Selektor `.box` verwenden, um Ihre Regel auf jedes Element anzuwenden, das die Klasse `box` hat:
+Wenn Sie dann dieselben Regeln auf etwas außerhalb von `main` oder auf etwas anderes als ein `<p>` anwenden möchten, müssten Sie einen weiteren Selektor zu diesen Regeln hinzufügen oder einen ganz neuen Regelsatz erstellen. Stattdessen könnten Sie den Selektor `.box` verwenden, um Ihre Regel auf jedes Element anzuwenden, das die Klasse `box` hat:
 
 ```css
 .box {
@@ -213,31 +216,31 @@ Wenn Sie dann die gleichen Regeln auf etwas außerhalb von `main` oder auf etwas
 }
 ```
 
-Es wird Zeiten geben, in denen es sinnvoll ist, etwas spezifischer zu machen; dies wird jedoch im Allgemeinen eher eine Ausnahme als die Regel sein.
+Es wird Zeiten geben, in denen es sinnvoll ist, etwas spezifischer zu machen; dies wird jedoch in der Regel eine Ausnahme und nicht die übliche Praxis sein.
 
-### Große Stylesheets in mehrere kleinere unterteilen
+### Große Stylesheets in mehrere kleinere aufteilen
 
-In Fällen, in denen Sie für verschiedene Teile der Website sehr unterschiedliche Stile haben, möchten Sie vielleicht ein Stylesheet haben, das alle globalen Regeln enthält, sowie einige kleinere Stylesheets, die die spezifischen Regeln für diese Abschnitte enthalten. Sie können von einer Seite aus auf mehrere Stylesheets verlinken, und die normalen Regeln der Kaskade gelten, wobei Regeln in später verlinkten Stylesheets nach Regeln in früher verlinkten Stylesheets kommen.
+In Fällen, in denen Sie sehr unterschiedliche Stile für verschiedene Teile der Website haben, möchten Sie möglicherweise ein Stylesheet haben, das alle globalen Regeln enthält, sowie einige kleinere Stylesheets, die die spezifischen Regeln enthalten, die für diese Abschnitte erforderlich sind. Sie können von einer Seite aus auf mehrere Stylesheets verlinken, und die normalen Regeln des Cascadings gelten, wobei Regeln in später verlinkten Stylesheets nach Regeln in früher verlinkten Stylesheets kommen.
 
-Zum Beispiel könnten wir einen Online-Shop als Teil der Site haben, mit viel CSS, das nur für die Gestaltung der Produktlisten und Formulare des Shops verwendet wird. Es würde Sinn machen, diese Dinge in einem anderen Stylesheet zu haben, das nur auf den Shop-Seiten verlinkt ist.
+Zum Beispiel könnten wir einen Online-Shop als Teil der Website haben, mit einer Menge CSS, die nur zur Gestaltung der Produktlisten und Formulare für den Shop verwendet wird. Es würde Sinn machen, diese Dinge in einem anderen Stylesheet zu haben, das nur auf Shop-Seiten verlinkt ist.
 
-Dies kann es erleichtern, Ihr CSS organisiert zu halten, und bedeutet auch, dass wenn mehrere Personen am CSS arbeiten, Sie weniger Situationen haben, in denen zwei Personen gleichzeitig an demselben Stylesheet arbeiten müssen, was zu Konflikten in der Versionskontrolle führt.
+Dies kann es erleichtern, Ihr CSS zu organisieren, und bedeutet auch, dass, wenn mehrere Personen am CSS arbeiten, es weniger Situationen gibt, in denen zwei Personen gleichzeitig an demselben Stylesheet arbeiten müssen, was zu Konflikten in der Versionskontrolle führen kann.
 
 ## Andere Werkzeuge, die helfen können
 
-CSS selbst hat nicht viel eingebaute Organisation; daher hängt die Konsistenz Ihres CSS weitgehend von Ihnen ab. Die Web-Community hat verschiedene Werkzeuge und Ansätze entwickelt, die Ihnen helfen können, größere CSS-Projekte zu verwalten. Da Sie wahrscheinlich auf diese Hilfen stoßen werden, wenn Sie mit anderen Leuten arbeiten, und da sie oft generell hilfreich sind, haben wir einen kurzen Leitfaden zu einigen von ihnen aufgenommen.
+CSS selbst hat nicht viel an integrierter Organisation; daher hängt der Grad der Konsistenz in Ihrem CSS weitgehend von Ihnen ab. Die Web-Community hat verschiedene Werkzeuge und Ansätze entwickelt, die Ihnen helfen können, größere CSS-Projekte zu verwalten. Da Sie wahrscheinlich auf diese Hilfsmittel stoßen, wenn Sie mit anderen Menschen arbeiten, und da sie oft allgemein hilfreich sind, haben wir eine kurze Anleitung zu einigen von ihnen beigefügt.
 
 ### CSS-Methodologien
 
-Anstatt sich Ihre eigenen Regeln für das Schreiben von CSS auszudenken, können Sie davon profitieren, einen der bereits von der Community entworfenen und in vielen Projekten getesteten Ansätze zu übernehmen. Diese Methodologien sind im Wesentlichen Leitfäden für das CSS-Coding, die einen sehr strukturierten Ansatz für das Schreiben und Organisieren von CSS bieten. In der Regel tendieren sie dazu, CSS ausführlicher zu gestalten, als Sie es getan hätten, wenn Sie jeden Selektor zu einem eigenen Satz von Regeln für dieses Projekt optimiert hätten.
+Anstatt Ihre eigenen Regeln für das Schreiben von CSS zu finden, können Sie davon profitieren, einen der Ansätze zu übernehmen, die bereits von der Community entworfen und über viele Projekte hinweg getestet wurden. Diese Methodologien sind im Wesentlichen CSS-Coding-Leitfäden, die einen sehr strukturierten Ansatz für das Schreiben und Organisieren von CSS nehmen. Typischerweise neigen sie dazu, CSS ausführlicher darzustellen, als Sie es vielleicht getan hätten, wenn Sie jeden Selektor für ein Projekt nach einem individuellen Regelwerk optimiert hätten.
 
-Allerdings gewinnen Sie durch die Übernahme einer solchen Methodologie viel Struktur. Da viele dieser Systeme weit verbreitet sind, sind andere Entwickler eher in der Lage, den Ansatz zu verstehen, den Sie verwenden, und ihr eigenes CSS auf die gleiche Weise zu schreiben, anstatt Ihre eigene persönliche Methodologie von Grund auf zu erarbeiten.
+Durch die Übernahme erhalten Sie jedoch viel Struktur. Da viele dieser Systeme weit verbreitet sind, ist es wahrscheinlicher, dass andere Entwickler den von Ihnen verwendeten Ansatz verstehen und in der Lage sind, ihr eigenes CSS auf dieselbe Weise zu schreiben, anstatt Ihre eigene persönliche Methodologie von Grund auf neu zu erarbeiten.
 
 #### OOCSS
 
-Die meisten der Ansätze, auf die Sie stoßen werden, verdanken etwas dem Konzept von Object Oriented CSS (OOCSS), einem Ansatz, der durch [die Arbeit von Nicole Sullivan](https://github.com/stubbornella/oocss/wiki) populär wurde. Die Grundidee von OOCSS ist es, Ihr CSS in wiederverwendbare Objekte zu trennen, die überall auf Ihrer Website verwendet werden können. Das Standardbeispiel für OOCSS ist das Muster, das als [The Media Object](/de/docs/Web/CSS/Layout_cookbook/Media_objects) beschrieben wird. Dies ist ein Muster mit einem Bild, Video oder einem anderen Element mit fester Größe auf einer Seite und flexiblem Inhalt auf der anderen Seite. Es ist ein Muster, das wir überall auf Websites für Kommentare, Listen und so weiter sehen.
+Die meisten der Ansätze, denen Sie begegnen werden, verdanken etwas dem Konzept von Object Oriented CSS (OOCSS), ein Ansatz, der durch [die Arbeit von Nicole Sullivan](https://github.com/stubbornella/oocss/wiki) populär gemacht wurde. Die Grundidee von OOCSS ist es, Ihr CSS in wiederverwendbare Objekte zu unterteilen, die überall auf Ihrer Website genutzt werden können, wo Sie sie benötigen. Das Standardbeispiel für OOCSS ist das Muster, das als [The Media Object](/de/docs/Web/CSS/Layout_cookbook/Media_objects) beschrieben wird. Dies ist ein Muster mit einem festen Bild, Video oder anderem Element auf einer Seite und flexiblem Inhalt auf der anderen. Es ist ein Muster, das wir auf Websites überall für Kommentare, Listen usw. sehen.
 
-Wenn Sie keinen OOCSS-Ansatz verfolgen, könnten Sie benutzerdefiniertes CSS für die verschiedenen Orte erstellen, an denen dieses Muster verwendet wird, zum Beispiel indem Sie zwei Klassen erstellen, eine namens `comment` mit einer Reihe von Regeln für die Komponenten, und eine andere namens `list-item` mit fast den gleichen Regeln wie die `comment`-Klasse, mit Ausnahme einiger kleiner Unterschiede. Die Unterschiede zwischen diesen beiden Komponenten sind, dass der Listeneintrag unten eine Grenze hat und Bilder in Kommentaren eine Grenze haben, während Listeneintragsbilder dies nicht tun.
+Wenn Sie keinen OOCSS-Ansatz verfolgen, könnten Sie ein benutzerdefiniertes CSS für die verschiedenen Stellen erstellen, an denen dieses Muster verwendet wird, indem Sie zum Beispiel zwei Klassen erstellen, eine namens `comment` mit einer Reihe von Regeln für die Komponenten, und eine andere namens `list-item` mit fast denselben Regeln wie die `comment`-Klasse, außer mit einigen kleineren Unterschieden. Die Unterschiede zwischen diesen beiden Komponenten sind, dass der Listeneintrag einen unteren Rand hat und Bilder in Kommentaren einen Rand haben, während Listeneinträge keinen Rand haben.
 
 ```css
 .comment {
@@ -264,7 +267,7 @@ Wenn Sie keinen OOCSS-Ansatz verfolgen, könnten Sie benutzerdefiniertes CSS fü
 }
 ```
 
-In OOCSS würden Sie ein Muster namens `media` erstellen, das alle gemeinsamen CSS für beide Muster weltweit enthält — eine Basisklasse für Dinge, die im Allgemeinen die Form des Medienobjekts haben. Dann würden wir eine zusätzliche Klasse hinzufügen, um diese winzigen Unterschiede zu berücksichtigen, und damit dieses Styling auf bestimmte Weisen erweitern.
+In OOCSS würden Sie ein Muster namens `media` erstellen, das alle allgemeinen CSS für beide Muster enthält — eine Basisklasse für Dinge, die im Allgemeinen die Form des Medienobjekts haben. Dann würden wir eine zusätzliche Klasse hinzufügen, um diese Unterschiede im Styling spezifisch zu adressieren.
 
 ```css
 .media {
@@ -285,7 +288,7 @@ In OOCSS würden Sie ein Muster namens `media` erstellen, das alle gemeinsamen C
 }
 ```
 
-In Ihrem HTML müsste der Kommentar sowohl die `media`- als auch die `comment`-Klasse erhalten:
+In Ihrem HTML würde der Kommentar sowohl die `media`- als auch die `comment`-Klasse benötigen:
 
 ```html
 <div class="media comment">
@@ -294,7 +297,7 @@ In Ihrem HTML müsste der Kommentar sowohl die `media`- als auch die `comment`-K
 </div>
 ```
 
-Der Listeneintrag hätte `media` und `list-item` angewendet:
+Der Listeneintrag würde `media` und `list-item` angewendet haben:
 
 ```html
 <ul>
@@ -305,11 +308,11 @@ Der Listeneintrag hätte `media` und `list-item` angewendet:
 </ul>
 ```
 
-Die Arbeit, die Nicole Sullivan bei der Beschreibung und Förderung dieses Ansatzes geleistet hat, bedeutet, dass selbst Leute, die nicht streng einem OOCSS-Ansatz folgen, im Allgemeinen CSS auf diese Weise wiederverwenden — es hat sich als ein guter Ansatz in unser Verständnis eingeprägt.
+Die Arbeit, die Nicole Sullivan bei der Beschreibung dieses Ansatzes geleistet und ihn populär gemacht hat, bedeutet, dass selbst Leute, die heute nicht streng einem OOCSS-Ansatz folgen, im Allgemeinen CSS auf diese Weise wiederverwenden — es hat sich als gute Möglichkeit etabliert, Dinge im Allgemeinen anzugehen.
 
 #### BEM
 
-BEM steht für Block Element Modifier. In BEM ist ein Block eine eigenständige Einheit wie ein Button, Menü oder Logo. Ein Element ist etwas wie ein Listeneintrag oder ein Titel, das an den Block gebunden ist, in dem es sich befindet. Ein Modifier ist eine Kennzeichnung an einem Block oder Element, die das Styling oder Verhalten ändert. Sie werden Code, der BEM verwendet, an der umfangreichen Verwendung von Bindestrichen und Unterstrichen in den CSS-Klassen erkennen. Sehen Sie sich zum Beispiel die Klassen an, die in diesem HTML von der Seite über [BEM-Benennungskonventionen](https://getbem.com/naming/) angewendet werden:
+BEM steht für Block Element Modifier. In BEM ist ein Block ein eigenständiges Element wie ein Button, Menü oder Logo. Ein Element ist etwas wie ein Listeneintrag oder ein Titel, das an den Block gebunden ist, in dem es sich befindet. Ein Modifikator ist eine Markierung an einem Block oder Element, die das Styling oder Verhalten ändert. Sie werden an dem extensiven Gebrauch von Bindestrichen und Unterstrichen in den CSS-Klassen erkennen, dass ein Code BEM verwendet. Sehen Sie sich zum Beispiel die Klassen an, die auf dieses HTML aus der Seite über [BEM-Namenskonventionen](https://getbem.com/naming/) angewendet werden:
 
 ```html
 <form class="form form--theme-xmas form--simple">
@@ -323,33 +326,31 @@ BEM steht für Block Element Modifier. In BEM ist ein Block eine eigenständige 
 </form>
 ```
 
-Die zusätzlichen Klassen sind ähnlich wie die in dem OOCSS-Beispiel verwendeten; jedoch verwenden sie die strengen Benennungskonventionen von BEM.
+Die zusätzlichen Klassen sind ähnlich denen, die im OOCSS-Beispiel verwendet wurden, jedoch nutzen sie die strengen Namenskonventionen von BEM.
 
-BEM wird häufig in größeren Webprojekten verwendet, und viele Menschen schreiben ihr CSS auf diese Weise. Es ist wahrscheinlich, dass Sie auf Beispiele stoßen werden, selbst in Tutorials, die BEM-Syntax verwenden, ohne zu erwähnen, warum das CSS so strukturiert ist.
+BEM wird häufig in größeren Webprojekten verwendet, und viele Menschen schreiben ihr CSS auf diese Weise. Es ist wahrscheinlich, dass Sie in Tutorials oder Beispielen auf Beispiele stoßen, die BEM-Syntax verwenden, ohne zu erwähnen, warum das CSS in dieser Weise strukturiert ist.
 
-Lesen Sie mehr über dieses System [BEM 101](https://css-tricks.com/bem-101/) auf CSS Tricks.
+Lesen Sie mehr über dieses System in [BEM 101](https://css-tricks.com/bem-101/) auf CSS Tricks.
 
 #### Andere gängige Systeme
 
-Es gibt eine große Anzahl dieser Systeme in Gebrauch. Andere beliebte Ansätze umfassen [Scalable and Modular Architecture for CSS (SMACSS)](https://smacss.com/), erstellt von Jonathan Snook, [ITCSS](https://itcss.io/) von Harry Roberts, und [Atomizer CSS (ACSS)](https://acss-io.github.io/atomizer/), ursprünglich von Yahoo! erstellt. Wenn Sie auf ein Projekt stoßen, das einen dieser Ansätze verwendet, ist der Vorteil, dass Sie viele Artikel und Leitfäden finden können, die Ihnen helfen, auf diese Weise zu codieren.
+Es gibt eine große Anzahl dieser Systeme im Einsatz. Andere beliebte Ansätze sind [Scalable and Modular Architecture for CSS (SMACSS)](https://smacss.com/), erstellt von Jonathan Snook, [ITCSS](https://itcss.io/) von Harry Roberts und [Atomizer CSS (ACSS)](https://acss-io.github.io/atomizer/), ursprünglich erstellt von Yahoo!. Wenn Sie auf ein Projekt stoßen, das einen dieser Ansätze verwendet, dann liegt der Vorteil darin, dass Sie viele Artikel und Anleitungen finden können, die Ihnen helfen zu verstehen, wie Sie im selben Stil codieren können.
 
-Der Nachteil der Verwendung eines solchen Systems ist, dass sie insbesondere bei kleineren Projekten übermäßig komplex erscheinen können.
+Der Nachteil der Verwendung eines solchen Systems ist, dass sie für kleinere Projekte oft übermäßig komplex erscheinen können.
 
 ### Build-Systeme für CSS
 
-Ein weiterer Weg, CSS zu organisieren, besteht darin, einige der Werkzeuge zu nutzen, die für Frontend-Entwickler zur Verfügung stehen, die es Ihnen ermöglichen, einen etwas programmatischeren Ansatz beim Schreiben von CSS zu wählen. Es gibt eine Reihe von Werkzeugen, die wir als _Preprozessoren_ und _Postprozessoren_ bezeichnen. Ein Preprozessor läuft über Ihre Rohdateien und verwandelt sie in ein Stylesheet, während ein Postprozessor Ihr fertiges Stylesheet nimmt und etwas damit tut — vielleicht um es zu optimieren, damit es schneller geladen wird.
+Eine andere Möglichkeit, CSS zu organisieren, ist, einige der Werkzeuge zu nutzen, die für Frontend-Entwickler zur Verfügung stehen, die es Ihnen erlauben, einen eher programmatischen Ansatz beim Schreiben von CSS zu verfolgen. Es gibt eine Reihe von Tools, die wir als _Pre-Processor_ und _Post-Processor_ bezeichnen. Ein Pre-Processor läuft über Ihre Rohdateien und wandelt sie in ein Stylesheet um, während ein Post-Processor Ihr fertiges Stylesheet nimmt und etwas damit macht — vielleicht um es zu optimieren, damit es schneller lädt.
 
-Die Verwendung dieser Werkzeuge erfordert, dass Ihre Entwicklungsumgebung in der Lage ist, die Skripte auszuführen, die das Prä- und Post-Processing durchführen. Viele Code-Editoren können dies für Sie tun, oder Sie können Befehlszeilenwerkzeuge installieren, die helfen.
+Die Verwendung dieser Tools erfordert, dass Ihre Entwicklungsumgebung in der Lage ist, die Skripte auszuführen, die das Pre- und Post-Processing durchführen. Viele Code-Editoren können dies für Sie tun, oder Sie können Befehlszeilentools installieren, um zu helfen.
 
-Der beliebteste Preprozessor ist [Sass](https://sass-lang.com/). Dies ist kein Sass-Tutorial, daher werde ich nur kurz auf einige der Dinge eingehen, die Sass tun kann, die in Bezug auf die Organisation wirklich hilfreich sind, selbst wenn Sie keine der anderen Sass-Funktionen nutzen. Wenn Sie viel mehr über Sass erfahren möchten, beginnen Sie mit dem Artikel [Sass-Grundlagen](https://sass-lang.com/guide/), bevor Sie zur anderen Dokumentation übergehen.
+Der beliebteste Pre-Processor ist [Sass](https://sass-lang.com/). Dies ist kein Sass-Tutorial, daher werde ich kurz einige der Dinge erklären, die Sass tun kann, die wirklich hilfreich sind, was die Organisation betrifft, selbst wenn Sie keine anderen Sass-Features verwenden. Wenn Sie viel mehr über Sass erfahren möchten, beginnen Sie mit dem Artikel [Sass basics](https://sass-lang.com/guide/) und gehen Sie dann zu ihrer weiteren Dokumentation.
 
-#### Variablen definieren
+#### Definition von Variablen
 
-CSS verfügt jetzt über native [benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties), was diese Funktion zunehmend unwichtiger macht. Allerdings könnte einer der Gründe für die Verwendung von Sass darin bestehen, alle
+CSS hat jetzt native [Benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties), was diese Funktion zunehmend weniger wichtig macht. Ein Grund, warum Sie jedoch Sass verwenden könnten, ist, alle Farben und Schriftarten, die in einem Projekt verwendet werden, als Einstellungen definieren zu können und dann diese Variable im gesamten Projekt zu verwenden. Das bedeutet, dass, wenn Sie feststellen, dass Sie den falschen Blauton verwendet haben, Sie ihn nur an einer Stelle ändern müssen.
 
-Farben und Schriftarten, die in einem Projekt verwendet werden, als Einstellungen zu definieren und dann diese Variable im gesamten Projekt zu verwenden. Das bedeutet, dass wenn Sie feststellen, dass Sie den falschen Blauton verwendet haben, Sie ihn nur an einer Stelle ändern müssen.
-
-Wenn wir eine Variable namens `$base-color` erstellen, wie in der ersten Zeile unten, könnten wir sie dann überall im Stylesheet verwenden, wo diese Farbe erforderlich ist.
+Wenn wir eine Variable namens `$base-color` erstellen, wie in der ersten Zeile unten, könnten wir sie an jedem Ort im Stylesheet verwenden, der diese Farbe erfordert.
 
 ```scss
 $base-color: #c6538c;
@@ -359,7 +360,7 @@ $base-color: #c6538c;
 }
 ```
 
-Einmal in CSS kompiliert, hätten Sie das folgende CSS im endgültigen Stylesheet.
+Einmal zu CSS kompiliert, hätten Sie folgendes CSS im endgültigen Stylesheet.
 
 ```css
 .alert {
@@ -367,11 +368,11 @@ Einmal in CSS kompiliert, hätten Sie das folgende CSS im endgültigen Styleshee
 }
 ```
 
-#### Komponenten-Stylesheets kompilieren
+#### Kompilieren von Komponenten-Stylesheets
 
-Ich habe oben erwähnt, dass eine Möglichkeit, CSS zu organisieren, darin besteht, Stylesheets in kleinere zu unterteilen. Wenn Sie Sass verwenden, können Sie dies auf eine andere Ebene bringen und viele sehr kleine Stylesheets haben — sogar so weit gehen, ein separates Stylesheet für jede Komponente zu haben. Durch die Verwendung der in Sass enthaltenen Funktionalität (Partials) können diese alle zusammen in ein oder eine kleine Anzahl von Stylesheets kompiliert werden, um tatsächlich in Ihre Website eingebunden zu werden.
+Ich habe oben erwähnt, dass eine Möglichkeit, CSS zu organisieren, darin besteht, Stylesheets in kleinere aufzuteilen. Bei der Verwendung von Sass können Sie dies auf eine andere Ebene heben und viele sehr kleine Stylesheets haben — sogar so weit gehen, ein separates Stylesheet für jede Komponente zu haben. Indem Sie die in Sass enthaltene Funktionalität (Partials) nutzen, können diese alle zusammen in ein oder eine kleine Anzahl von Stylesheets kompiliert werden, die tatsächlich auf Ihre Website verlinkt werden.
 
-So könnten Sie zum Beispiel mit [Partials](https://sass-lang.com/documentation/at-rules/use/#partials) mehrere Style-Dateien in einem Verzeichnis haben, sagen wir `foundation/_code.scss`, `foundation/_lists.scss`, `foundation/_footer.scss`, `foundation/_links.scss`, usw. Sie könnten dann die Sass-Regel `@use` verwenden, um sie in andere Stylesheets zu laden:
+Mit [Partials](https://sass-lang.com/documentation/at-rules/use/#partials) könnten Sie beispielsweise mehrere Styldateien in einem Verzeichnis haben, etwa `foundation/_code.scss`, `foundation/_lists.scss`, `foundation/_footer.scss`, `foundation/_links.scss` usw. Sie könnten dann die Sass `@use`-Regel verwenden, um sie in andere Stylesheets zu laden:
 
 ```scss
 // foundation/_index.scss
@@ -381,7 +382,7 @@ So könnten Sie zum Beispiel mit [Partials](https://sass-lang.com/documentation/
 @use "links";
 ```
 
-Wenn die Partials alle in eine Index-Datei geladen werden, wie oben angedeutet, können Sie dann dieses gesamte Verzeichnis in einem anderen Stylesheet in einem Rutsch laden:
+Wenn die Partials alle in eine Index-Datei geladen sind, wie oben angedeutet, können Sie dann das gesamte Verzeichnis in ein anderes Stylesheet in einem Schritt laden:
 
 ```scss
 // style.scss
@@ -389,18 +390,18 @@ Wenn die Partials alle in eine Index-Datei geladen werden, wie oben angedeutet, 
 ```
 
 > [!NOTE]
-> Eine einfache Möglichkeit, Sass auszuprobieren, ist die Verwendung von [CodePen](https://codepen.io/) — Sie können Sass für Ihr CSS in den Einstellungen für einen Pen aktivieren und CodePen führt dann den Sass-Parser für Sie aus, sodass Sie die resultierende Webseite mit normalem CSS angewendet sehen können. Manchmal werden Sie feststellen, dass CSS-Tutorials in ihren CodePen-Demos Sass anstelle von einfachem CSS verwendet haben, es ist daher hilfreich, ein wenig darüber Bescheid zu wissen.
+> Eine einfache Möglichkeit, Sass auszuprobieren, ist die Nutzung von [CodePen](https://codepen.io/) - Sie können Sass für Ihr CSS in den Einstellungen eines Pens aktivieren und CodePen führt dann den Sass-Parser für Sie aus, sodass Sie die resultierende Webseite mit angewendetem regulären CSS sehen können. Manchmal werden Sie feststellen, dass CSS-Tutorials Sass statt einfachem CSS in ihren CodePen-Demos verwendet haben. Deshalb ist es hilfreich, ein wenig darüber zu wissen.
 
-#### Post-Processing für Optimierung
+#### Post-Processing zur Optimierung
 
-Wenn Sie sich darüber Gedanken machen, Größe zu Ihren Stylesheets hinzuzufügen, zum Beispiel durch das Hinzufügen vieler zusätzlicher Kommentare und Leerzeichen, dann könnte ein Post-Processing-Schritt darin bestehen, das CSS zu optimieren, indem alles Unnötige in der Produktionsversion entfernt wird. Ein Beispiel für eine Post-Processor-Lösung zur Durchführung dieser Aufgabe wäre [cssnano](https://cssnano.github.io/cssnano/).
+Wenn Sie besorgt sind, Ihrem Stylesheet Größe hinzuzufügen, zum Beispiel durch die Zugabe einer Menge zusätzlicher Kommentare und Leerzeichen, könnte ein Post-Processing-Schritt darin bestehen, das CSS zu optimieren, indem alles Unnötige in der Produktionsversion entfernt wird. Ein Beispiel für eine Post-Processor-Lösung zur Durchführung dieser Aufgabe wäre [cssnano](https://cssnano.github.io/cssnano/).
 
 ## Zusammenfassung
 
-Dies ist der letzte Teil unseres Modulbausteins und wie Sie sehen können, gibt es viele Möglichkeiten, wie Ihre Erkundung von CSS von diesem Punkt aus fortgesetzt werden kann — aber jetzt können Sie sich mit unseren Bewertungen testen: Das erste ist unten verlinkt.
+Dies ist der letzte Teil unseres Bausteine-Moduls, und wie Sie sehen können, gibt es viele Wege, wie Sie Ihre Erkundung von CSS von diesem Punkt aus fortsetzen können — aber jetzt können Sie mit unseren Bewertungen fortfahren: die erste ist unten verlinkt.
 
-Um mehr über Layout in CSS zu erfahren, siehe das [CSS-Layout](/de/docs/Learn/CSS/CSS_layout)-Modul.
+Um mehr über das Layout in CSS zu erfahren, siehe das Modul [CSS-Layout](/de/docs/Learn/CSS/CSS_layout).
 
-Sie sollten jetzt auch die Fähigkeiten haben, den Rest des [MDN CSS](/de/docs/Web/CSS)-Materials zu erkunden. Sie können Eigenschaften und Werte nachschlagen, unser [CSS-Kochbuch](/de/docs/Web/CSS/Layout_cookbook) für Muster zur Verwendung erkunden oder weiterlesen in einigen der spezifischen Leitfäden, wie unserem [Leitfaden zum CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout).
+Sie sollten nun auch die Fähigkeiten haben, den Rest des [MDN CSS](/de/docs/Web/CSS) Materials zu erkunden. Sie können Eigenschaften und Werte nachschlagen, unser [CSS-Cookbook](/de/docs/Web/CSS/Layout_cookbook) nach Mustern durchsuchen oder in einigen spezifischen Leitfäden weiterlesen, wie beispielsweise unserem [Leitfaden zum CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout).
 
 {{PreviousMenuNext("Learn/CSS/Building_blocks/Debugging_CSS", "Learn/CSS/Building_blocks/Fundamental_CSS_comprehension", "Learn/CSS/Building_blocks")}}

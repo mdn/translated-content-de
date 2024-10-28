@@ -2,15 +2,15 @@
 title: <math>
 slug: Web/MathML/Element/math
 l10n:
-  sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<math>`** [MathML](/de/docs/Web/MathML)-Element ist das oberste MathML-Element und wird verwendet, um eine einzelne mathematische Formel zu schreiben. Es kann in HTML-Inhalt platziert werden, wo [Flussinhalt](/de/docs/Web/HTML/Content_categories#flow_content) zulässig ist.
+Das **`<math>`** [MathML](/de/docs/Web/MathML)-Element ist das oberste MathML-Element, das zum Schreiben einer einzelnen mathematischen Formel verwendet wird. Es kann in HTML-Inhalt platziert werden, wo [Fließinhalt](/de/docs/Web/HTML/Content_categories#flow_content) erlaubt ist.
 
 > [!NOTE]
-> Siehe die Seite [MathML-Seiten authoring](/de/docs/Web/MathML/Authoring#using_mathml) für Tipps, wie Sie MathML-Formeln angemessen in Ihre Webseiten integrieren können, und die Seite [Beispiele](/de/docs/Web/MathML/Examples) für weitere Demos.
+> Sehen Sie sich die [Erstellen von MathML-Seite](/de/docs/Web/MathML/Authoring#using_mathml) für Tipps zur korrekten Integration von MathML-Formeln in Ihre Webseiten und die [Beispiele](/de/docs/Web/MathML/Examples)-Seite für weitere Demos an.
 
 ## Attribute
 
@@ -18,16 +18,83 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 - `display`
 
-  - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, wie das umschlossene MathML-Markup dargestellt werden soll. Es kann einen der folgenden Werte haben:
+  - : Dieses {{Glossary("Enumerated", "aufzählbare")}} Attribut gibt an, wie das eingeschlossene MathML-Markup gerendert werden soll. Es kann einen der folgenden Werte haben:
 
-    - `block`, was bedeutet, dass dieses Element in einem eigenen Block außerhalb des aktuellen Textbereichs mit der [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt angezeigt wird.
-    - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textbereichs angezeigt wird, mit der [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` gesetzt.
+    - `block`, was bedeutet, dass dieses Element in seinem eigenen Block außerhalb des aktuellen Textabschnitts angezeigt wird und [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt ist.
+    - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textabschnitts angezeigt wird und [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` gesetzt ist.
 
     Wenn nicht vorhanden, ist der Standardwert `inline`.
 
+## Barrierefreiheit
+
+Das `<math>`-Element hat eine implizite [`math` ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/math_role). Unterstützende Technologien können diese Rolle verwenden, um den Inhalt als mathematischen Ausdruck zu identifizieren und ihn Nutzern zu vermitteln.
+
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+}
+```
+
+Zum Beispiel werden Screenreader die folgende quadratische Formel ähnlich darstellen wie:
+
+> x gleich Bruchanfang, minus b plus oder minus Quadratwurzel von b Quadrat minus 4 a c, Ende der Wurzel, über 2 a, Ende des Bruches, Mathematik
+
+<details>
+<summary>Markup für die quadratische Formel</summary>
+
+```html
+<math display="block">
+  <mrow>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mfrac>
+      <mrow>
+        <mrow>
+          <mo>−</mo>
+          <mi>b</mi>
+        </mrow>
+        <mo>±</mo>
+        <msqrt>
+          <mrow>
+            <msup>
+              <mi>b</mi>
+              <mn>2</mn>
+            </msup>
+            <mo>−</mo>
+            <mrow>
+              <mn>4</mn>
+              <mo>⁢</mo>
+              <mi>a</mi>
+              <mo>⁢</mo>
+              <mi>c</mi>
+            </mrow>
+          </mrow>
+        </msqrt>
+      </mrow>
+      <mrow>
+        <mn>2</mn>
+        <mo>⁢</mo>
+        <mi>a</mi>
+      </mrow>
+    </mfrac>
+  </mrow>
+</math>
+```
+
+</details>
+
+{{ EmbedLiveSample('accessibility') }}
+
 ## Beispiele
 
-Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen zentrierten Block gerendert, der so viel Platz einnimmt, wie benötigt wird. Die zweite wird innerhalb des Textabsatzes dargestellt, mit reduzierter Größe und Abständen, um ihre Höhe zu minimieren.
+Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen zentrierten Block gerendert und nimmt so viel Platz ein, wie benötigt wird. Die zweite wird innerhalb des Textabsatzes gerendert, mit reduzierter Größe und Abstand, um die Höhe zu minimieren.
 
 ```html
 <p>
@@ -70,6 +137,21 @@ Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen ze
 
 {{ EmbedLiveSample('math_example', 700, 200, "", "") }}
 
+## Technische Übersicht
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles/math_role">
+        <code>math</code>
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -80,5 +162,5 @@ Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen ze
 
 ## Siehe auch
 
-- HTML-Top-Level-Element: {{ HTMLElement("html") }}
-- SVG-Top-Level-Element: {{ SVGElement("svg") }}
+- HTML oberstes Element: {{ HTMLElement("html") }}
+- SVG oberstes Element: {{ SVGElement("svg") }}

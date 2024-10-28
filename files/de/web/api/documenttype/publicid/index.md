@@ -1,18 +1,16 @@
 ---
-title: "DocumentType: publicId-Eigenschaft"
+title: "DocumentType: Eigenschaft publicId"
 short-title: publicId
 slug: Web/API/DocumentType/publicId
 l10n:
-  sourceCommit: 88467d31d2ad7bdfade8b38ec69f6702fee080d1
+  sourceCommit: 692043ddc974d75e7b5249369b98151a446c8797
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`publicId`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) liefert einen formalen Bezeichner des Dokuments zurück.
+Die schreibgeschützte **`publicId`**-Eigenschaft des [`DocumentType`](/de/docs/Web/API/DocumentType) gibt einen formalen Bezeichner des Dokuments zurück.
 
-Bei synthetischen `DocumentType` spiegelt diese Eigenschaft den im Parameter von [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) angegebenen Wert wider.
-
-Bei HTML-Dokumenten setzen Browser diesen immer auf `html`, unabhängig davon, welches tatsächliche `doctype` im Quellcode vorhanden ist. Bei SVG-Dokumenten kann es beispielsweise `"-//W3C//DTD SVG 1.1//EN"` sein.
+Für synthetische `DocumentType` spiegelt diese Eigenschaft den im Parameter an [`DOMImplementation.createDocumentType()`](/de/docs/Web/API/DOMImplementation/createDocumentType) angegebenen Wert wider.
 
 ## Wert
 

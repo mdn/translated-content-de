@@ -2,18 +2,18 @@
 title: cursor
 slug: Web/SVG/Attribute/cursor
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
 ---
 
 {{SVGRef}}
 
-[SVG Attributreferenz Startseite](/de/docs/Web/SVG/Attribute)
+[SVG-Attribut-Referenz Startseite](/de/docs/Web/SVG/Attribute)
 
-Das `cursor` Attribut gibt den Mauszeiger an, der angezeigt wird, wenn sich der Mauszeiger über einem Element befindet.
+Das `cursor`-Attribut legt den Mauszeiger fest, der angezeigt wird, wenn sich der Mauszeiger über einem Element befindet.
 
-Dieses Attribut verhält sich genau wie die CSS-Eigenschaft {{cssxref("cursor")}}, außer dass, wenn der Browser das {{ SVGElement("cursor") }}-Element unterstützt, Sie es mit der [\<funciri>](/de/docs/Web/SVG/Content_type#funciri)-Notation verwenden können.
+Dieses Attribut verhält sich genau wie die CSS-Eigenschaft {{cssxref("cursor")}}, außer dass, wenn der Browser das {{ SVGElement("cursor") }}-Element unterstützt, Sie es mit der [\<FuncIRI>](/de/docs/Web/SVG/Content_type#funciri)-Notation verwenden können sollten.
 
-Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets als Eigenschaft verwendet werden. Weitere Informationen finden Sie unter CSS {{cssxref("cursor")}}.
+Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets als Eigenschaft verwendet werden. Siehe CSS {{cssxref("cursor")}} für weitere Informationen.
 
 ## Verwendungskontext
 
@@ -26,7 +26,7 @@ Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets a
     <tr>
       <th scope="row">Wert</th>
       <td>
-        [[<a href="/de/docs/Web/SVG/Content_type#funciri">&#x3C;funciri></a
+        [[<a href="/de/docs/Web/SVG/Content_type#funciri">&#x3C;FuncIRI></a
         >,]* [ <strong>auto</strong> | crosshair | default | pointer | move |
         e-resize | ne-resize | nw-resize | n-resize | se-resize | sw-resize |
         s-resize | w-resize| text | wait | help ]] | inherit
@@ -40,7 +40,7 @@ Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets a
       <th scope="row">Normatives Dokument</th>
       <td>
         <a href="https://www.w3.org/TR/SVG11/interact.html#CursorProperty"
-          >SVG 1.1 (2nd Edition)</a
+          >SVG 1.1 (2. Ausgabe)</a
         >
       </td>
     </tr>
@@ -49,7 +49,7 @@ Als Präsentationsattribut kann es auch direkt innerhalb eines CSS-Stylesheets a
 
 ## Elemente
 
-Die folgenden Elemente können das `cursor` Attribut verwenden
+Die folgenden Elemente können das `cursor`-Attribut verwenden
 
 - [Container-Elemente](/de/docs/Web/SVG/Element#container_elements)
 - [Grafik-Elemente](/de/docs/Web/SVG/Element#graphics_elements)

@@ -2,12 +2,12 @@
 title: Intl.DurationFormat
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat
 l10n:
-  sourceCommit: 65bd9d66ad51dfe250494618a695046c6574421a
+  sourceCommit: c420b9b3126451f53d112afe33e007d6efdb605d
 ---
 
 {{JSRef}}
 
-Das **`Intl.DurationFormat`**-Objekt ermöglicht die sprachsensitivierte Formatierung von Dauerangaben.
+Das **`Intl.DurationFormat`**-Objekt ermöglicht die sprachsensitive Formatierung von Zeitspannen.
 
 ## Konstruktor
 
@@ -17,31 +17,31 @@ Das **`Intl.DurationFormat`**-Objekt ermöglicht die sprachsensitivierte Formati
 ## Statische Methoden
 
 - {{jsxref("Intl/DurationFormat/supportedLocalesOf", "Intl.DurationFormat.supportedLocalesOf()")}}
-  - : Gibt ein Array zurück, das diejenigen der angegebenen Gebietsschemen enthält, die unterstützt werden, ohne auf das Standardgebietsschema der Laufzeitumgebung zurückgreifen zu müssen.
+  - : Gibt ein Array zurück, das diejenigen der bereitgestellten Locale enthält, die unterstützt werden, ohne auf die standardmäßige Locale der Laufzeitumgebung zurückfallen zu müssen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-Diese Eigenschaften sind auf `Intl.DurationFormat.prototype` definiert und werden von allen `Intl.DurationFormat`-Instanzen gemeinsam genutzt.
+Diese Eigenschaften sind auf `Intl.DurationFormat.prototype` definiert und werden von allen `Intl.DurationFormat`-Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Intl.DurationFormat.prototype.constructor")}}
   - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Intl.DurationFormat`-Instanzen ist der Anfangswert der {{jsxref("Intl/DurationFormat/DurationFormat", "Intl.DurationFormat")}}-Konstruktor.
 - `Intl.DurationFormat.prototype[Symbol.toStringTag]`
   - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Intl.DurationFormat"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - {{jsxref("Intl/DurationFormat/format", "Intl.DurationFormat.prototype.format()")}}
-  - : Getter-Funktion, die eine Dauer gemäß dem Gebietsschema und den Formatierungsoptionen dieses `DurationFormat`-Objekts formatiert.
+  - : Getter-Funktion, die eine Zeitspanne gemäß der Locale und den Formatierungsoptionen dieses `DurationFormat`-Objekts formatiert.
 - {{jsxref("Intl/DurationFormat/formatToParts", "Intl.DurationFormat.prototype.formatToParts()")}}
-  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, das die formatierte Dauer in Teilen darstellt.
+  - : Gibt ein {{jsxref("Array")}} von Objekten zurück, die die formatierte Zeitspanne in Teilen darstellen.
 - {{jsxref("Intl/DurationFormat/resolvedOptions", "Intl.DurationFormat.prototype.resolvedOptions()")}}
-  - : Gibt ein neues Objekt mit Eigenschaften zurück, die das während der Initialisierung des Objekts berechnete Gebietsschema und die Formatierungsoptionen widerspiegeln.
+  - : Gibt ein neues Objekt mit Eigenschaften zurück, die die Locale und Formatierungsoptionen widerspiegeln, die während der Initialisierung des Objekts berechnet wurden.
 
 ## Beispiele
 
 ### Verwendung von Intl.DurationFormat
 
-Die folgenden Beispiele zeigen, wie man das `Intl.DurationFormat`-Objekt verwendet, um ein Dauerobjekt mit verschiedenen Gebietsschemen und Stilen zu formatieren.
+Die untenstehenden Beispiele zeigen, wie das `Intl.DurationFormat`-Objekt verwendet wird, um ein Zeitspanne-Objekt mit verschiedenen Locales und Stilen zu formatieren.
 
 ```js
 const duration = {
@@ -73,4 +73,5 @@ new Intl.DurationFormat("pt", { style: "narrow" }).format(duration);
 
 ## Siehe auch
 
+- [Polyfill von `Intl.DurationFormat` in FormatJS](https://formatjs.github.io/docs/polyfills/intl-durationformat/)
 - {{jsxref("Intl")}}

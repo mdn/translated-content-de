@@ -2,50 +2,50 @@
 title: Übersicht über Kacheln und Kachelkarten
 slug: Games/Techniques/Tilemaps
 l10n:
-  sourceCommit: 2b6f99e45534ce662f842d8b4d2f7845492e353c
+  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
 ---
 
 {{GamesSidebar}}
 
-Kachelkarten sind eine sehr beliebte Technik in der 2D-Spielentwicklung, bei der die Spielwelt oder Kartenebene aus kleinen, regelmäßig geformten Bildern zusammengesetzt wird, die als **Kacheln** bezeichnet werden. Dies führt zu Leistungs- und Speicherplatzeinsparungen — große Bilddateien, die ganze Karten enthalten, sind nicht notwendig, da diese aus kleinen Bildern oder Bildfragmenten mehrfach konstruiert werden. Diese Artikelsammlung behandelt die Grundlagen der Erstellung von Kachelkarten unter Verwendung von [JavaScript](/de/docs/Web/JavaScript) und [Canvas](/de/docs/Web/API/Canvas_API) (obwohl die gleichen hochrangigen Techniken in jeder Programmiersprache verwendet werden könnten).
+Kachelkarten sind eine sehr beliebte Technik in der 2D-Spieleentwicklung, bei der die Spielewelt oder die Levelkarte aus kleinen, gleichmäßig geformten Bildern, den **Kacheln**, aufgebaut wird. Dies führt zu Leistungs- und Speicherplatzgewinnen – große Bilddateien, die gesamte Levelkarten enthalten, sind nicht erforderlich, da sie aus kleinen Bildern oder Bildfragmenten mehrfach zusammengesetzt werden. Diese Artikelreihe behandelt die Grundlagen der Erstellung von Kachelkarten mit [JavaScript](/de/docs/Web/JavaScript) und der [Canvas-API](/de/docs/Web/API/Canvas_API) (obwohl dieselben High-Level-Techniken in jeder Programmiersprache verwendet werden könnten).
 
-Neben den Leistungsgewinnen können Kachelkarten auch auf ein logisches Raster abgebildet werden, das in der Spiellogik auf andere Weise genutzt werden kann (zum Beispiel zur Erstellung eines pfadfindenden Graphen oder zur Handhabung von Kollisionen) oder um einen Level-Editor zu erstellen.
+Neben den Leistungsgewinnen können Kachelkarten auch auf ein logisches Raster abgebildet werden, das auf andere Weise in der Spiellogik verwendet werden kann (zum Beispiel zur Erstellung eines Pfadfindungsgraphen oder zur Behandlung von Kollisionen) oder um einen Level-Editor zu erstellen.
 
-Einige beliebte Spiele, die diese Technik nutzen, sind _Super Mario Bros_, _Pacman_, _Zelda: Link's Awakening_, _Starcraft_ und _Sim City 2000_. Denken Sie an jedes Spiel, das regelmäßig wiederkehrende Quadrate im Hintergrund verwendet, und Sie werden wahrscheinlich feststellen, dass es Kachelkarten verwendet.
+Einige bekannte Spiele, die diese Technik verwenden, sind _Super Mario Bros_, _Pacman_, _Zelda: Link's Awakening_, _Starcraft_ und _Sim City 2000_. Denken Sie an jedes Spiel, das regelmäßig wiederkehrende Quadrate im Hintergrund verwendet, und Sie werden wahrscheinlich feststellen, dass es Kachelkarten verwendet.
 
 ## Das Kachel-Atlas
 
-Die effizienteste Art, die Kachelbilder zu speichern, ist in einem Atlas oder Spritesheet. Dabei werden alle benötigten Kacheln in einer einzigen Bilddatei zusammengefasst. Wenn es Zeit ist, eine Kachel zu zeichnen, wird nur ein kleiner Abschnitt dieses größeren Bildes auf der Spiel-Leinwand gerendert. Die untenstehenden Bilder zeigen einen Kachel-Atlas von 8 x 4 Kacheln:
+Die effizienteste Methode, die Kachelbilder zu speichern, ist in einem Atlas oder Spritesheet. Dies sind alle erforderlichen Kacheln, die in einer einzigen Bilddatei zusammengefasst sind. Wenn es an der Zeit ist, eine Kachel zu zeichnen, wird nur ein kleiner Abschnitt dieses größeren Bildes auf die Spiel-Leinwand gerendert. Die folgenden Bilder zeigen einen Kachel-Atlas mit 8 x 4 Kacheln:
 
-![Kachel-Atlas Bild](tile_atlas.png)
+![Bild des Kachel-Atlas](tile_atlas.png)
 
-Die Verwendung eines Atlas hat auch den Vorteil, dass jeder Kachel automatisch ein **Index** zugewiesen wird. Dieser Index ist perfekt geeignet, um als Kachelkennung beim Erstellen des Kachelkartenspeichers verwendet zu werden.
+Die Verwendung eines Atlas hat zudem den Vorteil, dass jeder Kachel natürlich ein **Index** zugewiesen wird. Dieser Index eignet sich perfekt als Kachel-Identifikator bei der Erstellung des Kachelkarten-Objekts.
 
-## Die Kachelkarten-Datenstruktur
+## Die Datenstruktur der Kachelkarte
 
-Es ist üblich, alle Informationen, die zur Verwaltung von Kachelkarten benötigt werden, in dieselbe Datenstruktur oder dasselbe Objekt zu gruppieren. Diese Datenobjekte ([Beispiel eines Kartenobjekts](https://github.com/mozdevs/gamedev-js-tiles/blob/gh-pages/square/no-scroll.js#L1-L18)) sollten enthalten:
+Es ist üblich, alle Informationen, die zur Bearbeitung von Kachelkarten benötigt werden, in der gleichen Datenstruktur oder im gleichen Objekt zu gruppieren. Diese Datenobjekte ([Beispiel für ein Kartenobjekt](https://github.com/mozdevs/gamedev-js-tiles/blob/gh-pages/square/no-scroll.js#L1-L18)) sollten enthalten:
 
-- **Kachelgröße**: Die Größe jeder Kachel in Pixeln quer / Pixeln hoch.
-- **Bildatlas**: Der Bildatlas, der verwendet werden soll (ein oder mehrere).
-- **Kartendimensionen**: Die Dimensionen der Karte, entweder in Kacheln quer / Kacheln hoch oder in Pixeln quer / Pixeln hoch.
-- **Visuelles Raster**: Beinhaltet Indizes, die anzeigen, welche Art von Kachel an jeder Position im Raster platziert werden soll.
-- **Logikraster**: Dies kann ein Kollisionsraster, ein pfadfindendes Raster usw. sein, abhängig von der Art des Spiels.
+- **Kachelgröße**: Die Größe jeder Kachel in Pixeln quer / Pixeln nach unten.
+- **Bild-Atlas**: Der Bild-Atlas, der verwendet wird (einer oder mehrere).
+- **Kartendimensionen**: Die Abmessungen der Karte, entweder in Kacheln quer / Kacheln nach unten oder in Pixeln quer / Pixeln nach unten.
+- **Visuelles Raster**: Beinhaltet Indizes, die anzeigen, welcher Kacheltyp an jeder Position im Raster platziert werden soll.
+- **Logisches Raster**: Dies kann ein Kollisionsraster, ein Pfadfindungsraster usw. sein, abhängig von der Art des Spiels.
 
 > [!NOTE]
-> Für das visuelle Raster ist ein spezieller Wert (in der Regel eine negative Zahl, `0` oder `null`) erforderlich, um leere Kacheln darzustellen.
+> Für das visuelle Raster ist ein spezieller Wert (normalerweise eine negative Zahl, `0` oder `null`) erforderlich, um leere Kacheln darzustellen.
 
 ## Quadratische Kacheln
 
-Quadratbasierte Kachelkarten sind die einfachste Implementierung. Ein allgemeinere Fall wären rechteckig basierte Kachelkarten — anstatt quadratische — aber diese sind weit weniger verbreitet. Quadratische Kacheln ermöglichen zwei **Perspektiven**:
+Auf quadratischen Kacheln basierte Kachelkarten sind die einfachste Implementierung. Ein allgemeinerer Fall wären rechteckige Kachelkarten – anstelle von quadratischen – aber sie sind weit weniger verbreitet. Quadratische Kacheln bieten zwei **Perspektiven**:
 
-- Draufsicht (wie viele RPGs oder Strategiespiele wie _Warcraft 2_ oder _Final Fantasy_'s Weltansicht).
-- Seitenansicht (wie Plattformspiele wie _Super Mario Bros_.)
+- Vogelperspektive (wie viele RPGs oder Strategiespiele wie _Warcraft 2_ oder die Weltansicht von _Final Fantasy_).
+- Seitenansicht (wie Plattformspiele wie _Super Mario Bros._).
 
 ### Statische Kachelkarten
 
-Eine Kachelkarte kann entweder in den sichtbaren Bildschirmbereich passen oder größer sein. Im ersten Fall ist die Kachelkarte **statisch** — sie muss nicht gescrollt werden, um vollständig angezeigt zu werden. Dieser Fall ist sehr häufig bei Arcade-Spielen wie _Pacman_, _Arkanoid_ oder _Sokoban_.
+Eine Kachelkarte kann entweder in den sichtbaren Bildschirmbereich passen oder größer sein. Im ersten Fall ist die Kachelkarte **statisch** – sie muss nicht gescrollt werden, um vollständig angezeigt zu werden. Dieser Fall ist sehr häufig in Arcade-Spielen wie _Pacman_, _Arkanoid_ oder _Sokoban_.
 
-Das Rendern statischer Kachelkarten ist einfach und kann mit einer verschachtelten Schleife durchgeführt werden, die über Spalten und Zeilen iteriert. Ein hochrangiger Algorithmus könnte sein:
+Das Rendern statischer Kachelkarten ist einfach und kann mit einer verschachtelten Schleife durchgeführt werden, die über Spalten und Zeilen iteriert. Ein High-Level-Algorithmus könnte sein:
 
 ```js
 for (let column = 0; column < map.columns; column++) {
@@ -58,17 +58,17 @@ for (let column = 0; column < map.columns; column++) {
 }
 ```
 
-Sie können mehr darüber lesen und eine Beispielimplementierung in [Quadratische Kachelkarten-Implementierung: Statische Karten](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps) sehen.
+Sie können mehr darüber lesen und eine Beispielumsetzung in [Implentation quadratischer Kachelkarten: Statische Karten](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps) sehen.
 
-### Scrollende Kachelkarten
+### Scrollbare Kachelkarten
 
-**Scrollende** Kachelkarten zeigen jeweils nur einen kleinen Abschnitt der Welt. Sie können einem Charakter folgen — wie bei Plattformspielen oder RPGs — oder dem Spieler erlauben, die Kamera zu steuern — wie in Strategie- oder Simulationsspielen.
+**Scrollende** Kachelkarten zeigen jeweils nur einen kleinen Teil der Welt an. Sie können einem Charakter folgen – wie bei Plattformspielen oder RPGs – oder dem Spieler erlauben, die Kamera zu steuern – wie bei Strategie- oder Simulationsspielen.
 
 #### Positionierung und Kamera
 
-In allen scrollenden Spielen benötigen wir eine Übersetzung zwischen **Weltkoordinaten** (die Position, an der sich Sprites oder andere Elemente im Level oder in der Spielwelt befinden) und **Bildschirmkoordinaten** (die tatsächliche Position, an der diese Elemente auf dem Bildschirm gerendert werden). Die Weltkoordinaten können in Bezug auf die Kachelposition (Zeile und Spalte der Karte) oder in Pixeln über die Karte ausgedrückt werden, abhängig vom Spiel. Um die Weltkoordinaten in Bildschirmkoordinaten umwandeln zu können, benötigen wir die Koordinaten der Kamera, da sie bestimmen, welcher Abschnitt der Welt angezeigt wird.
+In allen Scroll-Spielen benötigen wir eine Übersetzung zwischen **Weltkoordinaten** (die Position, an der sich Sprites oder andere Elemente im Level oder in der Spielwelt befinden) und **Bildschirmkoordinaten** (die tatsächliche Position, an der diese Elemente auf dem Bildschirm gerendert werden). Die Weltkoordinaten können je nach Spiel in Bezug auf die Kachelposition (Reihe und Spalte der Karte) oder in Pixeln über die Karte ausgedrückt werden. Um Weltkoordinaten in Bildschirmkoordinaten umwandeln zu können, benötigen wir die Koordinaten der Kamera, da sie bestimmen, welcher Abschnitt der Welt angezeigt wird.
 
-Hier sind Beispiele, die zeigen, wie man von Weltkoordinaten zu Bildschirmkoordinaten und zurück übersetzt:
+Hier sind Beispiele, wie man von Weltkoordinaten in Bildschirmkoordinaten und zurück übersetzt:
 
 ```js
 // these functions assume that the camera points to the top left corner
@@ -82,53 +82,53 @@ function screenToWorld(x, y) {
 }
 ```
 
-#### Rendern
+#### Darstellung
 
-Eine triviale Methode zum Rendern wäre, einfach alle Kacheln zu durchlaufen (wie in statischen Kachelkarten) und sie zu zeichnen, wobei die Kamerakoordinaten subtrahiert werden (wie im oben gezeigten `worldToScreen()`-Beispiel) und die Teile, die außerhalb des Sichtfensters liegen, dort sitzen zu lassen, verdeckt. Es ist jedoch verschwenderisch, alle nicht sichtbaren Kacheln zu zeichnen, und es kann die Leistung beeinträchtigen. **Idealerweise sollten nur Kacheln gerendert werden, die sichtbar sind** — siehe den Abschnitt [Leistung](#leistung) für weitere Ideen zur Verbesserung der Rendering-Leistung.
+Eine triviale Methode zur Darstellung würde einfach darin bestehen, über alle Kacheln zu iterieren (wie bei statischen Kachelkarten) und sie zu zeichnen, wobei die Kamerakoordinaten subtrahiert werden (wie im `worldToScreen()`-Beispiel oben gezeigt) und die Teile, die außerhalb des Ansichtsfensters liegen, dort verborgen bleiben. Es ist jedoch verschwenderisch, alle Kacheln zu zeichnen, die nicht sichtbar sind, und kann die Leistung beeinträchtigen. **Nur Kacheln, die sichtbar sind, sollten idealerweise gerendert werden** – siehe den Abschnitt [Leistung](#leistung) für weitere Ideen zur Verbesserung der Rendering-Leistung.
 
-Sie können mehr über die Implementierung scrollender Kachelkarten lesen und einige Beispielimplementierungen in [Quadratische Kachelkarten-Implementierung: Scrollende Karten](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps) sehen.
+Sie können mehr über die Implementierung scrollender Kachelkarten lesen und einige Beispielumsetzungen in [Implementation quadratischer Kachelkarten: Scrollende Karten](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps) sehen.
 
 ### Ebenen
 
-Das visuelle Raster besteht oft aus mehreren Ebenen. Dies ermöglicht uns, eine reichere Spielwelt mit weniger Kacheln zu haben, da dasselbe Bild mit verschiedenen Hintergründen verwendet werden kann. Zum Beispiel könnte ein Felsen, der auf verschiedenen Geländearten (wie Gras, Sand oder Stein) erscheinen könnte, in einem eigenen separaten Kachel enthalten sein, der dann auf einer neuen Ebene gerendert wird, anstatt mehrere Felsenkacheln, jeweils mit unterschiedlichem Hintergrundterrain.
+Das visuelle Raster besteht oft aus mehreren Ebenen. Dies ermöglicht es, eine reichere Spielewelt mit weniger Kacheln zu haben, da dasselbe Bild mit verschiedenen Hintergründen verwendet werden kann. Zum Beispiel könnte ein Felsen, der über mehreren Geländetypen (wie Gras, Sand oder Ziegel) erscheinen könnte, in einer eigenen separaten Kachel enthalten sein, die dann auf einer neuen Ebene gerendert wird, anstatt in mehreren Felsenkacheln, jede mit einem anderen Hintergrundgelände.
 
-Wenn Charaktere oder andere Spielfiguren in der Mitte des Ebenenstapels gezeichnet werden, ermöglicht dies interessante Effekte wie das Gehen von Charakteren hinter Bäume oder Gebäude.
+Wenn Charaktere oder andere Spiel-Sprites in der Mitte des Ebenenstapels gezeichnet werden, ermöglicht dies interessante Effekte wie das Gehen von Figuren hinter Bäumen oder Gebäuden.
 
-Der folgende Screenshot zeigt ein Beispiel für beide Punkte: ein Charakter erscheint _hinter_ einer Kachel (der Ritter erscheint hinter der Spitze eines Baumes) und eine Kachel (der Busch) wird über verschiedenen Geländearten gerendert.
+Der folgende Screenshot zeigt ein Beispiel für beide Punkte: ein Charakter, der _hinter_ einer Kachel erscheint (der Ritter, der hinter dem Baumgipfel erscheint) und eine Kachel (der Busch), die über verschiedenen Geländetypen gerendert wird.
 
-![Ein Raster von geschichteten Hintergrundgeländen. Eine Busch-Kachel ist oben gerendert, über einem großen Grasland, und erneut über einem geschichteten rechteckigen Gelände mit braunem Sand am unteren Rand. Eine Baum-Kachel ist über das Grasgelände links unten und erneut rechts unten gerendert. Eine Ritter-Kachel erscheint hinter der Baum-Kachel, die links unten gerendert ist.](screen_shot_2015-10-06_at_15.56.05.png)
+![Ein Raster von geschichteten Hintergrundgeländen. Eine Busch-Kachel wird oben über ein großes Grasgelände gerendert und erneut über ein geschichtetes rechteckiges Gelände mit braunem Sand am unteren Rand. Eine Baum-Kachel wird oben links über das Grasgelände und unten rechts über das Sandgelände gerendert. Eine Ritter-Kachel erscheint hinter der Baum-Kachel, die unten links gerendert wird.](screen_shot_2015-10-06_at_15.56.05.png)
 
-### Das Logikraster
+### Das logische Raster
 
-Da Kachelkarten ein tatsächliches Raster von visuellen Kacheln sind, ist es üblich, eine Zuordnung zwischen diesem visuellen Raster und einem Logikraster zu erstellen. Der häufigste Fall ist, dieses Logikraster zur Handhabung von Kollisionen zu verwenden, aber auch andere Verwendungen sind möglich: Charakter-Spawn-Punkte, Erkennung, ob einige Elemente auf die richtige Weise zusammen platziert wurden, um eine bestimmte Aktion auszulösen (wie bei _Tetris_ oder _Bejeweled_), Pfadfindungsalgorithmen usw.
+Da Kachelkarten ein tatsächliches Raster visueller Kacheln darstellen, ist es üblich, eine Zuordnung zwischen diesem visuellen Raster und einem logischen Raster zu erstellen. Der häufigste Fall ist die Verwendung dieses logischen Rasters zur Behandlung von Kollisionen, aber es sind auch andere Verwendungen möglich: Charakter-Spawn-Punkte, Erkennung bestimmter Elemente, die zusammen in der richtigen Weise platziert sind, um eine bestimmte Aktion auszulösen (wie in _Tetris_ oder _Bejeweled_), Pfadfindungsalgorithmen usw.
 
 > [!NOTE]
-> Sie können sich unser Demo ansehen, das zeigt, [wie man ein Logikraster zur Handhabung von Kollisionen verwendet](https://mozdevs.github.io/gamedev-js-tiles/square/logic-grid.html).
+> Sie können sich unser Demo ansehen, das zeigt, [wie ein logisches Raster zur Handhabung von Kollisionen verwendet wird](https://mozdevs.github.io/gamedev-js-tiles/square/logic-grid.html).
 
 ## Isometrische Kachelkarten
 
-Isometrische Kachelkarten erzeugen die Illusion einer 3D-Umgebung und sind extrem beliebt in 2D-Simulationen, Strategie- oder RPG-Spielen. Einige dieser Spiele umfassen _SimCity 2000_, _Pharaoh_ oder _Final Fantasy Tactics_. Das folgende Bild zeigt ein Beispiel eines Atlas für ein isometrisches Kachelset.
+Isometrische Kachelkarten erzeugen die Illusion einer 3D-Umgebung und sind extrem beliebt in 2D-Simulations-, Strategie- oder RPG-Spielen. Einige dieser Spiele sind _SimCity 2000_, _Pharaoh_ oder _Final Fantasy Tactics_. Das folgende Bild zeigt ein Beispiel für einen Atlas für ein isometrisches Kachelset.
 
-![Eine 3x4-Karte von unterschiedlich gefärbten Kacheln in isometrischer Projektion](iso_tiles.png)
+![Eine 3x4 Karte von unterschiedlich gefärbten Kacheln in isometrischer Projektion](iso_tiles.png)
 
 ## Leistung
 
-Das Zeichnen von scrollenden Kachelkarten kann die Leistung beeinträchtigen. In der Regel müssen einige Techniken implementiert werden, damit das Scrollen flüssig ist. Der erste Ansatz, wie oben diskutiert, besteht darin, **nur sichtbare Kacheln zu zeichnen**. Aber manchmal ist das nicht genug.
+Das Zeichnen von scrollenden Kachelkarten kann die Leistung beeinträchtigen. Üblicherweise müssen einige Techniken implementiert werden, damit das Scrollen flüssig ist. Der erste Ansatz, wie oben besprochen, ist **nur die Kacheln zu zeichnen, die sichtbar sein werden**. Aber manchmal reicht das nicht aus.
 
-Eine einfache Technik besteht darin, die Karte auf einer eigenen Leinwand vorzurendern (wenn die Canvas API verwendet wird) oder auf einer Textur (wenn WebGL verwendet wird), damit die Kacheln nicht in jedem Frame neu gezeichnet werden müssen und das Rendering in nur einem Blitting-Vorgang erfolgen kann. Natürlich ist dies keine wirkliche Lösung, wenn die Karte groß ist — und einige Systeme haben kein sehr großzügiges Limit, wie groß eine Textur sein kann.
+Eine einfache Technik besteht darin, die Karte in einem eigenen Canvas vorab zu rendern (falls die Canvas-API verwendet wird) oder auf einer Textur (falls WebGL verwendet wird), damit die Kacheln nicht jedes Frame neu gezeichnet werden müssen und das Rendern in nur einer Blit-Operation durchgeführt werden kann. Natürlich löst das bei großen Karten nicht wirklich das Problem – und einige Systeme haben keine sehr großzügige Grenze, wie groß eine Textur sein kann.
 
-Ein Weg besteht darin, [den Abschnitt, der sichtbar sein wird, Off-Canvas zu zeichnen](https://mozdevs.github.io/gamedev-js-tiles/performance/offcanvas.html) (anstatt der gesamten Karte). Das bedeutet, dass solange kein Scrollen erfolgt, die Karte nicht gerendert werden muss.
+Eine Möglichkeit besteht darin, [den sichtbaren Abschnitt außerhalb der Leinwand zu zeichnen](https://mozdevs.github.io/gamedev-js-tiles/performance/offcanvas.html) (anstatt der ganzen Karte). Das bedeutet, dass die Karte, solange kein Scrollen stattfindet, nicht gerendert werden muss.
 
-Ein Nachteil dieses Ansatzes ist, dass wenn gescrollt wird, diese Technik nicht sehr effizient ist. Eine bessere Methode wäre, eine Leinwand zu erstellen, die 2x2 Kacheln größer ist als das sichtbare Gebiet, sodass um die Ränder herum eine Kachel "blutet". Das bedeutet, dass die Karte nur auf der Leinwand neu gezeichnet werden muss, wenn das Scrollen um eine vollständige Kachel fortgeschritten ist — anstatt in jedem Frame — während des Scrollens.
+Ein Nachteil dieses Ansatzes ist, dass er bei Scrollvorgängen nicht besonders effizient ist. Eine bessere Methode wäre die Erstellung eines Canvas, das 2x2 Kacheln größer ist als der sichtbare Bereich, sodass es einen Kachelrand um die Ränder gibt. Das bedeutet, dass die Karte nur dann auf dem Canvas neu gezeichnet werden muss, wenn das Scrollen um eine ganze Kachel fortgeschritten ist – statt jedes Frame – während des Scrollens.
 
-In schnellen Spielen könnte das immer noch nicht ausreichen. Eine alternative Methode wäre, die Kachelkarte in große Abschnitte (z. B. eine vollständige Karte aufgeteilt in 10 x 10 Kacheln) zu teilen, jeden Abschnitt außerhalb der Leinwand vorzurendern und dann jeden gerenderten Abschnitt als "große Kachel" in Kombination mit einem der oben diskutierten Algorithmen zu behandeln.
+In schnellen Spielen könnte das immer noch nicht ausreichend sein. Eine alternative Methode wäre, die Kachelkarte in große Abschnitte zu unterteilen (wie eine vollständige Karte, die in 10 x 10 Kachelblöcke unterteilt ist), jeden Abschnitt außerhalb der Leinwand vorab zu rendern und dann jeden gerenderten Abschnitt als "große Kachel" in Kombination mit einem der oben besprochenen Algorithmen zu behandeln.
 
 ## Siehe auch
 
 - Verwandte Artikel auf MDN:
 
-  - [Statische quadratische Kachelkarten-Implementierung mit Canvas API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps)
-  - [Scrollende quadratische Kachelkarten-Implementierung mit Canvas API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps)
+  - [Implementierung statischer quadratischer Kachelkarten mit der Canvas-API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Static_maps)
+  - [Implementierung scrollender quadratischer Kachelkarten mit der Canvas-API](/de/docs/Games/Techniques/Tilemaps/Square_tilemaps_implementation:_Scrolling_maps)
 
 - Externe Ressourcen:
 

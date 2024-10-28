@@ -2,12 +2,12 @@
 title: <msqrt>
 slug: Web/MathML/Element/msqrt
 l10n:
-  sourceCommit: 67cbfbf7a408e7180137b286247025bc40716642
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<msqrt>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Quadratwurzeln anzuzeigen (es wird kein Index angezeigt). Die Quadratwurzel akzeptiert nur ein Argument, was zu folgendem Syntax führt: `<msqrt> Basis </msqrt>`.
+Das **`<msqrt>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Quadratwurzeln anzuzeigen (kein Index wird dargestellt). Die Quadratwurzel akzeptiert nur ein Argument, was zu folgendem Syntax führt: `<msqrt> base </msqrt>`.
 
 ## Attribute
 
@@ -24,6 +24,19 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 ```
 
 {{EmbedLiveSample('Examples')}}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

@@ -2,17 +2,17 @@
 title: <semantics>
 slug: Web/MathML/Element/semantics
 l10n:
-  sourceCommit: 88171d31074babf2bf3b1ad59ed7933d886dd37f
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<semantics>`** [MathML](/de/docs/Web/MathML) Element verknüpft Anmerkungen mit einem MathML-Ausdruck, zum Beispiel seine Textquelle als [Lightweight Markup Language](https://en.wikipedia.org/wiki/Lightweight_markup_language) oder mathematische Bedeutung, ausgedrückt in einem speziellen {{Glossary("XML", "XML")}} Dialekt. Typischerweise ist seine Struktur:
+Das **`<semantics>`** [MathML](/de/docs/Web/MathML)-Element verknüpft Anmerkungen mit einem MathML-Ausdruck, zum Beispiel dessen Textquelle als [Lightweight Markup Language](https://en.wikipedia.org/wiki/Lightweight_markup_language) oder mathematische Bedeutung, die in einem speziellen {{Glossary("XML", "XML")}}-Dialekt ausgedrückt wird. Typischerweise hat es die folgende Struktur:
 
-- ein erstes Kind, das ein zu annotierender MathML-Ausdruck ist.
+- ein erstes Kind, welches ein zu annotierender MathML-Ausdruck ist.
 - nachfolgende {{mathmlelement("annotation")}} oder {{mathmlelement("annotation-xml")}} Elemente, wobei letztere für XML-Formate wie [Content MathML](https://en.wikipedia.org/wiki/MathML#Content_MathML) oder {{Glossary("SVG", "SVG")}} reserviert sind.
 
-Standardmäßig wird nur das erste Kind des `<semantics>` Elements angezeigt, während die anderen auf [display](/de/docs/Web/CSS/display) `none` gesetzt sind.
+Standardmäßig wird nur das erste Kind des `<semantics>`-Elements gerendert, während die anderen das [display](/de/docs/Web/CSS/display) auf `none` gesetzt haben.
 
 ```css
 semantics > :not(:first-child) {
@@ -21,11 +21,11 @@ semantics > :not(:first-child) {
 ```
 
 > [!NOTE]
-> Frühere MathML-Spezifikationen erlaubten es Renderern, die Standardanzeige gemäß verfügbaren Anmerkungen zu entscheiden. Die folgenden Regeln zur Bestimmung des sichtbaren Kindes wurden in einigen Browsern implementiert. Siehe [MathML 4](https://w3c.github.io/mathml/) für die Unterscheidung zwischen Präsentations- und Inhalts-MathML.
+> Ältere MathML-Spezifikationen erlaubten es den Renderern, die Standarddarstellung gemäß den verfügbaren Anmerkungen festzulegen. Die folgenden Regeln zur Bestimmung des sichtbaren Kindes wurden in einigen Browsern implementiert. Siehe [MathML 4](https://w3c.github.io/mathml/) für die Unterscheidung zwischen Presentation und Content MathML.
 >
-> - Wenn keine anderen Regeln gelten: Standardmäßig wird nur das erste Kind gerendert, das als Präsentations-MathML gedacht ist.
-> - Wenn das erste Kind ein Präsentations-MathML-Element ist, das nicht `<annotation>` oder `<annotation-xml>` ist, wird das erste Kind gerendert.
-> - Wenn kein Präsentations-MathML gefunden wird, wird das erste `<annotation>` oder `<annotation-xml>` Kindelement von `<semantics>` ohne `src`-Attribut gerendert. Für `<annotation-xml>` Elemente muss das `encoding`-Attribut einem der folgenden Werte entsprechen:
+> - Wenn keine anderen Regeln zutreffen: Standardmäßig wird nur das erste Kind gerendert, das Presentation MathML sein soll.
+> - Wenn das erste Kind ein Presentation MathML-Element ist, das nicht `<annotation>` oder `<annotation-xml>` ist, rendern Sie das erste Kind.
+> - Wenn kein Presentation MathML gefunden wird, rendern Sie das erste `<annotation>` oder `<annotation-xml>` Kind-Element von `<semantics>` ohne ein `src`-Attribut. Für `<annotation-xml>`-Elemente muss das `encoding`-Attribut gleich einem der folgenden Werte sein:
 >   - `"application/mathml-presentation+xml"`
 >   - `"MathML-Presentation"`
 >   - `"SVG1.1"`
@@ -33,7 +33,7 @@ semantics > :not(:first-child) {
 >   - `"image/svg+xml"`
 >   - `"application/xml"`
 >
-> Beachten Sie, dass `"application/mathml+xml"` hier _nicht_ aufgeführt ist, da es nicht zwischen Inhalts- oder Präsentations-MathML unterscheidet.
+> Beachten Sie, dass `"application/mathml+xml"` hier _nicht_ erwähnt wird, da es nicht zwischen Content oder Presentation MathML unterscheidet.
 
 ## Attribute
 
@@ -93,6 +93,19 @@ body {
 ```
 
 {{ EmbedLiveSample('example', 700, 200, "", "") }}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

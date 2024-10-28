@@ -2,29 +2,29 @@
 title: <ms>
 slug: Web/MathML/Element/ms
 l10n:
-  sourceCommit: 8eece0b998c23e8ea35f936d7371a169974130f5
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<ms>`** [MathML](/de/docs/Web/MathML)-Element repräsentiert ein **string** Literal, das von Programmiersprachen und Computeralgebrasystemen interpretiert werden soll.
+Das **`<ms>`** [MathML](/de/docs/Web/MathML) Element repräsentiert ein **String**-Literal, das von Programmiersprachen und Computeralgebrasystemen interpretiert werden soll.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
 
-Einige Browser können auch die folgenden veralteten Attribute unterstützen und den Inhalt des `<ms>`-Elements von den angegebenen Eröffnungs- und Schlusszeichen umgeben darstellen:
+Einige Browser unterstützen möglicherweise auch die folgenden veralteten Attribute und rendern den Inhalt des `<ms>`-Elements umgeben von den angegebenen Anfangs- und Schlusszeichen:
 
 - `lquote`
 
-  - : Das Eröffnungszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
+  - : Das öffnende Anführungszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
 
 - `rquote`
-  - : Das Schlusszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
+  - : Das schließende Anführungszeichen, um den Inhalt einzuschließen. Der Standardwert ist `&quot;`.
 
 ## Beispiele
 
-### Standarddarstellung
+### Standardmäßige Darstellung
 
 ```html
 <math display="block">
@@ -34,7 +34,7 @@ Einige Browser können auch die folgenden veralteten Attribute unterstützen und
 
 {{ EmbedLiveSample('default_rendering', 700, 200, "", "") }}
 
-### Veraltete Zitat-Attribute
+### Veraltete Anführungsattributen
 
 ```html
 <math display="block">
@@ -43,6 +43,19 @@ Einige Browser können auch die folgenden veralteten Attribute unterstützen und
 ```
 
 {{ EmbedLiveSample('legacy_quote_attributes', 700, 200, "", "") }}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

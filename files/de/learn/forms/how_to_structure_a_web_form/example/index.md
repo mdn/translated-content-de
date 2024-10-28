@@ -2,7 +2,7 @@
 title: Beispiel
 slug: Learn/Forms/How_to_structure_a_web_form/Example
 l10n:
-  sourceCommit: 200866e39b81948187e35865fe0a82a4545d1a1e
+  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
 ---
 
 {{LearnSidebar}}
@@ -57,7 +57,7 @@ Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [
         <span>Email: </span>
         <strong><span aria-label="required">*</span></strong>
       </label>
-      <input type="email" id="mail" name="usermail" required />
+      <input type="email" id="mail" name="user-mail" required />
     </p>
     <p>
       <label for="pwd">
@@ -73,7 +73,7 @@ Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [
       <label for="card">
         <span>Card type:</span>
       </label>
-      <select id="card" name="usercard">
+      <select id="card" name="user-card">
         <option value="visa">Visa</option>
         <option value="mc">Mastercard</option>
         <option value="amex">American Express</option>
@@ -84,7 +84,7 @@ Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [
         <span>Card number:</span>
         <strong><span aria-label="required">*</span></strong>
       </label>
-      <input type="tel" id="number" name="cardnumber" />
+      <input type="tel" id="number" name="card-number" />
     </p>
     <p>
       <label for="expiration">

@@ -2,12 +2,12 @@
 title: <merror>
 slug: Web/MathML/Element/merror
 l10n:
-  sourceCommit: 8eece0b998c23e8ea35f936d7371a169974130f5
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<merror>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Inhalte als Fehlermeldungen anzuzeigen. Der Zweck dieses Elements besteht darin, eine standardisierte Möglichkeit für Programme zu bieten, die MathML aus anderen Eingaben erzeugen, um Syntaxfehler zu melden.
+Das **`<merror>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Inhalte als Fehlermeldungen anzuzeigen. Das Ziel dieses Elements ist es, eine standardisierte Möglichkeit für Programme zu bieten, die MathML aus anderen Eingaben generieren, um Syntaxfehler zu melden.
 
 ## Attribute
 
@@ -15,7 +15,7 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 ## Beispiele
 
-Im folgenden Beispiel wird `<merror>` verwendet, um einen Parse-Fehler für eine LaTeX-ähnliche Eingabe anzuzeigen:
+Im folgenden Beispiel wird `<merror>` verwendet, um einen Parsing-Fehler für eine LaTeX-ähnliche Eingabe anzuzeigen:
 
 ```html
 <math display="block">
@@ -29,6 +29,19 @@ Im folgenden Beispiel wird `<merror>` verwendet, um einen Parse-Fehler für eine
 ```
 
 {{ EmbedLiveSample('merror_example', 700, 200, "", "") }}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

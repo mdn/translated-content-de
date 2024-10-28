@@ -2,14 +2,14 @@
 title: <mtext>
 slug: Web/MathML/Element/mtext
 l10n:
-  sourceCommit: 8eece0b998c23e8ea35f936d7371a169974130f5
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<mtext>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um beliebigen Text ohne notationalen Bedeutungsgehalt darzustellen, wie z.B. Kommentare oder Anmerkungen.
+Das **`<mtext>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um beliebigen Text ohne notationale Bedeutung darzustellen, wie z.B. Kommentare oder Anmerkungen.
 
-Um Text mit notationalem Bedeutungsgehalt darzustellen, verwenden Sie stattdessen {{ MathMLElement("mi") }}, {{ MathMLElement("mn") }}, {{ MathMLElement("mo") }} oder {{ MathMLElement("ms") }}.
+Um Text mit notationaler Bedeutung anzuzeigen, verwenden Sie stattdessen {{ MathMLElement("mi") }}, {{ MathMLElement("mn") }}, {{ MathMLElement("mo") }} oder {{ MathMLElement("ms") }}.
 
 ## Attribute
 
@@ -28,6 +28,19 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 ```
 
 {{ EmbedLiveSample('mtext_example', 700, 200, "", "") }}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

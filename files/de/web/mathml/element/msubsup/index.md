@@ -2,26 +2,26 @@
 title: <msubsup>
 slug: Web/MathML/Element/msubsup
 l10n:
-  sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<msubsup>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um gleichzeitig einen Subscript und einen Superscript an einen Ausdruck anzuhängen.
+Das **`<msubsup>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um sowohl einen Tief- als auch einen Hochstapelskript gleichzeitig an einen Ausdruck anzuhängen.
 
 Es verwendet die folgende Syntax: `<msubsup> base subscript superscript </msubsup>`.
 
 ## Attribute
 
-Die Attribute dieses Elements beinhalten die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
 
 - `subscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Subscripts nach unten zu verschieben.
+  - : Eine {{cssxref("length-percentage")}}, die angibt, um wie viel das Grundlinie des Tiefstapelskripts nach unten verschoben wird.
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Grundlinie des Superscripts nach oben zu verschieben.
+  - : Eine {{cssxref("length-percentage")}}, die angibt, um wie viel das Grundlinie des Hochstapelskripts nach oben verschoben wird.
 
 > [!NOTE]
-> Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [Legacy-MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
+> Für die Attribute `subscriptshift` und `superscriptshift` akzeptieren einige Browser möglicherweise auch [legacy MathML Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths).
 
 ## Beispiele
 
@@ -37,6 +37,19 @@ Die Attribute dieses Elements beinhalten die [globalen MathML-Attribute](/de/doc
 
 {{EmbedLiveSample('Examples')}}
 
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -47,6 +60,6 @@ Die Attribute dieses Elements beinhalten die [globalen MathML-Attribute](/de/doc
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Subscript)
-- {{ MathMLElement("msup") }} (Superscript)
-- {{ MathMLElement("mmultiscripts") }} (Präskripte und Tensorindizes)
+- {{ MathMLElement("msub") }} (Tiefstapelskript)
+- {{ MathMLElement("msup") }} (Hochstapelskript)
+- {{ MathMLElement("mmultiscripts") }} (Präscripts und Tensor-Indizes)

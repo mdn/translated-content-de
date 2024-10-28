@@ -2,17 +2,17 @@
 title: <mrow>
 slug: Web/MathML/Element/mrow
 l10n:
-  sourceCommit: 67cbfbf7a408e7180137b286247025bc40716642
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<mrow>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Unterausdrücke zu gruppieren, die normalerweise einen oder mehrere [Operatoren](/de/docs/Web/MathML/Element/mo) mit ihren jeweiligen Operanden (wie {{ MathMLElement("mi") }} und {{ MathMLElement("mn") }}) enthalten. Dieses Element wird als horizontale Reihe dargestellt, die seine Argumente enthält.
+Das **`<mrow>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um Teil-Ausdrücke zu gruppieren, die normalerweise einen oder mehrere [Operatoren](/de/docs/Web/MathML/Element/mo) mit ihren jeweiligen Operanden (wie {{ MathMLElement("mi") }} und {{ MathMLElement("mn") }}) enthalten. Dieses Element wird als horizontale Zeile mit seinen Argumenten dargestellt.
 
-Beim Schreiben eines MathML-Ausdrucks sollten Sie Elemente innerhalb eines `<mrow>` genauso gruppieren, wie sie in der mathematischen Interpretation des Ausdrucks gruppiert sind. Eine korrekte Gruppierung verbessert die Darstellung des Ausdrucks in mehreren Aspekten:
+Beim Schreiben eines MathML-Ausdrucks sollten Sie Elemente innerhalb eines `<mrow>` so gruppieren, wie sie in der mathematischen Interpretation des Ausdrucks gruppiert sind. Eine korrekte Gruppierung unterstützt die Darstellung des Ausdrucks in verschiedener Hinsicht:
 
-- Sie kann die Anzeige verbessern, indem möglicherweise Abstände beeinflusst und Zeilenumbrüche verhindert werden.
-- Sie vereinfacht die Interpretation des Ausdrucks durch automatisierte Systeme wie Computeralgebrasysteme und Audiowiedergabegeräte.
+- Sie kann die Anzeige verbessern, indem sie möglicherweise den Abstand beeinflusst und Zeilenumbrüche verhindert.
+- Sie vereinfacht die Interpretation des Ausdrucks durch automatisierte Systeme wie Computeralgebrasysteme und Audiowiedergabesysteme.
 
 ## Attribute
 
@@ -50,6 +50,19 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 {{EmbedLiveSample('Examples')}}
 
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -60,4 +73,4 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 ## Siehe auch
 
-- Gruppierung von HTML-Elementen: {{ HTMLElement("div") }}
+- Gruppieren von HTML-Elementen: {{ HTMLElement("div") }}

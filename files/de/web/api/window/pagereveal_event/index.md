@@ -1,16 +1,16 @@
 ---
-title: "Window: pagereveal-Ereignis"
+title: "Window: pagereveal Ereignis"
 short-title: pagereveal
 slug: Web/API/Window/pagereveal_event
 l10n:
-  sourceCommit: e561fa67af347b9770b359ba93e8579d2a540682
+  sourceCommit: c420b9b3126451f53d112afe33e007d6efdb605d
 ---
 
 {{APIRef("HTML DOM")}}{{seecompattable}}
 
-Das **`pagereveal`**-Ereignis wird ausgelöst, wenn ein Dokument zum ersten Mal gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "back/forward cache")}} (bfcache) oder {{Glossary("Prerender", "prerender")}}).
+Das **`pagereveal`** Ereignis wird ausgelöst, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments (entweder aus dem {{Glossary("bfcache", "Back/Forward Cache")}} (bfcache) oder {{Glossary("Prerender", "Prerender")}}).
 
-Dies ist nützlich im Fall von cross-document (MPA) [View-Transitions](/de/docs/Web/API/View_Transitions_API) zur Manipulation einer aktiven Transition von der eingehenden Seite einer Navigation. Beispielsweise könnte man den Übergang überspringen oder die eingehende Übergangsanimation per JavaScript anpassen.
+Dies ist nützlich im Fall von Cross-Dokument (MPA) [View-Transitions](/de/docs/Web/API/View_Transitions_API), um eine aktive Transition von der eingehenden Seite einer Navigation zu manipulieren. Beispielsweise könnten Sie die Transition überspringen oder die eingehende Transition-Animation über JavaScript anpassen.
 
 ## Syntax
 
@@ -30,7 +30,7 @@ Ein [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent). Erbt von [`Event`](/d
 ## Ereigniseigenschaften
 
 - [`PageRevealEvent.viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) {{ReadOnlyInline}}
-  - : Gibt das [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt zurück, das den eingehenden cross-document View-Übergang darstellt, falls einer aktiv ist, wenn das Ereignis ausgelöst wird. Ist dies nicht der Fall, wird `null` zurückgegeben.
+  - : Gibt das [`ViewTransition`](/de/docs/Web/API/ViewTransition) Objekt zurück, das die eingehende Cross-Dokument View-Transition darstellt, falls eine aktiv ist, wenn das Ereignis ausgelöst wird. Falls dies nicht der Fall ist, wird `null` zurückgegeben.
 
 ## Beispiele
 
@@ -86,7 +86,7 @@ window.addEventListener("pagereveal", async (e) => {
 ```
 
 > [!NOTE]
-> Weitere Informationen finden Sie unter [Liste der Chrome DevRel-Teammitglieder](https://view-transitions.netlify.app/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
+> Siehe [Liste der Chrome DevRel Teammitglieder](https://view-transitions.chrome.dev/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
 
 ## Spezifikationen
 
@@ -99,4 +99,4 @@ window.addEventListener("pagereveal", async (e) => {
 ## Siehe auch
 
 - [Verwendung der View Transitions API](/de/docs/Web/API/View_Transitions_API/Using)
-- [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignis
+- [`pageswap`](/de/docs/Web/API/Window/pageswap_event) Ereignis

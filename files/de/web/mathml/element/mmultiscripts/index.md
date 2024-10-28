@@ -2,14 +2,14 @@
 title: <mmultiscripts>
 slug: Web/MathML/Element/mmultiscripts
 l10n:
-  sourceCommit: 5e756ded4a891e5a147b83b6ead78d23f7e899c9
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um einer Ausdruck gleichzeitig eine beliebige Anzahl von Tief- und Hochstellungen hinzuzufügen und verallgemeinert damit das {{ MathMLElement("msubsup") }}-Element. Skripte können entweder Prä-Skripte (vor dem Ausdruck platziert) oder Post-Skripte (danach platziert) sein.
+Das **`<mmultiscripts>`** [MathML](/de/docs/Web/MathML)-Element wird verwendet, um gleichzeitig eine beliebige Anzahl von Tief- und Hochstellungen an einen Ausdruck anzuhängen. Es verallgemeinert das {{ MathMLElement("msubsup") }}-Element. Skripte können entweder Pre-Skripte (vor dem Ausdruck platziert) oder Post-Skripte (nach dem Ausdruck platziert) sein.
 
-MathML verwendet die folgende Syntax: Ein Basisausdruck, gefolgt von einer beliebigen Anzahl von Paaren aus Post-Tief- und Post-Hochstellungen (in der angegebenen Reihenfolge angebracht), gefolgt von einem optionalen {{ MathMLElement("mprescripts") }}-Element und einer beliebigen Anzahl von Prä-Tief- und Prä-Hochstellungen (in der angegebenen Reihenfolge angebracht). Zusätzlich können leere {{ MathMLElement("mrow") }}-Elemente verwendet werden, um fehlende Skripte darzustellen.
+MathML verwendet die unten stehende Syntax: ein Basis-Ausdruck gefolgt von einer beliebigen Anzahl von Post-Tief- und Post-Hochstellungspaaren (in der angegebenen Reihenfolge angehängt), optional gefolgt von einem {{ MathMLElement("mprescripts") }}-Element und einer beliebigen Anzahl von Pre-Tief- und Pre-Hochstellungspaaren (in der angegebenen Reihenfolge angehängt). Zusätzlich können leere {{ MathMLElement("mrow") }}-Elemente verwendet werden, um fehlende Skripte darzustellen.
 
 ```html-nolint
 <mmultiscripts>
@@ -30,12 +30,12 @@ MathML verwendet die folgende Syntax: Ein Basisausdruck, gefolgt von einer belie
 
 ## Attribute
 
-Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
 
 - `subscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die minimale Verschiebung der Grundlinie des Tiefstells nach unten angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Basislinie des Tiefscripts nach unten zu verschieben.
 - `superscriptshift` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Ein {{cssxref("length-percentage")}}, das die minimale Verschiebung der Grundlinie des Hochstells nach oben angibt.
+  - : Ein {{cssxref("length-percentage")}}, das die Mindestmenge angibt, um die Basislinie des Hochscripts nach oben zu verschieben.
 
 > [!NOTE]
 > Für die Attribute `subscriptshift` und `superscriptshift` können einige Browser auch [veraltete MathML-Längen](/de/docs/Web/MathML/Values#legacy_mathml_lengths) akzeptieren.
@@ -44,7 +44,7 @@ Zu den Attributen dieses Elements gehören die [globalen MathML-Attribute](/de/d
 
 ### Verwendung von `<mprescripts>`
 
-Kinder nach dem `<mprescripts>`-Element werden als Prä-Skripte (vor dem Basisausdruck) platziert:
+Kinder nach dem `<mprescripts>`-Element werden als Pre-Skripte platziert (vor dem Basis-Ausdruck):
 
 ```css hidden
 html,
@@ -108,7 +108,7 @@ body {
 
 ### Reihenfolge der Skripte
 
-Hier ist ein komplexeres Beispiel mit vielen Skripten, sodass Sie sehen können, in welcher Reihenfolge sie an der Basis angebracht werden:
+Hier ist ein komplexeres Beispiel mit vielen Skripten, damit Sie sehen können, in welcher Reihenfolge sie an den Basis-Ausdruck angehängt werden:
 
 ```css hidden
 html,
@@ -142,6 +142,19 @@ body {
 
 {{ EmbedLiveSample('order_of_scripts', 700, 200, "", "") }}
 
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizierte ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -154,4 +167,4 @@ body {
 
 - {{ MathMLElement("msub") }} (Tiefstellung)
 - {{ MathMLElement("msup") }} (Hochstellung)
-- {{ MathMLElement("msubsup") }} (Paar aus Tief- und Hochstellung)
+- {{ MathMLElement("msubsup") }} (Tief- und Hochstellungspaar)

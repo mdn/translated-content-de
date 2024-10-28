@@ -2,19 +2,19 @@
 title: <mstyle>
 slug: Web/MathML/Element/mstyle
 l10n:
-  sourceCommit: f6e01b30b70e6ad3f2309c1589c8e2454038333c
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<mstyle>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um den Stil seiner Kinder zu ändern.
+Das **`<mstyle>`**-[MathML](/de/docs/Web/MathML)-Element wird verwendet, um den Stil seiner Kinder zu ändern.
 
 > [!NOTE]
-> Historisch gesehen akzeptierte dieses Element fast alle MathML-Attribute und wurde verwendet, um die Standard-Attributwerte seiner Nachkommen zu überschreiben. Später wurde es auf nur noch wenige relevante Stil-Attribute beschränkt, die in bestehenden Webseiten verwendet wurden. Heutzutage sind diese Stil-Attribute [gemeinsam für alle MathML-Elemente](/de/docs/Web/MathML/Global_attributes) und somit ist `<mstyle>` wirklich nur gleichbedeutend mit einem [`<mrow>`](/de/docs/Web/MathML/Element/mrow) Element. Dennoch kann `<mstyle>` noch relevant für die Kompatibilität mit MathML-Implementierungen außerhalb von Browsern sein.
+> Historisch gesehen nahm dieses Element fast alle MathML-Attribute an und wurde verwendet, um die Standard-Attributwerte seiner Nachkommen zu überschreiben. Später wurde es auf nur wenige relevante Stilattribute beschränkt, die auf bestehenden Webseiten verwendet wurden. Heutzutage sind diese Stilattribute [allen MathML-Elementen gemeinsam](/de/docs/Web/MathML/Global_attributes), und daher ist `<mstyle>` wirklich nur gleichwertig mit einem [`<mrow>`](/de/docs/Web/MathML/Element/mrow)-Element. `<mstyle>` kann jedoch weiterhin für die Kompatibilität mit MathML-Implementierungen außerhalb von Browsern relevant sein.
 
 ## Attribute
 
-Die Attribute dieses Elements schließen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute ein:
+Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie die folgenden veralteten Attribute:
 
 - `background` {{deprecated_inline}} {{Non-standard_Inline}}
   - : Verwenden Sie stattdessen {{cssxref("background-color")}}.
@@ -31,7 +31,7 @@ Die Attribute dieses Elements schließen die [globalen MathML-Attribute](/de/doc
 
 ### Attribute, die auf CSS abgebildet sind
 
-Das folgende Beispiel verwendet die [globalen Attribute](/de/docs/Web/MathML/Global_attributes) `displaystyle` und `mathcolor`, um jeweils den [`math-style`](/de/docs/Web/CSS/math-style) und die [`color`](/de/docs/Web/CSS/color) der `<munder>` und `<munderover>` Kinder zu überschreiben:
+Das folgende Beispiel verwendet [globale Attribute](/de/docs/Web/MathML/Global_attributes) `displaystyle` und `mathcolor`, um jeweils den [`math-style`](/de/docs/Web/CSS/math-style) und die [`color`](/de/docs/Web/CSS/color) der `<munder>` und `<munderover>`-Kinder zu überschreiben:
 
 ```html
 <math display="block">
@@ -53,11 +53,11 @@ Das folgende Beispiel verwendet die [globalen Attribute](/de/docs/Web/MathML/Glo
 </math>
 ```
 
-{{EmbedLiveSample('Attributes mapped to CSS')}}
+{{EmbedLiveSample('Attribute, die auf CSS abgebildet sind')}}
 
 ### Veraltete Script-Attribute
 
-Das folgende Beispiel zeigt eine Formel mit [`font-size`](/de/docs/Web/CSS/font-size) auf `128pt` eingestellt. Sie enthält Zahlen, die in geschachtelten Superscripts platziert sind, sowie ein `<mstyle>`-Element mit den veralteten Attributen `scriptsizemultiplier` und `scriptminsize`. Die `font-size` wird mit `0.5` multipliziert, wenn jedes Superscript betreten wird, solange sie dadurch nicht kleiner als `16pt` wird.
+Das folgende Beispiel zeigt eine Formel mit [`font-size`](/de/docs/Web/CSS/font-size) auf `128pt` eingestellt. Sie enthält Zahlen, die in verschachtelten Hochzahlen platziert sind, sowie ein `<mstyle>`-Element mit den veralteten Attributen `scriptsizemultiplier` und `scriptminsize`. Die `font-size` wird um `0.5` multipliziert, wenn jede Hochzahl betreten wird, solange dies sie nicht kleiner als `16pt` macht.
 
 ```html
 <math display="block" style="font-size: 128pt">
@@ -85,7 +85,20 @@ Das folgende Beispiel zeigt eine Formel mit [`font-size`](/de/docs/Web/CSS/font-
 </math>
 ```
 
-{{EmbedLiveSample('Legacy script attributes', 700, 400)}}
+{{EmbedLiveSample('Veraltete Script-Attribute', 700, 400)}}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

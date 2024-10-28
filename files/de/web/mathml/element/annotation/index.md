@@ -2,15 +2,15 @@
 title: <annotation>
 slug: Web/MathML/Element/annotation
 l10n:
-  sourceCommit: 88171d31074babf2bf3b1ad59ed7933d886dd37f
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<annotation>`** [MathML](/de/docs/Web/MathML)-Element enthält eine Annotation zu dem MathML-Ausdruck in einem textuellen Format, zum Beispiel [LaTeX](https://www.latex-project.org/).
+Das **`<annotation>`** [MathML](/de/docs/Web/MathML) Element enthält eine Annotation zur MathML-Ausdruck in einem textuellen Format, zum Beispiel [LaTeX](https://www.latex-project.org/).
 
 > [!NOTE]
-> Annotationen sollen von Browsern nicht gerendert werden und sind standardmäßig verborgen. Allerdings rendern Firefox und Safari einige Annotationsformate, wenn das erste Kind des {{mathmlelement("semantics")}}-Elements Fehler enthält oder fehlt.
+> Annotationen sollen nicht von Browsern dargestellt werden und sind standardmäßig versteckt. Allerdings rendern Firefox und Safari einige Annotationsformate, wenn das erste Kind des {{mathmlelement("semantics")}} Elements Fehler enthält oder fehlt.
 
 ## Attribute
 
@@ -19,7 +19,7 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 - `encoding`
   - : Die Kodierung der semantischen Informationen in der Annotation (z.B. `"application/x-tex"`)
 - `src` {{deprecated_inline}}
-  - : Der Speicherort einer externen Quelle für semantische Informationen.
+  - : Der Ort einer externen Quelle für semantische Informationen.
 
 ## Beispiel
 
@@ -56,6 +56,19 @@ body {
 ```
 
 {{ EmbedLiveSample('example', 700, 200, "", "") }}
+
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizierte ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
 
 ## Spezifikationen
 

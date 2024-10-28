@@ -2,12 +2,12 @@
 title: <mprescripts>
 slug: Web/MathML/Element/mprescripts
 l10n:
-  sourceCommit: 5e756ded4a891e5a147b83b6ead78d23f7e899c9
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<mprescripts>`** [MathML](/de/docs/Web/MathML)-Element wird innerhalb eines {{ MathMLElement("mmultiscripts") }}-Elements verwendet, um den Beginn der Pre-Script-Elemente (Indices und Hochzahlen, die **vor** dem Basis-Ausdruck platziert werden) anzuzeigen.
+Das **`<mprescripts>`** [MathML](/de/docs/Web/MathML)-Element wird innerhalb eines {{ MathMLElement("mmultiscripts") }}-Elements verwendet, um den Beginn der Pre-Scripts-Elemente anzuzeigen (Indices und Hochzahlen, die **vor** dem Basis-Ausdruck platziert werden).
 
 ## Attribute
 
@@ -15,7 +15,7 @@ Dieses Element unterstützt [globale MathML-Attribute](/de/docs/Web/MathML/Globa
 
 ## Beispiel
 
-Das erste `<mmultiscripts>`-Kindelement wird zu einem Basis-Ausdruck. Die verbleibenden Kinder werden standardmäßig zu Post-Script-Elementen (a, b). `<mprescripts>` fungiert als Trennzeichen, und Kinder danach werden zu Pre-Script-Elementen (c, d).
+Das erste `<mmultiscripts>`-Kinder-Element wird ein Basis-Ausdruck. Die restlichen Kinder werden standardmäßig zu Post-Scripts-Elementen (a, b). `<mprescripts>` dient als Trennzeichen, und Kinder danach werden Pre-Scripts-Elemente (c, d).
 
 ```css hidden
 html,
@@ -45,6 +45,19 @@ body {
 
 {{ EmbedLiveSample('example', 700, 200, "", "") }}
 
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -55,6 +68,6 @@ body {
 
 ## Siehe auch
 
-- {{ MathMLElement("msub") }} (Subscript)
-- {{ MathMLElement("msup") }} (Superscript)
-- {{ MathMLElement("msubsup") }} (Subscript-Superscript-Paar)
+- {{ MathMLElement("msub") }} (Index)
+- {{ MathMLElement("msup") }} (Hochzahl)
+- {{ MathMLElement("msubsup") }} (Index-Hochzahl-Paar)

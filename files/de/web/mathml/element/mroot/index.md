@@ -2,12 +2,12 @@
 title: <mroot>
 slug: Web/MathML/Element/mroot
 l10n:
-  sourceCommit: 67cbfbf7a408e7180137b286247025bc40716642
+  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
 ---
 
 {{MathMLRef}}
 
-Das **`<mroot>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Wurzeln mit einem expliziten Index darzustellen. Zwei Argumente werden akzeptiert, was zur Syntax führt: `<mroot> base index </mroot>`.
+Das **`<mroot>`** [MathML](/de/docs/Web/MathML) Element wird verwendet, um Wurzeln mit einem expliziten Index darzustellen. Es akzeptiert zwei Argumente, was zur Syntax führt: `<mroot> base index </mroot>`.
 
 ## Attribute
 
@@ -26,6 +26,19 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 {{EmbedLiveSample('Examples')}}
 
+## Technische Zusammenfassung
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/de/docs/Web/Accessibility/ARIA/Roles">Implizite ARIA-Rolle</a>
+    </th>
+    <td>
+      Keine
+    </td>
+  </tr>
+</table>
+
 ## Spezifikationen
 
 {{Specifications}}
@@ -36,4 +49,4 @@ Dieses Element akzeptiert die [globalen MathML-Attribute](/de/docs/Web/MathML/Gl
 
 ## Siehe auch
 
-- {{MathMLElement("msqrt")}} (Quadratwurzel ohne Index)
+- {{ MathMLElement("msqrt") }} (Quadratwurzel ohne einen Index)

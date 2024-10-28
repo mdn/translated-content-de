@@ -1,29 +1,29 @@
 ---
-title: Grundlagen der HTML-Textgestaltung
+title: Grundlagen des HTML-Textes
 slug: Learn/HTML/Introduction_to_HTML/HTML_text_fundamentals
 l10n:
-  sourceCommit: 76c1e86a6bf1fd58aa6b0e627842a3c1161add28
+  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML", "Learn/HTML/Introduction_to_HTML/Creating_hyperlinks", "Learn/HTML/Introduction_to_HTML")}}
 
-Eine der Hauptaufgaben von HTML besteht darin, Textstruktur bereitzustellen, damit ein Browser ein HTML-Dokument genau so anzeigen kann, wie es der Entwickler vorgesehen hat. In diesem Artikel wird erklärt, wie {{Glossary("HTML", "HTML")}} verwendet werden kann, um eine Seite mit Text zu strukturieren, indem Überschriften, Absätze, Hervorhebungen, Listen und mehr hinzugefügt werden.
+Eine der Hauptaufgaben von HTML ist es, Text zu strukturieren, damit ein Browser ein HTML-Dokument so darstellen kann, wie es der Entwickler beabsichtigt. Dieser Artikel erklärt, wie {{Glossary("HTML", "HTML")}} verwendet werden kann, um eine Seite mit Text zu strukturieren, indem Überschriften und Absätze hinzugefügt, Wörter hervorgehoben, Listen erstellt und mehr gemacht werden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundlegende HTML-Vertrautheit, wie sie in
+        Grundlegende HTML-Kenntnisse, wie sie in
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML/Getting_started"
-          >Einstieg in HTML</a
-        >behandelt wird.
+          >Erste Schritte mit HTML</a
+        >abgedeckt werden.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen Sie, wie Sie eine einfache Seite mit Text markieren, um ihr Struktur und Bedeutung zu verleihen — einschließlich Absätzen, Überschriften, Listen, Hervorhebungen und Zitaten.
+        Lernen Sie, wie man eine grundlegende Seite mit Text markiert, um ihr Struktur und Bedeutung zu verleihen — einschließlich Absätze, Überschriften, Listen, Hervorhebung und Zitate.
       </td>
     </tr>
   </tbody>
@@ -31,29 +31,29 @@ Eine der Hauptaufgaben von HTML besteht darin, Textstruktur bereitzustellen, dam
 
 ## Die Grundlagen: Überschriften und Absätze
 
-Die meisten strukturierten Texte bestehen aus Überschriften und Absätzen, sei es, dass Sie eine Geschichte, eine Zeitung, ein Studienbuch, ein Magazin usw. lesen.
+Der meiste strukturierte Text besteht aus Überschriften und Absätzen, egal ob Sie eine Geschichte, eine Zeitung, ein Lehrbuch, ein Magazin usw. lesen.
 
-![Ein Beispiel für das Titelblatt einer Zeitung, das die Verwendung einer übergeordneten Überschrift, Unterüberschriften und Absätze zeigt.](newspaper_small.jpg)
+![Ein Beispiel eines Zeitungstitelblatts, das die Verwendung einer Überschrift der obersten Ebene, Unterüberschriften und Absätze zeigt.](newspaper_small.jpg)
 
-Strukturierte Inhalte verbessern das Leseerlebnis und machen es angenehmer.
+Strukturierte Inhalte erleichtern das Leseerlebnis und machen es angenehmer.
 
-In HTML muss jeder Absatz mit einem {{htmlelement("p")}}-Element umschlossen werden, wie folgt:
+In HTML muss jeder Absatz in einem {{htmlelement("p")}}-Element eingeschlossen sein, so:
 
 ```html
 <p>I am a paragraph, oh yes I am.</p>
 ```
 
-Jede Überschrift muss in ein Überschriftselement eingeschlossen werden:
+Jede Überschrift muss in einem Überschriftenelement eingeschlossen sein:
 
 ```html
 <h1>I am the title of the story.</h1>
 ```
 
-Es gibt sechs Überschriftselemente: {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}, {{htmlelement("Heading_Elements", "h3")}}, {{htmlelement("Heading_Elements", "h4")}}, {{htmlelement("Heading_Elements", "h5")}} und {{htmlelement("Heading_Elements", "h6")}}. Jedes Element repräsentiert eine andere Ebene der Inhalte im Dokument; `<h1>` repräsentiert die Hauptüberschrift, `<h2>` repräsentiert Unterüberschriften, `<h3>` repräsentiert Unter-Unterüberschriften, und so weiter.
+Es gibt sechs Überschriftenelemente: {{htmlelement("Heading_Elements", "h1")}}, {{htmlelement("Heading_Elements", "h2")}}, {{htmlelement("Heading_Elements", "h3")}}, {{htmlelement("Heading_Elements", "h4")}}, {{htmlelement("Heading_Elements", "h5")}} und {{htmlelement("Heading_Elements", "h6")}}. Jedes Element repräsentiert eine andere Ebene des Inhalts im Dokument; `<h1>` repräsentiert die Hauptüberschrift, `<h2>` repräsentiert Unterüberschriften, `<h3>` repräsentiert Unter-Unterüberschriften und so weiter.
 
-### Umsetzung der strukturellen Hierarchie
+### Implementierung der strukturellen Hierarchie
 
-Zum Beispiel repräsentiert im folgenden Text die `<h1>`-Element die Titel der Geschichte, die `<h2>`-Elemente die Titel jedes Kapitels und die `<h3>`-Elemente die Unterkapitel:
+Zum Beispiel in dieser Geschichte repräsentiert das `<h1>`-Element den Titel der Geschichte, die `<h2>`-Elemente repräsentieren den Titel jedes Kapitels, und die `<h3>`-Elemente repräsentieren Unterabschnitte jedes Kapitels:
 
 ```html
 <h1>The Crushing Bore</h1>
@@ -78,34 +78,34 @@ Zum Beispiel repräsentiert im folgenden Text die `<h1>`-Element die Titel der G
 </p>
 ```
 
-Es liegt wirklich an Ihnen zu entscheiden, welche Elemente was darstellen, solange die Hierarchie sinnvoll ist. Sie müssen nur einige bewährte Praktiken berücksichtigen, während Sie solche Strukturen erstellen:
+Es liegt wirklich an Ihnen, was die beteiligten Elemente darstellen, solange die Hierarchie sinnvoll ist. Sie müssen nur ein paar bewährte Praktiken im Auge behalten, während Sie solche Strukturen schaffen:
 
-- Verwenden Sie vorzugsweise ein einziges `<h1>` pro Seite — dies ist die oberste Überschrift, und alle anderen stehen darunter in der Hierarchie.
-- Achten Sie darauf, die Überschriften in der richtigen Reihenfolge in der Hierarchie zu verwenden. Verwenden Sie keine `<h3>`-Elemente, um Unterüberschriften zu repräsentieren, gefolgt von `<h2>`-Elementen für Unter-Unterüberschriften — das ergibt keinen Sinn und führt zu seltsamen Ergebnissen.
-- Von den sechs verfügbaren Überschriftenebenen sollten Sie nicht mehr als drei pro Seite verwenden, es sei denn, Sie halten es für notwendig. Dokumente mit vielen Ebenen (zum Beispiel eine tief verschachtelte Überschriftenhierarchie) werden unübersichtlich und schwer zu navigieren. In solchen Fällen ist es ratsam, die Inhalte auf mehrere Seiten zu verteilen, wenn möglich.
+- Vorzugsweise sollten Sie eine einzelne `<h1>` pro Seite verwenden—dies ist die Überschrift der obersten Ebene, und alle anderen fallen darunter in der Hierarchie.
+- Stellen Sie sicher, dass Sie die Überschriften in der korrekten Reihenfolge in der Hierarchie verwenden. Verwenden Sie keine `<h3>`-Elemente, um Unterüberschriften darzustellen, gefolgt von `<h2>`-Elementen, um Unter-Unterüberschriften darzustellen—das ergibt keinen Sinn und führt zu seltsamen Ergebnissen.
+- Von den sechs verfügbaren Überschriftsebenen sollten Sie anstreben, nicht mehr als drei pro Seite zu verwenden, es sei denn, es ist notwendig. Dokumente mit vielen Ebenen (zum Beispiel einer tiefen Überschriftenhierarchie) werden unhandlich und schwer zu navigieren. In solchen Fällen ist es ratsam, den Inhalt möglichst auf mehrere Seiten zu verteilen.
 
 ### Warum brauchen wir Struktur?
 
-Um diese Frage zu beantworten, werfen wir einen Blick auf [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) — den Ausgangspunkt unseres durchgehenden Beispiels für diesen Artikel (ein schönes Hummus-Rezept). Sie sollten eine Kopie dieser Datei auf Ihrem lokalen Rechner speichern, da Sie sie für die späteren Übungen benötigen werden. Der Body dieses Dokuments enthält derzeit mehrere Inhaltsstücke. Sie sind in keiner Weise markiert, aber sie sind durch Zeilenumbrüche getrennt (Enter/Return gedrückt, um zur nächsten Zeile zu wechseln).
+Um diese Frage zu beantworten, schauen wir uns [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) an—den Ausgangspunkt unseres laufenden Beispiels für diesen Artikel (ein schönes Hummus-Rezept). Sie sollten eine Kopie dieser Datei auf Ihrem lokalen Rechner speichern, da Sie sie für die späteren Übungen benötigen. Derzeit enthält der Body dieses Dokuments mehrere Inhaltsstücke. Sie sind auf keine Weise markiert, aber sie sind durch Zeilenumbrüche getrennt (Enter/Return gedrückt, um zur nächsten Zeile zu gelangen).
 
 Wenn Sie das Dokument jedoch in Ihrem Browser öffnen, sehen Sie, dass der Text als großer Block erscheint!
 
-![Eine Webseite, die eine Wand aus unformatiertem Text zeigt, weil auf der Seite keine Elemente vorhanden sind, die sie strukturieren.](screen_shot_2017-03-29_at_09.20.35.png)
+![Eine Webseite, die einen Block von unformatiertem Text zeigt, da es keine Elemente auf der Seite gibt, die ihn strukturieren.](screen_shot_2017-03-29_at_09.20.35.png)
 
-Das liegt daran, dass es keine Elemente gibt, die den Inhalten Struktur verleihen, sodass der Browser nicht weiß, was eine Überschrift und was ein Absatz ist. Darüber hinaus:
+Dies liegt daran, dass es keine Elemente gibt, die dem Inhalt Struktur verleihen, sodass der Browser nicht weiß, was eine Überschrift und was ein Absatz ist. Zudem:
 
-- Benutzer, die sich eine Webseite ansehen, neigen dazu, schnell zu scannen, um relevante Inhalte zu finden, und lesen oft nur die Überschriften, um damit zu beginnen. (Wir verbringen in der Regel [eine sehr kurze Zeit auf einer Webseite](https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/).) Wenn sie innerhalb weniger Sekunden nichts Nützliches sehen, werden sie wahrscheinlich frustriert und gehen woanders hin.
-- Suchmaschinen, die Ihre Seite indexieren, betrachten die Inhalte von Überschriften als wichtige Schlüsselwörter zur Beeinflussung des Suchrankings der Seite. Ohne Überschriften wird Ihre Seite hinsichtlich {{Glossary("SEO", "SEO")}} (Suchmaschinenoptimierung) schlecht abschneiden.
-- Stark sehbehinderte Menschen lesen oft keine Webseiten; stattdessen hören sie sie. Dies wird mit einer Software namens [Screenreader](https://en.wikipedia.org/wiki/Screen_reader) durchgeführt. Diese Software bietet Möglichkeiten, schnell auf bestimmten Textinhalt zuzugreifen. Unter den verschiedenen verwendeten Techniken geben sie eine Gliederung des Dokuments wieder, indem sie die Überschriften vorlesen, was es den Nutzern ermöglicht, die benötigten Informationen schnell zu finden. Wenn keine Überschriften vorhanden sind, sind sie gezwungen, sich das gesamte Dokument laut vorlesen zu lassen.
-- Um Inhalt mit {{Glossary("CSS", "CSS")}} zu gestalten oder mit {{Glossary("JavaScript", "JavaScript")}} interessante Dinge zu bewirken, müssen Sie Elemente verwenden, die den relevanten Inhalt umschließen, damit CSS/JavaScript ihn effektiv ansprechen können.
+- Benutzer, die sich eine Webseite ansehen, neigen dazu, schnell zu scannen, um relevante Inhalte zu finden, und lesen oft zuerst nur die Überschriften. (Normalerweise [verbringen wir sehr kurze Zeit auf einer Webseite](https://www.nngroup.com/articles/how-long-do-users-stay-on-web-pages/).) Wenn sie innerhalb weniger Sekunden nichts Nützliches sehen, werden sie vermutlich frustriert und gehen woanders hin.
+- Suchmaschinen, die Ihre Seite indexieren, betrachten den Inhalt von Überschriften als wichtige Schlüsselwörter zur Beeinflussung des Suchrankings der Seite. Ohne Überschriften wird Ihre Seite in Bezug auf {{Glossary("SEO", "SEO")}} (Search Engine Optimization) schlecht abschneiden.
+- Menschen mit starker Sehbehinderung lesen oft keine Webseiten, sie hören sie stattdessen. Dies erfolgt mit einer Software, die als [Screenreader](https://en.wikipedia.org/wiki/Screen_reader) bekannt ist. Diese Software bietet Möglichkeiten, schnell auf bestimmten Textinhalt zuzugreifen. Unter den verschiedenen verwendeten Techniken bietet sie eine Übersicht des Dokuments durch Vorlesen der Überschriften, damit ihre Benutzer die gewünschten Informationen schnell finden können. Wenn keine Überschriften vorhanden sind, müssen sie sich das ganze Dokument vorlesen lassen.
+- Um Inhalte mit {{Glossary("CSS", "CSS")}} zu gestalten oder interessante Dinge mit {{Glossary("JavaScript", "JavaScript")}} zu machen, müssen Sie Elemente haben, die den relevanten Inhalt umschließen, damit CSS/JavaScript diesen effektiv ansprechen kann.
 
-Deshalb müssen wir unseren Inhalten strukturelle Markierungen geben.
+Daher müssen wir unserem Inhalt Strukturelemente zuweisen.
 
-### Aktives Lernen: Unseren Inhalten Struktur geben
+### Aktives Lernen: Unserem Inhalt Struktur verleihen
 
-Lassen Sie uns direkt mit einem Live-Beispiel loslegen. Fügen Sie im folgenden Beispiel Elemente in das rohe Textfeld ein, damit es im _Ausgabefeld_ als Überschrift und zwei Absätze erscheint.
+Lassen Sie uns direkt mit einem Live-Beispiel starten. In dem folgenden Beispiel, fügen Sie den Rohtext im _Input_-Feld so mit Elementen ein, dass er im _Output_-Feld als Überschrift und zwei Absätze erscheint.
 
-Wenn Sie einen Fehler machen, können Sie immer die _Zurücksetzen_ Schaltfläche verwenden. Wenn Sie nicht weiterkommen, drücken Sie die _Lösung anzeigen_ Schaltfläche, um die Antwort zu sehen.
+Wenn Sie einen Fehler machen, können Sie ihn jederzeit mit der _Zurücksetzen_-Taste korrigieren. Wenn Sie nicht weiterkommen, drücken Sie die _Lösung zeigen_-Taste, um die Antwort zu sehen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -243,17 +243,17 @@ textarea.onkeyup = function () {
 
 ### Warum brauchen wir Semantik?
 
-Semantiken werden überall um uns herum verwendet – wir verlassen uns auf frühere Erfahrungen, um uns zu sagen, welche Funktion ein alltägliches Objekt hat; wenn wir etwas sehen, wissen wir, welche Funktion es haben wird. So erwarten wir beispielsweise, dass ein rotes Licht "stoppen" und ein grünes Licht "gehen" bedeutet. Dinge können schnell kompliziert werden, wenn die falschen Semantiken angewendet werden. (Verwendet irgendein Land Rot, um "geh" zu bedeuten? Wir hoffen nicht.)
+Semantik wird überall um uns herum verwendet—wir verlassen uns auf frühere Erfahrungen, um uns zu sagen, welche Funktion ein alltägliches Objekt hat; wenn wir etwas sehen, wissen wir, welche Funktion es haben wird. Zum Beispiel erwarten wir, dass ein rotes Licht "stoppen" und ein grünes Licht "gehen" bedeutet. Die Dinge können schnell sehr kompliziert werden, wenn die falsche Semantik angewandt wird. (Gibt es Länder, in denen rot "gehen" bedeutet? Wir hoffen nicht.)
 
-In ähnlicher Weise müssen wir sicherstellen, dass wir die richtigen Elemente verwenden, um unseren Inhalten die richtige Bedeutung, Funktion oder das richtige Erscheinungsbild zu geben. In diesem Kontext ist das {{htmlelement("Heading_Elements", "h1")}}-Element auch ein semantisches Element, das dem umschlossenen Text die Rolle (oder Bedeutung) einer "obersten Überschrift auf Ihrer Seite" gibt.
+In ähnlicher Weise müssen wir sicherstellen, dass wir die richtigen Elemente verwenden und unserem Inhalt die korrekte Bedeutung, Funktion oder Erscheinung geben. In diesem Zusammenhang ist das {{htmlelement("Heading_Elements", "h1")}}-Element ebenfalls ein semantisches Element, das dem Text, den es umschließt, die Rolle (oder Bedeutung) einer "Überschrift der obersten Ebene auf Ihrer Seite" gibt.
 
 ```html
 <h1>This is a top level heading</h1>
 ```
 
-Standardmäßig vergibt der Browser eine große Schriftgröße, um sie wie eine Überschrift aussehen zu lassen (obwohl Sie sie mit CSS so gestalten könnten, wie Sie möchten). Wichtiger ist jedoch, dass sein semantischer Wert auf verschiedene Weise verwendet wird, zum Beispiel von Suchmaschinen und Screenreadern (wie oben erwähnt).
+Standardmäßig wird der Browser es mit einer großen Schriftgröße darstellen, um es wie eine Überschrift aussehen zu lassen (obwohl Sie es mit CSS so gestalten könnten, dass es wie alles andere aussieht, was Sie möchten). Wichtiger ist jedoch, dass sein semantischer Wert auf verschiedene Weise genutzt wird, beispielsweise von Suchmaschinen und Screenreadern (wie oben erwähnt).
 
-Andererseits könnten Sie jedes Element so erscheinen lassen, als wäre es eine oberste Überschrift. Betrachten Sie Folgendes:
+Andererseits könnten Sie jedes Element _wie_ eine Überschrift der obersten Ebene aussehen lassen. Betrachten Sie Folgendes:
 
 ```html
 <span style="font-size: 32px; margin: 21px 0; display: block;">
@@ -261,17 +261,17 @@ Andererseits könnten Sie jedes Element so erscheinen lassen, als wäre es eine 
 </span>
 ```
 
-Dies ist ein {{htmlelement("span")}}-Element. Es hat keine Semantik. Sie verwenden es, um Inhalte zu umschließen, wenn Sie CSS darauf anwenden möchten (oder etwas mit JavaScript tun möchten), ohne ihnen zusätzliche Bedeutung zu geben. (Sie werden später mehr darüber im Kurs erfahren.) Wir haben etwas CSS darauf angewendet, um es aussehen zu lassen wie eine oberste Überschrift, aber da es keinen semantischen Wert hat, erhält es nicht die zusätzlichen Vorteile, die oben beschrieben wurden. Es ist eine gute Idee, das relevante HTML-Element für den Job zu verwenden.
+Dies ist ein {{htmlelement("span")}}-Element. Es hat keine Semantik. Sie verwenden es, um Inhalte einzuschließen, wenn Sie CSS darauf anwenden möchten (oder damit mit JavaScript etwas tun möchten), ohne ihm eine zusätzliche Bedeutung zu geben. (Sie werden später im Kurs mehr darüber erfahren.) Wir haben etwas CSS darauf angewandt, um es wie eine Überschrift der obersten Ebene aussehen zu lassen, aber da es keinen semantischen Wert hat, werden ihm keine der oben beschriebenen zusätzlichen Vorteile zuteil. Es ist eine gute Idee, das relevante HTML-Element für die Aufgabe zu verwenden.
 
 ## Listen
 
-Wenden wir uns nun den Listen zu. Listen sind überall im Leben - von Ihrer Einkaufsliste über die Liste der Richtungen, die Sie unbewusst folgen, um jeden Tag zu Ihrem Haus zu gelangen, bis hin zu den Listen mit Anleitungen, die Sie in diesen Tutorials befolgen! Im Web haben wir drei Arten von Listen: ungeordnete, geordnete und Beschreibungslisten.
+Wenden wir uns nun den Listen zu. Listen sind im Leben allgegenwärtig—von Ihrer Einkaufsliste bis hin zur Liste der Anweisungen, denen Sie unterbewusst folgen, um jeden Tag nach Hause zu kommen, bis hin zu den Listen von Anweisungen, denen Sie in diesen Tutorials folgen! Im Web gibt es drei Arten von Listen: ungeordnete, geordnete und Beschreibung.
 
-Ungeordnete und geordnete Listen sind sehr verbreitet, und sie werden in diesem Abschnitt behandelt. Beschreibungslisten sind weniger verbreitet, und wir werden sie in [Erweiterte Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) behandeln.
+Ungeordnete und geordnete Listen sind sehr üblich und in diesem Abschnitt behandelt. Beschreibungslisten sind weniger häufig und werden im [Fortgeschrittenes Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) behandelt.
 
-### Ungeordnete Listen
+### Ungeordnete
 
-Ungeordnete Listen werden verwendet, um Listen von Elementen zu markieren, bei denen die Reihenfolge der Elemente keine Rolle spielt. Nehmen wir als Beispiel eine Einkaufsliste:
+Ungeordnete Listen werden verwendet, um Listen von Elementen zu markieren, bei denen die Reihenfolge der Elemente keine Rolle spielt. Nehmen wir eine Einkaufsliste als Beispiel:
 
 ```plain
 milk
@@ -280,7 +280,7 @@ bread
 hummus
 ```
 
-Jede ungeordnete Liste beginnt mit einem {{htmlelement("ul")}}-Element - dies umschließt alle Listenelemente:
+Jede ungeordnete Liste beginnt mit einem {{htmlelement("ul")}}-Element—dieses schließt alle Listenelemente ein:
 
 ```html-nolint
 <ul>
@@ -291,7 +291,7 @@ Jede ungeordnete Liste beginnt mit einem {{htmlelement("ul")}}-Element - dies um
 </ul>
 ```
 
-Der letzte Schritt besteht darin, jedes Listenelement in einem {{htmlelement("li")}} (Listenelement) zu umschließen:
+Der letzte Schritt besteht darin, jedes Listenelement in ein {{htmlelement("li")}}-Element (List item) einzuschließen:
 
 ```html
 <ul>
@@ -304,7 +304,7 @@ Der letzte Schritt besteht darin, jedes Listenelement in einem {{htmlelement("li
 
 #### Aktives Lernen: Eine ungeordnete Liste markieren
 
-Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre ganz eigenen HTML-unordered-list zu erstellen.
+Versuchen Sie das folgende Live-Beispiel zu bearbeiten, um Ihre eigene HTML-ungeordnete Liste zu erstellen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -436,9 +436,9 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_an_unordered_list', 700, 400, "", "") }}
 
-### Geordnete Listen
+### Geordnete
 
-Geordnete Listen sind Listen, bei denen die Reihenfolge der Elemente \_eine Rolle spielt. Nehmen wir als Beispiel eine Reihe von Anweisungen:
+Geordnete Listen sind Listen, bei denen die Reihenfolge der Elemente _wichtig_ ist. Nehmen wir ein Beispiel für eine Anfahrtsbeschreibung:
 
 ```plain
 Drive to the end of the road
@@ -448,7 +448,7 @@ Turn left at the third roundabout
 The school is on your right, 300 meters up the road
 ```
 
-Die Markup-Struktur ist dieselbe wie bei ungeordneten Listen, außer dass Sie die Listenelemente in einem {{htmlelement("ol")}}-Element, anstelle von `<ul>`, umschließen müssen:
+Die Markup-Struktur ist dieselbe wie bei ungeordneten Listen, außer dass Sie die Listenelemente in ein {{htmlelement("ol")}}-Element einschließen müssen, anstatt `<ul>`:
 
 ```html
 <ol>
@@ -462,7 +462,7 @@ Die Markup-Struktur ist dieselbe wie bei ungeordneten Listen, außer dass Sie di
 
 #### Aktives Lernen: Eine geordnete Liste markieren
 
-Versuchen Sie, das Live-Beispiel unten zu bearbeiten, um Ihre ganz eigenen HTML-ordered-list zu erstellen.
+Versuchen Sie das folgende Live-Beispiel zu bearbeiten, um Ihre eigene HTML-geordnete Liste zu erstellen.
 
 ```html hidden
 <h2>Live output</h2>
@@ -597,7 +597,7 @@ textarea.onkeyup = () => {
 
 ### Aktives Lernen: Unsere Rezeptseite markieren
 
-An diesem Punkt des Artikels haben Sie alle Informationen, die Sie benötigen, um unser Rezeptseiten-Beispiel zu markieren. Sie können entweder eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html)-Startdatei speichern und die Arbeit dort erledigen oder es im bearbeitbaren Beispiel unten tun. Die lokale Bearbeitung wäre wahrscheinlich besser, da Sie dann die Arbeit, die Sie machen, speichern können; wenn Sie es jedoch im bearbeitbaren Beispiel ausfüllen, geht es verloren, wenn Sie die Seite das nächste Mal öffnen. Beide Möglichkeiten haben Vor- und Nachteile.
+An diesem Punkt im Artikel haben Sie alle Informationen, die Sie benötigen, um unser Rezeptseiten-Beispiel zu markieren. Sie können entweder eine lokale Kopie unserer [text-start.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-start.html) Startdatei speichern und die Arbeit dort erledigen oder in dem bearbeitbaren Beispiel unten. Es ist wahrscheinlich besser, dies lokal zu tun, da Sie dann die Arbeit, die Sie leisten, speichern können, während wenn Sie es in das bearbeitbare Beispiel einfüllen, es verloren geht, wenn Sie die Seite das nächste Mal öffnen. Beide Methoden haben Vor- und Nachteile.
 
 ```html hidden
 <h2>Live output</h2>
@@ -757,11 +757,11 @@ textarea.onkeyup = () => {
 
 {{ EmbedLiveSample('Active_learning_Marking_up_our_recipe_page', 900, 620, "", "") }}
 
-Wenn Sie nicht weiterkommen, können Sie immer die _Lösung anzeigen_ Schaltfläche drücken oder unser [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html)-Beispiel in unserem GitHub-Repo ansehen.
+Wenn Sie nicht weiterkommen, können Sie immer die _Lösung zeigen_-Taste drücken oder unser Beispiel [text-complete.html](https://github.com/mdn/learning-area/blob/main/html/introduction-to-html/html-text-formatting/text-complete.html) in unserem GitHub-Repo überprüfen.
 
-### Verschachtelte Listen
+### Listen verschachteln
 
-Es ist völlig in Ordnung, eine Liste in eine andere zu verschachteln. Möglicherweise möchten Sie einige Unterpunkte unter einem obersten Punkt hinzufügen. Nehmen wir die zweite Liste aus unserem Rezeptbeispiel:
+Es ist völlig in Ordnung, eine Liste in eine andere zu verschachteln. Vielleicht möchten Sie einige Unterpunkte unter einem Hauptpunkt auflisten. Lassen Sie uns die zweite Liste aus unserem Rezept-Beispiel betrachten:
 
 ```html
 <ol>
@@ -774,7 +774,7 @@ Es ist völlig in Ordnung, eine Liste in eine andere zu verschachteln. Mögliche
 </ol>
 ```
 
-Da die letzten beiden Punkte sehr eng mit dem vorhergehenden verbunden sind (sie lesen sich wie Teilanweisungen oder Optionen, die unter diesen Punkt passen), könnte es sinnvoll sein, sie in ihrer eigenen ungeordneten Liste zu verschachteln und diese Liste innerhalb des aktuellen vierten Punktes zu platzieren. Dies würde so aussehen:
+Da die letzten beiden Punkte sehr eng mit dem vorhergehenden verbunden sind (sie lesen sich wie Unteranweisungen oder Entscheidungen, die unter diesen Punkt passen), könnte es sinnvoll sein, sie in eine eigene ungeordnete Liste zu verschachteln und diese Liste innerhalb des aktuellen vierten Punktes zu platzieren. Dies würde folgendermaßen aussehen:
 
 ```html
 <ol>
@@ -793,23 +793,23 @@ Da die letzten beiden Punkte sehr eng mit dem vorhergehenden verbunden sind (sie
 </ol>
 ```
 
-Versuchen Sie, zum vorherigen aktiven Lernbeispiel zurückzukehren und die zweite Liste auf diese Weise zu aktualisieren.
+Versuchen Sie, zum vorherigen aktiven Learning-Beispiel zurückzukehren und die zweite Liste so zu aktualisieren.
 
 ## Hervorhebung und Wichtigkeit
 
-In der menschlichen Sprache heben wir häufig bestimmte Wörter hervor, um die Bedeutung eines Satzes zu verändern, und wir möchten oft bestimmte Wörter als wichtig oder in irgendeiner Weise anders markieren. HTML bietet verschiedene semantische Elemente, um uns zu ermöglichen, Textinhalte mit solchen Effekten zu versehen, und in diesem Abschnitt werden wir uns einige der gebräuchlichsten ansehen.
+In der menschlichen Sprache betonen wir oft bestimmte Wörter, um die Bedeutung eines Satzes zu ändern, und wir möchten oft bestimmte Wörter als wichtig oder in gewisser Weise anders markieren. HTML bietet verschiedene semantische Elemente, die es uns ermöglichen, Textinhalte mit solchen Effekten zu markieren, und in diesem Abschnitt werden wir einige der gebräuchlichsten betrachten.
 
 ### Hervorhebung
 
-Wenn wir in gesprochener Sprache Hervorhebung hinzufügen möchten, _betonen_ wir bestimmte Wörter, wodurch die Bedeutung von dem, was wir sagen, subtil verändert wird. In geschriebener Sprache neigen wir dazu, Wörter hervorzuheben, indem wir sie kursiv setzen. Zum Beispiel haben die folgenden zwei Sätze unterschiedliche Bedeutungen.
+Wenn wir in der gesprochenen Sprache Betonung hinzufügen wollen, _betonen_ wir bestimmte Wörter, um die Bedeutung subtil zu ändern. Ebenso neigen wir in der geschriebenen Sprache dazu, Wörter durch Kursivschrift zu betonen. Zum Beispiel haben die folgenden beiden Sätze unterschiedliche Bedeutungen.
 
-> Ich bin froh, dass Sie nicht zu spät gekommen sind.
+> Ich bin froh, dass Sie nicht zu spät waren.
 >
-> Ich bin _froh_, dass Sie nicht zu _spät_ gekommen sind.
+> Ich bin _froh_, dass Sie nicht _zu spät_ waren.
 
-Der erste Satz klingt wirklich erleichtert, dass die Person nicht zu spät gekommen ist. Im Gegensatz dazu klingt der zweite Satz, bei dem die Wörter "froh" und "spät" kursiv gedruckt sind, sarkastisch oder passiv-aggressiv und drückt Verärgerung darüber aus, dass die Person ein wenig zu spät gekommen ist.
+Der erste Satz klingt wirklich erleichtert, dass die Person nicht zu spät war. Im Gegensatz dazu klingt der zweite Satz, wobei sowohl die Wörter "froh" als auch "zu spät" kursiv sind, sarkastisch oder passiv-aggressiv und drückt Ärger darüber aus, dass die Person ein wenig zu spät gekommen ist.
 
-In HTML verwenden wir das {{htmlelement("em")}} (Hervorhebung) Element, um solche Instanzen zu markieren. Neben der Verbesserung der Lesbarkeit werden sie von Screenreadern erkannt, die so konfiguriert werden können, dass sie in einem anderen Tonfall sprechen. Browser stellen dies standardmäßig als Kursivtext dar, aber Sie sollten dieses Tag nicht nur verwenden, um eine kursive Darstellung zu erhalten. Um dies zu erreichen, würden Sie ein {{htmlelement("span")}}-Element und etwas CSS oder vielleicht ein {{htmlelement("i")}}-Element (siehe unten) verwenden.
+In HTML verwenden wir das {{htmlelement("em")}} (emphasis)-Element, um solche Fälle zu markieren. Neben der interessanteren Gestaltung des Dokuments erkennen Screenreader dies, die so konfiguriert werden können, dass sie es in einem anderen Ton vorlesen. Browser gestalten dies standardmäßig kursiv, aber Sie sollten diesen Tag nicht nur verwenden, um eine kursiv-Schrift zu erhalten. Dafür würden Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("i")}}-Element (siehe unten).
 
 ```html
 <p>I am <em>glad</em> you weren't <em>late</em>.</p>
@@ -817,13 +817,13 @@ In HTML verwenden wir das {{htmlelement("em")}} (Hervorhebung) Element, um solch
 
 ### Starke Wichtigkeit
 
-Um wichtige Wörter zu betonen, tendieren wir dazu, sie in gesprochener Sprache zu betonen und in geschriebener Sprache **fett** zu drucken. Zum Beispiel:
+Um wichtige Wörter zu betonen, neigen wir in der gesprochenen Sprache dazu, sie zu betonen und in der geschriebenen Sprache **fett** zu schreiben. Zum Beispiel:
 
 > Diese Flüssigkeit ist **hochgiftig**.
 >
-> Ich zähle auf Sie. **Seien Sie nicht** zu spät!
+> Ich zähle auf Sie. **Seien** Sie nicht zu spät!
 
-In HTML verwenden wir das {{htmlelement("strong")}} (starke Wichtigkeit) Element, um solche Instanzen zu markieren. Neben der Verbesserung der Lesbarkeit werden diese ebenfalls von Screenreadern erkannt, die so konfiguriert werden können, dass sie in einem anderen Tonfall sprechen. Browser stellen dies standardmäßig als Fettdruck dar, aber sie sollten dieses Tag nicht nur verwenden, um eine fette Darstellung zu erhalten. Dafür würden Sie ein {{htmlelement("span")}}-Element und etwas CSS oder vielleicht ein {{htmlelement("b")}}-Element (siehe unten) verwenden.
+In HTML verwenden wir das {{htmlelement("strong")}} (strong importance) Element, um solche Fälle zu markieren. Neben der nützlicheren Gestaltung des Dokuments erkennen Screenreader dies, die so konfiguriert werden können, dass sie es in einem anderen Ton vorlesen. Browser gestalten diesen Text standardmäßig fett, aber Sie sollten diesen Tag nicht nur verwenden, um eine Fett-Schrift zu erhalten. Dafür würden Sie ein {{htmlelement("span")}}-Element und etwas CSS verwenden oder vielleicht ein {{htmlelement("b")}}-Element (siehe unten).
 
 ```html
 <p>This liquid is <strong>highly toxic</strong>.</p>
@@ -831,7 +831,7 @@ In HTML verwenden wir das {{htmlelement("strong")}} (starke Wichtigkeit) Element
 <p>I am counting on you. <strong>Do not</strong> be late!</p>
 ```
 
-Sie können Hervorhebungen und starke Wichtigkeit ineinander verschachteln, wenn gewünscht:
+Sie können starke Wichtigkeit und Hervorhebung ineinander verschachteln, wenn gewünscht:
 
 ```html-nolint
 <p>This liquid is <strong>highly toxic</strong> — if you drink it, <strong>you may <em>die</em></strong>.</p>
@@ -841,7 +841,7 @@ Sie können Hervorhebungen und starke Wichtigkeit ineinander verschachteln, wenn
 
 ### Aktives Lernen: Lassen Sie uns wichtig sein
 
-In diesem aktiven Lernabschnitt haben wir ein bearbeitbares Beispiel bereitgestellt. Versuchen Sie darin, Hervorhebungen und starke Wichtigkeit zu den Worten hinzuzufügen, von denen Sie glauben, dass sie notwendig sind, nur um etwas Übung zu bekommen.
+In diesem aktiven Lernbereich haben wir ein bearbeitbares Beispiel bereitgestellt. Darin möchten wir, dass Sie versuchen, Hervorhebung und starke Wichtigkeit für die Wörter hinzuzufügen, die Sie für notwendig erachten, nur um etwas Übung zu haben.
 
 ```html hidden
 <h2>Live output</h2>
@@ -978,20 +978,22 @@ textarea.onkeyup = () => {
 
 ### Kursiv, fett, unterstrichen…
 
-Die bisher besprochenen Elemente haben klare assoziierte Semantiken. Die Situation bei {{htmlelement("b")}}, {{htmlelement("i")}} und {{htmlelement("u")}} ist etwas komplizierter. Sie entstanden, damit man Text fett, kursiv oder unterstrichen darstellen konnte, in einer Zeit, als CSS noch schlecht unterstützt wurde oder gar nicht. Solche Elemente, die nur die Präsentation und nicht die Semantik beeinflussen, werden als **Darstellungselemente** bezeichnet und sollten nicht mehr verwendet werden, da Semantik, wie wir bereits gesehen haben, für die Barrierefreiheit, SEO usw. so wichtig ist.
+Die bisher behandelten Elemente haben klar definierte semantische Bedeutungen. Die Situation mit {{htmlelement("b")}}, {{htmlelement("i")}} und {{htmlelement("u")}} ist etwas komplizierter. Sie entstanden, damit Menschen fett, kursiv oder unterstrichenen Text schreiben konnten in einer Zeit, als CSS noch schlecht oder gar nicht unterstützt wurde. Elemente wie diese, die nur die Präsentation und nicht die Semantik betreffen, werden als **präsentationsorientierte Elemente** bezeichnet und sollten nicht mehr verwendet werden, da, wie wir bereits gesehen haben, Semantik so wichtig für Barrierefreiheit, SEO usw. ist.
 
 HTML5 hat `<b>`, `<i>` und `<u>` mit neuen, etwas verwirrenden, semantischen Rollen neu definiert.
 
-Hier ist die beste Regel, die Sie sich merken können: Es ist nur dann angebracht, `<b>`, `<i>` oder `<u>` zu verwenden, um eine Bedeutung zu vermitteln, die traditionell durch Fett, Kursiv oder Unterstrichen übermittelt wird, wenn es kein besser geeignetes Element gibt; und das gibt es normalerweise. Überlegen Sie, ob `<strong>`, `<em>`, `<mark>` oder `<span>` möglicherweise geeigneter sein könnte.
+Hier ist die beste Regel, die Sie sich merken können: Es ist nur angemessen, `<b>`, `<i>` oder `<u>` zu verwenden, um eine Bedeutung zu vermitteln, die traditionell mit Fett, Kursiv oder Unterstrichen vermittelt wurde, wenn es kein besser geeignetes Element gibt; und das gibt es normalerweise. Erwägen Sie, ob `<strong>`, `<em>`, `<mark>` oder `<span>` möglicherweise geeigneter sein könnten.
 
-Behalten Sie immer die Barrierefreiheit im Hinterkopf. Das Konzept der Kursivität ist für Menschen mit Screenreadern nicht sehr hilfreich, ebenso wie für Personen, die ein Schriftsystem verwenden, das nicht das lateinische Alphabet ist.
+Behalten Sie immer eine Barrierefreiheitsperspektive im Kopf. Das Konzept der Kursivschrift ist für Menschen, die Screenreader verwenden, nicht sehr hilfreich oder für Menschen, die ein anderes Schriftsystem als das lateinische Alphabet verwenden.
 
-- {{HTMLElement('i')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Kursivschrift vermittelt wird: fremde Wörter, taxonomische Bezeichnungen, Fachbegriffe, ein Gedanke…
-- {{HTMLElement('b')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Fettdruck vermittelt wird: Schlüsselwörter, Produktnamen, Einleitungssatz…
-- {{HTMLElement('u')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Unterstreichung vermittelt wird: richtiger Name, Rechtschreibfehler…
+- {{HTMLElement('i')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Kursivschrift vermittelt wird: Fremdwörter, taxonomische Benennung, technische Begriffe, ein Gedanke…
+- {{HTMLElement('b')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Fettschrift vermittelt wird: Schlüsselwörter, Produktnamen, Hauptsatz…
+- {{HTMLElement('u')}} wird verwendet, um eine Bedeutung zu vermitteln, die traditionell durch Unterstreichen vermittelt wird: Eigenname, Rechtschreibfehler…
 
 > [!NOTE]
-> Menschen assoziieren Unterstreichungen stark mit Hyperlinks. Daher sollten Sie im Web nur Links unterstreichen. Verwenden Sie das `<u>`-Element, wenn es semantisch angemessen ist, ziehen Sie jedoch in Betracht, mit CSS die Standardunterstreichung in etwas zu ändern, das im Web geeigneter ist. Das folgende Beispiel zeigt, wie es gemacht werden kann.
+> Menschen assoziieren Unterstreichen stark mit Hyperlinks. Daher ist es im Web am besten, nur Links zu unterstreichen. Verwenden Sie das `<u>`-Element, wenn es semantisch angebracht ist, ziehen Sie jedoch in Betracht, CSS zu verwenden, um das standardmäßige Unterstreichen auf etwas Web-geeigneteres zu ändern. Das folgende Beispiel illustriert, wie dies getan werden kann.
+
+<!-- cSpell:ignore spel -->
 
 ```html
 <!-- scientific names -->
@@ -1023,10 +1025,10 @@ Behalten Sie immer die Barrierefreiheit im Hinterkopf. Das Konzept der Kursivit�
 
 ## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Weitere Tests finden Sie im Abschnitt [Testen Sie Ihr Wissen: HTML-Text-Grundlagen](/de/docs/Learn/HTML/Introduction_to_HTML/Test_your_skills:_HTML_text_basics), um zu überprüfen, ob Sie die Informationen bewahrt haben, bevor Sie fortfahren.
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihr Wissen: HTML-Text-Grundlagen](/de/docs/Learn/HTML/Introduction_to_HTML/Test_your_skills:_HTML_text_basics).
 
 ## Zusammenfassung
 
-Das war's für den Moment! Dieser Artikel sollte Ihnen eine gute Vorstellung davon gegeben haben, wie Sie mit der Textformatierung in HTML beginnen und einige der wichtigsten Elemente in diesem Bereich eingeführt. Es gibt noch viele weitere semantische Elemente in diesem Bereich zu behandeln, und wir werden in unserem Artikel [Erweiterte Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) später im Kurs noch viel mehr untersuchen. Im nächsten Artikel werden wir uns genauer ansehen, wie man [Hyperlinks erstellt](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks), möglicherweise das wichtigste Element im Web.
+Das war's vorerst! Dieser Artikel sollte Ihnen eine gute Vorstellung davon gegeben haben, wie man mit der Markierung von Text in HTML beginnt, und Sie mit einigen der wichtigsten Elemente in diesem Bereich vertraut gemacht haben. Es gibt noch viele weitere semantische Elemente in diesem Bereich zu behandeln, und wir werden noch viele weitere in unserem Artikel [Fortgeschrittenes Textformatierung](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting) später im Kurs behandeln. Im nächsten Artikel werden wir uns im Detail ansehen, wie man [Hyperlinks erstellt](/de/docs/Learn/HTML/Introduction_to_HTML/Creating_hyperlinks), möglicherweise das wichtigste Element im Web.
 
 {{PreviousMenuNext("Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML", "Learn/HTML/Introduction_to_HTML/Creating_hyperlinks", "Learn/HTML/Introduction_to_HTML")}}
