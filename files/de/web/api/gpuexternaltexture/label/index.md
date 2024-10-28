@@ -3,22 +3,22 @@ title: "GPUExternalTexture: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUExternalTexture/label
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Schnittstelle bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUExternalTexture`](/de/docs/Web/API/GPUExternalTexture)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das beim ursprünglichen Aufruf von [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) übergeben wird. Alternativ können Sie es direkt am `GPUExternalTexture`-Objekt abrufen und festlegen.
+Dies kann gesetzt werden, indem man eine `label`-Eigenschaft im Deskriptionsobjekt bereitstellt, das im ursprünglichen [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture)-Aufruf übergeben wird. Alternativ kann es direkt auf dem `GPUExternalTexture`-Objekt gesetzt und ausgelesen werden.
 
 ## Wert
 
-Ein String. Wenn dies, wie oben beschrieben, nicht vorher festgelegt wurde, wird es ein leerer String sein.
+Ein String. Falls dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Festlegen und Abrufen eines Labels über `GPUExternalTexture.label`:
+Setzen und Abrufen eines Labels über `GPUExternalTexture.label`:
 
 ```js
 // ...
@@ -27,22 +27,22 @@ const externalTexture = device.importExternalTexture({
   source: video,
 });
 
-externalTexture.label = "myExtTexture";
+externalTexture.label = "my_ext_texture";
 
-console.log(externalTexture.label); // "myExtTexture"
+console.log(externalTexture.label); // "my_ext_texture"
 ```
 
-Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture) und dann Abrufen über `GPUExternalTexture.label`:
+Setzen eines Labels über den ursprünglichen [`GPUDevice.importExternalTexture()`](/de/docs/Web/API/GPUDevice/importExternalTexture)-Aufruf und das anschließende Abrufen über `GPUExternalTexture.label`:
 
 ```js
 // ...
 
 const externalTexture = device.importExternalTexture({
   source: video,
-  label: "myExtTexture",
+  label: "my_ext_texture",
 });
 
-console.log(externalTexture.label); //  "myExtTexture"
+console.log(externalTexture.label); //  "my_ext_texture"
 ```
 
 ## Spezifikationen

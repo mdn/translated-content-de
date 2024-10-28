@@ -3,14 +3,15 @@ title: "GPUSampler: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUSampler/label
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUSampler`](/de/docs/Web/API/GPUSampler) Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError) Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des
+[`GPUSampler`](/de/docs/Web/API/GPUSampler)-Interfaces bietet eine Bezeichnung, die verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann durch Bereitstellung einer `label` Eigenschaft in dem Descriptor-Objekt gesetzt werden, das in den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) Aufruf übergeben wird, oder Sie können es direkt am `GPUSampler` Objekt setzen und abrufen.
+Dies kann durch Bereitstellung einer `label`-Eigenschaft im Deskriptor-Objekt, das beim ursprünglichen Aufruf von [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) übergeben wird, gesetzt werden. Oder Sie können es direkt auf dem `GPUSampler`-Objekt lesen und setzen.
 
 ## Wert
 
@@ -18,7 +19,7 @@ Ein String. Wenn dies nicht zuvor wie oben beschrieben gesetzt wurde, ist es ein
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUSampler.label`:
+Setzen und Lesen einer Bezeichnung über `GPUSampler.label`:
 
 ```js
 // ...
@@ -27,22 +28,22 @@ const sampler = device.createSampler({
   compare: "less",
 });
 
-sampler.label = "mysampler";
+sampler.label = "my_sampler";
 
-console.log(sampler.label); // "mysampler"
+console.log(sampler.label); // "my_sampler"
 ```
 
-Setzen eines Labels über den ursprünglichen [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) Aufruf und dann Abrufen über `GPUSampler.label`:
+Setzen einer Bezeichnung über den ursprünglichen Aufruf von [`GPUDevice.createSampler()`](/de/docs/Web/API/GPUDevice/createSampler) und dann Abrufen über `GPUSampler.label`:
 
 ```js
 // ...
 
 const sampler = device.createSampler({
   compare: "less",
-  label: "mysampler",
+  label: "my_sampler",
 });
 
-console.log(sampler.label); // "mysampler"
+console.log(sampler.label); // "my_sampler"
 ```
 
 ## Spezifikationen

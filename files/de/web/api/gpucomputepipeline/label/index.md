@@ -3,18 +3,18 @@ title: "GPUComputePipeline: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUComputePipeline/label
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Schnittstelle bietet ein Label, das zur Identifikation des Objekts, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen, verwendet werden kann.
+Die **`label`**-Eigenschaft der [`GPUComputePipeline`](/de/docs/Web/API/GPUComputePipeline)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt bereitgestellt wird, das in den ursprünglichen Aufruf von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) oder [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) übergeben wird, oder Sie können es direkt auf dem `GPUComputePipeline`-Objekt setzen und abrufen.
+Diese kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt angegeben wird, das in den ursprünglichen Aufruf von [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline) oder [`GPUDevice.createComputePipelineAsync()`](/de/docs/Web/API/GPUDevice/createComputePipelineAsync) übergeben wird, oder Sie können sie direkt am `GPUComputePipeline`-Objekt abrufen und festlegen.
 
 ## Wert
 
-Ein String. Wenn dieser nicht wie oben beschrieben vorher gesetzt wurde, wird er ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor festgelegt wurde, ist es ein leerer String.
 
 ## Beispiele
 
@@ -33,9 +33,9 @@ const computePipeline = device.createComputePipeline({
   },
 });
 
-computePipeline.label = "mycomputepipeline";
+computePipeline.label = "my_compute_pipeline";
 
-console.log(computePipeline.label); // "mycomputepipeline"
+console.log(computePipeline.label); // "my_compute_pipeline"
 ```
 
 Setzen eines Labels über einen [`GPUDevice.createComputePipeline()`](/de/docs/Web/API/GPUDevice/createComputePipeline)-Aufruf und anschließendes Abrufen über `GPUComputePipeline.label`:
@@ -51,10 +51,10 @@ const computePipeline = device.createComputePipeline({
     module: shaderModule,
     entryPoint: "main",
   },
-  label: "mycomputepipeline",
+  label: "my_compute_pipeline",
 });
 
-console.log(computePipeline.label); // "mycomputepipeline"
+console.log(computePipeline.label); // "my_compute_pipeline"
 ```
 
 ## Spezifikationen
@@ -67,4 +67,4 @@ console.log(computePipeline.label); // "mycomputepipeline"
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

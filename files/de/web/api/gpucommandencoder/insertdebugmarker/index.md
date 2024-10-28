@@ -1,16 +1,16 @@
 ---
-title: "GPUCommandEncoder: Methode insertDebugMarker()"
+title: "GPUCommandEncoder: insertDebugMarker() Methode"
 short-title: insertDebugMarker()
 slug: Web/API/GPUCommandEncoder/insertDebugMarker
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`insertDebugMarker()`**-Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle markiert einen bestimmten Punkt in einer Reihe von kodierten Befehlen mit einem Label.
+Die **`insertDebugMarker()`** Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle markiert einen bestimmten Punkt in einer Reihe von codierten Befehlen mit einem Label.
 
-Dies könnte für Telemetrie verwendet werden oder in der Zukunft in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen, Entwicklerwerkzeugen des Browsers oder anderen Diensten genutzt werden, um bei der Fehlersuche zu helfen.
+Dies könnte für Telemetrie verwendet werden oder in [`GPUError`](/de/docs/Web/API/GPUError) Nachrichten, Browser-Entwicklungstools oder anderen Diensten in der Zukunft genutzt werden, um beim Debugging zu helfen.
 
 ## Syntax
 
@@ -32,7 +32,7 @@ Keiner ({{jsxref("Undefined")}}).
 ```js
 // ...
 
-commandEncoder.insertDebugMarker("mymarker");
+commandEncoder.insertDebugMarker("my_marker");
 
 // ...
 ```
@@ -47,4 +47,4 @@ commandEncoder.insertDebugMarker("mymarker");
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

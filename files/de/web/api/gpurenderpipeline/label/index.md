@@ -1,24 +1,24 @@
 ---
-title: "GPURenderPipeline: Label-Eigenschaft"
+title: "GPURenderPipeline: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPURenderPipeline/label
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Interfaces bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt bereitgestellt wird, das in den ursprünglichen Aufruf von [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) übergeben wird, oder Sie können es direkt am `GPURenderPipeline`-Objekt abrufen und festlegen.
+Dies kann festgelegt werden, indem eine `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das beim Aufruf von [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) oder [`GPUDevice.createRenderPipelineAsync()`](/de/docs/Web/API/GPUDevice/createRenderPipelineAsync) übergeben wird, oder Sie können es direkt am `GPURenderPipeline`-Objekt setzen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dies wie oben beschrieben nicht zuvor festgelegt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies nicht wie oben beschrieben zuvor festgelegt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
-Festlegen und Abrufen eines Labels über `GPURenderPipeline.label`:
+Setzen und Abrufen eines Labels über `GPURenderPipeline.label`:
 
 ```js
 // ...
@@ -46,12 +46,12 @@ const pipelineDescriptor = {
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
-renderPipeline.label = "myrenderpipeline";
+renderPipeline.label = "my_render_pipeline";
 
-console.log(renderPipeline.label); // "myrenderpipeline"
+console.log(renderPipeline.label); // "my_render_pipeline"
 ```
 
-Festlegen eines Labels über einen [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Aufruf und dann Abrufen über `GPURenderPipeline.label`:
+Setzen eines Labels über einen [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline)-Aufruf und anschließend Abrufen über `GPURenderPipeline.label`:
 
 ```js
 // ...
@@ -75,12 +75,12 @@ const pipelineDescriptor = {
     topology: "triangle-list",
   },
   layout: "auto",
-  label: "myrenderpipeline",
+  label: "my_render_pipeline",
 };
 
 const renderPipeline = device.createRenderPipeline(pipelineDescriptor);
 
-console.log(renderPipeline.label); // "myrenderpipeline"
+console.log(renderPipeline.label); // "my_render_pipeline"
 ```
 
 ## Spezifikationen

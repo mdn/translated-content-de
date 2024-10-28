@@ -2,16 +2,16 @@
 title: Verwendung des Document Object Model
 slug: Web/API/Document_Object_Model/Using_the_Document_Object_Model
 l10n:
-  sourceCommit: 1f44fd905e4acbe867ca945b26a8b06ddb646328
+  sourceCommit: d5a5d773f28c24bb017c92a6b6b4363cfcd61903
 ---
 
 {{DefaultAPISidebar("DOM")}}
 
-Das _Document Object Model_ (DOM) ist eine API zur Manipulation von DOM-Bäumen von HTML- und XML-Dokumenten (sowie anderen baumartigen Dokumenten). Diese API bildet die Grundlage für die Beschreibung einer Seite und dient als Basis für das Scripting im Web.
+Das _Document Object Model_ (DOM) ist eine API zur Manipulation von DOM-Bäumen in HTML- und XML-Dokumenten (und anderen baumartigen Dokumenten). Diese API ist die Grundlage für die Beschreibung einer Seite und dient als Basis für Skripting im Web.
 
 ## Was ist ein DOM-Baum?
 
-Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_structure), deren Knoten den Inhalt eines HTML- oder XML-Dokuments darstellen. Jedes HTML- oder XML-Dokument hat eine Darstellung als DOM-Baum. Zum Beispiel betrachten Sie das folgende Dokument:
+Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_structure), deren Knoten den Inhalt eines HTML- oder XML-Dokuments repräsentieren. Jedes HTML- oder XML-Dokument hat eine DOM-Baumarstellung. Zum Beispiel, betrachten Sie folgendes Dokument:
 
 ```html
 <html lang="en">
@@ -27,19 +27,19 @@ Ein **DOM-Baum** ist eine [Baumstruktur](https://en.wikipedia.org/wiki/Tree_stru
 
 Es hat einen DOM-Baum, der so aussieht:
 
-![Das DOM als baumartige Darstellung eines Dokuments, das eine Wurzel und Knotenelemente enthält, die Inhalte haben](using_the_w3c_dom_level_1_core-doctree.jpg)
+![Das DOM als baumartige Darstellung eines Dokuments, das eine Wurzel und Knotenelemente mit Inhalten hat](using_the_w3c_dom_level_1_core-doctree.jpg)
 
-Obwohl der obige Baum dem DOM-Baum des obigen Dokuments ähnlich ist, ist er nicht identisch, da [der tatsächliche DOM-Baum Leerzeichen bewahrt](/de/docs/Web/API/Document_Object_Model/Whitespace).
+Obwohl der obige Baum dem DOM-Baum des Dokuments ähnlich ist, ist er nicht identisch, da [der tatsächliche DOM-Baum Leerzeichen beibehält](/de/docs/Web/API/Document_Object_Model/Whitespace).
 
-Wenn ein Webbrowser ein HTML-Dokument parst, baut er einen DOM-Baum auf und verwendet diesen dann, um das Dokument anzuzeigen.
+Wenn ein Webbrowser ein HTML-Dokument analysiert, baut er einen DOM-Baum auf und verwendet diesen dann zur Darstellung des Dokuments.
 
-## Was macht die Document API?
+## Was macht die Document-API?
 
-Die Document API, manchmal auch DOM API genannt, ermöglicht es Ihnen, einen DOM-Baum in _jeder gewünschten Weise_ zu modifizieren. Sie ermöglicht es Ihnen, ein beliebiges HTML- oder XML-Dokument von Grund auf zu erstellen oder die Inhalte eines bestehenden HTML- oder XML-Dokuments zu ändern. Webseitenautoren können das DOM eines Dokuments bearbeiten, indem sie in JavaScript auf die `document` Eigenschaft des globalen Objekts zugreifen. Dieses `document` Objekt implementiert das [`Document`](/de/docs/Web/API/Document) Interface.
+Die Document-API, manchmal auch DOM-API genannt, erlaubt Ihnen, einen DOM-Baum auf _jede beliebige Weise_ zu verändern. Sie ermöglicht es, jedes HTML- oder XML-Dokument von Grund auf neu zu erstellen oder die Inhalte eines gegebenen HTML- oder XML-Dokuments zu ändern. Webautoren können das DOM eines Dokuments bearbeiten, indem sie in JavaScript auf die `document`-Eigenschaft des globalen Objekts zugreifen. Dieses `document`-Objekt implementiert das [`Document`](/de/docs/Web/API/Document)-Interface.
 
-## Lesen und Ändern des Baumes
+## Lesen und Ändern des Baums
 
-Angenommen, der Autor möchte die Überschrift des obigen Dokuments ändern und stattdessen zwei Absätze schreiben. Das folgende Skript würde die Aufgabe erfüllen:
+Angenommen, der Autor möchte die Überschrift des oben genannten Dokuments ändern und zwei Absätze statt eines schreiben. Das folgende Skript würde dies tun:
 
 ### HTML
 
@@ -90,7 +90,7 @@ function change() {
 
 {{ EmbedLiveSample('reading_and_modifying_the_tree', 800, 300) }}
 
-## Erstellung eines Baumes
+## Erstellen eines Baums
 
 Sie können den obigen Baum auch vollständig in JavaScript erstellen.
 
@@ -117,7 +117,7 @@ root.appendChild(body);
 
 ## Wie kann ich mehr lernen?
 
-Jetzt, da Sie mit den grundlegenden Konzepten des DOM vertraut sind, möchten Sie vielleicht mehr über die grundlegenden Funktionen der Document API erfahren, indem Sie [eine Anleitung zum Durchqueren einer HTML-Tabelle mit JavaScript und DOM-Interfaces](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces) lesen.
+Jetzt, da Sie mit den Grundkonzepten des DOM vertraut sind, möchten Sie vielleicht mehr über die grundlegenden Funktionen der Document-API lernen, indem Sie [lesen, wie man eine HTML-Tabelle mit JavaScript und DOM-Interfaces durchläuft](/de/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces).
 
 ## Siehe auch
 

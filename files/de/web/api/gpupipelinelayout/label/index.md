@@ -1,24 +1,25 @@
 ---
-title: "GPUPipelineLayout: label-Eigenschaft"
+title: "GPUPipelineLayout: label Eigenschaft"
 short-title: label
 slug: Web/API/GPUPipelineLayout/label
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Schnittstelle bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft des
+[`GPUPipelineLayout`](/de/docs/Web/API/GPUPipelineLayout)-Interfaces bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dieses Label kann gesetzt werden, indem ein `label`-Eigenschaft im Deskriptor-Objekt bereitgestellt wird, das in den ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) übergeben wird, oder Sie können es direkt auf dem `GPUPipelineLayout`-Objekt abrufen und setzen.
+Diese kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptionsobjekt angegeben wird, das beim Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) übergeben wird. Alternativ können Sie das Label direkt auf dem `GPUPipelineLayout`-Objekt festlegen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dies zuvor nicht wie oben beschrieben gesetzt wurde, wird es ein leerer String sein.
+Ein String. Falls dies zuvor nicht wie oben beschrieben festgelegt wurde, ist es ein leerer String.
 
 ## Beispiele
 
-Setzen und Abrufen eines Labels über `GPUPipelineLayout.label`:
+Festlegen und Abrufen eines Labels über `GPUPipelineLayout.label`:
 
 ```js
 // ...
@@ -27,22 +28,22 @@ const pipelineLayout = device.createPipelineLayout({
   bindGroupLayouts: [bindGroupLayout],
 });
 
-pipelineLayout.label = "mypipelinelayout";
+pipelineLayout.label = "my_pipeline_layout";
 
-console.log(pipelineLayout.label); // "mypipelinelayout";
+console.log(pipelineLayout.label); // "my_pipeline_layout"
 ```
 
-Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout), und dann Abrufen über `GPUPipelineLayout.label`:
+Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createPipelineLayout()`](/de/docs/Web/API/GPUDevice/createPipelineLayout) und anschließendes Abrufen über `GPUPipelineLayout.label`:
 
 ```js
 // ...
 
 const pipelineLayout = device.createPipelineLayout({
   bindGroupLayouts: [bindGroupLayout],
-  label: "mypipelinelayout",
+  label: "my_pipeline_layout",
 });
 
-console.log(pipelineLayout.label); // "mypipelinelayout";
+console.log(pipelineLayout.label); // "my_pipeline_layout"
 ```
 
 ## Spezifikationen
@@ -55,4 +56,4 @@ console.log(pipelineLayout.label); // "mypipelinelayout";
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

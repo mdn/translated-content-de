@@ -3,7 +3,7 @@ title: "HTMLButtonElement: type-Eigenschaft"
 short-title: type
 slug: Web/API/HTMLButtonElement/type
 l10n:
-  sourceCommit: 34d914d848c6d749bb264e6d5c4dda3e94fda4ba
+  sourceCommit: c749deb4ccb647d792deee4807d4852104bedd9d
 ---
 
 {{ApiRef("HTML DOM")}}
@@ -16,7 +16,7 @@ Sie spiegelt das [`type`](/de/docs/Web/HTML/Element/button#type)-Attribut des {{
 
 Ein String, der den Typ darstellt.
 
-Die möglichen Werte sind im Abschnitt [buttontypen](/de/docs/Web/API/HTMLButtonElement#htmlbuttonelement.type) des Attributs aufgelistet.
+Die möglichen Werte sind im Abschnitt [button types](/de/docs/Web/API/HTMLButtonElement#htmlbuttonelement.type) des Attributs aufgeführt.
 
 ## Beispiel
 
@@ -29,7 +29,7 @@ Die möglichen Werte sind im Abschnitt [buttontypen](/de/docs/Web/API/HTMLButton
 ### JavaScript
 
 ```js
-const buttonElement = document.querySelector("#buttton");
+const buttonElement = document.querySelector("#button");
 console.log(buttonElement.type); // "reset"
 ```
 

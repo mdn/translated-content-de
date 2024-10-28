@@ -2,18 +2,18 @@
 title: MIDIPort
 slug: Web/API/MIDIPort
 l10n:
-  sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{securecontext_header}}{{APIRef("Web MIDI API")}}
 
-Die **`MIDIPort`**-Schnittstelle der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) repräsentiert einen MIDI-Eingangs- oder Ausgangsport.
+Das **`MIDIPort`** Interface der [Web MIDI API](/de/docs/Web/API/Web_MIDI_API) repräsentiert einen MIDI-Eingangs- oder Ausgangsport.
 
-Eine `MIDIPort`-Instanz wird erstellt, wenn ein neues MIDI-Gerät angeschlossen wird. Daher verfügt sie über keinen Konstruktor.
+Eine `MIDIPort`-Instanz wird erstellt, wenn ein neues MIDI-Gerät angeschlossen wird. Daher gibt es keinen Konstruktor.
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`MIDIPort.id`](/de/docs/Web/API/MIDIPort/id) {{ReadOnlyInline}}
   - : Gibt eine Zeichenkette zurück, die die eindeutige ID des Ports enthält.
@@ -23,54 +23,54 @@ Eine `MIDIPort`-Instanz wird erstellt, wenn ein neues MIDI-Gerät angeschlossen 
   - : Gibt eine Zeichenkette zurück, die den Systemnamen des Ports enthält.
 - [`MIDIPort.type`](/de/docs/Web/API/MIDIPort/type) {{ReadOnlyInline}}
 
-  - : Gibt eine Zeichenkette zurück, die den Typ des Ports enthält, einer von:
+  - : Gibt eine Zeichenkette zurück, die den Typ des Ports enthält, eine von:
 
     - `"input"`
-      - : Der `MIDIPort` ist ein Eingangsport.
+      - : Das `MIDIPort` ist ein Eingangsport.
     - `"output"`
-      - : Der `MIDIPort` ist ein Ausgangsport.
+      - : Das `MIDIPort` ist ein Ausgangsport.
 
 - [`MIDIPort.version`](/de/docs/Web/API/MIDIPort/version) {{ReadOnlyInline}}
   - : Gibt eine Zeichenkette zurück, die die Version des Ports enthält.
 - [`MIDIPort.state`](/de/docs/Web/API/MIDIPort/state) {{ReadOnlyInline}}
 
-  - : Gibt eine Zeichenkette zurück, die den Zustand des Ports enthält, einer von:
+  - : Gibt eine Zeichenkette zurück, die den Status des Ports enthält, einer von:
 
     - `"disconnected"`
-      - : Das Gerät, das dieser `MIDIPort` repräsentiert, ist vom System getrennt.
+      - : Das Gerät, das dieses `MIDIPort` repräsentiert, ist vom System getrennt.
     - `"connected"`
-      - : Das Gerät, das dieser `MIDIPort` repräsentiert, ist derzeit verbunden.
+      - : Das Gerät, das dieses `MIDIPort` repräsentiert, ist derzeit verbunden.
 
 - [`MIDIPort.connection`](/de/docs/Web/API/MIDIPort/connection) {{ReadOnlyInline}}
 
   - : Gibt eine Zeichenkette zurück, die den Verbindungsstatus des Ports enthält, einer von:
 
     - `"open"`
-      - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet und ist verfügbar.
+      - : Das Gerät, das dieses `MIDIPort` repräsentiert, wurde geöffnet und ist verfügbar.
     - `"closed"`
-      - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde nicht geöffnet oder wurde geschlossen.
+      - : Das Gerät, das dieses `MIDIPort` repräsentiert, wurde nicht geöffnet oder wurde geschlossen.
     - `"pending"`
-      - : Das Gerät, das dieser `MIDIPort` repräsentiert, wurde geöffnet, ist aber anschließend getrennt worden.
+      - : Das Gerät, das dieses `MIDIPort` repräsentiert, wurde geöffnet, aber anschließend getrennt.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Dieses Interface erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`MIDIPort.open()`](/de/docs/Web/API/MIDIPort/open)
-  - : Macht das an diesen `MIDIPort` angeschlossene MIDI-Gerät explizit verfügbar und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Zugriff auf den Port erfolgreich war.
+  - : Macht das MIDI-Gerät, das mit diesem `MIDIPort` verbunden ist, explizit verfügbar und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Zugriff auf den Port erfolgreich war.
 - [`MIDIPort.close()`](/de/docs/Web/API/MIDIPort/close)
-  - : Macht das an diesen `MIDIPort` angeschlossene MIDI-Gerät nicht verfügbar und ändert den [`state`](/de/docs/Web/API/MIDIPort/state) von `"open"` zu `"closed"`. Dies gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Port geschlossen wurde.
+  - : Macht das MIDI-Gerät, das mit diesem `MIDIPort` verbunden ist, nicht verfügbar und ändert den [`state`](/de/docs/Web/API/MIDIPort/state) von `"open"` zu `"closed"`. Dies gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Port geschlossen wurde.
 
 ## Ereignisse
 
 - [`statechange`](/de/docs/Web/API/MIDIPort/statechange_event)
-  - : Wird aufgerufen, wenn ein bestehender Port seinen Zustand oder seine Verbindung ändert.
+  - : Wird aufgerufen, wenn ein bestehender Port seinen Status oder seine Verbindung ändert.
 
 ## Beispiele
 
 ### Ports und ihre Informationen auflisten
 
-Das folgende Beispiel listet Eingangs- und Ausgangsports auf und zeigt Informationen über sie mit den Eigenschaften des `MIDIPort` an.
+Das folgende Beispiel listet Eingangs- und Ausgangsports auf und zeigt Informationen über sie mit Hilfe von `MIDIPort`-Eigenschaften an.
 
 ```js
 function listInputsAndOutputs(midiAccess) {
@@ -90,15 +90,15 @@ function listInputsAndOutputs(midiAccess) {
 }
 ```
 
-### Verfügbare Ports zu einer Auswahlliste hinzufügen
+### Verfügbare Ports zu einer Auswahl-Liste hinzufügen
 
-Das folgende Beispiel nimmt die Liste der Eingangsports und fügt sie einer Auswahlliste hinzu, damit der Benutzer das Gerät auswählen kann, das er verwenden möchte.
+Das folgende Beispiel nimmt die Liste der Eingangsports und fügt sie einer Auswahlliste hinzu, damit der Benutzer das gewünschte Gerät auswählen kann.
 
 ```js
 inputs.forEach((port, key) => {
   const opt = document.createElement("option");
   opt.text = port.name;
-  document.getElementById("inputportselector").add(opt);
+  document.getElementById("port-selector").add(opt);
 });
 ```
 

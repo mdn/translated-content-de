@@ -1,26 +1,26 @@
 ---
-title: "Metadata: modificationTime Eigenschaft"
+title: "Metadaten: modificationTime-Eigenschaft"
 short-title: modificationTime
 slug: Web/API/Metadata/modificationTime
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("File and Directory Entries API")}}{{Non-standard_header}}{{SeeCompatTable}}
 
-Die schreibgeschützte **`modificationTime`** Eigenschaft der [`Metadata`](/de/docs/Web/API/Metadata) Schnittstelle ist ein {{jsxref("Date")}}-Objekt, das das Datum und die Uhrzeit angibt, zu der der Dateisystemeintrag (oder die durch den Eintrag referenzierten Daten) zuletzt geändert wurde. Ein Dateisystemeintrag gilt als geändert, wenn sich die Metadaten oder der Inhalt der referenzierten Datei (oder des Verzeichnisses oder einer anderen Art von Dateisystemeintrag, die auf der verwendeten Plattform existieren könnte) verändert haben.
+Die schreibgeschützte **`modificationTime`**-Eigenschaft der [`Metadata`](/de/docs/Web/API/Metadata)-Schnittstelle ist ein {{jsxref("Date")}}-Objekt, das das Datum und die Uhrzeit angibt, zu der der Dateisystemeintrag (oder die vom Eintrag referenzierten Daten) zuletzt geändert wurde. Ein Dateisystemeintrag gilt als geändert, wenn die Metadaten oder der Inhalt der referenzierten Datei (oder des Verzeichnisses oder einer anderen Art von Dateisystemeintrag, die auf der verwendeten Plattform existieren könnte) verändert wurden.
 
 ## Wert
 
-Ein {{jsxref("Date")}}-Zeitstempel, der angibt, wann der Dateisystemeintrag zuletzt geändert wurde.
+Ein {{jsxref("Date")}}-Zeitstempel, der anzeigt, wann der Dateisystemeintrag zuletzt geändert wurde.
 
 ## Beispiele
 
-In diesem Beispiel wird versucht, eine bestimmte Arbeitsdatei unter `tmp/workfile.json` zu erhalten. Sobald diese Datei gefunden wurde, werden ihre Metadaten abgerufen und das Änderungsjahr des Dateistempels wird mit dem aktuellen Jahr verglichen. Wenn sie zuletzt in einem Jahr geändert wurde, das mindestens fünf Jahre vor dem aktuellen Jahr liegt, wird die Datei entfernt und eine neue erstellt.
+Dieses Beispiel versucht, eine bestimmte Arbeitsdatei unter `tmp/work-file.json` zu erhalten. Sobald diese Datei gefunden wurde, werden ihre Metadaten abgerufen und das Änderungsjahr des Zeitstempels der Datei mit dem aktuellen Jahr verglichen. Wenn sie in einem Jahr geändert wurde, das mindestens fünf Jahre vor dem aktuellen Jahr liegt, wird die Datei entfernt und eine neue erstellt.
 
 ```js
 workingDirectory.getFile(
-  "tmp/workfile.json",
+  "tmp/work-file.json",
   { create: true },
   (fileEntry) => {
     fileEntry.getMetadata((metadata) => {
@@ -30,7 +30,7 @@ workingDirectory.getFile(
       ) {
         fileEntry.remove(() => {
           workingDirectory.getFile(
-            "tmp/workfile.json",
+            "tmp/work-file.json",
             { create: true },
             (newEntry) => {
               fileEntry = newEntry;

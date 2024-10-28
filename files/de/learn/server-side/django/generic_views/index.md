@@ -1,47 +1,46 @@
 ---
-title: "Django-Tutorial Teil 6: Generische Listen- und Detailansichten"
+title: "Django Tutorial Teil 6: Generische Listen- und Detailansichten"
 slug: Learn/Server-side/Django/Generic_views
 l10n:
-  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
+  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Server-side/Django/Home_page", "Learn/Server-side/Django/Sessions", "Learn/Server-side/Django")}}
 
-Dieses Tutorial erweitert unsere [LocalLibrary](/de/docs/Learn/Server-side/Django/Tutorial_local_library_website)-Website durch die Hinzufügung von Listen- und Detailseiten für Bücher und Autoren. Hier lernen Sie generische, klassenbasierte Ansichten kennen und erfahren, wie sie die Menge des Codes reduzieren können, den Sie für häufige Anwendungsfälle schreiben müssen. Wir gehen auch detaillierter auf die URL-Verarbeitung ein und zeigen, wie grundlegendes Musterabgleich funktioniert.
+Dieses Tutorial erweitert unsere [LocalLibrary](/de/docs/Learn/Server-side/Django/Tutorial_local_library_website) Website um Listen- und Detailseiten für Bücher und Autoren. Hier lernen Sie generische klassenbasierte Ansichten kennen und erfahren, wie diese helfen können, den Code zu reduzieren, den Sie für häufige Anwendungsfälle schreiben müssen. Wir werden auch das URL-Handling detaillierter betrachten und zeigen, wie Sie grundlegende Mustererkennung durchführen können.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Schließen Sie alle vorherigen Tutorial-Themen ab, einschließlich <a href="/de/docs/Learn/Server-side/Django/Home_page">Django-Tutorial Teil 5: Erstellen unserer Startseite</a>.
+        Abschluss aller vorherigen Tutorial-Themen, einschließlich <a href="/de/docs/Learn/Server-side/Django/Home_page">Django Tutorial Teil 5: Erstellen unserer Startseite</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, wo und wie generische klassenbasierte Ansichten verwendet werden, und Muster aus URLs extrahieren und diese Informationen an Ansichten übergeben.
+        Zu verstehen, wo und wie Sie generische klassenbasierte Ansichten verwenden und wie Sie Muster aus URLs extrahieren und die Informationen an Ansichten weitergeben.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Überblick
+## Übersicht
 
-In diesem Tutorial werden wir die erste Version der [LocalLibrary](/de/docs/Learn/Server-side/Django/Tutorial_local_library_website)-Website fertigstellen, indem wir Listen- und Detailseiten für Bücher und Autoren hinzufügen (oder genauer gesagt, wir zeigen Ihnen, wie Sie die Buchseiten implementieren, und Sie werden aufgefordert, die Autorenseiten selbst zu erstellen!)
+In diesem Tutorial werden wir die erste Version der [LocalLibrary](/de/docs/Learn/Server-side/Django/Tutorial_local_library_website) Website abschließen, indem wir Listen- und Detailseiten für Bücher und Autoren hinzufügen (oder genauer gesagt, wir zeigen Ihnen, wie Sie die Buchseiten implementieren, und Sie erstellen die Autorenseiten selbst).
 
-Der Prozess ähnelt der Erstellung der Indexseite, die wir im vorherigen Tutorial gezeigt haben. Wir müssen weiterhin URL-Karten, Ansichten und Vorlagen erstellen. Der Hauptunterschied besteht darin, dass wir für die Detailseiten die zusätzliche Herausforderung haben, Informationen aus Mustern in der URL zu extrahieren und diese an die Ansicht weiterzugeben. Für diese Seiten demonstrieren wir eine völlig andere Art von Ansicht: generische klassenbasierte Listen- und Detailansichten. Diese können die Menge des erforderlichen View-Codes erheblich reduzieren, was sie einfacher zu schreiben und zu pflegen macht.
+Der Vorgang ähnelt dem Erstellen der Index-Seite, das wir im vorherigen Tutorial gezeigt haben. Wir müssen weiterhin URL-Karten, Ansichten und Vorlagen erstellen. Der Hauptunterschied besteht darin, dass wir für die Detailseiten die zusätzliche Herausforderung haben, Informationen aus Mustern in der URL zu extrahieren und an die Ansicht weiterzugeben. Für diese Seiten werden wir einen völlig anderen Ansichtstyp demonstrieren: generische klassenbasierte Listen- und Detailansichten. Diese können die Menge an benötigtem Ansichtscode erheblich reduzieren, sodass sie leichter zu schreiben und zu pflegen sind.
 
-Der letzte Teil des Tutorials zeigt, wie Sie Ihre Daten bei der Verwendung von generischen klassenbasierten Listenansichten paginieren können.
+Der letzte Teil des Tutorials demonstriert, wie Sie Ihre Daten paginieren können, wenn Sie generische klassenbasierte Listenansichten verwenden.
 
-## Buchlisten-Seite
+## Buchlistenseite
 
-Die Buchlisten-Seite zeigt eine Liste aller verfügbaren Buchdatensätze auf der Seite an, die über die URL `catalog/books/` aufgerufen wird. Die Seite zeigt einen Titel und einen Autor für jeden Datensatz an, wobei der Titel ein Hyperlink zur zugehörigen Detailseite des Buches ist. Die Seite wird die gleiche Struktur und Navigation wie alle anderen Seiten der Website haben, und wir können daher die Basisvorlage (**base_generic.html**) erweitern, die wir im vorherigen Tutorial erstellt haben.
+Die Buchlistenseite zeigt eine Liste aller verfügbaren Buchdatensätze auf der Seite an, die über die URL `catalog/books/` zugänglich ist. Die Seite zeigt einen Titel und einen Autor für jeden Eintrag, wobei der Titel ein Hyperlink zu der zugehörigen Buchdetailseite ist. Die Seite hat die gleiche Struktur und Navigation wie alle anderen Seiten auf der Seite, und wir können daher das Basistemplate (**base_generic.html**) erweitern, das wir im vorherigen Tutorial erstellt haben.
 
-### URL-Mapping
+### URL-Zuordnung
 
-Öffnen Sie **/catalog/urls.py** und kopieren Sie die Zeile, die den Pfad für `'books/'` setzt, wie unten gezeigt.
-Genau wie für die Indexseite definiert diese `path()`-Funktion ein Muster, das mit der URL (**'books/'**) abgeglichen wird, eine View-Funktion, die aufgerufen wird, wenn die URL übereinstimmt (`views.BookListView.as_view()`), und einen Namen für diese spezielle Zuordnung.
+Öffnen Sie **/catalog/urls.py** und kopieren Sie die Zeile, die den Pfad für `'books/'` festlegt, wie unten gezeigt. Genau wie bei der Indexseite definiert diese `path()` Funktion ein Muster, das mit der URL (**'books/'**) abgeglichen wird, eine Ansichts-Funktion, die aufgerufen wird, wenn die URL übereinstimmt (`views.BookListView.as_view()`), und einen Namen für diese spezielle Zuordnung.
 
 ```python
 urlpatterns = [
@@ -50,15 +49,15 @@ urlpatterns = [
 ]
 ```
 
-Wie im vorherigen Tutorial besprochen, muss die URL bereits auf `/catalog` abgeglichen worden sein, sodass die Ansicht tatsächlich für die URL: `/catalog/books/` aufgerufen wird.
+Wie im vorherigen Tutorial besprochen, muss die URL bereits `/catalog` übereinstimmen, sodass die Ansicht tatsächlich für die URL aufgerufen wird: `/catalog/books/`.
 
-Die View-Funktion hat ein anderes Format als zuvor – das liegt daran, dass diese Ansicht tatsächlich als Klasse implementiert wird. Wir erben von einer bestehenden generischen View-Funktion, die bereits das meiste von dem tut, was wir von dieser View-Funktion erwarten, anstatt unsere eigene von Grund auf neu zu schreiben.
+Die Ansichts-Funktion hat ein anderes Format als zuvor – das liegt daran, dass diese Ansicht als Klasse implementiert wird. Wir werden eine bestehende generische Ansichts-Funktion erben, die bereits das meiste von dem tut, was wir von dieser Ansichts-Funktion erwarten, anstatt unsere eigene von Grund auf neu zu schreiben.
 
-Für Django klassenbasierte Ansichten rufen wir eine geeignete View-Funktion auf, indem wir die Klassenmethode `as_view()` aufrufen. Dies erledigt die gesamte Arbeit, eine Instanz der Klasse zu erstellen und sicherzustellen, dass die richtigen Handler-Methoden für eingehende HTTP-Anfragen aufgerufen werden.
+Bei Django klassenbasierten Ansichten greifen wir auf eine geeignete Ansichts-Funktion zu, indem wir die Klassenmethode `as_view()` aufrufen. Dies erledigt die gesamte Arbeit, eine Instanz der Klasse zu erstellen und sicherzustellen, dass die richtigen Handler-Methoden für eingehende HTTP-Anfragen aufgerufen werden.
 
 ### Ansicht (klassenbasiert)
 
-Wir könnten die Buchlistenansicht ganz einfach als reguläre Funktion schreiben (so wie unsere vorherige Indexansicht), die die Datenbank nach allen Büchern abfragt und dann `render()` aufruft, um die Liste an eine angegebene Vorlage zu übergeben. Stattdessen verwenden wir jedoch eine klassenbasierte generische Listenansicht (`ListView`) – eine Klasse, die von einer bestehenden Ansicht erbt. Da die generische Ansicht bereits die meiste der benötigten Funktionalität implementiert und die Django-Best-Practice folgt, können wir eine robustere Listenansicht mit weniger Code, weniger Wiederholungen und letztendlich weniger Wartungsaufwand erstellen.
+Wir könnten die Buchlistenansicht ziemlich leicht als reguläre Funktion schreiben (genau wie unsere vorherige Indexansicht), die die Datenbank nach allen Büchern abfragen und dann `render()` aufrufen würde, um die Liste an ein bestimmtes Template zu übergeben. Stattdessen werden wir jedoch eine klassenbasierte generische Listenansicht (`ListView`) verwenden — eine Klasse, die von einer bestehenden Ansicht erbt. Da die generische Ansicht bereits die meiste Funktionalität implementiert, die wir benötigen und den Best Practices von Django folgt, werden wir in der Lage sein, eine robustere Listenansicht mit weniger Code, weniger Wiederholungen und letztendlich weniger Wartungsaufwand zu erstellen.
 
 Öffnen Sie **catalog/views.py** und kopieren Sie den folgenden Code an das Ende der Datei:
 
@@ -69,12 +68,12 @@ class BookListView(generic.ListView):
     model = Book
 ```
 
-Das war es! Die generische Ansicht fragt die Datenbank ab, um alle Datensätze für das angegebene Modell (`Book`) zu erhalten, und rendert dann eine Vorlage unter **/django-locallibrary-tutorial/catalog/templates/catalog/book_list.html** (die wir unten erstellen werden). Innerhalb der Vorlage können Sie auf die Liste der Bücher mit der Vorlagenvariablen namens `object_list` ODER `book_list` zugreifen (d.h. generisch `<the model name>_list`).
+Das war's! Die generische Ansicht wird die Datenbank abfragen, um alle Datensätze für das angegebene Modell (`Book`) zu erhalten und dann eine Vorlage rendern, die sich unter **/django-locallibrary-tutorial/catalog/templates/catalog/book_list.html** befindet (die wir unten erstellen werden). Innerhalb der Vorlage können Sie auf die Liste der Bücher mit der Template-Variable namens `object_list` ODER `book_list` zugreifen (d.h. generisch `<der Modellname>_list`).
 
 > [!NOTE]
-> Dieser ungewöhnliche Pfad für den Vorlagenstandort ist kein Tippfehler – die generischen Ansichten suchen nach Vorlagen in `/application_name/the_model_name_list.html` (`catalog/book_list.html` in diesem Fall) im `/application_name/templates/`-Verzeichnis der Anwendung (`/catalog/templates/`).
+> Dieser umständliche Pfad für den Vorlage-Standort ist kein Druckfehler — die generischen Ansichten suchen nach Vorlagen in `/application_name/the_model_name_list.html` (`catalog/book_list.html` in diesem Fall) im `/application_name/templates/` Verzeichnis der Anwendung (`/catalog/templates/`).
 
-Sie können Attribute hinzufügen, um das Standardverhalten oben zu ändern. Zum Beispiel können Sie eine andere Vorlagendatei angeben, wenn Sie mehrere Ansichten haben, die dasselbe Modell verwenden, oder Sie möchten möglicherweise einen anderen Vorlagenvariablennamen verwenden, wenn `book_list` für Ihren speziellen Vorlagenanwendungsfall nicht intuitiv ist. Vielleicht ist die nützlichste Variation, die Teilmenge der zurückgegebenen Ergebnisse zu ändern/zu filtern – anstatt also alle Bücher aufzulisten, möchten Sie möglicherweise die Top-5-Bücher auflisten, die von anderen Benutzern gelesen wurden.
+Sie können Attribute hinzufügen, um das Standardverhalten oben zu ändern. Zum Beispiel können Sie eine andere Vorlagendatei angeben, wenn Sie mehrere Ansichten haben, die dieses gleiche Modell verwenden, oder Sie möchten möglicherweise einen anderen Vorlagenvariablennamen verwenden, wenn `book_list` für Ihre spezielle Vorlagenanwendung nicht intuitiv ist. Wahrscheinlich die nützlichste Variation besteht darin, den Teil der zurückgegebenen Ergebnisse zu ändern/filtern — anstatt also alle Bücher aufzulisten, können Sie die Top 5 Bücher auflisten, die von anderen Nutzern gelesen wurden.
 
 ```python
 class BookListView(generic.ListView):
@@ -86,9 +85,9 @@ class BookListView(generic.ListView):
 
 #### Methoden in klassenbasierten Ansichten überschreiben
 
-Auch wenn wir es hier nicht tun müssen, können Sie einige der Klassenmethoden überschreiben.
+Obwohl wir das hier nicht tun müssen, können Sie auch einige der Klassenmethoden überschreiben.
 
-Zum Beispiel können wir die `get_queryset()`-Methode überschreiben, um die Liste der zurückgegebenen Datensätze zu ändern. Dies ist flexibler als nur das `queryset`-Attribut zu setzen, wie wir es im vorhergehenden Codefragment getan haben (obwohl es in diesem Fall keinen wirklichen Vorteil bietet):
+Zum Beispiel können wir die Methode `get_queryset()` überschreiben, um die Liste der zurückgegebenen Datensätze zu ändern. Dies ist flexibler als nur das Festlegen des `queryset` Attributs, wie wir es im vorherigen Codefragment getan haben (obwohl es in diesem Fall keinen wirklichen Vorteil gibt):
 
 ```python
 class BookListView(generic.ListView):
@@ -98,7 +97,7 @@ class BookListView(generic.ListView):
         return Book.objects.filter(title__icontains='war')[:5] # Get 5 books containing the title war
 ```
 
-Wir können auch `get_context_data()` überschreiben, um zusätzliche Kontextvariablen an die Vorlage zu übergeben (z.B. die Liste der Bücher wird standardmäßig übergeben). Das Fragment unten zeigt, wie man eine Variable namens `some_data` zur Kontextdatenbank hinzufügt (sie wäre dann als Vorlagenvariable verfügbar).
+Wir können auch `get_context_data()` überschreiben, um zusätzliche Kontextvariablen an die Vorlage zu übergeben (z.B. die Büchereiste wird standardmäßig übergeben). Das untenstehende Fragment zeigt, wie Sie eine Variable namens `some_data` zum Kontext hinzufügen (sie wäre dann als Vorlagenvariable verfügbar).
 
 ```python
 class BookListView(generic.ListView):
@@ -112,21 +111,21 @@ class BookListView(generic.ListView):
         return context
 ```
 
-Wenn Sie dies tun, ist es wichtig, dem oben verwendeten Muster zu folgen:
+Wenn Sie dies tun, ist es wichtig, das oben verwendete Muster zu befolgen:
 
-- Holen Sie zuerst den bestehenden Kontext von unserer Superklasse.
-- Fügen Sie dann Ihre neuen Kontextinformationen hinzu.
-- Geben Sie dann den neuen (aktualisierten) Kontext zurück.
+- Zuerst den vorhandenen Kontext von unserer Superklasse erhalten.
+- Dann Ihre neuen Kontextinformationen hinzufügen.
+- Dann den neuen (aktualisierten) Kontext zurückgeben.
 
 > [!NOTE]
 > Schauen Sie sich [Eingebaute klassenbasierte generische Ansichten](https://docs.djangoproject.com/en/5.0/topics/class-based-views/generic-display/) (Django-Dokumentation) für viele weitere Beispiele an, was Sie tun können.
 
-### Erstellen der Listview-Vorlage
+### Erstellen der Listenansichtsvorlage
 
-Erstellen Sie die HTML-Datei **/django-locallibrary-tutorial/catalog/templates/catalog/book_list.html** und kopieren Sie den untenstehenden Text hinein. Wie oben besprochen, ist dies die Standardvorlagendatei, die von der generischen, klassenbasierten Listenansicht erwartet wird (für ein Modell namens `Book` in einer Anwendung namens `catalog`).
+Erstellen Sie die HTML-Datei **/django-locallibrary-tutorial/catalog/templates/catalog/book_list.html** und kopieren Sie den untenstehenden Text hinein. Wie oben besprochen, ist dies die Standardvorlagendatei, die von der generischen klassenbasierten Listenansicht (für ein Modell namens `Book` in einer Anwendung namens `catalog`) erwartet wird.
 
-Vorlagen für generische Ansichten sind wie alle anderen Vorlagen (obwohl sich der Kontext/die Informationen, die an die Vorlage übergeben werden, unterscheiden können).
-Wie bei unserer _index_-Vorlage erweitern wir unsere Basisvorlage in der ersten Zeile und ersetzen dann den Block namens `content`.
+Vorlagen für generische Ansichten sind genauso wie andere Vorlagen (obwohl sich der übergebene Kontext/die Informationen unterscheiden können).
+Wie bei unserer _index_ Vorlage erweitern wir unsere Basistemplate in der ersten Zeile und ersetzen dann den Block namens `content`.
 
 ```django
 {% extends "base_generic.html" %}
@@ -148,12 +147,12 @@ Wie bei unserer _index_-Vorlage erweitern wir unsere Basisvorlage in der ersten 
 {% endblock %}
 ```
 
-Die Ansicht übergibt den Kontext (Liste der Bücher) standardmäßig als `object_list` und `book_list` Aliasse; beide funktionieren.
+Die Ansicht übergibt den Kontext (Liste der Bücher) standardmäßig als `object_list` und `book_list` Aliase; beide funktionieren.
 
 #### Bedingte Ausführung
 
-Wir verwenden die [`if`](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#if)-, `else`- und `endif`-Templatetags, um zu prüfen, ob `book_list` definiert ist und nicht leer ist.
-Wenn `book_list` leer ist, zeigt die `else`-Klausel einen Text an, der erklärt, dass keine Bücher zur Auflistung vorhanden sind.
+Wir verwenden die [`if`](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#if), `else` und `endif` Vorlagen-Tags, um zu überprüfen, ob `book_list` definiert und nicht leer ist.
+Wenn `book_list` leer ist, zeigt die `else`-Anweisung Text an, der erklärt, dass es keine Bücher zum Auflisten gibt.
 Wenn `book_list` nicht leer ist, iterieren wir durch die Liste der Bücher.
 
 ```django
@@ -164,13 +163,13 @@ Wenn `book_list` nicht leer ist, iterieren wir durch die Liste der Bücher.
 {% endif %}
 ```
 
-Die Bedingung oben prüft nur auf einen Fall, aber Sie können zusätzliche Bedingungen mit dem `elif`-Templatetag testen (zB `{% elif var2 %}`).
-Weitere Informationen zu bedingten Operatoren finden Sie in: [if](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#if), [ifequal/ifnotequal](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ifequal-and-ifnotequal) und [ifchanged](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ifchanged) in [Eingebaute Templatetags und Filter](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/) (Django-Dokumentation).
+Die Bedingung oben prüft nur auf einen Fall, aber Sie können zusätzliche Bedingungen mit dem `elif` Vorlagen-Tag testen (z.B. `{% elif var2 %}`).
+Weitere Informationen zu bedingten Operatoren finden Sie unter: [if](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#if), [ifequal/ifnotequal](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ifequal-and-ifnotequal) und [ifchanged](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#ifchanged) in [Eingebaute Vorlagen-Tags und Filter](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/) (Django-Dokumentation).
 
 #### For-Schleifen
 
-Die Vorlage verwendet die [for](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#for)- und `endfor`-Templatetags, um durch die Buchliste zu iterieren, wie unten gezeigt.
-Jede Iteration füllt die `book`-Templatenvariable mit Informationen für das aktuelle Listenelement.
+Die Vorlage verwendet die [for](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#for) und `endfor` Vorlagen-Tags, um durch die Buchliste zu iterieren, wie unten gezeigt.
+Jede Iteration füllt die `book` Vorlagenvariable mit Informationen für das aktuelle Listenelement.
 
 ```django
 {% for book in book_list %}
@@ -178,7 +177,7 @@ Jede Iteration füllt die `book`-Templatenvariable mit Informationen für das ak
 {% endfor %}
 ```
 
-Sie könnten auch das `{% empty %}`-Templatetag verwenden, um zu definieren, was passiert, wenn die Buchliste leer ist (obwohl unsere Vorlage es vorzieht, eine Bedingung zu verwenden):
+Sie können auch das `{% empty %}` Vorlagen-Tag verwenden, um festzulegen, was passiert, wenn die Buchliste leer ist (obwohl unsere Vorlage anstelle dessen eine Bedingung verwendet):
 
 ```django
 <ul>
@@ -190,8 +189,8 @@ Sie könnten auch das `{% empty %}`-Templatetag verwenden, um zu definieren, was
 </ul>
 ```
 
-Obwohl es hier nicht verwendet wird, erstellt Django innerhalb der Schleife auch andere Variablen, die Sie verwenden können, um die Iteration zu verfolgen.
-Zum Beispiel können Sie die `forloop.last`-Variable testen, um die letzte Bedingung der Schleife zu erkennen.
+Auch wenn hier nicht verwendet, innerhalb der Schleife erstellt Django auch andere Variablen, die Sie verwenden können, um die Iteration zu verfolgen.
+Zum Beispiel können Sie die Variable `forloop.last` testen, um im letzten Durchlauf der Schleife eine bedingte Verarbeitung durchzuführen.
 
 #### Zugriff auf Variablen
 
@@ -201,16 +200,16 @@ Der Code innerhalb der Schleife erstellt ein Listenelement für jedes Buch, das 
 <a href="\{{ book.get_absolute_url }}">\{{ book.title }}</a> (\{{book.author}})
 ```
 
-Wir greifen auf die _Felder_ des zugehörigen Buchdatensatzes mit der "Punktnotation" zu (z.B. `book.title` und `book.author`), wobei der Text nach dem `book`-Element der Feldname ist (wie im Modell definiert).
+Wir greifen auf die _Felder_ des zugehörigen Buchdatensatzes mithilfe der "punktierten Notation" zu (z.B. `book.title` und `book.author`), wobei der Text nach dem `book` Element der Feldname ist (wie im Modell definiert).
 
-Wir können auch _Funktionen_ in dem Modell aus unserer Vorlage heraus aufrufen – in diesem Fall rufen wir `Book.get_absolute_url()` auf, um eine URL zu erhalten, die Sie verwenden könnten, um den zugehörigen Detaildatensatz anzuzeigen. Dies funktioniert, vorausgesetzt, die Funktion hat keine Argumente (es gibt keine Möglichkeit, Argumente zu übergeben!)
+Wir können auch _Funktionen_ im Modell aus unserer Vorlage heraus aufrufen — in diesem Fall rufen wir `Book.get_absolute_url()` auf, um eine URL zu erhalten, die Sie zur Anzeige des zugehörigen Detaildatensatzes verwenden könnten. Dies funktioniert, sofern die Funktion keine Argumente hat (es gibt keine Möglichkeit, Argumente zu übergeben!).
 
 > [!NOTE]
-> Wir müssen ein wenig auf "Nebenwirkungen" achten, wenn wir Funktionen in Vorlagen aufrufen. Hier erhalten wir einfach eine URL, um sie anzuzeigen, aber eine Funktion kann so ziemlich alles tun – wir würden nicht wollen, dass unsere Datenbank gelöscht wird (zum Beispiel) nur durch das Rendern unserer Vorlage!
+> Wir müssen beim Aufrufen von Funktionen in Vorlagen ein wenig auf "Seiteneffekte" achten. Hier bekommen wir einfach eine URL angezeigt, aber eine Funktion kann so ziemlich alles tun — wir möchten nicht, dass unsere Datenbank gelöscht wird (zum Beispiel), nur indem wir unsere Vorlage rendern!
 
-#### Aktualisieren der Basisvorlage
+#### Aktualisieren der Basistemplate
 
-Öffnen Sie die Basisvorlage (**/django-locallibrary-tutorial/catalog/templates/_base_generic.html_**) und fügen Sie **{% url 'books' %}** in den URL-Link für **Alle Bücher** ein, wie unten gezeigt. Damit wird der Link auf allen Seiten aktiviert (wir können dies jetzt erfolgreich einfügen, da wir den "books"-URL-Mapper erstellt haben).
+Öffnen Sie die Basistemplate (**/django-locallibrary-tutorial/catalog/templates/_base_generic.html_**) und fügen Sie **{% url 'books' %}** in den URL-Link für **Alle Bücher** ein, wie unten gezeigt. Dadurch wird der Link auf allen Seiten aktiviert (wir können dies jetzt erfolgreich einfügen, da wir den "Bücher"-URL-Mapper erstellt haben).
 
 ```django
 <li><a href="{% url 'index' %}">Home</a></li>
@@ -220,16 +219,16 @@ Wir können auch _Funktionen_ in dem Modell aus unserer Vorlage heraus aufrufen 
 
 ### Wie sieht es aus?
 
-Sie können die Buchliste noch nicht erstellen, da uns noch eine Abhängigkeit fehlt – die URL-Zuordnung für die Buchdetailseiten, die benötigt wird, um Hyperlinks zu einzelnen Büchern zu erstellen. Wir zeigen sowohl Listen- als auch Detailansichten nach dem nächsten Abschnitt.
+Sie können die Buchliste noch nicht erstellen, da uns noch eine Abhängigkeit fehlt — der URL-Mapper für die Buchdetailseiten, der erforderlich ist, um Hyperlinks zu einzelnen Büchern zu erstellen. Wir zeigen sowohl die Listen- als auch die Detailansichten nach dem nächsten Abschnitt.
 
 ## Buchdetailseite
 
-Die Buchdetailseite zeigt Informationen über ein bestimmtes Buch an, auf die über die URL `catalog/book/<id>` zugegriffen wird (wobei `<id>` der Primärschlüssel für das Buch ist). Zusätzlich zu den Feldern im `Book`-Modell (Autor, Zusammenfassung, ISBN, Sprache und Genre) werden wir auch die Details der verfügbaren Exemplare (`BookInstances`) einschließlich des Status, des erwarteten Rückgabedatums, des Imprints und der ID auflisten. Dies ermöglicht es unseren Lesern nicht nur, etwas über das Buch zu erfahren, sondern auch zu bestätigen, ob/wann es verfügbar ist.
+Die Buchdetailseite zeigt Informationen zu einem bestimmten Buch an, die über die URL `catalog/book/<id>` zugänglich sind (wobei `<id>` der Primärschlüssel für das Buch ist). Neben den Feldern im `Book` Modell (Autor, Zusammenfassung, ISBN, Sprache und Genre) listen wir auch die Details der verfügbaren Exemplare (`BookInstances`) auf, einschließlich des Status, des erwarteten Rückgabedatums, des Impressums und der ID. Dies ermöglicht es unseren Lesern nicht nur, über das Buch zu erfahren, sondern auch zu bestätigen, ob/wann es verfügbar ist.
 
-### URL-Mapping
+### URL-Zuordnung
 
-Öffnen Sie **/catalog/urls.py** und fügen Sie den als '**book-detail**' bezeichneten Pfad ein, wie unten gezeigt.
-Diese `path()`-Funktion definiert ein Muster, eine zugehörige generische klassenbasierte Detailansicht und einen Namen.
+Öffnen Sie **/catalog/urls.py** und fügen Sie den unten gezeigten Pfad namens '**book-detail**' hinzu.
+Diese `path()` Funktion definiert ein Muster, eine zugeordnete generische klassenbasierte Detailansicht und einen Namen.
 
 ```python
 urlpatterns = [
@@ -239,36 +238,36 @@ urlpatterns = [
 ]
 ```
 
-Für den _book-detail_-Pfad verwendet das URL-Muster eine spezielle Syntax, um die spezifische ID des Buches zu erfassen, das wir anzeigen möchten.
-Die Syntax ist sehr einfach: Winkelklammern definieren den Teil der URL, der erfasst werden soll, und schließen den Namen der Variablen ein, die die Ansicht verwenden kann, um auf die erfassten Daten zuzugreifen.
-Beispielsweise wird **\<something>** das markierte Muster erfassen und den Wert als Variable "something" an die Ansicht übergeben. Sie können den Variablennamen optional mit einer [Konverter-Spezifikation](https://docs.djangoproject.com/en/5.0/topics/http/urls/#path-converters) versehen, die den Typ der Daten definiert (int, str, slug, uuid, path).
+Für den _book-detail_ Pfad verwendet das URL-Muster eine spezielle Syntax, um die spezifische ID des Buches zu erfassen, das wir sehen möchten.
+Die Syntax ist sehr einfach: Mit spitzen Klammern wird der Teil der URL definiert, der erfasst werden soll, wobei der Name der Variablen angegeben ist, die die Ansicht verwenden kann, um auf die erfassten Daten zuzugreifen.
+Zum Beispiel **\<etwas>** erfasst das markierte Muster und übergibt den Wert an die Ansicht als Variable "etwas". Sie können optional dem Variablennamen eine [Konverterspezifikation](https://docs.djangoproject.com/en/5.0/topics/http/urls/#path-converters) voranstellen, die den Datentyp (int, str, slug, uuid, path) definiert.
 
-In diesem Fall verwenden wir `'<int:pk>'`, um die Buch-ID zu erfassen, die eine speziell formatierte Zeichenfolge sein muss und sie als Parameter namens `pk` (kurz für Primärschlüssel) an die Ansicht zu übergeben. Dies ist die ID, die zur eindeutigen Speicherung des Buches in der Datenbank verwendet wird, wie im Buchmodell definiert.
+In diesem Fall verwenden wir `'<int:pk>'`, um die Buch-ID zu erfassen, die eine speziell formatierte Zeichenkette sein muss, und sie an die Ansicht als Parameter namens `pk` (kurz für Primärschlüssel) zu übergeben. Dies ist die ID, die zur eindeutigen Speicherung des Buches in der Datenbank verwendet wird, wie im Buchmodell definiert.
 
 > [!NOTE]
-> Wie bereits früher besprochen, ist unsere übereinstimmende URL tatsächlich `catalog/book/<digits>` (da wir uns in der **catalog**-Anwendung befinden, wird `/catalog/` angenommen).
+> Wie bereits besprochen, ist unsere übereinstimmende URL tatsächlich `catalog/book/<digits>` (weil wir uns in der **catalog** Anwendung befinden, wird `/catalog/` angenommen).
 
 > [!WARNING]
-> Die generische klassenbasierte Detailansicht erwartet, dass ihr ein Parameter namens **pk** übergeben wird. Wenn Sie Ihre eigene Funktionsansicht schreiben, können Sie einen beliebigen Parameternamen verwenden oder die Informationen in einem nicht benannten Argument übergeben.
+> Die generische klassenbasierte Detailansicht _erwartet_, dass ihr ein Parameter namens **pk** übergeben wird. Wenn Sie Ihre eigene Funktionsansicht schreiben, können Sie jeden beliebigen Parameternamen verwenden oder die Information in einem unbenannten Argument übergeben.
 
-#### Fortgeschrittenes Pfad-Matching/Reguläre Ausdrucksgrundlagen
+#### Erweitertes Pfad-Matching/Einführung in reguläre Ausdrücke
 
 > [!NOTE]
-> Sie werden diesen Abschnitt nicht benötigen, um das Tutorial abzuschließen! Wir bieten ihn an, weil es in Ihrer Django-zentrierten Zukunft von Nutzen sein könnte, diese Option zu kennen.
+> Sie benötigen diesen Abschnitt nicht, um das Tutorial abzuschließen! Wir bieten es an, weil das Wissen über diese Option für Ihre zukunftsgerichtete Django-Nutzung wahrscheinlich nützlich sein wird.
 
-Das von `path()` bereitgestellte Mustermatching ist einfach und nützlich für die (sehr häufigen) Fälle, in denen Sie nur _eine beliebige_ Zeichenfolge oder eine Zahl erfassen möchten. Wenn Sie eine differenziertere Filterung benötigen (z.B. um nur Zeichenfolgen zu filtern, die eine bestimmte Anzahl von Zeichen haben), können Sie die Methode [re_path()](https://docs.djangoproject.com/en/5.0/ref/urls/#django.urls.re_path) verwenden.
+Das Muster-Matching, das von `path()` bereitgestellt wird, ist einfach und nützlich für die (sehr häufigen) Fälle, in denen Sie einfach _jedes_ Zeichen oder jede Zahl erfassen möchten. Wenn Sie eine raffiniertere Filterung benötigen (z.B. um nur Zeichenfolgen zu filtern, die eine bestimmte Anzahl von Zeichen haben), können Sie die [re_path()](https://docs.djangoproject.com/en/5.0/ref/urls/#django.urls.re_path) Methode verwenden.
 
-Diese Methode wird genauso wie `path()` verwendet, mit dem Unterschied, dass Sie ein Muster mithilfe eines [Regulären Ausdrucks](https://docs.python.org/3/library/re.html) angeben können. Das vorherige Beispiel hätte beispielsweise wie folgt geschrieben werden können:
+Diese Methode wird genau wie `path()` verwendet, außer dass sie Ihnen erlaubt, ein Muster mit einem [Regulären Ausdruck](https://docs.python.org/3/library/re.html) zu spezifizieren. Zum Beispiel könnte der vorherige Pfad wie unten gezeigt geschrieben werden:
 
 ```python
 re_path(r'^book/(?P<pk>\d+)$', views.BookDetailView.as_view(), name='book-detail'),
 ```
 
-_Reguläre Ausdrücke_ sind ein unglaublich leistungsfähiges Werkzeug zur Mustermatching. Sie sind, ehrlich gesagt, ziemlich unintuitiv und können für Anfänger einschüchternd sein. Hier ist ein sehr kurzer Überblick!
+_Reguläre Ausdrücke_ sind ein unglaublich mächtiges Werkzeug zur Mustererkennung. Sie sind, offen gesagt, ziemlich unintuitiv und können für Anfänger einschüchternd sein. Unten ist eine sehr kurze Einführung!
 
-Das erste, was Sie wissen sollten, ist, dass reguläre Ausdrücke normalerweise mit der Rohstringliteral-Syntax deklariert werden sollten (d.h. sie sind eingeschlossen, wie gezeigt: **r'\<dein regulärer Ausdruckstext geht hier rein>'**).
+Das Erste, was Sie wissen müssen, ist, dass reguläre Ausdrücke normalerweise mit der Raw-String-Literal-Syntax deklariert werden sollten (d.h. sie werden wie gezeigt eingeschlossen: **r'\<Ihr regulärer Ausdruckstext>'**).
 
-Die wichtigsten Teile der Syntax, die Sie kennen müssen, um Musterabgleiche zu deklarieren, sind:
+Die Hauptteile der Syntax, die Sie für die Deklaration der Mustergleichungen benötigen, sind:
 
 <table class="standard-table no-markdown">
   <thead>
@@ -280,70 +279,58 @@ Die wichtigsten Teile der Syntax, die Sie kennen müssen, um Musterabgleiche zu 
   <tbody>
     <tr>
       <td>^</td>
-      <td>Übereinstimmung mit dem Anfang des Textes</td>
+      <td>Beginnt am Anfang des Textes abzugleichen</td>
     </tr>
     <tr>
       <td>$</td>
-      <td>Übereinstimmung mit dem Ende des Textes</td>
+      <td>Endet am Ende des Textes abzugleichen</td>
     </tr>
     <tr>
       <td>\d</td>
-      <td>Übereinstimmung mit einer Ziffer (0, 1, 2, … 9)</td>
+      <td>Stimmt mit einer Ziffer überein (0, 1, 2, … 9)</td>
     </tr>
     <tr>
       <td>\w</td>
       <td>
-        Übereinstimmung mit einem Wortzeichen, z.B. jedem Groß- oder Kleinbuchstaben im
-        Alphabet, einer Zahl oder dem Unterstrichzeichen (_)
+        Stimmt mit einem Wortzeichen überein, z.B. einem beliebigen Groß- oder Kleinbuchstaben im Alphabet, einer Ziffer oder dem Unterstrichzeichen (_)
       </td>
     </tr>
     <tr>
       <td>+</td>
       <td>
-        Übereinstimmung mit einem oder mehreren der vorhergehenden Zeichen. Um beispielsweise mit einer
-        oder mehreren Ziffer übereinzustimmen, könnten Sie <code>\d+</code> verwenden. Um mit einem oder mehreren "a"
-        Zeichen übereinzustimmen, könnten Sie <code>a+</code> verwenden.
+        Stimmt mit einem oder mehreren der vorangegangenen Zeichen überein. Um zum Beispiel eine oder mehrere Ziffern abzugleichen, würden Sie <code>\d+</code> verwenden. Um eine oder mehrere "a" Zeichen abzugleichen, könnten Sie <code>a+</code> verwenden
       </td>
     </tr>
     <tr>
       <td>*</td>
       <td>
-        Übereinstimmung mit null oder mehr des vorhergehenden Zeichens. Um beispielsweise mit
-        nichts oder einem Wort übereinzustimmen, könnten Sie <code>\w*</code> verwenden.
+        Stimmt mit null oder mehr der vorangegangenen Zeichen überein. Um zum Beispiel nichts oder ein Wort abzugleichen, könnten Sie <code>\w*</code> verwenden
       </td>
     </tr>
     <tr>
       <td>( )</td>
       <td>
-        Erfassen Sie den Teil des Musters innerhalb der Klammern. Alle erfassten Werte
-        werden als unbenannte Parameter an die Ansicht übergeben (wenn mehrere Muster erfasst werden,
-        werden die zugehörigen Parameter in der Reihenfolge geliefert,
-        in der die Erfassungen deklariert wurden).
+        Erfasst den Teil des Musters innerhalb der Klammern. Alle erfassten Werte werden als unbenannte Parameter an die Ansicht übergeben (wenn mehrere Muster erfasst werden, werden die zugehörigen Parameter in der Reihenfolge geliefert, in der die Erfassungen deklariert wurden).
       </td>
     </tr>
     <tr>
       <td>(?P&#x3C;<em>name</em>>...)</td>
       <td>
-        Erfassen Sie das Muster (angegeben durch ...) als eine benannte Variable (in diesem Fall
-        "name"). Die erfassten Werte werden an die Ansicht mit dem angegebenen Namen
-        übergeben. Ihre Ansicht muss daher einen Parameter mit demselben
-        Namen deklarieren!
+        Erfasst das Muster (angezeigt durch ...) als eine benannte Variable (in diesem Fall "name"). Die erfassten Werte werden an die Ansicht mit dem angegebenen Namen übergeben. Ihre Ansicht muss daher einen Parameter mit demselben Namen deklarieren!
       </td>
     </tr>
     <tr>
       <td>[ ]</td>
       <td>
-        Übereinstimmung mit einem Zeichen aus der Menge. Zum Beispiel würde [abc] mit
-        einem 'a' oder 'b' oder 'c' übereinstimmen. [-\w] wird mit dem '-' Zeichen
-        oder einem Wortzeichen übereinstimmen.
+        Stimmt mit einem Zeichen aus der Menge überein. Zum Beispiel stimmt [abc] mit 'a' oder 'b' oder 'c' überein. [-\w] stimmt mit dem '-' Zeichen oder einem beliebigen Wortzeichen überein.
       </td>
     </tr>
   </tbody>
 </table>
 
-Die meisten anderen Zeichen können wörtlich genommen werden!
+Die meisten anderen Zeichen können wörtlich interpretiert werden!
 
-Betrachten wir ein paar echte Beispiele für Muster:
+Betrachten wir einige echte Beispiele für Muster:
 
 <table class="standard-table">
   <thead>
@@ -357,18 +344,18 @@ Betrachten wir ein paar echte Beispiele für Muster:
       <td><strong>r'^book/(?P&#x3C;pk>\d+)$'</strong></td>
       <td>
         <p>
-          Dies ist das RE, das in unserer URL-Zuordnung verwendet wird. Es stimmt mit einer Zeichenfolge überein, die
-          <code>book/</code> zu Beginn der Zeile hat (<strong>^book/</strong>),
-          dann eine oder mehrere Ziffern hat (<code>\d+</code>), und dann endet (mit keinen
-          Nicht-Ziffer-Zeichen vor dem Zeilenendzeichen).
+          Dies ist der reguläre Ausdruck, der in unserem URL-Mapper verwendet wird. Er stimmt mit einer Zeichenkette überein, die
+          <code>book/</code> am Beginn der Zeile hat (<strong>^book/</strong>),
+          dann eine oder mehrere Ziffern (<code>\d+</code>), und dann enden (ohne
+          nicht-ziffernartige Zeichen) vor dem Endmarker.
         </p>
         <p>
-          Es erfasst auch alle Ziffern <strong>(?P&#x3C;pk>\d+)</strong> und
+          Er erfasst auch alle Ziffern <strong>(?P&#x3C;pk>\d+)</strong> und
           übergibt sie an die Ansicht in einem Parameter namens 'pk'.
-          <strong>Die erfassten Werte werden immer als Zeichenfolge übergeben!</strong>
+          <strong>Die erfassten Werte werden immer als String übergeben!</strong>
         </p>
         <p>
-          Zum Beispiel würde dies mit <code>book/1234</code> übereinstimmen und eine
+          Zum Beispiel würde dies <code>book/1234</code> entsprechen und eine
           Variable <code>pk='1234'</code> an die Ansicht senden.
         </p>
       </td>
@@ -376,25 +363,26 @@ Betrachten wir ein paar echte Beispiele für Muster:
     <tr>
       <td><strong>r'^book/(\d+)$'</strong></td>
       <td>
-        Dies stimmt mit denselben URLs wie im vorhergehenden Fall überein. Die erfassten
-        Informationen würden als ein unbenanntes Argument an die Ansicht gesendet.
+        Dies entspricht denselben URLs wie im vorangegangenen Fall. Die erfassten
+        Informationen würden als unbenanntes Argument an die Ansicht weitergegeben.
       </td>
     </tr>
     <tr>
       <td><strong>r'^book/(?P&#x3C;stub>[-\w]+)$'</strong></td>
       <td>
         <p>
-          Dies stimmt mit einer Zeichenfolge überein, die <code>book/</code> am Anfang der
-          Zeile hat (<strong>^book/</strong>), dann hat sie ein oder mehrere Zeichen, die
+          Dies stimmt mit einer Zeichenkette ab, die <code>book/</code> am Beginn der
+          Zeile (<strong>^book/</strong>) hat, dann ein oder mehrere Zeichen, die
           <em>entweder</em> ein '-' oder ein Wortzeichen sind
-          (<strong>[-\w]+</strong>), und endet dann. Es erfasst auch diese Zeichenmenge
-          und übergibt sie als Parameter namens 'stub' an die Ansicht.
+          (<strong>[-\w]+</strong>), und dann endet. Es erfasst auch diese Menge von
+          Zeichen und übergibt sie an die Ansicht in einem Parameter namens 'stub'.
         </p>
         <p>
-          Dies ist ein ziemlich typisches Muster für einen "Stub". Stubs sind URL-freundliche
-          wortbasierte Primärschlüssel für Daten. Sie könnten einen Stub verwenden, wenn Sie
-          möchten, dass Ihre Buch-URL informativer ist. Zum Beispiel
-          <code>/catalog/book/the-secret-garden</code> anstelle von
+          Dies ist ein ziemlich typisches Muster für ein "Stub". Stubs sind
+          URL-freundliche, auf Wörtern basierende Primärschlüssel für Daten. Sie
+          könnten einen Stub verwenden, wenn Sie möchten, dass Ihre Buch-URL informativer
+          ist. Zum Beispiel
+          <code>/catalog/book/the-secret-garden</code> statt
           <code>/catalog/book/33</code>.
         </p>
       </td>
@@ -402,23 +390,23 @@ Betrachten wir ein paar echte Beispiele für Muster:
   </tbody>
 </table>
 
-Sie können mehrere Muster in einem einzigen Match erfassen und somit viele verschiedene Informationen in einer URL kodieren.
+Sie können mehrere Muster in einem Match erfassen und daher viele verschiedene Informationen in einer URL kodieren.
 
 > [!NOTE]
-> Betrachten Sie es als Herausforderung, wie Sie eine URL codieren könnten, um alle Bücher aufzulisten, die in einem bestimmten Jahr, Monat, Tag veröffentlicht wurden, und den RE, der verwendet werden könnte, um sie abzugleichen.
+> Als Herausforderung überlegen Sie, wie Sie eine URL codieren könnten, um alle in einem bestimmten Jahr, Monat, Tag veröffentlichten Bücher aufzulisten, und den regulären Ausdruck, der verwendet werden könnte, um sie zu erfassen.
 
-#### Übermittlung zusätzlicher Optionen in Ihren URL-Zuordnungen
+#### Zusätzliche Optionen in Ihren URL-Karten übergeben
 
-Ein Feature, das wir hier nicht verwendet haben, das Sie aber möglicherweise wertvoll finden, ist, dass Sie ein [Wörterbuch mit zusätzlichen Optionen](https://docs.djangoproject.com/en/5.0/topics/http/urls/#views-extra-options) an die Ansicht übergeben können (durch das dritte unbenannte Argument der `path()`-Funktion). Diese Methode kann nützlich sein, wenn Sie dieselbe Ansicht für mehrere Ressourcen verwenden und Daten übergeben möchten, um deren Verhalten in jedem Fall zu konfigurieren.
+Eine Funktion, die wir hier nicht verwendet haben, die Sie jedoch als wertvoll empfinden könnten, besteht darin, ein [Wörterbuch mit zusätzlichen Optionen](https://docs.djangoproject.com/en/5.0/topics/http/urls/#views-extra-options) an die Ansicht zu übergeben (mittels des dritten unbenannten Arguments der `path()` Funktion). Dieser Ansatz kann nützlich sein, wenn Sie dieselbe Ansicht für mehrere Ressourcen verwenden und Daten weitergeben möchten, um ihr Verhalten in jedem Fall zu konfigurieren.
 
-Zum Beispiel wird Django für eine Anfrage an `/myurl/halibut/` den `views.my_view(request, fish='halibut', my_template_name='some_path')`-Aufruf durchführen, wie im untenstehenden Pfad gezeigt.
+Zum Beispiel, für den folgenden Pfad, für eine Anfrage an `/my-url/halibut/` wird Django `views.my_view(request, fish='halibut', my_template_name='some_path')` aufrufen.
 
 ```python
-path('myurl/<fish>', views.my_view, {'my_template_name': 'some_path'}, name='aurl'),
+path('my-url/<fish>', views.my_view, {'my_template_name': 'some_path'}, name='aurl'),
 ```
 
 > [!NOTE]
-> Sowohl benannte erfasste Muster als auch Wörterbuchoptionen werden an die Ansicht als _benannte_ Argumente übergeben. Wenn Sie für ein Erfassungsmuster und einen Wörterbuchschlüssel **denselben Namen** verwenden, wird die Wörterbuchoption verwendet.
+> Sowohl benannte erfasste Muster als auch Wörterbuchoptionen werden als _benannte_ Argumente an die Ansicht übergeben. Wenn Sie denselben Namen für sowohl ein erfassendes Muster als auch einen Wörterbuchschlüssel verwenden, wird die Wörterbuchoption verwendet.
 
 ### Ansicht (klassenbasiert)
 
@@ -429,15 +417,15 @@ class BookDetailView(generic.DetailView):
     model = Book
 ```
 
-Das war's! Alles, was Sie jetzt tun müssen, ist, eine Vorlage namens **/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html** zu erstellen, und die Ansicht wird ihr die Datenbankinformationen für den spezifischen `Book`-Datensatz übergeben, die von der URL-Zuordnung extrahiert wurden. Innerhalb der Vorlage können Sie auf die Buchdetails mit der Vorlagenvariablen namens `object` ODER `book` zugreifen (d.h. generisch `the_model_name`).
+Das war's! Alles, was Sie jetzt tun müssen, ist eine Vorlage namens **/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html** zu erstellen, und die Ansicht wird ihr die Datenbankinformationen für den spezifischen `Book` Datensatz übergeben, der vom URL-Mapper extrahiert wurde. Innerhalb der Vorlage können Sie auf die Buchdetails mit der Template-Variable namens `object` ODER `book` zugreifen (d.h. generisch `the_model_name`).
 
-Wenn Sie es benötigen, können Sie die verwendete Vorlage und den Namen des Kontextobjekts, der zur Referenzierung des Buches in der Vorlage verwendet wird, ändern. Sie können auch Methoden überschreiben, um beispielsweise zusätzliche Informationen zum Kontext hinzuzufügen.
+Falls erforderlich, können Sie die verwendete Vorlage und den Namen des Kontextobjekts ändern, um auf das Buch in der Vorlage zu verweisen. Sie können auch Methoden überschreiben, um z.B. zusätzliche Informationen zum Kontext hinzuzufügen.
 
-#### Was passiert, wenn der Datensatz nicht existiert?
+#### Was geschieht, wenn der Datensatz nicht existiert?
 
-Wenn ein angeforderter Datensatz nicht existiert, dann wird die generische klassenbasierte Detailansicht automatisch eine `Http404`-Ausnahme auslösen – in der Produktion wird dadurch automatisch eine entsprechende "Ressource nicht gefunden"-Seite angezeigt, die bei Bedarf angepasst werden kann.
+Wenn ein angeforderter Datensatz nicht existiert, wird die generische klassenbasierte Detailansicht automatisch eine `Http404` Ausnahme auslösen — in der Produktion wird automatisch eine entsprechende "Ressource nicht gefunden" Seite angezeigt, die Sie bei Bedarf anpassen können.
 
-Um Ihnen eine Vorstellung davon zu geben, wie dies funktioniert, zeigt das folgende Codefragment, wie Sie die klassenbasierte Ansicht als Funktion implementieren würden, wenn Sie die generische klassenbasierte Detailansicht **nicht** verwenden würden.
+Nur um Ihnen eine Ahnung davon zu geben, wie dies funktioniert, demonstriert das untenstehende Codefragment, wie Sie die klassenbasierte Ansicht als Funktion implementieren würden, wenn Sie die generische klassenbasierte Detailansicht **nicht** verwenden würden.
 
 ```python
 def book_detail_view(request, primary_key):
@@ -449,10 +437,10 @@ def book_detail_view(request, primary_key):
     return render(request, 'catalog/book_detail.html', context={'book': book})
 ```
 
-Die Ansicht versucht zuerst, den spezifischen Buchdatensatz aus dem Modell zu abrufen. Wenn dies fehlschlägt, sollte die Ansicht eine `Http404`-Ausnahme auslösen, um anzuzeigen, dass das Buch "nicht gefunden" wurde. Der letzte Schritt besteht dann, wie üblich, darin, `render()` mit dem Vorlagennamen und den Buchdaten im `context`-Parameter (als Wörterbuch) aufzurufen.
+Die Ansicht versucht zunächst, den spezifischen Buchdatensatz aus dem Modell zu erhalten. Wenn dies fehlschlägt, sollte die Ansicht eine `Http404` Ausnahme auslösen, um anzuzeigen, dass das Buch "nicht gefunden" wurde. Der letzte Schritt besteht dann, wie üblich, darin, `render()` mit dem Vorlagennamen und den Buchdaten im `context` Parameter aufzurufen (als Wörterbuch).
 
-Eine andere Möglichkeit, dies zu tun, wenn Sie keine generische Ansicht verwenden würden, wäre, die `get_object_or_404()`-Funktion aufzurufen.
-Dies ist eine Abkürzung zum Auslösen einer `Http404`-Ausnahme, wenn der Datensatz nicht gefunden wird.
+Eine andere Möglichkeit, dies zu tun, wenn Sie keine generische Ansicht verwenden, wäre, die Funktion `get_object_or_404()` aufzurufen.
+Dies ist eine Abkürzung, um eine `Http404` Ausnahme auszulösen, wenn der Datensatz nicht gefunden wird.
 
 ```python
 from django.shortcuts import get_object_or_404
@@ -462,9 +450,9 @@ def book_detail_view(request, primary_key):
     return render(request, 'catalog/book_detail.html', context={'book': book})
 ```
 
-### Erstellen der Detailansichtsvorlage
+### Erstellen der Detailansicht Vorlage
 
-Erstellen Sie die HTML-Datei **/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html** und geben Sie ihr den unten stehenden Inhalt. Wie oben besprochen, ist dies der Standarddateiname für die Vorlage, die von der generischen klassenbasierten _Detailansicht_ erwartet wird (für ein Modell namens `Book` in einer Anwendung namens `catalog`).
+Erstellen Sie die HTML-Datei **/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html** und geben Sie ihr den untenstehenden Inhalt. Wie oben besprochen, ist dies der Standardvorlage-Dateiname, der von der generischen klassenbasierten _Detail_ Ansicht (für ein Modell namens `Book` in einer Anwendung namens `catalog`) erwartet wird.
 
 ```django
 {% extends "base_generic.html" %}
@@ -499,31 +487,31 @@ Erstellen Sie die HTML-Datei **/django-locallibrary-tutorial/catalog/templates/c
 ```
 
 > [!NOTE]
-> Der Autorenlink in der obigen Vorlage hat eine leere URL, weil wir noch keine Autorenseite erstellt haben, auf die verlinkt werden könnte.
-> Sobald die Detailseite existiert, können wir ihre URL mit einer der beiden folgenden Methoden abrufen:
+> Der Autoren-Link in der obigen Vorlage hat eine leere URL, da wir noch keine Autorendetailseite erstellt haben, auf die verwiesen werden kann.
+> Sobald die Detailseite existiert, können wir ihre URL mit einer der beiden folgenden Ansätzen erhalten:
 >
-> - Verwenden Sie das `url`-Templatetag, um die 'author-detail'-URL (definiert in der URL-Zuordnung) zu reversen, und übergeben Sie die Autoreninstanz für das Buch:
+> - Verwenden Sie das `url` Vorlagen-Tag, um die 'author-detail' URL (definiert im URL-Mapper) zu reversen, indem Sie die Autor-Instanz für das Buch übergeben:
 >
 >   ```django
 >   <a href="{% url 'author-detail' book.author.pk %}">\{{ book.author }}</a>
 >   ```
 >
-> - Rufen Sie die `get_absolute_url()`-Methode des Autorenmodells auf (dies führt denselben Reversevorgang durch):
+> - Rufen Sie die `get_absolute_url()` Methode des Autorenmodells auf (dies führt die gleiche Revering-Operation aus):
 >
 >   ```django
 >   <a href="\{{ book.author.get_absolute_url }}">\{{ book.author }}</a>
 >   ```
 >
-> Während beide Methoden im Wesentlichen dasselbe tun, wird `get_absolute_url()` empfohlen, weil es Ihnen hilft, konsistenteren und wartbaren Code zu schreiben (alle Änderungen müssen nur an einer Stelle vorgenommen werden: das Autorenmodell).
+> Während beide Methoden effektiv dasselbe tun, wird `get_absolute_url()` bevorzugt, weil es Ihnen hilft, konsistenten und wartbaren Code zu schreiben (Änderungen müssen nur an einer Stelle vorgenommen werden: dem Autorenmodell).
 
-Obwohl ein wenig größer, wurde fast alles in dieser Vorlage bereits vorher beschrieben:
+Wenn auch etwas größer, wurde fast alles in dieser Vorlage bereits beschrieben:
 
-- Wir erweitern unsere Basisvorlage und überschreiben den "content"-Block.
-- Wir verwenden bedingte Verarbeitung, um zu bestimmen, ob spezifischer Inhalt angezeigt wird oder nicht.
-- Wir verwenden `for`-Schleifen, um durch Listen von Objekten zu iterieren.
-- Wir greifen auf die Kontextfelder mit der Punktnotation zu (weil wir die Detail-Gesamtansicht verwendet haben, ist der Kontext als `book` benannt; wir könnten auch `object` verwenden)
+- Wir erweitern unsere Basistemplate und überschreiben den "content" Block.
+- Wir nutzen bedingte Verarbeitung, um zu bestimmen, ob bestimmter Inhalt angezeigt wird oder nicht.
+- Wir nutzen `for`-Schleifen, um durch Listen von Objekten zu iterieren.
+- Wir greifen auf die Kontextfelder mit der Punktnotation zu (da wir die generische Detailansicht genutzt haben, wird der Kontext `book` genannt; wir könnten auch `object` verwenden)
 
-Das erste Interessante, das wir bisher nicht gesehen haben, ist die Funktion `book.bookinstance_set.all()`. Diese Methode wird von Django "automagisch" erstellt, um die Menge der `BookInstance`-Datensätze zurückzugeben, die mit einem bestimmten `Book` assoziiert sind.
+Das erste interessante, was wir noch nicht gesehen haben, ist die Funktion `book.bookinstance_set.all()`. Diese Methode wird von Django "automatisch konstruiert", um die Menge der `BookInstance` Datensätze zurückzugeben, die mit einem bestimmten `Book` assoziiert sind.
 
 ```django
 {% for copy in book.bookinstance_set.all %}
@@ -531,12 +519,12 @@ Das erste Interessante, das wir bisher nicht gesehen haben, ist die Funktion `bo
 {% endfor %}
 ```
 
-Diese Methode ist notwendig, weil Sie ein `ForeignKey` (eins-zu-viele) Feld nur im "viele" Teil der Beziehung deklarieren (das `BookInstance`). Da Sie nichts tun, um die Beziehung im anderen ("eins") Modell zu deklarieren, hat es (`Book`) kein Feld, um Menge zugehöriger Datensätze zu erhalten. Um dieses Problem zu überwinden, erzeugt Django eine entsprechend benannte "Rückwärtssuch"-Funktion, die Sie verwenden können. Der Name der Funktion wird erstellt, indem der Modellname, wo der `ForeignKey` deklariert wurde, kleingeschrieben und `_set` angehängt wird (d.h. so wird die Funktion in `Book` erstellt: `bookinstance_set()`).
+Diese Methode ist erforderlich, weil Sie ein `ForeignKey` (eins-zu-viele) Feld nur auf der Seite "viele" der Beziehung deklarieren (die `BookInstance`). Da Sie nichts tun, um die Beziehung im anderen (d.h. "einem") Modell zu deklarieren, hat es (das `Book`) kein Feld, um die Menge der zugehörigen Datensätze zu erhalten. Um dieses Problem zu überwinden, konstruiert Django eine entsprechend benannte "Rückwärtssuchensfunktion", die Sie verwenden können. Der Name der Funktion wird durch die Kleinschreibung des Modellnamens, wo der `ForeignKey` deklariert wurde, gefolgt von `_set` konstruiert (d.h. die in `Book` erstellte Funktion ist `bookinstance_set()`).
 
 > [!NOTE]
-> Hier verwenden wir `all()`, um alle Datensätze abzurufen (der Standard). Während Sie die Methode `filter()` verwenden können, um eine Teilmenge von Datensätzen im Code zu erhalten, können Sie dies nicht direkt in Vorlagen tun, da Sie keine Argumente für Funktionen angeben können.
+> Hier verwenden wir `all()`, um alle Datensätze zu erhalten (der Standard). Während Sie die `filter()` Methode im Code verwenden können, um eine Teilmenge von Datensätzen zu erhalten, können Sie dies nicht direkt in Vorlagen tun, da Sie keine Argumente an Funktionen übergeben können.
 >
-> Beachten Sie auch, dass Sie, wenn Sie keine Ordnung angeben (entweder in Ihrer klassenbasierten Ansicht oder in Ihrem Modell), Fehlermeldungen vom Entwicklungsserver wie diese erhalten werden:
+> Denken Sie auch daran, dass wenn Sie keine Reihenfolge (auf Ihrer klassenbasierten Ansicht oder Ihrem Modell) definieren, Sie auch Fehler vom Entwicklungsserver wie diesen hier sehen werden:
 >
 > ```plain
 > [29/May/2017 18:37:53] "GET /catalog/books/?page=1 HTTP/1.1" 200 1637
@@ -544,15 +532,15 @@ Diese Methode ist notwendig, weil Sie ein `ForeignKey` (eins-zu-viele) Feld nur 
 >   allow_empty_first_page=allow_empty_first_page, **kwargs)
 > ```
 >
-> Dies geschieht, weil das [Paginierungsobjekt](https://docs.djangoproject.com/en/5.0/topics/pagination/#paginator-objects) erwartet, dass eine ORDER BY-Abfrage in Ihrer zugrundeliegenden Datenbank ausgeführt wird. Ohne diese kann es nicht garantieren, dass die zurückgegebenen Datensätze tatsächlich in der richtigen Reihenfolge sind!
+> Dies passiert, weil das [Paginator-Objekt](https://docs.djangoproject.com/en/5.0/topics/pagination/#paginator-objects) erwartet, dass auf Ihrer zugrunde liegenden Datenbank irgendeine ORDER BY-Ausführung durchgeführt wird. Ohne dies kann es sich nicht sicher sein, dass die zurückgegebenen Datensätze tatsächlich in der richtigen Reihenfolge sind!
 >
-> Dieses Tutorial hat **Paginierung** (noch!) nicht behandelt, aber da Sie nicht `sort_by()` verwenden und ein Argument übergeben können (wie bei `filter()` oben beschrieben), müssen Sie sich zwischen drei Möglichkeiten entscheiden:
+> Dieses Tutorial hat **Paginierung** noch nicht abgedeckt (noch nicht!), aber da Sie `sort_by()` nicht verwenden und ein Parameter übergeben können (wie bei `filter()` oben beschrieben), müssen Sie zwischen drei Optionen wählen:
 >
-> 1. Fügen Sie eine `ordering`-Anweisung innerhalb einer `class Meta`-Deklaration in Ihrem Modell hinzu.
-> 2. Fügen Sie ein `queryset`-Attribut in Ihrer benutzerdefinierten klassenbasierten Ansicht hinzu, das eine `order_by()`-Anweisung spezifiziert.
-> 3. Fügen Sie eine `get_queryset`-Methode zu Ihrer benutzerdefinierten klassenbasierten Ansicht hinzu und spezifizieren Sie ebenfalls die `order_by()`-Anweisung.
+> 1. Ein `ordering` innerhalb einer `class Meta`-Deklaration in Ihrem Modell hinzufügen.
+> 2. Ein `queryset` Attribut in Ihrer benutzerdefinierten klassenbasierten Ansicht hinzufügen und ein `order_by()` spezifizieren.
+> 3. Eine `get_queryset` Methode zu Ihrer benutzerdefinierten klassenbasierten Ansicht hinzufügen und auch das `order_by()` spezifizieren.
 >
-> Wenn Sie sich für eine `class Meta` für das `Author`-Modell entscheiden (wahrscheinlich nicht so flexibel wie das Anpassen der klassenbasierten Ansicht, aber einfach genug), werden Sie mit etwas wie diesem enden:
+> Wenn Sie sich dafür entscheiden, ein `class Meta` für das `Author` Modell hinzuzufügen (wahrscheinlich nicht so flexibel wie das Anpassen der klassenbasierten Ansicht, aber einfach genug), erhalten Sie etwas wie dieses:
 >
 > ```python
 > class Author(models.Model):
@@ -571,45 +559,45 @@ Diese Methode ist notwendig, weil Sie ein `ForeignKey` (eins-zu-viele) Feld nur 
 >         ordering = ['last_name']
 > ```
 >
-> Natürlich muss das Feld nicht `last_name` sein: es könnte auch ein anderes sein.
+> Natürlich muss das Feld nicht `last_name` sein: es könnte jedes andere sein.
 >
-> Zu guter Letzt sollten Sie nach einem Attribut/Spalte sortieren, das tatsächlich einen Index (gleich oder nicht) auf Ihrer Datenbank hat, um Leistungsprobleme zu vermeiden. Natürlich ist das hier nicht notwendig (wir gehen uns wahrscheinlich vorzeitig Sorgen mit so wenigen Büchern und Benutzern), aber es ist etwas, was Sie bei zukünftigen Projekten im Hinterkopf behalten sollten.
+> Zuletzt, aber nicht weniger wichtig, sollten Sie nach einem Attribut/Spalte sortieren, das/die tatsächlich einen Index (einzigartig oder nicht) auf Ihrer Datenbank hat, um Leistungsprobleme zu vermeiden. Natürlich wird das hier nicht notwendig sein (wir sind wahrscheinlich zu weit voraus mit so wenigen Büchern und Benutzern), aber es ist etwas, was man für zukünftige Projekte im Hinterkopf behalten sollte.
 
-Das zweite interessante (und nicht offensichtliche) Ding in der Vorlage ist, wo wir den Status des Buches anzeigen ("verfügbar", "Wartung", etc.).
-Aufmerksame Leser werden bemerken, dass die Methode `BookInstance.get_status_display()`, die wir verwenden, um den Status anzuzeigen, im Code nicht anderswo erscheint.
+Das zweite interessante (und nicht offensichtliche) in der Vorlage ist, wo wir den Status-Text für jedes Buchexemplar anzeigen ("verfügbar", "Wartung", usw.).
+Aufmerksame Leser werden feststellen, dass die Methode `BookInstance.get_status_display()`, die wir verwenden, um den Status-Text zu erhalten, in dem Code nicht an anderer Stelle erscheint.
 
 ```django
  <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'm' %}text-danger{% else %}text-warning{% endif %}">
  \{{ copy.get_status_display }} </p>
 ```
 
-Diese Funktion wird automatisch erstellt, weil `BookInstance.status` ein [choices field](https://docs.djangoproject.com/en/5.0/ref/models/fields/#choices) ist.
-Django erstellt automatisch eine Methode `get_foo_display()` für jedes choice-Feld `foo` in einem Modell, die verwendet werden kann, um den aktuellen Wert des Feldes zu erhalten.
+Diese Funktion wird automatisch erstellt, weil `BookInstance.status` ein [Wahlfeld](https://docs.djangoproject.com/en/5.0/ref/models/fields/#choices) ist.
+Django erstellt automatisch eine Methode `get_foo_display()` für jedes Wahlfeld `foo` in einem Modell, die verwendet werden kann, um den aktuellen Wert des Feldes zu erhalten.
 
 ## Wie sieht es aus?
 
-An dieser Stelle sollten wir alles erstellt haben, was benötigt wird, um sowohl die Buchliste als auch die Buchdetailseiten anzuzeigen. Starten Sie den Server (`python3 manage.py runserver`) und öffnen Sie Ihren Browser unter `http://127.0.0.1:8000/`.
+An diesem Punkt sollten wir alles erstellt haben, was benötigt wird, um sowohl die Buchlistenseite als auch die Buchdetailseite anzuzeigen. Führen Sie den Server aus (`python3 manage.py runserver`) und öffnen Sie Ihren Browser unter `http://127.0.0.1:8000/`.
 
 > [!WARNING]
 > Klicken Sie noch nicht auf Autoren- oder Autorendetail-Links — Sie werden diese in der Herausforderung erstellen!
 
 Klicken Sie auf den Link **Alle Bücher**, um die Liste der Bücher anzuzeigen.
 
-![Buchlisten-Seite](book_list_page_no_pagination.png)
+![Buchlistenseite](book_list_page_no_pagination.png)
 
-Klicken Sie dann auf einen Link zu einem Ihrer Bücher. Wenn alles korrekt eingerichtet ist, sollten Sie etwas wie den folgenden Screenshot sehen.
+Klicken Sie dann auf einen Link zu einem Ihrer Bücher. Wenn alles richtig eingerichtet ist, sollten Sie etwas Ähnliches wie der folgende Screenshot sehen.
 
-![Buchdetail-Seite](book_detail_page_no_pagination.png)
+![Buchdetailseite](book_detail_page_no_pagination.png)
 
 ## Paginierung
 
-Wenn Sie nur einige wenige Datensätze haben, wird unsere Buchlisten-Seite gut aussehen. Sobald Sie jedoch mehrere zehn oder hundert Datensätze haben, wird die Seite immer länger zum Laden benötigen (und hat viel zu viel Inhalt, um ihn vernünftig zu durchsuchen). Die Lösung für dieses Problem besteht darin, Ihre Listenansichten zu paginieren, um die Anzahl der auf jeder Seite angezeigten Elemente zu reduzieren.
+Wenn Sie nur ein paar Datensätze haben, sieht unsere Buchlistenseite gut aus. Wenn Sie jedoch in die Zehner oder Hunderte von Datensätzen gehen, wird die Seite immer länger zum Laden brauchen (und viel zu viel Inhalt haben, um sie sinnvoll zu durchsuchen). Die Lösung für dieses Problem besteht darin, Paginierung zu Ihren Listenansichten hinzuzufügen, um die Anzahl der auf jeder Seite angezeigten Elemente zu reduzieren.
 
-Django bietet eine hervorragende eingebaute Unterstützung für Paginierung. Noch besser ist, dass dies in die klassenbasierten, generischen Listenansichten integriert ist, sodass Sie nicht viel tun müssen, um es zu aktivieren!
+Django hat eine hervorragende eingebaute Unterstützung für die Paginierung. Noch besser, dies ist in die generischen klassenbasierten Listenansichten integriert, sodass Sie nicht viel tun müssen, um es zu aktivieren!
 
 ### Ansichten
 
-Öffnen Sie **catalog/views.py** und fügen Sie die `paginate_by`-Zeile hinzu, wie unten gezeigt.
+Öffnen Sie **catalog/views.py** und fügen Sie die `paginate_by` Zeile hinzu, wie unten gezeigt.
 
 ```python
 class BookListView(generic.ListView):
@@ -617,20 +605,20 @@ class BookListView(generic.ListView):
     paginate_by = 10
 ```
 
-Mit dieser Ergänzung wird die Ansicht beginnen, die Daten, die sie an die Vorlage sendet, zu paginieren, sobald Sie mehr als 10 Datensätze haben.
-Die verschiedenen Seiten werden mit GET-Parametern aufgerufen — um auf Seite 2 zuzugreifen, würden Sie die URL `/catalog/books/?page=2` verwenden.
+Mit dieser Ergänzung wird die Ansicht, sobald Sie mehr als 10 Datensätze haben, mit der Paginierung der Daten beginnen, die an die Vorlage gesendet werden.
+Die unterschiedlichen Seiten werden mit GET-Parametern abgerufen — um auf Seite 2 zuzugreifen, würden Sie die URL `/catalog/books/?page=2` verwenden.
 
 ### Vorlagen
 
-Da die Daten jetzt paginiert sind, müssen wir die Unterstützung dafür in der Vorlage hinzufügen, um durch das Ergebnisset zu scrollen. Da wir möglicherweise alle Listenansichten paginieren möchten, fügen wir dies der Basisvorlage hinzu.
+Da nun die Daten paginiert sind, müssen wir die Unterstützung hinzufügen, um in der Vorlage durch das Ergebnisset zu blättern. Da wir alle Listenansichten paginieren möchten, werden wir dies zur Basistemplate hinzufügen.
 
-Öffnen Sie **/django-locallibrary-tutorial/catalog/templates/_base_generic.html_** und suchen Sie den "content"-Block (wie unten gezeigt).
+Öffnen Sie **/django-locallibrary-tutorial/catalog/templates/_base_generic.html_** und finden Sie den "content block" (wie unten gezeigt).
 
 ```django
 {% block content %}{% endblock %}
 ```
 
-Kopieren Sie den folgenden Paginierungsblock sofort nach `{% endblock %}`. Der Code prüft zuerst, ob auf der aktuellen Seite die Paginierung aktiviert ist. Falls ja, fügt er entsprechende _weiter_ und _zurück_ Links hinzu (und die aktuelle Seitenzahl).
+Kopieren Sie den folgenden Paginierungsblock unmittelbar nach dem `{% endblock %}` hinein. Der Code überprüft zunächst, ob die Paginierung auf der aktuellen Seite aktiviert ist. Wenn ja, fügt er _nächste_ und _vorherige_ Links hinzu (und die aktuelle Seitennummer).
 
 ```django
 {% block pagination %}
@@ -652,63 +640,63 @@ Kopieren Sie den folgenden Paginierungsblock sofort nach `{% endblock %}`. Der C
   {% endblock %}
 ```
 
-Die `page_obj` ist ein [Paginator](https://docs.djangoproject.com/en/5.0/topics/pagination/#paginator-objects)-Objekt, das existiert, wenn auf der aktuellen Seite die Paginierung verwendet wird. Es ermöglicht Ihnen, alle Informationen über die aktuelle Seite, vorherige Seiten, wie viele Seiten es gibt, etc., zu erhalten.
+Das `page_obj` ist ein [Paginator](https://docs.djangoproject.com/en/5.0/topics/pagination/#paginator-objects) Objekt, das existieren wird, wenn Paginierung auf der aktuellen Seite verwendet wird. Es ermöglicht Ihnen, alle Informationen über die aktuelle Seite, vorherige Seiten, die Anzahl der Seiten usw. zu erhalten.
 
-Wir verwenden `\{{ request.path }}`, um die aktuelle Seiten-URL für die Erstellung der Paginierungslinks zu erhalten. Dies ist hilfreich, da es unabhängig von dem Objekt ist, das wir paginieren.
+Wir verwenden `\{{ request.path }}`, um die aktuelle Seiten-URL für die Erstellung der Paginierungslinks zu erhalten. Dies ist nützlich, weil es unabhängig von dem Objekt ist, das wir paginieren.
 
 Das war's!
 
 ### Wie sieht es aus?
 
-Der folgende Screenshot zeigt, wie die Paginierung aussieht — wenn Sie nicht mehr als 10 Titel in Ihre Datenbank eingegeben haben, können Sie es einfacher testen, indem Sie die in der `paginate_by`-Zeile in Ihrer **catalog/views.py**-Datei angegebene Nummer verringern. Um das untenstehende Ergebnis zu erhalten, haben wir es auf `paginate_by = 2` geändert.
+Der Screenshot unten zeigt, wie die Paginierung aussieht — falls Sie nicht mehr als 10 Titel in die Datenbank eingegeben haben, können Sie dies leichter testen, indem Sie die Zahl, die in der `paginate_by` Zeile in Ihrer **catalog/views.py** Datei angegeben wurde, senken. Um das untenstehende Ergebnis zu erzielen, haben wir es auf `paginate_by = 2` geändert.
 
-Die Paginierungslinks werden unten angezeigt, mit weiter/zurück Buttons je nachdem, auf welcher Seite Sie sind.
+Die Paginierungslinks werden unten angezeigt, wobei je nach Seite, auf der Sie sich befinden, die nächsten/vorherigen Links angezeigt werden.
 
-![Buchlisten-Seite - paginiert](book_list_paginated.png)
+![Buchlistenseite - mit Paginierung](book_list_paginated.png)
 
 ## Fordern Sie sich selbst heraus
 
-Die Herausforderung in diesem Artikel besteht darin, die erforderlichen Ansichten für die Autorendetails und Listen zu erstellen, um das Projekt abzuschließen. Diese sollten unter den folgenden URLs verfügbar gemacht werden:
+Die Herausforderung in diesem Artikel besteht darin, die Autoren-Detail- und Listenansichten zu erstellen, die erforderlich sind, um das Projekt abzuschließen. Diese sollten unter den folgenden URLs verfügbar gemacht werden:
 
 - `catalog/authors/` — Die Liste aller Autoren.
 - `catalog/author/<id>` — Die Detailansicht für den spezifischen Autor mit einem Primärschlüsselfeld namens `<id>`
 
-Der für die URL-Zuordnungen und Ansichten erforderliche Code sollte praktisch identisch mit den List- und Detailansichten für `Book` sein, die wir zuvor erstellt haben. Die Vorlagen werden unterschiedlich sein, aber ähnliches Verhalten aufweisen.
+Der für die URL-Mapper und die Ansichten erforderliche Code sollte nahezu identisch mit den `Book` Listen- und Detailansichten sein, die wir oben erstellt haben. Die Vorlagen werden unterschiedlich sein, zeigen aber ein ähnliches Verhalten.
 
 > [!NOTE]
 >
-> - Sobald Sie die URL-Zuordnung für die Autorenlisten-Seite erstellt haben, müssen Sie auch den **Alle Autoren**-Link in der Basisvorlage aktualisieren.
->   Folgen Sie dem [gleichen Prozess](#aktualisieren_der_basisvorlage) wie beim Update des **Alle Bücher**-Links.
-> - Sobald Sie die URL-Zuordnung für die Autordetailseite erstellt haben, sollten Sie auch die [Vorlage der Buchdetailansicht](#erstellen_der_detailansichtsvorlage) (**/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html**) aktualisieren, damit der Link auf das neue Autorendetail-Seite verweist (anstatt eine leere URL zu haben).
->   Der empfohlene Weg, dies zu tun, ist, `get_absolute_url()` auf dem Autorenmodell wie unten gezeigt aufzurufen.
+> - Sobald Sie den URL-Mapper für die Autorenlistenseite erstellt haben, müssen Sie auch den **Alle Autoren** Link in der Basistemplate aktualisieren.
+>   Folgen Sie demselben [Prozess](#aktualisieren_der_basistemplate), den wir durchgeführt haben, als wir den **Alle Bücher** Link aktualisiert haben.
+> - Sobald Sie den URL-Mapper für die Autorendetailseite erstellt haben, sollten Sie auch die [Buchdetailansichtsvorlage](#erstellen_der_detailansicht_vorlage) (**/django-locallibrary-tutorial/catalog/templates/catalog/book_detail.html**) aktualisieren, sodass der Autorenlink auf Ihre neue Autorendetailseite verweist (anstatt auf eine leere URL).
+>   Der empfohlene Weg, dies zu tun, besteht darin, `get_absolute_url()` auf dem Autorenmodell aufzurufen, wie unten gezeigt.
 >
 >   ```django
 >   <p>
->     <strong>Author:</strong>
+>     <strong>Autor:</strong>
 >     <a href="\{{ book.author.get_absolute_url }}">\{{ book.author }}</a>
 >   </p>
 >   ```
 
-Wenn Sie fertig sind, sollten Ihre Seiten so aussehen wie die folgenden Screenshots.
+Wenn Sie fertig sind, sollten Ihre Seiten ungefähr so wie die untenstehenden Screenshots aussehen.
 
-![Autorenlisten-Seite](author_list_page_no_pagination.png)
+![Autorenlistenseite](author_list_page_no_pagination.png)
 
-![Autorendetail-Seite](author_detail_page_no_pagination.png)
+![Autorendetailseite](author_detail_page_no_pagination.png)
 
 ## Zusammenfassung
 
-Herzlichen Glückwunsch, unsere grundlegende Bibliotheksfunktionalität ist nun abgeschlossen!
+Herzlichen Glückwunsch, unsere grundlegende Bibliotheksfunktionalität ist jetzt vollständig!
 
-In diesem Artikel haben wir gelernt, wie man die generischen klassenbasierten Listen- und Detailansichten verwendet und sie verwendet, um Seiten zu erstellen, um unsere Bücher und Autoren anzuzeigen. Unterwegs haben wir gelernt, wie man Musterabgleich mit regulären Ausdrücken durchführt und wie Sie Daten von URLs an Ihre Ansichten übergeben können. Wir haben auch ein paar weitere Tricks zur Verwendung von Vorlagen gelernt. Zuletzt haben wir gezeigt, wie man Listenansichten paginiert, sodass unsere Listen auch dann überschaubar bleiben, wenn wir viele Datensätze haben.
+In diesem Artikel haben wir gelernt, wie man generische klassenbasierte Listen- und Detailansichten verwendet, und diese genutzt, um Seiten für unsere Bücher und Autoren zu erstellen. Auf dem Weg haben wir gelernt, wie man regelmäßige Ausdrücke für Mustererkennung nutzt und wie Sie Daten aus URLs an Ihre Ansichten weitergeben können. Wir haben auch ein paar weitere Tricks für die Verwendung von Vorlagen gelernt. Schließlich haben wir gezeigt, wie Sie Listenansichten paginieren können, sodass unsere Listen auch dann handhabbar bleiben, wenn wir viele Datensätze haben.
 
-In unseren nächsten Artikeln werden wir diese Bibliothek erweitern, um Benutzerkonten zu unterstützen und damit Benutzerauthentifizierung, Berechtigungen, Sitzungen und Formulare zu demonstrieren.
+In unseren nächsten Artikeln werden wir diese Bibliothek um die Unterstützung von Benutzerkonten erweitern und dabei Benutzerauthentifizierung, Berechtigungen, Sitzungen und Formulare demonstrieren.
 
 ## Siehe auch
 
 - [Eingebaute klassenbasierte generische Ansichten](https://docs.djangoproject.com/en/5.0/topics/class-based-views/generic-display/) (Django-Dokumentation)
 - [Generische Anzeigeansichten](https://docs.djangoproject.com/en/5.0/ref/class-based-views/generic-display/) (Django-Dokumentation)
 - [Einführung in klassenbasierte Ansichten](https://docs.djangoproject.com/en/5.0/topics/class-based-views/intro/) (Django-Dokumentation)
-- [Eingebaute Templatetags und Filter](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/) (Django-Dokumentation)
+- [Eingebaute Vorlagen-Tags und Filter](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/) (Django-Dokumentation)
 - [Paginierung](https://docs.djangoproject.com/en/5.0/topics/pagination/) (Django-Dokumentation)
 - [Abfragen erstellen > Verwandte Objekte](https://docs.djangoproject.com/en/5.0/topics/db/queries/#related-objects) (Django-Dokumentation)
 

@@ -2,14 +2,14 @@
 title: HashChangeEvent
 slug: Web/API/HashChangeEvent
 l10n:
-  sourceCommit: 5b8e6663f4a6d7eea401de5b85d58661bf080c8e
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HashChangeEvent`**-Schnittstelle repräsentiert Ereignisse, die ausgelöst werden, wenn sich der Fragmentbezeichner der URL geändert hat.
+Das **`HashChangeEvent`**-Interface repräsentiert Ereignisse, die ausgelöst werden, wenn sich der Fragmentbezeichner der URL geändert hat.
 
-Der Fragmentbezeichner ist der Teil der URL, der auf das Symbol `#` folgt (und es einschließt).
+Der Fragmentbezeichner ist der Teil der URL, der dem `#`-Symbol folgt (und es einschließt).
 
 {{InheritanceDiagram}}
 
@@ -18,7 +18,7 @@ Der Fragmentbezeichner ist der Teil der URL, der auf das Symbol `#` folgt (und e
 - [`HashChangeEvent()`](/de/docs/Web/API/HashChangeEvent/HashChangeEvent)
   - : Erstellt ein neues `HashChangeEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 _Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
@@ -27,7 +27,7 @@ _Diese Schnittstelle erbt auch die Eigenschaften ihres Elternteils, [`Event`](/d
 - [`HashChangeEvent.oldURL`](/de/docs/Web/API/HashChangeEvent/oldURL) {{ReadOnlyInline}}
   - : Die vorherige URL, von der das Fenster navigiert wurde.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres Elternteils, [`Event`](/de/docs/Web/API/Event)._
 
@@ -37,8 +37,8 @@ _Diese Schnittstelle hat keine eigenen Methoden, erbt jedoch die Methoden ihres 
 
 ```js
 function locationHashChanged() {
-  if (location.hash === "#somecoolfeature") {
-    somecoolfeature();
+  if (location.hash === "#some-cool-feature") {
+    someCoolFeature();
   }
 }
 

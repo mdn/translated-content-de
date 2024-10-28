@@ -3,18 +3,18 @@ title: "GPUTexture: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUTexture/label
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft des [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Interfaces bietet ein Label, das zur Identifizierung des Objekts verwendet werden kann, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+Die **`label`**-Eigenschaft der [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Schnittstelle bietet ein Label, das verwendet werden kann, um das Objekt zu identifizieren, beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dieses kann gesetzt werden, indem eine `label`-Eigenschaft im Deskriptorobjekt, das beim ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird, angegeben wird, oder Sie können es direkt am `GPUTexture`-Objekt festlegen und abrufen.
+Diese kann durch Angabe einer `label`-Eigenschaft im Deskriptorobjekt gesetzt werden, das in den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) übergeben wird. Alternativ können Sie sie direkt am `GPUTexture`-Objekt abrufen und setzen.
 
 ## Wert
 
-Ein String. Wenn dies nicht wie oben beschrieben zuvor gesetzt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies wie oben beschrieben nicht zuvor gesetzt wurde, wird es ein leerer String sein.
 
 ## Beispiele
 
@@ -29,12 +29,12 @@ const depthTexture = device.createTexture({
   usage: GPUTextureUsage.RENDER_ATTACHMENT,
 });
 
-depthTexture.label = "mytexture";
+depthTexture.label = "my_texture";
 
-console.log(depthTexture.label); // "mytexture"
+console.log(depthTexture.label); // "my_texture"
 ```
 
-Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) und dann Abrufen über `GPUTexture.label`:
+Setzen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createTexture()`](/de/docs/Web/API/GPUDevice/createTexture) und anschließendes Abrufen über `GPUTexture.label`:
 
 ```js
 // ...
@@ -43,10 +43,10 @@ const depthTexture = device.createTexture({
   size: [canvas.width, canvas.height],
   format: "depth24plus",
   usage: GPUTextureUsage.RENDER_ATTACHMENT,
-  label: "mytexture",
+  label: "my_texture",
 });
 
-console.log(depthTexture.label); // "mytexture"
+console.log(depthTexture.label); // "my_texture"
 ```
 
 ## Spezifikationen

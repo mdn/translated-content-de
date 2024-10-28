@@ -3,17 +3,12 @@ title: "Location: replace() Methode"
 short-title: replace()
 slug: Web/API/Location/replace
 l10n:
-  sourceCommit: fa980709ec5dd768d46b50b8c4833cc2f8346e21
+  sourceCommit: 2e40017af745c716c510927deabcbe559be638d2
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`replace()`**-Methode der [`Location`](/de/docs/Web/API/Location)
-Schnittstelle ersetzt die aktuelle Ressource durch die an der angegebenen URL. Der Unterschied
-zur [`assign()`](/de/docs/Web/API/Location/assign) Methode ist, dass nach Verwendung von
-`replace()` die aktuelle Seite nicht in der Sitzungs-[`History`](/de/docs/Web/API/History)
-gespeichert wird, was bedeutet, dass der Benutzer nicht die _Zurück_-Taste verwenden kann, um zu ihr zu navigieren.
-Nicht zu verwechseln mit der {{jsxref("String")}} Methode {{jsxref("String.prototype.replace()")}}.
+Die **`replace()`**-Methode des [`Location`](/de/docs/Web/API/Location)-Interfaces ersetzt die aktuelle Ressource durch diejenige an der angegebenen URL. Der Unterschied zur [`assign()`](/de/docs/Web/API/Location/assign)-Methode besteht darin, dass nach Verwendung von `replace()` die aktuelle Seite nicht im Session [`History`](/de/docs/Web/API/History) gespeichert wird, was bedeutet, dass der Benutzer den _Zurück_-Button nicht verwenden kann, um zu ihr zu navigieren. Nicht zu verwechseln mit der {{jsxref("String")}}-Methode {{jsxref("String.prototype.replace()")}}.
 
 ## Syntax
 
@@ -24,14 +19,14 @@ replace(url)
 ### Parameter
 
 - `url`
-  - : Ein String, der die URL der Seite enthält, zu der navigiert werden soll.
+  - : Ein String oder ein anderes Objekt mit einem {{Glossary("stringifier", "stringifier")}}, wie ein [`URL`](/de/docs/Web/API/URL)-Objekt, das die URL der Seite enthält, zu der navigiert werden soll.
 
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Browser drosseln Navigationen und können diesen Fehler werfen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig aufgerufen wird.
+  - : Browser drosseln Navigationsvorgänge und können diesen Fehler auslösen, eine Warnung generieren oder den Aufruf ignorieren, wenn er zu häufig durchgeführt wird.
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der bereitgestellte `url`-Parameter keine gültige URL ist.
+  - : Ausgelöst, wenn der angegebene `url`-Parameter keine gültige URL ist.
 
 ### Rückgabewert
 
@@ -56,6 +51,6 @@ window.location.replace(
 
 ## Siehe auch
 
-- Die [`Location`](/de/docs/Web/API/Location) Schnittstelle, zu der sie gehört.
+- Das [`Location`](/de/docs/Web/API/Location)-Interface, zu dem es gehört.
 - Ähnliche Methoden: [`Location.assign()`](/de/docs/Web/API/Location/assign) und
   [`Location.reload()`](/de/docs/Web/API/Location/reload).

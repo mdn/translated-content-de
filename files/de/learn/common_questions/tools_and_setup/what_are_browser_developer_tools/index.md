@@ -1,169 +1,167 @@
 ---
-title: Was sind Browser-Entwicklerwerkzeuge?
+title: Was sind Browser-Entwicklertools?
 slug: Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools
 l10n:
-  sourceCommit: d7143e171b5f18fb37a686a7d4947db417fd74f3
+  sourceCommit: 6d0cd4f3fb3da8536bb733c00df211ead8884395
 ---
 
 {{QuicklinksWithSubPages("Learn/Common_questions")}}
 
-Jeder moderne Webbrowser enthält eine leistungsstarke Suite von Entwicklerwerkzeugen. Diese Werkzeuge bieten eine Reihe von Funktionen, vom Inspizieren der aktuell geladenen HTML-, CSS- und JavaScript-Inhalte bis hin zur Anzeige, welche Ressourcen die Seite angefordert hat und wie lange das Laden gedauert hat. Dieser Artikel erklärt, wie Sie die grundlegenden Funktionen der Entwicklerwerkzeuge Ihres Browsers verwenden können.
+Jeder moderne Webbrowser enthält eine leistungsstarke Suite von Entwicklertools. Diese Tools bieten eine Reihe von Funktionen, vom Untersuchen des aktuell geladenen HTML, CSS und JavaScript bis hin zum Anzeigen der angeforderten Assets der Seite und wie lange deren Ladezeit ist. Dieser Artikel erklärt, wie Sie die Grundfunktionen der Entwicklertools Ihres Browsers verwenden.
 
 > [!NOTE]
-> Bevor Sie die folgenden Beispiele durchgehen, öffnen Sie die [Anfängerseite](https://mdn.github.io/beginner-html-site-scripted/), die wir während der Artikelserie [Erste Schritte im Web](/de/docs/Learn/Getting_started_with_the_web) erstellt haben. Sie sollten diese geöffnet haben, während Sie die Schritte unten befolgen.
+> Bevor Sie die untenstehenden Beispiele durchgehen, öffnen Sie die [Beispielseite für Anfänger](https://mdn.github.io/beginner-html-site-scripted/), die wir während der Artikelserie [Erste Schritte mit dem Web](/de/docs/Learn/Getting_started_with_the_web) gebaut haben. Diese Seite sollte geöffnet sein, während Sie die folgenden Schritte ausführen.
 
-## Anleitung: Öffnen der Entwicklerwerkzeuge in Ihrem Browser
+## Anleitung zum Öffnen der Entwicklertools in Ihrem Browser
 
-Die Entwicklerwerkzeuge befinden sich in Ihrem Browser in einem Unterfenster, das je nach verwendetem Browser ungefähr so aussieht:
+Die Entwicklertools befinden sich in einem Unterfenster in Ihrem Browser, das je nach verwendetem Browser ungefähr so aussieht:
 
-![Screenshot eines Browsers mit geöffneten Entwicklerwerkzeugen. Die Webseite wird im oberen Teil des Browsers angezeigt, die Entwicklerwerkzeuge nehmen die untere Hälfte ein. Es sind drei Panels in den Entwicklerwerkzeugen geöffnet: HTML mit ausgewähltem body-Element, ein CSS-Panel, das Stilblöcke zeigt, die auf das hervorgehobene body-Element abzielen, und ein Panel mit berechneten Stilen, das alle Autorenstile zeigt; das Kontrollkästchen für Browser-Stile ist nicht aktiviert.](devtools_63_inspector.png)
+![Screenshot eines Browsers mit geöffneten Entwicklertools. Die Webseite wird in der oberen Hälfte des Browsers angezeigt, die Entwicklertools beanspruchen die untere Hälfte. Es sind drei Panels in den Entwicklertools geöffnet: HTML mit ausgewähltem body-Element, ein CSS-Panel, das Styleblöcke für das hervorgehobene body-Element zeigt, und ein berechnetes Styles-Panel, das alle Autorenstile zeigt; das Browser-Stile-Checkbox ist nicht markiert.](devtools_63_inspector.png)
 
-Wie ruft man sie auf? Drei Wege:
+Wie öffnen Sie es? Es gibt drei Möglichkeiten:
 
 - **_Tastatur:_**
 
-  - **Windows:** _<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>_ oder <kbd>F12</kbd>
+  - **Windows:** _<kbd>Strg</kbd> + <kbd>Umschalt</kbd> + <kbd>I</kbd>_ oder <kbd>F12</kbd>
 
   - **macOS:** _<kbd>⌘</kbd> + <kbd>⌥</kbd> + <kbd>I</kbd>_
 
 - **_Menüleiste:_**
 
-  - **Firefox:** Menü ![Firefox Hamburger-Menü-Symbol, das mehr Optionen zur Anpassung und Kontrolle von Firefox bietet.](2014-01-10-13-08-08-f52b8c.png) _➤ Mehr Werkzeuge ➤ Web-Entwicklerwerkzeuge_
-  - **Chrome:** _Weitere Werkzeuge ➤ Entwicklerwerkzeuge_
-  - **Safari:** _Entwickeln ➤ Web-Inspektor anzeigen_. Wenn das Menü _Entwickeln_ nicht sichtbar ist, gehen Sie zu _Safari ➤ Einstellungen ➤ Erweitert_ und aktivieren Sie das Kontrollkästchen _Entwickeln-Menü in Menüleiste anzeigen_.
-  - **Opera**: _Entwickler ➤ Entwicklerwerkzeuge_
+  - **Firefox:** _Menü (☰) ➤ Weitere Werkzeuge ➤ Webentwicklung_
+  - **Chrome:** _Weitere Werkzeuge ➤ Entwicklertools_
+  - **Opera:** _Entwickler ➤ Entwicklertools_
+  - **Safari:** _Entwickeln ➤ Web-Inspektor anzeigen._
 
-- **_Kontextmenü:_** Drücken und halten/rechtsklicken Sie auf einen Gegenstand auf einer Webseite (Ctrl-Klick auf dem Mac) und wählen Sie _Element untersuchen_ aus dem erscheinenden Kontextmenü. (_Ein zusätzlicher Bonus:_ Diese Methode hebt direkt den Code des Elements hervor, auf das Sie rechtsgeklickt haben.)
+    > [!NOTE]
+    > Die Safari-Entwicklertools sind standardmäßig nicht aktiviert.
+    > Um sie zu aktivieren, gehen Sie zu _Safari ➤ Einstellungen ➤ Erweitert_ und aktivieren Sie die Checkbox _Entwicklermenü in der Menüleiste anzeigen_ oder _Features für Webentwickler aktivieren_.
 
-![Das Firefox-Logo als DOM-Element auf einer Beispiel-Website mit einem angezeigten Kontextmenü. Ein Kontextmenü erscheint, wenn auf ein beliebiges Element der Webseite rechtsgeklickt wird. Der letzte Menüpunkt ist 'Element untersuchen'.](inspector_context.png)
+- **_Kontextmenü:_** Drücken und halten Sie ein Element auf einer Webseite (Strg-Klick auf dem Mac) und wählen Sie _Element untersuchen_ aus dem erscheinenden Kontextmenü. (_Ein zusätzlicher Vorteil:_ Diese Methode hebt sofort den Code des Elements hervor, das Sie angeklickt haben.)
+
+![Das Firefox-Logo als DOM-Element in einer Beispielwebsite mit einem Kontextmenü. Ein Kontextmenü erscheint, wenn ein Element der Webseite rechtsgeklickt wird. Der letzte Menüpunkt ist 'Element untersuchen'.](inspector_context.png)
 
 ## Der Inspektor: DOM-Explorer und CSS-Editor
 
-Die Entwicklerwerkzeuge öffnen sich standardmäßig in der Regel auf den Inspektor, der etwa wie der folgende Screenshot aussieht. Dieses Werkzeug zeigt, wie das HTML Ihrer Seite zur Laufzeit aussieht und welche CSS-Stile auf jedes Element der Seite angewendet werden. Es erlaubt auch, HTML und CSS sofort zu ändern und die Ergebnisse der Änderungen direkt im Browser-Ansichtsfenster zu sehen.
+Die Entwicklertools öffnen sich standardmäßig im Inspektor, der in etwa wie der folgende Screenshot aussieht. Dieses Tool zeigt, wie das HTML Ihrer Seite zur Laufzeit aussieht und welcher CSS auf jedes auf der Seite befindliche Element angewendet wird. Es ermöglicht Ihnen auch, HTML und CSS sofort zu ändern und die Ergebnisse Ihrer Änderungen live im Browser-Viewport zu sehen.
 
-![Eine Testwebsite ist in einem Tab im Browser geöffnet. Das Unterfenster der Browser-Entwicklerwerkzeuge ist offen. Die Entwicklerwerkzeuge haben mehrere Tabs. Der Inspektor ist einer dieser Tabs. Der Inspektor-Tab zeigt den HTML-Code der Website an. Ein Bild-Tag ist aus dem HTML-Code ausgewählt. Dies führt zur Hervorhebung des Bildes, das dem ausgewählten Tag in der Website entspricht.](inspector_highlighted.png)
+![Eine Testwebsite ist in einem Browser-Tab geöffnet. Das Unterfenster der Browserentwicklertools ist offen. Die Entwicklertools haben mehrere Tabs. Der Inspektor ist einer dieser Tabs. Der Inspektor-Tab zeigt den HTML-Code der Website. Ein Bild-Tag ist aus dem HTML-Code ausgewählt. Dies führt zur Hervorhebung des Bildes, das dem ausgewählten Tag in der Website entspricht.](inspector_highlighted.png)
 
-Falls Sie den Inspektor _nicht_ sehen,
+Wenn Sie den Inspektor _nicht_ sehen,
 
-- Tippen/Klicken Sie auf den _Inspektor_-Tab.
-- In Chrome, Microsoft Edge oder Opera tippen/klicken Sie auf _Elemente_.
-- In Safari sind die Bedienelemente nicht so klar dargestellt, aber Sie sollten das HTML sehen, wenn Sie nichts anderes für das Fenster ausgewählt haben. Drücken Sie den _Stil_-Button, um das CSS zu sehen.
+- **Firefox:** Wählen Sie den **Inspektor**-Tab aus.
+- **Andere Browser:** Wählen Sie den **Elemente**-Tab aus.
 
-### Erforschen des DOM-Inspektors
+### Den DOM-Inspektor erkunden
 
-Um zu beginnen, rechtsklicken (Ctrl-Klick) Sie auf ein HTML-Element im DOM-Inspektor und sehen Sie sich das Kontextmenü an. Die verfügbaren Menüoptionen variieren zwischen den Browsern, aber die wichtigen sind meistens gleich:
+Beginnen Sie, indem Sie mit der rechten Maustaste (Strg-Klick) auf ein HTML-Element im DOM-Inspektor klicken und das Kontextmenü ansehen. Die verfügbaren Menüoptionen variieren je nach Browser, aber die wichtigsten sind meistens gleich:
 
-![Das Unterfenster der Entwicklerwerkzeuge des Browsers ist offen. Der Inspektor-Tab ist ausgewählt. Ein Link-Element wird aus dem im Inspektor-Tab verfügbaren HTML-Code rechtsgeklickt. Ein Kontextmenü erscheint. Die verfügbaren Menüoptionen variieren zwischen den Browsern, aber die wichtigen sind meistens gleich.](dom_inspector.png)
+![Das Unterfenster der Browserentwicklertools ist offen. Der Inspektor-Tab ist ausgewählt. Ein Link-Element wird aus dem HTML-Code im Inspektor-Tab mit Rechtsklick ausgewählt. Es erscheint ein Kontextmenü. Die verfügbaren Menüoptionen variieren je nach Browser, aber die wichtigsten sind meistens gleich.](dom_inspector.png)
 
-- **Node löschen** (manchmal _Element löschen_). Löscht das aktuelle Element.
-- **Als HTML bearbeiten** (manchmal _Attribut hinzufügen_/_Text bearbeiten_). Ermöglicht es Ihnen, das HTML zu ändern und die Ergebnisse sofort zu sehen. Sehr nützlich zum Debuggen und Testen.
-- **:hover/:active/:focus**. Erzwingt das Umschalten von Elementzuständen, so dass Sie sehen können, wie ihre Stile aussehen würden.
-- **Kopieren/Als HTML kopieren**. Kopiert das aktuell ausgewählte HTML.
-- Einige Browser haben auch _CSS-Pfad kopieren_ und _XPath kopieren_ verfügbar, damit Sie den CSS-Selektor oder XPath-Ausdruck kopieren können, der das aktuelle HTML-Element auswählen würde.
+- **Knoten löschen** (manchmal _Element löschen_). Löscht das aktuelle Element.
+- **Als HTML bearbeiten** (manchmal _Attribut hinzufügen_/_Text bearbeiten_). Ermöglicht das Ändern des HTML und das Anzeigen der Ergebnisse in Echtzeit. Sehr nützlich für Debugging und Tests.
+- **:hover/:active/:focus**. Erzwingt das Umschalten der Elementzustände, sodass Sie sehen können, wie ihr Stil aussehen würde.
+- **Kopieren/Als HTML kopieren**. Kopiert das derzeit ausgewählte HTML.
+- Einige Browser bieten auch _CSS-Pfad kopieren_ und _XPath kopieren_ an, um den CSS-Selektor oder den XPath-Ausdruck zu kopieren, der das aktuelle HTML-Element auswählen würde.
 
-Versuchen Sie, einige Ihrer DOM-Elemente jetzt zu bearbeiten. Doppelklicken Sie auf ein Element oder rechtsklicken Sie darauf und wählen Sie _Als HTML bearbeiten_ aus dem Kontextmenü. Sie können beliebige Änderungen vornehmen, aber Sie können Ihre Änderungen nicht speichern.
+Versuchen Sie nun, einige Ihrer DOM-Elemente zu bearbeiten. Doppelklicken Sie auf ein Element oder klicken Sie mit der rechten Maustaste darauf und wählen Sie _Als HTML bearbeiten_ aus dem Kontextmenü. Sie können alle Änderungen vornehmen, die Sie möchten, aber Sie können Ihre Änderungen nicht speichern.
 
-### Erforschen des CSS-Editors
+### Den CSS-Editor erkunden
 
-Standardmäßig zeigt der CSS-Editor die auf das aktuell ausgewählte Element angewendeten CSS-Regeln an:
+Der CSS-Editor zeigt standardmäßig die CSS-Regeln an, die auf das derzeit ausgewählte Element angewendet werden:
 
-![Ausschnitt des CSS-Panels und des Layout-Panels, die neben dem HTML-Editor in den Entwicklerwerkzeugen des Browsers zu sehen sind. Standardmäßig zeigt der CSS-Editor die auf das aktuell ausgewählte Element im HTML-Editor angewendeten CSS-Regeln an. Das Layout-Panel zeigt die Eigenschaften des Box-Modells des ausgewählten Elements.](css_inspector.png)
+![Ausschnitt des CSS-Panels und des Layout-Panels, das neben dem HTML-Editor in den Browserentwicklertools zu sehen ist. Der CSS-Editor zeigt standardmäßig die CSS-Regeln an, die auf das derzeit ausgewählte Element im HTML-Editor angewendet werden. Das Layout-Panel zeigt die Boxmodell-Eigenschaften des ausgewählten Elements.](css_inspector.png)
 
-Diese Funktionen sind besonders hilfreich:
+Diese Funktionen sind besonders praktisch:
 
-- Die auf das aktuelle Element angewendeten Regeln werden in der Reihenfolge von der spezifischsten zur am wenigsten spezifischen angezeigt.
-- Klicken Sie auf die Kontrollkästchen neben jeder Deklaration, um zu sehen, was passieren würde, wenn Sie die Deklaration entfernen.
-- Klicken Sie auf den kleinen Pfeil neben jeder Kurzform-Eigenschaft, um die Langform-Äquivalente der Eigenschaft anzuzeigen.
-- Klicken Sie auf einen Eigenschaftsnamen oder -wert, um ein Textfeld aufzurufen, in das Sie einen neuen Wert eingeben können, um eine Live-Vorschau einer Stiländerung zu erhalten.
-- Neben jeder Regel befindet sich der Dateiname und die Zeilennummer, in der die Regel definiert ist. Das Klicken auf diese Regel führt dazu, dass die Entwicklerwerkzeuge in ihrer eigenen Ansicht dorthin springen, wo sie im Allgemeinen bearbeitet und gespeichert werden kann.
-- Sie können auch auf die abschließende geschweifte Klammer einer Regel klicken, um ein Textfeld in einer neuen Zeile zu öffnen, in dem Sie eine völlig neue Deklaration für Ihre Seite schreiben können.
+- Die auf das aktuelle Element angewendeten Regeln werden in der Reihenfolge von am spezifischsten bis am wenigsten spezifisch angezeigt.
+- Klicken Sie auf die Checkboxen neben jeder Deklaration, um zu sehen, was passieren würde, wenn Sie die Deklaration entfernen.
+- Klicken Sie auf den kleinen Pfeil neben jeder Kurzform-Eigenschaft, um die Langformäquivalente der Eigenschaft anzuzeigen.
+- Klicken Sie auf einen Eigenschaftsnamen oder -wert, um ein Textfeld zu öffnen, in das Sie einen neuen Wert eingeben können, um eine Live-Vorschau einer Stiländerung zu erhalten.
+- Neben jeder Regel befindet sich der Dateiname und die Zeilennummer, in der die Regel definiert ist. Ein Klick auf diese Regel bewirkt, dass die Entwicklertools zu dieser Regel in ihrer eigenen Ansicht springen, in der sie in der Regel bearbeitet und gespeichert werden kann.
+- Sie können auch auf die schließende geschweifte Klammer einer Regel klicken, um ein Textfeld in einer neuen Zeile zu öffnen, in der Sie eine völlig neue Deklaration für Ihre Seite schreiben können.
 
-Am oberen Rand des CSS-Viewers sehen Sie eine Reihe von anklickbaren Tabs:
+Sie werden eine Reihe von anklickbaren Tabs oben im CSS-Viewer bemerken:
 
-- _Computed_: Zeigt die berechneten Stile für das aktuell ausgewählte Element (die endgültigen, normalisierten Werte, die der Browser anwendet).
-- _Layout_: In Firefox enthält dieser Bereich zwei Abschnitte:
+- _Berechnet_: Dies zeigt die berechneten Stile für das derzeit ausgewählte Element an (die endgültigen, normalisierten Werte, die der Browser anwendet).
+- _Layout_: Dies zeigt die Details für die CSS-[Grid](/de/docs/Web/CSS/CSS_grid_layout)- und [Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout)-Layoutmodi an, wenn das Element, das Sie untersuchen, diese verwendet.
+- _Schriftarten_: In Firefox und Safari zeigt der _Schriftarten_-Tab die auf das aktuelle Element angewendeten Schriftarten.
 
-  - _Box Model_: Stellt visuell das Box-Modell des aktuellen Elements dar, sodass Sie auf einen Blick sehen können, welche Polsterung, Rahmen und Ränder darauf angewendet werden und wie groß sein Inhalt ist.
-  - _Grid_: Wenn die Seite, die Sie untersuchen, ein CSS-Grid verwendet, können Sie in diesem Abschnitt die Grid-Details sehen.
+Die _Boxmodell_-Ansicht stellt das Boxmodell des aktuellen Elements visuell dar, sodass Sie auf einen Blick sehen können, welches Padding, welche Ränder und welcher Abstand darauf angewendet werden und wie groß dessen Inhalt ist. In Firefox befindet sich dies im _Layout_-Tab und in anderen Browsern im _Berechnet_-Tab.
 
-- _Fonts_: In Firefox zeigt der _Fonts_-Tab die auf das aktuelle Element angewendeten Schriftarten an.
+In einigen Browsern können im ausgewählten Element auch die JavaScript-Details in diesem Panel angezeigt werden. In Safari sind diese unter dem _Node_-Tab zusammengefasst, in Chrome, Opera und Edge jedoch in separaten Tabs.
 
-### Mehr erfahren
+- _Eigenschaften_: Die {{Glossary("Property_(JavaScript", "Eigenschaften")}}) des Elementobjekts.
+- _Ereignislistener_: Die [Ereignisse](/de/docs/Web/API/Event), die mit dem Element verbunden sind.
+
+### Erfahren Sie mehr
 
 Erfahren Sie mehr über den Inspektor in verschiedenen Browsern:
 
-- [Firefox-Seiteninspektor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html)
-- [Chrome-DOM-Inspektor](https://developer.chrome.com/docs/devtools/dom/) (Operas Inspektor funktioniert genauso)
-- [Safari-DOM-Inspektor und Stil-Explorer](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/ResourcesandtheDOM/ResourcesandtheDOM.html#//apple_ref/doc/uid/TP40007874-CH3-SW1)
+- [Firefox Page Inspector](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/index.html)
+- [Chrome DOM Inspector](https://developer.chrome.com/docs/devtools/dom/) (Das Inspektor von Opera und Edge ist gleich)
+- [Safari Elements Tab](https://webkit.org/web-inspector/elements-tab/)
 
 ## Der JavaScript-Debugger
 
-Der JavaScript-Debugger ermöglicht es Ihnen, den Wert von Variablen zu überwachen und Haltepunkte festzulegen, an denen Sie die Ausführung anhalten und die Probleme identifizieren, die verhindern, dass Ihr Code korrekt ausgeführt wird.
+Der JavaScript-Debugger ermöglicht es Ihnen, den Wert von Variablen zu überwachen und Haltepunkte zu setzen, Orte in Ihrem Code, an denen Sie die Ausführung pausieren und die Probleme identifizieren möchten, die die ordnungsgemäße Ausführung Ihres Codes verhindern.
 
-![Eine Testwebsite, die lokal auf Port 8080 bereitgestellt wird. Das Unterfenster der Entwicklerwerkzeuge ist geöffnet. Der Tab des JavaScript-Debuggers ist ausgewählt. Damit können Sie den Wert von Variablen überwachen und Haltepunkte festlegen. Eine Datei mit dem Namen 'example.js' ist aus dem Quellenbereich ausgewählt. Ein Haltepunkt ist bei Zeile 18 der Datei gesetzt.](firefox_debugger.png)
+![Eine Testwebsite, die lokal auf Port 8080 ausgeliefert wird. Das Entwicklerwerkzeuge-Unterfenster ist offen. Der JavaScript-Debugger-Tab ist ausgewählt. Er ermöglicht es Ihnen, den Wert von Variablen zu überwachen und Haltepunkte zu setzen. Eine Datei mit dem Namen 'example.js' ist im Quelltext-Paneel ausgewählt. Ein Haltepunkt ist bei Zeilennummer 18 der Datei gesetzt.](firefox_debugger.png)
 
 Um zum Debugger zu gelangen:
 
-**Firefox**: Wählen Sie ![Firefox-Menüsymbol, das mehr Optionen zur Anpassung und Kontrolle von Firefox bietet.](2014-01-10-13-08-08-f52b8c.png) ➤ _Web-Entwickler_ ➤ _Debugger_ oder drücken Sie <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd>, um den JavaScript-Debugger zu öffnen. Wenn die Werkzeuge bereits angezeigt werden, klicken Sie auf den **Debugger**-Tab.
+**Firefox**: Öffnen Sie die Entwicklertools und wählen Sie den **Debugger**-Tab.
+**Andere Browser**: Öffnen Sie die Entwicklertools und wählen Sie den **Quellen**-Tab.
 
-**Chrome**: Öffnen Sie die Entwicklerwerkzeuge und wählen Sie dann den **Quellen**-Tab aus. (Opera funktioniert genauso.)
+### Den Debugger erkunden
 
-**Safari**: Öffnen Sie die Entwicklerwerkzeuge und wählen Sie dann den Debugger-Tab aus.
-
-### Erforschen des Debuggers
-
-Im JavaScript-Debugger in Firefox gibt es drei Fensterbereiche.
+Der JavaScript-Debugger jedes Browsers ist in drei Bereiche unterteilt. Das Layout dieser Bereiche unterscheidet sich je nach verwendeten Browser ein wenig; dieser Leitfaden verwendet Firefox als Referenz.
 
 #### Dateiliste
 
-Der erste Bereich links enthält die Liste der mit der von Ihnen debuggten Seite verbundenen Dateien. Wählen Sie die Datei aus, mit der Sie arbeiten möchten, aus dieser Liste. Klicken Sie auf eine Datei, um sie auszuwählen und ihren Inhalt im mittleren Bereich des Debuggers anzuzeigen.
+Der erste Bereich auf der linken Seite enthält die Liste der Dateien, die mit der von Ihnen debuggenen Seite verbunden sind. Wählen Sie die Datei aus, mit der Sie arbeiten möchten. Klicken Sie auf eine Datei, um sie auszuwählen und ihren Inhalt im mittleren Bereich des Debuggers anzuzeigen.
 
-![Ausschnitt aus dem Quellenbereich des Debugger-Tabs in den Entwicklerwerkzeugen des Browsers. Die Dateien, die zur aktuellen Seite gehören, die Sie debuggen, sind unter dem Ordner sichtbar, dessen Name mit der URL der Seite identisch ist, die im aktuellen Browser-Tab geöffnet ist.](file_list.png)
+![Ausschnitt des Quelltext-Panels des Debugger-Tabs in den Browser-Entwicklerwerkzeugen. Die zur aktuellen Seite gehörenden Dateien, die Sie debuggen, sind unter dem Ordner sichtbar, dessen Name dem URL der geöffneten Seite im aktuellen Browser-Tab entspricht.](file_list.png)
 
 #### Quellcode
 
-Setzen Sie Haltepunkte, an denen Sie die Ausführung anhalten möchten. Im folgenden Bild zeigt das Highlight auf die Nummer 18, dass dort ein Haltepunkt gesetzt ist.
+Setzen Sie Haltepunkte dort, wo Sie die Ausführung anhalten möchten. Im folgenden Bild zeigt das markierte Nummer 18, dass dort ein Haltepunkt gesetzt ist.
 
 ![Ausschnitt des Entwicklerwerkzeuge-Debugger-Panels mit hervorgehobenem Haltepunkt bei Zeile 18.](source_code.png)
 
-#### Überwachungs-Ausdrücke und Haltepunkte
+#### Anzeigefelder für Überwachungen und Haltepunkte
 
-Der rechte Bereich zeigt eine Liste der Überwachungs-Ausdrücke, die Sie hinzugefügt haben, und der Haltepunkte, die Sie gesetzt haben.
+Der rechte Bereich zeigt eine Liste der von Ihnen hinzugefügten Überwachungsausdrücke und der gesetzten Haltepunkte an.
 
-Im Bild zeigt der erste Abschnitt, **Überwachungs-Ausdrücke**, dass die Variable listItems hinzugefügt wurde. Sie können die Liste erweitern, um die Werte im Array anzuzeigen.
+Im Bild zeigt der erste Abschnitt, **Überwachungsausdrücke**, dass die `listItems`-Variable hinzugefügt wurde. Sie können die Liste erweitern, um die Werte im Array anzuzeigen.
 
-Der nächste Abschnitt, **Haltepunkte**, listet die Haltepunkte auf, die auf der Seite gesetzt wurden. In example.js wurde ein Haltepunkt bei der Anweisung `listItems.push(inputNewItem.value);` gesetzt.
+Der nächste Abschnitt, **Haltepunkte**, listet die auf der Seite gesetzten Haltepunkte auf. In `example.js` wurde ein Haltepunkt bei der Anweisung `listItems.push(inputNewItem.value);` gesetzt.
 
-Die letzten beiden Abschnitte erscheinen nur, wenn der Code gerade ausgeführt wird.
+Die letzten beiden Abschnitte erscheinen nur, wenn der Code ausgeführt wird.
 
-Der Abschnitt **Anruf-Stack** zeigt Ihnen, welcher Code ausgeführt wurde, um zur aktuellen Zeile zu gelangen. Sie können sehen, dass sich der Code in der Funktion befindet, die einen Mausklick behandelt und dass der Code derzeit am Haltepunkt angehalten ist.
+Der Abschnitt **Aufruf-Stack** zeigt Ihnen, welcher Code ausgeführt wurde, um zur aktuellen Zeile zu gelangen. Sie können sehen, dass sich der Code in der Funktion befindet, die einen Mausklick verarbeitet, und dass der Code derzeit beim Haltepunkt angehalten ist.
 
-Der letzte Abschnitt, **Bereiche**, zeigt, welche Werte von verschiedenen Punkten innerhalb Ihres Codes sichtbar sind. Im folgenden Bild können Sie beispielsweise die Objekte sehen, die dem Code in der addItemClick-Funktion zur Verfügung stehen.
+Der letzte Abschnitt, **Geltungsbereiche**, zeigt, welche Werte von verschiedenen Punkten in Ihrem Code sichtbar sind. Zum Beispiel können Sie im Bild unten die Objekte sehen, die im `addItemClick`-Funktionsbereich zur Verfügung stehen.
 
-![Ausschnitt aus dem Quellenbereich des Debugger-Tabs der Entwicklerwerkzeuge des Browsers. Im Anruf-Stack wird die Funktion angezeigt, die in Zeile 18 aufgerufen wird, wobei hervorgehoben wird, dass dort ein Haltepunkt gesetzt ist und der Bereich angezeigt wird.](watch_items.png)
+![Ausschnitt des Quelltext-Panels des Debugger-Tabs in den Browser-Entwicklerwerkzeugen. Im Aufruf-Stack wird die bei Line 18 aufgerufene Funktion angezeigt, die den Haltepunkt bei dieser Zeile zeigt und den Geltungsbereich zeigt.](watch_items.png)
 
-### Mehr erfahren
+### Erfahren Sie mehr
 
 Erfahren Sie mehr über den JavaScript-Debugger in verschiedenen Browsern:
 
-- [Firefox JavaScript-Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html))
-- [Microsoft Edge-Debugger](https://learn.microsoft.com/en-us/archive/microsoft-edge/legacy/developer/devtools-guide/debugger)
-- [Chrome-Debugger](https://developer.chrome.com/docs/devtools/javascript/)
-- [Safari-Debugger](https://developer.apple.com/safari/tools/)
+- [Firefox JavaScript Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html)
+- [Chrome Debugger](https://developer.chrome.com/docs/devtools/javascript/) (Das Debugger von Opera und Edge ist gleich)
+- [Safari Sources Tab](https://webkit.org/web-inspector/sources-tab/)
 
 ## Die JavaScript-Konsole
 
-Die JavaScript-Konsole ist ein unglaublich nützliches Werkzeug zum Debuggen von JavaScript, das nicht wie erwartet funktioniert. Sie ermöglicht es Ihnen, JavaScript-Zeilen gegen die aktuell im Browser geladene Seite auszuführen und meldet die Fehler, die aufgetreten sind, als der Browser versucht hat, Ihren Code auszuführen. Um die Konsole in einem beliebigen Browser zu erreichen:
+Die JavaScript-Konsole ist ein unglaublich nützliches Werkzeug für das Debuggen von JavaScript, das nicht wie erwartet funktioniert. Es ermöglicht Ihnen, JavaScript-Zeilen gegen die derzeit im Browser geladene Seite auszuführen und Meldungen über die bei der Ausführung Ihres Codes aufgetretenen Fehler anzuzeigen.
 
-Wenn die Entwicklerwerkzeuge bereits offen sind, klicken oder drücken Sie den Konsole-Tab.
+Um auf die Konsole in jedem Browser zuzugreifen, öffnen Sie die Entwicklertools und wählen Sie den **Konsole**-Tab. Dies gibt Ihnen ein Fenster wie das folgende:
 
-Falls nicht, können Sie in Firefox die Konsole direkt mit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd> öffnen oder mit dem Menübefehl: Menü ![Firefox-Menü](2014-01-10-13-08-08-f52b8c.png) _➤ Web-Entwickler ➤ Web-Konsole,_ oder _Werkzeuge ➤_ _Web-Entwickler ➤ Web-Konsole._ In anderen Browsern öffnen Sie die Entwicklerwerkzeuge und klicken dann auf den Konsole-Tab.
+![Der Konsole-Tab der Browser-Entwicklerwerkzeuge. Zwei JavaScript-Funktionen wurden in der Konsole ausgeführt. Der Benutzer gab Funktionen ein, und die Konsole zeigte die Rückgabewerte an.](console_only.png)
 
-Sie erhalten ein Fenster wie das folgende:
-
-![Der Konsole-Tab der Entwicklerwerkzeuge des Browsers. Zwei JavaScript-Funktionen wurden in der Konsole ausgeführt. Die vom Benutzer eingegebenen Funktionen und die Konsole haben die Rückgabewerte angezeigt.](console_only.png)
-
-Um zu sehen, was passiert, versuchen Sie, die folgenden Code-Schnipsel einzeln in die Konsole einzugeben (und drücken Sie dann Enter):
+Um zu sehen, was passiert, versuchen Sie, die folgenden Code-Snippets nacheinander in die Konsole einzugeben (und dann die Eingabetaste zu drücken):
 
 ```js
 alert("hello!");
@@ -182,7 +180,7 @@ loginImage.setAttribute(
 document.querySelector("h1").appendChild(loginImage);
 ```
 
-Versuchen Sie nun, die folgenden falschen Versionen des Codes einzugeben und sehen Sie, was Sie erhalten.
+Versuchen Sie jetzt, die folgenden fehlerhaften Versionen des Codes einzugeben und schauen Sie, was passiert.
 
 ```js-nolint example-bad
 alert("hello!);
@@ -201,17 +199,17 @@ banana.setAttribute(
 document.querySelector("h1").appendChild(loginImage);
 ```
 
-Sie werden anfangen, die Art von Fehlern zu sehen, die der Browser zurückgibt. Oft sind diese Fehler ziemlich kryptisch, aber es sollte ziemlich einfach sein, diese Probleme herauszufinden!
+Sie werden anfangen zu sehen, welche Art von Fehlern der Browser zurückgibt. Oft sind diese Fehler ziemlich kryptisch, aber es sollte ziemlich einfach sein, diese Probleme herauszufinden!
 
-### Mehr erfahren
+### Erfahren Sie mehr
 
 Erfahren Sie mehr über die JavaScript-Konsole in verschiedenen Browsern:
 
-- [Firefox Web-Konsole](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)
-- [Chrome JavaScript-Konsole](https://developer.chrome.com/docs/devtools/console/) (Operas Inspektor funktioniert genauso)
-- [Safari-Konsole](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/Console/Console.html#//apple_ref/doc/uid/TP40007874-CH6-SW1)
+- [Firefox Web Console](https://firefox-source-docs.mozilla.org/devtools-user/web_console/index.html)
+- [Chrome JavaScript Console](https://developer.chrome.com/docs/devtools/console/) (Die Konsole von Opera und Edge ist gleich)
+- [Safari Console Object API](https://webkit.org/web-inspector/console-object-api/) und [Console Command Line API](https://webkit.org/web-inspector/console-command-line-api/)
 
 ## Siehe auch
 
-- [HTML-Debugging](/de/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML)
-- [CSS-Debugging](/de/docs/Learn/CSS/Building_blocks/Debugging_CSS)
+- [Debugging HTML](/de/docs/Learn/HTML/Introduction_to_HTML/Debugging_HTML)
+- [Debugging CSS](/de/docs/Learn/CSS/Building_blocks/Debugging_CSS)

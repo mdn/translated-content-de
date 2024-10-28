@@ -2,47 +2,39 @@
 title: GPUAdapterInfo
 slug: Web/API/GPUAdapterInfo
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 225431159da2ef74dca5984e6f07bd8c5cae4df8
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`GPUAdapterInfo`**-Schnittstelle der [WebGPU API](/de/docs/Web/API/WebGPU_API) enthält identifizierende Informationen über einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter).
+Das **`GPUAdapterInfo`**-Interface der [WebGPU API](/de/docs/Web/API/WebGPU_API) enthält identifizierende Informationen über einen [`GPUAdapter`](/de/docs/Web/API/GPUAdapter).
 
-Ein `GPUAdapterInfo`-Objekt wird mit der Methode [`GPUAdapter.requestAdapterInfo()`](/de/docs/Web/API/GPUAdapter/requestAdapterInfo) angefordert.
+Eine `GPUAdapterInfo`-Objektinstanz wird über die [`GPUAdapter.info`](/de/docs/Web/API/GPUAdapter/info)-Eigenschaft abgerufen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`architecture`](/de/docs/Web/API/GPUAdapterInfo/architecture) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Der Name der Familie oder Klasse von GPUs, zu der der Adapter gehört. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
 - [`description`](/de/docs/Web/API/GPUAdapterInfo/description) {{Experimental_Inline}} {{ReadOnlyInline}}
   - : Ein menschenlesbarer String, der den Adapter beschreibt. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
 - [`device`](/de/docs/Web/API/GPUAdapterInfo/device) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Eine herstellerspezifische Kennung für den Adapter. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
+  - : Eine herstellerspezifische Kennung für den Adapter. Gibt einen leeren String zurück, wenn sie nicht verfügbar ist.
 - [`vendor`](/de/docs/Web/API/GPUAdapterInfo/vendor) {{Experimental_Inline}} {{ReadOnlyInline}}
-  - : Der Name des Adapter-Herstellers. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
+  - : Der Name des Adapterherstellers. Gibt einen leeren String zurück, wenn er nicht verfügbar ist.
 
 ## Beispiele
 
 ```js
-async function init() {
-  if (!navigator.gpu) {
-    throw Error("WebGPU not supported.");
-  }
-
-  const adapter = await navigator.gpu.requestAdapter();
-  if (!adapter) {
-    throw Error("Couldn't request WebGPU adapter.");
-  }
-
-  const adapterInfo = await adapter.requestAdapterInfo();
-  console.log(adapterInfo.architecture);
-  console.log(adapterInfo.vendor);
-
-  // ...
+const adapter = await navigator.gpu.requestAdapter();
+if (!adapter) {
+  throw Error("Couldn't request WebGPU adapter.");
 }
+
+const adapterInfo = adapter.info;
+console.log(adapterInfo.vendor);
+console.log(adapterInfo.architecture);
 ```
 
 ## Spezifikationen
@@ -55,4 +47,5 @@ async function init() {
 
 ## Siehe auch
 
+- [`GPUAdapter.info`](/de/docs/Web/API/GPUAdapter/info)
 - Die [WebGPU API](/de/docs/Web/API/WebGPU_API)

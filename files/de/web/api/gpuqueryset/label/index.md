@@ -3,22 +3,22 @@ title: "GPUQuerySet: label-Eigenschaft"
 short-title: label
 slug: Web/API/GPUQuerySet/label
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: bff3a6a2e6b3c13dd8bb0c80a1eb9da08cce5dc6
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`label`**-Eigenschaft der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) Schnittstelle ist ein String, der ein Etikett bereitstellt, das verwendet werden kann, um das Objekt beispielsweise in [`GPUError`](/de/docs/Web/API/GPUError) Nachrichten oder Konsolenwarnungen zu identifizieren.
+Die **`label`**-Eigenschaft der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet)-Schnittstelle ist ein String, der ein Label bereitstellt, welches verwendet werden kann, um das Objekt zu identifizieren, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
 
-Dies kann durch Bereitstellung einer `label`-Eigenschaft im Descriptor-Objekt geschehen, das beim ursprünglichen Aufruf von [`GPUDevice.createQuerySet()`](/de/docs/Web/API/GPUDevice/createQuerySet) übergeben wird, oder Sie können es direkt am `GPUQuerySet`-Objekt lesen und setzen.
+Dies kann durch Bereitstellen einer `label`-Eigenschaft im Deskriptorobjekt festgelegt werden, das in den ursprünglichen Aufruf von [`GPUDevice.createQuerySet()`](/de/docs/Web/API/GPUDevice/createQuerySet) übergeben wird. Sie können es auch direkt am `GPUQuerySet`-Objekt festlegen und abrufen.
 
 ## Wert
 
-Ein String. Wenn dies nicht wie oben beschrieben vorher gesetzt wurde, wird es ein leerer String sein.
+Ein String. Wenn dies, wie oben beschrieben, nicht zuvor festgelegt wurde, ist es ein leerer String.
 
 ## Beispiele
 
-Setzen und Abrufen eines Etiketts über `GPUQuerySet.label`:
+Festlegen und Abrufen eines Labels über `GPUQuerySet.label`:
 
 ```js
 const querySet = device.createQuerySet({
@@ -26,21 +26,21 @@ const querySet = device.createQuerySet({
   count: 32,
 });
 
-querySet.label = "myqueryset";
+querySet.label = "my_query_set";
 
-console.log(querySet.label); // "myqueryset"
+console.log(querySet.label); // "my_query_set"
 ```
 
-Setzen eines Etiketts über den ursprünglichen Aufruf von [`GPUDevice.createQuerySet()`](/de/docs/Web/API/GPUDevice/createQuerySet) und anschließendem Abrufen über `GPUQuerySet.label`:
+Festlegen eines Labels über den ursprünglichen Aufruf von [`GPUDevice.createQuerySet()`](/de/docs/Web/API/GPUDevice/createQuerySet) und anschließendes Abrufen über `GPUQuerySet.label`:
 
 ```js
 const querySet = device.createQuerySet({
   type: "occlusion",
   count: 32,
-  label: "myqueryset",
+  label: "my_query_set",
 });
 
-console.log(querySet.label); // "myqueryset"
+console.log(querySet.label); // "my_query_set"
 ```
 
 ## Spezifikationen
