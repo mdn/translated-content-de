@@ -168,7 +168,7 @@ Gängige Muster für erkennbare Funktionen umfassen:
 
 - Beibehaltung des zugewiesenen Eigenschaftswerts durch ein Element
 
-  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement), setzen Sie eine Eigenschaft auf einen bestimmten Wert und prüfen Sie dann, ob der Wert beibehalten wird. Siehe den Feature-Test in [Dive into HTML \<input> type detection](https://diveinto.html5doctor.com/detect.html#input-types) für ein Beispiel dieses Musters.
+  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement), setzen Sie eine Eigenschaft auf einen bestimmten Wert und prüfen Sie dann, ob der Wert beibehalten wird. Siehe den Feature-Test in [Dive into HTML `<input>` type detection](https://diveinto.html5doctor.com/detect.html#input-types) für ein Beispiel dieses Musters.
 
 Beachten Sie, dass einige Funktionen jedoch bekanntlich nicht erkennbar sind. In diesen Fällen müssen Sie einen anderen Ansatz verwenden, wie z.B. die Verwendung eines {{Glossary("Polyfill", "Polyfills")}}.
 

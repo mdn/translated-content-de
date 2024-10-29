@@ -136,7 +136,7 @@ Jedes `<source>`-Element hat auch ein [`type`](/de/docs/Web/HTML/Element/source#
 
 Lesen Sie unseren [Leitfaden zu Medientypen und Formaten](/de/docs/Web/Media/Formats), um Hilfe bei der Auswahl der besten Container und Codecs für Ihre Bedürfnisse zu erhalten sowie um sich über die richtigen MIME-Typen, die jeweils spezifiziert werden sollen, zu informieren.
 
-### Andere \<video>-Features
+### Andere `<video>`-Features
 
 Es gibt eine Reihe anderer Features, die Sie beim Anzeigen eines HTML-Videos hinzufügen können. Sehen Sie sich unser nächstes Beispiel an:
 
@@ -185,7 +185,7 @@ Die Merkmale umfassen:
 
 Sie können das obige Beispiel [live auf GitHub abspielen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html) (siehe auch [den Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html)). Beachten Sie, dass wir in der Live-Version das `autoplay`-Attribut nicht eingebaut haben – wenn das Video sofort nach dem Laden der Seite abgespielt wird, sehen Sie das Poster nicht!
 
-### Das \<audio>-Element
+### Das `<audio>`-Element
 
 Das {{htmlelement("audio")}}-Element funktioniert genau wie das {{htmlelement("video")}}-Element, mit ein paar kleinen Unterschieden, die unten aufgeführt sind. Ein typisches Beispiel könnte so aussehen:
 

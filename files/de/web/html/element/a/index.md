@@ -373,7 +373,7 @@ Das Verhalten von `tel:`-Links variiert je nach Gerätefähigkeiten:
 
 Siehe {{RFC(3966)}} für Syntax, zusätzliche Merkmale und andere Details zum `tel:`-URL-Schema.
 
-### Verwenden des Download-Attributs, um einen \<canvas> als PNG zu speichern
+### Verwenden des Download-Attributs, um einen `<canvas>` als PNG zu speichern
 
 Um den Inhalt eines {{HTMLElement("canvas")}}-Elements als Bild zu speichern, können Sie einen Link erstellen, bei dem das `href` die Canvas-Daten als `data:`-URL ist, die mit JavaScript erstellt wurde, und das `download`-Attribut den Dateinamen für die heruntergeladene PNG-Datei angibt:
 
