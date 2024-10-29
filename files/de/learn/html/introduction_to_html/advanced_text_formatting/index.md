@@ -736,9 +736,9 @@ Warum ist das nützlich? Nun, es gibt viele verschiedene Möglichkeiten, wie Men
 
 <!-- markdownlint-disable MD033 -->
 
-- 20. Januar 2016
-- 20. Januar 2016
-- 20. Jan. 2016
+- 20\. Januar 2016
+- 20\. Januar 2016
+- 20\. Jan. 2016
 - 20/01/16
 - 01/20/16
 - Der 20. des nächsten Monats
