@@ -35,7 +35,7 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Beispiele
 
-### \<select>-Element
+### `<select>`-Element
 
 #### HTML
 

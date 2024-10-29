@@ -72,7 +72,7 @@ Einige Ressourcen wie Schriftarten werden im anonymen Modus geladen. In solchen 
 
 ## Siehe auch
 
-- [\<link>](/de/docs/Web/HTML/Element/link)
+- [`<link>`](/de/docs/Web/HTML/Element/link)
 - [HTML-Attribut: rel](/de/docs/Web/HTML/Attributes/rel)
 - [HTML rel-Attribut: preconnect](/de/docs/Web/HTML/Attributes/rel/preconnect)
 - [crossorigin](/de/docs/Web/HTML/Attributes/crossorigin)

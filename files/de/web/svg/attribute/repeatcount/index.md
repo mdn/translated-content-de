@@ -1,5 +1,5 @@
 ---
-title: "repeatCount"
+title: repeatCount
 slug: Web/SVG/Attribute/repeatCount
 l10n:
   sourceCommit: 54eb3a678b4d4cbc94588d2234103e74dfa063a0

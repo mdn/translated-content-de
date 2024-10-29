@@ -11,7 +11,7 @@ Das **`<input>`** [HTML](/de/docs/Web/HTML) Element wird verwendet, um interakti
 
 {{EmbedInteractiveExample("pages/tabbed/input-text.html", "tabbed-shorter")}}
 
-## \<input> Typen
+## `<input>` Typen
 
 Die Funktionsweise eines `<input>` variiert erheblich, abhängig vom Wert seines [`type`](#type)-Attributs, daher werden die verschiedenen Typen auf eigenen Referenzseiten behandelt. Wenn dieses Attribut nicht angegeben ist, wird standardmäßig `text` angenommen.
 

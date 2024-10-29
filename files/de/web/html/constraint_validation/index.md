@@ -31,9 +31,9 @@ In HTML werden grundlegende Einschränkungen auf zwei Arten deklariert:
 
 Die intrinsischen Einschränkungen für das [`type`](/de/docs/Web/HTML/Element/input#type)-Attribut sind:
 
-| Eingabetyp                                                       | Beschreibung der Einschränkung                                                                                                                                                       | Zugehörige Verletzung                                                                        |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
-| [`<input type="URL">`](/de/docs/Web/HTML/Element/input/url)   | Der Wert muss eine absolute [URL](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) sein, wie im [URL Living Standard](https://url.spec.whatwg.org/) definiert.        | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Einschränkungsverletzung |
+| Eingabetyp                                                      | Beschreibung der Einschränkung                                                                                                                                                    | Zugehörige Verletzung                                                                    |
+| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| [`<input type="URL">`](/de/docs/Web/HTML/Element/input/url)     | Der Wert muss eine absolute [URL](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) sein, wie im [URL Living Standard](https://url.spec.whatwg.org/) definiert.        | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Einschränkungsverletzung |
 | [`<input type="email">`](/de/docs/Web/HTML/Element/input/email) | Der Wert muss eine syntaktisch gültige E-Mail-Adresse sein, die im Allgemeinen das Format `benutzername@hostname.tld` hat, aber auch lokal wie `benutzername@hostname` sein kann. | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Einschränkungsverletzung |
 
 Für beide dieser Eingabetypen können, wenn das [`multiple`](/de/docs/Web/HTML/Element/input#multiple)-Attribut gesetzt ist, mehrere Werte als durch Kommas getrennte Liste gesetzt werden. Wenn einer dieser Werte die hier beschriebene Bedingung nicht erfüllt, wird die **Typ-Mismatch**-Einschränkungsverletzung ausgelöst.
@@ -435,7 +435,7 @@ Siehe {{cssxref(':placeholder-shown')}}.
 
 #### :valid und :invalid CSS-Pseudoklassen
 
-Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) repräsentieren \<input>-Elemente, deren Inhalt nach den Eingabeart-Einstellungen gültig ist bzw. nicht gültig ist. Diese Klassen ermöglichen es dem Benutzer, gültige oder ungültige Formularelemente zu stylen, um es einfacher zu machen, Elemente zu identifizieren, die entweder korrekt oder falsch formatiert sind.
+Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) repräsentieren `<input>`-Elemente, deren Inhalt nach den Eingabeart-Einstellungen gültig ist bzw. nicht gültig ist. Diese Klassen ermöglichen es dem Benutzer, gültige oder ungültige Formularelemente zu stylen, um es einfacher zu machen, Elemente zu identifizieren, die entweder korrekt oder falsch formatiert sind.
 
 ### Kontrolle des Textes für Einschränkungsverletzungen
 

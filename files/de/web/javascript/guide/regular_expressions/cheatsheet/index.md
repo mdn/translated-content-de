@@ -7,11 +7,11 @@ l10n:
 
 {{jsSidebar("JavaScript Guide")}}
 
-Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`-Syntax, indem sie die Inhalte der Artikel im `RegExp`-Leitfaden zusammenführt. Wenn Sie weitere Informationen zu einem bestimmten Thema benötigen, folgen Sie bitte dem Link in der entsprechenden Überschrift, um auf den vollständigen Artikel zuzugreifen, oder gehen Sie zu [dem Leitfaden](/de-DE/docs/Web/JavaScript/Guide/Regular_expressions).
+Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`-Syntax, indem sie die Inhalte der Artikel im `RegExp`-Leitfaden zusammenführt. Wenn Sie weitere Informationen zu einem bestimmten Thema benötigen, folgen Sie bitte dem Link in der entsprechenden Überschrift, um auf den vollständigen Artikel zuzugreifen, oder gehen Sie zu [dem Leitfaden](/de/docs/Web/JavaScript/Guide/Regular_expressions).
 
 ## Zeichenklassen
 
-[Zeichenklassen](/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) unterscheiden Arten von Zeichen, zum Beispiel die Unterscheidung zwischen Buchstaben und Ziffern.
+[Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) unterscheiden Arten von Zeichen, zum Beispiel die Unterscheidung zwischen Buchstaben und Ziffern.
 
 <table class="standard-table">
   <thead>
@@ -27,7 +27,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       </td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Zeichenklasse:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Zeichenklasse:</strong></a>
           Passt zu einem der eingeschlossenen Zeichen. Sie können eine Zeichenfolge durch ein Minus angeben, aber wenn das Minus als erstes oder letztes Zeichen innerhalb der eckigen Klammern erscheint, wird es als wörtliches Minus betrachtet und in die Zeichenklasse als normales Zeichen aufgenommen.
         </p>
         <p>
@@ -54,14 +54,14 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       </td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Negierte Zeichenklasse:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class"><strong>Negierte Zeichenklasse:</strong></a>
           Passt zu allem, was nicht in den eckigen Klammern enthalten ist. Sie können eine Zeichenreihe durch ein Minus angeben, aber wenn das Minus als erstes Zeichen nach dem <code>^</code> oder als letztes Zeichen innerhalb der eckigen Klammern erscheint, wird es als wörtliches Minus betrachtet und in die Zeichenklasse als normales Zeichen aufgenommen. Zum Beispiel ist <code>[^abc]</code> gleich <code>[^a-c]</code>. Sie passen initial zur "o" in "bacon" und zur "h" in "chop".
         </p>
         <div class="notecard note">
           <p>
             <strong>Hinweis:</strong> Das ^ Zeichen kann auch den
             <a
-              href="/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Assertions"
+              href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions"
               >Anfang des Eingabebereichs</a
             > kennzeichnen.
           </p>
@@ -72,11 +72,11 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>.</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard"><strong>Wildcard:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Wildcard"><strong>Wildcard:</strong></a>
           Passt zu jedem einzelnen Zeichen, mit Ausnahme von Zeilenbegrenzern:
           <code>\n</code>, <code>\r</code>, <code>\u2028</code> oder
           <code>\u2029</code>. Zum Beispiel passt <code>/.y/</code> zu "my" und
-          "ay", aber nicht zu "yes", in "yes make my day", da in "yes" kein Zeichen vor "y" steht. Wenn das <a href="/de-DE/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll"><code>dotAll</code></a> (s) Flag aktiviert ist, passt es auch zu Zeilenbegrenzern.
+          "ay", aber nicht zu "yes", in "yes make my day", da in "yes" kein Zeichen vor "y" steht. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/dotAll"><code>dotAll</code></a> (s) Flag aktiviert ist, passt es auch zu Zeilenbegrenzern.
           Innerhalb einer Zeichenklasse verliert der Punkt seine spezielle Bedeutung und passt zu einem wörtlichen Punkt.
         </p>
       </td>
@@ -85,7 +85,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\d</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Ziffernzeichenklassenflucht:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Ziffernzeichenklassenflucht:</strong></a>
           Passt zu jeder Ziffer (arabische Zahl). Entspricht <code>[0-9]</code>.
           Zum Beispiel passen <code>/\d/</code> oder <code>/[0-9]/</code> zur "2" in
           "B2 is the suite number".
@@ -96,7 +96,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\D</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Ziffern-Zeichenklassenflucht:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Ziffern-Zeichenklassenflucht:</strong></a>
           Passt zu jedem Zeichen, das keine Ziffer (arabische Zahl) ist. Entspricht
           <code>[^0-9]</code>. Zum Beispiel passen <code>/\D/</code> oder
           <code>/[^0-9]/</code> zur "B" in "B2 is the suite number".
@@ -107,7 +107,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\w</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Wörter-Zeichenklassenflucht:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Wörter-Zeichenklassenflucht:</strong></a>
           Passt zu jedem alphanumerischen Zeichen des Basislateinalphabets,
           einschließlich des Unterstrichs. Entspricht <code>[A-Za-z0-9_]</code>. Zum
           Beispiel passt <code>/\w/</code> zur "a" in "apple", "5" in "$5.28", "3"
@@ -119,7 +119,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\W</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Wörter-Zeichenklassenflucht:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Wörter-Zeichenklassenflucht:</strong></a>
           Passt zu jedem Zeichen, das kein Wortzeichen aus dem Basislateinalphabet ist. Entspricht
           <code>[^A-Za-z0-9_]</code>. Zum Beispiel passen <code>/\W/</code> oder <code>/[^A-Za-z0-9_]/</code> zum "%" in "50%"
           und zur "É" in "Émanuel".
@@ -130,7 +130,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\s</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Leerraum-Zeichenklassenflucht:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Leerraum-Zeichenklassenflucht:</strong></a>
           Passt zu einem einzelnen Leerzeichen, einschließlich Leerzeichen, Tabulator, Form-Feed, Zeilenvorschub und anderen Unicode-Leerräumen. Entspricht
           <code>[\f\n\r\t\v\u0020\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]</code>. Zum Beispiel passt <code>/\s\w*/</code> zu " bar" in "foo bar".
         </p>
@@ -140,7 +140,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\S</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Leerraum-Zeichenklassenflucht:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class_escape"><strong>Nicht-Leerraum-Zeichenklassenflucht:</strong></a>
           Passt zu einem einzelnen Zeichen, das kein Leerraum ist. Entspricht
           <code>[^\f\n\r\t\v\u0020\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]</code>. Zum Beispiel passt <code>/\S\w*/</code> zu "foo" in "foo bar".
         </p>
@@ -171,7 +171,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td>
         Passt zu einem Rückschritt. Wenn Sie nach der Wortgrenzen-Assertion (<code>\b</code>) suchen, siehe
         <a
-          href="/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Assertions"
+          href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions"
           >Assertions</a
         >.
       </td>
@@ -227,7 +227,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       </td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape"><strong>Unicode-Zeichenklassenflucht:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Unicode_character_class_escape"><strong>Unicode-Zeichenklassenflucht:</strong></a>
           Passt zu einem Zeichen basierend auf seinen Unicode-Zeichen-Eigenschaften: zum Beispiel Emoji-Zeichen, oder japanische <em>Katakana</em>-Zeichen, oder chinesische/japanische Han/Kanji-Zeichen, etc.
         </p>
       </td>
@@ -261,14 +261,14 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       </td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction"><strong>Disjunktion:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Disjunction"><strong>Disjunktion:</strong></a>
           Passt entweder zu "x" oder "y". Jede Komponente, die durch eine Pipe (<code>|</code>) getrennt ist, wird als <em>Alternative</em> bezeichnet. Zum Beispiel,
           <code>/green|red/</code> passt zu "green" in "green apple" und zu "red" in
           "red apple".
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Eine Disjunktion ist eine andere Möglichkeit, "eine Auswahlmenge" anzugeben, ist jedoch keine Zeichenklasse. Disjunktionen sind keine Atome — Sie müssen eine <a href="/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences">Gruppe</a> verwenden, um sie Teil eines größeren Musters zu machen. <code>[abc]</code> ist funktionell gleichwertig mit <code>(?:a|b|c)</code>.
+            <strong>Hinweis:</strong> Eine Disjunktion ist eine andere Möglichkeit, "eine Auswahlmenge" anzugeben, ist jedoch keine Zeichenklasse. Disjunktionen sind keine Atome — Sie müssen eine <a href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences">Gruppe</a> verwenden, um sie Teil eines größeren Musters zu machen. <code>[abc]</code> ist funktionell gleichwertig mit <code>(?:a|b|c)</code>.
           </p>
         </div>
       </td>
@@ -278,7 +278,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
 
 ## Assertions
 
-[Assertions](/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) enthalten Grenzen, die die Anfänge und Enden von Zeilen und Wörtern anzeigen, und andere Muster, die auf irgendeine Weise anzeigen, dass ein Treffer möglich ist (einschließlich Look-ahead, Look-behind und bedingte Ausdrücke).
+[Assertions](/de/docs/Web/JavaScript/Guide/Regular_expressions/Assertions) enthalten Grenzen, die die Anfänge und Enden von Zeilen und Wörtern anzeigen, und andere Muster, die auf irgendeine Weise anzeigen, dass ein Treffer möglich ist (einschließlich Look-ahead, Look-behind und bedingte Ausdrücke).
 
 ### Boundary-type Assertions
 
@@ -294,8 +294,8 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>^</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Eingabebereich-Anfangs-Assertion:</strong></a>
-          Passt zum Anfang der Eingabe. Wenn das <a href="/de-DE/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m) Flag aktiviert ist, passt es auch unmittelbar nach einem Zeilenumbruchzeichen. Zum Beispiel,
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Eingabebereich-Anfangs-Assertion:</strong></a>
+          Passt zum Anfang der Eingabe. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m) Flag aktiviert ist, passt es auch unmittelbar nach einem Zeilenumbruchzeichen. Zum Beispiel,
           <code>/^A/</code> passt nicht zu der "A" in "an A", aber passt zur
           ersten "A" in "An A".
         </p>
@@ -304,7 +304,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
             <strong>Hinweis:</strong> Dieses Zeichen hat eine andere Bedeutung, wenn
             es zu Beginn einer
             <a
-              href="/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes"
+              href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes"
               >Zeichenklasse</a
             > erscheint.
           </p>
@@ -315,8 +315,8 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>$</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Eingabebereich-Ende-Assertion:</strong></a>
-          Passt zum Ende der Eingabe. Wenn das <a href="/de-DE/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m) Flag aktiviert ist, passt es auch unmittelbar vor einem Zeilenumbruchzeichen. Zum Beispiel,
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Input_boundary_assertion"><strong>Eingabebereich-Ende-Assertion:</strong></a>
+          Passt zum Ende der Eingabe. Wenn das <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/multiline"><code>multiline</code></a> (m) Flag aktiviert ist, passt es auch unmittelbar vor einem Zeilenumbruchzeichen. Zum Beispiel,
           <code>/t$/</code> passt nicht zur "t" in "eater", aber passt dazu
           in "eat".
         </p>
@@ -326,7 +326,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\b</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Wortgrenzen-Assertion:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Wortgrenzen-Assertion:</strong></a>
           Passt zu einer Wortgrenze. Dies ist die Position, an der ein Wortzeichen
           nicht von einem anderen Wortzeichen gefolgt oder vorangestellt wird, wie zum Beispiel zwischen
           einem Buchstaben und einem Leerzeichen. Beachten Sie, dass eine gefundene Wortgrenze nicht
@@ -350,7 +350,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
         <p>
           Um ein Rückschrittzeichen (<code>[\b]</code>) zu treffen, siehe
           <a
-            href="/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes"
+            href="/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes"
             >Zeichenklassen</a
           >.
         </p>
@@ -360,7 +360,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\B</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Nicht-Wortgrenzen-Assertion:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Word_boundary_assertion"><strong>Nicht-Wortgrenzen-Assertion:</strong></a>
           Passt zu einer Nicht-Wortgrenze. Dies ist eine Position, an der das vorherige und
           das nächste Zeichen vom gleichen Typ sind: Entweder müssen beide Wörter sein, oder
           beide müssen Nicht-Wörter sein, zum Beispiel zwischen zwei Buchstaben oder zwischen zwei
@@ -392,7 +392,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>x(?=y)</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion"><strong>Lookahead Assertion:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion"><strong>Lookahead Assertion:</strong></a>
           Passt zu "x" nur, wenn "x"
           von "y" gefolgt wird. Zum Beispiel, <code>/Jack(?=Sprat)/</code> passt
           zu "Jack" nur, wenn es von "Sprat" gefolgt wird.<br /><code
@@ -407,7 +407,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>x(?!y)</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion"><strong>Negative Lookahead Assertion:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookahead_assertion"><strong>Negative Lookahead Assertion:</strong></a>
           Passt zu "x" nur, wenn "x"
           nicht von "y" gefolgt wird. Zum Beispiel, <code>/\d+(?!\.)/</code> passt
           zu einer Zahl nur, wenn diese nicht von einem Dezimalpunkt gefolgt wird. <code
@@ -421,7 +421,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>(?&#x3C;=y)x</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion"><strong>Lookbehind Assertion:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion"><strong>Lookbehind Assertion:</strong></a>
           Passt zu "x" nur, wenn "x"
           von "y" vorausgegangen wird. Zum Beispiel,
           <code>/(?&#x3C;=Jack)Sprat/</code> passt zu "Sprat" nur, wenn es
@@ -435,7 +435,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>(?&#x3C;!y)x</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion"><strong>Negative Lookbehind Assertion:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Lookbehind_assertion"><strong>Negative Lookbehind Assertion:</strong></a>
           Passt zu "x" nur, wenn
           "x" nicht von "y" vorausgegangen wird. Zum Beispiel,
           <code>/(?&#x3C;!-)\d+/</code> passt zu einer Zahl nur, wenn diese nicht
@@ -450,7 +450,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
 
 ## Gruppen und Rückverweise
 
-[Gruppen und Rückverweise](/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) kennzeichnen Gruppen von Ausdruckszeichen.
+[Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences) kennzeichnen Gruppen von Ausdruckszeichen.
 
 <table class="standard-table">
   <thead>
@@ -464,7 +464,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>(<em>x</em>)</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group"><strong>Sammelgruppe:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Capturing_group"><strong>Sammelgruppe:</strong></a>
           Passt zu <code><em>x</em></code> und
           merkt sich den Treffer. Zum Beispiel passt <code>/(foo)/</code> zu und
           merkt sich "foo" in "foo bar".
@@ -488,7 +488,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
         <p>
           <code
             ><a
-              href="/de-DE/docs/Web/JavaScript/Reference/Global_Objects/String/match"
+              href="/de/docs/Web/JavaScript/Reference/Global_Objects/String/match"
               >String.prototype.match()</a
             ></code
           >
@@ -496,7 +496,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
           weiterhin
           <code
             ><a
-              href="/de-DE/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll"
+              href="/de/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll"
               >String.prototype.matchAll()</a
             ></code
           >
@@ -508,7 +508,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>(?&#x3C;Name>x)</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group"><strong>Benannte Sammelgruppe:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_capturing_group"><strong>Benannte Sammelgruppe:</strong></a>
           Passt zu "x" und speichert es bei den
           Gruppen-Eigenschaften der zurückgegebenen Treffer unter dem Namen, der
           durch <code>&#x3C;Name></code> angegeben ist. Die spitzen Klammern (<code>&#x3C;</code>
@@ -525,7 +525,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>(?:<em>x</em>)</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group"><strong>Nicht-Sammelgruppe:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Non-capturing_group"><strong>Nicht-Sammelgruppe:</strong></a>
           Passt zu "x" aber merkt sich
           den Treffer nicht. Das gefundene Teilzeichen kann nicht aus den
           Ergebniselementen des Arrays (<code>[1], …, [n]</code>) oder aus den vordefinierten
@@ -537,7 +537,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>(?<em>flags</em>:<em>x</em>)</code>, <code>(?:<em>flags</em>-<em>flags</em>:<em>x</em>)</code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Modifier"><strong>Modifier:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Modifier"><strong>Modifier:</strong></a>
           Aktiviert oder deaktiviert die angegebenen Flags nur für das eingeschlossene Muster. Nur die <code>i</code>, <code>m</code> und <code>s</code> Flags können in einem Modifier verwendet werden.
         </p>
       </td>
@@ -548,7 +548,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       </td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Backreference"><strong>Rückverweis:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Backreference"><strong>Rückverweis:</strong></a>
           Dabei ist "n" eine positive Ganzzahl. Passt zu demselben Teilzeichen, das
           von der n-ten Sammelgruppe im regulären Ausdruck
           (zählt linke Klammern) getroffen wurde. Zum Beispiel,
@@ -561,7 +561,7 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
       <td><code>\k&#x3C;Name></code></td>
       <td>
         <p>
-          <a href="/de-DE/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference"><strong>Benannter Rückverweis:</strong></a>
+          <a href="/de/docs/Web/JavaScript/Reference/Regular_expressions/Named_backreference"><strong>Benannter Rückverweis:</strong></a>
           Ein Rückverweis auf das letzte Teilzeichen, das zur Benannten Sammelgruppe passt, die von
           <code>&#x3C;Name></code> angegeben ist.
         </p>
@@ -583,10 +583,10 @@ Diese Seite bietet eine allgemeine Übersicht über alle Funktionen der `RegExp`
 
 ## Quantoren
 
-[Quantoren](/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) geben die Anzahl der zu treffenden Zeichen oder Ausdrücke an.
+[Quantoren](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) geben die Anzahl der zu treffenden Zeichen oder Ausdrücke an.
 
 > [!NOTE]
-> Im Folgenden bezieht sich _item_ nicht nur auf einzelne Zeichen, sondern enthält auch [Zeichenklassen](/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) und [Gruppen und Rückverweise](/de-DE/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
+> Im Folgenden bezieht sich _item_ nicht nur auf einzelne Zeichen, sondern enthält auch [Zeichenklassen](/de/docs/Web/JavaScript/Guide/Regular_expressions/Character_classes) und [Gruppen und Rückverweise](/de/docs/Web/JavaScript/Guide/Regular_expressions/Groups_and_backreferences).
 
 <table class="standard-table">
   <thead>

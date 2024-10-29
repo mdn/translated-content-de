@@ -32,7 +32,7 @@ l10n:
 > - **title**
 >   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
 >     Formatieren Sie sie als `'<NameOfTheElement>: Beschreibung des Zwecks des Elements'`.
->     Zum Beispiel hat das [`<video>`](/de/docs/Web/HTML/Element/video) Element einen _title_ von: **'\<video>: Das Videoeinbettungs-Element'**.
+>     Zum Beispiel hat das [`<video>`](/de/docs/Web/HTML/Element/video) Element einen _title_ von: **'`<video>`: Das Videoeinbettungs-Element'**.
 > - **slug**
 >   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
 >     Dies wird formatiert wie `Web/HTML/Element/NameOfTheElement`, wobei der Elementname in _Kleinbuchstaben_ gehalten wird.
