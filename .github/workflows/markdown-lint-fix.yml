@@ -78,7 +78,7 @@ jobs:
           committer: mdn-bot <108879845+mdn-bot@users.noreply.github.com>
           body: |
             Auto-fix was run, but additional issues found.
-            Please review the run log: https://github.com/mdn/translated-content-de/actions/runs/${{ github.run_id }}
+            Please review the run log: https://github.com/mdn/translated-content-de/actions/runs/${{ github.run_id }}/job/${{ github.job }}#step:7:1
           labels: |
             automated pr
           token: ${{ secrets.AUTOMERGE_TOKEN }}
