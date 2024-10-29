@@ -2,14 +2,14 @@
 title: 'TypeError: "x" ist kein Konstruktor'
 slug: Web/JavaScript/Reference/Errors/Not_a_constructor
 l10n:
-  sourceCommit: c6f0f106b9083984dbf597678def6561729bb459
+  sourceCommit: 2c762771070a207d410a963166adf32213bc3a45
 ---
 
 {{jsSidebar("Errors")}}
 
-Der JavaScript-Ausnahmefehler "ist kein Konstruktor" tritt auf, wenn versucht wurde, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable kein Konstruktor ist.
+Die JavaScript-Ausnahme "is not a constructor" tritt auf, wenn versucht wurde, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable ist kein Konstruktor.
 
-## Nachricht
+## Meldung
 
 ```plain
 TypeError: x is not a constructor (V8-based & Firefox & Safari)
@@ -21,9 +21,9 @@ TypeError: x is not a constructor (V8-based & Firefox & Safari)
 
 ## Was ist schiefgelaufen?
 
-Es wurde versucht, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable ist kein Konstruktor. Siehe {{Glossary("Constructor", "Konstruktor")}} oder den [`new`-Operator](/de/docs/Web/JavaScript/Reference/Operators/new) für weitere Informationen darüber, was ein Konstruktor ist.
+Es wurde versucht, ein Objekt oder eine Variable als Konstruktor zu verwenden, aber dieses Objekt oder diese Variable ist kein Konstruktor. Weitere Informationen darüber, was ein Konstruktor ist, finden Sie unter {{Glossary("Constructor", "constructor")}} oder dem [`new` Operator](/de/docs/Web/JavaScript/Reference/Operators/new).
 
-Es gibt viele globale Objekte, wie {{jsxref("String")}} oder {{jsxref("Array")}}, die über `new` konstruierbar sind. Einige globale Objekte sind dies jedoch nicht und deren Eigenschaften und Methoden sind statisch. Die folgenden JavaScript-Standard eingebauten Objekte sind kein Konstruktor: {{jsxref("Math")}}, {{jsxref("JSON")}}, {{jsxref("Symbol")}}, {{jsxref("Reflect")}}, {{jsxref("Intl")}}, {{jsxref("Atomics")}}.
+Es gibt viele globale Objekte, wie {{jsxref("String")}} oder {{jsxref("Array")}}, die mit `new` konstruiert werden können. Einige globale Objekte sind jedoch nicht konstruiert und ihre Eigenschaften und Methoden sind statisch. Die folgenden JavaScript-Standard-Built-in-Objekte sind kein Konstruktor: {{jsxref("Math")}}, {{jsxref("JSON")}}, {{jsxref("Symbol")}}, {{jsxref("Reflect")}}, {{jsxref("Intl")}}, {{jsxref("Atomics")}}.
 
 [Generatorfunktionen](/de/docs/Web/JavaScript/Reference/Statements/function*) können ebenfalls nicht als Konstruktoren verwendet werden.
 
@@ -49,7 +49,7 @@ const obj = new f();
 
 ### Ein Autokonstruktor
 
-Nehmen wir an, Sie möchten einen Objekttyp für Autos erstellen. Sie möchten, dass dieser Objekttyp `Car` genannt wird und dass er Eigenschaften für Marke, Modell und Baujahr hat. Um dies zu tun, würden Sie die folgende Funktion schreiben:
+Angenommen, Sie möchten einen Objekttyp für Autos erstellen. Sie möchten, dass dieser Objekttyp `Car` genannt wird, und Sie möchten, dass er Eigenschaften für Marke, Modell und Baujahr hat. Dazu würden Sie die folgende Funktion schreiben:
 
 ```js
 function Car(make, model, year) {
@@ -59,17 +59,17 @@ function Car(make, model, year) {
 }
 ```
 
-Nun können Sie ein Objekt namens `mycar` wie folgt erstellen:
+Jetzt können Sie ein Objekt namens `myCar` wie folgt erstellen:
 
 ```js
-const mycar = new Car("Eagle", "Talon TSi", 1993);
+const myCar = new Car("Eagle", "Talon TSi", 1993);
 ```
 
 ### In Promises
 
-Wenn Sie ein sofort aufgelöstes oder sofort abgelehntes Promise zurückgeben, müssen Sie kein `new Promise(...)` erstellen und darauf handeln. Stattdessen verwenden Sie die statischen Methoden [`Promise.resolve()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) oder [`Promise.reject()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject).
+Wenn Sie ein sofort aufgelöstes oder sofort abgelehntes Promise zurückgeben, müssen Sie kein `new Promise(...)` erstellen und darauf agieren. Stattdessen verwenden Sie die [`Promise.resolve()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve) oder [`Promise.reject()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject) [statischen Methoden](<https://en.wikipedia.org/wiki/Method_(computer_programming)#Static_methods>).
 
-Dies ist illegal (der [`Promise`-Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) wird nicht korrekt aufgerufen) und wird eine `TypeError: this is not a constructor` Ausnahme werfen:
+Dies ist nicht zulässig (der [`Promise` Konstruktor](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/Promise) wird nicht korrekt aufgerufen) und wird eine `TypeError: this is not a constructor` Ausnahme auslösen:
 
 ```js example-bad
 const fn = () => {
@@ -77,7 +77,7 @@ const fn = () => {
 };
 ```
 
-Dies ist legal, aber unnötig lang:
+Dies ist zulässig, aber unnötig lang:
 
 ```js
 const fn = () => {
@@ -87,7 +87,7 @@ const fn = () => {
 };
 ```
 
-Stattdessen geben Sie die statische Methode zurück:
+Stattdessen sollten Sie die statische Methode zurückgeben:
 
 ```js example-good
 const resolveAlways = () => {
@@ -101,5 +101,5 @@ const rejectAlways = () => {
 
 ## Siehe auch
 
-- {{Glossary("Constructor", "Konstruktor")}}
+- {{Glossary("Constructor", "constructor")}}
 - [`new`](/de/docs/Web/JavaScript/Reference/Operators/new)

@@ -1,23 +1,23 @@
 ---
-title: "WebTransportError: source Eigenschaft"
+title: "WebTransportError: source-Eigenschaft"
 short-title: source
 slug: Web/API/WebTransportError/source
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
 
-Die **`source`**-Eigenschaft des [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Interfaces gibt einen aufzählbaren Wert zurück, der die Quelle des Fehlers angibt.
+Die schreibgeschützte **`source`**-Eigenschaft der [`WebTransportError`](/de/docs/Web/API/WebTransportError)-Schnittstelle gibt einen Aufzählungswert zurück, der die Quelle des Fehlers angibt.
 
 ## Wert
 
-Ein aufzählbarer Wert; kann entweder `stream` oder `session` sein.
+Ein Aufzählungswert; kann entweder `stream` oder `session` sein.
 
 ## Beispiele
 
 ```js
-const url = "notaurl";
+const url = "not-a-url";
 
 async function initTransport(url) {
   try {

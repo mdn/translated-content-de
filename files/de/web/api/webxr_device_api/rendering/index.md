@@ -1,21 +1,21 @@
 ---
-title: Rendering und der WebXR-Frame-Animations-Callback
+title: Rendering und der WebXR-Frame-Animationsrückruf
 slug: Web/API/WebXR_Device_API/Rendering
 l10n:
-  sourceCommit: 592f6ec42e54981b6573b58ec0343c9aa8cbbda8
+  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
 ---
 
 {{DefaultAPISidebar("WebXR Device API")}}
 
-Sobald Ihre WebXR-Umgebung eingerichtet ist und eine [`XRSession`](/de/docs/Web/API/XRSession) erstellt wurde, um eine laufende XR-Umgebungssitzung zu repräsentieren, müssen Sie der XR-Einrichtung Frames der Szene zur Darstellung bereitstellen. Dieser Artikel beschreibt den Prozess, wie die Frames der XR-Szene in der Rendering-Schleife an das Gerät übermittelt werden, indem eine [`XRSession`](/de/docs/Web/API/XRSession) verwendet wird, um ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt zu erhalten, das jeden Frame repräsentiert und dann verwendet wird, um den Framebuffer für die Übertragung an das XR-Gerät vorzubereiten.
+Sobald Ihre WebXR-Umgebung eingerichtet und eine [`XRSession`](/de/docs/Web/API/XRSession) erstellt wurde, um eine laufende XR-Umgebungssitzung darzustellen, müssen Sie der XR-Gerät Frames der Szene zur Darstellung bereitstellen. Dieser Artikel behandelt den Prozess, wie die Frames der XR-Szene im Rendering-Loop auf das Gerät übertragen werden, indem die [`XRSession`](/de/docs/Web/API/XRSession) zum Abrufen eines [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekts verwendet wird, das jedes Frame repräsentiert und darauf hin verwendet wird, den Framebuffer für die Bereitstellung an das XR-Gerät vorzubereiten.
 
-Bevor Sie die virtuelle Umgebung rendern können, müssen Sie eine WebXR-Sitzung durch Erstellen einer [`XRSession`](/de/docs/Web/API/XRSession) mit der Methode [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) einrichten; Sie müssen die Sitzung auch mit einem Framebuffer verknüpfen und andere Einrichtungsaufgaben ausführen. Diese Einrichtungsaufgaben werden im Artikel [Starten und Beenden einer WebXR-Sitzung](/de/docs/Web/API/WebXR_Device_API/Startup_and_shutdown) beschrieben.
+Bevor Sie die virtuelle Umgebung rendern können, müssen Sie eine WebXR-Sitzung einrichten, indem Sie eine [`XRSession`](/de/docs/Web/API/XRSession) mit der Methode [`navigator.xr.requestSession()`](/de/docs/Web/API/XRSystem/requestSession) erstellen; Sie müssen auch die Sitzung mit einem Framebuffer verbinden und andere Einrichtungsschritte durchführen. Diese Einrichtungsschritte sind im Artikel [Starten und Beenden einer WebXR-Sitzung](/de/docs/Web/API/WebXR_Device_API/Startup_and_shutdown) beschrieben.
 
-## Vorbereitung des Renderers
+## Vorbereiten des Renderers
 
-Sobald die XR-Sitzung eingerichtet ist, der WebGL-Framebuffer verbunden und WebGL mit den Daten vorbereitet ist, die es benötigt, um die Szene darzustellen, können Sie den Renderer einrichten, um zu starten. Dies beginnt mit dem Abrufen des Referenzraums, in dem Sie zeichnen möchten, wobei sein Ursprung und seine Ausrichtung auf der Startposition und der Sichtlinie des Betrachters eingestellt sind. Sobald dies gesichert ist, bitten Sie den Browser, Ihre Renderfunktion das nächste Mal aufzurufen, wenn er einen Framebuffer benötigt, um Ihre Szene darzustellen. Dies wird durch Aufrufen der Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) von [`XRSession`](/de/docs/Web/API/XRSession) erreicht.
+Nachdem die XR-Sitzung eingerichtet wurde, mit angeschlossenem WebGL-Framebuffer und alle erforderlichen Daten im WebGL bereitgestellt wurden, um die Szene zu rendern, können Sie den Renderer einrichten, um zu starten. Dies beginnt mit dem Abrufen des Referenzraums, in dem Sie zeichnen möchten, wobei der Ursprung und die Ausrichtung an der Startposition und Blickrichtung des Betrachters festgelegt sind. Sobald dies geschehen ist, fordern Sie den Browser auf, Ihre Rendering-Funktion beim nächsten Bedarf eines Framebuffers aufzurufen, um Ihre Szene zu rendern. Dies geschieht durch den Aufruf der [`XRSession`](/de/docs/Web/API/XRSession)-Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame).
 
-Das Starten des Renderers sieht also folgendermaßen aus:
+Den Renderer zu starten sieht somit folgendermaßen aus:
 
 ```js
 let worldRefSpace;
@@ -32,102 +32,102 @@ async function runXR(xrSession) {
 }
 ```
 
-Nach dem Erhalten eines Referenzraums für die immersive Welt wird ein Offset-Referenzraum erstellt, der die Position und Ausrichtung des Betrachters durch Erstellen eines [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) darstellt, das diese Position und Ausrichtung repräsentiert. Anschließend wird die Methode [`getOffsetReferenceSpace()`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace) von [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) aufgerufen.
+Nachdem ein Referenzraum für die immersive Welt erhalten wurde, erstellt dies einen Versatz-Referenzraum, der die Position und Ausrichtung des Betrachters darstellt, indem ein [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) erstellt wird, der diese Position und Ausrichtung darstellt, und dann die Methode [`getOffsetReferenceSpace()`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace) des [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) aufgerufen wird.
 
-Dann wird der erste Animationsframe durch Aufrufen der Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) von [`XRSession`](/de/docs/Web/API/XRSession) geplant, wobei eine Callback-Funktion, `myDrawFrame()`, angegeben wird, die dafür verantwortlich ist, den Frame darzustellen.
+Dann wird das erste Animations-Frame geplant, indem die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) der [`XRSession`](/de/docs/Web/API/XRSession) aufgerufen wird, wobei eine Rückruffunktion `myDrawFrame()` übergeben wird, deren Aufgabe es ist, das Frame zu rendern.
 
-Beachten Sie, dass dieser Code keine Schleife enthält! Stattdessen ist der Frame-Rendering-Code, in diesem Fall eine Funktion namens `myDrawFrame()`, dafür verantwortlich, Zeit einzuplanen, um einen weiteren Frame zu zeichnen, indem `requestAnimationFrame()` erneut aufgerufen wird.
+Beachten Sie, dass dieser Code keine Schleife hat! Stattdessen ist der Code zum Rendern des Frames—in diesem Fall eine Funktion namens `myDrawFrame()`—dafür verantwortlich, die Zeit für das Zeichnen eines weiteren Frames zu planen, indem erneut `requestAnimationFrame()` aufgerufen wird.
 
-## Bildwiederholrate und Framerate
+## Aktualisierungsrate und Frame-Rate
 
-Angenommen, Sie haben die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) von [`XRSession`](/de/docs/Web/API/XRSession) seit der letzten Bildaktualisierung des Bildschirms aufgerufen, wird der Browser Ihren Frame-Rendering-Callback jedes Mal aufrufen, wenn er bereit ist, Ihr App- oder Website-Fenster neu zu zeichnen. In diesem Zusammenhang bedeutet "Neuzeichnen" den Prozess, sicherzustellen, dass der auf dem Bildschirm angezeigte Inhalt dem entspricht, was das DOM und die darin enthaltenen Elemente in diesem Moment präsentieren möchten.
+Angenommen, Sie haben die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) der [`XRSession`](/de/docs/Web/API/XRSession) seit der letzten Aktualisierung des Bildschirms aufgerufen, wird der Browser Ihren Frame-Rendering-Rückruf jedes Mal aufrufen, wenn er bereit ist, Ihr App- oder Site-Fenster neu zu zeichnen. In diesem Kontext bedeutet "neu zeichnen" den Prozess, sicherzustellen, dass der auf dem Bildschirm angezeigte Inhalt dem entspricht, was das DOM und die darin enthaltenen Elemente in diesem Moment darstellen sollen.
 
-### Vertikale Bildwiederholrate der Hardware
+### Vertikale Hardware-Aktualisierungsrate
 
-Wenn der Browser bereit ist, das {{HTMLElement("canvas")}} zu aktualisieren, in dem Ihre WebXR-Inhalte angezeigt werden, ruft er Ihren Frame-Rendering-Callback auf, der den angegebenen Zeitstempel und alle anderen relevanten Daten wie Modelle und Texturen sowie den Anwendungsstatus verwendet, um die Szene so darzustellen, wie sie zum angegebenen Zeitpunkt erscheinen sollte, in den WebGL-Backbuffer. Wenn Ihr Callback zurückkehrt, überträgt der Browser diesen Backbuffer an das Display oder das XR-Gerät zusammen mit allem anderen, was sich seit der letzten Aktualisierung des Bildschirms geändert hat.
+Wenn der Browser bereit ist, das {{HTMLElement("canvas")}}, in dem Ihre WebXR-Inhalte angezeigt werden, zu aktualisieren, ruft er Ihren Frame-Rendering-Rückruf auf, der den angegebenen Zeitstempel und alle anderen relevanten Daten, wie Modelle und Texturen sowie den Anwendungszustand, verwendet, um die Szene—wie sie zu diesem Zeitpunkt erscheinen sollte—in den WebGL-Backbuffer zu rendern. Wenn Ihr Rückruf zurückkehrt, überträgt der Browser diesen Backbuffer an das Display oder XR-Gerät zusammen mit allem, was sich seit der letzten Auffrischung des Bildschirms geändert hat.
 
-Historisch gesehen haben Bildschirme 60 Mal pro Sekunde aktualisiert. Dies liegt daran, dass frühe Bildschirme die Wechselstromflussform des Stromnetzes verwendeten, das in den USA (und in Europa 50 Mal) 60 Mal pro Sekunde schwingt, um die Zeitsteuerung zu synchronisieren. Diese Zahl wird unter mehreren Namen bekannt, aber sie sind alle gleichwertig oder fast identisch:
+Historisch gesehen haben Bildschirme sich 60 Mal pro Sekunde aktualisiert. Dies liegt daran, dass frühe Bildschirme die Wechselspannung des elektrischen Netzes verwendeten, die in den USA 60 Mal pro Sekunde (50 in Europa) umschlägt, um die Synchronisation durchzuführen. Diese Zahl hat mehrere Bezeichnungen, aber sie bedeuten alle dasselbe oder fast dasselbe:
 
-- Bildwiederholrate
-- Vertikale Bildwiederholrate
+- Aktualisierungsrate
+- Vertikale Aktualisierungsrate
 - Vertikale Leerzeilenrate (VBL)
-- Vertikale Synchronisationsrate
+- Vertikale Synchronisierungsrate
 
-Es gibt auch andere ähnliche Begriffe, aber unabhängig davon, wie sie genannt werden, wird die Maßeinheit dafür in Hertz, oder Hz, angegeben. Ein Display, das 60 Mal pro Sekunde aktualisiert, hat eine Bildwiederholrate von 60 Hz. Das bedeutet, dass die maximale Anzahl an Frames, die es in einer Sekunde anzeigen kann, 60 beträgt. Egal wie viele Frames pro Sekunde über diesen Wert hinaus gerendert werden, es werden nur 60 von ihnen im Verlauf einer Sekunde auf dem Bildschirm erscheinen.
+Es gibt auch andere ähnliche Begriffe, aber unabhängig davon, wie sie genannt werden, wird die Maßeinheit Hertz oder Hz angewandt. Ein Bildschirm, der sich 60 Mal pro Sekunde aktualisiert, hat eine Aktualisierungsrate von 60 Hz. Das bedeutet, dass die maximale Anzahl an Frames, die er in einer Sekunde anzeigen kann, 60 beträgt. Egal wie viele Frames pro Sekunde Sie rendern, nur 60 davon gelangen in einer Sekunde auf den Bildschirm.
 
-Aber nicht alle Bildschirme laufen mit 60 Hz; heutzutage beginnen leistungsfähigere Bildschirme, wesentlich höhere Bildwiederholraten zu verwenden. 120 Hz — oder 120 Frames pro Sekunde — Displays sind zunehmend verbreitet. Der Browser versucht immer, mit der gleichen Rate zu aktualisieren wie das Display, was bedeutet, dass auf einigen Computern Ihr Callback maximal 60 Mal pro Sekunde aufgerufen wird, während auf anderen er 90 oder 120 Mal pro Sekunde oder sogar häufiger aufgerufen werden kann, abhängig von der Framerate.
+Aber nicht alle Displays laufen bei 60 Hz; heutzutage beginnen Bildschirme mit höherer Leistung, viel höhere Aktualisierungsraten zu verwenden. 120-Hz-Bildschirme oder 120 Frames pro Sekunde werden zunehmend üblich. Der Browser versucht immer, mit der gleichen Rate wie das Display zu aktualisieren, was bedeutet, dass auf einigen Computern Ihr Rückruf maximal 60 Mal pro Sekunde ausgeführt wird, während er auf anderen möglicherweise 90 oder 120 Mal pro Sekunde oder sogar mehr aufgerufen wird, abhängig von der Frame-Rate.
 
-### Verfügbare Zeit zum Rendern jedes Frames
+### Verfügbare Zeit, um jedes Frame zu rendern
 
-Dies macht es entscheidend, die verfügbare Zeit zwischen den Frames optimal zu nutzen. Wenn das Gerät des Benutzers ein 60 Hz Display verwendet, wird Ihr Callback bis zu 60 Mal pro Sekunde aufgerufen, und Ihr Ziel ist es, sicherzustellen, dass er nicht seltener aufgerufen wird als das. Sie erreichen dies, indem Sie so viel wie möglich außerhalb des Hauptthreads erledigen und Ihren Frame-Rendering-Callback so effizient wie möglich halten. Die Einteilung der Zeit in 60 Hz Blöcke, wobei jeder Block zumindest teilweise zum Rendern der Szene genutzt wird, ist im folgenden Diagramm dargestellt.
+Daher ist es wichtig, die verfügbare Zeit zwischen den Frames optimal zu nutzen. Wenn das Gerät des Benutzers ein 60-Hz-Display verwendet, wird Ihr Rückruf bis zu 60 Mal pro Sekunde aufgerufen, und Ihr Ziel ist es, sicherzustellen, dass er nicht seltener als das aufgerufen wird. Sie erreichen dies, indem Sie so viel wie möglich außerhalb des Hauptthreads tun und Ihren Frame-Rendering-Rückruf so effizient wie möglich halten. Die Einteilung der Zeit in 60-Hz-Blöcke, wobei jeder Block zumindest teilweise zum Rendern der Szene verwendet wird, ist im folgenden Diagramm dargestellt.
 
-![Renderer-Ausführungszeit pro Frame-Periode](frames-and-refresh-rate.svg)
+![Renderer-Ausführungszeit pro Framezeitraum](frames-and-refresh-rate.svg)
 
-Das ist wichtig, denn wenn der Computer zunehmend beschäftigt wird, kann er möglicherweise nicht jeden Frame exakt aufrufen und muss vielleicht Frames überspringen. Dies bezeichnet man als **Frames droppen**. Das passiert, wenn die benötigte Zeit, um einen Frame zu rendern, die zwischen den Frames verfügbare Zeit überschreitet, sei es, weil das Rendern verzögert wurde oder weil das Rendern selbst mehr Zeit in Anspruch nahm als verfügbar.
+Dies ist wichtig, da es sein kann, dass der Computer, wenn er zunehmend beschäftigt wird, nicht in der Lage ist, Ihren Rückruf präzise jedes Frame aufzurufen, und möglicherweise Frames überspringen muss. Dies nennt man **Frames fallen lassen**. Dies geschieht, wenn die Zeit, die zum Rendern eines Frames benötigt wird, die zwischen den Frames verfügbare Zeit überschreitet, sei es, weil das Rendern verzögert wurde oder das Rendern selbst mehr Zeit in Anspruch nahm als verfügbar.
 
-![Renderer-Ausführungszeit pro Frame-Periode](dropped-frames-timing.svg)
+![Renderer-Ausführungszeit pro Framezeitraum](dropped-frames-timing.svg)
 
-Im obigen Diagramm wird Frame 3 übersprungen, da Frame 2 das Rendern nicht abgeschlossen hatte, bevor Frame 3 gezeichnet werden sollte. Stattdessen wird der nächste gezeichnete Frame Frame 4 sein. Dies ist ein weiterer Grund, warum der Zeitstempel, der in Ihren Rendering-Callback übergeben wird, nützlich ist. Indem Sie die Szene auf der Basis von Zeit anstelle der Frame-Nummer konfigurieren, können Sie sicherstellen, dass Ihre gerenderten Frames das tun, was erwartet wird, statt hinterherzuhinken.
+Im obigen Diagramm wird Frame 3 fallen gelassen, da Frame 2 nicht bis zum Zeitpunkt des Zeichnens von Frame 3 gerendert wurde. Das nächste gezeichnete Frame wird stattdessen Frame 4 sein. Dies ist ein weiterer Grund, warum der Zeitstempel, der in Ihren Rendering-Rückruf übergeben wird, nützlich ist. Indem Sie die Szene basierend auf der Zeit und nicht auf der Frame-Nummer konfigurieren, können Sie sicherstellen, dass Ihre gerenderten Frames den Erwartungen entsprechen und nicht hinterherhinken.
 
-Wenn ein Frame fallen gelassen wird, ändern sich die Inhalte des betroffenen Anzeigebereichs in diesem Durchgang durch die Frame-Schleife nicht. Aus diesem Grund ist der gelegentliche Ausfall eines Frames normalerweise nicht besonders auffällig, aber wenn es häufig passiert - insbesondere wenn mehrere Frames in sehr kurzer Zeitspanne fallen gelassen werden - kann es störend sein oder sogar dazu führen, dass Ihre Anzeige unbrauchbar wird.
+Wenn ein Frame fallen gelassen wird, ändert sich der Inhalt des betroffenen Anzeigebereichs während dieses Durchgangs durch die Frame-Schleife nicht. Aus diesem Grund ist das gelegentliche Fallenlassen eines Frames normalerweise nicht besonders auffällig, aber wenn es oft passiert—insbesondere wenn mehrere Frames in sehr kurzer Zeitspanne fallen gelassen werden—kann es störend sein oder sogar Ihre Anzeige unbrauchbar machen.
 
-Zum Glück können Sie leicht berechnen, wie viel Zeit Ihnen zwischen den Frames zur Verfügung steht, indem Sie `1/refreshRate` Sekunden verwenden. Das heißt, indem Sie 1 durch die Bildwiederholrate des Displays teilen. Der daraus resultierende Wert ist die Zeit, die für jeden Frame verfügbar ist, um gerendert zu werden, damit der Frame nicht fallen gelassen wird. Beispielsweise hat ein 60 Hz Display eine 1/60 Sekunde, um einen einzelnen Frame zu rendern, oder 0,0166667 Sekunden. Und wenn die Bildwiederholrate des Geräts 120 Hz beträgt, haben Sie nur 0,00883333 Sekunden Zeit, um jeden Frame zu rendern, um das Fallen des Frames zu vermeiden.
+Glücklicherweise können Sie leicht berechnen, wie viel Zeit zwischen den Frames verfügbar ist, indem Sie `1/Aktualisierungsrate` Sekunden verwenden. Das heißt, indem Sie 1 durch die Aktualisierungsrate des Displays teilen. Der resultierende Wert ist die Anzahl der Sekunden, die für jedes Frame zur Verfügung stehen, um gerendert zu werden, um das Skippen zu vermeiden. Beispielsweise hat ein 60-Hz-Display 1/60 Sekunde um ein einzelnes Frame zu rendern oder 0,0166667 Sekunden. Und wenn die Aktualisierungsrate des Geräts 120 Hz beträgt, haben Sie nur 0,00883333 Sekunden, um jedes Frame zu rendern, wenn Sie das Fallenlassen von Frames vermeiden möchten.
 
-Auch wenn die Hardware tatsächlich 120 Hz ist, können Sie normalerweise trotzdem mit einer Aktualisierung von nur 60 Mal pro Sekunde auskommen, und sich darauf zu konzentrieren, ist normalerweise eine gute Basisstrategie. 60 FPS ist bereits über dem Punkt, an dem die meisten Menschen erkennen können, dass die Animation keine Reihe von schnell nacheinander abgespielten Einzelbildern ist. Mit anderen Worten, wenn Sie Zweifel haben, können Sie davon ausgehen, dass das Display mit 60 Hz aktualisiert wird. Solange Ihr Code richtig geschrieben ist, wird alles in Ordnung sein.
+Selbst wenn die Hardware tatsächlich 120 Hz erreicht, können Sie dennoch einfach 60 Mal pro Sekunde aktualisieren, und es ist normalerweise ein guter Ausgangspunkt, dieses Ziel anzustreben. 60 FPS liegen bereits jenseits des Punktes, an dem die meisten Menschen leicht erkennen können, dass die Animation nicht eine Serie von Standbildern ist, die wirklich schnell vorbeigehen. Mit anderen Worten, wenn Sie sich nicht sicher sind, können Sie davon ausgehen, dass die Aktualisierung des Displays bei 60 Hz erfolgt. Solange Ihr Code korrekt geschrieben ist, wird alles gut funktionieren.
 
-### Leistungsbedenken des Renderers
+### Bedenken zur Renderer-Leistung
 
-Offensichtlich haben Sie sehr wenig Zeit, um Ihre Szene in jedem Frame zu rendern. Nicht nur das, sondern wenn Ihr Renderer selbst länger als diese Zeitdauer läuft, können Sie nicht nur den Frame ausfallen lassen, sondern diese Zeit vollständig verschwenden, da für diesen Frame kein anderer Code ausgeführt werden kann.
+Es ist klar, dass Sie sehr wenig Zeit haben, um jede Szene pro Frame zu rendern. Nicht nur das, sondern wenn Ihr Renderer länger als diese Zeit läuft, können Sie nicht nur das Frame fallen lassen, sondern diese Zeit wird vollständig verschwendet und blockiert möglicherweise, dass andere Code für dieses Frame überhaupt ausgeführt wird.
 
-Darüber hinaus, wenn Ihr Rendering die vertikale Aktualisierungsgrenze überschreitet, können Sie einen **Tearing**-Effekt erleben. Tearing tritt auf, wenn die Display-Hardware den nächsten Aktualisierungszyklus startet, während der vorherige Frame noch auf den Bildschirm gezeichnet wird. Dadurch entsteht der visuelle Effekt, dass der obere Teil des Bildschirms den neuen Frame zeigt, während der untere Teil des Frames möglicherweise eine Kombination des vorherigen Frames und sogar des Frames davor zeigt.
+Nicht nur das, sondern wenn Ihr Rendering die vertikale Synchronisationsgrenze überschreitet, können Sie einen **Zerr-Effekt** erzeugen. Tearing tritt auf, wenn die Anzeigegeräte beginnen, den nächsten Auffrischungszyklus zu starten, während das vorherige Frame noch auf den Bildschirm gezeichnet wird. Infolgedessen erhalten Sie einen visuellen Effekt, bei dem der obere Teil des Bildschirms das neue Frame anzeigt, während der untere Teil des Frames eine Kombination aus dem vorherigen Frame und möglicherweise sogar dem davor anzeigt.
 
-Ihre Aufgabe ist es daher, Ihren Code so knapp und leichtgewichtig zu halten, dass Sie die Ihnen zur Verfügung stehende Zeit nicht überschreiten oder auf andere Weise Frames fallen lassen oder den Hauptthread übermäßig beanspruchen.
+Ihr Ziel ist es daher, Ihren Code so kompakt und leichtgewichtig zu halten, dass Sie die Ihnen zur Verfügung stehende Zeit nicht überschreiten oder anderweitig Frames erfolgreich fallen gelassen werden oder den Hauptthread übermäßig belasten.
 
-Aus diesen Gründen sollten Sie, es sei denn Ihr Renderer ist ziemlich klein und leichtgewichtig mit wenig Aufwand, alles Mögliche in einen Worker auslagern, sodass Sie den nächsten Frame vorbereiten können, während der Browser andere Dinge handhabt. Indem Sie Ihre Berechnungen und Daten bereit haben, bevor der Frame tatsächlich angefordert wird, können Sie Ihre Site oder App viel effizienter rendern, die Leistung des Hauptthreads verbessern und im Allgemeinen das Benutzererlebnis verbessern.
+Aus diesen Gründen sollten Sie, es sei denn Ihr Renderer ist eher klein und leicht, mit wenig zu tun, in Betracht ziehen, alles, was Sie können, an einen Worker auszulagern, damit Sie das nächste Frame berechnen können, während der Browser andere Dinge bearbeitet. Indem Sie Ihre Berechnungen und Daten bereitstellen, bevor das Frame tatsächlich erforderlich ist, können Sie Ihre Site oder App viel effizienter machen, die Leistung des Hauptthreads verbessern und letztendlich die Benutzererfahrung verbessern.
 
-Zum Glück gibt es einige Tricks, mit denen Sie Ihre Auswirkung weiter reduzieren und die Leistung optimieren können, wenn Ihre Rendering-Anforderungen besonders hoch sind. Siehe den [WebXR-Leistungsleitfaden](/de/docs/Web/API/WebXR_Device_API/Performance) für Empfehlungen und Tipps, die Ihnen helfen, sicherzustellen, dass Ihre Leistung so gut wie möglich ist.
+Glücklicherweise gibt es einige Tricks, die Sie verwenden können, um Ihren Einfluss weiter zu reduzieren und die Leistung zu optimieren, wenn Ihre Renderanforderungen besonders hoch sind. Siehe den [WebXR-Performance-Leitfaden](/de/docs/Web/API/WebXR_Device_API/Performance) für Empfehlungen und Tipps, die Ihnen dabei helfen, sicherzustellen, dass Ihre Leistung so gut ist, wie sie sein kann.
 
 ## WebXR-Frames
 
-Ihre Frame-Rendering-Callback-Funktion erhält als Eingabe zwei Parameter: die Zeit, auf die sich der Frame bezieht, und ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das den Zustand der Szene zu diesem Zeitpunkt beschreibt.
+Ihre Frame-Rendering-Rückruffunktion erhält zwei Parameter als Eingabe: die Zeit, zu der das Frame gehört, und ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das den Zustand der Szene zu dieser Zeit beschreibt.
 
 ### Die Optik von 3D
 
-Wir haben zwei Augen aus einem bestimmten Grund: Da wir zwei Augen haben, sieht jedes das gleiche Bild aus einem leicht anderen Winkel. Da sie einen bekannten, festen Abstand voneinander haben, können unsere Gehirne grundlegende Geometrie und Trigonometrie verwenden, um die 3D-Natur der Realität aus diesen Informationen zu bestimmen. Wir nutzen auch Perspektive, Größenunterschiede und sogar unser Verständnis von wie Dinge normalerweise aussehen, um die Details dieser dritten Dimension herauszufinden. Diese Faktoren, unter anderen, sind die Quelle unserer [Tiefenwahrnehmung](https://en.wikipedia.org/wiki/Depth_perception).
+Wir haben zwei Augen aus gutem Grund: Durch das Vorhandensein von zwei Augen sieht jedes die Welt aus einem leicht unterschiedlichen Winkel. Da sie einen bekannten, festen Abstand zueinander haben, kann unser Gehirn grundlegende Geometrie und Trigonometrie anwenden und die dreidimensionale Natur der Realität aus diesen Informationen ableiten. Wir nutzen auch Perspektive, Größenunterschiede und sogar unser Verständnis darüber, wie Dinge normalerweise aussehen, um die Details dieser dritten Dimension herauszufinden. Diese Faktoren, neben anderen, sind die Quelle unserer [Tiefenwahrnehmung](https://en.wikipedia.org/wiki/Depth_perception).
 
-Um die Illusion von drei Dimensionen beim Rendern von Grafiken zu erzeugen, müssen wir so viele dieser Faktoren wie möglich simulieren. Je mehr dieser Faktoren wir simulieren – und je genauer wir das tun – desto besser können wir das menschliche Gehirn täuschen, dass unsere Bilder 3D sind. Der Vorteil von XR ist, dass wir nicht nur die klassischen monokularen Techniken nutzen können, um 3D-Grafiken zu simulieren (Perspektive, Größe und simulierte Parallaxe), sondern auch das binokulare Sehen simulieren können – das heißt, Sehen mit zwei Augen – indem wir die Szene zweimal für jeden Frame der Animation rendern – einmal für jedes Auge.
+Um die Illusion von drei Dimensionen beim Rendern von Grafiken zu erzeugen, müssen wir so viele dieser Faktoren wie möglich simulieren. Je mehr dieser Faktoren wir simulieren—und je genauer wir dies tun—desto besser können wir das menschliche Gehirn dazu bringen, unsere Bilder in 3D wahrzunehmen. Der Vorteil von XR ist, dass wir nicht nur die klassischen monokularen Techniken verwenden können, um 3D-Grafiken zu simulieren (Perspektive, Größe und simulierte Parallaxe), sondern wir können auch binokulares Sehen simulieren—das heißt, Sehen mit zwei Augen—indem wir die Szene für jedes Frame der Animation zweimal rendern—einmal für jedes Auge.
 
-Der typische [Pupillenabstand](https://en.wikipedia.org/wiki/Pupillary_distance) eines Menschen – der Abstand zwischen den Zentren der Pupillen – liegt zwischen 54 und 74 Millimetern (0,054 bis 0,074 Meter). Wenn sich also die Mitte des Kopfes eines Betrachters bei `[0.0, 2.0, 0.0]` befindet (etwa zwei Meter über dem Boden in der Mitte des Raumes horizontal), müssen wir die Szene zunächst von, sagen wir, `[-0.032, 2.0, 0.0]` (32mm links der Mitte) und dann erneut bei `[0.032, 2.0, 0.0]` (32mm rechts der Mitte) rendern. Auf diese Weise platzieren wir die Positionen der Augen des Betrachters in einem durchschnittlichen menschlichen Pupillenabstand von 64mm.
+Der klinische menschliche [Pupillenabstand](https://en.wikipedia.org/wiki/Pupillary_distance)—der Abstand zwischen den Zentren der Pupillen—liegt zwischen 54 und 74 Millimetern (0,054 bis 0,074 Meter). Wenn also der Mittelpunkt des Kopfes des Betrachters sich an `[0.0, 2.0, 0.0]` befindet (etwa zwei Meter über dem Boden auf der horizontalen Achse), müssen wir die Szene zunächst von, sagen wir, `[-0.032, 2.0, 0.0]` (32mm links von der Mitte) rendern und dann erneut bei `[0.032, 2.0, 0.0]` (32mm rechts von der Mitte). Auf diese Weise platzieren wir die Positionen der Augen des Betrachters in einem durchschnittlichen menschlichen Pupillenabstand von 64mm.
 
-Dieser Abstand (oder welchen Pupillenabstand das XR-System auch immer verwenden soll) reicht aus, um unseren Geist ausreichend Unterschied aufgrund unterschiedlicher Netzhautbilder (dem Unterschied dessen, was jede Netzhaut sieht) und der Parallax-Effekte zu zeigen, um unseren Gehirnen zu erlauben, die Entfernung und Tiefe von Objekten zu berechnen und so drei Dimensionen wahrzunehmen, obwohl unsere Netzhaut nur 2D-Oberflächen sind.
+Dieser Abstand (oder welcher Pupillenabstand auch immer das XR-System konfiguriert ist zu verwenden) reicht aus, damit unser Gehirn nur genügend Unterschied aufgrund der Netzhautabweichung (der Unterschied, den jede Netzhaut sieht) und des Parallaxeneffekts sieht, um die Entfernung zu und Tiefe von Objekten zu berechnen, was es uns ermöglicht, drei Dimensionen wahrzunehmen, obwohl unsere Netzhäute nur 2D-Oberflächen sind.
 
-Dies wird im Diagramm unten veranschaulicht, in dem wir sehen, wie jedes Auge einen Würfel sieht, der sich direkt vor dem Betrachter befindet. Während dieses Diagramm den Effekt in gewisser Weise übertreibt, um ihn besser darzustellen, bleibt das konzeptuelle Prinzip dasselbe. Jedes Auge sieht einen Bereich ausgehend von einem Bogen in front des Auges. Da jedes Auge von der Mittellinie des Kopfes versetzt ist und jedes Auge ungefähr dasselbe Sichtfeld hat, sieht jedes Auge einen geringfügig anderen Teil der Welt davor, und zwar aus einem geringfügig anderen Winkel.
+Dies wird im Diagramm unten illustriert, in dem wir sehen, wie jedes Auge einen Würfel erfasst, der sich direkt vor dem Betrachter befindet. Während dieses Diagramm den Effekt in gewisser Hinsicht zu Illustrationszwecken übertreibt, ist das Konzept dasselbe. Jedes Auge sieht einen Bereich, dessen Grenzen einen Bogen vor dem Auge bilden. Da jedes Auge zu einer Seite oder der anderen von der Mittellinie des Kopfes versetzt ist und jedes Auge ungefähr das gleiche Gesichtsfeld sieht, sieht jedes Auge einen etwas anderen Teil der Welt vor ihm und aus einem etwas anderen Blickwinkel.
 
-![Diagramm, das zeigt, wie binokulares Sehen funktioniert](binocular-vision.svg)
+![Diagramm, das zeigt, wie das binokulare Sehen funktioniert](binocular-vision.svg)
 
-Das linke Auge sieht den Würfel von etwas links der Mitte, und das rechte Auge sieht es von etwas rechts der Mitte. Daher sieht das linke Auge ein wenig mehr von der linken Seite des Objekts und ein wenig weniger von der rechten, und umgekehrt. Diese beiden Bilder werden auf die Netzhaut fokussiert, und das resultierende Signal wird über die Sehnerven zum visuellen Kortex des Gehirns übertragen, der sich am hinteren Ende des Okzipitallappens befindet.
+Das linke Auge sieht den Würfel ein wenig von der linken Seite aus der Mitte, und das rechte Auge sieht ihn ein wenig von der rechten Seite aus der Mitte. Infolgedessen sieht das linke Auge ein wenig mehr von der linken Seite des Objekts und ein wenig weniger von der rechten und umgekehrt. Diese beiden Bilder werden auf die Netzhäute fokussiert und das resultierende Signal über die Sehnerven an die Sehrinde des Gehirns am hinteren Ende des Okzipitallappens übermittelt.
 
-Das Gehirn nimmt diese Signale von den linken und rechten Augen und konstruiert ein einziges, einheitliches, dreidimensionales Bild der Welt im Gehirn des Betrachters, und dieses Bild ist das, was gesehen wird. Und aufgrund dieser Unterschiede zwischen dem, was das linke Auge sieht, im Vergleich zu dem, was das rechte Auge sieht, ist das Gehirn in der Lage, eine Vielzahl von Informationen über die Tiefe des Objekts, seine Größe und mehr zu schließen. Indem das Gehirn diese abgeleiteten Tiefeninformationen mit anderen Hinweisen wie Perspektive, Schatten, Erinnerungen an die Bedeutung dieser Beziehungen und so weiter kombiniert, können wir eine Menge über die Welt um uns herum herausfinden.
+Das Gehirn nimmt diese Signale von den linken und rechten Augen und konstruiert ein einziges, einheitliches, 3D-Bild der Welt im Gehirn des Betrachters, und dieses Bild ist das, was gesehen wird. Aufgrund dieser Unterschiede zwischen dem, was vom linken Auge und im Vergleich dazu vom rechten Auge gesehen wird, ist das Gehirn in der Lage, eine große Menge an Informationen darüber zu benutzer, wie tief das Objekt ist, seine Größe und mehr abzuleiten. Indem es diese abgeleiteten Tiefeninformationen mit anderen Hinweisen wie Perspektiven, Schatten, Erinnerungen daran, was diese Beziehungen bedeuten, und so weiter kombiniert, können wir eine Vielzahl von Informationen über die Welt um uns herum herausfinden.
 
-### Frames, Posen, Ansichten und Framebuffer
+### Frames, Posen, Ansichten und Framebuffers
 
-Nachdem Sie ein `XRFrame`-Objekt haben, das den Zustand der Szene zu einem bestimmten Zeitpunkt darstellt, müssen Sie die Positionen der Objekte in der Szene relativ zum Betrachter bestimmen, damit Sie sie rendern können. Die Position und Orientierung des Betrachters relativ zu einem Referenzraum wird durch ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) dargestellt, das durch Aufrufen der Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) des `XRFrame`-Objekts erhalten wird.
+Sobald Sie ein `XRFrame` haben, das den Zustand der Szene zu einem bestimmten Zeitpunkt darstellt, müssen Sie die Positionen der Objekte in der Szene relativ zum Betrachter bestimmen, damit Sie sie rendern können. Die Position und Orientierung des Betrachters relativ zu einem Referenzraum wird durch ein [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) dargestellt, das durch das Aufrufen der Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) des [`XRFrame`](/de/docs/Web/API/XRFrame) erhalten wird.
 
-Das `XRFrame` verfolgt nicht direkt die Positionen oder Ausrichtungen der Objekte in Ihrer Welt. Stattdessen bietet es eine Möglichkeit, Positionen und Orientierungen in das Koordinatensystem der Szene zu konvertieren, und es sammelt die Positions- und Orientierungsdaten des Betrachters von der XR-Hardware, konvertiert sie in den von Ihnen konfigurierten Referenzraum und übermittelt sie an Ihren Frame-Rendering-Code mit einem Zeitstempel. Sie verwenden diesen Zeitstempel und Ihre eigenen Daten, um zu bestimmen, wie die Szene gerendert werden soll.
+Das `XRFrame` behält nicht direkt die Positionen oder Orientierungen der Objekte in Ihrer Welt. Stattdessen bietet es eine Methode, um Positionen und Orientierungen in das Koordinatensystem der Szene umzuwandeln, und es sammelt die Positions- und Orientierungsdaten des Betrachters von der XR-Hardware, wandelt sie in den von Ihnen konfigurierten Referenzraum um und liefert sie mit einem Zeitstempel an Ihren Frame-Rendering-Code. Sie verwenden diesen Zeitstempel und Ihre eigenen Daten, um zu bestimmen, wie die Szene zu rendern ist.
 
-Nach dem Rendern der Szene zweimal – einmal in die linke Hälfte des Framebuffers und einmal in die rechte Hälfte – wird der Framebuffer an die XR-Hardware gesendet, die dann jedes Bild in der entsprechenden Hälfte des Framebuffers dem jeweiligen Auge zeigt. Dies wird oft (aber nicht immer) durch Zeichnen des Bildes auf einem einzigen Bildschirm und Verwendung von Linsen erreicht, um die korrekte Hälfte des Bildes zum jeweiligen Auge zu transportieren.
+Nachdem die Szene zweimal gerendert wurde—einmal in die linke Hälfte des Framebuffers und einmal in die rechte Hälfte des Framebuffers—wird der Framebuffer an die XR-Hardware gesendet, die jede Hälfte des Framebuffers dem entsprechenden Auge anzeigt. Dies geschieht oft (aber nicht immer), indem das Bild auf einem einzigen Bildschirm gezeichnet wird und Linsen verwendet werden, um die jeweilige Hälfte dieses Bildes an jedes Auge zu übertragen.
 
-Weitere Informationen darüber, wie 3D durch WebXR dargestellt wird, finden Sie in [Dreidimensionale Darstellung mit WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras#representing_3d_with_webxr).
+Sie können mehr darüber erfahren, wie 3D von WebXR repräsentiert wird, in [3D mit WebXR darstellen](/de/docs/Web/API/WebXR_Device_API/Cameras#representing_3d_with_webxr).
 
-## Zeichnen der Szene
+## Die Szene zeichnen
 
-Wenn es an der Zeit ist, den Framebuffer vorzubereiten, damit der Browser den nächsten Frame Ihrer Szene zeichnen kann, wird die Funktion, die Sie in `requestAnimationFrame()` übergeben haben, aufgerufen. Sie erhält als Eingabe den Zeitpunkt, zu dem der zu zeichnende Frame geplant wurde, sowie ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das Details über den Zustand der Szene für den Frame enthält, den Sie rendern müssen.
+Wenn die Zeit gekommen ist, den Framebuffer vorzubereiten, damit der Browser das nächste Frame Ihrer Szene zeichnen kann, wird die Funktion, die Sie `requestAnimationFrame()` bereitgestellt haben, aufgerufen. Sie erhält als Eingabe die Zeit, zu der das aktuelle Frame gerendert wird, und ein [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das Details über den Zustand der Szene für das zu rendernde Frame bereitstellt.
 
-Idealerweise möchten Sie, dass dieser Code schnell genug ist, um eine Framerate von 60 FPS aufrechtzuerhalten oder so nah wie möglich daran zu kommen, wobei Sie bedenken sollten, dass mehr als nur Ihr Code in dieser einen Funktion gleichzeitig ausgeführt wird. Sie müssen sicherstellen, dass der Hauptthread nicht länger pro Frame als die Dauer des Frames selbst benötigt.
+Idealerweise möchten Sie, dass dieser Code schnell genug ist, um eine 60 FPS Frame-Rate beizubehalten oder dieser so nah wie möglich zu kommen, wobei Sie daran denken, dass mehr vor sich geht als nur Ihr Code in dieser einen Funktion. Sie müssen sicherstellen, dass der Hauptthread für jedes Frame nicht länger laufen muss als die Dauer des Frames selbst.
 
 ### Ein einfacher Renderer
 
-In dieser Version des WebXR-Rendering-Callbacks verwenden wir einen sehr unkomplizierten Ansatz, der sich hervorragend für relativ einfache Projekte eignet. Dieses Pseudocode skizziert diesen Prozess:
+In dieser Version des WebXR-Rendering-Rückrufs verwenden wir einen sehr unkomplizierten Ansatz, der für relativ einfache Projekte hervorragend funktioniert. Dieser Pseudocode skizziert diesen Prozess:
 
 ```plain
 for each view in the pose's views list:
@@ -143,13 +143,13 @@ for each view in the pose's views list:
     drawMyObject()
 ```
 
-Zusammenfassend gesagt, dieser Form von Renderer verwendet eine **View-First-Order** Reihenfolge. Jede der beiden Ansichten, die das Display des XR-Geräts ausmachen, werden hintereinander gerendert, wobei jedes Objekt erst für die eine Ansicht und dann für die gleiche Satz von Objekten auf der anderen Ansicht dargestellt wird. Dies hat zur Folge, dass eine Menge an Daten, die zum Zeichnen eines Objekts benötigt werden, zweimal pro Frame an die GPU gesendet wird. Diese Methode vereinfacht jedoch das Portieren von bestehendem WebGL-Code und ist häufig ausreichend, um die Aufgabe zu erledigen, weshalb wir uns diese Methode zuerst anschauen.
+Dieser Renderer verwendet eine **View-First-Reihenfolge**. Jeder der beiden Ansichten, die die Anzeige des XR-Geräts bilden, werden nacheinander gerendert, wobei jedes Objekt in einer Ansicht gezeichnet wird, bevor das gleiche Satz von Objekten in der anderen Ansicht gerendert wird. Infolgedessen gibt es eine beträchtliche Redundanz, da viele der Daten, die benötigt werden, um ein Objekt zu zeichnen, zweimal pro Frame an die GPU gesendet werden. Es vereinfacht jedoch die Portierung vorhandenen WebGL-Codes und ist häufig ausreichend, um den Job zu erledigen, daher werfen wir zuerst einen Blick auf diese Methode.
 
-Siehe [Optimieren durch Rendern in Objekt-First-Order](#optimieren_durch_rendern_in_objekt-first-order) für einen alternativen Ansatz, der jedes Objekt zweimal hintereinander rendert, einmal für jedes Auge, bevor er zum nächsten Objekt wechselt, das die Szene für diesen Frame darstellt; also Rendering in **Object-First-Order**.
+Siehe [Optimieren durch Rendern in objekt-erster Reihenfolge](#optimieren_durch_rendern_in_objekt-erster_reihenfolge) für einen alternativen Ansatz, der jedes Objekt zweimal nacheinander rendert, einmal für jedes Auge, bevor er mit dem nächsten Objekt fortfährt, das die Szene für dieses Frame ausmacht; dh. Rendern in **objekt-erster Reihenfolge**.
 
-#### Beispiel für ein Rendering-Callback
+#### Beispiel eines Rendering-Rückrufs
 
-Schauen wir uns einen echten Code an, der diesem grundlegenden Muster folgt. Da wir dieser Funktion im Beispiel oben den Namen `myDrawFrame()` geben haben, werden wir diesen hier weiter verwenden.
+Werfen wir einen Blick auf einen Beispielcode, der diesem grundlegenden Muster folgt. Da wir im obigen Beispiel dieser Funktion den Namen `myDrawFrame()` gegeben haben, verwenden wir diesen auch hier.
 
 ```js
 let lastFrameTime = 0;
@@ -196,35 +196,35 @@ function myDrawFrame(currentFrameTime, frame) {
 }
 ```
 
-Die Funktion `myDrawFrame()` ergreift die [`XRSession`](/de/docs/Web/API/XRSession) aus dem [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt, das durch den Parameter `frame` spezifiziert ist, und ruft dann die [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame)-Methode der Sitzung auf, um sofort das Rendering des nächsten Frames zu planen. Dies stellt sicher, dass wir sofort in die Warteschlange aufgenommen werden, damit die restliche Zeit, die in dieser Iteration der `myDrawFrame()`-Funktion verbracht wird, darauf angerechnet werden kann, wann der nächste Frame gezeichnet werden soll.
+Die Funktion `myDrawFrame()` ruft die [`XRSession`](/de/docs/Web/API/XRSession) von dem [`XRFrame`](/de/docs/Web/API/XRFrame)-Objekt ab, das von dem `frame`-Parameter angegeben wird, und ruft dann die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) der Sitzung auf, um das Zeichnen des nächsten Frames sofort zu planen. Dies stellt sicher, dass wir uns sofort in die Warteschlange einreihen können, was ermöglicht, dass der Rest der Zeit, die in dieser Iteration der Funktion `myDrawFrame()` verbracht wird, auf das Timing des Zeichnens des nächsten Frames angerechnet wird.
 
-Wir erhalten dann das [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Objekt, das die Pose des Betrachters – seine Position und Orientierung – beschreibt, indem wir die [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose)-Methode des Rahmens aufrufen und den zuvor [bei der Vorbereitung der WebXR-Sitzung](#vorbereitung_des_renderers) erhaltenen Referenzraum des Betrachters übergeben.
+Wir erhalten dann das [`XRViewerPose`](/de/docs/Web/API/XRViewerPose)-Objekt, das die Pose des Betrachters beschreibt—seine Position und Ausrichtung—indem wir die Methode [`getViewerPose()`](/de/docs/Web/API/XRFrame/getViewerPose) des Frames aufrufen und den Referenzraum des Betrachters aus dem `viewerRefSpace` übergeben, das zuvor [während der Einrichtung der WebXR-Sitzung](#vorbereiten_des_renderers) erhalten wurde.
 
-Mit der Pose des Betrachters zur Hand können wir dann beginnen, den Frame zu rendern. Der erste Schritt besteht darin, auf den Framebuffer zuzugreifen, in den das WebXR-Gerät den Frame zeichnen möchte; dies geschieht, indem wir die Ziel-WebGL-Schicht aus der [`renderState`](/de/docs/Web/API/XRSession/renderState)-Eigenschaft [`baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer) der Sitzung abrufen und dann die [`framebuffer`](/de/docs/Web/API/XRWebGLLayer/framebuffer) von diesem [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Objekt erhalten. Wir rufen dann [`gl.bindFrameBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer) auf, um diesen Framebuffer als Ziel für alle kommenden Zeichnungsbefehle zu binden.
+Mit der Pose des Betrachters in der Hand können wir dann mit dem Rendern des Frames beginnen. Der erste Schritt besteht darin, Zugriff auf den Framebuffer zu erhalten, in den das WebXR-Gerät den Frame zeichnen möchte; dies geschieht, indem wir den Ziel-WebGL-Layer vom [`renderState`](/de/docs/Web/API/XRSession/renderState)-Objekts der Sitzung erhalten, das die [`baseLayer`](/de/docs/Web/API/XRRenderState/baseLayer)-Eigenschaft ist, und dann den [`framebuffer`](/de/docs/Web/API/XRWebGLLayer/framebuffer) aus diesem [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer)-Objekt abrufen. Dann rufen wir [`gl.bindFrameBuffer()`](/de/docs/Web/API/WebGLRenderingContext/bindFramebuffer) auf, um diesen Framebuffer als Ziel für alle bevorstehenden Zeichnungsbefehle zu binden.
 
-Der nächste Schritt ist, den Framebuffer zu löschen. Während Sie theoretisch diesen Schritt überspringen könnten – _wenn und nur wenn sicher ist, dass Ihr Code garantiert jedes einzelne Pixel im Framebuffer beschreibt_ – ist es im Allgemeinen am sichersten, ihn einfach zu löschen, bevor Sie mit dem Zeichnen beginnen, es sei denn, Sie müssen wirklich jede Leistungsunze herauskitzeln und wissen, dass Sie sowieso alle Pixel ändern. Die Hintergrundfarbe wird auf vollständig undurchsichtig schwarz gesetzt, indem [`gl.clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor) aufgerufen wird; die klare Tiefe wird auf 1.0 gesetzt, indem [`gl.clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth) aufgerufen wird, um alle Pixel zu löschen, unabhängig davon, wie weit das Objekt, zu dem sie gehören, entfernt ist; und schließlich werden die Pixel- und Tiefenpuffer des Frames durch Aufrufen von [`gl.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) gelöscht, indem ein Bitmaske, die `COLOR_BUFFER_BIT` und `DEPTH_BUFFER_BIT` gesetzt enthält, übergeben wird.
+Der nächste Schritt besteht darin, den Framebuffer zu löschen. Während Sie theoretisch diesen Schritt überspringen könnten—_nur wenn Ihr Rendering-Code garantiert ist, jedes einzelne Pixel im Framebuffer zu schreiben_—ist es im Allgemeinen am besten, ihn einfach zu löschen, bevor Sie mit dem Zeichnen beginnen, es sei denn, Sie müssten jede mögliche Leistungsstufe herauszuholen und wissen, dass Sie alle Pixel ohnehin berühren. Die Hintergrundfarbe wird auf vollständig undurchsichtiges Schwarz gesetzt, indem [`gl.clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor) verwendet wird; die Tiefenlöschung wird auf 1.0 gesetzt, indem [`gl.clearDepth()`](/de/docs/Web/API/WebGLRenderingContext/clearDepth) aufgerufen wird, um alle Pixel unabhängig davon zu löschen, wie weit das Objekt, zu dem sie gehören, weg ist; und schließlich werden sowohl die Pixel- als auch die Tiefenpuffer des Frames gelöscht, indem [`gl.clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) aufgerufen wird, wobei eine Bitmaske übergeben wird, in der sowohl `COLOR_BUFFER_BIT` als auch `DEPTH_BUFFER_BIT` gesetzt sind.
 
-Da WebXR einen einzigen Framebuffer für jede Ansicht verwendet, wobei Sichtbereiche verwendet werden, um jedes Auge innerhalb des Framebuffers zu trennen, müssen wir nur einen einzelnen Framebuffer löschen, anstatt ihn für jedes Auge (oder andere Blickwinkel, falls vorhanden) einzeln zu löschen.
+Da WebXR einen einzigen Framebuffer für jede Ansicht verwendet, mit Viewports, die verwendet werden, um die Ansicht jedes Auges im Framebuffer zu trennen, müssen wir nur einen Framebuffer löschen, statt ihn für jedes Auge (oder andere Ansichten, falls vorhanden) einzeln zu reinigen.
 
-Als nächstes wird die verstrichene Zeit seit dem letzten gerenderten Frame berechnet, indem von der aktuellen, durch den Parameter `currentFrameTime` angegebenen Zeit die gespeicherte Zeit des letzten gerenderten Frames, `lastFrameTime`, subtrahiert wird. Das Ergebnis ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der die Anzahl der Millisekunden angibt, die seit dem letzten gerenderten Frame vergangen sind. Wir können diesen Wert beim Zeichnen der Szene verwenden, um sicherzustellen, dass wir alles in die richtige Entfernung bewegen, basierend auf der tatsächlich verstrichenen Zeit, anstatt anzunehmen, dass der Callback mit einer konsistenten Bildrate ausgelöst wird. Diese verstrichene Zeit wird in der Variablen `deltaTime` gespeichert und der Wert von `lastFrameTime` wird durch die Zeit dieses Frames ersetzt, bereit, das Differenzial für den nächsten Frame zu berechnen.
+Als nächstes wird die seit dem vorherigen Frame vergangene Zeit berechnet, indem von der aktuellen Zeit, wie durch den Parameter `currentFrameTime` angegeben, die gespeicherte Zeit des vorherigen Renders, `lastFrameTime`, subtrahiert wird. Das Ergebnis ist ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert, der angibt, wie viele Millisekunden seit dem letzten gerenderten Frame vergangen sind. Wir können diesen Wert beim Zeichnen der Szene verwenden, um sicherzustellen, dass wir alles in der richtigen Entfernung angesichts der tatsächlichen Abweichung der Zeit bewegen, anstatt davon auszugehen, dass der Rückruf mit einer gleichmäßigen Frame-Rate aufgerufen wird. Diese verstrichene Zeit wird in der Variablen `deltaTime` gespeichert, und der Wert von `lastFrameTime` wird mit dieser Frame-Zeit aktualisiert, um die Differenz für das nächste Frame zu berechnen.
 
-Jetzt ist es an der Zeit, die Szene für jedes Auge tatsächlich darzustellen. Wir iterieren über die Ansichten im [`views`](/de/docs/Web/API/XRViewerPose/views)-Array der Betrachterpose. Für jedes dieser [`XRView`](/de/docs/Web/API/XRView)-Objekte, das die Perspektive eines Auges auf die Szene repräsentiert, müssen wir beginnen, das Zeichnen auf den Bereich des Framebuffers zu beschränken, der das Bild des aktuellen Auges repräsentiert.
+Es ist nun an der Zeit, die Szene für jedes Auge tatsächlich zu rendern. Wir iterieren über die Ansichten im [`views`](/de/docs/Web/API/XRViewerPose/views)-Array der Pose des Betrachters. Für jedes dieser [`XRView`](/de/docs/Web/API/XRView)-Objekte, das die Perspektive eines Auges auf die Szene darstellt, müssen wir zuerst das Zeichnen auf den Bereich des Framebuffers begrenzen, der das sichtbare Bild des aktuellen Auges darstellt.
 
-Wir beginnen, indem wir WebGL vorbereiten, um den Inhalt des Auges darzustellen, indem wir die Sicht im Framebuffer einschränken, die für das Bild des aktuellen Auges reserviert ist, indem wir die Methode [`getViewport()`](/de/docs/Web/API/XRWebGLLayer/getViewport) von [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) aufrufen. Anschließend stellen wir den WebGL-Sichtbereich darauf ein, indem wir die X- und Y-Ursprünge des Sichtbereichs zusammen mit seiner Breite und Höhe in [`gl.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport) übergeben.
+Wir beginnen damit, WebGL vorzubereiten, um die Inhalte des Auges zu rendern, indem wir den Viewport abrufen, der das Zeichnen auf den Bereich im Framebuffer beschränkt, der dem Bild des aktuellen Auges vorbehalten ist, indem die Methode [`getViewport()`](/de/docs/Web/API/XRWebGLLayer/getViewport) von [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) aufgerufen wird. Dann setzen wir den WebGL-Viewport entsprechend fest, wobei die X- und Y-Ursprünge des Viewports sowie dessen Breite und Höhe in [`gl.viewport()`](/de/docs/Web/API/WebGLRenderingContext/viewport) übergeben werden.
 
-Schließlich rufen wir unsere Methode `myDrawSceneIntoView()` auf, um tatsächlich WebGL zu verwenden, um die Szene zu rendern. Dazu übergeben wir das [`XRView`](/de/docs/Web/API/XRView), das das Auge repräsentiert, für das wir zeichnen (zur Durchführung der Perspektivenabbildung und dergleichen) und `deltaTime`, damit der Szenenzichncode die verstrichene Zeit korrekt darstellen kann, wenn er die Positionen von Objekten berechnet, die sich über die Zeit hinweg bewegen.
+Schließlich rufen wir unsere Methode `myDrawSceneIntoView()` auf, um tatsächlich WebGL zu verwenden, um die Szene zu rendern. In diese Funktion führen wir das [`XRView`](/de/docs/Web/API/XRView) ein, das das Auge repräsentiert, für das wir zeichnen (um perspektivische Zuordnungen und dergleichen durchzuführen), und `deltaTime`, damit der Szene-Zeichnungscode die verstrichene Zeit akkurat darstellen kann, wenn er die Positionen von Objekten berechnet, die sich im Laufe der Zeit bewegen.
 
-Wenn die Schleife, die über die Ansichten iteriert, endet, wurde jedes benötigte Bild zur Darstellung der Szene an den Betrachter gerendert, und nach der Rückkehr macht sich der Framebuffer seinen Weg durch die GPU und schließlich zu den Display(s) des XR-Geräts. Da wir [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) oben in der Funktion aufgerufen haben, wird unser Callback erneut ausgelöst, wenn es Zeit ist, den nächsten Frame der Szene zu rendern.
+Wenn die Schleife über die Ansichten endet, wurde jedes Bild, das notwendig ist, um die Szene dem Betrachter darzustellen, gerendert, und nach Rückkehr wird der Framebuffer durch die GPU geleitet und landet schließlich auf dem Display oder den Displays des XR-Geräts. Da wir am Anfang der Funktion [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) aufgerufen haben, wird unser Rückruf erneut aufgerufen, wenn es Zeit ist, das nächste Frame der Szenen-Animation zu rendern.
 
 #### Nachteile dieses Ansatzes
 
-Da es wichtig ist, die Zeit, die Sie in dieser Funktion verbringen, so weit wie möglich zu minimieren, desto mehr Zeit Sie mit der Bearbeitung von Zustandsänderungen verbringen, desto weniger Zeit haben Sie tatsächlich Dinge zu zeichnen. Diese Methode funktioniert sehr gut für eine kleine Anzahl von Objekten, aber weil sie alle Daten für jedes Objekt zweimal binden muss (einmal für das linke Auge und einmal für das rechte), verbringen sie viel Zeit mit dem Einstellen des Zustands, dem Hochladen von Puffern und Texturen und so weiter. Im nächsten Abschnitt betrachten wir einen leicht abgeänderten Ansatz, der diese Änderungen erheblich reduziert und potenziell eine viel schnellere Rendermethode bietet, insbesondere wenn die Anzahl Ihrer Objekte steigt.
+Da es wichtig ist, die Zeit in dieser Funktion so gering wie möglich zu halten, je mehr Zeit Sie mit der Behandlung von Zustandsänderungen verbringen, desto weniger Zeit haben Sie, um tatsächlich zu zeichnen. Diese Technik funktioniert sehr gut für eine geringe Anzahl von Objekten, aber weil sie alle Daten für jedes Objekt zweimal binden muss (einmal für das linke Auge und einmal für das rechte), verbringen Sie viel Zeit mit der Anpassung des Zustands, dem Hochladen von Puffern und Texturen und so weiter. Im nächsten Abschnitt schauen wir uns einen geänderten Ansatz an, der diese Zustandswechsel erheblich reduziert und einen potenziell viel schnelleren Rendering-Ansatz bietet, insbesondere wenn Ihre Objektanzahl zunimmt.
 
-### Optimieren durch Rendern in Objekt-First-Order
+### Optimieren durch Rendern in objekt-erster Reihenfolge
 
-Ein Vorteil des Ansatzes von WebXR, einen einzigen WebGL-Framebuffer zu verwenden, der sowohl die Ansichten des linken als auch des rechten Auges in einer einzigen Framebuffer umfasst, besteht darin, die Rendering-Leistung erheblich zu verbessern, indem die Reihenfolge der ausgeführten Aufgaben neu geordnet wird. Anstatt den Sichtbereich für eine gegebene Ansicht (wie das linke Auge) einzurichten und dann jedes für das linke Auge sichtbare Objekt nacheinander zu rendern und dabei die Puffer für jedes Objekt neu zu konfigurieren, können Sie stattdessen jedes Objekt zweimal hintereinander rendern, einmal für jedes Auge, wodurch die Puffer, Uniforms usw. nur einmal für beide Augen eingerichtet werden müssen.
+Ein Vorteil des WebXR-Ansatzes, einen einzigen WebGL-Framebuffer zu verwenden, der sowohl die Ansichten des linken als auch des rechten Auges in einem Framebuffer enthält, ist die Möglichkeit, die Rendering-Leistung erheblich zu verbessern, indem die Reihenfolge geändert wird, in der Dinge gemacht werden. Statt den Viewport für eine bestimmte Ansicht (wie das linke Auge) einzurichten und dann jedes sichtbare Objekt des linken Auges einzeln zu rendern, wobei Sie für jedes Objekt die Puffer neu konfigurieren, können Sie jedes Objekt zweimal hintereinander rendern, einmal pro Auge, so dass Puffer, Uniformen und so weiter nur einmal für beide Augen eingerichtet werden müssen.
 
-Der resultierende Pseudocode sieht wie folgt aus:
+Der resultierende Pseudocode sieht folgendermaßen aus:
 
 ```plain
 for each object in the scene
@@ -240,13 +240,13 @@ for each object in the scene
     drawMyObject()
 ```
 
-Indem die Anordnung so geändert wird, binden wir Programme, Uniforms, Puffer, Texturen und möglicherweise andere Elemente nur einmal pro Frame statt zweimal für jedes Objekt in der Szene. Dies reduziert den Overhead auf ein potenziell sehr geringes Maß.
+Durch die Änderung der Dinge auf diese Weise binden wir Programme, Uniformen, Puffer, Texturen und möglicherweise andere Dinge nur einmal pro Frame statt zweimal für jedes Objekt, das in der Szene gefunden wird. Dies reduziert den Overhead möglicherweise sehr erheblich.
 
-### Begrenzung der Framerate
+### Begrenzung der Frame-Rate
 
-Wenn Sie Ihre Framerate absichtlich begrenzen müssen, um eine Basisbildrate festzulegen, die Sie aufrechterhalten möchten, und gleichzeitig mehr Zeit für andere Codes zur Verfügung stellen zu können, können Sie dies tun, indem Sie Frames absichtlich basierend auf der Zeit überspringen.
+Wenn Sie die Frame-Rate gezielt begrenzen müssen, um eine Basis-Frame-Rate zu etablieren, die Sie versuchen, beizubehalten, während Sie mehr Zeit für andere Code zulassen, können Sie dies tun, indem Sie Frames bewusst auf zeitgesteuerter Basis überspringen.
 
-Um die Bildrate zum Beispiel um 50% zu reduzieren, überspringen Sie einfach jeden zweiten Frame:
+Zum Beispiel, um die Frame-Rate um 50% zu reduzieren, überspringen Sie einfach jedes zweite Frame:
 
 ```js
 let tick = 0;
@@ -261,15 +261,15 @@ function drawFrame(time, frame) {
 }
 ```
 
-Diese Version des Rendering-Callbacks führt einen `tick`-Zähler ein. Der Frame wird nur gerendert, wenn `tick` ein geradzahliger Wert ist. So wird nur jeder zweite Frame gerendert.
+Diese Version des Rendering-Rückrufs behält einen `tick`-Zähler bei. Das Frame wird nur gerendert, wenn `tick` einen geraden Zahlenwert hat. Auf diese Weise wird nur jedes zweite Frame gerendert.
 
-Ähnlich können Sie mit `!(tick % 4)` jeden vierten Frame rendern, und so weiter.
+Ähnlich können Sie jedes vierte Frame rendern, indem Sie `!(tick % 4)` verwenden und so weiter.
 
 ### Anpassung Ihrer Animation an die verstrichene Zeit
 
-Der Rendering-Callback erhält einen `time`-Parameter aus einem guten Grund. Dieser [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert ist ein Gleitkommawert, der den Zeitpunkt angibt, zu dem der Frame zum Rendern geplant war. Da die Ausführung Ihres Callbacks nicht in genauen 1/60-Sekunden-Intervallen stattfinden wird - und tatsächlich auch andere Geschwindigkeiten, wenn das Display des Benutzers eine andere Bildwiederholrate hat - können Sie sich nicht darauf verlassen, dass Ihr Code ausgeführt wird, um anzunehmen, dass es genau 1/60-Sekunden seit dem letzten Frame vergangen ist.
+Der Rendering-Rückruf erhält einen `time`-Parameter aus gutem Grund. Dieser [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert ist ein Fließkommawert, der die Zeit angibt, zu der das Frame für das Rendering geplant wurde. Da die Ausführung Ihres Rückrufs nicht auf präzise 1/60 Sekunden-Intervalle stattfinden wird und, tatsächlich, zu anderen Raten passieren kann, wenn das Display des Benutzers eine andere Frame-Rate hat, können Sie sich nicht auf das blinde Vertrauen darauf verlassen, dass Ihr Code läuft, um davon auszugehen, dass es 1/60 Sekunde seit dem letzten Frame her ist.
 
-Aus diesem Grund müssen Sie den angegebenen Zeitstempel verwenden, um sicherzustellen, dass Ihre Animation genau bei der gewünschten Geschwindigkeit gerendert wird. Dazu müssen Sie zunächst die Zeit berechnen, die seit dem letzten gerenderten Frame verstrichen ist:
+Aus diesem Grund müssen Sie den bereitgestellten Zeitstempel verwenden, um sicherzustellen, dass Ihre Animation mit der gewünschten Geschwindigkeit gerendert wird. Zu diesem Zweck müssen Sie zuerst die verstrichene Zeit seit dem letzten Frame berechnen:
 
 ```js
 let lastFrameTime = 0;
@@ -286,9 +286,9 @@ function drawFrame(time, frame) {
 }
 ```
 
-Dies hält eine globale (oder eine Objekt-Eigenschaft) namens `lastFrameTime`, die den Zeitpunkt des vorherigen gerenderten Frames enthält. In diesem Fall, da die Zeitwerte in Millisekunden gespeichert sind, multiplizieren wir mit 0,001, um die Zeit in Sekunden umzurechnen. In einigen Fällen spart dies später Zeit. In anderen Situationen benötigen Sie die Zeit in Millisekunden, sodass Sie nichts ändern müssten.
+Dies hält eine globale (oder eine Objekteigenschaft) namens `lastFrameTime`, die die Zeit des vorherigen Frame-Renderings enthält. In diesem Fall, da die Zeitwerte in Millisekunden gespeichert werden, multiplizieren wir mit 0.001, um die Zeit in Sekunden umzuwandeln. In einigen Fällen spart dies später Zeit. In anderen Situationen benötigen Sie die Zeit in Millisekunden, sodass Sie nichts ändern müssten.
 
-Mit der verstrichenen Zeit in der Hand hat Ihr Rendering-Code die Möglichkeit, genau zu berechnen, wie viel sich jedes bewegte Objekt in der verstrichenen Zeit bewegt hat. Zum Beispiel, wenn sich ein Objekt dreht, könnten Sie die Rotation so anwenden:
+Mit der verstrichenen Zeit in der Hand hat Ihr Rendering-Code die Mittel, um genau zu berechnen, wie viel sich jedes bewegliche Objekt in der verstrichenen Zeit bewegt hat. Zum Beispiel, wenn sich ein Objekt dreht, könnten Sie die Rotation folgendermaßen anwenden:
 
 ```js
 const xDeltaRotation =
@@ -299,9 +299,9 @@ const zDeltaRotation =
   zRotationDegreesPerSecond * RADIANS_PER_DEGREE * deltaTime;
 ```
 
-Dies berechnet den Betrag, um den sich das Objekt seit dem letzten Mal, der Frame gezeichnet wurde, um jede der drei Achsen gedreht hat. Ohne dies würde die Form jedes Frame um den gegebenen Betrag gedreht, unabhängig von der verstrichenen Zeit. Dies könnte in vielen Fällen zu einem erheblichen Ruckeln führen.
+Dies berechnet den Betrag, um den das Objekt seit dem letzten Mal, als das Frame gezeichnet wurde, um jede der drei Achsen rotiert ist. Ohne dies würde sich die Form um den angegebenen Betrag in jedem Frame drehen, unabhängig von der verstrichenen Zeit. Dies könnte in vielen Fällen zu erheblichen Stottern führen.
 
-Dasselbe Konzept gilt für Objekte, die sich bewegen statt zu drehen:
+Dasselbe Konzept gilt für Objekte, die sich bewegen, anstatt zu rotieren:
 
 ```js
 const xDistanceMoved = xSpeedPerSecond * deltaTime;
@@ -309,46 +309,46 @@ const yDistanceMoved = ySpeedPerSecond * deltaTime;
 const ZDistanceMoved = zSpeedPerSecond * deltaTime;
 ```
 
-`xSpeedPerSecond`, `ySpeedPerSecond` und `zSpeedPerSecond` enthalten jeweils die Komponente dieses Geschwindigkeitsvektors für die Bewegung des Objekts entlang der jeweiligen Achse. In anderen Worten, `[xDistanceMoved, yDistanceMoved, zDistanceMoved]` ist ein Vektor, der die Geschwindigkeit des Objekts repräsentiert.
+`xSpeedPerSecond`, `ySpeedPerSecond` und `zSpeedPerSecond` enthalten jeweils die Komponente der Geschwindigkeit des Objekts entlang jeder Achse. Mit anderen Worten, `[xDistanceMoved, yDistanceMoved, zDistanceMoved]` ist ein Vektor, der die Geschwindigkeit des Objekts darstellt.
 
 ## Zusätzliche Aufgaben im Zusammenhang mit der Animation der Szene
 
-Natürlich gibt es noch andere Dinge, die wahrscheinlich in jedem Durchgang durch den Renderer geschehen müssen. Zwei der häufigsten sind die [Bearbeitung von Benutzereingaben](/de/docs/Web/API/WebXR_Device_API/Inputs) und das Aktualisieren der Positionen von Objekten (oder des Betrachters) basierend auf bekannten Faktoren, wie diesen Zuständen der Benutzereingabegeräte oder den bekannten Bewegungswegen der Objekte in der Szene.
+Natürlich gibt es andere Dinge, die wahrscheinlich bei jedem Durchgang durch den Renderer geschehen müssen. Zwei der häufigsten sind die [Behandlung von Benutzereingaben](/de/docs/Web/API/WebXR_Device_API/Inputs) und das Aktualisieren der Positionen von Objekten (oder des Betrachters) basierend auf bekannten Faktoren, wie diese Benutzersteuerungszustände oder bekannten Animationspfaden der Objekte in der Szene.
 
-### Handhabung von Benutzereingabekontrollen
+### Behandlung von Benutzersteuerungseingaben
 
-Es gibt drei Methoden, mit denen Benutzer Eingaben machen könnten, während sie eine WebXR-Anwendung verwenden. Zuerst unterstützt WebXR die direkte Handhabung von Eingaben von Controllern, die in die XR-Hardware integriert sind. Diese Eingabequellen können Geräte wie Handcontroller, optische Trackingsysteme, Beschleunigungsmesser und Magnetometer sowie andere Geräte dieser Art umfassen.
+Es gibt drei Methoden, mit denen Benutzer möglicherweise Eingaben bei der Verwendung einer WebXR-Anwendung tätigen. Erstens unterstützt WebXR die direkte Verarbeitung von Eingaben von den Kontrolleuren, die in die XR-Hardware integriert sind. Diese Eingabequellen können Geräte wie Handcontroller, optische Tracking-Systeme, Beschleunigungsmesser und Magnetometer sowie andere Geräte dieser Art umfassen.
 
-Die zweite Art der Eingabe ist ein Gamepad, das über das XR-System angeschlossen ist. Dies verwendet Schnittstellen, die vom [Gamepad API](/de/docs/Web/API/Gamepad_API) geerbt sind, aber Sie interagieren mit ihnen über WebXR.
+Die zweite Art von Eingaben ist ein Gamepad, das über das XR-System angeschlossen ist. Dies verwendet Schnittstellen, die vom [Gamepad API](/de/docs/Web/API/Gamepad_API) geerbt wurden, aber über WebXR mit ihnen interagiert wird.
 
-Die dritte und letzte Art der Eingabe ist das traditionelle nicht-XR-Eingabegerät wie Tastaturen, Mäuse, Trackpads, Touchscreens und nicht-XR-Gamepads und Joysticks.
+Die dritte und letzte Art von Eingaben ist das traditionelle nicht-XR-Eingabegerät wie Tastaturen, Mäuse, Trackpads, Touchscreens und nicht-XR-Gamepads und Joysticks.
 
-Orientierungs- und Positionsinformationen, die direkt von der XR-Hardware gesammelt werden können, werden automatisch übernommen. Daher sind die anderen Arten von Eingaben Ihrerseits selbst zu handhaben:
+Orientierungs- und Positionsinformationen, die direkt von der XR-Hardware gesammelt werden können, werden automatisch angewendet. Daher sind es die anderen Arten von Eingaben, die Sie selbst behandeln müssen:
 
-- Ziel- und Tastendruckereignisse des Zeigegeräts
+- Ziel- und Tastendrücke von Zeigegeräten
 - Gamepad-Eingaben
-- Nicht-XR-Eingabegeräteingaben
+- Eingaben von nicht-XR-Eingabegeräten
 
-Um mehr darüber zu erfahren, wie Sie Benutzereingaben bei der Präsentation einer Szene mit WebXR handhaben können, sehen Sie den Artikel [Inputs und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs).
+Um mehr darüber zu erfahren, wie man Benutzereingaben beim Präsentieren einer Szene mit WebXR behandelt, siehe den Artikel [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs).
 
-### Aktualisieren der Position von Objekten
+### Aktualisieren von Objektpositionen
 
-Die meisten Szenen (wenn nicht alle) beinhalten irgendeine Form der Animation, in der Dinge sich angemessen bewegen und aufeinander reagieren.
+Die meisten (obwohl nicht alle) Szenen enthalten eine Form von Animation, in der sich Dinge bewegen und aufeinander in geeigneter Weise reagieren.
 
-Beispielsweise könnte ein Virtual Reality oder Augmented Reality Spiel gegnerische computergesteuerte Charaktere haben, die sich im Verhältnis zum Benutzer bewegen. Nicht nur verändern sich ihre Standorte in der Welt im Laufe der Zeit, aber jede Nicht-Spieler-Figur (NPC) hat wahrscheinlich Körperteile oder Komponenten, die sich relativ voneinander bewegen. Arme und Beine schwingen, wenn eine Figur läuft, Köpfe neigen und drehen sich, Haare springen oder schwingen, Torse dehnen sich aus und ziehen sich zusammen, wenn die Figur atmet.
+Zum Beispiel könnte ein virtuelles Realitätsspiel oder ein erweitertes Realitätsspiel nicht spielbare Charaktere enthalten, die vom Computer gesteuert werden und sich durch die Szene bewegen. Nicht nur ändern sich ihre Positionen in der Welt im Laufe der Zeit, sondern wahrscheinlich hat auch jeder NPC Körperteile oder Komponenten, die sich in Beziehung zueinander bewegen. Arme und Beine schwingen, während eine Kreatur läuft, Köpfe nicken und drehen, Haare hüpfen und schwingen, Oberkörper dehnen und ziehen sich zusammen, während der Charakter atmet.
 
-Zudem könnten Objekte und Strukturen in Bewegung sein. In einem Sportspiel könnte es einen Ball geben, der durch die Luft fliegt und dessen Bewegung simuliert werden muss. In Rennspielen könnte es Fahrzeuge geben, mit beweglichen Teilen, die animiert werden müssen, darunter die Räder. Wenn es Wasser in der Szene gibt, müssen Wellen oder Kräuselungen erzeugt werden, um einen realistischen Look zu erzielen. Teile von Strukturen könnten sich bewegen, wie Türen, Wände und Böden (bei bestimmten Arten von Spielen), und so weiter.
+Außerdem könnten Objekte und Strukturen in Bewegung sein. In einem Sportspiel könnte es einen Ball geben, der durch die Luft fliegt und dessen Bewegung simuliert werden muss. In Rennspielen könnte es Autos oder andere Fahrzeuge geben, mit beweglichen Teilen zur Animation, einschließlich der Räder. Wenn im Bild Wasser ist, benötigt es Wellen oder Wogen, um realistisch auszusehen. Teile von Strukturen könnten sich bewegen, wie Türen, Wände und Böden (für einige Arten von Spielen) und so weiter.
 
-Eine weitere häufige Bewegungsquelle ist der Spieler selbst. Nachdem die Benutzereingaben durch die Steuerungen (sowohl XR-verbundene als auch anderweitige) interpretiert wurden, müssen Sie diese Änderungen in der Szene anwenden, um die Bewegung des Benutzers zu simulieren. Siehe den Artikel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion) für Details und ein gründliches Beispiel, wie dies funktioniert.
+Eine weitere häufige Quelle der Bewegung ist der Spieler selbst. Nach der Interpretation der Eingaben von den Steuerungen (sowohl XR-zugehörig als auch nicht) müssen Sie diese Änderungen an der Szene anwenden, um die Bewegung des Benutzers zu simulieren. Siehe den Artikel [Bewegung, Orientierung und Bewegung](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion) für Details und ein umfassendes Beispiel, wie dies funktioniert.
 
 ## Nächste Schritte
 
-Sobald Sie Ihren Renderer geschrieben haben – oder zumindest haben Sie etwas, das funktioniert, auch wenn es nicht fertig ist – können Sie beginnen, sich mit der Kamera und deren Bewegung durch die Szene zu beschäftigen. Dies wird in unserem Artikel über [Sichtpunkte und Betrachter](/de/docs/Web/API/WebXR_Device_API/Cameras) in WebXR behandelt.
+Sobald Sie Ihren Renderer geschrieben haben—oder zumindest etwas haben, das funktioniert, auch wenn es nicht fertig ist—können Sie beginnen, sich mit der Kamera und ihrer Bewegung durch die Szene zu beschäftigen. Dies wird in unserem Artikel über [Blickpunkte und Betrachter](/de/docs/Web/API/WebXR_Device_API/Cameras) in WebXR behandelt.
 
 ## Siehe auch
 
 - [Geometrie und Referenzräume in WebXR](/de/docs/Web/API/WebXR_Device_API/Geometry)
 - [Räumliches Tracking in WebXR](/de/docs/Web/API/WebXR_Device_API/Spatial_tracking)
-- [Sichtpunkte und Betrachter: Kameras in WebXR simulieren](/de/docs/Web/API/WebXR_Device_API/Cameras)
+- [Ansichten und Betrachter: Simulieren von Kameras in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
 - [Bewegung, Orientierung und Bewegung: Ein WebXR-Beispiel](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion)
-- [WebXR-Leistungsleitfaden](/de/docs/Web/API/WebXR_Device_API/Performance)
+- [WebXR-Performance-Leitfaden](/de/docs/Web/API/WebXR_Device_API/Performance)

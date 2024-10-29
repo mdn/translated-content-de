@@ -1,14 +1,14 @@
 ---
-title: "GPUCommandEncoder: beginRenderPass() Methode"
+title: "GPUCommandEncoder: Methode beginRenderPass()"
 short-title: beginRenderPass()
 slug: Web/API/GPUCommandEncoder/beginRenderPass
 l10n:
-  sourceCommit: 153807f839ecfc45fd73ef12f92cc8e8012eb004
+  sourceCommit: 2379747e3cefc009c6a00ec52e88d66ff15c5397
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`beginRenderPass()`** Methode der [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Schnittstelle beginnt mit der Kodierung eines Render-Passes und gibt einen [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) zurück, der zur Steuerung des Renderings verwendet werden kann.
+Die Methode **`beginRenderPass()`** des [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder)-Interfaces startet die Kodierung eines Render-Durchlaufs und gibt einen [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) zurück, der zur Steuerung des Renderprozesses verwendet werden kann.
 
 ## Syntax
 
@@ -20,40 +20,40 @@ beginRenderPass(descriptor)
 
 - `descriptor`
 
-  - : Ein Objekt mit den folgenden Eigenschaften:
+  - : Ein Objekt, das die folgenden Eigenschaften enthält:
 
     - `colorAttachments`
-      - : Ein Array von Objekten (siehe [Struktur des Farbanlagenobjekts](#struktur_des_farbanlagenobjekts)), das die Farbanlagen definiert, zu denen während dieses Render-Passes ausgegeben wird.
+      - : Ein Array von Objekten (siehe [Struktur des Farbattachment-Objekts](#struktur_des_farbattachment-objekts)), das die Farbattachments definiert, die beim Ausführen dieses Render-Durchlaufs ausgegeben werden.
     - `depthStencilAttachment` {{optional_inline}}
-      - : Ein Objekt (siehe [Struktur des Tiefenstencil-Anlageobjekts](#depthstencil_attachment_object_structure)), das die Tiefen-/Stencil-Anlage definiert, zu der ausgegeben und gegen die getestet wird, wenn dieser Render-Pass ausgeführt wird.
+      - : Ein Objekt (siehe [Struktur des Tiefen-/Stencilattachments](#depthstencil_attachment_object_structure)), das das Tiefen-/Stencilattachment definiert, das beim Ausführen dieses Render-Durchlaufs ausgegeben und getestet wird.
     - `label` {{optional_inline}}
-      - : Ein String, der eine Bezeichnung bereitstellt, die zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Nachrichten oder Konsolenwarnungen verwendet werden kann.
+      - : Eine Zeichenkette, die ein Label bereitstellt, das zur Identifikation des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `maxDrawCount` {{optional_inline}}
-      - : Eine Zahl, die die maximale Anzahl von Zeichenaufrufen angibt, die im Render-Pass durchgeführt werden. Dies wird von einigen Implementierungen verwendet, um Arbeiten vor dem Render-Pass zu dimensionieren. Sie sollten den Standardwert — 50000000 — beibehalten, es sei denn, Sie wissen, dass mehr Zeichenaufrufe durchgeführt werden.
+      - : Eine Zahl, die die maximale Anzahl von Zeichenaufrufen angibt, die im Renderdurchlauf ausgeführt werden. Dies wird von einigen Implementierungen verwendet, um die Arbeit zu dimensionieren, die vor dem Render-Durchlauf eingefügt wird. Sie sollten den Standardwert — 50000000 — beibehalten, es sei denn, Sie wissen, dass mehr Zeichenaufrufe stattfinden werden.
     - `occlusionQuerySet` {{optional_inline}}
-      - : Das [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), das die Ergebnisse der Occlusion-Abfrage für diesen Pass speichert.
+      - : Der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), der die Occlusion-Query-Ergebnisse für diesen Durchlauf speichert.
     - `timestampWrites` {{optional_inline}}
 
-      - : Ein Array von Objekten, die definieren, wo und wann Zeitstempel-Abfragewerte für diesen Pass geschrieben werden. Diese Objekte haben die folgenden Eigenschaften:
+      - : Ein Array von Objekten, die definieren, wo und wann Zeitstempelfragwerte für diesen Durchlauf geschrieben werden. Diese Objekte haben die folgenden Eigenschaften:
 
         - `location`: Ein enumerierter Wert, der angibt, wann der Zeitstempel ausgeführt wird. Verfügbare Werte sind:
-          - `"beginning"`: Der Zeitstempel wird zusammen mit den anderen kodierten Befehlen im Berechnungs-Pass ausgeführt, sobald der entsprechende [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) eingereicht wird.
-          - `"end"`: Der Zeitstempel wird als Teil einer separaten Liste von Zeitstempel-Anlagen ausgeführt, sobald der Pass endet.
-        - `queryIndex`: Eine Zahl, die die Indexposition im `querySet` angibt, zu der der Zeitstempel geschrieben wird.
-        - `querySet`: Das [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), zu dem der Zeitstempel geschrieben wird.
+          - `"beginning"`: Der Zeitstempel wird zusammen mit den anderen kodierten Befehlen im Berechnungsdurchlauf ausgeführt, sobald der entsprechende [`GPUCommandBuffer`](/de/docs/Web/API/GPUCommandBuffer) übergeben wird.
+          - `"end"`: Der Zeitstempel wird als Teil einer separaten Liste von Zeitstempelattachments ausgeführt, sobald der Durchlauf endet.
+        - `queryIndex`: Eine Zahl, die die Indexposition im `querySet` angibt, an der der Zeitstempel geschrieben wird.
+        - `querySet`: Der [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet), in den der Zeitstempel geschrieben wird.
 
         > [!NOTE]
-        > Um Zeitstempel-Abfragen zu verwenden, muss das `timestamp-query` [Feature](/de/docs/Web/API/GPUSupportedFeatures) im [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktiviert sein.
+        > Die `timestamp-query`- [Funktion](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um Zeitstempelfragen zu verwenden.
 
-### Struktur des Farbanlagenobjekts
+### Struktur des Farbattachment-Objekts
 
-Farbanlagenobjekte können die folgenden Eigenschaften haben:
+Farbattachment-Objekte können die folgenden Eigenschaften haben:
 
 - `clearValue` {{optional_inline}}
 
-  - : Ein Farbwert, um die `view`-Textur vor der Ausführung des Render-Passes zu löschen. Dieser Wert wird ignoriert, wenn `loadOp` nicht auf `"clear"` gesetzt ist. `clearValue` nimmt ein Array oder Objekt an, das die vier Farbkomponenten `r`, `g`, `b` und `a` als Dezimalzahlen darstellt.
+  - : Ein Farbwert, der die `view`-Textur vor der Ausführung des Render-Durchlaufs löscht. Dieser Wert wird ignoriert, wenn `loadOp` nicht auf `"clear"` gesetzt ist. `clearValue` nimmt ein Array oder Objekt auf, das die vier Farbbestandteile `r`, `g`, `b` und `a` als Dezimalwerte darstellt.
 
-    Folgendes ist ein Beispielarray:
+    Es folgt ein Beispielarray:
 
     ```js
     clearValue: [0.0, 0.5, 1.0, 1.0];
@@ -70,81 +70,81 @@ Farbanlagenobjekte können die folgenden Eigenschaften haben:
     }
     ```
 
-    Wenn `clearValue` weggelassen wird, ist der Standardwert `{r: 0, g: 0, b: 0, a: 0}`.
+    Wenn `clearValue` weggelassen wird, beträgt der Standardwert `{r: 0, g: 0, b: 0, a: 0}`.
 
 - `loadOp`
 
-  - : Ein enumerierter Wert, der die Ladeoperation angibt, die auf `view` ausgeführt wird, bevor der Render-Pass ausgeführt wird. Mögliche Werte sind:
+  - : Ein enumerierter Wert, der den Ladevorgang angibt, der vor der Ausführung des Render-Durchlaufs bei `view` ausgeführt werden soll. Mögliche Werte sind:
 
-    - `"clear"`: Lädt den `clearValue` für diesen Anlage in den Render-Pass.
-    - `"load"`: Lädt den vorhandenen Wert für diese Anlage in den Render-Pass.
+    - `"clear"`: Lädt den `clearValue` für diese Zuordnung in den Renderdurchlauf.
+    - `"load"`: Lädt den vorhandenen Wert für diese Zuordnung in den Renderdurchlauf.
 
     > [!NOTE]
-    > Es wird empfohlen, immer `"clear"` zu verwenden, wenn der Initialwert nicht von Bedeutung ist, da dies auf einigen Geräten wie Mobilgeräten eine bessere Leistung bietet.
+    > Es wird empfohlen, immer `"clear"` zu verwenden, wenn der Anfangswert keine Rolle spielt, da dies auf einigen Geräten wie Mobilgeräten zu einer besseren Leistung führt.
 
 - `storeOp`
-  - : Ein enumerierter Wert, der die Speichervorgänge angibt, die auf `view` nach der Ausführung des Render-Passes ausgeführt werden. Mögliche Werte sind:
-    - `"discard"`: Verwirft den resultierenden Wert des Render-Passes für diese Anlage.
-    - `"store"`: Speichert den resultierenden Wert des Render-Passes für diese Anlage.
+  - : Ein enumerierter Wert, der den Speichervorgang angibt, der nach der Ausführung des Render-Durchlaufs bei `view` durchgeführt wird. Mögliche Werte sind:
+    - `"discard"`: Verwirft den resultierenden Wert des Render-Durchlaufs für dieses Attachment.
+    - `"store"`: Speichert den resultierenden Wert des Render-Durchlaufs für dieses Attachment.
 - `resolveTarget` {{optional_inline}}
-  - : Ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objekt, das die Textur-Subressource darstellt, die die aufgelöste Ausgabe für diese Farb-Anlage erhält, wenn `view` multisampled ist.
+  - : Ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objekt, das die Textur-Subressource darstellt, die die aufgelöste Ausgabe für dieses Farbattachment erhält, wenn `view` multisampled ist.
 - `view`
 
-  - : Ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objekt, das die Textur-Subressource darstellt, zu der für diese Farb-Anlage ausgegeben wird.
+  - : Ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objekt, das die Textur-Subressource darstellt, die für dieses Farbattachment ausgegeben wird.
 
     > [!NOTE]
-    > Jede Farb- oder Tiefen/Stencil-Anlage muss eine eindeutige Textur-Subressource sein, und Textur-Subressourcen, die als Anlagen verwendet werden, können im Render-Pass nicht verwendet werden.
+    > Jedes Farb- oder Tiefen-/Stencilattachment muss eine eindeutige Textur-Subressource sein, und als Attachments verwendete Textur-Subressourcen können nicht im Render-Durchlauf verwendet werden.
 
-### Struktur des Tiefenstencil-Anlageobjekts
+### Struktur des Tiefen-/Stencilattachment-Objekts
 
 Das `depthStencilAttachment`-Objekt kann die folgenden Eigenschaften haben:
 
 - `depthClearValue` {{optional_inline}}
 
-  - : Eine Zahl, die den Wert angibt, auf den die Tiefenkomponente von `view` vor der Ausführung des Render-Passes gelöscht werden soll. Dies wird ignoriert, wenn `depthLoadOp` nicht auf `"clear"` gesetzt ist.
+  - : Eine Zahl, die den Wert angibt, um die Tiefenkomponente von `view` vor der Ausführung des Render-Durchlaufs zu löschen. Dies wird ignoriert, wenn `depthLoadOp` nicht auf `"clear"` gesetzt ist.
 
-    Der Wert muss zwischen 0,0 und 1,0 liegen, einschließlich.
+    Der Wert muss zwischen 0.0 und 1.0 liegen, einschließlich.
 
 - `depthLoadOp` {{optional_inline}}
 
-  - : Ein enumerierter Wert, der die Ladeoperation angibt, die auf die Tiefenkomponente von `view` ausgeführt wird, bevor der Render-Pass ausgeführt wird. Mögliche Werte sind:
+  - : Ein enumerierter Wert, der den Ladevorgang angibt, der vor der Ausführung des Render-Durchlaufs bei der Tiefenkomponente von `view` ausgeführt werden soll. Mögliche Werte sind:
 
-    - `"clear"`: Lädt den `clearValue` für diese Anlage in den Render-Pass.
-    - `"load"`: Lädt den vorhandenen Wert für diese Anlage in den Render-Pass.
+    - `"clear"`: Lädt den `clearValue` für diese Zuordnung in den Renderdurchlauf.
+    - `"load"`: Lädt den vorhandenen Wert für diese Zuordnung in den Renderdurchlauf.
 
     > [!NOTE]
-    > Es wird empfohlen, immer `"clear"` zu verwenden, wenn der Initialwert nicht von Bedeutung ist, da dies auf einigen Geräten wie Mobilgeräten eine bessere Leistung bietet.
+    > Es wird empfohlen, immer `"clear"` zu verwenden, wenn der Anfangswert keine Rolle spielt, da dies auf einigen Geräten wie Mobilgeräten zu einer besseren Leistung führt.
 
 - `depthReadOnly` {{optional_inline}}
-  - : Ein boolescher Wert. Wenn der Wert auf `true` gesetzt wird, ist die Tiefenkomponente von `view` schreibgeschützt. Wenn `depthReadOnly` weggelassen wird, ist der Standardwert `false`.
+  - : Ein boolescher Wert. Wenn der Wert auf `true` gesetzt wird, wird die Tiefenkomponente von `view` schreibgeschützt. Wenn `depthReadOnly` weggelassen wird, beträgt der Standardwert `false`.
 - `depthStoreOp` {{optional_inline}}
-  - : Ein enumerierter Wert, der die Speichervorgänge angibt, die auf die Tiefenkomponente von `view` nach der Ausführung des Render-Passes ausgeführt werden. Mögliche Werte sind:
-    - `"discard"`: Verwirft den resultierenden Wert des Render-Passes für diese Anlage.
-    - `"store"`: Speichert den resultierenden Wert des Render-Passes für diese Anlage.
+  - : Ein enumerierter Wert, der den Speichervorgang angibt, der nach der Ausführung des Render-Durchlaufs bei der Tiefenkomponente von `view` durchgeführt wird. Mögliche Werte sind:
+    - `"discard"`: Verwirft den resultierenden Wert des Render-Durchlaufs für dieses Attachment.
+    - `"store"`: Speichert den resultierenden Wert des Render-Durchlaufs für dieses Attachment.
 - `stencilClearValue` {{optional_inline}}
 
-  - : Eine Zahl, die den Wert angibt, auf den die Stencil-Komponente von `view` vor der Ausführung des Render-Passes gelöscht werden soll. Dies wird ignoriert, wenn `stencilLoadOp` nicht auf `"clear"` gesetzt ist.
+  - : Eine Zahl, die den Wert angibt, um die Stencilkomponente von `view` vor der Ausführung des Render-Durchlaufs zu löschen. Dies wird ignoriert, wenn `stencilLoadOp` nicht auf `"clear"` gesetzt ist.
 
-    Wenn `stencilClearValue` weggelassen wird, ist der Standardwert 0.
+    Wenn `stencilClearValue` weggelassen wird, beträgt der Standardwert 0.
 
 - `stencilLoadOp` {{optional_inline}}
 
-  - : Ein enumerierter Wert, der die Ladeoperation angibt, die auf die Stencil-Komponente von `view` ausgeführt wird, bevor der Render-Pass ausgeführt wird. Mögliche Werte sind:
+  - : Ein enumerierter Wert, der den Ladevorgang angibt, der vor der Ausführung des Render-Durchlaufs bei der Stencilkomponente von `view` ausgeführt werden soll. Mögliche Werte sind:
 
-    - `"clear"`: Lädt den `clearValue` für diese Anlage in den Render-Pass.
-    - `"load"`: Lädt den vorhandenen Wert für diese Anlage in den Render-Pass.
+    - `"clear"`: Lädt den `clearValue` für diese Zuordnung in den Renderdurchlauf.
+    - `"load"`: Lädt den vorhandenen Wert für diese Zuordnung in den Renderdurchlauf.
 
     > [!NOTE]
-    > Es wird empfohlen, immer `"clear"` zu verwenden, wenn der Initialwert nicht von Bedeutung ist, da dies auf einigen Geräten wie Mobilgeräten eine bessere Leistung bietet.
+    > Es wird empfohlen, immer `"clear"` zu verwenden, wenn der Anfangswert keine Rolle spielt, da dies auf einigen Geräten wie Mobilgeräten zu einer besseren Leistung führt.
 
 - `stencilReadOnly` {{optional_inline}}
-  - : Ein boolescher Wert. Wenn der Wert auf `true` gesetzt wird, ist die Stencil-Komponente von `view` schreibgeschützt. Wenn `stencilReadOnly` weggelassen wird, ist der Standardwert `false`.
+  - : Ein boolescher Wert. Wenn der Wert auf `true` gesetzt wird, wird die Stencilkomponente von `view` schreibgeschützt. Wenn `stencilReadOnly` weggelassen wird, beträgt der Standardwert `false`.
 - `stencilStoreOp` {{optional_inline}}
-  - : Ein enumerierter Wert, der die Speichervorgänge angibt, die auf die Stencil-Komponente von `view` nach der Ausführung des Render-Passes ausgeführt werden. Mögliche Werte sind:
-    - `"discard"`: Verwirft den resultierenden Wert des Render-Passes für diese Anlage.
-    - `"store"`: Speichert den resultierenden Wert des Render-Passes für diese Anlage.
+  - : Ein enumerierter Wert, der den Speichervorgang angibt, der nach der Ausführung des Render-Durchlaufs bei der Stencilkomponente von `view` durchgeführt wird. Mögliche Werte sind:
+    - `"discard"`: Verwirft den resultierenden Wert des Render-Durchlaufs für dieses Attachment.
+    - `"store"`: Speichert den resultierenden Wert des Render-Durchlaufs für dieses Attachment.
 - `view`
-  - : Ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objekt, das die Textur-Subressource darstellt, die für diese Tiefen-/Stencil-Anlage ausgegeben und gelesen wird.
+  - : Ein [`GPUTextureView`](/de/docs/Web/API/GPUTextureView)-Objekt, das die Textur-Subressource darstellt, die für dieses Tiefen-/Stencilattachment ausgegeben und gelesen wird.
 
 ### Rückgabewert
 
@@ -152,46 +152,46 @@ Eine Instanz des [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder)
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`beginRenderPass()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiger [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) zurückgegeben.
+Die folgenden Kriterien müssen erfüllt sein, wenn **`beginRenderPass()`** aufgerufen wird, ansonsten wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiger [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) zurückgegeben.
 
 Allgemein:
 
-- `colorAttachments.length` ist kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)'s `maxColorAttachments` [Limit](/de/docs/Web/API/GPUSupportedLimits).
+- `colorAttachments.length` ist kleiner oder gleich dem `maxColorAttachments` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
 - Wenn `colorAttachments` nur `null`-Werte enthält, wird `depthStencilAttachment` bereitgestellt.
-- Alle `view`s in `colorAttachments` und `depthStencilAttachment` haben gleiche [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount)-Werte und Render-Extents ([`GPUTexture.height`](/de/docs/Web/API/GPUTexture/height), [`GPUTexture.width`](/de/docs/Web/API/GPUTexture/width), und [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers)).
-- Wenn `occlusionQuerySet` gesetzt ist, hat das referenzierte [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) einen `type` von `"occlusion"`.
+- Alle `view`s in `colorAttachments` und `depthStencilAttachment` haben gleiche [`GPUTexture.sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount)-Werte und Rendering-Ausdehnungen ([`GPUTexture.height`](/de/docs/Web/API/GPUTexture/height), [`GPUTexture.width`](/de/docs/Web/API/GPUTexture/width) und [`GPUTexture.depthOrArrayLayers`](/de/docs/Web/API/GPUTexture/depthOrArrayLayers)).
+- Wenn `occlusionQuerySet` gesetzt ist, hat der referenzierte [`GPUQuerySet`](/de/docs/Web/API/GPUQuerySet) einen `type` von `"occlusion"`.
 
-Für Farbanlageobjekte:
+Für Farbattachment-Objekte:
 
-- Die `view` ist renderbar, und das Format der `view` (d. h. angegeben im Descriptor des ursprünglichen [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView)-Aufrufs) ist ein farbrenderbares Format.
+- Das `view` ist renderfähig, und das Format des `view` (d.h. angegeben in der Beschreibung des ursprünglichen [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView)-Aufrufs) ist ein Farb-Renderformat.
 - Wenn `resolveTarget` bereitgestellt wird:
-  - Die `view` Ursprüngliche [`GPUTexture`](/de/docs/Web/API/GPUTexture)'s [`sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) ist größer als 1.
-  - Die `resolveTarget` Ursprüngliche [`GPUTexture`](/de/docs/Web/API/GPUTexture)'s [`sampleCount`](/de/docs/Web/API/GPUTexture/sampleCount) ist 1.
-  - `resolveTarget` ist renderbar.
-  - Die Größen der Subressourcen, die `view` und `resolveTarget` eine Ansicht bieten, stimmen überein.
+  - Der `sampleCount` des ursprünglichen [`GPUTexture`](/de/docs/Web/API/GPUTexture) von `view` ist größer als 1.
+  - Der `sampleCount` des ursprünglichen [`GPUTexture`](/de/docs/Web/API/GPUTexture) von `resolveTarget` ist 1.
+  - `resolveTarget` ist renderfähig.
+  - Die Größen der Subressourcen, für die `view` und `resolveTarget` eine Ansicht darstellen, stimmen überein.
   - Die Formate von `view` und `resolveTarget` stimmen überein.
-- [Bytes pro Probe der Farbanlagen](https://gpuweb.github.io/gpuweb/#abstract-opdef-validating-gpurenderpassdescriptors-color-attachment-bytes-per-sample) ist kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)'s `maxColorAttachmentBytesPerSample` [Limit](/de/docs/Web/API/GPUSupportedLimits).
+- Die [Bytes pro Probe in Farbattachments](https://gpuweb.github.io/gpuweb/#abstract-opdef-validating-gpurenderpassdescriptors-color-attachment-bytes-per-sample) ist kleiner oder gleich dem `maxColorAttachmentBytesPerSample` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
 
-Für Tiefenstencil-Anlageobjekte:
+Für Tiefen-/Stencilattachment-Objekte:
 
-- Die `view` ist renderbar und ihr Format ist ein [depth-or-stencil](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) Format.
-- Wenn `depthLoadOp` auf `"clear"` gesetzt ist, wird ein gültiges `depthClearValue` bereitgestellt.
-- Wenn das Format von `view` ein kombiniertes depth-or-stencil Format ist, stimmt `depthReadOnly` mit `stencilReadOnly` überein.
+- Das `view` ist renderfähig, und sein Format ist ein [depth-or-stencil](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format)-Format.
+- Wenn `depthLoadOp` auf `"clear"` gesetzt ist, wird ein gültiger `depthClearValue` bereitgestellt.
+- Wenn das Format von `view` ein kombiniertes Tiefen- oder Stencilformat ist, stimmen `depthReadOnly` mit `stencilReadOnly` überein.
 - Wenn das Format von `view` einen Tiefenaspekt hat und `depthReadOnly` `false` ist, werden `depthLoadOp` und `depthStoreOp` bereitgestellt.
 - Wenn das Format von `view` einen Tiefenaspekt hat und `depthReadOnly` `true` ist, werden `depthLoadOp` und `depthStoreOp` nicht bereitgestellt.
-- Wenn das Format von `view` einen Stencil-Aspekt hat und `stencilReadOnly` `false` ist, werden `stencilLoadOp` und `stencilStoreOp` bereitgestellt.
-- Wenn das Format von `view` einen Stencil-Aspekt hat und `stencilReadOnly` `true` ist, werden `stencilLoadOp` und `stencilStoreOp` nicht bereitgestellt.
+- Wenn das Format von `view` einen Stencilaspekt hat und `stencilReadOnly` `false` ist, werden `stencilLoadOp` und `stencilStoreOp` bereitgestellt.
+- Wenn das Format von `view` einen Stencilaspekt hat und `stencilReadOnly` `true` ist, werden `stencilLoadOp` und `stencilStoreOp` nicht bereitgestellt.
 
-Für Zeitstempel-Abfragen:
+Für Zeitstempelfragen:
 
-- Das `timestamp-query` [Feature](/de/docs/Web/API/GPUSupportedFeatures) ist im [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktiviert.
-- Keine zwei `timestampWrites`-Objekte haben denselben `location`. Effektiv bedeutet dies, dass Sie pro Render-Pass nur zwei Zeitstempel-Abfragen ausführen können.
-- Für jede Zeitstempel-Abfrage ist der `querySet` [`GPUQuerySet.type`](/de/docs/Web/API/GPUQuerySet/type) `"timestamp"`, und der Wert `queryIndex` ist kleiner als die [`GPUQuerySet.count`](/de/docs/Web/API/GPUQuerySet/count).
+- Die Funktion `timestamp-query` ist im [`GPUDevice`](/de/docs/Web/API/GPUDevice) aktiviert.
+- Keine zwei `timestampWrites`-Objekte haben die gleiche `location`. Dies bedeutet, dass Sie pro Render-Durchlauf nur zwei Zeitstempelfragen ausführen können.
+- Für jede Zeitstempelfrage ist der `querySet` [`GPUQuerySet.type`](/de/docs/Web/API/GPUQuerySet/type) `"timestamp"`, und der `queryIndex`-Wert ist kleiner als die [`GPUQuerySet.count`](/de/docs/Web/API/GPUQuerySet/count).
 - Keine zwei `timestampWrites`-Objekte haben dasselbe `queryIndex`- und `querySet`-Paar.
 
 ## Beispiele
 
-In unserem [Grundlegenden Render-Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden eine Anzahl von Befehlen über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Diese Befehle stammen von dem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder), der über `beginRenderPass()` erstellt wurde:
+In unserem [Basic Render Demo](https://mdn.github.io/dom-examples/webgpu-render-demo/) werden eine Reihe von Befehlen über einen [`GPUCommandEncoder`](/de/docs/Web/API/GPUCommandEncoder) aufgezeichnet. Diese Befehle stammen vom [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder), der über `beginRenderPass()` erstellt wurde:
 
 ```js
 // ...

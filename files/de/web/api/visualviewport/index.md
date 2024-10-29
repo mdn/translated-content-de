@@ -2,65 +2,65 @@
 title: VisualViewport
 slug: Web/API/VisualViewport
 l10n:
-  sourceCommit: 4b5b3e16c8260a429db07dd54420ae40794b96c2
+  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
 ---
 
 {{APIRef("Visual Viewport")}}
 
-Das **`VisualViewport`**-Interface der [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API) repräsentiert das visuelle Viewport für ein gegebenes Fenster. Für eine Seite, die iframes enthält, hat jedes iframe sowie die enthaltene Seite ein eigenes Fensterobjekt. Jedes Fenster auf einer Seite wird über ein eigenes `VisualViewport` verfügen, das die mit diesem Fenster verknüpften Eigenschaften darstellt.
+Das **`VisualViewport`**-Interface der [Visual Viewport API](/de/docs/Web/API/Visual_Viewport_API) repräsentiert das visuelle Viewport für ein bestimmtes Fenster. Für eine Seite, die `iframes` enthält, hat jedes `iframe` sowie die enthaltende Seite ein einzigartiges Fensterobjekt. Jedes Fenster auf einer Seite hat einen einzigartigen `VisualViewport`, der die mit diesem Fenster verbundenen Eigenschaften darstellt.
 
-Sie können den visuellen Viewport eines Fensters mit [`Window.visualViewport`](/de/docs/Web/API/Window/visualViewport) erhalten.
+Sie können den visuellen Viewport eines Fensters mit [`Window.visualViewport`](/de/docs/Web/API/Window/visualViewport) abrufen.
 
 > [!NOTE]
-> Nur das oberste Fenster hat einen visuellen Viewport, der sich vom Layout-Viewport unterscheidet. Daher ist im Allgemeinen nur das `VisualViewport`-Objekt des obersten Fensters nützlich. Für ein {{htmlelement("iframe")}} entsprechen die Metriken des visuellen Viewports, wie [`VisualViewport.width`](/de/docs/Web/API/VisualViewport/width), immer den Metriken des Layout-Viewports, wie [`document.documentElement.clientWidth`](/de/docs/Web/API/Element/clientWidth).
+> Nur das Hauptfenster hat einen visuellen Viewport, der sich vom Layout-Viewport unterscheidet. Daher ist in der Regel nur das `VisualViewport`-Objekt des Hauptfensters nützlich. Für ein {{htmlelement("iframe")}} entsprechen visuelle Viewport-Metriken wie [`VisualViewport.width`](/de/docs/Web/API/VisualViewport/width) immer Layout-Viewport-Metriken wie [`document.documentElement.clientWidth`](/de/docs/Web/API/Element/clientWidth).
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften seines übergeordneten Interfaces, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`VisualViewport.offsetLeft`](/de/docs/Web/API/VisualViewport/offsetLeft) {{ReadOnlyInline}}
-  - : Gibt den Versatz der linken Kante des visuellen Viewports von der linken Kante des Layout-Viewports in CSS-Pixels zurück.
+  - : Gibt den Versatz der linken Kante des visuellen Viewports von der linken Kante des Layout-Viewports in CSS-Pixel zurück.
 - [`VisualViewport.offsetTop`](/de/docs/Web/API/VisualViewport/offsetTop) {{ReadOnlyInline}}
-  - : Gibt den Versatz der oberen Kante des visuellen Viewports von der oberen Kante des Layout-Viewports in CSS-Pixels zurück.
+  - : Gibt den Versatz der oberen Kante des visuellen Viewports von der oberen Kante des Layout-Viewports in CSS-Pixel zurück.
 - [`VisualViewport.pageLeft`](/de/docs/Web/API/VisualViewport/pageLeft) {{ReadOnlyInline}}
-  - : Gibt die x-Koordinate des visuellen Viewports relativ zum Ursprung des initialen umgebenden Blocks der oberen Kante in CSS-Pixels zurück.
+  - : Gibt die x-Koordinate des visuellen Viewports relativ zum Ursprung des anfänglichen Umgebungsblocks der oberen Kante in CSS-Pixel zurück.
 - [`VisualViewport.pageTop`](/de/docs/Web/API/VisualViewport/pageTop) {{ReadOnlyInline}}
-  - : Gibt die y-Koordinate des visuellen Viewports relativ zum Ursprung des initialen umgebenden Blocks der oberen Kante in CSS-Pixels zurück.
+  - : Gibt die y-Koordinate des visuellen Viewports relativ zum Ursprung des anfänglichen Umgebungsblocks der oberen Kante in CSS-Pixel zurück.
 - [`VisualViewport.width`](/de/docs/Web/API/VisualViewport/width) {{ReadOnlyInline}}
-  - : Gibt die Breite des visuellen Viewports in CSS-Pixels zurück.
+  - : Gibt die Breite des visuellen Viewports in CSS-Pixel zurück.
 - [`VisualViewport.height`](/de/docs/Web/API/VisualViewport/height) {{ReadOnlyInline}}
-  - : Gibt die Höhe des visuellen Viewports in CSS-Pixels zurück.
+  - : Gibt die Höhe des visuellen Viewports in CSS-Pixel zurück.
 - [`VisualViewport.scale`](/de/docs/Web/API/VisualViewport/scale) {{ReadOnlyInline}}
-  - : Gibt den auf den visuellen Viewport angewendeten Pinch-Zoom-Skalierungsfaktor zurück.
+  - : Gibt den Pinch-Zoom-Skalierungsfaktor zurück, der auf den visuellen Viewport angewendet wird.
 
 ## Instanz-Methoden
 
-_Erbt auch Methoden seines übergeordneten Interfaces, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_Erbt auch Methoden von seiner Elternschnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 ## Ereignisse
 
-Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abgehört werden oder indem ein Ereignis-Listener der entsprechenden `oneventname`-Eigenschaft dieses Interfaces zugewiesen wird.
+Diese Ereignisse können mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abgehört werden oder indem ein Ereignislistener der relevanten `oneventname`-Eigenschaft dieser Schnittstelle zugewiesen wird.
 
 - [`resize`](/de/docs/Web/API/VisualViewport/resize_event)
-  - : Wird ausgelöst, wenn der visuelle Viewport in der Größe verändert wird.
+  - : Wird ausgelöst, wenn der visuelle Viewport in der Größe geändert wird.
     Auch über die `onresize`-Eigenschaft verfügbar.
 - [`scroll`](/de/docs/Web/API/VisualViewport/scroll_event)
-  - : Wird ausgelöst, wenn der visuelle Viewport verschoben wird.
+  - : Wird ausgelöst, wenn der visuelle Viewport gescrollt wird.
     Auch über die `onscroll`-Eigenschaft verfügbar.
 - [`scrollend`](/de/docs/Web/API/VisualViewport/scrollend_event)
-  - : Wird ausgelöst, wenn ein Scrollvorgang auf dem visuellen Viewport abgeschlossen ist.
+  - : Wird ausgelöst, wenn ein Scroll-Vorgang auf dem visuellen Viewport endet.
     Auch über die `onscrollend`-Eigenschaft verfügbar.
 
 ## Beispiele
 
-### Ausblenden eines überlagerten Feldes beim Zoomen
+### Ein überlagertes Feld beim Zoomen ausblenden
 
-Dieses Beispiel, entnommen aus dem [Visual Viewport README](https://github.com/WICG/visual-viewport), zeigt, wie man einen einfachen Code schreiben kann, der ein überlagertes Feld (das beispielsweise eine Werbung enthalten könnte) ausblendet, wenn der Benutzer hinein zoomt. Dies ist eine gute Möglichkeit, die Benutzererfahrung beim Hineinzoomen auf Seiten zu verbessern. Ein [Live-Beispiel](https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html) ist ebenfalls verfügbar.
+Dieses Beispiel, entnommen aus dem [Visual Viewport README](https://github.com/WICG/visual-viewport), zeigt, wie Sie einen einfachen Code schreiben, der ein überlagertes Feld ausblendet (das beispielsweise eine Werbung enthalten könnte), wenn der Benutzer hereinzoomt. Dies ist eine nette Möglichkeit, die Benutzererfahrung beim Zoomen auf Seiten zu verbessern. Ein [Live-Beispiel](https://wicg.github.io/visual-viewport/examples/hide-on-zoom.html) ist ebenfalls verfügbar.
 
 ```js
-const bottomBar = document.getElementById("bottombar");
+const bottomBar = document.getElementById("bottom-bar");
 const viewport = window.visualViewport;
 
 function resizeHandler() {
@@ -70,12 +70,12 @@ function resizeHandler() {
 window.visualViewport.addEventListener("resize", resizeHandler);
 ```
 
-### Simulieren von position: device-fixed
+### Position: device-fixed simulieren
 
-Dieses Beispiel, ebenfalls aus dem [Visual Viewport README](https://github.com/WICG/visual-viewport), zeigt, wie Sie diese API verwenden können, um `position: device-fixed` zu simulieren, das Elemente an den visuellen Viewport fixiert. Ein [Live-Beispiel](https://wicg.github.io/visual-viewport/examples/fixed-to-viewport.html) ist ebenfalls verfügbar.
+Dieses Beispiel, ebenfalls aus dem [Visual Viewport README](https://github.com/WICG/visual-viewport) entnommen, zeigt, wie Sie diese API verwenden, um `position: device-fixed` zu simulieren, das Elemente am visuellen Viewport fixiert. Ein [Live-Beispiel](https://wicg.github.io/visual-viewport/examples/fixed-to-viewport.html) ist ebenfalls verfügbar.
 
 ```js
-const bottomBar = document.getElementById("bottombar");
+const bottomBar = document.getElementById("bottom-bar");
 const viewport = window.visualViewport;
 function viewportHandler() {
   const layoutViewport = document.getElementById("layoutViewport");
@@ -99,7 +99,7 @@ window.visualViewport.addEventListener("resize", viewportHandler);
 ```
 
 > [!NOTE]
-> Diese Technik sollte mit Vorsicht verwendet werden; das Nachahmen von `position: device-fixed` auf diese Weise kann dazu führen, dass das fixierte Element während des Scrollens flackert.
+> Diese Technik sollte mit Vorsicht angewendet werden; das Emulieren von `position: device-fixed` auf diese Weise kann dazu führen, dass das feste Element beim Scrollen flackert.
 
 ## Spezifikationen
 
@@ -111,4 +111,4 @@ window.visualViewport.addEventListener("resize", viewportHandler);
 
 ## Siehe auch
 
-- [Web Viewports Explainer](https://github.com/bokand/bokand.github.io/blob/master/web_viewports_explainer.md) — nützliche Erklärung der Web-Viewport-Konzepte, einschließlich der Unterschiede zwischen visuellem Viewport und Layout-Viewport.
+- [Web Viewports Explainer](https://github.com/bokand/bokand.github.io/blob/master/web_viewports_explainer.md) — nützliche Erklärung von Web-Viewport-Konzepten, einschließlich des Unterschieds zwischen visuellem Viewport und Layout-Viewport.

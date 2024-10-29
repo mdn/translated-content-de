@@ -2,18 +2,18 @@
 title: Texturen aus Code
 slug: Web/API/WebGL_API/By_example/Textures_from_code
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Hello_vertex_attributes","Learn/WebGL/By_example/Video_textures")}}
 
-Dieses WebGL-Beispiel bietet eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das bedeutet, Texturen mit Code zu generieren, um sie in der Schattierung von WebGL-Objekten zu verwenden.
+Dieses WebGL-Beispiel bietet eine einfache Demonstration der prozeduralen Texturierung mit Fragment-Shadern. Das heißt, es wird Code verwendet, um Texturen zu generieren, die zur Schattierung von WebGL-Objekten genutzt werden.
 
-## Texturen mit Code zeichnen
+## Zeichnen von Texturen mit Code
 
 {{EmbedLiveSample("Drawing_textures_with_code", 660, 425)}}
 
-Texturierung eines Punkt-Sprites mit Berechnungen, die pro Pixel im Fragment-Shader durchgeführt werden.
+Texturierung eines Punkt-Sprites mit Berechnungen, die pro Pixel in dem Fragment-Shader durchgeführt werden.
 
 ```html hidden
 <p>Texture from code. Simple demonstration of procedural texturing</p>
@@ -64,10 +64,10 @@ button {
   void main() {
     vec2 fragmentPosition = 2.0*gl_PointCoord - 1.0;
     float distance = length(fragmentPosition);
-    float distanceSqrd = distance * distance;
+    float distanceSq = distance * distance;
     gl_FragColor = vec4(
-      0.2/distanceSqrd,
-      0.1/distanceSqrd,
+      0.2/distanceSq,
+      0.1/distanceSq,
       0.0, 1.0 );
   }
 </script>

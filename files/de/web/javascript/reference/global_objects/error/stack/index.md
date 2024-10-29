@@ -2,30 +2,30 @@
 title: Error.prototype.stack
 slug: Web/JavaScript/Reference/Global_Objects/Error/stack
 l10n:
-  sourceCommit: 4d150067b98ab6e79e6f6b0bf8343ae3ebd2b641
+  sourceCommit: 2c762771070a207d410a963166adf32213bc3a45
 ---
 
 {{JSRef}} {{Non-standard_Header}}
 
 > [!NOTE]
-> Die `stack`-Eigenschaft wird de facto von allen großen JavaScript-Engines implementiert, und [das JavaScript-Standardisierungskomitee bemüht sich, sie zu standardisieren](https://github.com/tc39/proposal-error-stacks). Sie können sich aufgrund von Implementierungsunterschieden nicht auf den genauen Inhalt des Stack-Strings verlassen, aber Sie können generell davon ausgehen, dass er existiert und ihn zu Debugzwecken verwenden.
+> Die `stack`-Eigenschaft wird de facto von allen großen JavaScript-Engines implementiert, und [das JavaScript-Standardisierungskomitee plant, sie zu standardisieren](https://github.com/tc39/proposal-error-stacks). Aufgrund von Implementierungsinkonsistenzen können Sie sich nicht auf den genauen Inhalt der Stapelzeichenfolge verlassen, aber Sie können generell davon ausgehen, dass sie existiert und zu Debugging-Zwecken verwendet werden kann.
 
-Die nicht standardisierte **`stack`**-Eigenschaft einer {{jsxref("Error")}}-Instanz bietet eine Rückverfolgung, welche Funktionen in welcher Reihenfolge von welcher Zeile und Datei aus mit welchen Argumenten aufgerufen wurden. Der Stack-String geht von den letzten Aufrufen bis zu den früheren zurück, bis hin zum ursprünglichen globalen Scope-Aufruf.
+Die nicht standardisierte **`stack`**-Eigenschaft einer {{jsxref("Error")}}-Instanz bietet eine Rückverfolgung, welche Funktionen in welcher Reihenfolge, von welcher Zeile und Datei und mit welchen Argumenten aufgerufen wurden. Die Stapelzeichenfolge beginnt bei den neuesten Aufrufen und führt zurück zu den ursprünglichen globalen Bereichsaufrufen.
 
 ## Wert
 
 Ein String.
 
-Da die `stack`-Eigenschaft nicht standardisiert ist, unterscheiden sich die Implementierungen darin, wo sie installiert ist.
+Da die `stack`-Eigenschaft nicht standardisiert ist, unterscheiden sich die Implementierungen bezüglich der Stelle, an der sie installiert wird.
 
 - In Firefox ist sie eine Accessor-Eigenschaft auf `Error.prototype`.
-- In Chrome und Safari ist sie eine Dateneigenschaft auf jeder `Error`-Instanz mit dem Deskriptor:
+- In Chrome und Safari ist sie eine Dateneigenschaft auf jeder `Error`-Instanz, mit dem Deskriptor:
 
 {{js_property_attributes(1, 0, 1)}}
 
 ## Beschreibung
 
-Jede JavaScript-Engine verwendet ihr eigenes Format für Stack-Traces, aber sie sind in ihrer allgemeinen Struktur ziemlich konsistent. Jede Implementierung verwendet eine separate Zeile im Stack, um jeden Funktionsaufruf darzustellen. Der Aufruf, der den Fehler direkt verursacht hat, steht ganz oben, und der Aufruf, der die gesamte Aufrufkette gestartet hat, steht ganz unten. Unten finden Sie einige Beispiele für Stack-Traces:
+Jede JavaScript-Engine verwendet ihr eigenes Format für Stapeltraces, aber sie sind in ihrer allgemeinen Struktur relativ konsistent. Jede Implementierung verwendet eine separate Zeile im Stapel, um jeden Funktionsaufruf darzustellen. Der Aufruf, der direkt den Fehler verursacht hat, wird oben platziert, und der Aufruf, der die gesamte Aufrufkette gestartet hat, wird unten platziert. Unten sind einige Beispiele für Stapeltraces:
 
 ```js
 function foo() {
@@ -64,7 +64,7 @@ Error
     at filename.js:13:1
 ```
 
-Verschiedene Engines setzen diesen Wert zu unterschiedlichen Zeiten. Die meisten modernen Engines setzen ihn, wenn das {{jsxref("Error")}}-Objekt erstellt wird. Dies bedeutet, dass Sie die vollständige Call-Stack-Information innerhalb einer Funktion mit folgendem Abruf erhalten können:
+Verschiedene Engines setzen diesen Wert zu unterschiedlichen Zeiten. Die meisten modernen Engines setzen ihn, wenn das {{jsxref("Error")}}-Objekt erstellt wird. Das bedeutet, dass Sie die vollständige Anruf-Stack-Information innerhalb einer Funktion wie folgt erhalten können:
 
 ```js
 function foo() {
@@ -72,11 +72,11 @@ function foo() {
 }
 ```
 
-Ohne dass Sie einen Fehler auslösen und dann abfangen müssen.
+Ohne einen Fehler werfen und dann abfangen zu müssen.
 
-In V8 können die nicht standadisierten APIs `Error.captureStackTrace()`, `Error.stackTraceLimit` und `Error.prepareStackTrace()` verwendet werden, um den Stack-Trace anzupassen. Lesen Sie die [Stack trace API](https://v8.dev/docs/stack-trace-api) in den V8-Dokumenten für weitere Informationen.
+In V8 können die nicht standardisierten `Error.captureStackTrace()`, `Error.stackTraceLimit` und `Error.prepareStackTrace()` APIs verwendet werden, um den Stapeltrace anzupassen. Lesen Sie die [Stack trace API](https://v8.dev/docs/stack-trace-api) in den V8-Dokumenten für weitere Informationen.
 
-Stack-Frames können auch andere Dinge als explizite Funktionsaufrufe sein. Beispielsweise beginnen Event-Listener, Timeout-Jobs und Promise-Handler ihre eigene Aufrufkette. Quellcode innerhalb von {{jsxref("Global_Objects/eval", "eval()")}}- und {{jsxref("Function")}}-Konstruktoraufrufen erscheint ebenfalls im Stack:
+Stapelrahmen können auch andere Dinge als explizite Funktionsaufrufe sein. Zum Beispiel beginnen Ereignislistener, Timeout-Jobs und Promise-Handler alle ihre eigene Aufrufkette. Quellcode innerhalb von {{jsxref("Global_Objects/eval", "eval()")}}- und {{jsxref("Function")}}-Konstruktoraufrufen erscheint ebenfalls im Stapel:
 
 ```js
 console.log(new Function("return new Error('Function failed')")().stack);
@@ -111,13 +111,13 @@ Error: eval failed
     at filename.js:3:13
 ```
 
-In Firefox können Sie die `//# sourceURL`-Direktive verwenden, um eine eval-Quelle zu benennen. Siehe die Firefox-Dokumentation [Debug eval sources](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/debug_eval_sources/index.html) und den Blogbeitrag [Naming `eval` Scripts with the `//# sourceURL` Directive](https://fitzgen.com/2014/12/05/name-eval-scripts.html) für weitere Details.
+In Firefox können Sie die `//# sourceURL`-Direktive nutzen, um eine Evalquelle zu benennen. Siehe die Firefox [Debug eval sources](https://firefox-source-docs.mozilla.org/devtools-user/debugger/how_to/debug_eval_sources/index.html)-Dokumente und den Blogpost [Naming `eval` Scripts with the `//# sourceURL` Directive](https://fitzgen.com/2014/12/05/name-eval-scripts.html) für weitere Details.
 
 ## Beispiele
 
-### Verwendung der stack-Eigenschaft
+### Verwenden der stack-Eigenschaft
 
-Das folgende Skript zeigt, wie Sie die `stack`-Eigenschaft verwenden, um einen Stack-Trace in Ihrem Browserfenster auszugeben. Sie können dies verwenden, um zu überprüfen, wie die Stack-Struktur Ihres Browsers aussieht.
+Das folgende Skript demonstriert, wie Sie die `stack`-Eigenschaft verwenden, um einen Stapeltrace in Ihrem Browserfenster auszugeben. Sie können dies verwenden, um zu überprüfen, wie die Stapelstruktur Ihres Browsers aussieht.
 
 ```html hidden
 <div id="output"></div>
@@ -141,7 +141,7 @@ function a() {
   b(3, 4, "\n\n", undefined, {});
 }
 try {
-  a("first call, firstarg");
+  a("first call, first arg");
 } catch (e) {
   document.getElementById("output").textContent = e.stack;
 }
@@ -151,7 +151,7 @@ try {
 
 ## Spezifikationen
 
-Nicht Teil eines Standards.
+Teil keiner Norm.
 
 ## Browser-Kompatibilität
 

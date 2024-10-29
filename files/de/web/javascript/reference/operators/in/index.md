@@ -2,14 +2,14 @@
 title: in
 slug: Web/JavaScript/Reference/Operators/in
 l10n:
-  sourceCommit: 6e93ec8fc9e1f3bd83bf2f77e84e1a39637734f8
+  sourceCommit: 2c762771070a207d410a963166adf32213bc3a45
 ---
 
 {{jsSidebar("Operators")}}
 
-Der **`in`** Operator gibt `true` zurück, wenn die angegebene Eigenschaft im angegebenen Objekt oder seiner Prototypenkette enthalten ist.
+Der **`in`** Operator gibt `true` zurück, wenn die angegebene Eigenschaft im angegebenen Objekt oder in dessen Prototypenkette vorhanden ist.
 
-Der `in` Operator kann nicht verwendet werden, um nach Werten in anderen Sammlungen zu suchen. Um zu testen, ob ein bestimmter Wert in einem Array existiert, verwenden Sie {{jsxref("Array.prototype.includes()")}}. Für Mengen verwenden Sie {{jsxref("Set.prototype.has()")}}.
+Der `in` Operator kann nicht verwendet werden, um nach Werten in anderen Sammlungen zu suchen. Um zu testen, ob ein bestimmter Wert in einem Array existiert, verwenden Sie {{jsxref("Array.prototype.includes()")}}. Für Sets verwenden Sie {{jsxref("Set.prototype.has()")}}.
 
 {{EmbedInteractiveExample("pages/js/expressions-inoperator.html")}}
 
@@ -23,26 +23,26 @@ prop in object
 ### Parameter
 
 - `prop`
-  - : Ein String oder Symbol, das einen Eigenschaftsnamen repräsentiert (Nicht-Symbole werden in [Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion)). Kann auch ein [privater Eigenschaftsbezeichner](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) sein.
+  - : Ein String oder Symbol, das einen Eigenschaftsnamen darstellt (Nicht-Symbole werden [in Zeichenfolgen umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion)). Kann auch eine [private Eigenschaftskennung](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) sein.
 - `object`
-  - : Objekt, das überprüft wird, ob es (oder seine Prototypenkette) die Eigenschaft mit dem angegebenen Namen (`prop`) enthält.
+  - : Objekt, um zu prüfen, ob es (oder seine Prototypkette) die Eigenschaft mit dem angegebenen Namen (`prop`) enthält.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn `object` kein Objekt ist (d.h. ein primitiver Wert).
+  - : Wird ausgelöst, wenn `object` kein Objekt ist (d. h. ein primitiver Wert).
 
 ## Beschreibung
 
-Der `in` Operator testet, ob eine String- oder Symboleigenschaft in einem Objekt oder seiner Prototypenkette vorhanden ist. Wenn Sie nur _nicht-geerbte_ Eigenschaften überprüfen möchten, verwenden Sie stattdessen {{jsxref("Object.hasOwn()")}}.
+Der `in` Operator testet, ob eine String- oder Symbol-Eigenschaft in einem Objekt oder dessen Prototypenkette vorhanden ist. Wenn Sie nur _nicht vererbte_ Eigenschaften überprüfen möchten, verwenden Sie stattdessen {{jsxref("Object.hasOwn()")}}.
 
-Eine Eigenschaft kann in einem Objekt vorhanden sein, aber den Wert `undefined` haben. Deshalb ist `x in obj` nicht dasselbe wie `obj.x !== undefined`. Um `in` nach dem Hinzufügen einer Eigenschaft `false` zurückgeben zu lassen, verwenden Sie den [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) Operator, anstatt den Wert dieser Eigenschaft auf `undefined` zu setzen.
+Eine Eigenschaft kann in einem Objekt vorhanden sein, aber den Wert `undefined` haben. Daher ist `x in obj` nicht dasselbe wie `obj.x !== undefined`. Um `in` nach Hinzufügen einer Eigenschaft `false` zurückgeben zu lassen, verwenden Sie den [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) Operator anstelle des Setzens des Wertes dieser Eigenschaft auf `undefined`.
 
-Sie können den `in` Operator auch verwenden, um zu überprüfen, ob ein bestimmtes [privates Klassenfeld oder Methode](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) in einem Objekt definiert wurde. Der Operator gibt `true` zurück, wenn die Eigenschaft definiert ist, und `false`, andernfalls. Dies ist bekannt als ein _gebrandter Check_, weil er nur dann `true` zurückgibt, wenn das Objekt mit diesem Klassenkonstruktor erstellt wurde, nach dem Sie auch sicher auf andere private Eigenschaften zugreifen können.
+Sie können auch den `in` Operator verwenden, um zu überprüfen, ob ein bestimmtes [privates Klassenfeld oder Methode](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) in einem Objekt definiert wurde. Der Operator gibt `true` zurück, wenn die Eigenschaft definiert ist, und `false`, wenn nicht. Dies wird als _branded check_ bezeichnet, da er `true` zurückgibt, wenn und nur wenn das Objekt mit diesem Klassenkonstruktor erstellt wurde, danach können Sie sicher auf andere private Eigenschaften zugreifen.
 
-Dies ist eine spezielle Syntax — die linke Seite des `in` Operators ist ein Eigenschaftsbezeichner anstelle eines Ausdrucks, aber ohne Anführungszeichen (weil es sonst eine String-Eigenschaft wäre, nicht eine private Eigenschaft).
+Dies ist eine spezielle Syntax — die linke Seite des `in` Operators ist ein Eigenschaftsbezeichner anstelle eines Ausdrucks, aber unquoted (weil es sonst eine String-Eigenschaft und keine private Eigenschaft wäre).
 
-Da der Zugriff auf private Eigenschaften von Objekten, die nicht mit der aktuellen Klasse zusammenhängen, einen {{jsxref("TypeError")}} auslöst, anstatt `undefined` zurückzugeben, können Sie mit dieser Syntax:
+Da das Zugreifen auf private Eigenschaften in Objekten, die nicht mit der aktuellen Klasse verwandt sind, einen {{jsxref("TypeError")}} auslöst anstelle von `undefined` zurückzugeben, erlaubt diese Syntax Ihnen, Folgendes zu verkürzen:
 
 ```js
 class C {
@@ -58,7 +58,7 @@ class C {
 }
 ```
 
-verkürzen auf:
+Zu:
 
 ```js
 class C {
@@ -69,9 +69,9 @@ class C {
 }
 ```
 
-Es vermeidet auch allgemein die Notwendigkeit, sich mit Fehlerbehandlungen zu beschäftigen, nur um auf eine private Eigenschaft zuzugreifen, die möglicherweise nicht existiert.
+Dies vermeidet im Allgemeinen auch den Umgang mit Fehlerbehandlung, nur um auf eine möglicherweise nicht vorhandene private Eigenschaft zuzugreifen.
 
-Der `in` Operator erfordert jedoch, dass die private Eigenschaft zuvor in der eingeschlossenen Klasse deklariert wurde – andernfalls würde er einen {{jsxref("SyntaxError")}} auslösen ("Private field '#x' must be declared in an enclosing class"), derselbe Fehler, als wenn Sie versuchen, auf eine nicht deklarierte private Eigenschaft zuzugreifen.
+Der `in` Operator erfordert jedoch weiterhin, dass die private Eigenschaft vorher in der umgebenden Klasse deklariert wird — andernfalls würde er einen {{jsxref("SyntaxError")}} auslösen („Privatfeld '#x' muss in einer umgebenden Klasse deklariert werden“), denselben, den Sie erhalten, wenn Sie versuchen, auf eine nicht deklarierte private Eigenschaft zuzugreifen.
 
 ```js-nolint example-bad
 class C {
@@ -87,7 +87,7 @@ new C().foo(); // SyntaxError: Private field '#x' must be declared in an enclosi
 
 ### Grundlegende Verwendung
 
-Die folgenden Beispiele zeigen einige Anwendungen des `in` Operators.
+Die folgenden Beispiele zeigen einige Verwendungen des `in` Operators.
 
 ```js
 // Arrays
@@ -103,12 +103,12 @@ Symbol.iterator in trees; // returns true
 "PI" in Math; // returns true
 
 // Custom objects
-const mycar = { make: "Honda", model: "Accord", year: 1998 };
-"make" in mycar; // returns true
-"model" in mycar; // returns true
+const myCar = { make: "Honda", model: "Accord", year: 1998 };
+"make" in myCar; // returns true
+"model" in myCar; // returns true
 ```
 
-Sie müssen ein Objekt auf der rechten Seite des `in` Operators angeben. Zum Beispiel können Sie einen String angeben, der mit dem `String` Konstruktor erstellt wurde, aber Sie können keinen String-Literal angeben.
+Sie müssen ein Objekt auf der rechten Seite des `in` Operators angeben. Zum Beispiel können Sie eine mit dem `String` Konstruktor erstellte Zeichenfolge angeben, aber nicht eine String-Konstante.
 
 ```js
 const color1 = new String("green");
@@ -124,21 +124,21 @@ const color2 = "coral";
 Wenn Sie eine Eigenschaft mit dem [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete) Operator löschen, gibt der `in` Operator `false` für diese Eigenschaft zurück.
 
 ```js
-const mycar = { make: "Honda", model: "Accord", year: 1998 };
-delete mycar.make;
-"make" in mycar; // returns false
+const myCar = { make: "Honda", model: "Accord", year: 1998 };
+delete myCar.make;
+"make" in myCar; // returns false
 
 const trees = ["redwood", "bay", "cedar", "oak", "maple"];
 delete trees[3];
 3 in trees; // returns false
 ```
 
-Wenn Sie eine Eigenschaft auf {{jsxref("undefined")}} setzen, sie aber nicht löschen, gibt der `in` Operator `true` für diese Eigenschaft zurück.
+Wenn Sie eine Eigenschaft auf {{jsxref("undefined")}} setzen, ohne sie zu löschen, gibt der `in` Operator `true` für diese Eigenschaft zurück.
 
 ```js
-const mycar = { make: "Honda", model: "Accord", year: 1998 };
-mycar.make = undefined;
-"make" in mycar; // returns true
+const myCar = { make: "Honda", model: "Accord", year: 1998 };
+myCar.make = undefined;
+"make" in myCar; // returns true
 ```
 
 ```js
@@ -147,7 +147,7 @@ trees[3] = undefined;
 3 in trees; // returns true
 ```
 
-Der `in` Operator wird `false` für [leere Array-Slots](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) zurückgeben, auch wenn der direkte Zugriff darauf `undefined` zurückgibt.
+Der `in` Operator gibt `false` für [leere Array-Slots](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) zurück, selbst wenn der direkte Zugriff darauf `undefined` zurückgibt.
 
 ```js
 const empties = new Array(3);
@@ -155,7 +155,7 @@ empties[2]; // returns undefined
 2 in empties; // returns false
 ```
 
-Um dies zu vermeiden, stellen Sie sicher, dass ein neues Array immer mit nicht-leeren Werten gefüllt ist oder nicht über das Ende des Arrays hinausgeschrieben wird.
+Um dies zu vermeiden, stellen Sie sicher, dass ein neues Array immer mit nicht leeren Werten gefüllt wird oder nicht über das Ende des Arrays hinausgeschrieben wird.
 
 ```js
 const empties = new Array(3).fill(undefined);
@@ -164,7 +164,7 @@ const empties = new Array(3).fill(undefined);
 
 ### Vererbte Eigenschaften
 
-Der `in` Operator gibt `true` für Eigenschaften in der Prototypenkette zurück. Dies kann unerwünscht sein, wenn Sie Objekte verwenden, um beliebige Schlüssel-Wert-Paare zu speichern.
+Der `in` Operator gibt `true` für Eigenschaften in der Prototypkette zurück. Dies kann unerwünscht sein, wenn Sie Objekte verwenden, um beliebige Schlüssel-Wert-Paare zu speichern.
 
 ```js example-bad
 const ages = { alice: 18, bob: 27 };
@@ -188,7 +188,7 @@ function hasPerson(name) {
 hasPerson("hasOwnProperty"); // false
 ```
 
-Alternativ sollten Sie in Betracht ziehen, ein [null Prototype-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) oder eine {{jsxref("Map")}} zum Speichern von `ages` zu verwenden, um andere Fehler zu vermeiden.
+Alternativ sollten Sie in Betracht ziehen, ein [Null-Prototyp-Objekt](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects) oder eine {{jsxref("Map")}} zum Speichern von `ages` zu verwenden, um andere Fehler zu vermeiden.
 
 ```js example-good
 const ages = new Map([
@@ -203,9 +203,9 @@ function hasPerson(name) {
 hasPerson("hasOwnProperty"); // false
 ```
 
-### Verwendung des in-Operators zur Implementierung von gebrandeten Checks
+### Verwendung des in-Operators zur Implementierung von Branded Checks
 
-Das folgende Code-Fragment demonstriert eine statische Funktion, die angibt, ob ein Objekt mit dem `Person` Konstruktor erstellt wurde und daher andere Methoden sicher ausführen kann.
+Das folgende Codefragment demonstriert eine statische Funktion, die angibt, ob ein Objekt mit dem `Person` Konstruktor erstellt wurde und daher andere Methoden sicher ausführen kann.
 
 ```js
 class Person {
@@ -239,9 +239,9 @@ const p2 = {};
 p1.ageDifference(p2); // TypeError: Cannot read private member #age from an object whose class did not declare it
 ```
 
-Ohne den `in` Operator müssten Sie einen `try...catch` Block verwenden, um zu überprüfen, ob das Objekt die private Eigenschaft hat.
+Ohne den `in` Operator müssten Sie einen `try...catch` Block verwenden, um zu prüfen, ob das Objekt die private Eigenschaft hat.
 
-Sie können dies auch als [`[Symbol.hasInstance]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) Methode der Klasse implementieren, damit Sie den [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) Operator verwenden können, um dieselbe Überprüfung durchzuführen (die standardmäßig nur das Vorhandensein von `Person.prototype` in der Prototypenkette des Objekts überprüft).
+Sie können dies auch als Methode [`[Symbol.hasInstance]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/hasInstance) der Klasse implementieren, sodass Sie den [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) Operator verwenden können, um dieselbe Prüfung durchzuführen (die standardmäßig nur die Existenz von `Person.prototype` in der Prototypkette des Objekts überprüft).
 
 ```js
 class Person {
@@ -267,7 +267,7 @@ if (p1 instanceof Person && p2 instanceof Person) {
 }
 ```
 
-Für weitere Beispiele siehe [Private properties](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) und den [Klassen-Leitfaden](/de/docs/Web/JavaScript/Guide/Using_classes#private_fields).
+Für weitere Beispiele siehe [Private Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties) und den [Klassen-Leitfaden](/de/docs/Web/JavaScript/Guide/Using_classes#private_fields).
 
 ## Spezifikationen
 
@@ -283,4 +283,4 @@ Für weitere Beispiele siehe [Private properties](/de/docs/Web/JavaScript/Refere
 - [`delete`](/de/docs/Web/JavaScript/Reference/Operators/delete)
 - {{jsxref("Object.hasOwn()")}}
 - {{jsxref("Reflect.has()")}}
-- [Enumerability and ownership of properties](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)
+- [Aufzählbarkeit und Eigentum von Eigenschaften](/de/docs/Web/JavaScript/Enumerability_and_ownership_of_properties)

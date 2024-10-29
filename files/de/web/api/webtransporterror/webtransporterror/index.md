@@ -3,7 +3,7 @@ title: "WebTransportError: WebTransportError() Konstruktor"
 short-title: WebTransportError()
 slug: Web/API/WebTransportError/WebTransportError
 l10n:
-  sourceCommit: 4de6f76bbfd76229db78ffb7d52cf6b4cb9f31f8
+  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
 ---
 
 {{APIRef("WebTransport API")}}{{SecureContext_Header}} {{AvailableInWorkers}}
@@ -23,14 +23,14 @@ new WebTransportError(init)
     - `message`
       - : Ein String, der den aufgetretenen Fehler beschreibt.
     - `streamErrorCode`
-      - : Eine Zahl im Bereich 0-255, die den Anwendungsprotokoll-Fehlercode für diesen Fehler angibt.
+      - : Eine Zahl im Bereich von 0-255, die den Anwendungscode für diesen Fehler angibt.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `WebTransportError` Objekt wird erstellt, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, zum Beispiel ein Serverfehler oder ein Netzwerkverbindungsproblem.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `WebTransportError`-Objekt wird erstellt, wenn ein Fehler im Zusammenhang mit WebTransport auftritt, zum Beispiel ein Serverfehler oder ein Netzwerkverbindungsproblem.
 
 ```js
-const url = "notaurl";
+const url = "not-a-url";
 
 async function initTransport(url) {
   try {

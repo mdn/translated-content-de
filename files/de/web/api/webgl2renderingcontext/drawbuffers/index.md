@@ -3,12 +3,12 @@ title: "WebGL2RenderingContext: drawBuffers()-Methode"
 short-title: drawBuffers()
 slug: Web/API/WebGL2RenderingContext/drawBuffers
 l10n:
-  sourceCommit: 2b942f0d8f84641c233d701cb5d1f4e6c23120ff
+  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
 ---
 
 {{APIRef("WebGL")}}{{AvailableInWorkers}}
 
-Die **`WebGL2RenderingContext.drawBuffers()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) definiert Zeichenpuffer, in die Fragmentfarben geschrieben werden. Die Zeichnungspuffer-Einstellungen sind Teil des Zustands des derzeit gebundenen Framebuffers oder des Zeichnungspuffers, wenn kein Framebuffer gebunden ist.
+Die **`WebGL2RenderingContext.drawBuffers()`**-Methode der [WebGL 2 API](/de/docs/Web/API/WebGL_API) definiert Zeichnungs-Puffer, in die Fragment-Farben geschrieben werden. Die Zeichnungs-Puffereinstellungen sind Teil des Status des aktuell gebundenen Framebuffers oder dem Zeichnungs-Puffer, wenn kein Framebuffer gebunden ist.
 
 ## Syntax
 
@@ -20,14 +20,15 @@ drawBuffers(buffers)
 
 - `buffers`
 
-  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), das die Puffer angibt, in die Fragmentfarben geschrieben werden. Mögliche Werte sind:
+  - : Ein {{jsxref("Array")}} von [`GLenum`](/de/docs/Web/API/WebGL_API/Types), welches die Puffer spezifiziert, in die Fragment-Farben geschrieben werden. Mögliche Werte sind:
 
     - `gl.NONE`
-      - : Der Fragment-Shader-Ausgabe wird in keinen Farb-Puffer geschrieben.
+      - : Die Ausgabe des Fragment-Shaders wird in keinen Farb-Puffer geschrieben.
     - `gl.BACK`
-      - : Der Fragment-Shader-Ausgabe wird in den hinteren Farb-Puffer geschrieben.
+      - : Die Ausgabe des Fragment-Shaders wird in den hinteren Farb-Puffer geschrieben.
     - `gl.COLOR_ATTACHMENT{0-15}`
-      - : Der Fragment-Shader-Ausgabe wird in die n-te Farbanlage des aktuellen Framebuffers geschrieben.
+      - : Die Fragment-Shader-Ausgabe wird in den
+        n-ten Farb-Anschluss des aktuellen Framebuffers geschrieben.
 
 ### Rückgabewert
 
@@ -35,8 +36,8 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-- Wenn `buffers` keinen der akzeptierten Werte enthält, wird ein
-  `gl.INVALID_ENUM` Fehler ausgelöst.
+- Wenn `buffers` nicht einen der akzeptierten Werte enthält, wird ein
+  `gl.INVALID_ENUM`-Fehler ausgelöst.
 
 ## Beispiele
 

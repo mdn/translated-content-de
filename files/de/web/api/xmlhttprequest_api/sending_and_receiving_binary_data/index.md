@@ -2,14 +2,14 @@
 title: Senden und Empfangen von Binärdaten
 slug: Web/API/XMLHttpRequest_API/Sending_and_Receiving_Binary_Data
 l10n:
-  sourceCommit: 23e1a97d50050a3b3518a4b2f67ccf42e5fd75b7
+  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
 ---
 
 {{DefaultAPISidebar("XMLHttpRequest API")}}
 
-Die Eigenschaft `responseType` des `XMLHttpRequest`-Objekts kann so eingestellt werden, dass der erwartete Antworttyp vom Server geändert wird. Mögliche Werte sind der leere String (Standard), `"arraybuffer"`, `"blob"`, `"document"`, `"json"` und `"text"`. Die Eigenschaft `response` enthält den Entitätskörper gemäß `responseType`, als `ArrayBuffer`, `Blob`, `Document`, `JSON` oder String. Dies ist `null`, wenn die Anfrage nicht vollständig oder nicht erfolgreich war.
+Die Eigenschaft `responseType` des XMLHttpRequest-Objekts kann gesetzt werden, um den erwarteten Antworttyp vom Server zu ändern. Mögliche Werte sind der leere String (Standard), `"arraybuffer"`, `"blob"`, `"document"`, `"json"` und `"text"`. Die Eigenschaft `response` enthält den Entitätskörper entsprechend `responseType`, als `ArrayBuffer`, `Blob`, `Document`, `JSON` oder String. Dies ist `null`, wenn die Anfrage nicht abgeschlossen oder nicht erfolgreich war.
 
-Dieses Beispiel liest ein Bild als Binärdatei und erstellt ein 8-Bit-Integer-Array aus den Rohdaten. Beachten Sie, dass dies das Bild nicht dekodieren und die Pixel lesen wird. Dazu benötigen Sie eine [PNG-Dekodierungsbibliothek](https://github.com/foliojs/png.js).
+Dieses Beispiel liest ein Bild als Binärdatei und erstellt ein 8-Bit-Unsigned-Integer-Array aus den Rohbytes. Beachten Sie, dass dies das Bild nicht dekodieren und die Pixel lesen wird. Sie benötigen dafür eine [png-Dekodierungsbibliothek](https://github.com/foliojs/png.js).
 
 ```js
 const req = new XMLHttpRequest();
@@ -29,7 +29,7 @@ req.onload = (event) => {
 req.send(null);
 ```
 
-Sie können eine Binärdatei auch als [`Blob`](/de/docs/Web/API/Blob) lesen, indem Sie den String `"blob"` der Eigenschaft `responseType` zuweisen.
+Sie können auch eine Binärdatei als [`Blob`](/de/docs/Web/API/Blob) lesen, indem Sie den String `"blob"` für die Eigenschaft `responseType` setzen.
 
 ```js
 const req = new XMLHttpRequest();
@@ -60,22 +60,22 @@ function loadBinaryResource(url) {
 }
 ```
 
-Die Magie geschieht in der Funktion `overrideMimeType`, die den Browser zwingt, dies als einfachen Text mit einer benutzerdefinierten Zeichenkodierung zu behandeln. Dies weist den Browser an, es nicht zu parsen und die Bytes unverarbeitet durchzulassen.
+Die Magie passiert in der Funktion `overrideMimeType`, die den Browser zwingt, es als einfachen Text zu behandeln, unter Verwendung eines benutzerdefinierten Zeichensatzes. Dies weist den Browser an, es nicht zu parsen und die Bytes unbearbeitet durchzulassen.
 
 ```js
-const filestream = loadBinaryResource(url);
-const abyte = filestream.charCodeAt(x) & 0xff; // throw away high-order byte (f7)
+const fileStream = loadBinaryResource(url);
+const lowestByte = fileStream.charCodeAt(x) & 0xff; // throw away high-order byte (f7)
 ```
 
-Das obige Beispiel holt das Byte an der Offset-Position `x` innerhalb der geladenen Binärdaten. Der gültige Bereich für `x` liegt zwischen 0 und `filestream.length-1`.
+Das obige Beispiel holt das Byte bei Offset `x` innerhalb der geladenen Binärdaten. Der gültige Bereich für `x` reicht von 0 bis `fileStream.length-1`.
 
-Siehe [Herunterladen von Binärströmen mit XMLHttpRequest](https://web.archive.org/web/20071103070418/http://mgran.blogspot.com/2006/08/downloading-binary-streams-with.html) für eine ausführliche Erklärung.
+Siehe [Herunterladen von Binärstreams mit XMLHttpRequest](https://web.archive.org/web/20071103070418/http://mgran.blogspot.com/2006/08/downloading-binary-streams-with.html) für eine detaillierte Erklärung.
 
 ## Senden von Binärdaten
 
-Die `send`-Methode des XMLHttpRequest wurde erweitert, um die einfache Übertragung von Binärdaten zu erleichtern, indem sie ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File) Objekt akzeptiert.
+Die Methode `send` von XMLHttpRequest wurde erweitert, um die einfache Übertragung von Binärdaten zu ermöglichen, indem ein [`ArrayBuffer`](/de/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`Blob`](/de/docs/Web/API/Blob) oder [`File`](/de/docs/Web/API/File)-Objekt akzeptiert wird.
 
-Das folgende Beispiel erstellt eine Textdatei im Handumdrehen und verwendet die `POST`-Methode, um die "Datei" an den Server zu senden. Dieses Beispiel verwendet einfachen Text, aber Sie können sich vorstellen, dass die Daten eine Binärdatei sind.
+Das folgende Beispiel erstellt eine Textdatei "on-the-fly" und verwendet die `POST`-Methode, um die "Datei" an den Server zu senden. Dieses Beispiel verwendet Klartext, aber Sie können sich vorstellen, dass die Daten stattdessen eine Binärdatei sind.
 
 ```js
 const req = new XMLHttpRequest();
@@ -102,8 +102,8 @@ xhr.open("POST", url, false);
 xhr.send(array);
 ```
 
-Dies erstellt ein Array von 512 Bytes mit 8-Bit-Integern und sendet es; natürlich können Sie beliebige Binärdaten verwenden.
+Dies baut ein 512-Byte-Array von 8-Bit-Integern und sendet es; Sie können natürlich beliebige Binärdaten verwenden, die Sie möchten.
 
-## Formulare einreichen und Dateien hochladen
+## Senden von Formularen und Hochladen von Dateien
 
 Siehe [`FormData`](/de/docs/Web/API/FormData).
