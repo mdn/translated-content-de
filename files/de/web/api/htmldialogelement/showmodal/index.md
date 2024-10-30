@@ -1,14 +1,14 @@
 ---
-title: "HTMLDialogElement: showModal() Methode"
+title: "HTMLDialogElement: showModal()-Methode"
 short-title: showModal()
 slug: Web/API/HTMLDialogElement/showModal
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: d2421d25d1676cc11b01cc4981061e4d0aa78e95
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`showModal()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement) Schnittstelle zeigt den Dialog als modales Fenster über allen anderen eventuell vorhandenen Dialogen an. Es wird in der {{Glossary("top_layer", "Top-Ebene")}} angezeigt, zusammen mit einem {{cssxref('::backdrop')}} Pseudoelement. Eine Interaktion außerhalb des Dialogs wird blockiert und der Inhalt außerhalb wird inaktiv gerendert.
+Die **`showModal()`**-Methode der [`HTMLDialogElement`](/de/docs/Web/API/HTMLDialogElement)-Schnittstelle zeigt den Dialog als Modal an, über allen anderen möglicherweise vorhandenen Dialogen. Es wird in der {{Glossary("top_layer", "Top-Schicht")}} dargestellt, zusammen mit einem {{cssxref('::backdrop')}} Pseudo-Element. Die Interaktion außerhalb des Dialogs wird blockiert und der Inhalt außerhalb wird inaktiv gemacht.
 
 ## Syntax
 
@@ -27,13 +27,13 @@ Keiner ({{jsxref("undefined")}}).
 ### Ausnahmen
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Dialog bereits geöffnet ist (d.h. wenn das `open`-Attribut bereits auf dem {{htmlelement("dialog")}} Element gesetzt ist) oder wenn der Dialog auch ein [Popover](/de/docs/Web/API/Popover_API) ist, das bereits angezeigt wird.
+  - : Wird geworfen, wenn der Dialog bereits geöffnet ist (d. h. wenn das `open`-Attribut bereits auf dem {{htmlelement("dialog")}}-Element gesetzt ist), oder wenn der Dialog auch ein [Popover](/de/docs/Web/API/Popover_API) ist, das bereits angezeigt wird.
 
 ## Beispiele
 
 ### Öffnen eines modalen Dialogs
 
-Das folgende Beispiel zeigt einen Button, der beim Klicken ein modales {{htmlelement("dialog")}} mit einem Formular über die `HTMLDialogElement.showModal()`-Funktion öffnet. Solange es geöffnet ist, ist alles außer dem Inhalt des modalen Dialogs inaktiv. Von dort aus können Sie den _Abbrechen_-Button klicken, um den Dialog zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close) Funktion), oder das Formular über den Absenden-Button abschicken. Die Auswahl des Abbrechen-Buttons schließt den Dialog und erzeugt ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event) Ereignis, kein [`cancel`](/de/docs/Web/API/HTMLElement/cancel_event) Ereignis.
+Das folgende Beispiel zeigt einen Button, der beim Klicken ein modales {{htmlelement("dialog")}} mit einem Formular über die `HTMLDialogElement.showModal()`-Funktion öffnet. Solange es geöffnet ist, ist alles außer dem Inhalt des modalen Dialogs inaktiv. Von dort aus können Sie auf den _Abbrechen_-Button klicken, um den Dialog zu schließen (über die [`HTMLDialogElement.close()`](/de/docs/Web/API/HTMLDialogElement/close)-Funktion), oder das Formular über den Absenden-Button einreichen. Die Auswahl des Abbrechen-Buttons schließt den Dialog, wodurch ein [`close`](/de/docs/Web/API/HTMLDialogElement/close_event)-Ereignis entsteht, kein [`cancel`](/de/docs/Web/API/HTMLDialogElement/cancel_event)-Ereignis.
 
 #### HTML
 

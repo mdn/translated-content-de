@@ -2,12 +2,12 @@
 title: Hintergründe und Rahmen
 slug: Learn/CSS/Building_blocks/Backgrounds_and_borders
 l10n:
-  sourceCommit: baac7f2a43813a7930ff97b11d9c38b413f97c78
+  sourceCommit: 198d4613e48ec627c860551526131f363f244d36
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/CSS/Building_blocks/The_box_model", "Learn/CSS/Building_blocks/Handling_different_text_directions", "Learn/CSS/Building_blocks")}}
 
-In dieser Lektion werfen wir einen Blick auf einige der kreativen Dinge, die Sie mit CSS-Hintergründen und Rahmen tun können. Von der Hinzufügung von Verläufen, Hintergrundbildern und abgerundeten Ecken bis hin zu vielen weiteren Styling-Fragen in CSS bieten Hintergründe und Rahmen die Antwort.
+In dieser Lektion werfen wir einen Blick auf einige der kreativen Dinge, die Sie mit CSS-Hintergründen und Rahmen tun können. Von der Hinzufügung von Farbverläufen, Hintergrundbildern und abgerundeten Ecken sind Hintergründe und Rahmen die Antwort auf viele Stilfragen in CSS.
 
 <table>
   <tbody>
@@ -17,27 +17,27 @@ In dieser Lektion werfen wir einen Blick auf einige der kreativen Dinge, die Sie
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, grundlegendes Wissen über
+        >, Grundkenntnisse im
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >den Umgang mit Dateien</a
-        >, HTML-Grundlagen (studieren Sie
+          >Umgang mit Dateien</a
+        >, HTML-Grundlagen (siehe
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >) sowie ein Verständnis davon, wie CSS funktioniert (studieren Sie
+        >) und eine Vorstellung davon, wie CSS funktioniert (siehe
         <a href="/de/docs/Learn/CSS/First_steps">CSS Erste Schritte</a>.)
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
-      <td>Erlernen, wie man den Hintergrund und den Rahmen von Boxen gestaltet.</td>
+      <th scope="row">Ziel:</th>
+      <td>Erlernen, wie man den Hintergrund und den Rahmen von Boxen stylt.</td>
     </tr>
   </tbody>
 </table>
 
-## Styling von Hintergründen in CSS
+## Hintergründe in CSS stylen
 
-Die CSS-Eigenschaft {{cssxref("background")}} ist eine Kurzform für eine Reihe von Hintergrund-Langform-Eigenschaften, die wir in dieser Lektion kennenlernen werden. Wenn Sie eine komplexe Hintergrund-Eigenschaft in einem Stylesheet entdecken, kann es zunächst schwierig erscheinen, diese zu verstehen, da so viele Werte gleichzeitig übergeben werden können.
+Die CSS-{{cssxref("background")}}-Eigenschaft ist eine Kurzform für eine Reihe von Hintergrundeigenschaften in Langform, die wir in dieser Lektion kennenlernen werden. Wenn Sie eine komplexe Hintergrundeigenschaft in einem Stylesheet entdecken, könnte es auf den ersten Blick etwas schwer verständlich sein, da so viele Werte auf einmal übergeben werden können:
 
 ```css
 .box {
@@ -48,142 +48,295 @@ Die CSS-Eigenschaft {{cssxref("background")}} ist eine Kurzform für eine Reihe 
         rgb(51 56 57 / 100%) 96%
       )
       center center / 400px 200px no-repeat,
-    url(big-star.png) center no-repeat,
+    url(image.png) center no-repeat,
     rebeccapurple;
 }
 ```
 
-Wir werden später im Tutorial darauf zurückkommen, wie die Kurzform funktioniert, aber zuerst schauen wir uns an, was Sie mit Hintergründen in CSS machen können, indem wir uns die einzelnen Hindergrund-Eigenschaften ansehen.
+Später im Tutorial werden wir darauf zurückkommen, wie die Kurzform funktioniert, aber zunächst sehen wir uns die verschiedenen Möglichkeiten an, die Sie mit Hintergründen in CSS haben, indem wir die einzelnen Hintergrundeigenschaften betrachten.
 
 ### Hintergrundfarben
 
-Die Eigenschaft {{cssxref("background-color")}} definiert die Hintergrundfarbe eines beliebigen Elements in CSS. Die Eigenschaft akzeptiert jeden gültigen [`<color>`](/de/docs/Web/CSS/color_value). Eine `background-color` erstreckt sich unterhalb der Inhalts- und Polsterbox des Elements.
+Die {{cssxref("background-color")}}-Eigenschaft definiert die Hintergrundfarbe eines beliebigen Elements in CSS. Die Eigenschaft akzeptiert jeden gültigen [`<color>`](/de/docs/Web/CSS/color_value). Eine `background-color`-Eigenschaft erstreckt sich unterhalb des Inhalts und des Padding-Bereichs des Elements.
 
-Im folgenden Beispiel haben wir verschiedene Farbwerte verwendet, um der Box, einer Überschrift und einem `<span>`-Element einen Hintergrund hinzuzufügen.
+Im folgenden Beispiel haben wir verschiedene Farbwerte verwendet, um der Box, einer Überschrift, und einem {{htmlelement("span")}}-Element eine Hintergrundfarbe hinzuzufügen. Probieren Sie es selbst aus, indem Sie einen beliebigen verfügbaren [`<color>`](/de/docs/Web/CSS/color_value) Wert verwenden.
 
-**Experimentieren Sie mit diesen, indem Sie jeden verfügbaren [`<color>`](/de/docs/Web/CSS/color_value) Wert verwenden.**
+```html live-sample___color
+<div class="box">
+  <h2>Background Colors</h2>
+  <p>Try changing the background <span>colors</span>.</p>
+</div>
+```
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/color.html", '100%', 700)}}
+```css live-sample___color
+.box {
+  padding: 0.3em;
+  background-color: #567895;
+}
+
+h2 {
+  background-color: black;
+  color: white;
+}
+span {
+  background-color: rgb(255 255 255 / 50%);
+}
+```
+
+{{EmbedLiveSample("color")}}
 
 ### Hintergrundbilder
 
-Die Eigenschaft {{cssxref("background-image")}} ermöglicht die Anzeige eines Bildes im Hintergrund eines Elements. Im folgenden Beispiel haben wir zwei Boxen — eine hat ein Hintergrundbild, das größer als die Box ist ([balloons.jpg](https://mdn.github.io/css-examples/learn/backgrounds-borders/balloons.jpg)). Die andere hat ein kleines Bild eines einzelnen Sterns ([star.png](https://mdn.github.io/css-examples/learn/backgrounds-borders/star.png)).
+Die {{cssxref("background-image")}}-Eigenschaft ermöglicht es, ein Bild im Hintergrund eines Elements anzuzeigen. Im Beispiel unten haben wir zwei Boxen — eine hat ein Hintergrundbild, das größer ist als die Box ([balloons.jpg](https://mdn.github.io/shared-assets/images/examples/balloons.jpg)). Die andere hat ein kleines Bild eines einzelnen Sterns ([star.png](https://mdn.github.io/shared-assets/images/examples/star.png)).
 
-Dieses Beispiel zeigt zwei Dinge über Hintergrundbilder. Standardmäßig wird das große Bild nicht verkleinert, um in die Box zu passen, sodass wir nur eine kleine Ecke davon sehen, während das kleine Bild gekachelt wird, um die Box zu füllen.
+Dieses Beispiel zeigt zwei Dinge über Hintergrundbilder. Standardmäßig wird das große Bild nicht verkleinert, um in die Box zu passen, so dass wir nur eine kleine Ecke davon sehen, während das kleine Bild gekachelt wird, um die Box zu füllen.
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/background-image.html", '100%', 700)}}
+```html live-sample___background-image
+<div class="wrapper">
+  <div class="box a"></div>
+  <div class="box b"></div>
+</div>
+```
 
-**Wenn Sie zusätzlich zu einem Hintergrundbild eine Hintergrundfarbe angeben, dann wird das Bild über der Farbe angezeigt. Versuchen Sie, der obigen Beispiel ein `background-color`-Eigenschaft hinzuzufügen, um das in Aktion zu sehen.**
+```css live-sample___background-image
+.wrapper {
+  display: flex;
+}
 
-#### Steuerung von background-repeat
+.box {
+  width: 200px;
+  height: 80px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
 
-Die Eigenschaft {{cssxref("background-repeat")}} wird verwendet, um das Kachelverhalten von Bildern zu steuern. Die verfügbaren Werte sind:
+.a {
+  background-image: url(https://mdn.github.io/shared-assets/images/examples/balloons.jpg);
+}
 
-- `no-repeat` — verhindert, dass sich der Hintergrund wiederholt.
+.b {
+  background-image: url(https://mdn.github.io/shared-assets/images/examples/star.png);
+}
+```
+
+{{EmbedLiveSample("background-image")}}
+
+Wenn Sie eine Hintergrundfarbe zusätzlich zu einem Hintergrundbild angeben, wird das Bild über der Farbe angezeigt. Versuchen Sie, eine `background-color`-Eigenschaft im obigen Beispiel hinzuzufügen, um dies in Aktion zu sehen.
+
+#### Steuerung der Wiederholung von Hintergrundbildern
+
+Die {{cssxref("background-repeat")}}-Eigenschaft wird verwendet, um das Kachelverhalten von Bildern zu steuern. Die verfügbaren Werte sind:
+
+- `no-repeat` — verhindert, dass der Hintergrund sich wiederholt.
 - `repeat-x` — wiederholt horizontal.
 - `repeat-y` — wiederholt vertikal.
-- `repeat` — der Standard; wiederholt in beide Richtungen.
-- `space` — wiederholt so oft wie möglich und fügt zusätzlichen Platz zwischen den Bildern hinzu, wenn mehr Platz verfügbar ist.
-- `round` — ähnlich wie `space`, aber dehnt die Bilder, um jeden zusätzlichen Platz auszufüllen.
+- `repeat` — der Standardwert; wiederholt in beiden Richtungen.
+- `space` — wiederholt so oft wie möglich und fügt zusätzlichen Raum zwischen den Bildern hinzu, wenn Platz vorhanden ist.
+- `round` — ähnlich wie `space`, aber streckt die Bilder, um zusätzlichen Raum zu füllen.
 
-**Probieren Sie diese Werte im folgenden Beispiel aus. Wir haben den Wert auf `no-repeat` eingestellt, sodass Sie nur einen Stern sehen. Experimentieren Sie mit den verschiedenen Werten — `repeat-x` und `repeat-y` — um zu sehen, welche Effekte sie haben.**
+Probieren Sie diese Werte im folgenden Beispiel aus. Wir haben den Wert auf `no-repeat` gesetzt, sodass Sie nur einen Stern sehen. Testen Sie die unterschiedlichen Werte — `repeat-x` und `repeat-y` — um deren Auswirkungen zu sehen.
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/repeat.html", '100%', 600)}}
+```html live-sample___repeat
+<div class="box"></div>
+```
 
-#### Größenanpassung des Hintergrundbilds
+```css hidden live-sample___repeat
+.box {
+  width: 200px;
+  height: 80px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+```
 
-Das _balloons.jpg_-Bild, das im ursprünglichen Hintergrundbildbeispiel verwendet wurde, ist ein großes Bild, das abgeschnitten wurde, da es größer als das Element ist, dessen Hintergrund es bildet. In diesem Fall könnten wir die Eigenschaft {{cssxref("background-size")}} verwenden, die {{cssxref("length")}} oder {{cssxref("percentage")}} Werte annehmen kann, um das Bild auf die Größe des Hintergrunds anzupassen.
+```css live-sample___repeat
+.box {
+  background-image: url(https://mdn.github.io/shared-assets/images/examples/star.png);
+  background-repeat: no-repeat;
+}
+```
+
+{{EmbedLiveSample("repeat")}}
+
+#### Größe des Hintergrundbildes
+
+Das _balloons.jpg_-Bild, das im ursprünglichen Hintergrundbild-Beispiel verwendet wurde, ist ein großes Bild, das aufgrund der größeren Größe als das Element, dessen Hintergrund es ist, zugeschnitten wurde. In diesem Fall könnten wir die {{cssxref("background-size")}}-Eigenschaft verwenden, die {{cssxref("length")}} oder {{cssxref("percentage")}} Werte annehmen kann, um die Bildgröße an die Hintergrundgröße anzupassen.
 
 Sie können auch Schlüsselwörter verwenden:
 
-- `cover` — der Browser macht das Bild gerade groß genug, um den Boxbereich vollständig zu bedecken, wobei das {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehalten wird. In diesem Fall wird ein Teil des Bildes wahrscheinlich außerhalb der Box landen.
-- `contain` — der Browser bringt das Bild auf die richtige Größe, um es in die Box einzupassen. In diesem Fall können Sie Lücken auf beiden Seiten oder oben und unten am Bild haben, wenn das Seitenverhältnis des Bildes von dem der Box abweicht.
+- `cover` — der Browser macht das Bild gerade so groß, dass es den gesamten Boxbereich abdeckt und dabei sein {{Glossary("aspect_ratio", "Seitenverhältnis")}} beibehält. In diesem Fall wird wahrscheinlich ein Teil des Bildes außerhalb der Box landen.
+- `contain` — der Browser macht das Bild in der Größe passend für die Box. In diesem Fall können auf beiden Seiten oder oben und unten des Bildes Lücken entstehen, wenn das Seitenverhältnis des Bildes von dem der Box abweicht.
 
-Im folgenden Beispiel sind für das _balloons.jpg_-Bild Längeneinheiten eingestellt, um es innerhalb der Box zu skalieren. Sie können sehen, dass das Bild dadurch verzerrt wurde.
+Im Beispiel unten hat das _balloons.jpg_-Bild Längeneinheiten zugewiesen bekommen, um es in der Box zu skalieren. Sie können sehen, dass dies das Bild verzerrt hat.
 
 Versuchen Sie Folgendes.
 
 - Ändern Sie die verwendeten Längeneinheiten, um die Größe des Hintergrunds zu ändern.
 - Entfernen Sie die Längeneinheiten und sehen Sie, was passiert, wenn Sie `background-size: cover` oder `background-size: contain` verwenden.
-- Wenn Ihr Bild kleiner als die Box ist, können Sie den Wert von `background-repeat` ändern, um das Bild zu wiederholen.
+- Wenn Ihr Bild kleiner ist als die Box, können Sie den Wert von `background-repeat` ändern, um das Bild zu wiederholen.
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/size.html", '100%', 800)}}
+```html live-sample___size
+<div class="box"></div>
+```
 
-#### Positionierung des Hintergrundbilds
+```css hidden live-sample___size
+.box {
+  width: 500px;
+  height: 100px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  margin: 10px;
+}
+```
 
-Die Eigenschaft {{cssxref("background-position")}} ermöglicht es Ihnen, die Position zu wählen, in der das Hintergrundbild auf der entsprechenden Box erscheint. Es wird ein Koordinatensystem verwendet, bei dem die obere linke Ecke der Box `(0,0)` ist, und die Box entlang der horizontalen (`x`) und vertikalen (`y`) Achsen positioniert wird.
+```css live-sample___size
+.box {
+  background-image: url(https://mdn.github.io/shared-assets/images/examples/balloons.jpg);
+  background-repeat: no-repeat;
+  background-size: 80px 10em;
+}
+```
+
+{{EmbedLiveSample("size")}}
+
+#### Positionierung des Hintergrundbildes
+
+Die {{cssxref("background-position")}}-Eigenschaft ermöglicht es, die Position auszuwählen, an der das Hintergrundbild auf der Box erscheint, auf die es angewendet wird. Dies verwendet ein Koordinatensystem, bei dem die obere linke Ecke der Box `(0,0)` ist und die Box entlang der horizontalen (`x`) und vertikalen (`y`) Achsen positioniert wird.
 
 > [!NOTE]
 > Der Standardwert für `background-position` ist `(0,0)`.
 
-Die häufigsten `background-position`-Werte bestehen aus zwei Einzelwerten — einem horizontalen Wert, gefolgt von einem vertikalen Wert.
+Die gängigsten `background-position`-Werte nehmen zwei einzelne Werte an — einen horizontalen Wert, gefolgt von einem vertikalen Wert.
 
-Sie können Schlüsselwörter wie `top` und `right` verwenden (lesen Sie die anderen auf der Seite {{cssxref("background-position")}} nach):
+Sie können Schlüsselwörter wie `top` und `right` verwenden (lesen Sie die anderen auf der {{cssxref("background-position")}}-Seite nach):
 
 ```css
 .box {
-  background-image: url(star.png);
+  background-image: url(image.png);
   background-repeat: no-repeat;
   background-position: top center;
 }
 ```
 
-Und {{cssxref("length", "lengths")}}, sowie {{cssxref("percentage", "percentages")}}:
+Und {{cssxref("length", "Längen")}}, und {{cssxref("percentage", "Prozentsätze")}}:
 
 ```css
 .box {
-  background-image: url(star.png);
+  background-image: url(image.png);
   background-repeat: no-repeat;
   background-position: 20px 10%;
 }
 ```
 
-Sie können auch Schlüsselwörter mit Längen oder Prozenten mischen, wobei der erste Wert die horizontale Position oder der Versatz und der zweite die vertikale betrifft. Zum Beispiel:
+Sie können auch Schlüsselwortwerte mit Längen oder Prozentsätzen mischen, wobei der erste Wert sich auf die horizontale Position oder den Versatz beziehen muss und der zweite auf die vertikale. Zum Beispiel:
 
 ```css
 .box {
-  background-image: url(star.png);
+  background-image: url(image.png);
   background-repeat: no-repeat;
   background-position: 20px top;
 }
 ```
 
-Schließlich können Sie eine 4-Wert-Syntax verwenden, um einen Abstand von bestimmten Rändern der Box anzugeben — die Längeneinheit ist in diesem Fall ein Versatz vom vorhergehenden Wert. In dem folgenden CSS positionieren wir den Hintergrund 20px von oben und 10px von rechts:
+Schließlich können Sie auch eine 4-Werte-Syntax verwenden, um einen Abstand von bestimmten Kanten der Box anzugeben — die Längeneinheit ist in diesem Fall ein Versatz vom vorhergehenden Wert. In dem unten stehenden CSS positionieren wir den Hintergrund 20px vom oberen Rand und 10px vom rechten Rand:
 
 ```css
 .box {
-  background-image: url(star.png);
+  background-image: url(image.png);
   background-repeat: no-repeat;
   background-position: top 20px right 10px;
 }
 ```
 
-**Verwenden Sie das folgende Beispiel, um mit diesen Werten zu experimentieren und den Stern in der Box zu bewegen.**
+Verwenden Sie das folgende Beispiel, um mit diesen Werten zu experimentieren und den Stern innerhalb der Box zu bewegen:
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/position.html", '100%', 600)}}
+```html live-sample___position
+<div class="box"></div>
+```
 
-> **Hinweis:** `background-position` ist eine Kurzform für {{cssxref("background-position-x")}} und {{cssxref("background-position-y")}}, die es Ihnen ermöglichen, die Werte der verschiedenen Achsenpositionen individuell festzulegen.
+```css hidden live-sample___position
+.box {
+  width: 500px;
+  height: 80px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+```
 
-### Verlaufshintergründe
+```css live-sample___position
+.box {
+  background-image: url(https://mdn.github.io/shared-assets/images/examples/star.png);
+  background-repeat: no-repeat;
+  background-position: 120px 1em;
+}
+```
 
-Ein Verlauf — wenn er für einen Hintergrund verwendet wird — verhält sich wie ein Bild und wird ebenfalls mit der Eigenschaft {{cssxref("background-image")}} festgelegt.
+{{EmbedLiveSample("position")}}
 
-Sie können mehr über die verschiedenen Arten von Verläufen und deren Anwendung auf der MDN-Seite für den [`<gradient>`](/de/docs/Web/CSS/gradient) Datentyp lesen. Eine unterhaltsame Möglichkeit, mit Verläufen zu experimentieren, besteht darin, einen der vielen im Web verfügbaren CSS-Gradienten-Generatoren zu verwenden, wie zum Beispiel [CSSGradient.io](https://cssgradient.io/). Sie können einen Verlauf erstellen und den Quellcode kopieren und einfügen, der ihn erzeugt.
+> [!NOTE]
+> Die Kurzform `background-position` wird anstelle von {{cssxref("background-position-x")}} und {{cssxref("background-position-y")}} verwendet, die es ermöglichen, die unterschiedlichen Achsenpositionswerte einzeln festzulegen.
 
-Probieren Sie einige verschiedene Verläufe im folgenden Beispiel aus. In den jeweiligen Boxen haben wir einen linearen Verlauf, der sich über die gesamte Box erstreckt, und einen radialen Verlauf mit einer festen Größe, der daher wiederholt wird.
+### Hintergrund-Verläufe
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/gradients.html", '100%', 700)}}
+Ein Verlauf — wenn er für einen Hintergrund verwendet wird — verhält sich genau wie ein Bild und wird ebenfalls mit der {{cssxref("background-image")}}-Eigenschaft festgelegt.
+
+Sie können mehr über die verschiedenen Arten von Verläufen und die Dinge, die Sie mit ihnen tun können, auf der MDN-Seite für den [`<gradient>`](/de/docs/Web/CSS/gradient)-Datentyp lesen. Eine unterhaltsame Möglichkeit, mit Verläufen zu experimentieren, ist die Verwendung eines der vielen CSS-Verlaufsgeneratoren, die im Internet verfügbar sind, wie z.B. [CSSGradient.io](https://cssgradient.io/). Sie können einen Verlauf erstellen und den Quellcode kopieren und einfügen, der ihn generiert.
+
+Probieren Sie einige verschiedene Verläufe im folgenden Beispiel aus. In den beiden Boxen haben wir einen linearen Verlauf, der über die gesamte Box gestreckt ist, und einen radialen Verlauf mit einer festgelegten Größe, der daher wiederholt wird.
+
+```html live-sample___gradients
+<div class="wrapper">
+  <div class="box a"></div>
+  <div class="box b"></div>
+</div>
+```
+
+```css live-sample___gradients
+.wrapper {
+  display: flex;
+}
+
+.box {
+  width: 400px;
+  height: 80px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+
+.a {
+  background-image: linear-gradient(
+    105deg,
+    rgb(0 249 255 / 100%) 39%,
+    rgb(51 56 57 / 100%) 96%
+  );
+}
+
+.b {
+  background-image: radial-gradient(
+    circle,
+    rgb(0 249 255 / 100%) 39%,
+    rgb(51 56 57 / 100%) 96%
+  );
+  background-size: 100px 50px;
+}
+```
+
+{{EmbedLiveSample("gradients")}}
 
 ### Mehrere Hintergrundbilder
 
-Es ist auch möglich, mehrere Hintergrundbilder zu haben — Sie geben mehrere `background-image` Werte in einem einzigen Eigenschaftswert an, wobei jeder durch ein Komma getrennt wird.
+Es ist auch möglich, mehrere Hintergrundbilder zu haben — Sie geben mehrere `background-image` Werte in einem einzigen Eigenschaftswert an, wobei jeder Wert durch ein Komma getrennt wird.
 
-Wenn Sie dies tun, können Sie am Ende Hintergrundbilder überlappen lassen. Die Hintergründe werden mit dem zuletzt aufgelisteten Hintergrundbild unten im Stapel gestapelt, und jedes vorhergehende Bild wird über dem Bild gestapelt, das ihm im Code folgt.
+Wenn Sie dies tun, können Sie am Ende übereinander liegende Hintergrundbilder haben. Die Hintergründe werden mit dem zuletzt angegebenen Hintergrundbild ganz unten im Stapel und jedem vorherigen Bild oben auf dem folgenden Bild in der Reihenfolge des Codes gestapelt.
 
 > [!NOTE]
 > Verläufe können problemlos mit regulären Hintergrundbildern gemischt werden.
 
-Die anderen `background-*` Eigenschaften können ebenfalls mit durch Kommas getrennten Werten in derselben Weise wie `background-image` verwendet werden:
+Die anderen `background-*`-Eigenschaften können ebenfalls kommagetrennte Werte auf die gleiche Weise wie `background-image` haben:
 
 ```css
 background-image: url(image1.png), url(image2.png), url(image3.png),
@@ -194,48 +347,95 @@ background-position:
   top right;
 ```
 
-Jeder Wert der verschiedenen Eigenschaften wird mit den an der gleichen Position in den anderen Eigenschaften befindlichen Werten abgeglichen. Im obigen Beispiel hat `image1` beispielsweise den `background-repeat` Wert `no-repeat`. Aber was passiert, wenn verschiedene Eigenschaften unterschiedliche Anzahlen von Werten haben? Die Antwort ist, dass die kleineren Mengen an Werten zyklisch gelesen werden — im obigen Beispiel gibt es vier Hintergrundbilder, aber nur zwei `background-position` Werte. Die ersten beiden Positionswerte werden auf die ersten beiden Bilder angewendet, dann werden sie wieder von vorne angefangen — `image3` erhält den ersten Positionswert und `image4` erhält den zweiten Positionswert.
+Jeder Wert der verschiedenen Eigenschaften wird den Werten an der jeweiligen Position in den anderen Eigenschaften zugeordnet. Im obigen Beispiel wird `image1`'s `background-repeat`-Wert `no-repeat` sein. Was passiert jedoch, wenn unterschiedliche Eigenschaften unterschiedliche Anzahlen von Werten haben? Die Antwort ist, dass die kleinere Anzahl von Werten wiederholt wird — im obigen Beispiel gibt es vier Hintergrundbilder, aber nur zwei `background-position`-Werte. Die ersten zwei Positionswerte werden auf die ersten zwei Bilder angewendet, dann wird von vorne begonnen — `image3` erhält den ersten Positionswert und `image4` erhält den zweiten Positionswert.
 
-**Lassen Sie uns spielen. Das folgende Beispiel enthält zwei Hintergrundbilder. Um die Stapelreihenfolge zu demonstrieren, versuchen Sie, die Reihenfolge der Hintergrundbilder in der Liste zu ändern. Oder arbeiten Sie an den anderen Eigenschaften, um die Position, Größe oder Wiederholungswerte zu ändern.**
+Lassen Sie uns spielen. Das folgende Beispiel enthält zwei Hintergrundbilder. Um die Stapelreihenfolge zu demonstrieren, versuchen Sie, das erste Hintergrundbild in der Liste zu ändern. Oder spielen Sie mit den anderen Eigenschaften, um die Position, Größe oder Wiederholungswerte zu ändern.
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/multiple-background-image.html", '100%', 600)}}
+```html live-sample___multiple-background-image
+<div class="wrapper">
+  <div class="box"></div>
+</div>
+```
 
-### Hintergrundbefestigung
+```css live-sample___multiple-background-image
+.wrapper {
+  display: flex;
+}
 
-Eine weitere Option, die wir für Hintergründe haben, besteht darin, festzulegen, wie sie beim Scrollen des Inhalts scrollen. Dies wird mithilfe der Eigenschaft {{cssxref("background-attachment")}} gesteuert, die die folgenden Werte annehmen kann:
+.box {
+  width: 500px;
+  height: 80px;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
 
-- `scroll`: bewirkt, dass der Hintergrund eines Elements scrollt, wenn die Seite gescrollt wird. Wenn der Inhalt des Elements gescrollt wird, bewegt sich der Hintergrund nicht. Der Hintergrund ist im Wesentlichen an dieselbe Position auf der Seite fixiert, sodass er sich beim Scrollen der Seite ebenfalls scrollt.
-- `fixed`: bewirkt, dass der Hintergrund eines Elements am Ansichtsfenster angebracht ist, sodass er sich nicht bewegt, wenn die Seite oder der Inhalt des Elements gescrollt werden. Er bleibt immer in derselben Position auf dem Bildschirm.
-- `local`: fixiert den Hintergrund an das Element, auf dem er gesetzt ist, sodass beim Scrollen des Elements der Hintergrund damit scrollt.
+.box {
+  background-image: url(https://mdn.github.io/shared-assets/images/examples/star.png),
+    url(https://mdn.github.io/shared-assets/images/examples/big-star.png);
+}
+```
 
-Die Eigenschaft {{cssxref("background-attachment")}} wirkt nur, wenn es um zu scrollenden Inhalt geht. Daher haben wir eine Demo erstellt, die die Unterschiede zwischen den drei Werten demonstriert — sehen Sie sich [background-attachment.html](https://mdn.github.io/learning-area/css/styling-boxes/backgrounds/background-attachment.html) an (auch [sehen Sie sich den Quellcode](https://github.com/mdn/learning-area/tree/main/css/styling-boxes/backgrounds) hier an).
+{{EmbedLiveSample("multiple-background-image")}}
 
-### Verwendung der Kurzschreibweise der Hintergrund-Eigenschaft
+### Hintergrund-Anhang
 
-Wie zu Beginn dieser Lektion erwähnt, sehen Sie oft, dass Hintergründe mithilfe der Eigenschaft {{cssxref("background")}} festgelegt werden. Diese Kurzform lässt Sie alle verschiedenen Eigenschaften auf einmal setzen.
+Eine weitere Option, die wir für Hintergründe verfügbar haben, ist die Angabe, wie sie beim Scrollen des Inhalts scrollen. Dies wird mit der {{cssxref("background-attachment")}}-Eigenschaft gesteuert, die folgende Werte annehmen kann:
 
-Wenn Sie mehrere Hintergründe verwenden, müssen Sie alle Eigenschaften für den ersten Hintergrund angeben und dann Ihren nächsten Hintergrund nach einem Komma hinzufügen. Im folgenden Beispiel haben wir einen Verlauf mit einer Größe und einer Position, dann ein Bildhintergrund mit `no-repeat` und einer Position, gefolgt von einer Farbe.
+- `scroll`: bewirkt, dass der Hintergrund des Elements scrollt, wenn die Seite gescrollt wird. Wenn der Elementinhalt gescrollt wird, bewegt sich der Hintergrund nicht. Der Hintergrund ist in derselben Position auf der Seite fixiert, scrollt also, wenn die Seite scrollt.
+- `fixed`: bewirkt, dass der Hintergrund eines Elements am Anzeigefenster fixiert wird, sodass er nicht scrollt, wenn die Seite oder der Elementinhalt gescrollt wird. Er bleibt immer an derselben Position auf dem Bildschirm.
+- `local`: fixiert den Hintergrund an dem Element, auf dem er festgelegt ist, sodass beim Scrollen des Elements auch der Hintergrund scrollt.
 
-Es gibt einige Regeln, die befolgt werden müssen, wenn kurzformige Werte für Hintergrundbilder geschrieben werden, zum Beispiel:
+Die {{cssxref("background-attachment")}}-Eigenschaft hat nur eine Wirkung, wenn es Inhalt zum Scrollen gibt. Wir haben eine Demo erstellt, um die Unterschiede zwischen den drei Werten zu demonstrieren — schauen Sie sich [background-attachment.html](https://mdn.github.io/learning-area/css/styling-boxes/backgrounds/background-attachment.html) an (sehen Sie sich auch den [Quellcode hier](https://github.com/mdn/learning-area/tree/main/css/styling-boxes/backgrounds) an).
+
+### Verwenden der Kurzform-Eigenschaft für den Hintergrund
+
+Wie zu Beginn dieser Lektion erwähnt, sehen Sie häufig, dass Hintergründe mit der {{cssxref("background")}}-Eigenschaft angegeben werden. Diese Kurzform ermöglicht es, alle verschiedenen Eigenschaften gleichzeitig festzulegen.
+
+Wenn Sie mehrere Hintergründe verwenden, müssen Sie alle Eigenschaften für den ersten Hintergrund angeben und dann Ihren nächsten Hintergrund nach einem Komma hinzufügen. Im folgenden Beispiel haben wir einen Verlauf mit einer Größe und Position, dann einen Bildhintergrund mit `no-repeat` und einer Position und schließlich eine Farbe.
+
+Es gibt einige Regeln, die beim Schreiben von Hintergrund-Kurzformwerten beachtet werden müssen, zum Beispiel:
 
 - Eine `background-color` darf nur nach dem letzten Komma angegeben werden.
-- Der Wert von `background-size` darf nur unmittelbar nach `background-position` enthalten sein, getrennt durch das '/' Zeichen, wie zum Beispiel: `center/80%`.
+- Der Wert von `background-size` darf nur direkt nach `background-position` unter Verwendung des '/'-Zeichens eingeschlossen werden, so: `center/80%`.
 
-Sehen Sie sich die MDN-Seite für {{cssxref("background")}} an, um alle Überlegungen zu sehen.
+Schauen Sie sich die MDN-Seite für {{cssxref("background")}} an, um alle Überlegungen zu sehen.
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/background.html", '100%', 900)}}
+```html live-sample___background
+<div class="box"></div>
+```
+
+```css live-sample___background
+.box {
+  width: 500px;
+  height: 300px;
+  padding: 0.5em;
+  background:
+    linear-gradient(
+        105deg,
+        rgb(255 255 255 / 20%) 39%,
+        rgb(51 56 57 / 100%) 96%
+      )
+      center center / 400px 200px no-repeat,
+    url(https://mdn.github.io/shared-assets/images/examples/big-star.png) center
+      no-repeat,
+    rebeccapurple;
+}
+```
+
+{{EmbedLiveSample("background", "", "320px")}}
 
 ### Barrierefreiheitserwägungen bei Hintergründen
 
-Wenn Sie Text auf ein Hintergrundbild oder eine Hintergrundfarbe legen, sollten Sie darauf achten, genügend [Kontrast](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) zu haben, damit der Text für Ihre Besucher lesbar ist. Wenn Sie ein Bild angeben und darauf Text platziert wird, sollten Sie auch eine `background-color` angeben, die es ermöglicht, dass der Text lesbar ist, wenn das Bild nicht geladen wird.
+Beim Platzieren von Text über einem Hintergrundbild oder -farbe sollten Sie darauf achten, dass Sie ausreichend [Kontrast](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) haben, damit der Text für Ihre Besucher lesbar ist. Wenn Sie ein Bild angeben und wenn Text über diesem Bild platziert wird, sollten Sie auch eine `background-color` angeben, die es ermöglicht, den Text lesbar zu machen, wenn das Bild nicht geladen wird.
 
-Bildschirmlesegeräte können Hintergrundbilder nicht interpretieren; daher sollten sie reine Dekoration sein. Jeglicher wichtige Inhalt sollte Teil der HTML-Seite sein und nicht in einem Hintergrundbild enthalten sein.
+Screenreader können Hintergrundbilder nicht analysieren; daher sollten sie rein dekorativ sein. Jeder wichtige Inhalt sollte Teil der HTML-Seite sein und nicht in einem Hintergrund enthalten sein.
 
 ## Rahmen
 
-Beim Lernen über das Box-Modell haben wir entdeckt, wie Rahmen die Größe unserer Box beeinflussen. In dieser Lektion werden wir uns ansehen, wie man Rahmen kreativ verwendet. Typischerweise verwenden wir beim Hinzufügen von Rahmen zu einem Element mit CSS eine Kurzform-Eigenschaft, die Farbe, Breite und [Stil](/de/docs/Web/CSS/line-style) des Rahmens in einer CSS-Zeile festlegt.
+Beim Erlernen des Boxmodells haben wir herausgefunden, wie Rahmen die Größe unserer Box beeinflussen. In dieser Lektion betrachten wir, wie man Rahmen kreativ einsetzt. Typischerweise, wenn wir einem Element mit CSS Rahmen hinzufügen, verwenden wir eine Kurzform-Eigenschaft, die die Farbe, Breite und den [Stil](/de/docs/Web/CSS/line-style) des Rahmens in einer Zeile CSS festlegt.
 
-Wir können einen Rahmen für alle vier Seiten einer Box mit {{cssxref("border")}} setzen:
+Wir können einen Rahmen für alle vier Seiten einer Box mit {{cssxref("border")}} festlegen:
 
 ```css
 .box {
@@ -243,7 +443,7 @@ Wir können einen Rahmen für alle vier Seiten einer Box mit {{cssxref("border")
 }
 ```
 
-Oder wir können eine Kante der Box anvisieren, zum Beispiel:
+Oder wir können eine Kante der Box anvisieren, beispielsweise:
 
 ```css
 .box {
@@ -251,7 +451,7 @@ Oder wir können eine Kante der Box anvisieren, zum Beispiel:
 }
 ```
 
-Die einzelnen Eigenschaften umfassen die Kurzform-Eigenschaften {{cssxref("border-width")}}, {{cssxref("border-style")}} und {{cssxref("border-color")}}:
+Die einzelnen Eigenschaften beinhalten die Kurzformeigenschaften für {{cssxref("border-width")}}, {{cssxref("border-style")}} und {{cssxref("border-color")}}:
 
 ```css
 .box {
@@ -261,7 +461,7 @@ Die einzelnen Eigenschaften umfassen die Kurzform-Eigenschaften {{cssxref("borde
 }
 ```
 
-Es gibt ausgeschriebene Eigenschaften für Breite, Stil und Farbe für jede der vier Seiten:
+Es gibt Langform-Eigenschaften für Breite, Stil und Farbe für jede der vier Seiten:
 
 ```css
 .box {
@@ -272,15 +472,40 @@ Es gibt ausgeschriebene Eigenschaften für Breite, Stil und Farbe für jede der 
 ```
 
 > [!NOTE]
-> Diese oberen, rechten, unteren und linken Rahmeneigenschaften haben auch zugeordnete [_logische_ Rahmeneigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties), die sich auf den Schreibmodus des Dokuments beziehen (z. B. links-nach-rechts oder rechts-nach-links Text, bzw. oben-nach-unten). Wir werden diese im nächsten Kapitel erkunden, das sich mit [dem Umgang mit verschiedenen Textausrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions) beschäftigt.
+> Diese oberen, rechten, unteren und linken Rahmeneigenschaften haben auch zugeordnete [_logische_ Rahmeneigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties), die sich auf den Schreibmodus des Dokuments beziehen (z.B. links-nach-rechts oder rechts-nach-links Text oder oben-nach-unten). Wir werden diese im nächsten Abschnitt erkunden, der das [Umgang mit unterschiedlichen Textrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions) behandelt.
 
-Es gibt eine Vielzahl von Stilen, die Sie für Rahmen verwenden können. Im folgenden Beispiel haben wir zwei verschiedene Rahmenstile für die Box und zwei verschiedene Rahmenstile für die Überschrift verwendet. Experimentieren Sie mit dem Rahmenstil, der Breite und der Farbe, um zu sehen, wie Rahmen funktionieren.
+Es gibt verschiedene Stile, die Sie für Rahmen verwenden können. Im Beispiel unten haben wir zwei verschiedene Rahmenstile für die Box und zwei verschiedene Rahmenstile für die Überschrift verwendet. Spielen Sie mit dem Rahmenstil, der Breite und der Farbe, um zu sehen, wie Rahmen funktionieren.
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/borders.html", '100%', 800)}}
+```html live-sample___borders
+<div class="box">
+  <h2>Borders</h2>
+  <p>Try changing the borders.</p>
+</div>
+```
+
+```css live-sample___borders
+* {
+  padding: 0.2em;
+}
+.box {
+  width: 500px;
+  background-color: #567895;
+  border: 5px solid #0b385f;
+  border-bottom-style: dashed;
+  color: #fff;
+}
+
+h2 {
+  border-top: 2px dotted rebeccapurple;
+  border-bottom: 1em double rgb(24 163 78);
+}
+```
+
+{{EmbedLiveSample("borders", "", "200px")}}
 
 ### Abgerundete Ecken
 
-Das Abrunden von Ecken einer Box wird durch die Eigenschaft {{cssxref("border-radius")}} und die mit den Ecken der Box verbundenen Langform-Eigenschaften erreicht. Zwei Längen oder Prozentsätze können als Wert verwendet werden, wobei der erste Wert den horizontalen Radius und der zweite den vertikalen Radius definiert. In vielen Fällen geben Sie nur einen Wert ein, der dann für beide verwendet wird.
+Abgerundete Ecken an einer Box werden durch die {{cssxref("border-radius")}}-Eigenschaft und zugehörige Langformen erzielt, die sich auf jede Ecke der Box beziehen. Zwei Längen oder Prozentsätze können als Wert verwendet werden, wobei der erste Wert den horizontalen Radius und der zweite den vertikalen Radius definiert. In vielen Fällen geben Sie nur einen Wert ein, der für beide verwendet wird.
 
 Zum Beispiel, um alle vier Ecken einer Box mit einem Radius von 10px zu versehen:
 
@@ -290,7 +515,7 @@ Zum Beispiel, um alle vier Ecken einer Box mit einem Radius von 10px zu versehen
 }
 ```
 
-Oder um der oberen rechten Ecke einen horizontalen Radius von `1em` und einen vertikalen Radius von 10% zu geben:
+Oder um die obere rechte Ecke mit einem horizontalen Radius von `1em` und einem vertikalen Radius von 10% zu versehen:
 
 ```css
 .box {
@@ -299,19 +524,37 @@ Oder um der oberen rechten Ecke einen horizontalen Radius von `1em` und einen ve
 ```
 
 > [!NOTE]
-> Wie bei den obigen Rahmeneigenschaften haben diese `border-radius` Eigenschaften ebenfalls zugeordnete [_logische_ `border-radius` Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties).
+> Wie bei den obigen Rahmeneigenschaften haben auch diese border-radius-Eigenschaften zugeordnete [_logische_ border-radius-Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values#properties).
 
-Im folgenden Beispiel haben wir alle vier Ecken gesetzt und dann die Werte für die obere rechte Ecke geändert, um sie zu unterscheiden. Sie können mit den Werten experimentieren, um die Ecken zu verändern. Werfen Sie einen Blick auf die Eigenschaftsseite für {{cssxref("border-radius")}}, um die verfügbaren Syntaxoptionen zu sehen. Der [Border-Radius-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator) kann verwendet werden, um Werte für abgerundete Ecken zu erzeugen.
+Wir haben alle vier Ecken im Beispiel unten festgelegt und dann die Werte für die obere rechte Ecke geändert, um sie anders zu machen. Sie können mit den Werten spielen, um die Ecken zu ändern. Werfen Sie einen Blick auf die Eigenschaftsseite für {{cssxref("border-radius")}}, um die verfügbaren Syntaxoptionen zu sehen. Der [border-radius-Generator](/de/docs/Web/CSS/CSS_backgrounds_and_borders/Border-radius_generator) kann verwendet werden, um abgerundete Eckwerte für Sie auszugeben.
 
-{{EmbedGHLiveSample("css-examples/learn/backgrounds-borders/corners.html", '100%', 800)}}
+```html live-sample___corners
+<div class="box">
+  <h2>Borders</h2>
+  <p>Try changing the borders.</p>
+</div>
+```
+
+```css live-sample___corners
+.box {
+  width: 500px;
+  height: 110px;
+  padding: 0.5em;
+  border: 10px solid rebeccapurple;
+  border-radius: 1em;
+  border-top-right-radius: 10% 30%;
+}
+```
+
+{{EmbedLiveSample("corners")}}
 
 ## Testen Sie Ihr Wissen!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie finden einige weitere Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: Hintergründe und Rahmen](/de/docs/Learn/CSS/Building_blocks/Test_your_skills_backgrounds_and_borders).
+Sie haben das Ende dieses Artikels erreicht, aber können Sie sich an die wichtigsten Informationen erinnern? Sie finden einige weiterführende Tests, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihr Wissen: Hintergründe und Rahmen](/de/docs/Learn/CSS/Building_blocks/Test_your_skills_backgrounds_and_borders).
 
 ## Zusammenfassung
 
-Wir haben hier ziemlich viel behandelt, und Sie können sehen, dass es eine Menge zu beachten gibt, wenn man einer Box einen Hintergrund oder einen Rahmen hinzufügt. Erkunden Sie die verschiedenen Eigenschaftsseiten, wenn Sie mehr über eines der hier besprochenen Merkmale erfahren möchten. Fast jede Seite auf MDN enthält Beispiele, mit denen Sie spielen können, um Ihr Wissen zu erweitern.
+Wir haben hier ziemlich viel abgedeckt, und Sie können sehen, dass es einiges gibt, um einem Kasten einen Hintergrund oder einen Rahmen hinzuzufügen. Erkunden Sie die verschiedenen Eigenschaftsseiten, wenn Sie mehr über eines der hier besprochenen Features erfahren möchten. Fast jede Seite auf MDN enthält Beispiele, mit denen Sie spielen können, um Ihr Wissen zu erweitern.
 
 Im nächsten Artikel werden wir herausfinden, wie der Schreibmodus Ihres Dokuments mit Ihrem CSS interagiert. Was passiert, wenn der Text nicht von links nach rechts fließt?
 

@@ -1,14 +1,14 @@
 ---
-title: "GPUDevice: createTexture()-Methode"
+title: "GPUDevice: createTexture() Methode"
 short-title: createTexture()
 slug: Web/API/GPUDevice/createTexture
 l10n:
-  sourceCommit: 2379747e3cefc009c6a00ec52e88d66ff15c5397
+  sourceCommit: bc7090f5720e37e949d89ca950def4280bfa8518
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createTexture()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle erstellt eine [`GPUTexture`](/de/docs/Web/API/GPUTexture), um 1D-, 2D- oder 3D-Datenarrays, wie Bilder, zu speichern, die in GPU-Rendering-Operationen verwendet werden.
+Die **`createTexture()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice) Schnittstelle erstellt eine [`GPUTexture`](/de/docs/Web/API/GPUTexture), um 1D-, 2D- oder 3D-Datenarrays wie Bilder zu speichern, die bei GPU-Rendering-Operationen verwendet werden.
 
 ## Syntax
 
@@ -24,42 +24,42 @@ createTexture(descriptor)
 
     - `dimension` {{optional_inline}}
 
-      - : Ein aufzählbarer Wert, der das Dimensionsebenen des Textur angibt. Mögliche Werte sind:
+      - : Ein enumerierter Wert, der die Dimensionsebene der Textur angibt. Mögliche Werte sind:
 
         - `"1d"`: Die Textur ist eindimensional.
-        - `"2d"`: Die Textur ist zweidimensional oder ein Array aus zweidimensionalen Schichten.
+        - `"2d"`: Die Textur ist zweidimensional oder ein Array von zweidimensionalen Schichten.
         - `"3d"`: Die Textur ist dreidimensional.
 
-        `dimension` hat den Standardwert `"2d"`, wenn der Wert weggelassen wird.
+        `dimension` ist standardmäßig `"2d"`, wenn der Wert weggelassen wird.
 
     - `format`
 
-      - : Ein aufzählbarer Wert, der das Format der Textur festlegt. Siehe den Abschnitt [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
+      - : Ein enumerierter Wert, der das Format der Textur angibt. Siehe den Abschnitt [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) der Spezifikation für alle möglichen Werte.
 
         > [!NOTE]
         >
-        > - Die `depth32float-stencil8` [feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um `depth32float-stencil8`-Format [`GPUTexture`](/de/docs/Web/API/GPUTexture)s zu erstellen.
-        > - Die `texture-compression-bc`-Funktion muss aktiviert sein, um zweidimensionale BC-komprimierte `GPUTexture`s zu erstellen: `bc1-rgba-unorm`, `bc1-rgba-unorm-srgb`, `bc2-rgba-unorm`, `bc2-rgba-unorm-srgb`, `bc3-rgba-unorm`, `bc3-rgba-unorm-srgb`, `bc4-r-unorm`, `bc4-r-snorm`, `bc5-rg-unorm`, `bc5-rg-snorm`, `bc6h-rgb-ufloat`, `bc6h-rgb-float`, `bc7-rgba-unorm` und `bc7-rgba-unorm-srgb` Formate.
-        > - Die `texture-compression-astc`-Funktion muss aktiviert sein, um zweidimensionale ASTC-komprimierte `GPUTexture`s zu erstellen: `astc-4x4-unorm`, `astc-4x4-unorm-srgb`, `astc-5x4-unorm`, `astc-5x4-unorm-srgb`, `astc-5x5-unorm`, `astc-5x5-unorm-srgb`, `astc-6x5-unorm`, `astc-6x5-unorm-srgb`, `astc-6x6-unorm`, `astc-6x6-unorm-srgb`, `astc-8x5-unorm`, `astc-8x5-unorm-srgb`, `astc-8x6-unorm`, `astc-8x6-unorm-srgb`, `astc-8x8-unorm`, `astc-8x8-unorm-srgb`, `astc-10x5-unorm`, `astc-10x5-unorm-srgb`, `astc-10x6-unorm`, `astc-10x6-unorm-srgb`, `astc-10x8-unorm`, `astc-10x8-unorm-srgb`, `astc-10x10-unorm`, `astc-10x10-unorm-srgb`, `astc-12x10-unorm`, `astc-12x10-unorm-srgb` und `astc-12x12-unorm`, `astc-12x12-unorm-srgb` Formate.
-        > - Die `texture-compression-etc2`-Funktion muss aktiviert sein, um zweidimensionale ETC2-komprimierte `GPUTexture`s zu erstellen: `etc2-rgb8unorm`, `etc2-rgb8unorm-srgb`, `etc2-rgb8a1unorm`, `etc2-rgb8a1unorm-srgb`, `etc2-rgba8unorm`, `etc2-rgba8unorm-srgb`, `eac-r11unorm`, `eac-r11snorm`, `eac-rg11unorm` und `eac-rg11snorm` Formate.
+        > - Die `depth32float-stencil8` [Funktion](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um `depth32float-stencil8`-Format [`GPUTexture`](/de/docs/Web/API/GPUTexture)s zu erstellen.
+        > - Die `texture-compression-bc` Funktion muss aktiviert sein, um zweidimensionale BC-komprimierte `GPUTexture`s zu erstellen: `bc1-rgba-unorm`, `bc1-rgba-unorm-srgb`, `bc2-rgba-unorm`, `bc2-rgba-unorm-srgb`, `bc3-rgba-unorm`, `bc3-rgba-unorm-srgb`, `bc4-r-unorm`, `bc4-r-snorm`, `bc5-rg-unorm`, `bc5-rg-snorm`, `bc6h-rgb-ufloat`, `bc6h-rgb-float`, `bc7-rgba-unorm`, und `bc7-rgba-unorm-srgb` Formate.
+        > - Die `texture-compression-astc` Funktion muss aktiviert sein, um zweidimensionale ASTC-komprimierte `GPUTexture`s zu erstellen: `astc-4x4-unorm`, `astc-4x4-unorm-srgb`, `astc-5x4-unorm`, `astc-5x4-unorm-srgb`, `astc-5x5-unorm`, `astc-5x5-unorm-srgb`, `astc-6x5-unorm`, `astc-6x5-unorm-srgb`, `astc-6x6-unorm`, `astc-6x6-unorm-srgb`, `astc-8x5-unorm`, `astc-8x5-unorm-srgb`, `astc-8x6-unorm`, `astc-8x6-unorm-srgb`, `astc-8x8-unorm`, `astc-8x8-unorm-srgb`, `astc-10x5-unorm`, `astc-10x5-unorm-srgb`, `astc-10x6-unorm`, `astc-10x6-unorm-srgb`, `astc-10x8-unorm`, `astc-10x8-unorm-srgb`, `astc-10x10-unorm`, `astc-10x10-unorm-srgb`, `astc-12x10-unorm`, `astc-12x10-unorm-srgb`, und `astc-12x12-unorm` `astc-12x12-unorm-srgb` Formate.
+        > - Die `texture-compression-etc2` Funktion muss aktiviert sein, um zweidimensionale ETC2-komprimierte `GPUTexture`s zu erstellen: `etc2-rgb8unorm`, `etc2-rgb8unorm-srgb`, `etc2-rgb8a1unorm`, `etc2-rgb8a1unorm-srgb`, `etc2-rgba8unorm`, `etc2-rgba8unorm-srgb`, `eac-r11unorm`, `eac-r11snorm`, `eac-rg11unorm`, und `eac-rg11snorm` Formate.
 
     - `label` {{optional_inline}}
-      - : Eine Zeichenkette, die ein Label bereitstellen kann, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
+      - : Eine Zeichenkette, die ein Etikett bereitstellt, das zur Identifizierung des Objekts verwendet werden kann, zum Beispiel in [`GPUError`](/de/docs/Web/API/GPUError)-Meldungen oder Konsolenwarnungen.
     - `mipLevelCount` {{optional_inline}}
-      - : Eine Zahl, die die Anzahl der Mip-Ebenen angibt, die die Textur enthalten soll. Wenn weggelassen, ist der Standardwert 1.
+      - : Eine Zahl, die angibt, wie viele Mip-Ebenen die Textur enthalten wird. Wenn nicht angegeben, ist dies standardmäßig 1.
     - `sampleCount` {{optional_inline}}
-      - : Eine Zahl, die die Stichprobeanzahl der Textur angibt. Der Wert muss 1 oder 4 sein, um gültig zu sein. Wenn weggelassen, ist der Standardwert 1. Ein Wert größer als 1 zeigt eine multi-abgetastete Textur an.
+      - : Eine Zahl, die die Stichprobenzählung der Textur angibt. Um gültig zu sein, muss der Wert 1 oder 4 sein. Wenn nicht angegeben, ist dies standardmäßig 1. Ein Wert größer als 1 zeigt eine Multisample-Textur an.
     - `size`
 
-      - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Array-Schichtanzahl der Textur angibt. Der Breitenwert muss immer angegeben werden, während die Werte für Höhe und Tiefe/Array-Schichtanzahl optional sind und, wenn weggelassen, auf 1 standardmäßig eingestellt werden.
+      - : Ein Objekt oder Array, das die Breite, Höhe und Tiefe/Array-Schichtenanzahl der Textur angibt. Der Breitenwert muss immer angegeben werden, während die Werte für Höhe und Tiefe/Array-Schichtenanzahl optional sind und standardmäßig 1 sind, wenn weggelassen.
 
-        Im Folgenden ein Beispiel für ein `size`-Array:
+        Es folgt ein Beispiel `size` Array:
 
         ```js
         size: [16, 16, 2];
         ```
 
-        Das objektäquivalente würde so aussehen:
+        Das entsprechende Objekt würde so aussehen:
 
         ```js
         size: {
@@ -71,9 +71,9 @@ createTexture(descriptor)
 
     - `usage`
 
-      - : Die {{Glossary("Bitwise_flags", "bitweisen Flags")}}, die die erlaubten Verwendungen für die `GPUTexture` darstellen. Die möglichen Werte sind in der [`GPUTexture.usage`-Wertetabelle](/de/docs/Web/API/GPUTexture/usage#value).
+      - : Die {{Glossary("Bitwise_flags", "Bitweise Flags")}}, die die erlaubten Verwendungen für die `GPUTexture` darstellen. Die möglichen Werte befinden sich in der [`GPUTexture.usage` Wert Tabelle](/de/docs/Web/API/GPUTexture/usage#value).
 
-        Beachten Sie, dass mehrere mögliche Verwendungen angegeben werden können, indem Sie Werte mit Rohrsymbolen trennen, zum Beispiel:
+        Beachten Sie, dass mehrere mögliche Verwendungen durch Trennen von Werten mit Pipe-Symbolen angegeben werden können, zum Beispiel:
 
         ```js
         usage: GPUTextureUsage.COPY_DST | GPUTextureUsage.RENDER_ATTACHMENT;
@@ -81,55 +81,55 @@ createTexture(descriptor)
 
         > [!NOTE]
         >
-        > - Die `bgra8unorm-storage` [feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um `STORAGE_BINDING` Verwendung für ein `bgra8unorm`-[`format`](/de/docs/Web/API/GPUDevice/createTexture#format) [`GPUTexture`](/de/docs/Web/API/GPUTexture) anzugeben.
-        > - Die `rg11b10ufloat-renderable` [feature](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um `RENDER_ATTACHMENT`-Verwendung für ein `rg11b10ufloat`-[`format`](/de/docs/Web/API/GPUDevice/createTexture#format) [`GPUTexture`](/de/docs/Web/API/GPUTexture) anzugeben sowie dessen Blending und Multisampling.
+        > - Die `bgra8unorm-storage` [Funktion](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um `STORAGE_BINDING` Verwendung für ein `bgra8unorm`-[`format`](#format) [`GPUTexture`](/de/docs/Web/API/GPUTexture) anzugeben.
+        > - Die `rg11b10ufloat-renderable` [Funktion](/de/docs/Web/API/GPUSupportedFeatures) muss aktiviert sein, um `RENDER_ATTACHMENT` Verwendung für ein `rg11b10ufloat`-[`format`](#format) [`GPUTexture`](/de/docs/Web/API/GPUTexture) sowie dessen Misch- und Multisampling anzugeben.
 
     - `viewFormats` {{optional_inline}}
-      - : Ein Array von aufgezählten Werten, die andere [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) angeben, die zusätzlich zu dem im `format`-Wert angegebenen Texturformat zulässig sind, wenn [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) auf dieser Textur aufgerufen wird.
+      - : Ein Array von enumerierten Werten, die andere [Texturformate](https://gpuweb.github.io/gpuweb/#enumdef-gputextureformat) angeben, die bei einem Aufruf von [`GPUTexture.createView()`](/de/docs/Web/API/GPUTexture/createView) auf diese Textur zusätzlich zum im `format`-Wert angegebenen Texturformat erlaubt sind.
 
 ### Rückgabewert
 
-Eine [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objektinstanz.
+Eine [`GPUTexture`](/de/docs/Web/API/GPUTexture) Objektinstanz.
 
 ### Validierung
 
-Die folgenden Kriterien müssen erfüllt sein, wenn **`createTexture()`** aufgerufen wird, andernfalls wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) erzeugt und ein ungültiges [`GPUTexture`](/de/docs/Web/API/GPUTexture)-Objekt zurückgegeben:
+Die folgenden Kriterien müssen erfüllt sein, wenn **`createTexture()`** aufgerufen wird, ansonsten wird ein [`GPUValidationError`](/de/docs/Web/API/GPUValidationError) generiert und ein ungültiges [`GPUTexture`](/de/docs/Web/API/GPUTexture) Objekt zurückgegeben:
 
-- Eine gültige `usage` wird angegeben.
-- Die in `size` angegebenen Werte (Breite, Höhe oder Tiefe/Array-Schichtanzahl) sind größer als 0.
+- Ein gültiges `usage` ist angegeben.
+- Die in `size` angegebenen Werte (Breite, Höhe oder Tiefe/Array-Schichtenanzahl) sind größer als 0.
 - `mipLevelCount` ist größer als 0.
 - `sampleCount` ist gleich 1 oder 4.
 - Wenn `dimension` auf `"1d"` gesetzt ist:
-  - Der `size`-Breitenwert ist kleiner oder gleich dem `maxTextureDimension1D`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-  - Die `size`-Höhe und Tiefe/Array-Schichtanzahl sind gleich 1.
-  - `sampleCount` ist gleich 1.
-  - `format` ist ungleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
+  - Der `size` Breitenwert ist kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)'s `maxTextureDimension1D` [Limit](/de/docs/Web/API/GPUSupportedLimits).
+  - Die `size` Höhe und Tiefe/Array-Schichtenanzahl Werte sind gleich 1.
+  - Die `sampleCount` ist gleich 1.
+  - Das `format` ist nicht gleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
 - Wenn `dimension` auf `"2d"` gesetzt ist:
-  - Die `size`-Breiten- und Höhenwerte sind kleiner oder gleich dem `maxTextureDimension2D`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-  - Der `size`-Tiefe/Array-Schichtanzahlwert ist kleiner oder gleich dem `maxTextureArrayLayers`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
+  - Die `size` Breite und Höhe Werte sind kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)'s `maxTextureDimension2D` [Limit](/de/docs/Web/API/GPUSupportedLimits).
+  - Der `size` Tiefe/Array-Schichtenanzahl Wert ist kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)'s `maxTextureArrayLayers` [Limit](/de/docs/Web/API/GPUSupportedLimits).
 - Wenn `dimension` auf `"3d"` gesetzt ist:
-  - Die `size`-Breiten-, Höhen- und Tiefe/Array-Schichtanzahlwerte sind kleiner oder gleich dem `maxTextureDimension3D`-Limit des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
-  - Der `sampleCount`-Wert ist gleich 1.
-  - `format` ist ungleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
-- Der `size`-Breitenwert ist ein Vielfaches der [Texel-Block-Breite](https://gpuweb.github.io/gpuweb/#texel-block-width).
-- Der `size`-Höhenwert ist ein Vielfaches der [Texel-Block-Höhe](https://gpuweb.github.io/gpuweb/#texel-block-height).
+  - Die `size` Breite, Höhe und Tiefe/Array-Schichtenanzahl Werte sind kleiner oder gleich dem [`GPUDevice`](/de/docs/Web/API/GPUDevice)'s `maxTextureDimension3D` [Limit](/de/docs/Web/API/GPUSupportedLimits).
+  - Der `sampleCount` Wert ist gleich 1.
+  - Das `format` ist nicht gleich einem [komprimierten Format](https://gpuweb.github.io/gpuweb/#compressed-format) oder [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format).
+- Der `size` Breitenwert ist ein Vielfaches der [Texelblockbreite](https://gpuweb.github.io/gpuweb/#texel-block-width).
+- Der `size` Höhenwert ist ein Vielfaches der [Texelblockhöhe](https://gpuweb.github.io/gpuweb/#texel-block-height).
 - Wenn `sampleCount` größer als 1 ist:
   - `mipLevelCount` ist gleich 1.
-  - Der `size`-Tiefe/Array-Schichtanzahlwert ist gleich 1.
-  - `usage` enthält das `GPUTextureUsage.RENDER_ATTACHMENT`-Flag.
-  - `usage` enthält nicht das `GPUTextureUsage.STORAGE_BINDING`-Flag.
+  - Der `size` Tiefe/Array-Schichtenanzahl Wert ist gleich 1.
+  - `usage` enthält das `GPUTextureUsage.RENDER_ATTACHMENT` Flag.
+  - `usage` enthält nicht das `GPUTextureUsage.STORAGE_BINDING` Flag.
   - Das angegebene Format unterstützt Multisampling.
-- Der `mipLevelCount`-Wert ist kleiner oder gleich der [maximalen Mip-Level-Anzahl](https://gpuweb.github.io/gpuweb/#abstract-opdef-maximum-miplevel-count).
-- Die in `format` und `viewFormats` angegebenen Formate sind [kompatibel](https://gpuweb.github.io/gpuweb/#texture-view-format-compatible) miteinander.
-- Wenn `usage` das `GPUTextureUsage.RENDER_ATTACHMENT`-Flag enthält:
-  - `format` ist ein renderbares Format (ein farblich renderbares Format oder ein [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format)).
-  - `dimension` ist auf `"2d"` gesetzt.
-- Wenn `usage` das `GPUTextureUsage.STORAGE_BINDING`-Flag enthält:
-  - Das angegebene `format` umfasst die `STORAGE_BINDING`-Fähigkeit (siehe die Tabelle der [einfachen Farbformate](https://gpuweb.github.io/gpuweb/#plain-color-formats) als Referenz).
+- Der `mipLevelCount` Wert ist kleiner oder gleich der [maximalen Miplevel-Auszählung](https://gpuweb.github.io/gpuweb/#abstract-opdef-maximum-miplevel-count).
+- Die in `format` und `viewFormats` angegebenen Formate sind miteinander [kompatibel](https://gpuweb.github.io/gpuweb/#texture-view-format-compatible).
+- Wenn `usage` das `GPUTextureUsage.RENDER_ATTACHMENT` Flag enthält:
+  - `format` ist ein renderbares Format (entweder ein farblich renderbares Format oder ein [Tiefen- oder Stencil-Format](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format)).
+  - `dimension` ist auf `"2d"` eingestellt.
+- Wenn `usage` das `GPUTextureUsage.STORAGE_BINDING` Flag enthält:
+  - Das angegebene `format` enthält die `STORAGE_BINDING` Fähigkeit (siehe die Tabelle der [einfarbigen Formate](https://gpuweb.github.io/gpuweb/#plain-color-formats) als Referenz).
 
 ## Beispiele
 
-Im WebGPU-Beispiel [Textured Cube-Beispiel](https://webgpu.github.io/webgpu-samples/samples/texturedCube/) wird eine Textur, die auf den Flächen eines Würfels verwendet werden soll, erstellt durch:
+Im WebGPU Beispiel [Textured Cube sample](https://webgpu.github.io/webgpu-samples/samples/texturedCube/) wird eine Textur erstellt, um auf den Flächen eines Würfels verwendet zu werden, durch:
 
 - Laden des Bildes in ein [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement) und Erstellen eines Bild-Bitmaps mit [`createImageBitmap()`](/de/docs/Web/API/Window/createImageBitmap).
 - Erstellen einer neuen Textur mit `createTexture()`.
@@ -177,4 +177,4 @@ let cubeTexture;
 
 ## Siehe auch
 
-- Die [WebGPU-API](/de/docs/Web/API/WebGPU_API)
+- Die [WebGPU API](/de/docs/Web/API/WebGPU_API)
