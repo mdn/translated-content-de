@@ -1,14 +1,14 @@
 ---
-title: "ImageDecoder: decode()-Methode"
+title: "ImageDecoder: Methode decode()"
 short-title: decode()
 slug: Web/API/ImageDecoder/decode
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`decode()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces stellt eine Steuerungsnachricht in die Warteschlange, um den Rahmen eines Bildes zu decodieren.
+Die **`decode()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces sendet eine Steuerungsmeldung, um den Frame eines Bildes zu dekodieren.
 
 ## Syntax
 
@@ -22,18 +22,18 @@ decode(options)
 - `options` {{optional_inline}}
   - : Ein Objekt, das die folgenden Mitglieder enthält:
     - `frameIndex` {{optional_inline}}
-      - : Eine Ganzzahl, die den Index des zu decodierenden Rahmens darstellt. Standardmäßig `0` (der erste Rahmen).
+      - : Ein ganzzahliger Wert, der den Index des zu dekodierenden Frames darstellt. Standardmäßig `0` (der erste Frame).
     - `completeFramesOnly` {{optional_inline}}
-      - : Ein {{jsxref("boolean")}}, der standardmäßig auf `true` gesetzt ist. Wenn `false`, bedeutet dies, dass der Decoder bei progressivem Bild möglicherweise ein Bild mit reduzierten Details ausgibt. Wenn `false`, wird das von `decode()` zurückgegebene Versprechen genau einmal für jedes neue Detailniveau erfüllt.
+      - : Ein {{jsxref("boolean")}}, der standardmäßig auf `true` gesetzt ist. Wenn `false`, deutet dies darauf hin, dass der Decoder bei progressiven Bildern ein Bild mit reduzierten Details ausgeben kann. Wenn `false`, wird das von `decode()` zurückgegebene Versprechen genau einmal für jede neue Detailstufe aufgelöst.
 
 ### Rückgabewert
 
-Ein {{jsxref("promise")}}, das mit einem Objekt aufgelöst wird, das die folgenden Mitglieder enthält:
+Ein {{jsxref("promise")}}, das sich mit einem Objekt auflöst, das die folgenden Mitglieder enthält:
 
 - `image`
-  - : Ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), das das decodierte Bild enthält.
+  - : Ein [`VideoFrame`](/de/docs/Web/API/VideoFrame), das das dekodierte Bild enthält.
 - `complete`
-  - : Ein {{jsxref("boolean")}}, der, wenn `true`, angibt, dass `image` die endgültige Vollauflösungs-Ausgabe enthält.
+  - : Ein {{jsxref("boolean")}}, wenn `true`, zeigt an, dass `image` die endgültige Ausgabe in voller Detailtiefe enthält.
 
 ### Ausnahmen
 
@@ -41,23 +41,23 @@ Wenn ein Fehler auftritt, wird das Versprechen mit der folgenden Ausnahme aufgel
 
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
   - : Wird zurückgegeben, wenn eine der folgenden Bedingungen zutrifft:
-    - `close` ist true, was bedeutet, dass [`close()`](/de/docs/Web/API/ImageDecoder/close) bereits aufgerufen wurde.
-    - Der angeforderte Rahmen existiert nicht.
+    - `close` ist wahr, was bedeutet, dass [`close()`](/de/docs/Web/API/ImageDecoder/close) bereits aufgerufen wurde.
+    - Der angeforderte Frame existiert nicht.
 
 ## Beispiele
 
-### Synchrones Decodieren eines abgeschlossenen Bildrahmens
+### Synchrone Dekodierung eines vollständigen Bild-Frames
 
-Das folgende Beispiel decodiert den zweiten Rahmen (an Index `1`) und druckt den resultierenden [`VideoFrame`](/de/docs/Web/API/VideoFrame) in die Konsole.
+Das folgende Beispiel dekodiert den zweiten Frame (bei Index `1`) und gibt das resultierende [`VideoFrame`](/de/docs/Web/API/VideoFrame) in der Konsole aus.
 
 ```js
 let result = await imageDecoder.decode({ frameIndex: 1 });
 console.log(result.image);
 ```
 
-### Partielles Decodieren eines progressiven Bildrahmens
+### Partielle Dekodierung eines progressiven Bild-Frames
 
-Das folgende Beispiel decodiert den ersten Rahmen wiederholt, bis er vollständig ist:
+Das folgende Beispiel dekodiert den ersten Frame wiederholt, bis er vollständig ist:
 
 ```js
 let complete = false;

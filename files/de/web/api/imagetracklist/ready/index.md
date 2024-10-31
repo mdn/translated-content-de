@@ -3,12 +3,12 @@ title: "ImageTrackList: ready-Eigenschaft"
 short-title: ready
 slug: Web/API/ImageTrackList/ready
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`ready`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Interfaces gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die `ImageTrackList` mit [`tracks`](/de/docs/Web/API/ImageTrack) gefüllt ist.
+Die **`ready`**-Eigenschaft der [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, wenn die `ImageTrackList` mit [`tracks`](/de/docs/Web/API/ImageTrack) gefüllt ist.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein {{jsxref("Promise")}}, das mit {{jsxref("undefined")}} aufgelöst wird.
 
 ## Beispiele
 
-Das folgende Beispiel gibt den Wert von `ready` in der Konsole aus, dieser wird `undefined` sein, sobald das Promise aufgelöst wird.
+Das folgende Beispiel gibt den Wert von `ready` in der Konsole aus; dies wird `undefined` sein, sobald das Versprechen aufgelöst ist.
 
 ```js
 let tracks = imageDecoder.tracks;

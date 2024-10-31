@@ -3,12 +3,12 @@ title: "ImageDecoder: type-Eigenschaft"
 short-title: type
 slug: Web/API/ImageDecoder/type
 l10n:
-  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`type`** schreibgeschützte Eigenschaft der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle gibt den [MIME-Typ](/de/docs/Web/HTTP/MIME_types) wieder, der während der Konstruktion konfiguriert wurde.
+Die **`type`**-Schreibgeschützte Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder) Interfaces spiegelt den während der Konstruktion konfigurierten [MIME-Typ](/de/docs/Web/HTTP/MIME_types) wider.
 
 ## Wert
 

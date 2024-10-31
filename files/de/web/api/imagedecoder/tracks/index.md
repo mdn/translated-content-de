@@ -3,16 +3,16 @@ title: "ImageDecoder: tracks-Eigenschaft"
 short-title: tracks
 slug: Web/API/ImageDecoder/tracks
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`tracks`** schreibgeschützte Eigenschaft der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle gibt eine Liste der Spuren in den kodierten Bilddaten zurück.
+Die **`tracks`** schreibgeschützte Eigenschaft des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces gibt eine Liste der Spuren in den codierten Bilddaten zurück.
 
 ## Wert
 
-Ein [`ImageTrackList`](/de/docs/Web/API/ImageTrackList).
+Eine [`ImageTrackList`](/de/docs/Web/API/ImageTrackList).
 
 ## Beispiele
 

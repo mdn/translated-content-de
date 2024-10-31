@@ -2,18 +2,17 @@
 title: Accept-Patch
 slug: Web/HTTP/Headers/Accept-Patch
 l10n:
-  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
+  sourceCommit: 8bdaa4a8990ed9731a40407e90834b483fbf2912
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Accept-Patch`** {{Glossary("response_header", "Antwort-Header")}} gibt an, welche [Medientypen](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types) der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verstehen kann. Zum Beispiel könnte ein Server, der eine `PATCH`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Patch`-Header antworten, der auf einen oder mehrere unterstützte Medientypen verweist.
+Der HTTP **`Accept-Patch`** {{Glossary("response_header", "Antwort-Header")}} informiert darüber, welche [Medientypen](/de/docs/Web/HTTP/MIME_types) der Server in einer {{HTTPMethod("PATCH")}}-Anfrage verarbeiten kann. Beispielsweise könnte ein Server, der eine `PATCH`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Patch`-Header antworten, der einen oder mehrere unterstützte Medientypen referenziert.
 
-Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `PATCH`-Methode unterstützt. Ein `Accept-Patch`-Header in einer Antwort auf jede Anfragemethode bedeutet implizit, dass ein `PATCH` an der Zielressource in der Anfrage erlaubt ist.
+Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `PATCH`-Methode unterstützt. Ein `Accept-Patch`-Header in einer Antwort auf eine beliebige Anfrage-Methode bedeutet implizit, dass ein `PATCH` auf die Zielressource in der Anfrage erlaubt ist.
 
 > [!NOTE]
-> Die IANA pflegt [eine Liste offizieller Inhaltscodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
-> Die Codierungen `bzip` und `bzip2` sind nicht standardisiert, können aber in einigen Fällen verwendet werden, insbesondere zur Unterstützung älterer Systeme.
+> IANA pflegt [eine Liste mit offiziellen Inhaltscodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding). Die `bzip`- und `bzip2`-Codierungen sind nicht standardisiert, können aber in einigen Fällen, insbesondere zur Unterstützung älterer Systeme, verwendet werden.
 
 <table class="properties">
   <tbody>
@@ -42,10 +41,9 @@ Accept-Patch: <media-type>/<subtype>, <media-type>/<subtype>
 ## Direktiven
 
 - `<media-type>/<subtype>`
-  - : Ein einzelner, präziser [Medientyp](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types), wie `text/html`.
+  - : Ein einzelner, präziser [Medientyp](/de/docs/Web/HTTP/MIME_types), wie `text/html`.
 - `<media-type>/*`
-  - : Ein Medientyp ohne Subtyp.
-    Zum Beispiel entspricht `image/*` den Typen `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
+  - : Ein Medientyp ohne Subtyp. Zum Beispiel entspricht `image/*` `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
 - `*/*`
   - : Jeder Medientyp.
 

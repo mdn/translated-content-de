@@ -2,52 +2,52 @@
 title: ImageDecoder
 slug: Web/API/ImageDecoder
 l10n:
-  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
 Die **`ImageDecoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) bietet eine Möglichkeit, kodierte Bilddaten zu entpacken und zu dekodieren.
 
 ## Konstruktor
 
-- [`ImageDecoder()`](/de/docs/Web/API/ImageDecoder/ImageDecoder) {{Experimental_Inline}}
+- [`ImageDecoder()`](/de/docs/Web/API/ImageDecoder/ImageDecoder)
   - : Erstellt ein neues `ImageDecoder`-Objekt.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-- [`ImageDecoder.complete`](/de/docs/Web/API/ImageDecoder/complete) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen booleschen Wert zurück, der angibt, ob kodierte Daten vollständig zwischengespeichert sind.
-- [`ImageDecoder.completed`](/de/docs/Web/API/ImageDecoder/completed) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald `complete` wahr ist.
-- [`ImageDecoder.tracks`](/de/docs/Web/API/ImageDecoder/tracks) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Objekt zurück, das die verfügbaren Spuren auflistet und eine Methode zum Auswählen einer zu dekodierenden Spur bietet.
-- [`ImageDecoder.type`](/de/docs/Web/API/ImageDecoder/type) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt einen String zurück, der den [MIME-Typ](/de/docs/Web/HTTP/MIME_types) widerspiegelt, der während der Erstellung konfiguriert wurde.
+- [`ImageDecoder.complete`](/de/docs/Web/API/ImageDecoder/complete) {{ReadOnlyInline}}
+  - : Gibt einen booleschen Wert zurück, der anzeigt, ob die kodierten Daten vollständig gepuffert sind.
+- [`ImageDecoder.completed`](/de/docs/Web/API/ImageDecoder/completed) {{ReadOnlyInline}}
+  - : Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald `complete` den Wert true hat.
+- [`ImageDecoder.tracks`](/de/docs/Web/API/ImageDecoder/tracks) {{ReadOnlyInline}}
+  - : Gibt ein [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Objekt zurück, das die verfügbaren Tracks auflistet und eine Methode zum Auswählen eines zu dekodierenden Tracks bereitstellt.
+- [`ImageDecoder.type`](/de/docs/Web/API/ImageDecoder/type) {{ReadOnlyInline}}
+  - : Gibt einen String zurück, der den [MIME-Typ](/de/docs/Web/HTTP/MIME_types) widerspiegelt, der während der Konstruktion konfiguriert wurde.
 
 ## Statische Methoden
 
-- [`ImageDecoder.isTypeSupported()`](/de/docs/Web/API/ImageDecoder/isTypeSupported_static) {{Experimental_Inline}}
-  - : Gibt an, ob der bereitgestellte [MIME-Typ](/de/docs/Web/HTTP/MIME_types) zum Entpacken und Dekodieren unterstützt wird.
+- [`ImageDecoder.isTypeSupported()`](/de/docs/Web/API/ImageDecoder/isTypeSupported_static)
+  - : Gibt an, ob der bereitgestellte [MIME-Typ](/de/docs/Web/HTTP/MIME_types) für das Entpacken und Dekodieren unterstützt wird.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-- [`ImageDecoder.close()`](/de/docs/Web/API/ImageDecoder/close) {{Experimental_Inline}}
-  - : Beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
-- [`ImageDecoder.decode()`](/de/docs/Web/API/ImageDecoder/decode) {{Experimental_Inline}}
-  - : Stellt eine Kontrollnachricht in die Warteschlange, um das Frame eines Bildes zu dekodieren.
-- [`ImageDecoder.reset()`](/de/docs/Web/API/ImageDecoder/reset) {{Experimental_Inline}}
-  - : Bricht alle ausstehenden `decode()`-Operationen ab.
+- [`ImageDecoder.close()`](/de/docs/Web/API/ImageDecoder/close)
+  - : Beendet alle anstehenden Arbeiten und gibt Systemressourcen frei.
+- [`ImageDecoder.decode()`](/de/docs/Web/API/ImageDecoder/decode)
+  - : Stellt eine Steuerungsnachricht in die Warteschlange, um den Frame eines Bildes zu dekodieren.
+- [`ImageDecoder.reset()`](/de/docs/Web/API/ImageDecoder/reset)
+  - : Bricht alle anstehenden `decode()`-Operationen ab.
 
 ## Beispiele
 
-Gegeben sei ein {{HTMLElement("canvas")}}-Element:
+Gegeben ist ein {{HTMLElement("canvas")}}-Element:
 
 ```html
 <canvas></canvas>
 ```
 
-der folgende Code dekodiert und rendert ein animiertes Bild auf dieser Leinwand:
+Der folgende Code dekodiert und rendert ein animiertes Bild auf diese Leinwand:
 
 ```js
 let imageDecoder = null;

@@ -3,12 +3,12 @@ title: "ImageTrack: frameCount-Eigenschaft"
 short-title: frameCount
 slug: Web/API/ImageTrack/frameCount
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`frameCount`**-Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Interfaces gibt die Anzahl der Frames im Track zurück.
+Die **`frameCount`**-Eigenschaft des [`ImageTrack`](/de/docs/Web/API/ImageTrack)-Interfaces gibt die Anzahl der Bilder im Track zurück.
 
 ## Wert
 

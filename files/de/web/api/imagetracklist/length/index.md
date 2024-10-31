@@ -3,12 +3,12 @@ title: "ImageTrackList: length-Eigenschaft"
 short-title: length
 slug: Web/API/ImageTrackList/length
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`length`**-Eigenschaft des [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Interfaces gibt die Länge der `ImageTrackList` zurück.
+Die **`length`**-Eigenschaft der [`ImageTrackList`](/de/docs/Web/API/ImageTrackList)-Schnittstelle gibt die Länge der `ImageTrackList` zurück.
 
 ## Wert
 

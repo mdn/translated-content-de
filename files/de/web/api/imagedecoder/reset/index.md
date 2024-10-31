@@ -1,14 +1,14 @@
 ---
-title: "ImageDecoder: reset()-Methode"
+title: "ImageDecoder: reset() Methode"
 short-title: reset()
 slug: Web/API/ImageDecoder/reset
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`reset()`**-Methode der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle bricht alle ausstehenden `decode()`-Operationen ab und lehnt alle ausstehenden Versprechen ab. Alle anderen Zustände bleiben unverändert. Klassenmethoden können auch nach `reset()` weiterhin aufgerufen werden. Beispielsweise ist der Aufruf von `decode()` nach `reset()` erlaubt.
+Die **`reset()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces bricht alle ausstehenden `decode()`-Operationen ab und lehnt alle ausstehenden Versprechen ab. Alle anderen Zustände bleiben unverändert. Klassenmethoden können nach `reset()` weiterhin aufgerufen werden. Zum Beispiel ist es erlaubt, `decode()` nach einem `reset()` aufzurufen.
 
 ## Syntax
 

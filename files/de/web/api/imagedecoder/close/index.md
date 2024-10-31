@@ -1,14 +1,14 @@
 ---
-title: "ImageDecoder: close() Methode"
+title: "ImageDecoder: close()-Methode"
 short-title: close()
 slug: Web/API/ImageDecoder/close
 l10n:
-  sourceCommit: 3789de65bd11453c4cb24625723f81a7e8fcdd56
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`close()`**-Methode des [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Interfaces beendet alle ausstehenden Arbeiten und gibt Systemressourcen frei.
+Die **`close()`**-Methode der [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Schnittstelle beendet alle anstehenden Arbeiten und gibt Systemressourcen frei.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 

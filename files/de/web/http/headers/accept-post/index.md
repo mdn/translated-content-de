@@ -2,26 +2,26 @@
 title: Accept-Post
 slug: Web/HTTP/Headers/Accept-Post
 l10n:
-  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
+  sourceCommit: 8bdaa4a8990ed9731a40407e90834b483fbf2912
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Accept-Post`** {{Glossary("response_header", "Antwortheader")}} gibt an, welche [Medientypen](/de/docs/Web/HTTP/MIME_types) vom Server in einer {{HTTPMethod("POST")}}-Anfrage akzeptiert werden.
-Zum Beispiel könnte ein Server, der eine `POST`-Anfrage mit einem nicht unterstützten Medientyp erhält, mit {{HTTPStatus("415", "415 Unsupported Media Type")}} und einem `Accept-Post`-Header antworten, der einen oder mehrere unterstützte Medientypen angibt.
+Der HTTP **`Accept-Post`** {{Glossary("response_header", "Antwort-Header")}} gibt an, welche [Medientypen](/de/docs/Web/HTTP/MIME_types) vom Server in einer {{HTTPMethod("POST")}}-Anfrage akzeptiert werden.
+Ein Server, der eine `POST`-Anfrage mit einem nicht unterstützten Medientyp erhält, könnte zum Beispiel mit {{HTTPStatus("415", "415 Unsupported Media Type")}} antworten und einen `Accept-Post`-Header verwenden, der einen oder mehrere unterstützte Medientypen nennt.
 
 Der Header sollte in {{HTTPMethod("OPTIONS")}}-Anfragen an eine Ressource erscheinen, die die `POST`-Methode unterstützt.
-Ein `Accept-Post`-Header in einer Antwort auf jede Anfragemethode bedeutet implizit, dass ein `POST` auf der Zielressource in der Anfrage erlaubt ist.
+Ein `Accept-Post`-Header in einer Antwort auf eine beliebige Anfrage-Methode bedeutet implizit, dass ein `POST` auf die Zielressource in der Anfrage erlaubt ist.
 
 > [!NOTE]
-> IANA pflegt [eine Liste offizieller Inhaltskodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
-> Die Kodierungen `bzip` und `bzip2` sind nicht standardisiert, können aber in einigen Fällen verwendet werden, insbesondere für die Unterstützung älterer Systeme.
+> Die IANA führt [eine Liste der offiziellen Inhaltskodierungen](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#content-coding).
+> Die `bzip`- und `bzip2`-Kodierungen sind nicht standardisiert, können aber in einigen Fällen verwendet werden, insbesondere zur Unterstützung von älteren Systemen.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
@@ -42,13 +42,13 @@ Accept-Post: <media-type>/<subtype>, <media-type>/<subtype>
 ```
 
 > [!NOTE]
-> Der `Accept-Post`-Header spezifiziert eine Medien-Reihe auf die gleiche Weise wie {{HTTPHeader("Accept")}}, außer dass er keine Präferenz über `q` ({{Glossary("quality_values", "Qualitätswerte")}}) Argumente kennt.
-> Dies liegt daran, dass `Accept-Post` ein Antwortheader ist, während `Accept` ein Anfrageheader ist.
+> Der `Accept-Post`-Header spezifiziert einen Medienbereich auf die gleiche Weise wie {{HTTPHeader("Accept")}}, außer dass er keine Präferenzen durch `q` ({{Glossary("quality_values", "Qualitätswerte")}}) Argumente beinhaltet.
+> Dies liegt daran, dass `Accept-Post` ein Antwort-Header ist, während `Accept` ein Anfrage-Header ist.
 
-## Direktiven
+## Anweisungen
 
 - `<media-type>/<subtype>`
-  - : Ein einzelner, präziser [Medientyp](/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types), wie `text/html`.
+  - : Ein einzelner, präziser [Medientyp](/de/docs/Web/HTTP/MIME_types), wie `text/html`.
 - `<media-type>/*`
   - : Ein Medientyp ohne Subtyp.
     Zum Beispiel entspricht `image/*` `image/png`, `image/svg`, `image/gif` und anderen Bildtypen.
@@ -69,10 +69,10 @@ Accept-Post: */*
 
 ## Browser-Kompatibilität
 
-Browser-Kompatibilität ist für diesen Header nicht relevant.
-Der Header wird vom Server gesendet und die Spezifikation definiert kein Clientverhalten.
+Die Browser-Kompatibilität ist für diesen Header nicht relevant.
+Der Header wird vom Server gesendet und die Spezifikation definiert kein Verhalten des Clients.
 
 ## Siehe auch
 
 - {{HTTPHeader("Accept-Patch")}}
-- {{HTTPMethod("POST")}}-Anfragemethode
+- {{HTTPMethod("POST")}} Anfragemethode

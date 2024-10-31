@@ -1,14 +1,14 @@
 ---
-title: "ImageDecoder: ImageDecoder() Konstruktor"
+title: "ImageDecoder: Konstruktor ImageDecoder()"
 short-title: ImageDecoder()
 slug: Web/API/ImageDecoder/ImageDecoder
 l10n:
-  sourceCommit: f75b2c86ae4168e59416aed4c7121f222afc201d
+  sourceCommit: a7482281c4570bb7f932dce381f510d87ddf9924
 ---
 
-{{securecontext_header}}{{APIRef("WebCodecs API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
+{{securecontext_header}}{{APIRef("WebCodecs API")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Der **`ImageDecoder()`** Konstruktor erstellt ein neues [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Objekt, das Bilddaten entpackt und dekodiert.
+Der **`ImageDecoder()`**-Konstruktor erstellt ein neues [`ImageDecoder`](/de/docs/Web/API/ImageDecoder)-Objekt, das Bilddaten entpackt und dekodiert.
 
 ## Syntax
 
@@ -23,24 +23,24 @@ new ImageDecoder(init)
     - `type`
       - : Ein String, der den [MIME-Typ](/de/docs/Web/HTTP/MIME_types) der zu dekodierenden Bilddatei enthält.
     - `data`
-      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}}, oder ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von Bytes, die einen kodierten Bildtyp darstellen, wie er von `type` beschrieben wird.
+      - : Ein {{jsxref("ArrayBuffer")}}, ein {{jsxref("TypedArray")}}, ein {{jsxref("DataView")}} oder ein [`ReadableStream`](/de/docs/Web/API/ReadableStream) von Bytes, die einen kodierten Bildtyp darstellen, wie durch `type` beschrieben.
     - `premultiplyAlpha` {{optional_inline}}
-      - : Gibt an, ob die Farbkanäle des dekodierten Bildes mit dem Alphakanal prä-multipliziert werden sollen. Falls nicht angegeben, wird `"default"` verwendet:
+      - : Gibt an, ob die Farbkanäle des dekodierten Bildes mit dem Alphakanal vorkompliziert werden sollen. Wenn nicht angegeben, ist der Standardwert `"default"`:
         - `"none"`
         - `"premultiply"`
         - `"default"`
     - `colorSpaceConversion` {{optional_inline}}
-      - : Gibt an, ob das Bild mit Farbkonvertierung dekodiert werden soll. Falls nicht angegeben, wird `"default"` verwendet. Der Wert `"default"` zeigt an, dass eine implementationsspezifische Verarbeitung verwendet wird:
+      - : Gibt an, ob das Bild mit Farbkonvertierung dekodiert werden soll. Wenn nicht angegeben, ist der Standardwert `"default"`. Der Wert `"default"` weist auf eine implementierungsspezifische Verhaltensweise hin:
         - `"none"`
         - `"default"`
     - `desiredWidth` {{optional_inline}}
-      - : Eine ganze Zahl, die die gewünschte Breite für den dekodierten Output angibt. Hat keine Wirkung, es sei denn, der Bildcodec unterstützt eine Dekodierung mit variabler Auflösung.
+      - : Ein ganzzahliger Wert, der die gewünschte Breite für die dekodierte Ausgabe angibt. Hat keine Wirkung, es sei denn, der Bildcodec unterstützt variabel auflösende Dekodierung.
     - `desiredHeight` {{optional_inline}}
-      - : Eine ganze Zahl, die die gewünschte Höhe für den dekodierten Output angibt. Hat keine Wirkung, es sei denn, der Bildcodec unterstützt eine Dekodierung mit variabler Auflösung.
+      - : Ein ganzzahliger Wert, der die gewünschte Höhe für die dekodierte Ausgabe angibt. Hat keine Wirkung, es sei denn, der Bildcodec unterstützt variabel auflösende Dekodierung.
     - `preferAnimation` {{optional_inline}}
-      - : Ein {{jsxref("Boolean")}}, der angibt, ob die anfängliche Spurauswahl eine animierte Spur bevorzugen sollte.
+      - : Ein {{jsxref("Boolean")}}, der angibt, ob die anfängliche Track-Auswahl einen animierten Track bevorzugen soll.
     - `transfer`
-      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die der `ImageDecoder` trennen und in Besitz nehmen wird. Wenn das Array den {{jsxref("ArrayBuffer")}} enthält, der `data` unterstützt, wird `ImageDecoder` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
+      - : Ein Array von {{jsxref("ArrayBuffer")}}s, die `ImageDecoder` abtrennen und übernehmen wird. Wenn das Array den das `data` unterstützenden {{jsxref("ArrayBuffer")}} enthält, wird `ImageDecoder` diesen Puffer direkt verwenden, anstatt ihn zu kopieren.
 
 ## Beispiele
 

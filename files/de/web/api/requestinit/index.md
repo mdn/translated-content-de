@@ -2,33 +2,33 @@
 title: RequestInit
 slug: Web/API/RequestInit
 l10n:
-  sourceCommit: 0129176c2bb0e16af7577067191f0889326fad73
+  sourceCommit: 22526bdf0076aec093ba0a1ba32a6bb0d4ffd853
 ---
 
 {{APIRef("Fetch API")}}
 
-Das **`RequestInit`** Dictionary der [Fetch API](/de/docs/Web/API/Fetch_API) stellt die Menge an Optionen dar, die verwendet werden können, um eine Fetch-Anfrage zu konfigurieren.
+Das **`RequestInit`**-Dictionary der [Fetch API](/de/docs/Web/API/Fetch_API) repräsentiert die Menge von Optionen, die verwendet werden können, um eine Fetch-Anfrage zu konfigurieren.
 
-Sie können ein `RequestInit` Objekt in den [`Request()`](/de/docs/Web/API/Request/Request) Konstruktor oder direkt in den [`fetch()`](/de/docs/Web/API/Window/fetch) Funktionsaufruf übergeben.
+Sie können ein `RequestInit`-Objekt in den [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor oder direkt in den [`fetch()`](/de/docs/Web/API/Window/fetch)-Funktionsaufruf übergeben.
 
-Sie können auch eine `Request` mit einem `RequestInit` konstruieren und die `Request` zu einem `fetch()` Aufruf zusammen mit einem weiteren `RequestInit` übergeben. Wenn Sie dies tun und die gleiche Option an beiden Stellen gesetzt ist, wird der direkt in `fetch()` übergebene Wert verwendet.
+Sie können auch ein `Request` mit einem `RequestInit` konstruieren und das `Request` in einen `fetch()`-Aufruf zusammen mit einem anderen `RequestInit` übergeben. Wenn Sie dies tun und die gleiche Option in beiden Stellen gesetzt ist, wird der Wert verwendet, der direkt in `fetch()` übergeben wird.
 
 ## Instanz-Eigenschaften
 
 - `attributionReporting` {{optional_inline}} {{experimental_inline}}
 
-  - : Gibt an, dass Sie möchten, dass die Antwort auf die Anfrage eine JavaScript-basierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder einen [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) registrieren kann. `attributionReporting` ist ein Objekt, das die folgenden Eigenschaften enthält:
+  - : Gibt an, dass Sie möchten, dass die Antwort der Anfrage in der Lage sein soll, eine JavaScript-basierte [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources#javascript-based_event_sources) oder einen [Attributionstrigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers#javascript-based_attribution_triggers) zu registrieren. `attributionReporting` ist ein Objekt mit den folgenden Eigenschaften:
 
     - `eventSourceEligible`
-      - : Ein Boolean. Wenn auf `true` gesetzt, kann die Antwort auf die Anfrage eine Attributionsquelle registrieren. Wenn auf `false` gesetzt, nicht.
+      - : Ein Boolean. Wenn auf `true` gesetzt, ist die Antwort der Anfrage berechtigt, eine Attributionsquelle zu registrieren. Wenn auf `false` gesetzt, ist sie nicht berechtigt.
     - `triggerEligible`
-      - : Ein Boolean. Wenn auf `true` gesetzt, kann die Antwort auf die Anfrage einen Attributionstrigger registrieren. Wenn auf `false` gesetzt, nicht.
+      - : Ein Boolean. Wenn auf `true` gesetzt, ist die Antwort der Anfrage berechtigt, einen Attributionstrigger zu registrieren. Wenn auf `false` gesetzt, ist sie nicht berechtigt.
 
     Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
 - `body` {{optional_inline}}
 
-  - : Der Anfragetext enthält Inhalte, die an den Server gesendet werden, beispielsweise in einer {{httpmethod("POST")}} oder {{httpmethod("PUT")}} Anfrage. Er wird als Instanz eines der folgenden Typen angegeben:
+  - : Der Anfragetext enthält Inhalte, die an den Server gesendet werden, beispielsweise in einer {{httpmethod("POST")}}- oder {{httpmethod("PUT")}}-Anfrage. Es wird als Instanz eines der folgenden Typen angegeben:
 
     - ein String
     - {{jsxref("ArrayBuffer")}}
@@ -40,13 +40,13 @@ Sie können auch eine `Request` mit einem `RequestInit` konstruieren und die `Re
     - [`URLSearchParams`](/de/docs/Web/API/URLSearchParams)
     - [`ReadableStream`](/de/docs/Web/API/ReadableStream)
 
-    Siehe [Einen Körper einstellen](/de/docs/Web/API/Fetch_API/Using_Fetch#setting_a_body) für weitere Details.
+    Siehe [Einrichten eines Bodys](/de/docs/Web/API/Fetch_API/Using_Fetch#setting_a_body) für weitere Details.
 
 - `browsingTopics` {{optional_inline}} {{experimental_inline}}
 
-  - : Ein Boolean, der angibt, dass die ausgewählten Themen des aktuellen Nutzers in einem {{httpheader("Sec-Browsing-Topics")}} Header mit der zugehörigen Anfrage gesendet werden sollen.
+  - : Ein Boolean, der angibt, dass die ausgewählten Themen des aktuellen Benutzers in einem {{httpheader("Sec-Browsing-Topics")}}-Header mit der zugehörigen Anfrage gesendet werden sollen.
 
-    Siehe [Verwendung der Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
+    Siehe [Verwenden der Topics API](/de/docs/Web/API/Topics_API/Using) für weitere Details.
 
 - `cache` {{optional_inline}}
 
@@ -56,89 +56,88 @@ Sie können auch eine `Request` mit einem `RequestInit` konstruieren und die `Re
 
       - : Der Browser sucht in seinem HTTP-Cache nach einer Antwort, die der Anfrage entspricht.
 
-        - Wenn eine Übereinstimmung vorhanden und [frisch](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird sie aus dem Cache zurückgegeben.
-        - Wenn eine Übereinstimmung vorhanden, aber [veraltet](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den Remote-Server stellen. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
-        - Wenn keine Übereinstimmung vorhanden ist, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
+        - Wenn es eine Übereinstimmung gibt und sie [frisch](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird sie aus dem Cache zurückgegeben.
+        - Wenn es eine Übereinstimmung gibt, die jedoch [abgelaufen](/de/docs/Web/HTTP/Caching#fresh_and_stale_based_on_age) ist, wird der Browser eine [konditionale Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server senden. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache wird aktualisiert.
+        - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage machen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
     - `no-store`
-      - : Der Browser holt die Ressource vom Remote-Server, ohne zuerst im Cache nachzuschauen, _und wird_ den Cache nicht mit der heruntergeladenen Ressource aktualisieren.
+      - : Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache nachzusehen, _und wird_ den Cache nicht mit der heruntergeladenen Ressource aktualisieren.
     - `reload`
-      - : Der Browser holt die Ressource vom Remote-Server, ohne zuerst im Cache nachzuschauen, _aber dann wird_ der Cache mit der heruntergeladenen Ressource aktualisiert.
+      - : Der Browser ruft die Ressource vom entfernten Server ab, ohne zuerst im Cache nachzusehen, _aber wird_ den Cache mit der heruntergeladenen Ressource aktualisieren.
     - `no-cache`
 
       - : Der Browser sucht in seinem HTTP-Cache nach einer Antwort, die der Anfrage entspricht.
 
-        - Wenn eine Übereinstimmung vorhanden ist, _frisch oder veraltet,_ wird der Browser eine [bedingte Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den Remote-Server stellen. Wenn der Server angibt, dass sich die Ressource nicht geändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource vom Server heruntergeladen und der Cache aktualisiert.
-        - Wenn keine Übereinstimmung vorhanden ist, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
+        - Wenn es eine Übereinstimmung gibt, _ob frisch oder abgelaufen,_ wird der Browser eine [konditionale Anfrage](/de/docs/Web/HTTP/Conditional_requests) an den entfernten Server senden. Wenn der Server angibt, dass sich die Ressource nicht verändert hat, wird sie aus dem Cache zurückgegeben. Andernfalls wird die Ressource heruntergeladen und der Cache wird aktualisiert.
+        - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage machen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
     - `force-cache`
 
       - : Der Browser sucht in seinem HTTP-Cache nach einer Antwort, die der Anfrage entspricht.
 
-        - Wenn eine Übereinstimmung vorhanden ist, _frisch oder veraltet_, wird sie aus dem Cache zurückgegeben.
-        - Wenn keine Übereinstimmung vorhanden ist, wird der Browser eine normale Anfrage stellen und den Cache mit der heruntergeladenen Ressource aktualisieren.
+        - Wenn es eine Übereinstimmung gibt, _ob frisch oder abgelaufen_, wird sie aus dem Cache zurückgegeben.
+        - Wenn es keine Übereinstimmung gibt, wird der Browser eine normale Anfrage machen und den Cache mit der heruntergeladenen Ressource aktualisieren.
 
     - `only-if-cached`
 
       - : Der Browser sucht in seinem HTTP-Cache nach einer Antwort, die der Anfrage entspricht. {{experimental_inline}}
 
-        - Wenn eine Übereinstimmung vorhanden ist, _frisch oder veraltet_, wird sie aus dem Cache zurückgegeben.
-        - Wenn keine Übereinstimmung vorhanden ist, wird ein Netzwerkfehler zurückgegeben.
+        - Wenn es eine Übereinstimmung gibt, _ob frisch oder abgelaufen_, wird sie aus dem Cache zurückgegeben.
+        - Wenn es keine Übereinstimmung gibt, wird ein Netzwerkfehler zurückgegeben.
 
-    Der `"only-if-cached"` Modus kann nur verwendet werden, wenn der `mode` der Anfrage `"same-origin"` ist. Zwischengespeicherte Weiterleitungen werden verfolgt, wenn die `redirect`-Eigenschaft der Anfrage auf `"follow"` gesetzt ist und die Weiterleitungen den `"same-origin"` Modus nicht verletzen.
+    Der Modus `"only-if-cached"` kann nur verwendet werden, wenn der `mode` der Anfrage auf `"same-origin"` gesetzt ist. Zwischengespeicherte Umleitungen werden verfolgt, wenn die `redirect`-Eigenschaft der Anfrage auf `"follow"` gesetzt ist und die Umleitungen den `"same-origin"`-Modus nicht verletzen.
 
 - `credentials` {{optional_inline}}
 
-  - : Steuert, ob der Browser Anmeldeinformationen mit der Anfrage sendet und, ob eventuelle **`Set-Cookie`** Antwort-Header beachtet werden. Anmeldeinformationen sind Cookies, {{Glossary("TLS", "TLS")}} Clientzertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten. Diese Option kann einen der folgenden Werte haben:
+  - : Kontrolliert, ob der Browser Anmeldedaten mit der Anfrage sendet und ob irgendwelche **`Set-Cookie`**-Antwortheader beachtet werden. Anmeldedaten sind Cookies, {{Glossary("TLS", "TLS")}}-Clientzertifikate oder Authentifizierungsheader, die einen Benutzernamen und ein Passwort enthalten. Diese Option kann einer der folgenden Werte sein:
 
     - `omit`
-      - : Anmeldeinformationen werden weder in der Anfrage gesendet noch in der Antwort berücksichtigt.
+      - : Niemals Anmeldedaten mit der Anfrage senden oder in die Antwort aufnehmen.
     - `same-origin`
-      - : Anmeldeinformationen werden nur für same-origin-Anfragen gesendet und berücksichtigt.
+      - : Anmeldedaten nur für gleichoriginige Anfragen senden und einbeziehen.
     - `include`
-      - : Anmeldeinformationen werden immer berücksichtigt, auch bei cross-origin Anfragen.
+      - : Immer Anmeldedaten einbeziehen, auch für Cross-Origin-Anfragen.
 
-    Das Einschließen von Anmeldeinformationen bei cross-origin Anfragen kann eine Seite anfällig für {{Glossary("CSRF", "CSRF")}} Angriffe machen. Selbst wenn `credentials` auf `include` gesetzt ist, muss der Server ihrer Einschließung zustimmen, indem er das {{httpheader("Access-Control-Allow-Credentials")}} in seiner Antwort einschließt. Zusätzlich muss der Server in diesem Fall den Ursprung des Clients im {{httpheader("Access-Control-Allow-Origin")}} Antwort-Header explizit angeben (d.h. `*` ist nicht erlaubt).
+    Das Einbeziehen von Anmeldedaten in Cross-Origin-Anfragen kann eine Website anfällig für {{Glossary("CSRF", "CSRF")}}-Angriffe machen. Selbst wenn `credentials` auf `include` gesetzt ist, muss der Server ihrer Einbeziehung zustimmen, indem er den {{httpheader("Access-Control-Allow-Credentials")}} in seine Antwort aufnimmt. Darüber hinaus muss der Server in dieser Situation explizit den Ursprung des Clients im {{httpheader("Access-Control-Allow-Origin")}}-Antwortheader angeben (das heißt, `*` ist nicht erlaubt).
 
-    Siehe [Einschließen von Anmeldeinformationen](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials) für weitere Details.
+    Siehe [Einbeziehen von Anmeldedaten](/de/docs/Web/API/Fetch_API/Using_Fetch#including_credentials) für weitere Details.
 
     Standardmäßig auf `same-origin`.
 
 - `headers` {{optional_inline}}
 
-  - : Jegliche Header, die Sie Ihrer Anfrage hinzufügen möchten, enthalten in einem [`Headers`](/de/docs/Web/API/Headers) Objekt oder einem Objektliteral, dessen Schlüssel die Namen der Header und dessen Werte die Header-Werte sind.
+  - : Falls Sie Header zu Ihrer Anfrage hinzufügen möchten, innerhalb eines [`Headers`](/de/docs/Web/API/Headers)-Objekts oder eines Objektliterals, dessen Schlüssel die Namen der Header und dessen Werte die Header-Werte sind.
 
-    Viele Header werden automatisch vom Browser gesetzt und können nicht von einem Skript gesetzt werden: Diese werden {{Glossary("Forbidden_header_name", "Verbotene Header-Namen")}} genannt.
+    Viele Header werden automatisch vom Browser gesetzt und können nicht durch ein Skript gesetzt werden: Diese werden {{Glossary("Forbidden_header_name", "verbotene Header-Namen")}} genannt.
 
-    Wenn die Option `mode` auf `no-cors` gesetzt ist, können Sie nur {{Glossary("CORS-safelisted_request_header", "CORS-sicher gelistete Anforderungs-Header")}} setzen.
+    Wenn die `mode`-Option auf `no-cors` gesetzt ist, können Sie nur {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request headers")}} setzen.
 
-    Siehe [Header setzen](/de/docs/Web/API/Fetch_API/Using_Fetch#setting_headers) für weitere Details.
+    Siehe [Einstellen von Headern](/de/docs/Web/API/Fetch_API/Using_Fetch#setting_headers) für weitere Details.
 
-- `integrity`
+- `integrity` {{optional_inline}}
 
-  - : Enthält den [Subresource Integrity](/de/docs/Web/Security/Subresource_Integrity)
-    Wert der Anfrage.
+  - : Enthält den [Subresource-Integrität](/de/docs/Web/Security/Subresource_Integrity)-Wert der Anfrage.
 
-    Dies wird überprüft, wenn die Ressource abgerufen wird, genau so, wie es geschieht, wenn das [`integrity`](/de/docs/Web/HTML/Element/script#integrity) Attribut auf einem {{htmlelement("script")}} Element gesetzt ist. Der Browser berechnet den {{Glossary("Cryptographic_hash_function", "Hash")}} der abgerufenen Ressource unter Verwendung des angegebenen Algorithmus und wenn das Ergebnis nicht mit dem angegebenen Wert übereinstimmt, wird der Fetch Request mit einem Netzwerkfehler abgelehnt.
+    Dies wird überprüft, wenn die Ressource abgerufen wird, genau wie es der Fall wäre, wenn das [`integrity`](/de/docs/Web/HTML/Element/script#integrity)-Attribut an einem {{htmlelement("script")}}-Element gesetzt wäre. Der Browser wird den {{Glossary("Cryptographic_hash_function", "Hash")}} der abgerufenen Ressource mit dem angegebenen Algorithmus berechnen, und wenn das Ergebnis nicht mit dem angegebenen Wert übereinstimmt, wird der Browser die Fetch-Anfrage mit einem Netzwerkfehler ablehnen.
 
     Das Format dieser Option ist `<hash-algo>-<hash-source>`, wobei:
 
-    - `<hash-algo>` einer der folgenden Werte ist: `sha256`, `sha384` oder `sha512`
-    - `<hash-source>` die {{Glossary("base64", "Base64-Kodierung")}} des Resultats des Hashings der Ressource mit dem angegebenen Hash-Algorithmus ist.
+    - `<hash-algo>` einer der folgenden Werte ist: `sha256`, `sha384`, oder `sha512`
+    - `<hash-source>` die {{Glossary("base64", "Base64-Codierung")}} des Ergebnisses des Hashens der Ressource mit dem angegebenen Hash-Algorithmus ist.
 
     Standardmäßig ein leerer String.
 
 - `keepalive` {{optional_inline}}
 
-  - : Ein Boolean. Wenn auf `true` gesetzt, wird der Browser die zugehörige Anfrage nicht abbrechen, wenn die Seite, die sie initiiert hat, vor Abschluss der Anfrage entladen wird. Dies ermöglicht eine [`fetch()`](/de/docs/Web/API/Window/fetch) Anfrage als Alternative zu [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon) beim Senden von Analysen am Ende einer Sitzung, was einige Vorteile hat (Sie können andere HTTP-Methoden als [`POST`](/de/docs/Web/HTTP/Methods/POST) verwenden, Anforderungseigenschaften anpassen und auf die Antwort des Servers über die Erfüllung des {{jsxref("Promise")}}-Objekts zugreifen). Es ist auch in [Service-Arbeitern](/de/docs/Web/API/Service_Worker_API) verfügbar.
+  - : Ein Boolean. Wenn auf `true` gesetzt, wird der Browser die zugehörige Anfrage nicht abbrechen, wenn die Seite, die sie initiiert hat, entladen wird, bevor die Anfrage abgeschlossen ist. Dies ermöglicht eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage als Alternative zu [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon) beim Senden von Analysen am Ende einer Sitzung zu fungieren, was einige Vorteile hat (Sie können HTTP-Methoden außer [`POST`](/de/docs/Web/HTTP/Methods/POST) verwenden, Anforderungseigenschaften anpassen und auf die Antwort des Servers über die Erfüllung des Fetch {{jsxref("Promise")}} zugreifen). Es ist auch in [Service Workers](/de/docs/Web/API/Service_Worker_API) verfügbar.
 
-    Die Größe des Anforderungstextes für `keepalive` Anfragen ist auf 64 Kibibyte begrenzt.
+    Die Körpergröße für `keepalive`-Anfragen ist auf 64 Kibibyte begrenzt.
 
     Standardmäßig auf `false`.
 
 - `method` {{optional_inline}}
 
-  - : Die [Anforderungs-Methode](/de/docs/Web/HTTP/Methods).
+  - : Die [Anfragemethode](/de/docs/Web/HTTP/Methods).
 
     Standardmäßig {{httpmethod("GET")}}.
 
@@ -148,79 +147,79 @@ Sie können auch eine `Request` mit einem `RequestInit` konstruieren und die `Re
 
     - `same-origin`
 
-      - : Verbietet Cross-Origin Anfragen. Wenn eine `same-origin` Anfrage an einen anderen Ursprung gesendet wird, führt dies zu einem Netzwerkfehler.
+      - : Verbietet Cross-Origin-Anfragen. Wenn eine `same-origin`-Anfrage an einen anderen Ursprung gesendet wird, resultiert dies in einem Netzwerkfehler.
 
     - `cors`
 
-      - : Wenn die Anfrage Cross-Origin ist, verwendet sie den [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS) Mechanismus. Nur {{Glossary("CORS-safelisted_response_header", "CORS-sicher gelistete Antwort-Header")}} werden in der Antwort offengelegt.
+      - : Wenn die Anfrage Cross-Origin ist, wird der [Cross-Origin Resource Sharing (CORS)](/de/docs/Web/HTTP/CORS)-Mechanismus verwendet. Nur {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response headers")}} sind in der Antwort verfügbar.
 
     - `no-cors`
 
-      - : Deaktiviert CORS für Cross-Origin Anfragen. Diese Option kommt mit folgenden Einschränkungen:
+      - : Deaktiviert CORS für Cross-Origin-Anfragen. Diese Option weist die folgenden Einschränkungen auf:
 
         - Die Methode darf nur `HEAD`, `GET` oder `POST` sein.
-        - Die Header dürfen nur {{Glossary("CORS-safelisted_request_header", "CORS-sicher gelistete Anforderungs-Header")}} sein, mit der zusätzlichen Einschränkung, dass der {{httpheader("Range")}} Header ebenfalls nicht erlaubt ist. Dies gilt auch für alle von Service-Arbeitern hinzugefügten Header.
-        - Die Antwort ist _opak_, was bedeutet, dass ihre Header und ihr Text JavaScript nicht zur Verfügung stehen, und ihr [Statuscode](/de/docs/Web/API/Response/status) immer `0` ist.
+        - Die Header dürfen nur {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request headers")}} sein, mit der zusätzlichen Einschränkung, dass der {{httpheader("Range")}}-Header ebenfalls nicht erlaubt ist. Dies gilt auch für alle von Service-Worker hinzugefügten Header.
+        - Die Antwort ist _undurchsichtig_, das bedeutet, dass ihre Header und ihr Körper für JavaScript nicht verfügbar sind und ihr [Statuscode](/de/docs/Web/API/Response/status) immer `0` ist.
 
-        Die Hauptanwendung für `no-cors` ist für einen Service-Arbeiter: obwohl die Antwort auf eine `no-cors` Anfrage nicht von JavaScript gelesen werden kann, kann sie von einem Service-Arbeiter zwischengespeichert und dann als Antwort auf eine abgefangene Fetch-Anfrage verwendet werden. Beachten Sie, dass Sie in dieser Situation nicht wissen, ob die Anfrage erfolgreich war oder nicht, also sollten Sie eine Caching-Strategie verwenden, die es ermöglicht, die zwischengespeicherte Antwort aus dem Netzwerk zu aktualisieren (wie [cache first with cache refresh](/de/docs/Web/Progressive_web_apps/Guides/Caching#cache_first_with_cache_refresh)).
+        Die Hauptanwendung für `no-cors` ist ein Service Worker: Obwohl die Antwort auf eine `no-cors`-Anfrage nicht von JavaScript gelesen werden kann, kann sie von einem Service Worker zwischengespeichert und dann als Antwort auf eine abgefangene Fetch-Anfrage verwendet werden. Beachten Sie, dass Sie in dieser Situation nicht wissen, ob die Anfrage erfolgreich war oder nicht, daher sollten Sie eine Caching-Strategie anwenden, die es ermöglicht, die zwischengespeicherte Antwort aus dem Netzwerk zu aktualisieren (wie [cache first with cache refresh](/de/docs/Web/Progressive_web_apps/Guides/Caching#cache_first_with_cache_refresh)).
 
     - `navigate`
-      - : Wird nur für HTML-Navigation verwendet. Eine `navigate` Anfrage wird nur bei der Navigation zwischen Dokumenten erstellt.
+      - : Wird nur für HTML-Navigation verwendet. Eine `navigate`-Anfrage wird nur beim Wechsel zwischen Dokumenten erstellt.
 
-    Siehe [Cross-Origin Anfragen stellen](/de/docs/Web/API/Fetch_API/Using_Fetch#making_cross-origin_requests) für weitere Details.
+    Siehe [Cross-Origin-Anfragen erstellen](/de/docs/Web/API/Fetch_API/Using_Fetch#making_cross-origin_requests) für weitere Details.
 
     Standardmäßig auf `cors`.
 
 - `priority` {{optional_inline}}
 
-  - : Gibt die Priorität der Fetch-Anfrage relativ zu anderen Anfragen desselben Typs an. Muss einer der folgenden Werte sein:
+  - : Gibt die Priorität der Fetch-Anfrage im Verhältnis zu anderen Anfragen desselben Typs an. Muss einer der folgenden Werte sein:
 
     - `high`
-      - : Eine Fetch-Anfrage mit hoher Priorität relativ zu anderen Anfragen desselben Typs.
+      - : Eine Fetch-Anfrage mit hoher Priorität im Verhältnis zu anderen Anfragen desselben Typs.
     - `low`
-      - : Eine Fetch-Anfrage mit niedriger Priorität relativ zu anderen Anfragen desselben Typs.
+      - : Eine Fetch-Anfrage mit niedriger Priorität im Verhältnis zu anderen Anfragen desselben Typs.
     - `auto`
-      - : Keine Benutzervorgabe für die Fetch-Priorität.
-        Wird verwendet, wenn kein Wert gesetzt oder ein ungültiger Wert gesetzt ist.
+      - : Keine Benutzerpräferenz für die Fetch-Priorität.
+        Es wird verwendet, wenn kein Wert gesetzt ist oder wenn ein ungültiger Wert gesetzt ist.
 
     Standardmäßig auf `auto`.
 
 - `redirect` {{optional_inline}}
 
-  - : Bestimmt das Verhalten des Browsers, falls der Server mit einem [Umleitungsstatus](/de/docs/Web/HTTP/Status#redirection_messages) antwortet. Einer der folgenden Werte:
+  - : Bestimmt das Verhalten des Browsers, falls der Server mit einem [Redirect-Status](/de/docs/Web/HTTP/Status#redirection_messages) antwortet. Einer der folgenden Werte:
 
     - `follow`
-      - : Automatisch Weiterleitungen folgen.
+      - : Automatisch Redirects folgen.
     - `error`
-      - : Das Promise mit einem Netzwerkfehler zurückweisen, wenn ein Umleitungsstatus zurückgegeben wird.
+      - : Das Promise mit einem Netzwerkfehler ablehnen, wenn ein Redirect-Status zurückgegeben wird.
     - `manual`
-      - : Eine Antwort mit fast allen gefilterten Feldern zurückgeben, um einem Service-Arbeiter zu ermöglichen, die Antwort zu speichern und später wiederzugeben.
+      - : Eine Antwort zurückgeben, bei der fast alle Felder gefiltert sind, um einem Service Worker zu ermöglichen, die Antwort zu speichern und später zu wiederholen.
 
     Standardmäßig auf `follow`.
 
 - `referrer` {{optional_inline}}
 
-  - : Ein String, der den Wert angibt, der für den {{httpheader("Referer")}} Header der Anfrage verwendet werden soll. Einer der folgenden:
+  - : Ein String, der den Wert angibt, der für den {{httpheader("Referer")}}-Header der Anfrage verwendet werden soll. Einer der folgenden Werte:
 
-    - Eine same-origin relative oder absolute URL
-      - : Setzen Sie den `Referer` Header auf den angegebenen Wert. Relative URLs werden relativ zur URL der Seite aufgelöst, die die Anfrage gemacht hat.
+    - Eine gleiche Herkunft relative oder absolute URL
+      - : Setzt den `Referer`-Header auf den angegebenen Wert. Relative URLs werden relativ zur URL der Seite aufgelöst, die die Anfrage gemacht hat.
     - Ein leerer String
-      - : Lassen Sie den `Referer` Header weg.
+      - : Den `Referer`-Header weglassen.
     - `about:client`
-      - : Setzen Sie den `Referer` Header auf den Standardwert für den Kontext der Anfrage (zum Beispiel die URL der Seite, die die Anfrage gemacht hat).
+      - : Den `Referer`-Header auf den Standardwert für den Kontext der Anfrage setzen (zum Beispiel die URL der Seite, die die Anfrage gemacht hat).
 
     Standardmäßig auf `about:client`.
 
 - `referrerPolicy` {{optional_inline}}
-  - : Ein String, der eine Richtlinie für den {{httpheader("Referer")}} Header setzt. Die Syntax und Semantik dieser Option entsprechen genau dem {{httpheader("Referrer-Policy")}} Header.
+  - : Ein String, der eine Richtlinie für den {{httpheader("Referer")}}-Header festlegt. Die Syntax und Semantik dieser Option sind genau die gleichen wie für den {{httpheader("Referrer-Policy")}}-Header.
 - `signal` {{optional_inline}}
-  - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Wenn diese Option gesetzt ist, kann die Anfrage durch Aufrufen von [`abort()`](/de/docs/Web/API/AbortController/abort) auf dem entsprechenden `AbortController` abgebrochen werden.
+  - : Ein [`AbortSignal`](/de/docs/Web/API/AbortSignal). Wenn diese Option gesetzt ist, kann die Anfrage durch Aufruf von [`abort()`](/de/docs/Web/API/AbortController/abort) am entsprechenden `AbortController` abgebrochen werden.
 
 ## Beispiele
 
-### Optionen in `fetch()` übergeben
+### Übergabe von Optionen an `fetch()`
 
-In diesem Beispiel übergeben wir die Optionen `method`, `body` und `headers` direkt in den [`fetch()`](/de/docs/Web/API/Window/fetch) Methodenaufruf:
+In diesem Beispiel übergeben wir die Optionen `method`, `body` und `headers` direkt in den [`fetch()`](/de/docs/Web/API/Window/fetch)-Methodenaufruf:
 
 ```js
 async function post() {
@@ -236,9 +235,9 @@ async function post() {
 }
 ```
 
-### Optionen in den `Request()` Konstruktor übergeben
+### Übergabe von Optionen an den `Request()`-Konstruktor
 
-In diesem Beispiel erstellen wir eine [`Request`](/de/docs/Web/API/Request), übergeben das gleiche Set an Optionen in ihren Konstruktor und dann die Anfrage an `fetch()`:
+In diesem Beispiel erstellen wir ein [`Request`](/de/docs/Web/API/Request), indem wir denselben Satz von Optionen in seinen Konstruktor übergeben, und übergeben dann die Anfrage an `fetch()`:
 
 ```js
 async function post() {
@@ -256,9 +255,9 @@ async function post() {
 }
 ```
 
-### Optionen sowohl in `Request()` als auch `fetch()` übergeben
+### Übergabe von Optionen an sowohl `Request()` als auch `fetch()`
 
-In diesem Beispiel erstellen wir eine [`Request`](/de/docs/Web/API/Request), übergeben die Optionen `method`, `headers` und `body` in ihren Konstruktor. Wir übergeben dann die Anfrage an `fetch()` zusammen mit den Optionen `body` und `referrer`:
+In diesem Beispiel erstellen wir ein [`Request`](/de/docs/Web/API/Request), indem wir die Optionen `method`, `headers` und `body` in seinen Konstruktor übergeben. Dann übergeben wir die Anfrage an `fetch()` zusammen mit den Optionen `body` und `referrer`:
 
 ```js
 async function post() {
@@ -292,7 +291,7 @@ In diesem Fall wird die Anfrage mit den folgenden Optionen gesendet:
 
 ## Siehe auch
 
-- [Verwendung von Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
+- [Using Fetch](/de/docs/Web/API/Fetch_API/Using_Fetch)
 - [ServiceWorker API](/de/docs/Web/API/Service_Worker_API)
 - [HTTP-Zugriffskontrolle (CORS)](/de/docs/Web/HTTP/CORS)
 - [HTTP](/de/docs/Web/HTTP)
