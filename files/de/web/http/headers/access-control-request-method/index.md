@@ -2,22 +2,22 @@
 title: Access-Control-Request-Method
 slug: Web/HTTP/Headers/Access-Control-Request-Method
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}
 
-Der **`Access-Control-Request-Method`**-Anforderungsheader wird von Browsern verwendet, wenn sie eine {{Glossary("preflight_request", "Preflight-Anfrage")}} stellen. Er informiert den Server darüber, welche [HTTP-Methode](/de/docs/Web/HTTP/Methods) bei der tatsächlichen Anfrage verwendet wird. Dieser Header ist notwendig, da die Preflight-Anfrage immer eine {{HTTPMethod("OPTIONS")}}-Anfrage ist und nicht die gleiche Methode wie die eigentliche Anfrage verwendet.
+Der HTTP **`Access-Control-Request-Method`** {{Glossary("request_header", "Request-Header")}} wird von Browsern verwendet, wenn sie eine {{Glossary("preflight_request", "Preflight-Anfrage")}} stellen, um dem Server mitzuteilen, welche [HTTP-Methode](/de/docs/Web/HTTP/Methods) bei der tatsächlichen Anfrage verwendet wird. Dieser Header ist notwendig, weil die Preflight-Anfrage immer eine {{HTTPMethod("OPTIONS")}} ist und nicht die gleiche Methode wie die tatsächliche Anfrage verwendet.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Request header")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -30,8 +30,8 @@ Access-Control-Request-Method: <method>
 
 ## Direktiven
 
-- \<method>
-  - : Eine der [HTTP-Anforderungsmethoden](/de/docs/Web/HTTP/Methods), zum Beispiel {{HTTPMethod("GET")}}, {{HTTPMethod("POST")}} oder {{HTTPMethod("DELETE")}}.
+- `<method>`
+  - : Eine [HTTP-Anfragemethode](/de/docs/Web/HTTP/Methods); zum Beispiel {{HTTPMethod("GET")}}, {{HTTPMethod("POST")}} oder {{HTTPMethod("DELETE")}}.
 
 ## Beispiele
 

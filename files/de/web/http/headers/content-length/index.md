@@ -2,12 +2,12 @@
 title: Content-Length
 slug: Web/HTTP/Headers/Content-Length
 l10n:
-  sourceCommit: ae86913908651e6008079242691e06b5e01d1c78
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}
 
-Der **`Content-Length`**-Header gibt die Größe des Nachrichtenkörpers in Bytes an, der an den Empfänger gesendet wird.
+Der HTTP-Header **`Content-Length`** gibt die Größe des Nachrichtenkörpers in Bytes an, der an den Empfänger gesendet wird.
 
 <table class="properties">
   <tbody>
@@ -21,13 +21,13 @@ Der **`Content-Length`**-Header gibt die Größe des Nachrichtenkörpers in Byte
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja</td>
+      <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-gesicherter Response-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
       </th>
-      <td>ja</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -40,7 +40,7 @@ Content-Length: <length>
 
 ## Direktiven
 
-- \<length>
+- `<length>`
   - : Die Länge in Oktetten.
 
 ## Spezifikationen

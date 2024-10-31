@@ -2,17 +2,17 @@
 title: Attribution-Reporting-Register-Source
 slug: Web/HTTP/Headers/Attribution-Reporting-Register-Source
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}{{seecompattable}}
 
-Der **`Attribution-Reporting-Register-Source`**-Header registriert ein Seitenmerkmal als [Attributionsquelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources). Dies ist Teil einer Antwort auf eine Anfrage, die einen {{httpheader("Attribution-Reporting-Eligible")}}-Header enthielt. Er bietet die Informationen, die der Browser speichern soll, wenn mit der Attributionsquelle interagiert wird. Die Informationen, die Sie in diesem Header angeben, bestimmen auch, welche Arten von Berichten der Browser generieren kann.
+Der HTTP **`Attribution-Reporting-Register-Source`** {{Glossary("response_header", "Response-Header")}} registriert ein Seitenmerkmal als eine [Attribution-Quelle](/de/docs/Web/API/Attribution_Reporting_API/Registering_sources). Dieser Header ist Teil der Antwort auf eine Anfrage, die den {{HTTPHeader("Attribution-Reporting-Eligible")}} Header enthält. Er liefert die Informationen, die der Browser speichern soll, wenn ein Benutzer mit der Attribution-Quelle interagiert. Die Informationen, die Sie in diesen Header aufnehmen, bestimmen auch die Arten von Berichten, die der Browser generieren kann.
 
-Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) für weitere Details.
+Weitere Details finden Sie in der [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API).
 
 > [!NOTE]
-> Wenn die aufrufende Seite die Attribution Reporting API nicht erfolgreich im [Privacy Sandbox Enrollment-Prozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingebunden hat, wird der `Attribution-Reporting-Register-Source`-Header ignoriert und Attributionsquellen werden nicht registriert.
+> Wenn die aufrufende Site die Attribution Reporting API nicht in einem erfolgreichen [Privacy Sandbox-Anmeldeprozess](/de/docs/Web/Privacy/Privacy_sandbox/Enrollment) eingeschlossen hat, wird der `Attribution-Reporting-Register-Source` Header ignoriert und Attribution-Quellen werden nicht registriert.
 
 <table class="properties">
   <tbody>
@@ -22,13 +22,13 @@ Siehe die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-gesicherte Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted Response-Header")}}
       </th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -43,66 +43,66 @@ Attribution-Reporting-Register-Source: <json-string>
 
 - `<json-string>`
 
-  - : Ein JSON-String, der die Informationen bereitstellt, die der Browser speichern soll, wenn mit der Attributionsquelle interagiert wird. Verfügbare Felder sind wie folgt:
+  - : Ein JSON-String, der die Informationen bereitstellt, die der Browser speichern soll, wenn mit der Attribution-Quelle interagiert wird. Verfügbare Felder sind wie folgt:
 
     - `"source_event_id"` {{optional_inline}}
-      - : Eine Zeichenkette, die eine ID für die Attributionsquelle darstellt und verwendet werden kann, um sie anderen Informationen zuzuordnen, wenn mit der Attributionsquelle interagiert wird, oder um Informationen am Berichtsendpunkt zu aggregieren. Die Zeichenkette muss ausschließlich aus einer basis-10-formatierten 64-Bit-Unsigned-Integer bestehen.
+      - : Ein String, der eine ID für die Attribution-Quelle darstellt, die verwendet werden kann, um sie bei Interaktion mit der Quelle mit anderen Informationen zu verknüpfen oder Informationen am Berichtsendpunkt zusammenzufassen. Der String muss ausschließlich aus einer im Basis-10-Format formatierten 64-Bit unsigned Integer bestehen.
     - `"destination"`
-      - : Eine einzelne Zeichenkette oder ein Array von 1–3 Zeichenketten. Diese Zeichenketten müssen eine vollständige URL enthalten, die der Seite (Schema + {{Glossary("eTLD", "eTLD+1")}}) entspricht, auf der ein Trigger erwartet wird. Diese werden verwendet, um den Attributionstrigger mit der Quelle abzugleichen, wenn mit einem Trigger interagiert wird.
+      - : Ein einzelner String oder ein Array von 1–3 Strings. Diese Strings müssen eine vollständige URL enthalten, die der Site entspricht (Schema + {{Glossary("eTLD", "eTLD+1")}}), auf der ein Auslöser erwartet wird. Diese werden verwendet, um den Attribution-Auslöser mit der Quelle zu verknüpfen, wenn ein Auslöser aktiviert wird.
     - `"aggregation_keys"` {{optional_inline}}
-      - : Ein Objekt, das vom Benutzer bereitgestellte Schlüssel enthält, die verschiedene Datenpunkte repräsentieren, um Berichtswerte darunter zu aggregieren.
+      - : Ein Objekt, das vom Benutzer bereitgestellte Schlüssel enthält, die verschiedene Datenpunkte darstellen, unter denen Berichtswerte aggregiert werden.
     - `"aggregatable_report_window"` {{optional_inline}}
-      - : Eine Zeichenkette, die eine Zeit in Sekunden darstellt, nach der Triggerdaten nicht mehr in aggregierbaren Berichten enthalten sind (dies wird als **Berichtszeitfenster** bezeichnet). Wenn nicht gesetzt, wird standardmäßig der `"expiry"`-Wert verwendet.
+      - : Ein String, der eine Zeit in Sekunden darstellt, nach der Auslöserdaten nicht mehr in generierten aggregierbaren Berichten enthalten werden (dies wird als **Berichtsfenster** bezeichnet). Wenn nicht gesetzt, wird standardmäßig der Wert `"expiry"` verwendet.
     - `"debug_key"` {{optional_inline}}
-      - : Eine basis-10-formatierte 64-Bit-Unsigned-Integer, die einen Debug-Schlüssel darstellt. Setzen Sie dies, wenn Sie einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) zusammen mit dem zugehörigen Attributionsbericht generieren möchten.
+      - : Eine im Basis-10-Format formatierte 64-Bit unsigned Integer, die einen Debug-Schlüssel darstellt. Setzen Sie diesen, wenn Sie neben dem zugehörigen Attributionsbericht einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) generieren möchten.
     - `"debug_reporting"` {{optional_inline}}
-      - : Ein boolescher Wert. Wenn ein `debug_key` gesetzt ist, setzen Sie diesen auf `true`, um anzugeben, dass der generierte Debug-Bericht ein ausführlicher Debug-Bericht sein soll.
+      - : Ein boolean Wert. Wenn ein `debug_key` gesetzt ist, setzen Sie diesen auf `true`, um festzulegen, dass der generierte Debug-Bericht ein ausführlicher Debug-Bericht sein soll.
     - `"event_level_epsilon"` {{optional_inline}}
-      - : Eine Zahl, die gleich oder größer als `0` ist und die Menge an [Rauschen kontrolliert, die Berichten hinzugefügt wird](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#adding_noise_to_reports). Niedrigere Epsilon-Werte führen zu mehr Rauschen und bieten daher einen höheren Datenschutz. Die maximalen und Standardwerte variieren je nach Implementierung; Chrome hat beispielsweise einen maximalen und Standardwert von `14`.
+      - : Eine Zahl, die größer oder gleich `0` ist und die Menge an [Rauschen kontrolliert, die Berichten hinzugefügt wird](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#adding_noise_to_reports). Niedrigere Werte von Epsilon führen zu mehr Rauschen und bieten daher einen größeren Datenschutz. Die maximalen und Standardwerte variieren je nach Implementierung; Chrome hat beispielsweise einen maximalen und Standardwert von `14`.
     - `"event_report_window"` {{optional_inline}}
-      - : Eine Zeichenkette, die eine Zeit in Sekunden darstellt, nach der nachfolgende Trigger dieser Quelle zur Erstellung von Event-Level-Berichten nicht mehr zugeordnet werden (dies wird als **Berichtszeitfenster** bezeichnet). Wenn nicht gesetzt, wird das Event-Berichtszeitfenster auf den `"expiry"`-Wert zurückgesetzt.
+      - : Ein String, der eine Zeit in Sekunden darstellt, nach der nachfolgende Auslöser für diesen Quelle nicht mehr zur Erstellung von Ereignisberichten verwendet werden (dies wird als **Berichtsfenster** bezeichnet). Wenn nicht gesetzt, wird das Ereignisberichtsfenster auf den Wert `"expiry"` zurückgesetzt.
         > [!NOTE]
-        > Wenn `"event_report_window"` angegeben ist, kann `"event_report_windows"` nicht angegeben werden, da andernfalls die Quellenregistrierung fehlschlägt.
+        > Wenn `"event_report_window"` angegeben ist, kann `"event_report_windows"` nicht angegeben werden, da sonst die Quellenregistrierung fehlschlägt.
     - `"event_report_windows"` {{optional_inline}}
-      - : Ein Objekt, das eine Reihe von Berichtszeitfenstern darstellt, beginnend bei `"start_time"`, mit Berichten für diese Quelle, die nach jeder angegebenen Endzeit in `"end_times"` geliefert werden. Dies kann verwendet werden, um die Zeit der Berichtszustellung über mehrere Berichte hinweg zu variieren. Wenn nicht gesetzt, wird das Event-Berichtszeitfenster auf den `"expiry"`-Wert zurückgesetzt. Die Eigenschaften sind wie folgt:
-        - `"start_time"` {{optional_inline}}: Eine nicht negative Zahl, die den Beginn der Berichtszeitfenster angibt. Wenn nicht angegeben, ist der Standardwert `0`.
-        - `"end_times"`: Ein Array positiver Zahlen, die Endzeiten für nachfolgende Berichtszeitfenster angeben. Die Werte müssen steigen und größer als `"start_time"` sein.
+      - : Ein Objekt, das eine Serie von Berichtsfenstern darstellt, beginnend bei `"start_time"`, mit Berichten für diese Quelle, die nach jedem angegebenen Endzeitpunkt in `"end_times"` übermittelt werden. Dies kann verwendet werden, um die Zeit der Berichtszustellung über mehrere Berichte hinweg zu variieren. Wenn nicht gesetzt, wird das Ereignisberichtsfenster auf den Wert `"expiry"` zurückgesetzt. Eigenschaften sind wie folgt:
+        - `"start_time"` {{optional_inline}}: Eine nicht-negative Zahl, die den Startzeitpunkt für die Berichtsfenster angibt. Wenn nicht angegeben, wird standardmäßig `0` verwendet.
+        - `"end_times"`: Ein Array positiver Zahlen, die Endzeiten für die nachfolgenden Berichtsfenster angeben. Die Werte müssen ansteigend und größer als `"start_time"` sein.
           > [!NOTE]
-          > Wenn `"event_report_windows"` angegeben ist, kann `"event_report_window"` nicht angegeben werden, da andernfalls die Quellenregistrierung fehlschlägt.
+          > Wenn `"event_report_windows"` angegeben ist, kann `"event_report_window"` nicht angegeben werden, da sonst die Quellenregistrierung fehlschlägt.
     - `"expiry"` {{optional_inline}}
-      - : Eine Zeichenkette, die eine Ablaufzeit in Sekunden für die Attributionsquelle darstellt, nach der sie nicht mehr aktiv ist (d. h. nachfolgende Trigger können dieser Quelle nicht mehr zugeordnet werden). Die maximal zulässige Ablaufzeit beträgt 2592000 Sekunden (30 Tage), was auch der Standardwert ist, wenn `"expiry"` nicht ausdrücklich gesetzt wird.
+      - : Ein String, der eine Ablaufzeit in Sekunden für die Attribution-Quelle darstellt, nach der sie nicht mehr aktiv ist (d. h. nachfolgende Auslöser werden dieser Quelle nicht mehr zugeordnet). Die maximal zulässige Ablaufzeit beträgt 2592000 Sekunden (30 Tage), was auch der Standardwert ist, wenn `"expiry"` nicht explizit gesetzt ist.
     - `"filter_data"` {{optional_inline}}
-      - : Ein Objekt, das benutzerdefinierte Daten definiert, die verwendet werden können, um zu filtern, welche Konversionen Berichte generieren. Siehe [Filter](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters) für weitere Details.
+      - : Ein Objekt, das benutzerdefinierte Daten definiert, die verwendet werden können, um zu filtern, welche Konversionen Berichte generieren. Weitere Details finden Sie unter [Filter](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#filters).
     - `"max_event_level_reports"` {{optional_inline}}
-      - : Eine Zahl zwischen `0` und `20` (einschließlich), die die Gesamtanzahl der Event-Level-Berichte angibt, die diese Quelle generieren kann. Nachdem dieses Maximum erreicht ist, kann die Quelle keine neuen Daten mehr produzieren. Wenn nicht angegeben, liegt der Standardwert für `"max_event_level_reports"` bei `3` für navigationsbasierte Quellen und bei `1` für ereignisbasierte (bild- oder skriptbasierte) Quellen.
+      - : Eine Zahl zwischen `0` und `20` (einschließlich), die die Gesamtzahl der Ereignisberichte angibt, die diese Quelle generieren kann. Wenn dieses Maximum erreicht ist, kann die Quelle keine neuen Daten mehr erzeugen. Wenn nicht angegeben, wird `"max_event_level_reports"` standardmäßig auf `3` für navigationsbasierte Quellen und `1` für ereignisbasierte (bild- oder skriptbasierte) Quellen gesetzt.
     - `"priority"` {{optional_inline}}
-      - : Eine Zeichenkette, die einen Prioritätswert für die Attributionsquelle darstellt. Standardmäßig werden Konversionen der zuletzt übereinstimmenden Quelle zugeordnet. Für sowohl Event-Level als auch Summary-Berichte können Sie eine höhere Prioritätsnummer setzen, um bestimmte Quellen zu priorisieren. Ein Wert von `2` beispielsweise erhält Vorrang vor dem Standardwert von `1`. Siehe [Bericht-Prioritäten und -Grenzen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits) für weitere Informationen.
+      - : Ein String, der einen Prioritätswert für die Attribution-Quelle darstellt. Standardmäßig werden Konversionen der zuletzt passenden Quelle zugeordnet. Für sowohl Ereignis- als auch Zusammenfassungsberichte können Sie eine höhere Prioritätszahl setzen, um bestimmte Quellen zu priorisieren. Beispielsweise hat ein Wert von `2` Vorrang vor dem Standardwert von `1`. Weitere Informationen finden Sie unter [Berichtsprioritäten und -beschränkungen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits).
     - `"trigger_data"` {{optional_inline}}
 
-      - : Ein Array 32-Bit-Unsigned-Integers, die Daten repräsentieren, welche die verschiedenen Triggerereignisse beschreiben, die mit dieser Quelle übereinstimmen könnten. Beispielsweise könnten "Benutzer hat Artikel in den Einkaufswagen gelegt" oder "Benutzer hat sich für Mailingliste angemeldet" Aktionen sein, die auf der Triggerseite passieren, die mit dieser Quelle übereinstimmen und eine Art Konversion anzeigen, die der Werbetreibende messen möchte. Diese müssen mit `"trigger_data"` abgeglichen werden, die in [Triggern](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Trigger#trigger_data) angegeben sind, damit eine Level-attribution erfolgen kann. Falls nicht angegeben, ist der Standardwert für `"trigger_data"` `[0, 1, 2, 3, 4, 5, 6, 7]` für navigationsbasierte Quellen und `[0, 1]` für ereignisbasierte (bild- oder skriptbasierte) Quellen.
+      - : Ein Array von 32-Bit unsigned Integers, das Daten darstellt, die die verschiedenen Auslöserereignisse beschreiben, die mit dieser Quelle übereinstimmen könnten. Zum Beispiel könnten "Benutzer fügte Artikel dem Warenkorb hinzu" oder "Benutzer meldete sich für die Mailingliste an" Aktionen sein, die auf der Auslöser-Site stattfinden und eine Art Konversion anzeigen, die der Werbetreibende messen möchte. Diese müssen mit `"trigger_data"` übereinstimmen, die in [Auslösern](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Trigger#trigger_data) angegeben sind, damit eine ereignisbasierte Attribution stattfindet. Wenn weggelassen, wird `"trigger_data"` standardmäßig auf `[0, 1, 2, 3, 4, 5, 6, 7]` für navigationsbasierte Quellen und `[0, 1]` für ereignisbasierte (bild- oder skriptbasierte) Quellen gesetzt.
 
         > [!NOTE]
-        > Die Werte, die jedes Ereignis repräsentieren, und die Anzahl der Elemente im Array sind völlig willkürlich und von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um vom Browser der Quelle zugeordnet zu werden, wenn ein Trigger registriert wird.
+        > Die Werte zur Darstellung jedes Ereignisses und die Anzahl der Elemente im Array sind völlig willkürlich und von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um der Quelle durch den Browser zugeordnet zu werden, wenn ein Auslöser registriert wird.
 
     - `"trigger_data_matching"` {{optional_inline}}
 
-      - : Eine Zeichenkette, die angibt, wie `"trigger_data"` vom Trigger mit der `"trigger_data"` aus der Quelle abgeglichen wird. Mögliche Werte sind:
+      - : Ein String, der angibt, wie das `"trigger_data"` vom Auslöser mit dem `"trigger_data"` der Quelle abgeglichen wird. Mögliche Werte sind:
 
-        - `"exact"`: Die `"trigger_data"` vom Trigger muss genau einem Wert entsprechen, der in `"trigger_data"` der Quelle enthalten ist; wenn es keine solche Übereinstimmung gibt, findet keine Event-Level-Attribution statt.
-        - `"modulus"`: In diesem Fall wird die folgende Berechnung durchgeführt — `d % allowedValues.size` — wobei `d` die `"trigger_data"` vom Trigger ist und `allowedValues` die Sequenz der Werte im `"trigger_data"`-Array der Quelle. Wenn das Ergebnis dieser Berechnung mit einem Wert im `"trigger_data"`-Array der Quelle übereinstimmt, ist die Übereinstimmung ein Erfolg. In einem solchen Fall wird der Wert immer übereinstimmen, es sei denn, `allowedValues` ist leer.
+        - `"exact"`: Das `"trigger_data"` vom Auslöser muss genau mit einem Wert übereinstimmen, der im `"trigger_data"` der Quelle enthalten ist; wenn es keine solche Übereinstimmung gibt, findet keine ereignisbasierte Attribution statt.
+        - `"modulus"`: In diesem Fall wird die folgende Berechnung durchgeführt — `d % allowedValues.size` — wobei `d` das `"trigger_data"` vom Auslöser ist und `allowedValues` die Sequenz von Werten im `"trigger_data"` Array der Quelle ist. Wenn das Ergebnis dieser Berechnung mit einem Wert im `"trigger_data"` Array der Quelle übereinstimmt, ist die Übereinstimmung ein Erfolg. In einem solchen Fall wird der Wert immer übereinstimmen, es sei denn, `allowedValues` ist leer.
 
-        Der `"modulus"`-Modus existiert hauptsächlich für die Rückwärtskompatibilität mit dem Verhalten der API, bevor `"exact"` eingeführt wurde. Daher ist es unwahrscheinlich, dass Sie ihn verwenden würden. Er ist jedoch in besonderen Fällen nützlich, die eine sehr spezifische Art von Kompression erfordern, die zu kleineren Registrierungs-Headern führt. Dies kann erforderlich sein, wenn komplexe Filterlogik verwendet wird, die unterschiedliche Triggerdaten basierend auf dem Quelltyp gemäß der maximalen Anzahl von Quellen-`"trigger_data"`-Elementen setzen muss.
+        Der `"modulus"` Modus existiert hauptsächlich aus Gründen der Abwärtskompatibilität mit dem Verhalten der API, bevor `"exact"` eingeführt wurde, und daher ist es unwahrscheinlich, dass Sie ihn verwenden. Er ist dennoch nützlich in bestimmten Fällen, die eine sehr spezifische Art der Kompression erfordern, die zu kleineren Registrierung-Headern führt. Dies kann erforderlich sein, wenn Sie komplexe Filterlogik verwenden, die unterschiedliche Auslöserdaten basierend auf dem Quellentyp gemäß der maximalen Anzahl von `"trigger_data"` Elementen der Quelle einrichten muss.
 
         > [!NOTE]
-        > Wenn `"modulus"` verwendet wird, muss die `"trigger_data"` der Quelle eine fortlaufende Sequenz von Ganzzahlen bilden, beginnend bei 0. Wenn die Triggerdaten keine solche Sequenz bilden, tritt ein Fehler auf.
+        > Wenn `"modulus"` verwendet wird, muss das `"trigger_data"` der Quelle eine zusammenhängende Sequenz von Integer-Werten bilden, beginnend bei 0. Wenn die Auslöserdaten keine solche Sequenz bilden, tritt ein Fehler auf.
 
-        Wenn nicht angegeben, ist der Standardwert für `"trigger_data_matching"` `"modulus"`. Der Grund dafür ist erneut die Rückwärtskompatibilität: Das Weglassen des `"trigger_data_matching"`-Feldes muss zum gleichen Verhalten führen, wie es vor der Einführung dieses Feldes beobachtet wurde.
+        Wenn nicht angegeben, wird `"trigger_data_matching"` standardmäßig auf `"modulus"` gesetzt. Wiederum ist der Grund dafür die Abwärtskompatibilität: das Weglassen des `"trigger_data_matching"` Feldes muss zu demselben Verhalten führen, das vor der Einführung dieses Feldes beobachtet wurde.
 
 ## Beispiele
 
-### Registrierung einer Quelle für einen Event-Level-Bericht
+### Registrierung einer Quelle für einen ereignisbasierten Bericht
 
-Ein Node.js-Server könnte den `Attribution-Reporting-Register-Source` Antwort-Header wie folgt setzen, um einen Browser dazu zu bringen, einen Event-Level-Bericht zu generieren, wenn ein Trigger zu einer Quelle passt:
+Ein Node.js Server könnte den `Attribution-Reporting-Register-Source` Response-Header folgendermaßen setzen, um einen Browser zu veranlassen, einen ereignisbasierten Bericht zu generieren, wenn ein Auslöser mit einer Quelle übereinstimmt:
 
 ```js
 res.set(
@@ -120,9 +120,9 @@ res.set(
 );
 ```
 
-### Registrierung einer Quelle für einen Summary-Bericht
+### Registrierung einer Quelle für einen Zusammenfassungsbericht
 
-Um den Browser dazu zu bringen, einen Summary-Bericht zu generieren, wenn ein Trigger zu einer Quelle passt, müssen Sie einige zusätzliche Felder _zusätzlich_ zu denen hinzufügen, die für die Generierung von Event-Level-Berichten erforderlich sind.
+Um den Browser zu veranlassen, einen Zusammenfassungsbericht zu generieren, wenn ein Auslöser mit einer Quelle übereinstimmt, müssen Sie einige zusätzliche Felder _zusätzlich_ zu denen enthalten, die für die Erstellung eines ereignisbasierten Berichts erforderlich sind.
 
 ```js
 res.set(
@@ -156,6 +156,6 @@ res.set(
 
 ## Siehe auch
 
-- {{httpheader("Attribution-Reporting-Eligible")}}
-- {{httpheader("Attribution-Reporting-Register-Trigger")}}
+- {{HTTPHeader("Attribution-Reporting-Eligible")}}
+- {{HTTPHeader("Attribution-Reporting-Register-Trigger")}}
 - [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API)

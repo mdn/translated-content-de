@@ -2,22 +2,22 @@
 title: Access-Control-Allow-Methods
 slug: Web/HTTP/Headers/Access-Control-Allow-Methods
 l10n:
-  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}
 
-Der Antwortheader **`Access-Control-Allow-Methods`** gibt eine oder mehrere Methoden an, die beim Zugriff auf eine Ressource als Antwort auf eine {{Glossary("preflight_request", "Preflight-Anfrage")}} erlaubt sind.
+Der HTTP **`Access-Control-Allow-Methods`** {{Glossary("response_header", "Response-Header")}} gibt eine oder mehrere erlaubte [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods) an, wenn auf eine Ressource als Antwort auf eine {{Glossary("preflight_request", "Vorab-Anfrage")}} zugegriffen wird.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -31,10 +31,11 @@ Access-Control-Allow-Methods: *
 
 ## Direktiven
 
-- \<method>
-  - : Eine durch Komma getrennte Liste der erlaubten [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods).
+- `<method>`
+  - : Eine durch Kommas getrennte Liste der erlaubten Anfragemethoden.
 - `*` (Wildcard)
-  - : Der Wert `*` zählt nur als spezieller Wildcard-Wert für Anfragen ohne Anmeldeinformationen (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen). Bei Anfragen mit Anmeldeinformationen wird er als der wörtliche Methodenname `*` ohne spezielle Semantik behandelt.
+  - : Alle HTTP-Methoden.
+    Dies hat diese Bedeutung nur für Anfragen ohne Berechtigungsnachweise (Anfragen ohne [HTTP-Cookies](/de/docs/Web/HTTP/Cookies) oder HTTP-Authentifizierungsinformationen). In Anfragen mit Berechtigungsnachweisen wird es als der buchstäbliche Methodenname `*` ohne besondere Semantik behandelt.
 
 ## Beispiele
 
@@ -57,3 +58,4 @@ Access-Control-Allow-Methods: *
 - {{HTTPHeader("Access-Control-Expose-Headers")}}
 - {{HTTPHeader("Access-Control-Allow-Headers")}}
 - {{HTTPHeader("Access-Control-Request-Method")}}
+- [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods)

@@ -2,24 +2,22 @@
 title: Allow
 slug: Web/HTTP/Headers/Allow
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}
 
-Der **`Allow`**-Header listet die Menge der von einer Ressource unterstützten Methoden auf.
-
-Dieser Header muss gesendet werden, wenn der Server mit einem {{HTTPStatus("405")}} `Method Not Allowed` Statuscode antwortet, um anzuzeigen, welche Anfragemethoden verwendet werden können. Ein leerer `Allow`-Header zeigt an, dass die Ressource keine Anfragemethoden zulässt, was beispielsweise vorübergehend für eine bestimmte Ressource auftreten kann.
+Der HTTP **`Allow`** {{Glossary("response_header", "Antwort-Header")}} listet die Menge der von einer Ressource unterstützten [Anfragemethoden](/de/docs/Web/HTTP/Methods) auf. Dieser Header muss gesendet werden, wenn der Server mit einem {{HTTPStatus("405", "405 Method Not Allowed")}} Statuscode antwortet, um anzugeben, welche Anfragemethoden stattdessen verwendet werden können. Ein leerer `Allow`-Wert deutet darauf hin, dass die Ressource keine Anfragemethoden zulässt, was vorübergehend für eine gegebene Ressource auftreten kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Response header")}}</td>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -32,8 +30,8 @@ Allow: <http-methods>
 
 ## Direktiven
 
-- \<http-methods>
-  - : Die durch Kommas getrennte Liste der erlaubten [HTTP-Anfragemethoden](/de/docs/Web/HTTP/Methods).
+- `<http-methods>`
+  - : Eine kommaseparierte Liste von erlaubten Anfragemethoden, die von einer Ressource unterstützt werden.
 
 ## Beispiele
 
@@ -47,5 +45,6 @@ Allow: GET, POST, HEAD
 
 ## Siehe auch
 
-- {{HTTPStatus("405")}}
+- {{HTTPStatus("405", "405 Method Not Allowed")}} Statuscode
 - {{HTTPHeader("Server")}}
+- {{HTTPMethod("OPTIONS")}}

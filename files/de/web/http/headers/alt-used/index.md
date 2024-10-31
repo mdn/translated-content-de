@@ -2,16 +2,29 @@
 title: Alt-Used
 slug: Web/HTTP/Headers/Alt-Used
 l10n:
-  sourceCommit: a4ae225903c2784a3d74b43f311e05f208e42c91
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}
 
-Der **`Alt-Used`** HTTP-Header wird in Anfragen verwendet, um den genutzten alternativen Service zu identifizieren, ähnlich wie das {{HTTPHeader("Host")}} HTTP-Headerfeld den Host und Port des Ursprungs identifiziert.
+Der HTTP **`Alt-Used`** {{Glossary("request_header", "Request-Header")}} wird verwendet, um den alternativen Dienst zu identifizieren, der genutzt wird, ähnlich wie das {{HTTPHeader("Host")}} HTTP-Header-Feld den Host und Port des Ursprungs identifiziert.
 
-Dies soll alternativen Diensten ermöglichen, Schleifen zu erkennen, den Datenverkehr zu differenzieren, um beispielsweise das Lastmanagement zu unterstützen, und generell sicherzustellen, dass das beabsichtigte Ziel des Datenverkehrs identifiziert werden kann, da das Einführen dieser Informationen nach der Verwendung eines Protokolls problematisch erwiesen hat.
+Dies soll es alternativen Diensten ermöglichen, Schleifen zu erkennen, den Datenverkehr zur Lastverteilung zu differenzieren und allgemein sicherzustellen, dass das beabsichtigte Ziel des Datenverkehrs identifiziert werden kann, da das Einführen dieser Informationen nach der Verwendung eines Protokolls problematisch war.
 
-Wenn ein Client einen alternativen Dienst für eine Anfrage verwendet, kann er dies dem Server mit dem **`Alt-Used`** HTTP-Header anzeigen.
+Wenn ein Client einen alternativen Dienst für eine Anfrage verwendet, kann er dies dem Server über den `Alt-Used` HTTP-Header anzeigen.
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">Header-Typ</th>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
+    </tr>
+    <tr>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <td>Nein</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Syntax
 
@@ -21,10 +34,10 @@ Alt-Used: <host>:<port>
 
 ## Direktiven
 
-- \<host>
+- `<host>`
   - : Der Domain-Name des Servers.
-- \<port> {{optional_inline}}
-  - : TCP-Portnummer, auf der der Server hört.
+- `<port>` {{optional_inline}}
+  - : Die TCP-Portnummer, auf der der Server lauscht.
 
 ## Beispiele
 

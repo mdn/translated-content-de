@@ -2,24 +2,25 @@
 title: Accept-Ranges
 slug: Web/HTTP/Headers/Accept-Ranges
 l10n:
-  sourceCommit: eddef03cfbc7f50806a348f4093601033a7976fc
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}
 
-Der **`Accept-Ranges`** HTTP-Antwortheader ist ein Hinweis, der vom Server verwendet wird, um seine Unterstützung für partielle Anfragen vom Client für Dateidownloads anzuzeigen. Der Wert dieses Feldes gibt die Einheit an, die verwendet werden kann, um einen Bereich zu definieren.
+Der HTTP **`Accept-Ranges`** {{Glossary("response_header", "Antwort-Header")}} wird vom Server verwendet, um seine Unterstützung für [Teilanforderungen](/de/docs/Web/HTTP/Range_requests) zu signalisieren, wodurch Clients einen Teil oder mehrere Teile einer Ressource anfordern können.
+Der Wert dieses Headers gibt die Einheit an, die zur Definition eines Bereichs verwendet werden kann.
 
-Bei Vorhandensein eines `Accept-Ranges`-Headers kann der Browser versuchen, einen unterbrochenen Download _fortzusetzen_, anstatt den Download neu zu starten.
+Ein Beispiel: Eine Antwort mit einem `Accept-Ranges` Header zeigt an, dass der Server in der Lage ist, einen unterbrochenen Download _fortzusetzen_, anstatt dass der Client den gesamten Transfer erneut startet.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
+      <th scope="row">Typ des Headers</th>
+      <td>{{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -34,9 +35,12 @@ Accept-Ranges: none
 ## Direktiven
 
 - `<range-unit>`
-  - : Definiert die Range-Einheit, die der Server unterstützt. Obwohl `bytes` die einzige durch {{RFC("7233")}} formal definierte Range-Einheit ist, können zusätzliche Range-Einheiten im [HTTP Range Unit Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units) registriert werden.
+  - : Die Bereichseinheit, die der Server unterstützt, wobei `bytes` die einzige formal definierte Bereichseinheit durch {{RFC("7233")}} ist.
+    Bereichseinheiten sind im [HTTP Range Unit Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units) registriert.
 - `none`
-  - : Gibt an, dass keine Range-Einheit unterstützt wird. Dies macht den Header äquivalent zu seiner Abwesenheit und wird daher selten verwendet. In einigen Browsern, wie z.B. IE9, wird diese Einstellung verwendet, um die Pause-Taste im Download-Manager zu deaktivieren oder zu entfernen.
+  - : Keine Bereichseinheit wird unterstützt.
+    Dies entspricht dem Weglassen des Headers und wird daher selten verwendet.
+    Dieser Wert wurde in älteren Browsern verwendet, um die Pause-Tasten im Download-Manager zu deaktivieren oder zu entfernen, wenn Server keine Unterstützung für Teilanforderungen hatten.
 
 ## Beispiele
 
@@ -54,6 +58,7 @@ Accept-Ranges: bytes
 
 ## Siehe auch
 
-- {{HTTPHeader("If-Range")}}
-- {{HTTPHeader("Range")}}
+- [Leitfaden zu HTTP-Teilanforderungen](/de/docs/Web/HTTP/Range_requests)
+- [Leitfaden zu HTTP-Bedingungsanfragen](/de/docs/Web/HTTP/Conditional_requests)
+- {{HTTPHeader("Range")}}, {{HTTPHeader("If-Range")}} Anforderungs-Header
 - [IANA HTTP Range Unit Registry](https://www.iana.org/assignments/http-parameters/http-parameters.xhtml#range-units)

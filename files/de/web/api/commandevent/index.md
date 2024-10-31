@@ -2,30 +2,30 @@
 title: CommandEvent
 slug: Web/API/CommandEvent
 l10n:
-  sourceCommit: 3556f7aca5478c222368dba8a7bd6a007898b36a
+  sourceCommit: 3d1ad539dbce65e3cd7af4c24410d87fcfc5147c
 ---
 
 {{APIRef("Invoker Commands API")}}{{SeeCompatTable}}
 
-Die **`CommandEvent`**-Schnittstelle stellt ein Ereignis dar, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen Attributen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement) und [`command`](/de/docs/Web/API/HTMLButtonElement/command) ein interaktives Element aufzurufen beabsichtigt.
+Das **`CommandEvent`**-Interface stellt ein Ereignis dar, das den Benutzer benachrichtigt, wenn ein [`button`](/de/docs/Web/API/HTMLButtonElement)-Element mit gültigen [`commandForElement`](/de/docs/Web/API/HTMLButtonElement/commandForElement)- und [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Attributen dabei ist, ein interaktives Element aufzurufen.
 
-Es ist das Ereignisobjekt für das `HTMLElement`-Ereignis [`command`](/de/docs/Web/API/HTMLElement/command_event), das eine Aktion eines Invoker-Controls darstellt, das ausgelöst wurde (zum Beispiel wenn es angeklickt oder gedrückt wird).
+Es ist das Ereignisobjekt für das `HTMLElement`-[`command`](/de/docs/Web/API/HTMLElement/command_event)-Ereignis, welches eine Aktion eines Invoker Controls darstellt, wenn es aufgerufen wird (zum Beispiel, wenn es angeklickt oder gedrückt wird).
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
-- [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent)
+- [`CommandEvent()`](/de/docs/Web/API/CommandEvent/CommandEvent) {{experimental_inline}}
   - : Erstellt ein `CommandEvent`-Objekt.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Diese Schnittstelle erbt Eigenschaften von ihrem Elternobjekt, [`Event`](/de/docs/Web/API/Event)._
+_Dieses Interface erbt Eigenschaften von seinem Elternteil, [`Event`](/de/docs/Web/API/Event)._
 
-- [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}}
-  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button darstellt, der diese Auslösung verursacht hat.
-- [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}}
-  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Quell-Buttons darstellt.
+- [`CommandEvent.source`](/de/docs/Web/API/CommandEvent/source) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement), das den Button darstellt, der diese Ausführung verursacht hat.
+- [`CommandEvent.command`](/de/docs/Web/API/CommandEvent/command) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Ein String, der den [`command`](/de/docs/Web/API/HTMLButtonElement/command)-Wert des Quellbuttons repräsentiert.
 
 ## Beispiele
 
@@ -52,7 +52,7 @@ popover.addEventListener("command", (event) => {
 });
 ```
 
-### Individuelles Beispiel
+### Benutzerdefiniertes Beispiel
 
 ```html
 <button commandfor="the-image" command="--rotate-left">Rotate Left</button>

@@ -2,39 +2,38 @@
 title: Content-Disposition
 slug: Web/HTTP/Headers/Content-Disposition
 l10n:
-  sourceCommit: e263fc7f179bad4696bb509816801cd670fae6af
+  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
 ---
 
 {{HTTPSidebar}}
 
-In einer üblichen HTTP-Antwort ist der **`Content-Disposition`** Antwort-Header ein Header, der angibt, ob der Inhalt _inline_ im Browser angezeigt werden soll, das heißt als Webseite oder als Teil einer Webseite, oder als _Anhang_, das heißt, heruntergeladen und lokal gespeichert werden soll.
+Der HTTP **`Content-Disposition`**-Header zeigt an, ob der Inhalt im Browser _inline_ als Webseite oder Teil einer Webseite angezeigt oder als _Anhang_ lokal heruntergeladen werden soll.
 
-In einem `multipart/form-data` Körper ist der HTTP **`Content-Disposition`** allgemeine Header ein Header, der für jede Teilmenge eines Multipart-Körpers verwendet werden muss, um Informationen über das Feld zu geben, auf das er sich bezieht. Die Teilmenge wird durch die _Boundary_ begrenzt, die im {{HTTPHeader("Content-Type")}} Header definiert ist. Wird er auf den Körper selbst angewendet, hat `Content-Disposition` keine Wirkung.
+In einem mehrteiligen Body muss der Header für jeden Teil verwendet werden, um Informationen über das entsprechende Feld bereitzustellen. Der Teil wird durch die _Grenze_ abgegrenzt, die im {{HTTPHeader("Content-Type")}}-Header definiert ist. Wenn er auf den Body selbst angewendet wird, hat `Content-Disposition` keine Wirkung.
 
-Der `Content-Disposition` Header ist im größeren Kontext von MIME-Nachrichten für E-Mails definiert, aber nur ein Teil der möglichen Parameter gilt für HTTP-Formulare und {{HTTPMethod("POST")}}-Anfragen. Nur der Wert `form-data` sowie die optionalen Direktiven `name` und `filename` können im HTTP-Kontext verwendet werden.
+Der `Content-Disposition`-Header ist im größeren Kontext von MIME-Nachrichten für E-Mails definiert, aber nur ein Teil der möglichen Parameter gilt für HTTP-Formulare und {{HTTPMethod("POST")}}-Anfragen. Nur der Wert `form-data` sowie die optionalen Direktiven `name` und `filename` können im HTTP-Kontext verwendet werden.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
+      <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Response_header", "Antwort-Header")}} (für den Hauptteil),<br />{{Glossary("Request_header", "Anfrage-Header")}},
-        {{Glossary("Response_header", "Antwort-Header")}} (für einen Teil eines Multipart-
-        Körpers)
+        {{Glossary("Response_header", "Antwort-Header")}} (für den Haupt-Body),<br />{{Glossary("Request_header", "Anfrage-Header")}},
+        {{Glossary("Response_header", "Antwort-Header")}} (für einen Teil eines mehrteiligen Bodys)
       </td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
-### Als Antwort-Header für den Hauptteil
+### Als Antwort-Header für den Haupt-Body
 
-Der erste Parameter im HTTP-Kontext ist entweder `inline` (Standardwert, der anzeigt, dass er innerhalb der Webseite oder als die Webseite angezeigt werden kann) oder `attachment` (zeigt an, dass er heruntergeladen werden soll; die meisten Browser zeigen einen 'Speichern unter'-Dialog an, der mit dem Wert der `filename` Parameter vorausgefüllt ist, sofern vorhanden).
+Der erste Parameter im HTTP-Kontext ist entweder `inline` (Standardwert, was bedeutet, dass er innerhalb der Webseite oder als Webseite angezeigt werden kann) oder `attachment` (was bedeutet, dass er heruntergeladen werden sollte; die meisten Browser präsentieren einen 'Speichern unter'-Dialog, der mit dem Wert der `filename`-Parameter vorausgefüllt ist, falls vorhanden).
 
 ```http
 Content-Disposition: inline
@@ -45,16 +44,17 @@ Content-Disposition: attachment; filename*=UTF-8''file%20name.jpg
 
 Die Anführungszeichen um den Dateinamen sind optional, aber notwendig, wenn Sie Sonderzeichen im Dateinamen verwenden, wie z. B. Leerzeichen.
 
-Die Parameter `filename` und `filename*` unterscheiden sich nur darin, dass `filename*` die in {{rfc("5987", "", "3.2")}} definierte Codierung verwendet. Wenn sowohl `filename` als auch `filename*` in einem einzelnen Header-Feldwert vorhanden sind, wird `filename*` bevorzugt, wenn beide verstanden werden. Es wird empfohlen, beide für maximale Kompatibilität einzuschließen, und Sie können `filename*` in `filename` umwandeln, indem Sie Nicht-ASCII-Zeichen durch ASCII-Äquivalente ersetzen (wie z. B. `é` durch `e` umwandeln). Prozentfluchtnzeichen in `filename` sollten vermieden werden, da sie von Browsern uneinheitlich behandelt werden. (Firefox und Chrome dekodieren sie, während Safari dies nicht tut.)
+Die Parameter `filename` und `filename*` unterscheiden sich nur darin, dass `filename*` die in {{rfc("5987", "", "3.2")}} definierte Codierung verwendet. Wenn sowohl `filename` als auch `filename*` in einem einzelnen Header-Feldwert vorhanden sind, wird `filename*` bevorzugt, wenn beide verstanden werden. Es wird empfohlen, beide für maximale Kompatibilität einzuschließen, und Sie können `filename*` in `filename` konvertieren, indem Sie nicht-ASCII-Zeichen durch ASCII-Äquivalente ersetzen (z. B. `é` durch `e`).
+Es wird empfohlen, Prozent-Escape-Sequenzen in `filename` zu vermeiden, da sie in verschiedenen Browsern unterschiedlich gehandhabt werden. (Firefox und Chrome dekodieren sie, während Safari dies nicht tut.)
 
-Browser können Umwandlungen vornehmen, um den Anforderungen des Dateisystems zu entsprechen, wie z. B. das Umwandeln von Pfadtrennzeichen (`/` und `\`) in Unterstriche (`_`).
+Browser können Transformationen anwenden, um den Anforderungen des Dateisystems gerecht zu werden, wie das Umwandeln von Pfadtrennzeichen (`/` und `\`) in Unterstriche (`_`).
 
 > [!NOTE]
-> Chrome und Firefox 82 und später priorisieren das HTML [`<a>` Element](/de/docs/Web/HTML/Element/a) `download` Attribut gegenüber dem `Content-Disposition: inline` Parameter (für [Same-Origin-URLs](/de/docs/Web/Security/Same-origin_policy)). Frühe Firefox-Versionen priorisieren den Header und zeigen den Inhalt inline an.
+> Chrome und Firefox 82 und später bevorzugen das HTML-`<a>`-Element's `download`-Attribut gegenüber dem `Content-Disposition: inline`-Parameter (für [gleiche Herkunfts-URLs](/de/docs/Web/Security/Same-origin_policy)). Frühere Versionen von Firefox bevorzugen den Header und zeigen den Inhalt inline an.
 
-### Als Header für einen Multipart-Körper
+### Als Header für einen mehrteiligen Body
 
-Ein `multipart/form-data` Körper erfordert einen `Content-Disposition` Header, um Informationen für jedes Teilstück des Formulars bereitzustellen (z. B. für jedes Formularfeld und alle Dateien, die Teil der Felddaten sind). Die erste Direktive ist immer `form-data`, und der Header _muss_ auch einen `name` Parameter enthalten, um das relevante Feld zu identifizieren. Zusätzliche Direktiven sind nicht case-sensitive und haben Argumente, die die Anführungszeichen-Syntax nach dem `'='` Zeichen verwenden. Mehrere Parameter werden durch ein Semikolon (`';'`) getrennt.
+Ein `multipart/form-data`-Body erfordert einen `Content-Disposition`-Header, um Informationen über jeden Teil des Formulars bereitzustellen (z. B. für jedes Formularfeld und alle Dateien, die Teil der Felddaten sind). Die erste Direktive ist immer `form-data`, und der Header muss auch einen `name`-Parameter enthalten, um das relevante Feld zu identifizieren. Zusätzliche Direktiven sind nicht groß- und kleinschreibungsempfindlich und haben Argumente, die nach dem `=`-Zeichen die Anführungszeichen-Syntax verwenden. Mehrere Parameter werden durch ein Semikolon (`;`) getrennt.
 
 ```http
 Content-Disposition: form-data; name="fieldName"
@@ -65,25 +65,27 @@ Content-Disposition: form-data; name="fieldName"; filename="filename.jpg"
 
 - `name`
 
-  - : Wird von einer Zeichenkette gefolgt, die den Namen des HTML-Feldes im Formular enthält, auf das sich der Inhalt dieses Teils bezieht. Bei mehreren Dateien im selben Feld (zum Beispiel das [`multiple`](/de/docs/Web/HTML/Element/input#multiple) Attribut eines `{{HTMLElement("input","&lt;input type=\"file\"&gt;")}}` Elements) kann es mehrere Teile mit demselben Namen geben.
+  - : Wird gefolgt von einem String, der den Namen des HTML-Feldes im Formular enthält, auf das sich der Inhalt dieses Teils bezieht. Bei der Verarbeitung mehrerer Dateien im selben Feld (zum Beispiel das [`multiple`](/de/docs/Web/HTML/Element/input#multiple)-Attribut eines `{{HTMLElement("input","&lt;input type=\"file\"&gt;")}}`-Elements) kann es mehrere Teile mit demselben Namen geben.
 
-    Ein `name` mit dem Wert `'_charset_'` gibt an, dass der Teil kein HTML-Feld ist, sondern der Standard-Zeichensatz, der für Teile ohne explizite Zeichenkodierungsinformationen verwendet werden soll.
+    Ein `name` mit dem Wert `'_charset_'` zeigt an, dass der Teil kein HTML-Feld ist, sondern die Standardzeichencodierung, die für Teile ohne explizite Zeichencodierungsinformationen verwendet werden soll.
 
 - `filename`
 
-  - : Wird von einer Zeichenkette gefolgt, die den ursprünglichen Namen der übertragenen Datei enthält. Dieser Parameter bietet hauptsächlich indikative Informationen. Die Vorschläge in [RFC2183](https://www.rfc-editor.org/rfc/rfc2183#section-2.3) gelten:
+  - : Wird gefolgt von einem String, der den ursprünglichen Namen der übertragenen Datei enthält. Dieser Parameter bietet hauptsächlich indikative Informationen. Die Vorschläge in [RFC2183](https://www.rfc-editor.org/rfc/rfc2183#section-2.3) gelten:
 
-    - Bevorzugen Sie nach Möglichkeit ASCII-Zeichen (der Client kann es percent-codieren, solange die Server-Implementierung es dekodiert).
+    - Bevorzugen Sie nach Möglichkeit ASCII-Zeichen (der Client kann es prozentcodieren, sofern die Serverimplementierung es dekodiert).
     - Alle Pfadinformationen sollten entfernt werden, z. B. durch Ersetzen von `/` durch `_`.
-    - Beim Schreiben auf die Festplatte sollte keine bestehende Datei überschrieben werden.
-    - Vermeiden Sie die Erstellung spezieller Dateien mit Sicherheitsimplikationen, wie das Erstellen einer Datei im Befehlssuchpfad.
-    - Erfüllen Sie andere Dateisystemanforderungen, wie eingeschränkte Zeichen und Längenbegrenzungen.
+    - Beim Schreiben auf die Festplatte sollte keine vorhandene Datei überschrieben werden.
+    - Vermeiden Sie die Erstellung spezieller Dateien mit Sicherheitsimplikationen, wie z. B. das Erstellen einer Datei im Suchpfad für Befehle.
+    - Erfüllen Sie andere Dateisystemanforderungen, wie eingeschränkte Zeichen und Längenbeschränkungen.
 
-Beachten Sie, dass der Anforderungs-Header keinen `filename*` Parameter hat und keine RFC 5987-Kodierung erlaubt.
+Beachten Sie, dass der Anfrage-Header den `filename*`-Parameter nicht enthält und keine RFC 5987-Codierung zulässt.
 
 ## Beispiele
 
-Eine Antwort, die den "Speichern unter"-Dialog auslöst:
+### Auslösen eines Download-Dialogs für eine Ressource
+
+Die folgende Antwort löst den "Speichern unter"-Dialog in einem Browser aus:
 
 ```http
 200 OK
@@ -94,24 +96,27 @@ Content-Length: 21
 <HTML>Save me!</HTML>
 ```
 
-Diese einfache HTML-Datei wird als regulärer Download gespeichert, anstatt im Browser angezeigt zu werden. Die meisten Browser werden vorschlagen, sie unter dem Dateinamen `cool.html` (standardmäßig) zu speichern.
+Die HTML-Datei wird heruntergeladen, anstatt im Browser angezeigt zu werden.
+Die meisten Browser werden die Benutzer auffordern, sie standardmäßig mit dem Dateinamen `cool.html` zu speichern (wie in der `filename`-Direktive angegeben).
 
-Ein Beispiel für ein HTML-Formular, das im `multipart/form-data` Format gepostet wird und den `Content-Disposition` Header verwendet:
+### HTML-Formular, das mehrteiligen/form-data-Inhaltstyp sendet
+
+Das folgende Beispiel zeigt ein HTML-Formular, das mit `multipart/form-data` unter Verwendung des `Content-Disposition`-Headers gesendet wird. In der Praxis wäre der Grenzwert `delimiter123` eine vom Browser generierte Zeichenkette wie `----8721656041911415653955004498`:
 
 ```http
 POST /test.html HTTP/1.1
 Host: example.org
-Content-Type: multipart/form-data;boundary="boundary"
+Content-Type: multipart/form-data;boundary="delimiter123"
 
---boundary
+--delimiter123
 Content-Disposition: form-data; name="field1"
 
 value1
---boundary
+--delimiter123
 Content-Disposition: form-data; name="field2"; filename="example.txt"
 
 value2
---boundary--
+--delimiter123--
 ```
 
 ## Spezifikationen
@@ -125,5 +130,5 @@ value2
 ## Siehe auch
 
 - [HTML-Formulare](/de/docs/Learn/Forms)
-- Der {{HTTPHeader("Content-Type")}}, der die Grenze des Multipart-Körpers definiert.
-- Die [`FormData`](/de/docs/Web/API/FormData) Schnittstelle zum Vorbereiten von Formulardaten zur Verwendung in den [`fetch()`](/de/docs/Web/API/Window/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) APIs.
+- Der {{HTTPHeader("Content-Type")}}, der die Grenze des mehrteiligen Bodys definiert.
+- Die [`FormData`](/de/docs/Web/API/FormData)-Schnittstelle, die verwendet wird, um Formulardaten für die Verwendung in den APIs [`fetch()`](/de/docs/Web/API/Window/fetch) oder [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) vorzubereiten.
