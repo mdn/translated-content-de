@@ -66,7 +66,12 @@ jobs:
 
           yarn build:prepare
           yarn tool sync-translated-content ${{ matrix.lang }}
-          git clean -fd files/de/{conflicting,orphaned}
+
+      - name: Ignore conflicting/orphaned pages
+        working-directory: ${{ github.workspace }}/mdn/translated-content-de
+        run: |
+          git checkout -- files/de/_redirects.txt
+          rm -rf files/de/{conflicting,orphaned}
 
       - name: Gather related upstream commits
         env:
