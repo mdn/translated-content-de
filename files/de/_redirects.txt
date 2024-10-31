@@ -4,27 +4,4 @@
 #    yarn content add-redirect <fromURL> <toURL>
 #
 # FROM-URL	TO-URL
-/de/docs/Web/API/HTMLElement/cancel_event	/de/docs/orphaned/Web/API/HTMLElement/cancel_event
-/de/docs/Web/API/Web_Audio_API/Tools	/de/docs/conflicting/Web/API/Web_Audio_API
-/de/docs/Web/API/clearInterval	/de/docs/conflicting/Web/API/Window/clearInterval
-/de/docs/Web/API/clearTimeout	/de/docs/conflicting/Web/API/Window/clearTimeout
-/de/docs/Web/API/setInterval	/de/docs/conflicting/Web/API/Window/setInterval
-/de/docs/Web/API/setTimeout	/de/docs/conflicting/Web/API/Window/setTimeout
-/de/docs/Web/HTTP/Basics_of_HTTP	/de/docs/conflicting/Web/HTTP
-/de/docs/Web/HTTP/Basics_of_HTTP/Evolution_of_HTTP	/de/docs/conflicting/Web/HTTP/Evolution_of_HTTP
-/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types	/de/docs/conflicting/Web/HTTP/MIME_types
-/de/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types	/de/docs/conflicting/Web/HTTP/MIME_types/Common_types
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference	/de/docs/conflicting/Web/XSLT/Transforming_XML_with_XSLT
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/ancestor	/de/docs/conflicting/Web/XPath/Axes
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/ancestor-or-self	/de/docs/conflicting/Web/XPath/Axes_0fc321d403eeac7813aa326a330e0e1f
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/attribute	/de/docs/conflicting/Web/XPath/Axes_d1e66d961e9083f49d0ea198acb01f12
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/child	/de/docs/conflicting/Web/XPath/Axes_e4c40c841e332c3f0b0daf7df8260919
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/descendant	/de/docs/conflicting/Web/XPath/Axes_662a45e3491f4e094341660afbd09f51
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/descendant-or-self	/de/docs/conflicting/Web/XPath/Axes_a848aa3a90a6a0d3945db997bce0b917
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/following	/de/docs/conflicting/Web/XPath/Axes_0ae8ab644740562866673a905dba1889
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/following-sibling	/de/docs/conflicting/Web/XPath/Axes_e4b321fbf0770acaf38884fefb97a958
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/namespace	/de/docs/conflicting/Web/XPath/Axes_1159bf2fcd3a72b7fa15439fe30a34b8
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/parent	/de/docs/conflicting/Web/XPath/Axes_5da0ae1a57555a0c15855c11661291ec
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/preceding	/de/docs/conflicting/Web/XPath/Axes_9a424aee5066d972c5be238ffb843923
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/preceding-sibling	/de/docs/conflicting/Web/XPath/Axes_a2ea94201e9f9fe02a669044757a5df4
-/de/docs/Web/XSLT/Transforming_XML_with_XSLT/The_Netscape_XSLT_XPath_Reference/Axes/self	/de/docs/conflicting/Web/XPath/Axes_34c05b8a5cab6fe136a634055de78376
+
