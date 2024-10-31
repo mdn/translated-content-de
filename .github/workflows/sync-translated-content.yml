@@ -24,22 +24,33 @@ jobs:
           - de
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout (yari)
+        uses: actions/checkout@v4
+        with:
+          repository: mdn/yari
+          path: mdn/yari
+          ref: test-de
 
-      - uses: actions/checkout@v4
+      - name: Checkout (content)
+        uses: actions/checkout@v4
         with:
           repository: mdn/content
           path: mdn/content
 
-      - name: Setup Node.js environment
+      - name: Checkout (translated-content-de)
+        uses: actions/checkout@v4
+        with:
+          path: mdn/translated-content-de
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc"
+          node-version-file: "mdn/yari/.nvmrc"
           cache: "yarn"
-          cache-dependency-path: mdn/content/yarn.lock
+          cache-dependency-path: mdn/yari/yarn.lock
 
-      - name: Install all yarn packages
-        working-directory: ${{ github.workspace }}/mdn/content
+      - name: Install (yari)
+        working-directory: ${{ github.workspace }}/mdn/yari
         run: yarn --frozen-lockfile
         env:
           # https://github.com/microsoft/vscode-ripgrep#github-api-limit-note
@@ -48,14 +59,21 @@ jobs:
       - name: Sync translated content
         env:
           CONTENT_ROOT: ${{ github.workspace }}/mdn/content/files
-          CONTENT_TRANSLATED_ROOT: ${{ github.workspace }}/files
-        working-directory: ${{ github.workspace }}/mdn/content
-        run: yarn content sync-translated-content ${{ matrix.lang }}
+          CONTENT_TRANSLATED_ROOT: ${{ github.workspace }}/mdn/translated-content-de/files
+        working-directory: ${{ github.workspace }}/mdn/yari
+        run: |
+          set -eo pipefail
+
+          yarn build:prepare
+          yarn tool sync-translated-content ${{ matrix.lang }}
 
       - name: Gather related upstream commits
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        working-directory: ${{ github.workspace }}/mdn/translated-content-de
         run: |
+          set -eo pipefail
+
           # get upstream head sha
           UPSTREAM_HEAD_SHA=$(cd "${{ github.workspace }}/mdn/content" && git rev-parse HEAD)
           echo "upstream head sha: ${UPSTREAM_HEAD_SHA}"
@@ -85,6 +103,7 @@ jobs:
       - name: Create PR with sync for ${{ matrix.lang }}
         uses: peter-evans/create-pull-request@v7
         with:
+          path: mdn/translated-content-de
           commit-message: "${{ matrix.lang }}: sync translated content"
           branch: content-sync-${{ matrix.lang }}
           title: "[${{ matrix.lang }}] sync translated content"
