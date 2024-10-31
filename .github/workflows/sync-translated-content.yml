@@ -66,6 +66,7 @@ jobs:
 
           yarn build:prepare
           yarn tool sync-translated-content ${{ matrix.lang }}
+          git clean -fd files/de/{conflicting,orphaned}
 
       - name: Gather related upstream commits
         env:
