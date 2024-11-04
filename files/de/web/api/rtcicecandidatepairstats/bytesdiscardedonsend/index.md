@@ -1,20 +1,21 @@
 ---
-title: "RTCIceCandidatePairStats: bytesDiscardedOnSend Eigenschaft"
+title: "RTCIceCandidatePairStats: bytesDiscardedOnSend-Eigenschaft"
 short-title: bytesDiscardedOnSend
 slug: Web/API/RTCIceCandidatePairStats/bytesDiscardedOnSend
 l10n:
-  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
+  sourceCommit: 1ea99c8e68a85aac13ba846bbe95a6f686771221
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`bytesDiscardedOnSend`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) Wörterbuchs gibt die Gesamtzahl der Bytes an, die aufgrund von Socket-Fehlern verworfen wurden.
+Die **`bytesDiscardedOnSend`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der aufgrund von Socket-Fehlern verworfenen Bytes an.
 
-Die Fehler könnten beispielsweise dadurch verursacht werden, dass versucht wird, Pakete an den Socket zu übermitteln, wenn dieser voll ist.
+Die Fehler könnten beispielsweise dadurch verursacht werden, dass versucht wurde, Pakete an den Socket zu übergeben, wenn dieser voll ist.
 
 ### Wert
 
-Ein Ganzzahlwert, der die Gesamtzahl der aufgrund von Socket-Fehlern verworfenen Bytes angibt. Dies wird berechnet, wie in {{rfc("3550","", "6.4.1")}} definiert.
+Ein ganzzahliger Wert, der die Gesamtanzahl der aufgrund von Socket-Fehlern verworfenen Bytes angibt.
+Dies wird berechnet, wie in {{rfc("3550","", "6.4.1")}} definiert.
 
 ## Spezifikationen
 

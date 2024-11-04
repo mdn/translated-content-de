@@ -3,16 +3,16 @@ title: "RTCIceCandidatePairStats: packetsReceived-Eigenschaft"
 short-title: packetsReceived
 slug: Web/API/RTCIceCandidatePairStats/packetsReceived
 l10n:
-  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
+  sourceCommit: 1ea99c8e68a85aac13ba846bbe95a6f686771221
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
-Die **`packetsReceived`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der empfangenen Pakete für das Kandidatenpaar an.
+Die **`packetsReceived`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der auf dem Kandidatenpaar empfangenen Pakete an.
 
 ### Wert
 
-Ein Ganzzahlwert, der die Gesamtanzahl der empfangenen Pakete auf dem Paar angibt.
+Ein ganzzahliger Wert, der die Gesamtanzahl der auf dem Paar empfangenen Pakete angibt.
 
 ## Spezifikationen
 

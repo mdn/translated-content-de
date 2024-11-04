@@ -2,12 +2,12 @@
 title: CSS-Selektoren
 slug: Learn/CSS/Building_blocks/Selectors
 l10n:
-  sourceCommit: 4bddde3e2b86234eb4594809082873fc5bf00ee3
+  sourceCommit: 68772e87a84d6d6fc6a8e377dea4998afbeb511c
 ---
 
 {{LearnSidebar}}{{NextMenu("Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors", "Learn/CSS/Building_blocks")}}
 
-In {{Glossary("CSS", "CSS")}} werden Selektoren verwendet, um die {{Glossary("HTML", "HTML")}}-Elemente auf unseren Webseiten zu bestimmen, die wir stylen möchten. Es gibt eine Vielzahl von CSS-Selektoren, die eine feinkörnige Präzision beim Auswählen der zu stylenden Elemente ermöglichen. In diesem Artikel und seinen Unterartikeln werden wir die verschiedenen Typen detailliert durchgehen und sehen, wie sie funktionieren.
+In {{Glossary("CSS", "CSS")}} werden Selektoren verwendet, um die {{Glossary("HTML", "HTML")}}-Elemente auf unseren Webseiten zu zielen, die wir gestalten möchten. Es gibt eine Vielzahl von CSS-Selektoren, die es ermöglichen, mit feiner Präzision Elemente auszuwählen, die gestaltet werden sollen. In diesem Artikel und seinen Unterartikeln gehen wir im Detail auf die verschiedenen Typen ein und sehen, wie sie funktionieren.
 
 <table>
   <tbody>
@@ -20,34 +20,34 @@ In {{Glossary("CSS", "CSS")}} werden Selektoren verwendet, um die {{Glossary("HT
         >, Grundkenntnisse im
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >Umgang mit Dateien</a
-        >, HTML-Grundlagen (siehe
+          >Arbeiten mit Dateien</a
+        >, HTML-Grundlagen (studieren Sie
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >) und ein Verständnis davon, wie CSS funktioniert (siehe
-        <a href="/de/docs/Learn/CSS/First_steps">Erste Schritte mit CSS</a>.)
+        >), und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
+        <a href="/de/docs/Learn/CSS/First_steps">CSS erste Schritte</a>).
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Kennenlernen der Funktionsweise von CSS-Selektoren im Detail.</td>
+      <td>Erlernen, wie CSS-Selektoren im Detail funktionieren.</td>
     </tr>
   </tbody>
 </table>
 
 ## Was ist ein Selektor?
 
-Ein CSS-Selektor ist der erste Teil einer CSS-Regel. Es ist ein Muster von Elementen und anderen Begriffen, die dem Browser mitteilen, welche HTML-Elemente ausgewählt werden sollen, um die CSS-Eigenschaftswerte innerhalb der Regel auf sie anzuwenden. Das oder die Elemente, die vom Selektor ausgewählt werden, werden als _Subjekt des Selektors_ bezeichnet.
+Ein CSS-Selektor ist der erste Teil einer CSS-Regel. Es ist ein Muster aus Elementen und anderen Begriffen, die dem Browser mitteilen, welche HTML-Elemente ausgewählt werden sollen, um die CSS-Eigenschaftswerte innerhalb der Regel auf sie anzuwenden. Das Element oder die Elemente, die durch den Selektor ausgewählt werden, werden als _Subjekt des Selektors_ bezeichnet.
 
-![Einige Codezeilen mit hervorgehobenen h1.](selector.png)
+![Einige Codes mit hervorgehobenem h1.](selector.png)
 
-In anderen Artikeln sind Ihnen möglicherweise einige verschiedene Selektoren begegnet, und Sie haben gelernt, dass es Selektoren gibt, die das Dokument auf unterschiedliche Weise ansprechen — zum Beispiel, indem sie ein Element wie `h1` oder eine Klasse wie `.special` auswählen.
+In anderen Artikeln sind Ihnen möglicherweise einige verschiedene Selektoren begegnet und Sie haben gelernt, dass es Selektoren gibt, die das Dokument auf unterschiedliche Weise ansprechen — zum Beispiel durch Auswahl eines Elements wie `h1` oder einer Klasse wie `.special`.
 
-In CSS sind Selektoren in der CSS-Selektorenspezifikation definiert; wie jeder andere Teil von CSS benötigen sie Unterstützung in Browsern, damit sie funktionieren. Die meisten Selektoren, die Sie kennenlernen werden, sind in der [Level-3-Selektorenspezifikation](https://www.w3.org/TR/selectors-3/) und der [Level-4-Selektorenspezifikation](https://www.w3.org/TR/selectors-4/) definiert, bei denen es sich um ausgereifte Spezifikationen handelt, daher finden Sie eine hervorragende Browser-Unterstützung für diese Selektoren.
+In CSS sind Selektoren in der CSS-Selektoren-Spezifikation definiert; wie jede andere Komponente von CSS müssen sie in Browsern unterstützt werden, damit sie funktionieren. Die Mehrheit der Ihnen begegneten Selektoren sind in den [Selektoren-Spezifikationen der Stufen 3](https://www.w3.org/TR/selectors-3/) und [4](https://www.w3.org/TR/selectors-4/) definiert, die beide ausgereifte Spezifikationen sind, sodass Sie hervorragende Unterstützung in Browsern für diese Selektoren finden werden.
 
-## Selektoren-Listen
+## Selektorlisten
 
-Wenn Sie mehr als eine Stelle haben, die dasselbe CSS verwendet, können die einzelnen Selektoren in eine _Selektoren-Liste_ kombiniert werden, sodass die Regel auf alle einzelnen Selektoren angewendet wird. Wenn ich beispielsweise dasselbe CSS für ein `h1` und auch für eine Klasse `.special` habe, könnte ich dies als zwei separate Regeln schreiben.
+Wenn Sie mehr als ein Element haben, das das gleiche CSS verwendet, können die einzelnen Selektoren zu einer _Selektorliste_ kombiniert werden, sodass die Regel auf alle einzelnen Selektoren angewendet wird. Wenn ich zum Beispiel das gleiche CSS für ein `h1` und auch eine Klasse von `.special` habe, könnte ich dies als zwei separate Regeln schreiben.
 
 ```css
 h1 {
@@ -59,7 +59,7 @@ h1 {
 }
 ```
 
-Ich könnte diese auch in einer Selektoren-Liste kombinieren, indem ich ein Komma dazwischen setze.
+Ich könnte diese auch in eine Selektorliste kombinieren, indem ich ein Komma zwischen ihnen einfüge.
 
 ```css-nolint
 h1, .special {
@@ -67,7 +67,7 @@ h1, .special {
 }
 ```
 
-Leerzeichen sind vor oder nach dem Komma zulässig. Sie finden die Selektoren möglicherweise auch lesbarer, wenn jeder von ihnen in einer neuen Zeile steht.
+Leerzeichen sind vor oder nach dem Komma zulässig. Sie finden die Selektoren möglicherweise auch leichter lesbar, wenn jeder in einer neuen Zeile steht.
 
 ```css
 h1,
@@ -76,13 +76,51 @@ h1,
 }
 ```
 
-Im Live-Beispiel unten versuchen Sie, die beiden Selektoren zu kombinieren, die identische Deklarationen haben. Die visuelle Darstellung sollte nach der Kombination gleich bleiben.
+Versuchen Sie im Live-Beispiel unten, die beiden Selektoren zu kombinieren, die identische Deklarationen haben. Die visuelle Darstellung sollte die gleiche sein, nachdem sie kombiniert wurden.
 
-{{EmbedGHLiveSample("css-examples/learn/selectors/selector-list.html", '100%', 1150)}}
+```html live-sample___selector-list
+<h1>Type selectors</h1>
+<p>
+  Veggies es bonus vobis, proinde vos postulo essum magis
+  <span>kohlrabi welsh onion</span> daikon amaranth tatsoi tomatillo melon azuki
+  bean garlic.
+</p>
 
-Wenn Sie Selektoren auf diese Weise gruppieren und ein Selektor syntaktisch ungültig ist, wird die gesamte Regel ignoriert.
+<p>
+  Gumbo beet greens corn soko <strong>endive</strong> gumbo gourd. Parsley
+  shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra
+  wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.
+</p>
 
-Im folgenden Beispiel wird die ungültige Klassenselektorregel ignoriert, während das `h1` weiterhin gestylt wird.
+<p>
+  Turnip greens yarrow ricebean rutabaga <em>endive cauliflower</em> sea lettuce
+  kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter
+  purslane kale. Celery potato scallion desert raisin horseradish spinach
+</p>
+```
+
+```css live-sample___selector-list
+body {
+  font-family: sans-serif;
+}
+span {
+  background-color: yellow;
+}
+
+strong {
+  color: rebeccapurple;
+}
+
+em {
+  color: rebeccapurple;
+}
+```
+
+{{EmbedLiveSample("selector-list", "", "280px")}}
+
+Wenn Sie Selektoren auf diese Weise gruppieren, wird die gesamte Regel ignoriert, wenn ein Selektor syntaktisch ungültig ist.
+
+Im folgenden Beispiel wird die Regel des ungültigen Klassenselektors ignoriert, während das `h1` weiterhin gestaltet würde.
 
 ```css-nolint
 h1 {
@@ -94,7 +132,7 @@ h1 {
 }
 ```
 
-Wenn sie jedoch kombiniert werden, wird weder das `h1` noch die Klasse gestylt, da die gesamte Regel als ungültig angesehen wird.
+Wenn jedoch kombiniert, wird weder das `h1` noch die Klasse gestaltet, da die gesamte Regel als ungültig angesehen wird.
 
 ```css-nolint
 h1, ..special {
@@ -104,7 +142,7 @@ h1, ..special {
 
 ## Arten von Selektoren
 
-Es gibt einige verschiedene Gruppierungen von Selektoren, und das Wissen, welchen Typ von Selektor Sie benötigen könnten, hilft Ihnen, das richtige Werkzeug für die Aufgabe zu finden. In den Unterartikeln dieses Artikels werden wir die verschiedenen Gruppen von Selektoren im Detail betrachten.
+Es gibt einige verschiedene Gruppierungen von Selektoren, und zu wissen, welchen Selektortyp Sie benötigen könnten, hilft Ihnen dabei, das richtige Werkzeug für die Aufgabe zu finden. In den Unterartikeln dieses Artikels werden wir uns die verschiedenen Gruppen von Selektoren genauer ansehen.
 
 ### Typ-, Klassen- und ID-Selektoren
 
@@ -148,14 +186,14 @@ a[href="https://example.com"]
 
 ### Pseudo-Klassen und Pseudo-Elemente
 
-Diese Gruppe von Selektoren umfasst Pseudo-Klassen, die bestimmte Zustände eines Elements stylen. Die `:hover` Pseudo-Klasse beispielsweise wählt ein Element nur aus, wenn es vom Mauszeiger überfahren wird:
+Diese Gruppe von Selektoren umfasst Pseudo-Klassen, die bestimmte Zustände eines Elements stylen. Die `:hover`-Pseudo-Klasse beispielsweise wählt ein Element nur aus, wenn es von der Mauszeiger überfahren wird:
 
 ```css
 a:hover {
 }
 ```
 
-Sie umfasst auch Pseudo-Elemente, die einen bestimmten Teil eines Elements anstelle des Elements selbst auswählen. Zum Beispiel wählt `::first-line` immer die erste Zeile eines Textes innerhalb eines Elements aus (im unten stehenden Fall ein `<p>`), als ob ein `<span>` um die erste formatierte Zeile gewickelt und dann ausgewählt wurde.
+Sie umfasst auch Pseudo-Elemente, die einen bestimmten Teil eines Elements und nicht das Element selbst auswählen. Zum Beispiel wählt `::first-line` immer die erste Zeile des Textes innerhalb eines Elements aus (ein `<p>` im unten stehenden Fall), indem es so wirkt, als ob ein `<span>` um die erste formatierte Zeile gelegt und dann ausgewählt wird.
 
 ```css
 p::first-line {
@@ -164,7 +202,7 @@ p::first-line {
 
 ### Kombinatoren
 
-Die letzte Gruppe von Selektoren kombiniert andere Selektoren, um Elemente innerhalb unserer Dokumente anzusprechen. Das folgende Beispiel wählt Absätze aus, die direkte Kinder von `<article>`-Elementen sind, indem es den Kind-Kombinator (`>`) verwendet:
+Die letzte Gruppe von Selektoren kombiniert andere Selektoren, um Elemente innerhalb unserer Dokumente zu zielen. Das folgende Beispiel wählt Absätze aus, die direkte Kinder von `<article>`-Elementen sind, indem der Kind-Kombinator (`>`) verwendet wird:
 
 ```css
 article > p {
@@ -173,8 +211,8 @@ article > p {
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir CSS-Selektoren eingeführt, die es Ihnen ermöglichen, bestimmte HTML-Elemente anzusprechen. Als nächstes werden wir uns die [Typ-, Klassen- und ID-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors) genauer ansehen.
+In diesem Artikel haben wir CSS-Selektoren vorgestellt, die es Ihnen ermöglichen, bestimmte HTML-Elemente zu zielen. Als nächstes werden wir uns [Typ-, Klassen- und ID-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors) genauer ansehen.
 
-Für eine vollständige Liste der Selektoren, siehe unser [CSS-Selektoren-Referenz](/de/docs/Web/CSS/CSS_selectors).
+Für eine vollständige Liste von Selektoren siehe unser [CSS-Selektoren-Referenz](/de/docs/Web/CSS/CSS_selectors).
 
 {{NextMenu("Learn/CSS/Building_blocks/Selectors/Type_Class_and_ID_Selectors", "Learn/CSS/Building_blocks")}}

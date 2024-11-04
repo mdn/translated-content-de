@@ -3,16 +3,16 @@ title: "RTCIceCandidatePairStats: packetsSent-Eigenschaft"
 short-title: packetsSent
 slug: Web/API/RTCIceCandidatePairStats/packetsSent
 l10n:
-  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
+  sourceCommit: 1ea99c8e68a85aac13ba846bbe95a6f686771221
 ---
 
-{{APIRef("WebRTC")}}
+{{APIRef("WebRTC")}}{{SeeCompatTable}}
 
 Die **`packetsSent`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der auf dem Kandidatenpaar gesendeten Pakete an.
 
 ### Wert
 
-Ein ganzzahliger Wert, der die Gesamtanzahl der auf dem Paar gesendeten Pakete angibt.
+Ein integer Wert, der die Gesamtanzahl der auf dem Paar gesendeten Pakete angibt.
 
 ## Spezifikationen
 
