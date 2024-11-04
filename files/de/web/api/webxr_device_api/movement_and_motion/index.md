@@ -2,31 +2,31 @@
 title: "Bewegung, Orientierung und Bewegung: Ein WebXR-Beispiel"
 slug: Web/API/WebXR_Device_API/Movement_and_motion
 l10n:
-  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
+  sourceCommit: b7a7c441fa025458f2bf67d714c3303085e8258a
 ---
 
 {{DefaultAPISidebar("WebXR Device API")}}
 
-In diesem Artikel verwenden wir Informationen aus den vorherigen Artikeln unserer [WebXR](/de/docs/Web/API/WebXR_Device_API)-Tutorialreihe, um ein Beispiel zu erstellen, das einen rotierenden Würfel animiert, um den sich der Benutzer mit einem VR-Headset, einer Tastatur und/oder einer Maus frei bewegen kann. Dies wird dazu beitragen, Ihr Verständnis dafür zu festigen, wie die Geometrie der 3D-Grafik und VR funktioniert, sowie sicherzustellen, dass Sie verstehen, wie die Funktionen und Daten, die während der XR-Darstellung verwendet werden, zusammenarbeiten.
+In diesem Artikel nutzen wir die in den vorherigen Artikeln unserer [WebXR](/de/docs/Web/API/WebXR_Device_API) Tutorial-Serie eingeführten Informationen, um ein Beispiel zu erstellen, das einen rotierenden Würfel animiert, um den sich der Benutzer mit einem VR-Headset, einer Tastatur und/oder einer Maus frei bewegen kann. Dies wird dazu beitragen, Ihr Verständnis der Geometrie von 3D-Grafiken und VR zu festigen und sicherzustellen, dass Sie verstehen, wie die während der XR-Renderung verwendeten Funktionen und Daten zusammenarbeiten.
 
 **Abbildung: Screenshot dieses Beispiels in Aktion**
 ![Screenshot des Beispiels, das einen texturierten Würfel zeigt, um den sich der Benutzer bewegen kann](xr-sample.png)
 
-Der Kern dieses Beispiels—der rotierende, texturierte, beleuchtete Würfel—stammt aus unserer WebGL-Tutorialreihe, genauer gesagt aus dem vorletzten Artikel der Serie, der [Beleuchtung in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) behandelt.
+Der Kern dieses Beispiels – der drehende, texturierte und beleuchtete Würfel – stammt aus unserer WebGL-Tutorial-Serie; genauer gesagt aus dem vorletzten Artikel der Serie, der sich mit [Licht in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) befasst.
 
-Beim Lesen dieses Artikels und des begleitenden Quellcodes ist es hilfreich zu bedenken, dass das Display eines 3D-Headsets ein einzelner Bildschirm ist, der in zwei Hälften geteilt ist. Die linke Hälfte des Bildschirms wird nur vom linken Auge gesehen, während die rechte Hälfte nur vom rechten Auge gesehen wird. Das Rendern der Szene für eine immersive Darstellung erfordert mehrere Renderings der Szene—jeweils aus der Perspektive eines Auges.
+Beim Lesen dieses Artikels und des begleitenden Quellcodes ist es hilfreich, sich daran zu erinnern, dass das Display eines 3D-Headsets ein einzelner Bildschirm ist, der in zwei Hälften geteilt ist. Die linke Bildschirmhälfte wird nur vom linken Auge gesehen, während die rechte Hälfte nur vom rechten Auge gesehen wird. Für eine immersive Präsentation der Szene sind mehrere Renderings erforderlich – eines aus der Perspektive jedes Auges.
 
-Beim Rendern für das linke Auge wird im [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) das [Viewport](/de/docs/Web/API/XRWebGLLayer/getViewport) konfiguriert, um das Zeichnen auf die linke Hälfte der Zeichenfläche zu beschränken. Beim Rendern des rechten Auges wird das Viewport entsprechend eingestellt, um das Zeichnen auf die rechte Hälfte der Oberfläche zu beschränken.
+Beim Rendern für das linke Auge ist die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) so konfiguriert, dass der [Viewport](/de/docs/Web/API/XRWebGLLayer/getViewport) auf die linke Hälfte der Zeichenoberfläche beschränkt wird. Im Gegensatz dazu wird beim Rendern für das rechte Auge der Viewport so eingestellt, dass er nur die rechte Hälfte der Oberfläche nutzt.
 
-Dieses Beispiel demonstriert dies, indem es die Leinwand auf dem Bildschirm anzeigt, selbst wenn eine Szene als immersive Darstellung mit einem XR-Gerät präsentiert wird.
+Dieses Beispiel demonstriert dies, indem die Leinwand auf dem Bildschirm angezeigt wird, selbst wenn eine Szene mit einem XR-Gerät als immersive Anzeige präsentiert wird.
 
 ## Abhängigkeiten
 
-Während wir in diesem Beispiel nicht auf 3D-Grafik-Frameworks wie [`three.js`](https://threejs.org/) oder Ähnliches angewiesen sind, verwenden wir die [`glMatrix`](https://glmatrix.net/)-Bibliothek für Matrix-Mathematik, die wir auch in anderen Beispielen in der Vergangenheit eingesetzt haben. Dieses Beispiel importiert außerdem das [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill/), das von der Immersive Web Working Group gepflegt wird, die für die Spezifikation der WebXR-API verantwortlich ist. Durch das Importieren dieses Polyfills ermöglichen wir, dass das Beispiel in vielen Browsern funktioniert, die noch keine WebXR-Implementierungen haben, und glätten alle vorübergehenden Abweichungen von der Spezifikation, die in diesen immer noch experimentellen Tagen der WebXR-Spezifikation auftreten.
+Während wir in diesem Beispiel nicht auf 3D-Grafik-Frameworks wie [`three.js`](https://threejs.org/) oder Ähnliches zurückgreifen, verwenden wir die [`glMatrix`](https://glmatrix.net/) Bibliothek für die Matrixmathematik, die wir auch in früheren Beispielen verwendet haben. Dieses Beispiel importiert auch das von der Immersive Web Working Group gepflegte [WebXR-Polyfill](https://github.com/immersive-web/webxr-polyfill/), die für die Spezifikation der WebXR API verantwortlich ist. Indem wir dieses Polyfill importieren, ermöglichen wir es dem Beispiel, in vielen Browsern zu funktionieren, die noch keine WebXR-Implementierungen haben, und wir glätten vorübergehende Abweichungen von der Spezifikation, die in diesen noch experimentellen Tagen der WebXR-Spezifikation auftreten.
 
 ## Optionen
 
-Dieses Beispiel hat eine Reihe von Optionen, die Sie konfigurieren können, indem Sie die Werte der Konstanten anpassen, bevor Sie es im Browser laden. Der Code sieht so aus:
+Dieses Beispiel bietet eine Reihe von Konfigurationsoptionen, die durch Anpassung der Konstantenwerte vor dem Laden im Browser geändert werden können. Der Code sieht folgendermaßen aus:
 
 ```js
 const xRotationDegreesPerSecond = 25;
@@ -42,32 +42,32 @@ const MOUSE_SPEED = 0.003;
 ```
 
 - `xRotationDegreesPerSecond`
-  - : Die Anzahl der Rotationsgrade, die pro Sekunde um die X-Achse angewendet werden.
+  - : Die Anzahl der Grad, um die jede Sekunde um die X-Achse gedreht wird.
 - `yRotationDegreesPerSecond`
-  - : Die Anzahl der Grad, um die die Y-Achse jede Sekunde rotiert wird.
+  - : Die Anzahl der Grad, um die jede Sekunde um die Y-Achse gedreht wird.
 - `zRotationDegreesPerSecond`
-  - : Die Anzahl der Grad pro Sekunde, die um die Z-Achse rotiert werden.
+  - : Die Anzahl der Grad, um die jede Sekunde um die Z-Achse gedreht wird.
 - `enableRotation`
-  - : Ein boolescher Wert, der angibt, ob die Rotation des Würfels überhaupt aktiviert werden soll.
+  - : Ein Boolean, das angibt, ob die Rotation des Würfels überhaupt aktiviert werden soll.
 - `allowMouseRotation`
-  - : Wenn `true`, können Sie die Maus verwenden, um den Blickwinkel zu neigen und zu schwenken.
+  - : Wenn `true`, kann die Maus verwendet werden, um den Blickwinkel zu kippen und zu schwenken.
 - `allowKeyboardMotion`
-  - : Wenn `true`, bewegen die W, A, S und D Tasten den Betrachter nach oben, links, unten und rechts, während die Pfeiltasten nach oben und unten vorwärts und rückwärts bewegen. Wenn `false`, sind nur Änderungen am Blickwinkel durch das XR-Gerät erlaubt.
+  - : Wenn `true`, bewegen die Tasten W, A, S und D den Betrachter nach oben, links, unten und nach rechts, während die Pfeiltasten nach oben und unten vorwärts und rückwärts bewegen. Wenn `false`, sind nur XR-Geräteänderungen des Blickwinkels erlaubt.
 - `enableForcePolyfill`
-  - : Wenn dieser boolesche Wert `true` ist, wird das Beispiel versuchen, das WebXR-Polyfill zu verwenden, selbst wenn der Browser tatsächlich WebXR unterstützt. Wenn `false`, wird das Polyfill nur verwendet, wenn der Browser [`navigator.xr`](/de/docs/Web/API/Navigator/xr) nicht implementiert.
+  - : Wenn dieses Boolean auf `true` gesetzt ist, versucht das Beispiel, das WebXR-Polyfill zu verwenden, selbst wenn der Browser tatsächlich WebXR unterstützt. Wenn `false`, wird das Polyfill nur verwendet, wenn der Browser [`navigator.xr`](/de/docs/Web/API/Navigator/xr) nicht implementiert.
 - `SESSION_TYPE`
-  - : Der Typ der XR-Sitzung, die erstellt werden soll: `inline` für eine Inline-Sitzung im Kontext des Dokuments und `immersive-vr`, um die Szene an ein immersives VR-Headset zu präsentieren.
+  - : Der Typ der XR-Session, die erstellt werden soll: `inline` für eine Inline-Sitzung, die im Kontext des Dokuments präsentiert wird, und `immersive-vr`, um die Szene einem immersiven VR-Headset zu präsentieren.
 - `MOUSE_SPEED`
-  - : Ein Multiplikator, der verwendet wird, um die Eingaben von der Maus für die Neigungs- und Schwenksteuerung zu skalieren.
+  - : Ein Multiplikator, der verwendet wird, um die Eingaben der Maus für die Steuerung von Neigung und Schwenk zu skalieren.
 - `MOVE_DISTANCE`
-  - : Die Entfernung, die als Reaktion auf eine der Tasten zurückgelegt wird, die zum Bewegen des Betrachters durch die Szene verwendet werden.
+  - : Die Distanz, die als Antwort auf eine der Tasten verwendet wird, um den Betrachter durch die Szene zu bewegen.
 
 > [!NOTE]
-> Dieses Beispiel zeigt immer das, was auf dem Bildschirm gerendert wird, auch wenn der `immersive-vr`-Modus verwendet wird. Dies ermöglicht es Ihnen, Unterschiede im Rendering zwischen den beiden Modi zu vergleichen und Ausgaben aus dem immersiven Modus zu sehen, auch wenn Sie kein Headset haben.
+> Dieses Beispiel zeigt immer das, was es rendert, auf dem Bildschirm an, selbst wenn der `immersive-vr`-Modus verwendet wird. Dies ermöglicht Ihnen, Unterschiede in der Darstellung zwischen den beiden Modi zu vergleichen und die Ausgabe des immersiven Modus zu sehen, selbst wenn Sie kein Headset haben.
 
-## Einrichten und Dienstprogramme
+## Einrichtung und Hilfsfunktionen
 
-Als Nächstes deklarieren wir die Variablen und Konstanten, die in der Anwendung verwendet werden, beginnend mit denen zur Speicherung WebGL- und WebXR-spezifischer Informationen:
+Als nächstes deklarieren wir die Variablen und Konstanten, die in der gesamten Anwendung verwendet werden, beginnend mit denen, die WebGL- und WebXR-spezifische Informationen speichern:
 
 ```js
 let polyfill = null;
@@ -85,7 +85,7 @@ let mouseYaw = 0;
 let mousePitch = 0;
 ```
 
-Dies wird gefolgt von einer Reihe von Konstanten, hauptsächlich um verschiedene Vektoren und Matrizen zu enthalten, die beim Rendern der Szene verwendet werden.
+Dies wird durch eine Reihe von Konstanten gefolgt, hauptsächlich um verschiedene Vektoren und Matrizen zu speichern, die beim Rendern der Szene verwendet werden.
 
 ```js
 const viewerStartPosition = vec3.fromValues(0, 0, -10);
@@ -98,15 +98,15 @@ const inverseOrientation = quat.create();
 const RADIANS_PER_DEGREE = Math.PI / 180.0;
 ```
 
-Die ersten beiden—`viewerStartPosition` und `viewerStartOrientation`—geben an, wo der Betrachter relativ zum Zentrum des Raumes platziert wird und in welche Richtung er zunächst schaut. `cubeOrientation` speichert die aktuelle Orientierung des Würfels, während `cubeMatrix` und `mouseMatrix` Speicher für Matrizen sind, die während des Renderns der Szene verwendet werden. `inverseOrientation` ist ein Quaternion, das verwendet wird, um die Rotation darzustellen, die auf den Referenzraum des Objekts im aktuell gerenderten Frame angewendet werden soll.
+Die ersten beiden – `viewerStartPosition` und `viewerStartOrientation` – geben an, wo der Betrachter relativ zur Mitte des Raums plaziert wird, und in welche Richtung er zunächst schaut. `cubeOrientation` speichert die aktuelle Ausrichtung des Würfels, während `cubeMatrix` und `mouseMatrix` Speicherplatz für Matrizen sind, die während des Renderings der Szene verwendet werden. `inverseOrientation` ist ein Quaternion, das verwendet wird, um die Rotation zu repräsentieren, die auf den Referenzraum des Objekts im gerenderten Frame angewendet wird.
 
-`RADIANS_PER_DEGREE` ist der Wert, mit dem ein Winkel in Grad multipliziert wird, um den Winkel in Radianten umzuwandeln.
+`RADIANS_PER_DEGREE` ist der Wert, mit dem ein Winkel in Grad multipliziert werden muss, um den Winkel in Bogenmaß umzurechnen.
 
-Die letzten vier Variablen, die deklariert werden, sind Speicher für Referenzen auf die {{HTMLElement("div")}}-Elemente, in die wir die Matrizen ausgeben, wenn wir sie dem Benutzer zeigen wollen.
+Die letzten vier deklarierten Variablen sind Speicher für Referenzen zu den {{HTMLElement("div")}}-Elementen, in die wir die Matrizen ausgeben, wenn wir sie dem Benutzer zeigen möchten.
 
-### Fehlerprotokollierung
+### Fehler protokollieren
 
-Eine Funktion namens `LogGLError()` ist implementiert, um eine leicht anpassbare Möglichkeit zum Ausgeben von Protokollinformationen für Fehler bereitzustellen, die beim Ausführen von WebGL-Funktionen auftreten.
+Eine Funktion namens `LogGLError()` wird implementiert, um eine einfach anpassbare Methode bereitzustellen, um Protokollierungsinformationen für Fehler, die beim Ausführen von WebGL-Funktionen auftreten, auszugeben.
 
 ```js
 function LogGLError(where) {
@@ -117,17 +117,17 @@ function LogGLError(where) {
 }
 ```
 
-Diese nimmt als einzige Eingabe einen String, `where`, der verwendet wird, um anzugeben, welcher Teil des Programms den Fehler generiert hat, da ähnliche Fehler in mehreren Situationen auftreten können.
+Diese nimmt als einzige Eingabe einen String, `where`, entgegen, der verwendet wird, um anzugeben, welcher Teil des Programms den Fehler verursacht hat, da ähnliche Fehler in mehreren Situationen auftreten können.
 
 ### Die Vertex- und Fragment-Shader
 
-Die Vertex- und Fragment-Shader sind beide genau dieselben, die im Beispiel für unseren Artikel [Beleuchtung in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) verwendet werden. [Beziehen Sie sich darauf](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL#update_the_shaders), wenn Sie an dem [GLSL](/de/docs/Web/API/WebGL_API/By_example/Hello_GLSL)-Quellcode für die hier verwendeten Basis-Shader interessiert sind.
+Die Vertex- und Fragment-Shader sind genau dieselben wie in dem Beispiel für unseren Artikel [Licht in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) verwendet. Wenn Sie am [GLSL](/de/docs/Web/API/WebGL_API/By_example/Hello_GLSL) Quellcode der hier verwendeten grundlegenden Shader interessiert sind, [sehen Sie hier nach](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL#update_the_shaders).
 
-Es genügt zu sagen, dass der Vertex-Shader die Position jedes Vertexes berechnet, gegeben die Anfangspositionen jedes Vertexes und die Transformationen, die angewendet werden müssen, um zu simulieren, wie der Betrachter derzeit positioniert und ausgerichtet ist. Der Fragment-Shader gibt die Farbe jedes Vertexes zurück, wobei er bei Bedarf die Werte aus der Textur interpoliert und die Lichteffekte anwendet.
+Es genügt zu sagen, dass der Vertex-Shader die Position jedes Scheitelpunkts unter Berücksichtigung der anfänglichen Positionen der Scheitelpunkte und der Transformationen berechnet, die angewendet werden müssen, um sie zu simulieren, wie sie aus der aktuellen Position und Orientierung des Betrachters erscheinen. Der Fragment-Shader gibt die Farbe jedes Scheitelpunkts zurück, indem er sie nach Bedarf aus den Werten in der Textur interpoliert und die Lichteffekte anwendet.
 
-## WebXR starten und herunterfahren
+## Starten und Beenden von WebXR
 
-Beim ersten Laden des Skripts installieren wir einen Handler für das [`load`](/de/docs/Web/API/Window/load_event)-Ereignis, damit wir die Initialisierung durchführen können.
+Beim erstmaligen Laden des Skripts installieren wir einen Handler für das [`load`](/de/docs/Web/API/Window/load_event) Ereignis, damit wir die Initialisierung durchführen können.
 
 ```js
 window.addEventListener("load", onLoad);
@@ -149,13 +149,13 @@ function onLoad() {
 }
 ```
 
-Der `load`-Ereignis-Handler erhält eine Referenz auf den Button, der WebXR ein- und ausschaltet, in `xrButton`, und fügt dann einen Handler für [`click`](/de/docs/Web/API/Element/click_event)-Ereignisse hinzu. Dann werden Referenzen auf die vier {{HTMLElement("div")}}-Blöcke erhalten, in die wir die aktuellen Inhalte jeder der Schlüsselmatrizen für Informationszwecke während unserer Szene ausgeben werden.
+Der `load` Event-Handler erhält eine Referenz auf den Button, der WebXR ein- und ausschaltet, in `xrButton`, und fügt dann einen Handler für [`click`](/de/docs/Web/API/Element/click_event) Ereignisse hinzu. Anschließend werden Referenzen zu den vier {{HTMLElement("div")}} Blockelementen erhalten, in welche wir die aktuellen Inhalte jeder der wichtigsten Matrizen für Informationszwecke während des Laufens unserer Szene ausgeben.
 
-Dann schauen wir, ob [`navigator.xr`](/de/docs/Web/API/Navigator/xr) definiert ist. Wenn nicht, und/oder die `enableForcePolyfill`-Konfiguration auf `true` gesetzt ist, installieren wir das WebXR-Polyfill, indem wir die `WebXRPolyfill`-Klasse instanziieren.
+Danach prüfen wir, ob [`navigator.xr`](/de/docs/Web/API/Navigator/xr) definiert ist. Falls nicht – und/oder die Konfiguration `enableForcePolyfill` auf `true` gesetzt ist – installieren wir das WebXR-Polyfill, indem wir die `WebXRPolyfill` Klasse instanziieren.
 
-### Umgang mit dem Startup- und Shutdown-UI
+### Umgang mit der Startup- und Shutdown-Benutzeroberfläche
 
-Dann rufen wir die Funktion `setupXRButton()` auf, die den "Enter/Exit WebXR"-Button konfiguriert, um ihn je nach Verfügbarkeit der WebXR-Unterstützung für den in der `SESSION_TYPE`-Konstanten angegebenen Sitzungstyp zu aktivieren oder zu deaktivieren.
+Dann rufen wir die Funktion `setupXRButton()` auf, die sich damit beschäftigt, den Button "Enter/Exit WebXR" zu konfigurieren, um ihn je nach Verfügbarkeit der WebXR-Unterstützung für den in der `SESSION_TYPE`-Konstante angegebenen Sitzungstyp zu aktivieren oder zu deaktivieren.
 
 ```js
 function setupXRButton() {
@@ -176,9 +176,9 @@ function setupXRButton() {
 }
 ```
 
-Das Label des Buttons wird im Code, der tatsächlich die WebXR-Sitzung startet und stoppt, angepasst; das werden wir unten sehen.
+Das Label des Buttons wird im Code angepasst, der tatsächlich das Starten und Stoppen der WebXR-Sitzung behandelt; das werden wir unten sehen.
 
-Die WebXR-Sitzung wird durch den Handler für [`click`](/de/docs/Web/API/Element/click_event)-Ereignisse auf dem Button ein- und ausgeschaltet, dessen Label entsprechend auf "Enter WebXR" oder "Exit WebXR" gesetzt ist. Dies wird durch den `onXRButtonClick()`-Ereignis-Handler durchgeführt.
+Die WebXR-Session wird durch den Handler für [`click`](/de/docs/Web/API/Element/click_event) Ereignisse auf den Button ein- und ausgeschaltet, dessen Label entsprechend auf "Enter WebXR" oder "Exit WebXR" gesetzt wird. Dies wird durch den `onXRButtonClick()` Event-Handler getan.
 
 ```js
 async function onXRButtonClick(event) {
@@ -194,15 +194,15 @@ async function onXRButtonClick(event) {
 }
 ```
 
-Dies beginnt damit, den Wert von `xrSession` zu überprüfen, um zu sehen, ob wir bereits ein [`XRSession`](/de/docs/Web/API/XRSession)-Objekt haben, das eine laufende WebXR-Sitzung repräsentiert. Wenn nicht, bedeutet der Klick eine Anfrage, den WebXR-Modus zu aktivieren, also wird [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) aufgerufen, um eine WebXR-Sitzung des gewünschten WebXR-Sitzungstyps anzufordern, und dann `sessionStarted()`, um die Szene in dieser WebXR-Sitzung zu starten.
+Dieser beginnt damit, den Wert von `xrSession` zu überprüfen, um zu sehen, ob wir bereits ein [`XRSession`](/de/docs/Web/API/XRSession) Objekt haben, das eine laufende WebXR-Sitzung repräsentiert. Wenn nicht, repräsentiert der Klick ein Ersuchen, den WebXR-Modus zu aktivieren. So rufen wir [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) auf, um eine WebXR-Sitzung des gewünschten Typs anzufordern, und rufen dann `sessionStarted()` auf, um die Szene in dieser WebXR-Sitzung zu starten.
 
-Wenn wir bereits eine laufende Sitzung haben, rufen wir die [`end()`](/de/docs/Web/API/XRSession/end)-Methode auf, um die Sitzung zu beenden.
+Wenn wir bereits eine laufende Session haben, rufen wir dagegen die [`end()`](/de/docs/Web/API/XRSession/end) Methode auf, um die Session zu beenden.
 
-Das letzte, was wir in diesem Code tun, ist zu überprüfen, ob `xrSession` noch nicht `NULL` ist. Wenn ja, rufen wir `sessionEnded()` auf, den Handler für das [`end`](/de/docs/Web/API/XRSession/end_event)-Ereignis. Dieser Code sollte nicht notwendig sein, aber es scheint ein Problem zu geben, bei dem mindestens einige Browser das `end`-Ereignis nicht korrekt auslösen. Durch das direkte Ausführen des Ereignishandlers schließen wir den Abschlussprozess manuell ab.
+Das Letzte, was wir in diesem Code tun, ist zu prüfen, ob `xrSession` immer noch nicht `NULL` ist. Wenn ja, rufen wir `sessionEnded()` auf, den Handler für das [`end`](/de/docs/Web/API/XRSession/end_event) Ereignis. Dieser Code sollte nicht notwendig sein, aber es scheint ein Problem zu geben, bei dem zumindest einige Browser das `end` Ereignis nicht korrekt auslösen. Indem wir den Event-Handler direkt ausführen, schließen wir manuell den Schließvorgang in dieser Situation ab.
 
 ### Starten der WebXR-Sitzung
 
-Die `sessionStarted()`-Funktion kümmert sich um das eigentliche Einrichten und Starten der Sitzung, indem sie Ereignishandler einrichtet, den GLSL-Code für die Vertex- und Fragment-Shader kompiliert und installiert und die WebGL-Schicht an die WebXR-Sitzung anhängt, bevor die Rendering-Schleife gestartet wird. Sie wird als Handler für das Versprechen aufgerufen, das von [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) zurückgegeben wird.
+Die `sessionStarted()` Funktion kümmert sich um das eigentliche Einrichten und Starten der Sitzung, indem sie Event-Handler einrichtet, den GLSL-Code für die Vertex- und Fragment-Shader kompiliert und installiert und die WebGL-Schicht an die WebXR-Sitzung anhängt, bevor die Render-Schleife gestartet wird. Sie wird als Handler für das von [`requestSession()`](/de/docs/Web/API/XRSystem/requestSession) zurückgegebene Versprechen aufgerufen.
 
 ```js
 function sessionStarted(session) {
@@ -274,27 +274,27 @@ function sessionStarted(session) {
 }
 ```
 
-Nachdem das neu erstellte [`XRSession`](/de/docs/Web/API/XRSession)-Objekt in `xrSession` gespeichert wurde, wird das Label des Buttons auf "Exit WebXR" gesetzt, um seine neue Funktion nach dem Start der Szene anzuzeigen, und ein Handler für das [`end`](/de/docs/Web/API/XRSession/end_event)-Ereignis installiert, sodass wir benachrichtigt werden, wenn die `XRSession` endet.
+Nachdem das neu erstellte [`XRSession`](/de/docs/Web/API/XRSession) Objekt in `xrSession` gespeichert wurde, wird das Label des Buttons auf "Exit WebXR" gesetzt, um seine neue Funktion nach dem Starten der Szene anzuzeigen, und ein Handler für das [`end`](/de/docs/Web/API/XRSession/end_event) Ereignis installiert, damit wir benachrichtigt werden, wenn die `XRSession` endet.
 
-Dann erhalten wir eine Referenz auf die in unserem HTML vorhandene {{HTMLElement("canvas")}}-Leinwand, sowie deren WebGL-Rendering-Kontext, der als Zeichenfläche für die Szene verwendet wird. Die `xrCompatible`-Eigenschaft wird angefordert, wenn [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf das Element aufgerufen wird, um Zugriff auf den WebGL-Rendering-Kontext für die Leinwand zu erhalten. Dies stellt sicher, dass der Kontext für die Verwendung als Quelle für das WebXR-Rendering konfiguriert ist.
+Dann erhalten wir eine Referenz auf die in unserem HTML gefundene {{HTMLElement("canvas")}} -Element sowie seinen WebGL-Rendering-Kontext, das als Zeichenfläche für die Szene verwendet werden soll. Die `xrCompatible` Eigenschaft wird angefragt, wenn [`getContext()`](/de/docs/Web/API/HTMLCanvasElement/getContext) auf dem Element aufgerufen wird, um Zugang zum WebGL-Rendering-Kontext für die Leinwand zu erhalten. Dies stellt sicher, dass der Kontext für die Verwendung als Quelle für das WebXR-Rendering konfiguriert ist.
 
-Als Nächstes fügen wir, aber nur wenn die Konstante `allowMouseRotation` auf `true` gesetzt ist, Ereignishandler für die [`mousemove`](/de/docs/Web/API/Element/mousemove_event) und [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) hinzu. Der `mousemove`-Handler wird sich mit dem Neigen und Schwenken des Blickwinkels auf Grundlage der Mousebewegungen befassen. Da die "Ansichtssteuerung" nur funktioniert, während die rechte Maustaste gedrückt gehalten wird und das Klicken mit der rechten Maustaste das Kontextmenü auslöst, fügen wir der Leinwand einen Handler für das `contextmenu`-Ereignis hinzu, um zu verhindern, dass das Kontextmenü erscheint, wenn der Benutzer seine Mausbewegung beginnt.
+Als nächstes fügen wir Event-Handler für die [`mousemove`](/de/docs/Web/API/Element/mousemove_event) und [`contextmenu`](/de/docs/Web/API/Element/contextmenu_event) Ereignisse hinzu, jedoch nur, wenn die `allowMouseRotation` Konstante `true` ist. Der `mousemove`-Handler wird das Kippen und Schwenken des Blickwinkels entsprechend der Mausbewegung behandeln. Da die ""-Funktion nur funktioniert, während die rechte Maustaste gedrückt gehalten wird, und das Klicken mit der rechten Maustaste das Kontextmenü auslöst, fügen wir einen Handler für das `contextmenu` Ereignis auf der Leinwand hinzu, um zu verhindern, dass das Kontextmenü erscheint, wenn der Benutzer beginnt, die Maus zu ziehen.
 
-Als Nächstes werden die Shader-Programme kompiliert; Referenzen auf deren Variablen erhalten; die Puffer initialisiert, die das Array jeder Position speichern; die Indizes in die Positionstabelle für jeden Vertex; die Vertex-Normalen; und die Texturkoordinaten für jeden Vertex. All dies stammt direkt aus dem WebGL-Beispielcode, also beziehen Sie sich auf [Beleuchtung in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) und die vorhergehenden Artikel [Erstellen von 3D-Objekten mit WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL) und [Verwendung von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL). Dann wird unsere `loadTexture()`-Funktion aufgerufen, um die Texturdatei zu laden.
+Als nächstes kompilieren wir die Shader-Programme; erhalten Referenzen zu ihren Variablen; initialisieren die Puffer, die das Array jeder Position speichern; die Indexwerte in der Positionstabelle für jeden Scheitelpunkt; die Vertex-Normalen; und die Texturkoordinaten für jeden Vertex. Dies alles wird direkt aus dem WebGL-Beispielcode übernommen, daher verweisen wir auf [Licht in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) und die vorangegangenen Artikel [Erstellen von 3D-Objekten mit WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL) und [Verwendung von Texturen in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL). Dann wird unsere `loadTexture()`-Funktion aufgerufen, um die Texturdatei zu laden.
 
-Jetzt, da die Renderstrukturen und -daten geladen sind, bereiten wir uns darauf vor, die `XRSession` auszuführen. Wir verbinden die Sitzung mit der WebGL-Schicht, sodass sie weiß, was als Rendering-Oberfläche zu verwenden ist, indem wir [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) mit einem `baseLayer` aufrufen, das auf ein neues [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) setzt.
+Da die Rendering-Strukturen und -Daten geladen sind, beginnen wir mit der Vorbereitung, um die `XRSession` auszuführen. Wir verbinden die Sitzung mit der WebGL-Schicht, damit diese weiß, was als Rendering-Oberfläche verwendet werden soll, indem wir [`XRSession.updateRenderState()`](/de/docs/Web/API/XRSession/updateRenderState) mit einem `baseLayer` aufrufen, der auf eine neue [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer) gesetzt ist.
 
-Wir schauen dann auf den Wert der `SESSION_TYPE`-Konstanten, um zu sehen, ob der WebXR-Kontext immersiv oder inline sein sollte. Immersive Sitzungen verwenden den `local`-Referenzraum, während Inline-Sitzungen den `viewer`-Referenzraum verwenden.
+Wir betrachten dann den Wert der `SESSION_TYPE` Konstante, um zu sehen, ob der WebXR-Kontext immersiv oder inline sein soll. Immersive Sitzungen verwenden die `local` Referenzraum, während Inline-Sitzungen die `viewer` Referenzraum verwenden.
 
-Die `fromTranslation()`-Funktion der `glMatrix`-Bibliothek für 4x4-Matrizen wird verwendet, um die Startposition des Betrachters wie in der `viewerStartPosition`-Konstanten angegeben in eine Transformationsmatrix, `cubeMatrix`, zu konvertieren. Die Anfangsausrichtung des Betrachters, die `viewerStartOrientation`-Konstante, wird in die `cubeOrientation` kopiert, die verwendet wird, um die Rotation des Würfels im Laufe der Zeit zu verfolgen.
+Die `fromTranslation()` Funktion der `glMatrix` Bibliothek für 4x4 Matrizen wird verwendet, um die Startposition des Viewers wie in der `viewerStartPosition` Konstante angegeben in eine Transformationsmatrix `cubeMatrix` umzuwandeln. Die Startorientierung des Viewers, die `viewerStartOrientation` Konstante, wird in die `cubeOrientation` kopiert, die verwendet wird, um die Rotation des Würfels im Laufe der Zeit zu verfolgen.
 
-`sessionStarted()` endet, indem die Methode [`requestReferenceSpace()`](/de/docs/Web/API/XRSession/requestReferenceSpace) der Sitzung aufgerufen wird, um ein Referenzraumobjekt zu erhalten, das den Raum beschreibt, in dem das Objekt erstellt wird. Wenn das zurückgegebene Versprechen ein [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace)-Objekt auflöst, rufen wir seine Methode [`getOffsetReferenceSpace`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace) auf, um ein Referenzraumobjekt zu erhalten, das das Koordinatensystem des Objekts darstellt. Der Ursprung des neuen Raums befindet sich an den Weltkoordinaten, die durch die `viewerStartPosition` und seine Orientierung auf `cubeOrientation` festgelegt sind. Dann teilen wir der Sitzung mit, dass wir bereit zum Zeichnen eines Frames sind, indem wir die Methode [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) ihrer Sitzung aufrufen. Wir protokollieren die zurückgegebene Anforderungs-ID, falls wir die Anforderung später stornieren müssen.
+`sessionStarted()` endet, indem die `requestReferenceSpace()` Methode der Sitzung aufgerufen wird, um ein Referenzraumobjekt zu erhalten, das den Raum beschreibt, in dem das Objekt erstellt wird. Wenn das zurückgegebene Versprechen zu einem [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) Objekt aufgelöst wird, rufen wir seine [`getOffsetReferenceSpace`](/de/docs/Web/API/XRReferenceSpace/getOffsetReferenceSpace) Methode auf, um ein Referenzraumobjekt zu erhalten, das das Koordinatensystem des Objekts darstellt. Der Ursprung des neuen Raumes befindet sich an den Weltkoordinaten, die von der `viewerStartPosition` angegeben werden, und seine Orientierung wird auf `cubeOrientation` gesetzt. Dann geben wir der Sitzung Bescheid, dass wir bereit sind, ein Frame zu zeichnen, indem wir ihre [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) Methode aufrufen. Wir notieren uns die zurückgegebene Anforderungs-ID, falls wir die Anforderung später abbrechen müssen.
 
-Abschließend gibt `sessionStarted()` die [`XRSession`](/de/docs/Web/API/XRSession) zurück, die die WebXR-Sitzung des Benutzers darstellt.
+Schließlich gibt `sessionStarted()` die [`XRSession`](/de/docs/Web/API/XRSession) zurück, die die WebXR-Sitzung des Benutzers darstellt.
 
 ### Wenn die Sitzung endet
 
-Wenn die WebXR-Sitzung endet—entweder weil sie vom Benutzer heruntergefahren wird oder durch Aufruf von [`XRSession.end()`](/de/docs/Web/API/XRSession/end)—wird das [`end`](/de/docs/Web/API/XRSession/end_event)-Ereignis gesendet; wir haben dies so eingerichtet, dass es eine Funktion namens `sessionEnded()` aufruft.
+Wenn die WebXR-Sitzung endet – entweder weil sie vom Benutzer heruntergefahren wird oder durch das Aufrufen von [`XRSession.end()`](/de/docs/Web/API/XRSession/end) – wird das [`end`](/de/docs/Web/API/XRSession/end_event) Ereignis gesendet; wir haben es so eingerichtet, dass es eine Funktion namens `sessionEnded()` aufruft.
 
 ```js
 function sessionEnded() {
@@ -308,17 +308,17 @@ function sessionEnded() {
 }
 ```
 
-Wir können `sessionEnded()` auch direkt aufrufen, wenn wir die WebXR-Sitzung programmatisch beenden möchten. In beiden Fällen wird das Label des Buttons aktualisiert, um anzuzeigen, dass ein Klick eine Sitzung startet, und dann, wenn eine ausstehende Anfrage für einen Animationsframe vorhanden ist, stornieren wir sie durch Aufruf von [`cancelAnimationFrame`](/de/docs/Web/API/XRSession/cancelAnimationFrame).
+Wir können `sessionEnded()` auch direkt aufrufen, wenn wir die WebXR-Sitzung programmatisch beenden möchten. In jedem Fall wird das Label des Buttons aktualisiert, um anzuzeigen, dass ein Klick eine Sitzung startet, und dann, wenn ein ausstehender Anforderungsauftrag für ein Animationsframe existiert, abbrechen wir es durch das Aufrufen von [`cancelAnimationFrame`](/de/docs/Web/API/XRSession/cancelAnimationFrame).
 
-Nachdem dies erledigt ist, wird der Wert von `xrSession` auf `NULL` geändert, um anzuzeigen, dass wir mit der Sitzung fertig sind.
+Wenn das erledigt ist, wird der Wert von `xrSession` auf `NULL` geändert, um anzuzeigen, dass wir mit der Sitzung fertig sind.
 
-## Implementieren der Steuerelemente
+## Umsetzung der Steuerungen
 
-Werfen wir nun einen Blick auf den Code, der darauf abzielt, Tastatur- und Mausereignisse in etwas Nutzbares zur Steuerung eines Avatars in einem WebXR-Szenario zu verwandeln.
+Sehen wir uns nun den Code an, der Tastatur- und Mausereignisse in etwas Verwendbares zur Steuerung eines Avatars in einem WebXR-Szenario umsetzt.
 
 ### Bewegung mit der Tastatur
 
-Um dem Benutzer zu erlauben, sich durch die 3D-Welt zu bewegen, auch wenn er kein WebXR-Gerät mit Eingaben zum Bewegen durch den Raum hat, reagiert unser Handler für [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse, `handleKeyDown()`, indem er die Offsets von der Ursprungsposition des Objekts aktualisiert basierend darauf, welche Taste gedrückt wurde.
+Um es dem Benutzer zu ermöglichen, sich durch die 3D-Welt zu bewegen, selbst wenn er kein WebXR-Gerät mit den Eingabemöglichkeiten zur Bewegung durch den Raum hat, reagiert unser Handler für [`keydown`](/de/docs/Web/API/Element/keydown_event) Ereignisse, indem er Offsets von der Objektursprung basierend auf der gedrückten Taste aktualisiert.
 
 ```js
 function handleKeyDown(event) {
@@ -358,53 +358,19 @@ function handleKeyDown(event) {
 
 Die Tasten und ihre Effekte sind:
 
-- Die
-
-  <kbd>W</kbd>
-
-  Taste bewegt den Betrachter um `MOVE_DISTANCE` nach oben.
-
-- Die
-
-  <kbd>S</kbd>
-
-  Taste bewegt den Betrachter um `MOVE_DISTANCE` nach unten.
-
-- Die
-
-  <kbd>A</kbd>
-
-  Taste verschiebt den Betrachter um `MOVE_DISTANCE` nach links.
-
-- Die
-
-  <kbd>D</kbd>
-
-  Taste verschiebt den Betrachter um `MOVE_DISTANCE` nach rechts.
-
-- Die Nach-oben-Pfeiltaste,
-
-  <kbd>↑</kbd>
-
-  , verschiebt den Betrachter um `MOVE_DISTANCE` nach vorne.
-
-- Die Nach-unten-Pfeiltaste,
-
-  <kbd>↓</kbd>
-
-  , verschiebt den Betrachter um `MOVE_DISTANCE` nach hinten.
-
-- Die
-
-  <kbd>R</kbd>
-
-  Taste setzt den Betrachter auf die anfängliche Position und Ausrichtung zurück, indem sie die Eingabe-Offsets alle auf 0 zurücksetzt.
+- Die <kbd>W</kbd> Taste bewegt den Betrachter um `MOVE_DISTANCE` nach oben.
+- Die <kbd>S</kbd> Taste bewegt den Betrachter um `MOVE_DISTANCE` nach unten.
+- Die <kbd>A</kbd> Taste schiebt den Betrachter um `MOVE_DISTANCE` nach links.
+- Die <kbd>D</kbd> Taste schiebt den Betrachter um `MOVE_DISTANCE` nach rechts.
+- Die Aufwärtspfeiltaste, <kbd>↑</kbd>, schiebt den Betrachter um `MOVE_DISTANCE` vorwärts.
+- Die Abwärtspfeiltaste, <kbd>↓</kbd>, schiebt den Betrachter um `MOVE_DISTANCE` rückwärts.
+- Die <kbd>R</kbd> Taste setzt den Betrachter auf deren Ausgangsposition und -ausrichtung zurück, indem alle Eingabe-Offsets auf 0 zurückgesetzt werden.
 
 Diese Offsets werden vom Renderer ab dem nächsten gezeichneten Frame angewendet.
 
 ### Neigen und Schwenken mit der Maus
 
-Wir haben auch einen [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis-Handler, der überprüft, ob die rechte Maustaste gedrückt ist, und wenn ja, die Funktion `rotateViewBy()` aufruft, die als nächstes definiert ist, um die neuen Neigungs- (nach oben und unten) und Schwenkwinkel- (nach links und rechts) Werte zu berechnen und zu speichern.
+Wir haben auch einen [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignishandler, der überprüft, ob die rechte Maustaste gedrückt ist, und falls ja, ruft er die Funktion `rotateViewBy()` auf, die als nächstes definiert wird, um die neuen Neigungs- (Blick nach oben und unten) und Schwenk- (Blick nach links und rechts) Werte zu berechnen und zu speichern.
 
 ```js
 function handlePointerMove(event) {
@@ -414,7 +380,7 @@ function handlePointerMove(event) {
 }
 ```
 
-Die Berechnung der neuen Neigungs- und Schwenkwinkelwerte wird von der Funktion `rotateViewBy()` behandelt:
+Das Berechnen der neuen Neigungs- und Schwenkwerte wird von der Funktion `rotateViewBy()` behandelt:
 
 ```js
 function rotateViewBy(dx, dy) {
@@ -429,11 +395,11 @@ function rotateViewBy(dx, dy) {
 }
 ```
 
-Da `dx` und `dy` als Eingabe-Mausdelta-Werte übergeben werden, wird der neue Schwenkwert berechnet, indem von dem aktuellen Wert von `mouseYaw` das Produkt von `dx` und der `MOUSE_SPEED`-Skalierungskonstanten subtrahiert wird. Sie können dann die Reaktivität der Maus steuern, indem Sie den Wert von `MOUSE_SPEED` erhöhen.
+Die gegebenen Eingaben, die Maus-Deltas `dx` und `dy`, werden zur Berechnung der neuen Schwenk-Wertes verwendet, indem vom aktuellen Wert von `mouseYaw` das Produkt aus `dx` und der `MOUSE_SPEED` Skala subtrahiert wird. Sie können dann die Empfindlichkeit der Maus steuern, indem Sie den Wert der `MOUSE_SPEED` erhöhen.
 
 ## Zeichnen eines Frames
 
-Unser Callback für [`XRSession.requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) wird in der `drawFrame()`-Funktion implementiert, die unten gezeigt wird. Ihre Aufgabe ist es, den Referenzraum des Betrachters abzurufen, zu berechnen, wie viel Bewegung auf animierte Objekte angewendet werden muss, basierend auf der Zeit, die seit dem letzten Frame vergangen ist, und dann jede der in der Sicht des Betrachters angegebenen Ansichten zu rendern.
+Unser Callback für [`XRSession.requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) wird in der `drawFrame()` Funktion unten implementiert. Seine Aufgabe ist es, den Referenzraum des Betrachters zu erhalten, zu berechnen, wie viel Bewegung auf alle animierten Objekte angewendet werden soll, basierend auf der seit dem letzten Frame verstrichenen Zeit, und dann jede der vom Betrachter `XRPose` spezifizierten Ansichten zu rendern.
 
 ```js
 let lastFrameTime = 0;
@@ -473,20 +439,20 @@ function drawFrame(time, frame) {
 }
 ```
 
-Das erste, was wir tun, ist [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) aufzurufen, um anzufordern, dass `drawFrame()` erneut für den nächsten zu rendernden Frame aufgerufen wird. Dann übergeben wir den Referenzraum des Objekts an die `applyViewerControls()`-Funktion, die einen überarbeiteten [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) zurückgibt, der die Position und Orientierung des Objekts transformiert, um die vom Benutzer mit der Tastatur und Maus angewendete Bewegung, Neigung und Schwenkung zu berücksichtigen. Denken Sie daran, dass, wie immer, die Objekte der Welt bewegt und neu ausgerichtet werden, nicht der Betrachter. Der zurückgegebene Referenzraum macht es einfach, genau das zu tun.
+Das erste, was wir tun, ist [`requestAnimationFrame()`](/de/docs/Web/API/XRSession/requestAnimationFrame) aufzurufen, um zu verlangen, dass `drawFrame()` für das nächste zu rendernde Frame erneut aufgerufen wird. Dann übergeben wir den Referenzraum des Objekts an die `applyViewerControls()` Funktion, die einen überarbeiteten [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) zurückgibt, der Position und Orientierung des Objekts transformiert, um die durch die Benutzer durch Tastatur und Maus angewendete Bewegung, Neigung und Schwenkung zu berücksichtigen. Denken Sie daran, dass immer die Objekte der Welt verschoben und neu ausgerichtet werden, nicht der Betrachter. Der zurückgegebene Referenzraum ermöglicht es uns, genau das einfach zu tun.
 
-Mit dem neuen Referenzraum in der Hand erhalten wir die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), die den Blickpunkt des Betrachters für beide Augen repräsentiert. Wenn das erfolgreich ist, beginnen wir mit den Vorbereitungen für das Rendern, indem wir die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), die von der Sitzung verwendet wird, erhalten und ihren Frame-Buffer als den WebGL-Frame-Buffer binden (sodass das Rendern von WebGL in die Schicht und daher in die Anzeige des XR-Geräts zeichnet). Mit WebGL nun konfiguriert, um auf das XR-Gerät zu rendern, löschen wir den Frame zu Schwarz und sind bereit, mit dem Rendern zu beginnen.
+Mit dem neuen Referenzraum in der Hand erhalten wir die [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), die den Blickwinkel des Betrachters repräsentiert – für beide Augen. Wenn das erfolgreich ist, beginnen wir mit der Vorbereitung des Renderings, indem wir die [`XRWebGLLayer`](/de/docs/Web/API/XRWebGLLayer), die von der Sitzung genutzt wird, abrufen und deren Framebuffer als WebGL-Framebuffer binden, sodass das Rendering in diese Schicht und damit in das Display des XR-Geräts gezeichnet wird. Mit WebGL, das jetzt konfiguriert ist, um auf das XR-Gerät zu zeichnen, löschen wir den Frame in Schwarz und sind bereit, mit dem Rendern zu beginnen.
 
-Die seit dem letzten gerenderten Frame vergangene Zeit (in Sekunden) wird durch Subtrahieren des vorherigen Frame-Zeitstempels, `lastFrameTime`, von der aktuellen Zeit gemäß dem `time`-Parameter berechnet und dann mit 0,001 multipliziert, um Millisekunden in Sekunden umzuwandeln. Die aktuelle Zeit wird dann in `lastFrameTime` gespeichert.
+Die seit dem letzten Frame verstrichene Zeit (in Sekunden) wird berechnet, indem der Zeitstempel des vorherigen Frames `lastFrameTime` von der aktuellen Zeitzeit als durch den `time` Parameter angegeben abgezogen wird, und dann mit 0,001 multipliziert wird, um Millisekunden in Sekunden umzurechnen. Die aktuelle Zeit wird dann in `lastFrameTime` gespeichert;
 
-Die `drawFrame()`-Funktion endet mit dem Durchlaufen aller Ansichten in der [`XRViewerPose`](/de/docs/Web/API/XRViewerPose), dem Einrichten des Viewports für die Ansicht und dem Aufruf von `renderScene()` zum Rendern des Frames. Indem für jede Ansicht der Viewport eingerichtet wird, behandeln wir das typische Szenario, in dem die Ansichten für jedes Auge jeweils auf die Hälfte des WebGL-Frames gerendert werden. Die XR-Hardware stellt dann sicher, dass jedes Auge nur den Bildausschnitt sieht, der für dieses Auge bestimmt ist.
+Die `drawFrame()` Funktion endet, indem sie über jede Ansicht in der [`XRViewerPose`](/de/docs/Web/API/XRViewerPose) iteriert, den Viewport für die Ansicht einrichtet und `renderScene()` aufruft, um den Frame zu rendern. Indem der Viewport für jede Ansicht eingerichtet wird, behandeln wir das typische Szenario, in welchem die Ansichten für jedes Auge jeweils auf die Hälfte des WebGL-Frames gerendert werden. Die XR-Hardware stellt dann sicher, dass jedes Auge nur den Teil dieses Bildes sieht, der für dieses Auge bestimmt ist.
 
 > [!NOTE]
-> In diesem Beispiel präsentieren wir den Frame sowohl auf dem XR-Gerät _als auch_ auf dem Bildschirm. Um sicherzustellen, dass die On-Screen-Leinwand die richtige Größe hat, um dies zu ermöglichen, stellen wir ihre Breite auf die Breite der einzelnen [`XRView`](/de/docs/Web/API/XRView) multipliziert mit der Anzahl der Ansichten ein; die Höhe der Leinwand entspricht immer der Höhe des Viewports. Die beiden Codezeilen, die die Leinwandgröße anpassen, sind in regulären WebXR-Rendering-Schleifen nicht benötigt.
+> In diesem Beispiel präsentieren wir das Frame sowohl auf dem XR-Gerät als auch auf dem Bildschirm. Um sicherzustellen, dass die Leinwand auf dem Bildschirm die richtige Größe hat, um dies zu ermöglichen, setzen wir ihre Breite auf die Breite der einzelnen [`XRView`](/de/docs/Web/API/XRView) multipliziert mit der Anzahl der Ansichten; die Höhe der Leinwand ist immer die gleiche wie die Höhe des Viewports. Die beiden Codezeilen, die die Größe der Leinwand anpassen, sind in regulären WebXR-Render-Schleifen nicht erforderlich.
 
 ### Anwenden der Benutzereingaben
 
-Die `applyViewerControls()`-Funktion, die von `drawFrame()` aufgerufen wird, bevor mit der Darstellung begonnen wird, verwendet die in jeder der drei Richtungen, den Schwenkwinkel und den Neigungswinkel erfassten Offsets, die von den Funktionen `handleKeyDown()` und `handlePointerMove()` in Reaktion darauf, dass der Benutzer Tasten drückt und die Maus mit gedrückter rechter Maustaste zieht, aufgezeichnet wurden. Sie nimmt als Eingabe den Basis-Referenzraum für das Objekt an und gibt einen neuen Referenzraum zurück, der den Ort und die Ausrichtung des Objekts so ändert, dass das Ergebnis der Eingaben übereinstimmt.
+Die `applyViewerControls()` Funktion, die von `drawFrame()` aufgerufen wird, bevor das Rendern beginnt, nimmt die Offsets in jede der drei Richtungen, den Schwenkoffset und den Neigungsoffset, wie sie von den Funktionen `handleKeyDown()` und `handlePointerMove()` als Reaktion auf die Benutzertasteneingaben und das Ziehen der Maus mit der rechten Maustaste gedrückt, aufgezeichnet wurden. Es wird als Eingabe der Basis-Referenzraum für das Objekt genommen und gibt einen neuen Referenzraum zurück, der die Lage und Orientierung des Objekts so verändert, dass es mit dem Ergebnis der Eingaben übereinstimmt.
 
 ```js
 function applyViewerControls(refSpace) {
@@ -519,17 +485,17 @@ function applyViewerControls(refSpace) {
 }
 ```
 
-Wenn alle Eingabeoffsets null sind, geben wir einfach den ursprünglichen Referenzraum zurück. Andernfalls definieren wir aus den Orientierungsänderungen in `mousePitch` und `mouseYaw` ein Quaternion, das die Inverse dieser Orientierung spezifiziert, sodass das Anwenden der `inverseOrientation` auf den Würfel korrekt erscheint, um die Bewegung des Betrachters durch den Raum zu reflektieren.
+Wenn alle Eingabe-Offsets null sind, geben wir einfach den ursprünglichen Referenzraum zurück. Andernfalls erstellen wir aus den in `mousePitch` und `mouseYaw` veränderten Orientierungen ein Quaternion, das die Inverse dieser Orientierung spezifiziert, sodass die Anwendung des `inverseOrientation` auf den Würfel korrekt das simulierte Verhalten des Benutzers im Raum darstellt.
 
-Dann ist es an der Zeit, ein neues [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform)-Objekt zu erstellen, das die Transformation repräsentiert, die verwendet wird, um den neuen [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) für das bewegte und/oder neu ausgerichtete Objekt zu erstellen. Die Position ist ein neuer Vektor dessen `x`, `y`, und `z` mit den Offsets übereinstimmen, die entlang jeder dieser Achsen bewegt wurden. Die Ausrichtung ist das `inverseOrientation`-Quaternion.
+Dann ist es an der Zeit, ein neues [`XRRigidTransform`](/de/docs/Web/API/XRRigidTransform) Objekt zu erstellen, das die Transformierung darstellt, die verwendet wird, um den neuen [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) für das verschobene und/oder neu orientierte Objekt zu erstellen. Die Position ist ein neuer Vektor, dessen `x`, `y` und `z` den Offsets entsprechen, die entlang jeder dieser Achsen verschoben werden. Die Orientierung ist das `inverseOrientation` Quaternion.
 
-Wir kopieren die [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) der Transformation in `mouseMatrix`, die wir später verwenden werden, um die Mouse-Tracking-Matrix dem Benutzer anzuzeigen (dies ist also ein Schritt, den Sie normalerweise überspringen können). Schließlich übergeben wir die `XRRigidTransform` an den aktuellen [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) des Objekts, um den Referenzraum zu erhalten, der diese Transformation integriert, um die Platzierung des Würfels relativ zum Benutzer angesichts der Benutzerbewegungen darzustellen. Dieser neue Referenzraum wird an den Anrufer zurückgegeben.
+Wir kopieren die [`matrix`](/de/docs/Web/API/XRRigidTransform/matrix) des Transformierungsobjekts in `mouseMatrix`, die wir später verwenden, um die Mouse-Tracking-Matrix dem Benutzer anzuzeigen (dies ist ein Schritt, den Sie normalerweise überspringen können). Schließlich übergeben wir das `XRRigidTransform` in den aktuellen [`XRReferenceSpace`](/de/docs/Web/API/XRReferenceSpace) des Objekts, um den Referenzraum zu erhalten, der diese Transformation integriert, um die Platzierung des Würfels relativ zum Betrachter angesichts der Bewegungen des Benutzer zu repräsentieren. Dieser neue Referenzraum wird an den Anrufer zurückgegeben.
 
-### Rendering der Szene
+### Rendern der Szene
 
-Die `renderScene()`-Funktion wird aufgerufen, um tatsächlich die Teile der Welt zu rendern, die der Benutzer im Moment sehen kann. Sie wird einmal für jedes Auge aufgerufen, mit leicht unterschiedlichen Positionen für jedes Auge, um den 3D-Effekt zu etablieren, der für XR-Geräte benötigt wird.
+Die `renderScene()` Funktion wird aufgerufen, um die Teile der Welt zu rendern, die der Benutzer im Moment sehen kann. Sie wird für jedes Auge einmal aufgerufen, mit leicht unterschiedlichen Positionen für jedes Auge, um den 3D-Effekt zu erzeugen, der für XR-Ausrüstung erforderlich ist.
 
-Der Großteil dieses Codes ist typischer WebGL-Rendering-Code, direkt aus der `drawScene()`-Funktion im Artikel [Beleuchtung in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) entnommen, und dort sollten Sie nach Details zu den WebGL-Renderteilen dieses Beispiels suchen ([sehen Sie sich den Code auf GitHub an](https://github.com/mdn/dom-examples/blob/main/webgl-examples/tutorial/sample7/webgl-demo.js)). Aber hier beginnt es mit etwas Code, der spezifisch für dieses Beispiel ist, deshalb werfen wir einen genaueren Blick auf diesen Teil.
+Ein Großteil dieses Codes ist typischer WebGL-Rendering-Code, der direkt aus der `drawScene()` Funktion im Artikel [Licht in WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL) übernommen wurde, und dort sollten Sie nach Details zum WebGL-Rendering-Teil dieses Beispiels suchen ([siehe den Code auf GitHub](https://github.com/mdn/dom-examples/blob/main/webgl-examples/tutorial/sample7/webgl-demo.js)). Aber hier beginnt es mit etwas fürs Beispiel spezifischem Code, also werden wir uns diesen Teil genauer ansehen.
 
 ```js
 const normalMatrix = mat4.create();
@@ -662,17 +628,17 @@ function renderScene(gl, view, programInfo, buffers, texture, deltaTime) {
 }
 ```
 
-`renderScene()` beginnt damit, zu berechnen, wie viel Rotation um jede der drei Achsen in der seit dem letzten gerenderten Frame vergangenen Zeit stattfinden sollte. Diese Werte lassen uns die Rotation unseres animierten Würfels so anpassen, dass die Bewegungsgeschwindigkeit unabhängig von den Frameraten-Schwankungen konstant bleibt, die aufgrund der Systemlast auftreten können. Diese Werte werden als die Anzahl der Rotationsradien, die angewendet werden, gegeben die vergangene Zeit, berechnet und in die Konstanten `xRotationForTime`, `yRotationForTime`, und `zRotationForTime` gespeichert.
+`renderScene()` beginnt damit, zu berechnen, wie viel Drehung um jede der drei Achsen in der seit dem vorherigen Frame verstrichenen Zeit erfolgen sollte. Diese Werte lassen uns die Rotation unseres animierten Würfels so anpassen, dass seine Bewegungsgeschwindigkeit gleichbleibt, unabhängig von Schwankungen in der Bildrate, die aufgrund der Systemauslastung auftreten können. Diese Werte werden als die Anzahl von Bogenmaß der Rotation berechnet, die in der verstrichenen Zeit angewendet werden sollen und in den Konstanten `xRotationForTime`, `yRotationForTime` und `zRotationForTime` gespeichert.
 
-Nachdem wir die Tiefenprüfung aktiviert und konfiguriert haben, überprüfen wir den Wert der `enableRotation`-Konstante, um zu sehen, ob die Rotation des Würfels aktiviert ist; wenn ja, verwenden wir glMatrix, um die `cubeMatrix` (die die aktuelle Orientierung des Würfels relativ zum Weltraum darstellt) um die drei Achsen zu drehen. Mit der globalen Orientierung des Würfels etabliert, multiplizieren wir dies dann mit dem Inversen der Transformationsmatrix der Ansicht, um die endgültige Modell-View-Matrix zu erhalten—die Matrix, die auf das Objekt angewendet wird, um es sowohl für seine Animationszwecke zu drehen, aber auch um es zu bewegen und neu auszurichten, um die Bewegung des Betrachters durch den Raum zu simulieren.
+Nach der Aktivierung und Konfiguration des Tiefentests prüfen wir den Wert der `enableRotation` Konstante, um zu sehen, ob die Rotation des Würfels aktiviert ist; wenn ja, verwenden wir glMatrix, um die `cubeMatrix` (die aktuelle Orientierung des Würfels relativ zum Weltkoordinatensystem) um die drei Achsen zu drehen. Mit der globalen Orientierung des Würfels eingerichtet, multiplizieren wir das anschließend mit der Inversen der Transformationsmatrix der Ansicht, um die endgültige Modellansichts-Matrix zu erhalten – die Matrix, die sowohl gedreht wird, um die Animation zu simulieren, als auch um sie zu verschieben und neu auszurichten, um die Simulation des Betrachters durch den Raum zu simulieren.
 
-Dann wird die Normalenmatrix der Ansicht berechnet, indem die Modell-View-Matrix genommen, invertiert und transponiert (ihre Spalten und Reihen vertauscht) wird.
+Dann wird die Normalmatrix der Ansicht durch die Invertierung und Transposition (Vertauschung von Spalten und Zeilen) der Modellansichts-Matrix berechnet.
 
-Die letzten paar Codezeilen, die diesem Beispiel hinzugefügt wurden, sind vier Aufrufe von `displayMatrix()`, einer Funktion, die den Inhalt einer Matrix zur Analyse durch den Benutzer anzeigt. Der Rest der Funktion ist identisch oder im Wesentlichen identisch mit dem älteren WebGL-Beispiel, aus dem dieser Code stammt.
+Die letzten paar Codezeilen, die für dieses Beispiel hinzugefügt wurden, sind vier Aufrufe von `displayMatrix()`, einer Funktion, die den Inhalt einer Matrix zur Analyse durch den Benutzer anzeigt. Der übrige Teil der Funktion ist mit dem älteren WebGL-Beispiel, aus dem dieser Code abgeleitet wurde, identisch oder im Wesentlichen identisch.
 
 ### Anzeigen einer Matrix
 
-Zu Schulungszwecken zeigt dieses Beispiel die Inhalte der wichtigen Matrizen an, die beim Rendern der Szene verwendet werden. Die `displayMatrix()`-Funktion wird dazu verwendet; diese Funktion verwendet MathML zur Darstellung der Matrix und fällt auf ein eher array-artiges Format zurück, wenn MathML vom Browser des Benutzers nicht unterstützt wird.
+Zu Lehrzwecken zeigt dieses Beispiel den Inhalt der wichtigen Matrizen an, die beim Rendering der Szene verwendet werden. Die `displayMatrix()` Funktion wird dafür verwendet; diese Funktion verwendet MathML, um die Matrix anzuzeigen, und fällt auf ein mehr array-ähnliches Format zurück, wenn MathML vom Browser des Benutzers nicht unterstützt wird.
 
 ```js
 function displayMatrix(mat, rowLength, target) {
@@ -697,35 +663,35 @@ function displayMatrix(mat, rowLength, target) {
 }
 ```
 
-Dies ersetzt den Inhalt des durch `target` angegebenen Elements mit einem neu erstellten {{MathMLElement("math")}}-Element, das die 4x4-Matrix enthält. Jeder Eintrag wird mit bis zu zwei Dezimalstellen angezeigt.
+Dies ersetzt den Inhalt des angegebenen `target` mit einem neu erstellten {{MathMLElement("math")}} Element, das die 4x4 Matrix enthält. Jeder Eintrag wird mit bis zu zwei Dezimalstellen angezeigt.
 
 ### Alles andere
 
-Der Rest des Codes ist identisch mit dem in den vorherigen Beispielen gefundenem:
+Der Rest des Codes ist identisch mit dem, was in den vorherigen Beispielen gefunden wurde:
 
 - `initShaderProgram()`
-  - : Initialisiert das GLSL-Shader-Programm, indem es `loadShader()` aufruft, um den Quellcode jedes Shaders zu laden und zu kompilieren und dann jeden an den WebGL-Kontext anzubinden. Sobald sie kompiliert sind, wird das Programm verlinkt und an den Anrufer zurückgegeben.
+  - : Initialisiert das GLSL-Shader-Programm, indem `loadShader()` aufgerufen wird, um das Programm jedes Shaders zu laden und zu kompilieren, und dann jedes im WebGL-Kontext zu verankern. Sobald sie kompiliert sind, wird das Programm verknüpft und an den Anrufer zurückgegeben.
 - `loadShader()`
-  - : Erstellt ein Shader-Objekt und lädt den angegebenen Quellcode in dieses, bevor der Code kompiliert und sichergestellt wird, dass der Compiler erfolgreich war, bevor der neu kompilierte Shader an den Anrufer zurückgegeben wird. Falls ein Fehler auftritt, wird `NULL` zurückgegeben.
+  - : Erstellt ein Shader-Objekt und lädt den angegebenen Quellcode hinein, bevor es kompiliert wird, und prüft, ob der Compiler erfolgreich war, bevor der neu kompilierte Shader an den Anrufer zurückgegeben wird. Wenn ein Fehler auftritt, wird stattdessen `NULL` zurückgegeben.
 - `initBuffers()`
-  - : Initialisiert die Puffer, die die an WebGL zu übergebenden Daten enthalten. Diese Puffer umfassen das Array der Vertex-Positionen, das Array der Vertex-Normalen, die Texturkoordinaten für jede Würfelfläche und das Array der Vertex-Indizes (das spezifiziert, welcher Eintrag in der Vertex-Liste jede Ecke des Würfels darstellt).
+  - : Initialisiert die Puffer, die Daten enthalten, die in WebGL übergeben werden sollen. Diese Puffer umfassen das Array der Vertex-Positionen, das Array der Vertex-Normalen, die Texturkoordinaten für jede Fläche des Würfels und das Array der Vertex-Indices (die angeben, welcher Eintrag in der Vertex-Liste jede Ecke des Würfels darstellt).
 - `loadTexture()`
-  - : Lädt das Bild an einer angegebenen URL und erstellt daraus eine WebGL-Textur. Wenn die Abmessungen des Bildes keine Zweierpotenzen sind (siehe die Funktion `isPowerOf2()`), werden Mipmapping deaktiviert und das Wrapping an die Ränder geklammert. Dies liegt daran, dass optimiertes Rendern von Mipmapped-Texturen in WebGL 1 nur für Texturen funktioniert, deren Abmessungen Zweierpotenzen sind. WebGL 2 unterstützt Mipmapping für Texturen beliebiger Größe.
+  - : Lädt das Bild an einer bestimmten URL und erstellt daraus eine WebGL-Textur. Sind die Maße des Bildes keine Potenzen von zwei (siehe die Funktion `isPowerOf2()`), werden Mipmap-Erstellung deaktiviert und Umwicklungsmodi auf Kanten begrenzt. Dies liegt daran, dass optimiertes Rendering von Mipmapped-Texturen nur für Texturen funktioniert, deren Abmessungen Potenzen von zwei in WebGL 1 sind. WebGL 2 unterstützt Mipmap-Texturen beliebiger Größe.
 - `isPowerOf2()`
-  - : Gibt `true` zurück, wenn der angegebene Wert eine Zweierpotenz ist; andernfalls gibt er `false` zurück.
+  - : Gibt `true` zurück, wenn der angegebene Wert eine Potenz von zwei ist; andernfalls wird `false` zurückgegeben.
 
 ### Alles zusammenfügen
 
-Wenn Sie all diesen Code hinzufügen zum HTML und den anderen oben nicht enthaltenen JavaScript-Code, erhalten Sie das, was Sie sehen, wenn Sie [dieses Beispiel auf Glitch ausprobieren](https://webxr-experiment.glitch.me/). Denken Sie daran: Wenn Sie sich verirren, drücken Sie einfach die <kbd>R</kbd>-Taste, um sich selbst an den Anfang zurückzusetzen.
+Wenn Sie all diesen Code nehmen und das HTML sowie den anderen JavaScript-Code hinzufügen, der oben nicht enthalten ist, erhalten Sie, was Sie sehen, wenn Sie [dieses Beispiel auf Glitch ausprobieren](https://webxr-experiment.glitch.me/). Denken Sie daran: während Sie herumlaufen, und wenn Sie sich verlaufen, drücken Sie einfach die <kbd>R</kbd> Taste, um sich an den Anfang zurückzusetzen.
 
-Ein Tipp: Wenn Sie kein XR-Gerät haben, können Sie möglicherweise einen Teil des 3D-Effekts sehen, wenn Sie Ihr Gesicht sehr nahe an den Bildschirm bringen, mit Ihrer Nase auf der Trennlinie zwischen den Bilder für das linke und rechte Auge des Canvas zentriert. Indem Sie durch den Bildschirm sorgfältig auf das Bild fokussieren und sich langsam vor- und zurückbewegen, sollten Sie schließlich in der Lage sein, das 3D-Bild in Fokus zu bringen. Dies kann Übung erfordern, und Ihre Nase kann buchstäblich den Bildschirm berühren, abhängig von der Schärfe Ihres Sehvermögens.
+Ein Tipp: wenn Sie kein XR-Gerät haben, können Sie möglicherweise etwas von dem 3D-Effekt erleben, indem Sie mit Ihrem Gesicht sehr nah an den Bildschirm herangehen, mit Ihrer Nase zentriert entlang der Grenze zwischen den linken und rechten Augenbildern in der Leinwand. Durch vorsichtiges Fokussieren durch den Bildschirm auf das Bild und langsames Vorwärts- und Rückwärtsbewegen sollten Sie schließlich das 3D-Bild in den Fokus bringen können. Das erfordert Übung, und Ihre Nase kann buchstäblich den Bildschirm berühren, je nachdem, wie scharf Ihre Sehkraft ist.
 
-Es gibt viele Dinge, die Sie tun können, wenn Sie dieses Beispiel als Ausgangspunkt verwenden. Versuchen Sie, mehr Objekte in der Welt hinzuzufügen oder die Bewegungssteuerungen zu verbessern, um realistischer zu bewegen. Fügen Sie Wände, Decken und Fußboden hinzu, um sich in einem Raum zu umgeben, anstatt in einem scheinbar unendlichen Universum verloren zu gehen. Fügen Sie Kollisionstests oder Treffer-Tests hinzu oder die Möglichkeit, die Textur jeder Würfelfläche zu ändern.
+Es gibt viele Dinge, die Sie tun können, wenn Sie dieses Beispiel als Ausgangspunkt verwenden. Versuchen Sie, weitere Objekte in die Welt hinzuzufügen, oder verbessern Sie die Bewegungssteuerungen, um realistischer zu bewegen. Fügen Sie Wände, Decken und Böden hinzu, um Sie in einem Raum zu umschließen, anstatt ein unendlich scheinendes Universum zu haben, in dem man sich verlieren kann. Fügen Sie Kollisionstests oder Treffertests hinzu oder die Möglichkeit, die Textur jeder Fläche des Würfels zu ändern.
 
-Es gibt kaum Grenzen, was getan werden kann, wenn Sie sich entschieden haben, es zu tun.
+Es gibt nur wenige Grenzen für das, was erreicht werden kann, wenn man sich darauf konzentriert.
 
 ## Siehe auch
 
-- [Learn WebGL](https://learnwebgl.brown37.net/#) (enthält einige großartige Visualisierungen der Kamera und wie sie in Beziehung zur virtuellen Welt steht)
+- [Learn WebGL](https://learnwebgl.brown37.net/#) (beinhaltet einige großartige Visualisierungen der Kamera und ihrer Beziehung zur virtuellen Welt)
 - [WebGL Fundamentals](https://webglfundamentals.org/)
 - [Learn OpenGL](https://learnopengl.com/)

@@ -2,7 +2,7 @@
 title: HIDDevice
 slug: Web/API/HIDDevice
 l10n:
-  sourceCommit: 534e2c61fee576355e8a9b7036d9fa36056edb03
+  sourceCommit: e4d6e3444fc0f46a2f12de882c5b12c44fb75e02
 ---
 
 {{securecontext_header}}{{APIRef("WebHID API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_worker_except_shared")}}
@@ -11,7 +11,7 @@ Die **`HIDDevice`**-Schnittstelle der [WebHID API](/de/docs/Web/API/WebHID_API) 
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 Diese Schnittstelle erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
@@ -31,26 +31,26 @@ Diese Schnittstelle erbt auch Eigenschaften von [`EventTarget`](/de/docs/Web/API
 - [`inputreport`](/de/docs/Web/API/HIDDevice/inputreport_event) {{Experimental_Inline}}
   - : Wird ausgelöst, wenn ein Bericht vom Gerät gesendet wird.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 Diese Schnittstelle erbt auch Methoden von [`EventTarget`](/de/docs/Web/API/EventTarget).
 
 - [`HIDDevice.open()`](/de/docs/Web/API/HIDDevice/open) {{Experimental_Inline}}
-  - : Öffnet eine Verbindung zu diesem HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Verbindung erfolgreich war.
+  - : Öffnet eine Verbindung zu diesem HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Verbindung erfolgreich hergestellt wurde.
 - [`HIDDevice.close()`](/de/docs/Web/API/HIDDevice/close) {{Experimental_Inline}}
   - : Schließt die Verbindung zu diesem HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Verbindung geschlossen wurde.
 - [`HIDDevice.forget()`](/de/docs/Web/API/HIDDevice/forget) {{Experimental_Inline}}
-  - : Schließt die Verbindung zu diesem HID-Gerät und setzt die Zugriffsberechtigung zurück. Gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Berechtigung zurückgesetzt wurde.
+  - : Schließt die Verbindung zu diesem HID-Gerät und setzt die Zugriffsberechtigung zurück. Es gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald die Berechtigung zurückgesetzt wurde.
 - [`HIDDevice.sendReport()`](/de/docs/Web/API/HIDDevice/sendReport) {{Experimental_Inline}}
-  - : Sendet einen Ausgabebricht an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
+  - : Sendet einen Ausgabebericht an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
 - [`HIDDevice.sendFeatureReport()`](/de/docs/Web/API/HIDDevice/sendFeatureReport) {{Experimental_Inline}}
-  - : Sendet einen Featurebericht an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
+  - : Sendet einen Merkmalsbericht an dieses HID-Gerät und gibt ein {{jsxref("Promise")}} zurück, das aufgelöst wird, sobald der Bericht gesendet wurde.
 - [`HIDDevice.receiveFeatureReport()`](/de/docs/Web/API/HIDDevice/receiveFeatureReport) {{Experimental_Inline}}
-  - : Empfängt einen Featurebericht von diesem HID-Gerät in Form eines {{jsxref("Promise")}}, das mit einem {{jsxref("DataView")}} aufgelöst wird. Dies ermöglicht den typisierten Zugriff auf den Inhalt dieser Nachricht.
+  - : Empfängt einen Merkmalsbericht von diesem HID-Gerät in Form eines {{jsxref("Promise")}}, das mit einem {{jsxref("DataView")}} aufgelöst wird. Dies ermöglicht einen typisierten Zugriff auf den Inhalt dieser Nachricht.
 
 ## Beispiele
 
-Das folgende Beispiel demonstriert das Lauschen auf ein `inputreport`-Ereignis, das es der Anwendung ermöglicht zu erkennen, welcher Knopf auf einem Joy-Con-Right-Gerät gedrückt wird.
+Das folgende Beispiel zeigt, wie ein `inputreport`-Ereignis überwacht wird, um zu erkennen, welcher Knopf auf einem Joy-Con Right-Gerät gedrückt wird.
 
 ```js
 device.addEventListener("inputreport", (event) => {
@@ -74,14 +74,14 @@ const reportId = 1;
 for (let i = 0; i < 10; i++) {
   // Turn off
   await device.sendFeatureReport(reportId, Uint32Array.from([0, 0]));
-  await waitFor(100);
+  await new Promise((resolve) => setTimeout(resolve, 100));
   // Turn on
   await device.sendFeatureReport(reportId, Uint32Array.from([512, 0]));
-  await waitFor(100);
+  await new Promise((resolve) => setTimeout(resolve, 100));
 }
 ```
 
-Weitere Beispiele und Live-Demos finden Sie im Artikel [Connecting to uncommon HID devices](https://developer.chrome.com/docs/capabilities/hid).
+Weitere Beispiele und Live-Demos finden Sie in dem Artikel [Verbindung zu ungewöhnlichen HID-Geräten herstellen](https://developer.chrome.com/docs/capabilities/hid).
 
 ## Spezifikationen
 

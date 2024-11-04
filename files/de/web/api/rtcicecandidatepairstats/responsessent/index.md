@@ -3,19 +3,19 @@ title: "RTCIceCandidatePairStats: responsesSent Eigenschaft"
 short-title: responsesSent
 slug: Web/API/RTCIceCandidatePairStats/responsesSent
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`responsesSent`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtzahl der {{Glossary("STUN", "STUN")}}-Verbindungstestantworten an, die bisher auf der Verbindung gesendet wurden, die von diesem Kandidatenpaar beschrieben wird.
+Die **`responsesSent`** Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtzahl der {{Glossary("STUN", "STUN")}}-Verbindungsüberprüfungsantworten an, die bisher über die Verbindung, die durch dieses Kandidatenpaar beschrieben wird, gesendet wurden.
 
 ## Wert
 
-Ein ganzzahliger Wert, der die Anzahl der Male angibt, die eine Antwort auf eine {{Glossary("STUN", "STUN")}}-Verbindungstestanforderung gesendet wurde.
+Ein ganzzahliger Wert, der angibt, wie oft eine Antwort auf eine {{Glossary("STUN", "STUN")}}-Verbindungsüberprüfungsanfrage gesendet wurde.
 
 > [!NOTE]
-> Da es nicht möglich ist, zwischen Verbindungstestanforderungen und Zustimmungsgesuchen zu unterscheiden, umfasst dieser Wert beide.
+> Da es nicht möglich ist, zwischen Verbindungsüberprüfungsanfragen und Zustimmungserklärungen zu unterscheiden, umfasst dieser Wert beides.
 
 ## Spezifikationen
 

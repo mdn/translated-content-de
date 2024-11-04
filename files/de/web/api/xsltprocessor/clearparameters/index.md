@@ -3,12 +3,12 @@ title: "XSLTProcessor: clearParameters() Methode"
 short-title: clearParameters()
 slug: Web/API/XSLTProcessor/clearParameters
 l10n:
-  sourceCommit: 54721fd4fbe4a6698803cd79293e0a6de1783919
+  sourceCommit: d8fd9326867083bc2ce88d1128aba888ad5312fd
 ---
 
 {{APIRef("XSLT")}}
 
-Die `clearParameters()` Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Schnittstelle entfernt alle Parameter (`<xsl:param>`) und deren Werte aus dem im Prozessor importierten Stylesheet. Der `XSLTProcessor` wird dann die in dem XSLT Stylesheet spezifizierten Standardwerte verwenden.
+Die `clearParameters()`-Methode der [`XSLTProcessor`](/de/docs/Web/API/XSLTProcessor) Schnittstelle entfernt alle Parameter (`<xsl:param>`) und deren Werte aus dem Stylesheet, das im Prozessor importiert wurde. Der `XSLTProcessor` verwendet dann die Standardwerte, die im XSLT-Stylesheet angegeben sind.
 
 ## Syntax
 
@@ -28,11 +28,11 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Verwendung von clearParameters()
 
-Dieses Beispiel zeigt, wie `clearParameters()` verwendet werden kann, um alle Parameter auf ihre Standardwerte zurückzusetzen, wie im XSLT Stylesheet angegeben.
+Dieses Beispiel zeigt, wie `clearParameters()` verwendet werden kann, um alle Parameter auf ihre Standardwerte zurückzusetzen, wie im XSLT-Stylesheet angegeben.
 
 #### HTML
 
-```HTML
+```html
 <div id="result"></div>
 ```
 

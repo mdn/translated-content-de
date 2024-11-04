@@ -3,24 +3,18 @@ title: "RTCIceCandidatePairStats: bytesSent-Eigenschaft"
 short-title: bytesSent
 slug: Web/API/RTCIceCandidatePairStats/bytesSent
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
 ---
 
 {{APIRef("WebRTC")}}
 
-Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`bytesSent`** gibt die Gesamtanzahl an Nutzlast-Bytes an – also Bytes, die keine Overhead-Elemente wie Header oder Padding enthalten –, die bisher über die durch das Kandidatenpaar beschriebene Verbindung gesendet wurden.
+Die **`bytesSent`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Gesamtanzahl der Nutzdatenbytes an, die bisher über die Verbindung gesendet wurden, die durch das Kandidatenpaar beschrieben wird.
 
-Die [`bytesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/bytesReceived)-Eigenschaft meldet die Anzahl der Bytes, die bisher über die beschriebene Verbindung empfangen wurden.
+## Wert
 
-## Syntax
+Ein ganzzahliger Wert, der die Gesamtanzahl der Bytes angibt, die bisher über die Verbindung gesendet wurden, die durch dieses Kandidatenpaar beschrieben wird.
 
-```js-nolint
-sent = rtcIceCandidatePairStats.bytesSent
-```
-
-### Wert
-
-Ein ganzzahliger Wert, der die Gesamtanzahl der Bytes angibt, die bisher über die durch dieses Kandidatenpaar beschriebene Verbindung gesendet wurden. Es werden nur Datenbytes gezählt; Overhead wie Padding, Header und Ähnliches sind in dieser Zählung nicht enthalten.
+Es werden nur Datenbytes gezählt; Overhead wie Padding, Header und Ähnliches sind in dieser Zählung nicht enthalten.
 
 ## Spezifikationen
 
@@ -29,3 +23,7 @@ Ein ganzzahliger Wert, der die Gesamtanzahl der Bytes angibt, die bisher über d
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`RTCIceCandidatePairStats.bytesReceived`](/de/docs/Web/API/RTCIceCandidatePairStats/bytesReceived)

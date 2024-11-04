@@ -2,12 +2,12 @@
 title: Responsive Images
 slug: Learn/HTML/Multimedia_and_embedding/Responsive_images
 l10n:
-  sourceCommit: 76c1e86a6bf1fd58aa6b0e627842a3c1161add28
+  sourceCommit: b7a7c441fa025458f2bf67d714c3303085e8258a
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web", "Learn/HTML/Multimedia_and_embedding/Mozilla_splash_page", "Learn/HTML/Multimedia_and_embedding")}}
 
-In diesem Artikel lernen wir das Konzept der responsiven Bilder kennen — Bilder, die gut auf Geräten mit sehr unterschiedlichen Bildschirmgrößen, Auflösungen und anderen solchen Merkmalen funktionieren — und schauen uns an, welche Werkzeuge HTML bietet, um sie zu implementieren. Dies hilft, die Leistung auf verschiedenen Geräten zu verbessern. Responsive Bilder sind nur ein Teil des [responsive Designs](/de/docs/Learn/CSS/CSS_layout/Responsive_Design), ein zukünftiges CSS-Thema, das Sie lernen werden.
+In diesem Artikel werden wir das Konzept von responsiven Bildern kennenlernen – Bilder, die auf Geräten mit sehr unterschiedlichen Bildschirmgrößen, Auflösungen und anderen Merkmalen gut funktionieren – und uns ansehen, welche Werkzeuge HTML bietet, um sie zu implementieren. Dies hilft, die Leistung auf verschiedenen Geräten zu verbessern. Responsive Bilder sind nur ein Teil des [responsiven Designs](/de/docs/Learn/CSS/CSS_layout/Responsive_Design), einem zukünftigen CSS-Thema, das Sie lernen werden.
 
 <table class="standard-table">
   <tbody>
@@ -15,18 +15,17 @@ In diesem Artikel lernen wir das Konzept der responsiven Bilder kennen — Bilde
       <th scope="row">Voraussetzungen:</th>
       <td>
         Sie sollten bereits die
-        <a href="/de/docs/Learn/HTML/Introduction_to_HTML">Grundlagen von HTML</a> kennen
-        und wissen, wie man
-        <a href="/de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML">statische Bilder in eine Webseite einfügt</a>.
+        <a href="/de/docs/Learn/HTML/Introduction_to_HTML">Grundlagen von HTML</a>
+        kennen und wissen, wie man
+        <a href="/de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML">statische Bilder zu einer Webseite hinzufügt</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Lernen, wie man Funktionen wie
-        <a href="/de/docs/Web/HTML/Element/img#srcset"><code>srcset</code></a> und das
-        {{htmlelement("picture")}}-Element verwendet, um responsive
-        Bildlösungen auf Webseiten zu implementieren.
+        Lernen, wie Sie Funktionen wie
+         <a href="/de/docs/Web/HTML/Element/img#srcset"><code>srcset</code></a> und das
+        {{htmlelement("picture")}}-Element verwenden, um responsive Bildlösungen auf Websites zu implementieren.
       </td>
     </tr>
   </tbody>
@@ -34,46 +33,46 @@ In diesem Artikel lernen wir das Konzept der responsiven Bilder kennen — Bilde
 
 ## Warum responsive Bilder?
 
-Betrachten wir ein typisches Szenario. Eine typische Website kann ein Header-Bild und einige Inhaltsbilder unter dem Header enthalten. Das Header-Bild wird wahrscheinlich die gesamte Breite des Headers einnehmen, und das Inhaltsbild wird irgendwo innerhalb der Inhaltsspalte passen. Hier ist ein einfaches Beispiel:
+Betrachten wir ein typisches Szenario. Eine typische Website könnte ein Headerbild und einige Inhaltsbilder unter dem Header enthalten. Das Headerbild erstreckt sich wahrscheinlich über die gesamte Breite des Headers, und das Inhaltsbild passt irgendwo in die Inhaltskolonne. Hier ist ein einfaches Beispiel:
 
-![Unsere Beispielseite, wie sie auf einem Breitbildschirm angezeigt wird - hier funktioniert das erste Bild gut, da es groß genug ist, um die Details in der Mitte zu sehen.](picture-element-wide.png)
+![Unser Beispielseite, wie sie auf einem Breitbildschirm aussieht - hier funktioniert das erste Bild gut, da es groß genug ist, um die Details in der Mitte zu sehen.](picture-element-wide.png)
 
-Dies funktioniert gut auf einem Breitbildgerät, wie einem Laptop oder Desktop (Sie können [das Beispiel live sehen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/not-responsive.html) und den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/responsive-images/not-responsive.html) auf GitHub finden.) Wir werden das CSS in dieser Lektion nicht viel diskutieren, außer zu sagen:
+Dies funktioniert gut auf einem Breitbildgerät wie einem Laptop oder Desktop (Sie können [das Beispiel live sehen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/not-responsive.html) und den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/responsive-images/not-responsive.html) auf GitHub finden). Wir werden das CSS in dieser Lektion nicht viel diskutieren, außer dass:
 
-- Der Hauptinhalt wurde auf eine maximale Breite von 1200 Pixeln gesetzt — in Ansichten über dieser Breite bleibt der Hauptinhalt bei 1200px und zentriert sich im verfügbaren Raum. In Ansichten unter dieser Breite bleibt er bei 100% der Breite der Ansicht.
-- Das Header-Bild wurde so eingestellt, dass sein Zentrum immer in der Mitte des Headers bleibt, egal auf welche Breite die Überschrift eingestellt ist. Wird die Website auf einem schmaleren Bildschirm angezeigt, bleiben die wichtigen Details in der Mitte des Bildes (die Personen) sichtbar, und der Überschuss geht rechts und links verloren. Es ist 200px hoch.
-- Die Inhaltsbilder wurden so eingestellt, dass sie anfangen zu schrumpfen, wenn das Body-Element kleiner als das Bild wird, sodass sie immer im Body bleiben und ihn nicht überlaufen.
+- Der Inhaltsbereich des Bodys auf eine maximale Breite von 1200 Pixeln eingestellt wurde – in Viewports über dieser Breite bleibt der Body bei 1200px und zentriert sich im verfügbaren Raum. In Viewports unter dieser Breite bleibt der Body bei 100% der Breite des Viewports.
+- Das Headerbild so eingestellt wurde, dass sein Zentrum immer im Zentrum des Headers bleibt, egal welche Breite der Header hat. Wenn die Seite auf einem schmaleren Bildschirm betrachtet wird, können die wichtigen Details in der Mitte des Bildes (die Personen) immer noch gesehen werden, und das Überflüssige geht auf beiden Seiten verloren. Es ist 200px hoch.
+- Die Inhaltsbilder wurden so eingestellt, dass sie sich verkleinern, wenn das Body-Element kleiner als das Bild wird, damit sie immer innerhalb des Bodys bleiben, anstatt es zu überlaufen.
 
-Allerdings treten Probleme auf, wenn Sie anfangen, die Seite auf einem Gerät mit schmalem Bildschirm zu betrachten. Der Header unten sieht OK aus, aber er beginnt, einen Großteil der Bildschirmhöhe auf einem mobilen Gerät einzunehmen. Und bei dieser Größe ist es schwierig, die Gesichter der beiden Personen im ersten Inhaltsbild zu erkennen.
+Es treten jedoch Probleme auf, wenn Sie beginnen, die Seite auf einem Gerät mit kleinem Bildschirm zu betrachten. Das unten stehende Header-Bild sieht in Ordnung aus, aber es nimmt zunehmend viel der Bildschirmhöhe für ein mobiles Gerät ein. Und in dieser Größe ist es schwierig, die Gesichter der beiden Personen im ersten Inhaltsbild zu erkennen.
 
-![Unsere Beispielseite, wie sie auf einem schmalen Bildschirm angezeigt wird; das erste Bild ist so stark geschrumpft, dass es schwierig ist, die Details darauf zu erkennen.](non-responsive-narrow.png)
+![Unsere Beispielseite, wie sie auf einem schmalen Bildschirm aussieht; das erste Bild ist so geschrumpft, dass es schwer ist, die Details zu erkennen.](non-responsive-narrow.png)
 
-Eine Verbesserung wäre es, eine zugeschnittene Version des Bildes anzuzeigen, die die wichtigen Details des Bildes zeigt, wenn die Seite auf einem schmalen Bildschirm angezeigt wird. Ein zweites zugeschnittenes Bild könnte für ein Gerät mit mittlerer Bildschirmbreite, wie ein Tablet, angezeigt werden. Das allgemeine Problem, bei dem Sie verschiedene zugeschnittene Bilder auf diese Weise für verschiedene Layouts bereitstellen möchten, wird allgemein als das **Art-Direction-Problem** bezeichnet.
+Eine Verbesserung wäre es, eine zugeschnittene Version des Bildes anzuzeigen, die die wichtigen Details des Bildes zeigt, wenn die Seite auf einem schmalen Bildschirm angezeigt wird. Ein zweites zugeschnittenes Bild könnte für ein Gerät mit mittlerer Bildschirmbreite, wie ein Tablet, angezeigt werden. Das allgemeine Problem, bei dem Sie different zugeschnittene Bilder auf diese Weise für verschiedene Layouts verwenden möchten, wird allgemein als **Art-Direction-Problem** bezeichnet.
 
-Außerdem ist es nicht erforderlich, solch große Bilder auf der Seite einzubetten, wenn sie auf einem mobilen Bildschirm betrachtet wird. Dies kann Bandbreite verschwenden; insbesondere mobile Nutzer möchten keine Bandbreite verschwenden, indem sie ein großes Bild herunterladen, das für Desktop-Nutzer vorgesehen ist, wenn ein kleines Bild für ihr Gerät ausreichen würde. Umgekehrt beginnt ein kleines {{Glossary("Raster_image", "Rasterbild")}} körnig auszusehen, wenn es größer als seine Originalgröße angezeigt wird (ein Rasterbild hat eine festgelegte Anzahl von Pixeln in der Breite und Höhe, wie wir gesehen haben, als wir uns [Vektorgrafiken](/de/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web) ansahen). Idealerweise würden dem Webbrowser des Benutzers mehrere Auflösungen zur Verfügung gestellt werden. Der Browser könnte dann die optimale Auflösung basierend auf der Bildschirmgröße des Benutzergeräts bestimmen. Dies wird als das **Auflösungs-Umschaltungs-Problem** bezeichnet.
+Außerdem gibt es keinen Grund, solch große Bilder auf die Seite zu laden, wenn sie auf einem mobilen Bildschirm betrachtet wird. Dies kann Bandbreite verschwenden; insbesondere möchten mobile Benutzer keine Bandbreite verschwenden, indem sie ein großes Bild herunterladen, das für Desktop-Benutzer vorgesehen ist, wenn ein kleines Bild für ihr Gerät ausreichen würde. Auf der anderen Seite sieht ein kleines {{Glossary("Raster_image", "Rasterbild")}} körnig aus, wenn es größer als seine Originalgröße angezeigt wird (ein Rasterbild hat eine festgelegte Anzahl von Pixeln in der Breite und eine festgelegte Anzahl von Pixeln in der Höhe, wie wir gesehen haben, als wir uns [Vektorgrafiken](/de/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web) angeschaut haben). Idealerweise würden dem Webbrowser des Benutzers mehrere Auflösungen zur Verfügung stehen. Der Browser könnte dann die optimale Auflösung laden, basierend auf der Bildschirmgröße des Geräts des Benutzers. Dies wird als **Auflösungsumschaltproblem** bezeichnet.
 
-Um die Dinge komplizierter zu machen, haben einige Geräte hochauflösende Bildschirme, die größere Bilder benötigen, als Sie erwarten würden, damit sie gut dargestellt werden können. Dies ist im Wesentlichen das gleiche Problem, jedoch in einem etwas anderen Kontext.
+Um die Sache noch komplizierter zu machen, haben einige Geräte hochauflösende Bildschirme, die größere Bilder benötigen, als man vielleicht erwartet, um schön angezeigt zu werden. Dies ist im Wesentlichen dasselbe Problem, jedoch in einem etwas anderen Kontext.
 
-Sie könnten denken, dass Vektorbilder diese Probleme lösen würden, und das tun sie bis zu einem gewissen Grad — sie sind klein in der Dateigröße und skalieren gut, und Sie sollten sie wann immer möglich verwenden. Sie sind jedoch nicht für alle Bildtypen geeignet. Vektorbilder sind großartig für einfache Grafiken, Muster, Interface-Elemente usw., aber es wird sehr komplex, ein vektorbasiertes Bild mit der Art von Detail zu erstellen, die Sie in einem Foto finden würden. Rasterbildformate wie JPEGs eignen sich besser für die Art von Bildern, die wir im obigen Beispiel sehen.
+Sie könnten denken, dass Vektorbilder diese Probleme lösen würden, und sie tun es bis zu einem gewissen Grad – sie sind klein in der Dateigröße und skalieren gut, und Sie sollten sie verwenden, wo immer möglich. Sie sind jedoch nicht für alle Bildtypen geeignet. Vektorbilder sind ideal für einfache Grafiken, Muster, Schnittstellenelemente etc., aber es wird sehr komplex, ein vektorbasiertes Bild mit dem Detailgrad zu erstellen, den man beispielsweise in einem Foto finden würde. Rasterbildformate wie JPEGs eignen sich besser für die Art von Bildern, die wir im obigen Beispiel sehen.
 
-Diese Art von Problem existierte nicht, als das Web zum ersten Mal existierte, in den frühen bis mittleren 90er Jahren — damals waren die einzigen Geräte, die existierten, um das Web zu durchsuchen, Desktops und Laptops, sodass Browser-Ingenieure und Spezifizierer nicht daran dachten, Lösungen zu implementieren. _Responsive Bildtechnologien_ wurden kürzlich implementiert, um die oben genannten Probleme zu lösen, indem es Ihnen ermöglicht wird, dem Browser mehrere Bilddateien anzubieten, entweder alle zeigen dasselbe, aber mit unterschiedlichen Pixeлzahlen (_Auflösungs-Umschaltung_), oder verschiedene Bilder, die für verschiedene Platzzuweisungen geeignet sind (_Art Direction_).
+Diese Art von Problem existierte nicht, als das Web zum ersten Mal existierte, Anfang bis Mitte der 90er Jahre – damals waren die einzigen Geräte, die das Web durchstöbern konnten, Desktops und Laptops, daher dachten Browser-Ingenieure und Spezifikationsautoren nicht einmal daran, Lösungen zu implementieren. _Responsive-Bildtechnologien_ wurden kürzlich implementiert, um die oben genannten Probleme zu lösen, indem sie Ihnen ermöglichen, dem Browser mehrere Bilddateien anzubieten, entweder alle dasselbe darstellend, jedoch mit unterschiedlichen Pixelanzahlen (_Auflösungsumschaltung_), oder verschiedene Bilder, die für verschiedene Platzzuweisungen geeignet sind (_Art-Direction_).
 
 > [!NOTE]
-> Die in diesem Artikel diskutierten neuen Funktionen — [`srcset`](/de/docs/Web/HTML/Element/img#srcset)/[`sizes`](/de/docs/Web/HTML/Element/img#sizes)/{{htmlelement("picture")}} — werden alle in modernen Desktop- und Mobil-Browsern unterstützt.
+> Die in diesem Artikel besprochenen neuen Funktionen — [`srcset`](/de/docs/Web/HTML/Element/img#srcset)/[`sizes`](/de/docs/Web/HTML/Element/img#sizes)/{{htmlelement("picture")}} — werden alle in modernen Desktop- und Mobil-Browsern unterstützt.
 
 ## Wie erstellt man responsive Bilder?
 
-In diesem Abschnitt betrachten wir die beiden oben illustrierten Probleme und zeigen, wie man sie mit den responsiven Bildfunktionen von HTML löst. Beachten Sie, dass wir uns in diesem Abschnitt auf {{htmlelement("img")}}-Elemente konzentrieren werden, wie sie im Inhaltsbereich des obigen Beispiels zu sehen sind — das Bild im Site-Header dient nur zur Dekoration und wird daher mit CSS-Hintergrundbildern implementiert. [CSS hat möglicherweise bessere Werkzeuge für responsives Design](https://cloudfour.com/thinks/responsive-images-101-part-8-css-images/) als HTML, und wir werden darüber in einem zukünftigen CSS-Modul sprechen.
+In diesem Abschnitt werden wir uns die beiden oben dargestellten Probleme ansehen und zeigen, wie man sie mit den responsiven Bildfunktionen von HTML löst. Sie sollten beachten, dass wir uns auf {{htmlelement("img")}}-Elemente für diesen Abschnitt konzentrieren werden, wie im Inhaltsbereich des obigen Beispiels zu sehen ist – das Bild im Site-Header dient nur der Dekoration und wird daher mit CSS-Hintergrundbildern implementiert. [CSS hat arguably bessere Werkzeuge für Responsive Design](https://cloudfour.com/thinks/responsive-images-101-part-8-css-images/) als HTML, und wir werden diese in einem zukünftigen CSS-Modul besprechen.
 
-### Auflösungs-Umschaltung: Verschiedene Größen
+### Auflösungsumschaltung: Verschiedene Größen
 
-Was ist also das Problem, das wir mit der Auflösungs-Umschaltung lösen wollen? Wir möchten identische Bildinhalte anzeigen, nur größer oder kleiner je nach Gerät — dies ist die Situation, die wir mit dem zweiten Inhaltsbild in unserem Beispiel haben. Das standardmäßige {{htmlelement("img")}}-Element lässt traditionell nur zu, dass Sie den Browser auf eine einzelne Quelldatei verweisen:
+Was ist also das Problem, das wir mit der Auflösungsumschaltung lösen wollen? Wir möchten identische Bildinhalte anzeigen, die je nach Gerät größer oder kleiner sind — dies ist die Situation, die wir mit dem zweiten Inhaltsbild in unserem Beispiel haben. Das Standard-{{htmlelement("img")}}-Element lässt Sie traditionell nur auf eine einzige Quelldatei verweisen:
 
 ```html
 <img src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy" />
 ```
 
-Wir können jedoch zwei Attribute verwenden — [`srcset`](/de/docs/Web/HTML/Element/img#srcset) und [`sizes`](/de/docs/Web/HTML/Element/img#sizes) — um mehrere zusätzliche Quellbilder bereitzustellen, zusammen mit Hinweisen, die dem Browser helfen, das richtige auszuwählen. Sie können ein Beispiel dafür in unserem [responsive.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/responsive.html) Beispiel auf GitHub sehen (siehe auch [den Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/responsive-images/responsive.html)):
+Wir können jedoch zwei Attribute — [`srcset`](/de/docs/Web/HTML/Element/img#srcset) und [`sizes`](/de/docs/Web/HTML/Element/img#sizes) — verwenden, um dem Browser mehrere zusätzliche Quellenbilder zusammen mit Hinweisen anzubieten, die ihm helfen, das richtige auszusuchen. Sie können ein Beispiel dafür in unserem [responsive.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/responsive.html)-Beispiel auf GitHub sehen (sehen Sie sich auch [den Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/responsive-images/responsive.html) an):
 
 ```html
 <img
@@ -84,55 +83,47 @@ Wir können jedoch zwei Attribute verwenden — [`srcset`](/de/docs/Web/HTML/Ele
   alt="Elva dressed as a fairy" />
 ```
 
-Die Attribute `srcset` und `sizes` sehen kompliziert aus, sind aber nicht allzu schwer zu verstehen, wenn Sie sie wie oben gezeigt formatieren, mit einem anderen Teil des Attributwerts in jeder Zeile. Jeder Wert enthält eine komma-getrennte Liste, und jeder Teil dieser Listen besteht aus drei Unterteilen. Lassen Sie uns jetzt den Inhalt jedes einzelnen durchgehen:
+Die `srcset`- und `sizes`-Attribute sehen kompliziert aus, aber sie sind nicht zu schwer zu verstehen, wenn Sie sie formatieren, wie oben gezeigt, mit einem anderen Teil des Attributwerts in jeder Zeile. Jeder Wert enthält eine durch Kommas getrennte Liste, und jeder Teil dieser Liste besteht aus drei Unterteilen. Lassen Sie uns nun den Inhalt jedes dieser Teile durchgehen:
 
-**`srcset`** definiert die Menge an Bildern, die wir dem Browser zur Auswahl stellen, und welche Größe jedes Bild hat. Jede Bildinformation ist durch ein Komma vom vorherigen getrennt. Für jedes schreiben wir:
+**`srcset`** definiert die Menge von Bildern, zwischen denen wir dem Browser erlauben, auszuwählen, und die Größe jedes Bildes. Jedes Set von Bildinformationen wird durch ein Komma vom vorherigen getrennt. Für jedes setzen wir:
 
-1. Einen **Bilddateinamen** (`elva-fairy-480w.jpg`)
+1. Ein **Bilddateiname** (`elva-fairy-480w.jpg`)
 2. Ein Leerzeichen
-3. Die **intrinsische Breite in Pixeln** des Bildes (`480w`) — beachten Sie, dass dies die `w`-Einheit verwendet, nicht `px`, wie Sie vielleicht erwarten. Die {{Glossary("Intrinsic_Size", "intrinsische Größe")}} eines Bildes ist seine tatsächliche Größe, die durch die Inspektion der Bilddatei auf Ihrem Computer gefunden werden kann (zum Beispiel auf einem Mac können Sie das Bild im Finder auswählen und
+3. Die **intrinsische Breite** des Bildes in Pixeln (`480w`) — beachten Sie, dass dies die `w`-Einheit verwendet und nicht `px`, wie Sie vielleicht erwarten würden. Die {{Glossary("Intrinsic_Size", "intrinsische Größe")}} eines Bildes ist seine tatsächliche Größe, die sich feststellen lässt, indem man die Bilddatei auf Ihrem Computer inspiziert (zum Beispiel können Sie auf einem Mac das Bild im Finder auswählen und <kbd>Cmd</kbd> + <kbd>I</kbd> drücken, um den Informationsbildschirm aufzurufen).
 
-   <kbd>Cmd</kbd>
+**`sizes`** definiert ein Set von Medienbedingungen (z.B. Bildschirmbreiten) und gibt an, welche Bildgröße am besten zu wählen ist, wenn bestimmte Medienbedingungen zutreffen — dies sind die schon erwähnten Hinweise. In diesem Fall schreiben wir vor jedem Komma:
 
-   \+
-
-   <kbd>I</kbd>
-
-   drücken, um den Informationsbildschirm aufzurufen).
-
-**`sizes`** definiert eine Reihe von Medienbedingungen (z.B. Bildschirmbreiten) und gibt an, welche Bildgröße am besten zu wählen wäre, wenn bestimmte Medienbedingungen wahr sind — dies sind die Hinweise, über die wir zuvor gesprochen haben. In diesem Fall schreiben wir vor jedem Komma:
-
-1. Eine **Medienbedingung** (`(max-width:600px)`) — Sie werden mehr darüber im [CSS-Thema](/de/docs/Learn/CSS) lernen, aber für jetzt sagen wir einfach, dass eine Medienbedingung einen möglichen Zustand beschreibt, in dem sich der Bildschirm befinden kann. In diesem Fall sagen wir "wenn die Viewport-Breite 600 Pixel oder weniger beträgt".
+1. Eine **Medienbedingung** (`(max-width:600px)`) — Sie werden darüber mehr im [CSS-Thema](/de/docs/Learn/CSS) lernen, aber für den Moment sagen wir einfach, dass eine Medienbedingung einen möglichen Zustand beschreibt, in dem sich der Bildschirm befinden kann. In diesem Fall sagen wir "wenn die Viewport-Breite 600 Pixel oder weniger beträgt".
 2. Ein Leerzeichen
-3. Die **Breite des Slots**, den das Bild bei wahrer Medienbedingung ausfüllen wird (`480px`)
+3. Die **Breite des Slots**, den das Bild füllen wird, wenn die Medienbedingung wahr ist (`480px`)
 
 > [!NOTE]
-> In `sizes` können Sie jeden [Längenwert](/de/docs/Web/CSS/length) verwenden. Zum Beispiel, anstelle einer absoluten Breite (zum Beispiel `480px`) können Sie alternativ eine Breite relativ zum Viewport angeben (zum Beispiel `50vw`). Sie können jedoch keine Prozente für die Slotbreite verwenden. Möglicherweise haben Sie bemerkt, dass die letzte Slotbreite keine Medienbedingung hat (diese wird als Standard gewählt, wenn keine der Medienbedingungen wahr ist). Der Browser ignoriert alles nach der ersten übereinstimmenden Bedingung, also seien Sie vorsichtig, wie Sie die Medienbedingungen anordnen.
+> In `sizes` können Sie jeden [Längenwert](/de/docs/Web/CSS/length) verwenden. Beispielsweise können Sie anstelle einer absoluten Breite (zum Beispiel `480px`) alternativ eine Breite relativ zur Viewport-Breite angeben (zum Beispiel `50vw`). Sie können jedoch keinen Prozentsatz als Slot-Breite verwenden. Vielleicht haben Sie bemerkt, dass die letzte Slot-Breite keine Medienbedingung hat (dies ist die Standardgröße, die gewählt wird, wenn keine der Medienbedingungen wahr ist). Der Browser ignoriert alles nach der ersten passenden Bedingung. Seien Sie also vorsichtig bei der Anordnung der Medienbedingungen.
 
 Mit diesen Attributen an Ort und Stelle wird der Browser:
 
-1. Die Bildschirmgröße, Pixeldichte, Zoomstufe, Bildschirmorientierung und Netzwerkgeschwindigkeit berücksichtigen.
-2. Bestimmen, welche Medienbedingung in der `sizes`-Liste die erste ist, die wahr ist.
-3. Die Slotgröße überprüfen, die dieser Medienabfrage zugeordnet ist.
-4. Das Bild laden, auf das in der `srcset`-Liste verwiesen wird und das die gleiche Größe wie der Slot hat oder, wenn es kein solches gibt, das erste Bild, das größer als die gewählte Slotgröße ist.
+1. Die Bildschirmgröße, Pixeldichte, Zoomstufe, Bildschirmausrichtung und Netzwerkgeschwindigkeit ansehen.
+2. Herausfinden, welche Medienbedingung in der `sizes`-Liste die erste ist, die wahr ist.
+3. Die Slot-Größe prüfen, die dieser Medienabfrage zugewiesen ist.
+4. Das Bild laden, das in der `srcset`-Liste referenziert ist und dieselbe Größe wie der Slot hat oder, wenn es keines gibt, das erste Bild laden, das größer als die gewählte Slot-Größe ist.
 
-Und das war's! An diesem Punkt, wenn ein unterstützender Browser mit einer Viewport-Breite von 480px die Seite lädt, wird die `(max-width: 600px)` Medienbedingung wahr sein, und daher wird der Browser den `480px` Slot wählen. Das `elva-fairy-480w.jpg` wird geladen, da seine inhärente Breite (`480w`) der Slotgröße am nächsten liegt. Das 800px Bild ist 128KB auf der Festplatte, wohingegen die 480px Version nur 63KB beträgt — eine Ersparnis von 65KB. Stellen Sie sich nun vor, dies wäre eine Seite mit vielen Bildern. Diese Technik zu verwenden, könnte mobilen Nutzern viel Bandbreite ersparen.
+Und das war's! An diesem Punkt, wenn ein unterstützender Browser mit einer Viewport-Breite von 480px die Seite lädt, wird die `(max-width: 600px)`-Medienbedingung wahr sein, und so wählt der Browser den `480px`-Slot. Das `elva-fairy-480w.jpg` wird geladen, da seine inhärente Breite (`480w`) der Slot-Größe am nächsten kommt. Das 800px-Bild ist auf der Festplatte 128KB, während die 480px-Version nur 63KB ist — eine Ersparnis von 65KB. Jetzt stellen Sie sich vor, dies wäre eine Seite mit vielen Bildern darauf. Mit dieser Technik könnten mobile Benutzer viel Bandbreite sparen.
 
 > [!NOTE]
-> Wenn Sie dies mit einem Desktop-Browser testen und der Browser die schmaleren Bilder nicht lädt, obwohl Sie sein Fenster auf die schmalste Breite eingestellt haben, schauen Sie sich an, was der Viewport ist (Sie können ihn annähernd bestimmen, indem Sie in die JavaScript-Konsole des Browsers gehen und `document.querySelector('html').clientWidth` eingeben). Verschiedene Browser haben minimale Größen, auf die sie die Fensterbreite reduzieren lassen, und sie können breiter sein, als Sie denken. Wenn Sie es mit einem mobilen Browser testen, können Sie Tools wie die Firefox `about:debugging`-Seite verwenden, um die geladene Seite auf dem Mobilgerät mit den Entwickler-Tools des Desktops zu inspizieren.
+> Beim Testen mit einem Desktop-Browser, wenn der Browser die schmaleren Bilder nicht lädt, wenn Sie sein Fenster auf die schmalste Breite eingestellt haben, schauen Sie, was der Viewport ist (Sie können ihn annäherungsweise finden, indem Sie in die JavaScript-Konsole des Browsers gehen und `document.querySelector('html').clientWidth` eingeben). Verschiedene Browser haben Mindestgrößen, zu denen sie die Fensterbreite reduzieren lassen, und sie könnten breiter sein, als Sie denken. Beim Testen mit einem mobilen Browser können Sie Tools wie die `about:debugging`-Seite von Firefox verwenden, um die geladene Seite auf dem Mobilgerät mit den Entwickler-Tools des Desktops zu inspizieren.
 >
-> Um zu sehen, welche Bilder geladen wurden, können Sie die [Netzwerküberwachung](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) in den Firefox DevTools oder das [Netzwerkbedienfeld](https://developer.chrome.com/docs/devtools/network/) in den Chrome DevTools verwenden. Für Chrome sollten Sie außerdem [den Cache deaktivieren](https://stackoverflow.com/a/7000899/13725861), um zu verhindern, dass bereits heruntergeladene Bilder verwendet werden.
+> Um zu sehen, welche Bilder geladen wurden, können Sie die [Netzwerküberwachung](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) von Firefox DevTools oder das [Netzwerk](https://developer.chrome.com/docs/devtools/network/)-Panel von Chrome DevTools verwenden. Für Chrome möchten Sie möglicherweise auch den [Cache deaktivieren](https://stackoverflow.com/a/7000899/13725861), um zu verhindern, dass bereits heruntergeladene Bilder ausgewählt werden.
 
-Ältere Browser, die diese Funktionen nicht unterstützen, ignorieren sie einfach. Stattdessen laden diese Browser das Bild, auf das im [`src`](/de/docs/Web/HTML/Element/img#src)-Attribut verwiesen wird, wie gewohnt.
+Ältere Browser, die diese Funktionen nicht unterstützen, ignorieren sie einfach. Stattdessen laden diese Browser das Bild, das im [`src`](/de/docs/Web/HTML/Element/img#src)-Attribut referenziert wird, wie gewohnt.
 
 > [!NOTE]
-> Im {{htmlelement("head")}} des oben verlinkten Beispiels werden Sie die Zeile `<meta name="viewport" content="width=device-width">` finden: Sie zwingt mobile Browser dazu, ihre tatsächliche Viewport-Breite für das Laden von Webseiten zu übernehmen (einige mobile Browser lügen über ihre Viewport-Breite und laden stattdessen Seiten mit einer größeren Viewport-Breite und verkleinern die geladene Seite dann, was für responsive Bilder oder Design nicht sehr hilfreich ist).
+> Im {{htmlelement("head")}} des obigen Beispiels finden Sie die Zeile `<meta name="viewport" content="width=device-width">`: dies zwingt mobile Browser, ihre tatsächliche Viewport-Breite beim Laden von Webseiten zu übernehmen (einige mobile Browser lügen über ihre Viewport-Breite und laden stattdessen Seiten mit einer größeren Viewport-Breite, die dann geschrumpft werden – was für responsive Bilder oder Design nicht sehr hilfreich ist).
 
-### Auflösungs-Umschaltung: Gleiche Größe, unterschiedliche Auflösungen
+### Auflösungsumschaltung: Gleiche Größe, unterschiedliche Auflösungen
 
-Angenommen, Sie haben ein Bild, das mit der gleichen realen Größe auf Bildschirmen mit unterschiedlichen Bildschirmauflösungen angezeigt wird. Sie können eine bessere Benutzererfahrung auf hochauflösenden Bildschirmen bieten, indem Sie eine höher aufgelöste Version des Bildes bereitstellen.
+Angenommen, Sie haben ein Bild, das in derselben realen Größe auf Displays mit unterschiedlichen Bildschirmauflösungen angezeigt wird. Sie können eine bessere Benutzererfahrung auf hochauflösenden Displays bieten, indem Sie eine hochauflösende Version des Bildes bereitstellen.
 
-Um dies zu erreichen, können Sie dem Browser erlauben, ein Bild mit der entsprechenden Auflösung auszuwählen, indem Sie `srcset` mit x-Beschreibern und ohne `sizes` verwenden — eine etwas einfachere Syntax! Sie können ein Beispiel dafür sehen, wie dies in [srcset-resolutions.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/srcset-resolutions.html) aussieht (siehe auch [den Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/responsive-images/srcset-resolutions.html)):
+Um dies zu erreichen, können Sie dem Browser die Wahl eines geeigneten Auflösungsbildes über `srcset` mit x-Deskriptoren und ohne `sizes`-Attribut erlauben — eine etwas einfachere Syntax! Ein Beispiel dafür, wie dies aussieht, finden Sie in [srcset-resolutions.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/srcset-resolutions.html) (siehe auch [den Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/responsive-images/srcset-resolutions.html)):
 
 ```html
 <img
@@ -141,11 +132,11 @@ Um dies zu erreichen, können Sie dem Browser erlauben, ein Bild mit der entspre
   alt="Elva dressed as a fairy" />
 ```
 
-Beachten Sie, dass Sie, obwohl das Bild immer mit derselben Größe angezeigt wird, auf Bildschirmen mit höherer Auflösung mehr Details sehen können.
+Beachten Sie, dass das Bild, obwohl es immer mit der gleichen Größe angezeigt wird, auf hochauflösenden Displays mehr Details zeigt.
 
-![Ein Bild eines kleinen Mädchens, das als Fee verkleidet ist, mit einem alten Kamera-Filmeffekt auf das Bild angewendet](resolution-example.png)
+![Ein Bild eines kleinen Mädchens, das sich als Fee verkleidet hat, mit einem alten Kamera-Filmeffekt, der auf das Bild angewendet wurde](resolution-example.png)
 
-In diesem Beispiel wird das folgende CSS auf das Bild angewendet, damit es auf dem Bildschirm eine Breite von 320 Pixeln hat (auch als CSS-Pixel bezeichnet):
+In diesem Beispiel wird das folgende CSS auf das Bild angewendet, sodass es mit einer Breite von 320 Pixeln auf dem Bildschirm angezeigt wird (auch CSS-Pixel genannt):
 
 ```css
 img {
@@ -153,19 +144,19 @@ img {
 }
 ```
 
-In diesem Fall ist `sizes` nicht nötig — der Browser berechnet, welche Auflösung das Display, auf dem es gezeigt wird, hat, und liefert das geeignetste Bild, auf das in `srcset` verwiesen wird. Wenn das Gerät, das die Seite abruft, über eine Standardniedrigauflösung verfügt, bei der ein Gerät-Pixel jeweils einem CSS-Pixel entspricht, wird das `elva-fairy-320w.jpg`-Bild geladen (das 1x ist impliziert, daher müssen Sie es nicht einschließen). Wenn das Gerät eine hohe Auflösung von zwei Gerät-Pixeln pro CSS-Pixel oder mehr hat, wird das `elva-fairy-640w.jpg`-Bild geladen. Das 640px-Bild ist 93KB, während das 320px-Bild nur 39KB beträgt.
+In diesem Fall ist `sizes` nicht erforderlich — der Browser ermittelt die Auflösung des Displays, auf dem es angezeigt wird, und liefert das am besten geeignete Bild, das in `srcset` referenziert wird. Wenn das Gerät, das auf die Seite zugreift, ein Standard-/Niedrigauflösungsdisplay mit einem Gerätepixel pro CSS-Pixel hat, wird das `elva-fairy-320w.jpg`-Bild geladen (das 1x ist impliziert, sodass Sie es nicht einschließen müssen). Wenn das Gerät eine hohe Auflösung von zwei Gerätepixeln pro CSS-Pixel oder mehr hat, wird das `elva-fairy-640w.jpg`-Bild geladen. Das 640px-Bild ist 93KB, während das 320px-Bild nur 39KB ist.
 
-### Art Direction
+### Art-Direction
 
-Um zusammenzufassen, das **Art Direction Problem** beinhaltet den Wunsch, das angezeigte Bild an unterschiedliche Bilddarstellungsgrößen anzupassen. Beispielsweise enthält eine Webseite ein großes Landschaftsbild mit einer Person in der Mitte, wenn es in einem Desktop-Browser angezeigt wird. Wenn es in einem mobilen Browser angesehen wird, wird dasselbe Bild verkleinert, wodurch die Person im Bild sehr klein und schwer zu sehen wird. Es wäre wahrscheinlich besser, ein kleineres, porträtorientiertes Bild auf mobilen Geräten anzuzeigen, das die Person heranzoomen lässt. Das {{htmlelement("picture")}}-Element ermöglicht es uns, genau diese Art von Lösung zu implementieren.
+Um das **Art-Direction-Problem** zusammenzufassen: Es geht darum, das angezeigte Bild an verschiedene Bildanzeigegrößen anzupassen. Beispielsweise beinhaltet eine Webseite bei Ansicht auf einem Desktop-Browser eine große Landschaftsaufnahme mit einer Person in der Mitte. Bei Ansicht auf einem mobilen Browser wird dasselbe Bild verkleinert, wodurch die Person im Bild sehr klein und schwer erkennbar wird. Es wäre wahrscheinlich besser, auf Mobilgeräten ein kleineres Porträtbild zu zeigen, das auf die Person heranzoomt. Das {{htmlelement("picture")}}-Element ermöglicht es uns, genau diese Art von Lösung zu implementieren.
 
-Wenn wir zu unserem ursprünglichen [not-responsive.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/not-responsive.html) Beispiel zurückkehren, haben wir ein Bild, das dringend Art Direction benötigt:
+Zurück zu unserem ursprünglichen [not-responsive.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/not-responsive.html)-Beispiel: Wir haben ein Bild, das dringend Art-Direction benötigt:
 
 ```html
 <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva" />
 ```
 
-Lassen Sie uns dies mit {{htmlelement("picture")}} korrigieren! Wie [`<video>` und `<audio>`](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content), ist das `<picture>`-Element ein Wrapper, der mehrere {{htmlelement("source")}}-Elemente enthält, die verschiedene Quellen bereitstellen, aus denen der Browser auswählen kann, gefolgt von dem allentscheidenden {{htmlelement("img")}}-Element. Der Code in [responsive.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/responsive.html) sieht so aus:
+Dieses Problem mit {{htmlelement("picture")}} lösen! Wie [`<video>` und `<audio>`](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content), ist das `<picture>`-Element ein Wrapper, der mehrere {{htmlelement("source")}}-Elemente enthält, die verschiedene Quellen für den Browser bereitstellen, gefolgt von dem wichtigen {{htmlelement("img")}}-Element. Der Code in [responsive.html](https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/responsive.html) sieht so aus:
 
 ```html
 <picture>
@@ -175,44 +166,44 @@ Lassen Sie uns dies mit {{htmlelement("picture")}} korrigieren! Wie [`<video>` u
 </picture>
 ```
 
-- Die `<source>`-Elemente enthalten ein `media`-Attribut, das eine Medienbedingung enthält — wie im ersten `srcset`-Beispiel sind diese Bedingungen Tests, die entscheiden, welches Bild angezeigt wird — das erste, das wahr wird, wird angezeigt. In diesem Fall wird, wenn die Viewport-Breite 799px oder weniger beträgt, das Bild des ersten `<source>`-Elements angezeigt. Wenn die Viewport-Breite 800px oder mehr beträgt, wird das zweite angezeigt.
-- Die `srcset`-Attribute enthalten den Pfad zu dem Bild, das angezeigt werden soll. Genau wie wir es mit `<img>` oben gesehen haben, kann `<source>` ein `srcset`-Attribut mit mehreren referenzierten Bildern sowie ein `sizes`-Attribut aufnehmen. Sie könnten also über ein `<picture>`-Element mehrere Bilder anbieten, aber auch mehrere Auflösungen jedes einzelnen. Realistisch gesehen werden Sie wahrscheinlich nicht sehr oft diese Art von Sache tun wollen.
-- In allen Fällen müssen Sie ein `<img>`-Element mit `src` und `alt` direkt vor `</picture>` bereitstellen, sonst werden keine Bilder angezeigt. Dies bietet einen Standardfall, der angewendet wird, wenn keine der Medienbedingungen wahr ist (Sie könnten tatsächlich das zweite `<source>`-Element in diesem Beispiel entfernen), und einen Rückfall für Browser, die das `<picture>`-Element nicht unterstützen.
+- Die `<source>`-Elemente enthalten ein `media`-Attribut, das eine Medienbedingung enthält – wie beim ersten `srcset`-Beispiel sind diese Bedingungen Tests, die entscheiden, welches Bild gezeigt wird — das erste, das wahr wird, wird angezeigt. In diesem Fall wird das Bild des ersten `<source>`-Elements angezeigt, wenn die Viewport-Breite 799px oder weniger beträgt. Wenn die Viewport-Breite 800px oder mehr beträgt, wird das zweite angezeigt.
+- Die `srcset`-Attribute enthalten den Pfad zu dem anzuzeigenden Bild. Genauso wie wir es oben mit `<img>` gesehen haben, kann `<source>` ein `srcset`-Attribut mit mehreren referenzierten Bildern sowie ein `sizes`-Attribut tragen. So könnten Sie mehrere Bilder über ein `<picture>`-Element anbieten, aber dann auch mehrere Auflösungen von jedem davon anbieten. Realistischerweise werden Sie diese Art von Sache wahrscheinlich nicht sehr oft tun wollen.
+- In allen Fällen müssen Sie ein `<img>`-Element, mit `src` und `alt`, direkt vor `</picture>` angeben, sonst werden keine Bilder angezeigt. Dies bietet einen Standardfall, der gilt, wenn keine der Medienbedingungen wahr wird (Sie könnten tatsächlich das zweite `<source>`-Element in diesem Beispiel entfernen), und eine Rückfallebene für Browser, die das `<picture>`-Element nicht unterstützen.
 
-Dieser Code ermöglicht es uns, ein geeignetes Bild sowohl auf Breitbild- als auch auf Schmalbild-Anzeigen darzustellen, wie unten gezeigt:
+Dieser Code ermöglicht es uns, ein geeignetes Bild sowohl in Breitbild- als auch in Schmalbildanzeigen anzuzeigen, wie unten gezeigt:
 
-![Unsere Beispielseite, wie sie auf einem Breitbildschirm angezeigt wird - hier funktioniert das erste Bild okay, da es groß genug ist, um die Details in der Mitte zu sehen.](picture-element-wide.png)![Unsere Beispielseite, wie sie auf einem schmalen Bildschirm angezeigt wird, bei dem das Bild-Element verwendet wurde, um das erste Bild auf eine Porträtaufnahme zu wechseln, die die Details vergrößert und es auf einem schmalen Bildschirm viel nützlicher macht,](picture-element-narrow.png)
+![Unsere Beispielseite, wie sie auf einem Breitbildschirm aussieht - hier funktioniert das erste Bild gut, da es groß genug ist, um die Details in der Mitte zu sehen.](picture-element-wide.png)![Unsere Beispielseite, wie sie auf einem schmalen Bildschirm mit dem picture-Element aussieht, um das erste Bild zu einem Porträt, das die Details in der Nähe zeigt, zu wechseln und es auf einem schmalen Bildschirm viel nützlicher zu machen](picture-element-narrow.png)
 
 > [!NOTE]
-> Sie sollten das `media`-Attribut nur in Art Direction-Szenarien verwenden; wenn Sie `media` verwenden, bieten Sie nicht gleichzeitig Medienbedingungen im `sizes`-Attribut an.
+> Sie sollten das `media`-Attribut nur in Art-Direction-Szenarien verwenden; wenn Sie `media` verwenden, bieten Sie keine Medienbedingungen innerhalb des `sizes`-Attributs an.
 
 ### Warum können wir das nicht einfach mit CSS oder JavaScript machen?
 
-Wenn der Browser beginnt, eine Seite zu laden, beginnt er damit, Bilder herunterzuladen (preloading), bevor der Hauptparser begonnen hat, das CSS und JavaScript der Seite zu laden und zu interpretieren. Dieser Mechanismus ist im Allgemeinen nützlich, um die Ladezeiten von Seiten zu reduzieren, aber er ist nicht hilfreich für responsive Bilder — daher die Notwendigkeit, Lösungen wie `srcset` zu implementieren. Beispielsweise könnten Sie das {{htmlelement("img")}}-Element nicht laden, dann die Viewport-Breite mit JavaScript erkennen und dann dynamisch das Quellbild auf ein kleineres Bild ändern, wenn gewünscht. Zu diesem Zeitpunkt wäre das Originalbild bereits geladen, und Sie würden das kleine Bild zusätzlich laden, was in Bezug auf responsive Bilder noch schlimmer wäre.
+Wenn der Browser beginnt, eine Seite zu laden, beginnt er auch, (vor-) beliebige Bilder herunterzuladen, bevor der Hauptparser die CSS und JavaScript der Seite geladen und interpretiert hat. Dieser Mechanismus ist generell nützlich, um Ladezeiten zu reduzieren, ist aber nicht hilfreich für responsives Bilder — daher die Notwendigkeit, Lösungen wie `srcset` zu implementieren. Beispielsweise könnten Sie nicht das {{htmlelement("img")}}-Element laden, dann die Viewportbreite mit JavaScript detektieren und dann das Quellbild zu einem kleineren ändern, falls gewünscht. Zu diesem Zeitpunkt wäre das ursprüngliche Bild bereits geladen, und Sie würden außerdem das kleine Bild laden, was in Bezug auf responsives Bilder sogar noch schlimmer ist.
 
-## Aktives Lernen: Eigene responsive Bilder implementieren
+## Aktives Lernen: Implementierung eigener responsiver Bilder
 
-Für dieses aktive Lernen erwarten wir, dass Sie mutig sind und es zum Großteil allein machen. Wir möchten, dass Sie Ihr eigenes geeignetes mit Art-Direction umgesetztes schmal Bildschirm/Breit Bildschirm-Bild mit `ör <code>picture</code>`, und ein Auflösungs-Umschaltbeispiel, das `srcset` verwendet, implementieren.
+Für dieses aktive Lernen erwarten wir, dass Sie mutig sind und es größtenteils alleine schaffen. Wir möchten, dass Sie Ihre eigene, geeignete Art-Direction-Lösung für schmale Bildschirme/Breitbildschirme mit `<picture>` implementieren sowie ein Auflösungsumschaltbeispiel mit `srcset`.
 
-1. Schreiben Sie etwas einfaches HTML, um Ihren Code zu enthalten (verwenden Sie `not-responsive.html` als Ausgangspunkt, wenn Sie möchten).
-2. Finden Sie ein schönes Breitbild-Landschaftsbild mit irgendeiner Art von Detail darin irgendwo. Erstellen Sie eine webtaugliche Version davon mit einem Grafikeditor, schneiden Sie es dann zu, um einen kleineren Teil zu zeigen, der in das Detail hereinzoomt, und erstellen Sie ein zweites Bild (etwa 480px Breite ist dafür gut geeignet).
-3. Verwenden Sie das `<picture>`-Element, um einen Art-Direction-Bildwechsler zu implementieren!
-4. Erstellen Sie mehrere Bilddateien unterschiedlicher Größe, die alle dasselbe Bild zeigen.
-5. Verwenden Sie `srcset`/`sizes`, um ein Auflösungs-Umschaltbeispiel zu erstellen, entweder um das Bild in verschiedenen Auflösungen je nach Geräteauflösung oder in verschiedenen Größen je nach Viewport-Breiten zu servieren.
+1. Schreiben Sie etwas einfachen HTML, um Ihren Code einzubetten (verwenden Sie `not-responsive.html` als Ausgangspunkt, wenn Sie wollen).
+2. Finden Sie ein schönes Landschaftsbild im Breitbildformat mit irgendeiner Art von Detail darin. Erstellen Sie mit einem Grafik-Editor eine für das Web geeignete Version, dann beschneiden Sie es, um einen kleineren Ausschnitt zu erstellen, und erstellen Sie ein zweites Bild (etwa 480px Breite eignen sich dafür gut).
+3. Verwenden Sie das `<picture>`-Element, um einen Art-Direction-Bilderwechsler zu implementieren!
+4. Erstellen Sie mehrere Bilddateien in unterschiedlichen Größen, die dasselbe Bild zeigen.
+5. Verwenden Sie `srcset`/`sizes`, um ein Auflösungsumschaltbeispiel zu kreieren, entweder um bei unterschiedlicher Geräteauflösung gleich große Bilder in unterschiedlichen Auflösungen zu liefern oder um je nach Viewport-Breite unterschiedlich große Bilder zu liefern.
 
 ## Zusammenfassung
 
-Das war es für responsive Bilder — wir hoffen, dass Sie Spaß dabei hatten, mit diesen neuen Techniken zu spielen. Zur Erinnerung, es gibt zwei verschiedene Probleme, die wir hier diskutiert haben:
+Das ist das Ende für responsive Bilder – wir hoffen, Sie haben Spaß gehabt, diese neuen Techniken auszuprobieren. Zur Wiederholung, es gibt hier zwei verschiedene Probleme, die wir besprochen haben:
 
-- **Art Direction**: Das Problem, dass Sie zugeschnittene Bilder für verschiedene Layouts bereitstellen möchten — zum Beispiel ein Landschaftsbild, das eine vollständigeSzene für ein Desktop-Layout zeigt, und ein Porträtbild, das das Hauptmotiv für ein mobiles Layout heranzoomen lässt. Dieses Problem können Sie mit dem {{htmlelement("picture")}}-Element lösen.
-- **Auflösungs-Umschaltung**: Das Problem, dass Sie für Geräte mit schmalem Bildschirm kleinere Bilddateien bereitstellen möchten, da sie keine riesigen Bilder wie Desktop-Displays benötigen — und unterschiedliche Auflösungsbilder für Displays mit hoher oder niedriger Dichte liefern. Dieses Problem können Sie mit [Vektorgrafiken](/de/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web) (SVG-Bilder) und den Attributen [`srcset`](/de/docs/Web/HTML/Element/img#srcset) und [`sizes`](/de/docs/Web/HTML/Element/img#sizes) lösen.
+- **Art-Direction**: Das Problem, Bilderformen für verschiedene Layouts zuzuschneiden – z.B. ein Landschaftsbild, das eine vollständige Szene für ein Desktop-Layout zeigt, und ein Porträtbild, das das Hauptobjekt herangezoomt zeigt für ein Mobillayout. Sie können dieses Problem mit dem {{htmlelement("picture")}}-Element lösen.
+- **Auflösungsumschaltung**: Das Problem, dass Sie kleinere Bilddateien an Geräte mit schmalem Bildschirm senden möchten, da sie nicht die großen Bilder benötigen, die Desktop-Displays brauchen — und verschiedene Auflösungsbilder an hoch- und niedrigdichte Bildschirme senden möchten. Sie können dieses Problem mit [Vektorgrafiken](/de/docs/Learn/HTML/Multimedia_and_embedding/Adding_vector_graphics_to_the_Web) (SVG-Bilder) und den [`srcset`](/de/docs/Web/HTML/Element/img#srcset) mit [`sizes`](/de/docs/Web/HTML/Element/img#sizes) Attributen lösen.
 
-Dies bringt auch das gesamte Modul [Multimedia und Einbettung](/de/docs/Learn/HTML/Multimedia_and_embedding) zum Abschluss! Das Einzige, was jetzt noch zu tun ist, bevor Sie weitermachen, ist, unsere [Bewertung von Multimedia und Einbettung](/de/docs/Learn/HTML/Multimedia_and_embedding/Mozilla_splash_page) zu versuchen und zu sehen, wie Sie dabei abschneiden. Viel Spaß!
+Damit ist auch das gesamte [Multimedia und Einbetten](/de/docs/Learn/HTML/Multimedia_and_embedding) Modul abgeschlossen! Das Einzige, was Sie jetzt tun müssen, bevor Sie weitergehen, ist unser [Multimedia und Einbetten Bewertung](/de/docs/Learn/HTML/Multimedia_and_embedding/Mozilla_splash_page) zu versuchen, und sehen, wie Sie abschneiden. Viel Spaß!
 
 ## Siehe auch
 
-- [Jason Grigsbys exzellente Einführung in responsive Bilder](https://cloudfour.com/thinks/responsive-images-101-definitions/)
-- [Responsive Bilder: Wenn Sie nur die Auflösungen ändern, verwenden Sie srcset](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/) — enthält weitere Erklärungen darüber, wie der Browser herausfindet, welches Bild verwendet werden soll
+- [Jason Grigsby's exzellente Einführung zu responsiven Bildern](https://cloudfour.com/thinks/responsive-images-101-definitions/)
+- [Responsive Images: Wenn Sie nur Auflösungen ändern, verwenden Sie srcset](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/) — beinhaltet mehr Erklärung darüber, wie der Browser herausfindet, welches Bild verwendet werden soll
 - {{htmlelement("img")}}
 - {{htmlelement("picture")}}
 - {{htmlelement("source")}}

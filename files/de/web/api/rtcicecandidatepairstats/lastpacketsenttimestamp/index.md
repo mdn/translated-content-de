@@ -1,18 +1,18 @@
 ---
-title: "RTCIceCandidateStats: lastPacketSentTimestamp Eigenschaft"
+title: "RTCIceCandidateStats: Eigenschaft lastPacketSentTimestamp"
 short-title: lastPacketSentTimestamp
 slug: Web/API/RTCIceCandidatePairStats/lastPacketSentTimestamp
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
 ---
 
 {{APIRef("WebRTC")}}
 
-Die [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Eigenschaft **`lastPacketSentTimestamp`** gibt die Zeit an, zu der die durch das Kandidatenpaar beschriebene Verbindung zuletzt ein Paket gesendet hat, ohne {{Glossary("STUN", "STUN")}}-Pakete einzuschließen.
+Die **`lastPacketSentTimestamp`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs gibt die Zeit an, zu der die durch das Kandidatenpaar beschriebene Verbindung zuletzt ein Paket gesendet hat, mit Ausnahme von {{Glossary("STUN", "STUN")}}-Paketen.
 
 ## Wert
 
-Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die durch das Paar von Kandidaten beschriebene Verbindung zuletzt ein Paket gesendet hat, STUN-Pakete ausgeschlossen.
+Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitstempel angibt, zu dem die durch das Kandidatenpaar beschriebene Verbindung zuletzt ein Paket gesendet hat, STUN-Pakete ausgenommen.
 
 ## Spezifikationen
 

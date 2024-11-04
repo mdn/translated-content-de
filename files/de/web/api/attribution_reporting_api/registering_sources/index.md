@@ -1,32 +1,32 @@
 ---
-title: Registrieren von Quellen zur Attribution
+title: Registrierung von Attributionsquellen
 slug: Web/API/Attribution_Reporting_API/Registering_sources
 l10n:
-  sourceCommit: f3c4fc42e8817d0b8f703cf83957c33cd5342019
+  sourceCommit: d270b0a55b9f2b02c2471eba9d56f7348e61b5ad
 ---
 
 {{SeeCompatTable}}{{DefaultAPISidebar("Attribution Reporting API")}}
 
-Dieser Artikel erklärt, wie Quellen zur Attribution registriert werden können, wenn die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) verwendet wird.
+Dieser Artikel erklärt, wie Attributionsquellen registriert werden, wenn die [Attribution Reporting API](/de/docs/Web/API/Attribution_Reporting_API) verwendet wird.
 
 ## Grundlegende Methodik
 
-Quellen zur Attribution nehmen die Form von Links, Bildern oder Skripten an, die in Inhalten enthalten sind, mit denen Sie Interaktionen messen möchten (zum Beispiel Anzeigen, bei denen Sie Konversionen messen wollen). Diese führen dazu, dass der Browser Quelldaten in einem privaten lokalen Cache speichert (nur zugänglich durch den Browser), wenn bestimmte Benutzerinteraktionen auftreten. Die verschiedenen Arten von Quellen zur Attribution werden unterschiedlich registriert und signalisieren Interaktionen auf verschiedene Weisen – sie werden unterschieden als:
+Attributionsquellen nehmen die Form von Links, Bildern oder Skripten an, die innerhalb von Inhalten enthalten sind, mit denen Sie Interaktionen messen möchten (zum Beispiel könnten sie Anzeigen sein, bei denen Sie Conversions messen möchten). Diese veranlassen den Browser, Quelldaten in einem privaten lokalen Cache zu speichern (nur für den Browser zugänglich), wenn bestimmte Benutzerinteraktionen auftreten. Die verschiedenen Attributionsquellentypen werden auf unterschiedliche Weise registriert und signalisieren Interaktionen – sie unterscheiden sich als:
 
-- Navigationsquellen, die den Browser dazu veranlassen, Quelldaten als Reaktion auf Navigationen zu speichern – beispielsweise, wenn der Benutzer auf einen Link klickt oder diesen mit der Tastatur aktiviert, oder wenn eine Navigation als Ergebnis eines [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufs erfolgt. Siehe [Navigationsbasierte Quellen zur Attribution](#navigationsbasierte_quellen_zur_attribution) für Beispiele.
-- Ereignisquellen, die den Browser dazu veranlassen, Quelldaten als Reaktion auf Ereignisauslösungen zu speichern. Siehe [Ereignisbasierte Quellen zur Attribution](#ereignisbasierte_quellen_zur_attribution) für Beispiele.
+- Navigationsquellen, die den Browser veranlassen, Quelldaten als Reaktion auf die Navigation zu speichern – zum Beispiel, wenn der Benutzer auf einen Link klickt oder ihn mit der Tastatur aktiviert, oder wenn eine Navigation als Ergebnis eines [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufs erfolgt. Beispiele finden Sie unter [Navigationsbasierte Attributionsquellen](#navigationsbasierte_attributionsquellen).
+- Ereignisquellen, die den Browser veranlassen, Quelldaten als Reaktion auf das Auslösen von Ereignissen zu speichern. Beispiele finden Sie unter [Ereignisbasierte Attributionsquellen](#ereignisbasierte_attributionsquellen).
 
-Was hinter den Kulissen passiert, um Quellen zu registrieren und die Quelldaten abzurufen und zu speichern, ist in beiden Fällen gleich:
+Was hinter den Kulissen passiert, um Quellen zu registrieren und die Quelldaten abzurufen und zu speichern, ist in beiden Fällen dasselbe:
 
-1. Wenn der Benutzer mit einer Quelle zur Attribution interagiert, sendet sie einen {{httpheader("Attribution-Reporting-Eligible")}}-Header auf einer Anfrage an den Server, der die Interaktionen misst (typischerweise der Server des Werbetreibenden), was darauf hinweist, dass die Antwort berechtigt ist, eine Quelle zu registrieren. Zum Beispiel:
+1. Wenn der Benutzer mit einer Attributionsquelle interagiert, sendet sie einen {{httpheader("Attribution-Reporting-Eligible")}}-Header in einer Anfrage an den Server, der die Interaktionen misst (typischerweise der Server des Werbetreibenden), die anzeigt, dass die Antwort berechtigt ist, eine Quelle zu registrieren. Zum Beispiel:
 
    ```http
    Attribution-Reporting-Eligible: navigation-source
    ```
 
-2. Wenn der Server eine Anfrage erhält, die einen `Attribution-Reporting-Eligible`-Header enthält, kann er zusammen mit der Antwort einen {{httpheader("Attribution-Reporting-Register-Source")}}-Header einfügen, um die Quellregistrierung abzuschließen. Sein Wert ist ein JSON-String, der die Informationen bereitstellt, die der Browser über die Quelle zur Attribution, mit der interagiert wurde, speichern soll. Die Informationen in diesem Header bestimmen auch, welche Art von Berichten der Browser erzeugen wird:
+2. Wenn der Server eine Anfrage erhält, die einen `Attribution-Reporting-Eligible`-Header enthält, kann er zusammen mit der Antwort einen {{httpheader("Attribution-Reporting-Register-Source")}}-Header einschließen, um die Registrierung der Quelle abzuschließen. Sein Wert ist ein JSON-String, der die Informationen bereitstellt, die der Browser über die Attributionsquelle speichern soll, mit der interagiert wurde. Die in diesem Header enthaltenen Informationen bestimmen auch, welche Arten von Berichten der Browser generieren wird:
 
-   - Das folgende Beispiel wird dazu führen, dass ein [Ereignislevel-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#event-level_reports) generiert wird, wenn ein [Trigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers) mit einer Quelle übereinstimmt:
+   - Das folgende Beispiel führt dazu, dass ein [Ereignisniveau-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#event-level_reports) generiert wird, wenn ein [Trigger](/de/docs/Web/API/Attribution_Reporting_API/Registering_triggers) mit einer Quelle übereinstimmt:
 
      ```js
      res.set(
@@ -44,21 +44,21 @@ Was hinter den Kulissen passiert, um Quellen zu registrieren und die Quelldaten 
      );
      ```
 
-     Das einzige erforderliche Feld in diesem Kontext ist `destination`, das 1–3 Seiten angibt, auf denen ein Trigger erwartet wird. Diese werden verwendet, um den Attributions-Trigger mit der Quelle abzugleichen, wenn ein Trigger ausgelöst wird. Die anderen oben angegebenen Felder bewirken Folgendes:
+     Das einzige erforderliche Feld in diesem Kontext ist `destination`, das 1–3 Seiten spezifiziert, auf denen ein Trigger erwartet wird. Diese werden verwendet, um den Attributionstrigger mit der Quelle abzugleichen, wenn mit einem Trigger interagiert wird. Die anderen oben spezifizierten Felder tun Folgendes:
 
-     - `"source_event_id"`: Ein String, der eine ID für die Quelle zur Attribution darstellt, die verwendet werden kann, um diese mit anderen Informationen abzugleichen, wenn die Quelle zur Attribution interagiert wird, oder um Informationen an der Berichts-Endstelle zusammenzufassen (siehe [Berichte generieren > Grundprozess](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#basic_process) für Informationen zu Endpunkten).
-     - `"trigger_data"`: Ein Array von 32-Bit-Integern ohne Vorzeichen, die Daten darstellen, welche die verschiedenen Trigger-Ereignisse beschreiben, die mit dieser Quelle übereinstimmen könnten. Zum Beispiel könnte "Benutzer hat Artikel in den Warenkorb gelegt" oder "Benutzer hat sich für die Mailingliste angemeldet" Aktionen sein, die an der Trigger-Seite stattfinden und mit dieser Quelle übereinstimmen und eine Art von Konversion anzeigen, die der Werbetreibende zu messen versucht. Diese müssen mit `"trigger_data"` übereinstimmen, die in [Triggern](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Trigger#trigger_data) für Ereignislevel-Attribution spezifiziert sind.
+     - `"source_event_id"`: Ein String, der eine ID für die Attributionsquelle repräsentiert, die verwendet werden kann, um sie mit anderen Informationen zu verbinden, wenn mit der Attributionsquelle interagiert wird, oder um Informationen am Berichts-Endpunkt zu aggregieren (siehe [Berichte generieren > Grundlegender Prozess](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#basic_process) für Endpunktinformationen).
+     - `"trigger_data"`: Ein Array von 32-Bit-ungezeichneten Ganzzahlen, die Daten darstellen, die die verschiedenen Triggereignisse beschreiben, die mit dieser Quelle übereinstimmen könnten. Zum Beispiel könnten "Benutzer fügte Artikel zum Warenkorb hinzu" oder "Benutzer meldete sich für Mailingliste an" Aktionen sein, die an der Triggervorrichtung passieren und eine Art von Conversion andeuten, die der Werbetreibende messen möchte. Diese müssen gegen `"trigger_data"` abgeglichen werden, die in [Triggern](/de/docs/Web/HTTP/Headers/Attribution-Reporting-Register-Trigger#trigger_data) spezifiziert sind, damit eine attribution auf Ereignisebene stattfinden kann.
        > [!NOTE]
-       > Die Werte, die verwendet werden, um jedes Ereignis zu repräsentieren, und die Anzahl der Elemente im Array sind vollständig willkürlich und werden von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, jedoch müssen Werte im Array vorhanden sein, damit sie der Quelle vom Browser zugeordnet werden, wenn ein Trigger registriert wird.
-     - `"trigger_data_matching"`: Ein String, der angibt, wie die `"trigger_data"` aus dem Trigger mit der `"trigger_data"` der Quelle abgeglichen wird. `"exact"` ist der Wert, den Sie fast immer verwenden werden und der exakte Werte abgleicht.
-     - `"expiry"`: Ein String, der eine Ablaufzeit in Sekunden für die Quelle zur Attribution darstellt, nach der diese nicht mehr aktiv ist (d.h. nachfolgende Trigger können nicht mehr dieser Quelle zugeordnet werden).
-     - `"priority"`: Ein String, der einen Prioritätswert für die Quelle zur Attribution darstellt. Siehe [Berichtsprioritäten und -limits](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits) für weitere Informationen.
-     - `"debug_key"`: Ein 64-Bit-Integer ohne Vorzeichen im Dezimalformat, der einen Debug-Schlüssel darstellt. Setzen Sie diese, wenn Sie einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) zusätzlich zum zugehörigen Attributionsbericht generieren möchten.
-     - `"event_report_window"`: Ein String, der eine Zeit in Sekunden darstellt, nach der nachfolgende Trigger nicht mehr dieser Quelle zugeordnet werden, um Ereignislevel-Berichte zu erstellen.
+       > Die Werte, die verwendet werden, um jedes Ereignis zu repräsentieren, und die Anzahl der Elemente im Array sind vollständig willkürlich und von Ihnen als Entwickler definiert. Das Array kann Werte enthalten, die nicht verwendet werden, aber Werte müssen im Array vorhanden sein, um von dem Browser der Quelle zugeordnet zu werden, wenn ein Trigger registriert wird.
+     - `"trigger_data_matching"`: Ein String, der angibt, wie das `"trigger_data"` des Triggers mit dem `"trigger_data"` der Quelle abgeglichen wird. `"exact"` ist der Wert, den Sie fast immer verwenden werden, wodurch genaue Werte abgeglichen werden.
+     - `"expiry"`: Ein String, der eine Ablaufzeit in Sekunden für die Attributionsquelle repräsentiert, nach der sie nicht mehr aktiv sein wird (d. h. nachfolgende Trigger werden dieser Quelle nicht mehr zugeordnet).
+     - `"priority"`: Ein String, der einen Prioritätswert für die Attributionsquelle repräsentiert. Mehr Informationen finden Sie unter [Reportprioritäten und -grenzen](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#report_priorities_and_limits).
+     - `"debug_key"`: Eine in Basis-10 formatierte 64-Bit-ungezeichnete Ganzzahl, die einen Debug-Schlüssel repräsentiert. Setzen Sie dies, wenn Sie einen [Debug-Bericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#debug_reports) zusammen mit dem zugehörigen Attributionsbericht generieren möchten.
+     - `"event_report_window"`: Ein String, der eine Zeit in Sekunden repräsentiert, nach der nachfolgende Trigger für das Erstellen von Berichten auf Ereignisniveau nicht mehr dieser Quelle zugeordnet werden.
 
-     Siehe {{httpheader("Attribution-Reporting-Register-Source")}} für eine detaillierte Beschreibung aller auf diesem Header verfügbaren Felder.
+     Siehe {{httpheader("Attribution-Reporting-Register-Source")}} für eine detaillierte Beschreibung aller verfügbaren Felder in diesem Header.
 
-   - Um den Browser dazu zu bringen, einen [Zusammenfassungsbericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#summary_reports) zu generieren, wenn ein Trigger mit einer Quelle abgeglichen wird, müssen Sie einige zusätzliche Felder einfügen, _zusätzlich_ zu denen, die für die Erstellung eines Ereignislevel-Berichts erforderlich sind.
+   - Um den Browser dazu zu bringen, einen [Zusammenfassungsbericht](/de/docs/Web/API/Attribution_Reporting_API/Generating_reports#summary_reports) zu generieren, wenn ein Trigger mit einer Quelle übereinstimmt, müssen Sie einige zusätzliche Felder _neben_ denen, die für die Erstellung eines Ereignisniveau-Berichts erforderlich sind, einschließen.
 
      ```js
      res.set(
@@ -84,24 +84,24 @@ Was hinter den Kulissen passiert, um Quellen zu registrieren und die Quelldaten 
 
      Die zusätzlichen Felder in diesem Beispiel sind:
 
-     - `"aggregation_keys"`: Ein Objekt, das vom Benutzer bereitgestellte Schlüssel enthält, die verschiedene Datenpunkte darstellen, unter denen Berichtswerte aggregiert werden.
-     - `"aggregatable_report_window"`: Ein String, der eine Zeit in Sekunden darstellt, nach der Triggerdaten nicht mehr in aggregierten Berichten enthalten sein werden.
+     - `"aggregation_keys"`: Ein Objekt, das vom Benutzer bereitgestellte Schlüssel enthält, die verschiedene Datenpunkte darstellen, unter denen Berichtswerte aggregiert werden sollen.
+     - `"aggregatable_report_window"`: Ein String, der eine Zeit in Sekunden repräsentiert, nach der Triggermeldungen nicht mehr in generierten aggregierbaren Berichten enthalten sein werden.
 
-     Auch hier siehe {{httpheader("Attribution-Reporting-Register-Source")}} für eine detaillierte Beschreibung aller auf diesem Header verfügbaren Felder.
+     Auch hier finden Sie {{httpheader("Attribution-Reporting-Register-Source")}} für eine detaillierte Beschreibung aller auf diesem Header verfügbaren Felder.
 
-3. Nach erfolgreicher Registrierung einer Quelle speichert der Browser die bereitgestellten Quelldaten in seinem privaten lokalen Cache.
+3. Nach einer erfolgreichen Quellenregistrierung speichert der Browser die bereitgestellten Quelldaten in seinem privaten lokalen Cache.
 
-## Navigationsbasierte Quellen zur Attribution
+## Navigationsbasierte Attributionsquellen
 
-Navigationsquellen sind nützlich, um Interaktionen mit Links zu messen – beispielsweise kann ein Benutzer eine Anzeige auf der Seite eines Publishers sehen und darauf klicken, um zur Seite des Werbetreibenden zu navigieren, wo hoffentlich eine Konversion stattfinden wird.
+Navigationsquellen sind nützlich, um Interaktionen mit Links zu messen – zum Beispiel könnte ein Benutzer eine Anzeige auf einer Publisher-Seite sehen und darauf klicken, um zur Seite des Werbetreibenden zu navigieren, wo hoffentlich eine Conversion stattfindet.
 
-Es gibt ein paar verschiedene Arten von navigationsbasierten Quellen zur Attribution (zum Beispiel das Klicken auf eine Anzeige), die registriert werden können – solche, die auf HTML basieren (die das `attributionsrc`-Attribut verwenden) und solche, die auf [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufen basieren (die ein `attributionsrc`-Fensterfeature verwenden).
+Es gibt einige verschiedene Arten von navigationsbasierten Attributionsquellen (zum Beispiel das Klicken auf eine Anzeige), die registriert werden können – diejenigen, die auf HTML basieren (die das `attributionsrc`-Attribut verwenden), und diejenigen, die auf [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufen basieren (die ein `attributionsrc`-Fenster-Feature verwenden).
 
 ### HTML-basierte Navigationsquellen
 
-Um eine navigationsbasierte Quelle zur Attribution zu registrieren, können Sie das `attributionsrc`-Attribut zu einem geeigneten {{htmlelement("a")}}-Element hinzufügen, das angibt, wohin die Registrierungsanfrage gesendet werden soll.
+Um eine navigationsbasierte Attributionsquelle zu registrieren, können Sie das `attributionsrc`-Attribut zu einem geeigneten {{htmlelement("a")}}-Element hinzufügen, das angibt, wohin die Registrierungsanfrage gesendet wird.
 
-Wenn Sie den Attributwert leer lassen, wird die Registrierungsanfrage an den Ort gesendet, zu dem verlinkt wird. Es ist auch möglich, eine oder mehrere zusätzliche URLs innerhalb des Wertes anzugeben, um die Registrierungsanfrage dorthin zu senden; siehe [URLs innerhalb von attributionsrc angeben](#urls_innerhalb_von_attributionsrc_angeben) für mehr Details.
+Wenn Sie den Attributwert leer lassen, wird die Registrierungsanfrage an den verlinkten Ort gesendet. Es ist auch möglich, eine oder mehrere zusätzliche URLs in den Wert einzuschließen, um die Registrierungsanfrage dorthin zu senden; siehe [Speziell URLs innerhalb attributionsrc](#spezifizieren_von_urls_innerhalb_attributionsrc) für mehr Details.
 
 `attributionsrc` kann deklarativ hinzugefügt werden:
 
@@ -118,11 +118,11 @@ const aElem = document.querySelector("a");
 aElem.attributionSrc = "";
 ```
 
-In diesem Fall erfolgt die Interaktion, wodurch der Browser die mit der navigationsbasierten Quelle zur Attribution verbundenen Quelldaten speichert (wie im {{httpheader("Attribution-Reporting-Register-Source")}}-Antwortheader bereitgestellt), wenn der Benutzer auf den Link klickt und der Browser die Antwort erhält.
+In diesem Fall erfolgt die Interaktion, wodurch der Browser die mit der navigationsbasierten Attributionsquelle verbundenen Quelldaten speichert (wie im {{httpheader("Attribution-Reporting-Register-Source")}}-Antwortheader bereitgestellt), wenn der Benutzer auf den Link klickt und der Browser die Antwort erhält.
 
 ### Window.open()-basierte Navigationsquellen
 
-Sie können auch das Schlüsselwort-Feature `attributionsrc` zur Features-Eigenschaft eines [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufs hinzufügen. In diesem Beispiel wird es als Reaktion auf das Auslösen eines `click`-Ereignisses ausgeführt:
+Sie können auch das `attributionsrc`-Feature-Schlüsselwort zur `features`-Eigenschaft eines [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufs hinzufügen. In diesem Beispiel führen wir es als Reaktion auf das Auslösen eines `click`-Ereignisses aus:
 
 ```js
 elem.addEventListener("click", () => {
@@ -133,22 +133,22 @@ elem.addEventListener("click", () => {
 In diesem Fall erfolgt die Interaktion und der Browser speichert die Quelldaten, wenn `Window.open()` aufgerufen wird und der Browser die Antwort erhält.
 
 > [!NOTE]
-> Wenn Sie ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis einrichten, wie im obigen Beispiel, ist es ratsam, es auf einem Steuerungselement zu setzen, bei dem ein Klick erwartet wird, wie einem {{htmlelement("button")}}- oder {{htmlelement("a")}}-Element. Dies ist semantisch sinnvoller und zugänglicher für sowohl Benutzer von Bildschirmlesegeräten als auch Benutzer von Tastaturen.
+> Wenn Sie ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis wie im obigen Beispiel einrichten, ist es ratsam, es an einem Steuerelement zu setzen, bei dem ein Klick erwartet wird, wie etwa einem {{htmlelement("button")}}- oder {{htmlelement("a")}}-Element. Dies macht semantisch mehr Sinn und ist sowohl für Bildschirmleser als auch für Tastaturbenutzer zugänglicher.
 
 > [!NOTE]
-> Um eine Quelle zur Attribution über `open()` zu registrieren, muss es mit {{Glossary("Transient_activation", "transient activation")}} (d.h. innerhalb eines Benutzerinteraktions-Ereignishandlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion aufgerufen werden.
+> Um eine Attributionsquelle über `open()` zu registrieren, muss es mit {{Glossary("Transient_activation", "transient activation")}} (d. h. innerhalb eines Benutzerinteraktions-Ereignishandlers wie `click`) innerhalb von fünf Sekunden nach der Benutzerinteraktion aufgerufen werden.
 
-## Ereignisbasierte Quellen zur Attribution
+## Ereignisbasierte Attributionsquellen
 
-Ereignisbasierte Quellen zur Attribution führen dazu, dass der Browser Quelldaten als Reaktion auf das Auslösen einer Art von Ereignis speichert, wie das `load`-Ereignis im Fall eines `<img>`- oder `<script>`-Elements (die, wie oben bei dem `<a>`-Element gesehen, das `attributionsrc`-Attribut verwenden), oder ein benutzerdefiniertes Ereignis Ihrer Wahl, das in Ihrem JavaScript festgelegt ist.
+Ereignisbasierte Attributionsquellen veranlassen den Browser, Quelldaten als Reaktion auf das Auslösen eines Ereignisses zu speichern, wie zum Beispiel des `load`-Ereignisses im Falle eines `<img>`- oder `<script>`-Elements (die das `attributionsrc`-Attribut verwenden, wie wir es oben mit dem `<a>`-Element gesehen haben), oder eines benutzerdefinierten Ereignisses Ihrer Wahl, das Sie in Ihrem JavaScript festlegen.
 
 ### HTML-basierte Ereignisquellen
 
-HTML-basierte Ereignisquellen können verwendet werden, um Interaktionen mit der Seite eines Publishers zu messen, wenn sie zuerst geladen wird – oder genauer gesagt, wenn ein `<img>` oder `<script>` geladen wird. Um eine ereignisbasierte Quelle zur Attribution über HTML zu registrieren, können Sie das `attributionsrc`-Attribut zu einem geeigneten Element hinzufügen – {{htmlelement("img")}} oder {{htmlelement("script")}}.
+HTML-basierte Ereignisquellen können verwendet werden, um Interaktionen mit der Publikumsseite zu messen, wenn sie zum ersten Mal geladen wird – oder genauer gesagt, wenn ein `<img>` oder `<script>` geladen wird. Um eine ereignisbasierte Attributionsquelle über HTML zu registrieren, können Sie das `attributionsrc`-Attribut zu einem geeigneten Element hinzufügen — {{htmlelement("img")}} oder {{htmlelement("script")}}.
 
-Wenn Sie den Attributwert leer lassen, wird die Registrierungsanfrage an den Server gesendet, auf dem die angeforderte Ressource gehostet wird. Es ist auch möglich, eine oder mehrere zusätzliche URLs innerhalb des Wertes anzugeben, um die Registrierungsanfrage dorthin zu senden; siehe [URLs innerhalb von attributionsrc angeben](#urls_innerhalb_von_attributionsrc_angeben) für mehr Details.
+Wenn Sie den Attributwert leer lassen, wird die Registrierungsanfrage an den Server gesendet, auf dem die angeforderte Ressource gehostet wird. Es ist auch möglich, eine oder mehrere zusätzliche URLs in den Wert einzuschließen, um die Registrierungsanfrage dorthin zu senden; siehe [Speziell URLs innerhalb attributionsrc](#spezifizieren_von_urls_innerhalb_attributionsrc) für mehr Details.
 
-Sehen wir uns ein `<img>`-Element-Beispiel an:
+Lassen Sie uns ein `<img>`-Element-Beispiel betrachten:
 
 ```html
 <img src="advertising-image.png" attributionsrc />
@@ -161,12 +161,12 @@ const imgElem = document.querySelector("img");
 imgElem.attributionSrc = "";
 ```
 
-Der Browser speichert die Quelldaten zur Attribution, wenn der Browser die Antwort erhält, die die Bilddatei enthält (d.h. wenn das `load`-Ereignis eintritt). Beachten Sie, dass Benutzer das Bild möglicherweise überhaupt nicht wahrnehmen können – es könnte ein 1x1 transparenter Tracking-Pixel sein, der nur für die Attributionserstellung verwendet wird.
+Der Browser speichert die Attributionsquellendaten, wenn der Browser die Antwort erhält, die die Bilddatei enthält (d. h. wenn das `load`-Ereignis auftritt). Beachten Sie, dass Benutzer das Bild möglicherweise überhaupt nicht wahrnehmen können — es könnte ein 1x1-transparentes Tracking-Pixel sein, das nur für die Attributionsberichterstattung verwendet wird.
 
-Ein {{htmlelement("script")}}-Beispiel könnte folgendermaßen aussehen:
+Ein {{htmlelement("script")}}-Beispiel könnte so aussehen:
 
 ```html
-<script src="advertising-script.js" attributionsrc />
+<script src="advertising-script.js" attributionsrc></script>
 ```
 
 Oder über die [`HTMLScriptElement.attributionSrc`](/de/docs/Web/API/HTMLScriptElement/attributionSrc)-Eigenschaft:
@@ -180,11 +180,11 @@ In diesem Fall erfolgt die Interaktion und der Browser speichert die Quelldaten,
 
 ### JavaScript-basierte Ereignisquellen
 
-Script-basierte Quellen zur Attribution sind vielseitiger als HTML-basierte Quellen zur Attribution. Sie können ein Skript einrichten, um eine Anfrage zu initiieren, die berechtigt ist, eine Quelle zur Attribution zu registrieren, basierend auf welcher Anfrage für Ihre App geeignet ist. Dies ist ein flexibler Ansatz, nützlich, wenn Sie Quelldaten als Reaktion auf benutzerdefinierte Interaktionen speichern möchten, zum Beispiel beim Klicken auf ein benutzerdefiniertes Element oder beim Absenden eines Formulars.
+Skriptbasierte Attributionsquellen sind vielseitiger als HTML-basierte Attributionsquellen. Sie können ein Skript einrichten, um eine Anfrage zu initiieren, die berechtigt ist, eine Attributionsquelle basierend auf welcher Anforderung auch immer für Ihre App geeignet ist, zu registrieren. Dies ist ein flexibler Ansatz, der nützlich ist, wenn Sie Quelldaten als Reaktion auf benutzerdefinierte Interaktionen speichern möchten, zum Beispiel beim Klicken auf ein benutzerdefiniertes Element oder beim Einreichen eines Formulars.
 
-Um eine script-basierte Quelle zur Attribution einzurichten, können Sie entweder:
+Um eine skriptbasierte Attributionsquelle einzurichten, können Sie entweder:
 
-- Eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage senden, die die Option `attributionReporting` enthält:
+- Eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage senden, die die `attributionReporting`-Option enthält:
 
   ```js
   const attributionReporting = {
@@ -206,7 +206,7 @@ Um eine script-basierte Quelle zur Attribution einzurichten, können Sie entwede
   elem.addEventListener("click", triggerSourceInteraction);
   ```
 
-- Einen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) senden, bei dem [`setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting) auf dem Anfrageobjekt aufgerufen wird:
+- Einen [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) senden, bei dem [`setAttributionReporting()`](/de/docs/Web/API/XMLHttpRequest/setAttributionReporting) am Anforderungsobjekt aufgerufen wird:
 
   ```js
   const attributionReporting = {
@@ -233,18 +233,18 @@ Um eine script-basierte Quelle zur Attribution einzurichten, können Sie entwede
   elem.addEventListener("click", triggerSourceInteraction);
   ```
 
-In diesem Fall erfolgt die Interaktion und der Browser speichert die Quelldaten, wenn der Browser die Antwort von der Fetch-Anfrage erhält.
+In diesem Fall erfolgt die Interaktion und der Browser speichert die Quelldaten, wenn der Browser die Antwort auf die fetch-Anfrage erhält.
 
 > [!NOTE]
-> Die Anfrage kann für jede Ressource sein. Sie muss nichts direkt mit der Attribution Reporting API zu tun haben und kann eine Anfrage für JSON, Klartext, ein Bild-Blob oder was auch immer für Ihre App sinnvoll ist, sein.
+> Die Anfrage kann für jede Ressource sein. Sie muss nichts direkt mit der Attribution Reporting API zu tun haben und kann eine Anfrage für JSON, reinen Text, ein Bild-Blob oder was auch immer für Ihre App sinnvoll ist, sein.
 
-## URLs innerhalb von attributionsrc angeben
+## Spezifizieren von URLs innerhalb attributionsrc
 
-Bisher haben wir in allen gesehenen Beispielen das `attributionsrc`-Attribut/Feature oder die `attributionSrc`-Eigenschaft leer gelassen, wobei der Wert eine leere Zeichenkette ist. Das ist in Ordnung, wenn der Server, der die angeforderte Ressource hält, derselbe Server ist, den Sie auch für die Handhabung der Registrierung nutzen wollen, d.h. den {{httpheader("Attribution-Reporting-Eligible")}}-Header empfangen und mit dem {{httpheader("Attribution-Reporting-Register-Source")}}-Header antworten.
+Bisher haben wir in allen Beispielen gesehen, dass das `attributionsrc`-Attribut/Feature oder die `attributionSrc`-Eigenschaft leer gelassen wurde, was den Wert eines leeren Strings annimmt. Dies ist in Ordnung, wenn der Server, der die angeforderte Ressource hält, derselbe Server ist, den Sie auch für die Bearbeitung der Registrierung verwenden möchten, d. h. der {{httpheader("Attribution-Reporting-Eligible")}}-Header empfangen und mit dem {{httpheader("Attribution-Reporting-Register-Source")}}-Header antworten soll.
 
-Es könnte aber sein, dass die angeforderte Ressource nicht auf einem Server liegt, den Sie kontrollieren, oder Sie möchten einfach die Registrierung der Quelle zur Attribution auf einem anderen Server handhaben. In solchen Fällen können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanfrage erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header zusätzlich zum Ursprung der Ressource an die(s) in `attributionsrc` angegebene(n) URL(s) gesendet; diese URLs können dann mit dem {{httpheader("Attribution-Reporting-Register-Source")}} reagieren, um die Quelle zu registrieren.
+Es könnte jedoch sein, dass die angeforderte Ressource nicht auf einem von Ihnen kontrollierten Server liegt, oder Sie möchten einfach die Registrierung der Attributionsquelle auf einem anderen Server verwalten. In solchen Fällen können Sie eine oder mehrere URLs als Wert von `attributionsrc` angeben. Wenn die Ressourcenanfrage erfolgt, wird der {{httpheader("Attribution-Reporting-Eligible")}}-Header an die in `attributionsrc` angegebenen URL(s) zusätzlich zum Ursprungsort der Ressource gesendet; diese URLs können dann mit dem {{httpheader("Attribution-Reporting-Register-Source")}} antworten, um die Quelle zu registrieren.
 
-Zum Beispiel könnten Sie im Fall eines `<a>`-Elements die URL(s) im `attributionsrc`-Attribut angeben:
+Zum Beispiel können Sie im Fall eines `<a>`-Elements die URL(s) im `attributionsrc`-Attribut deklarieren:
 
 ```html
 <a
@@ -266,7 +266,7 @@ const aElem = document.querySelector("a");
 aElem.attributionSrc = `${encodedUrlA} ${encodedUrlB}`;
 ```
 
-Im Fall eines [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufs müssten die verschiedenen URLs als mehrere getrennte `attributionsrc`-Features im [`windowFeatures`](/de/docs/Web/API/Window/open#windowfeatures)-Parameter aufgelistet werden, getrennt durch Kommas oder Leerzeichen:
+Im Fall eines [`Window.open()`](/de/docs/Web/API/Window/open)-Aufrufs müssten die verschiedenen URLs als mehrere separate `attributionsrc`-Features im [`windowFeatures`](/de/docs/Web/API/Window/open#windowfeatures)-Parameter, getrennt durch Kommata oder Leerzeichen, aufgelistet werden:
 
 ```js
 // encode the URLs in case they contain special characters
@@ -284,7 +284,7 @@ elem.addEventListener("click", () => {
 ```
 
 > [!NOTE]
-> Das Angeben mehrerer URLs bedeutet, dass mehrere Quellen zur Attribution auf demselben Feature registriert werden können. Sie könnten zum Beispiel verschiedene Kampagnen haben, deren Erfolg Sie messen wollen, was das Generieren verschiedener Berichte zu unterschiedlichen Daten umfasst.
+> Das Angeben mehrerer URLs bedeutet, dass mehrere Attributionsquellen für dasselbe Feature registriert werden können. Sie könnten zum Beispiel unterschiedliche Kampagnen haben, deren Erfolg Sie messen möchten, was das Generieren unterschiedlicher Berichte über unterschiedliche Daten beinhaltet.
 
 ## Siehe auch
 

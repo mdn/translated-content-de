@@ -1,18 +1,18 @@
 ---
-title: "RTCIceCandidatePairStats: remoteCandidateId-Eigenschaft"
+title: "RTCIceCandidatePairStats: Eigenschaft remoteCandidateId"
 short-title: remoteCandidateId
 slug: Web/API/RTCIceCandidatePairStats/remoteCandidateId
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
 ---
 
 {{APIRef("WebRTC")}}
 
-Die Eigenschaft **`remoteCandidateId`** von [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) ist ein String, der den entfernten {{Glossary("ICE", "ICE")}}-Kandidaten eindeutig identifiziert, der analysiert wurde, um die [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) zu generieren, die zur Berechnung der Statistiken für dieses Kandidatenpaar verwendet wurden.
+Die **`remoteCandidateId`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs identifiziert eindeutig den entfernten {{Glossary("ICE", "ICE")}}-Kandidaten, der analysiert wurde, um die [`RTCIceCandidateStats`](/de/docs/Web/API/RTCIceCandidateStats) zu erzeugen, die zur Berechnung der Statistiken für dieses Kandidatenpaar verwendet wurden.
 
 ## Wert
 
-Ein String, der den entfernten {{Glossary("ICE", "ICE")}}-Kandidaten eindeutig identifiziert - das heißt, den Kandidaten, der eine Konfiguration für den entfernten Peer beschreibt -, der durch das entfernte Ende dieser Statistiken dargestellt wird.
+Ein String, der den entfernten {{Glossary("ICE", "ICE")}}-Kandidaten eindeutig identifiziert, das heißt, den Kandidaten, der eine Konfiguration für den entfernten Kommunikationspartner beschreibt, welcher durch das entfernte Ende dieser Statistiken repräsentiert wird.
 
 ## Spezifikationen
 

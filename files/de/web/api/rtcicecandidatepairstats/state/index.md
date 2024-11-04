@@ -3,37 +3,47 @@ title: "RTCIceCandidatePairStats: state-Eigenschaft"
 short-title: state
 slug: Web/API/RTCIceCandidatePairStats/state
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`state`**-Eigenschaft ist ein Zeichenfolge, die den Zustand der Checkliste angibt, zu der das Kandidatenpaar gehört.
+Die **`state`**-Eigenschaft des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs zeigt den Status der [Checkliste](#ice-checklisten) an, deren Mitglied das Kandidatenpaar ist.
 
 ## Wert
 
-Eine Zeichenfolge, deren Wert einer der folgenden ist:
+Ein String, dessen Wert einer der folgenden ist:
 
 - `failed`
-  - : Ein Check für dieses Paar wurde durchgeführt, ist aber fehlgeschlagen. Ein Fehler kann auftreten, entweder weil keine Antwort empfangen wurde oder weil die Antwort angezeigt hat, dass ein nicht behebbarer Fehler aufgetreten ist.
+  - : Eine Überprüfung für dieses Paar wurde durchgeführt, ist jedoch fehlgeschlagen.
+    Ein Fehler kann auftreten, entweder weil keine Antwort empfangen wurde oder weil die Antwort darauf hinwies, dass ein nicht behebbarer Fehler aufgetreten ist.
 - `frozen`
-  - : Für dieses Kandidatenpaar wurde noch kein Check durchgeführt, und der Check ist blockiert, bis ein anderer Check erfolgreich ist. Sobald dieser Check erfolgreich war, wird dieses Paar enteist und wechselt in den `waiting`-Zustand.
+  - : Für dieses Kandidatenpaar wurde noch keine Überprüfung durchgeführt, und die Durchführung der Überprüfung wird blockiert, bis eine andere Überprüfung erfolgreich ist.
+    Sobald diese Überprüfung erfolgreich war, wird dieses Paar aufgetaut und wechselt in den `waiting`-Status.
 - `in-progress`
-  - : Ein Check wurde für dieses Paar initiiert, aber die Transaktion des Checks ist noch im Gange.
+  - : Eine Überprüfung für dieses Paar wurde gestartet, aber die Transaktion der Überprüfung ist noch im Gange.
 - `succeeded`
-  - : Ein Check für dieses Paar wurde erfolgreich abgeschlossen.
+  - : Eine Überprüfung für dieses Paar wurde erfolgreich abgeschlossen.
 - `waiting`
-  - : Dieses Paar wurde noch nicht geprüft, aber der Check kann durchgeführt werden, sobald dieses Paar das höchste verbleibende Paar im `waiting`-Zustand ist.
+  - : Dieses Paar wurde noch nicht überprüft, aber die Überprüfung kann durchgeführt werden, sobald dieses Paar das höchstpriorisierte verbleibende Paar im `waiting`-Status ist.
 
-## ICE-Checklisten
+## Beschreibung
 
-Während der ICE-Negotiation baut die ICE-Schicht eine _Checkliste_ auf, die eine Liste potenzieller Paarungen von ICE-Kandidaten darstellt. Jedes Paar hat einen Zustand, der durch ein Zeichenfolgen-Literal dargestellt wird.
+### ICE-Checklisten
 
-![Ein Diagramm, das zeigt, wie sich die Zustände von ICE-Kandidatenpaaren ändern, während die Checkliste analysiert wird](ice-check-list-states.svg)
+Während der ICE-Verhandlung erstellt die ICE-Schicht eine _Checkliste_, die eine Liste von möglichen Paarungen von ICE-Kandidaten ist.
+Jedes Paar hat einen Status, der durch einen Zeichenfolgenliteral dargestellt wird.
 
-Wenn ein Kandidatenpaar zur Checkliste hinzugefügt wird, beginnt es im `frozen`-Zustand. Sobald keine Checks mehr am Laufen sind, die das Paar daran hindern, analysiert zu werden, wird es enteist und wechselt in den `waiting`-Zustand. Dies kann sofort beim Hinzufügen zur Checkliste geschehen.
+![Ein Diagramm, das zeigt, wie sich ICE-Kandidatenpaare in ihrem Zustand ändern, während die Checkliste analysiert wird](ice-check-list-states.svg)
 
-Jedes Mal, wenn ein Kandidatenpaar überprüft wird, wechselt das nächsthöhere Prioritätenpaar in der Checkliste aus dem `waiting`-Zustand in den `in-progress`-Zustand, und sein Check beginnt. Wenn der Check aus irgendeinem Grund fehlschlägt, wechselt das Paar in seinen Endzustand, `failed`. Wenn der Check erfolgreich ist, erreicht das Paar den `succeeded`-Zustand. Der ICE-Checklisten-Zustand für ein Paar von ICE-Kandidaten kann in der entsprechenden `state`-Eigenschaft gefunden werden.
+Wenn ein Kandidatenpaar zur Checkliste hinzugefügt wird, beginnt es im `frozen`-Zustand.
+Sobald keine Überprüfungen im Gange sind, die das Paar daran hindern, analysiert zu werden, wird es aufgetaut und wechselt in den `waiting`-Status.
+Dies kann sofort geschehen, wenn das Paar zur Checkliste hinzugefügt wird.
+
+Jedes Mal, wenn ein Kandidatenpaar überprüft wird, wechselt das nächsthöchst priorisierte verbleibende Kandidatenpaar auf der Checkliste vom `waiting`-Status in den `in-progress`-Status und seine Überprüfung beginnt.
+Wenn die Überprüfung aus irgendeinem Grund fehlschlägt, wechselt das Paar in seinen Endzustand `failed`.
+Wenn die Überprüfung erfolgreich ist, endet das Paar im `succeeded`-Status.
+Der ICE-Checklistenstatus für ein bestimmtes Paar von ICE-Kandidaten kann in der entsprechenden `state`-Eigenschaft gefunden werden.
 
 ## Spezifikationen
 

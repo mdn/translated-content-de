@@ -1,22 +1,22 @@
 ---
-title: "Document: prerendering-Eigenschaft"
+title: "Dokument: prerendering-Eigenschaft"
 short-title: prerendering
 slug: Web/API/Document/prerendering
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 420ee5d00e14eec60923ada0e48325e44d613a1b
 ---
 
 {{ APIRef("Speculation Rules API") }}{{seecompattable}}
 
-Die **`prerendering`** schreibgeschützte Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt `true` zurück, wenn das Dokument derzeit im Prozess des Prerenderings ist, wie es über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) initiiert wurde.
+Die **`prerendering`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces ist schreibgeschützt und gibt `true` zurück, wenn das Dokument derzeit im Prozess des Prerenderings ist, wie über die [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) initiiert.
 
 ## Wert
 
-Ein Boolean. Gibt `true` zurück, wenn sich das Dokument gerade im Prerendering-Prozess befindet, und `false`, wenn nicht. Für Dokumente, die das Prerendering abgeschlossen haben oder nicht prerendered wurden, wird `false` zurückgegeben.
+Ein boolescher Wert. Gibt `true` zurück, wenn sich das Dokument derzeit im Prozess des Prerenderings befindet, und `false`, wenn nicht. Für Dokumente, die das Prerendering abgeschlossen haben, und Dokumente, die nicht prerendered wurden, wird `false` zurückgegeben.
 
 ## Beispiele
 
-Um eine Aktivität auszuführen, während die Seite gerendert wird, können Sie die `prerendering`-Eigenschaft überprüfen. Sie könnten zum Beispiel einige Analysen durchführen:
+Um eine Aktivität auszuführen, während die Seite prerendert wird, können Sie die `prerendering`-Eigenschaft überprüfen. Sie könnten zum Beispiel einige Analysen durchführen:
 
 ```js
 if (document.prerendering) {
@@ -24,18 +24,18 @@ if (document.prerendering) {
 }
 ```
 
-Wenn ein prerendered Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Wert gesetzt, der die Zeit zwischen dem Start des Prerenderings und der tatsächlichen Aktivierung des Dokuments darstellt. Die folgende Funktion kann sowohl für prerendering als auch prerendered Seiten prüfen:
+Wenn ein prerendered Dokument aktiviert wird, wird [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart) auf einen [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp) Wert gesetzt, der die Zeit zwischen dem Start des Prerenderings und der tatsächlichen Aktivierung des Dokuments darstellt. Die folgende Funktion kann sowohl für prerendering- als auch für prerendered-Seiten prüfen:
 
 ```js
 function pagePrerendered() {
   return (
     document.prerendering ||
-    self.performance?.getEntriesByType?.("navigation")[0]?.activationStart > 0
+    performance.getEntriesByType("navigation")[0]?.activationStart > 0
   );
 }
 ```
 
-Wenn die prerendered Seite durch das Betrachten der Seite durch den Benutzer aktiviert wird, wird das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis ausgelöst. Dies kann genutzt werden, um Aktivitäten zu aktivieren, die vorher standardmäßig beim Laden der Seite gestartet wurden, die Sie jedoch verzögern möchten, bis die Seite tatsächlich vom Benutzer angesehen wird. Der folgende Code richtet einen Ereignislistener ein, um eine Funktion auszuführen, sobald das Prerendering auf einer prerendered Seite beendet ist, oder führt sie sofort auf einer nicht prerendered Seite aus:
+Wenn die prerendered Seite vom Benutzer durch Ansicht der Seite aktiviert wird, wird das [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis ausgelöst. Dies kann verwendet werden, um Aktivitäten zu ermöglichen, die zuvor standardmäßig beim Laden der Seite gestartet würden, die Sie aber verzögern möchten, bis die Seite tatsächlich vom Benutzer angesehen wird. Der folgende Code richtet einen Ereignis-Listener ein, der eine Funktion ausführt, sobald das Prerendering abgeschlossen ist, auf einer prerendered-Seite, oder sie führt diese sofort auf einer nicht-prerendered-Seite aus:
 
 ```js
 if (document.prerendering) {
@@ -48,7 +48,25 @@ if (document.prerendering) {
 ```
 
 > [!NOTE]
-> Weitere Informationen zu den Arten von Aktivitäten, die Sie möglicherweise verzögern möchten, finden Sie auf der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)-Startseite, insbesondere im Abschnitt [Unsichere spekulative Ladebedingungen](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions).
+> Weitere Informationen zu den Arten von Aktivitäten, die Sie möglicherweise verzögern möchten, finden Sie auf der [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API) Hauptseite und insbesondere im Abschnitt [Unsichere spekulative Ladebedingungen](/de/docs/Web/API/Speculation_Rules_API#unsafe_speculative_loading_conditions).
+
+Um zu messen, wie oft ein Prerender aktiviert wird, kombinieren Sie alle drei APIs: `document.prerendering`, um Fälle zu erkennen, in denen die Seite derzeit prerendert wird, `prerenderingchange`, um Aktivierungen in diesem Fall zu beobachten, und `activationStart`, um Fälle zu prüfen, in denen die Seite in der Vergangenheit prerendered wurde.
+
+```js
+if (document.prerendering) {
+  document.addEventListener(
+    "prerenderingchange",
+    () => {
+      console.log("Prerender activated after this script ran");
+    },
+    { once: true },
+  );
+} else if (performance.getEntriesByType("navigation")[0]?.activationStart > 0) {
+  console.log("Prerender activated before this script ran");
+} else {
+  console.log("This page load was not via prerendering");
+}
+```
 
 ## Spezifikationen
 
@@ -62,3 +80,4 @@ if (document.prerendering) {
 
 - [Speculation Rules API](/de/docs/Web/API/Speculation_Rules_API)
 - [`prerenderingchange`](/de/docs/Web/API/Document/prerenderingchange_event)-Ereignis
+- [`PerformanceNavigationTiming.activationStart`](/de/docs/Web/API/PerformanceNavigationTiming/activationStart)-Eigenschaft

@@ -3,20 +3,18 @@ title: "RTCIceCandidatePairStats: transportId-Eigenschaft"
 short-title: transportId
 slug: Web/API/RTCIceCandidatePairStats/transportId
 l10n:
-  sourceCommit: 73e4dcc6b6ab8840537340bc80df947886bc5ef5
+  sourceCommit: 2c2b213b9a7d391732c94dd35928edf9ff34d8ed
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`transportId`**-Eigenschaft
-identifiziert eindeutig das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport), das überprüft wurde, um die transportbezogenen Statistiken zu erhalten, die im
-[`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Objekt enthalten sind.
+Die Eigenschaft **`transportId`** des [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Wörterbuchs identifiziert das [`RTCIceTransport`](/de/docs/Web/API/RTCIceTransport)-Objekt eindeutig, das untersucht wurde, um die transportbezogenen Statistiken zu erhalten, die im Statistik-Objekt enthalten sind.
 
 ## Wert
 
-Ein String, der das `RTCIceTransport`-Objekt eindeutig identifiziert, aus dem die transportbezogenen Daten für die in diesem [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats) enthaltenen Statistiken gewonnen wurden.
+Ein String, der das `RTCIceTransport`-Objekt eindeutig identifiziert, von dem die transportbezogenen Daten für die in diesem [`RTCIceCandidatePairStats`](/de/docs/Web/API/RTCIceCandidatePairStats)-Objekt enthaltenen Statistiken erhalten wurden.
 
-Die transportbezogenen Statistiken stammen von den Eigenschaften des [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuchs.
+Die transportbezogenen Statistiken stammen aus dem [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Wörterbuch.
 
 ## Spezifikationen
 
