@@ -3,12 +3,12 @@ title: "Screen: availWidth-Eigenschaft"
 short-title: availWidth
 slug: Web/API/Screen/availWidth
 l10n:
-  sourceCommit: f2f9346c0c0e9f6676f2df9f1850933e274401de
+  sourceCommit: a4c1cd245065418c721b27632867159da57c5ad5
 ---
 
 {{APIRef("CSSOM View")}}
 
-Die **`Screen.availWidth`**-Eigenschaft gibt die Menge des horizontal verfügbaren Raums (in Pixel) für das Fenster zurück.
+Die **`Screen.availWidth`**-Eigenschaft gibt die Menge des horizontalen Raums (in CSS-Pixeln) zurück, der für das Fenster verfügbar ist.
 
 ## Wert
 
