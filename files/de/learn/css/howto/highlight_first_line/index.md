@@ -1,39 +1,83 @@
 ---
-title: Anleitung zur Hervorhebung der ersten Zeile eines Absatzes
+title: Anleitung zum Hervorheben der ersten Zeile eines Absatzes
 slug: Learn/CSS/Howto/Highlight_first_line
 l10n:
-  sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
+  sourceCommit: 40590706f9ab23242bcd8c8966cc683d7d5b18aa
 ---
 
 {{LearnSidebar}}
 
 In diesem Leitfaden erfahren Sie, wie Sie die erste Zeile eines Textes in einem Absatz hervorheben können, selbst wenn Sie nicht wissen, wie lang diese Zeile sein wird.
 
-## Die erste Zeile eines Textes stylen
+## Die erste Zeile des Textes stylen
 
-Sie möchten die erste Zeile eines Absatzes größer und fett machen. Wenn Sie ein `<span>` um die erste Zeile wickeln, können Sie es zwar stylen, aber wenn die erste Zeile aufgrund einer kleineren Viewportgröße kürzer wird, wird der gestylte Text in die nächste Zeile umgebrochen.
+Sie möchten die erste Zeile eines Absatzes größer und fett darstellen. Wenn Sie ein `<span>` um die erste Zeile wickeln, können Sie es zwar stylen, allerdings wird der gestylte Text bei kleineren Anzeigen auf die nächste Zeile umgebrochen.
 
-## Verwendung eines Pseudo-Elements
+## Verwenden eines Pseudoelements
 
-Ein {{cssxref("pseudo-elements", "Pseudo-Element")}} kann anstelle des `<span>` verwendet werden; es ist jedoch flexibler — der genaue Inhalt, der von einem Pseudo-Element ausgewählt wird, wird berechnet, sobald der Browser den Inhalt gerendert hat. Es funktioniert also auch dann, wenn sich die Viewportgröße ändert.
+Ein {{cssxref("pseudo-elements", "Pseudoelement")}} kann anstelle des `<span>` verwendet werden; es ist jedoch flexibler — der genaue Inhalt, der von einem Pseudoelement ausgewählt wird, wird berechnet, nachdem der Browser den Inhalt gerendert hat. Es funktioniert also auch, wenn sich die Größe des Viewports ändert.
 
-In diesem Fall müssen wir das {{cssxref("::first-line")}} Pseudo-Element verwenden. Es wählt die erste formatierte Zeile jedes Absatzes aus, sodass Sie sie nach Ihren Wünschen stylen können.
+In diesem Fall müssen wir das {{cssxref("::first-line")}} Pseudoelement verwenden. Es wählt die erste formatierte Zeile jedes Absatzes aus, was bedeutet, dass Sie sie nach Bedarf stylen können.
 
-{{EmbedGHLiveSample("css-examples/howto/highlight_first_line.html", '100%', 750)}}
+```html live-sample___highlight_first_line
+<div class="wrapper">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
+
+```css live-sample___highlight_first_line
+.wrapper p::first-line {
+  font-weight: bold;
+  font-size: 130%;
+}
+```
+
+{{EmbedLiveSample("highlight_first_line")}}
 
 > [!NOTE]
-> Alle Pseudo-Elemente verhalten sich auf diese Weise. Sie verhalten sich so, als hätten Sie ein Element in das Dokument eingefügt, tun dies jedoch dynamisch basierend auf dem Inhalt, wie er zur Laufzeit angezeigt wird.
+> Alle Pseudoelemente verhalten sich auf diese Weise. Sie agieren so, als hätten Sie ein Element in das Dokument eingefügt, tun dies jedoch dynamisch basierend auf dem Inhalt, wie er zur Laufzeit angezeigt wird.
 
-## Kombinieren von Pseudo-Elementen mit anderen Selektoren
+## Kombinieren von Pseudoelementen mit anderen Selektoren
 
-Im obigen Beispiel wählt das Pseudo-Element die erste Zeile jedes Absatzes aus. Um nur die erste Zeile des ersten Absatzes auszuwählen, können Sie es mit einem anderen Selektor kombinieren. In diesem Fall verwenden wir die {{cssxref(":first-child")}} {{cssxref("pseudo-classes", "Pseudo-Klasse")}}. Dies ermöglicht uns, die erste Zeile des ersten Kindes von `.wrapper` auszuwählen, wenn dieses erste Kind ein Absatz ist.
+Im obigen Beispiel wählt das Pseudoelement die erste Zeile jedes Absatzes aus. Um nur die erste Zeile des ersten Absatzes auszuwählen, können Sie es mit einem anderen Selektor kombinieren. In diesem Fall verwenden wir die {{cssxref(":first-child")}} {{cssxref("pseudo-classes", "Pseudoklasse")}}. Damit können wir die erste Zeile des ersten Kindes von `.wrapper` auswählen, wenn dieses erste Kind ein Absatz ist.
 
-{{EmbedGHLiveSample("css-examples/howto/highlight_first_line2.html", '100%', 700)}}
+```html live-sample___highlight_first_line2
+<div class="wrapper">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
+
+```css live-sample___highlight_first_line2
+.wrapper p:first-child::first-line {
+  font-weight: bold;
+  font-size: 130%;
+}
+```
+
+{{EmbedLiveSample("highlight_first_line2")}}
 
 > [!NOTE]
-> Wenn Sie Pseudo-Elemente mit anderen Selektoren in einem [komplexen](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) Selektor kombinieren, müssen die Pseudo-Elemente nach allen anderen Komponenten im Selektor erscheinen, in dem sie auftreten.
+> Beim Kombinieren von Pseudoelementen mit anderen Selektoren in einem [komplexen](/de/docs/Web/CSS/CSS_selectors/Selector_structure#complex_selector) oder [zusammengesetzten](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) Selektor müssen die Pseudoelemente nach allen anderen Komponenten im Selektor erscheinen, in dem sie auftauchen.
 
 ## Siehe auch
 
-- Die Referenzseite zu {{cssxref("pseudo-elements", "Pseudo-Elementen")}}.
-- [Learn CSS: Pseudo-Klassen und Pseudo-Elemente.](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
+- Die {{cssxref("pseudo-elements", "Pseudoelemente")}} Referenzseite.
+- [Lernen Sie CSS: Pseudoklassen und Pseudoelemente.](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)

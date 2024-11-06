@@ -1,22 +1,71 @@
 ---
-title: Wie Sie eine Box mit einem Bild füllen, ohne es zu verzerren
+title: So füllen Sie eine Box mit einem Bild, ohne es zu verzerren
 slug: Learn/CSS/Howto/Fill_a_box_with_an_image
 l10n:
-  sourceCommit: 7e97f3c5ada65b6638909bde92881a4b8d46a2b8
+  sourceCommit: 40590706f9ab23242bcd8c8966cc683d7d5b18aa
 ---
 
 {{LearnSidebar}}
 
-In diesem Leitfaden erfahren Sie eine Technik, um ein HTML-Bild vollständig in einer Box auszufüllen.
+In diesem Leitfaden lernen Sie eine Technik kennen, um ein HTML-Bild dazu zu bringen, eine Box vollständig auszufüllen.
 
 ## Verwendung von object-fit
 
-Wenn Sie ein Bild auf einer Seite mit dem HTML-Element {{htmlelement("img")}} hinzufügen, wird das Bild die Größe und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} der Bilddatei oder der HTML-Attribute [`width`](/de/docs/Web/HTML/Element/img#width) oder [`height`](/de/docs/Web/HTML/Element/img#height) beibehalten. Manchmal möchten Sie, dass das Bild die Box, in die es eingefügt wurde, vollständig ausfüllt. In diesem Fall müssen Sie zunächst entscheiden, was passiert, wenn das Bild das falsche Seitenverhältnis für den Container hat.
+Wenn Sie ein Bild mithilfe des HTML-Elements {{htmlelement("img")}} zu einer Seite hinzufügen, behält das Bild die Größe und das {{Glossary("aspect_ratio", "Seitenverhältnis")}} der Bilddatei bei oder die Größe der HTML-Attribute [`width`](/de/docs/Web/HTML/Element/img#width) oder [`height`](/de/docs/Web/HTML/Element/img#height). Manchmal möchten Sie, dass das Bild die Box, in die Sie es platziert haben, vollständig ausfüllt. In diesem Fall müssen Sie zuerst entscheiden, was passieren soll, wenn das Bild das falsche Seitenverhältnis für den Container hat.
 
-1. Das Bild sollte die Box vollständig ausfüllen, das Seitenverhältnis beibehalten und den Überschuss auf der zu großen Seite abschneiden.
-2. Das Bild sollte in die Box passen, wobei der Hintergrund als Balken auf der zu kleinen Seite durchscheint.
-3. Das Bild sollte die Box füllen und sich dehnen, was bedeuten kann, dass es mit dem falschen Seitenverhältnis angezeigt wird.
+1. Das Bild soll die Box vollständig ausfüllen, das Seitenverhältnis beibehalten und überschüssige Teile abschneiden, die zu groß sind, um hineinzupassen.
+2. Das Bild soll in die Box passen, wobei der Hintergrund als Balken auf der zu kleinen Seite durchscheint.
+3. Das Bild soll die Box ausfüllen und sich strecken, was bedeuten kann, dass es im falschen Seitenverhältnis angezeigt wird.
 
-Die CSS-Eigenschaft {{cssxref("object-fit")}} macht jede dieser Herangehensweisen möglich. Im folgenden Beispiel können Sie sehen, wie verschiedene Werte von `object-fit` funktionieren, wenn dasselbe Bild verwendet wird. Wählen Sie den Ansatz, der am besten zu Ihrem Design passt.
+Die Eigenschaft {{cssxref("object-fit")}} ermöglicht jede dieser Ansätze. Im folgenden Beispiel können Sie sehen, wie verschiedene Werte von `object-fit` funktionieren, wenn dasselbe Bild verwendet wird. Wählen Sie den Ansatz, der am besten zu Ihrem Design passt.
 
-{{EmbedGHLiveSample("css-examples/howto/object-fit.html", '100%', 800)}}
+```html live-sample___object-fit
+<div class="wrapper">
+  <div class="box box1">
+    <img
+      alt="a colorful hot air balloon against a clear sky"
+      src="https://mdn.github.io/shared-assets/images/examples/balloon.jpg" />
+  </div>
+  <div class="box box2">
+    <img
+      alt="a colorful hot air balloon against a clear sky"
+      src="https://mdn.github.io/shared-assets/images/examples/balloon.jpg" />
+  </div>
+  <div class="box box3">
+    <img
+      alt="a colorful hot air balloon against a clear sky"
+      src="https://mdn.github.io/shared-assets/images/examples/balloon.jpg" />
+  </div>
+</div>
+```
+
+```css live-sample___object-fit
+.wrapper {
+  height: 200px;
+  display: flex;
+  gap: 20px;
+}
+
+.box {
+  border: 5px solid #000;
+}
+
+.box img {
+  width: 100%;
+  height: 100%;
+}
+
+.box1 img {
+  object-fit: cover;
+}
+
+.box2 img {
+  object-fit: contain;
+}
+
+.box3 img {
+  object-fit: fill;
+}
+```
+
+{{EmbedLiveSample("object-fit", "", "220px")}}
