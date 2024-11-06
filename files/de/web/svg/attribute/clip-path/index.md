@@ -2,17 +2,17 @@
 title: clip-path
 slug: Web/SVG/Attribute/clip-path
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: 6d311a5f07c97dbcd7bb9a6d49c2fe820a228659
 ---
 
 {{SVGRef}}
 
-Das Präsentationsattribut **`clip-path`** definiert oder verknüpft einen Clipping-Pfad mit dem damit verbundenen Element.
+Das **`clip-path`** Präsentationsattribut definiert oder verknüpft einen Clipping-Pfad mit dem zugehörigen Element.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `clip-path` auch als CSS-Eigenschaft verwendet werden.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement('a')}}
 - {{SVGElement('circle')}}
@@ -94,15 +94,15 @@ svg {
 
 {{EmbedLiveSample("Example", '100%', 200)}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
       <td>
-        {{cssxref('url')}} | [{{cssxref('basic-shape')}} ||
-        <code>&#x3C;geometry-box></code>] | <code>none</code>
+        {{CSSXref("url_value", "&lt;url&gt;")}} | [ {{cssxref('basic-shape')}} ||
+        <code>&#x3C;geometry-box></code> ] | <code>none</code>
       </td>
     </tr>
     <tr>
@@ -111,16 +111,16 @@ svg {
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
 
 - \<geometry-box>
-  - : Eine zusätzliche Information, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` gibt an, den Objektbegrenzungsrahmen zu verwenden; `stroke-box` gibt an, den mit dem Rand erweiterten Objektbegrenzungsrahmen zu verwenden; `view-box` gibt an, den nächstgelegenen SVG-Viewport als Referenzrahmen zu verwenden.
+  - : Eine zusätzliche Information, um anzugeben, wie eine {{cssxref('basic-shape')}} auf ein Element angewendet wird: `fill-box` gibt an, die Objektbegrenzungsrahmen zu verwenden; `stroke-box` gibt an, die Objektbegrenzungsrahmen erweitert mit dem Strich zu verwenden; `view-box` gibt an, den nächstgelegenen SVG-Viewport als Referenzrahmen zu verwenden.
 
 > [!NOTE]
-> Für weitere Details zur clip-path-Syntax, siehe die CSS-Eigenschaftsreferenzseite {{cssxref('clip-path')}}.
+> Für mehr Details zur clip-path Syntax, siehe die CSS-Eigenschaftsreferenzseite {{cssxref('clip-path')}}.
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: PluginArray
 slug: Web/API/PluginArray
 l10n:
-  sourceCommit: 802b6063046dffb7634d2138aadcd92cb22ed40c
+  sourceCommit: 6d311a5f07c97dbcd7bb9a6d49c2fe820a228659
 ---
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Das `PluginArray`-Interface wird verwendet, um eine Liste von [`Plugin`](/de/docs/Web/API/Plugin)-Objekten zu speichern, die die verfügbaren [Plugins](/de/docs/Mozilla/Add-ons/Plugins) beschreiben. Es wird durch die [`navigator.plugins`](/de/docs/Web/API/Navigator/plugins)-Eigenschaft zurückgegeben. Das `PluginArray` ist kein JavaScript-Array, es hat jedoch die `length`-Eigenschaft und unterstützt den Zugriff auf einzelne Elemente mittels Klammernotation (`plugins[2]`) sowie über die Methoden `item(index)` und `namedItem("name")`.
+Das `PluginArray`-Interface wird verwendet, um eine Liste von [`Plugin`](/de/docs/Web/API/Plugin)-Objekten zu speichern; es wird durch die [`navigator.plugins`](/de/docs/Web/API/Navigator/plugins)-Eigenschaft zurückgegeben. Das `PluginArray` ist kein JavaScript-Array, besitzt jedoch die `length`-Eigenschaft und unterstützt den Zugriff auf einzelne Elemente über die Klammernotation (`plugins[2]`) sowie über die Methoden `item(index)` und `namedItem("name")`.
 
 > [!NOTE]
 > Eigene Eigenschaften von `PluginArray`-Objekten sind in den neuesten Browserversionen nicht mehr aufzählbar.
@@ -20,11 +20,11 @@ Das `PluginArray`-Interface wird verwendet, um eine Liste von [`Plugin`](/de/doc
 ## Instanz-Methoden
 
 - [`PluginArray.item`](/de/docs/Web/API/PluginArray/item) {{Deprecated_Inline}}
-  - : Gibt das [`Plugin`](/de/docs/Web/API/Plugin) am angegebenen Index im Array zurück.
+  - : Gibt das [`Plugin`](/de/docs/Web/API/Plugin) an dem angegebenen Index im Array zurück.
 - [`PluginArray.namedItem`](/de/docs/Web/API/PluginArray/namedItem) {{Deprecated_Inline}}
   - : Gibt das [`Plugin`](/de/docs/Web/API/Plugin) mit dem angegebenen Namen zurück.
 - [`PluginArray.refresh`](/de/docs/Web/API/PluginArray/refresh) {{Deprecated_Inline}}
-  - : Aktualisiert alle Plugins auf der aktuellen Seite, optional mit Neuladen der Dokumente.
+  - : Aktualisiert alle Plugins auf der aktuellen Seite, optional wird das Dokument neu geladen.
 
 ## Beispiele
 
@@ -50,7 +50,7 @@ for (let i = 0; i < pluginsLength; i++) {
 }
 ```
 
-Das folgende Beispiel zeigt Informationen über das/die installierte(n) Plugin(s) an.
+Das folgende Beispiel zeigt Informationen über das/die installierten Plugin(s) an.
 
 ```js
 const pluginsLength = navigator.plugins.length;
@@ -75,4 +75,4 @@ for (let i = 0; i < pluginsLength; i++) {
 
 {{Compat}}
 
-Zusätzlich zur Auflistung jedes Plugins als Pseudo-Array mit nullbasierten numerischen Eigenschaften stellt Firefox Eigenschaften zur Verfügung, die der Pluginname direkt am PluginArray-Objekt sind.
+Zusätzlich zur Auflistung jedes Plugins als Pseudo-Array mit nullbasierten numerischen Eigenschaften bietet Firefox Eigenschaften, die der Plugin-Name direkt auf dem `PluginArray`-Objekt sind.

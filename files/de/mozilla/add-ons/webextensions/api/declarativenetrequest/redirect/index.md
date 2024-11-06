@@ -2,31 +2,31 @@
 title: declarativeNetRequest.Redirect
 slug: Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect
 l10n:
-  sourceCommit: 34215030993b429f727a2c73ef06eb029f57beeb
+  sourceCommit: 6d311a5f07c97dbcd7bb9a6d49c2fe820a228659
 ---
 
 {{AddonSidebar}}
 
-Details zu der Art und Weise, wie eine Weiterleitung ausgeführt werden soll, als Eigenschaft `redirect` einer {{WebExtAPIRef("declarativeNetRequest.RuleAction", "RuleAction")}}. Nur gültig für Weiterleitungsregeln.
+Details, die beschreiben, wie eine Umleitung durchgeführt werden soll, als `redirect`-Eigenschaft von einem {{WebExtAPIRef("declarativeNetRequest.RuleAction", "RuleAction")}}. Nur gültig für Umleitungsregeln.
 
 > [!NOTE]
-> Eine Weiterleitungsaktion leitet die Anfrage nicht um, und die Anfrage wird wie üblich fortgesetzt, wenn:
+> Eine Umleitungsaktion leitet die Anfrage nicht um, und die Anfrage wird wie gewohnt fortgesetzt, wenn:
 >
 > - die Aktion die Anfrage nicht ändert.
-> - die Weiterleitungs-URL ungültig ist (z. B. der Wert von {{WebExtAPIRef("declarativeNetRequest.redirect","redirect.regexSubstitution")}} keine gültige URL ist).
+> - die Umleitungs-URL ungültig ist (z.B. der Wert von `regexSubstitution` ist keine gültige URL).
 
 ## Typ
 
-Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
+Werte dieses Typs sind Objekte. Sie enthalten diese Eigenschaften:
 
 - `extensionPath` {{optional_inline}}
-  - : Ein `string`. Der Pfad relativ zum Erweiterungsverzeichnis. Sollte mit '/' beginnen. Der Initiator der Anfrage kann der Weiterleitung nur folgen, wenn die Ressource in [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) aufgeführt ist.
+  - : Ein `string`. Der Pfad relativ zum Erweiterungsverzeichnis. Sollte mit '/' beginnen. Der Initiator der Anfrage kann die Umleitung nur verfolgen, wenn die Ressource in [`web_accessible_resources`](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) aufgeführt ist.
 - `regexSubstitution` {{optional_inline}}
-  - : Ein `string`. Das Ersetzungsmuster für Regeln, die einen `regexFilter` angeben. Der erste Treffer von `regexFilter` innerhalb der URL wird durch dieses Muster ersetzt. Innerhalb von `regexSubstitution` werden rückwärts geschriebene Ziffern (`\1` bis `\9`) verwendet, um die entsprechenden Erfassungsgruppen einzufügen. `\0` bezieht sich auf den gesamten übereinstimmenden Text.
+  - : Ein `string`. Das Ersetzungsmuster für Regeln, die einen `regexFilter` angeben. Der erste Treffer von `regexFilter` innerhalb der URL wird mit diesem Muster ersetzt. Innerhalb von `regexSubstitution` werden rückwärts durch einen Schrägstrich (`\1` bis `\9`) die entsprechenden Gruppierungen eingefügt. `\0` bezieht sich auf den gesamten passenden Text.
 - `transform` {{optional_inline}}
   - : {{WebExtAPIRef("declarativeNetRequest.URLTransform")}}. Die durchzuführenden URL-Transformationen.
 - `url` {{optional_inline}}
-  - : Ein `string`. Die Weiterleitungs-URL. Weiterleitungen zu JavaScript-URLs sind nicht erlaubt.
+  - : Ein `string`. Die Umleitungs-URL. Umleitungen zu JavaScript-URLs sind nicht erlaubt.
 
 {{WebExtExamples("h2")}}
 
@@ -35,31 +35,34 @@ Werte dieses Typs sind Objekte. Sie enthalten die folgenden Eigenschaften:
 {{Compat}}
 
 <!--
-// Copyright 2015 The Chromium Authors. All rights reserved.
+// Copyright 2015 The Chromium Authors. Alle Rechte vorbehalten.
 //
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions are
-// met:
+// Eine Verbreitung und Nutzung im Quell- und Binärformat, mit oder ohne
+// Modifikation, ist unter den folgenden Bedingungen gestattet:
 //
-//    * Redistributions of source code must retain the above copyright
-// notice, this list of conditions and the following disclaimer.
-//    * Redistributions in binary form must reproduce the above
-// copyright notice, this list of conditions and the following disclaimer
-// in the documentation and/or other materials provided with the
-// distribution.
-//    * Neither the name of Google Inc. nor the names of its
-// contributors may be used to endorse or promote products derived from
-// this software without specific prior written permission.
+//    * Weiterverteilungen von Quellcode müssen den obigen Urheberrechtshinweis,
+// diesen Bedingungsnachweis und den folgenden Haftungsausschluss enthalten.
+//    * Weiterverteilungen im Binärformat müssen den obigen Urheberrechtshinweis,
+// diese Liste von Bedingungen und den folgenden Haftungsausschluss in der
+// Dokumentation und/oder anderen Materialien enthalten, die mit der
+// Verteilung geliefert werden.
+//    * Weder der Name von Google Inc. noch die Namen seiner
+// Mitwirkenden dürfen verwendet werden, um Produkte, die aus dieser Software
+// hervorgegangen sind, ohne spezifische vorherige schriftliche Erlaubnis
+// zu befürworten oder zu bewerben.
 //
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+// DIESE SOFTWARE WIRD VON DEN URHEBERRECHTSINHABERN UND MITWIRKENDEN
+// "WIE BESEHEN" BEREITGESTELLT UND JEGLICHE AUSDRÜCKLICHE ODER IMPLIZIERTE
+// GEWÄHRLEISTUNGEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE IMPLIZIERTEN
+// GEWÄHRLEISTUNGEN DER MARKTFÄHIGKEIT UND EIGNUNG FÜR EINEN
+// BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL SIND DIE
+// EIGENTÜMER ODER MITWIRKENDEN HAFTBAR FÜR JEDWEDE DIREKTE, INDIREKTE,
+// ZUFÄLLIGE, BESONDERE, EXEMPLARISCHE ODER FOLGESCHÄDEN (EINSCHLIESSLICH,
+// ABER NICHT BESCHRÄNKT AUF BEREITSTELLUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN;
+// NUTZUNGSVERLUST, DATEN ODER GEWINN; ODER GESCHÄFTSUNTERBRECHUNG)
+// JEDOCH VERURSACHT UND UNABHÄNGIG VON DER HAFTUNGSTHEORIE,
+// SEI ES VERTRAG, STRIKTE HAFTUNG ODER UNERLAUBTE HANDLUNG
+// (EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERES), DIE IN IRGENDEINER
+// WEISE AUS DER NUTZUNG DIESER SOFTWARE ENTSTEHEN, SELBST WENN AUF DIE
+// MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
 -->

@@ -2,17 +2,17 @@
 title: marker-end
 slug: Web/CSS/marker-end
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: 6d311a5f07c97dbcd7bb9a6d49c2fe820a228659
 ---
 
 {{CSSRef}}
 
-Die **`marker-end`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der am letzten Scheitelpunkt des Pfades des Elements gezeichnet wird; das heißt, an seinem Endscheitelpunkt. Der Marker muss mit einem SVG {{SVGElement('marker')}} Element definiert worden sein und kann nur mit einem {{cssxref('url()')}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte des `marker-end` Attributs im SVG.
+Die **`marker-end`** [CSS](/de/docs/Web/CSS) Eigenschaft verweist auf einen Marker, der am letzten Eckpunkt des Pfads des Elements gezeichnet wird; das heißt, an seinem Endpunkt. Der Marker muss mit einem SVG {{SVGElement('marker')}} Element definiert worden sein und kann nur mit einem {cssxref("url_value", "&lt;url&gt;")}} Wert referenziert werden. Der Wert der CSS-Eigenschaft überschreibt alle Werte des `marker-end` Attributs im SVG.
 
-Bei vielen Formen, die Marker unterstützen, sind der erste und letzte Scheitelpunkt derselbe Punkt: beispielsweise die obere linke Ecke eines {{SVGElement('rect')}}. Bei solchen Formen werden, wenn sowohl der erste als auch der letzte Marker definiert sind, zwei Marker an diesem Punkt gezeichnet, auch wenn sie möglicherweise nicht in dieselbe Richtung zeigen.
+Bei vielen Marker-unterstützenden Formen sind der erste und der letzte Eckpunkt derselbe Punkt: zum Beispiel die obere linke Ecke eines {{SVGElement('rect')}}. In solchen Formen, wenn sowohl der erste als auch der letzte Marker definiert sind, werden zwei Marker an diesem Punkt gezeichnet, obwohl sie möglicherweise nicht in dieselbe Richtung zeigen.
 
 > [!NOTE]
-> Die `marker-end` Eigenschaft hat nur eine Wirkung auf Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-end")}} für eine Liste.
+> Die `marker-end` Eigenschaft hat nur einen Effekt für Elemente, die SVG-Marker verwenden können. Siehe {{SVGAttr("marker-end")}} für eine Liste.
 
 ## Syntax
 
@@ -32,11 +32,11 @@ marker-end: unset;
 
 - `none`
 
-  - : Dies bedeutet, dass kein Marker am letzten Scheitelpunkt des Pfades des Elements gezeichnet wird.
+  - : Dies bedeutet, dass kein Marker am letzten Eckpunkt des Pfads des Elements gezeichnet wird.
 
 - `<marker-ref>`
 
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG {{SVGElement('marker')}} Element definiert ist, der am letzten Scheitelpunkt des Pfades des Elements gezeichnet wird. Wenn der URL-Verweis ungültig ist, wird kein Marker am letzten Scheitelpunkt des Pfades gezeichnet.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}}, der auf einen Marker verweist, der durch ein SVG {{SVGElement('marker')}} Element definiert ist, um am letzten Eckpunkt des Pfads des Elements gezeichnet zu werden. Wenn die URL-Referenz ungültig ist, wird kein Marker am letzten Eckpunkt des Pfads gezeichnet.
 
 ## Formale Definition
 

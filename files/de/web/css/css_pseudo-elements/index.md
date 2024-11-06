@@ -1,17 +1,17 @@
 ---
-title: CSS-Pseudo-Elemente
+title: CSS-Pseudoelemente
 slug: Web/CSS/CSS_pseudo-elements
 l10n:
-  sourceCommit: 6b730e3cfdf0f51940b44efa71bd59c84ce76e71
+  sourceCommit: 07bcffffe4c08e8c75d3ac64ebb91e5fe50d8fd6
 ---
 
 {{CSSRef}}
 
-Das **CSS-Pseudo-Elemente** Moduls definiert abstrakte Elemente, die nicht direkt im Dokumentbaum vorhanden sind. Diese abstrakten Elemente, Pseudo-Elemente genannt, repräsentieren Teile des Renderbaums, die ausgewählt und gestylt werden können. Pseudo-Elemente werden verwendet, um Abstraktionen über den Dokumentbaum hinaus zu schaffen.
+Das **CSS-Pseudoelement**-Modul definiert abstrakte Elemente, die nicht direkt im Dokumentbaum vorhanden sind. Diese abstrakten Elemente, sogenannte Pseudoelemente, repräsentieren Teile des Renderbaums, die ausgewählt und gestaltet werden können. Pseudoelemente werden verwendet, um Abstraktionen über den Dokumentbaum hinaus zu erstellen, die von diesem nicht bereitgestellt werden.
 
-Pseudo-Elemente werden mit einem Doppelpunkten (`::`) vorangestellt. Sie fügen Pseudo-Elemente zu Selektoren hinzu (wie in `p::first-line`), um diese Schein-Elemente anzusprechen und zu stylen.
+Pseudoelemente werden mit einem Doppelpunkt (`::`) vorangestellt. Sie fügen Selektoren Pseudoelemente hinzu (wie in `p::first-line`), um diese virtuellen Elemente zu identifizieren und zu gestalten.
 
-Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enthalten sind, und Inhaltsabschnitte, die sonst nicht ohne zusätzliches Markup angesprochen werden können. Betrachten Sie den Platzhalter eines {{HTMLelement("input")}}-Elements. Dies ist ein abstraktes Element und kein eigenständiger Knoten im Dokumentbaum. Sie können diesen Platzhalter durch das {{CSSXref("::placeholder")}} Pseudo-Element auswählen. Ein weiteres Beispiel ist das {{CSSXref("::selection")}} Pseudo-Element, das den aktuell von einem Benutzer hervorgehobenen Inhalt anspricht und es Ihnen ermöglicht, das Hervorgehobene zu stylen, während der Benutzer mit dem Inhalt interagiert und die Auswahl ändert. Ähnlich zielt das {{CSSXref("::first-line")}} Pseudo-Element auf die erste Zeile eines Elements ab und aktualisiert sich automatisch, wenn sich die Zeichenanzahl der ersten Zeile ändert, ohne die Längen der Zeilen des Elements zu überprüfen.
+Pseudoelemente ermöglichen das Anvisieren von Entitäten, die nicht in HTML enthalten sind, und von Inhaltsbereichen, die sonst nicht ohne zusätzliches Markup angesprochen werden könnten. Betrachten Sie den Platzhalter eines {{HTMLelement("input")}}-Elements. Dies ist ein abstraktes Element und kein eigenständiger Knoten im Dokumentbaum. Sie können diesen Platzhalter mit dem {{CSSXref("::placeholder")}}-Pseudoelement auswählen. Ein weiteres Beispiel ist das {{CSSXref("::selection")}}-Pseudoelement, das den aktuell von einem Benutzer hervorgehobenen Inhalt auswählt, wodurch Sie das Markierte beim Interagieren des Benutzers mit dem Inhalt und beim Ändern der Auswahl gestalten können. Ähnlich dazu zielt das {{CSSXref("::first-line")}}-Pseudoelement auf die erste Zeile eines Elements ab und aktualisiert sich automatisch, wenn sich die Zeichenzahl der ersten Zeile ändert, ohne die Zeilenlänge des Elements abfragen zu müssen.
 
 ## Referenz
 
@@ -23,11 +23,14 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enth
 - {{CSSXref("::first-letter")}}
 - {{CSSXref("::first-line")}}
 - {{CSSXref("::grammar-error")}}
+- {{CSSXref("::highlight()")}}
 - {{CSSXref("::marker")}}
 - {{CSSXref("::placeholder")}}
 - {{CSSXref("::selection")}}
 - {{CSSXref("::spelling-error")}}
 - {{CSSXref("::target-text")}}
+
+Die Spezifikation definiert auch die Pseudoelemente `::details-content` und `::search-text` sowie die Unter-Pseudoelemente `::postfix` und `::prefix`. Diese werden derzeit von keinem Browser unterstützt. Das {{CSSXref("::highlight()")}}-Pseudoelement ist in diesem Modul enthalten, aber die meisten Details werden in der [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API) bereitgestellt.
 
 ### Schnittstellen
 
@@ -37,27 +40,27 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enth
 
 ### Begriffe
 
-- {{Glossary("Pseudo-element", "Pseudo-Element")}} Glossarbegriff
+- {{Glossary("Pseudo-element", "Pseudoelement")}} Glossareintrag
 
 ## Leitfäden
 
-- [CSS-Pseudo-Elemente](/de/docs/Web/CSS/Pseudo-elements)
+- [CSS-Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements)
 
-  - : Alphabetische Liste der Pseudo-Elemente, die in allen CSS-Spezifikationen und WebVTT definiert sind.
+  - : Alphabetische Liste der Pseudoelemente, die von allen CSS-Spezifikationen und WebVTT definiert werden.
 
-- [Bausteine: Pseudo-Klassen und Pseudo-Elemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
+- [Bausteine: Pseudoklassen und Pseudoelemente](/de/docs/Learn/CSS/Building_blocks/Selectors/Pseudo-classes_and_pseudo-elements)
 
-  - : Teil des CSS-Bausteine-Abschnitts über Selektoren. Dieser Artikel definiert, was ein Pseudo-Element ist und wie es mit Pseudo-Klassen kombiniert und zur Generierung von Inhalten mit `::before` und `::after` Pseudo-Elementen verwendet werden kann.
+  - : Teil des CSS-Bausteinabschnitts über Selektoren. Dieser Artikel definiert, was ein Pseudoelement ist und wie es mit Pseudoklassen kombiniert und zur Generierung von Inhalten mit `::before` und `::after`-Pseudoelementen verwendet werden kann.
 
-- [Anleitung: Wie man schicke Boxen mit Pseudo-Elementen erstellt](/de/docs/Learn/CSS/Howto/Create_fancy_boxes#pseudo-elements)
+- [Anleitung zum Erstellen von dekorativen Boxen mit Pseudoelementen](/de/docs/Learn/CSS/Howto/Create_fancy_boxes#pseudo-elements)
 
-  - : Beispiel für das Styling von generierten Inhalten durch die Verwendung von `::before` und `::after` Pseudo-Elementen für visuelle Effekte.
+  - : Beispiel für die Gestaltung von generierten Inhalten mit `::before` und `::after`-Pseudoelementen für visuelle Effekte.
 
 ## Verwandte Konzepte
 
 - {{cssxref("::backdrop")}}
 
-- Web Video Text Tracks Format (WebVTT) Markierungen:
+- Web Video Text Tracks Format (WebVTT) Hinweise:
 
   - {{cssxref("::cue")}}
   - {{cssxref("::cue", "::cue()")}}
@@ -73,7 +76,7 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enth
 
   - {{CSSXref("::part")}}
 
-- [CSS-Ansichtsübergänge](/de/docs/Web/CSS/CSS_view_transitions) Modul
+- [CSS-View-Transitions](/de/docs/Web/CSS/CSS_view_transitions) Modul
 
   - {{cssxref("::view-transition")}} {{Experimental_Inline}}
   - {{cssxref("::view-transition-image-pair()")}} {{Experimental_Inline}}
@@ -88,13 +91,13 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enth
   - [Klassenselektoren](/de/docs/Web/CSS/Class_selectors)
   - [ID-Selektoren](/de/docs/Web/CSS/ID_selectors)
   - [Typselektoren](/de/docs/Web/CSS/Type_selectors)
-  - [Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes)
-  - [Universalselektoren](/de/docs/Web/CSS/Universal_selectors)
+  - [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes)
+  - [Universelle Selektoren](/de/docs/Web/CSS/Universal_selectors)
 
-- [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attribut des `<input>` Elements
+- [`placeholder`](/de/docs/Web/HTML/Element/input#placeholder) Attribut des `<input>`-Elements
 - [`:placeholder-shown`](/de/docs/Web/CSS/:placeholder-shown) Selektor
 
-- [CSS-generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content)
+- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content)
 
   - {{cssxref("content")}} Eigenschaft
   - {{cssxref("quotes")}} Eigenschaft
@@ -114,5 +117,6 @@ Pseudo-Elemente ermöglichen es, Entitäten anzusprechen, die nicht im HTML enth
 - [Spezifität](/de/docs/Web/CSS/Specificity)
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
 - [CSS-Shadow-Parts](/de/docs/Web/CSS/CSS_shadow_parts) Modul
-- [CSS-generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
-- [CSS-positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
+- [CSS positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS Custom Highlight API](/de/docs/Web/API/CSS_Custom_Highlight_API)

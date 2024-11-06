@@ -1,26 +1,26 @@
 ---
-title: Aktualisierung von Erweiterungen für Firefox 7
+title: Aktualisieren von Erweiterungen für Firefox 7
 slug: Mozilla/Firefox/Releases/7/Updating_extensions
 l10n:
-  sourceCommit: 8943d682ef5a0f9a3f8b66049ff3042e07f140ba
+  sourceCommit: 6d311a5f07c97dbcd7bb9a6d49c2fe820a228659
 ---
 
 {{FirefoxSidebar}}
 
-Dieser Artikel bietet Ratschläge für Add-on-Entwickler, die ihre Erweiterungen auf Firefox 7 aktualisieren möchten. Glücklicherweise sind die meisten Änderungen in dieser Version relativ geringfügig und nur wenige Add-ons sollten erhebliche Änderungen benötigen, um in Firefox 7 zu funktionieren.
+Dieser Artikel bietet Ratschläge für Add-on-Entwickler, die ihre Erweiterungen aktualisieren möchten, um in Firefox 7 zu funktionieren. Glücklicherweise sind die meisten Änderungen in dieser Version relativ geringfügig, und nur wenige Add-ons sollten signifikante Änderungen benötigen, um in Firefox 7 zu funktionieren.
 
 > [!NOTE]
-> Eine vollständige Liste der Entwickler-Änderungen in Firefox 7 finden Sie unter [Firefox 7 für Entwickler](/de/docs/Mozilla/Firefox/Releases/7).
+> Für eine vollständige Liste der entwicklerbezogenen Änderungen in Firefox 7, siehe [Firefox 7 für Entwickler](/de/docs/Mozilla/Firefox/Releases/7).
 
-Wie immer müssen Sie [alle binären Komponenten neu kompilieren](/de/docs/Mozilla/Developer_guide/Interface_Compatibility#binary_interfaces), um sie mit Firefox 7 kompatibel zu machen.
+Wie immer müssen Sie [alle binären Komponenten neu kompilieren](/de/docs/Mozilla/Developer_guide/Interface_Compatibility#binary_interfaces), um sie kompatibel mit Firefox 7 zu machen.
 
 ## XPCOM-Änderungen, die die Kompatibilität beeinflussen
 
-Die meisten Änderungen in dieser Version betreffen die Entfernung von XPCOM-Schnittstellen oder spezifischen, veralteten APIs aus Schnittstellen.
+Die meisten Änderungen in dieser Version sind XPCOM-Schnittstellenentfernungen oder die Entfernung spezifischer, veralteter APIs aus Schnittstellen.
 
 ### Entfernte Schnittstellen
 
-Die folgenden Schnittstellen wurden entfernt und dürften die Entwickler von Erweiterungen am ehesten betreffen:
+Die folgenden Schnittstellen sind diejenigen, die entfernt wurden und die am ehesten Auswirkungen auf Erweiterungsentwickler haben könnten:
 
 - `nsIDOM3Node`
 - `nsIDOM3TypeInfo`
@@ -35,21 +35,21 @@ Eine vollständige Liste der entfernten Schnittstellen finden Sie im Abschnitt [
 Einige Schnittstellen haben Methoden, die geändert wurden:
 
 - `nsINavHistoryObserver` und `nsINavBookmarkObserver`
-  - : Diese wurden geändert, um Firefox Sync besser zu unterstützen, indem ein neuer GUID-Parameter zu mehreren ihrer Methoden hinzugefügt wurde. JavaScript-basierter Code sollte keine Änderungen erfordern, da dies nur die Hinzufügung eines neuen, optionalen Parameters ist. Binäre Komponenten müssen jedoch aktualisiert werden, um den neuen Parameter zu berücksichtigen.
+  - : Diese wurden geändert, um Firefox Sync besser zu unterstützen, indem sie einen neuen GUID-Parameter zu mehreren ihrer Methoden hinzufügen. JavaScript-basierter Code sollte keine Änderungen benötigen, da dies nur die Hinzufügung eines neuen, optionalen Parameters ist. Allerdings müssen binäre Komponenten aktualisiert werden, um den neuen Parameter zu berücksichtigen.
 - `nsIDOMFile`
-  - : Eine Reihe von nicht standardisierten Methoden wurden aus dieser Schnittstelle entfernt. Dies betrifft die Methoden [`File.getDataAsUrl()`](/de/docs/Web/API/File/getDataAsUrl) und [`File.getAsBinary()`](/de/docs/Web/API/File/getAsBinary) des [`File`](/de/docs/Web/API/File)-Objekts. Diese Funktionalität ist jedoch jetzt im standardisierten [`FileReader`](/de/docs/Web/API/FileReader)-Objekt zu finden.
+  - : Eine Reihe von nicht standardmäßigen Methoden wurde aus dieser Schnittstelle entfernt. Dies betrifft die Methoden `File.getDataAsUrl()` und `File.getAsBinary()` des [`File`](/de/docs/Web/API/File)-Objekts. Diese Funktionalität kann jetzt jedoch im standardisierten [`FileReader`](/de/docs/Web/API/FileReader)-Objekt gefunden werden.
 
-## Weitere erwähnenswerte Änderungen
+## Weitere bemerkenswerte Änderungen
 
-Diese Änderungen beeinträchtigen nicht die Kompatibilität (wir haben nicht übertrieben, als wir sagten, dass es in dieser Version nicht viele Änderungen gibt, die dies tun), fügen jedoch Fähigkeiten hinzu, die einfach zu nutzen sind und für Sie von besonderem Nutzen sein könnten.
+Diese Änderungen beeinflussen die Kompatibilität nicht (wir haben nicht übertrieben, als wir sagten, dass es in dieser Version nicht viele Änderungen gibt, die dies tun), fügen jedoch Fähigkeiten hinzu, die leicht zu nutzen sind und die für Sie von besonderem Nutzen sein könnten.
 
 ### Entladen von JavaScript-Code-Modulen
 
-Die neue Methode `Components.utils.unload()` ermöglicht es Ihnen, zuvor durch Aufruf von `Components.utils.load()` geladene JavaScript-Code-Module zu entladen. Dies kann besonders nützlich bei neustartlosen (bootstrapped) Erweiterungen sein, sodass Sie eine alte Version eines Code-Moduls entladen können, wenn eine neue Version Ihres Add-ons installiert wird.
+Die neue Methode `Components.utils.unload()` ermöglicht es Ihnen, JavaScript-Code-Module zu entladen, die zuvor durch den Aufruf von `Components.utils.load()` geladen wurden. Dies kann besonders praktisch bei neustartlosen (bootstrapped) Erweiterungen sein, sodass Sie eine alte Version eines Code-Moduls entladen können, wenn eine neue Version Ihres Add-ons installiert wird.
 
-### Integrierte Präferenzen
+### Inline-Einstellungen
 
-Sie können jetzt [Präferenzoptionen inline](/de/docs/Extensions/Inline_Options) im Add-on Manager Fenster haben, was es den Benutzern ermöglicht, Ihr Add-on zu konfigurieren, ohne ein separates Präferenz-Dialogfenster öffnen zu müssen. Es gibt zwar Grenzen, welche Arten von Konfigurationseinstellungen bereitgestellt werden können, aber dies ist dennoch sehr hilfreich — zudem funktioniert es für [neustartlose (bootstrapped) Erweiterungen](/de/docs/Extensions/Bootstrapped_extensions).
+Sie können jetzt [Einstellungsoptionen inline](/de/docs/Extensions/Inline_Options) im Fenster des Add-on-Managers haben, was es den Benutzern ermöglicht, Ihr Add-on zu konfigurieren, ohne einen separaten Einstellungsdialog öffnen zu müssen. Es gibt Einschränkungen, welche Arten von Konfigurationselementen bereitgestellt werden können, aber dies ist dennoch sehr hilfreich — und es funktioniert auch für [neustartlose (bootstrapped) Erweiterungen](/de/docs/Extensions/Bootstrapped_extensions).
 
 ## Siehe auch
 
