@@ -1,13 +1,13 @@
 ---
-title: Größenänderung von Elementen in CSS
+title: Größenanpassung von Elementen in CSS
 slug: Learn/CSS/Building_blocks/Sizing_items_in_CSS
 l10n:
-  sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
+  sourceCommit: 033285c99a8e1bc05b646ff19b70d2e8b86dff46
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/CSS/Building_blocks/Values_and_units", "Learn/CSS/Building_blocks/Images_media_form_elements", "Learn/CSS/Building_blocks")}}
 
-In den bisherigen Lektionen sind Sie auf verschiedene Möglichkeiten gestoßen, um Elemente auf einer Webseite mit CSS zu dimensionieren. Es ist wichtig zu verstehen, wie groß die verschiedenen Merkmale Ihres Designs sein werden. In dieser Lektion werden wir die verschiedenen Möglichkeiten zusammenfassen, wie Elemente über CSS eine Größe erhalten, und einige Begriffe zur Größenänderung definieren, die Ihnen in Zukunft von Nutzen sein werden.
+In den verschiedenen Lektionen bisher haben Sie verschiedene Möglichkeiten kennengelernt, wie man Elemente auf einer Webseite mit CSS größenmäßig anpassen kann. Es ist wichtig zu verstehen, wie groß die verschiedenen Elemente in Ihrem Design sein werden. In dieser Lektion fassen wir die verschiedenen Methoden zusammen, mit denen Elemente durch CSS eine Größe erhalten, und definieren einige Begriffe zur Größenanpassung, die Ihnen in der Zukunft helfen werden.
 
 <table>
   <tbody>
@@ -17,109 +17,293 @@ In den bisherigen Lektionen sind Sie auf verschiedene Möglichkeiten gestoßen, 
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Installing_basic_software"
           >Grundlegende Software installiert</a
-        >, Grundkenntnisse im
+        >, Grundkenntnisse in
         <a
           href="/de/docs/Learn/Getting_started_with_the_web/Dealing_with_files"
-          >Umgang mit Dateien</a
-        >, HTML-Grundlagen (studieren Sie
+          >dem Umgang mit Dateien</a
+        >, HTML-Grundlagen (siehe
         <a href="/de/docs/Learn/HTML/Introduction_to_HTML"
           >Einführung in HTML</a
-        >) und eine Vorstellung davon, wie CSS funktioniert (studieren Sie
-        <a href="/de/docs/Learn/CSS/First_steps">CSS-Grundlagen</a>.)
+        >), und eine Vorstellung davon, wie CSS funktioniert (siehe
+        <a href="/de/docs/Learn/CSS/First_steps">CSS Erste Schritte</a>).
       </td>
     </tr>
     <tr>
-      <th scope="row">Zielsetzung:</th>
-      <td>Zu verstehen, auf welche verschiedenen Arten wir Dinge in CSS dimensionieren können.</td>
+      <th scope="row">Ziel:</th>
+      <td>Verständnis der verschiedenen Möglichkeiten zur Größenanpassung in CSS.</td>
     </tr>
   </tbody>
 </table>
 
-## Die natürliche oder intrinsische Größe von Elementen
+## Die natürliche oder intrinsische Größe von Dingen
 
-HTML-Elemente haben eine natürliche Größe, die festgelegt ist, bevor sie durch CSS beeinflusst werden. Ein einfaches Beispiel ist ein Bild. Eine Bilddatei enthält Größeninformationen, die als **intrinsische Größe** beschrieben werden. Diese Größe wird durch das Bild _selbst_ bestimmt, nicht durch eine Formatierung, die wir möglicherweise anwenden.
+HTML-Elemente haben eine natürliche Größe, die vor der Beeinflussung durch CSS festgelegt ist. Ein einfaches Beispiel ist ein Bild. Eine Bilddatei enthält Größeninformationen, die als seine **intrinsische Größe** beschrieben werden. Diese Größe wird durch das Bild _selbst_ bestimmt, nicht durch irgendeine Formatierung, die wir anwenden.
 
-Wenn Sie ein Bild auf einer Seite platzieren und seine Höhe oder Breite nicht ändern, sei es durch Attribute im `<img>`-Tag oder durch CSS, wird es mit dieser intrinsischen Größe angezeigt. Wir haben dem Bild im folgenden Beispiel einen Rahmen gegeben, damit Sie das Ausmaß seiner Größe sehen können, wie es in der Datei definiert ist.
+Wenn Sie ein Bild auf einer Seite platzieren und seine Höhe oder Breite weder über Attribute im `<img>`-Tag noch durch CSS ändern, wird es mit dieser intrinsischen Größe angezeigt. Wir haben dem Bild im folgenden Beispiel einen Rahmen hinzugefügt, damit Sie das Ausmaß seiner Größe, wie es in der Datei definiert ist, sehen können.
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/intrinsic-image.html", '100%', 600)}}
+```html live-sample___intrinsic-image
+<img
+  alt="star"
+  src="https://mdn.github.io/shared-assets/images/examples/big-star.png" />
+```
 
-Ein leeres {{htmlelement("div")}} hingegen hat keine eigene Größe. Wenn Sie ein {{htmlelement("div")}} zu Ihrem HTML ohne Inhalt hinzufügen und ihm dann einen Rahmen geben, so wie wir es mit dem Bild getan haben, sehen Sie eine Linie auf der Seite. Dies ist der eingeklappte Rahmen des Elements — es gibt keinen Inhalt, der es offen hält. In unserem Beispiel unten erstreckt sich dieser Rahmen bis zur Breite des Containers, da es sich um ein Block-Element handelt; ein Verhalten, das Ihnen allmählich vertraut sein sollte. Es hat keine Höhe (oder Größe in der Block-Dimension), da es keinen Inhalt gibt.
+```css live-sample___intrinsic-image
+img {
+  border: 5px solid darkblue;
+}
+```
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/intrinsic-text.html", '100%', 500)}}
+{{EmbedLiveSample("intrinsic-image")}}
 
-Im obigen Beispiel versuchen Sie, etwas Text in das leere Element einzufügen. Der Rahmen enthält jetzt diesen Text, weil die Höhe des Elements durch den Inhalt definiert ist. Daher stammt die Größe dieses `<div>` in der Block-Dimension von der Größe des Inhalts. Dies ist wieder die intrinsische Größe des Elements — seine Größe wird durch seinen Inhalt definiert.
+Ein leeres {{htmlelement("div")}} hingegen hat keine eigene Größe. Wenn Sie ein {{htmlelement("div")}} ohne Inhalt zu Ihrem HTML hinzufügen und dann, wie beim Bild, einen Rahmen geben, sehen Sie eine Linie auf der Seite. Dies ist der zusammengefallene Rahmen des Elements — es gibt keinen Inhalt, der ihn offen hält. In unserem Beispiel unten erstreckt sich dieser Rahmen über die Breite des Containers, weil es sich um ein Blockelement handelt, ein Verhalten, das Ihnen vertraut vorkommen dürfte. Es hat keine Höhe (oder Größe in der Blockdimension), weil es keinen Inhalt gibt.
+
+```html live-sample___intrinsic-text
+<div class="box"></div>
+```
+
+```css live-sample___intrinsic-text
+.box {
+  border: 5px solid darkblue;
+}
+```
+
+{{EmbedLiveSample("intrinsic-text")}}
+
+Im obigen Beispiel versuchen Sie, dem leeren Element Text hinzuzufügen. Der Rahmen enthält nun diesen Text, weil die Höhe des Elements durch den Inhalt definiert ist. Die Größe dieses `<div>` in der Blockdimension ergibt sich also aus der Größe des Inhalts. Auch dies ist die intrinsische Größe des Elements — seine Größe wird durch seinen Inhalt definiert.
 
 ## Eine spezifische Größe festlegen
 
-Wir können selbstverständlich Elementen in unserem Design eine spezifische Größe geben. Wenn einem Element eine Größe zugewiesen wird (in die der Inhalt dann passen muss), sprechen wir von einer **extrinsischen Größe**. Nehmen Sie unser `<div>` aus dem obigen Beispiel — wir können ihm spezifische {{cssxref("width")}} und {{cssxref("height")}} Werte geben, und es wird jetzt diese Größe haben, unabhängig davon, was sich darin befindet. Wie wir in [unserer vorherigen Lektion über Überlauf](/de/docs/Learn/CSS/Building_blocks/Overflowing_content) entdeckt haben, kann eine festgelegte Höhe dazu führen, dass Inhalt überläuft, wenn mehr Inhalt vorhanden ist, als das Element Platz bietet.
+Natürlich können wir auch den Elementen in unserem Design eine spezifische Größe geben. Wenn einem Element eine Größe zugewiesen wird (in die der Inhalt dann passen muss), sprechen wir von einer **extrinsischen Größe**. Nehmen Sie unser `<div>` aus dem obigen Beispiel — wir können ihm spezifische {{cssxref("width")}} und {{cssxref("height")}} Werte geben, und es wird nun diese Größe haben, unabhängig davon, was für Inhalt hineingefügt wird. Wie wir in [unserer vorherigen Lektion über Überlauf](/de/docs/Learn/CSS/Building_blocks/Overflowing_content) entdeckt haben, kann eine festgelegte Höhe dazu führen, dass der Inhalt überläuft, wenn mehr Inhalt vorhanden ist, als das Element aufnehmen kann.
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/height.html", '100%', 600)}}
+```html live-sample___height
+<div class="wrapper">
+  <div class="box"></div>
+  <div class="box">
+    These boxes both have a height set, this box has content in it which will
+    need more space than the assigned height, and so we get overflow.
+  </div>
+</div>
+```
 
-Aufgrund dieses Überlaufproblems müssen wir beim Festlegen der Höhe von Elementen mit Längen oder Prozentwerten im Web sehr vorsichtig sein.
+```css live-sample___height
+body {
+  font: 1.2em sans-serif;
+}
+.wrapper {
+  display: flex;
+}
 
-### Verwendung von Prozentwerten
+.wrapper > * {
+  margin: 20px;
+}
 
-In vielerlei Hinsicht verhalten sich Prozentwerte wie Längeneinheiten, und wie wir [in der Lektion über Werte und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units#percentages) besprochen haben, können sie oft mit Längen austauschbar verwendet werden. Wenn Sie einen Prozentwert verwenden, müssen Sie sich bewusst sein, auf was er einen Prozentsatz _ist_. Im Falle einer Box in einem anderen Container, wenn Sie der Kinderbox eine prozentuale Breite geben, wird es ein Prozentsatz der Breite des übergeordneten Containers sein.
+.box {
+  border: 5px solid darkblue;
+  height: 100px;
+  width: 200px;
+}
+```
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/percent-width.html", '100%', 600)}}
+{{EmbedLiveSample("height", "", "200px")}}
 
-Dies liegt daran, dass Prozentwerte auf die Größe des umschließenden Blocks bezogen sind. Ohne Prozentwert würde unser `<div>` 100% des verfügbaren Platzes einnehmen, da es ein Block-Element ist. Wenn wir ihm eine prozentuale Breite geben, wird dies zu einem Prozentsatz des Raumes, den es normalerweise ausfüllen würde.
+Dieses Problem des Überlaufs macht es notwendig, die Höhe von Elementen sehr vorsichtig mit Längenangaben oder Prozentangaben im Web zu fixieren.
 
-### Prozentuale Ränder und Abstände
+### Verwendung von Prozentangaben
 
-Wenn Sie `margins` und `padding` als Prozentsätze festlegen, können Sie auf ein merkwürdiges Verhalten stoßen. Im folgenden Beispiel haben wir eine Box. Wir haben der inneren Box einen {{cssxref("margin")}} von 10% und einen {{cssxref("padding")}} von 10% gegeben. Die Abstände und Ränder oben und unten in der Box sind genauso groß wie die Abstände und Ränder links und rechts.
+In vielerlei Hinsicht verhalten sich Prozentangaben wie Längeneinheiten, und wie wir [in der Lektion über Werte und Einheiten besprochen haben](/de/docs/Learn/CSS/Building_blocks/Values_and_units#percentages), können sie oft austauschbar mit Längen verwendet werden. Wenn Sie einen Prozentsatz verwenden, müssen Sie sich bewusst sein, worauf sich dieser Prozentsatz _bezieht_. Im Fall eines Kastens innerhalb eines anderen Containers, wenn Sie dem inneren Kasten eine prozentuale Breite geben, bezieht sich dieser Prozentsatz auf die Breite des übergeordneten Containers.
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/percent-mp.html", '100%', 800)}}
+```html live-sample___percent-width
+<div class="box">I have a percentage width.</div>
+```
 
-Sie könnten zum Beispiel erwarten, dass die prozentualen oberen und unteren Ränder ein Prozentsatz der Höhe des Elements sind, und die prozentualen linken und rechten Ränder ein Prozentsatz der Breite des Elements. Das ist jedoch nicht der Fall!
+```css live-sample___percent-width
+body {
+  font: 1.2em sans-serif;
+}
 
-Wenn Sie Abstände und Polsterungen in Prozenten festlegen, wird der Wert aus der **Inlinegröße** des umschließenden Blocks berechnet — daher die Breite bei der Arbeit mit einer horizontalen Sprache. In unserem Beispiel sind alle Abstände und Polsterungen 10% der Breite. Das bedeutet, dass Sie gleich große Ränder und Abstände rund um die Box haben können. Dies ist eine Tatsache, die man sich merken sollte, wenn man Prozentsätze auf diese Weise verwendet.
+.box {
+  border: 5px solid darkblue;
+  width: 50%;
+}
+```
+
+{{EmbedLiveSample("percent-width")}}
+
+Dies liegt daran, dass sich Prozentsätze auf die Größe des umgebenden Blocks beziehen. Ohne angewendeten Prozentsatz würde unser `<div>` 100% des verfügbaren Platzes einnehmen, da es ein Block-Element ist. Wenn wir ihm eine prozentuale Breite geben, wird dies zu einem Prozentsatz des Raums, den es normalerweise füllen würde.
+
+### Prozentuale Außenabstände und Auffüllungen
+
+Wenn Sie `margins` und `padding` als Prozentangaben festlegen, können Sie einige merkwürdige Verhalten bemerken. Im folgenden Beispiel haben wir einen Kasten. Wir haben dem inneren Kasten einen {{cssxref("margin")}} von 10% und einen {{cssxref("padding")}} von 10% gegeben. Der Abstand und die Auffüllung oben und unten am Kasten sind genauso groß wie der Abstand und die Auffüllung links und rechts.
+
+```html live-sample___percent-mp
+<div class="box">I have margin and padding set to 10% on all sides.</div>
+```
+
+```css live-sample___percent-mp
+body {
+  font: 1.2em sans-serif;
+}
+.box {
+  border: 5px solid darkblue;
+  width: 200px;
+  margin: 10%;
+  padding: 10%;
+}
+```
+
+{{EmbedLiveSample("percent-mp", "", "380px")}}
+
+Sie könnten erwarten, dass z.B. die prozentualen oberen und unteren Abstände ein Prozentsatz der Höhe des Elements sind, und die prozentualen linken und rechten Abstände ein Prozentsatz der Breite des Elements. Dies ist jedoch nicht der Fall!
+
+Wenn Sie Abstand und Auffüllung in Prozent festlegen, wird der Wert von der **Inline-Größe** des umgebenden Blocks berechnet — daher die Breite bei der Arbeit in einer horizontalen Sprache. In unserem Beispiel sind alle Abstände und Auffüllungen 10% der Breite. Dies bedeutet, dass Sie gleichgroße Abstände und Auffüllungen um den ganzen Kasten haben können. Dies ist eine Tatsache, die es wert ist, sich zu merken, wenn Sie Prozentsätze auf diese Weise verwenden.
 
 ## Min- und Max-Größen
 
-Neben der Vergabe einer festen Größe können wir CSS auch bitten, einem Element eine Mindest- oder Maximalgröße zu geben. Wenn Sie eine Box haben, die möglicherweise eine variable Menge an Inhalt enthalten kann, und Sie möchten, dass sie immer _mindestens_ eine bestimmte Höhe hat, könnten Sie die Eigenschaft {{cssxref("min-height")}} darauf anwenden. Die Box wird immer mindestens diese Höhe haben, wächst jedoch dann, wenn es mehr Inhalt gibt, als die Box in ihrer minimalen Höhe Platz hat.
+Neben der Festlegung einer festen Größe können wir CSS bitten, einem Element eine Mindest- oder Maximalgröße zu geben. Wenn Sie einen Kasten haben, der eine variable Menge an Inhalt enthalten könnte, und Sie möchten, dass er _mindestens_ eine bestimmte Höhe hat, könnten Sie die {{cssxref("min-height")}}-Eigenschaft darauf setzen. Der Kasten wird immer mindestens diese Höhe haben, wird dann aber größer, wenn mehr Inhalt vorhanden ist, als der Kasten bei seiner Mindesthöhe Platz bietet.
 
-Im Beispiel unten sehen Sie zwei Boxen, beide mit einer definierten `min-height` von 150 Pixeln. Die Box auf der linken Seite ist 150 Pixel hoch; die Box auf der rechten Seite hat Inhalt, der mehr Platz benötigt, und daher ist sie höher als 150 Pixel geworden.
+Im folgenden Beispiel sehen Sie zwei Kästen, beide mit einer definierten `min-height` von 150 Pixel. Der Kasten links ist 150 Pixel hoch; der Kasten rechts hat Inhalt, der mehr Platz benötigt, und ist daher höher als 150 Pixel geworden.
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/min-height.html", '100%', 800)}}
+```html live-sample___min-height
+<div class="wrapper">
+  <div class="box"></div>
+  <div class="box">
+    These boxes both have a min-height set, this box has content in it which
+    will need more space than the assigned height, and so it grows from the
+    minimum.
+  </div>
+</div>
+```
 
-Dies ist sehr nützlich, um mit variablen Mengen von Inhalten umzugehen und gleichzeitig Überläufe zu vermeiden.
+```css live-sample___min-height
+body {
+  font: 1.2em sans-serif;
+}
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+}
 
-Ein häufiger Einsatz von {{cssxref("max-width")}} ist, um Bilder skalieren zu lassen, wenn nicht genug Platz vorhanden ist, um sie in ihrer natürlichen Breite anzuzeigen, während sichergestellt wird, dass sie nicht größer werden als diese Breite.
+.wrapper > * {
+  margin: 20px;
+}
 
-Zum Beispiel, wenn Sie `width: 100%` auf ein Bild setzen und seine natürliche Breite kleiner als sein Container ist, wird das Bild gezwungen, zu strecken und größer zu werden, was dazu führt, dass es pixelig aussieht.
+.box {
+  border: 5px solid darkblue;
+  min-height: 100px;
+  width: 200px;
+}
+```
 
-Wenn Sie stattdessen `max-width: 100%` verwenden und seine natürliche Breite kleiner als sein Container ist, wird das Bild nicht gezwungen, sich zu strecken und größer zu werden, wodurch eine Pixelbildung verhindert wird.
+{{EmbedLiveSample("min-height", "", "220px")}}
 
-Im Beispiel unten haben wir dasselbe Bild dreimal verwendet. Das erste Bild wurde mit `width: 100%` versehen und befindet sich in einem Container, der größer ist als es, daher dehnt es sich auf die Containerbreite aus. Das zweite Bild hat `max-width: 100%` eingestellt und dehnt sich daher nicht aus, um den Container zu füllen. Der dritte Behälter enthält dasselbe Bild nochmals, ebenfalls mit `max-width: 100%` eingestellt; in diesem Fall können Sie sehen, wie es sich verkleinert hat, um in die Box zu passen.
+Dies ist sehr nützlich, um mit variablen Inhaltsmengen umzugehen und Überlauf zu vermeiden.
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/max-width.html", '100%', 800)}}
+Eine häufige Nutzung von {{cssxref("max-width")}} besteht darin, Bilder zu verkleinern, wenn nicht genug Platz vorhanden ist, um sie in ihrer intrinsischen Breite anzuzeigen, während gleichzeitig sichergestellt wird, dass sie nicht größer werden als diese Breite.
 
-Diese Technik wird verwendet, um Bilder _reaktionsfähig_ zu machen, sodass sie sich bei Betrachtung auf einem kleineren Gerät entsprechend verkleinern. Sie sollten jedoch nicht diese Technik verwenden, um wirklich große Bilder zu laden und dann im Browser zu verkleinern. Bilder sollten angemessen dimensioniert sein, um nicht größer zu sein, als sie für die größte Größe sein müssen, in der sie im Design angezeigt werden. Das Herunterladen von übergroßen Bildern verlangsamt Ihre Website und kann Benutzer mehr Geld kosten, wenn sie eine gemessene Verbindung verwenden.
+Als Beispiel, wenn Sie die `width: 100%` auf ein Bild setzen, und seine intrinsische Breite kleiner ist als sein Container, wird das Bild gezwungen, sich zu strecken und größer zu werden, was zu einer verpixelten Darstellung führt.
+
+Wenn Sie stattdessen `max-width: 100%` verwenden und seine intrinsische Breite kleiner ist als sein Container, wird das Bild nicht gezwungen, sich zu strecken und größer zu werden, wodurch eine Verpixelung verhindert wird.
+
+Im folgenden Beispiel haben wir das gleiche Bild dreimal verwendet. Das erste Bild hat `width: 100%` erhalten und befindet sich in einem Container, der größer ist, weshalb es sich auf die Containerbreite streckt. Das zweite Bild hat `max-width: 100%` gesetzt und streckt sich daher nicht, um den Container zu füllen. Der dritte Kasten enthält dasselbe Bild erneut, ebenfalls mit `max-width: 100%` gesetzt; in diesem Fall sehen Sie, wie es verkleinert wurde, um in den Kasten zu passen.
+
+```html live-sample___max-width
+<div class="wrapper">
+  <div class="box">
+    <img
+      alt="star"
+      class="width"
+      src="https://mdn.github.io/shared-assets/images/examples/big-star.png" />
+  </div>
+  <div class="box">
+    <img
+      alt="star"
+      class="max"
+      src="https://mdn.github.io/shared-assets/images/examples/big-star.png" />
+  </div>
+  <div class="mini-box">
+    <img
+      alt="star"
+      class="max"
+      src="https://mdn.github.io/shared-assets/images/examples/big-star.png" />
+  </div>
+</div>
+```
+
+```css hidden live-sample___max-width
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.wrapper > * {
+  margin: 20px;
+}
+
+.box,
+.mini-box {
+  border: 5px solid darkblue;
+}
+```
+
+```css live-sample___max-width
+.box {
+  width: 200px;
+}
+.mini-box {
+  width: 50px;
+}
+.width {
+  width: 100%;
+}
+.max {
+  max-width: 100%;
+}
+```
+
+{{EmbedLiveSample("max-width", "", "260px")}}
+
+Diese Technik wird verwendet, um Bilder _responsiv_ zu machen, sodass sie auf einem kleineren Gerät entsprechend verkleinert werden. Sie sollten diese Technik jedoch nicht verwenden, um wirklich große Bilder zu laden und dann im Browser zu skalieren. Bilder sollten in der Größe angemessen sein, damit sie nicht größer sind, als sie für die größte Größe, in der sie im Design angezeigt werden, benötigt werden. Das Herunterladen von übermäßig großen Bildern wird Ihre Seite verlangsamen und kann für Benutzer teurer sein, wenn sie eine tariflich abgerechnete Verbindung verwenden.
 
 > [!NOTE]
-> Erfahren Sie mehr über [Techniken für responsive Bilder](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
+> Erfahren Sie mehr über [responsive Bildtechniken](/de/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images).
 
 ## Viewport-Einheiten
 
-Der Viewport — das ist der sichtbare Bereich Ihrer Seite im Browser, mit dem Sie eine Website betrachten — hat auch eine Größe. In CSS haben wir Einheiten, die sich auf die Größe des Viewports beziehen — die `vw`-Einheit für die Viewport-Breite und `vh` für die Viewport-Höhe. Mit diesen Einheiten können Sie etwas relativ zum Viewport des Benutzers dimensionieren.
+Der Viewport — der sichtbare Bereich Ihrer Seite im Browser, den Sie zum Betrachten einer Website verwenden — hat ebenfalls eine Größe. In CSS haben wir Einheiten, die sich auf die Größe des Viewports beziehen — die `vw` Einheit für die Viewport-Breite und `vh` für die Viewport-Höhe. Mit diesen Einheiten können Sie etwas relativ zum Viewport des Benutzers dimensionieren.
 
-`1vh` entspricht 1% der Viewport-Höhe und `1vw` entspricht 1% der Viewport-Breite. Sie können diese Einheiten verwenden, um Boxen, aber auch Text zu dimensionieren. Im Beispiel unten haben wir eine Box, die als 20vh und 20vw dimensioniert ist. Die Box enthält einen Buchstaben `A`, der eine {{cssxref("font-size")}} von 10vh hat.
+`1vh` entspricht 1% der Viewport-Höhe, und `1vw` entspricht 1% der Viewport-Breite. Sie können diese Einheiten verwenden, um Kästen, aber auch Text zu dimensionieren. Im folgenden Beispiel haben wir einen Kasten, der in 20vh und 20vw dimensioniert ist. Der Kasten enthält einen Buchstaben `A`, der eine {{cssxref("font-size")}} von 10vh hat.
 
-{{EmbedGHLiveSample("css-examples/learn/sizing/vw-vh.html", '100%', 600)}}
+```html live-sample___vw-vh
+<div class="box">A</div>
+```
 
-**Wenn Sie die `vh`- und `vw`-Werte ändern, ändert dies die Größe der Box oder Schriftart; das Ändern der Viewport-Größe ändert auch deren Größen, da sie relativ zum Viewport dimensioniert sind. Um das Beispiel zu sehen, wenn Sie die Viewport-Größe ändern, müssen Sie das Beispiel in einem neuen Browserfenster laden, das Sie ändern können (da das eingebettete `<iframe>`, das das oben gezeigte Beispiel enthält, sein Viewport ist). [Öffnen Sie das Beispiel](https://mdn.github.io/css-examples/learn/sizing/vw-vh.html), ändern Sie die Größe des Browserfensters und beobachten Sie, was mit der Größe der Box und des Textes passiert.**
+```css live-sample___vw-vh
+body {
+  font-family: sans-serif;
+}
 
-Die Dimensionierung von Dingen nach dem Viewport kann in Ihren Designs nützlich sein. Wenn Sie beispielsweise einen ganzseitigen Heldenbereich vor Ihrem restlichen Inhalt anzeigen möchten, sorgt das Einrichten dieser Seite auf 100vh Höhe dafür, dass der restliche Inhalt unter dem Viewport bleibt, sodass er erst erscheint, wenn das Dokument gescrollt wird.
+.box {
+  border: 5px solid darkblue;
+  width: 20vw;
+  height: 20vh;
+  font-size: 10vh;
+}
+```
+
+{{EmbedLiveSample("vw-vh")}}
+
+Wenn Sie die `vh`- und `vw`-Werte ändern, ändert sich die Größe des Kastens oder der Schrift; auch das Ändern der Viewport-Größe wird ihre Größe ändern, weil sie relativ zum Viewport dimensioniert sind. Um das Beispiel zu sehen, ändern Sie die Größe des Viewports, indem Sie das Beispiel in einem neuen Browserfenster laden, das Sie in der Größe ändern können (da das eingebettete `<iframe>`, das das oben gezeigte Beispiel enthält, sein eigener Viewport ist). Öffnen Sie das Beispiel, ändern Sie die Größe des Browserfensters und beobachten Sie, was mit der Größe von Kasten und Text passiert.
+
+Elemente entsprechend dem Viewport zu dimensionieren kann in Ihren Designs nützlich sein. Wenn Sie beispielsweise einen vollflächigen Hero-Abschnitt anzeigen möchten, bevor der Rest Ihres Inhalts erscheint, bewirkt das Festlegen dieses Abschnitts Ihrer Seite auf 100vh Höhe, dass der Rest des Inhalts unterhalb des Viewports bleibt, was bedeutet, dass er erst erscheint, wenn das Dokument gescrollt wird.
 
 ## Testen Sie Ihre Fähigkeiten!
 
-Sie haben das Ende dieses Artikels erreicht, aber können Sie sich die wichtigsten Informationen merken? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie fortfahren — siehe [Testen Sie Ihre Fähigkeiten: Dimensionierung](/de/docs/Learn/CSS/Building_blocks/Sizing_tasks).
+Sie haben das Ende dieses Artikels erreicht, aber erinnern Sie sich an die wichtigsten Informationen? Sie können einige weitere Tests finden, um zu überprüfen, ob Sie diese Informationen behalten haben, bevor Sie weitermachen — siehe [Testen Sie Ihre Fähigkeiten: Größenanpassung](/de/docs/Learn/CSS/Building_blocks/Sizing_tasks).
 
 ## Zusammenfassung
 
-Diese Lektion hat Ihnen einen Überblick über einige Schlüsselprobleme gegeben, die Ihnen bei der Größenänderung von Dingen im Web begegnen könnten. Wenn Sie zu [CSS Layout](/de/docs/Learn/CSS/CSS_layout) übergehen, wird die Dimensionierung sehr wichtig, um die verschiedenen Layout-Methoden zu meistern, daher lohnt es sich, die Konzepte hier zu verstehen, bevor Sie weitermachen.
+Diese Lektion hat Ihnen einen Überblick über einige Schlüsselthemen gegeben, die bei der Größenanpassung von Dingen im Web auftreten können. Wenn Sie zum [CSS-Layout](/de/docs/Learn/CSS/CSS_layout) übergehen, wird es sehr wichtig sein, die unterschiedlichen Layout-Methoden zu beherrschen, daher lohnt es sich, die hier besprochenen Konzepte vor dem Weitergehen zu verstehen.
 
-Im nächsten Artikel werden wir uns ansehen, wie [Bilder, Medien und Formularelemente](/de/docs/Learn/CSS/Building_blocks/Images_media_form_elements) in CSS behandelt werden.
+Im nächsten Artikel werfen wir einen Blick darauf, wie [Bilder, Medien und Formularelemente](/de/docs/Learn/CSS/Building_blocks/Images_media_form_elements) in CSS behandelt werden.
 
 {{PreviousMenuNext("Learn/CSS/Building_blocks/Values_and_units", "Learn/CSS/Building_blocks/Images_media_form_elements", "Learn/CSS/Building_blocks")}}

@@ -3,18 +3,18 @@ title: "HTMLScriptElement: blocking-Eigenschaft"
 short-title: blocking
 slug: Web/API/HTMLScriptElement/blocking
 l10n:
-  sourceCommit: e651c702e7a16093ca5a615f74fde1d9ef234508
+  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
 ---
 
-{{APIRef("HTML DOM")}}{{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Die **`blocking`**-Eigenschaft des [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Laden des Skripts blockiert werden sollen.
+Die **`blocking`**-Eigenschaft der [`HTMLScriptElement`](/de/docs/Web/API/HTMLScriptElement)-Schnittstelle ist ein String, der angibt, dass bestimmte Operationen beim Laden des Skripts blockiert werden sollten.
 
 Sie spiegelt das `blocking`-Attribut des {{HTMLElement("script")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste von Blockierungstokens sein, die unten aufgeführt sind und die zu blockierenden Operationen anzeigen:
+Ein String. Muss eine durch Leerzeichen getrennte Liste von blockierenden Tokens enthalten, die unten aufgeführt sind und die Operationen angeben, die blockiert werden sollen:
 
 - `render`
   - : Das Rendern von Inhalten auf dem Bildschirm wird blockiert.

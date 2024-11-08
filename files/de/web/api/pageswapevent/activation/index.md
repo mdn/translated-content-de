@@ -1,22 +1,22 @@
 ---
-title: "PageSwapEvent: Aktivierungseigenschaft"
+title: "PageSwapEvent: activation-Eigenschaft"
 short-title: activation
 slug: Web/API/PageSwapEvent/activation
 l10n:
-  sourceCommit: 722311032dbf520bf6aeba3d1f432aca38779ffd
+  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
 ---
 
-{{APIRef("HTML DOM")}}{{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Die **`activation`** schreibgeschützte Eigenschaft der [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)-Schnittstelle enthält ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp sowie die aktuellen und Ziel-Dokumentverlaufseinträge für eine Navigation mit gleicher Herkunft enthält.
+Die schreibgeschützte **`activation`**-Eigenschaft der [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)-Schnittstelle enthält ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp sowie die aktuellen und Ziel-Dokumentverlaufs-Einträge für eine Navigation mit gleicher Herkunft umfasst.
 
 ## Wert
 
-Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt oder `null`, wenn die zugehörige Navigation irgendwo in der Weiterleitungskette eine URL mit anderer Herkunft hat.
+Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt oder `null`, wenn die zugehörige Navigation irgendwo in der Umleitungskette eine Cross-Origin-URL enthält.
 
 ## Beispiele
 
-Siehe die Hauptseite von [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent).
+Siehe die Hauptseite [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent).
 
 ## Spezifikationen
 
@@ -28,4 +28,4 @@ Siehe die Hauptseite von [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent).
 
 ## Siehe auch
 
-- [Ansichtsübergangs-API](/de/docs/Web/API/View_Transitions_API)
+- [View Transitions API](/de/docs/Web/API/View_Transitions_API)

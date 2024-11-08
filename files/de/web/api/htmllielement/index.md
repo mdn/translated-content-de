@@ -2,25 +2,25 @@
 title: HTMLLIElement
 slug: Web/API/HTMLLIElement
 l10n:
-  sourceCommit: 7e6e5f5d4c1c984af3d4ebf9399042d19eccea1e
+  sourceCommit: 4032e31c51141511f5aa4068d5572e4736584afe
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`HTMLLIElement`**-Schnittstelle bietet spezifische Eigenschaften und Methoden (zusätzlich zu denen, die durch die normale [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle geerbt werden), um Listenelemente zu manipulieren.
+Das **`HTMLLIElement`**-Interface bietet spezifische Eigenschaften und Methoden (zusätzlich zu denen, die es durch Vererbung von der regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle ebenfalls zur Verfügung hat) zum Manipulieren von Listenelementen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLLIElement.type`](/de/docs/Web/API/HTMLLIElement/type) {{deprecated_inline}}
-  - : Ein String, der den Typ der Aufzählungspunkte darstellt, `"disc"`, `"square"` oder `"circle"`. Da die standardisierte Methode zur Definition des Listentyps über die CSS-Eigenschaft {{cssxref("list-style-type")}} erfolgt, verwenden Sie die CSSOM-Methoden, um diesen über ein Skript zu setzen.
+  - : Ein String, der den Typ der Aufzählungszeichen angibt: `"disc"`, `"square"` oder `"circle"`. Da die Standardmethode zur Definition des Listentyps die CSS-Eigenschaft {{cssxref("list-style-type")}} ist, verwenden Sie die CSSOM-Methoden, um ihn über ein Skript festzulegen.
 - [`HTMLLIElement.value`](/de/docs/Web/API/HTMLLIElement/value)
-  - : Ein `long`, der die ordinale Position des _Listenelements_ innerhalb eines gegebenen {{HTMLElement("ol")}} angibt. Es spiegelt das [`value`](/de/docs/Web/HTML/Element/li#value)-Attribut des HTML-{{HTMLElement("li")}}-Elements wider und kann kleiner als `0` sein. Wenn das {{HTMLElement("li")}}-Element kein Kind eines {{HTMLElement("ol")}}-Elements ist, hat die Eigenschaft keine Bedeutung.
+  - : Ein ganzzahliger Wert, der die ordinale Position des _Listenelements_ innerhalb eines gegebenen {{HTMLElement("ol")}} angibt. Er spiegelt das `value`-Attribut des HTML-{{HTMLElement("li")}}-Elements wider und kann kleiner als `0` sein. Wenn das {{HTMLElement("li")}}-Element kein Kind eines {{HTMLElement("ol")}}-Elements ist, hat die Eigenschaft keine Bedeutung.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 _Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
@@ -34,4 +34,4 @@ _Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`]
 
 ## Siehe auch
 
-- Das HTML-Element, das diese Schnittstelle implementiert: {{HTMLElement("li")}}
+- Das HTML-Element, das dieses Interface implementiert: {{HTMLElement("li")}}

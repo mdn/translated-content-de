@@ -2,14 +2,14 @@
 title: "Permissions-Policy: microphone"
 slug: Web/HTTP/Headers/Permissions-Policy/microphone
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
 ---
 
-{{HTTPSidebar}}
+{{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `microphone` steuert, ob das aktuelle Dokument die Berechtigung hat, Audio-Eingabegeräte zu verwenden.
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} mit der Direktive `microphone` steuert, ob das aktuelle Dokument Audiogeräte verwenden darf.
 
-Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt wird.
+Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`MediaDevices.getUserMedia()`](/de/docs/Web/API/MediaDevices/getUserMedia) ein {{jsxref("Promise")}} zurückgeben, das mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt wird.
 
 ## Syntax
 
@@ -18,7 +18,7 @@ Permissions-Policy: microphone=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis erteilt wird, das Feature zu verwenden. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion gewährt wird. Weitere Details finden Sie unter [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 

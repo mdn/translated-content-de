@@ -2,14 +2,14 @@
 title: "Permissions-Policy: publickey-credentials-get"
 slug: Web/HTTP/Headers/Permissions-Policy/publickey-credentials-get
 l10n:
-  sourceCommit: 9db533c4b30800018aa31b5944b9ff4a0aeded17
+  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
 ---
 
-{{HTTPSidebar}}
+{{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} enthält die Direktive `publickey-credentials-get`, die steuert, ob das aktuelle Dokument Zugriff auf die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) hat, um Public-Key-Credentials abzurufen, z. B. über [`navigator.credentials.get({publicKey})`](/de/docs/Web/API/CredentialsContainer/get).
+Der HTTP-Header {{HTTPHeader("Permissions-Policy")}} Direktive `publickey-credentials-get` steuert, ob das aktuelle Dokument auf die [Web Authentication API](/de/docs/Web/API/Web_Authentication_API) zugreifen darf, um öffentliche Schlüssel zu erhalten, d.h. über [`navigator.credentials.get({publicKey})`](/de/docs/Web/API/CredentialsContainer/get).
 
-Insbesondere wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird das von `navigator.credentials.get({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError`-[`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
+Insbesondere, wenn eine definierte Richtlinie die Nutzung dieser Funktion blockiert, wird das von `navigator.credentials.get({publicKey})` zurückgegebene {{jsxref("Promise")}} mit einem `NotAllowedError` [`DOMException`](/de/docs/Web/API/DOMException) abgelehnt.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: publickey-credentials-get=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Berechtigung zur Nutzung der Funktion erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, denen die Berechtigung zur Nutzung der Funktion gewährt wird. Weitere Details siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax).
 
 ## Standardrichtlinie
 
-Die Standard-Berechtigungsliste für `publickey-credentials-get` ist `self`.
+Die standardmäßige Erlaubnisliste für `publickey-credentials-get` ist `self`.
 
 ## Spezifikationen
 
@@ -34,7 +34,7 @@ Die Standard-Berechtigungsliste für `publickey-credentials-get` ist `self`.
 
 ## Siehe auch
 
-- {{HTTPHeader("Permissions-Policy")}}-Header
+- {{HTTPHeader("Permissions-Policy")}} Header
 - [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)
 - [Web Authentication API](/de/docs/Web/API/Web_Authentication_API)
-- [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential)-Schnittstelle
+- [`PublicKeyCredential`](/de/docs/Web/API/PublicKeyCredential) Schnittstelle

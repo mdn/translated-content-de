@@ -2,14 +2,14 @@
 title: "Permissions-Policy: web-share"
 slug: Web/HTTP/Headers/Permissions-Policy/web-share
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
 ---
 
-{{HTTPSidebar}}
+{{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} mit der Direktive `web-share` kontrolliert, ob das aktuelle Dokument die Methode [`Navigator.share()`](/de/docs/Web/API/Navigator/share) der Web Share API verwenden darf, um Text, Links, Bilder und andere Inhalte an beliebige Ziele nach Wahl des Nutzers zu teilen.
+Der HTTP-Header {{HTTPHeader('Permissions-Policy')}} mit der Direktive `web-share` steuert, ob das aktuelle Dokument die Methode [`Navigator.share()`](/de/docs/Web/API/Navigator/share) der Web Share API verwenden darf, um Text, Links, Bilder und andere Inhalte an beliebige vom Benutzer gewählte Ziele zu teilen.
 
-Speziell dort, wo eine definierte Richtlinie die Nutzung dieses Features blockiert, werden Aufrufe von [`Navigator.share()`](/de/docs/Web/API/Navigator/share) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) des Typs `NotAllowedError` abgelehnt wird.
+Insbesondere, wenn eine festgelegte Richtlinie die Nutzung dieser Funktion blockiert, werden Aufrufe von [`Navigator.share()`](/de/docs/Web/API/Navigator/share) ein {{jsxref("Promise")}} zurückgeben, das mit einem [`DOMException`](/de/docs/Web/API/DOMException) des Typs `NotAllowedError` abgelehnt wird.
 
 ## Syntax
 
@@ -18,11 +18,11 @@ Permissions-Policy: web-share=<allowlist>;
 ```
 
 - `<allowlist>`
-  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung des Features erteilt wird. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
+  - : Eine Liste von Ursprüngen, für die die Erlaubnis zur Nutzung der Funktion erteilt wurde. Siehe [`Permissions-Policy` > Syntax](/de/docs/Web/HTTP/Headers/Permissions-Policy#syntax) für weitere Details.
 
 ## Standardrichtlinie
 
-Die Standardallowlist für `web-share` ist `self`.
+Die Standard-`allowlist` für `web-share` ist `self`.
 
 ## Spezifikationen
 
@@ -38,5 +38,5 @@ Die Implementierung im Browser wird in <https://github.com/w3c/web-share/issues/
 
 ## Siehe auch
 
-- {{HTTPHeader('Permissions-Policy')}} header
-- [Berechtigungsrichtlinie](/de/docs/Web/HTTP/Permissions_Policy)
+- {{HTTPHeader('Permissions-Policy')}} Header
+- [Permissions Policy](/de/docs/Web/HTTP/Permissions_Policy)

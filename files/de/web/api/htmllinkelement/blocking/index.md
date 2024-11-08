@@ -3,21 +3,21 @@ title: "HTMLLinkElement: blocking-Eigenschaft"
 short-title: blocking
 slug: Web/API/HTMLLinkElement/blocking
 l10n:
-  sourceCommit: e651c702e7a16093ca5a615f74fde1d9ef234508
+  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
 ---
 
-{{APIRef("HTML DOM")}}{{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Die **`blocking`**-Eigenschaft des [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Interfaces ist ein String, der angibt, dass bestimmte Operationen beim Abrufen einer externen Ressource blockiert werden sollen.
+Die **`blocking`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist eine Zeichenkette, die angibt, dass bestimmte Operationen beim Abruf einer externen Ressource blockiert werden sollen.
 
 Sie spiegelt das `blocking`-Attribut des {{HTMLElement("link")}}-Elements wider.
 
 ## Wert
 
-Ein String. Muss eine durch Leerzeichen getrennte Liste von unten aufgeführten Blockierungs-Tokens sein, die die zu blockierenden Operationen angeben:
+Eine Zeichenkette. Muss eine durch Leerzeichen getrennte Liste von unten aufgeführten Blockierungs-Token sein, die die zu blockierenden Operationen angeben:
 
 - `render`
-  - : Das Rendern von Inhalten auf dem Bildschirm wird blockiert.
+  - : Das Rendering von Inhalten auf dem Bildschirm wird blockiert.
 
 ## Beispiele
 

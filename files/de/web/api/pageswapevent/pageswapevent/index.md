@@ -1,14 +1,14 @@
 ---
-title: "PageSwapEvent: PageSwapEvent()-Konstruktor"
+title: "PageSwapEvent: PageSwapEvent() Konstruktor"
 short-title: PageSwapEvent()
 slug: Web/API/PageSwapEvent/PageSwapEvent
 l10n:
-  sourceCommit: cd809f324e890917837ebe5194c934543d4a5464
+  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
 ---
 
-{{APIRef("HTML DOM")}}{{SeeCompatTable}}
+{{APIRef("HTML DOM")}}
 
-Der **`PageSwapEvent()`**-Konstruktor erstellt eine neue Instanz des [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)-Objekts.
+Der **`PageSwapEvent()`** Konstruktor erstellt eine neue Instanz eines [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent)-Objekts.
 
 ## Syntax
 
@@ -19,17 +19,17 @@ new PageSwapEvent(type, init)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Ereignistyp darstellt. Im Fall von `PageSwapEvent` ist dies immer `pageswap`.
+  - : Ein String, der den Typ des Ereignisses repräsentiert. Im Falle von `PageSwapEvent` ist dies immer `pageswap`.
 - `init`
   - : Ein Objekt, das die folgenden Eigenschaften enthält:
     - `activation`
-      - : Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp sowie die aktuellen und Ziel-Dokumenthistorieneinträge darstellt. Standardmäßig `null`, wenn die zugehörige Navigation eine Cross-Origin-Navigation ist.
+      - : Ein [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Objekt, das den Navigationstyp sowie die aktuellen und Zielhistorieneinträge des Dokuments repräsentiert. Standardmäßig `null`, falls die zugehörige Navigation eine Navigation zwischen unterschiedlichen Ursprüngen ist.
     - `viewTransition`
-      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das den aktiven Ansichtsübergang für die zugehörige Navigation darstellt. Standardmäßig `null`, wenn kein aktiver Ansichtsübergang vorhanden ist.
+      - : Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive Ansichtstransition für die zugehörige Navigation darstellt. Standardmäßig `null`, wenn keine aktive Ansichtstransition vorhanden ist.
 
 ## Beispiele
 
-Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageSwapEvent`-Objekt wird konstruiert, wenn ein Handler als Ergebnis des [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisses aufgerufen wird.
+Ein Entwickler würde diesen Konstruktor nicht manuell verwenden. Ein neues `PageSwapEvent`-Objekt wird erstellt, wenn ein Handler als Ergebnis des [`pageswap`](/de/docs/Web/API/Window/pageswap_event)-Ereignisses ausgelöst wird.
 
 ## Spezifikationen
 

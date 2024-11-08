@@ -3,19 +3,19 @@ title: "RTCTrackEvent: receiver-Eigenschaft"
 short-title: receiver
 slug: Web/API/RTCTrackEvent/receiver
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 7782020d48b20a95fab6767f574cddda8ff59b86
 ---
 
 {{APIRef("WebRTC")}}
 
-Die unveränderliche **`receiver`**-Eigenschaft des [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent)-Interfaces gibt den [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) an, der verwendet wird, um Daten zu empfangen, die Medien für den [`track`](/de/docs/Web/API/RTCTrackEvent/track) enthalten, auf den sich das Ereignis bezieht.
+Die schreibgeschützte **`receiver`**-Eigenschaft der [`RTCTrackEvent`](/de/docs/Web/API/RTCTrackEvent)-Schnittstelle gibt den [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) an, der verwendet wird, um Daten mit Medien für den [`track`](/de/docs/Web/API/RTCTrackEvent/track) zu empfangen, auf den sich das Ereignis bezieht.
 
 ## Wert
 
-Der [`RTCRtpTransceiver`](/de/docs/Web/API/RTCRtpTransceiver), der den `receiver` mit einem Sender und anderen Eigenschaften koppelt, die einen einzelnen bidirektionalen {{Glossary("RTP", "SRTP")}}-Stream für den mit dem `RTCTrackEvent` verbundenen [`track`](/de/docs/Web/API/RTCTrackEvent/track) etablieren.
+Der [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver), der den `receiver` mit einem Sender und anderen Eigenschaften kombiniert, um einen einzelnen bidirektionalen {{Glossary("RTP", "SRTP")}}-Stream für die Verwendung durch den [`track`](/de/docs/Web/API/RTCTrackEvent/track) zu etablieren, der mit dem `RTCTrackEvent` verbunden ist.
 
 > [!NOTE]
-> Der [`transceiver`](/de/docs/Web/API/RTCTrackEvent/transceiver) enthält seine eigene [`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver)-Eigenschaft, die immer derselbe [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) wie dieser sein wird.
+> Der [`transceiver`](/de/docs/Web/API/RTCTrackEvent/transceiver) enthält seine eigene [`receiver`](/de/docs/Web/API/RTCRtpTransceiver/receiver)-Eigenschaft, welche immer der gleiche [`RTCRtpReceiver`](/de/docs/Web/API/RTCRtpReceiver) wie dieser sein wird.
 
 ## Spezifikationen
 
