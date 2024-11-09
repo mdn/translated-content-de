@@ -1,8 +1,8 @@
 ---
-title: "<body>: Das Document Body-Element"
+title: "<body>: Das Dokumenten-Body-Element"
 slug: Web/HTML/Element/body
 l10n:
-  sourceCommit: e3f162d122a38c8dc81a1e733894c5c54d134454
+  sourceCommit: 8703920ff43498c9c9cfb5f55bd9e00b93564350
 ---
 
 {{HTMLSidebar}}
@@ -11,30 +11,30 @@ Das **`<body>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert den Inhalt ein
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `alink` {{deprecated_inline}}
   - : Farbe des Textes für Hyperlinks, wenn sie ausgewählt sind.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":active")}} stattdessen.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":active")}}.**
 - `background` {{deprecated_inline}}
   - : URI eines Bildes, das als Hintergrund verwendet werden soll.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("background")}} stattdessen.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background")}} für das Element.**
 - `bgcolor` {{deprecated_inline}}
   - : Hintergrundfarbe für das Dokument.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("background-color")}} stattdessen.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}} für das Element.**
 - `bottommargin` {{deprecated_inline}}
-  - : Der Rand des unteren Bereichs des Bodys.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("margin-bottom")}} stattdessen.**
+  - : Der Rand am unteren Ende des Body.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-bottom")}} für das Element.**
 - `leftmargin` {{deprecated_inline}}
-  - : Der Rand des linken Bereichs des Bodys.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("margin-left")}} stattdessen.**
+  - : Der Rand auf der linken Seite des Body.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-left")}} für das Element.**
 - `link` {{deprecated_inline}}
   - : Farbe des Textes für nicht besuchte Hypertext-Links.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":link")}} stattdessen.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":link")}}.**
 - `onafterprint`
   - : Funktion, die aufgerufen wird, nachdem der Benutzer das Dokument gedruckt hat.
 - `onbeforeprint`
-  - : Funktion, die aufgerufen wird, wenn der Benutzer den Druck des Dokuments anfordert.
+  - : Funktion, die aufgerufen wird, wenn der Benutzer das Dokument zum Drucken anfordert.
 - `onbeforeunload`
   - : Funktion, die aufgerufen wird, wenn das Dokument entladen werden soll.
 - `onblur`
@@ -44,37 +44,51 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 - `onfocus`
   - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus erhält.
 - `onhashchange`
-  - : Funktion, die aufgerufen wird, wenn sich der Fragmentbezeichnerteil (beginnend mit dem Hash (`'#'`) Zeichen) der aktuellen Adresse des Dokuments ändert.
+  - : Funktion, die aufgerufen wird, wenn sich der Fragment-Identifikator-Teil (beginnend mit dem Hash- (`'#'`) Zeichen) der aktuellen Adresse des Dokuments geändert hat.
 - `onlanguagechange`
   - : Funktion, die aufgerufen wird, wenn sich die bevorzugten Sprachen geändert haben.
 - `onload`
   - : Funktion, die aufgerufen wird, wenn das Dokument fertig geladen ist.
 - `onmessage`
-  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht erhalten hat.
+  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht erhält.
+- `onmessageerror`
+  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht erhält, die nicht deserialisiert werden kann.
 - `onoffline`
-  - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation fehlgeschlagen ist.
+  - : Funktion, die aufgerufen wird, wenn die Netzkommunikation ausgefallen ist.
 - `ononline`
-  - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation wiederhergestellt ist.
+  - : Funktion, die aufgerufen wird, wenn die Netzkommunikation wiederhergestellt ist.
+- `onpageswap`
+  - : Funktion, die aufgerufen wird, wenn Sie zwischen Dokumenten navigieren und das vorherige Dokument entladen wird.
+- `onpagehide`
+  - : Funktion, die aufgerufen wird, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Verlauf der Sitzung anzuzeigen.
+- `onpagereveal`
+  - : Funktion, die aufgerufen wird, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments.
+- `onpageshow`
+  - : Funktion, die aufgerufen wird, wenn der Browser das Dokument des Fensters aufgrund einer Navigation anzeigt.
 - `onpopstate`
-  - : Funktion, die aufgerufen wird, wenn der Benutzer in der Sitzungsgeschichte navigiert.
+  - : Funktion, die aufgerufen wird, wenn der Benutzer im Sitzungsverlauf navigiert hat.
 - `onresize`
-  - : Funktion, die aufgerufen wird, wenn das Dokument in der Größe verändert wurde.
+  - : Funktion, die aufgerufen wird, wenn das Dokument geändert wurde.
+- `onrejectionhandled`
+  - : Funktion, die aufgerufen wird, wenn ein JavaScript {{jsxref("Promise")}} verspätet behandelt wird.
 - `onstorage`
   - : Funktion, die aufgerufen wird, wenn sich der Speicherbereich geändert hat.
+- `onunhandledrejection`
+  - : Funktion, die aufgerufen wird, wenn ein JavaScript {{jsxref("Promise")}} ohne Ablehnungsbehandler abgelehnt wird.
 - `onunload`
   - : Funktion, die aufgerufen wird, wenn das Dokument geschlossen wird.
 - `rightmargin` {{deprecated_inline}}
-  - : Der Rand des rechten Bereichs des Bodys.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("margin-right")}} stattdessen.**
+  - : Der Rand auf der rechten Seite des Body.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-right")}} für das Element.**
 - `text` {{deprecated_inline}}
   - : Vordergrundfarbe des Textes.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("color")}} stattdessen.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} für das Element.**
 - `topmargin` {{deprecated_inline}}
-  - : Der Rand des oberen Bereichs des Bodys.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("margin-top")}} stattdessen.**
+  - : Der Rand am oberen Ende des Body.
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-top")}} für das Element.**
 - `vlink` {{deprecated_inline}}
   - : Farbe des Textes für besuchte Hypertext-Links.
-    **Verwenden Sie dieses Attribut nicht! Nutzen Sie die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":visited")}} stattdessen.**
+    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":visited")}}.**
 
 ## Beispiele
 
@@ -112,19 +126,17 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Fließender Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das öffnende Tag kann weggelassen werden, wenn das erste Element innerhalb kein Leerzeichen, Kommentar, {{HTMLElement("script")}}-Element oder
-        {{HTMLElement("style")}}-Element ist. Das schließende Tag kann weggelassen werden, wenn das <code>&#x3C;body></code>-Element Inhalte hat oder ein öffnendes Tag hat
-        und nicht unmittelbar von einem Kommentar gefolgt wird.
+        Das Start-Tag kann weggelassen werden, wenn das erste darin enthaltene Element kein Leerzeichen, kein Kommentar, kein {{HTMLElement("script")}}- oder {{HTMLElement("style")}}-Element ist. Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;body></code>-Element Inhalt oder ein Start-Tag hat und nicht unmittelbar von einem Kommentar gefolgt wird.
       </td>
     </tr>
     <tr>
@@ -134,11 +146,11 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generisch</a
+            >generic</a
           ></code
         >
       </td>

@@ -2,80 +2,292 @@
 title: "Testen Sie Ihre Fähigkeiten: Flexbox"
 slug: Learn/CSS/CSS_layout/Flexbox_skills
 l10n:
-  sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
+  sourceCommit: c507c55f7a9a883d7a0308daa5e883aa0a619133
 ---
 
 {{LearnSidebar}}
 
-Das Ziel dieses Fähigkeitstests ist es zu beurteilen, ob Sie verstehen, wie [Flexbox und Flex-Elemente](/de/docs/Learn/CSS/CSS_layout/Flexbox) funktionieren. Unten finden Sie vier gängige Designmuster, die Sie mit Flexbox erstellen könnten. Ihre Aufgabe ist es, diese nachzubauen.
+Ziel dieses Fähigkeitstests ist es, zu beurteilen, ob Sie verstehen, wie [flexbox und flex items](/de/docs/Learn/CSS/CSS_layout/Flexbox) funktionieren. Unten sind vier gängige Designmuster aufgeführt, die Sie mit Flexbox erstellen könnten. Ihre Aufgabe ist es, diese zu entwerfen.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
->
+> Klicken Sie auf **"Play"** in den Codeblöcken unten, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
 > Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-Bei dieser Aufgabe sind die Listenelemente die Navigation für eine Website. Sie sollten als eine Zeile angeordnet werden, mit einem gleichen Abstand zwischen jedem Element.
+In dieser Aufgabe sind die Listenelemente die Navigation für eine Website. Sie sollten als Reihe angeordnet sein, mit einem gleichen Abstand zwischen jedem Element.
 
-Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+Ihr endgültiges Ergebnis sollte wie das untenstehende Bild aussehen:
 
-![Flex-Elemente als Reihe mit Abstand zwischen ihnen angeordnet.](flex-task1.png)
+![Flex-Elemente in einer Reihe mit Abstand zwischen ihnen.](flex-task1.png)
 
-Versuchen Sie den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/flexbox/flexbox1.html", '100%', 700)}}
+```html live-sample___flexbox1
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About Us</a></li>
+    <li><a href="/products">Our Products</a></li>
+    <li><a href="/contact">Contact Us</a></li>
+  </ul>
+</nav>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/flexbox/flexbox1-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
+```css hidden live-sample___flexbox1
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+nav ul {
+  max-width: 700px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+nav a:link,
+nav a:visited {
+  background-color: #4d7298;
+  border: 2px solid #77a6b6;
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.5em;
+  display: inline-block;
+  text-decoration: none;
+}
+```
+
+```css live-sample___flexbox1
+nav ul {
+}
+```
+
+{{EmbedLiveSample("flexbox1", "", "240px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Sie können `display: flex` anwenden und den Abstand mit der Eigenschaft `justify-content` steuern:
+
+```css
+nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+```
+
+</details>
 
 ## Aufgabe 2
 
-Bei dieser Aufgabe sind die Listenelemente unterschiedlich groß, aber wir möchten, dass sie als drei gleich große Spalten angezeigt werden, unabhängig davon, welcher Inhalt in jedem Element enthalten ist.
+In dieser Aufgabe sind die Listenelemente alle unterschiedlich groß, aber wir möchten, dass sie als drei gleich große Spalten angezeigt werden, unabhängig davon, welcher Inhalt sich in jedem Element befindet.
 
-Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+Ihr endgültiges Ergebnis sollte wie das untenstehende Bild aussehen:
 
 ![Flex-Elemente als drei gleich große Spalten mit unterschiedlichen Inhaltsmengen angeordnet.](flex-task2.png)
 
-Versuchen Sie den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+**Bonusfrage:** Können Sie das erste Element nun doppelt so groß wie die anderen gestalten?
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/flexbox/flexbox2.html", '100%', 800)}}
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-Zusätzliche Frage:
+```html live-sample___flexbox2
+<ul>
+  <li>I am small</li>
+  <li>I have more content than the very small item.</li>
+  <li>
+    I have lots of content. So much content that I don't know where it is all
+    going to go. I'm glad that CSS is pretty good at dealing with situations
+    where we end up with more words than expected!
+  </li>
+</ul>
+```
 
-- Können Sie das erste Element jetzt doppelt so groß machen wie die anderen Elemente?
+```css hidden live-sample___flexbox2
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+ul {
+  max-width: 700px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/flexbox/flexbox2-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
+li {
+  background-color: #4d7298;
+  border: 2px solid #77a6b6;
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.5em;
+}
+```
+
+```css live-sample___flexbox2
+ul {
+}
+
+li {
+}
+```
+
+{{EmbedLiveSample("flexbox2", "", "240px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Es ist am besten, Kurzschreibweisen zu verwenden, daher ist `flex: 1` in diesem Szenario wahrscheinlich die beste Antwort, und somit wäre das optimalste Ergebnis:
+
+```css
+ul {
+  display: flex;
+}
+
+li {
+  flex: 1;
+}
+```
+
+Für die Bonusfrage fügen Sie einen Selektor hinzu, der das erste Element anvisiert und `flex: 2;` (oder `flex: 2 0 0;` oder `flex-grow: 2`) setzt:
+
+```css
+li:first-child {
+  flex: 2;
+}
+```
+
+</details>
 
 ## Aufgabe 3
 
-Bei dieser Aufgabe gibt es zwei Elemente im HTML unten, ein `<div>`-Element mit einer Klasse `parent`, das ein weiteres `<div>`-Element mit der Klasse `child` enthält. Verwenden Sie Flexbox, um das Kind in der Mitte des Elternteils zu zentrieren. Beachten Sie, dass es hier nicht nur eine mögliche Lösung gibt.
+In dieser Aufgabe gibt es zwei Elemente im HTML unten, ein `<div>`-Element mit einer Klasse von `parent`, das ein weiteres `<div>`-Element mit einer Klasse von `child` enthält. Verwenden Sie Flexbox, um das Kind in der Mitte des Elternteils zu zentrieren. Hier gibt es mehr als eine mögliche Lösung.
 
-Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
+Ihr endgültiges Ergebnis sollte wie das untenstehende Bild aussehen:
 
-![Ein Kasten, der in einem anderen Kasten zentriert ist.](flex-task3.png)
+![Eine Box, die innerhalb einer anderen Box zentriert ist.](flex-task3.png)
 
-Versuchen Sie den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/flexbox/flexbox3.html", '100%', 800)}}
+```html live-sample___flexbox3
+<div class="parent">
+  <div class="child">Center me.</div>
+</div>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/flexbox/flexbox3-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
+```css hidden live-sample___flexbox3
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.parent {
+  border: 2px solid #77a6b6;
+  border-radius: 0.5em;
+  height: 200px;
+}
+
+.child {
+  background-color: #4d7298;
+  color: #fff;
+  padding: 0.5em;
+  width: 150px;
+}
+```
+
+```css hidden live-sample___flexbox3
+.parent {
+}
+
+.child {
+}
+```
+
+{{EmbedLiveSample("flexbox3", "", "210px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Es ist nur notwendig, die Elternstile zu ändern, um ein Element horizontal und vertikal zu zentrieren:
+
+```css
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+</details>
 
 ## Aufgabe 4
 
-Bei dieser Aufgabe möchten wir, dass Sie diese Elemente zu Reihen arrangieren, wie im Bild unten gezeigt:
+In dieser Aufgabe möchten wir, dass Sie diese Elemente in Reihen anordnen, wie im untenstehenden Bild dargestellt:
 
-![Eine Reihe von Elementen als Zeilen angezeigt.](flex-task4.png)
+![Ein Satz von Elementen als Reihen angezeigt.](flex-task4.png)
 
-Versuchen Sie den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/flexbox/flexbox4.html", '100%', 1100)}}
+```html live-sample___flexbox4
+<ul>
+  <li>Turnip</li>
+  <li>greens</li>
+  <li>yarrow</li>
+  <li>ricebean</li>
+  <li>rutabaga</li>
+  <li>endive</li>
+  <li>cauliflower</li>
+  <li>sea lettuce</li>
+  <li>kohlrabi</li>
+  <li>amaranth</li>
+</ul>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/flexbox/flexbox4-download.html), um in Ihrem eigenen Editor oder einem Online-Editor zu arbeiten.
+```css hidden live-sample___flexbox4
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+ul {
+  width: 450px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background-color: #4d7298;
+  border: 2px solid #77a6b6;
+  border-radius: 0.5em;
+  color: #fff;
+  padding: 0.5em;
+  margin: 0.5em;
+}
+```
+
+```css live-sample___flexbox4
+ul {
+}
+
+li {
+}
+```
+
+{{EmbedLiveSample("flexbox4", "", "260px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Diese Aufgabe erfordert ein Verständnis der Eigenschaft `flex-wrap`, um Flexzeilen zu umbrechen. Darüber hinaus müssen Sie, um sicherzustellen, dass Sie etwas erhalten, das wie das Beispiel aussieht, `flex: auto` auf das Kind (oder `flex: 1 1 auto;`) setzen.
+
+```css
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  flex: auto;
+}
+```
+
+</details>
+
+## Siehe auch
+
+- [CSS-Grundlagen](/de/docs/Learn/CSS/Building_blocks)

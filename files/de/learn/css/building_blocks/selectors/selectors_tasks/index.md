@@ -2,114 +2,406 @@
 title: "Testen Sie Ihre Fähigkeiten: Selektoren"
 slug: Learn/CSS/Building_blocks/Selectors/Selectors_Tasks
 l10n:
-  sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
+  sourceCommit: c507c55f7a9a883d7a0308daa5e883aa0a619133
 ---
 
 {{LearnSidebar}}
 
-Das Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie [CSS Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) verstehen.
+Ziel dieses Tests ist es, festzustellen, ob Sie die [CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) verstehen.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
->
-> Wenn Sie nicht weiterkommen, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
+> Klicken Sie auf **"Play"** in den Codeblöcken unten, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie das Clipboard-Symbol) und ihn in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe sollen Sie mit CSS Folgendes erreichen, ohne das HTML zu ändern:
+In dieser Aufgabe sollen Sie CSS verwenden, um folgende Dinge zu tun, ohne das HTML zu ändern:
 
-- Machen Sie `<h1>` Überschriften blau.
+- Lassen Sie `<h1>` Überschriften blau erscheinen.
 - Geben Sie `<h2>` Überschriften einen blauen Hintergrund und weißen Text.
-- Sorgen Sie dafür, dass Text, der in einem `<span>` enthalten ist, eine Schriftgröße von 200% hat.
+- Vergrößern Sie den Text in einem `<span>` auf eine Schriftgröße von 200 %.
 
 Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem CSS angewendet, um die Lösung für Aufgabe 1 zu zeigen.](selectors1.jpg)
+![Text mit dem angewendeten CSS für die Lösung der Aufgabe 1.](selectors1.jpg)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/selectors/type.html", '100%', 700)}}
+```html live-sample___type
+<div class="container">
+  <h1>This is a heading</h1>
+  <p>
+    Veggies es <span>bonus vobis</span>, proinde vos postulo essum magis
+    kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon azuki bean
+    garlic.
+  </p>
+  <h2>A level 2 heading</h2>
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/selectors/type-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+```css live-sample___type
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+/* Add styles here */
+```
+
+{{EmbedLiveSample("type", "", "260px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Sie müssen die `h1`, `h2` und `span` Selektoren anvisieren, um deren Farbe oder Größe zu ändern.
+
+```css
+h1 {
+  color: blue;
+}
+
+h2 {
+  background-color: blue;
+  color: white;
+}
+
+span {
+  font-size: 200%;
+}
+```
+
+</details>
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie folgende Änderungen am Aussehen des Inhalts in diesem Beispiel vornehmen, ohne das HTML zu ändern:
+In dieser Aufgabe möchten wir, dass Sie folgendes Aussehen der Inhalte im Beispiel ändern, ohne das HTML zu ändern:
 
 - Geben Sie dem Element mit der ID `special` einen gelben Hintergrund.
-- Geben Sie dem Element mit der Klasse `alert` einen 1px grauen Rand.
+- Geben Sie dem Element mit der Klasse `alert` einen 1px grauen Rahmen.
 - Wenn das Element mit der Klasse `alert` auch die Klasse `stop` hat, machen Sie den Hintergrund rot.
 - Wenn das Element mit der Klasse `alert` auch die Klasse `go` hat, machen Sie den Hintergrund grün.
 
 Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem CSS angewendet, um die Lösung für Aufgabe 2 zu zeigen.](selectors2.jpg)
+![Text mit dem angewendeten CSS für die Lösung der Aufgabe 2.](selectors2.jpg)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/selectors/class-id.html", '100%', 800)}}
+```html live-sample___class-id
+<div class="container">
+  <h1>This is a heading</h1>
+  <p>
+    Veggies es <span class="alert">bonus vobis</span>, proinde vos postulo
+    <span class="alert stop">essum magis</span> kohlrabi welsh onion daikon
+    amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+  <h2 id="special">A level 2 heading</h2>
+  <p>Gumbo beet greens corn soko endive gumbo gourd.</p>
+  <h2>Another level 2 heading</h2>
+  <p>
+    <span class="alert go">Parsley shallot</span> courgette tatsoi pea sprouts
+    fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber
+    earthnut pea peanut soko zucchini.
+  </p>
+</div>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/selectors/class-id-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+```css live-sample___class-id
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+/* Add styles here */
+```
+
+{{EmbedLiveSample("class-id", "", "320px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Dies testet, ob Sie den Unterschied zwischen Klassen- und ID-Selektoren verstehen und auch, wie man mehrere Klassen auf einem Element anvisiert.
+
+```css
+#special {
+  background-color: yellow;
+}
+
+.alert {
+  border: 2px solid grey;
+}
+
+.alert.stop {
+  background-color: red;
+}
+
+.alert.go {
+  background-color: green;
+}
+```
+
+</details>
 
 ## Aufgabe 3
 
-In dieser Aufgabe möchten wir, dass Sie folgende Änderungen ohne Hinzufügen zum HTML vornehmen:
+In dieser Aufgabe möchten wir, dass Sie die folgenden Änderungen vornehmen, ohne das HTML zu ändern:
 
-- Gestalten Sie Links, indem Sie die Linkfarbe orange, besuchte Links grün machen und das Unterstreichen beim Hover entfernen.
-- Machen Sie das erste Element innerhalb des Containers in Schriftgröße: 150% und die erste Zeile dieses Elements rot.
-- Färben Sie jede zweite Zeile in der Tabelle abwechselnd, indem Sie diese Zeilen auswählen und ihnen eine Hintergrundfarbe von #333 und eine Vordergrundfarbe von weiß geben.
+- Stilisieren Sie Links, machen Sie den Link-Zustand orange, besuchte Links grün und entfernen Sie die Unterstreichung beim Hover.
+- Machen Sie das erste Element im Container `font-size: 150%` und die erste Zeile dieses Elements rot.
+- Streifen Sie jede zweite Zeile in der Tabelle, indem Sie diese Zeilen auswählen und ihnen eine Hintergrundfarbe von `#333` und Vordergrund weiß geben.
 
 Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem CSS angewendet, um die Lösung für Aufgabe 3 zu zeigen.](selectors3.jpg)
+![Text mit dem angewendeten CSS für die Lösung der Aufgabe 3.](selectors3.jpg)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/selectors/pseudo.html", '100%', 800)}}
+```html live-sample___pseudo
+<div class="container">
+  <p>
+    Veggies es <a href="http://example.com">bonus vobis</a>, proinde vos postulo
+    essum magis kohlrabi welsh onion daikon amaranth tatsoi tomatillo melon
+    azuki bean garlic.
+  </p>
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+  <table>
+    <tbody>
+      <tr>
+        <th>Fruits</th>
+        <th>Vegetables</th>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>Potato</td>
+      </tr>
+      <tr>
+        <td>Orange</td>
+        <td>Carrot</td>
+      </tr>
+      <tr>
+        <td>Tomato</td>
+        <td>Parsnip</td>
+      </tr>
+      <tr>
+        <td>Kiwi</td>
+        <td>Onion</td>
+      </tr>
+      <tr>
+        <td>Banana</td>
+        <td>Beet</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/selectors/pseudo-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+```css hidden live-sample___pseudo
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+  width: 300px;
+}
+
+td,
+th {
+  padding: 0.2em;
+  text-align: left;
+}
+```
+
+```css live-sample___pseudo
+/* Add styles here */
+```
+
+{{EmbedLiveSample("pseudo", "", "320px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Wenden Sie eine Pseudo-Klasse (`:first-child`) und ein Pseudo-Element (`::first-line`) auf den Inhalt an.
+Stilisieren Sie die `:link`, `:visited` und `:hover` Zustände des `a` Elements und erstellen Sie gestreifte Tabellenzeilen mit der `:nth-child` Pseudo-Klasse.
+
+```css
+.container p:first-child {
+  font-size: 150%;
+}
+
+.container p:first-child::first-line {
+  color: red;
+}
+
+a:link {
+  color: orange;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+tr:nth-child(even) {
+  background-color: #333;
+  color: #fff;
+}
+```
+
+</details>
 
 ## Aufgabe 4
 
-In dieser Aufgabe möchten wir, dass Sie Folgendes tun:
+In dieser Aufgabe möchten wir, dass Sie folgendes tun:
 
 - Machen Sie jeden Absatz, der direkt auf ein `<h2>` Element folgt, rot.
-- Entfernen Sie die Aufzählungszeichen und fügen Sie nur den Listenelementen, die ein direktes Kind des `ul` mit der Klasse `list` sind, einen 1px grauen unteren Rand hinzu.
+- Entfernen Sie die Aufzählungszeichen und fügen Sie nur den Listenelementen, die ein direktes Kind des `ul` mit der Klasse `list` sind, eine 1px graue untere Begrenzung hinzu.
 
 Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Text mit dem CSS angewendet, um die Lösung für Aufgabe 4 zu zeigen.](selectors4.jpg)
+![Text mit dem angewendeten CSS für die Lösung der Aufgabe 4.](selectors4.jpg)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/selectors/combinators.html", '100%', 800)}}
+```html live-sample___combinators
+<div class="container">
+  <h2>This is a heading</h2>
+  <p>This paragraph comes after the heading.</p>
+  <p>This is the second paragraph.</p>
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/selectors/combinators-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+  <h2>Another heading</h2>
+  <p>This paragraph comes after the heading.</p>
+  <ul class="list">
+    <li>One</li>
+    <li>
+      Two
+      <ul>
+        <li>2.1</li>
+        <li>2.2</li>
+      </ul>
+    </li>
+    <li>Three</li>
+  </ul>
+</div>
+```
+
+```css live-sample___combinators
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+/* Add styles here */
+```
+
+{{EmbedLiveSample("combinators", "", "350px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Diese Aufgabe überprüft, ob Sie wissen, wie man verschiedene Kombinatoren verwendet.
+Hier ist eine passende Lösung:
+
+```css
+h2 + p {
+  color: red;
+}
+
+.list > li {
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+}
+```
+
+</details>
 
 ## Aufgabe 5
 
-In dieser Aufgabe fügen Sie CSS mit Attributselektoren hinzu, um Folgendes zu tun:
+In dieser Aufgabe fügen Sie CSS unter Verwendung von Attributselektoren hinzu, um folgendes zu tun:
 
-- Ziel ist das `<a>` Element mit einem `title` Attribut und die Umrandung soll pink sein (`border-color: pink`).
-- Ziel ist das `<a>` Element mit einem `href` Attribut, das irgendwo in seinem Wert das Wort `contact` enthält, und die Umrandung soll orange sein (`border-color: orange`).
-- Ziel ist das `<a>` Element mit einem `href` Wert, der mit `https` beginnt, und geben Sie ihm eine grüne Umrandung (`border-color: green`).
+- Visieren Sie das `<a>` Element mit einem `title` Attribut an und machen Sie den Rand pink (`border-color: pink`).
+- Visieren Sie das `<a>` Element mit einem `href` Attribut an, das das Wort `contact` irgendwo in seinem Wert enthält, und machen Sie den Rand orange (`border-color: orange`).
+- Visieren Sie das `<a>` Element mit einem `href` Wert, der mit `https` beginnt, an und geben Sie ihm einen grünen Rand (`border-color: green`).
 
 Ihr Endergebnis sollte wie das folgende Bild aussehen:
 
-![Vier Links mit unterschiedlich farbigen Umrandungen.](selectors-attribute.png)
+![Vier Links mit unterschiedlich farbigen Rändern.](selectors-attribute.png)
 
-Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den folgenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/selectors/attribute-links.html", '100%', 800)}}
+```html live-sample___attribute-links
+<ul>
+  <li><a href="https://example.com">Link 1</a></li>
+  <li><a href="http://example.com" title="Visit example.com">Link 2</a></li>
+  <li><a href="/contact">Link 3</a></li>
+  <li><a href="../contact/index.html">Link 4</a></li>
+</ul>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/selectors/attribute-links-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+```css hidden live-sample___attribute-links
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0 0 0.5em 0;
+}
+
+a {
+  display: block;
+  padding: 0.5em;
+}
+```
+
+```css live-sample___attribute-links
+a {
+  border: 5px solid grey;
+}
+/* Add styles here */
+```
+
+{{EmbedLiveSample("attribute-links", "", "300px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+- Um Elemente mit einem title Attribut auszuwählen, können Sie `title` in eckigen Klammern hinzufügen (`a[title]`), was den zweiten Link auswählt, der das einzige Element mit einem title Attribut ist.
+- Visieren Sie das `<a>` Element mit einem `href` Attribut an, das irgendwo in seinem Wert das Wort "contact" enthält, und machen Sie den Rand orange (`border-color: orange`).
+  Es gibt zwei Dinge, die wir hier übereinstimmen wollen, den `href` Wert `/contact` und auch `../contact`. Also müssen wir die Zeichenkette "contact" überall im Wert mit `*=` übereinstimmen. Das wird den dritten und vierten Link auswählen.
+
+- Visieren Sie das `<a>` Element mit einem `href` Wert, der mit `https` beginnt, an und geben Sie ihm einen grünen Rand (`border-color: green`).
+  Suchen Sie nach einem `href` Wert, der mit "https" beginnt, daher verwenden Sie `^=` um nur den ersten Link auszuwählen.
+
+```css
+a[title] {
+  border-color: pink;
+}
+a[href*="contact"] {
+  border-color: orange;
+}
+a[href^="https"] {
+  border-color: green;
+}
+```
+
+</details>
+
+## Siehe auch
+
+- [CSS-Bausteine](/de/docs/Learn/CSS/Building_blocks)

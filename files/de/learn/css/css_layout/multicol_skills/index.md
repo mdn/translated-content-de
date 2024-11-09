@@ -2,60 +2,233 @@
 title: "Testen Sie Ihre Fähigkeiten: Multicol"
 slug: Learn/CSS/CSS_layout/Multicol_skills
 l10n:
-  sourceCommit: 44b18841ff739fbf1a5450805d85f839fa3e68a5
+  sourceCommit: c507c55f7a9a883d7a0308daa5e883aa0a619133
 ---
 
 {{LearnSidebar}}
 
-Ziel dieses Fähigkeits-Tests ist es, zu beurteilen, ob Sie das [CSS Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) verstanden haben, einschließlich der Eigenschaften und Werte von {{CSSxRef("column-count")}}, {{CSSxRef("column-width")}}, {{CSSxRef("column-gap")}}, {{CSSxRef("column-span")}} und {{CSSxRef("column-rule")}}. Sie werden durch drei kleine Aufgaben arbeiten, die verschiedene Elemente des Materials, das Sie gerade behandelt haben, verwenden.
+Das Ziel dieses Fähigkeitstests ist es, zu bewerten, ob Sie das [CSS-Multicolumn-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) verstehen, einschließlich der Eigenschaften und Werte von {{CSSxRef("column-count")}}, {{CSSxRef("column-width")}}, {{CSSxRef("column-gap")}}, {{CSSxRef("column-span")}} und {{CSSxRef("column-rule")}}. Sie werden drei kleine Aufgaben durcharbeiten, die verschiedene Elemente des gerade behandelten Materials nutzen.
 
 > [!NOTE]
-> Sie können Lösungen in den interaktiven Editoren auf dieser Seite oder in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) ausprobieren.
->
-> Wenn Sie stecken bleiben, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Klicken Sie unten in den Codeblöcken auf **"Play"**, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe möchten wir, dass Sie drei Spalten erstellen, mit einem 50px Abstand zwischen jeder Spalte.
+In dieser Aufgabe möchten wir, dass Sie drei Spalten mit einem Abstand von 50px zwischen jeder Spalte erstellen.
 
-Ihr endgültiges Ergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
 ![Drei Textspalten](multicol-task1.png)
 
-Versuchen Sie, den untenstehenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/multicol/multicol1.html", '100%', 1000)}}
+```html live-sample___multicol1
+<div class="container">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/multicol/multicol1-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+
+  <p>
+    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+    kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter
+    purslane kale. Celery potato scallion desert raisin horseradish spinach
+    carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green
+    bean swiss chard seakale pumpkin onion chickpea gram corn pea.
+  </p>
+</div>
+```
+
+```css live-sample___multicol1
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.container {
+}
+```
+
+{{EmbedLiveSample("multicol1", "", "300px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Für diese Aufgabe müssen Sie `column-count` und `column-gap` verwenden:
+
+```css
+.container {
+  column-count: 3;
+  column-gap: 50px;
+}
+```
+
+</details>
 
 ## Aufgabe 2
 
-In dieser Aufgabe möchten wir, dass Sie Spalten erstellen, die eine Mindestbreite von 200px haben. Fügen Sie dann eine 5px graue Linie zwischen den Spalten hinzu und stellen Sie sicher, dass es 10px Platz zwischen dem Rand der Linie und dem Spalteninhalt gibt.
+In dieser Aufgabe möchten wir, dass Sie Spalten erstellen, die eine Mindestbreite von 200px haben. Fügen Sie dann eine 5px graue Linie zwischen jeder Spalte hinzu und stellen Sie sicher, dass es 10px Abstand zwischen der Kante der Linie und dem Spalteninhalt gibt.
 
-Ihr endgültiges Ergebnis sollte wie das Bild unten aussehen:
+Ihr Endergebnis sollte wie das Bild unten aussehen:
 
 ![Drei Textspalten mit einer grauen Linie dazwischen.](multicol-task2.png)
 
-Versuchen Sie, den untenstehenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/multicol/multicol2.html", '100%', 1000)}}
+```html live-sample___multicol2
+<div class="container">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/multicol/multicol2-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+
+  <p>
+    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+    kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter
+    purslane kale. Celery potato scallion desert raisin horseradish spinach
+    carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green
+    bean swiss chard seakale pumpkin onion chickpea gram corn pea.
+  </p>
+</div>
+```
+
+```css live-sample___multicol2
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.container {
+}
+```
+
+{{EmbedLiveSample("multicol2", "", "300px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+Sie müssen die Eigenschaften `column-width` und `column-rule` verwenden.
+Sie könnten die longhand `column-rule-*` Eigenschaften anstelle der Kurzform verwenden, obwohl dies keinen Vorteil bietet.
+Das Wichtige bei der Verwendung von `column-gap` ist, dass Sie verstanden haben, dass die Linie nicht 5px Platz zum Abstand hinzufügt. Um auf beiden Seiten der Linie 10px zu haben, benötigen sie einen 25px Abstand, da die Linie darüber gelegt wird.
+
+```css
+.container {
+  column-width: 200px;
+  column-rule: 5px solid #ccc;
+  column-gap: 25px;
+}
+```
+
+</details>
 
 ## Aufgabe 3
 
-In dieser Aufgabe möchten wir, dass Sie das Element, das die Überschrift und Unterüberschrift enthält, über alle Spalten spannen lassen, sodass es wie das Bild unten aussieht:
+In dieser Aufgabe möchten wir, dass das Element, das die Überschrift und Unterüberschrift enthält, über alle Spalten hinweg reicht, sodass es wie das Bild unten aussieht:
 
 ![Drei Textspalten mit einer Überschrift und Unterüberschrift, die alle drei in der Mitte überspannen.](multicol-task3.png)
 
-Versuchen Sie, den untenstehenden Live-Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie, den Live-Code unten zu aktualisieren, um das fertige Beispiel nachzubilden:
 
-{{EmbedGHLiveSample("css-examples/learn/tasks/multicol/multicol3.html", '100%', 1000)}}
+```html live-sample___multicol3
+<div class="container">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato.
+    Dandelion cucumber earthnut pea peanut soko zucchini.
+  </p>
+  <div class="box">
+    <h2>I am a level 2 heading</h2>
+    <div class="subhead">Lotus root water spinach fennel</div>
+  </div>
+  <p>
+    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+    kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter
+    purslane kale. Celery potato scallion desert raisin horseradish spinach
+    carrot soko. Lotus root water spinach fennel kombu maize bamboo shoot green
+    bean swiss chard seakale pumpkin onion chickpea gram corn pea.
+  </p>
+</div>
+```
 
-> [!CALLOUT]
->
-> [Laden Sie den Ausgangspunkt für diese Aufgabe herunter](https://github.com/mdn/css-examples/blob/main/learn/tasks/multicol/multicol3-download.html), um in Ihrem eigenen Editor oder in einem Online-Editor zu arbeiten.
+```css hidden live-sample___multicol3
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  text-align: center;
+  margin: 1em 0;
+}
+
+.box h2 {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  column-gap: 0.5em;
+  align-items: center;
+}
+
+.box h2::before {
+  content: "";
+  border-bottom: 5px dotted #ccc;
+}
+
+.box h2::after {
+  content: "";
+  border-bottom: 5px dotted #ccc;
+}
+
+.subhead {
+  font-style: italic;
+}
+```
+
+```css live-sample___multicol3
+.container {
+  column-count: 3;
+}
+
+.box {
+}
+
+h2 {
+}
+```
+
+{{EmbedLiveSample("multicol3", "", "400px")}}
+
+<details>
+<summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
+
+In dieser Aufgabe testen wir das Verständnis für die Eigenschaft `column-span`.
+Alles, was Sie tun müssen, ist, das Element mit der Klasse `.box` auf `column-span: all` zu setzen.
+Dies ist größtenteils eine Aufgabe, bei der überprüft wird, dass Sie das richtige Element auswählen.
+
+```css
+.box {
+  column-span: all;
+}
+```
+
+</details>
+
+## Siehe auch
+
+- [CSS-Bausteine](/de/docs/Learn/CSS/Building_blocks)

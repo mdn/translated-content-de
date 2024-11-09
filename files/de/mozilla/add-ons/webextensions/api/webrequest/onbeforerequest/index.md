@@ -2,25 +2,25 @@
 title: webRequest.onBeforeRequest
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/onBeforeRequest
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 33a5708cc125bcaa4ebe74b46bb6fe1820616ff0
 ---
 
 {{AddonSidebar}}
 
-Dieses Ereignis wird ausgelöst, wenn eine Anfrage gesendet werden soll und bevor die Header verfügbar sind. Dies ist ein guter Punkt, um zuzuhören, wenn Sie die Anfrage abbrechen oder umleiten möchten.
+Dieses Ereignis wird ausgelöst, wenn eine Anfrage gesendet werden soll, und bevor Header verfügbar sind. Dies ist ein guter Zeitpunkt, um zuzuhören, wenn Sie die Anfrage abbrechen oder umleiten möchten.
 
-Um die Anfrage abzubrechen oder umzuleiten, fügen Sie zuerst `"blocking"` zum Array-Argument `extraInfoSpec` in `addListener()` hinzu. Geben Sie dann in der Listener-Funktion ein {{WebExtAPIRef("webRequest.BlockingResponse", "BlockingResponse")}}-Objekt zurück und setzen Sie die entsprechende Eigenschaft:
+Um die Anfrage abzubrechen oder umzuleiten, fügen Sie zuerst `"blocking"` in das `extraInfoSpec` Array-Argument von `addListener()` ein. Geben Sie dann in der Listener-Funktion ein {{WebExtAPIRef("webRequest.BlockingResponse", "BlockingResponse")}} Objekt zurück, indem Sie die entsprechende Eigenschaft festlegen:
 
-- Um die Anfrage abzubrechen, schließen Sie eine Eigenschaft `cancel` mit dem Wert `true` ein.
-- Um die Anfrage umzuleiten, schließen Sie eine Eigenschaft `redirectUrl` mit dem Wert der URL ein, zu der Sie umleiten möchten.
+- Um die Anfrage abzubrechen, fügen Sie eine Eigenschaft `cancel` mit dem Wert `true` hinzu.
+- Um die Anfrage umzuleiten, fügen Sie eine Eigenschaft `redirectUrl` mit dem auf die Umleitungs-URL gesetzten Wert hinzu.
 
-Wenn eine Erweiterung eine öffentliche (z.B. HTTPS) URL zu einer [Erweiterungsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) umleiten möchte, muss die manifest.json-Datei der Erweiterung einen [web_accessible_resources](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) Schlüssel enthalten, der die URL für die Erweiterungsseite auflistet.
+Wenn eine Erweiterung eine öffentliche (z.B. HTTPS) URL auf eine [Erweiterungsseite](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Extension_pages) umleiten möchte, muss die manifest.json Datei der Erweiterung einen Schlüssel [web_accessible_resources](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/web_accessible_resources) enthalten, der die URL für die Erweiterungsseite auflistet.
 
-Wenn mehrere blockierende Handler eine Anfrage modifizieren, wird nur eine Reihe von Modifikationen wirksam. Umleitungen und Abbrüche haben die gleiche Priorität. Wenn Sie also eine Anfrage abgebrochen haben, könnten Sie dieselbe Anfrage erneut sehen, wenn ein anderer blockierender Handler die Anfrage umgeleitet hat.
+Wenn mehrere blockierende Handler eine Anfrage modifizieren, wird nur ein Satz von Modifikationen wirksam. Umleitungen und Abbrüche haben dieselbe Priorität. Wenn Sie eine Anfrage abgebrochen haben, könnten Sie die gleiche Anfrage mit der gleichen `requestId` erneut sehen, wenn ein anderer blockierender Handler die Anfrage umgeleitet hat.
 
 Ab Firefox 52 kann der Listener anstelle der Rückgabe von `BlockingResponse` ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgeben, das mit einem `BlockingResponse` aufgelöst wird. Dies ermöglicht es dem Listener, die Anfrage asynchron zu verarbeiten.
 
-Wenn Sie `"blocking"` verwenden, müssen Sie die ["webRequestBlocking" API-Berechtigung](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer manifest.json haben.
+Wenn Sie `"blocking"` verwenden, müssen Sie die ["webRequestBlocking" API-Erlaubnis](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/permissions#api_permissions) in Ihrer manifest.json Datei haben.
 
 ## Syntax
 
@@ -39,11 +39,11 @@ Ereignisse haben drei Funktionen:
 - `addListener(listener, filter, extraInfoSpec)`
   - : Fügt diesem Ereignis einen Listener hinzu.
 - `removeListener(listener)`
-  - : Stoppt das Zuhören für dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
+  - : Stoppt das Zuhören auf dieses Ereignis. Das `listener` Argument ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, ansonsten `false`.
+  - : Prüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, andernfalls `false`.
 
-## addListener-Syntax
+## addListener Syntax
 
 ### Parameter
 
@@ -52,9 +52,9 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `object`. Details zur Anfrage. Weitere Informationen finden Sie im [Details](#details_2)-Abschnitt.
+      - : `object`. Details über die Anfrage. Weitere Informationen finden Sie im [Details](#details_2) Abschnitt.
 
-    Rückgaben: {{WebExtAPIRef('webRequest.BlockingResponse')}}. Wenn `"blocking"` im Parameter `extraInfoSpec` angegeben ist, sollte der Ereignis-Listener ein `BlockingResponse`-Objekt zurückgeben und entweder seine `cancel`- oder `redirectUrl`-Eigenschaften setzen. Ab Firefox 52 kann der Listener anstelle der Rückgabe von `BlockingResponse` ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgeben, das mit einem `BlockingResponse` aufgelöst wird. Dies ermöglicht es dem Listener, die Anfrage asynchron zu verarbeiten.
+    Gibt zurück: {{WebExtAPIRef('webRequest.BlockingResponse')}}. Wenn `"blocking"` im Parameter `extraInfoSpec` angegeben ist, sollte der Ereignis-Listener ein `BlockingResponse` Objekt zurückgeben und entweder seine `cancel` oder `redirectUrl` Eigenschaften setzen. Ab Firefox 52 kann der Listener anstelle der Rückgabe von `BlockingResponse` ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurückgeben, das mit einem `BlockingResponse` aufgelöst wird. Dies ermöglicht es dem Listener, die Anfrage asynchron zu verarbeiten.
 
 - `filter`
   - : {{WebExtAPIRef('webRequest.RequestFilter')}}. Ein Filter, der die Ereignisse einschränkt, die an diesen Listener gesendet werden.
@@ -63,53 +63,53 @@ Ereignisse haben drei Funktionen:
   - : `array` von `string`. Zusätzliche Optionen für das Ereignis. Sie können einen der folgenden Werte übergeben:
 
     - `"blocking"`: macht die Anfrage synchron, damit Sie die Anfrage abbrechen oder umleiten können
-    - `"requestBody"`: umfasst `requestBody` im `details`-Objekt, das an den Listener übergeben wird
+    - `"requestBody"`: fügt `requestBody` zum `details` Objekt hinzu, das an den Listener übergeben wird
 
 ## Zusätzliche Objekte
 
-### details
+### Details
 
 - `cookieStoreId`
-  - : `string`. Wenn die Anfrage von einem Tab stammt, der in einer kontextuellen Identität geöffnet ist, ist dies die ID des Cookie-Stores der kontextuellen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
+  - : `string`. Wenn die Anfrage von einem in einer kontextuellen Identität geöffneten Tab stammt, die Cookie-Store-ID der kontextuellen Identität. Weitere Informationen finden Sie unter [Arbeiten mit kontextuellen Identitäten](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_contextual_identities).
 - `documentUrl`
-  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Wenn beispielsweise die Webseite unter "https\://example.com" ein Bild oder ein `<iframe>` enthält, ist die `documentUrl` für das Bild oder das `<iframe>` "https\://example.com". Bei einem Dokument der obersten Ebene ist `documentUrl` undefiniert.
+  - : `string`. URL des Dokuments, in dem die Ressource geladen wird. Zum Beispiel, wenn die Webseite unter "https://example.com" ein Bild oder ein iframe enthält, dann ist die `documentUrl` für das Bild oder iframe "https://example.com". Für ein oberstes Dokument ist `documentUrl` undefiniert.
 - `frameAncestors`
 
-  - : `array`. Enthält Informationen für jedes Dokument in der Rahmenhierarchie bis zum Dokument der höchsten Ebene. Das erste Element im Array enthält Informationen über das unmittelbare übergeordnete Dokument des angeforderten Dokuments, und das letzte Element enthält Informationen über das Dokument der obersten Ebene. Wenn der Ladevorgang tatsächlich für das Dokument der obersten Ebene erfolgt, ist dieses Array leer.
+  - : `array`. Enthält Informationen für jedes Dokument in der Frame-Hierarchie bis hin zum höchsten Dokument. Das erste Element im Array enthält Informationen über das unmittelbare Eltern-Dokument des angeforderten Dokuments, und das letzte Element enthält Informationen über das höchste Dokument. Wenn der Ladevorgang tatsächlich für das oberste Dokument erfolgt, ist dieses Array leer.
 
     - `url`
       - : `string`. Die URL, von der das Dokument geladen wurde.
     - `frameId`
-      - : `integer`. Die `frameId` des Dokuments. `details.frameAncestors[0].frameId` ist das gleiche wie `details.parentFrameId`.
+      - : `integer`. Die `frameId` des Dokuments. `details.frameAncestors[0].frameId` ist dasselbe wie `details.parentFrameId`.
 
 - `frameId`
-  - : `integer`. Null, wenn die Anfrage im Hauptframe erfolgt; ein positiver Wert ist die ID eines Unterframes, in dem die Anfrage erfolgt. Wenn das Dokument eines (Unter-)Frames geladen wird (`type` ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Rahmens an, nicht die ID des äußeren Rahmens. Rahmen-IDs sind innerhalb eines Tabs eindeutig.
+  - : `integer`. Null, wenn die Anfrage im Haupt-Frame erfolgt; ein positiver Wert ist die ID eines Subframes, in dem die Anfrage erfolgt. Wenn das Dokument eines (Sub-)Frames geladen wird (`type` ist `main_frame` oder `sub_frame`), zeigt `frameId` die ID dieses Frames an, nicht die ID des äußeren Frames. Frame-IDs sind innerhalb eines Tabs eindeutig.
 - `incognito`
-  - : `boolean`. Ob die Anfrage von einem privaten Browserfenster stammt.
+  - : `boolean`. Ob die Anfrage aus einem privaten Browserfenster stammt.
 - `method`
   - : `string`. Standard-HTTP-Methode: zum Beispiel "GET" oder "POST".
 - `originUrl`
 
-  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Zum Beispiel, wenn "https\://example.com" einen Link enthält und der Benutzer auf den Link klickt, ist die `originUrl` der resultierenden Anfrage "https\://example.com".
+  - : `string`. URL der Ressource, die die Anfrage ausgelöst hat. Zum Beispiel, wenn "https://example.com" einen Link enthält und der Benutzer auf den Link klickt, dann ist die `originUrl` für die resultierende Anfrage "https://example.com".
 
-    Die `originUrl` ist oft, aber nicht immer die gleiche wie die `documentUrl`. Beispielsweise, wenn eine Seite ein `<iframe>` enthält und das `<iframe>` einen Link enthält, der ein neues Dokument in das `<iframe>` lädt, dann ist die `documentUrl` der resultierenden Anfrage das übergeordnete Dokument des `<iframe>`, aber die `originUrl` ist die URL des Dokuments im `<iframe>`, das den Link enthalten hat.
+    Die `originUrl` ist oft, aber nicht immer, dieselbe wie die `documentUrl`. Zum Beispiel, wenn eine Seite ein iframe enthält und das iframe einen Link enthält, der ein neues Dokument im iframe lädt, dann wird die `documentUrl` für die resultierende Anfrage das übergeordnete Dokument des iframes sein, aber die `originUrl` wird die URL des Dokuments im iframe sein, das den Link enthielt.
 
 - `parentFrameId`
-  - : `integer`. ID des Rahmens, der den Rahmen enthält, der die Anfrage gesendet hat. Wird auf -1 gesetzt, wenn kein übergeordneter Rahmen vorhanden ist.
+  - : `integer`. ID des Frames, der den Frame enthält, der die Anfrage gesendet hat. Wird auf -1 gesetzt, wenn kein übergeordneter Frame existiert.
 - `proxyInfo`
 
-  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy gesendet wird. Sie enthält die folgenden Eigenschaften:
+  - : `object`. Diese Eigenschaft ist nur vorhanden, wenn die Anfrage über einen Proxy erfolgt. Es enthält die folgenden Eigenschaften:
 
     - `host`
-      - : `string`. Der Hostname des Proxy-Servers.
+      - : `string`. Der Hostname des Proxyservers.
     - `port`
-      - : `integer`. Die Portnummer des Proxy-Servers.
+      - : `integer`. Die Portnummer des Proxyservers.
     - `type`
 
-      - : `string`. Der Typ des Proxy-Servers. Einer von:
+      - : `string`. Der Typ des Proxyservers. Einer von:
 
         - "http": HTTP-Proxy (oder SSL CONNECT für HTTPS)
-        - "https": HTTP-Proxierung über TLS-Verbindung zum Proxy
+        - "https": HTTP-Proxying über TLS-Verbindung zum Proxy
         - "socks": SOCKS v5 Proxy
         - "socks4": SOCKS v4 Proxy
         - "direct": kein Proxy
@@ -118,64 +118,67 @@ Ereignisse haben drei Funktionen:
     - `username`
       - : `string`. Benutzername für den Proxy-Dienst.
     - `proxyDNS`
-      - : `boolean`. Wahr, wenn der Proxy die Domainnamenauflösung basierend auf dem bereitgestellten Hostnamen vornimmt, was bedeutet, dass der Client keine eigene DNS-Suche durchführen sollte.
+      - : `boolean`. Wahr, wenn der Proxy die Namensauflösung des Domänennamens basierend auf dem bereitgestellten Hostnamen durchführt, was bedeutet, dass der Client keine eigene DNS-Suche durchführen sollte.
     - `failoverTimeout`
-      - : `integer`. Ausfall-Timeout in Sekunden. Wenn die Proxy-Verbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht mehr verwendet.
+      - : `integer`. Failover-Zeitüberschreitung in Sekunden. Wenn die Proxyverbindung fehlschlägt, wird der Proxy für diesen Zeitraum nicht erneut verwendet.
 
 - `requestBody` {{optional_inline}}
 
-  - : `object`. Enthält die HTTP-Anfragedaten des Anfragetextes. Wird nur bereitgestellt, wenn das `extraInfoSpec`-Array `"requestBody"` enthält.
+  - : `object`. Enthält die HTTP-Anfrage-Body-Daten. Nur bereitgestellt, wenn `extraInfoSpec` `"requestBody"` enthält.
 
     - `error` {{optional_inline}}
-      - : `string`. Dieser Wert wird gesetzt, wenn beim Abrufen der Daten des Anfragetextes Fehler aufgetreten sind.
+      - : `string`. Dies wird gesetzt, wenn beim Abrufen der Anfrage-Body-Daten Fehler aufgetreten sind.
     - `formData` {{optional_inline}}
 
-      - : `object`. Dieses Objekt ist vorhanden, wenn die Anfragemethode POST ist und der Text eine Folge von Schlüssel-Wert-Paaren ist, die in UTF-8 als entweder "multipart/form-data" oder "application/x-www-form-urlencoded" kodiert sind.
+      - : `object`. Dieses Objekt ist vorhanden, wenn die Anfragemethode POST ist und der Body als Folge von Schlüssel-Wert-Paaren in UTF-8 entweder als "multipart/form-data" oder "application/x-www-form-urlencoded" codiert ist.
 
-        Es handelt sich um ein Wörterbuch, in dem jeder Schlüssel die Liste aller Werte für diesen Schlüssel enthält. Zum Beispiel: `{'key': ['value1', 'value2']}`. Wenn die Daten eines anderen Medientyps sind oder wenn sie fehlerhaft sind, ist das Objekt nicht vorhanden.
+        Es ist ein Wörterbuch, in dem jeder Schlüssel die Liste aller Werte für diesen Schlüssel enthält. Zum Beispiel: `{'key': ['value1', 'value2']}`. Wenn die Daten einen anderen Medientyp haben oder fehlerhaft sind, ist das Objekt nicht vorhanden.
 
     - `raw` {{optional_inline}}
-      - : `array` von `{{WebExtAPIRef('webRequest.UploadData')}}`. Wenn die Anfragemethode PUT oder POST ist und der Text nicht bereits in `formData` analysiert ist, dann enthält dieses Array die nicht analysierten Elemente des Anfragetextes.
+      - : `array` von `{{WebExtAPIRef('webRequest.UploadData')}}`. Wenn die Anfragemethode PUT oder POST ist und der Body nicht bereits in `formData` geparst ist, dann enthält dieses Array die ungeparsten Anfrage-Body-Elemente.
 
 - `requestId`
-  - : `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse, die mit derselben Anfrage verbunden sind, in Beziehung zu setzen.
+  - : `string`. Die ID der Anfrage. Anfragen-IDs sind innerhalb einer Browsersitzung eindeutig, sodass Sie sie verwenden können, um verschiedene Ereignisse zu identifizieren, die mit derselben Anfrage verbunden sind.
 - `tabId`
   - : `integer`. ID des Tabs, in dem die Anfrage stattfindet. Wird auf -1 gesetzt, wenn die Anfrage nicht mit einem Tab verbunden ist.
 - `thirdParty`
-  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhaltsfensterhierarchie von Dritten stammt.
+  - : `boolean`. Gibt an, ob die Anfrage und ihre Inhalte Fensterhierarchie Drittanbieter sind.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
+  - : `number`. Der Zeitpunkt, zu dem dieses Ereignis ausgelöst wurde, in [Millisekunden seit der Epoche](https://en.wikipedia.org/wiki/Unix_time).
 - `type`
-  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: zum Beispiel "image", "script", "stylesheet".
+  - : {{WebExtAPIRef('webRequest.ResourceType')}}. Der Typ der angeforderten Ressource: zum Beispiel, "image", "script", "stylesheet".
 - `url`
   - : `string`. Ziel der Anfrage.
 - `urlClassification`
 
-  - : `object`. Der Typ der Verfolgung, der mit der Anfrage verbunden ist, wenn die Anfrage durch [Firefox Tracking Protection](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dieses Objekt hat die folgenden Eigenschaften:
+  - : `object`. Die Art der Verfolgung, die mit der Anfrage verbunden ist, falls die Anfrage durch den [Firefox Schutz vor Verfolgung](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop) klassifiziert wird. Dies ist ein Objekt mit diesen Eigenschaften:
 
     - `firstParty`
-      - : `array` von `strings`. Klassifikationsflags für den First-Party der Anfrage.
+      - : `array` von `strings`. Klassifikations-Flaggen für die erste Partei der Anfrage.
     - `thirdParty`
-      - : `array` von `strings`. Klassifikationsflags für die Anfrage oder die Fensterhierarchie ihrer Dritten.
+      - : `array` von `strings`. Klassifikations-Flaggen für Dritte der Anfrage oder deren Fensterhierarchie.
 
-    Die Klassifikationsflags umfassen:
+    Die Klassifikations-Flaggen umfassen:
 
-    - `fingerprinting` und `fingerprinting_content`: zeigt an, dass die Anfrage in Fingerprinting involviert ist ("ein Ursprung, der Fingerprinting betreibt").
-      - `fingerprinting` zeigt an, dass die Domäne in der Kategorie Fingerprinting und Verfolgung ist. Beispiele für diese Art von Domänen sind Werbetreibende, die ein Profil mit dem besuchenden Benutzer verknüpfen möchten.
-      - `fingerprinting_content` zeigt an, dass die Domäne in der Kategorie Fingerprinting, aber nicht in der Kategorie Verfolgung ist. Beispiele für diese Art von Domänen sind Zahlungsanbieter, die Fingerprinting-Techniken verwenden, um den besuchenden Benutzer zu Identifikationszwecken zu erkennen.
-    - `cryptomining` und `cryptomining_content`: ähnlich der Fingerprinting-Kategorie, aber für Kryptomining-Ressourcen.
-    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social` und `tracking_content`: zeigt an, dass die Anfrage in Verfolgung involviert ist. `tracking` ist jede generische Verfolgungsanfrage, die Suffixe `ad`, `analytics`, `social` und `content` identifizieren den Typ des Trackers.
-    - `any_basic_tracking`: ein Meta-Flag, das Tracking- und Fingerprinting-Flags kombiniert, ausgenommen `tracking_content` und `fingerprinting_content`.
-    - `any_strict_tracking`: ein Meta-Flag, das alle Tracking- und Fingerprinting-Flags kombiniert.
-    - `any_social_tracking`: ein Meta-Flag, das alle sozialen Tracking-Flags kombiniert.
+    - `fingerprinting` und `fingerprinting_content`: zeigt an, dass die Anfrage am Fingerprinting ("eine ursprüngliche Quelle, die Fingerprinting betreibt") beteiligt ist.
+      - `fingerprinting` zeigt an, dass die Domäne in der Fingerprinting- und Tracking-Kategorie ist. Beispiele für diese Art von Domäne sind Werbetreibende, die ein Profil mit dem Besuch benutzer zuordnen möchten.
+      - `fingerprinting_content` zeigt an, dass die Domäne in der Fingerprinting-Kategorie ist, aber nicht in der Tracking-Kategorie. Beispiele für diese Art von Domäne sind Zahlungsanbieter, die Fingerprinting-Techniken verwenden, um den Benutzer für Anti-Betrugs-Zwecke zu identifizieren.
+    - `cryptomining` und `cryptomining_content`: ähnlich der Fingerprinting-Kategorie, jedoch für Krypto-Mining-Ressourcen.
+    - `tracking`, `tracking_ad`, `tracking_analytics`, `tracking_social`, und `tracking_content`: zeigt an, dass die Anfrage am Tracking beteiligt ist. `tracking` ist jede generische Tracking-Anfrage, die `ad`, `analytics`, `social`, und `content` Suffixe identifizieren die Art des Trackers.
+    - `emailtracking` und `emailtracking_content`: zeigt an, dass die Anfrage an der Nachverfolgung von E-Mails beteiligt ist.
+    - `any_basic_tracking`: ein Meta-Flag, das Tracking- und Fingerprinting-Flaggen kombiniert, `tracking_content` und `fingerprinting_content` ausgenommen.
+    - `any_strict_tracking`: ein Meta-Flag, das alle Tracking- und Fingerprinting-Flaggen kombiniert.
+    - `any_social_tracking`: ein Meta-Flag, das alle Social-Tracking-Flaggen kombiniert.
+
+    Weitere Informationen zu Trackertypen finden Sie auf der [Website von disconnect.me](https://disconnect.me/trackerprotection#categories_of_trackers). Das `content` Suffix deutet Tracker an, die Inhalte verfolgen und bereitstellen. Das Blockieren von ihnen schützt Benutzer, kann jedoch dazu führen, dass Sites nicht korrekt funktionieren oder Elemente nicht angezeigt werden.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-### Reihenfolge der DNS-Auflösung, wenn BlockingResponse verwendet wird
+### DNS-Auflösungsreihenfolge, wenn BlockingResponse verwendet wird
 
-Zur DNS-Auflösung, wenn BlockingResponse mit OnBeforeRequest verwendet wird: Im HTTP-Kanal passiert onBeforeRequest mit Blockierungsantwort vor der DNS-Auflösung und auch vor einer spekulativen Verbindung. Bei anderen Kanälen kann eine spekulative Verbindung dazu führen, dass DNS-Anfragen vor onBeforeRequest geschehen. Diese Reihenfolge ist nichts, worauf sich ein Erweiterungsentwickler verlassen sollte, da sie je nach Browser und von einer Browserversion zur anderen, geschweige denn von einem Anforderungskanal zum anderen variieren kann. Bitte beachten Sie die [Klärung zur BugZilla-Angelegenheit, bereitgestellt von Mozilla-Entwicklern zur Reihenfolge der DNS-Auflösung](https://bugzil.la/1466099).
+Bezüglich der DNS-Auflösung, wenn BlockingResponse mit OnBeforeRequest verwendet wird: Im HTTP-Kanal tritt onBeforeRequest mit blocking response vor der DNS-Auflösung und auch vor dem spekulativen Verbindungsaufbau auf. Für andere Kanäle kann spekulativer Verbindungsaufbau dazu führen, dass DNS-Anfragen vor onBeforeRequest auftreten. Auf diese Reihenfolge sollte sich ein Erweiterungsentwickler nicht verlassen, da sie je nach Browser und von einer Browserversion zur anderen variieren kann, ganz zu schweigen von einem Anforderungskanal zum anderen. Siehe [BugZilla-Klärung zur DNS-Auflösungsreihenfolge durch Mozilla-Entwickler](https://bugzil.la/1466099)
 
 ## Beispiele
 
@@ -191,7 +194,7 @@ browser.webRequest.onBeforeRequest.addListener(logURL, {
 });
 ```
 
-Dieser Code bricht Anfragen für Bilder ab, die an URLs unter "https\://developer.mozilla.org/" gesendet werden (um den Effekt zu sehen, besuchen Sie eine beliebige Seite auf MDN, die Bilder enthält, wie [webRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)):
+Dieser Code storniert Anfragen für Bilder, die an URLs unter "https://developer.mozilla.org/" gesendet werden (um den Effekt zu sehen, besuchen Sie eine beliebige Seite auf MDN, die Bilder enthält, wie [webRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)):
 
 ```js
 // match pattern for the URLs to redirect
@@ -213,7 +216,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieser Code ersetzt durch Umleitung alle Netzwerk-Anfragen für Bilder, die an URLs unter "https\://developer.mozilla.org/" gesendet werden (um den Effekt zu sehen, besuchen Sie eine beliebige Seite auf MDN, die Bilder enthält, wie [webRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)):
+Dieser Code ersetzt alle Netzwerkanfragen für Bilder, die an URLs unter "https://developer.mozilla.org/" gesendet werden, durch eine Umleitung (um den Effekt zu sehen, besuchen Sie eine beliebige Seite auf MDN, die Bilder enthält, wie [webRequest](/de/docs/Mozilla/Add-ons/WebExtensions/API/webRequest)):
 
 ```js
 // match pattern for the URLs to redirect
@@ -239,7 +242,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Dieser Code entspricht genau dem vorherigen Beispiel, außer dass der Listener die Anfrage asynchron verarbeitet. Er gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das einen Timer setzt und mit der Umleitungs-URL aufgelöst wird, wenn der Timer abläuft:
+Dieser Code ist genau wie das vorherige Beispiel, außer dass der Listener die Anfrage asynchron behandelt. Es gibt ein [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) zurück, das einen Timer setzt und mit der Umleitungs-URL auflöst, wenn der Timer abläuft:
 
 ```js
 // match pattern for the URLs to redirect
@@ -269,7 +272,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Ein weiteres Beispiel, das alle Bilder auf eine Daten-URL umleitet:
+Ein weiteres Beispiel, das alle Bilder zu einer Daten-URL umleitet:
 
 ```js
 let pattern = "https://developer.mozilla.org/*";
@@ -293,7 +296,7 @@ browser.webRequest.onBeforeRequest.addListener(
 );
 ```
 
-Hier ist eine weitere Version:
+Hier ist eine andere Version:
 
 ```js
 function randomColor() {
@@ -323,4 +326,4 @@ browser.webRequest.onBeforeRequest.addListener(
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onBeforeRequest) API von Chromium. Diese Dokumentation stammt aus [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
+> Diese API basiert auf der Chromium [`chrome.webRequest`](https://developer.chrome.com/docs/extensions/reference/api/webRequest#event-onBeforeRequest) API. Diese Dokumentation stammt von [`web_request.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/web_request.json) im Chromium-Code.
