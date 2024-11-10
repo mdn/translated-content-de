@@ -3,13 +3,12 @@ title: "Navigator: maxTouchPoints-Eigenschaft"
 short-title: maxTouchPoints
 slug: Web/API/Navigator/maxTouchPoints
 l10n:
-  sourceCommit: ef75c1741b450c2331204be5563ee964ad5f4c48
+  sourceCommit: a77040afd58b77d50a6f4cbb94823c44bfba9d26
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`maxTouchPoints`** schreibgeschützte Eigenschaft des
-[`Navigator`](/de/docs/Web/API/Navigator)-Interfaces gibt die maximale Anzahl gleichzeitiger Berührungspunkte an, die vom aktuellen Gerät unterstützt werden.
+Die schreibgeschützte Eigenschaft **`maxTouchPoints`** der [`Navigator`](/de/docs/Web/API/Navigator)-Schnittstelle gibt die maximale Anzahl gleichzeitiger Berührungspunkte zurück, die das aktuelle Gerät unterstützt.
 
 ## Wert
 
