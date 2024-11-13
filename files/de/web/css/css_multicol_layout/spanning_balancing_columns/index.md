@@ -1,58 +1,249 @@
 ---
-title: Spanning und Ausbalancieren von Spalten
+title: Spanning und Balancieren von Spalten
 slug: Web/CSS/CSS_multicol_layout/Spanning_balancing_columns
 l10n:
-  sourceCommit: f7b308af624b3ec6acfeef1c06d7a8c9ac46410d
+  sourceCommit: 02cc9311b281b73322c5d13185119d2e8adf336a
 ---
 
 {{CSSRef}}
 
-In diesem Leitfaden betrachten wir, wie Elemente über Spalten innerhalb des Multi-Column- (_Multicol_) Containers gespannt werden können und wie man die Befüllung der Spalten steuern kann.
+In diesem Leitfaden schauen wir uns an, wie man Elemente über Spalten in einem Multi-Column (_Multicol_) Container spannt und wie man kontrolliert, wie die Spalten gefüllt werden.
 
-## Spannen der Spalten
+## Spanning der Spalten
 
-Um ein Element über Spalten zu spannen, verwenden Sie die {{cssxref("column-span")}} Eigenschaft mit dem Wert `all`. Dies führt dazu, dass das Element zu einem _Spanner_ wird, der alle Spalten umfasst.
+Um ein Element über Spalten zu spannen, verwenden Sie die Eigenschaft {{cssxref("column-span")}} mit dem Wert `all`. Dies führt dazu, dass das Element zu einem _Spanner_ wird, der alle Spalten überspannt.
 
-Jedes nachgeordnete Element des Multicol-Containers kann in einen Spanner verwandelt werden, einschließlich direkter und indirekter Kinder. Zum Beispiel könnte eine direkt im Container verschachtelte Überschrift ein Spanner werden, ebenso wie eine in einem {{HTMLElement("section")}} verschachtelte Überschrift innerhalb des Multicol-Containers.
+Jedes nachkommende Element des Multicol-Containers kann in einen Spanner umgewandelt werden, einschließlich direkter und indirekter Kinder. Beispielsweise könnte eine Überschrift, die direkt im Container verschachtelt ist, zu einem Spanner werden, ebenso wie eine Überschrift, die innerhalb eines {{HTMLElement("section")}} verschachtelt ist, das sich im Multicol-Container befindet.
 
-Im untenstehenden Beispiel ist das `<h2>` Element auf `column-span: all` gesetzt und spannt alle Spalten.
+Im untenstehenden Beispiel ist das `<h2>`-Element auf `column-span: all` gesetzt und überspannt alle Spalten.
 
-{{EmbedGHLiveSample("css-examples/multicol/spanning/h2-span.html", '100%', 800)}}
+```html live-sample___h2-span
+<div class="container">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens
+    corn soko endive gumbo gourd.
+  </p>
+  <h2>A heading</h2>
+  <p>
+    Parsley shallot courgette tatsoi pea sprouts fava bean collard greens
+    dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko
+    zucchini.
+  </p>
+  <p>
+    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+    kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter
+    purslane kale. Celery potato scallion desert raisin horseradish spinach
+    carrot soko.
+  </p>
+</div>
+```
 
-In diesem zweiten Beispiel befindet sich die Überschrift innerhalb eines {{HTMLElement("article")}} Elements und spannt dennoch wie erwartet den Inhalt.
+```css live-sample___h2-span
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
 
-{{EmbedGHLiveSample("css-examples/multicol/spanning/nested-h2-span.html", '100%', 800)}}
+.container {
+  column-width: 250px;
+}
 
-Wenn ein Spanner eingeführt wird, unterbricht er den Fluss der Spalten; die Spalten beginnen nach dem Spanner neu, wodurch effektiv ein neues Set von Spaltenboxen entsteht. Der Inhalt springt nicht über ein spannendes Element.
+h2 {
+  column-span: all;
+  background-color: #4d4e53;
+  color: #fff;
+}
+```
+
+{{EmbedLiveSample("h2-span", "", "420px")}}
+
+In diesem zweiten Beispiel befindet sich die Überschrift in einem {{HTMLElement("article")}}-Element, überspannt jedoch dennoch erwartungsgemäß den Inhalt.
+
+```html live-sample___nested-h2-span
+<div class="container">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens
+    corn soko endive gumbo gourd.
+  </p>
+  <article>
+    <h2>A heading</h2>
+    <p>
+      Parsley shallot courgette tatsoi pea sprouts fava bean collard greens
+      dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko
+      zucchini.
+    </p>
+    <p>
+      Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+      kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus
+      winter purslane kale. Celery potato scallion desert raisin horseradish
+      spinach carrot soko.
+    </p>
+  </article>
+</div>
+```
+
+```css live-sample___nested-h2-span
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+
+.container {
+  column-width: 250px;
+}
+
+h2 {
+  column-span: all;
+  background-color: #4d4e53;
+  color: #fff;
+}
+```
+
+{{EmbedLiveSample("nested-h2-span", "", "420px")}}
+
+Wenn ein Spanner eingeführt wird, unterbricht er den Fluss der Spalten; Spalten starten nach dem Spanner neu, was effektiv einen neuen Satz von Spaltenboxen erstellt. Der Inhalt springt nicht über ein spannendes Element hinweg.
 
 ### Einschränkungen von column-span
 
-Der `column-span` kann nur zwei Werte haben. Der Anfangswert `none` bedeutet, dass das Element nicht spannt und innerhalb einer Spalte bleibt. Der Wert `all` bedeutet, dass das Element alle Spalten spannt. Es gibt keine Werte, die eine partielle Spannweite ermöglichen, wie das Spannen eines Elements über zwei von drei Spalten.
+`column-span` kann nur zwei Werte haben. Der Anfangswert `none` bedeutet, dass das Element nicht spannt und innerhalb einer Spalte bleibt. Der Wert `all` bedeutet, dass das Element alle Spalten überspannt. Es gibt keine Werte, die ein teilweises Spannen ermöglichen, wie z.B. ein Element, das zwei von drei Spalten überspannt.
 
-### Zu beachtende Dinge
+### Dinge, auf die Sie achten sollten
 
-Wenn das spannbare Element sich innerhalb eines anderen Elements mit Rändern, Polsterungen, einem Rand oder einer Hintergrundfarbe befindet, könnte die Box über dem Spanner erscheinen, wobei der restliche Inhalt darunter angezeigt wird. Aus diesem Grund sollte darauf geachtet werden, ein Element so einzustellen, dass es alle Spalten spannt, um sicherzustellen, dass dieses Szenario berücksichtigt wird.
+Wenn das spannende Element sich in einem anderen Element mit Rändern, Auffüllung und einer Umrandung oder Hintergrundfarbe befindet, kann das Boxmodell über dem Spanner erscheinen, während der restliche Inhalt darunter angezeigt wird. Aus diesem Grund sollte sorgfältig vorgegangen werden, wenn ein Element auf alle Spalten gespannt wird, um sicherzustellen, dass dieses Szenario berücksichtigt wird.
 
-{{EmbedGHLiveSample("css-examples/multicol/spanning/mpb-span.html", '100%', 800)}}
+```html hidden live-sample___mpb-span
+<div class="container">
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic. Gumbo beet greens
+    corn soko endive gumbo gourd.
+  </p>
+  <article>
+    <h2>A heading</h2>
+    <p>
+      Parsley shallot courgette tatsoi pea sprouts fava bean collard greens
+      dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko
+      zucchini.
+    </p>
+    <p>
+      Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+      kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus
+      winter purslane kale. Celery potato scallion desert raisin horseradish
+      spinach carrot soko.
+    </p>
+  </article>
+</div>
+```
 
-Zusätzlich, wenn ein spannendes Element später im Inhalt erscheint, kann es zu unerwartetem oder unerwünschtem Verhalten führen, wenn nicht genug Inhalt vorhanden ist, um Spalten nach dem Spanner zu erstellen. Verwenden Sie das Spannen vorsichtig und testen Sie an verschiedenen Breakpoints, um sicherzustellen, dass Sie den gewünschten Effekt erzielen.
+```css live-sample___mpb-span
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
 
-## Befüllen und Ausbalancieren von Spalten
+article {
+  border: 1px solid red;
+  padding: 10px;
+}
 
-Ein ausgeglichenes Set von Spalten ist dort, wo alle Spalten ungefähr die gleiche Menge an Inhalt haben. Befüllen und Ausbalancieren sind relevant, wenn die Menge an Inhalt nicht mit dem bereitgestellten Raum übereinstimmt, wie zum Beispiel, wenn eine {{CSSXref("height")}} auf dem Container deklariert ist.
+.container {
+  column-width: 250px;
+}
+h2 {
+  background-color: #4d4e53;
+  color: #fff;
+  column-span: all;
+}
+```
 
-Der Anfangswert für {{cssxref("column-fill")}} ist `balance`. Der Wert `balance` bedeutet, dass alle Spalten so weit wie möglich ausgeglichen sind. In fragmentierten Kontexten, wie zum Beispiel [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Das bedeutet, dass auf der letzten Seite das letzte Set an Spaltenboxen ausgeglichen ist.
+{{EmbedLiveSample("mpb-span", "", "420px")}}
 
-Der andere Ausgleichswert, `balance-all`, balanciert alle Spalten in fragmentierten Kontexten aus.
+Zusätzlich, wenn ein spannendes Element später im Inhalt erscheint, kann es zu unerwartetem oder unerwünschtem Verhalten führen, wenn nicht genug Inhalt vorhanden ist, um nach dem Spanner Spalten zu erstellen. Verwenden Sie Spanning mit Bedacht und testen Sie es bei verschiedenen Breakpoints, um sicherzustellen, dass Sie den beabsichtigten Effekt erzielen.
 
-Die Spalten in diesem Beispiel enthalten ein Bild und etwas Text, die ausgeglichen sind. Das Bild, das nicht gebrochen werden kann, befindet sich in der ersten Spalte. Die anderen Spalten sind ausgeglichen und füllen sich mit gleichen Mengen an Text.
+## Füllen und Balancieren von Spalten
 
-{{EmbedGHLiveSample("css-examples/multicol/balancing/balance.html", '100%', 550)}}
+Ein ausgewogenes Set von Spalten ist eine, bei dem alle Spalten ungefähr die gleiche Menge an Inhalt haben. Füllen und Balancieren sind relevant, wenn die Menge an Inhalt nicht dem verfügbaren Platz entspricht, beispielsweise wenn eine {{CSSXref("height")}} auf dem Container deklariert ist.
 
-Der `auto` Wert für `column-fill` füllt eine Spalte sequenziell, wobei zuerst die erste Spalte in der Inline-Start-Richtung gefüllt wird, bevor Inhalte in nachfolgenden Spalten platziert werden, anstatt alle Spalten gleichmäßig zu balancieren und zu füllen. In diesem Beispiel haben wir `column-fill` auf `auto` geändert. Die Spalten werden bis zur Höhe des Containers gefüllt und lassen am Ende leere Spalten.
+Der Anfangswert für {{cssxref("column-fill")}} ist `balance`. Der Wert `balance` bedeutet, dass alle Spalten so ausgeglichen wie möglich sind. In fragmentierten Kontexten, wie bei [seitigen Medien](/de/docs/Web/CSS/CSS_paged_media), wird nur das letzte Fragment ausgeglichen. Dies bedeutet, dass die letzte Seite die endgültige ausgewogene Spaltensätze hat.
 
-{{EmbedGHLiveSample("css-examples/multicol/balancing/auto.html", '100%', 550)}}
+Der andere Balancierungswert, `balance-all`, balanciert alle Spalten in fragmentierten Kontexten.
+
+Die Spalten in diesem Beispiel enthalten ein Bild und etwas Text, die ausgewogen sind. Das Bild, das nicht unterbrochen werden kann, befindet sich in der ersten Spalte. Die anderen Spalten sind ausgewogen und mit gleichen Mengen an Text gefüllt.
+
+```html live-sample___balance
+<div class="container">
+  <img
+    alt="Multiple hot air balloons in a clear sky, a crowd of spectators gather in the foreground."
+    src="https://mdn.github.io/shared-assets/images/examples/balloons.jpg" />
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion.
+  </p>
+</div>
+```
+
+```css live-sample___balance
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+h2 {
+  background-color: #4d4e53;
+  color: #fff;
+}
+img {
+  max-width: 100%;
+}
+.container {
+  column-width: 200px;
+  column-fill: balance;
+  height: 250px;
+}
+```
+
+{{EmbedLiveSample("balance", "", "250px")}}
+
+Der `auto` Wert für `column-fill` füllt eine Spalte nacheinander, füllt zuerst die erste Spalte in der Inline-Start-Richtung, bevor der Inhalt in nachfolgenden Spalten platziert wird, anstatt alle Spalten gleichmäßig auszufüllen. In diesem Beispiel haben wir `column-fill` auf `auto` geändert. Die Spalten sind bis zur Höhe des Containers gefüllt, wobei am Ende leere Spalten bleiben.
+
+```html hidden live-sample___auto
+<div class="container">
+  <img
+    alt="Multiple hot air balloons in a clear sky, a crowd of spectators gather in the foreground."
+    src="https://mdn.github.io/shared-assets/images/examples/balloons.jpg" />
+  <p>
+    Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion
+    daikon amaranth tatsoi tomatillo melon azuki bean garlic.
+  </p>
+  <p>
+    Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette
+    tatsoi pea sprouts fava bean collard greens dandelion.
+  </p>
+</div>
+```
+
+```css live-sample___auto
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+h2 {
+  background-color: #4d4e53;
+  color: #fff;
+}
+img {
+  max-width: 100%;
+}
+
+.container {
+  column-width: 150px;
+  column-fill: auto;
+  height: 250px;
+}
+```
+
+{{EmbedLiveSample("auto", "", "250px")}}
 
 ## Nächste Schritte
 
-Im nächsten Leitfaden lernen Sie [wie Multicol das Überlaufen](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout) innerhalb der Spalten behandelt und wenn es mehr Spalten gibt, als in den Container passen.
+Im nächsten Leitfaden lernen Sie [wie Multicol-Layouts Überlauf behandeln](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout) innerhalb von Spalten und wenn mehr Spalten vorhanden sind, als in den Container passen.

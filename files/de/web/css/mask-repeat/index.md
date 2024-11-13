@@ -2,14 +2,14 @@
 title: mask-repeat
 slug: Web/CSS/mask-repeat
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: 759e230fb79ab6b333691262e089749d99104c25
 ---
 
 {{CSSRef}}
 
-Die **`mask-repeat`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, wie Maskenbilder wiederholt werden. Ein Maskenbild kann entlang der horizontalen Achse, der vertikalen Achse, entlang beider Achsen oder gar nicht wiederholt werden.
+Die **`mask-repeat`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, wie Maskenbilder wiederholt werden. Ein Maskenbild kann entlang der horizontalen Achse, der vertikalen Achse, in beiden Richtungen oder gar nicht wiederholt werden.
 
-Standardmäßig werden die wiederholten Bilder auf die Größe des Elements zugeschnitten, sie können jedoch auch skaliert werden, um zu passen (mit `round`) oder gleichmäßig von Ende zu Ende verteilt werden (mit `space`).
+Standardmäßig werden die wiederholten Bilder auf die Größe des Elements beschnitten, sie können jedoch skaliert werden, um zu passen (mit `round`) oder gleichmäßig von Anfang bis Ende verteilt werden (mit `space`).
 
 ## Syntax
 
@@ -45,7 +45,7 @@ mask-repeat: revert-layer;
 mask-repeat: unset;
 ```
 
-Einer oder mehrere `<repeat-style>` Werte, getrennt durch Kommata.
+Einer oder mehrere `<repeat-style>`-Werte, getrennt durch Kommas.
 
 ### Werte
 
@@ -57,7 +57,7 @@ Einer oder mehrere `<repeat-style>` Werte, getrennt durch Kommata.
       <thead>
         <tr>
           <th>Einzelwert</th>
-          <th>Entsprechender Zwei-Wert</th>
+          <th>Äquivalent mit zwei Werten</th>
         </tr>
       </thead>
       <tbody>
@@ -88,33 +88,50 @@ Einer oder mehrere `<repeat-style>` Werte, getrennt durch Kommata.
       </tbody>
     </table>
 
-    In der Zwei-Wert-Syntax repräsentiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten. Hier ist eine Erklärung, wie jede Option in jeder Richtung funktioniert:
+    In der Zwei-Wert-Syntax repräsentiert der erste Wert das horizontale Wiederholungsverhalten und der zweite Wert das vertikale Verhalten. Hier ist eine Erklärung, wie jede Option in beiden Richtungen funktioniert:
 
     <table class="standard-table">
       <tbody>
         <tr>
           <td><code>repeat</code></td>
           <td>
-            Das Bild wird so oft wie nötig wiederholt, um das gesamte Maskenbemalungsgebiet zu bedecken. Das letzte Bild wird abgeschnitten, wenn es nicht passt.
+            Das Bild wird so oft wie nötig wiederholt, um den gesamten
+            Maskenmalbereich abzudecken. Das letzte Bild wird beschnitten, wenn es
+            nicht passt.
           </td>
         </tr>
         <tr>
           <td><code>space</code></td>
           <td>
-            Das Bild wird so oft wie möglich ohne Beschneiden wiederholt. Die ersten und letzten Bilder werden an beiden Seiten des Elements fixiert, und Leerraum wird gleichmäßig zwischen den Bildern verteilt. Die
-            {{cssxref("mask-position")}}-Eigenschaft wird ignoriert, es sei denn, es kann nur ein Bild ohne Beschneiden angezeigt werden. Der einzige Fall, in dem mit <code>space</code> geschnitten wird, ist, wenn nicht genügend Platz vorhanden ist, um ein Bild anzuzeigen.
+            Das Bild wird so oft wie möglich wiederholt, ohne beschnitten zu werden.
+            Die ersten und letzten Bilder sind an beiden Seiten des Elements
+            fixiert, und Leerraum wird gleichmäßig zwischen den Bildern verteilt.
+            Die {{cssxref("mask-position")}}-Eigenschaft wird ignoriert, es sei denn,
+            nur ein Bild kann ohne Beschnitt angezeigt werden. Der einzige Fall, in dem
+            es bei der Verwendung von <code>space</code> zu einem Beschnitt kommt, ist,
+            wenn nicht genug Platz vorhanden ist, um ein Bild darzustellen.
           </td>
         </tr>
         <tr>
           <td><code>round</code></td>
           <td>
-            Wenn der verfügbare Platz größer wird, dehnen sich die wiederholten Bilder, um keine Lücken zu lassen, bis Platz für ein weiteres Bild vorhanden ist. Wenn das nächste Bild hinzugefügt wird, werden alle aktuellen komprimiert, um Platz zu schaffen. Beispiel: Ein Bild mit einer ursprünglichen Breite von 260px, das dreimal wiederholt wird, könnte sich dehnen, bis jede Wiederholung 300px breit ist, und dann wird ein weiteres Bild hinzugefügt. Sie werden dann auf 225px komprimiert.
+            Wenn der verfügbare Raum größer wird, dehnen sich die wiederholten Bilder
+            aus (ohne Lücken zu hinterlassen), bis Platz für ein weiteres Bild
+            vorhanden ist. Wenn das nächste Bild hinzugefügt wird, werden alle
+            aktuellen Bilder komprimiert, um Platz zu schaffen. Beispiel: Ein Bild
+            mit einer ursprünglichen Breite von 260px, das dreifach wiederholt wird,
+            könnte sich dehnen, bis jede Wiederholung 300px breit ist, und dann
+            wird ein weiteres Bild hinzugefügt. Sie werden dann auf 225px
+            komprimiert.
           </td>
         </tr>
         <tr>
           <td><code>no-repeat</code></td>
           <td>
-            Das Bild wird nicht wiederholt (und daher wird das Maskenbemalungsgebiet nicht unbedingt vollständig abgedeckt). Die Position des nicht wiederholten Maskenbildes wird durch die {{cssxref("mask-position")}} CSS-Eigenschaft definiert.
+            Das Bild wird nicht wiederholt (und daher wird die
+            Maskenmalfläche möglicherweise nicht vollständig abgedeckt). Die
+            Position des nicht wiederholten Maskenbildes wird durch die
+            {{cssxref("mask-position")}}-Eigenschaft definiert.
           </td>
         </tr>
       </tbody>
@@ -130,13 +147,29 @@ Einer oder mehrere `<repeat-style>` Werte, getrennt durch Kommata.
 
 ## Beispiele
 
-### Wiederholung für eine einzelne Maske festlegen
+### Wiederholung für eine einzige Maske einstellen
 
-{{EmbedGHLiveSample("css-examples/masking/mask-repeat.html", '100%', 700)}}
+```html live-sample___mask-repeat-example
+<div class="masked"></div>
+```
 
-### Unterstützung mehrerer Maskenbilder
+```css live-sample___mask-repeat-example
+.masked {
+  width: 250px;
+  height: 250px;
+  background: blue linear-gradient(red, blue);
+  margin-bottom: 10px;
 
-Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommata:
+  mask-image: url(https://mdn.github.io/shared-assets/images/examples/mask-star.svg);
+  mask-repeat: repeat;
+}
+```
+
+{{EmbedLiveSample("mask-repeat-example", "", "300px")}}
+
+### Unterstützung für mehrere Maskenbilder
+
+Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getrennt durch Kommas:
 
 ```css
 .example-three {
@@ -145,7 +178,7 @@ Sie können einen anderen `<repeat-style>` für jedes Maskenbild angeben, getren
 }
 ```
 
-Jedes Bild wird dem entsprechenden Wiederholungsstil zugeordnet, vom zuerst angegebenen bis zum zuletzt.
+Jedes Bild wird dem entsprechend angegebenen Wiederholungsstil zugeordnet, vom zuerst spezifizierten bis zum zuletzt genannten.
 
 ## Spezifikationen
 
@@ -157,4 +190,4 @@ Jedes Bild wird dem entsprechenden Wiederholungsstil zugeordnet, vom zuerst ange
 
 ## Siehe auch
 
-- [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)

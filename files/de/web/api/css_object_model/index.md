@@ -2,14 +2,14 @@
 title: CSS Object Model (CSSOM)
 slug: Web/API/CSS_Object_Model
 l10n:
-  sourceCommit: ed3538854887ae7ee6faebc94800295a74b325f5
+  sourceCommit: 5e3cb7c4405256c4ad004986bbff622777b664b6
 ---
 
 {{DefaultAPISidebar("CSSOM")}}
 
-Das **CSS Object Model** ist eine Sammlung von APIs, die die Manipulation von CSS über JavaScript ermöglichen. Es ist ähnlich wie das DOM, aber für CSS statt für HTML. Es ermöglicht Benutzern, CSS-Stile dynamisch zu lesen und zu modifizieren.
+Das **CSS Object Model** ist eine Sammlung von APIs, die die Manipulation von CSS mittels JavaScript ermöglichen. Es ist ähnlich dem DOM, aber für CSS statt HTML. Es erlaubt den Nutzern, CSS-Stile dynamisch zu lesen und zu modifizieren.
 
-Die Werte von CSS werden ungetypt dargestellt, das heißt, es werden {{JSxRef("String")}}-Objekte verwendet.
+Die Werte von CSS werden unverändert dargestellt, das heißt, sie verwenden {{JSxRef("String")}} Objekte.
 
 ## Referenz
 
@@ -38,6 +38,7 @@ Die Werte von CSS werden ungetypt dargestellt, das heißt, es werden {{JSxRef("S
 - [`CSSStyleSheet`](/de/docs/Web/API/CSSStyleSheet)
 - [`CSSStyleRule`](/de/docs/Web/API/CSSStyleRule)
 - [`CSSSupportsRule`](/de/docs/Web/API/CSSSupportsRule)
+- [`CSSNestedDeclarations`](/de/docs/Web/API/CSSNestedDeclarations)
 - [`FontFace`](/de/docs/Web/API/FontFace)
 - [`FontFaceSet`](/de/docs/Web/API/FontFaceSet)
 - [`FontFaceSetLoadEvent`](/de/docs/Web/API/FontFaceSetLoadEvent)
@@ -49,9 +50,9 @@ Die Werte von CSS werden ungetypt dargestellt, das heißt, es werden {{JSxRef("S
 - [`StyleSheetList`](/de/docs/Web/API/StyleSheetList)
 - [`TransitionEvent`](/de/docs/Web/API/TransitionEvent)
 
-Mehrere andere Schnittstellen werden ebenfalls durch die CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent) und [`SVGElement`](/de/docs/Web/API/SVGElement).
+Mehrere andere Schnittstellen werden auch durch die CSSOM-bezogenen Spezifikationen erweitert: [`Document`](/de/docs/Web/API/Document), [`Window`](/de/docs/Web/API/Window), [`Element`](/de/docs/Web/API/Element), [`HTMLElement`](/de/docs/Web/API/HTMLElement), [`HTMLImageElement`](/de/docs/Web/API/HTMLImageElement), [`Range`](/de/docs/Web/API/Range), [`MouseEvent`](/de/docs/Web/API/MouseEvent), und [`SVGElement`](/de/docs/Web/API/SVGElement).
 
-### CSS Typed Object Model
+### Getipptes CSS-Objektmodell
 
 - [`CSSImageValue`](/de/docs/Web/API/CSSImageValue)
 - [`CSSKeywordValue`](/de/docs/Web/API/CSSKeywordValue)
@@ -90,9 +91,9 @@ Mehrere andere Schnittstellen werden ebenfalls durch die CSSOM-bezogenen Spezifi
 - [`CSSValue`](/de/docs/Web/API/CSSValue) {{deprecated_inline}}
 - [`CSSValueList`](/de/docs/Web/API/CSSValueList) {{deprecated_inline}}
 
-## Tutorials
+## Anleitungen
 
-- [Bestimmen der Dimensionen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
+- [Bestimmen der Abmessungen von Elementen](/de/docs/Web/API/CSS_Object_Model/Determining_the_dimensions_of_elements)
 - [Verwalten der Bildschirmorientierung](/de/docs/Web/API/CSS_Object_Model/Managing_screen_orientation)
 
 ## Spezifikationen
@@ -101,7 +102,7 @@ Mehrere andere Schnittstellen werden ebenfalls durch die CSSOM-bezogenen Spezifi
 
 ## Browser-Kompatibilität
 
-All diese Funktionen wurden im Laufe der Jahre nach und nach zu den verschiedenen Browsern hinzugefügt: Es war ein recht komplizierter Prozess, der nicht in einer einfachen Tabelle zusammengefasst werden kann. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für deren Verfügbarkeit.
+Alle diese Funktionen wurden im Laufe der Jahre nach und nach zu den verschiedenen Browsern hinzugefügt: Es war ein recht komplexer Prozess, der sich nicht in einer einfachen Tabelle zusammenfassen lässt. Bitte beziehen Sie sich auf die spezifischen Schnittstellen für deren Verfügbarkeit.
 
 ## Siehe auch
 

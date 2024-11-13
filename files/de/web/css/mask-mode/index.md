@@ -2,12 +2,12 @@
 title: mask-mode
 slug: Web/CSS/mask-mode
 l10n:
-  sourceCommit: c77cfcd17e85db6c1b93160c70668f2ff6c2809c
+  sourceCommit: 759e230fb79ab6b333691262e089749d99104c25
 ---
 
 {{CSSRef}}
 
-Die **`mask-mode`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die durch {{cssxref("mask-image")}} definierte Maske als Luminanz- oder Alphamaske behandelt wird.
+Die **`mask-mode`** [CSS](/de/docs/Web/CSS)-Eigenschaft legt fest, ob die durch {{cssxref("mask-image")}} definierte Maskenreferenz als Luminanz- oder Alphamaske behandelt wird.
 
 ## Syntax
 
@@ -28,19 +28,19 @@ mask-mode: revert-layer;
 mask-mode: unset;
 ```
 
-Die Eigenschaft `mask-mode` wird als eines oder mehrere der unten aufgeführten Schlüsselwortwerte angegeben, getrennt durch Kommas.
+Die `mask-mode`-Eigenschaft wird als eines oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommata, angegeben.
 
 ### Werte
 
 - `alpha`
-  - : Dieses Schlüsselwort gibt an, dass die Transparenzwerte (Alpha-Kanal) des Maskenbildelements als Maskenwerte verwendet werden sollen.
+  - : Dieses Schlüsselwort gibt an, dass die Transparenzwerte (Alphakanal) des Maskenbildebenen verwendet werden sollen.
 - `luminance`
-  - : Dieses Schlüsselwort gibt an, dass die Luminanzwerte des Maskenbildelements als Maskenwerte verwendet werden sollen.
+  - : Dieses Schlüsselwort gibt an, dass die Luminanzwerte des Maskenbildebenen verwendet werden sollen.
 - `match-source`
 
-  - : Wenn die Eigenschaft {{cssxref("mask-image")}} vom Typ `<mask-source>` ist, sollten die Luminanzwerte des Maskenbildelements als Maskenwerte verwendet werden.
+  - : Wenn die {{cssxref("mask-image")}}-Eigenschaft vom Typ `<mask-source>` ist, sollen die Luminanzwerte des Maskenbildebenen verwendet werden.
 
-    Wenn sie vom Typ {{cssxref("&lt;image&gt;")}} ist, sollten die Alphawerte des Maskenbildelements als Maskenwerte verwendet werden.
+    Wenn sie vom Typ {{cssxref("&lt;image&gt;")}} ist, sollen die Alphawerte des Maskenbildebenen verwendet werden.
 
 ## Formale Definition
 
@@ -54,7 +54,22 @@ Die Eigenschaft `mask-mode` wird als eines oder mehrere der unten aufgeführten 
 
 ### Verwendung des Alpha-Maskenmodus
 
-{{EmbedGHLiveSample("css-examples/masking/mask-mode.html", '100%', 760)}}
+```html live-sample___mask-mode-example
+<div class="masked"></div>
+```
+
+```css live-sample___mask-mode-example
+.masked {
+  width: 227px;
+  height: 200px;
+  background: blue linear-gradient(red, blue);
+
+  mask-image: url(https://mdn.github.io/shared-assets/images/examples/mdn.svg);
+  mask-mode: alpha;
+}
+```
+
+{{EmbedLiveSample("mask-mode-example", "", "250px")}}
 
 ## Spezifikationen
 

@@ -2,32 +2,252 @@
 title: CSS scroll snap
 slug: Web/CSS/CSS_scroll_snap
 l10n:
-  sourceCommit: 3b3394b9b1e966bb1d397bd6e50e2fb5bde7b3c5
+  sourceCommit: 02cc9311b281b73322c5d13185119d2e8adf336a
 ---
 
 {{CSSRef}}
 
-Das Modul **CSS scroll snap** bietet Eigenschaften, mit denen Sie das Verhalten beim Schwenken und Scrollen steuern können, indem Sie Schnapppositionen definieren. Inhalte können in Position „einrasten“, während der Benutzer überlaufende Inhalte innerhalb eines {{Glossary("scroll_container", "scroll container")}} scrollt, was das Blättern und die Scroll-Positionierung ermöglicht.
+Das **CSS scroll snap** Modul bietet Eigenschaften, mit denen Sie das Schwenken und Scrollen steuern können, indem Sie Snap-Positionen definieren. Inhalte können in Position gebracht werden, während der Benutzer überlaufende Inhalte innerhalb eines {{Glossary("scroll_container", "scroll container")}} scrollt, was eine Seiteneinteilung und Scroll-Positionierung ermöglicht.
 
-Dieses Modul umfasst die `scroll-padding`-Eigenschaften des Scrollcontainers, um den optimalen Betrachtungsbereich beim Blättern während der `scroll-into-view` Operationen anzupassen. Es enthält auch `scroll-margin` und `scroll-alignment`, die auf die Kinder des Scrollcontainers angewendet werden, um den visuellen Bereich der Kinderteile anzupassen, wenn dieses Kind in den Sichtbereich scrolled wird, sowie eine Eigenschaft, um das Scrollen auf einzelne Kinderteile zu erzwingen.
+Dieses Modul enthält die scroll-padding Eigenschaften des scroll containers, um den optimalen Anzeigebereich beim Scrollen-into-View zu justieren. Es enthält auch scroll-margin und scroll-alignment, die an den Kindern des scroll containers gesetzt werden, um den visuellen Bereich der Kinder beim Scrollen in die Ansicht zu justieren, sowie eine Eigenschaft, um das Scrollen auf einzelne Kinder zu erzwingen.
 
 ## Scroll snap in Aktion
 
-Um das Scroll-Snapping im Feld unten zu sehen, scrollen Sie nach oben und unten sowie nach links und rechts durch das Raster von 45 nummerierten Feldern im scrollbaren Viewport.
+Um das Scrollen-Snapping im folgenden Feld zu sehen, scrollen Sie hoch und runter sowie nach links und rechts durch das Raster von 45 nummerierten Kästchen im scrollbaren Ansichtsfenster.
+Klicken Sie auf "Abspielen" im folgenden Beispiel, um den Quellcode im MDN Playground anzuzeigen oder zu bearbeiten:
 
-{{EmbedGHLiveSample("css-examples/modules/scroll_snap.html", '100%', 250)}}
+```js hidden live-sample___scroll_snap
+const positions = ["start", "center", "end"];
+const inlineDirection = document.getElementById("inline");
+const blockDirection = document.getElementById("block");
+const stop = document.getElementById("stop");
+const snap = document.getElementById("snap");
+const all = document.querySelector("article");
+const rules = document.styleSheets[0].cssRules;
 
-Mit Scroll snap wird eines der nummerierten Felder, zu denen Sie scrollen, in Position "einrasten". Das anfängliche CSS lässt das nummerierte Feld in die Mitte des Viewports "einrasten". Verwenden Sie die Schieberegler, um die Block- und Inline-Schnapppositionen zu ändern.
+inlineDirection.addEventListener("change", () => {
+  setSSA();
+});
+blockDirection.addEventListener("change", () => {
+  setSSA();
+});
+stop.addEventListener("change", () => {
+  setSST();
+});
+window.addEventListener("load", () => {
+  setSST();
+  setSSA();
+});
+snap.addEventListener("change", () => {
+  all.classList.toggle("snapDisabled");
+});
 
-Mit `snap`-Eigenschaften können Sie das Scrollen über ein Element, in diesem Fall eine nummerierte Box, erlauben oder blockieren. Aktivieren Sie das Kontrollkästchen „Verhindern des Scrollens über Boxen“, um alle Scrollaktionen auf das Scrollen zu einem angrenzenden Feld zu beschränken.
+function setSSA() {
+  rules[0].style.scrollSnapAlign = `${positions[blockDirection.value]} ${
+    positions[inlineDirection.value]
+  }`;
+}
 
-Um Scroll-Snapping mit normalem Scrollen zu vergleichen, aktivieren Sie das Kontrollkästchen „Snapping deaktivieren“ und versuchen Sie erneut zu scrollen.
+function setSST() {
+  if (stop.checked) {
+    rules[0].style.scrollSnapStop = "always";
+  } else {
+    rules[0].style.scrollSnapStop = "normal";
+  }
+}
+```
 
-Um den Code für dieses Beispiel zu sehen, [sehen Sie den Quellcode auf GitHub](https://github.com/mdn/css-examples/blob/main/modules/scroll_snap.html) an.
+```html hidden live-sample___scroll_snap
+<article>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <div>
+    <fieldset>
+      <legend>Change the options</legend>
+      <p>
+        <label
+          ><input
+            type="range"
+            min="0"
+            max="2"
+            value="1"
+            list="places"
+            id="block" />
+          block position</label
+        >
+      </p>
+      <p>
+        <label>
+          <input
+            type="range"
+            min="0"
+            max="2"
+            value="1"
+            list="places"
+            id="inline" />
+          inline position
+        </label>
+      </p>
+      <p>
+        <label>
+          <input type="checkbox" id="stop" />
+          Prevent scrolling past boxes
+        </label>
+      </p>
+    </fieldset>
+
+    <p>
+      <label><input type="checkbox" id="snap" /> disable snapping</label>
+    </p>
+
+    <datalist id="places">
+      <option value="0">start</option>
+      <option value="1">center</option>
+      <option value="2">end</option>
+    </datalist>
+  </div>
+</article>
+```
+
+```css hidden live-sample___scroll_snap
+li {
+  /*
+  starts with:
+      scroll-snap-align: center center;
+      scroll-snap-stop: normal (defaults);
+
+  CSS gets changed with JavaScript when you change the controls.
+  the following can be set:
+      scroll-snap-stop: always | normal;
+      scroll-snap-align: start | center | end {2}
+        */
+}
+ul {
+  overflow: auto;
+  scroll-snap-type: both mandatory;
+  overscroll-behavior-x: contain;
+}
+article.snapDisabled fieldset {
+  opacity: 20%;
+  pointer-events: none;
+}
+article.snapDisabled ul {
+  scroll-snap-type: initial;
+  overscroll-behavior-x: initial;
+}
+
+@layer pageSetup {
+  article {
+    display: flex;
+    gap: 2vw;
+  }
+  div {
+    flex: 1;
+  }
+  ul {
+    display: grid;
+    gap: 6.25vw;
+    padding: 12.5vw;
+    box-sizing: border-box;
+    border: 1px solid;
+    grid-template-columns: repeat(5, 1fr);
+    background: conic-gradient(
+      at bottom left,
+      red 0deg,
+      yellow 15deg,
+      green 30deg,
+      blue 45deg,
+      purple 60deg,
+      magenta 75deg
+    );
+    background-attachment: local;
+    margin: auto;
+    width: 20vw;
+    height: 20vw;
+  }
+  li {
+    scroll-snap-align: center;
+    height: 12.5vw;
+    width: 12.5vw;
+    outline: 3px inset;
+    list-style-type: none;
+    background: white;
+    font-family: monospace;
+    font-size: 3rem;
+    line-height: 12vw;
+    text-align: center;
+    counter-increment: items 1;
+  }
+  li::after {
+    content: counter(items);
+  }
+  input {
+    vertical-align: bottom;
+  }
+  p {
+    font-family: monospace;
+  }
+}
+```
+
+{{EmbedLiveSample("scroll_snap", "", "250px")}}
+
+Mit scroll snap wird eines der nummerierten Kästchen, zu denen Sie scrollen, in die Position einrasten. Das anfängliche CSS lässt das nummerierte Kästchen in der Mitte des Ansichtsfensters einrasten. Verwenden Sie die Schieberegler, um die Block- und Inline-Snap-Positionen zu ändern.
+
+Mit den Snap-Eigenschaften können Sie das Scrollen über ein Element, in diesem Fall ein nummeriertes Kästchen, zulassen oder verhindern. Wählen Sie das Kontrollkästchen "Verhindern Sie das Scrollen über Kästchen hinaus", um alle Scroll-Aktionen auf das Scrollen zu einem benachbarten Kästchen zu beschränken.
+
+Um das Scrollen-Snapping mit normalem Scrollen zu vergleichen, aktivieren Sie das Kontrollkästchen "Snapping deaktivieren" und versuchen Sie erneut zu scrollen.
 
 ## Referenz
 
-### Eigenschaften auf Containern
+### Eigenschaften für Container
 
 - {{cssxref("scroll-snap-type")}}
 - {{cssxref("scroll-padding")}}
@@ -42,7 +262,7 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie den Quellcode auf GitHub](
   - {{cssxref("scroll-padding-block-start")}}
   - {{cssxref("scroll-padding-block-end")}}
 
-### Eigenschaften auf Kindern
+### Eigenschaften für Kinder
 
 - {{cssxref("scroll-snap-align")}}
 - {{cssxref("scroll-margin")}}
@@ -72,22 +292,22 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie den Quellcode auf GitHub](
 ## Leitfäden
 
 - [Grundlegende Konzepte von CSS scroll snap](/de/docs/Web/CSS/CSS_scroll_snap/Basic_concepts)
-  - : Ein Überblick und Beispiele zu CSS scroll snap-Funktionen.
-- [Verwenden von Scroll Snap-Ereignissen](/de/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events)
-  - : Ein Leitfaden zur Verwendung der scroll snap-Ereignisse [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) und [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event), die ausgelöst werden, wenn der Browser ein neues Snap-Ziel als ausstehend oder ausgewählt bestimmt.
+  - : Ein Überblick und Beispiele für CSS scroll snap Funktionen.
+- [Verwendung von scroll snap Ereignissen](/de/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events)
+  - : Ein Leitfaden zur Verwendung der [`scrollsnapchanging`](/de/docs/Web/API/Element/scrollsnapchanging_event) und [`scrollsnapchange`](/de/docs/Web/API/Element/scrollsnapchange_event) scroll snap Ereignisse, die ausgelöst werden, wenn der Browser feststellt, dass ein neues Snap-Ziel aussteht oder ausgewählt ist.
 
 ## Verwandte Konzepte
 
 - {{cssxref(":target")}} Pseudo-Klasse
 - {{cssxref("overflow")}} CSS-Eigenschaft
-- `Element` [`scroll()`](/de/docs/Web/API/Element/scroll) Methode
-- `Element` [`scrollBy()`](/de/docs/Web/API/Element/scrollBy) Methode
-- `Element` [`scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView) Methode
-- `Element` [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode
-- `Element` [`scroll`](/de/docs/Web/API/Element/scroll_event) Ereignis
-- `Element` [`scrollend`](/de/docs/Web/API/Element/scrollend_event) Ereignis
+- Element [`scroll()`](/de/docs/Web/API/Element/scroll) Methode
+- Element [`scrollBy()`](/de/docs/Web/API/Element/scrollBy) Methode
+- Element [`scrollIntoView()`](/de/docs/Web/API/Element/scrollIntoView) Methode
+- Element [`scrollTo()`](/de/docs/Web/API/Element/scrollTo) Methode
+- Element [`scroll`](/de/docs/Web/API/Element/scroll_event) Ereignis
+- Element [`scrollend`](/de/docs/Web/API/Element/scrollend_event) Ereignis
 - [`scrollbar`](/de/docs/Web/Accessibility/ARIA/Roles/scrollbar_role) ARIA-Rolle
-- {{Glossary("Scroll_container", "Scroll container")}} Glossareintrag
+- {{Glossary("Scroll_container", "Scroll container")}} Glossarbegriff
 
 ## Spezifikationen
 
@@ -96,9 +316,9 @@ Um den Code für dieses Beispiel zu sehen, [sehen Sie den Quellcode auf GitHub](
 ## Siehe auch
 
 - [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
-- [CSS scrollbar Stilisierung](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
-- [Bereiche nur für Tastatur-Scrolling](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
+- [CSS scrollbars styling](/de/docs/Web/CSS/CSS_scrollbars_styling) Modul
+- [Nur mit Tastatur scrollbare Bereiche](https://adrianroselli.com/2022/06/keyboard-only-scrolling-areas.html) auf adrianroselli.com (2022)
 - [Scroll snap Beispiele](https://codepen.io/collection/KpqBGW) auf Codepen (2022)
-- [Gut kontrolliertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)
+- [Gut gesteuertes Scrollen mit CSS scroll snap](https://web.dev/articles/css-scroll-snap) auf web.dev (2021)
 - [Praktisches CSS scroll snapping](https://css-tricks.com/practical-css-scroll-snapping/) auf CSS-Tricks (2020)
 - [CSS scroll snap](https://12daysofweb.dev/2022/css-scroll-snap/) auf 12 Days of Web (2019)

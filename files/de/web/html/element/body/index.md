@@ -2,93 +2,104 @@
 title: "<body>: Das Dokumenten-Body-Element"
 slug: Web/HTML/Element/body
 l10n:
-  sourceCommit: 8703920ff43498c9c9cfb5f55bd9e00b93564350
+  sourceCommit: 8fbec5312b62d720f6ff6936024a09c859f2f0f1
 ---
 
 {{HTMLSidebar}}
 
-Das **`<body>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert den Inhalt eines HTML-Dokuments. Es kann nur ein `<body>`-Element in einem Dokument geben.
+Das **`<body>`**-[HTML](/de/docs/Web/HTML)-Element repräsentiert den Inhalt eines HTML-Dokuments. In einem Dokument kann es nur ein `<body>`-Element geben.
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes), Ereignisattribute und veraltete Attribute:
+
+### Ereignisattribute
+
+> [!NOTE]
+> Jeder der unten genannten Ereignisattributnamen ist mit dem entsprechenden Ereignis der [`Window`](/de/docs/Web/API/Window)-Schnittstelle verlinkt. Sie können diese Ereignisse mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) abhören, anstatt das `oneventname`-Attribut dem `<body>`-Element hinzuzufügen.
+
+- [`onafterprint`](/de/docs/Web/API/Window/afterprint_event)
+  - : Funktion, die nach dem Drucken des Dokuments aufgerufen wird.
+- [`onbeforeprint`](/de/docs/Web/API/Window/beforeprint_event)
+  - : Funktion, die aufgerufen wird, wenn der Benutzer das Drucken des Dokuments anfordert.
+- [`onbeforeunload`](/de/docs/Web/API/Window/beforeunload_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument entladen werden soll.
+- [`onblur`](/de/docs/Web/API/Window/blur_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus verliert.
+- [`onerror`](/de/docs/Web/API/Window/error_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument nicht ordnungsgemäß geladen wird.
+- [`onfocus`](/de/docs/Web/API/Window/focus_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus erhält.
+- [`onhashchange`](/de/docs/Web/API/Window/hashchange_event)
+  - : Funktion, die aufgerufen wird, wenn sich der Fragmentbezeichner-Teil (beginnend mit dem Hash (`'#'`) Zeichen) der aktuellen Adresse des Dokuments geändert hat.
+- [`onlanguagechange`](/de/docs/Web/API/Window/languagechange_event)
+  - : Funktion, die aufgerufen wird, wenn sich die bevorzugten Sprachen geändert haben.
+- [`onload`](/de/docs/Web/API/Window/load_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument fertig geladen ist.
+- [`onmessage`](/de/docs/Web/API/Window/message_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht empfangen hat.
+- [`onmessageerror`](/de/docs/Web/API/Window/messageerror_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht erhalten hat, die nicht deserialisiert werden kann.
+- [`onoffline`](/de/docs/Web/API/Window/offline_event)
+  - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation fehlgeschlagen ist.
+- [`ononline`](/de/docs/Web/API/Window/online_event)
+  - : Funktion, die aufgerufen wird, wenn die Netzwerkkommunikation wiederhergestellt wurde.
+- [`onpageswap`](/de/docs/Web/API/Window/pageswap_event)
+  - : Funktion, die aufgerufen wird, wenn über Dokumente navigiert wird, wenn das vorherige Dokument entladen werden soll.
+- [`onpagehide`](/de/docs/Web/API/Window/pagehide_event)
+  - : Funktion, die aufgerufen wird, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus der Sitzungsverlauf zu präsentieren.
+- [`onpagereveal`](/de/docs/Web/API/Window/pagereveal_event)
+  - : Funktion, die aufgerufen wird, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments.
+- [`onpageshow`](/de/docs/Web/API/Window/pageshow_event)
+  - : Funktion, die aufgerufen wird, wenn der Browser das Fensterdokument aufgrund der Navigation anzeigt.
+- [`onpopstate`](/de/docs/Web/API/Window/popstate_event)
+  - : Funktion, die aufgerufen wird, wenn der Benutzer im Sitzungsverlauf navigiert hat.
+- [`onresize`](/de/docs/Web/API/Window/resize_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument in der Größe verändert wurde.
+- [`onrejectionhandled`](/de/docs/Web/API/Window/rejectionhandled_event)
+  - : Funktion, die aufgerufen wird, wenn ein JavaScript {{jsxref("Promise")}} verspätet behandelt wird.
+- [`onstorage`](/de/docs/Web/API/Window/storage_event)
+  - : Funktion, die aufgerufen wird, wenn der Speicherbereich geändert wurde.
+- [`onunhandledrejection`](/de/docs/Web/API/Window/unhandledrejection_event)
+  - : Funktion, die aufgerufen wird, wenn ein JavaScript {{jsxref("Promise")}}, das keinen Ablehnungs-Handler hat, abgelehnt wird.
+- [`onunload`](/de/docs/Web/API/Window/unload_event)
+  - : Funktion, die aufgerufen wird, wenn das Dokument geht.
+
+### Veraltete Attribute
+
+> [!WARNING]
+> Verwenden Sie diese veralteten Attribute nicht; nutzen Sie stattdessen die angegebenen CSS-Alternativen.
 
 - `alink` {{deprecated_inline}}
-  - : Farbe des Textes für Hyperlinks, wenn sie ausgewählt sind.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":active")}}.**
+  - : Farbe des Textes für Hyperlinks, wenn ausgewählt.
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit den Pseudo-Klassen {{cssxref(":active")}} und {{cssxref(":focus")}}.
 - `background` {{deprecated_inline}}
-  - : URI eines Bildes, das als Hintergrund verwendet werden soll.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background")}} für das Element.**
+  - : URI eines Bildes als Hintergrund.
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-image")}}.
 - `bgcolor` {{deprecated_inline}}
-  - : Hintergrundfarbe für das Dokument.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}} für das Element.**
+  - : Hintergrundfarbe des Dokuments.
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("background-color")}}.
 - `bottommargin` {{deprecated_inline}}
-  - : Der Rand am unteren Ende des Body.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-bottom")}} für das Element.**
+  - : Der Rand des unteren Bereichs des Bodys.
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-bottom")}} (oder die logische Eigenschaft {{cssxref("margin-block-end")}}).
 - `leftmargin` {{deprecated_inline}}
-  - : Der Rand auf der linken Seite des Body.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-left")}} für das Element.**
+  - : Der Rand des linken Bereichs des Bodys.
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-left")}} (oder die logische Eigenschaft {{cssxref("margin-inline-start")}}).
 - `link` {{deprecated_inline}}
   - : Farbe des Textes für nicht besuchte Hypertext-Links.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":link")}}.**
-- `onafterprint`
-  - : Funktion, die aufgerufen wird, nachdem der Benutzer das Dokument gedruckt hat.
-- `onbeforeprint`
-  - : Funktion, die aufgerufen wird, wenn der Benutzer das Dokument zum Drucken anfordert.
-- `onbeforeunload`
-  - : Funktion, die aufgerufen wird, wenn das Dokument entladen werden soll.
-- `onblur`
-  - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus verliert.
-- `onerror`
-  - : Funktion, die aufgerufen wird, wenn das Dokument nicht richtig geladen werden kann.
-- `onfocus`
-  - : Funktion, die aufgerufen wird, wenn das Dokument den Fokus erhält.
-- `onhashchange`
-  - : Funktion, die aufgerufen wird, wenn sich der Fragment-Identifikator-Teil (beginnend mit dem Hash- (`'#'`) Zeichen) der aktuellen Adresse des Dokuments geändert hat.
-- `onlanguagechange`
-  - : Funktion, die aufgerufen wird, wenn sich die bevorzugten Sprachen geändert haben.
-- `onload`
-  - : Funktion, die aufgerufen wird, wenn das Dokument fertig geladen ist.
-- `onmessage`
-  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht erhält.
-- `onmessageerror`
-  - : Funktion, die aufgerufen wird, wenn das Dokument eine Nachricht erhält, die nicht deserialisiert werden kann.
-- `onoffline`
-  - : Funktion, die aufgerufen wird, wenn die Netzkommunikation ausgefallen ist.
-- `ononline`
-  - : Funktion, die aufgerufen wird, wenn die Netzkommunikation wiederhergestellt ist.
-- `onpageswap`
-  - : Funktion, die aufgerufen wird, wenn Sie zwischen Dokumenten navigieren und das vorherige Dokument entladen wird.
-- `onpagehide`
-  - : Funktion, die aufgerufen wird, wenn der Browser die aktuelle Seite ausblendet, um eine andere Seite aus dem Verlauf der Sitzung anzuzeigen.
-- `onpagereveal`
-  - : Funktion, die aufgerufen wird, wenn ein Dokument erstmals gerendert wird, entweder beim Laden eines neuen Dokuments aus dem Netzwerk oder beim Aktivieren eines Dokuments.
-- `onpageshow`
-  - : Funktion, die aufgerufen wird, wenn der Browser das Dokument des Fensters aufgrund einer Navigation anzeigt.
-- `onpopstate`
-  - : Funktion, die aufgerufen wird, wenn der Benutzer im Sitzungsverlauf navigiert hat.
-- `onresize`
-  - : Funktion, die aufgerufen wird, wenn das Dokument geändert wurde.
-- `onrejectionhandled`
-  - : Funktion, die aufgerufen wird, wenn ein JavaScript {{jsxref("Promise")}} verspätet behandelt wird.
-- `onstorage`
-  - : Funktion, die aufgerufen wird, wenn sich der Speicherbereich geändert hat.
-- `onunhandledrejection`
-  - : Funktion, die aufgerufen wird, wenn ein JavaScript {{jsxref("Promise")}} ohne Ablehnungsbehandler abgelehnt wird.
-- `onunload`
-  - : Funktion, die aufgerufen wird, wenn das Dokument geschlossen wird.
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudo-Klasse {{cssxref(":link")}}.
 - `rightmargin` {{deprecated_inline}}
-  - : Der Rand auf der rechten Seite des Body.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-right")}} für das Element.**
+  - : Der Rand des rechten Bereichs des Bodys.
+    Verwenden Sie die CSS-Eigenschaft {{cssxref("margin-right")}} oder die logische Eigenschaft {{cssxref("margin-inline-end")}}.
 - `text` {{deprecated_inline}}
   - : Vordergrundfarbe des Textes.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} für das Element.**
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}}.
 - `topmargin` {{deprecated_inline}}
-  - : Der Rand am oberen Ende des Body.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-top")}} für das Element.**
+  - : Der Rand des oberen Bereichs des Bodys.
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("margin-top")}} (oder die logische Eigenschaft {{cssxref("margin-block-start")}}).
 - `vlink` {{deprecated_inline}}
   - : Farbe des Textes für besuchte Hypertext-Links.
-    **Verwenden Sie dieses Attribut nicht! Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudoklasse {{cssxref(":visited")}}.**
+    Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("color")}} in Verbindung mit der Pseudo-Klasse {{cssxref(":visited")}}.
 
 ## Beispiele
 
@@ -126,23 +137,27 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Inhalte</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließender Inhalt</a
+          >Fluss-Inhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das Start-Tag kann weggelassen werden, wenn das erste darin enthaltene Element kein Leerzeichen, kein Kommentar, kein {{HTMLElement("script")}}- oder {{HTMLElement("style")}}-Element ist. Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;body></code>-Element Inhalt oder ein Start-Tag hat und nicht unmittelbar von einem Kommentar gefolgt wird.
+        Das Start-Tag kann ausgelassen werden, wenn das erste Element darin kein
+        Leerzeichen, Kommentar, {{HTMLElement("script")}}-Element oder
+        {{HTMLElement("style")}}-Element ist. Das End-Tag kann ausgelassen werden, wenn das <code>&#x3C;body></code>-Element Inhalte
+        hat oder ein Start-Tag hat und nicht unmittelbar von einem Kommentar gefolgt wird.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Es muss das zweite Element eines {{HTMLElement("html")}}-Elements sein.
+        Es muss das zweite Element eines {{HTMLElement("html")}}
+        Elements sein.
       </td>
     </tr>
     <tr>
@@ -150,7 +165,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
       <td>
         <code
           ><a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role"
-            >generic</a
+            >generisch</a
           ></code
         >
       </td>
@@ -166,7 +181,7 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
         <ul>
           <li>
             Das <code>&#x3C;body></code>-Element stellt die
-            [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)-Schnittstelle bereit.
+            [`HTMLBodyElement`](/de/docs/Web/API/HTMLBodyElement)-Schnittstelle dar.
           </li>
           <li>
             Sie können auf das <code>&#x3C;body></code>-Element über die
@@ -190,3 +205,4 @@ Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attribu
 
 - {{HTMLElement("html")}}
 - {{HTMLElement("head")}}
+- [Übersicht über Ereignisbehandlung](/de/docs/Web/Events/Event_handlers)

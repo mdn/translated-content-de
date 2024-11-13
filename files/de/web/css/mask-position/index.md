@@ -2,12 +2,12 @@
 title: mask-position
 slug: Web/CSS/mask-position
 l10n:
-  sourceCommit: c77cfcd17e85db6c1b93160c70668f2ff6c2809c
+  sourceCommit: 759e230fb79ab6b333691262e089749d99104c25
 ---
 
 {{CSSRef}}
 
-Die **`mask-position`**-Eigenschaft [CSS](/de/docs/Web/CSS) legt die anfängliche Position relativ zur Maskenpositionsebene fest, die durch {{cssxref("mask-origin")}} festgelegt wird, für jedes definierte Maskenbild.
+Die **`mask-position`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die anfängliche Position fest, relativ zur Maskenpositionsschicht, die durch {{cssxref("mask-origin")}} definiert wird, für jedes definierte Maskenbild.
 
 ## Syntax
 
@@ -38,12 +38,12 @@ mask-position: revert-layer;
 mask-position: unset;
 ```
 
-Ein oder mehrere `<position>`-Werte, getrennt durch Kommata.
+Ein oder mehrere `<position>`-Werte, getrennt durch Kommas.
 
 ### Werte
 
 - {{cssxref("&lt;position&gt;")}}
-  - : Ein bis vier Werte, die eine 2D-Position in Bezug auf die Ränder des Elementrahmens darstellen. Relative oder absolute Versätze können angegeben werden. Beachten Sie, dass die Position außerhalb des Elementrahmens festgelegt werden kann.
+  - : Ein bis vier Werte, die eine 2D-Position in Bezug auf die Kanten des Box-Elements darstellen. Relative oder absolute Offsets können angegeben werden. Beachten Sie, dass die Position außerhalb der Box des Elements gesetzt werden kann.
 
 ## Formale Definition
 
@@ -55,12 +55,36 @@ Ein oder mehrere `<position>`-Werte, getrennt durch Kommata.
 
 ## Beispiele
 
-### Maskenposition festlegen
+### Maskenposition einstellen
 
-Ändern Sie den `mask-position`-Wert in einen der oben beschriebenen zulässigen Werte.
-Wenn Sie das Beispiel in einem auf Chromium basierenden Browser ansehen, ändern Sie den Wert von `-webkit-mask-position`.
+Klicken Sie auf "Play" im Live-Beispiel, um den Code im MDN-Playground zu öffnen und den `mask-position`-Wert auf einen der oben beschriebenen erlaubten Werte zu ändern.
 
-{{EmbedGHLiveSample("css-examples/masking/mask-position.html", '100%', 760)}}
+```html live-sample___mask-position-example
+<div id="wrapper">
+  <div class="masked"></div>
+</div>
+```
+
+```css live-sample___mask-position-example
+#wrapper {
+  border: 1px solid black;
+  width: 250px;
+  height: 250px;
+}
+
+.masked {
+  width: 250px;
+  height: 250px;
+  margin-bottom: 10px;
+  background: blue linear-gradient(red, blue);
+
+  mask-image: url(https://mdn.github.io/shared-assets/images/examples/mask-star.svg);
+  mask-repeat: no-repeat;
+  mask-position: top right;
+}
+```
+
+{{EmbedLiveSample("mask-position-example", "", "300px")}}
 
 ## Spezifikationen
 
@@ -72,4 +96,4 @@ Wenn Sie das Beispiel in einem auf Chromium basierenden Browser ansehen, ändern
 
 ## Siehe auch
 
-- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping and Masking in CSS](https://css-tricks.com/clipping-masking-css/)

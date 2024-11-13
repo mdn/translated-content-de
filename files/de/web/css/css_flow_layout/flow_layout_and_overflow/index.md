@@ -1,67 +1,274 @@
 ---
-title: Flusslayout und Überlauf
+title: Fließlayout und Überlauf
 slug: Web/CSS/CSS_flow_layout/Flow_layout_and_overflow
 l10n:
-  sourceCommit: 2b26cc6e576d23f68fdf992767da81de9707965e
+  sourceCommit: c6e02b5aa7c12f9e64f80a62f75ede8f5cb5ec21
 ---
 
 {{CSSRef}}
 
-Wenn es mehr Inhalt gibt, als in einen Container passt, tritt eine Überlaufsituation auf. Das Verständnis darüber, wie Überlauf funktioniert, ist wichtig, um mit jedem Element mit begrenzter Größe in CSS umzugehen. In diesem Leitfaden wird erklärt, wie Überlauf funktioniert, wenn mit normalem Fluss gearbeitet wird.
+Wenn mehr Inhalt vorhanden ist, als in einen Container passt, tritt eine Überlaufsituation auf. Das Verständnis, wie Überlauf funktioniert, ist wichtig beim Umgang mit jedem Element mit begrenzter Größe in CSS. Dieser Leitfaden erklärt, wie Überlauf funktioniert, wenn man mit dem normalen Fluss arbeitet. Das HTML ist in jedem Beispiel dasselbe, daher wird es im ersten Abschnitt angezeigt und in anderen zur Kürze ausgeblendet.
 
 ## Was ist Überlauf?
 
-Einem Element eine feste Höhe und Breite zu geben und dann erheblichen Inhalt in die Box hinzuzufügen, erzeugt ein grundlegendes Überlaufbeispiel:
+Indem man einem Element eine feste Höhe und Breite gibt und dann beträchtlichen Inhalt zur Box hinzufügt, erhält man ein einfaches Überlaufbeispiel:
 
-{{EmbedGHLiveSample("css-examples/flow/overflow/overflow.html", '100%', 700)}}
+```html live-sample___overflow
+<div class="box">
+  <p>
+    One November night in the year 1782, so the story runs, two brothers sat
+    over their winter fire in the little French town of Annonay, watching the
+    grey smoke-wreaths from the hearth curl up the wide chimney.
+  </p>
+</div>
+<p>
+  Their names were Stephen and Joseph Montgolfier. They were papermakers by
+  trade, and were noted as possessing thoughtful minds and a deep interest in
+  all scientific knowledge and new discovery.
+</p>
+<p>
+  Before that night—a memorable night, as it was to prove—hundreds of millions
+  of people had watched the rising smoke-wreaths of their fires without drawing
+  any special inspiration from the fact.
+</p>
+```
 
-Der Inhalt gelangt in die Box. Sobald die Box gefüllt ist, läuft der Inhalt auf sichtbare Weise über und zeigt den Inhalt außerhalb der Box und möglicherweise unter darauffolgendem Inhalt an. Das Attribut, das steuert, wie sich der Überlauf verhält, ist das [`overflow`](/de/docs/Web/CSS/overflow)-Attribut, das einen Anfangswert von `visible` hat. Daher können wir den Überlauf-Inhalt sehen.
+```css live-sample___overflow
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
 
-## Steuerung des Überlaufs
+.box {
+  width: 300px;
+  height: 100px;
+  border: 5px solid rebeccapurple;
+  padding: 10px;
+}
+```
 
-Es gibt andere Werte, die steuern, wie sich Überlauf-Inhalt verhält. Um überlaufenden Inhalt zu verbergen, verwenden Sie den Wert `hidden`. Dies kann dazu führen, dass einige Ihrer Inhalte nicht sichtbar sind.
+{{EmbedLiveSample("overflow", "", "370px")}}
 
-{{EmbedGHLiveSample("css-examples/flow/overflow/hidden.html", '100%', 700)}}
+Der Inhalt gelangt in die Box. Sobald er die Box füllt, läuft er in sichtbarer Weise weiter über, wobei der Inhalt außerhalb der Box angezeigt wird, möglicherweise unter nachfolgendem Inhalt. Die Eigenschaft, die kontrolliert, wie Überlauf sich verhält, ist die [`overflow`](/de/docs/Web/CSS/overflow)-Eigenschaft, die einen initialen Wert von `visible` hat. Deshalb können wir den Überlaufinhalt sehen.
 
-Die Verwendung des Wertes `scroll` enthält den Inhalt in seiner Box und fügt Bildlaufleisten hinzu, um die Ansicht zu ermöglichen. Bildlaufleisten werden auch hinzugefügt, wenn der Inhalt in die Box passt.
+## Überlauf kontrollieren
 
-{{EmbedGHLiveSample("css-examples/flow/overflow/scroll.html", '100%', 700)}}
+Es gibt andere Werte, die kontrollieren, wie Überlaufinhalt sich verhält. Um überlaufenden Inhalt zu verbergen, verwenden Sie den Wert `hidden`. Dies kann dazu führen, dass einige Ihrer Inhalte nicht sichtbar sind.
 
-Die Verwendung des Wertes `auto` zeigt den Inhalt ohne Bildlaufleisten an, wenn der Inhalt in die Box passt. Wenn er nicht passt, werden Bildlaufleisten hinzugefügt. Im Vergleich zum nächsten Beispiel mit dem Beispiel für `overflow: scroll` sollten Sie sehen, dass `overflow scroll` horizontale und vertikale Bildlaufleisten hat, obwohl es nur vertikales Scrollen braucht. Das `auto`-Beispiel unten fügt nur die Bildlaufleiste in der Richtung hinzu, in die wir scrollen müssen.
+```html hidden live-sample___hidden
+<div class="box">
+  <p>
+    One November night in the year 1782, so the story runs, two brothers sat
+    over their winter fire in the little French town of Annonay, watching the
+    grey smoke-wreaths from the hearth curl up the wide chimney.
+  </p>
+</div>
+<p>
+  Their names were Stephen and Joseph Montgolfier. They were papermakers by
+  trade, and were noted as possessing thoughtful minds and a deep interest in
+  all scientific knowledge and new discovery.
+</p>
+<p>
+  Before that night—a memorable night, as it was to prove—hundreds of millions
+  of people had watched the rising smoke-wreaths of their fires without drawing
+  any special inspiration from the fact.
+</p>
+```
 
-{{EmbedGHLiveSample("css-examples/flow/overflow/auto.html", '100%', 700)}}
+```css live-sample___hidden
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.box {
+  width: 300px;
+  height: 100px;
+  border: 5px solid rebeccapurple;
+  padding: 10px;
+  overflow: hidden;
+}
+```
 
-Wie wir bereits gelernt haben, führt die Verwendung eines dieser Werte, außer dem Standardwert `visible`, zu einem neuen Block-Formatierungskontext.
+{{EmbedLiveSample("hidden", "", "370px")}}
+
+Mit dem Wert `scroll` wird der Inhalt in seiner Box gehalten und es werden Bildlaufleisten hinzugefügt, um das Anzeigen zu ermöglichen. Bildlaufleisten werden hinzugefügt, auch wenn der Inhalt in die Box passt.
+
+```html hidden live-sample___scroll
+<div class="box">
+  <p>
+    One November night in the year 1782, so the story runs, two brothers sat
+    over their winter fire in the little French town of Annonay, watching the
+    grey smoke-wreaths from the hearth curl up the wide chimney.
+  </p>
+</div>
+<p>
+  Their names were Stephen and Joseph Montgolfier; they were papermakers by
+  trade and were noted as possessing thoughtful minds and a deep interest in all
+  scientific knowledge and new discoveries.
+</p>
+<p>
+  Before that night—a memorable night, as it was to prove—hundreds of millions
+  of people had watched the rising smoke-wreaths of their fires without drawing
+  any special inspiration from the fact.
+</p>
+```
+
+```css live-sample___scroll
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.box {
+  width: 300px;
+  height: 100px;
+  border: 5px solid rebeccapurple;
+  padding: 10px;
+  overflow: scroll;
+}
+```
+
+{{EmbedLiveSample("scroll", "", "370px")}}
+
+Die Verwendung des Wertes `auto` zeigt den Inhalt ohne Bildlaufleisten an, wenn der Inhalt in die Box passt. Wenn er nicht passt, werden Bildlaufleisten hinzugefügt. Im Vergleich zum nächsten Beispiel sollten Sie sehen, dass das `overflow: scroll`-Beispiel oben horizontale und vertikale Bildlaufleisten hat, obwohl nur vertikales Scrollen erforderlich ist. Das `auto`-Beispiel unten fügt nur die Bildlaufleiste in der Richtung hinzu, in der wir scrollen müssen.
+
+```html hidden live-sample___auto
+<div class="box">
+  <p>
+    One November night in the year 1782, so the story runs, two brothers sat
+    over their winter fire in the little French town of Annonay, watching the
+    grey smoke-wreaths from the hearth curl up the wide chimney.
+  </p>
+</div>
+<p>
+  Their names were Stephen and Joseph Montgolfier, they were papermakers by
+  trade, and were noted as possessing thoughtful minds and a deep interest in
+  all scientific knowledge and new discovery.
+</p>
+<p>
+  Before that night—a memorable night, as it was to prove—hundreds of millions
+  of people had watched the rising smoke-wreaths of their fires without drawing
+  any special inspiration from the fact.
+</p>
+```
+
+```css live-sample___auto
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.box {
+  width: 300px;
+  height: 100px;
+  border: 5px solid rebeccapurple;
+  padding: 10px;
+  overflow: auto;
+}
+```
+
+{{EmbedLiveSample("auto", "", "370px")}}
+
+Wie wir bereits gelernt haben, wird durch die Verwendung eines dieser Werte, außer dem Standard `visible`, ein neuer [block formatting context](/de/docs/Web/CSS/CSS_display/Block_formatting_context) erstellt.
 
 > [!NOTE]
-> In dem [Working Draft von Overflow Level 3](https://www.w3.org/TR/css-overflow-3/) gibt es einen zusätzlichen Wert `overflow: clip`. Dies verhält sich wie `overflow: hidden`, erlaubt jedoch kein programmatisches Scrollen, die Box wird nicht scrollbar. Darüber hinaus wird kein Block-Formatierungskontext erstellt.
+> Im [Working Draft von Overflow Level 3](https://www.w3.org/TR/css-overflow-3/) gibt es einen zusätzlichen Wert `overflow: clip`. Dieser verhält sich wie `overflow: hidden`, erlaubt jedoch keine programmatische Bildlaufmöglichkeit, die Box wird nichtrukrollbar. Außerdem wird kein Block-Formatierungskontext erzeugt.
 
-Das Überlauf-Attribut ist tatsächlich eine Kurzform für die Eigenschaften [`overflow-x`](/de/docs/Web/CSS/overflow-x) und [`overflow-y`](/de/docs/Web/CSS/overflow-y). Wenn Sie nur einen Wert für den Überlauf angeben, wird dieser Wert für beide Achsen verwendet. Sie können jedoch auch beide Werte angeben, wobei der erste Wert für `overflow-x` und damit die horizontale Richtung verwendet wird, und der zweite Wert für `overflow-y` und die vertikale Richtung. Im unten stehenden Beispiel habe ich nur `overflow-y: scroll` angegeben, sodass wir die unerwünschte horizontale Bildlaufleiste nicht bekommen.
+Die Überlauf-Eigenschaft ist in Wirklichkeit eine Kurzform für die [`overflow-x`](/de/docs/Web/CSS/overflow-x) und [`overflow-y`](/de/docs/Web/CSS/overflow-y)-Eigenschaften. Wenn Sie nur einen Wert für overflow angeben, wird dieser Wert für beide Achsen verwendet. Sie können jedoch beide Werte angeben, wobei der erste für `overflow-x` und damit für die horizontale Richtung, und der zweite für `overflow-y` und die vertikale Richtung verwendet wird. Im folgenden Beispiel habe ich nur `overflow-y: scroll` angegeben, damit wir nicht die unerwünschte horizontale Bildlaufleiste erhalten.
 
-{{EmbedGHLiveSample("css-examples/flow/overflow/overflow-y.html", '100%', 700)}}
+```html hidden live-sample___overflow-y
+<div class="box">
+  <p>
+    One November night in the year 1782, so the story runs, two brothers sat
+    over their winter fire in the little French town of Annonay, watching the
+    grey smoke-wreaths from the hearth curl up the wide chimney.
+  </p>
+</div>
+<p>
+  Their names were Stephen and Joseph Montgolfier, they were papermakers by
+  trade, and were noted as possessing thoughtful minds and a deep interest in
+  all scientific knowledge and new discovery.
+</p>
+<p>
+  Before that night—a memorable night, as it was to prove—hundreds of millions
+  of people had watched the rising smoke-wreaths of their fires without drawing
+  any special inspiration from the fact.
+</p>
+```
 
-## Flussbezogene Eigenschaften
+```css live-sample___overflow-y
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.box {
+  width: 300px;
+  height: 100px;
+  border: 5px solid rebeccapurple;
+  padding: 10px;
+  overflow-y: scroll;
+}
+```
 
-Im Leitfaden zu [Schreibmodi und Flusslayout](/de/docs/Web/CSS/CSS_flow_layout/Flow_layout_and_writing_modes) haben wir uns die neueren Eigenschaften `block-size` und `inline-size` angesehen, die mehr Sinn ergeben, wenn man mit verschiedenen Schreibmodi arbeitet, als unser Layout an die physischen Abmessungen des Bildschirms zu binden. Das Level 3 Overflow-Modul enthält auch flussbezogene Eigenschaften für den Überlauf - [`overflow-block`](/de/docs/Web/CSS/@media/overflow-block) und [`overflow-inline`](/de/docs/Web/CSS/@media/overflow-inline). Diese entsprechen `overflow-x` und `overflow-y`, aber die Zuordnung hängt vom Schreibmodus des Dokuments ab.
+{{EmbedLiveSample("overflow-y", "", "370px")}}
 
-Diese Eigenschaften haben derzeit keine Implementierungen in Browsern, daher müssen Sie im Moment die physischen Eigenschaften verwenden und für Ihren Schreibmodus anpassen.
+## Fluss-relative Eigenschaften
+
+Im Leitfaden zu [Schreibmodi und Fließlayout](/de/docs/Web/CSS/CSS_flow_layout/Flow_layout_and_writing_modes) haben wir uns die Eigenschaften `block-size` und `inline-size` angesehen, die sinnvoller sind, wenn man mit verschiedenen Schreibmodi arbeitet, als unser Layout an die physischen Abmessungen des Bildschirms zu koppeln. Das [CSS overflow-Modul](/de/docs/Web/CSS/CSS_overflow) enthält auch flussrelative Eigenschaften für Überlauf - [`overflow-block`](/de/docs/Web/CSS/@media/overflow-block) und [`overflow-inline`](/de/docs/Web/CSS/@media/overflow-inline). Diese entsprechen `overflow-x` und `overflow-y`, aber die Zuordnung hängt vom Schreibmodus des Dokuments ab.
 
 ## Überlauf anzeigen
 
-In der Level 3 Overflow-Spezifikation haben wir einige Eigenschaften, die dazu beitragen können, das Erscheinungsbild von Inhalten in einer Überlaufsituation zu verbessern.
+Im CSS-Überlaufmodul gibt es einige Eigenschaften, die helfen können, das Aussehen von Inhalt in einer Überlaufsituation zu verbessern.
 
-### Inline-Achsenüberlauf
+### Inline-Achsen-Überlauf
 
-Die [`text-overflow`](/de/docs/Web/CSS/text-overflow)-Eigenschaft befasst sich mit Text, der in der Inline-Richtung überläuft. Sie nimmt einen von zwei Werten an: `clip`, wobei der Inhalt abgeschnitten wird, wenn er überläuft, dies ist der Anfangswert und daher das Standardverhalten. Wir haben auch `ellipsis`, das ein Auslassungszeichen rendert, das durch ein besseres Zeichen für die verwendete Sprache oder den Schreibmodus ersetzt werden kann.
+Die [`text-overflow`](/de/docs/Web/CSS/text-overflow)-Eigenschaft befasst sich mit dem Überlaufen von Text in der Inline-Richtung. Sie nimmt einen von zwei Werten an, `clip`, wobei der Inhalt abgeschnitten wird, wenn er überläuft. Dies ist der Anfangswert und daher das Standardverhalten. Wir haben auch `ellipsis`, das ein Auslassungszeichen rendert, das möglicherweise durch ein besseres Zeichen für die verwendete Sprache oder den verwendeten Schreibmodus ersetzt wird.
 
-{{EmbedGHLiveSample("css-examples/flow/overflow/text-overflow.html", '100%', 500)}}
+```html hidden live-sample___text-overflow
+<div class="box">
+  <p>
+    One November night in the year 1782, so the story runs, two brothers sat
+    over their winter fire in the little French town of Annonay, watching the
+    grey smoke-wreaths from the hearth curl up the wide chimney.
+  </p>
 
-### Block-Achsenüberlauf
+  <p>
+    Their names were Stephen and Joseph Montgolfier, they were papermakers by
+    trade, and were noted as possessing thoughtful minds and a deep interest in
+    all scientific knowledge and new discovery.
+  </p>
+  <p>
+    Before that night—a memorable night, as it was to prove—hundreds of millions
+    of people had watched the rising smoke-wreaths of their fires without
+    drawing any special inspiration from the fact.
+  </p>
+</div>
+```
 
-Es gibt auch einen Vorschlag für eine `block-overflow`-Eigenschaft, obwohl der Name zum Zeitpunkt der Erstellung dieses Artikels noch zur Diskussion steht. Dieser Vorschlag würde das Hinzufügen eines Auslassungszeichens ermöglichen, wenn Text in der Blockdimension überläuft.
+```css live-sample___text-overflow
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.box {
+  width: 300px;
+  border: 5px solid rebeccapurple;
+  padding: 10px;
+}
 
-Dies ist nützlich in der Situation, in der Sie eine Liste von Artikeln haben, die Sie in Boxen mit fester Höhe anzeigen, die nur eine begrenzte Menge Text aufnehmen. Für den Leser ist es möglicherweise nicht offensichtlich, dass es mehr Inhalte gibt, auf die er durch Klicken auf die Box oder den Titel zugreifen kann. Ein Auslassungszeichen zeigt klar an, dass es mehr Inhalte gibt. Die Spezifikation würde erlauben, eine Zeichenkette von Inhalten oder ein reguläres Auslassungszeichen einzufügen.
+.box p {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+```
+
+{{EmbedLiveSample("text-overflow", "", "220px")}}
+
+### Block-Achsen-Überlauf
+
+Die [Überlauf Level 3](https://www.w3.org/TR/css-overflow-3/)-Spezifikation fügt eine `block-ellipsis`-Eigenschaft hinzu ([früher `block-overflow` genannt](https://github.com/w3c/csswg-drafts/commit/20b15b4d66b0fdfa8406f1ce28604128f02ee7bb)). Diese Eigenschaft ermöglicht es, ein Auslassungszeichen (oder benutzerdefinierte Zeichen) hinzuzufügen, wenn Text in der Block-Dimension überläuft, obwohl es zum Zeitpunkt des Schreibens keine Browserunterstützung dafür gibt.
+
+Dies ist nützlich, wenn Sie beispielsweise eine Auflistung von Artikeln haben und die Auflistungen in Kästchen mit fester Höhe anzeigen, die nur eine begrenzte Menge Text aufnehmen. Es ist möglicherweise nicht offensichtlich für den Leser, dass es mehr Inhalt gibt, auf den durch Klicken auf das Kästchen oder den Titel zugegriffen werden kann. Ein Auslassungszeichen zeigt eindeutig an, dass mehr Inhalt vorhanden ist. Die Spezifikation würde es erlauben, eine Inhaltszeichenfolge oder ein reguläres Auslassungszeichen einzufügen.
 
 ## Zusammenfassung
 
-Egal, ob Sie sich in kontinuierlichen Medien im Web oder in einem Seitenmedienformat wie Druck oder EPUB befinden, das Verständnis, wie Inhalte überlaufen, ist hilfreich, wenn Sie mit jedweder Layoutmethode umgehen. Durch das Verständnis, wie Überlauf im normalen Fluss funktioniert, sollte es Ihnen leichter fallen, die Auswirkungen von Überlauf-Inhalten in Layoutmethoden wie Grid und Flexbox zu verstehen.
+Unabhängig davon, ob Sie sich in kontinuierlichen Medien im Web oder in einem Paged-Media-Format wie Druck oder EPUB befinden, ist das Verständnis, wie Inhalte überlaufen, nützlich bei der Arbeit mit jeder Layoutmethode. Indem Sie verstehen, wie Überlauf im normalen Fluss funktioniert, sollten Sie es einfacher finden, die Auswirkungen von Überlaufinhalten in Layoutmethoden wie Grid und Flexbox zu verstehen.
+
+## Siehe auch
+
+- [Überlaufender Inhalt](/de/docs/Learn/CSS/Building_blocks/Overflowing_content) Leitfaden
+- [CSS Überlauf](/de/docs/Web/CSS/CSS_overflow) Modul
+- [CSS Containment](/de/docs/Web/CSS/CSS_containment) Modul

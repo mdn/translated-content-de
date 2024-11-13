@@ -1,71 +1,210 @@
 ---
-title: Logische Eigenschaften für Floats und Positionierung
+title: Logische Eigenschaften für Floating und Positionierung
 slug: Web/CSS/CSS_logical_properties_and_values/Floating_and_positioning
 l10n:
-  sourceCommit: 3b4bf3e92c726515fe99042c7f7f119ef1009b68
+  sourceCommit: 02cc9311b281b73322c5d13185119d2e8adf336a
 ---
 
 {{CSSRef}}
 
-Das Modul [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) enthält logische Zuordnungen für die physischen Werte von {{cssxref("float")}} und {{cssxref("clear")}}, sowie für die Positionierungseigenschaften, die mit dem [positionierten Layout](/de/docs/Web/CSS/CSS_positioned_layout) verwendet werden. Dieser Leitfaden zeigt, wie man diese verwendet.
+Das Modul der [CSS logischen Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) enthält logische Zuordnungen für die physikalischen Werte von {{cssxref("float")}} und {{cssxref("clear")}}, sowie für die Positionierungseigenschaften, die mit dem [Positionierungs-Layout](/de/docs/Web/CSS/CSS_positioned_layout) verwendet werden. Dieser Leitfaden zeigt, wie Sie diese verwenden können.
 
-## Zuordnete Eigenschaften und Werte
+## Zuordnungen von Eigenschaften und Werten
 
-Die folgende Tabelle führt die {{Glossary("logical_properties", "logischen Eigenschaften")}} und Werte auf, die in diesem Leitfaden besprochen werden, zusammen mit ihren Zuordnungen zu {{Glossary("physical_properties", "physischen Eigenschaften")}} und Werten. Sie nehmen einen horizontalen {{cssxref("writing-mode")}} mit einer Links-nach-Rechts-Richtung an.
+Die folgende Tabelle zeigt die in diesem Leitfaden behandelten {{Glossary("logical_properties", "logischen Eigenschaften")}} und Werte zusammen mit ihren Zuordnungen zu den {{Glossary("physical_properties", "physikalischen Eigenschaften")}} und Werten. Sie gehen von einem horizontalen {{cssxref("writing-mode")}} und einer von links nach rechts gerichteten Richtung aus.
 
-| Logische Eigenschaft oder Wert     | Physische Eigenschaft oder Wert  |
-| ---------------------------------- | -------------------------------- |
-| {{cssxref("float")}}: inline-start | {{cssxref("float")}}: left       |
-| {{cssxref("float")}}: inline-end   | {{cssxref("float")}}: right      |
-| {{cssxref("clear")}}: inline-start | {{cssxref("clear")}}: left       |
-| {{cssxref("clear")}}: inline-end   | {{cssxref("clear")}}: right      |
-| {{cssxref("inset-inline-start")}}  | {{cssxref("left")}}              |
-| {{cssxref("inset-inline-end")}}    | {{cssxref("right")}}             |
-| {{cssxref("inset-block-start")}}   | {{cssxref("top")}}               |
-| {{cssxref("inset-block-end")}}     | {{cssxref("bottom")}}            |
-| {{cssxref("text-align")}}: start   | {{cssxref("text-align")}}: left  |
-| {{cssxref("text-align")}}: end     | {{cssxref("text-align")}}: right |
+| Logische Eigenschaft oder Wert     | Physikalische Eigenschaft oder Wert |
+| ---------------------------------- | ----------------------------------- |
+| {{cssxref("float")}}: inline-start | {{cssxref("float")}}: left          |
+| {{cssxref("float")}}: inline-end   | {{cssxref("float")}}: right         |
+| {{cssxref("clear")}}: inline-start | {{cssxref("clear")}}: left          |
+| {{cssxref("clear")}}: inline-end   | {{cssxref("clear")}}: right         |
+| {{cssxref("inset-inline-start")}}  | {{cssxref("left")}}                 |
+| {{cssxref("inset-inline-end")}}    | {{cssxref("right")}}                |
+| {{cssxref("inset-block-start")}}   | {{cssxref("top")}}                  |
+| {{cssxref("inset-block-end")}}     | {{cssxref("bottom")}}               |
+| {{cssxref("text-align")}}: start   | {{cssxref("text-align")}}: left     |
+| {{cssxref("text-align")}}: end     | {{cssxref("text-align")}}: right    |
 
-Zusätzlich zu diesen zugeordneten Eigenschaften gibt es einige zusätzliche Kurznotationseigenschaften, die durch die Möglichkeit, Block- und Inline-Dimensionen anzusprechen, ermöglicht werden. Diese haben keine Zuordnung zu physischen Eigenschaften, abgesehen von der {{cssxref("inset")}}-Eigenschaft.
+Zusätzlich zu diesen zugeordneten Eigenschaften gibt es einige zusätzliche Kurzschreibweisen, die möglich werden, indem man Block- und Inline-Dimensionen ansprechen kann. Diese haben keine Zuordnung zu physikalischen Eigenschaften, abgesehen von der {{cssxref("inset")}}-Eigenschaft.
 
-| Logische Eigenschaft        | Zweck                                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------- |
-| {{cssxref("inset-inline")}} | Setzt beide oben genannten Einfügewerte für die Inline-Dimension gleichzeitig.     |
-| {{cssxref("inset-block")}}  | Setzt beide oben genannten Einfügewerte für die Block-Dimension gleichzeitig.      |
-| {{cssxref("inset")}}        | Setzt alle vier Einfügewerte gleichzeitig mit physischer Zuordnung von Mehrwerten. |
+| Logische Eigenschaft        | Zweck                                                                                 |
+| --------------------------- | ------------------------------------------------------------------------------------- |
+| {{cssxref("inset-inline")}} | Setzt beide oben genannten inset-Werte für die Inline-Dimension gleichzeitig.         |
+| {{cssxref("inset-block")}}  | Setzt beide oben genannten inset-Werte für die Block-Dimension gleichzeitig.          |
+| {{cssxref("inset")}}        | Setzt alle vier inset-Werte gleichzeitig mit physikalischer Zuordnung bei Mehrwerten. |
 
 ## Beispiel für Float und Clear
 
-Die physischen Werte, die mit den Eigenschaften {{cssxref("float")}} und {{cssxref("clear")}} verwendet werden, sind `left`, `right` und `both`. Das CSS-Modul für logische Eigenschaften und Werte definiert die Werte `inline-start` und `inline-end` als Zuordnungen für `left` und `right`.
+Die physikalischen Werte, die mit den Eigenschaften {{cssxref("float")}} und {{cssxref("clear")}} verwendet werden, sind `left`, `right` und `both`. Das Modul für CSS logische Eigenschaften und Werte definiert die Werte `inline-start` und `inline-end` als Zuordnungen für `left` und `right`.
 
-Dieses Beispiel hat zwei Boxen — die erste Box ist mit `float: left` gefloatet, die zweite mit `float: inline-start`. Wenn Sie den `writing-mode` auf `vertical-rl` oder die `direction` auf `rtl` ändern, sehen Sie, dass die links gefloatete Box immer links bleibt, während sich das `inline-start`-gefloatete Element der `direction` und dem `writing-mode` anpasst.
+Im folgenden Beispiel wird die erste Box mit `float: left` gefloatet und die zweite mit `float: inline-start`. Wenn Sie auf den `.inner`-Selektor `direction: rtl` anwenden, bleibt die links gefloatete Box immer links, während das `inline-start`-gefloatete Element der `direction` des Textes folgt. Sie können dies mit `writing-mode: vertical-rl` kombinieren, um den Unterschied der Block-Layout-Orientierung in Kombination mit `direction`-Werten zu sehen.
 
-{{EmbedGHLiveSample("css-examples/logical/float.html", '100%', 700)}}
+```html live-sample___float
+<div class="container">
+  <div class="inner">
+    <div class="physical box"></div>
+    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+    kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter
+    purslane kale.
+  </div>
+  <div class="inner">
+    <div class="logical box"></div>
+    Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce
+    kohlrabi amaranth water spinach avocado daikon napa cabbage asparagus winter
+    purslane kale.
+  </div>
+</div>
+```
 
-## Beispiel: Einfügeeigenschaften für das positionierte Layout
+```css hidden live-sample___float
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+.container {
+  display: flex;
+}
 
-Die CSS-Positionierung ermöglicht es im Allgemeinen, ein Element in einer Weise relativ zu seinem umgebenden Block zu positionieren — wir setzen das Element im Wesentlichen relativ zu dem Punkt, an dem es im normalen Fluss fallen würde, ein. Um ein Element relativ zum Ansichtsfenster zu positionieren, verwenden Sie die physischen Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}. Wenn Sie möchten, dass die Positionierung sich auf den Textfluss im Schreibmodus bezieht, verwenden Sie stattdessen {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}} und {{cssxref("inset-inline-end")}}.
+.box {
+  border: 2px solid rgb(96 139 168);
+  border-radius: 5px;
+  background-color: rgb(96 139 168 / 0.2);
+  padding: 10px;
+  margin: 10px;
+  width: 100px;
+  height: 100px;
+}
+```
+
+```css live-sample___float
+.inner {
+  /* direction: rtl; */
+  /* writing-mode: vertical-rl; */
+}
+
+.physical {
+  float: left;
+}
+
+.logical {
+  float: inline-start;
+}
+```
+
+{{EmbedLiveSample("float", "", "220px")}}
+
+## Beispiel: Inset-Eigenschaften für Positionierungs-Layout
+
+Die CSS-Positionierung erlaubt es uns im Allgemeinen, ein Element in einer Weise relativ zu seinem umgebenden Block zu positionieren — wir setzen das Element im Wesentlichen relativ zu seinem normalen Fluss ein. Um ein Element relativ zum Ansichtfenster zu positionieren, verwenden Sie die physikalischen Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}. Wenn Sie möchten, dass sich die Positionierung auf den Textfluss in Ihrem Schreibmodus bezieht, verwenden Sie stattdessen {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}.
 
 Diese Eigenschaften nehmen eine Länge oder einen Prozentsatz als Wert und beziehen sich auf die Bildschirmabmessungen des Benutzers.
 
-Im untenstehenden Beispiel werden die Eigenschaften `inset-block-start` und `inset-inline-end` verwendet, um die blaue Box mit absoluter Positionierung innerhalb des Bereichs mit der grauen gestrichelten Umrandung zu positionieren, der `position: relative` hat. Ändern Sie die `writing-mode`-Eigenschaft auf `vertical-rl`, oder fügen Sie `direction: rtl` hinzu, und sehen Sie, wie sich die relativ zum Textfluss positionierte Box verhält.
+Im untenstehenden Beispiel werden die Eigenschaften `inset-block-start` und `inset-inline-end` verwendet, um die blaue Box mit absoluter Positionierung innerhalb des Bereichs mit der grauen, gepunkteten Begrenzung zu positionieren, der `position: relative` hat. Ändern Sie die Eigenschaft `writing-mode` zu `vertical-rl` oder fügen Sie `direction: rtl` hinzu und sehen Sie, wie die relativ zum Fluss positionierte Box mit der Textrichtung bleibt.
 
-{{EmbedGHLiveSample("css-examples/logical/positioning-inset.html", '100%', 700)}}
+```html live-sample___positioning-inset
+<div class="container">
+  <div class="inner">
+    <div class="physical box"></div>
+  </div>
+  <div class="inner">
+    <div class="logical box"></div>
+  </div>
+</div>
+```
 
-## Neue Zwei- und Vier-Wert-Kurznotationen
+```css hidden live-sample___positioning-inset
+.container {
+  display: flex;
+}
 
-Wie bei anderen Eigenschaften im Modul haben wir Kurznotationseigenschaften, die die Möglichkeit geben, zwei oder vier Werte gleichzeitig festzulegen.
+.inner {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  border: 2px dotted grey;
+}
 
-- {{cssxref("inset")}} — setzt alle vier Seiten zusammen mit physischer Zuordnung.
-- {{cssxref("inset-inline")}} — setzt beide logischen Inline-Einfügungen.
-- {{cssxref("inset-block")}} — setzt beide logischen Block-Einfügungen.
+.box {
+  border: 2px solid rgb(96 139 168);
+  border-radius: 5px;
+  background-color: rgb(96 139 168 / 0.2);
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+}
+```
 
-## Beispiel: Logische Werte für text-align
+```css live-sample___positioning-inset
+.inner {
+  writing-mode: horizontal-tb;
+}
 
-Die {{cssxref("text-align")}}-Eigenschaft hat logische Werte, die sich auf die Textrichtung beziehen — anstatt `left` und `right` zu verwenden, können Sie `start` und `end` verwenden. Im untenstehenden Beispiel ist `text-align: right` im ersten Block gesetzt und `text-align: end` im zweiten.
+.physical {
+  position: absolute;
+  top: 20px;
+  right: 0;
+}
 
-Wenn Sie den Wert von `direction` auf `rtl` ändern, sehen Sie, dass die Ausrichtung beim ersten Block rechts bleibt, aber im zweiten Block zum logischen Ende auf der linken Seite geht.
+.logical {
+  position: absolute;
+  inset-block-start: 20px;
+  inset-inline-end: 0;
+}
+```
 
-{{EmbedGHLiveSample("css-examples/logical/text-align.html", '100%', 700)}}
+{{EmbedLiveSample("positioning-inset", "", "250px")}}
 
-Dies funktioniert konsistenter, wenn Sie Box-Ausrichtung verwenden, die Start und Ende anstelle von physischen Richtungen für die Ausrichtung verwendet.
+## Neue Kurzschreibweisen mit zwei und vier Werten
+
+Wie bei anderen Eigenschaften im Modul, haben wir auch Kurzschreibweisen, die es ermöglichen, zwei oder vier Werte auf einmal zu setzen.
+
+- {{cssxref("inset")}} — setzt alle vier Seiten gemeinsam mit physikalischer Zuordnung.
+- {{cssxref("inset-inline")}} — setzt beide logischen Inline-Insets.
+- {{cssxref("inset-block")}} — setzt beide logischen Block-Insets.
+
+## Beispiel: Logische Werte für Textausrichtung
+
+Die {{cssxref("text-align")}}-Eigenschaft hat logische Werte, die sich auf die Textausrichtung beziehen – anstatt `left` und `right` können Sie `start` und `end` verwenden. Im untenstehenden Beispiel ist im ersten Block `text-align: right` und im zweiten `text-align: end` gesetzt.
+
+Wenn Sie den Wert der `direction` auf `rtl` ändern, sehen Sie, dass die Ausrichtung im ersten Block rechts bleibt, aber im zweiten Block zum logischen Ende links wechselt.
+
+```html live-sample___text-align
+<div class="container">
+  <div class="inner physical">Aligned text</div>
+  <div class="inner logical">Aligned text</div>
+</div>
+```
+
+```css hidden live-sample___text-align
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+.inner {
+  width: 200px;
+  border: 2px dotted grey;
+  padding: 10px;
+}
+```
+
+```css live-sample___text-align
+.inner {
+  direction: ltr;
+}
+
+.physical {
+  text-align: right;
+}
+
+.logical {
+  text-align: end;
+}
+```
+
+{{EmbedLiveSample("text-align")}}
+
+Dies funktioniert konsistenter, wenn man Box-Anpassungen verwendet, die Start und Ende anstelle von physikalischen Richtungen für die Anpassung verwenden.

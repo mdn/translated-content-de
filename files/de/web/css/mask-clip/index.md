@@ -2,12 +2,12 @@
 title: mask-clip
 slug: Web/CSS/mask-clip
 l10n:
-  sourceCommit: 69f98c69898886886f3267a4fa5f450f32133ca1
+  sourceCommit: 759e230fb79ab6b333691262e089749d99104c25
 ---
 
 {{CSSRef}}
 
-Die **`mask-clip`** [CSS](/de/docs/Web/CSS) Eigenschaft bestimmt den Bereich, der von einer Maske betroffen ist. Der gemalte Inhalt eines Elements muss auf diesen Bereich beschränkt sein.
+Die **`mask-clip`** [CSS](/de/docs/Web/CSS)-Eigenschaft bestimmt den Bereich, der von einer Maske beeinflusst wird. Der bemalte Inhalt eines Elements muss auf diesen Bereich beschränkt werden.
 
 ## Syntax
 
@@ -41,24 +41,24 @@ mask-clip: revert-layer;
 mask-clip: unset;
 ```
 
-Einer oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommas getrennt.
+Einer oder mehrere der unten aufgeführten Schlüsselwortwerte, getrennt durch Kommata.
 
 ### Werte
 
 - `content-box`
-  - : Der gemalte Inhalt wird auf die Inhalt-Box zugeschnitten.
+  - : Der bemalte Inhalt wird auf die Content-Box zugeschnitten.
 - `padding-box`
-  - : Der gemalte Inhalt wird auf die Polster-Box zugeschnitten.
+  - : Der bemalte Inhalt wird auf die Padding-Box zugeschnitten.
 - `border-box`
-  - : Der gemalte Inhalt wird auf die Rand-Box zugeschnitten.
+  - : Der bemalte Inhalt wird auf die Border-Box zugeschnitten.
 - `fill-box`
-  - : Der gemalte Inhalt wird auf die Objekt-Begrenzungsbox zugeschnitten.
+  - : Der bemalte Inhalt wird auf die Umrandungsbox des Objekts zugeschnitten.
 - `stroke-box`
-  - : Der gemalte Inhalt wird auf die Linien-Begrenzungsbox zugeschnitten.
+  - : Der bemalte Inhalt wird auf die Umrandungsbox des Striches zugeschnitten.
 - `view-box`
-  - : Verwendet den nächsten SVG-Viewport als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox) Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenzbox am Ursprung des Koordinatensystems positioniert, das durch das `viewBox` Attribut festgelegt wird, und die Dimension der Referenzbox wird auf die Breite und Höhe des `viewBox` Attributs eingestellt.
+  - : Verwendet den nächsten SVG-Viewport als Referenzbox. Wenn ein [`viewBox`](/de/docs/Web/SVG/Attribute/viewBox)-Attribut für das Element, das den SVG-Viewport erstellt, angegeben ist, wird die Referenzbox am Ursprung des durch das `viewBox`-Attribut festgelegten Koordinatensystems positioniert, und die Dimension der Referenzbox wird auf die Breite und Höhe der `viewBox`-Attributwerte gesetzt.
 - `no-clip`
-  - : Der gemalte Inhalt wird nicht ausgeschnitten.
+  - : Der bemalte Inhalt wird nicht zugeschnitten.
 - `border`
   - : Dieses Schlüsselwort verhält sich wie `border-box`.
 - `padding`
@@ -78,11 +78,30 @@ Einer oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommas get
 
 ## Beispiele
 
-### Zuschneiden einer Maske auf die Rand-Box
+### Zuschneiden einer Maske auf die Border-Box
 
-Ändern Sie den Wert von `mask-clip` zu einem der oben beschriebenen zulässigen Werte. Wenn Sie das Beispiel in einem Chromium-basierten Browser betrachten, ändern Sie den Wert von `-webkit-mask-clip`.
+Klicken Sie auf "Play" im Live-Beispiel, um den Code im MDN Playground zu öffnen und den Wert von `mask-clip` auf einen der oben beschriebenen zulässigen Werte zu ändern.
 
-{{EmbedGHLiveSample("css-examples/masking/mask-clip.html", '100%', 800)}}
+```html live-sample___mask-clip-example
+<div class="masked"></div>
+```
+
+```css live-sample___mask-clip-example
+.masked {
+  width: 100px;
+  height: 100px;
+  background-color: #8cffa0;
+  margin: 20px;
+  border: 20px solid #8ca0ff;
+  padding: 20px;
+
+  mask-image: url(https://mdn.github.io/shared-assets/images/examples/mdn.svg);
+  mask-size: 100% 100%;
+  mask-clip: border-box;
+}
+```
+
+{{EmbedLiveSample("mask-clip-example", "", "250px")}}
 
 ## Spezifikationen
 
@@ -94,4 +113,4 @@ Einer oder mehrere der unten aufgeführten Schlüsselwortwerte, durch Kommas get
 
 ## Siehe auch
 
-- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Clipping and Masking in CSS](https://css-tricks.com/clipping-masking-css/)

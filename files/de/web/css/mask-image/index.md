@@ -2,12 +2,12 @@
 title: mask-image
 slug: Web/CSS/mask-image
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: 759e230fb79ab6b333691262e089749d99104c25
 ---
 
 {{CSSRef}}
 
-Die **`mask-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Bild fest, das als Maskenebene für ein Element verwendet wird. Standardmäßig wird der Alphakanal des Maskenbildes mit dem Alphakanal des Elements multipliziert. Dies kann mit der {{cssxref("mask-mode")}} Eigenschaft gesteuert werden.
+Die **`mask-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Bild fest, das als Maskenschicht für ein Element verwendet wird. Standardmäßig bedeutet dies, dass der Alphakanal des Maskenbildes mit dem Alphakanal des Elements multipliziert wird. Dies kann mit der {{cssxref("mask-mode")}} Eigenschaft gesteuert werden.
 
 ## Syntax
 
@@ -38,25 +38,25 @@ mask-image: unset;
 
 - `none`
 
-  - : Dieses Schlüsselwort wird als transparente schwarze Bildebene interpretiert.
+  - : Dieses Schlüsselwort wird als transparente schwarze Bildschicht interpretiert.
 
 - `<mask-source>`
 
-  - : Ein {{cssxref("url_value", "&lt;url&gt;")}} Verweis zu einer {{SVGElement("mask")}} oder zu einem CSS-Bild.
+  - : Ein {{cssxref("url_value", "&lt;url&gt;")}} Verweis auf eine {{SVGElement("mask")}} oder auf ein CSS-Bild.
 
     > [!NOTE]
-    > Nur Bildquellen, die über HTTP- und HTTPS-Protokolle bereitgestellt werden, werden aufgrund der {{Glossary("CORS", "CORS")}} Richtlinie akzeptiert. Lokal bereitgestellte Bilder, einschließlich relativer oder absoluter `file://` Protokolle, werden nicht akzeptiert. Um URL-Bildquellen lokal zu testen, [richten Sie einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
+    > Aufgrund der {{Glossary("CORS", "CORS")}} Richtlinie werden nur die Bildquellen akzeptiert, die über die HTTP- und HTTPS-Protokolle serviert werden. Bilder, die lokal bereitgestellt werden, einschließlich relativer oder absoluter `file://` Protokolle, werden nicht akzeptiert. Um URL-Bildquellen lokal zu testen, [richten Sie einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
 
 - {{cssxref("&lt;image&gt;")}}
-  - : Ein Bildwert, der als Maskenebene verwendet wird.
+  - : Ein Bildwert, der als Maskenbildschicht verwendet wird.
 
-In den folgenden Fällen wird die Maske als transparente schwarze Bildebene gezählt:
+In den folgenden Fällen wird die Maske als transparente schwarze Bildschicht gezählt:
 
-- das Maskenbild ist leer (Breite oder Höhe gleich null)
+- das Maskenbild ist leer (Null Breite oder Null Höhe)
 - das Maskenbild kann nicht heruntergeladen werden
 - das Maskenbildformat wird vom Browser nicht unterstützt
 - das Maskenbild existiert nicht
-- der Maskenwert verweist nicht auf ein Maskenbild
+- der Maskenwert zeigt nicht auf ein Maskenbild
 
 ## Formale Definition
 
@@ -68,13 +68,13 @@ In den folgenden Fällen wird die Maske als transparente schwarze Bildebene gez�
 
 ## Beispiele
 
-### Festlegen eines Maskenbildes mit einer URL und einem Verlauf
+### Ein Maskenbild mit einer URL und einem Verlauf festlegen
 
-```html
+```html live-sample___mask-image-example
 <div class="masked"></div>
 ```
 
-```css
+```css live-sample___mask-image-example
 .masked {
   width: 200px;
   height: 200px;
@@ -82,11 +82,12 @@ In den folgenden Fällen wird die Maske als transparente schwarze Bildebene gez�
   mask-size: 100%;
 
   background: red;
-  mask-image: url(star.svg), radial-gradient(transparent 50%, black);
+  mask-image: url(https://mdn.github.io/shared-assets/images/examples/mask-star.svg),
+    radial-gradient(transparent 50%, black);
 }
 ```
 
-{{EmbedLiveSample("Festlegen eines Maskenbildes mit einer URL", "100%", 250)}}
+{{EmbedLiveSample("mask-image-example", "100%", 250)}}
 
 ## Spezifikationen
 
@@ -99,4 +100,4 @@ In den folgenden Fällen wird die Maske als transparente schwarze Bildebene gez�
 ## Siehe auch
 
 - [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)
-- [Effekte auf Bilder mit der CSS-Eigenschaft mask-image anwenden](https://web.dev/articles/css-masking)
+- [Effekte auf Bilder anwenden mit der CSS `mask-image` Eigenschaft](https://web.dev/articles/css-masking)
