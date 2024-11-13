@@ -3,20 +3,20 @@ title: "CSSCounterStyleRule: system-Eigenschaft"
 short-title: system
 slug: Web/API/CSSCounterStyleRule/system
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`system`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/system", "system")}}-Descriptors ab und setzt ihn. Wenn der Descriptor keinen festgelegten Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`system`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle erhält und setzt den Wert des {{cssxref("@counter-style/system", "system")}}-Deskriptors. Wenn der Deskriptor keinen Wert festgelegt hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Ein String
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel; die Rückgabe von `system` gibt uns den Wert "fixed".
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Abrufen von `system` gibt uns den Wert "fixed" zurück.
 
 ```css
 @counter-style box-corner {

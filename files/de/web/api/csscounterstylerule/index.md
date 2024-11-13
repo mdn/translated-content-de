@@ -2,18 +2,18 @@
 title: CSSCounterStyleRule
 slug: Web/API/CSSCounterStyleRule
 l10n:
-  sourceCommit: bd15d43260b7e72b1066c04d9d9f3b79129c619c
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`CSSCounterStyleRule`** Schnittstelle repräsentiert eine {{CSSxRef("@counter-style")}} [At-Regel](/de/docs/Web/CSS/At-rule).
+Das **`CSSCounterStyleRule`** Interface repräsentiert eine {{CSSxRef("@counter-style")}} [At-Rule](/de/docs/Web/CSS/At-rule).
 
 {{InheritanceDiagram}}
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Dieses Interface erbt auch Eigenschaften von seinem Elternteil [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSCounterStyleRule.name`](/de/docs/Web/API/CSSCounterStyleRule/name)
   - : Ein String, der die Serialisierung des {{CSSxRef("&lt;custom-ident&gt;")}} enthält, das als `name` für die zugehörige Regel definiert ist.
@@ -38,9 +38,9 @@ _Diese Schnittstelle erbt auch Eigenschaften von ihrem Elternteil [`CSSRule`](/d
 - [`CSSCounterStyleRule.fallback`](/de/docs/Web/API/CSSCounterStyleRule/fallback)
   - : Ein String, der die Serialisierung des {{CSSxRef("@counter-style/fallback", "fallback")}} Deskriptors enthält, der für die zugehörige Regel definiert ist. Wenn der Deskriptor in der zugehörigen Regel nicht angegeben wurde, gibt das Attribut einen leeren String zurück.
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle implementiert keine spezifische Methode, erbt jedoch Methoden von ihrem Elternteil [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Dieses Interface implementiert keine spezifische Methode, erbt jedoch Methoden von seinem Elternteil [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 ## Spezifikationen
 
@@ -53,4 +53,5 @@ _Diese Schnittstelle implementiert keine spezifische Methode, erbt jedoch Method
 ## Siehe auch
 
 - {{CSSxRef("@counter-style")}}
-- [Modul CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles)
+- [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
+- [Verwendung von CSS-Zählern](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) Leitfaden

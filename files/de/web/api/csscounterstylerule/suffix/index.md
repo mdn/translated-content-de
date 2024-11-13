@@ -3,20 +3,20 @@ title: "CSSCounterStyleRule: suffix-Eigenschaft"
 short-title: suffix
 slug: Web/API/CSSCounterStyleRule/suffix
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`suffix`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/suffix","suffix")}}-Deskriptors ab und legt diesen fest. Wenn der Deskriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`suffix`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle erhält und setzt den Wert des {{cssxref("@counter-style/suffix","suffix")}}-Deskriptors. Wenn dem Deskriptor kein Wert zugewiesen wurde, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Ein String
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Abrufen von `suffix` gibt uns den Wert ": " zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, die Rückgabe von `suffix` gibt uns den Wert ": ".
 
 ```css
 @counter-style box-corner {

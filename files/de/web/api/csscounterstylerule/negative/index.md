@@ -3,20 +3,20 @@ title: "CSSCounterStyleRule: negative-Eigenschaft"
 short-title: negative
 slug: Web/API/CSSCounterStyleRule/negative
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`negative`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle liest und setzt den Wert des {{cssxref("@counter-style/negative","negative")}}-Descriptors. Wenn der Descriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`negative`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/negative","negative")}}-Descriptors ab und setzt ihn. Wenn der Descriptor keinen Wert gesetzt hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Ein String
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel; das Aufrufen von `negative` gibt uns den Wert "-".
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Die Rückgabe von `negative` liefert uns den Wert "-".
 
 ```css
 @counter-style neg {

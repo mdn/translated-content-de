@@ -3,20 +3,20 @@ title: "CSSCounterStyleRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSCounterStyleRule/name
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`name`**-Eigenschaft des [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Interfaces holt und setzt das {{CSSxRef("&lt;custom-ident&gt;")}}, das als `name` für die zugehörige Regel definiert ist.
+Die **`name`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle erhält und setzt das {{CSSxRef("&lt;custom-ident&gt;")}}, das als `name` für die zugehörige Regel definiert ist.
 
 ## Wert
 
-Ein String
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Zurückgeben von `name` gibt uns das benutzerdefinierte Ident "box-corner".
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und die Rückgabe von `name` liefert uns den benutzerdefinierten Identifikator "box-corner".
 
 ```css
 @counter-style box-corner {

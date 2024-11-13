@@ -3,20 +3,20 @@ title: "CSSCounterStyleRule: pad-Eigenschaft"
 short-title: pad
 slug: Web/API/CSSCounterStyleRule/pad
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`pad`**-Eigenschaft der Schnittstelle [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) liest und setzt den Wert des Deskriptors {{cssxref("@counter-style/pad", "pad")}}. Wenn der Deskriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`pad`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle erhält und setzt den Wert des {{cssxref("@counter-style/pad", "pad")}}-Deskriptors. Wenn der Deskriptor keinen gesetzten Wert hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Ein String
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Abrufen von `pad` gibt uns den Wert "0" zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und die Abfrage von `pad` gibt uns den Wert "0" zurück.
 
 ```css
 @counter-style box-corner {
