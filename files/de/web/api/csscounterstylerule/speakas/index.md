@@ -3,16 +3,16 @@ title: "CSSCounterStyleRule: speakAs-Eigenschaft"
 short-title: speakAs
 slug: Web/API/CSSCounterStyleRule/speakAs
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`speakAs`**-Eigenschaft der Schnittstelle [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) ruft den Wert des Deskriptors {{cssxref("@counter-style/speak-as","speak-as")}} ab und setzt ihn. Wenn für den Deskriptor kein Wert festgelegt ist, gibt dieses Attribut einen leeren String zurück.
+Die **`speakAs`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/speak-as","speak-as")}}-Descriptors ab und setzt ihn. Wenn der Deskriptor keinen Wert hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Ein String
+Ein String.
 
 ## Beispiele
 

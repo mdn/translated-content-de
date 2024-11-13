@@ -3,12 +3,12 @@ title: "CSSCounterStyleRule: additiveSymbols-Eigenschaft"
 short-title: additiveSymbols
 slug: Web/API/CSSCounterStyleRule/additiveSymbols
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`additiveSymbols`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle liest und setzt den Wert des {{cssxref("@counter-style/additive-symbols","additive-symbols")}}-Deskriptors. Wenn kein Wert für dieses Deskriptor gesetzt ist, gibt dieses Attribut einen leeren String zurück.
+Die **`additiveSymbols`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle ruft den Wert des {{cssxref("@counter-style/additive-symbols","additive-symbols")}}-Descriptors ab und setzt ihn. Wenn der Descriptor keinen Wert gesetzt hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Abrufen von `additiveSymbols` gibt uns den Wert " V 5, IV 4, I 1" zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Abrufen von `additiveSymbols` liefert uns den Wert " V 5, IV 4, I 1".
 
 ```css
 @counter-style additive-symbols-example {

@@ -3,20 +3,20 @@ title: "CSSCounterStyleRule: prefix-Eigenschaft"
 short-title: prefix
 slug: Web/API/CSSCounterStyleRule/prefix
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`prefix`**-Eigenschaft der Schnittstelle [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) ruft den Wert des {{cssxref("@counter-style/prefix","prefix")}}-Descriptors ab und setzt diesen. Wenn für den Descriptor kein Wert festgelegt ist, gibt dieses Attribut eine leere Zeichenfolge zurück.
+Die **`prefix`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle bekommt und setzt den Wert des {{cssxref("@counter-style/prefix","prefix")}}-Descriptors. Wenn der Deskriptor keinen Wert gesetzt hat, gibt dieses Attribut einen leeren String zurück.
 
 ## Wert
 
-Eine Zeichenfolge
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Zurückgeben von `prefix` gibt uns den Wert "Chapter " zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Die Rückgabe von `prefix` gibt uns den Wert "Chapter " zurück.
 
 ```css
 @counter-style chapters {

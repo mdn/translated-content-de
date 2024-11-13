@@ -3,20 +3,20 @@ title: "CSSCounterStyleRule: symbols-Eigenschaft"
 short-title: symbols
 slug: Web/API/CSSCounterStyleRule/symbols
 l10n:
-  sourceCommit: 59b1cd1f520971b89ccf521d53a1d9d3bf4c0756
+  sourceCommit: 9840d330e75b5fa4eec7034859a7d96e5d6ae07b
 ---
 
-{{APIRef("CSS Counter Styles")}}
+{{APIRef("CSSOM")}}
 
-Die **`symbols`**-Eigenschaft der [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule)-Schnittstelle erhält und setzt den Wert des {{cssxref("@counter-style/symbols","symbols")}} Deskriptors. Wenn der Deskriptor keinen gesetzten Wert hat, gibt dieses Attribut einen leeren String zurück.
+Die **`symbols`**-Eigenschaft der Schnittstelle [`CSSCounterStyleRule`](/de/docs/Web/API/CSSCounterStyleRule) erhält und setzt den Wert des Deskriptors {{cssxref("@counter-style/symbols","symbols")}}. Wenn der Deskriptor keinen Wert gesetzt hat, gibt dieses Attribut eine leere Zeichenkette zurück.
 
 ## Wert
 
-Ein String
+Ein String.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel. Das Auslesen von `symbols` gibt uns den Wert "◰ ◳ ◲ ◱" zurück.
+Das folgende Beispiel zeigt eine {{cssxref("@counter-style")}}-Regel. In JavaScript ist `myRules[0]` diese `@counter-style`-Regel, und das Abrufen von `symbols` gibt uns den Wert "◰ ◳ ◲ ◱" zurück.
 
 ```css
 @counter-style box-corner {
