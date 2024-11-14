@@ -701,8 +701,6 @@
 /de/docs/CSS/flex-shrink	/de/docs/Web/CSS/flex-shrink
 /de/docs/CSS/flex-wrap	/de/docs/Web/CSS/flex-wrap
 /de/docs/CSS/float	/de/docs/Web/CSS/float
-/de/docs/CSS/flood-color	/de/docs/Web/SVG/Attribute/flood-color
-/de/docs/CSS/flood-opacity	/de/docs/Web/SVG/Attribute/flood-opacity
 /de/docs/CSS/font	/de/docs/Web/CSS/font
 /de/docs/CSS/font-family	/de/docs/Web/CSS/font-family
 /de/docs/CSS/font-feature-settings	/de/docs/Web/CSS/font-feature-settings
@@ -733,7 +731,6 @@
 /de/docs/CSS/left	/de/docs/Web/CSS/left
 /de/docs/CSS/length	/de/docs/Web/CSS/length
 /de/docs/CSS/letter-spacing	/de/docs/Web/CSS/letter-spacing
-/de/docs/CSS/lighting-color	/de/docs/Web/SVG/Attribute/lighting-color
 /de/docs/CSS/line-height	/de/docs/Web/CSS/line-height
 /de/docs/CSS/linear-gradient	/de/docs/Web/CSS/gradient/linear-gradient
 /de/docs/CSS/list-style	/de/docs/Web/CSS/list-style
@@ -11627,8 +11624,6 @@
 /de/docs/Web/CSS/flex-line-pack	/de/docs/Web/CSS/align-content
 /de/docs/Web/CSS/flex-order	/de/docs/Web/CSS/order
 /de/docs/Web/CSS/flex-pack	/de/docs/Web/CSS/justify-content
-/de/docs/Web/CSS/flood-color	/de/docs/Web/SVG/Attribute/flood-color
-/de/docs/Web/CSS/flood-opacity	/de/docs/Web/SVG/Attribute/flood-opacity
 /de/docs/Web/CSS/font-size/font-optical-sizing	/de/docs/Web/CSS/font-optical-sizing
 /de/docs/Web/CSS/gradient/conic-gradient()	/de/docs/Web/CSS/gradient/conic-gradient
 /de/docs/Web/CSS/gradient/linear-gradient()	/de/docs/Web/CSS/gradient/linear-gradient
@@ -11652,7 +11647,6 @@
 /de/docs/Web/CSS/inset-area_value	/de/docs/Web/CSS/position-area_value
 /de/docs/Web/CSS/justify-tracks	/de/docs/Web/CSS/CSS_grid_layout/Masonry_layout
 /de/docs/Web/CSS/kerning	/de/docs/Web/CSS/font-kerning
-/de/docs/Web/CSS/lighting-color	/de/docs/Web/SVG/Attribute/lighting-color
 /de/docs/Web/CSS/linear-gradient	/de/docs/Web/CSS/gradient/linear-gradient
 /de/docs/Web/CSS/linear-gradient()	/de/docs/Web/CSS/gradient/linear-gradient
 /de/docs/Web/CSS/margin-new	/de/docs/Web/CSS/margin

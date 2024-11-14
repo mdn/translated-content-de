@@ -1,27 +1,83 @@
 ---
-title: CSS basic user interface
+title: Grundlegende CSS-Benutzeroberfläche
 slug: Web/CSS/CSS_basic_user_interface
 l10n:
-  sourceCommit: 8d4fb1e2934111a13989d2796152dc601468e7b5
+  sourceCommit: 5755d6dfbac15abc29ddcd924cee110c4139b073
 ---
 
 {{CSSRef}}
 
-Das Modul **CSS basic user interface** ermöglicht es Ihnen, das Rendering und die Funktionalität von Elementen, die mit der Benutzerschnittstelle zusammenhängen, zu definieren. Dazu gehören Umriss-Eigenschaften, visuelle Rückmeldungen für Zeigegeräte und Tastaturen sowie die Veränderung des Standardaussehens von UI-Widgets.
+Das **CSS-Modul der grundlegenden Benutzeroberfläche** ermöglicht es Ihnen, die Darstellung und Funktionalität von Merkmalen zu definieren, die mit der Benutzeroberfläche zusammenhängen, einschließlich Umriss-Eigenschaften, visuelle Rückmeldungen für Zeigegerät und Tastatur sowie das Ändern des Standard-Erscheinungsbilds von UI-Widgets.
 
-Grundlegende Benutzerschnittstellen-Eigenschaften können verwendet werden, um die Benutzererfahrung und -zugänglichkeit zu verbessern, indem visuellen Hinweisen auf Elemente, die interagiert werden, bereitgestellt werden. Dazu gehört das Styling von Mauszeigern und die Navigation mit der Tastatur sowie das Styling des Cursor-Karets, wenn ein bearbeitbares Element den Fokus hat. Das Modul ermöglicht es, Umrisse zu fokussierten (oder nicht fokussierten) Elementen hinzuzufügen, ohne die Dimensionen und das Styling des [Box-Modells](/de/docs/Learn/CSS/Building_blocks/The_box_model#what_is_the_css_box_model) zu beeinflussen. Dieses UI-Modul ermöglicht auch das Styling von Benutzerschnittstellen-Steuerelementen.
+Eigenschaften der grundlegenden Benutzeroberfläche können verwendet werden, um die Benutzererfahrung und Zugänglichkeit zu verbessern, indem sie visuelle Hinweise für Elemente bereitstellen, mit denen interagiert wird, einschließlich Styling von Mauscursorn und Tastatur-Fokusnavigation sowie Styling des Caret-Cursors, wenn ein bearbeitbares Element den Fokus hat. Das Modul ermöglicht es, Umrisse für fokussierte (oder nicht fokussierte) Elemente bereitzustellen, ohne die Abmessungen und das Styling eines Elements im [Box-Modell](/de/docs/Learn/CSS/Building_blocks/The_box_model#what_is_the_css_box_model) zu beeinflussen. Dieses UI-Modul ermöglicht auch das Styling von Benutzeroberflächen-Steuerelementen.
 
-### Grundlegende Benutzerschnittstelle in Aktion
+### Grundlegende Benutzeroberfläche in Aktion
 
-Um zu sehen, wie grundlegende Benutzerschnittstelleneigenschaften das Erscheinungsbild von UI-Features verändern können, interagieren Sie mit den Elementen in diesem Beispiel. Beachten Sie, dass einige Funktionen in diesem Beispiel die Benutzerfreundlichkeit verbessern, während andere die Benutzererfahrung beeinträchtigen.
+Um zu sehen, wie die Eigenschaften der grundlegenden Benutzeroberfläche das Erscheinungsbild von UI-Funktionen verändern können, interagieren Sie mit den Elementen in diesem Beispiel. Beachten Sie, dass einige Funktionen in diesem Beispiel die Benutzerfreundlichkeit verbessern, während andere die Benutzererfahrung beeinträchtigen.
 
-{{EmbedGHLiveSample("css-examples/modules/basicUI.html", '100%', 320)}}
+```html hidden live-sample___basicUI
+<div><span contenteditable>Edit this text </span></div>
+<fieldset>
+  <legend>Play with these fake form controls</legend>
+  <input type="checkbox" id="check" />
+  <input type="radio" name="a" />
+  <input type="radio" name="a" />
+  <input type="range" />
+  <progress></progress>
+</fieldset>
+<fieldset>
+  <legend>Be careful not to ruin usability: try resizing these.</legend>
+  <textarea>
+  cursor: wait;
+  </textarea>
+  <textarea>
+  resize: none;
+  </textarea>
+  <textarea>
+  pointer-events: none;
+  </textarea>
+</fieldset>
+```
 
-Die CSS-Eigenschaften {{CSSxRef("outline")}} und {{CSSxRef("outline-offset")}} wurden verwendet, um den Benutzern Rückmeldungen darüber zu geben, welches Element derzeit den Fokus hat. Eine {{CSSxRef("accent-color")}} sorgt für eine Themenfarbe für alle Formularsteuerungen. Das Karet, das beim Bearbeiten des Textes erscheint, hat dank der {{CSSxRef("caret-color")}}-Eigenschaft die gleiche Farbe. Diese können alle als UI-Verbesserungen betrachtet werden.
+```css hidden live-sample___basicUI
+body {
+  font-family: sans-serif;
+  font-size: 1.25rem;
+}
+[contenteditable] {
+  cursor: copy;
+  caret-color: magenta;
+  border: 1px solid #ccc;
+}
+:focus {
+  outline: dashed magenta 3px;
+  outline-offset: 10px;
+}
+* {
+  accent-color: magenta;
+}
+div,
+fieldset {
+  margin: 20px;
+}
+textarea:nth-of-type(1) {
+  cursor: wait;
+}
+textarea:nth-of-type(2) {
+  resize: none;
+}
+textarea:nth-of-type(3) {
+  pointer-events: none;
+}
+```
 
-Einige Funktionen beeinträchtigen die Benutzerfreundlichkeit. Die {{CSSxRef("cursor")}}-Eigenschaft wurde verwendet, um den Standardcursor des Browsers zu ändern, was verwirrend ist. Die {{CSSxRef("resize")}}-Eigenschaft verhindert, dass das zweite {{HTMLElement("textarea")}} skaliert werden kann, während die {{CSSxRef("pointer-events")}}-Eigenschaft verhindert, dass das dritte `<textarea>`-Element Klickereignisse erhält. Es ist jedoch weiterhin über die Tastatur fokussierbar.
+{{EmbedLiveSample("basicUI", "", "300px")}}
 
-Um den Code für dieses Beispiel einer grundlegenden Benutzerschnittstelle zu sehen, [sehen Sie den Quellcode auf GitHub an](https://github.com/mdn/css-examples/blob/main/modules/basicUI.html).
+Die CSS-Eigenschaften {{CSSxRef("outline")}} und {{CSSxRef("outline-offset")}} wurden verwendet, um den Nutzern Rückmeldungen darüber zu geben, welches Element derzeit den Fokus hat. Ein {{CSSxRef("accent-color")}} bietet eine Themenfarbe für alle Formularelemente. Der Caret, der beim Bearbeiten von Text erscheint, hat dank der Eigenschaft {{CSSxRef("caret-color")}} die gleiche Farbe. Diese können alle als Verbesserungen der Benutzeroberfläche angesehen werden.
+
+Einige Funktionen beeinträchtigen die Benutzerfreundlichkeit. Die Eigenschaft {{CSSxRef("cursor")}} wurde verwendet, um Cursorn von den Standard-Browser-Einstellungen zu ändern, was verwirrend ist. Die Eigenschaft {{CSSxRef("resize")}} verhindert, dass die zweite {{HTMLElement("textarea")}} resize-bar ist, während die Eigenschaft {{CSSxRef("pointer-events")}} verhindert, dass die dritte `<textarea>` Klickereignisse empfängt. Sie ist jedoch weiterhin per Tastatur fokussierbar.
+
+Klicken Sie auf "Play" im obigen Beispiel, um den Code für die Animation im MDN Playground anzusehen oder zu bearbeiten.
 
 ## Referenz
 
@@ -49,15 +105,15 @@ Um den Code für dieses Beispiel einer grundlegenden Benutzerschnittstelle zu se
 
 ## Leitfäden
 
-- [Erweiterte Formulargestaltung lernen](/de/docs/Learn/Forms/Advanced_form_styling)
-  - : Erklärt, wie {{CSSxRef("appearance")}} zum Styling von Formularsteuerungen verwendet werden kann.
+- [Lernen Sie Formulare: Fortgeschrittenes Formularstyling](/de/docs/Learn/Forms/Advanced_form_styling)
+  - : Erklärt, wie {{CSSxRef("appearance")}} verwendet werden kann, um Formularelemente zu stylen.
 
 ## Verwandte Konzepte
 
-- CSS [`cursor`](/de/docs/Web/CSS/cursor) Eigenschaft
-- SVG [`cursor`](/de/docs/Web/SVG/Attribute/cursor) Attribut
-- CSS {{CSSxRef(":focus")}}, {{CSSxRef(":focus-within")}} und {{CSSxRef(":focus-visible")}} Pseudoklassen
-- [`CaretPosition`](/de/docs/Web/API/CaretPosition) Schnittstelle
+- CSS-Eigenschaft [`cursor`](/de/docs/Web/CSS/cursor)
+- SVG-Attribut [`cursor`](/de/docs/Web/SVG/Attribute/cursor)
+- CSS-Pseudoklassen {{CSSxRef(":focus")}}, {{CSSxRef(":focus-within")}} und {{CSSxRef(":focus-visible")}}
+- [`CaretPosition`](/de/docs/Web/API/CaretPosition)-Schnittstelle
 
 ## Spezifikationen
 
@@ -65,4 +121,4 @@ Um den Code für dieses Beispiel einer grundlegenden Benutzerschnittstelle zu se
 
 ## Siehe auch
 
-- [Tips for Designing Useful and Usable Focus Indicators](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/) (2016)
+- [Tipps zur Gestaltung nützlicher und benutzbarer Fokusindikatoren](https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/) (2016)

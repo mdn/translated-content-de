@@ -2,18 +2,18 @@
 title: MDN Web Docs Repositories
 slug: MDN/Community/Contributing/Our_repositories
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: ad6eb6b52b4b3082397e8e011bd59a6d88a8f5f3
 ---
 
 {{MDNSidebar}}
 
-[MDN Web Docs](/) ist ein komplexes Projekt mit vielen beweglichen Teilen. Es ist ratsam, sich mit den verschiedenen Repositories der Projekte vertraut zu machen. Dieses Dokument soll Ihnen helfen, die verschiedenen Repositories (Repos) zu finden, die Sie benötigen, wenn Sie zu verschiedenen Teilen des MDN Web Docs Projekts beitragen.
+[MDN Web Docs](/) ist ein komplexes Projekt mit vielen beweglichen Teilen. Es ist eine gute Idee, sich mit den verschiedenen Repositories des Projekts vertraut zu machen. Dieses Dokument soll Ihnen helfen, die verschiedenen Repositories (Repos) zu finden, die Sie benötigen könnten, wenn Sie zu verschiedenen Teilen des MDN Web Docs Projekts beitragen.
 
-## Repository-Stufen
+## Repository-Ebenen
 
-### Stufe 1
+### Ebene 1
 
-Der Code in diesen Repositories ist zentral für das MDN Web Docs-Projekt und läuft auf von Mozilla betriebenen Domains.
+Der Code in diesen Repositories ist zentral für das MDN Web Docs Projekt und läuft auf von Mozilla betriebenen Domains.
 
 - [mdn/content](https://github.com/mdn/content)
 - [Yari](https://github.com/mdn/yari)
@@ -22,49 +22,49 @@ Der Code in diesen Repositories ist zentral für das MDN Web Docs-Projekt und l�
 - [interactive-examples](https://github.com/mdn/interactive-examples)
 - [bob](https://github.com/mdn/bob)
 
-Ein Stufe-1-Projekt sollte mindestens 3 Mitglieder haben, darunter mindestens zwei mit Administratorrechten.
+Ein Projekt der Ebene 1 sollte mindestens 3 Mitglieder haben, darunter mindestens zwei mit Administratorrechten.
 
-### Stufe 2
+### Ebene 2
 
-Diese Repositories konzentrieren sich hauptsächlich auf unterstützende Inhalte wie Codebeispiele, den MDN Web Docs Lernbereich, Lokalisierung und Beispielprojekte. Beispiele beinhalten:
+Diese Repositories konzentrieren sich hauptsächlich auf die Unterstützung von Inhalten, wie z. B. Codebeispiele, den MDN Web Docs Lernbereich, Lokalisierung und Beispielprojekte. Beispiele sind:
 
 - [dom-examples](https://github.com/mdn/dom-examples)
 - [translated-content](https://github.com/mdn/translated-content)
 - [learning-area](https://github.com/mdn/learning-area)
 
-Ein Stufe-2-Projekt sollte mindestens 2 Mitglieder haben, darunter mindestens eines mit Administratorrechten.
+Ein Projekt der Ebene 2 sollte mindestens 2 Mitglieder haben, darunter mindestens eines mit Administratorrechten.
 
-### Stufe 3
+### Ebene 3
 
-Diese Repositories werden für die Projektplanung, die Dokumentation des Projekts selbst und die Einbindung der Community verwendet. Beispiele beinhalten:
+Dies sind Repositories, die für die Projektplanung, die Dokumentation des Projekts selbst und die Einbindung der Community verwendet werden. Beispiele sind:
 
 - [mdn-community](https://github.com/mdn/mdn-community)
 - [mdn/mdn](https://github.com/mdn/mdn)
 - [content-team-projects](https://github.com/mdn/content-team-projects)
 
-Ein Stufe-3-Projekt benötigt einen Admin.
+Ein Projekt der Ebene 3 benötigt einen Administrator.
 
 ## Kern-Repos
 
-- **Kerninhalt**: <https://github.com/mdn/content>. Das wichtigste Repo für Inhalte von MDN Web Docs — hier wird der gesamte Kerninhalt in Englisch gespeichert, und hier machen Sie alle standardmäßigen Änderungen an den Seiteninhalten.
-- **MDN Web Docs Plattform**: <https://github.com/mdn/yari>. Hier wird die MDN Web Docs-Plattform gespeichert, und hier gehen Sie hin, wenn Sie Änderungen an unserer Seitenstruktur auf hoher Ebene oder der Rendering-Mechanik vornehmen möchten.
-- **Daten zur Browser-Kompatibilität**: <https://github.com/mdn/browser-compat-data>. Hier werden die Daten gespeichert, die verwendet werden, um die Tabellen zur Browser-Kompatibilität zu erstellen, die auf unseren Referenzseiten zu finden sind ([Beispiel](/de/docs/Web/HTML/Element/progress#browser_compatibility)). Wenn Sie Informationen zur Browser-Kompatibilität von Web-Features haben — oder bereit und in der Lage sind, einige Recherchen und/oder Experimente durchzuführen — können Sie helfen, MDN's [Daten zur Browser-Kompatibilität](https://github.com/mdn/browser-compat-data/blob/main/docs/contributing.md) zu aktualisieren.
-- **Interaktive Beispiele**: <https://github.com/mdn/interactive-examples>. Dieses Repo speichert die Beispielcodeblöcke, die am Anfang vieler unserer Referenzseiten zu finden sind ([Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis)). Bearbeiten Sie diese Beispiele hier.
+- **Kerninhalt**: <https://github.com/mdn/content>. Das wichtigste Repo für MDN Web Docs Inhalte — hier wird der gesamte englische Kerninhalt der Webseite gespeichert und hier nehmen Sie alle Standardänderungen an Seiteninhalten vor.
+- **MDN Web Docs Plattform**: <https://github.com/mdn/yari>. Hier wird die MDN Web Docs Plattform gespeichert. Hier sollten Sie hingehen, wenn Sie Änderungen an der Seitenstruktur auf hoher Ebene oder an der Rendering-Mechanik vornehmen möchten.
+- **Browser-Kompatibilitätsdaten**: <https://github.com/mdn/browser-compat-data>. Hier werden die Daten gespeichert, die zur Generierung der Browser-Kompatibilitätstabellen auf unseren Referenzseiten verwendet werden ([Beispiel](/de/docs/Web/HTML/Element/progress#browser_compatibility)). Wenn Sie Informationen über die Browser-Kompatibilität von Web-Features haben — oder bereit und in der Lage sind, etwas Forschung und/oder Experimente durchzuführen — können Sie helfen, MDNs [Browser-Kompatibilitätsdaten](https://github.com/mdn/browser-compat-data/blob/main/docs/contributing.md) zu aktualisieren.
+- **Interaktive Beispiele**: <https://github.com/mdn/interactive-examples>. Dieses Repo speichert die Beispiel-Codeblöcke, die auf vielen unserer Referenzseiten oben zu finden sind ([Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis)). Bearbeiten Sie diese Beispiele hier.
 - **Bob** aka Builder of Bits: <https://github.com/mdn/bob>
-  Dieses Repo speichert den Rendering-Code, der die schönen editierbaren und kopierbaren Beispiele erzeugt, die am Anfang vieler unserer Referenzseiten zu finden sind ([Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis)).
-- **Übersetzte Inhalte**: <https://github.com/mdn/translated-content>. Hier leben lokalisierte Inhalte. Gehen Sie hierhin, wenn Sie helfen möchten, Seiten in eine unserer [aktiv gepflegten Sprachen](https://github.com/mdn/translated-content#locales) zu übersetzen.
+  Dieses Repo speichert den Rendering-Code, der die schönen bearbeitbaren, kopierbaren Beispiele erzeugt, die auf vielen unserer Referenzseiten oben zu finden sind ([Beispiel](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis)).
+- **Übersetzter Inhalt**: <https://github.com/mdn/translated-content>. Hier befindet sich der lokalisierte Inhalt. Besuchen Sie dieses Repo, wenn Sie helfen möchten, Seiten in eine unserer [aktiv gepflegten Sprachen](https://github.com/mdn/translated-content#locales) zu übersetzen.
 - **Workflows**: <https://github.com/mdn/workflows>
-  Eine wachsende Sammlung von wiederverwendbaren GitHub Actions zur Verwendung in MDN Web Docs-Repositories.
+  Eine wachsende Sammlung von wiederverwendbaren GitHub-Aktionen für die Verwendung in MDN Web Docs Repositories.
 
 ## Codebeispiel
 
 ### Codebeispiele und Demos
 
-[//]: # "TODO: UPDATE WITH REPO TRIAGE"
+[//]: # "TODO: MIT REPO-TRIAGE AKTUALISIEREN"
 
-Die GitHub-Organisation von MDN Web Docs enthält eine große Anzahl von Beispiel-Repos. Diese enthalten im Allgemeinen eigenständige Codebeispiele, die häufig von unseren Seiten verlinkt werden. Gelegentlich finden Sie eines dieser Beispiele, das auf einer Seite mit einem Makroaufruf wie diesem eingebettet ist — `\{{EmbedGHLiveSample("css-examples/learn/tasks/grid/grid1.html", '100%', 700)}}`.
+Die MDN Web Docs GitHub Organisation enthält eine große Anzahl von Beispiel-Repos. Diese enthalten generell eigenständige Codebeispiele, die zu groß sind oder nicht mit dem [`EmbedLiveSample`](/de/docs/MDN/Writing_guidelines/Page_structures/Live_samples#live_sample_macros) Makro gerendert werden können. Diese Beispiele werden in die Inhaltsseiten mit einem Makroaufruf wie diesem eingebettet — `\{{EmbedGHLiveSample("css-examples/learn/tasks/grid/grid1.html", '100%', 700)}}`.
 
-Denken Sie immer daran, dass, wenn Sie den Code auf einer beliebigen Seite aktualisieren, Sie auch das entsprechende Beispiel-Repo aktualisieren müssen.
+Denken Sie immer daran, dass Sie, wenn Sie den Code auf einer bestimmten Seite aktualisieren, auch das entsprechende Beispiel-Repo aktualisieren müssen.
 
 - [**dom-examples**](https://github.com/mdn/dom-examples)
 - [**css-examples**](https://github.com/mdn/css-examples)

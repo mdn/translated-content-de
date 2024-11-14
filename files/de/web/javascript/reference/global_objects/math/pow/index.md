@@ -2,12 +2,12 @@
 title: Math.pow()
 slug: Web/JavaScript/Reference/Global_Objects/Math/pow
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
 ---
 
 {{JSRef}}
 
-Die statische Methode **`Math.pow()`** gibt den Wert einer Basis zurück, die zu einer Potenz erhoben wird. Das heißt
+Die statische Methode **`Math.pow()`** gibt den Wert einer Basis zurück, der mit einer Potenz potenziert wird. Das bedeutet:
 
 <!-- prettier-ignore-start -->
 <math display="block">
@@ -32,7 +32,7 @@ Math.pow(base, exponent)
 
 ### Rückgabewert
 
-Eine Zahl, die `base` zur Potenz von `exponent` repräsentiert. Gibt {{jsxref("NaN")}} in einem der folgenden Fälle zurück:
+Eine Zahl, die `base` potenziert mit `exponent` darstellt. Gibt {{jsxref("NaN")}} in einem der folgenden Fälle zurück:
 
 - `exponent` ist `NaN`.
 - `base` ist `NaN` und `exponent` ist nicht `0`.
@@ -41,18 +41,18 @@ Eine Zahl, die `base` zur Potenz von `exponent` repräsentiert. Gibt {{jsxref("N
 
 ## Beschreibung
 
-`Math.pow()` ist dem [`**`](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) Operator äquivalent, mit der Ausnahme, dass `Math.pow()` nur Zahlen akzeptiert.
+`Math.pow()` ist äquivalent zum [`**`](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation) Operator, außer dass `Math.pow()` nur Zahlen akzeptiert.
 
-`Math.pow(NaN, 0)` (und das äquivalente `NaN ** 0`) ist der einzige Fall, in dem {{jsxref("NaN")}} nicht durch mathematische Operationen propagiert wird — es gibt `1` zurück, obwohl der Operanden `NaN` ist. Darüber hinaus verhält sich das Verhalten, wenn `base` 1 und `exponent` nicht endlich ist (±Infinity oder `NaN`), anders als bei IEEE 754, das spezifiziert, dass das Ergebnis 1 sein sollte, während JavaScript `NaN` zurückgibt, um die Rückwärtskompatibilität mit seinem ursprünglichen Verhalten zu erhalten.
+`Math.pow(NaN, 0)` (und das äquivalente `NaN ** 0`) ist der einzige Fall, bei dem {{jsxref("NaN")}} nicht durch mathematische Operationen propagiert wird — es gibt `1` zurück, obwohl der Operand `NaN` ist. Zusätzlich ist das Verhalten, wenn `base` 1 ist und `exponent` nicht endlich ist (±Infinity oder `NaN`), anders als bei IEEE 754, das spezifiziert, dass das Ergebnis 1 sein sollte, während JavaScript `NaN` zurückgibt, um die Rückwärtskompatibilität mit seinem ursprünglichen Verhalten zu bewahren.
 
-Da `pow()` eine statische Methode von `Math` ist, verwenden Sie es als `Math.pow()`, anstatt als Methode eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `pow()` eine statische Methode von `Math` ist, verwenden Sie es als `Math.pow()` und nicht als Methode eines `Math` Objekts, das Sie erstellt haben (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
 ### Verwendung von Math.pow()
 
 ```js
-// Simple cases
+// Basic cases
 Math.pow(7, 2); // 49
 Math.pow(7, 3); // 343
 Math.pow(2, 10); // 1024
@@ -118,4 +118,4 @@ Math.pow(1, NaN); // NaN
 - {{jsxref("Math.exp()")}}
 - {{jsxref("Math.log()")}}
 - {{jsxref("Math.sqrt()")}}
-- [Exponentiation (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponentialoperator (`**`)](/de/docs/Web/JavaScript/Reference/Operators/Exponentiation)

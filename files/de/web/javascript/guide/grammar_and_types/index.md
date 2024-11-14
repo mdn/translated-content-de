@@ -2,7 +2,7 @@
 title: Grammatik und Typen
 slug: Web/JavaScript/Guide/Grammar_and_types
 l10n:
-  sourceCommit: 0b0cac4814d37f8a62d69de1b0d76dbe20d085ec
+  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
 ---
 
 {{jsSidebar("JavaScript Guide")}} {{PreviousNext("Web/JavaScript/Guide/Introduction", "Web/JavaScript/Guide/Control_flow_and_error_handling")}}
@@ -11,30 +11,30 @@ Dieses Kapitel behandelt die grundlegende Grammatik von JavaScript, Variablendek
 
 ## Grundlagen
 
-JavaScript übernimmt den Großteil seiner Syntax von Java, C und C++, wurde aber auch von Awk, Perl und Python beeinflusst.
+JavaScript übernimmt den größten Teil seiner Syntax von Java, C und C++, wurde aber auch von Awk, Perl und Python beeinflusst.
 
-JavaScript ist **case-sensitive** (beachtet die Groß- und Kleinschreibung) und verwendet die **Unicode**-Zeichensatz. Zum Beispiel könnte das Wort Früh als Variablenname verwendet werden.
+JavaScript ist **case-sensitiv** und verwendet den **Unicode**-Zeichensatz. Zum Beispiel könnte das Wort Früh (was auf Deutsch "früh" bedeutet) als Variablenname verwendet werden.
 
 ```js
 const Früh = "foobar";
 ```
 
-Aber die Variable `früh` ist nicht dasselbe wie `Früh`, da JavaScript auf Groß- und Kleinschreibung achtet.
+Aber die Variable `früh` ist nicht dasselbe wie `Früh`, da JavaScript zwischen Groß- und Kleinschreibung unterscheidet.
 
 In JavaScript werden Anweisungen {{Glossary("Statement", "statements")}} genannt und mit Semikolons (;) getrennt.
 
-Ein Semikolon ist nach einer Anweisung nicht notwendig, wenn diese in einer eigenen Zeile steht. Wenn jedoch mehr als eine Anweisung in einer Zeile gewünscht ist, _müssen_ sie durch Semikolons getrennt werden.
+Ein Semikolon ist nach einer Anweisung nicht notwendig, wenn sie in einer eigenen Zeile steht. Wenn jedoch mehr als eine Anweisung in einer Zeile gewünscht ist, müssen sie _mit_ Semikolons getrennt werden.
 
 > [!NOTE]
-> ECMAScript hat auch Regeln für die automatische Eingabe von Semikolons ([ASI](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion)), um Anweisungen zu beenden. (Weitere Informationen finden Sie in der ausführlichen Referenz zur [lexikalischen Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar) von JavaScript.)
+> ECMAScript hat auch Regeln für die automatische Einfügung von Semikolons ([ASI](/de/docs/Web/JavaScript/Reference/Lexical_grammar#automatic_semicolon_insertion)), um Anweisungen zu beenden. (Weitere Informationen finden Sie im detaillierten Referenzdokument zur [lexikalischen Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar) von JavaScript.)
 
-Es wird jedoch als Best Practice angesehen, immer ein Semikolon nach einer Anweisung zu schreiben, auch wenn es nicht unbedingt nötig ist. Diese Praxis reduziert die Wahrscheinlichkeit, dass sich Fehler in den Code einschleichen.
+Es wird jedoch als beste Praxis angesehen, immer ein Semikolon nach einer Anweisung zu schreiben, selbst wenn es nicht zwingend erforderlich ist. Diese Praxis verringert die Wahrscheinlichkeit, dass sich Bugs in den Code einschleichen.
 
-Der Quelltext eines JavaScript-Skripts wird von links nach rechts gescannt und in eine Folge von Eingabeelementen umgewandelt, die _Tokens_, _Steuerzeichen_, _Zeilenenden_, _Kommentare_ oder {{Glossary("whitespace", "Leerzeichen")}} sind. (Leerzeichen, Tabulatoren und Zeilenumbrüche werden als Leerzeichen betrachtet.)
+Der Quelltext eines JavaScript-Skripts wird von links nach rechts gescannt und in eine Folge von Eingabeelementen umgewandelt, die _Tokens_, _Steuerzeichen_, _Zeilenabschlüsse_, _Kommentare_ oder {{Glossary("whitespace", "Leerzeichen")}} sind. (Leerzeichen, Tabs und Newline-Zeichen gelten als Leerzeichen.)
 
 ## Kommentare
 
-Die Syntax von **Kommentaren** ist dieselbe wie in C++ und vielen anderen Sprachen:
+Die Syntax von **Kommentaren** ist die gleiche wie in C++ und vielen anderen Sprachen:
 
 ```js
 // a one line comment
@@ -44,13 +44,13 @@ Die Syntax von **Kommentaren** ist dieselbe wie in C++ und vielen anderen Sprach
  */
 ```
 
-Sie können Blockkommentare nicht schachteln. Dies passiert oft, wenn Sie versehentlich eine `*/`-Sequenz in Ihren Kommentar einfügen, die den Kommentar beendet.
+Man kann Block-Kommentare nicht verschachteln. Dies geschieht oft, wenn man versehentlich eine `*/`-Sequenz in den Kommentar aufnimmt, die den Kommentar beendet.
 
 ```js-nolint example-bad
 /* You can't, however, /* nest comments */ SyntaxError */
 ```
 
-In diesem Fall müssen Sie das `*/`-Muster aufbrechen. Zum Beispiel durch das Einfügen eines Backslashes:
+In diesem Fall muss das Muster `*/` aufgebrochen werden. Beispielsweise, indem man einen Backslash einfügt:
 
 ```js
 /* You can /* nest comments *\/ by escaping slashes */
@@ -59,74 +59,74 @@ In diesem Fall müssen Sie das `*/`-Muster aufbrechen. Zum Beispiel durch das Ei
 Kommentare verhalten sich wie Leerzeichen und werden während der Skriptausführung verworfen.
 
 > [!NOTE]
-> Sie könnten auch eine dritte Kommentarsyntax am Anfang einiger JavaScript-Dateien sehen, die in etwa so aussieht: `#!/usr/bin/env node`.
+> Sie könnten auch eine dritte Art von Kommentarsyntax am Anfang einiger JavaScript-Dateien sehen, die etwa so aussieht: `#!/usr/bin/env node`.
 >
-> Dies wird als **Hashbang-Kommentarsyntax** bezeichnet und ist ein spezieller Kommentar, um den Pfad zu einer bestimmten JavaScript-Engine anzugeben, die das Skript ausführen soll. Weitere Einzelheiten finden Sie unter [Hashbang-Kommentare](/de/docs/Web/JavaScript/Reference/Lexical_grammar#hashbang_comments).
+> Dies wird als Syntax eines **Hashbang-Kommentars** bezeichnet und ist ein spezieller Kommentar, der den Pfad zu einer bestimmten JavaScript-Engine angibt, die das Skript ausführen soll. Siehe [Hashbang-Kommentare](/de/docs/Web/JavaScript/Reference/Lexical_grammar#hashbang_comments) für weitere Details.
 
 ## Deklarationen
 
-JavaScript kennt drei Arten von Variablendeklarationen.
+JavaScript bietet drei Arten von Variablendeklarationen.
 
 - {{jsxref("Statements/var", "var")}}
   - : Deklariert eine Variable und initialisiert sie optional mit einem Wert.
 - {{jsxref("Statements/let", "let")}}
-  - : Deklariert eine blockbegrenzte, lokale Variable und initialisiert sie optional mit einem Wert.
+  - : Deklariert eine block-skopierte, lokale Variable und initialisiert sie optional mit einem Wert.
 - {{jsxref("Statements/const", "const")}}
-  - : Deklariert eine blockbegrenzte, schreibgeschützte benannte Konstante.
+  - : Deklariert eine block-skopierte, schreibgeschützte benannte Konstante.
 
 ### Variablen
 
-Sie verwenden Variablen als symbolische Namen für Werte in Ihrer Anwendung. Die Namen von Variablen, sogenannte {{Glossary("Identifier", "Bezeichner")}}, unterliegen bestimmten Regeln.
+Variablen werden als symbolische Namen für Werte in Ihrer Anwendung verwendet. Die Namen von Variablen, sogenannte {{Glossary("Identifier", "Identifikatoren")}}, unterliegen bestimmten Regeln.
 
-Ein JavaScript-Bezeichner beginnt normalerweise mit einem Buchstaben, Unterstrich (`_`) oder Dollarzeichen (`$`). Nachfolgende Zeichen können auch Ziffern (`0` – `9`) sein. Da JavaScript case-sensitive ist, umfassen Buchstaben die Zeichen `A` bis `Z` (Großbuchstaben) sowie `a` bis `z` (Kleinbuchstaben).
+Ein JavaScript-Identifikator beginnt üblicherweise mit einem Buchstaben, Unterstrich (`_`) oder Dollarzeichen (`$`). Nachfolgende Zeichen können auch Ziffern (`0` - `9`) sein. Da JavaScript case-sensitiv ist, umfassen Buchstaben die Zeichen `A` bis `Z` (Großbuchstaben) sowie `a` bis `z` (Kleinbuchstaben).
 
-Sie können die meisten Unicode-Buchstaben wie `å` und `ü` in Bezeichnern verwenden. (Weitere Informationen finden Sie in der Referenz zur [lexikalischen Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers).) Sie können auch [Unicode-Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals) verwenden, um Zeichen in Bezeichnern darzustellen.
+Sie können die meisten Unicode-Buchstaben wie `å` und `ü` in Identifikatoren verwenden. (Weitere Details finden Sie in der Referenz zur [lexikalischen Grammatik](/de/docs/Web/JavaScript/Reference/Lexical_grammar#identifiers).) Sie können auch [Unicode-Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals) verwenden, um Zeichen in Identifikatoren darzustellen.
 
-Einige Beispiele für erlaubte Namen sind `Number_hits`, `temp99`, `$credit` und `_name`.
+Einige Beispiele für legale Namen sind `Number_hits`, `temp99`, `$credit` und `_name`.
 
 ### Variablen deklarieren
 
 Sie können eine Variable auf zwei Arten deklarieren:
 
-- Mit dem Schlüsselwort {{jsxref("Statements/var", "var")}}. Zum Beispiel `var x = 42`. Diese Syntax kann verwendet werden, um sowohl **lokale** als auch **globale** Variablen zu deklarieren, abhängig vom _Ausführungskontext_.
-- Mit dem Schlüsselwort {{jsxref("Statements/const", "const")}} oder {{jsxref("Statements/let", "let")}}. Zum Beispiel `let y = 13`. Diese Syntax kann verwendet werden, um eine blockbegrenzte lokale Variable zu deklarieren. (Siehe [Variablengeltungsbereich](#variablengeltungsbereich) unten.)
+- Mit dem Schlüsselwort {{jsxref("Statements/var", "var")}}. Zum Beispiel `var x = 42`. Diese Syntax kann sowohl für die Deklaration von **lokalen** als auch **globalen** Variablen verwendet werden, abhängig vom _Ausführungskontext_.
+- Mit dem Schlüsselwort {{jsxref("Statements/const", "const")}} oder {{jsxref("Statements/let", "let")}}. Zum Beispiel `let y = 13`. Diese Syntax kann zur Deklaration einer block-skopierten lokalen Variable verwendet werden. (Siehe [Variablenscope](#variablenscope) weiter unten.)
 
-Sie können Variablen deklarieren, um Werte mit der [Destructuring-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) zu entpacken. Zum Beispiel `const { bar } = foo`. Dies erstellt eine Variable namens `bar` und weist ihr den Wert zu, der dem Schlüssel desselben Namens aus unserem Objekt `foo` entspricht.
+Sie können Variablen für das Entpacken von Werten mit der Syntax der [Destructuring-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) deklarieren. Zum Beispiel `const { bar } = foo`. Dies erstellt eine Variable namens `bar` und weist ihr den Wert zu, der dem Schlüssel mit demselben Namen aus unserem Objekt `foo` entspricht.
 
-Variablen sollten immer deklariert werden, bevor sie verwendet werden. JavaScript erlaubte früher das Zuweisen von nicht deklarierten Variablen, was eine **[nicht erklärte globale](/de/docs/Web/JavaScript/Reference/Statements/var#description)** Variable erstellt. Dies ist ein Fehler im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode#assigning_to_undeclared_variables) und sollte insgesamt vermieden werden.
+Variablen sollten immer deklariert werden, bevor sie verwendet werden. JavaScript erlaubte früher die Zuweisung an nicht deklarierte Variablen, was eine **[nicht deklarierte globale](/de/docs/Web/JavaScript/Reference/Statements/var#description)** Variable erstellt. Dies ist ein Fehler im [strikten Modus](/de/docs/Web/JavaScript/Reference/Strict_mode#assigning_to_undeclared_variables) und sollte vollständig vermieden werden.
 
 ### Deklaration und Initialisierung
 
-In einer Anweisung wie `let x = 42`, wird der Teil `let x` als _Deklaration_ und der Teil `= 42` als _Initialisierer_ bezeichnet. Die Deklaration ermöglicht es, später im Code auf die Variable zuzugreifen, ohne einen {{jsxref("ReferenceError")}} zu werfen, während der Initialisierer der Variablen einen Wert zuweist. In `var`- und `let`-Deklarationen ist der Initialisierer optional. Wenn eine Variable ohne Initialisierer deklariert wird, wird ihr der Wert [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) zugewiesen.
+In einer Anweisung wie `let x = 42` wird der Teil `let x` als _Deklaration_ bezeichnet, und der Teil `= 42` als _Initialisierer_. Die Deklaration ermöglicht den späteren Zugriff auf die Variable im Code, ohne einen {{jsxref("ReferenceError")}} auszulösen, während der Initialisierer der Variablen einen Wert zuweist. Bei `var`- und `let`-Deklarationen ist der Initialisierer optional. Wenn eine Variable ohne Initialisierer deklariert wird, wird ihr der Wert [`undefined`](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined) zugewiesen.
 
 ```js
 let x;
 console.log(x); // logs "undefined"
 ```
 
-Im Wesentlichen ist `let x = 42` äquivalent zu `let x; x = 42`.
+Im Wesentlichen ist `let x = 42` gleichbedeutend mit `let x; x = 42`.
 
-`const`-Deklarationen benötigen immer einen Initialisierer, da sie jede Art von Zuweisung nach der Deklaration verbieten und eine implizite Initialisierung mit `undefined` wahrscheinlich ein Programmierfehler ist.
+`const`-Deklarationen benötigen immer einen Initialisierer, da sie jegliche Art von Zuweisung nach der Deklaration verbieten und eine implizite Initialisierung mit `undefined` wahrscheinlich ein Programmierfehler ist.
 
 ```js-nolint example-bad
 const x; // SyntaxError: Missing initializer in const declaration
 ```
 
-### Variablengeltungsbereich
+### Variablenscope
 
-Eine Variable kann zu einem der folgenden {{Glossary("Scope", "Geltungsbereiche")}} gehören:
+Eine Variable kann zu einem der folgenden {{Glossary("Scope", "Scopes")}} gehören:
 
-- Globaler Geltungsbereich: Der Standard-Geltungsbereich für alle im Skriptmodus laufenden Code.
-- Modul-Geltungsbereich: Der Geltungsbereich für Code, der im Modulmodus ausgeführt wird.
-- Funktionsgeltungsbereich: Der Geltungsbereich, der mit einer {{Glossary("function", "Funktion")}} erstellt wird.
+- Globaler Scope: Der Standardscope für all den Code, der im Skriptmodus ausgeführt wird.
+- Modul-Scope: Der Scope für Code, der im Modus "Modul" ausgeführt wird.
+- Funktionsscope: Der Scope, der mit einer {{Glossary("function", "Funktion")}} erstellt wird.
 
-Darüber hinaus können Variablen, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklariert werden, zu einem zusätzlichen Geltungsbereich gehören:
+Darüber hinaus können Variablen, die mit [`let`](/de/docs/Web/JavaScript/Reference/Statements/let) oder [`const`](/de/docs/Web/JavaScript/Reference/Statements/const) deklariert werden, zu einem zusätzlichen Scope gehören:
 
-- Block-Geltungsbereich: Der Geltungsbereich, der mit einem Paar geschweifter Klammern (einem [Block](/de/docs/Web/JavaScript/Reference/Statements/block)) erstellt wird.
+- Block-Scope: Der Scope, der mit einem Paar geschweifter Klammern (ein [Block](/de/docs/Web/JavaScript/Reference/Statements/block)) erstellt wird.
 
-Wenn Sie eine Variable außerhalb einer Funktion deklarieren, wird sie als _globale_ Variable bezeichnet, weil sie für jeden anderen Code im aktuellen Dokument verfügbar ist. Wenn Sie eine Variable innerhalb einer Funktion deklarieren, wird sie als _lokale_ Variable bezeichnet, weil sie nur innerhalb dieser Funktion verfügbar ist.
+Wenn Sie eine Variable außerhalb einer Funktion deklarieren, wird sie als _globale_ Variable bezeichnet, da sie jedem anderen Code im aktuellen Dokument zur Verfügung steht. Wenn Sie eine Variable innerhalb einer Funktion deklarieren, wird sie als _lokale_ Variable bezeichnet, da sie nur innerhalb dieser Funktion verfügbar ist.
 
-`let`- und `const`-Deklarationen können auch auf die [Blockanweisung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#block_statement) beschränkt sein, in der sie deklariert sind.
+`let` und `const`-Deklarationen können auch auf den [block statement](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling#block_statement) beschränkt sein, in dem sie deklariert werden.
 
 ```js
 if (Math.random() > 0.5) {
@@ -135,9 +135,9 @@ if (Math.random() > 0.5) {
 console.log(y); // ReferenceError: y is not defined
 ```
 
-Allerdings sind Variablen, die mit `var` erstellt wurden, nicht auf Blockebene beschränkt, sondern nur lokal zum _Funktion (oder globaler Geltungsbereich)_, in dem sich der Block befindet.
+Wenn jedoch Variablen mit `var` erstellt werden, sind sie nicht block-skopiert, sondern nur lokal auf die _Funktion (oder den globalen Scope)_, in der der Block enthalten ist.
 
-Zum Beispiel wird der folgende Code `5` protokollieren, weil der Geltungsbereich von `x` der globale Kontext (oder der Funktionskontext, wenn der Code Teil einer Funktion ist) ist. Der Geltungsbereich von `x` ist nicht auf den direkten Block der `if`-Anweisung beschränkt.
+Zum Beispiel wird der folgende Code `5` ausgeben, da der Scope von `x` der globale Kontext (oder der Funktionskontext, wenn der Code Teil einer Funktion ist) ist. Der Scope von `x` ist nicht auf den unmittelbaren `if`-Block beschränkt.
 
 ```js
 if (true) {
@@ -146,9 +146,9 @@ if (true) {
 console.log(x); // x is 5
 ```
 
-### Variable Hoisting
+### Variablenhebung
 
-Mit `var` deklarierte Variablen werden {{Glossary("Hoisting", "gehoistet")}}, was bedeutet, dass Sie auf die Variable überall in ihrem Geltungsbereich verweisen können, auch wenn ihre Deklaration noch nicht erreicht wurde. Sie können sich `var`-Deklarationen als "an die Spitze ihres Funktions- oder globalen Geltungsbereichs angehoben" vorstellen. Allerdings ist der Wert immer `undefined`, wenn Sie auf eine Variable zugreifen, bevor sie deklariert wird, da nur ihre _Deklaration_ und _Default-Initialisierung (mit `undefined`)_ gehoistet werden, aber nicht ihre _Wertzuweisung_.
+`var`-deklarierte Variablen werden {{Glossary("Hoisting", "gehoben")}}, was bedeutet, dass Sie auf die Variable überall in ihrem Scope verweisen können, selbst wenn ihre Deklaration noch nicht erreicht wurde. Man kann `var`-Deklarationen als an die Spitze ihres Funktions- oder globalen Scopes "gehoben" betrachten. Wenn Sie jedoch auf eine Variable zugreifen, bevor sie deklariert wird, ist der Wert immer `undefined`, da nur ihre _Deklaration_ und _Standardinitialisierung (mit `undefined`)_ gehoben wird, jedoch nicht ihre _Wertzuteilung_.
 
 ```js
 console.log(x === undefined); // true
@@ -160,7 +160,7 @@ var x = 3;
 })();
 ```
 
-Die obigen Beispiele werden so interpretiert:
+Die obigen Beispiele werden genauso interpretiert wie:
 
 ```js
 var x;
@@ -174,9 +174,9 @@ x = 3;
 })();
 ```
 
-Aufgrund des Hoisting sollten alle `var`-Anweisungen in einer Funktion möglichst nah an den Anfang der Funktion platziert werden. Diese Best Practice erhöht die Klarheit des Codes.
+Aufgrund der Hebung sollten alle `var`-Anweisungen in einer Funktion so nahe wie möglich am Anfang der Funktion platziert werden. Diese bewährte Praxis erhöht die Klarheit des Codes.
 
-Ob `let` und `const` gehoistet werden, ist eine Frage der Definition. Der Bezug zur Variablen im Block vor der Variablendeklaration führt immer zu einem {{jsxref("ReferenceError")}}, weil die Variable in einer "[temporalen Todzone](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)" von Beginn des Blocks bis zur Deklarationsverarbeitung liegt.
+Ob `let` und `const` gehoben werden, ist eine Frage der Definitionsdebatte. Ein Verweis auf die Variable im Block vor der Variablendeklaration führt immer zu einem {{jsxref("ReferenceError")}}, da sich die Variable in einer "[zeitlichen Lücke](/de/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)" von Beginn des Blocks bis zur Verarbeitung der Deklaration befindet.
 
 ```js
 console.log(x); // ReferenceError
@@ -186,27 +186,27 @@ console.log(y); // ReferenceError
 let y = 3;
 ```
 
-Im Gegensatz zu `var`-Deklarationen, die nur die Deklaration aber nicht den Wert hoisten, werden [Funktionsdeklarationen](/de/docs/Web/JavaScript/Guide/Functions#function_hoisting) vollständig gehoistet — Sie können die Funktion sicher überall in ihrem Geltungsbereich aufrufen. Weitere Informationen finden Sie im {{Glossary("Hoisting", "Glossar-Eintrag zum Hoisting")}}.
+Im Gegensatz zu `var`-Deklarationen, die nur die Deklaration, aber nicht ihren Wert heben, werden [Funktionsdeklarationen](/de/docs/Web/JavaScript/Guide/Functions#function_hoisting) vollständig gehoben — Sie können die Funktion sicher überall in ihrem Scope aufrufen. Siehe den Glossareintrag zu {{Glossary("Hoisting", "Hoisting")}} für weitere Diskussionen.
 
 ### Globale Variablen
 
-Globale Variablen sind in der Tat Eigenschaften des _globalen Objekts_.
+Globale Variablen sind tatsächlich Eigenschaften des _globalen Objekts_.
 
-In Webseiten ist das globale Objekt [`window`](/de/docs/Web/API/Window), sodass Sie globale Variablen mit der `window.variable`-Syntax lesen und setzen können. In allen Umgebungen kann die [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis)-Variable (die selbst eine globale Variable ist) verwendet werden, um globale Variablen zu lesen und zu setzen. Dies dient dazu, eine konsistente Schnittstelle zwischen verschiedenen JavaScript-Laufzeitumgebungen bereitzustellen.
+In Webseiten ist das globale Objekt [`window`](/de/docs/Web/API/Window), sodass Sie globale Variablen mit der Syntax `window.variable` lesen und setzen können. In allen Umgebungen kann die [`globalThis`](/de/docs/Web/JavaScript/Reference/Global_Objects/globalThis)-Variable (die selbst eine globale Variable ist) verwendet werden, um globale Variablen zu lesen und zu setzen. Dies soll eine konsistente Schnittstelle zwischen verschiedenen JavaScript-Laufzeiten gewährleisten.
 
-Folglich können Sie auf globale Variablen zugreifen, die in einem Fenster oder Frame deklariert sind, indem Sie den Namen des `window` oder `frame` angeben. Zum Beispiel, wenn eine Variable namens `phoneNumber` in einem Dokument deklariert ist, können Sie diese Variable von einem `iframe` aus als `parent.phoneNumber` referenzieren.
+Folglich können Sie von einem Fenster oder Rahmen aus auf globale Variablen zugreifen, die in einem anderen Fenster oder Rahmen deklariert sind, indem Sie den Namen des `window` oder `frame` angeben. Wenn beispielsweise eine Variable namens `phoneNumber` in einem Dokument deklariert ist, können Sie auf diese Variable von einem `iframe` aus mit `parent.phoneNumber` verweisen.
 
 ### Konstanten
 
-Sie können eine schreibgeschützte, benannte Konstante mit dem Schlüsselwort {{jsxref("Statements/const", "const")}} erstellen. Die Syntax eines Konstanten-Bezeichners ist die gleiche wie bei jedem Variablen-Bezeichner: Er muss mit einem Buchstaben, Unterstrich oder Dollarzeichen (`$`) beginnen und kann alphabetische, numerische oder Unterstrich-Zeichen enthalten.
+Sie können eine schreibgeschützte, benannte Konstante mit dem {{jsxref("Statements/const", "const")}}-Schlüsselwort erstellen. Die Syntax eines konstanten Identifikators ist die gleiche wie bei jedem Variablenidentifikator: Sie muss mit einem Buchstaben, Unterstrich oder Dollarzeichen (`$`) beginnen und kann alphabetische, numerische oder unterstrichene Zeichen enthalten.
 
 ```js
 const PI = 3.14;
 ```
 
-Eine Konstante kann während des Skriptlaufes durch Zuweisung weder geändert noch erneut deklariert werden. Sie muss bei der Deklaration initialisiert werden. Die Geltungsbereichsregeln für Konstanten sind die gleichen wie für blockübergreifende `let`-Variablen.
+Eine Konstante kann ihren Wert während der Skriptausführung nicht durch Zuweisung ändern oder neu deklariert werden. Sie muss mit einem Wert initialisiert werden. Die Scope-Regeln für Konstanten sind die gleichen wie für `let`-block-skopierte Variablen.
 
-Sie können keine Konstante mit dem gleichen Namen wie eine Funktion oder Variable im gleichen Geltungsbereich deklarieren. Zum Beispiel:
+Sie können eine Konstante nicht mit demselben Namen wie eine Funktion oder Variable im selben Scope deklarieren. Zum Beispiel:
 
 ```js-nolint example-bad
 // THIS WILL CAUSE AN ERROR
@@ -220,14 +220,16 @@ function f() {
 }
 ```
 
-`const` verhindert jedoch nur _Neuzuweisungen_, aber nicht _Mutationen_. Die Eigenschaften von Objekten, die Konstanten zugewiesen sind, sind nicht geschützt, sodass die folgende Anweisung ohne Probleme ausgeführt wird.
+Allerdings verhindert `const` nur _Neu-Zuweisungen_, ver
+
+hindert jedoch keine _Mutationen_. Die Eigenschaften von Objekten, die Konstanten zugewiesen sind, sind nicht geschützt, sodass die folgende Anweisung ohne Probleme ausgeführt wird.
 
 ```js
 const MY_OBJECT = { key: "value" };
 MY_OBJECT.key = "otherValue";
 ```
 
-Auch der Inhalt eines Arrays ist nicht geschützt, sodass die folgende Anweisung ohne Probleme ausgeführt wird.
+Auch die Inhalte eines Arrays sind nicht geschützt, sodass die folgende Anweisung ohne Probleme ausgeführt wird.
 
 ```js
 const MY_ARRAY = ["HTML", "CSS"];
@@ -241,41 +243,41 @@ console.log(MY_ARRAY); // ['HTML', 'CSS', 'JAVASCRIPT'];
 
 Der neueste ECMAScript-Standard definiert acht Datentypen:
 
-- Sieben Datentypen, die {{Glossary("Primitive", "Primitives")}} sind:
+- Sieben Datentypen, die als {{Glossary("Primitive", "primitives")}} bekannt sind:
 
   1. {{Glossary("Boolean", "Boolean")}}. `true` und `false`.
-  2. {{Glossary("null", "null")}}. Ein spezielles Schlüsselwort, das einen Nullwert bezeichnet. (Da JavaScript case-sensitive ist, ist `null` nicht dasselbe wie `Null`, `NULL` oder irgendeine andere Variante.)
-  3. {{Glossary("undefined", "undefined")}}. Eine globale Eigenschaft, deren Wert nicht definiert ist.
-  4. {{Glossary("Number", "Number")}}. Eine ganze Zahl oder Gleitkommazahl. Zum Beispiel: `42` oder `3.14159`.
-  5. {{Glossary("BigInt", "BigInt")}}. Eine ganze Zahl mit beliebiger Genauigkeit. Zum Beispiel: `9007199254740992n`.
-  6. {{Glossary("String", "String")}}. Eine Zeichenfolge, die einen Textwert darstellt. Zum Beispiel: `"Howdy"`.
+  2. {{Glossary("null", "null")}}. Ein spezielles Schlüsselwort, das einen Nullwert bezeichnet. (Da JavaScript case-sensitiv ist, sind `null` nicht dasselbe wie `Null`, `NULL` oder andere Varianten.)
+  3. {{Glossary("undefined", "undefined")}}. Eine Obereigenschaft, deren Wert nicht definiert ist.
+  4. {{Glossary("Number", "Number")}}. Eine ganze Zahl oder eine Gleitkommazahl. Zum Beispiel: `42` oder `3.14159`.
+  5. {{Glossary("BigInt", "BigInt")}}. Eine Ganzzahl mit beliebiger Präzision. Zum Beispiel: `9007199254740992n`.
+  6. {{Glossary("String", "String")}}. Eine Zeichenfolge, die einen Textwert repräsentiert. Zum Beispiel: `"Howdy"`.
   7. [Symbol](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol). Ein Datentyp, dessen Instanzen einzigartig und unveränderlich sind.
 
 - und {{Glossary("Object", "Object")}}
 
-Obwohl diese Datentypen relativ wenige sind, ermöglichen sie es Ihnen, nützliche Operationen mit Ihren Anwendungen durchzuführen. [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) sind die anderen grundlegenden Elemente der Sprache. Während Funktionen technisch eine Art von Objekt sind, können Sie sich Objekte als benannte Container für Werte vorstellen und Funktionen als Prozeduren, die Ihr Skript ausführen kann.
+Obwohl diese Datentypen relativ wenige sind, ermöglichen sie nützliche Operationen mit Ihren Anwendungen. [Funktionen](/de/docs/Web/JavaScript/Guide/Functions) sind die anderen grundlegenden Elemente der Sprache. Während Funktionen technisch eine Art Objekt sind, können Sie sich Objekte als benannte Container für Werte vorstellen und Funktionen als Prozeduren, die Ihr Skript ausführen kann.
 
-### Datentypumwandlung
+### Datentypkonvertierung
 
-JavaScript ist eine _dynamisch typisierte_ Sprache. Dies bedeutet, Sie müssen nicht den Datentyp einer Variablen angeben, wenn Sie sie deklarieren. Dies bedeutet auch, dass Datentypen während der Skriptausführung bei Bedarf automatisch konvertiert werden.
+JavaScript ist eine _dynamisch typisierte_ Sprache. Das bedeutet, dass Sie beim Deklarieren einer Variablen den Datentyp nicht angeben müssen. Es bedeutet auch, dass Datentypen bei Bedarf während der Skriptausführung automatisch konvertiert werden.
 
-So könnten Sie beispielsweise eine Variable wie folgt definieren:
+So könnten Sie zum Beispiel eine Variable wie folgt definieren:
 
 ```js
 let answer = 42;
 ```
 
-Und später könnten Sie der gleichen Variablen einen Zeichenfolgenwert zuweisen, wie zum Beispiel:
+Und später könnten Sie derselben Variablen einen String-Wert zuweisen, zum Beispiel:
 
 ```js
 answer = "Thanks for all the fish!";
 ```
 
-Da JavaScript dynamisch typisiert ist, führt diese Zuordnung nicht zu einer Fehlermeldung.
+Da JavaScript dynamisch typisiert ist, verursacht diese Zuweisung keine Fehlermeldung.
 
 ### Zahlen und der '+' Operator
 
-In Ausdrücken, die numerische und Zeichenfolgenwerte mit dem `+` Operator beinhalten, wandelt JavaScript numerische Werte in Zeichenfolgen um. Betrachten Sie zum Beispiel die folgenden Anweisungen:
+In Ausdrücken, die numerische und String-Werte mit dem `+`-Operator enthalten, konvertiert JavaScript numerische Werte in Strings. Berücksichtigen Sie beispielsweise die folgenden Anweisungen:
 
 ```js
 x = "The answer is " + 42; // "The answer is 42"
@@ -283,30 +285,30 @@ y = 42 + " is the answer"; // "42 is the answer"
 z = "37" + 7; // "377"
 ```
 
-Mit allen anderen Operatoren _konvertiert_ JavaScript numerische Werte _nicht_ in Zeichenfolgen. Zum Beispiel:
+Bei allen anderen Operatoren konvertiert JavaScript _keine_ numerischen Werte in Strings. Zum Beispiel:
 
 ```js
 "37" - 7; // 30
 "37" * 7; // 259
 ```
 
-### Konvertierung von Zeichenfolgen zu Zahlen
+### Umwandlung von Strings in Zahlen
 
-Falls ein Wert, der eine Zahl darstellt, im Speicher als Zeichenfolge vorliegt, gibt es Methoden zur Konvertierung.
+Falls ein Wert, der eine Zahl darstellt, im Speicher als String vorliegt, gibt es Methoden zur Umwandlung.
 
 - {{jsxref("parseInt()")}}
 - {{jsxref("parseFloat()")}}
 
-`parseInt` gibt nur ganze Zahlen zurück, sodass seine Verwendung bei Dezimalzahlen eingeschränkt ist.
+`parseInt` gibt nur ganze Zahlen zurück, daher ist seine Verwendung bei Dezimalzahlen eingeschränkt.
 
 > [!NOTE]
-> Eine bewährte Vorgehensweise für `parseInt` ist, immer den _radix_-Parameter einzuschließen. Der Radix-Parameter wird verwendet, um das zu verwendende Zahlensystem anzugeben.
+> Zusätzlich ist eine bewährte Praxis für `parseInt`, immer den _Radix_-Parameter einzuschließen. Der Radix-Parameter wird verwendet, um anzugeben, welches Zahlensystem verwendet werden soll.
 
 ```js
 parseInt("101", 2); // 5
 ```
 
-Eine alternative Methode, um eine Zahl aus einer Zeichenfolge zu erhalten, ist der `+` (unäre Plus) Operator:
+Eine alternative Methode, um eine Zahl aus einem String zu erhalten, ist die Verwendung des `+` (unäres Plus)-Operators:
 
 ```js-nolint
 "1.1" + "1.1"; // '1.11.1'
@@ -316,18 +318,18 @@ Eine alternative Methode, um eine Zahl aus einer Zeichenfolge zu erhalten, ist d
 
 ## Literale
 
-_Literale_ repräsentieren Werte in JavaScript. Dies sind feste Werte—keine Variablen—die Sie buchstäblich in Ihrem Skript angeben. Dieser Abschnitt beschreibt die folgenden Arten von Literalen:
+_Literale_ repräsentieren Werte in JavaScript. Dabei handelt es sich um feste Werte – nicht um Variablen –, die Sie _buchstäblich_ in Ihrem Skript angeben. Dieser Abschnitt beschreibt die folgenden Typen von Literalen:
 
 - [Array-Literale](#array-literale)
 - [Boolean-Literale](#boolean-literale)
-- [Zahlenliterale](#zahlenliterale)
-- [Objektliterale](#objektliterale)
+- [Numerische Literale](#numerische_literale)
+- [Objekt-Literale](#objekt-literale)
 - [RegExp-Literale](#regexp-literale)
-- [Zeichenfolgenliterale](#zeichenfolgenliterale)
+- [String-Literale](#string-literale)
 
 ### Array-Literale
 
-Ein Array-Literal ist eine Liste von null oder mehr Ausdrücken, von denen jedes ein Array-Element darstellt, und ist in eckige Klammern (`[]`) eingeschlossen. Wenn Sie ein Array mit einem Array-Literal erstellen, wird es mit den angegebenen Werten als seinen Elementen initialisiert und seine `length` wird auf die Anzahl der angegebenen Argumente gesetzt.
+Ein Array-Literal ist eine Liste von Null oder mehr Ausdrücken, von denen jedes ein Array-Element darstellt, eingeschlossen in eckige Klammern (`[]`). Wenn Sie ein Array mit einem Array-Literal erstellen, wird es mit den angegebenen Werten als Elementen initialisiert, und seine `length` wird auf die Anzahl der angegebenen Argumente gesetzt.
 
 Das folgende Beispiel erstellt das `coffees`-Array mit drei Elementen und einer `length` von drei:
 
@@ -335,49 +337,49 @@ Das folgende Beispiel erstellt das `coffees`-Array mit drei Elementen und einer 
 const coffees = ["French Roast", "Colombian", "Kona"];
 ```
 
-Ein Array-Literal erstellt jedes Mal ein neues Array-Objekt, wenn das Literal ausgewertet wird. Zum Beispiel wird ein Array, das mit einem Literal im globalen Geltungsbereich definiert ist, einmal beim Laden des Skripts erstellt. Wenn das Array-Literal jedoch innerhalb einer Funktion ist, wird jedes Mal ein neues Array instanziiert, wenn diese Funktion aufgerufen wird.
+Ein Array-Literal erstellt jedes Mal ein neues Array-Objekt, wenn das Literal ausgewertet wird. Beispielsweise wird ein Array, das mit einem Literal im globalen Scope definiert ist, einmal erstellt, wenn das Skript geladen wird. Wenn jedoch das Array-Literal innerhalb einer Funktion liegt, wird jedes Mal, wenn diese Funktion aufgerufen wird, ein neues Array instanziiert.
 
 > [!NOTE]
-> Array-Literale erstellen `Array`-Objekte. Siehe {{jsxref("Array")}} und [Indexierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) für Details zu `Array`-Objekten.
+> Array-Literale erstellen `Array`-Objekte. Siehe {{jsxref("Array")}} und [Indizierte Sammlungen](/de/docs/Web/JavaScript/Guide/Indexed_collections) für Details zu `Array`-Objekten.
 
-#### Zusätzliche Kommas in Array-Literalen
+#### Zusätzliche Kommata in Array-Literalen
 
-Wenn Sie in einem Array-Literal zwei Kommas hintereinander setzen, lässt das Array an der Stelle des nicht angegebenen Elements einen leeren Slot. Das folgende Beispiel erstellt das `fish`-Array:
+Wenn Sie zwei Kommas in einem Array-Literal hintereinander setzen, lässt das Array einen leeren Slot für das unbestimmte Element. Das folgende Beispiel erstellt das `fish`-Array:
 
 ```js
 const fish = ["Lion", , "Angel"];
 ```
 
-Wenn Sie dieses Array protokollieren, werden Sie sehen:
+Wenn Sie dieses Array loggen, werden Sie sehen:
 
 ```js
 console.log(fish);
 // [ 'Lion', <1 empty item>, 'Angel' ]
 ```
 
-Beachten Sie, dass das zweite Element "leer" ist, was nicht genau dasselbe ist wie der eigentliche `undefined`-Wert. Bei der Verwendung von Array-Durchlaufmethoden wie [`Array.prototype.map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) werden leere Slots übersprungen. Dennoch wird beim Index-Zugriff `fish[1]` weiterhin `undefined` zurückgegeben.
+Beachten Sie, dass das zweite Element "leer" ist, was nicht genau dasselbe ist wie der tatsächlich `undefined`-Wert. Bei der Verwendung von Array-Durchlaufmethoden wie [`Array.prototype.map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/map) werden leere Slots übersprungen. Der Indexzugriff mit `fish[1]` gibt jedoch weiterhin `undefined` zurück.
 
-Wenn Sie ein abschließendes Komma am Ende der Liste der Elemente einfügen, wird das Komma ignoriert.
+Wenn Sie am Ende der Liste der Elemente ein abschließendes Komma einfügen, wird das Komma ignoriert.
 
-Im folgenden Beispiel ist die `length` des Arrays drei. Es gibt kein `myList[3]`. Alle anderen Kommas in der Liste geben ein neues Element an.
+Im folgenden Beispiel hat das Array eine `length` von drei. Es gibt kein `myList[3]`. Alle anderen Kommata in der Liste markieren ein neues Element.
 
 ```js
 const myList = ["home", , "school"];
 ```
 
-Im folgenden Beispiel ist die `length` des Arrays vier und `myList[0]` und `myList[2]` fehlen.
+Im folgenden Beispiel hat das Array eine `length` von vier, und `myList[0]` und `myList[2]` fehlen.
 
 ```js
 const myList = [, "home", , "school"];
 ```
 
-Im folgenden Beispiel ist die `length` des Arrays vier und `myList[1]` und `myList[3]` fehlen. **Nur das letzte Komma wird ignoriert.**
+Im folgenden Beispiel hat das Array eine `length` von vier, und `myList[1]` und `myList[3]` fehlen. **Nur das letzte Komma wird ignoriert.**
 
 ```js
 const myList = ["home", , "school", ,];
 ```
 
-> **Hinweis:** [Abschließende Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) helfen dabei, git-Diffs sauber zu halten, wenn Sie ein mehrzeiliges Array haben, da das Hinzufügen eines Elements ans Ende nur eine Zeile ergänzt, aber nicht die vorherige Zeile ändert.
+> **Hinweis:** [Nachfolgende Kommas](/de/docs/Web/JavaScript/Reference/Trailing_commas) tragen dazu bei, dass Git-Diffs sauber bleiben, wenn Sie ein mehrzeiliges Array haben, da das Anhängen eines Elements am Ende nur eine Zeile hinzufügt, die vorherige Zeile jedoch nicht verändert.
 >
 > ```diff
 > const myList = [
@@ -387,9 +389,9 @@ const myList = ["home", , "school", ,];
 > ];
 > ```
 
-Das Verständnis für das Verhalten von zusätzlichen Kommas ist wichtig, um JavaScript als Sprache zu verstehen.
+Das Verständnis des Verhaltens zusätzlicher Kommata ist wichtig für das Verständnis von JavaScript als Sprache.
 
-Wenn Sie jedoch Ihren eigenen Code schreiben, sollten Sie die fehlenden Elemente explizit als `undefined` deklarieren oder zumindest einen Kommentar einfügen, um auf deren Abwesenheit hinzuweisen. Dies erhöht die Klarheit und Wartbarkeit Ihres Codes.
+Wenn Sie jedoch Ihren eigenen Code schreiben, sollten Sie die fehlenden Elemente ausdrücklich als `undefined` deklarieren oder zumindest einen Kommentar einfügen, um auf dessen Fehlen hinzuweisen. Auf diese Weise erhöhen Sie die Klarheit und Wartbarkeit Ihres Codes.
 
 ```js-nolint
 const myList = ["home", /* empty */, "school", /* empty */, ];
@@ -400,27 +402,29 @@ const myList = ["home", /* empty */, "school", /* empty */, ];
 Der Boolean-Typ hat zwei Literalwerte: `true` und `false`.
 
 > [!NOTE]
-> Verwechseln Sie nicht die primitiven Boolean-Werte `true` und `false` mit den true und false Werten des {{jsxref("Boolean")}}-Objekts.
+> Verwechseln Sie die primitiven Boolean-Werte `true` und `false` nicht mit den wahren und falschen Werten des {{jsxref("Boolean")}}-Objekts.
 >
-> Das Boolean-Objekt ist ein Wrapper um den primitiven Boolean-Datentyp. Weitere Informationen finden Sie in {{jsxref("Boolean")}}.
+> Das Boolean-Objekt ist ein Wrapper um den primitiven Boolean-Datentyp. Siehe {{jsxref("Boolean")}} für weitere Informationen.
 
-### Zahlenliterale
+### Numerische Literale
 
-JavaScript-Zahlenliterale umfassen ganze Zahlenliterale in verschiedenen Basen sowie Gleitkommaliterale in der Basis-10.
+JavaScript numerische Literale umfassen ganzzahlige Literale in verschiedenen Basen sowie Gleitkomma-Literale in Basis 10.
 
-Beachten Sie, dass die Sprachspezifikation erfordert, dass Zahlenliterale nicht signiert sind. Nichtsdestotrotz sind Code-Fragmente wie `-123.4` in Ordnung, da sie als unäres `-` Operator auf das Zahlenliteral `123.4` interpretiert werden.
+Beachten Sie, dass die Sprachspezifikation erfordert, dass numerische Literale vorzeichenlos sind. Nichtsdestotrotz sind Codefragmente wie `-123.4` in Ordnung, denn sie werden als ein unä
 
-#### Ganzzahlenliterale
+rer `-`-Operator interpretiert, der auf das numerische Literal `123.4` angewandt wird.
 
-Ganzzahlen- und {{jsxref("BigInt")}}-Literale können in Dezimal (Basis 10), Hexadezimal (Basis 16), Oktal (Basis 8) und Binär (Basis 2) geschrieben werden.
+#### Ganzzahlige Literale
 
-- Ein _dezimaler_ Ganzzahlliteral ist eine Folge von Ziffern ohne führende `0` (Null).
-- Eine führende `0` (Null) bei einem Ganzzahlliteral oder eine führende `0o` (oder `0O`) zeigt an, dass es sich um einen _oktal_ Zahl handelt. Oktale Ganzzahlenliterale können nur die Ziffern `0` – `7` enthalten.
-- Eine führende `0x` (oder `0X`) zeigt ein _hexadezimales_ Ganzzahlliteral an. Hexadezimale Ganzzahlen können Ziffern (`0` – `9`) und die Buchstaben `a` – `f` und `A` – `F` enthalten. (Die Groß- und Kleinschreibung eines Zeichens ändert seinen Wert nicht. Daher: `0xa` = `0xA` = `10` und `0xf` = `0xF` = `15`.)
-- Eine führende `0b` (oder `0B`) zeigt ein _binäres_ Ganzzahlliteral an. Binäre Ganzzahlenliterale können nur die Ziffern `0` und `1` enthalten.
-- Ein anhängendes `n` bei einem Ganzzahlliteral zeigt ein {{jsxref("BigInt")}}-Literal an. Das {{jsxref("BigInt")}}-Literal kann jede der oben genannten Basen verwenden. Beachten Sie, dass eine oktale Syntax mit führenden Nullen wie `0123n` nicht erlaubt ist, aber `0o123n` ist in Ordnung.
+Ganzzahl- und {{jsxref("BigInt")}}-Literale können in Dezimal (Basis 10), Hexadezimal (Basis 16), Oktal (Basis 8) und Binär (Basis 2) geschrieben werden.
 
-Einige Beispiele für Ganzzahlenliterale sind:
+- Ein _Dezimal_-Ganzzahlliteral ist eine Folge von Ziffern ohne führende `0` (Null).
+- Eine führende `0` (Null) bei einem ganzzahligen Literal oder `0o` (oder `0O`) kennzeichnet, dass es sich um _Oktal_ handelt. Oktal-Ganzzahlliterale können nur die Ziffern `0` - `7` enthalten.
+- Ein führendes `0x` (oder `0X`) kennzeichnet ein _Hexadezimal_-Ganzzahlliteral. Hexadezimale Zahlen können Ziffern (`0` - `9`) und die Buchstaben `a` - `f` und `A` - `F` enthalten. (Die Groß- oder Kleinschreibung ändert den Wert nicht. Daher: `0xa` = `0xA` = `10` und `0xf` = `0xF` = `15`.)
+- Ein führendes `0b` (oder `0B`) kennzeichnet ein _Binär_-Ganzzahlliteral. Binäre Ganzzahlliterale können nur die Ziffern `0` und `1` enthalten.
+- Ein nachgestelltes `n`-Suffix bei einem ganzzahligen Literal kennzeichnet ein {{jsxref("BigInt")}}-Literal. Das {{jsxref("BigInt")}}-Literal kann jede der oben genannten Basen verwenden. Beachten Sie, dass führende Nulloktal-Syntax wie `0123n` nicht erlaubt ist, aber `0o123n` in Ordnung ist.
+
+Einige Beispiele für ganzzahlige Literale sind:
 
 ```plain
 0, 117, 123456789123456789n             (decimal, base 10)
@@ -429,20 +433,20 @@ Einige Beispiele für Ganzzahlenliterale sind:
 0b11, 0b0011, 0b11101001010101010101n   (binary, base 2)
 ```
 
-Für mehr Informationen siehe [Zahlenliterale in der lexikalischen Grammatik-Referenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals).
+Weitere Informationen finden Sie unter [Numerische Literale in der lexikalischen Grammatikreferenz](/de/docs/Web/JavaScript/Reference/Lexical_grammar#numeric_literals).
 
 #### Gleitkommaliterale
 
 Ein Gleitkommaliteral kann die folgenden Teile haben:
 
-- Eine führende Dezimalzahl,
+- Eine nicht signierte Dezimalzahl,
 - Ein Dezimalpunkt (`.`),
-- Ein Bruch (eine weitere Dezimalzahl),
+- Ein Bruch (eine weitere Dezimalnummer),
 - Ein Exponent.
 
-Der Exponententeil ist ein `e` oder `E`, gefolgt von einem ganzzahligen Wert, der signiert sein kann (mit `+` oder `-` vorangestellt). Ein Gleitkommaliteral muss mindestens eine Ziffer, und entweder einen Dezimalpunkt oder `e` (oder `E`) haben.
+Der Exponententeil ist ein `e` oder `E`, gefolgt von einer Ganzzahl, die (mit `+` oder `-`) signiert sein kann. Ein Gleitkommaliteral muss mindestens eine Ziffer haben und entweder einen Dezimalpunkt oder `e` (oder `E`).
 
-Kurz gesagt, die Syntax ist:
+Kurz gesagt, die Syntax lautet:
 
 ```plain
 [digits].[digits][(E|e)[(+|-)]digits]
@@ -457,14 +461,14 @@ Zum Beispiel:
 .1e-23
 ```
 
-### Objektliterale
+### Objekt-Literale
 
-Ein Objektliteral ist eine Liste von null oder mehr Paaren von Eigenschaftsnamen und zugehörigen Werten eines Objekts, eingeschlossen in geschweifte Klammern (`{}`).
+Ein Objekt-Literal ist eine Liste von null oder mehr Paaren von Eigenschaftsnamen und zugehörigen Werten eines Objekts, eingeschlossen in geschweifte Klammern (`{}`).
 
 > [!WARNING]
-> Verwenden Sie kein Objektliteral am Anfang einer Anweisung! Dies führt zu einem Fehler (oder verhält sich nicht wie erwartet), da `{` als der Beginn eines Blocks interpretiert wird.
+> Verwenden Sie kein Objektliteral am Anfang einer Anweisung! Dies führt zu einem Fehler (oder verhält sich nicht wie erwartet), da `{` als Beginn eines Blocks interpretiert wird.
 
-Das folgende ist ein Beispiel für ein Objektliteral. Das erste Element des `car`-Objekts definiert eine Eigenschaft, `myCar`, und weist ihr eine neue Zeichenfolge, `"Saturn"`, zu; das zweite Element, die `getCar`-Eigenschaft, wird sofort dem Ergebnis der Ausführung der Funktion `(carTypes("Honda"))` zugewiesen; das dritte Element, die `special`-Eigenschaft, verwendet eine vorhandene Variable (`sales`).
+Das folgende ist ein Beispiel für ein Objektliteral. Das erste Element des `car`-Objekts definiert eine Eigenschaft, `myCar`, und weist ihr eine neue Zeichenfolge zu, `"Saturn"`; das zweite Element, die `getCar`-Eigenschaft, wird sofort dem Ergebnis der Ausführung der Funktion `(carTypes("Honda"))` zugewiesen; das dritte Element, die `special`-Eigenschaft, verwendet eine vorhandene Variable (`sales`).
 
 ```js
 const sales = "Toyota";
@@ -480,7 +484,7 @@ console.log(car.getCar); // Honda
 console.log(car.special); // Toyota
 ```
 
-Außerdem können Sie eine numerische oder Zeichenfolgendarstellung für den Namen einer Eigenschaft verwenden oder ein Objekt in einem anderen verschachteln. Das folgende Beispiel verwendet diese Optionen.
+Darüber hinaus können Sie für den Namen einer Eigenschaft ein numerisches oder Zeichenfolgenliteral verwenden oder ein Objekt in einem anderen verschachteln. Das folgende Beispiel verwendet diese Optionen.
 
 ```js
 const car = { manyCars: { a: "Saab", b: "Jeep" }, 7: "Mazda" };
@@ -489,9 +493,9 @@ console.log(car.manyCars.b); // Jeep
 console.log(car[7]); // Mazda
 ```
 
-Objekteigenschaftsnamen können jede Zeichenfolge sein, einschließlich der leeren Zeichenfolge. Wenn der Eigenschaftsname kein gültiger JavaScript-{{Glossary("Identifier", "Bezeichner")}} oder keine Zahl wäre, muss er in Anführungszeichen eingeschlossen werden.
+Objekteigenschaftsnamen können jeden String enthalten, einschließlich des leeren Strings. Wenn der Eigenschaftsname kein gültiger JavaScript-{{Glossary("Identifier", "Identifikator")}} oder keine Nummer wäre, muss er in Anführungszeichen gesetzt werden.
 
-Eigenschaftsnamen, die keine gültigen Bezeichner sind, können nicht als Punkt (`.`) -Eigenschaften aufgerufen werden.
+Eigenschaftsnamen, die keine gültigen Identifikatoren sind, können nicht als Punkt (`.`) Eigenschaft zugegriffen werden.
 
 ```js-nolint example-bad
 const unusualPropertyNames = {
@@ -502,7 +506,7 @@ console.log(unusualPropertyNames.'');   // SyntaxError: Unexpected string
 console.log(unusualPropertyNames.!);    // SyntaxError: Unexpected token !
 ```
 
-Stattdessen müssen sie mit der Klammernnotation (`[]`) aufgerufen werden.
+Stattdessen muss auf sie mit der Klammernotation (`[]`) zugegriffen werden.
 
 ```js example-good
 console.log(unusualPropertyNames[""]); // An empty string
@@ -511,9 +515,9 @@ console.log(unusualPropertyNames["!"]); // Bang!
 
 #### Erweiterte Objektliterale
 
-Objektliterale unterstützen eine Reihe von Kurznotationen, die das Prototyp-Setzen bei Konstruktion, Kurznotation für `foo: foo`-Zuweisungen, Methodendefinitionen, `super`-Aufrufe und die Berechnung von Eigenschaftsnamen mit Ausdrücken einschließen.
+Objektliterale unterstützen eine Reihe von Kurzschreibweisen, einschließlich der Einstellung des Prototyps bei der Konstruktion, Kurzschreibweise für `foo: foo` Zuweisungen, der Definition von Methoden, des Aufrufs von `super` und das Berechnen von Eigenschaftsnamen mit Ausdrücken.
 
-Zusammen bringen sie auch Objektliterale und Klassen-Deklarationen näher zusammen und ermöglichen, dass objektbasiertes Design von einigen der gleichen Annehmlichkeiten profitiert.
+Insgesamt bringen diese auch Objektliterale und Klassen-Deklarationen einander näher und ermöglichen es Designansätzen auf Basis von Objekten, von einigen der gleichen Annehmlichkeiten zu profitieren.
 
 ```js
 const obj = {
@@ -533,17 +537,17 @@ const obj = {
 
 ### RegExp-Literale
 
-Ein Regex-Literal ist ein Muster, das in Schrägstrichen eingeschlossen ist. Das folgende ist ein Beispiel für ein Regex-Literal.
+Ein regulärer Ausdrücksliteral (der [später](/de/docs/Web/JavaScript/Guide/Regular_expressions) im Detail definiert wird) ist ein Muster, das zwischen Schrägstrichen eingeschlossen ist. Das folgende ist ein Beispiel für ein reguläres Ausdrücksliteral.
 
 ```js
 const re = /ab+c/;
 ```
 
-### Zeichenfolgenliterale
+### String-Literale
 
-Ein Zeichenfolgenliteral ist null oder mehr Zeichen, eingeschlossen in Doppel- (`"`) oder einfachen (`'`) Anführungszeichen. Eine Zeichenfolge muss durch Anführungszeichen desselben Typs begrenzt werden (d. h. entweder beide einfachen Anführungszeichen, oder beide doppelten Anführungszeichen).
+Ein Stringliteral ist null oder mehr Zeichen, eingeschlossen in doppelte (`"`) oder einfache (`'`) Anführungszeichen. Ein String muss von Anführungszeichen gleichen Typs begrenzt werden (d. h. entweder beide einfache oder beide doppelte Anführungszeichen).
 
-Die folgenden sind Beispiele für Zeichenfolgenliterale:
+Die folgenden sind Beispiele für Stringliterale:
 
 ```js-nolint
 'foo'
@@ -553,18 +557,18 @@ Die folgenden sind Beispiele für Zeichenfolgenliterale:
 "Joyo's cat"
 ```
 
-Sie sollten Zeichenfolgenliterale verwenden, es sei denn, Sie müssen explizit ein `String`-Objekt verwenden. Siehe {{jsxref("String")}} für Details zu `String`-Objekten.
+Sie sollten Stringliterale verwenden, es sei denn, Sie benötigen speziell ein `String`-Objekt. Siehe {{jsxref("String")}} für Details zu `String`-Objekten.
 
-Sie können eine beliebige Methode des {{jsxref("String")}}-Objekts auf einen Zeichenfolgenliteralwert aufrufen. JavaScript konvertiert das Zeichenfolgenliteral automatisch in ein temporäres String-Objekt, ruft die Methode auf und verwirft dann das temporäre String-Objekt. Sie können auch die `length`-Eigenschaft mit einem Zeichenfolgenliteral verwenden:
+Sie können jede Methode des {{jsxref("String")}}-Objekts auf einem Stringliteralwert aufrufen. JavaScript konvertiert automatisch das Stringliteral in ein temporäres String-Objekt, ruft die Methode auf und verwirft dann das temporäre String-Objekt. Sie können auch die `length`-Eigenschaft mit einem Stringliteral verwenden:
 
 ```js
 // Will print the number of symbols in the string including whitespace.
 console.log("Joyo's cat".length); // In this case, 10.
 ```
 
-[Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) sind ebenfalls verfügbar. Template-Literale werden durch das Akzentzeichen (`` ` ``) ([Gravis-Akzent](https://en.wikipedia.org/wiki/Grave_accent)) statt durch doppelte oder einfache Anführungszeichen eingeschlossen.
+[Template-Literale](/de/docs/Web/JavaScript/Reference/Template_literals) sind ebenfalls verfügbar. Template-Literale sind von dem Back-Tick (`` ` ``) ([Gravis](https://en.wikipedia.org/wiki/Grave_accent))-Zeichen eingeschlossen, anstelle von einfachen oder doppelten Anführungszeichen.
 
-Template-Literale bieten syntaktischen Zucker zur Konstruktion von Zeichenfolgen. (Dies ist ähnlich den Zeichenfolgeninterpolationsfunktionen in Perl, Python und mehr.)
+Template-Literale bieten syntaktischen Zucker zur Konstruktion von Strings. (Ähnlich wie die String-Interpolation in Perl, Python und mehr.)
 
 ```js-nolint
 // Basic literal string creation
@@ -580,7 +584,7 @@ const name = 'Lev', time = 'today';
 `Hello ${name}, how are you ${time}?`
 ```
 
-[Tagged Templates](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) sind eine kompakte Syntax, um ein Template-Literal zusammen mit einem Aufruf einer "Tag"-Funktion zur Analyse anzugeben. Ein Tagged Template ist einfach eine kürzere und semantische Möglichkeit, eine Funktion aufzurufen, die eine Zeichenfolge und eine Reihe von relevanten Werten verarbeitet. Der Name der Template-Tag-Funktion steht dem Template-Literal voran — wie im folgenden Beispiel, wo die Template-Tag-Funktion `print` genannt wird. Die `print`-Funktion wird die Argumente interpolieren und alle Objekte oder Arrays, die auftreten könnten, serialisieren, um das lästige `[object Object]` zu vermeiden.
+[Getaggte Templates](/de/docs/Web/JavaScript/Reference/Template_literals#tagged_templates) sind eine kompakte Syntax zur Spezifikation eines Template-Literals zusammen mit einem Aufruf zu einer "Tag"-Funktion, um es zu parsen. Ein getaggtes Template ist nur eine prägnantere und semantische Weise, eine Funktion für die Verarbeitung eines Strings und einer Reihe relevanter Werte aufzurufen. Der Name der Template-Tag-Funktion geht dem Template-Literal voran — wie im folgenden Beispiel, bei dem die Template-Tag-Funktion `print` heißt. Die Funktion `print` interpoliert die Argumente und serialisiert Objekte oder Arrays, die auftreten könnten, um das lästige `[object Object]` zu vermeiden.
 
 ```js
 const formatArg = (arg) => {
@@ -628,52 +632,52 @@ My current progress is: ${progress}
 // My current progress is: {"javascript":20,"html":50,"css":10}
 ```
 
-Da Tagged Template Literale nur Zucker für Funktionsaufrufe sind, können Sie das Obige als äquivalenten Funktionsaufruf umschreiben:
+Da getaggte Template-Literale nur Zucker von Funktionsaufrufen sind, können Sie obiges als äquivalenten Funktionsaufruf umschreiben:
 
 ```js
 print(["I need to do:\n", "\nMy current progress is: ", "\n"], todos, progress);
 ```
 
-Dies erinnert vielleicht an die `console.log`-Art der Interpolation:
+Dies mag an die `console.log`-Stil-Interpolation erinnern:
 
 ```js
 console.log("I need to do:\n%o\nMy current progress is: %o\n", todos, progress);
 ```
 
-Sie können sehen, wie sich das Tagged Template natürlicher liest als eine traditionelle "Formatter"-Funktion, bei der die Variablen und das Template selbst separat deklariert werden müssen.
+Sie können sehen, dass das getaggte Template natürlicher als eine traditionelle "Formatter"-Funktion liest, bei der die Variablen und das Template selbst getrennt deklariert werden müssen.
 
-#### Verwendung von Sonderzeichen in Zeichenfolgen
+#### Verwendung spezieller Zeichen in Strings
 
-Zusätzlich zu herkömmlichen Zeichen können Sie auch Sonderzeichen in Zeichenfolgen einfügen, wie im folgenden Beispiel gezeigt.
+Neben normalen Zeichen können Sie auch spezielle Zeichen in Strings einfügen, wie im folgenden Beispiel gezeigt:
 
 ```js
 "one line \n another line";
 ```
 
-Die folgende Tabelle listet die Sonderzeichen, die Sie in JavaScript-Zeichenfolgen verwenden können.
+Die folgende Tabelle listet die speziellen Zeichen auf, die Sie in JavaScript-Strings verwenden können.
 
-| Zeichen     | Bedeutung                                                                                                                                                                                                                                             |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `\0`        | Null-Byte                                                                                                                                                                                                                                             |
-| `\b`        | Rückschritt                                                                                                                                                                                                                                           |
-| `\f`        | Formularvorschub                                                                                                                                                                                                                                      |
-| `\n`        | Neue Zeile                                                                                                                                                                                                                                            |
-| `\r`        | Wagenrücklauf                                                                                                                                                                                                                                         |
-| `\t`        | Tabulator                                                                                                                                                                                                                                             |
-| `\v`        | Vertikaler Tabulator                                                                                                                                                                                                                                  |
-| `\'`        | Apostroph oder einfaches Anführungszeichen                                                                                                                                                                                                            |
-| `\"`        | Doppelte Anführungszeichen                                                                                                                                                                                                                            |
-| `\\`        | Rückwärtsschrägstrich (Backslash)-Zeichen                                                                                                                                                                                                             |
-| `\XXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch bis zu drei Oktalzahlen `XXX` zwischen `0` und `377`. Zum Beispiel ist `\251` die Oktalsequenz für das Copyright-Symbol.                                                                       |
-| `\xXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch die zwei Hexadezimalzahlen `XX` zwischen `00` und `FF`. Zum Beispiel ist `\xA9` die Hexadezimalsequenz für das Copyright-Symbol.                                                               |
-| `\uXXXX`    | Das Unicode-Zeichen, angegeben durch die vier Hexadezimalstellen `XXXX`. Zum Beispiel ist `\u00A9` die Unicode-Sequenz für das Copyright-Symbol. Siehe [Unicode-Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals). |
-| `\u{XXXXX}` | Unicode-Codepunkt-Escapes. Zum Beispiel ist `\u{2F804}` das gleiche wie die einfachen Unicode-Escapes `\uD87E\uDC04`.                                                                                                                                 |
+| Zeichen     | Bedeutung                                                                                                                                                                                                                                                |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `\0`        | Nullbyte                                                                                                                                                                                                                                                 |
+| `\b`        | Backspace                                                                                                                                                                                                                                                |
+| `\f`        | Form Feed                                                                                                                                                                                                                                                |
+| `\n`        | Neue Zeile                                                                                                                                                                                                                                               |
+| `\r`        | Wagenrücklauf                                                                                                                                                                                                                                            |
+| `\t`        | Tab                                                                                                                                                                                                                                                      |
+| `\v`        | Vertikaler Tabulator                                                                                                                                                                                                                                     |
+| `\'`        | Apostroph oder einfaches Anführungszeichen                                                                                                                                                                                                               |
+| `\"`        | Doppeltes Anführungszeichen                                                                                                                                                                                                                              |
+| `\\`        | Backslash-Charakter                                                                                                                                                                                                                                      |
+| `\XXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch bis zu drei oktale Ziffern `XXX` zwischen `0` und `377`. Zum Beispiel ist `\251` die oktale Sequenz für das Copyright-Symbol.                                                                     |
+| `\xXX`      | Das Zeichen mit der Latin-1-Codierung, angegeben durch die zwei hexadezimalen Ziffern `XX` zwischen `00` und `FF`. Zum Beispiel ist `\xA9` die hexadezimale Sequenz für das Copyright-Symbol.                                                            |
+| `\uXXXX`    | Das Unicode-Zeichen, angegeben durch die vier hexadezimalen Ziffern `XXXX`. Zum Beispiel ist `\u00A9` die Unicode-Sequenz für das Copyright-Symbol. Siehe [Unicode-Escape-Sequenzen](/de/docs/Web/JavaScript/Reference/Lexical_grammar#string_literals). |
+| `\u{XXXXX}` | Unicode-Codepunkt-Escapes. Zum Beispiel ist `\u{2F804}` dasselbe wie das Unicode-Escape `\uD87E\uDC04`.                                                                                                                                                  |
 
-#### Zeichen maskieren
+#### Zeichen entziehen
 
-Für Zeichen, die nicht in der Tabelle aufgeführt sind, wird ein vorangestellter Rückwärtsschrägstrich ignoriert, aber diese Verwendung ist veraltet und sollte vermieden werden.
+Für Zeichen, die nicht in der Tabelle aufgeführt sind, wird ein vorangestellter Backslash ignoriert, aber diese Verwendung ist veraltet und sollte vermieden werden.
 
-Sie können ein Anführungszeichen in eine Zeichenfolge einfügen, indem Sie ihm einen Rückwärtsschrägstrich voranstellen. Dies wird als _Maskieren_ des Anführungszeichens bezeichnet. Zum Beispiel:
+Sie können ein Anführungszeichen innerhalb eines Strings durch einen vorangestellten Backslash einfügen. Dies wird als _Entzug_ des Anführungszeichens bezeichnet. Zum Beispiel:
 
 ```js-nolint
 const quote = "He read \"The Cremation of Sam McGee\" by R.W. Service.";
@@ -686,13 +690,13 @@ Das Ergebnis davon wäre:
 He read "The Cremation of Sam McGee" by R.W. Service.
 ```
 
-Um einen wörtlichen Rückwärtsschrägstrich in eine Zeichenfolge einzufügen, müssen Sie das Rückwärtsschrägstrich-Zeichen maskieren. Um zum Beispiel den Dateipfad `c:\temp` einer Zeichenfolge zuzuweisen, verwenden Sie Folgendes:
+Um einen wörtlichen Backslash innerhalb eines Strings einzufügen, müssen Sie den Backslash-Charakter entziehen. Zum Beispiel, um den Dateipfad `c:\temp` einer Zeichenfolge zuzuweisen, verwenden Sie das folgende:
 
 ```js
 const home = "c:\\temp";
 ```
 
-Sie können auch Zeilenumbrüche maskieren, indem Sie ihnen einen Rückwärtsschrägstrich voranstellen. Der Rückwärtsschrägstrich und der Zeilenumbruch werden beide aus dem Wert der Zeichenfolge entfernt.
+Sie können auch Zeilenumbrüche entziehen, indem Sie ihnen einen Backslash voranstellen. Der Backslash und der Zeilenumbruch werden beide aus dem Wert der Zeichenfolge entfernt.
 
 ```js
 const str =
@@ -707,11 +711,11 @@ console.log(str); // this string is broken across multiple lines.
 
 Dieses Kapitel konzentriert sich auf die grundlegende Syntax für Deklarationen und Typen. Um mehr über die Sprachkonstrukte von JavaScript zu erfahren, siehe auch die folgenden Kapitel in diesem Leitfaden:
 
-- [Leitfaden zur Steuerfluss- und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
+- [Flusskontrolle und Fehlerbehandlung](/de/docs/Web/JavaScript/Guide/Control_flow_and_error_handling) Leitfaden
 - [Schleifen und Iteration](/de/docs/Web/JavaScript/Guide/Loops_and_iteration)
 - [Funktionen](/de/docs/Web/JavaScript/Guide/Functions)
-- [Leitfaden zu Ausdrücken und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators)
+- [Ausdrücke und Operatoren](/de/docs/Web/JavaScript/Guide/Expressions_and_operators) Leitfaden
 
-Im nächsten Kapitel werden wir uns mit Steuerflusskonstrukten und Fehlerbehandlung befassen.
+Im nächsten Kapitel werden wir uns Konstrukte zur Flusssteuerung und zur Fehlerbehandlung ansehen.
 
 {{PreviousNext("Web/JavaScript/Guide/Introduction", "Web/JavaScript/Guide/Control_flow_and_error_handling")}}

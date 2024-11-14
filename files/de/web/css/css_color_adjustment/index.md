@@ -1,15 +1,15 @@
 ---
-title: CSS Color Adjustment
+title: CSS-Farbjustierung
 slug: Web/CSS/CSS_color_adjustment
 l10n:
-  sourceCommit: 8d03307af2cee96a307c22b5d52b93f155f11524
+  sourceCommit: b7bf81297ba18c344359dbfeb200accddd907591
 ---
 
 {{CSSRef}}
 
-Das Modul **CSS Color Adjustment** bietet ein Modell und steuert die automatische Farbanpassung durch den Benutzeragenten, um Benutzerpräferenzen wie "Dark Mode", Kontrasteinstellungen und andere Farbschemapräferenzen zu berücksichtigen.
+Das **CSS-Farbjustierungs**-Modul bietet ein Modell und steuert die automatische Farbjustierung durch den Benutzeragenten, um Benutzereinstellungen wie "Dunkelmodus", Kontrastanpassung und andere Farbschema-Präferenzen zu bearbeiten.
 
-Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}, {{cssxref("@media/prefers-contrast", "prefers-contrast")}} und {{cssxref("@media/forced-colors", "forced-colors")}} definiert dieses Modul, wie und wann Farben vom Browser automatisch angepasst werden.
+Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}, {{cssxref("@media/prefers-contrast", "prefers-contrast")}} und {{cssxref("@media/forced-colors", "forced-colors")}} definiert dieses Modul, wie und wann Farben automatisch durch den Browser angepasst werden.
 
 ## Referenz
 
@@ -26,7 +26,7 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
   - {{cssxref("@media/prefers-color-scheme", "prefers-color-scheme")}}
   - {{cssxref("@media/prefers-contrast", "prefers-contrast")}}
   - {{cssxref("@media/forced-colors", "forced-colors")}}
-- Eigenschaften, die vom Modus erzwungener Farben betroffen sind
+- Eigenschaften, die durch den Modus erzwungener Farben beeinflusst werden:
   - {{cssxref("accent-color")}}
   - {{cssxref("background-color")}}
   - {{cssxref("background-image")}}
@@ -36,13 +36,14 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
   - {{cssxref("color")}}
   - {{cssxref("color-scheme")}}
   - {{cssxref("column-rule-color")}}
-  - [`fill`](/de/docs/Web/SVG/Attribute/fill)
-  - [`flood-color`](/de/docs/Web/SVG/Attribute/flood-color)
-  - [`lighting-color`](/de/docs/Web/SVG/Attribute/lighting-color)
+  - {{cssxref("fill")}}
+  - {{cssxref("flood-color")}}
+  - {{cssxref("flood-opacity")}}
+  - {{cssxref("lighting-color")}}
   - {{cssxref("outline-color")}}
   - {{cssxref("scrollbar-color")}}
-  - [`stop-color`](/de/docs/Web/SVG/Attribute/stop-color)
-  - [`stroke`](/de/docs/Web/SVG/Attribute/stroke)
+  - {{cssxref("stop-color")}}
+  - {{cssxref("stroke")}}
   - {{cssxref("text-decoration-color")}}
   - {{cssxref("text-emphasis-color")}}
   - {{cssxref("text-shadow")}}
@@ -54,4 +55,4 @@ Zusammen mit den {{CSSxRef("@media")}}-Funktionen {{cssxref("@media/prefers-colo
 
 ## Siehe auch
 
-- [CSS-Farben](/de/docs/Web/CSS/CSS_colors) Modul
+- [CSS-Farben](/de/docs/Web/CSS/CSS_colors)-Modul

@@ -2,16 +2,16 @@
 title: image-set()
 slug: Web/CSS/image/image-set
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: ad6eb6b52b4b3082397e8e011bd59a6d88a8f5f3
 ---
 
 {{CSSRef}}
 
-Die **`image-set()`** [CSS](/de/docs/Web/CSS) [funktionale](/de/docs/Web/CSS/CSS_Functions) Notation ist eine Methode, mit der der Browser das am besten geeignete CSS-Bild aus einem gegebenen Satz auswählt, hauptsächlich für Bildschirme mit hoher Pixeldichte.
+Die **`image-set()`** [CSS](/de/docs/Web/CSS) [Funktionale](/de/docs/Web/CSS/CSS_Functions) Notation ist eine Methode, mit der der Browser das am besten geeignete CSS-Bild aus einem gegebenen Satz auswählen kann, insbesondere für Bildschirme mit hoher Pixeldichte.
 
-Auflösung und Bandbreite unterscheiden sich je nach Gerät und Netzwerkanbindung. Die `image-set()`-Funktion liefert die am besten geeignete Bildauflösung für das Gerät eines Benutzers, indem ein Satz von Bildoptionen bereitgestellt wird – jede mit einer zugehörigen Auflösungsangabe –, aus denen der Browser die am besten geeignete für das Gerät und die Einstellungen auswählt. Auflösung kann als Stellvertreter für Dateigröße verwendet werden – ein User-Agent mit langsamer mobiler Verbindung und hochauflösendem Bildschirm könnte bevorzugen, niedrigauflösende Bilder zu erhalten, anstatt auf das Laden eines hochauflösenden Bildes zu warten.
+Die Auflösung und Bandbreite unterscheiden sich je nach Gerät und Netzwerkzugang. Die Funktion `image-set()` liefert die am besten geeignete Bildauflösung für das Gerät eines Benutzers. Es wird ein Satz von Bildoptionen bereitgestellt, von denen jede eine dazugehörige Auflösungsdeklaration hat, aus denen der Browser die am besten geeignete für das Gerät und die Einstellungen auswählt. Die Auflösung kann als Proxy für die Dateigröße verwendet werden — ein Benutzeragent auf einer langsamen mobilen Verbindung mit einem hochauflösenden Bildschirm könnte es vorziehen, niedrig aufgelöste Bilder zu erhalten, anstatt auf das Laden eines Bildes mit höherer Auflösung zu warten.
 
-`image-set()` erlaubt dem Autor, Optionen bereitzustellen, anstatt zu bestimmen, was jeder einzelne Benutzer benötigt.
+`image-set()` ermöglicht es dem Autor, Optionen bereitzustellen, anstatt festzulegen, was jeder einzelne Benutzer benötigt.
 
 ## Syntax
 
@@ -43,11 +43,11 @@ image-set(
 ### Werte
 
 - `<image>`
-  - : Das [`<image>`](/de/docs/Web/CSS/image) kann jeder Bildtyp sein, außer einem Bildersatz. Die `image-set()`-Funktion darf nicht innerhalb einer anderen `image-set()`-Funktion verschachtelt werden.
+  - : Das [`<image>`](/de/docs/Web/CSS/image) kann jeder Bildtyp sein, außer einem Bildsatz. Die `image-set()` Funktion darf nicht in eine andere `image-set()` Funktion verschachtelt werden.
 - `<string>`
   - : Eine URL zu einem Bild.
 - `<resolution>` {{optional_inline}}
-  - : [`<resolution>`](/de/docs/Web/CSS/resolution) Einheiten enthalten `x` oder `dppx` für Punkt pro Pixel Einheit, `dpi` für Punkt pro Inch und `dpcm` für Punkt pro Zentimeter. Jedes Bild innerhalb eines `image-set()` muss eine eindeutige Auflösung haben.
+  - : [`<resolution>`](/de/docs/Web/CSS/resolution) Einheiten umfassen `x` oder `dppx` für Punkte pro Pixeleinheit, `dpi` für Punkte pro Zoll und `dpcm` für Punkte pro Zentimeter. Jedes Bild innerhalb eines `image-set()` muss eine einzigartige Auflösung aufweisen.
 - `type(<string>)` {{optional_inline}}
   - : Ein gültiger MIME-Typ-String, zum Beispiel "image/jpeg".
 
@@ -55,43 +55,66 @@ image-set(
 
 {{csssyntax}}
 
-## Zugänglichkeit
+## Barrierefreiheit
 
-Browser bieten keine speziellen Informationen zu Hintergrundbildern für assistive Technologien. Dies ist hauptsächlich für Bildschirmleser von Bedeutung, da ein Bildschirmleser dessen Anwesenheit nicht ankündigt und somit den Benutzern nichts mitteilt. Wenn das Bild Informationen enthält, die für das Verständnis des Gesamtzwecks der Seite entscheidend sind, ist es besser, es semantisch im Dokument zu beschreiben.
+Browser bieten keine speziellen Informationen zu Hintergrundbildern für unterstützende Technologien. Dies ist hauptsächlich für Bildschirmlesegeräte wichtig, da ein Bildschirmlesegerät seine Anwesenheit nicht ankündigt und somit seinen Benutzern nichts vermittelt. Wenn das Bild Informationen enthält, die entscheidend für das Verständnis des allgemeinen Zwecks der Seite sind, ist es besser, es semantisch im Dokument zu beschreiben.
 
-- [MDN Verständnis von WCAG, Leitfaden 1.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [Verstehen des Erfolgskriteriums 1.1.1 | W3C Verständnis von WCAG 2.0](https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html)
+- [MDN Understanding WCAG, Guideline 1.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [Understanding Success Criterion 1.1.1 | W3C Understanding WCAG 2.0](https://www.w3.org/TR/2016/NOTE-UNDERSTANDING-WCAG20-20161007/text-equiv-all.html)
 
 ## Beispiele
 
-### Mit image-set() alternative Optionen für Hintergrundbilder bereitstellen
+### Verwendung von image-set() zur Bereitstellung alternativer Hintergrundbildoptionen
 
-Dieses Beispiel zeigt, wie man [`image-set()`](https://drafts.csswg.org/css-images-4/#funcdef-image-set) verwendet, um zwei alternative {{cssxref("background-image")}}-Optionen bereitzustellen, die je nach benötigter Auflösung ausgewählt werden: eine normale Version und eine hochauflösende Version.
+Dieses Beispiel zeigt, wie [`image-set()`](https://drafts.csswg.org/css-images-4/#funcdef-image-set) verwendet wird, um zwei alternative {{cssxref("background-image")}} Optionen bereitzustellen, die je nach benötigter Auflösung gewählt werden: eine normale Version und eine hochauflösende Version.
 
-{{EmbedGHLiveSample("css-examples/images/image-set.html", '100%', 600)}}
+```html live-sample___image-set-example
+<div class="box"></div>
+```
 
-> [!NOTE]
-> Im obigen Beispiel wird die `-webkit`-präfixierte Version ebenfalls verwendet, um Chrome und Safari zu unterstützen. In Firefox 90 wurde Unterstützung für `-webkit-image-set()` als Alias für `image-set()` hinzugefügt (um Kompatibilität zu bieten, wo Entwickler die standardisierte Eigenschaft nicht hinzugefügt haben).
-
-### Mit image-set() alternative Bildformate bereitstellen
-
-Im nächsten Beispiel wird die `type()`-Funktion verwendet, um das Bild in den Formaten AVIF und JPEG bereitzustellen. Wenn der Browser AVIF unterstützt, wählt er diese Version. Andernfalls verwendet er die JPEG-Version.
-
-{{EmbedGHLiveSample("css-examples/images/image-set-type.html", '100%', 600)}}
-
-#### Bereitstellung eines Fallbacks
-
-Für `image-set()` gibt es kein integriertes Fallback; daher ist eine separate Deklaration erforderlich, um eine {{cssxref("background-image")}} für jene Browser bereitzustellen, die die Funktion nicht unterstützen, bevor die Zeile mit `image-set()` verwendet wird.
-
-```css
+```css live-sample___image-set-example
 .box {
-  background-image: url("large-balloons.jpg");
+  width: 400px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   background-image: image-set(
-    "large-balloons.avif" type("image/avif"),
-    "large-balloons.jpg" type("image/jpeg")
+    url("https://mdn.github.io/shared-assets/images/examples/balloons-small.jpg")
+      1x,
+    url("https://mdn.github.io/shared-assets/images/examples/balloons-landscape.jpg")
+      2x
   );
 }
 ```
+
+{{EmbedLiveSample("image-set-example", "", "250px")}}
+
+### Verwendung von image-set() zur Bereitstellung alternativer Bildformate
+
+Im nächsten Beispiel wird die `type()` Funktion verwendet, um das Bild in AVIF- und JPEG-Formaten bereitzustellen. Wenn der Browser AVIF unterstützt, wird diese Version gewählt. Andernfalls wird die JPEG-Version verwendet.
+
+```html live-sample___image-set-type-example
+<div class="box"></div>
+```
+
+```css live-sample___image-set-type-example
+.box {
+  width: 400px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-image: image-set(
+    "https://mdn.github.io/shared-assets/images/examples/balloons-landscape.avif"
+      type("image/avif"),
+    "https://mdn.github.io/shared-assets/images/examples/balloons-landscape.jpg"
+      type("image/jpeg")
+  );
+}
+```
+
+{{EmbedLiveSample("image-set-type-example", "", "250px")}}
 
 ## Spezifikationen
 

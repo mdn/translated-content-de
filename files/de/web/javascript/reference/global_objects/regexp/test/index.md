@@ -2,14 +2,14 @@
 title: RegExp.prototype.test()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/test
 l10n:
-  sourceCommit: 2c762771070a207d410a963166adf32213bc3a45
+  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
 ---
 
 {{JSRef}}
 
-Die **`test()`**-Methode von {{jsxref("RegExp")}}-Instanzen führt eine Suche nach einem Muster der regulären Ausdrucks in einem angegebenen String aus. Gibt `true` zurück, wenn ein Treffer vorliegt; andernfalls `false`.
+Die **`test()`**-Methode von {{jsxref("RegExp")}}-Instanzen führt eine Suche mit diesem regulären Ausdruck nach einer Übereinstimmung zwischen einem regulären Ausdruck und einem angegebenen String aus. Gibt `true` zurück, wenn es eine Übereinstimmung gibt; andernfalls `false`.
 
-JavaScript-{{jsxref("RegExp")}}-Objekte sind **zustandsbehaftet**, wenn ihre {{jsxref("RegExp/global", "global")}}- oder {{jsxref("RegExp/sticky", "sticky")}}-Flags gesetzt sind (z.B. `/foo/g` oder `/foo/y`). Sie speichern einen {{jsxref("RegExp/lastIndex", "lastIndex")}} aus dem vorherigen Treffer. Mit dieser internen Nutzung kann `test()` verwendet werden, um über mehrere Treffer in einem Textstring zu iterieren (mit erfassten Gruppen).
+JavaScript-{{jsxref("RegExp")}}-Objekte sind **zustandsbehaftet**, wenn sie die {{jsxref("RegExp/global", "global")}}- oder {{jsxref("RegExp/sticky", "sticky")}}-Flags gesetzt haben (z.B. `/foo/g` oder `/foo/y`). Sie speichern einen {{jsxref("RegExp/lastIndex", "lastIndex")}} von der vorherigen Übereinstimmung. Durch die interne Nutzung dieser Information kann `test()` verwendet werden, um über mehrere Übereinstimmungen in einem Textstring zu iterieren (mit Erfassungsgruppen).
 
 {{EmbedInteractiveExample("pages/js/regexp-prototype-test.html", "taller")}}
 
@@ -22,25 +22,25 @@ test(str)
 ### Parameter
 
 - `str`
-  - : Der String, gegen den der reguläre Ausdruck abgeglichen werden soll. Alle Werte werden [in Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `test()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
+  - : Der String, gegen den der reguläre Ausdruck abgeglichen wird. Alle Werte werden [zu Strings umgewandelt](/de/docs/Web/JavaScript/Reference/Global_Objects/String#string_coercion), daher führt das Weglassen oder Übergeben von `undefined` dazu, dass `test()` nach dem String `"undefined"` sucht, was selten gewünscht ist.
 
 ### Rückgabewert
 
-`true`, wenn ein Treffer zwischen dem regulären Ausdruck und dem String `str` vorliegt. Anderenfalls `false`.
+`true`, wenn es eine Übereinstimmung zwischen dem regulären Ausdruck und dem String `str` gibt. Andernfalls `false`.
 
 ## Beschreibung
 
-Verwenden Sie `test()`, wann immer Sie wissen möchten, ob ein Muster in einem String gefunden wird. `test()` gibt einen booleschen Wert zurück, im Gegensatz zur {{jsxref("String.prototype.search()")}}-Methode (die den Index eines Treffers oder `-1`, wenn kein Treffer gefunden wurde, zurückgibt).
+Verwenden Sie `test()`, wann immer Sie wissen möchten, ob ein Muster in einem String gefunden wird. `test()` gibt einen Boolean zurück, im Gegensatz zur Methode {{jsxref("String.prototype.search()")}} (die den Index einer Übereinstimmung oder `-1` zurückgibt, wenn nichts gefunden wird).
 
-Um mehr Informationen zu erhalten (jedoch mit langsamerer Ausführung), verwenden Sie die {{jsxref("RegExp/exec", "exec()")}}-Methode. (Dies ist ähnlich zur {{jsxref("String.prototype.match()")}}-Methode.)
+Um genauere Informationen zu erhalten (aber mit langsamerer Ausführung), verwenden Sie die Methode {{jsxref("RegExp/exec", "exec()")}}. (Dies ist ähnlich zur Methode {{jsxref("String.prototype.match()")}}.)
 
-Wie bei `exec()` (oder in Kombination damit) wird `test()`, wenn es mehrfach auf derselben globalen regulären Ausdrucksinstanz aufgerufen wird, beim vorherigen Treffer fortschreiten.
+Wie bei `exec()` (oder in Kombination damit), sorgt `test()`, das mehrmals auf derselben globalen Regulären-Ausdruck-Instanz aufgerufen wird, dafür, dass weiter als die vorherige Übereinstimmung vorangeschritten wird.
 
 ## Beispiele
 
 ### Verwendung von test()
 
-Ein einfaches Beispiel, das überprüft, ob `"hello"` ganz am Anfang eines Strings enthalten ist und ein boolesches Ergebnis zurückgibt.
+Dieses Beispiel testet, ob `"hello"` am Anfang eines Strings enthalten ist, und gibt das Ergebnis als Boolean zurück.
 
 ```js
 const str = "hello world!";
@@ -58,18 +58,18 @@ function testInput(re, str) {
 }
 ```
 
-### Verwendung von test() mit einem Regex mit dem "global"-Flag
+### Verwendung von test() bei einem Regex mit dem "global"-Flag
 
-Wenn ein Regex das [global-Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) gesetzt hat, wird `test()` den {{jsxref("RegExp/lastIndex", "lastIndex")}} des Regexes weiterführen. ({{jsxref("RegExp.prototype.exec()")}} führt auch die `lastIndex`-Eigenschaft weiter.)
+Wenn ein Regex das [global-Flag](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/global) gesetzt hat, wird `test()` den {{jsxref("RegExp/lastIndex", "lastIndex")}} des Regex voranschreiten lassen. ({{jsxref("RegExp.prototype.exec()")}} erhöht ebenfalls die `lastIndex`-Eigenschaft.)
 
-Weitere Aufrufe von `test(str)` werden die Suche in `str` ab `lastIndex` fortsetzen. Die `lastIndex`-Eigenschaft wird bei jedem Zurückgeben von `true` durch `test()` weiterhin steigen.
+Weitere Aufrufe von `test(str)` werden die Suche in `str` ab dem `lastIndex` fortsetzen. Die `lastIndex`-Eigenschaft wird weiter zunehmen, jedes Mal, wenn `test()` `true` zurückgibt.
 
 > [!NOTE]
-> Solange `test()` `true` zurückgibt, wird `lastIndex` _nicht_ zurückgesetzt — sogar beim Testen eines anderen Strings!
+> Solange `test()` `true` zurückgibt, wird der `lastIndex` _nicht_ zurückgesetzt—auch wenn ein anderer String getestet wird!
 
-Wenn `test()` `false` zurückgibt, wird die `lastIndex`-Eigenschaft des aufrufenden Regexes auf `0` zurückgesetzt.
+Wenn `test()` `false` zurückgibt, wird die `lastIndex`-Eigenschaft des aufrufenden Regex auf `0` zurückgesetzt.
 
-Das folgende Beispiel demonstriert dieses Verhalten:
+Das folgende Beispiel zeigt dieses Verhalten:
 
 ```js
 const regex = /foo/g; // the "global" flag is set

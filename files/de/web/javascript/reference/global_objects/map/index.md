@@ -2,38 +2,38 @@
 title: Map
 slug: Web/JavaScript/Reference/Global_Objects/Map
 l10n:
-  sourceCommit: 2c762771070a207d410a963166adf32213bc3a45
+  sourceCommit: 5bdcf72ed6ffc7d4fa878060a548869ed6ae149b
 ---
 
 {{JSRef}}
 
-Das **`Map`**-Objekt speichert Schlüssel-Werte-Paare und merkt sich die ursprüngliche Einfügereihenfolge der Schlüssel.
+Das **`Map`** Objekt speichert Schlüssel-Werte-Paare und merkt sich die ursprüngliche Einfügereihenfolge der Schlüssel.
 Jeder Wert (sowohl Objekte als auch {{Glossary("Primitive", "primitive Werte")}}) kann sowohl als Schlüssel als auch als Wert verwendet werden.
 
 {{EmbedInteractiveExample("pages/js/map.html", "taller")}}
 
 ## Beschreibung
 
-`Map`-Objekte sind Sammlungen von Schlüssel-Werte-Paaren. Ein Schlüssel in der `Map` **kann nur einmal vorkommen**; er ist eindeutig in der Sammlung der `Map`. Ein `Map`-Objekt wird durch Schlüssel-Werte-Paare iteriert — eine {{jsxref("Statements/for...of", "for...of")}} Schleife gibt ein 2-Elemente-Array von `[key, value]` für jede Iteration zurück. Die Iteration erfolgt in _Einfügereihenfolge_, das heißt in der Reihenfolge, in der jedes Schlüssel-Werte-Paar zuerst mit der [`set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/set)-Methode in die Map eingefügt wurde (das bedeutet, es gab keinen Schlüssel mit demselben Wert, der bereits in der Map vorhanden war, als `set()` aufgerufen wurde).
+`Map` Objekte sind Sammlungen von Schlüssel-Wert-Paaren. Ein Schlüssel in der `Map` **darf nur einmal auftreten**; er ist einzigartig in der Sammlung der `Map`. Ein `Map` Objekt wird durch Schlüssel-Wert-Paare iteriert — eine {{jsxref("Statements/for...of", "for...of")}} Schleife gibt ein Array mit zwei Elementen `[key, value]` für jede Iteration zurück. Die Iteration erfolgt in der _Einfügereihenfolge_, die der Reihenfolge entspricht, in der jedes Schlüssel-Wert-Paar zuerst in die Map durch die [`set()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/set) Methode eingefügt wurde (das heißt, es gab keinen Schlüssel mit demselben Wert, als `set()` aufgerufen wurde).
 
-Die Spezifikation verlangt, dass Maps so implementiert werden, dass sie "im Durchschnitt Zugriffzeiten bieten, die unterlinear zur Anzahl der Elemente in der Sammlung sind". Daher könnte es intern als Hashtabelle (mit O(1)-Zugriff) umgesetzt werden, als Suchbaum (mit O(log(N))-Zugriff) oder einer anderen Datenstruktur, solange die Komplexität besser als O(N) ist.
+Die Spezifikation erfordert, dass Maps "so implementiert werden, dass Zugriffzeiten im Durchschnitt sublinear zur Anzahl der Elemente in der Sammlung bieten". Daher könnte es intern als eine Hashtabelle (mit O(1) Zugriff), ein Suchbaum (mit O(log(N)) Zugriff) oder jede andere Datenstruktur dargestellt werden, solange die Komplexität besser als O(N) ist.
 
-### Schlüssel-Gleichheit
+### Schlüsselgleichheit
 
-Die Wertgleichheit basiert auf dem [SameValueZero](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality)-Algorithmus. (Früher wurde [SameValue](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality_using_object.is) verwendet, der `0` und `-0` als unterschiedlich behandelte. Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität).) Das bedeutet, dass {{jsxref("NaN")}} als gleich zu `NaN` betrachtet wird (auch wenn `NaN !== NaN`) und alle anderen Werte als gleich gelten gemäß der Semantik des `===`-Operators.
+Die Gleichheit der Werte basiert auf dem [SameValueZero](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value-zero_equality) Algorithmus. (Früher wurde [SameValue](/de/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality_using_object.is) verwendet, das `0` und `-0` als unterschiedlich behandelte. Überprüfen Sie die [Browser-Kompatibilität](#browser-kompatibilität).) Dies bedeutet, dass {{jsxref("NaN")}} als gleich zu `NaN` betrachtet wird (auch wenn `NaN !== NaN`) und alle anderen Werte entsprechend den semantiken des `===` Operators als gleich gelten.
 
 ### Objekte vs. Maps
 
-{{jsxref("Object")}} ist ähnlich wie `Map` — beide erlauben das Setzen von Schlüsseln auf Werte, das Abrufen dieser Werte, das Löschen von Schlüsseln und das Erkennen, ob etwas an einem Schlüssel gespeichert ist. Aus diesem Grund (und weil es keine eingebauten Alternativen gab) wurde `Object` historisch als `Map` verwendet.
+{{jsxref("Object")}} ist ähnlich wie `Map` — beide ermöglichen es Ihnen, Schlüssel auf Werte zu setzen, diese Werte abzurufen, Schlüssel zu löschen und zu erkennen, ob etwas an einem Schlüssel gespeichert ist. Aus diesem Grund (und weil es keine integrierten Alternativen gab), wurde `Object` historisch als `Map` verwendet.
 
-Es gibt jedoch wichtige Unterschiede, die `Map` in einigen Fällen bevorzugt machen:
+Jedoch gibt es wichtige Unterschiede, die `Map` in einigen Fällen bevorzugt machen:
 
 <table class="standard-table">
   <thead>
     <tr>
       <th scope="row"></th>
       <th scope="col">Map</th>
-      <th scope="col">Object</th>
+      <th scope="col">Objekt</th>
     </tr>
   </thead>
   <tbody>
@@ -44,13 +44,11 @@ Es gibt jedoch wichtige Unterschiede, die `Map` in einigen Fällen bevorzugt mac
       </td>
       <td>
         <p>
-          Ein <code>Object</code> hat ein Prototyp, daher enthält es standardmäßig Schlüssel, die mit Ihren eigenen kollidieren könnten, wenn Sie nicht sorgfältig sind.
+          Ein <code>Objekt</code> hat ein Prototyp, sodass es Standardschlüssel enthält, die mit Ihren eigenen Schlüsseln kollidieren könnten, wenn Sie nicht vorsichtig sind.
         </p>
         <div class="notecard note">
           <p>
-            <strong>Hinweis:</strong> Dies kann umgangen werden, indem man
-            {{jsxref("Object.create", "Object.create(null)")}}
-            verwendet, aber das wird selten getan.
+            <strong>Hinweis:</strong> Dies kann umgangen werden, indem {{jsxref("Object.create", "Object.create(null)")}} verwendet wird, aber das wird selten gemacht.
           </p>
         </div>
       </td>
@@ -58,101 +56,74 @@ Es gibt jedoch wichtige Unterschiede, die `Map` in einigen Fällen bevorzugt mac
     <tr>
       <th scope="row">Sicherheit</th>
       <td>
-        Eine <code>Map</code> ist sicher, um sie mit nutzergelieferten Schlüsseln und Werten zu verwenden.
+        Eine <code>Map</code> ist sicher in der Verwendung mit benutzerdefinierten Schlüsseln und Werten.
       </td>
       <td>
         <p>
-          Das Setzen von nutzergelieferten Schlüssel-Werte-Paaren in einem <code>Object</code> kann einem Angreifer erlauben, das Prototyp des Objekts zu überschreiben, was zu
-          <a href="https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md">
-            Objekt-Injektionsangriffen
-          </a> führen kann. Wie das Problem mit zufälligen Schlüsseln kann auch dies durch die Verwendung eines Objekts mit einem <code>null</code>-Prototyp gemindert werden.
+          Das Setzen von benutzerdefinierten Schlüssel-Wert-Paaren auf einem <code>Objekt</code> kann es einem Angreifer ermöglichen, das Prototyp des Objekts zu überschreiben, was zu <a href="https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md">Objekt-Injektionsangriffen</a> führen kann. Wie das Problem mit den zufälligen Schlüsseln, kann dies auch durch die Verwendung eines <code>null</code>-Prototyp-Objekts gemildert werden.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Schlüsseltypen</th>
       <td>
-        Die Schlüssel einer <code>Map</code> können jeden Wert haben (einschließlich Funktionen, Objekte oder irgendeinen primitiven).
+        Eine <code>Map</code>'s Schlüssel können beliebige Werte sein (einschließlich Funktionen, Objekte oder irgendein primitiver Wert).
       </td>
       <td>
-        Die Schlüssel eines <code>Object</code> müssen entweder ein
-        {{jsxref("String")}} oder ein {{jsxref("Symbol")}} sein.
+        Die Schlüssel eines <code>Objekts</code> müssen entweder ein {{jsxref("String")}} oder ein {{jsxref("Symbol")}} sein.
       </td>
     </tr>
     <tr>
       <th scope="row">Schlüsselreihenfolge</th>
       <td>
         <p>
-          Die Schlüssel in einer <code>Map</code> sind auf einfache, unkomplizierte Weise angeordnet: Ein <code>Map</code>-Objekt iteriert Einträge, Schlüssel und Werte in der Reihenfolge der Eingabe.
+          Die Schlüssel in <code>Map</code> sind in einer unkomplizierten Weise geordnet: Ein <code>Map</code> Objekt iteriert Einträge, Schlüssel und Werte in der Reihenfolge der Einfügung.
         </p>
       </td>
       <td>
         <p>
-          Obwohl die Schlüssel eines normalen <code>Object</code> jetzt geordnet sind, war dies nicht immer der Fall, und die Reihenfolge ist komplex. Daher sollte man sich nicht auf die Eigenschaftenreihenfolge verlassen.
+          Obwohl die Schlüssel eines gewöhnlichen <code>Objekts</code> jetzt geordnet sind, war dies nicht immer der Fall, und die Ordnung ist komplex. Deshalb ist es am besten, sich nicht auf die Reihenfolge der Eigenschaften zu verlassen.
         </p>
         <p>
-          Die Reihenfolge wurde zuerst für eigene Eigenschaften nur in ECMAScript 2015 definiert; ECMAScript 2020 definiert die Reihenfolge auch für geerbte Eigenschaften. Beachten Sie jedoch, dass kein einzelner Mechanismus
-          <strong>alle</strong> Eigenschaften eines Objekts iteriert; die verschiedenen Mechanismen umfassen jeweils unterschiedliche Teilmengen von Eigenschaften.
+          Die Ordnung wurde zuerst nur für eigene Eigenschaften in ECMAScript 2015 definiert; ECMAScript 2020 definiert die Ordnung auch für geerbte Eigenschaften. Aber beachten Sie, dass kein einziges Mechanismus
+          <strong>alle</strong> Eigenschaften eines Objekts durchläuft; die verschiedenen Mechanismen umfassen jeweils unterschiedliche Untergruppen von Eigenschaften.
           ({{jsxref("Statements/for...in", "for-in")}}
-          beinhaltet nur aufzählbare, string-gekettete Eigenschaften;
-          {{jsxref("Object.keys")}} beinhaltet nur eigene, aufzählbare,
-          string-gekettete Eigenschaften;
-          {{jsxref("Object.getOwnPropertyNames")}} beinhaltet eigene,
-          string-gekettete Eigenschaften, auch wenn sie nicht aufzählbar sind;
-          {{jsxref("Object.getOwnPropertySymbols")}} tut dasselbe
-          nur für <code>Symbol</code>-geschlüsselte Eigenschaften, usw.)
+          umfasst nur aufzählbare string-keyed Eigenschaften;
+          {{jsxref("Object.keys")}} umfasst nur eigene, aufzählbare,
+          string-keyed Eigenschaften;
+          {{jsxref("Object.getOwnPropertyNames")}} umfasst eigene,
+          string-keyed Eigenschaften, auch wenn sie nicht aufzählbar sind;
+          {{jsxref("Object.getOwnPropertySymbols")}} macht dasselbe
+          nur für <code>Symbol</code>-keyed Eigenschaften, etc.)
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row"><p>Größe</p></th>
       <td>
-        Die Anzahl der Elemente in einer <code>Map</code> lässt sich einfach über ihre
-        {{jsxref("Map.prototype.size", "size")}}-Eigenschaft abrufen.
+        Die Anzahl der Elemente in einer <code>Map</code> ist leicht aus ihrer {{jsxref("Map.prototype.size", "Größe")}} Eigenschaft abzurufen.
       </td>
       <td>
-        Die Bestimmung der Anzahl der Elemente in einem <code>Object</code> ist umständlicher und weniger effizient. Eine übliche Methode besteht darin, die {{jsxref("Array/length", "length")}} des Arrays zu verwenden, das von {{jsxref("Object.keys()")}} zurückgegeben wird.
+        Das Bestimmen der Anzahl der Elemente in einem <code>Objekt</code> ist umständlicher und weniger effizient. Ein üblicher Weg dies zu tun ist durch die {{jsxref("Array/length", "Länge")}} des Arrays, das von {{jsxref("Object.keys()")}} zurückgegeben wird.
       </td>
     </tr>
     <tr>
       <th scope="row">Iteration</th>
       <td>
-        Eine <code>Map</code> ist ein
-        <a href="/de/docs/Web/JavaScript/Reference/Iteration_protocols"
-          >iterierbar</a
-        >, sodass sie direkt iteriert werden kann.
+        Eine <code>Map</code> ist ein <a href="/de/docs/Web/JavaScript/Reference/Iteration_protocols">iterable</a>, sodass sie direkt iteriert werden kann.
       </td>
       <td>
         <p>
-          Ein <code>Object</code> implementiert kein <a
-            href="/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol"
-            >Iterierungsprotokoll</a
-          >, und daher sind Objekte nicht direkt iterierbar mit der JavaScript
-          <a href="/de/docs/Web/JavaScript/Reference/Statements/for...of"
-            >for...of</a
-          >
-          Anweisung (standardmäßig).
+          <code>Objekt</code> implementiert kein <a href="/de/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol">Iterationsprotokoll</a>, und so sind Objekte nicht direkt iterierbar unter Verwendung des JavaScript <a href="/de/docs/Web/JavaScript/Reference/Statements/for...of">for...of</a> Statements (standardmäßig).
         </p>
         <div class="notecard note">
           <p><strong>Hinweis:</strong></p>
           <ul>
             <li>
-              Ein Objekt kann das Iterierungsprotokoll implementieren oder Sie können ein
-              iterierbares Objekt aus einem Objekt erhalten, indem Sie <a
-                href="/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"
-                ><code>Object.keys</code></a
-              > oder <a
-                href="/de/docs/Web/JavaScript/Reference/Global_Objects/Object/entries"
-                ><code>Object.entries</code></a
-              > verwenden.
+              Ein Objekt kann das Iterationsprotokoll implementieren, oder Sie können ein iterable für ein Objekt erhalten, indem Sie <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/Object/keys"><code>Object.keys</code></a> oder <a href="/de/docs/Web/JavaScript/Reference/Global_Objects/Object/entries"><code>Object.entries</code></a> verwenden.
             </li>
             <li>
-              Die
-              <a href="/de/docs/Web/JavaScript/Reference/Statements/for...in"
-                >for...in</a
-              >
-              Anweisung erlaubt es Ihnen, über die
-              <em>aufzählbaren</em> Eigenschaften eines Objekts zu iterieren.
+              Die <a href="/de/docs/Web/JavaScript/Reference/Statements/for...in">for...in</a> Anweisung erlaubt Ihnen, über die <em>aufzählbaren</em> Eigenschaften eines Objekts zu iterieren.
             </li>
           </ul>
         </div>
@@ -162,48 +133,40 @@ Es gibt jedoch wichtige Unterschiede, die `Map` in einigen Fällen bevorzugt mac
       <th scope="row">Leistung</th>
       <td>
         <p>
-          Bietet bessere Leistung in Szenarien, die häufige Hinzufügungen und Entfernungen von Schlüssel-Werte-Paaren beinhalten.
+          Bietet bessere Leistung in Szenarien mit häufigen Hinzufügungen und Entfernungen von Schlüssel-Wert-Paaren.
         </p>
       </td>
       <td>
         <p>
-          Nicht optimiert für häufige Hinzufügungen und Entfernungen von Schlüssel-Werte-Paaren.
+          Nicht optimiert für häufige Hinzufügungen und Entfernungen von Schlüssel-Wert-Paaren.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Serialisierung und Parsing</th>
+      <th scope="row">Serialisierung und Parsen</th>
       <td>
-        <p>Keine native Unterstützung für Serialisierung oder Parsing.</p>
+        <p>Keine native Unterstützung für Serialisierung oder Parsen.</p>
         <p>
-          (Aber Sie können Ihre eigene Serialisierungs- und Parsing-Unterstützung für
-          <code>Map</code> erstellen, indem Sie {{jsxref("JSON.stringify()")}}
-          mit seinem <em>replacer</em>-Argument verwenden, und indem Sie {{jsxref("JSON.parse()")}} mit seinem
-          <em>reviver</em>-Argument verwenden. Siehe die Stack Overflow Frage
-          <a href="https://stackoverflow.com/q/29085197/"
-            >How do you JSON.stringify an ES6 Map?</a
-          >).
+          (Aber Sie können Ihre eigene Unterstützung für Serialisierung und Parsen für <code>Map</code> aufbauen, indem Sie {{jsxref("JSON.stringify()")}} mit seinem <em>replacer</em>-Argument verwenden, und {{jsxref("JSON.parse()")}} mit seinem <em>reviver</em>-Argument verwenden. Siehe die Stack Overflow-Frage <a href="https://stackoverflow.com/q/29085197/">Wie JSON.stringify ich eine ES6-Map?</a>).
         </p>
       </td>
       <td>
         <p>
-          Native Unterstützung für die Serialisierung von {{jsxref("Object")}} zu
-          JSON, unter Verwendung von {{jsxref("JSON.stringify()")}}.
+          Native Unterstützung für die Serialisierung von {{jsxref("Object")}} zu JSON, unter Verwendung von {{jsxref("JSON.stringify()")}}.
         </p>
         <p>
-          Native Unterstützung für das Parsing von JSON zu {{jsxref("Object")}},
-          unter Verwendung von {{jsxref("JSON.parse()")}}.
+          Native Unterstützung für das Parsen von JSON zu {{jsxref("Object")}}, unter Verwendung von {{jsxref("JSON.parse()")}}.
         </p>
       </td>
     </tr>
   </tbody>
 </table>
 
-### Objekteigenschaften setzen
+### Setzen von Objekteigenschaften
 
-Das Setzen von Objekteigenschaften funktioniert auch für Map-Objekte und kann zu erheblichen Verwirrungen führen.
+Das Setzen von Objekteigenschaften funktioniert auch für Map-Objekte und kann erhebliche Verwirrung stiften.
 
-Daher scheint dies auf eine Weise zu funktionieren:
+Daher scheint es auf diese Weise zu funktionieren:
 
 ```js example-bad
 const wrongMap = new Map();
@@ -213,7 +176,7 @@ wrongMap["bla2"] = "blaaa2";
 console.log(wrongMap); // Map { bla: 'blaa', bla2: 'blaaa2' }
 ```
 
-Aber diese Art, eine Eigenschaft zu setzen, interagiert nicht mit der Map-Datenstruktur. Sie verwendet die Funktion des generischen Objekts. Der Wert von 'bla' wird nicht in der Map für Abfragen gespeichert. Andere Operationen auf den Daten schlagen fehl:
+Aber diese Art der Eigenschaftszuteilung interagiert nicht mit der Datenstruktur von Map. Es nutzt die Funktionalität eines generischen Objekts. Der Wert von 'bla' wird nicht in der Map für Abfragen gespeichert. Andere Operationen auf den Daten schlagen fehl:
 
 ```js example-bad
 wrongMap.has("bla"); // false
@@ -221,7 +184,7 @@ wrongMap.delete("bla"); // false
 console.log(wrongMap); // Map { bla: 'blaa', bla2: 'blaaa2' }
 ```
 
-Die korrekte Verwendung zum Speichern von Daten in der Map erfolgt durch die `set(key, value)`-Methode.
+Die korrekte Verwendung zum Speichern von Daten in der Map ist die Methode `set(key, value)`.
 
 ```js example-good
 const contacts = new Map();
@@ -237,15 +200,15 @@ console.log(contacts.size); // 1
 
 ### Map-ähnliche Browser-APIs
 
-**Map-ähnliche Browserobjekte** (oder "maplike objects") sind [Web-API](/de/docs/Web/API)-Schnittstellen, die sich in vielerlei Hinsicht wie eine `Map` verhalten.
+**Browser `Map`-ähnliche Objekte** (oder "mapähnliche Objekte") sind [Web API](/de/docs/Web/API) Schnittstellen, die sich in vielerlei Hinsicht wie eine `Map` verhalten.
 
-Genau wie `Map` können Einträge in der gleichen Reihenfolge iteriert werden, in der sie dem Objekt hinzugefügt wurden.
+Ähnlich wie `Map` können Einträge in der gleichen Reihenfolge durchlaufen werden, in der sie zum Objekt hinzugefügt wurden.
 `Map`-ähnliche Objekte und `Map` haben auch Eigenschaften und Methoden, die denselben Namen und dasselbe Verhalten haben.
-Im Gegensatz zu `Map` erlauben sie jedoch nur bestimmte vordefinierte Typen für die Schlüssel und Werte jedes Eintrages.
+Im Gegensatz zu `Map` erlauben sie jedoch nur bestimmte vordefinierte Typen für die Schlüssel und Werte jedes Eintrags.
 
-Die erlaubten Typen sind in der IDL-Definition der Spezifikation festgelegt.
-Zum Beispiel ist [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) ein `Map`-ähnliches Objekt, das Zeichenketten für Schlüssel und Objekte für Werte verwenden muss.
-Dies wird in der untenstehenden Spezifikations-IDL definiert:
+Die erlaubten Typen sind in der Spezifikation IDL-Definition festgelegt.
+Zum Beispiel muss [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), ein `Map`-ähnliches Objekt, Zeichenfolgen für Schlüssel und Objekte für Werte verwenden.
+Dies ist in der Spezifikation IDL unten definiert:
 
 ```webidl
 interface RTCStatsReport {
@@ -253,12 +216,12 @@ interface RTCStatsReport {
 };
 ```
 
-`Map`-ähnliche Objekte sind entweder schreibgeschützt oder leseschreibbar (siehe das `readonly`-Schlüsselwort in der obigen IDL).
+`Map`-ähnliche Objekte sind entweder schreibgeschützt oder schreibbar (siehe das `readonly` Schlüsselwort im obigen IDL).
 
-- Schreibgeschützte `Map`-ähnliche Objekte haben die Eigenschaft [`size`](#map.prototype.size) und die Methoden: [`entries()`](#map.prototype.entries), [`forEach()`](#map.prototype.foreach), [`get()`](#map.prototype.get), [`has()`](#map.prototype.has), [`keys()`](#map.prototype.keys), [`values()`](#map.prototype.values) und [`[Symbol.iterator]()`](#map.prototypesymbol.iterator).
-- Schreibbare `Map`-ähnliche Objekte verfügen zusätzlich über die Methoden: [`clear()`](#map.prototype.clear), [`delete()`](#map.prototype.delete) und [`set()`](#map.prototype.set).
+- Schreibgeschützte `Map`-ähnliche Objekte haben die Eigenschaft [`size`](#map.prototype.size), und die Methoden: [`entries()`](#map.prototype.entries), [`forEach()`](#map.prototype.foreach), [`get()`](#map.prototype.get), [`has()`](#map.prototype.has), [`keys()`](#map.prototype.keys), [`values()`](#map.prototype.values), und [`[Symbol.iterator]()`](#map.prototypesymbol.iterator).
+- Schreibbare `Map`-ähnliche Objekte haben zusätzlich die Methoden: [`clear()`](#map.prototype.clear), [`delete()`](#map.prototype.delete), und [`set()`](#map.prototype.set).
 
-Die Methoden und Eigenschaften haben dasselbe Verhalten wie die äquivalenten Entitäten in `Map`, außer für die Einschränkung auf die Typen der Schlüssel und Werte.
+Die Methoden und Eigenschaften haben dasselbe Verhalten wie die entsprechenden Entitäten in `Map`, mit Ausnahme der Einschränkung der Typen für die Schlüssel und Werte.
 
 Die folgenden sind Beispiele für schreibgeschützte `Map`-ähnliche Browserobjekte:
 
@@ -272,7 +235,7 @@ Die folgenden sind Beispiele für schreibgeschützte `Map`-ähnliche Browserobje
 ## Konstruktor
 
 - {{jsxref("Map/Map", "Map()")}}
-  - : Erstellt ein neues `Map`-Objekt.
+  - : Erstellt ein neues `Map` Objekt.
 
 ## Statische Eigenschaften
 
@@ -282,41 +245,41 @@ Die folgenden sind Beispiele für schreibgeschützte `Map`-ähnliche Browserobje
 ## Statische Methoden
 
 - {{jsxref("Map.groupBy()")}}
-  - : Gruppiert die Elemente eines gegebenen Iterables unter Verwendung der Werte, die von einer bereitgestellten Rückruffunktion zurückgegeben werden. Die endgültige zurückgegebene `Map` verwendet die eindeutigen Werte der Testfunktion als Schlüssel, die verwendet werden können, um das Array von Elementen in jeder Gruppe zu erhalten.
+  - : Gruppiert die Elemente eines gegebenen Iterables unter Verwendung der Werte, die von einer bereitgestellten Callback-Funktion zurückgegeben werden. Die endgültig zurückgegebene `Map` verwendet die einzigartigen Werte aus der Testfunktion als Schlüssel, die verwendet werden können, um das Array von Elementen in jeder Gruppe zu erhalten.
 
 ## Instanz-Eigenschaften
 
-Diese Eigenschaften sind auf `Map.prototype` definiert und werden von allen `Map`-Instanzen geteilt.
+Diese Eigenschaften sind auf `Map.prototype` definiert und werden von allen `Map` Instanzen geteilt.
 
 - {{jsxref("Object/constructor", "Map.prototype.constructor")}}
-  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Map`-Instanzen ist der Anfangswert der {{jsxref("Map/Map", "Map")}}-Konstruktor.
+  - : Die Konstruktorfunktion, die das Instanzobjekt erstellt hat. Für `Map` Instanzen ist der Anfangswert der {{jsxref("Map/Map", "Map")}} Konstruktor.
 - {{jsxref("Map.prototype.size")}}
-  - : Gibt die Anzahl der Schlüssel/Werte-Paare im `Map`-Objekt zurück.
+  - : Gibt die Anzahl der Schlüssel/Werte-Paare im `Map` Objekt zurück.
 - `Map.prototype[Symbol.toStringTag]`
-  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag)-Eigenschaft ist der String `"Map"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
+  - : Der Anfangswert der [`[Symbol.toStringTag]`](/de/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) Eigenschaft ist die Zeichenfolge `"Map"`. Diese Eigenschaft wird in {{jsxref("Object.prototype.toString()")}} verwendet.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 - {{jsxref("Map.prototype.clear()")}}
-  - : Entfernt alle Schlüssel-Werte-Paare aus dem `Map`-Objekt.
+  - : Entfernt alle Schlüssel-Werte-Paare aus dem `Map` Objekt.
 - {{jsxref("Map.prototype.delete()")}}
-  - : Gibt `true` zurück, wenn ein Element im `Map`-Objekt existierte und entfernt wurde, oder `false`, wenn das Element nicht existiert. `map.has(key)` wird anschließend `false` zurückgeben.
+  - : Gibt `true` zurück, wenn ein Element im `Map` Objekt existierte und entfernt wurde, oder `false`, wenn das Element nicht existiert. `map.has(key)` wird danach `false` zurückgeben.
 - {{jsxref("Map.prototype.entries()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das ein zweigliedriges Array von `[key, value]` für jedes Element im `Map`-Objekt in Einfügereihenfolge enthält.
+  - : Gibt ein neues Iterator-Objekt zurück, das ein Array mit zwei Mitgliedern `[key, value]` für jedes Element im `Map` Objekt in Einfügereihenfolge enthält.
 - {{jsxref("Map.prototype.forEach()")}}
-  - : Ruft `callbackFn` einmal für jedes im `Map`-Objekt vorhandene Schlüssel-Werte-Paar in Einfügereihenfolge auf. Wenn ein `thisArg`-Parameter an `forEach` übergeben wird, wird er als `this`-Wert für jede Rückruffunktion verwendet.
+  - : Ruft `callbackFn` einmal für jedes Schlüssel-Wert-Paar im `Map` Objekt in Einfügereihenfolge auf. Wenn ein `thisArg` Parameter an `forEach` übergeben wird, wird er als `this` Wert für jeden Callback verwendet.
 - {{jsxref("Map.prototype.get()")}}
   - : Gibt den Wert zurück, der dem übergebenen Schlüssel zugeordnet ist, oder `undefined`, wenn keiner vorhanden ist.
 - {{jsxref("Map.prototype.has()")}}
-  - : Gibt einen boolean-Wert zurück, der angibt, ob ein Wert mit dem übergebenen Schlüssel im `Map`-Objekt assoziiert wurde oder nicht.
+  - : Gibt einen Boolean zurück, der anzeigt, ob ein Wert mit dem übergebenen Schlüssel im `Map` Objekt verknüpft ist oder nicht.
 - {{jsxref("Map.prototype.keys()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das die Schlüssel für jedes Element im `Map`-Objekt in Einfügereihenfolge enthält.
+  - : Gibt ein neues Iterator-Objekt zurück, das die Schlüssel für jedes Element im `Map` Objekt in Einfügereihenfolge enthält.
 - {{jsxref("Map.prototype.set()")}}
-  - : Setzt den Wert für den übergebenen Schlüssel im `Map`-Objekt. Gibt das `Map`-Objekt zurück.
+  - : Legt den Wert für den übergebenen Schlüssel im `Map` Objekt fest. Gibt das `Map` Objekt zurück.
 - {{jsxref("Map.prototype.values()")}}
-  - : Gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `Map`-Objekt in Einfügereihenfolge enthält.
+  - : Gibt ein neues Iterator-Objekt zurück, das die Werte für jedes Element im `Map` Objekt in Einfügereihenfolge enthält.
 - [`Map.prototype[Symbol.iterator]()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map/Symbol.iterator)
-  - : Gibt ein neues Iterator-Objekt zurück, das ein zweigliedriges Array von `[key, value]` für jedes Element im `Map`-Objekt in Einfügereihenfolge enthält.
+  - : Gibt ein neues Iterator-Objekt zurück, das ein Array mit zwei Mitgliedern `[key, value]` für jedes Element im `Map` Objekt in Einfügereihenfolge enthält.
 
 ## Beispiele
 
@@ -348,7 +311,7 @@ console.log(myMap.get(function () {})); // undefined, because keyFunc !== functi
 
 ### Verwendung von NaN als Map-Schlüssel
 
-{{jsxref("NaN")}} kann auch als Schlüssel verwendet werden. Auch wenn jedes `NaN` nicht gleich sich selbst ist (`NaN !== NaN` ist wahr), funktioniert das folgende Beispiel, weil `NaN`s nicht voneinander zu unterscheiden sind:
+{{jsxref("NaN")}} kann auch als Schlüssel verwendet werden. Obwohl jedes `NaN` nicht gleich sich selbst ist (`NaN !== NaN` ist wahr), funktioniert das folgende Beispiel, weil `NaN`s ununterscheidbar voneinander sind:
 
 ```js
 const myMap = new Map();
@@ -364,7 +327,7 @@ myMap.get(otherNaN);
 
 ### Iterieren von Map mit for...of
 
-Maps können mit einer `for...of`-Schleife iteriert werden:
+Maps können mit einer `for...of` Schleife iteriert werden:
 
 ```js
 const myMap = new Map();
@@ -398,8 +361,7 @@ for (const [key, value] of myMap.entries()) {
 
 ### Iterieren von Map mit forEach()
 
-Maps können unter Verwendung der
-{{jsxref("Map/forEach", "forEach()")}}-Methode iteriert werden:
+Maps können mit der {{jsxref("Map/forEach", "forEach()")}} Methode iteriert werden:
 
 ```js
 myMap.forEach((value, key) => {
@@ -432,9 +394,9 @@ console.log([...myMap]);
 console.log(Array.from(myMap.keys())); // ["key1", "key2"]
 ```
 
-### Klonen und Zusammenführen von Maps
+### Klonen und Mischen von Maps
 
-Genau wie `Array`s können `Map`s geklont werden:
+Genau wie `Array`s, können `Map`s geklont werden:
 
 ```js
 const original = new Map([[1, "one"]]);
@@ -448,7 +410,7 @@ console.log(original === clone); // false (useful for shallow comparison)
 > [!NOTE]
 > Beachten Sie, dass _die Daten selbst_ nicht geklont werden.
 
-Maps können zusammengeführt werden, wobei die Eindeutigkeit der Schlüssel erhalten bleibt:
+Maps können zusammengeführt werden und wahren dabei die Eindeutigkeit der Schlüssel:
 
 ```js
 const first = new Map([
