@@ -7692,6 +7692,7 @@
 /de/docs/Web/API/CSSUnitValue/CSSUnitValue()	/de/docs/Web/API/CSSUnitValue/CSSUnitValue
 /de/docs/Web/API/CSSUnitValue/CSSUnitValue.CSSUnitValue	/de/docs/Web/API/CSSUnitValue/CSSUnitValue
 /de/docs/Web/API/CSSValueList/CSSValueList.length	/de/docs/Web/API/CSSValueList/length
+/de/docs/Web/API/CSS_Counter_Styles	/de/docs/Web/CSS/CSS_counter_styles
 /de/docs/Web/API/CSS_Properties_and_Values_API/_Using_the_CSS_properties_and_values_API	/de/docs/Web/API/CSS_Properties_and_Values_API/guide
 /de/docs/Web/API/CSS_Typed_Object_Model_API	/de/docs/Web/API/CSS_Object_Model#CSS_Typed_Object_Model
 /de/docs/Web/API/Cache/Cache.addAll()	/de/docs/Web/API/Cache/addAll

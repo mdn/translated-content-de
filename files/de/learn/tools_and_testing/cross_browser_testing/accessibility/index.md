@@ -1,13 +1,13 @@
 ---
-title: Umgang mit häufigen Barrierefreiheitsproblemen
+title: Umgang mit häufigen Problemen der Barrierefreiheit
 slug: Learn/Tools_and_testing/Cross_browser_testing/Accessibility
 l10n:
-  sourceCommit: 4cf65c9c822d91583db20f6f160571c7ac303dec
+  sourceCommit: acb4e05fe7ea33a7b20fa03fdeb26a93511624e0
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Cross_browser_testing/JavaScript","Learn/Tools_and_testing/Cross_browser_testing/Feature_detection", "Learn/Tools_and_testing/Cross_browser_testing")}}
 
-Als nächstes widmen wir uns der Barrierefreiheit und bieten Informationen zu häufigen Problemen, wie man einfache Tests durchführt und wie man Auditierungs-/Automatisierungstools zur Erkennung von Barrierefreiheitsproblemen nutzt.
+Als Nächstes widmen wir uns der Barrierefreiheit, bieten Informationen zu häufigen Problemen, wie man einfache Tests durchführt, und wie man Prüf- und Automatisierungstools zur Erkennung von Barrierefreiheitsproblemen nutzt.
 
 <table>
   <tbody>
@@ -16,17 +16,17 @@ Als nächstes widmen wir uns der Barrierefreiheit und bieten Informationen zu h�
       <td>
         Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn/HTML">HTML</a>,
         <a href="/de/docs/Learn/CSS">CSS</a> und
-        <a href="/de/docs/Learn/JavaScript">JavaScript</a>; eine Vorstellung der
+        <a href="/de/docs/Learn/JavaScript">JavaScript</a>; eine Vorstellung von den grundlegenden
         <a
           href="/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction"
-          >Grundprinzipien des Cross-Browser-Tests</a
+          >Prinzipien des Browser-übergreifenden Testens</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        In der Lage sein, häufige Barrierefreiheitsprobleme zu diagnostizieren und geeignete Werkzeuge und Techniken zu verwenden, um diese zu beheben.
+        Die Fähigkeit, häufige Barrierefreiheitsprobleme zu diagnostizieren und geeignete Tools und Techniken zu deren Behebung zu verwenden.
       </td>
     </tr>
   </tbody>
@@ -34,40 +34,40 @@ Als nächstes widmen wir uns der Barrierefreiheit und bieten Informationen zu h�
 
 ## Was ist Barrierefreiheit?
 
-Wenn wir im Kontext der Webtechnologie von Barrierefreiheit sprechen, denken die meisten Menschen sofort daran, sicherzustellen, dass Webseiten/Apps von Menschen mit Behinderungen genutzt werden können, zum Beispiel:
+Wenn wir im Zusammenhang mit Web-Technologie von Barrierefreiheit sprechen, denken die meisten Menschen sofort daran, sicherzustellen, dass Websites/Apps für Menschen mit Behinderungen nutzbar sind, zum Beispiel:
 
-- Menschen mit Sehbeeinträchtigungen, die Bildschirmleser oder Vergrößerung/Zoom verwenden, um Text zugänglich zu machen.
-- Menschen mit motorischen Beeinträchtigungen, die die Tastatur (oder andere nicht-mausbasierte Funktionen) nutzen, um Webseitenfunktionen zu aktivieren.
-- Menschen mit Hörbeeinträchtigungen, die auf Untertitel oder andere Textalternativen für Audio-/Videoinhalte angewiesen sind.
+- Sehbehinderte Menschen, die Bildschirmleser oder Vergrößerungen/Zooms verwenden, um auf Texte zuzugreifen.
+- Menschen mit motorischen Beeinträchtigungen, die Tastaturen (oder andere nicht-mausbasierten Funktionen) nutzen, um die Funktionalität von Websites zu aktivieren.
+- Menschen mit Hörbehinderungen, die auf Untertitel oder andere Textalternativen für Audio-/Videoinhalte angewiesen sind.
 
-Es ist jedoch falsch zu sagen, dass Barrierefreiheit nur auf Behinderungen beschränkt ist. Das eigentliche Ziel der Barrierefreiheit ist es, Ihre Webseiten/Apps für möglichst viele Menschen in möglichst vielen Kontexten nutzbar zu machen, nicht nur für Benutzer, die leistungsstarke Desktop-Computer verwenden. Einige Beispiele könnten sein:
+Es ist jedoch ein Irrtum zu sagen, dass Barrierefreiheit nur für Behinderungen gedacht ist. Das eigentliche Ziel der Barrierefreiheit ist es, Websites/Apps für so viele Menschen in möglichst vielen Kontexten wie möglich nutzbar zu machen, nicht nur für Benutzer von leistungsstarken Desktop-Computern. Einige Beispiele könnten sein:
 
 - Benutzer auf mobilen Geräten.
 - Benutzer auf alternativen Browser-Geräten wie Fernsehern, Uhren usw.
 - Benutzer älterer Geräte, die möglicherweise nicht über die neuesten Browser verfügen.
 - Benutzer von Geräten mit geringerer Spezifikation, die möglicherweise langsame Prozessoren haben.
 
-In gewisser Weise dreht sich dieses gesamte Modul um Barrierefreiheit — Cross-Browser-Tests stellen sicher, dass Ihre Websites von möglichst vielen Menschen genutzt werden können. [Was ist Barrierefreiheit?](/de/docs/Learn/Accessibility/What_is_accessibility) definiert Barrierefreiheit vollständiger und gründlicher als dieser Artikel.
+In gewisser Weise dreht sich dieses ganze Modul um Barrierefreiheit — das Browser-übergreifende Testen stellt sicher, dass Ihre Sites von möglichst vielen Menschen genutzt werden können. [Was ist Barrierefreiheit?](/de/docs/Learn/Accessibility/What_is_accessibility) definiert Barrierefreiheit vollständiger und gründlicher als dieser Artikel es tut.
 
-Nichtsdestotrotz wird dieser Artikel Cross-Browser- und Testprobleme rund um Menschen mit Behinderungen abdecken und wie sie das Web nutzen. Wir haben bereits in anderen Bereichen des Moduls darüber gesprochen, wie z. B. [Responsives Design](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#responsive_design_problems) und [Leistung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/JavaScript#performance_issues).
+Das gesagt, wird dieser Artikel Browser-übergreifende und Testprobleme im Zusammenhang mit Menschen mit Behinderungen behandeln und wie sie das Internet nutzen. Wir haben bereits über andere Bereiche wie [Responsive Design](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#responsive_design_probleme) und [Leistung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/JavaScript#leistungsprobleme) an anderen Stellen des Moduls gesprochen.
 
 > [!NOTE]
-> Ähnlich wie bei vielen Dingen in der Webentwicklung geht es bei der Barrierefreiheit nicht um einen Erfolg von 100 %; 100 % Barrierefreiheit sind für alle Inhalte praktisch unmöglich zu erreichen, insbesondere wenn Websites komplexer werden. Stattdessen geht es darum, einen angemessenen Aufwand zu betreiben, um möglichst viele Ihrer Inhalte für möglichst viele Menschen zugänglich zu machen, indem Sie defensiven Code schreiben und bewährte Verfahren einhalten.
+> Wie bei vielen Dingen in der Webentwicklung geht es bei Barrierefreiheit nicht um 100% Erfolg oder nichts; 100% Barrierefreiheit ist praktisch unmöglich für alle Inhalte zu erreichen, insbesondere wenn Websites komplexer werden. Es geht vielmehr darum, einen angemessenen Aufwand zu betreiben, um so viele Ihrer Inhalte wie möglich für so viele Menschen wie möglich zugänglich zu machen, indem Sie defensiv coden und Best Practices einhalten.
 
 ## Häufige Barrierefreiheitsprobleme
 
-In diesem Abschnitt werden einige der Hauptprobleme im Zusammenhang mit der Web-Barrierefreiheit im Zusammenhang mit spezifischen Technologien detailliert beschrieben, einschließlich bewährter Vorgehensweisen und einiger schneller Tests, die Sie durchführen können, um zu sehen, ob Ihre Websites in die richtige Richtung gehen.
+In diesem Abschnitt werden wir einige der Hauptprobleme umreißen, die im Zusammenhang mit der Barrierefreiheit im Web auftreten, in Verbindung mit spezifischen Technologien, zusammen mit Best Practices, die zu befolgen sind, und einigen einfachen Tests, die Sie durchführen können, um festzustellen, ob Ihre Sites auf dem richtigen Weg sind.
 
 > [!NOTE]
-> Barrierefreiheit ist moralisch die richtige Sache, und gut fürs Geschäft (die Zahl der Nutzer mit Behinderungen, Nutzer auf mobilen Geräten etc. stellen bedeutende Marktsegmente dar), aber es besteht auch eine gesetzliche Verpflichtung in vielen Teilen der Welt, Webinhalte für Menschen mit Behinderungen zugänglich zu machen. Lesen Sie [Barrierefreiheitsrichtlinien und das Gesetz](/de/docs/Learn/Accessibility/What_is_accessibility#accessibility_guidelines_and_the_law) für weitere Informationen.
+> Barrierefreiheit ist moralisch das Richtige zu tun und gut für das Geschäft (die Anzahl der behinderten Nutzer, Nutzer auf mobilen Geräten usw. stellt bedeutende Marktsegmente dar), aber es ist auch eine gesetzliche Anforderung in vielen Teilen der Welt, Webinhalte für Menschen mit Behinderungen zugänglich zu machen. Lesen Sie [Barrierefreiheitsrichtlinien und das Gesetz](/de/docs/Learn/Accessibility/What_is_accessibility#accessibility_guidelines_and_the_law) für weitere Informationen.
 
 ### HTML
 
-Semantisches HTML (wo die Elemente für ihren korrekten Zweck verwendet werden) ist von Haus aus zugänglich — solche Inhalte sind für sehende Betrachter lesbar (sofern Sie keine dummen Dinge tun, wie z. B. den Text viel zu klein machen oder ihn mit CSS verstecken), aber sie werden auch von unterstützenden Technologien wie Bildschirmlesern (Apps, die eine Webseite buchstäblich für ihre Benutzer vorlesen) nutzbar sein und auch andere Vorteile bieten.
+Semantisches HTML (bei dem die Elemente für ihren korrekten Zweck verwendet werden) ist von Haus aus zugänglich — solche Inhalte sind für sehende Zuschauer lesbar (sofern Sie nicht etwas Unüberlegtes tun, wie den Text zu klein zu machen oder ihn mit CSS zu verstecken), sind aber auch für unterstützende Technologien wie Bildschirmleser (Apps, die eine Webseite buchstäblich für ihren Benutzer vorlesen) nutzbar und bieten auch weitere Vorteile.
 
 #### Semantische Struktur
 
-Der wichtigste schnelle Gewinn bei semantischem HTML ist die Verwendung einer Struktur von Überschriften und Absätzen für Ihre Inhalte; dies liegt daran, dass Bildschirmleser-Benutzer dazu neigen, die Überschriften eines Dokuments als Wegweiser zu verwenden, um die benötigten Inhalte schneller zu finden. Wenn Ihre Inhalte keine Überschriften haben, erhalten sie nur eine große Textwand ohne Wegweiser, um etwas zu finden. Beispiele für schlechtes und gutes HTML:
+Der wichtigste schnelle Gewinn im semantischen HTML besteht darin, eine Struktur von Überschriften und Absätzen für Ihren Inhalt zu verwenden; dies liegt daran, dass Bildschirmleser-Benutzer dazu neigen, die Überschriften eines Dokuments als Wegweiser zu verwenden, um schneller den benötigten Inhalt zu finden. Wenn Ihr Inhalt keine Überschriften hat, erhalten sie nur eine riesige Textwand ohne Wegweiser, um etwas zu finden. Beispiele für schlechtes und gutes HTML:
 
 ```html-nolint example-bad
 <font size="7">My heading</font>
@@ -109,38 +109,38 @@ the last one.
 </p>
 ```
 
-Darüber hinaus sollten Ihre Inhalte in ihrer Quellreihenfolge logisch sinnvoll sein — Sie können sie später jederzeit mit CSS platzieren, wo Sie möchten, aber Sie sollten die Quellreihenfolge von Anfang an richtig gestalten.
+Darüber hinaus sollte Ihr Inhalt in der Quellreihenfolge logisch Sinn ergeben — Sie können ihn später immer noch mit CSS beliebig platzieren, aber Sie sollten die Quellreihenfolge von Anfang an richtig wählen.
 
-Als Test können Sie das CSS einer Website deaktivieren und sehen, wie verständlich sie ohne CSS ist. Sie könnten dies manuell tun, indem Sie das CSS einfach aus Ihrem Code entfernen, aber der einfachste Weg ist die Verwendung von Browserfunktionen, zum Beispiel:
+Als Test können Sie das CSS einer Site deaktivieren und prüfen, wie verständlich sie ohne CSS ist. Sie könnten dies manuell tun, indem Sie das CSS einfach aus Ihrem Code entfernen, aber der einfachste Weg ist die Verwendung von Browser-Funktionen, zum Beispiel:
 
-- Firefox: Wählen Sie im Hauptmenü _Ansicht > Seitenstil > Kein Stil_.
-- Safari: Wählen Sie im Hauptmenü _Entwickeln > Stile deaktivieren_ (um das Menü _Entwickeln_ zu aktivieren, wählen Sie _Safari > Voreinstellungen > Erweitert > Entwicklermenü in der Menüleiste anzeigen_).
-- Chrome: Installieren Sie die Erweiterung Web Developer Toolbar, dann starten Sie den Browser neu. Klicken Sie auf das angezeigte Zahnradsymbol und wählen Sie _CSS > Alle Stile deaktivieren_.
-- Edge: Wählen Sie im Hauptmenü _Ansicht > Stil > Kein Stil_.
+- Firefox: Wählen Sie _Ansicht > Seitenstil > Kein Stil_ aus dem Hauptmenü.
+- Safari: Wählen Sie _Entwickeln > Stile deaktivieren_ aus dem Hauptmenü (um das Menü _Entwickeln_ zu aktivieren, wählen Sie _Safari > Einstellungen > Erweitert > Menü Entwickeln in der Menüleiste anzeigen_).
+- Chrome: Installieren Sie die Webentwickler-Toolbar-Erweiterung, starten Sie dann den Browser neu. Klicken Sie auf das erscheinende Zahnradsymbol und wählen Sie _CSS > Alle Stile deaktivieren_.
+- Edge: Wählen Sie _Ansicht > Stil > Kein Stil_ aus dem Hauptmenü.
 
-#### Nutzung der nativen Tastaturzugänglichkeit
+#### Nutzung nativer Tastaturzugänglichkeit
 
-Bestimmte HTML-Funktionen können nur mit der Tastatur ausgewählt werden — dies ist Standardverhalten und seit den frühen Tagen des Webs verfügbar. Die Elemente, die diese Fähigkeit besitzen, sind die gängigen, die es den Benutzern ermöglichen, mit Webseiten zu interagieren, nämlich Links, {{htmlelement("button")}}s und Formularelemente wie {{htmlelement("input")}}.
+Bestimmte HTML-Features können nur über die Tastatur ausgewählt werden — dies ist das Standardverhalten, das es seit den Anfängen des Internets gibt. Die Elemente, die diese Fähigkeit haben, sind die gängigen, die es Benutzern ermöglichen, mit Webseiten zu interagieren, nämlich Links, {{htmlelement("button")}}s und Formularelemente wie {{htmlelement("input")}}.
 
-Sie können dies anhand unseres Beispiels [native-keyboard-accessibility.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html) ausprobieren (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html)) — öffnen Sie es in einem neuen Tab und versuchen Sie, die Tabulatortaste zu drücken; nach ein paar Druckvorgängen sollten Sie sehen, dass sich die Tabulaturfokussierung durch die verschiedenen fokussierbaren Elemente bewegt; die fokussierten Elemente erhalten in jedem Browser einen hervorgehobenen Standardstil (dieser unterscheidet sich leicht zwischen verschiedenen Browsern), sodass Sie erkennen können, welches Element gerade fokussiert ist.
+Sie können dies mit unserem [native-keyboard-accessibility.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html) Beispiel ausprobieren (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/native-keyboard-accessibility.html)) — öffnen Sie dies in einem neuen Tab und versuchen Sie, die Tab-Taste zu drücken; nach ein paar Mal drücken, sollten Sie sehen, dass der Tabulatorfokus beginnt, durch die verschiedenen fokussierbaren Elemente zu wechseln; die fokussierten Elemente erhalten einen hervorgehobenen Standardstil in jedem Browser (er unterscheidet sich leicht zwischen den verschiedenen Browsern), damit Sie erkennen können, welches Element fokussiert ist.
 
-![Ein Screenshot von drei Schaltflächen, der Beispiel des Standardverhaltens interaktiver nativer Elemente zeigt. Die dritte Schaltfläche ist durch einen blauen Rand hervorgehoben, um ihren Fokuszustand anzuzeigen.](button-focused-unfocused.png)
+![Ein Screenshot von drei Schaltflächen, der das Standardverhalten von interaktiven nativen Elementen zeigt. Die dritte Schaltfläche ist durch einen blauen Rand hervorgehoben, um ihren Fokuszustand anzuzeigen.](button-focused-unfocused.png)
 
 > [!NOTE]
-> In Firefox können Sie auch ein Overlay aktivieren, das die Registerreihenfolge der Seite anzeigt. Weitere Informationen finden Sie unter: [Accessibility Inspector > Show web page tabbing order](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#show-web-page-tabbing-order).
+> In Firefox können Sie auch eine Überlagerung aktivieren, die die Registerkartenreihenfolge der Seite anzeigt. Weitere Informationen finden Sie unter: [Accessibility Inspector > Registerkartenreihenfolge der Webseite anzeigen](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html#show-web-page-tabbing-order).
 
-Dann können Sie die Eingabetaste/Return drücken, um einem fokussierten Link zu folgen oder eine Schaltfläche zu drücken (wir haben etwas JavaScript eingefügt, um den Schaltflächen eine Nachricht zuzuweisen), oder beginnen Sie mit dem Tippen, um Text in ein Texteingabefeld einzugeben (andere Formularelemente haben verschiedene Steuerungen, zum Beispiel kann das Element {{htmlelement("select")}} seine Optionen mit den Pfeiltasten nach oben und unten anzeigen und durchblättern).
+Sie können dann Enter/Return drücken, um einem fokussierten Link zu folgen oder eine Schaltfläche zu drücken (wir haben etwas JavaScript hinzugefügt, damit die Schaltflächen eine Nachricht ausgeben), oder beginnen, in ein Texteingabefeld zu tippen (andere Formularelemente haben unterschiedliche Steuerungen, z. B. können beim {{htmlelement("select")}}-Element die Optionen mit den Pfeiltasten nach oben und unten angezeigt und durchgegangen werden).
 
-Beachten Sie, dass verschiedene Browser möglicherweise unterschiedliche Tastatursteuerungsoptionen bieten. Die meisten modernen Browser folgen dem oben beschriebenen Tabulatormuster (Sie können auch Umschalt + Tab verwenden, um rückwärts durch die fokussierbaren Elemente zu navigieren), aber einige Browser haben ihre eigenen Eigenheiten:
+Beachten Sie, dass verschiedene Browser unterschiedliche Tastatursteuerungsoptionen verfügbar haben können. Die meisten modernen Browser folgen dem oben beschriebenen Tab-Muster (Sie können auch Shift + Tab verwenden, um rückwärts durch die fokussierbaren Elemente zu wechseln), aber einige Browser haben ihre eigenen Besonderheiten:
 
-- Safari auf dem Mac ermöglicht standardmäßig nicht das Durchblättern von Links; um dies zu aktivieren, öffnen Sie _System Einstellungen_, scrollen Sie zu _Tastatur_ und aktivieren Sie _Tastaturnavigation_. Wenn Sie eine ältere Version von macOS verwenden, lesen Sie [Verwenden Sie Ihre Tastatur wie eine Maus mit Mac](https://support.apple.com/guide/mac-help/use-your-keyboard-like-a-mouse-mh27469/mac) auf Apples macOS-Benutzerhandbuch.
+- Safari auf dem Mac erlaubt Ihnen standardmäßig nicht, durch Links zu tabben; um dies zu aktivieren, öffnen Sie die _Systemeinstellungen_, scrollen Sie herunter zu _Tastatur_ und aktivieren Sie _Tastaturnavigation_. Wenn Sie eine ältere Version von macOS verwenden, lesen Sie [Verwenden Ihrer Tastatur wie eine Maus auf dem Mac](https://support.apple.com/guide/mac-help/use-your-keyboard-like-a-mouse-mh27469/mac) im macOS-Benutzerhandbuch von Apple.
 
 > [!WARNING]
-> Sie sollten diese Art von Test/Überprüfung bei jeder neuen Seite durchführen, die Sie schreiben — stellen Sie sicher, dass Funktionen über die Tastatur zugänglich sind und dass die Registerreihenfolge einen sinnvollen Navigationspfad durch das Dokument bietet.
+> Sie sollten diese Art von Test/Überprüfung bei jeder neuen Seite, die Sie schreiben, durchführen — stellen Sie sicher, dass die Funktionalität über die Tastatur zugänglich ist und dass die Tabulatorreihenfolge einen sinnvollen Navigationspfad durch das Dokument bietet.
 
-Dieses Beispiel zeigt die Bedeutung der Verwendung der richtigen semantischen Elemente für die jeweilige Aufgabe auf. Es ist möglich, _jedes_ Element so zu stylen, dass es wie ein Link oder eine Schaltfläche mit CSS aussieht und sich mit JavaScript wie ein Link oder eine Schaltfläche verhält, aber sie sind dann keine tatsächlichen Links oder Schaltflächen, und Sie verlieren viel der Zugänglichkeit, die diese Elemente Ihnen kostenlos bieten. Also tun Sie es nicht, wenn Sie es vermeiden können.
+Dieses Beispiel zeigt die Bedeutung der Verwendung des richtigen semantischen Elements für den richtigen Job auf. Es ist möglich, _jedes_ Element mit CSS so zu gestalten, dass es aussieht wie ein Link oder eine Schaltfläche, und es mit JavaScript wie ein Link oder eine Schaltfläche zu verhalten, aber es sind keine echten Links oder Schaltflächen, und Sie verlieren eine Menge der Barrierefreiheit, die Ihnen diese Elemente von vornherein bieten. Also tun Sie es nicht, wenn Sie es vermeiden können.
 
-Ein weiterer Tipp: Wie in unserem Beispiel gezeigt, können Sie steuern, wie Ihre fokussierbaren Elemente aussehen, wenn sie fokussiert sind, indem Sie die Pseudoklasse [:focus](/de/docs/Web/CSS/:focus) verwenden. Es ist eine gute Idee, Fokus- und Hover-Stile zu kombinieren, sodass Ihre Benutzer diesen visuellen Hinweis bekommen, dass eine Steuerung etwas bewirken wird, wenn sie aktiviert wird, unabhängig davon, ob sie Maus oder Tastatur verwenden:
+Ein weiterer Tipp — wie in unserem Beispiel gezeigt, können Sie steuern, wie Ihre fokussierbaren Elemente aussehen, wenn sie fokussiert sind, indem Sie die [:focus](/de/docs/Web/CSS/:focus) Pseudoklasse verwenden. Es ist eine gute Idee, Fokus- und Hover-Stile zu kombinieren, damit Ihre Benutzer, unabhängig davon, ob sie Maus oder Tastatur verwenden, den visuell Hinweis erhalten, dass eine Steuerung beim Aktivieren etwas tut:
 
 ```css
 a:hover,
@@ -156,15 +156,15 @@ select:focus {
 ```
 
 > [!NOTE]
-> Wenn Sie sich entscheiden, die Standard-Fokus-Styling mit CSS zu entfernen, stellen Sie sicher, dass Sie es durch etwas ersetzen, das besser zu Ihrem Design passt — es ist ein sehr wertvolles Barrierefreiheitswerkzeug und sollte nicht entfernt werden.
+> Wenn Sie sich entscheiden, die Standardfokusstile mit CSS zu entfernen, stellen Sie sicher, dass Sie sie durch etwas anderes ersetzen, das besser zu Ihrem Design passt — es ist ein sehr wertvolles Barrierefreiheitstool und sollte nicht entfernt werden.
 
-#### Einbau von Tastaturzugänglichkeit
+#### Einbauen von Tastaturzugänglichkeit
 
-Manchmal ist es nicht möglich, die Tastaturzugänglichkeit zu verlieren. Möglicherweise haben Sie eine Website geerbt, bei der die Semantik nicht sehr gut ist (vielleicht haben Sie ein schreckliches CMS, das Schaltflächen mit `<div>`s generiert), oder Sie verwenden eine komplexe Steuerung, die keine Tastaturzugänglichkeit eingebaut hat, wie das HTML-Element {{htmlelement("video")}} (erstaunlicherweise ist Opera der einzige Browser, der es Ihnen ermöglicht, durch die Standard-Browsersteuerungen des `<video>`-Elements zu tabben). Hier haben Sie einige Möglichkeiten:
+Manchmal ist es nicht möglich, die Tastaturzugänglichkeit beizubehalten. Sie könnten eine Site übernommen haben, bei der die Semantik nicht sehr gut ist (vielleicht arbeiten Sie mit einem schrecklichen CMS, das Schaltflächen mit `<div>`s erstellt), oder Sie verwenden eine komplexe Steuerung, die keine eingebaute Tastaturzugänglichkeit hat, wie das HTML-{{htmlelement("video")}}-Element (erstaunlicherweise, Opera ist der einzige Browser, der das Durchlaufen der `<video>`-Element-Standardbrowsersteuerungen per Tabulator erlaubt). Sie haben hier ein paar Optionen:
 
-1. Erstellen Sie benutzerdefinierte Steuerelemente mit `<button>`-Elementen (die wir standardmäßig tabbar machen können!) und JavaScript, um ihre Funktionalität zu verbinden. Sehen Sie sich [Erstellen eines plattformübergreifenden Videoplayer](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player) für einige gute Beispiele an.
-2. Erstellen Sie Tastenkombinationen über JavaScript, sodass Funktionen aktiviert werden, wenn Sie bestimmte Tasten auf der Tastatur drücken. Sehen Sie sich [Desktop-Maus- und Tastatursteuerungen](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) für einige spielebezogene Beispiele an, die für jeden Zweck angepasst werden können.
-3. Verwenden Sie einige interessante Taktiken, um das Verhalten von Schaltflächen vorzutäuschen. Nehmen Sie zum Beispiel unser Beispiel [fake-div-buttons.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html) (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html)). Hier haben wir unseren gefälschten `<div>`-Schaltflächen die Fähigkeit gegeben, fokussiert zu werden (einschließlich über Tabulator) indem wir jedem den Attribut `tabindex="0"` gegeben haben (siehe den Artikel von WebAIM zu [tabindex](https://webaim.org/techniques/keyboard/tabindex) für wirklich nützliche Details). Dies ermöglicht es uns, zu den Schaltflächen zu tabben, aber nicht, sie mit der Eingabe-/Return-Taste zu aktivieren. Dazu mussten wir das folgende JavaScript-Trickereien hinzufügen:
+1. Erstellen Sie benutzerdefinierte Steuerungen mit `<button>`-Elementen (die wir standardmäßig per Tabulator erreichen können!) und JavaScript, um deren Funktionalität zu verknüpfen. Siehe [Ein plattformübergreifender Videoplayer](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player) für einige gute Beispiele dafür.
+2. Erstellen Sie Tastenkombinationen mit JavaScript, sodass Funktionen aktiviert werden, wenn bestimmte Tasten auf der Tastatur gedrückt werden. Siehe [Maus- und Tastatur-Steuerungen für Desktop](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) für einige spielbezogene Beispiele, die für jeden Zweck angepasst werden können.
+3. Verwenden Sie einige interessante Taktiken, um Schaltflächenverhalten zu simulieren. Nehmen Sie zum Beispiel unser [fake-div-buttons.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html)-Beispiel (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/accessibility/fake-div-buttons.html)). Hier haben wir unseren gefälschten `<div>`-Schaltflächen die Möglichkeit gegeben, fokussiert zu werden (auch per Tabulator), indem wir jedem das Attribut `tabindex="0"` gegeben haben (siehe WebAIMs [tabindex-Artikel](https://webaim.org/techniques/keyboard/tabindex) für weitere wirklich nützliche Details). Dadurch können wir zu den Schaltflächen tabben, aber nicht, um sie über die Enter/Return-Taste zu aktivieren. Dazu mussten wir den folgenden Trick mit JavaScript hinzufügen:
 
    ```js
    document.onkeydown = (e) => {
@@ -175,106 +175,106 @@ Manchmal ist es nicht möglich, die Tastaturzugänglichkeit zu verlieren. Mögli
    };
    ```
 
-   Hier fügen wir einen Listener zum `document`-Objekt hinzu, um zu erkennen, wann eine Taste auf der Tastatur gedrückt wurde. Wir überprüfen, welche Taste über die `code`-Eigenschaft des Ereignisobjekts gedrückt wurde; wenn es der Code ist, der der Eingabe-/Return-Taste entspricht, führen wir die im `onclick`-Handler der Schaltfläche gespeicherte Funktion mit `document.activeElement.onclick()` aus. [`activeElement`](/de/docs/Web/API/Document/activeElement) gibt uns das Element, das derzeit auf der Seite fokussiert ist.
+   Hier fügen wir dem `document`-Objekt einen Listener hinzu, um zu erkennen, wann eine Schaltfläche auf der Tastatur gedrückt wurde. Wir überprüfen, welche Schaltfläche gedrückt wurde, über die [`code`](/de/docs/Web/API/KeyboardEvent/code)-Eigenschaft des Event-Objekts; wenn es dem Code entspricht, der Return/Enter entspricht, führen wir die Funktion aus, die im `onclick`-Handler der Schaltfläche gespeichert ist, indem wir `document.activeElement.onclick()` verwenden. [`activeElement`](/de/docs/Web/API/Document/activeElement) gibt uns das Element, das derzeit auf der Seite fokussiert ist.
 
 > [!NOTE]
-> Diese Technik funktioniert nur, wenn Sie Ihre ursprünglichen Ereignishandler über Ereignishandlereigenschaften setzten (z. B. `onclick`). `addEventListener` funktioniert nicht. Dies ist eine Menge zusätzlichen Aufwandes, um die Funktionalität einzubauen. Und es gibt sicherlich andere Probleme damit. Besser ist es, von Anfang an das richtige Element für die entsprechende Aufgabe zu verwenden.
+> Diese Technik wird nur funktionieren, wenn Sie Ihre ursprünglichen Event-Handler über Event-Handler-Eigenschaften setzen (z. B. `onclick`). `addEventListener` wird nicht funktionieren. Es ist viel zusätzlicher Aufwand, die Funktionalität auf diese Weise zurückzubauen. Und es gibt sicherlich andere Probleme damit. Besser, von Anfang an das richtige Element für den richtigen Job zu verwenden.
 
 #### Textalternativen
 
-Textalternativen sind für die Barrierefreiheit sehr wichtig — wenn eine Person eine Seh- oder Hörbeeinträchtigung hat, die sie daran hindert, einige Inhalte zu sehen oder zu hören, dann ist das ein Problem. Die einfachste verfügbare Textalternative ist das einfache `alt`-Attribut, das wir in allen Bildern, die relevante Inhalte enthalten, einfügen sollten. Es sollte eine Beschreibung des Bildes enthalten, die seine Bedeutung und seinen Inhalt auf der Seite erfolgreich vermittelt, damit es von einem Bildschirmleser erfasst und dem Benutzer vorgelesen werden kann.
+Textalternativen sind für Barrierefreiheit äußerst wichtig — wenn eine Person eine Seh- oder Hörbehinderung hat, die sie daran hindert, bestimmte Inhalte zu sehen oder zu hören, dann ist das ein Problem. Die einfachste verfügbare Textalternative ist das schlichte `alt`-Attribut, das wir in allen Bildern, die relevante Inhalte enthalten, einschließen sollten. Dies sollte eine Beschreibung des Bildes enthalten, die seine Bedeutung und seinen Inhalt auf der Seite erfolgreich vermittelt, damit es von einem Bildschirmleser aufgenommen und dem Benutzer vorgelesen werden kann.
 
 > [!NOTE]
-> Weitere Informationen finden Sie unter [Textalternativen](/de/docs/Learn/Accessibility/HTML#text_alternatives).
+> Weitere Informationen finden Sie unter [Textalternativen](/de/docs/Learn/Accessibility/HTML#text_alternatives) und [Ein Alt-Entscheidungsbaum](https://www.w3.org/WAI/tutorials/images/decision-tree/), um zu erfahren, wie Sie ein alt-Attribut für Bilder in verschiedenen Situationen verwenden.
 
-Fehlende Alttexte können auf verschiedene Arten getestet werden, beispielsweise mit Barrierefreiheits-[Audittools](#audit-tools).
+Fehlender Alt-Text kann auf verschiedene Weise getestet werden, zum Beispiel mit Barrierefreiheits-[Prüftools](#prüftools).
 
-Alttexte sind für Video- und Audioinhalte etwas komplexer. Es gibt eine Möglichkeit, Texttracks (z. B. Untertitel) zu definieren und sie beim Abspielen von Videos anzuzeigen, in Form des Elements {{htmlelement("track")}} und des Formats [WebVTT](/de/docs/Web/API/WebVTT_API) (siehe [Hinzufügen von Untertiteln und Beschriftungen zu HTML-Videos](/de/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video) für ein ausführliches Tutorial). Die [Browser-Kompatibilität](/de/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video#browser_compatibility) für diese Funktionen ist ziemlich gut, aber wenn Sie Textalternativen für Audio bereitstellen oder ältere Browser unterstützen möchten, ist ein einfaches Texttranskript, das irgendwo auf der Seite oder auf einer separaten Seite präsentiert wird, möglicherweise eine gute Idee.
+Alt-Text ist für Video- und Audioinhalte etwas komplexer. Es gibt eine Möglichkeit, Textspuren (z. B. Untertitel) zu definieren und sie beim Abspielen von Videos anzuzeigen, in Form des {{htmlelement("track")}}-Elements und des [WebVTT](/de/docs/Web/API/WebVTT_API)-Formats (siehe [Hinzufügen von Untertiteln zu HTML-Videos](/de/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video) für ein ausführliches Tutorial). Die [Kompatibilität mit Browsern](/de/docs/Web/Media/Audio_and_video_delivery/Adding_captions_and_subtitles_to_HTML5_video#browser_compatibility) für diese Funktionen ist ziemlich gut, aber wenn Sie Textalternativen für Audio bereitstellen oder ältere Browser unterstützen möchten, könnte ein einfacher Texttranscript, der irgendwo auf der Seite oder auf einer separaten Seite präsentiert wird, eine gute Idee sein.
 
-#### Elemente Beziehungen und Kontext
+#### Elementbeziehungen und Kontext
 
-Es gibt bestimmte Funktionen und Best Practices in HTML, die dazu dienen, Kontext und Beziehungen zwischen Elementen bereitzustellen, wenn keine existieren. Die drei häufigsten Beispiele sind Links, Formularbeschriftungen und Datentabellen.
+Es gibt bestimmte Features und Best Practices in HTML, die dazu entwickelt wurden, Kontext und Beziehungen zwischen Elementen bereitzustellen, wo sonst keine existieren. Die drei häufigsten Beispiele sind Links, Formularbeschriftungen und Datentabellen.
 
-Der Schlüssel zu zugänglichem Linktext ist, dass Bildschirmleser-Benutzer oft eine häufig verwendete Funktion verwenden, bei der sie eine Liste aller Links auf der Seite aufrufen. In diesem Fall muss der Linktext auch ohne Kontext sinnvoll sein. Eine Liste von Links mit den Bezeichnungen "hier klicken", "klick mich" usw. ist für die Barrierefreiheit wirklich schlecht. Es ist besser, wenn Linktexte im Kontext und ohne Kontext sinnvoll sind.
+Der Schlüssel zu zugänglichem Link-Text besteht darin, dass Benutzer von Bildschirmlesern häufig eine gemeinsame Funktion verwenden, bei der sie eine Liste aller Links auf der Seite aufrufen. In diesem Fall muss der Link-Text aus dem Kontext Sinn ergeben. Zum Beispiel ist eine Liste von Links mit der Bezeichnung "klicken Sie hier", "klicken Sie mich" usw. wirklich schlecht für die Barrierefreiheit. Es ist besser, wenn der Link-Text im Kontext und außerhalb des Kontexts Sinn ergibt.
 
-Als nächstes auf unserer Liste ist das Formular-{{htmlelement("label")}}-Element eine der zentralen Funktionen, die es uns ermöglicht, Formulare zugänglich zu machen. Das Problem mit Formularen ist, dass Sie Beschriftungen benötigen, um anzugeben, welche Daten in jedes Formulareingabefeld eingegeben werden sollen. Jede Beschriftung muss in einem {{htmlelement("label")}} eingefügt werden, um sie eindeutig mit ihrem Partnerformularelement zu verknüpfen (der `for`-Attributwert jedes `<label>` muss mit dem `id`-Wert des Formularelements übereinstimmen), und es wird auch dann sinnvoll sein, wenn die Quellreihenfolge nicht ganz logisch ist (was sie fairerweise sein sollte).
-
-> [!NOTE]
-> Weitere Informationen zu Linktexten und Formularbeschriftungen finden Sie unter [Bedeutungsvolle Textbezeichnungen](/de/docs/Learn/Accessibility/HTML#meaningful_text_labels).
-
-Schließlich ein kurzes Wort zu Datentabellen. Eine einfache Datentabelle kann mit sehr einfachem Markup geschrieben werden (siehe `bad-table.html` [live](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) und [Quellcode](https://github.com/mdn/learning-area/blob/main/accessibility/html/bad-table.html)), aber diese hat Probleme — es gibt keine Möglichkeit für einen Bildschirmleser-Benutzer, Zeilen oder Spalten miteinander zu assoziieren, da als Datengruppen bestellt, um dies zu tun, müssen Sie wissen, was die Kopfzeilenzeilen sind und ob sie Zeilen oder Spalten usw. übergeordnet sind. Dies kann nur visuell für eine solche Tabelle erfolgen.
-
-Wenn Sie sich stattdessen unser Beispiel `punk-bands-complete.html` ([live](https://mdn.github.io/learning-area/css/styling-boxes/styling-tables/punk-bands-complete.html), [Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/styling-tables/punk-bands-complete.html)) ansehen, können Sie hier einige Barrierefreiheits-Unterstützungen erkennen, wie Tabellenschlagzeilen ({{htmlelement("th")}} und `scope`-Attribute), {{htmlelement("caption")}}-Element usw.
+Als nächstes auf unserer Liste ist das Formular-{{htmlelement("label")}}-Element eines der zentralen Features, das es uns ermöglicht, Formulare zugänglich zu machen. Das Problem mit Formularen ist, dass Sie Beschriftungen benötigen, die angeben, welche Daten in jedes Formulareingabe eingegeben werden sollten. Jede Beschriftung muss in einem {{htmlelement("label")}} enthalten sein, um sie eindeutig mit ihrem Partner-Formularelement zu verknüpfen (der `for`-Attributwert jeder `<label>` muss mit dem `id`-Wert des Formularelements übereinstimmen), und es wird auch dann Sinn ergeben, wenn die Quellordnung nicht völlig logisch ist (was zugegeben der Fall sein sollte).
 
 > [!NOTE]
-> Für weitere Informationen zu zugänglichen Tabellen lesen Sie [Zugängliche Datentabellen](/de/docs/Learn/Accessibility/HTML#accessible_data_tables).
+> Weitere Informationen über den Link-Text und Formular-Beschriftungen finden Sie in [Aussagekräftige Textbeschriftungen](/de/docs/Learn/Accessibility/HTML#meaningful_text_labels).
+
+Zuletzt ein kurzes Wort zu Datentabellen. Eine einfache Datentabelle kann mit sehr einfachem Markup geschrieben werden (siehe `bad-table.html` [live](https://mdn.github.io/learning-area/accessibility/html/bad-table.html), und [Quellcode](https://github.com/mdn/learning-area/blob/main/accessibility/html/bad-table.html)), aber dies hat Probleme — es gibt keine Möglichkeit für einen Bildschirmleser-Benutzer, Zeilen oder Spalten als Daten-Gruppierungen miteinander in Verbindung zu bringen — um dies zu tun, müssen Sie wissen, was die Kopfzeilenzeilen sind und ob sie Zeilen, Spalten usw. anführen. Dies kann nur visuell für eine solche Tabelle erfolgen.
+
+Wenn Sie sich stattdessen unser `punk-bands-complete.html`-Beispiel ([live](https://mdn.github.io/learning-area/css/styling-boxes/styling-tables/punk-bands-complete.html), [Quellcode](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/styling-tables/punk-bands-complete.html)) ansehen, können Sie einige Hilfen zur Barrierefreiheit bei der Arbeit sehen, wie Tabellenköpfe ({{htmlelement("th")}}- und `scope`-Attribute), {{htmlelement("caption")}}-Element usw.
+
+> [!NOTE]
+> Weitere Informationen zu zugänglichen Tabellen finden Sie in [Zugängliche Datentabellen](/de/docs/Learn/Accessibility/HTML#accessible_data_tables).
 
 ### CSS
 
-CSS bietet im Allgemeinen weniger grundlegende Barrierefreiheitsfunktionen als HTML, kann jedoch genauso viel Schaden anrichten, wenn es falsch verwendet wird. Wir haben bereits ein paar Barrierefreiheits-Tipps im Zusammenhang mit CSS erwähnt:
+CSS bietet in der Regel weit weniger grundlegende Barrierefreiheitsfeatures als HTML, kann aber trotzdem genauso viel Schaden für die Barrierefreiheit anrichten, wenn es falsch verwendet wird. Wir haben bereits ein paar Barrierefreiheits-Tipps zu CSS erwähnt:
 
-- Verwenden Sie die richtigen semantischen Elemente, um verschiedene Inhalte in HTML zu markieren; wenn Sie einen anderen visuellen Effekt erzielen möchten, verwenden Sie CSS — missbrauchen Sie kein HTML-Element, um das gewünschte Erscheinungsbild zu erzielen. Wenn Sie beispielsweise größeren Text wünschen, verwenden Sie {{cssxref("font-size")}}, nicht ein {{htmlelement("Heading_Elements", "h1")}}-Element.
-- Stellen Sie sicher, dass Ihre Quellreihenfolge auch ohne CSS Sinn macht; Sie können die Seite jederzeit mit CSS nach Belieben stylen.
-- Stellen Sie sicher, dass interaktive Elemente wie Schaltflächen und Links entsprechende Fokus-/Hover-/aktive Zustände festgelegt haben, um dem Benutzer visuelle Hinweise auf ihre Funktion zu geben. Wenn Sie die Standardwerte aus stilistischen Gründen entfernen, stellen Sie sicher, dass Sie einige Ersatzstile einschließen.
+- Verwenden Sie die korrekten semantischen Elemente, um unterschiedliche Inhalte in HTML zu kennzeichnen; wenn Sie einen anderen visuellen Effekt erzielen möchten, verwenden Sie CSS — missbrauchen Sie keine HTML-Elemente, um das gewünschte Aussehen zu erzielen. Wenn Sie zum Beispiel größeren Text wünschen, verwenden Sie {{cssxref("font-size")}}, kein {{htmlelement("Heading_Elements", "h1")}}-Element.
+- Stellen Sie sicher, dass Ihre Quellreihenfolge ohne CSS Sinn ergibt; Sie können die Seite anschließend beliebig mit CSS gestalten.
+- Sie sollten sicherstellen, dass interaktive Elemente wie Schaltflächen und Links geeignete Fokus-/Hover-/Aktivzustände haben, um dem Benutzer visuelle Hinweise auf ihre Funktion zu geben. Wenn Sie die Standardwerte aus stilistischen Gründen entfernen, stellen Sie sicher, dass Sie Ersatzstile hinzufügen.
 
-Es gibt ein paar weitere Überlegungen, die Sie berücksichtigen sollten.
+Es gibt einige andere Überlegungen, die Sie berücksichtigen sollten.
 
 #### Farbe und Farbkontrast
 
-Bei der Auswahl eines Farbschemas für Ihre Website sollten Sie sicherstellen, dass sich die Text- (Vordergrund-) Farbe gut vom Hintergrund abhebt. Ihr Design sieht möglicherweise gut aus, aber es ist nutzlos, wenn Menschen mit Sehbeeinträchtigungen wie Farbenblindheit Ihre Inhalte nicht lesen können. Verwenden Sie ein Tool wie WebAIMs [Farbkontrast-Checker](https://webaim.org/resources/contrastchecker/), um zu überprüfen, ob Ihr Schema ausreichend kontrastiert.
+Bei der Auswahl eines Farbschemas für Ihre Website sollten Sie sicherstellen, dass die Textfarbe (Vordergrund) gut mit der Hintergrundfarbe kontrastiert. Ihr Design mag cool aussehen, aber es bringt nichts, wenn Menschen mit Sehbehinderungen wie Farbenblindheit Ihre Inhalte nicht lesen können. Verwenden Sie ein Werkzeug wie WebAIMs [Farbkontrast-Prüfer](https://webaim.org/resources/contrastchecker/), um zu überprüfen, ob Ihr Schema genügend Kontrast aufweist.
 
-Ein weiterer Tipp ist, sich nicht allein auf Farben für Wegweiser/Informationen zu verlassen, da dies für diejenigen, die die Farbe nicht sehen können, keinen Wert hat. Anstatt beispielsweise erforderliche Formularfelder rot zu markieren, markieren Sie sie mit einem Sternchen und in Rot.
+Ein weiterer Tipp ist, nicht nur auf die Farbe für Wegweiser/Informationen zu vertrauen, da dies für diejenigen, die die Farbe nicht sehen können, nicht geeignet ist. Anstatt z. B. erforderliche Formularfelder in Rot zu markieren, markieren Sie sie mit einem Sternchen und in Rot.
 
 > [!NOTE]
-> Ein hoher Kontrast ermöglicht es jedem, der ein Smartphone oder Tablet mit einem glänzenden Bildschirm verwendet, Webseiten in einer hellen Umgebung, wie z. B. Sonnenlicht, besser zu lesen.
+> Ein hoher Kontrast wird auch jedem, der ein Smartphone oder Tablet mit einem glänzenden Bildschirm verwendet, ermöglichen, Seiten auch in einer hellen Umgebung, wie Sonnenlicht, besser zu lesen.
 
-#### Inhalte ausblenden
+#### Ausblenden von Inhalten
 
-Es gibt viele Instanzen, in denen ein visuelles Design erfordern wird, dass nicht alle Inhalte gleichzeitig angezeigt werden. In unserem Beispiel [Tabbed Info Box](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/tabbed-info-box.html) (sehen Sie sich den [Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html) an) haben wir zum Beispiel drei Informationsschaltflächen, aber wir [platzieren](/de/docs/Learn/CSS/CSS_layout/Positioning) sie übereinander und bieten Tabs an, die geklickt werden können, um jeden anzuzeigen (es ist auch tastaturzugänglich - Sie können alternativ Tab und Eingabetaste/Return verwenden, um sie auszuwählen).
+Es gibt viele Instanzen, in denen ein visuelles Design erfordert, dass nicht alle Inhalte gleichzeitig angezeigt werden. In unserem [Tabbed info box example](https://mdn.github.io/learning-area/css/css-layout/practical-positioning-examples/tabbed-info-box.html) (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/css/css-layout/practical-positioning-examples/tabbed-info-box.html)) haben wir zum Beispiel drei Informationspanels, aber wir positionieren sie [übereinander](/de/docs/Learn/CSS/CSS_layout/Positioning) und bieten Registerkarten, die angeklickt werden können, um jedes einzublenden (es ist auch über die Tastatur zugänglich — Sie können alternativ Tab und Enter/Return verwenden, um sie auszuwählen).
 
-![Ein Screenshot, der ein Beispiel für barrierefreies Verstecken und Anzeigen von Inhalten in Tabs zeigt. Das Beispiel hat drei Tabs, nämlich Tab 1, Tab 2 und Tab 3. Tab 1 ist derzeit fokussiert und aktiviert, um den Inhalt anzuzeigen.](20191022144107.png)
+![Ein Screenshot zeigt ein Beispiel für das Zugänglichmachen von ausgeblendetem und angezeigtem Inhalt in Registerkarten. Das Beispiel hat drei Registerkarten, nämlich Tab 1, Tab 2 und Tab 3. Tab 1 ist derzeit fokussiert und aktiviert, um Inhalte anzuzeigen.](20191022144107.png)
 
-Benutzer von Bildschirmlesern stören sich an all dem nicht — sie sind mit dem Inhalt zufrieden, solange die Quellreihenfolge sinnvoll ist und sie darauf zugreifen können. Absolute Positionierung (wie in diesem Beispiel verwendet) gilt im Allgemeinen als einer der besten Mechanismen, um Inhalte für einen visuellen Effekt auszublenden, da sie Bildschirmlesern nicht den Zugriff auf sie verwehrt.
+Benutzer von Bildschirmlesern kümmern sich nicht um all das — sie sind mit dem Inhalt zufrieden, solange die Quellreihenfolge Sinn ergibt und sie darauf zugreifen können. Absolute Positionierung (wie in diesem Beispiel verwendet) wird im Allgemeinen als eine der besten Mechanismen zum Ausblenden von Inhalten für visuelle Effekte angesehen, da sie Bildschirmleser nicht daran hindert, Zugang zu erhalten.
 
-Auf der anderen Seite sollten Sie nicht {{cssxref("visibility", "visibility: hidden")}} oder {{cssxref("display", "display: none")}} verwenden, weil diese tatsächlich den Inhalt vor Bildschirmlesern verstecken. Es sei denn natürlich, es gibt einen guten Grund, warum Sie möchten, dass dieser Inhalt Bildschirmlesern verborgen bleibt.
+Andererseits sollten Sie {{cssxref("visibility", "visibility: hidden")}} oder {{cssxref("display", "display: none")}} nicht verwenden, weil sie Inhalte vor Bildschirmlesern verbergen. Sofern es natürlich keinen guten Grund gibt, warum Sie möchten, dass dieser Inhalt vor Bildschirmlesern verborgen ist.
 
-> **Note:** [Unsichtbarer Inhalt nur für Bildschirmleser](https://webaim.org/techniques/css/invisiblecontent/) bietet viele nützliche Details zu diesem Thema.
+> **Hinweis:** [Unsichtbarer Inhalt nur für Benutzer von Bildschirmlesern](https://webaim.org/techniques/css/invisiblecontent/) bietet viele nützliche Details zu diesem Thema.
 
 ### JavaScript
 
-JavaScript hat die gleichen Probleme wie CSS in Bezug auf Barrierefreiheit — es kann katastrophal für die Barrierefreiheit sein, wenn es schlecht verwendet oder überstrapaziert wird. Wir haben bereits auf einige Barrierefreiheitsprobleme in Bezug auf JavaScript hingewiesen, hauptsächlich im Bereich semantisches HTML — Sie sollten immer geeignetes semantisches HTML verwenden, um Funktionen zu implementieren, wo es verfügbar ist, z. B. Links und Schaltflächen verwenden. Verwenden Sie keine `<div>`-Elemente mit JavaScript-Code, um Funktionen vorzutäuschen, wenn dies überhaupt möglich ist — es ist fehleranfällig und mehr Aufwand als die kostenlose Funktionalität, die Ihnen HTML bietet.
+JavaScript hat dieselben Probleme wie CSS in Bezug auf Barrierefreiheit — es kann für Barrierefreiheit katastrophal sein, wenn es schlecht oder übermäßig verwendet wird. Wir haben bereits auf einige Barrierefreiheitsprobleme im Zusammenhang mit JavaScript hingewiesen, hauptsächlich im Bereich semantischen HTMLs — Sie sollten immer das geeignete semantische HTML verwenden, um Funktionalität zu implementieren, wo immer es verfügbar ist, z. B. verwenden Sie Links und Schaltflächen entsprechend. Verwenden Sie keine `<div>`-Elemente mit JavaScript-Code, um Funktionalität zu simulieren, wenn es überhaupt möglich ist — es ist fehleranfällig und mehr Arbeit als die kostenlose Funktionalität, die Ihnen HTML bietet.
 
 #### Einfache Funktionalität
 
-Im Allgemeinen sollte einfache Funktionalität nur mit dem vorhandenen HTML funktionieren — JavaScript sollte nur verwendet werden, um Funktionalität zu verbessern, nicht um sie vollständig einzubauen. Gute Verwendungen von JavaScript umfassen:
+Im Allgemeinen sollte einfache Funktionalität nur mit dem vorhandenen HTML funktionieren — JavaScript sollte nur verwendet werden, um die Funktionalität zu verbessern, nicht sie vollständig einzubauen. Gute Verwendungen von JavaScript umfassen:
 
-- Bereitstellung clientseitiger Formularvalidierung, die Benutzer schnell auf Probleme mit ihren Formulareingaben hinweist, ohne auf die Überprüfung der Daten durch den Server warten zu müssen. Wenn es nicht verfügbar ist, funktioniert das Formular trotzdem, aber die Validierung könnte langsamer sein.
-- Bereitstellung benutzerdefinierter Steuerelemente für HTML `<video>`s, die für Benutzer, die nur die Tastatur verwenden, zugänglich sind (wie wir bereits gesagt haben, sind die Standard-Browsersteuerungen in den meisten Browsern nicht tastaturzugänglich).
+- Bereitstellung von clientseitiger Formularvalidierung, die Benutzer schnell auf Probleme mit ihren Formulareinträgen aufmerksam macht, ohne auf die Überprüfung der Daten durch den Server warten zu müssen. Wenn es nicht verfügbar ist, funktioniert das Formular dennoch, aber die Validierung kann langsamer sein.
+- Bereitstellung benutzerdefinierter Steuerungen für HTML-`<video>`s, die für Benutzer, die nur die Tastatur verwenden, zugänglich sind (wie bereits erwähnt, sind die Standard-Browser-Steuerungen in den meisten Browsern nicht über die Tastatur zugänglich).
 
 > [!NOTE]
 > WebAIMs [Zugängliches JavaScript](https://webaim.org/techniques/javascript/) bietet einige nützliche weitere Details zu Überlegungen für zugängliches JavaScript.
 
-Komplexere JavaScript-Implementierungen können Probleme mit der Barrierefreiheit verursachen — Sie müssen tun, was Sie können. Zum Beispiel wäre es unvernünftig zu erwarten, dass Sie ein komplexes 3D-Spiel, das mit {{Glossary("WebGL", "WebGL")}} geschrieben wurde, zu 100 % für eine blinde Person zugänglich machen, aber Sie könnten [Tastatursteuerungen](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) implementieren, damit es für Benutzer ohne Maus verwendbar ist, und das Farbschema ausreichend kontrastreich gestalten, um auch für Menschen mit Farbdefiziten verwendbar zu sein.
+Komplexere JavaScript-Implementierungen können Probleme mit der Barrierefreiheit verursachen — Sie müssen tun, was Sie können. Zum Beispiel wäre es unvernünftig, von Ihnen zu erwarten, dass Sie ein komplexes 3D-Spiel, das mithilfe von {{Glossary("WebGL", "WebGL")}} geschrieben wurde, 100% zugänglich für eine blinde Person machen, aber Sie könnten [Tastatursteuerungen](/de/docs/Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard) implementieren, damit es von Nicht-Maus-Benutzern genutzt werden kann, und das Farbschema kontrastreich genug machen, um es für Menschen mit Farbbehinderungen nutzbar zu machen.
 
 #### Komplexe Funktionalität
 
-Einer der Hauptbereiche, die problematisch für die Barrierefreiheit sind, sind komplexe Apps, die komplizierte Formularsteuerelemente (wie Datumsauswahlen) und dynamische Inhalte umfassen, die oft und inkrementell aktualisiert werden.
+Eines der Hauptprobleme für Barrierefreiheit sind komplexe Apps, die komplizierte Formularsteuerungen (wie Datumsauswähler) und dynamische Inhalte umfassen, die häufig und inkrementell aktualisiert werden.
 
-Nicht-native komplizierte Formularsteuerelemente sind problematisch, da sie dazu neigen, viele verschachtelte `<div>`s zu umfassen, und der Browser weiß nicht standardmäßig, was damit zu tun ist. Wenn Sie sie selbst erfinden, müssen Sie sicherstellen, dass sie tastaturzugänglich sind; wenn Sie eine Art Drittanbieter-Framework verwenden, überprüfen Sie sorgfältig die verfügbaren Optionen, um zu sehen, wie zugänglich sie sind, bevor Sie loslegen. [Bootstrap](https://getbootstrap.com/) scheint für die Barrierefreiheit ziemlich gut zu sein, wie jedoch [Bootstrap ein wenig barrierefreier machen](https://www.sitepoint.com/making-bootstrap-accessible/) von Rhiana Heath einige seiner Probleme (hauptsächlich in Bezug auf den Farbkontrast) untersucht und einige Lösungen bietet.
+Nicht-native komplizierte Formularsteuerungen sind problematisch, weil sie oft viele verschachtelte `<div>`s beinhalten und der Browser standardmäßig nicht weiß, was damit zu tun ist. Wenn Sie sie selbst erfinden, müssen Sie sicherstellen, dass sie für die Tastatur zugänglich sind; wenn Sie ein Drittanbieter-Framework verwenden, überprüfen Sie sorgfältig die verfügbaren Optionen, um zu sehen, wie zugänglich sie sind, bevor Sie es verwenden. [Bootstrap](https://getbootstrap.com/) scheint für Barrierefreiheit ziemlich gut zu sein, obwohl [Bootstrap ein wenig zugänglicher machen](https://www.sitepoint.com/making-bootstrap-accessible/) von Rhiana Heath einige seiner Probleme (hauptsächlich im Zusammenhang mit Farbkontrast) erkundet und einige Lösungen anspricht.
 
-Regelmäßig aktualisierte dynamische Inhalte können ein Problem sein, weil Bildschirmleser-Benutzer sie möglicherweise verpassen, insbesondere wenn sie unerwartet aktualisiert werden. Wenn Sie eine einseitige App mit einem Haup-Bereich haben, der regelmäßig mit [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest) oder [Fetch](/de/docs/Web/API/Fetch_API) aktualisiert wird, könnte ein Bildschirmleser-Benutzer diese Aktualisierungen verpassen.
+Regelmäßig aktualisierte dynamische Inhalte können problematisch sein, weil Bildschirmleser-Benutzer sie möglicherweise verpassen, insbesondere wenn sie unerwartet aktualisiert werden. Wenn Sie eine Single-Page-App mit einem Hauptinhaltspanel haben, das regelmäßig mit [XMLHttpRequest](/de/docs/Web/API/XMLHttpRequest) oder [Fetch](/de/docs/Web/API/Fetch_API) aktualisiert wird, könnte ein Benutzer des Bildschirmlesers diese Aktualisierungen verpassen.
 
 #### WAI-ARIA
 
-Müssen Sie solche komplexen Funktionen nutzen, oder reicht einfaches semantisches HTML stattdessen aus? Wenn Sie Komplexität benötigen, sollten Sie in Betracht ziehen, [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/) (Accessible Rich Internet Applications) zu verwenden, eine Spezifikation, die Semantik (in Form neuer HTML-Attribute) für Elemente wie komplexe Formularsteuerelemente und aktualisierte Bereich bereitstellt, die von den meisten Browsern und Bildschirmlesern verstanden werden können.
+Benötigen Sie solche komplexen Funktionen oder reicht einfaches semantisches HTML aus? Wenn Sie Komplexität benötigen, sollten Sie die Verwendung von [WAI-ARIA](https://www.w3.org/TR/wai-aria-1.1/) (Accessible Rich Internet Applications), einer Spezifikation, die Semantik (in Form von neuen HTML-Attributen) für Elemente wie komplexe Formularsteuerungen und aktualisierende Panels bietet, in Betracht ziehen, die von den meisten Browsern und Bildschirmlesern verstanden werden kann.
 
-Um mit komplexen Formular-Widgets umzugehen, müssen Sie ARIA-Attribute wie `roles` verwenden, um anzugeben, welche Rolle unterschiedliche Elemente in einem Widget haben (z. B. ob sie eine Registerkarte oder ein Registerkartenbereich sind), `aria-disabled`, um anzuzeigen, ob ein Steuerelement deaktiviert ist oder nicht, usw.
+Um mit komplexen Formular-Widgets umzugehen, müssen Sie ARIA-Attribute wie `roles` verwenden, um anzugeben, welche Rolle verschiedene Elemente in einem Widget haben (zum Beispiel sind sie ein Tab oder ein Tab-Panel?), `aria-disabled`, um zu sagen, ob eine Steuerung deaktiviert ist oder nicht usw.
 
-Um mit regelmäßig aktualisierten Inhaltsbereichen umzugehen, können Sie das Attribut `aria-live` verwenden, welches einen aktualisierten Bereich identifiziert. Sein Wert gibt an, wie dringend es der Bildschirmleser lesen soll:
+Um mit regelmäßig aktualisierten Inhaltsbereichen umzugehen, können Sie das `aria-live`-Attribut verwenden, das einen aktualisierenden Bereich identifiziert. Sein Wert gibt an, wie dringend der Bildschirmleser ihn vorlesen soll:
 
-- `off:` Die Standardeinstellung. Updates sollten nicht angekündigt werden.
-- `polite`: Updates sollten nur dann angekündigt werden, wenn der Benutzer inaktiv ist.
-- `assertive`: Updates sollten dem Benutzer so bald wie möglich angekündigt werden.
+- `off:` Der Standard. Updates sollten nicht angekündigt werden.
+- `polite`: Updates sollten nur angekündigt werden, wenn der Benutzer untätig ist.
+- `assertive`: Updates sollten dem Benutzer so schnell wie möglich angekündigt werden.
 
 Hier ist ein Beispiel:
 
@@ -282,329 +282,331 @@ Hier ist ein Beispiel:
 <p><span id="LiveRegion1" aria-live="polite" aria-atomic="false"></span></p>
 ```
 
-Sie können ein Beispiel in Aktion auf Freedoms Scientific [ARIA (Accessible Rich Internet Applications) Live Regions](https://www.freedomscientific.com/SurfsUp/AriaLiveRegions.htm) Beispiel sehen — der hervorgehobene Absatz sollte alle 10 Sekunden seine Inhalte aktualisieren, und ein Bildschirmleser sollte dies für den Benutzer vorlesen. [ARIA Live Regions - Atomic](https://www.freedomscientific.com/SurfsUp/AriaLiveRegionsAtomic.htm) bietet ein weiteres nützliches Beispiel.
+Sie können ein Beispiel in Aktion auf Freedom Scientific's [ARIA (Accessible Rich Internet Applications) Live Regions](https://www.freedomscientific.com/SurfsUp/AriaLiveRegions.htm)-Beispiel sehen — der hervorgehobene Absatz sollte alle 10 Sekunden seinen Inhalt aktualisieren, und ein Bildschirmleser sollte dies dem Benutzer vorlesen. [ARIA Live Regions - Atomic](https://www.freedomscientific.com/SurfsUp/AriaLiveRegionsAtomic.htm) bietet ein weiteres nützliches Beispiel.
 
-Wir haben hier nicht den Raum, WAI-ARIA ausführlich zu behandeln, Sie können jedoch viel mehr darüber erfahren in [WAI-ARIA Grundlagen](/de/docs/Learn/Accessibility/WAI-ARIA_basics).
+Wir haben nicht den Raum, um WAI-ARIA hier im Detail zu behandeln, Sie können viel mehr darüber lernen bei [WAI-ARIA-Grundlagen](/de/docs/Learn/Accessibility/WAI-ARIA_basics).
 
-## Barrierefreiheits-Tools
+## Tools für die Barrierefreiheit
 
-Nun, da wir Barrierefreiheitsüberlegungen für verschiedene Webtechnologien abgedeckt haben, einschließlich einiger Testtechniken (wie Tastaturnavigation und Farbkontrasttests), lassen Sie uns einige andere Tools betrachten, die Sie bei der Durchführung von Barrierefreiheitsprüfungen nutzen können.
+Da wir nun die Überlegungen zur Barrierefreiheit für verschiedene Web-Technologien behandelt haben, einschließlich einiger Testtechniken (wie Tastaturnavigation und Farbkontrastprüfer), schauen wir uns einige andere Tools an, die Sie beim Testen auf Barrierefreiheit nutzen können.
 
-### Audit-Tools
+### Prüftools
 
-Es gibt eine Reihe von Audit-Tools verfügbar, in die Sie Ihre Webseiten einspeisen können. Sie werden diese prüfen und Ihnen eine Liste der Barrierefreiheitsprobleme auf der Seite zurückgeben. Lassen Sie uns ein Beispiel betrachten, indem wir [Wave](https://wave.webaim.org/), ein Online-Testtool für Barrierefreiheit das eine Webadresse akzeptiert und eine annotierte Ansicht dieser Seite mit hervorgehobenen Barrierefreiheitsproblemen zurückgibt, verwenden.
+Es gibt eine Reihe von Prüftools, die Sie Ihren Webseiten füttern können. Sie werden sie überprüfen und eine Liste von Barrierefreiheitsproblemen auf der Seite zurückgeben. Lassen Sie uns ein Beispiel ansehen, indem wir [Wave](https://wave.webaim.org/) verwenden, ein Online-Prüftool für Barrierefreiheit, das eine Webadresse akzeptiert und eine annotierte Ansicht dieser Seite mit hervorgehobenen Barrierefreiheitsproblemen zurückgibt.
 
-1. Gehen Sie zur [Wellen-Startseite](https://wave.webaim.org/).
-2. Geben Sie die URL unseres Beispiel [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html) in das Text-Eingabeelement oben auf der Seite ein. Drücken Sie dann die Eingabetaste oder klicken/tippen Sie auf den Pfeil auf der rechten Kante des Eingabeelements.
-3. Die Seite sollte mit einer Beschreibung der Barrierefreiheitsprobleme reagieren. Klicken Sie auf die angezeigten Symbole, um weitere Informationen zu jedem der von Waves Bewertung identifizierten Probleme zu erhalten.
+1. Gehen Sie auf die [Wave-Startseite](https://wave.webaim.org/).
+2. Geben Sie die URL unseres [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html)-Beispiels in das Texteingabefeld oben auf der Seite ein. Drücken Sie dann Enter oder klicken/tippen Sie auf den Pfeil an der äußersten rechten Kante des Eingabefelds.
+3. Die Seite sollte mit einer Beschreibung der Barrierefreiheitsprobleme antworten. Klicken Sie auf die angezeigten Symbole, um weitere Informationen zu jedem der von Waves Bewertung ermittelten Probleme zu sehen.
 
 > [!NOTE]
-> Solche Tools reichen allein nicht aus, um alle Ihre Barrierefreiheitsprobleme zu lösen. Sie benötigen eine Kombination aus diesen, Wissen und Erfahrung, Benutzertests usw. um ein vollständiges Bild zu erhalten.
+> Solche Tools sind nicht gut genug, um alle Ihre Barrierefreiheitsprobleme allein zu lösen. Sie benötigen eine Kombination aus diesen, Wissen und Erfahrung, Benutzer-Tests usw., um ein vollständiges Bild zu erhalten.
 
-### Automatisierungstools
+### Automatisierungswerkzeuge
 
-[Deque's aXe-Tool](https://www.deque.com/axe/) geht noch einen Schritt weiter als die oben genannten Audittools. Wie die anderen überprüft es Seiten und gibt Barrierefreiheitsfehler zurück. Seine nützlichste Form ist wahrscheinlich die der Browsererweiterungen:
+[Deque's aXe-Tool](https://www.deque.com/axe/) geht ein Stück weiter als die oben genannten Prüftools. Wie die anderen überprüft es Seiten und gibt Barrierefreiheitserrors zurück. Seine nützlichste Form ist wahrscheinlich die Browser-Erweiterungen:
 
 - [aXe für Chrome](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd)
 - [aXe für Firefox](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/)
 
-Diese fügen einen Barrierefreiheits-Tab zu den Entwickler-Tools des Browsers hinzu. Als Beispiel haben wir die Firefox-Version installiert und sie verwendet, um unser [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) Beispiel zu überprüfen. Wir erhielten die folgenden Ergebnisse:
+Diese fügen den Browser-Entwicklertools einen Barrierefreiheitstab hinzu. Zum Beispiel haben wir die Firefox-Version installiert und damit unser [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html)-Beispiel überprüft. Wir erhielten die folgenden Ergebnisse:
 
-![Ein Screenshot der Barrierefreiheitsprobleme, die durch das Axe-Tool identifiziert wurden.](axe-screenshot.png)
+![Ein Screenshot von Barrierefreiheitsproblemen, die vom Axe-Tool identifiziert wurden.](axe-screenshot.png)
 
-aXe kann auch über `npm` installiert und mit Task-Runnern wie [Grunt](https://gruntjs.com/) und [Gulp](https://gulpjs.com/), Automatisierungsframeworks wie [Selenium](https://www.selenium.dev/) und [Cucumber](https://cucumber.io/), Unit-Test-Frameworks wie [Jasmine](https://jasmine.github.io/) und einige mehr integriert werden (siehe die [Haupt-aXe-Seite](https://www.deque.com/axe/) für Details).
+aXe ist auch mit `npm` installierbar und kann in Aufgabenverwalter wie [Grunt](https://gruntjs.com/) und [Gulp](https://gulpjs.com/), Automatisierungs-Frameworks wie [Selenium](https://www.selenium.dev/) und [Cucumber](https://cucumber.io/), Unit-Testing-Frameworks wie [Jasmine](https://jasmine.github.io/) und mehr integriert werden (siehe erneut die [Haupt-aXe-Seite](https://www.deque.com/axe/) für Details).
 
 ### Bildschirmleser
 
-Es ist auf jeden Fall lohnenswert, Tests mit einem Bildschirmleser durchzuführen, um zu erfahren, wie stark sehbehinderte Menschen das Web nutzen. Es gibt einige Bildschirmleser, die Sie verwenden können:
+Es lohnt sich auf jeden Fall, mit einem Bildschirmleser zu testen, um sich daran zu gewöhnen, wie stark sehbehinderte Menschen das Internet nutzen. Es gibt eine Reihe von Bildschirmlesern:
 
 - Einige sind kostenpflichtige kommerzielle Produkte, wie [JAWS](https://www.freedomscientific.com/Products/software/JAWS/) (Windows).
-- Einige sind kostenlose Produkte, wie [NVDA](https://www.nvaccess.org/) (Windows), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (Chrome, Windows und MacOS) und [Orca](https://wiki.gnome.org/Projects/Orca) (Linux).
-- Einige sind in das Betriebssystem integriert, wie [VoiceOver](https://www.apple.com/accessibility/vision/) (MacOS und iOS), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (auf Chromebooks) und [TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback) (Android).
+- Einige sind kostenfreie Produkte, wie [NVDA](https://www.nvaccess.org/) (Windows), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (Chrome, Windows und macOS) und [Orca](https://wiki.gnome.org/Projects/Orca) (Linux).
+- Einige sind in das Betriebssystem integriert, wie [VoiceOver](https://www.apple.com/accessibility/vision/) (macOS und iOS), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (auf Chromebooks) und [TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback) (Android).
 
-Normalerweise sind Bildschirmleser separate Apps, die auf dem Host-Betriebssystem laufen und nicht nur Webseiten, sondern auch Text in anderen Apps lesen können. Dies ist nicht immer der Fall (ChromeVox ist eine Browsererweiterung), aber normalerweise neigen Bildschirmleser dazu, sich in leicht unterschiedlichen Weisen zu verhalten und verschiedene Steuerungen zu haben. Sie müssen also die Dokumentation zu Ihrem gewählten Bildschirmleser konsultieren, um alle Details zu erfahren — aber sie arbeiten im Grunde alle auf ähnliche Weise.
+Im Allgemeinen sind Bildschirmleser separate Apps, die auf dem Host-Betriebssystem ausgeführt werden und nicht nur Webseiten, sondern auch Text in anderen Apps lesen können. Das ist nicht immer der Fall (ChromeVox ist eine Browser-Erweiterung), aber normalerweise neigen Bildschirmleser dazu, auf leicht unterschiedliche Weise zu handeln und haben unterschiedliche Steuerungen, daher müssen Sie die Dokumentation für Ihren gewählten Bildschirmleser konsultieren, um alle Details zu erhalten - gesagt, dass sie alle im Grunde auf dieselbe Weise arbeiten.
 
-Lassen Sie uns einige Tests mit ein paar verschiedenen Bildschirmlesern durchführen, um Ihnen eine allgemeine Vorstellung davon zu geben, wie sie funktionieren und wie man mit ihnen testet.
+Lassen Sie uns einige Tests mit ein paar verschiedenen Bildschirmlesern durchgehen, um Ihnen eine allgemeine Vorstellung zu geben, wie sie funktionieren und wie man mit ihnen testet.
 
 > [!NOTE]
-> WebAIMs [Designing for Screen Reader Compatibility](https://webaim.org/techniques/screenreader/) bietet einige nützliche Informationen über die Nutzung von Bildschirmlesern und was für sie am besten funktioniert. Siehe auch [Screen Reader User Survey #9 Results](https://webaim.org/projects/screenreadersurvey9/#used) für einige interessante Statistiken zur Verwendung von Bildschirmlesern.
+> WebAIMs [Entwerfen für Bildschirmleser-Kompatibilität](https://webaim.org/techniques/screenreader/) bietet einige nützliche Informationen über die Nutzung von Bildschirmlesern und was am besten für Bildschirmleser funktioniert. Siehe auch [Screen Reader User Survey #9 Results](https://webaim.org/projects/screenreadersurvey9/#used) für einige interessante Statistiken zur Bildschirmlesernutzung.
 
 #### VoiceOver
 
-VoiceOver (VO) ist kostenlos mit Ihrem Mac/iPhone/iPad enthalten, was es nützlich für Tests auf Desktop-/Mobilgeräten macht, wenn Sie Apple-Produkte verwenden. Wir werden es auf MacOS auf einem MacBook Pro testen.
+VoiceOver (VO) ist kostenlos mit Ihrem Mac/iPhone/iPad enthalten, sodass es nützlich ist, auf dem Desktop/Mobilgerät zu testen, wenn Sie Apple-Produkte verwenden. Wir werden es auf macOS auf einem MacBook Pro testen.
 
-Um es zu aktivieren, drücken Sie Cmd + F5. Wenn Sie VO noch nie verwendet haben, wird Ihnen ein Willkommen-Bildschirm angezeigt, auf dem Sie auswählen können, ob Sie VO starten möchten oder nicht, und einen sehr nützlichen Tutorial durchgehen, um zu lernen, wie man es verwendet. Um es wieder zu deaktivieren, drücken Sie noch einmal Cmd + F5.
+Um es einzuschalten, drücken Sie Cmd + F5. Wenn Sie VO noch nie verwendet haben, wird Ihnen ein Willkommensbildschirm angezeigt, auf dem Sie wählen können, ob Sie VO starten und ein wirklich nützliches Tutorial durchlaufen möchten, um zu lernen, wie Sie es verwenden. Um es wieder auszuschalten, drücken Sie erneut Cmd + F5.
 
 > [!NOTE]
-> Sie sollten das Tutorial mindestens einmal durchgehen — es ist eine wirklich nützliche Möglichkeit, VO kennenzulernen.
+> Sie sollten das Tutorial mindestens einmal durchgehen — es ist ein wirklich nützlicher Weg, um VO zu lernen.
 
-Wenn VO aktiv ist, sieht das Display größtenteils gleich aus, aber Sie sehen unten links auf dem Bildschirm ein schwarzes Feld, das Informationen darüber enthält, was VO derzeit ausgewählt hat. Die aktuelle Auswahl wird auch mit einem schwarzen Rahmen hervorgehoben — dieses Highlight ist als **VO-Cursor** bekannt.
+Wenn VO eingeschaltet ist, sieht die Anzeige größtenteils gleich aus, aber Sie sehen ein schwarzes Kästchen unten links auf dem Bildschirm, das Informationen darüber enthält, was VO derzeit ausgewählt hat. Zudem wird die aktuelle Auswahl hervorgehoben, mit einem schwarzen Rahmen — diese Hervorhebung wird als **VO-Cursor** bezeichnet.
 
-![Ein Beispielscreenshot, der einen Test der Barrierefreiheit mit VoiceOver auf der MDN-Startseite zeigt. Unten links im Bild ist eine Hervorhebung der auf der Webseite ausgewählten Informationen.](voiceover.png)
+![Ein Beispielscreenshot, der einen Accessibility-Test mit VoiceOver auf der MSZ-Startseite (Mozilla Support) zeigt. Der untere linke Bereich des Bildes hebt die auf der Webseite ausgewählten Informationen hervor.](voiceover.png)
 
-Um VO zu nutzen, werden Sie viel Gebrauch von dem „VO-Modifikator“ machen — dies ist eine Taste oder Tastenkombination, die Sie zusätzlich zu den eigentlichen VO-Tastaturbefehlen drücken müssen, um sie zum Funktionieren zu bringen. Einen solchen Modifikator zu verwenden, ist bei Bildschirmlesern üblich, um ihre Befehle davor zu bewahren, mit anderen Befehlen in Konflikt zu geraten. Bei VO kann der Modifikator entweder CapsLock oder Ctrl + Option sein.
+Um VO zu verwenden, werden Sie häufig den "VO-Modifizierer" verwenden — dies ist eine Taste oder Tastenkombination, die Sie zusätzlich zu den tatsächlichen VO-Tastaturkürzeln drücken müssen, um sie funktionieren zu lassen. Die Verwendung eines Modifizierers wie diesem ist bei Bildschirmlesern üblich, um zu verhindern, dass ihre Befehle mit anderen Befehlen kollidieren. Im Fall von VO kann der Modifizierer entweder CapsLock oder Ctrl + Option sein.
 
-VO hat viele Tastaturbefehle, und wir werden nicht alle hier auflisten. Die grundlegenden, die Sie für Tests von Webseiten benötigen, sind in der folgenden Tabelle aufgeführt. Bei den Tastaturkürzeln bedeutet „VO“ „der VoiceOver-Modifikator“.
+VO hat viele Tastaturbefehle, und wir werden nicht alle hier auflisten. Die grundlegendsten, die Sie für das Testen von Webseiten benötigen, sind in der folgenden Tabelle aufgeführt. In den Tastaturkürzeln bedeutet "VO" "der VoiceOver-Modifizierer".
 
 <table class="standard-table no-markdown">
   <caption>
-    Häufigste VoiceOver-Tastaturbefehle
+    Die gängigsten VoiceOver-Tastaturbefehle
   </caption>
   <thead>
     <tr>
-      <th scope="col">Tastenkombination</th>
+      <th scope="col">Tastenkürzel</th>
       <th scope="col">Beschreibung</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>VO + Pfeiltasten</td>
-      <td>Bewegt den VO-Cursor nach oben, rechts, unten, links.</td>
+      <td>Bewegen Sie den VO-Cursor nach oben, rechts, unten, links.</td>
     </tr>
     <tr>
       <td>VO + Leertaste</td>
       <td>
-        Wählt/Aktiviert Elemente, die vom VO-Cursor hervorgehoben sind. Dies beinhaltet Elemente, die im Rotor (siehe unten) ausgewählt sind.
+        Auswählen/Aktivieren von Elementen, die der VO-Cursor markiert hat. Dazu gehören auch im Rotor ausgewählte Elemente (siehe unten).
       </td>
     </tr>
     <tr>
-      <td>VO + Shift + untere Pfeiltaste</td>
+      <td>VO + Umschalt + Pfeil nach unten</td>
       <td>
-        Betritt eine Gruppe von Elementen (wie eine HTML-Tabelle oder ein Formular usw.). Sobald man innerhalb einer Gruppe ist, kann man sich umherbewegen und Elemente innerhalb der Gruppe auswählen, indem man die oben genannten Befehle wie gewohnt verwendet.
+        In eine Gruppe von Elementen (wie eine HTML-Tabelle oder ein Formular usw.) wechseln. Innerhalb einer Gruppe können Sie sich herumbewegen und Elemente innerhalb dieser Gruppe normal auswählen.
       </td>
     </tr>
     <tr>
-      <td>VO + Shift + obere Pfeiltaste</td>
-      <td>Verlässt eine Gruppe.</td>
+      <td>VO + Umschalt + Pfeil nach oben</td>
+      <td>Aus einer Gruppe herauswechseln.</td>
     </tr>
     <tr>
       <td>VO + C</td>
-      <td>(wenn man sich in einer Tabelle befindet) Liest die Überschrift der aktuellen Spalte.</td>
+      <td>(wenn in einer Tabelle) Lesen Sie die Kopfzeile der aktuellen Spalte.</td>
     </tr>
     <tr>
       <td>VO + R</td>
-      <td>(wenn man sich in einer Tabelle befindet) Liest die Überschrift der aktuellen Zeile.</td>
+      <td>(wenn in einer Tabelle) Lesen Sie die Kopfzeile der aktuellen Zeile.</td>
     </tr>
     <tr>
-      <td>VO + C + C (zwei Cs nacheinander)</td>
+      <td>VO + C + C (zwei Cs hintereinander)</td>
       <td>
-        (wenn man sich in einer Tabelle befindet) Liest die gesamte aktuelle Spalte einschließlich der Überschrift.
+        (wenn in einer Tabelle) Lesen Sie die gesamte aktuelle Spalte, einschließlich der Kopfzeile.
       </td>
     </tr>
     <tr>
-      <td>VO + R + R (zwei Rs nacheinander)</td>
+      <td>VO + R + R (zwei Rs hintereinander)</td>
       <td>
-        (wenn man sich in einer Tabelle befindet) Liest die gesamte aktuelle Zeile einschließlich der Überschriften, die zu jeder Zelle gehören.
+        (wenn in einer Tabelle) Lesen Sie die gesamte aktuelle Zeile, einschließlich der Kopfzeilen, die zu jeder Zelle gehören.
       </td>
     </tr>
     <tr>
-      <td>VO + linke Pfeiltaste, VO + rechte Pfeiltaste</td>
+      <td>VO + Pfeiltaste links, VO + Pfeiltaste rechts</td>
       <td>
-        (wenn man sich innerhalb einiger horizontaler Optionen befindet, z. B. eines Datums- oder Zeitpickers) Bewegt sich zwischen den Optionen.
+        (wenn in einigen horizontalen Optionen, wie einem Datum oder Zeitauswahl) Wechseln Sie zwischen Optionen.
       </td>
     </tr>
     <tr>
-      <td>VO + obere Pfeiltaste, VO + untere Pfeiltaste</td>
+      <td>VO + Pfeiltaste nach oben, VO + Pfeiltaste nach unten</td>
       <td>
-        (wenn man sich innerhalb einiger horizontaler Optionen befindet, z. B. eines Datums- oder Zeitpickers) Ändert die aktuelle Option.
+        (wenn in einigen horizontalen Optionen, wie einem Datum oder Zeitauswahl) Ändern Sie die aktuelle Option.
       </td>
     </tr>
     <tr>
       <td>VO + U</td>
       <td>
-        Verwendet den Rotor, der Listen von Überschriften, Links, Formularsteuerungen usw. zur einfachen Navigation anzeigt.
+        Verwenden Sie den Rotor, der Listen von Überschriften, Links, Formularsteuerungen usw. zur einfachen Navigation anzeigt.
       </td>
     </tr>
     <tr>
-      <td>VO + linke Pfeiltaste, VO + rechte Pfeiltaste</td>
+      <td>VO + Pfeiltaste links, VO + Pfeiltaste rechts</td>
       <td>
-        (wenn man sich innerhalb des Rotors befindet) Bewegt sich zwischen verschiedenen Listen, die im Rotor verfügbar sind.
+        (wenn im Rotor) Wechseln Sie zwischen verschiedenen Listen im Rotor.
       </td>
     </tr>
     <tr>
-      <td>VO + obere Pfeiltaste, VO + untere Pfeiltaste</td>
+      <td>VO + Pfeiltaste hoch, VO + Pfeiltaste runter</td>
       <td>
-        (wenn man sich innerhalb einer Rotorliste befindet) Bewegt sich zwischen verschiedenen Elementen in der aktuellen Rotorliste.
+        (wenn im Rotor) Wechseln Sie zwischen verschiedenen Elementen in der aktuellen Rotorliste.
       </td>
     </tr>
     <tr>
       <td>Esc</td>
-      <td>(wenn man sich innerhalb des Rotors befindet) Verlasse den Rotor.</td>
+      <td>(wenn im Rotor) Rotor verlassen.</td>
     </tr>
     <tr>
       <td>Strg</td>
-      <td>(wenn VO spricht) Pause/Wiedergabe der Sprache.</td>
+      <td>(wenn VO spricht) Sprache pausieren/fortsetzen.</td>
     </tr>
     <tr>
       <td>VO + Z</td>
-      <td>Wiederholt die letzte Sprachansage.</td>
+      <td>Die letzte Sprachaufforderung neu starten.</td>
     </tr>
     <tr>
       <td>VO + D</td>
-      <td>Geht in das Dock des Macs, um dort laufende Apps auszuwählen.</td>
+      <td>In das Mac-Dock gehen, damit Sie dort Apps auswählen können.</td>
     </tr>
   </tbody>
 </table>
 
-Das scheint eine Menge an Befehlen zu sein, aber es ist nicht so schlimm, wenn man sich daran gewöhnt hat, und VO gibt einem regelmäßig Hinweise, welche Befehle man in bestimmten Situationen verwenden sollte. Probieren Sie VO jetzt ein wenig aus und gehen Sie dann weiter und probieren einige unserer Beispiele aus dem Abschnitt [Testen mit dem Screenreader](#screenreader-testen) aus.
+Dies scheint eine Menge an Befehlen zu sein, aber es ist nicht so schlimm, wenn man sich daran gewöhnt, und VO gibt Ihnen regelmäßig Erinnerungen, welche Befehle in bestimmten Situationen zu verwenden sind. Spielen Sie jetzt mit VO herum; Sie können dann einige unserer Beispiele im Abschnitt [Bildschirmleser-Tests](#bildschirmleser-tests) ausprobieren.
 
 #### NVDA
 
-NVDA ist nur für Windows verfügbar, und Sie müssen es installieren.
+NVDA ist nur für Windows und Sie müssen es installieren.
 
-1. Laden Sie es von [nvaccess.org](https://www.nvaccess.org/) herunter. Sie können wählen, ob Sie eine Spende machen oder es kostenlos herunterladen möchten; Sie müssen auch Ihre E-Mail-Adresse angeben, bevor Sie es herunterladen können.
-2. Sobald der Download abgeschlossen ist, installieren Sie es — doppelklicken Sie auf das Installationsprogramm, akzeptieren Sie die Lizenz und folgen Sie den Anweisungen.
-3. Um NVDA zu starten, doppelklicken Sie auf die Programmdatei/Verknüpfung oder verwenden Sie die Tastenkombination Strg + Alt + N. Beim Start von NVDA sehen Sie den NVDA-Willkommensdialog. Hier können Sie einige Optionen auswählen und dann die _OK_-Taste drücken, um loszulegen.
+1. Laden Sie es von [nvaccess.org](https://www.nvaccess.org/) herunter. Sie können wählen, ob sie eine Spende leisten oder es kostenlos herunterladen möchten; Sie müssen zudem Ihre E-Mail-Adresse angeben, bevor Sie es herunterladen können.
+2. Sobald es heruntergeladen ist, installieren Sie es — doppelklicken Sie auf das Installationsprogramm, akzeptieren Sie die Lizenz und folgen Sie den Aufforderungen.
+3. Um NVDA zu starten, doppelklicken Sie auf die Programmdatei/Verknüpfung oder verwenden Sie das Tastenkürzel Strg + Alt + N. Bei Start sehen Sie den NVDA-Willkommensdialog. Hier können Sie aus ein paar Optionen wählen und dann die _OK_-Taste drücken, um zu beginnen.
 
-NVDA ist nun auf Ihrem Computer aktiv.
+NVDA ist jetzt auf Ihrem Computer aktiv.
 
-Um NVDA zu verwenden, machen Sie viel Gebrauch vom „NVDA-Modifikator“ - dies ist eine Taste, die Sie zusätzlich zu den eigentlichen NVDA-Tastaturbefehlen drücken müssen, damit diese funktionieren. Einen solchen Modifikator zu verwenden, ist bei Bildschirmlesern üblich, um ihre Befehle davor zu bewahren, mit anderen Befehlen in Konflikt zu geraten. Bei NVDA kann der Modifikator entweder Einfügen (die Standardeinstellung) oder CapsLock (kann durch Markieren des ersten Kontrollkästchens im NVDA-Willkommensdialog vor dem Drücken von _OK_ ausgewählt werden) sein.
+Um NVDA zu verwenden, werden Sie den "NVDA Modifizierer" häufig verwenden — dies ist eine Taste, die Sie zusätzlich zu den tatsächlichen NVDA-Tastaturkürzeln drücken müssen, um sie funktioneren zu lassen. Die Verwendung eines Modifizierers wie diesem ist bei Bildschirmlesern üblich, um zu verhindern, dass ihre Befehle mit anderen Befehlen kollidieren. Im Fall von NVDA kann der Modifizierer entweder Einfügen (standardmäßig) oder CapsLock sein (kann durch Aktivieren des ersten Kontrollkästchens im NVDA-Willkommensdialog gewählt werden, bevor Sie _OK_ drücken).
 
 > [!NOTE]
-> NVDA ist subtiler als VoiceOver in Bezug darauf, wie es anzeigt, wo es sich befindet und was es tut. Wenn Sie durch Überschriften, Listen usw. scrollen, werden Elemente, die Sie ausgewählt haben, im Allgemeinen mit einer subtilen Umrahmung hervorgehoben, dies ist jedoch nicht immer der Fall bei allen Dingen. Wenn Sie komplett den Faden verlieren, können Sie Strg + F5 drücken, um die aktuelle Seite zu aktualisieren und von oben zu beginnen.
+> NVDA ist subtiler als VoiceOver in Bezug darauf, wie es markiert, wo es sich befindet und was es tut. Beim Durchsuchen von Überschriften, Listen usw. werden Elemente, auf denen Sie ausgewählt sind, im Allgemeinen mit einem subtilen Umriss hervorgehoben, aber das ist nicht immer bei allen Dingen der Fall. Wenn Sie sich komplett verirren, können Sie Strg + F5 drücken, um die aktuelle Seite zu aktualisieren und von oben neu zu beginnen.
 
-NVDA hat viele Tastaturbefehle, und wir werden nicht alle hier auflisten. Die grundlegenden, die Sie für Tests von Webseiten benötigen, sind in der folgenden Tabelle aufgeführt. Bei den Tastaturkürzeln bedeutet „NVDA“ „der NVDA-Modifikator“.
+NVDA hat viele Tastaturbefehle, und wir werden nicht alle hier auflisten. Die grundlegendsten, die Sie für das Testen von Webseiten benötigen, sind in der folgenden Tabelle aufgeführt. In den Tastaturkürzeln bedeutet "NVDA" "der NVDA-Modifizierer".
 
 <table class="standard-table no-markdown">
   <caption>
-    Die häufigsten NVDA-Tastaturbefehle
+    Die gängigsten NVDA-Tastaturbefehle
   </caption>
   <thead>
     <tr>
-      <th scope="col">Tastenkombination</th>
+      <th scope="col">Tastenkürzel</th>
       <th scope="col">Beschreibung</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>NVDA + Q</td>
-      <td>Schaltet NVDA wieder aus, nachdem Sie es gestartet haben.</td>
+      <td>Schalten Sie NVDA wieder aus, nachdem Sie es gestartet haben.</td>
     </tr>
     <tr>
-      <td>NVDA + obere Pfeiltaste</td>
-      <td>Liest die aktuelle Zeile.</td>
+      <td>NVDA + Pfeiltaste hoch</td>
+      <td>Aktuelle Zeile lesen.</td>
     </tr>
     <tr>
-      <td>NVDA + untere Pfeiltaste</td>
-      <td>Beginnt an der aktuellen Position zu lesen.</td>
+      <td>NVDA + Pfeiltaste runter</td>
+      <td>Lesen Sie ab der aktuellen Position.</td>
     </tr>
     <tr>
-      <td>Obere Pfeiltaste und untere Pfeiltaste oder Umschalt + Tab und Tab</td>
-      <td>Bewegt sich zum vorherigen/nächsten Element auf der Seite und liest es.</td>
+      <td>Pfeiltaste hoch und Pfeiltaste runter oder Umschalt + Tab und Tab</td>
+      <td>Wechseln Sie zum vorherigen/nächsten Element auf der Seite und lesen Sie es.</td>
     </tr>
     <tr>
-      <td>Linke Pfeiltaste und rechte Pfeiltaste</td>
-      <td>Bewegt sich zum vorherigen/nächsten Zeichen im aktuellen Element und liest es.</td>
+      <td>Pfeiltaste links und Pfeiltaste rechts</td>
+      <td>Wechseln Sie zum vorherigen/nächsten Zeichen im aktuellen Element und lesen Sie es.</td>
     </tr>
     <tr>
       <td>Umschalt + H und H</td>
-      <td>Bewegt sich zur vorherigen/nächsten Überschrift und liest sie.</td>
+      <td>Wechseln Sie zur vorherigen/nächsten Überschrift und lesen Sie sie.</td>
     </tr>
     <tr>
       <td>Umschalt + K und K</td>
-      <td>Bewegt sich zum vorherigen/nächsten Link und liest ihn.</td>
+      <td>Wechseln Sie zum vorherigen/nächsten Link und lesen Sie ihn.</td>
     </tr>
     <tr>
       <td>Umschalt + D und D</td>
       <td>
-        Bewegt sich zum vorherigen/nächsten Dokumentbereich (z. B. <code>&#x3C;nav></code>) und liest ihn.
+        Wechseln Sie zum vorherigen/nächsten Dokument-Landmark (z.B. <code>&#x3C;nav></code>)
+        und lesen Sie ihn.
       </td>
     </tr>
     <tr>
       <td>Umschalt + 1–6 und 1–6</td>
-      <td>Bewegt sich zur vorherigen/nächsten Überschrift (Stufe 1–6) und liest sie.</td>
+      <td>Wechseln Sie zur vorherigen/nächsten Überschrift (Level 1–6) und lesen Sie sie.</td>
     </tr>
     <tr>
       <td>Umschalt + F und F</td>
-      <td>Bewegt sich zum vorherigen/nächsten Formulareingabefeld und fokussiert es.</td>
+      <td>Gehen Sie zurück/vorwärts zur vorherigen/nächsten Formulareingabe und konzentrieren Sie sich darauf.</td>
     </tr>
     <tr>
       <td>Umschalt + T und T</td>
-      <td>Bewegt sich zur vorherigen/nächsten Datentabelle und fokussiert sie.</td>
+      <td>Wechseln Sie zur vorherigen/nächsten Datentabelle und konzentrieren Sie sich darauf.</td>
     </tr>
     <tr>
       <td>Umschalt + B und B</td>
-      <td>Bewegt sich zur vorherigen/nächsten Schaltfläche und liest ihre Bezeichnung.</td>
+      <td>Wechseln Sie zur vorherigen/nächsten Schaltfläche und lesen Sie ihr Label.</td>
     </tr>
     <tr>
       <td>Umschalt + L und L</td>
-      <td>Bewegt sich zur vorherigen/nächsten Liste und liest ihr erstes Listenelement.</td>
+      <td>Wechseln Sie zur vorherigen/nächsten Liste und lesen Sie ihre erste Listeneinheit.</td>
     </tr>
     <tr>
       <td>Umschalt + I und I</td>
-      <td>Bewegt sich zum vorherigen/nächsten Listenelement und liest es.</td>
+      <td>Wechseln Sie zur vorherigen/nächsten Listeneinheit und lesen Sie sie.</td>
     </tr>
     <tr>
       <td>Eingabetaste/Return</td>
       <td>
-        (wenn Link/Schaltfläche oder anderes aktivierbares Element ausgewählt) Aktiviert das Element.
+        (wenn ein Link/eine Schaltfläche oder ein anderes aktivierbares Element ausgewählt ist) Aktivieren Sie das Element.
       </td>
     </tr>
     <tr>
       <td>NVDA + Leertaste</td>
       <td>
-        (wenn Formular ausgewählt ist) Betritt das Formular, damit einzelne Elemente ausgewählt werden können, oder verlässt das Formular, wenn man bereits darin ist.
+        (wenn ein Formular ausgewählt ist) Betreten Sie das Formular, damit einzelne Elemente ausgewählt werden können,
+        oder verlassen Sie das Formular, wenn Sie bereits in ihm sind.
       </td>
     </tr>
     <tr>
       <td>Umschalt Tab und Tab</td>
-      <td>(wenn Sie sich im Formular befinden) Bewegt sich zwischen Formulareingabefeldern.</td>
+      <td>(wenn im Formular) Wechseln Sie zwischen Formulareingaben.</td>
     </tr>
     <tr>
-      <td>Obere Pfeiltaste und untere Pfeiltaste</td>
+      <td>Pfeiltaste hoch und Pfeiltaste runter</td>
       <td>
-        (wenn Sie sich im Formular befinden) Ändern Sie Formulareingabewerte (im Fall von Sachen wie Auswahlboxen).
+        (wenn im Formular) Ändern Sie die Formulareingabewerte (im Fall von Boxen wie: auswählen Boxen).
       </td>
     </tr>
     <tr>
       <td>Leertaste</td>
-      <td>(wenn Sie sich im Formular befinden) Wählen Sie den ausgewählten Wert aus.</td>
+      <td>(wenn im Formular) Wählen Sie den ausgewählten Wert aus.</td>
     </tr>
     <tr>
       <td>Strg + Alt + Pfeiltasten</td>
-      <td>(wenn eine Tabelle ausgewählt ist) Bewegt sich zwischen Tabellenzellen.</td>
+      <td>(wenn eine Tabelle ausgewählt ist) Wechseln Sie zwischen den Zellen der Tabelle.</td>
     </tr>
   </tbody>
 </table>
 
-#### Screenreader-Testen
+#### Bildschirmleser-Tests
 
-Jetzt, da Sie sich daran gewöhnt haben, einen Bildschirmleser zu verwenden, sollten Sie ihn für einige schnelle Barrierefreiheitstests verwenden, um ein Gefühl dafür zu bekommen, wie Bildschirmleser mit guten und schlechten Websitefunktionen umgehen:
+Jetzt, da Sie sich daran gewöhnt haben, einen Bildschirmleser zu verwenden, möchten wir, dass Sie ihn verwenden, um einige schnelle Barrierefreiheitstests durchzuführen, um eine Vorstellung davon zu bekommen, wie Bildschirmleser mit guten und schlechten Webseitenfeatures umgehen:
 
-- Schauen Sie sich [good-semantics.html](https://mdn.github.io/learning-area/accessibility/html/good-semantics.html) an und merken Sie, wie die Überschriften vom Bildschirmleser erkannt und zur Navigation genutzt werden können. Schauen Sie sich jetzt [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html) an und merken Sie, wie der Bildschirmleser keine dieser Informationen erhält. Stellen Sie sich vor, wie ärgerlich dies wäre, wenn Sie versuchen, eine wirklich lange Seite mit Text zu navigieren.
-- Schauen Sie sich [good-links.html](https://mdn.github.io/learning-area/accessibility/html/good-links.html) an und merken Sie, wie sie ohne Kontext sinnvoll erscheinen. Dies ist bei [bad-links.html](https://mdn.github.io/learning-area/accessibility/html/bad-links.html) nicht der Fall - sie sind alle einfach „hier klicken“.
-- Schauen Sie sich [good-form.html](https://mdn.github.io/learning-area/accessibility/html/good-form.html) an und merken Sie, wie die Formulareingaben mit ihren Labels beschrieben werden, da wir die `<label>`-Elemente ordnungsgemäß verwendet haben. In [bad-form.html](https://mdn.github.io/learning-area/accessibility/html/bad-form.html) erhalten sie einen nicht hilfreichen Bezeichner wie „leer“.
-- Schauen Sie sich unser Beispiel [punk-bands-complete.html](https://mdn.github.io/learning-area/css/styling-boxes/styling-tables/punk-bands-complete.html) an und sehen Sie, wie der Bildschirmleser Spalten und Zeilen von Inhalten assoziieren und alle zusammen vorlesen kann, weil wir Überschriften ordnungsgemäß definiert haben. In [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) können keine der Zellen aufeinander bezogen werden. Beachten Sie, dass NVDA sich etwas seltsam verhält, wenn Sie nur eine einzelne Tabelle auf einer Seite haben; Sie können stattdessen [WebAIMs Tabellentestseite](https://webaim.org/articles/nvda/tables.htm) ausprobieren.
-- Werfen Sie einen Blick auf das [WAI-ARIA live regions Beispiel](https://www.freedomscientific.com/SurfsUp/AriaLiveRegions.htm), das wir früher gesehen haben, und beachten Sie, wie der Bildschirmleser den ständig aktualisierten Abschnitt vorliest, während er aktualisiert wird.
+- Schauen Sie sich [good-semantics.html](https://mdn.github.io/learning-area/accessibility/html/good-semantics.html) an und beachten Sie, wie die Überschriften vom Bildschirmleser gefunden werden und für die Navigation verfügbar sind. Schauen Sie sich nun [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html) an und beachten Sie, wie der Bildschirmleser keine dieser Informationen erhält. Stellen Sie sich vor, wie ärgerlich das wäre, wenn Sie versuchen, eine wirklich lange Textseite zu navigieren.
+- Schauen Sie sich [good-links.html](https://mdn.github.io/learning-area/accessibility/html/good-links.html) an und bemerken Sie, wie sie im Kontext Sinn ergeben. Dies ist nicht der Fall bei [bad-links.html](https://mdn.github.io/learning-area/accessibility/html/bad-links.html) — sie sind alle nur "hier klicken".
+- Schauen Sie sich [good-form.html](https://mdn.github.io/learning-area/accessibility/html/good-form.html) an und bemerken Sie, wie die Formulareingaben durch ihre Beschriftungen beschrieben werden, weil wir `<label>`-Elemente richtig verwendet haben. Bei [bad-form.html](https://mdn.github.io/learning-area/accessibility/html/bad-form.html) erhalten sie eine unhilfreiche Bezeichnung wie "leer".
+- Sehen Sie sich unser [punk-bands-complete.html](https://mdn.github.io/learning-area/css/styling-boxes/styling-tables/punk-bands-complete.html)-Beispiel an und sehen Sie, wie der Bildschirmleser in der Lage ist, Spalten und Zeilen von Inhalten zu verknüpfen und sie zusammen vorzulesen, weil wir Kopfzeilen richtig definiert haben. In [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) können keine Zellen assoziiert werden. Beachten Sie, dass NVDA sich leicht merkwürdig verhält, wenn Sie haben nur eine einzelne Tabelle auf einer Seite; Sie könnten die [Tabelle-Testseite von WebAIM](https://webaim.org/articles/nvda/tables.htm) stattdessen ausprobieren.
+- Werfen Sie einen Blick auf das [WAI-ARIA Live Regions Beispiel](https://www.freedomscientific.com/SurfsUp/AriaLiveRegions.htm), das wir zuvor gesehen haben, und bemerken Sie, wie der Bildschirmleser den ständig aktualisierten Abschnitt vorliest, während er aktualisiert wird.
 
-### Benutzertests
+### Benutzer-Tests
 
-Wie oben erwähnt, können Sie sich nicht allein auf automatisierte Tools zur Bestimmung von Barrierefreiheitsproblemen auf Ihrer Website verlassen. Es wird empfohlen, wenn Sie Ihren Testplan erstellen, dass Sie einige Barrierefreiheitsnutzergruppen, sofern möglich, einbeziehen (siehe unseren Abschnitt [Benutzertests](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Testing_strategies#user_testing) zu einem früheren Zeitpunkt im Kurs für weiteren Kontext). Versuchen Sie, einige Benutzer von Bildschirmlesern, einige nur-Tastatur-Benutzer, einige nicht-hörende Benutzer und möglicherweise andere Gruppen einzubeziehen, je nach Ihren Anforderungen.
+Wie bereits erwähnt, können Sie sich nicht allein auf automatisierte Tools verlassen, um Barrierefreiheitsprobleme auf Ihrer Seite zu bestimmen. Es wird empfohlen, dass, wenn Sie Ihren Testplan erstellen, Sie – soweit möglich – einige Barrierefreiheits-Benutzergruppen einbeziehen (siehe unseren [Benutzer-Test](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Testing_strategies#user_testing) Abschnitt im vorherigen Kurs für mehr Kontext). Versuchen Sie, einige Benutzer von Bildschirmlesern, einige Benutzer, die nur die Tastatur verwenden, einige nicht hörende Benutzer und vielleicht andere Gruppen einzubeziehen, die Ihrer Anforderungen entsprechen.
 
 ## Checkliste für Barrierefreiheitstests
 
-Die folgende Liste bietet eine Checkliste für Sie, um sicherzustellen, dass Sie die empfohlenen Barrierefreiheitstests für Ihr Projekt durchgeführt haben:
+Die folgende Liste bietet Ihnen eine Checkliste, der Sie folgen sollten, um sicherzustellen, dass Sie die empfohlenen Barrierefreiheitstests für Ihr Projekt durchgeführt haben:
 
-1. Stellen Sie sicher, dass Ihr HTML so semantisch korrekt wie möglich ist. [Die Validierung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#validation) ist ein guter Anfang, genauso wie die Verwendung eines [Prüfwerkzeuges](#audit-tools).
-2. Überprüfen Sie, ob Ihre Inhalte Sinn machen, wenn das CSS deaktiviert wird.
-3. Stellen Sie sicher, dass Ihre Funktionalität [tastaturzugänglich](#nutzung_der_nativen_tastaturzugänglichkeit) ist. Testen Sie mit Tab, Return/Enter usw.
-4. Stellen Sie sicher, dass Ihre nicht-textuelle Inhalte [Textalternativen](#textalternativen) haben. Ein [Prüfwerkzeug](#audit-tools) ist gut, um solche Probleme zu erkennen.
+1. Stellen Sie sicher, dass Ihr HTML so semantisch korrekt wie möglich ist. [Validierung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#validation) ist ein guter Anfang, ebenso wie die Verwendung eines [Prüftools](#prüftools).
+2. Überprüfen Sie, ob Ihr Inhalt Sinn ergibt, wenn das CSS ausgeschaltet ist.
+3. Stellen Sie sicher, dass Ihre Funktionalität [tastaturzugänglich](#nutzung_nativer_tastaturzugänglichkeit) ist. Testen Sie mit Tab, Return/Enter usw.
+4. Stellen Sie sicher, dass Ihr nicht-Text-Inhalt über [Textalternativen](#textalternativen) verfügt. Ein [Prüftool](#prüftools) ist gut, um solche Probleme zu erkennen.
 5. Stellen Sie sicher, dass der [Farbkontrast](#farbe_und_farbkontrast) Ihrer Website akzeptabel ist, indem Sie ein geeignetes Prüfwerkzeug verwenden.
-6. Stellen Sie sicher, dass [versteckter Inhalt](#inhalte_ausblenden) von Bildschirmlesern sichtbar ist.
-7. Stellen Sie sicher, dass die Funktionalität so weit wie möglich ohne JavaScript nutzbar ist.
-8. Verwenden Sie ARIA, um die Barrierefreiheit zu verbessern, wo es angebracht ist.
-9. Überprüfen Sie Ihre Website mit einem [Prüfwerkzeug](#audit-tools).
-10. Testen Sie sie mit einem Bildschirmleser.
-11. Fügen Sie irgendwo auf Ihrer Website eine Barrierefreiheitserklärung/-richtlinie hinzu, die erklärt, was Sie getan haben.
+6. Stellen Sie sicher, dass der [versteckte Inhalt](#ausblenden_von_inhalten) von Bildschirmlesern sichtbar ist.
+7. Stellen Sie sicher, dass die Funktionalität ohne JavaScript verwendbar ist, wo immer möglich.
+8. Verwenden Sie ARIA, um die Barrierefreiheit gegebenenfalls zu verbessern.
+9. Führen Sie Ihre Website mit einem [Prüftool](#prüftools).
+10. Testen Sie es mit einem Bildschirmleser.
+11. Fügen Sie eine Barrierefreiheitspolitik/-erklärung irgendwo auffindbar auf Ihrer Seite ein, um zu sagen, was Sie getan haben.
 
 ## Hilfe finden
 
-Es gibt viele andere Probleme, auf die Sie mit der Barrierefreiheit stoßen werden; das Wichtigste ist wirklich zu wissen, wie man online Antworten findet. Konsultieren Sie den Abschnitt [Hilfe finden](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#finding_help) des HTML- und CSS-Artikels für einige gute Tipps.
+Es gibt viele andere Probleme, die Sie bei der Barrierefreiheit antreffen werden; das Wichtigste, das Sie wirklich wissen müssen, ist, wie Sie online Antworten finden können. Konsultieren Sie den Abschnitt [Hilfe finden](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#finding_help) des HTML- und CSS-Artikels für einige gute Hinweise.
 
 ## Zusammenfassung
 
-Hoffentlich hat Ihnen dieser Artikel eine gute Grundlage für die Hauptprobleme der Barrierefreiheit gegeben, auf die Sie stoßen könnten, und wie Sie sie testen und überwinden können.
+Hoffentlich hat Ihnen dieser Artikel ein gutes Fundament in den Hauptproblemen der Barrierefreiheit geliefert, die Sie möglicherweise antreffen, und wie man sie testet und überwindet.
 
-Im nächsten Artikel werden wir uns näher mit Feature Detection befassen.
+Im nächsten Artikel werden wir die Feature-Erkennung näher betrachten.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Cross_browser_testing/JavaScript","Learn/Tools_and_testing/Cross_browser_testing/Feature_detection", "Learn/Tools_and_testing/Cross_browser_testing")}}

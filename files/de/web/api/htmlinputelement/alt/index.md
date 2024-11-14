@@ -1,16 +1,16 @@
 ---
-title: "HTMLInputElement: alt-Eigenschaft"
+title: "HTMLInputElement: alt Eigenschaft"
 short-title: alt
 slug: Web/API/HTMLInputElement/alt
 l10n:
-  sourceCommit: a242996610e5a3335fcd0c5ee3c84d5543b9b8dd
+  sourceCommit: acb4e05fe7ea33a7b20fa03fdeb26a93511624e0
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`alt`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces definiert das Textlabel für die Schaltfläche für Benutzer und Benutzeragenten, die das Bild nicht verwenden können. Sie spiegelt das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut des {{htmlelement("input")}}-Elements wider.
+Die **`alt`**-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces definiert das textuelle Label für den Button für Benutzer und Benutzeragenten, die das Bild nicht nutzen können. Sie spiegelt das [`alt`](/de/docs/Web/HTML/Element/input#alt)-Attribut des {{htmlelement("input")}}-Elements wider.
 
-Die `alt`-Eigenschaft ist nur für den [`image`](/de/docs/Web/HTML/Element/input/image)-Typ gültig. Sie sollte eine nicht-leere Zeichenkette sein, die das Label angibt, das für eine gleichwertige Schaltfläche angemessen wäre, falls das Bild nicht verfügbar wäre.
+Die `alt`-Eigenschaft ist nur für den Typ [`image`](/de/docs/Web/HTML/Element/input/image) gültig. Es sollte ein nicht-leerer String sein, der das Label bereitstellt, das für einen gleichwertigen Button angemessen wäre, falls das Bild nicht verfügbar ist.
 
 ## Wert
 
@@ -39,4 +39,5 @@ inputElement.alt = "A much better description";
 - {{HTMLElement("button")}}
 - {{HTMLElement("input")}}
 - {{HTMLElement("img")}}
-- [Gutes Alt-Text schreiben](https://www.wcag.com/blog/good-alt-text-bad-alt-text-making-your-content-perceivable/)
+- [Guter Alt-Text, schlechter Alt-Text — Machen Sie Ihren Inhalt wahrnehmbar](https://www.wcag.com/blog/good-alt-text-bad-alt-text-making-your-content-perceivable/) auf WCAG.com (2021)
+- [Ein Alt-Entscheidungsbaum](https://www.w3.org/WAI/tutorials/images/decision-tree/) auf der W3C Web Accessibility Initiative (WAI)
