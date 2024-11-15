@@ -1,23 +1,52 @@
 ---
-title: CSS shapes
+title: CSS-Formen
 slug: Web/CSS/CSS_shapes
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: ca6d4f6114d278926e183225a90fd2209802cfe9
 ---
 
 {{CSSRef}}
 
-Das **CSS shapes** Modul beschreibt geometrische Formen. Es definiert auch CSS-Eigenschaften, die die Formen verwenden können, um die Geometrie des Fließbereichs eines Elements zu steuern; dieser Bereich kann dann auf Ausschlüsse angewendet werden oder den Inhaltsbereich eines Elements angeben.
+Das **CSS-Formen**-Modul beschreibt geometrische Formen. Es definiert auch CSS-Eigenschaften, die die Formen verwenden können, um die Geometrie des Floßbereichs eines Elements zu steuern; dieser Bereich kann dann auf Ausschlüsse angewendet oder als Inhaltsbereich eines Elements spezifiziert werden.
 
-Die Spezifikation definiert mehrere Möglichkeiten, Formen zu erstellen. Inhalte können um oder innerhalb einer Form herum angeordnet werden, anstatt der Standardrechteckform des Elementkastens zu folgen.
+Die Spezifikation definiert mehrere Möglichkeiten zur Erstellung von Formen. Inhalte können um eine Form herum oder innerhalb einer Form angeordnet werden, anstatt der standardmäßigen rechteckigen Form des Element-Boxmodells zu folgen.
 
-Formen definieren Geometrien, die als CSS-Werte verwendet werden können. Dieses Modul bietet Funktionen zum Erstellen von Ellipsen, Polygonen und beliebigen Geometrien. Andere CSS-Module können die in dieser Spezifikation definierten Formen nutzen, einschließlich [CSS motion path](/de/docs/Web/CSS/CSS_motion_path) und [CSS masking](/de/docs/Web/CSS/CSS_masking).
+Formen definieren Geometrien, die als CSS-Werte genutzt werden können. Dieses Modul stellt Funktionen zur Erstellung von Ellipsen, Polygonen und beliebigen Geometrien bereit. Andere CSS-Module können die in dieser Spezifikation definierten Formen nutzen, einschließlich [CSS motion path](/de/docs/Web/CSS/CSS_motion_path) und [CSS masking](/de/docs/Web/CSS/CSS_masking).
 
-## CSS shapes in Aktion
+## CSS-Formen in Aktion
 
-Das folgende Beispiel zeigt ein Bild, das links geschwebt wurde, und die `shape-outside` Eigenschaft mit einem Wert von `circle(50%)` angewendet. Dies erzeugt eine Kreisform, und der Inhalt, der das Schweben umschließt, umgibt nun diese Form. Dies verändert die Länge der umschlossenen Textzeilenboxen.
+Das folgende Beispiel zeigt ein Bild, das nach links gefloatet wurde, wobei die Eigenschaft `shape-outside` mit einem Wert von `circle(50%)` angewendet wurde. Dies erzeugt eine Kreisform, und der den Float umgebende Inhalt wird nun um diese Form herum angeordnet. Dies ändert die Länge der Zeilenboxen des umgebenden Textes.
 
-{{EmbedGHLiveSample("css-examples/shapes/overview/circle.html", '100%', 720)}}
+```html live-sample___circle
+<div class="box">
+  <img
+    alt="A hot air balloon"
+    src="https://mdn.github.io/shared-assets/images/examples/round-balloon.png" />
+  <p>
+    One November night in the year 1782, so the story runs, two brothers sat
+    over their winter fire in the little French town of Annonay, watching the
+    grey smoke-wreaths from the hearth curl up the wide chimney. Their names
+    were Stephen and Joseph Montgolfier, they were papermakers by trade, and
+    were noted as possessing thoughtful minds and a deep interest in all
+    scientific knowledge and new discovery. Before that night—a memorable night,
+    as it was to prove—hundreds of millions of people had watched the rising
+    smoke-wreaths of their fires without drawing any special inspiration from
+    the fact.
+  </p>
+</div>
+```
+
+```css live-sample___circle
+body {
+  font: 1.2em / 1.5 sans-serif;
+}
+img {
+  float: left;
+  shape-outside: circle(50%);
+}
+```
+
+{{EmbedLiveSample("circle", "", "300px")}}
 
 ## Referenz
 
@@ -28,7 +57,7 @@ Das folgende Beispiel zeigt ein Bild, das links geschwebt wurde, und die `shape-
 - {{cssxref("shape-outside")}}
 
 > [!NOTE]
-> Das CSS shapes Modul führt die Eigenschaften `shape-inside` und `shape-padding` ein, die noch nicht implementiert sind.
+> Das CSS-Formenmodul führt die Eigenschaften `shape-inside` und `shape-padding` ein, die noch nicht implementiert wurden.
 
 ### Datentypen
 
@@ -51,25 +80,25 @@ Das folgende Beispiel zeigt ein Bild, das links geschwebt wurde, und die `shape-
 
 ## Leitfäden
 
-- [Überblick über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
+- [Übersicht über Formen](/de/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
 
-  - : Definition von grundlegenden Formen mit den Eigenschaften `shape-margin` und `clip-path` und Debugging von grundlegenden Formen mit den Entwicklertools.
+  - : Definition grundlegender Formen mit den Eigenschaften `shape-margin` und `clip-path` und Debugging grundlegender Formen mit Entwicklerwerkzeugen.
 
 - [Formen aus Box-Werten](/de/docs/Web/CSS/CSS_shapes/From_box_values)
 
-  - : Verwendung von `border-radius` Krümmungen und CSS-Boxmodellwerten zur Erstellung von Formen.
+  - : Verwendung von `border-radius`-Krümmungen und CSS-Boxmodellwerten zur Erstellung von Formen.
 
 - [Grundlegende Formen mit `shape-outside`](/de/docs/Web/CSS/CSS_shapes/Basic_shapes)
 
-  - : Erstellen von Rechtecken, Kreisen, Ellipsen und Polygonen mit CSS-Formen, der Referenzbox und der `shape-outside` Eigenschaft.
+  - : Erstellen von Rechtecken, Kreisen, Ellipsen und Polygonen mit CSS-Formen, der Referenzbox und der Eigenschaft `shape-outside`.
 
 - [Formen aus Bildern](/de/docs/Web/CSS/CSS_shapes/Shapes_from_images)
 
-  - : Erstellung von Formen aus halbtransparenten Bilddateien und CSS-Verläufen.
+  - : Erstellen von Formen aus halbdurchsichtigen Bilddateien und CSS-Verläufen.
 
 ## Verwandte Konzepte
 
-Modul [CSS motion path](/de/docs/Web/CSS/CSS_motion_path)
+[CSS motion path](/de/docs/Web/CSS/CSS_motion_path) Modul
 
 - {{cssxref("offset")}}
 - {{cssxref("offset-anchor")}}
@@ -79,7 +108,7 @@ Modul [CSS motion path](/de/docs/Web/CSS/CSS_motion_path)
 - {{cssxref("offset-rotate")}}
 - {{cssxref("ray")}} Funktion
 
-Modul [CSS masking](/de/docs/Web/CSS/CSS_masking)
+[CSS masking](/de/docs/Web/CSS/CSS_masking) Modul
 
 - {{cssxref("clip")}}
 - {{cssxref("clip-path")}}
@@ -88,11 +117,11 @@ Modul [CSS masking](/de/docs/Web/CSS/CSS_masking)
 - {{cssxref("mask-origin")}}
 - {{cssxref("mask-position")}}
 
-Modul [CSS backgrounds and borders](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+[CSS hintergründe und rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders) Modul
 
-- {{cssxref("border-radius")}} Kurzform
+- {{cssxref("border-radius")}} Kurzschreibweise
 
-Modul [CSS box model](/de/docs/Web/CSS/CSS_box_model)
+[CSS-Boxmodell](/de/docs/Web/CSS/CSS_box_model) Modul
 
 - {{cssxref("box-edge")}} Datentyp
 
@@ -104,7 +133,7 @@ Modul [CSS box model](/de/docs/Web/CSS/CSS_box_model)
 
 - [CSS Shapes Ressourcen](https://codepen.io/KristopherVanSant/post/css-shapes-resources)
 - [CSS Shapes 101](https://alistapart.com/article/css-shapes-101/) über alistapart.com (2014)
-- [Erstellung nicht-rechteckiger Layouts mit CSS Shapes](https://www.sarasoueidan.com/blog/css-shapes/) über sarasoueidan.com (2013)
+- [Erstellen nicht-rechteckiger Layouts mit CSS Shapes](https://www.sarasoueidan.com/blog/css-shapes/) über sarasoueidan.com (2013)
 - [Anleitung zur Verwendung von CSS Shapes im Webdesign](https://webdesign.tutsplus.com/how-to-use-css-shapes-in-your-web-design--cms-27498t) über tutsplus.com (2016)
-- [Anleitung zum Einstieg mit CSS Shapes](https://www.webdesignerdepot.com/2015/03/how-to-get-started-with-css-shapes/) über webdesignerdepot.com (2015)
-- [CSS-Formen mit dem Formpfad-Editor bearbeiten](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) über mozilla.org (2018) ([Video](https://www.youtube.com/watch?v=u9bDe3Bw0sA))
+- [Einstieg in CSS Shapes](https://www.webdesignerdepot.com/2015/03/how-to-get-started-with-css-shapes/) über webdesignerdepot.com (2015)
+- [Bearbeiten von CSS-Formen mit dem Shape Path Editor](https://firefox-source-docs.mozilla.org/devtools-user/page_inspector/how_to/edit_css_shapes/index.html) über mozilla.org (2018) ([Video](https://www.youtube.com/watch?v=u9bDe3Bw0sA))

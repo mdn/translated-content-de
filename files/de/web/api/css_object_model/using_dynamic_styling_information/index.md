@@ -1,60 +1,55 @@
 ---
-title: Verwendung dynamischer Stilinformationen
+title: Verwenden von dynamischen Styling-Informationen
 slug: Web/API/CSS_Object_Model/Using_dynamic_styling_information
 l10n:
-  sourceCommit: dcbb1d99185118360cc84b3a0e935e77fe0a03e3
+  sourceCommit: ca6d4f6114d278926e183225a90fd2209802cfe9
 ---
 
 {{DefaultAPISidebar("CSSOM")}}
 
-Das CSS Object Model (CSSOM), ein Teil des DOM, bietet spezifische Schnittstellen, die die Manipulation einer Vielzahl von Informationen im Hinblick auf CSS ermöglichen. Ursprünglich in der _DOM Level 2 Style_-Empfehlung definiert, bilden diese Schnittstellen jetzt eine Spezifikation, das _CSS Object Model (CSSOM)_, das darauf abzielt, diese zu übertreffen.
+Das CSS Object Model (CSSOM), ein Teil des DOM, stellt bestimmte Schnittstellen bereit, die es ermöglichen, eine Vielzahl von Informationen bezüglich CSS zu manipulieren. Ursprünglich definiert in der Empfehlung _DOM Level 2 Style_, bildet diese Schnittstellen nun eine Spezifikation, _CSS Object Model (CSSOM)_, die es ersetzen soll.
 
-In vielen Fällen und wo immer möglich, ist es bewährte Praxis, Klassen dynamisch über die [`className`](/de/docs/Web/API/Element/className)-Eigenschaft zu manipulieren, da das endgültige Erscheinungsbild aller Stilvorlagen in einem einzigen Stylesheet kontrolliert werden kann. Der JavaScript-Code wird zudem sauberer, da er sich anstelle von Styling-Details auf die Semantik des jeweiligen Abschnitts konzentrieren kann, den er erstellt oder manipuliert, wobei die genauen Stil-Details dem Stylesheet überlassen werden. Es gibt jedoch Fälle, in denen das tatsächliche Erhalten oder Manipulieren der Regeln nützlich sein kann (sei es für ganze Stylesheets oder einzelne Elemente), was im Folgenden detaillierter beschrieben wird. Beachten Sie auch, dass es sich beim Manipulieren der Stylesheets, wie bei DOM-Stilen einzelner Elemente, nicht um eine Manipulation der physischen Dokumente handelt, sondern lediglich um die interne Darstellung des Dokuments.
+In vielen Fällen, und wo möglich, ist es best practice, Klassen dynamisch über die [`className`](/de/docs/Web/API/Element/className) Eigenschaft zu manipulieren, da das endgültige Erscheinungsbild aller Styling-Hooks in einem einzigen Stylesheet gesteuert werden kann. Der JavaScript-Code wird auch übersichtlicher, da er sich nicht mit Styling-Details beschäftigt, sondern sich auf die gesamte Semantik der erstellten oder manipulierten Abschnitte konzentrieren kann, während die genauen Style-Details dem Stylesheet überlassen werden. Es gibt jedoch Fälle, in denen das tatsächliche Abrufen oder Manipulieren der Regeln nützlich sein kann (sei es für ganze Stylesheets oder einzelne Elemente), und das wird im Folgenden näher beschrieben. Beachten Sie auch, dass, wie bei einzelnen DOM-Stil-Elementen, beim Sprechen über das Manipulieren der Stylesheets nicht das physische Dokument manipuliert wird, sondern lediglich die interne Darstellung des Dokuments.
 
-Das grundlegende `style`-Objekt gibt die [`Stylesheet`](/de/docs/Web/API/Stylesheet)- und [`CSSStylesheet`](/de/docs/Web/API/CSSStylesheet)-Schnittstellen frei. Diese Schnittstellen enthalten Mitglieder wie `insertRule`, `selectorText` und `parentStyleSheet` zum Zugriff und zur Manipulation der einzelnen Stilregeln, die ein CSS-Stylesheet bilden.
+Das grundlegende `style` Objekt stellt die [`Stylesheet`](/de/docs/Web/API/Stylesheet) und die [`CSSStylesheet`](/de/docs/Web/API/CSSStylesheet) Schnittstellen bereit. Diese Schnittstellen enthalten Mitglieder wie `insertRule`, `selectorText` und `parentStyleSheet` zum Zugreifen und Manipulieren der einzelnen Stilregeln, die ein CSS Stylesheet ausmachen.
 
-Um von einem `document` zu den `style`-Objekten zu gelangen, können Sie die [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Eigenschaft verwenden und auf die einzelnen Objekte per Index zugreifen (z. B. `document.styleSheets[0]` ist das erste definierte Stylesheet für das Dokument usw.).
+Um zu den `style` Objekten vom `document` zu gelangen, können Sie die [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) Eigenschaft verwenden und auf die einzelnen Objekte durch ihren Index zugreifen (z.B. `document.styleSheets[0]` ist das erste Stylesheet, das für das Dokument definiert ist, usw.).
 
-## Eine Stilregel mit CSSOM ändern
+## Ein Stylesheet-Regel mit CSSOM ändern
 
-In diesem Beispiel wird der Hintergrund der Seite mit CSS auf rot gesetzt. Das JavaScript greift dann mit dem CSSOM auf die Eigenschaft zu und ändert den Hintergrund auf blau.
+In diesem Beispiel wird der Hintergrund der Seite mit CSS auf `red` gesetzt. Der JavaScript-Code greift dann auf die Eigenschaft über CSSOM zu und ändert den Hintergrund zu `cornflowerblue`.
 
-```html
-<html lang="en">
-  <head>
-    <title>Modifying a stylesheet rule with CSSOM</title>
-    <style>
-      body {
-        background-color: red;
-      }
-    </style>
-    <script>
-      const stylesheet = document.styleSheets[0];
-      stylesheet.cssRules[0].style.backgroundColor = "aqua";
-    </script>
-  </head>
-  <body>
-    The stylesheet declaration for the body's background color is modified via
-    JavaScript.
-  </body>
-</html>
+```html live-sample___modify-rule
+<p>The stylesheet declaration for the body is modified via JavaScript.</p>
 ```
 
-### Ergebnis
+```css live-sample___modify-rule
+body {
+  background-color: red;
+  font: 1.2em / 1.5 sans-serif;
+  color: white;
+  padding: 1em;
+}
+```
 
-{{EmbedGHLiveSample("css-examples/cssom/modify-rule.html", '100%', 120)}}
+```js live-sample___modify-rule
+const stylesheet = document.styleSheets[1];
+stylesheet.cssRules[0].style.backgroundColor = "cornflowerblue";
+```
 
-Die Liste der im DOM über die `style`-Eigenschaft verfügbaren Eigenschaften finden Sie auf der Seite [DOM CSS Properties List](/de/docs/Web/CSS/Reference).
+{{EmbedLiveSample("modify-rule")}}
 
-Um Stile für ein Dokument unter Verwendung der CSS-Syntax zu ändern, kann man Regeln einfügen oder {{HTMLElement("style")}}-Tags einfügen, deren `innerHTML`-Eigenschaft auf das gewünschte CSS gesetzt ist.
+Die Liste der im DOM verfügbaren Eigenschaften von der `style` Eigenschaft ist auf der Seite [DOM CSS Properties List](/de/docs/Web/CSS/Reference) zu finden.
 
-## Stil eines Elements ändern
+Um Stile in einem Dokument unter Verwendung der CSS-Syntax zu ändern, kann man Regeln einfügen oder {{HTMLElement("style")}} Tags einfügen, deren `innerHTML` Eigenschaft auf das gewünschte CSS gesetzt ist.
 
-Die [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft eines Elements (siehe auch den Abschnitt "DOM Style Object" unten) kann ebenfalls verwendet werden, um die Stile eines Elements zu erhalten und festzulegen. Beachten Sie jedoch, dass diese Eigenschaft nur Stilattribute zurückgibt, die _inline_ gesetzt wurden (z. B. gibt der Zugriff auf `element.style.color` auf einem als `<td style="background-color: lightblue">` definierten Element die Zeichenkette `""` zurück, auch wenn das Element über ein Stylesheet eine `color`-Eigenschaft hat).
+## Den Stil eines Elements ändern
 
-Wenn Sie diese Eigenschaft jedoch auf einem Element festlegen, überschreiben Sie alle dort erzeugten oder anderswo definierten Stile für die betreffende Eigenschaft des Elements. Wenn Sie beispielsweise die `border`-Eigenschaft festlegen, überschreiben Sie die Einstellungen, die für die `border`-Eigenschaft dieses Elements im Header-Abschnitt oder in externen Stylesheets vorgenommen wurden. Dies wirkt sich jedoch nicht auf andere Eigenschaftsdeklarationen für die Stile dieses Elements aus, wie z. B. `padding` oder `margin` oder `font`.
+Die `style`-Eigenschaft eines Elements ([`style`](/de/docs/Web/API/HTMLElement/style), siehe auch den Abschnitt "DOM Style Object" unten) kann ebenfalls verwendet werden, um die Stile eines Elements abzurufen und zu setzen. Diese Eigenschaft gibt jedoch nur solche Stilattribute zurück, die _inline_ gesetzt worden sind (z.B. gibt `element.style.color` auf einem als `<td style="background-color: lightblue">` definierten Element die Zeichenkette `""` zurück, obwohl das Element möglicherweise eine `color` über ein Stylesheet deklariert hat).
 
-Um den Stil eines bestimmten Elements zu ändern, können Sie das folgende Beispiel für das oder die Elemente anpassen, die Sie stylen möchten.
+Auch wenn Sie diese Eigenschaft auf einem Element setzen, überschreiben Sie sämtliche Stile, die an anderer Stelle für die jeweilige Eigenschaft dieses Elements gesetzt worden sind, die Sie gerade verändern. Das Setzen der `border`-Eigenschaft überschreibt z.B. die für dieses Element andernorts (im Kopfbereich oder in externen Stylesheets) gemachten Einstellungen für die `border`-Eigenschaft. Dies beeinflusst jedoch keine anderen Deklarationen für die Stile dieses Elements wie etwa padding oder margin oder font, um ein Beispiel zu nennen.
+
+Um den Stil eines bestimmten Elements zu ändern, können Sie das folgende Beispiel für das/die Element(e) anpassen, das/die Sie stylen möchten.
 
 ```html
 <!doctype html>
@@ -95,15 +90,15 @@ Um den Stil eines bestimmten Elements zu ändern, können Sie das folgende Beisp
 
 {{ EmbedLiveSample('Modify_an_elements_style') }}
 
-Die Methode [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) auf dem `document.defaultView`-Objekt gibt alle Stile zurück, die tatsächlich für ein Element berechnet wurden.
+Die Methode [`getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) im `document.defaultView` Objekt gibt alle Stile zurück, die tatsächlich für ein Element berechnet wurden.
 
 ## DOM Style Object
 
-Das `style`-Objekt stellt eine einzelne Stillinie dar. Das Style-Objekt wird aus dem `document` oder von den Elementen, auf die dieser Stil angewendet wird, abgerufen. Es repräsentiert die _inline_-Stile auf einem bestimmten Element.
+Das `style` Objekt stellt eine einzelne Stil-Anweisung dar. Das Style-Objekt wird aus dem `document` oder aus den Elementen, auf die dieser Stil angewendet wird, aufgerufen. Es repräsentiert die _inline_ Styles eines bestimmten Elements.
 
-### Stil-Eigenschaften festlegen
+### Stil-Eigenschaften setzen
 
-Wichtiger als die beiden hier genannten Eigenschaften ist die Verwendung des `style`-Objekts, um einzelne Stileigenschaften an einem Element festzulegen:
+Wichtiger als die hier genannten zwei Eigenschaften ist die Verwendung des `style` Objekts, um einzelne Stil-Eigenschaften auf einem Element zu setzen:
 
 ```html
 <!doctype html>
@@ -133,15 +128,15 @@ Wichtiger als die beiden hier genannten Eigenschaften ist die Verwendung des `st
 
 {{ EmbedLiveSample('Setting_style_properties') }}
 
-Der **Media**- und **Typ** des Stils kann, muss aber nicht angegeben werden.
+Das **media** und **type** des Stils kann gegeben sein oder auch nicht.
 
 ### Die setAttribute-Methode verwenden
 
-Beachten Sie, dass Sie den Stil eines Elements auch ändern können, indem Sie eine Referenz darauf erhalten und dann die Methode [`setAttribute`](/de/docs/Web/API/Element/setAttribute) verwenden, um die CSS-Eigenschaft und ihren Wert anzugeben.
+Beachten Sie, dass Sie den Stil eines Elements ändern können, indem Sie eine Referenz darauf erhalten und dann seine [`setAttribute`](/de/docs/Web/API/Element/setAttribute) Methode verwenden, um die CSS-Eigenschaft und ihren Wert anzugeben.
 
 ```js
 const el = document.getElementById("some-element");
 el.setAttribute("style", "background-color:darkblue;");
 ```
 
-Seien Sie sich jedoch bewusst, dass `setAttribute` alle anderen Stil-Eigenschaften entfernt, die möglicherweise bereits im `style`-Objekt des Elements definiert sind. Wenn das `some-element`-Element oben beispielsweise ein inline `style`-Attribut von beispielsweise `style="font-size: 18px"` hatte, würde dieser Wert durch die Verwendung von `setAttribute` entfernt werden.
+Seien Sie sich jedoch bewusst, dass `setAttribute` alle anderen `style`-Eigenschaften entfernt, die möglicherweise bereits im `style`-Objekt des Elements definiert sind. Wenn das Element `some-element` im obigen Beispiel eine in-line `style`-Eigenschaft von beispielsweise `style="font-size: 18px"` hatte, würde dieser Wert durch die Verwendung von `setAttribute` entfernt werden.
