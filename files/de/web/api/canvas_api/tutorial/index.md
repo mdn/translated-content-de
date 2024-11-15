@@ -1,21 +1,21 @@
 ---
-title: Canvas tutorial
+title: Canvas-Tutorial
 slug: Web/API/Canvas_API/Tutorial
 l10n:
-  sourceCommit: b280ea1234452ff553caa466bf532a66ba51db01
+  sourceCommit: 082faa84dc3a78903a666010c8f741c62d35c0e7
 ---
 
 {{DefaultAPISidebar("Canvas API")}}
 
-Dieses Tutorial beschreibt, wie das [**`<canvas>`**](/de/docs/Web/HTML/Element/canvas)-Element verwendet wird, um 2D-Grafiken zu zeichnen, beginnend mit den Grundlagen. Die bereitgestellten Beispiele sollen Ihnen klare Vorstellungen darüber geben, was Sie mit Canvas machen können, und bieten Codebeispiele, die Ihnen den Einstieg in die Erstellung eigener Inhalte erleichtern können.
+Dieses Tutorial beschreibt, wie man das [**`<canvas>`**](/de/docs/Web/HTML/Element/canvas)-Element verwendet, um 2D-Grafiken zu zeichnen, beginnend mit den Grundlagen. Die bereitgestellten Beispiele sollten Ihnen klare Vorstellungen darüber geben, was Sie mit Canvas machen können, und bieten Code-Snippets, die Ihnen den Einstieg in die Erstellung eigener Inhalte erleichtern können.
 
-`<canvas>` ist ein [HTML](/de/docs/Web/HTML)-Element, das über Skripte (normalerweise {{Glossary("JavaScript", "JavaScript")}}) zum Zeichnen von Grafiken verwendet werden kann. Dies kann beispielsweise genutzt werden, um Diagramme zu zeichnen, Fotos zu kombinieren oder einfache Animationen zu erstellen.
+`<canvas>` ist ein [HTML](/de/docs/Web/HTML)-Element, das zum Zeichnen von Grafiken über Skripting (in der Regel {{Glossary("JavaScript", "JavaScript")}}) verwendet werden kann. Dies kann beispielsweise zum Zeichnen von Grafiken, Kombinieren von Fotos oder Erstellen einfacher Animationen genutzt werden.
 
-Zuerst von Apple in WebKit für das macOS Dashboard eingeführt, wurde `<canvas>` inzwischen in Browsern implementiert. Heute unterstützen alle gängigen Browser dieses Element.
+Erstmals von Apple für das macOS Dashboard in WebKit eingeführt, wurde `<canvas>` mittlerweile in Browsern implementiert. Heute wird es von allen großen Browsern unterstützt.
 
 ## Bevor Sie beginnen
 
-Die Verwendung des `<canvas>`-Elements ist nicht sehr schwierig, erfordert jedoch ein grundlegendes Verständnis von [HTML](/de/docs/Web/HTML) und [JavaScript](/de/docs/Web/JavaScript). Das `<canvas>`-Element wird in einigen älteren Browsern nicht unterstützt, jedoch in den aktuellen Versionen aller gängigen Browser. Die Standardgröße des Canvas beträgt 300 Pixel × 150 Pixel (Breite × Höhe). Benutzerdefinierte Größen können jedoch mit den HTML-Eigenschaften `height` und `width` definiert werden. Um Grafiken auf dem Canvas zu zeichnen, verwenden wir ein JavaScript-Kontextobjekt, das Grafiken dynamisch erstellt.
+Die Verwendung des `<canvas>`-Elements ist nicht sehr schwierig, jedoch benötigen Sie ein grundlegendes Verständnis von [HTML](/de/docs/Web/HTML) und [JavaScript](/de/docs/Web/JavaScript). Das `<canvas>`-Element wird in einigen älteren Browsern nicht unterstützt, jedoch in aktuellen Versionen aller großen Browser. Die Standardgröße des Canvas beträgt 300 Pixel × 150 Pixel (Breite × Höhe). Aber benutzerdefinierte Größen können über die HTML-Eigenschaften `height` und `width` definiert werden. Um Grafiken auf dem Canvas zu zeichnen, verwenden wir ein JavaScript-Kontextobjekt, das Grafiken in Echtzeit erstellt.
 
 ## In diesem Tutorial
 
@@ -25,20 +25,19 @@ Die Verwendung des `<canvas>`-Elements ist nicht sehr schwierig, erfordert jedoc
 4. [Text zeichnen](/de/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
 5. [Bilder verwenden](/de/docs/Web/API/Canvas_API/Tutorial/Using_images)
 6. [Transformationen](/de/docs/Web/API/Canvas_API/Tutorial/Transformations)
-7. [Komposition und Clipping](/de/docs/Web/API/Canvas_API/Tutorial/Compositing)
-8. [Grundlegende Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations)
-9. [Fortgeschrittene Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Advanced_animations)
+7. [Komposition und Zuschneiden](/de/docs/Web/API/Canvas_API/Tutorial/Compositing)
+8. [Einfache Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations)
+9. [Erweiterte Animationen](/de/docs/Web/API/Canvas_API/Tutorial/Advanced_animations)
 10. [Pixelmanipulation](/de/docs/Web/API/Canvas_API/Tutorial/Pixel_manipulation_with_canvas)
-11. [Optimierung des Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas)
+11. [Optimierung der Canvas](/de/docs/Web/API/Canvas_API/Tutorial/Optimizing_canvas)
 12. [Finale](/de/docs/Web/API/Canvas_API/Tutorial/Finale)
 
 ## Siehe auch
 
 - [Canvas-Themenseite](/de/docs/Web/API/Canvas_API)
-- [HTML5CanvasTutorials](https://www.html5canvastutorials.com/)
 
-## Ein Hinweis an die Mitwirkenden
+## Eine Anmerkung für Beitragsleistende
 
-Aufgrund eines bedauerlichen technischen Fehlers in der Woche des 17. Juni 2013 haben wir die Historie dieses Tutorials verloren, einschließlich der Zuschreibungen an alle früheren Mitwirkenden an seinem Inhalt. Wir entschuldigen uns dafür und hoffen, dass Sie diesen unglücklichen Vorfall entschuldigen können.
+Aufgrund eines bedauerlichen technischen Fehlers, der in der Woche vom 17. Juni 2013 auftrat, haben wir die Geschichte dieses Tutorials, einschließlich der Zuschreibungen an alle bisherigen Mitwirkenden, verloren. Wir entschuldigen uns dafür und hoffen auf Ihr Verständnis für dieses unglückliche Missgeschick.
 
 {{ Next("Web/API/Canvas_API/Tutorial/Basic_usage") }}

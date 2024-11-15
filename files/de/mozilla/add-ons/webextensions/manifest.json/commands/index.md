@@ -2,7 +2,7 @@
 title: commands
 slug: Mozilla/Add-ons/WebExtensions/manifest.json/commands
 l10n:
-  sourceCommit: b7a7c441fa025458f2bf67d714c3303085e8258a
+  sourceCommit: 3925f2c8b3ae0d790cff9fb83aef6e40251f5318
 ---
 
 {{AddonSidebar}}
@@ -14,7 +14,7 @@ l10n:
       <td><code>Object</code></td>
     </tr>
     <tr>
-      <th scope="row">Verpflichtend</th>
+      <th scope="row">Erforderlich</th>
       <td>Nein</td>
     </tr>
     <tr>
@@ -33,8 +33,7 @@ l10n:
     },
     "description": "Send a 'toggle-feature' event"
   }
-}</pre
-        >
+}</pre>
       </td>
     </tr>
   </tbody>
@@ -42,18 +41,18 @@ l10n:
 
 Verwenden Sie den Schlüssel **`commands`**, um eine oder mehrere Tastenkombinationen für Ihre Erweiterung zu definieren.
 
-Jede Tastenkombination wird mit einem **Namen**, einer **Tastenkombination** und einer **Beschreibung** definiert. Sobald Sie Befehle in der `manifest.json` Ihrer Erweiterung definiert haben, können Sie mit der {{WebExtAPIRef("commands")}} JavaScript-API die zugehörigen Tastenkombinationen abhören.
+Jede Tastenkombination wird mit einem **Namen**, einer **Tastenkomination** und einer **Beschreibung** definiert. Nachdem die Befehle in der `manifest.json` Ihrer Erweiterung definiert wurden, können Sie mit der {{WebExtAPIRef("commands")}} API auf ihre zugehörigen Tastenkombinationen lauschen.
 
 ## Syntax
 
-Der Schlüssel `commands` ist ein Objekt, und jede Tastenkombination ist eine Eigenschaft davon. **Der Name der Eigenschaft ist der Name des Tastenkürzels.**
+Der Schlüssel `commands` ist ein Objekt, und jede Verknüpfung ist eine Eigenschaft davon. **Der Name der Eigenschaft ist der Name der Verknüpfung.**
 
-Der Wert jedes Tastenkürzels ist ein Objekt mit bis zu 2 Eigenschaften:
+Der Wert jeder Verknüpfung ist ein Objekt mit bis zu 2 Eigenschaften:
 
-1. `suggested_key`: die Tasten-Kombination, die das Kürzel aktiviert.
-2. `description`: eine Zeichenkette, die das Kürzel beschreibt; d.h., was es macht.
+1. `suggested_key` {{optional_inline}}: die Kombination von Tasten, die die Verknüpfung aktiviert.
+2. `description` {{optional_inline}}: ein String, der die Verknüpfung beschreibt, d.h. was sie tut.
 
-Die Eigenschaft `suggested_key` ist ein Objekt mit einer der folgenden Eigenschaften (alle Zeichenketten):
+Die Eigenschaft `suggested_key` ist ein Objekt mit beliebigen oder keinen dieser Eigenschaften (alle Strings):
 
 - `"default"`
 - `"mac"`
@@ -63,7 +62,7 @@ Die Eigenschaft `suggested_key` ist ein Objekt mit einer der folgenden Eigenscha
 - `"android"`
 - `"ios"`
 
-Der Wert jeder Eigenschaft ist das Tastenkürzel für den Befehl auf dieser Plattform, als Zeichenfolge, die Tasten enthält, getrennt durch "`+`". Der Wert für `"default"` wird auf allen Plattformen verwendet, die nicht explizit aufgeführt sind.
+Der Wert jeder Eigenschaft ist die Tastenkombination für den Befehl auf dieser Plattform, als String, der Tasten enthält, getrennt durch "`+`". Der Wert von `"default"` wird auf allen Plattformen verwendet, die nicht explizit aufgeführt sind. Wenn `"default"` nicht enthalten ist, hat der Befehl auf keiner Plattform eine Tastenkombination, es sei denn, es wird vom Benutzer oder über die {{WebExtAPIRef("commands.update")}} API eine Tastenkombination konfiguriert.
 
 Zum Beispiel:
 
@@ -80,16 +79,24 @@ Zum Beispiel:
     "suggested_key": {
       "default": "Ctrl+Shift+Y"
     }
-  }
+  },
+  "do-something-else": {
+    "suggested_key": {
+      "linux": "Ctrl+Shift+P"
+    }
+  },
+  "do-nothing-yet": {}
 }
 ```
 
-Dieses JSON definiert 2 Kürzel:
+Dieses JSON definiert diese Verknüpfungen:
 
-1. `"toggle-feature"`, aufgerufen mit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd> auf Linux, und <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd> auf allen anderen Plattformen.
-2. `"do-another-thing"`, aufgerufen mit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Y</kbd> auf allen Plattformen.
+1. `"toggle-feature"`, erreichbar mit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd> unter Linux und <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>U</kbd> auf allen anderen Plattformen.
+2. `"do-another-thing"`, erreichbar mit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Y</kbd> auf allen Plattformen.
+3. `"do-something-else"`, erreichbar mit <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> nur unter Linux und keine Standardverknüpfung auf anderen Plattformen.
+4. `"do-nothing-yet"`, legt keine Tastenkombination fest, ermöglicht aber dem Benutzer, eine Verknüpfung zu setzen oder mit der {{WebExtAPIRef("commands.update")}} API.
 
-Sie könnten dann den `"toggle-feature"` Befehl mit einem Code wie diesem abhören:
+Sie können für die Befehle mit einem Code wie diesem lauschen, in diesem Fall für den Befehl `"toggle-feature"`:
 
 ```js
 browser.commands.onCommand.addListener((command) => {
@@ -99,16 +106,16 @@ browser.commands.onCommand.addListener((command) => {
 });
 ```
 
-### Besondere Kürzel
+### Spezielle Verknüpfungen
 
-Es gibt 4 **besondere Kürzel mit Standardaktionen**, für die das {{WebExtAPIRef("commands.onCommand")}}-Ereignis nicht ausgelöst wird:
+Es gibt 4 **spezielle Verknüpfungen mit Standardaktionen**, für die das {{WebExtAPIRef("commands.onCommand")}} Ereignis nicht ausgelöst wird:
 
-- `_execute_browser_action`: funktioniert wie ein Klick auf eine [Toolbar-Schaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), die mit {{WebExtAPIRef("browserAction")}} erstellt oder im [browser_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) Schlüssel in der manifest.json angegeben wurde.
-- `_execute_action`: funktioniert wie ein Klick auf eine [Toolbar-Schaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), die mit {{WebExtAPIRef("action")}} erstellt oder im [action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action) Schlüssel in der manifest.json angegeben wurde.
-- `_execute_page_action`: funktioniert wie ein Klick auf eine [Adressleisten-Schaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions), die mit {{WebExtAPIRef("pageAction")}} erstellt oder im [page_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) Schlüssel in der manifest.json angegeben wurde.
-- `_execute_sidebar_action`: öffnet die [Sidebar](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) der Erweiterung, die im [sidebar_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) manifest.json Schlüssel angegeben ist.
+- `_execute_browser_action`: Funktioniert wie ein Klick auf eine [Symbolleistenschaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), die mit {{WebExtAPIRef("browserAction")}} erstellt wurde oder im Schlüssel [browser_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action) in der manifest.json angegeben ist.
+- `_execute_action`: Funktioniert wie ein Klick auf eine [Symbolleistenschaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Toolbar_button), die mit {{WebExtAPIRef("action")}} erstellt wurde oder im Schlüssel [action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/action) in der manifest.json angegeben ist.
+- `_execute_page_action`: Funktioniert wie ein Klick auf eine [Adressleistenschaltfläche](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Page_actions), die mit {{WebExtAPIRef("pageAction")}} erstellt wurde oder im Schlüssel [page_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/page_action) in der manifest.json angegeben ist.
+- `_execute_sidebar_action`: Öffnet die [Seitenleiste](/de/docs/Mozilla/Add-ons/WebExtensions/user_interface/Sidebars) der Erweiterung, die im Schlüssel [sidebar_action](/de/docs/Mozilla/Add-ons/WebExtensions/manifest.json/sidebar_action) in der manifest.json angegeben ist.
 
-Die Verfügbarkeit dieser speziellen Kürzel variiert zwischen Manifest-Versionen und Browsern:
+Die Verfügbarkeit dieser speziellen Verknüpfungen variiert je nach Manifest-Versionen und Browsern, wie folgt:
 
 <table>
 <thead>
@@ -143,9 +150,9 @@ Die Verfügbarkeit dieser speziellen Kürzel variiert zwischen Manifest-Versione
 </table>
 
 > [!NOTE]
-> Wenn der Benutzer das Kürzel des `_execute_browser_action`-Befehls ändert, wird es automatisch auf den `_execute_action`-Befehl übertragen, wenn die Erweiterung von Manifest V2 zu V3 migriert. Dies wurde in Chrome 111 und Firefox 127 implementiert.
+> Wenn der Benutzer die Verknüpfung des `_execute_browser_action`-Befehls ändert, wird sie automatisch auf den `_execute_action`-Befehl übertragen, wenn die Erweiterung von Manifest V2 auf V3 migriert. Dies wurde in Chrome 111 und Firefox 127 implementiert.
 
-Zum Beispiel definiert dieses JSON eine Tasten-Kombination, die die Browseraktion der Erweiterung anklickt:
+Zum Beispiel definiert dieses JSON eine Tastenkomination, die wie ein Klick auf die Browseraktion der Erweiterung wirkt:
 
 ```json
 "commands": {
@@ -157,46 +164,46 @@ Zum Beispiel definiert dieses JSON eine Tasten-Kombination, die die Browseraktio
 }
 ```
 
-## Werte für Kürzel
+## Werte der Verknüpfung
 
-Es gibt zwei gültige Formate für Tastaturkürzel: als **Tastenkombination** oder als **Medientaste**.
+Es gibt zwei gültige Formate für Verknüpfungstasten: als **Tastenkombination** oder als **Media-Taste**.
 
 ### Tastenkombinationen
 
 > [!NOTE]
-> Auf Macs wird `"Ctrl"` als `"Command"` interpretiert, wenn Sie also tatsächlich `"Ctrl"` benötigen, spezifizieren Sie `"MacCtrl"`.
+> Auf Macs wird `"Ctrl"` als `"Command"` interpretiert. Wenn Sie tatsächlich `"Ctrl"` benötigen, geben Sie `"MacCtrl"` an.
 
 Tastenkombinationen müssen aus 2 oder 3 Tasten bestehen:
 
-1. **Modifier** (verpflichtend, außer bei Funktionstasten). Dies kann eine der folgenden sein: `"Ctrl"`, `"Alt"`, `"Command"`, oder `"MacCtrl"`.
-2. **Sekundärer Modifier** (optional). Wenn angegeben, muss dies entweder `"Shift"` oder (für Firefox ≥ 63) einer von `"Ctrl"`, `"Alt"`, `"Command"`, oder `"MacCtrl"` sein. Darf nicht der Modifier sein, der bereits als Hauptmodifier verwendet wird.
-3. **Taste** (verpflichtend). Dies kann eine der folgenden sein:
+1. **Modifikator** (obligatorisch, außer bei Funktionstasten). Dies kann einer der folgenden sein: `"Ctrl"`, `"Alt"`, `"Command"` oder `"MacCtrl"`.
+2. **Sekundärer Modifikator** (optional). Falls vorhanden, muss dies entweder `"Shift"` oder (für Firefox ≥ 63) einer von `"Ctrl"`, `"Alt"`, `"Command"` oder `"MacCtrl"` sein. Darf nicht der bereits als Hauptmodifikator verwendete Modifikator sein.
+3. **Taste** (obligatorisch). Dies kann eine der folgenden sein:
 
    - die Buchstaben `A` – `Z`
    - die Zahlen `0` – `9`
    - die Funktionstasten `F1` – `F12`
    - `Comma`, `Period`, `Home`, `End`, `PageUp`, `PageDown`, `Space`, `Insert`, `Delete`, `Up`, `Down`, `Left`, `Right`
 
-Die Taste wird dann als Zeichenfolge angegeben, die die Menge der Tastenwerte, in der oben genannten Reihenfolge, getrennt durch "`+`" enthält. Zum Beispiel `"Ctrl+Shift+Z"`.
+Die Taste wird dann als String angegeben, der die Reihe von Tastenwerten enthält, in der obigen Reihenfolge, getrennt durch "`+`". Zum Beispiel, `"Ctrl+Shift+Z"`.
 
-Wenn eine Tastenkombination bereits vom Browser (wie `"Ctrl+P"`) oder von einem bestehenden Add-On verwendet wird, können Sie diese nicht überschreiben. Sie können es definieren, aber Ihr Ereignis-Handler wird nicht aufgerufen, wenn der Benutzer die Tastenkombination drückt.
+Wenn eine Tastenkombination bereits vom Browser verwendet wird (wie `"Ctrl+P"`) oder von einem bestehenden Add-On, können Sie sie nicht überschreiben. Sie können sie definieren, aber Ihr Ereignishandler wird nicht aufgerufen, wenn der Benutzer die Tastenkombination drückt.
 
-### Medientasten
+### Media-Tasten
 
-Alternativ kann das Kürzel als eine der folgenden Medientasten angegeben werden:
+Alternativ kann die Verknüpfung als eine der folgenden Media-Tasten angegeben werden:
 
 - `"MediaNextTrack"`
 - `"MediaPlayPause"`
 - `"MediaPrevTrack"`
 - `"MediaStop"`
 
-## Aktualisieren von Kürzeln
+## Aktualisierung der Verknüpfungen
 
-Kürzel können über {{WebExtAPIRef("commands.update()")}} aktualisiert werden. Benutzer können Kürzel auch über die Option "Erweiterungskürzel verwalten" unter `about:addons` in Firefox aktualisieren, wie in [diesem Video](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) gezeigt. In Chrome können Benutzer Kürzel unter `chrome://extensions/shortcuts` ändern.
+Verknüpfungen können über {{WebExtAPIRef("commands.update()")}} aktualisiert werden. Benutzer können auch Verknüpfungen über die Option „Erweiterungsverknüpfungen verwalten“ in `about:addons` in Firefox aktualisieren, wie in [diesem Video](https://bug1303384.bmoattachments.org/attachment.cgi?id=9051647) gezeigt. In Chrome können Benutzer Verknüpfungen unter `chrome://extensions/shortcuts` ändern.
 
 ## Beispiel
 
-Definieren Sie ein einziges Tastaturkürzel, nur mit der Standard-Tastenkombination:
+Definieren Sie eine einzelne Tastenkombination, die nur die Standardtastenkombination verwendet:
 
 ```json
 "commands": {
@@ -209,7 +216,7 @@ Definieren Sie ein einziges Tastaturkürzel, nur mit der Standard-Tastenkombinat
 }
 ```
 
-Definieren Sie zwei Tastaturkürzel, eines mit einer plattformspezifischen Tastenkombination:
+Definieren Sie zwei Tastenkombinationen, eine mit einer plattformspezifischen Tastenkombination:
 
 ```json
 "commands": {

@@ -2,12 +2,12 @@
 title: <feGaussianBlur>
 slug: Web/SVG/Element/feGaussianBlur
 l10n:
-  sourceCommit: c8b447485fd893d5511d88f592f5f3aec29a725b
+  sourceCommit: 01b8471b84e1d157cbddbb3ffaf560a86b082070
 ---
 
 {{SVGRef}}
 
-Der **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verschwimmt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Glockenkurve definiert.
+Das **`<feGaussianBlur>`** [SVG](/de/docs/Web/SVG) Filter-Primitive verwischt das Eingabebild um den in {{SVGAttr("stdDeviation")}} angegebenen Betrag, der die Gauß-Kurve definiert.
 
 ## Verwendungskontext
 
@@ -47,9 +47,9 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 
 #### Ergebnis
 
-{{EmbedLiveSample("Simple_example", "", "130")}}
+{{EmbedLiveSample("Basic_example", "", "130")}}
 
-### Schlagschatten-Beispiel
+### Beispiel für einen Schlagschatten
 
 #### SVG
 
@@ -103,4 +103,4 @@ Dieses Element implementiert die [`SVGFEGaussianBlurElement`](/de/docs/Web/API/S
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

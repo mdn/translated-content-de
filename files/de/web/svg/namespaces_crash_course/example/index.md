@@ -2,14 +2,14 @@
 title: Beispiel
 slug: Web/SVG/Namespaces_Crash_Course/Example
 l10n:
-  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
+  sourceCommit: 01b8471b84e1d157cbddbb3ffaf560a86b082070
 ---
 
 {{SVGRef}}
 
-In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Motes" zu animieren. Diese Motes folgen zwei einfachen Prinzipien. Erstens versucht jedes Mote, sich in Richtung des Mauszeigers zu bewegen, und zweitens versucht jedes Mote, sich von der durchschnittlichen Mote-Position zu entfernen. Kombiniert ergibt dies ein sehr natürlich aussehendes Verhalten.
+In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/Web/SVG), [JavaScript](/de/docs/Web/JavaScript) und das [DOM](/de/docs/Web/API/Document_Object_Model), um einen Schwarm von "Motes" zu animieren. Diese Motes folgen zwei grundlegenden Prinzipien. Erstens versucht jedes Mote, sich auf den Mauszeiger zuzubewegen, und zweitens versucht jedes Mote, sich von der durchschnittlichen Position der Motes zu entfernen. In Kombination ergibt sich dieses sehr natürlich wirkende Verhalten.
 
-[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit den besten Praktiken von 2006 geschrieben. Das untenstehende Beispiel wurde an moderne JavaScript-Best-Practices angepasst. Beide funktionieren.
+[Sehen Sie sich das Beispiel an](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). Das verlinkte Beispiel wurde mit Best Practices aus dem Jahr 2006 geschrieben. Das untenstehende Beispiel wurde auf die aktuellen Best Practices für JavaScript aktualisiert. Beide funktionieren.
 
 ```xml
 <?xml version='1.0'?>
@@ -45,7 +45,7 @@ In diesem Beispiel verwenden wir {{Glossary("XHTML", "XHTML")}}, [SVG](/de/docs/
 cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
     </svg:svg>
 
-    <p>A swarm of motes, governed by two simple principles.
+    <p>A swarm of motes, governed by two basic principles.
     First, each mote tries to move towards the cursor, and
     second each mote tries to move away from the average
     mote position. Combined, we get this very natural

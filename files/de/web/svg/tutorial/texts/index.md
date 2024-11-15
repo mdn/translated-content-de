@@ -1,37 +1,37 @@
 ---
-title: Texte
+title: Text
 slug: Web/SVG/Tutorial/Texts
 l10n:
-  sourceCommit: 29d6027a92c08ee23da65755a190e1b7944fa0e8
+  sourceCommit: 01b8471b84e1d157cbddbb3ffaf560a86b082070
 ---
 
 {{SVGRef}}
 
 {{PreviousNext("Web/SVG/Tutorial/Patterns", "Web/SVG/Tutorial/Basic_Transformations")}}
 
-Wenn wir über Text in SVG sprechen, müssen wir zwischen zwei fast vollständig getrennten Themen unterscheiden. Das eine ist die Einbindung und Darstellung von Text in einem Bild, das andere sind SVG-Schriften. Letztere werden in einem späteren Abschnitt des Tutorials beschrieben, während sich diese Seite auf den ersten Teil konzentriert: das Einfügen von Text in ein SVG-Bild.
+Wenn man über Text in SVG spricht, muss man zwischen zwei fast vollständig separaten Themen unterscheiden. Das eine ist die Einbindung und Anzeige von Text in einem Bild, und das andere sind SVG-Schriften. Letzteres wird in einem späteren Abschnitt des Tutorials beschrieben, während sich diese Seite auf den ersten Teil konzentriert: das Einfügen von Text in ein SVG-Bild.
 
 ## Grundlagen
 
-Im [Einführungsbeispiel](/de/docs/Web/SVG/Tutorial/Getting_Started) haben wir gesehen, dass das `text`-Element verwendet werden kann, um beliebigen Text in SVG-Dokumente einzufügen:
+Wie im [einführenden Beispiel](/de/docs/Web/SVG/Tutorial/Getting_Started) gesehen, kann das `text`-Element verwendet werden, um beliebigen Text in SVG-Dokumente einzufügen:
 
 ```xml
 <text x="10" y="10">Hello World!</text>
 ```
 
-Die Attribute `x` und `y` bestimmen, wo im Viewport der Text erscheint. Das Attribut {{SVGAttr("text-anchor")}}, das die Werte `"start"`, `"middle"`, `"end"` oder `"inherit"` haben kann, entscheidet, in welche Richtung der Text von diesem Punkt fließt. Das Attribut {{SVGAttr("dominant-baseline")}} entscheidet über die vertikale Ausrichtung.
+Die Attribute `x` und `y` bestimmen, wo im Viewport der Text erscheint. Das Attribut {{SVGAttr("text-anchor")}}, das die Werte `"start"`, `"middle"`, `"end"` oder `"inherit"` haben kann, entscheidet, in welche Richtung der Text von diesem Punkt aus fließt. Das Attribut {{SVGAttr("dominant-baseline")}} entscheidet die vertikale Ausrichtung.
 
-Wie bei den Formelementen kann Text mit dem `fill`-Attribut koloriert und mit dem `stroke`-Attribut umrandet werden. Beide können sich auch auf Verläufe oder Muster beziehen, was das einfache Einfärben von Text in SVG im Vergleich zu CSS 2.1 sehr leistungsfähig macht.
+Wie bei den Formelementen kann Text mit dem Attribut `fill` eingefärbt und mit dem Attribut `stroke` mit Konturen versehen werden. Beide können sich auch auf Verläufe oder Muster beziehen, was die Farbgebung von Text in SVG sehr leistungsfähig macht.
 
-## Festlegen von Schrifteigenschaften
+## Schriftarteigenschaften setzen
 
-Ein wesentlicher Bestandteil eines Textes ist die Schrift, in der er angezeigt wird. SVG bietet eine Reihe von Attributen, die vielen ihrer CSS-Gegenstücke ähneln, um die Schriftauswahl zu ermöglichen. Jedes der folgenden Eigenschaften kann als Attribut oder über eine CSS-Deklaration gesetzt werden: {{SVGAttr("font-family")}}, {{SVGAttr("font-style")}}, {{SVGAttr("font-weight")}}, {{SVGAttr("font-variant")}}, {{SVGAttr("font-stretch")}}, {{SVGAttr("font-size")}}, {{SVGAttr("font-size-adjust")}}, {{SVGAttr("letter-spacing")}}, {{SVGAttr("word-spacing")}} und {{SVGAttr("text-decoration")}}.
+Ein wesentlicher Teil eines Textes ist die Schriftart, in der er angezeigt wird. SVG bietet einen Satz von Attributen, viele ähnlich wie ihre CSS-Pendants, um die Schriftartenauswahl zu ermöglichen. Jedes der folgenden Eigenschaften kann als Attribut oder über eine CSS-Deklaration gesetzt werden: {{SVGAttr("font-family")}}, {{SVGAttr("font-style")}}, {{SVGAttr("font-weight")}}, {{SVGAttr("font-variant")}}, {{SVGAttr("font-stretch")}}, {{SVGAttr("font-size")}}, {{SVGAttr("font-size-adjust")}}, {{SVGAttr("letter-spacing")}}, {{SVGAttr("word-spacing")}} und {{SVGAttr("text-decoration")}}.
 
-## Weitere textelementbezogene Elemente
+## Andere textbezogene Elemente
 
 ### tspan
 
-Dieses Element wird verwendet, um Teilbereiche eines größeren Textes zu markieren. Es muss ein Kind eines `text`-Elements oder eines anderen `tspan`-Elements sein. Ein typischer Anwendungsfall ist, ein Wort eines Satzes fett rot zu färben.
+Dieses Element wird verwendet, um Teilbereiche eines größeren Textes zu markieren. Es muss ein Kind eines `text`-Elements oder eines anderen `tspan`-Elements sein. Ein typischer Anwendungsfall ist, ein Wort eines Satzes fett rot darzustellen.
 
 ```html
 <svg width="350" height="60" xmlns="http://www.w3.org/2000/svg">
@@ -53,24 +53,24 @@ Dieses Element wird verwendet, um Teilbereiche eines größeren Textes zu markie
 
 {{ EmbedLiveSample('tspan', '100%', 100) }}
 
-Das `tspan`-Element hat folgende spezielle Attribute:
+Das `tspan`-Element hat die folgenden benutzerdefinierten Attribute:
 
 - `x`
   - : Setzt eine neue absolute `x`-Koordinate für den enthaltenen Text. Dies überschreibt die standardmäßige aktuelle Textposition. Das Attribut kann auch eine Liste von Zahlen enthalten, die nacheinander auf die einzelnen Zeichen des `tspan`-Elements angewendet werden.
 - `dx`
 
-  - : Beginnt mit dem Zeichnen des Textes mit einem horizontalen Offset `dx` von der standardmäßigen aktuellen Position aus. Auch hier können Sie eine Liste von Werten bereitstellen, die auf aufeinanderfolgende Zeichen angewendet werden und so den Offset im Laufe der Zeit aufbauen.
+  - : Beginnt das Zeichnen des Textes mit einem horizontalen Versatz `dx` von der aktuellen Standardposition. Auch hier können Sie eine Liste von Werten angeben, die auf aufeinanderfolgende Zeichen angewendet werden, wodurch sich der Versatz im Laufe der Zeit aufsammelt.
 
-  In ähnlicher Weise gibt es **`y`** und **`dy`** für die vertikale Verschiebung.
+    Ebenso gibt es **`y`** und **`dy`** für die vertikale Verschiebung.
 
 - `rotate`
-  - : Rotiert alle Zeichen um diesen Grad. Eine Liste von Zahlen bewirkt, dass jedes Zeichen auf seinen jeweiligen Wert rotiert wird, wobei verbleibende Zeichen gemäß dem letzten Wert rotieren.
+  - : Dreht alle Zeichen um diesen Grad. Eine Liste von Zahlen lässt jedes Zeichen auf seinen jeweiligen Wert drehen, wobei verbleibende Zeichen entsprechend dem letzten Wert rotieren.
 - `textLength`
-  - : Gibt die berechnete Länge der Zeichenkette an. Dies ist ein eher undurchsichtiges Attribut und soll der Rendering-Engine ermöglichen, die Positionen der Glyphen fein abzustimmen, wenn ihre eigene gemessene Textlänge nicht mit der hier angegebenen übereinstimmt.
+  - : Gibt die berechnete Länge der Zeichenfolge an. Dies ist ein eher unbekanntes Attribut und soll der Rendering-Engine ermöglichen, die Positionen der Glyphen fein abzustimmen, wenn die eigene gemessene Textlänge nicht mit der hier angegebenen übereinstimmt.
 
 ### textPath
 
-Dieses Element ruft über sein `href`-Attribut einen beliebigen Pfad ab und richtet die Zeichen, die es umgibt, entlang dieses Pfades aus:
+Dieses Element holt über sein `href`-Attribut einen beliebigen Pfad und richtet die Zeichen, die es umgibt, entlang dieses Pfades aus:
 
 ```html
 <svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
