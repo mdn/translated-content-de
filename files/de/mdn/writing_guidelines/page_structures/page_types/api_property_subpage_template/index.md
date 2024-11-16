@@ -1,24 +1,24 @@
 ---
-title: Vorlage für API-Property-Unterseiten
+title: API-Eigenschafts-Unterseitenvorlage
 slug: MDN/Writing_guidelines/Page_structures/Page_types/API_property_subpage_template
 l10n:
-  sourceCommit: ad385725ed5713e9d384e505424bba227577e62d
+  sourceCommit: 407e167070e81eec6ca2231326242e3e354b9cd5
 ---
 
 {{MDNSidebar}}
 
-> **Hinweis:** _Entfernen Sie diese gesamte Erklärung, bevor Sie sie veröffentlichen._
+> **Hinweis:** _Entfernen Sie diesen gesamten erklärenden Hinweis, bevor Sie die Seite veröffentlichen._
 >
 > ---
 >
-> **Front-Matter der Seite:**
+> **Page front matter:**
 >
-> Das Front-Matter oben auf der Seite wird verwendet, um "Seiten-Metadaten" zu definieren.
-> Die Werte sollten entsprechend für die jeweilige Property aktualisiert werden.
+> Die "front matter" am Anfang der Seite wird verwendet, um "Seiten-Metadaten" zu definieren.
+> Die Werte sollten für die entsprechende Eigenschaft entsprechend aktualisiert werden.
 >
 > ```md
 > ---
-> title: "NameOfTheParentInterface: NameOfTheProperty property"
+> title: "NameOfTheParentInterface: NameOfTheProperty-Eigenschaft"
 > slug: Web/API/NameOfTheParentInterface/NameOfTheProperty
 > page-type: web-api-instance-property OR web-api-static-property
 > status:
@@ -31,74 +31,71 @@ l10n:
 >
 > - **title**
 >   - : Titelüberschrift, die oben auf der Seite angezeigt wird.
->     Formatieren Sie sie als "NameOfTheParentInterface: NameOfTheProperty property".
+>     Formatieren Sie es als "NameOfTheParentInterface: NameOfTheProperty property".
 >     Zum Beispiel hat die [`capabilities`](/de/docs/Web/API/VRDisplay/capabilities) Eigenschaft der [`VRDisplay`](/de/docs/Web/API/VRDisplay) Schnittstelle einen `title` von `VRDisplay: capabilities property`.
 > - **slug**
 >
 >   - : Das Ende des URL-Pfads nach `https://developer.mozilla.org/de/docs/`.
->     Dies wird wie `Web/API/NameOfTheParentInterface/NameOfTheProperty` formatiert.
+>     Dies wird formatiert wie `Web/API/NameOfTheParentInterface/NameOfTheProperty`.
 >
->     Wenn die Property statisch ist, muss der Slug ein `_static` Suffix haben, wie: `Web/API/NameOfTheParentInterface/NameOfTheProperty_static`. Dies ermöglicht es uns, Instanz- und statische Eigenschaften mit demselben Namen zu unterstützen.
+>     Wenn die Eigenschaft statisch ist, dann muss der Slug einen `_static` Suffix haben, wie: `Web/API/NameOfTheParentInterface/NameOfTheProperty_static`. Dies ermöglicht uns, Instanz- und statische Eigenschaften zu unterstützen, die denselben Namen haben.
 >
 > - **page-type**
->   - : Der `page-type` Schlüssel für Web/API Eigenschaften ist entweder `web-api-instance-property` (für Instanzeigenschaften) oder `web-api-static-property` (für statische Eigenschaften).
+>   - : Der `page-type` Schlüssel für Web/API-Eigenschaften ist entweder `web-api-instance-property` (für Instanzeigenschaften) oder `web-api-static-property` (für statische Eigenschaften).
 > - **status**
->   - : Flags, die den Status dieser Funktion beschreiben. Ein Array, das einen oder mehrere der folgenden Begriffe enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für die Funktion gesetzt. Siehe ["Anleitung zum Hinzufügen oder Aktualisieren von Status von Funktionen"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
+>   - : Flags, die den Status dieses Features beschreiben. Ein Array, das einen oder mehrere der folgenden Begriffe enthalten kann: `experimental`, `deprecated`, `non-standard`. Dieser Schlüssel sollte nicht manuell gesetzt werden: Er wird automatisch basierend auf den Werten in den Browser-Kompatibilitätsdaten für das Feature gesetzt. Siehe ["Anleitung zur Ergänzung oder Aktualisierung von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses).
 > - **browser-compat**
 >
->   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheProperty` durch den Abfrage-String für die Eigenschaft im [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data).
->     Die Toolchain verwendet den Schlüssel automatisch, um die Kompatibilitäts- und Spezifikationsabschnitte zu füllen (ersetzt die `\{{Compat}}` und `\{{Specifications}}` Makros).
+>   - : Ersetzen Sie den Platzhalterwert `path.to.feature.NameOfTheProperty` mit der Abfragezeichenfolge für die Eigenschaft im [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data).
+>     Die Toolchain verwendet diesen Schlüssel automatisch, um die Abschnitte zur Kompatibilität und Spezifikation (und ersetzt die `\{{Compat}}` und `\{{Specifications}}` Makros) auszufüllen.
 >
 >     Beachten Sie, dass Sie möglicherweise zuerst einen Eintrag für die API-Eigenschaft in unserem [Browser-Kompatibilitätsdaten-Repo](https://github.com/mdn/browser-compat-data) erstellen/aktualisieren müssen, und der Eintrag für die API muss Spezifikationsinformationen enthalten.
->     Sehen Sie sich unser [Leitfaden zur Erstellung dieser Einträge](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables) an.
+>     Siehe unseren [Leitfaden dazu](/de/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables).
 >
 > ---
 >
-> **Top-of-page Makros**
+> **Top-of-page macros**
 >
-> Eine Reihe von Makroaufrufen erscheint am oberen Rand des Inhaltsbereichs (unmittelbar unterhalb des Front-Matters der Seite).
+> Eine Anzahl von Makroaufrufen erscheint am Anfang des Inhaltsabschnitts (unmittelbar unter der Seiten-vorlage).
 >
-> Diese Makros werden von der Toolchain automatisch hinzugefügt (es besteht keine Notwendigkeit, sie hinzuzufügen/zu entfernen):
+> Diese Makros werden automatisch von der Toolchain hinzugefügt (es ist nicht nötig, sie hinzuzufügen/zu entfernen):
 >
-> - `\{{SeeCompatTable}}` — generiert ein Banner **Dies ist eine experimentelle Technologie**, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
->   Wenn es experimentell ist und die Technologie hinter einer Präferenz in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
-> - `\{{Deprecated_Header}}` — generiert ein **Veraltet**-Banner, das darauf hinweist, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
-> - `\{{Non-standard_Header}}` — generiert ein **Nicht standardisiertes** Banner, das darauf hinweist, dass die Funktion nicht Teil einer Spezifikation ist.
+> - `\{{SeeCompatTable}}` — dieses erzeugt ein **Dies ist eine experimentelle Technologie**-Banner, das darauf hinweist, dass die Technologie [experimentell](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#experimental) ist.
+>   Wenn sie experimentell ist und hinter einer Voreinstellung in Firefox verborgen ist, sollten Sie auch einen Eintrag dafür auf der Seite [Experimentelle Funktionen in Firefox](/de/docs/Mozilla/Firefox/Experimental_features) ausfüllen.
+> - `\{{Deprecated_Header}}` — dieses erzeugt ein **Veraltet**-Banner, das darauf hinweist, dass die Verwendung der Technologie [nicht empfohlen](/de/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete#deprecated) wird.
+> - `\{{Non-standard_Header}}` — dieses erzeugt ein **Nicht standardisiert**-Banner, das darauf hinweist, dass das Feature nicht Teil einer Spezifikation ist.
 >
-> Sie sollten die folgenden Makros entsprechend dem folgenden Rat aktualisieren oder löschen:
+> Sie sollten die folgenden Makros gemäß den unten stehenden Ratschlägen aktualisieren oder löschen:
 >
-> - `\{{SecureContext_Header}}` — generiert ein **Sicherer Kontext** Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
->   Wenn sie es nicht ist, können Sie den Makroaufruf entfernen.
->   Wenn sie es ist, sollten Sie auch einen Eintrag dafür auf der Seite [Funktionen, die auf sichere Kontexte beschränkt sind](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
-> - `\{{AvailableInWorkers}}` — generiert einen Hinweis **Verfügbar in Workern**, der anzeigt, dass die Technologie in [Worker-Kontexten](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
->   Wenn sie nur im Fenster-Kontext verfügbar ist, können Sie den Makroaufruf entfernen.
->   Wenn sie auch oder nur im Worker-Kontext verfügbar ist, müssen Sie möglicherweise einen Parameter aufgrund ihrer Verfügbarkeit übergeben (siehe [\\{{AvailableInWorkers}} Makro-Quellcode](https://github.com/mdn/yari/blob/main/kumascript/macros/AvailableInWorkers.ejs) für alle verfügbaren Werte), Sie müssen möglicherweise auch einen Eintrag dafür auf der Seite [Web APIs verfügbar in Workern](/de/docs/Web/API/Web_Workers_API#supported_web_apis) ausfüllen.
-> - `\{{APIRef("GroupDataName")}}` — generiert die Referenz-Sidebar auf der linken Seite, die schnelle Referenzlinks zeigt, die mit der aktuellen Seite zusammenhängen.
->   Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) dieselbe Seitenleiste, die auf die anderen Seiten in der API verweist.
->   Um die richtige Seitenleiste für Ihre API zu generieren, müssen Sie einen `GroupData` Eintrag in unser GitHub-Repository hinzufügen und den Namen des Eintrags im Makroaufruf anstelle von _GroupDataName_ angeben.
->   Siehe unser [API-Referenz-Seitenleisten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) Leitfaden für Informationen darüber, wie Sie dies tun können.
+> - `\{{SecureContext_Header}}` — dieses erzeugt ein **Sicherer Kontext**-Banner, das darauf hinweist, dass die Technologie nur in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) verfügbar ist.
+>   Wenn das nicht der Fall ist, können Sie den Makroaufruf entfernen.
+>   Wenn doch, sollten Sie auch einen Eintrag dafür auf der Seite [Auf sichere Kontexte beschränkte Funktionen](/de/docs/Web/Security/Secure_Contexts/features_restricted_to_secure_contexts) ausfüllen.
+> - `\{{AvailableInWorkers}}` — dieses erzeugt einen **Verfügbar in Web-Workern**-Hinweis, der darauf hinweist, dass die Technologie im [Worker-Kontext](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
+>   Wenn sie nur im Fensterkontext verfügbar ist, können Sie den Makroaufruf entfernen.
+>   Wenn sie auch oder nur im Worker-Kontext verfügbar ist, müssen Sie möglicherweise einen Parameter dafür anpassen, je nach ihrer Verfügbarkeit (siehe [\\{{AvailableInWorkers}} Makro-Quellcode](https://github.com/mdn/yari/blob/main/kumascript/macros/AvailableInWorkers.ejs) für alle verfügbaren Werte), möglicherweise müssen Sie auch einen Eintrag dafür auf der Seite [Web-APIs, die in Workern verfügbar sind](/de/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers#supported_web_apis) ergänzen.
+> - `\{{APIRef("GroupDataName")}}` — dieses erzeugt die Referenz-Sidebar auf der linken Seite, die Schnellreferenz-Links anzeigt, die sich auf die aktuelle Seite beziehen.
+>   Zum Beispiel hat jede Seite in der [WebVR API](/de/docs/Web/API/WebVR_API) dieselbe Sidebar, die auf die anderen Seiten der API verweist.
+>   Um die korrekte Sidebar für Ihre API zu erstellen, müssen Sie einen `GroupData` Eintrag in unserem GitHub-Repo hinzufügen und den Namen des Eintrags im Makroaufruf anstelle von _GroupDataName_ einsetzen.
+>   Siehe unseren [Leitfaden zu API-Referenzsidebars](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Sidebars) für Informationen, wie man das macht.
 > - Denken Sie daran, das `\{{MDNSidebar}}` Makro zu entfernen, wenn Sie diese Seite kopieren.
 >
-> Geben Sie die Status-Header-Makros nicht manuell an. Verweisen Sie auf den Abschnitt ["Wie man Status von Funktionen hinzufügt oder aktualisiert"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Status zur Seite hinzuzufügen.
+> Fügen Sie keine Statusheader-Makros manuell hinzu. Lesen Sie den Abschnitt ["Anleitung zur Ergänzung oder Aktualisierung von Feature-Status"](/de/docs/MDN/Writing_guidelines/Page_structures/Feature_status#how_to_add_or_update_feature_statuses), um diese Status zur Seite hinzuzufügen.
 >
-> Beispiele der **Sicherer Kontext**, **Verfügbar in Workern**, **Experimentell**, **Veraltet** und **Nicht standarisiert** Banner werden direkt nach diesem Hinweisblock gezeigt.
+> Beispiele für die Banner **Sicherer Kontext**, **Verfügbar in Workern**, **Experimentell**, **Veraltet** und **Nicht standardisiert** werden gleich nach diesem Hinweisblock gezeigt.
 >
-> _Erinnern Sie sich daran, diese gesamte Erklärung zu entfernen, bevor Sie veröffentlichen._
+> _Denken Sie daran, diesen gesamten erklärenden Hinweis zu entfernen, bevor Sie die Seite veröffentlichen._
 
 {{SecureContext_Header}}{{AvailableInWorkers}}{{SeeCompatTable}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Abschnitt — beginnen Sie mit der Nennung der Eigenschaft, sagen Sie, zu welchem Interface sie gehört, und was sie tut.
-Dies sollte idealerweise ein oder zwei kurze Sätze umfassen.
-Sie könnten den größten Teil davon aus der Zusammenfassung der Eigenschaft auf der entsprechenden API-Referenzseite kopieren. Geben Sie an, ob sie schreibgeschützt ist oder nicht.
+Beginnen Sie den Inhalt auf der Seite mit einem einleitenden Absatz — beginnen Sie mit der Benennung der Eigenschaft, der Angabe, zu welcher Schnittstelle sie gehört, und der Angabe, was sie tut. Dies sollte idealerweise ein oder zwei kurze Sätze umfassen. Sie könnten den größten Teil dieser Informationen aus der Zusammenfassung der Eigenschaft auf der entsprechenden API-Referenzseite kopieren. Geben Sie an, ob sie schreibgeschützt ist oder nicht.
 
 ## Wert
 
-Fügen Sie eine Beschreibung des Wertes der Eigenschaft hinzu, einschließlich des Datentyps und was dieser repräsentiert. Dies sollte in der Form sein: "Ein [Name des Eigenschaftentyps], der ... repräsentiert". Zum Beispiel:
+Fügen Sie eine Beschreibung des Eigenschaftswerts ein, einschließlich des Datentyps und was er darstellt. Dies sollte in der Form "Ein [Name des Eigenschaftstyps], der ... darstellt" sein. Zum Beispiel:
 
-> Ein String, der...
+> Ein String, der darstellt...
 
-Beachten Sie, dass einige Eigenschaftsseiten in der Form geschrieben sind "Gibt einen [Name des Eigenschaftentyps] zurück, der ... repräsentiert", aber dies ist nicht die empfohlene Form.
-Auch können einige WebIDL-Erweiterungsattribute mit spezifischen Bedeutungen mit dem Typ assoziiert werden. Es gibt standardisierte Arten, diese zu dokumentieren; konsultieren Sie [Informationen in einer WebIDL-Datei enthalten](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#type_of_the_property) für mehr Informationen.
+Beachten Sie, dass einige Eigenschaftsseiten in der Form "Gibt ein [Name des Eigenschaftstyps] zurück, der ... darstellt" geschrieben sind, aber dies ist nicht die empfohlene Form. Einige WebIDL erweiterte Attribute mit bestimmten Bedeutungen können mit dem Typ assoziiert werden. Es gibt standardisierte Wege, diese zu dokumentieren; schauen Sie in [Informationen, die in einer WebIDL-Datei enthalten sind](/de/docs/MDN/Writing_guidelines/Howto/Write_an_api_reference/Information_contained_in_a_WebIDL_file#type_of_the_property) für mehr Informationen.
 
 ## Beispiele
 
@@ -106,37 +103,37 @@ Beachten Sie, dass wir den Plural "Beispiele" verwenden, auch wenn die Seite nur
 
 ### Eine beschreibende Überschrift
 
-Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend sein, was das Beispiel tut. Zum Beispiel, "Ein einfaches Beispiel" sagt nichts über das Beispiel aus und ist daher keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
+Jedes Beispiel muss eine H3-Überschrift (`###`) haben, die das Beispiel benennt. Die Überschrift sollte beschreibend dafür sein, was das Beispiel macht. Zum Beispiel sagt die Überschrift "Ein einfaches Beispiel" nichts über das Beispiel aus und ist deshalb keine gute Überschrift. Die Überschrift sollte prägnant sein. Für eine längere Beschreibung verwenden Sie den Absatz nach der Überschrift.
 
-Sehen Sie sich unser Leitfaden an, wie man [Code-Beispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für mehr Informationen.
+Siehe unseren Leitfaden, wie man [Codebeispiele hinzufügt](/de/docs/MDN/Writing_guidelines/Page_structures/Code_examples) für mehr Informationen.
 
 > [!NOTE]
-> Manchmal möchten Sie auf Beispiele auf einer anderen Seite verlinken.
+> Manchmal möchten Sie auf Beispiele verlinken, die auf einer anderen Seite angegeben sind.
 >
-> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite haben und noch mehr Beispiele auf einer anderen Seite:
+> **Szenario 1:** Wenn Sie einige Beispiele auf dieser Seite und einige weitere Beispiele auf einer anderen Seite haben:
 >
-> Fügen Sie für jedes Beispiel auf dieser Seite eine H3-Überschrift (`###`) hinzu und dann eine abschließende H3-Überschrift (`###`) mit dem Text "Weitere Beispiele", unter dem Sie auf die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
+> Fügen Sie eine H3-Überschrift (`###`) für jedes Beispiel auf dieser Seite und dann eine finale H3-Überschrift (`###`) mit dem Text "Mehr Beispiele" hinzu, unter der Sie die Beispiele auf anderen Seiten verlinken können. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> ### Verwendung der Fetch-API
+> ### Verwenden der Fetch API
 >
-> Beispiel von Fetch
+> Beispiel für Fetch
 >
-> ### Weitere Beispiele
+> ### Mehr Beispiele
 >
-> Links zu weiteren Beispielen auf anderen Seiten
+> Links zu mehr Beispielen auf anderen Seiten
 > ```
 >
-> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite haben und keine auf dieser Seite:
+> **Szenario 2:** Wenn Sie _nur_ Beispiele auf einer anderen Seite und keine auf dieser Seite haben:
 >
-> Fügen Sie keine H3-Überschriften hinzu; fügen Sie die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
+> Fügen Sie keine H3-Überschriften hinzu; fügen Sie einfach die Links direkt unter der H2-Überschrift "Beispiele" hinzu. Zum Beispiel:
 >
 > ```md
 > ## Beispiele
 >
-> Für Beispiele dieser API, siehe [die Seite über fetch()](https://example.org/).
+> Für Beispiele zu dieser API, siehe [die Seite über fetch()](https://example.org/).
 > ```
 
 ## Spezifikationen
@@ -153,7 +150,7 @@ _Um dieses Makro zu verwenden, entfernen Sie die Backticks und den Backslash in 
 
 ## Siehe auch
 
-Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die mit der aktuellen API zusammenhängen. Für weitere Richtlinien siehe den [Siehe auch Abschnitt](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) in unserem _Schreibstil-Leitfaden_.
+Fügen Sie Links zu Referenzseiten und Leitfäden hinzu, die sich auf die aktuelle API beziehen. Für weitere Richtlinien siehe den Abschnitt [Siehe auch](/de/docs/MDN/Writing_guidelines/Writing_style_guide#see_also_section) im _Schreibstil-Leitfaden_.
 
 - link1
 - link2

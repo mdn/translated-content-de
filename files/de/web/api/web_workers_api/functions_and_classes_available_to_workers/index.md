@@ -1,23 +1,17 @@
 ---
-title: Verfügbare Funktionen und Klassen für Web Worker
+title: Funktionen und Klassen, die Web-Workern zur Verfügung stehen
 slug: Web/API/Web_Workers_API/Functions_and_classes_available_to_workers
 l10n:
-  sourceCommit: 376a2756e066d887300609a252d11422b6b15487
+  sourceCommit: 407e167070e81eec6ca2231326242e3e354b9cd5
 ---
 
 {{DefaultAPISidebar("Web Workers API")}}
 
-Zusätzlich zum Standardset an [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie z.B. {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}}, etc.) gibt es eine Vielzahl von Funktionen, die aus dem DOM für Worker verfügbar sind. Dieser Artikel bietet eine Liste dieser Funktionen.
+Zusätzlich zu dem standardmäßigen Satz von [JavaScript](/de/docs/Web/JavaScript)-Funktionen (wie {{jsxref("String")}}, {{jsxref("Array")}}, {{jsxref("Object")}}, {{jsxref("JSON")}} usw.) gibt es eine Vielzahl von Funktionen (und APIs), die in Workern verfügbar sind. Dieser Artikel bietet eine Liste dieser Funktionen.
 
-## Worker-Kontexte & Funktionen
+## Funktionen, die in Workern verfügbar sind
 
-**Worker laufen in einem anderen globalen Kontext als das aktuelle Fenster!** Während [`Window`](/de/docs/Web/API/Window) nicht direkt für Worker verfügbar ist, sind viele der gleichen Methoden in einem gemeinsamen Mixin (`WindowOrWorkerGlobalScope`) definiert und über ihre eigenen auf [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope) basierenden Kontexte für Worker verfügbar gemacht:
-
-- [`DedicatedWorkerGlobalScope`](/de/docs/Web/API/DedicatedWorkerGlobalScope) für dedizierte Worker
-- [`SharedWorkerGlobalScope`](/de/docs/Web/API/SharedWorkerGlobalScope) für geteilte Worker
-- [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) für [Service Worker](/de/docs/Web/API/Service_Worker_API)
-
-Einige der Funktionen (eine Teilmenge), die allen Workern und dem Hauptthread gemeinsam sind (aus `WindowOrWorkerGlobalScope`), sind:
+Die folgenden Funktionen stehen Workern zur Verfügung:
 
 - [`WorkerGlobalScope.atob()`](/de/docs/Web/API/WorkerGlobalScope/atob)
 - [`WorkerGlobalScope.btoa()`](/de/docs/Web/API/WorkerGlobalScope/btoa)
@@ -31,20 +25,20 @@ Einige der Funktionen (eine Teilmenge), die allen Workern und dem Hauptthread ge
 - [`WorkerGlobalScope.setInterval()`](/de/docs/Web/API/WorkerGlobalScope/setInterval)
 - [`WorkerGlobalScope.setTimeout()`](/de/docs/Web/API/WorkerGlobalScope/setTimeout)
 - [`WorkerGlobalScope.structuredClone()`](/de/docs/Web/API/WorkerGlobalScope/structuredClone)
+- [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur dedizierte Worker)
 - [`DedicatedWorkerGlobalScope.requestAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/requestAnimationFrame) (nur dedizierte Worker)
 - [`DedicatedWorkerGlobalScope.cancelAnimationFrame()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/cancelAnimationFrame) (nur dedizierte Worker)
 
-Die folgenden Funktionen sind **nur** für Worker verfügbar:
+Die folgenden Funktionen sind **nur** in Workern verfügbar:
 
-- [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts) (alle Worker)
-- [`DedicatedWorkerGlobalScope.postMessage()`](/de/docs/Web/API/DedicatedWorkerGlobalScope/postMessage) (nur dedizierte Worker)
+- [`WorkerGlobalScope.importScripts()`](/de/docs/Web/API/WorkerGlobalScope/importScripts)
 
-## Web-APIs verfügbar in Workern
+## Web-APIs, die in Workern verfügbar sind
 
 > [!NOTE]
-> Wenn eine aufgeführte API von einer Plattform in einer bestimmten Version unterstützt wird, kann allgemein angenommen werden, dass sie in Web Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/Funktion auch mit der Seite testen: <https://worker-playground.glitch.me/>
+> Wenn eine gelistete API von einer Plattform in einer bestimmten Version unterstützt wird, kann generell angenommen werden, dass sie in Web-Workern verfügbar ist. Sie können die Unterstützung für ein bestimmtes Objekt/Funktion auch mit der Seite testen: <https://worker-playground.glitch.me/>
 
-Die folgenden Web-APIs sind für Worker verfügbar:
+Die folgenden Web-APIs sind in Workern verfügbar:
 
 - [Background Fetch API](/de/docs/Web/API/Background_Fetch_API)
 - [Background Synchronization API](/de/docs/Web/API/Background_Synchronization_API)
@@ -93,7 +87,7 @@ Die folgenden Web-APIs sind für Worker verfügbar:
 - [WebSockets API](/de/docs/Web/API/WebSockets_API)
 - [XMLHttpRequest API](/de/docs/Web/API/XMLHttpRequest_API)
 
-Worker können auch andere Worker hervorbringen, daher sind diese APIs ebenfalls verfügbar:
+Worker können auch andere Worker erstellen, sodass diese APIs ebenfalls verfügbar sind:
 
 - [`Worker`](/de/docs/Web/API/Worker)
 - [`WorkerGlobalScope`](/de/docs/Web/API/WorkerGlobalScope)

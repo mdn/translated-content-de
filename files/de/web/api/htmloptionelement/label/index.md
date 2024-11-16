@@ -3,18 +3,18 @@ title: "HTMLOptionElement: label-Eigenschaft"
 short-title: label
 slug: Web/API/HTMLOptionElement/label
 l10n:
-  sourceCommit: 1c0dda60cb2b680a753264b538e2c46776ecd837
+  sourceCommit: 494566b8c0d99c0062fdfb672a329d5e00f89078
 ---
 
 {{ApiRef("HTML DOM")}}
 
-Die **`label`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) repräsentiert den für eine Option in einem {{htmlelement("select")}}-Element angezeigten Text oder als Teil einer Liste von Vorschlägen in einem {{htmlelement("datalist")}}-Element. Sie spiegelt das [`label`](/de/docs/Web/HTML/Element/option#label)-Attribut des {{htmlelement("option")}}-Elements wider.
+Die **`label`**-Eigenschaft des [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) repräsentiert den Text, der für eine Option in einem {{htmlelement("select")}}-Element oder als Teil einer Liste von Vorschlägen in einem {{htmlelement("datalist")}}-Element angezeigt wird. Sie spiegelt das [`label`](/de/docs/Web/HTML/Element/option#label)-Attribut des {{htmlelement("option")}}-Elements wider.
 
-Wenn das Attribut weggelassen wird oder eine leere Zeichenkette ist, gibt die `label`-Eigenschaft den [`text`](/de/docs/Web/API/HTMLOptionElement/text)-Inhalt des Elements zurück.
+Wenn das Attribut ausgelassen wird oder der leere String, gibt die `label`-Eigenschaft den [`text`](/de/docs/Web/API/HTMLOptionElement/text)-Inhalt des Elements zurück.
 
 ## Wert
 
-Ein String.
+Ein Zeichenstring.
 
 ## Beispiel
 
