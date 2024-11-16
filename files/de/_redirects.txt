@@ -8799,6 +8799,10 @@
 /de/docs/Web/API/IndexedDB_API/ObjectStore	/de/docs/Web/API/IDBObjectStore
 /de/docs/Web/API/IndexedDB_API/Synchronous_API	/de/docs/Web/API/IndexedDB_API
 /de/docs/Web/API/IndexedDB_API/Transaction	/de/docs/Web/API/IDBTransaction
+/de/docs/Web/API/InkPresenter	/de/docs/Web/API/DelegatedInkTrailPresenter
+/de/docs/Web/API/InkPresenter/expectedImprovement	/de/docs/Web/API/DelegatedInkTrailPresenter/expectedImprovement
+/de/docs/Web/API/InkPresenter/presentationArea	/de/docs/Web/API/DelegatedInkTrailPresenter/presentationArea
+/de/docs/Web/API/InkPresenter/updateInkTrailStartPoint	/de/docs/Web/API/DelegatedInkTrailPresenter/updateInkTrailStartPoint
 /de/docs/Web/API/Input.mozGetFileNameArray	/de/docs/Web/API/HTMLInputElement
 /de/docs/Web/API/Input.mozSetFileNameArray	/de/docs/Web/API/HTMLInputElement
 /de/docs/Web/API/Input.multiple	/de/docs/Web/API/HTMLInputElement/multiple

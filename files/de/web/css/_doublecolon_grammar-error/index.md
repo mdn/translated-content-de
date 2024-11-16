@@ -2,14 +2,14 @@
 title: "::grammar-error"
 slug: Web/CSS/::grammar-error
 l10n:
-  sourceCommit: d6defd737678e99d62bf838ad12eba532567fba5
+  sourceCommit: 632289fcc10e926d166e1b49e5ba3505de182856
 ---
 
 {{CSSRef}}
 
-Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das von der {{Glossary("user_agent", "User-Agent")}} als grammatisch inkorrekt markiert wurde.
+Das **`::grammar-error`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert ein Textsegment, das vom {{Glossary("user_agent", "User-Agent")}} als grammatikalisch falsch markiert wurde.
 
-## Zulässige Eigenschaften
+## Erlaubte Eigenschaften
 
 Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::grammar-error` im Selektor verwendet werden:
 
@@ -17,8 +17,8 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::gram
 - {{cssxref("background-color")}}
 - {{cssxref("cursor")}}
 - {{cssxref("caret-color")}}
-- {{cssxref("outline")}} und dessen Langformen
-- {{cssxref("text-decoration")}} und die zugehörigen Eigenschaften
+- {{cssxref("outline")}} und seine Langformen
+- {{cssxref("text-decoration")}} und die dazugehörigen Eigenschaften
 - {{cssxref("text-emphasis-color")}}
 - {{cssxref("text-shadow")}}
 
@@ -32,9 +32,9 @@ Nur eine kleine Untermenge von CSS-Eigenschaften kann in einer Regel mit `::gram
 
 ## Beispiele
 
-### Einfache Dokumentgrammatikprüfung
+### Grundlegende Dokument-Grammatikprüfung
 
-In diesem Beispiel sollten unterstützende Browser alle markierten grammatischen Fehler mit den gezeigten Stilen hervorheben.
+In diesem Beispiel sollten unterstützende Browser eventuelle als grammatikalisch inkorrekt markierte Fehler mit den gezeigten Stilen hervorheben.
 
 #### HTML
 
@@ -55,7 +55,7 @@ In diesem Beispiel sollten unterstützende Browser alle markierten grammatischen
 
 #### Ergebnis
 
-{{EmbedLiveSample('Simple_document_grammar_check', '100%', 60)}}
+{{EmbedLiveSample('Basic_document_grammar_check', '100%', 60)}}
 
 ## Spezifikationen
 

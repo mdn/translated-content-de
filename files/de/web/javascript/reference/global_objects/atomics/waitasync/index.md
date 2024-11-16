@@ -2,17 +2,17 @@
 title: Atomics.waitAsync()
 slug: Web/JavaScript/Reference/Global_Objects/Atomics/waitAsync
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: b375b7442bc39c6c00a46d5c4ece5a703d94976b
 ---
 
 {{JSRef}}
 
-Die **`Atomics.waitAsync()`** statische Methode wartet asynchron auf einem gemeinsam genutzten Speicherort und gibt ein {{jsxref("Promise")}} zurück.
+Die **`Atomics.waitAsync()`** statische Methode wartet asynchron auf einen gemeinsamen Speicherort und gibt ein Objekt zurück, das das Ergebnis der Operation darstellt.
 
 Im Gegensatz zu {{jsxref("Atomics.wait()")}} ist `waitAsync` nicht blockierend und kann im Hauptthread verwendet werden.
 
 > [!NOTE]
-> Diese Operation funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} ansieht.
+> Diese Operation funktioniert nur mit einem {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
 
 ## Syntax
 
@@ -24,56 +24,56 @@ Atomics.waitAsync(typedArray, index, value, timeout)
 ### Parameter
 
 - `typedArray`
-  - : Ein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} ansieht.
+  - : Ein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}}, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
 - `index`
-  - : Die Position im `typedArray`, auf die gewartet werden soll.
+  - : Die Position im `typedArray`, auf die gewartet wird.
 - `value`
   - : Der erwartete Wert zum Testen.
 - `timeout` {{optional_inline}}
-  - : Zeit in Millisekunden, die gewartet werden soll. {{jsxref("NaN")}} (und Werte, die in `NaN` konvertiert werden, wie `undefined`) wird zu {{jsxref("Infinity")}}. Negative Werte werden zu `0`.
+  - : Wartezeit in Millisekunden. {{jsxref("NaN")}} (und Werte, die in `NaN` umgewandelt werden, wie z.B. `undefined`) wird zu {{jsxref("Infinity")}}. Negative Werte werden zu `0`.
 
 ### Rückgabewert
 
 Ein {{jsxref("Object")}} mit den folgenden Eigenschaften:
 
 - `async`
-  - : Ein boolescher Wert, der angibt, ob die `value`-Eigenschaft ein {{jsxref("Promise")}} ist oder nicht.
+  - : Ein boolean, der angibt, ob die `value` Eigenschaft ein {{jsxref("Promise")}} ist oder nicht.
 - `value`
-  - : Wenn `async` `false` ist, wird es ein String sein, der entweder `"not-equal"` oder `"timed-out"` ist (nur wenn der `timeout`-Parameter `0` ist). Wenn `async` `true` ist, wird es ein {{jsxref("Promise")}} sein, das mit einem String-Wert erfüllt wird, entweder `"ok"` oder `"timed-out"`. Das Versprechen wird niemals abgelehnt.
+  - : Wenn `async` `false` ist, wird es ein String sein, der entweder `"not-equal"` oder `"timed-out"` (nur wenn der `timeout`-Parameter `0` ist) ist. Wenn `async` `true` ist, wird es ein {{jsxref("Promise")}} sein, das mit einem String-Wert erfüllt wird, entweder `"ok"` oder `"timed-out"`. Das Versprechen wird niemals abgelehnt.
 
 ### Ausnahmen
 
 - {{jsxref("TypeError")}}
-  - : Ausgelöst, wenn `typedArray` kein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist, das einen {{jsxref("SharedArrayBuffer")}} ansieht.
+  - : Wird ausgelöst, wenn `typedArray` kein {{jsxref("Int32Array")}} oder {{jsxref("BigInt64Array")}} ist, das einen {{jsxref("SharedArrayBuffer")}} betrachtet.
 - {{jsxref("RangeError")}}
-  - : Ausgelöst, wenn `index` außerhalb der Grenzen des `typedArray` liegt.
+  - : Wird ausgelöst, wenn `index` außerhalb der Grenzen im `typedArray` liegt.
 
 ## Beispiele
 
 ### Verwendung von waitAsync()
 
-Gegeben ein gemeinsames `Int32Array`.
+Gegeben ist ein gemeinsames `Int32Array`.
 
 ```js
 const sab = new SharedArrayBuffer(1024);
 const int32 = new Int32Array(sab);
 ```
 
-Ein lesender Thread schläft und wartet an Position 0, die 0 erwartet. Der `result.value` wird ein Promise sein.
+Ein Lesethread schläft und wartet auf Ort 0, der erwartet wird 0 zu sein. Der `result.value` wird ein Versprechen sein.
 
 ```js
 const result = Atomics.waitAsync(int32, 0, 0, 1000);
 // { async: true, value: Promise {<pending>} }
 ```
 
-Im lesenden Thread oder in einem anderen Thread wird der Speicherort 0 aufgerufen und das Promise kann mit `"ok"` aufgelöst werden.
+Im Lesethread oder in einem anderen Thread wird der Speicherort 0 aufgerufen und das Versprechen kann mit `"ok"` aufgelöst werden.
 
 ```js
 Atomics.notify(int32, 0);
 // { async: true, value: Promise {<fulfilled>: 'ok'} }
 ```
 
-Wenn es sich nicht zu `"ok"` auflöst, war der Wert am gemeinsamen Speicherort nicht der erwartete (der `value` wäre `"not-equal"` anstelle eines Promise) oder das Timeout wurde erreicht (das Promise wird sich zu `"time-out"` auflösen).
+Wenn es nicht mit `"ok"` aufgelöst wird, war der Wert im gemeinsamen Speicherort nicht der erwartete (der `value` wäre `"not-equal"` anstelle eines Versprechens) oder das Timeout wurde erreicht (das Versprechen wird mit `"time-out"` aufgelöst).
 
 ## Spezifikationen
 

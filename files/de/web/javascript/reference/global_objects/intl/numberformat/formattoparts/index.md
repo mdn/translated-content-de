@@ -2,26 +2,25 @@
 title: Intl.NumberFormat.prototype.formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatToParts
 l10n:
-  sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
+  sourceCommit: 21c2a7fa64659b6d56c3404edac193fd84ebda20
 ---
 
 {{JSRef}}
 
-Die **`formatToParts()`**-Methode von Instanzen des {{jsxref("Intl.NumberFormat")}} ermöglicht eine lokalisierungsbewusste Formatierung von Strings, die von diesem `Intl.NumberFormat`-Objekt erzeugt werden.
+Die **`formatToParts()`** Methode von Instanzen des {{jsxref("Intl.NumberFormat")}} ermöglicht eine lokalisierungsbezogene Formatierung von Zeichenfolgen, die von diesem `Intl.NumberFormat`-Objekt erzeugt werden.
 
 {{EmbedInteractiveExample("pages/js/intl-numberformat-prototype-formattoparts.html")}}
 
 ## Syntax
 
 ```js-nolint
-formatToParts()
 formatToParts(number)
 ```
 
 ### Parameter
 
-- `number` {{optional_inline}}
-  - : Eine {{jsxref("Number")}} oder {{jsxref("BigInt")}}, die formatiert werden soll.
+- `number`
+  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}}, oder Zeichenfolge, die formatiert werden soll. Zeichenfolgen werden auf die gleiche Weise geparst wie bei der [Zahlumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), außer dass `formatToParts()` den exakten Wert verwendet, den die Zeichenfolge darstellt, um einen Präzisionsverlust bei der impliziten Umwandlung in eine Zahl zu vermeiden.
 
 ### Rückgabewert
 
@@ -29,7 +28,7 @@ Ein {{jsxref("Array")}} von Objekten, das die formatierte Zahl in Teilen enthäl
 
 ## Beschreibung
 
-Die `formatToParts()`-Methode ist nützlich für die benutzerdefinierte Formatierung von Zahlstrings. Sie gibt ein {{jsxref("Array")}} von Objekten zurück, das die lokalisierungsabhängigen Tokens enthält, aus denen benutzerdefinierte Strings erstellt werden können, während die lokalisierungsabhängigen Teile erhalten bleiben. Die Struktur, die die `formatToParts()`-Methode zurückgibt, sieht folgendermaßen aus:
+Die `formatToParts()` Methode ist nützlich für die benutzerdefinierte Formatierung von Zahlzeichenfolgen. Sie gibt ein {{jsxref("Array")}} von Objekten zurück, das die lokalisierungsspezifischen Tokens enthält, aus denen es möglich ist, benutzerdefinierte Zeichenfolgen zu erstellen, während die lokalisierungsspezifischen Teile erhalten bleiben. Die Struktur, die die `formatToParts()` Methode zurückgibt, sieht folgendermaßen aus:
 
 ```js
 [
@@ -42,45 +41,45 @@ Die `formatToParts()`-Methode ist nützlich für die benutzerdefinierte Formatie
 Mögliche Typen sind die folgenden:
 
 - `compact`
-  - : Der Exponent in „long“- oder „short“-Form, abhängig davon, wie `compactDisplay` (standardmäßig `short`) angegeben wird, wenn `notation` auf `compact` gesetzt ist.
+  - : Der Exponent in `"long"` oder `"short"` Form, abhängig davon, wie `compactDisplay` (das standardmäßig auf `short` eingestellt ist) angegeben ist, wenn `notation` auf `compact` gesetzt ist.
 - `currency`
-  - : Der Währungsstring, wie etwa die Symbole „$“ und „€“ oder der Name „Dollar“, „Euro“, abhängig davon, wie `currencyDisplay` angegeben wird.
+  - : Die Währungszeichenfolge, wie die Symbole "$" und "€" oder der Name "Dollar", "Euro", abhängig davon, wie `currencyDisplay` angegeben ist.
 - `decimal`
-  - : Der Dezimaltrennstring („.“).
+  - : Die Dezimaltrennzeichen-Zeichenfolge (".").
 - `exponentInteger`
-  - : Der Exponent-Wert, wenn `notation` auf `scientific` oder `engineering` gesetzt ist.
+  - : Der Exponent als ganze Zahl, wenn `notation` auf `scientific` oder `engineering` gesetzt ist.
 - `exponentMinusSign`
-  - : Der Exponent-Minuszeichen-String („-“).
+  - : Die Exponenten-Minuszeichen-Zeichenfolge ("-").
 - `exponentSeparator`
-  - : Der Exponent-Trennzeichen, wenn `notation` auf `scientific` oder `engineering` gesetzt ist.
+  - : Der Exponententrenner, wenn `notation` auf `scientific` oder `engineering` gesetzt ist.
 - `fraction`
-  - : Der Bruchteil der Zahl.
+  - : Die Bruchzahl.
 - `group`
-  - : Der Gruppentrennstring („,“).
+  - : Die Gruppentrennzeichen-Zeichenfolge (",").
 - `infinity`
-  - : Der {{jsxref("Infinity")}} String („∞“).
+  - : Die {{jsxref("Infinity")}} Zeichenfolge ("∞").
 - `integer`
-  - : Der ganzzahlige Teil der Zahl.
+  - : Die ganze Zahl.
 - `literal`
-  - : Alle Literalstrings oder Leerzeichen in der formatierten Zahl.
+  - : Beliebige literale Zeichenfolgen oder Leerzeichen in der formatierten Zahl.
 - `minusSign`
-  - : Der Minuszeichen-String („-“).
+  - : Die Minuszeichen-Zeichenfolge ("-").
 - `nan`
-  - : Der {{jsxref("NaN")}}-String („NaN“).
+  - : Die {{jsxref("NaN")}} Zeichenfolge ("NaN").
 - `plusSign`
-  - : Der Pluszeichen-String („+“).
+  - : Die Pluszeichen-Zeichenfolge ("+").
 - `percentSign`
-  - : Der Prozentzeichen-String („%“).
+  - : Das Prozentzeichen ("%").
 - `unit`
-  - : Der Einheit-String, wie „l“ oder „litres“, abhängig davon, wie `unitDisplay` angegeben wird.
+  - : Die Einheitenzeichenfolge, wie "l" oder "Liter", abhängig davon, wie `unitDisplay` angegeben ist.
 - `unknown`
-  - : Der String für `unknown`-Typ-Ergebnisse.
+  - : Die Zeichenfolge für `unknown` Typ Ergebnisse.
 
 ## Beispiele
 
-### Vergleich von `format` und `formatToParts`
+### Vergleich von format und formatToParts
 
-`NumberFormat` gibt lokalisierte, undurchsichtige Strings aus, die nicht direkt manipuliert werden können:
+`NumberFormat` gibt lokalisierte, intransparente Zeichenfolgen aus, die nicht direkt manipuliert werden können:
 
 ```js
 const number = 3500;
@@ -94,7 +93,7 @@ formatter.format(number);
 // "3.500,00 €"
 ```
 
-Jedoch besteht in vielen Benutzeroberflächen der Wunsch, die Formatierung dieses Strings anzupassen. Die `formatToParts`-Methode ermöglicht eine lokalisierungsbewusste Formatierung der von `NumberFormat`-Formatierern erzeugten Strings, indem sie den String in Teilen bereitstellt:
+In vielen Benutzeroberflächen gibt es jedoch den Wunsch, die Formatierung dieser Zeichenfolge anzupassen. Die `formatToParts` Methode ermöglicht eine lokalisierungsbezogene Formatierung von Zeichenfolgen, die von `NumberFormat` Formatierern erzeugt werden, indem sie Ihnen die Zeichenfolge in Teilen bereitstellt:
 
 ```js
 formatter.formatToParts(number);
@@ -111,7 +110,7 @@ formatter.formatToParts(number);
 ];
 ```
 
-Nun sind die Informationen getrennt verfügbar und können in einer angepassten Weise neu formatiert und wieder zusammengefügt werden. Beispielsweise durch Verwendung von {{jsxref("Array.prototype.map()")}}, [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), einem [switch statement](/de/docs/Web/JavaScript/Reference/Statements/switch), [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals) und {{jsxref("Array.prototype.reduce()")}}.
+Nun ist die Information separat verfügbar und kann auf eine benutzerdefinierte Weise formatiert und wieder zusammengefügt werden. Zum Beispiel durch die Verwendung von {{jsxref("Array.prototype.map()")}}, [Pfeilfunktionen](/de/docs/Web/JavaScript/Reference/Functions/Arrow_functions), einer [switch-Anweisung](/de/docs/Web/JavaScript/Reference/Statements/switch), [Template Literals](/de/docs/Web/JavaScript/Reference/Template_literals), und {{jsxref("Array.prototype.reduce()")}}.
 
 ```js
 const numberString = formatter
@@ -127,7 +126,7 @@ const numberString = formatter
   .reduce((string, part) => string + part);
 ```
 
-Dies wird die Währung fett darstellen, wenn die `formatToParts()`-Methode verwendet wird.
+Dies wird die Währung fett darstellen, wenn die `formatToParts()` Methode verwendet wird.
 
 ```js
 console.log(numberString);

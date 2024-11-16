@@ -2,16 +2,16 @@
 title: "::view-transition"
 slug: Web/CSS/::view-transition
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 632289fcc10e926d166e1b49e5ba3505de182856
 ---
 
 {{CSSRef}}
 
-Das **`::view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) stellt die Wurzel des [View Transitions](/de/docs/Web/API/View_Transitions_API)-Overlays dar, welches alle View Transition Snapshot-Gruppen enthält und über dem gesamten anderen Seiteninhalt liegt.
+Das **`::view-transition`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert die Wurzel des [View Transitions](/de/docs/Web/API/View_Transitions_API)-Overlays, das alle View Transition Snapshot-Gruppen enthält und über dem gesamten anderen Seiteninhalt liegt.
 
-Während eines View Transitions wird `::view-transition` in den zugehörigen Pseudoelement-Baum aufgenommen, wie im Abschnitt [Der Baum der View Transition Pseudoelemente](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) erläutert. Es ist der Knoten auf höchster Ebene dieses Baumes und hat eines oder mehrere {{cssxref("::view-transition-group")}}s als Kinder.
+Während einer Ansichtsübergang wird `::view-transition` in den zugehörigen Pseudoelementbaum eingefügt, wie im Abschnitt [Der View Transition Pseudoelementbaum](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) erläutert. Es ist der oberste Knoten dieses Baumes und hat ein oder mehrere {{cssxref("::view-transition-group")}}s als Kinder.
 
-`::view-transition` erhält das folgende Standard-Styling im UA-Stylesheet:
+`::view-transition` erhält im UA-Stylesheet die folgende Standardstilierung:
 
 ```css
 html::view-transition {
@@ -20,7 +20,7 @@ html::view-transition {
 }
 ```
 
-Alle {{cssxref("::view-transition-group")}} Pseudoelemente sind relativ zur View Transition-Wurzel positioniert.
+Alle {{cssxref("::view-transition-group")}} Pseudoelemente sind relativ zur Wurzel des Ansichtsübergangs positioniert.
 
 ## Syntax
 
@@ -49,4 +49,4 @@ Alle {{cssxref("::view-transition-group")}} Pseudoelemente sind relativ zur View
 ## Siehe auch
 
 - [View Transitions API](/de/docs/Web/API/View_Transitions_API)
-- [Smooth and simple transitions with the View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Smooth transitions with the View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

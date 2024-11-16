@@ -2,24 +2,24 @@
 title: DOMRectReadOnly
 slug: Web/API/DOMRectReadOnly
 l10n:
-  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
+  sourceCommit: 9f09d944bca13b61293b4cc93cb52011c6134b0d
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die **`DOMRectReadOnly`** Schnittstelle spezifiziert die Standard-Eigenschaften (auch verwendet von [`DOMRect`](/de/docs/Web/API/DOMRect)), um ein Rechteck zu definieren, dessen Eigenschaften unveränderlich sind.
+Das **`DOMRectReadOnly`** Interface spezifiziert die Standard-Eigenschaften (auch verwendet von [`DOMRect`](/de/docs/Web/API/DOMRect)) zur Definition eines Rechtecks, dessen Eigenschaften unveränderlich sind.
 
 ## Konstruktor
 
 - [`DOMRectReadOnly()`](/de/docs/Web/API/DOMRectReadOnly/DOMRectReadOnly)
   - : Definiert, um ein neues `DOMRectReadOnly` Objekt zu erstellen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 - [`DOMRectReadOnly.x`](/de/docs/Web/API/DOMRectReadOnly/x) {{ReadOnlyInline}}
-  - : Gibt die x-Koordinate des Ursprungs des `DOMRectReadOnly` zurück.
+  - : Gibt die x-Koordinate des Ursprungs von `DOMRectReadOnly` zurück.
 - [`DOMRectReadOnly.y`](/de/docs/Web/API/DOMRectReadOnly/y) {{ReadOnlyInline}}
-  - : Gibt die y-Koordinate des Ursprungs des `DOMRectReadOnly` zurück.
+  - : Gibt die y-Koordinate des Ursprungs von `DOMRectReadOnly` zurück.
 - [`DOMRectReadOnly.width`](/de/docs/Web/API/DOMRectReadOnly/width) {{ReadOnlyInline}}
   - : Gibt die Breite des `DOMRectReadOnly` zurück.
 - [`DOMRectReadOnly.height`](/de/docs/Web/API/DOMRectReadOnly/height) {{ReadOnlyInline}}
@@ -36,7 +36,12 @@ Die **`DOMRectReadOnly`** Schnittstelle spezifiziert die Standard-Eigenschaften 
 ## Statische Methoden
 
 - [`DOMRectReadOnly.fromRect()`](/de/docs/Web/API/DOMRectReadOnly/fromRect_static)
-  - : Erstellt ein neues `DOMRectReadOnly` Objekt mit einem gegebenen Standort und Dimensionen.
+  - : Erstellt ein neues `DOMRectReadOnly` Objekt mit einer gegebenen Position und Abmessungen.
+
+## Instanz-Methoden
+
+- [`DOMRectReadOnly.toJSON()`](/de/docs/Web/API/DOMRectReadOnly/toJSON)
+  - : Gibt eine JSON-Darstellung des `DOMRectReadOnly` Objekts zurück.
 
 ## Spezifikationen
 

@@ -2,12 +2,12 @@
 title: DOMQuad
 slug: Web/API/DOMQuad
 l10n:
-  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
+  sourceCommit: f1efcbb10e9d5bea6df19f18e670230dc7d87f18
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Ein `DOMQuad` ist eine Sammlung von vier `DOMPoint`s, die die Ecken eines beliebigen Vierecks definieren. Das Zurückgeben von `DOMQuad`s ermöglicht es `getBoxQuads()`, auch bei beliebigen 2D- oder 3D-Transformationen genaue Informationen bereitzustellen. Es besitzt ein praktisches `bounds`-Attribut, das einen `DOMRectReadOnly` zurückgibt, für den Fall, dass Sie lediglich ein achsenparalleles Begrenzungsrechteck wünschen.
+Ein `DOMQuad` ist eine Sammlung von vier `DOMPoint`s, die die Ecken eines beliebigen Vierecks definieren. Die Rückgabe von `DOMQuad`s ermöglicht es `getBoxQuads()`, genaue Informationen auch bei beliebigen 2D- oder 3D-Transformationen bereitzustellen. Es verfügt über ein praktisches `bounds`-Attribut, das ein `DOMRectReadOnly` zurückgibt, für die Fälle, in denen Sie nur ein achsenbündiges Begrenzungsrechteck benötigen.
 
 ## Konstruktor
 
@@ -16,8 +16,14 @@ Ein `DOMQuad` ist eine Sammlung von vier `DOMPoint`s, die die Ecken eines belieb
 
 ## Instanz-Eigenschaften
 
-- p1, p2, p3, p4 {{ReadOnlyInline}}
-  - : sind [`DOMPoint`](/de/docs/Web/API/DOMPoint)-Objekte für jede der vier Ecken des `DOMQuad`-Objekts.
+- [`DOMQuad.p1`](/de/docs/Web/API/DOMQuad/p1) {{ReadOnlyInline}}
+  - : Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der eine Ecke des `DOMQuad` repräsentiert.
+- [`DOMQuad.p2`](/de/docs/Web/API/DOMQuad/p2) {{ReadOnlyInline}}
+  - : Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der eine Ecke des `DOMQuad` repräsentiert.
+- [`DOMQuad.p3`](/de/docs/Web/API/DOMQuad/p3) {{ReadOnlyInline}}
+  - : Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der eine Ecke des `DOMQuad` repräsentiert.
+- [`DOMQuad.p4`](/de/docs/Web/API/DOMQuad/p4) {{ReadOnlyInline}}
+  - : Ein [`DOMPoint`](/de/docs/Web/API/DOMPoint), der eine Ecke des `DOMQuad` repräsentiert.
 
 ## Instanz-Methoden
 
@@ -26,7 +32,7 @@ Ein `DOMQuad` ist eine Sammlung von vier `DOMPoint`s, die die Ecken eines belieb
 - [`DOMQuad.fromQuad()`](/de/docs/Web/API/DOMQuad/fromQuad)
   - : Gibt ein neues `DOMQuad`-Objekt basierend auf dem übergebenen Koordinatensatz zurück.
 - [`DOMQuad.getBounds()`](/de/docs/Web/API/DOMQuad/getBounds)
-  - : Gibt ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt mit den Koordinaten und den Abmessungen des `DOMQuad`-Objekts zurück.
+  - : Gibt ein [`DOMRect`](/de/docs/Web/API/DOMRect)-Objekt mit den Koordinaten und Dimensionen des `DOMQuad`-Objekts zurück.
 - [`DOMQuad.toJSON()`](/de/docs/Web/API/DOMQuad/toJSON)
   - : Gibt eine JSON-Darstellung des `DOMQuad`-Objekts zurück.
 

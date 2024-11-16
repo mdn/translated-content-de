@@ -2,12 +2,12 @@
 title: view-transition-name
 slug: Web/CSS/view-transition-name
 l10n:
-  sourceCommit: b60bc79c7ad36c56dddf6760d2fd4dbb642d2023
+  sourceCommit: 632289fcc10e926d166e1b49e5ba3505de182856
 ---
 
 {{CSSRef}}
 
-Die **`view-transition-name`** [CSS](/de/docs/Web/CSS)-Eigenschaft bietet dem ausgewählten Element einen unverwechselbaren Namen (ein {{cssxref("custom-ident")}}) und bewirkt, dass es an einem separaten [Ansichtsübergang](/de/docs/Web/API/View_Transitions_API) vom Wurzel-Ansichtsübergang teilnimmt — oder an keinem Ansichtsübergang, wenn der Wert `none` angegeben ist.
+Die **`view-transition-name`**-[CSS](/de/docs/Web/CSS) Eigenschaft weist dem ausgewählten Element einen eindeutigen Identifikationsnamen (ein {{cssxref("custom-ident")}}) zu und führt dazu, dass es an einem separaten [View-Übergang](/de/docs/Web/API/View_Transitions_API) vom Haupt-View-Übergang teilnimmt – oder an keinem View-Übergang, wenn der Wert `none` angegeben ist.
 
 ## Syntax
 
@@ -23,11 +23,11 @@ view-transition-name: none;
 ### Werte
 
 - {{cssxref("custom-ident")}}
-  - : Ein identifizierender Name, der bewirkt, dass das ausgewählte Element an einem separaten [Ansichtsübergang](/de/docs/Web/API/View_Transitions_API) vom Wurzel-Ansichtsübergang teilnimmt. Der Identifikator muss eindeutig sein. Wenn zwei gerenderte Elemente zur gleichen Zeit denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) zurückgewiesen und der Übergang wird übersprungen.
+  - : Ein Identifikationsname, der dazu führt, dass das ausgewählte Element an einem separaten [View-Übergang](/de/docs/Web/API/View_Transitions_API) vom Haupt-View-Übergang teilnimmt. Der Bezeichner muss eindeutig sein. Wenn zwei gerenderte Elemente zur gleichen Zeit denselben `view-transition-name` haben, wird [`ViewTransition.ready`](/de/docs/Web/API/ViewTransition/ready) abgelehnt und der Übergang wird übersprungen.
     > [!NOTE]
-    > Das `<custom-ident>` kann nicht `auto` sein.
+    > Der `<custom-ident>` kann nicht `auto` sein.
 - `none`
-  - : Das ausgewählte Element wird nicht an einem Ansichtsübergang teilnehmen.
+  - : Das ausgewählte Element wird nicht an einem View-Übergang teilnehmen.
 
 ## Formale Definition
 
@@ -56,4 +56,4 @@ figcaption {
 ## Siehe auch
 
 - [View Transitions API](/de/docs/Web/API/View_Transitions_API)
-- [Sanfte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)

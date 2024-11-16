@@ -2,17 +2,17 @@
 title: "::before"
 slug: Web/CSS/::before
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 632289fcc10e926d166e1b49e5ba3505de182856
 ---
 
 {{CSSRef}}
 
-In CSS erzeugt **`::before`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), das das erste Kind des ausgewählten Elements ist. Es wird häufig verwendet, um einem Element mit der {{cssxref("content")}}-Eigenschaft kosmetische Inhalte hinzuzufügen. Es ist standardmäßig inline.
+In CSS erzeugt **`::before`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements), das das erste Kind des ausgewählten Elements ist. Es wird häufig verwendet, um ein Element mit der {{cssxref("content")}}-Eigenschaft kosmetisch zu ergänzen. Standardmäßig ist es ein Inline-Element.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-element-before.html", "tabbed-standard")}}
 
 > [!NOTE]
-> Die durch `::before` und `::after` generierten Pseudoelemente sind Boxen, die so erzeugt werden, als wären sie unmittelbare Kinder des Elements, auf das sie angewendet werden, oder des "ursprünglichen Elements", und können daher nicht auf _[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)_ wie {{htmlelement("img")}} angewendet werden, deren Inhalt außerhalb des Geltungsbereichs des CSS-Formatierungsmodells liegt.
+> Die durch `::before` und `::after` erzeugten Pseudoelemente sind Boxen, die so generiert werden, als wären sie unmittelbare Kinder des Elements, auf das sie angewendet werden, oder des "ursprünglichen Elements". Daher können sie nicht auf _[ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)_ angewendet werden, wie z.B. {{htmlelement("img")}}, deren Inhalt außerhalb des CSS-Formatierungsmodells liegt.
 
 ## Syntax
 
@@ -23,19 +23,19 @@ In CSS erzeugt **`::before`** ein [Pseudoelement](/de/docs/Web/CSS/Pseudo-elemen
 }
 ```
 
-Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht angegeben ist, einen ungültigen Wert hat oder `normal` oder `none` als Wert hat, wird das `::before` Pseudoelement nicht gerendert. Es verhält sich, als ob `display: none` gesetzt wäre.
+Wenn die [`content`](/de/docs/Web/CSS/content)-Eigenschaft nicht spezifiziert ist, einen ungültigen Wert hat oder `normal` oder `none` als Wert hat, wird das `::before`-Pseudoelement nicht gerendert. Es verhält sich so, als ob `display: none` gesetzt ist.
 
-> **Hinweis:** [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content) führte die Doppelpunktnotation `::before` ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudoelementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die in CSS2 eingeführte Einzelpunktnotation `:before`.
+> **Hinweis:** [Selectors Level 3](https://drafts.csswg.org/selectors-3/#gen-content) führte die Doppelpunkt-Notation `::before` ein, um [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) von [Pseudoelementen](/de/docs/Web/CSS/Pseudo-elements) zu unterscheiden. Browser akzeptieren auch die Einfach-Doppelpunkt-Notation `:before`, die in CSS2 eingeführt wurde.
 
 ## Barrierefreiheit
 
-Die Verwendung eines `::before` Pseudoelements zum Hinzufügen von Inhalten wird nicht empfohlen, da es für Bildschirmlesegeräte nicht zuverlässig zugänglich ist.
+Die Verwendung eines `::before`-Pseudoelements zum Hinzufügen von Inhalten wird nicht empfohlen, da es nicht zuverlässig für Screenreader zugänglich ist.
 
 ## Beispiele
 
 ### Hinzufügen von Anführungszeichen
 
-Ein einfaches Beispiel für die Verwendung von `::before` Pseudoelementen ist das Hinzufügen von Anführungszeichen. Hier verwenden wir sowohl `::before` als auch {{Cssxref("::after")}}, um Anführungszeichen einzufügen.
+Ein Beispiel für die Verwendung von `::before`-Pseudoelementen ist das Bereitstellen von Anführungszeichen. Hier verwenden wir sowohl `::before` als auch {{Cssxref("::after")}}, um Anführungszeichen einzufügen.
 
 #### HTML
 
@@ -63,7 +63,7 @@ q::after {
 
 ### Dekoratives Beispiel
 
-Wir können Text oder Bilder in der {{cssxref("content")}}-Eigenschaft fast nach Belieben gestalten.
+Wir können Text oder Bilder innerhalb der {{cssxref("content")}}-Eigenschaft fast beliebig gestalten.
 
 #### HTML
 
@@ -90,9 +90,9 @@ Wir können Text oder Bilder in der {{cssxref("content")}}-Eigenschaft fast nach
 
 {{EmbedLiveSample('Decorative_example', 450, 60)}}
 
-### Aufgabenliste
+### To-do-Liste
 
-In diesem Beispiel erstellen wir eine einfache Aufgabenliste mit Pseudoelementen. Diese Methode kann oft verwendet werden, um kleine Akzente zur Benutzeroberfläche hinzuzufügen und die Benutzererfahrung zu verbessern.
+In diesem Beispiel erstellen wir eine To-do-Liste mit Pseudoelementen. Diese Methode kann oft verwendet werden, um kleine Akzente in der Benutzeroberfläche zu setzen und die Benutzererfahrung zu verbessern.
 
 #### HTML
 
@@ -153,7 +153,7 @@ list.addEventListener(
 );
 ```
 
-Hier läuft das obige Codebeispiel live. Beachten Sie, dass keine Icons verwendet werden und das Häkchen tatsächlich das `::before` ist, das in CSS gestaltet wurde. Machen Sie sich bereit, einige Aufgaben zu erledigen.
+Hier wird das obige Codebeispiel live ausgeführt. Beachten Sie, dass keine Symbole verwendet werden und das Häkchen tatsächlich das `::before`-Element ist, das in CSS gestaltet wurde. Legen Sie los und erledigen Sie einige Aufgaben.
 
 #### Ergebnis
 
@@ -161,7 +161,7 @@ Hier läuft das obige Codebeispiel live. Beachten Sie, dass keine Icons verwende
 
 ### Sonderzeichen
 
-Da dies CSS ist, nicht HTML, können Sie in Inhaltswerten **keine** Markup-Entitäten verwenden. Wenn Sie ein Sonderzeichen verwenden müssen und es nicht direkt in Ihre CSS-Inhaltszeichenfolge eingeben können, verwenden Sie eine Unicode-Escape-Sequenz, bestehend aus einem Backslash, gefolgt vom hexadezimalen Unicode-Wert.
+Da es sich um CSS und nicht um HTML handelt, können Sie **keine** Markup-Entities in Inhaltswerten verwenden. Wenn Sie ein Sonderzeichen verwenden müssen und es nicht direkt in Ihre CSS-Inhaltszeichenfolge eingeben können, verwenden Sie eine Unicode-Escape-Sequenz, die aus einem Backslash gefolgt vom hexadezimalen Unicode-Wert besteht.
 
 #### HTML
 

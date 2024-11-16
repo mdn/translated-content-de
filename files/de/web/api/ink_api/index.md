@@ -2,32 +2,32 @@
 title: Ink API
 slug: Web/API/Ink_API
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 57aa2614c8f3b1b3f5c646262c8156afadcd63d8
 ---
 
 {{DefaultAPISidebar("Ink API")}}{{SeeCompatTable}}
 
-Die Ink API erlaubt es Browsern, direkt verfügbare Betriebssystem-kompositoren beim Zeichnen von Strichen in einer Inking-App-Funktion zu nutzen, wodurch die Latenz verringert und die Leistung erhöht wird.
+Die Ink API ermöglicht es Browsern, direkt verfügbare Kompositoren auf Betriebssystemebene beim Zeichnen von Stiftstrichen in einer Inking-App-Funktion zu nutzen, wodurch die Latenz verringert und die Leistung verbessert wird.
 
-## Konzepte und Nutzung
+## Konzepte und Verwendung
 
-Inking im Web bezieht sich auf App-Funktionen, die [Pointer Events](/de/docs/Web/API/Pointer_events) verwenden, um einen glatten Strich zu zeichnen — zum Beispiel eine Zeichen-App oder eine Dokumentenunterzeichnungsfunktion.
+Inking im Web bezieht sich auf App-Funktionen, die [Pointer Events](/de/docs/Web/API/Pointer_events) verwenden, um einen glatten Stiftstrich zu zeichnen — zum Beispiel eine Zeichen-App oder eine Dokumentensignatur-Funktion.
 
-Pointer Events werden normalerweise zuerst an den Browser-Prozess gesendet, der diese Ereignisse dann an die JavaScript-Ereignisschleife weiterleitet, um die zugehörigen Handler-Funktionen auszuführen und das Ergebnis in der App darzustellen. Die zeitliche Verzögerung zwischen dem Beginn und dem Ende dieses Prozesses kann erheblich sein, was zu einer Latenz führt, bis vom Benutzer initiierte Zeichnungen (zum Beispiel mit einem Stift oder einer Maus) auf dem Bildschirm erscheinen.
+Pointer Events werden normalerweise zuerst an den Browser-Prozess gesendet, der diese Ereignisse dann an die JavaScript-Ereignisschleife weiterleitet, um die zugehörigen Handler-Funktionen auszuführen und das Ergebnis in der App darzustellen. Die Zeitverzögerung zwischen dem Beginn und dem Ende dieses Prozesses kann erheblich sein, was zu einer Latenz zwischen der Benutzereingabe (zum Beispiel mit einem Eingabestift oder einer Maus) und dem Erscheinen des Strichs auf dem Bildschirm führt.
 
-Die Ink API reduziert diese Latenz erheblich, indem sie es Browsern erlaubt, die JavaScript-Ereignisschleife komplett zu umgehen. Wo immer möglich, geben Browser solche Rendering-Anweisungen direkt an Betriebssystem-kompositoren weiter. Sollte das zugrundeliegende Betriebssystem keinen spezialisierten Betriebssystem-Kompositor für diesen Zweck bereitstellen, verwenden Browser ihren eigenen optimierten Rendering-Code. Dies ist nicht so leistungsstark wie ein Kompositor, bietet jedoch immer noch einige Verbesserungen.
+Die Ink API verringert diese Latenz erheblich, indem sie Browsern ermöglicht, die JavaScript-Ereignisschleife vollständig zu umgehen. Wo immer möglich, übergeben Browser solche Rendering-Anweisungen direkt an Kompositoren auf Betriebssystemebene. Falls das zugrunde liegende Betriebssystem keinen spezialisierten Kompositor für diesen Zweck bereitstellt, verwenden Browser ihren eigenen optimierten Rendering-Code. Dies ist nicht so leistungsstark wie ein Kompositor, bietet jedoch dennoch einige Verbesserungen.
 
 > [!NOTE]
-> Kompositore sind Teil der Rendering-Technik, die die Benutzeroberfläche im Browser oder Betriebssystem auf den Bildschirm zeichnet. Siehe [Einblick in moderne Webbrowser (Teil 3)](https://developer.chrome.com/blog/inside-browser-part3/) für einige interessante Einblicke, wie ein Kompositor in einem Webbrowser funktioniert.
+> Kompositoren sind Teil der Rendering-Technik, die die Benutzeroberfläche in einem Browser oder Betriebssystem auf den Bildschirm zeichnet. Sehen Sie sich [Inside look at modern web browser (part 3)](https://developer.chrome.com/blog/inside-browser-part3/) an, um einige interessante Einblicke zu erhalten, wie ein Kompositor innerhalb eines Webbrowsers funktioniert.
 
-Der Einstiegspunkt ist die [`Navigator.ink`](/de/docs/Web/API/Navigator/ink)-Eigenschaft, die ein [`Ink`](/de/docs/Web/API/Ink)-Objekt für das aktuelle Dokument zurückgibt. Die Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz eines [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekts erfüllt wird. Dies weist den Betriebssystem-Kompositor an, Tintenstriche zwischen den Pointer-Event-Dispatches in jedem Fall im nächsten verfügbaren Frame zu rendern.
+Der Einstiegspunkt ist die [`Navigator.ink`](/de/docs/Web/API/Navigator/ink)-Eigenschaft, die ein [`Ink`](/de/docs/Web/API/Ink)-Objekt für das aktuelle Dokument zurückgibt. Die Methode [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz des [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekts erfüllt wird. Dies weist den Kompositor auf Betriebssystemebene an, Tintenstriche zwischen Pointer-Ereignis-Dispatches im jeweils nächsten verfügbaren Frame zu rendern.
 
 ## Schnittstellen
 
-- [`Ink`](/de/docs/Web/API/Ink)
-  - : Bietet Zugriff auf [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekte, die die Anwendung zur Darstellung der Striche verwenden kann.
-- [`InkPresenter`](/de/docs/Web/API/InkPresenter)
-  - : Weist den Betriebssystem-Kompositor an, Tintenstriche zwischen den Pointer-Event-Dispatches zu rendern.
+- [`Ink`](/de/docs/Web/API/Ink) {{Experimental_Inline}}
+  - : Bietet Zugriff auf [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekte, die von der Anwendung zum Rendern der Striche genutzt werden können.
+- [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter) {{Experimental_Inline}}
+  - : Weist den Kompositor auf Betriebssystemebene an, Tintenstriche zwischen Pointer-Ereignis-Dispatches zu rendern.
 
 ### Erweiterungen zu anderen Schnittstellen
 
@@ -38,14 +38,14 @@ Der Einstiegspunkt ist die [`Navigator.ink`](/de/docs/Web/API/Navigator/ink)-Eig
 
 ### Zeichnen einer Tintenlinie
 
-In diesem Beispiel zeichnen wir eine Spur auf eine 2D-Leinwand. Zu Beginn des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben das Canvas als Präsentationsbereich, um sich darum zu kümmern, und speichern das zurückgegebene Versprechen in der `presenter`-Variablen.
+In diesem Beispiel zeichnen wir eine Linie auf ein 2D-Canvas. Zu Beginn des Codes rufen wir [`Ink.requestPresenter()`](/de/docs/Web/API/Ink/requestPresenter) auf, übergeben dem Canvas den Präsentationsbereich, um den es sich kümmern soll, und speichern das zurückgegebene Promise in der Variablen `presenter`.
 
-Später, im `pointermove`-Ereignislistener, wird die neue Position des Spurkopfes jedes Mal auf die Leinwand gezeichnet, wenn das Ereignis ausgelöst wird. Zusätzlich wird die [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekt, das zurückgegeben wird, wenn das `presenter`-Versprechen erfüllt wird, mit seiner [`updateInkTrailStartPoint()`](/de/docs/Web/API/InkPresenter/updateInkTrailStartPoint)-Methode aufgerufen; diese wird übergeben:
+Später, im `pointermove`-Ereignis-Listener, wird die neue Position des Linienanfangs jedes Mal auf das Canvas gezeichnet, wenn das Ereignis ausgelöst wird. Darüber hinaus wird das [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekt, das zurückgegeben wird, wenn das `presenter`-Promise erfüllt wird, mit seiner Methode [`updateInkTrailStartPoint()`](/de/docs/Web/API/DelegatedInkTrailPresenter/updateInkTrailStartPoint) aufgerufen; dieses erhält:
 
-- Das letzte vertrauenswürdige Pointer-Ereignis, das den Darstellungspunkt für das aktuelle Frame darstellt.
-- Ein `style`-Objekt, das Farbe und Durchmessereinstellungen enthält.
+- Das letzte vertrauenswürdige Pointer-Ereignis, das den Rendering-Punkt für den aktuellen Frame darstellt.
+- Ein `style`-Objekt, das Farbe und Durchmesser-Einstellungen enthält.
 
-Das Ergebnis ist, dass eine delegierte Tintenlinie im Voraus vor der Standard-Browser-Darstellung im Namen der App in dem angegebenen Stil gezeichnet wird, bis sie das nächste Mal ein `pointermove`-Ereignis erhält.
+Das Ergebnis ist, dass eine delegierte Tintenlinie im Namen der App mit dem angegebenen Stil vor der Standard-Browser-Darstellung gezeichnet wird, bis das nächste Mal ein `pointermove`-Ereignis empfangen wird.
 
 #### HTML
 

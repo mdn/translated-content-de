@@ -3,12 +3,12 @@ title: "Ink: requestPresenter()-Methode"
 short-title: requestPresenter()
 slug: Web/API/Ink/requestPresenter
 l10n:
-  sourceCommit: eab4066e72d5478de920e4020e5db71214dcffa6
+  sourceCommit: 57aa2614c8f3b1b3f5c646262c8156afadcd63d8
 ---
 
 {{APIRef("Ink API")}}{{SeeCompatTable}}
 
-Die **`requestPresenter()`**-Methode der [`Ink`](/de/docs/Web/API/Ink)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekt erfüllt wird, um Striche zu rendern.
+Die **`requestPresenter()`**-Methode der [`Ink`](/de/docs/Web/API/Ink) Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objekt erfüllt wird, um die Darstellung von Strichen zu handhaben.
 
 ## Syntax
 
@@ -19,18 +19,18 @@ requestPresenter(param)
 ### Parameter
 
 - `param` {{optional_inline}}
-  - : Ein `InkPresenterParam`-Objekt, das die folgende Eigenschaft enthält:
+  - : Ein Objekt, das die folgende Eigenschaft enthält:
     - `presentationArea` {{optional_inline}}
-      - : Ein [`Element`](/de/docs/Web/API/Element), innerhalb dessen die Darstellung der Tintenstriche eingeschränkt ist (genauer gesagt die Rahmenbox des Elements). Wenn `param` nicht inkludiert ist oder `presentationArea` auf `null` gesetzt ist, ist die Tintenwiedergabe standardmäßig auf den enthaltenden Viewport beschränkt.
+      - : Ein [`Element`](/de/docs/Web/API/Element), in dem die Darstellung der Tintenstriche eingeschränkt ist (genauer gesagt, die Rahmenbox des Elements). Wenn `param` nicht enthalten ist oder `presentationArea` auf `null` gesetzt ist, wird die Tinten-Darstellung standardmäßig auf den umgebenden Viewport begrenzt.
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das zu einer Instanz des [`InkPresenter`](/de/docs/Web/API/InkPresenter)-Objekts aufgelöst wird.
+Ein {{jsxref("Promise")}}, das zu einer [`DelegatedInkTrailPresenter`](/de/docs/Web/API/DelegatedInkTrailPresenter)-Objektinstanz aufgelöst wird.
 
 ### Ausnahmen
 
 - `Error` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ein Fehler wird ausgelöst und die Operation wird abgebrochen, wenn `presentationArea` kein gültiges [`Element`](/de/docs/Web/API/Element) ist oder nicht im selben Dokument wie das zugehörige [`Ink`](/de/docs/Web/API/Ink)-Objekt enthalten ist.
+  - : Ein Fehler wird ausgelöst und der Vorgang wird abgebrochen, wenn `presentationArea` kein gültiges [`Element`](/de/docs/Web/API/Element) ist oder sich nicht im selben Dokument wie das zugehörige [`Ink`](/de/docs/Web/API/Ink)-Objekt befindet.
 
 ## Beispiel
 
@@ -53,4 +53,4 @@ async function inkInit() {
 
 ## Siehe auch
 
-- [Verbesserung der Tintenfunktionen im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)
+- [Verbesserung des Inking im Web](https://blogs.windows.com/msedgedev/2021/08/18/enhancing-inking-on-the-web/)

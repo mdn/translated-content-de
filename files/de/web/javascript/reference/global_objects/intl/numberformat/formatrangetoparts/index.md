@@ -2,12 +2,12 @@
 title: Intl.NumberFormat.prototype.formatRangeToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRangeToParts
 l10n:
-  sourceCommit: 70f09675ddcfc75a3bb66d2dce4cf82738948a37
+  sourceCommit: 21c2a7fa64659b6d56c3404edac193fd84ebda20
 ---
 
 {{JSRef}}
 
-Die **`formatRangeToParts()`** Methode von {{jsxref("Intl.NumberFormat")}} Instanzen gibt ein {{jsxref("Array")}} von Objekten zurück, das die lokal-spezifischen Tokens enthält, aus denen es möglich ist, benutzerdefinierte Zeichenfolgen zu erstellen und dabei die lokal-spezifischen Teile beizubehalten. Dies ermöglicht es, bereichsbezogene benutzerdefinierte Formatierungen von Zahlenzeichenfolgen bereitzustellen, die lokalbewusst sind.
+Die Methode **`formatRangeToParts()`** von {{jsxref("Intl.NumberFormat")}}-Instanzen gibt ein {{jsxref("Array")}} von Objekten zurück, das die lokal spezifischen Tokens enthält, aus denen es möglich ist, benutzerdefinierte Zeichenfolgen unter Wahrung der lokal spezifischen Teile zu erstellen. Dies ermöglicht es, bereichsbezogene, lokal angepasste Zahlenzeichenfolgen zu formatieren.
 
 ## Syntax
 
@@ -18,17 +18,15 @@ formatRangeToParts(startRange, endRange)
 ### Parameter
 
 - `startRange`
-
-  - : Eine {{jsxref("Number")}} oder {{jsxref("BigInt")}}.
-
+  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder Zeichenkette, die formatiert werden soll. Zeichenketten werden genauso geparst wie bei der [Zahlenumwandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion), außer dass `formatRangeToParts()` den genauen Wert der Zeichenkette verwendet, um Präzisionsverluste bei der impliziten Umwandlung in eine Zahl zu vermeiden.
 - `endRange`
-  - : Eine {{jsxref("Number")}} oder {{jsxref("BigInt")}}.
+  - : Eine {{jsxref("Number")}}, {{jsxref("BigInt")}} oder Zeichenkette, die formatiert werden soll.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die den formatierten Bereich von Zahlen in Teilen enthalten.
+Ein {{jsxref("Array")}} von Objekten, das den formatierten Bereich von Zahlen in Teilen enthält.
 
-Die Struktur des Zurückgegebenen sieht so aus:
+Die Struktur des zurückgegebenen Werts sieht wie folgt aus:
 
 ```js
 [
@@ -40,46 +38,46 @@ Die Struktur des Zurückgegebenen sieht so aus:
 ];
 ```
 
-Mögliche Werte für die `type` Eigenschaft umfassen:
+Mögliche Werte für die `type`-Eigenschaft sind:
 
 - `currency`
-  - : Der Währungsstring, wie die Symbole "$" und "€" oder der Name "Dollar", "Euro", abhängig davon, wie `currencyDisplay` angegeben ist.
+  - : Die Währungszeichenkette, wie die Symbole "$" und "€" oder die Namen "Dollar", "Euro", abhängig davon, wie `currencyDisplay` angegeben ist.
 - `decimal`
-  - : Der Dezimaltrennzeichenstring (".").
+  - : Die Dezimaltrennzeichen-Zeichenkette (".").
 - `fraction`
   - : Die Bruchzahl.
 - `group`
-  - : Der Gruppentrennzeichenstring (",").
+  - : Das Gruppentrennzeichen (",").
 - `infinity`
-  - : Der {{jsxref("Infinity")}} String ("∞").
+  - : Die {{jsxref("Infinity")}} Zeichenkette ("∞").
 - `integer`
   - : Die Ganzzahl.
 - `literal`
-  - : Beliebige literale Zeichenfolgen oder Leerzeichen in der formatierten Zahl.
+  - : Jede wörtliche Zeichenkette oder Leerzeichen in der formatierten Zahl.
 - `minusSign`
-  - : Der Minuszeichenstring ("-").
+  - : Das Minuszeichen ("-").
 - `nan`
-  - : Der {{jsxref("NaN")}} String ("NaN").
+  - : Die {{jsxref("NaN")}} Zeichenkette ("NaN").
 - `plusSign`
-  - : Der Pluszeichenstring ("+").
+  - : Das Pluszeichen ("+").
 - `percentSign`
-  - : Der Prozentzeichenstring ("%").
+  - : Das Prozentzeichen ("%").
 - `unit`
-  - : Der Einheitstring, wie das "l" oder "Liter", abhängig davon, wie `unitDisplay` angegeben ist.
+  - : Die Einheit-Zeichenkette, wie "l" oder "litres", abhängig davon, wie `unitDisplay` angegeben ist.
 
-Mögliche Werte für die `source` Eigenschaft umfassen:
+Mögliche Werte für die `source`-Eigenschaft sind:
 
 - `startRange`
   - : Das Objekt ist der Startteil des Bereichs.
 - `endRange`
   - : Das Objekt ist der Endteil des Bereichs.
 - `shared`
-  - : Das Objekt ist ein "geteilter" Teil des Bereichs, wie ein Separator oder eine Währung.
+  - : Das Objekt ist ein "geteilter" Teil des Bereichs, wie ein Trennzeichen oder eine Währung.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `startRange` kleiner als `endRange` ist oder einer der Werte `NaN` ist.
+  - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` `NaN` oder eine nicht konvertierbare Zeichenkette ist.
 - {{jsxref("TypeError")}}
   - : Wird ausgelöst, wenn entweder `startRange` oder `endRange` undefiniert ist.
 
@@ -102,8 +100,7 @@ console.log(formatter.formatRange(startRange, endRange));
 // "3.500,00–9.500,00 €"
 ```
 
-Bei vielen Benutzeroberflächen besteht jedoch die Notwendigkeit, die Formatierung dieser Zeichenfolgen anzupassen.
-Die `formatRangeToParts` Methode ermöglicht eine lokalbewusste Formatierung von Zeichenfolgen, die von `NumberFormat` Formattierern erzeugt werden, indem sie Ihnen die Zeichenfolge in Teilen bereitstellt:
+Für viele Benutzeroberflächen gibt es jedoch die Notwendigkeit, das Format dieser Zeichenfolge anzupassen. Die Methode `formatRangeToParts` ermöglicht die lokal angepasste Formatierung von Zeichenfolgen, die von `NumberFormat`-Formatierern bereitgestellt werden, indem sie die Zeichenfolge in Teilen liefert:
 
 ```js
 console.log(formatter.formatRangeToParts(startRange, endRange));
