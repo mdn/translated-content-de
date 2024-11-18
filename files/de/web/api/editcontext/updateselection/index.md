@@ -3,12 +3,12 @@ title: "EditContext: updateSelection() Methode"
 short-title: updateSelection()
 slug: Web/API/EditContext/updateSelection
 l10n:
-  sourceCommit: 79e78471738880d7ca13c1cd0d7ce7893151d086
+  sourceCommit: ab5aa440278a135b9932a071f9208f4c58b86d21
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`updateSelection()`** Methode des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces aktualisiert den internen Zustand der Auswahl innerhalb des bearbeitbaren Textkontexts. Diese Methode wird verwendet, um den Auswahlzustand zu aktualisieren, wenn der Benutzer mit der im `EditContext` zugeordneten Element dargestellten Text interagiert, z. B. durch Klicken oder Ziehen der Maus oder durch Nutzung der Tastatur.
+Die **`updateSelection()`** Methode des [`EditContext`](/de/docs/Web/API/EditContext)-Interfaces aktualisiert den internen Zustand der Auswahl innerhalb des bearbeitbaren Textkontexts. Diese Methode wird verwendet, um den Auswahlzustand zu aktualisieren, wenn der Benutzer mit der Textdarstellung im mit `EditContext` assoziierten Element interagiert, z. B. durch Klicken oder Ziehen der Maus oder durch Verwendung der Tastatur.
 
 ## Syntax
 
@@ -19,23 +19,22 @@ updateSelection(start, end)
 ### Parameter
 
 - `start`
-  - : Eine Zahl, die den neuen Start der Auswahl darstellt.
+  - : Eine Zahl, die den neuen Beginn der Auswahl darstellt.
 - `end`
   - : Eine Zahl, die das neue Ende der Auswahl darstellt.
 
-Wenn die Werte für `start` und `end` gleich sind, entspricht die Auswahl einem Cursor.
+Wenn die Werte von `start` und `end` gleich sind, entspricht die Auswahl einem Text-Caret.
 
 ### Ausnahmen
 
-- Wenn nur ein Argument angegeben wird, wird eine `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn ein Argument keine positive Zahl ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn `start` größer als `end` ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn nur ein Argument bereitgestellt wird, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
+- Wenn eines der Argumente keine nicht-negative Zahl ist, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Beispiele
 
-### Aktualisierung der Auswahl, wenn der Benutzer mit dem Text interagiert
+### Aktualisieren der Auswahl bei Benutzerinteraktion mit dem Text
 
-Dieses Beispiel zeigt, wie die `updateSelection`-Methode verwendet wird, um die Auswahl im `EditContext` eines `canvas`-Elements zu aktualisieren, wenn die Pfeiltasten verwendet werden, um den Cursor zu bewegen oder Text im bearbeitbaren Bereich auszuwählen.
+Dieses Beispiel zeigt, wie die `updateSelection`-Methode verwendet wird, um die Auswahl im `EditContext` eines `canvas`-Elements zu aktualisieren, wenn die Pfeiltasten verwendet werden, um den Caret zu verschieben oder Text im bearbeitbaren Bereich auszuwählen.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -84,4 +83,4 @@ canvas.addEventListener("keydown", (e) => {
 
 ## Siehe auch
 
-- Das [`EditContext`](/de/docs/Web/API/EditContext)-Interface, zu dem es gehört.
+- Das `EditContext`-Interface, zu dem es gehört.

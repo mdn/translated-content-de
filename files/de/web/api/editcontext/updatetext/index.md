@@ -1,18 +1,18 @@
 ---
-title: "EditContext: Methode updateText()"
+title: "EditContext: updateText() Methode"
 short-title: updateText()
 slug: Web/API/EditContext/updateText
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: 7d7b014191b4892e7a059493a90f0c511cfdf633
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Die **`updateText()`**-Methode der [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle aktualisiert den internen Textinhalt eines `EditContext`-Objekts.
+Die **`updateText()`** Methode der [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle aktualisiert den internen Textinhalt eines `EditContext` Objekts.
 
-Diese Methode muss nicht verwendet werden, wenn der Benutzer Text im zugehörigen Element eingibt. Das `EditContext`-Objekt aktualisiert automatisch seinen internen Textinhalt und löst bei Bedarf [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event)-Ereignisse aus.
+Diese Methode muss nicht verwendet werden, wenn der Benutzer Text im zugehörigen Element eingibt. Das `EditContext` Objekt aktualisiert automatisch seinen internen Textinhalt und löst bei Bedarf [`textupdate`](/de/docs/Web/API/EditContext/textupdate_event) Ereignisse aus.
 
-Diese Methode kann jedoch verwendet werden, wenn der Benutzer auf andere Weise mit dem Textinhalt interagiert, zum Beispiel beim Einfügen von Text aus der Zwischenablage.
+Diese Methode kann jedoch verwendet werden, wenn der Benutzer auf andere Weise mit dem Textinhalt interagiert, z. B. wenn Text aus der Zwischenablage eingefügt wird.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ updateText(rangeStart, rangeEnd, text)
 ### Parameter
 
 - `rangeStart`
-  - : Eine Zahl, die den Beginn des zu ersetzenden Textbereichs darstellt.
+  - : Eine Zahl, die den Anfang des zu ersetzenden Textbereichs darstellt.
 - `rangeEnd`
   - : Eine Zahl, die das Ende des zu ersetzenden Textbereichs darstellt.
 - `text`
@@ -32,15 +32,14 @@ updateText(rangeStart, rangeEnd, text)
 ### Ausnahmen
 
 - Wenn weniger als drei Argumente bereitgestellt werden, wird ein `TypeError` [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
-- Wenn `rangeStart` größer ist als `rangeEnd`, wird eine [`DOMException`](/de/docs/Web/API/DOMException) ausgelöst.
 
 ## Beispiele
 
 ### Aktualisierung des Editors, wenn der Benutzer Text einfügt
 
-Dieses Beispiel zeigt, wie die `updateText`-Methode verwendet wird, um den Textinhalt im `EditContext` eines `<canvas>`-Elements zu aktualisieren, wenn der Benutzer die Tastenkombination <kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> drückt, um Text einzufügen.
+Dieses Beispiel zeigt, wie die `updateText` Methode verwendet wird, um den Textinhalt im `EditContext` eines `<canvas>` Elements zu aktualisieren, wenn der Benutzer die <kbd>Strg</kbd>/<kbd>Cmd</kbd> + <kbd>V</kbd> Verknüpfung benutzt, um Text einzufügen.
 
-Das Beispiel verwendet auch die [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText)-Methode, um den Text aus der Zwischenablage zu lesen.
+Das Beispiel verwendet auch die [`Clipboard.readText()`](/de/docs/Web/API/Clipboard/readText) Methode, um den Text aus der Zwischenablage zu lesen.
 
 ```html
 <canvas id="editor-canvas"></canvas>
@@ -95,4 +94,4 @@ canvas.addEventListener("keydown", async (e) => {
 
 ## Siehe auch
 
-- Die [`EditContext`](/de/docs/Web/API/EditContext)-Schnittstelle, zu der es gehört.
+- Die [`EditContext`](/de/docs/Web/API/EditContext) Schnittstelle, zu der es gehört.
