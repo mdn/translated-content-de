@@ -35,7 +35,7 @@ Dies kann durch das Senden des folgenden HTTP-Antwort-Headers zur Definition ein
 Permissions-Policy: gamepad=(self "https://example.com")
 ```
 
-### Mit einem \<iframe>-Element
+### Mit einem `<iframe>`-Element
 
 FastCorp Inc. möchte `gamepad` für alle Cross-Origin-Kindrahmen deaktivieren, außer für ein bestimmtes `<iframe>`.
 Dies kann durch das Senden des folgenden HTTP-Antwort-Headers zur Definition einer Berechtigungsrichtlinie erreicht werden:

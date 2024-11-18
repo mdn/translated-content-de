@@ -18,7 +18,7 @@ Die Storage Access API wurde entwickelt, um eingebetteten Inhalten den Zugriff a
 
 Im folgenden Beispiel zeigen wir, wie ein eingebettetes Cross-Site-{{htmlelement("iframe")}} auf Drittanbieter-Cookies und einen unpartitionierten Zustand zugreifen kann, wenn eine Speicherzugriffsrichtlinie des Browsers den Zugriff darauf ansonsten blockieren würde.
 
-## Erlauben eines sandboxed \<iframe>, die API zu verwenden
+## Erlauben eines sandboxed `<iframe>`, die API zu verwenden
 
 Zunächst einmal muss die einbettende Website, wenn das `<iframe>` sandboxed ist, das `allow-storage-access-by-user-activation` [Sandbox-Token](/de/docs/Web/HTML/Element/iframe#sandbox) hinzufügen, um erfolgreiche Anfragen der Storage Access API zu ermöglichen, zusammen mit `allow-scripts` und `allow-same-origin`, um es einem Skript zu erlauben, die API aufzurufen und in einer Herkunft auszuführen, die Cookies und den Zustand haben kann:
 

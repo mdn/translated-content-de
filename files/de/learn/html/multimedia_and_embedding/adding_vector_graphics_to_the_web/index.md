@@ -168,7 +168,7 @@ Sie können die SVG-Datei auch in einem Texteditor öffnen, den SVG-Code kopiere
 
 ### Wie man ein SVG mit einem `iframe` einbettet
 
-Sie können SVG-Bilder im Browser genauso öffnen wie Webseiten. Das Einbetten eines SVG-Dokuments mit einem `<iframe>` erfolgt genauso, wie wir es in [Von \<object> zu \<iframe> — andere Einbetttechnologien](/de/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies) gelernt haben.
+Sie können SVG-Bilder im Browser genauso öffnen wie Webseiten. Das Einbetten eines SVG-Dokuments mit einem `<iframe>` erfolgt genauso, wie wir es in [Von `<object>` zu `<iframe>` — andere Einbetttechnologien](/de/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies) gelernt haben.
 
 Hier ist eine schnelle Übersicht:
 
