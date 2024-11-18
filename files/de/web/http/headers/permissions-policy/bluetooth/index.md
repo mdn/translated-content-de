@@ -39,7 +39,7 @@ Sie kann dies tun, indem sie den folgenden HTTP-Antwort-Header sendet, um eine B
 Permissions-Policy: bluetooth=(self "https://example.com")
 ```
 
-### Mit einem \<iframe>-Element
+### Mit einem `<iframe>`-Element
 
 FastCorp Inc. möchte `bluetooth` für alle Cross-Origin-Kinderframes deaktivieren, außer für ein bestimmtes `<iframe>`.
 Dies kann durch die Auslieferung des folgenden HTTP-Antwort-Headers erfolgen, um eine Berechtigungsrichtlinie zu definieren:

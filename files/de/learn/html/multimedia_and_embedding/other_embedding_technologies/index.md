@@ -297,7 +297,7 @@ Wenn absolut erforderlich, können Sie Berechtigungen einzeln wieder hinzufügen
 > [!NOTE]
 > Sie können Frederik Brauns Beitrag [On the X-Frame-Options Security Header](https://blog.mozilla.org/security/2013/12/12/on-the-x-frame-options-security-header/) für weitere Hintergrundinformationen zu diesem Thema lesen. Offensichtlich ist dies außerhalb des Rahmens für eine vollständige Erklärung in diesem Artikel.
 
-## Die \<embed> und \<object> Elemente
+## Die \<embed> und `<object>` Elemente
 
 Die {{htmlelement("embed")}} und {{htmlelement("object")}} Elemente dienen einem anderen Zweck als {{htmlelement("iframe")}} — diese Elemente sind allgemeine Einbettungswerkzeuge zum Einbetten externer Inhalte, wie PDFs.
 
