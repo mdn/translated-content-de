@@ -1,14 +1,14 @@
 ---
-title: "MediaList: deleteMedium()-Methode"
+title: "MediaList: deleteMedium() Methode"
 short-title: deleteMedium()
 slug: Web/API/MediaList/deleteMedium
 l10n:
-  sourceCommit: 84f8672adab0fdb783d02676c42a2b7ae16b3606
+  sourceCommit: 1759afe30edd337bbf8954e368c9c9889f6e865e
 ---
 
 {{APIRef("CSSOM")}}
 
-Die `deleteMedium()`-Methode des [`MediaList`](/de/docs/Web/API/MediaList)-Interfaces entfernt aus dieser `MediaList` die angegebene Media Query.
+Die `deleteMedium()`-Methode der [`MediaList`](/de/docs/Web/API/MediaList)-Schnittstelle entfernt die angegebene Medienabfrage aus dieser `MediaList`.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ deleteMedium(medium)
 ### Parameter
 
 - `medium`
-  - : Ein String, der die zu entfernende Media Query aus der Liste enthält.
+  - : Ein String, der die zu entfernende Medienabfrage aus der Liste enthält.
 
 ### Rückgabewert
 
@@ -28,16 +28,16 @@ Keiner ([undefined](/de/docs/Web/JavaScript/Reference/Global_Objects/undefined))
 ### Ausnahmen
 
 - `NotFoundError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die zu entfernende Media Query nicht in der Liste vorhanden ist.
+  - : Wird ausgelöst, wenn die zu entfernende Medienabfrage nicht in der Liste enthalten ist.
 
 ## Beispiele
 
-Im Folgenden wird die Media Query `print` von der
-`MediaList` entfernt, die mit dem ersten Stylesheet im aktuellen Dokument verknüpft ist.
+Das folgende Beispiel entfernt die Medienabfrage `print` aus der
+`MediaList`, die mit dem ersten auf das aktuelle Dokument angewendeten Stylesheet verbunden ist.
 
 ```js
 const stylesheet = document.styleSheets[0];
-stylesheet.media.removeMedium("print");
+stylesheet.media.deleteMedium("print");
 ```
 
 ## Spezifikationen

@@ -165,13 +165,6 @@
 /de/docs/Bugzilla_(external)	https://bugzilla.mozilla.org/enter_bug.cgi?format=guided
 /de/docs/Building_an_Extension	/de/docs/Mozilla/Add-ons
 /de/docs/CER_temp	/de/docs/Web/API/Document/
-/de/docs/CN_MDN	/zh-CN/docs/Web
-/de/docs/CN_MDN/JavaScript	/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/create
-/de/docs/CN_MDN/JavaScript/About_JavaScript	/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/seal
-/de/docs/CN_MDN/JavaScript/JavaScript_参考	/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isSealed
-/de/docs/CN_MDN/JavaScript/Reference	/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/preventExtensions
-/de/docs/CN_MDN/JavaScript/Reference/About_this_Reference	/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze
-/de/docs/CN_MDN/JavaScript/Reference/Global_Objects	/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen
 /de/docs/CORS_Enabled_Image	/de/docs/Web/HTML/CORS_enabled_image
 /de/docs/CSS	/de/docs/Web/CSS
 /de/docs/CSS-2_Quick_Reference	/de/docs/Web/CSS
@@ -6740,7 +6733,6 @@
 /de/docs/SVG/polyline	/de/docs/Web/SVG/Element/polyline
 /de/docs/SVG/rect	/de/docs/Web/SVG/Element/rect
 /de/docs/SVG/use	/de/docs/Web/SVG/Element/use
-/de/docs/SVG/教程	/zh-TW/docs/Web/SVG/Tutorial
 /de/docs/SVG:Linking	/de/docs/Web/SVG/Linking
 /de/docs/SVG:Namespaces_Crash_Course	/de/docs/Web/SVG/Namespaces_Crash_Course
 /de/docs/SVG:Namespaces_Crash_Course:Example	/de/docs/Web/SVG/Namespaces_Crash_Course/Example
@@ -6770,7 +6762,6 @@
 /de/docs/Same_origin_policy_for_JavaScript	/de/docs/Web/Security/Same-origin_policy
 /de/docs/Sample_.htaccess_file	/de/docs/Learn/Server-side/Apache_Configuration_htaccess
 /de/docs/Scripting_plugins	/de/docs/Glossary/Plugin
-/de/docs/Secciones_y_contornos_de_un_documento_HTML5	/es/docs/Sections_and_Outlines_of_an_HTML5_document
 /de/docs/Security/CSP	/de/docs/Web/HTTP/CSP
 /de/docs/Security/CSP/CSP_policy_directives	/de/docs/Web/HTTP/Headers/Content-Security-Policy
 /de/docs/Security/CSP/Default_CSP_restrictions	/de/docs/Web/HTTP/Headers/Content-Security-Policy
@@ -10071,9 +10062,7 @@
 /de/docs/Web/API/WebGL_API/Creating_3D_objects_using_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
 /de/docs/Web/API/WebGL_API/Cross-Domain_Textures	/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL#Cross-domain_textures
 /de/docs/Web/API/WebGL_API/Getting_started_with_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL
-/de/docs/Web/API/WebGL_API/Getting_started_with_WebGL/Commencer_avec_le_WebGL	/fr/docs/Web/API/WebGL_API/Tutorial/Commencer_avec_WebGL
 /de/docs/Web/API/WebGL_API/Lighting_in_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL
-/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL/Commencer_avec_le_WebGL	/fr/docs/Web/API/WebGL_API/Tutorial/Commencer_avec_WebGL
 /de/docs/Web/API/WebGL_API/Using_shaders_to_apply_color_in_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL
 /de/docs/Web/API/WebGL_API/Using_textures_in_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL
 /de/docs/Web/API/WebKitCSSMatrix	/de/docs/Web/API/DOMMatrix
@@ -13018,7 +13007,6 @@
 /de/docs/Web/SVG/polyline	/de/docs/Web/SVG/Element/polyline
 /de/docs/Web/SVG/rect	/de/docs/Web/SVG/Element/rect
 /de/docs/Web/SVG/use	/de/docs/Web/SVG/Element/use
-/de/docs/Web/SVG/教程	/zh-TW/docs/Web/SVG/Tutorial
 /de/docs/Web/Security/CSP	/de/docs/Web/HTTP/CSP
 /de/docs/Web/Security/CSP/CSP_policy_directives	/de/docs/Web/HTTP/Headers/Content-Security-Policy
 /de/docs/Web/Security/CSP/Default_CSP_restrictions	/de/docs/Web/HTTP/Headers/Content-Security-Policy
@@ -13064,7 +13052,6 @@
 /de/docs/Web/WebGL/Creating_3D_objects_using_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
 /de/docs/Web/WebGL/Cross-Domain_Textures	/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL#Cross-domain_textures
 /de/docs/Web/WebGL/Getting_started_with_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL
-/de/docs/Web/WebGL/Getting_started_with_WebGL/Commencer_avec_le_WebGL	/fr/docs/Web/API/WebGL_API/Tutorial/Commencer_avec_WebGL
 /de/docs/Web/WebGL/Lighting_in_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL
 /de/docs/Web/WebGL/Using_Extensions	/de/docs/Web/API/WebGL_API/Using_Extensions
 /de/docs/Web/WebGL/Using_shaders_to_apply_color_in_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL
@@ -13231,7 +13218,6 @@
 /de/docs/WebGL/Creating_3D_objects_using_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Creating_3D_objects_using_WebGL
 /de/docs/WebGL/Cross-Domain_Textures	/de/docs/Web/API/WebGL_API/Tutorial/Using_textures_in_WebGL#Cross-domain_textures
 /de/docs/WebGL/Getting_started_with_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL
-/de/docs/WebGL/Getting_started_with_WebGL/Commencer_avec_le_WebGL	/fr/docs/Web/API/WebGL_API/Tutorial/Commencer_avec_WebGL
 /de/docs/WebGL/Lighting_in_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Lighting_in_WebGL
 /de/docs/WebGL/Using_Extensions	/de/docs/Web/API/WebGL_API/Using_Extensions
 /de/docs/WebGL/Using_shaders_to_apply_color_in_WebGL	/de/docs/Web/API/WebGL_API/Tutorial/Using_shaders_to_apply_color_in_WebGL
@@ -13747,7 +13733,6 @@
 /de/docs/transform	/de/docs/Web/CSS/transform
 /de/docs/typeof	/de/docs/Web/JavaScript/Reference/Operators/typeof
 /de/docs/var	/de/docs/Web/CSS/var
-/de/docs/video	/es/docs/Web/HTML/Elemento/video
 /de/docs/web/accessibility/aria/aria_techniques/using_the_alertdialog_role/	/de/docs/Web/Accessibility/ARIA/Roles/alertdialog_role
 /de/docs/web/accessibility/aria/aria_techniques/using_the_article_role/	/de/docs/Web/Accessibility/ARIA/Roles/article_role
 /de/docs/web/accessibility/aria/aria_techniques/using_the_group_role/	/de/docs/Web/Accessibility/ARIA/Roles/group_role
@@ -13816,5 +13801,3 @@
 /de/docs/window.window	/de/docs/Web/API/Window/window
 /de/docs/www_vs_non-www_URLs	/de/docs/Web/URI/Authority/Choosing_between_www_and_non-www_URLs
 /de/docs/xml:base	/de/docs/Web/API/Node/baseURI
-/de/docs/zh-n/JavaScript/Reference/Global_Objects/String/quote	/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/quote
-/de/docs/zh_cn	/zh-CN/docs/Web
