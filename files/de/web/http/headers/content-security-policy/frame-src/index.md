@@ -2,14 +2,18 @@
 title: "CSP: frame-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/frame-src
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-src`**-Direktive gibt gültige Quellen für verschachtelte Browsing-Kontexte an, die mit Elementen wie `<frame>` und `<iframe>` geladen werden.
+Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`frame-src`** Direktive spezifiziert gültige Quellen für verschachtelte
+Browsing-Kontexte, die mit Elementen wie {{HTMLElement("frame")}} und
+{{HTMLElement("iframe")}} geladen werden.
 
-> **Note:** **`frame-src`** ermöglicht es Ihnen festzulegen, von wo aus `iframes` auf einer Seite geladen werden dürfen. Dies unterscheidet sich von **`frame-ancestors`**, das festlegt, welche übergeordnete Quelle eine Seite einbetten darf.
+> **Note:** **`frame-src`** ermöglicht Ihnen, festzulegen, von wo `iframes` auf einer Seite geladen werden dürfen.
+> Dies unterscheidet sich von **`frame-ancestors`**, das festlegt, welche übergeordnete Quelle eine Seite einbetten darf.
 
 <table class="properties">
   <tbody>
@@ -19,14 +23,14 @@ Der HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`frame-src`**-Direkti
     </tr>
     <tr>
       <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <td>{{Glossary("Fetch_directive", "Fetch directive")}}</td>
     </tr>
     <tr>
       <th scope="row">Fallback</th>
       <td>
-        Ist diese Direktive nicht vorhanden, wird der Benutzeragent die
-        {{CSP("child-src")}}-Direktive suchen (die auf die
-        {{CSP("default-src")}}-Direktive zurückfällt).
+        Falls diese Direktive fehlt, sucht der Benutzeragent nach der
+        {{CSP("child-src")}} Direktive (die auf die
+        {{CSP("default-src")}} Direktive zurückfällt).
       </td>
     </tr>
   </tbody>
@@ -45,13 +49,15 @@ Diese Direktive kann einen der folgenden Werte haben:
   - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Source-Expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen.
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellen-Ausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellen-Ausdrücke anwendbar:
 
-    Quellausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellausdruck wird in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
+    - [`<host-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
 Angenommen, dieser CSP-Header:
 
@@ -59,7 +65,7 @@ Angenommen, dieser CSP-Header:
 Content-Security-Policy: frame-src https://example.com/
 ```
 
-Das folgende `<iframe>` wird blockiert und nicht geladen:
+Das folgende {{HTMLElement("iframe")}} wird blockiert und nicht geladen:
 
 ```html
 <iframe src="https://not-example.com/"></iframe>
@@ -76,5 +82,5 @@ Das folgende `<iframe>` wird blockiert und nicht geladen:
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- `<frame>` und `<iframe>`
+- {{HTMLElement("frame")}} und {{HTMLElement("iframe")}}
 - {{CSP("frame-ancestors")}}

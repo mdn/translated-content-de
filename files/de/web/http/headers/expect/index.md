@@ -2,23 +2,18 @@
 title: Expect
 slug: Web/HTTP/Headers/Expect
 l10n:
-  sourceCommit: 93e2eae70255b3e95c702fd7248bb90fff9a64a8
+  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
 ---
 
 {{HTTPSidebar}}
 
-Der **`Expect`** HTTP-Anforderungsheader gibt Erwartungen an, die der Server erfüllen muss, um die Anfrage erfolgreich zu bearbeiten.
+Der HTTP-**`Expect`**-{{Glossary("request_header", "Anforderungsheader")}} zeigt an, dass es Erwartungen gibt, die vom Server erfüllt werden müssen, um die vollständige Anfrage erfolgreich zu bearbeiten.
 
-Bei `Expect: 100-continue` antwortet der Server mit:
+Wenn eine Anfrage einen `Expect: 100-continue`-Header enthält, sendet ein Server eine {{HTTPStatus("100", "100 Continue")}}-Antwort, um anzuzeigen, dass der Server bereit oder in der Lage ist, den Rest des Anfrageinhalts zu empfangen. Das Warten auf eine `100`-Antwort kann hilfreich sein, wenn ein Client mit einem Fehler rechnet, zum Beispiel, wenn zustandsverändernde Operationen ohne vorher verifizierte Authentifizierungsanmeldeinformationen gesendet werden.
 
-- {{HTTPStatus("100")}} (Continue), wenn die Informationen aus dem Anforderungsheader nicht ausreichen, um die Antwort zu bestimmen, und der Client den Body senden sollte.
-- {{HTTPStatus("417")}} (Expectation Failed), wenn der Server die Erwartung nicht erfüllen kann.
+Eine {{HTTPStatus("417", "417 Expectation Failed")}}-Antwort wird zurückgegeben, wenn der Server die Erwartung nicht erfüllen kann, oder anderweitig ein anderer Status (z.B. ein [4XX](/de/docs/Web/HTTP/Status#client_error_responses)-Status für einen Client-Fehler oder ein [2XX](/de/docs/Web/HTTP/Status#successful_responses)-Status, wenn die Anfrage erfolgreich ohne weitere Verarbeitung gelöst werden kann).
 
-oder einem anderen Status (z. B. ein 4xx-Status bei einem Client-Fehler oder ein 2xx-Status, wenn die Anfrage ohne weitere Verarbeitung erfolgreich erfüllt werden kann).
-
-Zum Beispiel könnte der Server eine Anfrage ablehnen, wenn deren {{HTTPHeader("Content-Length")}} zu groß ist.
-
-Keine gängigen Browser senden den `Expect`-Header, aber einige andere Clients wie cURL tun dies standardmäßig.
+Keine der gängigeren Browser sendet den `Expect`-Header, aber einige Clients (Kommandozeilenwerkzeuge) tun dies standardmäßig.
 
 <table class="properties">
   <tbody>
@@ -28,7 +23,7 @@ Keine gängigen Browser senden den `Expect`-Header, aber einige andere Clients w
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -44,13 +39,13 @@ Expect: 100-continue
 Es gibt nur eine definierte Erwartung:
 
 - `100-continue`
-  - : Informiert die Empfänger, dass der Client im Begriff ist, einen (vermutlich großen) Nachrichtenkörper in dieser Anfrage zu senden, und wünscht eine {{HTTPStatus("100")}} (Continue) Zwischenergebnis-Antwort.
+  - : Informiert die Empfänger, dass der Client im Begriff ist, einen (vermutlich großen) Nachrichteninhalt in dieser Anfrage zu senden und eine vorläufige {{HTTPStatus("100", "100 Continue")}}-Antwort erhalten möchte.
 
 ## Beispiele
 
-### Großer Nachrichtenkörper
+### Großer Nachrichteninhalt
 
-Ein Client sendet eine Anfrage mit `Expect`-Header und wartet auf die Antwort des Servers, bevor er den Nachrichtenkörper sendet.
+Ein Client sendet eine Anfrage mit `Expect`-Header und wartet, bis der Server antwortet, bevor er den Nachrichteninhalt sendet.
 
 ```http
 PUT /somewhere/fun HTTP/1.1
@@ -60,7 +55,17 @@ Content-Length: 1234567890987
 Expect: 100-continue
 ```
 
-Der Server überprüft die Header und erzeugt die Antwort. Der Server sendet {{HTTPStatus("100")}} (Continue), was den Client anweist, den Nachrichtenkörper zu senden.
+Der Server überprüft die Header und erzeugt die Antwort, wobei ein {{HTTPStatus("100", "100 Continue")}} den Client anweist, den Nachrichteninhalt zu senden:
+
+```http
+HTTP/1.1 100 Continue
+```
+
+Der Client vervollständigt die Anfrage, indem er die tatsächlichen Daten sendet:
+
+```http
+[Video data as content for PUT request]
+```
 
 ## Spezifikationen
 

@@ -2,14 +2,12 @@
 title: "CSP: font-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/font-src
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}
 
-Das HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`font-src`**-Direktive spezifiziert
-gültige Quellen für Schriften, die mit {{cssxref("@font-face")}} geladen werden.
+Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`font-src`** bestimmt gültige Quellen für Schriftarten, die mit {{cssxref("@font-face")}} geladen werden.
 
 <table class="properties">
   <tbody>
@@ -41,24 +39,26 @@ Content-Security-Policy: font-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind verpflichtend.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellenausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellenausdrücke übereinstimmen.
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
 
-    Quellenausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellenausdruck wird in [CSP-Quellenwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
+    - [`<host-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
 ### Verstöße
 
-Angenommen, dieser CSP-Header:
+Gegeben diesen CSP-Header:
 
 ```http
 Content-Security-Policy: font-src https://example.com/
 ```
 
-Das folgende Laden von Schriftarten-Ressourcen wird blockiert und nicht geladen:
+Das Laden der folgenden Schriftartressourcen wird blockiert und erfolgt nicht:
 
 ```html
 <style>

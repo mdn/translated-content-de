@@ -2,32 +2,32 @@
 title: Sec-Fetch-Site
 slug: Web/HTTP/Headers/Sec-Fetch-Site
 l10n:
-  sourceCommit: fe1db9dc292326da0dcace93b10078be50e65241
+  sourceCommit: 6c32e8b21a39b1b8d3db7a194d2350e0f8218b64
 ---
 
 {{HTTPSidebar}}
 
-Der **`Sec-Fetch-Site`** {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheader")}} gibt die Beziehung zwischen dem Ursprungsort des Anforderungsinitiators und dem Ursprung der angeforderten Ressource an.
+Der HTTP **`Sec-Fetch-Site`** {{Glossary("fetch_metadata_request_header", "Fetch Metadata Request Header")}} gibt die Beziehung zwischen dem Ursprung eines Anforderungsinitiators und dem Ursprung der angeforderten Ressource an.
 
-Mit anderen Worten, dieser Header teilt einem Server mit, ob eine Anforderung für eine Ressource vom gleichen Ursprung, der gleichen Website, einer anderen Website stammt oder ob es sich um eine vom Benutzer eingeleitete Anforderung handelt. Der Server kann diese Informationen dann verwenden, um zu entscheiden, ob die Anforderung erlaubt werden soll.
+Mit anderen Worten, dieser Header teilt einem Server mit, ob eine Anfrage für eine Ressource vom gleichen Ursprung, derselben Seite, einer anderen Seite oder als "vom Benutzer initiiert" kommt. Der Server kann dann diese Informationen nutzen, um zu entscheiden, ob die Anfrage erlaubt werden sollte.
 
-Anforderungen vom gleichen Ursprung würden normalerweise standardmäßig zugelassen, aber was bei Anforderungen von anderen Ursprüngen passiert, kann weiter davon abhängen, welche Ressource angefordert wird oder welche Informationen in anderen {{Glossary("Fetch_metadata_request_header", "Fetch-Metadaten-Anforderungsheadern")}} enthalten sind. Standardmäßig sollten nicht akzeptierte Anfragen mit einem {{HTTPStatus("403")}} Antwortcode abgelehnt werden.
+Anfragen vom gleichen Ursprung würden normalerweise standardmäßig zugelassen, aber was bei Anfragen von anderen Ursprüngen passiert, kann darüber hinaus davon abhängen, welche Ressource angefragt wird, oder von Informationen in einem anderen {{Glossary("fetch_metadata_request_header", "Fetch Metadata Request Header")}}. Standardmäßig sollten nicht akzeptierte Anfragen mit einem {{HTTPStatus("403")}} Antwortcode abgelehnt werden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch-Metadaten-Anforderungsheader")}}</td>
+      <td>{{Glossary("Fetch_Metadata_Request_Header", "Fetch Metadata Request Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja (Präfix <code>Sec-</code>)</td>
+      <td>Ja (<code>Sec-</code> Präfix)</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted Request Header")}}
       </th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -44,18 +44,18 @@ Sec-Fetch-Site: none
 ## Direktiven
 
 - `cross-site`
-  - : Der Anforderungsinitiator und der Server, der die Ressource hostet, haben eine andere Website (d.h. eine Anforderung von "potentially-evil.com" für eine Ressource bei "example.com").
+  - : Der Anforderungsinitiator und der Server, der die Ressource hostet, haben unterschiedliche Seiten (d. h. eine Anfrage von "potenziell-bösartig.com" für eine Ressource bei "example.com").
 - `same-origin`
-  - : Der Anforderungsinitiator und der Server, der die Ressource hostet, haben den gleichen {{Glossary("origin", "Ursprung")}} (gleiches Schema, Host und Port).
+  - : Der Anforderungsinitiator und der Server, der die Ressource hostet, haben denselben {{Glossary("origin", "Ursprung")}} (gleiches Schema, Host und Port).
 - `same-site`
-  - : Der Anforderungsinitiator und der Server, der die Ressource hostet, haben die gleiche {{Glossary("site", "Website")}}, einschließlich des Schemas.
+  - : Der Anforderungsinitiator und der Server, der die Ressource hostet, haben dieselbe {{Glossary("site", "Seite")}}, einschließlich des Schemas.
 - `none`
-  - : Diese Anforderung ist eine vom Benutzer initiierte Operation. Zum Beispiel: Eine URL in die Adressleiste eingeben, ein Lesezeichen öffnen oder eine Datei in das Browserfenster ziehen.
+  - : Diese Anfrage ist eine vom Benutzer initiierte Operation. Zum Beispiel: Eingabe einer URL in die Adressleiste, Öffnen eines Lesezeichens oder Drag-and-Drop einer Datei in das Browserfenster.
 
 ## Beispiele
 
-Eine Fetch-Anfrage an `https://mysite.example/foo.json`, die von einer Webseite auf `https://mysite.example` (mit dem gleichen Port) stammt, ist eine `same-origin`-Anforderung.
-Der Browser generiert den `Sec-Fetch-Site: same-origin` Header wie unten gezeigt, und der Server wird die Anforderung typischerweise zulassen:
+Eine Fetch-Anfrage an `https://mysite.example/foo.json`, die von einer Webseite auf `https://mysite.example` (mit demselben Port) stammt, ist eine Anfrage vom gleichen Ursprung.
+Der Browser generiert den `Sec-Fetch-Site: same-origin`-Header wie unten gezeigt, und der Server wird die Anfrage in der Regel zulassen:
 
 ```http
 GET /foo.json
@@ -64,7 +64,7 @@ Sec-Fetch-Mode: cors
 Sec-Fetch-Site: same-origin
 ```
 
-Eine Fetch-Anfrage an die gleiche URL von einer anderen Website, zum Beispiel `potentially-evil.com`, veranlasst den Browser, einen anderen Header zu generieren (z.B. `Sec-Fetch-Site: cross-site`), den der Server akzeptieren oder ablehnen kann:
+Eine Fetch-Anfrage zur selben URL von einer anderen Seite, zum Beispiel `potenziell-bösartig.com`, verursacht, dass der Browser einen anderen Header generiert (z. B. `Sec-Fetch-Site: cross-site`), den der Server akzeptieren oder ablehnen kann:
 
 ```http
 GET /foo.json
@@ -83,11 +83,6 @@ Sec-Fetch-Site: cross-site
 
 ## Siehe auch
 
-- Verwandte Header
-
-  - {{HTTPHeader("Sec-Fetch-Mode")}}
-  - {{HTTPHeader("Sec-Fetch-User")}}
-  - {{HTTPHeader("Sec-Fetch-Dest")}}
-
+- {{HTTPHeader("Sec-Fetch-Mode")}}, {{HTTPHeader("Sec-Fetch-User")}}, {{HTTPHeader("Sec-Fetch-Dest")}} fetch metadata request headers
 - [Schützen Sie Ihre Ressourcen vor Webangriffen mit Fetch Metadata](https://web.dev/articles/fetch-metadata) (web.dev)
-- [Fetch-Metadata-Anforderungsheader-Spielwiese](https://secmetadata.appspot.com/) (secmetadata.appspot.com)
+- [Fetch Metadata Request Headers playground](https://secmetadata.appspot.com/) (secmetadata.appspot.com)

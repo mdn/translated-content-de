@@ -2,27 +2,27 @@
 title: Sec-CH-UA-Arch
 slug: Web/HTTP/Headers/Sec-CH-UA-Arch
 l10n:
-  sourceCommit: 4458494807b6f4898d504b6c0af0a45f8031cbf3
+  sourceCommit: 6c32e8b21a39b1b8d3db7a194d2350e0f8218b64
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}{{SecureContext_Header}}
 
-Der **`Sec-CH-UA-Arch`** [User-Agent-Client-Hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) im Anforderungs-Header liefert die zugrunde liegende CPU-Architektur des User-Agents, wie ARM oder x86.
+Der HTTP **`Sec-CH-UA-Arch`** {{Glossary("request_header", "Request-Header")}} ist ein [User-Agent-Client-Hinweis](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints), der die zugrunde liegende CPU-Architektur des User-Agents enthält, wie z.B. ARM oder x86.
 
-Dies könnte von einem Server verwendet werden, um beispielsweise das richtige Binärformat einer ausführbaren Datei auszuwählen und zum Download anzubieten.
+Ein Server könnte dies beispielsweise verwenden, um das korrekte binäre Format einer ausführbaren Datei auszuwählen und anzubieten, damit ein Benutzer es herunterladen kann.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
+      <th scope="row">Headertyp</th>
       <td>
-        {{Glossary("Request_header", "Anforderungs-Header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client Hint</a>
+        {{Glossary("Request_header", "Request-Header")}},
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja</td>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
+      <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
   </tbody>
 </table>
@@ -40,15 +40,16 @@ Sec-CH-UA-Arch: <arch>
 
 ## Beispiele
 
-Ein Server fordert den `Sec-CH-UA-Arch` Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer Antwort auf eine Anfrage vom Client einfügt und den Namen des gewünschten Headers als Token verwendet:
+### Verwendung von Sec-CH-UA-Arch
+
+Ein Server fordert den `Sec-CH-UA-Arch`-Header an, indem er den {{HTTPHeader("Accept-CH")}} in einer Antwort auf eine Anfrage des Clients einschließt und den Namen des gewünschten Headers als Token verwendet:
 
 ```http
 HTTP/1.1 200 OK
 Accept-CH: Sec-CH-UA-Arch
 ```
 
-Der Client kann sich entscheiden, den Hinweis bereitzustellen, und fügt den `Sec-CH-UA-Arch` Header zu nachfolgenden Anfragen hinzu.
-Zum Beispiel könnte auf einem Windows X86-basierten Computer der Header wie folgt hinzugefügt werden:
+Der Client kann wählen, den Hinweis bereitzustellen, und den `Sec-CH-UA-Arch`-Header zu nachfolgenden Anfragen hinzufügen. Zum Beispiel könnte ein Client auf einem Windows-X86-basierten Computer den Header wie gezeigt hinzufügen:
 
 ```http
 GET /GET /my/page HTTP/1.1
@@ -60,7 +61,7 @@ Sec-CH-UA-Platform: "Windows"
 Sec-CH-UA-Arch: "x86"
 ```
 
-Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) der Anfrage hinzugefügt werden, obwohl sie in der Serverantwort nicht angegeben sind.
+Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#low_entropy_hints) zur Anfrage hinzugefügt werden, auch wenn sie nicht in der Serverantwort spezifiziert sind.
 
 ## Spezifikationen
 
@@ -72,8 +73,8 @@ Beachten Sie oben, dass die [Low-Entropy-Header](/de/docs/Web/HTTP/Client_hints#
 
 ## Siehe auch
 
-- [Client Hints](/de/docs/Web/HTTP/Client_hints)
-- [User-Agent Client Hints API](/de/docs/Web/API/User-Agent_Client_Hints_API)
-- [Verbesserung der Nutzer-Privatsphäre und Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Client-Hinweise](/de/docs/Web/HTTP/Client_hints)
+- [User-Agent-Client-Hints-API](/de/docs/Web/API/User-Agent_Client_Hints_API)
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}-Header
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)

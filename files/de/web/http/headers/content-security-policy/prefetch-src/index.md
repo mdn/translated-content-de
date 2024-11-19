@@ -2,13 +2,13 @@
 title: "CSP: prefetch-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/prefetch-src
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{Non-standard_header}}
 
-Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`prefetch-src`** Direktive gibt gültige Ressourcen an, die vorab geladen oder vorgeladen werden dürfen.
+Die HTTP-Richtlinie {{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`prefetch-src`** gibt gültige Ressourcen an, die vorgeladen oder vorgerendert werden dürfen.
 
 <table class="properties">
   <tbody>
@@ -17,14 +17,14 @@ Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>{{Glossary("Fetch_directive", "Fetch-Richtlinie")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{CSP("default-src")}} Fallback</th>
+      <th scope="row">{{CSP("default-src")}} Rückfall</th>
       <td>
-        Ja. Wenn diese Direktive fehlt, sucht der Benutzeragent nach der
-        <code>default-src</code> Direktive.
+        Ja. Wenn diese Richtlinie fehlt, sucht der Benutzeragent nach der
+        <code>default-src</code>-Richtlinie.
       </td>
     </tr>
   </tbody>
@@ -37,27 +37,29 @@ Content-Security-Policy: prefetch-src 'none';
 Content-Security-Policy: prefetch-src <source-expression-list>;
 ```
 
-Diese Direktive kann einen der folgenden Werte haben:
+Diese Richtlinie kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen.
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_ Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Source-Expressions übereinstimmen. Für diese Richtlinie sind die folgenden Source-Expression-Werte anwendbar:
 
-    Quellausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellausdruck ist in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
+    - [`<host-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Beispiel
 
-### Prefetch-Ressourcen stimmen nicht mit dem Header überein
+### Prefetch-Ressourcen stimmen nicht mit Header überein
 
-Bei einer Seite mit der folgenden Content Security Policy:
+Angenommen, eine Seite hat die folgende Content Security Policy:
 
 ```http
 Content-Security-Policy: prefetch-src https://example.com/
 ```
 
-Wird das Abrufen des folgenden Codes zu Netzwerkfehlern führen, da die angegebenen URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
+Abrufe für den folgenden Code werden Netzwerkausfälle zurückgeben, da die angegebenen URLs nicht mit der Quellliste von `prefetch-src` übereinstimmen:
 
 ```html
 <link rel="prefetch" href="https://example.org/" />

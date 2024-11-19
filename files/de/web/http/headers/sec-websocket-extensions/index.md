@@ -2,37 +2,37 @@
 title: Sec-WebSocket-Extensions
 slug: Web/HTTP/Headers/Sec-WebSocket-Extensions
 l10n:
-  sourceCommit: c69e36924e1849fdc9b7fc49a3f4c550efa3468a
+  sourceCommit: 6c32e8b21a39b1b8d3db7a194d2350e0f8218b64
 ---
 
 {{HTTPSidebar}}
 
-Der **Sec-WebSocket-Extensions** HTTP-{{Glossary("request_header", "Anforderungs")}} und {{Glossary("response_header", "Antwort-Header")}} wird im [WebSocket](/de/docs/Web/API/WebSockets_API)-Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) verwendet, um eine Protokollerweiterung zwischen Client und Server auszuhandeln.
+Der HTTP-Header **Sec-WebSocket-Extensions** für {{Glossary("request_header", "Anfragen")}} und {{Glossary("response_header", "Antworten")}} wird im Eröffnungs-[Handshake](/de/docs/Web/API/WebSockets_API/Writing_WebSocket_servers#the_websocket_handshake) von [WebSocket](/de/docs/Web/API/WebSockets_API) verwendet, um eine Protokollerweiterung auszuhandeln, die vom Client und Server genutzt wird.
 
-In einer Anforderung gibt der Header eine oder mehrere Erweiterungen an, die die Webanwendung verwenden möchte, in der Reihenfolge der Präferenzen.
-Diese können als mehrere Header hinzugefügt werden, oder als kommagetrennte Werte in einem einzelnen Header.
+In einer Anfrage gibt der Header eine oder mehrere vom Webanwendung gewünschte Erweiterungen in der Reihenfolge der Präferenz an.
+Diese können als mehrere Header hinzugefügt oder als kommagetrennte Werte in einem einzelnen Header angegeben werden.
 
-In einer Antwort kann der Header nur einmal erscheinen, wo er die vom Server aus den Präferenzen des Clients ausgewählte Erweiterung angibt.
-Dieser Wert muss die erste Erweiterung sein, die der Server aus der im Anforderungs-Header bereitgestellten Liste unterstützt.
+In einer Antwort kann der Header nur einmal erscheinen. Er gibt die vom Server ausgewählte Erweiterung aus den Präferenzen des Clients an.
+Dieser Wert muss die erste Erweiterung sein, die der Server aus der im Anforderungsheader angegebenen Liste unterstützt.
 
-Der Anforderungs-Header wird automatisch vom Browser basierend auf seinen eigenen Fähigkeiten hinzugefügt und hängt nicht von Parametern ab, die an den Konstruktor übergeben werden, wenn der `WebSocket` erstellt wird.
+Der Anforderungsheader wird automatisch vom Browser basierend auf seinen eigenen Fähigkeiten hinzugefügt und hängt nicht von den beim Erstellen des `WebSocket` an den Konstruktor übergebenen Parametern ab.
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Headertyp</th>
-      <td>{{Glossary("Request_header", "Anforderungs-Header")}}, {{Glossary("Response_header", "Antwort-Header")}}</td>
+      <th scope="row">Header-Typ</th>
+      <td>{{Glossary("Request_header", "Anfrage-Header")}}, {{Glossary("Response_header", "Antwort-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja</td>
+      <td>Ja (<code>Sec-</code>-Präfix)</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
-Anforderung
+Anfrage
 
 ```http
 Sec-WebSocket-Extensions: <extensions>
@@ -47,13 +47,15 @@ Sec-WebSocket-Extensions: <selected-extension>
 ## Direktiven
 
 - `<extensions>`
-  - : Eine kommagetrennte Liste von Erweiterungen, die angefordert werden sollen (oder zu denen der Server zustimmen muss, diese zu unterstützen).
-    Diese sollten aus dem [IANA-WebSocket-Erweiterungsnamen-Register](https://www.iana.org/assignments/websocket/websocket.xml#extension-name) ausgewählt werden.
-    Erweiterungen, die Parameter verwenden, trennen diese mit Semikolons.
+  - : Eine kommagetrennte Liste von Erweiterungen, die angefordert werden (oder deren Unterstützung der Server zustimmen soll).
+    Diese sollten aus dem [IANA WebSocket Extension Name Registry](https://www.iana.org/assignments/websocket/websocket.xml#extension-name) ausgewählt werden.
+    Erweiterungen, die Parameter erfordern, trennen diese mit Semikolons.
 
 ## Beispiele
 
-Die folgende HTTP-Anforderung zeigt den Eröffnungshandshake, bei dem ein Client die `permessage-deflate` und `client_max_window_bits`-Erweiterungen unterstützt.
+### WebSocket-Eröffnungs-Handshake
+
+Die folgende HTTP-Anfrage zeigt den Eröffnungs-Handshake, bei dem ein Client die Erweiterungen `permessage-deflate` und `client_max_window_bits` unterstützt.
 
 ```http
 GET /chat HTTP/1.1
@@ -65,7 +67,7 @@ Sec-WebSocket-Version: 13
 Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
 ```
 
-Die folgende Anforderung mit separaten Headern für jede Erweiterung ist gleichwertig:
+Die folgende Anfrage mit separaten Headern für jede Erweiterung ist gleichwertig:
 
 ```http
 GET /chat HTTP/1.1
@@ -78,7 +80,7 @@ Sec-WebSocket-Extensions: permessage-deflate
 Sec-WebSocket-Extensions: client_max_window_bits
 ```
 
-Die folgende Antwort könnte von einem Server gesendet werden, um anzuzeigen, dass er die `permessage-deflate`-Erweiterung unterstützen wird:
+Die folgende Antwort könnte von einem Server gesendet werden, um anzuzeigen, dass er die Erweiterung `permessage-deflate` unterstützt:
 
 ```http
 HTTP/1.1 101 Switching Protocols

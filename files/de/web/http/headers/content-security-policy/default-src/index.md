@@ -2,12 +2,12 @@
 title: "CSP: default-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/default-src
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`** dient als Rückfalloption für die anderen CSP-{{Glossary("fetch_directive", "Fetch-Direktiven")}}. Für jede der folgenden, nicht vorhandenen Direktiven sucht der Benutzeragent nach der `default-src`-Direktive und verwendet diesen Wert:
+Die HTTP-Richtlinie {{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-src`** dient als Fallback für die anderen CSP-{{Glossary("fetch_directive", "Abrufrichtlinien")}}. Für jede der folgenden, nicht vorhandenen Richtlinien sucht der Benutzeragent nach der `default-src`-Richtlinie und verwendet diesen Wert:
 
 - {{CSP("child-src")}}
 - {{CSP("connect-src")}}
@@ -33,8 +33,8 @@ Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP) **`default-sr
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiven-Typ</th>
-      <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
+      <th scope="row">Richtlinientyp</th>
+      <td>{{Glossary("Fetch_directive", "Abrufrichtlinie")}}</td>
     </tr>
   </tbody>
 </table>
@@ -46,21 +46,19 @@ Content-Security-Policy: default-src 'none';
 Content-Security-Policy: default-src <source-expression-list>;
 ```
 
-Diese Direktive kann einen der folgenden Werte haben:
+Diese Richtlinie kann einen der folgenden Werte haben:
 
 - `'none'`
   - : Es dürfen keine Ressourcen geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdrücken_. Ressourcen dürfen geladen werden, wenn sie mit einem der angegebenen Quell-Ausdrücke übereinstimmen.
-
-    Quell-Ausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jedes Quell-Ausdruck ist in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) angegeben.
+  - : Eine durch Leerzeichen getrennte Liste von _source expression_-Werten. Ressourcen dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Richtlinie sind alle Quellausdrücke, die in der [Abrufrichtliniensyntax](/de/docs/Web/HTTP/Headers/Content-Security-Policy#fetch_directive_syntax) aufgeführt sind, anwendbar.
 
 ## Beispiele
 
 ### Keine Vererbung mit default-src
 
-Wenn andere Direktiven angegeben sind, beeinflusst `default-src` diese nicht. Der folgende Header:
+Wenn andere Richtlinien angegeben sind, beeinflusst `default-src` diese nicht. Der folgende Header:
 
 ```http
 Content-Security-Policy: default-src 'self'; script-src https://example.com
@@ -81,15 +79,15 @@ Content-Security-Policy: connect-src 'self';
                          worker-src 'self'
 ```
 
-### Firefox `default-src: none` SVG-Sprite-Blockierungsproblem
+### Firefox-Problem mit SVG-Sprite-Blockierung bei `default-src: none`
 
-CSP-Richtlinien empfehlen oft, mit `default-src 'none'` zu beginnen, um das Laden aller Ressourcen zu sperren, und dann weitere Direktiven hinzuzufügen, um die Richtlinie zu öffnen und nur die Ressourcen zu laden, die Sie benötigen. Um beispielsweise nur das Laden von Bildern aus derselben Quelle zu erlauben:
+CSP-Richtlinien empfehlen oft, mit `default-src 'none'` zu starten, um das Laden aller Ressourcen zu blockieren, und dann weitere Richtlinien hinzuzufügen, um die Richtlinie zu lockern und nur die benötigten Ressourcen zu laden. Zum Beispiel, um nur das Laden von Bildern derselben Herkunft zu erlauben:
 
 ```http
 Content-Security-Policy: default-src 'none'; img-src 'self'
 ```
 
-Es gibt jedoch ein Problem. Wenn Sie SVG-Sprites einbetten, die über das [`<use>`](/de/docs/Web/SVG/Element/use)-Element in externen Dateien definiert sind, zum Beispiel:
+Es gibt jedoch ein Problem. Wenn Sie SVG-Sprites, die in externen Dateien über das [`<use>`](/de/docs/Web/SVG/Element/use)-Element definiert sind, einbetten, z.B.:
 
 ```svg
 <svg>
@@ -97,9 +95,9 @@ Es gibt jedoch ein Problem. Wenn Sie SVG-Sprites einbetten, die über das [`<use
 </svg>
 ```
 
-werden Ihre SVG-Bilder in Firefox blockiert, wenn Sie eine `default-src 'none'`-Richtlinie festgelegt haben. Firefox behandelt das SVG nicht als eingebettetes Bild wie andere Browser, daher wird `img-src 'self'` nicht erlauben, dass sie geladen werden. Sie müssen `default-src 'self'` verwenden, wenn Ihre externen Sprites in Firefox geladen werden sollen (siehe [Bug 1773976](https://bugzil.la/1773976) und [dieses CSP-Spec-Problem](https://github.com/w3c/webappsec-csp/issues/199) für weitere Informationen).
+werden Ihre SVG-Bilder in Firefox blockiert, wenn Sie eine `default-src 'none'`-Richtlinie gesetzt haben. Firefox behandelt das SVG nicht wie ein eingebettetes Bild wie andere Browser, daher wird `img-src 'self'` diese nicht laden. Sie müssen `default-src 'self'` verwenden, wenn Sie möchten, dass Ihre externen Sprites in Firefox geladen werden (siehe [Bug 1773976](https://bugzil.la/1773976) und [dieses CSP-Spezifikationsproblem](https://github.com/w3c/webappsec-csp/issues/199) für weitere Informationen).
 
-Alternativ, wenn die `default-src 'none'`-Richtlinie eine harte Anforderung ist, können Sie die SVG-Sprites direkt in die HTML-Seite einfügen:
+Alternativ, wenn die `default-src 'none'`-Richtlinie eine feste Anforderung ist, können Sie die SVG-Sprites in die HTML-Seite einfügen:
 
 ```html
 <body>
@@ -126,11 +124,11 @@ Alternativ, wenn die `default-src 'none'`-Richtlinie eine harte Anforderung ist,
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- CSP-Direktiven (<https://www.w3.org/TR/CSP/#csp-directives>):
+- CSP-Richtlinien (<https://www.w3.org/TR/CSP/#csp-directives>):
 
-  - {{Glossary("Fetch_directive", "Fetch-Direktive")}}
-  - {{Glossary("Document_directive", "Dokument-Direktive")}}
-  - {{Glossary("Navigation_directive", "Navigations-Direktive")}}
-  - {{Glossary("Reporting_directive", "Berichts-Direktive")}}
+  - {{Glossary("Fetch_directive", "Abrufrichtlinie")}}
+  - {{Glossary("Document_directive", "Dokumentenrichtlinie")}}
+  - {{Glossary("Navigation_directive", "Navigationsrichtlinie")}}
+  - {{Glossary("Reporting_directive", "Berichterstattungsrichtlinie")}}
   - [`upgrade-insecure-requests`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests)
   - [`block-all-mixed-content`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/block-all-mixed-content)

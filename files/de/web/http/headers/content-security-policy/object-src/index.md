@@ -2,20 +2,17 @@
 title: "CSP: object-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/object-src
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}}
-**`object-src`** Direktive legt gültige Quellen für die
-{{HTMLElement("object")}} und {{HTMLElement("embed")}} Elemente fest.
+Die HTTP-Richtlinie {{HTTPHeader("Content-Security-Policy")}}
+**`object-src`** legt gültige Quellen für die
+{{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente fest.
 
 > [!NOTE]
-> Elemente, die durch `object-src` gesteuert werden, werden möglicherweise zufällig
-> als veraltete HTML-Elemente angesehen und erhalten keine neuen standardisierten Funktionen (wie z.B.
-> die Sicherheitsattribute `sandbox` oder `allow` für
-> `<iframe>`). Es wird daher [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Fetch-Direktive einzuschränken (z.B. explizit `object-src 'none'` festzulegen, wenn möglich).
+> Elemente, die durch `object-src` kontrolliert werden, gelten vielleicht zufällig als veraltete HTML-Elemente und erhalten keine neuen standardisierten Funktionen (wie z.B. die Sicherheitsattribute `sandbox` oder `allow` für `<iframe>`). Daher wird [empfohlen](https://csp.withgoogle.com/docs/strict-csp.html), diese Fetch-Direktive einzuschränken (z.B. `object-src 'none'` explizit festzulegen, wenn möglich).
 
 <table class="properties">
   <tbody>
@@ -24,7 +21,7 @@ Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}}
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
+      <th scope="row">Direktiventyp</th>
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
@@ -47,24 +44,26 @@ Content-Security-Policy: object-src <source-expression-list>;
 Diese Direktive kann einen der folgenden Werte haben:
 
 - `'none'`
-  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
+  - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind verpflichtend.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen.
+  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdruckswerte anwendbar:
 
-    Quellausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellausdruck wird in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
+    - [`<host-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
-### Verstöße
+### Verletzungsfälle
 
-Angenommen, dieser CSP-Header ist gesetzt:
+Gegeben dieser CSP-Header:
 
 ```http
 Content-Security-Policy: object-src https://example.com/
 ```
 
-Die folgenden {{HTMLElement("object")}} und {{HTMLElement("embed")}} Elemente werden blockiert und nicht geladen:
+Die folgenden {{HTMLElement("object")}}- und {{HTMLElement("embed")}}-Elemente werden blockiert und nicht geladen:
 
 ```html
 <embed src="https://not-example.com/flash"></embed>

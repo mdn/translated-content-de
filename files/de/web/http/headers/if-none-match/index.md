@@ -2,33 +2,37 @@
 title: If-None-Match
 slug: Web/HTTP/Headers/If-None-Match
 l10n:
-  sourceCommit: 997a0ec66e1514b7269076195b2419db334e876e
+  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
 ---
 
 {{HTTPSidebar}}
 
-Der **`If-None-Match`** HTTP-Anforderungsheader macht die Anfrage bedingt. Für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} gibt der Server die angeforderte Ressource mit einem Status von {{HTTPStatus("200")}} nur zurück, wenn er keinen {{HTTPHeader("ETag")}} hat, der zu den angegebenen passt. Für andere Methoden wird die Anfrage nur bearbeitet, wenn der gegebenenfalls vorhandene {{HTTPHeader("ETag")}} der Ressource mit keinem der aufgeführten Werte übereinstimmt.
+Der HTTP **`If-None-Match`** {{Glossary("request_header", "Request-Header")}} macht eine Anfrage [konditional](/de/docs/Web/HTTP/Conditional_requests).
+Der Server gibt die angeforderte Ressource in {{HTTPMethod("GET")}}- und {{HTTPMethod("HEAD")}}-Methoden mit einem {{HTTPStatus("200")}}-Status zurück, nur wenn er keinen {{HTTPHeader("ETag")}} hat, der mit denen im `If-None-Match`-Header übereinstimmt.
+Für andere Methoden wird die Anfrage nur verarbeitet, wenn der eventuell vorhandene Ressource-{{HTTPHeader("ETag")}} mit keinem der aufgelisteten Werte übereinstimmt.
 
-Wenn die Bedingung für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} fehlschlägt, muss der Server den HTTP-Statuscode 304 (Not Modified) zurückgeben. Für Methoden, die serverseitige Änderungen bewirken, wird der Statuscode 412 (Precondition Failed) verwendet. Beachten Sie, dass der Server, der eine 304-Antwort generiert, eines der folgenden Header-Felder generieren MUSS, die in einer 200 (OK) Antwort auf dieselbe Anfrage gesendet worden wären: Cache-Control, Content-Location, Date, ETag, Expires und Vary.
+Wenn die Bedingung für die {{HTTPMethod("GET")}}- und {{HTTPMethod("HEAD")}}-Methoden fehlschlägt, muss der Server einen {{HTTPStatus("304", "304 Not Modified")}} zurückgeben und alle der folgenden Header-Felder, die in einer 200-Antwort auf dieselbe Anfrage gesendet worden wären: `Cache-Control`, `Content-Location`, `Date`, `ETag`, `Expires`, und `Vary`.
+Für Methoden, die serverseitige Änderungen betreffen, wird der {{HTTPStatus("412", "412 Precondition Failed")}} verwendet, wenn die Bedingung fehlschlägt.
 
-Der Vergleich mit dem gespeicherten {{HTTPHeader("ETag")}} verwendet den _schwachen Vergleichsalgorithmus_, was bedeutet, dass zwei Dateien als identisch betrachtet werden, wenn der Inhalt gleichwertig ist — sie müssen nicht byteweise identisch sein. Zum Beispiel würden zwei Seiten, die sich lediglich durch ihr Erstellungsdatum im Fußzeilenbereich unterscheiden, immer noch als identisch betrachtet.
+Der Vergleich mit dem gespeicherten ETag verwendet den _schwachen Vergleichsalgorithmus_, was bedeutet, dass zwei Dateien als identisch betrachtet werden, wenn der Inhalt gleichwertig ist — sie müssen nicht byteweise identisch sein.
+Zum Beispiel würden zwei Seiten, die sich nur durch ihr Erstellungsdatum im Fußbereich unterscheiden, dennoch als identisch betrachtet werden.
 
-In Kombination mit {{HTTPHeader("If-Modified-Since")}} verwendet, hat **`If-None-Match`** Vorrang (sofern der Server dies unterstützt).
+Wenn `If-None-Match` in Kombination mit {{HTTPHeader("If-Modified-Since")}} verwendet wird, hat `If-None-Match` Vorrang, wenn der Server es unterstützt.
 
-Es gibt zwei häufige Anwendungsfälle:
+Es gibt zwei häufige Anwendungsfälle für die Verwendung von `If-None-Match` in Anfragen:
 
-- Für die Methoden {{HTTPMethod("GET")}} und {{HTTPMethod("HEAD")}} wird ein zwischengespeichertes Element aktualisiert, das mit einem {{HTTPHeader("ETag")}} verknüpft ist.
-- Für andere Methoden, insbesondere für {{HTTPMethod("PUT")}}, kann `If-None-Match` mit dem Wert `*` verwendet werden, um eine nicht bekannte Datei zu speichern, was garantiert, dass kein weiterer Upload zuvor stattgefunden hat und die Daten des vorherigen Uploads nicht verloren gingen; dieses Problem ist eine Variante des [Lost-Update-Problems](https://www.w3.org/1999/04/Editing/#3.1).
+- Für {{HTTPMethod("GET")}}- und {{HTTPMethod("HEAD")}}-Methoden, um eine zwischengespeicherte Entität zu aktualisieren, die über einen zugeordneten ETag verfügt.
+- Für andere Methoden, insbesondere für {{HTTPMethod("PUT")}}, kann `If-None-Match` mit dem Wert `*` verwendet werden, um eine Datei nur dann zu speichern, wenn sie noch nicht existiert. Dies garantiert, dass das Hochladen nicht versehentlich ein anderes Hochladen überschreibt und die Daten des vorherigen `PUT` verliert; dieses Problem ist eine Variante des [Lost-Update-Problems](https://www.w3.org/1999/04/Editing/#3.1).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
+      <th scope="row">Headertyp</th>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -43,10 +47,10 @@ If-None-Match: *
 
 ## Direktiven
 
-- \<etag_value>
-  - : Entity-Tags, die die angeforderten Ressourcen eindeutig darstellen. Sie sind eine Zeichenfolge von {{Glossary("ASCII", "ASCII")}}-Zeichen, die zwischen Anführungszeichen gesetzt sind (wie `"675af34563dc-tr34"`) und können mit `W/` vorangestellt werden, um anzuzeigen, dass der schwache Vergleichsalgorithmus verwendet werden soll (dies ist bei `If-None-Match` nutzlos, da es nur diesen Algorithmus verwendet).
+- `<etag_value>`
+  - : Entity-Tags, die die angeforderten Ressourcen eindeutig repräsentieren. Es sind Zeichenfolgen aus {{Glossary("ASCII", "ASCII")}}-Zeichen, die in Anführungszeichen stehen (wie `"675af34563dc-tr34"`) und können mit `W/` vorangestellt werden, um anzuzeigen, dass der schwache Vergleichsalgorithmus verwendet werden sollte (dies ist bei `If-None-Match` nutzlos, da es nur diesen Algorithmus verwendet).
 - `*`
-  - : Das Sternchen ist ein spezieller Wert, der jede Ressource darstellt. Sie sind nur nützlich, wenn eine Ressource hochgeladen wird, normalerweise mit {{HTTPMethod("PUT")}}, um zu überprüfen, ob eine andere Ressource mit derselben Identität bereits zuvor hochgeladen wurde.
+  - : Der Stern ist ein spezieller Wert, der jede Ressource darstellt. Sie sind nur nützlich beim Hochladen einer Ressource, normalerweise mit {{HTTPMethod("PUT")}}, um zu überprüfen, ob eine andere Ressource mit der Identität bereits zuvor hochgeladen wurde.
 
 ## Beispiele
 
@@ -69,8 +73,5 @@ If-None-Match: *
 ## Siehe auch
 
 - {{HTTPHeader("ETag")}}
-- {{HTTPHeader("If-Unmodified-Since")}}
-- {{HTTPHeader("If-Modified-Since")}}
-- {{HTTPHeader("If-Match")}}
-- {{HTTPStatus("304", "304 Not Modified")}}
-- {{HTTPStatus("412", "412 Precondition Failed")}}
+- {{HTTPHeader("If-Match")}}, {{HTTPHeader("If-Modified-Since")}}, {{HTTPHeader("If-Unmodified-Since")}} konditionale Request-Header
+- {{HTTPStatus("304", "304 Not Modified")}}, {{HTTPStatus("412", "412 Precondition Failed")}} Antwortstatuscodes

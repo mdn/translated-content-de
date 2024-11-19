@@ -2,12 +2,12 @@
 title: "CSP: style-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/style-src
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src`** Direktive legt fest, welche Quellen für Stylesheets gültig sind.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src`** Direktive legt gültige Quellen für Stylesheets fest.
 
 <table class="properties">
   <tbody>
@@ -16,7 +16,7 @@ Die HTTP {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src`** Direkti
       <td>1</td>
     </tr>
     <tr>
-      <th scope="row">Direktiv-Typ</th>
+      <th scope="row">Direktivtyp</th>
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
@@ -42,15 +42,22 @@ Diese Direktive kann einen der folgenden Werte haben:
   - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen.
+  - : Eine durch Leerzeichen getrennte Liste von _Quellausdrücken_. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quellausdrücke anwendbar:
 
-    Quellausdrücke werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellausdruck findet sich in [CSP Source Values](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources).
+    - [`<host-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#self)
+    - [`'unsafe-inline'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#unsafe-inline)
+    - [`'unsafe-hashes'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#unsafe-hashes)
+    - [`'nonce-<nonce_value>'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#nonce-nonce_value)
+    - [`'<hash_algorithm>-<hash_value>'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#hash_algorithm-hash_value)
+    - [`'report-sample'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#report-sample)
 
 ## Beispiele
 
-### Verstoßfälle
+### Verletzungsfälle
 
-Gegeben diesen CSP-Header:
+Angenommen, es gibt diesen CSP-Header:
 
 ```http
 Content-Security-Policy: style-src https://example.com/
@@ -72,7 +79,7 @@ werden die folgenden Stylesheets blockiert und nicht geladen:
 </style>
 ```
 
-ebenso wie Styles, die über den {{HTTPHeader("Link")}} Header geladen werden:
+ebenso wie Styles, die mit dem {{HTTPHeader("Link")}}-Header geladen werden:
 
 ```http
 Link: <https://not-example.com/styles/stylesheet.css>;rel=stylesheet
@@ -84,33 +91,33 @@ Inline-Style-Attribute werden ebenfalls blockiert:
 <div style="display:none">Foo</div>
 ```
 
-Sowie Styles, die in JavaScript durch direktes Setzen des `style` Attributs oder durch Setzen von [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) angewendet werden:
+Ebenso wie Styles, die in JavaScript durch direktes Setzen des `style`-Attributs oder durch Setzen von [`cssText`](/de/docs/Web/API/CSSStyleDeclaration/cssText) angewendet werden:
 
 ```js
 document.querySelector("div").setAttribute("style", "display:none;");
 document.querySelector("div").style.cssText = "display:none;";
 ```
 
-Jedoch werden Stil-Eigenschaften, die direkt auf die [`style`](/de/docs/Web/API/HTMLElement/style) Eigenschaft des Elements gesetzt sind, nicht blockiert, was es den Benutzern ermöglicht, sicher Styles über JavaScript zu manipulieren:
+Stil-Eigenschaften, die jedoch direkt auf der [`style`](/de/docs/Web/API/HTMLElement/style)-Eigenschaft des Elements gesetzt werden, werden nicht blockiert, sodass Benutzer sicher Stile über JavaScript manipulieren können:
 
 ```js
 document.querySelector("div").style.display = "none";
 ```
 
-Diese Arten von Manipulationen können verhindert werden, indem JavaScript über die {{CSP("script-src")}} CSP-Direktive verboten wird.
+Diese Arten der Manipulation können verhindert werden, indem JavaScript über die {{CSP("script-src")}}-CSP-Direktive verboten wird.
 
-### Unsichere eingebettete Stile
+### Unsichere Inline-Stile
 
 > [!NOTE]
-> Das Verbot von eingebetteten Stilen und eingebetteten Skripten ist einer der größten Sicherheitsgewinne, die CSP bietet. Wenn Sie es jedoch unbedingt verwenden müssen, gibt es einige Mechanismen, die dies erlauben.
+> Das Verbot von Inline-Stilen und Inline-Skripten ist einer der größten Sicherheitsgewinne, die CSP bietet. Wenn Sie sie jedoch unbedingt verwenden müssen, gibt es einige Mechanismen, die dies ermöglichen.
 
-Um eingebettete Stile zu erlauben, können `'unsafe-inline'`, eine Nonce-Quelle oder eine Hash-Quelle, die mit dem eingebetteten Block übereinstimmt, spezifiziert werden. Die folgende Content-Security-Policy erlaubt eingebettete Stile wie das {{HTMLElement("style")}} Element und das `style` Attribut an jedem Element:
+Um Inline-Stile zu erlauben, können `'unsafe-inline'`, eine Nonce-Quelle oder eine Hash-Quelle, die zum Inline-Block passt, angegeben werden. Die folgende Content Security Policy erlaubt Inline-Stile wie das {{HTMLElement("style")}}-Element und das `style`-Attribut an jedem Element:
 
 ```http
 Content-Security-Policy: style-src 'unsafe-inline';
 ```
 
-Das folgende {{HTMLElement("style")}} Element und das `style` Attribut werden durch die Richtlinie erlaubt:
+Das folgende {{HTMLElement("style")}}-Element und das `style`-Attribut werden von der Richtlinie erlaubt:
 
 ```html
 <style>
@@ -122,13 +129,13 @@ Das folgende {{HTMLElement("style")}} Element und das `style` Attribut werden du
 <div style="display:none">Foo</div>
 ```
 
-Sie können eine Nonce-Quelle verwenden, um nur bestimmte eingebettete Stilblöcke zu erlauben. Sie müssen einen zufälligen Nonce-Wert generieren (unter Verwendung eines kryptografisch sicheren Zufallstoken-Generators) und ihn in die Richtlinie aufnehmen. Es ist wichtig zu beachten, dass dieser Nonce-Wert dynamisch generiert werden muss, da er für jede HTTP-Anfrage einzigartig sein muss:
+Sie können eine Nonce-Quelle verwenden, um nur bestimmte Inline-Style-Blöcke zuzulassen. Sie müssen einen zufälligen Nonce-Wert generieren (unter Verwendung eines kryptografisch sicheren Zufallstoken-Generators) und ihn in der Richtlinie aufnehmen. Es ist wichtig zu beachten, dass dieser Nonce-Wert dynamisch generiert werden muss, da er für jede HTTP-Anfrage eindeutig sein muss:
 
 ```http
 Content-Security-Policy: style-src 'nonce-2726c7f26c'
 ```
 
-Sie müssen den gleichen Nonce auf das {{HTMLElement("style")}} Element setzen:
+Den gleichen Nonce müssen Sie auf das {{HTMLElement("style")}}-Element setzen:
 
 ```html
 <style nonce="2726c7f26c">
@@ -138,19 +145,19 @@ Sie müssen den gleichen Nonce auf das {{HTMLElement("style")}} Element setzen:
 </style>
 ```
 
-Alternativ können Sie Hashes aus Ihren eingebetteten Stilen erstellen. CSP unterstützt sha256, sha384 und sha512. Die **binäre** Form des Hashes muss mit Base64 kodiert werden. Sie können den Hash eines Strings über das `openssl` Programm auf der Kommandozeile erhalten:
+Alternativ können Sie Hashes Ihrer Inline-Stile erstellen. CSP unterstützt sha256, sha384 und sha512. Die **binäre** Form des Hashes muss mit base64 kodiert werden. Sie können den Hash eines Strings über die Befehlszeile mit dem `openssl`-Programm erhalten:
 
 ```bash
 echo -n "#inline-style { background: red; }" | openssl dgst -sha256 -binary | openssl enc -base64
 ```
 
-Sie können eine Hash-Quelle verwenden, um nur bestimmte eingebettete Stilblöcke zu erlauben:
+Sie können eine Hash-Quelle verwenden, um nur bestimmte Inline-Style-Blöcke zuzulassen:
 
 ```http
 Content-Security-Policy: style-src 'sha256-ozBpjL6dxO8fsS4u6fwG1dFDACYvpNxYeBA6tzR+FY8='
 ```
 
-Beim Erzeugen des Hashes schließen Sie nicht die {{HTMLElement("style")}} Tags ein und beachten Sie, dass Großschreibung und Leerzeichen wichtig sind, einschließlich führender oder nachfolgender Leerzeichen.
+Beim Generieren des Hashs sollten Sie die {{HTMLElement("style")}}-Tags nicht einschließen und beachten, dass Groß-/Kleinschreibung und Leerzeichen einschließlich führender oder nachfolgender Leerzeichen von Bedeutung sind.
 
 ```html
 <style>
@@ -160,9 +167,9 @@ Beim Erzeugen des Hashes schließen Sie nicht die {{HTMLElement("style")}} Tags 
 </style>
 ```
 
-### Unsichere Stilausdrücke
+### Unsichere Stillausdrücke
 
-Der `'unsafe-eval'` Quellausdruck steuert mehrere Stilmethoden, die Stil-Deklarationen aus Strings erzeugen. Wenn `'unsafe-eval'` nicht mit der `style-src` Direktive angegeben ist, werden die folgenden Methoden blockiert und haben keine Wirkung:
+Der `'unsafe-eval'` Quellausdruck kontrolliert mehrere Stilmethoden, die Stildeklarationen aus Strings erstellen. Wenn `'unsafe-eval'` nicht mit der `style-src`-Direktive angegeben ist, werden die folgenden Methoden blockiert und haben keine Wirkung:
 
 - [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)
 - [`CSSGroupingRule.insertRule()`](/de/docs/Web/API/CSSGroupingRule/insertRule)
@@ -181,7 +188,7 @@ Der `'unsafe-eval'` Quellausdruck steuert mehrere Stilmethoden, die Stil-Deklara
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{CSP("style-src-elem")}}
 - {{CSP("style-src-attr")}}
-- {{HTTPHeader("Link")}} Header
+- {{HTTPHeader("Link")}}-Header
 - {{HTMLElement("style")}}, {{HTMLElement("link")}}
 - {{cssxref("@import")}}
 - [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)

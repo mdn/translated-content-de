@@ -2,16 +2,17 @@
 title: Retry-After
 slug: Web/HTTP/Headers/Retry-After
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: 6c32e8b21a39b1b8d3db7a194d2350e0f8218b64
 ---
 
 {{HTTPSidebar}}
 
-Der **`Retry-After`** Antwort-HTTP-Header gibt an, wie lange der User-Agent warten soll, bevor er eine Anschlussanfrage stellt. Es gibt drei Hauptfälle, in denen dieser Header verwendet wird:
+Der HTTP **`Retry-After`** {{Glossary("response_header", "Antwort-Header")}} gibt an, wie lange der Benutzeragent warten soll, bevor er eine Folgeanfrage stellt.
+Es gibt drei Hauptfälle, in denen dieser Header verwendet wird:
 
-- Wenn er mit einer {{HTTPStatus(503)}} (Service Unavailable) Antwort gesendet wird, gibt er an, wie lange der Dienst voraussichtlich nicht verfügbar sein wird.
-- Wenn er mit einer {{HTTPStatus(429)}} (Too Many Requests) Antwort gesendet wird, gibt er an, wie lange gewartet werden soll, bevor eine neue Anfrage gestellt wird.
-- Wenn er mit einer Umleitungsantwort wie {{HTTPStatus(301)}} (Moved Permanently) gesendet wird, gibt er die minimale Zeit an, die der User-Agent gebeten wird zu warten, bevor er die umgeleitete Anfrage stellt.
+- In einer {{HTTPStatus("503", "503 Service Unavailable")}}-Antwort zeigt dieser an, wie lange der Dienst voraussichtlich nicht verfügbar sein wird.
+- In einer {{HTTPStatus("429", "429 Too Many Requests")}}-Antwort gibt dieser an, wie lange gewartet werden soll, bevor eine neue Anfrage gestellt wird.
+- In einer Weiterleitungsantwort, wie z.B. {{HTTPStatus("301", "301 Moved Permanently")}}, zeigt dieser die minimale Wartezeit an, die der Benutzeragent einhalten soll, bevor die umgeleitete Anfrage gesendet wird.
 
 <table class="properties">
   <tbody>
@@ -21,7 +22,7 @@ Der **`Retry-After`** Antwort-HTTP-Header gibt an, wie lange der User-Agent wart
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -36,15 +37,15 @@ Retry-After: <delay-seconds>
 ## Direktiven
 
 - `<http-date>`
-  - : Ein Datum, nach dem erneut versucht werden soll. Siehe den {{HTTPHeader("Date")}} Header für weitere Details zum HTTP-Datumsformat.
+  - : Ein Datum, nach dem ein erneuter Versuch erfolgen soll. Weitere Details zum HTTP-Datumsformat finden Sie im {{HTTPHeader("Date")}}-Header.
 - `<delay-seconds>`
-  - : Eine nicht-negative Dezimalzahl, die die Sekunden angibt, die nach Erhalt der Antwort zu warten sind.
+  - : Eine nicht-negative dezimale Ganzzahl, die die Sekunden angibt, die nach Erhalt der Antwort verzögert werden sollen.
 
 ## Beispiele
 
-### Umgang mit geplanten Ausfallzeiten
+### Umgang mit geplanter Ausfallzeit
 
-Die Unterstützung für den `Retry-After` Header sowohl auf Clients als auch auf Servern ist immer noch inkonsistent. Einige Crawler und Spinnen, wie der Googlebot, beachten jedoch den `Retry-After` Header. Es ist nützlich, ihn zusammen mit einer {{HTTPStatus(503)}} (Service Unavailable) Antwort zu senden, damit Suchmaschinen Ihre Website weiter indexieren, wenn die Ausfallzeit vorüber ist.
+Die Unterstützung für den `Retry-After`-Header bei sowohl Clients als auch Servern ist noch inkonsistent. Einige Crawler und Spider, wie der Googlebot, beachten jedoch den `Retry-After`-Header. Es ist nützlich, ihn mit einer `503`-Antwort zu senden, damit Suchmaschinen Ihre Seite weiterhin indexieren, wenn die Ausfallzeit vorbei ist.
 
 ```http
 Retry-After: Wed, 21 Oct 2015 07:28:00 GMT
@@ -61,6 +62,6 @@ Retry-After: 120
 
 ## Siehe auch
 
-- [Google Webmaster Blog: How to deal with planned site downtime](https://webmasters.googleblog.com/2011/01/how-to-deal-with-planned-site-downtime.html)
-- {{HTTPStatus(503)}} (Service Unavailable)
-- {{HTTPStatus(301)}} (Moved Permanently)
+- {{HTTPStatus("503", "503 Service Unavailable")}}
+- {{HTTPStatus("301", "301 Moved Permanently")}}
+- [Anleitung zum Umgang mit geplanter Site-Ausfallzeit](https://developers.google.com/search/blog/2011/01/how-to-deal-with-planned-site-downtime) auf developers.google.com (2011)

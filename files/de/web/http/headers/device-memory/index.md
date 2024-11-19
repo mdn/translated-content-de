@@ -2,34 +2,30 @@
 title: Device-Memory
 slug: Web/HTTP/Headers/Device-Memory
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
 ---
 
 {{HTTPSidebar}}{{securecontext_header}}
 
-Der **`Device-Memory`** [device client hint](/de/docs/Web/HTTP/Client_hints#device_client_hints) Anforderungsheader gibt die ungefähre Menge an verfügbarem RAM auf dem Client-Gerät an. Der Header ist Teil der [Device Memory API](/de/docs/Web/API/Device_Memory_API).
+Der HTTP **`Device-Memory`** {{Glossary("request_header", "Request-Header")}} wird in [Geräte-Client-Hinweisen](/de/docs/Web/HTTP/Client_hints#device_client_hints) verwendet, um die ungefähre Menge an verfügbarem RAM auf dem Client-Gerät in Gigabyte anzugeben. Der Header ist Teil der [Device Memory API](/de/docs/Web/API/Device_Memory_API).
+
+Client-Hinweise sind nur auf sicheren Ursprüngen zugänglich. Ein Server muss sich anmelden, um den `Device-Memory` Header vom Client zu empfangen, indem er zunächst den {{HTTPHeader("Accept-CH")}} Response-Header sendet. Server, die sich für den `Device-Memory` Client-Hinweis anmelden, geben diesen in der Regel auch im {{HTTPHeader("Vary")}} Header an, um Caches zu informieren, dass der Server basierend auf dem Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungsheader")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hint</a>
+        {{Glossary("Request_header", "Request-Header")}},
+        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
       </td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
-
-> [!NOTE]
->
-> - Client-Hints sind nur auf sicheren Ursprüngen (über TLS) zugänglich.
-> - Ein Server muss sich entscheiden, den `Device-Memory` Header vom Client zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Antwortheader sendet.
-> - Server, die sich für den `Device-Memory` Client-Hint entscheiden, geben ihn typischerweise auch im {{HTTPHeader("Vary")}} Header an. Dies informiert Caches darüber, dass der Server je nach Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
 
 ## Syntax
 
@@ -40,19 +36,18 @@ Device-Memory: <number>
 ## Direktiven
 
 - `<number>`
-  - : Die ungefähre Menge an Gerätespeicher. Mögliche Werte sind: `0.25`, `0.5`, `1`, `2`, `4`, `8`.
-
-Die Menge an Gerätespeicher kann als {{Glossary("fingerprinting", "Fingerabdruck")}} verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Missbrauchspotential zu reduzieren.
+  - : Die ungefähre Menge an Geräte-RAM. Mögliche Werte sind: `0.25`, `0.5`, `1`, `2`, `4`, `8`.
+    Die Menge an Geräte-RAM kann als {{Glossary("fingerprinting", "Fingerprinting")}}-Variable verwendet werden, daher sind die Werte für den Header absichtlich grob, um das Potenzial für Missbrauch zu reduzieren.
 
 ## Beispiele
 
-Der Server muss zunächst zustimmen, den `Device-Memory` Header zu empfangen, indem er die Antwortheader {{HTTPHeader("Accept-CH")}} mit dem Inhalt `Device-Memory` sendet.
+Der Server muss zuerst zustimmen, den `Device-Memory` Header zu empfangen, indem er den {{HTTPHeader("Accept-CH")}} Response-Header, der `Device-Memory` enthält, sendet:
 
 ```http
 Accept-CH: Device-Memory
 ```
 
-Dann könnte der Client bei nachfolgenden Anfragen den `Device-Memory` Header zurücksenden:
+Dann kann der Client bei nachfolgenden Anfragen den `Device-Memory` Header zurücksenden:
 
 ```http
 Device-Memory: 1
@@ -68,16 +63,14 @@ Device-Memory: 1
 
 ## Siehe auch
 
-- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- [Verbesserung des Datenschutzes und der Entwicklererfahrung mit User-Agent-Client-Hinweisen](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
 - [Device Memory API](/de/docs/Web/API/Device_Memory_API)
 - [`Navigator.deviceMemory`](/de/docs/Web/API/Navigator/deviceMemory)
 - [`WorkerNavigator.deviceMemory`](/de/docs/Web/API/WorkerNavigator/deviceMemory)
-- Device Client Hints
-
+- Geräte-Client-Hinweise
   - {{HTTPHeader("Content-DPR")}}
   - {{HTTPHeader("DPR")}}
   - {{HTTPHeader("Viewport-Width")}}
   - {{HTTPHeader("Width")}}
-
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}

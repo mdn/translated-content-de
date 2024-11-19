@@ -2,23 +2,23 @@
 title: "CSP: style-src-elem"
 slug: Web/HTTP/Headers/Content-Security-Policy/style-src-elem
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP-Header {{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-elem`** Direktive legt gültige Quellen für Stylesheet-{{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` fest.
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP) **`style-src-elem`** Direktive legt gültige Quellen für Stylesheet-{{HTMLElement("style")}}-Elemente und {{HTMLElement("link")}}-Elemente mit `rel="stylesheet"` fest.
 
-Die Direktive definiert keine gültigen Quellen für inline-Style-Attribute; diese werden mit {{CSP("style-src-attr")}} gesetzt (und gültige Quellen für alle Styles können mit {{CSP("style-src")}} festgelegt werden).
+Die Direktive legt keine gültigen Quellen für Inline-Stilattribute fest; diese werden mit {{CSP("style-src-attr")}} festgelegt (und gültige Quellen für alle Stile können mit {{CSP("style-src")}} festgelegt werden).
 
 <table class="properties">
   <tbody>
     <tr>
-      <th scope="row">CSP Version</th>
+      <th scope="row">CSP-Version</th>
       <td>3</td>
     </tr>
     <tr>
-      <th scope="row">Direktivtyp</th>
+      <th scope="row">Direktiventyp</th>
       <td>{{Glossary("Fetch_directive", "Fetch-Direktive")}}</td>
     </tr>
     <tr>
@@ -26,7 +26,7 @@ Die Direktive definiert keine gültigen Quellen für inline-Style-Attribute; die
       <td>
         <p>
           Ja.
-          Wenn diese Direktive fehlt, sucht der User-Agent nach der {{CSP("style-src")}}-Direktive, und wenn beide fehlen, fällt er auf die <code>default-src</code>-Direktive zurück.
+          Wenn diese Direktive fehlt, sucht der Benutzeragent nach der {{CSP("style-src")}} Direktive, und wenn beide fehlen, greift er auf die <code>default-src</code> Direktive zurück.
         </p>
       </td>
     </tr>
@@ -46,11 +46,9 @@ Diese Direktive kann einen der folgenden Werte haben:
   - : Keine Ressourcen dieses Typs dürfen geladen werden. Die einfachen Anführungszeichen sind obligatorisch.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Source-Expression_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Source-Expressions übereinstimmen.
+  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruckswerten_. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der gegebenen Quellausdrücke übereinstimmen. Für diese Direktive gelten die gleichen Quellausdruckswerte wie für [`style-src`](/de/docs/Web/HTTP/Headers/Content-Security-Policy/style-src), mit Ausnahme von [`'unsafe-hashes'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#unsafe-hashes).
 
-    Source-Expressions werden als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jede Source-Expression ist in [CSP-Quellen-Werte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) beschrieben.
-
-`style-src-elem` kann zusammen mit {{CSP("style-src")}} verwendet werden:
+`style-src-elem` kann in Verbindung mit {{CSP("style-src")}} verwendet werden:
 
 ```http
 Content-Security-Policy: style-src <source>;
@@ -61,13 +59,13 @@ Content-Security-Policy: style-src-elem <source>;
 
 ### Verstöße
 
-Angenommen, dieser CSP-Header:
+Gegebenenfalls dieser CSP-Header:
 
 ```http
 Content-Security-Policy: style-src-elem https://example.com/
 ```
 
-…die folgenden Stylesheets werden blockiert und nicht geladen:
+…werden die folgenden Stylesheets blockiert und nicht geladen:
 
 ```html
 <link href="https://not-example.com/styles/main.css" rel="stylesheet" />
@@ -83,7 +81,7 @@ Content-Security-Policy: style-src-elem https://example.com/
 </style>
 ```
 
-…sowie Styles, die mit dem {{HTTPHeader("Link")}}-Header geladen werden:
+…sowie Styles, die über den {{HTTPHeader("Link")}}-Header geladen werden:
 
 ```http
 Link: <https://not-example.com/styles/stylesheet.css>;rel=stylesheet
@@ -102,7 +100,7 @@ Link: <https://not-example.com/styles/stylesheet.css>;rel=stylesheet
 - {{HTTPHeader("Content-Security-Policy")}}
 - {{CSP("style-src")}}
 - {{CSP("style-src-attr")}}
-- {{HTTPHeader("Link")}} Header
+- {{HTTPHeader("Link")}}-Header
 - {{HTMLElement("style")}}, {{HTMLElement("link")}}
 - {{cssxref("@import")}}
 - [`CSSStyleSheet.insertRule()`](/de/docs/Web/API/CSSStyleSheet/insertRule)

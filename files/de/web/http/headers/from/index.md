@@ -2,14 +2,14 @@
 title: From
 slug: Web/HTTP/Headers/From
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: edefa50f18613599b92e2eb3e9556fbde220b360
 ---
 
 {{HTTPSidebar}}
 
-Der **`From`**-Anforderungsheader enthält eine Internet-E-Mail-Adresse eines menschlichen Benutzers, der den anfordernden Benutzeragenten steuert.
+Der HTTP **`From`** {{Glossary("request_header", "Request-Header")}} enthält eine Internet-E-Mail-Adresse eines Administrators, der einen automatisierten Benutzeragenten steuert.
 
-Falls Sie einen robotischen Benutzeragenten betreiben (z. B. einen Crawler), muss der `From`-Header gesendet werden, damit Sie kontaktiert werden können, falls auf Servern Probleme auftreten, wie z.B. wenn der Roboter übermäßig viele unerwünschte oder ungültige Anfragen sendet.
+Wenn Sie einen robotischen Benutzeragenten betreiben (zum Beispiel einen Web-Crawler), muss der `From`-Header in Anfragen gesendet werden, damit Sie kontaktiert werden können, wenn Probleme auftreten, wie zum Beispiel wenn ein Bot übermäßige, unerwünschte oder ungültige Anfragen sendet.
 
 > [!WARNING]
 > Sie dürfen den `From`-Header nicht für Zugriffskontrolle oder Authentifizierung verwenden.
@@ -18,11 +18,11 @@ Falls Sie einen robotischen Benutzeragenten betreiben (z. B. einen Crawler), mus
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Request header")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
-      <td>nein</td>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -35,7 +35,7 @@ From: <email>
 
 ## Direktiven
 
-- \<email>
+- `<email>`
   - : Eine maschinenlesbare E-Mail-Adresse.
 
 ## Beispiele

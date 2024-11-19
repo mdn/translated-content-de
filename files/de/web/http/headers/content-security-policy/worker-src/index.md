@@ -2,13 +2,13 @@
 title: "CSP: worker-src"
 slug: Web/HTTP/Headers/Content-Security-Policy/worker-src
 l10n:
-  sourceCommit: be48127d1f16af543287cbc54a9d4c6834ce1e30
+  sourceCommit: 6368e2b112a343fa00ae1a8cf51ceb0b0b845834
 ---
 
 {{HTTPSidebar}}
 
-Die HTTP-Direktive {{HTTPHeader("Content-Security-Policy")}} (CSP)
-**`worker-src`** gibt gültige Quellen für
+Die HTTP-{{HTTPHeader("Content-Security-Policy")}} (CSP)
+**`worker-src`** Direktive gibt gültige Quellen für
 [`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker) oder [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)
 Skripte an.
 
@@ -26,11 +26,11 @@ Skripte an.
       <th scope="row">Fallback</th>
       <td>
         <p>
-          Ist diese Direktive nicht vorhanden, sucht der User Agent zunächst
-          nach der {{CSP("child-src")}}-Direktive, dann nach der
-          {{CSP("script-src")}}-Direktive und schließlich nach der
-          {{CSP("default-src")}}-Direktive, um die Ausführung von Worker
-          zu steuern.
+          Wenn diese Direktive fehlt, wird der User-Agent zuerst nach der
+          {{CSP("child-src")}} Direktive suchen, dann die
+          {{CSP("script-src")}} Direktive und schließlich die
+          {{CSP("default-src")}} Direktive, wenn es um die Ausführung von
+          Workern geht.
         </p>
       </td>
     </tr>
@@ -50,21 +50,24 @@ Diese Direktive kann einen der folgenden Werte haben:
   - : Es dürfen keine Ressourcen dieses Typs geladen werden. Die einfachen Anführungszeichen sind zwingend erforderlich.
 - `<source-expression-list>`
 
-  - : Eine durch Leerzeichen getrennte Liste von _Quellausdruckswerten_. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quellausdrücke übereinstimmen.
+  - : Eine durch Leerzeichen getrennte Liste von _Quell-Ausdruck_-Werten. Ressourcen dieses Typs dürfen geladen werden, wenn sie mit einem der angegebenen Quell-Ausdrücke übereinstimmen. Für diese Direktive sind die folgenden Quell-Ausdruck-Werte anwendbar:
 
-    Quellausdrücke sind als Schlüsselwortwerte oder URL-Muster angegeben: Die Syntax für jeden Quellausdruck ist in [CSP-Quellwerte](/de/docs/Web/HTTP/Headers/Content-Security-Policy/Sources) angegeben.
+    - [`<host-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#host-source)
+    - [`<scheme-source>`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#scheme-source)
+    - [`'self'`](/de/docs/Web/HTTP/Headers/Content-Security-Policy#self)
 
 ## Beispiele
 
 ### Verletzungsfälle
 
-Angesichts dieses CSP-Headers:
+Angenommen, dieser CSP-Header:
 
 ```http
 Content-Security-Policy: worker-src https://example.com/
 ```
 
-[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) werden blockiert und nicht geladen:
+[`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker) sind
+blockiert und werden nicht geladen:
 
 ```html
 <script>
@@ -85,5 +88,5 @@ Content-Security-Policy: worker-src https://example.com/
 ## Siehe auch
 
 - {{HTTPHeader("Content-Security-Policy")}}
-- [CSP für Web Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
+- [CSP für Web Workers](/de/docs/Web/API/Web_Workers_API/Using_web_workers#content_security_policy)
 - [`Worker`](/de/docs/Web/API/Worker), [`SharedWorker`](/de/docs/Web/API/SharedWorker), [`ServiceWorker`](/de/docs/Web/API/ServiceWorker)
