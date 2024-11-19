@@ -2,22 +2,22 @@
 title: <frequency-percentage>
 slug: Web/CSS/frequency-percentage
 l10n:
-  sourceCommit: 66944f622b6b51bc9c24bebbbea242138d910600
+  sourceCommit: 91ee05b8120e9df02c5ff04c22ece9a06d3ed26f
 ---
 
 {{CSSRef}}
 
-Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z. B. die Tonhöhe einer Sprechstimme, werden derzeit in keinem CSS-Attribut verwendet.
+Der **`<frequency-percentage>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen Wert, der entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}} sein kann. Frequenzwerte, z.B. die Tonhöhe einer sprechenden Stimme, werden derzeit in keiner CSS-Eigenschaft verwendet.
 
 ## Syntax
 
-Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; sehen Sie auf deren individuellen Referenzseiten, um Details zu deren Syntax zu erhalten.
+Der Wert eines `<frequency-percentage>` ist entweder eine {{Cssxref("frequency")}} oder ein {{Cssxref("percentage")}}; siehe deren individuelle Referenzseiten für Details zu ihren Syntaxen.
 
 ## Beschreibung
 
 ### Verwendung in calc()
 
-Wenn ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet dies, dass der Prozentsatz in eine Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc) Ausdruck verwendet werden kann.
+Wenn ein `<frequency-percentage>` als zulässiger Typ angegeben wird, bedeutet dies, dass der Prozentsatz zu einer Frequenz aufgelöst wird und daher in einem [`calc()`](/de/docs/Web/CSS/calc)-Ausdruck verwendet werden kann.
 
 ## Formale Syntax
 
@@ -63,12 +63,12 @@ Wenn ein `<frequency-percentage>` als zulässiger Typ angegeben ist, bedeutet di
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Kein Browser unterstützt derzeit dieses Feature.
 
 ## Siehe auch
 
 - [CSS-Datentypen](/de/docs/Web/CSS/CSS_Types)
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
 - Verwandte CSS-Datentypen:
 
   - {{cssxref("frequency", "&lt;frequency&gt;")}}

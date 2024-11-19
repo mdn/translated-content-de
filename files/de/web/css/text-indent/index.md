@@ -2,16 +2,16 @@
 title: text-indent
 slug: Web/CSS/text-indent
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 919d97a4bda8004f63f655d3f9576c27a82c8a2a
 ---
 
 {{CSSRef}}
 
-Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des Leerraums (Einrückung) fest, der vor Zeilen von Text in einem Block eingefügt wird.
+Die **`text-indent`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Länge des Leerraums (Einrückung) fest, die vor Zeilen von Text in einem Block eingefügt wird.
 
 {{EmbedInteractiveExample("pages/css/text-indent.html")}}
 
-Der horizontale Abstand bezieht sich auf den linken (oder rechten, bei Rechts-nach-Links-Layout) Rand der Inhaltsbox des umgebenden Block-Elementes.
+Der horizontale Abstand bezieht sich auf die linke (oder rechte, bei rechts-nach-links-Layout) Kante des Inhaltsrahmens des umgebenden block-level Elements.
 
 ## Syntax
 
@@ -40,11 +40,11 @@ text-indent: unset;
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Einrückung wird als absolute {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
+  - : Die Einrückung wird als absoluter {{cssxref("&lt;length&gt;")}} angegeben. Negative Werte sind erlaubt. Siehe {{cssxref("&lt;length&gt;")}} Werte für mögliche Einheiten.
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Einrückung ist ein {{cssxref("&lt;percentage&gt;")}} der Breite des umgebenden Blocks.
+  - : Die Einrückung beträgt einen {{cssxref("&lt;percentage&gt;")}} der Breite des umgebenden Blocks.
 - `each-line`
-  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, beeinflusst jedoch keine Zeilen nach einem _weichen Umbruch_.
+  - : Die Einrückung betrifft die erste Zeile des Blockcontainers sowie jede Zeile nach einem _erzwungenen Zeilenumbruch_, aber nicht die Zeilen nach einem _weichen Zeilenumbruch_.
 - `hanging`
   - : Kehrt um, welche Zeilen eingerückt werden. Alle Zeilen _außer_ der ersten Zeile werden eingerückt.
 
@@ -58,7 +58,7 @@ text-indent: unset;
 
 ## Beispiele
 
-### Einfache Einrückung
+### Grundlegende Einrückung
 
 #### HTML
 
@@ -84,13 +84,13 @@ p {
 
 #### Ergebnis
 
-{{ EmbedLiveSample('Simple_indent','100%','100%') }}
+{{ EmbedLiveSample('Basic_indent','100%','100%') }}
 
-### Einrückung beim ersten Absatz überspringen
+### Einrückung im ersten Absatz überspringen
 
-Eine häufige typografische Praxis, wenn Absatz-Einrückungen vorhanden sind, besteht darin, die Einrückung für den ersten Absatz zu überspringen. Wie es _The Chicago Manual of Style_ ausdrückt: „Die erste Zeile des Textes nach einer Zwischenüberschrift kann bündig links beginnen oder mit der üblichen Absatzeinrückung eingerückt werden.“
+Eine häufige typografische Praxis, wenn Absatzeinrückung vorhanden ist, besteht darin, die Einrückung für den ersten Absatz zu überspringen. Wie es im _The Chicago Manual of Style_ heißt: "the first line of text following a subhead may begin flush left or be indented by the usual paragraph indention."
 
-Die unterschiedliche Behandlung der ersten Absätze gegenüber nachfolgenden Absätzen kann durch die Verwendung des [Nachbar-Kombinators](/de/docs/Web/CSS/Next-sibling_combinator) erreicht werden, wie im folgenden Beispiel:
+Das unterschiedliche Behandeln des ersten Absatzes im Vergleich zu den folgenden Absätzen kann unter Verwendung des [nächster-Geschwister-Kombinators](/de/docs/Web/CSS/Next-sibling_combinator) erfolgen, wie im folgenden Beispiel:
 
 #### HTML
 
@@ -153,7 +153,7 @@ p + p {
 
 {{ EmbedLiveSample('Skipping_indentation_on_the_first_paragraph','','500px') }}
 
-### Prozentuale Einrückung
+### Prozentsatzeinrückung
 
 #### HTML
 

@@ -2,18 +2,18 @@
 title: scroll-margin-inline
 slug: Web/CSS/scroll-margin-inline
 l10n:
-  sourceCommit: 2b112aef57df0649462db5d9f47d782a7aa1f25c
+  sourceCommit: 919d97a4bda8004f63f655d3f9576c27a82c8a2a
 ---
 
 {{CSSRef}}
 
-Die `scroll-margin-inline` [Kurzschreibweiseigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Inline-Dimension.
+Die `scroll-margin-inline` [Kurzform Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) setzt die Scroll-Margen eines Elements in der Inline-Dimension.
 
 {{EmbedInteractiveExample("pages/css/scroll-margin-inline.html")}}
 
-## Bestandeigenschaften
+## Bestandteileigenschaften
 
-Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
 - [`scroll-margin-inline-end`](/de/docs/Web/CSS/scroll-margin-inline-end)
 - [`scroll-margin-inline-start`](/de/docs/Web/CSS/scroll-margin-inline-start)
@@ -36,11 +36,11 @@ scroll-margin-inline: unset;
 ### Werte
 
 - {{CSSXref("&lt;length&gt;")}}
-  - : Ein Versatz vom entsprechenden Rand des Scroll-Containers.
+  - : Ein Abstand vom entsprechenden Rand des Scroll-Containers.
 
 ## Beschreibung
 
-Die scroll-margin-Werte repräsentieren Versätze, die den Scroll-Snap-Bereich definieren, der verwendet wird, um diese Box an den {{Glossary("Scroll_snap#snapport", "Snapport")}} zu fangen. Der Scroll-Snap-Bereich wird bestimmt, indem die transformierte Randbox genommen, die rechteckige Begrenzungsbox (Achsen-ausgerichtet im Koordinatenraum des Scroll-Containers) gefunden und dann die angegebenen Versätze hinzugefügt werden.
+Die scroll-margin-Werte repräsentieren Abstände, die den Scroll-Snap-Bereich definieren, der zum Einrasten dieses Kastens am {{Glossary("Scroll_snap#snapport", "Snapport")}} verwendet wird. Der Scroll-Snap-Bereich wird bestimmt, indem der transformierte Randkasten genommen wird, um dessen rechteckige Begrenzungsbox zu finden (achsenkonform im Koordinatenraum des Scroll-Containers), und dann die angegebenen Abstände hinzugefügt werden.
 
 ## Formale Definition
 
@@ -52,15 +52,15 @@ Die scroll-margin-Werte repräsentieren Versätze, die den Scroll-Snap-Bereich d
 
 ## Beispiele
 
-### Einfache Demonstration
+### Grundlegende Demonstration
 
 Dieses Beispiel implementiert etwas sehr Ähnliches wie das interaktive Beispiel oben, außer dass wir Ihnen hier erklären, wie es implementiert wird.
 
-Das Ziel hier ist es, vier horizontal-scrollbare Blöcke zu erstellen, bei denen der zweite und dritte Block einrasten, nahe, aber nicht ganz am rechten Rand jedes Blocks.
+Das Ziel hier ist es, vier horizontal scrollbare Blöcke zu erstellen, wobei der zweite und dritte Block einrasten, fast, aber nicht ganz, am rechten Ende jedes Blocks.
 
 #### HTML
 
-Das HTML, das die Blöcke darstellt, ist sehr einfach:
+Das HTML umfasst einen Scroller mit vier Kindern:
 
 ```html
 <div class="scroller">
@@ -73,7 +73,7 @@ Das HTML, das die Blöcke darstellt, ist sehr einfach:
 
 #### CSS
 
-Lassen Sie uns den CSS durchgehen. Der äußere Container wird so gestylt:
+Gehen wir den CSS-Code durch. Der äußere Container ist folgendermaßen gestaltet:
 
 ```css
 .scroller {
@@ -88,9 +88,9 @@ Lassen Sie uns den CSS durchgehen. Der äußere Container wird so gestylt:
 }
 ```
 
-Die wichtigsten Teile, die sich auf das Scroll-Snapping beziehen, sind `overflow-x: scroll`, was sicherstellt, dass der Inhalt scrollt und nicht verborgen wird, und `scroll-snap-type: x mandatory`, was vorgibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt zum Stillstand kommen wird.
+Die Hauptteile, die für das Scroll-Snapping relevant sind, sind `overflow-x: scroll`, was sicherstellt, dass der Inhalt scrollt und nicht verborgen wird, und `scroll-snap-type: x mandatory`, was vorschreibt, dass das Scroll-Snapping entlang der horizontalen Achse erfolgen muss und das Scrollen immer an einem Snap-Punkt endet.
 
-Die untergeordneten Elemente werden wie folgt gestylt:
+Die Kindelemente sind wie folgt gestaltet:
 
 ```css
 .scroller > div {
@@ -111,9 +111,9 @@ Die untergeordneten Elemente werden wie folgt gestylt:
 }
 ```
 
-Der relevanteste Teil hier ist `scroll-snap-align: end`, welcher angibt, dass die rechten Ränder (die "Enden" entlang der x-Achse, in unserem Fall) die festgelegten Snap-Punkte sind.
+Der relevanteste Teil hier ist `scroll-snap-align: end`, was angibt, dass die rechten Kanten (die "Endpunkte" entlang der x-Achse, in unserem Fall) die bezeichneten Schnapp-Punkte sind.
 
-Zuletzt spezifizieren wir die Scroll-Margen-Werte, ein anderer für das zweite und dritte Kindelement:
+Zuletzt spezifizieren wir die Scroll-Margen-Werte, einen anderen für das zweite und dritte Kindelement:
 
 ```css
 .scroller > div:nth-child(2) {
@@ -125,16 +125,16 @@ Zuletzt spezifizieren wir die Scroll-Margen-Werte, ein anderer für das zweite u
 }
 ```
 
-Das bedeutet, dass beim Scrollen über die mittleren Kindelemente das Scrollen auf `1rem` außerhalb des Inline-Endrandes des zweiten `<div>` und `2rems` außerhalb des Inline-Endrandes des dritten `<div>` einrastet.
+Das bedeutet, dass beim Scrollen an den mittleren Kindelementen vorbei das Scrollen auf `1rem` außerhalb des Inline-Endes des zweiten `<div>` und `2rems` außerhalb des Inline-Endes des dritten `<div>` einrastet.
 
 > [!NOTE]
-> Hier setzen wir `scroll-margin` sowohl am Start _als auch_ am Ende der Inline-Achse (x in unserem Fall), aber nur der Endrand ist wirklich relevant. Es würde hier genauso gut funktionieren, nur eine Scroll-Marge an diesem einen Rand zu setzen, zum Beispiel mit `scroll-margin-inline: 0 1rem`, oder `scroll-margin-inline-end: 1rem`.
+> Hier setzen wir `scroll-margin` sowohl am Anfang _als auch_ am Ende der Inline-Achse (x in unserem Fall), jedoch ist nur die Endkante wirklich relevant. Es würde hier genauso gut funktionieren, nur eine Scroll-Marge an dieser einen Kante zu setzen, beispielsweise mit `scroll-margin-inline: 0 1rem` oder `scroll-margin-inline-end: 1rem`.
 
 #### Ergebnis
 
 Versuchen Sie es selbst:
 
-{{EmbedLiveSample('Simple_demonstration', '100%', 300)}}
+{{EmbedLiveSample('Basic_demonstration', '100%', 300)}}
 
 ## Spezifikationen
 

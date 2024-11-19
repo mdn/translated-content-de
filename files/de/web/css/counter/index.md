@@ -2,40 +2,40 @@
 title: counter()
 slug: Web/CSS/counter
 l10n:
-  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
+  sourceCommit: 919d97a4bda8004f63f655d3f9576c27a82c8a2a
 ---
 
 {{CSSRef}}
 
-Die **`counter()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt einen String zurück, der den aktuellen Wert des benannten Zählers darstellt, wenn es einen gibt.
+Die **`counter()`**- [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt einen String zurück, der den aktuellen Wert des benannten Zählers darstellt, sofern ein solcher existiert.
 
-Die `counter()`-Funktion wird im Allgemeinen innerhalb von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) durch die {{cssxref("content")}}-Eigenschaft verwendet, kann theoretisch jedoch überall dort genutzt werden, wo ein [`<string>`](/de/docs/Web/CSS/string)-Wert unterstützt wird.
+Die `counter()`-Funktion wird im Allgemeinen innerhalb von [Pseudo-Elementen](/de/docs/Web/CSS/Pseudo-elements) durch die {{cssxref("content")}}-Eigenschaft verwendet, theoretisch kann sie jedoch überall verwendet werden, wo ein [`<string>`](/de/docs/Web/CSS/string)-Wert unterstützt wird.
 
 {{EmbedInteractiveExample("pages/tabbed/function-counter.html", "tabbed-shorter")}}
 
 ## Syntax
 
 ```css
-/* Simple usage */
+/* Basic usage */
 counter(counter-name);
 
 /* changing the counter display */
 counter(counter-name, upper-roman)
 ```
 
-[Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) haben für sich genommen keine sichtbare Auswirkung. Die `counter()` und {{cssxref("counters", "counters()")}} Funktionen sind das, was Zähler nützlich macht, indem sie benutzerdefiniert definierte Zeichenfolgen (oder Bilder) zurückgeben.
+[Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) haben selbst keine sichtbare Wirkung. Die `counter()`- und {{cssxref("counters", "counters()")}}-Funktionen machen Zähler nützlich, indem sie von Entwicklern definierte Strings (oder Bilder) zurückgeben.
 
 ### Werte
 
-Die `counter()` Funktion akzeptiert bis zu zwei Parameter. Der erste Parameter ist der `<counter-name>`. Der optionale zweite Parameter ist der `<counter-style>`.
+Die `counter()`-Funktion akzeptiert bis zu zwei Parameter. Der erste Parameter ist der `<counter-name>`. Der optionale zweite Parameter ist der `<counter-style>`.
 
 - `<counter-name>`
-  - : Ein {{cssxref("&lt;custom-ident&gt;")}}, der den Zähler identifiziert. Dies ist der gleiche, auf Groß- und Kleinschreibung achtende Name, der mit den Eigenschaftswerten {{cssxref("counter-reset")}} und {{cssxref("counter-increment")}} verwendet wird. Der Zählername darf nicht mit zwei Bindestrichen beginnen und kann nicht `none`, `unset`, `initial` oder `inherit` sein.
+  - : Ein {{cssxref("&lt;custom-ident&gt;")}}, der den Zähler identifiziert und derselbe case-sensitive Name ist, wie er mit den Eigenschaftswerten {{cssxref("counter-reset")}} und {{cssxref("counter-increment")}} verwendet wird. Der Zählername darf nicht mit zwei Bindestrichen beginnen und kann nicht `none`, `unset`, `initial` oder `inherit` sein.
 - `<counter-style>`
-  - : Ein {{cssxref("&lt;list-style-type&gt;")}} Name, {{cssxref("&lt;@counter-style&gt;")}} Name oder {{cssxref("symbols", "symbols()")}} Funktion, wobei ein Zählerstilname ein einfaches vordefiniertes numerisches, alphabetisches oder symbolisches Zählerstil ist, ein komplexer ausgeschriebener ostasiatischer oder äthiopischer vordefinierter Zählerstil oder ein anderer [vordefinierter Zählerstil](/de/docs/Web/CSS/CSS_counter_styles). Wenn weggelassen, wird der Zählerstil standardmäßig auf `decimal` gesetzt.
+  - : Ein {{cssxref("&lt;list-style-type&gt;")}}-Name, {{cssxref("&lt;@counter-style&gt;")}}-Name oder {{cssxref("symbols", "symbols()")}}-Funktion, wobei ein Zählerstilname ein `numeric`, `alphabetic` oder `symbolic` einfacher vordefinierter Zählerstil, ein komplexer ausführlicher ostasiatischer oder äthiopischer vordefinierter Zählerstil oder ein anderer [vordefinierter Zählerstil](/de/docs/Web/CSS/CSS_counter_styles) ist. Wenn weggelassen, ist der Standardzählerstil `decimal`.
 
 > [!NOTE]
-> Um die Zählerwerte beim Verschachteln von Zählern zu verketten, verwenden Sie die {{cssxref("counters", "counters()")}} Funktion, die einen zusätzlichen {{cssxref("string")}} Parameter bereitstellt.
+> Um die Zählerwerte beim Verschachteln von Zählern zu verbinden, verwenden Sie die {{cssxref("counters", "counters()")}}-Funktion, die einen zusätzlichen {{cssxref("string")}}-Parameter bereitstellt.
 
 ### Formale Syntax
 
@@ -43,9 +43,9 @@ Die `counter()` Funktion akzeptiert bis zu zwei Parameter. Der erste Parameter i
 
 ## Beispiele
 
-### lower-roman im Vergleich zu lower-alpha
+### lower-roman verglichen mit lower-alpha
 
-In diesem Beispiel zeigen wir einen Zähler mit den Listentypen `lower-roman` und `lower-alpha` an.
+In diesem Beispiel zeigen wir einen Zähler mit den Listengrundsätzen `lower-roman` und `lower-alpha`.
 
 #### HTML
 
@@ -75,11 +75,11 @@ li::after {
 
 #### Ergebnis
 
-{{EmbedLiveSample("lower-roman compared to lower-alpha", "100%", 150)}}
+{{EmbedLiveSample("lower-roman verglichen mit lower-alpha", "100%", 150)}}
 
-### Anzeigen eines Zählers mit drei Stilen
+### Anzeige eines Zählers mit drei Stilen
 
-In diesem Beispiel verwenden wir dreimal die `counter()` Funktion.
+In diesem Beispiel verwenden wir die `counter()`-Funktion dreimal.
 
 #### HTML
 
@@ -93,7 +93,7 @@ In diesem Beispiel verwenden wir dreimal die `counter()` Funktion.
 
 #### CSS
 
-Wir fügen die `counter()`-Funktion mit drei verschiedenen Zählerstilen ein, einschließlich des Standardwerts `decimal`. Wir haben der Liste ein Padding hinzugefügt, um Platz für den langen `::marker`-String zu schaffen.
+Wir fügen die `counter()`-Funktion mit drei verschiedenen Zählerstilen ein, einschließlich des Standardwerts decimal. Wir haben Padding zur Liste hinzugefügt, um Platz für den langen `::marker`-String zu schaffen.
 
 ```css-nolint
 ol {
@@ -116,7 +116,7 @@ li::after {
 
 #### Ergebnis
 
-{{EmbedLiveSample("Displaying a counter using three styles", "100%", 150)}}
+{{EmbedLiveSample("Anzeige eines Zählers mit drei Stilen", "100%", 150)}}
 
 ## Spezifikationen
 
@@ -136,4 +136,4 @@ li::after {
 - CSS [`counters()`](/de/docs/Web/CSS/counters) Funktion
 - [CSS-Listen und Zähler](/de/docs/Web/CSS/CSS_lists) Modul
 - [CSS-Zählerstile](/de/docs/Web/CSS/CSS_counter_styles) Modul
-- [CSS erzeugter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul
+- [CSS generierter Inhalt](/de/docs/Web/CSS/CSS_generated_content) Modul

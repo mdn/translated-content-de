@@ -2,16 +2,16 @@
 title: <frequency>
 slug: Web/CSS/frequency
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: 91ee05b8120e9df02c5ff04c22ece9a06d3ed26f
 ---
 
 {{CSSRef}}
 
-Der **`<frequency>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert eine Frequenzdimension, wie z.B. die Tonhöhe einer Sprechstimme. Derzeit wird er in keiner CSS-Eigenschaft verwendet.
+Der **`<frequency>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert eine Frequenzdimension, wie z. B. die Tonhöhe einer Sprechstimme. Er wird derzeit in keiner CSS-Eigenschaft verwendet.
 
 ## Syntax
 
-Der `<frequency>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen dem Einheitenliteral und der Zahl.
+Der `<frequency>` Datentyp besteht aus einem {{cssxref("&lt;number&gt;")}} gefolgt von einer der unten aufgeführten Einheiten. Wie bei allen CSS-Dimensionen gibt es keinen Abstand zwischen dem Einheitensymbol und der Zahl.
 
 ### Einheiten
 
@@ -21,7 +21,7 @@ Der `<frequency>` Datentyp besteht aus einer {{cssxref("&lt;number&gt;")}} gefol
   - : Repräsentiert eine Frequenz in Kilohertz. Beispiele: `0kHz`, `1.5kHz`, `10kHz`.
 
 > [!NOTE]
-> Obwohl die Zahl `0` immer gleich ist, unabhängig von der Einheit, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0Hz` oder `0kHz`. Obwohl die Einheiten nicht case-sensitiv sind, ist es gute Praxis, ein großes "H" für `Hz` und `kHz` zu verwenden, wie im [SI](https://en.wikipedia.org/wiki/International_System_of_Units) spezifiziert.
+> Obwohl die Zahl `0` unabhängig von der Einheit immer dieselbe ist, darf die Einheit nicht weggelassen werden. Mit anderen Worten, `0` ist ungültig und repräsentiert nicht `0Hz` oder `0kHz`. Obwohl die Einheiten nicht case-sensitiv sind, ist es eine gute Praxis, ein großes "H" für `Hz` und `kHz` zu verwenden, wie im [SI](https://en.wikipedia.org/wiki/International_System_of_Units) angegeben.
 
 ## Beispiele
 
@@ -49,9 +49,9 @@ Ungültige Frequenzwerte:
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Kein Browser unterstützt derzeit dieses Feature.
 
 ## Siehe auch
 
 - {{cssxref("&lt;frequency-percentage&gt;")}}
-- [CSS Values and Units](/de/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
