@@ -2,15 +2,15 @@
 title: stop-color
 slug: Web/SVG/Attribute/stop-color
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: c970273cbe683cdc930c1fc149293dbdeeecbb5d
 ---
 
 {{SVGRef}}
 
-Das **`stop-color`** Attribut gibt an, welche Farbe an einem Gradientenstopp verwendet werden soll.
+Das **`stop-color`** Attribut gibt an, welche Farbe an einem Farbverlauf-Stopp verwendet werden soll.
 
 > [!NOTE]
-> In Bezug auf Gradienten behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Gradienten nicht im vorab multiplizierten Raum, daher bedeutet `transparent` wirklich transparentes Schwarz. Das heißt, die Angabe eines `stop-color` mit dem Wert `transparent` entspricht der Angabe eines `stop-color` mit dem Wert `black` und einem {{SVGAttr("stop-opacity")}} mit dem Wert `0`.
+> In Bezug auf Farbverläufe behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Farbverläufe nicht im vorverarbeiteten Raum, daher bedeutet `transparent` wirklich transparentes Schwarz. Das Angeben einer `stop-color` mit dem Wert `transparent` entspricht dem Angeben einer `stop-color` mit dem Wert `black` und einer {{SVGAttr("stop-opacity")}} mit dem Wert `0`.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stop-color` als CSS-Eigenschaft verwendet werden.
@@ -19,7 +19,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("stop")}}
 
-## Anwendungsnotizen
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -47,11 +47,11 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `currentcolor`
-  - : Dieses Schlüsselwort bezeichnet die aktuelle Füllfarbe und kann in gleicher Weise wie innerhalb einer [`<paint>`](/de/docs/Web/SVG/Content_type#paint) Spezifikation für die {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} Attribute angegeben werden.
+  - : Dieses Schlüsselwort bezeichnet die aktuelle Füllfarbe und kann auf die gleiche Weise angegeben werden wie innerhalb einer [`<paint>`](/de/docs/Web/SVG/Content_type#paint) Spezifikation für die {{SVGAttr("fill")}} und {{SVGAttr("stroke")}} Attribute.
 - `<color>`
   - : Dieser Wert gibt einen Farbwert an.
 - `<icccolor>`
-  - : Dieser Wert bezieht sich auf ein ICC-Farbenprofil.
+  - : Dieser Wert bezieht sich auf ein ICC-Farbprofil.
 
 ## Spezifikationen
 
