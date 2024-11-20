@@ -1,19 +1,21 @@
 ---
-title: First input delay
+title: First Input Delay (FID)
 slug: Glossary/First_input_delay
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 0598721ab3f672c66a8357d9e6b27ec8644a2b21
 ---
 
 {{GlossarySidebar}}
 
-**First input delay** (FID) misst die Zeit, die von der ersten Interaktion eines Nutzers mit Ihrer Website (d.h. wenn sie auf einen Link klicken, einen Button antippen oder eine benutzerdefinierte, JavaScript-gesteuerte Steuerung verwenden) bis zu dem Zeitpunkt vergeht, an dem der Browser tatsächlich auf diese Interaktion reagieren kann.
+**First Input Delay** (FID) misst die Zeit von dem Moment, in dem ein Benutzer zuerst mit Ihrer Website interagiert (zum Beispiel, wenn er auf einen Link klickt, auf einen Button tippt oder eine benutzerdefinierte, JavaScript-gesteuerte Steuerung verwendet) bis zum Moment, in dem der Browser tatsächlich in der Lage ist, auf diese Interaktion zu reagieren.
 
-Es ist die Zeitspanne in Millisekunden zwischen der ersten Nutzerinteraktion auf einer Webseite und der Reaktion des Browsers auf diese Interaktion. Scrollen und Zoomen sind in dieser Metrik nicht enthalten.
+> [!WARNING]
+> FID wurde von Google als eine der [Core Web Vital](https://web.dev/articles/vitals) Metriken entwickelt, aber wurde [im Mai 2024](https://web.dev/blog/inp-cwv-launch) durch {{Glossary("Interaction_to_Next_Paint", "Interaction to Next Paint")}} (INP) ersetzt.
 
-Die Zeit zwischen dem Zeitpunkt, an dem der Inhalt auf die Seite gerendert wird, und dem Zeitpunkt, an dem alle Funktionen für menschliche Interaktion ansprechbar werden, variiert häufig basierend auf der Größe und Komplexität des JavaScripts, das heruntergeladen, geparst und im Haupt-Thread ausgeführt werden muss, sowie der Geschwindigkeit des Geräts oder deren Fehlen (denken Sie an mobile Geräte mit geringerer Leistung). Je länger die Verzögerung, desto schlechter die Benutzererfahrung. Die Reduzierung der Initialisierungszeit der Website und das Beseitigen von [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming) können dazu beitragen, die Verzögerungen der ersten Eingabe zu verringern.
+Es ist die Zeitdauer in Millisekunden zwischen der ersten Benutzerinteraktion auf einer Webseite und der Reaktion des Browsers auf diese Interaktion. Scrollen und Zoomen sind in dieser Metrik nicht enthalten.
+
+Die Zeit zwischen dem Moment, in dem Inhalte auf der Seite dargestellt werden, und dem Moment, in dem alle Funktionen auf menschliche Interaktionen reagieren, variiert oft basierend auf der Größe und Komplexität des JavaScripts, das heruntergeladen, geparst und im Haupt-Thread ausgeführt werden muss, und auf der Geräteleistung oder deren Fehlen (denken Sie an leistungsschwache mobile Geräte). Je länger die Verzögerung, desto schlechter das Benutzererlebnis. Die Reduzierung der Initialisierungszeit der Website und die Beseitigung von [langen Aufgaben](/de/docs/Web/API/PerformanceLongTaskTiming) können helfen, die ersten Eingabeverzögerungen zu beseitigen.
 
 ## Siehe auch
 
-- [requestIdleCallback](/de/docs/Web/API/Window/requestIdleCallback)
-- [Lazy Loading](/de/docs/Web/Performance/Lazy_loading)
+- [Interaction to Next Paint is officially a Core Web Vital](https://web.dev/blog/inp-cwv-launch) auf web.dev (2024)

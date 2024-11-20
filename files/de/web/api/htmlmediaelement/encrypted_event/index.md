@@ -1,20 +1,20 @@
 ---
-title: "HTMLMediaElement: encrypted Ereignis"
+title: "HTMLMediaElement: encrypted Event"
 short-title: encrypted
 slug: Web/API/HTMLMediaElement/encrypted_event
 l10n:
-  sourceCommit: ba9a6bebd0e7bf1dd6b5c4eed156d8f1748ade0f
+  sourceCommit: 400c104648bdf44350cfbeb8fe23f0a244d4e9d8
 ---
 
 {{APIRef("Encrypted Media Extensions")}}
 
-Das `encrypted` Ereignis wird ausgelöst, wenn Initialisierungsdaten in den Medien gefunden werden, was darauf hinweist, dass sie verschlüsselt sind.
+Das `encrypted`-Ereignis wird ausgelöst, wenn Initialisierungsdaten im Medium gefunden werden, die darauf hinweisen, dass es verschlüsselt ist.
 
-Dieses Ereignis kann nicht abgebrochen werden und wird nicht weitergereicht.
+Dieses Ereignis kann nicht abgebrochen werden und es wird nicht weitergeleitet.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener), oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("encrypted", (event) => {});
@@ -31,7 +31,7 @@ Ein [`MediaEncryptedEvent`](/de/docs/Web/API/MediaEncryptedEvent). Erbt von [`Ev
 ## Ereigniseigenschaften
 
 - [`MediaEncryptedEvent.initDataType`](/de/docs/Web/API/MediaEncryptedEvent/initDataType) {{ReadOnlyInline}}
-  - : Gibt einen Groß-/Kleinschreibung beachtenden String mit dem _Type_ des Formats der gefundenen Initialisierungsdaten zurück.
+  - : Gibt einen groß-/kleinschreibungssensitiven Zeichenfolgenwert mit dem _Typ_ des Formats der gefundenen Initialisierungsdaten zurück.
 - [`MediaEncryptedEvent.initData`](/de/docs/Web/API/MediaEncryptedEvent/initData) {{ReadOnlyInline}}
   - : Gibt einen {{jsxref("ArrayBuffer")}} zurück, der die gefundenen Initialisierungsdaten enthält. Wenn keine Initialisierungsdaten mit dem Format verknüpft sind, wird `null` zurückgegeben.
 

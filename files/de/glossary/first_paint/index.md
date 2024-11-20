@@ -1,18 +1,18 @@
 ---
-title: First Paint
+title: First Paint (FP)
 slug: Glossary/First_paint
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 0598721ab3f672c66a8357d9e6b27ec8644a2b21
 ---
 
 {{GlossarySidebar}}
 
-**First Paint** ist die Zeit zwischen der Navigation und dem Moment, in dem der Browser erstmals Pixel auf den Bildschirm rendert, indem er etwas anzeigt, das sich visuell von der Standard-[Hintergrundfarbe](/de/docs/Web/CSS/background-color) des [`body`](/de/docs/Web/API/Document/body) unterscheidet. Es ist der erste Schlüsselmoment beim Seitenladen und beantwortet die Frage: "Hat der Browser begonnen, die Seite zu rendern?"
+**First Paint** ist die Zeitspanne zwischen der Navigation und dem Zeitpunkt, an dem der Browser zum ersten Mal Pixel auf den Bildschirm rendert, wobei etwas anderes als die Standard-[Hintergrundfarbe](/de/docs/Web/CSS/background-color) des [body](/de/docs/Web/API/Document/body) angezeigt wird. Es ist der erste wichtige Moment beim Seitenladen und beantwortet die Frage: "Hat der Browser begonnen, die Seite zu rendern?"
 
 ## Siehe auch
 
 - [`PerformancePaintTiming`](/de/docs/Web/API/PerformancePaintTiming)
 - Verwandte Glossarbegriffe:
-  - {{Glossary("First_contentful_paint", "First Contentful Paint")}}
-  - {{Glossary("Largest_contentful_paint", "Largest Contentful Paint")}}
-  - {{Glossary("First_meaningful_paint", "First Meaningful Paint")}}
+  - {{Glossary("First_Contentful_Paint", "First Contentful Paint")}}
+  - {{Glossary("Largest_Contentful_Paint", "Largest Contentful Paint")}}
+  - {{Glossary("First_Meaningful_Paint", "First Meaningful Paint")}}

@@ -1,17 +1,17 @@
 ---
-title: "GPUDevice: createRenderPipelineAsync() Methode"
+title: "GPUDevice: Methode createRenderPipelineAsync()"
 short-title: createRenderPipelineAsync()
 slug: Web/API/GPUDevice/createRenderPipelineAsync
 l10n:
-  sourceCommit: 72bace50985179da02929a4cf9e9aa3f4bf4b395
+  sourceCommit: dad9fbcaff755c9bf81808e294ce239028b681f5
 ---
 
 {{APIRef("WebGPU API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
-Die **`createRenderPipelineAsync()`** Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) erfüllt wird. Diese kann die Vertex- und Fragment-Shader-Stufen steuern und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden, sobald die Pipeline ohne Verzögerungen genutzt werden kann.
+Die **`createRenderPipelineAsync()`**-Methode der [`GPUDevice`](/de/docs/Web/API/GPUDevice)-Schnittstelle gibt ein {{jsxref("Promise")}} zurück, das mit einem [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) erfüllt wird. Diese kann die Vertex- und Fragment-Shader-Stufen steuern und in einem [`GPURenderPassEncoder`](/de/docs/Web/API/GPURenderPassEncoder) oder [`GPURenderBundleEncoder`](/de/docs/Web/API/GPURenderBundleEncoder) verwendet werden, sobald die Pipeline ohne Verzögerung verwendet werden kann.
 
 > [!NOTE]
-> Es ist allgemein vorzuziehen, diese Methode über [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) zu verwenden, wann immer möglich, da sie die Blockierung der GPU-Betriebsausführung bei der Pipeline-Kompilierung verhindert.
+> Es ist im Allgemeinen vorzuziehen, diese Methode anstelle von [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline) zu verwenden, wann immer dies möglich ist, da sie das Blockieren der GPU-Betriebsausführung bei der Pipeline-Kompilierung verhindert.
 
 ## Syntax
 
@@ -22,39 +22,44 @@ createRenderPipelineAsync(descriptor)
 ### Parameter
 
 - `descriptor`
-  - : Siehe die Beschreibung des Deskriptors für die Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline#syntax).
+  - : Siehe die Deskriptor-Definition für die Methode [`GPUDevice.createRenderPipeline()`](/de/docs/Web/API/GPUDevice/createRenderPipeline#syntax).
 
 ### Rückgabewert
 
-Ein {{jsxref("Promise")}}, das mit einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Objektinstanz erfüllt wird, wenn die erstellte Pipeline bereit ist, ohne zusätzliche Verzögerung genutzt zu werden.
+Ein {{jsxref("Promise")}}, das mit einer [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline)-Objektinstanz erfüllt wird, wenn die erstellte Pipeline bereit ist, ohne zusätzliche Verzögerung verwendet zu werden.
 
 ### Validierung
 
-Falls die Erstellung der Pipeline fehlschlägt und die resultierende Pipeline daher ungültig wird, wird das zurückgegebene Promise mit einem [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) abgelehnt:
+Wenn die Pipelinenerstellung fehlschlägt und infolgedessen die resultierende Pipeline ungültig wird, wird das zurückgegebene Promise mit einem [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) zurückgewiesen:
 
-- Bei einem internen Fehler wird der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"internal"` haben.
-- Bei einem Validierungsfehler wird der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"validation"` haben.
+- Wenn dies auf einen internen Fehler zurückzuführen ist, hat der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"internal"`.
+- Wenn dies aufgrund eines Validierungsfehlers geschieht, hat der [`GPUPipelineError`](/de/docs/Web/API/GPUPipelineError) einen `reason` von `"validation"`.
 
-Ein Validierungsfehler kann auftreten, wenn eines der folgenden Kriterien nicht erfüllt ist:
+Ein Validierungsfehler kann auftreten, wenn eine der folgenden Bedingungen falsch ist:
 
 - Für `depthStencil`-Objekte:
-  - `format` ist ein [`depth-or-stencil`](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format)-Format.
-  - Die Eigenschaften [`depthBias`](#depthbias), [`depthBiasClamp`](#depthbiasclamp) und [`depthBiasSlopeScale`](#depthbiasslopescale) sind für Linien- und Punkt-Topologien auf <code>0</code> gesetzt, d.h., wenn [`topology`](#topology) auf `"line-list"`, `"line-strip"` oder `"point-list"` gesetzt ist.
+  - `format` ist ein [`depth-or-stencil`](https://gpuweb.github.io/gpuweb/#depth-or-stencil-format) Format.
+  - Die Eigenschaften [`depthBias`](#depthbias), [`depthBiasClamp`](#depthbiasclamp) und [`depthBiasSlopeScale`](#depthbiasslopescale) sind für Linien- und Punkt-Topologien auf <code>0</code> gesetzt, das heißt, wenn [`topology`](#topology) auf `"line-list"`, `"line-strip"` oder `"point-list"` gesetzt ist.
   - Wenn `depthWriteEnabled` `true` ist oder `depthCompare` nicht `"always"` ist, hat `format` eine Tiefenkomponente.
-  - Wenn die Eigenschaften von `stencilFront` oder `stencilBack` nicht auf ihren Standardwerten sind, hat `format` eine Stencil-Komponente.
+  - Wenn die Eigenschaften von `stencilFront` oder `stencilBack` nicht auf ihren Standardwerten liegen, hat `format` eine Stencil-Komponente.
 - Für `fragment`-Objekte:
   - `targets.length` ist kleiner oder gleich dem `maxColorAttachments` [Limit](/de/docs/Web/API/GPUSupportedLimits) des [`GPUDevice`](/de/docs/Web/API/GPUDevice).
   - Für jedes `target` ist das numerische Äquivalent von `writeMask` kleiner als 16.
-  - Wenn irgendeine der verwendeten Blend-Faktor-Operationen den Quell-Alpha-Kanal nutzt (zum Beispiel `"src-alpha-saturated"`), muss das Ergebnis einen Alpha-Kanal haben (das heißt, es muss ein `vec4` sein).
+  - Wenn eine der verwendeten Blendfaktor-Operationen den Alphakanal der Quelle verwendet (zum Beispiel `"src-alpha-saturated"`), hat die Ausgabe einen Alphakanal (das heißt, es muss ein `vec4` sein).
+  - Wenn die `entryPoint`-Eigenschaft weggelassen wird, enthält der Shader-Code eine einzelne Fragment-Shader-Einstiegspunktfunktion, die vom Browser als Standardeinstiegspunkt verwendet werden kann.
+- Für `primitive`-Objekte:
+  - Wenn die `unclippedDepth`-Eigenschaft verwendet wird, ist die `depth-clip-control` [Funktion](/de/docs/Web/API/GPUSupportedFeatures) aktiviert.
+- Für `vertex`-Objekte:
+  - Wenn die `entryPoint`-Eigenschaft weggelassen wird, enthält der Shader-Code eine einzelne Vertex-Shader-Einstiegspunktfunktion, die vom Browser als Standardeinstiegspunkt verwendet werden kann.
 
 ## Beispiele
 
 > [!NOTE]
-> Die [WebGPU-Proben](https://webgpu.github.io/webgpu-samples/) enthalten viele weitere Beispiele.
+> Die [WebGPU-Beispiele](https://webgpu.github.io/webgpu-samples/) enthalten viele weitere Beispiele.
 
 ### Einfaches Beispiel
 
-Das folgende Beispiel zeigt ein einfaches Beispiel für die Konstruktion eines gültigen Render-Pipeline-Beschreibungsobjekts, das dann verwendet wird, um eine [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) über einen `createRenderPipelineAsync()`-Aufruf zu erstellen.
+Das folgende Beispiel zeigt ein einfaches Beispiel für die Konstruktion eines gültigen Render-Pipeline-Deskriptor-Objekts, das dann verwendet wird, um eine [`GPURenderPipeline`](/de/docs/Web/API/GPURenderPipeline) via einem `createRenderPipelineAsync()`-Aufruf zu erstellen.
 
 ```js
 async function init() {

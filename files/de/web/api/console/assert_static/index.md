@@ -3,12 +3,12 @@ title: "console: assert() statische Methode"
 short-title: assert()
 slug: Web/API/console/assert_static
 l10n:
-  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
+  sourceCommit: 24d561bb783b8baa87219d4d90535da2da766b14
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.assert()`** statische Methode schreibt eine Fehlermeldung in die Konsole, wenn die Aussage falsch ist. Wenn die Aussage wahr ist, passiert nichts.
+Die statische Methode **`console.assert()`** schreibt eine Fehlermeldung in die Konsole, wenn die Behauptung falsch ist. Wenn die Behauptung wahr ist, passiert nichts.
 
 ## Syntax
 
@@ -27,23 +27,23 @@ console.assert(assertion, msg, subst1, /* …, */ substN)
 ### Parameter
 
 - `assertion`
-  - : Jede boolesche Ausdruck. Wenn die Aussage falsch ist, wird eine generische Meldung, die auf den Fehler hinweist, in die Konsole geschrieben.
+  - : Jedes beliebige boolesche Ausdruck. Wenn die Behauptung falsch ist, wird eine generische Meldung, die auf das Scheitern der Behauptung hinweist, in die Konsole geschrieben.
 - `val1` … `valN`
-  - : Eine Liste von JavaScript-Werten zur Ausgabe. Eine Darstellung jedes dieser Werte wird nach einer generischen Fehlermeldung in die Konsole ausgegeben (die von der Meldung abweichen kann, wenn diese Werte nicht vorhanden sind) in der gegebenen Reihenfolge mit einer Art Trennung zwischen der Meldung und jedem von ihnen. Es gibt einen Sonderfall, wenn `obj1` ein String ist, der anschließend beschrieben wird.
+  - : Eine Liste von JavaScript-Werten zum Ausgeben. Eine Darstellung jedes dieser Werte wird nach einer generischen Fehlermeldung der Behauptung in der angegebenen Reihenfolge in die Konsole ausgegeben, wobei eine Art von Trennung zwischen der Meldung und jedem dieser Werte erfolgt. Es gibt einen Sonderfall, wenn `val1` ein String ist, der anschließend beschrieben wird.
 - `msg`
-  - : Ein JavaScript-String, der null oder mehr Ersetzungs-Strings enthält, die in aufeinander folgender Reihenfolge mit `subst1` bis `substN` ersetzt werden, bis zur Anzahl der Ersetzungs-Strings. Ein Doppelpunkt, ein Leerzeichen und dann der ersetzte String werden angehängt, um eine detaillierte Fehlermeldung zu bilden, und das Ergebnis wird in die Konsole ausgegeben. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie Ersetzungen funktionieren.
+  - : Ein JavaScript-String, der null oder mehr Ersatzstrings enthält, die durch `subst1` bis `substN` in aufeinanderfolgender Reihenfolge bis zur Anzahl der Ersatzstrings ersetzt werden. Ein Doppelpunkt, ein Leerzeichen und anschließend der ersetzte String werden der generischen Behauptungsmeldung hinzugefügt, um eine detaillierte Fehlermeldung zu erstellen, und das Ergebnis wird in die Konsole ausgegeben. Siehe [Verwendung von String-Ersetzungen](/de/docs/Web/API/console#using_string_substitutions) für eine Beschreibung, wie die Ersetzungen funktionieren.
 - `subst1` … `substN`
-  - : JavaScript-Werte, mit denen Ersetzungs-Strings innerhalb von `msg` ersetzt werden. Wenn es mehr Ersetzungswerte als Ersetzungs-Strings gibt, werden die zusätzlichen Werte nach der detaillierten Fehlermeldung auf dieselbe Weise in die Konsole ausgegeben, wie wenn kein Format-String vorhanden ist.
+  - : JavaScript-Werte, mit denen Ersatz-Strings innerhalb von `msg` ersetzt werden. Wenn es mehr Ersatzwerte als Ersatzstrings gibt, werden die zusätzlichen Werte selbst nach der detaillierten Fehlermeldung in derselben Weise wie bei fehlendem Format-String in die Konsole geschrieben.
 
 Siehe [Ausgabe von Text in die Konsole](/de/docs/Web/API/console#outputting_text_to_the_console) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für weitere Details.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Beispiele
 
-Das folgende Codebeispiel demonstriert die Verwendung eines JavaScript-Objekts nach der Aussage:
+Das folgende Codebeispiel demonstriert die Verwendung eines JavaScript-Objekts nach der Behauptung:
 
 ```js
 const errorMsg = "the # is not even";
