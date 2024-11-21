@@ -1,13 +1,13 @@
 ---
-title: "<ul>: Das Unordered List Element"
+title: "<ul>: Das nicht geordnete Listenelement"
 slug: Web/HTML/Element/ul
 l10n:
-  sourceCommit: 9c09b183a5ce844a75c2f22e909d03f71ca329fc
+  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
 ---
 
 {{HTMLSidebar}}
 
-Das **`<ul>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine ungeordnete Liste von Elementen, die typischerweise als Aufzählungsliste dargestellt wird.
+Das **`<ul>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine ungeordnete Liste von Elementen, die typischerweise als eine Liste mit Aufzählungszeichen dargestellt wird.
 
 {{EmbedInteractiveExample("pages/tabbed/ul.html", "tabbed-standard")}}
 
@@ -17,31 +17,31 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 - `compact` {{Deprecated_inline}}
 
-  - : Dieses boolesche Attribut zeigt an, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs hängt vom {{Glossary("user_agent", "User Agent")}} ab, und es funktioniert nicht in allen Browsern.
+  - : Dieses boolesche Attribut deutet an, dass die Liste in einem kompakten Stil dargestellt werden sollte. Die Interpretation dieses Attributs hängt vom {{Glossary("user_agent", "User-Agent")}} ab und funktioniert nicht in allen Browsern.
 
     > [!WARNING]
-    > Verwenden Sie dieses Attribut nicht, da es veraltet ist: Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS). Um einen ähnlichen Effekt wie das `compact`-Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
+    > Verwenden Sie dieses Attribut nicht, da es veraltet ist: Verwenden Sie stattdessen [CSS](/de/docs/Web/CSS). Um eine ähnliche Wirkung wie das `compact` Attribut zu erzielen, kann die CSS-Eigenschaft {{cssxref("line-height")}} mit einem Wert von `80%` verwendet werden.
 
 - `type` {{Deprecated_inline}}
 
-  - : Dieses Attribut legt den Aufzählungsstil für die Liste fest. Die unter HTML3.2 und der Übergangsversion von HTML 4.0/4.01 definierten Werte sind:
+  - : Dieses Attribut legt den Stil der Aufzählungszeichen für die Liste fest. Die unter HTML3.2 und der Übergangsvariante von HTML 4.0/4.01 definierten Werte sind:
 
     - `circle`
     - `disc`
     - `square`
 
-    Ein vierter Aufzählungstyp wurde in der WebTV-Oberfläche definiert, aber nicht alle Browser unterstützen ihn: `triangle`.
+    Ein vierter Aufzählungstyp wurde in der WebTV-Schnittstelle definiert, aber nicht alle Browser unterstützen ihn: `triangle`.
 
-    Wenn nicht vorhanden und wenn keine [CSS](/de/docs/Web/CSS) {{ cssxref("list-style-type") }}-Eigenschaft auf das Element angewendet wird, wählt der User Agent einen Aufzählungstyp abhängig von der Verschachtelungsebene der Liste.
+    Falls nicht vorhanden und wenn keine [CSS](/de/docs/Web/CSS) {{ cssxref("list-style-type") }} Eigenschaft auf das Element angewendet wird, wählt der User-Agent einen Aufzählungstyp basierend auf der Verschachtelungsebene der Liste.
 
     > [!WARNING]
-    > Verwenden Sie dieses Attribut nicht, da es veraltet ist; verwenden Sie stattdessen die [CSS](/de/docs/Web/CSS) {{ cssxref("list-style-type") }}-Eigenschaft.
+    > Verwenden Sie dieses Attribut nicht, da es veraltet ist; verwenden Sie stattdessen die [CSS](/de/docs/Web/CSS) {{ cssxref("list-style-type") }} Eigenschaft.
 
-## Hinweise zur Nutzung
+## Verwendungshinweise
 
-- Das `<ul>`-Element dient zum Gruppieren einer Sammlung von Elementen, die keine numerische Reihenfolge haben, und deren Reihenfolge in der Liste bedeutungslos ist. Typischerweise werden ungeordnete Listenelemente mit einem Aufzählungszeichen angezeigt, das verschiedene Formen annehmen kann, wie ein Punkt, ein Kreis oder ein Quadrat. Der Aufzählungsstil wird nicht in der HTML-Beschreibung der Seite definiert, sondern in ihrem zugehörigen CSS mithilfe der {{ cssxref("list-style-type") }}-Eigenschaft.
-- Die `<ul>`- und {{HTMLElement("ol")}}-Elemente können beliebig tief verschachtelt werden. Darüber hinaus dürfen die verschachtelten Listen ohne Einschränkung zwischen `<ol>` und `<ul>` wechseln.
-- Die {{ HTMLElement("ol") }}- und `<ul>`-Elemente stellen beide eine Liste von Elementen dar. Der Unterschied besteht darin, dass bei dem {{ HTMLElement("ol") }}-Element die Reihenfolge bedeutungsvoll ist. Um zu bestimmen, welches verwendet werden soll, versuchen Sie, die Reihenfolge der Listenelemente zu ändern; wenn sich die Bedeutung ändert, sollte das {{ HTMLElement("ol") }}-Element verwendet werden, andernfalls können Sie `<ul>` verwenden.
+- Das `<ul>` Element dient der Gruppierung einer Sammlung von Elementen, die keine nummerierte Reihenfolge haben, und deren Reihenfolge in der Liste bedeutungslos ist. Typischerweise werden ungeordnete Listenelemente mit einem Aufzählungszeichen dargestellt, das verschiedene Formen wie Punkt, Kreis oder Quadrat haben kann. Der Stil des Aufzählungszeichens wird nicht in der HTML-Beschreibung der Seite, sondern im zugehörigen CSS mit der {{ cssxref("list-style-type") }} Eigenschaft definiert.
+- Die `<ul>` und {{HTMLElement("ol")}} Elemente können beliebig tief verschachtelt werden. Zudem können die verschachtelten Listen ohne Einschränkung zwischen `<ol>` und `<ul>` abwechseln.
+- Die {{ HTMLElement("ol") }} und `<ul>` Elemente repräsentieren beide eine Liste von Elementen. Sie unterscheiden sich jedoch dadurch, dass beim {{ HTMLElement("ol") }} Element die Reihenfolge bedeutend ist. Um festzustellen, welches verwendet werden sollte, versuchen Sie die Reihenfolge der Listenelemente zu ändern; wenn sich die Bedeutung ändert, sollte das {{ HTMLElement("ol") }} Element verwendet werden, andernfalls können Sie `<ul>` verwenden.
 
 ## Beispiele
 
@@ -57,9 +57,9 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 #### Ergebnis
 
-{{EmbedLiveSample("Simple_example", 400, 120)}}
+{{EmbedLiveSample("Basic_example", 400, 120)}}
 
-### Verschachtelung einer Liste
+### Verschachteln einer Liste
 
 ```html
 <ul>
@@ -92,7 +92,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 {{EmbedLiveSample("Nesting_a_list", 400, 340)}}
 
-### Geordnete Liste innerhalb einer ungeordneten Liste
+### Geordnete Liste in einer ungeordneten Liste
 
 ```html
 <ul>
@@ -122,37 +122,36 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Content_categories"
-          >Content-Kategorien</a
+          >Inhaltskategorien</a
         >
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließinhalts-Kategorien</a
-        >, und wenn die Kinder des <code>&#x3C;ul></code>-Elements mindestens ein
-        {{HTMLElement("li")}}-Element enthalten,
+          >Flussinhalt</a
+        >, und wenn die Kinder des <code>&#x3C;ul></code> Elements mindestens ein {{HTMLElement("li")}} Element enthalten,
         <a href="/de/docs/Web/HTML/Content_categories#palpable_content"
-          >fassbare Inhalts-Kategorien</a
+          >fühlbarer Inhalt</a
         >.
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässiger Inhalt</th>
+      <th scope="row">Erlaubter Inhalt</th>
       <td>
         Null oder mehr {{HTMLElement("li")}},
         {{HTMLElement("script")}} und
-        {{HTMLElement("template")}}-Elemente.
+        {{HTMLElement("template")}} Elemente.
       </td>
     </tr>
     <tr>
-      <th scope="row">Weglassen des Tags</th>
-      <td>Keines, sowohl das Start- als auch das Endtag sind erforderlich.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl der Start- als auch der Endtag sind erforderlich.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließinhalte</a
+          >Flussinhalt</a
         > akzeptiert.
       </td>
     </tr>
@@ -167,7 +166,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       </td>
     </tr>
     <tr>
-      <th scope="row">Zulässige ARIA-Rollen</th>
+      <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/directory_role"><code>directory</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>,
         <a href="/de/docs/Web/Accessibility/ARIA/Roles/listbox_role"><code>listbox</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/menu_role"><code>menu</code></a>,
@@ -194,10 +193,10 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 
 ## Siehe auch
 
-- Andere listenbezogene HTML-Elemente: {{HTMLElement("ol")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
-- CSS-Eigenschaften, die besonders nützlich sein können, um das `<ul>`-Element zu stylen:
+- Andere HTML-Elemente, die sich auf Listen beziehen: {{HTMLElement("ol")}}, {{HTMLElement("li")}}, {{HTMLElement("menu")}}
+- CSS-Eigenschaften, die besonders nützlich sein könnten, um das `<ul>` Element zu stylen:
 
-  - die {{CSSxRef("list-style")}}-Eigenschaft, um die Darstellung des Ordnungszeichens zu wählen.
-  - [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplexe verschachtelte Listen zu handhaben.
-  - die {{CSSxRef("line-height")}}-Eigenschaft, um das veraltete [`compact`](#compact)-Attribut zu simulieren.
-  - die {{CSSxRef("margin")}}-Eigenschaft, um die Listeneinrückung zu steuern.
+  - die {{CSSxRef("list-style")}} Eigenschaft, um die Art der Darstellung der Ordinals festzulegen.
+  - [CSS-Zähler](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters), um komplexe verschachtelte Listen zu verwalten.
+  - die {{CSSxRef("line-height")}} Eigenschaft, um das veraltete [`compact`](#compact) Attribut zu simulieren.
+  - die {{CSSxRef("margin")}} Eigenschaft, um die Einrückung der Liste zu steuern.

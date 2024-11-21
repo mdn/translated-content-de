@@ -1,23 +1,23 @@
 ---
-title: Gleichheitsvergleiche und Sameness
+title: Gleichheitsvergleiche und Ähnlichkeit
 slug: Web/JavaScript/Equality_comparisons_and_sameness
 l10n:
-  sourceCommit: 8e1184924387f88e2ee63a3c786b007aaf573105
+  sourceCommit: c75926b439f2c2a8228862b8afb99740429c2a7a
 ---
 
 {{jsSidebar("Intermediate")}}
 
-JavaScript bietet drei verschiedene Operationen zum Vergleichen von Werten:
+JavaScript bietet drei verschiedene Methoden zum Vergleich von Werten:
 
-- [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) — strikte Gleichheit (dreifach gleich)
-- [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality) — lose Gleichheit (doppelt gleich)
+- [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) — strikte Gleichheit (dreifaches Gleichheitszeichen)
+- [`==`](/de/docs/Web/JavaScript/Reference/Operators/Equality) — lose Gleichheit (doppeltes Gleichheitszeichen)
 - [`Object.is()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Object/is)
 
-Welche Operation Sie wählen, hängt davon ab, welche Art von Vergleich Sie durchführen möchten. Kurz gesagt:
+Welche Methode Sie wählen, hängt davon ab, welche Art von Vergleich Sie durchführen möchten. Kurz zusammengefasst:
 
-- Doppelt gleich (`==`) führt eine Typumwandlung durch, wenn zwei Dinge verglichen werden, und behandelt `NaN`, `-0` und `+0` speziell, um mit IEEE 754 übereinzustimmen (also `NaN != NaN`, und `-0 == +0`);
-- Dreifach gleich (`===`) führt denselben Vergleich wie doppelt gleich durch (inklusive der speziellen Behandlung für `NaN`, `-0` und `+0`), jedoch ohne Typumwandlung; wenn die Typen unterschiedlich sind, wird `false` zurückgegeben.
-- `Object.is()` führt keine Typumwandlung durch und keine spezielle Behandlung für `NaN`, `-0` und `+0` (wodurch es dasselbe Verhalten wie `===` hat, außer bei diesen speziellen numerischen Werten).
+- Doppelte Gleichheit (`==`) führt eine Typkonvertierung durch, wenn zwei Dinge verglichen werden, und behandelt `NaN`, `-0` und `+0` speziell, um IEEE 754 zu entsprechen (daher `NaN != NaN` und `-0 == +0`);
+- Dreifache Gleichheit (`===`) führt denselben Vergleich wie doppelte Gleichheit durch (einschließlich der speziellen Behandlung von `NaN`, `-0` und `+0`), jedoch ohne Typkonvertierung; wenn die Typen unterschiedlich sind, wird `false` zurückgegeben.
+- `Object.is()` macht keine Typkonvertierung und keine spezielle Behandlung für `NaN`, `-0` und `+0` (und verhält sich wie `===`, außer bei diesen speziellen numerischen Werten).
 
 Sie entsprechen drei von vier Gleichheitsalgorithmen in JavaScript:
 
@@ -26,11 +26,11 @@ Sie entsprechen drei von vier Gleichheitsalgorithmen in JavaScript:
 - [SameValue](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-samevalue): `Object.is()`
 - [SameValueZero](https://tc39.es/ecma262/multipage/abstract-operations.html#sec-samevaluezero): wird von vielen eingebauten Operationen verwendet
 
-Beachten Sie, dass sich die Unterscheidungen zwischen diesen allesamt auf den Umgang mit primitiven Werten beziehen; keiner von ihnen vergleicht, ob die Parameter konzeptionell ähnlich in ihrer Struktur sind. Für nicht-primitive Objekte `x` und `y`, die dieselbe Struktur haben, aber unterschiedliche Objekte sind, werden alle oben genannten Formen zu `false` ausgewertet.
+Beachten Sie, dass sich die Unterschiede bei der Behandlung von Primitiv-Typen ergeben; keiner von ihnen vergleicht, ob die Parameter konzeptionell ähnlich in ihrer Struktur sind. Für nicht-primitive Objekte `x` und `y`, die dieselbe Struktur haben, aber unterschiedliche Objekte sind, werden alle obigen Formen zu `false` evaluieren.
 
 ## Strikte Gleichheit mit ===
 
-Strikte Gleichheit vergleicht zwei Werte auf Gleichheit. Keiner der Werte wird vor dem Vergleich implizit in einen anderen Wert umgewandelt. Wenn die Werte unterschiedliche Typen haben, werden sie als ungleich angesehen. Wenn die Werte denselben Typ haben, keine Zahlen sind und denselben Wert haben, werden sie als gleich angesehen. Schließlich, wenn beide Werte Zahlen sind, werden sie als gleich angesehen, wenn sie beide nicht `NaN` sind und denselben Wert haben, oder wenn einer `+0` und einer `-0` ist.
+Strikte Gleichheit vergleicht zwei Werte auf Gleichheit. Keiner der Werte wird implizit in einen anderen Wert konvertiert, bevor er verglichen wird. Wenn die Werte unterschiedliche Typen haben, werden sie als ungleich angesehen. Wenn die Werte denselben Typ haben, keine Zahlen sind und denselben Wert haben, werden sie als gleich betrachtet. Wenn beide Werte Zahlen sind, gelten sie als gleich, wenn sie beide nicht `NaN` sind und denselben Wert haben, oder wenn eine `+0` und die andere `-0` ist.
 
 ```js
 const num = 0;
@@ -49,9 +49,9 @@ console.log(obj === null); // false
 console.log(obj === undefined); // false
 ```
 
-Strikte Gleichheit ist fast immer die korrekte Vergleichsoperation. Für alle Werte außer Zahlen verwendet sie die offensichtliche Semantik: Ein Wert ist nur gleich sich selbst. Für Zahlen verwendet sie leicht unterschiedliche Semantik, um zwei verschiedene Randfälle zu behandeln. Der erste ist, dass das Gleitkomma-Null entweder positiv oder negativ signiert ist. Dies ist nützlich bei der Darstellung bestimmter mathematischer Lösungen, aber da die meisten Situationen keinen Unterschied zwischen `+0` und `-0` machen, behandelt die strikte Gleichheit sie als denselben Wert. Der zweite ist, dass das Gleitkomma das Konzept eines NaN-Werts enthält, um die Lösung für bestimmte schlecht definierte mathematische Probleme darzustellen: beispielsweise negative Unendlichkeit addiert zu positiver Unendlichkeit. Strikte Gleichheit behandelt `NaN` als ungleich zu jedem anderen Wert — einschließlich sich selbst. (Der einzige Fall, in dem `(x !== x)` `true` ist, ist, wenn `x` `NaN` ist.)
+Strikte Gleichheit ist fast immer die richtige Vergleichsoperation zu verwenden. Für alle Werte außer Zahlen verwendet sie die offensichtliche Semantik: Ein Wert ist nur gleich sich selbst. Bei Zahlen verwendet sie leicht differente Semantik, um zwei verschiedene Randfälle zu überdecken. Der erste ist, dass Gleitkommazahlen null entweder positiv oder negativ vorzeichenbehaftet sind. Das ist nützlich, um bestimmte mathematische Lösungen darzustellen, aber da die meisten Situationen nicht zwischen `+0` und `-0` unterscheiden, behandelt die strikte Gleichheit sie als denselben Wert. Der zweite ist, dass das Gleitkomma-Konzept einen Wert nicht-einer-Zahl, `NaN`, besitzt, um die Lösung bestimmter schlecht definierter mathematischer Probleme darzustellen: negativ Unendlichkeit hinzugefügt zu positiv Unendlichkeit, zum Beispiel. Strikte Gleichheit behandelt `NaN` als ungleich zu jedem anderen Wert — einschließlich sich selbst. (Der einzige Fall, in dem `(x !== x)` `true` ist, ist, wenn `x` `NaN` ist.)
 
-Neben `===` wird strikte Gleichheit auch von Methoden zur Indextfindung verwendet, einschließlich [`Array.prototype.indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf), [`Array.prototype.lastIndexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf), [`TypedArray.prototype.indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/indexOf), [`TypedArray.prototype.lastIndexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/lastIndexOf) und [`case`](/de/docs/Web/JavaScript/Reference/Statements/switch)-Abgleichen. Das bedeutet, dass Sie `indexOf(NaN)` nicht verwenden können, um den Index eines `NaN`-Werts in einem Array zu finden, oder `NaN` als `case`-Wert in einer `switch`-Anweisung verwenden können, um es mit irgendetwas abzugleichen.
+Neben `===` wird die strikte Gleichheit auch von Methoden der Array-Indexsuche wie [`Array.prototype.indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf), [`Array.prototype.lastIndexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/lastIndexOf), [`TypedArray.prototype.indexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/indexOf), [`TypedArray.prototype.lastIndexOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/lastIndexOf) und [`case`](/de/docs/Web/JavaScript/Reference/Statements/switch)-Abgleich verwendet. Dies bedeutet, dass Sie nicht `indexOf(NaN)` verwenden können, um den Index eines `NaN` Wertes in einem Array zu finden, oder `NaN` als `case`-Wert in einer `switch`-Anweisung verwenden können, um es mit irgendetwas abzugleichen.
 
 ```js
 console.log([NaN].indexOf(NaN)); // -1
@@ -63,30 +63,30 @@ switch (NaN) {
 
 ## Lose Gleichheit mit ==
 
-Lose Gleichheit ist _symmetrisch_: `A == B` hat immer dieselbe Semantik wie `B == A` für alle Werte von `A` und `B` (außer in der Reihenfolge der angewendeten Konvertierungen). Das Verhalten beim Ausführen von loser Gleichheit unter Verwendung von `==` ist wie folgt:
+Lose Gleichheit ist _symmetrisch_: `A == B` hat immer dieselbe Bedeutung wie `B == A` für irgendeinen Wert von `A` und `B` (außer für die Reihenfolge der angewendeten Konversionen). Das Verhalten von losem Gleichheitsvergleich mittels `==` ist wie folgt:
 
 1. Wenn die Operanden denselben Typ haben, werden sie wie folgt verglichen:
-   - Objekt: gibt `true` nur zurück, wenn beide Operanden auf dasselbe Objekt verweisen.
-   - String: gibt `true` nur zurück, wenn beide Operanden dieselben Zeichen in derselben Reihenfolge aufweisen.
-   - Zahl: gibt `true` nur zurück, wenn beide Operanden denselben Wert haben. `+0` und `-0` werden als derselbe Wert behandelt. Wenn einer der Operanden `NaN` ist, wird `false` zurückgegeben; `NaN` ist also niemals gleich `NaN`.
-   - Boolean: gibt `true` nur zurück, wenn beide Operanden `true` oder beide `false` sind.
-   - BigInt: gibt `true` nur zurück, wenn beide Operanden denselben Wert haben.
-   - Symbol: gibt `true` nur zurück, wenn beide Operanden auf dasselbe Symbol verweisen.
-2. Wenn einer der Operanden `null` oder `undefined` ist, muss der andere auch `null` oder `undefined` sein, um `true` zurückzugeben. Andernfalls wird `false` zurückgegeben.
-3. Wenn einer der Operanden ein Objekt und der andere ein primitiver Wert ist, [konvertieren Sie das Objekt in einen primitiven Wert](/de/docs/Web/JavaScript/Data_structures#primitive_coercion).
-4. An diesem Schritt werden beide Operanden in primitive Werte (einer von String, Number, Boolean, Symbol und BigInt) konvertiert. Der Rest der Umwandlung erfolgt fallweise.
+   - Objekt: nur `true` zurückgeben, wenn beide Operanden auf dasselbe Objekt verweisen.
+   - String: nur `true` zurückgeben, wenn beide Operanden dieselben Zeichen in derselben Reihenfolge haben.
+   - Zahl: nur `true` zurückgeben, wenn beide Operanden denselben Wert haben. `+0` und `-0` werden als derselbe Wert behandelt. Wenn einer der Operanden `NaN` ist, `false` zurückgeben; daher ist `NaN` niemals gleich `NaN`.
+   - Boolean: nur `true` zurückgeben, wenn beide Operanden `true` oder beide `false` sind.
+   - BigInt: nur `true` zurückgeben, wenn beide Operanden denselben Wert haben.
+   - Symbol: nur `true` zurückgeben, wenn beide Operanden auf dasselbe Symbol verweisen.
+2. Wenn einer der Operanden `null` oder `undefined` ist, muss der andere ebenfalls `null` oder `undefined` sein, um `true` zurückzugeben. Anderenfalls, `false` zurückgeben.
+3. Wenn einer der Operanden ein Objekt und der andere ein primitiver Wert ist, [das Objekt in einen primitiven Wert konvertieren](/de/docs/Web/JavaScript/Data_structures#primitive_coercion).
+4. An dieser Stelle werden beide Operanden in primitive Werte (einer von String, Number, Boolean, Symbol und BigInt) konvertiert. Der Rest der Konvertierung erfolgt fallweise.
    - Wenn sie denselben Typ haben, vergleichen Sie sie mit Schritt 1.
    - Wenn einer der Operanden ein Symbol ist, der andere jedoch nicht, geben Sie `false` zurück.
-   - Wenn einer der Operanden ein Boolean ist, der andere jedoch nicht, [konvertieren Sie das Boolean in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion): `true` wird in 1 umgewandelt, und `false` wird in 0 umgewandelt. Vergleichen Sie dann die beiden Operanden erneut lose.
-   - Zahl zu String: [konvertieren Sie den String in eine Zahl](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Ein Konvertierungsfehler führt zu `NaN`, was garantiert, dass die Gleichheit `false` ist.
-   - Zahl zu BigInt: Vergleichen Sie nach ihrem numerischen Wert. Wenn die Zahl ±Infinity oder `NaN` ist, geben Sie `false` zurück.
-   - String zu BigInt: Konvertieren Sie den String in einen BigInt mithilfe des gleichen Algorithmus wie der [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt) Konstruktor. Wenn die Konvertierung fehlschlägt, geben Sie `false` zurück.
+   - Wenn einer der Operanden ein Boolean ist, der andere jedoch nicht, [den Boolean in eine Zahl umwandeln](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion): `true` wird in 1 konvertiert und `false` in 0. Vergleichen Sie dann die beiden Operanden erneut lose.
+   - Zahl in String: [den String in eine Zahl umwandeln](/de/docs/Web/JavaScript/Reference/Global_Objects/Number#number_coercion). Ein Konvertierungsfehler resultiert in `NaN`, was garantiert, dass die Gleichheit `false` ist.
+   - Zahl in BigInt: nach ihrem mathematischen Wert vergleichen. Wenn die Zahl ±Infinity oder `NaN` ist, `false` zurückgeben.
+   - String in BigInt: den String mit demselben Algorithmus wie dem [`BigInt()`](/de/docs/Web/JavaScript/Reference/Global_Objects/BigInt/BigInt)-Konstruktor in einen BigInt umwandeln. Wenn die Konvertierung fehlschlägt, `false` zurückgeben.
 
-Traditionell und gemäß ECMAScript sind alle primitiven Werte und Objekte locker ungleich zu `undefined` und `null`. Aber die meisten Browser erlauben einer sehr engen Klasse von Objekten (insbesondere dem `document.all`-Objekt für jede Seite), in einigen Kontexten so zu agieren, als ob sie den Wert `undefined` _emulieren_. Lose Gleichheit ist ein solcher Kontext: `null == A` und `undefined == A` ergeben nur dann `true`, wenn, und nur wenn, A ein Objekt ist, das `undefined` _emuliert_. In allen anderen Fällen ist ein Objekt niemals locker gleich `undefined` oder `null`.
+Traditionell und gemäß ECMAScript sind alle Primitiven und Objekte lose ungleich `undefined` und `null`. Aber die meisten Browser erlauben eine sehr eingeschränkte Klasse von Objekten (genauer gesagt, das `document.all`-Objekt für jede Seite), in einigen Kontexten, sich so verhalten, als ob sie den Wert `undefined` _imitieren_. Lose Gleichheit ist ein solcher Kontext: `null == A` und `undefined == A` verhalten sich lediglich dann wahr, wenn, und nur, wenn, A ein Objekt ist, das `undefined` imitiert. In allen anderen Fällen ist ein Objekt niemals lose gleich `undefined` oder `null`.
 
-In den meisten Fällen wird die Verwendung der losen Gleichheit nicht empfohlen. Das Ergebnis eines Vergleichs mit strikter Gleichheit ist leichter vorherzusagen und kann aufgrund des Fehlens von Typumwandlungen schneller ausgeführt werden.
+In den meisten Fällen wird die Verwendung von loser Gleichheit nicht empfohlen. Das Ergebnis eines Vergleichs mit strikter Gleichheit ist leichter vorherzusagen und kann aufgrund der fehlenden Typkonversion schneller ausgewertet werden.
 
-Das folgende Beispiel zeigt lose Gleichheitsvergleiche unter Beteiligung des Zahlprimitivs `0`, des BigInt-Primitives `0n`, des Stringprimitives `'0'` und eines Objekts, dessen `toString()`-Wert `'0'` ist.
+Das folgende Beispiel demonstriert lose Gleichheitsvergleiche mit dem Zahlenprimiv `0`, dem BigInt-Primiv `0n`, der Zeichenfolge `'0'` und einem Objekt, dessen `toString()`-Wert `'0'` ist.
 
 ```js
 const num = 0;
@@ -105,9 +105,9 @@ console.log(str == obj); // true
 
 Lose Gleichheit wird nur vom `==`-Operator verwendet.
 
-## Gleichheit des gleichen Werts mit Object.is()
+## Gleichheit des gleichen Wertes mit Object.is()
 
-Die Gleichheit des gleichen Werts bestimmt, ob zwei Werte in allen Kontexten _funktionell identisch_ sind. (Dieses Anwendungsbeispiel zeigt eine Instanz des [Liskov-Substitutionsprinzips](https://de.wikipedia.org/wiki/Liskovsches_Substitutionsprinzip)) Eine Instanz tritt auf, wenn versucht wird, eine unveränderliche Eigenschaft zu ändern:
+Die Gleichheit des gleichen Wertes bestimmt, ob zwei Werte in allen Kontexten _funktional identisch_ sind. (Dieser Anwendungsfall zeigt ein Beispiel des [Liskovschen Substitutionsprinzips](https://en.wikipedia.org/wiki/Liskov_substitution_principle).) Ein Fall tritt auf, wenn versucht wird, eine unveränderbare Eigenschaft zu ändern:
 
 ```js
 // Add an immutable NEGATIVE_ZERO property to the Number constructor.
@@ -123,15 +123,15 @@ function attemptMutation(v) {
 }
 ```
 
-`Object.defineProperty` wird eine Ausnahme auslösen, wenn versucht wird, eine unveränderliche Eigenschaft zu ändern, aber nichts wird getan, wenn keine tatsächliche Änderung angefordert wird. Wenn `v` `-0` ist, wurde keine Änderung angefordert und es wird kein Fehler ausgelöst. Intern wird, wenn eine unveränderliche Eigenschaft neu definiert wird, der neu festgelegte Wert mit dem aktuellen Wert unter Verwendung der Gleichheit des gleichen Werts verglichen.
+`Object.defineProperty` wird eine Ausnahme auslösen, wenn versucht wird, eine unveränderbare Eigenschaft zu ändern, aber nichts tun, wenn keine tatsächliche Änderung angefordert wird. Wenn `v` `-0` ist, wurde keine Änderung angefordert, und es wird kein Fehler ausgelöst. Intern wird, wenn eine unveränderbare Eigenschaft neu definiert wird, der neu angegebene Wert gegen den aktuellen Wert mit Gleichheit des gleichen Wertes verglichen.
 
-Die Gleichheit des gleichen Werts wird durch die Methode {{jsxref("Object.is")}} bereitgestellt. Sie wird fast überall in der Sprache verwendet, bei der ein gleichwertiger Identitätswert erwartet wird.
+Die Gleichheit des gleichen Wertes wird durch die {{jsxref("Object.is")}}-Methode bereitgestellt. Sie wird fast überall in der Sprache verwendet, wo ein Wert von gleichwertiger Identität erwartet wird.
 
-## Gleichheit des gleichen Wertes Null
+## Gleichheit des gleichen Wertes null
 
-Ähnlich wie die Gleichheit des gleichen Werts, aber +0 und -0 gelten als gleich.
+Ähnlich wie bei der Gleichheit des gleichen Wertes werden +0 und -0 als gleich angesehen.
 
-Die Gleichheit des gleichen Wertes Null wird nicht als JavaScript-API bereitgestellt, kann jedoch mit benutzerdefiniertem Code implementiert werden:
+Die Gleichheit des gleichen Wertes null wird nicht als JavaScript-API bereitgestellt, kann aber mit benutzerdefiniertem Code implementiert werden:
 
 ```js
 function sameValueZero(x, y) {
@@ -143,13 +143,13 @@ function sameValueZero(x, y) {
 }
 ```
 
-Gleichheit des gleichen Wertes Null unterscheidet sich von strikter Gleichheit, indem `NaN` als äquivalent angesehen wird, und unterscheidet sich nur von der Gleichheit des gleichen Werts, indem `-0` als 0 äquivalent angesehen wird. Dies macht es normalerweise zum sinnvollsten Verhalten bei der Suche, insbesondere beim Arbeiten mit `NaN`. Es wird von [`Array.prototype.includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes), [`TypedArray.prototype.includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/includes) sowie Methoden von [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) verwendet, um Schlüsselgleichheit zu vergleichen.
+Die Gleichheit des gleichen Wertes null unterscheidet sich nur von der strikten Gleichheit, indem sie `NaN` als gleichwertig behandelt und sich nur von der Gleichheit des gleichen Wertes unterscheidet, indem `-0` als gleichwertig zu `0` behandelt wird. Dies führt dazu, dass sie normalerweise das sinnvollste Verhalten beim Suchen aufweist, insbesondere bei der Arbeit mit `NaN`. Sie wird von [`Array.prototype.includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/includes), [`TypedArray.prototype.includes()`](/de/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/includes) sowie von Methoden in [`Map`](/de/docs/Web/JavaScript/Reference/Global_Objects/Map) und [`Set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Set) zur Überprüfung der Schlüssgleichheit verwendet.
 
-## Vergleich der Gleichheitsmethoden
+## Vergleich von Gleichheitsmethoden
 
-Menschen vergleichen häufig doppelt gleich und dreifach gleich, indem sie sagen, dass eines eine "erweiterte" Version des anderen ist. Zum Beispiel könnte doppelt gleich als erweiterte Version von dreifach gleich angesehen werden, da ersteres alles tut, was letzteres tut, jedoch mit Typumwandlung auf seine Operanden — zum Beispiel `6 == "6"`. Alternativ kann behauptet werden, dass doppelt gleich die Basis bildet und dreifach gleich eine erweiterte Version ist, da es erfordert, dass die beiden Operanden denselben Typ haben, sodass es eine zusätzliche Einschränkung hinzufügt.
+Menschen vergleichen oft doppeltes und dreifaches Gleichheitszeichen, indem sie sagen, dass eines eine "verbesserte" Version des anderen ist. Zum Beispiel könnte man sagen, dass das doppelte Gleichheitszeichen eine erweiterte Version des dreifachen Gleichheitszeichens ist, da das erstere alles tut, was das letztere tut, jedoch mit Typkonversion an seinen Operanden — Beispielsweise `6 == "6"`. Alternativ könnte man behaupten, dass das doppelte Gleichheitszeichen die Grundlage ist und das dreifache Gleichheitszeichen eine verbesserte Version ist, weil es erfordert, dass die beiden Operanden denselben Typ haben und somit eine zusätzliche Einschränkung hinzufügt.
 
-Diese Denkweise impliziert jedoch, dass die Gleichheitsvergleiche ein eindimensionales "Spektrum" bilden, bei dem "völlig strikt" an einem Ende und "völlig lose" am anderen Ende liegt. Dieses Modell reicht mit {{jsxref("Object.is")}} nicht aus, weil es weder "locker" als doppelt gleich noch "strikter" als dreifach gleich ist, noch passt es irgendwo dazwischen (d. h. strikter als doppelt gleich, aber lockerer als dreifach gleich). Wir können aus der Tabelle der Sameness-Vergleiche unten sehen, dass dies aufgrund der Art, wie {{jsxref("Object.is")}} mit {{jsxref("NaN")}} umgeht, so ist. Beachten Sie, dass wir, wenn `Object.is(NaN, NaN)` zu `false` ausgewertet würde, _sagen könnten_, dass es auf dem lockeren/strikten Spektrum als eine sogar striktere Form von dreifach gleich passt, eine, die zwischen `-0` und `+0` unterscheidet. Die {{jsxref("NaN")}}-Handhabung bedeutet jedoch, dass dies nicht zutrifft. Leider muss {{jsxref("Object.is")}} in Bezug auf seine spezifischen Eigenschaften betrachtet werden, anstatt in Bezug auf seine Lockerheit oder Striktheit in Bezug auf die Gleichheitsoperatoren.
+Diese Denkweise impliziert jedoch, dass die Gleichheitsvergleiche ein eindimensionales "Spektrum" bilden, bei dem "völlig strikt" an einem Ende und "völlig lose" am anderen liegt. Dieses Modell weist bei {{jsxref("Object.is")}} Mängel auf, da es weder "loser" als doppeltes Gleichheitszeichen noch "strikter" als dreifaches Gleichheitszeichen ist und auch nicht irgendwo dazwischenliegt (d. h., es ist sowohl strikter als doppeltes Gleichheitszeichen als auch loser als dreifaches Gleichheitszeichen). Wir können aus der Tabelle der Vergleichswerte unten sehen, dass dies an der Weise liegt, wie {{jsxref("Object.is")}} mit {{jsxref("NaN")}} umgeht. Beachten Sie, dass, wenn `Object.is(NaN, NaN)` `false` evaluiert, wir sagen könnten, dass es auf dem lose/strikt Spektrum als noch strengere Form des dreifachen Gleichheitszeichens passt, eine, die zwischen `-0` und `+0` unterscheidet. Die Behandlung von {{jsxref("NaN")}} bedeutet jedoch, dass dies nicht der Fall ist. Leider muss {{jsxref("Object.is")}} in Bezug auf seine spezifischen Eigenschaften betrachtet werden, anstatt in Bezug auf seine Losigkeit oder Striktheit gegenüber den Gleichheitsoperatoren.
 
 | x                   | y                   | `==`       | `===`      | `Object.is` | `SameValueZero` |
 | ------------------- | ------------------- | ---------- | ---------- | ----------- | --------------- |
@@ -180,34 +180,34 @@ Diese Denkweise impliziert jedoch, dass die Gleichheitsvergleiche ein eindimensi
 | `'foo'`             | `NaN`               | `❌ false` | `❌ false` | `❌ false`  | `❌ false`      |
 | `NaN`               | `NaN`               | `❌ false` | `❌ false` | `✅ true`   | `✅ true`       |
 
-### Wann man Object.is() gegenüber dreifach gleich verwenden sollte
+### Wann verwendet man Object.is() versus dreifaches Gleichheitszeichen
 
-Im Allgemeinen ist das einzige Mal, wenn das spezielle Verhalten von {{jsxref("Object.is")}} gegenüber Nullen von Interesse sein könnte, bei der Verfolgung gewisser Metaprogrammierungsschemata, insbesondere in Bezug auf Eigenschaftsbeschreibungen, wenn es wünschenswert ist, dass Ihre Arbeit einige Eigenschaften von {{jsxref("Object.defineProperty")}} widerspiegelt. Wenn Ihr Anwendungsfall dies nicht erfordert, wird vorgeschlagen, {{jsxref("Object.is")}} zu vermeiden und stattdessen [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) zu verwenden. Auch wenn Ihre Anforderungen beinhalten, dass Vergleiche zwischen zwei {{jsxref("NaN")}}-Werten zu `true` ausgewertet werden, ist es im Allgemeinen einfacher, die {{jsxref("NaN")}}-Prüfungen speziell zu behandeln (mithilfe der {{jsxref("isNaN")}}-Methode, die in früheren Versionen von ECMAScript verfügbar ist), als herauszufinden, wie umgebende Berechnungen sich auf das Vorzeichen der Nullen auswirken könnten, denen Sie in Ihrem Vergleich begegnen.
+Im Allgemeinen wird das spezielle Verhalten von {{jsxref("Object.is")}} in Bezug auf Nullstellen wahrscheinlich nur von Interesse sein, wenn Sie bestimmte Metaprogrammierungsstrategien verfolgen, insbesondere hinsichtlich Eigenschaftsdeskriptoren, wenn es wünschenswert ist, dass Ihre Arbeit einige der Eigenschaften von {{jsxref("Object.defineProperty")}} widerspiegelt. Wenn Ihr Anwendungsfall dies nicht erfordert, wird empfohlen, {{jsxref("Object.is")}} zu vermeiden und stattdessen [`===`](/de/docs/Web/JavaScript/Reference/Operators/Strict_equality) zu verwenden. Selbst wenn Ihre Anforderungen haben, dass Vergleiche zwischen zwei {{jsxref("NaN")}}-Werten zu `true` auswerten, ist es im Allgemeinen einfacher, die {{jsxref("NaN")}}-Prüfungen (mit der {{jsxref("isNaN")}}-Methode, die in früheren Versionen des ECMAScript verfügbar sind) speziell zu behandeln, als zu ermitteln, wie sich umgebende Berechnungen auf das Vorzeichen der Nullen auswirken könnten, die Sie in Ihrem Vergleich antreffen.
 
-Hier ist eine nicht erschöpfende Liste von eingebauten Methoden und Operatoren, die dazu führen könnten, dass sich eine Unterscheidung zwischen `-0` und `+0` in Ihrem Code manifestiert:
+Hier ist eine nicht erschöpfende Liste von eingebauten Methoden und Operatoren, die eine Unterscheidung zwischen `-0` und `+0` in Ihrem Code bewirken können:
 
-- [`-` (unäres Negieren)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
+- [`-` (unäre Negation)](/de/docs/Web/JavaScript/Reference/Operators/Unary_negation)
 
-  - : Betrachten Sie das folgende Beispiel:
+  - : Betrachten Sie folgendes Beispiel:
 
     ```js
     const stoppingForce = obj.mass * -obj.velocity;
     ```
 
-    Wenn `obj.velocity` `0` ist (oder zu `0` berechnet wird), wird ein `-0` an dieser Stelle eingeführt und propagiert sich in `stoppingForce`.
+    Wenn `obj.velocity` `0` ist (oder zu `0` gerechnet wird), wird an dieser Stelle ein `-0` eingeführt und breitet sich in `stoppingForce` aus.
 
 - {{jsxref("Math.atan2")}}, {{jsxref("Math.ceil")}}, {{jsxref("Math.pow")}}, {{jsxref("Math.round")}}
-  - : In einigen Fällen ist es möglich, dass in einem Ausdruck ein `-0` als Rückgabewert dieser Methoden eingeführt wird, auch wenn kein `-0` als einer der Parameter existiert. Beispielsweise ergibt die Verwendung von {{jsxref("Math.pow")}}, um {{jsxref("Infinity", "-Infinity")}} in eine negative ungerade Potenz zu erheben, `-0`. Siehe die Dokumentation der einzelnen Methoden.
+  - : In einigen Fällen kann ein `-0` in einen Ausdruck als Rückgabewert dieser Methoden eingeführt werden, selbst wenn kein `-0` als einer der Parameter existiert. Beispielsweise ergibt die Verwendung von {{jsxref("Math.pow")}} zur Potenzierung von {{jsxref("Infinity", "-Infinity")}} mit einem negativen ungeraden Exponenten `-0`. Siehe die Dokumentation zu den einzelnen Methoden.
 - {{jsxref("Math.floor")}}, {{jsxref("Math.max")}}, {{jsxref("Math.min")}}, {{jsxref("Math.sin")}}, {{jsxref("Math.sqrt")}}, {{jsxref("Math.tan")}}
-  - : Es ist möglich, in einigen Fällen, in denen ein `-0` als einer der Parameter existiert, einen `-0`-Rückgabewert aus diesen Methoden zu erhalten. Zum Beispiel ergibt `Math.min(-0, +0)` `-0`. Siehe die Dokumentation der einzelnen Methoden.
+  - : Es ist möglich, einen `-0`-Rückgabewert aus diesen Methoden in einigen Fällen zu erhalten, wenn `-0` als einer der Parameter existiert. Beispielsweise ergibt `Math.min(-0, +0)` `-0`. Siehe die Dokumentation zu den einzelnen Methoden.
 - [`~`](/de/docs/Web/JavaScript/Reference/Operators/Bitwise_NOT), [`<<`](/de/docs/Web/JavaScript/Reference/Operators/Left_shift), [`>>`](/de/docs/Web/JavaScript/Reference/Operators/Right_shift)
-  - : Jeder dieser Operatoren verwendet intern den ToInt32-Algorithmus. Da es im internen 32-Bit-Ganzzahl-Typ nur eine Darstellung für 0 gibt, wird `-0` eine Rundreise nach einer inversen Operation nicht überleben. Beide `Object.is(~~(-0), -0)` und `Object.is(-0 << 2 >> 2, -0)` werten zu `false` aus.
+  - : Jeder dieser Operatoren verwendet den ToInt32-Algorithmus intern. Da es nur eine Darstellung für 0 im internen 32-Bit-Ganzzahltyp gibt, überlebt `-0` keine Rundreise nach einer inversen Operation. Beispielsweise evaluieren sowohl `Object.is(~~(-0), -0)` als auch `Object.is(-0 << 2 >> 2, -0)` zu `false`.
 
-Auf {{jsxref("Object.is")}} zu vertrauen, wenn die Vorzeichen von Nullen nicht berücksichtigt werden, kann riskant sein. Natürlich, wenn die Absicht darin besteht, zwischen `-0` und `+0` zu unterscheiden, tut es genau das, was gewünscht wird.
+Sich auf {{jsxref("Object.is")}} zu verlassen, wenn die Vorzeichen der Nullen nicht berücksichtigt werden, kann gefährlich sein. Natürlich, wenn die Absicht ist, zwischen `-0` und `+0` zu unterscheiden, macht es genau das, was gewünscht wird.
 
-### Warnung: Object.is() und NaN
+### Hinweis: Object.is() und NaN
 
-Die Spezifikation von {{jsxref("Object.is")}} behandelt alle Instanzen von {{jsxref("NaN")}} als dasselbe Objekt. Da jedoch [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) verfügbar sind, können wir unterschiedliche Gleitkommadarstellungen von `NaN` haben, die nicht in allen Kontexten identisch verhalten. Zum Beispiel:
+Die {{jsxref("Object.is")}}-Spezifikation behandelt alle Instanzen von {{jsxref("NaN")}} als dasselbe Objekt. Da jedoch [typisierte Arrays](/de/docs/Web/JavaScript/Guide/Typed_arrays) verfügbar sind, können wir unterschiedliche Gleitkommadarstellungen von `NaN` haben, die sich in allen Kontexten nicht identisch verhalten. Zum Beispiel:
 
 ```js
 const f2b = (x) => new Uint8Array(new Float64Array([x]).buffer);
@@ -225,4 +225,4 @@ console.log(f2b(nan2)); // Uint8Array(8) [1, 0, 0, 0, 0, 0, 248, 127]
 
 ## Siehe auch
 
-- [JS Vergleichstabelle](https://dorey.github.io/JavaScript-Equality-Table/) von [dorey](https://github.com/dorey)
+- [JS-Vergleichstabelle](https://dorey.github.io/JavaScript-Equality-Table/) von [dorey](https://github.com/dorey)

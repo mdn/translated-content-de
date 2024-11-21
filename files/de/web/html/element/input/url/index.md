@@ -2,125 +2,125 @@
 title: <input type="url">
 slug: Web/HTML/Element/input/url
 l10n:
-  sourceCommit: 709d3a56661f895e5b0a67ff969e381d503ddd45
+  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
 ---
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente vom Typ **`url`** werden verwendet, um den Benutzer eine URL eingeben und bearbeiten zu lassen.
+{{HTMLElement("input")}}-Elemente vom Typ **`url`** werden verwendet, um dem Benutzer das Eingeben und Bearbeiten einer URL zu ermöglichen.
 
 {{EmbedInteractiveExample("pages/tabbed/input-url.html", "tabbed-shorter")}}
 
-Der Eingabewert wird automatisch validiert, um sicherzustellen, dass er entweder leer oder eine korrekt formatierte URL ist, bevor das Formular gesendet werden kann. Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden automatisch angewendet, um visuell anzuzeigen, ob der aktuelle Wert des Feldes eine gültige URL ist oder nicht.
+Der Eingabewert wird automatisch validiert, um sicherzustellen, dass er entweder leer oder eine korrekt formatierte URL ist, bevor das Formular gesendet werden kann. Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden automatisch angewendet, um visuell anzuzeigen, ob der aktuelle Feldwert eine gültige URL ist oder nicht.
 
 ## Wert
 
-Das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut des {{HTMLElement("input")}}-Elements enthält eine Zeichenkette, die automatisch als der URL-Syntax entsprechend validiert wird. Genauer gesagt, gibt es zwei mögliche Wertformate, die die Validierung bestehen:
+Das `value`-Attribut des {{HTMLElement("input")}}-Elements enthält eine Zeichenkette, die automatisch darauf geprüft wird, ob sie der URL-Syntax entspricht. Genauer gesagt gibt es zwei mögliche Wertformate, die die Validierung bestehen:
 
-1. Eine leere Zeichenkette ("") zeigt an, dass der Benutzer keinen Wert eingegeben hat oder dass der Wert entfernt wurde.
-2. Eine einzelne, korrekt geformte absolute URL. Das bedeutet nicht notwendigerweise, dass die URL-Adresse existiert, aber sie ist zumindest korrekt formatiert. Ein Eintrag, der `urlscheme://rest-of-url` entspricht, kann gültig sein, sogar wenn das eingegebene `urlscheme` nicht existiert.
+1. Ein leerer String ("") zeigt an, dass der Benutzer keinen Wert eingegeben hat oder dass der Wert entfernt wurde.
+2. Eine einzelne, korrekt formatierte absolute URL. Dies bedeutet nicht unbedingt, dass die URL-Adresse existiert, aber sie ist zumindest korrekt formatiert. Ein Eintrag, der `urlschema://rest-of-url` entspricht, kann gültig sein, selbst wenn das eingegebene `urlschema` nicht existiert.
 
-Sehen Sie sich den Abschnitt [Validierung](#validierung) an, um Details darüber zu erfahren, wie URLs validiert werden, um sicherzustellen, dass sie korrekt formatiert sind.
+Weitere Informationen zur Validierung von URLs, um sicherzustellen, dass sie korrekt formatiert sind, finden Sie unter [Validierung](#validierung).
 
 ## Zusätzliche Attribute
 
-Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Global_attributes) und den Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ wirken, unterstützen `url`-Inputs die folgenden Attribute.
+Zusätzlich zu den [globalen Attributen](/de/docs/Web/HTML/Global_attributes) und den Attributen, die auf alle {{HTMLElement("input")}}-Elemente unabhängig von ihrem Typ angewendet werden, unterstützen `url`-Eingaben die folgenden Attribute.
 
 > [!NOTE]
-> Das globale Attribut [`autocorrect`](/de/docs/Web/HTML/Global_attributes/autocorrect) kann zu URL-Inputs hinzugefügt werden, aber der gespeicherte Zustand ist immer `off`.
+> Das globale Attribut [`autocorrect`](/de/docs/Web/HTML/Global_attributes/autocorrect) kann zu `url`-Eingaben hinzugefügt werden, aber der gespeicherte Zustand ist immer `off`.
 
 ### list
 
-Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements, das im selben Dokument enthalten ist. Das {{HTMLElement("datalist")}} bietet eine Liste vordefinierter Werte, die dem Benutzer für diese Eingabe vorgeschlagen werden. Alle Werte in der Liste, die nicht mit dem [`type`](/de/docs/Web/HTML/Element/input#type) kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert angeben.
+Der Wert des `list`-Attributs ist die [`id`](/de/docs/Web/API/Element/id) eines {{HTMLElement("datalist")}}-Elements im gleichen Dokument. Das {{HTMLElement("datalist")}} bietet eine Liste vorkonfigurierter Werte, die dem Benutzer für diese Eingabe vorgeschlagen werden sollen. Alle Werte in der Liste, die mit dem `type` nicht kompatibel sind, werden nicht in die vorgeschlagenen Optionen aufgenommen. Die bereitgestellten Werte sind Vorschläge, keine Anforderungen: Benutzer können aus dieser vordefinierten Liste auswählen oder einen anderen Wert eingeben.
 
 ### maxlength
 
-Die maximale Zeichenlänge (gemessen in UTF-16-Code-Einheiten), die der Benutzer in den `url`-Input eingeben kann. Dies muss ein ganzzahliger Wert von `0` oder höher sein. Wenn kein `maxlength` spezifiziert ist oder ein ungültiger Wert angegeben wird, hat der `url`-Input keine Maximallänge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
+Die maximale Zeichenlänge (gemessen in UTF-16-Codeeinheiten), die der Benutzer in die `url`-Eingabe eingeben kann. Dies muss ein ganzzahliger Wert von `0` oder höher sein. Wenn kein `maxlength` angegeben ist oder ein ungültiger Wert angegeben ist, hat die `url`-Eingabe keine maximale Länge. Dieser Wert muss auch größer oder gleich dem Wert von `minlength` sein.
 
-Die Eingabe schlägt bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl, wenn die Länge des Textwertes des Feldes länger ist als `maxlength` UTF-16-Code-Einheiten. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe schlägt bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl, wenn die Länge des Textwerts des Feldes größer als `maxlength` UTF-16 Codeeinheiten ist. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
 
 ### minlength
 
-Die minimale Zeichenlänge (gemessen in UTF-16-Code-Einheiten), die der Benutzer in den `url`-Input eingeben kann. Dies muss ein nicht-negativer ganzzahliger Wert sein, der kleiner oder gleich dem durch `maxlength` angegebenen Wert ist. Wenn kein `minlength` spezifiziert ist oder ein ungültiger Wert angegeben wird, hat der `url`-Input keine Mindestlänge.
+Die minimale Zeichenlänge (gemessen in UTF-16-Codeeinheiten), die der Benutzer in die `url`-Eingabe eingeben kann. Dies muss ein nicht-negativer Ganzzahlwert sein, der kleiner oder gleich dem mit `maxlength` angegebenen Wert ist. Wenn kein `minlength` angegeben oder ein ungültiger Wert angegeben ist, hat die `url`-Eingabe keine Mindestlänge.
 
-Die Eingabe schlägt bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl, wenn die Länge des eingegebenen Textes in das Feld kürzer ist als `minlength` UTF-16-Code-Einheiten. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
+Die Eingabe schlägt bei der [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl, wenn die Länge des in das Feld eingegebenen Textes weniger als `minlength` UTF-16 Codeeinheiten beträgt. Die Einschränkungsvalidierung wird nur angewendet, wenn der Wert vom Benutzer geändert wird.
 
 ### pattern
 
-Das `pattern`-Attribut ist, wenn es angegeben ist, ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) des Inputs erfüllen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger regulärer JavaScript-Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird, und wie in unserem [Leitfaden für reguläre Ausdrücke](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, damit das Muster als Folge von Unicode-Codepunkten statt als {{Glossary("ASCII", "ASCII")}} behandelt wird. Um das Muster-Text herum dürfen keine Schrägstriche angegeben werden.
+Das `pattern`-Attribut, wenn angegeben, ist ein regulärer Ausdruck, den der `value` der Eingabe erfüllen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Er muss ein gültiger JavaScript-Regulärer-Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und wie er in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist; das `'u'`-Flag wird beim Kompilieren des regulären Ausdrucks angegeben, sodass das Muster als eine Sequenz von Unicode-Codepunkten behandelt wird, anstatt als {{Glossary("ASCII", "ASCII")}}. Es sollten keine Schrägstriche um den Mustertest angegeben werden.
 
-Wenn das angegebene Muster nicht spezifiziert oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
+Wenn das angegebene Muster nicht angegeben oder ungültig ist, wird kein regulärer Ausdruck angewendet und dieses Attribut wird vollständig ignoriert.
 
 > [!NOTE]
-> Verwenden Sie das [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut, um Text anzugeben, den die meisten Browser als Tooltip anzeigen, um zu erklären, welche Anforderungen eingehalten werden müssen, um dem Muster zu entsprechen. Sie sollten auch einen anderen erklärenden Text in der Nähe hinzufügen.
+> Verwenden Sie das [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut, um Text zu spezifizieren, den die meisten Browser als Tooltip anzeigen, um zu erklären, welche Anforderungen erfüllt werden müssen, um das Muster zu erfüllen. Sie sollten auch anderen erklärenden Text in der Nähe hinzufügen.
 
 Siehe den Abschnitt [Muster-Validierung](#muster-validierung) für Details und ein Beispiel.
 
 ### placeholder
 
-Das `placeholder`-Attribut ist eine Zeichenkette, die dem Benutzer einen kurzen Hinweis darauf gibt, welche Art von Informationen im Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt eine erklärende Nachricht. Der Text darf keine Wagenrückläufe oder Zeilenumbrüche enthalten.
+Das `placeholder`-Attribut ist eine Zeichenkette, die dem Benutzer einen kurzen Hinweis darauf bietet, welche Art von Informationen in dem Feld erwartet werden. Es sollte ein Wort oder eine kurze Phrase sein, die den erwarteten Datentyp demonstriert, anstatt eine erläuternde Nachricht. Der Text _darf keine_ Wagenrückläufe oder Zeilenumbrüche enthalten.
 
-Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) hat, aber der Platzhalter in der entgegengesetzten Richtung dargestellt werden muss, können Sie die Unicode-Bidirektionalitätsalgorithmus-Formatierungszeichen verwenden, um die Richtung innerhalb des Platzhalters zu überschreiben; siehe [Wie man Unicode-Steuerungen für bidi-Text verwendet](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
+Wenn der Inhalt der Steuerung eine Richtung ({{Glossary("LTR", "LTR")}} oder {{Glossary("RTL", "RTL")}}) aufweist, der Platzhalter jedoch in der entgegengesetzten Richtung dargestellt werden muss, können Sie die Unicode-Bidirektionalitätsalgorithmus-Formatierungszeichen verwenden, um die Richtung innerhalb des Platzhalters zu überschreiben; siehe [Anleitung zur Verwendung von Unicode-Steuerzeichen für bidi-Text](https://www.w3.org/International/questions/qa-bidi-unicode-controls) für weitere Informationen.
 
 > [!NOTE]
-> Vermeiden Sie es, das `placeholder`-Attribut zu verwenden, wenn es möglich ist. Es ist nicht so semantisch nützlich wie andere Methoden zur Erklärung Ihres Formulars und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für mehr Informationen.
+> Vermeiden Sie es, wenn möglich, das `placeholder`-Attribut zu verwenden. Es ist nicht so semantisch nützlich wie andere Möglichkeiten, Ihr Formular zu erklären, und kann unerwartete technische Probleme mit Ihrem Inhalt verursachen. Siehe [`<input>`-Labels](/de/docs/Web/HTML/Element/input#labels) für weitere Informationen.
 
 ### readonly
 
-Das [`readonly`](/de/docs/Web/HTML/Attributes/readonly)-Boolesche Attribut bedeutet, wenn es vorhanden ist, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin direkt durch JavaScript-Code geändert werden, indem die `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) gesetzt wird.
+Das [`readonly`](/de/docs/Web/HTML/Attributes/readonly)-Boolean-Attribut bedeutet, wenn es vorhanden ist, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch weiterhin direkt durch JavaScript-Code geändert werden, der die [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Eigenschaft `value` setzt.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat [`required`](/de/docs/Web/HTML/Attributes/required) keine Wirkung auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
+> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat [`required`](/de/docs/Web/HTML/Attributes/required) keine Auswirkungen auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
 
 ### size
 
-Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da Zeichenbreiten variieren, kann dies mehr oder weniger genau sein und sollte nicht darauf vertraut werden; das resultierende Eingabefeld kann je nach den Zeichen und der verwendeten Schriftart ({{cssxref("font")}}-Einstellungen) schmaler oder breiter sein als die angegebene Anzahl von Zeichen.
+Das `size`-Attribut ist ein numerischer Wert, der angibt, wie viele Zeichen breit das Eingabefeld sein soll. Der Wert muss eine Zahl größer als null sein, und der Standardwert ist 20. Da Zeichenbreiten variieren, kann dies genau sein oder nicht; es sollte nicht darauf vertraut werden, dass dies so bleibt; das resultierende Eingabefeld kann je nach den Zeichen und der Schriftart ({{cssxref("font")}}-Einstellungen) schmaler oder breiter sein als die angegebene Zeichenanzahl.
 
-Dies legt kein Limit fest, wie viele Zeichen der Benutzer in das Feld eingeben kann. Es gibt nur ungefähr an, wie viele gleichzeitig sichtbar sein können. Um eine obere Grenze für die Länge der Eingabedaten festzulegen, verwenden Sie das [`maxlength`](#maxlength)-Attribut.
+Dies setzt _kein_ Limit für die Menge an Zeichen, die der Benutzer in das Feld eingeben kann. Es gibt nur an, wie viele gleichzeitig ungefähr angezeigt werden können. Um eine obere Grenze für die Länge der Eingabedaten festzulegen, verwenden Sie das `maxlength`-Attribut.
 
 ### spellcheck
 
-Das [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck)-Globale-Attribut wird verwendet, um anzugeben, ob die Rechtschreibprüfung für ein Element aktiviert werden soll. Es kann auf jedem bearbeitbaren Inhalt verwendet werden, aber hier betrachten wir spezifisch die Verwendung von `spellcheck` auf {{HTMLElement("input")}}-Elementen. Die zulässigen Werte für `spellcheck` sind:
+Das [`spellcheck`](/de/docs/Web/HTML/Global_attributes/spellcheck)-Globale-Attribut wird verwendet, um anzugeben, ob die Rechtschreibprüfung für ein Element aktiviert werden soll. Es kann auf jedem bearbeitbaren Inhalt verwendet werden, aber hier betrachten wir die Besonderheiten bei der Verwendung von `spellcheck` auf {{HTMLElement("input")}}-Elementen. Die erlaubten Werte für `spellcheck` sind:
 
 - `false`
-  - : Deaktivieren Sie die Rechtschreibprüfung für dieses Element.
+  - : Deaktivieren der Rechtschreibprüfung für dieses Element.
 - `true`
-  - : Aktivieren Sie die Rechtschreibprüfung für dieses Element.
-- "" (leere Zeichenkette) oder kein Wert
-  - : Befolgen Sie das Standardverhalten des Elements zur Rechtschreibprüfung. Dies kann auf einer übergeordneten `spellcheck`-Einstellung oder anderen Faktoren basieren.
+  - : Aktivieren der Rechtschreibprüfung für dieses Element.
+- "" (leerer String) oder kein Wert
+  - : Folgen Sie dem Standardverhalten des Elements für die Rechtschreibprüfung. Dies kann basierend auf den `spellcheck`-Einstellungen eines übergeordneten Elements oder anderen Faktoren basieren.
 
-Ein Eingabefeld kann die Rechtschreibprüfung aktiviert haben, wenn es nicht das [readonly](#readonly)-Attribut gesetzt hat und nicht deaktiviert ist.
+Ein Eingabefeld kann die Rechtschreibprüfung aktivieren, wenn es nicht das [readonly](#readonly)-Attribut gesetzt hat und nicht deaktiviert ist.
 
-Der Wert, der durch Lesen von `spellcheck` zurückgegeben wird, spiegelt möglicherweise nicht den tatsächlichen Rechtschreibprüfungszustand eines Steuerelements wider, wenn die {{Glossary("user_agent", "Benutzeragenten")}}-Einstellungen die Einstellung überschreiben.
+Der Wert, der durch das Lesen von `spellcheck` zurückgegeben wird, spiegelt möglicherweise nicht den tatsächlichen Zustand der Rechtschreibprüfung innerhalb einer Steuerung wider, wenn die Präferenzen des {{Glossary("user_agent", "Benutzeragenten")}} die Einstellung überschreiben.
 
-## Verwendung von URL-Inputs
+## Verwendung von URL-Eingaben
 
-Wenn Sie einen URL-Input mit dem richtigen `type`-Wert `url` erstellen, erhalten Sie eine automatische Validierung, dass der eingegebene Text zumindest in der richtigen Form ist, um möglicherweise eine legitime URL zu sein. Dies kann helfen, Fälle zu vermeiden, in denen der Benutzer die Adresse seiner Website falsch eingibt oder eine ungültige angibt.
+Wenn Sie eine URL-Eingabe mit dem richtigen `type`-Wert, `url`, erstellen, erhalten Sie automatische Validierung, dass der eingegebene Text zumindest in der richtigen Form ist, um möglicherweise eine legitime URL zu sein. Dies kann helfen, Fälle zu vermeiden, in denen der Benutzer die Adresse seiner Website falsch eingibt oder eine ungültige angibt.
 
-Es ist jedoch wichtig zu beachten, dass dies nicht ausreicht, um sicherzustellen, dass der angegebene Text eine URL ist, die tatsächlich existiert, zum Benutzer der Website gehört oder anderweitig akzeptabel ist. Es stellt sicher, dass der Wert des Feldes korrekt formatiert ist, um eine URL zu sein.
+Es ist jedoch wichtig zu beachten, dass dies nicht ausreicht, um sicherzustellen, dass der angegebene Text eine URL ist, die tatsächlich existiert, dem Benutzer der Seite entspricht, oder auf andere Weise akzeptabel ist. Es stellt sicher, dass der Wert des Feldes korrekt formatiert ist, um eine URL zu sein.
 
 > [!NOTE]
-> Ein Benutzer kann hinter den Kulissen mit Ihrem HTML herumspielen, daher darf Ihre Website diese Validierung nicht für Sicherheitszwecke verwenden. Sie müssen die URL auf der Serverseite jeder Transaktion überprüfen, in der der bereitgestellte Text sicherheitsrelevante Implikationen haben kann.
+> Ein Benutzer kann im Hintergrund mit Ihrem HTML manipulieren, daher darf Ihre Website _niemals_ diese Validierung für Sicherheitszwecke verwenden. Sie _müssen_ die URL serverseitig bei jeder Transaktion überprüfen, bei der der bereitgestellte Text Sicherheitsimplikationen irgendeiner Art haben könnte.
 
-### Ein einfaches URL-Input
+### Eine grundlegende URL-Eingabe
 
-Dieses Element wird als Standardtexteingabefeld mit grundlegenden Validierungsfunktionen implementiert. In seiner einfachsten Form kann ein URL-Input so implementiert werden:
+Dieses Element wird als reguläres Texteingabefeld mit grundlegenden Validierungsfunktionen implementiert. In seiner grundlegendsten Form kann eine URL-Eingabe folgendermaßen implementiert werden:
 
 ```html
 <input id="myURL" name="myURL" type="url" />
 ```
 
-{{ EmbedLiveSample('A_simple_URL_input', 600, 40) }}
+{{EmbedLiveSample('A_basic_URL_input', 600, 40)}}
 
-Beachten Sie, dass es als gültig angesehen wird, wenn es leer ist und wenn eine einzelne gültig formatierte URL-Adresse eingegeben wird, aber ansonsten nicht als gültig betrachtet wird. Indem Sie das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut hinzufügen, werden nur korrekt geformte URLs zugelassen; die Eingabe wird nicht mehr als gültig betrachtet, wenn sie leer ist.
+Beachten Sie, dass es als gültig angesehen wird, wenn es leer ist und wenn eine einzige gültig formatierte URL-Adresse eingegeben wird, aber ansonsten nicht als gültig angesehen wird. Indem Sie das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut hinzufügen, sind nur korrekt formulierte URLs zulässig; die Eingabe wird nicht mehr als gültig angesehen, wenn sie leer ist.
 
-Hier passiert nichts Magisches. Das Absenden dieses Formulars würde dazu führen, dass die folgenden Daten an den Server gesendet werden: `myURL=http%3A%2F%2Fwww.example.com`. Beachten Sie, wie Zeichen bei Bedarf kodiert werden.
+Hier passiert nichts Magisches. Das Absenden dieses Formulars würde dazu führen, dass die folgenden Daten an den Server gesendet werden: `myURL=http%3A%2F%2Fwww.example.com`. Beachten Sie, wie Zeichen bei Bedarf maskiert werden.
 
 ### Platzhalter
 
-Manchmal ist es hilfreich, einen kontextbezogenen Hinweis darauf zu geben, in welcher Form die Eingabedaten sein sollten. Dies kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Labels für jedes {{HTMLElement("input")}}-Element bietet. Hier kommen **Platzhalter** ins Spiel. Ein Platzhalter ist ein Wert, der die Form veranschaulicht, die der `value` annehmen sollte, indem er ein Beispiel für einen gültigen Wert präsentiert, der im Eingabefeld angezeigt wird, wenn der `value` des Elements "". Sobald Daten in das Feld eingegeben werden, verschwindet der Platzhalter; wenn das Feld geleert wird, erscheint der Platzhalter erneut.
+Manchmal ist es hilfreich, im Kontext einen Hinweis darauf zu geben, welche Form die Eingabedaten annehmen sollten. Dies kann besonders wichtig sein, wenn das Seitendesign keine beschreibenden Labels für jedes {{HTMLElement("input")}} bietet. Hier kommen **Platzhalter** ins Spiel. Ein Platzhalter ist ein Wert, der demonstriert, welche Form der `value` annehmen sollte, indem er ein Beispiel eines gültigen Werts präsentiert, das innerhalb der Bearbeitungsbox angezeigt wird, wenn der `value` des Elements "" ist. Sobald Daten in die Box eingegeben werden, verschwindet der Platzhalter; wenn die Box geleert wird, erscheint der Platzhalter wieder.
 
-Hier haben wir ein `url`-Input mit dem Platzhalter `http://www.example.com`. Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, während Sie den Inhalt des Bearbeitungsfeldes manipulieren.
+Hier haben wir eine `url`-Eingabe mit dem Platzhalter `http://www.example.com`. Beachten Sie, wie der Platzhalter verschwindet und wieder erscheint, während Sie den Inhalt des Bearbeitungsfelds manipulieren.
 
 ```html
 <input
@@ -130,27 +130,27 @@ Hier haben wir ein `url`-Input mit dem Platzhalter `http://www.example.com`. Bea
   placeholder="http://www.example.com" />
 ```
 
-{{ EmbedLiveSample('Placeholders', 600, 40) }}
+{{EmbedLiveSample('Placeholders', 600, 40)}}
 
-### Kontrolle der Eingabegröße
+### Steuern der Eingabegröße
 
-Sie können sowohl die physische Länge der Eingabebox als auch die minimale und maximale Länge für den eingegebenen Text kontrollieren.
+Sie können sowohl die physische Länge des Eingabefelds als auch die minimal und maximal erlaubten Längen für den Eingabetext steuern.
 
-#### Physische Eingabeelementgröße
+#### Physikalische Eingabefeldgröße
 
-Die physische Größe der Eingabebox kann mithilfe des [`size`](/de/docs/Web/HTML/Element/input#size)-Attributs gesteuert werden. Mit ihm können Sie die Anzahl der Zeichen angeben, die die Eingabebox gleichzeitig anzeigen kann. In diesem Beispiel ist die `url`-Eingabebox 30 Zeichen breit:
+Die physikalische Größe des Eingabefelds kann mit dem `size`-Attribut gesteuert werden. Mit diesem können Sie angeben, wie viele Zeichen das Eingabefeld gleichzeitig anzeigen kann. In diesem Beispiel ist zum Beispiel das `url`-Bearbeitungsfeld 30 Zeichen breit:
 
 ```html
 <input id="myURL" name="myURL" type="url" size="30" />
 ```
 
-{{ EmbedLiveSample('Physical_input_element_size', 600, 40) }}
+{{EmbedLiveSample('Physical_input_element_size', 600, 40)}}
 
-#### Wertlänge des Elements
+#### Elementwertlänge
 
-Die `size` ist getrennt von der Längenbeschränkung der eingegebenen URL selbst. Sie können eine minimale Länge in Zeichen für die eingegebene URL mithilfe des [`minlength`](/de/docs/Web/HTML/Element/input#minlength)-Attributs angeben; verwenden Sie ebenso [`maxlength`](/de/docs/Web/HTML/Element/input#maxlength), um die maximale Länge der eingegebenen URL festzulegen. Wenn `maxLength` `size` überschreitet, scrollen die Inhalte der Eingabebox bei Bedarf, um die aktuelle Auswahl oder den Einfügepunkt zu zeigen, während der Inhalt bearbeitet wird.
+Das `size` ist getrennt von der Längenbeschränkung für die tatsächlich eingetragene URL. Sie können eine Mindestlänge, in Zeichen, für die eingegebene URL mit dem `minlength`-Attribut festlegen; ähnlich verwenden Sie `maxlength`, um die maximale Länge der eingegebenen URL festzulegen. Wenn `maxLength` größer als `size` ist, scrollen die Inhalte des Eingabefelds nach Bedarf, um die aktuelle Auswahl oder Einfügemarke anzuzeigen, während der Inhalt manipuliert wird.
 
-Das folgende Beispiel erstellt ein 30 Zeichen breites URL-Adresseingabefeld, das fordert, dass der Inhalt nicht kürzer als 10 Zeichen und nicht länger als 80 Zeichen ist.
+Das Beispiel unten erstellt eine 30 Zeichen breite URL-Adresseneingabebox, die erfordert, dass die Inhalte nicht kürzer als 10 Zeichen und nicht länger als 80 Zeichen sind.
 
 ```html
 <input
@@ -162,16 +162,16 @@ Das folgende Beispiel erstellt ein 30 Zeichen breites URL-Adresseingabefeld, das
   maxlength="80" />
 ```
 
-{{EmbedLiveSample("Element_value_length", 600, 40) }}
+{{EmbedLiveSample("Element_value_length", 600, 40)}}
 
 > [!NOTE]
-> Diese Attribute beeinflussen auch die Validierung; ein Wert, der kürzer oder länger ist als die angegebenen Mindest-/Maximallängen, wird als ungültig klassifiziert; außerdem werden die meisten Browser den Benutzer daran hindern, einen Wert einzugeben, der länger ist als die angegebene maximale Länge.
+> Diese Attribute beeinflussen auch die Validierung; ein Wert, der kürzer oder länger als die angegebenen minimalen/maximalen Längen ist, wird als ungültig klassifiziert; zusätzlich werden die meisten Browser dem Benutzer nicht erlauben, einen Wert einzugeben, der länger als die angegebene maximale Länge ist.
 
-### Bereitstellungsstandardoptionen
+### Bereitstellung von Standardoptionen
 
-#### Bereitstellung eines einzigen Standards mithilfe des Value-Attributs
+#### Bereitstellung eines einzelnen Standards mithilfe des `value`-Attributs
 
-Wie immer können Sie einen Standardwert für eine `url`-Eingabebox bereitstellen, indem Sie das [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut setzen:
+Wie immer können Sie einen Standardwert für ein `url`-Eingabefeld bereitstellen, indem Sie sein `value`-Attribut setzen:
 
 ```html
 <input id="myURL" name="myURL" type="url" value="http://www.example.com" />
@@ -181,7 +181,7 @@ Wie immer können Sie einen Standardwert für eine `url`-Eingabebox bereitstelle
 
 #### Vorschlagen von Werten
 
-Wenn Sie einen Schritt weiter gehen, können Sie eine Liste von Standardoptionen bereitstellen, aus denen der Benutzer auswählen kann, indem Sie das [`list`](/de/docs/Web/HTML/Element/input#list)-Attribut angeben. Dies schränkt den Benutzer nicht auf diese Optionen ein, ermöglicht ihm jedoch, häufiger verwendete URLs schneller auszuwählen. Dies bietet auch Hinweise auf [`autocomplete`](/de/docs/Web/HTML/Element/input#autocomplete). Das `list`-Attribut gibt die ID eines {{HTMLElement("datalist")}}-Elemenattrs an, das wiederum ein {{HTMLElement("option")}}-Element pro vorgeschlagenem Wert enthält; der `value` jeder `option` ist der entsprechende vorgeschlagene Wert für die URL-Eingabebox.
+Gehen Sie einen Schritt weiter und bieten Sie eine Liste von Standardoptionen an, aus denen der Benutzer wählen kann, indem Sie das `list`-Attribut angeben. Dies beschränkt den Benutzer nicht auf diese Optionen, ermöglicht es ihm aber, häufig verwendete URLs schneller auszuwählen. Dies bietet auch Hinweise für [`autocomplete`](/de/docs/Web/HTML/Element/input#autocomplete). Das `list`-Attribut gibt die ID eines {{HTMLElement("datalist")}} an, das wiederum ein {{HTMLElement("option")}}-Element für jeden vorgeschlagenen Wert enthält; der `value` jedes `option` ist der entsprechende Vorschlagswert für die URL-Eingabebox.
 
 ```html
 <input id="myURL" name="myURL" type="url" list="defaultURLs" />
@@ -197,11 +197,11 @@ Wenn Sie einen Schritt weiter gehen, können Sie eine Liste von Standardoptionen
 
 {{EmbedLiveSample("Offering_suggested_values", 600, 40)}}
 
-Mit dem {{HTMLElement("datalist")}}-Element und seinen {{HTMLElement("option")}}s wird der Browser die angegebenen Werte als potenzielle Werte für die URL anbieten; dies wird typischerweise als Popup-Menü oder Dropdown-Menü der Vorschläge dargestellt. Während die spezifische Benutzererfahrung von einem Browser zum anderen variieren kann, präsentiert das Eingabefeld in der Regel bei einem Klick darauf ein Dropdown-Menü der vorgeschlagenen URLs. Dann wird, während der Benutzer tippt, die Liste angepasst, um nur übereinstimmende Werte anzuzeigen. Jedes getippte Zeichen reduziert die Liste, bis der Benutzer eine Auswahl trifft oder einen benutzerdefinierten Wert eingibt.
+Mit dem {{HTMLElement("datalist")}}-Element und seinen {{HTMLElement("option")}}s an Ort und Stelle bietet der Browser die angegebenen Werte als potenzielle Werte für die URL an; dies wird typischerweise als Popup oder Dropdown-Menü mit den Vorschlägen präsentiert. Während die spezifische Benutzererfahrung von einem Browser zum anderen variieren kann, zeigt das Klicken in die Bearbeitungsbox normalerweise eine Dropdown-Liste der vorgeschlagenen URLs. Dann wird die Liste während der Eingabe des Benutzers angepasst, um nur übereinstimmende Werte anzuzeigen. Jeder eingegebene Buchstabe schränkt die Liste weiter ein, bis der Benutzer eine Auswahl trifft oder einen benutzerdefinierten Wert eingibt.
 
-#### Verwenden von Labels für vorgeschlagene Werte
+#### Verwendung von Labels für vorgeschlagene Werte
 
-Sie können wählen, das [`label`](/de/docs/Web/HTML/Element/option#label)-Attribut zu einem oder all Ihren `<option>`-Elementen hinzuzufügen, um Textlabels bereitzustellen. Einige Browser zeigen möglicherweise nur die Labels an, während andere sowohl das Label als auch die URL anzeigen.
+Sie können das `label`-Attribut auf einem oder allen Ihrer `<option>`-Elemente hinzufügen, um Textlabels bereitzustellen. Einige Browser zeigen möglicherweise nur die Labels an, während andere möglicherweise sowohl das Label als auch die URL anzeigen.
 
 ```html
 <input id="myURL" name="myURL" type="url" list="defaultURLs" />
@@ -219,20 +219,20 @@ Sie können wählen, das [`label`](/de/docs/Web/HTML/Element/option#label)-Attri
 
 ## Validierung
 
-Für `url`-Inputs stehen zwei Ebenen der Inhaltsvalidierung zur Verfügung. Einerseits gibt es die standardmäßige Validierungsebene, die allen {{HTMLElement("input")}}s angeboten wird, die automatisch sicherstellt, dass der Inhalt die Anforderungen erfüllt, um eine gültige URL zu sein. Darüber hinaus besteht die Möglichkeit, zusätzliche Filter hinzuzufügen, um sicherzustellen, dass Ihre eigenen speziellen Anforderungen erfüllt werden, falls vorhanden.
+Für `url`-Eingaben stehen zwei Ebenen der Inhaltsvalidierung zur Verfügung. Erstens gibt es die Standardebene der Validierung, die allen {{HTMLElement("input")}}s angeboten wird und automatisch sicherstellt, dass die Inhalte den Anforderungen entsprechen, um eine gültige URL zu sein. Es besteht jedoch auch die Option, zusätzliche Filter hinzuzufügen, um sicherzustellen, dass Ihre eigenen speziellen Anforderungen erfüllt werden, falls Sie welche haben.
 
 > [!WARNING]
-> Die HTML-Formularvalidierung ist kein Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im korrekten Format sind. Es ist zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die es ihm ermöglichen, die Validierung zu umgehen oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server sendet. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, könnte es zu einem Problem kommen, wenn falsch formatierte Daten (oder Daten, die zu groß sind, den falschen Typ haben usw.) in Ihre Datenbank gelangen.
+> Die HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die es ihm ermöglichen, die Validierung zu umgehen oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server sendet. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, kann eine Katastrophe eintreten, wenn falsch formatierte Daten (oder Daten, die zu groß sind, die falschen Typs sind usw.) in Ihre Datenbank eingegeben werden.
 
 ### Grundlegende Validierung
 
-Browser, die den `url`-Eingabetyp unterstützen, bieten automatisch eine Validierung, um sicherzustellen, dass nur Text eingegeben wird, der dem Standardformat für URLs entspricht.
+Browser, die den Eingabetyp `url` unterstützen, bieten automatisch eine Validierung an, um sicherzustellen, dass nur Text, der dem Standardformat für URLs entspricht, in die Eingabebox eingegeben wird.
 
-Die Syntax einer URL ist ziemlich komplex. Sie wird durch den [URL Living Standard](https://url.spec.whatwg.org/) der WHATWG definiert und wird für Anfänger in unserem Artikel [Was ist eine URL?](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) beschrieben.
+Die Syntax einer URL ist ziemlich kompliziert. Sie wird durch den WHATWG-Standard [URL Living Standard](https://url.spec.whatwg.org/) definiert und ist für Anfänger in unserem Artikel [Was ist eine URL?](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) beschrieben.
 
 ### Eine URL erforderlich machen
 
-Wie bereits erwähnt, um sicherzustellen, dass ein URL-Eintrag erforderlich ist, bevor das Formular gesendet werden kann (Sie können das Feld nicht leer lassen), müssen Sie einfach das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut in das Eingabefeld einfügen.
+Wie bereits erwähnt, müssen Sie, um eine URL-Eingabe zu einer erforderlichen Eingabe zu machen, bevor das Formular gesendet werden kann (Sie können das Feld nicht leer lassen), einfach das `required`-Attribut auf der Eingabe hinzufügen.
 
 ```html
 <form>
@@ -243,15 +243,15 @@ Wie bereits erwähnt, um sicherzustellen, dass ein URL-Eintrag erforderlich ist,
 
 {{EmbedLiveSample("Making_a_URL_required", 600, 40)}}
 
-Versuchen Sie, das obige Formular zu senden, ohne einen Wert einzugeben, um zu sehen, was passiert.
+Versuchen Sie, das obige Formular ohne eingetragenen Wert zu senden, um zu sehen, was passiert.
 
 ### Muster-Validierung
 
-Wenn Sie die eingegebene URL strikter einschränken müssen als einfach "irgendeine Zeichenkette, die wie eine URL aussieht", können Sie das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen {{Glossary("regular_expression", "regulären Ausdruck")}} anzugeben, den der Wert erfüllen muss, damit er gültig ist.
+Wenn Sie die eingegebene URL weiter einschränken müssen als nur "jede Zeichenkette, die wie eine URL aussieht", können Sie das `pattern`-Attribut verwenden, um einen regulären Ausdruck anzugeben, den der Wert erfüllen muss, um gültig zu sein.
 
-Angenommen, Sie erstellen eine Support-Seite für Mitarbeiter von Myco, Inc., die es ihnen ermöglicht, ihre IT-Abteilung um Hilfe zu bitten, wenn eine ihrer Seiten ein Problem hat. In unserem vereinfachten Formular muss der Benutzer die URL der Seite angeben, die ein Problem hat, und eine Nachricht, die beschreibt, was falsch ist. Aber wir wollen, dass die URL nur dann erfolgreich validiert wird, wenn die eingegebene URL in einer Myco-Domain liegt.
+Nehmen wir zum Beispiel an, Sie erstellen eine Support-Seite für Mitarbeiter von Myco, Inc., die es ihnen ermöglicht, ihre IT-Abteilung um Hilfe zu bitten, wenn eine ihrer Seiten ein Problem hat. In unserem vereinfachten Formular muss der Benutzer die URL der Seite eingeben, die ein Problem hat, und eine Nachricht dazu schreiben, was falsch ist. Wir möchten jedoch, dass die URL nur dann erfolgreich validiert wird, wenn die eingegebene URL sich in einer Myco-Domain befindet.
 
-Da Inputs des Typs `url` sowohl gegen die standardisierte URL-Validierung als auch gegen das spezifizierte [`pattern`](/de/docs/Web/HTML/Element/input#pattern) validieren, können Sie dies mit einem regulären Ausdruck implementieren. Lassen Sie uns sehen, wie:
+Da Eingaben vom Typ `url` sowohl gegen den Standard-URL-Filter als auch gegen das angegebene `pattern` validieren, können Sie dies mit einem regulären Ausdruck umsetzen. Sehen wir uns an, wie das geht:
 
 ```css hidden
 div {
@@ -306,24 +306,24 @@ input:valid + span::after {
 
 {{EmbedLiveSample("Pattern_validation", 700, 150)}}
 
-Erstens wird das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut angegeben, was es verpflichtend macht, eine gültige URL bereitzustellen.
+Zunächst wird das `required`-Attribut angegeben, was es erforderlich macht, dass eine gültige URL eingegeben wird.
 
-Zweitens setzen wir im `url`-Input `pattern` auf `".*\.myco\..*"`. Dieser reguläre Ausdruck fordert eine Zeichenfolge, die eine beliebige Anzahl von Zeichen hat, gefolgt von einem Punkt, gefolgt von "myco", gefolgt von einem Punkt, gefolgt von einer beliebigen Anzahl von Zeichen. Da der Browser sowohl den standardmäßigen URL-Filter als auch unser benutzerdefiniertes Muster auf den angegebenen Text anwendet, haben wir am Ende eine Validierung, die sagt: "Stellen Sie sicher, dass dies eine gültige URL ist und auch in einer Myco-Domain."
+Zweitens setzen wir in der `url`-Eingabe `pattern` auf `".*\.myco\..*"`. Dieser reguläre Ausdruck verlangt eine Zeichenkette, die durch einen Punkt, gefolgt von "myco", gefolgt von einem Punkt und einer beliebigen Anzahl von Zeichen besteht. Da der Browser sowohl den Standard-URL-Filter als auch unser benutzerdefiniertes Muster gegen den angegebenen Text laufen lässt, haben wir letztendlich eine Validierung, die sagt: "stellen Sie sicher, dass dies eine gültige URL ist und sich auch in einer Myco-Domain befindet."
 
-Dies ist nicht perfekt, aber es reicht aus für die Anforderungen dieses einfachen Demos.
+Das ist nicht perfekt, aber für die Anforderungen dieser grundlegenden Demo ausreichend.
 
-Es ist ratsam, das [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut zusammen mit `pattern` zu verwenden. Wenn Sie dies tun, muss der `title` das Muster beschreiben; er sollte erklären, in welchem Format die Daten sein sollten, anstatt irgendwelche anderen Informationen. Das liegt daran, dass der `title` möglicherweise als Teil einer Validierungsfehlermeldung angezeigt oder gesprochen wird. Zum Beispiel könnte der Browser die Meldung "Der eingegebene Text entspricht nicht dem erforderlichen Muster." gefolgt von Ihrem angegebenen `title` präsentieren. Wenn Ihr `title` so etwas wie "URL" ist, würde die Ergebnisnachricht "Der eingegebene Text entspricht nicht dem erforderlichen Muster. URL" lauten, was keine gute Benutzererfahrung ist.
+Es wird empfohlen, das `title`-Attribut zusammen mit `pattern` zu verwenden. Wenn Sie das tun, _muss_ der `title` das Muster beschreiben; er sollte erklären, welches Format die Daten haben sollten, anstatt jede andere Information. Das liegt daran, dass der `title` möglicherweise als Teil einer Validierungsfehlermeldung angezeigt oder gesprochen wird. Zum Beispiel könnte der Browser die Nachricht "Der eingegebene Text stimmt nicht mit dem erforderlichen Muster überein." und anschließend Ihren angegebenen `title` präsentieren. Wenn Ihr `title` etwas wie "URL" ist, würde das zur Nachricht "Der eingegebene Text stimmt nicht mit dem erforderlichen Muster überein. URL" führen, was keine gute Benutzererfahrung darstellt.
 
-Deshalb geben wir stattdessen die Zeichenkette "Die URL muss in einer Myco-Domain sein" an. Durch diese Angabe wäre die resultierende Fehlermeldung möglicherweise etwas wie "Der eingegebene Text entspricht nicht dem erforderlichen Muster. Die URL sollte in einer Myco-Domain sein."
+Deshalb geben wir stattdessen die Zeichenkette "Die URL muss in einer Myco-Domain sein" an. Indem wir dies tun, könnte die resultierende vollständige Fehlermeldung etwa so lauten: "Der eingegebene Text entspricht nicht dem erforderlichen Muster. Die URL sollte in einer Myco-Domain sein."
 
 > [!NOTE]
-> Wenn Sie auf Schwierigkeiten stoßen, während Sie Ihre Validierungsregulärausdrücke schreiben und sie nicht richtig funktionieren, überprüfen Sie die Konsole Ihres Browsers; dort könnten hilfreiche Fehlermeldungen erscheinen, die Ihnen bei der Problemlösung helfen.
+> Wenn Sie auf Schwierigkeiten stoßen, während Sie Ihre Validierungsregulären Ausdrücke schreiben und sie nicht richtig funktionieren, prüfen Sie die Konsole Ihres Browsers; dort könnten hilfreiche Fehlermeldungen zu finden sein, die Ihnen bei der Lösung des Problems helfen.
 
 ## Beispiele
 
-Es gibt nicht viel mehr zu `url`-Eingaben zu sagen; schauen Sie sich die Abschnitte [Muster-Validierung](#muster-validierung) und [Verwendung von URL-Inputs](#verwendung_von_url-inputs) für zahlreiche Beispiele an.
+Es gibt nicht viel mehr über Eingaben vom Typ `url` zu sagen; schauen Sie sich die Abschnitte [Muster-Validierung](#muster-validierung) und [Verwendung von URL-Eingaben](#verwendung_von_url-eingaben) für zahlreiche Beispiele an.
 
-Sie können auch unser [Muster-Validierungsbeispiel auf GitHub](https://github.com/mdn/learning-area/blob/main/html/forms/url-example/index.html) finden (sehen Sie sich auch die [laufende Live-Version](https://mdn.github.io/learning-area/html/forms/url-example/) an).
+Sie können auch unser [Muster-Validierungsbeispiel auf GitHub](https://github.com/mdn/learning-area/blob/main/html/forms/url-example/index.html) finden (sehen Sie es auch [live in Aktion](https://mdn.github.io/learning-area/html/forms/url-example/)).
 
 ## Technische Zusammenfassung
 
@@ -331,7 +331,7 @@ Sie können auch unser [Muster-Validierungsbeispiel auf GitHub](https://github.c
   <tbody>
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
-      <td>Eine Zeichenfolge, die eine URL repräsentiert, oder leer</td>
+      <td>Ein String, der eine URL repräsentiert, oder leer</td>
     </tr>
     <tr>
       <td><strong>Ereignisse</strong></td>
@@ -355,7 +355,7 @@ Sie können auch unser [Muster-Validierungsbeispiel auf GitHub](https://github.c
       </td>
     </tr>
     <tr>
-      <td><strong>IDL Attribute</strong></td>
+      <td><strong>IDL-Attribute</strong></td>
       <td>
         <code>list</code>, <code>value</code>, <code>selectionEnd</code>,
         <code>selectionDirection</code>
@@ -393,7 +393,7 @@ Sie können auch unser [Muster-Validierungsbeispiel auf GitHub](https://github.c
 
 ## Siehe auch
 
-- [Leitfaden für HTML-Formulare](/de/docs/Learn/Forms)
+- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
 - {{HTMLElement("input")}}
 - [`<input type="tel">`](/de/docs/Web/HTML/Element/input/tel)
 - [`<input type="email">`](/de/docs/Web/HTML/Element/input/email)

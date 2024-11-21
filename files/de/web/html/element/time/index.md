@@ -1,18 +1,18 @@
 ---
-title: "<time>: Das (Datum) Uhrzeit-Element"
+title: "<time>: Das (Datum-) Zeitelement"
 slug: Web/HTML/Element/time
 l10n:
-  sourceCommit: 835c199410845eed61aaf8439cb2e9719e7e9f98
+  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
 ---
 
 {{HTMLSidebar}}
 
-Das **`<time>`**-Element von [HTML](/de/docs/Web/HTML) repräsentiert einen spezifischen Zeitraum. Es kann das `datetime`-Attribut enthalten, um Daten in ein maschinenlesbares Format zu übersetzen, was zu besseren Suchmaschinenergebnissen oder benutzerdefinierten Funktionen wie Erinnerungen führen kann.
+Das **`<time>`** [HTML](/de/docs/Web/HTML) Element repräsentiert einen bestimmten Zeitraum. Es kann das `datetime`-Attribut enthalten, um Daten in ein maschinenlesbares Format zu übersetzen, was zu besseren Ergebnissen in Suchmaschinen oder benutzerdefinierten Funktionen wie Erinnerungen führen kann.
 
-Es kann eine der folgenden Darstellungen haben:
+Es kann eines der folgenden darstellen:
 
-- Eine Uhrzeit im 24-Stunden-Format.
-- Ein genaues Datum im [gregorianischen Kalender](https://en.wikipedia.org/wiki/Gregorian_calendar) (mit optionalen Angaben zu Uhrzeit und Zeitzone).
+- Eine Uhrzeit in einem 24-Stunden-Format.
+- Ein genaues Datum im [Gregorianischen Kalender](https://en.wikipedia.org/wiki/Gregorian_calendar) (mit optionalen Zeit- und Zeitzoneninformationen).
 - [Eine gültige Zeitdauer](https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-duration-string).
 
 {{EmbedInteractiveExample("pages/tabbed/time.html", "tabbed-shorter")}}
@@ -26,11 +26,11 @@ Wie alle anderen HTML-Elemente unterstützt dieses Element die [globalen Attribu
 
 ## Verwendungshinweise
 
-Dieses Element dient dazu, Daten und Zeiten in einem maschinenlesbaren Format darzustellen. Beispielsweise kann dies einem Benutzeragenten helfen, ein Ereignis zum Kalender eines Benutzers hinzuzufügen.
+Dieses Element dient zur Darstellung von Daten und Zeiten in einem maschinenlesbaren Format. Beispielsweise kann dies einem Benutzeragenten helfen, einem Benutzer anzubieten, ein Ereignis in seinen Kalender hinzuzufügen.
 
-Dieses Element sollte nicht für Daten verwendet werden, die vor der Einführung des gregorianischen Kalenders liegen (aufgrund von Komplikationen bei der Berechnung dieser Daten).
+Dieses Element sollte nicht für Daten vor der Einführung des Gregorianischen Kalenders verwendet werden (aufgrund von Berechnungskomplikationen).
 
-Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `datetime`-Attributs des Elements, der im richtigen Format sein muss (siehe unten). Wenn das Element kein `datetime`-Attribut hat, **darf es keine Kindelemente** haben, und der _datetime-Wert_ ist der Textinhalt des Elements.
+Der _datetime-Wert_ (der maschinenlesbare Wert des datetime) ist der Wert des `datetime`-Attributs des Elements, der im richtigen Format vorliegen muss (siehe unten). Wenn das Element kein `datetime`-Attribut hat, **darf es keine anderen Elementnachfahren haben**, und der _datetime-Wert_ ist der Textinhalt des Elements.
 
 ### Gültige datetime-Werte
 
@@ -44,22 +44,22 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
   </thead>
   <tbody>
     <tr>
-      <td>Gültige Monatszeichenfolge</td>
+      <td>Gültige Monatszeichenkette</td>
       <td><code><em>YYYY</em>-<em>MM</em></code></td>
       <td><code>2011-11</code>, <code>2013-05</code></td>
     </tr>
     <tr>
-      <td>Gültige Datumszeichenfolge</td>
+      <td>Gültige Datumszeichenkette</td>
       <td><code><em>YYYY</em>-<em>MM</em>-<em>DD</em></code></td>
       <td><code>1887-12-01</code></td>
     </tr>
     <tr>
-      <td>Gültige datumsfreie Zeichenfolge</td>
+      <td>Gültige Jahreslose Datumszeichenkette</td>
       <td><code><em>MM</em>-<em>DD</em></code></td>
       <td><code>11-12</code></td>
     </tr>
     <tr>
-      <td>Gültige Zeitzeichenfolge</td>
+      <td>Gültige Zeitzeichenkette</td>
       <td>
         <code><em>HH</em>:<em>MM</em></code><br />
         <code><em>HH</em>:<em>MM</em>:<em>SS</em></code><br />
@@ -72,7 +72,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
       </td>
     </tr>
     <tr>
-      <td>Gültige lokale Datums- und Zeitzeichenfolge</td>
+      <td>Gültige lokale Datum- und Zeitzeichenkette</td>
       <td>
         <code><em>YYYY</em>-<em>MM</em>-<em>DD</em><em>HH</em>:<em>MM</em></code><br />
         <code><em>YYYY</em>-<em>MM</em>-<em>DD</em> <em>HH</em>:<em>MM</em>:<em>SS</em></code><br />
@@ -91,7 +91,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
       </td>
     </tr>
     <tr>
-      <td>Gültige Zeitzonen-Offset-Zeichenfolge</td>
+      <td>Gültige Zeitzonen-Offset-Zeichenkette</td>
       <td>
         <code>Z</code><br />
         <code>+<em>HHMM</em></code><br />
@@ -108,11 +108,10 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
       </td>
     </tr>
     <tr>
-      <td>Gültige globale Datums- und Zeitzeichenfolge</td>
+      <td>Gültige globale Datum- und Zeitzeichenkette</td>
       <td style="max-width:12em">
-        Jede Kombination einer gültigen lokalen Datums- und
-        Zeitzeichenfolge gefolgt von einer gültigen
-        Zeitzonen-Offset-Zeichenfolge
+        Jede Kombination einer gültigen lokalen Datum- und Zeitzeichenkette gefolgt
+        von einer gültigen Zeitzonen-Offset-Zeichenkette
       </td>
       <td>
         <code>2013-12-25 11:12+0200</code><br />
@@ -122,7 +121,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
       </td>
     </tr>
     <tr>
-      <td>Gültige Wochenzeichenfolge</td>
+      <td>Gültige Wochenzeichenkette</td>
       <td><code><em>YYYY</em>-W<em>WW</em></code></td>
       <td><code>2013-W46</code></td>
     </tr>
@@ -132,7 +131,7 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
       <td><code>2013</code>, <code>0001</code></td>
     </tr>
     <tr>
-      <td>Gültige Dauersymbolfolge</td>
+      <td>Gültige Dauerdarstellung</td>
       <td>
         <code>P<em>d</em>DT<em>h</em>H<em>m</em>M<em>s</em>S</code><br />
         <code>P<em>d</em>DT<em>h</em>H<em>m</em>M<em>s</em>.<em>X</em>S<br />
@@ -171,9 +170,9 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
 
 #### Ergebnis
 
-{{EmbedLiveSample('Simple_example', 250, 80)}}
+{{EmbedLiveSample('Basic_example', 250, 80)}}
 
-### `datetime` Beispiel
+### `datetime`-Beispiel
 
 #### HTML
 
@@ -199,10 +198,10 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fließ-Inhalt</a
+          >Fließendes Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasieren-Inhalt</a
+          >Phrasierungsinhalt</a
         >, greifbarer Inhalt.
       </td>
     </tr>
@@ -210,22 +209,21 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasieren-Inhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl der Start- als auch der Endtag sind obligatorisch.</td>
+      <td>Keine, sowohl die Start- als auch die End-Tag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasieren-Inhalt</a
-        >
-        akzeptiert.
+          >Phrasierungsinhalt</a
+        > akzeptiert.
       </td>
     </tr>
     <tr>
@@ -258,4 +256,4 @@ Der _datetime-Wert_ (der maschinenlesbare Wert des datetimes) ist der Wert des `
 
 ## Siehe auch
 
-- Das {{HTMLElement("data")}}-Element, das andere Arten von Werten signalisieren kann.
+- Das {{HTMLElement("data")}} Element, das andere Arten von Werten signalisiert.

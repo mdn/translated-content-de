@@ -3,49 +3,49 @@ title: "HTML-Attribut: pattern"
 short-title: pattern
 slug: Web/HTML/Attributes/pattern
 l10n:
-  sourceCommit: 067a40e4ed27ea6e1f3b8bbfec15cd9dc3078f4c
+  sourceCommit: 4d3605197ea5c6407aacca2a80cc27a398f04fc8
 ---
 
 {{HTMLSidebar}}
 
-Das **`pattern`**-Attribut gibt einen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) an, den der Wert des Formularsteuerungselements erfüllen muss. Wenn ein nicht-`null` Wert nicht den durch den `pattern`-Wert festgelegten Einschränkungen entspricht, ist die schreibgeschützte Eigenschaft [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch) des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr.
+Das **`pattern`**-Attribut gibt einen [regulären Ausdruck](/de/docs/Web/JavaScript/Guide/Regular_expressions) an, dem der Wert des Formularsteuerelements entsprechen sollte. Wenn ein nicht `null`-Wert nicht den durch das `pattern`-Attribut festgelegten Einschränkungen entspricht, wird die schreibgeschützte Eigenschaft [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch) des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr sein.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-pattern.html", "tabbed-shorter")}}
 
 ## Übersicht
 
-Das `pattern`-Attribut ist ein Attribut der {{HTMLElement("input/text", "text")}}, {{HTMLElement("input/tel", "tel")}}, {{HTMLElement("input/email", "email")}}, {{HTMLElement("input/url", "url")}}, {{HTMLElement("input/password", "password")}} und {{HTMLElement("input/search", "search")}} Eingabetypen.
+Das `pattern`-Attribut ist ein Attribut der Eingabetypen {{HTMLElement("input/text", "text")}}, {{HTMLElement("input/tel", "tel")}}, {{HTMLElement("input/email", "email")}}, {{HTMLElement("input/url", "url")}}, {{HTMLElement("input/password", "password")}} und {{HTMLElement("input/search", "search")}}.
 
-Das `pattern`-Attribut, wenn es angegeben ist, ist ein regulärer Ausdruck, den der [`value`](/de/docs/Web/HTML/Element/input#value) des Eingabefeldes erfüllen muss, um die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) zu bestehen. Es muss ein gültiger JavaScript-regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist.
+Das `pattern`-Attribut, wenn es festgelegt ist, ist ein regulärer Ausdruck, dem der [`value`](/de/docs/Web/HTML/Element/input#value) der Eingabe entsprechen muss, damit der Wert die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) besteht. Es muss ein gültiger JavaScript-Regulärer Ausdruck sein, wie er vom {{jsxref("RegExp")}}-Typ verwendet wird und in unserem [Leitfaden zu regulären Ausdrücken](/de/docs/Web/JavaScript/Guide/Regular_expressions) dokumentiert ist.
 
-Der reguläre Ausdruck des Musters wird mit dem [`'v'`-Flag](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) kompiliert. Dies macht den regulären Ausdruck [unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) und ändert auch die Art und Weise, wie Zeichenklassen interpretiert werden. Dies ermöglicht Schnitt- und Subtraktionsoperationen von Zeichenklassensätzen und zusätzlich zu `]` und `\` müssen die folgenden Zeichen mit einem `\` Backslash maskiert werden, wenn sie Literalzeichen darstellen: `(`, `)`, `[`, `{`, `}`, `/`, `-`, `|`. Vor Mitte 2023 wurde stattdessen das `'u'`-Flag angegeben; Wenn Sie älteren Code aktualisieren, [erläutert dieses Dokument die Unterschiede](https://github.com/tc39/proposal-regexp-v-flag#how-is-the-v-flag-different-from-the-u-flag).
+Der reguläre Ausdruck des Musters wird mit dem [`'v'`-Flag](/de/docs/Web/JavaScript/Reference/Regular_expressions/Character_class#v-mode_character_class) kompiliert. Dies macht den regulären Ausdruck [unicode-bewusst](/de/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode#unicode-aware_mode) und ändert auch, wie Zeichengruppen interpretiert werden. Dies ermöglicht Schnittmengen- und Subtraktionsoperationen mit Zeichengruppen, und zusätzlich zu `]` und `\` müssen die folgenden Zeichen, wenn sie für wörtliche Zeichen stehen, mit einem `\`-Rückwärtsschrägstrich maskiert werden: `(`, `)`, `[`, `{`, `}`, `/`, `-`, `|`. Vor Mitte 2023 wurde stattdessen das `'u'`-Flag verwendet; Wenn Sie älteren Code aktualisieren, [erläutert dieses Dokument die Unterschiede](https://github.com/tc39/proposal-regexp-v-flag#how-is-the-v-flag-different-from-the-u-flag).
 
-Der reguläre Ausdruck des Musters muss den gesamten `value` des Eingabefeldes übereinstimmen, anstatt nur eine Teilzeichenkette zu übereinstimmen - als ob ein `^(?:` am Anfang des Musters und `)$` am Ende impliziert wäre.
+Der reguläre Ausdruck des Musters muss mit dem gesamten `value` der Eingabe übereinstimmen, anstatt mit einer Unterzeichenfolge übereinzustimmen - als ob ein `^(?:` am Anfang des Musters und ein `)$` am Ende impliziert wäre.
 
-Keine Schrägstriche sollten um den Mustertext angegeben werden. Kein regulärer Ausdruck wird angewendet, wenn der Attributwert fehlt, eine leere Zeichenkette oder ungültig ist.
+Es sollten keine Schrägstriche um den Mustertext angegeben werden. Kein regulärer Ausdruck wird angewendet, wenn der Attributwert fehlt, eine leere Zeichenfolge ist oder ungültig ist.
 
-Einige der Eingabetypen, die das Musterattribut unterstützen, insbesondere die {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/url", "url")}} Eingabetypen, haben erwartete Wertesyntaxen, die übereinstimmen müssen. Wenn das Musterattribut nicht vorhanden ist und der Wert nicht der erwarteten Syntax für diesen Wertetyp entspricht, ist die schreibgeschützte Eigenschaft [`typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch) des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr.
+Einige der Eingabetypen, die das `pattern`-Attribut unterstützen, insbesondere die Eingabetypen {{HTMLElement("input/email", "email")}} und {{HTMLElement("input/url", "url")}}, haben erwartete Wertsyntaxen, die eingehalten werden müssen. Wenn das `pattern`-Attribut nicht vorhanden ist und der Wert nicht der erwarteten Syntax für diesen Werttyp entspricht, wird die schreibgeschützte Eigenschaft [`typeMismatch`](/de/docs/Web/API/ValidityState/typeMismatch) des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr sein.
 
 ### Einschränkungsvalidierung
 
-Wenn der Wert des Eingabefeldes nicht die leere Zeichenkette ist und der Wert nicht den gesamten regulären Ausdruck erfüllt, wird ein Verstoß gegen die Einschränkung gemeldet, indem die Eigenschaft [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch) des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts wahr ist.
+Wenn der Wert der Eingabe nicht die leere Zeichenfolge ist und der Wert nicht dem gesamten regulären Ausdruck entspricht, wird eine Einschränkungsverletzung angezeigt, da die [`patternMismatch`](/de/docs/Web/API/ValidityState/patternMismatch)-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekts `true` ist.
 
 > [!NOTE]
-> Wenn das `pattern`-Attribut ohne Wert angegeben ist, ist sein Wert implizit die leere Zeichenkette. Daher führt **jeglicher nicht-leerer** Eingabewert zu einem Verstoß gegen die Einschränkung.
+> Wenn das `pattern`-Attribut ohne Wert angegeben wird, ist sein Wert implizit die leere Zeichenfolge. Daher führt **jeder nicht leere** Eingabe`wert` zu einer Einschränkungsverletzung.
 
-### Benutzerfreundlichkeit und Zugänglichkeitsüberlegungen
+### Nutzbarkeits- und Zugänglichkeitsüberlegungen
 
-Beim Einfügen eines `pattern`-Attributs sollten Sie eine Beschreibung des Musters in sichtbarem Text in der Nähe der Steuerung bereitstellen. Außerdem sollten Sie ein [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut hinzufügen, das eine Beschreibung des Musters gibt. Benutzeragenten können die Titelinhalte während der Einschränkungsvalidierung verwenden, um dem Benutzer mitzuteilen, dass das Muster nicht übereinstimmt. Einige Browser zeigen ein Tooltip mit den Titelinhalten an, was die Benutzerfreundlichkeit für sehende Benutzer verbessert. Außerdem kann Assistenztechnologie den Titel vorlesen, wenn die Steuerung den Fokus erhält, aber dies sollte nicht als Zugänglichkeitsmerkmal angesehen werden.
+Wenn ein `pattern` enthalten ist, geben Sie eine Beschreibung des Musters in sichtbarem Text in der Nähe der Steuerung an. Fügen Sie außerdem ein [`title`](/de/docs/Web/HTML/Element/input#title)-Attribut hinzu, das eine Beschreibung des Musters enthält. Benutzeragenten können die Titelinhalte während der Einschränkungsvalidierung verwenden, um dem Benutzer mitzuteilen, dass das Muster nicht übereinstimmt. Einige Browser zeigen ein Tooltip mit den Titelinhalten an, was die Nutzbarkeit für sehende Benutzer verbessert. Darüber hinaus kann unterstützende Technologie den Titel vorlesen, wenn die Steuerung den Fokus erhält, aber darauf sollte nicht ausschließlich für die Barrierefreiheit vertraut werden.
 
-Nur auf das `title`-Attribut für die visuelle Anzeige von Textinhalten zu vertrauen, wird nicht empfohlen, da viele Benutzeragenten das Attribut nicht auf zugängliche Weise exponieren. Obwohl einige Browser ein Tooltip anzeigen, wenn ein Element mit einem `title`-Attribut fokussiert wird, lässt das Tastatur- und Touch-Benutzer außen vor. Dies ist einer von mehreren Gründen, warum Informationen, die zeigen, wie man die Steuerung so ausfüllt, dass sie die Anforderungen erfüllt, integriert sein müssen.
+Es wird davon abgeraten, sich nur auf das `title`-Attribut für die visuelle Darstellung von Textinhalten zu verlassen, da viele Benutzeragenten das Attribut nicht auf zugängliche Weise verfügbar machen. Obwohl einige Browser ein Tooltip anzeigen, wenn ein Element mit einem Titel gehov. wird, werden somit Tastatur- und Touch-Benutzer ausgeschlossen. Dies ist einer der Gründe, warum Sie Informationen bereitstellen müssen, die Benutzern mitteilen, wie sie die Steuerung ausfüllen müssen, um den Anforderungen zu entsprechen.
 
-Da `title`s von einigen Browsern für die Fehlermeldung verwendet werden, sollten Sie vorsichtig sein, sie nicht so zu formulieren, als ob ein Fehler aufgetreten wäre, da Browser den Titel manchmal auch als Text beim Überfahren anzeigen, er also auch in Nicht-Fehlersituationen erscheint.
+Da einige Browser `title`s verwenden, um Fehlermeldungen zu generieren, während die Titel manchmal auch als Text beim Hover angezeigt werden, werden sie auch in Nicht-Fehlersituationen angezeigt. Daher sollte darauf geachtet werden, die Titel nicht so zu artikulieren, als sei ein Fehler aufgetreten.
 
 ## Beispiele
 
-### Ein Telefonmuster übereinstimmen
+### Übereinstimmung einer Telefonnummer
 
-Gegeben sei Folgendes:
+Angenommen folgendes:
 
 ```html
 <p>
@@ -76,9 +76,9 @@ Gegeben sei Folgendes:
 </p>
 ```
 
-Hier haben wir 3 Abschnitte für eine nordamerikanische Telefonnummer mit einer impliziten Bezeichnung, die alle drei Komponenten der Telefonnummer umschließt, wobei jeweils 3 Ziffern, 3 Ziffern und 4 Ziffern erwartet werden, wie es durch das auf jedem gesetzten `pattern`-Attribut definiert ist.
+Hier haben wir 3 Abschnitte für eine nordamerikanische Telefonnummer mit einem impliziten Label, das alle drei Komponenten der Telefonnummer umfasst, und erwarten jeweils 3-stellige, 3-stellige und 4-stellige Nummern, wie sie durch das `pattern`-Attribut auf jedem Abschnitt definiert sind.
 
-Wenn die Werte zu lang oder zu kurz sind oder Zeichen enthalten, die keine Ziffern sind, wird das `patternMismatch` wahr sein. Wenn `true`, entspricht das Element den {{cssxref(":invalid")}} CSS-Pseudoklassen.
+Wenn die Werte zu lang oder zu kurz sind oder Zeichen enthalten, die keine Ziffern sind, wird `patternMismatch` wahr sein. Wenn `true`, entspricht das Element den CSS-Pseudoklassen {{cssxref(":invalid")}}.
 
 ```css
 input:invalid {
@@ -88,13 +88,13 @@ input:invalid {
 
 {{EmbedLiveSample("Matching_a_phone_number", 300, 80)}}
 
-Wenn wir stattdessen die Attribute [`minlength`](/de/docs/Web/HTML/Attributes/minlength) und [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength) verwendet hätten, könnten wir gesehen haben, dass [`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong) oder [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort) wahr sind.
+Wenn wir stattdessen die Attribute [`minlength`](/de/docs/Web/HTML/Attributes/minlength) und [`maxlength`](/de/docs/Web/HTML/Attributes/maxlength) verwendet hätten, könnten [`validityState.tooLong`](/de/docs/Web/API/ValidityState/tooLong) oder [`validityState.tooShort`](/de/docs/Web/API/ValidityState/tooShort) wahr sein.
 
 ### Ein Muster angeben
 
-Sie können das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen regulären Ausdruck anzugeben, dem der eingegebene Wert entsprechen muss, um als gültig angesehen zu werden (sehen Sie sich [Validierung mit einem regulären Ausdruck](/de/docs/Learn/Forms/Form_validation#validating_against_a_regular_expression) an, um einen einfachen Crashkurs zur Verwendung regulärer Ausdrücke zur Validierung von Eingaben zu erhalten).
+Sie können das [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribut verwenden, um einen regulären Ausdruck anzugeben, dem der eingegebene Wert entsprechen muss, um als gültig betrachtet zu werden (siehe [Validierung gegen einen regulären Ausdruck](/de/docs/Learn/Forms/Form_validation#validating_against_a_regular_expression) für einen Crashkurs zur Verwendung regulärer Ausdrücke zur Validierung von Eingaben).
 
-Das folgende Beispiel beschränkt den Wert auf 4-8 Zeichen und erfordert, dass er nur Kleinbuchstaben enthält.
+Das folgende Beispiel schränkt den Wert auf 4–8 Zeichen ein und erfordert, dass er nur Kleinbuchstaben enthält.
 
 ```html
 <form>
@@ -145,7 +145,7 @@ input:valid + span::after {
 }
 ```
 
-Dies wird wie folgt angezeigt:
+Dies wird wie folgt gerendert:
 
 {{ EmbedLiveSample('Specifying_a_pattern', 600, 110) }}
 

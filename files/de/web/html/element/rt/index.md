@@ -1,27 +1,27 @@
 ---
-title: "<rt>: Das Ruby Text-Element"
+title: "<rt>: Das Ruby-Text-Element"
 slug: Web/HTML/Element/rt
 l10n:
-  sourceCommit: e04d8d2766c468f149445c0bf438d09f9b2d188c
+  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
 ---
 
 {{HTMLSidebar}}
 
-Das **`<rt>`** [HTML](/de/docs/Web/HTML)-Element spezifiziert die Ruby-Textkomponente einer Ruby-Annotation, die zur Bereitstellung von Aussprache-, Übersetzungs- oder Transliteration-Informationen für ostasiatische Typografie verwendet wird. Das `<rt>`-Element muss immer in einem {{HTMLElement("ruby")}}-Element enthalten sein.
+Das **`<rt>`** [HTML](/de/docs/Web/HTML)-Element gibt die Ruby-Textkomponente einer Ruby-Annotation an, die zur Bereitstellung von Aussprach-, Übersetzungs- oder Transliterationsinformationen für ostasiatische Typografie verwendet wird. Das `<rt>`-Element muss immer innerhalb eines {{HTMLElement("ruby")}}-Elements enthalten sein.
 
 {{EmbedInteractiveExample("pages/tabbed/rt.html", "tabbed-shorter")}}
 
-Sehen Sie sich den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele an.
+Siehe den Artikel über das {{HTMLElement("ruby")}}-Element für weitere Beispiele.
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ## Beispiele
 
-### Verwendung von Ruby-Annotationen
+### Verwendung von Ruby-Anmerkungen
 
-Dieses einfache Beispiel bietet Romaji-Transliteration für die Kanji-Zeichen innerhalb des {{HTMLElement("ruby")}}-Elements:
+Dieses Beispiel liefert Romaji-Transliteration für die Kanji-Zeichen innerhalb des {{HTMLElement("ruby")}}-Elements:
 
 ```html
 <ruby> 漢 <rt>Kan</rt> 字 <rt>ji</rt> </ruby>
@@ -50,24 +50,24 @@ body {
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierungsinhalt</a
+          >Phrasing content</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
-        Das End-Tag kann weggelassen werden, wenn das <code>&#x3C;rt></code>-Element
-        unmittelbar von einem <code>&#x3C;rt></code> oder
-        {{HTMLElement("rp")}}-Element gefolgt wird, oder wenn im
-        übergeordneten Element kein Inhalt mehr vorhanden ist.
+        Das End-Tag darf weggelassen werden, wenn das <code>&#x3C;rt></code>-Element
+        unmittelbar von einem <code>&#x3C;rt></code>- oder
+        {{HTMLElement("rp")}}-Element gefolgt wird, oder wenn kein weiterer Inhalt
+        im Elternelement vorhanden ist
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Eltern</th>
       <td>Ein {{HTMLElement("ruby")}}-Element.</td>
     </tr>
     <tr>
@@ -79,7 +79,7 @@ body {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>

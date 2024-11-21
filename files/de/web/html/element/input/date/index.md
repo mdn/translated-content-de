@@ -1,23 +1,23 @@
 ---
-title: <input type='date'>
+title: <input type="date">
 slug: Web/HTML/Element/input/date
 l10n:
-  sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
+  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
 ---
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente mit **`type="date"`** erstellen Eingabefelder, die es dem Benutzer ermöglichen, ein Datum einzugeben. Das Erscheinungsbild der Datumsauswahl-Eingabeoberfläche variiert je nach Browser und Betriebssystem. Der Wert wird im Format `yyyy-mm-dd` normalisiert.
+{{HTMLElement("input")}}-Elemente des Typs **`type="date"`** erstellen Eingabefelder, die dem Benutzer das Eingeben eines Datums ermöglichen. Das Erscheinungsbild der Datumsauswahl-Eingabeoberfläche variiert je nach Browser und Betriebssystem. Der Wert wird in das Format `yyyy-mm-dd` normalisiert.
 
-Der resultierende Wert enthält das Jahr, den Monat und den Tag, jedoch _nicht_ die Zeit. Die Eingabetypen {{HTMLElement("input/time", "time")}} und {{HTMLElement("input/datetime-local", "datetime-local")}} unterstützen Zeit- und Datum+Zeit-Eingaben.
+Der resultierende Wert enthält das Jahr, den Monat und den Tag, aber _nicht_ die Uhrzeit. Die Eingabetypen {{HTMLElement("input/time", "time")}} und {{HTMLElement("input/datetime-local", "datetime-local")}} unterstützen Zeit- und Datum+Zeit-Eingaben.
 
 {{EmbedInteractiveExample("pages/tabbed/input-date.html", "tabbed-shorter")}}
 
 ## Wert
 
-Ein String, der das im Eingabefeld eingegebene Datum darstellt. Das Datum ist entsprechend dem Format von [Datumsstrings](/de/docs/Web/HTML/Date_and_time_formats#date_strings) formatiert.
+Ein Zeichenfolgenwert, der das im Eingabefeld eingegebene Datum darstellt. Das Datum wird gemäß dem [Datumsformat](/de/docs/Web/HTML/Date_and_time_formats#date_strings) formatiert.
 
-Sie können einen Standardwert für die Eingabe mit einem Datum im [`value`](/de/docs/Web/HTML/Element/input#value)-Attribut festlegen, wie folgt:
+Sie können einen Standardwert für die Eingabe mit einem Datum innerhalb des [`value`](/de/docs/Web/HTML/Element/input#value)-Attributs festlegen, so:
 
 ```html
 <input type="date" value="2017-06-01" />
@@ -26,9 +26,9 @@ Sie können einen Standardwert für die Eingabe mit einem Datum im [`value`](/de
 {{EmbedLiveSample('Value', 600, 40)}}
 
 > [!NOTE]
-> Das angezeigte Datumsformat unterscheidet sich vom tatsächlichen `value` — das angezeigte Datum wird _basierend auf der Spracheinstellung des Browsers des Benutzers_ formatiert, aber das geparste `value` ist immer formatiert als `yyyy-mm-dd`.
+> Das angezeigte Datumsformat unterscheidet sich vom tatsächlichen `value` — das angezeigte Datum wird _basierend auf der Sprache des Browsers des Benutzers_ formatiert, aber der interpretierte `value` wird immer im Format `yyyy-mm-dd` gespeichert.
 
-Sie können den Datumswert in JavaScript mit den Eigenschaften [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) `value` und `valueAsNumber` abrufen und festlegen. Zum Beispiel:
+Sie können den Datumswert in JavaScript mit den `value` und `valueAsNumber` Eigenschaften des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) erhalten und setzen. Zum Beispiel:
 
 ```js
 const dateControl = document.querySelector('input[type="date"]');
@@ -37,47 +37,47 @@ console.log(dateControl.value); // prints "2017-06-01"
 console.log(dateControl.valueAsNumber); // prints 1496275200000, a JavaScript timestamp (ms)
 ```
 
-Dieser Code findet das erste {{HTMLElement("input")}}-Element, dessen `type` `date` ist, und setzt seinen Wert auf `2017-06-01` (1. Juni 2017). Anschließend liest er diesen Wert in String- und Zahlenformaten zurück.
+Dieser Code findet das erste {{HTMLElement("input")}}-Element, dessen `type` `date` ist, und setzt seinen Wert auf `2017-06-01` (1. Juni 2017). Er liest diesen Wert dann in Zeichenfolgen- und Zahlenformaten zurück.
 
 ## Zusätzliche Attribute
 
-Die gemeinsamen Attribute für alle {{HTMLElement("input")}}-Elemente gelten auch für `date`-Eingaben, können jedoch die Darstellung nicht beeinflussen. Zum Beispiel funktionieren `size` und `placeholder` möglicherweise nicht. `date`-Eingaben haben die folgenden zusätzlichen Attribute.
+Die allen {{HTMLElement("input")}}-Elementen gemeinsamen Attribute gelten auch für `date`-Eingaben, beeinflussen aber möglicherweise nicht deren Darstellung. Zum Beispiel funktionieren `size` und `placeholder` möglicherweise nicht. `date`-Eingaben haben die folgenden zusätzlichen Attribute.
 
 ### max
 
-Das späteste akzeptierte Datum. Wenn das in das Element eingegebene [`value`](/de/docs/Web/HTML/Element/input#value) danach liegt, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) des Elements fehl. Wenn der Wert des `max`-Attributs kein mögliches Datum im Format `yyyy-mm-dd` ist, hat das Element keinen maximalen Datumswert.
+Das späteste akzeptierte Datum. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Element/input#value) danach liegt, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl. Wenn der Wert des `max`-Attributs keine mögliche Datumszeichenfolge im Format `yyyy-mm-dd` ist, hat das Element keinen maximalen Datumswert.
 
-Wenn sowohl die Attribute `max` als auch `min` festgelegt sind, muss dieser Wert ein Datumsstring sein, der **nach oder gleich** dem im `min`-Attribut ist.
+Wenn sowohl die Attribute `max` als auch `min` gesetzt sind, muss dieser Wert eine Datumszeichenfolge **später oder gleich** der im `min`-Attribut sein.
 
 ### min
 
-Das früheste akzeptierte Datum. Wenn das in das Element eingegebene [`value`](/de/docs/Web/HTML/Element/input#value) vorher liegt, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) des Elements fehl. Wenn der Wert des `min`-Attributs kein mögliches Datum im Format `yyyy-mm-dd` ist, hat das Element keinen minimalen Datumswert.
+Das früheste akzeptierte Datum. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Element/input#value) vorher liegt, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl. Wenn der Wert des `min`-Attributs keine mögliche Datumszeichenfolge im Format `yyyy-mm-dd` ist, hat das Element keinen minimalen Datumswert.
 
-Wenn sowohl die Attribute `max` als auch `min` festgelegt sind, muss dieser Wert ein Datumsstring sein, der **vor oder gleich** dem im `max`-Attribut ist.
+Wenn sowohl die Attribute `max` als auch `min` gesetzt sind, muss dieser Wert eine Datumszeichenfolge **früher oder gleich** der im `max`-Attribut sein.
 
 ### step
 
-Das `step`-Attribut ist eine Zahl, die die Granularität angibt, an die der Wert gebunden sein muss, oder der besondere Wert `any`, der unten beschrieben wird. Nur Werte, die dem Basisschritt ([`min`](#min) falls angegeben, [`value`](/de/docs/Web/HTML/Element/input#value) andernfalls und ein geeigneter Standardwert, wenn keiner dieser Werte angegeben ist) entsprechen, sind gültig.
+Das `step`-Attribut ist eine Zahl, die die Granularität festlegt, der der Wert entsprechen muss, oder der spezielle Wert `any`, der unten beschrieben wird. Nur Werte, die dem Basiswert für das Inkrementieren ([`min`](#min) falls angegeben, ansonsten [`value`](/de/docs/Web/HTML/Element/input#value) und ein geeigneter Standardwert, wenn keiner dieser Werte vorhanden ist) entsprechen, sind gültig.
 
-Ein Stringwert von `any` bedeutet, dass kein Schritt impliziert wird und jeder Wert zulässig ist (abgesehen von anderen Einschränkungen wie [`min`](#min) und [`max`](#max)).
-
-> [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht der Schritt-Konfiguration entsprechen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächsten gültigen Wert runden und bevorzugt positive Zahlen, wenn es zwei gleich nahe Optionen gibt.
-
-Bei `date`-Eingaben wird der Wert von `step` in Tagen angegeben und als Anzahl von Millisekunden betrachtet, die dem `step`-Wert mal 86.400.000 entsprechen (der zugrunde liegende numerische Wert ist in Millisekunden). Der Standardwert von `step` ist 1, was für 1 Tag steht.
+Ein Zeichenfolgenwert `any` bedeutet, dass kein Inkrementieren impliziert ist und jeder Wert (vorbehaltlich anderer Einschränkungen wie [`min`](#min) und [`max`](#max)) erlaubt ist.
 
 > [!NOTE]
-> Die Angabe von `any` als Wert für `step` hat die gleiche Wirkung wie `1` für `date`-Eingaben.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Inkrementierungskonfiguration entsprechen, kann der {{Glossary("user_agent", "User Agent")}} auf den nächstgelegenen gültigen Wert runden, wobei bevorzugt positive Zahlen ausgewählt werden, wenn es zwei gleich nahe Optionen gibt.
 
-## Verwendung von Date-Eingaben
+Für `date`-Eingaben wird der Wert von `step` in Tagen angegeben und als eine Anzahl von Millisekunden behandelt, die 86.400.000 mal dem `step`-Wert entspricht (der zugrunde liegende numerische Wert ist in Millisekunden). Der Standardwert von `step` ist 1, was 1 Tag bedeutet.
 
-Datumseingaben bieten eine einfache Schnittstelle zur Auswahl von Daten und normalisieren das Datenformat, das an den Server gesendet wird, unabhängig von der Lokalisation des Benutzers.
+> [!NOTE]
+> Die Angabe von `any` als Wert für `step` hat für `date`-Eingaben die gleiche Wirkung wie `1`.
+
+## Verwendung von Datumseingaben
+
+Datumseingaben bieten eine einfache Schnittstelle zur Auswahl von Daten und sie normalisieren das an den Server gesendete Format unabhängig von der Sprache des Benutzers.
 
 In diesem Abschnitt betrachten wir grundlegende und dann komplexere Verwendungen von `<input type="date">`.
 
-### Grundlegende Verwendungen von Date
+### Grundlegende Anwendungen von Datumseingaben
 
-Die einfachste Verwendung von `<input type="date">` beinhaltet ein `<input>` kombiniert mit seinem {{htmlelement("label")}}, wie unten gesehen:
+Die grundlegendste Verwendung von `<input type="date">` besteht aus einem einzelnen `<input>` kombiniert mit seinem {{htmlelement("label")}}, wie unten gezeigt:
 
 ```html
 <form action="https://example.com">
@@ -92,11 +92,11 @@ Die einfachste Verwendung von `<input type="date">` beinhaltet ein `<input>` kom
 
 {{EmbedLiveSample('Basic_uses_of_date', 600, 40)}}
 
-Dieses HTML sendet das eingegebene Datum unter dem Schlüssel `bday` an `https://example.com` — was zu einer URL wie `https://example.com/?bday=1955-06-08` führt.
+Dieses HTML reicht das eingegebene Datum unter dem Schlüssel `bday` bei `https://example.com` ein — was zu einer URL wie `https://example.com/?bday=1955-06-08` führt.
 
 ### Festlegen von maximalen und minimalen Daten
 
-Sie können die Attribute [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) verwenden, um die vom Benutzer wählbaren Daten einzuschränken. Im folgenden Beispiel setzen wir ein Mindestdatum auf `2017-04-01` und ein Höchstdatum auf `2017-04-30`:
+Sie können die [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) Attribute verwenden, um die Daten einzuschränken, die vom Benutzer ausgewählt werden können. Im folgenden Beispiel setzen wir ein Mindestdatum von `2017-04-01` und ein Höchstdatum von `2017-04-30`:
 
 ```html
 <form>
@@ -109,23 +109,23 @@ Sie können die Attribute [`min`](/de/docs/Web/HTML/Element/input#min) und [`max
 
 {{EmbedLiveSample('Setting_maximum_and_minimum_dates', 600, 40)}}
 
-Das Ergebnis ist, dass nur Tage im April 2017 ausgewählt werden können — der Monats- und Jahresteil des Textfeldes wird nicht bearbeitbar sein, und Daten außerhalb von April 2017 können im Auswahl-Widget nicht ausgewählt werden.
+Das Ergebnis ist, dass nur Tage im April 2017 ausgewählt werden können — die Monats- und Jahresanteile des Textfelds sind nicht editierbar, und Daten außerhalb von April 2017 können im Auswahl-Widget nicht ausgewählt werden.
 
-Sie können das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut verwenden, um die Anzahl der Tage zu variieren, die bei jeder Erhöhung des Datums übersprungen werden (z.B. um nur Samstage auswählbar zu machen).
+Sie können das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut verwenden, um die Anzahl der Tage zu variieren, die jedes Mal übersprungen werden, wenn das Datum erhöht wird (z. B. um nur Samstage auswählbar zu machen).
 
-### Steuerung der Eingabegröße
+### Kontrolle der Eingabegröße
 
-`<input type="date">` unterstützt keine Formgrößenattribute wie [`size`](/de/docs/Web/HTML/Element/input#size). Bevorzugen Sie [CSS](/de/docs/Web/CSS), um die Größe zu steuern.
+`<input type="date">` unterstützt keine Formgrößenattribute wie [`size`](/de/docs/Web/HTML/Element/input#size). Bevorzugen Sie [CSS](/de/docs/Web/CSS) zur Größenanpassung.
 
 ## Validierung
 
-Standardmäßig validiert `<input type="date">` den eingegebenen Wert nicht über sein Format hinaus. Die Schnittstellen erlauben im Allgemeinen nicht, dass Sie etwas eingeben, das kein Datum ist — was hilfreich ist.
+Standardmäßig validiert `<input type="date">` den eingegebenen Wert nicht über sein Format hinaus. Die Benutzeroberflächen lassen im Allgemeinen nichts anderes als ein Datum zu — was hilfreich ist.
 
-Wenn Sie [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) verwenden, um die verfügbaren Daten einzuschränken (siehe [Festlegen von maximalen und minimalen Daten](#festlegen_von_maximalen_und_minimalen_daten)), deaktiviert das Formularelement ungültige Daten und zeigt einen Fehler an, wenn Sie versuchen, ein Datum außerhalb der Grenzen zu übermitteln.
+Wenn Sie [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) verwenden, um die verfügbaren Daten einzuschränken (siehe [Festlegen von maximalen und minimalen Daten](#festlegen_von_maximalen_und_minimalen_daten)), deaktiviert das Formularsteuerelement ungültige Daten und zeigt einen Fehler an, wenn Sie versuchen, ein Datum außerhalb der Grenzen zu senden.
 
-Sie können auch das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut verwenden, um das Ausfüllen des Datums obligatorisch zu machen — ein Fehler wird angezeigt, wenn Sie versuchen, ein leeres Datumsfeld zu übermitteln.
+Sie können auch das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut verwenden, um das Ausfüllen des Datums obligatorisch zu machen — ein Fehler wird angezeigt, wenn Sie versuchen, ein leeres Datumsfeld zu senden.
 
-Lassen Sie uns ein Beispiel für minimale und maximale Daten betrachten und auch ein Feld erforderlich machen:
+Schauen wir uns ein Beispiel für minimale und maximale Daten an, und wir haben auch ein Feld erforderlich gemacht:
 
 ```html
 <form>
@@ -146,11 +146,11 @@ Lassen Sie uns ein Beispiel für minimale und maximale Daten betrachten und auch
 </form>
 ```
 
-Wenn Sie versuchen, das Formular mit einem unvollständigen Datum (oder einem Datum außerhalb der festgelegten Grenzen) abzusenden, zeigt der Browser einen Fehler an. Jetzt können Sie das Beispiel ausprobieren:
+Wenn Sie versuchen, das Formular mit einem unvollständigen Datum (oder mit einem Datum außerhalb der festgelegten Grenzen) zu senden, zeigt der Browser einen Fehler an. Versuchen Sie jetzt, mit dem Beispiel zu experimentieren:
 
 {{EmbedLiveSample('Validation', 600, 100)}}
 
-Hier ist das im obigen Beispiel verwendete CSS. Wir nutzen die {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-[Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements), um ein Symbol neben der Eingabe hinzuzufügen, basierend darauf, ob der aktuelle Wert gültig ist. Wir mussten das Symbol auf einem {{htmlelement("span")}} neben der Eingabe platzieren, nicht auf der Eingabe selbst, weil in Chrome zumindest der generierte Inhalt des Eingabefeldes innerhalb des Formularelements platziert wird und nicht effektiv gestylt oder angezeigt werden kann.
+Hier ist das CSS, das im obigen Beispiel verwendet wird. Wir nutzen die {{cssxref(":valid")}} und {{cssxref(":invalid")}} [Pseudoelemente](/de/docs/Web/CSS/Pseudo-elements), um ein Symbol neben der Eingabe hinzuzufügen, basierend darauf, ob der aktuelle Wert gültig ist. Wir mussten das Symbol auf einem {{htmlelement("span")}} neben der Eingabe platzieren, nicht auf der Eingabe selbst, da zumindest in Chrome der generierte Inhalt der Eingabe innerhalb des Formularsteuerelements platziert wird und nicht effektiv gestylt oder angezeigt werden kann.
 
 ```css
 label {
@@ -172,11 +172,11 @@ input:valid + span::after {
 ```
 
 > [!WARNING]
-> Die Client-seitige Formularvalidierung _ist kein Ersatz_ für die Validierung auf dem Server. Es ist einfach für jemanden, das HTML zu ändern oder Ihr HTML vollständig zu umgehen und die Daten direkt an Ihren Server zu senden. Wenn Ihr Server die empfangenen Daten nicht validiert, könnte eine Katastrophe mit falsch formatierten, zu großen, vom falschen Typ usw. Daten eintreten.
+> Clientseitige Formularvalidierung ist _kein Ersatz_ für die Validierung auf dem Server. Es ist einfach für jemanden, das HTML zu modifizieren oder Ihr HTML vollständig zu umgehen und die Daten direkt an Ihren Server zu senden. Wenn Ihr Server die empfangenen Daten nicht validiert, könnte eine Katastrophe mit schlecht formatierten, zu großen, falschen Typen usw. Daten eintreten.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir eine Datumsauswahl mit dem nativen `<input type="date">`-Picker.
+In diesem Beispiel erstellen wir einen Datumsauswahler unter Verwendung der nativen `<input type="date">`-Auswahl.
 
 ### HTML
 
@@ -217,8 +217,8 @@ input:valid + span::after {
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der ein Datum im YYYY-MM-DD-Format darstellt,
-        oder leer
+        Eine Zeichenfolge, die ein Datum im Format YYYY-MM-DD
+        darstellt, oder leer
       </td>
     </tr>
     <tr>
@@ -275,6 +275,6 @@ input:valid + span::after {
 ## Siehe auch
 
 - Das generische {{HTMLElement("input")}}-Element und die Schnittstelle zur Manipulation, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
-- [Datum- und Zeit-Auswahl-Leitfaden](/de/docs/Learn/Forms/HTML5_input_types#date_and_time_pickers)
-- [In HTML verwendete Datums- und Zeitformate](/de/docs/Web/HTML/Date_and_time_formats)
-- [Kompatibilität von CSS-Eigenschaften](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)
+- [Leitfaden für Datums- und Zeitauswahl](/de/docs/Learn/Forms/HTML5_input_types#date_and_time_pickers)
+- [Datum- und Zeitformate, die in HTML verwendet werden](/de/docs/Web/HTML/Date_and_time_formats)
+- [Kompatibilitätstabelle für CSS-Eigenschaften bei Formularelementen](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)

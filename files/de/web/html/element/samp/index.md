@@ -2,12 +2,12 @@
 title: "<samp>: Das Sample Output-Element"
 slug: Web/HTML/Element/samp
 l10n:
-  sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
+  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
 ---
 
 {{HTMLSidebar}}
 
-Das **`<samp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Inline-Text einzuschließen, der die Ausgabe eines Computerprogramms darstellt (beispielsweise ein Zitat). Der Inhalt wird typischerweise mit der Standardschriftart mit fester Laufweite des Browsers angezeigt (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console).
+Das **`<samp>`** [HTML](/de/docs/Web/HTML)-Element wird verwendet, um Inline-Text einzuschließen, der eine Beispiel- (oder zitierte) Ausgabe von einem Computerprogramm darstellt. Der Inhalt wird typischerweise mit der Standard-Monospace-Schriftart des Browsers gerendert (wie [Courier](<https://en.wikipedia.org/wiki/Courier_(typeface)>) oder Lucida Console).
 
 {{EmbedInteractiveExample("pages/tabbed/samp.html", "tabbed-shorter")}}
 
@@ -17,9 +17,9 @@ Dieses Element umfasst nur die [globalen Attribute](/de/docs/Web/HTML/Global_att
 
 ## Verwendungshinweise
 
-Sie können eine CSS-Regel verwenden, um die Standardschriftart des Browsers für das `<samp>`-Element zu überschreiben; es ist jedoch möglich, dass die Voreinstellungen des Browsers Vorrang vor jedem von Ihnen angegebenen CSS haben.
+Sie können eine CSS-Regel verwenden, um die Standard-Schriftart des Browsers für das `<samp>` Element zu überschreiben; es ist jedoch möglich, dass die Browsereinstellungen Vorrang vor jedem angegebenen CSS haben.
 
-Das CSS, um die Standardschriftart zu überschreiben, sieht folgendermaßen aus:
+Das CSS, um die Standard-Schriftart zu überschreiben, würde folgendermaßen aussehen:
 
 ```css
 samp {
@@ -28,7 +28,7 @@ samp {
 ```
 
 > [!NOTE]
-> Wenn Sie ein Element benötigen, das als Container für von Ihrer Website oder App generierten JavaScript-Code dient, sollten Sie stattdessen das {{HTMLElement("output")}}-Element verwenden.
+> Wenn Sie ein Element benötigen, das als Container für die von Ihrer Website oder App generierte JavaScript-Ausgabe dient, sollten Sie stattdessen das {{HTMLElement("output")}} Element verwenden.
 
 ## Beispiele
 
@@ -48,9 +48,9 @@ In diesem einfachen Beispiel enthält ein Absatz ein Beispiel für die Ausgabe e
 
 {{EmbedLiveSample("Basic_example", 650, 100)}}
 
-### Beispielausgabe einschließlich Benutzereingabe
+### Beispielausgabe einschließlich Benutzereingaben
 
-Sie können das {{HTMLElement("kbd")}}-Element innerhalb eines `<samp>`-Blocks verschachteln, um ein Beispiel darzustellen, das vom Benutzer eingegebenen Text enthält. Betrachten Sie zum Beispiel diesen Text, der ein Transkript einer Linux- (oder macOS-)Konsolensitzung präsentiert:
+Sie können das {{HTMLElement("kbd")}} Element innerhalb eines `<samp>` Blocks verschachteln, um ein Beispiel zu präsentieren, das vom Benutzer eingegebenen Text enthält. Betrachten Sie zum Beispiel diesen Text, der ein Transkript einer Linux- (oder macOS-)Konsolensitzung darstellt:
 
 #### HTML
 
@@ -62,11 +62,11 @@ MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
 <span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
 ```
 
-Beachten Sie die Verwendung von {{HTMLElement("span")}}, um die Darstellung spezifischer Teile des Beispieltextes, wie die Shell-Eingabeaufforderungen und den Cursor, anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den Befehl darzustellen, den der Benutzer an der Eingabeaufforderung im Beispieltext eingegeben hat.
+Beachten Sie die Verwendung von {{HTMLElement("span")}}, um das Aussehen bestimmter Teile des Beispieltextes wie die Shell-Eingabeaufforderungen und den Cursor anzupassen. Beachten Sie auch die Verwendung von `<kbd>`, um den Befehl darzustellen, den der Benutzer an der Eingabeaufforderung im Beispieltext eingegeben hat.
 
 #### CSS
 
-Das CSS, das das gewünschte Erscheinungsbild erreicht, ist:
+Das CSS, das das gewünschte Aussehen erreicht, ist:
 
 ```css
 .prompt {
@@ -82,11 +82,11 @@ samp > kbd {
 }
 ```
 
-Dies verleiht der Eingabeaufforderung und dem Cursor eine relativ subtile Farbgebung und verstärkt die Tastatureingaben innerhalb des Beispieltextes.
+Dies gibt der Eingabeaufforderung und dem Cursor eine ziemlich subtile Farbgebung und stärkt die Tastatureingabe innerhalb des Beispieltextes.
 
 #### Ergebnis
 
-Die resultierende Ausgabe sieht folgendermaßen aus:
+Das resultierende Ausgabeergebnis ist folgendes:
 
 {{EmbedLiveSample("Sample_output_including_user_input", 650, 120)}}
 
@@ -102,32 +102,32 @@ Die resultierende Ausgabe sieht folgendermaßen aus:
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Fluß-Inhalt</a
+          >Flussinhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierung-Inhalt</a
-        >, spürbarer Inhalt.
+          >Phrasierungsinhalt</a
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierung-Inhalt</a
+          >Phrasierungsinhalt</a
         >.
       </td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasierung-Inhalt</a
-        > akzeptiert.
+          >Phrasierungsinhalt</a
+        > zulässt.
       </td>
     </tr>
     <tr>
@@ -162,4 +162,4 @@ Die resultierende Ausgabe sieht folgendermaßen aus:
 ## Siehe auch
 
 - Verwandte Elemente: {{HTMLElement("kbd")}}, {{HTMLElement("code")}}, {{HTMLElement("pre")}}
-- Das {{HTMLElement("output")}}-Element: ein Container für skriptgenerierte Ausgaben
+- Das {{HTMLElement("output")}} Element: ein Container für skriptgenerierte Ausgaben
