@@ -221,7 +221,7 @@
       {
         "name": "inline-html",
         "message": "Put inline HTML tags in code spans",
-        "searchPattern": "/(?<!`)\\\\?(<(audio|button|canvas|dialog|iframe|input|link|object|select|span|video)>)/g",
+        "searchPattern": "/(?<!`)\\\\?(<(article|audio|button|canvas|dialog|iframe|input|link|object|select|span|video)>)/g",
         "replace": "`$1`",
         "searchScope": "text",
       },
