@@ -1,33 +1,33 @@
 ---
-title: "Testen Sie Ihre Fähigkeiten: Events"
+title: "Testen Sie Ihr Wissen: Events"
 slug: Learn/JavaScript/Building_blocks/Test_your_skills:_Events
 l10n:
-  sourceCommit: bc0d0d1ef796435e969f6d65c7e5d3c08f4023aa
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{learnsidebar}}
 
-Das Ziel dieses Fähigkeitstests ist zu prüfen, ob Sie unseren Artikel [Einführung in Events](/de/docs/Learn/JavaScript/Building_blocks/Events) verstanden haben.
+Das Ziel dieses Fertigkeitstests ist zu überprüfen, ob Sie unseren Artikel [Einführung in Events](/de/docs/Learn/JavaScript/Building_blocks/Events) verstanden haben.
 
 > [!NOTE]
-> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
-> Wenn ein Fehler auftritt, wird er im Ergebnisbereich auf der Seite oder in der JavaScript-Konsole des Browsers protokolliert, um Ihnen zu helfen.
+> Sie können Lösungen ausprobieren, indem Sie den Code herunterladen und ihn in einem Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
+> Wenn ein Fehler auftritt, wird er im Ergebnispanel auf der Seite oder in der JavaScript-Konsole des Browsers protokolliert, um Ihnen zu helfen.
 >
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kontaktieren.
 
 ## DOM-Manipulation: als nützlich erachtet
 
-Einige der folgenden Fragen erfordern es, dass Sie etwas {{Glossary("DOM", "DOM")}}-Manipulationscode schreiben, um sie zu lösen — wie z. B. das Erstellen neuer HTML-Elemente, das Setzen ihrer Textinhalte auf bestimmte Zeichenfolgen und das Verschachteln in vorhandenen Elementen auf der Seite — alles über JavaScript.
+Einige der nachfolgenden Fragen erfordern von Ihnen, dass Sie etwas {{Glossary("DOM", "DOM")}}-Manipulationscode schreiben, um sie zu lösen – zum Beispiel das Erstellen neuer HTML-Elemente, das Setzen ihres Textinhalts auf bestimmte Zeichenfolgenwerte und das Verschachteln innerhalb vorhandener Elemente auf der Seite – alles über JavaScript.
 
-Wir haben dies im Kurs bisher nicht explizit gelehrt, aber Sie werden einige Beispiele gesehen haben, die dies verwenden, und wir möchten, dass Sie einige Recherchen darüber anstellen, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser Tutorial [Dokumente manipulieren](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents).
+Wir haben dies im Kurs noch nicht explizit gelehrt, aber Sie werden einige Beispiele gesehen haben, die dies nutzen, und wir möchten, dass Sie etwas Nachforschung darüber anstellen, welche DOM-APIs Sie benötigen, um die Fragen erfolgreich zu beantworten. Ein guter Ausgangspunkt ist unser [Manipulating documents](/de/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents) Tutorial.
 
 ## Events 1
 
-In unserer ersten auf Events bezogenen Aufgabe müssen Sie einen einfachen Event-Handler erstellen, der bewirkt, dass sich der Text im Button (`btn`) ändert, wenn er angeklickt wird, und wieder zurückändert, wenn er erneut angeklickt wird.
+Bei unserer ersten auf Events bezogenen Aufgabe müssen Sie einen Event-Handler erstellen, der bewirkt, dass der Text innerhalb des Buttons (`btn`) sich ändert, wenn darauf geklickt wird, und sich zurückändert, wenn erneut darauf geklickt wird.
 
-Das HTML sollte nicht geändert werden, nur das JavaScript.
+Das HTML sollte nicht verändert werden, nur das JavaScript.
 
-Versuchen Sie, den Live-Code unten so zu aktualisieren, dass er das fertige Beispiel nachbildet:
+Versuchen Sie, den folgenden Live-Code zu aktualisieren, um das fertige Beispiel zu erstellen:
 
 {{EmbedGHLiveSample("learning-area/javascript/building-blocks/tasks/events/events1.html", '100%', 400)}}
 
@@ -37,13 +37,13 @@ Versuchen Sie, den Live-Code unten so zu aktualisieren, dass er das fertige Beis
 
 ## Events 2
 
-Nun schauen wir uns Keyboard-Events an. Um diese Bewertung zu bestehen, müssen Sie einen Event-Handler erstellen, der den Kreis auf der bereitgestellten Leinwand bewegt, wenn die WASD-Tasten auf der Tastatur gedrückt werden. Der Kreis wird mit der Funktion `drawCircle()` gezeichnet, die die folgenden Parameter als Eingaben nimmt:
+Nun betrachten wir Tastatur-Events. Um diese Bewertung zu bestehen, müssen Sie einen Event-Handler erstellen, der den Kreis auf dem bereitgestellten Canvas bewegt, wenn die WASD-Tasten auf der Tastatur gedrückt werden. Der Kreis wird mit der Funktion `drawCircle()` gezeichnet, die folgende Parameter als Eingaben hat:
 
 - `x` — die x-Koordinate des Kreises.
 - `y` — die y-Koordinate des Kreises.
 - `size` — der Radius des Kreises.
 
-Versuchen Sie, den Live-Code unten so zu aktualisieren, dass er das fertige Beispiel nachbildet:
+Versuchen Sie, den folgenden Live-Code zu aktualisieren, um das fertige Beispiel zu erstellen:
 
 {{EmbedGHLiveSample("learning-area/javascript/building-blocks/tasks/events/events2.html", '100%', 650)}}
 
@@ -53,11 +53,11 @@ Versuchen Sie, den Live-Code unten so zu aktualisieren, dass er das fertige Beis
 
 ## Events 3
 
-In der nächsten auf Events bezogenen Aufgabe müssen Sie einen Ereignis-Listener auf das Elternelement der `<button>`s (`<div class="button-bar"> … </div>`) setzen, der beim Klicken auf einen der Buttons den Hintergrund der `button-bar` auf die Farbe ändert, die im `data-color` Attribut des Buttons enthalten ist.
+Bei der nächsten auf Events bezogenen Aufgabe müssen Sie einen Event-Listener auf dem Elternelement der `<button>`s (`<div class="button-bar"> … </div>`) setzen, der, wenn er durch Klicken auf einen der Buttons aufgerufen wird, den Hintergrund der `button-bar` auf die im `data-color`-Attribut des Buttons enthaltene Farbe setzt.
 
-Wir möchten, dass Sie dies lösen, ohne durch alle Buttons zu schleifen und jedem einen eigenen Event-Listener zu geben.
+Wir möchten, dass Sie dies lösen, ohne durch alle Buttons zu schleifen und jedem von ihnen einen eigenen Event-Listener zu geben.
 
-Versuchen Sie, den Live-Code unten so zu aktualisieren, dass er das fertige Beispiel nachbildet:
+Versuchen Sie, den folgenden Live-Code zu aktualisieren, um das fertige Beispiel zu erstellen:
 
 {{EmbedGHLiveSample("learning-area/javascript/building-blocks/tasks/events/events3.html", '100%', 600)}}
 

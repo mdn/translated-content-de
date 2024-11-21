@@ -1,19 +1,19 @@
 ---
-title: Löschen durch Klicken
+title: Bereinigung durch Klicken
 slug: Web/API/WebGL_API/By_example/Clearing_by_clicking
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Clearing_with_colors","Learn/WebGL/By_example/Simple_color_animation")}}
 
-Dieses Beispiel demonstriert, wie man Benutzerinteraktionen mit WebGL-Grafikoperationen kombiniert, indem der Rendering-Kontext mit einer zufälligen Farbe gelöscht wird, wenn der Benutzer klickt.
+Dieses Beispiel zeigt, wie Benutzerinteraktionen mit WebGL-Grafikoperationen kombiniert werden können, indem der Rendering-Kontext mit einer zufälligen Farbe bereinigt wird, wenn der Benutzer klickt.
 
-## Löschen des Rendering-Kontexts mit zufälligen Farben
+## Bereinigung des Rendering-Kontexts mit zufälligen Farben
 
 {{EmbedLiveSample("Clearing_the_rendering_context_with_random_colors",660,425)}}
 
-Dieses Beispiel liefert eine einfache Illustration, wie man {{Glossary("WebGL", "WebGL")}} und Benutzerinteraktion kombiniert. Jedes Mal, wenn der Benutzer auf das `<canvas>` oder den Button klickt, wird das `<canvas>` mit einer neu zufällig gewählten Farbe gelöscht.
+Dieses Beispiel bietet eine Veranschaulichung, wie {{Glossary("WebGL", "WebGL")}} und Benutzerinteraktion kombiniert werden können. Jedes Mal, wenn der Benutzer auf das Canvas oder den Button klickt, wird das Canvas mit einer neu zufällig ausgewählten Farbe bereinigt.
 
 Beachten Sie, wie wir die {{Glossary("WebGL", "WebGL")}}-Funktionsaufrufe innerhalb der Event-Handler-Funktion einbetten.
 
@@ -107,6 +107,6 @@ window.addEventListener(
 );
 ```
 
-Der Quellcode dieses Beispiels ist ebenfalls auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/clearing-by-clicking) verfügbar.
+Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/clearing-by-clicking) verfügbar.
 
 {{PreviousNext("Learn/WebGL/By_example/Clearing_with_colors","Learn/WebGL/By_example/Simple_color_animation")}}

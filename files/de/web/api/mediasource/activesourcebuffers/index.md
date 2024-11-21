@@ -3,12 +3,12 @@ title: "MediaSource: activeSourceBuffers-Eigenschaft"
 short-title: activeSourceBuffers
 slug: Web/API/MediaSource/activeSourceBuffers
 l10n:
-  sourceCommit: 1573959d78591b4079500af13019f901faaaca02
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{APIRef("Media Source Extensions")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die schreibgeschützte Eigenschaft **`activeSourceBuffers`** des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das eine Teilmenge der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte enthält, die sich in [`sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) befinden — der Liste von Objekten, die die ausgewählte Videospur, aktivierte Audiotracks und angezeigte/verborgene Textspuren bereitstellen.
+Die schreibgeschützte Eigenschaft **`activeSourceBuffers`** des [`MediaSource`](/de/docs/Web/API/MediaSource)-Interfaces gibt ein [`SourceBufferList`](/de/docs/Web/API/SourceBufferList)-Objekt zurück, das eine Teilmenge der [`SourceBuffer`](/de/docs/Web/API/SourceBuffer)-Objekte enthält, welche in [`sourceBuffers`](/de/docs/Web/API/MediaSource/sourceBuffers) enthalten sind — der Liste von Objekten, die die ausgewählte Videospur, die aktivierten Audiospuren und die angezeigten/versteckten Textspuren bereitstellen.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Eine [`SourceBufferList`](/de/docs/Web/API/SourceBufferList), die die [`SourceBu
 
 ## Beispiele
 
-Das folgende Beispiel basiert auf einem einfachen Beispiel von Nick Desaulniers ([sehen Sie die vollständige Demo live](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
+Der folgende Ausschnitt basiert auf einem Beispiel von Nick Desaulniers ([sehen Sie das vollständige Demo live](https://nickdesaulniers.github.io/netfix/demo/bufferAll.html) oder [laden Sie den Quellcode herunter](https://github.com/nickdesaulniers/netfix/blob/gh-pages/demo/bufferAll.html) für weitere Untersuchungen). Die Funktion `getMediaSource()`, die hier nicht definiert ist, gibt eine `MediaSource` zurück.
 
 ```js
 const mediaSource = getMediaSource();

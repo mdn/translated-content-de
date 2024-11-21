@@ -1,18 +1,17 @@
 ---
-title: "BaseAudioContext: createDelay()-Methode"
+title: "BaseAudioContext: createDelay() Methode"
 short-title: createDelay()
 slug: Web/API/BaseAudioContext/createDelay
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{APIRef("Web Audio API")}}
 
-Die `createDelay()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen [`DelayNode`](/de/docs/Web/API/DelayNode) zu erstellen, der das eingehende Audiosignal um eine bestimmte Zeit verzögert.
+Die `createDelay()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um ein [`DelayNode`](/de/docs/Web/API/DelayNode) zu erstellen, welches das eingehende Audiosignal um eine bestimmte Zeit verzögern kann.
 
 > [!NOTE]
-> Der [`DelayNode()`](/de/docs/Web/API/DelayNode/DelayNode)-Konstruktor ist die empfohlene Methode, um einen [`DelayNode`](/de/docs/Web/API/DelayNode) zu erstellen; siehe
-> [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
+> Der [`DelayNode()`](/de/docs/Web/API/DelayNode/DelayNode)-Konstruktor wird empfohlen, um ein [`DelayNode`](/de/docs/Web/API/DelayNode) zu erstellen; siehe [Erstellung eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
 
 ## Syntax
 
@@ -23,7 +22,7 @@ createDelay(maxDelayTime)
 ### Parameter
 
 - `maxDelayTime` {{optional_inline}}
-  - : Die maximale Zeitdauer in Sekunden, um die das Audiosignal verzögert werden kann. Muss weniger als 180 Sekunden betragen und standardmäßig auf 1 Sekunde, wenn nicht angegeben.
+  - : Die maximale Zeit in Sekunden, um die das Audiosignal verzögert werden kann. Muss weniger als 180 Sekunden betragen und wird standardmäßig auf 1 Sekunde gesetzt, wenn nicht angegeben.
 
 ### Rückgabewert
 
@@ -31,7 +30,7 @@ Ein [`DelayNode`](/de/docs/Web/API/DelayNode). Der Standardwert von [`DelayNode.
 
 ## Beispiele
 
-Wir haben ein einfaches Beispiel erstellt, das Ihnen ermöglicht, drei verschiedene Samples in einer kontinuierlichen Schleife abzuspielen — siehe [create-delay](https://chrisdavidmills.github.io/create-delay/) (Sie können auch [den Quellcode anzeigen](https://github.com/chrisdavidmills/create-delay)). Wenn Sie einfach die Wiedergabeknöpfe drücken, starten die Schleifen sofort; wenn Sie die Schieberegler nach oben nach rechts bewegen und dann die Wiedergabeknöpfe drücken, wird eine Verzögerung eingeführt, so dass die Schleifengeräusche für eine kurze Zeit nicht beginnen zu spielen.
+Wir haben ein Beispiel erstellt, das es Ihnen ermöglicht, drei verschiedene Samples in einer konstanten Schleife abzuspielen — siehe [create-delay](https://chrisdavidmills.github.io/create-delay/) (Sie können auch [den Quellcode ansehen](https://github.com/chrisdavidmills/create-delay)). Wenn Sie einfach die Wiedergabeknöpfe drücken, starten die Schleifen sofort; wenn Sie die Schieberegler nach rechts bewegen und dann die Wiedergabeknöpfe drücken, wird eine Verzögerung eingeführt, sodass die Schleifklänge für eine kurze Zeit nicht abgespielt werden.
 
 ```js
 const audioCtx = new AudioContext();

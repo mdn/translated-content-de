@@ -1,38 +1,38 @@
 ---
-title: Verwendung von Service Workern
+title: Verwendung von Service Workers
 slug: Web/API/Service_Worker_API/Using_Service_Workers
 l10n:
-  sourceCommit: 4f35a8237ee0842beb9cfef3354e05464ad7ce1a
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{DefaultAPISidebar("Service Workers API")}}
 
-Dieser Artikel bietet Informationen zum Einstieg in Service Worker, einschließlich der grundlegenden Architektur, der Registrierung eines Service Workers, des Installations- und Aktivierungsprozesses für einen neuen Service Worker, der Aktualisierung Ihres Service Workers, der Cache-Kontrolle und benutzerdefinierte Antworten - alles im Kontext einer einfachen App mit Offline-Funktionalität.
+Dieser Artikel bietet Informationen zum Einstieg in die Nutzung von Service Workers, einschließlich der grundlegenden Architektur, der Registrierung eines Service Workers, des Installations- und Aktivierungsprozesses für einen neuen Service Worker, der Aktualisierung Ihres Service Workers, der Cache-Kontrolle und benutzerdefinierter Antworten, alles im Kontext einer App mit Offline-Funktionalität.
 
-## Das Prinzip von Service Workern
+## Das Prinzip von Service Workers
 
-Ein übergeordnetes Problem, das Webnutzer seit Jahren plagt, ist der Verlust der Konnektivität. Die beste Web-App der Welt wird eine schreckliche Benutzererfahrung bieten, wenn sie nicht heruntergeladen werden kann. Es gab verschiedene Versuche, Technologien zu schaffen, um dieses Problem zu lösen, und einige der Probleme wurden gelöst. Das übergeordnete Problem war jedoch, dass es keinen guten Mechanismus zur Gesamtsteuerung des Asset-Cachings und benutzerdefinierter Netzwerkanfragen gab.
+Ein übergeordnetes Problem, mit dem Webnutzer seit Jahren konfrontiert sind, ist der Verlust der Konnektivität. Die beste Web-App der Welt bietet eine schreckliche Benutzererfahrung, wenn Sie sie nicht herunterladen können. Es gab verschiedene Versuche, Technologien zu entwickeln, um dieses Problem zu lösen, und einige der Probleme wurden behoben. Aber das übergeordnete Problem war, dass es keinen guten umfassenden Kontrollmechanismus für das Zwischenspeichern von Ressourcen und benutzerdefinierte Netzwerkanforderungen gab.
 
-Service Worker beheben diese Probleme. Mithilfe eines Service Workers können Sie eine App so einrichten, dass sie zuerst zwischengespeicherte Ressourcen nutzt und somit eine Standarderfahrung auch offline bietet, bevor sie dann mehr Daten aus dem Netzwerk abruft (allgemein bekannt als "offline first"). Dies ist bereits bei nativen Apps verfügbar, was einer der Hauptgründe ist, warum native Apps oft gegenüber Web-Apps bevorzugt werden.
+Service Workers beheben diese Probleme. Mit einem Service Worker können Sie eine App so einrichten, dass zunächst zwischengespeicherte Ressourcen verwendet werden, um so eine Standarderfahrung auch im Offline-Modus zu bieten, bevor dann weitere Daten aus dem Netzwerk abgerufen werden (allgemein bekannt als "Offline zuerst"). Dies ist bereits bei nativen Apps verfügbar, was einer der Hauptgründe ist, warum native Apps oft gegenüber Web-Apps bevorzugt werden.
 
-Ein Service Worker fungiert wie ein Proxy-Server, der es Ihnen ermöglicht, Anfragen und Antworten zu modifizieren und diese durch Elemente aus seinem eigenen Cache zu ersetzen.
+Ein Service Worker funktioniert wie ein Proxy-Server und ermöglicht es Ihnen, Anforderungen und Antworten zu ändern und sie durch Elemente aus seinem eigenen Cache zu ersetzen.
 
-## Einrichtung zum Experimentieren mit Service Workern
+## Einrichtung zur Nutzung von Service Workers
 
-Service Worker sind standardmäßig in allen modernen Browsern aktiviert. Um Code mit Service Workern auszuführen, müssen Sie Ihren Code über HTTPS bereitstellen — Service Worker sind aus Sicherheitsgründen auf die Ausführung über HTTPS beschränkt. Ein Server, der HTTPS unterstützt, ist notwendig. Um Experimente zu hosten, können Sie einen Dienst wie GitHub, Netlify, Vercel usw. nutzen. Um lokale Entwicklungen zu erleichtern, wird `localhost` von Browsern ebenfalls als sicherer Ursprung angesehen.
+Service Workers sind in allen modernen Browsern standardmäßig aktiviert. Um Code mit Service Workers auszuführen, müssen Sie Ihren Code über HTTPS bereitstellen - Service Workers dürfen aus Sicherheitsgründen nur über HTTPS ausgeführt werden. Ein Server, der HTTPS unterstützt, ist erforderlich. Für das Hosting von Experimenten können Sie einen Dienst wie GitHub, Netlify, Vercel usw. verwenden. Um die lokale Entwicklung zu erleichtern, wird `localhost` von Browsern ebenfalls als sicherer Ursprung angesehen.
 
 ## Grundlegende Architektur
 
-Bei Service Workern werden im Allgemeinen die folgenden Schritte für die grundlegende Einrichtung befolgt:
+Mit Service Workers werden für die grundlegende Einrichtung im Allgemeinen die folgenden Schritte beobachtet:
 
-1. Der Service Worker-Code wird abgerufen und dann mithilfe von [`serviceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) registriert. Bei Erfolg wird der Service Worker in einem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) ausgeführt; dies ist im Grunde eine spezielle Art von Worker-Kontext, der nicht im Hauptskript-Ausführungsthread läuft und keinen DOM-Zugriff hat. Der Service Worker ist jetzt bereit, Ereignisse zu verarbeiten.
-2. Die Installation erfolgt. Ein `install`-Ereignis ist immer das erste, das an einen Service Worker gesendet wird (dies kann verwendet werden, um den Prozess des Auffüllens eines IndexedDB und des Cachens von Website-Assets zu beginnen). Während dieses Schrittes bereitet die Anwendung alles darauf vor, offline verfügbar zu sein.
-3. Wenn der `install`-Handler abgeschlossen ist, wird der Service Worker als installiert angesehen. Zu diesem Zeitpunkt kann eine vorherige Version des Service Workers aktiv sein und offene Seiten steuern. Da wir nicht wollen, dass zwei verschiedene Versionen desselben Service Workers gleichzeitig laufen, ist die neue Version noch nicht aktiv.
-4. Sobald alle Seiten, die von der alten Version des Service Workers gesteuert werden, geschlossen wurden, kann die alte Version sicher zurückgezogen werden, und der neu installierte Service Worker erhält ein `activate`-Ereignis. Der Hauptzweck von `activate` ist das Aufräumen von Ressourcen, die in vorherigen Versionen des Service Workers verwendet wurden. Der neue Service Worker kann [`skipWaiting()`](/de/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting) aufrufen, um sofort aktiviert zu werden, ohne darauf zu warten, dass offene Seiten geschlossen werden. Der neue Service Worker erhält dann sofort `activate` und übernimmt alle offenen Seiten.
-5. Nach der Aktivierung wird der Service Worker Seiten kontrollieren, aber nur diejenigen, die nach dem erfolgreichen `register()` geöffnet wurden. Mit anderen Worten, Dokumente müssen neu geladen werden, um tatsächlich gesteuert zu werden, da ein Dokument mit oder ohne Service Worker beginnt und diesen Status während seiner Lebensdauer beibehält. Um dieses Standardverhalten zu überschreiben und geöffnete Seiten zu übernehmen, kann ein Service Worker [`clients.claim()`](/de/docs/Web/API/Clients/claim) aufrufen.
-6. Jedes Mal, wenn eine neue Version eines Service Workers abgerufen wird, wiederholt sich dieser Zyklus und die Überreste der vorherigen Version werden während der Aktivierung der neuen Version bereinigt.
+1. Der Code des Service Workers wird abgerufen und dann mit [`serviceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) registriert. Wenn dies erfolgreich ist, wird der Service Worker in einem [`ServiceWorkerGlobalScope`](/de/docs/Web/API/ServiceWorkerGlobalScope) ausgeführt; dies ist im Wesentlichen eine spezielle Art von Worker-Kontext, der außerhalb des Haupt-Thread der Skriptausführung läuft, ohne DOM-Zugriff. Der Service Worker ist jetzt bereit, Ereignisse zu verarbeiten.
+2. Die Installation findet statt. Ein `install`-Ereignis ist immer das erste, das an einen Service Worker gesendet wird (dies kann verwendet werden, um den Prozess der Populierung einer IndexedDB zu starten und Webseitenressourcen zwischenspeichern). Während dieses Schritts bereitet die Anwendung alles vor, um offline verfügbar zu sein.
+3. Wenn der `install`-Handler abgeschlossen ist, gilt der Service Worker als installiert. Zu diesem Zeitpunkt kann eine vorherige Version des Service Workers aktiv sein und offene Seiten steuern. Da wir nicht möchten, dass zwei verschiedene Versionen desselben Service Workers gleichzeitig ausgeführt werden, ist die neue Version noch nicht aktiv.
+4. Sobald alle von der alten Version des Service Workers gesteuerten Seiten geschlossen wurden, kann die alte Version sicher in den Ruhestand versetzt werden, und der neu installierte Service Worker erhält ein `activate`-Ereignis. Der primäre Zweck von `activate` besteht darin, Ressourcen zu bereinigen, die in vorherigen Versionen des Service Workers verwendet wurden. Der neue Service Worker kann [`skipWaiting()`](/de/docs/Web/API/ServiceWorkerGlobalScope/skipWaiting) aufrufen, um zu beantragen, sofort aktiviert zu werden, ohne zu warten, dass offene Seiten geschlossen werden. Der neue Service Worker erhält dann sofort `activate` und übernimmt offene Seiten.
+5. Nach der Aktivierung kontrolliert der Service Worker nun Seiten, aber nur diejenigen, die nach dem erfolgreichen `register()` geöffnet wurden. Anders ausgedrückt, Dokumente müssen neu geladen werden, um tatsächlich gesteuert zu werden, da ein Dokument sein Leben mit oder ohne Service Worker beginnt und dies für seine Lebensdauer beibehält. Um dieses Standardverhalten zu überschreiben und offene Seiten zu übernehmen, kann ein Service Worker [`clients.claim()`](/de/docs/Web/API/Clients/claim) aufrufen.
+6. Jedes Mal, wenn eine neue Version eines Service Workers abgerufen wird, passiert dieser Zyklus erneut und die Überreste der vorherigen Version werden während der Aktivierung der neuen Version bereinigt.
 
-![Lebenszyklus-Diagramm](sw-lifecycle.svg)
+![Lebenszyklusdiagramm](sw-lifecycle.svg)
 
 Hier ist eine Zusammenfassung der verfügbaren Service Worker-Ereignisse:
 
@@ -46,15 +46,15 @@ Hier ist eine Zusammenfassung der verfügbaren Service Worker-Ereignisse:
 
 ## Demo
 
-Um nur die absoluten Grundlagen der Registrierung und Installation eines Service Workers zu demonstrieren, haben wir eine Demo namens [einfacher Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) erstellt, die eine einfache Star Wars Lego-Bildergalerie darstellt. Sie verwendet eine Promise-basierte Funktion, um Bilddaten aus einem JSON-Objekt zu lesen und die Bilder mit [`fetch()`](/de/docs/Web/API/Fetch_API/Using_Fetch) zu laden, bevor sie die Bilder in einer Linie auf der Seite anzeigt. Wir haben die Dinge vorerst statisch gehalten. Außerdem registriert, installiert und aktiviert sie einen Service Worker.
+Um nur die Grundlagen der Registrierung und Installation eines Service Workers zu demonstrieren, haben wir ein Demo namens [einfacher Service Worker](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) erstellt, welches eine einfache Star Wars Lego-Bildergalerie ist. Es verwendet eine Promise-gestützte Funktion, um Bilddaten aus einem JSON-Objekt zu lesen und die Bilder mit [`fetch()`](/de/docs/Web/API/Fetch_API/Using_Fetch) zu laden, bevor die Bilder in einer Zeile auf der Seite angezeigt werden. Wir haben die Dinge statisch gehalten. Es registriert, installiert und aktiviert auch einen Service Worker.
 
-![Die Worte Star Wars gefolgt von einem Bild einer Lego-Version des Darth Vader-Charakters](demo-screenshot.png)
+![Die Worte Star Wars gefolgt von einem Bild einer Lego-Version der Darth Vader-Figur](demo-screenshot.png)
 
-Sie können den [Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) sehen und den [einfachen Service Worker live](https://bncb2v.csb.app/) ausführen.
+Sie können den [Quellcode auf GitHub](https://github.com/mdn/dom-examples/tree/main/service-worker/simple-service-worker) sehen und den [einfachen Service Worker live laufen sehen](https://bncb2v.csb.app/).
 
-### Registrieren Ihres Workers
+### Registrierung Ihres Workers
 
-Der erste Codeblock in der JavaScript-Datei unserer App — `app.js` — sieht folgendermaßen aus. Dies ist unser Einstiegspunkt in die Verwendung von Service Workern.
+Der erste Codeblock in der JavaScript-Datei unserer App — `app.js` — ist wie folgt. Dies ist unser Einstiegspunkt in die Verwendung von Service Workers.
 
 ```js
 const registerServiceWorker = async () => {
@@ -81,36 +81,36 @@ const registerServiceWorker = async () => {
 registerServiceWorker();
 ```
 
-1. Der `if`-Block führt einen Feature-Detection-Test durch, um sicherzustellen, dass Service Worker unterstützt werden, bevor versucht wird, einen zu registrieren.
-2. Als nächstes verwenden wir die Funktion [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register), um den Service Worker für diese Seite zu registrieren. Der Service Worker-Code befindet sich in einer JavaScript-Datei innerhalb unserer App (beachten Sie, dass dies die URL der Datei relativ zum Ursprung ist, nicht die JS-Datei, die darauf verweist).
-3. Der `scope`-Parameter ist optional und kann verwendet werden, um den Teil Ihres Inhalts anzugeben, den der Service Worker steuern soll. In diesem Fall haben wir `'/'` angegeben, was bedeutet, dass alle Inhalte unter dem Ursprung der App liegen. Wenn Sie es weglassen, wird es standardmäßig auf diesen Wert gesetzt, aber wir haben es hier zu Illustrationszwecken angegeben.
+1. Der `if`-Block führt einen Funktionserkennungstest durch, um sicherzustellen, dass Service Workers unterstützt werden, bevor man versucht, einen zu registrieren.
+2. Als nächstes verwenden wir die [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register)-Funktion, um den Service Worker für diese Seite zu registrieren. Der Service Worker-Code befindet sich in einer JavaScript-Datei innerhalb unserer App (beachten Sie, dass dies die URL der Datei relativ zum Ursprung ist, nicht die JS-Datei, die darauf verweist).
+3. Der `scope`-Parameter ist optional und kann verwendet werden, um den Teil Ihres Inhalts anzugeben, den der Service Worker kontrollieren soll. In diesem Fall haben wir `'/'` angegeben, was bedeutet, dass alle Inhalte unter dem Ursprung der App abgedeckt sind. Wenn Sie es weglassen, wird es trotzdem auf diesen Wert voreingestellt, aber wir haben es hier zur Veranschaulichung angegeben.
 
 Dies registriert einen Service Worker, der in einem Worker-Kontext läuft und daher keinen DOM-Zugriff hat.
 
-Ein einzelner Service Worker kann viele Seiten steuern. Jedes Mal, wenn innerhalb Ihres Geltungsbereichs eine Seite geladen wird, wird der Service Worker gegen diese Seite installiert und wirkt auf sie ein. Beachten Sie daher, dass Sie vorsichtig mit globalen Variablen im Service Worker-Skript umgehen müssen: Jede Seite erhält ihren eigenen einzigartigen Worker.
+Ein einzelner Service Worker kann viele Seiten kontrollieren. Jedes Mal, wenn eine Seite innerhalb Ihres Scopes geladen wird, wird der Service Worker auf diese Seite angewendet und arbeitet darauf. Beachten Sie daher, dass Sie vorsichtig mit globalen Variablen im Service Worker-Skript umgehen müssen: Jede Seite erhält keinen eigenen einzigartigen Worker.
 
 > [!NOTE]
-> Ein großer Vorteil von Service Workern ist, dass, wenn Sie die oben gezeigte Feature-Erkennung verwenden, Browser, die Service Worker nicht unterstützen, Ihre App einfach wie erwartet online verwenden können.
+> Eine großartige Sache bei Service Workers ist, dass, wenn Sie Funktionserkennung verwenden, wie wir oben gezeigt haben, Browser, die Service Workers nicht unterstützen, Ihre App einfach weiterhin online auf die normale erwartete Weise nutzen können.
 
 #### Warum schlägt die Registrierung meines Service Workers fehl?
 
-Dies könnte aus folgenden Gründen der Fall sein:
+Dies könnte aus folgenden Gründen geschehen:
 
-- Sie betreiben Ihre Anwendung nicht über HTTPS.
-- Der Pfad zu Ihrer Service Worker-Datei ist nicht korrekt geschrieben — er muss relativ zum Ursprung geschrieben werden, nicht zum Stammverzeichnis Ihrer App. In unserem Beispiel befindet sich der Worker unter `https://bncb2v.csb.app/sw.js`, und das Stammverzeichnis der App ist `https://bncb2v.csb.app/`. Aber der Pfad muss als `/sw.js` geschrieben werden.
-- Es ist auch nicht erlaubt, auf einen Service Worker eines anderen Ursprungs zu verweisen als der Ursprung Ihrer App.
-- Der Service Worker wird nur Anfragen von Clients innerhalb des Scope des Service Workers abfangen.
-- Der maximale Scope für einen Service Worker ist der Standort des Workers (mit anderen Worten, wenn das Skript `sw.js` unter `/js/sw.js` liegt, kann es standardmäßig nur URLs unter `/js/` steuern). Eine Liste von maximalen Scopes für diesen Worker kann mit dem `Service-Worker-Allowed`-Header angegeben werden.
-- In Firefox sind die Service Worker-APIs verborgen und können nicht verwendet werden, wenn der Benutzer im [privaten Modus](https://bugzil.la/1320796) surft oder wenn der Verlauf deaktiviert ist oder wenn Cookies gelöscht werden, wenn Firefox geschlossen wird.
-- In Chrome schlägt die Registrierung fehl, wenn die Option "Block all cookies (not recommended)" aktiviert ist.
+- Sie führen Ihre Anwendung nicht über HTTPS aus.
+- Der Pfad zu Ihrer Service Worker-Datei ist nicht korrekt geschrieben - er muss relativ zum Ursprung und nicht zum Stammverzeichnis Ihrer App geschrieben werden. In unserem Beispiel befindet sich der Worker unter `https://bncb2v.csb.app/sw.js`, und das Stammverzeichnis der App ist `https://bncb2v.csb.app/`. Aber der Pfad muss als `/sw.js` geschrieben werden.
+- Es ist auch nicht erlaubt, auf einen Service Worker eines anderen Ursprungs als Ihren App-Ursprung zu verweisen.
+- Der Service Worker wird nur Anfragen von Clients innerhalb des Scopes des Service Workers abfangen.
+- Das maximale Scope für einen Service Worker ist der Standort des Workers (anders gesagt, wenn das Skript `sw.js` sich im Verzeichnis `/js/sw.js` befindet, kann es standardmäßig nur URLs unter `/js/` kontrollieren). Eine Liste maximaler Scopes für diesen Worker kann mit dem Header `Service-Worker-Allowed` angegeben werden.
+- In Firefox sind Service Worker APIs verborgen und können nicht verwendet werden, wenn sich der Benutzer im [privaten Browsing-Modus](https://bugzil.la/1320796) befindet oder wenn der Verlauf deaktiviert ist oder wenn Cookies gelöscht werden, wenn Firefox geschlossen wird.
+- In Chrome schlägt die Registrierung fehl, wenn die Option "Alle Cookies blockieren (nicht empfohlen)" aktiviert ist.
 
-### Installieren und Aktivieren: Ihren Cache befüllen
+### Installieren und Aktivieren: Ihren Cache füllen
 
-Nachdem Ihr Service Worker registriert wurde, wird der Browser versuchen, dann den Service Worker für Ihre Seite/Site zu installieren und zu aktivieren.
+Nachdem Ihr Service Worker registriert ist, wird der Browser versuchen, den Service Worker für Ihre Seite/Website zu installieren und dann zu aktivieren.
 
-Das `install`-Ereignis wird ausgelöst, wenn eine Installation erfolgreich abgeschlossen wurde. Das `install`-Ereignis wird in der Regel verwendet, um die Offline-Caching-Fähigkeiten des Browsers mit den Ressourcen zu befüllen, die Sie benötigen, um Ihre App offline auszuführen. Dazu verwenden wir die Speicher-API des Service Workers — [`cache`](/de/docs/Web/API/Cache) — ein globales Objekt im Service Worker, das uns ermöglicht, von Antworten gelieferte Assets zu speichern, die durch ihre Anfragen gekennzeichnet sind. Diese API funktioniert auf ähnliche Weise wie der Standard-Cache des Browsers, ist jedoch spezifisch für Ihre Domain. Der Inhalt des Caches bleibt erhalten, bis Sie ihn löschen.
+Das `install`-Ereignis wird ausgelöst, wenn eine Installation erfolgreich abgeschlossen wurde. Das `install`-Ereignis wird im Allgemeinen verwendet, um die Offline-Speicherfähigkeiten Ihres Browsers mit den Ressourcen zu füllen, die Sie benötigen, um Ihre App offline auszuführen. Um dies zu tun, verwenden wir die Speicher-API des Service Workers — [`cache`](/de/docs/Web/API/Cache) — ein globales Objekt im Service Worker, das es uns ermöglicht, von Antworten bereitgestellte Ressourcen zu speichern, und nach ihren Anforderungen indiziert. Diese API funktioniert ähnlich wie der Standard-Cache des Browsers, ist jedoch spezifisch für Ihre Domain. Der Cache-Inhalt wird solange aufbewahrt, bis Sie ihn löschen.
 
-Hier ist, wie unser Service Worker das `install`-Ereignis behandelt:
+So handhabt unser Service Worker das `install`-Ereignis:
 
 ```js
 const addResourcesToCache = async (resources) => {
@@ -135,22 +135,22 @@ self.addEventListener("install", (event) => {
 });
 ```
 
-1. Hier fügen wir einen `install`-Ereignislistener zum Service Worker hinzu (daher `self`), und verketten dann eine [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Methode auf das Ereignis — dies stellt sicher, dass der Service Worker nicht installiert wird, bis der Code innerhalb von `waitUntil()` erfolgreich ausgeführt wurde.
-2. Innerhalb von `addResourcesToCache()` verwenden wir die Methode [`caches.open()`](/de/docs/Web/API/CacheStorage/open), um einen neuen Cache namens `v1` zu erstellen, der die Version 1 unseres Ressourcen-Caches der Site darstellt. Dann rufen wir eine Funktion `addAll()` für den erstellten Cache auf, die als Parameter ein Array von URLs zu allen Ressourcen nimmt, die Sie zwischenspeichern möchten. Die URLs sind relativ zur {{domxref("WorkerGlobalScope.location", "Location", "", 1)}} des Workers.
-3. Wenn das Promise abgelehnt wird, schlägt die Installation fehl, und der Worker wird nichts tun. Das ist in Ordnung, da Sie Ihren Code reparieren und dann beim nächsten Mal die Registrierung erneut versuchen können.
-4. Nach einer erfolgreichen Installation wird der Service Worker aktiviert. Dies hat nicht viel von einem bestimmten Nutzen beim ersten Mal, wenn Ihr Service Worker installiert/aktiviert wird, aber es gewinnt an Bedeutung, wenn der Service Worker aktualisiert wird (siehe den Abschnitt [Aktualisierung Ihres Service Workers](#aktualisieren_ihres_service_workers) weiter unten).
+1. Hier fügen wir dem Service Worker (daher `self`) einen `install`-Ereignis-Listener hinzu und hängen dann eine [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Methode an das Ereignis an – dies stellt sicher, dass der Service Worker nicht installiert wird, bis der Code innerhalb von `waitUntil()` erfolgreich ausgeführt wurde.
+2. Innerhalb von `addResourcesToCache()` verwenden wir die Methode [`caches.open()`](/de/docs/Web/API/CacheStorage/open), um einen neuen Cache namens `v1` zu erstellen, der Version 1 unseres Webseiten-Ressourcen-Caches darstellen wird. Dann rufen wir auf dem erstellten Cache die Funktion `addAll()` auf, die als Parameter ein Array von URLs zu allen Ressourcen nimmt, die Sie zwischenspeichern möchten. Die URLs sind relativ zur {{domxref("WorkerGlobalScope.location", "Arbeitsumgebung", "", 1)}}.
+3. Wenn das Versprechen abgelehnt wird, schlägt die Installation fehl und der Worker wird nichts tun. Das ist in Ordnung, da Sie Ihren Code korrigieren und es dann beim nächsten Registrierungsvorgang erneut versuchen können.
+4. Nach einer erfolgreichen Installation wird der Service Worker aktiviert. Dies hat bei der ersten Installation/Aktivierung Ihres Service Workers keinen großen Unterschied, bedeutet jedoch mehr, wenn der Service Worker aktualisiert wird (siehe Abschnitt [Aktualisierung Ihres Service Workers](#aktualisierung_ihres_service_workers) weiter unten).
 
-> **Hinweis:** [Die Web Storage API (`localStorage`)](/de/docs/Web/API/Web_Storage_API) funktioniert auf ähnliche Weise wie der Service Worker-Cache, ist jedoch synchron und daher in Service Workern nicht erlaubt.
+> **Hinweis:** [Die Web Storage API (`localStorage`)](/de/docs/Web/API/Web_Storage_API) funktioniert in ähnlicher Weise wie der Service Worker-Cache, ist jedoch synchron, daher in Service Workers nicht erlaubt.
 
-> **Hinweis:** [IndexedDB](/de/docs/Web/API/IndexedDB_API) kann innerhalb eines Service Workers zur Datenspeicherung verwendet werden, wenn Sie es benötigen.
+> **Hinweis:** [IndexedDB](/de/docs/Web/API/IndexedDB_API) kann innerhalb eines Service Workers für die Datenspeicherung verwendet werden, wenn Sie es benötigen.
 
 ### Benutzerdefinierte Antworten auf Anfragen
 
-Jetzt haben Sie Ihre Site-Assets zwischengespeichert, Sie müssen den Service Workern sagen, etwas mit den zwischengespeicherten Inhalten zu tun. Dies geschieht mit dem `fetch`-Ereignis.
+Jetzt, da Sie Ihre Webseitenressourcen zwischengespeichert haben, müssen Sie den Service Workers mitteilen, etwas mit dem zwischengespeicherten Inhalt zu tun. Dies geschieht mit dem `fetch`-Ereignis.
 
-1. Ein `fetch`-Ereignis wird jedes Mal ausgelöst, wenn eine Ressource, die von einem Service Worker gesteuert wird, abgerufen wird, was die innerhalb des angegebenen Bereichs spezifizierten Dokumente einschließt, und alle in diesen Dokumenten referenzierten Ressourcen (zum Beispiel, wenn `index.html` eine Anfrage stellt, um ein Bild einzubetten, das noch aus einem anderen Ursprung stammt, wird es trotzdem durch seinen Service Worker geleitet.)
+1. Ein `fetch`-Ereignis wird jedes Mal ausgelöst, wenn eine Ressource, die von einem Service Worker kontrolliert wird, abgerufen wird, was die Dokumente innerhalb des angegebenen Scopes sowie alle in diesen Dokumenten referenzierten Ressourcen umfasst (zum Beispiel, wenn `index.html` eine Cross-Origin-Anfrage stellt, um ein Bild einzubetten, geht das trotzdem durch seinen Service Worker).
 
-2. Sie können einen `fetch`-Ereignislistener an den Service Worker anhängen und dann die Methode `respondWith()` auf dem Ereignis aufrufen, um unsere HTTP-Antworten zu kapern und sie mit eigenen Inhalten zu aktualisieren.
+2. Sie können einen `fetch`-Ereignis-Listener an den Service Worker anhängen und dann die Methode `respondWith()` auf dem Ereignis aufrufen, um unsere HTTP-Antworten zu kapern und sie mit Ihrem eigenen Inhalt zu aktualisieren.
 
    ```js
    self.addEventListener("fetch", (event) => {
@@ -158,7 +158,7 @@ Jetzt haben Sie Ihre Site-Assets zwischengespeichert, Sie müssen den Service Wo
    });
    ```
 
-3. Wir können damit beginnen, mit der Ressource zu antworten, deren URL mit der der Netzwerk-Anfrage übereinstimmt, in jedem Fall:
+3. Wir könnten damit beginnen, mit der Ressource zu antworten, deren URL mit der der Netzwerk-Anfrage übereinstimmt, in jedem Fall:
 
    ```js
    self.addEventListener("fetch", (event) => {
@@ -166,15 +166,15 @@ Jetzt haben Sie Ihre Site-Assets zwischengespeichert, Sie müssen den Service Wo
    });
    ```
 
-   `caches.match(event.request)` ermöglicht es uns, jede vom Netzwerk angeforderte Ressource mit der entsprechenden im Cache verfügbaren Ressource abzugleichen, wenn eine übereinstimmende verfügbar ist. Der Abgleich erfolgt über URL und verschiedene Header, genau wie bei normalen HTTP-Anfragen.
+   `caches.match(event.request)` ermöglicht es uns, jede vom Netzwerk angeforderte Ressource mit der entsprechenden im Cache verfügbaren Ressource abzugleichen, wenn eine passende verfügbar ist. Das Matching erfolgt über URL und verschiedene Header, genau wie bei normalen HTTP-Anfragen.
 
-![Fetch-Ereignis-Diagramm](sw-fetch.svg)
+![Fetch Event Diagramm](sw-fetch.svg)
 
 ## Wiederherstellen fehlgeschlagener Anfragen
 
-So `caches.match(event.request)` ist großartig, wenn es eine Übereinstimmung im Service Worker-Cache gibt, aber was ist mit den Fällen, wenn es keine Übereinstimmung gibt? Wenn wir keine Art von Fehlerbehandlung bereitstellen, würde unser Promise mit `undefined` aufgelöst werden und wir würden nichts zurückbekommen.
+Also, `caches.match(event.request)` ist großartig, wenn es eine Übereinstimmung im Service Worker Cache gibt, aber was ist mit Fällen, in denen es keine Übereinstimmung gibt? Wenn wir keine Art von Fehlerbehandlung bieten, wird unser Promise mit `undefined` aufgelöst und wir würden nichts zurückbekommen.
 
-Nachdem wir die Antwort des Caches getestet haben, können wir auf eine reguläre Netzwerk-Anfrage zurückfallen:
+Nach dem Testen der Antwort aus dem Cache können wir auf eine reguläre Netzwerk-Anfrage zurückgreifen:
 
 ```js
 const cacheFirst = async (request) => {
@@ -192,7 +192,7 @@ self.addEventListener("fetch", (event) => {
 
 Wenn die Ressourcen nicht im Cache sind, werden sie vom Netzwerk angefordert.
 
-Mit einer ausgefeilteren Strategie könnten wir die Ressource nicht nur vom Netzwerk anfordern, sondern sie auch in den Cache speichern, sodass spätere Anfragen für diese Ressource ebenfalls offline abgerufen werden können. Dies würde bedeuten, dass, wenn zusätzliche Bilder zur Star Wars-Galerie hinzugefügt würden, unsere App diese automatisch abrufen und zwischenspeichern könnte. Der folgende Codeausschnitt implementiert eine solche Strategie:
+Mit einer etwas aufwendigeren Strategie könnten wir die Ressource nicht nur vom Netzwerk anfordern, sondern auch in den Cache speichern, so dass spätere Anfragen nach dieser Ressource auch offline abgerufen werden könnten. Dies würde bedeuten, dass wenn zusätzliche Bilder zur Star Wars-Galerie hinzugefügt würden, unsere App diese automatisch erfassen und zwischenspeichern könnte. Der folgende Codeausschnitt implementiert eine solche Strategie:
 
 ```js
 const putInCache = async (request, response) => {
@@ -215,13 +215,13 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Wenn die Anfrage-URL nicht im Cache verfügbar ist, fordern wir die Ressource mit `await fetch(request)` vom Netzwerk an. Danach fügen wir einen Klon der Antwort in den Cache ein. Die Funktion `putInCache()` verwendet `caches.open('v1')` und `cache.put()`, um die Ressource dem Cache hinzuzufügen. Die ursprüngliche Antwort wird an den Browser zurückgegeben, um sie an die Seite zu geben, die sie aufgerufen hat.
+Wenn die Anforderungs-URL nicht im Cache verfügbar ist, fordern wir die Ressource mit `await fetch(request)` beim Netzwerk an. Danach legen wir ein Duplikat der Antwort im Cache ab. Die `putInCache()`-Funktion verwendet `caches.open('v1')` und `cache.put()`, um die Ressource dem Cache hinzuzufügen. Die ursprüngliche Antwort wird dem Browser zur Verfügung gestellt, um sie an die Seite weiterzugeben, die sie angefordert hat.
 
-Das Klonen der Antwort ist notwendig, da Anfrage- und Antwortströme nur einmal gelesen werden können. Um die Antwort an den Browser zurückzugeben und sie in den Cache zu setzen, müssen wir sie klonen. So wird das Original an den Browser zurückgegeben und der Klon wird an den Cache gesendet. Sie werden jeweils einmal gelesen.
+Das Klonen der Antwort ist notwendig, weil Anforderung und Antwortdatenströme nur einmal gelesen werden können. Um die Antwort an den Browser zurückzugeben und sie in den Cache zu legen, müssen wir sie klonen. Die ursprüngliche wird an den Browser zurückgegeben und das Duplikat wird in den Cache gesendet. Beide werden jeweils einmal gelesen.
 
-Was ein bisschen seltsam erscheinen mag, ist, dass das Promise, das von `putInCache()` zurückgegeben wird, nicht erwartet wird. Aber der Grund ist, dass wir nicht warten wollen, bis der Antwortklon zum Cache hinzugefügt wurde, bevor wir eine Antwort zurückgeben.
+Was ein bisschen seltsam aussehen mag, ist, dass das von `putInCache()` zurückgegebene Versprechen nicht erwartet wird. Aber der Grund ist, dass wir nicht warten wollen, bis das Antwort-Duplikat dem Cache hinzugefügt wurde, bevor wir eine Antwort zurückgeben.
 
-Das einzige Problem, das wir jetzt haben, ist, dass wenn die Anfrage nichts im Cache findet und das Netzwerk nicht verfügbar ist, unsere Anfrage weiterhin fehlschlagen wird. Lassen Sie uns für einen Standard-Fallback sorgen, sodass der Benutzer in jedem Fall zumindest etwas bekommt:
+Das einzige Problem, das wir jetzt noch haben, ist, dass wenn die Anforderung nichts im Cache findet und das Netzwerk nicht verfügbar ist, unsere Anforderung trotzdem fehlschlagen wird. Lassen Sie uns einen Standard-Fallback zur Verfügung stellen, so dass der Benutzer zumindest etwas bekommt, egal was passiert:
 
 ```js
 const putInCache = async (request, response) => {
@@ -269,13 +269,13 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Wir haben uns für dieses Fallback-Bild entschieden, weil die einzigen Updates, die wahrscheinlich fehlschlagen, neue Bilder sind, da alles andere für die Installation im `install`-Ereignislistener, den wir zuvor gesehen haben, benötigt wird.
+Wir haben uns für dieses Fallback-Bild entschieden, weil die einzigen Updates, die wahrscheinlich fehlschlagen, neue Bilder sind, da alles andere während der Installation im `install`-Ereignis-Listener benötigt wird, den wir früher gesehen haben.
 
-## Vorabladen von Service Worker-Navigationen
+## Service Worker Navigation Preload
 
-Wenn aktiviert, startet das [Navigation Preload](/de/docs/Web/API/NavigationPreloadManager)-Feature das Herunterladen von Ressourcen, sobald die Fetch-Anfrage gestellt wird, und parallel zur Aktivierung des Service Workers. Dies stellt sicher, dass das Herunterladen sofort bei der Navigation zu einer Seite beginnt und nicht darauf gewartet werden muss, bis der Service Worker aktiviert wird. Diese Verzögerung tritt relativ selten auf, ist jedoch unvermeidbar, wenn sie auftritt, und kann erheblich sein.
+Wenn es aktiviert ist, beginnt die [Navigation Preload](/de/docs/Web/API/NavigationPreloadManager)-Funktion mit dem Herunterladen von Ressourcen, sobald die Fetch-Anforderung gestellt wird, und parallel zur Aktivierung des Service Workers. Dies stellt sicher, dass der Download sofort nach der Navigation zu einer Seite beginnt, anstatt erst warten zu müssen, bis der Service Worker aktiviert ist. Diese Verzögerung tritt relativ selten auf, ist jedoch unvermeidbar, wenn sie auftritt, und kann signifikant sein.
 
-Zuerst muss das Feature während der Aktivierung des Service Workers aktiviert werden, indem [`registration.navigationPreload.enable()`](/de/docs/Web/API/NavigationPreloadManager/enable) verwendet wird:
+Zuerst muss die Funktion während der Aktivierung des Service Workers aktiviert werden, mittels [`registration.navigationPreload.enable()`](/de/docs/Web/API/NavigationPreloadManager/enable):
 
 ```js
 self.addEventListener("activate", (event) => {
@@ -283,15 +283,15 @@ self.addEventListener("activate", (event) => {
 });
 ```
 
-Dann verwenden Sie [`event.preloadResponse`](/de/docs/Web/API/FetchEvent/preloadResponse), um im Fetch-Ereignis-Handler auf das Herunterladen der vorab geladenen Ressource zu warten.
+Dann verwenden Sie [`event.preloadResponse`](/de/docs/Web/API/FetchEvent/preloadResponse), um im `fetch`-Ereignis-Handler auf die Fertigstellung des vorab geladenen Ressourcen-Downloads zu warten.
 
-Die Fortsetzung des Beispiels aus den vorherigen Abschnitten, wir fügen den Code ein, um auf die vorab geladene Ressource nach der Cache-Prüfung zu warten, und bevor wir vom Netzwerk fethen, wenn dies nicht erfolgreich ist.
+In Fortsetzung des Beispiels aus den vorherigen Abschnitten fügen wir den Code ein, um auf die vorab geladene Ressource nach dem Cache-Check zu warten, und bevor vom Netzwerk geholt wird, falls dies nicht erfolgreich ist.
 
-Der neue Prozess ist:
+Der neue Prozess lautet:
 
 1. Cache überprüfen
-2. Auf `event.preloadResponse` warten, das als `preloadResponsePromise` an die `cacheFirst()`-Funktion übergeben wird. Das Ergebnis im Cache speichern, falls es zurückgegeben wird.
-3. Wenn keines von beiden definiert ist, gehen wir zum Netzwerk.
+2. Warten auf `event.preloadResponse`, welches als `preloadResponsePromise` an die Funktion `cacheFirst()` übergeben wird. Das Ergebnis wird im Cache gespeichert, wenn es zurückgegeben wird.
+3. Wenn keines davon definiert ist, gehen wir zum Netzwerk.
 
 ```js
 const addResourcesToCache = async (resources) => {
@@ -380,16 +380,16 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Beachten Sie, dass wir in diesem Beispiel die gleichen Daten für die Ressource herunterladen und cachen, unabhängig davon, ob sie "normal" heruntergeladen oder vorab geladen wurde. Sie können stattdessen wählen, eine andere Ressource beim Vorladen herunterzuladen und zu cachen. Für weitere Informationen siehe [`NavigationPreloadManager` > Benutzerdefinierte Antworten](/de/docs/Web/API/NavigationPreloadManager#custom_responses).
+Beachten Sie, dass wir in diesem Beispiel die gleichen Daten für die Ressource herunterladen und zwischenspeichern, unabhängig davon, ob sie "normal" oder vorab geladen heruntergeladen wird. Sie können stattdessen wählen, eine andere Ressource beim Vorabladen herunterzuladen und zu zwischenspeichern. Weitere Informationen finden Sie unter [`NavigationPreloadManager` > Benutzerdefinierte Antworten](/de/docs/Web/API/NavigationPreloadManager#custom_responses).
 
-## Aktualisieren Ihres Service Workers
+## Aktualisierung Ihres Service Workers
 
-Wenn Ihr Service Worker zuvor installiert wurde, aber dann eine neue Version des Workers bei einem Refresh oder Lade der Seite verfügbar ist, wird die neue Version im Hintergrund installiert, aber noch nicht aktiviert. Sie wird erst aktiviert, wenn keine Seiten mehr geladen sind, die noch den alten Service Worker verwenden. Sobald es keine solchen Seiten mehr gibt, die noch geladen sind, aktiviert sich der neue Service Worker.
+Wenn Ihr Service Worker zuvor installiert wurde, aber dann eine neue Version des Workers bei einem Aktualisieren oder Seitenaufruf verfügbar ist, wird die neue Version im Hintergrund installiert, aber noch nicht aktiviert. Sie wird erst aktiviert, wenn keine Seiten mehr geladen sind, die immer noch den alten Service Worker verwenden. Sobald solche Seiten nicht mehr geladen sind, aktiviert sich der neue Service Worker.
 
 > [!NOTE]
-> Es ist möglich, dies zu umgehen, indem [`Clients.claim()`](/de/docs/Web/API/Clients/claim) verwendet wird.
+> Es ist möglich, dies zu umgehen, indem Sie [`Clients.claim()`](/de/docs/Web/API/Clients/claim) verwenden.
 
-Sie möchten Ihren `install`-Ereignislistener im neuen Service Worker auf etwas wie dieses aktualisieren (beachten Sie die neue Versionsnummer):
+Sie möchten Ihren `install`-Ereignis-Listener im neuen Service Worker auf etwas wie das Folgende aktualisieren (beachten Sie die neue Versionsnummer):
 
 ```js
 const addResourcesToCache = async (resources) => {
@@ -414,15 +414,15 @@ self.addEventListener("install", (event) => {
 });
 ```
 
-Während der Service Worker installiert wird, ist die vorherige Version immer noch für Abrufe verantwortlich. Die neue Version installiert im Hintergrund. Wir nennen den neuen Cache `v2`, damit der vorherige `v1`-Cache nicht gestört wird.
+Während der Service Worker installiert wird, ist die vorherige Version weiterhin für Fetches verantwortlich. Die neue Version wird im Hintergrund installiert. Wir nennen den neuen Cache `v2`, damit der vorherige `v1` Cache nicht gestört wird.
 
-Wenn keine Seiten mehr die vorherige Version verwenden, aktiviert sich der neue Worker und wird für Abrufe verantwortlich.
+Wenn keine Seiten mehr die vorherige Version verwenden, aktiviert sich der neue Worker und wird für Fetches verantwortlich.
 
 ### Löschen alter Caches
 
-Wie wir im letzten Abschnitt gesehen haben, erstellen Sie, wenn Sie einen Service Worker auf eine neue Version aktualisieren, einen neuen Cache in seinem `install`-Ereignis-Handler. Während es offene Seiten gibt, die von der vorherigen Version des Workers gesteuert werden, müssen Sie beide Caches behalten, da die vorherige Version ihren eigenen Cache benötigt. Sie können das `activate`-Ereignis verwenden, um Daten aus den vorherigen Caches zu entfernen.
+Wie wir im letzten Abschnitt gesehen haben, erstellen Sie beim Aktualisieren eines Service Workers auf eine neue Version einen neuen Cache im `install`-Ereignis-Handler. Während es offene Seiten gibt, die von der vorherigen Version des Workers gesteuert werden, müssen Sie beide Caches behalten, da die vorherige Version ihren Cache benötigt. Sie können das `activate`-Ereignis nutzen, um Daten aus den vorherigen Caches zu entfernen.
 
-Promises, die in `waitUntil()` übergeben werden, blockieren andere Ereignisse, bis sie abgeschlossen sind. Sie können daher sicher sein, dass Ihre Bereinigungsoperation abgeschlossen sein wird, wenn Sie Ihr erstes `fetch`-Ereignis im neuen Service Worker erhalten.
+Versprechen, die in `waitUntil()` übergeben werden, blockieren andere Ereignisse bis zum Abschluss, so dass Sie sicher sein können, dass Ihre Bereinigungsaktion abgeschlossen ist, bevor Sie Ihr erstes `fetch`-Ereignis auf dem neuen Service Worker erhalten.
 
 ```js
 const deleteCache = async (key) => {
@@ -441,14 +441,14 @@ self.addEventListener("activate", (event) => {
 });
 ```
 
-## Entwicklerwerkzeuge
+## Entwickler-Tools
 
 - [Chrome](https://www.chromium.org/blink/serviceworker/service-worker-faq/)
 - [Firefox](https://firefox-source-docs.mozilla.org/devtools-user/application/service_workers/index.html)
-  - Die Schaltfläche "Vergessen Sie diese Seite", verfügbar in den [Toolbar-Anpassungsoptionen von Firefox](https://support.mozilla.org/en-US/kb/customize-firefox-controls-buttons-and-toolbars), kann verwendet werden, um Service Worker und deren Caches zu löschen.
+  - Der Button "Diese Seite vergessen", verfügbar in [Firefox's Symbolleisten-Anpassungsoptionen](https://support.mozilla.org/en-US/kb/customize-firefox-controls-buttons-and-toolbars), kann verwendet werden, um Service Workers und ihre Caches zu löschen.
 - [Edge](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/service-workers/)
 
 ## Siehe auch
 
 - [Promises](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-- [Verwendung von Web Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)
+- [Verwendung von Web-Workern](/de/docs/Web/API/Web_Workers_API/Using_web_workers)

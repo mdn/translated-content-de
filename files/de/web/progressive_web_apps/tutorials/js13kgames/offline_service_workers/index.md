@@ -1,33 +1,33 @@
 ---
-title: Offline-Funktionalität von PWAs mit Service-Workern
+title: So funktionieren PWAs offline mit Service Workers
 slug: Web/Progressive_web_apps/Tutorials/js13kGames/Offline_Service_workers
 l10n:
-  sourceCommit: 998a4e6fc713678381e6bc31130e3a0a53158d69
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/App_structure", "Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs", "Web/Progressive_web_apps/Tutorials/js13kGames")}}
 
 {{PWASidebar}}
 
-Nachdem wir die Struktur von js13kPWA kennengelernt und das grundlegende Gerüst in Betrieb gesehen haben, schauen wir uns nun an, wie die Offline-Fähigkeiten mithilfe von Service Worker implementiert sind. In diesem Artikel betrachten wir, wie es in unserem [js13kPWA-Beispiel](https://mdn.github.io/pwa-examples/js13kpwa/) verwendet wird ([siehe auch den Quellcode](https://github.com/mdn/pwa-examples/tree/main/js13kpwa)). Wir untersuchen, wie man Offline-Funktionalität hinzufügt.
+Nachdem wir nun die Struktur von js13kPWA gesehen haben und das grundlegende Gerüst in Betrieb ist, schauen wir uns an, wie die Offline-Fähigkeiten mit Service Workers implementiert werden. In diesem Artikel betrachten wir, wie dies in unserem [js13kPWA-Beispiel](https://mdn.github.io/pwa-examples/js13kpwa/) ([siehe auch den Quellcode](https://github.com/mdn/pwa-examples/tree/main/js13kpwa)) verwendet wird. Wir untersuchen, wie Offline-Funktionalität hinzugefügt werden kann.
 
-## Service Worker erklärt
+## Service Workers erklärt
 
-Service Worker sind ein virtueller Proxy zwischen dem Browser und dem Netzwerk. Sie ermöglichen es, die Elemente einer Website ordnungsgemäß zu zwischenspeichern und sie verfügbar zu machen, wenn das Gerät des Nutzers offline ist.
+Service Workers sind ein virtueller Proxy zwischen dem Browser und dem Netzwerk. Sie ermöglichen es, die Assets einer Website richtig zu cachen und verfügbar zu machen, wenn das Gerät des Nutzers offline ist.
 
-Sie laufen in einem separaten Thread vom Haupt-JavaScript-Code unserer Seite und haben keinen Zugriff auf die DOM-Struktur. Dies führt zu einem anderen Ansatz als im traditionellen Web-Programmieren – die API ist nicht blockierend und kann Kommunikation zwischen verschiedenen Kontexten senden und empfangen. Sie können einem Service Worker eine Aufgabe geben und das Ergebnis empfangen, wann immer es bereit ist, indem Sie einen [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)-basierten Ansatz verwenden.
+Sie laufen in einem separaten Thread vom Haupt-JavaScript-Code unserer Seite und haben keinen Zugriff auf die DOM-Struktur. Dies erfordert einen anderen Ansatz als bei der traditionellen Webprogrammierung — die API ist nicht blockierend und kann Kommunikation zwischen verschiedenen Kontexten senden und empfangen. Sie können einem Service Worker eine Aufgabe geben und das Ergebnis erhalten, sobald es bereit ist, indem Sie einen auf [Promise](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise) basierenden Ansatz verwenden.
 
-Service Worker können mehr als nur Offline-Fähigkeiten bieten, einschließlich der Handhabung von Benachrichtigungen oder der Durchführung von aufwendigen Berechnungen. Service Worker sind ziemlich leistungsfähig, da sie Kontrolle über Netzwerk-Anfragen übernehmen, sie modifizieren, benutzerdefinierte Antworten aus dem Cache liefern oder Antworten vollständig synthetisieren können.
+Service Workers können mehr als nur Offline-Fähigkeiten bieten, einschließlich der Handhabung von Benachrichtigungen oder der Durchführung von rechenintensiven Berechnungen. Service Workers sind ziemlich leistungsfähig, da sie die Kontrolle über Netzwerk-Anfragen übernehmen, diese modifizieren, individuelle Antworten aus dem Cache bereitstellen oder Antworten vollständig synthetisieren können.
 
-Um mehr über Service Worker zu erfahren, siehe [Offline- und Hintergrundbetrieb](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation).
+Um mehr über Service Workers zu erfahren, siehe [Offline- und Hintergrundbetrieb](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation).
 
-## Service Worker in der js13kPWA-App
+## Service Workers in der js13kPWA-App
 
-Schauen wir uns an, wie die js13kPWA-App Service Worker verwendet, um Offline-Fähigkeiten bereitzustellen.
+Schauen wir, wie die js13kPWA-App Service Workers einsetzt, um Offline-Fähigkeiten bereitzustellen.
 
-### Registrierung des Service Workers
+### Registrieren des Service Workers
 
-Wir beginnen mit dem Code, der einen neuen Service Worker registriert, in der app.js-Datei:
+Wir beginnen mit dem Code, der einen neuen Service Worker in der Datei app.js registriert:
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -35,15 +35,15 @@ if ("serviceWorker" in navigator) {
 }
 ```
 
-Falls die Service-Worker-API im Browser unterstützt wird, wird sie mit der Methode [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) auf der Seite registriert. Der Inhalt befindet sich in der sw.js-Datei und kann ausgeführt werden, nachdem die Registrierung erfolgreich war. Das ist das einzige Stück Service Worker-Code, das sich in der app.js-Datei befindet; alles andere, das spezifisch für den Service Worker ist, wird direkt in der sw.js-Datei geschrieben.
+Wenn die API für Service Workers im Browser unterstützt wird, wird diese über die Methode [`ServiceWorkerContainer.register()`](/de/docs/Web/API/ServiceWorkerContainer/register) mit der Seite registriert. Der Inhalt befindet sich in der Datei sw\.js und kann nach erfolgreicher Registrierung ausgeführt werden. Es ist das einzige Stück Service Worker-Code, das sich in der Datei app.js befindet; alles andere, das spezifisch für den Service Worker ist, ist in der Datei sw\.js geschrieben.
 
 ### Lebenszyklus eines Service Workers
 
-Wenn die Registrierung abgeschlossen ist, wird die sw.js-Datei automatisch heruntergeladen, dann installiert und schließlich aktiviert.
+Nach Abschluss der Registrierung wird die sw\.js-Datei automatisch heruntergeladen, dann installiert und schließlich aktiviert.
 
 #### Installation
 
-Die API erlaubt es uns, Ereignis-Listener für wichtige Ereignisse hinzuzufügen, die uns interessieren – das erste ist das `install` Ereignis:
+Die API ermöglicht es uns, Ereignis-Listener für Schlüsselereignisse hinzuzufügen, an denen wir interessiert sind — das erste ist das `install`-Ereignis:
 
 ```js
 self.addEventListener("install", (e) => {
@@ -51,9 +51,9 @@ self.addEventListener("install", (e) => {
 });
 ```
 
-Im `install` Listener können wir den Cache initialisieren und Dateien für die Offline-Nutzung hinzufügen. Unsere js13kPWA-App tut genau das.
+Im `install`-Listener können wir den Cache initialisieren und Dateien für die Offline-Nutzung hinzufügen. Unsere js13kPWA-App macht genau das.
 
-Zuerst wird eine Variable zum Speichern des Cache-Namens erstellt, und die App-Shell-Dateien werden in einem Array aufgelistet.
+Zuerst wird eine Variable erstellt, um den Cache-Namen zu speichern, und die App-Shell-Dateien werden in einem Array aufgelistet.
 
 ```js
 const cacheName = "js13kPWA-v1";
@@ -79,7 +79,7 @@ const appShellFiles = [
 ];
 ```
 
-Als Nächstes werden die Links zu den Bildern, die zusammen mit dem Inhalt aus der data/games.js-Datei geladen werden sollen, im zweiten Array generiert. Danach werden beide Arrays mithilfe der {{jsxref("Array.prototype.concat()")}}-Funktion zusammengeführt.
+Als nächstes werden die Links zu den Bildern generiert, die zusammen mit dem Inhalt aus der Datei data/games.js geladen werden sollen. Danach werden beide Arrays mithilfe der {{jsxref("Array.prototype.concat()")}}-Funktion zusammengeführt.
 
 ```js
 const gamesImages = [];
@@ -89,7 +89,7 @@ for (let i = 0; i < games.length; i++) {
 const contentToCache = appShellFiles.concat(gamesImages);
 ```
 
-Dann können wir das `install` Ereignis selbst verwalten:
+Dann können wir das `install`-Ereignis selbst verwalten:
 
 ```js
 self.addEventListener("install", (e) => {
@@ -104,23 +104,23 @@ self.addEventListener("install", (e) => {
 });
 ```
 
-Hier gibt es zwei Dinge, die einer Erklärung bedürfen: was [`ExtendableEvent.waitUntil`](/de/docs/Web/API/ExtendableEvent/waitUntil) macht und was das [`caches`](/de/docs/Web/API/Cache)-Objekt ist.
+Hier sind zwei Dinge zu erklären: was [`ExtendableEvent.waitUntil`](/de/docs/Web/API/ExtendableEvent/waitUntil) macht und was das [`caches`](/de/docs/Web/API/Cache)-Objekt ist.
 
-Der Service Worker wird erst installiert, wenn der Code innerhalb von `waitUntil` ausgeführt wird. Es gibt ein Versprechen zurück – dieser Ansatz ist notwendig, da die Installation einige Zeit in Anspruch nehmen kann, daher müssen wir darauf warten, dass sie abgeschlossen ist.
+Der Service Worker installiert nicht, bis der Code innerhalb von `waitUntil` ausgeführt wird. Es gibt ein Versprechen zurück — dieser Ansatz ist notwendig, weil das Installieren einige Zeit dauern kann, daher müssen wir warten, bis es abgeschlossen ist.
 
-`caches` ist ein spezielles [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt im Gültigkeitsbereich des gegebenen Service Workers, um das Speichern von Daten zu ermöglichen – das Speichern im [Web-Speicher](/de/docs/Web/API/Web_Storage_API) funktioniert nicht, da Web-Speicher synchron ist. Mit Service Workern verwenden wir stattdessen die Cache-API.
+`caches` ist ein spezielles [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt, das im Bereich des gegebenen Service Workers verfügbar ist, um das Speichern von Daten zu ermöglichen — das Speichern in [Web Storage](/de/docs/Web/API/Web_Storage_API) ist nicht möglich, da Web Storage synchron ist. Mit Service Workers verwenden wir stattdessen die Cache API.
 
-Hier öffnen wir einen Cache mit einem gegebenen Namen und fügen alle Dateien, die unsere App verwendet, dem Cache hinzu, damit sie beim nächsten Laden verfügbar sind. Ressourcen werden anhand ihrer Anfrage-URL identifiziert, die relativ zum {{domxref("WorkerGlobalScope.location", "Standort", "", 1)}} des Workers ist.
+Hier öffnen wir einen Cache mit einem gegebenen Namen und fügen alle Dateien, die unsere App verwendet, dem Cache hinzu, damit sie beim nächsten Laden verfügbar sind. Ressourcen werden durch ihre Anforderungs-URL identifiziert, die relativ zur {{domxref("WorkerGlobalScope.location", "location", "", 1)}} des Workers ist.
 
-Sie werden bemerken, dass wir `game.js` nicht zwischengespeichert haben. Dies ist die Datei, die die Daten enthält, die wir beim Anzeigen unserer Spiele verwenden. In Wirklichkeit würden diese Daten höchstwahrscheinlich von einem API-Endpunkt oder einer Datenbank stammen, und das Zwischenspeichern der Daten würde bedeuten, dass sie regelmäßig aktualisiert werden müssten, wenn eine Netzwerkverbindung besteht. Wir werden hier nicht darauf eingehen, aber die [Periodische Hintergrundsynchronisations-API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) ist eine gute weitere Lektüre zu diesem Thema.
+Sie haben vielleicht bemerkt, dass wir `game.js` nicht gecacht haben. Das ist die Datei, die die Daten enthält, die wir beim Anzeigen unserer Spiele verwenden. In Wirklichkeit würden diese Daten wahrscheinlich von einem API-Endpunkt oder einer Datenbank stammen und das Cachen der Daten würde bedeuten, sie regelmäßig zu aktualisieren, wenn eine Netzwerkverbindung besteht. Darauf gehen wir hier nicht ein, aber die [Periodic Background Sync API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) ist gute weiterführende Lektüre zu diesem Thema.
 
 #### Aktivierung
 
-Es gibt auch ein `activate` Ereignis, das auf die gleiche Weise wie `install` verwendet wird. Dieses Ereignis wird in der Regel verwendet, um alle Dateien zu löschen, die nicht mehr notwendig sind, und nach der App im Allgemeinen aufzuräumen. Das müssen wir in unserer App nicht tun, daher überspringen wir es.
+Es gibt auch ein `activate`-Ereignis, das ähnlich wie `install` verwendet wird. Dieses Ereignis wird normalerweise verwendet, um alle Dateien zu löschen, die nicht mehr benötigt werden, und allgemein nach der App aufzuräumen. Wir müssen dies in unserer App nicht tun, daher überspringen wir es.
 
-### Antworten bei Abrufen
+### Reaktion auf Fetches
 
-Ebenfalls steht uns ein `fetch` Ereignis zur Verfügung, das jedes Mal ausgelöst wird, wenn eine HTTP-Anfrage von unserer App abgeschickt wird. Dies ist sehr nützlich, da es uns ermöglicht, Anfragen abzufangen und mit benutzerdefinierten Antworten darauf zu reagieren. Hier ist ein einfaches Nutzungsbeispiel:
+Wir haben auch ein `fetch`-Ereignis zur Verfügung, das jedes Mal ausgelöst wird, wenn eine HTTP-Anfrage von unserer App gesendet wird. Dies ist sehr nützlich, da es uns ermöglicht, Anfragen abzufangen und ihnen mit benutzerdefinierten Antworten zu antworten. Zum Beispiel:
 
 ```js
 self.addEventListener("fetch", (e) => {
@@ -128,9 +128,9 @@ self.addEventListener("fetch", (e) => {
 });
 ```
 
-Die Antwort kann alles sein, was wir wollen: die angeforderte Datei, ihre zwischengespeicherte Kopie oder ein Stück JavaScript-Code, das etwas Spezifisches ausführt – die Möglichkeiten sind endlos.
+Die Antwort kann alles sein, was wir wollen: die angeforderte Datei, ihre gecachte Kopie oder ein Stück JavaScript-Code, das etwas Spezifisches macht — die Möglichkeiten sind endlos.
 
-In unserer Beispiel-App liefern wir Inhalte aus dem Cache statt aus dem Netzwerk, solange die Ressource tatsächlich im Cache vorhanden ist. Wir machen das, egal ob die App online oder offline ist. Wenn die Datei nicht im Cache ist, fügt die App sie zuerst hinzu, bevor sie sie dann liefert:
+In unserer Beispiel-App servieren wir Inhalte aus dem Cache anstelle des Netzwerks, solange die Ressource tatsächlich im Cache ist. Wir tun dies, ob die App online oder offline ist. Wenn die Datei nicht im Cache ist, fügt die App sie dort zuerst hinzu, bevor sie dann ausgeliefert wird:
 
 ```js
 self.addEventListener("fetch", (e) => {
@@ -151,21 +151,21 @@ self.addEventListener("fetch", (e) => {
 });
 ```
 
-Hier antworten wir auf das Fetch-Ereignis mit einer Funktion, die versucht, die Ressource im Cache zu finden und die Antwort zurückzugeben, falls sie dort ist. Wenn nicht, verwenden wir eine weitere Fetch-Anfrage, um sie aus dem Netzwerk zu holen und dann die Antwort im Cache zu speichern, damit sie beim nächsten Mal verfügbar ist, wenn sie angefordert wird.
+Hier reagieren wir auf das Fetch-Ereignis mit einer Funktion, die versucht, die Ressource im Cache zu finden und die Antwort zurückzugeben, wenn sie dort ist. Falls nicht, verwenden wir eine weitere Fetch-Anfrage, um sie aus dem Netzwerk zu holen, und speichern die Antwort dann im Cache, damit sie beim nächsten Mal verfügbar ist, wenn sie angefordert wird.
 
-Die Methode [`FetchEvent.respondWith`](/de/docs/Web/API/FetchEvent/respondWith) übernimmt die Kontrolle – dies ist der Teil, der als Proxy-Server zwischen der App und dem Netzwerk fungiert. Dies ermöglicht es uns, auf jede einzelne Anfrage mit einer beliebigen Antwort zu reagieren: vorbereitet durch den Service Worker, aus dem Cache entnommen, gegebenenfalls modifiziert.
+Die [`FetchEvent.respondWith`](/de/docs/Web/API/FetchEvent/respondWith)-Methode übernimmt die Kontrolle — dies ist der Teil, der als Proxy-Server zwischen der App und dem Netzwerk fungiert. Dies ermöglicht es uns, auf jede einzelne Anfrage mit einer beliebigen Antwort zu antworten: von dem Service Worker vorbereitet, aus dem Cache genommen, modifiziert, falls nötig.
 
-Das war's! Unsere App speichert ihre Ressourcen beim Installieren im Cache und liefert sie mit fetch aus dem Cache, sodass sie funktioniert, selbst wenn der Nutzer offline ist. Sie speichert auch neue Inhalte im Cache, wenn sie hinzugefügt werden.
+Das war's! Unsere App cached ihre Ressourcen bei der Installation und serviert sie mit Fetch aus dem Cache, sodass sie auch funktioniert, wenn der Nutzer offline ist. Sie cached auch neue Inhalte, wann immer sie hinzugefügt werden.
 
 ## Aktualisierungen
 
-Es gibt noch einen Punkt zu behandeln: Wie aktualisiert man einen Service Worker, wenn eine neue Version der App mit neuen Inhalten verfügbar ist? Die Versionsnummer im Cache-Namen ist der Schlüssel dazu:
+Es gibt noch einen Punkt zu klären: Wie aktualisieren Sie einen Service Worker, wenn eine neue Version der App mit neuen Assets verfügbar ist? Die Versionsnummer im Cache-Namen ist der Schlüssel dazu:
 
 ```js
 const cacheName = "js13kPWA-v1";
 ```
 
-Wenn dies auf v2 aktualisiert wird, können wir dann alle unsere Dateien (einschließlich unserer neuen Dateien) zu einem neuen Cache hinzufügen:
+Wenn dies auf v2 aktualisiert wird, können wir dann alle unsere Dateien (einschließlich unserer neuen Dateien) in einen neuen Cache einfügen:
 
 ```js
 contentToCache.push("/pwa-examples/js13kpwa/icons/icon-32.png");
@@ -182,11 +182,11 @@ self.addEventListener("install", (e) => {
 });
 ```
 
-Ein neuer Service Worker wird im Hintergrund installiert, und der vorherige (v1) funktioniert korrekt, bis keine Seiten mehr ihn verwenden – dann wird der neue Service Worker aktiviert und übernimmt die Verwaltung der Seite vom alten.
+Ein neuer Service Worker wird im Hintergrund installiert, und der vorherige (v1) funktioniert korrekt, bis keine Seiten mehr ihn verwenden — der neue Service Worker wird dann aktiviert und übernimmt die Verwaltung der Seite vom alten.
 
-## Den Cache leeren
+## Löschen des Caches
 
-Erinnern Sie sich an das `activate` Ereignis, das wir übersprungen haben? Es kann verwendet werden, um den alten Cache zu leeren, den wir nicht mehr benötigen:
+Erinnern Sie sich an das `activate`-Ereignis, das wir übersprungen haben? Es kann verwendet werden, um den alten Cache zu löschen, den wir nicht mehr benötigen:
 
 ```js
 self.addEventListener("activate", (e) => {
@@ -205,16 +205,16 @@ self.addEventListener("activate", (e) => {
 });
 ```
 
-Dies stellt sicher, dass wir nur die Dateien haben, die wir im Cache benötigen, damit wir keinen Müll zurücklassen; der [verfügbare Cache-Speicher im Browser ist begrenzt](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria), daher ist es eine gute Idee, nach uns selbst aufzuräumen.
+Dies stellt sicher, dass wir nur die Dateien im Cache haben, die wir benötigen, sodass wir keinen Müll hinterlassen; der [verfügbare Speicherplatz für den Cache im Browser ist begrenzt](/de/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria), daher ist es eine gute Idee, nach uns selbst aufzuräumen.
 
-## Weitere Anwendungsfälle
+## Andere Anwendungsfälle
 
-Das Bereitstellen von Dateien aus dem Cache ist nicht das einzige Feature, das der Service Worker bietet. Wenn Sie aufwendige Berechnungen durchführen müssen, können Sie sie vom Haupt-Thread auslagern und im Worker ausführen und die Ergebnisse erhalten, sobald sie verfügbar sind. In Bezug auf die Leistung können Sie Ressourcen vorab laden, die momentan nicht benötigt werden, jedoch in der nahen Zukunft benötigt werden könnten, sodass die App schneller ist, wenn Sie diese Ressourcen tatsächlich brauchen.
+Das Servieren von Dateien aus dem Cache ist nicht das einzige Merkmal, das der Service Worker bietet. Wenn Sie intensive Berechnungen durchzuführen haben, können Sie diese vom Haupt-Thread auslagern und im Worker ausführen und die Ergebnisse erhalten, sobald sie verfügbar sind. In Bezug auf die Leistung können Sie Ressourcen vorab laden, die jetzt nicht benötigt werden, aber in naher Zukunft nützlich sein könnten, sodass die App schneller ist, wenn Sie diese Ressourcen tatsächlich benötigen.
 
 ## Zusammenfassung
 
-In diesem Artikel haben wir einen einfachen Blick darauf geworfen, wie Sie Ihre PWA mit Service Workern offlinefähig machen können. Sehen Sie sich unsere weiterführende Dokumentation an, wenn Sie mehr über die Konzepte hinter der [Service Worker API](/de/docs/Web/API/Service_Worker_API) erfahren möchten und wie Sie sie im Detail verwenden können.
+In diesem Artikel haben wir einen einfachen Blick darauf geworfen, wie Sie Ihre PWA mit Service Workers offlinefähig machen können. Sehen Sie sich unsere weitere Dokumentation an, wenn Sie mehr über die Konzepte hinter der [Service Worker API](/de/docs/Web/API/Service_Worker_API) erfahren und sie detaillierter nutzen möchten.
 
-Service Worker werden auch im Umgang mit [Push-Benachrichtigungen](/de/docs/Web/API/Push_API) verwendet – dies wird in einem nachfolgenden Artikel erklärt.
+Service Workers werden auch verwendet, wenn es um [Push-Benachrichtigungen](/de/docs/Web/API/Push_API) geht — dies wird in einem folgenden Artikel erklärt.
 
 {{PreviousMenuNext("Web/Progressive_web_apps/Tutorials/js13kGames/App_structure", "Web/Progressive_web_apps/Tutorials/js13kGames/Installable_PWAs", "Web/Progressive_web_apps/Tutorials/js13kGames")}}

@@ -3,14 +3,14 @@ title: "BaseAudioContext: createDynamicsCompressor()-Methode"
 short-title: createDynamicsCompressor()
 slug: Web/API/BaseAudioContext/createDynamicsCompressor
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{ APIRef("Web Audio API") }}
 
-Die `createDynamicsCompressor()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode) zu erstellen, der zur Kompression eines Audiosignals verwendet werden kann.
+Die `createDynamicsCompressor()`-Methode der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext)-Schnittstelle wird verwendet, um einen [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode) zu erstellen, der zur Anwendung von Kompression auf ein Audiosignal genutzt werden kann.
 
-Kompression verringert die Lautstärke der lautesten Teile des Signals und erhöht die Lautstärke der leisesten Teile. Insgesamt kann ein lauterer, reicherer und vollerer Klang erreicht werden. Dies ist besonders wichtig in Spielen und musikalischen Anwendungen, bei denen viele einzelne Klänge gleichzeitig abgespielt werden, wo Sie das gesamte Signalpegel kontrollieren und das Übersteuern (Verzerren) der Audioausgabe vermeiden möchten.
+Die Kompression verringert die Lautstärke der lautesten Teile des Signals und erhöht die Lautstärke der leisesten Teile. Insgesamt kann ein lauteres, reichhaltigeres und volleres Klangbild erzielt werden. Dies ist besonders wichtig in Spielen und Musik-Anwendungen, bei denen eine große Anzahl einzelner Klänge gleichzeitig abgespielt wird und Sie den Gesamtpegel des Signals kontrollieren und helfen möchten, das Übersteuern (Verzerren) der Audioausgabe zu vermeiden.
 
 > [!NOTE]
 > Der [`DynamicsCompressorNode()`](/de/docs/Web/API/DynamicsCompressorNode/DynamicsCompressorNode)-Konstruktor ist die empfohlene Methode, um einen [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode) zu erstellen; siehe [Erstellen eines AudioNode](/de/docs/Web/API/AudioNode#creating_an_audionode).
@@ -31,7 +31,7 @@ Ein [`DynamicsCompressorNode`](/de/docs/Web/API/DynamicsCompressorNode).
 
 ## Beispiele
 
-Der nachstehende Code zeigt eine einfache Verwendung von `createDynamicsCompressor()`, um einer Audiospur Kompression hinzuzufügen. Für ein vollständigeres Beispiel werfen Sie einen Blick auf unser [einfaches Kompressor-Beispiel](https://mdn.github.io/webaudio-examples/compressor-example/) ([Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/compressor-example)).
+Der folgende Code zeigt, wie `createDynamicsCompressor()` verwendet wird, um Kompression zu einem Audiotrack hinzuzufügen. Für ein vollständigeres Beispiel sehen Sie sich unser [Grundlegendes Compressor-Beispiel](https://mdn.github.io/webaudio-examples/compressor-example/) ([Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/compressor-example)) an.
 
 ```js
 // Create a MediaElementAudioSourceNode

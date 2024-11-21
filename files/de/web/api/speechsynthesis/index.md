@@ -2,61 +2,61 @@
 title: SpeechSynthesis
 slug: Web/API/SpeechSynthesis
 l10n:
-  sourceCommit: 4ba12fec878a1f941492ada3edd467bfd76532cf
+  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
 ---
 
 {{APIRef("Web Speech API")}}
 
-Die **`SpeechSynthesis`**-Schnittstelle der [Web Speech API](/de/docs/Web/API/Web_Speech_API) ist die Steuerschnittstelle für den Sprachdienst; sie kann verwendet werden, um Informationen über die auf dem Gerät verfügbaren Synthesestimmen abzurufen, Sprachwiedergabe zu starten und zu pausieren sowie andere Befehle auszuführen.
+Das **`SpeechSynthesis`** Interface der [Web Speech API](/de/docs/Web/API/Web_Speech_API) ist das Steuerinterface für den Sprachdienst; es kann verwendet werden, um Informationen über die auf dem Gerät verfügbaren synthetisierten Stimmen abzurufen, die Sprachwiedergabe zu starten und zu pausieren sowie andere Befehle auszuführen.
 
 {{InheritanceDiagram}}
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
-_`SpeechSynthesis` erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`SpeechSynthesis` erbt auch Eigenschaften von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`SpeechSynthesis.paused`](/de/docs/Web/API/SpeechSynthesis/paused) {{ReadOnlyInline}}
   - : Ein boolescher Wert, der `true` zurückgibt, wenn sich das `SpeechSynthesis`-Objekt in einem pausierten Zustand befindet.
 - [`SpeechSynthesis.pending`](/de/docs/Web/API/SpeechSynthesis/pending) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` zurückgibt, wenn die Äußerungs-Warteschlange noch nicht gesprochene Äußerungen enthält.
+  - : Ein boolescher Wert, der `true` zurückgibt, wenn die Warteschlange der ausstehenden Äußerungen noch nicht gesprochene Äußerungen enthält.
 - [`SpeechSynthesis.speaking`](/de/docs/Web/API/SpeechSynthesis/speaking) {{ReadOnlyInline}}
-  - : Ein boolescher Wert, der `true` zurückgibt, wenn eine Äußerung derzeit gesprochen wird – auch wenn `SpeechSynthesis` in einem pausierten Zustand ist.
+  - : Ein boolescher Wert, der `true` zurückgibt, wenn eine Äußerung gerade ausgesprochen wird — selbst wenn `SpeechSynthesis` in einem pausierten Zustand ist.
 
-## Instanz-Methoden
+## Instanzmethoden
 
-_`SpeechSynthesis` erbt auch Methoden von seiner übergeordneten Schnittstelle, [`EventTarget`](/de/docs/Web/API/EventTarget)._
+_`SpeechSynthesis` erbt auch Methoden von seinem übergeordneten Interface, [`EventTarget`](/de/docs/Web/API/EventTarget)._
 
 - [`SpeechSynthesis.cancel()`](/de/docs/Web/API/SpeechSynthesis/cancel)
-  - : Entfernt alle Äußerungen aus der Äußerungs-Warteschlange.
+  - : Entfernt alle Äußerungen aus der Äußerungswarteschlange.
 - [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices)
-  - : Gibt eine Liste von [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten zurück, die alle auf dem aktuellen Gerät verfügbaren Stimmen repräsentieren.
+  - : Gibt eine Liste von [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekten zurück, die alle verfügbaren Stimmen auf dem aktuellen Gerät repräsentieren.
 - [`SpeechSynthesis.pause()`](/de/docs/Web/API/SpeechSynthesis/pause)
   - : Versetzt das `SpeechSynthesis`-Objekt in einen pausierten Zustand.
 - [`SpeechSynthesis.resume()`](/de/docs/Web/API/SpeechSynthesis/resume)
-  - : Versetzt das `SpeechSynthesis`-Objekt in einen nicht pausierten Zustand: setzt es fort, wenn es bereits pausiert war.
+  - : Versetzt das `SpeechSynthesis`-Objekt in einen nicht-paussierten Zustand: Es wird fortgesetzt, wenn es bereits pausiert war.
 - [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak)
-  - : Fügt eine [`utterance`](/de/docs/Web/API/SpeechSynthesisUtterance) zur Äußerungs-Warteschlange hinzu; diese wird gesprochen, nachdem alle zuvor eingeordneten Äußerungen gesprochen wurden.
+  - : Fügt eine [`utterance`](/de/docs/Web/API/SpeechSynthesisUtterance) zur Äußerungswarteschlange hinzu; sie wird ausgesprochen, wenn alle vorher davor eingereihten Äußerungen gesprochen wurden.
 
-## Ereignisse
+## Events
 
-Dieses Ereignis kann mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) überwacht werden oder indem ein Ereignisüberwacher der `oneventname`-Eigenschaft dieser Schnittstelle zugewiesen wird.
+Hören Sie auf dieses Ereignis mit [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder durch Zuweisen eines Ereignis-Listeners zur `oneventname`-Eigenschaft dieses Interfaces.
 
 - [`voiceschanged`](/de/docs/Web/API/SpeechSynthesis/voiceschanged_event)
-  - : Wird ausgelöst, wenn sich die Liste der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte, die von der [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices)-Methode zurückgegeben werden, geändert hat.
-    Auch über die `onvoiceschanged`-Eigenschaft verfügbar.
+  - : Wird ausgelöst, wenn sich die Liste der [`SpeechSynthesisVoice`](/de/docs/Web/API/SpeechSynthesisVoice)-Objekte geändert hat, die von der [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices)-Methode zurückgegeben würde.
+    Ebenfalls verfügbar über die `onvoiceschanged`-Eigenschaft.
 
 ## Beispiele
 
-Zuerst ein einfaches Beispiel:
+Zuerst ein Beispiel:
 
 ```js
 let utterance = new SpeechSynthesisUtterance("Hello world!");
 speechSynthesis.speak(utterance);
 ```
 
-Nun betrachten wir ein umfangreicheres Beispiel. In unserem [Speech synthesizer demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis) holen wir zunächst eine Referenz zum SpeechSynthesis-Controller mit `window.speechSynthesis`. Nachdem wir einige notwendige Variablen definiert haben, rufen wir eine Liste der verfügbaren Stimmen mit [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) ab und füllen damit ein Auswahlmenü, sodass der Benutzer wählen kann, welche Stimme er möchte.
+Schauen wir uns nun ein etwas umfassenderes Beispiel an. In unserem [Sprachausgabe-Demo](https://github.com/mdn/dom-examples/tree/main/web-speech-api/speak-easy-synthesis) erhalten wir zunächst eine Referenz auf den SpeechSynthesis-Controller mit `window.speechSynthesis`. Nachdem wir einige notwendige Variablen definiert haben, rufen wir eine Liste der verfügbaren Stimmen mit [`SpeechSynthesis.getVoices()`](/de/docs/Web/API/SpeechSynthesis/getVoices) ab und füllen ein Auswahlmenü, damit der Benutzer auswählen kann, welche Stimme er möchte.
 
-Im `inputForm.onsubmit`-Handler verhindern wir das Absenden des Formulars mit [preventDefault()](/de/docs/Web/API/Event/preventDefault), erstellen eine neue [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance) Instanz, die den Text aus dem Text-{{htmlelement("input")}} enthält, setzen die Stimme der Äußerung auf die im {{htmlelement("select")}}-Element ausgewählte Stimme und starten das Sprechen der Äußerung über die [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak)-Methode.
+Innerhalb des `inputForm.onsubmit`-Handlers verhindern wir mit [preventDefault()](/de/docs/Web/API/Event/preventDefault), dass das Formular abgeschickt wird, erstellen eine neue Instanz von [`SpeechSynthesisUtterance`](/de/docs/Web/API/SpeechSynthesisUtterance), die den Text aus dem Text-{{htmlelement("input")}} enthält, setzen die Stimme der Äußerung auf die im {{htmlelement("select")}} Element ausgewählte Stimme und beginnen mit der Wiedergabe der Äußerung über die [`SpeechSynthesis.speak()`](/de/docs/Web/API/SpeechSynthesis/speak)-Methode.
 
 ```js
 const synth = window.speechSynthesis;
