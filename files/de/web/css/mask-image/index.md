@@ -2,12 +2,12 @@
 title: mask-image
 slug: Web/CSS/mask-image
 l10n:
-  sourceCommit: 759e230fb79ab6b333691262e089749d99104c25
+  sourceCommit: b692821c494fd3a25dd883b6fe14998fa2621f7b
 ---
 
 {{CSSRef}}
 
-Die **`mask-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Bild fest, das als Maskenschicht für ein Element verwendet wird. Standardmäßig bedeutet dies, dass der Alphakanal des Maskenbildes mit dem Alphakanal des Elements multipliziert wird. Dies kann mit der {{cssxref("mask-mode")}} Eigenschaft gesteuert werden.
+Die **`mask-image`** [CSS](/de/docs/Web/CSS) Eigenschaft legt das Bild fest, das als Maskenschicht für ein Element verwendet wird. Standardmäßig wird der Alphakanal des Maskenbildes mit dem Alphakanal des Elements multipliziert. Dies kann mit der {{cssxref("mask-mode")}} Eigenschaft gesteuert werden.
 
 ## Syntax
 
@@ -45,14 +45,14 @@ mask-image: unset;
   - : Ein {{cssxref("url_value", "&lt;url&gt;")}} Verweis auf eine {{SVGElement("mask")}} oder auf ein CSS-Bild.
 
     > [!NOTE]
-    > Aufgrund der {{Glossary("CORS", "CORS")}} Richtlinie werden nur die Bildquellen akzeptiert, die über die HTTP- und HTTPS-Protokolle serviert werden. Bilder, die lokal bereitgestellt werden, einschließlich relativer oder absoluter `file://` Protokolle, werden nicht akzeptiert. Um URL-Bildquellen lokal zu testen, [richten Sie einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
+    > Aufgrund der {{Glossary("CORS", "CORS")}}-Richtlinie werden nur Bildquellen akzeptiert, die über HTTP- und HTTPS-Protokolle bereitgestellt werden. Lokal bereitgestellte Bilder, einschließlich relativer oder absoluter `file://` Protokolle, werden nicht akzeptiert. Um URL-Bildquellen lokal zu testen, richten Sie [einen lokalen Server ein](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection#localhost).
 
 - {{cssxref("&lt;image&gt;")}}
   - : Ein Bildwert, der als Maskenbildschicht verwendet wird.
 
 In den folgenden Fällen wird die Maske als transparente schwarze Bildschicht gezählt:
 
-- das Maskenbild ist leer (Null Breite oder Null Höhe)
+- das Maskenbild ist leer (Breite oder Höhe ist null)
 - das Maskenbild kann nicht heruntergeladen werden
 - das Maskenbildformat wird vom Browser nicht unterstützt
 - das Maskenbild existiert nicht
@@ -68,7 +68,7 @@ In den folgenden Fällen wird die Maske als transparente schwarze Bildschicht ge
 
 ## Beispiele
 
-### Ein Maskenbild mit einer URL und einem Verlauf festlegen
+### Einstellen eines Maskenbildes mit einer URL und einem Verlauf
 
 ```html live-sample___mask-image-example
 <div class="masked"></div>
@@ -99,5 +99,5 @@ In den folgenden Fällen wird die Maske als transparente schwarze Bildschicht ge
 
 ## Siehe auch
 
-- [Clipping und Maskierung in CSS](https://css-tricks.com/clipping-masking-css/)
-- [Effekte auf Bilder anwenden mit der CSS `mask-image` Eigenschaft](https://web.dev/articles/css-masking)
+- [Clipping und Masking in CSS](https://css-tricks.com/clipping-masking-css/)
+- [Effekte auf Bilder anwenden mit der CSS-Eigenschaft `mask-image`](https://web.dev/articles/css-masking)

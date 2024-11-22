@@ -1,17 +1,17 @@
 ---
-title: Grid-Vorlagenbereiche
+title: Grid-Template-Bereiche
 slug: Web/CSS/CSS_grid_layout/Grid_template_areas
 l10n:
-  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
+  sourceCommit: b692821c494fd3a25dd883b6fe14998fa2621f7b
 ---
 
 {{CSSRef}}
 
-Im [vorherigen Leitfaden](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) haben wir uns mit Gitterlinien und deren Positionierung von Elementen befasst. Wenn Sie CSS-Grid-Layout verwenden, haben Sie immer Linien, und dies kann eine einfache Möglichkeit sein, Elemente in Ihrem Gitter zu platzieren. Es gibt jedoch eine alternative Methode zur Positionierung von Elementen im Grid, die Sie allein oder in Kombination mit der linienbasierten Platzierung verwenden können. Diese Methode besteht darin, unsere Elemente mithilfe benannter Vorlagenbereiche zu platzieren, und wir werden genau erfahren, wie diese Methode funktioniert. Sie werden sehr schnell sehen, warum wir dies manchmal die ASCII-Art-Methode des Gitterlayouts nennen!
+Im [vorherigen Leitfaden](/de/docs/Web/CSS/CSS_grid_layout/Grid_layout_using_line-based_placement) haben wir uns die Gitterlinien und die Positionierung von Elementen in Bezug auf diese Linien angesehen. Wenn Sie das CSS-Grid-Layout verwenden, gibt es immer Linien, und dies kann ein unkomplizierter Weg sein, um Elemente auf Ihrem Grid zu platzieren. Es gibt jedoch eine alternative Methode für die Positionierung von Elementen im Gitter, die Sie allein oder in Kombination mit der linienbasierten Platzierung verwenden können. Diese Methode besteht darin, unsere Elemente mit benannten Vorlagenbereichen zu platzieren, und wir werden sehen, wie diese Methode genau funktioniert. Sie werden schnell feststellen, warum wir dies manchmal die ASCII-Art-Methode des Gitterlayouts nennen!
 
 ## Einen Gitterbereich benennen
 
-Sie sind bereits auf die Eigenschaft {{cssxref("grid-area")}} gestoßen. Dies ist die Eigenschaft, die als Wert alle vier Linien übernehmen kann, die zur Positionierung eines Gitterbereichs verwendet werden.
+Sie sind bereits auf die {{cssxref("grid-area")}} Eigenschaft gestoßen. Dies ist die Eigenschaft, die als Wert alle vier Linien annehmen kann, die verwendet werden, um einen Gitterbereich zu positionieren.
 
 ```css
 .box1 {
@@ -23,16 +23,16 @@ Was wir hier tun, wenn wir alle vier Linien definieren, ist, den Bereich zu defi
 
 ![Der durch Linien definierte Gitterbereich](4_area.png)
 
-Wir können einen Bereich auch definieren, indem wir ihm einen Namen geben und dann die Position dieses Bereichs im Wert der Eigenschaft {{cssxref("grid-template-areas")}} angeben. Sie können wählen, wie Sie Ihren Bereich benennen möchten. Wenn ich beispielsweise das unten dargestellte Layout erstellen möchte, kann ich vier Hauptbereiche identifizieren.
+Wir können auch einen Bereich definieren, indem wir ihm einen Namen geben und dann die Position dieses Bereichs im Wert der {{cssxref("grid-template-areas")}} Eigenschaft angeben. Sie können entscheiden, wie Sie Ihren Bereich benennen möchten. Wenn ich zum Beispiel das unten gezeigte Layout erstellen möchte, kann ich vier Hauptbereiche identifizieren:
 
-- ein Header
-- ein Footer
+- einen Header
+- einen Footer
 - eine Seitenleiste
 - den Hauptinhalt
 
-![Ein Bild, das ein einfaches zweispaltiges Layout mit Header und Footer zeigt](4_layout.png)
+![Ein Bild, das ein einfaches Zweispaltenlayout mit Kopf- und Fußzeile zeigt](4_layout.png)
 
-Mit der Eigenschaft {{cssxref("grid-area")}} kann ich jedem dieser Bereiche einen Namen zuweisen. Dies wird noch kein Layout erstellen, aber wir haben nun benannte Bereiche, die wir in einem Layout verwenden können.
+Mit der {{cssxref("grid-area")}} Eigenschaft kann ich jedem dieser Bereiche einen Namen zuweisen. Dies wird noch kein Layout erstellen, aber wir haben jetzt benannte Bereiche, die wir in einem Layout verwenden können.
 
 ```css
 .header {
@@ -49,7 +49,7 @@ Mit der Eigenschaft {{cssxref("grid-area")}} kann ich jedem dieser Bereiche eine
 }
 ```
 
-Nachdem wir diese Namen definiert haben, erstelle ich mein Layout. Dieses Mal platziere ich meine Elemente nicht mithilfe von auf den Elementen selbst angegebenen Zeilennummern, sondern erstelle das gesamte Layout auf dem Gittercontainer.
+Nachdem ich diese Namen definiert habe, erstelle ich mein Layout. Dieses Mal erstelle ich, anstatt meine Elemente mit den auf den Elementen selbst angegebenen Lininennummern zu platzieren, das gesamte Layout im Gitterbehälter.
 
 ```css
 .wrapper {
@@ -96,11 +96,11 @@ Nachdem wir diese Namen definiert haben, erstelle ich mein Layout. Dieses Mal pl
 
 {{ EmbedLiveSample('Naming_a_grid_area', '300', '330') }}
 
-Mit dieser Methode müssen wir nichts an den einzelnen Gitterelementen angeben, alles passiert auf unserem Gittercontainer. Wir können das Layout sehen, das als Wert der Eigenschaft {{cssxref("grid-template-areas")}} beschrieben wird.
+Mit dieser Methode müssen wir überhaupt nichts an den einzelnen Gitterelementen angeben, alles passiert in unserem Gitterbehälter. Wir können das Layout sehen, das als Wert der {{cssxref("grid-template-areas")}} Eigenschaft beschrieben wird.
 
 ## Eine Gitterzelle leer lassen
 
-Wir haben unser Gitter in diesem Beispiel vollständig mit Bereichen gefüllt und keine weißen Räume gelassen. Sie können jedoch mit dieser Methode der Anordnung Gitterzellen leer lassen. Um eine Zelle leer zu lassen, verwenden Sie das Punktzeichen `.`. Wenn ich den Footer direkt unter dem Hauptinhalt anzeigen möchte, müsste ich die drei Zellen unterhalb der Seitenleiste leer lassen.
+In diesem Beispiel haben wir unser Gitter vollständig mit Bereichen gefüllt und keinen Leerraum übrig gelassen. Sie können jedoch mit dieser Layoutmethode Gitterzellen leer lassen. Um eine Zelle leer zu lassen, verwenden Sie das Punktzeichen, `.`. Wenn ich den Footer nur direkt unterhalb des Hauptinhalts anzeigen möchte, müsste ich die drei Zellen unterhalb der Seitenleiste leer lassen.
 
 ```css
 .header {
@@ -162,13 +162,13 @@ Wir haben unser Gitter in diesem Beispiel vollständig mit Bereichen gefüllt un
 
 {{ EmbedLiveSample('Leaving_a_grid_cell_empty', '300', '330') }}
 
-Um das Layout ordentlicher zu gestalten, kann ich mehrere Punktzeichen verwenden. Solange mindestens ein Leerzeichen zwischen den Punkten vorhanden ist, wird es als eine Zelle gezählt. Für ein komplexes Layout gibt es einen Vorteil, wenn die Reihen und Spalten ordentlich ausgerichtet sind. Es bedeutet, dass Sie tatsächlich sehen können, wie dieses Layout im CSS aussieht.
+Um das Layout übersichtlicher zu gestalten, kann ich mehrere `.` Zeichen verwenden. Solange mindestens ein Leerzeichen zwischen den Punkten vorhanden ist, wird es als eine Zelle gezählt. Bei einem komplexen Layout liegt der Vorteil darin, dass die Zeilen und Spalten ordentlich ausgerichtet sind. Das bedeutet, dass Sie im CSS direkt sehen können, wie dieses Layout aussieht.
 
-## Mehrere Zellen überspannen
+## Über mehrere Zellen hinwegspannen
 
-In unserem Beispiel überspannt jeder der Bereiche mehrere Gitterzellen, und wir erreichen dies, indem wir den Namen dieses Gitterbereichs mehrmals mit Leerzeichen dazwischen wiederholen. Sie können zusätzliche Leerzeichen hinzufügen, um Ihre Spalten in der Eigenschaft `grid-template-areas` ordentlich auszurichten. Sie können sehen, dass ich dies getan habe, damit sich `hd` und `ft` mit `main` ausrichten.
+In unserem Beispiel umfasst jeder der Bereiche mehrere Gitterzellen, und das erreichen wir, indem wir den Namen dieses Gitterbereichs mehrfach mit Leerzeichen dazwischen wiederholen. Sie können zusätzliche Leerzeichen hinzufügen, um Ihre Spalten im Wert von `grid-template-areas` ordentlich auszurichten. Sie können sehen, dass ich dies getan habe, um zu erreichen, dass `hd` und `ft` mit `main` übereinstimmen.
 
-Der Bereich, den Sie erstellen, indem Sie die Bereichsnamen verkettet angeben, muss rechteckig sein. Derzeit gibt es keine Möglichkeit, einen L-förmigen Bereich zu erstellen. Die Spezifikation weist darauf hin, dass eine zukünftige Stufe diese Funktionalität möglicherweise bereitstellt. Sie können jedoch genauso einfach Zeilen wie Spalten überspannen. Zum Beispiel könnten wir unsere Seitenleiste so erweitern, dass sie bis zum Ende des Footers reicht, indem wir das `.` durch `sd` ersetzen.
+Der durch Verkettung der Bereichsnamen erstellte Bereich muss rechteckig sein, es gibt derzeit keine Möglichkeit, einen L-förmigen Bereich zu erstellen. Die Spezifikation weist jedoch darauf hin, dass eine zukünftige Stufe diese Funktionalität bieten könnte. Sie können jedoch genauso einfach Zeilen wie Spalten überspannen. Zum Beispiel könnten wir unsere Seitenleiste bis zum Ende des Footers erweitern, indem wir die `.` durch `sd` ersetzen.
 
 ```css
 .header {
@@ -230,15 +230,15 @@ Der Bereich, den Sie erstellen, indem Sie die Bereichsnamen verkettet angeben, m
 
 {{ EmbedLiveSample('Spanning_multiple_cells', '300', '330') }}
 
-Der Wert von {{cssxref("grid-template-areas")}} muss ein vollständiges Gitter anzeigen, andernfalls ist er ungültig (und die Eigenschaft wird ignoriert). Das bedeutet, dass Sie für jede Zeile die gleiche Anzahl von Zellen haben müssen, auch wenn sie leer sind, und mit einem Punktzeichen demonstrieren, dass die Zelle leer gelassen werden soll. Sie werden auch ein ungültiges Gitter erzeugen, wenn Ihre Bereiche nicht rechteckig sind.
+Der Wert von {{cssxref("grid-template-areas")}} muss ein vollständiges Gitter zeigen, andernfalls ist er ungültig (und die Eigenschaft wird ignoriert). Dies bedeutet, dass Sie für jede Zeile die gleiche Anzahl von Zellen haben müssen, wenn diese leer mit einem Punktzeichen gezeigt werden, das angibt, dass die Zelle leer gelassen werden soll. Sie erstellen auch ein ungültiges Gitter, wenn Ihre Bereiche nicht rechteckig sind.
 
-## Das Gitter mit Media Queries neu definieren
+## Das Gitter mit Media-Queries neu definieren
 
-Da unser Layout jetzt in einem Teil des CSS enthalten ist, ist es sehr einfach, Anpassungen an verschiedenen Breakpoints vorzunehmen. Sie können dies tun, indem Sie das Gitter, die Position der Elemente im Gitter oder beides gleichzeitig neu definieren.
+Da unser Layout jetzt in einem Teil des CSS enthalten ist, macht dies Änderungen bei verschiedenen Breakpoints sehr einfach. Sie können dies tun, indem Sie das Gitter, die Position der Elemente im Gitter oder beides gleichzeitig neu definieren.
 
-Wenn Sie dies tun, definieren Sie die Namen für Ihre Bereiche außerhalb von Media Queries. Auf diese Weise würde der Inhaltsbereich immer `main` genannt, egal wo er im Gitter platziert ist.
+Wenn Sie dies tun, definieren Sie die Namen für Ihre Bereiche außerhalb jeglicher Media-Queries. So wird der Inhaltsbereich immer `main` genannt, egal wo im Gitter er platziert ist.
 
-Für unser oben stehendes Layout könnten wir ein sehr einfaches Layout bei schmalen Breiten haben, indem wir ein einspaltiges Gitter definieren und unsere Elemente stapeln.
+Für das oben gezeigte Layout möchten wir bei schmalen Breiten möglicherweise ein sehr einfaches Layout definieren, indem wir ein einzelnes Spaltenraster definieren und unsere Elemente stapeln.
 
 ```css hidden
 * {
@@ -288,7 +288,7 @@ Für unser oben stehendes Layout könnten wir ein sehr einfaches Layout bei schm
 }
 ```
 
-Wir können dann dieses Layout innerhalb von Media Queries neu definieren, um zu unserem zweispaltigen Layout zu wechseln und vielleicht zu einem dreispaltigen Layout zu wechseln, wenn der verfügbare Platz noch breiter ist. Beachten Sie, dass ich für das breite Layout mein neuner Spurenraster beibehalte und die Platzierung der Elemente mithilfe von `grid-template-areas` neu definiere.
+Wir können dann dieses Layout innerhalb von Media-Queries neu definieren, um zu unserem Zweispaltenlayout zu wechseln, und vielleicht zu einem Dreispaltenlayout wechseln, wenn der verfügbare Platz noch breiter ist. Beachten Sie, dass ich für das breite Layout mein neun kolumniges Spurengitter beibehalte und neu definiere, wo Elemente mithilfe von `grid-template-areas` platziert werden.
 
 ```css
 @media (min-width: 500px) {
@@ -320,19 +320,19 @@ Wir können dann dieses Layout innerhalb von Media Queries neu definieren, um zu
 
 {{ EmbedLiveSample('Redefining_the_grid_using_media_queries', '550', '330') }}
 
-## Verwendung von `grid-template-areas` für UI-Elemente
+## Verwenden von `grid-template-areas` für UI-Elemente
 
-Viele der Gitterbeispiele, die Sie online finden, gehen davon aus, dass Sie Gitter für die Hauptseitengestaltung verwenden werden. Grid kann jedoch genauso nützlich für kleine Elemente sein wie für größere. Die Verwendung von {{cssxref("grid-template-areas")}} kann besonders angenehm sein, da es einfach ist, im Code zu sehen, wie Ihr Element aussieht.
+Viele der im Internet verfügbaren Gitterbeispiele gehen davon aus, dass Sie Gitter für das Hauptseitenlayout verwenden werden, jedoch kann Gitter genauso nützlich für kleine Elemente sein wie für die größeren. Die Verwendung von {{cssxref("grid-template-areas")}} kann besonders angenehm sein, da es einfach ist, im Code zu sehen, wie Ihr Element aussieht.
 
-### Beispiel für ein Medienelement
+### Medienobjekt-Beispiel
 
-Als ein sehr einfaches Beispiel können wir ein "Medienelement" erstellen. Dies ist eine Komponente mit Platz für ein Bild oder ein anderes Medium auf der einen Seite und Inhalt auf der anderen Seite. Das Bild könnte auf der rechten oder linken Seite des Kastens angezeigt werden.
+Als ein sehr einfaches Beispiel können wir ein "Medienobjekt" erstellen. Dies ist eine Komponente mit Platz für ein Bild oder ein anderes Medium auf einer Seite und Inhalt auf der anderen. Das Bild könnte auf der rechten oder linken Seite des Kastens angezeigt werden.
 
-![Bilder, die ein Beispiel für ein Medienelement-Design zeigen](4_media_objects.png)
+![Bilder, die ein Beispiel eines Medienobjektdesigns zeigen](4_media_objects.png)
 
-Unser Gitter ist ein zweispuriges Gitter, wobei die Spalte für das Bild auf `1fr` und der Text auf `3fr` eingestellt ist. Wenn Sie eine feste Breite für den Bildbereich haben möchten, können Sie die Bildspalte als Pixelbreite festlegen und den Textbereich auf `1fr` einstellen. Eine einspaltige Spur von `1fr` würde dann den restlichen Platz einnehmen.
+Unser Gitter ist ein zweispuriges Spaltengitter, wobei die Spalte für das Bild mit `1fr` und der Text mit `3fr` dimensioniert ist. Wenn Sie einen festen Breitenbereich für das Bild wünschen, könnten Sie die Spalte für das Bild als Pixelbreite festlegen und dem Textbereich `1fr` zuweisen. Eine einzelne Spaltenspur von `1fr` würde dann den Rest des Platzes einnehmen.
 
-Wir geben dem Bildbereich einen Gitterbereichsnamen `img` und dem Textbereich `content`, dann können wir diese mithilfe der Eigenschaft `grid-template-areas` anordnen.
+Wir geben dem Bildbereich einen Gitternamen von `img` und dem Textbereich `content`, dann können wir diese mit der Eigenschaft `grid-template-areas` anordnen.
 
 ```css
 * {
@@ -375,7 +375,7 @@ Wir geben dem Bildbereich einen Gitterbereichsnamen `img` und dem Textbereich `c
 
 ### Das Bild auf der anderen Seite des Kastens anzeigen
 
-Vielleicht möchten wir unseren Kasten auch mit dem Bild andersherum anzeigen. Dazu definieren wir das Gitter neu, um die `1fr`-Spur zuletzt zu setzen und die Werte in {{cssxref("grid-template-areas")}} zu tauschen.
+Möglicherweise möchten wir unsere Box mit dem Bild in umgekehrter Reihenfolge anzeigen. Dazu definieren wir das Gitter neu, um die `1fr` Spur zuletzt zu setzen, und kehren die Werte in {{cssxref("grid-template-areas")}} um.
 
 ```css
 * {
@@ -421,27 +421,27 @@ Vielleicht möchten wir unseren Kasten auch mit dem Bild andersherum anzeigen. D
 
 {{ EmbedLiveSample('Displaying_the_image_on_the_other_side_of_the_box', '300', '200') }}
 
-## Gitterdefinition-Shorthands
+## Gitter-Definition Kurzformen
 
-Nachdem wir verschiedene Möglichkeiten der Platzierung von Elementen auf unseren Gittern betrachtet und viele der Eigenschaften, die zur Definition von Gittern verwendet werden, gesehen haben, ist dies ein guter Zeitpunkt, um einen Blick auf ein paar Shorthands zu werfen, die dazu da sind, das Gitter in einer Zeile CSS zu definieren und viele Dinge darüber zu sagen.
+Nachdem wir verschiedene Möglichkeiten des Platzierens von Elementen auf unseren Gittern und viele der Eigenschaften zur Definition eines Gitters betrachtet haben, ist dies eine gute Gelegenheit, sich einige Kurzformen anzusehen, die zur Definition des Gitters und vieler Aspekte davon in einer einzigen CSS-Zeile verfügbar sind.
 
-Diese können schnell schwer lesbar werden für andere Entwickler oder sogar Ihr zukünftiges Selbst. Dennoch sind sie Teil der Spezifikation, und es ist wahrscheinlich, dass Sie auf Beispiele oder auf den Einsatz durch andere Entwickler stoßen werden, auch wenn Sie entscheiden, sie nicht zu nutzen.
+Diese können schnell schwer lesbar für andere Entwickler oder sogar Ihr zukünftiges Selbst werden. Sie sind jedoch Teil der Spezifikation, und es ist wahrscheinlich, dass Sie ihnen in Beispielen oder bei anderen Entwicklern begegnen, selbst wenn Sie sich entscheiden, sie nicht zu verwenden.
 
-Bevor Sie irgendeinen Shortcode verwenden, ist es wichtig zu bedenken, dass Shorthands nicht nur das Einrichten vieler Eigenschaften in einem Rutsch ermöglichen, sondern auch Dinge auf ihre Anfangswerte zurücksetzen, die Sie nicht oder nicht im Shortcode einstellen können. Daher sollten Sie sich bewusst sein, dass, wenn Sie ein Shortcode verwenden, es Dinge zurücksetzen kann, die Sie anderswo angewendet haben.
+Bevor Sie eine Kurzform verwenden, sollten Sie daran denken, dass Kurzformen nicht nur die Einstellung vieler Eigenschaften auf einmal ermöglichen, sondern auch die **Zurücksetzung** von Dingen auf ihre Anfangswerte, die Sie nicht einstellen oder nicht in der Kurzform einstellen können. Daher, wenn Sie eine Kurzform verwenden, seien Sie sich bewusst, dass sie möglicherweise Dinge zurücksetzt, die Sie anderswo angewendet haben.
 
-Die beiden Shorthands für den Gittercontainer sind die Explizit-Gitter-Shortcode `grid-template` und der Gitterdefinitions-Shortcode `grid`.
+Die beiden Kurzformen für den Gitterbehälter sind die explizite Gitter-Kurzform `grid-template` und die Gitter-Definitions-Kurzform `grid`.
 
 ### `grid-template`
 
-Die Eigenschaft {{cssxref("grid-template")}} setzt die folgenden Eigenschaften:
+Die {{cssxref("grid-template")}} Eigenschaft setzt die folgenden Eigenschaften:
 
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
 - {{cssxref("grid-template-areas")}}
 
-Die Eigenschaft wird als Explizit-Gitter-Shortcode bezeichnet, weil sie genau die Dinge festlegt, die Sie steuern, wenn Sie ein explizites Gitter definieren, und nicht diejenigen, die sich auf alle impliziten Reihen- oder Spurenraster auswirken könnten, die erstellt werden könnten.
+Die Eigenschaft wird als die explizite Gitter-Kurzform bezeichnet, da sie diejenigen Dinge setzt, die Sie steuern, wenn Sie ein explizites Gitter definieren, und nicht jene, die sich auf die möglicherweise erstellten impliziten Zeilen- oder Spaltenspuren auswirken.
 
-Der folgende Code erstellt ein Layout mit {{cssxref("grid-template")}}, das dem bereits früher in diesem Leitfaden erstellten Layout entspricht.
+Der folgende Code erstellt ein Layout mit {{cssxref("grid-template")}}, das dem zuvor in diesem Leitfaden erstellten Layout entspricht.
 
 ```css
 .wrapper {
@@ -454,13 +454,13 @@ Der folgende Code erstellt ein Layout mit {{cssxref("grid-template")}}, das dem 
 }
 ```
 
-Der erste Wert ist unser `grid-template-areas`-Wert, aber wir legen auch die Größe der Zeile am Ende jeder Zeile fest. Dies ist, was das `minmax(100px, auto)` bewirkt.
+Der erste Wert ist unser `grid-template-areas` Wert, aber wir geben auch die Größe der Zeile am Ende jeder Zeile an. Das ist das, was das `minmax(100px, auto)` tut.
 
-Dann haben wir nach `grid-template-areas` einen Schrägstrich, danach erfolgt eine explizite Spurauflistung der Spuren.
+Dann haben wir nach `grid-template-areas` einen Schrägstrich, danach eine explizite Spur abzählung der Spaltenspuren.
 
 ### `grid`
 
-Der {{cssxref("grid")}}-Shortcode geht einen Schritt weiter und setzt auch Eigenschaften, die von dem impliziten Gitter verwendet werden. So werden Sie festlegen:
+Die {{cssxref("grid")}} Kurzform geht einen Schritt weiter und setzt auch Eigenschaften, die vom impliziten Gitter verwendet werden. Sie setzen also:
 
 - {{cssxref("grid-template-rows")}}
 - {{cssxref("grid-template-columns")}}
@@ -469,7 +469,7 @@ Der {{cssxref("grid")}}-Shortcode geht einen Schritt weiter und setzt auch Eigen
 - {{cssxref("grid-auto-columns")}}
 - {{cssxref("grid-auto-flow")}}
 
-Sie können diese Syntax auf genau die gleiche Weise wie den {{cssxref("grid-template")}}-Shortcode verwenden, seien Sie sich nur bewusst, dass bei deren Verwendung die anderen von der Eigenschaft gesetzten Werte zurückgesetzt werden.
+Sie können diese Syntax auf dieselbe Weise wie die {{cssxref("grid-template")}} Kurzform verwenden. Beachten Sie jedoch, dass Sie beim Verwenden dieser die anderen Werte, die von der Eigenschaft gesetzt werden, zurücksetzen.
 
 ```css
 .wrapper {
@@ -482,6 +482,6 @@ Sie können diese Syntax auf genau die gleiche Weise wie den {{cssxref("grid-tem
 }
 ```
 
-Wir werden die andere von diesem Shortcode angebotene Funktionalität später in diesen Leitfäden erneut besuchen, wenn wir uns mit der automatischen Platzierung und der Eigenschaft grid-auto-flow beschäftigen.
+Wir werden die andere Funktionalität, die durch diese Kurzform angeboten wird, später in diesen Leitfäden wieder besuchen, wenn wir uns die automatische Platzierung und die `grid-auto-flow` Eigenschaft ansehen.
 
-Wenn Sie diese ersten Leitfäden durchgearbeitet haben, sollten Sie nun in der Lage sein, Gitterslayouts mithilfe von linienbasierten Platzierungen oder benannten Bereichen zu erstellen. Nehmen Sie sich etwas Zeit, um einige gängige Layoutmuster mit Grid zu erstellen, auch wenn es viele neue Begriffe zu lernen gibt, ist die Syntax relativ unkompliziert. Während Sie Beispiele entwickeln, werden Sie wahrscheinlich auf einige Fragen und Anwendungsfälle stoßen, die wir noch nicht behandelt haben. In den restlichen dieser Leitfäden werden wir einige der weiteren Details in der Spezifikation untersuchen, damit Sie beginnen können, fortgeschrittene Layouts damit zu erstellen.
+Wenn Sie diese anfänglichen Leitfäden durchgearbeitet haben, sollten Sie jetzt in der Lage sein, Gitterlayouts mit linienbasierter Platzierung oder benannten Bereichen zu erstellen. Nehmen Sie sich etwas Zeit, um einige gängige Layoutmuster mit Gitter zu erstellen. Auch wenn es viele neue Begriffe zu lernen gibt, ist die Syntax relativ einfach. Wenn Sie Beispiele entwickeln, werden Sie wahrscheinlich auf einige Fragen und Anwendungsfälle stoßen, die wir noch nicht behandelt haben. In den restlichen Abschnitten dieser Leitfäden schauen wir uns einige weitere Details der Spezifikation an, damit Sie beginnen können, fortgeschrittene Layouts damit zu erstellen.

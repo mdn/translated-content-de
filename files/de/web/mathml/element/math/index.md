@@ -2,32 +2,32 @@
 title: <math>
 slug: Web/MathML/Element/math
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: 1833050c622777ee4b1560f5c48adb43dca5eb27
 ---
 
 {{MathMLRef}}
 
-Das **`<math>`** [MathML](/de/docs/Web/MathML)-Element ist das oberste MathML-Element, das zum Schreiben einer einzelnen mathematischen Formel verwendet wird. Es kann in HTML-Inhalt platziert werden, wo [Fließinhalt](/de/docs/Web/HTML/Content_categories#flow_content) erlaubt ist.
+Das **`<math>`** [MathML](/de/docs/Web/MathML)-Element ist das oberste MathML-Element, das verwendet wird, um eine einzelne mathematische Formel zu schreiben. Es kann in HTML-Inhalten platziert werden, wo [Fließinhalte](/de/docs/Web/HTML/Content_categories#flow_content) zulässig sind.
 
 > [!NOTE]
-> Sehen Sie sich die [Erstellen von MathML-Seite](/de/docs/Web/MathML/Authoring#using_mathml) für Tipps zur korrekten Integration von MathML-Formeln in Ihre Webseiten und die [Beispiele](/de/docs/Web/MathML/Examples)-Seite für weitere Demos an.
+> Siehe die Seite [Verfassen von MathML](/de/docs/Web/MathML/Authoring#using_mathml) für Tipps zur ordnungsgemäßen Integration von MathML-Formeln in Ihre Webseiten und die Seite [Beispiele](/de/docs/Web/MathML/Examples) für weitere Demos.
 
 ## Attribute
 
-Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende Attribut:
+Dieses Element umfasst die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes) sowie das folgende Attribut:
 
 - `display`
 
-  - : Dieses {{Glossary("Enumerated", "aufzählbare")}} Attribut gibt an, wie das eingeschlossene MathML-Markup gerendert werden soll. Es kann einen der folgenden Werte haben:
+  - : Dieses {{Glossary("Enumerated", "enumerierte")}} Attribut gibt an, wie das eingeschlossene MathML-Markup gerendert werden soll. Es kann einen der folgenden Werte annehmen:
 
-    - `block`, was bedeutet, dass dieses Element in seinem eigenen Block außerhalb des aktuellen Textabschnitts angezeigt wird und [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt ist.
+    - `block`, was bedeutet, dass dieses Element in einem eigenen Block außerhalb des aktuellen Textabschnitts angezeigt wird und [`math-style`](/de/docs/Web/CSS/math-style) auf `normal` gesetzt ist.
     - `inline`, was bedeutet, dass dieses Element innerhalb des aktuellen Textabschnitts angezeigt wird und [`math-style`](/de/docs/Web/CSS/math-style) auf `compact` gesetzt ist.
 
-    Wenn nicht vorhanden, ist der Standardwert `inline`.
+    Wenn nicht vorhanden, ist sein Standardwert `inline`.
 
 ## Barrierefreiheit
 
-Das `<math>`-Element hat eine implizite [`math` ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/math_role). Unterstützende Technologien können diese Rolle verwenden, um den Inhalt als mathematischen Ausdruck zu identifizieren und ihn Nutzern zu vermitteln.
+Das `<math>`-Element hat eine implizite [`math` ARIA-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/math_role). Unterstützende Technologien können diese Rolle verwenden, um den Inhalt als mathematischen Ausdruck zu identifizieren und ihn den Nutzern zu vermitteln.
 
 ```css hidden
 html,
@@ -42,9 +42,9 @@ body {
 }
 ```
 
-Zum Beispiel werden Screenreader die folgende quadratische Formel ähnlich darstellen wie:
+Zum Beispiel werden Screenreader die folgende quadratische Formel in etwa folgendermaßen darstellen:
 
-> x gleich Bruchanfang, minus b plus oder minus Quadratwurzel von b Quadrat minus 4 a c, Ende der Wurzel, über 2 a, Ende des Bruches, Mathematik
+> x gleich Bruchstrich anfangen, minus b plus oder minus Quadratwurzel von b quadrat minus 4 a c, Ende der Wurzel, über 2 a, Ende des Bruchstrichs, Mathematik
 
 <details>
 <summary>Markup für die quadratische Formel</summary>
@@ -94,7 +94,7 @@ Zum Beispiel werden Screenreader die folgende quadratische Formel ähnlich darst
 
 ## Beispiele
 
-Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen zentrierten Block gerendert und nimmt so viel Platz ein, wie benötigt wird. Die zweite wird innerhalb des Textabsatzes gerendert, mit reduzierter Größe und Abstand, um die Höhe zu minimieren.
+Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen zentrierten Block gerendert und nimmt so viel Platz wie nötig ein. Die zweite wird innerhalb des Textparagraphen gerendert, mit reduzierter Größe und Abständen, um die Höhe zu minimieren.
 
 ```html
 <p>
@@ -130,14 +130,15 @@ Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen ze
         <mn>2</mn>
       </msup>
       <mn>6</mn>
-    </mfrac></math
-  >.
+    </mfrac>
+  </math>
+  .
 </p>
 ```
 
 {{ EmbedLiveSample('math_example', 700, 200, "", "") }}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tr>
@@ -162,5 +163,5 @@ Dieses Beispiel enthält zwei MathML-Formeln. Die erste wird in ihrem eigenen ze
 
 ## Siehe auch
 
-- HTML oberstes Element: {{ HTMLElement("html") }}
-- SVG oberstes Element: {{ SVGElement("svg") }}
+- Oberstes HTML-Element: {{ HTMLElement("html") }}
+- Oberstes SVG-Element: {{ SVGElement("svg") }}

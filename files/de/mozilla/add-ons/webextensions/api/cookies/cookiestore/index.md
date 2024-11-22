@@ -2,36 +2,32 @@
 title: cookies.CookieStore
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/CookieStore
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 6f58b8afb8e045e0d706ac0f0fdeacfaea487f86
 ---
 
 {{AddonSidebar}}
 
-Der Typ `CookieStore` der {{WebExtAPIRef("cookies")}} API repräsentiert einen Cookie-Speicher im Browser.
+Der `CookieStore`-Typ der {{WebExtAPIRef("cookies")}} API repräsentiert einen Cookie-Speicher im Browser.
 
-Fenster in verschiedenen Browsing-Modi können unterschiedliche Cookie-Speicher verwenden. Ein Beispiel ist der private Browsing-/Inkognito-Modus, der einen separaten Cookie-Speicher von einem Nicht-Inkognito-/privaten Fenster verwendet. Außerdem kann ein Fenster mehrere Cookie-Speicher verwenden, wenn man [Container-Tabs](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) in Firefox nutzt.
+Fenster in verschiedenen Browsermodi können unterschiedliche Cookie-Speicher verwenden. Zum Beispiel verwendet ein Fenster im privaten Modus (oder Inkognito-Modus) einen separaten Cookie-Speicher als ein Nicht-Privat-Fenster. Außerdem kann ein Fenster in Firefox mehrere Cookie-Speicher haben, wenn [Container-Tabs](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers) verwendet werden.
 
-Siehe [Arbeiten mit der Cookies API](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_the_Cookies_API#cookie_stores) für weitere Informationen über Cookie-Speicher.
+Siehe [Arbeiten mit der Cookies-API](/de/docs/Mozilla/Add-ons/WebExtensions/Work_with_the_Cookies_API#cookie_stores) für weitere Informationen über Cookie-Speicher.
 
 ## Typ
 
-Werte dieses Typs sind Objekte, die folgende Eigenschaften enthalten können:
+Werte dieses Typs sind Objekte, die diese Eigenschaften enthalten können:
 
 - `id`
-  - : Ein `string`, der den eindeutigen Bezeichner für den Cookie-Speicher darstellt.
+  - : Ein `string`, der die eindeutige Kennung des Cookie-Speichers enthält.
 - `incognito` {{optional_inline}}
-  - : Ein boolescher Wert, der anzeigt, ob es sich um einen Inkognito-Cookie-Speicher handelt.
-    Diese Eigenschaft wird in Chrome oder Safari nicht unterstützt. Sie können jedoch Inkognito-Cookie-Speicher in Chrome identifizieren, da deren `id` immer "1" ist.
+  - : Ein boolescher Wert, der angibt, ob es sich um einen Inkognito-Cookie-Speicher handelt.
+    Diese Eigenschaft wird in Chrome oder Safari nicht unterstützt. Allerdings können Sie Inkognito-Cookie-Speicher in Chrome erkennen, da ihre `id` immer "1" ist.
 - `tabIds`
   - : Ein `array` von `integers`, das alle Browser-Tabs identifiziert, die diesen Cookie-Speicher teilen.
 
-## Browser-Kompatibilität
-
-{{Compat}}
-
 ## Beispiele
 
-Im folgenden Snippet wird die Methode {{WebExtAPIRef("cookies.getAllCookieStores()")}} verwendet, um alle momentan im Browser verfügbaren Cookie-Speicher abzurufen und die ID jedes Cookie-Speichers sowie die Tabs, die derzeit jeden Cookie-Speicher teilen, auszugeben.
+In diesem Beispiel wird die Methode {{WebExtAPIRef("cookies.getAllCookieStores()")}} verwendet, um alle im Browser verfügbaren Cookie-Speicher abzurufen. Dann werden die jeweiligen Cookie-Speicher-IDs und die Tabs, die jeden Cookie-Speicher teilen, ausgegeben.
 
 ```js
 function logStores(cookieStores) {
@@ -43,7 +39,7 @@ function logStores(cookieStores) {
 browser.cookies.getAllCookieStores().then(logStores);
 ```
 
-Das folgende Code-Snippet erfasst alle Cookie-Speicher und protokolliert dann die Gesamtzahl der Speicher und wie viele dieser Speicher Inkognito sind.
+Dieses Codebeispiel ruft alle Cookie-Speicher ab und protokolliert dann die Gesamtanzahl der Speicher sowie wie viele dieser Speicher Inkognito sind.
 
 ```js
 browser.cookies.getAllCookieStores().then((stores) => {
@@ -56,5 +52,39 @@ browser.cookies.getAllCookieStores().then((stores) => {
 
 {{WebExtExamples}}
 
+## Browser-Kompatibilität
+
+{{Compat}}
+
 > [!NOTE]
 > Diese API basiert auf der Chromium-API [`chrome.cookies`](https://developer.chrome.com/docs/extensions/reference/api/cookies#type-CookieStore). Diese Dokumentation ist abgeleitet von [`cookies.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/cookies.json) im Chromium-Code.
+
+<!--
+// Copyright 2015 The Chromium Authors. All rights reserved.
+//
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided that the following conditions are
+// met:
+//
+//    * Redistributions of source code must retain the above copyright
+// notice, this list of conditions and the following disclaimer.
+//    * Redistributions in binary form must reproduce the above
+// copyright notice, this list of conditions and the following disclaimer
+// in the documentation and/or other materials provided with the
+// distribution.
+//    * Neither the name of Google Inc. nor the names of its
+// contributors may be used to endorse or promote products derived from
+// this software without specific prior written permission.
+//
+// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->

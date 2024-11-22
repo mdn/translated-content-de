@@ -1,28 +1,29 @@
 ---
-title: Kommentare
+title: HTML-Kommentare (<!-- … -->)
+short-title: Comments
 slug: Web/HTML/Comments
 l10n:
-  sourceCommit: e4ec417e0f84b2fbd23fb37b236047fbdd215b68
+  sourceCommit: 756a397ef3625623a74e31bd5f69e8b06a11f0d0
 ---
 
-{{CSSRef}}
+{{HTMLSidebar}}
 
-Ein HTML-**Kommentar** wird verwendet, um erläuternde Anmerkungen zum Markup hinzuzufügen oder um zu verhindern, dass der Browser bestimmte Teile des Dokuments interpretiert.
+Ein HTML-**Kommentar** wird verwendet, um erklärende Notizen zum Markup hinzuzufügen oder um den Browser daran zu hindern, bestimmte Teile des Dokuments zu interpretieren.
 
-Kommentare beginnen mit der Zeichenfolge `<!--` und enden mit der Zeichenfolge `-->`, in der Regel mit Text dazwischen. Dieser Text darf nicht mit der Zeichenfolge `>` oder `->` beginnen, darf nicht die Zeichenfolgen `-->` oder `--!>` enthalten und nicht mit der Zeichenfolge `<!-` enden, wobei `<!` erlaubt ist.
+Kommentare beginnen mit der Zeichenkette `<!--` und enden mit der Zeichenkette `-->`, generell mit Text dazwischen. Dieser Text kann nicht mit der Zeichenkette `>` oder `->` beginnen, kann die Zeichenfolgen `-->` oder `--!>` nicht enthalten, und nicht mit der Zeichenkette `<!-` enden, obwohl `<!` erlaubt ist.
 
-Der Browser ignoriert Kommentare beim Rendern des Codes. Mit anderen Worten, sie sind auf der Seite nicht sichtbar - nur im Code. HTML-Kommentare sind eine Möglichkeit, hilfreiche Anmerkungen zu Ihrem Code oder Ihrer Logik zu schreiben.
+Der Browser ignoriert Kommentare, während er den Code rendert. Mit anderen Worten, sie sind nicht auf der Seite sichtbar - nur im Code. HTML-Kommentare sind eine Möglichkeit, um hilfreiche Notizen zu Ihrem Code oder Ihrer Logik zu schreiben.
 
-Das oben Gesagte gilt auch für [XML](/de/docs/Web/XML)-Kommentare. Darüber hinaus darf in XML, wie in [SVG](/de/docs/Web/SVG)- oder [MathML](/de/docs/Web/MathML)-Markup, ein Kommentar nicht die Zeichenfolge `--` enthalten.
+Das oben Gesagte gilt auch für [XML](/de/docs/Web/XML)-Kommentare. Zusätzlich darf in XML, wie in [SVG](/de/docs/Web/SVG) oder [MathML](/de/docs/Web/MathML)-Markup, ein Kommentar nicht die Zeichenfolge `--` enthalten.
 
-Kommentare können in einer einzelnen Zeile oder über mehrere Zeilen verwendet werden. Sie können an den folgenden Stellen eingesetzt werden:
+Kommentare können in einer einzelnen Zeile verwendet werden oder sich über mehrere Zeilen erstrecken. Sie können an den folgenden Stellen verwendet werden:
 
 - Vor und nach dem {{Glossary("Doctype", "Doctype")}}
 - Vor und nach dem {{HTMLElement("html")}}-Element
-- Als Inhalt der meisten Elemente, ausgenommen: {{HTMLElement("script")}}, {{HTMLElement("style")}}, {{HTMLElement("title")}}, {{HTMLElement("textarea")}}, da diese Elemente ihren Inhalt als Rohtext interpretieren.
+- Als Inhalt der meisten Elemente außer: {{HTMLElement("script")}}, {{HTMLElement("style")}}, {{HTMLElement("title")}}, {{HTMLElement("textarea")}}, da diese Elemente ihren Inhalt als rohen Text interpretieren
 
 > [!NOTE]
-> Während `<script>`-Elemente keine HTML-Kommentare haben sollten und stattdessen [JavaScript-Kommentare](/de/docs/Web/JavaScript/Reference/Lexical_grammar#comments) nutzen sollten, gab es früher die Praxis, den gesamten Skriptinhalt in einen HTML-Kommentar einzuschließen, damit alte Browser, die JavaScript nicht unterstützen, ihn nicht als Text rendern. Dies ist jetzt ein [veraltetes Merkmal von JavaScript selbst](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#html_comments) und sollte nicht mehr verwendet werden.
+> Während `<script>`-Elemente keine HTML-Kommentare haben sollten und [JavaScript-Kommentare](/de/docs/Web/JavaScript/Reference/Lexical_grammar#comments) verwenden sollten, gab es eine ältere Praxis, den gesamten Skriptinhalt in einen HTML-Kommentar zu setzen, damit alte Browser, die JavaScript nicht unterstützen, ihn nicht als Text rendern. Dies ist jetzt ein [veraltetes Merkmal von JavaScript selbst](/de/docs/Web/JavaScript/Reference/Deprecated_and_obsolete_features#html_comments) und Sie sollten sich nicht darauf verlassen.
 
 ## Syntax
 
@@ -51,13 +52,13 @@ lines
 -->
 ```
 
-## Hinweise
+## Anmerkungen
 
-HTML-Kommentare sind nur als Inhalt zulässig. Sie können nicht innerhalb eines Tags verwendet werden, wie zum Beispiel vor einem HTML-{{Glossary("Attribute", "Attribut")}}.
+HTML-Kommentare sind nur als Inhalt erlaubt. Sie können nicht innerhalb eines Tags verwendet werden, z. B. vor einem HTML-{{Glossary("Attribute", "Attribut")}}.
 
-Wie bei den meisten Programmiersprachen, die die `<!-- -->` Kommentarsyntax verwenden, können Kommentare nicht verschachtelt werden. Mit anderen Worten: Die erste Instanz von `-->`, die einer Instanz von `<!--` folgt, schließt den Kommentar.
+Wie bei den meisten Programmiersprachen, die das `<!-- -->` Kommentar-Syntax verwenden, können Kommentare nicht verschachtelt werden. Mit anderen Worten, die erste Instanz von `-->`, die einer Instanz von `<!--` folgt, schließt den Kommentar.
 
-Obwohl Kommentare mit einem `<` beginnen und in einem `>` enden, sind Kommentare keine HTML-Elemente.
+Obwohl Kommentare mit einem `<` beginnen und mit einem `>` enden, sind sie kein HTML-Element.
 
 ## Spezifikationen
 
@@ -67,4 +68,4 @@ Obwohl Kommentare mit einem `<` beginnen und in einem `>` enden, sind Kommentare
 
 - [Kommentare in JavaScript](/de/docs/Web/JavaScript/Reference/Lexical_grammar#comments)
 - [Kommentare in CSS](/de/docs/Web/CSS/Comments)
-- [`Comment`](/de/docs/Web/API/Comment)-API (`Comment` erbt von [`Node`](/de/docs/Web/API/Node))
+- [`Comment`](/de/docs/Web/API/Comment) API (`Comment` erbt von [`Node`](/de/docs/Web/API/Node))

@@ -1,44 +1,46 @@
 ---
-title: Lazy loading
+title: Lazy Loading
 slug: Web/Performance/Lazy_loading
 l10n:
-  sourceCommit: e050b876063f44bde9bf011a2dfc94c0d90ca863
+  sourceCommit: b692821c494fd3a25dd883b6fe14998fa2621f7b
 ---
 
 {{QuickLinksWithSubPages("Web/Performance")}}
 
-**Lazy loading** ist eine Strategie, um Ressourcen als nicht blockierend (nicht kritisch) zu identifizieren und diese nur bei Bedarf zu laden. Es ist eine Möglichkeit, die Länge des [kritischen Rendering-Pfades](/de/docs/Web/Performance/Critical_rendering_path) zu verkürzen, was zu reduzierten Ladezeiten der Seite führt.
+**Lazy Loading** ist eine Strategie, um Ressourcen als nicht blockierend (nicht kritisch) zu identifizieren und diese nur bei Bedarf zu laden. Es ist ein Weg, die Länge des [kritischen Rendering-Pfads](/de/docs/Web/Performance/Critical_rendering_path) zu verkürzen, was zu einer reduzierten Ladezeit der Seite führt.
 
-Lazy loading kann zu verschiedenen Zeitpunkten in der Anwendung auftreten, geschieht jedoch typischerweise bei bestimmten Benutzerinteraktionen wie Scrollen und Navigation.
+Lazy Loading kann zu verschiedenen Zeitpunkten in der Anwendung erfolgen, passiert aber typischerweise bei Benutzerinteraktionen wie Scrollen und Navigation.
 
-## Überblick
+## Übersicht
 
-Mit der Entwicklung des Webs haben wir enorme Zunahmen in der Anzahl und Größe der an Benutzer gesendeten Ressourcen festgestellt. Zwischen 2011 und 2019 stieg die mittlere Ressourcenmenge von **\~100KB** auf **\~400KB** für Desktop und von **\~50KB** auf **\~350KB** für Mobilgeräte. Während die Bildgröße auf Desktop von **\~250KB** auf **\~900KB** und auf Mobilgeräten von **\~100KB** auf **\~850KB** zunahm.
+Mit der Weiterentwicklung des Webs haben wir enorme Zunahmen in der Anzahl und Größe der an Benutzer gesendeten Ressourcen erlebt.
+Zwischen 2011 und 2019 stieg das Mediangewicht von Ressourcen von **~100KB** auf **~400KB** für Desktop und von **~50KB** auf **~350KB** für Mobilgeräte. Während sich die Bildgröße auf dem Desktop von **~250KB** auf **~900KB** und auf Mobilgeräten von **~100KB** auf **~850KB** erhöhte.
 
-Eine der Methoden, die wir verwenden können, um dieses Problem anzugehen, ist die Verkürzung der Länge des [kritischen Rendering-Pfades](/de/docs/Web/Performance/Critical_rendering_path) durch Lazy Loading von Ressourcen, die nicht kritisch für das erste Rendering sind. Ein praktisches Beispiel wäre, wenn Sie auf der Startseite einer E-Commerce-Seite landen, die einen Link zu einem Warenkorbseite/-abschnitt enthält, und keine der Ressourcen der Warenkorbseite (wie JavaScript, CSS und Bilder) **bis** Sie dorthin navigieren, heruntergeladen werden.
+Eine der Methoden, die wir nutzen können, um dieses Problem zu lösen, ist die Verkürzung der Länge des [kritischen Rendering-Pfads](/de/docs/Web/Performance/Critical_rendering_path), indem wir Ressourcen, die nicht kritisch für das erste Rendering sind, lazy loaden.
+Ein praktisches Beispiel wäre, wenn Sie auf der Startseite einer E-Commerce-Website landen, die einen Link zu einer Warenkorb-Seite/Sektion enthält, und keine der Ressourcen der Warenkorb-Seite (wie JavaScript, CSS und Bilder) **bis** zur Navigation geladen werden.
 
 ## Strategien
 
-Lazy loading kann auf mehrere Ressourcen und durch verschiedene Strategien angewendet werden.
+Lazy Loading kann auf mehrere Ressourcen und durch verschiedene Strategien angewendet werden.
 
 ### Allgemein
 
-#### Codeaufteilung
+#### Code-Splitting
 
-JavaScript, CSS und HTML können in kleinere Teile aufgeteilt werden. Dies ermöglicht das Senden des minimalen Codes, der erforderlich ist, um sofort einen Wert zu liefern, und verbessert die Ladezeiten der Seite. Der Rest kann bei Bedarf geladen werden.
+JavaScript, CSS und HTML können in kleinere Teile aufgeteilt werden. Dies ermöglicht das Senden des minimal erforderlichen Codes, um den Wert sofort bereitzustellen, was die Seitenladezeiten verbessert. Der Rest kann bei Bedarf geladen werden.
 
-- Einstiegspunkt-Aufteilung: trennt Code nach Einstiegspunkt(en) in der App
-- Dynamische Aufteilung: trennt Code dort, wo [dynamic import()](/de/docs/Web/JavaScript/Reference/Operators/import) Ausdrücke verwendet werden
+- Entry Point Splitting: trennt Code nach Einstiegspunkten in der App
+- Dynamisches Splitting: trennt Code, wo [dynamic import()](/de/docs/Web/JavaScript/Reference/Operators/import)-Ausdrücke verwendet werden
 
 ### JavaScript
 
-#### Skripttyp-Modul
+#### Script Type Module
 
-Jedes Skripttag mit `type="module"` wird standardmäßig als [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules) behandelt und verzögert ausgeführt.
+Ein beliebiges Script-Tag mit `type="module"` wird als [JavaScript-Modul](/de/docs/Web/JavaScript/Guide/Modules) behandelt und standardmäßig verzögert.
 
 ### CSS
 
-Standardmäßig wird CSS als [renderblockierende](/de/docs/Web/Performance/Critical_rendering_path) Ressource behandelt, sodass der Browser keinen verarbeiteten Inhalt rendert, bis das [CSSOM](/de/docs/Web/API/CSS_Object_Model) erstellt ist. CSS muss schlank sein, so schnell wie möglich geliefert werden, und die Verwendung von Medientypen und -abfragen wird empfohlen, um das Rendern zu entblockieren.
+Standardmäßig wird CSS als [render blocking](/de/docs/Web/Performance/Critical_rendering_path)-Ressource behandelt, sodass der Browser keinen verarbeiteten Inhalt rendert, bis das [CSSOM](/de/docs/Web/API/CSS_Object_Model) erstellt ist. CSS muss dünn, so schnell wie möglich geliefert werden, und die Verwendung von Medientypen und -abfragen wird empfohlen, um das Rendering zu entblocken.
 
 ```html
 <link href="style.css" rel="stylesheet" media="all" />
@@ -48,41 +50,42 @@ Standardmäßig wird CSS als [renderblockierende](/de/docs/Web/Performance/Criti
 
 Es ist möglich, einige [CSS-Optimierungen](/de/docs/Learn/Performance/CSS) durchzuführen, um dies zu erreichen.
 
-### Schriften
+### Schriftarten
 
-Standardmäßig werden Schriftanforderungen verzögert, bis der Rendering-Baum erstellt ist, was zu verzögertem Text-Rendering führen kann.
+Standardmäßig werden Schriftanforderungen verzögert, bis der Rendertree erstellt ist, was zu verzögertem Text-Rendering führen kann.
 
-Es ist möglich, das Standardverhalten zu überschreiben und Webfont-Ressourcen mit `<link rel="preload">`, der [CSS font-display Eigenschaft](/de/docs/Web/CSS/@font-face/font-display) und der [Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) vorzuladieren.
+Es ist möglich, das Standardverhalten zu überschreiben und Webfont-Ressourcen mit `<link rel="preload">`, dem [CSS-`font-display`-Deskriptor](/de/docs/Web/CSS/@font-face/font-display) und der [Font Loading API](/de/docs/Web/API/CSS_Font_Loading_API) vorzuladen.
 
-Siehe auch: [Link-Element](/de/docs/Web/HTML/Element/link).
+Siehe auch: [Element Link](/de/docs/Web/HTML/Element/link).
 
-### Bilder und iframes
+### Bilder und Iframes
 
-Sehr oft enthalten Webseiten viele Bilder, die zur Datennutzung beitragen und beeinflussen, wie schnell eine Seite geladen werden kann. Die meisten dieser Bilder sind außerhalb des Bildschirms ([nicht kritisch](/de/docs/Web/Performance/Critical_rendering_path)), und erfordern eine Benutzerinteraktion wie Scrollen, um sie anzuzeigen.
+Sehr häufig enthalten Webseiten viele Bilder, die zum Datenverbrauch beitragen und beeinflussen, wie schnell eine Seite geladen werden kann. Die meisten dieser Bilder sind außerhalb des Bildschirms ([nicht kritisch](/de/docs/Web/Performance/Critical_rendering_path)) und erfordern eine Benutzerinteraktion, wie z. B. Scrollen, um sie anzuzeigen.
 
-#### Ladeattribut
+#### Loading-Attribut
 
-Das [`loading`](/de/docs/Web/HTML/Element/img#loading) Attribut auf einem {{HTMLElement("img")}}-Element oder das [`loading`](/de/docs/Web/HTML/Element/iframe#loading) Attribut auf einem {{HTMLElement("iframe")}} kann verwendet werden, um dem Browser mitzuteilen, das Laden von Bildern/iframes, die außerhalb des Bildschirms sind, zu verzögern, bis der Benutzer in deren Nähe scrollt. Dies ermöglicht es, nicht kritische Ressourcen nur bei Bedarf zu laden, was potenziell die anfänglichen Ladezeiten der Seite beschleunigt und die Netzwerknutzung reduziert.
+Das [`loading`](/de/docs/Web/HTML/Element/img#loading) Attribut bei einem {{HTMLElement("img")}}-Element oder das [`loading`](/de/docs/Web/HTML/Element/iframe#loading) Attribut bei einem {{HTMLElement("iframe")}} kann verwendet werden, um den Browser anzuweisen, das Laden von außerhalb des Bildschirms befindlichen Bildern/Iframes so lange zu verzögern, bis der Benutzer in die Nähe scrollt.
+Dies ermöglicht es nicht-kritischen Ressourcen, nur bei Bedarf geladen zu werden, was potenziell die anfänglichen Seitenladezeiten beschleunigt und die Netzwerknutzung reduziert.
 
 ```html
 <img loading="lazy" src="image.jpg" alt="..." />
 <iframe loading="lazy" src="video-player.html" title="..."></iframe>
 ```
 
-Das `load`-Ereignis wird ausgelöst, wenn der vorschnell geladene Inhalt vollständig geladen ist. Zu diesem Zeitpunkt ist es durchaus möglich (oder sogar wahrscheinlich), dass es lazily geladene Bilder oder iframes im {{Glossary("visual_viewport", "visuellen Viewport")}} gibt, die noch nicht geladen wurden.
+Das `load`-Ereignis wird ausgelöst, wenn der voreilig geladene Inhalt vollständig geladen wurde. Zu diesem Zeitpunkt ist es möglich (oder sogar wahrscheinlich), dass es innerhalb des {{Glossary("visual_viewport", "visual viewport")}} noch lazy-geladene Bilder oder Iframes gibt, die noch nicht geladen wurden.
 
-Sie können feststellen, ob ein bestimmtes Bild das Laden abgeschlossen hat, indem Sie den Wert seiner booleschen [`complete`](/de/docs/Web/API/HTMLImageElement/complete) Eigenschaft überprüfen.
+Sie können feststellen, ob ein gegebenes Bild vollständig geladen ist, indem Sie den Wert seiner booleschen [`complete`](/de/docs/Web/API/HTMLImageElement/complete)-Eigenschaft überprüfen.
 
 #### Intersection Observer API
 
-[Intersection Observers](/de/docs/Web/API/IntersectionObserver) ermöglicht es dem Benutzer zu wissen, wann ein beobachtetes Element den Viewport des Browsers betritt oder verlässt.
+[Intersection Observers](/de/docs/Web/API/IntersectionObserver) ermöglichen es dem Benutzer zu wissen, wann ein beobachtetes Element den Viewport des Browsers betritt oder verlässt.
 
 #### Ereignishandler
 
 Wenn Browser-Kompatibilität entscheidend ist, gibt es einige Optionen:
 
-- [Intersection Observer polyfill](https://github.com/w3c/IntersectionObserver) verwenden
-- Rückgriff auf Scroll-, Resize- oder Orientierungsänderungs-Ereignishandler, um festzustellen, ob sich ein bestimmtes Element im Viewport befindet
+- [polyfill intersection observer](https://github.com/w3c/IntersectionObserver)
+- Rückgriff auf Scroll-, Größenänderungs- oder Ausrichtungsänderungs-Ereignishandler, um festzustellen, ob sich ein bestimmtes Element im Viewport befindet
 
 ## Spezifikationen
 
@@ -90,5 +93,5 @@ Wenn Browser-Kompatibilität entscheidend ist, gibt es einige Optionen:
 
 ## Siehe auch
 
-- [Renderblockierende CSS](https://web.dev/articles/critical-rendering-path/render-blocking-css)
-- [Browserseitiges Lazy Loading von Bildern für das Web](https://web.dev/articles/browser-level-image-lazy-loading)
+- [Render blocking CSS](https://web.dev/articles/critical-rendering-path/render-blocking-css)
+- [Browser-level image lazy loading for the web](https://web.dev/articles/browser-level-image-lazy-loading)

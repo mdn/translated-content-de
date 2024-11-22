@@ -2,16 +2,16 @@
 title: cookies.SameSiteStatus
 slug: Mozilla/Add-ons/WebExtensions/API/cookies/SameSiteStatus
 l10n:
-  sourceCommit: 43e3ff826b7b755b05986c99ada75635c01c187c
+  sourceCommit: 6f58b8afb8e045e0d706ac0f0fdeacfaea487f86
 ---
 
 {{AddonSidebar}}
 
-Der `SameSiteStatus`-Typ der {{WebExtAPIRef("cookies")}} API repräsentiert Informationen über den `SameSite`-Zustand eines Cookies.
+Der Typ `SameSiteStatus` der {{WebExtAPIRef("cookies")}} API repräsentiert Informationen über den `SameSite`-Status eines Cookies.
 
 ## Typ
 
-Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
+Werte dieses Typs sind Zeichenketten. Mögliche Werte sind:
 
 - `no_restriction`
   - : Entspricht einem Cookie, das mit `SameSite=None` gesetzt wurde.
@@ -20,9 +20,9 @@ Werte dieses Typs sind Zeichenfolgen. Mögliche Werte sind:
 - `strict`
   - : Entspricht einem Cookie, das mit `SameSite=Strict` gesetzt wurde.
 - `unspecified`
-  - : Entspricht einem Cookie, das ohne das `SameSite`-Attribut gesetzt wurde. Dieser Zustand ist nicht Teil eines SameSite-Standards und wird nur von Browsern unterstützt, die diesen Zustand intern speichern. Andere Browser ordnen das Fehlen des SameSite-Flags dem Standardzustand zu (z. B. Lax). Siehe die Browser-Kompatibilitätstabelle für weitere Details.
+  - : Entspricht einem Cookie, das ohne das `SameSite`-Attribut gesetzt wurde. Dieser Zustand ist nicht Teil eines SameSite-Standards und wird nur von Browsern unterstützt, die diesen Zustand intern speichern. Andere Browser ordnen das Fehlen des SameSite-Flags dem Standardzustand (z.B. Lax) zu. Weitere Informationen finden Sie in der Browser-Kompatibilitätstabelle.
 
-Siehe [SameSite-Cookies](/de/docs/Web/HTTP/Cookies#samesite_cookies) für weitere Informationen.
+Weitere Informationen finden Sie unter [SameSite-Cookies](/de/docs/Web/HTTP/Cookies#samesite_cookies).
 
 ## Browser-Kompatibilität
 

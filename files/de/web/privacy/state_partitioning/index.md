@@ -1,69 +1,52 @@
 ---
-title: State Partitioning
+title: Partitionierung des Zustands
 slug: Web/Privacy/State_Partitioning
 l10n:
-  sourceCommit: a7dabad208b75bc11b1540e7b0047934e4c69991
+  sourceCommit: 6f58b8afb8e045e0d706ac0f0fdeacfaea487f86
 ---
 
-**State Partitioning** ist ein umfassendes Bestreben von Mozilla, die Verwaltung des clientseitigen Zustands in Firefox (d. h. der im Browser gespeicherten Daten) neu zu gestalten, um die Fähigkeit von Websites zu mindern, den Zustand für die verfolgung über Websites hinweg zu missbrauchen, z. B. über [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies).
+**Partitionierung des Zustands** ist ein umfassendes Vorhaben von Mozilla, um die Verwaltung von clientseitigem Zustand (d. h. im Browser gespeicherte Daten) in Firefox neu zu gestalten. Ziel ist es, die Möglichkeit von Websites zu verringern, den Zustand für Tracking über verschiedene Websites hinweg zu missbrauchen, z. B. durch [Drittanbieter-Cookies](/de/docs/Web/Privacy/Third-party_cookies).
 
-Dieses Bestreben zielt darauf ab, dies durch Bereitstellung eines partitionierten Speicherorts für jede vom Benutzer besuchte Website zu erreichen.
-Dieser Artikel gibt einen Überblick über den Mechanismus, listet die betroffenen APIs auf und erklärt, wie man betroffene Seiten debuggen kann.
+Dieses Vorhaben zielt darauf ab, jedem besuchten Website eine partitionierte Speicherlocation zur Verfügung zu stellen. Dieser Artikel gibt einen Überblick über den Mechanismus, listet die betroffenen APIs auf und erklärt, wie man betroffene Sites debuggen kann.
 
-State Partitioning ist standardmäßig im Firefox Nightly-Kanal aktiviert.
-Ein Teil der Bemühungen zur State Partitioning (nämlich die [Netzwerkpartitionierung](#netzwerkpartitionierung)) ist seit Version 85 im Release-Kanal von Firefox standardmäßig aktiviert.
+Ab Firefox 103 ist die Partitionierung des Zustands standardmäßig aktiviert.
 
 ## Motivation
 
-### Verfolgung über Websites hinweg mit gemeinsamem Zustand
+### Cross-Site-Tracking mittels gemeinsam genutztem Zustand
 
-Browser speichern den clientseitigen Zustand traditionell durch den Ursprung (oder manchmal die registrierbare Domäne) des Standorts, von dem eine Ressource geladen wurde.
-Zum Beispiel werden die Cookies, `localStorage`-Objekte und Caches, die einem iframe zur Verfügung stehen, das von `https://example.com/hello.html` geladen wird, von `example.com` gespeichert.
-Dies gilt unabhängig davon, ob der Browser derzeit Ressourcen von dieser Domäne als _Erstanbieter_-Ressourcen oder als eingebettete _Drittanbieter_-Ressourcen lädt.
-Tracker haben diesen zustandsabhängigen Mechanismus für die verfolgung von Benutzern über Websites hinweg genutzt und darauf zugegriffen.
-Das untenstehende Beispiel zeigt, wie `example.com` seinen zustandsabhängigen Mechanismus (in diesem Fall Cookies) nutzen kann, um einen Benutzer sowohl auf seiner eigenen Seite als auch auf `A.example` und `B.example` zu verfolgen.
+Browser verwenden traditionell den Ursprung (oder manchmal die registrierbare Domain) des Ortes, von dem ein Ressourcen geladen wurde, um den clientseitigen Zustand zu kennzeichnen. Beispielweise werden die Cookies, `localStorage`-Objekte und Caches, die einem `iframe` zur Verfügung stehen, das von `https://example.com/hello.html` geladen wird, nach `example.com` gekennzeichnet. Dies gilt unabhängig davon, ob der Browser derzeit Ressourcen von dieser Domain als _Erstanbieter_ oder als eingebettete _Drittanbieter_-Ressourcen lädt. Tracking-Anbieter haben diesen cross-site Zustand genutzt, um Benutzeridentifikatoren zu speichern und diese über Websites hinweg abzurufen. Das folgende Beispiel zeigt, wie `example.com` seinen interaktiven Zustand (in diesem Fall Cookies) verwenden kann, um einen Benutzer sowohl auf seiner eigenen Site als auch auf `A.example` und `B.example` zu verfolgen.
 
-![Ein Beispiel für zustandsabhängigen Mechanismus über Websites hinweg](example-cross-site-state.png)
+![Ein Beispiel für den cross-site Zustand](example-cross-site-state.png)
 
-### Frühere Ansätze zur Blockierung der Verfolgung über Websites hinweg
+### Frühere Ansätze zur Blockierung von Cross-Site-Tracking
 
-Firefox' frühere Cookie-Richtlinien versuchen, das Verfolgung zu mildern, indem sie den Zugriff auf einige Speicher-APIs (z.B. Cookies und `localStorage`) für bestimmte Domänen unter bestimmten Bedingungen blockieren.
-Zum Beispiel wird unsere "Blockiere alle Drittanbieter-Cookies"-Richtlinie alle Domänen daran hindern, auf bestimmte Speicher-APIs zuzugreifen, wenn sie im Drittanbieter-Kontext geladen werden.
-Unsere aktuelle [Cookie-Standardrichtlinie](/de/docs/Web/Privacy/Storage_Access_Policy) blockiert den Zugriff im Drittanbieter-Kontext nur für Domänen, die als Tracker klassifiziert sind.
+Frühere Cookie-Richtlinien von Firefox versuchten, Tracking zu mindern, indem der Zugriff auf einige Speicher-APIs (z. B. Cookies und `localStorage`) für bestimmte Domains unter bestimmten Bedingungen blockiert wurde. Beispielsweise verhindert unsere "Blockiere alle Drittanbieter-Cookies"-Richtlinie, dass alle Domains, wenn sie in einem Drittanbieter-Kontext geladen werden, auf bestimmte Speicher-APIs zugreifen können. Unsere aktuelle [Standard-Cookie-Richtlinie](/de/docs/Web/Privacy/Storage_Access_Policy) blockiert den Zugriff im Drittanbieter-Kontext nur für als Tracker klassifizierte Domains.
 
-## State Partitioning
+## Partitionierung des Zustands
 
-State Partitioning ist ein anderer Ansatz zur Verhinderung der Verfolgung über Websites hinweg.
-Anstatt den Zugriff auf bestimmte APIs in einem Drittanbieter-Kontext zu blockieren, bietet Firefox eingebetteten Ressourcen einen separaten Speicherbereich für jede oberste Website.
-Genauer gesagt speichert Firefox alle clientseitigen Zustände doppelt, nach dem [Ursprung](https://html.spec.whatwg.org/multipage/browsers.html#origin) der geladenen Ressource und nach der obersten [Seite](https://html.spec.whatwg.org/multipage/browsers.html#site).
-In den meisten Fällen ist die oberste Seite das Schema und {{Glossary("eTLD", "eTLD+1")}} der obersten Seite, die vom Benutzer besucht wird.
+Die Partitionierung des Zustands ist ein anderer Ansatz zur Vermeidung von Cross-Site-Tracking. Anstatt den Zugriff auf bestimmte zustandsbehaftete APIs im Drittanbieter-Kontext zu blockieren, stellt Firefox eingebetteten Ressourcen einen separaten Speicherbereich für jede Top-Level-Website zur Verfügung. Konkret schlüsselt Firefox den gesamten clientseitigen Zustand doppelt nach dem [Ursprung](https://html.spec.whatwg.org/multipage/browsers.html#origin) der ladenden Ressource und der Top-Level-[Website](https://html.spec.whatwg.org/multipage/browsers.html#site). In den meisten Fällen ist die Top-Level-Website das Schema und {{Glossary("eTLD", "eTLD+1")}} der Top-Level-Seite, die der Benutzer besucht.
 
-Im untenstehenden Beispiel ist `example.com` in `A.example` und `B.example` eingebettet.
-Da jedoch der Speicher partitioniert ist, gibt es drei unterschiedliche Speicherbereiche (statt einem).
-Der Tracker kann weiterhin auf den Speicher zugreifen, aber da jeder Speicherbereich zusätzlich unter der obersten Seite gespeichert wird, werden die zugänglichen Daten auf A anders sein als die auf B.
-Dies wird einen Tracker daran hindern, eine Kennung in seinen Cookies zu speichern, wenn er direkt besucht wird, und diese Kennung dann abzurufen, wenn er in andere Websites eingebettet ist.
+Im folgenden Beispiel wird `example.com` in `A.example` und `B.example` eingebettet. Da der Speicher jedoch partitioniert ist, gibt es drei unterschiedliche Speicherbereiche (statt eines). Der Tracker kann zwar noch auf Speicher zugreifen, aber da jeder Speicherbereich zusätzlich unter der Top-Level-Website gekennzeichnet ist, werden die Daten, auf die er Zugriff hat, auf A anders sein als auf B. Dies verhindert, dass ein Tracker einen Identifikator in seinen Cookies speichert, wenn er direkt besucht wird, und dann diesen Identifikator abrufen kann, wenn er in anderen Websites eingebettet ist.
 
-![Ein Beispiel für State Partitioning](example-state-partitioning.png)
+![Ein Beispiel für die Partitionierung des Zustands](example-state-partitioning.png)
 
 ## Standardisierung
 
-Die [Privacy Community Group](https://privacycg.github.io/) hat einen Arbeitsgegenstand für [Client-Side Storage Partitioning](https://privacycg.github.io/storage-partitioning/).
-Dies dient als Überblick über die Standardisierungsbemühungen für die Speicherpartitionierung in den betroffenen individuellen Standards.
-Wir beabsichtigen, unsere State Partitioning-Implementierung mit diesen Bemühungen abzugleichen, sobald der Arbeitsgegenstand standardisiert ist.
+Die [Privacy Community Group](https://privacycg.github.io/) hat ein Arbeitsitem für die [Client-Side Storage Partitioning](https://privacycg.github.io/storage-partitioning/). Dies dient als Übersicht über die Standardisierungsbemühungen für die Speicherpartitionierung in den betroffenen individuellen Standards. Wir beabsichtigen, unsere Implementierung der Zustands-Partitionierung mit diesen Bemühungen abzustimmen, sobald das Arbeitsitem standardisiert ist.
 
 ### Status der Partitionierung in Firefox
 
-- [**Netzwerkpartitionierung**](#netzwerkpartitionierung): Seit Firefox 85 für alle Benutzer standardmäßig aktiviert.
-- [**Dynamische Partitionierung**](#dynamische_partitionierung):
-  - Seit Firefox 86: Aktiviert für Benutzer, die [„Strenge“ Datenschutzmaßnahmen](https://support.mozilla.org/de/kb/erweiterter-schutz-vor-aktivitatsverfolgung-firefox?q=enhanced+tracking+protection&w=2) aktiviert haben.
-  - Seit Firefox 90: Aktiviert im privaten Browsing.
+- [**Netzwerk-Partitionierung**](#netzwerk-partitionierung): Seit Firefox 85 standardmäßig für alle Benutzer aktiviert.
+- [**Dynamische Partitionierung**](#dynamische_partitionierung): Seit Firefox 103 standardmäßig für alle Benutzer aktiviert. Vorher:
+  - Seit Firefox 86: Aktiviert für Benutzer, die [„strenge“ Datenschutzschutzeinstellungen](https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop#w_strict-enhanced-tracking-protection) aktivieren.
+  - Seit Firefox 90: Aktiviert im privaten Modus.
 
 ## Statische Partitionierung
 
-### Speicherpartitionierung
+### Speicher-Partitionierung
 
-Um zu verhindern, dass über JavaScript zugängliche Speicher-APIs zur Verfolgung über Websites hinweg verwendet werden, wird der zugängliche Speicher nach der obersten Website partitioniert.
-Dieser Mechanismus bedeutet im Allgemeinen, dass ein Drittanbieter, der in einer obersten Website eingebettet ist, nicht auf Daten zugreifen kann, die unter einer anderen obersten Website gespeichert sind.
+Um zu verhindern, dass JavaScript-zugängliche Speicher-APIs für Cross-Site-Tracking verwendet werden, wird der zugängliche Speicher nach der Top-Level-Site partitioniert. Dieser Mechanismus bedeutet im Allgemeinen, dass ein Drittanbieter, der in eine Top-Level-Site eingebettet ist, nicht auf Daten zugreifen kann, die unter einer anderen Top-Level-Site gespeichert sind.
 
 ### Speicher-APIs
 
@@ -75,18 +58,16 @@ Dieser Mechanismus bedeutet im Allgemeinen, dass ein Drittanbieter, der in einer
 - [Shared Workers](/de/docs/Web/API/SharedWorker)
 - [Service Workers](/de/docs/Web/API/Service_Worker_API)
 
-### Netzwerkpartitionierung
+### Netzwerk-Partitionierung
 
-Netzwerkbezogene APIs sind nicht dazu gedacht, dass Websites Daten speichern, aber sie können für die Verfolgung über Websites hinweg [missbraucht](https://blog.mozilla.org/security/2021/01/26/supercookie-protections/) werden.
-Daher werden die folgenden Netzwerk-APIs und -Caches **dauerhaft** durch die oberste Website partitioniert.
+Netzwerkbezogene APIs sind nicht dazu gedacht, von Websites zum Speichern von Daten verwendet zu werden, aber sie können für Cross-Site-Tracking [missbraucht](https://blog.mozilla.org/security/2021/01/26/supercookie-protections/) werden. Daher sind die folgenden Netzwerk-APIs und Caches **dauerhaft** nach der Top-Level-Site partitioniert.
 
 > [!NOTE]
-> Netzwerkpartitionierung ist permanent.
-> Websites können diese Einschränkungen nicht steuern oder lockern.
+> Netzwerk-Partitionierung ist dauerhaft. Websites können diese Einschränkungen weder steuern noch lockern.
 
 ### Netzwerk-APIs
 
-- [HTTP Cache](/de/docs/Web/HTTP/Caching)
+- [HTTP-Cache](/de/docs/Web/HTTP/Caching)
 - Bild-Cache
 - Favicon-Cache
 - Verbindungspooling
@@ -95,136 +76,123 @@ Daher werden die folgenden Netzwerk-APIs und -Caches **dauerhaft** durch die obe
 - HTTP-Authentifizierung
 - [Alt-Svc](/de/docs/Web/HTTP/Headers/Alt-Svc)
 - Spekulative Verbindungen
-- Schriftarten & Schriftart-Cache
+- Schriftarten & Schriftarten-Cache
 - [HSTS](/de/docs/Web/HTTP/Headers/Strict-Transport-Security)
 - OCSP
-- Intermediate CA Cache
+- Zwischenzertifizierungsstellen-Cache
 - TLS-Client-Zertifikate
-- TLS-Sitzungs-IDs
+- TLS-Sitzungskennungen
 - Prefetch
 - Preconnect
-- {{Glossary("Preflight_request", "CORS-preflight")}} Cache
+- {{Glossary("Preflight_request", "CORS-Preflight")}} Cache
 - WebRTC deviceID
 
 ## Dynamische Partitionierung
 
-Im Allgemeinen, wenn zugänglicher Speicher durch die oberste Website partitioniert ist, kann der Zugriff auf die unpartitionierten Cookies eines Drittanbieters dennoch gewährt werden, wenn die Storage Access API unterstützt wird:
+Wenn im Allgemeinen zugänglicher Speicher nach Top-Level-Site partitioniert ist, kann der Zugriff auf nicht partitionierte Cookies von Drittanbietern noch gewährt werden, wenn die Speicherzugriffs-API unterstützt wird:
 
-- unter Verwendung der [Storage Access API](#storage_access_api).
-- automatisch, z. B. für Drittanbieter, die ein föderiertes Login ermöglichen.
+- durch Nutzung der [Storage Access API](#storage_access_api).
+- automatisch, z. B. für Drittanbieter, die eine föderierte Anmeldung bereitstellen.
 
-Details über automatische Gewährungen finden Sie im Abschnitt [Heuristik des Speicherkontrollzugriffs](#heuristik_des_speicherkontrollzugriffs).
+Details zu automatischen Gewährungen finden sich im Abschnitt [Storage Access Heuristics](#speicherzugangsheuristik).
 
 ### Dynamisch partitionierte APIs
 
 - [Cookies](/de/docs/Web/API/Document/cookie)
 
-### Heuristik des Speicherkontrollzugriffs
+### Speicherzugangsheuristik
 
-Um die Web-Kompatibilität zu verbessern, umfasst Firefox derzeit einige Heuristiken, um Drittanbietern, die Benutzerinteraktionen erhalten, automatisch nicht partitionierten Zugang zu Cookies zu gewähren.
-Diese Heuristiken sollen es einigen auf dem Web weit verbreiteten Drittanbieter-Integrationen ermöglichen, weiterhin zu funktionieren.
+Um die Kompatibilität mit dem Web zu verbessern, enthält Firefox derzeit einige Heuristiken, um Drittanbietern, die Benutzerinteraktionen erhalten, automatisch unpartitionierten Zugriff auf Cookies zu gewähren. Diese Heuristiken sollen es ermöglichen, dass einige Drittanbieter-Integrationen, die im Web üblich sind, weiterhin funktionieren.
 
 > [!WARNING]
-> Heuristiken des Speicherkontrollzugriffs sind ein Übergangsmerkmal, das Website-Abbrüche verhindern soll.
-> Sie sollten nicht für die aktuelle und zukünftige Webentwicklung verwendet werden.
+> Speicherzugangsheuristiken sind ein Übergangsmerkmal, das dazu dient, Website-Ausfälle zu verhindern. Sie sollten nicht für die aktuelle und zukünftige Webentwicklung verwendet werden.
 
 #### Opener-Heuristiken
 
-- Wenn ein partitionierter Drittanbieter ein Pop-up-Fenster öffnet, das [Opener-Zugriff](/de/docs/Web/API/Window/opener) auf das Ursprungdokument hat, wird dem Drittanbieter der Speicherzugriff für seinen Einbettungscode für 30 Tage gewährt.
-- Wenn ein Erstanbieter `a.example` ein Drittanbieter-Pop-up `b.example` öffnet, wird `b.example` der Drittanbieter-Speicherzugriff auf `a.example` für 30 Tage gewährt.
+- Wenn ein partitionierter Drittanbieter ein Pop-up-Fenster öffnet, das [opener access](/de/docs/Web/API/Window/opener) zu dem Ausgangsdokument hat, erhält der Drittanbieter Speicherzugriff auf seinen Einbettungsanbieter für 30 Tage.
+- Wenn ein Erstanbieter `a.example` ein Drittanbieter-Pop-up `b.example` öffnet, erhält `b.example` für 30 Tage Drittanbieter-Speicherzugriff auf `a.example`.
 
 > [!NOTE]
-> Für Drittanbieter, die diese Heuristik für Tracking-Zwecke missbrauchen, können wir eine Benutzerinteraktion mit dem Pop-up erfordern, bevor der Speicherzugriff gewährt wird.
+> Bei Drittanbietern, die diese Heuristik für Trackingzwecke missbrauchen, können wir verlangen, dass Benutzer mit dem Pop-up interagieren, bevor der Speicherzugriff gewährt wird.
 
-#### Umleitungs-Heuristiken
+#### Weiterleitungsheuristik
 
-- Wenn eine Website `b.example` auf `a.example` umleitet, dann erhält `b.example` Speicherzugriff auf seinen Einbettungscode `a.example`, wenn sowohl `a.example` als auch `b.example` innerhalb der letzten 10 Minuten besucht und genutzt wurden.
-  Dieser Speicherzugriff wird für 15 Minuten gewährt.
-- Wenn ein Tracker `tracker.example` (wie von der Enhanced Tracking Protection klassifiziert) auf einen Nicht-Tracker `a.example` umleitet und `tracker.example` innerhalb der letzten 45 Tage eine Benutzerinteraktion als Erstanbieter erhalten hat, erhält `tracker.example` Speicherzugriff auf `a.example` für 15 Minuten.
+- Wenn eine Site `b.example` zu `a.example` umleitet, erhält `b.example` Speicherzugriff auf seinen Einbettungsanbieter `a.example`, wenn sowohl `a.example` als auch `b.example` innerhalb der letzten 10 Minuten besucht und mit ihnen interagiert wurde. Dieser Speicherzugriff wird für 15 Minuten gewährt.
+- Wenn ein Tracker `tracker.example` (wie durch den Enhanced Tracking Protection klassifiziert) zu einem Nicht-Tracker `a.example` umleitet und `tracker.example` in den letzten 45 Tagen als Erstanbieter Benutzerinteraktionen erhalten hat, erhält `tracker.example` Speicherzugriff auf `a.example` für 15 Minuten.
 
 ## Storage Access API
 
-Drittanbieter-Frames können
-[document.requestStorageAccess](/de/docs/Web/API/Document/requestStorageAccess) verwenden, um nicht partitionierten Zugriff auf Cookies über die [Storage Access API](/de/docs/Web/API/Storage_Access_API) anzufordern.
-Sobald dies gewährt wird, erhält der anfragende Drittanbieter Zugriff auf seine vollständigen Erstanbieter-Cookies (d. h. die Cookies, auf die er Zugriff hätte, wenn er als Erstanbieter besucht wird).
+Drittanbieter-Frames können [document.requestStorageAccess](/de/docs/Web/API/Document/requestStorageAccess) verwenden, um über die [Storage Access API](/de/docs/Web/API/Storage_Access_API) unpartitionierten Zugriff auf Cookies zu beantragen. Sobald dies gewährt wird, wird der anfragende Drittanbieter Zugriff auf seine gesamten Erstanbieter-Cookies erhalten (d. h. die Cookies, auf die er Zugriff hätte, wenn er als Erstanbieter besucht wird).
 
 > [!WARNING]
-> Wenn der Speicherzugriff gewährt wird, gibt es möglicherweise noch Verweise auf den partitionierten Speicher.
-> Websites sollten sich jedoch nicht darauf verlassen, dass sie gleichzeitig partitionierte und nicht partitionierte Cookies verwenden können.
+> Wenn der Speicherzugriff gewährt ist, können immer noch Verweise auf den partitionierten Speicher bestehen. Websites sollten jedoch nicht darauf vertrauen, gleichzeitig partitionierte und unpartitionierte Cookies verwenden zu können.
 
 ## Debugging
 
-Wir ermutigen Webseitenbetreiber, ihre Sites zu testen, insbesondere diejenigen, die auf Drittanbieterinhalte setzen.
-Es gibt mehrere Funktionen in Firefox, die das Testen erleichtern.
+Wir ermutigen Website-Betreiber, ihre Sites zu testen, insbesondere diejenigen, die sich auf Integrationen von Drittanbietern stützen. Es gibt mehrere Funktionen in Firefox, um das Testen zu erleichtern.
 
 ### Protokollierung
 
-Hier ist ein Überblick über die Nachrichten, die an die Webkonsole gesendet werden, wenn Sie mit dem Speicher in einem Drittanbieter-Kontext interagieren.
-In den folgenden Beispielen ist `a.example` die oberste Website, die den Drittanbieter-Frame `b.example` einbettet.
+Hier ist ein Überblick über die Nachrichten, die an die Webkonsole protokolliert werden, wenn im Drittanbieter-Kontext mit Speicher interagiert wird. In den folgenden Beispielen ist `a.example` die Top-Level-Site, die das Drittanbieter-Frame `b.example` einbettet.
 
-| Grund                                                                                                                                                   | Konsolennachricht                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Der Speicher eines Drittanbieter-Frames ist partitioniert                                                                                               | Ein partitionierter Cookie- oder Speicherkontrollzugriff wurde zu "b.example" bereitgestellt, weil es im Drittanbieter-Kontext geladen wurde und die Speicherpartitionierung aktiviert ist. |
-| Der Zugriff auf nicht partitionierte Cookies wird durch die [Heuristiken des Speicherkontrollzugriffs](#heuristik_des_speicherkontrollzugriffs) gewährt | Speicherkontrollzugriff automatisch gewährt für die First-Party-Isolierung von "b.example" auf "a.example".                                                                                 |
-| Der Zugriff auf nicht partitionierte Cookies wird über die [StorageAccessAPI](/de/docs/Web/API/Document/requestStorageAccess) erteilt                   | Der Speicherzugriff wurde für den Ursprung "b.example" auf "a.example" gewährt.                                                                                                             |
+| Grund                                                                                                                         | Konsolennachricht                                                                                                                                                           |
+| ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Der Speicher eines Drittanbieter-Frames wird partitioniert                                                                    | Partitionierter Cookie- oder Speicherzugriff wurde für "b.example" bereitgestellt, weil es im Drittanbieter-Kontext geladen wird und Speicherpartitionierung aktiviert ist. |
+| Zugriff auf unpartitionierte Cookies wird durch [Storage access heuristics](#speicherzugangsheuristik) gewährt                | Speicherzugriff automatisch gewährt für First-Party-Isolierung "b.example" auf "a.example".                                                                                 |
+| Zugriff auf unpartitionierte Cookies wird über die [StorageAccessAPI](/de/docs/Web/API/Document/requestStorageAccess) gewährt | Speicherzugriff für den Ursprung "b.example" auf "a.example" gewährt.                                                                                                       |
 
-### Dritter-Speicherzugriff löschen
+### Dritte-Anbieter-Speicherzugriff löschen
 
-Wenn ein Drittanbieter-iframe den Speicherzugriff auf den übergeordneten Kontext erhält, setzt Firefox eine Berechtigung.
-Um den Zugriff zu widerrufen, können Sie die Berechtigung über das [Site Information Panel](https://support.mozilla.org/de/kb/Site-Information-Panel) im Abschnitt Berechtigungen unter "Webseiten-Berechtigungen" im Bereich „Cookies über Websites hinweg“ löschen.
+Wird einem Drittanbieter-`iframe` Speicherzugriff auf den übergeordneten Kontext gewährt, setzt Firefox eine Berechtigung. Um den Zugriff zu widerrufen, können Sie die Berechtigung über das [Site-Informationsfeld](https://support.mozilla.org/en-US/kb/site-information-panel) im Abschnitt Berechtigungen unter "Cross-site Cookies" löschen.
 
 ### Testpräferenzen
 
 > [!WARNING]
-> Stellen Sie sicher, dass Sie diese Voreinstellungen in einem separaten Firefox-Profil setzen oder sie nach dem Testen zurücksetzen.
+> Stellen Sie sicher, dass Sie diese Präferenzen in einem separaten Firefox-Profil setzen oder sie nach dem Testen zurücksetzen.
 
-#### Web-Kompatibilitätsfunktionen deaktivieren
+#### Webkompatibilitätsfunktionen deaktivieren
 
-Das Setzen von `privacy.antitracking.enableWebcompat` auf `false` wird **alle** ETP- und State Partitioning-Web-Kompatibilitätsfunktionen deaktivieren.
-Das Deaktivieren dieser Funktionen kann beim Testen nützlich sein, um sicherzustellen, dass Ihre Website vollständig mit dem State Partitioning-Mechanismus in Firefox kompatibel ist und sie nicht auf vorübergehende Heuristiken angewiesen ist.
+Das Setzen von `privacy.antitracking.enableWebcompat` auf `false` wird **alle** Webkompatibilitätsmerkmale von ETP und der Zustandspartitionierung deaktivieren. Das Deaktivieren dieser Merkmale kann beim Testen nützlich sein, um sicherzustellen, dass Ihre Website vollständig mit dem Mechanismus der Zustandspartitionierung in Firefox kompatibel ist und sich nicht auf temporäre Heuristiken verlässt.
 
-Funktionen, die durch die Voreinstellung deaktiviert werden, umfassen:
+Die durch die Einstellung deaktivierten Funktionen umfassen:
 
-- [Heuristiken des Speicherkontrollzugriffs](#heuristik_des_speicherkontrollzugriffs): Nicht-partitionierter Zugriff auf Cookies kann nur über die Storage Access API erworben werden.
-- Automatische Gewährung des Speicherzugriffs: [document.requestStorageAccess](/de/docs/Web/API/Document/requestStorageAccess) wird den Benutzer immer zur Bestätigung auffordern.
-- [SmartBlock-Funktion "auf Einschalten freischalten"](https://blog.mozilla.org/security/2021/07/13/smartblock-v2/), die bestimmte Tracker erlaubt, wenn Benutzer mit ihnen interagieren.
-- Alle vorübergehenden [Anti-Tracking-Ausnahmen](https://wiki.mozilla.org/Security/Anti_tracking_policy#Temporary_Web_Compatibility_Interventions), die Websites über den Mechanismus zum Überspringen von Listen gewährt werden.
+- [Speicherzugangsheuristik](#speicherzugangsheuristik): Unpartitionierter Zugriff auf Cookies kann nur über die Storage Access API erworben werden.
+- Automatische Speicherzugriffsgenehmigungen: [document.requestStorageAccess](/de/docs/Web/API/Document/requestStorageAccess) wird immer den Benutzer auffordern.
+- [SmartBlock's "unblock on opt-in" feature](https://blog.mozilla.org/security/2021/07/13/smartblock-v2/), das bestimmten Trackern erlaubt, wenn Benutzer mit ihnen interagieren.
+- Alle temporären [Anti-Tracking-Ausnahmen](https://wiki.mozilla.org/Security/Anti_tracking_policy#Temporary_Web_Compatibility_Interventions), die Websites über den Skip-Listing-Mechanismus gewährt werden.
 
 #### Heuristiken deaktivieren
 
-Die folgenden Voreinstellungen können verwendet werden, um einzelne Heuristiken des Speicherkontrollzugriffs über den [Config-Editor](https://support.mozilla.org/de/kb/about-config-editor-firefox) zu deaktivieren:
+Die folgenden Präferenzen können verwendet werden, um individuelle Speicherzugangsheuristiken über den [Konfigurationseditor](https://support.mozilla.org/en-US/kb/about-config-editor-firefox) zu deaktivieren:
 
-- Aktivieren / Deaktivieren der [Umleitungs-Heuristiken](#umleitungs-heuristiken): `privacy.restrict3rdpartystorage.heuristic.recently_visited`, `privacy.restrict3rdpartystorage.heuristic.redirect`
-- Aktivieren / Deaktivieren der [Fensteröffnungs-Heuristiken](#opener-heuristiken): `privacy.restrict3rdpartystorage.heuristic.window_open`, `privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction`
+- Aktivieren / deaktivieren der [Weiterleitungsheuristiken](#weiterleitungsheuristik): `privacy.restrict3rdpartystorage.heuristic.recently_visited`, `privacy.restrict3rdpartystorage.heuristic.redirect`
+- Aktivieren / deaktivieren der [Fenster-öffnen Heuristik](#opener-heuristiken): `privacy.restrict3rdpartystorage.heuristic.window_open`, `privacy.restrict3rdpartystorage.heuristic.opened_window_after_interaction`
 
-#### Netzwerkpartitionierung deaktivieren
+#### Netzwerk-Partitionierung deaktivieren
 
-Die Netzwerkpartitionierung kann mit der Voreinstellung `privacy.partition.network_state` deaktiviert werden.
+Die Netzwerk-Partitionierung kann mit der `privacy.partition.network_state` Pref deaktiviert werden.
 
-#### Dynamische State-Partitionierung deaktivieren
+#### Dynamische Zustandspartitionierung deaktivieren
 
-Um die dynamische Speicherpartitionierung für alle Websites zu deaktivieren, können Sie die Voreinstellung `network.cookie.cookieBehavior` verwenden:
+Um die dynamische Speicherpartitionierung für alle Sites zu deaktivieren, können Sie die `network.cookie.cookieBehavior` Pref verwenden:
 
 | Wert | Beschreibung                                                         |
 | ---- | -------------------------------------------------------------------- |
 | 5    | Lehne (bekannte) Tracker ab und partitioniere Drittanbieterspeicher. |
-| 4    | Nur Tracker ablehnen (Speicherpartitionierung deaktiviert).          |
-| 0    | Alles zulassen                                                       |
+| 4    | Lehne nur Tracker ab (Speicherpartitionierung deaktiviert).          |
+| 0    | Alles erlauben                                                       |
 
 #### Bestimmte Ursprünge von der Partitionierung ausnehmen
 
-Die dynamische State-Partitionierung kann auch für bestimmte Ursprünge mit der Voreinstellung `privacy.restrict3rdpartystorage.skip_list` deaktiviert werden.
-Diese Voreinstellung enthält eine liste von Ursprüngen, die ein Komma getrennt sind.
-Der Wert der Voreinstellung sollte folgendes Format haben: `first-party_origin_1,third-party_origin_1;first-party_origin_2,third-party_origin_2;...`.
+Die dynamische Zustandspartitionierung kann auch für bestimmte Ursprünge mit der `privacy.restrict3rdpartystorage.skip_list` Präferenz deaktiviert werden. Diese Präferenz hält eine durch Kommas getrennte Liste von Ursprüngen, die ausgenommen werden sollen. Der Präferenzwert sollte folgendes Format haben: `first-party_origin_1,third-party_origin_1;first-party_origin_2,third-party_origin_2;...`.
 
-Beispielsweise, um die Partitionierung für `tracker.example` auf `example.com` oder `social.example` auf `news.example` zu deaktivieren, würden Sie die Voreinstellung folgendermaßen setzen:
+Zum Beispiel, um die Partitionierung für `tracker.example` auf `example.com` oder `social.example` auf `news.example` zu deaktivieren, würden Sie die Präferenz auf folgendes setzen:
 
 ```plain
 https://example.com,https://tracker.example;https://news.example,https://social.example
 ```
 
-Sie können `*` als Platzhalter für entweder den ersten oder den dritten Anbieter verwenden.
-Zum Beispiel, um die Partitionierung für `videos.example` auf allen Websites zu deaktivieren oder um die gesamte Partitionierung für `unpartitioned.example` zu deaktivieren, würden Sie die Voreinstellung folgendermaßen setzen:
+Sie können `*` als Joker für entweder den ersten oder dritten Anbieter verwenden. Zum Beispiel, um die Partitionierung für `videos.example` auf allen Sites zu deaktivieren oder um alle Partitionierungen auf `unpartitioned.example` zu deaktivieren, würden Sie die Präferenz auf folgendes setzen:
 
 ```plain
 *,https://videos.example;unpartitioned.example,*

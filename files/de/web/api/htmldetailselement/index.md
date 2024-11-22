@@ -2,37 +2,37 @@
 title: HTMLDetailsElement
 slug: Web/API/HTMLDetailsElement
 l10n:
-  sourceCommit: a62600788f390d326859cfbf6171013a3f351690
+  sourceCommit: e2ac6a94e71034b56a74142619e75e44140918e9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das Interface **`HTMLDetailsElement`** stellt spezielle Eigenschaften bereit (zusätzlich zu den regulären, die es durch Vererbung auch von [`HTMLElement`](/de/docs/Web/API/HTMLElement) erbt) zum Manipulieren von {{HTMLElement("details")}}-Elementen.
+Das **`HTMLDetailsElement`**-Interface bietet spezielle Eigenschaften (zusätzlich zu den Eigenschaften des regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces, die es durch Vererbung ebenfalls zur Verfügung hat) zur Manipulation von {{HTMLElement("details")}}-Elementen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLDetailsElement.name`](/de/docs/Web/API/HTMLDetailsElement/name)
-  - : Ein String, der das HTML-Attribut [`name`](/de/docs/Web/HTML/Element/details#name) widerspiegelt und es Ihnen erlaubt, eine Gruppe von sich gegenseitig ausschließenden {{htmlelement("details")}}-Elementen zu erstellen. Das Öffnen eines der benannten `<details>`-Elemente dieser Gruppe bewirkt, dass andere Elemente der Gruppe geschlossen werden.
+  - : Ein String, der das HTML-Attribut [`name`](/de/docs/Web/HTML/Element/details#name) widerspiegelt, das es ermöglicht, eine Gruppe von gegenseitig ausschließenden {{htmlelement("details")}}-Elementen zu erstellen. Das Öffnen eines der benannten `<details>`-Elemente dieser Gruppe führt dazu, dass andere Elemente der Gruppe geschlossen werden.
 - [`HTMLDetailsElement.open`](/de/docs/Web/API/HTMLDetailsElement/open)
   - : Ein boolescher Wert, der das HTML-Attribut [`open`](/de/docs/Web/HTML/Element/details#open) widerspiegelt und angibt, ob die Inhalte des Elements (ohne das {{HTMLElement("summary")}}) dem Benutzer angezeigt werden sollen oder nicht.
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Keine spezifische Methode; erbt Methoden von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Ereignisse
 
-_Erbt Ereignisse von seiner Elternschnittstelle [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Ereignisse von seinem Eltern-Interface, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 ## Beispiele
 
 ### Kapitel protokollieren, wenn sie geöffnet und geschlossen werden
 
-Dieses Beispiel verwendet das `HTMLElement`-[`toggle`](/de/docs/Web/API/HTMLElement/toggle_event)-Ereignis, um Kapitel zu einem Protokoll zu hinzufügen oder davon zu entfernen, wenn sie geöffnet und geschlossen werden.
+Dieses Beispiel verwendet das `HTMLElement`-Ereignis [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event), um Kapitel zu einem Log hinzuzufügen und zu entfernen, wenn sie geöffnet und geschlossen werden.
 
 #### HTML
 

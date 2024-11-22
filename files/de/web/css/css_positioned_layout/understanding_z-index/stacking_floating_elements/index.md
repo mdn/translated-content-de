@@ -1,33 +1,33 @@
 ---
-title: Stapeln schwebender Elemente
+title: Stapeln von schwebenden Elementen
 slug: Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_floating_elements
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: b692821c494fd3a25dd883b6fe14998fa2621f7b
 ---
 
 {{CSSRef}}
 
-Bei schwebenden Elementen ist die Stapelreihenfolge etwas anders. Schwebende Elemente werden zwischen nicht positionierten und positionierten Elementen platziert:
+Für schwebende Elemente ist die Stapelreihenfolge etwas anders. Schwebende Elemente werden zwischen nicht-positionierten und positionierten Elementen platziert:
 
-1. Der Hintergrund und die Ränder des Wurzelelements.
-2. Nachfolgende nicht positionierte Elemente in der Reihenfolge ihres Auftretens im HTML.
+1. Der Hintergrund und die Rahmen des Wurzelelements.
+2. Nachfolger nicht-positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 3. _Schwebende Elemente_.
-4. Nachfolgende positionierte Elemente in der Reihenfolge ihres Auftretens im HTML.
+4. Nachfolger positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 
-Siehe [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung zu positionierten und nicht positionierten Elementen.
+Sehen Sie sich [Arten der Positionierung](/de/docs/Web/CSS/position#types_of_positioning) für eine Erklärung zu positionierten und nicht-positionierten Elementen an.
 
 > [!NOTE]
-> Wenn ein `opacity`-Wert auf ein nicht positioniertes Element angewendet wird (d.h. DIV #4 im untenstehenden Beispiel), passiert etwas Seltsames: Der Hintergrund und der Rand dieses Blocks erscheinen über den schwebenden und den positionierten Blöcken. Dies liegt an einem besonderen Teil der Spezifikation: Das Anwenden eines `opacity`-Werts erstellt einen neuen Stapelkontext (siehe [What No One Told You About Z-Index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
+> Wenn ein `opacity`-Wert auf ein nicht-positioniertes Element angewendet wird (z. B. DIV #4 im untenstehenden Beispiel), passiert etwas Merkwürdiges: Der Hintergrund und der Rahmen dieses Blocks erscheinen über den schwebenden und den positionierten Blöcken. Dies liegt an einem eigenartigen Teil der Spezifikationen: Das Anwenden eines `opacity`-Werts erzeugt einen neuen Stapelkontext (siehe [What No One Told You About Z-Index](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)).
 
 ## Beispiel
 
-In diesem Beispiel können Sie sehen, dass der Hintergrund und der Rand des nicht positionierten Elements (DIV #4) völlig unbeeinflusst von den schwebenden Elementen sind, aber der Inhalt betroffen ist. Dies geschieht in Übereinstimmung mit dem Standardverhalten von Floats, das mit einer Regel, die der obigen Liste hinzugefügt wird, gezeigt werden kann:
+In diesem Beispiel können Sie sehen, dass der Hintergrund und der Rahmen des nicht-positionierten Elements (DIV #4) vollständig unbeeinflusst von den schwebenden Elementen sind, aber der Inhalt davon betroffen ist. Dies geschieht gemäß dem Standardverhalten von Floats, das durch eine hinzugefügte Regel zur obigen Liste gezeigt werden kann:
 
-1. Der Hintergrund und die Ränder des Wurzelelements.
-2. Nachfolgende nicht positionierte Elemente in der Reihenfolge ihres Auftretens im HTML.
+1. Der Hintergrund und die Rahmen des Wurzelelements.
+2. Nachfolger nicht-positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 3. Schwebende Elemente.
-4. _Nachfolgende nicht positionierte Inline-Elemente_.
-5. Nachfolgende positionierte Elemente in der Reihenfolge ihres Auftretens im HTML.
+4. _Nachfolger nicht-positionierte Inline-Elemente_.
+5. Nachfolger positionierte Elemente, in der Reihenfolge ihres Auftretens im HTML.
 
 ### HTML
 
@@ -120,9 +120,9 @@ strong {
 
 ## Siehe auch
 
-- [Stapeln ohne die z-index-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
-- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Using_z-index): Wie man `z-index` verwendet, um die Standard-Stapelreihenfolge zu ändern.
-- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context): Notizen zum Stapelkontext.
-- [Stapelkontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_1): 2-stufige HTML-Hierarchie, z-index auf der letzten Stufe
-- [Stapelkontext Beispiel 2](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_2): 2-stufige HTML-Hierarchie, z-index auf allen Stufen
-- [Stapelkontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_3): 3-stufige HTML-Hierarchie, z-index auf der zweiten Stufe
+- [Stapeln ohne die `z-index`-Eigenschaft](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_without_z-index): Die Stapelregeln, die gelten, wenn `z-index` nicht verwendet wird.
+- [Verwendung von z-index](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Using_z-index): Wie man `z-index` benutzt, um die Standard-Stapelreihenfolge zu ändern.
+- [Stapelkontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context): Anmerkungen zum Stapelkontext.
+- [Stapelkontext Beispiel 1](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_1): 2-Ebenen HTML-Hierarchie, z-index auf der letzten Ebene.
+- [Stapelkontext Beispiel 2](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_2): 2-Ebenen HTML-Hierarchie, z-index auf allen Ebenen.
+- [Stapelkontext Beispiel 3](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context_example_3): 3-Ebenen HTML-Hierarchie, z-index auf der zweiten Ebene.

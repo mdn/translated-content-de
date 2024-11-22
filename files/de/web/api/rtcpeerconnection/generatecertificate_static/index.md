@@ -3,12 +3,12 @@ title: "RTCPeerConnection: generateCertificate() statische Methode"
 short-title: generateCertificate()
 slug: Web/API/RTCPeerConnection/generateCertificate_static
 l10n:
-  sourceCommit: e897fbfbefff7a7178af36a57944821dbc49318f
+  sourceCommit: b692821c494fd3a25dd883b6fe14998fa2621f7b
 ---
 
 {{APIRef("WebRTC")}}
 
-Die **`generateCertificate()`** statische Funktion des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces erstellt ein X.509-Zertifikat und den entsprechenden privaten Schlüssel. Sie gibt ein Promise zurück, das mit dem neuen [`RTCCertificate`](/de/docs/Web/API/RTCCertificate) aufgelöst wird, sobald es erstellt wurde.
+Die statische Funktion **`generateCertificate()`** des [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection)-Interfaces erstellt ein X.509-Zertifikat und den entsprechenden privaten Schlüssel. Sie gibt ein Promise zurück, das auf das neue [`RTCCertificate`](/de/docs/Web/API/RTCCertificate) auflöst, sobald es generiert wurde.
 
 ## Syntax
 
@@ -19,28 +19,28 @@ RTCPeerConnection.generateCertificate(keygenAlgorithm)
 ### Parameter
 
 - `keygenAlgorithm`
-  - : Ein [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) [`AlgorithmIdentifier`](/de/docs/Web/API/AlgorithmIdentifier)-String oder ein [`Algorithm`](/de/docs/Web/API/Algorithm)-subklassiertes Objekt, das einen Algorithmus spezifiziert, der für die Erstellung des Zertifikatschlüssels verwendet werden soll.
+  - : Ein [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) [`AlgorithmIdentifier`](/de/docs/Web/API/AlgorithmIdentifier)-String oder ein [`Algorithm`](/de/docs/Web/API/CryptoKey/algorithm)-unterklassiertes Objekt, das einen Algorithmus angibt, der bei der Erstellung des Schlüssels für das Zertifikat verwendet werden soll.
 
-> **Note:** `generateCertificate()` ist eine statische Methode, daher wird sie immer auf dem `RTCPeerConnection`-Interface selbst und nicht auf einer Instanz davon aufgerufen.
+> **Note:** `generateCertificate()` ist eine statische Methode und wird daher immer auf das `RTCPeerConnection`-Interface selbst aufgerufen, nicht auf eine Instanz davon.
 
 ### Rückgabewert
 
-Ein Promise, das zu einem neuen [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)-Objekt mit einem neuen Schlüssel, basierend auf den angegebenen Optionen, aufgelöst wird.
+Ein Promise, das auf ein neues [`RTCCertificate`](/de/docs/Web/API/RTCCertificate)-Objekt auflöst, das einen neuen Schlüssel basierend auf den angegebenen Optionen enthält.
 
 ### Ausnahmen
 
 - `NotSupportedError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die normalisierte Form von `keygenAlgorithm` einen Algorithmus oder Algorithmen-Einstellungen spezifiziert, die der Browser nicht unterstützt oder deren Verwendung er in Verbindung mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) nicht erlaubt.
+  - : Wird ausgelöst, wenn die normalisierte Form von `keygenAlgorithm` einen Algorithmus oder Algorithmenparameter spezifiziert, die der Browser nicht unterstützt oder deren Verwendung mit einer [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) nicht erlaubt ist.
 
-Es können weitere Fehler auftreten; beispielsweise, wenn das angegebene `keygenAlgorithm` nicht erfolgreich in ein [`RTCCertificateExpiration`](/de/docs/Web/API/RTCCertificateExpiration)-Dictionary umgewandelt werden kann, wird der Fehler ausgelöst, der während dieser Umwandlung auftritt.
+Andere Fehler können auftreten; zum Beispiel, wenn das angegebene `keygenAlgorithm` nicht erfolgreich in ein [`RTCCertificateExpiration`](/de/docs/Web/API/RTCCertificateExpiration)-Wörterbuch umgewandelt werden kann, wird der während dieser Umwandlung auftretende Fehler ausgelöst.
 
 ## Beschreibung
 
-Wenn ein String angegeben wird, muss es ein mit der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) kompatibler Algorithmusname sein. Alternativ können Sie spezifische Details für die Konfiguration des Algorithmus angeben, indem Sie ein Objekt basierend auf einer der Unterklassen der [`Algorithm`](/de/docs/Web/API/Algorithm)-Klasse der Web Crypto API bereitstellen.
+Wenn ein String angegeben wird, muss es sich um einen mit der [Web Crypto API](/de/docs/Web/API/Web_Crypto_API) kompatiblen Algorithmusnamen-String handeln. Alternativ können Sie bestimmte Details zur Konfiguration des Algorithmus angeben, indem Sie ein Objekt basierend auf einer der Unterklassen der [`Algorithm`](/de/docs/Web/API/CryptoKey/algorithm)-Klasse der Web Crypto API bereitstellen.
 
 ### Standardkonfigurationen
 
-Alle Browser sind verpflichtet, die folgenden zwei Konfigurationen zu unterstützen. Es ist völlig möglich, dass die _Standard_-Einstellungen eines Browsers abweichen, aber diese werden immer unterstützt.
+Alle Browser müssen die folgenden zwei Konfigurationen unterstützen. Es ist völlig möglich, dass die _Standard_-Einstellungen eines Browsers unterschiedlich sind, aber diese werden immer unterstützt.
 
 #### RSASSA-PKCS1-v1_5
 
@@ -64,11 +64,11 @@ let stdECDSACertificate = {
 
 ### Ablaufzeit des Zertifikats
 
-Standardmäßig wird das neue Zertifikat mit `expires` auf einen Wert von 2592000000 Millisekunden, oder 30 Tagen, konfiguriert. Die Ablaufzeit darf 31536000000 Millisekunden, oder 365 Tage, nicht überschreiten. Es ist auch nützlich zu beachten, dass Browser die Ablaufzeit von Zertifikaten weiter einschränken können, wenn sie dies wünschen.
+Standardmäßig wird das neue Zertifikat mit einem `expires`-Wert von 2592000000 Millisekunden oder 30 Tagen konfiguriert. Die Ablaufzeit darf 31536000000 Millisekunden oder 365 Tage nicht überschreiten. Es ist auch nützlich zu wissen, dass Browser die Ablaufzeit von Zertifikaten weiter einschränken können, wenn sie dies wünschen.
 
 ## Beispiele
 
-### Details des Algorithmus spezifizieren
+### Details des Algorithmus angeben
 
 Dieses Beispiel fordert ein neues RSASSA-PKCS1-v1_5-Zertifikat mit einem SHA-256-Hash und einer Moduluslänge von 2048 an.
 
@@ -83,9 +83,9 @@ RTCPeerConnection.generateCertificate({
 });
 ```
 
-### Einen Algorithmus nach Namen spezifizieren
+### Einen Algorithmus nach Namen angeben
 
-Das folgende Beispiel spezifiziert einen String, der ein [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)-Zertifikat anfordert.
+Das folgende Beispiel gibt einen String an, der ein [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm)-Zertifikat anfordert.
 
 ```js
 RTCPeerConnection.generateCertificate("ECDSA");
@@ -105,5 +105,5 @@ RTCPeerConnection.generateCertificate("ECDSA");
 - [Web Crypto API](/de/docs/Web/API/Web_Crypto_API)
 - [Website-Sicherheit](/de/docs/Learn/Server-side/First_steps/Website_security)
 - [Web-Sicherheit](/de/docs/Web/Security)
-- {{Glossary("Symmetric-key_cryptography", "Symmetrische Verschlüsselung")}}
+- {{Glossary("Symmetric-key_cryptography", "Symmetrische Kryptographie")}}
 - [`Crypto`](/de/docs/Web/API/Crypto)

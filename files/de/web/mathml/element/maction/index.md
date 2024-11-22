@@ -2,15 +2,15 @@
 title: <maction>
 slug: Web/MathML/Element/maction
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: 288cd158cbbd76487d96646f0f9102aa39902536
 ---
 
 {{MathMLRef}}{{Deprecated_Header}}
 
-Das **`<maction>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht es, Aktionen an mathematische Ausdrücke zu binden. Standardmäßig wird nur das erste Kind gerendert, aber einige Browser können die `actiontype`- und `selection`-Attribute berücksichtigen, um benutzerdefiniertes Verhalten zu implementieren.
+Das **`<maction>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht das Binden von Aktionen an mathematische Ausdrücke. Standardmäßig wird nur das erste Kind gerendert, aber einige Browser können die Attribute `actiontype` und `selection` berücksichtigen, um benutzerdefinierte Verhaltensweisen zu implementieren.
 
 > [!NOTE]
-> Historisch gesehen bot dieses Element einen Mechanismus, um MathML-Formeln interaktiv zu gestalten. Heutzutage wird empfohlen, [JavaScript](/de/docs/Web/JavaScript) und andere Webtechnologien zu verwenden, um diesen Anwendungsfall zu implementieren.
+> Historisch gesehen bot dieses Element einen Mechanismus, um MathML-Formeln interaktiv zu gestalten. Heutzutage wird empfohlen, sich auf [JavaScript](/de/docs/Web/JavaScript) und andere Webtechnologien zu verlassen, um diesen Anwendungsfall zu implementieren.
 
 ## Attribute
 
@@ -18,51 +18,75 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 
 - `actiontype` {{Deprecated_Inline}} {{Non-standard_Inline}}
 
-  - : Die Aktion, die angibt, was für dieses Element passiert. Besonderes Verhalten für folgende Werte wurde von einigen Browsern implementiert:
+  - : Die Aktion, die bestimmt, was mit diesem Element geschieht. Spezielle Verhaltensweisen für die folgenden Werte wurden von einigen Browsern implementiert:
 
-    - `statusline`: Wenn auf den _Ausdruck_ geklickt wird oder der Leser den Zeiger darüber bewegt, wird die _Nachricht_ an die Statusleiste des Browsers gesendet. Die Syntax lautet: `<maction actiontype="statusline"> expression message </maction>`.
-    - `toggle`: Wenn auf die Subexpressions geklickt wird, wechselt die Darstellung zwischen den ausgewählten Subexpressions. Daher erhöht jeder Klick den `selection`-Wert.
-      Die Syntax lautet: `<maction actiontype="toggle" selection="positive-integer" > expression1 expression2 expressionN </maction>`.
+    - `statusline`: Bei einem Klick auf den _Ausdruck_ oder wenn der Leser den Zeiger darüber bewegt, wird die _Nachricht_ an die Statusleiste des Browsers gesendet. Die Syntax lautet: `<maction actiontype="statusline"> Ausdruck Nachricht </maction>`.
+    - `toggle`: Bei einem Klick auf den Unterausdruck wechselt die Anzeige zwischen ausgewählten Unterausdrücken. Daher erhöht jeder Klick den `selection`-Wert.
+      Die Syntax lautet: `<maction actiontype="toggle" selection="positive-integer" > Ausdruck1 Ausdruck2 AusdruckN </maction>`.
 
 - `selection` {{Deprecated_Inline}} {{Non-standard_Inline}}
-  - : Das aktuell sichtbare Kindelement, das nur für `actiontype="toggle"` oder nicht standardisierte `actiontype`-Werte berücksichtigt wird. Der Standardwert ist `1`, was das erste Kindelement ist.
+  - : Das aktuell sichtbare Kindelement, das nur für `actiontype="toggle"` oder nicht standardmäßige `actiontype`-Werte berücksichtigt wird. Der Standardwert ist `1`, was das erste Kindelement ist.
 
 ## Beispiele
 
-Das folgende Beispiel verwendet den "toggle" `actiontype`:
+Das folgende Beispiel verwendet den "toggle"-`actiontype`:
+
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-content: center;
+}
+
+math {
+  font-size: 1.5em;
+}
+
+maction {
+  padding: 0.5em;
+  cursor: pointer;
+}
+```
 
 ```html
-<p>
-  Try clicking this formula several times:
+<p>Try clicking this formula several times:</p>
+<math display="block">
+  <maction actiontype="toggle">
+    <mfrac>
+      <mn>6</mn>
+      <mn>8</mn>
+    </mfrac>
 
-  <math display="block">
-    <maction actiontype="toggle">
-      <mfrac>
-        <mn>6</mn>
-        <mn>8</mn>
-      </mfrac>
-
-      <mfrac>
-        <mrow>
-          <mn>3</mn>
-          <mo>×</mo>
-          <mn>2</mn>
-        </mrow>
-        <mrow>
-          <mn>4</mn>
-          <mo>×</mo>
-          <mn>2</mn>
-        </mrow>
-      </mfrac>
-
-      <mfrac>
+    <mfrac>
+      <mrow>
         <mn>3</mn>
+        <mo>×</mo>
+        <mn>2</mn>
+      </mrow>
+      <mrow>
         <mn>4</mn>
-      </mfrac>
-    </maction>
-  </math>
-</p>
+        <mo>×</mo>
+        <mn>2</mn>
+      </mrow>
+    </mfrac>
+
+    <mfrac>
+      <mn>3</mn>
+      <mn>4</mn>
+    </mfrac>
+  </maction>
+</math>
 ```
+
+Beispiel-Rendering:
+
+![MathML-TOGGLE-Aktionsbeispiel](toggle.gif)
+
+Rendering in Ihrem Browser:
 
 {{EmbedLiveSample('Examples', 700, 200)}}
 
