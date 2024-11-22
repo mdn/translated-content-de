@@ -2,12 +2,12 @@
 title: Grundlagen des Paketmanagements
 slug: Learn/Tools_and_testing/Understanding_client-side_tools/Package_management
 l10n:
-  sourceCommit: 3d2cd62710699f455811feb389b474e90218605d
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Understanding_client-side_tools/Command_line","Learn/Tools_and_testing/Understanding_client-side_tools/Introducing_complete_toolchain", "Learn/Tools_and_testing/Understanding_client-side_tools")}}
 
-In diesem Artikel werden wir Paketmanager genauer betrachten, um zu verstehen, wie wir sie in unseren eigenen Projekten nutzen können — um Abhängigkeiten von Projektwerkzeugen zu installieren, sie auf dem neuesten Stand zu halten und mehr.
+In diesem Artikel betrachten wir Paketmanager im Detail, um zu verstehen, wie wir sie in unseren eigenen Projekten nutzen können – um Projekt-Tool-Abhängigkeiten zu installieren, sie auf dem neuesten Stand zu halten und mehr.
 
 <table>
   <tbody>
@@ -22,7 +22,7 @@ In diesem Artikel werden wir Paketmanager genauer betrachten, um zu verstehen, w
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verstehen, was Paketmanager und Paket-Repositories sind, warum sie benötigt werden und die Grundlagen ihrer Nutzung.
+        Zu verstehen, was Paketmanager und Paket-Repositories sind, warum sie benötigt werden und die Grundlagen ihrer Nutzung.
       </td>
     </tr>
   </tbody>
@@ -30,68 +30,68 @@ In diesem Artikel werden wir Paketmanager genauer betrachten, um zu verstehen, w
 
 ## Eine Abhängigkeit in Ihrem Projekt
 
-Eine **Abhängigkeit** ist ein Drittanbieter-Softwareteil, das wahrscheinlich von jemand anderem geschrieben wurde und idealerweise ein einzelnes Problem für Sie löst. Ein Webprojekt kann eine beliebige Anzahl von Abhängigkeiten haben, angefangen von keiner bis hin zu vielen, und Ihre Abhängigkeiten können Sub-Abhängigkeiten beinhalten, die Sie nicht explizit installiert haben — Ihre Abhängigkeiten können eigene Abhängigkeiten haben.
+Eine **Abhängigkeit** ist ein Drittanbieter-Softwareteil, der wahrscheinlich von jemand anderem geschrieben wurde und idealerweise ein einzelnes Problem für Sie löst. Ein Webprojekt kann eine beliebige Anzahl von Abhängigkeiten haben, von keinen bis zu vielen, und Ihre Abhängigkeiten könnten Unterabhängigkeiten einschließen, die Sie nicht ausdrücklich installiert haben – Ihre Abhängigkeiten können eigene Abhängigkeiten haben.
 
-Ein einfaches Beispiel für eine nützliche Abhängigkeit, die Ihr Projekt möglicherweise benötigt, ist ein Code zur Berechnung relativer Daten als menschenlesbarer Text. Sie könnten diesen sicher selbst programmieren, aber die Wahrscheinlichkeit ist groß, dass bereits jemand anderes dieses Problem gelöst hat — warum Zeit verschwenden, das Rad neu zu erfinden? Außerdem wurde eine zuverlässige Drittanbieter-Abhängigkeit wahrscheinlich in vielen verschiedenen Situationen getestet, was sie robuster und browserübergreifender kompatibel macht als Ihre eigene Lösung.
+Ein einfaches Beispiel für eine nützliche Abhängigkeit, die Ihr Projekt benötigen könnte, ist Code, der relative Daten als menschenlesbaren Text berechnet. Sie könnten dies sicherlich selbst programmieren, aber es ist sehr wahrscheinlich, dass jemand anderes dieses Problem bereits gelöst hat – warum Zeit mit der Neuerfindung des Rades verschwenden? Darüber hinaus wird eine zuverlässige Drittanbieter-Abhängigkeit wahrscheinlich in vielen verschiedenen Situationen getestet worden sein, was sie robuster und browserübergreifender kompatibel macht als Ihre eigene Lösung.
 
-Eine Projektabhängigkeit kann eine gesamte JavaScript-Bibliothek oder ein Framework sein — wie React oder Vue — oder ein sehr kleines Dienstprogramm wie unsere menschenlesbare Datumsbibliothek, oder es kann ein Befehlszeilenwerkzeug wie Prettier oder ESLint sein, die wir in früheren Artikeln besprochen haben.
+Eine Projektabhängigkeit kann eine gesamte JavaScript-Bibliothek oder ein Framework sein – wie React oder Vue – oder ein sehr kleines Dienstprogramm wie unsere menschenlesbare Datumsbibliothek, oder es kann ein Kommandozeilen-Tool wie Prettier oder ESLint sein, über das wir in vorherigen Artikeln gesprochen haben.
 
-Ohne moderne Build-Tools könnten Abhängigkeiten wie diese möglicherweise in Ihr Projekt über ein einfaches [`<script>`](/de/docs/Web/HTML/Element/script)-Element eingebunden werden, aber dies funktioniert möglicherweise nicht auf Anhieb und Sie benötigen wahrscheinlich einige moderne Werkzeuge, um Ihren Code und die Abhängigkeiten zu bündeln, wenn sie im Web veröffentlicht werden. Ein Bundle ist ein Begriff, der im Allgemeinen verwendet wird, um eine einzelne Datei auf Ihrem Webserver zu bezeichnen, die den gesamten JavaScript-Code für Ihre Software enthält — in der Regel so weit wie möglich komprimiert, um die Zeit zu reduzieren, die benötigt wird, um Ihre Software herunterzuladen und im Browser Ihrer Besucher anzuzeigen.
+Ohne moderne Build-Tools könnten Abhängigkeiten wie diese in Ihrem Projekt mit einem einfachen [`<script>`](/de/docs/Web/HTML/Element/script)-Element eingefügt werden, aber dies könnte nicht sofort funktionieren und Sie werden wahrscheinlich einige moderne Werkzeuge benötigen, um Ihren Code und Ihre Abhängigkeiten zusammenzubündeln, wenn sie im Web veröffentlicht werden. Ein Bundle ist ein Begriff, der allgemein verwendet wird, um auf eine einzelne Datei auf Ihrem Webserver zu verweisen, die den gesamten JavaScript-Code für Ihre Software enthält – typischerweise so stark wie möglich komprimiert, um die Zeit zu verkürzen, die benötigt wird, um Ihre Software herunterzuladen und im Browser Ihrer Besucher anzuzeigen.
 
-Darüber hinaus, was passiert, wenn Sie ein besseres Werkzeug finden, das Sie anstelle des aktuellen verwenden möchten, oder eine neue Version Ihrer Abhängigkeit veröffentlicht wird, auf die Sie aktualisieren möchten? Dies ist nicht allzu schmerzhaft bei ein paar Abhängigkeiten, aber in größeren Projekten mit vielen Abhängigkeiten kann es wirklich herausfordernd werden, dies im Blick zu behalten. Es macht mehr Sinn, einen **Paketmanager** wie npm zu verwenden, da dies garantieren wird, dass der Code sauber hinzugefügt und entfernt wird, sowie eine Vielzahl anderer Vorteile.
+Darüber hinaus, was passiert, wenn Sie ein besseres Tool finden, das Sie anstelle des aktuellen verwenden möchten, oder eine neue Version Ihrer Abhängigkeit veröffentlicht wird, die Sie aktualisieren möchten? Dies ist bei ein paar Abhängigkeiten nicht allzu schmerzhaft, aber in größeren Projekten mit vielen Abhängigkeiten kann es wirklich schwierig werden, den Überblick zu behalten. Es macht mehr Sinn, einen **Paketmanager** wie npm zu verwenden, da dieser garantiert, dass der Code sauber hinzugefügt und entfernt wird, sowie eine Reihe anderer Vorteile bietet.
 
 ## Was genau ist ein Paketmanager?
 
-Wir haben bereits npm kennengelernt, aber wenn wir einen Schritt zurück von npm selbst machen, ist ein Paketmanager ein System, das Ihre Projektabhängigkeiten verwaltet.
+Wir sind [npm](https://www.npmjs.com/) bereits begegnet, aber abgesehen von npm selbst ist ein Paketmanager ein System, das Ihre Projektabhängigkeiten verwaltet.
 
-Der Paketmanager bietet eine Methode zum Installieren neuer Abhängigkeiten (auch als "Pakete" bezeichnet), verwaltet, wo die Pakete auf Ihrem Dateisystem gespeichert werden, und bietet Möglichkeiten, Ihre eigenen Pakete zu veröffentlichen.
+Der Paketmanager wird eine Methode bereitstellen, um neue Abhängigkeiten (auch als "Pakete" bezeichnet) zu installieren, zu verwalten, wo Pakete auf Ihrem Dateisystem gespeichert sind, und Ihnen Möglichkeiten bieten, Ihre eigenen Pakete zu veröffentlichen.
 
-Theoretisch benötigen Sie möglicherweise keinen Paketmanager und könnten Ihre Projektabhängigkeiten manuell herunterladen und speichern, aber ein Paketmanager übernimmt die nahtlose Installation und Deinstallation von Paketen. Wenn Sie keinen verwenden würden, müssten Sie Folgendes manuell regeln:
+Theoretisch benötigen Sie möglicherweise keinen Paketmanager und könnten Ihre Projektabhängigkeiten manuell herunterladen und speichern, aber ein Paketmanager wird nahtlos die Installation und Deinstallation von Paketen übernehmen. Wenn Sie keinen verwenden, müssten Sie dies manuell durchführen:
 
-- Alle korrekten Paket-JavaScript-Dateien finden.
-- Sie überprüfen, um sicherzustellen, dass sie keine bekannten Schwachstellen aufweisen.
-- Sie herunterladen und an den richtigen Stellen in Ihrem Projekt ablegen.
-- Den Code schreiben, um das/die Paket(e) in Ihre Anwendung einzubinden (dies wird tendenziell mit [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) gemacht, ein weiteres Thema, über das es sich zu lesen und verstehen lohnt).
-- All dasselbe für alle Sub-Abhängigkeiten der Pakete tun, von denen es Dutzende oder Hunderte geben könnte.
-- Alle Dateien wieder entfernen, wenn Sie die Pakete entfernen möchten.
+- Finden Sie alle richtigen JavaScript-Dateien des Pakets.
+- Überprüfen Sie sie, um sicherzustellen, dass sie keine bekannten Schwachstellen haben.
+- Laden Sie sie herunter und platzieren Sie sie an den richtigen Stellen in Ihrem Projekt.
+- Schreiben Sie den Code, um das Paket/die Pakete in Ihre Anwendung einzubinden (dies wird normalerweise mit [JavaScript-Modulen](/de/docs/Web/JavaScript/Guide/Modules) gemacht, ein weiteres Thema, das es wert ist, gelesen und verstanden zu werden).
+- Machen Sie dasselbe für alle Subeabhängigkeiten der Pakete, von denen es Dutzende oder Hunderte geben könnte.
+- Entfernen Sie alle Dateien erneut, wenn Sie die Pakete entfernen möchten.
 
 Darüber hinaus verwalten Paketmanager doppelte Abhängigkeiten (etwas, das in der Frontend-Entwicklung wichtig und häufig wird).
 
-Im Fall von npm (und JavaScript- und Node-basierten Paketmanagern) haben Sie zwei Optionen, wo Sie Ihre Abhängigkeiten installieren. Wie wir im vorigen Artikel schon angesprochen haben, können Abhängigkeiten global oder lokal zu Ihrem Projekt installiert werden. Obwohl es dazu neigt, mehr Vorteile für die globale Installation zu geben, sind die Vorteile der lokalen Installation wichtiger — wie z.B. Portabilität des Codes und Versionssperre.
+Im Fall von npm (und JavaScript- und Node-basierten Paketmanagern) haben Sie zwei Optionen, wo Sie Ihre Abhängigkeiten installieren. Wie im vorherigen Artikel erwähnt, können Abhängigkeiten global oder lokal zu Ihrem Projekt installiert werden. Obwohl es tendenziell mehr Vorteile für die globale Installation gibt, sind die Vorteile der lokalen Installation wichtiger – wie Codeportabilität und Versions-Sperrung.
 
-Zum Beispiel, wenn Ihr Projekt auf Webpack mit einer bestimmten Konfiguration angewiesen ist, würden Sie sicherstellen wollen, dass, wenn Sie dieses Projekt auf einem anderen Rechner installieren oder viel später darauf zurückkommen, die Konfiguration immer noch funktioniert. Wenn eine andere Version von Webpack installiert wäre, könnte sie nicht kompatibel sein. Um dies zu mildern, werden Abhängigkeiten lokal zu einem Projekt installiert.
+Zum Beispiel, wenn Ihr Projekt auf webpack mit einer bestimmten Konfiguration angewiesen ist, möchten Sie sicherstellen, dass, wenn Sie dieses Projekt auf einem anderen Rechner installieren oder es viel später erneut darauf zugreifen, die Konfiguration immer noch funktioniert. Wenn eine andere Version von webpack installiert war, könnte sie nicht kompatibel sein. Um dies abzumildern, werden Abhängigkeiten lokal zu einem Projekt installiert.
 
-Um lokale Abhängigkeiten wirklich glänzen zu sehen, müssen Sie nur versuchen, ein bestehendes Projekt herunterzuladen und auszuführen — wenn es funktioniert und alle Abhängigkeiten sofort funktionieren, haben Sie den lokalen Abhängigkeiten zu verdanken, dass der Code portabel ist.
+Um lokale Abhängigkeiten wirklich glänzen zu sehen, müssen Sie nur versuchen, ein bestehendes Projekt herunterzuladen und auszuführen – wenn es funktioniert und alle Abhängigkeiten sofort funktionieren, dann haben Sie den lokalen Abhängigkeiten zu verdanken, dass der Code portabel ist.
 
 > [!NOTE]
-> npm ist nicht der einzige verfügbare Paketmanager. Ein erfolgreicher und beliebter alternativer Paketmanager ist [Yarn](https://yarnpkg.com/). Yarn löst die Abhängigkeiten mit einem anderen Algorithmus, der eine schnellere Benutzererfahrung bedeuten kann. Es gibt auch eine Reihe anderer aufkommender Clients wie [pnpm](https://pnpm.js.org/).
+> npm ist nicht der einzige verfügbare Paketmanager. Ein erfolgreicher und beliebter alternativer Paketmanager ist [Yarn](https://yarnpkg.com/). Yarn löst die Abhängigkeiten mit einem anderen Algorithmus, was zu einem schnelleren Benutzererlebnis führen kann. Es gibt auch eine Reihe anderer aufkommender Clients, wie z.B. [pnpm](https://pnpm.js.org/).
 
-## Paketregistrierungen
+## Paketregister
 
-Damit ein Paketmanager funktioniert, muss er wissen, woher er Pakete installieren soll, und dies geschieht in Form eines Paketregisters. Das Register ist ein zentraler Ort, an dem ein Paket veröffentlicht wird und von dem es installiert werden kann. npm, ebenso ein Paketmanager, ist auch der Name des am häufigsten verwendeten Paketregisters für JavaScript-Pakete. Das npm-Register existiert unter [npmjs.com](https://www.npmjs.com/).
+Damit ein Paketmanager funktioniert, muss er wissen, woher die Pakete installiert werden sollen, und das geschieht in Form eines Paketregisters. Das Register ist ein zentraler Ort, an dem ein Paket veröffentlicht wird und somit installiert werden kann. npm, als Paketmanager, ist auch der Name des am häufigsten verwendeten Paketregisters für JavaScript-Pakete. Das npm-Register befindet sich unter [npmjs.com](https://www.npmjs.com/).
 
-npm ist nicht die einzige Option. Sie könnten Ihr eigenes Paketregister verwalten — Produkte wie [Microsoft Azure](https://azure.microsoft.com/) ermöglichen es Ihnen, Proxies zum npm-Register zu erstellen (damit Sie bestimmte Pakete überschreiben oder sperren können), [GitHub bietet auch einen Paketregisterdienst](https://docs.github.com/en/packages), und es wird wahrscheinlich mehr Optionen geben, die im Laufe der Zeit auftauchen.
+npm ist nicht die einzige Option. Sie könnten Ihr eigenes Paketregister verwalten – Produkte wie [Microsoft Azure](https://azure.microsoft.com/) ermöglichen es Ihnen, Proxys für das npm-Register zu erstellen (so dass Sie bestimmte Pakete überschreiben oder sperren können). Auch [GitHub bietet einen Paketregisterdienst an](https://docs.github.com/en/packages), und es werden wahrscheinlich im Laufe der Zeit weitere Optionen erscheinen.
 
-Wichtig ist, dass Sie sicherstellen, dass Sie das beste Register für sich ausgewählt haben. Viele Projekte werden npm verwenden, und wir werden dies in unseren Beispielen für den Rest des Moduls beibehalten.
+Wichtig ist, dass Sie sicherstellen, dass Sie das für Sie beste Register gewählt haben. Viele Projekte nutzen npm, und wir werden uns in unseren Beispielen im Rest des Moduls darauf beschränken.
 
-## Nutzung des Paketsystems
+## Nutzung des Paket-Ökosystems
 
-Lassen Sie uns ein Beispiel durchgehen, um Ihnen den Einstieg in die Nutzung eines Paketmanagers und -registers zur Installation eines Befehlszeilen-Dienstprogramms zu erleichtern.
+Lassen Sie uns ein Beispiel durchgehen, um Ihnen den Einstieg in die Nutzung eines Paketmanagers und -registers zur Installation eines Kommandozeilenprogramms zu erleichtern.
 
-Wir werden [Vite](https://vite.dev/) verwenden, um eine leere Website zu erstellen. Im nächsten Artikel werden wir die Toolchain erweitern, um weitere Werkzeuge hinzuzufügen und Ihnen zu zeigen, wie Sie die Site bereitstellen.
+Wir werden [Vite](https://vite.dev/) verwenden, um eine leere Website zu erstellen. Im nächsten Artikel werden wir die Toolchain erweitern, um weitere Tools hinzuzufügen und Ihnen zeigen, wie Sie die Website bereitstellen.
 
-Vite bietet einige [Init-Vorlagen](https://vite.dev/guide/#scaffolding-your-first-vite-project) mit allen notwendigen Abhängigkeiten und Konfigurationen, um Sie schnell in einem realen Projekt zu starten. Zur Demonstration werden wir eine von Grund auf konfigurieren, wobei wir die [React-Vorlage](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react) als Referenz verwenden.
+Vite stellt einige [init-Vorlagen](https://vite.dev/guide/#scaffolding-your-first-vite-project) mit allen notwendigen Abhängigkeiten und Konfigurationen bereit, um Ihnen den Einstieg in ein reales Projekt zu erleichtern. Aus Demonstrationsgründen werden wir eine von Grund auf konfigurieren und die [React-Vorlage](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react) als Referenz verwenden.
 
 ### Einrichtung der App als npm-Paket
 
-Zuerst erstellen Sie ein neues Verzeichnis, um unsere experimentelle App an einem sinnvollen Ort zu speichern, den Sie wiederfinden. Wir nennen es `npm-experiment`, aber Sie können es nennen, wie Sie möchten:
+Erstellen Sie zunächst ein neues Verzeichnis, um unsere experimentelle App zu speichern, irgendwo sinnvoll, wo Sie es wiederfinden. Wir nennen es `npm-experiment`, aber Sie können es nennen, wie Sie möchten:
 
 ```bash
 mkdir npm-experiment
 cd npm-experiment
 ```
 
-Als nächstes initialisieren wir unsere App als npm-Paket, was eine Konfigurationsdatei erstellt — `package.json` — die es uns erlaubt, unsere Konfigurationsdetails zu speichern, falls wir diese Umgebung später erneut erstellen oder sogar das Paket im npm-Register veröffentlichen wollen (obwohl dies für unseren Artikel nicht relevant ist, da wir eine Anwendung entwickeln und nicht eine wiederverwendbare Bibliothek).
+Als nächstes lassen Sie uns unsere App als npm-Paket initialisieren, was eine Konfigurationsdatei erstellt — `package.json` — die es uns ermöglicht, unsere Konfigurationsdetails zu speichern, falls wir diese Umgebung später nachbilden oder sogar das Paket an das npm-Register veröffentlichen möchten (obwohl dies für unseren Artikel nicht relevant ist, da wir eine Anwendung entwickeln, keine wiederverwendbare Bibliothek).
 
 Geben Sie den folgenden Befehl ein und stellen Sie sicher, dass Sie sich im Verzeichnis `npm-experiment` befinden:
 
@@ -99,19 +99,19 @@ Geben Sie den folgenden Befehl ein und stellen Sie sicher, dass Sie sich im Verz
 npm init
 ```
 
-Nun werden Ihnen einige Fragen gestellt, npm erstellt dann eine Standard-`package.json`-Datei basierend auf den Antworten. Beachten Sie, dass keine dieser für unsere Zwecke von Bedeutung ist, da sie nur verwendet werden, wenn Sie Ihr Paket in einem Register veröffentlichen und andere es installieren und importieren möchten.
+Sie werden nun einige Fragen gestellt; npm wird dann eine Standard-`package.json`-Datei basierend auf den Antworten erstellen. Beachten Sie, dass keine davon für unsere Zwecke relevant ist, da sie nur verwendet werden, wenn Sie Ihr Paket in einem Register veröffentlichen und andere es installieren und importieren möchten.
 
-- `name`: Ein Name zur Identifizierung der App. Drücken Sie einfach <kbd>Return</kbd>, um den Standard `npm-experiment` zu akzeptieren.
-- `version`: Die Startversionsnummer für die App. Drücken Sie erneut <kbd>Return</kbd>, um den Standard `1.0.0` zu akzeptieren.
-- `description`: Eine kurze Beschreibung des Zwecks der App. Wir lassen es hier weg, aber Sie können auch alles eingeben, was Sie möchten. Drücken Sie <kbd>Return</kbd>.
-- `entry point`: Dies wird die JavaScript-Datei sein, die ausgeführt wird, wenn andere Ihr Paket importieren. Für uns hat es keine Verwendung, also drücken Sie einfach <kbd>Return</kbd>.
-- `test command`, `git repository` und `keywords`: drücken Sie <kbd>Return</kbd>, um jedes dieser Felder für jetzt leer zu lassen.
+- `name`: Ein Name zur Identifikation der App. Drücken Sie einfach <kbd>Return</kbd>, um den Standard `npm-experiment` zu akzeptieren.
+- `version`: Die Startversion für die App. Drücken Sie erneut <kbd>Return</kbd>, um den Standard `1.0.0` zu akzeptieren.
+- `description`: Eine kurze Beschreibung des Zwecks der App. Wir lassen sie hier weg, aber Sie können auch etwas anderes eingeben. Drücken Sie <kbd>Return</kbd>.
+- `entry point`: Dies wird die JavaScript-Datei sein, die ausgeführt wird, wenn andere Ihr Paket importieren. Sie hat für uns keinen Nutzen, also drücken Sie einfach <kbd>Return</kbd>.
+- `test command`, `git repository` und `keywords`: Drücken Sie <kbd>Return</kbd>, um jede dieser Leerzeichen zu lassen.
 - `author`: Der Autor des Projekts. Geben Sie Ihren eigenen Namen ein und drücken Sie <kbd>Return</kbd>.
-- `license`: Die Lizenz, unter der das Paket veröffentlicht werden soll. Drücken Sie <kbd>Return</kbd>, um für jetzt den Standard zu akzeptieren.
+- `license`: Die Lizenz, unter der das Paket veröffentlicht wird. Drücken Sie <kbd>Return</kbd>, um den Standard vorerst zu akzeptieren.
 
-Drücken Sie noch einmal <kbd>Return</kbd> um diese Einstellungen zu akzeptieren.
+Drücken Sie noch einmal <kbd>Return</kbd>, um diese Einstellungen zu akzeptieren.
 
-Gehen Sie in Ihr `npm-experiment`-Verzeichnis und Sie sollten nun eine package.json-Datei finden. Öffnen Sie sie und sie sollte ungefähr so aussehen:
+Gehen Sie in Ihr `npm-experiment`-Verzeichnis und Sie sollten nun eine `package.json`-Datei finden. Öffnen Sie sie und sie sollte etwa so aussehen:
 
 ```json
 {
@@ -127,12 +127,12 @@ Gehen Sie in Ihr `npm-experiment`-Verzeichnis und Sie sollten nun eine package.j
 }
 ```
 
-Wir werden der package.json zwei weitere Zeilen hinzufügen:
+Wir werden zwei weitere Zeilen zu package.json hinzufügen:
 
-- `"type": "module"`, was Node dazu bringt, alle `.js`-Dateien als [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) anstelle der alten CommonJS-Module zu interpretieren. Es ist eine allgemein gute Angewohnheit.
-- `"private": true`, was verhindert, dass Sie Ihr Paket versehentlich im npm-Register veröffentlichen.
+- `"type": "module"`, was dazu führt, dass Node alle `.js`-Dateien als [ES-Module](/de/docs/Web/JavaScript/Guide/Modules) interpretiert, anstatt der alten CommonJS-Module. Es ist eine allgemein gute Angewohnheit, dies zu tun.
+- `"private": true`, was verhindert, dass Sie Ihr Paket versehentlich ans npm-Register veröffentlichen.
 
-Fügen Sie diese Zeilen direkt unterhalb des `"name"`-Eintrags hinzu:
+Fügen Sie diese Zeilen direkt unter dem `"name"` ein:
 
 ```json
 "name": "npm-experiment",
@@ -140,17 +140,17 @@ Fügen Sie diese Zeilen direkt unterhalb des `"name"`-Eintrags hinzu:
 "private": true,
 ```
 
-So dies ist die Konfigurationsdatei, die Ihr Paket definiert. Das ist gut für jetzt, also machen wir weiter.
+Das ist also die Konfigurationsdatei, die Ihr Paket definiert. Das ist jetzt gut, also machen wir weiter.
 
 ### Installation von Vite
 
-Wir werden zunächst Vite installieren, das Build-Tool für unsere Website. Es ist verantwortlich für das Bündeln unserer HTML-, CSS- und JavaScript-Dateien in ein optimiertes Paket für den Browser.
+Wir werden zuerst Vite installieren, das Build-Tool für unsere Website. Es ist verantwortlich für das Bündeln unserer HTML-, CSS- und JavaScript-Dateien in ein optimiertes Bündel für den Browser.
 
 ```bash
 npm install --save-dev vite
 ```
 
-Sobald das erledigt ist, werfen Sie einen weiteren Blick in Ihre package.json-Datei. Sie werden sehen, dass npm ein neues Feld hinzugefügt hat, `devDependencies`:
+Wenn das erledigt ist _All The Things_, schauen Sie sich Ihre package.json-Datei noch einmal an. Sie werden sehen, dass npm ein neues Feld namens `devDependencies` hinzugefügt hat:
 
 ```json
 "devDependencies": {
@@ -158,24 +158,24 @@ Sobald das erledigt ist, werfen Sie einen weiteren Blick in Ihre package.json-Da
 }
 ```
 
-Das ist Teil von npms Magie — wenn Sie in Zukunft Ihren Code an einem anderen Ort, auf einem anderen Computer, verschieben, können Sie dieselbe Umgebung reproduzieren, indem Sie den Befehl `npm install` ausführen, und npm wird die Abhängigkeiten betrachten und sie für Sie installieren.
+Das ist Teil des npm-Zaubers – wenn Sie in der Zukunft Ihren Code an einen anderen Ort verschieben, auf einem anderen Rechner, können Sie das gleiche Setup durch Ausführen des Befehls `npm install` wiederherstellen, und npm wird sich die Abhängigkeiten ansehen und sie für Sie installieren.
 
 Ein Nachteil ist, dass Vite nur innerhalb unserer `npm-experiment`-App verfügbar ist; Sie können es nicht in einem anderen Verzeichnis ausführen. Aber die Vorteile überwiegen die Nachteile.
 
-Beachten Sie, dass wir uns entschieden haben, `vite` als Entwicklungsabhängigkeit zu installieren. Dieser Unterschied ist für eine Anwendung selten von Bedeutung, aber für eine Bibliothek bedeutet es, dass, wenn andere Ihr Paket installieren, sie nicht implizit Vite installieren. Normalerweise ist für Anwendungen jedes in den Quellcode importierte Paket eine reale Abhängigkeit, während jedes für die Entwicklung verwendete Paket (normalerweise als Befehlszeilenwerkzeuge) eine Entwicklungsabhängigkeit ist. Installieren Sie reale Abhängigkeiten, indem Sie die `--save-dev`-Flagge entfernen.
+Beachten Sie, dass wir `vite` als Entwicklungsabhängigkeit installieren. Dieser Unterschied spielt bei einer Anwendung selten eine Rolle, aber bei einer Bibliothek bedeutet es, dass wenn andere Ihr Paket installieren, sie nicht implizit Vite installieren. Normalerweise ist bei Anwendungen jedes in den Quellcode importierte Paket eine echte Abhängigkeit, während jedes für die Entwicklung verwendete Paket (in der Regel als Kommandozeilenwerkzeuge) eine Entwicklungsabhängigkeit ist. Installieren Sie echte Abhängigkeiten, indem Sie das Flag `--save-dev` entfernen.
 
-Sie werden auch eine Reihe neuer Dateien finden:
+Sie werden auch feststellen, dass eine Reihe neuer Dateien erstellt wurde:
 
-- `node_modules`: Die Abhängigkeitsdateien, die zum Ausführen von Vite erforderlich sind. npm hat sie alle für Sie heruntergeladen.
-- `package-lock.json`: Dies ist eine sperrDatei, die die exakten Informationen speichert, die erforderlich sind, um das `node_modules`-Verzeichnis zu reproduzieren. Dies stellt sicher, dass, solange die SperrDatei unverändert bleibt, das `node_modules`-Verzeichnis auf verschiedenen Maschinen gleich ist.
+- `node_modules`: Die für den Betrieb von Vite benötigten Abhängigkeitsdateien. npm hat sie alle für Sie heruntergeladen.
+- `package-lock.json`: Dies ist eine Sperrdatei, die die genauen Informationen speichert, die erforderlich sind, um das `node_modules`-Verzeichnis zu reproduzieren. Dies stellt sicher, dass solange die Sperrdatei unverändert bleibt, das `node_modules`-Verzeichnis auf verschiedenen Maschinen gleich ist.
 
-Diese Dateien müssen Sie sich keine Sorgen machen, da sie von npm verwaltet werden. Sie sollten `node_modules` zu Ihrer `.gitignore`-Datei hinzufügen, wenn Sie Git verwenden, aber Sie sollten `package-lock.json` im Allgemeinen behalten, weil, wie erwähnt, es zur Synchronisation des `node_modules`-Zustands auf verschiedenen Maschinen verwendet wird.
+Sie müssen sich um diese Dateien nicht kümmern, da sie von npm verwaltet werden. Sie sollten `node_modules` zu Ihrer `.gitignore`-Datei hinzufügen, wenn Sie Git verwenden, aber Sie sollten generell `package-lock.json` aufbewahren, denn wie erwähnt wird es verwendet, um den Zustand von `node_modules` auf verschiedenen Maschinen zu synchronisieren.
 
 ### Einrichtung unserer Beispiel-App
 
-Jedenfalls, weiter mit der Einrichtung.
+Wie auch immer, weiter mit der Einrichtung.
 
-In Vite ist die `index.html`-Datei zentral. Sie definiert den Startpunkt Ihrer App, und Vite wird sie verwenden, um andere Dateien zu finden, die zum Erstellen Ihrer App benötigt werden. Erstellen Sie eine `index.html`-Datei in Ihrem `npm-experiment`-Verzeichnis, und geben Sie ihr folgenden Inhalt:
+In Vite ist die `index.html`-Datei im Vordergrund und zentral. Sie definiert den Ausgangspunkt Ihrer App, und Vite wird sie verwenden, um andere Dateien zu finden, die benötigt werden, um Ihre App zu erstellen. Erstellen Sie eine `index.html`-Datei in Ihrem `npm-experiment`-Verzeichnis und geben Sie ihr den folgenden Inhalt:
 
 ```html
 <!doctype html>
@@ -192,20 +192,20 @@ In Vite ist die `index.html`-Datei zentral. Sie definiert den Startpunkt Ihrer A
 </html>
 ```
 
-Beachten Sie, dass das `<script>`-Element eine Abhängigkeit von einer Datei namens `src/main.jsx` erstellt, die den Einstiegspunkt der JavaScript-Logik für die App erklärt. Erstellen Sie den `src`-Ordner und erstellen Sie `main.jsx` in diesem Ordner, aber lassen Sie ihn für jetzt leer.
+Beachten Sie, dass die `<script>`-Elemente eine Abhängigkeit von einer Datei namens `src/main.jsx` erzeugen, die den Einstiegspunkt der JavaScript-Logik für die App deklariert. Erstellen Sie den `src`-Ordner und erstellen Sie `main.jsx` in diesem Ordner, lassen Sie ihn aber vorerst leer.
 
 > [!NOTE]
-> Das [`type="module"`](/de/docs/Web/HTML/Element/script/type)-Attribut ist wichtig. Es sagt dem Browser, dass das Skript als ES-Modul behandelt werden soll, was uns ermöglicht, die `import`- und `export`-Syntax in unserem JavaScript-Code zu verwenden. Die Dateierweiterung ist `.jsx`, weil wir im nächsten Artikel React JSX-Syntax hinzufügen werden. Browser verstehen JSX nicht, aber Vite wird es für uns in reguläres JavaScript umwandeln, als ob Browser es täten!
+> Das [`type="module"`](/de/docs/Web/HTML/Element/script/type)-Attribut ist wichtig. Es teilt dem Browser mit, das Skript als ES-Modul zu behandeln, was es uns ermöglicht, `import`- und `export`-Syntax in unserem JavaScript-Code zu verwenden. Die Dateierweiterung ist `.jsx`, da wir im nächsten Artikel React JSX-Syntax hinzufügen werden. Browser verstehen JSX nicht, aber Vite wird es in reguläres JavaScript umwandeln, als ob Browser dies tun würden!
 
-### Spaß mit Vite
+### Spaß mit Vite haben
 
-Jetzt werden wir unser neu installiertes Vite-Werkzeug ausführen. Geben Sie in Ihrem Terminal den folgenden Befehl ein:
+Jetzt werden wir unser neu installiertes Vite-Tool ausführen. Führen Sie in Ihrem Terminal den folgenden Befehl aus:
 
 ```bash
 npx vite
 ```
 
-Sie sollten in Ihrem Terminal etwas Ähnliches sehen:
+Sie sollten etwas in dieser Art in Ihrem Terminal gedruckt sehen:
 
 ```plain
 VITE v5.2.13  ready in 326 ms
@@ -215,26 +215,26 @@ VITE v5.2.13  ready in 326 ms
 ➜  press h + enter to show help
 ```
 
-Nun sind wir bereit, von dem vollständigen JavaScript-Paket-Ökosystem zu profitieren. Erstens läuft jetzt ein lokaler Webserver unter `http://localhost:5173`. Sie werden vorerst nichts sehen, aber was cool ist, dass, wenn Sie Änderungen an Ihrer App vornehmen, Vite sie neu baut und den Server automatisch aktualisiert, sodass Sie sofort den Effekt Ihrer Änderung sehen können.
+Jetzt sind wir bereit, von dem vollständigen JavaScript-Paket-Ökosystem zu profitieren. Zum Beispiel gibt es jetzt einen lokalen Webserver, der unter `http://localhost:5173` läuft. Sie werden zunächst nichts sehen, aber was cool ist, ist, dass wenn Sie Änderungen an Ihrer App vornehmen, Vite sie neu baut und den Server automatisch aktualisiert, so dass Sie sofort die Wirkung Ihrer Aktualisierung sehen können.
 
-Sie können den Dev-Server jederzeit mit <kbd>Ctrl</kbd> + <kbd>C</kbd> stoppen und ihn mit demselben Befehl erneut starten. Wenn Sie sich entscheiden, ihn laufen zu lassen, können Sie ein neues Terminalfenster öffnen, um andere Befehle auszuführen.
+Sie können den Entwicklungsserver jederzeit mit <kbd>Ctrl</kbd> + <kbd>C</kbd> stoppen und ihn erneut mit demselben Befehl starten. Wenn Sie sich entscheiden, ihn weiterhin laufen zu lassen, können Sie ein neues Terminalfenster öffnen, um andere Befehle auszuführen.
 
-Nun zum Seiteninhalt. Als Demonstration fügen wir der Seite ein Diagramm hinzu. Wir werden das [plotly.js](https://www.npmjs.com/package/plotly.js)-Paket verwenden, eine Datenvisualisierungsbibliothek. Installieren Sie es, indem Sie den folgenden Befehl ausführen:
+Nun für einige Seiteninhalte. Zum Vorführen fügen wir der Seite ein Diagramm hinzu. Wir werden das [plotly.js](https://www.npmjs.com/package/plotly.js)-Paket verwenden, eine Bibliothek zur Datenvisualisierung. Installieren Sie es, indem Sie den folgenden Befehl ausführen:
 
 ```bash
 npm install plotly.js-dist-min
 ```
 
-Beachten Sie, wie wir ohne die `--save-dev`-Flagge installieren. Wie bereits erwähnt, liegt das daran, dass wir dieses Paket tatsächlich in unserem Quellcode verwenden werden und nicht nur als Befehlszeilenwerkzeug. Dieser Befehl wird Ihrem `package.json`-Dateiobjekt `dependencies` ein neues Objekt hinzufügen, mit `plotly.js-dist-min` darin.
+Beachten Sie, wie wir ohne das `--save-dev`-Flag installieren. Wie bereits erwähnt, liegt das daran, dass wir dieses Paket tatsächlich in unserem Quellcode verwenden werden, nicht nur als Kommandozeilen-Tool. Dieser Befehl wird ein neues `"dependencies"`-Objekt zu Ihrer `package.json`-Datei hinzufügen, das `plotly.js-dist-min` enthält.
 
 > [!NOTE]
-> Hier haben wir das Paket für Sie ausgewählt, um unsere Aufgabe abzuschließen. Wenn Sie Ihren eigenen Code schreiben, denken Sie über die folgenden Fragen nach, wenn Sie eine Abhängigkeit finden und installieren:
+> Hier haben wir das Paket für Sie ausgewählt, um unsere Aufgabe zu vervollständigen. Wenn Sie Ihren eigenen Code schreiben, denken Sie an folgende Fragen, wenn Sie eine Abhängigkeit finden und installieren:
 >
-> - Brauche ich überhaupt eine Abhängigkeit? Ist es möglich, es mit eingebauten Funktionen zu machen, oder ist es einfach genug, es selbst zu schreiben?
-> - Was genau muss ich tun? Je detaillierter Sie sind, desto wahrscheinlicher ist es, dass Sie ein Paket finden, das genau das tut, was Sie brauchen. Sie können nach Schlüsselwörtern auf npm oder Google suchen. Bevorzugen Sie auch kleine Pakete gegenüber großen, da letztere zu Leistungsproblemen beim Installieren, Ausführen usw. führen können.
-> - Ist die Abhängigkeit vertrauenswürdig und gut gepflegt? Prüfen Sie, wann die letzte Version veröffentlicht wurde, wer der Autor ist, und wie viele wöchentliche Downloads das Paket hat. Die Vertrauenswürdigkeit eines Pakets zu bestimmen, ist eine Fähigkeit, die mit der Erfahrung kommt, weil Sie Faktoren wie die Wahrscheinlichkeit berücksichtigen müssen, dass das Paket Updates benötigt, oder wie viele Menschen es benötigen könnten.
+> - Brauche ich überhaupt eine Abhängigkeit? Ist es möglich, es mit integrierten Funktionen zu machen, oder ist es so einfach, dass ich es selbst schreiben kann?
+> - Was genau muss ich tun? Je detaillierter Sie sind, desto wahrscheinlicher werden Sie ein Paket finden, das genau das tut, was Sie brauchen. Sie können nach Schlüsselwörtern auf npm oder Google suchen. Bevorzugen Sie auch kleine Pakete gegenüber großen, da letztere zu Leistungsproblemen beim Installieren, Ausführen usw. führen können.
+> - Ist die Abhängigkeit vertrauenswürdig und gut gepflegt? Prüfen Sie, wann die letzte Version veröffentlicht wurde, wer der Autor ist und wie viele wöchentliche Downloads das Paket hat. Die Vertrauenswürdigkeit eines Pakets zu bestimmen, ist eine Fähigkeit, die mit Erfahrung kommt, da Sie Faktoren berücksichtigen müssen, wie wahrscheinlich das Paket Aktualisierungen benötigt, oder wie viele Menschen es benötigen könnten.
 
-Fügen Sie im `src/main.jsx`-Datei den folgenden Code hinzu und speichern Sie ihn:
+In der Datei `src/main.jsx` fügen Sie den folgenden Code hinzu und speichern Sie ihn:
 
 ```js
 import Plotly from "plotly.js-dist-min";
@@ -254,15 +254,15 @@ Plotly.newPlot(
 );
 ```
 
-Rufen Sie `http://localhost:5173` erneut auf und Sie werden ein Diagramm auf der Seite sehen. Ändern Sie die verschiedenen Zahlen und sehen Sie, wie das Diagramm jedes Mal aktualisiert wird, wenn Sie Ihre Datei speichern.
+Gehen Sie zurück zu `http://localhost:5173` und Sie werden ein Diagramm auf der Seite sehen. Ändern Sie die verschiedenen Zahlen und sehen Sie, wie sich das Diagramm jedes Mal aktualisiert, wenn Sie Ihre Datei speichern.
 
-### Unsere App für die Produktion bereit machen
+### Unseren Code für die Produktion vorbereiten
 
-Dieses Code ist jedoch noch nicht bereit für die Produktion. Die meisten Build-Tool-Systeme, einschließlich Vite, haben einen "Entwicklungsmodus" und einen "Produktionsmodus". Der wichtige Unterschied besteht darin, dass viele der hilfreichen Funktionen, die Sie bei der Entwicklung verwenden werden, im Endprodukt nicht benötigt werden und für die Produktion entfernt werden, z. B. "Hot Module Replacement", "Live Reloading" und "Unkomprimierter und kommentierter Quellcode". Obwohl keineswegs erschöpfend, sind dies einige der häufigen Webentwicklungsfunktionen, die im Entwicklungsstadium sehr hilfreich sind, aber in der Produktion nicht sehr nützlich sind. In der Produktion würden sie Ihre Seite nur aufblähen.
+Dieser Code ist jedoch nicht bereit für die Produktion. Die meisten Build-Toolsysteme, einschließlich Vite, haben einen "Entwicklungsmodus" und einen "Produktionsmodus". Der wichtige Unterschied besteht darin, dass viele der hilfreichen Funktionen, die Sie während der Entwicklung verwenden, nicht auf der endgültigen Seite benötigt werden und daher für die Produktion entfernt werden, z.B. "hot module replacement", "live reloading" und "uncompressed and commented source code". Diese sind bei Weitem nicht erschöpfend, aber dies sind einige der häufigen Webentwicklungs-Funktionen, die sehr hilfreich in der Entwicklungsphase sind, aber in der Produktion nicht sehr nützlich sind. In der Produktion würden sie Ihre Seite nur aufblähen.
 
-Stoppen Sie nun den laufenden Vite-Dev-Server mit <kbd>Ctrl</kbd> + <kbd>C</kbd>.
+Stoppen Sie jetzt den laufenden Entwicklungsserver von Vite mit <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 
-Wir können jetzt unsere Minimale Beispielseite für eine imaginäre Bereitstellung vorbereiten. Vite bietet einen zusätzlichen `build`-Befehl, um Dateien zu generieren, die für die Veröffentlichung geeignet sind.
+Wir können nun unsere minimalistische Beispielseite für eine imaginäre Bereitstellung vorbereiten. Vite bietet einen zusätzlichen `build`-Befehl, um Dateien zu generieren, die für die Veröffentlichung geeignet sind.
 
 Führen Sie den folgenden Befehl aus:
 
@@ -285,33 +285,33 @@ dist/assets/index-BlYAJQFz.js  3,723.18 kB │ gzip: 1,167.74 kB
 ✓ built in 4.36s
 ```
 
-Vite erstellt ein Verzeichnis namens `dist`. Wenn Sie hineinschauen, enthält es eine `index.html`, die sehr ähnlich aussieht wie das Root-Verzeichnis, außer dass der `script`-Quelle nun durch einen Pfad zum `assets`-Ordner ersetzt wird. Der `assets`-Ordner enthält transformierten JavaScript-Output, der nun für die Produktion minifiziert und optimiert wurde.
+Vite erstellt ein Verzeichnis namens `dist`. Wenn Sie hineinschauen, enthält es ein `index.html`, das dem ursprünglichen sehr ähnlich sieht, außer dass die Quelle des `script` jetzt mit einem Pfad zum `assets`-Verzeichnis ersetzt ist. Das `assets`-Verzeichnis enthält den transformierten JavaScript-Ausgabe, der jetzt minimiert und für die Produktion optimiert ist.
 
 > [!NOTE]
-> Sie machen sich vielleicht Sorgen über die Warnung, dass es ein Chunk gibt, das zu groß ist. Dies wird erwartet, da wir eine Bibliothek laden, die eine Menge Dinge im Hintergrund macht (stellen Sie sich vor, Sie würden den ganzen Code selbst schreiben, um das gleiche Diagramm zu zeichnen). Für jetzt müssen wir uns keine Sorgen machen.
+> Sie könnten darüber besorgt sein, dass es eine Warnung gibt, dass ein Chunk zu groß ist. Dies ist zu erwarten, da wir eine Bibliothek laden, die viele Dinge im Hintergrund macht (stellen Sie sich vor, Sie schreiben den gesamten Code selbst, um dieselbe Grafik zu zeichnen). Für den Moment müssen wir uns keine Sorgen darüber machen.
 
 ## Ein grober Leitfaden zu Paketmanager-Clients
 
-In diesem Tutorial wurde das Vite-Paket mit npm installiert, aber wie bereits erwähnt gibt es einige Alternativen. Es lohnt sich zumindest zu wissen, dass sie existieren und eine vage Vorstellung von den gemeinsamen Befehlen der Tools zu haben. Einige haben Sie bereits in Aktion gesehen, aber lassen Sie uns die anderen betrachten.
+Dieses Tutorial hat das Vite-Paket mit npm installiert, aber wie bereits erwähnt gibt es einige Alternativen. Es ist zumindest sinnvoll zu wissen, dass sie existieren und eine vage Vorstellung von den allgemeinen Befehlen der Tools zu haben. Sie haben bereits einige in Aktion gesehen, aber lassen Sie uns die anderen betrachten.
 
-Die Liste wird mit der Zeit wachsen, aber zum Zeitpunkt des Schreibens sind die folgenden Hauptpaketmanager verfügbar:
+Die Liste wird im Laufe der Zeit wachsen, aber zum Zeitpunkt der Erstellung sind die folgenden Haupt-Paketmanager verfügbar:
 
 - npm unter [npmjs.org](https://www.npmjs.com/)
 - pnpm unter [pnpm.js.org](https://pnpm.js.org/)
 - Yarn unter [yarnpkg.com](https://yarnpkg.com/)
 
-npm und pnpm sind von einem Befehlszeilenstandpunkt aus ähnlich — in der Tat strebt pnpm an, vollständige Parität über die Argumentoptionen zu bieten, die npm bietet. Es unterscheidet sich darin, dass es eine andere Methode zum Herunterladen und Speichern der Pakete auf Ihrem Computer verwendet, mit dem Ziel, den insgesamt benötigten Festplattenspeicher zu reduzieren.
+npm und pnpm sind aus einer Befehlszeilenperspektive ähnlich — tatsächlich strebt pnpm an, volle Parität über die Argumentoptionen zu haben, die npm bietet. Es unterscheidet sich darin, dass es eine andere Methode zum Herunterladen und Speichern der Pakete auf Ihrem Computer verwendet, die darauf abzielt, den insgesamt benötigten Festplattenspeicher zu reduzieren.
 
-Wo npm in den folgenden Beispielen angezeigt wird, kann pnpm ersetzt werden und der Befehl wird funktionieren.
+Wo npm in den unten stehenden Beispielen gezeigt wird, kann pnpm eingetauscht werden und der Befehl wird funktionieren.
 
-Yarn wird oft als schneller im Installationsprozess angesehen als npm (obwohl Ihre Erfahrung variieren kann). Dies ist für Entwickler wichtig, da es eine erhebliche Menge an Zeitverschwendung durch Warten auf die Installation von Abhängigkeiten (und das Kopieren auf den Computer) geben kann.
+Yarn wird oft als schneller als npm im Hinblick auf den Installationsprozess betrachtet (obwohl Ihre Ergebnisse variieren können). Das ist für Entwickler wichtig, weil es eine signifikante Menge an Zeit geben kann, die beim Warten auf die Installation von Abhängigkeiten verschwendet wird (und kopiert auf den Computer).
 
-Es ist jedoch wichtig zu beachten, dass der npm-Paketmanager **nicht** erforderlich ist, um Pakete aus dem npm-Register zu installieren. pnpm und Yarn können dasselbe `package.json`-Format wie npm verwenden und können jedes Paket aus dem npm- und anderen Paketregistern installieren.
+Es ist jedoch wichtig zu beachten, dass der npm-Paketmanager **nicht** erforderlich ist, um Pakete aus dem npm-Register zu installieren. pnpm und Yarn können dasselbe `package.json`-Format wie npm verwenden and other package registries.
 
 Lassen Sie uns die häufigen Aktionen überprüfen, die Sie mit Paketmanagern ausführen möchten.
 
 > [!NOTE]
-> Wir werden sowohl npm- als auch Yarn-Befehle demonstrieren. Sie sind nicht dazu gedacht, im selben Projekt ausgeführt zu werden. Sie sollten Ihr Projekt entweder mit npm oder Yarn einrichten und Befehle von diesem Paketmanager konsequent verwenden.
+> Wir werden sowohl npm- als auch Yarn-Befehle demonstrieren. Sie sind nicht dazu gedacht, im gleichen Projekt ausgeführt zu werden. Sie sollten Ihr Projekt entweder mit npm oder Yarn einrichten und die Befehle von diesem Paketmanager konsistent verwenden.
 
 ### Ein neues Projekt initialisieren
 
@@ -320,7 +320,7 @@ npm init
 yarn init
 ```
 
-Wie oben gezeigt, wird dies Sie durch eine Reihe von Fragen führen, um Ihr Projekt zu beschreiben (Name, Lizenz, Beschreibung usw.) und dann eine `package.json` generieren, die Meta-Informationen über Ihr Projekt und seine Abhängigkeiten enthält.
+Wie oben gezeigt, wird Ihnen das eine Reihe von Fragen stellen, um Ihr Projekt zu beschreiben (Name, Lizenz, Beschreibung und so weiter) und dann eine `package.json` für Sie generieren, die Metainformationen über Ihr Projekt und seine Abhängigkeiten enthält.
 
 ### Abhängigkeiten installieren
 
@@ -329,9 +329,9 @@ npm install vite
 yarn add vite
 ```
 
-Wir haben `install` auch zuvor in Aktion gesehen. Dies würde direkt das `vite`-Paket in das Arbeitsverzeichnis in einem Unterverzeichnis namens `node_modules` hinzufügen, zusammen mit den eigenen Abhängigkeiten von `vite`.
+Wir haben `install` auch oben in Aktion gesehen. Dies würde das `vite`-Paket direkt ins Arbeitsverzeichnis in ein Unterverzeichnis namens `node_modules` hinzufügen, zusammen mit den eigenen Abhängigkeiten von `vite`.
 
-Standardmäßig installiert dieser Befehl die neueste Version von `vite`, aber Sie können dies auch steuern. Sie können `vite@4` anfordern, was Ihnen die neueste Version 4.x gibt (was 4.5.3 ist). Oder Sie könnten `vite@^4.0.0` versuchen, was die neueste Version nach oder einschließlich 4.0.0 bedeutet (die gleiche Bedeutung wie oben).
+Standardmäßig installiert dieser Befehl die neueste Version von `vite`, aber Sie können dies auch steuern. Sie können `vite@4` anfordern, was Ihnen die neueste 4.x-Version (die 4.5.3 ist) gibt. Oder Sie könnten `vite@^4.0.0` versuchen, was die neueste Version nach oder einschließlich 4.0.0 bedeutet (die gleiche Bedeutung wie oben).
 
 ### Abhängigkeiten aktualisieren
 
@@ -340,30 +340,30 @@ npm update
 yarn upgrade
 ```
 
-Dies wird die aktuell installierten Abhängigkeiten betrachten und sie aktualisieren, wenn ein Update innerhalb des im Paket spezifizierten Bereichs verfügbar ist.
+Dies wird die derzeit installierten Abhängigkeiten überprüfen und sie aktualisieren, wenn ein Update im Bereich verfügbar ist, das im Paket angegeben ist.
 
-Der Bereich wird durch die Versionsangabe der Abhängigkeit in Ihrer `package.json` spezifiziert, wie `"vite": "^5.2.13"` — in diesem Fall bedeutet das Dach-Symbol `^`, dass alle kleineren und Patch-Versionen nach und einschließlich 5.2.13, bis aber ausschließlich 6.0.0.
+Der Bereich wird in der Version der Abhängigkeit in Ihrer `package.json` angegeben, wie `"vite": "^5.2.13"` — in diesem Fall bedeutet das Caret-Zeichen `^` alle minderjährigen und Patch-Veröffentlichungen nach und einschließlich 5.2.13, bis aber nicht einschließlich 6.0.0.
 
-Dies wird unter Verwendung eines Systems namens [semver](https://semver.org/) bestimmt, das aus der Dokumentation zwar kompliziert erscheinen mag, aber vereinfacht werden kann, indem man nur die Zusammenfassungsinformationen betrachtet und dass eine Version durch `MAJOR.MINOR.PATCH` dargestellt wird, wie z. B. 2.0.1, was Hauptversion 2 mit Patchversion 1 bedeutet. Ein hervorragender Weg, um semver-Werte auszuprobieren, ist die Nutzung des [semver-Rechners](https://semver.npmjs.com/).
+Dies wird mit einem System namens [semver](https://semver.org/) bestimmt, das in der Dokumentation etwas kompliziert aussehen mag, aber vereinfacht werden kann, indem man nur die Zusammenfassungsinformationen betrachtet und dass eine Version durch `MAJOR.MINOR.PATCH` dargestellt wird, wie zum Beispiel 2.0.1 als Hauptversion 2 mit Patchversion 1. Eine ausgezeichnete Möglichkeit, semver-Werte auszuprobieren, ist der [semver-Rechner](https://semver.npmjs.com/).
 
-Es ist wichtig zu beachten, dass `npm update` die Abhängigkeiten nicht über den in der `package.json` definierten Bereich hinaus aktualisieren wird — um dies zu tun, müssen Sie diese Version speziell installieren.
+Es ist wichtig, sich daran zu erinnern, dass `npm update` die Abhängigkeiten nicht über den Bereich hinaus aktualisieren wird, der in der `package.json` definiert ist — um dies zu tun, müssen Sie diese Version speziell installieren.
 
-### Mehr Befehle
+### Weitere Befehle
 
-Sie können mehr über die einzelnen Befehle für [npm](https://docs.npmjs.com/cli-documentation/) und [yarn](https://classic.yarnpkg.com/en/docs/cli/) online erfahren. Erneut, [pnpm](https://pnpm.io/cli/add)-Befehle werden Parität mit npm haben, mit einer Handvoll Ergänzungen.
+Sie können online mehr über die einzelnen Befehle für [npm](https://docs.npmjs.com/cli-documentation/) und [yarn](https://classic.yarnpkg.com/en/docs/cli/) erfahren. Wieder werden [pnpm](https://pnpm.io/cli/add)-Befehle Parität mit npm haben, mit einer Handvoll Ergänzungen.
 
-## Eigene Befehle erstellen
+## Ihre eigenen Befehle erstellen
 
-Die Paketmanager unterstützen auch die Erstellung eigener Befehle und deren Ausführung aus der Befehlszeile. Zum Beispiel riefen wir zuvor den Befehl `vite` mit `npx` auf, um den Vite-Dev-Server zu starten. Wir könnten den folgenden Befehl erstellen:
+Die Paketmanager unterstützen auch die Erstellung Ihrer eigenen Befehle und deren Ausführung von der Befehlszeile aus. Zum Beispiel haben wir vorher den Befehl `vite` mit `npx` aufgerufen, um den Vite-Entwicklungsserver zu starten. Wir könnten den folgenden Befehl erstellen:
 
 ```bash
 npm run dev
 # or yarn run dev
 ```
 
-Dies würde ein benutzerdefiniertes Skript ausführen, um unser Projekt im "Entwicklungsmodus" zu starten. Tatsächlich fügen wir dies regelmäßig in alle Projekte ein, da die lokale Entwicklungsumgebung dazu neigt, etwas anders zu laufen als sie in der Produktion laufen würde.
+Dies würde ein benutzerdefiniertes Skript ausführen, um unser Projekt im "Entwicklungsmodus" zu starten. In der Tat schließen wir dies regelmäßig in alle Projekte ein, da das lokale Entwicklungs-Setup dazu neigt, etwas anders zu laufen, als es in Produktion laufen würde.
 
-Wenn Sie versuchen, dies in Ihrem früher getesteten Projekt auszuführen, würde es (wahrscheinlich) behaupten, dass das "dev script fehlt". Dies liegt daran, dass npm, Yarn (und dergleichen) nach einer Eigenschaft namens `dev` in der `scripts`-Eigenschaft Ihrer `package.json`-Datei suchen. Lassen Sie uns also einen benutzerdefinierten Abkürzungsbefehl — "dev" — in unserer `package.json` erstellen. Wenn Sie dem Tutorial von früher gefolgt sind, sollten Sie eine `package.json`-Datei in Ihrem npm-experiment-Verzeichnis haben. Öffnen Sie es und sein `scripts`-Mitglied sollte so aussehen:
+Wenn Sie dies in Ihrem Testprojekt von früher versuchen würden, würde es (wahrscheinlich) behaupten, das "dev script is missing". Dies liegt daran, dass npm, Yarn (und dergleichen) nach einer Eigenschaft namens `dev` in der `scripts`-Eigenschaft Ihrer `package.json`-Datei suchen. Lassen Sie uns also einen benutzerdefinierten Kurzbefehlen — "dev" — in unserer `package.json` erstellen. Wenn Sie das Tutorial von früher durchgeführt haben, sollten Sie eine `package.json`-Datei in Ihrem npm-experiment-Verzeichnis haben. Öffnen Sie sie und das `scripts`-Mitglied sollte so aussehen:
 
 ```json
 "scripts": {
@@ -371,7 +371,7 @@ Wenn Sie versuchen, dies in Ihrem früher getesteten Projekt auszuführen, würd
 },
 ```
 
-Aktualisieren Sie es so, dass es folgendermaßen aussieht und speichern Sie die Datei:
+Aktualisieren Sie es so, dass es so aussieht, und speichern Sie die Datei:
 
 ```json
 "scripts": {
@@ -379,9 +379,9 @@ Aktualisieren Sie es so, dass es folgendermaßen aussieht und speichern Sie die 
 },
 ```
 
-Wir haben ein benutzerdefiniertes `dev`-Kommando als npm-Skript hinzugefügt.
+Wir haben einen benutzerdefinierten `dev`-Befehl als npm-Skript hinzugefügt.
 
-Versuchen Sie nun, das Folgende in Ihrem Terminal auszuführen, und achten Sie darauf, dass Sie sich im Verzeichnis `npm-experiment` befinden:
+Versuchen Sie nun, den folgenden Befehl in Ihrem Terminal auszuführen, während Sie sich im `npm-experiment`-Verzeichnis befinden:
 
 ```bash
 npm run dev
@@ -389,11 +389,11 @@ npm run dev
 
 Dies sollte Vite starten und denselben lokalen Entwicklungsserver starten, wie wir zuvor gesehen haben.
 
-Beachten Sie, dass das Skript, das wir hier definiert haben, keinen `npx`-Präfix mehr benötigt. Dies liegt daran, dass npm (und yarn) Befehle klug genug sind, dass sie nach Befehlszeilenwerkzeugen suchen, die lokal im Projekt installiert sind, bevor sie versuchen, sie über konventionelle Methoden zu finden (wo Ihr Computer normalerweise Software speichert und zulässt, dass sie gefunden wird). Sie können [mehr über die technischen Feinheiten des `run`-Befehls erfahren](https://docs.npmjs.com/cli/run-script/), obwohl in den meisten Fällen Ihre eigenen Skripts einfach gut laufen werden.
+Beachten Sie, dass das hier definierte Skript nicht mehr das `npx`-Präfix benötigt. Dies liegt daran, dass npm (und yarn) Befehle clever sind, indem sie nach Kommandozeilen-Tools suchen, die lokal zu dem Projekt installiert sind, bevor sie versuchen, sie durch konventionelle Methoden zu finden (wo Ihr Computer normalerweise Software speichert und es ermöglicht, dass sie gefunden wird). Sie können [mehr über die technischen Feinheiten des `run`-Befehls erfahren](https://docs.npmjs.com/cli/run-script/), obwohl Ihre eigenen Skripte in den meisten Fällen einfach laufen werden.
 
-Dieses spezielle könnte unnötig erscheinen — `npm run dev` hat mehr Zeichen zu tippen als `npx vite`, aber es ist eine Form von _Abstraktion_. Es ermöglicht es uns, in Zukunft mehr Arbeit zum `dev`-Befehl hinzuzufügen, wie z.B. das Setzen von Umgebungsvariablen, das Generieren von temporären Dateien usw., ohne den Befehl zu verkomplizieren.
+Dieses spezielle mag überflüssig erscheinen — `npm run dev` sind mehr Zeichen zum Tippen als `npx vite`, aber es ist eine Form der _Abstraktion_. Es ermöglicht uns, in der Zukunft mehr Arbeit zum `dev`-Befehl hinzuzufügen, wie z.B. Umgebungsvariablen setzen, temporäre Dateien generieren, etc., ohne den Befehl zu verkomplizieren.
 
-Sie können alle Arten von Dingen zur `scripts`-Eigenschaft hinzufügen, die Ihnen helfen, Ihre Arbeit zu erledigen. Zum Beispiel, hier ist, was Vite in der Vorlage empfiehlt:
+Sie können alle Arten von Dingen zur `scripts`-Eigenschaft hinzufügen, die Ihnen helfen, Ihre Arbeit zu machen. Zum Beispiel, hier ist, was Vite in der Vorlage empfiehlt:
 
 ```json
 "scripts": {
@@ -405,11 +405,11 @@ Sie können alle Arten von Dingen zur `scripts`-Eigenschaft hinzufügen, die Ihn
 
 ## Zusammenfassung
 
-Damit endet unsere Erkundung der Paketmanager. Unser nächster Schritt ist es, eine Beispiel-Toolchain aufzubauen, und alles, was wir bisher gelernt haben, in die Praxis umzusetzen.
+Dies bringt uns zum Ende unserer Tour durch Paketmanager. Unser nächster Schritt ist es, eine Beispiel-Toolchain aufzubauen, in der wir alles, was wir bisher gelernt haben, in die Praxis umsetzen.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Understanding_client-side_tools/Command_line","Learn/Tools_and_testing/Understanding_client-side_tools/Introducing_complete_toolchain", "Learn/Tools_and_testing/Understanding_client-side_tools")}}
 
 ## Siehe auch
 
-- [npm scripts Referenz](https://docs.npmjs.com/cli/v8/using-npm/scripts/)
+- [npm Scripts Referenz](https://docs.npmjs.com/cli/v8/using-npm/scripts/)
 - [package.json Referenz](https://docs.npmjs.com/cli/v8/configuring-npm/package-json/)

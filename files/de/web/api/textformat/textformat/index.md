@@ -1,14 +1,14 @@
 ---
-title: "TextFormat: TextFormat() Konstruktor"
+title: "TextFormat: Konstruktor von TextFormat()"
 short-title: TextFormat()
 slug: Web/API/TextFormat/TextFormat
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: 3dda2abfd568a9eab92223f8d52832f7b27ec567
 ---
 
 {{APIRef("EditContext API")}}{{SeeCompatTable}}
 
-Der **`TextFormat()`** Konstruktor gibt ein neues [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekt zurück.
+Der **`TextFormat()`**-Konstruktor gibt ein neues [`TextFormat`](/de/docs/Web/API/TextFormat)-Objekt zurück.
 
 ## Syntax
 
@@ -27,7 +27,7 @@ new TextFormat(options)
       - : Eine Zahl, die die Endposition des Textbereichs darstellt, der formatiert werden muss.
     - `underlineStyle`
       - : Ein String, der den Unterstreichungsstil des Textbereichs darstellt, der formatiert werden muss.
-    - `underlinerThickness`
+    - `underlineThickness`
       - : Ein String, der die Unterstreichungsdicke des Textbereichs darstellt, der formatiert werden muss.
 
 ## Spezifikationen
@@ -40,4 +40,4 @@ new TextFormat(options)
 
 ## Siehe auch
 
-- Die [`TextFormat`](/de/docs/Web/API/TextFormat) Schnittstelle, zu der es gehört.
+- Das [`TextFormat`](/de/docs/Web/API/TextFormat)-Interface, zu dem es gehört.

@@ -1,39 +1,39 @@
 ---
-title: Grundlagen der Web-Audio-Spatialisation
+title: Grundlagen der räumlichen Audiowiedergabe im Web
 slug: Web/API/Web_Audio_API/Web_audio_spatialization_basics
 l10n:
-  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{DefaultAPISidebar("Web Audio API")}}
 
-Als ob die Web Audio API nicht schon genug vielfältige Soundverarbeitungs- (und andere) Optionen bieten würde, gibt es auch Möglichkeiten, die Unterschiede im Klang zu simulieren, wenn ein Zuhörer sich um eine Schallquelle herum bewegt, z.B. das Panning, wenn Sie sich in einem 3D-Spiel um eine Schallquelle herum bewegen. Der offizielle Begriff hierfür ist **Spatialisation**, und dieser Artikel behandelt die Grundlagen der Implementierung eines solchen Systems.
+Neben einer Vielzahl von Optionen zur Klangverarbeitung (und anderen Möglichkeiten) bietet die Web Audio API auch Funktionen, um Unterschiede im Klang zu emulieren, wenn sich ein Hörer um eine Klangquelle herum bewegt, beispielsweise durch Schwenken, während Sie sich innerhalb eines 3D-Spiels um eine Klangquelle bewegen. Der offizielle Begriff dafür ist **Spatialization**, und dieser Artikel behandelt die Grundlagen zur Implementierung eines solchen Systems.
 
-## Grundlagen der Spatialisation
+## Grundlagen der Spatialization
 
-Im Web Audio werden komplexe 3D-Spatialisationen mit dem [`PannerNode`](/de/docs/Web/API/PannerNode) erstellt, was in einfachen Worten im Grunde genommen richtig coole Mathematik ist, die Audio im 3D-Raum erscheinen lässt. Stellen Sie sich vor, Sounds fliegen über Sie hinweg, schleichen sich von hinten an oder bewegen sich vor Ihnen hin und her. Solche Dinge.
+In der Web Audio API werden komplexe 3D-Räumlichkeiten mithilfe des [`PannerNode`](/de/docs/Web/API/PannerNode) erstellt, was im Grunde genommen eine Menge cooles Mathematik ist, um Audio im 3D-Raum erscheinen zu lassen. Denken Sie an Klänge, die über Sie hinwegfliegen, sich von hinten anschleichen oder vor Ihnen bewegen. So etwas eben.
 
-Es ist wirklich nützlich für WebXR und Gaming. In 3D-Räumen ist es die einzige Möglichkeit, realistischen Sound zu erreichen. Bibliotheken wie [three.js](https://threejs.org/) und [A-frame](https://aframe.io/) nutzen sein Potenzial, wenn es um den Umgang mit Sound geht. Es sei darauf hingewiesen, dass Sie den Sound nicht _zwangsläufig_ innerhalb eines vollständigen 3D-Raums bewegen müssen — Sie könnten sich auch nur an einer 2D-Ebene halten, sodass, wenn Sie ein 2D-Spiel planten, dies immer noch der Knoten wäre, den Sie suchen.
+Das ist besonders nützlich für WebXR und Spiele. In 3D-Räumen ist es die einzige Möglichkeit, realistischen Klang zu erzielen. Bibliotheken wie [three.js](https://threejs.org/) und [A-frame](https://aframe.io/) nutzen sein Potenzial im Umgang mit Klang. Es ist erwähnenswert, dass Sie den Klang nicht unbedingt in einem vollen 3D-Raum bewegen müssen — Sie könnten sich auch nur auf eine 2D-Ebene beschränken. Wenn Sie beispielsweise ein 2D-Spiel planen, wäre dies ebenfalls der Knoten, den Sie suchen.
 
 > [!NOTE]
-> Es gibt auch einen [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode), der für den häufigen Anwendungsfall entwickelt wurde, einfache Links-Rechts-Stereo-Panning-Effekte zu erstellen. Dieser ist viel einfacher zu verwenden, aber natürlich nicht annähernd so vielseitig. Wenn Sie nur einen einfachen Stereo-Panning-Effekt wünschen, sollte unser [StereoPannerNode-Beispiel](https://mdn.github.io/webaudio-examples/stereo-panner-node/) ([Quellcode anzeigen](https://github.com/mdn/webaudio-examples/tree/main/stereo-panner-node)) Ihnen alles geben, was Sie brauchen.
+> Es gibt auch einen [`StereoPannerNode`](/de/docs/Web/API/StereoPannerNode), der für den häufigen Anwendungsfall der Erstellung einfacher Links-Rechts-Stereo-Panning-Effekte entwickelt wurde. Dieser ist deutlich einfacher zu verwenden, ist aber offensichtlich nicht annähernd so vielseitig. Wenn Sie nur einen einfachen Stereo-Panning-Effekt wünschen, sollte unser [StereoPannerNode-Beispiel](https://mdn.github.io/webaudio-examples/stereo-panner-node/) ([Quellcode ansehen](https://github.com/mdn/webaudio-examples/tree/main/stereo-panner-node)) alles bieten, was Sie benötigen.
 
 ## 3D-Boombox-Demo
 
-Um die 3D-Spatialisation zu demonstrieren, haben wir eine modifizierte Version der Boombox-Demo erstellt, die wir in unserem grundlegenden [Verwenden der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)-Leitfaden erstellt haben. Sehen Sie sich die [3D-Spatialisation-Demo live an](https://mdn.github.io/webaudio-examples/spatialization/) (und sehen Sie sich auch den [Quellcode](https://github.com/mdn/webaudio-examples/tree/main/spatialization) an).
+Um die 3D-Räumlichkeit zu demonstrieren, haben wir eine angepasste Version der Boombox-Demo erstellt, die wir in unserem grundlegenden [Leitfaden zur Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API) entwickelt haben. Sehen Sie sich die [3D-Räumlichkeitsdemo live](https://mdn.github.io/webaudio-examples/spatialization/) an (und sehen Sie sich auch den [Quellcode](https://github.com/mdn/webaudio-examples/tree/main/spatialization) an).
 
-![Eine einfache Benutzeroberfläche mit einer gedrehten Boombox und Steuerungen, um sie nach links und rechts, hinein und heraus zu bewegen und sie zu drehen.](web-audio-spatialization.png)
+![Eine einfache Benutzeroberfläche mit einer gedrehten Boombox und Steuerungen, um sie nach links und rechts und hinein und heraus zu bewegen und zu drehen.](web-audio-spatialization.png)
 
-Die Boombox befindet sich in einem Raum (definiert durch die Ränder des Browser-Viewports), und in dieser Demo können wir sie mit den bereitgestellten Steuerungen bewegen und drehen. Wenn wir die Boombox bewegen, ändert sich der von ihr erzeugte Sound entsprechend, er wird gepannt, wenn sie sich nach links oder rechts im Raum bewegt, oder wird leiser, wenn sie vom Benutzer weg bewegt wird oder so gedreht wird, dass die Lautsprecher von ihm weg weisen, usw. Dies wird erreicht, indem die verschiedenen Eigenschaften der `PannerNode`-Objektinstanz im Verhältnis zu dieser Bewegung gesetzt werden, um Spatialisation zu emulieren.
+Die Boombox befindet sich in einem Raum (definiert durch die Kanten des Browser-Viewports), und in dieser Demo können wir sie mit den bereitgestellten Steuerungen bewegen und drehen. Wenn wir die Boombox bewegen, ändert sich der von ihr erzeugte Klang entsprechend, in dem der Klang nach links oder rechts im Raum schwenkt oder leiser wird, wenn sie vom Benutzer weg bewegt wird oder so gedreht wird, dass die Lautsprecher von ihm weg zeigen usw. Dies geschieht, indem die verschiedenen Eigenschaften der `PannerNode`-Objektinstanz in Bezug auf diese Bewegung gesetzt werden, um die Raumklangdarstellung zu emulieren.
 
 > [!NOTE]
-> Die Erfahrung ist viel besser, wenn Sie Kopfhörer verwenden oder ein Surround-Sound-System haben, an das Sie Ihren Computer anschließen können.
+> Das Erlebnis ist viel besser, wenn Sie Kopfhörer verwenden oder ein Surround-Sound-System haben, an das Sie Ihren Computer anschließen können.
 
-## Erstellen eines Audiowehrnehmers
+## Erstellen eines Audio-Listeners
 
-Legen Sie los! Der [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) (die Schnittstelle, von der der [`AudioContext`](/de/docs/Web/API/AudioContext) erweitert wird) hat eine [`listener`](/de/docs/Web/API/BaseAudioContext/listener)-Eigenschaft, die ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt zurückgibt. Dieses repräsentiert den Zuhörer der Szene, in der Regel Ihren Benutzer. Sie können definieren, wo sie sich im Raum befinden und in welche Richtung sie blicken. Sie bleiben statisch. Der `pannerNode` kann dann seine Klangposition relativ zur Position des Hörers berechnen.
+Lassen Sie uns beginnen! Das [`BaseAudioContext`](/de/docs/Web/API/BaseAudioContext) (die Schnittstelle, von der das [`AudioContext`](/de/docs/Web/API/AudioContext) erweitert wird) verfügt über eine [`listener`](/de/docs/Web/API/BaseAudioContext/listener)-Eigenschaft, die ein [`AudioListener`](/de/docs/Web/API/AudioListener)-Objekt zurückgibt. Dieses stellt den Hörer der Szene dar, normalerweise Ihren Benutzer. Sie können definieren, wo er sich im Raum befindet und in welche Richtung er blickt. Er bleibt statisch. Der `pannerNode` kann dann seine Klangposition relativ zur Position des Hörers berechnen.
 
-Lassen Sie uns unseren Kontext und Hörer erstellen und die Position des Hörers festlegen, um eine Person zu emulieren, die in unseren Raum schaut:
+Erstellen wir unseren Kontext und Listener und setzen die Position des Listeners, um eine Person zu simulieren, die in unseren Raum schaut:
 
 ```js
 const audioCtx = new AudioContext();
@@ -48,7 +48,7 @@ listener.positionY.value = posY;
 listener.positionZ.value = posZ - 5;
 ```
 
-Wir könnten den Hörer nach links oder rechts mit `positionX`, nach oben oder unten mit `positionY` oder in den Raum hinein und heraus mit `positionZ` bewegen. Hier setzen wir den Hörer in die Mitte des Viewports und leicht vor unsere Boombox. Wir können auch die Richtung festlegen, in die der Hörer zeigt. Die Standardwerte hierfür funktionieren gut:
+Wir könnten den Listener nach links oder rechts bewegen, indem wir `positionX` verwenden, nach oben oder unten mit `positionY` oder in oder aus dem Raum mit `positionZ`. Hier setzen wir den Listener in die Mitte des Viewports und leicht vor unsere Boombox. Wir können auch die Blickrichtung des Listeners festlegen. Die Standardwerte hierfür funktionieren gut:
 
 ```js
 listener.forwardX.value = 0;
@@ -59,25 +59,25 @@ listener.upY.value = 1;
 listener.upZ.value = 0;
 ```
 
-Die Vorwärts-Eigenschaften repräsentieren die 3D-Koordinatenposition der Vorwärtsrichtung des Hörers (z.B. die Richtung, in die sie blicken), während die Aufwärts-Eigenschaften die 3D-Koordinatenposition des oberen Teils des Kopfes des Hörers repräsentieren. Diese beiden zusammen können die Richtung schön festlegen.
+Die Vorwärtseigenschaften repräsentieren die 3D-Koordinatenposition der Vorwärtsrichtung des Listeners (d. h. die Richtung, in die er blickt), während die Aufwärtseigenschaften die 3D-Koordinatenposition der Oberseite des Kopfes des Listeners darstellen. Diese beiden zusammen können die Richtung gut einstellen.
 
-## Erstellen eines Pannerknotens
+## Erstellen eines Panner-Knotens
 
-Erstellen wir unseren [`PannerNode`](/de/docs/Web/API/PannerNode). Dieser hat eine ganze Reihe von Eigenschaften, die mit ihm verbunden sind. Lassen Sie uns jede von ihnen ansehen:
+Lassen Sie uns unseren [`PannerNode`](/de/docs/Web/API/PannerNode) erstellen. Dieser hat eine ganze Reihe von Eigenschaften, die ihm zugeordnet sind. Lassen Sie uns jede von ihnen ansehen:
 
-Zu Beginn können wir das [`panningModel`](/de/docs/Web/API/PannerNode/panningModel) festlegen. Dies ist der Algorithmus zur Spatialisation, der verwendet wird, um das Audio im 3D-Raum zu positionieren. Wir können dies auf Folgendes setzen:
+Zunächst können wir das [`panningModel`](/de/docs/Web/API/PannerNode/panningModel) festlegen. Dies ist der Raumklang-Algorithmus, der verwendet wird, um das Audio im 3D-Raum zu positionieren. Wir können dies auf folgende Einstellungen setzen:
 
-`equalpower` — Der Standard und die allgemeine Art, wie Panning berechnet wird
+`equalpower` — Der Standardwert und die allgemeine Art und Weise, wie das Panning berechnet wird.
 
-`HRTF` — Dies steht für 'Head-related transfer function' und versucht, den menschlichen Kopf zu berücksichtigen, wenn er berechnet, wo sich der Sound befindet.
+`HRTF` — Dies steht für "Head-related transfer function" und berücksichtigt den menschlichen Kopf bei der Berechnung, wo der Klang sich befindet.
 
-Ziemlich clevere Sache. Lassen Sie uns das `HRTF`-Modell verwenden!
+Ziemlich clevere Sachen. Lassen Sie uns das `HRTF`-Modell verwenden!
 
 ```js
 const panningModel = "HRTF";
 ```
 
-Die Eigenschaften [`coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle) und [`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle) bestimmen, von wo aus das Volumen ausgeht. Standardmäßig sind beide 360 Grad. Unsere Boombox-Lautsprecher haben kleinere Kegel, die wir definieren können. Der innere Kegel ist dort, wo der Gewinn (Lautstärke) immer maximal emuliert wird, und der äußere Kegel ist dort, wo der Gewinn zu sinken beginnt. Der Gewinn wird um den Wert der [`coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain) reduziert. Lassen Sie uns Konstanten erstellen, die die Werte speichern, die wir später für diese Parameter verwenden werden:
+Die [`coneInnerAngle`](/de/docs/Web/API/PannerNode/coneInnerAngle) und [`coneOuterAngle`](/de/docs/Web/API/PannerNode/coneOuterAngle)-Eigenschaften geben an, von woher die Lautstärke ausgeht. Standardmäßig haben beide 360 Grad. Unsere Boombox-Lautsprecher werden kleinere Kegel haben, die wir definieren können. Der innere Kegel ist der Bereich, in dem die Verstärkung (Lautstärke) immer maximal emuliert wird, und der äußere Kegel ist der Bereich, in dem die Verstärkung beginnt abzunehmen. Die Verstärkung wird um den Wert der [`coneOuterGain`](/de/docs/Web/API/PannerNode/coneOuterGain) reduziert. Lassen Sie uns Konstanten erstellen, die die Werte speichern, die wir später für diese Parameter verwenden werden:
 
 ```js
 const innerCone = 60;
@@ -85,31 +85,31 @@ const outerCone = 90;
 const outerGain = 0.3;
 ```
 
-Der nächste Parameter ist [`distanceModel`](/de/docs/Web/API/PannerNode/distanceModel) — dieser kann nur auf `linear`, `inverse` oder `exponential` gesetzt werden. Dies sind verschiedene Algorithmen, die verwendet werden, um die Lautstärke der Audioquelle zu reduzieren, wenn sie sich vom Hörer entfernt. Wir werden `linear` verwenden, da es einfach ist:
+Der nächste Parameter ist [`distanceModel`](/de/docs/Web/API/PannerNode/distanceModel) — dieser kann nur auf `linear`, `inverse` oder `exponential` gesetzt werden. Dies sind unterschiedliche Algorithmen, die verwendet werden, um die Lautstärke der Audioquelle zu reduzieren, wenn sie sich vom Hörer entfernt. Wir werden `linear` verwenden, da es einfach ist:
 
 ```js
 const distanceModel = "linear";
 ```
 
-Wir können eine maximale Distanz ([`maxDistance`](/de/docs/Web/API/PannerNode/maxDistance)) zwischen der Quelle und dem Zuhörer festlegen — die Lautstärke wird nicht weiter reduziert, wenn sich die Quelle über diesen Punkt hinaus bewegt. Dies kann nützlich sein, da Sie möglicherweise eine Entfernung emulieren möchten, aber die Lautstärke könnte wegfallen und eigentlich ist das nicht das, was Sie wollen. Standardmäßig beträgt sie 10.000 (ein einheitsloser relativer Wert). Wir können es dabei belassen:
+Wir können eine maximale Entfernung ([`maxDistance`](/de/docs/Web/API/PannerNode/maxDistance)) zwischen der Quelle und dem Hörer festlegen — die Lautstärke wird nicht weiter reduziert, wenn sich die Quelle weiter von diesem Punkt entfernt. Dies kann nützlich sein, da Sie möglicherweise die Entfernung nachahmen möchten, aber die Lautstärke kann ausfallen und das ist eigentlich nicht das, was Sie wollen. Standardmäßig beträgt dieser Wert 10.000 (einheitsloser relativer Wert). Wir können dies so belassen:
 
 ```js
 const maxDistance = 10000;
 ```
 
-Es gibt auch eine Referenzdistanz ([`refDistance`](/de/docs/Web/API/PannerNode/refDistance)), die von den Entfernungsmodellen verwendet wird. Wir können den Standardwert von `1` beibehalten:
+Es gibt auch eine Referenzdistanz ([`refDistance`](/de/docs/Web/API/PannerNode/refDistance)), die von den Distanzmodellen verwendet wird. Wir können diesen ebenfalls auf den Standardwert `1` belassen:
 
 ```js
 const refDistance = 1;
 ```
 
-Dann gibt es den Roll-off-Faktor ([`rolloffFactor`](/de/docs/Web/API/PannerNode/rolloffFactor)) — wie schnell reduziert sich die Lautstärke, wenn der Panner sich vom Hörer wegbewegt. Der Standardwert ist 1; lassen Sie uns das etwas größer machen, um unsere Bewegungen zu betonen.
+Dann gibt es den Abschwächungsfaktor ([`rolloffFactor`](/de/docs/Web/API/PannerNode/rolloffFactor)) — wie schnell nimmt die Lautstärke ab, wenn sich der Panner vom Hörer entfernt. Der Standardwert ist 1; lassen Sie uns das ein wenig größer machen, um unsere Bewegungen zu übertreiben.
 
 ```js
 const rollOff = 10;
 ```
 
-Nun können wir unsere Position und Ausrichtung unserer Boombox festlegen. Das ist ziemlich ähnlich wie wir es mit unserem Hörer gemacht haben. Dies sind auch die Parameter, die wir ändern werden, wenn die Steuerungen auf unserer Oberfläche verwendet werden.
+Nun können wir mit der Festlegung der Position und Orientierung unserer Boombox beginnen. Dies ist sehr ähnlich wie bei unserem Hörer. Dies sind auch die Parameter, die wir ändern werden, wenn die Steuerelemente in unserer Benutzeroberfläche verwendet werden.
 
 ```js
 const positionX = posX;
@@ -121,9 +121,9 @@ const orientationY = 0.0;
 const orientationZ = -1.0;
 ```
 
-Beachten Sie den negativen Wert bei unserer z-Ausrichtung — dieser setzt die Boombox dazu, uns zugewandt zu sein. Ein positiver Wert würde die Schallquelle von uns weggewandt setzen.
+Beachten Sie den negativen Wert in unserer z-Ausrichtung — dies setzt die Boombox, dass sie uns zugewandt ist. Ein positiver Wert würde die Klangquelle so einstellen, dass sie von uns weg zeigt.
 
-Lassen Sie uns den relevanten Konstruktor verwenden, um unseren Panner-Knoten zu erstellen, und alle diese Parameter übergeben, die wir oben festgelegt haben:
+Lassen Sie uns den relevanten Konstruktor zum Erstellen unseres Panner-Knotens verwenden und all diese Parameter übergeben, die wir oben festgelegt haben:
 
 ```js
 const panner = new PannerNode(audioCtx, {
@@ -144,11 +144,11 @@ const panner = new PannerNode(audioCtx, {
 });
 ```
 
-## Die Boombox bewegen
+## Bewegung der Boombox
 
-Nun werden wir unsere Boombox in unserem 'Raum' bewegen. Wir haben einige Steuerungen eingerichtet, um dies zu tun. Wir können sie nach links und rechts, oben und unten sowie hin und her bewegen; wir können sie auch drehen. Die Schallrichtung kommt aus dem Lautsprecher der Boombox an der Vorderseite, sodass wir, wenn wir sie drehen, die Richtung des Klangs ändern können — d.h. nach hinten projizieren, wenn die Boombox um 180 Grad gedreht wird und von uns wegzeigt.
+Jetzt werden wir unsere Boombox in unserem "Raum" bewegen. Wir haben einige Steuerelemente eingerichtet, um dies zu tun. Wir können sie nach links und rechts, oben und unten, sowie vor und zurück bewegen; wir können sie auch drehen. Die Klangrichtung stammt von den Lautsprechern der Boombox vorne, sodass wir beim Drehen die Klangrichtung ändern können — d.h., die Klangrichtung nach hinten projizieren, wenn die Boombox um 180 Grad gedreht und uns abgewandt ist.
 
-Wir müssen einige Dinge für die Oberfläche einrichten. Zuerst erhalten wir Referenzen auf die Elemente, die wir bewegen möchten, dann speichern wir Referenzen auf die Werte, die wir ändern werden, wenn wir [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) einrichten, um die Bewegung tatsächlich durchzuführen. Schließlich legen wir einige Grenzen fest, damit unsere Boombox nicht zu weit in eine Richtung geht:
+Wir müssen einige Dinge für die Benutzeroberfläche einrichten. Zuerst holen wir uns die Referenzen zu den zu bewegenden Elementen, dann speichern wir die Referenzen zu den Werten, die wir ändern werden, wenn wir [CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms) einrichten, um die tatsächliche Bewegung durchzuführen. Schließlich legen wir einige Grenzen fest, damit sich unsere Boombox nicht zu weit in eine Richtung bewegt:
 
 ```js
 const moveControls = document
@@ -174,9 +174,9 @@ const innerBound = 0.1;
 const outerBound = 1.5;
 ```
 
-Lassen Sie uns eine Funktion erstellen, die die Richtung, in die wir uns bewegen wollen, als Parameter nimmt, und sowohl die CSS-Transformation modifiziert als auch die Positions- und Ausrichtungswerte unseres Panner-Knoten-Eigenschaften aktualisiert, um den Klang entsprechend zu ändern.
+Lassen Sie uns eine Funktion erstellen, die die Richtung, in die wir uns bewegen möchten, als Parameter nimmt, sowohl die CSS-Transformation ändert als auch die Positions- und Orientierungswerte unserer Panner-Knoteneigenschaften aktualisiert, um den Klang entsprechend zu modifizieren.
 
-Um zu beginnen, lassen Sie uns einen Blick auf unsere Werte für Links, Rechts, Oben und Unten werfen, da diese ziemlich einfach sind. Wir bewegen die Boombox entlang dieser Achsen und aktualisieren die entsprechende Position.
+Zunächst können wir uns die Werte für links, rechts, oben und unten ansehen, da diese ziemlich unkompliziert sind. Wir bewegen die Boombox entlang dieser Achsen und aktualisieren die entsprechende Position.
 
 ```js
 function moveBoombox(direction) {
@@ -209,7 +209,7 @@ function moveBoombox(direction) {
 }
 ```
 
-Es ist eine ähnliche Geschichte für unsere Werte für In und Out:
+Ähnlich verhält es sich bei den Werten für die Bewegungen hinein und hinaus:
 
 ```js
 case 'back':
@@ -226,9 +226,9 @@ case 'forward':
   break;
 ```
 
-Unsere Rotationswerte sind jedoch etwas aufwändiger, da wir den Klang _um_ bewegen müssen. Nicht nur müssen wir zwei Achsenwerte aktualisieren (z.B. wenn Sie ein Objekt um die x-Achse drehen, aktualisieren Sie die y- und z-Koordinaten für dieses Objekt), sondern wir müssen dafür auch noch weitere Mathematik anstellen. Die Rotation ist ein Kreis und wir benötigen [`Math.sin`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sin) und [`Math.cos`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/cos), um uns zu helfen, diesen Kreis zu zeichnen.
+Unsere Rotationswerte sind jedoch etwas umfangreicher, da wir den Klang _herum_ bewegen müssen. Wir müssen nicht nur zwei Achsenwerte aktualisieren (z.B. bei der Drehung eines Objekts um die x-Achse, die y- und z-Koordinaten für dieses Objekt aktualisieren), wir müssen dafür auch noch mehr Mathematik einsetzen. Die Rotationsbewegung ist ein Kreis, und wir benötigen [`Math.sin`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/sin) und [`Math.cos`](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/cos), um uns dabei zu helfen, diesen Kreis zu zeichnen.
 
-Lassen Sie uns eine Rotationsrate aufstellen, die wir in einen Bogenmaßbereichswert umwandeln werden, um sie später in `Math.sin` und `Math.cos` zu verwenden, wenn wir die neuen Koordinaten ermitteln wollen, wenn wir unsere Boombox drehen:
+Lassen Sie uns eine Rotationsrate einrichten, die wir in einen Bereich mit Radiantenwerten für die Verwendung in `Math.sin` und `Math.cos` umwandeln, wenn wir die neuen Koordinaten berechnen möchten, wenn wir unsere Boombox drehen:
 
 ```js
 // set up rotation constants
@@ -237,7 +237,7 @@ const rotationRate = 60; // bigger number equals slower sound rotation
 const q = Math.PI / rotationRate; //rotation increment in radians
 ```
 
-Wir können dies auch verwenden, um die gedrehten Grad zu berechnen, was bei den CSS-Transformationen, die wir erstellen müssen, hilfreich sein wird (beachten Sie, dass wir sowohl eine x- als auch eine y-Achse für die CSS-Transformationen benötigen):
+Wir können dies auch verwenden, um die gedrehten Grad zu berechnen, die bei den CSS-Transformationen helfen werden, die wir erstellen müssen (beachten Sie, dass wir sowohl eine x- als auch eine y-Achse für die CSS-Transformationen benötigen):
 
 ```js
 // get degrees for CSS
@@ -245,7 +245,7 @@ const degreesX = (q * 180) / Math.PI;
 const degreesY = (q * 180) / Math.PI;
 ```
 
-Werfen wir einen Blick auf unsere Linksdrehung als Beispiel. Wir müssen die x-Ausrichtung und die z-Ausrichtung der Panner-Koordinaten ändern, um die y-Achse für unsere Linksdrehung zu bewegen:
+Nehmen wir als Beispiel unsere Linksrotation. Wir müssen die x-Ausrichtung und die z-Ausrichtung der Panner-Koordinaten ändern, um eine Rotation um die y-Achse für unsere Linksrotation zu erreichen:
 
 ```js
 case 'rotate-left':
@@ -262,9 +262,9 @@ case 'rotate-left':
   break;
 ```
 
-Das _ist_ ein wenig verwirrend, aber was wir tun, ist Sinus und Kosinus zu verwenden, um uns zu helfen, die Kreisbewegung zu berechnen, die die Koordinaten für die Rotation der Boombox benötigen.
+Das _ist_ ein wenig verwirrend, aber was wir tun, ist, Sinus und Cosinus zu verwenden, um uns zu helfen, die Kreisbewegung zu berechnen, die die Koordinaten für die Böogen.</Codeαγogrotation der Boombox benötigen.
 
-Wir können dies für alle Achsen tun. Wir müssen nur die richtige Orientierung auswählen, um sie zu aktualisieren, und ob wir eine positive oder negative Erhöhung wünschen.
+Wir können dies für alle Achsen tun. Wir müssen nur die richtigen Ausrichtungen auswählen, die aktualisiert werden sollen, und entscheiden, ob wir einen positiven oder negativen Anstieg wünschen.
 
 ```js
 case 'rotate-right':
@@ -299,7 +299,7 @@ case 'rotate-down':
   break;
 ```
 
-Eine letzte Sache — wir müssen das CSS aktualisieren und eine Referenz der letzten Bewegung für das Mausereignis behalten. Hier ist die endgültige `moveBoombox`-Funktion.
+Eine letzte Sache — wir müssen das CSS aktualisieren und eine Referenz für die letzte Bewegung beim Mausereignis behalten. Hier ist die endgültige `moveBoombox`-Funktion.
 
 ```js
 function moveBoombox(direction, prevMove) {
@@ -413,9 +413,9 @@ function moveBoombox(direction, prevMove) {
 }
 ```
 
-## Unsere Steuerungen verkabeln
+## Unsere Steuerungen verdrahten
 
-Das Verkabeln unserer Steuerungstasten ist vergleichsweise einfach — jetzt können wir auf ein Mausereignis auf unseren Steuerungen hören und diese Funktion ausführen, sowie stoppen, wenn die Maus losgelassen wird:
+Die Verkabelung unserer Steuertasten ist vergleichsweise einfach — jetzt können wir auf ein Mausereignis bei unseren Steuerungen hören und diese Funktion ausführen, sowie sie stoppen, wenn die Maus losgelassen wird:
 
 ```js
 // for each of our controls, move the boombox and change the position values
@@ -447,13 +447,13 @@ moveControls.forEach((el) => {
 
 ## Unser Diagramm verbinden
 
-Unser HTML enthält das Audio-Element, das vom Panner-Knoten beeinflusst werden soll.
+Unser HTML enthält das Audioelement, das vom Panner-Knoten beeinflusst werden soll.
 
 ```html
 <audio src="myCoolTrack.mp3"></audio>
 ```
 
-Wir müssen die Quelle aus diesem Element holen und in die Web Audio API einleiten, indem wir [`AudioContext.createMediaElementSource`](/de/docs/Web/API/AudioContext/createMediaElementSource) verwenden.
+Wir müssen die Quelle aus diesem Element beziehen und sie mit der Web Audio API mithilfe von [`AudioContext.createMediaElementSource`](/de/docs/Web/API/AudioContext/createMediaElementSource) verbinden.
 
 ```js
 // get the audio element
@@ -463,13 +463,13 @@ const audioElement = document.querySelector("audio");
 const track = audioContext.createMediaElementSource(audioElement);
 ```
 
-Als Nächstes müssen wir unser Audiograf verbinden. Wir verbinden unseren Eingang (den Track) mit unserem Modifikationsknoten (dem Panner) mit unserem Ziel (in diesem Fall die Lautsprecher).
+Als nächstes müssen wir unser Audio-Diagramm verbinden. Wir verbinden unsere Eingabe (den Track) mit unserem Modifikationsknoten (dem Panner) mit unserem Ziel (in diesem Fall die Lautsprecher).
 
 ```js
 track.connect(panner).connect(audioCtx.destination);
 ```
 
-Lassen Sie uns eine Abspieltaste erstellen, die beim Klick das Audio abspielt oder pausiert, je nach dem aktuellen Zustand.
+Lassen Sie uns eine Wiedergabetaste erstellen, die beim Klicken die Wiedergabe des Audios startet oder pausiert, je nach aktuellem Zustand.
 
 ```html
 <button data-playing="false" role="switch">Play/Pause</button>
@@ -500,15 +500,15 @@ playButton.addEventListener(
 );
 ```
 
-Für einen tiefer gehenden Blick auf das Abspielen/Kontrollieren von Audio und Audiografen schauen Sie sich den [Verwenden der Web Audio API-Leitfaden](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API) an.
+Für einen tieferen Einblick in das Abspielen / Steuern von Audio und Audiografen lesen Sie den [Leitfaden zur Verwendung der Web Audio API.](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
 
 ## Zusammenfassung
 
-Hoffentlich hat Ihnen dieser Artikel einen Einblick in die Funktionsweise der Web-Audio-Spatialisation gegeben und was jede der [`PannerNode`](/de/docs/Web/API/PannerNode)-Eigenschaften bewirkt (es gibt ziemlich viele davon). Die Werte können manchmal schwer zu manipulieren sein und je nach Anwendungsfall kann es einige Zeit dauern, sie richtig zu bringen.
+Hoffentlich hat Ihnen dieser Artikel einen Einblick in die Funktionsweise der Web Audio Spatialization gegeben und erklärt, was jede der [`PannerNode`](/de/docs/Web/API/PannerNode)-Eigenschaften tut (es gibt ziemlich viele davon). Es kann manchmal schwierig sein, die Werte zu manipulieren, und je nach Anwendungsfall kann es einige Zeit dauern, bis Sie sie richtig eingestellt haben.
 
 > [!NOTE]
-> Es gibt leichte Unterschiede in der Art, wie die Audiospatialisation in verschiedenen Browsern klingt. Der Panner-Knoten macht unter der Haube einige sehr komplexe Berechnungen; es gibt eine [Anzahl von Tests hier](https://wpt.fyi/results/webaudio/the-audio-api/the-pannernode-interface?label=stable&aligned=true), sodass Sie den Status der inneren Funktionen dieses Knotens über verschiedene Plattformen hinweg verfolgen können.
+> Es gibt leichte Unterschiede in der Art und Weise, wie die Audio-Spatialization in verschiedenen Browsern klingt. Der Panner-Knoten führt sehr komplexe Berechnungen im Hintergrund durch; es gibt eine [Anzahl von Tests hier](https://wpt.fyi/results/webaudio/the-audio-api/the-pannernode-interface?label=stable&aligned=true), sodass Sie den Status der inneren Arbeitsweise dieses Knotens auf verschiedenen Plattformen verfolgen können.
 
-Nochmals, Sie können [das endgültige Demo hier ansehen](https://mdn.github.io/webaudio-examples/spatialization/), und der [endgültige Quellcode ist hier](https://github.com/mdn/webaudio-examples/tree/main/spatialization). Es gibt auch eine [Codepen-Demo](https://codepen.io/Rumyra/pen/MqayoK?editors=0100).
+Sie können das [abschließende Demo hier ansehen](https://mdn.github.io/webaudio-examples/spatialization/), und der [abschließende Quellcode ist hier](https://github.com/mdn/webaudio-examples/tree/main/spatialization). Es gibt auch ein [CodePen-Demo](https://codepen.io/Rumyra/pen/MqayoK?editors=0100).
 
-Wenn Sie mit 3D-Spielen und/oder WebXR arbeiten, ist es eine gute Idee, eine 3D-Bibliothek zu nutzen, um eine solche Funktionalität zu erstellen, anstatt zu versuchen, dies alles selbst von Grund auf zu tun. Wir haben in diesem Artikel unser eigenes entwickelt, um Ihnen eine Vorstellung davon zu geben, wie es funktioniert, aber Sie werden viel Zeit sparen, indem Sie die Arbeit nutzen, die andere bereits vor Ihnen geleistet haben.
+Wenn Sie mit 3D-Spielen und/oder WebXR arbeiten, ist es eine gute Idee, eine 3D-Bibliothek zu nutzen, um solche Funktionen zu erstellen, anstatt alles von Grund auf selbst zu machen. Wir haben unser eigenes in diesem Artikel erstellt, um Ihnen eine Vorstellung davon zu geben, wie es funktioniert, aber Sie sparen viel Zeit, indem Sie die Arbeit anderer nutzen, die bereits vor Ihnen gemacht wurde.

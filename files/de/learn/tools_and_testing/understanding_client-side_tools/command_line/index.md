@@ -1,13 +1,13 @@
 ---
-title: Einführung in die Befehlszeile
+title: Crashkurs zur Kommandozeile
 slug: Learn/Tools_and_testing/Understanding_client-side_tools/Command_line
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Understanding_client-side_tools/Overview","Learn/Tools_and_testing/Understanding_client-side_tools/Package_management", "Learn/Tools_and_testing/Understanding_client-side_tools")}}
 
-Im Entwicklungsprozess werden Sie zweifellos einige Befehle im Terminal (oder in der "Befehlszeile" — das ist im Wesentlichen dasselbe) ausführen müssen. Dieser Artikel bietet eine Einführung in das Terminal, die wesentlichen Befehle, die Sie dort eingeben müssen, wie Sie Befehle verketten und wie Sie Ihre eigenen Command Line Interface (CLI)-Tools hinzufügen können.
+Im Verlauf Ihrer Entwicklungstätigkeiten werden Sie zweifellos einige Befehle im Terminal ausführen müssen (oder in der "Kommandozeile" – diese Begriffe bedeuten im Wesentlichen dasselbe). Dieser Artikel bietet eine Einführung in das Terminal, die wesentlichen Befehle, die Sie darin eingeben müssen, wie man Befehle miteinander verknüpft und wie man eigene Kommandozeilen-Tools (CLI-Tools) hinzufügt.
 
 <table>
   <tbody>
@@ -21,7 +21,7 @@ Im Entwicklungsprozess werden Sie zweifellos einige Befehle im Terminal (oder in
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Verständnis dafür, was das Terminal/die Befehlszeile ist, welche grundlegenden Befehle Sie lernen sollten und wie Sie neue Befehlszeilentools installieren.
+        Zu verstehen, was das Terminal/die Kommandozeile ist, welche grundlegenden Befehle Sie lernen sollten und wie man neue Kommandozeilen-Tools installiert.
       </td>
     </tr>
   </tbody>
@@ -29,81 +29,85 @@ Im Entwicklungsprozess werden Sie zweifellos einige Befehle im Terminal (oder in
 
 ## Willkommen im Terminal
 
-Das Terminal ist eine Textschnittstelle für die Ausführung textbasierter Programme. Wenn Sie Tools für die Webentwicklung nutzen, besteht eine fast garantierte Chance, dass Sie die Befehlszeile öffnen und einige Befehle ausführen müssen, um die von Ihnen gewählten Tools zu verwenden (solche Tools werden oft als **CLI-Tools** — Command Line Interface Tools — bezeichnet).
+Das Terminal ist eine Textschnittstelle zur Ausführung textbasierter Programme. Wenn Sie irgendeine Art von Werkzeugen für die Webentwicklung nutzen, besteht eine nahezu garantierte Wahrscheinlichkeit, dass Sie die Kommandozeile öffnen und einige Befehle ausführen müssen, um die von Ihnen gewählten Werkzeuge zu verwenden (solche Werkzeuge werden oft als **CLI-Tools** — Tools für Kommandozeilenschnittstellen — bezeichnet).
 
-Viele Tools können verwendet werden, indem man Befehle in die Befehlszeile eingibt; viele sind bereits auf Ihrem System vorinstalliert, und eine große Anzahl anderer Tools kann aus Paketregistern installiert werden. Paketregister sind wie App-Stores, aber (meistens) für auf der Befehlszeile basierende Tools und Software. Wir werden später in diesem Kapitel sehen, wie man einige Tools installiert, und im nächsten Kapitel mehr über Paketregister erfahren.
+Eine große Anzahl von Tools kann durch das Eintippen von Befehlen in die Kommandozeile verwendet werden; viele sind bereits auf Ihrem System vorinstalliert, und eine riesige Anzahl anderer ist über Paketregister installierbar.
+Paketregister sind wie App Stores, jedoch (meist) für Kommandozeilen-basierte Tools und Software.
+Wir werden später in diesem Kapitel sehen, wie man einige Tools installiert, und wir werden im nächsten Kapitel mehr über Paketregister lernen.
 
-Eine der größten Kritikpunkte an der Befehlszeile ist, dass sie in der Benutzererfahrung erheblich fehlt. Die Befehlszeile zum ersten Mal zu sehen, kann eine entmutigende Erfahrung sein: ein leerer Bildschirm und ein blinkender Cursor, mit sehr wenig offensichtlicher Hilfe darüber, was zu tun ist.
+Eines der größten Kritikpunkte an der Kommandozeile ist, dass sie in der Benutzererfahrung enorm fehlt.
+Zum ersten Mal die Kommandozeile zu sehen, kann eine entmutigende Erfahrung sein: ein leerer Bildschirm und ein blinkender Cursor, mit sehr wenig offensichtlicher Hilfe, was zu tun ist.
 
-Oberflächlich betrachtet sind sie alles andere als einladend, aber es gibt viel, was Sie mit ihnen tun können, und wir versprechen, dass es mit etwas Anleitung und Übung einfacher wird, sie zu benutzen! Deshalb bieten wir dieses Kapitel an, um Ihnen den Einstieg in diese scheinbar unfreundliche Umgebung zu erleichtern.
+Auf den ersten Blick sind sie alles andere als einladend, aber es gibt viel, was Sie mit ihnen tun können. Wir versprechen, dass die Nutzung mit ein wenig Anleitung und Übung einfacher werden wird!
+Deshalb bieten wir dieses Kapitel an – um Ihnen den Einstieg in diese scheinbar unfreundliche Umgebung zu erleichtern.
 
-### Woher kommt das Terminal?
+### Woher stammt das Terminal?
 
-Das Terminal stammt aus den 1950er-60er Jahren und seine ursprüngliche Form ähnelt wirklich nicht dem, was wir heute verwenden (dafür sollten wir dankbar sein). Sie können ein wenig Geschichte im Wikipedia-Eintrag für [Computer Terminal](https://en.wikipedia.org/wiki/Computer_terminal) lesen.
+Das Terminal stammt etwa aus den 1950er-60er Jahren, und seine ursprüngliche Form ähnelt wirklich nicht dem, was wir heute verwenden (wofür wir dankbar sein sollten). Sie können ein wenig über die Geschichte im Wikipedia-Eintrag für [Computer Terminal](https://en.wikipedia.org/wiki/Computer_terminal) lesen.
 
-Seitdem ist das Terminal ein konstantes Merkmal aller Betriebssysteme geblieben — von Desktop-Maschinen bis hin zu in der Cloud versteckten Servern, über Mikrocomputer wie den Raspberry PI Zero, bis hin zu Mobiltelefonen. Es bietet direkten Zugriff auf das zugrunde liegende Dateisystem des Computers und auf niedrigstufige Funktionen und ist daher unglaublich nützlich, um komplexe Aufgaben schnell auszuführen, wenn Sie wissen, was Sie tun.
+Seitdem ist das Terminal ein konstantes Merkmal aller Betriebssysteme geblieben - von Desktop-Rechnern über Server, die in der Cloud versteckt sind, bis hin zu Mikrocomputern wie dem Raspberry PI Zero und sogar bis zu Mobiltelefonen. Es bietet direkten Zugriff auf das zugrunde liegende Dateisystem des Computers und auf niedriglevelige Features und ist daher unglaublich nützlich, um komplexe Aufgaben schnell zu erledigen, wenn Sie wissen, was Sie tun.
 
-Es ist auch nützlich für die Automatisierung — zum Beispiel, um einen Befehl zu schreiben, der die Titel von Hunderten von Dateien sofort aktualisiert, sagen wir von "ch01-xxxx.png" zu "ch02-xxxx.png". Wenn Sie die Dateinamen über Ihre Finder- oder Explorer-GUI-App aktualisieren würden, würde es lange dauern.
+Es ist auch nützlich für die Automatisierung - zum Beispiel, um einen Befehl zu schreiben, der die Titel von Hunderten von Dateien sofort aktualisiert, sagen wir von "ch01-xxxx.png" zu "ch02-xxxx.png". Wenn Sie die Dateinamen mit der Finder- oder Explorer-GUI-App aktualisieren würden, würde dies lange dauern.
 
-Wie auch immer, das Terminal wird so schnell nicht verschwinden.
+Jedenfalls wird das Terminal in absehbarer Zeit nicht verschwinden.
 
 ### Wie sieht das Terminal aus?
 
 Unten sehen Sie einige der verschiedenen Geschmacksrichtungen von Programmen, die Ihnen den Zugang zu einem Terminal ermöglichen können.
 
-Die nächsten Bilder zeigen die in Windows verfügbaren Befehlsaufforderungen — es gibt eine gute Auswahl an Optionen vom "cmd"-Programm bis zu "powershell" — die vom Startmenü ausgeführt werden können, indem der Programmname eingegeben wird.
+Die nächsten Bilder zeigen die Kommandozeilenaufforderungen, die in Windows verfügbar sind – es gibt eine gute Auswahl an Optionen von dem Programm "cmd" bis zu "powershell" – die aus dem Startmenü gestartet werden können, indem der Programmname eingegeben wird.
 
-![Ein normales Windows-Cmd-Fenster und ein Windows-Powershell-Fenster](win-terminals.png)
+![Ein Standardfenster der Windows-Kommandozeile und ein Windows-Powershell-Fenster](win-terminals.png)
 
-Und unten sehen Sie die Terminalanwendung unter macOS.
+Und unten sehen Sie die Terminal-Anwendung von macOS.
 
-![Ein einfaches Standard-macOS-Terminal](mac-terminal.png)
+![Ein grundlegendes macOS-Terminal](mac-terminal.png)
 
-### Wie greifen Sie auf das Terminal zu?
+### Wie greift man auf das Terminal zu?
 
-Viele Entwickler nutzen heute Unix-basierte Tools (z. B. das Terminal und die Tools, die Sie darüber erreichen können). Viele Tutorials und Tools, die es heute im Web gibt, unterstützen (und gehen bedauerlicherweise von) Unix-basierte(n) Systeme(n) aus, aber keine Sorge — sie sind auf den meisten Systemen verfügbar. In diesem Abschnitt sehen wir uns an, wie Sie Zugriff auf das Terminal auf Ihrem gewählten System erhalten.
+Viele Entwickler verwenden heute Unix-basierte Tools (z. B. das Terminal und die über es zugänglichen Tools). Viele Tutorials und Tools, die heute im Web existieren, unterstützen (und nehmen leider an) Unix-basierte Systeme, aber keine Sorge – sie sind auf den meisten Systemen verfügbar. In diesem Abschnitt werden wir uns ansehen, wie Sie Zugang zum Terminal auf Ihrem gewählten System erhalten.
 
 #### Linux/Unix
 
-Wie oben angedeutet, haben Linux/Unix-Systeme standardmäßig ein Terminal, das in Ihren Anwendungen aufgeführt ist.
+Wie oben angedeutet, verfügen Linux/Unix-Systeme standardmäßig über ein Terminal, das unter Ihren Anwendungen aufgeführt ist.
 
 #### macOS
 
-macOS verfügt über ein System namens Darwin, das unterhalb der grafischen Benutzeroberfläche sitzt. Darwin ist ein Unix-ähnliches System, das das Terminal und den Zugriff auf die niedrigstufigen Tools bereitstellt. macOS Darwin hat meist Parität mit Unix, jedenfalls genug, um uns keine Sorgen zu machen, während wir diesen Artikel durcharbeiten.
+macOS hat ein System namens Darwin, das unter der grafischen Benutzeroberfläche sitzt. Darwin ist ein Unix-ähnliches System, das das Terminal und den Zugriff auf die niedrigleveligen Tools bereitstellt. macOS Darwin hat größtenteils Parität mit Unix, sicherlich gut genug, um uns während dieses Artikels keine Bedenken zu bereiten.
 
-Das Terminal ist auf macOS unter Applications/Utilities/Terminal verfügbar.
+Das Terminal ist unter Applications/Utilities/Terminal auf macOS verfügbar.
 
 #### Windows
 
-Wie bei einigen anderen Programmierwerkzeugen war die Nutzung des Terminals (oder der Befehlszeile) unter Windows traditionell nicht so einfach oder bequem wie bei anderen Betriebssystemen. Aber die Dinge werden besser.
+Wie bei einigen anderen Programmierwerkzeugen war die Nutzung des Terminals (oder der Kommandozeile) unter Windows traditionell nicht so einfach oder unkompliziert wie unter anderen Betriebssystemen. Aber die Dinge werden besser.
 
-Windows hatte traditionell sein eigenes terminalähnliches Programm namens cmd ("die Eingabeaufforderung") für eine lange Zeit, aber dies hat definitiv keine Parität mit Unix-Befehlen und ist äquivalent zur alten Windows-DOS-Eingabeaufforderung.
+Windows hatte traditionell sein eigenes terminalähnliches Programm namens cmd (die "Eingabeaufforderung") für lange Zeit, aber dies hat definitiv keine Parität mit Unix-Befehlen und entspricht der alten Windows-DOS-Eingabeaufforderung.
 
-Bessere Programme existieren für die Bereitstellung einer Terminalerfahrung auf Windows, wie z. B. Powershell ([hier finden Sie Installationsprogramme](https://github.com/PowerShell/PowerShell)), und Gitbash (das als Teil des [git for Windows](https://gitforwindows.org/) Toolsets kommt).
+Bessere Programme existieren für eine Terminal-Erfahrung unter Windows, wie PowerShell ([siehe hier, um Installer zu finden](https://github.com/PowerShell/PowerShell)), und Gitbash (das Teil des [git für Windows](https://gitforwindows.org/) Toolsets ist).
 
-Die beste Option für Windows in der modernen Zeit ist jedoch das Windows Subsystem for Linux (WSL) — eine Kompatibilitätsschicht für die Ausführung von Linux-Betriebssystemen direkt innerhalb von Windows 10, die es Ihnen ermöglicht, ein "echtes Terminal" direkt auf Windows auszuführen, ohne eine virtuelle Maschine zu benötigen.
+Die beste Option für Windows in der modernen Zeit ist jedoch das Windows-Subsystem für Linux (WSL) – eine Kompatibilitätsschicht für die Ausführung von Linux-Betriebssystemen direkt innerhalb von Windows 10, die es Ihnen ermöglicht, ein "echtes Terminal" direkt auf Windows zu betreiben, ohne eine virtuelle Maschine zu benötigen.
 
-Dies kann direkt aus dem Windows Store kostenlos installiert werden. Alle benötigten Dokumentationen finden Sie in der [Windows Subsystem for Linux Dokumentation](https://learn.microsoft.com/en-us/windows/wsl/).
+Dies kann direkt aus dem Windows Store kostenlos installiert werden. Alle benötigten Dokumentationen finden Sie in der [Dokumentation des Windows-Subsystems für Linux](https://learn.microsoft.com/en-us/windows/wsl/).
 
-![ein Screenshot der Windows Subsystem for Linux Dokumentation](wsl.png)
+![ein Screenshot der Dokumentation des Windows-Subsystems für Linux](wsl.png)
 
-In Bezug darauf, welche Option Sie unter Windows wählen sollten, empfehlen wir nachdrücklich, das WSL zu installieren. Sie könnten bei der Standard-Eingabeaufforderung (`cmd`) bleiben, und viele Werkzeuge werden funktionieren, aber Sie werden alles einfacher finden, wenn Sie eine bessere Parität mit Unix-Tools haben.
+In Bezug darauf, welche Option Sie unter Windows wählen sollen, empfehlen wir dringend, zu versuchen, das WSL zu installieren. Sie könnten bei der Standard-Kommandozeile (`cmd`) bleiben, und viele Tools werden in Ordnung sein, aber Sie werden alles einfacher finden, wenn Sie eine bessere Parität mit den Unix-Tools haben.
 
-#### Anmerkung: Was ist der Unterschied zwischen einer Befehlszeile und einem Terminal?
+#### Seitenbemerkung: Was ist der Unterschied zwischen einer Kommandozeile und einem Terminal?
 
-Allgemein werden diese beiden Begriffe synonym verwendet. Technisch ist ein Terminal eine Software, die startet und sich mit einer Shell verbindet. Eine Shell ist Ihre Sitzung und die Umgebung der Sitzung (wo Dinge wie die Eingabeaufforderung und Abkürzungen angepasst werden könnten). Die Befehlszeile ist die buchstäbliche Zeile, in die Sie Befehle eingeben und der Cursor blinkt.
+Im Allgemeinen werden Sie finden, dass diese beiden Begriffe austauschbar verwendet werden. Technisch gesehen ist ein Terminal eine Software, die startet und sich mit einer Shell verbindet. Eine Shell ist Ihre Sitzung und Sitzungsumgebung (wo Dinge wie die Eingabeaufforderung und Shortcuts vielleicht angepasst werden). Die Kommandozeile ist die wörtliche Zeile, in der Sie Befehle eingeben und der Cursor blinkt.
 
 ### Müssen Sie das Terminal benutzen?
 
-Obwohl es eine große Anzahl von Werkzeugen gibt, die über die Befehlszeile verfügbar sind, gibt es auch eine Masse von Erweiterungen für Tools wie [Visual Studio Code](https://code.visualstudio.com/), die als Vermittler dienen können, um Befehlszeilenbefehle zu verwenden, ohne das Terminal direkt zu nutzen. Es wird jedoch nicht für alles, was Sie tun möchten, eine Code-Editor-Erweiterung geben — irgendwann müssen Sie zumindest einige Erfahrungen mit dem Terminal machen.
+Obwohl es eine Fülle von Tools über die Kommandozeile gibt, gibt es bei der Nutzung von Tools wie [Visual Studio Code](https://code.visualstudio.com/) auch eine Masse von Erweiterungen, die als Proxy genutzt werden können, um Terminalbefehle zu verwenden, ohne das Terminal direkt nutzen zu müssen. Sie werden jedoch nicht für alles, was Sie tun möchten, eine Code-Editor-Erweiterung finden - irgendwann werden Sie etwas Erfahrung mit dem Terminal sammeln müssen.
 
 ## Grundlegende eingebaute Terminalbefehle
 
-Genug geredet — schauen wir uns einige Terminalbefehle an! Aus der Box können Sie mit der Befehlszeile nur einige der folgenden Dinge tun, zusammen mit den entsprechenden Namen der relevanten Werkzeuge in jedem Fall:
+Genug geredet – schauen wir uns einige Terminalbefehle an! Out of the box kann die Kommandozeile einige Dinge tun, zusammen mit den Namen der relevanten Tools in jedem Fall:
 
-- Navigieren Sie im Dateisystem Ihres Computers zusammen mit grundlegenden Aufgaben wie Erstellen, Kopieren, Umbenennen und Löschen:
+- Navigieren Sie im Dateisystem Ihres Computers, zusammen mit grundlegenden Aufgaben wie Erstellen, Kopieren, Umbenennen und Löschen:
 
-  - Bewegen Sie sich durch Ihre Verzeichnisstruktur: `cd`
+  - Bewegen Sie sich in Ihrer Verzeichnisstruktur: `cd`
   - Erstellen Sie Verzeichnisse: `mkdir`
   - Erstellen Sie Dateien (und ändern Sie deren Metadaten): `touch`
   - Kopieren Sie Dateien oder Verzeichnisse: `cp`
@@ -111,24 +115,24 @@ Genug geredet — schauen wir uns einige Terminalbefehle an! Aus der Box können
   - Löschen Sie Dateien oder Verzeichnisse: `rm`
 
 - Laden Sie Dateien von bestimmten URLs herunter: `curl`
-- Suchen Sie nach Textfragmenten in größeren Textmengen: `grep`
-- Anzeigen des Inhalts einer Datei seitenweise: `less`, `cat`
-- Manipulieren und Transformieren von Textströmen (zum Beispiel das Ändern aller Instanzen von `<div>`s in einer HTML-Datei in `<article>`): `awk`, `tr`, `sed`
+- Suchen Sie nach Textfragmenten innerhalb größerer Textkörper: `grep`
+- Sehen Sie sich den Inhalt einer Datei seitenweise an: `less`, `cat`
+- Manipulieren und transformieren Sie Textströme (zum Beispiel ändern Sie alle Instanzen von `<div>`s in einer HTML-Datei zu `<article>`): `awk`, `tr`, `sed`
 
 > [!NOTE]
-> Es gibt eine Reihe guter Tutorials im Web, die viel tiefer in die Befehlszeile gehen — dies ist nur eine kurze Einführung!
+> Es gibt eine Reihe guter Tutorials im Internet, die viel tiefer in die Kommandozeile eintauchen – dies ist nur eine kurze Einführung!
 
-Schauen wir vorwärts und sehen wir uns an, wie wir einige dieser Werkzeuge in der Befehlszeile verwenden. Bevor Sie weitermachen, öffnen Sie Ihr Terminalprogramm!
+Lassen Sie uns weitermachen und schauen, wie wir einige dieser Tools in der Kommandozeile verwenden. Bevor Sie fortfahren, öffnen Sie Ihr Terminalprogramm!
 
-### Navigation auf der Befehlszeile
+### Navigation in der Kommandozeile
 
-Wenn Sie die Befehlszeile besuchen, müssen Sie zwangsläufig zu einem bestimmten Verzeichnis navigieren, um "etwas zu tun". Alle Betriebssysteme (vorausgesetzt eine Standardinstallation) starten ihr Terminalprogramm in Ihrem "Home"-Verzeichnis, und von dort aus möchten Sie wahrscheinlich an einen anderen Ort wechseln.
+Wenn Sie die Kommandozeile betreten, müssen Sie unweigerlich zu einem bestimmten Verzeichnis navigieren, um "etwas zu tun". Alle Betriebssysteme (vorausgesetzt, eine Standardkonfiguration) starten ihr Terminalprogramm in Ihrem "Home"-Verzeichnis, und von dort aus möchten Sie wahrscheinlich an einen anderen Ort wechseln.
 
-Der `cd`-Befehl lässt Sie ein Verzeichnis ändern. Technisch gesehen ist cd kein Programm, sondern ein eingebautes. Dies bedeutet, dass Ihr Betriebssystem es direkt aus der Box bereitstellt und dass Sie es nicht versehentlich löschen können — danke, Himmel! Sie müssen sich nicht allzu viele Gedanken darüber machen, ob ein Befehl eingebaut ist oder nicht, aber bedenken Sie, dass eingebaute Befehle auf allen unix-basierten Systemen erscheinen.
+Der Befehl `cd` ermöglicht es Ihnen, das Verzeichnis zu ändern. Technisch gesehen ist `cd` kein Programm, sondern ein eingebauter Befehl. Dies bedeutet, dass Ihr Betriebssystem es out of the box bereitstellt und dass Sie es auch nicht versehentlich löschen können – Gott sei Dank! Sie müssen sich nicht allzu viele Gedanken darüber machen, ob ein Befehl eingebaut ist oder nicht, aber bedenken Sie, dass eingebaute Befehle auf allen Unix-basierten Systemen erscheinen.
 
-Um das Verzeichnis zu ändern, geben Sie `cd` in Ihr Terminal ein, gefolgt von dem Verzeichnis, in das Sie wechseln möchten. Vorausgesetzt, das Verzeichnis befindet sich in Ihrem Home-Verzeichnis, können Sie `cd Desktop` verwenden (siehe die unten stehenden Screenshots).
+Um das Verzeichnis zu ändern, geben Sie `cd` in Ihr Terminal ein, gefolgt von dem Verzeichnis, zu dem Sie wechseln möchten. Angenommen, das Verzeichnis befindet sich in Ihrem Home-Verzeichnis, können Sie `cd Desktop` verwenden (siehe die untenstehenden Screenshots).
 
-![Ergebnisse des cd Desktop-Befehls, der in einer Vielzahl von Windows-Terminals ausgeführt wird - der Terminal-Standort bewegt sich auf den Desktop](win-terminals-cd.png)
+![Ergebnisse des cd Desktop Befehls in einer Vielzahl von Windows-Terminals – der Terminalort wechselt auf den Desktop](win-terminals-cd.png)
 
 Versuchen Sie, dies in das Terminal Ihres Systems einzugeben:
 
@@ -136,18 +140,18 @@ Versuchen Sie, dies in das Terminal Ihres Systems einzugeben:
 cd Desktop
 ```
 
-Wenn Sie wieder zum vorherigen Verzeichnis zurückkehren möchten, können Sie zwei Punkte verwenden:
+Wenn Sie zum vorherigen Verzeichnis zurückkehren möchten, können Sie zwei Punkte verwenden:
 
 ```bash
 cd ..
 ```
 
 > [!NOTE]
-> Eine sehr nützliche Terminalabkürzung ist die Verwendung der <kbd>tab</kbd>-Taste zum automatischen Vervollständigen von Namen, von denen Sie wissen, dass sie vorhanden sind, anstatt den ganzen Namen eingeben zu müssen. Versuchen Sie beispielsweise, nachdem Sie die obigen beiden Befehle eingegeben haben, `cd D` einzugeben und <kbd>tab</kbd> zu drücken. Es sollte den Verzeichnisnamen `Desktop` für Sie vervollständigen, vorausgesetzt, dass es im aktuellen Verzeichnis vorhanden ist. Beachten Sie dies, während Sie voranschreiten.
+> Eine sehr nützliche Terminalverknüpfung ist die Verwendung der <kbd>Tabulator</kbd>-Taste, um Namen, von denen Sie wissen, dass sie vorhanden sind, automatisch zu vervollständigen, anstatt den gesamten Namen eintippen zu müssen. Zum Beispiel, nach dem Tippen der obigen beiden Befehle, versuchen Sie `cd D` einzugeben und die <kbd>Tabulator</kbd>-Taste zu drücken – es sollte den Verzeichnisnamen `Desktop` für Sie vervollständigen, vorausgesetzt, es ist im aktuellen Verzeichnis vorhanden. Behalten Sie dies im Hinterkopf, wenn Sie voranschreiten.
 
-Wenn das Verzeichnis, zu dem Sie gehen möchten, tief verschachtelt ist, müssen Sie den Pfad kennen, um dorthin zu gelangen. Dies wird normalerweise einfacher, je vertrauter Sie mit der Struktur Ihres Dateisystems werden. Wenn Sie sich jedoch nicht sicher sind, können Sie den Pfad in der Regel mit einer Kombination aus dem `ls`-Befehl (siehe unten) und durch Klicken in Ihrem Explorer/Finder-Fenster herausfinden, um zu sehen, wo ein Verzeichnis sich befindet, relativ zu Ihrem aktuellen Standort.
+Wenn das Verzeichnis, zu dem Sie gehen möchten, tief verschachtelt ist, müssen Sie den Pfad kennen, um dahin zu gelangen. Dies wird normalerweise einfacher, je mehr Sie mit der Struktur Ihres Dateisystems vertraut sind, aber wenn Sie sich nicht sicher über den Pfad sind, können Sie es normalerweise mit einer Kombination aus dem `ls`-Befehl (siehe unten) und dem Herumklicken in Ihrem Explorer/Findefenster herausfinden, um zu sehen, wo sich ein Verzeichnis befindet, relativ zu dem, wo Sie sich gerade befinden.
 
-Wenn Sie beispielsweise zu einem Verzeichnis namens `src` gehen möchten, das sich in einem Verzeichnis namens `project` auf dem `Desktop` befindet, könnten Sie diese drei Befehle eingeben, um dorthin von Ihrem Home-Verzeichnis zu gelangen:
+Zum Beispiel, wenn Sie zu einem Verzeichnis namens `src` gehen möchten, das sich in einem Verzeichnis namens `project` befindet, das sich auf dem `Desktop` befindet, könnten Sie diese drei Befehle eingeben, um dorthin zu gelangen von Ihrem Home-Ordner:
 
 ```bash
 cd Desktop
@@ -155,144 +159,144 @@ cd project
 cd src
 ```
 
-Aber das ist Zeitverschwendung — stattdessen können Sie einen Befehl eingeben, wobei die verschiedenen Elemente im Pfad durch Schrägstriche getrennt werden, genau wie bei der Angabe von Pfaden zu Bildern oder anderen Ressourcen in CSS-, HTML- oder JavaScript-Code:
+Aber das ist Zeitverschwendung – stattdessen können Sie einen Befehl eingeben, mit den verschiedenen Elementen im Pfad durch Schrägstriche getrennt, genau wie Sie es tun, wenn Sie Pfade zu Bildern oder anderen Assets in CSS, HTML oder JavaScript-Code angeben:
 
 ```bash
 cd Desktop/project/src
 ```
 
-Beachten Sie, dass bei einem führenden Schrägstrich im Pfad der Pfad absolut wird, z. B. `/Users/Ihr-Benutzername/Desktop`. Wenn der führende Schrägstrich weggelassen wird, wie wir es oben getan haben, wird der Pfad relativ zu Ihrem aktuell genutzten Arbeitsverzeichnis. Dies ist genau das, was Sie bei URLs in Ihrem Webbrowser sehen würden. Ein führender Schrägstrich bedeutet "am Ursprung der Website", während das Weglassen des Schrägstrichs "die URL ist relativ zu meiner aktuellen Seite" bedeutet.
+Beachten Sie, dass bei Pfaden, die einen führenden Schrägstrich enthalten, der Pfad absolut ist, beispielsweise `/Users/your-user-name/Desktop`. Wenn der führende Schrägstrich, wie oben gezeigt, weggelassen wird, ist der Pfad relativ zu Ihrem derzeitigen Arbeitsverzeichnis. Dies ist genau das gleiche wie bei URLs in Ihrem Webbrowser zu sehen. Ein führender Schrägstrich bedeutet "am Root der Website", während das Weglassen des Schrägstrichs bedeutet "die URL ist relativ zu meiner aktuellen Seite".
 
 > [!NOTE]
-> Unter Windows verwenden Sie Rückwärtsschrägstriche anstelle von Schrägstrichen, z. B. `cd Desktop\project\src` — das mag wirklich seltsam erscheinen, aber wenn Sie interessiert sind, warum das so ist, [sehen Sie sich diesen YouTube-Clip an](https://www.youtube.com/watch?v=5T3IJfBfBmI) mit einer Erklärung von einem der leitenden Ingenieure von Microsoft.
+> Unter Windows verwenden Sie Rückschrägstriche statt Schrägstriche, z. B. `cd Desktop\project\src` – das mag ungewohnt erscheinen, aber wenn Sie daran interessiert sind, warum das so ist, [sehen Sie sich diesen YouTube-Clip](https://www.youtube.com/watch?v=5T3IJfBfBmI) mit einer Erklärung von einem der Hauptingenieure von Microsoft an.
 
-### Auflisten der Verzeichnisinhalte
+### Verzeichnisinhalte auflisten
 
-Ein weiterer eingebauter Unix-Befehl ist `ls` (kurz für list), der den Inhalt des Verzeichnisses auflistet, in dem Sie sich gerade befinden. Beachten Sie, dass dies nicht funktioniert, wenn Sie die Standard-Windows-Eingabeaufforderung (`cmd`) verwenden — das Äquivalent dort ist `dir`.
+Ein weiterer eingebauter Unix-Befehl ist `ls` (Kurzform für list), der die Inhalte des Verzeichnisses auflistet, in dem Sie sich gerade befinden. Beachten Sie, dass dies nicht funktioniert, wenn Sie die Standard-Windows-Kommandozeile (`cmd`) verwenden – das Äquivalent dort ist `dir`.
 
-Versuchen Sie, dies jetzt in Ihrem Terminal zu testen:
+Versuchen Sie, dies jetzt in Ihrem Terminal auszuführen:
 
 ```bash
 ls
 ```
 
-Dies gibt Ihnen eine Liste der Dateien und Verzeichnisse in Ihrem aktuell genutzten Arbeitsverzeichnis, aber die Informationen sind wirklich grundlegend — Sie erhalten nur den Namen jedes präsentierten Elements, nicht, ob es sich um eine Datei oder ein Verzeichnis handelt oder etwas anderes. Glücklicherweise kann eine kleine Änderung der Befehlsverwendung viel mehr Informationen bieten.
+Dies gibt Ihnen eine Liste der Dateien und Verzeichnisse in Ihrem derzeitigen Arbeitsverzeichnis, aber die Informationen sind wirklich einfach – Sie erhalten nur den Namen jedes Elements, nicht ob es sich um eine Datei oder ein Verzeichnis handelt, oder sonstige Informationen. Glücklicherweise kann eine kleine Änderung in der Verwendung des Befehls Ihnen viel mehr Informationen geben.
 
 ### Einführung in Befehlsoptionen
 
-Die meisten Terminalbefehle haben Optionen — dies sind Modifikationen, die Sie am Ende eines Befehls anfügen, die ihn in einer leicht anderen Weise funktionieren lassen. Diese bestehen in der Regel aus einem Leerzeichen nach dem Befehl, gefolgt von einem Bindestrich und einem oder mehreren Buchstaben.
+Die meisten Terminalbefehle haben Optionen – diese sind Modifikatoren, die Sie an das Ende eines Befehls anhängen, die ihn auf eine leicht andere Weise verhalten lassen. Diese bestehen normalerweise aus einem Leerzeichen nach dem Befehlsnamen, gefolgt von einem Bindestrich, gefolgt von einem oder mehreren Buchstaben.
 
-Zum Beispiel, probieren Sie dies aus und sehen Sie, was Sie erhalten:
+Zum Beispiel, probieren Sie dies aus und sehen Sie, was Sie bekommen:
 
 ```bash
 ls -l
 ```
 
-Im Falle von `ls` gibt die `-l` (_Bindestrich ell_) Option eine Auflistung mit einer Datei oder einem Verzeichnis pro Zeile und viel mehr angezeigten Informationen. Verzeichnisse können identifiziert werden, indem man nach einem Buchstaben "d" ganz links auf den Zeilen sucht. Das sind die, in die wir `cd` hinein können.
+Im Falle von `ls` gibt die Option `-l` (_Bindestrich ell_) eine Liste mit einer Datei oder einem Verzeichnis auf jeder Zeile, und es werden wesentlich mehr Informationen angezeigt. Verzeichnisse können erkannt werden, indem man nach einem "d" ganz links auf den Zeilen sucht. Das sind die, in die man `cd` verwenden kann.
 
-Unten ist ein Screenshot mit einem "Vanilla"-macOS-Terminal oben und einem benutzerdefinierten Terminal mit zusätzlichen Symbolen und Farben, um es lebendig zu halten — beide zeigen die Ergebnisse des `ls -l`-Befehls:
+Unten ist ein Screenshot mit einem "Standard" macOS-Terminal oben und einem angepassten Terminal mit einigen zusätzlichen Symbolen und Farben, um es lebhaft zu halten – beide zeigen die Ergebnisse des `ls -l`-Befehls:
 
-![Ein Vanilla-macOS-Terminal und ein bunteres benutzerdefiniertes macOS-Terminal, das eine Datei-Liste zeigt - das Ergebnis des ls -l-Befehls](mac-terminals-ls.png)
-
-> [!NOTE]
-> Um herauszufinden, welche Optionen jeder Befehl hat, können Sie die [man Seite](https://de.wikipedia.org/wiki/Man_page) aufrufen. Dies geschieht, indem Sie den `man`-Befehl eingeben, gefolgt vom Namen des Befehls, den Sie nachschlagen möchten, zum Beispiel `man ls`. Dadurch wird die man Seite im Standard-Textdatei-Viewer des Terminals geöffnet (zum Beispiel [`less`](<https://de.wikipedia.org/wiki/Less_(Unix)>) in meinem Terminal), und Sie sollten dann in der Lage sein, durch die Seite mit den Pfeiltasten oder einem ähnlichen Mechanismus zu blättern. Die man Seite listet alle Optionen im Detail auf, was am Anfang möglicherweise etwas einschüchternd ist, aber zumindest wissen Sie, dass es da ist, wenn Sie es brauchen. Sobald Sie mit dem Durchsehen der man Seite fertig sind, müssen Sie sie mit dem Beenden-Befehl Ihres Text-Viewers („q“ in `less`; Sie müssen möglicherweise im Internet suchen, um sie zu finden, wenn sie nicht offensichtlich ist) beenden.
+![Ein macOS-Terminal mit Standard- und benutzerdefinierter Darstellung, das eine Dateiliste zeigt - die Ergebnisse des `ls -l` Befehls](mac-terminals-ls.png)
 
 > [!NOTE]
-> Um einen Befehl mit mehreren Optionen gleichzeitig auszuführen, können Sie diese in der Regel alle in eine einzelne Zeichenfolge nach dem Bindestrichzeichen setzen, z. B. `ls -lah` oder `ls -ltrh`. Versuchen Sie, die man-Seite von `ls` zu betrachten, um herauszufinden, was diese zusätzlichen Optionen tun!
-
-Da wir nun zwei grundlegende Befehle besprochen haben, stöbern Sie ein wenig in Ihrem Verzeichnis herum und sehen Sie, ob Sie von einem Ort zum nächsten navigieren können.
-
-### Erstellen, kopieren, verschieben, entfernen
-
-Es gibt eine Reihe anderer grundlegender Dienstprogramme, die Sie wahrscheinlich ziemlich oft verwenden werden, wenn Sie mit dem Terminal arbeiten. Sie sind ziemlich einfach, daher werden wir sie nicht alle so detailliert erklären wie die vorherigen.
-
-Probieren Sie sie in einem Testverzeichnis aus, das Sie irgendwo erstellt haben, damit Sie nicht versehentlich etwas Wichtiges löschen, indem Sie die Beispielbefehle unten als Orientierungshilfe verwenden:
-
-- `mkdir` — Dies erstellt ein neues Verzeichnis innerhalb des aktuellen Verzeichnisses, in dem Sie sich befinden, mit dem Namen, den Sie nach dem Befehl angeben. Zum Beispiel `mkdir my-awesome-website` wird ein neues Verzeichnis namens `my-awesome-website` erstellen.
-- `rmdir` — Entfernt das benannte Verzeichnis, jedoch nur, wenn es leer ist. Zum Beispiel `rmdir my-awesome-website` wird das Verzeichnis entfernen, das wir oben erstellt haben. Wenn Sie ein Verzeichnis entfernen möchten, das nicht leer ist (und auch alles, was es enthält), können Sie stattdessen `rm -r` verwenden (siehe unten), aber das ist gefährlich. Stellen Sie sicher, dass sich nichts darin befindet, was Sie später noch benötigen könnten, da es für immer weg sein wird.
-- `touch` — erstellt eine neue leere Datei im aktuellen Verzeichnis. Zum Beispiel `touch mdn-example.md` erstellt eine neue leere Datei namens `mdn-example.md`.
-- `mv` — verschiebt eine Datei aus dem ersten angegebenen Dateispeicherort an den zweiten angegebenen Dateispeicherort, zum Beispiel `mv mdn-example.md mdn-example.txt` (die Speicherorte werden als Dateipfade geschrieben). Dieser Befehl verschiebt eine Datei namens `mdn-example.md` im aktuellen Verzeichnis zu einer Datei namens `mdn-example.txt` im aktuellen Verzeichnis. Technisch wird die Datei verschoben, aber aus praktischer Sicht wird mit diesem Befehl die Datei tatsächlich umbenannt.
-- `cp` – ähnlich in der Verwendung wie `mv`, erstellt `cp` eine Kopie der Datei im ersten angegebenen Speicherort, im zweiten angegebenen Speicherort. Zum Beispiel `cp mdn-example.txt mdn-example.txt.bak` erstellt eine Kopie von `mdn-example.txt` namens `mdn-example.txt.bak` (Sie können sie natürlich auch anders benennen, wenn Sie möchten).
-- `rm` — entfernt die angegebene Datei. Zum Beispiel `rm mdn-example.txt` löscht eine einzelne Datei namens `mdn-example.txt`. Beachten Sie, dass dieses Löschen dauerhaft ist und nicht über den Papierkorb, den Sie auf Ihrer Desktop-Benutzeroberfläche haben könnten, rückgängig gemacht werden kann.
+> Um genau herauszufinden, welche Optionen für jeden Befehl verfügbar sind, können Sie dessen [Man-Page](https://en.wikipedia.org/wiki/Man_page) aufrufen. Dies geschieht, indem Sie den Befehl `man` eingeben, gefolgt vom Namen des Befehls, den Sie nachsehen möchten, zum Beispiel `man ls`. Dadurch wird die Man-Page im Standard-Textdateianzeiger des Terminals geöffnet (zum Beispiel [`less`](<https://en.wikipedia.org/wiki/Less_(Unix)>) in meinem Terminal), und Sie sollten dann durch die Seite scrollen können, indem Sie die Pfeiltasten verwenden, oder einen ähnlichen Mechanismus. Die Man-Page listet alle Optionen ausführlich auf, was am Anfang etwas einschüchternd sein kann, aber zumindest wissen Sie, dass sie da ist, wenn Sie sie brauchen. Wenn Sie mit dem Durchsehen der Man-Page fertig sind, müssen Sie diese über den Beenden-Befehl Ihres Textanzeigers beenden ("q" in `less`; Sie müssen möglicherweise im Internet suchen, um diesen zu finden, wenn er nicht offensichtlich ist).
 
 > [!NOTE]
-> Viele Terminalbefehle erlauben es Ihnen, Sternchen als "Wild Card"-Zeichen zu verwenden, was "jede Zeichenfolge" bedeutet. Auf diese Weise können Sie eine Operation gegen eine potenziell große Anzahl von Dateien auf einmal ausführen, die alle dem angegebenen Muster entsprechen. Als Beispiel würde `rm mdn-*` alle Dateien löschen, die mit `mdn-` beginnen. `rm mdn-*.bak` würde alle Dateien löschen, die mit `mdn-` beginnen und mit `.bak` enden.
+> Um einen Befehl mit mehreren Optionen gleichzeitig auszuführen, können Sie sie normalerweise alle in eine einzige Zeichenkette nach dem Bindestrich-Zeichen setzen, zum Beispiel `ls -lah` oder `ls -ltrh`. Versuchen Sie, die Man-Page von `ls` zu öffnen, um zu verstehen, was diese zusätzlichen Optionen tun!
 
-## Terminal — als schädlich betrachtet?
+Nun, da wir zwei grundlegende Befehle behandelt haben, stöbern Sie ein wenig in Ihrem Verzeichnis herum und sehen Sie, ob Sie von einem Ort zum anderen navigieren können.
 
-Wir haben es zuvor angedeutet, aber um klar zu sein — Sie müssen mit dem Terminal vorsichtig sein. Einfache Befehle bergen nicht allzu viel Gefahr, aber wenn Sie anfangen, komplexere Befehle zusammenzustellen, müssen Sie sorgfältig darüber nachdenken, was der Befehl tun wird, und versuchen, sie zuerst zu testen, bevor Sie sie schließlich im vorgesehenen Verzeichnis ausführen.
+### Erstellen, Kopieren, Verschieben, Entfernen
 
-Angenommen, Sie hätten 1000 Textdateien in einem Verzeichnis und wollten sie alle durchgehen und nur die löschen, die einen bestimmten Unterstring im Dateinamen haben. Wenn Sie nicht vorsichtig sind, könnten Sie möglicherweise etwas Wichtiges löschen, was Ihnen eine Menge Arbeit kostet.
-Eine gute Angewohnheit ist es, Ihren Termnialbefehl in einem Texteditor zu schreiben, herauszufinden, wie Sie denken, dass er aussehen sollte, eine Sicherungskopie Ihres Verzeichnisses zu machen und den Befehl zuerst darin zu testen.
+Es gibt eine Reihe anderer grundlegender Dienstprogramme, die Sie wahrscheinlich oft verwenden werden, während Sie mit dem Terminal arbeiten. Sie sind ziemlich einfach, also werden wir sie nicht alle so ausführlich erklären wie die vorherigen.
 
-Ein weiterer guter Tipp - wenn Sie sich nicht wohl fühlen, Terminalbefehle auf Ihrem eigenen Computer auszuprobieren, ist ein netter sicherer Ort, um sie auszuprobieren, [Glitch.com](https://glitch.com/). Neben einem großartigen Ort, um Code für die Webentwicklung auszuprobieren, bieten die Projekte auch Zugang zu einem Terminal, sodass Sie all diese Befehle direkt in diesem Terminal ausführen können, mit dem Wissen, dass Sie Ihren eigenen Computer nicht beschädigen werden.
+Spielen Sie etwas mit ihnen in einem Testverzeichnis, das Sie irgendwo erstellt haben, damit Sie nichts Wichtiges versehentlich löschen, indem Sie die folgenden Beispielbefehle zur Orientierung verwenden:
 
-![ein doppelter Screenshot, der die glitch.com-Startseite und den glitch-Terminal-Emulator zeigt](glitch.png)
+- `mkdir` – dies erstellt ein neues Verzeichnis im aktuellen Verzeichnis, in dem Sie sich befinden, mit dem Namen, den Sie nach dem Befehl angeben. Zum Beispiel, `mkdir my-awesome-website` erstellt ein neues Verzeichnis namens `my-awesome-website`.
+- `rmdir` – entfernt das angegebene Verzeichnis, aber nur, wenn es leer ist. Zum Beispiel, `rmdir my-awesome-website` entfernt das Verzeichnis, das wir oben erstellt haben. Wenn Sie ein Verzeichnis entfernen möchten, das nicht leer ist (und auch alles, was es enthält), können Sie stattdessen `rm -r` verwenden (siehe unten), aber das ist gefährlich. Stellen Sie sicher, dass sich im Verzeichnis nichts befindet, das Sie später noch benötigen könnten, da es für immer verloren sein wird.
+- `touch` – dies erstellt eine neue leere Datei im aktuellen Verzeichnis. Zum Beispiel, `touch mdn-example.md` erstellt eine neue leere Datei namens `mdn-example.md`.
+- `mv` – verschiebt eine Datei vom ersten angegebenen Dateipfad zum zweiten angegebenen Dateipfad, zum Beispiel `mv mdn-example.md mdn-example.txt` (die Pfade werden als Dateipfade geschrieben). Dieser Befehl verschiebt eine Datei namens `mdn-example.md` im aktuellen Verzeichnis in eine Datei namens `mdn-example.txt` im aktuellen Verzeichnis. Technisch wird die Datei verschoben, aber aus praktischer Perspektive wird die Datei umbenannt.
+- `cp` – ähnlich wie `mv`, erstellt `cp` eine Kopie der Datei im ersten angegebenen Standort, im zweiten angegebenen Standort. Zum Beispiel, `cp mdn-example.txt mdn-example.txt.bak` erstellt eine Kopie von `mdn-example.txt` namens `mdn-example.txt.bak` (Sie können es natürlich auch anders nennen, wenn Sie möchten).
+- `rm` – entfernt die angegebene Datei. Zum Beispiel, `rm mdn-example.txt` löscht eine einzelne Datei namens `mdn-example.txt`. Beachten Sie, dass dieses Löschen dauerhaft ist und nicht rückgängig gemacht werden kann über den Papierkorb, den Sie vielleicht auf Ihrer Desktop-Benutzeroberfläche haben.
 
-Eine großartige Ressource, um einen schnellen Überblick über spezifische Terminalbefehle zu bekommen, ist [tldr.sh](https://tldr.sh/). Dies ist ein community-getriebener Dokumentationsdienst, ähnlich wie MDN, aber spezifisch für Terminalbefehle.
+> [!NOTE]
+> Viele Terminalbefehle erlauben es Ihnen, Asterisken als "Wildcard"-Zeichen zu verwenden, was "bezeichnender beliebiger Zeichen" bedeutet. Dadurch können Sie eine Operation gegen möglicherweise viele Dateien gleichzeitig ausführen, die alle dem angegebenen Muster entsprechen. Zum Beispiel würde `rm mdn-*` alle Dateien löschen, die mit `mdn-` beginnen. `rm mdn-*.bak` würde alle Dateien löschen, die mit `mdn-` beginnen und mit `.bak` enden.
 
-Im nächsten Abschnitt lassen Sie uns das Ganze um einige Stufen erhöhen (oder in der Tat um mehrere Stufen) und sehen Sie, wie wir Werkzeuge über die Befehlszeile miteinander verbinden können, um wirklich zu sehen, wie das Terminal im Vergleich zur regulären Desktop-Benutzeroberfläche von Vorteil sein kann.
+## Terminal — als gefährlich erachtet?
 
-## Verbinden von Befehlen mit Pipes
+Wir haben dies schon zuvor angedeutet, aber um es klarzustellen – Sie müssen vorsichtig mit dem Terminal sein. Einfache Befehle bergen nicht allzu viel Gef Gefahr, aber wenn Sie beginnen komplexere Befehle zusammenzustellen, müssen Sie genau darüber nachdenken, was der Befehl tun wird, und versuchen Sie ihn zuerst zu testen, bevor Sie ihn im beabsichtigten Verzeichnis ausführen.
 
-Das Terminal wird wirklich nützlich, wenn Sie beginnen, Befehle durch das `|` (Pipe)-Symbol miteinander zu verkettwen. Schauen wir uns ein sehr schnelles Beispiel an, was das bedeutet.
+Angenommen, Sie haben 1000 Textdateien in einem Verzeichnis und möchten sie alle durchgehen und nur die löschen, die ein bestimmtes Substring im Dateinamen haben. Wenn Sie nicht vorsichtig sind, könnten Sie etwas Wichtiges löschen und dabei viel Ihrer Arbeit verlieren.
+Eine gute Angewohnheit ist, Ihren Terminalbefehl in einem Texteditor zu schreiben, herauszufinden, wie er Ihrer Meinung nach aussehen sollte, und dann eine Sicherungskopie Ihres Verzeichnisses zu erstellen und zu versuchen, den Befehl zuerst daran auszuführen, um ihn zu testen.
 
-Wir haben bereits `ls` angesehen, das die Inhalte des aktuellen Verzeichnisses ausgibt:
+Ein weiterer guter Tipp — wenn Sie sich nicht wohlfühlen, Terminalbefehle auf Ihrer eigenen Maschine auszuprobieren, ist ein sicherer Ort, um sie auszuprobieren, [Glitch.com](https://glitch.com/). Neben dem großartigen Ort, um Webentwicklungscode auszuprobieren, geben Ihnen Projekte dort auch Zugriff auf ein Terminal, sodass Sie all diese Befehle direkt in diesem Terminal ausführen können, im Wissen, dass Sie Ihre eigene Maschine nicht beschädigen.
+
+![ein Doppelscreenshot zeigt die Glitch.com-Startseite und den Glitch-Terminalemulator](glitch.png)
+
+Eine großartige Ressource, um sich schnell einen Überblick über spezifische Terminalbefehle zu verschaffen, ist [tldr.sh](https://tldr.sh/). Dies ist ein von der Community betriebenes Dokumentationsservice, ähnlich wie MDN, aber spezifisch für Terminalbefehle.
+
+Im nächsten Abschnitt werden wir einen Gang höher schalten (oder sogar mehrere Gänge) und sehen, wie wir Tools in der Kommandozeile miteinander verbinden können, um wirklich zu sehen, wie das Terminal gegenüber der regulären Desktop-Benutzeroberfläche von Vorteil sein kann.
+
+## Befehle mit Pipes verbinden
+
+Das Terminal kommt wirklich zur Geltung, wenn Sie beginnen, Befehle mit dem `|` (Pipe)-Symbol zu verketten. Schauen wir uns ein sehr kurzes Beispiel an, was das bedeutet.
+
+Wir haben bereits `ls` betrachtet, das die Inhalte des aktuellen Verzeichnisses ausgeben kann:
 
 ```bash
 ls
 ```
 
-Aber was ist, wenn wir schnell die Anzahl der Dateien und Verzeichnisse im aktuellen Verzeichnis zählen wollten? `ls` kann das allein nicht.
+Aber was wäre, wenn wir schnell die Anzahl der Dateien und Verzeichnisse im aktuellen Verzeichnis zählen wollten? `ls` kann das nicht allein tun.
 
-Es gibt ein weiteres Unix-Tool namens `wc`. Dies zählt die Anzahl der Wörter, Zeilen, Zeichen oder Bytes von allem, was ihm eingegeben wird. Dies kann eine Textdatei sein — das untenstehende Beispiel gibt die Anzahl der Zeilen in `myfile.txt` aus:
+Es gibt ein weiteres Unix-Tool namens `wc`. Dies zählt die Anzahl der Wörter, Zeilen, Zeichen oder Bytes von dem, was hineingegeben wird. Dies kann eine Textdatei sein – das untenstehende Beispiel gibt die Anzahl der Zeilen in `myfile.txt` aus:
 
 ```bash
 wc -l myfile.txt
 ```
 
-Aber es kann auch die Anzahl der Zeilen von allem zählen, was _in_ es _gepipet_ wird. Zum Beispiel zählt der folgende Befehl die Anzahl der Zeilen, die der `ls`-Befehl ausgibt (was er normalerweise in das Terminal drucken würde, wenn er alleine ausgeführt wird) und gibt stattdessen diese Anzahl in das Terminal aus:
+Aber es kann auch die Anzahl der Zeilen dessen zählen, was in es **gepiped** wird. Zum Beispiel gibt der folgende Befehl die Anzahl der Zeilen aus, die der `ls`-Befehl normalerweise in das Terminal drucken würde, wenn er alleine ausgeführt würde, und statt dessen diese Anzahl an das Terminal aus.
 
 ```bash
 ls | wc -l
 ```
 
-Da `ls` jede Datei oder jedes Verzeichnis in einer eigenen Zeile druckt, gibt uns das effektiv eine Verzeichnis- und Dateianzahl.
+Da `ls` jede Datei oder jedes Verzeichnis in ihrer eigenen Zeile druckt, gibt uns das effektiv eine Verzeichnis- und Dateianzahl.
 
-Also, was passiert hier? Eine allgemeine Philosophie von (unix) Befehlszeilenwerkzeugen ist, dass sie Text in das Terminal drucken (auch als "Drucken in die Standardausgabe" bezeichnet oder `STDOUT`). Eine gute Anzahl von Befehlen kann auch Inhalte aus einem gestreamten Eingang lesen (bekannt als "Standard-Eingabe" oder `STDIN`).
+Was passiert hier? Eine allgemeine Philosophie der (unix) Kommandozeilen-Tools ist, dass sie Text auf das Terminal drucken (auch "in Standardausgabe drucken" oder `STDOUT` genannt). Ein Großteil der Befehle kann auch Inhalte aus gestreamtem Eingab einehen beziehen (bekannt als "Standardeingabe" oder `STDIN`).
 
-Der Pipe-Operator kann diese Eingänge und Ausgänge miteinander _verbinden_, wodurch wir zunehmend komplexere Operationen aufbauen können, die unseren Bedürfnissen entsprechen — der Ausgang von einem Befehl kann zum Eingang des nächsten Befehls werden. In diesem Fall würde `ls` normalerweise seinen Ausgang auf `STDOUT` drucken, aber stattdessen wird der Ausgang von `ls` in `wc` gepipet, das diesen Ausgang als Eingang nimmt, die Anzahl der darin enthaltenen Zeilen zählt und diese Anzahl stattdessen auf `STDOUT` druckt.
+Der Pipe-Operator kann diese Ein- und Ausgaben miteinander _verbinden_ und es uns ermöglichen, zunehmend komplexere Operationen entsprechend unseren Bedürfnissen aufzubauen – die Ausgabe eines Befehls kann zur Eingabe des nächsten Befehls werden. In diesem Fall würde `ls` seine Ausgabe normalerweise an `STDOUT` drucken, aber stattdessen wird die Ausgabe von `ls` in `wc` gepiped, das diese Ausgabe als Eingabe aufnimmt, die Anzahl der enthaltenen Zeilen zählt und diese Anzahl an `STDOUT` drucken.
 
 ## Ein etwas komplexeres Beispiel
 
-Lassen Sie uns etwas komplizierteres durchgehen.
+Lassen Sie uns etwas etwas Komplizierteres durchgehen.
 
-Wir werden zuerst versuchen, den Inhalt der MDN-"fetch"-Seite mit dem `curl`-Befehl abzurufen (der verwendet werden kann, um Inhalte von URLs anzufordern), von `https://developer.mozilla.org/de/docs/Web/API/WindowOrWorkerGlobalScope/fetch`.
+Zuerst versuchen wir, die Inhalte von MDNs "fetch"-Seite mit dem `curl`-Befehl (der benutzt werden kann, um Inhalte von URLs anzufordern) von `https://developer.mozilla.org/de/docs/Web/API/WindowOrWorkerGlobalScope/fetch` abzurufen.
 Versuchen Sie es jetzt:
 
 ```bash
 curl https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
 ```
 
-Sie erhalten keine Ausgabe, da die Seite umgeleitet wurde (zur [/Web/API/fetch](/de/docs/Web/API/Window/fetch)).
-Wir müssen `curl` ausdrücklich sagen, dass es Weiterleitungen folgen soll, indem wir das `-L`-Flag verwenden.
+Sie erhalten keine Ausgabe, da die Seite umgeleitet wurde (nach /Web/API/fetch).
+Wir müssen `curl` explizit sagen, dass es Redirektierungen mit dem `-L`-Flag folgen soll.
 
-Lassen Sie uns auch die Header ansehen, die `developer.mozilla.org` zurückgibt, indem wir das `curl`'s `-I`-Flag verwenden, und alle Standort-Weiterleitungen, die es an das Terminal sendet, drucken, indem wir den Ausgang von `curl` in `grep` pipen (wir bitten `grep`, alle Zeilen zurückzugeben, die das Wort "location" enthalten).
+Sehen wir uns auch die Header an, die `developer.mozilla.org` mit Hilfe der `-I`-Option von `curl` zurückgibt, und lassen wir alle Location-Redirektierungen mit `grep` in das Terminal drucken (wir werden `grep` anweisen, alle Zeilen, die das Wort "location" enthalten, zurückzugeben).
 
-Versuchen Sie, den folgenden Befehl auszuführen (Sie werden sehen, dass es nur eine Weiterleitung gibt, bevor wir die endgültige Seite erreichen):
+Versuchen Sie, den folgenden Code auszuführen (Sie werden sehen, dass nur eine Umleitung besteht, bevor wir die endgültige Seite erreichen):
 
 ```bash
 curl https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch -L -I | grep location
 ```
 
-Ihre Ausgabe sollte ungefähr so aussehen (`curl` wird zuerst einige Downloadzähler und dergleichen ausgeben):
+Ihre Ausgabe sollte in etwa so aussehen (`curl` gibt zuerst einige Downloadzähler und Ähnliches aus):
 
 ```bash
 location: /en-US/docs/Web/API/fetch
 ```
 
-Obwohl konstruiert, könnten wir dieses Ergebnis etwas weiter treiben und den `location:`-Zeileninhalt transformieren, indem wir den Basis-Ursprung am Anfang jedes einzelnen hinzufügen, sodass vollständige URLs ausgegeben werden.
-Dazu fügen wir `awk` hinzu (das eine Programmiersprache ist, ähnlich wie JavaScript oder Ruby oder Python, nur viel älter!).
+Obwohl leicht erzwungen, könnten wir dieses Ergebnis ein wenig weiter nehmen und den Inhalt der Zeilen `location:` transformieren, indem wir die Basis-URL zum Anfang jeder Zeile hinzufügen, so dass wir vollständige URLs gedruckt bekommen.
+Dafür fügen wir `awk` in die Mischung ein (was eine Programmiersprache ähnlich wie JavaScript oder Ruby oder Python ist, nur um einiges älter!).
 
 Versuchen Sie, dies auszuführen:
 
@@ -300,86 +304,86 @@ Versuchen Sie, dies auszuführen:
 curl https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch -L -I | grep location | awk '{ print "https://developer.mozilla.org" $2 }'
 ```
 
-Ihre endgültige Ausgabe sollte ungefähr so aussehen:
+Ihre endgültige Ausgabe sollte etwa so aussehen:
 
 ```bash
 https://developer.mozilla.org/en-US/docs/Web/API/fetch
 ```
 
-Indem wir diese Befehle kombiniert haben, haben wir den Ausgang so angepasst, dass die vollständigen URLs angezeigt werden, durch die der Mozilla-Server umgeleitet wird, wenn wir die `/docs/Web/API/WindowOrWorkerGlobalScope/fetch`-URL anfordern.
-Es wird sich als nützlich erweisen, Ihr System kennenzulernen, um dieses Wissen in den kommenden Jahren zu nutzen — lernen Sie, wie diese Einzeldiener-Tools funktionieren und wie sie Teil Ihres Werkzeugkastens werden können, um Nischenprobleme zu lösen.
+Indem wir diese Befehle kombiniert haben, haben wir die Ausgabe so angepasst, dass die vollständigen URLs angezeigt werden, durch die der Mozilla-Server weiterleitet, wenn wir die `/docs/Web/API/WindowOrWorkerGlobalScope/fetch` URL anfordern.
+Zu wissen, wie Ihr System funktioniert, wird sich in den kommenden Jahren als nützlich erweisen – lernen Sie, wie diese Einzelfunktions-Tools arbeiten und wie sie Teil Ihres Werkzeugsatzes werden können, um spezielle Probleme zu lösen.
 
-## Powerups hinzufügen
+## Power-Ups hinzufügen
 
-Nachdem wir nun einige der integrierten Befehle angesehen haben, mit denen Ihr System ausgestattet ist, schauen wir uns an, wie wir ein Drittanbieter-CLI-Tool installieren und nutzen können.
+Nachdem wir uns einige der eingebauten Befehle angeschaut haben, mit denen Ihr System ausgestattet ist, schauen wir uns an, wie wir ein Drittanbieter-CLI-Tool installieren und nutzen können.
 
-Das große Ökosystem installierbarer Tools für die Frontend-Webentwicklung befindet sich derzeit größtenteils innerhalb von [npm](https://www.npmjs.com/), einem privat betriebenen Paket-Hosting-Dienst, der eng mit Node.js zusammenarbeitet.
-Dies wird langsam erweitert — im Laufe der Zeit können Sie mit mehr Paketprovidern rechnen.
+Das riesige Ökosystem von installierbaren Tools für die Frontend-Webentwicklung existiert derzeit größtenteils in [npm](https://www.npmjs.com/), einem privaten Paket-Hosting-Dienst, der eng mit Node.js zusammenarbeitet.
+Dies wächst langsam – Sie können erwarten, dass mit der Zeit mehr Paket-Anbieter auftauchen werden.
 
-[Die Installation von Node.js](https://nodejs.org/en/) installiert auch das npm-Befehlszeilentool (und ein ergänzendes npm-zentriertes Tool namens npx), das ein Gateway zur Installation zusätzlicher Befehlszeilentools bietet. Node.js und npm funktionieren auf allen Systemen gleich: macOS, Windows und Linux.
+Die [Installation von Node.js](https://nodejs.org/en/) installiert auch das npm-Kommandozeilen-Tool (und ein ergänzendes auf npm zentriertes Tool namens npx), das einen Gateway bietet, um zusätzliche Kommandozeilen-Tools zu installieren. Node.js und npm funktionieren auf allen Systemen gleich: macOS, Windows und Linux.
 
-Installieren Sie npm jetzt auf Ihrem System, indem Sie zur obigen URL gehen und einen Node.js-Installer herunterladen und ausführen, der zu Ihrem Betriebssystem passt. Wenn Sie dazu aufgefordert werden, stellen Sie sicher, dass npm als Teil der Installation enthalten ist.
+Installieren Sie jetzt npm auf Ihrem System, indem Sie auf die obige URL gehen und einen Node.js-Installer herunterladen, der für Ihr Betriebssystem geeignet ist. Wenn Sie dazu aufgefordert werden, stellen Sie sicher, dass Sie npm als Teil der Installation einbeziehen.
 
-![der Node.js-Installer auf Windows, der die Option zeigt, npm einzuschließen](npm-install-option.png)
+![Der Node.js Installer auf Windows zeigt die Option zur Aufnahme von npm](npm-install-option.png)
 
-Obwohl wir eine Reihe verschiedener Tools im nächsten Artikel und darüber hinaus betrachten werden, werden wir uns zunächst mit [Prettier](https://prettier.io/) befassen.
-Prettier ist ein Meinung nachvollziehender Code-Formatter, der nur „wenige Optionen" hat.
-Weniger Optionen bedeutet in der Regel einfachere.
-Angesichts dessen, wie sich Werkzeuge manchmal in Bezug auf Komplexität entwickeln können, kann "wenige Optionen" sehr ansprechend sein.
+Obwohl wir im nächsten Artikel eine Reihe von verschiedenen Tools betrachten werden, werden wir uns an [Prettier](https://prettier.io/) versuchen.
+Prettier ist ein Meinungshafter Code-Formatierer, der nur „wenige Optionen“ hat.
+Weniger Optionen bedeuten tendenziell Einfachheit.
+Angesichts der Komplexität, die sich manchmal bei Tools entwickeln kann, kann „wenige Optionen“ sehr ansprechend wirken.
 
-### Wo sollen wir unsere CLI-Tools installieren?
+### Wo sollten wir unsere CLI-Tools installieren?
 
-Bevor wir in die Installation von Prettier eintauchen, gibt es eine Frage zu beantworten — "wo sollten wir es installieren?"
+Bevor wir uns in die Installation von Prettier stürzen, müssen wir eine Frage beantworten: „Wo sollten wir es installieren?“
 
-Mit `npm` haben wir die Wahl, Werkzeuge global zu installieren — damit wir sie überall zugänglich machen können — oder lokal im aktuellen Projektverzeichnis.
+Mit `npm` haben wir die Wahl, Tools global zu installieren – so dass wir sie überall zugänglich haben – oder lokal im aktuellen Projektverzeichnis.
 
-Es gibt sowohl Vor- als auch Nachteile — und die folgenden Listen von Vor- und Nachteilen für die globale Installation sind bei weitem nicht erschöpfend.
+Es gibt Vor- und Nachteile für beide Wege – und die folgenden Listen von Vor- und Nachteilen für die globale Installation sind bei weitem nicht erschöpfend.
 
 **Vorteile der globalen Installation:**
 
-- Überall in Ihrem Terminal zugänglich
-- Nur einmal installieren
-- Verbraucht weniger Speicherplatz
-- Immer die gleiche Version
-- Fühlt sich wie jeder andere Unix-Befehl an
+- Überall in Ihrem Terminal zugänglich.
+- Nur einmal installieren.
+- Verbraucht weniger Speicherplatz.
+- Immer dieselbe Version.
+- Fühlt sich an wie jeder andere Unix-Befehl.
 
 **Nachteile der globalen Installation:**
 
-- Möglicherweise nicht mit dem Codebase Ihres Projekts kompatibel
-- Andere Entwickler in Ihrem Team haben keinen Zugriff auf diese Werkzeuge, zum Beispiel, wenn Sie den Codebase über ein Tool wie git teilen.
-- Im Zusammenhang mit dem vorherigen Punkt macht es das Projekt schwerer zu replizieren (wenn Sie Ihre Werkzeuge lokal installieren, können sie als Abhängigkeiten eingerichtet und mit <code>npm install</code> installiert werden).
+- Möglicherweise nicht mit dem Code Ihrer Projekbasis kompatibel.
+- Andere Entwickler in Ihrem Team hätten keinen Zugang zu diesen Tools, wenn Sie den Code über ein Tool wie Git teilen.
+- Bezüglich des vorherigen Punktes: Es macht es schwieriger, den Projektcode zu replizieren (wenn Sie Ihre Tools lokal installieren, können sie als Abhängigkeiten festgelegt und mit `npm install` installiert werden).
 
-Obwohl die _Nachteile_ Liste kürzer ist, ist der negative Einfluss der globalen Installation potenziell viel größer als die Vorteile.
-Hier werden wir lokal installieren, aber zögern Sie nicht, global zu installieren, sobald Sie die relativen Risiken verstehen.
+Obwohl die Liste der _Nachteile_ kürzer ist, kann der negative Einfluss der globalen Installation potenziell viel größer sein als die Vorteile.
+Hier werden wir lokal installieren, aber fühlen Sie sich frei, global zu installieren, sobald Sie die relativen Risiken verstehen.
 
-### Prettier installieren
+### Installation von Prettier
 
-Prettier ist ein Meinung durchsetzender Code-Formatter für Frontend-Entwickler, der sich auf JavaScript-basierte Sprachen konzentriert und Unterstützung für HTML, CSS, SCSS, JSON und mehr bietet.
+Prettier ist ein auf Meinung basierender Code-Formatierer für Frontend-Entwickler, der sich auf JavaScript-basierte Sprachen konzentriert und Unterstützung für HTML, CSS, SCSS, JSON und mehr bietet.
 
 Prettier kann:
 
-- Den kognitiven Aufwand sparen, den Stil manuell konsistent über alle Ihre Code-Dateien hinweg zu halten; Prettier kann dies automatisch für Sie erledigen.
-- Neulingen in der Webentwicklung helfen, ihren Code im besten Ansatz zu formatieren.
-- Auf jedem Betriebssystem installiert werden und sogar als direkter Teil der Projekt-Tooling, um sicherzustellen, dass Kollegen und Freunde, die an Ihrem Code arbeiten, den von Ihnen verwendeten Codestil verwenden.
-- So konfiguriert werden, dass es beim Speichern, während Sie tippen oder sogar vor der Veröffentlichung Ihres Codes (mit zusätzlichem Tooling, das wir später im Modul sehen werden) ausgeführt wird.
+- Die kognitive Belastung ersparen, den Stil manuell über alle Ihre Dateien hinweg konsistent zu halten; Prettier kann dies automatisch für Sie tun.
+- Neulingen in der Webentwicklung helfen, ihren Code im Best-Practice-Stil zu formatieren.
+- Auf jedem Betriebssystem installiert werden und sogar ein direkter Teil der Projekt-Tools sein, um sicherzustellen, dass Kollegen und Freunde, die an Ihrem Code arbeiten, den von Ihnen verwendeten Code-Stil verwenden.
+- Konfiguriert werden, um beim Speichern, während Sie tippen oder sogar vor der Veröffentlichung Ihres Codes zu laufen (mit weiteren Werkzeugen, die wir später in diesem Modul sehen werden).
 
-Für diesen Artikel werden wir Prettier lokal installieren, wie im [Prettier-Installationshandbuch](https://prettier.io/docs/en/install.html) vorgeschlagen.
+Für diesen Artikel werden wir Prettier lokal installieren, wie im [Prettier-Installations-Leitfaden](https://prettier.io/docs/en/install.html) vorgeschlagen.
 
-Sobald Sie Node installiert haben, öffnen Sie das Terminal und führen Sie den folgenden Befehl aus, um Prettier zu installieren (wir werden im nächsten Artikel erläutern, was `--save-dev` tut):
+Sobald Sie Node installiert haben, öffnen Sie das Terminal und führen Sie den folgenden Befehl aus, um Prettier zu installieren (wir werden erklären, was `--save-dev` im nächsten Artikel tut):
 
 ```bash
 npm install --save-dev prettier
 ```
 
-Sie können die Datei jetzt lokal mit dem [npx](https://docs.npmjs.com/cli/commands/npx/) Werkzeug ausführen.
-Das Ausführen des Befehls ohne Argumente wird, wie bei vielen anderen Befehlen, Nutzungs- und Hilfsinformationen bieten.
-Versuchen Sie das jetzt:
+Sie können die Datei jetzt lokal mit dem [npx](https://docs.npmjs.com/cli/commands/npx/) Tool ausführen.
+Wenn Sie den Befehl ohne Argumente ausführen, wird Ihnen, wie bei vielen anderen Befehlen, Nutzungs- und Hilfeinformationen angezeigt.
+Versuchen Sie es jetzt:
 
 ```bash
 npx prettier
 ```
 
-Ihre Ausgabe sollte ungefähr so aussehen:
+Ihre Ausgabe sollte in etwa so aussehen:
 
 ```bash
 Usage: prettier [options] [file/glob ...]
@@ -390,19 +394,19 @@ Stdin is read if it is piped to Prettier and no files are given.
 …
 ```
 
-Es ist immer mindestens einen kurzen Überblick über die Nutzungsinformationen wert, auch wenn sie lang ist.
-Es wird Ihnen helfen, besser zu verstehen, wie das Tool verwendet werden soll.
+Es ist immer einen Blick wert, zumindest die Nutzungsinformationen zu überfliegen, auch wenn sie lang sind.
+Es hilft Ihnen besser zu verstehen, wie das Tool beabsichtigt ist, genutzt zu werden.
 
 > [!NOTE]
-> Wenn Sie Prettier nicht zuerst lokal installiert haben, wird das Ausführen von `npx prettier` die neueste Version von Prettier in einem Schritt herunterladen und ausführen _nur für diesen Befehl_.
-> Auch wenn das großartig klingen mag, könnten neue Versionen von Prettier die Ausgabe leicht ändern.
-> Sie möchten es lokal installieren, damit Sie die von Ihnen verwendete Version von Prettier für die Formatierung festlegen, bis Sie bereit sind, sie zu ändern.
+> Wenn Sie Prettier nicht zuerst lokal installiert haben, wird `npx prettier` die neueste Version von Prettier herunterladen und ausführen, alles in einem Durchgang _nur für diesen Befehl_.
+> Auch wenn das großartig klingt, können neue Versionen von Prettier die Ausgabe leicht verändern.
+> Sie möchten es lokal installieren, damit Sie die Version von Prettier festlegen, die Sie zur Formatierung verwenden, bis Sie bereit sind, sie zu ändern.
 
-### Mit Prettier spielen
+### Spielen mit Prettier
 
-Lassen Sie uns einen kurzen Blick auf Prettier werfen, damit Sie sehen können, wie es funktioniert.
+Lassen Sie uns mit Prettier herumspielen, damit Sie sehen können, wie es funktioniert.
 
-Erstens erstellen Sie ein neues Verzeichnis irgendwo im Dateisystem, das leicht zu finden ist. Vielleicht ein Verzeichnis namens `prettier-test` auf Ihrem `Desktop`.
+Erstellen Sie zunächst ein neues Verzeichnis irgendwo in Ihrem Dateisystem, das leicht zu finden ist. Vielleicht ein Verzeichnis namens `prettier-test` auf Ihrem `Desktop`.
 
 Speichern Sie jetzt den folgenden Code in einer neuen Datei namens `index.js` in Ihrem Testverzeichnis:
 
@@ -413,13 +417,13 @@ function printMe(obj){console.log(obj.b.c)}
 printMe(myObj)
 ```
 
-Wir können Prettier gegen einen Codebase laufen lassen, um einfach zu überprüfen, ob unser Code angepasst werden sollte. `cd` in Ihr Verzeichnis, und versuchen Sie, diesen Befehl auszuführen:
+Wir können Prettier gegen einen Codebestand ausführen, um einfach zu überprüfen, ob unser Code angepasst werden sollte. `cd` in Ihr Verzeichnis und versuchen Sie diesen Befehl auszuführen:
 
 ```bash
 npx prettier --check index.js
 ```
 
-Sie sollten eine Ausgabe in etwa so erhalten:
+Sie sollten eine Ausgabe etwa folgendermaßen erhalten:
 
 ```bash
 Checking formatting...
@@ -427,7 +431,7 @@ index.js
 Code style issues found in the above file(s). Forgot to run Prettier?
 ```
 
-Es gibt also einige Code-Formate, die behoben werden können. Kein Problem. Das Hinzufügen der Option `--write` zum `prettier` Befehl wird das beheben, sodass wir uns darauf konzentrieren können, tatsächlich nützlichen Code zu schreiben.
+Also gibt es einige Code-Stile, die korrigiert werden können. Kein Problem. Durch Hinzufügen der `--write`-Option zum `prettier`-Befehl werden diese behoben, sodass wir uns auf das Schreiben von nützlichem Code konzentrieren können.
 
 Versuchen Sie nun, diese Version des Befehls auszuführen:
 
@@ -443,7 +447,7 @@ index.js
 Code style issues fixed in the above file(s).
 ```
 
-Aber noch wichtiger ist, dass, wenn Sie zurück zu Ihrer JavaScript-Datei schauen, diese auf etwas wie dies formatiert wurde:
+Aber noch wichtiger ist, dass wenn Sie auf Ihre JavaScript-Datei zurückblicken, werden Sie feststellen, dass sie zu etwas wie diesem umformatiert wurde:
 
 ```js
 const myObj = {
@@ -456,29 +460,29 @@ function printMe(obj) {
 printMe(myObj);
 ```
 
-Abhängig von Ihrem Workflow (oder dem Workflow, den Sie wählen) können Sie dies zu einem automatisierten Teil Ihres Prozesses machen. Automatisierung ist wirklich, wo Werkzeuge glänzen; unsere persönliche Präferenz ist die Art von Automatisierung, die "einfach passiert", ohne dass Sie etwas konfigurieren müssen.
+Abhängig von Ihrem Workflow (oder dem Workflow, für den Sie sich entscheiden) können Sie dies zu einem automatisierten Teil Ihres Prozesses machen. Automation ist wirklich dort, wo Tools brillieren; unsere persönliche Präferenz ist die Art von Automation, die "einfach passiert", ohne dass man etwas konfigurieren muss.
 
-Mit Prettier gibt es eine Reihe von Möglichkeiten, wie Automatisierung erreicht werden kann und obwohl sie über den Umfang dieses Artikels hinausgehen, gibt es ausgezeichnete Ressourcen online, die helfen (einige davon wurden verlinkt). Sie können Prettier aufrufen:
+Mit Prettier gibt es eine Reihe von Möglichkeiten, wie Automation erreicht werden kann und obwohl sie über den Umfang dieses Artikels hinausgehen, gibt es einige ausgezeichnete Ressourcen online, um zu helfen (einige davon wurden verlinkt). Sie können Prettier folgendermaßen aufrufen:
 
-- Bevor Sie Ihren Code in ein Git-Repository einchecken, mit [Husky](https://github.com/typicode/husky).
-- Jedes Mal, wenn Sie "speichern" in Ihrem Code-Editor drücken, sei es [VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) oder [Sublime Text](https://packagecontrol.io/packages/JsPrettier).
-- Als Teil von kontinuierlichen Integrationsprüfungen mit Tools wie [GitHub Actions](https://github.com/features/actions).
+- Vor dem Commit Ihres Codes in ein Git-Repository mit [Husky](https://github.com/typicode/husky).
+- Immer Wenn Sie in Ihrem Code-Editor auf "Speichern" drücken, sei es [VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) oder [Sublime Text](https://packagecontrol.io/packages/JsPrettier).
+- Als Teil der kontinuierlichen Integrationsprüfungen mit Tools wie [GitHub Actions](https://github.com/features/actions).
 
-Unsere persönliche Präferenz ist die zweite — während der Nutzung von z. B. VS Code tritt Prettier in Kraft und bereinigt jegliche Formatierungen, die es zu tun hat, jedes Mal, wenn wir speichern. Sie können viel mehr Informationen darüber finden, Prettier auf verschiedene Weise zu verwenden, in den [Prettier-Dokumentationen](https://prettier.io/docs/en/).
+Unsere persönliche Präferenz ist die zweite – während wir etwa VS Code verwenden, greift Prettier ein und bereinigt jedes Format, das es zu tun hat, jedes Mal wenn wir speichern. Sie können viel mehr Informationen über die Verwendung von Prettier auf verschiedene Weise in den [Prettier-Dokumenten](https://prettier.io/docs/en/) finden.
 
-## Andere Werkzeuge zum Ausprobieren
+## Andere Tools zum Ausprobieren
 
-Wenn Sie noch mehr Werkzeuge ausprobieren möchten, ist hier eine kurze Liste, die Spaß macht, auszuprobieren:
+Wenn Sie mit einigen weiteren Tools spielen möchten, folgt hier eine kurze Liste von Tools, die interessant sind, auszuprobieren:
 
-- [`bat`](https://github.com/sharkdp/bat) — Ein "netterer" `cat` (`cat` wird verwendet, um den Inhalt von Dateien zu drucken).
-- [`prettyping`](https://denilson.sa.nom.br/prettyping/) — `ping` auf der Befehlszeile, aber visualisiert (`ping` ist ein nützliches Werkzeug, um zu überprüfen, ob ein Server antwortet).
-- [`htop`](https://htop.dev/) — Ein Prozessbetrachter, nützlich, wenn etwas Ihren CPU-Lüfter wie ein Jettriebwerk verhalten lässt und Sie das schuldige Programm identifizieren möchten.
-- [`tldr`](https://tldr.sh/#installation) — bereits früher in diesem Kapitel erwähnt, aber verfügbar als Befehlszeilenwerkzeug.
+- [`bat`](https://github.com/sharkdp/bat) — Ein "schöneres" `cat` (`cat` wird verwendet, um den Inhalt von Dateien zu drucken).
+- [`prettyping`](https://denilson.sa.nom.br/prettyping/) — `ping` auf der Kommandozeile, aber visualisiert (`ping` ist ein nützliches Tool, um zu überprüfen, ob ein Server reagiert).
+- [`htop`](https://htop.dev/) — Ein Prozessbetrachter, nützlich, wenn etwas Ihren CPU-Lüfter wie ein Düsenflugzeug verhalten lässt und Sie das störende Programm identifizieren möchten.
+- [`tldr`](https://tldr.sh/#installation) — In diesem Kapitel bereits erwähnt, aber als Kommandozeilentool verfügbar.
 
-Beachten Sie, dass einige der obigen Vorschläge möglicherweise über npm installiert werden müssen, wie wir es mit Prettier getan haben.
+Beachten Sie, dass einige der oben genannten Vorschläge möglicherweise die Installation mit npm erfordern, so wie wir es mit Prettier gemacht haben.
 
 ## Zusammenfassung
 
-Damit sind wir am Ende unserer kurzen Tour durch das Terminal/die Befehlszeile angelangt. Als nächstes schauen wir uns Paketmanager im Detail an und was wir mit ihnen tun können.
+Damit kommen wir zum Ende unserer kurzen Tour durch das Terminal/die Kommandozeile. Als Nächstes werden wir uns genauer mit Paketmanagern befassen und was wir damit machen können.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Understanding_client-side_tools/Overview","Learn/Tools_and_testing/Understanding_client-side_tools/Package_management", "Learn/Tools_and_testing/Understanding_client-side_tools")}}

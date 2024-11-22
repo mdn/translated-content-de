@@ -2,34 +2,35 @@
 title: Third-party APIs
 slug: Learn/JavaScript/Client-side_web_APIs/Third_party_APIs
 l10n:
-  sourceCommit: 9df96dcad40bf97f66b317ef6b6bbe64444569eb
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/JavaScript/Client-side_web_APIs/Fetching_data", "Learn/JavaScript/Client-side_web_APIs/Drawing_graphics", "Learn/JavaScript/Client-side_web_APIs")}}
 
-Die APIs, die wir bisher behandelt haben, sind in den Browser integriert, aber nicht alle APIs sind es. Viele große Websites und Dienste wie Google Maps, Twitter, Facebook, PayPal usw. bieten APIs an, die Entwicklern ermöglichen, ihre Daten zu nutzen (z. B. um Ihren Twitter-Stream auf Ihrem Blog anzuzeigen) oder Dienste zu verwenden (z. B. Facebook-Login, um sich bei Ihren Nutzern anzumelden). Dieser Artikel beleuchtet den Unterschied zwischen Browser-APIs und Drittanbieter-APIs und zeigt typische Verwendungen der letzteren.
+Die APIs, die wir bisher behandelt haben, sind im Browser eingebaut, aber nicht alle APIs sind es. Viele große Websites und Dienste wie Google Maps, Twitter, Facebook, PayPal usw. bieten APIs an, die es Entwicklern ermöglichen, ihre Daten (z.B. das Anzeigen Ihres Twitter-Streams auf Ihrem Blog) oder Dienste (z.B. die Verwendung des Facebook-Logins, um Ihre Benutzer anzumelden) zu nutzen. Dieser Artikel betrachtet den Unterschied zwischen Browser-APIs und Drittanbieter-APIs und zeigt einige typische Anwendungsbeispiele für letztere.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Grundkenntnisse in JavaScript (siehe
-        <a href="/de/docs/Learn/JavaScript/First_steps">Erste Schritte</a>,
+        JavaScript-Grundlagen (siehe
+        <a href="/de/docs/Learn/JavaScript/First_steps">erste Schritte</a>,
         <a href="/de/docs/Learn/JavaScript/Building_blocks"
           >Bausteine</a
         >,
         <a href="/de/docs/Learn/JavaScript/Objects">JavaScript-Objekte</a>),
         die
         <a href="/de/docs/Learn/JavaScript/Client-side_web_APIs/Introduction"
-          >Grundlagen der clientseitigen APIs</a
+          >Grundlagen der Client-side APIs</a
         >
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Erlernen, wie Drittanbieter-APIs funktionieren und wie man sie verwendet, um Ihre Websites zu verbessern.
+        Lernen, wie Drittanbieter-APIs funktionieren und wie man sie nutzt, um Ihre
+        Webseiten zu erweitern.
       </td>
     </tr>
   </tbody>
@@ -37,16 +38,16 @@ Die APIs, die wir bisher behandelt haben, sind in den Browser integriert, aber n
 
 ## Was sind Drittanbieter-APIs?
 
-Drittanbieter-APIs sind APIs, die von Drittanbietern — in der Regel Unternehmen wie Facebook, Twitter oder Google — bereitgestellt werden, um Ihnen den Zugriff auf ihre Funktionalität über JavaScript zu ermöglichen und diese auf Ihrer Website zu verwenden. Ein sehr offensichtliches Beispiel ist die Verwendung von Kartierungs-APIs zur Anzeige benutzerdefinierter Karten auf Ihren Seiten.
+Drittanbieter-APIs sind APIs, die von Drittanbietern — generell Unternehmen wie Facebook, Twitter oder Google — bereitgestellt werden, um Ihnen zu ermöglichen, deren Funktionalität über JavaScript auf Ihrer Website zu nutzen. Eines der offensichtlichsten Beispiele ist die Verwendung von Mapping-APIs, um benutzerdefinierte Karten auf Ihren Seiten anzuzeigen.
 
-Schauen wir uns ein [einfaches Mapquest API-Beispiel](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/mapquest) an und verwenden es, um zu veranschaulichen, wie Drittanbieter-APIs sich von Browser-APIs unterscheiden.
+Betrachten wir ein [einfaches Mapquest-API-Beispiel](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/mapquest) und verwenden es, um zu veranschaulichen, wie sich Drittanbieter-APIs von Browser-APIs unterscheiden.
 
 > [!NOTE]
-> Vielleicht möchten Sie einfach [alle unsere Codebeispiele](/de/docs/Learn#getting_our_code_examples) auf einmal erhalten, in diesem Fall können Sie dann einfach im Repo nach den benötigten Beispieldateien in jedem Abschnitt suchen.
+> Sie möchten vielleicht einfach [alle unsere Codebeispiele](/de/docs/Learn#getting_our_code_examples) auf einmal erhalten, in diesem Fall können Sie dann einfach das Repository nach den Beispieldateien durchsuchen, die Sie in jedem Abschnitt benötigen.
 
 ### Sie befinden sich auf Drittanbieter-Servern
 
-Browser-APIs sind im Browser integriert — Sie können sofort von JavaScript darauf zugreifen. Zum Beispiel wird die Web Audio API, die wir [im einführenden Artikel](/de/docs/Learn/JavaScript/Client-side_web_APIs/Introduction#how_do_apis_work) gesehen haben, mit dem nativen [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekt aufgerufen. Zum Beispiel:
+Browser-APIs sind in den Browser integriert — Sie können sofort aus JavaScript darauf zugreifen. Zum Beispiel wird die Web Audio API, die wir [im Einführungsartikel](/de/docs/Learn/JavaScript/Client-side_web_APIs/Introduction#how_do_apis_work) gesehen haben, mit dem nativen [`AudioContext`](/de/docs/Web/API/AudioContext)-Objekt genutzt. Zum Beispiel:
 
 ```js
 const audioCtx = new AudioContext();
@@ -57,7 +58,7 @@ const audioSource = audioCtx.createMediaElementSource(audioElement);
 // etc.
 ```
 
-Drittanbieter-APIs hingegen befinden sich auf Drittanbieter-Servern. Um von JavaScript auf sie zuzugreifen, müssen Sie zuerst eine Verbindung zur API-Funktionalität herstellen und sie auf Ihrer Seite verfügbar machen. Dies geschieht typischerweise durch das Verlinken zu einer JavaScript-Bibliothek, die auf dem Server über ein {{htmlelement("script")}}-Element verfügbar ist, wie in unserem Mapquest-Beispiel:
+Drittanbieter-APIs dagegen befinden sich auf Drittanbieter-Servern. Um von JavaScript aus auf sie zuzugreifen, müssen Sie zuerst die API-Funktionalität verbinden und auf Ihrer Seite verfügbar machen. Dies beinhaltet typischerweise zuerst das Verlinken einer JavaScript-Bibliothek, die über ein {{htmlelement("script")}}-Element auf dem Server verfügbar ist, wie in unserem Mapquest-Beispiel zu sehen:
 
 ```html
 <script
@@ -68,7 +69,7 @@ Drittanbieter-APIs hingegen befinden sich auf Drittanbieter-Servern. Um von Java
   href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css" />
 ```
 
-Sie können dann die in dieser Bibliothek verfügbaren Objekte verwenden. Beispiel:
+Danach können Sie die in dieser Bibliothek verfügbaren Objekte verwenden. Zum Beispiel:
 
 ```js
 const map = L.mapquest.map("map", {
@@ -78,71 +79,71 @@ const map = L.mapquest.map("map", {
 });
 ```
 
-Hier erstellen wir eine Variable, um die Karteninformationen zu speichern, und dann erstellen wir eine neue Karte mit der Methode `mapquest.map()`, die als Parameter die ID eines {{htmlelement("div")}}-Elements enthält, in dem Sie die Karte anzeigen möchten ('map'), und ein Optionsobjekt, das die Details der bestimmten Karte enthält, die wir anzeigen möchten. In diesem Fall spezifizieren wir die Koordinaten des Kartenmittelpunkts, eine Kartenebene des Typs `map` zur Anzeige (erstellt mit der Methode `mapquest.tileLayer()`) und den Standard-Zoomlevel.
+Hier erstellen wir eine Variable, um die Karteninformationen zu speichern, und erstellen dann eine neue Karte mit der `mapquest.map()`-Methode, die als Parameter die ID eines {{htmlelement("div")}}-Elements übernimmt, in dem die Karte angezeigt werden soll ('map'), und ein Optionsobjekt, das die Details der spezifischen Karte enthält, die wir anzeigen möchten. In diesem Fall geben wir die Koordinaten des Kartenmittelpunkts an, eine `map`-Kartenebene, die angezeigt werden soll (erstellt mit der `mapquest.tileLayer()`-Methode), und den Standard-Zoomlevel.
 
-Dies sind alle Informationen, die die Mapquest-API benötigt, um eine einfache Karte zu zeichnen. Der Server, mit dem Sie verbunden sind, kümmert sich um alle komplizierten Dinge, wie das Anzeigen der richtigen Kacheln für den angezeigten Bereich usw.
+Dies sind alle Informationen, die die Mapquest-API benötigt, um eine einfache Karte zu zeichnen. Der Server, mit dem Sie sich verbinden, übernimmt alle komplizierten Aufgaben, wie das Anzeigen der richtigen Kartenkacheln für das angezeigte Gebiet usw.
 
 > [!NOTE]
-> Einige APIs handhaben den Zugriff auf ihre Funktionalität etwas anders, indem sie vom Entwickler verlangen, eine HTTP-Anfrage an ein spezifisches URL-Muster zu stellen, um Daten abzurufen. Diese werden [RESTful APIs genannt — wir werden später ein Beispiel zeigen](#a_restful_api_%e2%80%94_nytimes).
+> Einige APIs handhaben den Zugang zu ihrer Funktionalität etwas anders, indem sie vom Entwickler verlangen, eine HTTP-Anfrage an ein spezifisches URL-Muster zu stellen, um Daten abzurufen. Diese werden als [RESTful APIs bezeichnet — wir zeigen später ein Beispiel](#a_restful_api_%e2%80%94_nytimes).
 
-### Sie erfordern normalerweise API-Schlüssel
+### Sie benötigen in der Regel API-Schlüssel
 
-Die Sicherheit für Browser-APIs wird in der Regel durch Berechtigungsabfragen gehandhabt, wie [in unserem ersten Artikel besprochen](/de/docs/Learn/JavaScript/Client-side_web_APIs/Introduction#they_have_additional_security_mechanisms_where_appropriate). Der Zweck dieser ist es, dass der Benutzer weiß, was auf den Websites, die er besucht, passiert und weniger wahrscheinlich Opfer von jemandem wird, der eine API auf bösartige Weise verwendet.
+Die Sicherheit für Browser-APIs wird in der Regel durch Berechtigungsaufforderungen gehandhabt, wie [in unserem ersten Artikel besprochen](/de/docs/Learn/JavaScript/Client-side_web_APIs/Introduction#they_have_additional_security_mechanisms_where_appropriate). Diese dienen dazu, dass der Nutzer weiß, was auf den von ihm besuchten Webseiten vor sich geht, und weniger wahrscheinlich einem bösartigen Einsatz einer API zum Opfer fällt.
 
-Drittanbieter-APIs haben ein etwas anderes Berechtigungssystem — sie verwenden in der Regel Entwicklerschlüssel, um Entwicklern den Zugriff auf die API-Funktionalität zu ermöglichen, was mehr dazu dient, den API-Anbieter als den Benutzer zu schützen.
+Drittanbieter-APIs haben ein etwas anderes Berechtigungssystem — sie verwenden in der Regel Entwickler-Schlüssel, um Entwicklern den Zugang zu der API-Funktionalität zu gewähren, was mehr darauf abzielt, den API-Anbieter als den Nutzer zu schützen.
 
-Sie finden eine Zeile ähnlich der folgenden im Mapquest API-Beispiel:
+Sie finden eine Zeile ähnlich der folgenden im Mapquest-API-Beispiel:
 
 ```js
 L.mapquest.key = "YOUR-API-KEY-HERE";
 ```
 
-Diese Zeile gibt einen API- oder Entwicklerschlüssel an, der in Ihrer Anwendung verwendet werden soll — der Entwickler der Anwendung muss einen Schlüssel beantragen und ihn dann in seinen Code einfügen, um Zugang zur Funktionalität der API zu erhalten. In unserem Beispiel haben wir nur einen Platzhalter bereitgestellt.
+Diese Zeile gibt einen API- oder Entwickler-Schlüssel an, der in Ihrer Anwendung verwendet werden soll — der Entwickler der Anwendung muss sich bewerben, um einen Schlüssel zu erhalten, und diesen dann in seinem Code einfügen, um Zugriff auf die Funktionen der API zu erhalten. In unserem Beispiel haben wir einfach einen Platzhalter bereitgestellt.
 
 > [!NOTE]
-> Wenn Sie Ihre eigenen Beispiele erstellen, verwenden Sie Ihren eigenen API-Schlüssel anstelle eines Platzhalters.
+> Wenn Sie Ihre eigenen Beispiele erstellen, verwenden Sie anstelle eines Platzhalters Ihren eigenen API-Schlüssel.
 
-Andere APIs können erfordern, dass Sie den Schlüssel auf eine etwas andere Weise einfügen, aber das Muster ist relativ ähnlich für die meisten von ihnen.
+Andere APIs verlangen möglicherweise, dass Sie den Schlüssel auf eine etwas andere Weise einfügen, aber das Muster ist für die meisten ähnlich.
 
-Das Erfordern eines Schlüssels ermöglicht es dem API-Anbieter, Benutzer der API für ihre Aktionen verantwortlich zu halten. Wenn der Entwickler sich für einen Schlüssel registriert hat, ist er dem API-Anbieter bekannt, und es können Maßnahmen ergriffen werden, wenn er beginnt, die API in bösartiger Weise zu verwenden (z. B. die Verfolgung des Standorts von Personen oder der Versuch, die API mit vielen Anfragen zu überfluten, um deren Funktionieren zu unterbinden). Die einfachste Maßnahme wäre, deren API-Berechtigungen einfach zu widerrufen.
+Das Anfordern eines Schlüssels ermöglicht es dem API-Anbieter, die Nutzer der API für ihre Handlungen verantwortlich zu machen. Wenn der Entwickler sich für einen Schlüssel registriert hat, ist er dem API-Anbieter bekannt, und es kann gehandelt werden, wenn er beginnt, etwas Bösartiges mit der API zu tun (z. B. das Verfolgen der Standorte von Personen oder das Versuchen, die API mit einer Vielzahl an Anfragen zu überschwemmen, um sie zum Absturz zu bringen). Die einfachste Maßnahme wäre, einfach ihre API-Berechtigungen zu widerrufen.
 
 ## Erweiterung des Mapquest-Beispiels
 
-Lassen Sie uns dem Mapquest-Beispiel weitere Funktionalitäten hinzufügen, um zu zeigen, wie man einige andere Funktionen der API nutzt.
+Lassen Sie uns dem Mapquest-Beispiel weitere Funktionen hinzufügen, um zu zeigen, wie man einige andere Features der API nutzt.
 
-1. Um diesen Abschnitt zu beginnen, machen Sie sich eine Kopie der [Mapquest-Starterdatei](https://github.com/mdn/learning-area/blob/main/javascript/apis/third-party-apis/mapquest/start/index.html) in einem neuen Verzeichnis. Wenn Sie bereits [das Beispiele-Repository geklont haben](/de/docs/Learn#getting_our_code_examples), haben Sie bereits eine Kopie dieser Datei, die Sie im Verzeichnis _javascript/apis/third-party-apis/mapquest/start_ finden können.
-2. Als Nächstes müssen Sie zur [Mapquest Entwicklerseite](https://developer.mapquest.com/) gehen, ein Konto erstellen und dann einen Entwicklerschlüssel erstellen, den Sie mit Ihrem Beispiel verwenden können. (Zum Zeitpunkt des Schreibens wurde es auf der Seite als "Verbraucherschlüssel" bezeichnet, und der Schlüssel-Erstellungsprozess fragte auch nach einer optionalen "Callback-URL". Sie müssen hier keine URL ausfüllen: lassen Sie sie einfach leer.)
-3. Öffnen Sie Ihre Startdatei und ersetzen Sie den API-Schlüssel-Platzhalter durch Ihren Schlüssel.
+1. Um diesen Abschnitt zu beginnen, machen Sie sich eine Kopie der [Mapquest Starter-Datei](https://github.com/mdn/learning-area/blob/main/javascript/apis/third-party-apis/mapquest/start/index.html) in einem neuen Verzeichnis. Wenn Sie das [Beispiel-Repository bereits geklont haben](/de/docs/Learn#getting_our_code_examples), haben Sie bereits eine Kopie dieser Datei, die Sie im Verzeichnis _javascript/apis/third-party-apis/mapquest/start_ finden.
+2. Navigieren Sie als Nächstes zur [Mapquest-Entwicklerseite](https://developer.mapquest.com/), erstellen Sie ein Konto und dann einen Entwickler-Schlüssel, den Sie mit Ihrem Beispiel verwenden können. (Zum Zeitpunkt des Schreibens wurde es auf der Seite als "Verbraucherschlüssel" bezeichnet, und der Schlüssel-Erstellungsprozess verlangte auch eine optionale "Callback-URL". Sie müssen hier keine URL angeben: lassen Sie sie einfach leer.)
+3. Öffnen Sie Ihre Startdatei und ersetzen Sie den API-Schlüsselplatzhalter durch Ihren Schlüssel.
 
-### Änderung des Kartentyps
+### Ändern des Kartentyps
 
-Es gibt eine Reihe unterschiedlicher Kartentypen, die mit der Mapquest API angezeigt werden können. Dazu suchen Sie die folgende Zeile:
+Es gibt eine Reihe verschiedener Kartentypen, die mit der Mapquest-API angezeigt werden können. Um dies zu tun, suchen Sie folgende Zeile:
 
 ```js
 layers: L.mapquest.tileLayer("map");
 ```
 
-Versuchen Sie, `'map'` in `'hybrid'` so zu ändern, dass eine Hybridkarte angezeigt wird. Probieren Sie auch einige andere Werte aus. Die [`tileLayer`-Referenzseite](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-tile-layer/) zeigt die verschiedenen verfügbaren Optionen sowie eine Menge weiterer Informationen.
+Versuchen Sie, `'map'` in `'hybrid'` zu ändern, um eine Hybrid-Stil-Karte anzuzeigen. Probieren Sie auch einige andere Werte aus. Die [`tileLayer` Referenzseite](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-tile-layer/) zeigt die verschiedenen verfügbaren Optionen sowie viel mehr Informationen.
 
-### Hinzufügen verschiedener Steuerungen
+### Hinzufügen unterschiedlicher Steuerelemente
 
-Die Karte hat eine Reihe verschiedener Steuerelemente verfügbar; standardmäßig wird nur ein Zoom-Steuerelement angezeigt. Sie können die verfügbaren Steuerelemente erweitern, indem Sie die Methode `map.addControl()` verwenden; fügen Sie dies zu Ihrem Code hinzu:
+Die Karte hat eine Reihe verschiedener Steuerungen verfügbar; standardmäßig wird nur eine Zoom-Steuerung angezeigt. Sie können die verfügbaren Steuerungen mithilfe der Methode `map.addControl()` erweitern; fügen Sie dies Ihrem Code hinzu:
 
 ```js
 map.addControl(L.mapquest.control());
 ```
 
-Die [`mapquest.control()`-Methode](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-control/) erstellt einfach eine einfache, umfassende Steuereinheit, die standardmäßig in der oberen rechten Ecke platziert ist. Sie können die Position anpassen, indem Sie ein Optionsobjekt als Parameter für die Steuerung angeben, das eine `position`-Eigenschaft enthält, deren Wert eine Zeichenkette ist, die eine Position für das Steuerelement angibt. Versuchen Sie dies zum Beispiel:
+Die [`mapquest.control()` Methode](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-control/) erstellt einfach eine einfache voll ausgestattete Steuerung und wird standardmäßig in der oberen rechten Ecke platziert. Sie können die Position anpassen, indem Sie ein Optionsobjekt als Parameter für die Steuerung angeben, das eine `position`-Eigenschaft enthält, deren Wert eine Zeichenkette ist, die eine Position für die Steuerung angibt. Probieren Sie dies zum Beispiel aus:
 
 ```js
 map.addControl(L.mapquest.control({ position: "bottomright" }));
 ```
 
-Es gibt andere Arten von Steuerelementen, zum Beispiel [`mapquest.searchControl()`](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-search-control/) und [`mapquest.satelliteControl()`](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-satellite-control/), und einige sind ziemlich komplex und leistungsstark. Spielen Sie herum und sehen Sie, was Sie herausfinden können.
+Es gibt andere Steuerungstypen, zum Beispiel [`mapquest.searchControl()`](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-search-control/) und [`mapquest.satelliteControl()`](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-satellite-control/), und einige sind ziemlich komplex und leistungsfähig. Experimentieren Sie und sehen Sie, was Sie damit erreichen können.
 
 ### Hinzufügen eines benutzerdefinierten Markers
 
-Das Hinzufügen eines Markers (Symbols) an einem bestimmten Punkt auf der Karte ist einfach — Sie verwenden einfach die [`L.marker()`](https://leafletjs.com/reference.html#marker)-Methode (die in der zugehörigen Leaflet.js-Dokumentation dokumentiert zu sein scheint). Fügen Sie den folgenden Code zu Ihrem Beispiel hinzu, wiederum innerhalb von `window.onload`:
+Das Hinzufügen eines Markers (Icons) an einem bestimmten Punkt auf der Karte ist einfach — Sie verwenden die [`L.marker()`](https://leafletjs.com/reference.html#marker) Methode (die scheinbar in der zugehörigen Leaflet.js-Dokumentation dokumentiert ist). Fügen Sie den folgenden Code zu Ihrem Beispiel hinzu, wieder innerhalb von `window.onload`:
 
 ```js
 L.marker([53.480759, -2.242631], {
@@ -158,46 +159,46 @@ L.marker([53.480759, -2.242631], {
   .addTo(map);
 ```
 
-Wie Sie sehen können, nimmt dies im einfachsten Fall zwei Parameter: ein Array, das die Koordinaten enthält, an denen der Marker angezeigt werden soll, und ein Optionsobjekt, das eine `icon`-Eigenschaft enthält, die das Symbol definiert, das an diesem Punkt angezeigt werden soll.
+Wie Sie sehen können, nimmt dies in seiner einfachsten Form zwei Parameter, ein Array, das die Koordinaten enthält, an denen der Marker angezeigt werden soll, und ein Optionsobjekt, das eine `icon`-Eigenschaft enthält, die das Icon definiert, das an diesem Punkt angezeigt werden soll.
 
-Das Symbol wird über eine [`mapquest.icons.marker()`](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-icons/)-Methode definiert, die wie Sie sehen können Informationen wie Farb- und Größenmarker enthält.
+Das Icon wird mit einer [`mapquest.icons.marker()`](https://developer.mapquest.com/documentation/mapquest-js/v1.3/l-mapquest-icons/)-Methode definiert, die wie Sie sehen können Informationen wie Farbe und Größe des Markers enthält.
 
-Am Ende des ersten Methodenaufrufs verketten wir `.bindPopup('This is Manchester!')`, das den Inhalt definiert, der angezeigt wird, wenn der Marker angeklickt wird.
+An das Ende des ersten Methodenaufrufs hängen wir `.bindPopup('This is Manchester!')` an, das definiert, welchen Inhalt beim Klicken auf den Marker angezeigt werden soll.
 
-Schließlich verketten wir `.addTo(map)` am Ende der Kette, um den Marker tatsächlich zur Karte hinzuzufügen.
+Schließlich fügen wir `.addTo(map)` ans Ende der Kette an, um den Marker tatsächlich der Karte hinzuzufügen.
 
-Spielen Sie mit den anderen in der Dokumentation gezeigten Optionen und sehen Sie, was Sie herausfinden können! Mapquest bietet einige ziemlich fortschrittliche Funktionen, wie Wegbeschreibungen, Suchen usw.
+Experimentieren Sie mit den anderen in der Dokumentation gezeigten Optionen und sehen Sie, was Sie erreichen können! Mapquest bietet einige ziemlich fortschrittliche Funktionen, wie Wegbeschreibungen, Suche usw.
 
 > [!NOTE]
-> Wenn Sie Probleme haben, das Beispiel zum Laufen zu bringen, überprüfen Sie Ihren Code gegen unsere [fertige Version](https://github.com/mdn/learning-area/blob/main/javascript/apis/third-party-apis/mapquest/finished/script.js).
+> Wenn Sie Probleme haben, das Beispiel zum Laufen zu bringen, überprüfen Sie Ihren Code mit unserer [fertigen Version](https://github.com/mdn/learning-area/blob/main/javascript/apis/third-party-apis/mapquest/finished/script.js).
 
 ## Eine RESTful API — NYTimes
 
-Schauen wir uns nun ein weiteres API-Beispiel an — die [New York Times API](https://developer.nytimes.com/). Diese API ermöglicht es Ihnen, Informationen zu New York Times-Nachrichtengeschichten abzurufen und sie auf Ihrer Seite anzuzeigen. Diese Art von API wird als **RESTful API** bezeichnet — anstatt Daten mithilfe der Funktionen einer JavaScript-Bibliothek wie bei Mapquest zu erhalten, erhalten wir die Daten, indem wir HTTP-Anfragen an spezifische URLs stellen, wobei Daten wie Suchbegriffe und andere Eigenschaften in der URL kodiert sind (oft als URL-Parameter). Dies ist ein häufig anzutreffendes Muster bei APIs.
+Schauen wir uns nun ein weiteres API-Beispiel an — die [New York Times API](https://developer.nytimes.com/). Diese API ermöglicht es Ihnen, Nachrichteninformationen von der New York Times abzurufen und auf Ihrer Website anzuzeigen. Diese Art von API ist als **RESTful API** bekannt — statt Daten über die Funktionen einer JavaScript-Bibliothek wie bei Mapquest zu bekommen, holen wir die Daten, indem wir HTTP-Anfragen an bestimmte URLs stellen, wobei Daten wie Suchbegriffe und andere Eigenschaften im URL kodiert sind (oft als URL-Parameter). Dies ist ein häufiges Muster, auf das Sie bei APIs stoßen werden.
 
-Im Folgenden führen wir Sie durch eine Übung, um Ihnen zu zeigen, wie Sie die NYTimes API verwenden, die auch eine allgemeinere Reihe von Schritten bereitstellt, die Sie als Ansatz zur Arbeit mit neuen APIs verwenden können.
+Unten führen wir Sie durch eine Übung, um Ihnen zu zeigen, wie Sie die NYTimes API verwenden, die auch eine allgemeinere Schritt-für-Schritt-Anleitung bietet, die Sie als Ansatz für die Arbeit mit neuen APIs verwenden können.
 
 ### Finden Sie die Dokumentation
 
-Wenn Sie eine Drittanbieter-API verwenden möchten, ist es wichtig herauszufinden, wo sich die Dokumentation befindet, damit Sie herausfinden können, welche Funktionen die API hat, wie Sie sie verwenden usw. Die Dokumentation der New York Times API befindet sich unter <https://developer.nytimes.com/>.
+Wenn Sie eine Drittanbieter-API verwenden möchten, ist es unerlässlich, herauszufinden, wo sich die Dokumentation befindet, damit Sie herausfinden können, welche Funktionen die API hat, wie Sie diese verwenden usw. Die Dokumentation zur New York Times API finden Sie unter <https://developer.nytimes.com/>.
 
-### Holen Sie sich einen Entwicklerschlüssel
+### Besorgen Sie sich einen Entwickler-Schlüssel
 
-Die meisten APIs erfordern, dass Sie eine Art von Entwicklerschlüssel verwenden, aus Gründen der Sicherheit und Nachverfolgbarkeit. Um sich für einen NYTimes API-Schlüssel anzumelden, folgen Sie den Anweisungen unter <https://developer.nytimes.com/get-started>.
+Die meisten APIs erfordern die Verwendung einer Art von Entwickler-Schlüssel aus Sicherheits- und Verantwortlichkeitsgründen. Um sich für einen NYTimes-API-Schlüssel anzumelden, folgen Sie den Anweisungen unter <https://developer.nytimes.com/get-started>.
 
-1. Beantragen Sie einen Schlüssel für die Article Search API — erstellen Sie eine neue App, indem Sie diese als die API auswählen, die Sie verwenden möchten (füllen Sie einen Namen und eine Beschreibung aus, schalten Sie den Schalter unter der "Article Search API" auf die Position "ein" und klicken Sie dann auf "Erstellen").
+1. Fordern Sie einen Schlüssel für die Article Search API an — erstellen Sie eine neue App, indem Sie diese als die verwendete API auswählen (füllen Sie einen Namen und eine Beschreibung aus, schalten Sie den Schalter unter "Article Search API" auf Position ein und klicken Sie dann auf "Create").
 2. Holen Sie sich den API-Schlüssel von der resultierenden Seite.
-3. Erstellen Sie nun, um das Beispiel zu beginnen, eine Kopie aller Dateien im Verzeichnis [nytimes/start](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/nytimes/start). Wenn Sie bereits [das Beispiele-Repository geklont haben](/de/docs/Learn#getting_our_code_examples), haben Sie bereits eine Kopie dieser Dateien im Verzeichnis _javascript/apis/third-party-apis/nytimes/start_. Das `script.js`-Datei enthält anfänglich eine Reihe von Variablen, die für das Setup des Beispiels benötigt werden; unten werden wir die erforderliche Funktionalität auffüllen.
+3. Machen Sie als Nächstes eine Kopie aller Dateien im Verzeichnis [nytimes/start](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/nytimes/start). Wenn Sie das [Beispiel-Repository bereits geklont haben](/de/docs/Learn#getting_our_code_examples), haben Sie bereits eine Kopie dieser Dateien, die Sie im Verzeichnis _javascript/apis/third-party-apis/nytimes/start_ finden. Zunächst enthält die Datei `script.js` eine Reihe von Variablen, die für die Einrichtung des Beispiels benötigt werden; unten werden wir die erforderliche Funktionalität ausfüllen.
 
-Die App wird Ihnen am Ende erlauben, einen Suchbegriff und optionale Start- und Enddaten einzugeben, die sie dann verwendet, um die Artikel-Such-API abzufragen und die Suchergebnisse anzuzeigen.
+Die App ermöglicht es Ihnen schließlich, einen Suchbegriff und optionale Start- und Enddaten einzugeben, die dann verwendet werden, um die Article Search API zu durchsuchen und die Suchergebnisse anzuzeigen.
 
-![Ein Screenshot einer Beispielsuche und Suchergebnisse, wie sie von der New York Times Article Search API abgerufen wurden.](nytimes-example.png)
+![Ein Screenshot eines Beispiel-Suchbegriffs und Suchergebnissen, abgerufen von der New York Article Search API.](nytimes-example.png)
 
 ### Verbinden Sie die API mit Ihrer App
 
-Zuerst müssen Sie eine Verbindung zwischen der API und Ihrer App herstellen. Bei dieser API müssen Sie den API-Schlüssel als [get](/de/docs/Web/HTTP/Methods/GET)-Parameter jedes Mal einfügen, wenn Sie Daten von dem Dienst an der richtigen URL anfordern.
+Zuerst müssen Sie eine Verbindung zwischen der API und Ihrer App herstellen. Im Fall dieser API müssen Sie den API-Schlüssel als [get](/de/docs/Web/HTTP/Methods/GET)-Parameter jedes Mal einfügen, wenn Sie Daten vom Dienst bei der richtigen URL anfordern.
 
-1. Finden Sie die folgende Zeile:
+1. Finden Sie folgende Zeile:
 
    ```js
    const key = "INSERT-YOUR-API-KEY-HERE";
@@ -205,13 +206,13 @@ Zuerst müssen Sie eine Verbindung zwischen der API und Ihrer App herstellen. Be
 
    Ersetzen Sie den vorhandenen API-Schlüssel durch den tatsächlichen API-Schlüssel, den Sie im vorherigen Abschnitt erhalten haben.
 
-2. Fügen Sie die folgende Zeile zu Ihrem JavaScript hinzu, unter dem Kommentar `// Event listeners to control the functionality`. Dies führt eine Funktion namens `submitSearch()` aus, wenn das Formular abgeschickt wird (der Button gedrückt wird).
+2. Fügen Sie die folgende Zeile zu Ihrem JavaScript hinzu, unter dem Kommentar `// Event listeners to control the functionality`. Diese führt eine Funktion `submitSearch()` aus, wenn das Formular übermittelt wird (der Knopf gedrückt wird).
 
    ```js
    searchForm.addEventListener("submit", submitSearch);
    ```
 
-3. Fügen Sie nun die Funktionsdefinitionen `submitSearch()` und `fetchResults()` unterhalb der vorherigen Zeile hinzu:
+3. Fügen Sie nun die Funktionsdefinitionen für `submitSearch()` und `fetchResults()` hinzu, unterhalb der vorherigen Zeile:
 
    ```js
    function submitSearch(e) {
@@ -236,33 +237,33 @@ Zuerst müssen Sie eine Verbindung zwischen der API und Ihrer App herstellen. Be
    }
    ```
 
-`submitSearch()` setzt die Seitennummer anfangs auf 0 zurück und ruft dann `fetchResults()` auf. Dies ruft zunächst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf das Event-Objekt auf, um das tatsächliche Absenden des Formulars zu verhindern (was das Beispiel unterbrechen würde). Als nächstes verwenden wir einige String-Manipulationen, um die vollständige URL zu erstellen, zu der wir die Anfrage stellen werden. Wir beginnen damit, die Teile zusammenzustellen, die wir für diese Demo als obligatorisch erachten:
+`submitSearch()` setzt die Seitenzahl zuerst auf 0 zurück und ruft dann `fetchResults()` auf. Diese ruft zuerst [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem Ereignisobjekt auf, um zu verhindern, dass das Formular tatsächlich abgeschickt wird (was das Beispiel zerstören würde). Als nächstes verwenden wir einige Zeichenkettenoperationen, um die vollständige URL zusammenzustellen, an die wir die Anfrage stellen werden. Wir fangen an, die Teile zu erstellen, die wir für dieses Demo als obligatorisch erachten:
 
-- Die Basis-URL (aus der Variablen `baseURL` entnommen).
-- Der API-Schlüssel, der im `api-key`-URL-Parameter angegeben werden muss (der Wert wird aus der Variablen `key` entnommen).
-- Die Seitennummer, die im `page`-URL-Parameter angegeben werden muss (der Wert wird aus der Variablen `pageNumber` entnommen).
-- Der Suchbegriff, der im `q`-URL-Parameter angegeben werden muss (der Wert wird aus dem Wert des Text-{{htmlelement("input")}} `searchTerm` entnommen).
-- Der Dokumententyp, um Ergebnisse zurückzugeben, wie in einem Ausdruck angegeben, der über den `fq`-URL-Parameter übergeben wird. In diesem Fall wollen wir Artikel zurückgeben.
+- Die Basis-URL (entnommen aus der Variablen `baseURL`).
+- Der API-Schlüssel, der im `api-key`-URL-Parameter angegeben werden muss (der Wert stammt aus der Variablen `key`).
+- Die Seitenzahl, die im `page`-URL-Parameter angegeben werden muss (der Wert stammt aus der Variablen `pageNumber`).
+- Der Suchbegriff, der im `q`-URL-Parameter angegeben werden muss (der Wert stammt aus dem Wert des Texteingabefeldes `searchTerm` {{htmlelement("input")}}).
+- Der Dokumenttyp, für den Ergebnisse zurückgegeben werden sollen, wie in einem Ausdruck angegeben, der über den `fq`-URL-Parameter übergeben wird. In diesem Fall wollen wir Artikel zurückgeben.
 
-Als nächstes verwenden wir ein paar [`if ()`](/de/docs/Web/JavaScript/Reference/Statements/if...else) Blöcke, um zu überprüfen, ob die Elemente `startDate` und `endDate` Werte enthalten, die auf ihnen ausgefüllt wurden. Falls ja, fügen wir ihre Werte als URL-Parameter `begin_date` und `end_date` an die URL an.
+Als nächstes verwenden wir ein paar [`if ()`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisungen, um zu überprüfen, ob die `startDate`- und `endDate`-Elemente Werte enthalten haben. Falls ja, hängen wir ihre Werte an die URL an, die jeweils in den URL-Parametern `begin_date` und `end_date` angegeben sind.
 
-Eine vollständige URL würde somit folgendermaßen aussehen:
+So würde eine vollständige URL schließlich aussehen:
 
 ```url
 https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=YOUR-API-KEY-HERE&page=0&q=cats&fq=document_type:("article")&begin_date=20170301&end_date=20170312
 ```
 
 > [!NOTE]
-> Weitere Details dazu, welche URL-Parameter enthalten sein können, finden Sie in den [NYTimes Entwicklerdokumenten](https://developer.nytimes.com/).
+> Sie finden mehr Details darüber, welche URL-Parameter enthalten werden können, in den [NYTimes Entwicklerdokumenten](https://developer.nytimes.com/).
 
 > [!NOTE]
-> Das Beispiel hat rudimentäre Formularvalidierung — das Suchbegriffsfeld muss ausgefüllt sein, bevor das Formular abgeschickt werden kann (erreicht durch das Attribut `required`), und die Datumsfelder haben `pattern`-Attribute angegeben, was bedeutet, dass sie nicht abgeschickt werden, es sei denn, ihre Werte bestehen aus 8 Zahlen (`pattern="[0-9]{8}"`). Weitere Informationen darüber, wie diese funktionieren, finden Sie unter [Formulardatenvalidierung](/de/docs/Learn/Forms/Form_validation).
+> Das Beispiel hat eine rudimentäre Formular-Datenvalidierung — das Suchbegriff-Feld muss ausgefüllt sein, bevor das Formular übermittelt werden kann (erreicht durch das `required`-Attribut), und die Datumsfelder haben `pattern`-Attribute angegeben, was bedeutet, dass sie nicht abgesendet werden, es sei denn, ihre Werte bestehen aus 8 Zahlen (`pattern="[0-9]{8}"`). Siehe [Formular-Datenvalidierung](/de/docs/Learn/Forms/Form_validation) für mehr Details dazu, wie diese funktionieren.
 
 ### Anfordern von Daten von der API
 
-Nachdem wir unsere URL erstellt haben, lassen Sie uns eine Anfrage an sie stellen. Wir werden dies über die [Fetch API](/de/docs/Web/API/Fetch_API/Using_Fetch) tun.
+Jetzt, wo wir unsere URL erstellt haben, lassen Sie uns eine Anfrage an sie stellen. Wir werden dies mit der [Fetch API](/de/docs/Web/API/Fetch_API/Using_Fetch) tun.
 
-Fügen Sie den folgenden Codeblock innerhalb der Funktion `fetchResults()` hinzu, direkt über der schließenden geschweiften Klammer:
+Fügen Sie diesen Codeblock innerhalb der `fetchResults()`-Funktion hinzu, direkt über der schließenden geschweiften Klammer:
 
 ```js
 // Use fetch() to make the request to the API
@@ -272,11 +273,11 @@ fetch(url)
   .catch((error) => console.error(`Error fetching data: ${error.message}`));
 ```
 
-Hier führen wir die Anfrage durch, indem wir unsere Variable `url` an [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, den Antwortkörper mittels der Funktion [`json()`](/de/docs/Web/API/Response/json) in JSON konvertieren und das resultierende JSON an die Funktion `displayResults()` übergeben, damit die Daten in unserer Benutzeroberfläche angezeigt werden können. Wir fangen auch Fehler ab und protokollieren sie, die auftreten könnten.
+Hier führen wir die Anfrage aus, indem wir unsere `url`-Variable an [`fetch()`](/de/docs/Web/API/Window/fetch) übergeben, den Antwortinhalt mithilfe der [`json()`](/de/docs/Web/API/Response/json)-Funktion in JSON konvertieren und dann das resultierende JSON an die Funktion `displayResults()` übergeben, sodass die Daten in unserer Benutzeroberfläche angezeigt werden können. Wir fangen auch alle Fehler ab und protokollieren sie, die möglicherweise geworfen werden.
 
-### Darstellung der Daten
+### Anzeigen der Daten
 
-OK, schauen wir uns an, wie wir die Daten anzeigen werden. Fügen Sie die folgende Funktion unterhalb Ihrer Funktion `fetchResults()` hinzu.
+Nun sehen wir uns an, wie wir die Daten anzeigen werden. Fügen Sie die folgende Funktion unter Ihrer `fetchResults()`-Funktion hinzu.
 
 ```js
 function displayResults(json) {
@@ -330,31 +331,34 @@ function displayResults(json) {
 }
 ```
 
-Hier ist viel Code vorhanden; lassen Sie uns ihn Schritt für Schritt erklären:
+Hier gibt es eine Menge Code; lassen Sie uns ihn Schritt für Schritt erklären:
 
-- Die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife ist ein gängiges Muster, um alle Inhalte eines DOM-Elements zu löschen, in diesem Fall das {{htmlelement("section")}}-Element. Wir überprüfen ständig, ob `<section>` ein erstes Kind hat, und wenn ja, entfernen wir das erste Kind. Die Schleife endet, wenn `<section>` keine Kinder mehr hat.
-- Anschließend setzen wir die Variable `articles` gleich `json.response.docs` — dies ist das Array, das alle Objekte enthält, die die durch die Suche zurückgegebenen Artikel repräsentieren. Dies wird nur gemacht, um den folgenden Code ein wenig einfacher zu machen.
-- Der erste [`if ()`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Block überprüft, ob 10 Artikel zurückgegeben werden (die API gibt bis zu 10 Artikel gleichzeitig zurück). Wenn ja, zeigen wir das {{htmlelement("nav")}}, das die _Vorherige 10_/_Nächste 10_-Paginierungsschaltflächen enthält, an. Wenn weniger als 10 Artikel zurückgegeben werden, passen sie alle auf eine Seite, sodass wir die Paginierungsschaltflächen nicht anzeigen müssen. Wir werden die Paginierungsfunktionalität im nächsten Abschnitt behandeln.
-- Der nächste `if ()`-Block prüft, ob keine Artikel zurückgegeben werden. Wenn ja, versuchen wir nicht, sie anzuzeigen — wir erstellen ein {{htmlelement("p")}}, das den Text "Keine Ergebnisse zurückgegeben." enthält, und fügen es in das `<section>` ein.
-- Wenn einige Artikel zurückgegeben werden, erstellen wir zunächst alle Elemente, die wir verwenden möchten, um jede Nachrichtengeschichte anzuzeigen, fügen den richtigen Inhalt in jedes ein und fügen sie dann an den entsprechenden Stellen ins DOM ein. Um herauszufinden, welche Eigenschaften in den Artikelobjekten die richtigen Daten zur Anzeige enthalten, haben wir die Referenz der Article Search API konsultiert (siehe [NYTimes APIs](https://developer.nytimes.com/apis)). Die meisten dieser Operationen sind ziemlich offensichtlich, aber einige sind erwähnenswert:
+- Die [`while`](/de/docs/Web/JavaScript/Reference/Statements/while)-Schleife ist ein übliches Muster, das verwendet wird, um alle Inhalte eines DOM-Elements zu löschen, in diesem Fall das {{htmlelement("section")}}-Element. Wir prüfen kontinuierlich, ob das `<section>` ein erstes Kind hat, und wenn ja, entfernen wir das erste Kind. Die Schleife endet, wenn `<section>` keine Kinder mehr hat.
+- Als nächstes setzen wir die Variable `articles` gleich `json.response.docs` — dies ist das Array, das alle Objekte enthält, die die durch die Suche zurückgegebenen Artikel darstellen. Dies geschieht ausschließlich, um den folgenden Code etwas einfacher zu machen.
+- Der erste [`if ()`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Block prüft, ob 10 Artikel zurückgegeben werden (die API gibt bis zu 10 Artikel auf einmal zurück). Falls ja, zeigen wir das {{htmlelement("nav")}}, das die _Vorherigen 10_/_Nächsten 10_-Seitennavigationsknöpfe enthält. Wenn weniger als 10 Artikel zurückgegeben werden, passen sie alle auf eine Seite, sodass die Seitennavigationsknöpfe nicht angezeigt werden müssen. Wir werden die Seitennavigationsfunktionalität im nächsten Abschnitt verkabeln.
+- Der nächste `if ()`-Block prüft, ob keine Artikel zurückgegeben werden. Falls ja, versuchen wir nicht, welche anzuzeigen — wir erstellen ein {{htmlelement("p")}} mit dem Text "No results returned." und setzen es in das `<section>`.
+- Wenn einige Artikel zurückgegeben werden, erstellen wir zuerst alle Elemente, die wir verwenden möchten, um jede Nachrichtenstory anzuzeigen, fügen die richtigen Inhalte in jedes ein und setzen sie dann an den entsprechenden Stellen in das DOM ein. Um herauszufinden, welche Eigenschaften in den Artikelobjekten die richtigen Daten zum Anzeigen enthalten, haben wir die Referenz zur Article Search-API konsultiert (siehe [NYTimes APIs](https://developer.nytimes.com/apis)). Die meisten dieser Operationen sind ziemlich offensichtlich, aber einige sind erwähnenswert:
 
-  - Wir haben eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwendet, um alle Schlüsselwörter, die jedem Artikel zugeordnet sind, zu durchlaufen und jedes in sein eigenes {{htmlelement("span")}}, innerhalb eines `<p>`, einzufügen. Dies wurde gemacht, um jedes leicht stylen zu können.
-  - Wir haben einen `if ()`-Block (`if (current.multimedia.length > 0) { }`) verwendet, um zu überprüfen, ob jeder Artikel mit Bildern assoziiert ist, da einige Geschichten dies nicht tun. Wir zeigen nur das erste Bild an, wenn es existiert; andernfalls würde ein Fehler geworfen werden.
+  - Wir haben eine [`for...of`](/de/docs/Web/JavaScript/Reference/Statements/for...of)-Schleife verwendet, um alle mit jedem Artikel verknüpften Schlüsselwörter durch
 
-### Verkabeln der Paginierungsschaltflächen
+zugehen und jedes in einem eigenen {{htmlelement("span")}} innerhalb eines `<p>` einzufügen. Dies wurde getan, um es einfach zu machen, jedes einfach zu formatieren.
 
-Um die Paginierungsschaltflächen funktionsfähig zu machen, werden wir den Wert der `pageNumber`-Variable inkrementieren (oder dekrementieren) und dann die Anfrage erneut mit dem neuen Wert, der im URL-Parameter der Seite enthalten ist, ausführen lassen. Dies funktioniert, weil die NYTimes API nur 10 Ergebnisse gleichzeitig zurückgibt — wenn mehr als 10 Ergebnisse verfügbar sind, gibt sie die ersten 10 (0-9) zurück, wenn der `page`-URL-Parameter auf 0 gesetzt ist (oder gar nicht enthalten ist — 0 ist der Standardwert), die nächsten 10 (10-19), wenn er auf 1 gesetzt ist, und so weiter.
+- Wir haben einen `if ()`-Block (`if (current.multimedia.length > 0) { }`) verwendet, um zu prüfen, ob jeder Artikel Bilder zugeordnet hat, da einige Geschichten keine haben. Wir zeigen nur das erste Bild an, wenn es existiert; andernfalls würde ein Fehler geworfen werden.
 
-Dies ermöglicht es uns, eine einfache Paginierungsfunktion zu schreiben.
+### Verkabelung der Seitennavigationsknöpfe
 
-1. Fügen Sie unter dem bestehenden [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Aufruf diese beiden neuen hinzu, die bewirken, dass die Funktionen `nextPage()` und `previousPage()` aufgerufen werden, wenn die entsprechenden Schaltflächen angeklickt werden:
+Um die Seitennavigationsknöpfe funktionsfähig zu machen, werden wir den Wert der Variablen `pageNumber` inkrementieren (oder dekrementieren) und dann die Abrufanfrage mit dem neuen Wert im URL-Parameter `page` erneut ausführen. Dies funktioniert, da die NYTimes-API jedes Mal nur 10 Ergebnisse zurückgibt — wenn mehr als 10 Ergebnisse verfügbar sind, wird sie die ersten 10 (0-9) zurückgeben, wenn der URL-Parameter `page` auf 0 gesetzt ist (oder überhaupt nicht enthalten ist — 0 ist der Standardwert), die nächsten 10 (10-19), wenn er auf 1 gesetzt ist, und so weiter.
+
+Dies ermöglicht es uns, eine vereinfachte Seitennavigationsfunktion zu schreiben.
+
+1. Fügen Sie unter dem vorhandenen [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener)-Aufruf diese beiden neuen hinzu, die dafür sorgen, dass die Funktionen `nextPage()` und `previousPage()` aufgerufen werden, wenn die entsprechenden Knöpfe geklickt werden:
 
    ```js
    nextBtn.addEventListener("click", nextPage);
    previousBtn.addEventListener("click", previousPage);
    ```
 
-2. Unter Ihrer vorherigen Ergänzung definieren wir die zwei Funktionen — fügen Sie diesen Code jetzt hinzu:
+2. Fügen Sie unter Ihrer vorherigen Ergänzung die beiden Funktionen ein – fügen Sie jetzt diesen Code hinzu:
 
    ```js
    function nextPage(e) {
@@ -372,36 +376,36 @@ Dies ermöglicht es uns, eine einfache Paginierungsfunktion zu schreiben.
    }
    ```
 
-   Die erste Funktion inkrementiert die `pageNumber`-Variable, um dann die `fetchResults()`-Funktion erneut auszuführen und die Ergebnisse der nächsten Seite anzuzeigen.
+   Die erste Funktion inkrementiert die Variable `pageNumber`, um die Ergebnisse der nächsten Seite anzuzeigen, und führt dann erneut die Funktion `fetchResults()` aus.
 
-   Die zweite Funktion funktioniert fast exakt gleich in umgekehrter Reihenfolge, aber wir müssen zusätzlich überprüfen, dass `pageNumber` nicht bereits Null ist, bevor wir es dekrementieren — wenn die Anfrage mit einem negativen `page`-URL-Parameter durchgeführt wird, könnte dies Fehler verursachen. Wenn `pageNumber` bereits 0 ist, [`return`](/de/docs/Web/JavaScript/Reference/Statements/return) wir aus der Funktion — wenn wir bereits auf der ersten Seite sind, brauchen wir dieselben Ergebnisse nicht noch einmal zu laden.
+   Die zweite Funktion funktioniert fast genauso umgekehrt, aber wir müssen auch den zusätzlichen Schritt unternehmen und überprüfen, ob `pageNumber` nicht bereits null ist, bevor wir sie dekrementieren — wenn die Abrufanfrage mit einem negativen URL-Parameter `page` ausgeführt wird, könnte das Fehler verursachen. Wenn die `pageNumber` bereits 0 ist, [`return`](/de/docs/Web/JavaScript/Reference/Statements/return) wir aus der Funktion — wenn wir uns bereits auf der ersten Seite befinden, brauchen wir nicht erneut dieselben Ergebnisse zu laden.
 
 > [!NOTE]
-> Sie können unseren [fertigen NYTimes API-Beispielcode auf GitHub](https://github.com/mdn/learning-area/blob/main/javascript/apis/third-party-apis/nytimes/finished/index.html) finden (auch [sehen Sie es live hier laufen](https://mdn.github.io/learning-area/javascript/apis/third-party-apis/nytimes/finished/)).
+> Sie können unser [fertiges NYTimes API-Beispiel auf GitHub finden](https://github.com/mdn/learning-area/blob/main/javascript/apis/third-party-apis/nytimes/finished/index.html) (sehen Sie es auch [hier live](https://mdn.github.io/learning-area/javascript/apis/third-party-apis/nytimes/finished/)).
 
 ## YouTube-Beispiel
 
-Wir haben auch ein weiteres Beispiel für Sie erstellt, das Sie studieren und daraus lernen können — siehe unser [YouTube-Video-Suchbeispiel](https://mdn.github.io/learning-area/javascript/apis/third-party-apis/youtube/). Dies verwendet zwei verwandte APIs:
+Wir haben auch ein weiteres Beispiel für Sie entwickelt, um es zu studieren und daraus zu lernen — sehen Sie sich unser [YouTube-Video-Suchbeispiel](https://mdn.github.io/learning-area/javascript/apis/third-party-apis/youtube/) an. Dieses verwendet zwei verwandte APIs:
 
 - Die [YouTube Data API](https://developers.google.com/youtube/v3/docs/), um nach YouTube-Videos zu suchen und Ergebnisse zurückzugeben.
-- Die [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference), um die zurückgegebenen Videobeispiele in IFrame-Videoplayern anzuzeigen, sodass Sie sie ansehen können.
+- Die [YouTube IFrame Player API](https://developers.google.com/youtube/iframe_api_reference), um die zurückgegebenen Video-Beispiele in IFrame-Videoplayern anzuzeigen, damit Sie sie ansehen können.
 
-Dieses Beispiel ist interessant, da es zeigt, wie zwei verwandte Drittanbieter-APIs zusammen verwendet werden, um eine App zu erstellen. Die erste ist eine RESTful API, während die zweite eher wie Mapquest funktioniert (mit API-spezifischen Methoden usw.). Es ist jedoch erwähnenswert, dass beide APIs eine JavaScript-Bibliothek erfordern, die auf die Seite angewendet wird. Die RESTful API hat Funktionen verfügbar, um die HTTP-Anfragen zu bearbeiten und die Ergebnisse zurückzugeben.
+Dieses Beispiel ist interessant, da es zeigt, wie zwei verwandte Drittanbieter-APIs zusammen verwendet werden, um eine App zu erstellen. Die erste ist eine RESTful API, während die zweite eher wie Mapquest funktioniert (mit API-spezifischen Methoden usw.). Es ist jedoch erwähnenswert, dass für beide APIs eine JavaScript-Bibliothek auf der Seite angewendet werden muss. Die RESTful API hat Funktionen verfügbar, um die HTTP-Anfragen zu bearbeiten und die Ergebnisse zurückzugeben.
 
-![Ein Screenshot einer Beispielsuche von YouTube-Videos unter Verwendung zweier verwandter APIs. Die linke Seite des Bildes zeigt eine Beispielsuchanfrage unter Verwendung der YouTube Data API. Die rechte Seite des Bildes zeigt die Suchergebnisse unter Verwendung der YouTube Iframe Player API.](youtube-example.png)
+![Ein Screenshot einer Beispiel-YouTube-Video-Suche mit zwei verbundenen APIs. Die linke Seite des Bildes zeigt eine Beispiel-Suchanfrage mit der YouTube Data API. Die rechte Seite des Bildes zeigt die Suchergebnisse mit der YouTube Iframe Player API an.](youtube-example.png)
 
-Wir werden in diesem Artikel nicht viel mehr zu diesem Beispiel sagen — [der Quellcode](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/youtube) enthält detaillierte Kommentare, um zu erklären, wie es funktioniert.
+Wir werden nicht viel mehr über dieses Beispiel im Artikel sagen — [der Quellcode](https://github.com/mdn/learning-area/tree/main/javascript/apis/third-party-apis/youtube) enthält detaillierte Kommentare, die erklären, wie er funktioniert.
 
 Um es zum Laufen zu bringen, müssen Sie:
 
-- Die [YouTube Data API-Übersicht](https://developers.google.com/youtube/v3/getting-started) Dokumentation lesen.
-- Stellen Sie sicher, dass Sie die [Enabled APIs-Seite](https://console.cloud.google.com/apis/enabled) besuchen, und in der Liste der APIs den Status auf EIN für die YouTube Data API v3 setzen.
+- Die [YouTube Data API Übersicht](https://developers.google.com/youtube/v3/getting-started) Dokumentation lesen.
+- Stellen Sie sicher, dass Sie die [Aktivierten APIs-Seite](https://console.cloud.google.com/apis/enabled) besuchen, und in der Liste der APIs überprüfen Sie, ob der Status für die YouTube Data API v3 auf EIN ist.
 - Holen Sie sich einen API-Schlüssel von [Google Cloud](https://cloud.google.com/).
-- Finden Sie die Zeichenkette `ENTER-API-KEY-HERE` im Quellcode und ersetzen Sie sie durch Ihren API-Schlüssel.
-- Führen Sie das Beispiel über einen Webserver aus. Es funktioniert nicht, wenn Sie es direkt im Browser laufen lassen (d.h. über eine `file://`-URL).
+- Finden Sie die Zeichenfolge `ENTER-API-KEY-HERE` im Quellcode und ersetzen Sie sie durch Ihren API-Schlüssel.
+- Führen Sie das Beispiel über einen Webserver aus. Es wird nicht funktionieren, wenn Sie es direkt im Browser ausführen (d.h. über eine `file://` URL).
 
 ## Zusammenfassung
 
-Dieser Artikel hat Ihnen eine nützliche Einführung in die Verwendung von Drittanbieter-APIs gegeben, um Funktionalitäten zu Ihren Webseiten hinzuzufügen.
+Dieser Artikel hat Ihnen eine nützliche Einführung in die Verwendung von Drittanbieter-APIs gegeben, um die Funktionalität Ihrer Webseiten zu erweitern.
 
 {{PreviousMenuNext("Learn/JavaScript/Client-side_web_APIs/Fetching_data", "Learn/JavaScript/Client-side_web_APIs/Drawing_graphics", "Learn/JavaScript/Client-side_web_APIs")}}

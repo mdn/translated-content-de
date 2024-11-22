@@ -2,12 +2,12 @@
 title: "-webkit-box-reflect"
 slug: Web/CSS/-webkit-box-reflect
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{CSSRef}}{{Non-standard_Header}}
 
-Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es, den Inhalt eines Elements in eine bestimmte Richtung zu spiegeln.
+Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Ihnen, den Inhalt eines Elements in eine spezifische Richtung zu spiegeln.
 
 ## Syntax
 
@@ -35,7 +35,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 ### Werte
 
 - `above`_,_ `below`_,_ `right`_,_ `left`
-  - : Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
+  - : Sind Schlüsselwörter, die angeben, in welche Richtung die Spiegelung erfolgen soll.
 - {{CSSxRef("&lt;length&gt;")}}
   - : Gibt die Größe der Spiegelung an.
 - {{CSSxRef("&lt;image&gt;")}}
@@ -54,7 +54,7 @@ Die **`-webkit-box-reflect`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es
 
 ## Spezifikationen
 
-Nicht Teil eines Standards. Der standardmäßige Weg, eine Spiegelung in CSS zu erzeugen, ist die Verwendung der CSS-{{CSSxRef("element", "element()")}}-Funktion.
+Teil keiner Norm. Der standardmäßige Weg, um Spiegelungen in CSS zu realisieren, ist die Verwendung der CSS {{CSSxRef("element", "element()")}} Funktion.
 
 ## Browser-Kompatibilität
 
@@ -63,4 +63,4 @@ Nicht Teil eines Standards. Der standardmäßige Weg, eine Spiegelung in CSS zu 
 ## Siehe auch
 
 - Die Apple [Dokumentation](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html).
-- Die Webkit [Spezifikation](https://webkit.org/blog/182/css-reflections/).
+- Die WebKit [Spezifikation](https://webkit.org/blog/182/css-reflections/).

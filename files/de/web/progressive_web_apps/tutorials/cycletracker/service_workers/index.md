@@ -1,38 +1,38 @@
 ---
 title: "CycleTracker: Service Workers"
-short-title: Service workers
+short-title: Service Workers
 slug: Web/Progressive_web_apps/Tutorials/CycleTracker/Service_workers
 l10n:
-  sourceCommit: e03b13c7e157ec7b7bb02a6c7c4854b862195905
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{PWASidebar}}
 
 {{PreviousMenu("Web/Progressive_web_apps/Tutorials/CycleTracker/Manifest_file", "Web/Progressive_web_apps/Tutorials/CycleTracker")}}
 
-Bisher haben wir das HTML, CSS und JavaScript für CycleTracker geschrieben. Wir haben eine Manifest-Datei hinzugefügt, die Farben, Symbole, URL und andere App-Funktionen definiert. Unsere PWA funktioniert! Aber sie funktioniert noch nicht offline. In diesem Abschnitt werden wir das JavaScript schreiben, das erforderlich ist, um unsere voll funktionsfähige Webanwendung in eine PWA zu verwandeln, die als eigenständige App verteilt werden kann und nahtlos offline funktioniert.
+Bisher haben wir das HTML, CSS und JavaScript für CycleTracker geschrieben. Wir haben eine Manifestdatei hinzugefügt, die Farben, Symbole, URL und andere App-Features definiert. Wir haben eine funktionierende PWA! Aber sie funktioniert noch nicht offline. In diesem Abschnitt werden wir das JavaScript schreiben, das erforderlich ist, um unsere voll funktionsfähige Webanwendung in eine PWA zu verwandeln, die als eigenständige App verteilt werden kann und nahtlos offline funktioniert.
 
-Falls Sie es noch nicht getan haben, kopieren Sie die [HTML](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/index.html)-, [CSS](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/style.css)-, [JavaScript](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/app.js)- und [manifest](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/cycletracker.json)-JSON-Datei. Speichern Sie sie in Dateien mit den Namen `index.html`, `style.css`, `app.js` und `cycletracker.json`.
+Wenn Sie dies noch nicht getan haben, kopieren Sie die [HTML](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/index.html), [CSS](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/style.css), [JavaScript](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/app.js) und [Manifest](https://github.com/mdn/pwa-examples/blob/main/cycletracker/manifest_file/cycletracker.json) JSON-Datei. Speichern Sie sie als Dateien mit den Namen `index.html`, `style.css`, `app.js` und `cycletracker.json`.
 
-In diesem Abschnitt erstellen wir `sw.js`, das Service Worker-Skript, das unsere Web App in eine PWA umwandeln wird. Wir haben bereits eine JavaScript-Datei; die letzte Zeile in der HTML-Datei ruft die `app.js` auf. Dieses JavaScript bietet alle Funktionen für die Standard-Webanwendungsfeatures. Anstatt die `sw.js`-Datei wie die `app.js`-Datei mit dem `src`-Attribut von {{HTMLElement("script")}} aufzurufen, werden wir eine Beziehung zwischen der Web-App und ihrem Service Worker schaffen, indem wir den Service Worker registrieren.
+In diesem Abschnitt erstellen wir `sw.js`, das Service Worker Skript, das unsere Web-App in eine PWA umwandelt. Wir haben bereits eine JavaScript-Datei; die letzte Zeile in der HTML-Datei ruft die `app.js` auf. Dieses JavaScript bietet alle Funktionen für die Standard-Webanwendungsfunktionen. Anstatt die Datei `sw.js` wie die Datei `app.js` mit dem `src`-Attribut des {{HTMLElement("script")}} aufzurufen, werden wir eine Beziehung zwischen der Web-App und ihrem Service Worker herstellen, indem wir den Service Worker registrieren.
 
-Am Ende dieser Lektion haben Sie eine voll funktionsfähige PWA; eine progressiv verbesserte Webanwendung, die vollständig installierbar ist und auch funktioniert, wenn der Benutzer offline ist.
+Am Ende dieser Lektion haben Sie eine voll funktionsfähige PWA; eine progressiv verbesserte Webanwendung, die vollständig installierbar ist und auch dann funktioniert, wenn der Benutzer offline ist.
 
 ## Aufgaben des Service Workers
 
-Der Service Worker ist dafür verantwortlich, dass die Anwendung offline funktioniert und gleichzeitig sicherstellt, dass die Anwendung immer auf dem neuesten Stand ist. Um dies gut zu machen, sollte der Service Worker Folgendes umfassen:
+Der Service Worker sorgt dafür, dass die Anwendung offline funktioniert, während er sicherstellt, dass die Anwendung immer auf dem neuesten Stand ist. Um dies gut zu machen, sollte der Service Worker Folgendes enthalten:
 
-- Versionsnummer (oder eine andere Kennung).
+- Versionsnummer (oder andere Kennung).
 - Liste der zu cachenden Ressourcen.
 - Cache-Versionsname.
 
-Der Service Worker ist auch verantwortlich für:
+Der Service Worker ist außerdem verantwortlich für:
 
 - Installation des Caches, wenn die App installiert wird.
-- Aktualisierung von sich selbst und den anderen Anwendungsdateien nach Bedarf.
+- Aktualisierung von sich selbst und den anderen Anwendungsdateien bei Bedarf.
 - Entfernen von gecachten Dateien, die nicht mehr verwendet werden.
 
-Wir erreichen diese Aufgaben, indem wir auf drei Service Worker-Ereignisse reagieren, einschließlich der
+Wir erreichen diese Aufgaben, indem wir auf drei Service Worker-Ereignisse reagieren, darunter die
 
 - [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event),
 - [`install`](/de/docs/Web/API/ServiceWorkerGlobalScope/install_event) und
@@ -40,23 +40,23 @@ Wir erreichen diese Aufgaben, indem wir auf drei Service Worker-Ereignisse reagi
 
 ### Versionsnummer
 
-Sobald die PWA auf dem Computer des Benutzers installiert ist, ist die einzige Möglichkeit, den Browser darüber zu informieren, dass aktualisierte Dateien abgerufen werden müssen, eine Änderung am Service Worker. Wenn eine Änderung an einer anderen PWA-Ressource vorgenommen wird – wenn das HTML aktualisiert wird, ein Fehler im CSS behoben wird, eine Funktion zu `app.js` hinzugefügt wird, ein Bild komprimiert wird, um die Dateigröße zu reduzieren usw. – wird der Service Worker Ihrer installierten PWA nicht wissen, dass er aktualisierte Ressourcen herunterladen muss. Nur wenn der Service Worker in irgendeiner Weise verändert wird, weiß die PWA, dass es an der Zeit sein könnte, den Cache zu aktualisieren; was die Aufgabe des Service Workers ist, zu initiieren.
+Sobald die PWA auf dem Rechner des Benutzers installiert ist, kann der Browser nur dann darüber informiert werden, dass aktualisierte Dateien abzurufen sind, wenn es eine Änderung im Service Worker gibt. Wenn eine Änderung an einer anderen PWA-Ressource vorgenommen wird - wenn das HTML aktualisiert wird, ein Fehler im CSS behoben wird, eine Funktion zu `app.js` hinzugefügt wird, ein Bild komprimiert wird, um den Speicherbedarf zu reduzieren, etc. - wird der Service Worker der installierten PWA nicht wissen, dass er aktualisierte Ressourcen herunterladen muss. Nur wenn der Service Worker auf irgendeine Weise geändert wird, wird die PWA wissen, dass es Zeit sein könnte, den Cache zu aktualisieren; was die Aufgabe des Service Workers ist.
 
-Auch wenn das Ändern eines Zeichens technisch ausreichen könnte, ist es eine bewährte Praxis für PWA, eine Versionsnummer-Konstante zu erstellen, die sequentiell aktualisiert wird, um ein Update der Datei anzuzeigen. Das Aktualisieren einer Versionsnummer (oder eines Datums) bietet eine offizielle Bearbeitung des Service Workers, selbst wenn sonst nichts im Service Worker selbst geändert wird, und bietet Entwicklern eine Möglichkeit, App-Versionen zu identifizieren.
+Obwohl das Ändern eines beliebigen Zeichens technisch ausreichen kann, ist es eine bewährte Praxis für PWA, eine Versionsnummer als Konstante zu erstellen, die sequenziell aktualisiert wird, um eine Dateiaktualisierung anzuzeigen. Das Aktualisieren einer Versionsnummer (oder des Datums) bietet eine offizielle Bearbeitung des Service Workers, selbst wenn sonst nichts am Service Worker geändert wird, und bietet Entwicklern eine Möglichkeit, App-Versionen zu identifizieren.
 
 #### Aufgabe
 
-Starten Sie eine JavaScript-Datei, indem Sie eine Versionsnummer einfügen:
+Beginnen Sie eine JavaScript-Datei, indem Sie eine Versionsnummer einfügen:
 
 ```js
 const VERSION = "v1";
 ```
 
-Speichern Sie die Datei als `sw.js`.
+Speichern Sie die Datei als `sw.js`
 
-### Offline-Ressourcenliste
+### Liste der Offline-Ressourcen
 
-Für ein gutes Offline-Erlebnis sollte die Liste der gecachten Dateien alle Ressourcen enthalten, die innerhalb der Offline-Erfahrung der PWA verwendet werden. Während die Manifestdatei eine Vielzahl von Symbolen in verschiedenen Größen enthalten kann, muss der Anwendungscache nur die Ressourcen enthalten, die von der App im Offline-Modus verwendet werden.
+Für ein gutes Offline-Erlebnis sollte die Liste der gecachten Dateien alle Ressourcen umfassen, die innerhalb der Offline-Erfahrung der PWA verwendet werden. Während die Manifestdatei möglicherweise eine Vielzahl von Symbolen in verschiedenen Größen auflistet, muss der App-Cache nur die in Offline-Modus von der App verwendeten Ressourcen enthalten.
 
 ```js
 const APP_STATIC_RESOURCES = [
@@ -68,17 +68,17 @@ const APP_STATIC_RESOURCES = [
 ];
 ```
 
-Sie müssen nicht die verschiedenen Symbole aufnehmen, die auf allen verschiedenen Betriebssystemen und Geräten verwendet werden. Aber nehmen Sie alle Bilder auf, die innerhalb der App verwendet werden, einschließlich Ressourcen, die auf Splash-Seiten verwendet werden könnten, die sichtbar sind, wenn die App beim Laden langsam ist oder auf Seiten verwendet werden, die "Sie müssen sich mit dem Internet verbinden, um das volle Erlebnis zu genießen"-Seiten darstellen.
+Sie müssen nicht die verschiedenen Symbole einbeziehen, die von allen verschiedenen Betriebssystemen und Geräten verwendet werden. Aber fügen Sie alle im Rahmen der App verwendeten Bilder ein, einschließlich Ressourcen, die auf Splash-Seiten sichtbar sein mögen, wenn die App langsam lädt oder auf Seiten, die anzeigen "Sie müssen mit dem Internet verbunden sein, um das volle Erlebnis zu erhalten".
 
-Nehmen Sie die Service Worker-Datei nicht in die Liste der zu cachenden Ressourcen auf.
+Schließen Sie die Service Worker-Datei nicht in die Liste der zu cachenden Ressourcen ein.
 
 #### Aufgabe
 
-Fügen Sie die Liste der zu cachenden Ressourcen für die CycleTracker PWA in `sw.js` hinzu.
+Fügen Sie die Liste der zu cachenden Ressourcen für die CycleTracker PWA zu `sw.js` hinzu.
 
-#### Beispielösung
+#### Beispiel Lösung
 
-Wir haben die statischen Ressourcen, die in anderen Abschnitten dieses Tutorials erstellt wurden, und die CycleTracker benötigt, um offline zu funktionieren in unser aktuelles `sw.js`-File aufgenommen:
+Wir schließen die statischen Ressourcen ein, die in anderen Abschnitten dieses Tutorials erstellt wurden und die CycleTracker benötigt, um offline zu funktionieren. Unsere aktuelle `sw.js` Datei ist:
 
 ```js
 const VERSION = "v1";
@@ -93,19 +93,19 @@ const APP_STATIC_RESOURCES = [
 ];
 ```
 
-Wir haben das `wheel.svg`-Symbol hinzugefügt, obwohl unsere aktuelle Anwendung es nicht verwendet, falls Sie die PWA-Benutzeroberfläche verbessern, z.B. das Logo anzeigen, wenn keine Periodendaten vorliegen.
+Wir haben das `wheel.svg` Symbol aufgenommen, obwohl unsere aktuelle Anwendung es nicht verwendet, für den Fall, dass Sie die Benutzeroberfläche der PWA verbessern, z. B. das Logo anzeigen, wenn keine Periodendaten vorliegen.
 
-### Anwendungs-Cache-Name
+### Name des Anwendungscaches
 
-Wir haben eine Versionsnummer und die Dateien, die gecacht werden müssen. Bevor wir die Dateien cachen, müssen wir einen Namen für den Cache erstellen, der verwendet wird, um die statischen Ressourcen der App zu speichern. Dieser Cache-Name sollte versioniert werden, um sicherzustellen, dass beim Aktualisieren der App ein neuer Cache erstellt wird und der alte gelöscht wird.
+Wir haben eine Versionsnummer und die zu cachenden Dateien. Bevor wir die Dateien cachen, müssen wir einen Namen für den Cache erstellen, der zum Speichern der statischen Ressourcen der App verwendet wird. Dieser Cachenamen sollte versioniert sein, um sicherzustellen, dass bei einem Update der App ein neuer Cache erstellt und der alte gelöscht wird.
 
 #### Aufgabe
 
-Verwenden Sie die `VERSION`-Nummer, um einen versionierten `CACHE_NAME` zu erstellen und als Konstante zu `sw.js` hinzuzufügen.
+Verwenden Sie die `VERSION` Nummer, um einen versionierten `CACHE_NAME` zu erstellen und fügen Sie ihn als Konstante zu `sw.js` hinzu.
 
-#### Beispielösung
+#### Beispiel Lösung
 
-Wir benennen unseren Cache `period-tracker-` mit der aktuellen `VERSION` angehängt. Da die Konstanterklärung in einer einzigen Zeile erfolgt, setzen wir sie vor das Array der Ressourcen-Konstanten für eine bessere Lesbarkeit.
+Wir benennen unseren Cache `period-tracker-` mit der aktuellen angehängten `VERSION`. Da die Konstante auf einer einzelnen Zeile deklariert ist, setzen wir sie vor die Ressourcen-Array-Konstante, um die Lesbarkeit zu verbessern.
 
 ```js
 const VERSION = "v1";
@@ -114,17 +114,17 @@ const CACHE_NAME = `period-tracker-${VERSION}`;
 const APP_STATIC_RESOURCES = [ ... ];
 ```
 
-Wir haben erfolgreich unsere Konstanten deklariert; ein eindeutiger Bezeichner, die Liste der Offline-Ressourcen als Array und der Cache-Name der Anwendung, der sich jedes Mal ändert, wenn der Bezeichner aktualisiert wird. Nun lassen Sie uns auf die Installation, Aktualisierung und das Löschen unbenutzter gecachter Ressourcen konzentrieren.
+Wir haben unsere Konstanten erfolgreich deklariert; einen eindeutigen Identifikator, die Liste der Offline-Ressourcen als Array und den Anwendungscachenamen, der sich jedes Mal ändert, wenn der Identifikator aktualisiert wird. Konzentrieren wir uns nun auf die Installation, Aktualisierung und das Löschen nicht verwendeter gecachter Ressourcen.
 
-### Speichern des Caches bei der PWA-Installation
+### Speichern des Caches bei PWA-Installation
 
-Wenn ein Benutzer eine Website mit einem Service Worker installiert oder einfach besucht, wird ein `install`-Ereignis im Service Worker-Bereich ausgelöst. Wir möchten auf dieses Ereignis warten und den Cache bei der Installation mit den statischen Ressourcen der PWA füllen. Jedes Mal, wenn die Service Worker-Version aktualisiert wird, installiert der Browser den neuen Service Worker und das Installationsereignis tritt ein.
+Wenn ein Benutzer eine Website mit einem Service Worker besucht oder diese installiert, wird ein `install` Ereignis im Service Worker-Bereich ausgelöst. Wir wollen auf dieses Ereignis hören und den Cache bei der Installation mit den statischen Ressourcen der PWA füllen. Jedes Mal, wenn die Service Worker-Version aktualisiert wird, installiert der Browser den neuen Service Worker und das Instalereignis tritt auf.
 
-Das `install`-Ereignis tritt auf, wenn die App zum ersten Mal verwendet wird oder wenn vom Browser eine neue Version des Service Workers erkannt wird. Wenn ein älterer Service Worker durch einen neuen ersetzt wird, wird der alte Service Worker als Service Worker der PWA verwendet, bis der neue Service Worker aktiviert wird.
+Das `install` Ereignis tritt bei der erstmaligen Nutzung der App auf oder wenn der Browser einen neuen Service Worker entdeckt. Wenn ein älterer Service Worker durch einen neuen ersetzt wird, wird der alte Service Worker als PWA-Service Worker verwendet, bis der neue Service Worker aktiviert wird.
 
-Nur in sicheren Kontexten verfügbar, gibt die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches) Eigenschaft ein [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt zurück, das mit dem aktuellen Kontext assoziiert ist. Die [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open)-Methode gibt ein {{jsxref("Promise")}} zurück, das sich auf das [`Cache`](/de/docs/Web/API/Cache)-Objekt auflöst, das den Namen des Caches mit dem als Parameter übergebenen entspricht.
+Nur in sicheren Kontexten verfügbar, gibt die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches) Eigenschaft ein [`CacheStorage`](/de/docs/Web/API/CacheStorage) Objekt zurück, das mit dem aktuellen Kontext verknüpft ist. Die [`CacheStorage.open()`](/de/docs/Web/API/CacheStorage/open) Methode gibt ein {{jsxref("Promise")}} zurück, das sich zu dem [`Cache`](/de/docs/Web/API/Cache) Objekt auflöst, dessen Name als Parameter übergeben wurde.
 
-Die [`Cache.addAll()`](/de/docs/Web/API/Cache/addAll)-Methode nimmt ein Array von URLs als Parameter an, ruft sie ab und fügt dann die Antworten in den angegebenen Cache ein. Die [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil)-Methode teilt dem Browser mit, dass Arbeit im Gange ist, bis sich das Versprechen erfüllt, und er den Service Worker nicht beenden sollte, wenn er möchte, dass die Arbeit abgeschlossen wird. Während die Browser dafür verantwortlich sind, Service Worker bei Bedarf auszuführen und zu beenden, ist die `waitUntil`-Methode eine Anfrage an den Browser, den Service Worker nicht zu beenden, während eine Aufgabe ausgeführt wird.
+Die [`Cache.addAll()`](/de/docs/Web/API/Cache/addAll) Methode nimmt ein Array von URLs als Parameter, ruft sie ab und fügt dann die Antworten zum gegebenen Cache hinzu. Die Methode [`ExtendableEvent.waitUntil()`](/de/docs/Web/API/ExtendableEvent/waitUntil) teilt dem Browser mit, dass Arbeit im Gange ist, bis sich das Versprechen erfüllt, und er den Service Worker nicht beenden sollte, wenn er will, dass die Arbeit abgeschlossen wird. Während Browser dafür verantwortlich sind, Service Worker bei Bedarf auszuführen und zu beenden, ist die `waitUntil` Methode eine Anfrage an den Browser, den Service Worker nicht zu beenden, während eine Aufgabe ausgeführt wird.
 
 ```js
 self.addEventListener("install", (e) => {
@@ -143,9 +143,9 @@ self.addEventListener("install", (e) => {
 
 #### Aufgabe
 
-Fügen Sie einen Installations-Eventlistener hinzu, der die in `APP_STATIC_RESOURCES` aufgeführten Dateien abruft und in dem Cache speichert, der mit `CACHE_NAME` benannt ist.
+Fügen Sie einen Installationsereignis-Listener hinzu, der die im `APP_STATIC_RESOURCES` gelisteten Dateien in den Cache mit dem Namen `CACHE_NAME` abruft und speichert.
 
-#### Beispielösung
+#### Beispiel Lösung
 
 ```js
 self.addEventListener("install", (event) => {
@@ -160,15 +160,15 @@ self.addEventListener("install", (event) => {
 
 ### Aktualisieren der PWA und Löschen alter Caches
 
-Wie bereits erwähnt, wird der bestehende Service Worker als Service Worker der PWA verwendet, bis der neue Service Worker aktiviert wird, wenn ein bestehender Service Worker durch einen neuen ersetzt wird. Wir verwenden das `activate`-Ereignis, um alte Caches zu löschen, um zu vermeiden, dass der Speicherplatz ausgeht. Wir iterieren über benannte [`Cache`](/de/docs/Web/API/Cache)-Objekte, löschen alle bis auf das aktuelle und setzen dann den Service Worker als [`controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) für die PWA.
+Wie bereits erwähnt, wird der vorhandene Service Worker verwendet, bis ein neuer aktiviert wird, wenn ein vorhandener durch einen neuen ersetzt wird. Wir verwenden das `activate` Ereignis, um alte Caches zu löschen, um zu vermeiden, dass der Speicherplatz ausgeht. Wir iterieren über benannte [`Cache`](/de/docs/Web/API/Cache) Objekte, löschen alle außer dem aktuellen und setzen dann den Service Worker als [`controller`](/de/docs/Web/API/ServiceWorkerContainer/controller) für die PWA.
 
-Wir lauschen auf das [`activate`](/de/docs/Web/API/ServiceWorkerGlobalScope/activate_event)-Ereignis im aktuellen Service Worker-Bereich.
+Wir hören auf das `activate` Ereignis des aktuellen Service Worker Global Scopes.
 
-Wir erhalten die Namen der existierenden benannten Caches. Wir verwenden die [`CacheStorage.keys()`](/de/docs/Web/API/CacheStorage/keys)-Methode (wieder mit Zugriff auf `CacheStorage` über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches) Eigenschaft), die ein {{jsxref("Promise")}} zurückgibt, das mit einem Array aufgelöst wird, das Zeichenfolgen enthält, die allen benannten [`Cache`](/de/docs/Web/API/Cache)-Objekten in der Reihenfolge, in der sie erstellt wurden, entsprechen.
+Wir rufen die Namen der vorhandenen benannten Caches ab. Wir verwenden die [`CacheStorage.keys()`](/de/docs/Web/API/CacheStorage/keys) Methode (wieder Zugriff auf `CacheStorage` über die [`WorkerGlobalScope.caches`](/de/docs/Web/API/WorkerGlobalScope/caches) Eigenschaft), die ein {{jsxref("Promise")}} zurückgibt, das sich mit einem Array auflöst, das Strings enthält, die allen benannten [`Cache`](/de/docs/Web/API/Cache) Objekten in der Reihenfolge entsprechen, in der sie erstellt wurden.
 
-Wir verwenden die [`Promise.all()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)-Methode, um durch diese Liste von Namenscache-Versprechen zu iterieren. Die `all()`-Methode nimmt als Eingabe eine Liste von iterable Promises und gibt ein einzelnes `Promise` zurück. Für jeden Namen in der Liste der benannten Caches prüfen wir, ob der Cache der derzeit aktive Cache ist. Wenn nicht, löschen wir ihn mit der `Cache`-Methode [`delete()`](/de/docs/Web/API/Cache/delete).
+Wir verwenden die [`Promise.all()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) Methode, um durch diese Liste von Namen-Cache-Promises zu iterieren. Die `all()` Methode nimmt eine Liste von iterierbaren Promises als Eingabe und gibt ein einziges Versprechen zurück. Für jeden Namen in der Liste der benannten Caches überprüfen wir, ob der Cache der derzeit aktive Cache ist. Wenn nicht, löschen wir ihn mit der `Cache` [`delete()`](/de/docs/Web/API/Cache/delete) Methode.
 
-Die letzte Zeile, das `await clients.claim()`, verwendet die Methode [`claim()`](/de/docs/Web/API/Clients/claim) der [`Clients`](/de/docs/Web/API/Clients)-Schnittstelle, um zu ermöglichen, dass unser Service Worker sich selbst als Controller für unseren Client setzt; der "Client" bezieht sich auf eine laufende Instanz der PWA. Die `claim()`-Methode ermöglicht dem Service Worker, die Kontrolle über alle Clients innerhalb seines Bereichs zu beanspruchen. Auf diese Weise müssen Clients, die im gleichen Bereich geladen werden, nicht neu geladen werden.
+Die letzte Zeile, das `await clients.claim()` verwendet die [`claim()`](/de/docs/Web/API/Clients/claim) Methode der [`Clients`](/de/docs/Web/API/Clients) Schnittstelle, um unseren Service Worker zu ermöglichen, sich selbst als Controller für unseren Client einzurichten; der "Client" bezieht sich auf eine laufende Instanz der PWA. Die `claim()` Methode ermöglicht es dem Service Worker, die Kontrolle über alle Clients in seinem Scope zu übernehmen. Auf diese Weise müssen Clients, die im selben Scope geladen werden, nicht neu geladen werden.
 
 ```js
 self.addEventListener("activate", (event) => {
@@ -190,17 +190,17 @@ self.addEventListener("activate", (event) => {
 
 #### Aufgabe
 
-Fügen Sie den obigen `activate`-EventListener zu Ihrer `sw.js` Datei hinzu.
+Fügen Sie den obigen `activate` Ereignis-Listener zu Ihrer `sw.js` Datei hinzu.
 
-### Das fetch-Ereignis
+### Das Fetch-Ereignis
 
-Wir können das [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event)-Ereignis nutzen, um zu verhindern, dass eine installierte PWA Anfragen stellt, wenn der Benutzer online ist. Das Abhören des Fetch-Ereignisses macht es möglich, alle Anfragen abzufangen und mit gecachten Antworten zu antworten, anstatt ins Netzwerk zu gehen. Die meisten Anwendungen erfordern dieses Verhalten nicht. Tatsächlich möchten viele Geschäftsmodelle, dass Benutzer regelmäßig Serveranfragen stellen, um Tracking- und Marketingzwecke zu erfüllen. Während das Abfangen von Anfragen also ein Anti-Muster für einige sein kann, wollen wir zur Verbesserung der Privatsphäre unserer CycleTracker-App, dass die App keine unnötigen Serveranfragen stellt.
+Wir können das [`fetch`](/de/docs/Web/API/ServiceWorkerGlobalScope/fetch_event) Ereignis nutzen, um zu verhindern, dass eine installierte PWA Anfragen stellt, wenn der Benutzer online ist. Das Abhören des Fetch-Ereignisses ermöglicht es, alle Anfragen abzufangen und mit gecachten Antworten zu reagieren, anstatt ins Netzwerk zu gehen. Die meisten Anwendungen benötigen dieses Verhalten nicht. Tatsächlich möchten viele Geschäftsmodelle, dass Benutzer regelmäßig Serveranfragen stellen, um Tracking- und Marketingzwecke zu erfüllen. Während das Abfangen von Anfragen möglicherweise für einige ein Anti-Pattern ist, wollen wir, um die Privatsphäre unserer CycleTracker-App zu verbessern, nicht, dass die App unnötige Serveranfragen stellt.
 
-Da unsere PWA aus einer einzigen Seite besteht, gehen wir für Navigationsanfragen zurück auf die `index.html`-Startseite. Es gibt keine anderen Seiten und wir wollen nie zum Server gehen. Wenn die schreibgeschützte [`mode`](/de/docs/Web/API/Request/mode)-Eigenschaft von Fetch API's [`Request`](/de/docs/Web/API/Request) `navigate` ist, was bedeutet, dass es nach einer Webseite sucht, verwenden wir die [`respondWith()`](/de/docs/Web/API/FetchEvent/respondWith)-Methode des FetchEvents, um die Standardeinstellung des Browsers zu überschreiben und unser eigenes Antwortversprechen zu liefern, das die [`caches.match()`](/de/docs/Web/API/CacheStorage/match)-Methode verwendet.
+Da unsere PWA aus einer einzigen Seite besteht, kehren wir für Seiten-Navigationsanfragen zur `index.html` Startseite zurück. Es gibt keine anderen Seiten und wir wollen niemals zum Server gehen. Wenn die [`Request`](/de/docs/Web/API/Request) readonly [`mode`](/de/docs/Web/API/Request/mode) Eigenschaft der Fetch-API `navigate` ist, d. h., sie sucht nach einer Webseite, verwenden wir die FetchEvent [`respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) Methode, um das Standard-Fetch-Handling des Browsers zu verhindern und unser eigenes Antwortversprechen unter Verwendung der [`caches.match()`](/de/docs/Web/API/CacheStorage/match) Methode bereitzustellen.
 
-Für alle anderen Anforderungsmodi öffnen wir die Caches wie in der [Installationsereignis-Antwort](#speichern_des_caches_bei_der_pwa-installation) beschrieben, übergeben stattdessen die Ereignisanfrage an dieselbe `match()`-Methode. Sie prüft, ob die Anfrage ein Schlüssel für eine gespeicherte [`Response`](/de/docs/Web/API/Response) ist. Wenn ja, gibt sie die gecachte Antwort zurück. Wenn nicht, geben wir eine [404-Status](/de/docs/Web/HTTP/Status/404) als Antwort zurück.
+Für alle anderen Anfragemodi öffnen wir die Caches, wie im [Installationsereignis](#speichern_des_caches_bei_pwa-installation) beschrieben, indem wir die Ereignisanfrage an die gleiche `match()` Methode übergeben. Es wird überprüft, ob die Anfrage ein Schlüssel für eine gespeicherte [`Response`](/de/docs/Web/API/Response) ist. Wenn ja, gibt sie die gecachte Antwort zurück. Wenn nicht, geben wir eine [404 Status](/de/docs/Web/HTTP/Status/404) als Antwort zurück.
 
-Die Verwendung des [`Response()`](/de/docs/Web/API/Response/Response)-Konstruktors, um einen `null`-Körper und einen `status: 404` als Optionen zu übergeben, bedeutet nicht, dass es einen Fehler in unserer PWA gibt. Vielmehr sollte bereits alles im Cache sein und wenn nicht, werden wir nicht zum Server gehen, um dieses Nicht-Problem zu lösen.
+Die Verwendung des [`Response()`](/de/docs/Web/API/Response/Response) Konstruktors, um einen `null` Körper und einen `status: 404` als Optionen zu übergeben, bedeutet nicht, dass ein Fehler in unserer PWA vorliegt. Tatsächlich sollte alles, was wir benötigen, bereits im Cache sein, und wenn nicht, gehen wir nicht zum Server, um dieses Nicht-Problem zu lösen.
 
 ```js
 self.addEventListener("fetch", (event) => {
@@ -227,9 +227,9 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-## Vollständige Service Worker-Datei
+## Vollständige Service Worker Datei
 
-Ihre `sw.js`-Datei sollte ähnlich wie das folgende JavaScript aussehen. Beachten Sie, dass beim Aktualisieren einer der in `APP_STATIC_RESOURCES`-Array aufgelisteten Ressourcen die einzige Konstante oder Funktion, die innerhalb dieses Service Workers aktualisiert werden muss, der Wert von `VERSION` ist.
+Ihre `sw.js` Datei sollte ähnlich wie das folgende JavaScript aussehen. Beachten Sie, dass beim Aktualisieren einer der in `APP_STATIC_RESOURCES` gelisteten Ressourcen die einzige Konstante oder Funktion, die innerhalb dieses Service Workers aktualisiert werden muss, der Wert von `VERSION` ist.
 
 ```js
 // The version of the cache.
@@ -299,16 +299,16 @@ self.addEventListener("fetch", (event) => {
 });
 ```
 
-Beim Aktualisieren eines Service Workers muss die VERSION-Konstante nicht aktualisiert werden, da jede Änderung im Inhalt des Service Worker-Skripts selbst den Browser dazu veranlasst, den neuen Service Worker zu installieren. Es ist jedoch eine gute Praxis, die Versionsnummer zu aktualisieren, da es Entwicklern, einschließlich Ihnen selbst, erleichtert wird, zu sehen, welche Version des Service Workers derzeit im Browser läuft, indem [der Name des Caches im Anwendungswerkzeug](#mit_entwicklerwerkzeugen) (oder Quellenwerkzeug) überprüft wird.
+Beim Aktualisieren eines Service Workers muss die VERSION-Konstante nicht aktualisiert werden, da jede Änderung am Inhalt des Service Worker-Skripts den Browser dazu veranlasst, den neuen Service Worker zu installieren. Es ist jedoch eine gute Praxis, die Versionsnummer zu aktualisieren, da es einfacher für Entwickler, einschließlich Ihnen, ist, zu erkennen, welche Version des Service Workers derzeit im Browser läuft, indem [der Name des Caches im Anwendungstool überprüft wird](#mit_entwickler-tools) (oder Quelle-Tool).
 
 > [!NOTE]
-> Das Aktualisieren von VERSION ist wichtig, wenn Änderungen an einer Anwendungsressource vorgenommen werden, einschließlich des CSS-, HTML- und JS-Codes sowie Bild-Assets. Die Versionsnummer oder jede Änderung der Service Worker-Datei ist der einzige Weg, das Update der App für Ihre Benutzer zu erzwingen.
+> Das Aktualisieren der VERSION ist wichtig, wenn Änderungen an einer Anwendungsressource vorgenommen werden, einschließlich der CSS-, HTML- und JS-Code und Bildressourcen. Die Versionsnummer oder jede Änderung der Service Worker Datei ist der einzige Weg, um die App für Ihre Benutzer zu aktualisieren.
 
 ## Registrieren des Service Workers
 
-Da unser Service Worker-Skript nun vollständig ist, müssen wir den Service Worker registrieren.
+Jetzt, da unser Service Worker-Skript vollständig ist, müssen wir den Service Worker registrieren.
 
-Zunächst überprüfen wir, ob der Browser die [Service Worker API](/de/docs/Web/API/Service_Worker_API) unterstützt, indem wir eine [Funktionsdetectie](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection#the_concept_of_feature_detection) für das Vorhandensein der [`serviceWorker`](/de/docs/Web/API/ServiceWorker)-Eigenschaft auf dem globalen [`navigator`](/de/docs/Web/API/Navigator)-Objekt verwenden:
+Wir beginnen mit der Überprüfung, ob der Browser die [Service Worker API](/de/docs/Web/API/Service_Worker_API) unterstützt, indem wir die [Feature-Erkennung](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection#the_concept_of_feature_detection) für die Existenz der [`serviceWorker`](/de/docs/Web/API/ServiceWorker) Eigenschaft auf dem globalen [`navigator`](/de/docs/Web/API/Navigator) Objekt verwenden:
 
 ```html
 <script>
@@ -319,7 +319,7 @@ Zunächst überprüfen wir, ob der Browser die [Service Worker API](/de/docs/Web
 </script>
 ```
 
-Wenn die Eigenschaft unterstützt wird, können wir dann die [`register()`](/de/docs/Web/API/ServiceWorkerContainer/register)-Methode der Schnittstelle [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) der Service Worker API verwenden.
+Wenn die Eigenschaft unterstützt wird, können wir die [`register()`](/de/docs/Web/API/ServiceWorkerContainer/register) Methode der Service Worker-API's [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) Schnittstelle verwenden.
 
 ```html
 <script>
@@ -331,7 +331,7 @@ Wenn die Eigenschaft unterstützt wird, können wir dann die [`register()`](/de/
 </script>
 ```
 
-Obwohl das oben genannte für die Bedürfnisse der CycleTracker-App ausreicht, gibt die `register()`-Methode ein {{jsxref("Promise")}} zurück, das sich auf ein Objekt [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) auflöst. Für eine robustere Anwendung sollten Sie die Registrierung auf Fehler prüfen:
+Während das oben Genannte für die CycleTracker-App-Anforderungen ausreicht, gibt die `register()` Methode ein {{jsxref("Promise")}} zurück, das sich mit einem [`ServiceWorkerRegistration`](/de/docs/Web/API/ServiceWorkerRegistration) Objekt auflöst. Für eine robustere Anwendung sollte die Registrierung auf Fehler überprüft werden:
 
 ```js
 if ("serviceWorker" in navigator) {
@@ -350,7 +350,7 @@ if ("serviceWorker" in navigator) {
 
 ### Aufgabe
 
-Öffnen Sie `index.html` und fügen Sie das folgende {{HTMLElement("script")}} nach dem Skript, um `app.js` einzuschließen und vor dem schließenden `</body>`-Tag hinzu.
+Öffnen Sie `index.html` und fügen Sie das folgende {{HTMLElement("script")}} nach dem Skript zum Einschließen von `app.js` und vor dem schließenden `</body>`-Tag ein.
 
 ```html
 <!-- Register the app's service worker. -->
@@ -361,42 +361,42 @@ if ("serviceWorker" in navigator) {
 </script>
 ```
 
-Sie können die voll funktionsfähige [CycleTracker Menstruationsverfolgungs-Web-App](https://mdn.github.io/pwa-examples/cycletracker/service_workers/) ausprobieren und den [Quellcode der Web-App](https://github.com/mdn/pwa-examples/tree/main/cycletracker/service_workers) auf GitHub einsehen. Ja, es funktioniert, und ist jetzt offiziell eine PWA!
+Sie können die voll funktionsfähige [CycleTracker Perioden-Tracking-Web-App](https://mdn.github.io/pwa-examples/cycletracker/service_workers/) ausprobieren und den [Web-App-Quellcode](https://github.com/mdn/pwa-examples/tree/main/cycletracker/service_workers) auf GitHub ansehen. Ja, es funktioniert, und es ist jetzt offiziell eine PWA!
 
-## Debugging von Service Workern
+## Debuggen von Service Workern
 
-Aufgrund der Art und Weise, wie wir den Service Worker eingerichtet haben, wird jede Anfrage, sobald er registriert ist, aus dem Cache abgerufen, anstatt neuen Inhalt zu laden. Beim Entwickeln werden Sie Ihren Code häufig bearbeiten. Sie möchten wahrscheinlich Ihre Änderungen regelmäßig im Browser testen; wahrscheinlich bei jedem Speichern.
+Aufgrund der Art und Weise, wie wir den Service Worker eingerichtet haben, wird jede Anfrage, sobald er registriert ist, aus dem Cache abgerufen, anstatt neue Inhalte zu laden. Beim Entwickeln werden Sie Ihren Code häufig bearbeiten. Sie möchten wahrscheinlich Ihre Änderungen regelmäßig im Browser testen; wahrscheinlich bei jedem Speichern.
 
-### Durch Aktualisieren der Versionsnummer und einen harten Reset
+### Durch Aktualisierung der Versionsnummer und Durchführung eines harten Resets
 
 Um einen neuen Cache zu erhalten, können Sie die [Versionsnummer](#versionsnummer) ändern und dann einen harten Browser-Refresh durchführen. Die Methode zum harten Refresh hängt vom Browser und Betriebssystem ab:
 
 - Unter Windows: Strg+F5, Umschalt+F5 oder Strg+Umschalt+R.
-- Auf MacOS: Umschalt+Befehl+R.
-- Safari auf MacOS: Option+Befehl+E, um den Cache zu leeren, dann Option+Befehl+R.
-- Auf Mobilgeräten: Gehen Sie zu den Browsereinstellungen (Android) oder Betriebssystemeinstellungen (Samsung, iOS), unter erweiterte Einstellungen finden Sie die Browser (iOS) oder Website-Daten (Android, Samsung), und löschen Sie die Daten für CycleTracker, bevor Sie die Seite neu laden.
+- Unter macOS: Umschalt+Befehl+R.
+- Safari unter macOS: Option+Befehl+E, um den Cache zu leeren, anschließend Option+Befehl+R.
+- Auf Mobilgeräten: Gehen Sie zu den Browser- (Android) oder Betriebssystem- (Samsung, iOS) Einstellungen, unter den erweiterten Einstellungen finden Sie die Browser- (iOS) oder Website-Daten (Android, Samsung) Sitzeinstellungen und löschen die Daten für CycleTracker, bevor Sie die Seite neu laden.
 
-### Mit Entwicklerwerkzeugen
+### Mit Entwickler-Tools
 
-Wahrscheinlich möchten Sie die Versionsnummer nicht bei jedem Speichern aktualisieren. Bis Sie bereit sind, eine neue Version Ihrer PWA in die Produktion einzuführen und jedem eine neue Version Ihrer PWA zur Verfügung zu stellen, anstatt die Versionsnummer bei jedem Speichern zu ändern, können Sie den Service Worker abmelden.
+Sie möchten die Versionsnummer wahrscheinlich nicht bei jedem Speichern aktualisieren. Bis Sie bereit sind, eine neue Version Ihrer PWA in die Produktion zu bringen und allen Benutzern eine neue Version Ihrer PWA zur Verfügung zu stellen, können Sie, anstatt die Versionsnummer bei jedem Speichern zu ändern, den Service Worker abmelden.
 
-Sie können einen Service Worker abmelden, indem Sie in den [Entwicklerwerkzeugen des Browsers](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools) auf die Schaltfläche `unregister` klicken. Ein hartes Neuladen der Seite wird den Service Worker erneut registrieren und einen neuen Cache erstellen.
+Sie können einen Service Worker abmelden, indem Sie auf die Schaltfläche `abmelden` in den [Entwickler-Tools des Browsers](/de/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools) klicken. Ein hartes Aktualisieren der Seite wird den Service Worker erneut registrieren und einen neuen Cache erstellen.
 
-![Firefox-Entwicklungertools Anwendungs-Panel mit einem gestoppten Service Worker und einer Abmelde-Schaltfläche](firefox_sw.jpg)
+![Firefox Entwickler-Tools Anwendungsfenster mit einem gestoppten Service Worker und einer Abmeldeschaltfläche](firefox_sw.jpg)
 
-In einigen Entwicklerwerkzeugen können Sie einen Service Worker manuell abmelden oder Sie können die Option "Update bei Neuladen" für die Service Worker auswählen, die die Entwicklerwerkzeuge so einstellen, dass der Service Worker bei jedem Neuladen zurückgesetzt und erneut aktiviert wird, solange die Entwicklerwerkzeuge geöffnet sind. Es gibt auch eine Option, um den Service Worker zu umgehen und Ressourcen aus dem Netzwerk zu laden. Dieses Panel enthält Funktionen, die wir in diesem Tutorial nicht behandeln, aber nützlich sein werden, wenn Sie fortgeschrittenere PWAs erstellen, die [Synchronisierung](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation#periodic_background_sync) und [Push](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation#push) enthalten, die beide im [Offline- und Hintergrundbetriebs-Leitfaden](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation) behandelt werden.
+In einigen Entwickler-Tools können Sie einen Service Worker manuell abmelden oder Sie können die Option "Service Worker bei Neuladen aktualisieren" auswählen, die die Entwickler-Tools so einstellt, dass der Service Worker bei jedem Neuladen zurückgesetzt und reaktiviert wird, solange die Entwickler-Tools geöffnet sind. Es gibt auch eine Option zum Umgehen des Service Workers und Laden von Ressourcen aus dem Netzwerk. Dieses Panel enthält Funktionen, die wir in diesem Tutorial nicht behandeln, die jedoch hilfreich sind, wenn Sie fortgeschrittenere PWAs erstellen, die [Synchronisation](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation#periodic_background_sync) und [Push](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation#push) beinhalten, die beide in dem [Leitfaden für Offline- und Hintergrundoperationen](/de/docs/Web/Progressive_web_apps/Guides/Offline_and_background_operation) behandelt werden.
 
-![Edge-Entwicklungertools zeigt das Anwendungs-Panel mit einem Service Worker](edge_sw.jpg)
+![Edge Entwickler-Tools zeigt das Anwendungsfenster, das auf einen Service Worker eingestellt ist](edge_sw.jpg)
 
-Das Fenster des Service Workers im Anwendungs-Panel der DevTools bietet einen Link, um ein Popup-Fenster zu öffnen, das eine Liste aller registrierten Service Worker für den Browser enthält; nicht nur den Service Worker für die im aktuellen Tab geöffnete Anwendung. Jede Service Worker-Liste von Workern hat Schaltflächen zum Stoppen, Starten oder Abmelden dieses individuellen Service Workers.
+Das Service Worker-Fenster innerhalb des Anwendungsfensters der DevTools bietet einen Link, um ein Fenster zu öffnen, das eine Liste aller registrierten Service Worker für den Browser enthält; nicht nur der Service Worker für die im aktuellen Tab geöffneten Anwendung. Jede Service Worker-Liste von Workern hat Schaltflächen, um diesen individuellen Service Worker zu stoppen, zu starten oder abzumelden.
 
-![Zwei Service Worker existieren auf localhost:8080. Sie können aus der Liste der Service Worker abgemeldet werden](edge_sw_list.jpg)
+![Zwei Service Worker existieren unter localhost:8080. Sie können aus der Liste der Service Worker abgemeldet werden](edge_sw_list.jpg)
 
-Mit anderen Worten, während Sie an Ihrer PWA arbeiten, müssen Sie die Versionsnummer nicht für jede App-Ansicht aktualisieren. Aber denken Sie daran, wenn Sie mit all Ihren Änderungen fertig sind, aktualisieren Sie den VALUE-Wert des Service Workers vor der Verteilung der aktualisierten Version Ihrer PWA. Wenn Sie es vergessen, werden niemand, der Ihre App bereits installiert hat oder sogar Ihre Online-PWA ohne Installation besucht hat, Ihre Änderungen jemals sehen!
+Mit anderen Worten, während Sie an Ihrer PWA arbeiten, müssen Sie die Versionsnummer nicht für jede App-Ansicht aktualisieren. Aber denken Sie daran, wenn Sie mit all Ihren Änderungen fertig sind, den Wert der Service Worker-VERSION zu aktualisieren, bevor Sie die aktualisierte Version Ihrer PWA verteilen. Wenn Sie das vergessen, wird niemand, der Ihre App bereits installiert hat oder auch nur online auf Ihre PWA zugegriffen hat, sie jemals Ihren Änderungen sehen!
 
 ## Wir sind fertig!
 
-Im Kern ist eine PWA eine Webanwendung, die installiert werden kann und die progressiv verbessert wird, um offline zu funktionieren. Wir haben eine voll funktionsfähige Webanwendung erstellt. Anschließend haben wir die beiden Funktionen - eine Manifestdatei und einen Service Worker - hinzugefügt, die erforderlich sind, um sie in eine PWA umzuwandeln. Wenn Sie Ihre App mit anderen teilen möchten, machen Sie sie über eine sichere Verbindung verfügbar. Alternativ, wenn Sie den Zyklus-Tracker nur selbst verwenden möchten, [erstellen Sie eine lokale Entwicklungsumgebung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection), [installieren Sie die PWA](/de/docs/Web/Progressive_web_apps/Guides/Installing), und genießen Sie es! Nach der Installation müssen Sie localhost nicht mehr ausführen.
+Im Kern ist eine PWA eine Webanwendung, die installiert werden kann und die progressiv verbessert wird, um offline zu funktionieren. Wir haben eine voll funktionsfähige Webanwendung erstellt. Dann haben wir die beiden Funktionen hinzugefügt - eine Manifestdatei und einen Service Worker -, die erforderlich sind, um sie in eine PWA zu verwandeln. Wenn Sie Ihre App mit anderen teilen möchten, machen Sie sie über eine sichere Verbindung verfügbar. Oder, wenn Sie nur den Zyklustracker selbst verwenden möchten, [erstellen Sie eine lokale Entwicklungsumgebung](/de/docs/Web/Progressive_web_apps/Tutorials/CycleTracker/Secure_connection), [installieren Sie die PWA](/de/docs/Web/Progressive_web_apps/Guides/Installing) und genießen Sie sie! Sobald sie installiert ist, müssen Sie localhost nicht mehr ausführen.
 
 Herzlichen Glückwunsch!
 

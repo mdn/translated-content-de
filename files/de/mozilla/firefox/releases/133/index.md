@@ -2,7 +2,7 @@
 title: Firefox 133 für Entwickler
 slug: Mozilla/Firefox/Releases/133
 l10n:
-  sourceCommit: c63713c66a2c671b52edca37691f50293a542fad
+  sourceCommit: 32801b32fceabe1876e405970469f5de76eaf6c0
 ---
 
 {{FirefoxSidebar}}
@@ -11,7 +11,7 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 133, die En
 
 ## Änderungen für Webentwickler
 
-### Entwickler-Tools
+### Entwicklerwerkzeuge
 
 ### HTML
 
@@ -23,13 +23,13 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 133, die En
 
 ### JavaScript
 
-- Unterstützung für `Uint8Array`-Methoden, um Konvertierungen zwischen {{Glossary("base64", "base64")}}- und hex-codierten Zeichenfolgen und Byte-Arrays zu erleichtern. ([Firefox Fehler 1917885](https://bugzil.la/1917885) und [Firefox Fehler 1862220](https://bugzil.la/1862220)).
+- Unterstützung für {{jsxref("Uint8Array")}}-Methoden zur Erleichterung von Konvertierungen zwischen {{Glossary("base64", "base64")}}- und hex-codierten Strings und Byte-Arrays. ([Firefox Fehler 1917885](https://bugzil.la/1917885) und [Firefox Fehler 1862220](https://bugzil.la/1862220)).
 
   Die neuen Methoden umfassen:
 
-  - `Uint8Array.fromBase64()` und `Uint8Array.fromHex()` statische Methoden zum Erstellen eines neuen `Uint8Array`-Objekts aus einer base64- bzw. hex-codierten Zeichenfolge.
-  - `Uint8Array.prototype.setFromBase64()`, und `Uint8Array.prototype.setFromHex()` Instanzmethoden zum Auffüllen eines vorhandenen `Uint8Array`-Objekts mit Bytes aus einer base64- oder hex-codierten Zeichenfolge.
-  - `Uint8Array.prototype.toBase64()` und `Uint8Array.prototype.toHex()` Instanzmethoden, die eine base64- bzw. hex-codierte Zeichenfolge aus den Daten in einem `Uint8Array`-Objekt zurückgeben.
+  - {{jsxref("Uint8Array.fromBase64()")}} und {{jsxref("Uint8Array.fromHex()")}} statische Methoden zur Konstruktion eines neuen `Uint8Array`-Objekts aus einem base64- bzw. hex-codierten String.
+  - {{jsxref("Uint8Array.prototype.setFromBase64()")}}, und {{jsxref("Uint8Array.prototype.setFromHex()")}} Instanzmethoden zur Befüllung eines bestehenden `Uint8Array`-Objekts mit Bytes aus einem base64- oder hex-codierten String.
+  - {{jsxref("Uint8Array.prototype.toBase64()")}} und {{jsxref("Uint8Array.prototype.toHex()")}} Instanzmethoden, die einen base64- und hex-codierten String aus den Daten in einem `Uint8Array`-Objekt zurückgeben.
 
 #### Entfernungen
 
@@ -47,12 +47,14 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 133, die En
 
 ### APIs
 
-- Die [`WorkerNavigator.permissions`](/de/docs/Web/API/WorkerNavigator/permissions) Eigenschaft wird jetzt unterstützt, was es ermöglicht, die [Permissions API](/de/docs/Web/API/Permissions_API) sowohl in [Workern](/de/docs/Web/API/Web_Workers_API) als auch im Hauptfenster-Thread zu verwenden. ([Firefox Fehler 1193373](https://bugzil.la/1193373)).
-- Die [`EventSource`](/de/docs/Web/API/EventSource) Schnittstelle zur Verarbeitung von [servergesendeten Ereignissen](/de/docs/Web/API/Server-sent_events) wird jetzt in [Service Workern](/de/docs/Web/API/Service_Worker_API) unterstützt. ([Firefox Fehler 1681218](https://bugzil.la/1681218)).
-- Die [`ImageDecoder`](/de/docs/Web/API/ImageDecoder), [`ImageTrackList`](/de/docs/Web/API/ImageTrackList), und [`ImageTrack`](/de/docs/Web/API/ImageTrack) Schnittstellen des [WebCodecs API](/de/docs/Web/API/WebCodecs_API) werden jetzt unterstützt, was das Dekodieren von Bildern aus dem Haupt- und Worker-Thread ermöglicht. ([Firefox Fehler 1923755](https://bugzil.la/1923755)).
-- Die [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event) Ereignisse der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle werden jetzt an {{HTMLElement("dialog")}}-Elementen unmittelbar vor und nach deren Anzeige oder Ausblenden ausgelöst. Das `beforetoggle`-Ereignis kann beispielsweise verwendet werden, um Klassen zu entfernen oder hinzuzufügen, die die Animation eines Dialogs steuern, oder um den Zustand eines Dialogformulars zurückzusetzen, bevor es angezeigt wird. Das `toggle`-Ereignis kann verwendet werden, um Benachrichtigungen über den offenen Zustand zu erhalten, wozu sonst ein [`MutationObserver`](/de/docs/Web/API/MutationObserver) erforderlich wäre. ([Firefox Fehler 1876762](https://bugzil.la/1876762)).
-- Das [`onwaitingforkey`](/de/docs/Web/API/HTMLMediaElement/waitingforkey_event) Inhaltsattribut kann jetzt auf {{htmlelement("audio")}}/{{htmlelement("video")}}-Elementen spezifiziert werden, um einen Inline-Ereignishandler für das `waitingforkey`-Ereignis festzulegen. ([Firefox Fehler 1925952](https://bugzil.la/1925952)).
-- [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) wird jetzt in allen Worker-Kontexten über [`WorkerNavigator.serviceWorker`](/de/docs/Web/API/WorkerNavigator/serviceWorker) bereitgestellt, wodurch es Workern möglich ist, die [Service-Worker-Registrierungen](/de/docs/Web/API/ServiceWorkerRegistration) der aktuellen Herkunft zu inspizieren und zu verwalten. Zuvor war `ServiceWorkerContainer` nur im Haupt-Thread über [`Navigator.serviceWorker`](/de/docs/Web/API/Navigator/serviceWorker) verfügbar. ([Firefox Fehler 1113522](https://bugzil.la/1113522)).
+- Die Eigenschaft [`WorkerNavigator.permissions`](/de/docs/Web/API/WorkerNavigator/permissions) wird jetzt unterstützt, sodass die [Permissions-API](/de/docs/Web/API/Permissions_API) sowohl in [Webarbeitern](/de/docs/Web/API/Web_Workers_API) als auch im Hauptfenster-Thread verwendet werden kann. ([Firefox Fehler 1193373](https://bugzil.la/1193373)).
+- Die Schnittstelle [`EventSource`](/de/docs/Web/API/EventSource) zur Behandlung von [serverseitigen Ereignissen](/de/docs/Web/API/Server-sent_events) wird nun in [Service Workern](/de/docs/Web/API/Service_Worker_API) unterstützt. ([Firefox Fehler 1681218](https://bugzil.la/1681218)).
+- Die Schnittstellen [`ImageDecoder`](/de/docs/Web/API/ImageDecoder), [`ImageTrackList`](/de/docs/Web/API/ImageTrackList) und [`ImageTrack`](/de/docs/Web/API/ImageTrack) der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) werden nun unterstützt, was die Dekodierung von Bildern aus den Haupt- und Arbeitsthreads ermöglicht. ([Firefox Fehler 1923755](https://bugzil.la/1923755)).
+- Die Ereignisse [`beforetoggle`](/de/docs/Web/API/HTMLElement/beforetoggle_event) und [`toggle`](/de/docs/Web/API/HTMLElement/toggle_event) der [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle werden nun bei {{HTMLElement("dialog")}}-Elementen sofort ausgelöst, bevor sie sichtbar oder unsichtbar werden. `beforetoggle` kann beispielsweise verwendet werden, um Klassen, die die Animation eines Dialogs steuern, anzuwenden oder zu entfernen oder um den Zustand eines Dialogformulars zurückzusetzen, bevor es angezeigt wird. Das `toggle`-Ereignis kann verwendet werden, um Änderungen des offenen Zustands zu überwachen, was sonst einen [`MutationObserver`](/de/docs/Web/API/MutationObserver) erfordern würde. ([Firefox Fehler 1876762](https://bugzil.la/1876762)).
+- Das Inhaltsattribut [`onwaitingforkey`](/de/docs/Web/API/HTMLMediaElement/waitingforkey_event) kann jetzt auf {{htmlelement("audio")}}/{{htmlelement("video")}}-Elementen angegeben werden, um einen Inline-Event-Handler für das `waitingforkey`-Ereignis festzulegen. ([Firefox Fehler 1925952](https://bugzil.la/1925952)).
+- [`ServiceWorkerContainer`](/de/docs/Web/API/ServiceWorkerContainer) ist nun in allen Arbeiterkontexten über [`WorkerNavigator.serviceWorker`](/de/docs/Web/API/WorkerNavigator/serviceWorker) verfügbar, sodass Arbeiter die [Service Worker-Registrierungen](/de/docs/Web/API/ServiceWorkerRegistration) der aktuellen Herkunft prüfen und verwalten können. Bisher war `ServiceWorkerContainer` nur im Haupt-Thread über [`Navigator.serviceWorker`](/de/docs/Web/API/Navigator/serviceWorker) verfügbar. ([Firefox Fehler 1113522](https://bugzil.la/1113522)).
+- Die Schnittstellen [`ImageDecoder`](/de/docs/Web/API/ImageDecoder), [`ImageTrackList`](/de/docs/Web/API/ImageTrackList) und [`ImageTrack`](/de/docs/Web/API/ImageTrack) der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) werden nun unterstützt, was die Dekodierung von Bildern aus den Haupt- und Arbeitsthreads ermöglicht. ([Firefox Fehler 1923755](https://bugzil.la/1923755)).
+- Die Eigenschaft [`name`](/de/docs/Web/API/PerformanceNavigationTiming#performanceentry.name) von `PerformanceNavigationTiming` lässt jetzt [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments) aus der zurückgegebenen URL weg, wie es der Spezifikation entspricht. Diese Art von [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming)-Objekt wird von [`Performance.getEntries()`](/de/docs/Web/API/Performance/getEntries) für Einträge mit einem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `navigation` zurückgegeben. ([Firefox Fehler 1919565](https://bugzil.la/1919565)).
 
 #### DOM
 
@@ -68,34 +70,34 @@ Dieser Artikel bietet Informationen über die Änderungen in Firefox 133, die En
 
 #### WebDriver BiDi
 
-- Unterstützung für das `url`-Argument für den `network.continueRequest`-Befehl hinzugefügt, sodass Anforderungen transparent zu einer anderen URL umgeleitet werden können ([Firefox Fehler 1898158](https://bugzil.la/1898158)).
-- Aktualisierung von `browsingContext.print`, um einen `InvalidArgumentError` auszulösen, wenn es mit falschen Dimensionen verwendet wird ([Firefox Fehler 1886382](https://bugzil.la/1886382)).
-- Beheben der `script.evaluate` und `script.callFunction`, um die Verwendung von `document.open` in Sandbox-Reichen zu erlauben ([Firefox Fehler 1918288](https://bugzil.la/1918288)).
-- Fehlerbehebung, bei dem das `browsingContext.load`-Ereignis die falsche Navigations-ID enthalten konnte, wenn während der Hauptnavigation eine Navigation im gleichen Dokument stattfand ([Firefox Fehler 1922327](https://bugzil.la/1922327)).
-- Behebung eines weiteren Randfalls, bei dem Befehle mit einem `UnknownError` wegen der Navigation fehlschlagen konnten ([Firefox Fehler 1923899](https://bugzil.la/1923899)).
+- Unterstützung für das Argument `url` für den Befehl `network.continueRequest` hinzugefügt, das es erlaubt, Anfragen transparent auf eine andere URL umzuleiten ([Firefox Fehler 1898158](https://bugzil.la/1898158)).
+- `browsingContext.print` aktualisiert, um einen `InvalidArgumentError` auszulösen, wenn es mit inkorrekten Dimensionen verwendet wird ([Firefox Fehler 1886382](https://bugzil.la/1886382)).
+- Fehler in `script.evaluate` und `script.callFunction` behoben, um die Verwendung von `document.open` in Sandbox-Reichen zu ermöglichen ([Firefox Fehler 1918288](https://bugzil.la/1918288)).
+- Einen Fehler behoben, bei dem das `browsingContext.load`-Ereignis möglicherweise die falsche Navigations-ID enthält, wenn eine gleiche Dokumentnavigation während der Hauptnavigation auftritt ([Firefox Fehler 1922327](https://bugzil.la/1922327)).
+- Einen weiteren Randfall behoben, bei dem Befehle aufgrund der Navigation mit einem `UnknownError` fehlschlagen konnten ([Firefox Fehler 1923899](https://bugzil.la/1923899)).
 
 #### Marionette
 
-- Aktualisierung von Marionette zur besseren Handhabung der Fensterpositionierung auf Linux mit Wayland ([Firefox Fehler 1857571](https://bugzil.la/1857571)).
-- Behebung eines Fehlers, der ein leeres `style`-Attribut auf einem Element hinterlassen konnte, wenn versucht wurde, es zu klicken oder zu löschen ([Firefox Fehler 1922709](https://bugzil.la/1922709)).
-- Aktualisierung der Fehlermeldung, die bei `UnexpectedAlertOpen`-Fehlern gesendet wird, um den Text des entsprechenden Alerts einzuschließen ([Firefox Fehler 1924469](https://bugzil.la/1924469)).
+- Marionette aktualisiert, um die Fensterpositionierung unter Linux mit Wayland besser zu handhaben ([Firefox Fehler 1857571](https://bugzil.la/1857571)).
+- Einen Fehler behoben, der ein leeres `style`-Attribut an einem Element hinterlassen konnte, wenn versucht wurde, darauf zu klicken oder es zu löschen ([Firefox Fehler 1922709](https://bugzil.la/1922709)).
+- Fehlermeldung für `UnexpectedAlertOpen`-Fehler aktualisiert, um den Text des entsprechenden Alerts einzuschließen ([Firefox Fehler 1924469](https://bugzil.la/1924469)).
 
 ## Änderungen für Add-on-Entwickler
 
-- {{WebExtAPIRef("cookies.get")}} ordnet jetzt Cookies gemäß dem Abschnitt [5.4 The Cookie Header des HTTP State Management Mechanism (RFC 6265)](https://datatracker.ietf.org/doc/html/rfc6265#section-5.4). Dies betrifft die Ergebnisse von Aufrufen, wenn ein Cookie Varianten mit unterschiedlichen Pfadkomponenten hat. Vorher wurde das früheste erstellte Cookie von {{WebExtAPIRef("cookies.get")}}, {{WebExtAPIRef("cookies.remove")}}, {{WebExtAPIRef("cookies.set")}}, und {{WebExtAPIRef("cookies.getAll")}} abgeglichen. Nach dieser Änderung wird das Cookie mit dem längsten übereinstimmenden Pfad zurückgegeben. ([Firefox Fehler 1798655](https://bugzil.la/1798655))
-- Behebung eines Fehlers in der {{WebExtAPIRef("declarativeNetRequest")}} API, der die Registrierung von Regeln nach einem Neustart des Browsers verhinderte ([Firefox Fehler 1921353](https://bugzil.la/1921353)). Dieser Fehler betraf Erweiterungen, die auf {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules")}} oder {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets")}} angewiesen sind. Diese Korrektur wurde auch in Firefox ESR 128.5 und Firefox ESR 115.18 zurückportiert.
+- {{WebExtAPIRef("cookies.get")}} ordnet jetzt Cookies gemäß der [5.4 The Cookie Header Sektion des HTTP State Management Mechanismus (RFC 6265)](https://datatracker.ietf.org/doc/html/rfc6265#section-5.4). Dies beeinflusst die Ergebnisse von Aufrufen, wenn ein Cookie Varianten mit unterschiedlichen Pfadkomponenten hat. Bisher wurde das zuerst erstellte Cookie von {{WebExtAPIRef("cookies.get")}}, {{WebExtAPIRef("cookies.remove")}}, {{WebExtAPIRef("cookies.set")}} und {{WebExtAPIRef("cookies.getAll")}} gematcht. Nach dieser Änderung wird das Cookie mit dem längsten übereinstimmenden Pfad zurückgegeben. ([Firefox Fehler 1798655](https://bugzil.la/1798655))
+- Ein Fehler in der {{WebExtAPIRef("declarativeNetRequest")}}-API behoben, der nach einem Browser-Neustart die Regelregistrierung verhinderte ([Firefox Fehler 1921353](https://bugzil.la/1921353)). Dieser Fehler betraf Erweiterungen, die sich auf {{WebExtAPIRef("declarativeNetRequest.updateDynamicRules")}} oder {{WebExtAPIRef("declarativeNetRequest.updateEnabledRulesets")}} verlassen. Dieser Fix wurde auch in Firefox ESR 128.5 und Firefox ESR 115.18 zurückportiert.
 
 ### Entfernungen
 
-### Weitere Änderungen
+### Sonstiges
 
-## Experimentelle Web-Funktionen
+## Experimentelle Webfeatures
 
-Diese Funktionen sind neu in Firefox 133 ausgeliefert, aber standardmäßig deaktiviert. Um mit ihnen zu experimentieren, suchen Sie die entsprechende Einstellung auf der `about:config`-Seite und setzen Sie sie auf `true`. Weitere solcher Funktionen finden Sie auf der Seite [Experimentelle Funktionen](/de/docs/Mozilla/Firefox/Experimental_features).
+Diese Features sind neu in Firefox 133 verfügbar, aber standardmäßig deaktiviert. Um sie auszuprobieren, suchen Sie auf der `about:config`-Seite nach der entsprechenden Einstellung und setzen Sie sie auf `true`. Weitere solche Features finden Sie auf der Seite [Experimentelle Features](/de/docs/Mozilla/Firefox/Experimental_features).
 
 - **contenteditable plaintext-only Wert:** `dom.element.contenteditable.plaintext-only.enabled`.
 
-  Der `plaintext-only`-Wert des [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) globalen Attributs gibt an, dass das Element bearbeitbar ist; Rich-Text-Formatierung ist deaktiviert und jegliche Formatierung in eingefügtem Text wird automatisch entfernt. ([Firefox Fehler 1922723](https://bugzil.la/1922723).)
+  Der `plaintext-only` Wert des [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) globalen Attributs zeigt an, dass das Element bearbeitbar ist; Formatierungen im Rich-Text sind deaktiviert und jegliche Formate in eingefügtem Text werden automatisch entfernt. ([Firefox Fehler 1922723](https://bugzil.la/1922723).)
 
 ## Ältere Versionen
 

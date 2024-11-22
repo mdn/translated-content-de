@@ -2,12 +2,12 @@
 title: IIRFilterNode
 slug: Web/API/IIRFilterNode
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{APIRef("Web Audio API")}}
 
-Das **`IIRFilterNode`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) ist ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor, der eine allgemeine **[Infinite Impulse Response](https://en.wikipedia.org/wiki/Infinite_impulse_response)** (IIR) Filter implementiert; diese Art von Filter kann auch für die Implementierung von Klangregelgeräten und grafischen Equalizern verwendet werden. Es ermöglicht die Spezifikation der Parameter der Filterantwort, sodass diese nach Bedarf angepasst werden kann.
+Das **`IIRFilterNode`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio_API) ist ein [`AudioNode`](/de/docs/Web/API/AudioNode)-Prozessor, der einen allgemeinen **[Infinite Impulse Response](https://en.wikipedia.org/wiki/Infinite_impulse_response)** (IIR)-Filter implementiert. Diese Art von Filter kann auch zur Implementierung von Tonsteuergeräten und grafischen Equalizern verwendet werden. Er ermöglicht es, die Parameter der Filterantwort anzugeben, sodass sie nach Bedarf angepasst werden kann.
 
 {{InheritanceDiagram}}
 
@@ -22,32 +22,32 @@ Das **`IIRFilterNode`**-Interface der [Web Audio API](/de/docs/Web/API/Web_Audio
       <td><code>1</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel Count Mode</th>
+      <th scope="row">Kanalmodus</th>
       <td><code>"max"</code></td>
     </tr>
     <tr>
-      <th scope="row">Channel Count</th>
+      <th scope="row">Anzahl der Kanäle</th>
       <td>Gleich wie beim Eingang</td>
     </tr>
     <tr>
-      <th scope="row">Channel Interpretation</th>
+      <th scope="row">Kanalinterpretation</th>
       <td><code>"speakers"</code></td>
     </tr>
   </tbody>
 </table>
 
-Typischerweise ist es am besten, das [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Interface für die Implementierung von Filtern höherer Ordnung zu verwenden. Es gibt mehrere Gründe dafür:
+In der Regel ist es am besten, das [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)-Interface zu verwenden, um höherordige Filter zu implementieren. Es gibt mehrere Gründe dafür:
 
-- Biquad-Filter sind typischerweise weniger empfindlich gegenüber numerischen Eigenheiten.
+- Biquad-Filter sind in der Regel weniger anfällig für numerische Eigenheiten.
 - Die Filterparameter von Biquad-Filtern können automatisiert werden.
-- Alle geraden IIR-Filter können mit [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) erstellt werden.
+- Alle IIR-Filter mit geradem Grad können mit [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode) erstellt werden.
 
-Wenn Sie jedoch einen ungeraden IIR-Filter erstellen müssen, sollten Sie `IIRFilterNode` verwenden. Diese Schnittstelle kann auch nützlich sein, wenn Sie keine Automatisierung benötigen oder aus anderen Gründen.
+Falls Sie jedoch einen IIR-Filter mit ungeradem Grad erstellen müssen, müssen Sie `IIRFilterNode` verwenden. Sie können dieses Interface auch nützlich finden, wenn Sie keine Automatisierung benötigen oder aus anderen Gründen.
 
 > [!NOTE]
-> Sobald der Node erstellt wurde, können die Koeffizienten nicht mehr geändert werden.
+> Sobald der Node erstellt wurde, können Sie seine Koeffizienten nicht mehr ändern.
 
-`IIRFilterNode`s haben eine Nachlaufzeitreferenz; sie geben weiterhin nicht-stille Audiodaten mit Null-Eingabe aus. Als IIR-Filter bleibt die Nicht-Null-Eingabe für immer bestehen, aber dies kann in der Praxis nach einiger endlicher Zeit begrenzt werden, wenn sich die Ausgabe dem Nullpunkt ausreichend angenähert hat. Die tatsächliche Zeit hängt von den bereitgestellten Filterkoeffizienten ab.
+`IIRFilterNode`s haben eine Tail-Time-Referenz; sie geben weiterhin nicht-silent Audio mit null Eingabe aus. Als IIR-Filter wird die nicht-null Eingabe für immer fortgesetzt, dies kann jedoch in der Praxis nach einer endlichen Zeit begrenzt werden, wenn die Ausgabe null ausreichend nahe kommt. Die tatsächliche Zeit, die dafür benötigt wird, hängt von den bereitgestellten Filterkoeffizienten ab.
 
 ## Konstruktor
 
@@ -56,20 +56,20 @@ Wenn Sie jedoch einen ungeraden IIR-Filter erstellen müssen, sollten Sie `IIRFi
 
 ## Instanz-Eigenschaften
 
-_Diese Schnittstelle hat keine eigenen Eigenschaften; sie erbt jedoch Eigenschaften von ihrem Eltern-Interface, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
+_Dieses Interface hat keine eigenen Eigenschaften, erbt jedoch Eigenschaften von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode)_.
 
 ## Instanz-Methoden
 
-_Erbt Methoden von ihrem Eltern-Interface, [`AudioNode`](/de/docs/Web/API/AudioNode). Sie hat auch die folgenden zusätzlichen Methoden:_
+_Erbt Methoden von seinem Elternteil, [`AudioNode`](/de/docs/Web/API/AudioNode). Es hat auch die folgenden zusätzlichen Methoden:_
 
 - [`getFrequencyResponse()`](/de/docs/Web/API/IIRFilterNode/getFrequencyResponse)
-  - : Verwendet die aktuellen Parametereinstellungen des Filters, um die Antwort für die in dem bereitgestellten Frequenz-Array angegebenen Frequenzen zu berechnen.
+  - : Verwendet die aktuellen Parametereinstellungen des Filters, um die Antwort für die in dem bereitgestellten Array von Frequenzen angegebenen Frequenzen zu berechnen.
 
 ## Beispiele
 
-Ein einfaches IIR-Filter-Demo finden Sie [bei Codepen](https://codepen.io/Rumyra/pen/oPxvYB/). Siehe auch den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/iirfilter-node). Es enthält verschiedene Koeffizientenwerte für unterschiedliche Tiefpassfrequenzen — Sie können den Wert der Konstanten `filterNumber` auf einen Wert zwischen 0 und 3 ändern, um die verschiedenen verfügbaren Effekte auszuprobieren.
+Ein einfaches IIR-Filter-Demo finden Sie live auf [CodePen](https://codepen.io/Rumyra/pen/oPxvYB/). Siehe auch den [Quellcode auf GitHub](https://github.com/mdn/webaudio-examples/tree/main/iirfilter-node). Es enthält einige unterschiedliche Koeffizientenwerte für verschiedene Tiefpassfrequenzen — Sie können den Wert der `filterNumber`-Konstante auf einen Wert zwischen 0 und 3 ändern, um die verschiedenen verfügbaren Effekte auszuprobieren.
 
-Siehe auch unseren [IIR-Filter verwenden](/de/docs/Web/API/Web_Audio_API/Using_IIR_filters)-Leitfaden für eine vollständige Erklärung.
+Siehe auch unseren [Using IIR filters](/de/docs/Web/API/Web_Audio_API/Using_IIR_filters) Leitfaden für eine vollständige Erklärung.
 
 ## Spezifikationen
 
@@ -81,6 +81,6 @@ Siehe auch unseren [IIR-Filter verwenden](/de/docs/Web/API/Web_Audio_API/Using_I
 
 ## Siehe auch
 
-- [Verwendung der Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
+- [Using the Web Audio API](/de/docs/Web/API/Web_Audio_API/Using_Web_Audio_API)
 - [`AudioNode`](/de/docs/Web/API/AudioNode)
 - [`BiquadFilterNode`](/de/docs/Web/API/BiquadFilterNode)

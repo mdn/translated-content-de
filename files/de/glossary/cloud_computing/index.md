@@ -2,23 +2,23 @@
 title: Cloud Computing
 slug: Glossary/Cloud_computing
 l10n:
-  sourceCommit: 99c2c3add298eaebe27102b2d83e27fd3ca80aef
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{GlossarySidebar}}
 
-**Cloud Computing** bezieht sich auf die bedarfsgesteuerte Bereitstellung einer Vielzahl von Computing-Diensten wie Speicher, Datenbanken, Netzwerke, Analysen und Intelligenz über das Internet — auch bekannt als **Cloud-Dienste**.
+**Cloud Computing** bezieht sich auf die bedarfsgesteuerte Bereitstellung einer breiten Palette von Computing-Dienstleistungen wie Speicher, Datenbanken, Netzwerk, Analysen und Intelligenz über das Internet — auch bekannt als **Cloud-Dienste**.
 
-Cloud-Dienste sind Infrastrukturen, Plattformen oder Software, die Benutzern über das Internet von Drittanbietern wie Google (Google Cloud Platform), Amazon AWS (Amazon Web Services) und Microsoft (Azure) zur Verfügung gestellt werden. Benutzer können auf Cloud-Dienste durch ein _pay-as-you-go_-Preismodell zugreifen, was sicherstellt, dass sie nur für das bezahlen, was sie tatsächlich nutzen, und keine komplexe Software auf ihren eigenen Computern einrichten müssen. Dieses Modell ermöglicht schnellere Innovationen, flexible Skalierbarkeit und erhebliche Kosteneinsparungen.
+Cloud-Dienste sind Infrastrukturen, Plattformen oder Software, die Benutzern über das Internet zur Verfügung gestellt werden und von Drittanbietern wie Google (Google Cloud Platform), Amazon AWS (Amazon Web Services) und Microsoft (Azure) gehostet werden. Benutzer können auf Cloud-Dienste durch ein _Pay-as-you-go_-Preismodell zugreifen, wodurch sie nur für das bezahlen, was sie nutzen, ohne dass eine komplexe Softwareinstallation auf ihren eigenen Computern erforderlich ist. Dieses Modell ermöglicht schnellere Innovationen, flexible Skalierbarkeit und erhebliche Kosteneinsparungen.
 
-Die drei Haupttypen des Cloud Computings sind Infrastructure as a Service (IaaS), Platform as a Service (PaaS) und Software as a Service (SaaS). Jeder Typ des Cloud Computings bietet unterschiedliche Ebenen von Kontrolle, Flexibilität und Verwaltung.
+Die drei Hauptarten des Cloud Computing sind Infrastructure as a Service (IaaS), Platform as a Service (PaaS) und Software as a Service (SaaS). Jede Art des Cloud Computing bietet verschiedene Ebenen von Kontrolle, Flexibilität und Verwaltung.
 
 - Infrastructure as a Service
-  - : IaaS bietet virtualisierte Computerressourcen über das Internet an, einschließlich Servern, Speicher und Netzwerken, und ermöglicht den Benutzern die Verwaltung ihrer Infrastruktur. Dies gibt Benutzern ein hohes Maß an Flexibilität und Kontrolle über die Ressourcen. Unternehmen, die IaaS verwenden, können ihre Serverinfrastruktur schnell skalieren, ohne physische Server besitzen zu müssen. Beispiele sind Amazon Web Services (AWS EC2), Microsoft Azure Virtual Machines und Google Compute Engine (GCE).
+  - : IaaS stellt virtualisierte Computerressourcen über das Internet bereit, einschließlich Servern, Speicher und Netzwerken, und ermöglicht den Benutzern das Management ihrer Infrastruktur. Dies gibt den Benutzern ein hohes Maß an Flexibilität und Kontrolle über die Ressourcen. Unternehmen, die IaaS nutzen, können ihre Serverinfrastruktur schnell skalieren, ohne physische Server besitzen zu müssen. Beispiele sind Amazon Web Services (AWS EC2), Microsoft Azure Virtual Machines und Google Compute Engine (GCE).
 - Platform as a Service
-  - : PaaS bietet eine Plattform, auf der Kunden Anwendungen entwickeln, ausführen und verwalten können, ohne sich um die zugrunde liegende Infrastruktur wie Server, Speicher und Netzwerke kümmern zu müssen. PaaS erlaubt es Entwicklern, sich auf das Schreiben von Code und Anwendungscode zu konzentrieren, ohne Server oder Betriebssysteme verwalten zu müssen. Beispiele sind Google App Engine, Microsoft Azure App Service, Heroku und AWS Elastic Beanstalk.
+  - : PaaS bietet eine Plattform, die es Kunden ermöglicht, Anwendungen zu entwickeln, auszuführen und zu verwalten, ohne sich um die zugrunde liegende Infrastruktur wie Server, Speicher und Netzwerke kümmern zu müssen. PaaS ermöglicht Entwicklern, sich auf das Schreiben von Code und Logik ihrer Anwendungen zu konzentrieren, ohne Server oder Betriebssysteme zu verwalten. Beispiele sind Google App Engine, Microsoft Azure App Service, Heroku und AWS Elastic Beanstalk.
 - Software as a Service
-  - : SaaS liefert Softwareanwendungen über das Internet, auf die Benutzer über einen Webbrowser zugreifen können. Der Anbieter verwaltet die gesamte zugrunde liegende Infrastruktur, Plattform und Daten. Unternehmen, die SaaS verwenden, müssen keine Software lokal installieren oder verwalten. Stattdessen können sie Software wie E-Mail, CRM und Kollaborationstools direkt über einen Webbrowser nutzen. Beispiele sind Google Workspace, Microsoft 365, Slack, Github und ChatGPT.
+  - : SaaS liefert Softwareanwendungen über das Internet, auf die Benutzer über einen Webbrowser zugreifen können. Der Anbieter verwaltet die gesamte zugrunde liegende Infrastruktur, Plattform und Daten. Unternehmen, die SaaS nutzen, müssen keine Software lokal installieren oder verwalten. Stattdessen können sie auf Software wie E-Mail, CRM und Kollaborationstools direkt über einen Webbrowser zugreifen. Beispiele sind Google Workspace, Microsoft 365, Slack, GitHub und ChatGPT.
 
 ## Siehe auch
 

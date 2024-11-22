@@ -1,14 +1,14 @@
 ---
-title: "OffscreenCanvas: transferToImageBitmap()-Methode"
+title: "OffscreenCanvas: transferToImageBitmap() Methode"
 short-title: transferToImageBitmap()
 slug: Web/API/OffscreenCanvas/transferToImageBitmap
 l10n:
-  sourceCommit: daeff1a2efaae366bcc8b6d911d86985646e665e
+  sourceCommit: 46dd9c0c1635e8abd73040c1a71cc0ed3c27cd50
 ---
 
 {{APIRef("Canvas API")}}{{AvailableInWorkers}}
 
-Die **`OffscreenCanvas.transferToImageBitmap()`**-Methode erstellt ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt aus dem zuletzt gerenderten Bild des `OffscreenCanvas`. Das `OffscreenCanvas` weist ein neues Bild für sein anschließendes Rendering zu.
+Die **`OffscreenCanvas.transferToImageBitmap()`**-Methode erzeugt ein [`ImageBitmap`](/de/docs/Web/API/ImageBitmap)-Objekt aus dem zuletzt gerenderten Bild des `OffscreenCanvas`. Das `OffscreenCanvas` reserviert ein neues Bild für seine nachfolgende Darstellung.
 
 ## Syntax
 
@@ -22,15 +22,22 @@ Keine.
 
 ### Rückgabewert
 
-Ein neu zugewiesenes [`ImageBitmap`](/de/docs/Web/API/ImageBitmap).
+Ein neu allokiertes [`ImageBitmap`](/de/docs/Web/API/ImageBitmap).
 
-Dieses `ImageBitmap` referenziert eine potenziell große Grafikressource, und um sicherzustellen, dass Ihre Webanwendung robust bleibt, ist es wichtig, die Zuweisung zu vieler dieser Ressourcen zu vermeiden. Aus diesem Grund ist es wichtig sicherzustellen, dass das `ImageBitmap` entweder _verbraucht_ oder _geschlossen_ wird.
+Dieses `ImageBitmap` bezieht sich auf eine potenziell große Grafikressource, und um sicherzustellen, dass Ihre Webanwendung robust bleibt, ist es wichtig, nicht zu viele dieser Ressourcen gleichzeitig zu allokieren. Aus diesem Grund ist es wichtig, sicherzustellen, dass das `ImageBitmap` entweder _konsumiert_ oder _geschlossen_ wird.
 
-Wie in den [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas)-Beispielen beschrieben, wird durch das Übergeben dieses `ImageBitmap` an [`ImageBitmapRenderingContext.transferFromImageBitmap()`](/de/docs/Web/API/ImageBitmapRenderingContext/transferFromImageBitmap) das `ImageBitmap`-Objekt _verbraucht_; es referenziert die zugrunde liegende Grafikressource nicht mehr und kann nicht an andere Web-APIs übergeben werden.
+Wie in den Beispielen zum [`OffscreenCanvas`](/de/docs/Web/API/OffscreenCanvas) beschrieben, wird das Übergeben dieses `ImageBitmap` an [`ImageBitmapRenderingContext.transferFromImageBitmap()`](/de/docs/Web/API/ImageBitmapRenderingContext/transferFromImageBitmap) das `ImageBitmap`-Objekt _konsumiert_; es bezieht sich nicht mehr auf die zugrunde liegende Grafikressource und kann nicht an andere Web-APIs übergeben werden.
 
-Wenn Ihr Ziel ist, das `ImageBitmap` an andere Web-APIs weiterzugeben, die es nicht verbrauchen - zum Beispiel [`CanvasRenderingContext2D.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) - sollten Sie es _schließen_, wenn Sie fertig damit sind, indem Sie [`ImageBitmap.close()`](/de/docs/Web/API/ImageBitmap/close) aufrufen. Lassen Sie nicht einfach die JavaScript-Referenz auf das `ImageBitmap` fallen; dies würde dessen Grafikressource am Leben halten, bis der Garbage Collector das nächste Mal ausgeführt wird.
+Wenn Ihr Ziel darin besteht, das `ImageBitmap` an andere Web-APIs zu übergeben, die es nicht konsumieren - zum Beispiel [`CanvasRenderingContext2D.drawImage()`](/de/docs/Web/API/CanvasRenderingContext2D/drawImage) - dann sollten Sie es _schließen_, wenn Sie damit fertig sind, indem Sie [`ImageBitmap.close()`](/de/docs/Web/API/ImageBitmap/close) aufrufen. Lassen Sie nicht einfach die JavaScript-Referenz auf das `ImageBitmap` fallen; dadurch bleibt die Grafikressource erhalten, bis der Müllsammler das nächste Mal läuft.
 
-Wenn Sie `transferToImageBitmap()` aufrufen und nicht beabsichtigen, es an [`ImageBitmapRenderingContext.transferFromImageBitmap()`](/de/docs/Web/API/ImageBitmapRenderingContext/transferFromImageBitmap) zu übergeben, sollten Sie überlegen, ob Sie `transferToImageBitmap()` überhaupt aufrufen müssen. Viele Web-APIs, die `ImageBitmap` akzeptieren, akzeptieren auch `OffscreenCanvas` als Argument.
+Wenn Sie `transferToImageBitmap()` aufrufen und nicht beabsichtigen, es an [`ImageBitmapRenderingContext.transferFromImageBitmap()`](/de/docs/Web/API/ImageBitmapRenderingContext/transferFromImageBitmap) zu übergeben, überlegen Sie, ob Sie `transferToImageBitmap()` überhaupt aufrufen müssen. Viele Web-APIs, die `ImageBitmap` akzeptieren, akzeptieren auch `OffscreenCanvas` als Argument.
+
+### Ausnahmen
+
+- `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
+  - : Wirft eine Ausnahme, wenn:
+    - die Leinwand in einen anderen Kontextbereich, wie einen Worker, übertragen wurde
+    - der Leinwandkontextmodus nicht durch Aufruf von [`OffscreenCanvas.getContext()`](/de/docs/Web/API/OffscreenCanvas/getContext) gesetzt wurde.
 
 ## Beispiele
 

@@ -2,12 +2,12 @@
 title: Styling von Vue-Komponenten mit CSS
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_styling
 l10n:
-  sourceCommit: 289d6314f3368aa3e28524e7d090f6e9c704e3b1
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_methods_events_models","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_computed_properties", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-Es ist endlich an der Zeit, unsere App ein wenig hübscher zu machen. In diesem Artikel werden wir die verschiedenen Möglichkeiten erkunden, wie man Vue-Komponenten mit CSS stylen kann.
+Es ist endlich an der Zeit, unsere App ein wenig schöner zu gestalten. In diesem Artikel werden wir die verschiedenen Möglichkeiten erkunden, Vue-Komponenten mit CSS zu stylen.
 
 <table>
   <tbody>
@@ -17,42 +17,41 @@ Es ist endlich an der Zeit, unsere App ein wenig hübscher zu machen. In diesem 
         <p>
           Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn/HTML">HTML</a>,
           <a href="/de/docs/Learn/CSS">CSS</a> und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a>,
-          sowie Kenntnisse der
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a>, sowie Kenntnisse der
           <a
             href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Konsole/Befehlszeile</a
+            >Terminal-/Kommandozeile</a
           >.
         </p>
         <p>
-          Vue-Komponenten werden als eine Kombination von JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer HTML-basierten Templatesyntax, die der zugrunde liegenden DOM-Struktur zugeordnet ist. Für die Installation und die Nutzung einiger der fortschrittlicheren Funktionen von Vue (wie Single File Components oder Render-Funktionen) benötigen Sie eine Konsole mit installiertem Node + npm.
+          Vue-Komponenten werden als Kombination von JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer auf HTML basierenden Templatesyntax, die der zugrunde liegenden DOM-Struktur zugeordnet ist. Für die Installation und die Nutzung einiger der fortgeschritteneren Funktionen von Vue (wie Single File Components oder Renderfunktionen) benötigen Sie ein Terminal mit installiertem Node + npm.
         </p>
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
-      <td>Das Styling von Vue-Komponenten zu lernen.</td>
+      <td>Erlernen, wie man Vue-Komponenten stylt.</td>
     </tr>
   </tbody>
 </table>
 
 ## Styling von Vue-Komponenten mit CSS
 
-Bevor wir dazu übergehen, unserer App erweiterte Funktionen hinzuzufügen, sollten wir einige grundlegende CSS-Einstellungen hinzufügen, um sie besser aussehen zu lassen. Vue bietet drei gängige Ansätze zum Styling von Apps:
+Bevor wir fortfahren, um erweiterte Funktionen zu unserer App hinzuzufügen, sollten wir einige grundlegende CSS-Styles hinzufügen, um sie ansprechender zu machen. Vue bietet drei gängige Ansätze zum Stylen von Apps:
 
 - Externe CSS-Dateien.
-- Globale Styles in Single File Components (`.vue`-Dateien).
-- Komponenten-spezifische Styles in Single File Components.
+- Globale Stile in Single File Components (`.vue` Dateien).
+- Komponenten-spezifische Stile in Single File Components.
 
-Um Sie mit jedem dieser Ansätze vertraut zu machen, werden wir eine Kombination aus allen dreien verwenden, um unserer App ein schöneres Aussehen und Gefühl zu verleihen.
+Um Ihnen alle drei Methoden näherzubringen, verwenden wir eine Kombination aus allen drei, um unserer App ein ansprechenderes Aussehen und Gefühl zu verleihen.
 
 ## Styling mit externen CSS-Dateien
 
-Sie können externe CSS-Dateien einbinden und sie global auf Ihre App anwenden. Sehen wir uns an, wie das gemacht wird.
+Sie können externe CSS-Dateien einbinden und sie global auf Ihre App anwenden. Schauen wir uns an, wie das gemacht wird.
 
-Erstellen Sie zunächst eine Datei namens `reset.css` im `src/assets`-Verzeichnis. Dateien in diesem Ordner werden von Webpack verarbeitet. Dies bedeutet, dass wir CSS-Präprozessoren (wie SCSS) oder Postprozessoren (wie PostCSS) verwenden können.
+Erstellen Sie zunächst eine Datei namens `reset.css` im Verzeichnis `src/assets`. Dateien in diesem Ordner werden von webpack verarbeitet. Das bedeutet, dass wir CSS-Präprozessoren (wie SCSS) oder Postprozessoren (wie PostCSS) verwenden können.
 
-Während dieses Tutorial solche Tools nicht verwenden wird, ist es gut zu wissen, dass solche Codes in dem Assets-Ordner automatisch verarbeitet werden.
+Obwohl wir in diesem Tutorial keine solchen Tools verwenden, ist es gut zu wissen, dass beim Einfügen von Code in den Assets-Ordner dieser automatisch verarbeitet wird.
 
 Fügen Sie die folgenden Inhalte in die Datei `reset.css` ein:
 
@@ -136,33 +135,33 @@ body {
 /*END RESETS*/
 ```
 
-Importieren Sie als Nächstes in Ihrer Datei `src/main.js` die Datei `reset.css` wie folgt:
+Importieren Sie dann in Ihrer Datei `src/main.js` die Datei `reset.css` wie folgt:
 
 ```js
 import "./assets/reset.css";
 ```
 
-Dies führt dazu, dass die Datei während des Build-Schritts aufgenommen und automatisch auf unsere Website hinzugefügt wird.
+Dies bewirkt, dass die Datei während des Build-Schritts erfasst und automatisch zu unserer Site hinzugefügt wird.
 
-Die Reset-Styles sollten nun auf die App angewendet werden. Die folgenden Bilder zeigen das Aussehen der App vor und nach dem Anwenden des Resets.
+Die Reset-Styles sollten nun auf die App angewendet werden. Die Bilder unten zeigen das Aussehen der App vor und nachdem das Reset angewendet wurde.
 
 Vorher:
 
-![die To-Do App mit teilweiser stilistischer Anpassung; die App befindet sich jetzt in einer Karte, aber einige der internen Funktionen müssen noch gestylt werden](todo-app-unstyled.png)
+![die Todo-App mit teilweise hinzugefügtem Styling; die App befindet sich jetzt in einer Karte, aber einige der internen Funktionen müssen noch gestylt werden](todo-app-unstyled.png)
 
 Nachher:
 
-![die To-Do App mit teilweiser stilistischer Anpassung; die App befindet sich jetzt in einer Karte, aber einige der internen Funktionen müssen noch gestylt werden](todo-app-reset-styles.png)
+![die Todo-App mit teilweise hinzugefügtem Styling; die App befindet sich jetzt in einer Karte, aber einige der internen Funktionen müssen noch gestylt werden](todo-app-reset-styles.png)
 
-Auffällige Veränderungen sind die Entfernung der Listenpunkte, Änderungen der Hintergrundfarbe und Änderungen an den Basis-Button- und Eingabestyles.
+Deutliche Änderungen sind die Entfernung der Listenpunkte, Änderungen der Hintergrundfarbe und Änderungen der Basisstile für Schaltflächen und Eingaben.
 
-## Hinzufügen von globalen Styles zu Single File Components
+## Hinzufügen globaler Stile zu Single File Components
 
-Nun, da wir unser CSS über Browser hinweg einheitlich zurückgesetzt haben, müssen wir die Styles ein wenig mehr anpassen. Es gibt einige Styles, die wir über alle Komponenten in unserer App anwenden möchten. Während das direkte Hinzufügen dieser Dateien zum `reset.css`-Stylesheet funktionieren würde, werden wir sie stattdessen in die `<style>`-Tags in `App.vue` einfügen, um zu demonstrieren, wie dies verwendet werden kann.
+Nachdem wir unser CSS über die Browser hinweg einheitlich zurückgesetzt haben, müssen wir die Stile etwas mehr anpassen. Es gibt einige Stile, die wir komponentenübergreifend in unserer App anwenden möchten. Während das direkte Hinzufügen dieser Dateien zum Stylesheet `reset.css` funktionieren würde, fügen wir sie stattdessen zu den `<style>`-Tags in `App.vue` hinzu, um zu demonstrieren, wie dies genutzt werden kann.
 
-Es gibt bereits einige Styles in der Datei. Lassen Sie uns diese entfernen und sie durch die untenstehenden Styles ersetzen. Diese Styles bewirken einiges — sie fügen Buttons und Eingaben ein Styling hinzu und passen das `#app`-Element und dessen Kinder an.
+Im File sind bereits einige Stile vorhanden. Entfernen Sie diese und ersetzen Sie sie durch die nachfolgenden Stile. Diese Stile fügen einige Formatierungen für Schaltflächen und Eingaben hinzu und passen das `#app`-Element und seine Kinder an.
 
-Aktualisieren Sie das `<style>`-Element Ihrer `App.vue`-Datei, damit es folgendermaßen aussieht:
+Aktualisieren Sie das `<style>`-Element Ihrer `App.vue`-Datei, sodass es wie folgt aussieht:
 
 ```html
 <style>
@@ -279,23 +278,23 @@ Aktualisieren Sie das `<style>`-Element Ihrer `App.vue`-Datei, damit es folgende
 </style>
 ```
 
-Wenn Sie die App überprüfen, werden Sie sehen, dass unsere To-Do-Liste jetzt in einer Karte ist und wir eine bessere Formatierung unserer To-Do-Elemente haben. Jetzt können wir damit beginnen, unsere Komponenten zu bearbeiten, um einige dieser Styles zu verwenden.
+Wenn Sie die App überprüfen, werden Sie sehen, dass unsere To-Do-Liste nun in einer Karte ist und wir eine bessere Formatierung unserer To-Do-Elemente haben. Nun können wir durchgehen und beginnen, unsere Komponenten zu bearbeiten, um einige dieser Styles zu verwenden.
 
-![die To-Do App mit teilweiser stilistischer Anpassung; die App befindet sich jetzt in einer Karte, aber einige der internen Funktionen müssen noch gestylt werden](todo-app-partial-styles.png)
+![die Todo-App mit teilweise hinzugefügtem Styling; die App befindet sich jetzt in einer Karte, aber einige der internen Funktionen müssen noch gestylt werden](todo-app-partial-styles.png)
 
 ### Hinzufügen von CSS-Klassen in Vue
 
-Wir sollten die Button-CSS-Klassen zum `<button>` in unserer `ToDoForm`-Komponente anwenden. Da Vue-Vorlagen gültiges HTML sind, wird dies genauso gemacht, wie Sie es im normalen HTML tun würden — durch Hinzufügen eines `class=""`-Attributes zum Element.
+Wir sollten die CSS-Klassen für die Schaltfläche zum `<button>` Element in unserer `ToDoForm`-Komponente hinzufügen. Da Vue-Templates gültiges HTML sind, wird dies genauso gemacht wie in reinem HTML — indem ein `class=""` Attribut zum Element hinzugefügt wird.
 
-Fügen Sie `class="btn btn__primary btn__lg"` zu Ihrem `<button>`-Element des Formulars hinzu:
+Fügen Sie `class="btn btn__primary btn__lg"` zu Ihrem `<button>`-Element Ihrer Form hinzu:
 
 ```html
 <button type="submit" class="btn btn__primary btn__lg">Add</button>
 ```
 
-Da wir gerade dabei sind, können wir noch eine weitere semantische und stilistische Änderung vornehmen. Da unser Formular einen bestimmten Abschnitt unserer Seite markiert, könnte es von einem `<h2>`-Element profitieren. Das `label` kennzeichnet jedoch bereits den Zweck des Formulars. Um uns nicht zu wiederholen, lassen Sie uns unser Label in ein `<h2>` einbetten. Es gibt auch noch einige weitere globale CSS-Styles, die wir hinzufügen können. Wir fügen auch die Klasse `input__lg` zu unserem `<input>`-Element hinzu.
+Während wir hier sind, gibt es noch eine weitere semantische und stilistische Änderung, die wir vornehmen können. Da unser Formular einen spezifischen Abschnitt unserer Seite bezeichnet, könnte es von einem `<h2>`-Element profitieren. Das Label bezeichnet jedoch bereits den Zweck des Formulars. Um uns nicht zu wiederholen, lassen Sie uns unser Label in ein `<h2>` einfügen. Es gibt auch einige andere globale CSS-Stile, die wir hinzufügen können. Wir fügen auch die Klasse `input__lg` zu unserem `<input>`-Element hinzu.
 
-Aktualisieren Sie Ihre `ToDoForm`-Vorlage, sodass sie folgendermaßen aussieht:
+Aktualisieren Sie Ihr `ToDoForm`-Template, sodass es wie folgt aussieht:
 
 ```html
 <template>
@@ -317,7 +316,7 @@ Aktualisieren Sie Ihre `ToDoForm`-Vorlage, sodass sie folgendermaßen aussieht:
 </template>
 ```
 
-Lassen Sie uns auch die Klasse `stack-large` zum `<ul>`-Tag in unserer `App.vue`-Datei hinzufügen. Dies wird helfen, den Abstand unserer To-Do-Elemente etwas zu verbessern.
+Fügen Sie auch die Klasse `stack-large` zum `<ul>`-Tag in unserer `App.vue`-Datei hinzu. Dies hilft, den Abstand unserer To-Do-Elemente etwas zu verbessern.
 
 Aktualisieren Sie es wie folgt:
 
@@ -327,11 +326,11 @@ Aktualisieren Sie es wie folgt:
 </ul>
 ```
 
-## Hinzufügen von geschachtelten Styles
+## Hinzufügen von Scoped Styles
 
-Die letzte Komponente, die wir stylen möchten, ist unsere `ToDoItem`-Komponente. Um die Stildefinitionen in der Nähe der Komponente zu halten, können wir ein `<style>`-Element darin hinzufügen. Wenn diese Styles jedoch Dinge außerhalb dieser Komponente ändern, könnte es schwierig werden, die verantwortlichen Styles zu finden und das Problem zu beheben. Hierbei kann das `scoped`-Attribut nützlich sein — es fügt einen eindeutigen HTML-`data`-Attribut-Selektor an alle Ihre Styles an und verhindert, dass diese global kollidieren.
+Die letzte Komponente, die wir stylen möchten, ist unsere `ToDoItem`-Komponente. Um die Stildefinitionen in der Nähe der Komponente zu halten, können wir ein `<style>`-Element hineinhinzufügen. Wenn diese Stile jedoch Dinge außerhalb dieser Komponente verändern, könnte es schwierig sein, die verantwortlichen Stile nachzuverfolgen und das Problem zu beheben. Hier kann das `scoped`-Attribut nützlich sein — es fügt alle Ihren Stilen einen einzigartigen HTML `data`-Attribut-Selektor hinzu und verhindert, dass sie global kollidieren.
 
-Um den `scoped`-Modifier zu verwenden, erstellen Sie ein `<style>`-Element in `ToDoItem.vue`, am unteren Ende der Datei, und geben Sie ihm ein `scoped`-Attribut:
+Um den `scoped`-Modifier zu verwenden, erstellen Sie ein `<style>`-Element in `ToDoItem.vue` am Ende der Datei und geben ihm ein `scoped`-Attribut:
 
 ```html
 <style scoped>
@@ -339,7 +338,7 @@ Um den `scoped`-Modifier zu verwenden, erstellen Sie ein `<style>`-Element in `T
 </style>
 ```
 
-Kopieren Sie als Nächstes das folgende CSS in das neu erstellte `<style>`-Element:
+Kopieren Sie als nächstes den folgenden CSS in das neu erstellte `<style>`-Element:
 
 ```css
 .custom-checkbox > .checkbox-label {
@@ -456,9 +455,9 @@ Kopieren Sie als Nächstes das folgende CSS in das neu erstellte `<style>`-Eleme
 }
 ```
 
-Nun müssen wir einige CSS-Klassen zu unserer Vorlage hinzufügen, um die Styles zu verbinden.
+Jetzt müssen wir einige CSS-Klassen zu unserem Template hinzufügen, um die Stile zu verbinden.
 
-Fügen Sie der Wurzel-`<div>` eine `custom-checkbox`-Klasse hinzu. Fügen Sie dem `<input>` eine `checkbox`-Klasse hinzu. Zuletzt fügen Sie dem `<label>` eine `checkbox-label`-Klasse hinzu. Die aktualisierte Vorlage sieht wie folgt aus:
+Zum Root-`<div>` fügen Sie eine `custom-checkbox`-Klasse hinzu. Zum `<input>` fügen Sie eine `checkbox`-Klasse hinzu. Schließlich fügen Sie zum `<label>` eine `checkbox-label`-Klasse hinzu. Das aktualisierte Template sieht wie folgt aus:
 
 ```html
 <template>
@@ -469,12 +468,12 @@ Fügen Sie der Wurzel-`<div>` eine `custom-checkbox`-Klasse hinzu. Fügen Sie de
 </template>
 ```
 
-Die App sollte jetzt benutzerdefinierte Kontrollkästchen haben. Ihre App sollte etwa aussehen wie auf dem untenstehenden Screenshot.
+Die App sollte nun benutzerdefinierte Kontrollkästchen haben. Ihre App sollte ungefähr wie der unten stehende Screenshot aussehen.
 
-![die To-Do App mit vollständigem Styling. Das Eingabeformular ist jetzt richtig gestylt und die To-Do-Elemente haben jetzt Abstände und benutzerdefinierte Kontrollkästchen](todo-app-complete-styles.png)
+![die Todo-App mit vollständigem Styling. Das Eingabeformular ist nun richtig gestylt und die To-Do-Elemente haben nun Abstände und benutzerdefinierte Kontrollkästchen](todo-app-complete-styles.png)
 
 ## Zusammenfassung
 
-Unsere Arbeit am Styling unserer Beispiel-App ist abgeschlossen. Im nächsten Artikel werden wir zur Funktionserweiterung unserer App zurückkehren, nämlich durch die Verwendung einer berechneten Eigenschaft, um unserer App eine Zählung der abgeschlossenen To-Do-Elemente hinzuzufügen.
+Unsere Arbeiten am Styling unserer Muster-App sind abgeschlossen. Im nächsten Artikel werden wir zurückkehren, um der App etwas mehr Funktionalität hinzuzufügen, nämlich die Verwendung einer berechneten Eigenschaft, um unserer App eine Zählung der abgeschlossenen To-Do-Elemente hinzuzufügen.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_methods_events_models","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_computed_properties", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

@@ -1,19 +1,19 @@
 ---
-title: Code splitting
+title: Code-Splitting
 slug: Glossary/Code_splitting
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{GlossarySidebar}}
 
-**Code splitting** ist die Praxis, den Code, auf den eine Webanwendung angewiesen ist — einschließlich ihres eigenen Codes und etwaiger Drittanbieter-Abhängigkeiten — in separate Bündel aufzuteilen, die unabhängig voneinander geladen werden können. Dies ermöglicht es einer Anwendung, nur den Code zu laden, den sie zu einem bestimmten Zeitpunkt tatsächlich benötigt, und andere Bündel bei Bedarf zu laden. Dieser Ansatz wird verwendet, um die Anwendungsleistung zu verbessern, insbesondere beim ersten Laden.
+**Code-Splitting** ist die Praxis, den Code, auf den eine Webanwendung angewiesen ist — einschließlich des eigenen Codes und aller Drittanbieter-Abhängigkeiten — in separate Bündel zu unterteilen, die unabhängig voneinander geladen werden können. Dies ermöglicht es einer Anwendung, nur den Code zu laden, den sie tatsächlich zu einem bestimmten Zeitpunkt benötigt, und andere Bündel bei Bedarf zu laden. Dieser Ansatz wird verwendet, um die Performance der Anwendung zu verbessern, insbesondere beim erstmaligen Laden.
 
-Code splitting ist ein Feature, das von Bundlern wie [Webpack](https://webpack.js.org/) und [Browserify](https://browserify.org/) unterstützt wird, die mehrere Bündel erstellen können, die zur Laufzeit dynamisch geladen werden können.
+Code-Splitting ist eine Funktion, die von Bundlern wie [webpack](https://webpack.js.org/) und [Browserify](https://browserify.org/) unterstützt wird, die mehrere Bündel erstellen können, die zur Laufzeit dynamisch geladen werden können.
 
 ## Siehe auch
 
-- [Lazy loading](/de/docs/Web/Performance/Lazy_loading)
+- [Lazy Loading](/de/docs/Web/Performance/Lazy_loading)
 - Verwandte Glossarbegriffe:
   - {{Glossary("HTTP_2", "HTTP/2")}}
-  - {{Glossary("Tree_shaking", "Tree shaking")}}
+  - {{Glossary("Tree_shaking", "Tree Shaking")}}

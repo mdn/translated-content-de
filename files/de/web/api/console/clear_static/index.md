@@ -3,14 +3,14 @@ title: "console: clear() statische Methode"
 short-title: clear()
 slug: Web/API/console/clear_static
 l10n:
-  sourceCommit: c0238173f5fb316c8435670eaf137e8cc7babc82
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{APIRef("Console API")}}
 
-Die **`console.clear()`** statische Methode leert die Konsole, wenn möglich.
+Die statische Methode **`console.clear()`** leert die Konsole, wenn möglich.
 
-Eine grafische Konsole, wie die in Webbrowsern, wird alle vorherigen Nachrichten entfernen; eine Konsole, die auf einem Terminal angezeigt wird, wie die in Node.js, versucht, sie mit einem Escape-Code oder einem System-API zu löschen; andernfalls hat die Methode keine Wirkung (und auch keinen Fehler).
+Eine grafische Konsole, wie die in Webbrowsern, entfernt alle vorherigen Nachrichten; eine Konsole, die in einem Terminal angezeigt wird, wie die in Node.js, versucht, sie mit einem Escape-Code oder einem System-API zu leeren; andernfalls hat die Methode keine Wirkung (und es gibt keinen Fehler).
 
 ## Syntax
 
@@ -36,6 +36,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Microsoft Edges Dokumentation zu `console.clear()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#clear)
-- [Node.JS Dokumentation zu `console.clear()`](https://nodejs.org/docs/latest/api/console.html#consoleclear)
-- [Google Chromes Dokumentation zu `console.clear()`](https://developer.chrome.com/docs/devtools/console/api/#clear)
+- [Microsoft Edge-Dokumentation für `console.clear()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#clear)
+- [Node.js-Dokumentation für `console.clear()`](https://nodejs.org/docs/latest/api/console.html#consoleclear)
+- [Google Chrome-Dokumentation für `console.clear()`](https://developer.chrome.com/docs/devtools/console/api/#clear)

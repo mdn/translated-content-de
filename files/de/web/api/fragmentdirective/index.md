@@ -2,20 +2,20 @@
 title: FragmentDirective
 slug: Web/API/FragmentDirective
 l10n:
-  sourceCommit: f7e5cd5c99785abe0408d9db6c427212c37b02e7
+  sourceCommit: 32801b32fceabe1876e405970469f5de76eaf6c0
 ---
 
 {{APIRef("URL Fragment Text Directives")}}
 
-Die **`FragmentDirective`**-Schnittstelle ist ein Objekt, das es ermöglicht, zu überprüfen, ob ein Browser Textfragmente unterstützt.
+Das **`FragmentDirective`** Interface ist ein Objekt, das bereitgestellt wird, um es Code zu ermöglichen, zu überprüfen, ob ein Browser [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments) unterstützt.
 
-Sie wird über die [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective)-Eigenschaft aufgerufen.
+Es wird über die [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) Eigenschaft aufgerufen.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 Keine.
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Keine.
 
@@ -23,9 +23,9 @@ Keine.
 
 ### Überprüfen, ob Textfragmente unterstützt werden
 
-Der untenstehende Code protokolliert, ob Textfragmente in Ihrem Browser unterstützt werden, indem überprüft wird, ob [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) definiert ist.
+Der untenstehende Code protokolliert, ob Textfragmente in Ihrem Browser unterstützt werden, indem geprüft wird, ob [`Document.fragmentDirective`](/de/docs/Web/API/Document/fragmentDirective) definiert ist.
 Beachten Sie, dass das Objekt leer ist und derzeit hauptsächlich zur Feature-Erkennung gedacht ist.
-In der Zukunft könnten weitere Informationen hinzugefügt werden.
+In Zukunft könnte es weitere Informationen enthalten.
 
 ```html hidden
 <pre id="log"></pre>
@@ -64,5 +64,4 @@ if (document.fragmentDirective) {
 
 ## Siehe auch
 
-- [Textfragmente](/de/docs/Web/URI/Fragment/Text_fragments)
 - {{cssxref("::target-text")}}

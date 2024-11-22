@@ -1,13 +1,13 @@
 ---
-title: Vue refs und Lebenszyklusmethoden für die Fokusverwaltung
+title: Vue-Refs und Lifecycle-Methoden zur Fokusverwaltung
 slug: Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_refs_focus_management
 l10n:
-  sourceCommit: 11a08e7da75bfb0b3e606eb26a9a0ad9301a1be5
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_conditional_rendering","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_resources", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}
 
-Wir sind fast fertig mit Vue. Der letzte Funktionsaspekt, den wir uns ansehen werden, ist die Fokusverwaltung, oder anders ausgedrückt, wie wir die Tastaturzugänglichkeit unserer App verbessern können. Wir werden uns ansehen, wie man **Vue refs** dafür verwendet — ein fortgeschrittenes Feature, das Ihnen direkten Zugriff auf die zugrunde liegenden DOM-Knoten unterhalb des virtuellen DOM erlaubt, oder direkten Zugriff von einer Komponente auf die interne DOM-Struktur einer Kinderkomponente bietet.
+Wir sind fast mit Vue fertig. Der letzte Punkt, den wir betrachten, ist die Fokusverwaltung oder anders ausgedrückt, wie wir die Tastaturzugänglichkeit unserer App verbessern können. Wir werden uns damit befassen, **Vue-Refs** zu verwenden, um dies zu handhaben — eine erweiterte Funktion, die es Ihnen ermöglicht, direkten Zugriff auf die zugrunde liegenden DOM-Knoten unterhalb des virtuellen DOMs oder direkten Zugriff von einer Komponente auf die interne DOM-Struktur eines Kindkomponenten zu haben.
 
 <table>
   <tbody>
@@ -17,54 +17,49 @@ Wir sind fast fertig mit Vue. Der letzte Funktionsaspekt, den wir uns ansehen we
         <p>
           Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn/HTML">HTML</a>,
           <a href="/de/docs/Learn/CSS">CSS</a> und
-          <a href="/de/docs/Learn/JavaScript">JavaScript</a>, Wissen über den
-          <a href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line"
-            >Terminal/Kommandozeile</a
-          >.
+          <a href="/de/docs/Learn/JavaScript">JavaScript</a>, sowie Kenntnisse
+          der <a href="/de/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line">Terminal-/Kommandozeile</a>.
         </p>
         <p>
-          Vue-Komponenten werden als Kombination von JavaScript-Objekten geschrieben, die die Daten der App verwalten, und einer auf HTML basierenden Vorlagensyntax, die der zugrunde liegenden DOM-Struktur zugeordnet ist. Für die Installation und die Nutzung einiger der fortgeschritteneren Funktionen von Vue (wie Single File Components oder Renderfunktionen) benötigen Sie ein Terminal mit installiertem node + npm.
+          Vue-Komponenten werden als Kombination aus JavaScript-Objekten erstellt, die die Daten der App verwalten, und einer HTML-basierten Vorlagensyntax, die der zugrunde liegenden DOM-Struktur entspricht. Für die Installation und um einige der fortgeschritteneren Funktionen von Vue zu nutzen (wie Single File Components oder Renderfunktionen), benötigen Sie ein Terminal mit installiertem Node + npm.
         </p>
       </td>
     </tr>
     <tr>
-      <th scope="row">Ziel:</th>
-      <td>Erlernen, wie man die Fokusverwaltung mit Vue refs handhabt.</td>
+      <th scope="row">Zielsetzung:</th>
+      <td>Erlernen, wie Fokusverwaltung mit Vue-Refs gehandhabt wird.</td>
     </tr>
   </tbody>
 </table>
 
-## Das Problem der Fokusverwaltung
+## Das Fokusverwaltungsproblem
 
-Zwar haben wir eine funktionierende Bearbeitungsfunktionalität, aber wir bieten keine großartige Benutzererfahrung für Nicht-Maus-Nutzer. Konkret bedeutet das, dass, wenn ein Benutzer die "Editieren"-Schaltfläche aktiviert, wir die "Editieren"-Schaltfläche aus dem DOM entfernen, aber den Fokus des Benutzers nirgendwo hinbewegen, sodass sie im Grunde verschwindet. Dies kann für Tastatur- und nicht-visuelle Nutzer verwirrend sein.
+Obwohl wir eine funktionierende Bearbeitungsfunktion haben, bieten wir keine großartige Erfahrung für Nutzer ohne Maus. Insbesondere, wenn ein Nutzer die "Bearbeiten"-Schaltfläche aktiviert, entfernen wir die "Bearbeiten"-Schaltfläche aus dem DOM, verschieben jedoch den Fokus des Nutzers nicht, sodass dieser quasi verschwindet. Das kann für Tastatur- und nicht-visuelle Nutzer irritierend sein.
 
 Um zu verstehen, was derzeit passiert:
 
-1. Laden Sie Ihre Seite neu und drücken Sie <kbd>Tab</kbd>. Sie sollten eine Fokusmarkierung auf dem Eingabefeld zur Hinzufügung neuer Aufgaben sehen.
+1. Laden Sie Ihre Seite neu und drücken Sie dann <kbd>Tab</kbd>. Sie sollten einen Fokusrahmen auf dem Eingabefeld für das Hinzufügen neuer To-Do-Elemente sehen.
+2. Drücken Sie <kbd>Tab</kbd> erneut. Der Fokus sollte zur "Hinzufügen"-Schaltfläche wechseln.
+3. Drücken Sie erneut, und er wird sich auf die erste Checkbox verschieben. Ein weiteres Mal und der Fokus sollte auf der ersten "Bearbeiten"-Schaltfläche sein.
+4. Aktivieren Sie die "Bearbeiten"-Schaltfläche durch Drücken von <kbd>Enter</kbd>. Die Checkbox wird durch unser Bearbeitungselement ersetzt, aber der Fokusrahmen ist verschwunden.
 
-2. Drücken Sie erneut <kbd>Tab</kbd>. Der Fokus sollte sich zur "Hinzufügen"-Schaltfläche bewegen.
+Dieses Verhalten kann irritierend sein. Darüber hinaus variiert, was passiert, wenn Sie erneut <kbd>Tab</kbd> drücken, je nachdem, welchen Browser Sie verwenden. Ähnlich ist es, wenn Sie Ihre Bearbeitung speichern oder abbrechen, verschwindet der Fokus erneut, während Sie zurück zur Ansicht ohne Bearbeitung wechseln.
 
-3. Drücken Sie es noch einmal, und der Fokus sollte auf dem ersten Kontrollkästchen liegen. Noch einmal drücken, und der Fokus sollte auf der ersten "Editieren"-Schaltfläche sein.
-4. Aktivieren Sie die "Editieren"-Schaltfläche, indem Sie <kbd>Enter</kbd> drücken.
-   Das Kontrollkästchen wird durch unsere Bearbeitungskomponente ersetzt, aber die Fokusmarkierung wird verschwunden sein.
+Um den Nutzern eine bessere Erfahrung zu bieten, werden wir Code hinzufügen, um den Fokus zu steuern, sodass er auf das Bearbeitungsfeld gesetzt wird, wenn das Bearbeitungsformular angezeigt wird. Wir möchten auch den Fokus wieder auf die "Bearbeiten"-Schaltfläche setzen, wenn ein Nutzer seine Bearbeitung abbricht oder speichert. Um den Fokus zu setzen, müssen wir ein wenig mehr darüber verstehen, wie Vue intern funktioniert.
 
-Dieses Verhalten kann verstörend sein. Außerdem variiert das Verhalten, wenn Sie erneut <kbd>Tab</kbd> drücken, je nachdem, welchen Browser Sie verwenden. Ebenso verschwindet der Fokus, wenn Sie Ihre Bearbeitung speichern oder abbrechen, da Sie zum Nicht-Bearbeitungs-Ansicht zurückkehren.
+## Virtuelles DOM und Refs
 
-Um den Benutzern ein besseres Erlebnis zu bieten, fügen wir Code hinzu, um den Fokus so zu steuern, dass er auf das Bearbeitungsfeld gesetzt wird, wenn das Bearbeitungsformular angezeigt wird. Wir möchten den Fokus auch wieder auf die "Editieren"-Schaltfläche setzen, wenn ein Benutzer die Bearbeitung abbricht oder speichert. Um den Fokus zu setzen, müssen wir ein wenig mehr darüber verstehen, wie Vue intern funktioniert.
+Vue nutzt, wie einige andere Frameworks, ein virtuelles DOM (VDOM), um Elemente zu verwalten. Das bedeutet, dass Vue eine Darstellung aller Knoten unserer App im Speicher hält. Alle Aktualisierungen werden zuerst an den im Speicher befindlichen Knoten vorgenommen, und dann werden alle Änderungen, die an den tatsächlichen Knoten auf der Seite vorgenommen werden müssen, in einem Stapel synchronisiert.
 
-## Virtuelles DOM und refs
+Da das Lesen und Schreiben tatsächlicher DOM-Knoten oft teurer ist als virtuelle Knoten, kann dies zu einer besseren Leistung führen. Es bedeutet jedoch auch, dass Sie Ihre HTML-Elemente oft nicht direkt über native Browser-APIs (wie [`Document.getElementById`](/de/docs/Web/API/Document/getElementById)) bearbeiten sollten, wenn Sie Frameworks verwenden, da dies dazu führt, dass das VDOM und das reale DOM nicht synchron sind.
 
-Vue verwendet, wie einige andere Frameworks, ein virtuelles DOM (VDOM), um Elemente zu verwalten. Das bedeutet, dass Vue eine Repräsentation aller Knoten unserer App im Speicher hält. Alle Updates werden zuerst an den im Speicher befindlichen Knoten vorgenommen, und dann werden alle Änderungen, die an den tatsächlichen Knoten auf der Seite vorgenommen werden müssen, in einem Rutsch synchronisiert.
+Stattdessen, wenn Sie auf die zugrunde liegenden DOM-Knoten zugreifen müssen (wie beim Setzen des Fokus), können Sie [Vue-Refs](https://vuejs.org/guide/essentials/template-refs.html) verwenden. Für benutzerdefinierte Vue-Komponenten können Sie auch Refs verwenden, um direkt auf die interne Struktur einer Kindkomponente zuzugreifen. Dies sollte jedoch mit Vorsicht geschehen, da es den Code schwerer verständlich und nachvollziehbar machen kann.
 
-Da das Lesen und Schreiben tatsächlicher DOM-Knoten oft aufwändiger ist als bei virtuellen Knoten, kann dies zu einer besseren Leistung führen. Es bedeutet jedoch auch, dass Sie Ihre HTML-Elemente nicht direkt über native Browser-APIs (wie [`Document.getElementById`](/de/docs/Web/API/Document/getElementById)) bearbeiten sollten, wenn Sie Frameworks verwenden, da dies dazu führt, dass das VDOM und das reale DOM nicht mehr synchron sind.
+Um eine Ref in einer Komponente zu verwenden, fügen Sie dem Element, auf das Sie zugreifen möchten, ein `ref`-Attribut mit einem String-Identifier für den Wert des Attributs hinzu. Es ist wichtig zu beachten, dass eine Ref innerhalb einer Komponente eindeutig sein muss. Keine zwei Elemente, die gleichzeitig gerendert werden, sollten die gleiche Ref haben.
 
-Stattdessen, wenn Sie auf die zugrunde liegenden DOM-Knoten zugreifen müssen (wie beim Setzen des Fokus), können Sie [Vue refs](https://vuejs.org/guide/essentials/template-refs.html) verwenden. Für benutzerdefinierte Vue-Komponenten können Sie auch refs verwenden, um direkt auf die interne Struktur einer Kinderkomponente zuzugreifen, jedoch sollte dies mit Vorsicht erfolgen, da es den Code schwerer verständlich machen kann.
+### Hinzufügen einer Ref zu unserer App
 
-Um einen ref in einer Komponente zu verwenden, fügen Sie dem Element, auf das Sie zugreifen möchten, ein `ref`-Attribut mit einem String-Identifikator als Attributwert hinzu. Es ist wichtig zu beachten, dass ein ref innerhalb einer Komponente einzigartig sein muss. Es sollten keine zwei Elemente, die gleichzeitig gerendert werden, denselben ref haben.
-
-### Hinzufügen eines refs zu unserer App
-
-Fügen wir also einen ref zu unserer "Editieren"-Schaltfläche in `ToDoItem.vue` hinzu. Aktualisieren Sie es wie folgt:
+Lassen Sie uns also eine Ref zu unserer "Bearbeiten"-Schaltfläche in `ToDoItem.vue` hinzufügen. Aktualisieren Sie es so:
 
 ```html
 <button
@@ -77,7 +72,7 @@ Fügen wir also einen ref zu unserer "Editieren"-Schaltfläche in `ToDoItem.vue`
 </button>
 ```
 
-Um den Wert, der mit unserem ref verbunden ist, zuzugreifen, verwenden wir die `$refs`-Eigenschaft auf unserer Komponenteninstanz. Um den Wert des refs zu sehen, wenn wir unsere "Editieren"-Schaltfläche klicken, fügen wir eine `console.log()` zu unserer `toggleToItemEditForm()`-Methode hinzu, wie folgt:
+Um auf den Wert zuzugreifen, der mit unserer Ref verknüpft ist, verwenden wir die `$refs`-Eigenschaft, die auf unserer Komponenteninstanz bereitgestellt wird. Um den Wert der Ref zu sehen, wenn wir auf unsere "Bearbeiten"-Schaltfläche klicken, fügen Sie `console.log()` zu unserer `toggleToItemEditForm()`-Methode hinzu, wie folgt:
 
 ```js
 toggleToItemEditForm() {
@@ -86,13 +81,13 @@ toggleToItemEditForm() {
 }
 ```
 
-Wenn Sie zum jetzigen Zeitpunkt die "Editieren"-Schaltfläche aktivieren, sollte ein HTML `<button>`-Element in Ihrer Konsole referenziert sein.
+Wenn Sie die "Bearbeiten"-Schaltfläche zu diesem Zeitpunkt aktivieren, sollten Sie ein `<button>` Element in Ihrer Konsole referenziert sehen.
 
 ## Vue's $nextTick() Methode
 
-Wir möchten den Fokus auf die "Editieren"-Schaltfläche setzen, wenn ein Benutzer seine Bearbeitung speichert oder abbricht. Dazu müssen wir den Fokus in den Methoden `itemEdited()` und `editCancelled()` der `ToDoItem`-Komponente handhaben.
+Wir möchten den Fokus auf die "Bearbeiten"-Schaltfläche setzen, wenn ein Nutzer seine Bearbeitung speichert oder abbricht. Dazu müssen wir den Fokus in den Methoden `itemEdited()` und `editCancelled()` der `ToDoItem`-Komponente handhaben.
 
-Erstellen Sie der Einfachheit halber eine neue Methode, die keine Argumente annimmt, namens `focusOnEditButton()`. Innendrin weisen Sie Ihrem `ref` einer Variablen zu und rufen dann die `focus()`-Methode auf dem ref auf.
+Erstellen Sie der Bequemlichkeit halber eine neue Methode, die keine Argumente nimmt, mit dem Namen `focusOnEditButton()`. Weisen Sie darin Ihre `ref` einer Variablen zu und rufen Sie die `focus()`-Methode auf der Ref auf.
 
 ```js
 focusOnEditButton() {
@@ -101,7 +96,7 @@ focusOnEditButton() {
 }
 ```
 
-Fügen Sie als Nächstes einen Aufruf zu `this.focusOnEditButton()` am Ende der Methoden `itemEdited()` und `editCancelled()` hinzu:
+Fügen Sie als nächstes einen Aufruf von `this.focusOnEditButton()` am Ende der Methoden `itemEdited()` und `editCancelled()` hinzu:
 
 ```js
 itemEdited(newItemName) {
@@ -115,15 +110,15 @@ editCancelled() {
 },
 ```
 
-Versuchen Sie, ein To-do-Element zu bearbeiten und dann zu speichern/zu stornieren, und zwar über Ihre Tastatur. Sie werden feststellen, dass der Fokus nicht gesetzt wird, sodass wir immer noch ein Problem zu lösen haben. Wenn Sie Ihre Konsole öffnen, sehen Sie eine Fehlermeldung wie _"can't access property "focus", editButtonRef is undefined"_. Das scheint seltsam. Ihr Button-Ref war definiert, als Sie die "Editieren"-Schaltfläche aktiviert haben, ist es jetzt aber nicht mehr. Was ist da los?
+Versuchen Sie, ein To-Do-Element zu bearbeiten und dann zu speichern/abzubrechen über Ihre Tastatur. Ihnen wird auffallen, dass der Fokus nicht gesetzt wird, also haben wir noch ein Problem zu lösen. Wenn Sie Ihre Konsole öffnen, wird ein Fehler angezeigt, ähnlich wie _"can't access property "focus", editButtonRef is undefined"_. Das scheint seltsam. Ihre Schaltflächenref war definiert, als Sie die "Bearbeiten"-Schaltfläche aktiviert haben, aber jetzt nicht mehr. Was ist los?
 
-Nun, denken Sie daran, dass wenn wir `isEditing` auf `true` ändern, wir den Abschnitt der Komponente mit der "Editieren"-Schaltfläche nicht mehr rendern. Das bedeutet, dass es kein Element gibt, an das der ref gebunden werden kann, und es wird `undefined`.
+Nun, denken Sie daran, dass wir, wenn wir `isEditing` auf `true` setzen, den Abschnitt der Komponente, der die "Bearbeiten"-Schaltfläche enthält, nicht mehr rendern. Das bedeutet, dass es kein Element gibt, an das die Ref gebunden werden kann, sodass sie `undefined` wird.
 
-Vielleicht denken Sie jetzt "Hey, setzen wir nicht `isEditing=false`, bevor wir versuchen, auf das `ref` zuzugreifen, also sollte jetzt die `v-if` die Schaltfläche anzeigen, oder?" An dieser Stelle kommt das virtuelle DOM ins Spiel. Da Vue versucht, Änderungen zu optimieren und zu stapeln, wird das DOM nicht sofort aktualisiert, wenn wir `isEditing` auf `false` setzen. Also wenn wir `focusOnEditButton()` aufrufen, ist die "Editieren"-Schaltfläche noch nicht gerendert.
+Sie denken jetzt vielleicht, "hey, setzen wir nicht `isEditing=false`, bevor wir versuchen, auf die `ref` zuzugreifen, sollte also nicht das `v-if` die Schaltfläche jetzt anzeigen?" Hier kommt das virtuelle DOM ins Spiel. Weil Vue versucht zu optimieren und Änderungen zu stapeln, wird das DOM nicht sofort aktualisiert, wenn wir `isEditing` auf `false` setzen. Also, wenn wir `focusOnEditButton()` aufrufen, wurde die "Bearbeiten"-Schaltfläche noch nicht gerendert.
 
-Stattdessen müssen wir bis nach dem nächsten DOM-Update-Zyklus warten. Dazu haben Vue-Komponenten eine spezielle Methode namens `$nextTick()`. Diese Methode nimmt eine Callback-Funktion an, die dann nach den DOM-Updates ausgeführt wird.
+Stattdessen müssen wir warten, bis nach dem nächsten DOM-Update-Zyklus von Vue. Dafür haben Vue-Komponenten eine spezielle Methode namens `$nextTick()`. Diese Methode akzeptiert eine Callback-Funktion, die dann nach den DOM-Aktualisierungen ausgeführt wird.
 
-Da die Methode `focusOnEditButton()` nach dem Update des DOM aufgerufen werden muss, können wir den bestehenden Funktionskörper in einen `$nextTick()`-Aufruf einwickeln.
+Da die `focusOnEditButton()`-Methode nach der DOM-Aktualisierung aufgerufen werden muss, können wir den vorhandenen Funktionskörper innerhalb eines `$nextTick()`-Aufrufs einfügen.
 
 ```js
 focusOnEditButton() {
@@ -134,33 +129,33 @@ focusOnEditButton() {
 }
 ```
 
-Jetzt, wenn Sie die "Editieren"-Schaltfläche aktivieren und dann Ihre Änderungen über die Tastatur abbrechen oder speichern, sollte der Fokus auf die "Editieren"-Schaltfläche zurückkehren. Erfolg!
+Jetzt, wenn Sie die "Bearbeiten"-Schaltfläche aktivieren und dann Ihre Änderungen über die Tastatur abbrechen oder speichern, sollte der Fokus wieder auf die "Bearbeiten"-Schaltfläche gesetzt werden. Erfolg!
 
-## Vue Lebenszyklusmethoden
+## Vue-Lifecycle-Methoden
 
-Als Nächstes müssen wir den Fokus auf das `<input>`-Element des Bearbeitungsformulars verschieben, wenn die "Editieren"-Schaltfläche geklickt wird. Da unser Bearbeitungsformular jedoch in einer anderen Komponente als unsere "Editieren"-Schaltfläche ist, können wir den Fokus nicht einfach im Klick-Event-Handler der "Editieren"-Schaltfläche setzen. Stattdessen können wir die Tatsache nutzen, dass wir unsere `ToDoItemEditForm`-Komponente entfernen und wieder montieren, wenn die "Editieren"-Schaltfläche geklickt wird, um dies zu handhaben.
+Als nächstes müssen wir den Fokus auf das `<input>`-Element des Bearbeitungsformulars setzen, wenn die "Bearbeiten"-Schaltfläche angeklickt wird. Da unser Bearbeitungsformular jedoch in einer anderen Komponente als unsere "Bearbeiten"-Schaltfläche ist, können wir den Fokus nicht einfach innerhalb des Klick-Ereignis-Handlers der "Bearbeiten"-Schaltfläche setzen. Stattdessen können wir nutzen, dass wir unsere `ToDoItemEditForm`-Komponente immer entfernen und neu mounten, wenn die "Bearbeiten"-Schaltfläche angeklickt wird, um dies zu handhaben.
 
-Wie funktioniert das? Nun, Vue-Komponenten durchlaufen eine Reihe von Ereignissen, die als **Lebenszyklus** bekannt sind. Dieser Lebenszyklus spannt sich von der Zeit vor der _Erstellung_ und dem Hinzufügen der Elemente zum VDOM (_montiert_), bis zur Entfernung aus dem VDOM (_zerstört_).
+Wie funktioniert das? Nun, Vue-Komponenten durchlaufen eine Reihe von Ereignissen, bekannt als ein **Lifecycle**. Dieser Lifecycle erstreckt sich von der Zeit, bevor Elemente _erstellt_ und dem VDOM hinzugefügt wurden (_mounted_), bis sie aus dem VDOM entfernt werden (_destroyed_).
 
-Vue ermöglicht es Ihnen, Methoden in verschiedenen Phasen dieses Lebenszyklus mit **Lebenszyklusmethoden** auszuführen. Dies kann nützlich für Dinge wie das Abrufen von Daten sein, bei denen Sie möglicherweise Ihre Daten abrufen müssen, bevor Ihre Komponente rendert oder nachdem eine Eigenschaft sich ändert. Die Liste der Lebenszyklusmethoden ist unten in der Reihenfolge aufgeführt, in der sie ausgelöst werden.
+Vue ermöglicht es Ihnen, Methoden in verschiedenen Stadien dieses Lifecycles mithilfe von **Lifecycle-Methoden** auszuführen. Dies kann nützlich sein für Dinge wie Datenabfragen, bei denen Sie möglicherweise Ihre Daten abrufen müssen, bevor Ihre Komponente gerendert wird, oder nachdem sich eine Eigenschaft geändert hat. Die Liste der Lifecycle-Methoden folgt unten, in der Reihenfolge, in der sie ausgelöst werden.
 
-1. `beforeCreate()` — Läuft bevor die Instanz Ihrer Komponente erstellt wird. Daten und Ereignisse sind noch nicht verfügbar.
-2. `created()` — Läuft nachdem Ihre Komponente initialisiert wurde, aber bevor die Komponente zum VDOM hinzugefügt wird. Hier erfolgt oft das Datenabrufen.
-3. `beforeMount()` — Läuft nachdem Ihre Vorlage kompiliert wurde, aber bevor Ihre Komponente zum tatsächlichen DOM gerendert wird.
-4. `mounted()` — Läuft nachdem Ihre Komponente zum DOM montiert wurde. Hier kann auf `refs` zugegriffen werden.
-5. `beforeUpdate()` — Wird jedes Mal ausgeführt, wenn Daten in Ihrer Komponente geändert werden, aber bevor die Änderungen zum DOM gerendert werden.
-6. `updated()` — Wird jedes Mal ausgeführt, wenn Daten in Ihrer Komponente geändert wurden und nachdem die Änderungen zum DOM gerendert wurden.
-7. `beforeDestroy()` — Läuft bevor eine Komponente aus dem DOM entfernt wird.
-8. `destroyed()` — Läuft nachdem eine Komponente aus dem DOM entfernt wurde.
-9. `activated()` — Wird nur in Komponenten, die in einem speziellen `keep-alive`-Tag umwickelt sind, verwendet. Läuft, nachdem die Komponente aktiviert wurde.
-10. `deactivated()` — Wird nur in Komponenten, die in einem speziellen `keep-alive`-Tag umwickelt sind, verwendet. Läuft, nachdem die Komponente deaktiviert wurde.
+1. `beforeCreate()` — Wird ausgeführt, bevor die Instanz Ihrer Komponente erstellt wird. Daten und Ereignisse sind noch nicht verfügbar.
+2. `created()` — Wird ausgeführt, nachdem Ihre Komponente initialisiert wurde, aber bevor die Komponente dem VDOM hinzugefügt wurde. Hier erfolgt häufig die Datenabfrage.
+3. `beforeMount()` — Wird ausgeführt, nachdem Ihre Vorlage kompiliert wurde, aber bevor Ihre Komponente im tatsächlichen DOM gerendert wurde.
+4. `mounted()` — Wird ausgeführt, nachdem Ihre Komponente im DOM gemountet wurde. Hier kann auf `refs` zugegriffen werden.
+5. `beforeUpdate()` — Wird ausgeführt, wann immer Daten in Ihrer Komponente sich ändern, aber bevor die Änderungen im DOM gerendert werden.
+6. `updated()` — Wird ausgeführt, wann immer Daten in Ihrer Komponente geändert wurden und nachdem die Änderungen im DOM gerendert wurden.
+7. `beforeDestroy()` — Wird ausgeführt, bevor eine Komponente aus dem DOM entfernt wird.
+8. `destroyed()` — Wird ausgeführt, nachdem eine Komponente aus dem DOM entfernt wurde.
+9. `activated()` — Wird nur in Komponenten verwendet, die in einem speziellen `keep-alive`-Tag eingeschlossen sind. Wird ausgeführt, nachdem die Komponente aktiviert wurde.
+10. `deactivated()` — Wird nur in Komponenten verwendet, die in einem speziellen `keep-alive`-Tag eingeschlossen sind. Wird ausgeführt, nachdem die Komponente deaktiviert wurde.
 
 > [!NOTE]
-> Die Vue-Dokumentation bietet ein [schönes Diagramm zur Veranschaulichung, wann diese Hooks geschehen](https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram). Dieser Artikel aus dem [Digital Ocean Community Blog taucht tiefer in die Lebenszyklusmethoden ein](https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle).
+> Die Vue-Dokumentation bietet ein [schönes Diagramm, um zu veranschaulichen, wann diese Hooks stattfinden](https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram). Dieser Artikel aus dem [DigitalOcean Community Blog behandelt die Lifecycle-Methoden ausführlicher](https://www.digitalocean.com/community/tutorials/vuejs-component-lifecycle).
 
-Jetzt, da wir die Lebenszyklusmethoden durchgegangen sind, lassen Sie uns eine verwenden, um den Fokus zu triggern, wenn unsere `ToDoItemEditForm`-Komponente montiert wird.
+Da wir nun die Lifecycle-Methoden durchgegangen sind, lassen Sie uns eine verwenden, um den Fokus zu setzen, wenn unsere `ToDoItemEditForm`-Komponente gemountet wird.
 
-In `ToDoItemEditForm.vue` fügen Sie `ref="labelInput"` zum `<input>`-Element hinzu, wie folgt:
+In `ToDoItemEditForm.vue` fügen Sie `ref="labelInput"` dem `<input>`-Element hinzu, wie folgt:
 
 ```html
 <input
@@ -171,7 +166,7 @@ In `ToDoItemEditForm.vue` fügen Sie `ref="labelInput"` zum `<input>`-Element hi
   v-model.lazy.trim="newName" />
 ```
 
-Fügen Sie als Nächstes eine `mounted()`-Eigenschaft direkt in Ihr Komponentenobjekt ein — **beachten Sie, dass dies nicht innerhalb der `methods`-Eigenschaft platziert werden sollte, sondern auf gleicher Hierarchieebene wie `props`, `data()` und `methods`.** Lebenszyklusmethoden sind spezielle Methoden, die für sich alleine stehen, nicht nebend den benutzerdefinierten Methoden. Diese sollte keine Eingaben annehmen. Beachten Sie, dass Sie hier keine Pfeilfunktion verwenden können, da wir Zugriff auf `this` benötigen, um auf unser `labelInput`-ref zuzugreifen.
+Fügen Sie als nächstes eine `mounted()`-Eigenschaft direkt innerhalb Ihres Komponentenobjekts hinzu — **beachten Sie, dass diese nicht innerhalb der `methods`-Eigenschaft gesetzt werden soll, sondern auf der gleichen Hierarchie-Ebene wie `props`, `data()` und `methods`.** Lifecycle-Methoden sind spezielle Methoden, die für sich alleine stehen, nicht neben den benutzerdefinierten Methoden. Diese sollte keine Eingaben annehmen. Beachten Sie, dass Sie hier keine Pfeilfunktion verwenden können, da wir Zugriff auf `this` benötigen, um auf unsere `labelInput`-Ref zuzugreifen.
 
 ```js
 mounted() {
@@ -179,7 +174,7 @@ mounted() {
 }
 ```
 
-Innerhalb Ihrer `mounted()`-Methode, weisen Sie Ihr `labelInput`-ref einer Variablen zu und rufen dann die `focus()`-Funktion des ref auf. Sie müssen `$nextTick()` hier nicht verwenden, da die Komponente bereits zum DOM hinzugefügt wurde, wenn `mounted()` aufgerufen wird.
+Innerhalb Ihrer `mounted()`-Methode weisen Sie Ihrer `labelInput`-Ref eine Variable zu und rufen dann die `focus()`-Funktion der Ref auf. Sie müssen `$nextTick()` hier nicht verwenden, da die Komponente bereits zum DOM hinzugefügt wurde, wenn `mounted()` aufgerufen wird.
 
 ```js
 mounted() {
@@ -188,27 +183,27 @@ mounted() {
 }
 ```
 
-Jetzt, wenn Sie die "Editieren"-Schaltfläche mit Ihrer Tastatur aktivieren, sollte der Fokus sofort auf das Bearbeitungs-`<input>` verschoben werden.
+Wenn Sie nun die "Bearbeiten"-Schaltfläche mit Ihrer Tastatur aktivieren, sollte der Fokus sofort auf das Bearbeitungs-`<input>` verschoben werden.
 
-## Umgang mit dem Fokus beim Löschen von To-do-Elementen
+## Umgang mit dem Fokus beim Löschen von To-Do-Elementen
 
-Es gibt noch einen weiteren Ort, an dem wir die Fokusverwaltung berücksichtigen müssen: Wenn ein Benutzer ein To-do löscht. Beim Klicken auf den "Editieren"-Knopf ergibt es Sinn, den Fokus auf das Eingabefeld zur Bearbeitung des Namens zu verschieben und zurück zur "Editieren"-Schaltfläche, wenn die Bearbeitung von der Bearbeitungsansicht aus abgebrochen oder gespeichert wird.
+Es gibt noch einen Ort, an dem wir die Fokusverwaltung in Betracht ziehen müssen: wenn ein Nutzer ein To-Do löscht. Beim Klicken auf die "Bearbeiten"-Schaltfläche ist es sinnvoll, den Fokus auf das Bearbeitungs-Textfeld zu verschieben, und zurück auf die "Bearbeiten"-Schaltfläche, wenn man vom Bearbeitungsbildschirm aus abbricht oder speichert.
 
-Jedoch, im Gegensatz zum Bearbeitungsformular, haben wir keinen klaren Ort, an den der Fokus verschoben werden soll, wenn ein Element gelöscht wird. Wir brauchen auch eine Möglichkeit, den Benutzern von unterstützenden Technologien Informationen bereitzustellen, die bestätigen, dass ein Element gelöscht wurde.
+Im Gegensatz zum Bearbeitungsformular haben wir jedoch keinen klaren Ort, an den der Fokus verschoben werden kann, wenn ein Element gelöscht wird. Wir benötigen ebenfalls eine Möglichkeit, den Nutzern von unterstützenden Technologien Informationen bereitzustellen, die bestätigen, dass ein Element gelöscht wurde.
 
-Wir verfolgen bereits die Anzahl der Elemente in unserer Listenüberschrift — dem `<h2>` in `App.vue` — und es ist mit unserer Liste der Aufgaben verbunden. Dies macht es zu einem vernünftigen Ort, um den Fokus zu verschieben, wenn wir einen Knoten löschen.
+Wir verfolgen bereits die Anzahl der Elemente in unserer Listenüberschrift — dem `<h2>` in `App.vue` — und sie ist mit unserer Liste von To-Do-Elementen verknüpft. Dies macht es zu einem vernünftigen Ort, um den Fokus hin zu verschieben, wenn wir einen Knoten löschen.
 
-Zuerst müssen wir einen ref zu unserer Listenüberschrift hinzufügen. Wir müssen auch `tabindex="-1"` hinzufügen — dies macht das Element programmatisch fokussierbar (d.h. es kann über JavaScript fokussiert werden), während es standardmäßig nicht fokussierbar ist.
+Zuerst müssen wir eine Ref zu unserer Listenüberschrift hinzufügen. Wir müssen ebenfalls ein `tabindex="-1"` hinzufügen — dadurch wird das Element programmatisch fokussierbar gemacht (d.h. es kann über JavaScript fokussiert werden), wenn es standardmäßig nicht fokussierbar ist.
 
-Innerhalb von `App.vue`, aktualisieren Sie Ihr `<h2>` wie folgt:
+In `App.vue` aktualisieren Sie Ihr `<h2>` wie folgt:
 
 ```html
 <h2 id="list-summary" ref="listSummary" tabindex="-1">\{{listSummary}}</h2>
 ```
 
-> **Note:** [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) ist ein sehr mächtiges Werkzeug zur Behebung bestimmter Zugänglichkeitsprobleme. Es sollte jedoch mit Vorsicht verwendet werden. Eine übermäßige Verwendung von `tabindex="-1"` kann Probleme für alle Arten von Benutzern verursachen, daher sollte es nur genau dort verwendet werden, wo Sie es brauchen. Sie sollten auch fast nie `tabindex` >= `0` verwenden, da es Probleme für Benutzer verursachen kann, da es den Ablauf des DOM und die Reihenfolge der Tabulatortaste unpassend machen kann und/oder nicht-interaktive Elemente zur Tabulatordreihenfolge hinzufügt. Dies kann für Benutzer verwirrend sein, besonders für diejenigen, die Bildschirmleser und andere unterstützende Technologien verwenden.
+> **Hinweis:** [`tabindex`](/de/docs/Web/HTML/Global_attributes/tabindex) ist ein sehr mächtiges Werkzeug zur Bewältigung bestimmter Barrierefreiheitsprobleme. Es sollte jedoch mit Vorsicht verwendet werden. Ein übermäßiger Gebrauch von `tabindex="-1"` kann Probleme für alle Arten von Nutzern verursachen, daher verwenden Sie es nur genau dort, wo Sie es wirklich benötigen. Sie sollten auch fast nie `tabindex` >= `0` verwenden, da es Probleme für Benutzer verursachen kann, da es den Flow des DOMs und die Tab-Reihenfolge nicht übereinstimmen lassen kann und/oder nicht-interaktive Elemente zur Tab-Reihenfolge hinzufügt. Dies kann verwirrend für Nutzer sein, besonders für diejenigen, die Bildschirmlesegeräte und andere unterstützende Technologien verwenden.
 
-Nun, da wir ein `ref` haben und den Browsern mitgeteilt haben, dass wir das `<h2>` programmatisch fokussieren können, müssen wir den Fokus darauf setzen. Am Ende von `deleteToDo()`, verwenden Sie das `listSummary`-ref, um den Fokus auf das `<h2>` zu setzen. Da das `<h2>` immer in der App gerendert wird, brauchen Sie sich keine Sorgen über die Verwendung von `$nextTick()` oder Lebenszyklusmethoden zu machen, um es zu fokussieren.
+Da wir jetzt eine `ref` haben und den Browsern mitgeteilt haben, dass wir das `<h2>` programmatisch fokussieren können, müssen wir den Fokus darauf setzen. Am Ende von `deleteToDo()` verwenden Sie die `listSummary`-Ref, um den Fokus auf das `<h2>` zu setzen. Da das `<h2>` immer in der App gerendert wird, müssen Sie sich keine Sorgen machen, `$nextTick()` oder Lifecycle-Methoden zu verwenden, um es zu fokussieren.
 
 ```js
 deleteToDo(toDoId) {
@@ -218,13 +213,13 @@ deleteToDo(toDoId) {
 }
 ```
 
-Jetzt, wenn Sie ein Element aus Ihrer Liste löschen, sollte der Fokus auf die Listenüberschrift verschoben werden. Dies sollte eine angemessene Fokuserfahrung für alle unsere Benutzer bieten.
+Wenn Sie jetzt ein Element aus Ihrer Liste löschen, sollte der Fokus auf die Listenüberschrift verschoben werden. Dies sollte eine vernünftige Fokuserfahrung für all unsere Nutzer bieten.
 
 ## Zusammenfassung
 
-Das war's zur Fokusverwaltung und für unsere App! Glückwunsch, dass Sie sich durch alle unsere Vue-Tutorials gearbeitet haben. Im nächsten Artikel werden wir mit einigen weiteren Ressourcen um das Vue-Lernen weiterzuführen abschließen.
+Das war es also zur Fokusverwaltung und für unsere App! Herzlichen Glückwunsch, dass Sie alle unsere Vue-Tutorials durchgearbeitet haben. Im nächsten Artikel werden wir einige zusätzliche Ressourcen bereitstellen, um Ihr Vue-Lernen weiter voranzutreiben.
 
 > [!NOTE]
-> Wenn Sie Ihren Code mit unserer Version abgleichen müssen, können Sie eine fertige Version des Beispiel-Vue-App-Codes in unserem todo-vue-Repository finden. Eine laufende Live-Version finden Sie unter <https://mdn.github.io/todo-vue/>.
+> Wenn Sie Ihren Code mit unserer Version überprüfen müssen, finden Sie eine fertige Version des Beispiel-Vue-App-Codes in unserem todo-vue-Repository. Für eine laufende Live-Version siehe <https://mdn.github.io/todo-vue/>.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_conditional_rendering","Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Vue_resources", "Learn/Tools_and_testing/Client-side_JavaScript_frameworks")}}

@@ -1,8 +1,8 @@
 ---
-title: Strategien für das Testen
+title: Strategien zur Durchführung von Tests
 slug: Learn/Tools_and_testing/Cross_browser_testing/Testing_strategies
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Cross_browser_testing/Introduction","Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS", "Learn/Tools_and_testing/Cross_browser_testing")}}
@@ -27,8 +27,8 @@ Dieser Artikel erklärt, wie man Cross-Browser-Tests durchführt: wie man auswä
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        Ein Verständnis der Konzepte im High-Level-Bereich des Cross-Browser-Testings
-        zu erlangen.
+        Ein Verständnis der grundlegenden Konzepte des Cross-Browser-Testing zu
+        erlangen.
       </td>
     </tr>
   </tbody>
@@ -36,250 +36,252 @@ Dieser Artikel erklärt, wie man Cross-Browser-Tests durchführt: wie man auswä
 
 ## Auswahl der zu testenden Browser und Geräte
 
-Da Sie nicht jede Kombination von Browser und Gerät testen können, reicht es aus, sicherzustellen, dass Ihre Website auf den wichtigsten funktioniert. In der Praxis bedeutet "wichtig" oft "häufig von der Zielgruppe genutzt".
+Da man nicht jede Kombination von Browser und Gerät testen kann, reicht es aus, wenn Sie sicherstellen, dass Ihre Website auf den wichtigsten funktioniert. In der Praxis bedeutet "wichtig" oft "häufig verwendet bei der Zielgruppe".
 
-Sie können Browser und Geräte nach dem Umfang der Unterstützung klassifizieren, die Sie bereitstellen möchten. Zum Beispiel:
+Sie können Browser und Geräte danach klassifizieren, wie viel Unterstützung Sie zu geben beabsichtigen. Zum Beispiel:
 
-1. A-Grad: Häufige/moderne Browser — Bekannt als fähig. Gründlich testen und volle Unterstützung bieten.
-2. B-Grad: Ältere/weniger fähige Browser — Bekannt als nicht fähig. Testen und eine einfachere Erfahrung bieten, die vollen Zugang zu den Kerninformationen und Dienstleistungen gibt.
-3. C-Grad: Seltene/unbekannte Browser — nicht testen, aber annehmen, dass sie fähig sind. Die volle Website anbieten, die mindestens mit den von unserem defensiven Codieren bereitgestellten Fallbacks funktionieren sollte.
+1. A-Note: Häufige/moderne Browser — Bekanntermaßen fähig. Gründlich testen und vollständige Unterstützung bieten.
+2. B-Note: Ältere/weniger fähige Browser — bekannt dafür, nicht voll fähig zu sein. Testen und eine einfachere Erfahrung bieten, die vollen Zugriff auf Kerninformationen und -dienste gibt.
+3. C-Note: Seltene/unbekannte Browser — nicht testen, aber annehmen, dass sie fähig sind. Die vollständige Seite bereitstellen, die funktionieren sollte, zumindest mit den durch unser defensives Codieren bereitgestellten Fallbacks.
 
-In den folgenden Abschnitten erstellen wir ein Unterstützungsdiagramm in diesem Format.
-
-> [!NOTE]
-> Yahoo hat diesen Ansatz zuerst mit ihrem [Graded browser Support](https://github.com/yui/yui3/wiki/Graded-Browser-Support) populär gemacht.
-
-### Vorhersage der am häufigsten genutzten Browser Ihrer Zielgruppe
-
-Dies beinhaltet typischerweise fundierte Vermutungen basierend auf demografischen Merkmalen der Benutzer. Zum Beispiel, wenn Ihre Benutzer in Nordamerika und Westeuropa sind:
-
-Eine schnelle Online-Suche sagt Ihnen, dass die meisten Menschen in Nordamerika und Westeuropa Windows- oder Mac-Desktops/Laptops verwenden, wobei die Hauptbrowser Chrome, Firefox, Safari und Edge sind. Sie würden wahrscheinlich nur die neuesten Versionen dieser Browser testen wollen, da diese Browser regelmäßig Updates erhalten. Diese sollten alle in den A-Grad eingeordnet werden.
-
-Die meisten Menschen in dieser demografischen Gruppe verwenden auch iOS- oder Android-Telefone, so dass Sie wahrscheinlich die neuesten Versionen von iOS Safari, die letzten paar Versionen des alten Android-Standardsbrowser sowie Chrome und Firefox für iOS und Android testen möchten. Idealerweise sollten Sie diese sowohl auf einem Telefon als auch einem Tablet testen, um sicherzustellen, dass responsive Designs funktionieren.
-
-Opera Mini ist nicht sehr fähig, komplexes JavaScript auszuführen, daher sollten wir dies ebenfalls in den B-Grad einordnen.
-
-Somit haben wir unsere Auswahl, welche Browser getestet werden sollen, auf den Browsern basiert, die wir erwarten, dass unsere Benutzer verwenden. Dies gibt uns bisher das folgende Unterstützungsdiagramm:
-
-1. A-Grad: Chrome und Firefox für Windows/Mac, Safari für Mac, Edge für Windows, iOS Safari für iPhone/iPad, Android-Standardbrowser (die letzten zwei Versionen) auf Telefon/Tablet, Chrome und Firefox für Android (die letzten zwei Versionen) auf Telefon/Tablet
-2. B-Grad: Opera Mini
-3. C-Grad: n/a
-
-Wenn Ihre Zielgruppe hauptsächlich anderswo angesiedelt ist, können die am häufigsten genutzten Browser und Betriebssysteme von den obigen abweichen.
+In den folgenden Abschnitten werden wir eine Unterstützungs-Tabelle in diesem Format erstellen.
 
 > [!NOTE]
-> "Der CEO meiner Firma benutzt ein Blackberry, also sollten wir sicherstellen, dass es darauf gut aussieht" kann auch etwas sein, das in Betracht gezogen werden sollte.
+> Yahoo machte diesen Ansatz mit ihrem [Graded Browser Support](https://github.com/yui/yui3/wiki/Graded-Browser-Support) populär.
+
+### Vorhersage der am häufigsten verwendeten Browser Ihrer Zielgruppe
+
+Dies beinhaltet typischerweise fundierte Vermutungen basierend auf Benutzerdemografien. Wenn beispielsweise Ihre Benutzer in Nordamerika und Westeuropa sind:
+
+Eine schnelle Online-Suche sagt Ihnen, dass die meisten Menschen in Nordamerika und Westeuropa Windows- oder Mac-Desktops/Laptops verwenden, wobei die Hauptbrowser Chrome, Firefox, Safari und Edge sind. Sie würden wahrscheinlich nur die neuesten Versionen dieser Browser testen wollen, da diese regelmäßig Updates erhalten. Diese sollten alle in die A-Note-Stufe gehen.
+
+Die meisten Menschen in dieser demografischen Gruppe verwenden auch entweder iOS- oder Android-Telefone, also würden Sie wahrscheinlich die neuesten Versionen von iOS Safari, die letzten paar Versionen des alten Android-Standardbrowsers sowie Chrome und Firefox für iOS und Android testen wollen. Sie sollten idealerweise diese auf sowohl einem Telefon als auch einem Tablet testen, um sicherzustellen, dass responsive Designs funktionieren.
+
+Opera Mini kann nicht sehr gut mit komplexem JavaScript umgehen, daher sollten wir dies ebenfalls in Note B einordnen.
+
+So haben wir unsere Wahl, welche Browser getestet werden sollen, auf den Browsern basiert, die wir erwarten, dass unsere Benutzer verwenden.
+Das gibt uns bisher folgende Unterstützungs-Tabelle:
+
+1. A-Note: Chrome und Firefox für Windows/Mac, Safari für Mac, Edge für Windows, iOS Safari für iPhone/iPad, Android-Standardbrowser (die letzten zwei Versionen) auf Telefon/Tablet, Chrome und Firefox für Android (die letzten zwei Versionen) auf Telefon/Tablet
+2. B-Note: Opera Mini
+3. C-Note: nicht anwendbar
+
+Sollte Ihre Zielgruppe hauptsächlich woanders angesiedelt sein, könnten die am häufigsten verwendeten Browser und Betriebssysteme von den obigen abweichen.
+
+> [!NOTE]
+> "Der CEO meines Unternehmens verwendet ein Blackberry, also sollten wir sicherstellen, dass es darauf gut aussieht" kann auch etwas sein, das zu berücksichtigen ist.
 
 ### Browser-Statistiken
 
-Einige Websites zeigen, welche Browser in einer bestimmten Region beliebt sind. Zum Beispiel gibt [Statcounter](https://gs.statcounter.com/) einen Einblick in Trends in Nordamerika.
+Einige Websites zeigen, welche Browser in einer bestimmten Region populär sind. Zum Beispiel gibt [Statcounter](https://gs.statcounter.com/) einen Eindruck von Trends in Nordamerika.
 
-### Nutzung von Analysen
+### Die Nutzung von Analysen
 
-Eine viel genauere Datenquelle, wenn Sie sie bekommen können, ist eine Analyse-App wie [Google Analytics](https://marketingplatform.google.com/about/analytics/), die Ihnen genau sagt, welche Browser die Leute verwenden, um Ihre Website zu durchsuchen. Natürlich setzt dies voraus, dass Sie bereits eine Website haben, die Sie dafür verwenden können, daher ist es nicht gut für völlig neue Websites.
+Eine viel genauere Datenquelle, wenn Sie darauf zugreifen können, ist eine Analyse-App wie [Google Analytics](https://marketingplatform.google.com/about/analytics/), die Ihnen genau sagt, welche Browser Benutzer verwenden, um Ihre Website zu durchsuchen. Natürlich setzt dies voraus, dass Sie bereits eine Website haben, auf der Sie es verwenden können, daher ist es für komplett neue Sites nicht geeignet.
 
-Sie könnten auch in Betracht ziehen, Open-Source- und datenschutzfreundliche Analyseplattformen wie [Open Web Analytics](https://www.openwebanalytics.com/) und [Matomo](https://matomo.org/) zu verwenden. Sie erwarten, dass Sie die Analyseplattform selbst hosten.
+Sie können auch in Betracht ziehen, Open-Source- und datenschutzorientierte Analyseplattformen wie [Open Web Analytics](https://www.openwebanalytics.com/) und [Matomo](https://matomo.org/) zu verwenden. Diese erwarten, dass Sie die Analyseplattform selbst hosten.
 
-#### Google Analytics einrichten
+#### Einrichtung von Google Analytics
 
 1. Zuerst benötigen Sie ein Google-Konto. Verwenden Sie dieses Konto, um sich bei [Google Analytics](https://marketingplatform.google.com/about/analytics/) anzumelden.
 2. Wählen Sie die Option [Google Analytics](https://analytics.google.com/analytics/web/) (Web) und klicken Sie auf die _Anmelden_-Schaltfläche.
-3. Geben Sie Ihre Website/Anwendungsdetails auf der Anmeldeseite ein. Dies ist ziemlich intuitiv einzurichten; das wichtigste Feld, das korrekt sein muss, ist die Website-URL. Dies muss die Root-URL Ihrer Website/Anwendung sein.
-4. Sobald Sie alles ausgefüllt haben, drücken Sie den _Tracking-ID erhalten_-Button und akzeptieren Sie die erscheinenden Nutzungsbedingungen.
-5. Die nächste Seite stellt Ihnen einige Code-Snippets und andere Anweisungen zur Verfügung. Für eine einfache Website müssen Sie den _Website-Tracking_-Codeblock kopieren und in alle verschiedenen Seiten einfügen, die Sie mit Google Analytics auf Ihrer Website verfolgen möchten. Sie könnten die Snippets unter Ihrem abschließenden `</body>`-Tag oder an einer anderen geeigneten Stelle platzieren, die Verwirrung mit Ihrem Anwendungscode vermeidet.
+3. Geben Sie Ihre Website/App-Daten auf der Anmeldeseite ein. Diese ist recht intuitiv einzurichten; das wichtigste Feld, das korrekt sein sollte, ist die Website-URL. Diese muss die Stamm-URL Ihrer Site/App sein.
+4. Nachdem Sie alles ausgefüllt haben, drücken Sie die Schaltfläche _Tracking-ID abrufen_ und akzeptieren Sie die angezeigten Nutzungsbedingungen.
+5. Auf der nächsten Seite erhalten Sie einige Code-Snippets und weitere Anweisungen. Für eine einfache Website müssen Sie den _Website-Tracking_-Codeblock kopieren und in alle verschiedenen Seiten einfügen, die Sie mit Google Analytics auf Ihrer Site verfolgen möchten. Sie könnten die Snippets unter Ihrem schließenden `</body>`-Tag platzieren oder an einer anderen geeigneten Stelle, die sicherstellt, dass es sich nicht mit Ihrem Anwendungscode vermischt.
 6. Laden Sie die Änderungen auf den Entwicklungsserver hoch oder wohin auch immer Sie Ihren Code benötigen.
 
-Das war's! Ihre Website sollte nun bereit sein, Analysedaten zu melden.
+Das ist es! Ihre Website sollte jetzt bereit sein, Analysedaten zu melden.
 
-#### Analysedaten studieren
+#### Analyse der Analysedaten
 
-Nun sollten Sie zur [Analytics Web](https://analytics.google.com/analytics/web/)-Homepage zurückkehren und beginnen können, sich die gesammelten Daten über Ihre Website anzusehen (Sie müssen natürlich etwas Zeit lassen, damit einige Daten tatsächlich gesammelt werden).
+Jetzt sollten Sie in der Lage sein, zur Startseite [Analytics Web](https://analytics.google.com/analytics/web/) zurückzukehren und die Daten anzusehen, die Sie über Ihre Website gesammelt haben (natürlich müssen Sie ein wenig Zeit verstreichen lassen, damit tatsächlich Daten gesammelt werden).
 
-Standardmäßig sollten Sie den Reporting-Tab sehen, wie folgt:
+Standardmäßig sollten Sie die Berichtskarte sehen, die so aussieht:
 
-![Wie Google Analytics Daten in seinem Hauptberichtsdashboard sammelt](analytics-reporting.png)
+![Wie Google Analytics Daten in seinem Hauptberichts-Dashboard sammelt](analytics-reporting.png)
 
-In Google Analytics gibt es eine riesige Menge an Daten, die Sie sich ansehen können — angepasste Berichte in verschiedenen Kategorien usw. — und wir haben nicht die Zeit, alles zu diskutieren. [Erste Schritte mit Analytics](https://support.google.com/analytics/answer/9304153) bietet eine nützliche Anleitung zum Reporting (und mehr) für Anfänger.
+Es gibt eine riesige Menge an Daten, die Sie mit Google Analytics betrachten könnten — angepasste Berichte in verschiedenen Kategorien etc. — und wir haben nicht die Zeit, alles zu besprechen.
+[Erste Schritte mit Analytics](https://support.google.com/analytics/answer/9304153) bietet nützliche Anleitungen für Berichte (und mehr) für Anfänger.
 
-Sie können sehen, welche Browser und Betriebssysteme Ihre Benutzer verwenden, indem Sie im linken Menü _Zielgruppe > Technologie > Browser & OS_ auswählen.
+Sie können sehen, welche Browser und Betriebssysteme Ihre Benutzer verwenden, indem Sie _Zielgruppe > Technologie > Browser & OS_ aus dem linken Menü auswählen.
 
 > [!NOTE]
-> Bei der Verwendung von Google Analytics müssen Sie sich vor irreführenden Verzerrungen in Acht nehmen, z.B. "Wir haben keine Firefox Mobile Benutzer" könnte Sie dazu führen, die Unterstützung von Firefox Mobile nicht zu berücksichtigen. Aber Sie werden keine Firefox Mobile Benutzer haben, wenn die Website von Anfang an in Firefox Mobile nicht funktioniert hat.
+> Bei der Verwendung von Google Analytics müssen Sie sich vor irreführenden Verzerrungen hüten, z.B. "Wir haben keine Firefox Mobile-Benutzer" könnte Sie dazu verleiten, Firefox Mobile nicht mehr zu unterstützen. Aber Sie werden keine Firefox Mobile-Benutzer haben, wenn die Site auf Firefox Mobile von Anfang an defekt war.
 
 ### Weitere Überlegungen
 
-Sie sollten Barrierefreiheit als A-Grad-Testanforderung einschließen (wir werden in unserem Artikel [Umgang mit allgemeinen Barrierefreiheitsproblemen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility) genau behandeln, was Sie testen sollten).
+Sie sollten Barrierefreiheit als A-Note-Testanforderung einbeziehen (wir werden genau behandeln, was Sie in unserem Artikel [Umgang mit häufigen Zugänglichkeitsproblemen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Accessibility) testen sollten).
 
-Auch sollten Sie sich der situationsspezifischen Anforderungen bewusst sein. Wenn Ihr Produkt beispielsweise einen Markt anspricht, in dem Mobiltelefone das primäre Mittel zum Zugang zum Internet sind, werden Sie wahrscheinlich die Unterstützung von mobilen Browsern priorisieren wollen.
+Außerdem sollten Sie sich der situationsspezifischen Bedürfnisse bewusst sein. Zum Beispiel, wenn Ihr Produkt einen Markt anvisiert, wo Mobiltelefone das primäre Mittel sind, um auf das Internet zuzugreifen, dann werden Sie wahrscheinlich mobile Browser-Unterstützung als Priorität sehen.
 
-### Endgültiges Unterstützungsdiagramm
+### Endgültige Unterstützungs-Tabelle
 
-So wird unser endgültiges Unterstützungsdiagramm aussehen:
+Also wird unsere endgültige Unterstützungs-Tabelle so aussehen:
 
-1. A-Grad: Chrome und Firefox für Windows/Mac, Safari für Mac und Edge (die letzten zwei Versionen von jedem), iOS Safari für iPhone/iPad, Android-Standardbrowser (die letzten zwei Versionen) auf Telefon/Tablet, Chrome und Firefox für Android (die letzten zwei Versionen) auf Telefon/Tablet. Barrierefreiheit, die gängigen Tests besteht.
-2. B-Grad: Opera Mini.
-3. C-Grad: Opera, andere spezialisierte moderne Browser.
+1. A-Note: Chrome und Firefox für Windows/Mac, Safari für Mac und Edge (die letzten zwei Versionen von jedem), iOS Safari für iPhone/iPad, Android-Standardbrowser (die letzten zwei Versionen) auf Telefon/Tablet, Chrome und Firefox für Android (die letzten zwei Versionen) auf Telefon/Tablet. Barrierefreiheit, die gängige Tests besteht.
+2. B-Note: Opera Mini.
+3. C-Note: Opera, andere nischenmoderne Browser.
 
 ## Was werden Sie testen?
 
-Wenn Sie eine neue Ergänzung zu Ihrem Code haben, die getestet werden muss, sollten Sie, bevor Sie mit dem Testen beginnen, eine Liste von Testanforderungen aufschreiben, die bestehen müssen, um akzeptiert zu werden. Diese Anforderungen können visuell oder funktional sein — beide zusammen ergeben eine nutzbare Website-Funktion.
+Wenn Sie eine neue Ergänzung zu Ihrem Codebase haben, die getestet werden muss, sollten Sie, bevor Sie mit den Tests beginnen, eine Liste von Testerfordernissen schreiben, die bestehen müssen, um akzeptiert zu werden. Diese Anforderungen können visuell oder funktional sein — beide zusammen bilden ein benutzbares Website-Feature.
 
-Betrachten Sie das folgende Beispiel (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/strategies/hidden-info-panel.html) und auch das [Beispiel im Live-Betrieb](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/strategies/hidden-info-panel.html)):
+Betrachten Sie das folgende Beispiel (siehe den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/strategies/hidden-info-panel.html) und auch das [Beispiel livelaufend](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/strategies/hidden-info-panel.html)):
 
-![Wie man ein Testszenario vorbereiten kann, das Design und Benutzeranforderungen umfasst](sliding-box-demo.png)
+![Wie man ein Testszenario vorbereitet, das das Design und die Benutzeranforderungen umfasst](sliding-box-demo.png)
 
-Testkriterien für diese Funktion könnten wie folgt geschrieben werden:
+Testkriterien für dieses Feature könnten so geschrieben werden:
 
-A- und B-Grad:
+A und B Note:
 
-- Die Schaltfläche sollte durch den primären Steuerungsmechanismus des Benutzers aktiviert werden können, unabhängig davon, welcher das ist — dies sollte Maus, Tastatur und Touchscreen einschließen.
-- Das Umschalten der Schaltfläche sollte das Informationsfeld erscheinen/verschwinden lassen.
+- Der Button sollte durch den primären Steuermechanismus des Benutzers aktivierbar sein, was auch immer dieser ist — dies sollte Maus, Tastatur und Touch umfassen.
+- Durch das Umschalten des Buttons sollte das Informationsfeld erscheinen/verschwinden.
 - Der Text sollte lesbar sein.
-- Seheingeschränkte Benutzer, die Bildschirmleser verwenden, sollten auf den Text zugreifen können.
+- Visuell beeinträchtigte Benutzer, die Bildschirmleser verwenden, sollten auf den Text zugreifen können.
 
-A-Grad:
+A-Note:
 
-- Das Informationsfeld sollte beim Erscheinen/Verschwinden sanft animieren.
-- Der Verlauf und der Textschatten sollten erscheinen, um das Aussehen des Feldes zu verbessern.
+- Das Informationsfeld sollte reibungslos animieren, während es erscheint/verschwindet.
+- Der Verlauf und der Textschatten sollte das Erscheinungsbild der Box verbessern.
 
-Sie könnten bemerken, dass die Schaltfläche nur mit der Tastatur nicht nutzbar ist. Wir könnten dies durch JavaScript beheben, um eine Tastatursteuerung für das Umschalten zu implementieren, oder einen anderen Ansatz verwenden.
+Sie werden bemerken, dass der Button nicht nur mit der Tastatur benutzbar ist. Wir könnten dies mit JavaScript beheben, um eine Tastatursteuerung für das Umschalten zu implementieren, oder einen anderen Ansatz verwenden.
 
 Diese Testkriterien sind nützlich, weil:
 
-- Sie Ihnen eine Reihe von Schritten geben, denen Sie beim Durchführen von Tests folgen können.
-- Sie leicht in Instruktionssätze für Benutzergruppen umgewandelt werden können, die sie bei Tests befolgen (z.B. "Versuchen Sie, die Schaltfläche mit Ihrer Maus zu aktivieren und dann mit der Tastatur...") — siehe [Benutzertest](#benutzertest) unten.
-- Sie auch eine Grundlage für das Schreiben automatisierter Tests bieten können. Es ist einfacher, solche Tests zu schreiben, wenn Sie genau wissen, was Sie testen möchten und welche die Erfolgskriterien sind (siehe [Selenium](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Your_own_automation_environment#selenium) später in der Serie).
+- Sie Ihnen eine Reihe von Schritten geben, die Sie beim Testen befolgen können.
+- Sie in Sätze von Anweisungen für Benutzergruppen leicht umgewandelt werden können, die während der Tests befolgt werden (z.B. "versuchen Sie, den Button mit Ihrer Maus zu aktivieren, und dann mit der Tastatur…") — siehe [Benutzer-Testing](#benutzer-testing) unten.
+- Sie auch die Grundlage für das Schreiben automatisierter Tests bilden können. Es ist einfacher, solche Tests zu schreiben, wenn Sie genau wissen, was Sie testen wollen und was die Erfolgskonditionen sind (siehe [Selenium](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Your_own_automation_environment#selenium), später in der Serie).
 
-## Erstellung eines Testlabors
+## Ein Testlabor zusammenstellen
 
-Eine Möglichkeit, Browser-Tests durchzuführen, besteht darin, die Tests selbst zu machen. Dazu werden Sie wahrscheinlich eine Kombination aus tatsächlichen physischen Geräten und emulierten Umgebungen verwenden (entweder mit einem Emulator oder einer virtuellen Maschine).
+Eine Option, um Browser-Tests durchzuführen, ist, die Tests selbst zu machen. Dafür verwenden Sie wahrscheinlich eine Kombination aus tatsächlichen physischen Geräten und emulierten Umgebungen (entweder mit einem Emulator oder einer virtuellen Maschine).
 
 ### Physische Geräte
 
-Im Allgemeinen ist es besser, ein echtes Gerät zu haben, auf dem der zu testende Browser läuft — dies bietet die größte Genauigkeit in Bezug auf Verhalten und Benutzererfahrung. Sie werden wahrscheinlich so etwas wie das Folgende für ein angemessenes Low-Level-Gerätelabor wünschen:
+In der Regel ist es besser, ein echtes Gerät zu haben, das den zu testenden Browser ausführt — das bietet die größte Genauigkeit in Bezug auf Verhalten und allgemeine Benutzererfahrung. Sie werden wahrscheinlich so etwas wie das Folgende wünschen, für ein angemessenes Gerätelabor mit niedrigem Level:
 
-- Einen Mac, mit den installierten Browsern, die Sie testen müssen — dies kann Firefox, Chrome, Opera und Safari umfassen.
-- Einen Windows-PC, mit den installierten Browsern, die Sie testen müssen — dies kann Edge (oder IE), Chrome, Firefox und Opera umfassen.
-- Ein höherwertiges Android-Telefon und -Tablet mit den installierten Browsern, die Sie testen müssen — dies kann Chrome, Firefox und Opera Mini für Android sowie den ursprünglichen Android-Standardbrowser umfassen.
-- Ein höherwertiges iOS-Telefon und -Tablet mit den installierten Browsern, die Sie testen müssen — dies kann iOS Safari sowie Chrome, Firefox und Opera Mini für iOS umfassen.
+- Einen Mac mit den installierten Browsern, die Sie testen müssen — das kann Firefox, Chrome, Opera und Safari umfassen.
+- Einen Windows-PC mit den installierten Browsern, die Sie testen müssen — das kann Edge (oder IE), Chrome, Firefox und Opera umfassen.
+- Ein höherwertiges Android-Telefon und -Tablet mit dem installierten Browser, den Sie testen müssen — das kann Chrome, Firefox und Opera Mini für Android sowie den ursprünglichen Android-Standardbrowser umfassen.
+- Ein höherwertiges iOS-Telefon und -Tablet mit den installierten Browsern, die Sie testen müssen — das kann iOS Safari sowie Chrome, Firefox und Opera Mini für iOS umfassen.
 
-Folgende sind auch gute Optionen, wenn Sie sie bekommen können:
+Die folgenden sind auch gute Optionen, wenn Sie sie bekommen können:
 
-- Ein Linux-PC, falls Sie spezifische Bugs in Linux-Versionen von Browsern testen müssen. Linux-Benutzer verwenden häufig Firefox, Opera und Chrome. Wenn Sie nur über eine Maschine verfügen, könnten Sie eine Dual-Boot-Maschine in Betracht ziehen, die Linux und Windows auf separaten Partitionen ausführt. Der Ubuntu-Installer erleichtert dies; siehe [WindowsDualBoot](https://help.ubuntu.com/community/WindowsDualBoot) für Hilfe bei diesem Vorhaben.
-- Ein paar Geräte mit niedrigerer Leistung, damit Sie die Leistung von Funktionen wie Animationen auf weniger leistungsstarken Prozessoren testen können.
+- Ein Linux-PC verfügbar, falls Sie spezifische Fehler für Linux-Versionen von Browsern testen müssen. Linux-Nutzer verwenden häufig Firefox, Opera und Chrome. Wenn Sie nur eine Maschine zur Verfügung haben, könnten Sie in Erwägung ziehen, eine Dual-Boot-Maschine zu erstellen, die Linux und Windows auf separaten Partitionen ausführt. Der Ubuntu-Installer macht dies recht einfach einzurichten; siehe [WindowsDualBoot](https://help.ubuntu.com/community/WindowsDualBoot) für Hilfe dabei.
+- Ein paar mobile Geräte mit niedrigerer Spezifikation, damit Sie die Leistung von Funktionen wie Animationen auf weniger leistungsstarken Prozessoren testen können.
 
-Ihre Hauptarbeitsmaschine kann auch ein Ort sein, um andere Werkzeuge für spezifische Zwecke zu installieren, wie Barrierefreiheitstools, Bildschirmleser und Emulatoren/virtuelle Maschinen.
+Ihre Hauptarbeitsmaschine kann auch ein Ort sein, um andere Tools für spezifische Zwecke zu installieren, wie Barrierefreiheit-Auditing-Tools, Bildschirmleser und Emulatoren/virtuelle Maschinen.
 
-Einige größere Unternehmen haben Gerätekabinen, die eine sehr große Auswahl verschiedener Geräte vorhalten, sodass Entwickler Bugs auf sehr spezifischen Browser/Gerätekombinationen aufspüren können. Kleinere Unternehmen und Einzelpersonen sind in der Regel nicht in der Lage, ein solch ausgeklügeltes Labor zu finanzieren, sodass sie mit kleineren Laboren, Emulatoren, virtuellen Maschinen und kommerziellen Test-Apps auskommen müssen.
+Einige größere Unternehmen haben Gerätelabore, die eine sehr große Auswahl an unterschiedlichen Geräten bevorraten, was Entwicklern ermöglicht, Bugs auf sehr spezifischen Browser/Geräte-Kombinationen aufzuspüren. Kleinere Unternehmen und Einzelpersonen können sich im Allgemeinen kein so ausgeklügeltes Labor leisten und tendieren dazu, mit kleineren Laboren, Emulatoren, virtuellen Maschinen und kommerziellen Test-Apps zurechtzukommen.
 
-Wir werden jede der anderen Optionen unten abdecken.
-
-> [!NOTE]
-> Einige Bemühungen wurden unternommen, öffentlich zugängliche Gerätekabinen zu schaffen — siehe [Open Device Labs](https://www.smashingmagazine.com/2016/11/worlds-best-open-device-labs/).
+Wir werden jede der anderen Optionen unten behandeln.
 
 > [!NOTE]
-> Wir müssen auch die Barrierefreiheit berücksichtigen — es gibt eine Reihe nützlicher Tools, die Sie auf Ihrem Rechner installieren können, um Barrierefreiheitstests zu erleichtern, aber wir werden das in dem Artikel Umgang mit allgemeinen Barrierefreiheitsproblemen im Verlauf des Kurses behandeln.
+> Einige Anstrengungen wurden unternommen, um öffentlich zugängliche Gerätelabore zu schaffen — siehe [Open Device Labs](https://www.smashingmagazine.com/2016/11/worlds-best-open-device-labs/).
+
+> [!NOTE]
+> Wir müssen auch die Barrierefreiheit berücksichtigen — es gibt eine Anzahl nützlicher Tools, die Sie auf Ihrem Computer installieren können, um Barrierefreiheitstests zu unterstützen, aber wir werden diese im Artikel zum Umgang mit häufigen Barrierefreiheitsproblemen behandeln, später im Kurs.
 
 ### Emulatoren
 
-Emulatoren sind im Grunde Programme, die auf Ihrem Computer laufen und ein Gerät oder bestimmte Gerätekonfigurationen irgendeiner Art emulieren, was es Ihnen ermöglicht, einige Ihrer Tests bequemer durchzuführen, als die passende Kombination von Hardware/Software zu finden.
+Emulatoren sind im Grunde Programme, die auf Ihrem Computer laufen und ein Gerät oder bestimmte Gerätebedingungen irgendeiner Art emulieren, sodass Sie einige Ihrer Tests bequemer durchführen können, als wenn Sie eine bestimmte Kombination aus Hardware/Software finden müssten, um zu testen.
 
-Ein Emulator könnte so einfach sein wie das Testen einer Gerätekonfiguration. Beispielsweise, wenn Sie einige schnelle und einfache Tests Ihrer Breiten-/Höhen-Media-Queries für responsives Design durchführen möchten, können Sie den [Responsive Design Mode](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) von Firefox verwenden. Safari hat auch einen ähnlichen Modus, der aktiviert werden kann, indem Sie zu _Safari > Einstellungen_ gehen, und _Entwicklermenü anzeigen_ aktivieren, dann _Entwickeln > Responsive Design Mode_ auswählen. Chrome hat auch etwas Ähnliches: Gerätemodus (siehe [Simulate Mobile Devices with Device Mode](https://developer.chrome.com/docs/devtools/device-mode/)).
+Ein Emulator könnte so einfach sein wie das Testen einer Gerätebedingung. Wenn Sie beispielsweise einige schnelle und einfache Tests Ihrer Breiten/Höhen-Medienelemente für Responsive Design durchführen möchten, können Sie den [Responsive Design Modus](https://firefox-source-docs.mozilla.org/devtools-user/responsive_design_mode/index.html) von Firefox verwenden. Safari hat auch einen ähnlichen Modus, der aktiviert werden kann, indem man _Safari > Einstellungen_ wählt und Menü _Entwickeln anzeigen_ auswählt, dann _Entwickeln > Responsive Design Modus aktivieren_ wählt. Chrome hat auch etwas Ähnliches: Gerätemodus (siehe [Simulieren von mobilen Geräten mit Gerätemodus](https://developer.chrome.com/docs/devtools/device-mode/)).
 
-Oft müssen Sie jedoch irgendeine Art von Emulator installieren. Die häufigsten Geräte/Browser, die Sie testen möchten, sind wie folgt:
+In den meisten Fällen müssen Sie jedoch irgendeine Art von Emulator installieren. Die häufigsten Geräte/Browser, die Sie testen wollen, sind:
 
-- Das offizielle [Android Studio IDE](https://developer.android.com/studio/) für die Entwicklung von Android-Apps ist ein bisschen schwergewichtig, um einfach nur Webseiten auf Google Chrome oder dem alten Stock Android-Browser zu testen, aber es kommt mit einem robusten [Emulator](https://developer.android.com/studio/run/emulator.html). Wenn Sie etwas leichteres wollen, ist [Andy](https://www.andyroid.net/) eine vernünftige Option, die auf Windows und Mac läuft.
-- Apple bietet eine App namens [Simulator](https://help.apple.com/simulator/mac/current/) an, die auf dem [XCode](https://developer.apple.com/xcode/) Entwicklungsumgebung läuft und iPad/iPhone/Apple Watch/Apple TV emuliert. Dies schließt den nativen iOS Safari-Browser ein. Bedauerlicherweise läuft das nur auf einem Mac.
+- Das offizielle [Android Studio IDE](https://developer.android.com/studio/) zur Entwicklung von Android-Apps ist etwas schwergewichtig, nur um Websites auf Google Chrome oder dem alten Stock Android-Browser zu testen, aber es kommt mit einem robusten [Emulator](https://developer.android.com/studio/run/emulator.html). Wenn Sie etwas leichteres wünschen, ist [Andy](https://www.andyroid.net/) eine vernünftige Option, die sowohl unter Windows als auch Mac läuft.
+- Apple bietet eine App namens [Simulator](https://help.apple.com/simulator/mac/current/) an, die auf dem Entwicklungsumfeld [XCode](https://developer.apple.com/xcode/) läuft und iPad/iPhone/Apple Watch/Apple TV emuliert. Dies umfasst den nativen iOS Safari Browser. Leider läuft dies nur auf einem Mac.
 
-Sie können Simulatoren für andere mobile Gerätekonfigurationen auch oft finden, zum Beispiel:
+Sie können häufig Simulatoren für andere mobile Geräteumgebungen finden, zum Beispiel:
 
-- Sie können Opera Mini für sich selbst emulieren, wenn Sie ihn testen wollen.
+- Sie können Opera Mini auf seine eigene Weise emulieren, wenn Sie ihn testen möchten.
 
 > [!NOTE]
-> Viele Emulatoren benötigen tatsächlich die Verwendung einer virtuellen Maschine (siehe unten); wenn dies der Fall ist, werden häufig Anweisungen bereitgestellt, und/oder die Verwendung der virtuellen Maschine ist in den Installer des Emulators integriert.
+> Viele Emulatoren erfordern tatsächlich die Verwendung einer virtuellen Maschine (siehe unten); wenn dies der Fall ist, werden oft Anleitungen bereitgestellt, und/oder die Nutzung der virtuellen Maschine ist Teil des Installationsprogramms des Emulators.
 
 ### Virtuelle Maschinen
 
-Virtuelle Maschinen sind Anwendungen, die auf Ihrem Desktop-Computer laufen und es Ihnen ermöglichen, vollständige Betriebssystememulationen auszuführen, jede in ihrer eigenen virtuellen Festplatte (oft als eine große Datei auf der Festplatte des Host-Computers dargestellt) gekapselt. Es gibt eine Reihe beliebter virtueller Maschinen-Apps, wie [Parallels](https://www.parallels.com/), [VMWare](https://www.vmware.com/) und [Virtual Box](https://www.virtualbox.org/wiki/Downloads); wir persönlich mögen Letzteres, da es kostenlos ist.
+Virtuelle Maschinen sind Anwendungen, die auf Ihrem Desktop-Computer laufen und Ihnen erlauben, Emulationen ganzer Betriebssysteme auszuführen, jedes in seiner eigenen virtuellen Festplatte compartmentalisiert (oft durch eine einzelne große Datei auf dem Host-Computer dargestellt). Es gibt eine Reihe populärer virtueller Maschinen-Apps, wie [Parallels](https://www.parallels.com/), [VMware](https://www.vmware.com/) und [Virtual Box](https://www.virtualbox.org/wiki/Downloads); wir persönlich mögen letzteres, weil es kostenlos ist.
 
 > [!NOTE]
-> Sie benötigen viel freien Festplattenspeicher, um virtuelle Maschinen-Emulationen auszuführen; jedes Betriebssystem, das Sie emulieren, kann viel Speicher verbrauchen. Sie wählen normalerweise den Speicherplatz, den Sie für jede Installation wünschen; Sie könnten mit wahrscheinlich 10GB auskommen, aber einige Quellen empfehlen bis zu 50GB oder mehr, damit das Betriebssystem zuverlässig läuft. Eine gute Option, die von den meisten virtuellen Maschinen-Apps angeboten wird, ist die Erstellung einer **dynamisch zugewiesenen** Festplatte, die nach Bedarf wächst und schrumpft.
+> Sie benötigen viel verfügbaren Speicherplatz, um Emulationen von virtuellen Maschinen auszuführen; jedes Betriebssystem, das Sie emulieren, kann viel Speicher beanspruchen. Sie haben die Möglichkeit, den Speicherplatz zu wählen, den Sie für jede Installation verwenden möchten; Sie könnten mit wahrscheinlich 10GB auskommen, jedoch empfehlen einige Quellen bis zu 50GB oder mehr, damit das Betriebssystem zuverlässig läuft. Eine gute Option, die die meisten virtuellen Maschinen-Apps bieten, ist die Erstellung eines **dynamisch zugewiesenen** Laufwerks, das wächst und schrumpft, wie es benötigt wird.
 
-Um ein Virtual Box zu verwenden, müssen Sie:
+Um Virtual Box zu verwenden, benötigen Sie:
 
-1. Holen Sie sich eine Installations-CD oder ein Image (z.B. ISO-Datei) für das Betriebssystem, das Sie emulieren möchten. Virtual Box kann diese nicht bereitstellen; die meisten, wie Windows-OSes, sind kommerzielle Produkte, die nicht frei verteilt werden können.
-2. [Laden Sie den geeigneten Installer](https://www.virtualbox.org/wiki/Downloads) für Ihr Betriebssystem herunter und installieren Sie ihn.
-3. Öffnen Sie die App; Ihnen wird ein Fenster wie das folgende angezeigt: ![Anwendungsfenster linkes Panel listet Windows-Betriebssystem und Opera TV Emulatoren. Rechtes Panel enthält mehrere Unterfenster einschließlich allgemein, System, Anzeige, Einstellungen, Ton, Netzwerk und einer Vorschau.](virtualbox.png)
-4. Um eine neue virtuelle Maschine zu erstellen, drücken Sie die _Neu_-Schaltfläche in der oberen linken Ecke.
-5. Folgen Sie den Anweisungen und füllen Sie die folgenden Dialogfelder entsprechend aus. Sie werden:
+1. Einen Installations-Disk oder ein Image (z.B. ISO-Datei) für das Betriebssystem, das Sie emulieren möchten, zu besorgen. Virtual Box kann diese nicht bereitstellen; die meisten, wie z.B. Windows OSes, sind kommerzielle Produkte, die nicht frei verteilt werden können.
+2. [Den entsprechenden Installer herunterladen](https://www.virtualbox.org/wiki/Downloads) für Ihr Betriebssystem und ihn installieren.
+3. Die App öffnen; Ihnen wird eine Ansicht wie die folgende präsentiert: ![Anwendungsfenster links enthält Windows-Betriebssystem- und Opera TV-Emulatoren. Rechts enthält mehrere Unterpanels einschließlich allgemein, System, Anzeige, Einstellungen, Audio, Netzwerk und eine Vorschau.](virtualbox.png)
+4. Um eine neue virtuelle Maschine zu erstellen, drücken Sie die Schaltfläche _Neu_ in der oberen linken Ecke.
+5. Folgen Sie den Anweisungen und füllen Sie die folgenden Dialogfelder wie erforderlich aus. Sie werden:
 
    1. Einen Namen für die neue virtuelle Maschine angeben
    2. Wählen, welches Betriebssystem und welche Version Sie darauf installieren
-   3. Festlegen, wie viel RAM zugewiesen werden soll (wir würden etwas wie 2048MB, oder 2GB empfehlen)
-   4. Eine virtuelle Festplatte erstellen (wählen Sie die Standardoptionen über die drei Dialogfelder mit _Jetzt eine virtuelle Festplatte erstellen_, _VDI (Virtuelles Festplattenabbild)_ und _Dynamisch zugewiesen_).
-   5. Den Speicherort und die Größe der virtuellen Festplatte wählen (wählen Sie einen sinnvollen Namen und Ort, an dem sie gespeichert wird, und für die Größe spezifizieren Sie etwa 50GB oder so viel, wie Sie bereit sind anzugeben).
+   3. Einstellen, wie viel RAM zugewiesen werden soll (wir empfehlen etwa 2048MB oder 2GB)
+   4. Eine virtuelle Festplatte erstellen (wählen Sie die Standardoptionen über die drei Dialogfelder mit _Jetzt eine virtuelle Harddisk erstellen_, _VDI (virtuelle Festplatte)_ und _Dynamisch zugewiesene_)
+   5. Die Dateispeicherstelle und Größe für die virtuelle Festplatte auswählen (wählen Sie einen vernünftigen Namen und Standort, um sie zu behalten, und für die Größe etwa 50GB oder so viel angeben, wie Sie bequem angeben können).
 
-Nun sollte die neue virtuelle Box im linken Menü des Hauptfensters der Virtual Box UI erscheinen. An diesem Punkt können Sie doppelklicken, um sie zu öffnen — sie wird anfangen, die virtuelle Maschine hochzufahren, aber sie hat noch nicht das Betriebssystem (OS) installiert. An diesem Punkt müssen Sie das Dialogfeld auf das Installationsabbild/-disk zeigen, und es wird durch die Schritte zur Installation des OS ähnlich wie auf einer physischen Maschine gehen.
+Nun sollte die neue virtuelle Box im linken Menü der Hauptansicht des Virtual Box Interface-Fensters erscheinen. An diesem Punkt können Sie darauf doppelklicken, um sie zu öffnen – sie wird beginnen, die virtuelle Maschine zu booten, hat aber noch nicht das Betriebssystem (OS) installiert. An diesem Punkt müssen Sie das Dialogfeld auf das Installations-Image/Disk verweisen und es durch die Schritte zur Installation des OS just like auf einer physischen Maschine laufen lassen.
 
-![Wie man die virtuelle Box für ein bestimmtes Betriebssystem installiert](virtualbox-installer.png)
+![Wie man die Virtual Box für ein spezifisches Betriebssystem installiert](virtualbox-installer.png)
 
 > [!WARNING]
-> Sie müssen sicherstellen, dass Sie das Betriebssystemabbild, das Sie auf der virtuellen Maschine installieren möchten, an diesem Punkt verfügbar haben, und es direkt installieren. Wenn Sie den Prozess zu diesem Zeitpunkt abbrechen, kann dies die virtuelle Maschine unbrauchbar machen und Sie zwingen, sie zu löschen und neu zu erstellen. Dies ist nicht tödlich, aber es ist lästig.
+> Sie müssen sicher sein, dass Sie das Image des Betriebssystems, das Sie auf der virtuellen Maschine installieren möchten, zu diesem Zeitpunkt verfügbar haben, und es sofort installieren. Wenn Sie den Vorgang an diesem Punkt abbrechen, kann die virtuelle Maschine unbrauchbar werden, und es kann erforderlich sein, dass Sie sie löschen und erneut erstellen müssen. Dies ist nicht fatal, aber es ist ärgerlich.
 
-Nachdem der Prozess abgeschlossen ist, sollten Sie eine virtuelle Maschine haben, die ein Betriebssystem innerhalb eines Fensters auf Ihrem Host-Computer ausführt.
+Nach Abschluss des Prozesses sollten Sie eine virtuelle Maschine haben, die ein Betriebssystem in einem Fenster auf Ihrem Host-Computer ausführt.
 
-![Screenshot von Windows XP, gehostet in Virtual Box und auf macOS laufend](virtualbox-running.png)
+![Screenshot von Windows XP, gehostet in Virtual Box, und laufend auf macOS](virtualbox-running.png)
 
-Sie müssen diese virtuelle Betriebssysteminstallation genauso behandeln, wie Sie jede echte Installation behandeln würden — zum Beispiel, neben der Installation der Browser, die Sie testen möchten, sollten Sie auch ein Antivirus-Programm installieren, um es vor Viren zu schützen.
+Sie müssen diese virtuelle Betriebssystem-Installation genauso behandeln, wie Sie jede reale Installation behandeln würden – zum Beispiel, ebenso wie die Browser zu installieren, die Sie testen möchten, installieren Sie ein Anti-Virus-Programm, um es vor Viren zu schützen.
 
-Mehrere virtuelle Maschinen zu haben, ist sehr nützlich, insbesondere für Windows IE/Edge-Tests — unter Windows können Sie nicht mehrere Versionen des Standardbrowsers nebeneinander installieren, daher möchten Sie vielleicht eine Bibliothek von virtuellen Maschinen aufbauen, um verschiedene Tests bei Bedarf durchzuführen, z.B.:
+Mehrere virtuelle Maschinen zu haben ist sehr nützlich, insbesondere für Tests mit Windows IE/Edge – auf Windows können Sie nicht mehrere Versionen des Standardbrowsers Seite an Seite installiert haben, so dass Sie möglicherweise eine Bibliothek virtueller Maschinen aufbauen möchten, um verschiedene Tests wie erforderlich durchzuführen, z.B.:
 
 - Windows 10 mit Edge 14
 - Windows 10 mit Edge 13
 
 > [!NOTE]
-> Ein weiterer Vorteil von virtuellen Maschinen ist, dass die virtuellen Festplattenabbilder ziemlich in sich geschlossen sind. Wenn Sie in einem Team arbeiten, können Sie ein virtuelles Festplattenabbild erstellen, es dann kopieren und weitergeben. Stellen Sie nur sicher, dass Sie die erforderlichen Lizenzen haben, um alle diese Kopien von Windows oder was auch immer Sie laufen lassen, wenn es sich um ein lizenziertes Produkt handelt.
+> Ein weiterer guter Aspekt von virtuellen Maschinen ist, dass die virtuelle Disk-Abbilder recht autark sind. Wenn Sie in einem Team arbeiten, können Sie ein virtuelles Disk-Abbild erstellen, es dann kopieren und herumgeben. Stellen Sie nur sicher, dass Sie die erforderlichen Lizenzen haben, um all diese Kopien von Windows oder was auch immer Sie sonst ausführen, wenn es ein lizenziertes Produkt ist, zu betreiben.
 
 ### Automatisierung und kommerzielle Apps
 
-Wie im letzten Kapitel erwähnt, können Sie sich viel Mühe bei den Browser-Tests sparen, indem Sie ein Automatisierungssystem verwenden. Sie können Ihr eigenes Testautomatisierungssystem einrichten (wobei [Selenium](https://www.selenium.dev/) die beliebte App der Wahl ist), was einige Einrichtung erfordert, aber sehr lohnend sein kann, wenn Sie es einmal eingerichtet haben.
+Wie im letzten Kapitel erwähnt, können Sie eine Menge des Aufwands beim Browser-Testing reduzieren, indem Sie irgendeine Art von Automatisierungssystem verwenden. Sie können Ihr eigenes Testautomatisierungssystem einrichten ([Selenium](https://www.selenium.dev/) ist die beliebte App der Wahl), was etwas Einrichtung erfordert, aber sehr lohnend sein kann, wenn Sie es geschafft haben.
 
-Es gibt auch kommerzielle Tools wie [Sauce Labs](https://saucelabs.com/), [Browser Stack](https://www.browserstack.com/) und [LambdaTest](https://www.lambdatest.com/), die diese Art von Dingen für Sie tun, ohne dass Sie sich um die Einrichtung kümmern müssen, wenn Sie bereit sind, etwas Geld in Ihr Testing zu investieren.
+Es gibt auch kommerzielle Tools wie [Sauce Labs](https://saucelabs.com/), [Browser Stack](https://www.browserstack.com/) und [LambdaTest](https://www.lambdatest.com/), die diese Art von Dingen für Sie erledigen, ohne dass Sie sich um die Einrichtung sorgen müssen, wenn Sie etwas Geld in Ihre Tests investieren möchten.
 
-Eine andere Alternative ist die Verwendung von No-Code-Test-Automatisierungswerkzeugen wie [Endtest](https://www.endtest.io/).
+Eine weitere Alternative sind No-Code-Testautomatisierungstools wie [Endtest](https://www.endtest.io/).
 
-Wir werden uns später im Modul damit befassen, wie man solche Tools verwendet.
+Wir werden später im Modul darauf eingehen, wie man solche Tools verwendet.
 
-## Benutzertest
+## Benutzer-Testing
 
-Bevor wir fortfahren, beenden wir diesen Artikel mit einem kleinen Gespräch über Benutzertests — dies kann eine gute Option sein, wenn Sie eine willige Benutzergruppe haben, um Ihre neue Funktionalität zu testen. Bedenken Sie, dass dies so niedrig oder so ausgefeilt sein kann, wie Sie wollen — Ihre Benutzergruppe könnte eine Gruppe von Freunden, eine Gruppe von Kollegen oder eine Gruppe von unbezahlten oder bezahlten Freiwilligen sein, je nachdem, ob Sie Geld zum Ausgeben für Tests haben.
+Bevor wir weitermachen, beenden wir diesen Artikel, indem wir ein bisschen über Benutzer-Tests sprechen — dies kann eine gute Option sein, wenn Sie eine bereitwillige Benutzergruppe haben, auf der neuen Funktionalität zu testen. Beachten Sie, dass dies so einfach oder so ausgeklügelt sein kann, wie Sie möchten — Ihre Benutzergruppe könnte eine Gruppe von Freunden, eine Gruppe von Kollegen oder eine Gruppe von unbezahlten oder bezahlten Freiwilligen sein, je nachdem, ob Sie Geld für Tests haben oder nicht.
 
-In der Regel werden Sie Ihre Benutzer dazu bringen, die Seite oder Ansicht mit der neuen Funktionalität auf einer Art Entwicklungsserver zu betrachten, damit Sie die endgültige Website oder Änderung nicht live schalten, bis sie fertig ist. Sie sollten sie dazu bringen, einige Schritte zu befolgen und die Ergebnisse zu berichten, die sie erhalten. Es ist nützlich, einen Satz von Schritten bereitzustellen (manchmal als Skript bezeichnet), damit Sie zuverlässigere Ergebnisse zu dem erhalten, was Sie testen wollten. Wir haben dies im Abschnitt [Was werden Sie testen](#what_are_you_going_to_test) oben erwähnt — es ist einfach, die dort beschriebenen Testkriterien in Schritte umzuwandeln, die befolgt werden sollen. Zum Beispiel würde das Folgende für einen sehenden Benutzer funktionieren:
+Im Allgemeinen werden Sie Ihre Benutzer dazu bringen, sich die Seite oder Ansicht anzusehen, die die neue Funktionalität auf irgendeinem Entwicklungsserver enthält, so dass Sie die endgültige Website oder Änderung nicht live stellen, bis sie abgeschlossen ist. Sie sollten sie dazu bringen, einige Schritte zu befolgen und die Ergebnisse zu melden, die sie erhalten. Es ist nützlich, eine Reihe von Schritten (manchmal ein Skript genannt) bereitzustellen, so dass Sie verlässlichere Ergebnisse in Bezug auf das, was Sie testen wollten, erhalten. Wir haben dies im vorherigen Abschnitt [Was werden Sie testen](#what_are_you_going_to_test) erwähnt — es ist einfach, die dort detaillierten Testkriterien in Schritte zu verwandeln, die befolgt werden können. Zum Beispiel würde das folgende für einen sehenden Benutzer funktionieren:
 
-- Klicken Sie mehrmals mit der Maus Ihres Desktop-Computers auf den Fragezeichen-Button. Aktualisieren Sie das Browserfenster.
-- Wählen und aktivieren Sie den Fragezeichen-Button mehrmals mit der Tastatur Ihres Desktop-Computers.
-- Tippen Sie mehrmals auf den Fragezeichen-Button auf Ihrem Touchscreen-Gerät.
-- Das Umschalten der Schaltfläche sollte das Informationsfeld erscheinen/verschwinden lassen. Tut es dies in jedem der obigen drei Fälle?
+- Klicken Sie mehrmals auf die Fragezeichen-Schaltfläche mit der Maus auf Ihrem Desktop-Computer. Aktualisieren Sie das Browserfenster.
+- Wählen Sie mehrmals die Fragezeichen-Schaltfläche mit der Tastatur auf Ihrem Desktop-Computer und aktivieren Sie sie.
+- Tippen Sie mehrmals auf die Fragezeichen-Schaltfläche auf Ihrem Touchscreen-Gerät.
+- Durch das Umschalten der Schaltfläche sollte das Informationsfeld erscheinen/verschwinden. Tut es dies in jedem der obigen drei Fälle?
 - Ist der Text lesbar?
-- Animiert das Informationsfeld sanft, wenn es erscheint/verschwindet?
+- Animiert sich das Informationsfeld reibungslos, während es erscheint/verschwindet?
 
-Bei Tests kann es auch eine gute Idee sein:
+Beim Ausführen von Tests kann es auch eine gute Idee sein:
 
-- Richten Sie ein separates Browserprofil ein, sofern möglich, mit deaktivierten Browsererweiterungen und anderen derartigen Dingen, und führen Sie Ihre Tests in diesem Profil durch (siehe [Verwenden des Profil-Managers zum Erstellen und Entfernen von Firefox-Profilen](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles) und [Chrome mit anderen teilen oder Personen hinzufügen](https://support.google.com/chrome/answer/2364824), zum Beispiel).
-- Verwenden Sie die private Modus-Funktionalität des Browsers, wenn möglich (z.B. [Privates Surfen](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) in Firefox, [Inkognito-Modus](https://support.google.com/chrome/answer/95464) in Chrome), sodass Dinge wie Cookies und temporäre Dateien nicht gespeichert werden.
+- Richten Sie nach Möglichkeit ein separates Browserprofil ein, bei dem Browsererweiterungen und andere solche Dinge deaktiviert sind, und führen Sie Ihre Tests in diesem Profil aus (siehe [Profilmanager verwenden, um Firefox-Profile zu erstellen und zu entfernen](https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles) und [Chrome mit anderen teilen oder Personas hinzufügen](https://support.google.com/chrome/answer/2364824) zum Beispiel).
+- Verwenden Sie die private Modus-Funktionalität des Browsers, wenn sie verfügbar ist (z.B. [Privates Surfen](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) in Firefox, [Inkognito-Modus](https://support.google.com/chrome/answer/95464) in Chrome), damit Dinge wie Cookies und temporäre Dateien nicht gespeichert werden.
 
-Diese Schritte sollen sicherstellen, dass der Browser, in dem Sie testen, so "rein" wie möglich ist, d.h. es ist nichts installiert, was die Testergebnisse beeinflussen könnte.
-
-> [!NOTE]
-> Eine weitere nützliche niedrigtechnische Option, wenn Sie die Hardware zur Verfügung haben, ist, Ihre Websites auf preisgünstigen Telefonen/anderen Geräten zu testen — da Websites größer werden und mehr Effekte enthalten, steigt die Wahrscheinlichkeit, dass die Website langsamer wird. Daher müssen Sie anfangen, der Leistung mehr Aufmerksamkeit zu schenken. Wenn Sie versuchen, Ihre Funktionalität auf einem Gerät mit niedrigerer Leistung zum Laufen zu bringen, wird es wahrscheinlicher, dass die Erfahrung auf Geräten mit höherer Leistung gut ist.
+Diese Schritte sind darauf ausgelegt sicherzustellen, dass der Browser, in dem Sie testen, so "rein" wie möglich ist, d.h. es ist nichts installiert, das die Testergebnisse beeinflussen könnte.
 
 > [!NOTE]
-> Einige serverseitige Entwicklungsumgebungen bieten nützliche Mechanismen zum Ausrollen von Website-Änderungen auf nur für eine Untergruppe von Benutzern, was einen nützlichen Mechanismus bietet, um eine Funktion von einer Teilmenge von Benutzern testen zu lassen, ohne dass ein separater Entwicklungsserver erforderlich ist. Ein Beispiel ist [Django Waffle Flags](https://github.com/jazzband/django-waffle).
+> Eine weitere nützliche einfache Option, wenn Sie die Hardware zur Verfügung haben, ist, Ihre Websites auf Geräten niedrigeren Endes zu testen — da Websites immer größer werden und mehr Effekte aufweisen, steigt die Wahrscheinlichkeit, dass die Website langsamer wird, so dass Sie anfangen müssen, der Leistung mehr Beachtung zu schenken. Wenn Sie versuchen, Ihre Funktionalität auf einem Gerät mit niedrigerem Ende zum Laufen zu bringen, wird es wahrscheinlicher, dass die Erfahrung auf höherwertigen Geräten gut ist.
+
+> [!NOTE]
+> Einige serverseitige Entwicklungsumgebungen bieten nützliche Mechanismen, um Änderungen an der Website nur an eine Teilmenge von Benutzern auszurollen, was einen nützlichen Mechanismus bietet, um eine Funktion von einer Teilmenge von Benutzern testen zu lassen, ohne einen separaten Entwicklungsserver zu benötigen. Ein Beispiel ist [Django Waffle Flags](https://github.com/jazzband/django-waffle).
 
 ## Zusammenfassung
 
-Nachdem Sie diesen Artikel gelesen haben, sollten Sie nun eine gute Vorstellung davon haben, was Sie tun können, um Ihre Zielgruppe/Zielbrowserliste zu identifizieren und dann effektives Cross-Browser-Testing auf dieser Liste durchzuführen.
+Nachdem Sie diesen Artikel gelesen haben, solltenSie jetzt eine gute Vorstellung davon haben, was Sie tun können, um Ihre Zielgruppe/liste der Zielbrowser zu identifizieren und dann effektiv Cross-Browser-Tests auf dieser Liste durchzuführen.
 
-Als nächstes werden wir uns den tatsächlichen Codeproblemen widmen, die Ihr Testen aufdecken könnte, beginnend mit HTML und CSS.
+Als nächstes werden wir uns den tatsächlichen Code-Problemen zuwenden, die Ihre Tests aufdecken könnten, angefangen mit HTML und CSS.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Cross_browser_testing/Introduction","Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS", "Learn/Tools_and_testing/Cross_browser_testing")}}

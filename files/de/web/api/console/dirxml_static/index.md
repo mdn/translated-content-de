@@ -3,12 +3,12 @@ title: "console: dirxml() statische Methode"
 short-title: dirxml()
 slug: Web/API/console/dirxml_static
 l10n:
-  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{APIRef("Console API")}}
 
-Die statische Methode **`console.dirxml()`** zeigt einen interaktiven Baum der Nachfahrelemente des angegebenen XML/HTML-Elements an. Wenn es nicht möglich ist, es als Element darzustellen, wird die JavaScript-Objektansicht stattdessen angezeigt. Die Ausgabe wird als hierarchische Liste von erweiterbaren Knoten präsentiert, die es Ihnen ermöglichen, den Inhalt von Kindknoten zu sehen.
+Die **`console.dirxml()`** statische Methode zeigt einen interaktiven Baum der Nachfahren-Elemente des angegebenen XML/HTML-Elements an. Wenn es nicht möglich ist, es als Element anzuzeigen, wird stattdessen die JavaScript-Objektansicht angezeigt. Die Ausgabe wird als hierarchische Liste von erweiterbaren Knoten präsentiert, die es Ihnen ermöglicht, die Inhalte von Kindknoten zu sehen.
 
 ## Syntax
 
@@ -35,6 +35,6 @@ Keiner ({{jsxref("undefined")}}).
 
 ## Siehe auch
 
-- [Microsoft Edges Dokumentation für `console.dirxml()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#dirxml)
-- [Node.JS Dokumentation für `console.dirxml()`](https://nodejs.org/docs/latest/api/console.html#consoledirxmldata)
-- [Google Chromes Dokumentation für `console.dirxml()`](https://developer.chrome.com/docs/devtools/console/api/#dirxml)
+- [Microsoft Edges Dokumentation zu `console.dirxml()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#dirxml)
+- [Node.js Dokumentation zu `console.dirxml()`](https://nodejs.org/docs/latest/api/console.html#consoledirxmldata)
+- [Google Chromes Dokumentation zu `console.dirxml()`](https://developer.chrome.com/docs/devtools/console/api/#dirxml)

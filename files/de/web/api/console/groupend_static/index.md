@@ -3,12 +3,12 @@ title: "console: groupEnd() statische Methode"
 short-title: groupEnd()
 slug: Web/API/console/groupEnd_static
 l10n:
-  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die statische Methode **`console.groupEnd()`** beendet die aktuelle Inline-Gruppe in der Konsole. Einzelheiten und Beispiele finden Sie unter [Verwenden von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der [`console`](/de/docs/Web/API/Console) Dokumentation.
+Die **`console.groupEnd()`** statische Methode beendet die aktuelle Inline-Gruppe in der Konsole. Siehe [Verwendung von Gruppen in der Konsole](/de/docs/Web/API/console#using_groups_in_the_console) in der [`console`](/de/docs/Web/API/Console) Dokumentation für Details und Beispiele.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Keine ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -36,6 +36,6 @@ Keiner ({{jsxref("undefined")}}).
 
 - [`console.group()`](/de/docs/Web/API/Console/group_static)
 - [`console.groupCollapsed()`](/de/docs/Web/API/Console/groupCollapsed_static)
-- [Microsoft Edges Dokumentation für `console.groupEnd()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#groupend)
-- [Node.JS-Dokumentation für `console.groupEnd()`](https://nodejs.org/docs/latest/api/console.html#consolegroupend)
-- [Google Chromes Dokumentation für `console.groupEnd()`](https://developer.chrome.com/docs/devtools/console/api/#groupend)
+- [Microsoft Edge-Dokumentation für `console.groupEnd()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#groupend)
+- [Node.js-Dokumentation für `console.groupEnd()`](https://nodejs.org/docs/latest/api/console.html#consolegroupend)
+- [Google Chrome-Dokumentation für `console.groupEnd()`](https://developer.chrome.com/docs/devtools/console/api/#groupend)

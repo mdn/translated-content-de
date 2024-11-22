@@ -1,16 +1,16 @@
 ---
-title: "console: time() static method"
+title: "console: time() statische Methode"
 short-title: time()
 slug: Web/API/console/time_static
 l10n:
-  sourceCommit: f2372e442803696ba0fe1c9804096065f2b42824
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{APIRef("Console API")}} {{AvailableInWorkers}}
 
-Die **`console.time()`** statische Methode startet einen Timer, mit dem Sie verfolgen können, wie lange ein Vorgang dauert. Sie geben jedem Timer einen eindeutigen Namen und können bis zu 10.000 Timer auf einer bestimmten Seite ausführen. Wenn Sie [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static) mit demselben Namen aufrufen, gibt der Browser die Zeit in Millisekunden aus, die seit dem Start des Timers verstrichen ist.
+Die statische Methode **`console.time()`** startet einen Timer, mit dem Sie verfolgen können, wie lange eine Operation dauert. Sie geben jedem Timer einen eindeutigen Namen und können bis zu 10.000 Timer auf einer bestimmten Seite laufen lassen. Wenn Sie [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static) mit demselben Namen aufrufen, gibt der Browser die verstrichene Zeit in Millisekunden aus, seit der Timer gestartet wurde.
 
-Siehe [Timer](/de/docs/Web/API/console#timers) in der [`console`](/de/docs/Web/API/Console) Dokumentation für Details und Beispiele.
+Siehe [Timer](/de/docs/Web/API/console#timers) in der Dokumentation von [`console`](/de/docs/Web/API/Console) für Details und Beispiele.
 
 ## Syntax
 
@@ -22,11 +22,11 @@ console.time(label)
 ### Parameter
 
 - `label` {{optional_inline}}
-  - : Ein String, der den Namen für den neuen Timer repräsentiert. Dieser wird den Timer identifizieren; verwenden Sie denselben Namen, wenn Sie [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static) aufrufen, um den Timer zu stoppen und die Zeit in die Konsole auszugeben. Wenn weggelassen, wird das Label `"default"` verwendet.
+  - : Ein String, der den Namen repräsentiert, der dem neuen Timer gegeben werden soll. Dieser wird den Timer identifizieren; verwenden Sie denselben Namen, wenn Sie [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static) aufrufen, um den Timer zu stoppen und die Zeit im Konsolenprotokoll auszugeben. Wenn ausgelassen, wird das Label `"default"` verwendet.
 
 ### Rückgabewert
 
-Keiner ({{jsxref("undefined")}}).
+Kein ({{jsxref("undefined")}}).
 
 ## Spezifikationen
 
@@ -39,6 +39,6 @@ Keiner ({{jsxref("undefined")}}).
 ## Siehe auch
 
 - Siehe [`console.timeLog()`](/de/docs/Web/API/Console/timeLog_static) und [`console.timeEnd()`](/de/docs/Web/API/Console/timeEnd_static) für Beispiele
-- [Microsoft Edge-Dokumentation zu `console.time()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#time)
-- [Node.JS-Dokumentation zu `console.time()`](https://nodejs.org/docs/latest/api/console.html#consoletimelabel)
-- [Google Chrome-Dokumentation zu `console.time()`](https://developer.chrome.com/docs/devtools/console/api/#time)
+- [Microsoft Edge-Dokumentation für `console.time()`](https://learn.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/console/api#time)
+- [Node.js-Dokumentation für `console.time()`](https://nodejs.org/docs/latest/api/console.html#consoletimelabel)
+- [Google Chrome-Dokumentation für `console.time()`](https://developer.chrome.com/docs/devtools/console/api/#time)

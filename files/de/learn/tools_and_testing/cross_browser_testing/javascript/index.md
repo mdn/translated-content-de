@@ -2,12 +2,12 @@
 title: Umgang mit häufigen JavaScript-Problemen
 slug: Learn/Tools_and_testing/Cross_browser_testing/JavaScript
 l10n:
-  sourceCommit: 530c1f54e63834411aa38789b1ac82e3831c4dfa
+  sourceCommit: 5f76b99045f87349ed030bbd6a3c2e43badb3c22
 ---
 
 {{LearnSidebar}}{{PreviousMenuNext("Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS","Learn/Tools_and_testing/Cross_browser_testing/Accessibility", "Learn/Tools_and_testing/Cross_browser_testing")}}
 
-Nun werden wir uns häufig auftretende JavaScript-Probleme bezüglich der Browser-Kompatibilität ansehen und wie man sie beheben kann. Dazu gehört die Verwendung von Entwickler-Tools in Browsern, um Probleme aufzuspüren und zu beheben, Polyfills und Bibliotheken zur Umgehung von Problemen zu verwenden, moderne JavaScript-Funktionen in älteren Browsern zum Laufen zu bringen, und mehr.
+Nun werden wir uns mit häufigen JavaScript-Problemen bei der Nutzung in verschiedenen Browsern befassen und wie man sie lösen kann. Dazu gehören Informationen über die Nutzung von Entwicklerwerkzeugen im Browser zur Fehlerbehebung, die Verwendung von Polyfills und Bibliotheken zur Umgehung von Problemen, die Aktivierung moderner JavaScript-Funktionen in älteren Browsern und mehr.
 
 <table>
   <tbody>
@@ -16,23 +16,23 @@ Nun werden wir uns häufig auftretende JavaScript-Probleme bezüglich der Browse
       <td>
         Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn/HTML">HTML</a>,
         <a href="/de/docs/Learn/CSS">CSS</a> und
-        <a href="/de/docs/Learn/JavaScript">JavaScript</a>; eine Vorstellung von den <a href="/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction">Prinzipien des Cross-Browser-Testing</a> auf hoher Ebene.
+        <a href="/de/docs/Learn/JavaScript">JavaScript</a>; eine Vorstellung von den grundlegenden <a href="/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction">Prinzipien des Cross-Browser-Testings</a>.
       </td>
     </tr>
     <tr>
       <th scope="row">Ziel:</th>
       <td>
-        In der Lage sein, häufige JavaScript-Probleme mit Browser-Kompatibilität zu diagnostizieren und geeignete Werkzeuge und Techniken zu nutzen, um sie zu beheben.
+        In der Lage zu sein, häufige JavaScript-Probleme in verschiedenen Browsern zu diagnostizieren und die geeigneten Werkzeuge und Techniken zur Behebung dieser Probleme einzusetzen.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Das Problem mit JavaScript
+## Die Probleme mit JavaScript
 
-Historisch gesehen war JavaScript von Problemen mit der Browser-Kompatibilität geplagt — in den 1990er Jahren hatten die Hauptbrowser (Internet Explorer und Netscape) unterschiedliche Sprachversionen für Scripting implementiert (Netscape hatte JavaScript, IE hatte JScript und bot auch VBScript als Option an). Obwohl JavaScript und JScript bis zu einem gewissen Grad kompatibel waren (beide basierten auf der {{Glossary("ECMAScript", "ECMAScript")}}-Spezifikation), wurden Dinge oft in widersprüchlichen, inkompatiblen Weisen implementiert, was Entwicklern viele Kopfschmerzen bereitete.
+Historisch gesehen hatte JavaScript viele Probleme mit der Browser-Kompatibilität — in den 1990er Jahren hatten die Haupt-Browser-Optionen (Internet Explorer und Netscape) verschiedene Script-Versionen implementiert (Netscape hatte JavaScript, IE hatte JScript und bot auch VBScript als Option), und obwohl JavaScript und JScript bis zu einem gewissen Grad kompatibel waren (beide basierten auf der {{Glossary("ECMAScript", "ECMAScript")}}-Spezifikation), wurden Dinge oft auf widersprüchliche und inkompatible Weisen implementiert, was Entwicklern viele Kopfschmerzen bereitete.
 
-Solche Inkompatibilitätsprobleme hielten sich bis in die frühen 2000er Jahre, da alte Browser weiterhin verwendet und unterstützt werden mussten. Beispielsweise musste Code zum Erstellen von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekten speziell für Internet Explorer 6 behandelt werden:
+Solche Inkompatibilitätsprobleme hielten sich weit bis in die frühen 2000er Jahre, da alte Browser weiterhin verwendet wurden und weiterhin unterstützt werden mussten. Zum Beispiel musste der Code zur Erstellung von [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-Objekten eine spezielle Handhabung für Internet Explorer 6 haben:
 
 ```js
 if (window.XMLHttpRequest) {
@@ -44,75 +44,75 @@ if (window.XMLHttpRequest) {
 }
 ```
 
-Dies ist einer der Hauptgründe, warum Bibliotheken wie [jQuery](https://jquery.com/) entstanden — um Unterschiede in Browserimplementierungen zu abstrahieren, sodass ein Entwickler einfach zum Beispiel [`jQuery.ajax()`](https://api.jquery.com/jquery.ajax/) verwenden konnte, das die Unterschiede im Hintergrund behandeln würde.
+Dies ist einer der Hauptgründe, warum Bibliotheken wie [jQuery](https://jquery.com/) entstanden — um Unterschiede in Browser-Implementierungen zu abstrahieren, sodass ein Entwickler zum Beispiel einfach [`jQuery.ajax()`](https://api.jquery.com/jquery.ajax/) verwenden konnte, das die Unterschiede im Hintergrund handhaben würde.
 
-Seitdem hat sich viel verbessert; moderne Browser leisten gute Arbeit bei der Unterstützung von "klassischen JavaScript-Funktionen" und die Notwendigkeit, solchen Code zu verwenden, hat abgenommen, da die Notwendigkeit zur Unterstützung älterer Browser geringer geworden ist (obwohl bedenken Sie, dass sie nicht vollständig verschwunden sind).
+Seitdem hat sich vieles deutlich verbessert; moderne Browser leisten gute Arbeit bei der Unterstützung "klassischer JavaScript-Funktionen", und die Notwendigkeit, solchen Code zu verwenden, hat abgenommen, da die Anforderung zur Unterstützung älterer Browser gesunken ist (obwohl sie nicht vollständig verschwunden ist).
 
-Heutzutage werden die meisten JavaScript-Probleme mit Browser-Kompatibilität gesehen:
+Heutzutage treten die meisten JavaScript-Probleme zwischen verschiedenen Browsern auf:
 
-- Wenn minderwertiger Browser-Erkennungscode, Funktions-Erkennungscode und die Verwendung von Vendor-Präfixen Browser daran hindern, Code auszuführen, den sie sonst problemlos nutzen könnten.
-- Wenn Entwickler neue/aufkommende JavaScript-Funktionen, moderne Web-APIs usw. in ihrem Code verwenden und feststellen, dass solche Funktionen in älteren Browsern nicht funktionieren.
+- Wenn minderwertiger Browser-Sniffing-Code, Feature-Erkennungs-Code und die Verwendung von Vendor-Präfixen verhindern, dass Browser Code ausführen, den sie sonst problemlos verwenden könnten.
+- Wenn Entwickler neue/entstehende JavaScript-Funktionen, moderne Web-APIs usw. in ihrem Code verwenden und feststellen, dass solche Funktionen in älteren Browsern nicht funktionieren.
 
-Wir werden all diese Probleme und mehr unten erkunden.
+Wir werden all diese Probleme und mehr im Folgenden untersuchen.
 
 ## Allgemeine JavaScript-Probleme beheben
 
-Wie wir in dem [vorherigen Artikel](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#first_things_first_fixing_general_problems) zu HTML/CSS gesagt haben, sollten Sie sicherstellen, dass Ihr Code allgemein funktioniert, bevor Sie sich auf die Probleme der Browser-Kompatibilität konzentrieren. Wenn Sie mit den Grundlagen zur [Fehlerbehebung in JavaScript](/de/docs/Learn/JavaScript/First_steps/What_went_wrong) nicht vertraut sind, sollten Sie diesen Artikel durcharbeiten, bevor Sie weitermachen. Es gibt eine Reihe von häufigen JavaScript-Problemen, auf die Sie achten sollten, wie z. B.:
+Wie wir im [vorherigen Artikel](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#first_things_first_fixing_general_problems) zu HTML/CSS gesagt haben, sollten Sie sicherstellen, dass Ihr Code grundsätzlich funktioniert, bevor Sie sich auf die plattformübergreifenden Probleme konzentrieren. Wenn Sie mit den Grundlagen der [Fehlerbehebung bei JavaScript](/de/docs/Learn/JavaScript/First_steps/What_went_wrong) noch nicht vertraut sind, sollten Sie diesen Artikel studieren, bevor Sie weitermachen. Es gibt eine Reihe häufiger JavaScript-Probleme, auf die Sie achten sollten, wie zum Beispiel:
 
-- Grundlegende Syntax- und Logikprobleme (siehe erneut [Fehlerbehebung in JavaScript](/de/docs/Learn/JavaScript/First_steps/What_went_wrong)).
-- Sicherstellen, dass Variablen usw. im korrekten Gültigkeitsbereich definiert sind und es keine Konflikte zwischen in verschiedenen Bereichen deklarierten Objekten gibt (siehe [Funktionsbereich und Konflikte](/de/docs/Learn/JavaScript/Building_blocks/Functions#function_scope_and_conflicts)).
-- Verwirrung über [this](/de/docs/Web/JavaScript/Reference/Operators/this), bezüglich des Anwendungsbereichs, in dem es sich befindet, und somit, ob sein Wert dem entspricht, was Sie beabsichtigt haben. Sie können [Was ist "this"?](/de/docs/Learn/JavaScript/Objects/Basics#what_is_this) für eine erste Einführung lesen; Sie sollten auch Beispiele wie [dieses hier](https://github.com/mdn/learning-area/blob/7ed039d17e820c93cafaff541aa65d874dde8323/javascript/oojs/assessment/main.js#L143) studieren, das ein typisches Muster zeigt, bei dem ein `this`-Bereich in einer separaten Variablen gespeichert wird, die dann in geschachtelten Funktionen verwendet wird, sodass Sie sicher sein können, dass Sie Funktionalität auf den richtigen `this`-Bereich anwenden.
-- Funktionen falsch innerhalb von Schleifen verwenden, die mit einer globalen Variablen iterieren (allgemeiner "den Bereich falsch verstehen").
+- Grundlegende Syntax- und Logikprobleme (auch hier sollten Sie sich den Artikel zur [Fehlerbehebung bei JavaScript](/de/docs/Learn/JavaScript/First_steps/What_went_wrong) ansehen).
+- Sicherstellen, dass Variablen etc. im richtigen Scope definiert sind und dass Sie nicht in Konflikte zwischen an unterschiedlichen Stellen deklarierten Elementen geraten (sehen Sie sich [Funktionsbereich und Konflikte](/de/docs/Learn/JavaScript/Building_blocks/Functions#function_scope_and_conflicts) an).
+- Verwirrung über [this](/de/docs/Web/JavaScript/Reference/Operators/this), hinsichtlich des Scopes, auf den es sich bezieht, und ob sein Wert dann auch der beabsichtigte ist. Sie können [Was ist "this"?](/de/docs/Learn/JavaScript/Objects/Basics#what_is_this) für eine leichte Einführung lesen; Sie sollten sich auch Beispiele wie [dieses hier](https://github.com/mdn/learning-area/blob/7ed039d17e820c93cafaff541aa65d874dde8323/javascript/oojs/assessment/main.js#L143) ansehen, das ein typisches Muster zeigt, bei dem ein `this`-Scope in einer separaten Variablen gespeichert wird, um dann diese Variable in verschachtelten Funktionen zu verwenden, damit sichergestellt ist, dass Sie die Funktionalität auf das richtige `this`-Scope anwenden.
+- Falsche Verwendung von Funktionen innerhalb von Schleifen, die mit einer globalen Variable iterieren (allgemein "den Scope falsch machen").
 
 > [!CALLOUT]
-> Zum Beispiel in [bad-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/bad-for-loop.html) (siehe [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/bad-for-loop.html)), wir durchlaufen 10 Iterationen mit einer Variablen, die mit `var` definiert ist, erstellen jedes Mal einen Absatz und fügen ihm einen [onclick](/de/docs/Web/API/Element/click_event)-Ereignishandler hinzu. Wenn geklickt, möchten wir, dass jeder eine Warnmeldung mit seiner Nummer anzeigt (dem Wert von `i` zum Zeitpunkt der Erstellung). Stattdessen melden alle `i` als 11 — weil die `for`-Schleife alle ihre Iterationen ausführt, bevor geschachtelte Funktionen aufgerufen werden.
+> Zum Beispiel in [bad-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/bad-for-loop.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/bad-for-loop.html) an), durchlaufen wir 10 Iterationen mit einer mit `var` definierten Variable, erzeugen jedes Mal einen Paragraphen und fügen einen [onclick](/de/docs/Web/API/Element/click_event)-Event-Handler hinzu. Beim Klicken soll jeder Paragraph eine Meldung mit seiner Nummer (dem Wert von `i` zum Zeitpunkt seiner Erstellung) anzeigen. Stattdessen melden alle den Wert 11 — weil die `for`-Schleife alle ihre Iterationen ausführt, bevor die verschachtelten Funktionen aufgerufen werden.
 >
-> Die einfachste Lösung besteht darin, die Iterationsvariable mit `let` anstelle von `var` zu deklarieren — der Wert von `i`, der der Funktion zugeordnet ist, ist dann einzigartig für jede Iteration. Siehe [good-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/good-for-loop.html) (siehe ebenfalls den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/good-for-loop.html)) für eine Version, die funktioniert.
+> Die einfachste Lösung besteht darin, die Iterationsvariable mit `let` anstelle von `var` zu deklarieren — der Wert von `i`, der mit der Funktion verbunden ist, ist dann für jede Iteration einzigartig. Siehe [good-for-loop.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/good-for-loop.html) (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/good-for-loop.html) an) für eine funktionierende Version.
 
-- Sicherstellen, dass [asynchrone Operationen](/de/docs/Learn/JavaScript/Asynchronous) abgeschlossen sind, bevor Sie versuchen, die von ihnen zurückgegebenen Werte zu verwenden. Dies bedeutet in der Regel, dass Sie verstehen müssen, wie man _Promises_ verwendet: entweder mit [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) oder indem Sie den Code zum Bearbeiten der Ergebnisse eines asynchronen Aufrufs im `then()`-Handler eines Promises ausführen. Siehe [Wie man Promises verwendet](/de/docs/Learn/JavaScript/Asynchronous/Promises) für eine Einführung in dieses Thema.
+- Sicherzustellen, dass [asynchrone Operationen](/de/docs/Learn/JavaScript/Asynchronous) abgeschlossen sind, bevor versucht wird, die von ihnen zurückgegebenen Werte zu verwenden. Dies bedeutet in der Regel, zu verstehen, wie man _promises_ verwendet: [`await`](/de/docs/Web/JavaScript/Reference/Operators/await) angemessen zu verwenden oder den Code, um das Ergebnis eines asynchronen Aufrufs zu handhaben, im `then()`-Handler des Promises auszuführen. Siehe [Anleitung zur Verwendung von Promises](/de/docs/Learn/JavaScript/Asynchronous/Promises) für eine Einführung in dieses Thema.
 
-> **Hinweis:** [Fehlerhafter JavaScript-Code: Die 10 häufigsten Fehler, die JavaScript-Entwickler machen](https://www.toptal.com/javascript/10-most-common-javascript-mistakes) hat einige schöne Diskussionen über diese häufigen Fehler und noch mehr.
+> **Hinweis:** [Fehlerhafter JavaScript-Code: Die 10 häufigsten Fehler, die JavaScript-Entwickler machen](https://www.toptal.com/javascript/10-most-common-javascript-mistakes) enthält einige gute Diskussionen über diese häufigen Fehler und mehr.
 
 ### Linter
 
-Wie bei [HTML und CSS](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#linters) können Sie durch die Verwendung eines Linters eine bessere Qualität und weniger fehleranfälligen JavaScript-Code sicherstellen, der Fehler identifiziert und auch Warnungen über schlechte Praktiken usw. auslösen kann und anpassbar ist, um strenger oder entspannter in ihrer Fehler-/Warnungsberichterstattung zu sein. Die JavaScript/ECMAScript-Linter, die wir empfehlen würden, sind [JSHint](https://jshint.com/) und [ESLint](https://eslint.org/); diese können auf verschiedene Weisen verwendet werden, von denen wir einige unten genauer beschreiben werden.
+Wie bei [HTML und CSS](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#linters) können Sie sicherstellen, dass Ihr JavaScript-Code eine bessere Qualität hat und weniger fehleranfällig ist, indem Sie einen Linter verwenden, der Fehler aufzeigt und auch Warnungen über schlechte Praktiken, etc. geben kann. Die JavaScript/ECMAScript-Linter, die wir empfehlen, sind [JSHint](https://jshint.com/) und [ESLint](https://eslint.org/); diese können auf verschiedene Weise verwendet werden, von denen wir einige unten näher erläutern werden.
 
 #### Online
 
-Die [JSHint-Homepage](https://jshint.com/) bietet einen Online-Linter, mit dem Sie Ihren JavaScript-Code links eingeben und rechts eine Ausgabe mit Metriken, Warnungen und Fehlern erhalten können.
+Die [JSHint Homepage](https://jshint.com/) bietet einen Online-Linter, der es Ihnen ermöglicht, Ihren JavaScript-Code links einzugeben und rechts eine Ausgabe mit Metriken, Warnungen und Fehlern anzuzeigen.
 
-![JSHint-Screenshot. Das linke Panel ist ein farbcodierter Code-Editor mit Zeilennummern. Das rechte Panel ist in Metriken auf die Anzahl, Größe und Struktur der Funktionen sowie Warnungen unterteilt. Die Warnungen enthalten das Problem und die Zeilennummer.](jshint-online.png)
+![JSHint Screenshot. Linkes Panel ist ein farbcodierter und mit Zeilennummern versehener Code-Editor. Rechtes Panel ist in Metriken zur Anzahl, Größe und Zusammensetzung der Funktionen und Warnungen unterteilt. Die Warnungen enthalten das Problem und die Zeilennummer.](jshint-online.png)
 
 #### Code-Editor-Plugins
 
-Es ist nicht sehr praktisch, den Code mehrmals auf eine Webseite kopieren und dort die Gültigkeit überprüfen zu müssen. Eigentlich möchten Sie einen Linter, der in Ihren Standard-Workflow mit minimalem Aufwand passt. Viele Code-Editoren haben Linter-Plugins. Zum Beispiel, siehe den Abschnitt "Plugins für Texteditoren und IDEs" auf der [JSHint-Installationsseite](https://jshint.com/install/).
+Es ist nicht sehr praktisch, Ihren Code mehrmals auf eine Webseite kopieren und einfügen zu müssen, um dessen Gültigkeit zu überprüfen. Eigentlich möchten Sie einen Linter, der sich mit minimalem Aufwand in Ihren Arbeitsablauf einfügt. Viele Code-Editoren haben Linter-Plugins. Zum Beispiel siehe den Abschnitt "Plugins für Texteditoren und IDEs" auf der [JSHint-Installationsseite](https://jshint.com/install/).
 
-#### Weitere Verwendungen
+#### Andere Verwendungen
 
-Es gibt weitere Möglichkeiten, solche Linter zu verwenden; Sie können darüber auf den [JSHint](https://jshint.com/install/)- und [ESLint](https://eslint.org/docs/latest/use/getting-started)-Installationsseiten lesen.
+Es gibt andere Möglichkeiten, solche Linter zu verwenden; Sie können darüber auf den Installationsseiten von [JSHint](https://jshint.com/install/) und [ESLint](https://eslint.org/docs/latest/use/getting-started) lesen.
 
-Die Kommandozeilenverwendung ist es wert, erwähnt zu werden — Sie können diese Tools als Kommandozeilen-Dienstprogramme (verfügbar über die CLI — Kommandozeilenschnittstelle) mit npm (Node Package Manager — Sie müssen zunächst [NodeJS](https://nodejs.org/en/) installieren) installieren. Zum Beispiel installiert der folgende Befehl JSHint:
+Erwähnenswert sind die Kommandozeilenverwendungen — Sie können diese Tools als Kommandozeilenprogramme (verfügbar über die CLI — Command Line Interface) über npm (Node Package Manager — Sie müssen zuerst [NodeJS](https://nodejs.org/en/) installieren) installieren. Zum Beispiel installiert der folgende Befehl JSHint:
 
 ```bash
 npm install -g jshint
 ```
 
-Sie können diese Tools dann auf die JavaScript-Dateien anwenden, die Sie prüfen möchten, zum Beispiel:
+Sie können diese Tools dann auf die JavaScript-Dateien anwenden, die Sie überprüfen möchten, zum Beispiel:
 
-![jshint filename.js wurde an der Kommandozeile eingegeben. Die Antwort ist eine Liste von Zeilennummern und eine Beschreibung des gefundenen Fehlers.](js-hint-commandline.png)
+![jshint filename.js wurde in der Kommandozeile eingegeben. Die Antwort ist eine Liste von Zeilennummern und eine Beschreibung der gefundenen Fehler.](js-hint-commandline.png)
 
-Sie können diese Tools auch mit einem Task-Runner/Build-Tool wie [Gulp](https://gulpjs.com/) oder [Webpack](https://webpack.github.io/) verwenden, um Ihr JavaScript während der Entwicklung automatisch auf Fehler zu überprüfen. (siehe [Verwenden eines Task-Runners zur Automatisierung von Testwerkzeugen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Automated_testing#using_a_task_runner_to_automate_testing_tools) in einem späteren Artikel.) Siehe [ESLint-Integrationen](https://eslint.org/docs/latest/use/integrations) für ESLint-Optionen; JSHint wird von Grunt direkt unterstützt und hat auch andere verfügbare Integrationen, z.B. [JSHint Loader für Webpack](https://github.com/webpack-contrib/jshint-loader).
+Sie können diese Tools auch mit einem Task-Runner/Build-Tool wie [Gulp](https://gulpjs.com/) oder [webpack](https://webpack.github.io/) verwenden, um Ihr JavaScript während der Entwicklung automatisch zu überprüfen. (siehe [Verwendung eines Task-Runners zur Automatisierung von Testwerkzeugen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Automated_testing#using_a_task_runner_to_automate_testing_tools) in einem späteren Artikel.) Siehe [ESLint-Integrationen](https://eslint.org/docs/latest/use/integrations) für ESLint-Optionen; JSHint wird von Grunt direkt unterstützt und hat auch andere Integrationen verfügbar, z. B. [JSHint loader for webpack](https://github.com/webpack-contrib/jshint-loader).
 
 > [!NOTE]
 > ESLint erfordert etwas mehr Einrichtung und Konfiguration als JSHint, ist aber auch leistungsfähiger.
 
-### Entwickler-Tools im Browser
+### Entwicklerwerkzeuge im Browser
 
-Entwickler-Tools im Browser haben viele nützliche Funktionen zur Unterstützung der JavaScript-Fehlerbehebung. Zum einen wird die JavaScript-Konsole Fehler in Ihrem Code melden.
+Entwicklerwerkzeuge im Browser haben viele nützliche Funktionen, um beim Debugging von JavaScript zu helfen. Zumindest wird die JavaScript-Konsole Fehler in Ihrem Code melden.
 
-Machen Sie eine lokale Kopie unseres [fetch-broken](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-broken/)-Beispiels (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-broken) an).
+Erstellen Sie eine lokale Kopie unseres [fetch-broken](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-broken/) Beispiels (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-broken) an).
 
-Wenn Sie sich die Konsole ansehen, werden Sie eine Fehlermeldung sehen. Die genaue Wortwahl hängt vom Browser ab, aber es wird etwa so lauten: "Uncaught TypeError: heroes is not iterable", und die referenzierte Zeilennummer ist 25. Wenn wir uns den Quellcode ansehen, ist der relevante Codeschnipsel dieser:
+Wenn Sie sich die Konsole ansehen, sehen Sie eine Fehlermeldung. Die genaue Formulierung ist von Browser zu Browser unterschiedlich, aber sie wird ungefähr lauten: "Uncaught TypeError: heroes is not iterable", und die referenzierte Zeilennummer ist 25. Wenn wir uns den Quellcode ansehen, ist der relevante Code-Abschnitt dieser:
 
 ```js
 function showHeroes(jsonObj) {
@@ -124,7 +124,7 @@ function showHeroes(jsonObj) {
 }
 ```
 
-Der Code stürzt also ab, sobald wir versuchen, `jsonObj` zu verwenden (das, wie Sie vielleicht vermuten, ein [JSON-Objekt](/de/docs/Learn/JavaScript/Objects/JSON) sein soll). Es soll mit dem folgenden [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf aus einer externen `.json`-Datei abgerufen werden:
+Der Code bricht also zusammen, sobald wir `jsonObj` verwenden (das, wie Sie erwarten können, ein [JSON-Objekt](/de/docs/Learn/JavaScript/Objects/JSON) sein soll). Es soll aus einer externen `.json`-Datei mit dem folgenden [`fetch()`](/de/docs/Web/API/Window/fetch)-Aufruf geholt werden:
 
 ```js
 const requestURL =
@@ -135,13 +135,13 @@ populateHeader(response);
 showHeroes(response);
 ```
 
-Aber dies schlägt fehl.
+Aber das funktioniert nicht.
 
-#### Die Console-API
+#### Die Console API
 
-Sie wissen vielleicht schon, was mit diesem Code nicht stimmt, aber lassen Sie uns das noch etwas mehr erkunden, um zu zeigen, wie Sie das untersuchen könnten. Zunächst gibt es ein [Console](/de/docs/Web/API/console)-API, das es JavaScript-Code ermöglicht, mit der JavaScript-Konsole des Browsers zu interagieren. Es hat eine Reihe von Funktionen, aber die, die Sie am häufigsten verwenden werden, ist [`console.log()`](/de/docs/Web/API/console/log_static), das eine benutzerdefinierte Nachricht an die Konsole schreibt.
+Vielleicht wissen Sie bereits, was mit diesem Code falsch ist, aber lassen Sie uns ihn etwas genauer untersuchen, um zu zeigen, wie Sie das herausfinden könnten. Zum Start gibt es eine [Console](/de/docs/Web/API/console) API, die es JavaScript-Code ermöglicht, mit der JavaScript-Konsole des Browsers zu interagieren. Sie hat eine Reihe von Funktionen, aber diejenige, die Sie am häufigsten verwenden werden, ist [`console.log()`](/de/docs/Web/API/console/log_static), die eine benutzerdefinierte Nachricht in der Konsole ausgibt.
 
-Versuchen Sie, einen `console.log()`-Aufruf hinzuzufügen, um den Rückgabewert von `fetch()` zu protokollieren, wie folgt:
+Versuchen Sie, einen `console.log()`-Aufruf hinzuzufügen, um den Rückgabewert von `fetch()` zu protokollieren, so:
 
 ```js
 const requestURL =
@@ -154,15 +154,15 @@ populateHeader(superHeroes);
 showHeroes(superHeroes);
 ```
 
-Aktualisieren Sie die Seite im Browser. Dieses Mal, vor der Fehlermeldung, sehen Sie eine neue Nachricht, die in der Konsole protokolliert wird:
+Aktualisieren Sie die Seite im Browser. Dieses Mal sehen Sie vor der Fehlermeldung eine neue Nachricht, die in der Konsole protokolliert wurde:
 
 ```plain
 Response value: [object Promise]
 ```
 
-Die `console.log()`-Ausgabe zeigt, dass der Rückgabewert von `fetch()` nicht die JSON-Daten sind, sondern ein {{jsxref("Promise")}}. Die Funktion `fetch()` ist asynchron: Sie gibt ein `Promise` zurück, das nur erfüllt wird, wenn die tatsächliche Antwort vom Netzwerk empfangen wurde. Bevor wir die Antwort verwenden können, müssen wir warten, bis das `Promise` erfüllt ist.
+Die `console.log()`-Ausgabe zeigt, dass der Rückgabewert von `fetch()` nicht die JSON-Daten ist, sondern ein {{jsxref("Promise")}}. Die `fetch()`-Funktion ist asynchron: Sie gibt ein `Promise` zurück, das erst erfüllt wird, wenn die eigentliche Antwort aus dem Netzwerk empfangen wurde. Bevor wir die Antwort verwenden können, müssen wir warten, bis das `Promise` erfüllt ist.
 
-Wir können dies tun, indem wir den Code, der die Antwort verwendet, in die Methode {{jsxref("Promise.prototype.then()", "then()")}} des zurückgegebenen `Promise` setzen, wie folgt:
+Wir können dies tun, indem wir den Code, der die Antwort verwendet, in die {{jsxref("Promise.prototype.then()", "then()")}}-Methode des zurückgegebenen `Promise` einfügen, so:
 
 ```js
 const response = fetch(requestURL);
@@ -172,14 +172,14 @@ fetch(requestURL).then((response) => {
 });
 ```
 
-Zusammenfassend, immer wenn etwas nicht funktioniert und ein Wert an einem Punkt in Ihrem Code nicht so erscheint, wie er sollte, können Sie `console.log()` verwenden, um es auszugeben und zu sehen, was passiert.
+Zusammenfassend lässt sich sagen: Immer wenn etwas nicht funktioniert und ein Wert nicht das zu sein scheint, was er zu einem bestimmten Zeitpunkt in Ihrem Code sein sollte, können Sie `console.log()` verwenden, um ihn auszugeben und zu sehen, was passiert.
 
-#### Verwenden des JavaScript-Debuggers
+#### Verwendung des JavaScript-Debuggers
 
-Leider haben wir immer noch denselben Fehler — das Problem ist nicht verschwunden. Untersuchen wir dies nun mit einer ausgeklügelteren Funktion der Entwickler-Tools des Browsers: dem [JavaScript-Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html), wie er in Firefox genannt wird.
+Leider haben wir immer noch denselben Fehler — das Problem ist nicht verschwunden. Lassen Sie uns dies nun mithilfe eines anspruchsvolleren Features der Entwicklerwerkzeuge des Browsers untersuchen: des [JavaScript-Debuggers](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html), wie er in Firefox genannt wird.
 
 > [!NOTE]
-> Ähnliche Tools sind in anderen Browsern verfügbar; der [Sources-Tab](https://developer.chrome.com/docs/devtools/#sources) in Chrome, Debugger in Safari (siehe [Safari Web Development Tools](https://developer.apple.com/safari/tools/)), etc.
+> Ähnliche Werkzeuge sind in anderen Browsern verfügbar; der [Sources-Tab](https://developer.chrome.com/docs/devtools/#sources) in Chrome, Debugger in Safari (siehe [Safari-Webentwicklungstools](https://developer.apple.com/safari/tools/)), usw.
 
 In Firefox sieht der Debugger-Tab so aus:
 
@@ -187,63 +187,63 @@ In Firefox sieht der Debugger-Tab so aus:
 
 - Links können Sie das Skript auswählen, das Sie debuggen möchten (in diesem Fall haben wir nur eines).
 - Das mittlere Panel zeigt den Code im ausgewählten Skript.
-- Das rechte Panel zeigt nützliche Details zur aktuellen Umgebung an — _Breakpoints_, _Callstack_ und aktuell aktive _Scopes_.
+- Das rechte Panel zeigt nützliche Details zur aktuellen Umgebung — _Breakpoints_, _Callstack_ und aktuell aktive _Scopes_.
 
-Die Hauptfunktion solcher Tools ist die Möglichkeit, Breakpoints im Code hinzuzufügen — dies sind Punkte, an denen die Ausführung des Codes stoppt, und an diesem Punkt können Sie die Umgebung im aktuellen Zustand überprüfen und sehen, was vor sich geht.
+Das Hauptfeature solcher Werkzeuge ist die Möglichkeit, Breakpoints zu Code hinzuzufügen — dies sind Punkte, an denen die Ausführung des Codes stoppt, und an diesem Punkt können Sie die Umgebung in ihrem aktuellen Zustand überprüfen und sehen, was vor sich geht.
 
-Lassen Sie uns an die Arbeit gehen. Der Fehler wird jetzt bei Zeile 26 ausgelöst. Klicken Sie auf die Zeilennummer 26 im mittleren Panel, um einen Breakpoint hinzuzufügen (Sie sehen einen blauen Pfeil darüber erscheinen). Aktualisieren Sie nun die Seite (Cmd/Ctrl + R) — der Browser wird die Ausführung des Codes bei Zeile 26 anhalten. Zu diesem Zeitpunkt wird die rechte Seite aktualisiert, um einige sehr nützliche Informationen anzuzeigen.
+Lassen Sie uns anfangen. Der Fehler wird jetzt in Zeile 26 ausgelöst. Klicken Sie auf die Zeilennummer 26 im mittleren Panel, um ihr einen Breakpoint hinzuzufügen (Sie sehen einen blauen Pfeil darüber erscheinen). Aktualisieren Sie nun die Seite (Cmd/Ctrl + R) — der Browser wird die Ausführung des Codes in Zeile 26 anhalten. Zu diesem Zeitpunkt wird sich die rechte Seite aktualisieren, um einige sehr nützliche Informationen anzuzeigen.
 
-![Firefox-Debugger mit einem Breakpoint](breakpoint.png)
+![Firefox-Debugger mit Breakpoint](breakpoint.png)
 
 - Unter _Breakpoints_ sehen Sie die Details des gesetzten Breakpoints.
-- Unter _Call Stack_ sehen Sie einige Einträge — dies ist im Grunde eine Liste der Reihe von Funktionen, die aufgerufen wurden, damit die aktuelle Funktion aufgerufen wird. Ganz oben haben wir `showHeroes()`, die Funktion, in der wir uns gerade befinden, und zweitens `onload`, die den Ereignishandler mit dem Aufruf von `showHeroes()` enthält.
-- Unter _Scopes_ sehen Sie den aktuell aktiven Gültigkeitsbereich für die Funktion, die wir betrachten. Wir haben nur drei — `showHeroes`, `block` und `Window` (der globale Gültigkeitsbereich). Jeder Gültigkeitsbereich kann erweitert werden, um die Werte der Variablen im Gültigkeitsbereich anzuzeigen, als die Ausführung des Codes gestoppt wurde.
+- Unter _Call Stack_ sehen Sie einige Einträge — dies ist im Grunde eine Liste der Serie von Funktionen, die aufgerufen wurden, um die aktuelle Funktion aufzurufen. Oben haben wir `showHeroes()` die Funktion, in der wir uns gerade befinden, und zweitens `onload`, die den Event-Handler enthält, der den Aufruf zu `showHeroes()` enthält.
+- Unter _Scopes_ sehen Sie den aktuell aktiven Scope für die Funktion, die wir uns gerade ansehen. Wir haben nur drei — `showHeroes`, `block` und `Window` (den globalen Scope). Jeder Scope kann erweitert werden, um die Werte der Variablen in diesem Scope zu zeigen, als die Ausführung des Codes gestoppt wurde.
 
-Wir können hieraus einige sehr nützliche Informationen gewinnen.
+Hier können wir einige sehr nützliche Informationen finden.
 
-1. Erweitern Sie den `showHeroes`-Gültigkeitsbereich — Sie können daran sehen, dass die Variable heroes `undefined` ist, was anzeigt, dass der Zugriff auf die `members`-Eigenschaft von `jsonObj` (erste Linie der Funktion) nicht funktioniert hat.
-2. Sie können auch sehen, dass die `jsonObj`-Variable ein [`Response`](/de/docs/Web/API/Response)-Objekt speichert, nicht ein JSON-Objekt.
+1. Erweitern Sie den `showHeroes`-Scope — Sie können sehen, dass die Variable `heroes` `undefined` ist, was darauf hinweist, dass der Zugriff auf die `members`-Eigenschaft von `jsonObj` (erste Zeile der Funktion) nicht funktioniert hat.
+2. Sie können auch sehen, dass die Variable `jsonObj` ein [`Response`](/de/docs/Web/API/Response)-Objekt speichert, kein JSON-Objekt.
 
-Das Argument für `showHeroes()` ist der Wert, mit dem das `fetch()`-Promise erfüllt wurde. Dieses Promise ist also nicht im JSON-Format: Es ist ein `Response`-Objekt. Es gibt einen zusätzlichen Schritt, um den Inhalt der Antwort als JSON-Objekt abzurufen.
+Das Argument von `showHeroes()` ist der Wert, mit dem das `fetch()` Promise erfüllt wurde. Also ist dieses Promise nicht im JSON-Format: es ist ein `Response`-Objekt. Es gibt noch einen weiteren Schritt, um den Inhalt der Antwort als JSON-Objekt abzurufen.
 
-Wir möchten, dass Sie versuchen, dieses Problem selbst zu beheben. Als Starthilfe siehe die Dokumentation für das [`Response`](/de/docs/Web/API/Response)-Objekt. Wenn Sie nicht weiterkommen, finden Sie den korrigierten Quellcode unter <https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-fixed>.
+Wir möchten, dass Sie versuchen, dieses Problem selbst zu beheben. Um Ihnen den Einstieg zu erleichtern, siehe die Dokumentation zum [`Response`](/de/docs/Web/API/Response)-Objekt. Wenn Sie nicht weiterkommen, finden Sie den korrigierten Quellcode unter <https://github.com/mdn/learning-area/tree/main/tools-testing/cross-browser-testing/javascript/fetch-fixed>.
 
 > [!NOTE]
-> Der Debugger-Tab hat viele andere nützliche Features, die wir hier nicht behandelt haben, z.B. bedingte Breakpoints und Watch Expressions. Für weitere Informationen siehe die [Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html)-Seite.
+> Der Debugger-Tab hat viele andere nützliche Funktionen, die wir hier nicht besprochen haben, zum Beispiel bedingte Breakpoints und Watch-Expressions. Für eine Menge mehr Informationen siehe die [Debugger](https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html)-Seite.
 
 ### Leistungsprobleme
 
-Wenn Ihre Apps komplexer werden und Sie mehr JavaScript verwenden, können Leistungsprobleme auftreten, insbesondere wenn Sie Apps auf langsameren Geräten ansehen. Leistung ist ein großes Thema, und wir haben keine Zeit, es hier im Detail zu behandeln. Einige schnelle Tipps sind wie folgt:
+Wenn Ihre Apps komplexer werden und Sie mehr JavaScript verwenden, können Leistungsprobleme auftreten, insbesondere wenn Sie Apps auf langsameren Geräten betrachten. Leistung ist ein großes Thema, und wir haben hier nicht die Zeit, es im Detail zu behandeln. Einige schnelle Tipps sind wie folgt:
 
-- Um zu vermeiden, mehr JavaScript zu laden, als Sie benötigen, bündeln Sie Ihre Skripte in eine einzige Datei mit einer Lösung wie [Browserify](https://browserify.org/). Im Allgemeinen ist die Reduzierung der Anzahl der HTTP-Anfragen sehr gut für die Leistung.
-- Machen Sie Ihre Dateien noch kleiner, indem Sie sie minifizieren, bevor Sie sie auf Ihren Produktionsserver laden. Minifizierung drückt den gesamten Code auf eine große einzelne Zeile, was zu weit weniger Dateigröße führt. Es ist hässlich, aber Sie müssen es nicht lesen, wenn es fertig ist! Dies wird am besten mit einem Minifizierungs-Tool wie [Uglify](https://github.com/mishoo/UglifyJS) gemacht (es gibt auch eine Onlineversion — siehe [JSCompress.com](https://jscompress.com/)).
-- Wenn Sie APIs verwenden, stellen Sie sicher, dass Sie die API-Funktionen abschalten, wenn sie nicht verwendet werden; einige API-Aufrufe können sehr rechenintensiv sein. Zum Beispiel, wenn Sie einen Video-Stream anzeigen, stellen Sie sicher, dass er ausgeschaltet ist, wenn Sie ihn nicht sehen können. Wenn Sie den Standort eines Geräts mit wiederholten Geolocation-Aufrufen verfolgen, stellen Sie sicher, dass Sie ihn ausschalten, wenn der Benutzer ihn nicht mehr verwendet.
-- Animationen können sehr teuer für die Leistung sein. Viele JavaScript-Bibliotheken bieten Animationsfunktionen an, die von JavaScript programmiert werden, aber es ist viel kostengünstiger, die Animationen über native Browser-Funktionen wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) (oder die aufstrebende [Web Animations API](/de/docs/Web/API/Web_Animations_API)) als JavaScript auszuführen. Lesen Sie Brian Birtles' [Animieren ohne Sorgen mit Element.animate](https://hacks.mozilla.org/2016/08/animating-like-you-just-dont-care-with-element-animate/) für einige wirklich nützliche Theorien darüber, warum Animation teuer ist, Tipps zur Verbesserung der Animationsleistung und Informationen zur Web Animations API.
+- Um zu vermeiden, mehr JavaScript zu laden, als Sie benötigen, bündeln Sie Ihre Skripte in eine einzige Datei mit einer Lösung wie [Browserify](https://browserify.org/). Generell ist es sehr gut für die Leistung, die Anzahl der HTTP-Anfragen zu reduzieren.
+- Machen Sie Ihre Dateien noch kleiner, indem Sie sie minifizieren, bevor Sie sie auf Ihren Produktionsserver laden. Minifizieren drückt den gesamten Code auf eine riesige einzelne Zeile zusammen, wodurch er viel weniger Speicherplatz beansprucht. Es ist zwar unansehnlich, aber Sie müssen es ja nach Fertigstellung nicht mehr lesen! Dies erfolgt am besten mit einem Minifizierungs-Tool wie [Uglify](https://github.com/mishoo/UglifyJS) (es gibt auch eine Online-Version — siehe [JSCompress.com](https://jscompress.com/)).
+- Wenn Sie APIs verwenden, stellen Sie sicher, dass Sie die API-Funktionalitäten ausschalten, wenn sie nicht verwendet werden; einige API-Aufrufe können sehr ressourcenintensiv sein. Zum Beispiel, wenn Sie einen Videostream anzeigen, stellen Sie sicher, dass er ausgeschaltet ist, wenn Sie ihn nicht sehen können. Wenn Sie die Position eines Geräts mit wiederholten Geolokalisierungsanrufen verfolgen, stellen Sie sicher, dass Sie sie ausschalten, wenn der Benutzer sie nicht mehr nutzt.
+- Animationen können wirklich kostspielig für die Leistung sein. Viele JavaScript-Bibliotheken bieten Animationsfunktionen, die in JavaScript programmiert werden, aber es ist viel effizienter, die Animationen über native Browserfunktionen wie [CSS-Animationen](/de/docs/Web/CSS/CSS_animations/Using_CSS_animations) (oder die entstehende [Web Animations API](/de/docs/Web/API/Web_Animations_API)) statt JavaScript zu machen. Lesen Sie Brian Birtles' [Animating like you just don't care with Element.animate](https://hacks.mozilla.org/2016/08/animating-like-you-just-dont-care-with-element-animate/), um einige wirklich nützliche Theorien darüber, warum Animation teuer ist, Tipps zur Verbesserung der Animationsleistung und Informationen zur Web Animations API zu erhalten.
 
 > [!NOTE]
-> Addy Osmani's [Writing Fast, Memory-Efficient JavaScript](https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/) enthält viele Details und einige ausgezeichnete Tipps zur Steigerung der JavaScript-Performance.
+> Addy Osmani's [Writing Fast, Memory-Efficient JavaScript](https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/) enthält viele Details und einige hervorragende Tipps zur Verbesserung der JavaScript-Leistung.
 
-## JavaScript-Probleme mit Browser-Kompatibilität
+## Cross-Browser JavaScript-Probleme
 
-In diesem Abschnitt werfen wir einen Blick auf einige der häufigeren JavaScript-Probleme mit Browser-Kompatibilität. Wir unterteilen dies in:
+In diesem Abschnitt betrachten wir einige der häufigsten JavaScript-Probleme bei der Nutzung in verschiedenen Browsern. Wir unterteilen dies in:
 
-- Verwenden moderner JavaScript-Funktionen
-- Verwenden moderner Web-API-Funktionen
-- Verwenden von schlechtem Browser-Erkennungscode
+- Verwendung moderner JavaScript-Kernfunktionen
+- Verwendung moderner Web-API-Funktionen
+- Verwendung von schlechtem Browser-Sniffing-Code
 - Leistungsprobleme
 
-### Verwenden moderner JavaScript/API-Funktionen
+### Verwendung moderner JavaScript/API-Funktionen
 
-Im [vorherigen Artikel](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS) haben wir einige der Möglichkeiten beschrieben, wie HTML- und CSS-Fehler und nicht erkannte Funktionen aufgrund der Natur der Sprachen gehandhabt werden können. JavaScript ist jedoch nicht so nachsichtig wie HTML und CSS — wenn die JavaScript-Engine auf Fehler oder nicht erkannte Syntax stößt, wie z. B. bei der Verwendung neuer, nicht unterstützter Funktionen, wird sie häufig Fehler auswerfen.
+Im [vorherigen Artikel](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS) haben wir einige Möglichkeiten beschrieben, wie HTML- und CSS-Fehler und nicht erkannte Funktionen aufgrund der Natur der Sprachen behandelt werden können. JavaScript ist jedoch nicht so nachsichtig wie HTML und CSS — wenn die JavaScript-Engine Fehler oder nicht erkannte Syntax entdeckt, z. B. wenn neue, nicht unterstützte Funktionen verwendet werden, wird sie meistens Fehler werfen.
 
-Es gibt einige Strategien zur Handhabung von Unterstützung für neue Funktionen; lassen Sie uns die häufigsten erkunden.
+Es gibt einige Strategien, um mit der Unterstützung neuer Funktionen umzugehen; lassen Sie uns die gängigsten untersuchen.
 
 > [!NOTE]
-> Diese Strategien existieren nicht in getrennten Bereichen — Sie können sie natürlich nach Bedarf kombinieren. Zum Beispiel könnten Sie eine Funktions-Erkennung verwenden, um festzustellen, ob eine Funktion unterstützt wird; wenn nicht, könnten Sie dann Code ausführen, um ein Polyfill oder eine Bibliothek zu laden, um den Mangel an Unterstützung zu bewältigen.
+> Diese Strategien existieren nicht in eigenen Silos — Sie können sie natürlich nach Bedarf kombinieren. Um ein Beispiel zu nennen, könnten Sie Feature-Erkennung verwenden, um festzustellen, ob eine Funktion unterstützt wird; falls nicht, könnten Sie dann Code ausführen, um ein Polyfill oder eine Bibliothek zu laden, um fehlende Unterstützung zu handhaben.
 
-#### Funktions-Erkennung
+#### Feature-Erkennung
 
-Die Idee hinter der Funktions-Erkennung besteht darin, dass Sie einen Test ausführen können, um festzustellen, ob eine JavaScript-Funktion im aktuellen Browser unterstützt wird, und dann bedingt Code ausführen können, um sowohl in Browsern, die die Funktion unterstützen, als auch in jenen, die sie nicht unterstützen, ein akzeptables Erlebnis zu bieten. Als ein schnelles Beispiel hat die [Geolocation API](/de/docs/Web/API/Geolocation_API) (die verfügbare Standortdaten für das Gerät, auf dem der Webbrowser ausgeführt wird, zur Verfügung stellt) einen Haupteinstiegspunkt für ihre Verwendung — eine `geolocation`-Eigenschaft, die im globalen [Navigator](/de/docs/Web/API/Navigator)-Objekt verfügbar ist. Daher können Sie mit etwas wie dem Folgenden feststellen, ob der Browser Geolocation unterstützt oder nicht:
+Die Idee hinter der Feature-Erkennung ist, dass Sie einen Test durchführen können, um festzustellen, ob eine JavaScript-Funktion im aktuellen Browser unterstützt wird, und dann bedingt Code ausführen, um in Browsern, die die Funktion unterstützen und in denen nicht, eine akzeptable Erfahrung zu bieten. Ein schnelles Beispiel: Die [Geolocation API](/de/docs/Web/API/Geolocation_API) (die verfügbare Standortdaten für das Gerät, auf dem der Webbrowser läuft, zur Verfügung stellt) hat einen Haupteinstiegspunkt zur Nutzung — eine `geolocation`-Eigenschaft, die auf dem globalen [Navigator](/de/docs/Web/API/Navigator)-Objekt verfügbar ist. Daher können Sie feststellen, ob der Browser Geolocation unterstützt oder nicht, indem Sie so etwas wie das folgende verwenden:
 
 ```js
 if ("geolocation" in navigator) {
@@ -255,8 +255,7 @@ if ("geolocation" in navigator) {
 }
 ```
 
-Sie könnten auch einen solchen Test für eine CSS-Funktion schreiben, indem Sie z.B. das Vorhandensein von _[element.style.property](/de/docs/Web/API/HTMLElement/style)_ testen (z.B. `paragraph.style.transform !== undefined`).
-Wenn Sie Stile anwenden möchten, falls eine CSS-Funktion unterstützt wird, können Sie direkt die [@supports](/de/docs/Web/CSS/@supports)-Regel (bekannt als Funktions-Abfrage) verwenden. Zum Beispiel, um zu überprüfen, ob der Browser CSS-Container-Abfragen unterstützt, könnten Sie so etwas machen:
+Sie könnten auch einen solchen Test für eine CSS-Funktion schreiben, zum Beispiel indem Sie auf die Existenz von _[element.style.property](/de/docs/Web/API/HTMLElement/style)_ testen (z. B. `paragraph.style.transform !== undefined`). Wenn Sie versuchen, Styles anzuwenden, falls eine CSS-Funktion unterstützt wird, können Sie direkt den [@supports](/de/docs/Web/CSS/@supports) At-Befehl (bekannt als Feature-Abfrage) verwenden. Um z. B. zu überprüfen, ob der Browser CSS-Containerabfragen unterstützt, könnten Sie so etwas wie dies tun:
 
 ```css
 @supports (container-type: inline-size) {
@@ -264,40 +263,39 @@ Wenn Sie Stile anwenden möchten, falls eine CSS-Funktion unterstützt wird, kö
 }
 ```
 
-Als letzter Punkt, verwechseln Sie Funktions-Erkennung nicht mit **Browser-Erkennung** (Erkennung, welcher spezifische Browser auf die Website zugreift) — dies ist eine schreckliche Praxis, die um jeden Preis vermieden werden sollte. Siehe [don't browser sniff](#dont_browser_sniff) für weitere Details.
+Als letzter Punkt: Verwechseln Sie Feature-Erkennung nicht mit **Browser-Sniffing** (Erkennung, welcher spezifische Browser auf die Seite zugreift) — dies ist eine schreckliche Praxis, die um jeden Preis vermieden werden sollte. Siehe [don't browser sniff](#dont_browser_sniff) weiter unten für mehr Details.
 
 > [!NOTE]
-> Funktions-Erkennung wird später im Modul in einem eigenen Artikel ausführlich behandelt.
+> Feature-Erkennung wird in einem späteren Artikel dieses Moduls ausführlicher behandelt.
 
 #### Bibliotheken
 
-JavaScript-Bibliotheken sind im Wesentlichen von Dritten erstellte Codeeinheiten, die Sie Ihrer Seite hinzufügen können und die Ihnen eine Fülle von vorgefertigten Funktionen bieten, die sofort verwendet werden können, wodurch Ihnen viel Zeit gespart wird. Viele JavaScript-Bibliotheken sind wahrscheinlich deshalb entstanden, weil ihr Entwickler eine Reihe von allgemeinen Hilfsfunktionen schrieb, um sich bei zukünftigen Projekten Zeit zu sparen, und sich dann entschied, sie zu veröffentlichen, weil andere sie ebenfalls nützlich finden könnten.
+JavaScript-Bibliotheken sind im Wesentlichen Dritte-Codesätze, die Sie an Ihre Seite anhängen können, die Ihnen eine Fülle von sofort nutzbaren Funktionen bieten, die Ihnen viel Zeit sparen. Viele JavaScript-Bibliotheken entstanden wahrscheinlich, weil ihr Entwickler eine Reihe von generischen Nutzfunktionen schrieb, um sich bei zukünftigen Projekten Zeit zu sparen, und entschloss, sie in die Welt zu entlassen, weil auch andere Menschen sie nützlich finden könnten.
 
-JavaScript-Bibliotheken neigen dazu, in einige Hauptkategorien zu fallen (einige Bibliotheken erfüllen mehr als einen dieser Zwecke):
+JavaScript-Bibliotheken neigen dazu, in ein paar Hauptkategorien zu fallen (einige Bibliotheken erfüllen mehr als einen dieser Zwecke):
 
-- Dienstprogramme-Bibliotheken: Sie bieten eine Reihe von Funktionen, um alltägliche Aufgaben einfacher und weniger langweilig zu verwalten. [jQuery](https://jquery.com/) zum Beispiel bietet eigene voll ausgestattete Selektoren und DOM-Manipulationsbibliotheken, die die Auswahl von Elementen in JavaScript im CSS-Selektor-Stil und das einfachere DOM-Building ermöglichen. Das ist jetzt, da wir moderne Funktionen wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector)/[`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)/[`Node`](/de/docs/Web/API/Node)-Methoden in allen Browsern zur Verfügung haben, nicht mehr so wichtig, kann aber trotzdem nützlich sein, wenn ältere Browser unterstützt werden müssen.
-- Bequemlichkeits-Bibliotheken: Sie machen schwierige Dinge einfacher zu tun. Zum Beispiel ist die [WebGL API](/de/docs/Web/API/WebGL_API) wirklich komplex und herausfordernd zu verwenden, wenn Sie sie direkt schreiben. Deshalb wurde die [Three.js](https://threejs.org/)-Bibliothek (und andere) auf WebGL aufgebaut und bietet eine viel einfachere API zum Erstellen von häufigen 3D-Objekten, Beleuchtungen, Texturen usw.
-  Die [Service Worker API](/de/docs/Web/API/Service_Worker_API) ist ebenfalls sehr komplex zu verwenden, daher sind Code-Bibliotheken entstanden, um gängige Service-Worker-Anwendungsfälle viel einfacher zu implementieren (siehe das [Service Worker Cookbook](https://github.com/mdn/serviceworker-cookbook) für mehrere nützliche Codebeispiele).
-- Effekt-Bibliotheken: Diese Bibliotheken sollen es Ihnen ermöglichen, einfach Spezialeffekte zu Ihren Websites hinzuzufügen. Das war früher nützlicher, als "DHTML" ein populäres Schlagwort war und die Implementierung eines Effekts viel komplexes JavaScript erforderte. Heutzutage haben Browser jedoch viele eingebaute CSS-Funktionen und APIs, um Effekte einfacher zu implementieren.
-- UI-Bibliotheken: Sie bieten Methoden zur Implementierung komplexer UI-Funktionen, die ansonsten herausfordernd zu implementieren und zu gestalten wären, um browserübergreifend zu funktionieren, zum Beispiel [Foundation](https://get.foundation/), [Bootstrap](https://getbootstrap.com/) und [Material-UI](https://mui.com/) (letzteres ist ein Satz von Komponenten für die Verwendung mit dem React-Framework). Diese werden oft als Grundlage für ein gesamtes Website-Layout verwendet; es ist oft schwierig, sie nur für ein UI-Feature einzusetzen.
-- Normalisierungs-Bibliotheken: Sie geben Ihnen eine einfache Syntax, die es Ihnen ermöglicht, eine Aufgabe einfach zu erledigen, ohne sich um browserübergreifende Unterschiede kümmern zu müssen. Die Bibliothek manipuliert passende APIs im Hintergrund, damit die Funktionalität im besten Fall in allen Browsern funktioniert (theoretisch). Zum Beispiel ist [LocalForage](https://github.com/localForage/localForage) eine Bibliothek für die clientseitige Datenspeicherung, die eine einfache Syntax zum Speichern und Abrufen von Daten bietet. Im Hintergrund verwendet sie die beste API, die der Browser zum Speichern der Daten zur Verfügung hat, sei es [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Web Storage](/de/docs/Web/API/Web_Storage_API) oder sogar Web SQL (das jetzt veraltet ist, aber in Chromium-basierten Browsern in sicheren Kontexten immer noch unterstützt wird). Ein weiteres Beispiel ist jQuery.
+- Utility-Bibliotheken: Stellen eine Reihe von Funktionen bereit, um alltägliche Aufgaben einfacher und weniger langweilig zu verwalten. [jQuery](https://jquery.com/) zum Beispiel bietet ein vollständiges Set von Selektoren und DOM-Manipulationsbibliotheken, um CSS-Selektor-ähnliche Auswahl von Elementen in JavaScript und einfacheren DOM-Aufbau zu ermöglichen. Es ist jetzt mit modernen Funktionen wie [`Document.querySelector()`](/de/docs/Web/API/Document/querySelector)/[`Document.querySelectorAll()`](/de/docs/Web/API/Document/querySelectorAll)/[`Node`](/de/docs/Web/API/Node) Methoden, die über Browser hinweg verfügbar sind, nicht mehr so wichtig, kann aber noch nützlich sein, wenn ältere Browser unterstützt werden müssen.
+- Convenience-Bibliotheken: Machen schwierige Dinge leichter zu tun. Zum Beispiel ist die [WebGL API](/de/docs/Web/API/WebGL_API) wirklich komplex und herausfordernd zu verwenden, wenn Sie sie direkt schreiben, weshalb die [Three.js](https://threejs.org/) Bibliothek (und andere) auf WebGL aufgebaut ist und eine viel einfachere API zur Erstellung gängiger 3D-Objekte, Beleuchtungen, Texturen usw. bietet. Die [Service Worker API](/de/docs/Web/API/Service_Worker_API) ist ebenfalls sehr komplex in der Verwendung, so dass Code-Bibliotheken erschienen sind, um häufige Service Worker Anwendungsfälle viel einfacher zu implementieren (siehe das [Service Worker Cookbook](https://github.com/mdn/serviceworker-cookbook) für mehrere nützliche Codebeispiele).
+- Effekte-Bibliotheken: Diese Bibliotheken sind darauf ausgelegt, Ihnen zu ermöglichen, Spezialeffekte problemlos zu Ihren Websites hinzuzufügen. Das war nützlicher, als „DHTML“ ein beliebtes Schlagwort war, und das Implementieren eines Effekts eine Menge komplexen JavaScript erforderte, aber heutzutage haben Browser viele eingebaut Funktionen und APIs, um Effekte einfacher umzusetzen.
+- UI-Bibliotheken: Stellen Methoden zur Umsetzung komplexer UI-Funktionen bereit, die ansonsten anspruchsvoll zu implementieren und plattformübergreifend kompatible: z.B. [Foundation](https://get.foundation/), [Bootstrap](https://getbootstrap.com/) und [Material-UI](https://mui.com/) (letzteres ist eine Komponentensammlung für die Nutzung mit dem React Framework). Diese neigen dazu, als Grundlage für ein gesamtes Seitenlayout verwendet zu werden; es ist oft schwierig, sie einfach nur für ein UI-Feature zu integrieren.
+- Normalisierungsbibliotheken: Geben Ihnen eine einfache Syntax, die es ermöglicht, eine Aufgabe problemlos zu erledigen, ohne sich um plattformübergreifende Unterschiede kümmern zu müssen. Die Bibliothek wird die entsprechenden APIs im Hintergrund bereitstellen, so dass die Funktionalität, theoretisch, unabhängig vom Browser funktioniert. Zum Beispiel ist [LocalForage](https://github.com/localForage/localForage) eine Bibliothek zur clientseitigen Datenspeicherung, die eine einfache Syntax bietet, um Daten zu speichern und abzurufen. Im Hintergrund verwendet es die beste API, die der Browser zur Verfügung hat, sei es [IndexedDB](/de/docs/Web/API/IndexedDB_API), [Web Storage](/de/docs/Web/API/Web_Storage_API) oder sogar Web SQL (das jetzt veraltet ist, aber noch in Chromium-basierten Browsern in sicheren Kontexten unterstützt wird). Als weiteres Beispiel jQuery.
 
-Wenn Sie eine Bibliothek auswählen, stellen Sie sicher, dass sie über die gewünschte Menge an Browsern funktioniert, die Sie unterstützen möchten, und testen Sie Ihre Implementierung gründlich. Stellen Sie außerdem sicher, dass die Bibliothek beliebt und gut unterstützt ist und nicht innerhalb der nächsten Woche veraltet wird. Spreche mit anderen Entwicklern, um herauszufinden, was sie empfehlen, überprüfen Sie, wie viel Aktivität und wie viele Mitwirkende die Bibliothek auf GitHub (oder wo auch immer sie gehostet wird) hat, usw.
+Wenn Sie sich für die Verwendung einer Bibliothek entscheiden, stellen Sie sicher, dass sie auf den von Ihnen unterstützten Browsern funktioniert und testen Sie Ihre Implementierung gründlich. Achten Sie auch darauf, dass die Bibliothek populär und gut unterstützt ist und nicht plötzlich nächste Woche veraltet ist. Sprechen Sie mit anderen Entwicklern, um herauszufinden, was sie empfehlen, sehen Sie, wie viel Aktivität und wie viele Mitwirkende die Bibliothek auf GitHub (oder wo auch immer sie gespeichert ist) hat, usw.
 
-Die Verwendung einer Bibliothek auf einer einfachen Ebene besteht in der Regel darin, die Dateien der Bibliothek (JavaScript, möglicherweise auch etwas CSS oder andere Abhängigkeiten) herunterzuladen und sie Ihrer Seite hinzuzufügen (z.B. über ein {{htmlelement("script")}}-Element), obwohl es normalerweise viele andere Verwendungsoptionen für solche Bibliotheken gibt, wie sie als [Bower](https://bower.io/)-Komponenten zu installieren oder sie als Abhängigkeiten über den [Webpack](https://webpack.github.io/)-Modul-Bundler einzuschließen. Sie müssen die individuellen Installationsseiten der Bibliotheken für weitere Informationen lesen.
+Die Verwendung von Bibliotheken auf einer grundlegenden Ebene besteht meist darin, die Dateien der Bibliothek (JavaScript, möglicherweise etwas CSS oder andere Abhängigkeiten) herunterzuladen und an Ihre Seite anzuhängen (z. B. über ein {{htmlelement("script")}}-Element), obwohl es normalerweise viele andere Nutzungsmöglichkeiten für solche Bibliotheken gibt, wie sie als [Bower](https://bower.io/) Komponenten zu installieren oder sie als Abhängigkeiten über den [webpack](https://webpack.github.io/) Modul-Bundler einzubeziehen. Sie müssen die individuellen Installationsseiten der Bibliotheken für weitere Informationen lesen.
 
 > [!NOTE]
-> Auf Ihren Reisen durchs Web werden Sie auch auf JavaScript-Frameworks stoßen, wie [Ember](https://emberjs.com/) und [Angular](https://angularjs.org/). Während Bibliotheken oft zur Lösung einzelner Probleme und zum Einsetzen in bestehende Websites verwendet werden, tendieren Frameworks mehr dazu, vollständige Lösungen zur Entwicklung komplexer Webanwendungen anzubieten.
+> Sie werden in Ihren Reisen im Web auch auf JavaScript-Frameworks stoßen, wie [Ember](https://emberjs.com/) und [Angular](https://angularjs.org/). Während Bibliotheken oft für die Lösung individueller Probleme und zum Hinzufügen zu bestehenden Seiten verwendbar sind, neigen Frameworks dazu, mehr vollständige Lösungen für die Entwicklung komplexer Webanwendungen zu sein.
 
 #### Polyfills
 
-Polyfills bestehen auch aus JavaScript-Dateien von Drittanbietern, die Sie in Ihr Projekt einfügen können, aber sie unterscheiden sich von Bibliotheken — während Bibliotheken dazu neigen, bestehende Funktionen zu verbessern und Dinge zu erleichtern, stellen Polyfills Funktionen bereit, die überhaupt nicht existieren. Polyfills verwenden vollständig JavaScript oder andere Technologien, um Unterstützung für eine Funktion in einem Browser einzubauen, die nicht nativ unterstützt wird. Zum Beispiel könnten Sie ein Polyfill wie [es6-promise](https://github.com/stefanpenner/es6-promise) verwenden, um Promises in Browsern zu unterstützen, in denen sie nicht nativ unterstützt werden.
+Polyfills bestehen ebenfalls aus JavaScript-Dateien von Drittanbietern, die Sie in Ihr Projekt einfügen können, wobei sie sich von Bibliotheken unterscheiden — während Bibliotheken dazu neigen, bestehende Funktionalität zu verbessern und Dinge zu erleichtern, bieten Polyfills Funktionalität, die überhaupt nicht existiert. Polyfills verwenden JavaScript oder andere Technologien vollständig, um Unterstützung für eine Funktion bereitzustellen, die ein Browser nicht nativ unterstützt. Beispielsweise könnten Sie ein Polyfill wie [es6-promise](https://github.com/stefanpenner/es6-promise) verwenden, um Promises in Browsern arbeiten zu lassen, in denen sie nicht nativ unterstützt werden.
 
-Lassen Sie uns eine Übung durchgehen — in diesem Beispiel, das nur zu Demonstrationszwecken verwendet wird, verwenden wir ein Fetch-Polyfill und ein es6-promise-Polyfill. Während Fetch und Promises in modernen Browsern voll unterstützt werden, wenn wir auf einen Browser abzielen, der Fetch nicht unterstützt, unterstützt dieser Browser wahrscheinlich auch Fetch nicht, und Fetch verwendet Promises intensiv:
+Lassen Sie uns eine Übung durchgehen — in diesem Beispiel, das nur zu Demonstrationszwecken verwendet wird, verwenden wir ein Fetch-Polyfill und ein es6-promise-Polyfill. Während Fetch und Promises in modernen Browsern vollständig unterstützt werden, wenn wir einen Browser ansprechen, der Fetch nicht unterstützt, würde dieser Browser wahrscheinlich auch Fetch nicht unterstützen, und Fetch verwendet stark Promises:
 
-1. Um loszulegen, machen Sie eine lokale Kopie unseres [fetch-polyfill.html](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/fetch-polyfill.html)-Beispiels und [unser schönes Bild von einigen Blumen](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/flowers.jpg) in einem neuen Verzeichnis. Wir werden Code schreiben, um das Blumenbild zu holen und es auf der Seite anzuzeigen.
-2. Speichern Sie als Nächstes eine Kopie des [Fetch-Polyfills](https://raw.githubusercontent.com/github/fetch/master/fetch.js) im selben Verzeichnis wie das HTML.
-3. Wenden Sie die Polyfill-Skripte auf die Seite mit dem folgenden Code an — platzieren Sie diese über dem vorhandenen {{htmlelement("script")}}-Element, sodass sie bereits auf der Seite verfügbar sind, wenn wir versuchen, Fetch zu verwenden (wir laden auch ein Promise-Polyfill von einem CDN, da IE11 keine Promises unterstützt, das Fetch erfordert):
+1. Zunächst erstellen Sie eine lokale Kopie unseres [fetch-polyfill.html](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/fetch-polyfill.html) Beispiels und [unser Nettes Bild von einigen Blumen](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/flowers.jpg) in einem neuen Verzeichnis. Wir werden Code schreiben, um das Blumenbild abzurufen und es auf der Seite anzuzeigen.
+2. Speichern Sie als nächstes eine Kopie des [Fetch-Polyfill](https://raw.githubusercontent.com/github/fetch/master/fetch.js) im selben Verzeichnis wie das HTML.
+3. Wenden Sie die Polyfill-Skripte auf die Seite an, indem Sie den folgenden Code hinzufügen — platzieren Sie diese über dem vorhandenen {{htmlelement("script")}}-Element, damit sie bereits auf der Seite verfügbar sind, wenn wir beginnen, Fetch zu verwenden (wir laden auch ein Promise-Polyfill von einem CDN, da IE11 keine Promises unterstützt, was Fetch erfordert):
 
    ```html
    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
@@ -305,7 +303,7 @@ Lassen Sie uns eine Übung durchgehen — in diesem Beispiel, das nur zu Demonst
    <script src="fetch.js"></script>
    ```
 
-4. Innerhalb des ursprünglichen {{htmlelement("script")}} fügen Sie den folgenden Code hinzu:
+4. Fügen Sie innerhalb des ursprünglichen {{htmlelement("script")}} den folgenden Code hinzu:
 
    ```js
    const myImage = document.querySelector(".my-image");
@@ -318,18 +316,18 @@ Lassen Sie uns eine Übung durchgehen — in diesem Beispiel, das nur zu Demonst
    });
    ```
 
-5. Wenn Sie es in einem Browser laden, der [Fetch](/de/docs/Web/API/Window/fetch) nicht unterstützt, sollten Sie dennoch das Blumenbild sehen — cool!
-   ![Überschrift lautet fetch basic example mit einem Foto von violetten Blumen](fetch-image.jpg)
+5. Wenn Sie es in einem Browser laden, der [Fetch](/de/docs/Web/API/Window/fetch) nicht unterstützt, sollten Sie trotzdem das Blumenbild sehen — cool!
+   ![Überschrift Fetch-Basic-Beispiel mit einem Foto von lila Blumen](fetch-image.jpg)
 
 > [!NOTE]
-> Sie können unsere fertige Version unter [fetch-polyfill-finished.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-polyfill-finished.html) finden (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/fetch-polyfill-finished.html)).
+> Sie können unsere fertige Version unter [fetch-polyfill-finished.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-polyfill-finished.html) finden (sehen Sie sich auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/fetch-polyfill-finished.html) an).
 
 > [!NOTE]
-> Nochmals, es gibt viele verschiedene Möglichkeiten, die verschiedenen Polyfills, die Sie treffen werden, zu nutzen — konsultieren Sie die individuelle Dokumentation jedes Polyfills.
+> Wie bei den verschiedenen Polyfills, die Sie begegnen werden, gibt es auch hier viele verschiedene Verwendungsmöglichkeiten — konsultieren Sie die individuelle Dokumentation jedes Polyfills.
 
-Eine Sache, die Sie sich vielleicht fragen, ist "warum sollten wir immer den Polyfill-Code laden, auch wenn wir ihn nicht brauchen?" Das ist ein guter Punkt — wenn Ihre Seiten komplexer werden und Sie mehr Bibliotheken, Polyfills usw. verwenden, können Sie anfangen, viel zusätzlichen Code zu laden, was die Leistung beeinträchtigen kann, insbesondere auf weniger leistungsfähigen Geräten. Es macht Sinn, nur dann Dateien zu laden, wenn sie benötigt werden.
+Eines, woran Sie vielleicht denken, ist: "Warum sollten wir den Polyfill-Code immer laden, auch wenn wir ihn nicht benötigen?" Das ist ein guter Punkt — wenn Ihre Seiten komplexer werden und Sie beginnen, mehr Bibliotheken, Polyfills usw. zu verwenden, können Sie beginnen, eine Menge zusätzlichen Code zu laden, was die Leistung beeinträchtigen kann, insbesondere auf weniger leistungsstarken Geräten. Daher ist es sinnvoll, Dateien nur bei Bedarf zu laden.
 
-Dies erfordert eine zusätzliche Einrichtung in Ihrem JavaScript. Sie benötigen eine Art von Funktions-Erkennungstest, der feststellt, ob der Browser die Funktion unterstützt, die wir versuchen zu verwenden:
+Dazu benötigen Sie eine zusätzliche Einrichtung in Ihrem JavaScript. Sie benötigen eine Art Feature-Erkennungstest, der feststellt, ob der Browser die Funktion, die wir verwenden möchten, unterstützt:
 
 ```js
 if (browserSupportsAllFeatures()) {
@@ -343,7 +341,7 @@ function main(err) {
 }
 ```
 
-Also führen wir zuerst eine Bedingungsprüfung durch, die überprüft, ob die Funktion `browserSupportsAllFeatures()` `true` zurückgibt. Wenn ja, führen wir die `main()`-Funktion aus, die den gesamten Code unserer App enthalten wird. `browserSupportsAllFeatures()` sieht so aus:
+Wir führen also zunächst eine bedingte Anweisung aus, die prüft, ob die Funktion `browserSupportsAllFeatures()` `true` zurückgibt. Wenn dies der Fall ist, führen wir die Funktion `main()` aus, die den gesamten Code unserer App enthalten wird. `browserSupportsAllFeatures()` sieht so aus:
 
 ```js
 function browserSupportsAllFeatures() {
@@ -351,7 +349,7 @@ function browserSupportsAllFeatures() {
 }
 ```
 
-Hier testen wir, ob das [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)-Objekt und die [`fetch()`](/de/docs/Web/API/Window/fetch)-Funktion im Browser vorhanden sind. Wenn beide dies tun, gibt die Funktion `true` zurück. Wenn die Funktion `false` zurückgibt, führen wir den Code im zweiten Teil der Bedingung aus — dies führt eine Funktion namens `loadScript()` aus, die die Polyfills in die Seite lädt, und dann `main()` ausführt, nachdem das Laden abgeschlossen ist. `loadScript()` sieht so aus:
+Hier testen wir, ob das [`Promise`](/de/docs/Web/JavaScript/Reference/Global_Objects/Promise)-Objekt und die [`fetch()`](/de/docs/Web/API/Window/fetch)-Funktion im Browser existieren. Wenn beide existieren, gibt die Funktion `true` zurück. Wenn die Funktion `false` zurückgibt, führen wir den Code im zweiten Teil der Bedingung aus — dies führt eine Funktion namens `loadScript()` aus, die die Polyfills in die Seite lädt und `main()` nach dem Laden ausführt. `loadScript()` sieht so aus:
 
 ```js
 function loadScript(src, done) {
@@ -367,33 +365,32 @@ function loadScript(src, done) {
 }
 ```
 
-Diese Funktion erstellt ein neues `<script>`-Element und setzt dann dessen `src`-Attribut auf den von uns angegebenen Pfad (´'polyfills.js'´, als wir es im obigen Code aufgerufen haben). Wenn es geladen ist, führen wir die Funktion aus, die wir als zweites Argument angegeben haben (´main()´). Falls ein Fehler beim Laden des Skripts auftritt, rufen wir die Funktion dennoch auf, aber mit einem benutzerdefinierten Fehler, den wir abrufen können, um ein mögliches Problem zu debuggen, falls es auftritt.
+Diese Funktion erstellt ein neues `<script>`-Element und setzt dann dessen `src`-Attribut auf den Pfad, den wir als erstes Argument angegeben haben (`'polyfills.js'` als wir es im Code oben aufgerufen haben). Wenn es geladen ist, führen wir die Funktion aus, die wir als zweites Argument übergeben haben (`main()`). Wenn ein Fehler beim Laden des Skripts auftritt, rufen wir die Funktion trotzdem auf, aber mit einem benutzerdefinierten Fehler, den wir abrufen können, um ein Problem zu debuggen, wenn es auftritt.
 
-Beachten Sie, dass ´polyfills.js´ im Grunde die beiden Polyfills ist, die wir verwenden, zusammen in einer Datei. Wir haben dies manuell getan, aber es gibt intelligentere Lösungen, die die Pakete automatisch für Sie generieren werden — siehe [Browserify](https://browserify.org/) (siehe [Getting started with Browserify](https://www.sitepoint.com/getting-started-browserify/) für ein grundlegendes Tutorial). Es ist eine gute Idee, JS-Dateien in einem wie dieser zu bündeln — die Anzahl der benötigten HTTP-Anfragen zu reduzieren, verbessert die Leistung Ihrer Seite.
+Beachten Sie, dass `polyfills.js` im Wesentlichen die beiden Polyfills, die wir verwenden, in einer Datei zusammengefasst sind. Wir haben dies manuell gemacht, aber es gibt cleverere Lösungen, die Bündel automatisch für Sie generieren — siehe [Browserify](https://browserify.org/) (siehe [Getting started with Browserify](https://www.sitepoint.com/getting-started-browserify/) für ein grundlegendes Tutorial). Es ist eine gute Idee, JS-Dateien so zusammenzufügen — die Reduzierung der Anzahl der erforderlichen HTTP-Anfragen verbessert die Leistung Ihrer Seite.
 
-Sie können diesen Code in Aktion unter [fetch-polyfill-only-wenn-needed.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-polyfill-only-when-needed.html) sehen (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/fetch-polyfill-only-when-needed.html)). Wir möchten klarstellen, dass wir den Code nicht erfunden haben — er wurde ursprünglich von Philip Walton geschrieben. Lesen Sie seinen Artikel [Loading Polyfills Only When Needed](https://philipwalton.com/articles/loading-polyfills-only-when-needed/) für den Originalcode, sowie für nützliche Erklärungen zu dem breiteren Thema.
+Sie können diesen Code in [fetch-polyfill-only-when-needed.html](https://mdn.github.io/learning-area/tools-testing/cross-browser-testing/javascript/fetch-polyfill-only-when-needed.html) in Aktion sehen (siehe auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/tools-testing/cross-browser-testing/javascript/fetch-polyfill-only-when-needed.html)). Wir möchten klarstellen, dass wir uns nicht auf diesen Code berufen können — er wurde ursprünglich von Philip Walton erstellt. Lesen Sie seinen Artikel [Loading Polyfills Only When Needed](https://philipwalton.com/articles/loading-polyfills-only-when-needed/) für den ursprünglichen Code sowie viele nützliche Erklärungen zum weiteren Thema.
 
-#### JavaScript-Transpiling
+#### JavaScript-Transpilation
 
-Eine andere Option, die für Leute, die moderne JavaScript-Funktionen jetzt nutzen wollen, immer beliebter wird, ist, Code, der neuere ECMAScript-Funktionen verwendet, in eine Version umzuwandeln, die in älteren Browsern funktioniert.
+Eine weitere Option, die für Personen, die moderne JavaScript-Funktionen jetzt verwenden möchten, immer beliebter wird, besteht darin, Code, der neuere ECMAScript-Funktionen verwendet, in eine Version zu konvertieren, die in älteren Browsern funktioniert.
 
 > [!NOTE]
-> Dies wird "Transpiling" genannt — Sie sind nicht dabei, Code in eine niedrigere Ebene zu kompilen, um ihn auf einem Computer laufen zu lassen (wie Sie es zum Beispiel mit C-Code tun würden); stattdessen ändern Sie ihn in eine Syntax um, die auf einer ähnlichen Abstraktionsebene existiert, sodass er auf dieselbe Weise verwendet werden kann, nur unter leicht veränderten Umständen (in diesem Fall, einen JavaScript-Geschmack in einen anderen zu verwandeln).
+> Dies wird als "Transpiling" bezeichnet — Sie kompilieren den Code nicht in eine niedrigere Ebene, die auf einem Computer ausgeführt werden kann (wie Sie es z. B. mit C-Code tun würden); stattdessen ändern Sie ihn in eine Syntax, die auf einer ähnlichen Abstraktionsebene existiert, damit er in derselben Weise, aber in leicht unterschiedlichen Umständen (in diesem Fall die Umwandlung einer JavaScript-Version in eine andere) verwendet werden kann.
 
-Ein häufiger Transpiler ist [Babel.js](https://babeljs.io/), aber es gibt auch andere.
+Ein gängiger Transpiler ist [Babel.js](https://babeljs.io/), es gibt jedoch auch andere.
 
-### Keine Browser-Erkennung
+### Kein Browser-Sniffing
 
-Historisch verwendeten Entwickler _Browser-Erkennungscode_, um zu erkennen, welchen Browser der Benutzer verwendet, und ihnen entsprechenden Code bereitzustellen, der auf diesem Browser funktioniert.
+Historisch gesehen verwendeten Entwickler _Browser-Sniffing-Code_, um zu erkennen, welcher Browser vom Benutzer verwendet wurde, und ihnen geeigneten Code zur Verfügung zu stellen, damit er in diesem Browser funktioniert.
 
-Alle Browser haben eine **user-agent**-Zeichenfolge, die identifiziert, welcher Browser es ist (Version, Name, Betriebssystem usw.). Viele Entwickler implementierten schlechten Browser-Erkennungscode und hielten ihn nicht auf dem neuesten Stand. Dies führte dazu, dass unterstützte Browser daran gehindert wurden, Websites zu verwenden, die sie leicht rendern könnten. Dies wurde so häufig, dass Browser anfingen, über den Browser, den sie in ihren user-agent-Zeichenfolgen waren, zu lügen (oder behaupteten, sie seien alle Browser), um Erkennungscode zu umgehen. Browser implementierten zudem Funktionen, die es Benutzern ermöglichten, zu ändern, welche user-agent-String der Browser meldete, wenn mit JavaScript abgefragt wurde. Dies machte die Browser-Erkennung noch fehleranfälliger und letztlich sinnlos.
+Alle Browser haben einen **user-agent**-String, der angibt, was der Browser ist (Version, Name, Betriebssystem usw.). Viele Entwickler implementierten schlechten Browser-Sniffing-Code und pflegten ihn nicht. Dies führte dazu, dass unterstützende Browser daran gehindert wurden, Websites zu nutzen, die sie leicht rendern könnten. Dies wurde so häufig, dass Browser begannen, bei dem, was sie in ihren User-Agent-Strings angaben, zu lügen (oder behaupteten, sie seien alle Browser), um Sniffing-Code zu umgehen. Browser implementierten auch Funktionen, die es Benutzern ermöglichten, zu ändern, was der User-Agent-String war, wenn er mit JavaScript abgefragt wurde. All dies machte das Browser-Sniffing noch fehleranfälliger und letztlich sinnlos.
 
-[Aaron Andersens Geschichte der browserseitigen user-agent-Zeichenfolge](https://webaim.org/blog/user-agent-string-history/) bietet eine nützliche und amüsante Darstellung der Geschichte der Browser-Erkennung.
-Verwenden Sie [Funktions-Erkennung](#funktions-erkennung) (und CSS @supports für CSS-Funktionserkennung), um zuverlässig festzustellen, ob eine Funktion unterstützt wird. Aber indem Sie das tun, brauchen Sie Ihren Code nicht zu ändern, wenn neue Browserversionen herauskommen.
+[History of the browser user-agent string](https://webaim.org/blog/user-agent-string-history/) von Aaron Andersen bietet eine nützliche und unterhaltsame Darstellung der Geschichte des Browser-Sniffings. Verwenden Sie [Feature-Erkennung](#feature-erkennung) (und CSS @supports für CSS-Feature-Erkennung), um zuverlässig festzustellen, ob ein Feature unterstützt wird. Auf diese Weise müssen Sie Ihren Code nicht ändern, wenn neue Browserversionen veröffentlicht werden.
 
 ### Umgang mit JavaScript-Präfixen
 
-Im vorherigen Artikel haben wir bereits einige Diskussionen über den [Umgang mit CSS-Präfixen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#handling_css_prefixes) geführt. Nun, neue JavaScript-Implementierungen verwendeten früher ebenfalls Präfixe, wobei JavaScript {{Glossary("camel_case", "camel case")}} anstelle von {{Glossary("kebab_case", "hyphenation")}} wie im CSS verwendete. Zum Beispiel, wenn ein Präfix auf einem neuen jshint-API-Objekt namens `Object` verwendet würde:
+Im vorherigen Artikel haben wir ausführlich darüber gesprochen, wie man mit [CSS-Präfixen](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#handling_css_prefixes) umgeht. Nun, neue JavaScript-Implementierungen neigten dazu, auch Präfixe zu verwenden, wobei JavaScript {{Glossary("camel_case", "camelCase")}} anstelle von {{Glossary("kebab_case", "Bindestrichen")}} wie CSS verwendet. Zum Beispiel, wenn ein Präfix auf einem neuen JSHint API-Objekt namens `Object` verwendet wurde:
 
 - Mozilla würde `mozObject` verwenden
 - Chrome/Opera/Safari würden `webkitObject` verwenden
@@ -406,28 +403,28 @@ const AudioContext = window.AudioContext || window.webkitAudioContext;
 const audioCtx = new AudioContext();
 ```
 
-Im Falle der Web Audio API waren die Schlüsselzugangspunkte zur Nutzung der API in Chrome/Opera über `webkit`-präfixierte Versionen (sie unterstützen jetzt die unpräfixierten Versionen) unterstützt. Der einfache Weg, diese Situation zu umgehen, besteht darin, eine neue Version der Objekte zu erstellen, die in einigen Browsern mit einem Präfix versehen sind, und sie gleich der nicht-präfixierten Version oder der präfixierten Version (oder anderen präfixierten Versionen, die berücksichtigt werden müssen) — welche auch immer vom Browser, der die Seite aktuell anzeigt, unterstützt wird, verwendet.
+Im Fall der Web Audio API wurden die Haupteinstiegspunkte zur Nutzung der API in Chrome/Opera über `webkit`-präfixierte Versionen unterstützt (sie unterstützen jetzt die unpräfixierten Versionen). Der einfache Weg, um damit umzugehen, besteht darin, eine neue Version der Objekte zu erstellen, die in einigen Browsern ein Präfix haben, und sie gleich der nicht präfixierten Version, ODER der präfixierten Version (ODER aller anderen präfixierten Versionen, die in Betracht gezogen werden müssen) zu setzen — diejenige, die vom Browser, der die Seite aktuell betrachtet, unterstützt wird, wird verwendet.
 
-Dann verwenden wir dieses Objekt, um die API zu manipulieren, anstelle des ursprünglichen. In diesem Fall erstellen wir einen modifizierten [AudioContext](/de/docs/Web/API/AudioContext)-Konstruktor und dann eine neue Audio-Kontextinstanz, die wir für unser Web Audio-Coding verwenden.
+Dann benutzen wir dieses Objekt, um die API zu manipulieren, anstelle des Originals. In diesem Fall erstellen wir einen erweiterten [AudioContext](/de/docs/Web/API/AudioContext) Konstruktor und verwenden dann eine neue Audiokontextinstanz für unser Web-Audio-Coding.
 
-Dieses Muster kann für nahezu jede präfixierte JavaScript-Funktion angewendet werden. JavaScript-Bibliotheken/Polyfills verwenden ebenfalls diesen Code, um so viele Browser-Unterschiede wie möglich vom Entwickler zu abstrahieren.
+Dieses Muster kann auf so ziemlich jede präfixierte JavaScript-Funktion angewandt werden. JavaScript-Bibliotheken/Polyfills nutzen diese Art von Code ebenfalls, um Browser-Unterschiede so weit möglich vor dem Entwickler zu abstrahieren.
 
-Auch hier sollten präfixierte Funktionen niemals auf Produktionswebsites verwendet werden — sie können ohne Vorwarnung geändert oder entfernt werden und verursachen Probleme mit der Browser-Kompatibilität. Wenn Sie darauf bestehen, präfixierte Funktionen zu verwenden, stellen Sie sicher, dass Sie die richtigen verwenden. Sie können herausfinden, welche Browser Präfixe für verschiedene JavaScript/API-Funktionen erfordern, auf MDN-Referenzseiten, und Seiten wie [caniuse.com](https://caniuse.com/). Wenn Sie unsicher sind, können Sie dies auch durch Tests direkt in Browsern herausfinden.
+Erneut gilt: Präfixierte Features sollten niemals in Produktions-Websites verwendet werden — sie sind anfällig für Änderungen oder Entfernung ohne Vorwarnung und verursachen plattformübergreifende Probleme. Wenn Sie darauf bestehen, präfixierte Funktionen zu verwenden, stellen Sie sicher, dass Sie die richtigen verwenden. Sie können auf MDN-Referenzseiten und Websites wie [caniuse.com](https://caniuse.com/) nachsehen, welche Browser Präfixe für verschiedene JavaScript/API-Funktionen benötigen. Wenn Sie sich unsicher sind, können Sie auch direkt in Browsern testen.
 
-Zum Beispiel, versuchen Sie, in die Entwicklerkonsole Ihres Browsers zu gehen und anfangen zu tippen
+Zum Beispiel versuchen Sie, in die Entwicklerkonsole Ihres Browsers einzugeben
 
 ```js
 window.AudioContext;
 ```
 
-Wenn diese Funktion in Ihrem Browser unterstützt wird, wird sie automatisch vervollständigt.
+Wenn dieses Feature in Ihrem Browser unterstützt wird, wird es automatisch vervollständigt.
 
 ## Hilfe finden
 
-Es gibt viele weitere Probleme, auf die Sie mit JavaScript stoßen werden; das Wichtigste, was Sie wirklich wissen müssen, ist, wie Sie online Antworten finden. Konsultieren Sie den Abschnitt [Hilfe finden](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#finding_help) des HTML- und CSS-Artikels für unsere besten Tipps.
+Es gibt viele andere Probleme, auf die Sie in JavaScript stoßen werden; das Wichtigste ist jedoch, zu wissen, wie man online Antworten findet. Konsultieren Sie den Abschnitt [Hilfe finden](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS#finding_help) des Artikels zu HTML und CSS für unsere besten Ratschläge.
 
 ## Zusammenfassung
 
-Das ist also JavaScript. Einfach, oder? Vielleicht nicht so einfach, aber dieser Artikel sollte Ihnen zumindest einen Startpunkt und einige Ideen geben, wie Sie mit den JavaScript-bezogenen Problemen umgehen können, auf die Sie stoßen werden.
+Das wäre also JavaScript. Einfach, oder? Vielleicht nicht so einfach, aber dieser Artikel sollte Ihnen zumindest einen Anfang geben und einige Ideen, wie Sie die JavaScript-bezogenen Probleme angehen können, auf die Sie stoßen werden.
 
 {{PreviousMenuNext("Learn/Tools_and_testing/Cross_browser_testing/HTML_and_CSS","Learn/Tools_and_testing/Cross_browser_testing/Accessibility", "Learn/Tools_and_testing/Cross_browser_testing")}}
