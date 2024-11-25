@@ -2,15 +2,15 @@
 title: <ellipse>
 slug: Web/SVG/Element/ellipse
 l10n:
-  sourceCommit: 2e5fc06de139c56873a20ec4bc3bf5600ea3cbef
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<ellipse>`**-Element ist eine SVG-Grundform, die verwendet wird, um Ellipsen basierend auf einem Mittelpunkt und sowohl ihrem x- als auch y-Radius zu erstellen.
+Das **`<ellipse>`** [SVG](/de/docs/Web/SVG)-Element ist eine grundlegende SVG-Form, die verwendet wird, um Ellipsen anhand eines Mittelpunktes und sowohl ihres x- als auch ihres y-Radius zu erstellen.
 
 > [!NOTE]
-> Ellipsen können nicht die genaue Ausrichtung der Ellipse angeben (wenn Sie beispielsweise eine um 45 Grad geneigte Ellipse zeichnen möchten), können aber mit dem {{SVGAttr("transform")}}-Attribut rotiert werden.
+> Ellipsen können die genaue Ausrichtung der Ellipse nicht angeben (wenn Sie beispielsweise eine Ellipse in einem 45-Grad-Winkel zeichnen möchten), sie kann jedoch durch Verwendung des {{SVGAttr("transform")}}-Attributs gedreht werden.
 
 ## Beispiel
 
@@ -34,24 +34,24 @@ svg {
 
 - {{SVGAttr("cx")}}
   - : Die x-Position des Mittelpunkts der Ellipse.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("cy")}}
   - : Die y-Position des Mittelpunkts der Ellipse.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("rx")}}
   - : Der Radius der Ellipse auf der x-Achse.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Werttyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("ry")}}
   - : Der Radius der Ellipse auf der y-Achse.
-    _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
+    _Werttyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut erlaubt es, die Gesamtlänge für den Pfad in Benutzereinheiten anzugeben.
-    _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Dieses Attribut ermöglicht das Festlegen der Gesamtlänge des Pfades in Benutzereinheiten.
+    _Werttyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 > [!NOTE]
-> Ab SVG2 sind `cx`, `cy`, `rx` und `ry` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
+> Ab SVG2 sind `cx`, `cy`, `rx` und `ry` _Geometry Properties_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
 
-## Verwendungskontext
+## Verwendungszusammenhang
 
 {{svginfo}}
 
@@ -65,4 +65,4 @@ svg {
 
 ## Siehe auch
 
-- Andere SVG-Grundformen: **{{ SVGElement('circle') }}**, {{ SVGElement('line') }}, {{ SVGElement('polygon') }}, {{ SVGElement('polyline') }}, {{ SVGElement('rect') }}
+- Andere grundlegende SVG-Formen: **{{ SVGElement('circle') }}**, {{ SVGElement('line') }}, {{ SVGElement('polygon') }}, {{ SVGElement('polyline') }}, {{ SVGElement('rect') }}

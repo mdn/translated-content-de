@@ -2,12 +2,12 @@
 title: y1
 slug: Web/SVG/Attribute/y1
 l10n:
-  sourceCommit: 00252e3d53b06d0d517a093ba5a3f53335dbc0d8
+  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
 ---
 
 {{SVGRef}}
 
-Das **`y1`**-Attribut wird verwendet, um die erste y-Koordinate für das Zeichnen eines SVG-Elements anzugeben, das mehr als eine Koordinate benötigt. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("y")}}-Attribut.
+Das **`y1`** Attribut wird verwendet, um die erste y-Koordinate für das Zeichnen eines SVG-Elements anzugeben, das mehr als eine Koordinate benötigt. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("y")}} Attribut.
 
 ## Elemente
 
@@ -72,7 +72,7 @@ svg {
 
 ### `<linearGradient>`
 
-Für {{SVGElement('linearGradient')}} definiert `y1` die y-Koordinate des Startpunkts des _Gradientenvektors_, der verwendet wird, um die Gradientestoppwerte zuzuordnen. Das genaue Verhalten dieses Attributs wird durch das {{SVGAttr('gradientUnits')}}-Attribut beeinflusst.
+Für {{SVGElement('linearGradient')}} definiert `y1` die y-Koordinate des Startpunkts des _Gradientenvektors_, der verwendet wird, um die Werte der Gradientenstops abzubilden. Das genaue Verhalten dieses Attributs wird durch die {{SVGAttr('gradientUnits')}} Attribute beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -82,18 +82,6 @@ Für {{SVGElement('linearGradient')}} definiert `y1` die y-Koordinate des Startp
         <strong
           ><a href="/de/docs/Web/SVG/Content_type#length"
             >&#x3C;length></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Content_type#number"
-            >&#x3C;number></a
           ></strong
         >
       </td>
@@ -170,3 +158,7 @@ svg {
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

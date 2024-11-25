@@ -2,12 +2,12 @@
 title: <defs>
 slug: Web/SVG/Element/defs
 l10n:
-  sourceCommit: 2f43f506240fa6c866cc3bc2d018364ae49421d9
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<defs>`**-Element wird verwendet, um grafische Objekte zu speichern, die später verwendet werden sollen. Objekte, die innerhalb eines `<defs>`-Elements erstellt werden, werden nicht direkt gerendert. Um sie anzuzeigen, müssen Sie sie referenzieren (zum Beispiel mit einem {{SVGElement("use")}}-Element).
+Das **`<defs>`** [SVG](/de/docs/Web/SVG)-Element wird verwendet, um grafische Objekte zu speichern, die später verwendet werden sollen. Objekte, die innerhalb eines `<defs>`-Elements erstellt werden, werden nicht direkt gerendert. Um sie anzuzeigen, müssen Sie diese referenzieren (zum Beispiel mit einem {{SVGElement("use")}}-Element).
 
 Grafische Objekte können von überall aus referenziert werden. Das Definieren dieser Objekte innerhalb eines `<defs>`-Elements fördert jedoch das Verständnis des SVG-Inhalts und ist vorteilhaft für die allgemeine Zugänglichkeit des Dokuments.
 
@@ -40,7 +40,7 @@ svg {
 
 {{EmbedLiveSample('Example', 150, '100%')}}
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 

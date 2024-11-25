@@ -1,13 +1,13 @@
 ---
-title: <mask>-Element
+title: <mask>
 slug: Web/SVG/Element/mask
 l10n:
-  sourceCommit: 2f43f506240fa6c866cc3bc2d018364ae49421d9
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<mask>`**-Element definiert eine Alphamaske für die Komposition des aktuellen Objekts mit dem Hintergrund. Eine Maske wird unter Verwendung der {{SVGAttr("mask")}} Eigenschaft verwendet/referenziert.
+Das **`<mask>`** [SVG](/de/docs/Web/SVG)-Element definiert eine Alphamaske für das Komponieren des aktuellen Objekts in den Hintergrund. Eine Maske wird mithilfe der {{SVGAttr("mask")}}-Eigenschaft verwendet/referenziert.
 
 ## Beispiel
 
@@ -44,23 +44,23 @@ svg {
 ## Attribute
 
 - {{SVGAttr("height")}}
-  - : Dieses Attribut definiert die Höhe des maskierten Bereichs.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `120%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Höhe des Maskierungsbereichs.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `120%`; _Animierbar_: **ja**
 - {{SVGAttr("maskContentUnits")}}
   - : Dieses Attribut definiert das Koordinatensystem für den Inhalt der `<mask>`.
-    _Werttyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
+    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
 - {{SVGAttr("maskUnits")}}
   - : Dieses Attribut definiert das Koordinatensystem für die Attribute {{SVGAttr("x")}}, {{SVGAttr("y")}}, {{SVGAttr("width")}} und {{SVGAttr("height")}} auf der `<mask>`.
-    _Werttyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
+    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox` ; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
-  - : Dieses Attribut definiert die x-Achsen-Koordinate der oberen linken Ecke des maskierten Bereichs.
-    _Werttyp_: [**\<coordinate>**](/de/docs/Web/SVG/Content_type#coordinate) ; _Standardwert_: `-10%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die x-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
+    _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Content_type#coordinate) ; _Standardwert_: `-10%`; _Animierbar_: **ja**
 - {{SVGAttr("y")}}
-  - : Dieses Attribut definiert die y-Achsen-Koordinate der oberen linken Ecke des maskierten Bereichs.
-    _Werttyp_: [**\<coordinate>**](/de/docs/Web/SVG/Content_type#coordinate) ; _Standardwert_: `-10%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die y-Achsen-Koordinate der oberen linken Ecke des Maskierungsbereichs.
+    _Wertetyp_: [**\<coordinate>**](/de/docs/Web/SVG/Content_type#coordinate) ; _Standardwert_: `-10%`; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
-  - : Dieses Attribut definiert die Breite des maskierten Bereichs.
-    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `120%`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Breite des Maskierungsbereichs.
+    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length) ; _Standardwert_: `120%`; _Animierbar_: **ja**
 
 ## Nutzungskontext
 
@@ -76,5 +76,5 @@ svg {
 
 ## Siehe auch
 
-- Andere SVG-Elemente für Clipping und Masking: {{SVGElement("clipPath")}}
-- CSS-Eigenschaften für Clipping und Masking: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}, {{cssxref("pointer-events")}}
+- Andere SVG-Elemente zum Ausschneiden und Maskieren: {{SVGElement("clipPath")}}
+- CSS-Eigenschaften zum Ausschneiden und Maskieren: {{cssxref("mask")}}, {{cssxref("mask-image")}}, {{cssxref("mask-mode")}}, {{cssxref("mask-repeat")}}, {{cssxref("mask-position")}}, {{cssxref("mask-clip")}}, {{cssxref("mask-origin")}}, {{cssxref("mask-composite")}}, {{cssxref("mask-size")}}, {{cssxref("pointer-events")}}

@@ -2,14 +2,14 @@
 title: fx
 slug: Web/SVG/Attribute/fx
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
 ---
 
 {{SVGRef}}
 
-Das **`fx`** Attribut definiert die x-Achsen-Koordinate des Brennpunkts für einen radialen Verlauf.
+Das **`fx`**-Attribut definiert die x-Achsen-Koordinate des Brennpunkts für einen radialen Verlauf.
 
-Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
+Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("radialGradient")}}
 
@@ -68,18 +68,20 @@ svg {
   <tbody>
     <tr>
       <th scope="row">Wert</th>
-      <td>{{cssxref("length")}}</td>
+      <td>
+        <strong><a href="/de/docs/Web/SVG/Content_type#length">&#x3C;length></a></strong>
+      </td>
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        Entspricht dem präsentationellen Wert von {{SVGAttr("cx")}} des
-        Elements, unabhängig davon, ob der Wert für <code>cx</code> geerbt wurde oder nicht.
+        Entspricht dem präsentativen Wert von {{SVGAttr("cx")}} für
+        das Element, unabhängig davon, ob der Wert für <code>cx</code> geerbt wurde oder nicht.
       </td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>None</td>
+      <td>Keine</td>
     </tr>
   </tbody>
 </table>

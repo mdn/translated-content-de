@@ -2,15 +2,15 @@
 title: <feColorMatrix>
 slug: Web/SVG/Element/feColorMatrix
 l10n:
-  sourceCommit: 2e5fc06de139c56873a20ec4bc3bf5600ea3cbef
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<feColorMatrix>`** SVG-Filterelement ändert die Farben basierend auf einer Transformationsmatrix. Jeder Farbwert eines Pixels `[R,G,B,A]` wird [matrizenmultiplikativ](https://en.wikipedia.org/wiki/Matrix_multiplication) mit einer 5x5-Matrix multipliziert, um neue Farben `[R',G',B',A']` zu erzeugen.
+Das **`<feColorMatrix>`** [SVG](/de/docs/Web/SVG) Filterelement verändert Farben basierend auf einer Transformationsmatrix. Jeder Farbwert eines Pixels `[R,G,B,A]` wird mittels einer 5x5-Farbmatrix [matrixmultipliziert](https://en.wikipedia.org/wiki/Matrix_multiplication), um neue Farben `[R',G',B',A']` zu erzeugen.
 
 > [!NOTE]
-> Das Apostrophsymbol **`'`** wird in der Mathematik verwendet, um das Ergebnis einer Transformation anzuzeigen.
+> Das Prime-Symbol **`'`** wird in der Mathematik verwendet, um das Ergebnis einer Transformation zu kennzeichnen.
 
 ```plain
 | R' |     | r1 r2 r3 r4 r5 |   | R |
@@ -20,7 +20,7 @@ Das **`<feColorMatrix>`** SVG-Filterelement ändert die Farben basierend auf ein
 | 1  |     | 0  0  0  0  1  |   | 1 |
 ```
 
-Vereinfacht ausgedrückt, wird unten gezeigt, wie jeder Farbkanal im neuen Pixel berechnet wird. Die letzte Zeile wird ignoriert, da ihre Werte konstant sind.
+Vereinfacht gesagt, wird jeder Farbkanal im neuen Pixel folgendermaßen berechnet. Die letzte Zeile wird ignoriert, da ihre Werte konstant sind.
 
 ```plain
 R' = r1*R + r2*G + r3*B + r4*A + r5
@@ -29,26 +29,26 @@ B' = b1*R + b2*G + b3*B + b4*A + b5
 A' = a1*R + a2*G + a3*B + a4*A + a5
 ```
 
-Nehmen Sie den Anteil an Rot im neuen Pixel, oder `R'`:
+Betrachten Sie die Menge des Rots im neuen Pixel, oder `R'`:
 
-Es ist die Summe von:
+Sie ist die Summe aus:
 
-- `r1` multipliziert mit dem Rot des alten Pixels `R`,
-- `r2` multipliziert mit dem Grün des alten Pixels `G`,
-- `r3` multipliziert mit dem Blau des alten Pixels `B`,
-- `r4` multipliziert mit dem Alpha des alten Pixels `A`,
+- `r1` mal dem Rotwert `R` des alten Pixels,
+- `r2` mal dem Grünwert `G` des alten Pixels,
+- `r3` mal dem Blauwert `B` des alten Pixels,
+- `r4` mal dem Alphawert `A` des alten Pixels,
 - plus einer Verschiebung `r5`.
 
-Diese angegebenen Werte können beliebige reelle Zahlen sein, obwohl das endgültige **R'** zwischen 0 und 1 beschränkt wird. Dasselbe gilt für **G'**, **B'** und **A'**.
+Diese angegebenen Beträge können beliebige reelle Zahlen sein, obwohl das finale **R'** zwischen 0 und 1 eingegrenzt wird. Dasselbe gilt für **G'**, **B'** und **A'**.
 
 ```plain
 R'      =      r1 * R      +        r2 * G      +       r3 * B      +       r4 * A       +       r5
 New red = [ r1 * old red ] + [ r2 * old green ] + [ r3 * old Blue ] + [ r4 * old Alpha ] + [ shift of r5 ]
 ```
 
-Wenn wir zum Beispiel ein komplett schwarzes Bild röter machen wollen, können wir `r5` zu einer positiven reellen Zahl _x_ machen, um die Röte jedes Pixels des neuen Bildes um _x_ zu erhöhen.
+Wenn wir beispielsweise ein komplett schwarzes Bild röter machen möchten, können wir `r5` zu einer positiven reellen Zahl _x_ machen, und dadurch die Rotheit jedes Pixels im neuen Bild um _x_ erhöhen.
 
-Eine **Identitätsmatrix** sieht folgendermaßen aus:
+Eine **Einheitsmatrix** sieht so aus:
 
 ```plain
      R G B A W
@@ -58,9 +58,9 @@ B' | 0 0 1 0 0 |
 A' | 0 0 0 1 0 |
 ```
 
-In ihr ist jeder neue Wert genau 1 mal sein alter Wert, ohne dass etwas hinzugefügt wird. Es wird empfohlen, die Matrix von hier aus zu manipulieren.
+In ihr ist jeder neue Wert genau 1-mal sein alter Wert, und es wird nichts hinzugefügt. Es wird empfohlen, bei der Manipulation der Matrix hier zu beginnen.
 
-## Verwendungszusammenhang
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -68,11 +68,11 @@ In ihr ist jeder neue Wert genau 1 mal sein alter Wert, ohne dass etwas hinzugef
 
 - {{SVGAttr("in")}}: Werte umfassen `SourceGraphic`, `SourceAlpha`, `BackgroundImage`, `BackgroundAlpha`, `FillPaint`, `StrokePaint` oder einen Verweis auf eine andere Filterprimitive.
 - {{SVGAttr("type")}}: Werte umfassen `matrix`, `saturate`, `hueRotate` und `luminanceToAlpha`.
-- {{SVGAttr("values")}}: Der Wert für den Matrize-Typ, der im `type`-Attribut festgelegt wird.
+- {{SVGAttr("values")}}: Der Wert für den im Attribut `type` festgelegten Matrixtyp.
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEColorMatrixElement`](/de/docs/Web/API/SVGFEColorMatrixElement) Schnittstelle.
 
 ## Beispiel
 

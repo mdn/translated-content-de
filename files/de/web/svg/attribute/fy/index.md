@@ -2,12 +2,12 @@
 title: fy
 slug: Web/SVG/Attribute/fy
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
 ---
 
 {{SVGRef}}
 
-Das **`fy`**-Attribut definiert die y-Achsen-Koordinate des Brennpunkts für einen radialen Farbverlauf.
+Das **`fy`**-Attribut definiert die y-Achsen-Koordinate des Brennpunkts für einen radialen Verlauf.
 
 Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
@@ -117,19 +117,20 @@ svg {
 
 {{EmbedLiveSample("Beispiel 2", "200", "250")}}
 
-## Nutzungshinweise
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
-      <td>{{cssxref("length")}}</td>
+      <td>
+        <strong><a href="/de/docs/Web/SVG/Content_type#length">&#x3C;length></a></strong>
+      </td>
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
       <td>
-        Entspricht dem Präsentationswert von {{SVGAttr("cy")}} für
-        das Element, unabhängig davon, ob der Wert für <code>cy</code> vererbt wurde oder nicht.
+        Entspricht dem präsentationalen Wert von {{SVGAttr("cy")}} für das Element, unabhängig davon, ob der Wert für <code>cy</code> geerbt wurde oder nicht.
       </td>
     </tr>
     <tr>

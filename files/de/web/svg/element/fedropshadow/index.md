@@ -2,15 +2,15 @@
 title: <feDropShadow>
 slug: Web/SVG/Element/feDropShadow
 l10n:
-  sourceCommit: 2e5fc06de139c56873a20ec4bc3bf5600ea3cbef
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das SVG **`<feDropShadow>`** Filter-Primitive erzeugt einen Schlagschatten des Eingabebildes. Es kann nur innerhalb eines {{SVGElement('filter')}}-Elements verwendet werden.
+Das **`<feDropShadow>`** [SVG](/de/docs/Web/SVG)-Filterprimtiv erstellt einen Schlagschatten des Eingabebildes. Es kann nur innerhalb eines {{SVGElement('filter')}}-Elements verwendet werden.
 
 > [!NOTE]
-> Die Farbe und Opazität des Schattens können durch Verwendung der Präsentationsattribute {{SVGAttr('flood-color')}} und {{SVGAttr('flood-opacity')}} geändert werden.
+> Die Farbe und Opazität des Schattens können durch die Präsentationsattribute {{SVGAttr('flood-color')}} und {{SVGAttr('flood-opacity')}} geändert werden.
 
 ## Beispiel
 
@@ -49,7 +49,7 @@ svg {
 </svg>
 ```
 
-{{EmbedLiveSample('Beispiel', 150, '100%')}}
+{{EmbedLiveSample('Example', 150, '100%')}}
 
 ## Attribute
 
@@ -60,7 +60,7 @@ svg {
   - : Dieses Attribut definiert den y-Versatz des Schattens.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number); _Standardwert_: `2`; _Animierbar_: **ja**
 - {{SVGAttr("stdDeviation")}}
-  - : Dieses Attribut definiert die Standardabweichung für die Weichzeichnung im Schatten.
+  - : Dieses Attribut definiert die Standardabweichung für die Unschärfeoperation im Schlagschatten.
     _Wertetyp_: [**\<number-optional-number>**](/de/docs/Web/SVG/Content_type#number-optional-number); _Standardwert_: `2`; _Animierbar_: **ja**
 
 ## Verwendungskontext
@@ -77,5 +77,5 @@ svg {
 
 ## Siehe auch
 
-- [Attribute von SVG-Filter-Primitiven](/de/docs/Web/SVG/Attribute#filters_attributes) einschließlich {{SVGAttr('height')}}, {{SVGAttr('in')}}, {{SVGAttr('result')}}, {{SVGAttr('x')}}, {{SVGAttr('y')}}, und {{SVGAttr('width')}}.
+- [SVG-Filter-Primtivattribute](/de/docs/Web/SVG/Attribute#filters_attributes) einschließlich {{SVGAttr('height')}}, {{SVGAttr('in')}}, {{SVGAttr('result')}}, {{SVGAttr('x')}}, {{SVGAttr('y')}}, und {{SVGAttr('width')}}.
 - [SVG-Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes), einschließlich {{SVGAttr('flood-color')}}, und {{SVGAttr('flood-opacity')}}.

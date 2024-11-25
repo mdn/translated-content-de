@@ -2,12 +2,12 @@
 title: <pattern>
 slug: Web/SVG/Element/pattern
 l10n:
-  sourceCommit: 5c000c8621145c6915f3d545b505c216317bc64a
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<pattern>`**-Element definiert ein Grafikobjekt, das in wiederholten x- und y-Koordinatenintervallen („gekachelt“) neu gezeichnet werden kann, um einen Bereich abzudecken.
+Das **`<pattern>`** [SVG](/de/docs/Web/SVG)-Element definiert ein Grafikobjekt, das in wiederholten x- und y-Koordinatenintervallen ("kachelartig") neu gezeichnet werden kann, um eine Fläche abzudecken.
 
 Das `<pattern>` wird durch die Attribute {{SVGAttr("fill")}} und/oder {{SVGAttr("stroke")}} auf anderen [Grafikelementen](/de/docs/Web/SVG/Tutorial/Basic_Shapes) referenziert, um diese Elemente mit dem referenzierten Muster zu füllen oder zu umranden.
 
@@ -46,49 +46,49 @@ svg {
 
 - {{SVGAttr("height")}}
   - : Dieses Attribut bestimmt die Höhe der Musterkachel.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage); _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("href")}}
   - : Dieses Attribut referenziert ein Vorlagenmuster, das Standardwerte für die `<pattern>`-Attribute bereitstellt.
-    _Wertetyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url); _Standardwert_: _none_; _Animierbar_: **ja**
+    _Werttyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url); _Standardwert_: _none_; _Animierbar_: **ja**
 - {{SVGAttr("patternContentUnits")}}
 
   - : Dieses Attribut definiert das Koordinatensystem für den Inhalt des {{SVGElement("pattern")}}.
-    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
+    _Werttyp_: `userSpaceOnUse`|`objectBoundingBox`; _Standardwert_: `userSpaceOnUse`; _Animierbar_: **ja**
 
     > [!NOTE]
-    > Dieses Attribut hat keine Auswirkung, wenn ein `viewBox`-Attribut auf dem `<pattern>`-Element angegeben ist.
+    > Dieses Attribut hat keine Wirkung, wenn ein `viewBox`-Attribut am `<pattern>`-Element angegeben ist.
 
 - {{SVGAttr("patternTransform")}}
-  - : Dieses Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Musterkoordinatensystem zum Zielkoordinatensystem.
-    _Wertetyp_: **[\<transform-list>](/de/docs/Web/SVG/Content_type#transform-list)**; _Standardwert_: _none_; _Animierbar_: **ja**
+  - : Dieses Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Muster-Koordinatensystem in das Ziel-Koordinatensystem.
+    _Werttyp_: **[\<transform-list>](/de/docs/Web/SVG/Content_type#transform-list)**; _Standardwert_: _none_; _Animierbar_: **ja**
 - {{SVGAttr("patternUnits")}}
   - : Dieses Attribut definiert das Koordinatensystem für die Attribute `x`, `y`, `width` und `height`.
-    _Wertetyp_: `userSpaceOnUse`|`objectBoundingBox`; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
+    _Werttyp_: `userSpaceOnUse`|`objectBoundingBox`; _Standardwert_: `objectBoundingBox`; _Animierbar_: **ja**
 - {{SVGAttr("preserveAspectRatio")}}
-  - : Dieses Attribut definiert, wie das SVG-Fragment verzerrt werden muss, wenn es in einem Container mit einem unterschiedlichen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
-    _Wertetyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert, wie das SVG-Fragment verformt werden muss, wenn es in einen Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
+    _Werttyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
 - {{SVGAttr("viewBox")}}
-  - : Dieses Attribut definiert die Begrenzung des SVG-Ansichtsfensters für das Musterfragment.
-    _Wertetyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Content_type#list-of-ts)** ; _Standardwert_: none; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die Begrenzung des SVG-Viewports für das Musterfragment.
+    _Werttyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Content_type#list-of-ts)** ; _Standardwert_: none; _Animierbar_: **ja**
 - {{SVGAttr("width")}}
   - : Dieses Attribut bestimmt die Breite der Musterkachel.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("x")}}
   - : Dieses Attribut bestimmt die x-Koordinatenverschiebung der Musterkachel.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
 
   - : Dieses Attribut referenziert ein Vorlagenmuster, das Standardwerte für die `<pattern>`-Attribute bereitstellt.
-    _Wertetyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url); _Standardwert_: _none_; _Animierbar_: **ja**
+    _Werttyp_: [**\<URL>**](/de/docs/Web/SVG/Content_type#url); _Standardwert_: _none_; _Animierbar_: **ja**
 
     > [!NOTE]
-    > Bei Browsern, die `href` implementieren, wird `xlink:href` ignoriert, wenn sowohl `href` als auch `xlink:href` gesetzt sind, und nur `href` wird verwendet.
+    > Für Browser, die `href` implementieren, wird `xlink:href` ignoriert und nur `href` verwendet, wenn beide gesetzt sind.
 
 - {{SVGAttr("y")}}
   - : Dieses Attribut bestimmt die y-Koordinatenverschiebung der Musterkachel.
-    _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
+    _Werttyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `0`; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 

@@ -1,15 +1,15 @@
 ---
-title: fr-Attribut
+title: fr
 slug: Web/SVG/Attribute/fr
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
 ---
 
 {{SVGRef}}
 
-Das **`fr`**-Attribut definiert den Radius des Brennpunkts für den radialen Farbverlauf.
+Das **`fr`**-Attribut definiert den Radius des Brennpunkts für den radialen Verlauf.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("radialGradient")}}
 
@@ -23,9 +23,9 @@ svg {
 }
 ```
 
-### Ändern des Wertes von `fr`
+### Ändern des Werts von `fr`
 
-Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` und der andere Kreis hat `fr` auf `25%` gesetzt.
+Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` gesetzt, während der andere Kreis `fr` auf `25%` gesetzt hat.
 
 ```html
 <svg
@@ -72,7 +72,7 @@ Das folgende Beispiel zeigt zwei Kreise: Der erste hat `fr` auf `5%` und der and
 
 ### Die Beziehung des Brennpunkts zu `(fx, fy)`
 
-In diesem Beispiel ist `fr` gleich `5%` und stellt dar, wie die Attribute `fx` und `fy` (die als solche im SVG gekennzeichneten Punkte) als Ursprung für den Brennpunkt des radialen Farbverlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbverlaufspunkt, in diesem Fall die Farbe Rot, beginnen sollte, in den anderen Farbverlaufspunkt zu übergehen, der in diesem Fall die Farbe Blau ist.
+Dieses Beispiel hat `fr` gleich `5%` und zeigt, wie die Attribute `fx` und `fy` (die im SVG entsprechend benannten Punkte) als Ursprung für den Brennpunkt des radialen Verlaufs fungieren. Dieser Brennpunkt ist ein Kreis, dessen Radius (der Wert von `fr`) definiert, wann der erste Farbverlauf, in diesem Fall die Farbe Rot, in den anderen Farbverlauf übergehen soll, der in diesem Fall die Farbe Blau ist.
 
 ```html
 <svg
@@ -125,13 +125,15 @@ In diesem Beispiel ist `fr` gleich `5%` und stellt dar, wie die Attribute `fx` u
 
 {{EmbedLiveSample("the_focal_points_relationship_to_fx_fy", "200", "200")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Wert</th>
-      <td>{{cssxref("length")}}</td>
+      <td>
+        <strong><a href="/de/docs/Web/SVG/Content_type#length">&#x3C;length></a></strong>
+      </td>
     </tr>
     <tr>
       <th scope="row">Standardwert</th>
@@ -139,7 +141,7 @@ In diesem Beispiel ist `fr` gleich `5%` und stellt dar, wie die Attribute `fx` u
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Keiner</td>
+      <td>None</td>
     </tr>
   </tbody>
 </table>

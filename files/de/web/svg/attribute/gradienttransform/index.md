@@ -2,14 +2,14 @@
 title: gradientTransform
 slug: Web/SVG/Attribute/gradientTransform
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
 ---
 
 {{SVGRef}}
 
-Das `gradientTransform`-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradienten-Koordinatensystem auf das Ziel-Koordinatensystem (z. B. userSpaceOnUse oder objectBoundingBox). Dies ermöglicht beispielsweise das Schrägstellen des Gradienten. Diese zusätzliche Transformationsmatrix wird nachträglich in die (d. h. rechts von) zuvor definierten Transformationen eingefügt, einschließlich der impliziten Transformation, die erforderlich ist, um von Einheiten des Objektumrandungsrahmens in den Benutzerbereich überzugehen.
+Das **`gradientTransform`**-Attribut enthält die Definition einer optionalen zusätzlichen Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem (d.h. `userSpaceOnUse` oder `objectBoundingBox`). Dies ermöglicht beispielsweise das Verzerren des Gradienten. Diese zusätzliche Transformationsmatrix wird nachträglich zu (d.h. rechts von) allen zuvor definierten Transformationen hinzugefügt, einschließlich der impliziten Transformation, die erforderlich ist, um von Einheiten der Objektbegrenzungsbox in den Benutzerbereich zu konvertieren.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("linearGradient")}}
 - {{SVGElement("radialGradient")}}
@@ -65,7 +65,7 @@ svg {
 
 {{EmbedLiveSample("Example", "420", "200")}}
 
-## Verwendungshinweise
+## Nutzungshinweise
 
 <table class="properties">
   <tbody>
@@ -85,7 +85,7 @@ svg {
 </table>
 
 - `<transform-list>`
-  -: Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die eine zusätzliche Transformation vom Gradienten-Koordinatensystem auf das Ziel-Koordinatensystem spezifizieren.
+  - : Eine Liste von [Transformationsfunktionen](/de/docs/Web/CSS/transform-function), die eine zusätzliche Transformation vom Gradientenkoordinatensystem auf das Zielkoordinatensystem spezifizieren.
 
 ## Spezifikationen
 

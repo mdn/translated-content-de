@@ -2,14 +2,14 @@
 title: <feMergeNode>
 slug: Web/SVG/Element/feMergeNode
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das `feMergeNode`-Element nimmt das Ergebnis eines anderen Filters, um von seinem übergeordneten {{ SVGElement("feMerge") }}-Element verarbeitet zu werden.
+Das **`<feMergeNode>`** [SVG](/de/docs/Web/SVG) nimmt das Ergebnis eines anderen Filters auf, um von seinem übergeordneten {{ SVGElement("feMerge") }} verarbeitet zu werden.
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -55,7 +55,7 @@ Das `feMergeNode`-Element nimmt das Ergebnis eines anderen Filters, um von seine
 
 ## DOM-Schnittstelle
 
-Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement)-Schnittstelle.
+Dieses Element implementiert die [`SVGFEMergeNodeElement`](/de/docs/Web/API/SVGFEMergeNodeElement) Schnittstelle.
 
 ## Spezifikationen
 

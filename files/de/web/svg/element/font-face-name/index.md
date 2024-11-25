@@ -2,14 +2,14 @@
 title: <font-face-name>
 slug: Web/SVG/Element/font-face-name
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}{{deprecated_header}}
 
-Das **`<font-face-name>`**-Element verweist auf eine lokal installierte Kopie dieser Schriftart, die durch ihren Namen identifiziert wird.
+Das **`<font-face-name>`** [SVG](/de/docs/Web/SVG)-Element verweist auf eine lokal installierte Kopie dieser Schriftart, die durch ihren Namen identifiziert wird.
 
-## Verwendungskontext
+## Verwendungszweck
 
 {{svginfo}}
 
@@ -17,9 +17,9 @@ Das **`<font-face-name>`**-Element verweist auf eine lokal installierte Kopie di
 
 - {{SVGATTR("name")}} {{Deprecated_Inline}}
 
-## DOM-Interface
+## DOM-Schnittstelle
 
-Dieses Element implementiert das [`SVGFontFaceNameElement`](/de/docs/Web/API/SVGFontFaceNameElement) Interface.
+Dieses Element implementiert die [`SVGFontFaceNameElement`](/de/docs/Web/API/SVGFontFaceNameElement)-Schnittstelle.
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Dieses Element implementiert das [`SVGFontFaceNameElement`](/de/docs/Web/API/SVG
 ## Siehe auch
 
 - {{SVGElement("font-face-src")}}
-- [SVG-Leitfaden: SVG-Schriftarten](/de/docs/Web/SVG/Tutorial/SVG_fonts)
+- [SVG-Tutorial: SVG fonts](/de/docs/Web/SVG/Tutorial/SVG_fonts)

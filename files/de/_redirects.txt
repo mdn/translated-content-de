@@ -12292,6 +12292,7 @@
 /de/docs/Web/HTTP/Headers/Content-Security-Policy/referrer	/de/docs/Web/HTTP/Headers/Referrer-Policy
 /de/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for	/de/docs/Web/HTTP/Headers/Content-Security-Policy
 /de/docs/Web/HTTP/Headers/Cookie2	/de/docs/Web/HTTP/Headers/Cookie
+/de/docs/Web/HTTP/Headers/Digest	/de/docs/Web/HTTP/Headers/Content-Digest
 /de/docs/Web/HTTP/Headers/Feature-Policy	/de/docs/Web/HTTP/Headers/Permissions-Policy
 /de/docs/Web/HTTP/Headers/Feature-Policy/accelerometer	/de/docs/Web/HTTP/Headers/Permissions-Policy/accelerometer
 /de/docs/Web/HTTP/Headers/Feature-Policy/ambient-light-sensor	/de/docs/Web/HTTP/Headers/Permissions-Policy/ambient-light-sensor
@@ -12337,6 +12338,7 @@
 /de/docs/Web/HTTP/Headers/Ranges	/de/docs/Web/HTTP/Headers/Range
 /de/docs/Web/HTTP/Headers/Set-Cookie/SameSite	/de/docs/Web/HTTP/Headers/Set-Cookie#samesitesamesite-value
 /de/docs/Web/HTTP/Headers/Set-Cookie2	/de/docs/Web/HTTP/Headers/Set-Cookie
+/de/docs/Web/HTTP/Headers/Want-Digest	/de/docs/Web/HTTP/Headers/Want-Content-Digest
 /de/docs/Web/HTTP/History_of_HTTP_versions	/de/docs/Web/HTTP/Evolution_of_HTTP
 /de/docs/Web/HTTP/Index	/de/docs/Web/HTTP
 /de/docs/Web/HTTP/Link_prefetching_FAQ	/de/docs/Glossary/Prefetch

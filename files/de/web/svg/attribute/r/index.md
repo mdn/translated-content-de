@@ -2,7 +2,7 @@
 title: r
 slug: Web/SVG/Attribute/r
 l10n:
-  sourceCommit: 12f63e8509fb278b2de5d04e552287b465d60256
+  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
 ---
 
 {{SVGRef}}
@@ -14,7 +14,7 @@ Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 - {{SVGElement("circle")}}
 - {{SVGElement("radialGradient")}}
 
-Prozentsätze beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Viewports, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
+Prozentangaben beziehen sich auf die normalisierte Diagonale des aktuellen SVG-Viewports, die wie folgt berechnet wird: <math><mfrac><msqrt><mrow><msup><mi>&lt;width&gt;</mi><mn>2</mn></msup><mo>+</mo><msup><mi>&lt;height&gt;</mi><mn>2</mn></msup></mrow></msqrt><msqrt><mn>2</mn></msqrt></mfrac></math>.
 
 ## Beispiel
 
@@ -55,7 +55,7 @@ svg {
 
 ## circle
 
-Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit seine Größe. Bei einem Wert gleich oder kleiner als null wird der Kreis überhaupt nicht gezeichnet.
+Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit dessen Größe. Bei einem Wert kleiner oder gleich null wird der Kreis überhaupt nicht gezeichnet.
 
 <table class="properties">
   <tbody>
@@ -81,7 +81,7 @@ Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit sei
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -93,7 +93,7 @@ Für {{SVGElement('circle')}} definiert `r` den Radius des Kreises und damit sei
 
 Für {{ SVGElement("radialGradient") }} definiert `r` den Radius des Endkreises für den radialen Verlauf.
 
-Der Verlauf wird so gezeichnet, dass der **100%**-Verlauffarbstopp auf den Umfang dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null bewirkt, dass der Bereich in einer einzigen Farbe unter Verwendung der Farbe und der Opazität des letzten Verlauf-{{ SVGElement("stop") }}-Elements gefärbt wird.
+Der Verlauf wird so gezeichnet, dass der **100%** Verlaufsstopp auf den Umfang dieses Endkreises abgebildet wird. Ein Wert kleiner oder gleich null führt dazu, dass der Bereich als einheitliche Farbe unter Verwendung der Farbe und Deckkraft des letzten Verlauf-{{ SVGElement("stop") }}-Elements dargestellt wird.
 
 <table class="properties">
   <tbody>
@@ -105,12 +105,6 @@ Der Verlauf wird so gezeichnet, dass der **100%**-Verlauffarbstopp auf den Umfan
             >&#x3C;length></a
           ></strong
         >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >
       </td>
     </tr>
     <tr>
@@ -119,7 +113,7 @@ Der Verlauf wird so gezeichnet, dass der **100%**-Verlauffarbstopp auf den Umfan
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Yes</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -127,3 +121,7 @@ Der Verlauf wird so gezeichnet, dass der **100%**-Verlauffarbstopp auf den Umfan
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

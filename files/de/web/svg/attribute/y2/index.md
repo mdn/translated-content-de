@@ -2,20 +2,20 @@
 title: y2
 slug: Web/SVG/Attribute/y2
 l10n:
-  sourceCommit: 00252e3d53b06d0d517a093ba5a3f53335dbc0d8
+  sourceCommit: fceea994be5c930065bb1f2b45bee9ac38de491c
 ---
 
 {{SVGRef}}
 
-Das **`y2`**-Attribut wird verwendet, um die zweite y-Koordinate für das Zeichnen eines SVG-Elements zu bestimmen, das mehr als eine Koordinate erfordert. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das {{SVGAttr("y")}}-Attribut.
+Das Attribut **`y2`** wird verwendet, um die zweite y-Koordinate für das Zeichnen eines SVG-Elements anzugeben, das mehr als eine Koordinate erfordert. Elemente, die nur eine Koordinate benötigen, verwenden stattdessen das Attribut {{SVGAttr("y")}}.
 
 ## Elemente
 
-Sie können dieses Attribut mit den nachfolgend beschriebenen SVG-Elementen verwenden.
+Sie können dieses Attribut mit den in den folgenden Abschnitten beschriebenen SVG-Elementen verwenden.
 
 ### `<line>`
 
-Für {{SVGElement('line')}} definiert `y2` die y-Koordinate des Endpunktes der Linie.
+Für {{SVGElement('line')}} definiert `y2` die y-Koordinate des Endpunkts der Linie.
 
 <table class="properties">
   <tbody>
@@ -72,7 +72,7 @@ svg {
 
 ### `<linearGradient>`
 
-Für {{SVGElement('linearGradient')}} definiert `y2` die y-Koordinate des Endpunktes des _Gradient-Vektors_, der verwendet wird, um die Werte der Gradientenstopps zuzuordnen. Das genaue Verhalten dieses Attributs wird durch die {{SVGAttr('gradientUnits')}}-Attribute beeinflusst.
+Für {{SVGElement('linearGradient')}} definiert `y2` die y-Koordinate des Endpunkts des _Gradientvektors_, der verwendet wird, um die Farbverlaufsstoppwerte zuzuordnen. Das genaue Verhalten dieses Attributs wird durch die Attribute {{SVGAttr('gradientUnits')}} beeinflusst.
 
 <table class="properties">
   <tbody>
@@ -82,18 +82,6 @@ Für {{SVGElement('linearGradient')}} definiert `y2` die y-Koordinate des Endpun
         <strong
           ><a href="/de/docs/Web/SVG/Content_type#length"
             >&#x3C;length></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Content_type#percentage"
-            >&#x3C;percentage></a
-          ></strong
-        >
-        |
-        <strong
-          ><a href="/de/docs/Web/SVG/Content_type#number"
-            >&#x3C;number></a
           ></strong
         >
       </td>
@@ -170,3 +158,7 @@ svg {
 ## Spezifikationen
 
 {{Specifications}}
+
+## Browser-Kompatibilität
+
+{{Compat}}

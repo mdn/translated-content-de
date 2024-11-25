@@ -2,12 +2,12 @@
 title: <line>
 slug: Web/SVG/Element/line
 l10n:
-  sourceCommit: 2f43f506240fa6c866cc3bc2d018364ae49421d9
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<line>`**-Element ist eine Grundform in SVG, die verwendet wird, um eine Linie zu erstellen, die zwei Punkte verbindet.
+Das **`<line>`** [SVG](/de/docs/Web/SVG)-Element ist eine grundlegende SVG-Form, die verwendet wird, um eine Linie zwischen zwei Punkten zu zeichnen.
 
 ## Beispiel
 
@@ -45,10 +45,10 @@ svg {
   - : Definiert die y-Achsen-Koordinate des Endpunkts der Linie.
     _Wertetyp_: [**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage)|[**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: `0`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Definiert die Gesamtlänge des Pfades in Benutzereinheiten.
+  - : Definiert die gesamte Pfadlänge in Benutzereinheiten.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -62,4 +62,4 @@ svg {
 
 ## Siehe auch
 
-- Andere SVG-Grundformen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, {{ SVGElement('polygon') }}, **{{ SVGElement('polyline') }}**, {{ SVGElement('rect') }}
+- Andere grundlegende SVG-Formen: {{ SVGElement('circle') }}, {{ SVGElement('ellipse') }}, {{ SVGElement('polygon') }}, **{{ SVGElement('polyline') }}**, {{ SVGElement('rect') }}

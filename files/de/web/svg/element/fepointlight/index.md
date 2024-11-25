@@ -2,14 +2,14 @@
 title: <fePointLight>
 slug: Web/SVG/Element/fePointLight
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<fePointLight>`**-Filter-Primitive definiert eine Lichtquelle, die einen Punktlichteffekt erzeugt. Dieser kann innerhalb eines Lichtfilterprimitivs verwendet werden: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
+Das **`<fePointLight>`**-[SVG](/de/docs/Web/SVG)-Filterprimiv erlaubt es, eine Punktlichtquelle zu definieren, die innerhalb eines Beleuchtungsfilterprimitives verwendet werden kann: {{SVGElement("feDiffuseLighting")}} oder {{SVGElement("feSpecularLighting")}}.
 
-## Verwendungszusammenhang
+## Nutzungskontext
 
 {{svginfo}}
 
@@ -84,4 +84,4 @@ Dieses Element implementiert die [`SVGFEPointLightElement`](/de/docs/Web/API/SVG
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feDistantLight")}}
 - {{SVGElement("feSpotLight")}}
-- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Anleitung: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)

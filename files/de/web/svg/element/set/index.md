@@ -2,17 +2,17 @@
 title: <set>
 slug: Web/SVG/Element/set
 l10n:
-  sourceCommit: 01b8471b84e1d157cbddbb3ffaf560a86b082070
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das SVG-**`<set>`**-Element bietet eine Methode, um den Wert eines Attributs für eine bestimmte Dauer festzulegen.
+Das **`<set>`** [SVG](/de/docs/Web/SVG) Element bietet eine Methode, um den Wert eines Attributs für eine bestimmte Dauer festzulegen.
 
-Es unterstützt alle Attributtypen, einschließlich solcher, die nicht sinnvoll interpoliert werden können, wie Zeichenfolgen- und Boolesche Werte. Für Attribute, die sinnvoll interpoliert werden können, wird normalerweise das {{SVGElement('animate')}} bevorzugt.
+Es unterstützt alle Attributtypen, einschließlich solcher, die nicht sinnvoll interpoliert werden können, wie Zeichenfolgen- und boolesche Werte. Für Attribute, die sinnvoll interpoliert werden können, wird in der Regel das {{SVGElement('animate')}} bevorzugt.
 
 > [!NOTE]
-> Das `<set>`-Element ist nicht additiv. Die Attribute {{SVGAttr('additive')}} und {{SVGAttr('accumulate')}} sind nicht erlaubt und werden ignoriert, wenn sie angegeben werden.
+> Das `<set>`-Element ist nicht additiv. Die {{SVGAttr('additive')}} und {{SVGAttr('accumulate')}} Attribute sind nicht erlaubt und werden ignoriert, falls angegeben.
 
 ## Beispiel
 
@@ -50,7 +50,7 @@ svg {
   - : Dieses Attribut definiert den Wert, der für die Dauer der Animation auf das Zielattribut angewendet wird. Der Wert muss den Anforderungen des Zielattributs entsprechen.
     _Werttyp_: [**\<anything>**](/de/docs/Web/SVG/Content_type#anything); _Standardwert_: keiner; _Animierbar_: **nein**
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -65,5 +65,5 @@ svg {
 ## Siehe auch
 
 - {{SVGAttr("attributeName")}} Attribut
-- [Animation Timing Attribute](/de/docs/Web/SVG/Attribute#animation_timing_attributes), einschließlich {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}} und {{SVGAttr("fill")}}.
+- [Animation Timing Attribute](/de/docs/Web/SVG/Attribute#animation_timing_attributes), einschließlich {{SVGAttr("begin")}}, {{SVGAttr("dur")}}, {{SVGAttr("end")}}, {{SVGAttr("min")}}, {{SVGAttr("max")}}, {{SVGAttr("restart")}}, {{SVGAttr("repeatCount")}}, {{SVGAttr("repeatDur")}}, und {{SVGAttr("fill")}}.
 - {{SVGElement("animate")}}

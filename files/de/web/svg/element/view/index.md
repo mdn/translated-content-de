@@ -2,12 +2,12 @@
 title: <view>
 slug: Web/SVG/Element/view
 l10n:
-  sourceCommit: b439985acb7c71d271115723522aa55cc7a43cbe
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das `<view>` SVG-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. Eine spezifische Ansicht kann angezeigt werden, indem das `<view>`-Element-`id` als Ziel-Fragment einer URL referenziert wird.
+Das **`<view>`** [SVG](/de/docs/Web/SVG)-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. Eine spezifische Ansicht kann angezeigt werden, indem das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut des `<view>`-Elements als Ziel-Fragment einer URL referenziert wird.
 
 ## Verwendungskontext
 
@@ -50,9 +50,9 @@ Das `<view>` SVG-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. E
 
 {{EmbedLiveSample("Example", "85ch", "240px")}}
 
-## DOM-Schnittstelle
+## DOM-Interface
 
-Dieses Element implementiert die [`SVGViewElement`](/de/docs/Web/API/SVGViewElement) Schnittstelle.
+Dieses Element implementiert das [`SVGViewElement`](/de/docs/Web/API/SVGViewElement)-Interface.
 
 ## Spezifikationen
 

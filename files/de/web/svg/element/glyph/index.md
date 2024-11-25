@@ -2,12 +2,12 @@
 title: <glyph>
 slug: Web/SVG/Element/glyph
 l10n:
-  sourceCommit: 3a1ef2abc8233835f0b0cc73afaf36e44edaf4a1
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}{{deprecated_header}}
 
-Ein **`<glyph>`** definiert ein einzelnes Glyph in einer SVG-Schriftart.
+Das **`<glyph>`** [SVG](/de/docs/Web/SVG)-Element definiert ein einzelnes Glyph in einer SVG-Schriftart.
 
 ## Verwendungskontext
 

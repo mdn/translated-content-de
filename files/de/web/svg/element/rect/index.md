@@ -2,12 +2,12 @@
 title: <rect>
 slug: Web/SVG/Element/rect
 l10n:
-  sourceCommit: 01b8471b84e1d157cbddbb3ffaf560a86b082070
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<rect>`** Element ist eine [grundlegende SVG-Form](/de/docs/Web/SVG/Tutorial/Basic_Shapes), die Rechtecke zeichnet, die durch ihre Position, Breite und Höhe definiert werden. Die Ecken der Rechtecke können abgerundet sein.
+Das **`<rect>`** [SVG](/de/docs/Web/SVG) Element ist eine [grundlegende SVG-Form](/de/docs/Web/SVG/Tutorial/Basic_Shapes), die Rechtecke zeichnet, definiert durch ihre Position, Breite und Höhe. Die Ecken der Rechtecke können abgerundet sein.
 
 ## Beispiel
 
@@ -46,19 +46,19 @@ svg {
   - : Die Höhe des Rechtecks.
     _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("rx")}}
-  - : Der horizontale Eckradius des Rechtecks. Verwendet `ry` als Standardwert, wenn dieser angegeben ist.
+  - : Der horizontale Eckradius des Rechtecks. Standardmäßig auf `ry`, wenn dieses angegeben ist.
     _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("ry")}}
-  - : Der vertikale Eckradius des Rechtecks. Verwendet `rx` als Standardwert, wenn dieser angegeben ist.
+  - : Der vertikale Eckradius des Rechtecks. Standardmäßig auf `rx`, wenn dieses angegeben ist.
     _Wertetyp_: `auto`|[**\<length>**](/de/docs/Web/SVG/Content_type#length)|[**\<percentage>**](/de/docs/Web/SVG/Content_type#percentage) ; _Standardwert_: `auto`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Die Gesamtlänge des Rechteckumfangs in Benutzereinheiten.
+  - : Die Gesamtlänge des Umfanges des Rechtecks in Benutzereinheiten.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
 > [!NOTE]
-> Ab SVG2 sind `x`, `y`, `width`, `height`, `rx` und `ry` _Geometrieeigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
+> Ab SVG2 sind `x`, `y`, `width`, `height`, `rx` und `ry` _Geometrie-Eigenschaften_, was bedeutet, dass diese Attribute auch als CSS-Eigenschaften für dieses Element verwendet werden können.
 
-## Nutzungskontext
+## Verwendungskontext
 
 {{svginfo}}
 
@@ -72,5 +72,5 @@ svg {
 
 ## Siehe auch
 
-- [SVG Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 - Andere grundlegende SVG-Formen: {{SVGElement('circle')}}, {{ SVGElement('ellipse') }}, {{ SVGElement('line') }}, **{{ SVGElement('polygon') }}**, {{ SVGElement('polyline') }}

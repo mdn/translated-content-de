@@ -2,14 +2,14 @@
 title: <polygon>
 slug: Web/SVG/Element/polygon
 l10n:
-  sourceCommit: 2f43f506240fa6c866cc3bc2d018364ae49421d9
+  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
 ---
 
 {{SVGRef}}
 
-Das **`<polygon>`**-Element definiert eine geschlossene Form, die aus einer Reihe von verbundenen geraden Liniensegmenten besteht. Der letzte Punkt ist mit dem ersten Punkt verbunden.
+Das **`<polygon>`** [SVG](/de/docs/Web/SVG) Element definiert eine geschlossene Form, die aus einer Reihe verbundener gerader Liniensegmente besteht. Der letzte Punkt wird mit dem ersten Punkt verbunden.
 
-Für offene Formen siehe das {{SVGElement("polyline")}}-Element.
+Für offene Formen siehe das {{SVGElement("polyline")}} Element.
 
 ## Beispiel
 
@@ -36,13 +36,13 @@ svg {
 ## Attribute
 
 - {{SVGAttr('points')}}
-  - : Dieses Attribut definiert die Liste der Punkte (Paarungen von `x,y`-Koordinaten), die benötigt werden, um das Polygon zu zeichnen.
+  - : Dieses Attribut definiert die Liste der Punkte (Paare von `x,y` absoluten Koordinaten), die benötigt werden, um das Polygon zu zeichnen.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number)+ ; _Standardwert_: `""`; _Animierbar_: **ja**
 - {{SVGAttr("pathLength")}}
-  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfades in Benutzereinheiten anzugeben.
+  - : Dieses Attribut ermöglicht es, die Gesamtlänge des Pfads in Benutzereinheiten anzugeben.
     _Wertetyp_: [**\<number>**](/de/docs/Web/SVG/Content_type#number) ; _Standardwert_: _none_; _Animierbar_: **ja**
 
-## Verwendungskontext
+## Verwendungszusammenhang
 
 {{svginfo}}
 
@@ -56,9 +56,9 @@ svg {
 
 ## Siehe auch
 
-- [SVG Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
+- [SVG-Präsentationsattribute](/de/docs/Web/SVG/Attribute#presentation_attributes) einschließlich {{SVGAttr("fill")}} und {{SVGAttr("stroke")}}
 
-- **Weitere grundlegende SVG-Formen:**
+- **Andere grundlegende SVG-Formen:**
 
   - {{ SVGElement('circle') }}
   - {{ SVGElement('ellipse') }}
