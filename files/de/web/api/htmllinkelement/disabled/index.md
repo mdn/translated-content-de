@@ -1,18 +1,18 @@
 ---
-title: "HTMLLinkElement: disabled-Eigenschaft"
+title: "HTMLLinkElement: Eigenschaft `disabled`"
 short-title: disabled
 slug: Web/API/HTMLLinkElement/disabled
 l10n:
-  sourceCommit: 3b5e12e7abd1204735c35aa760294c907e4159cb
+  sourceCommit: 7c68e9bbf680784817e6415336c7dde5ae96360a
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`disabled`**-Eigenschaft der [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement)-Schnittstelle ist ein boolescher Wert, der darstellt, ob der Link deaktiviert ist. Sie hat nur einen Effekt bei Stylesheet-Links (wenn die `rel`-Eigenschaft auf `stylesheet` gesetzt ist).
+Die **`disabled`**-Eigenschaft der Schnittstelle [`HTMLLinkElement`](/de/docs/Web/API/HTMLLinkElement) ist ein boolescher Wert, der angibt, ob der Link deaktiviert ist. Sie wirkt sich nur auf Stylesheet-Links aus (Eigenschaft `rel` auf `stylesheet` gesetzt).
 
-Wenn das `disabled`-Attribut in HTML spezifiziert ist, wenn die Seite geladen wird, wird das Stylesheet nicht während des Seitenladevorgangs geladen. Stattdessen wird das Stylesheet nur geladen, wenn die `disabled`-Eigenschaft auf `false` gesetzt oder entfernt wird. Wenn die `disabled`-Eigenschaft mit JavaScript gesetzt wird, wird das Stylesheet aus der Liste der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) des Dokuments entfernt.
+Wenn das `disabled`-Attribut im HTML beim Laden spezifiziert ist, wird das Stylesheet nicht während des Seitenladens geladen. Stattdessen wird das Stylesheet nur geladen, wenn die `disabled`-Eigenschaft auf `false` gesetzt oder entfernt wird. Das Festlegen der `disabled`-Eigenschaft mit JavaScript führt dazu, dass das Stylesheet aus der Liste der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) des Dokuments entfernt wird.
 
-Es spiegelt das `disabled`-Attribut des {{HTMLElement("link")}}-Elements wider.
+Sie spiegelt das `disabled`-Attribut des {{HTMLElement("link")}}-Elements wider.
 
 ## Wert
 
@@ -33,8 +33,7 @@ Ein boolescher Wert.
 const el = document.getElementById("el");
 console.log(el.disabled); // Output: true
 
-// Set the disabled property to true to enable the stylesheet
-
+// Set the disabled property to false to enable the stylesheet
 el.disabled = false;
 console.log(el.disabled); // Output: false
 ```

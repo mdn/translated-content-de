@@ -1,19 +1,19 @@
 ---
-title: CSS Compositing und Blending
+title: CSS-Kompositing und -Mischen
 slug: Web/CSS/CSS_compositing_and_blending
 l10n:
-  sourceCommit: 5755d6dfbac15abc29ddcd924cee110c4139b073
+  sourceCommit: b4d0b6b4ff6527429b6f80ec0cf8c9b4176f7fd4
 ---
 
 {{CSSRef}}
 
-Das **CSS Compositing und Blending** Modul definiert, wie die Hintergrundebenen eines Elements miteinander vermischt werden können, wie ein Element mit seinem Container vermischt werden kann und ob das Element einen neuen [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context) erstellen muss.
+Das **CSS-Kompositing und -Mischen** Modul definiert, wie die Hintergrundebenen eines Elements miteinander vermischt werden können, wie ein Element mit seinem Container vermischt werden kann und ob das Element einen neuen [stapelnden Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context) erstellen muss.
 
-Die Eigenschaften in diesem CSS-Modul können verwendet werden, um den Blending-Modus zu definieren, der gegebenenfalls verwendet werden sollte, um die Hintergrundbilder und -farben eines Elements in ein einziges Hintergrundbild zu überführen. Dieses Modul bietet 16 Blending-Modi. Sie können auch definieren, wie die Ränder, der Hintergrund und der Inhalt eines Elements, einschließlich Text, Emojis und Bilder, mit dem Hintergrund seines Containers vermischt werden sollen.
+Die Eigenschaften in diesem CSS-Modul können verwendet werden, um den Mischmodus zu definieren, der gegebenenfalls verwendet werden soll, um die Hintergrundbilder und -farben eines Elements zu einem einzigen Hintergrundbild zu mischen. Dieses Modul bietet 16 Mischmodi. Sie können auch definieren, wie die Rahmen, der Hintergrund und der Inhalt eines Elements, einschließlich Text, Emojis und Bildern, mit dem Hintergrund seines Containers vermischt werden sollen.
 
-### Compositing und Blending in Aktion
+### Kompositing und Mischen in Aktion
 
-In diesem Beispiel hat jede Box einen Rand, zwei gestreifte Hintergrundbilder und einen einfarbigen Hintergrund. Der gemeinsame Hintergrund für alle Boxen enthält ein Kreismuster. Die drei Boxen in der zweiten Reihe sind so eingestellt, dass sie mit dem Hintergrund des Containers vermischt werden.
+In diesem Beispiel hat jede Box einen Rahmen, zwei gestreifte Hintergrundbilder und einen einfarbigen Hintergrund. Der gemeinsame Hintergrund für alle Boxen enthält ein Muster aus Kreisen. Die drei Boxen in der zweiten Reihe sind so eingestellt, dass sie mit dem Hintergrund des Containers vermischt werden.
 
 ```html hidden live-sample___compositing
 <section>
@@ -80,8 +80,7 @@ span {
 
 {{EmbedLiveSample("compositing", "", "450px")}}
 
-Beachten Sie, wie sich der Hintergrund, der Rand und der Inhalt als Ergebnis der Vermischung auswirken.
-Klicken Sie auf „Play“ im obigen Beispiel, um den Code für die Animation im MDN Playground zu sehen oder zu bearbeiten.
+Beachten Sie, wie der Hintergrund, der Rahmen und der Inhalt alle durch das Mischen beeinflusst werden. Klicken Sie auf "Play" im obigen Beispiel, um den Code für die Animation im MDN Playground zu sehen oder zu bearbeiten.
 
 ## Referenz
 
@@ -99,9 +98,9 @@ Klicken Sie auf „Play“ im obigen Beispiel, um den Code für die Animation im
 - {{cssxref("mask-composite")}} CSS-Eigenschaft
 - {{cssxref("background-color")}} CSS-Eigenschaft
 - {{cssxref("background-image")}} CSS-Eigenschaft
-- {{Glossary("stacking_context", "Stacking-Kontext")}} Glossarbegriff
-- {{ SVGElement("feBlend")}} SVG Filterprimitive
-- {{ SVGElement("feComposite")}} SVG Filterprimitive
+- {{Glossary("stacking_context", "stapelnder Kontext")}} Glossarbegriff
+- {{ SVGElement("feBlend")}} SVG-Filterprimitive
+- {{ SVGElement("feComposite")}} SVG-Filterprimitive
 
 ## Spezifikationen
 
@@ -109,7 +108,7 @@ Klicken Sie auf „Play“ im obigen Beispiel, um den Code für die Animation im
 
 ## Siehe auch
 
-- Eigenschaften im [CSS Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul ermöglichen es, Filtereffekte wie Unschärfe und Farbintensitätsänderung auf Bilder, Hintergründe und Ränder anzuwenden.
-- [Compositing und Blending in CSS](https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/) (2015)
-- [Bilder in CSS bearbeiten: Blend-Modi](https://webdesign.tutsplus.com/editing-images-in-css-blend-modes--cms-26058t) (2022)
-- [web.dev: Blend-Modi](https://web.dev/learn/css/blend-modes) (2021)
+- Eigenschaften im [CSS-Filtereffekte](/de/docs/Web/CSS/CSS_filter_effects) Modul ermöglichen die Anwendung von Filtereffekten, wie das Weichzeichnen und Ändern der Farbintensität bei Bildern, Hintergründen und Rahmen.
+- [Compositing And Blending In CSS](https://www.sarasoueidan.com/blog/compositing-and-blending-in-css/) (2015)
+- [Bearbeiten von Bildern in CSS: Mischmodi](https://webdesign.tutsplus.com/editing-images-in-css-blend-modes--cms-26058t) (2022)
+- [web.dev: blend modes](https://web.dev/learn/css/blend-modes) (2021)

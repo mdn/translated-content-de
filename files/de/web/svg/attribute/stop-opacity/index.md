@@ -2,23 +2,23 @@
 title: stop-opacity
 slug: Web/SVG/Attribute/stop-opacity
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: fe1beab414730a2d9ae8a3824af9297ac9bd9410
 ---
 
 {{SVGRef}}
 
-Das Attribut **`stop-opacity`** definiert die Opazität eines bestimmten Farbverlaufsstops.
+Das **`stop-opacity`** Attribut definiert die Deckkraft eines bestimmten Farbverlaufsstopps.
 
-Der Opazitätswert, der für die Farbverlaufsberechnung verwendet wird, ist das Produkt aus dem Wert von `stop-opacity` und der Opazität des Wertes des {{SVGAttr("stop-color")}} Attributs. Für `stop-color` Werte, die keine expliziten Opazitätsinformationen enthalten, wird die Opazität als `1` behandelt.
+Der Deckkraftwert, der für die Verlausberechnung verwendet wird, ist das Produkt des Wertes von `stop-opacity` und der Deckkraft des Wertes des {{SVGAttr("stop-color")}} Attributs. Für `stop-color` Werte, die keine expliziten Deckkraftinformationen enthalten, wird die Deckkraft als `1` behandelt.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stop-opacity` als CSS-Eigenschaft verwendet werden.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("stop")}}
 
-## Verwendungshinweise
+## Verwendungsnotizen
 
 <table class="properties">
   <tbody>
@@ -44,7 +44,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<opacity-value>`
-  - : Dieser Wert ist entweder eine {{cssxref("number")}} zwischen `0` und `1` oder ein {{cssxref("percentage")}} Wert, der die Opazität des Farbverlaufsstops angibt.
+  - : Dieser Wert ist entweder eine {{cssxref("number")}} zwischen `0` und `1` oder ein {{cssxref("percentage")}} Wert, der die Deckkraft des Farbverlaufsstopps angibt.
 
 ## Spezifikationen
 
@@ -56,6 +56,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 ## Siehe auch
 
+- CSS {{cssxref("stop-opacity")}} Eigenschaft
 - {{SVGAttr("stop-color")}}
 - {{SVGAttr("opacity")}}
 - {{SVGAttr("fill-opacity")}}
