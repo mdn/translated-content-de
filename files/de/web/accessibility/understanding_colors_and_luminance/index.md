@@ -1,57 +1,57 @@
 ---
-title: "Web-Barrierefreiheit: Verständnis von Farben und Leuchtdichte"
+title: "Barrierefreiheit im Web: Verstehen von Farben und Leuchtdichte"
 slug: Web/Accessibility/Understanding_Colors_and_Luminance
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: d4ea77f1c9e15e472e484d9561319597c5cce716
 ---
 
 {{AccessibilitySidebar}}
 
-Während das Verständnis von Farbe, Leuchtdichte und Sättigung wichtig für Design und Lesbarkeit für alle sehenden Benutzer ist, ist es für Menschen mit eingeschränktem Sehvermögen und farbschwachem Sehen sowie für Menschen mit bestimmten neurologischen, kognitiven und anderen Beeinträchtigungen unerlässlich.
+Während das Verstehen von Farbe, Leuchtdichte und Sättigung für das Design und die Lesbarkeit für alle sehenden Nutzer wichtig ist, sind sie für diejenigen mit eingeschränktem Sehvermögen und Farbsehschwäche sowie für Personen mit spezifischen neurologischen, kognitiven und anderen Beeinträchtigungen unerlässlich.
 
-Barrierefreiheitsrichtlinien definieren einen angemessenen [Farbkontrast](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) für sehbehinderte Benutzer sowie Richtlinien, die Nutzern mit farbunempfindlichem Sehen, häufig als "Farbenblindheit" bezeichnet, helfen sollen. Das Verständnis von Farbe ist auch wichtig, um [Anfälle und andere körperliche Reaktionen](/de/docs/Web/Accessibility/Seizure_disorders) bei Menschen mit vestibulären Störungen oder anderen neurologischen Störungen zu verhindern.
+Barrierefreiheitsrichtlinien definieren angemessene [Farbkontraste](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast) für sehbehinderte Nutzer sowie Richtlinien, die Nutzern mit farbunempfindlichem Sehvermögen, üblicherweise als "Farbenblindheit" bezeichnet, helfen sollen. Das Verständnis von Farben ist auch wichtig, um [Anfälle und andere körperliche Reaktionen](/de/docs/Web/Accessibility/Seizure_disorders) bei Personen mit vestibulären Störungen oder anderen neurologischen Erkrankungen zu verhindern.
 
 ## Überblick
 
-Die Wahl der Farben und deren Verwendung ist ein wesentlicher Bestandteil der Barrierefreiheit. Oberflächlich betrachtet scheint das Thema einfach, aber es ist ein komplexes Thema, da die Farbwahrnehmung ebenso sehr von der Physiologie des Auges und der Verarbeitung im menschlichen Gehirn abhängt wie von dem Licht, das von einem Computerbildschirm ausgeht.
+Die Farbwahl und deren Einsatz ist ein bedeutender Bestandteil der Barrierefreiheit. Oberflächlich betrachtet scheint das Thema einfach zu sein. Dennoch ist es ein komplexes Thema, da die Farbwahrnehmung sowohl von der Physiologie des Auges als auch von der Verarbeitung durch das menschliche Gehirn sowie vom Licht, das vom Computerbildschirm ausgestrahlt wird, abhängt.
 
 ### Umgebung und Wahrnehmung
 
-Die Umgebung spielt eine Rolle. Die Wahrnehmung von Farbe in einem gut beleuchteten Raum wird anders sein als die Wahrnehmung derselben Farbe auf demselben Computerbildschirm in einem dunklen Raum. In Bezug auf die Barrierefreiheit hat die Verwendung bestimmter Farbkombinationen eine stärkere Wirkung als andere. Schriftgröße, [Schriftstil](https://www.nngroup.com/articles/glanceable-fonts/) (einige Schriftarten sind so dünn oder verspielt, dass sie für sich genommen Barrierefreiheitsprobleme darstellen), Hintergrundfarbe, die Größe des Hintergrundraums um den Text, selbst Pixeldichten und mehr beeinflussen, wie Farbe vom Bildschirm geliefert wird.
+Die Umgebung spielt eine Rolle. Die Wahrnehmung einer Farbe in einem gut beleuchteten Raum wird anders sein als die Wahrnehmung derselben Farbe auf demselben Computerbildschirm in einem dunklen Raum. Im Hinblick auf die Barrierefreiheit hat die Verwendung bestimmter Farbkombinationen einen größeren Einfluss als andere. Schriftgröße, [Schriftstil](https://www.nngroup.com/articles/glanceable-fonts/) (einige Schriftarten sind so dünn oder extravagant, dass sie allein Probleme für die Barrierefreiheit darstellen), Hintergrundfarbe, die Größe des Hintergrundbereichs um den Text, sogar Pixeldichten und mehr beeinflussen, wie Farbe vom Bildschirm übertragen wird.
 
-Der Abstand eines Betrachters zum Bildschirm, der Umgebungs-Hintergrund, die Gesundheit seiner Augen und mehr beeinflussen, wie diese Farbe vom Betrachter aufgenommen wird. Wie der Betrachter Farbe wahrnimmt, nachdem sie seine Augen erreicht hat, ist ein weiteres Thema und kann durch die allgemeine Gesundheit beeinflusst werden. Zum Glück gibt es [Media Queries](/de/docs/Web/CSS/@media), die es Entwicklern ermöglichen, Stile basierend auf Benutzerpräferenzen, einschließlich Präferenzen für [Kontrast](/de/docs/Web/CSS/@media/prefers-contrast) und [Farbschema](/de/docs/Web/CSS/@media/prefers-color-scheme), bereitzustellen.
+Der Abstand eines Betrachters vom Bildschirm, der Umgebungs Hintergrund, die Gesundheit seiner Augen und mehr beeinflussen, wie die Farbe von ihm wahrgenommen wird. Wie der Betrachter die Farbe nach Eintritt in seine Augen wahrnimmt, ist eine andere Sache und kann durch die allgemeine Gesundheit beeinflusst werden. Glücklicherweise gibt es [Media Queries](/de/docs/Web/CSS/@media), die es Entwicklern ermöglichen, Stile basierend auf Benutzerpräferenzen bereitzustellen, einschließlich [Kontrast](/de/docs/Web/CSS/@media/prefers-contrast) und [Farbschema](/de/docs/Web/CSS/@media/prefers-color-scheme)-Präferenzen.
 
-Wenn unterstützt, gibt die [Ambient Light Sensor](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle das aktuelle Lichtniveau oder den Helligkeitsgrad des Umgebungslichts um das Hosting-Gerät zurück, wodurch eine Webseite sich auf Änderungen der Lichtintensität einstellen und entsprechend den Text anpassen kann. Darüber hinaus ermöglichen die oben genannten Media Queries Entwicklern, alternative Benutzererlebnisse bereitzustellen, wenn Benutzerpräferenzen bevorzugte Kontrastniveaus anzeigen, indem sie die Levels je nach Standort des Benutzers und der Art des verwendeten Bildschirms automatisch anpassen.
+Wenn unterstützt, gibt die [Ambient Light Sensor](/de/docs/Web/API/AmbientLightSensor)-Schnittstelle das aktuelle Lichtniveau oder die Lichtstärke des Umgebungslichts um das Hostgerät zurück, wodurch eine Webseite auf Änderungen der Lichtintensität aufmerksam wird und infolgedessen den Text entsprechend anpassen kann. Zusätzlich ermöglichen die oben genannten Media Queries den Entwicklern, alternative Benutzererfahrungen bereitzustellen, wenn die Benutzerpräferenzen bevorzugte Kontrastniveaus angeben, indem die Stufen automatisch an den Standort des Benutzers und den von ihm verwendeten Bildschirm angepasst werden.
 
 ### Leuchtdichte und Wahrnehmung
 
-Farbe, Kontrast und Leuchtdichte sind die zentralsten und kritischsten Konzepte zur Erstellung zugänglicher Webinhalte mit Farbe. Die Leuchtdichte ist von besonderer Bedeutung, da das Verständnis, was sie ist und wie sie eingesetzt wird, die Barrierefreiheit sowohl für Farbblinde als auch für Personen, die Farbe erkennen können, ermöglicht. Der Leuchtdichtekontrast ermöglicht es Farbblinden, Dunkel von Hell zu unterscheiden.
+Farbe, Kontrast und Leuchtdichte sind die zentralen und kritischsten Konzepte zur Erstellung barrierefreier Webinhalte mit Farbe. Leuchtdichte ist jedoch von besonderer Bedeutung, weil das Verständnis dessen, was es ist und wie es eingesetzt wird, Barrierefreiheit für farbenblinde Personen sowie für diejenigen, die Farbe wahrnehmen können, ermöglicht. Der Leuchtdichtekontrast ermöglicht es den Farbenblinden, Dunkel von Hell zu unterscheiden.
 
-Die Leuchtdichte muss festgelegt werden, bevor der Kontrast festgelegt werden kann. Wenn von Farbkontrast die Rede ist, verwenden die W3C-Formeln Leuchtdichte und nicht nur die Farben ("Farbtöne") selbst.
+Die Leuchtdichte muss vor dem Kontrast festgelegt werden. Wenn von Farbkontrast die Rede ist, enthalten die W3C-Formeln die Leuchtdichte, nicht nur die Farben ("Farbtöne") selbst.
 
 ### Terminologie
 
-Die Terminologie kann verwirrend sein, da unterschiedliche Begriffe oft dasselbe beschreiben. Es ist besonders wichtig, "Leuchtdichte" und "Sättigung" richtig zu verstehen. Zum Beispiel wird "Sättigung" in einigen Kreisen als "Chroma" bezeichnet. In anderen sind "Chroma" und "Sättigung" zwei unterschiedliche Konzepte. Das "L" im HSL-Farbraum wird manchmal als "Luminosität" und manchmal als "Helligkeit" bezeichnet. Sogar etwas scheinbar Einfaches, wie das Benennen gewöhnlicher Farben, kann zur Diskussion stehen. Zum Beispiel kann die Farbe "Karminrot" von einigen als Hex-Wert `#990000` und von anderen als `#DC143C` beschrieben werden. Für dieses Dokument verwenden wir die Terminologie, wie sie im W3C definiert ist, im [CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/).
+Terminologie kann verwirrend sein, weil verschiedene Begriffe oft dasselbe beschreiben. "Leuchtdichte" und "Sättigung" sind besonders wichtig, richtig zu verstehen. Zum Beispiel wird "Sättigung" in einigen Kreisen als "Chroma" bezeichnet. In anderen Kreisen sind "Chroma" und "Sättigung" zwei unterschiedliche Konzepte. Das "L" im HSL-Farbraum wird manchmal als "Leuchtkraft" und manchmal als "Helligkeit" bezeichnet. Selbst einfache Dinge wie die Benennung gängiger Farben können umstritten sein. Zum Beispiel kann die Farbe "Karminrot" von einigen als `#990000` und von anderen als `#DC143C` beschrieben werden. Für dieses Dokument verwenden wir die Terminologie, wie sie im W3C, im [CSS Color Module Level 4](https://www.w3.org/TR/css-color-4/) definiert wird.
 
-Beim Arbeiten mit Farbe ist es wichtig zu wissen, in welchem "Farbraum" Sie arbeiten, da unterschiedliche Farbräume zu unterschiedlichen Messsystemen gehören.
+Beim Arbeiten mit Farbe ist es wichtig zu wissen, in welchem "Farbraum" Sie arbeiten, da verschiedene Farbräume auf unterschiedliche Messsysteme abgebildet werden.
 
-Beim Farbdruck hat Ihr Drucker wahrscheinlich Cyan-, Magenta-, Gelb- und Schwarz (CMYK)-Tintenpatronen. CMYK ist ein subtraktives Modell, bei dem die vier Tinten spezifische Lichtwellenlängen _entfernen_ und nur den engen Bereich reflektieren, mit dem sie assoziiert sind. RGB ist ein additives Farbmodell, das unterschiedliche Anteile von Rot, Grün und Blau hinzufügt.
+Beim Farbendruck hat Ihr Drucker wahrscheinlich Tintenpatronen in Cyan, Magenta, Gelb und Schwarz (CMYK). CMYK ist ein subtraktives Modell, bei dem die vier Tinten bestimmte Wellenlängen von Licht _entfernen_, um nur den engen Bereich zu reflektieren, mit dem jede verknüpft ist. RGB ist ein additives Farbmodell, das verschiedene Proportionen von Rot, Grün und Blau hinzufügt.
 
-Derzeit dominiert der {{Glossary("RGB", "RGB-Farbraum")}} den Bereich, in dem Webentwickler arbeiten. Während HEX, RGB und HSL-Farbräume unterschiedlich notiert sind, konvertieren Browser automatisch Werte zwischen diesen Farbschreibweisen. [CSS-Farbmodule](/de/docs/Web/CSS/CSS_colors) bieten zusätzliche Farbräume. Dennoch, aufgrund der aktuellen Dominanz des RGB-Farbraums bei der Messung von Farbausgaben, werden die meisten Berechnungen in diesem Dokument im RGB-Farbraum und, ganz speziell, im sRGB-Farbraum durchgeführt.
+Derzeit dominiert der {{Glossary("RGB", "RGB-Farbraum")}} als der Raum, in dem Webentwickler arbeiten. Während HEX-, RGB- und HSL-Farbräume unterschiedlich notiert werden, konvertieren Browser automatisch Werte zwischen diesen Farbnotationen. [CSS-Farbmodule](/de/docs/Web/CSS/CSS_colors) bieten zusätzliche Farbräume. Dennoch, wegen der aktuellen Dominanz des RGB-Farbraums bei der Messung der Farbausgabe werden die meisten Berechnungen in diesem Dokument im RGB-Farbraum und, sehr spezifisch, im sRGB-Farbraum ausgeführt.
 
 ## Der sRGB-Farbraum
 
-Farbe kann auf viele Arten definiert werden, wie es im [`<color>`-Datentyp](/de/docs/Web/CSS/color_value) ersichtlich ist, einschließlich RGB, RGB dezimal, RGB Prozent, HSL, HWB, LCH, LAB und CMYK, unter anderen.
+Farbe hat viele Möglichkeiten, definiert zu werden, erkennbar am [`<color>` Datentyp](/de/docs/Web/CSS/color_value), einschließlich RGB, RGB Dezimal, RGB Prozent, HSL, HWB, LCH, LAB und CMYK, unter anderem.
 
-Für digitale Belange hat sich die Technologie historisch gesehen im RGB-Farbraum angesiedelt. Das RGB-Farbmodell wird um "Alpha" – RGBA – erweitert, um die Opazität einer Farbe anzugeben. Andere Methoden zur Farbmessung beinhalten Messungen unter Verwendung anderer Farbräume und werden in modernen Displays und Browsern unterstützt. Dennoch dominieren Farbmessungen im RGB-Farbraum, unter anderem auch in der Videoproduktion.
+In digitalen Belangen hat sich historisch gesehen viel der Technologie im RGB-Farbraum abgespielt. Das RGB-Farbmodell wird auf "Alpha" erweitert — RGBA — um die Spezifikation der Opazität einer Farbe zu ermöglichen. Andere Methoden zur Farbmessung beinhalten Messungen unter Verwendung anderer Farbräume und werden in modernen Displays und Browsern unterstützt. Dennoch dominieren Farbmessungen im RGB-Farbraum, auch in der Video-Produktion.
 
-Technologien wie [OpenGL](https://en.wikipedia.org/wiki/OpenGL) und [Direct3D](https://en.wikipedia.org/wiki/Direct3D) enthalten Unterstützung für die sRGB-Gammakurve, obwohl einige Artikel zur OpenGL-Nutzung von RGBA anstelle von sRGB referenzieren. WebGL ist normalerweise im RGBA-Format; sehen Sie ein Beispiel, wie es in "[Clearing with colors](/de/docs/Web/API/WebGL_API/By_example/Clearing_with_colors)" verwendet wird.
+Technologien wie [OpenGL](https://en.wikipedia.org/wiki/OpenGL) und [Direct3D](https://en.wikipedia.org/wiki/Direct3D) integrieren Unterstützung für die sRGB-Gammakurve, obwohl einige Artikel zur Verwendung von OpenGL die Verwendung von RGBA statt sRGB erwähnen. WebGL ist normalerweise im RGBA-Format; siehe ein Beispiel für die Verwendung in "[Clearing with colors](/de/docs/Web/API/WebGL_API/By_example/Clearing_with_colors)".
 
 ### CSS-Farbwerte
 
-Es ist wichtig zu wissen, dass es selbst innerhalb eines {{Glossary("color_space", "Farbraums")}} Variationen, wie den {{Glossary("RGB", "RGB")}}-Farbraum, gibt. Beispielsweise umfassen Variationen des RGB-Farbraums **RGB**, **sRGB**, **Adobe RGB**, **Adobe Wide Gamut RGB** und **RGBA**, unter anderen.
+Es ist wichtig zu wissen, dass es Variationen auch innerhalb eines {{Glossary("color_space", "Farbraums")}} wie dem {{Glossary("RGB", "RGB")}}-Farbraum gibt. Zum Beispiel beinhalten Variationen des RGB-Farbraums **RGB**, **sRGB**, **Adobe RGB**, **Adobe Wide Gamut RGB** und **RGBA**, unter anderen.
 
-Dies sind Beispiele für die in CSS verwendeten Notationen zur Definition einer Farbe. Hier ist die Beispielsfarbe jeweils ein voll opakes Magenta:
+Dies sind Beispiele der in CSS verwendeten Notationen zur Definition einer Farbe. Hier ist die Beispiel-Farbe für jede vollständig opake Magenta:
 
 ```css
 /* named color */
@@ -98,227 +98,227 @@ color(xyz-d65 0.59 0.28 0.96 / 1);
 
 Das erste Beispiel verwendet eine der definierten [benannten Farben](/de/docs/Web/CSS/named-color).
 
-Wir können die sRGB-Werte direkt als Prozentsatz festlegen, wobei 0% Aus (schwarz) und 100% der volle Wert für diese Farbe ist. Die Werte sind in der Reihenfolge Rot, Grün und Blau. Wir können die sRGB-Werte auch direkt durch eine Zahl von 0 bis 255 festlegen.
+Wir können die sRGB-Werte direkt als Prozentsatz setzen, wobei 0% ausgeschaltet (schwarz) und 100% der volle Wert für diese Farbe ist. Die Werte sind in der Reihenfolge Rot, Grün und Blau. Wir können die sRGB-Werte auch direkt als eine Zahl von 0 bis 255 setzen.
 
-Anschließend werden Hex-Farbwerte angezeigt. Hexadezimal ist ein Zahlensystem mit der Basis 16, bei dem die ganzzahlige Zahl von 0 bis 255 durch zwei Ziffern dargestellt wird, die von 0 bis 15 reichen und die Zahlen 0-9 und a-f für 10-15 verwenden. Somit ist `ff` = `255`, `00` = `0` und `d5` = `200`. Das Symbol '#' steht vor der Farbe, um anzuzeigen, dass der Wert hexadezimal ist.
+Danach werden hexadezimale Farbwerte gezeigt. Hexadezimal ist ein Zahlensystem mit Basis 16, wobei die Ganzzahl von 0-255 durch zwei Ziffern dargestellt wird, die von 0-15 reichen und die Ziffern 0-9 verwenden sowie a-f für 10-15. Somit `ff` = `255`, `00` = `0`, und `d5` = `200`. Das Zeichen '#' geht der Farbe voraus, um anzuzeigen, dass der Wert hexadezimal ist.
 
-Wenn alle Werte Paare identischer Ziffern sind, kann der Wert durch einzelne Ziffern dargestellt werden, die der Browser duplizieren wird. Somit ist `f00` dasselbe wie `ff0000`. Wenn eine vierte Zahlengruppe vorhanden ist, ist dieser Wert das A in RGBA, der Alphakanal, der die Transparenz in Bezug auf den Opazitätswert der Farbe definiert. Ein höherer Wert bedeutet, dass die Farbe undurchsichtiger und daher weniger transparent ist. In den obigen Beispielen ist der Alphawert `f`, `ff`, `1` und `100%` für vollständig opak.
+Wenn alle Werte Paare identischer Ziffern sind, kann der Wert durch einzelne Ziffern dargestellt werden, die der Browser duplizieren wird. Somit ist `f00` dasselbe wie `ff0000`. Wenn ein viertes Zahlenpaar vorhanden ist, ist dieser Wert das A in RGBA, der Alpha-Kanal, der die Transparenz im Sinne des Deckkraftwerts der Farbe definiert. Ein höherer Wert bedeutet, dass die Farbe undurchsichtiger und daher weniger transparent ist. In den obigen Beispielen ist der Alpha-Wert `f`, `ff`, `1`, und `100%` für vollständig deckend.
 
-Das Beispiel zeigt auch die Legacy-Syntax sowohl für [`rgb()` als auch `rgba()`](/de/docs/Web/CSS/color_value/rgb#examples). Die Legacy-Syntax für Farbfunktionsaufrufe ist durch Kommata getrennt, mit einer separaten Funktion, wenn der Alphakanal einbezogen wird. Neue Farbfunktionsaufrufe haben nur eine Syntax mit durch Leerzeichen getrennten (anstelle von durch Kommata getrennten) Werten, wobei der Alphakanal, falls vorhanden, von einem Schrägstrich gefolgt wird. Moderne Syntax erlaubt das Mischen von Zahlen und Prozentangaben und unterstützt das Schlüsselwort `none`; die durch Kommata getrennte Legacy-Syntax tut dies nicht.
+Das Beispiel zeigt auch die Legacy-Syntax für sowohl [`rgb()` als auch `rgba()`](/de/docs/Web/CSS/color_value/rgb#examples). Die veraltete Syntax für Farb Funktionen ist komma-getrennt, mit einer separaten Funktion, wenn der Alpha-Kanal enthalten ist. Neue Farb Funktionen haben nur eine Syntax mit leerzeichengetrennten (statt komma-getrennten) Werten, wobei, wenn vorhanden, der Alpha-Kanal von einem Schrägstrich vorangestellt wird. Moderne Syntax erlaubt das Mischen von Zahlen und Prozenten und unterstützt das `none` Schlüsselwort; die komma-getrennte Legacy-Syntax tut dies nicht.
 
-Die folgenden Beispiele zeigen "HSL", das für _Hue, Saturation, and Lightness_ steht. HSL-Farbwerte werden von vielen als intuitiver angesehen als RGB-Werte. Die Farbe, die aus den Einstellungen hervorgeht, ist immer noch im sRGB-Farbraum, aber [`hsl()`](/de/docs/Web/CSS/color_value/hsl) ist für viele eine intuitive Syntax. Der Farbton wird als Winkel angepasst, und es ist einfach, eine Benutzeroberfläche mit einem Knopf oder einer kreisförmigen Steuerung zu erstellen, um den Farbton anzupassen. Beachten Sie, dass HSL-Farben _Helligkeit_ und nicht _Leuchtdichte_ beinhalten, was eine erhebliche Überlegung ist.
+Die folgenden Beispiele zeigen "HSL", was für _Hue, Saturation und Lightness_ steht. HSL-Farbwerte werden von vielen als intuitiver als RGB-Werte angesehen. Die durch die Einstellungen erzeugte Farbe befindet sich weiterhin im sRGB-Farbraum, aber [`hsl()`](/de/docs/Web/CSS/color_value/hsl) ist für viele eine intuitive Syntax. Die Helligkeit wird als Winkel eingestellt, und es ist einfach, eine Benutzeroberfläche mit einem Knopf oder einer kreisförmigen Steuerung zu erstellen, um die Helligkeit anzupassen. Beachten Sie, dass HSL-Farben _Lightness_ und nicht _Luminance_ beinhalten, was eine wichtige Überlegung ist.
 
-Die nächsten Beispiele zeigen "HWB", das für _Hue, Whiteness, and Blackness_ steht. Bei sowohl `hsl()` als auch [`hwb()`](/de/docs/Web/CSS/color_value/hwb) kann der erste Wert ein [`<number>`](/de/docs/Web/CSS/number) oder ein [`<angle>`](/de/docs/Web/CSS/angle) sein. Wenn er ohne Einheit ist, wird der Wert als `deg` Grad interpretiert.
+Die nächste Beispiele zeigt "HWB", das für _Hue, Whiteness, and Blackness_ steht. Sowohl bei `hsl()` als auch [`hwb()`](/de/docs/Web/CSS/color_value/hwb) kann der erste Wert ein [`<number>`](/de/docs/Web/CSS/number) oder ein [`<angle>`](/de/docs/Web/CSS/angle) Wert sein. Wenn kein Einheitenwert angegeben ist, wird der Wert als `deg` Grad interpretiert.
 
-Es gibt mehrere andere Farbfunktionsaufrufe und Farbräume. Die letzten drei Beispiele zeigen, wie Magenta mit den Farbfunktionsaufrufen [`lab()`](/de/docs/Web/CSS/color_value/lab), [`oklch()`](/de/docs/Web/CSS/color_value/oklch) und [`color()`](/de/docs/Web/CSS/color_value/color) dargestellt wird.
+Es gibt mehrere andere Farb Funktionen und Farbräume. Die letzten drei Beispiele zeigen die Darstellung von Magenta mithilfe der [`lab()`](/de/docs/Web/CSS/color_value/lab), [`oklch()`](/de/docs/Web/CSS/color_value/oklch), und [`color()`](/de/docs/Web/CSS/color_value/color) Farb Funktionen.
 
-### Umrechnungen
+### Konvertierungen
 
-Wie wir gesehen haben, kann eine Farbe innerhalb desselben Farbraums auf viele Arten dargestellt werden. Bei Betrachtung, wie der RGB-Farbraum verwendet wird, um die Farbe "Magenta" zu beschreiben, können Sie sehen, dass dieselbe Farbe in einer Kurzschrift als dreistellige Hex-Zahl ausgedrückt wird, die in einen rgb-Wert als sechsstellige Hex-Zahl umgewandelt wird, die auch in dieselbe rgb-Wert umgewandelt wird, oder als rgba-Wert, ausgedrückt in Prozentangaben.
+Wie wir gesehen haben, kann eine Farbe innerhalb desselben Farbraums auf viele Arten ausgedrückt werden. Wenn Sie sich ansehen, wie der RGB-Farbraum verwendet wird, um die Farbe "Magenta" zu beschreiben, können Sie sehen, dass dieselbe Farbe in einer verkürzten dreistelligen hexadezimalen Zahl ausgedrückt werden kann, die zu einem rgb-Wert als eine sechsstellige hexadezimale Zahl konvertiert wird, der auch in denselben rgb-Wert konvertiert wird, oder als rgba-Wert, ausgedrückt in Prozentsätzen.
 
-RGB ist hardwareorientiert und reflektiert die Verwendung von CRTs. Viele Entwickler und Designer ziehen die intuitivere [`hsl()`](/de/docs/Web/CSS/color_value/hsl)-Schreibweise vor. Die Umrechnung von RGB in HSL ist keine einfache Gleichung. Zum Glück machen Browser es automatisch, und ein Shift-Klick auf Farben in Entwicklertools des Browsers bietet Umrechnungsfunktionen.
+RGB ist hardwareorientiert und spiegelt die Verwendung von CRTs wider. Viele Entwickler und Designer bevorzugen die Intuitivität der [`hsl()`](/de/docs/Web/CSS/color_value/hsl)-Notation. Das Konvertieren von RGB zu HSL ist keine einfache Gleichung. Zum Glück erledigen Browser dies automatisch, und Sie können durch SHIFT-Klick auf Farben in den Entwickler-Tools der Browser eine Konvertierungs Funktionalität erhalten.
 
-Zusätzlich zu Entwicklertools können viele Tools RGB in HSL für Sie umwandeln und sowohl die RGB-Hexadezimal- als auch die CSS-Funktionssyntax bereitstellen. Ein großartiges Beispiel für ein Tool, das Farben für Sie umwandelt, ist Tom Jewetts "[mini color selector](https://colortutorial.design/microColorsC.html)" mit HSL-, RGB- und Hex-Optionen zum Überprüfen von Kontrasten im Browser. Beachten Sie, dass Entwicklertools-Farbauswähler und dieses Tool alle WCAG-[Farbkontrast](https://webaim.org/resources/contrastchecker/)-Werte bereitstellen.
+Zusätzlich zu den Entwickler-Tools gibt es viele Werkzeuge, die RGB für Sie in HSL konvertieren können und sowohl die RGB-hexadezimale als auch die CSS- Funktionssyntax bereitstellen. Ein großartiges Beispiel für ein Werkzeug, das Farben für Sie konvertiert, ist Tom Jewetts "[mini color selector](https://colortutorial.design/microColorsC.html)" mit HSL, RGB und Hexa Optionen zur Überprüfung von Kontrasten im Browser. Beachten Sie, dass Entwickler-Tools-Farbauswähler und dieses Werkzeug alle WCAG [Farbkontrast](https://webaim.org/resources/contrastchecker/)-Werte bereitstellen.
 
-![Farbwähler mit HSL und RGB, mit Farbkontrastwerten.](microcolorsc.jpg)
+![Farbauswähler mit HSL und RGB, mit Farbkontrastwerten.](microcolorsc.jpg)
 
-Wie bereits erwähnt, enthält das [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors) das Hinzufügen zusätzlicher Farbräume, einschließlich [`lch()`](/de/docs/Web/CSS/color_value/lch) und [`oklch()`](/de/docs/Web/CSS/color_value/oklch) und die Farbfunktionen [`lab()`](/de/docs/Web/CSS/color_value/lab) und [`oklab()`](/de/docs/Web/CSS/color_value/oklab), die jede sichtbare Farbe spezifizieren können. Dennoch bleibt sRGB der Standard- und bevorzugte Farbraum für Barrierefreiheit aufgrund seiner Allgegenwart.
+Wie bereits erwähnt, enthält das [CSS-Farbmodul](/de/docs/Web/CSS/CSS_colors) das Hinzufügen zusätzlicher Farbräume, einschließlich der [`lch()`](/de/docs/Web/CSS/color_value/lch) und [`oklch()`](/de/docs/Web/CSS/color_value/oklch) funktionalen Farbnotation und der [`lab()`](/de/docs/Web/CSS/color_value/lab) und [`oklab()`](/de/docs/Web/CSS/color_value/oklab) Farbkoordinatensysteme, die jede sichtbare Farbe angeben können. Das gesagt, bleibt sRGB der Standard- und bevorzugte Farbenraum für Barrierefreiheit aufgrund seiner Allgegenwärtigkeit.
 
-Was die Barrierefreiheit betrifft, werden Standards und Richtlinien derzeit größtenteils im sRGB-Farbraum geschrieben, insbesondere was die Farbbildkontrastverhältnisse betrifft.
+Wo es um Barrierefreiheit geht, werden Standards und Richtlinien derzeit jedoch überwiegend mit dem sRGB-Farbraum geschrieben, insbesondere wenn es um Farbkontrastverhältnisse geht.
 
 > [!NOTE]
-> Fast alle Systeme, die heute verwendet werden, um Webinhalte anzusehen, setzen sRGB-Codierung voraus. Es sei denn, es ist bekannt, dass ein anderer Farbraum zur Verarbeitung und Anzeige der Inhalte verwendet wird, sollten Autoren die Verwendung des sRGB-Farbraums in Betracht ziehen. Falls andere Farbräume verwendet werden, wenden Sie die Prinzipien der [Mindestkontrastverhältnisse](https://webaim.org/articles/contrast/#sc143) an.
+> Fast alle heute verwendeten Systeme zum Anzeigen von Webinhalten gehen von einer sRGB-Kodierung aus. Wenn nicht bekannt ist, dass ein anderer Farbraum verwendet wird, um den Inhalt zu verarbeiten und darzustellen, sollten Autoren die Bewertung des sRGB-Farbraums in Betracht ziehen. Wenn andere Farbräume verwendet werden, wenden Sie die Prinzipien der [minimalen Kontrastverhältnisse](https://webaim.org/articles/contrast/#sc143) an.
 
 ### Abfragen von Farbwerten
 
-Die Methode [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) gibt Werte mit der RGB Dezimalreferenzskala oder über `color(srgb...)` zurück. Zum Beispiel gibt ein Aufruf von `Window.getComputedStyle()` bei einem `<div>` mit `background-color: #ff0000` den berechneten Hintergrundfarbwert als `rgb(255 0 0)` zurück – die RGB Dezimalreferenz. Wenn jedoch [relative Farben verwendet](/de/docs/Web/CSS/CSS_colors/Relative_colors) werden (zum Beispiel `background-color: rgb(from blue 255 0 0)`), gibt `Window.getComputedStyle()` den berechneten Hintergrundfarbe als `color(srgb 1 0 0)` zurück. Da es an Computerhardware gebunden ist, misst `Window.getComputedStyle()` Farben in Bezug auf RGB und nicht, wie das menschliche Auge Farbe wahrnimmt.
+Die Methode [`Window.getComputedStyle()`](/de/docs/Web/API/Window/getComputedStyle) gibt Werte unter Verwendung der RGB Dezimalreferenz Skala oder über `color(srgb...)` zurück. Zum Beispiel würde das Aufrufen von `Window.getComputedStyle()` auf einem `<div>`, für das `background-color: #ff0000` gesetzt ist, die berechnete Hintergrundfarbe als `rgb(255 0 0)` zurückgeben — die RGB Dezimalreferenz. Wenn jedoch [relativ Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors) verwendet werden (zum Beispiel `background-color: rgb(from blue 255 0 0)`), gibt das Aufrufen von `Window.getComputedStyle()` die berechnete Hintergrundfarbe als `color(srgb 1 0 0)` zurück. Da sie mit Computerhardware verbunden ist, misst `Window.getComputedStyle()` Farben in Bezug auf RGB, nicht wie das menschliche Auge Farbe wahrnimmt.
 
 ### Rot/Grün-Farbenblindheit
 
-Protanopie ist eine Farbsehschwäche, bei der das Auge keine roten Zapfen hat; sRGB kann jedoch immer noch über grüne Zapfen wahrgenommen werden, wenn auch dunkler als mit normalem Sehvermögen. Sowohl Protan (rot-defizitär) als auch Deutan (grün-defizitär) Schwächen verursachen Schwierigkeiten, _zwischen_ Rot und Grün zu unterscheiden.
+Protanopie ist eine Farbsehenschwäche, bei der das Auge keine roten Zapfen hat; sRGB kann jedoch immer noch über grüne Zapfen wahrgenommen werden, wenn auch dunkler als im normalen Sehen. Sowohl Protan- (rot-defizient) als auch Deutan- (grün-defizient) Schwächen verursachen Schwierigkeiten beim Unterscheiden von _Rot und Grün_.
 
-Entwicklertools können helfen, Farbsichtdifferenzen direkt in Ihrem Browser zu simulieren. Zum Beispiel ermöglicht der Zugänglichkeitsinspektor von Firefox die Simulation von Protanopie, Deuteranopie, Tritanopie, Achromatopsie und Kontrastverlust direkt im Barrierefreiheits-Panel.
+Entwickler-Tools können Simulationen von Farbsehunterschieden direkt in Ihrem Browser unterstützen. Zum Beispiel ermöglicht der Zugänglichkeitsinspektor von Firefox die Simulation von Protanopie, Deuteranopie, Tritanopie, Achromatopsie und Kontrastverlust direkt im Barrierefreiheitspanel.
 
-![Ausschnitt von Firefox Entwicklertools zeigt das Simulations-Popup](simulate_color_differences.jpg)
+![Ausschnitt der Firefox-Entwickler-Tools, der das Simulations-Popup zeigt](simulate_color_differences.jpg)
 
 ## Leuchtdichte und Kontrast
 
 ### Kontrast
 
-Der Kontrast zwischen Farben ("Farbtönen") ist ein entscheidender Bestandteil, aber die Verwendung von Farbe ("Farbtönen") allein reicht nicht aus, um zugängliche Inhalte zu erstellen. Wie bereits erwähnt, muss jede Kontrastberechnung die Leuchtdichte beinhalten.
+Der Kontrast zwischen Farben ("Farbtönen") ist eine kritische Komponente, aber die Verwendung von Farbe ("Farbtönen") allein reicht nicht aus, um zugängliche Inhalte zu erstellen. Wie bereits erwähnt, muss jede Berechnung des Kontrasts die Leuchtdichte einbeziehen.
 
-Zudem ist die "Form" des Textes selbst von Bedeutung. Dünne Buchstaben sind schwerer zu lesen als dicke; alle Schriftarten brauchen Raum, um für die menschliche Wahrnehmung zu "atmen".
+Außerdem spielt die "Form" des Textes selbst eine Rolle. Dünne Buchstaben sind schwerer zu lesen als dicke; alle Schriftarten benötigen Raum, um "zu atmen" für die menschliche Wahrnehmung.
 
 ### Kontrast und Schriftgröße
 
-Die [WCAG-Kontrast-Richtlinien](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) definieren "großen" Text als Text, der `18 pt` (ungefähr `24 px`) oder größer ist, wenn die {{cssxref('font-weight')}} `normal` ist, und `14 pt` (ungefähr `18,7 px`) für `fett` gedruckten Text. Sie besagen:
+[WCAG-Kontrast-Richtlinien](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) definieren "großen" Text als Text, der `18pt` (circa `24px`) oder größer ist, wenn {{cssxref('font-weight')}} `normal` ist und `14pt` (circa `18.7px`) für `fetten` Text. Darin steht:
 
-_Text, der größer ist und breitere Strichstärken hat, ist bei geringerem Kontrast leichter zu lesen. Daher ist die Kontrastanforderung für größeren Text niedriger. Dies erlaubt es Autoren, eine breitere Palette von Farboptionen für großen Text zu verwenden, was für das Design von Seiten, insbesondere von Titeln, hilfreich ist._
+_Text, der größer ist und breitere Strichzüge hat, ist bei geringem Kontrast leichter zu lesen. Daher ist die Kontrastanforderung für größeren Text niedriger. Dies ermöglicht Autoren die Verwendung einer breiteren Palette an Farboptionen für großen Text, was besonders hilfreich für das Design von Seiten, insbesondere Titeln, ist._
 
-Während größerer Text nicht so viel Farbkontrast mit seinem Hintergrund erfordert wie kleinerer Text, ist die Erhöhung der Schriftgröße kein Allheilmittel.
+Obwohl größerer Text keinen so großen Farbkontrast mit seinem Hintergrund benötigt wie kleinerer Text, ist eine Schriftgrößenerhöhung kein Allheilmittel.
 
-"Normaler" Druck wird normalerweise als 11,5 pt bis 12 pt angesehen, was auf dem Bildschirm 16 px entspricht. Während kleinere Schrift möglicherweise lesbar ist — ein Benutzer kann Buchstaben mit etwa 70% Genauigkeit erkennen —, ist das nicht leserlich. Eine Schriftgröße von 16 px ist für Menschen mit normalem Sehvermögen im Allgemeinen lesbar. Jemand mit 20/40 benötigt doppelt so viel, ungefähr eine 31 px-Schrift. Aus diesem Grund verlangen die WCAG-Richtlinien, dass Benutzer die Fähigkeit haben müssen, jeden Text zu vergrößern.
+"Normale" Druckschrift wird normalerweise als 11.5pt bis 12pt angesehen, was 16px auf dem Bildschirm entspricht. Während kleinere Schrift lesbar sein kann — ein Benutzer kann Buchstaben bei \~70% Genauigkeit erkennen — ist das nicht wirklich lesbar. Eine Schriftgröße von 16px ist im Allgemeinen für Menschen mit normalem Sehvermögen lesbar. Jemand mit 20/40 benötigt das Doppelte, etwa eine 31px-Schrift. Aus diesem Grund verlangen die WCAG-Richtlinien, dass Benutzer die Möglichkeit haben, jeden Text zu vergrößern.
 
-Während ein zu klein angezeigter Text schwer zu lesen ist, ist auch ein zu großer Text schwer zu lesen. Bei Benutzern mit 20/20-Sehvermögen verringert sich bei einer Schriftgröße größer als etwa 96 px die Lesegeschwindigkeit. Auch wenn es auf einer Seite einen großen Unterschied zwischen der kleinsten und größten Schriftgröße gibt, wird der größere Text weniger lesbar, wenn Nutzer den kleineren Text auf der Seite vergrößern, da die meisten Browser den gesamten Text vergrößern.
+Während ein zu klein dargestellter Text schwer zu lesen ist, ist auch ein zu großer Text schwer lesbar. Für Benutzer mit 20/20-Sehvermögen sinkt die Lesegeschwindigkeit bei einer Schriftgröße über etwa 96px. Auch wenn es einen großen Unterschied zwischen der kleinsten und der größten Schriftgröße auf einer Seite gibt, wird der größere Text weniger lesbar, wenn Benutzer den kleineren Text auf der Seite vergrößern, da die meisten Browser beim Zoomen alle Texte vergrößern.
 
-Generell gilt für Barrierefreiheitszwecke, je mehr Kontrast desto besser. Das ändert sich bei Animationen. "Sicherere" Animationen bedeuten Bilder mit weniger Kontrast, nicht mehr. Für mehr über Farbkontraste in Animationen siehe [Three Flashes or Below Threshold Understanding SC 2.3.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html).
+Im Allgemeinen gilt für Barrierezwecke: Je mehr Kontrast, desto besser. Das ändert sich bei Animationen. "Sichere" Animationen bedeuten Bilder mit weniger Kontrast, nicht mehr. Weitere Informationen zum Farbkontrast in Animationen finden Sie unter [Drei Blitze oder darunter Schwelle Verständnis SC 2.3.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html)
 
-Beachten Sie auch, dass Symbole einen ausreichenden Kontrast für die Wahrnehmung benötigen. Siehe [WCAG 2.1 Technik G207](https://www.w3.org/WAI/WCAG21/Techniques/general/G207).
+Beachten Sie auch, dass Icons einen ausreichenden Kontrast für die Wahrnehmung benötigen. Siehe [WCAG 2.1-Technik G207](https://www.w3.org/WAI/WCAG21/Techniques/general/G207)
 
 ### Leuchtdichte
 
-Es ist der Unterschied in der Leuchtdichte einer Farbe, der es uns ermöglicht, den Kontrast zu sehen. Die relative Leuchtdichte wird in WCAG als "die relative Helligkeit eines beliebigen Punkts in einem Farbraum, normalisiert auf 0 für das dunkelste Schwarz und 1 für das hellste Weiß," definiert.
+Es ist der Unterschied in der Leuchtdichte einer Farbe, der es uns ermöglicht, den Kontrast zu erkennen. Relative Leuchtdichte wird in WCAG als "die relative Helligkeit eines beliebigen Punkts in einem Farbraum, normiert auf 0 für das tiefste Schwarz und 1 für das hellste Weiß" definiert.
 
-Diese Aussage ist natürlich zutreffend, kann aber verwirrend sein, wenn sie im Bezug auf den RGB-Farbraum verwendet wird, der eine Ganzzahl zwischen 0 und 255 ist. Weiß hat 100% relative Leuchtdichte, Schwarz hat 0% relative Leuchtdichte (in den meisten, aber nicht allen Schriften). Interpretierend für den oben genannten W3C-Standard würde das bedeuten, dass Weiß, normalisiert auf 1, einen RGB-Wert von `rgb(255 255 255)` und Schwarz, normalisiert auf 0, einen RGB-Wert von `rgb(0 0 0)` hätte. Beachten Sie, dass Schwarz und Weiß auch als `rgb(100% 100% 100%)` und `rgb(0% 0% 0%)` geschrieben werden können, was möglicherweise intuitiver ist.
+Diese Aussage ist natürlich korrekt, kann jedoch verwirrend sein, wenn sie im Bezug auf den RGB-Farbraum verwendet wird, der eine Ganzzahl zwischen 0 und 255 ist. Weiß hat eine 100% relative Leuchtdichte, Schwarz hat eine 0% relative Leuchtdichte (in der meisten, aber nicht allen Literatur). Nach der oben genannten W3C-Norm hätte Weiß, normiert auf 1, einen RGB-Wert von `rgb(255 255 255)` und Schwarz, normiert auf 0, einen RGB-Wert von `rgb(0 0 0)`. Beachten Sie, dass Schwarz und Weiß auch als `rgb(100% 100% 100%)` und `rgb(0% 0% 0%)` geschrieben werden können, was möglicherweise intuitiver ist.
 
-Wenn also diese Zahlen von 0 bis 255 kommen: Diese kommen historisch aus Grafiken, die Farbebenen in einem einzigen Byte speichern, was einen Bereich von Ganzzahlen zwischen 0 und 255 bedeutet.
+Woher stammen also diese Zahlen von 0 bis 255? Historisch speicherten Grafik-Engines die Farbkanäle als einzelnes Byte, was einen Bereich von ganzen Zahlen zwischen 0 und 255 bedeutet.
 
-Die Leuchtdichten der Primärfarben sind unterschiedlich. Gelb hat zum Beispiel eine größere Leuchtdichte als Blau. Dies wurde durch Design erreicht, _um die weiße Ausrichtung des Monitors zu erreichen_, laut dem NASA-Dokument, "[Luminance Contrast in Color Graphics](https://colorusage.arc.nasa.gov/design_lum_1.php)".
+Die Leuchtdichte der Primärfarben ist unterschiedlich. Gelb hat zum Beispiel eine größere Leuchtdichte als Blau. Dies wurde entworfen, damit _die weiße Ausrichtung des Monitors erreicht wird_, gemäß dem NASA-Dokument, "[Luminance Contrast in Color Graphics](https://colorusage.arc.nasa.gov/design_lum_1.php)"
 
-Ein Farbkontrastverhältnis ist ohne seine Leuchtdichtekomponente bedeutungslos, und sobald die Leuchtdichte festgelegt ist, kann das Farbkontrastverhältnis festgelegt werden.
+Ein Farbkontrastverhältnis ist bedeutungslos ohne seine Leuchtdichtekomponente, und sobald die Leuchtdichte festgelegt ist, kann das Farbkontrastverhältnis festgelegt werden.
 
-Was die menschliche Wahrnehmung betrifft, zählt ein Unterschied in der Leuchtdichte mehr als ein Farbunterschied. Dies ist wichtig, da der Leuchtdichtekontrast die Entwicklung von Inhalten ermöglicht, die sogar diejenigen mit Farbenblindheit sehen können. Mit diesem Verständnis kann die Leuchtdichte so manipuliert werden, dass Farben, die aufgrund ihrer niedrigen Leuchtdichte schwer zu sehen sind, lesbarer gemacht werden können, indem diese Farben gegen andere mit kontrastierender Leuchtdichte platziert werden. Eine interessante Studie der NASA über die Farbe Blau stellte zum Beispiel fest, dass diese Farbe, die eine niedrige Leuchtdichte aufweist, lesbar gemacht werden kann, wenn _Sorgfalt geboten ist, um einen ausreichenden Leuchtdichtekontrast zu erzielen_ (aus dem Artikel, [Designing with blue](https://colorusage.arc.nasa.gov/blue_2.php)).
+Wo es um die menschliche Wahrnehmung geht, zählt ein Unterschied in der Leuchtdichte mehr als ein Farbunterschied. Dies ist wichtig, da der Leuchtdichtekontrast die Entwicklung von Inhalten ermöglicht, die sogar von Farbenblindheit betroffene Personen sehen können. Mit diesem Verständnis kann die Leuchtdichte so manipuliert werden, dass Farben, die aufgrund ihrer niedrigen Leuchtdichte schwer zu sehen sind, lesbarer gemacht werden könnten, indem diese Farben gegen andere mit kontrastierender Leuchtdichte gesetzt werden. Eine interessante Studie der NASA zur Farbe Blau stellte zum Beispiel fest, dass diese Farbe, die eine niedrige Leuchtdichte hat, lesbar gemacht werden kann, wenn _darauf geachtet wird, einen ausreichenden Leuchtdichtekontrast zu erreichen_ (aus dem Artikel, [Designing with blue](https://colorusage.arc.nasa.gov/blue_2.php))
 
-Berechnungen für relative Leuchtdichte sind keine beiläufigen. Zum Glück gibt es [online Leuchtdichte- und Kontrastprüfer](https://www.siegemedia.com/contrast-ratio) und sogar Anleitungen, wie man [relative Leuchtdichte](https://www.w3.org/TR/WCAG21/#dfn-relative-luminance) berechnet.
+Berechnungen zur relativen Leuchtdichte sind keine zufälligen. Glücklicherweise gibt es [Online-Checker für Leuchtdichte und Kontrast](https://www.siegemedia.com/contrast-ratio) und sogar Anleitungen, wie man die [relative Leuchtdichte berechnet](https://www.w3.org/TR/WCAG21/#dfn-relative-luminance).
 
-## Wahrnehmung von Farbe
+## Farbwahrnehmung
 
-Farbe ist unsere Wahrnehmung des schmalen Bandes des sichtbaren Lichts, von Rot über Gelb und Grün bis Blau. Unsere Empfindlichkeit gegenüber diesen verschiedenen Farbtönen ist nicht gleich. Die lichtempfindlichen Zellen in unseren [Augen](https://www.verywellhealth.com/eye-cones-5088699), die Zapfen genannt werden, sind darauf abgestimmt, einige Farben mehr zu erkennen als andere. Ungefähr 65% der Zapfen sind _am meisten_ empfindlich für ein Gelb/Grün, reagieren aber auch auf Rot (wir nannten diese "roten" Zapfen). 30% sind grünempfindlich, und nur [5% sind blauempfindlich](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144891#sec001). Obwohl es weit weniger blauempfindliche Zapfen gibt als die anderen beiden Typen, sind diese Zapfen sehr empfindlich, was teilweise ihre geringere Zahl ausgleicht.
+Farbe ist unsere Wahrnehmung des schmalen Bandes des sichtbaren Lichts, von Rot über Gelb und Grün bis Blau. Unsere Empfindlichkeit gegenüber diesen verschiedenen Farbtönen ist nicht gleich. Die lichtempfindlichen Zellen in unseren [Augen](https://www.verywellhealth.com/eye-cones-5088699), genannt Zapfen, sind darauf abgestimmt, einige Farben mehr als andere wahrzunehmen. Etwa 65% der Zapfen sind _am_ empfindlichsten für ein Gelb/Grün, reagieren aber auch auf Rot (wir werden diese "rote" Zapfen nennen). 30% sind grünempfindlich, und nur [5% sind blauempfindlich](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144891#sec001). Obwohl es weit weniger blauempfindliche Zapfen gibt als die anderen beiden Arten, sind diese Zapfen sehr empfindlich, was teilweise für ihre geringere Anzahl ausgleicht.
 
-Tiefes, reines Blau wird anders wahrgenommen als andere Farben, da blaue Zapfen nicht zur Leuchtdichte beitragen, und wir weit weniger blaue Zapfen als rote oder grüne haben.
+Tiefes, reines Blau wird anders wahrgenommen als andere Farben, da blaue Zapfen nicht zur Leuchtdichte beitragen und wir weit weniger blaue Zapfen als rote oder grüne haben.
 
-![Links ist eine konische Mosaikdarstellung mit normalem Sehvermögen und rechts die Darstellung von jemandem mit Protanopie, bei der die roten Zapfen fehlen.](conemosaics.jpg)
+![Links ist ein Zapfenmosaik des Standardsehens und rechts das eines Menschen mit Protanopie, bei dem die roten Zapfen fehlen.](conemosaics.jpg)
 
-Links ist das zentrale konische Mosaik des normalen Sehens, und rechts das von jemandem mit Protanopie, einer Form von Farbsehschwäche, bei der die roten Zapfen fehlen. (Illustration von Mark Fairchild von RIT, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ConeMosaics.jpg))
+Links ist das zentrale Zapfenmosaik des Standardsehens, und rechts das eines Menschen mit Protanopie, einer Form von Farbsehschwäche, bei der sie die roten Zapfen vermissen. (Illustration von Mark Fairchild von RIT, [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ConeMosaics.jpg))
 
-Die roten und die grünen Zapfen wirken zusammen, um Leuchtdichte zu erzeugen, die wir als Helligkeit/Dunkel ohne Rücksicht auf den Farbton betrachten können. Getrennt, ermöglichen die roten, grünen und blauen Zapfen, dass das normale Sehvermögen Millionen von Farben wahrnimmt. Für die Barrierefreiheit ist es wichtig zu wissen, dass unser Gehirn Leuchtdichte getrennt von Farbe (Farbton und Farbigkeit) verarbeitet.
+Die roten und grünen Zapfen verbünden sich zur Schaffung von Leuchtdichte, die wir als Helligkeit/Dunkelheit ohne Rücksicht auf den Farbton verstehen können. Die roten, grünen und blauen Zapfen erlauben getrennt das Standardsehen, um Millionen von Farben wahrzunehmen. Bei der Barrierefreiheit ist es wichtig zu wissen, dass unser Gehirn Leuchtdichte getrennt von Farbe (Farbton und Farbigkeit) verarbeitet.
 
-Leuchtdichte bietet feine Sehdetails, einschließlich der Unterscheidung von Kanten und Text. Farbton und Farbigkeit tragen ein Drittel der Details der Leuchtdichte. Bilddatenkompression macht sich diese Tatsache zunutze. Als Beispiel kodiert der [h.264-Video-Codec](/de/docs/Web/Media/Formats/Video_codecs) Farbe mit einem Viertel der Auflösung der Leuchtdichte.
+Leuchtdichte wird für feine Sehdetails bereitgestellt, einschließlich der Unterscheidung von Kanten und Text. Farbton und Farbigkeit tragen ein Drittel der Details der Leuchtdichte. Bilddatene Kompression nutzt dies aus. Ein Beispiel ist, dass der [h.264 Video-Codec](/de/docs/Web/Media/Formats/Video_codecs) Farbe mit einem Viertel der Auflösung der Leuchtdichte abtastet.
 
-Für Barrierefreiheit bedeutet dies, dass Leuchtdichtekontrast für Text kritisch wichtig ist. Farbe, als Farbton und Farbigkeit, ist wichtig für das _Unterscheiden_ von Elementen wie unterschiedlichen Linien auf einer Karte oder Balken in einem Diagramm.
+Für die Barrierefreiheit bedeutet dies, dass Leuchtdichtekontrast für Text von kritischer Bedeutung ist. Farbe, wie bei Farbton und Farbigkeit, ist wichtig für die _Unterscheidung_ von Elementen, z.B. verschiedenen Linien auf einer Karte oder Balken in einem Diagramm.
 
-Ein weiterer wesentlicher Punkt ist die Farbe oder Leuchtdichte, die eine Farbe umgibt. Farben erscheinen unterschiedlich, je nachdem, was sie umgibt. Im folgenden Bild sind sowohl die gelben Punkte als auch die grauen Quadrate dieselbe sRGB-Farbe. Kontextempfindliche Farbwahrnehmung lässt sie unterschiedlich erscheinen; die Verarbeitung des Bildes im Gehirn passt die Wahrnehmung basierend auf dem an, was es denkt, was im Schatten liegt oder nicht.
+Ein weiterer wesentlicher Punkt ist die Farbe oder Leuchtdichte, die eine Farbe umgibt. Farben erscheinen unterschiedlich, je nachdem, was sie umgibt. Im folgenden Bild sind sowohl die gelben Punkte als auch die grauen Quadrate dieselbe sRGB-Farbe. Kontextsensitive Farbwahrnehmung lässt sie anders erscheinen; die Bildverarbeitung Ihres Gehirns passt die Wahrnehmung an, basierend darauf, was es als im Schatten oder nicht annimmt.
 
-![Ein Bild eines Schachbretts, bei dem identische Farben unterschiedlich erscheinen, wenn sie im Schatten sind](yellowdotcheckershadow_dlyon.png)
+![Ein Bild eines Schachbretts, wo identische Farben anders aussehen, wenn sie im Schatten sind](yellowdotcheckershadow_dlyon.png)
 
-Die gelben Punkte in diesem Bild sind auf Ihrem Monitor identische Farben, aber sie erscheinen unterschiedlich aufgrund des Kontexts. (Bild D.Lyon)
+Die gelben Punkte in diesem Bild sind identische Farben auf Ihrem Monitor, sehen aber aufgrund des Kontexts unterschiedlich aus. (Bild D.Lyon)
 
-Unser Kontrast-, Helligkeits- und Farbempfinden werden vom Kontext der nahegelegenen Farben und anderen Merkmalen eines Designs oder Bildes beeinflusst. Dies macht es schwierig, den Kontrast vorherzusagen. Es ist nicht so einfach wie ein mathematisches Verhältnis zwischen zwei Farben.
+Unser Kontrast, unsere Helligkeit und unsere Farbwahrnehmung werden von den nahen Farben und anderen Merkmalen eines Designs oder Bildes beeinflusst. Dies macht die Vorhersage des Kontrasts herausfordernd. Es ist nicht so einfach wie ein mathematisches Verhältnis zwischen zwei Farben.
 
-Zusammengefasst: Farbe hat mit der menschlichen Physiologie und der Wahrnehmung im Gehirn ebenso viel zu tun, wie mit der Lichtmessung von einem Computerbildschirm. Es ist auch wichtig zu verstehen, dass das Umgebungslicht die Fähigkeit, Farbe und Kontrast wahrzunehmen, beeinflusst. Licht und seine Messungen sind linear, aber das menschliche Sehvermögen und die Wahrnehmung sind es nicht.
+Zusammenfassend lässt sich sagen, dass Farbe so sehr mit der menschlichen Physiologie und Wahrnehmung im Gehirn zu tun hat wie mit der Messung von Licht von einem Computerbildschirm. Es ist auch wichtig zu verstehen, dass die Umgebungslichtumgebung die Fähigkeit beeinflusst, Farbe und Kontrast wahrzunehmen. Licht und seine Messungen sind linear, aber menschliches Sehen und Wahrnehmung sind es nicht.
 
 ## Anpassung
 
-Unsere Augen passen sich nicht gleichermaßen, in der gleichen Weise, an helle Bereiche und dunkle Bereiche an und umgekehrt. Dies liegt an den physiologischen Bauweisen unserer Augen. Dies wirkt sich auf die Fähigkeit eines Benutzers aus, Text gegen einen Hintergrund zu lesen. Mindestens zwei Arten der Anpassung finden statt: lokale Anpassung und Anpassung an eine Umgebung.
+Unsere Augen passen sich beim Wechsel von Licht- in Dunkelbereiche und umgekehrt nicht gleichmäßig an. Dies liegt an der physiologischen Struktur unserer Augen. Dies beeinflusst die Fähigkeit eines Benutzers, Text vor einem Hintergrund zu lesen. Mindestens zwei Arten von Anpassungen finden statt: lokale Anpassung und Anpassung an eine Umgebungsumgebung.
 
-Die lokale Anpassung erfolgt direkt auf der "Seite", die ein Leser betrachtet. Zum Beispiel, wenn Sie blauen Text in einem grauen "hervorgehobenen" Bereich haben, wird Ihre Wahrnehmung dieses genau blauen Textes mit einem grauen Highlight eine andere sein, wenn er sich in einem schwarzen {{HTMLElement("div")}} befindet, oder einem weißen. Dies wird als _lokale_ Anpassung bezeichnet. Dieser Unterschied in der Fähigkeit, den Text wahrzunehmen, ist betroffen, selbst wenn sich die Raumbeleuchtung nicht ändert.
+Lokale Anpassung erfolgt direkt auf der "Seite", die ein Leser betrachtet. Wenn Sie zum Beispiel blauen Text innerhalb eines grauen "hervorgehobenen" Bereichs haben, werden Ihre Augen diesen blauen Text mit grauem Highlight anders wahrnehmen, wenn er sich in einem schwarzen {{HTMLElement("div")}} oder einem weißen befindet. Dies wird _lokale_ Anpassung genannt. Diese Unterschiede in der Fähigkeit, den Text wahrzunehmen, werden beeinflusst, selbst wenn sich die Umgebungs Beleuchtung im Raum nicht ändert.
 
-Der Implikation nach können Webentwickler, die die Lesbarkeit von Text im Hintergrund verbessern möchten, die Prinzipien der lokalen Anpassung nutzen.
+Die Implikation ist, dass Webentwickler, die versuchen, die Lesbarkeit des Textes vor einem Hintergrund zu verbessern, die Prinzipien der lokalen Anpassung nutzen können.
 
-Die Dunkelanpassung an niedrige Leuchtdichte ist langsam. Wenn Sie von draußen, wo die Sonne hell ist, in einen dunklen Raum kommen, erleben Sie Dunkelanpassung. Dies kann ein paar Minuten dauern, um sich daran zu gewöhnen.
+Dunkelanpassung an niedrige Leuchtdichte erfolgt langsam. Wenn Sie von draußen, wo die Sonne hell ist, in einen dunklen Raum kommen, erfahren Sie die Dunkelanpassung. Es kann ein paar Minuten dauern, sich daran zu gewöhnen.
 
-Die Lichtanpassung ist das Gegenteil. Aus einem dunklen Raum ins helle Sonnenlicht zu gehen geht schneller, kann aber auch weh tun.
+Die Lichtanpassung ist das Gegenteil. Von einem dunklen Raum ins helle Sonnenlicht zu gehen ist schneller, kann aber auch schmerzhaft sein.
 
-Die Implikation ist, dass Webentwickler, die die Lesbarkeit von Text verbessern möchten, bei denen sich die Umgebungsbedingungen eines Raums geändert haben, die `Ambient Light Sensor`-Schnittstelle und die [`prefers-contrast`](/de/docs/Web/CSS/@media/prefers-contrast)-Media-Query nutzen können.
+Die Implikation ist, dass Webentwickler, die versuchen, die Lesbarkeit des Textes in dem sich ändernden Umgebungsbedingungen eines Raums zu verbessern, die `AmbientLightSensor`-Schnittstelle verwenden und die [`prefers-contrast`](/de/docs/Web/CSS/@media/prefers-contrast) Media Query verwenden können.
 
 ## Sättigung
 
-Sättigung verdient eine besondere Erwähnung in Diskussionen über Farbe ("Farbtöne") und Barrierefreiheit. Allgemein gesprochen liegt der meiste Fokus auf der Leuchtdichte, wenn versucht wird, genug Kontrast zwischen Text und seinem Hintergrund sicherzustellen oder die Möglichkeit von Anfällen bei Menschen zu bewerten, die empfindlich auf photosensitive Anfälle reagieren. Ein Aspekt von Farbe ("Farbtöne"), unabhängig von der Leuchtdichte, verdient besondere Aufmerksamkeit, da er für die Barrierefreiheit gilt: das Konzept der Sättigung. Dies liegt an seiner Fähigkeit, bei Menschen, die anfällig für photosensitive Anfälle sind, Anfälle zu verursachen, unabhängig von der Leuchtdichte der Farbe. Wie im [besonderen Fall von Rot](#der_besondere_fall_von_rot) besprochen, stellte die [Epilepsy Foundation](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.532.7063&rep=rep1&type=pdf) fest, dass _unabhängig von der Leuchtdichte ein Übergang zu oder von einem gesättigten Rot ebenfalls als Risiko angesehen wird_.
+Sättigung verdient eine besondere Erwähnung in Diskussionen über Farben ("Farbtöne") und Zugänglichkeit. Allgemein gesagt liegt der Fokus meist auf Leuchtdichte, wenn versucht wird, genügend Kontrast zwischen Text und Hintergrund sicherzustellen oder die Möglichkeit von Anfällen bei Menschen, die empfindlich auf lichtempfindliche Anfälle reagieren, zu evaluieren. Ein Aspekt der Farbe ("Farbtöne"), unabhängig von der Leuchtdichte, verdient besondere Aufmerksamkeit, da er auf die Zugänglichkeit anwendbar ist: das Konzept der Sättigung. Dies ist auf ihre Fähigkeit zurückzuführen, bei Menschen, die anfällig für lichtempfindliche Anfälle sind, Anfälle zu verursachen, unabhängig von der Leuchtdichte der Farbe. Wie im [besonderen Fall von Rot](#der_besondere_fall_von_rot) diskutiert, stellte die [Epilepsie Foundation](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.532.7063&rep=rep1&type=pdf) fest, dass _unabhängig von der Leuchtdichte der Übergang zu oder von einem gesättigten Rot auch als Risiko angesehen wird_.
 
-Sättigung wird manchmal als die "Reinheit" oder "Intensität" einer Farbe beschrieben. Obwohl dies gute Definitionen für "Pigmente" in den Farben eines Künstlers sind, sind sie nicht so genau wie Farbdefinitionen von einem Computerbildschirm.
+Sättigung wird manchmal als "Reinheit" oder "Intensität" einer Farbe beschrieben. Obwohl dies gute Definitionen für "Pigmente" in einem Künstlerfarbenset sind, sind sie nicht so genau wie Farbdefinitionen von einem Computerbildschirm.
 
-Wenn es um Farben auf einem Monitor geht, sind gesättigte Farben von einer bestimmten Wellenlänge. Während die Definition der Sättigung für jeden Farbraum unterschiedlich sein kann, kann die Sättigung leicht gemessen werden. Der Schlüssel besteht darin zu wissen, in welchem Farbraum Sie arbeiten und bereit zu sein, ihn bei Bedarf umzurechnen.
+Bezüglich der Farbe auf einem Monitor sind gesättigte Farben von einer bestimmten Wellenlänge. Während sich die Definition der Sättigung für jeden Farbraum unterscheiden kann, ist die Sättigung leicht messbar. Der Schlüssel ist zu wissen, in welchem Farbraum Sie arbeiten, und bereit zu sein, ihn gegebenenfalls zu konvertieren.
 
-Die Farbräume, die am häufigsten in Bezug auf Photosensitivität betrachtet werden, sind die RGB-, HSL- und HSV-, auch als HSB bekannten, Farbräume. Der HSV-Farbraum, der für _hue_, _saturation_ und _value_ steht, und das Synonym HSB, das für _hue_, _saturation_ und _brightness_ steht, werden in CSS als [`hwb()`](/de/docs/Web/CSS/color_value/hwb) für _hue_, _whiteness_ und _blackness_ dargestellt.
+Die am häufigsten betrachteten Farbräume beim Thema Fotosensitivität sind die RGB-, HSL- und HSV-, auch bekannt als HSB-Farbräume. Der HSV-Farbraum, der für _Farbton_, _Sättigung_ und _Wert_ steht, und das Synonym HSB, das für _Farbton_, _Sättigung_ und _Helligkeit_ steht, werden in CSS als [`hwb()`](/de/docs/Web/CSS/color_value/hwb) für _Hue_, _Whiteness_, und _Blackness_ dargestellt.
 
-Es ist wichtig zu wissen, mit welchem Farbraum Sie arbeiten. Zum Beispiel haben gesättigte Farben in HSL eine Helligkeit von `0.5`, während sie in HWB einen Wert von `1` haben. Sättigung im RGB-Farbraum wird normalerweise durch einen RGB-Wert von `255` oder `100%` für die betreffende Farbe angezeigt. Zum Beispiel hat ein gesättigtes Rot mit dem Hex-Wert `#ff0000` einen RGB-Wert von `rgb(255 0 0)` und einen HSL-Wert von `hsl(0 100% 50%)`. Ein anderes gesättigtes Rot mit einem Hex-Wert von `#ff3300` hat einen RGB-Wert von `rgb(255 51 0)` und einen HSL-Wert von `hsl(12 100% 50%)`. Beide sind "gesättigte" Rottöne. Sie sind zwei unterschiedliche "Farbtöne", werden aber beide als gesättigte Farben betrachtet.
+Es ist wichtig zu wissen, in welchem Farbraum Sie arbeiten. Zum Beispiel haben gesättigte Farben eine Helligkeit von `0,5` in HSL, während sie in HWB einen Wert von `1` haben. Sättigung im RGB-Farbraum wird normalerweise durch einen RGB-Wert von `255` oder `100%` für die betreffende Farbe angezeigt. Beispielsweise hat ein gesättigtes Rot mit dem hexadezimalen Wert `#ff0000` einen RGB-Wert von `rgb(255 0 0)` und einen HSL-Wert von `hsl(0 100% 50%)`. Ein anderes gesättigtes Rot mit einem hexadezimalen Wert von `#ff3300` hat einen RGB-Wert von `rgb(255 51 0)` und einen HSL-Wert von `hsl(12 100% 50%)`. Beide sind "gesättigte" Rottöne. Sie sind zwei verschiedene "Farbtöne" bilden jedoch eine gesättigte Farbe.
 
-Sättigung ist keine Helligkeit. Helligkeit bezieht sich darauf, wie viel Weiß oder Schwarz in einer Farbe gemischt ist. Man kann die Sättigung verringern, indem man Weiß, Schwarz oder Grau zur Farbe hinzufügt; um das Beispiel weiter zu führen, kann die Helligkeit durch das Hinzufügen von Weiß erhöht werden, wodurch die Sättigung verringert wird. Ein typisches Beispiel ist das Hinzufügen von Weiß zu Rot, um die Farbe Pink zu erhalten. Pink wird als entsättigtes Rot angesehen.
+Sättigung ist nicht Helligkeit. Helligkeit bezieht sich darauf, wie viel Weiß oder Schwarz mit einer Farbe gemischt ist. Man kann die Sättigung verringern, indem man Weiß, Schwarz oder Grau zur Farbe hinzufügt; um das Beispiel weiterzuführen, kann die Helligkeit durch das Hinzufügen von Weiß erhöht werden, wodurch die Sättigung verringert wird. Ein typisches Beispiel ist das Hinzufügen von Weiß zu Rot, um die Farbe Rosa zu erhalten. Rosa wird als entsättigtes Rot angesehen.
 
 ### Sättigung und Leuchtdichte
 
-Es gibt einen Verlust an Sättigung an den Extremen der Leuchtdichte und den Extremen von Schwarz und Weiß. In NASAs [Effekt der Leuchtdichte auf die Sättigung](https://colorusage.arc.nasa.gov/design_lum_1.php) weisen sie darauf hin, dass bei niedrigen Leuchtdichten ein Verlust der Sättigung auftritt. Und ebenfalls, "…der Verlust der Sättigung bei hohen Leuchtdichten – die Farben konvergieren auf Weiß."
+An den Extremen der Leuchtdichte und den Extremen von Schwarz und Weiß gibt es einen Sättigungsverlust. In NASAs [Wirkung der Leuchtdichte auf Sättigung](https://colorusage.arc.nasa.gov/design_lum_1.php) weisen sie darauf hin, dass es einen Sättigungsverlust bei niedrigen Leuchtdichten gibt, und auch, "...den Sättigungsverlust bei hohen Leuchtdichten–die Farben konvergieren zu Weiß."
 
 ## Farbkombinationen
 
-Kontrast allein reicht bei Betrachtungen zur Barrierefreiheit nicht aus. Im Falle von Animationen sind bestimmte Farbkombinationen eher dazu geeignet, bei Menschen, die dafür anfällig sind, photosensitive Anfälle auszulösen, als andere. Zum Beispiel ist ein abwechselndes Blitzen zwischen Rot und Blau problematischer als ein abwechselndes Blitzen zwischen Grün und Blau. Es wird angenommen, dass dies daran liegt, dass die "rotempfindlichen" Zapfen unserer Augen, die dazu neigen, sich um die Fovea (nahe dem Zentrum) zu gruppieren, physisch an einem anderen Ort als die "blauempfindlichen" Zapfen unserer Augen liegen, die etwas von der Fovea entfernt und Richtung Ränder lokalisiert sind. Die elektrischen Signale vom Auge zum Gehirn müssen zwischen ihnen viel auflösen, während die Information in unserem Gehirn verarbeitet wird.
+Kontrast allein reicht nicht aus, wenn es um Zugänglichkeitsüberlegungen geht. Im Falle von Animation sind einige Farbkombinationen für Menschen, die anfällig für lichtempfindliche Anfälle sind, problematischer als andere. Zum Beispiel ist der Wechsel zwischen Rot und Blau problematischer als der Wechsel zwischen Grün und Blau. Es wird vermutet, dass dies daran liegt, dass die "roten" empfindlichen Zapfen unserer Augen, die sich tendenziell um die Fovea (nahe dem Zentrum) gruppieren, physisch an einer anderen Stelle als die "blauen" empfindlichen Zapfen unserer Augen liegen, die sich abseits der Fovea und an den Rändern befinden. Die elektrischen Signale vom Auge zum Gehirn müssen viel zwischen ihnen auflösen, wenn die Information im Gehirn verarbeitet wird.
 
-Einige Farben lösen wahrscheinlich [epileptische Anfälle aus](https://www.epilepsy.com/sites/default/files/2022-10/Epilepsia_2022_fisher_visually_sensitive_seizures.pdf). Komplexitäten im Zusammenhang mit der Dynamik des Gehirns können durch einige Farbkombinationen stärker beeinflusst werden als durch andere. Zum Beispiel verursacht ein rotes-blaues Flimmern eine größere kortikale Erregung als ein rotes-grünes oder blaues-grünes Flimmern.
+Einige Farben verursachen mehr wahrscheinlich [epileptische Anfälle](https://www.epilepsy.com/sites/default/files/2022-10/Epilepsia_2022_fisher_visually_sensitive_seizures.pdf). Komplexitäten, die den neuronalen Dynamiken zugrunde liegen, können durch einige Farbkombinationen mehr als andere moduliert werden. Beispielsweise verursacht ein rot-blaues Flackerstimulus eine größere kortikale Erregung als ein rot-grüner oder blau-grüner Stimulus.
 
-Bestimmte Farbkombinationen können auf einem Computermonitor oder Mobilgerät sehr problematisch sein, und einige Farbkombinationen können bei einigen Beeinträchtigungen stören. Die Kombination von Rot/Blau ist ein solches Beispiel.
+Bestimmte Farbkombinationen können auf einem Monitor oder mobilen Gerät sehr problematisch sein, und einige Farbkombinationen können bei einigen Beeinträchtigungen stören. Die Kombination von Rot/Blau ist ein solches Beispiel.
 
-- Vertrauen Sie niemals nur auf den Farbton, um Details zu unterscheiden. Ein ausreichender Helligkeitskontrast ist erforderlich.
-- Das Grün auf einem Monitor macht den Großteil der Leuchtdichte (Helligkeit) aus, so dass es normalerweise ein wesentlicher Teil der helleren Farben sein wird.
+- Verlassen Sie sich niemals allein auf den Farbton zur Unterscheidung von Details. Ein ausreichender Leuchtdichtekontrast ist erforderlich.
+- Das Grün in einem Monitor erzeugt den Großteil der Leuchtdichte (Licht), und wird daher oft einen großen Teil der helleren Farben ausmachen.
 
 ### Arbeiten mit Blau
 
-Einige Menschen können nicht alle Farben unterscheiden. Einige Farben, wie reines Blau, haben eine niedrige Leuchtdichte. Farben, die eine niedrige Leuchtdichte aufweisen, sollten die dunkleren der kontrastierenden Farben sein. Blau hat auch eine sehr niedrige Auflösung. Es gibt weit weniger blaue Zapfen, und sie sind in unserer peripheren Sicht verstreut und nicht in unserer zentralen Sicht vorhanden. Das menschliche Auge sieht Blau in einer niedrigeren Auflösung als Grün und Rot.
+Einige Menschen können nicht alle Farben unterscheiden. Einige Farben, wie beispielsweise reines Blau, haben eine geringe Leuchtdichte. Farben, die eine geringe Leuchtdichte haben, sollten die dunkleren der kontrastierenden Farben sein. Blau hat auch eine sehr niedrige Auflösung. Es gibt viel weniger blaue Zapfen, und sie sind verstreut in unserem peripheren Sichtfeld und im zentralen Sichtfeld nicht vorhanden. Das menschliche Auge sieht Blau in einer niedrigeren Auflösung als Grün und Rot.
 
 Dies führt zu einigen Richtlinien für die Verwendung von Blau:
 
-- Reine Blautöne sollten typischerweise die dunkleren der zwei Farben sein.
-- Wenn Blau als der hellere der zwei Farben verwendet wird, fügen Sie Grün hinzu, um den Kontrast zu erhöhen und die Lesbarkeit zu verbessern.
+- Reines Blau sollte typischerweise die dunkelste der beiden Farben sein.
+- Wenn Blau als die hellere der beiden Farben verwendet wird, fügen Sie Grün hinzu, um den Kontrast zu erhöhen und die Lesbarkeit zu verbessern.
 
-Die Natur des blauen Lichts bewirkt, dass es sich an einem anderen Ort auf der Netzhaut fokussiert als Rot, so dass ein reiner Rot- und ein reiner Blaufarbton, die unmittelbar nebeneinander liegen und sich berühren, "schimmern" können, wenn sie nah beieinander liegen.
+Die Eigenschaften des blauen Lichts führen dazu, dass es an einem anderen Ort auf der Netzhaut fokussiert wird als Rot, daher können eine reine rote und eine reine blaue Farbe, die unmittelbar nebeneinander und berührend sind, bei Berührung "flimmern".
 
 ## Der besondere Fall von Rot
 
-Nicht alle Farben ("Farbton") werden von unseren Gehirnen auf die gleiche Weise verarbeitet. Die menschliche Physiologie und Psychologie wird von der Farbe Rot im Allgemeinen anders beeinflusst als bei anderen Farben. Wir reagieren sowohl physiologisch als auch psychologisch auf Farben. Zum Beispiel wurde gezeigt, dass [einige Farben eher dazu geeignet sind, epileptische Anfälle auszulösen als andere](https://www.sciencedaily.com/releases/2009/09/090925092858.htm). Einige Geräte bieten eine ["Graustufen"-Einstellung als eine Barrierefreiheitsoption](https://ask.metafilter.com/312049/What-is-the-grayscale-setting-for-in-accessibility-options), die Menschen helfen können, die photosensibel sind. Um die Graustufeneinstellung zu simulieren, verwenden Sie die CSS {{cssxref("filter")}}-Eigenschaft mit einem [`grayscale()`](/de/docs/Web/CSS/filter-function/grayscale) oder [`saturate()`](/de/docs/Web/CSS/filter-function/saturate) [`<filter-function>`](/de/docs/Web/CSS/filter-function).
+Nicht alle Farben ("Farbton") werden von unseren Gehirnen auf dieselbe Weise verarbeitet. Die menschliche Physiologie und Psychologie werden von der Farbe Rot, allgemein gesprochen, auf andere Weise beeinflusst als bei anderen Farben. Wir reagieren physiologisch sowie psychologisch auf Farben. Zum Beispiel wurde festgestellt, dass [einige Farben eher epileptische Anfälle verursachen als andere](https://www.sciencedaily.com/releases/2009/09/090925092858.htm). Einige Geräte bieten eine ["Graustufen"-Einstellung als Zugänglichkeitsoption](https://ask.metafilter.com/312049/What-is-the-grayscale-setting-for-in-accessibility-options)" an, die Menschen, die empfindlich auf Lichtstimuli reagieren, helfen kann. Um die Graustufeneinstellung zu imitieren, verwenden Sie die CSS {{cssxref("filter")}} Eigenschaft mit einer [`grayscale()`](/de/docs/Web/CSS/filter-function/grayscale) oder [`saturate()`](/de/docs/Web/CSS/filter-function/saturate) [`<filter-function>`](/de/docs/Web/CSS/filter-function).
 
 ### Gesättigtes Rot
 
 "Gesättigtes Rot" ist ein besonderer, gefährlicher Fall, und es gibt spezielle Tests dafür.
 
-Das Konzept der Farbsättigung ist schwer zu verstehen, wenn man nur auf Zahlen und Terminologie schaut, also betrachten Sie das Bild unten, um das Konzept der Sättigung in einer Farbe zu veranschaulichen:
+Das Konzept der Farbsättigung ist schwierig zu verstehen, wenn man nur Zahlen und Terminologie betrachtet, ziehen Sie also das folgende Bild heran, um das Konzept der Sättigung in einer Farbe zu veranschaulichen:
 
-![Sättigung von Rot, von Wikimedia Commons svg als png gespeichert Attribution: Datumizer [CC0]](320px-red_saturations.svg.png)
+![Rote Sättigung von Wikimedia Commons svg als png gespeichert Attribution: Datumizer [CC0]](320px-red_saturations.svg.png)
 
-Dieselbe "Farbe" bewegt sich von der am wenigsten gesättigten auf der linken Seite zur am stärksten gesättigten auf der rechten Seite.
+Dieselbe "Farbe" geht von der am wenigsten gesättigten auf der linken Seite zur am meisten gesättigten auf der rechten Seite.
 
-_Mehr als eine "rote" Farbe kann als "gesättigtes" Rot angesehen werden._ Zum Beispiel hat die Farbe `#990000` mit `hsl(0 100% 30%)` eine vollständige Sättigung, ist aber weniger hell als die oben beschriebenen Farben. Ähnlich hat die Farbe `#8b0000` ebenfalls eine Sättigung von 100%.
+_Mehr als eine "rote" Farbe kann als "gesättigtes" Rot angesehen werden._ Zum Beispiel ist die Farbe `#990000` bei `hsl(0 100% 30%)` vollständig gesättigt, hat jedoch eine geringere Helligkeit als die oben beschriebenen Farben. Ebenso hat die Farbe `#8b0000` auch eine Sättigung von 100%.
 
-Nicht alle gesättigten Rottöne können gut im RGB-Spektrum oder anderen Spektren, die häufig in der Webentwicklung verwendet werden, dargestellt werden. Laut der Wikipedia-Seite "Schattierungen von Rot" ist die Farbe "Karmin" ein gesättigtes Rot, das in seiner Pigmentform hauptsächlich rotes Licht mit einer Wellenlänge länger als 600 nm enthält; der Artikel macht die besondere Bemerkung, dass "Karmin" nahe am Extremspektrum liegt. Dies platziert es weit jenseits der Standard-Gamuts (RGB und CMYK), und sein gegebener RGB-Wert ist nur eine schlechte Annäherung."
+Nicht alle gesättigten Rottöne können im RGB-Spektrum oder anderen Spektren, die häufig in der Webentwicklung verwendet werden, gut dargestellt werden. Das Wikipedia zur Seite "Rottöne" merkt an, dass die Farbe "Karmin" ein gesättigtes Rot ist, das, in seiner Pigmentform, hauptsächlich rotes Licht mit einer Wellenlänge länger als 600nm enthält; die Artikel stellen fest, dass "Karmin" nahe am Extremspektrum liegt. Dies platziert sie weit außerhalb der Standard-Gamuten (RGB und CMYK), und ihr angegebener RGB-Wert ist nur eine schlechte Annäherung."
 
-### Gesättigtes rotes Flackern
+### Gesättigtes Rot Flackern
 
-Zusätzlich dazu, dass eine rote Umgebung die kognitive Funktion von Menschen mit traumatischen Hirnverletzungen beeinflusst, erfordert Farbe im Wellenlängenbereich des roten Spektrums besondere Aufmerksamkeit und Tests.
+Zusätzlich zu einer roten Umgebung, die die kognitive Funktion bei Personen mit traumatischer Hirnverletzung beeinträchtigt, erfordert die Farbe im roten Spektrumsbereich besondere Aufmerksamkeit und Tests.
 
-Gregg Vanderheiden stellte bei der Prüfung des _Photosensitive epilepsy analysis tool_ fest, dass die Anfallsraten viel höher waren als erwartet. Sie fanden heraus, dass wir viel empfindlicher auf gesättigtes rotes Flackern sind. (Siehe das Video, [The Photosensitive epilepsy analysis tool](https://www.pbs.org/video/university-place-the-photosensitive-epilepsy-analysis-tool-ep-429/).)
+Gregg Vanderheiden stellte beim Testen des _Photosensitive epilepsy analysis tool_ fest, dass die Anfallsraten weit höher waren, als erwartet. Sie entdeckten, dass wir viel empfindlicher auf Schimmern roter Flashs reagieren. (Siehe das Video, [The Photosensitive epilepsy analysis tool](https://www.pbs.org/video/university-place-the-photosensitive-epilepsy-analysis-tool-ep-429/).)
 
 ### Flackern und Anfälle
 
-Kontinuierliches Flackern in hell/dunkel-Wechseln mit höheren Frequenzen als drei Flackern pro Sekunde hat gezeigt, dass es bei einigen Personen photische Anfälle auslösen kann. Es wurde auch festgestellt, dass bestimmte, sehr regelmäßige, kontrastreiche Muster, wie parallele weiße und schwarze Streifen, ebenfalls Anfälle auslösen können.
+Ein kontinuierliches Flackern heller/dunkler mit Raten von mehr als drei Blitzen pro Sekunde hat sich gezeigt, um bei manchen Menschen photische Anfälle auszulösen. Es wurde auch festgestellt, dass spezifische, sehr regelmäßige, kontrastreiche Muster, wie parallele weiße und schwarze Streifen, ebenfalls Anfälle auslösen können.
 
-Die Epilepsy Foundation of America forschte zu [photic- und pattern-induced Seizures](https://www.researchgate.net/publication/7615895_Photic-_and_Pattern-induced_Seizures_A_Review_for_the_Epilepsy_Foundation_of_America_Working_Group). Die Studie führte zu mehreren grundlegenden Richtlinien:
+Die Epilepsie-Foundation of America erforschte [Photic- und Pattern-induzierte Anfälle](https://www.researchgate.net/publication/7615895_Photic-_and_Pattern-induced_Seizures_A_Review_for_the_Epilepsy_Foundation_of_America_Working_Group). Die Studie resultierte in mehreren grundlegenden Richtlinien:
 
-1. Einzelne, doppelte oder dreifache Blitze innerhalb einer Sekunde sind akzeptabel, aber eine Folge von mehr als drei Blitzen in einer Sekunde wird nicht empfohlen.
+1. Einzelne, doppelte oder dreifache Blitze innerhalb einer Sekunde sind akzeptabel, aber eine Sequenz von Blitzen wird nicht empfohlen, wenn mehr als drei Blitze innerhalb einer Sekunde erfolgen.
 
-2. Beim Anzeigen von hellen und dunklen Streifen sollte das Muster nicht mehr als fünf hell-dunkle Streifenpaare anzeigen, wenn die Streifen die Richtung wechseln, oszillieren, flackern oder den Kontrast umkehren, oder acht hell-dunkle Streifenpaare, wenn das Muster unverändert bleibt oder kontinuierlich und gleichmäßig in eine Richtung driftet.
+2. Beim Anzeigen von hellen und dunklen Streifen sollte das Muster maximal fünf helle–dunkle Streifenpaare enthalten, wenn die Streifenrichtung wechselt, schwingt, flimmert, oder acht helle–dunkle Streifenpaare zeigen, wenn das Muster unverändert bleibt oder sich kontinuierlich und gleichmäßig in eine Richtung bewegt.
 
-Die Konsens-Empfehlungen sind in diesem kurzen Papier, [Photic- and Pattern-induced Seizures: Expert Consensus of the Epilepsy Foundation of America](https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1528-1167.2005.31405.x). Einige zusätzliche Einblicke sind verfügbar in diesem britischen Artikel, der [Richtlinien zur Verhinderung von Anfällen](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.106.9473&rep=rep1&type=pdf), behandelt.
+Die Konsensempfehlungen sind in diesem kurzen Paper zu finden, [Photic- und Pattern-iniduzierte Anfälle: Expertenkonsensus der Epilepsie-Foundation of America](https://onlinelibrary.wiley.com/doi/epdf/10.1111/j.1528-1167.2005.31405.x). Einige zusätzliche Erkenntnisse sind in diesem britischen Papier zu finden, das sich mit [Richtlinien zur Verhinderung von Anfällen](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.106.9473&rep=rep1&type=pdf) befasst.
 
-## Psychophysikalische Aspekte von Farbe
+## Psychophysische Aspekte von Farbe
 
-Farbe als Farbtöne und Sättigung kann unsere Stimmung beeinflussen und unsere interaktiven Erfahrungen verbessern – oder verschlechtern.
+Farbe wie bei Farbton und Sättigung kann unsere Stimmung beeinflussen und unsere interaktiven Erfahrungen verstärken oder mindern.
 
-### Beispiele für die Wirkung von Farbe über die Sicht hinaus
+### Beispiele für den Einfluss von Farbe über die Vision hinaus
 
-- **Farbe kann kulturell abhängig sein:** [Eine interkulturelle Studie über die affektiven Bedeutungen von Farbe](https://journals.sagepub.com/doi/10.1177/002202217300400201)
-- **Farbe beeinflusst unsere Emotionen:** [Farbe und Emotion: Auswirkungen von Farbton, Sättigung und Helligkeit](https://pubmed.ncbi.nlm.nih.gov/28612080/)
-- **Höherer Kontrast kann auch positiv auf unsere Emotionen wirken:** [Emotionale Variation durch Steuerung des Kontrasts von visuellen Inhalten mit EEG-basierter Tiefenerkennung der Emotion](https://pubmed.ncbi.nlm.nih.gov/32823741/)
-- **Einige Farben können unsere Zeitwahrnehmung beeinflussen:** [Farbe und Zeitwahrnehmung: Hinweise auf zeitliche Überschätzung blauer Reize](https://pubmed.ncbi.nlm.nih.gov/29374198/)
-- **Blau hat auch signifikante Auswirkungen auf Helligkeit und Blendung:** [Blau und Blendung & Helligkeit](https://pubmed.ncbi.nlm.nih.gov/31288107/)
-- **Rot getönte Brillen können Glück oder Freude steigern:** [Durch "Rosarote" Brillen sehen: Der Einfluss von Tönung auf visuelle affektive Verarbeitung](https://pubmed.ncbi.nlm.nih.gov/31244627/)
-- \*\*Es ist bekannt, dass](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/), Scientific American, S. Martinez-Conde, Stephen L. Macknik
-- **Rote Umgebung:** Studien haben gezeigt, dass für diejenigen, die unter traumatischen Hirnverletzungen leiden, [die kognitive Funktion in einer roten Umgebung](https://pubmed.ncbi.nlm.nih.gov/20649469/) reduziert wird.
+- **Farbe kann kulturell abhängig sein:** [A Cross-Cultural Study of the Affective Meanings of Color](https://journals.sagepub.com/doi/10.1177/002202217300400201)
+- **Farbe beeinflusst unsere Emotionen:** [Color and emotion: effects of hue, saturation, and brightness](https://pubmed.ncbi.nlm.nih.gov/28612080/)
+- **Höhere Kontraste können sich auch positiv auf unsere Emotionen auswirken:** [Emotion Variation from Controlling Contrast of Visual Contents through EEG-Based Deep Emotion Recognition](https://pubmed.ncbi.nlm.nih.gov/32823741/)
+- **Einige Farben können unsere Zeitwahrnehmung beeinflussen:** [Color and time perception: Evidence for temporal overestimation of blue stimuli](https://pubmed.ncbi.nlm.nih.gov/29374198/)
+- **Blau hat auch einen erheblichen Effekt auf Helligkeit und Blendung:** [Blue and glare & brightness](https://pubmed.ncbi.nlm.nih.gov/31288107/)
+- **Rote getönte Brillen können die Freude oder das Glück erhöhen:** [Looking Through "Rose-Tinted" Glasses: The Influence of Tint on Visual Affective Processing](https://pubmed.ncbi.nlm.nih.gov/31244627/)
+- **Rot ist dafür bekannt, signifikante Auswirkungen auf unser Verhalten zu haben:** [How the Color Red Influences Our Behavior](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/), Scientific American, S. Martinez-Conde, Stephen L. Macknik
+- **Rote Umgebung:** Studien haben gezeigt, dass bei Personen, die unter einer traumatischen Hirnverletzung leiden, [die kognitive Funktion in einer roten Umgebung reduziert wird](https://pubmed.ncbi.nlm.nih.gov/20649469/).
 
 ## Siehe auch
 
 - [Barrierefreiheit](/de/docs/Web/Accessibility)
-- [Barrierefreiheits-Lernpfad](/de/docs/Learn/Accessibility)
+- [Lernpfad für Barrierefreiheit](/de/docs/Learn/Accessibility)
 - CSS [`color`](/de/docs/Web/CSS/color)-Eigenschaft
-- [`<color>`](/de/docs/Web/CSS/color_value) Datentyp
-- [Web-Barrierefreiheit für Anfälle und körperliche Reaktionen](/de/docs/Web/Accessibility/Seizure_disorders)
-- [Wie die Farbe Rot unser Verhalten beeinflusst](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/) Scientific American Von Susana Martinez-Conde, Stephen L. Macknik im November 1, 2014
-- [Rotentsättigung](https://www.smartoptometry.app/red-desaturation/) Das menschliche Auge ist so empfindlich auf Rot "geeicht", dass Augenärzte einen Test damit eingerichtet haben, der die Integrität des Sehnervs bewertet.
-- [Photic- und pattern-induced Seizures: Expertenkonsens der Arbeitsgruppe der Epilepsy Foundation of America](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.532.7063&rep=rep1&type=pdf)
+- [`<color>`](/de/docs/Web/CSS/color_value)-Datentyp
+- [Web-Zugänglichkeit für Anfälle und körperliche Reaktionen](/de/docs/Web/Accessibility/Seizure_disorders)
+- [How the Color Red Influences Our Behavior](https://www.scientificamerican.com/article/how-the-color-red-influences-our-behavior/) Scientific American von Susana Martinez-Conde, Stephen L. Macknik am 1. November 2014
+- [Rote Entsättigung](https://www.smartoptometry.app/red-desaturation/) Das menschliche Auge ist so empfindlich auf "Rot abgestimmt", dass Augenärzte einen Test damit aufstellen, um die Integrität des Sehnervs zu beurteilen.
+- [Photic- und pattern-induzierte Anfälle: Expertenkonsensus der Epilepsie Foundation of America Arbeitsgruppe](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.532.7063&rep=rep1&type=pdf)

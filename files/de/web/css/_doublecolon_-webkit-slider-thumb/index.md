@@ -2,12 +2,12 @@
 title: "::-webkit-slider-thumb"
 slug: Web/CSS/::-webkit-slider-thumb
 l10n:
-  sourceCommit: f2175c4c2cf9de232ec9b2e1c395903d53ea24a0
+  sourceCommit: 08e04f121ea7b3a55e6ef47782d2d82fb053ca88
 ---
 
-{{CSSRef}}{{SeeCompatTable}}
+{{CSSRef}}{{SeeCompatTable}}{{non-standard_header}}
 
-Das **`::-webkit-slider-thumb`** CSS-[Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "Schieberegler", den der Benutzer innerhalb der "Nut" eines {{HTMLElement("input")}} vom `type="range"` bewegen kann, um dessen Zahlenwert zu ändern.
+Das **`::-webkit-slider-thumb`** CSS-[Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den "Daumen", den der Benutzer innerhalb der "Nut" eines {{HTMLElement("input")}} mit `type="range"` bewegen kann, um dessen numerischen Wert zu ändern.
 
 ## Syntax
 
@@ -28,10 +28,10 @@ Teil keiner Norm.
 ## Siehe auch
 
 - {{cssxref("::-webkit-slider-runnable-track")}}
-- Ähnliche Pseudo-Elemente, die von anderen Browsern verwendet werden:
+- Ähnliche Pseudoelemente, die von anderen Browsern verwendet werden:
 
   - {{cssxref("::-moz-range-thumb")}}
 
 - [CSS-Tricks: Styling Cross-Browser Compatible Range Inputs with CSS](https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/)
 - [QuirksMode: Styling and scripting sliders](https://www.quirksmode.org/blog/archives/2015/11/styling_and_scr.html)
-- [Einige Stolperfallen, auf die man achten sollte](https://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html)
+- [Couple of Gotchas to Watch-out For](https://brennaobrien.com/blog/2014/05/style-input-type-range-in-every-browser.html)

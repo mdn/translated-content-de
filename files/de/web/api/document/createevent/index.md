@@ -1,18 +1,18 @@
 ---
-title: "Document: createEvent() Methode"
+title: "Dokumentation: createEvent() Methode"
 short-title: createEvent()
 slug: Web/API/Document/createEvent
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 08e04f121ea7b3a55e6ef47782d2d82fb053ca88
 ---
 
-{{APIRef("DOM")}}
+{{APIRef("DOM")}}{{deprecated_header}}
 
 > [!WARNING]
-> Viele Methoden, die mit `createEvent` verwendet werden, wie `initCustomEvent`, sind veraltet.
-> Verwenden Sie stattdessen [Event-Konstruktoren](/de/docs/Web/API/CustomEvent).
+> Viele Methoden, die mit `createEvent` verwendet werden, wie zum Beispiel `initCustomEvent`, sind veraltet.
+> Verwenden Sie stattdessen [Ereignis-Konstruktoren](/de/docs/Web/API/CustomEvent).
 
-Erstellt ein [Ereignis](/de/docs/Web/API/Event) des angegebenen Typs. Das zurückgegebene Objekt sollte zunächst initialisiert und kann dann an [`EventTarget.dispatchEvent`](/de/docs/Web/API/EventTarget/dispatchEvent) übergeben werden.
+Erstellt ein [Ereignis](/de/docs/Web/API/Event) des angegebenen Typs. Das zurückgegebene Objekt sollte zuerst initialisiert werden und kann dann an [`EventTarget.dispatchEvent`](/de/docs/Web/API/EventTarget/dispatchEvent) übergeben werden.
 
 ## Syntax
 
@@ -23,7 +23,7 @@ createEvent(type)
 ### Parameter
 
 - `type`
-  - : Ein String, der den Typ des zu erstellenden Ereignisses darstellt. Mögliche Ereignistypen sind `"UIEvents"`, `"MouseEvents"`, `"MutationEvents"` und `"HTMLEvents"`. Siehe den Abschnitt [Anmerkungen](#anmerkungen) für Details.
+  - : Ein String, der den Typ des zu erstellenden Ereignisses darstellt. Mögliche Ereignistypen sind `"UIEvents"`, `"MouseEvents"`, `"MutationEvents"` und `"HTMLEvents"`. Einzelheiten finden Sie im Abschnitt [Hinweise](#hinweise).
 
 ### Rückgabewert
 
@@ -51,9 +51,9 @@ elem.addEventListener(
 elem.dispatchEvent(event);
 ```
 
-## Anmerkungen
+## Hinweise
 
-Ereignistyp-Strings, die für die Übergabe an `createEvent()` geeignet sind, sind im [DOM-Standard — siehe die Tabelle in Schritt 2](https://dom.spec.whatwg.org/#dom-document-createevent) aufgeführt. Beachten Sie, dass die meisten Ereignisobjekte inzwischen Konstruktoren haben, die der moderne empfohlene Weg zur Erstellung von Ereignisobjektinstanzen sind.
+Geeignete Ereignistyp-Strings für die Übergabe an `createEvent()` sind im [DOM-Standard — siehe die Tabelle in Schritt 2](https://dom.spec.whatwg.org/#dom-document-createevent) aufgeführt. Beachten Sie, dass die meisten Ereignisobjekte jetzt Konstruktoren haben, die die moderne empfohlene Methode zur Erstellung von Ereignisobjektinstanzen sind.
 
 ## Spezifikationen
 
@@ -65,4 +65,4 @@ Ereignistyp-Strings, die für die Übergabe an `createEvent()` geeignet sind, si
 
 ## Siehe auch
 
-- [Ereignisse erstellen und auslösen](/de/docs/Web/Events/Creating_and_triggering_events)
+- [Erstellen und Auslösen von Ereignissen](/de/docs/Web/Events/Creating_and_triggering_events)

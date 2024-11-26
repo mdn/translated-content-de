@@ -1,13 +1,13 @@
 ---
-title: Column-Kombinator
+title: Säulen-Kombinator
 slug: Web/CSS/Column_combinator
 l10n:
-  sourceCommit: 7fa9b134e7a886b47bd8c6e3135ba329ee0ddf09
+  sourceCommit: d278eda568df670011d4e89c1f30f57b66a8a850
 ---
 
 {{CSSRef}} {{SeeCompatTable}}
 
-Der **Column-Kombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er trifft nur auf jene Elemente zu, die vom zweiten Selektor erfasst werden und zu den Spaltenelementen gehören, die vom ersten Selektor erfasst werden.
+Der **Säulen-Kombinator** (`||`) wird zwischen zwei CSS-Selektoren platziert. Er passt nur auf diejenigen Elemente, welche vom zweiten Selektor erfasst werden und zu den Säulenelementen gehören, die vom ersten Selektor erfasst werden.
 
 ```css
 /* Table cells that belong to the "selected" column */
@@ -74,7 +74,7 @@ col.selected||td {
 
 ## Browser-Kompatibilität
 
-{{Compat}}
+Derzeit hat kein Browser diese Funktion implementiert.
 
 ## Siehe auch
 

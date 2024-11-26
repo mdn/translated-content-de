@@ -3,14 +3,14 @@ title: "Anforderung: keepalive-Eigenschaft"
 short-title: keepalive
 slug: Web/API/Request/keepalive
 l10n:
-  sourceCommit: 0f7f70e7fd76f8e32cd02261bc10630d753fbf0b
+  sourceCommit: 0ffc63a13598470ddb4a4d3281800eeb2bf6ae2b
 ---
 
 {{APIRef("Fetch API")}}
 
-Die schreibgeschützte **`keepalive`**-Eigenschaft der [`Request`](/de/docs/Web/API/Request)-Schnittstelle enthält die `keepalive`-Einstellung der Anfrage (`true` oder `false`). Diese zeigt an, ob der Browser die zugehörige Anfrage weiter am Leben hält, wenn die Seite, die sie initiiert hat, vor Abschluss der Anfrage entladen wird.
+Die **`keepalive`** schreibgeschützte Eigenschaft des [`Request`](/de/docs/Web/API/Request)-Interfaces enthält die `keepalive`-Einstellung der Anfrage (`true` oder `false`), die angibt, ob der Browser die zugehörige Anfrage weiterleben lässt, wenn die Seite, die sie initiiert hat, entladen wird, bevor die Anfrage abgeschlossen ist.
 
-Dies ermöglicht, dass eine [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage als Alternative zu [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon) fungiert, wenn Analysedaten am Ende einer Sitzung gesendet werden. Dies hat einige Vorteile (Sie können HTTP-Methoden außer [`POST`](/de/docs/Web/HTTP/Methods/POST) verwenden, Anfrageeigenschaften anpassen und auf die Serverantwort über die Erfüllung des fetch-{{jsxref("Promise")}} zugreifen). Es ist auch in [Service Workern](/de/docs/Web/API/Service_Worker_API) verfügbar.
+Dies ermöglicht einer [`fetch()`](/de/docs/Web/API/Window/fetch)-Anfrage beispielsweise, Analysedaten am Ende einer Sitzung zu senden, selbst wenn der Benutzer die Seite verlässt oder schließt. Dies bietet einige Vorteile gegenüber der Verwendung von [`Navigator.sendBeacon()`](/de/docs/Web/API/Navigator/sendBeacon) zu demselben Zweck, einschließlich der Möglichkeit, HTTP-Methoden außer [`POST`](/de/docs/Web/HTTP/Methods/POST) zu verwenden, Anfrageeigenschaften anzupassen und auf die Serverantwort über die fetch-{{jsxref("Promise")}}-Erfüllung zuzugreifen. Es steht auch in [Service Workern](/de/docs/Web/API/Service_Worker_API) zur Verfügung.
 
 ## Wert
 
@@ -18,7 +18,9 @@ Ein boolescher Wert, der den `keepalive`-Status der Anfrage angibt.
 
 ## Beispiele
 
-Im folgenden Beispiel erstellen wir eine neue Anfrage mithilfe des [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktors mit `keepalive` auf `true` gesetzt und speichern dann den `keepalive`-Wert der Anfrage in einer Variable:
+### Erstellen einer Anfrage mit keepalive
+
+Im folgenden Codeausschnitt erstellen wir eine neue Anfrage mit dem [`Request()`](/de/docs/Web/API/Request/Request)-Konstruktor, bei der `keepalive` auf `true` gesetzt ist, und speichern dann den `keepalive`-Wert der Anfrage in einer Variablen:
 
 ```js
 const options = {

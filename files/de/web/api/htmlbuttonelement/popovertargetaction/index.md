@@ -3,42 +3,42 @@ title: "HTMLButtonElement: popoverTargetAction-Eigenschaft"
 short-title: popoverTargetAction
 slug: Web/API/HTMLButtonElement/popoverTargetAction
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: d4ea77f1c9e15e472e484d9561319597c5cce716
 ---
 
 {{APIRef("Popover API")}}
 
-Die **`popoverTargetAction`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle ruft die Aktion ab bzw. legt sie fest, die (`"hide"`, `"show"` oder `"toggle"`) an einem von einem Button gesteuerten Popover-Element ausgeführt werden soll.
+Die **`popoverTargetAction`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces erhält und setzt die Aktion, die (`"hide"`, `"show"` oder `"toggle"`) auf einem von einem Button gesteuerten Popover-Element ausgeführt werden soll.
 
-Sie spiegelt den Wert des [`popovertargetaction`](/de/docs/Web/HTML/Element/button#popovertargetaction) HTML-Attributs wider.
+Sie spiegelt den Wert des [`popovertargetaction`](/de/docs/Web/HTML/Element/button#popovertargetaction)-HTML-Attributs wider.
 
 ## Wert
 
 Ein enumerierter Wert. Mögliche Werte sind:
 
 - `"hide"`
-  - : Der Button verbirgt ein sichtbares Popover. Wenn versucht wird, ein bereits verborgenes Popover zu verbergen, wird keine Aktion ausgeführt.
+  - : Der Button wird ein angezeigtes Popover verbergen. Wenn man versucht, ein bereits verstecktes Popover zu verbergen, wird keine Aktion durchgeführt.
 - `"show"`
-  - : Der Button zeigt ein verborgenes Popover. Wenn versucht wird, ein bereits sichtbares Popover zu zeigen, wird keine Aktion ausgeführt.
+  - : Der Button wird ein verstecktes Popover anzeigen. Wenn man versucht, ein bereits angezeigtes Popover anzuzeigen, wird keine Aktion durchgeführt.
 - `"toggle"`
-  - : Der Button wechselt ein Popover zwischen sichtbar und verborgen. Ist das Popover verborgen, wird es angezeigt; ist das Popover sichtbar, wird es verborgen. Wenn `popoverTargetAction` nicht festgelegt ist, ist `"toggle"` die Standardaktion, die vom Steuerungsbutton ausgeführt wird.
+  - : Der Button wird ein Popover zwischen sichtbar und versteckt umschalten. Ist das Popover versteckt, wird es angezeigt; ist das Popover sichtbar, wird es versteckt. Wenn `popoverTargetAction` nicht gesetzt ist, wird `"toggle"` als Standardaktion vom Steuerungsknopf ausgeführt.
 
 ## Beispiele
 
-### Umschaltaktion für Popover mit einem automatischen Popover
+### Toggle-Popover-Aktion mit einem automatischen Popover
 
-Dieses Beispiel zeigt die grundlegende Verwendung der Popover-API mit einem "toggle"-Wert, der für die `popoverTargetAction`-Eigenschaft festgelegt ist.
-Das `popover`-Attribut ist auf [`"auto"`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) gesetzt, sodass das Popover durch Klicken außerhalb des Popover-Bereichs geschlossen ("light-dismissed") werden kann.
+Dieses Beispiel zeigt die grundlegende Verwendung der Popover-API mit einem für die `popoverTargetAction`-Eigenschaft gesetzten "toggle"-Wert.
+Das `popover`-Attribut ist auf [`"auto"`](/de/docs/Web/API/Popover_API/Using#auto_state_and_light_dismiss) gesetzt, so dass das Popover durch Klicken außerhalb des Popover-Bereichs geschlossen ("leicht entfernt") werden kann.
 
-Zuerst definieren wir ein HTML `<button>`-Element, das wir zum Anzeigen und Verbergen des Popovers verwenden werden, sowie ein `<div>`, das das Popover sein wird.
-In diesem Fall setzen wir weder das [`popovertargetaction`](/de/docs/Web/HTML/Element/button#popovertargetaction) HTML-Attribut auf dem `<button>` noch das [`popover`](/de/docs/Web/HTML/Global_attributes/popover) Attribut auf dem `<div>`, da wir dies programmatisch tun werden.
+Zuerst definieren wir ein HTML-`<button>`-Element, das wir verwenden werden, um das Popover anzuzeigen und zu verbergen, und ein <div>, das das Popover sein wird.
+In diesem Fall setzen wir nicht das [`popovertargetaction`](/de/docs/Web/HTML/Element/button#popovertargetaction)-HTML-Attribut am `<button>` oder das [`popover`](/de/docs/Web/HTML/Global_attributes/popover)-Attribut am <div>, da wir dies programmatisch tun werden.
 
 ```html
 <button id="toggleBtn">Toggle popover</button>
 <div id="mypopover">This is popover content!</div>
 ```
 
-Der JavaScript-Code erhält zuerst eine Referenz zu den `<div>`- und `<button>`-Elementen.
+Der JavaScript-Code erhält zuerst Zugriff auf die <div>- und `<button>`-Elemente.
 Dann definiert er eine Funktion, um die Unterstützung für Popover zu überprüfen.
 
 ```js
@@ -51,9 +51,9 @@ function supportsPopover() {
 }
 ```
 
-Wenn die Popover-API unterstützt wird, setzt der Code das `popover`-Attribut des `<div>`-Elements auf `"auto"` und macht es zum Popover-Ziel des Umschaltbuttons.
+Wenn die Popover-API unterstützt wird, setzt der Code das `popover`-Attribut des <div>-Elements auf `"auto"` und macht es zum Popover-Ziel des Toggle-Buttons.
 Wir setzen dann die `popoverTargetAction` des `<button>` auf `"toggle"`.
-Wenn die Popover-API nicht unterstützt wird, ändern wir den Textinhalt des `<div>`-Elements, um dies anzugeben und verbergen den Umschaltbutton.
+Wenn die Popover-API nicht unterstützt wird, ändern wir den Textinhalt des <div>-Elements, um dies anzugeben, und verbergen den Toggle-Button.
 
 ```js
 if (supportsPopover()) {
@@ -71,20 +71,20 @@ if (supportsPopover()) {
 ```
 
 > [!NOTE]
-> Ein Popover-Element ist standardmäßig verborgen, aber wenn die API nicht unterstützt wird, wird Ihr Element "wie gewohnt" angezeigt.
+> Ein Popover-Element ist standardmäßig verborgen, aber wenn die API nicht unterstützt wird, wird Ihr Element "wie üblich" angezeigt.
 
 Sie können das Beispiel unten ausprobieren.
 Zeigen und verbergen Sie das Popover, indem Sie den Button umschalten.
-Das `"auto"` Popover kann auch "leicht verworfen" werden, indem Sie außerhalb der Grenzen des Popover-Textes auswählen.
+Das `"auto"`-Popover kann auch "leicht entfernt" werden, indem Sie außerhalb der Grenzen des Popover-Textes auswählen.
 
 {{EmbedLiveSample("Toggle popover action with an auto popover", "100%")}}
 
-### Ein-/Ausblenden von Popover mit einem manuellen Popover
+### Anzeigen/Verbergen von Popover-Aktionen mit einem manuellen Popover
 
-Dieses Beispiel zeigt, wie die `"show"` und `"hide"` Werte des `popoverTargetAction`-Attributs verwendet werden.
+Dieses Beispiel zeigt, wie die `"show"`- und `"hide"`-Werte des `popoverTargetAction`-Attributs verwendet werden können.
 
-Der Code ist fast identisch mit dem vorherigen Beispiel, außer dass es zwei `<button>`-Elemente gibt und das Popover auf [`"manual"`](/de/docs/Web/API/Popover_API/Using#using_manual_popover_state) gesetzt ist.
-Ein `manual` Popover muss explizit geschlossen werden und kann nicht durch Auswählen außerhalb des Popover-Bereichs "leicht verworfen" werden.
+Der Code ist nahezu identisch mit dem vorherigen Beispiel, außer dass es zwei `<button>`-Elemente gibt und das Popover auf [`"manual"`](/de/docs/Web/API/Popover_API/Using#using_manual_popover_state) gesetzt ist.
+Ein `manuelles` Popover muss explizit geschlossen werden und darf nicht "leicht entfernt" werden, indem außerhalb des Popover-Bereichs ausgewählt wird.
 
 ```html
 <button id="showBtn">Show popover</button>
@@ -121,7 +121,7 @@ if (supportsPopover()) {
 }
 ```
 
-Das Popover kann angezeigt werden, indem Sie die Schaltfläche "Show popover" auswählen und mit der Schaltfläche "Hide popover" verworfen werden.
+Das Popover kann durch Auswählen des "Show popover"-Buttons angezeigt und durch den "Hide popover"-Button entfernt werden.
 
 {{EmbedLiveSample("Show/hide popover action with a manual popover", "100%")}}
 

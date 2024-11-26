@@ -2,22 +2,22 @@
 title: "-moz-force-broken-image-icon"
 slug: Web/CSS/-moz-force-broken-image-icon
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: db9ccd6c2746b3f34b0951d8e59ea1c581312d9d
 ---
 
 {{Non-standard_header}}{{CSSRef}}{{Deprecated_Header}}
 
-Die **`-moz-force-broken-image-icon`** erweiterte CSS-Eigenschaft kann verwendet werden, um das Symbol für ein defektes Bild auch dann anzuzeigen, wenn ein defektes Bild ein `alt`-Attribut hat.
+Die erweiterte CSS-Eigenschaft **`-moz-force-broken-image-icon`** kann verwendet werden, um das Symbol für ein beschädigtes Bild anzuzeigen, selbst wenn ein beschädigtes Bild ein `alt`-Attribut hat.
 
 ## Syntax
 
 ### Werte
 
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ein Wert von `1` bedeutet, dass das Symbol für ein defektes Bild auch dann angezeigt wird, wenn das Bild ein [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut hat. Bei einem Wert von `0` verhält sich das Bild wie üblich und zeigt nur das `alt`-Attribut an.
+  - : Ein Wert von `1` bedeutet, dass das Symbol für ein beschädigtes Bild angezeigt wird, auch wenn das Bild ein [`alt`](/de/docs/Web/HTML/Element/img#alt)-Attribut hat. Wenn der Wert `0` verwendet wird, verhält sich das Bild wie üblich und zeigt nur das `alt`-Attribut an.
 
 > [!NOTE]
-> Auch wenn der Wert auf `1` gesetzt ist, wird das `alt`-Attribut weiterhin angezeigt, zusammen mit dem Symbol für das defekte Bild.
+> Selbst wenn der Wert auf `1` gesetzt ist, wird das `alt`-Attribut weiterhin neben dem Symbol für das beschädigte Bild angezeigt.
 
 ## Formale Definition
 
@@ -52,16 +52,16 @@ img {
 {{EmbedLiveSample('Examples','125','125')}}
 
 > [!NOTE]
-> Sofern das Bild nicht über eine festgelegte Höhe und Breite verfügt, wird das Symbol für das defekte Bild nicht angezeigt, und das `alt`-Attribut wird ebenfalls ausgeblendet, wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist.
+> Es sei denn, das Bild hat eine spezifizierte Höhe und Breite, wird das `alt`-Attribut nicht angezeigt, wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist.
 
-## Anmerkungen
+## Hinweise
 
 - Diese Eigenschaft funktioniert nur in Gecko-basierten Browsern.
 - Die Verwendung dieser Eigenschaft wird nicht empfohlen. Stattdessen sollte ein korrektes `alt`-Attribut verwendet werden.
 
 ## Spezifikationen
 
-Teil keiner Norm.
+Nicht Teil eines Standards.
 
 ## Browser-Kompatibilität
 

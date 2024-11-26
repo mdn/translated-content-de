@@ -2,12 +2,12 @@
 title: CSS-Wertfunktionen
 slug: Web/CSS/CSS_Functions
 l10n:
-  sourceCommit: 4f470ce128d50dc3568ddf03b313f420055d9799
+  sourceCommit: 31e158bf22cece84ba7de3de3551f2807fe587d0
 ---
 
 {{CSSRef}}
 
-**CSS-Wertfunktionen** sind Anweisungen, die spezielle Datenverarbeitung oder Berechnungen aufrufen, um einen [CSS](/de/docs/Web/CSS) [Wert](/de/docs/Web/CSS/CSS_Values_and_Units) für eine CSS-Eigenschaft zurückzugeben. CSS-Wertfunktionen repräsentieren komplexere [Datentypen](/de/docs/Web/CSS/CSS_Types) und können einige Eingabeargumente annehmen, um den Rückgabewert zu berechnen.
+**CSS-Wertfunktionen** sind Anweisungen, die spezielle Datenverarbeitung oder Berechnungen ausführen, um einen [CSS](/de/docs/Web/CSS) [Wert](/de/docs/Web/CSS/CSS_Values_and_Units) für eine CSS-Eigenschaft zurückzugeben. CSS-Wertfunktionen stehen für komplexere [Datentypen](/de/docs/Web/CSS/CSS_Types) und können einige Eingabeargumente verwenden, um den Rückgabewert zu berechnen.
 
 ## Syntax
 
@@ -17,18 +17,18 @@ selector {
 }
 ```
 
-Die Wertsyntax beginnt mit dem **Namen der Funktion**, gefolgt von einer öffnenden Klammer `(`. Danach folgen die Argumente, und die Funktion endet mit einer schließenden Klammer `)`.
+Die Wertsyntax beginnt mit dem **Namen der Funktion**, gefolgt von einer linken Klammer `(`. Danach folgen die Argument(e), und die Funktion wird mit einer schließenden Klammer `)` abgeschlossen.
 
-Funktionen können mehrere Argumente annehmen, die ähnlich zu CSS-Eigenschaftswerten formatiert sind. Leerzeichen sind erlaubt, aber innerhalb der Klammern optional. In einigen funktionalen Notationen werden mehrere Argumente durch Kommas getrennt, während andere Leerzeichen verwenden.
+Funktionen können mehrere Argumente haben, die ähnlich wie CSS-Eigenschaftswerte formatiert sind. Leerzeichen sind erlaubt, aber innerhalb der Klammern optional. In einigen funktionalen Notationen werden mehrere Argumente durch Kommas getrennt, während andere Leerzeichen verwenden.
 
 > [!NOTE]
-> Die CSS-Wertfunktionen werden als Eigenschaftswerte verwendet und sollten nicht mit Pseudoklassen verwechselt werden. Die [funktionalen Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes), [linguistischen Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#linguistic_pseudo-classes) und mehrere [baumstrukturierte Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes) erfordern Parameterwerte, aber sie sind keine Wertfunktionen. Die bedingten @-Regeln sind ebenfalls keine Wertfunktionen; die Klammern werden für Gruppierungen verwendet.
+> Die CSS-Wertfunktionen werden als Eigenschaftswerte verwendet und sollten nicht mit Pseudo-Klassen verwechselt werden. Die [funktionalen Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#functional_pseudo-classes), [sprachlichen Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#linguistic_pseudo-classes) und mehrere [baumstrukturelle Pseudo-Klassen](/de/docs/Web/CSS/Pseudo-classes#tree-structural_pseudo-classes) erfordern Parameterwerte, sind aber keine Wertfunktionen. Die konditionalen At-Regeln sind ebenfalls keine Wertfunktionen; die Klammern werden für Gruppierungen verwendet.
 
 ## Transformationsfunktionen
 
-Der {{CSSxRef("&lt;transform-function&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert das Aussehen der Transformation. Er wird als Wert der {{CSSxRef("transform")}}-Eigenschaft verwendet.
+Der {{CSSxRef("&lt;transform-function&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) stellt Erscheinungstransformationen dar. Er wird als Wert der {{CSSxRef("transform")}}-Eigenschaft verwendet.
 
-### Translate-Funktionen
+### Übersetzungsfunktionen
 
 - {{CSSxRef("transform-function/translateX", "translateX()")}}
   - : Verschiebt ein Element horizontal.
@@ -57,17 +57,17 @@ Der {{CSSxRef("&lt;transform-function&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CS
 ### Skalierungsfunktionen
 
 - {{CSSxRef("transform-function/scaleX", "scaleX()")}}
-  - : Skaliert ein Element horizontal nach oben oder unten.
+  - : Vergrößert oder verkleinert ein Element horizontal.
 - {{CSSxRef("transform-function/scaleY", "scaleY()")}}
-  - : Skaliert ein Element vertikal nach oben oder unten.
+  - : Vergrößert oder verkleinert ein Element vertikal.
 - {{CSSxRef("transform-function/scaleZ", "scaleZ()")}}
-  - : Skaliert ein Element entlang der Z-Achse nach oben oder unten.
+  - : Vergrößert oder verkleinert ein Element entlang der Z-Achse.
 - {{CSSxRef("transform-function/scale", "scale()")}}
-  - : Skaliert ein Element auf der 2D-Ebene nach oben oder unten.
+  - : Vergrößert oder verkleinert ein Element auf der 2D-Ebene.
 - {{CSSxRef("transform-function/scale3d", "scale3d()")}}
-  - : Skaliert ein Element im 3D-Raum nach oben oder unten.
+  - : Vergrößert oder verkleinert ein Element im 3D-Raum.
 
-### Schrägstellen-Funktionen
+### Schrägstellungsfunktionen
 
 - {{CSSxRef("transform-function/skewX", "skewX()")}}
   - : Schrägt ein Element in horizontaler Richtung.
@@ -81,23 +81,23 @@ Der {{CSSxRef("&lt;transform-function&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CS
 - {{CSSxRef("transform-function/matrix", "matrix()")}}
   - : Beschreibt eine homogene 2D-Transformationsmatrix.
 - {{CSSxRef("transform-function/matrix3d", "matrix3d()")}}
-  - : Beschreibt eine 3D-Transformation als 4×4-homogene Matrix.
+  - : Beschreibt eine 3D-Transformation als 4x4 homogene Matrix.
 
 ### Perspektivfunktionen
 
 - {{CSSxRef("transform-function/perspective", "perspective()")}}
-  - : Setzt die Entfernung zwischen dem Benutzer und der Z=0-Ebene fest.
+  - : Setzt den Abstand zwischen dem Benutzer und der Z=0-Ebene.
 
-## Mathematische Funktionen
+## Mathematikfunktionen
 
-Die mathematischen Funktionen ermöglichen es, CSS-Zahlenwerte als mathematische Ausdrücke zu schreiben.
+Die Mathematikfunktionen erlauben es, CSS-numerische Werte als mathematische Ausdrücke zu schreiben.
 
-Jede der unten aufgeführten Seiten enthält detaillierte Informationen über die Syntax einer mathematischen Funktion, Browser-Kompatibilitätsdaten, Beispiele und mehr. Für eine umfassende Einführung in CSS-Mathematikfunktionen siehe [Verwendung von CSS-Mathematikfunktionen](/de/docs/Web/CSS/CSS_Functions/Using_CSS_math_functions).
+Jede der folgenden Seiten enthält detaillierte Informationen zum Syntax einer Mathematikfunktion, Browser-Kompatibilitätsdaten, Beispiele und mehr. Für eine ganzheitliche Einführung in CSS-Mathematikfunktionen siehe [Verwendung von CSS-Mathematikfunktionen](/de/docs/Web/CSS/CSS_Functions/Using_CSS_math_functions).
 
-### Grundrechenarten
+### Grundlegende Arithmetik
 
 - {{CSSxRef("calc", "calc()")}}
-  - : Führt einfache arithmetische Berechnungen an numerischen Werten durch.
+  - : Führt grundlegende arithmetische Berechnungen mit numerischen Werten durch.
 
 ### Vergleichsfunktionen
 
@@ -106,23 +106,23 @@ Jede der unten aufgeführten Seiten enthält detaillierte Informationen über di
 - {{CSSxRef("max", "max()")}}
   - : Berechnet den größten Wert aus einer Liste von Werten.
 - {{CSSxRef("clamp", "clamp()")}}
-  - : Berechnet den zentralen Wert aus minimalen, zentralen und maximalen Werten.
+  - : Berechnet den zentralen Wert aus minimalem, zentralem und maximalem Wert.
 
-### Funktionen mit gestuften Werten
+### Funktionen für gestufte Werte
 
 - {{CSSxRef("round", "round()")}}
   - : Berechnet eine gerundete Zahl basierend auf einer Rundungsstrategie.
 - {{CSSxRef("mod", "mod()")}}
-  - : Berechnet einen Modul (mit demselben Vorzeichen wie der Divisor), wenn eine Zahl durch eine andere geteilt wird.
+  - : Berechnet einen Modulus (mit dem gleichen Vorzeichen wie der Divisor), wenn eine Zahl durch eine andere geteilt wird.
 - {{CSSxRef("rem", "rem()")}}
-  - : Berechnet einen Rest (mit demselben Vorzeichen wie der Dividend), wenn eine Zahl durch eine andere geteilt wird.
+  - : Berechnet einen Restbetrag (mit dem gleichen Vorzeichen wie der Dividend), wenn eine Zahl durch eine andere geteilt wird.
 
 ### Trigonometrische Funktionen
 
 - {{CSSxRef("sin", "sin()")}}
   - : Berechnet den trigonometrischen Sinus einer Zahl.
 - {{CSSxRef("cos", "cos()")}}
-  - : Berechnet den trigonometrischen Kosinus einer Zahl.
+  - : Berechnet den trigonometrischen Cosinus einer Zahl.
 - {{CSSxRef("tan", "tan()")}}
   - : Berechnet den trigonometrischen Tangens einer Zahl.
 - {{CSSxRef("asin", "asin()")}}
@@ -132,12 +132,12 @@ Jede der unten aufgeführten Seiten enthält detaillierte Informationen über di
 - {{CSSxRef("atan", "atan()")}}
   - : Berechnet den trigonometrischen Arkustangens einer Zahl.
 - {{CSSxRef("atan2", "atan2()")}}
-  - : Berechnet den trigonometrischen Arkustangens von zwei Zahlen in einer Ebene.
+  - : Berechnet den trigonometrischen Arkustangens zweier Zahlen in einer Ebene.
 
 ### Exponentialfunktionen
 
 - {{CSSxRef("pow", "pow()")}}
-  - : Berechnet die Basis potenziert mit einer Zahl.
+  - : Berechnet die Basis, erhöht um die Potenz einer Zahl.
 - {{CSSxRef("sqrt", "sqrt()")}}
   - : Berechnet die Quadratwurzel einer Zahl.
 - {{CSSxRef("hypot", "hypot()")}}
@@ -145,18 +145,18 @@ Jede der unten aufgeführten Seiten enthält detaillierte Informationen über di
 - {{CSSxRef("log", "log()")}}
   - : Berechnet den Logarithmus einer Zahl.
 - {{CSSxRef("exp", "exp()")}}
-  - : Berechnet `e` potenziert mit einer Zahl.
+  - : Berechnet `e` erhöht um die Potenz einer Zahl.
 
 ### Vorzeichenbezogene Funktionen
 
 - {{CSSxRef("abs", "abs()")}}
   - : Berechnet den absoluten Wert einer Zahl.
 - {{CSSxRef("sign", "sign()")}}
-  - : Bestimmt das Vorzeichen (positiv oder negativ) der Zahl.
+  - : Berechnet das Vorzeichen (positiv oder negativ) der Zahl.
 
 ## Filterfunktionen
 
-Der {{CSSxRef("&lt;filter-function&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert einen grafischen Effekt, der das Aussehen eines Eingabebildes ändern kann. Er wird in den {{CSSxRef("filter")}}- und {{CSSxRef("backdrop-filter")}}-Eigenschaften verwendet.
+Der {{CSSxRef("&lt;filter-function&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) stellt einen grafischen Effekt dar, der das Aussehen eines Eingabebildes verändern kann. Er wird in den {{CSSxRef("filter")}}- und {{CSSxRef("backdrop-filter")}}-Eigenschaften verwendet.
 
 - {{CSSxRef("filter-function/blur", "blur()")}}
   - : Erhöht die Gaußsche Unschärfe des Bildes.
@@ -165,74 +165,72 @@ Der {{CSSxRef("&lt;filter-function&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_T
 - {{CSSxRef("filter-function/contrast", "contrast()")}}
   - : Erhöht oder verringert den Kontrast des Bildes.
 - {{CSSxRef("filter-function/drop-shadow", "drop-shadow()")}}
-  - : Fügt einen Schlagschatten hinter ein Bild hinzu.
+  - : Wendet einen Schlagschatten hinter einem Bild an.
 - {{CSSxRef("filter-function/grayscale", "grayscale()")}}
-  - : Konvertiert ein Bild in Graustufen.
+  - : Wandelt ein Bild in Graustufen um.
 - {{CSSxRef("filter-function/hue-rotate", "hue-rotate()")}}
-  - : Ändert den Gesamteindruck der Färbung eines Bildes.
+  - : ändert den gesamten Farbton eines Bildes.
 - {{CSSxRef("filter-function/invert", "invert()")}}
   - : Kehrt die Farben eines Bildes um.
 - {{CSSxRef("filter-function/opacity", "opacity()")}}
   - : Fügt einem Bild Transparenz hinzu.
 - {{CSSxRef("filter-function/saturate", "saturate()")}}
-  - : Ändert die Gesamtsättigung eines Bildes.
+  - : Ändert die Gesamt-Sättigung eines Bildes.
 - {{CSSxRef("filter-function/sepia", "sepia()")}}
-  - : Erhöht den Sepia-Ton eines Bildes.
+  - : Erhöht die Sepia-Tönung eines Bildes.
 
-## Farb-Funktionen
+## Farbwertfunktionen
 
-Der {{CSSxRef("color_value","&lt;color&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) spezifiziert verschiedene Farbrepräsentationen.
+Der {{CSSxRef("color_value","&lt;color&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) spezifiziert verschiedene Farbdarstellungen.
 
 - {{CSSxRef("color_value/rgb", "rgb()")}}
-  - : Definiert eine bestimmte Farbe anhand ihrer Rot-, Grün-, Blau- und Alpha-(Transparenz-)Komponenten.
+  - : Definiert eine bestimmte Farbe gemäß ihren rot-, grün-, blau- und alpha-Komponenten (Transparenz).
 - {{CSSxRef("color_value/hsl", "hsl()")}}
-  - : Definiert eine bestimmte Farbe anhand ihrer Farbton-, Sättigungs-, Helligkeits- und Alpha-(Transparenz-)Komponenten.
+  - : Definiert eine bestimmte Farbe gemäß ihren Farbton-, Sättigungs-, Helligkeits- und alpha-Komponenten (Transparenz).
 - {{CSSxRef("color_value/hwb", "hwb()")}}
-  - : Definiert eine bestimmte Farbe anhand ihrer Farbton-, Weißheits- und Schwarzheits-Komponenten.
+  - : Definiert eine bestimmte Farbe gemäß ihrem Farbton-, Weißanteil und Schwarzanteil.
 - {{CSSxRef("color_value/lch", "lch()")}}
-  - : Definiert eine bestimmte Farbe anhand ihrer Helligkeits-, Chroma- und Farbton-Komponenten.
+  - : Definiert eine bestimmte Farbe gemäß ihrer Helligkeit, Chroma und Farbton.
 - {{CSSxRef("color_value/oklch", "oklch()")}}
-  - : Definiert eine bestimmte Farbe anhand ihrer Helligkeits-, Chroma-, Farbton- und Alpha-(Transparenz-)Komponenten.
+  - : Definiert eine bestimmte Farbe gemäß ihrer Helligkeit, Chroma, Farbton und alpha-Komponente (Transparenz).
 - {{CSSxRef("color_value/lab", "lab()")}}
-  - : Definiert eine bestimmte Farbe anhand ihrer Helligkeit, a-Achse Abstand und b-Achse Abstand im Lab-Farbraum.
+  - : Definiert eine bestimmte Farbe gemäß ihrer Helligkeit, a-Achsen-Abstand und b-Achsen-Abstand im Lab-Farbraum.
 - {{CSSxRef("color_value/oklab", "oklab()")}}
-  - : Definiert eine bestimmte Farbe anhand ihrer Helligkeit, a-Achse Abstand, b-Achse Abstand im Lab-Farbraum und Alpha-(Transparenz).
+  - : Definiert eine bestimmte Farbe gemäß ihrer Helligkeit, a-Achsen-Abstand, b-Achsen-Abstand im Lab-Farbraum und alpha-Komponente (Transparenz).
 - {{CSSxRef("color_value/color", "color()")}}
-  - : Gibt einen bestimmten, angegebenen Farbraum an, anstatt des impliziten sRGB-Farbraums.
+  - : Spezifiziert einen bestimmten, angegebenen Farbraum anstelle des impliziten sRGB-Farbraums.
 - {{CSSxRef("color_value/color-mix", "color-mix()")}}
-  - : Mischt zwei Farbwerte in einem bestimmten Farbraum in einem bestimmten Verhältnis.
-- {{CSSxRef("color_value/color-contrast", "color-contrast()")}}
-  - : Wählt den höchsten Farbkontrast aus einer Liste von Farben, verglichen mit einem Basis-Farbwert.
+  - : Mischt zwei Farbwerte in einem bestimmten Farbraum mit einer bestimmten Menge.
 - {{CSSxRef("color_value/device-cmyk", "device-cmyk()")}}
-  - : Definiert CMYK-Farben geräteabhängig.
+  - : Definiert CMYK-Farben in einer geräteabhängigen Weise.
 - {{CSSXref("color_value/light-dark", "light-dark()")}}
-  - : Gibt eine von zwei bereitgestellten Farben basierend auf dem aktuellen Farbschema zurück.
+  - : Gibt eine der beiden bereitgestellten Farben basierend auf dem aktuellen Farbschema zurück.
 
-## Bild-Funktionen
+## Bildfunktionen
 
 Der {{CSSxRef("&lt;image&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) bietet eine grafische Darstellung von Bildern oder Verläufen.
 
 ### Verlaufsfunktionen
 
 - {{CSSxRef("gradient/linear-gradient","linear-gradient()")}}
-  - : Lineare Verläufe verändern Farben schrittweise entlang einer imaginären Linie.
+  - : Lineare Verläufe ändern die Farben allmählich entlang einer imaginären Linie.
 - {{CSSxRef("gradient/radial-gradient","radial-gradient()")}}
-  - : Radiale Verläufe verändern Farben schrittweise von einem Mittelpunkt (Ursprung) aus.
+  - : Radiale Verläufe ändern die Farben allmählich von einem Mittelpunkt (Ursprung) aus.
 - {{CSSxRef("gradient/conic-gradient", "conic-gradient()")}}
-  - : Kegelförmige Verläufe verändern Farben schrittweise um einen Kreis.
+  - : Kegelverläufe ändern die Farben allmählich um einen Kreis.
 - {{CSSxRef("gradient/repeating-linear-gradient","repeating-linear-gradient()")}}
-  - : Ähnlich wie `linear-gradient()`, nimmt dieselben Argumente, wiederholt jedoch die Farb-Anhaltepunkte unendlich in alle Richtungen, um den gesamten Container abzudecken.
+  - : Ist ähnlich wie `linear-gradient()` und nimmt die gleichen Argumente an, aber es wiederholt die Farbstopps unendlich in alle Richtungen, um seinen gesamten Container abzudecken.
 - {{CSSxRef("gradient/repeating-radial-gradient","repeating-radial-gradient()")}}
-  - : Ähnlich wie `radial-gradient()`, nimmt dieselben Argumente, wiederholt jedoch die Farb-Anhaltepunkte unendlich in alle Richtungen, um den gesamten Container abzudecken.
+  - : Ist ähnlich wie `radial-gradient()` und nimmt die gleichen Argumente an, aber es wiederholt die Farbstopps unendlich in alle Richtungen, um seinen gesamten Container abzudecken.
 - {{CSSxRef("gradient/repeating-conic-gradient","repeating-conic-gradient()")}}
-  - : Ähnlich wie `conic-gradient()`, nimmt dieselben Argumente, wiederholt jedoch die Farb-Anhaltepunkte unendlich in alle Richtungen, um den gesamten Container abzudecken.
+  - : Ist ähnlich wie `conic-gradient()` und nimmt die gleichen Argumente an, aber es wiederholt die Farbstopps unendlich in alle Richtungen, um seinen gesamten Container abzudecken.
 
 ### Bildfunktionen
 
 - {{CSSxRef("image/image","image()")}}
-  - : Definiert ein {{CSSxRef("&lt;image&gt;")}} ähnlich dem {{cssxref("url_value", "&lt;url&gt;")}}-Typ, jedoch mit zusätzlichen Funktionen wie der Angabe der Bilddirektionalität und Fallback-Bildern, wenn das bevorzugte Bild nicht unterstützt wird.
+  - : Definiert ein {{CSSxRef("&lt;image&gt;")}} auf ähnliche Weise wie der {{cssxref("url_value", "&lt;url&gt;")}}-Typ, jedoch mit zusätzlicher Funktionalität, einschließlich Angabe der Richtungsabhängigkeit des Bildes und Fallback-Bilder für den Fall, dass das bevorzugte Bild nicht unterstützt wird.
 - {{CSSxRef("image/image-set","image-set()")}}
-  - : Wählt das am besten geeignete CSS-Bild aus einem gegebenen Satz aus, vor allem für Bildschirme mit hoher Pixeldichte.
+  - : Wählt das geeignetste CSS-Bild aus einem gegebenen Satz aus, hauptsächlich für Bildschirme mit hoher Pixeldichte.
 - {{CSSxRef("cross-fade", "cross-fade()")}}
   - : Vermischt zwei oder mehr Bilder mit einer definierten Transparenz.
 - {{CSSxRef("element", "element()")}}
@@ -240,109 +238,109 @@ Der {{CSSxRef("&lt;image&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) biet
 - {{CSSxRef("image/paint", "paint()")}}
   - : Definiert einen {{CSSxRef("&lt;image&gt;")}}-Wert, der mit einem PaintWorklet generiert wird.
 
-## Counter-Funktionen
+## Zählerfunktionen
 
-CSS-Counter-Funktionen werden in der Regel mit der {{CSSxRef("content")}}-Eigenschaft verwendet, obwohl sie theoretisch überall verwendet werden können, wo ein {{CSSxRef("&lt;string&gt;")}} unterstützt wird.
+CSS-Zählerfunktionen werden normalerweise mit der {{CSSxRef("content")}}-Eigenschaft verwendet, obwohl sie theoretisch überall dort verwendet werden können, wo ein {{CSSxRef("&lt;string&gt;")}} unterstützt wird.
 
 - {{CSSxRef("counter", "counter()")}}
-  - : Gibt eine Zeichenkette zurück, die den aktuellen Wert des genannten Zählers darstellt, falls vorhanden.
+  - : Gibt eine Zeichenkette zurück, die den aktuellen Wert des benannten Zählers darstellt, falls vorhanden.
 - {{CSSxRef("counters", "counters()")}}
-  - : Ermöglicht verschachtelte Zähler und gibt eine verkettete Zeichenkette zurück, die die aktuellen Werte der genannten Zähler darstellt, falls vorhanden.
+  - : Ermöglicht verschachtelte Zähler, wobei eine verkettete Zeichenkette zurückgegeben wird, die die aktuellen Werte der benannten Zähler darstellt, falls vorhanden.
 - {{CSSxRef("symbols", "symbols()")}}
-  - : Definiert die Zählerstile inline als Wert einer Eigenschaft.
+  - : Definiert die Zählerstile direkt als Wert einer Eigenschaft.
 
-## Formfunktionen
+## Shapefunktionen
 
-Der {{CSSxRef("&lt;basic-shape&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) repräsentiert eine grafische Form. Er wird in den {{CSSxRef("clip-path")}}, {{CSSxRef("offset-path")}} und {{CSSxRef("shape-outside")}}-Eigenschaften verwendet.
+Der {{CSSxRef("&lt;basic-shape&gt;")}} CSS-[Datentyp](/de/docs/Web/CSS/CSS_Types) stellt eine grafische Form dar. Er wird in den {{CSSxRef("clip-path")}}, {{CSSxRef("offset-path")}}, und {{CSSxRef("shape-outside")}} Eigenschaften verwendet.
 
 - {{CSSxRef("basic-shape/circle","circle()")}}
   - : Definiert eine Kreisform.
 - {{CSSxRef("basic-shape/ellipse","ellipse()")}}
   - : Definiert eine Ellipsenform.
 - {{CSSxRef("basic-shape/inset","inset()")}}
-  - : Definiert eine eingesetzte Rechteckform.
+  - : Definiert eine eingezogene rechteckige Form.
 - {{CSSxRef("basic-shape/rect","rect()")}}
-  - : Definiert eine Rechteckform unter Verwendung der Abstände von den oberen und linken Kanten des Referenzrahmens.
+  - : Definiert eine rechteckige Form unter Verwendung der Abstände von den oberen und linken Kanten des Bezugsrahmens.
 - {{CSSxRef("basic-shape/xywh","xywh()")}}
-  - : Definiert eine Rechteckform unter Verwendung der angegebenen Abstände von den oberen und linken Kanten des Referenzrahmens und der Rechteckbreite und -höhe.
+  - : Definiert eine rechteckige Form unter Verwendung der angegebenen Abstände von den oberen und linken Kanten des Bezugsrahmens sowie der Breite und Höhe des Rechtecks.
 - {{CSSxRef("basic-shape/polygon","polygon()")}}
   - : Definiert eine Polygonform.
 - {{CSSxRef("basic-shape/path", "path()")}}
-  - : Akzeptiert eine SVG-Pfad-Zeichenkette, um das Zeichnen einer Form zu ermöglichen.
+  - : Akzeptiert eine SVG-Pfadspezifikation, um eine Form zu zeichnen.
 - {{CSSxRef("basic-shape/shape", "shape()")}}
-  - : Akzeptiert eine durch Kommas getrennte Liste von Befehlen, die die zu zeichnende Form definieren.
+  - : Akzeptiert eine durch Kommas getrennte Liste von Befehlen zur Definition der zu zeichnenden Form.
 
 ## Referenzfunktionen
 
-Die folgenden Funktionen werden als Wert von Eigenschaften verwendet, um einen an anderer Stelle definierten Wert zu referenzieren:
+Die folgenden Funktionen werden als Wert von Eigenschaften verwendet, um auf einen anderswo definierten Wert zu verweisen:
 
 - {{CSSxRef("attr", "attr()")}}
-  - : Verwendet die in einem HTML-Element definierten Attribute.
+  - : Verwendet die auf dem HTML-Element definierten Attribute.
 - {{CSSxRef("env", "env()")}}
-  - : Verwendet die vom Benutzer-Agenten definierte Umgebungsvariable.
+  - : Verwendet die vom Benutzeragenten definiert als Umgebungsvariable.
 - {{cssxref("url_value", "&lt;url&gt;")}}
   - : Verwendet eine Datei von der angegebenen URL.
 - {{CSSxRef("var", "var()")}}
-  - : Verwendet den benutzerdefinierten Eigenschaftswert anstelle eines beliebigen Teils eines anderen Eigenschaftswerts.
+  - : Verwendet den benutzerdefinierten Eigenschaftswert anstelle eines Teils eines Werts einer anderen Eigenschaft.
 
 ## Rasterfunktionen
 
 Die folgenden Funktionen werden zur Definition eines [CSS-Rasters](/de/docs/Web/CSS/CSS_grid_layout) verwendet:
 
 - {{CSSxRef("fit-content_function", "fit-content()")}}
-  - : Begrenzung einer gegebenen Größe auf eine verfügbare Größe gemäß der Formel `min(maximale Größe, max(minimale Größe, Argument))`.
+  - : Klemmt eine gegebene Größe auf eine verfügbare Größe gemäß der Formel `min(maximale Größe, max(minimale Größe, Argument))`.
 - {{CSSxRef("minmax", "minmax()")}}
-  - : Definiert einen Größenbereich, der größer oder gleich _min_ und kleiner oder gleich _max_ ist.
+  - : Definiert einen Größenbereich, der größer als oder gleich _min_ und kleiner als oder gleich _max_ ist.
 - {{CSSxRef("repeat", "repeat()")}}
-  - : Stellt ein wiederholtes Fragment der Track-Liste dar, sodass viele Spalten oder Zeilen, die ein wiederkehrendes Muster aufweisen, verwendet werden können.
+  - : Stellt ein wiederholtes Fragment der Spurauflistung dar, das eine große Anzahl von Spalten oder Zeilen ermöglicht, die ein wiederkehrendes Muster aufweisen.
 
-## Schrift-Funktionen
+## Schriftartenfunktionen
 
-CSS-Schriftfunktionen werden mit der {{CSSxRef("font-variant-alternates")}}-Eigenschaft verwendet, um die Verwendung alternativer Glyphen zu steuern.
+CSS-Schriftartenfunktionen werden mit der {{CSSxRef("font-variant-alternates")}}-Eigenschaft verwendet, um die Verwendung von alternativen Glyphen zu steuern.
 
 - {{CSSxRef("font-variant-alternates#stylistic", "stylistic()")}}
-  - : Aktiviert stilistische Alternativen für einzelne Zeichen. Der Parameter ist ein schriftenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `salt`, wie `salt 2`.
+  - : Ermöglicht stilistische Alternativen für einzelne Zeichen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `salt`, wie `salt 2`.
 - {{CSSxRef("font-variant-alternates#styleset", "styleset()")}}
-  - : Aktiviert stilistische Alternativen für Zeichensätze. Der Parameter ist ein schriftenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `ssXY`, wie `ss02`.
+  - : Ermöglicht stilistische Alternativen für Zeichensätze. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `ssXY`, wie `ss02`.
 - {{CSSxRef("font-variant-alternates#character-variant", "character-variant()")}}
-  - : Aktiviert spezifische stilistische Alternativen für Zeichen. Es ist ähnlich wie `styleset()`, generiert jedoch keine kohärenten Glyphen für einen Zeichensatz; einzelne Zeichen werden unabhängige und nicht notwendigerweise kohärente Stile haben. Der Parameter ist ein schriftenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `cvXY`, wie `cv02`.
+  - : Ermöglicht spezifische stilistische Alternativen für Zeichen. Es ist ähnlich wie `styleset()`, erstellt jedoch keine kohärenten Glyphen für einen Satz von Zeichen; einzelne Zeichen werden unabhängige und nicht unbedingt kohärente Stile haben. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `cvXY`, wie `cv02`.
 - {{CSSxRef("font-variant-alternates#swash", "swash()")}}
-  - : Aktiviert [Swash](https://en.wikipedia.org/wiki/Swash_%28typography%29)-Glyphen. Der Parameter ist ein schriftenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht den OpenType-Werten `swsh` und `cswh`, wie `swsh 2` und `cswh 2`.
+  - : Ermöglicht [Swash](https://en.wikipedia.org/wiki/Swash_%28typography%29)-Glyphen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht den OpenType-Werten `swsh` und `cswh`, wie `swsh 2` und `cswh 2`.
 - {{CSSxRef("font-variant-alternates#ornaments", "ornaments()")}}
-  - : Aktiviert Ornamente wie [Fleurons](https://en.wikipedia.org/wiki/Fleuron_%28typography%29) und andere Zierleisten-Glyphen. Der Parameter ist ein schriftenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `ornm`, wie `ornm 2`.
+  - : Ermöglicht Verzierungen wie [Fleurons](https://en.wikipedia.org/wiki/Fleuron_%28typography%29) und andere Dingbat-Glyphen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `ornm`, wie `ornm 2`.
 - {{CSSxRef("font-variant-alternates#annotation", "annotation()")}}
-  - : Aktiviert Annotationen wie eingerahmte Ziffern oder invertierte Zeichen. Der Parameter ist ein schriftenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `nalt`, wie `nalt 2`.
+  - : Ermöglicht Annotationen wie umkreiste Ziffern oder umgekehrte Zeichen. Der Parameter ist ein schriftartenspezifischer Name, der einer Zahl zugeordnet ist. Er entspricht dem OpenType-Wert `nalt`, wie `nalt 2`.
 
-## Easing-Funktionen
+## Timing-Funktionen
 
 Die folgenden Funktionen werden als Wert in Übergangs- und Animationseigenschaften verwendet:
 
 - {{cssxref("easing-function/linear", "linear()")}}
-  - : Easing-Funktion, die linear zwischen ihren Punkten interpoliert.
+  - : Timing-Funktion, die linear zwischen ihren Punkten interpoliert.
 - {{cssxref("easing-function/cubic-bezier", "cubic-bezier()")}}
-  - : Easing-Funktion, die eine kubische Bézier-Kurve definiert.
+  - : Timing-Funktion, die eine kubische Bézierkurve definiert.
 - {{cssxref("easing-function/steps", "steps()")}}
-  - : Iteration entlang einer bestimmten Anzahl von Haltepunkten entlang des Übergangs, wobei jeder Halt für gleiche Zeitdauern angezeigt wird.
+  - : Iteration über eine angegebene Anzahl von Haltepunkten entlang des Übergangs, wobei jeder Haltepunkt für gleiche Zeitintervalle angezeigt wird.
 
 ## Animationsfunktionen
 
-Die folgenden Funktionen werden als Wert verschiedener {{CSSxRef("animation-timeline")}}-Eigenschaften verwendet:
+Die folgenden Funktionen werden als Wert von unterschiedlichen {{CSSxRef("animation-timeline")}}-Eigenschaften verwendet:
 
 - {{cssxref("animation-timeline/scroll", "scroll()")}}
-  - : Setzt die {{cssxref("animation-timeline")}} eines Elements auf eine _anonyme Scroll-Fortschrittszeitachse_.
+  - : Setzt die {{cssxref("animation-timeline")}} eines Elements auf eine _anonyme Scroll-Fortschritts-Timeline_.
 - {{cssxref("animation-timeline/view", "view()")}}
-  - : Setzt die {{cssxref("animation-timeline")}} eines Elements auf eine _anonyme Ansichts-Fortschrittszeitachse_.
+  - : Setzt die {{cssxref("animation-timeline")}} eines Elements auf eine _anonyme Ansichts-Fortschritts-Timeline_.
 
-## Ankerpositionierungsfunktionen
+## Anker-Positionierungsfunktionen
 
-Die Ankerpositionierungsfunktionen werden verwendet, wenn Anker-positionierte Elemente relativ zur Position und Größe ihrer verbundenen Ankerelemente positioniert und dimensioniert werden.
+Die Anker-Positionierungsfunktionen werden zum Positionieren und Größenanpassen von anker-positionierten Elementen relativ zu Position und Größe ihrer zugehörigen Ankerelemente verwendet.
 
 - {{cssxref("anchor", "anchor()")}}
-  - : Gibt eine Länge relativ zur Position der Kanten eines Anker-positionierten Elements des verbundenen Ankerelements zurück.
+  - : Gibt eine Länge relativ zur Position der Kanten eines anker-positionierten Elements des zugehörigen Ankerelements zurück.
 - {{cssxref("anchor-size", "anchor-size()")}}
-  - : Gibt eine Länge relativ zur Größe des verbundenen Ankerelements zurück.
+  - : Gibt eine Länge relativ zur Größe des zugehörigen Ankerelements zurück.
 
 ## Siehe auch
 
-- [CSS-Werte und Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
+- [CSS-Werte und -Einheiten](/de/docs/Web/CSS/CSS_Values_and_Units)
 - [Einführung in CSS: Werte und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units)
