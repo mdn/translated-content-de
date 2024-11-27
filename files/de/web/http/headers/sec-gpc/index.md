@@ -2,24 +2,24 @@
 title: Sec-GPC
 slug: Web/HTTP/Headers/Sec-GPC
 l10n:
-  sourceCommit: 6c32e8b21a39b1b8d3db7a194d2350e0f8218b64
+  sourceCommit: c1fd7dc9410c14ec9e00b3ec35b7b94d43296389
 ---
 
-{{HTTPSidebar}}{{SeeCompatTable}}{{non-standard_header}}
+{{HTTPSidebar}}{{SeeCompatTable}}
 
-Der HTTP **`Sec-GPC`** {{Glossary("request_header", "Anforderungs-Header")}} ist Teil des [Global Privacy Control](https://globalprivacycontrol.org/) (GPC)-Mechanismus, um anzugeben, ob der Benutzer einer Website oder einem Dienst zustimmt, seine persönlichen Informationen an Dritte zu verkaufen oder weiterzugeben.
+Der HTTP **`Sec-GPC`** {{Glossary("request_header", "Anforderungsheader")}} ist Teil des [Global Privacy Control](https://globalprivacycontrol.org/) (GPC) Mechanismus, um anzuzeigen, ob der Benutzer einwilligt, dass eine Website oder ein Dienst seine persönlichen Informationen an Dritte verkauft oder teilt.
 
-Die Spezifikation definiert nicht, wie der Benutzer die Zustimmung zu einer Website widerrufen oder erteilen kann.
+Die Spezifikation definiert nicht, wie der Benutzer die Einwilligung für eine Website widerrufen oder erteilen kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
+      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>Ja (<code>Sec-</code>-Präfix)</td>
+      <td>Ja (<code>Sec-</code> Präfix)</td>
     </tr>
   </tbody>
 </table>
@@ -33,13 +33,13 @@ Sec-GPC: <preference>
 ## Direktiven
 
 - `<preference>`
-  - : Ein Wert von `1` bedeutet, dass der Benutzer angegeben hat, dass er es bevorzugt, seine Informationen nicht mit Dritten zu teilen oder an Dritte zu verkaufen. Andernfalls wird der Header nicht gesendet, was darauf hinweist, dass der Benutzer entweder keine Entscheidung getroffen hat oder damit einverstanden ist, dass seine Informationen mit Dritten geteilt oder an diese verkauft werden.
+  - : Ein Wert von `1` bedeutet, dass der Benutzer angegeben hat, dass er es bevorzugt, dass seine Informationen nicht mit Dritten geteilt oder an sie verkauft werden. Andernfalls wird der Header nicht gesendet, was anzeigt, dass entweder der Benutzer keine Entscheidung getroffen hat oder der Benutzer damit einverstanden ist, dass seine Informationen mit Dritten geteilt oder an sie verkauft werden.
 
 ## Beispiele
 
-### Lesen des Global Privacy Control-Status von JavaScript
+### Lesen des Global Privacy Control-Status aus JavaScript
 
-Die GPC-Präferenz des Benutzers kann auch aus JavaScript über die Eigenschaft [`Navigator.globalPrivacyControl`](/de/docs/Web/API/Navigator/globalPrivacyControl) oder [`WorkerNavigator.globalPrivacyControl`](/de/docs/Web/API/WorkerNavigator/globalPrivacyControl) gelesen werden:
+Die GPC-Präferenz des Benutzers kann auch aus JavaScript mithilfe der [`Navigator.globalPrivacyControl`](/de/docs/Web/API/Navigator/globalPrivacyControl) oder [`WorkerNavigator.globalPrivacyControl`](/de/docs/Web/API/WorkerNavigator/globalPrivacyControl) Eigenschaft gelesen werden:
 
 ```js
 navigator.globalPrivacyControl; // "false" or "true"

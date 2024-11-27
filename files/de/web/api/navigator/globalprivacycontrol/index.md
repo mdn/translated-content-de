@@ -1,21 +1,21 @@
 ---
-title: "Navigator: globalPrivacyControl-Eigenschaft"
+title: "Navigator: globalPrivacyControl Eigenschaft"
 short-title: globalPrivacyControl
 slug: Web/API/Navigator/globalPrivacyControl
 l10n:
-  sourceCommit: ec4de01e84cb892379c9130d6fbff1e2abc4f486
+  sourceCommit: c1fd7dc9410c14ec9e00b3ec35b7b94d43296389
 ---
 
-{{APIRef("DOM")}}{{SeeCompatTable}}{{non-standard_header}}
+{{APIRef("DOM")}}{{SeeCompatTable}}
 
-Die schreibgeschützte Eigenschaft **`Navigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Benutzer dem Verkauf oder der Weitergabe seiner persönlichen Informationen an Dritte durch die Website oder den Dienst zustimmt.
+Die schreibgeschützte Eigenschaft **`Navigator.globalPrivacyControl`** gibt die [Global Privacy Control](https://globalprivacycontrol.org/)-Einstellung des Benutzers für die aktuelle Website zurück. Diese Einstellung zeigt an, ob der Benutzer der Website oder dem Dienst das Verkaufen oder Teilen ihrer persönlichen Informationen mit Dritten gestattet.
 
-Der Wert der Eigenschaft spiegelt den des {{httpheader("Sec-GPC")}} HTTP-Headers wider.
+Der Wert der Eigenschaft entspricht dem des {{httpheader("Sec-GPC")}} HTTP-Headers.
 
 ## Wert
 
-`true`, wenn der Benutzer ausdrücklich _keine_ Zustimmung zum Verkauf oder zur Weitergabe seiner Daten gibt.
-`false`, wenn der Benutzer entweder die Zustimmung erteilt oder keine Präferenz angegeben hat.
+`true`, wenn der Benutzer ausdrücklich _keine_ Zustimmung zum Verkaufen oder Teilen seiner Daten gibt.
+`false`, wenn der Benutzer entweder Zustimmung erteilt oder keine Präferenz angegeben hat.
 
 ## Beispiel
 

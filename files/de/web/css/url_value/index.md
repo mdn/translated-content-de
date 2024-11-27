@@ -1,18 +1,18 @@
 ---
-title: <url>
+title: "`<url>`"
 slug: Web/CSS/url_value
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: 6fbfac8960ba76c1dc5aea34d35a5c11f8487ba7
 ---
 
 {{CSSRef}}
 
-Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist ein Zeiger auf eine Ressource. Die Ressource könnte ein Bild, ein Video, eine CSS-Datei, eine Schriftdatei, ein SVG-Feature usw. sein.
+Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) ist ein Verweis auf eine Ressource. Die Ressource könnte ein Bild, ein Video, eine CSS-Datei, eine Schriftartdatei, ein SVG-Feature usw. sein.
 
 ## Syntax
 
 ```plain
-<url> = <url()> | <src()>
+<url> = <url()>
 ```
 
 ### Werte
@@ -20,9 +20,10 @@ Der **`<url>`** [CSS](/de/docs/Web/CSS) [Datentyp](/de/docs/Web/CSS/CSS_Types) i
 Der Wert ist einer der folgenden:
 
 - [`<url()>`](/de/docs/Web/CSS/url_function)
-  - : Die `url()`-Funktion akzeptiert nur einen URL-Literal-String (mit oder ohne Anführungszeichen).
-- `<src()>`
-  - : Diese Funktion kann einen URL-String oder eine [CSS-Variable](/de/docs/Web/CSS/var) akzeptieren.
+  - : Die `url()`-Funktion akzeptiert nur eine URL-Literalzeichenkette (mit oder ohne Anführungszeichen).
+
+> [!NOTE]
+> Die Spezifikation definiert eine alternative Funktion namens `src()`, die eine URL-Zeichenkette oder eine [CSS-Variable](/de/docs/Web/CSS/var) akzeptiert. Aber kein Webbrowser hat die Funktion bisher implementiert.
 
 ## Spezifikationen
 
