@@ -2,21 +2,22 @@
 title: autocorrect
 slug: Web/HTML/Global_attributes/autocorrect
 l10n:
-  sourceCommit: 9c88e407007af38ad6a5ec345ee399769904b02c
+  sourceCommit: 6b278eb98d94ec8d85f03f77aef7c5d08edcd88f
 ---
 
 {{HTMLSidebar("Global_attributes")}}{{SeeCompatTable}}
 
-Das **`autocorrect`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das steuert, ob bearbeitbarer Text automatisch auf Rechtschreib- und/oder Interpunktionsfehler korrigiert wird.
+Das **`autocorrect`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das steuert, ob die automatische Korrektur von bearbeitbarem Text für Rechtschreib- und/oder Satzzeichenfehler aktiviert ist.
 
-Die Autokorrektur ist für bearbeitbare Textelemente relevant:
+Das spezifische Verhalten der Autokorrektur, einschließlich der zu ersetzenden Wörter, hängt vom Benutzeragenten und den Diensten des zugrunde liegenden Geräts ab. Beispielsweise könnte ein Benutzeragent auf macOS auf [registrierte Ersetzungstexte und Satzzeichen](https://support.apple.com/en-vn/guide/mac-help/mh35735/mac) zurückgreifen. Andere Geräte und Browser können einen anderen Ansatz verwenden.
 
-- {{htmlelement("input")}}-Elemente, mit Ausnahme von [`password`](/de/docs/Web/HTML/Element/input/password), [`email`](/de/docs/Web/HTML/Element/input/email) und [`url`](/de/docs/Web/HTML/Element/input/url), die keine Autokorrektur unterstützen.
+Die Autokorrektur ist relevant für bearbeitbare Textelemente:
+
+- {{htmlelement("input")}}-Elemente, außer [`password`](/de/docs/Web/HTML/Element/input/password), [`email`](/de/docs/Web/HTML/Element/input/email) und [`url`](/de/docs/Web/HTML/Element/input/url), die keine Autokorrektur unterstützen.
 - {{htmlelement("textarea")}}-Elemente.
-- Jegliches Element, das das [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-Attribut gesetzt hat.
+- Jedes Element, das das Attribut [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) gesetzt hat.
 
-Bearbeitbare Elemente haben standardmäßig die Autokorrektur aktiviert, außer innerhalb eines {{htmlelement("form")}}-Elements, wo der Standardwert möglicherweise vom Formular vererbt wird.
-Durch explizites Setzen des Attributs wird der Standardwert überschrieben.
+Bearbeitbare Elemente haben standardmäßig die Autokorrektur aktiviert, außer innerhalb eines {{htmlelement("form")}}-Elements, wo der Standardwert möglicherweise vom Formular geerbt wird. Durch explizites Setzen des Attributs wird der Standard überschrieben.
 
 ## Wert
 
@@ -24,18 +25,17 @@ Mögliche Werte sind:
 
 - `on` oder `""` (der leere String)
 
-  - : Aktivieren der automatischen Korrektur von Rechtschreib- und Interpunktionsfehlern.
+  - : Automatische Korrektur von Rechtschreib- und Satzzeichenfehlern aktivieren.
 
 - `off`
 
-  - : Deaktivieren der automatischen Korrektur von bearbeitbarem Text.
+  - : Automatische Korrektur von bearbeitbarem Text deaktivieren.
 
-Die {{htmlelement("input")}}-Elementtypen, die die Autokorrektur nicht unterstützen, haben immer den `off`-Zustand: [`password`](/de/docs/Web/HTML/Element/input/password), [`email`](/de/docs/Web/HTML/Element/input/email) und [`url`](/de/docs/Web/HTML/Element/input/url).
+Die {{htmlelement("input")}}-Elementtypen, die keine Autokorrektur unterstützen, haben immer den `off`-Status: [`password`](/de/docs/Web/HTML/Element/input/password), [`email`](/de/docs/Web/HTML/Element/input/email) und [`url`](/de/docs/Web/HTML/Element/input/url).
 
-Bei allen anderen bearbeitbaren Elementen wird durch Setzen eines anderen Wertes als der oben aufgeführten immer als `on` behandelt.
-Der Standardwert für Elemente, die nicht in einem `<form>` verschachtelt sind, ist `on`.
+Für alle anderen bearbeitbaren Elemente wird jede andere als die oben aufgeführten Werte immer als `on` behandelt. Der Standardwert für Elemente, die nicht innerhalb eines `<form>` verschachtelt sind, ist `on`.
 
-Wenn sie in einem `<form>` verschachtelt sind, erben die folgenden Elemente ihren Standardwert für `autocorrect` vom Formular, wenn es gesetzt wurde: {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("output")}}, {{htmlelement("select")}}, und {{htmlelement("textarea")}}.
+Wenn sie in einem `<form>` verschachtelt sind, erben die folgenden Elemente den Standardwert von `autocorrect` vom Formular, wenn dieser gesetzt wurde: {{htmlelement("button")}}, {{htmlelement("fieldset")}}, {{htmlelement("input")}}, {{htmlelement("output")}}, {{htmlelement("select")}} und {{htmlelement("textarea")}}.
 
 ## Beispiele
 
@@ -59,8 +59,7 @@ Wir fügen zwei Text-`<input>`-Elemente mit unterschiedlichen Werten für ihre `
 
 {{EmbedLiveSample("Basic example", "100%", "75")}}
 
-Geben Sie ungültigen Text in die oben stehenden Felder für Frucht- und Gemüse-Text ein.
-Wenn die Autokorrektur in Ihrem Browser aktiviert ist, sollte ein Tippfehler in einem Gemüsenamen automatisch korrigiert werden, nicht jedoch in einem Fruchtnamen.
+Geben Sie ungültigen Text in die Textfelder für Früchte und Gemüse oben ein. Wenn die Autokorrektur in Ihrem Browser unterstützt wird und es eine passende Ersetzung durch das zugrunde liegende Gerät gibt, sollte ein Tippfehler im Gemüsenamen-Eingabefeld automatisch korrigiert werden. Tippfehler sollten im Fruchtnamenfeld nicht korrigiert werden.
 
 ### Aktivieren und Deaktivieren der Autokorrektur
 
@@ -68,10 +67,9 @@ Dieses Beispiel zeigt, wie Sie die Autokorrektur mit dem `autocorrect`-Attribut 
 
 #### HTML
 
-Das HTML-Markup definiert einen {{htmlelement("button")}}, ein "name"-{{htmlelement("input")}}-Element vom [`type="text"`](/de/docs/Web/HTML/Element/input/text), ein "bio"-{{htmlelement("textarea")}}-Element und zwei {{htmlelement("label")}}-Elemente.
+Das HTML-Markup definiert einen {{htmlelement("button")}}, ein "name" {{htmlelement("input")}}-Element vom [`type="text"`](/de/docs/Web/HTML/Element/input/text), ein "bio" {{htmlelement("textarea")}}-Element und zwei {{htmlelement("label")}}-Elemente.
 
-Das "username"-Element hat `autocorrect="off"` gesetzt, da die Autokorrektur eines Namens nervig wäre!
-Die Bio gibt keinen Wert für `autocorrect` an, was bedeutet, dass es aktiviert ist (wir hätten jeden Wert außer `off` setzen können).
+Das "username"-Element hat `autocorrect="off"` gesetzt, da die Autokorrektur eines Namens lästig wäre! Die Biografie gibt keinen Wert für `autocorrect` an, was bedeutet, dass es aktiviert ist (wir hätten jeden Wert außer `off` setzen können).
 
 ```html
 <button id="reset">Reset</button>
@@ -110,11 +108,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code überprüft, ob `autocorrect` unterstützt wird, indem er überprüft, ob es im Prototyp vorhanden ist.
-Wenn es nicht vorhanden ist, wird dies protokolliert.
-Wenn es vorhanden ist, wird der Wert der `autocorrect`-Eigenschaft für jedes der Texteingabeelemente protokolliert.
+Der Code überprüft, ob `autocorrect` unterstützt wird, indem überprüft wird, ob es im Prototyp vorhanden ist. Wenn es nicht vorhanden ist, wird dies protokolliert. Wenn es vorhanden ist, wird der Wert der `autocorrect`-Eigenschaft für jedes der Texteingabeelemente protokolliert.
 
-Ein Klick-Handler wird für den Button hinzugefügt, der es Ihnen ermöglicht, den eingegebenen Text und das Protokoll zurückzusetzen.
+Ein Klick-Handler wird für den Button hinzugefügt, der es Ihnen ermöglicht, den eingegebenen Text und das Log zurückzusetzen.
 
 ```js
 const resetButton = document.querySelector("#reset");
@@ -136,10 +132,11 @@ resetButton.addEventListener("click", (e) => {
 
 #### Ergebnisse
 
-Geben Sie ungültigen Text in die untenstehenden Felder für Namen und Biografie ein.
-Wenn die Autokorrektur in Ihrem Browser aktiviert ist (siehe das Protokoll unten), sollte der Text in der "Biografie" automatisch korrigiert werden, nicht jedoch im "Name"-Feld.
+Wenn die Autokorrektur von Ihrem Browser unterstützt wird, sollte der Logbereich unter den Eingaben "Biografie" und "Name" zeigen, dass sie für "Biografie"-Eingaben aktiviert ist, aber nicht für "Name"-Eingaben.
 
 {{EmbedLiveSample("Enabling and disabling autocorrection", "100%", "250")}}
+
+Geben Sie ungültigen Text in die Namens- und Biografie-Textfelder ein. Wenn das Gerät ein Ersatzwort für das eingegebene Wort hat, wird dieses verwendet, um den Text nur im "Biografie"-Eingabebereich automatisch zu korrigieren.
 
 ## Spezifikationen
 

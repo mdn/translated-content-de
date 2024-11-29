@@ -2,15 +2,40 @@
 title: mathbackground
 slug: Web/MathML/Global_attributes/mathbackground
 l10n:
-  sourceCommit: 34c43aca36f776c824e698dfd07e3ece34cc6f00
+  sourceCommit: 56a27a0d3cf032771a715fee27ce5325ba859606
 ---
 
 {{MathMLRef}}{{Deprecated_Header}}
 
-Das **`mathbackground`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [Hintergrundfarbe](/de/docs/Web/CSS/background-color) eines MathML-Elements.
+Das **`mathbackground`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) legt die [Hintergrundfarbe](/de/docs/Web/CSS/background-color) eines MathML-Elements fest.
 
 > [!NOTE]
-> Verwenden Sie nach Möglichkeit CSS, um MathML zu stylen. Das `mathbackground`-Attribut sollte nur für Anwendungen einbezogen werden, die CSS nicht unterstützen, und wird durch den CSS-Wert der `background-color`-Eigenschaft überschrieben, falls gesetzt.
+> Verwenden Sie wann immer möglich CSS, um MathML zu stylen. Das `mathbackground`-Attribut sollte nur für Anwendungen verwendet werden, die CSS nicht unterstützen, und wird durch den CSS-Wert der `background-color`-Eigenschaft überschrieben, falls gesetzt.
+
+## Beispiel
+
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  align-items: center;
+  font-size: 1.5rem;
+}
+```
+
+```html
+<math display="block" mathbackground="wheat">
+  <msqrt>
+    <mi>x</mi>
+  </msqrt>
+</math>
+```
+
+{{EmbedLiveSample("Example", "", 150)}}
 
 ## Syntax
 
@@ -45,9 +70,11 @@ Das **`mathbackground`** [globale Attribut](/de/docs/Web/MathML/Global_attribute
 
 {{Specifications}}
 
-- In MathML 3 und früheren Versionen wurde ein begrenzteres Set von Werten unterstützt. Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;color&gt;")}}-Werten.
+- In MathML 3 und früheren Versionen wurde ein eingeschränkterer Satz von Werten unterstützt.
+  Seit MathML Core entspricht die Syntax den CSS-{{cssxref("&lt;color&gt;")}}-Werten.
 
-- Dieses Attribut wurde für MathML-Anwendungen entworfen, die CSS nicht unterstützen. Seit MathML Core wird stattdessen die Verwendung des entsprechenden CSS empfohlen.
+- Dieses Attribut wurde für MathML-Anwendungen entworfen, die CSS nicht unterstützen.
+  Seit MathML Core wird stattdessen die Verwendung von äquivalentem CSS empfohlen.
 
 ## Browser-Kompatibilität
 

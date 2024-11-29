@@ -2,24 +2,24 @@
 title: HTMLEmbedElement
 slug: Web/API/HTMLEmbedElement
 l10n:
-  sourceCommit: e9e2ec643ac69c132f31427a0b586ab2cf83ed58
+  sourceCommit: 64088e3a95e2cc9c8cf44d1338d0be21f1fadfed
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`HTMLEmbedElement`** Interface bietet spezielle Eigenschaften (zusätzlich zu den regulären Eigenschaften der [`HTMLElement`](/de/docs/Web/API/HTMLElement) Schnittstelle, die es ebenfalls durch Vererbung zur Verfügung hat) für die Manipulation von {{HTMLElement("embed")}} Elementen.
+Die **`HTMLEmbedElement`**-Schnittstelle bietet spezielle Eigenschaften (zusätzlich zu der regulären [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Schnittstelle, die sie ebenfalls durch Vererbung zur Verfügung gestellt bekommt) zur Manipulation von {{HTMLElement("embed")}}-Elementen.
 
 > [!NOTE]
-> Dieses Thema beschreibt das `HTMLEmbedElement` Interface, wie es im Standard definiert ist. Es behandelt nicht frühere, nicht standardisierte Versionen der Schnittstelle.
+> Dieses Thema beschreibt die `HTMLEmbedElement`-Schnittstelle, wie sie im Standard definiert ist. Es wird nicht auf frühere, nicht standardisierte Versionen der Schnittstelle eingegangen.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt Eigenschaften von ihrem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
 
 - [`HTMLEmbedElement.align`](/de/docs/Web/API/HTMLEmbedElement/align) {{deprecated_inline}}
-  - : Ein String, der eine enumerierte Eigenschaft repräsentiert, die die Ausrichtung des Inhalts des Elements im Hinblick auf den umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"center"` und `"justify"`.
+  - : Ein String, der eine aufgezählte Eigenschaft darstellt, die die Ausrichtung des Inhalts des Elements im Verhältnis zum umgebenden Kontext angibt. Die möglichen Werte sind `"left"`, `"right"`, `"center"` und `"justify"`.
 - [`HTMLEmbedElement.height`](/de/docs/Web/API/HTMLEmbedElement/height)
   - : Ein String, der das [`height`](/de/docs/Web/HTML/Element/embed#height) HTML-Attribut widerspiegelt und die angezeigte Höhe der Ressource enthält.
 - [`HTMLEmbedElement.name`](/de/docs/Web/API/HTMLEmbedElement/name) {{deprecated_inline}}
@@ -33,7 +33,10 @@ _Erbt Eigenschaften von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTML
 
 ## Instanz-Methoden
 
-_Keine spezifische Methode; erbt Methoden von seinem Elternteil, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+_Erbt auch Methoden von ihrer Elternschnittstelle, [`HTMLElement`](/de/docs/Web/API/HTMLElement)._
+
+- [`HTMLEmbedElement.getSVGDocument()`](/de/docs/Web/API/HTMLEmbedElement/getSVGDocument)
+  - : Gibt das eingebettete SVG als [`Document`](/de/docs/Web/API/Document) zurück.
 
 ## Spezifikationen
 

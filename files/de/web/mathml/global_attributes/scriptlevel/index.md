@@ -2,28 +2,40 @@
 title: scriptlevel
 slug: Web/MathML/Global_attributes/scriptlevel
 l10n:
-  sourceCommit: 8eece0b998c23e8ea35f936d7371a169974130f5
+  sourceCommit: 56a27a0d3cf032771a715fee27ce5325ba859606
 ---
 
 {{MathMLRef}}
 
-Das **`scriptlevel`**-[globale Attribut](/de/docs/Web/MathML/Global_attributes) setzt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements. Es ermöglicht das Überschreiben von Regeln aus dem [Benutzeragent-Stylesheet](/de/docs/Web/CSS/Cascade#user-agent_stylesheets), die die automatische Berechnung der [font-size](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
+Das **`scriptlevel`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) legt die [math-depth](/de/docs/Web/CSS/math-depth) eines MathML-Elements fest. Es ermöglicht das Überschreiben von Regeln aus dem [User-Agent-Stylesheet](/de/docs/Web/CSS/Cascade#user-agent_stylesheets), die die automatische Berechnung der [Schriftgröße](/de/docs/Web/CSS/font-size) innerhalb von MathML-Formeln definieren.
 
 ## Beispiel
 
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+```
+
 ```html
 <!-- math-depth defaults to 0 on the <math> root. -->
-<math style="font-size: 64pt">
+<math style="font-size: 24px">
   <msubsup>
     <!-- math-depth and font-size remain unchanged on the base. -->
-    <mtext>BASE</mtext>
+    <mtext>base</mtext>
     <!-- math-depth defaults to add(1) within the subscript, so it
          is incremented by 1 and the font-size is scaled down once. -->
-    <mtext>SUBSCRIPT</mtext>
+    <mtext>subscript</mtext>
     <!-- math-depth defaults to add(1) within the superscript too, but
          the scriptlevel attribute tells to increment it by 2 instead,
          so the font-size is actually scaled down twice. -->
-    <mtext scriptlevel="+2">SUPERSCRIPT</mtext>
+    <mtext scriptlevel="+2">superscript</mtext>
   </msubsup>
 </math>
 ```
@@ -38,14 +50,16 @@ Das **`scriptlevel`**-[globale Attribut](/de/docs/Web/MathML/Global_attributes) 
 
 ### Werte
 
-Wenn `<U>` eine vorzeichenlose [Ganzzahl](/de/docs/Web/CSS/integer) ist (d. h. ohne Vorzeichen), dann sind die akzeptierten Werte:
+Wenn `<U>` eine positive [Ganzzahl](/de/docs/Web/CSS/integer) ist (d. h. ohne Vorzeichen), dann sind die akzeptierten Werte:
 
 - `<U>`
-  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `font-size` des Elements auf denselben Wert wie die Elemente in der angegebenen Tiefe.
+  - : Setzt die `math-depth` auf den Wert `<U>`. Dies setzt die `font-size` des Elements auf denselben Wert wie die der Elemente in der angegebenen Tiefe.
 - `+<U>`
-  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dies wird die `font-size` des Elements `<U>`-mal verkleinern.
+  - : Setzt die `math-depth` auf den Wert `add(<U>)`. Dies verkleinert die `font-size` des Elements `<U>`-mal.
 - `-<U>`
-  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dies wird die `font-size` des Elements `<U>`-mal vergrößern.
+  - : Setzt die `math-depth` auf den Wert `add(-<U>)`. Dies vergrößert die `font-size` des Elements `<U>`-mal.
+
+{{EmbedLiveSample("Example", "", 150)}}
 
 ## Spezifikationen
 

@@ -1,32 +1,667 @@
 ---
-title: CSS transforms
+title: CSS-Transformationen
 slug: Web/CSS/CSS_transforms
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: 1f11fb41a86e51f2411f909b50f252a509522d19
 ---
 
 {{CSSRef}}
 
-Das **CSS transforms**-Modul definiert, wie Elemente, die mit CSS gestaltet sind, in zwei- oder dreidimensionalem Raum transformiert werden können.
+Das **CSS-Transformationsmodul** definiert, wie Elemente, die mit CSS gestaltet sind, in einem zwei- oder dreidimensionalen Raum transformiert werden können.
 
-## CSS-Transformationen in Aktion
+## CSS-Transformationen im Einsatz
 
-Verwenden Sie die Schieberegler im folgenden Rahmen, um die `translation`, `rotation`, `scale` und `skew` CSS-Transformations-Eigenschaften des Würfels im 3D-Raum zu ändern. Achten Sie darauf, wie der Würfel mit dem Element mit der Bezeichnung `z:0px` interagiert, das sich an der 3D-Position `(0, 0, 0)` befindet, während Sie ihn durch den 3D-Raum bewegen.
+Verwenden Sie die Schieberegler im folgenden Beispiel, um die Translations-, Rotations-, Skalierungs- und Schrägungs-CSS-Transformations-Eigenschaften des Würfels im 3D-Raum zu ändern. Während Sie den Würfel durch den 3D-Raum bewegen, bemerken Sie, wie er mit dem Element interagiert, das mit `z:0px` gekennzeichnet ist und sich an der 3D-Position `(0, 0, 0)` befindet.
 
-{{EmbedGHLiveSample("css-examples/modules/transforms.html", '100%', 900)}}
+```html hidden live-sample___transforms
+<article>
+  <fieldset id="allTransformFieldset">
+    <legend>
+      Transform settings
+      <button id="resetAllButton" aria-label="Reset">↻</button>
+    </legend>
+    <section id="fieldsetSection">
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Translation</span>
+          </label>
+          <button
+            id="translateSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="translateXLabel">X</span>
+              <input
+                type="range"
+                min="-100"
+                max="100"
+                value="0"
+                data-default="0"
+                id="translateXRange"
+                aria-labelledby="translateXLabel" />
+            </label>
+            <output id="translateXOutput" for="translateXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="translateYLabel">Y</span>
+              <input
+                type="range"
+                min="-100"
+                max="100"
+                value="0"
+                data-default="0"
+                id="translateYRange"
+                aria-labelledby="translateYLabel" />
+            </label>
+            <output id="translateYOutput" for="translateYRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="translateZLabel">Z</span>
+              <input
+                type="range"
+                min="-100"
+                max="100"
+                value="0"
+                data-default="0"
+                id="translateZRange"
+                aria-labelledby="translateZLabel" />
+            </label>
+            <output id="translateZOutput" for="translateZRange"></output>
+          </div>
+        </div>
+      </fieldset>
 
-Sie können auch den `perspective`-Schieberegler verwenden, um die [`perspective`](/de/docs/Web/CSS/perspective)-Eigenschaft des Containers des Würfels zu verändern, die den Abstand zwischen Ihnen und der `z=0`-Ebene bestimmt.
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Rotation</span>
+          </label>
+          <button
+            id="rotateSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="rotateXLabel">X</span>
+              <input
+                type="range"
+                min="-360"
+                max="360"
+                value="0"
+                data-default="0"
+                id="rotateXRange"
+                aria-labelledby="rotateXLabel" />
+            </label>
+            <output id="rotateXOutput" for="rotateXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="rotateYLabel">Y</span>
+              <input
+                type="range"
+                min="-360"
+                max="360"
+                value="0"
+                data-default="0"
+                id="rotateYRange"
+                aria-labelledby="rotateYLabel" />
+            </label>
+            <output id="rotateYOutput" for="rotateYRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="rotateZLabel">Z</span>
+              <input
+                type="range"
+                min="-360"
+                max="360"
+                value="0"
+                data-default="0"
+                id="rotateZRange"
+                aria-labelledby="rotateZLabel" />
+            </label>
+            <output id="rotateZOutput" for="rotateZRange"></output>
+          </div>
+        </div>
+      </fieldset>
 
-Die [`perspective-origin`](/de/docs/Web/CSS/perspective-origin)-Schieberegler bestimmen, wo Sie in den 3D-Raum schauen, um den _Fluchtpunkt_ der Ansicht festzulegen. Dieser Fluchtpunkt wird durch einen kleinen roten Punkt angezeigt. Sie können sich vorstellen, wie der physische Vorgang, Ihren Kopf nach oben, unten, links und rechts zu bewegen, um verschiedene Teile des Würfels zu sehen, ohne den Würfel selbst zu bewegen, wenn Sie diese Schieberegler verändern.
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Scale</span>
+          </label>
+          <button
+            id="scaleSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="scaleXLabel">X</span>
+              <input
+                type="range"
+                min="0.1"
+                max="2.5"
+                value="1"
+                data-default="1"
+                step="0.1"
+                id="scaleXRange"
+                aria-labelledby="scaleXLabel" />
+            </label>
+            <output id="scaleXOutput" for="scaleXRange"></output>
+          </div>
+          <div>
+            <label id="scaleYLabel">
+              <span>Y</span>
+              <input
+                type="range"
+                min="0.1"
+                max="2.5"
+                value="1"
+                data-default="1"
+                step="0.1"
+                id="scaleYRange"
+                aria-labelledby="scaleYLabel" />
+            </label>
+            <output id="scaleYOutput" for="scaleYRange"></output>
+          </div>
+          <div>
+            <label id="scaleZLabel">
+              <span>Z</span>
+              <input
+                type="range"
+                min="0.1"
+                max="2.5"
+                value="1"
+                data-default="1"
+                step="0.1"
+                id="scaleZRange"
+                aria-labelledby="scaleZLabel" />
+            </label>
+            <output id="scaleZOutput" for="scaleZRange"></output>
+          </div>
+        </div>
+      </fieldset>
 
-Das `backface-visibility`-Kontrollkästchen bestimmt, ob die Rückseiten des Würfels auf `visible` oder `hidden` gesetzt werden.
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Skew</span>
+          </label>
+          <button
+            id="skewSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="skewXLabel">X</span>
+              <input
+                type="range"
+                min="-90"
+                max="90"
+                value="0"
+                data-default="0"
+                id="skewXRange"
+                aria-labelledby="skewXLabel" />
+            </label>
+            <output id="skewXOutput" for="skewXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="skewYLabel">Y</span>
+              <input
+                type="range"
+                min="-90"
+                max="90"
+                value="0"
+                data-default="0"
+                id="skewYRange"
+                aria-labelledby="skewYLabel" />
+            </label>
+            <output id="skewYOutput" for="skewYRange"></output>
+          </div>
+        </div>
+      </fieldset>
 
-Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit CSS gestaltet sind, um die Flächen des Würfels zu bilden. Der Würfel wird nicht mit einem 2D- oder 3D-Canvas-Kontext gezeichnet, so dass **Sie die Flächen des Würfels mit den Entwicklertools Ihres Browsers inspizieren können, wie Sie es mit jedem anderen DOM-Element tun würden**. Verwenden Sie das Elementauswahlwerkzeug der Entwicklertools Ihres Browsers, um verschiedene Flächen des Würfels zu inspizieren, während Sie dessen Position und Rotation transformieren.
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Container Perspective</span>
+          </label>
+          <button
+            id="containerPerspectiveSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span id="perspectiveLabel"><code>perspective</code></span>
+              <input
+                type="range"
+                min="75"
+                max="500"
+                value="200"
+                data-default="200"
+                id="perspectiveRange"
+                aria-labelledby="perspectiveLabel" />
+            </label>
+            <output id="perspectiveOutput" for="perspectiveRange"></output>
+          </div>
+          <div>
+            <label>
+              <span id="perspectiveOriginXLabel"
+                ><code>perspective-origin</code> X (%)</span
+              >
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                data-default="50"
+                id="perspectiveOriginXRange"
+                aria-labelledby="perspectiveOriginXLabel" />
+            </label>
+            <output
+              id="perspectiveOriginXOutput"
+              for="perspectiveOriginXRange"></output>
+          </div>
+          <div>
+            <label>
+              <span><code>perspective-origin</code> Y (%)</span>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                data-default="50"
+                id="perspectiveOriginYRange"
+                aria-labelledby="perspectiveOriginYLabel" />
+            </label>
+            <output
+              id="perspectiveOriginYOutput"
+              for="perspectiveOriginYRange"></output>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="transformFieldset">
+        <legend>
+          <label>
+            <span>Other Properties</span>
+          </label>
+          <button
+            id="otherSectionReset"
+            class="resetSectionButton"
+            aria-label="Reset">
+            ↻
+          </button>
+        </legend>
+        <div class="controlsContainer">
+          <div>
+            <label>
+              <span><code>backface-visibility</code></span>
+              <input
+                type="checkbox"
+                checked="checked"
+                data-default="checked"
+                id="backfaceVisibilityCheckbox" />
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+  </fieldset>
+  <section id="outputSection">
+    <div id="outputContainer">
+      <div id="cube">
+        <div class="face front">1</div>
+        <div class="face back">2</div>
+        <div class="face right">3</div>
+        <div class="face left">4</div>
+        <div class="face top">5</div>
+        <div class="face bottom">6</div>
+      </div>
+      <div id="z0"><code>z:0px</code></div>
+    </div>
+    <div id="perspectiveDot"></div>
+  </section>
+</article>
+```
+
+```css hidden live-sample___transforms
+#allTransformFieldset {
+  border: none;
+  padding: 0;
+  margin-bottom: 4px;
+  accent-color: blue; /* or any color */
+  font-family: Inter, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+#allTransformFieldset > legend {
+  margin-bottom: 4px;
+}
+
+fieldset {
+  margin: 0;
+}
+
+legend {
+  font-weight: bold;
+  padding: 0;
+}
+
+#fieldsetSection {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 8px;
+}
+
+#outputSection {
+  width: 100%;
+  min-height: 400px;
+  background: linear-gradient(skyblue, khaki);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: clip;
+}
+
+#outputContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  perspective: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+#z0 {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(
+    to right bottom,
+    rgb(223 223 223),
+    rgb(190 190 190)
+  );
+  transform: translateZ(0px);
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: black;
+  border-radius: 50%;
+  outline: 1px solid rgb(0 0 0 / 0.35);
+  pointer-events: all;
+}
+
+#perspectiveDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgb(240 0 0 / 0.5);
+  transform: translate3d(-2px, -2px, 0px);
+  position: absolute;
+}
+
+#cube {
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  transition: all 0.075s ease-out;
+  position: absolute;
+  pointer-events: all;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: white;
+}
+
+.front {
+  background: rgb(90 90 90 / 0.7);
+  transform: translateZ(50px);
+}
+
+.back {
+  background: rgb(0 210 0 / 0.7);
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.right {
+  background: rgb(210 0 0 / 0.7);
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.left {
+  background: rgb(0 0 210 / 0.7);
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.top {
+  background: rgb(210 210 0 / 0.7);
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottom {
+  background: rgb(210 0 210 / 0.7);
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.transformFieldset {
+  margin: 0;
+}
+
+.controlsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+}
+
+.controlsContainer {
+  width: 100%;
+}
+
+.controlsContainer > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.controlsContainer > div > label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+button {
+  font-size: 18px;
+  border-radius: 50%;
+  border: #ccc solid 1px;
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  margin-left: 4px;
+}
+
+input[type="range"] {
+  width: 172px;
+}
+
+output {
+  width: 3em;
+}
+```
+
+```js hidden live-sample___transforms
+allTransformFieldset
+  .querySelectorAll("input[type='range']")
+  .forEach((rangeInput) => {
+    // Event listeners for when the range inputs change
+    rangeInput.addEventListener("input", (el) => {
+      updateTransform();
+    });
+
+    // Reset the relevant transform setting when the range input is double clicked
+    rangeInput.addEventListener("dblclick", (el) => {
+      resetInput(el.target);
+      updateTransform();
+    });
+  });
+
+// Event listeners for when checkbox inputs change
+allTransformFieldset
+  .querySelectorAll("input[type='checkbox']")
+  .forEach((checkboxInput) => {
+    checkboxInput.addEventListener("input", (el) => {
+      updateTransform();
+    });
+  });
+
+// "Reset All" button event listener
+resetAllButton.addEventListener("click", () => {
+  allTransformFieldset.querySelectorAll("input").forEach((input) => {
+    resetInput(input);
+  });
+  updateTransform();
+});
+
+// Section reset button event listeners
+allTransformFieldset
+  .querySelectorAll(".resetSectionButton")
+  .forEach((resetSectionButton) => {
+    resetSectionButton.addEventListener("click", (el) => {
+      let allRanges = el.target.parentElement.parentElement.querySelectorAll(
+        "input[type='range']",
+      );
+      allRanges.forEach((range) => {
+        resetInput(range);
+      });
+
+      let allCheckboxes =
+        el.target.parentElement.parentElement.querySelectorAll(
+          "input[type='checkbox']",
+        );
+      allCheckboxes.forEach((check) => {
+        resetInput(check);
+      });
+
+      updateTransform();
+    });
+  });
+
+const resetInput = (inputEl) => {
+  if (!inputEl) {
+    console.warn(`inputEl \`${inputEl}\` is falsy!`);
+    console.trace();
+    return;
+  }
+
+  const defaultValue = inputEl.getAttribute("data-default");
+  if (inputEl.getAttribute("type") === "checkbox") {
+    inputEl.checked = defaultValue === "checked";
+  } else {
+    inputEl.value = defaultValue || "0";
+  }
+};
+
+const updateOutputs = () => {
+  translateXOutput.value = `${parseInt(translateXRange.value)}px`;
+  translateYOutput.value = `${parseInt(translateYRange.value)}px`;
+  translateZOutput.value = `${parseInt(translateZRange.value)}px`;
+
+  rotateXOutput.value = `${parseInt(rotateXRange.value)}°`;
+  rotateYOutput.value = `${parseInt(rotateYRange.value)}°`;
+  rotateZOutput.value = `${parseInt(rotateZRange.value)}°`;
+
+  scaleXOutput.value = `${parseFloat(scaleXRange.value)}x`;
+  scaleYOutput.value = `${parseFloat(scaleYRange.value)}x`;
+  scaleZOutput.value = `${parseFloat(scaleZRange.value)}x`;
+
+  skewXOutput.value = `${parseFloat(skewXRange.value)}°`;
+  skewYOutput.value = `${parseFloat(skewYRange.value)}°`;
+
+  perspectiveOutput.value = `${parseInt(perspectiveRange.value)}px`;
+
+  perspectiveOriginXOutput.value = `${parseInt(perspectiveOriginXRange.value)}%`;
+  perspectiveOriginYOutput.value = `${parseInt(perspectiveOriginYRange.value)}%`;
+};
+
+const updateTransform = () => {
+  updateOutputs();
+
+  cube.style.transform = `translate3d(${translateXRange.value}px,
+                ${translateYRange.value}px,
+                ${translateZRange.value}px)
+                rotateX(${rotateXRange.value}deg)
+                rotateY(${rotateYRange.value}deg)
+                rotateZ(${rotateZRange.value}deg)
+                scale3d(${scaleXRange.value},
+                ${scaleYRange.value},
+                ${scaleZRange.value})
+                skewX(${skewXRange.value}deg)
+                skewY(${skewYRange.value}deg)`;
+  cube.style.backfaceVisibility = `${backfaceVisibilityCheckbox.checked ? "visible" : "hidden"}`;
+
+  outputContainer.style.perspective = `${perspectiveRange.value}px`;
+  outputContainer.style.perspectiveOrigin = `${perspectiveOriginXRange.value}% ${perspectiveOriginYRange.value}%`;
+
+  perspectiveDot.style.top = `${perspectiveOriginYRange.value}%`;
+  perspectiveDot.style.left = `${perspectiveOriginXRange.value}%`;
+};
+updateTransform();
+```
+
+{{EmbedLiveSample("transforms", "", "850px")}}
+
+Sie können auch den `perspective`-Schieberegler verwenden, um die [`perspective`](/de/docs/Web/CSS/perspective)-Eigenschaft des Containers des Würfels zu ändern, die den Abstand zwischen Ihnen und der `z=0`-Ebene bestimmt.
+
+Die [`perspective-origin`](/de/docs/Web/CSS/perspective-origin)-Schieberegler bestimmen, wo Sie, der Betrachter, in den 3D-Raum blicken, um den _Fluchtpunkt_ der Ansicht zu bestimmen. Dieser Fluchtpunkt wird durch einen kleinen roten Punkt angezeigt. Sie können sich vorstellen, dass das Ändern dieser Schieberegler dem physischen Bewegen Ihres Kopfes nach oben, unten, links und rechts entspricht, um verschiedene Teile des Würfels zu sehen, ohne den Würfel selbst zu bewegen.
+
+Die `backface-visibility`-Checkbox bestimmt, ob die Rückseiten des Würfels auf `visible` oder `hidden` gesetzt sind.
+
+Der Würfel im obigen Beispiel besteht aus sechs `<div>`-Elementen, die alle mit CSS gestaltet sind, um die Flächen des Würfels zu erstellen. Der Würfel wird nicht mithilfe eines 2D- oder 3D-Canvas-Kontexts gezeichnet, daher **können Sie die Flächen des Würfels mit den Entwicklertools Ihres Browsers inspizieren, wie Sie jedes andere DOM-Element inspizieren würden**. Versuchen Sie, mit dem Elementauswahlwerkzeug der Entwicklertools Ihres Browsers die verschiedenen Flächen des Würfels zu inspizieren, während Sie dessen Position und Rotation verändern.
 
 > [!NOTE]
-> Die Reihenfolge, in der Transformationen, einschließlich 3D-Rotationen, angewendet werden, beeinflusst die resultierende Transformation. Im obigen Beispiel werden Transformationen übersetzt, skaliert, dann rotiert und schließlich verzerrt. Die Rotationen werden in der Reihenfolge X → Y → Z angewendet.
-
-Sie können [den Quellcode dieses Beispiels auf GitHub ansehen](https://github.com/mdn/css-examples/blob/main/modules/transforms.html).
+> Die Reihenfolge, in der Transformationen, einschließlich 3D-Rotationen, angewendet werden, beeinflusst die resultierende Transformation. Im obigen Beispiel werden Transformationen in der Reihenfolge Translation, Skalierung, Rotation und dann Schrägung angewendet. Die Rotationen werden in der Reihenfolge X → Y → Z angewendet.
 
 ## Referenz
 
@@ -76,13 +711,13 @@ Sie können [den Quellcode dieses Beispiels auf GitHub ansehen](https://github.c
 - [Verwendung von CSS-Transformationen](/de/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
   - : Schritt-für-Schritt-Anleitung, wie man Elemente mit CSS transformiert.
 - [Koordinatensysteme](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems)
-  - : Beschreibt, wie Pixellokationen im CSS-Objektmodell definiert sind.
-- [Leistungsfundamentals: Verwenden Sie CSS-Transformationen](/de/docs/Web/Performance/Fundamentals#use_css_transforms)
-  - : Ein Überblick über die Grundlagen der Web-Performance, einschließlich der Verbesserung der Performance durch CSS-Transformationen.
-- [Matrix-Mathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
+  - : Beschreibt, wie Pixelpositionen im CSS-Objektmodell definiert sind.
+- [Grundlagen der Leistung: Verwendung von CSS-Transformationen](/de/docs/Web/Performance/Fundamentals#use_css_transforms)
+  - : Ein Überblick über die Grundlagen der Webleistung, einschließlich wie CSS-Transformationen die Leistung verbessern können.
+- [Matrixmath für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
   - : Beschreibt, wie Objekttransformationen durch mathematische Matrizen dargestellt werden können.
 
-## Relevante Konzepte
+## Verwandte Konzepte
 
 - CSS-Eigenschaften:
   - [`animation`](/de/docs/Web/CSS/animation)
@@ -109,12 +744,12 @@ Sie können [den Quellcode dieses Beispiels auf GitHub ansehen](https://github.c
   - [`<position>`](/de/docs/Web/CSS/position_value)
 - Glossarbegriffe:
   - {{Glossary("Interpolation", "Interpolation")}}
-  - {{Glossary("Stacking_context", "Stacking-Kontext")}}
+  - {{Glossary("Stacking_context", "Stapelsichtbarkeit")}}
 - [SVG](/de/docs/Web/SVG)-Konzepte:
-  - [`<animate>`](/de/docs/Web/SVG/Element/animate)-Element
-  - [`<animateTransform>`](/de/docs/Web/SVG/Element/animateTransform)-Element
-  - [`<set>`](/de/docs/Web/SVG/Element/set)-Element
-  - [`transform`](/de/docs/Web/SVG/Attribute/transform)-Element
+  - [`<animate>`](/de/docs/Web/SVG/Element/animate) Element
+  - [`<animateTransform>`](/de/docs/Web/SVG/Element/animateTransform) Element
+  - [`<set>`](/de/docs/Web/SVG/Element/set) Element
+  - [`transform`](/de/docs/Web/SVG/Attribute/transform) Element
 
 ## Spezifikationen
 
@@ -122,6 +757,6 @@ Sie können [den Quellcode dieses Beispiels auf GitHub ansehen](https://github.c
 
 ## Siehe auch
 
-- [Grundlegende SVG-Transformationen](/de/docs/Web/SVG/Tutorial/Basic_Transformations)-Tutorial
-- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations)-Modul
-- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions)-Modul
+- [Grundlegende SVG-Transformationen](/de/docs/Web/SVG/Tutorial/Basic_Transformations) Tutorial
+- [CSS-Animationen](/de/docs/Web/CSS/CSS_animations) Modul
+- [CSS-Übergänge](/de/docs/Web/CSS/CSS_transitions) Modul

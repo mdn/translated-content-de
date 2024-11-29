@@ -3,14 +3,18 @@ title: "HTMLElement: autocorrect-Eigenschaft"
 short-title: autocorrect
 slug: Web/API/HTMLElement/autocorrect
 l10n:
-  sourceCommit: 587c39b8fe43e66c79c2055b4791a60483049e82
+  sourceCommit: 6b278eb98d94ec8d85f03f77aef7c5d08edcd88f
 ---
 
 {{APIRef("HTML DOM")}}{{SeeCompatTable}}
 
-Die **`autocorrect`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement) Interface steuert, ob die Texteingabe des Benutzers automatisch auf Rechtschreib- und/oder Zeichensetzungsfehler korrigiert wird.
+Die **`autocorrect`**-Eigenschaft des [`HTMLElement`](/de/docs/Web/API/HTMLElement)-Interfaces steuert, ob die Autokorrektur des bearbeitbaren Textes für Rechtschreib- und/oder Zeichensetzungsfehler aktiviert ist oder nicht.
 
-Die Eigenschaft spiegelt den Wert des globalen HTML-Attributs [`autocorrect`](/de/docs/Web/HTML/Global_attributes/autocorrect) wider.
+Das spezifische Verhalten der Autokorrektur, einschließlich der ersetzten Wörter, hängt vom Benutzeragenten und den vom zugrunde liegenden Gerät bereitgestellten Diensten ab.
+Auf macOS könnte sich ein Benutzeragent beispielsweise auf [registrierten Ersetzungstext und Zeichensetzung](https://support.apple.com/en-vn/guide/mac-help/mh35735/mac) stützen.
+Andere Geräte und Browser können einen anderen Ansatz verwenden.
+
+Diese Eigenschaft spiegelt den Wert des globalen HTML-Attributs [`autocorrect`](/de/docs/Web/HTML/Global_attributes/autocorrect) wider.
 
 ## Wert
 
@@ -24,8 +28,8 @@ Dieses Beispiel zeigt, wie Sie die Autokorrektur aktivieren und deaktivieren kö
 
 #### HTML
 
-Das HTML-Markup definiert eine Umschalttaste und ein {{htmlelement("input")}}-Element mit [`type="search"`](/de/docs/Web/HTML/Element/input/search).
-Beachten Sie, dass die Autokorrektur, falls unterstützt, standardmäßig aktiviert ist.
+Der HTML-Markup definiert eine Umschalttaste und ein {{htmlelement("input")}}-Element des Typs [`type="search"`](/de/docs/Web/HTML/Element/input/search).
+Beachten Sie, dass, wenn die Autokorrektur unterstützt wird, sie standardmäßig aktiviert ist.
 
 ```html
 <button id="toggleAutocorrect"></button>
@@ -55,9 +59,9 @@ function log(text) {
 
 #### JavaScript
 
-Der Code überprüft zunächst, ob `autocorrect` unterstützt wird, indem geprüft wird, ob es im `HTMLElement`-Prototyp vorhanden ist.
-Falls vorhanden, wird ein Klick-Handler hinzugefügt, der Ihnen erlaubt, den Wert umzuschalten.
-Falls es nicht vorhanden ist, versteckt die Benutzeroberfläche die interaktiven Elemente und protokolliert, dass `autocorrect` nicht unterstützt wird.
+Der Code prüft zuerst, ob die `autocorrect`-Eigenschaft unterstützt wird, indem überprüft wird, ob sie im `HTMLElement`-Prototyp vorhanden ist.
+Wenn sie vorhanden ist, wird ein Klick-Handler hinzugefügt, um Ihnen das Umschalten des Wertes zu ermöglichen.
+Wenn sie nicht vorhanden ist, verbirgt die Benutzeroberfläche die interaktiven Elemente und protokolliert, dass `autocorrect` nicht unterstützt wird.
 
 ```js
 const toggleButton = document.querySelector("button");
@@ -84,10 +88,9 @@ if (`autocorrect` in HTMLElement.prototype) {
 
 #### Ergebnis
 
-<!-- cSpell:ignore Carot -->
-
-Aktivieren Sie die Schaltfläche, um den Autokorrekturwert umzuschalten. Geben Sie ungültigen Text in das Textfeld ein, z.B. "Carot".
-Dies sollte automatisch korrigiert werden, wenn die Funktion aktiviert ist.
+Aktivieren Sie die Taste, um den Wert der Autokorrektur umzuschalten.
+Geben Sie ungültigen Text in das Textfeld ein, wie z.B. "Carot".
+Wenn die Autokorrektur aktiviert ist und die Implementierung das entsprechende Ersatzwort "carrot" besitzt, sollte der Text automatisch korrigiert werden.
 
 {{EmbedLiveSample("Enable and disable autocorrection", "100%", "200")}}
 
@@ -101,4 +104,4 @@ Dies sollte automatisch korrigiert werden, wenn die Funktion aktiviert ist.
 
 ## Siehe auch
 
-- HTML-Globalattribut [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize)
+- [`autocapitalize`](/de/docs/Web/HTML/Global_attributes/autocapitalize) globales HTML-Attribut

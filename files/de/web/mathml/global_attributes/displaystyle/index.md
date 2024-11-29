@@ -2,16 +2,29 @@
 title: displaystyle
 slug: Web/MathML/Global_attributes/displaystyle
 l10n:
-  sourceCommit: 8eece0b998c23e8ea35f936d7371a169974130f5
+  sourceCommit: 56a27a0d3cf032771a715fee27ce5325ba859606
 ---
 
 {{MathMLRef}}
 
-Das **`displaystyle`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) ist ein boolescher Wert, der den [math-style](/de/docs/Web/CSS/math-style) eines MathML-Elements festlegt.
+Das **`displaystyle`** [globale Attribut](/de/docs/Web/MathML/Global_attributes) ist eine boolesche Einstellung, die den [math-style](/de/docs/Web/CSS/math-style) eines MathML-Elements festlegt.
 
 ## Beispiel
 
-In diesem Beispiel wird ein [munder](/de/docs/Web/MathML/Element/munder)-Element verwendet, um ein Skript "A" an eine Basis "∑" anzuhängen. Standardmäßig wird das Summationssymbol mit der vom übergeordneten Element geerbten [font-size](/de/docs/Web/CSS/font-size) und das "A" als verkleinertes Subskript dargestellt. Mit dem expliziten Attribut `displaystyle="true"` wird das Summationssymbol stattdessen größer gezeichnet und das "A" wird zu einem Unterskript.
+In diesem Beispiel wird ein [munder](/de/docs/Web/MathML/Element/munder)-Element verwendet, um ein Skript "A" an eine Basis "∑" anzuhängen. Standardmäßig wird das Summensymbol mit der vom übergeordneten Element geerbten [font-size](/de/docs/Web/CSS/font-size) dargestellt und das "A" als verkleinertes Subscript. Mit dem expliziten `displaystyle="true"`-Attribut wird das Summensymbol stattdessen größer gezeichnet und das "A" wird zu einem Unterscript.
+
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+}
+```
 
 ```html
 <math>
@@ -26,19 +39,21 @@ In diesem Beispiel wird ein [munder](/de/docs/Web/MathML/Element/munder)-Element
 </math>
 ```
 
+{{ EmbedLiveSample("Example", "", 150) }}
+
 ## Syntax
 
 ```html-nolint
-<math displaystyle="true"></math>
-<math displaystyle="false"></math>
+<math displaystyle="true">
+<math displaystyle="false">
 ```
 
 ### Werte
 
 - `true`
-  - : Setzt den Darstellungsstil auf `normal`.
+  - : Setzt den Anzeige-Stil auf `normal`.
 - `false`
-  - : Setzt den Darstellungsstil auf `compact`.
+  - : Setzt den Anzeige-Stil auf `compact`.
 
 ## Spezifikationen
 
@@ -51,7 +66,7 @@ In diesem Beispiel wird ein [munder](/de/docs/Web/MathML/Element/munder)-Element
 ## Siehe auch
 
 - Alle [globalen Attribute](/de/docs/Web/MathML/Global_attributes).
-- Das globale Attribut [scriptlevel](/de/docs/Web/MathML/Global_attributes/scriptlevel).
+- Das [scriptlevel](/de/docs/Web/MathML/Global_attributes/scriptlevel) globale Attribut.
 - {{cssxref("font-size")}}
 - {{cssxref("math-depth")}}
 - {{cssxref("math-style")}}
