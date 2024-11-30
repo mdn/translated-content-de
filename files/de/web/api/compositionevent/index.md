@@ -2,12 +2,12 @@
 title: CompositionEvent
 slug: Web/API/CompositionEvent
 l10n:
-  sourceCommit: c9fe79713a9323e8f1492c3c5b802fc8776a5f6a
+  sourceCommit: cede06423af0242a18670246e1b25562d21c0004
 ---
 
 {{APIRef("UI Events")}}
 
-Das DOM **`CompositionEvent`** steht für Ereignisse, die auftreten, wenn der Benutzer indirekt Text eingibt.
+Das DOM **`CompositionEvent`** repräsentiert Ereignisse, die auftreten, weil der Benutzer indirekt Text eingibt.
 
 {{InheritanceDiagram}}
 
@@ -16,18 +16,18 @@ Das DOM **`CompositionEvent`** steht für Ereignisse, die auftreten, wenn der Be
 - [`CompositionEvent()`](/de/docs/Web/API/CompositionEvent/CompositionEvent)
   - : Erstellt eine neue `CompositionEvent` Objektinstanz.
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-_Diese Schnittstelle erbt auch Eigenschaften ihres Elternteils, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.data`](/de/docs/Web/API/CompositionEvent/data) {{ReadOnlyInline}}
-  - : Gibt die Zeichen zurück, die durch die Eingabemethode erzeugt wurden, die das Ereignis ausgelöst hat; dies variiert je nach Art des Ereignisses, das das `CompositionEvent` Objekt erzeugt hat.
+  - : Gibt die Zeichen zurück, die von der Eingabemethode generiert wurden, die das Ereignis ausgelöst hat; sie variieren je nach Art des Ereignisses, das das `CompositionEvent`-Objekt erzeugte.
 - [`CompositionEvent.locale`](/de/docs/Web/API/CompositionEvent/locale) {{ReadOnlyInline}} {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Gibt den Ort der aktuellen Eingabemethode zurück (zum Beispiel den Tastaturlayout Ort, wenn die Komposition mit {{Glossary("IME", "IME")}} verbunden ist).
+  - : Gibt das Gebietsschema der aktuellen Eingabemethode zurück (zum Beispiel das Tastaturlayout-Gebietsschema, wenn die Komposition mit einem {{Glossary("Input_method_editor", "Input method editor")}} verbunden ist).
 
-## Instanzmethoden
+## Instanz-Methoden
 
-_Diese Schnittstelle erbt auch Methoden ihres Elternteils, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
+_Diese Schnittstelle erbt auch Methoden ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent), und ihres Vorfahren — [`Event`](/de/docs/Web/API/Event)._
 
 - [`CompositionEvent.initCompositionEvent()`](/de/docs/Web/API/CompositionEvent/initCompositionEvent) {{deprecated_inline}}
   - : Initialisiert die Attribute eines `CompositionEvent` Objekts.

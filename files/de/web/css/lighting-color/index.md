@@ -2,12 +2,12 @@
 title: lighting-color
 slug: Web/CSS/lighting-color
 l10n:
-  sourceCommit: b7bf81297ba18c344359dbfeb200accddd907591
+  sourceCommit: 969c3ca835e0a43a403ed61a3ea8245539fcc4dd
 ---
 
 {{CSSRef}}
 
-Die **`lighting-color`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert die Farbe der Lichtquelle für die {{SVGElement("feDiffuseLighting")}} und {{SVGElement("feSpecularLighting")}} SVG-Beleuchtungsfilterprimitiven innerhalb eines SVG-{{SVGElement("filter")}}. Wenn vorhanden, überschreibt sie das {{SVGAttr("lighting-color")}}-Attribut des Elements.
+Die **`lighting-color`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die Farbe der Lichtquelle für die {{SVGElement("feDiffuseLighting")}} und {{SVGElement("feSpecularLighting")}} SVG-Beleuchtungsfilter-Primitiven innerhalb eines SVG-{{SVGElement("filter")}}. Wenn vorhanden, überschreibt sie das {{SVGAttr("lighting-color")}}-Attribut des Elements.
 
 > [!NOTE]
 > Die `lighting-color`-Eigenschaft gilt nur für {{SVGElement("feDiffuseLighting")}} und {{SVGElement("feSpecularLighting")}}-Elemente, die in einem {{SVGElement("svg")}} verschachtelt sind. Sie gilt nicht für andere SVG-, HTML- oder Pseudo-Elemente.
@@ -32,7 +32,7 @@ lighting-color: unset;
 
 - {{cssxref("color_value", "&lt;color>")}}
 
-  - : Die Farbe der Beleuchtung. Dies kann jeder gültige CSS-{{cssxref("color_value", "&lt;color>")}}-Wert sein.
+  - : Die Farbe des Lichts. Dies kann jeden gültigen CSS {{cssxref("color_value", "&lt;color>")}} Wert annehmen.
 
 ## Formale Definition
 
@@ -44,13 +44,13 @@ lighting-color: unset;
 
 ## Beispiele
 
-### Die Farbe der Filterbeleuchtung definieren
+### Definieren der Farbe der Filterbeleuchtung
 
-Dieses Beispiel zeigt den grundlegenden Anwendungsfall von `lighting-color` und wie die CSS-Eigenschaft `lighting-color` Vorrang vor dem `lighting-color`-Attribut hat.
+Dieses Beispiel demonstriert den grundlegenden Anwendungsfall von `lighting-color` und wie die CSS `lighting-color` Eigenschaft das `lighting-color` Attribut überschreibt.
 
 #### HTML
 
-Wir haben ein SVG mit zwei {{SVGElement("filter")}}-Elementen, eines mit einem `<feDiffuseLighting>` und eines mit einem `<feSpecularLighting>`-Kind. Jedes enthält das SVG-Attribut `lighting-color`, das die Beleuchtungsfarbe als `red` definiert. Beide Kinder haben ein {{SVGElement("fePointLight")}}, das erforderliche Kind, das die Lichtquelle setzt. Wir haben zwei {{SVGElement("rect")}}-Elemente mit einem Filterattribut hinzugefügt; hier werden die Filter angezeigt.
+Wir haben ein SVG mit zwei {{SVGElement("filter")}}-Elementen, eines mit einem `<feDiffuseLighting>` und eines mit einem `<feSpecularLighting>`-Kind. Jedes enthält das SVG `lighting-color` Attribut, das die Beleuchtungsfarbe als `red` definiert. Beide dieser Kinder haben ein {{SVGElement("fePointLight")}}, das erforderliche Kind, das die Lichtquelle setzt. Wir haben zwei {{SVGElement("rect")}}-Elemente mit einem Filter-Attribut eingefügt; hier werden die Filter angezeigt.
 
 ```html
 <svg viewBox="0 0 420 120" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@ Wir haben ein SVG mit zwei {{SVGElement("filter")}}-Elementen, eines mit einem `
 
 #### CSS
 
-Wir definieren die Größe und Position unseres `<rect>` mit den CSS-Eigenschaften {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("x")}} und {{cssxref("y")}}. Außerdem fügen wir dem SVG ein Hintergrundbild hinzu, um jegliche Farb-Alpha-Transparenz deutlicher zu machen:
+Wir definieren die Größe und Position unseres `<rect>` mit den CSS {{cssxref("height")}}, {{cssxref("width")}}, {{cssxref("x")}}, und {{cssxref("y")}} Eigenschaften. Wir fügen dem SVG auch ein Hintergrundbild hinzu, um jede Farbalpha-Transparenz deutlicher zu machen:
 
 ```css
 svg {
@@ -95,7 +95,7 @@ rect {
 }
 ```
 
-Dann wenden wir verschiedene Beleuchtungsfarbwerte auf die Filter-Kindelemente unter Verwendung der CSS-Eigenschaft `lighting-color` an. Wir verwenden eine benannte Farbe und eine 3-stellige Hexadezimalfarbe, aber wir können jede gültige CSS-Farbsyntax verwenden:
+Wir wenden dann verschiedene Beleuchtungsfarbwerte auf die Kindelemente des Filters mit der CSS `lighting-color` Eigenschaft an. Wir verwenden eine benannte Farbe und eine 3-stellige hexadezimale Farbe, aber wir können jede gültige CSS-Farbsyntax verwenden:
 
 ```css
 feDiffuseLighting {
@@ -111,7 +111,7 @@ feSpecularLighting {
 
 {{EmbedLiveSample("Defining the color of filter lighting", "300", "220")}}
 
-Die Attribute definierten die Farbe beider Lichtfilter als `red`, aber diese Werte wurden durch die CSS `lighting-color`-Werte überschrieben.
+Die Attribute definierten die Farbe beider Lichtfilter als `red`, aber diese Werte wurden von den CSS `lighting-color` Werten überschrieben.
 
 ## Spezifikationen
 
@@ -132,4 +132,4 @@ Die Attribute definierten die Farbe beider Lichtfilter als `red`, aber diese Wer
 - {{cssxref("background-color")}}
 - {{cssxref("color_value", "&lt;color>")}}
 - {{cssxref("filter-function")}}
-- SVG-{{SVGAttr("lighting-color")}}-Attribut
+- SVG {{SVGAttr("lighting-color")}} Attribut

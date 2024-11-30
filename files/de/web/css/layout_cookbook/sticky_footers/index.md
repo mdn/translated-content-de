@@ -1,26 +1,26 @@
 ---
-title: Sticky Footer
+title: Sticky Footers
 slug: Web/CSS/Layout_cookbook/Sticky_footers
 l10n:
-  sourceCommit: 507825f6292eb73f0a96419d69870d9330b6776f
+  sourceCommit: 969c3ca835e0a43a403ed61a3ea8245539fcc4dd
 ---
 
 {{CSSRef}}
 
-Ein Sticky Footer ist ein Muster, bei dem der Footer Ihrer Seite am unteren Rand des Viewports "haften bleibt", wenn der Inhalt kürzer als die Höhe des Viewports ist. In diesem Rezept werden wir ein paar Techniken zur Erstellung eines Sticky Footers betrachten.
+Ein Sticky-Footer-Pattern ist eines, bei dem der Footer Ihrer Seite am unteren Rand des Viewports "klebt", wenn der Inhalt kürzer ist als die Höhe des Viewports. In diesem Rezept werden wir uns einige Techniken ansehen, um einen solchen zu erstellen.
 
-![Ein Sticky Footer, der an den unteren Rand eines Kastens geschoben wird](cookbook-footer.png)
+![Ein Sticky-Footer am unteren Rand eines Kastens](cookbook-footer.png)
 
 ## Anforderungen
 
-Das Sticky-Footer-Muster muss die folgenden Anforderungen erfüllen:
+Das Sticky-Footer-Pattern muss die folgenden Anforderungen erfüllen:
 
-- Der Footer bleibt am unteren Rand des Viewports, wenn der Inhalt kurz ist.
-- Wenn der Inhalt der Seite über den unteren Rand des Viewports hinausgeht, befindet sich der Footer wie gewohnt unter dem Inhalt.
+- Der Footer klebt am unteren Rand des Viewports, wenn der Inhalt kurz ist.
+- Wenn der Seiteninhalt über den unteren Rand des Viewports hinausgeht, befindet sich der Footer wie gewohnt unter dem Inhalt.
 
 ## Das Rezept
 
-Klicken Sie auf "Play" in den unten stehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie in den untenstehenden Codeblöcken auf "Play", um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___sticky-footer-example
 <div class="wrapper">
@@ -72,20 +72,20 @@ body {
 }
 ```
 
-{{EmbedLiveSample("stiky-footer-example", "", "400px")}}
+{{EmbedLiveSample("sticky-footer-example", "", "400px")}}
 
 > [!NOTE]
-> In diesem und im folgenden Beispiel verwenden wir einen Wrapper mit `min-height: 100%`. Sie können dies auch für eine vollständige Seite erreichen, indem Sie eine {{cssxref("min-height")}} von `100vh` auf dem {{htmlelement("body")}} setzen und es dann als Ihr Grid-Container verwenden.
+> In diesem und dem folgenden Beispiel verwenden wir einen Wrapper mit `min-height: 100%`. Sie können dies auch für eine volle Seite erreichen, indem Sie eine {{cssxref("min-height")}} von `100vh` auf den {{htmlelement("body")}} setzen und ihn dann als Gittercontainer verwenden.
 
 ## Getroffene Entscheidungen
 
-Im obigen Beispiel erreichen wir den Sticky Footer durch das CSS Grid Layout. Der `.wrapper` hat eine Mindesthöhe von `100%`, was bedeutet, dass er so hoch ist wie der Container, in dem er sich befindet. Wir erstellen dann ein einspaltiges Grid-Layout mit drei Zeilen, eine Zeile für jeden Teil unseres Layouts.
+Im obigen Beispiel erreichen wir den Sticky-Footer mit CSS-Grid-Layout. Der `.wrapper` hat eine Mindesthöhe von `100%`, was bedeutet, dass er so hoch ist wie der Container, in dem er sich befindet. Wir erstellen dann ein einspaltiges Gitterlayout mit drei Reihen, eine Reihe für jeden Teil unseres Layouts.
 
-Die automatische Platzierung durch das Grid wird unsere Elemente in Quellreihenfolge anordnen, sodass der Header in die erste automatisch dimensionierte Spur, der Hauptinhalt in die `1fr` Spur und der Footer in die letzte automatisch dimensionierte Spur geht. Die `1fr` Spur wird allen verfügbaren Platz einnehmen und so die Lücke füllen.
+Das Grid-Auto-Placement platziert unsere Elemente in der Reihenfolge des Quelltextes, sodass der Header in die erste autoskalierte Spur, der Hauptinhalt in die `1fr`-Spur und der Footer in die letzte autoskalierte Spur eingeht. Die `1fr`-Spur nimmt den gesamten verfügbaren Platz ein und wächst somit, um die Lücke zu füllen.
 
 ## Alternative Methode
 
-Sie können auch Flexbox verwenden, um einen Sticky Footer zu erstellen.
+Sie können auch Flexbox verwenden, um einen Sticky-Footer zu erstellen.
 
 ```html live-sample___sticky-footer-flexbox-example
 <div class="wrapper">
@@ -143,14 +143,14 @@ body {
 }
 ```
 
-{{EmbedLiveSample("stiky-footer-flexbox-example", "", "400px")}}
+{{EmbedLiveSample("sticky-footer-flexbox-example", "", "400px")}}
 
-Das Flexbox-Beispiel beginnt auf dieselbe Weise, aber wir verwenden `display:flex` statt `display:grid` auf dem `.wrapper`; wir setzen außerdem `flex-direction` auf `column`. Dann setzen wir unseren Hauptinhalt auf `flex-grow: 1` und die anderen beiden Elemente auf `flex-shrink: 0` — dies verhindert, dass sie kleiner werden, wenn der Inhalt den Hauptbereich füllt.
+Das Flexbox-Beispiel beginnt auf die gleiche Weise, aber wir verwenden `display:flex` anstelle von `display:grid` auf dem `.wrapper`; wir setzen auch `flex-direction` auf `column`. Dann setzen wir unseren Hauptinhalt auf `flex-grow: 1` und die anderen beiden Elemente auf `flex-shrink: 0` — dies verhindert, dass sie kleiner werden, wenn der Inhalt den Hauptbereich füllt.
 
 ## Ressourcen auf MDN
 
 - CSS-Eigenschaften: {{cssxref("display")}}, {{cssxref("min-height")}}, {{cssxref("grid-template-rows")}}, {{cssxref("flex-direction")}}, {{cssxref("flex-grow")}}, {{cssxref("flex-shrink")}}
-- [Grundlegende Konzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
-- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
-- [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [CSS Flexibles Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [Grundkonzepte des Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout)
+- [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [Grundkonzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
+- [CSS-Flexible-Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
