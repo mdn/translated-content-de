@@ -1,13 +1,13 @@
 ---
-title: "<slot>: Das Web Component Slot-Element"
+title: "<slot>: Das Slot-Element der Web-Komponente"
 slug: Web/HTML/Element/slot
 l10n:
-  sourceCommit: b7955e77cd4293adf45ef23686df50b0305f02ad
+  sourceCommit: f47d71927e4dc46f3aabde0a56c7f940da988d9f
 ---
 
 {{HTMLSidebar}}
 
-Das **`<slot>`** [HTML](/de/docs/Web/HTML)-Element—Teil des [Web Components](/de/docs/Web/API/Web_components)-Technologiepakets—ist ein Platzhalter innerhalb einer Web-Komponente, den Sie mit Ihrem eigenen Markup füllen können. Dies ermöglicht es Ihnen, separate DOM-Bäume zu erstellen und diese zusammen darzustellen.
+Das **`<slot>`** [HTML](/de/docs/Web/HTML)-Element, Teil der [Web Components](/de/docs/Web/API/Web_components)-Technologie-Suite, ist ein Platzhalter innerhalb einer Web-Komponente, den Sie mit eigenem Markup füllen können. Dies ermöglicht es Ihnen, separate DOM-Bäume zu erstellen und diese gemeinsam darzustellen.
 
 ## Attribute
 
@@ -66,7 +66,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 ```
 
 > [!NOTE]
-> Sie können dieses komplette Beispiel in Aktion sehen unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) (sehen Sie es sich [live an](https://mdn.github.io/web-components-examples/element-details/)). Zusätzlich finden Sie eine Erklärung bei [Using templates and slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
+> Sie können dieses vollständige Beispiel in Aktion unter [element-details](https://github.com/mdn/web-components-examples/tree/main/element-details) sehen (sehen Sie es [live](https://mdn.github.io/web-components-examples/element-details/)). Darüber hinaus finden Sie eine Erklärung unter [Using templates and slots](/de/docs/Web/API/Web_components/Using_templates_and_slots).
 
 ## Technische Zusammenfassung
 
@@ -83,12 +83,12 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
           >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
+          >Phrasierungsinhalt</a
         >
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zugelassener Inhalt</th>
       <td>
         <a
           href="/de/docs/Web/HTML/Content_categories#transparent_content_model"
@@ -105,12 +105,13 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
-      <th scope="row">Zulässige Eltern</th>
+      <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
-          >Phrasing-Inhalt</a
-        > akzeptiert
+          >Phrasierungsinhalt</a
+        >
+        akzeptiert
       </td>
     </tr>
     <tr>
@@ -123,7 +124,7 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
     </tr>
     <tr>
       <th scope="row">Zulässige ARIA-Rollen</th>
-      <td>Keine <code>role</code> erlaubt</td>
+      <td>Keine <code>role</code> zulässig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -145,4 +146,5 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
 - HTML {{HTMLElement("template")}}-Element
 - HTML [`slot`](/de/docs/Web/HTML/Global_attributes/slot)-Attribut
 - CSS {{CSSXref("::slotted")}} Pseudo-Element
-- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
+- CSS {{cssxref(":has-slotted")}} Pseudo-Klasse
+- [CSS-Scoping](/de/docs/Web/CSS/CSS_scoping)-Modul

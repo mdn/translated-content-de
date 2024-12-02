@@ -1,16 +1,27 @@
 ---
-title: "SerialPort: connect-Ereignis"
+title: "SerialPort: connect Ereignis"
 short-title: connect
 slug: Web/API/SerialPort/connect_event
 l10n:
-  sourceCommit: c20c12fab32381b983b4148d712fda227d34e2bd
+  sourceCommit: 861d367a39f380ac4e6a01ae215fc1beb3e27c31
 ---
 
 {{APIRef("Web Serial API")}}{{SecureContext_Header}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Das **`connect`**-Ereignis der [`SerialPort`](/de/docs/Web/API/SerialPort)-Schnittstelle wird ausgelöst, wenn ein Port eine Verbindung zum Gerät hergestellt hat. Dieses Ereignis wird nur für Ports ausgelöst, die mit entfernbaren Geräten wie solchen, die über USB angeschlossen sind, verbunden sind.
+Das **`connect`**-Ereignis des [`SerialPort`](/de/docs/Web/API/SerialPort)-Interfaces wird ausgelöst, wenn der Anschluss eine Verbindung mit dem Gerät herstellt.
 
-Dieses Ereignis blubbert zur Instanz von [`Serial`](/de/docs/Web/API/Serial), die diese Schnittstelle zurückgegeben hat.
+## Beschreibung
+
+Genauer gesagt wird das `connect`-Ereignis ausgelöst, wenn der Anschluss nach der Gewährung der Berechtigung durch den Benutzer für eine Website, Zugriff auf den Anschluss zu erhalten, **logisch mit** dem Gerät verbunden wird, nach einem Aufruf von [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort):
+
+- Bei einem kabelgebundenen seriellen Anschluss tritt dies ein, wenn der Anschluss physisch mit dem Gerät verbunden ist, z. B. über USB.
+- Bei einem drahtlosen seriellen Anschluss (z. B. Bluetooth RFCOMM) tritt dies ein, wenn der Anschluss eine oder mehrere aktive Verbindungen mit dem Gerät herstellt (z. B. über Bluetooth L2CAP-Kanäle).
+
+### Bubbling
+
+Dieses Ereignis verbreitet sich bis zur Instanz von [`Serial`](/de/docs/Web/API/Serial), die dieses Interface zurückgegeben hat. Die Eigenschaft `event.target` bezieht sich auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das weitergegeben wird.
+
+Für weitere Informationen siehe [Event-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
 
 ## Syntax
 
@@ -26,17 +37,11 @@ onconnect = (event) => {};
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Blubbern
-
-Dieses Ereignis blubbert zu [`Serial`](/de/docs/Web/API/Serial). Die `event.target`-Eigenschaft bezieht sich auf das [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekt, das nach oben blubbert.
-
-Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
-
 ## Beispiele
 
-### Benachrichtigung, wenn ein spezifischer Port verbunden wird
+### Benachrichtigung, wenn ein bestimmter Anschluss verbunden wird
 
-Die [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort)-Methode gibt ein {{jsxref("Promise")}} zurück, das auf ein vom Benutzer ausgewähltes [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird.
+Die Methode [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) gibt einen {{jsxref("Promise")}} zurück, der mit einem vom Benutzer ausgewählten [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird.
 
 ```js
 // Prompt user to choose a serial port
@@ -47,9 +52,9 @@ port.addEventListener("connect", (event) => {
 });
 ```
 
-### Abhören neuer verbundener Ports
+### Lauschen auf neu verbundene Anschlüsse
 
-Das `connect`-Ereignis blubbert zum [`Serial`](/de/docs/Web/API/Serial)-Objekt, wo Sie auf alle neu verbundenen Ports hören können.
+Das `connect`-Ereignis verbreitet sich bis zum [`Serial`](/de/docs/Web/API/Serial)-Objekt, wo Sie auf neu verbundene Anschlüsse lauschen können.
 
 ```js
 navigator.serial.addEventListener("connect", (event) => {
@@ -68,4 +73,4 @@ navigator.serial.addEventListener("connect", (event) => {
 
 ## Siehe auch
 
-- [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event)-Ereignis
+- [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) Ereignis

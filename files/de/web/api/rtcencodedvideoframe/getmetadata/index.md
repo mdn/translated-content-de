@@ -3,14 +3,14 @@ title: "RTCEncodedVideoFrame: getMetadata() Methode"
 short-title: getMetadata()
 slug: Web/API/RTCEncodedVideoFrame/getMetadata
 l10n:
-  sourceCommit: 7cf04da4f63ea96edfddde0a74ac0d0b1bc4d12e
+  sourceCommit: 03b4a9d11d37c9d0be0804669467eadf2d72f2a3
 ---
 
 {{APIRef("WebRTC")}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`getMetadata()`**-Methode der [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame)-Schnittstelle gibt ein Objekt zurück, das die mit dem Rahmen verknüpften Metadaten enthält.
+Die **`getMetadata()`** Methode der [`RTCEncodedVideoFrame`](/de/docs/Web/API/RTCEncodedVideoFrame) Schnittstelle gibt ein Objekt zurück, das die mit dem Frame verbundenen Metadaten enthält.
 
-Dies umfasst Informationen über den Rahmen, einschließlich seiner Größe, Video-Codierung, anderer Rahmen, die benötigt werden, um ein vollständiges Bild zu erstellen, Zeitstempel und andere Informationen.
+Dies umfasst Informationen über den Frame, einschließlich seiner Größe, Video-Codierung, anderer Frames, die benötigt werden, um ein vollständiges Bild zu konstruieren, Zeitstempel und weitere Informationen.
 
 ## Syntax
 
@@ -27,45 +27,45 @@ Keine.
 Ein Objekt mit den folgenden Eigenschaften:
 
 - `frameId`
-  - : Ein positiver ganzzahliger Wert, der die ID dieses Rahmens angibt.
+  - : Ein positiver Ganzzahlwert, der die ID dieses Frames angibt.
 - `dependencies`
-  - : Ein {{jsxref("Array")}} von positiven ganzen Zahlen, die die `frameIds` der Rahmen angeben, von denen dieser Rahmen abhängt.
-    Bei einem Schlüsselbild ist dieses leer, da ein Schlüsselbild alle Informationen enthält, die benötigt werden, um das Bild zu erstellen.
-    Bei einem Delta-Bild werden alle Rahmen aufgelistet, die benötigt werden, um diesen Rahmen darzustellen.
-    Der Typ des Rahmens kann mit [`RTCEncodedVideoFrame.type`](/de/docs/Web/API/RTCEncodedVideoFrame/type) ermittelt werden.
+  - : Ein {{jsxref("Array")}} von positiven Ganzzahlen, die die `frameIds` der Frames angeben, von denen dieser Frame abhängt.
+    Bei einem Schlüsselbild ist dies leer, da ein Schlüsselbild alle Informationen enthält, die es benötigt, um das Bild zu konstruieren.
+    Bei einem Delta-Frame listet dies alle Frames auf, die benötigt werden, um diesen Frame zu rendern.
+    Der Frame-Typ kann unter Verwendung von [`RTCEncodedVideoFrame.type`](/de/docs/Web/API/RTCEncodedVideoFrame/type) bestimmt werden.
 - `width`
-  - : Eine positive ganze Zahl, die die Breite des Rahmens angibt.
-    Der Höchstwert beträgt 65535.
+  - : Eine positive Ganzzahl, die die Breite des Frames angibt.
+    Der Höchstwert ist 65535.
 - `height`
-  - : Eine positive ganze Zahl, die die Höhe des Rahmens angibt.
-    Der Höchstwert beträgt 65535.
+  - : Eine positive Ganzzahl, die die Höhe des Frames angibt.
+    Der Höchstwert ist 65535.
 - `spatialIndex`
-  - : Eine positive ganze Zahl, die den räumlichen Index des Rahmens angibt.
-    Einige Codecs erlauben die Erstellung von Ebenen von Rahmen mit verschiedenen Auflösungen.
-    Rahmen in höheren Ebenen können selektiv weggelassen werden, um die Bitrate zu reduzieren, während eine akzeptable Videoqualität aufrechterhalten wird.
+  - : Eine positive Ganzzahl, die den räumlichen Index des Frames angibt.
+    Einige Codecs ermöglichen die Erzeugung von Frame-Schichten mit unterschiedlichen Auflösungsebenen.
+    Frames in höheren Schichten können selektiv fallen gelassen werden, um bei Bedarf die Bitrate zu reduzieren, während eine akzeptable Videoqualität beibehalten wird.
 - `temporalIndex`
-  - : Eine positive ganze Zahl, die den temporalen Index des Rahmens angibt.
-    Einige Codecs gruppieren Rahmen in Ebenen, basierend darauf, ob das Auslassen eines Rahmens verhindert, dass andere dekodiert werden.
-    Rahmen in höheren Ebenen können selektiv weggelassen werden, um die Bitrate zu reduzieren, während eine akzeptable Videoqualität aufrechterhalten wird.
+  - : Eine positive Ganzzahl, die den zeitlichen Index des Frames angibt.
+    Einige Codecs gruppieren Frames in Schichten, basierend darauf, ob das Fallenlassen eines Frames verhindern wird, dass andere dekodiert werden können.
+    Frames in höheren Schichten können selektiv fallen gelassen werden, um bei Bedarf die Bitrate zu reduzieren, während eine akzeptable Videoqualität beibehalten wird.
 - `synchronizationSource`
-  - : Ein positiver ganzzahliger Wert, der die Synchronisationsquelle ("ssrc") des Stroms von RTP-Paketen angibt, die durch diesen kodierten Videorahmen beschrieben werden.
-    Eine Quelle könnte etwas wie eine Kamera oder ein Mikrofon sein, oder eine Art Mixer-App, die mehrere Quellen kombiniert.
-    Alle Pakete von derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können so relativ zueinander geordnet werden.
-    Beachten Sie, dass zwei Rahmen mit demselben Wert auf dieselbe Quelle verweisen (für weitere Informationen siehe [`RTCRtpStreamStats.ssrc`](/de/docs/Web/API/RTCRtpStreamStats/ssrc)).
+  - : Ein positiver Ganzzahlwert, der die Synchronisationsquelle ("ssrc") des Stroms von RTP-Paketen angibt, die durch diesen codierten Videoframe beschrieben werden.
+    Eine Quelle könnte etwas wie eine Kamera oder ein Mikrofon sein oder eine Art Mixer-Anwendung, die mehrere Quellen kombiniert.
+    Alle Pakete derselben Quelle teilen dieselbe Zeitquelle und Sequenzraum und können daher relativ zueinander angeordnet werden.
+    Beachten Sie, dass zwei Frames mit demselben Wert auf dieselbe Quelle verweisen (für weitere Informationen siehe [`RTCInboundRtpStreamStats.ssrc`](/de/docs/Web/API/RTCInboundRtpStreamStats#ssrc)).
 - `payloadType`
-  - : Ein positiver ganzzahliger Wert im Bereich von 0 bis 127, der das Format der RTP-Nutzlast beschreibt.
-    Die Zuordnung der Werte zu Formaten ist in RFC3550 definiert.
+  - : Ein positiver Ganzzahlwert im Bereich von 0 bis 127, der das Format der RTP-Nutzdaten beschreibt.
+    Die Zuordnung von Werten zu Formaten ist in RFC3550 definiert.
 - `contributingSources`
-  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zum Rahmen beigetragen haben.
-    Betrachten Sie den Fall einer Konferenzanwendung, die Audio und Video mehrerer Benutzer kombiniert.
-    Die `synchronizationSource` würde die ssrc der Anwendung enthalten, während `contributingSources` die ssrc-Werte aller einzelnen Video- und Audioquellen enthalten würde.
+  - : Ein {{jsxref("Array")}} von Quellen (ssrc), die zu dem Frame beigetragen haben.
+    Betrachten Sie den Fall einer Konferenzanwendung, die das Audio und Video von mehreren Benutzern kombiniert.
+    Die `synchronizationSource` würde die ssrc der Anwendung einschließen, während `contributingSources` die ssrc-Werte aller individuellen Video- und Audioquellen einschließen würde.
 - `timestamp`
-  - : Der [Medien-Präsentationszeitstempel (PTS)](https://en.wikipedia.org/wiki/Presentation_timestamp) in Mikrosekunden des Rohrahmens, der mit dem Zeitstempel für Rohrahmen übereinstimmt, die diesem Rahmen entsprechen.
+  - : Der [Medienpräsentations-Zeitstempel (PTS)](https://en.wikipedia.org/wiki/Presentation_timestamp) in Mikrosekunden des rohen Frames, der dem Zeitstempel für rohe Frames entspricht, die zu diesem Frame gehören.
     Dies wird verwendet, um separate Video-, Audio-, Untertitel- und andere Streams zu synchronisieren, die zur selben Präsentation gehören.
 
 ## Beispiele
 
-Dieses Beispiel einer [WebRTC-kodierten Transformation](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie Sie die Rahmenmetadaten in einer `transform()`-Funktion abrufen und protokollieren können.
+Diese Beispielimplementierung einer [WebRTC encoded transform](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms) zeigt, wie man die Frame-Metadaten in einer `transform()` Funktion abrufen und protokollieren könnte.
 
 ```js
 addEventListener("rtctransform", (event) => {
@@ -86,7 +86,7 @@ addEventListener("rtctransform", (event) => {
 });
 ```
 
-Das resultierende Objekt von einer lokalen Webcam könnte wie das unten gezeigte aussehen.
+Das resultierende Objekt von einer lokalen Webcam könnte etwa so aussehen wie das unten gezeigte.
 Beachten Sie, dass es keine beitragenden Quellen gibt, da es nur eine Quelle gibt.
 
 ```js
@@ -115,4 +115,4 @@ Beachten Sie, dass es keine beitragenden Quellen gibt, da es nur eine Quelle gib
 
 ## Siehe auch
 
-- [Verwendung von WebRTC-Kodierten Transformationen](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)
+- [Verwendung von WebRTC Encoded Transforms](/de/docs/Web/API/WebRTC_API/Using_Encoded_Transforms)

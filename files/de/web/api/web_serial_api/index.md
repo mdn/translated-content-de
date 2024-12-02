@@ -2,44 +2,49 @@
 title: Web Serial API
 slug: Web/API/Web_Serial_API
 l10n:
-  sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
+  sourceCommit: 0e2c698518ac4aaf54975093a139e764cff62670
 ---
 
 {{DefaultAPISidebar("Web Serial API")}}{{SecureContext_Header}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **Web Serial API** bietet eine Möglichkeit für Websites, von seriellen Geräten zu lesen und an diese zu schreiben. Diese Geräte können über einen seriellen Anschluss verbunden sein oder USB- oder Bluetooth-Geräte sein, die einen seriellen Anschluss emulieren.
+Die **Web Serial API** bietet eine Möglichkeit für Websites, von seriellen Geräten zu lesen und auf diese zu schreiben. Diese Geräte können über einen seriellen Anschluss verbunden sein oder USB- oder Bluetooth-Geräte sein, die einen seriellen Anschluss emulieren.
 
-## Konzepte und Verwendung
+## Konzepte und Nutzung
 
-Die Web Serial API ist eine von mehreren APIs, die es Websites ermöglichen, mit Peripheriegeräten zu kommunizieren, die mit dem Computer eines Benutzers verbunden sind. Sie bietet die Möglichkeit, Geräte anzuschließen, die vom Betriebssystem erfordern, über die serielle API zu kommunizieren, im Gegensatz zu USB, das über die [WebUSB API](/de/docs/Web/API/WebUSB_API) zugänglich ist, oder Eingabegeräten, die über die [WebHID API](/de/docs/Web/API/WebHID_API) zugänglich sind.
+Die Web Serial API ist eine von mehreren APIs, die es Websites ermöglichen, mit Peripheriegeräten zu kommunizieren, die mit dem Computer eines Nutzers verbunden sind. Sie ermöglicht die Verbindung zu Geräten, die vom Betriebssystem erforderlich sind, um über die serielle API zu kommunizieren, im Gegensatz zu USB, das über die [WebUSB API](/de/docs/Web/API/WebUSB_API) zugänglich ist, oder Eingabegeräte, die über die [WebHID API](/de/docs/Web/API/WebHID_API) zugänglich sind.
 
-Beispiele für serielle Geräte sind 3D-Drucker und Mikrocontroller wie das [BBC micro:bit Board](https://microbit.org/).
+Beispiele für serielle Geräte sind 3D-Drucker und Mikrocontroller wie das [BBC micro:bit board](https://microbit.org/).
 
 ## Schnittstellen
 
 - [`Serial`](/de/docs/Web/API/Serial) {{Experimental_Inline}}
-  - : Bietet Attribute und Methoden zum Auffinden und Verbinden mit seriellen Anschlüssen von einer Webseite aus.
+  - : Bietet Attribute und Methoden zum Auffinden und Verbinden von seriellen Anschlüssen von einer Webseite.
 - [`SerialPort`](/de/docs/Web/API/SerialPort) {{Experimental_Inline}}
-  - : Ermöglicht den Zugriff auf einen seriellen Anschluss auf dem Hostgerät.
+  - : Ermöglicht den Zugriff auf einen seriellen Anschluss auf dem Host-Gerät.
 
 ## Erweiterungen zu anderen Schnittstellen
 
 - [`Navigator.serial`](/de/docs/Web/API/Navigator/serial) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`Serial`](/de/docs/Web/API/Serial) Objekt zurück, das den Einstiegspunkt in die Web Serial API darstellt, um die Kontrolle über serielle Anschlüsse zu ermöglichen.
+  - : Gibt ein [`Serial`](/de/docs/Web/API/Serial)-Objekt zurück, das den Einstiegspunkt in die Web Serial API darstellt, um die Steuerung von seriellen Anschlüssen zu ermöglichen.
 - [`WorkerNavigator.serial`](/de/docs/Web/API/WorkerNavigator/serial) {{ReadOnlyInline}} {{Experimental_Inline}}
-  - : Gibt ein [`Serial`](/de/docs/Web/API/Serial) Objekt zurück, das den Einstiegspunkt in die Web Serial API darstellt, um die Kontrolle über serielle Anschlüsse zu ermöglichen.
+  - : Gibt ein [`Serial`](/de/docs/Web/API/Serial)-Objekt zurück, das den Einstiegspunkt in die Web Serial API darstellt, um die Steuerung von seriellen Anschlüssen zu ermöglichen.
+
+## HTTP-Header
+
+- {{httpheader("Permissions-Policy")}} {{httpheader('Permissions-Policy/serial','serial')}} Direktive
+  - : Bestimmt, ob das aktuelle Dokument die Web Serial API verwenden darf, um mit seriellen Geräten zu kommunizieren, entweder direkt verbunden über einen seriellen Anschluss oder über USB- oder Bluetooth-Geräte, die einen seriellen Anschluss emulieren.
 
 ## Beispiele
 
-Die folgenden Beispiele zeigen einige der Funktionalitäten, die die Web Serial API bietet.
+Die folgenden Beispiele demonstrieren einige der Funktionen, die von der Web Serial API bereitgestellt werden.
 
 ### Verfügbare Anschlüsse überprüfen
 
-Das folgende Beispiel zeigt, wie verfügbare Anschlüsse überprüft werden können und der Benutzer ermächtigt wird, dem Zugriff auf zusätzliche Anschlüsse zuzustimmen.
+Das folgende Beispiel zeigt, wie man nach verfügbaren Anschlüssen sucht und dem Nutzer ermöglicht, die Erlaubnis für den Zugriff auf zusätzliche Anschlüsse zu erteilen.
 
-Die `connect`- und `disconnect`-Ereignisse ermöglichen es Websites, zu reagieren, wenn ein Gerät mit dem System verbunden oder davon getrennt wird. Die Methode [`getPorts()`](/de/docs/Web/API/Serial/getPorts) wird dann aufgerufen, um verbundene Anschlüsse zu sehen, auf die die Website bereits Zugriff hat.
+Die `connect` und `disconnect` Ereignisse ermöglichen es Websites, zu reagieren, wenn ein Gerät mit dem System verbunden oder getrennt wird. Die Methode [`getPorts()`](/de/docs/Web/API/Serial/getPorts) wird dann aufgerufen, um zu sehen, welche angeschlossenen Anschlüsse die Seite bereits zugreifen kann.
 
-Wenn die Website auf keine verbundenen Anschlüsse zugreifen kann, muss sie warten, bis sie eine Benutzeraktivierung erhält, um fortzufahren. In diesem Beispiel verwenden wir einen [`click`](/de/docs/Web/API/Element/click_event) Ereignis-Handler auf einem Button für diese Aufgabe. Ein Filter wird an [`requestPort()`](/de/docs/Web/API/Serial/requestPort) mit einer USB-Vendor-ID übergeben, um die dem Benutzer angezeigte Menge an Geräten auf nur die USB-Geräte eines bestimmten Herstellers zu beschränken.
+Wenn die Seite keinen Zugang zu angeschlossenen Anschlüssen hat, muss sie warten, bis sie über eine Benutzeraktivierung fortfahren kann. In diesem Beispiel verwenden wir einen [`click`](/de/docs/Web/API/Element/click_event)-Ereignishandler auf einem Button für diese Aufgabe. Ein Filter wird an [`requestPort()`](/de/docs/Web/API/Serial/requestPort) mit einer USB-Hersteller-ID übergeben, um die dem Nutzer angezeigten Geräte auf eine bestimmte Herstellermarke von USB-Geräten zu begrenzen.
 
 ```js
 navigator.serial.addEventListener("connect", (e) => {
@@ -69,7 +74,7 @@ button.addEventListener("click", () => {
 
 ### Daten von einem Anschluss lesen
 
-Das folgende Beispiel zeigt, wie Daten von einem Anschluss gelesen werden. Die äußere Schleife behandelt nicht fatale Fehler, indem ein neuer Leser erstellt wird, bis ein fataler Fehler auftritt und [`SerialPort.readable`](/de/docs/Web/API/SerialPort/readable) `null` wird.
+Das folgende Beispiel zeigt, wie man Daten von einem Anschluss liest. Die äußere Schleife behandelt nicht fatale Fehler, indem immer wieder ein neuer Leser erstellt wird, bis ein fataler Fehler auftritt und [`SerialPort.readable`](/de/docs/Web/API/SerialPort/readable) `null` wird.
 
 ```js
 while (port.readable) {
@@ -101,5 +106,5 @@ while (port.readable) {
 
 ## Siehe auch
 
-- [Von einem seriellen Anschluss lesen und schreiben](https://developer.chrome.com/docs/capabilities/serial)
-- [Einstieg in die Web Serial API](https://codelabs.developers.google.com/codelabs/web-serial#0)
+- [Von und zu einem seriellen Anschluss lesen und schreiben](https://developer.chrome.com/docs/capabilities/serial)
+- [Erste Schritte mit der Web Serial API](https://codelabs.developers.google.com/codelabs/web-serial#0)

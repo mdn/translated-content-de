@@ -2,12 +2,12 @@
 title: Serial
 slug: Web/API/Serial
 l10n:
-  sourceCommit: c29cee3dcb0d0e66093dd0c18aa82e0eab9d6d14
+  sourceCommit: 0e2c698518ac4aaf54975093a139e764cff62670
 ---
 
 {{securecontext_header}}{{APIRef("Web Serial API")}}{{SeeCompatTable}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die `Serial`-Schnittstelle der [Web Serial API](/de/docs/Web/API/Web_Serial_API) bietet Attribute und Methoden zum Auffinden und Verbinden mit seriellen Anschlüssen von einer Webseite aus.
+Das `Serial`-Interface der [Web Serial API](/de/docs/Web/API/Web_Serial_API) bietet Attribute und Methoden zum Finden und Verbinden mit seriellen Anschlüssen von einer Webseite aus.
 
 {{InheritanceDiagram}}
 
@@ -15,29 +15,27 @@ Die `Serial`-Schnittstelle der [Web Serial API](/de/docs/Web/API/Web_Serial_API)
 
 - [`Serial.requestPort()`](/de/docs/Web/API/Serial/requestPort) {{Experimental_Inline}}
 
-  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird, die das vom Benutzer ausgewählte Gerät darstellt, oder abgelehnt wird, wenn kein Gerät ausgewählt wurde.
-
-    Diese Methode muss mit Benutzeraktivierung aufgerufen werden.
+  - : Gibt ein {{jsxref("Promise")}} zurück, das mit einer Instanz von [`SerialPort`](/de/docs/Web/API/SerialPort) aufgelöst wird, die das vom Benutzer gewählte Gerät darstellt. Diese Methode muss über eine {{Glossary("Transient_activation", "transiente Aktivierung")}} aufgerufen werden.
 
 - [`Serial.getPorts()`](/de/docs/Web/API/Serial/getPorts) {{Experimental_Inline}}
   - : Gibt ein {{jsxref("Promise")}} zurück, das mit einem Array von [`SerialPort`](/de/docs/Web/API/SerialPort)-Objekten aufgelöst wird, die serielle Anschlüsse darstellen, die mit dem Host verbunden sind und auf die der Ursprung zugreifen darf.
 
 ## Ereignisse
 
-Die folgenden Ereignisse sind für `Serial` über das Ereignisbubbling von [`SerialPort`](/de/docs/Web/API/SerialPort) verfügbar:
+Die folgenden Ereignisse stehen `Serial` über Ereignis-Bubbling von [`SerialPort`](/de/docs/Web/API/SerialPort) zur Verfügung:
 
-- `SerialPort` [`connect`](/de/docs/Web/API/SerialPort/connect_event) Ereignis
+- `SerialPort` [`connect`](/de/docs/Web/API/SerialPort/connect_event)-Ereignis
   - : Ein Ereignis, das ausgelöst wird, wenn ein Anschluss mit dem Gerät verbunden wurde.
-- `SerialPort` [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) Ereignis
+- `SerialPort` [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event)-Ereignis
   - : Ein Ereignis, das ausgelöst wird, wenn ein Anschluss vom Gerät getrennt wurde.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, wie eine Webseite nach verfügbaren Anschlüssen suchen und dem Benutzer die Berechtigung erteilen kann, den Zugriff auf zusätzliche Anschlüsse zu gewähren.
+Das folgende Beispiel zeigt, wie eine Webseite verfügbare Anschlüsse überprüfen und dem Benutzer die Erlaubnis erteilen lassen kann, auf zusätzliche Anschlüsse zuzugreifen.
 
-Beim Laden werden Ereignis-Listener für die [`connect`](/de/docs/Web/API/SerialPort/connect_event) und [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event) Ereignisse hinzugefügt, damit die Webseite reagieren kann, wenn ein Gerät an das System angeschlossen oder davon getrennt wird. Die Methode [`getPorts()`](/de/docs/Web/API/Serial/getPorts) wird dann aufgerufen, um zu sehen, welche Anschlüsse verbunden sind, auf die die Webseite bereits zugreifen kann.
+Beim Laden der Seite werden Ereignis-Listener für die [`connect`](/de/docs/Web/API/SerialPort/connect_event)- und [`disconnect`](/de/docs/Web/API/SerialPort/disconnect_event)-Ereignisse hinzugefügt, damit die Webseite reagieren kann, wenn ein Gerät mit dem System verbunden oder davon getrennt wird. Die [`getPorts()`](/de/docs/Web/API/Serial/getPorts)-Methode wird dann aufgerufen, um festzustellen, welche Anschlüsse verbunden sind, auf die die Webseite bereits Zugriff hat.
 
-Wenn die Webseite auf keine verbundenen Anschlüsse zugreifen kann, muss sie warten, bis eine Benutzeraktivierung erfolgt. In diesem Beispiel verwenden wir einen [`click`](/de/docs/Web/API/Element/click_event) Ereignishandler auf einem Button für diese Aufgabe. Ein Filter wird an [`requestPort()`](/de/docs/Web/API/Serial/requestPort) mit einer USB-Hersteller-ID übergeben, um die Menge der dem Benutzer angezeigten Geräte auf nur USB-Geräte eines bestimmten Herstellers zu beschränken.
+Wenn die Webseite keinen Zugriff auf verbundene Anschlüsse hat, muss sie warten, bis sie eine Benutzeraktivierung hat, um fortzufahren. In diesem Beispiel verwenden wir einen [`click`](/de/docs/Web/API/Element/click_event)-Ereignis-Handler auf einem Button für diese Aufgabe. Ein Filter wird an [`requestPort()`](/de/docs/Web/API/Serial/requestPort) mit einer USB-Vendor-ID übergeben, um die Menge der Geräte, die dem Benutzer angezeigt werden, auf nur USB-Geräte eines bestimmten Herstellers zu beschränken.
 
 ```js
 navigator.serial.addEventListener("connect", (e) => {

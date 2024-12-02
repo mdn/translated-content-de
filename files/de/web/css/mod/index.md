@@ -2,14 +2,14 @@
 title: mod()
 slug: Web/CSS/mod
 l10n:
-  sourceCommit: 8ac73df2fbe2c88d8649fcb006dcde098616c723
+  sourceCommit: 759107c8ec8559b01efb91429ea7442a0d80fab6
 ---
 
 {{CSSRef}}
 
-Die **`mod()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt ein Modulus zurück, das übrig bleibt, wenn der erste Parameter durch den zweiten Parameter geteilt wird, ähnlich dem JavaScript [Modulo-Operator (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder). Das Modulus ist der Wert, der übrig bleibt, wenn ein Operand, der Dividend, durch einen zweiten Operand, den Divisor, geteilt wird. Es nimmt immer das Vorzeichen des Divisors an.
+Die **`mod()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) gibt einen Modulus zurück, der übrig bleibt, wenn der erste Parameter durch den zweiten Parameter geteilt wird, ähnlich dem JavaScript-[Resteoperator (`%`)](/de/docs/Web/JavaScript/Reference/Operators/Remainder). Der Modulus ist der Wert, der übrig bleibt, wenn ein Operand, der Dividend, durch einen zweiten Operand, den Divisor, geteilt wird. Er hat immer das Vorzeichen des Divisors.
 
-> Zum Beispiel gibt die CSS `mod(21, -4)` Funktion das Restwert `-1` zurück. Beim Teilen von 21 durch -4 ist das Ergebnis 5 mit einem Rest von -1. Die vollständige Berechnung ist `21 / -4 = -4 * 5 - 1`.
+Die Berechnung lautet `a - (Math.floor(a / b) * b)`. Zum Beispiel gibt die CSS-Funktion `mod(21, -4)` den Rest von `-3` zurück. Die vollständige Berechnung ist `21 - (Math.floor(21 / -4) * -4)`. Beim Teilen von `21` durch `-4` ergibt sich `-5.25`. Dies wird auf `-6` gerundet. Multipliziert man `-6` mit `-4`, ergibt das `24`. Subtrahiert man diese `24` von den ursprünglichen `21`, beträgt der Rest -3.
 
 ## Syntax
 
@@ -40,7 +40,7 @@ transition-duration: mod(20s / 2, 3000ms * 2); /* 4s */
 
 ### Parameter
 
-Die Funktion `mod(dividend, divisor)` akzeptiert zwei durch Komma getrennte Werte als Parameter. Beide Parameter müssen denselben Typ haben, [number](/de/docs/Web/CSS/number), [dimension](/de/docs/Web/CSS/dimension), oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten in den beiden Parametern nicht gleich sein müssen, müssen sie denselben Dimensionstyp haben, wie {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}}, oder {{cssxref("frequency")}}, um gültig zu sein.
+Die Funktion `mod(dividend, divisor)` akzeptiert zwei durch Komma getrennte Werte als Parameter. Beide Parameter müssen denselben Typ haben, [number](/de/docs/Web/CSS/number), [dimension](/de/docs/Web/CSS/dimension) oder {{cssxref("percentage")}}, damit die Funktion gültig ist. Während die Einheiten der beiden Parameter nicht gleich sein müssen, müssen sie denselben Dimensionstyp haben, wie z.B. {{cssxref("length")}}, {{cssxref("angle")}}, {{cssxref("time")}} oder {{cssxref("frequency")}}, um gültig zu sein.
 
 - `dividend`
 
@@ -51,7 +51,7 @@ Die Funktion `mod(dividend, divisor)` akzeptiert zwei durch Komma getrennte Wert
 
 ### Rückgabewert
 
-Gibt ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} zurück (entspricht dem Typ der Parameter), das das Modulus darstellt, also den übrig gebliebenen Wert der Operation.
+Gibt ein {{CSSxREF("&lt;number&gt;")}}, {{CSSxREF("&lt;dimension&gt;")}}, oder {{CSSxREF("&lt;percentage&gt;")}} zurück (entspricht dem Typ der Parameter), das den Modulus darstellt, also den übrig gebliebenen Wert der Operation.
 
 - Wenn `divisor` `0` ist, ist das Ergebnis `NaN`.
 - Wenn `dividend` unendlich ist, ist das Ergebnis `NaN`.
