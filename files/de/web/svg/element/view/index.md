@@ -2,22 +2,28 @@
 title: <view>
 slug: Web/SVG/Element/view
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: eb2d8ffb82c8a6fa4e55aad2835215ffada25897
 ---
 
 {{SVGRef}}
 
-Das **`<view>`** [SVG](/de/docs/Web/SVG)-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. Eine spezifische Ansicht kann angezeigt werden, indem das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut des `<view>`-Elements als Ziel-Fragment einer URL referenziert wird.
+Das **`<view>`** [SVG](/de/docs/Web/SVG)-Element definiert eine bestimmte Ansicht eines SVG-Dokuments. Eine spezifische Ansicht kann angezeigt werden, indem auf das [`id`](/de/docs/Web/HTML/Global_attributes/id)-Attribut des `<view>`-Elements als Ziel-Fragment einer URL verwiesen wird.
 
-## Verwendungskontext
+## Verwendungszweck
 
 {{svginfo}}
 
 ## Attribute
 
-- {{SVGAttr("viewBox")}}
 - {{SVGAttr("preserveAspectRatio")}}
+  - : Dieses Attribut definiert, wie das SVG-Fragment verformt werden muss, wenn es in einem Container mit einem anderen {{Glossary("aspect_ratio", "Seitenverhältnis")}} eingebettet ist.
+    _Werttyp_: (`none`| `xMinYMin`| `xMidYMin`| `xMaxYMin`| `xMinYMid`| `xMidYMid`| `xMaxYMid`| `xMinYMax`| `xMidYMax`| `xMaxYMax`) (`meet`|`slice`)? ; _Standardwert_: `xMidYMid meet`; _Animierbar_: **ja**
+- {{SVGAttr("viewBox")}}
+  - : Dieses Attribut definiert die Begrenzung des SVG-Ansichtsfensters für das Musterfragment.
+    _Werttyp_: **[\<list-of-numbers>](/de/docs/Web/SVG/Content_type#list-of-ts)** ; _Standardwert_: keiner; _Animierbar_: **ja**
 - {{SVGAttr("zoomAndPan")}} {{Deprecated_Inline}} {{Non-standard_Inline}}
+  - : Dieses Attribut gibt an, ob das SVG-Dokument vergrößert und verschoben werden kann.
+    _Werttyp_: **disable | magnify** ; _Standardwert_: magnify; _Animierbar_: **nein**
 
 ## Beispiel
 
@@ -49,10 +55,6 @@ Das **`<view>`** [SVG](/de/docs/Web/SVG)-Element definiert eine bestimmte Ansich
 ### Ergebnis
 
 {{EmbedLiveSample("Example", "85ch", "240px")}}
-
-## DOM-Interface
-
-Dieses Element implementiert das [`SVGViewElement`](/de/docs/Web/API/SVGViewElement)-Interface.
 
 ## Spezifikationen
 
