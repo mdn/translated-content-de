@@ -2,85 +2,68 @@
 title: enterkeyhint
 slug: Web/HTML/Global_attributes/enterkeyhint
 l10n:
-  sourceCommit: ba96f2f183353872db6d9242c7d2dffe2dbc0c35
+  sourceCommit: 14d5d881321941bb38db13646b1857ece7ae2c5a
 ---
 
 {{HTMLSidebar("Global_attributes")}}
 
-Das **`enterkeyhint`** [globale Attribut](/de/docs/Web/HTML/Global_attributes)
-ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut, das definiert, welches Aktionslabel (oder Symbol) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll.
+Das **`enterkeyhint`** [globale Attribut](/de/docs/Web/HTML/Global_attributes) ist ein {{Glossary("Enumerated", "enumeriertes")}} Attribut, das definiert, welches Aktionslabel (oder welches Icon) für die Eingabetaste auf virtuellen Tastaturen angezeigt werden soll.
 
 {{EmbedInteractiveExample("pages/tabbed/attribute-enterkeyhint.html","tabbed-shorter")}}
 
 ## Beschreibung
 
-[Formularelemente](/de/docs/Learn/Forms) (wie beispielsweise [`<textarea>`](/de/docs/Web/HTML/Element/textarea)
-oder [`<input>`](/de/docs/Web/HTML/Element/input)-Elemente) oder Elemente, die
-[`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) verwenden, können ein
-[`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) Attribut spezifizieren, um zu steuern, welche Art von virtueller Tastatur verwendet wird. Um das Erlebnis für den Nutzer weiter zu verbessern, kann die Eingabetaste speziell angepasst werden, indem ein `enterkeyhint`-Attribut angegeben wird, das angibt, wie die Eingabetaste beschriftet sein soll (oder welches Symbol angezeigt werden soll). Die Eingabetaste steht normalerweise für die nächste Aktion, die der Nutzer durchführen soll; typische Aktionen sind das Senden von Text, das Einfügen einer neuen Zeile oder das Suchen.
+[Formularelemente](/de/docs/Learn/Forms) (wie zum Beispiel [`<textarea>`](/de/docs/Web/HTML/Element/textarea) oder [`<input>`](/de/docs/Web/HTML/Element/input) Elemente) oder Elemente, die [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) verwenden, können ein [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) Attribut spezifizieren, um zu steuern, welche Art von virtueller Tastatur verwendet wird. Um die Erfahrung der Benutzer weiter zu verbessern, kann die Eingabetaste speziell angepasst werden, indem ein `enterkeyhint` Attribut bereitgestellt wird, das angibt, wie die Eingabetaste beschriftet werden soll (oder welches Icon angezeigt werden soll). Die Eingabetaste repräsentiert in der Regel, was der Benutzer als nächstes tun sollte; typische Aktionen sind: Text senden, eine neue Zeile einfügen oder suchen.
 
-Wenn kein `enterkeyhint`-Attribut bereitgestellt wird, kann der Benutzeragent kontextbezogene Informationen aus den
-[`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode),
-[`type`](/de/docs/Web/HTML/Element/input#input_types),
-oder [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attributen verwenden, um ein geeignetes Eingabetasten-Label (oder Symbol) anzuzeigen.
+Wenn kein `enterkeyhint` Attribut bereitgestellt wird, könnte der Benutzeragent kontextuelle Informationen aus den [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode), [`type`](/de/docs/Web/HTML/Element/input#input_types) oder [`pattern`](/de/docs/Web/HTML/Element/input#pattern) Attributen verwenden, um ein geeignetes Label (oder Icon) für die Eingabetaste anzuzeigen.
 
 ### Werte
 
-Das `enterkeyhint`-Attribut ist ein {{Glossary("Enumerated", "aufgezähltes")}} Attribut und akzeptiert nur die folgenden Werte:
+Das `enterkeyhint` Attribut ist ein {{Glossary("Enumerated", "enumeriertes")}} Attribut und akzeptiert nur die folgenden Werte:
 
 <table class="no-markdown">
   <thead>
     <tr>
       <th>Wert</th>
       <th>Beschreibung</th>
-      <th>Beispiel-Beschriftung (abhängig vom Benutzeragenten und der Benutzersprache)</th>
+      <th>Beispiel-Label (abhängig vom Benutzeragenten und der Benutzersprache)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code>enterkeyhint="enter"</code></td>
-      <td>Typischerweise um eine neue Zeile einzufügen.</td>
-      <td><kbd>↵</kbd></td>
+      <td>Typischerweise das Einfügen einer neuen Zeile.</td>
+      <td><kbd>return</kbd>, <kbd>↵</kbd></td>
     </tr>
     <tr>
       <td><code>enterkeyhint="done"</code></td>
-      <td>
-        Typischerweise bedeutet dies, dass nichts mehr eingegeben werden muss und der Eingabemethoden-Editor (IME) geschlossen wird.
-      </td>
-      <td><kbd>Fertig</kbd></td>
+      <td>Typischerweise bedeutet es, dass es nichts mehr einzugeben gibt und der Eingabemethoden-Editor (IME) geschlossen wird.</td>
+      <td><kbd>done</kbd>, <kbd>✅</kbd></td>
     </tr>
     <tr>
       <td><code>enterkeyhint="go"</code></td>
-      <td>
-        Typischerweise bedeutet dies, den Benutzer zum Ziel des eingegebenen Textes zu bringen.
-      </td>
-      <td><kbd>Öffnen</kbd></td>
+      <td>Typischerweise bedeutet es, den Benutzer zum Ziel des eingegebenen Textes zu bringen.</td>
+      <td><kbd>go</kbd>, <kbd>🡢</kbd></td>
     </tr>
     <tr>
       <td><code>enterkeyhint="next"</code></td>
-      <td>
-        Typischerweise führt dies den Benutzer zum nächsten Feld, das Text akzeptiert.
-      </td>
-      <td><kbd>Weiter</kbd></td>
+      <td>Typischerweise den Benutzer zum nächsten Feld zu bringen, das Text akzeptiert.</td>
+      <td><kbd>next</kbd>, <kbd>⇥</kbd></td>
     </tr>
     <tr>
       <td><code>enterkeyhint="previous"</code></td>
-      <td>
-        Typischerweise führt dies den Benutzer zum vorherigen Feld, das Text akzeptiert.
-      </td>
-      <td><kbd>Zurück</kbd></td>
+      <td>Typischerweise den Benutzer zum vorherigen Feld zu bringen, das Text akzeptiert.</td>
+      <td><kbd>return</kbd>, <kbd>⇤</kbd></td>
     </tr>
     <tr>
       <td><code>enterkeyhint="search"</code></td>
-      <td>
-        Typischerweise führt dies den Benutzer zu den Ergebnissen der Suche nach dem eingegebenen Text.
-      </td>
-      <td><kbd>Suchen</kbd></td>
+      <td>Typischerweise den Benutzer zu den Ergebnissen der Suche nach dem eingegebenen Text zu bringen.</td>
+      <td><kbd>search</kbd>, <kbd>🔍</kbd></td>
     </tr>
     <tr>
       <td><code>enterkeyhint="send"</code></td>
-      <td>Typischerweise wird der Text an sein Ziel gesendet.</td>
-      <td><kbd>Senden</kbd></td>
+      <td>Typischerweise das Übermitteln des Textes an das Ziel.</td>
+      <td><kbd>send</kbd></td>
     </tr>
   </tbody>
 </table>
@@ -95,9 +78,7 @@ Das `enterkeyhint`-Attribut ist ein {{Glossary("Enumerated", "aufgezähltes")}} 
 
 ## Siehe auch
 
-- [`HTMLElement.enterKeyHint`](/de/docs/Web/API/HTMLElement/enterKeyHint)-Eigenschaft, die dieses Attribut widerspiegelt
-- [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode)-globales Attribut
-- [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable)-globales Attribut
-- [`type`](/de/docs/Web/HTML/Element/input#input_types) und
-  [`pattern`](/de/docs/Web/HTML/Element/input#pattern)-Attribute bei
-  [`<input>`](/de/docs/Web/HTML/Element/input)-Elementen
+- [`HTMLElement.enterKeyHint`](/de/docs/Web/API/HTMLElement/enterKeyHint) Eigenschaft, die dieses Attribut widerspiegelt
+- [`inputmode`](/de/docs/Web/HTML/Global_attributes/inputmode) globales Attribut
+- [`contenteditable`](/de/docs/Web/HTML/Global_attributes/contenteditable) globales Attribut
+- [`type`](/de/docs/Web/HTML/Element/input#input_types) und [`pattern`](/de/docs/Web/HTML/Element/input#pattern) Attribute auf [`<input>`](/de/docs/Web/HTML/Element/input) Elementen
