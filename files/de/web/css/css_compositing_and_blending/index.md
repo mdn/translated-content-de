@@ -31,7 +31,11 @@ In diesem Beispiel hat jede Box einen Rahmen, zwei gestreifte Hintergrundbilder 
 div {
   width: 200px;
   height: 200px;
-  background-image: repeating-linear-gradient(45deg, red 0 15px, pink 15px 30px),
+  background-image: repeating-linear-gradient(
+      45deg,
+      red 0 15px,
+      pink 15px 30px
+    ),
     repeating-linear-gradient(-45deg, blue 0 15px, lightblue 15px 30px);
   background-size: 150px 150px;
   background-repeat: no-repeat;
