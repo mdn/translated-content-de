@@ -356,8 +356,8 @@ Verwenden Sie die Schieberegler im folgenden Beispiel, um die Translations-, Rot
   padding: 0;
   margin-bottom: 4px;
   accent-color: blue; /* or any color */
-  font-family: Inter, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: Inter, "system-ui", "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 #allTransformFieldset > legend {
