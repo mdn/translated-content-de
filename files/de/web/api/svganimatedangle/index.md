@@ -2,21 +2,21 @@
 title: SVGAnimatedAngle
 slug: Web/API/SVGAnimatedAngle
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 6db682e5b5717b90a47135134434191c265970d8
 ---
 
 {{APIRef("SVG")}}
 
-## Schnittstelle für animierten Winkel in SVG
+## SVG-animierte Winkel-Schnittstelle
 
 Die `SVGAnimatedAngle`-Schnittstelle wird für Attribute des Basistyps [\<angle>](/de/docs/Web/SVG/Content_type#angle) verwendet, die animiert werden können.
 
-### Übersicht der Schnittstelle
+### Schnittstellenübersicht
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Implementiert auch</th>
+      <th scope="row">Ebenfalls implementiert</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -41,14 +41,14 @@ Die `SVGAnimatedAngle`-Schnittstelle wird für Attribute des Basistyps [\<angle>
       <td>
         <a
           href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedAngle"
-          >SVG 1.1 (2. Ausgabe)</a
+          >SVG 1.1 (2nd Edition)</a
         >
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
 <table class="no-markdown">
   <thead>
@@ -60,27 +60,23 @@ Die `SVGAnimatedAngle`-Schnittstelle wird für Attribute des Basistyps [\<angle>
   </thead>
   <tbody>
     <tr>
-      <td><code>baseVal</code></td>
+      <td><code>[`SVGAnimatedAngle.baseVal`](/de/docs/Web/API/SVGAnimatedAngle/baseVal)</code></td>
       <td>[`SVGAngle`](/de/docs/Web/API/SVGAngle)</td>
       <td>
-        Der Ausgangswert des gegebenen Attributs, bevor Animationen angewendet werden.
+        Der Basiswert des angegebenen Attributs, bevor Animationen angewendet werden.
       </td>
     </tr>
     <tr>
-      <td><code>animVal</code></td>
+      <td><code>[`SVGAnimatedAngle.animVal`](/de/docs/Web/API/SVGAnimatedAngle/animVal)</code></td>
       <td>[`SVGAngle`](/de/docs/Web/API/SVGAngle)</td>
       <td>
-        Ein schreibgeschützter [`SVGAngle`](/de/docs/Web/API/SVGAngle), der den aktuellen
-        animierten Wert des gegebenen Attributs darstellt. Wenn das gegebene Attribut momentan
-        nicht animiert wird, dann hat der [`SVGAngle`](/de/docs/Web/API/SVGAngle) den gleichen Inhalt wie <code>baseVal</code>. Das durch
-        <code>animVal</code> referenzierte Objekt wird immer von dem durch
-        <code>baseVal</code> referenzierten Objekt verschieden sein, selbst wenn das Attribut nicht animiert ist.
+        Ein schreibgeschützter [`SVGAngle`](/de/docs/Web/API/SVGAngle), der den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat der [`SVGAngle`](/de/docs/Web/API/SVGAngle) denselben Inhalt wie <code>baseVal</code>. Das von <code>animVal</code> referenzierte Objekt ist immer von demjenigen, das von <code>baseVal</code> referenziert wird, verschieden, selbst wenn das Attribut nicht animiert ist.
       </td>
     </tr>
   </tbody>
 </table>
 
-## Instanzmethoden
+## Instanz-Methoden
 
 Die `SVGAnimatedAngle`-Schnittstelle bietet keine spezifischen Methoden.
 
