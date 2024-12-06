@@ -2,16 +2,16 @@
 title: padding-block
 slug: Web/CSS/padding-block
 l10n:
-  sourceCommit: 6b48d9fb5065ee53207e9053f465cc0989c2619a
+  sourceCommit: f26b3f2ab7a079151245759bc2682427dc36870c
 ---
 
 {{CSSRef}}
 
-Die **`padding-block`** [CSS](/de/docs/Web/CSS)-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) definiert den logischen Blockanfang und das Blockende der Innenabstände eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements auf physische Innenabstandseigenschaften abgebildet werden.
+Die **`padding-block`** [CSS](/de/docs/Web/CSS) [Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) definiert das logische Block-Anfangs- und End-Padding eines Elements, das je nach Schriftrichtung, Richtung und Textausrichtung des Elements bestimmten physischen Padding-Eigenschaften zugeordnet wird.
 
 {{EmbedInteractiveExample("pages/css/padding-block.html")}}
 
-## Teilkomponenten der Eigenschaft
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -37,15 +37,15 @@ padding-block: revert-layer;
 padding-block: unset;
 ```
 
-Die `padding-block`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert angegeben wird, wird dieser sowohl für {{cssxref("padding-block-start")}} als auch {{cssxref("padding-block-end")}} verwendet. Werden zwei Werte angegeben, wird der erste für {{cssxref("padding-block-start")}} und der zweite für {{cssxref("padding-block-end")}} verwendet.
+Die `padding-block`-Eigenschaft kann mit einem oder zwei Werten angegeben werden. Wenn ein Wert gegeben ist, wird er sowohl für {{cssxref("padding-block-start")}} als auch für {{cssxref("padding-block-end")}} verwendet. Wenn zwei Werte angegeben sind, wird der erste für {{cssxref("padding-block-start")}} und der zweite für {{cssxref("padding-block-end")}} verwendet.
 
 ### Werte
 
-Die `padding-block`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("padding-left")}}-Eigenschaft an.
+Die `padding-block`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("padding-left")}}-Eigenschaft.
 
 ## Beschreibung
 
-Diese Werte entsprechen den Eigenschaften {{cssxref("padding-top")}} und {{cssxref("padding-bottom")}} oder {{cssxref("padding-right")}} und {{cssxref("padding-left")}}, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die durch `padding-block` angegebenen Padding-Werte können den {{cssxref("padding-top")}}- und {{cssxref("padding-bottom")}}-Eigenschaften oder den {{cssxref("padding-right")}}- und {{cssxref("padding-left")}}-Eigenschaften entsprechen, abhängig von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
 
 ## Formale Definition
 
@@ -57,7 +57,7 @@ Diese Werte entsprechen den Eigenschaften {{cssxref("padding-top")}} und {{cssxr
 
 ## Beispiele
 
-### Festlegen der Block-Innenabstände für vertikalen Text
+### Block-Padding für vertikalen Text einstellen
 
 #### HTML
 
@@ -97,6 +97,6 @@ div {
 
 ## Siehe auch
 
-- [CSS Logical Properties and Values](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- Die zugeordneten physischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}}, und {{cssxref("padding-left")}}
+- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- Die zugeordneten physikalischen Eigenschaften: {{cssxref("padding-top")}}, {{cssxref("padding-right")}}, {{cssxref("padding-bottom")}} und {{cssxref("padding-left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

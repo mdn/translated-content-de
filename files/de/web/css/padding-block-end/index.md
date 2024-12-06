@@ -2,12 +2,12 @@
 title: padding-block-end
 slug: Web/CSS/padding-block-end
 l10n:
-  sourceCommit: fab1f9cef824066b3ce6a5b25f6c6db539f5d042
+  sourceCommit: f26b3f2ab7a079151245759bc2682427dc36870c
 ---
 
 {{CSSRef}}
 
-Die **`padding-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert das logische Blockende-Polster eines Elements, das je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Polsterung zugeordnet wird.
+Die **`padding-block-end`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logische Block-End-Polsterung eines Elements, die je nach Schreibmodus, Richtung und Textausrichtung des Elements einer physischen Polsterung zugeordnet wird.
 
 {{EmbedInteractiveExample("pages/css/padding-block-end.html")}}
 
@@ -38,9 +38,9 @@ padding-block-end: unset;
 
 ## Beschreibung
 
-Die `padding-block-end` Eigenschaft wird in der Spezifikation so definiert, dass sie dieselben Werte wie die Eigenschaft {{cssxref("padding-top")}} annimmt. Die physische Eigenschaft, der sie entspricht, hängt jedoch von den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten ab. Daher kann sie {{cssxref("padding-bottom")}}, {{cssxref("padding-right")}} oder {{cssxref("padding-left")}} zugeordnet werden.
+Die Eigenschaft `padding-block-end` nimmt dieselben Werte an wie physische Polstereigenschaften wie {{cssxref("padding-top")}}. Sie kann jedoch je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} festgelegten Werten gleichwertig zu {{cssxref("padding-bottom")}}, `padding-top`, {{cssxref("padding-left")}} oder {{cssxref("padding-right")}} sein.
 
-Sie steht im Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}} und {{cssxref("padding-inline-end")}}, die die anderen Polsterungen des Elements definieren.
+Sie bezieht sich auf {{cssxref("padding-block-start")}}, {{cssxref("padding-inline-start")}}, und {{cssxref("padding-inline-end")}}, welche die anderen Polsterwerte des Elements definieren.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Sie steht im Zusammenhang mit {{cssxref("padding-block-start")}}, {{cssxref("pad
 
 ## Beispiele
 
-### Festlegen der Blockende-Polsterung für vertikalen Text
+### Block-End-Polsterung für vertikalen Text festlegen
 
 #### HTML
 
