@@ -1,52 +1,52 @@
 ---
-title: Codecs in gängigen Medientypen
+title: Codecs in common media types
 slug: Web/Media/Formats/codecs_parameter
 l10n:
-  sourceCommit: 0604c441cfd74e87b63ff9a02f476f968592151c
+  sourceCommit: a99abeab30729181dde26fe362aeebb2a567c19e
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Media")}}
 
-Auf einer grundlegenden Ebene können Sie den Typ einer Mediendatei mithilfe eines einfachen {{Glossary("MIME", "MIME")}}-Typs angeben, wie `video/mp4` oder `audio/mpeg`. Viele Medientypen – insbesondere diejenigen, die Videospuren unterstützen – können jedoch von der Möglichkeit profitieren, das Format der Daten innerhalb dieser präziser zu beschreiben. Beispielsweise sagt die Beschreibung eines Videos in einer [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4)-Datei mit dem MIME-Typ `video/mp4` nichts darüber aus, in welchem Format die tatsächlichen Medien vorliegen.
+Auf einer grundlegenden Ebene können Sie den Typ einer Mediendatei durch einen einfachen {{Glossary("MIME", "MIME")}} Typ angeben, wie `video/mp4` oder `audio/mpeg`. Viele Medientypen – besonders diejenigen, die Videospuren unterstützen – können jedoch von der Möglichkeit profitieren, das Format der darin enthaltenen Daten genauer zu beschreiben. Beispielsweise sagt die bloße Beschreibung eines Videos in einer [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4) Datei mit dem MIME-Typ `video/mp4` nichts über das tatsächliche Format der darin enthaltenen Medien aus.
 
-Aus diesem Grund kann der `codecs`-Parameter zum MIME-Typ hinzugefügt werden, der Medieninhalte beschreibt. Mit ihm können container-spezifische Informationen bereitgestellt werden. Diese Informationen können Dinge wie das Profil des Video-Codecs, den für die Audiotracks verwendeten Typ und so weiter enthalten.
+Aus diesem Grund kann der `codecs`-Parameter zum MIME-Typ hinzugefügt werden, der Mediendaten beschreibt. Damit können containerspezifische Informationen bereitgestellt werden. Diese Informationen können Dinge wie das Profil des Video-Codecs, den Typ, der für die Audio-Spuren verwendet wird, usw. beinhalten.
 
-Dieser Leitfaden untersucht kurz die Syntax des `codecs`-Parameters des Medientyps und wie er mit dem MIME-Typ-String verwendet wird, um Details über den Inhalt von Audio- oder Videomedien bereitzustellen, über die bloße Angabe des Containertyps hinaus.
+Dieser Leitfaden untersucht kurz die Syntax des `codecs`-Parameters im Medientyp und wie er mit der MIME-Typ-Zeichenfolge verwendet wird, um Details über den Inhalt von Audio- oder Videomedien bereitzustellen, die über die Angabe des Containertyps hinausgehen.
 
-## MIME-Typen von Containerformaten
+## Containerformat-MIME-Typen
 
-Der MIME-Typ für ein Containerformat wird ausgedrückt, indem der Medientyp (`audio`, `video`, etc.) angegeben, dann ein Schrägstrich (`/`) und schließlich das Format, das zur Speicherung der Medien verwendet wird, geschrieben wird:
+Der MIME-Typ für ein Containerformat wird ausgedrückt, indem der Medientyp (`audio`, `video`, etc.) angegeben wird, gefolgt von einem Schrägstrich (`/`), und dann das Format, mit dem die Medien enthalten sind:
 
 - `audio/mpeg`
-  - : Eine Audiodatei, die den [MPEG](/de/docs/Web/Media/Formats/Containers#mpegmpeg-2)-Dateityp verwendet, wie z. B. eine MP3.
+  - : Eine Audiodatei, die den [MPEG](/de/docs/Web/Media/Formats/Containers#mpegmpeg-2) Dateityp verwendet, wie eine MP3.
 - `video/ogg`
-  - : Eine Videodatei, die den [Ogg](/de/docs/Web/Media/Formats/Containers#ogg)-Dateityp verwendet.
+  - : Eine Videodatei, die den [Ogg](/de/docs/Web/Media/Formats/Containers#ogg) Dateityp verwendet.
 - `video/mp4`
-  - : Eine Videodatei, die den [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4)-Dateityp verwendet.
+  - : Eine Videodatei, die den [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4) Dateityp verwendet.
 - `video/quicktime`
-  - : Eine Videodatei im [QuickTime](/de/docs/Web/Media/Formats/Containers#quicktime)-Format von Apple. Wie an anderer Stelle erwähnt, wurde dieses Format einst häufig im Web genutzt, ist es jetzt jedoch nicht mehr, da ein Plugin erforderlich war, um es zu verwenden.
+  - : Eine Videodatei im [QuickTime](/de/docs/Web/Media/Formats/Containers#quicktime) Format von Apple. Wie an anderer Stelle vermerkt, wurde dieses Format einst häufig im Web verwendet, ist aber nicht mehr üblich, da ein Plugin erforderlich war, um es zu verwenden.
 
-Jeder dieser MIME-Typen ist jedoch vage. Alle diese Dateitypen unterstützen eine Vielzahl von Codecs, und diese Codecs können eine beliebige Anzahl von Profilen, Stufen und anderen Konfigurationsfaktoren haben. Aus diesem Grund sollten Sie den `codecs`-Parameter zusammen mit dem Medientyp angeben.
+Jedoch ist jeder dieser MIME-Typen vage. All diese Dateitypen unterstützen eine Vielzahl von Codecs, und diese Codecs können eine beliebige Anzahl von Profilen, Ebenen und anderen Konfigurationsfaktoren haben. Aus diesem Grund möchten Sie möglicherweise den `codecs`-Parameter zusammen mit dem Medientyp einschließen.
 
 ## Grundlegende Syntax
 
-Sie können den `codecs`-Parameter zum Medientyp hinzufügen. Fügen Sie dazu ein Semikolon (`;`) hinzu, gefolgt von `codecs=` und dann dem String, der das Format des Inhalts der Datei beschreibt. Einige Medientypen erlauben Ihnen nur, die Namen der zu verwendenden Codecs anzugeben, während andere es gestatten, auch verschiedene Einschränkungen für diese Codecs anzugeben. Sie können mehrere Codecs durch Kommas trennen.
+Sie können den `codecs`-Parameter zum Medientyp hinzufügen. Dazu fügen Sie ein Semikolon (`;`) hinzu, gefolgt von `codecs=` und dann der Zeichenkette, die das Format der Inhalte der Datei beschreibt. Einige Medientypen lassen Sie nur die Namen der zu verwendenden Codecs angeben, während andere Ihnen erlauben, auch verschiedene Einschränkungen dieser Codecs anzugeben. Sie können mehrere Codecs angeben, indem Sie sie durch Kommas trennen.
 
 - `audio/ogg; codecs=vorbis`
-  - : Eine [Ogg](/de/docs/Web/Media/Formats/Containers#ogg)-Datei mit einer [Vorbis](/de/docs/Web/Media/Formats/Audio_codecs#vorbis)-Audio-Spur.
+  - : Eine [Ogg](/de/docs/Web/Media/Formats/Containers#ogg) Datei mit einer [Vorbis](/de/docs/Web/Media/Formats/Audio_codecs#vorbis) Audiospur.
 - `video/webm; codecs="vp8, vorbis"`
-  - : Eine [WebM](/de/docs/Web/Media/Formats/Containers#webm)-Datei mit [VP8](/de/docs/Web/Media/Formats/Video_codecs#vp8)-Video und/oder [Vorbis](/de/docs/Web/Media/Formats/Audio_codecs#vorbis)-Audio.
+  - : Eine [WebM](/de/docs/Web/Media/Formats/Containers#webm) Datei mit [VP8](/de/docs/Web/Media/Formats/Video_codecs#vp8) Video und/oder [Vorbis](/de/docs/Web/Media/Formats/Audio_codecs#vorbis) Audio.
 - `video/mp4; codecs="avc1.4d002a"`
-  - : Eine [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4)-Datei mit [AVC](/de/docs/Web/Media/Formats/Video_codecs#avc_h.264) (H.264)-Video, Hauptprofil, Ebene 4.2.
+  - : Eine [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4) Datei mit [AVC](/de/docs/Web/Media/Formats/Video_codecs#avc_h.264) (H.264) Video, Main Profile, Level 4.2.
 
-Wie bei jedem MIME-Typ-Parameter muss auch `codecs` in `codecs*` geändert werden (achten Sie auf das Sternchen, `*`), wenn einer der Codec-Eigenschaften Sonderzeichen verwendet, die gemäß {{RFC(2231, "MIME Parameter Value and Encoded Word Extensions", 4)}} Prozent-codiert werden müssen. Sie können die JavaScript-Funktion {{jsxref("Global_Objects/encodeURI", "encodeURI()")}} verwenden, um die Parameterliste zu codieren; ähnlich können Sie {{jsxref("Global_Objects/decodeURI", "decodeURI()")}} verwenden, um eine zuvor codierte Parameterliste zu decodieren.
+Wie bei jedem MIME-Typ-Parameter muss `codecs` zu `codecs*` geändert werden (beachten Sie das Sternchenzeichen, `*`), wenn eine der Eigenschaften des Codecs Sonderzeichen verwendet, die gemäß {{RFC(2231, "MIME Parameter Value and Encoded Word Extensions", 4)}} prozentkodiert sein müssen. Sie können die JavaScript-Funktion {{jsxref("Global_Objects/encodeURI", "encodeURI()")}} verwenden, um die Parameterliste zu kodieren; ähnlich können Sie {{jsxref("Global_Objects/decodeURI", "decodeURI()")}} verwenden, um eine zuvor kodierte Parameterliste zu dekodieren.
 
 > [!NOTE]
-> Wenn der `codecs`-Parameter verwendet wird, muss die angegebene Codecs-Liste jeden Codec enthalten, der für den Inhalt der Datei verwendet wird. Die Liste kann auch Codecs enthalten, die nicht in der Datei vorhanden sind.
+> Wenn der `codecs`-Parameter verwendet wird, muss die angegebene Liste alle für die Inhalte der Datei verwendeten Codecs enthalten. Die Liste kann auch Codecs enthalten, die nicht in der Datei enthalten sind.
 
 ## Codec-Optionen nach Container
 
-Die folgenden Container unterstützen erweiterte Codec-Optionen in ihren `codecs`-Parametern:
+Die untenstehenden Container unterstützen erweiterte Codec-Optionen in ihren `codecs`-Parametern:
 
 - [3GP](#iso_base_media_file_format_mp4_quicktime_and_3gp)
 - [AV1](#av1)
@@ -55,24 +55,24 @@ Die folgenden Container unterstützen erweiterte Codec-Optionen in ihren `codecs
 - [QuickTime](#iso_base_media_file_format_mp4_quicktime_and_3gp)
 - [WebM](#webm)
 
-Mehrere der oben genannten Links führen zum selben Abschnitt; das liegt daran, dass diese Medientypen alle auf dem ISO Base Media File Format (ISO BMFF) basieren und daher dieselbe Syntax teilen.
+Mehrere der obenstehenden Links führen zum selben Abschnitt; das liegt daran, dass diese Medientypen alle auf dem ISO Base Media File Format (ISO BMFF) basieren und somit die gleiche Syntax haben.
 
 ### AV1
 
-Die Syntax des `codecs`-Parameters für AV1 ist in der [AV1 Codec ISO Media File Format Binding](https://aomediacodec.github.io/av1-isobmff/) Spezifikation, Abschnitt 5: [Codecs Parameter String](https://aomediacodec.github.io/av1-isobmff/#codecsparam), definiert.
+Die Syntax des `codecs`-Parameters für AV1 wird in der Spezifikation [AV1 Codec ISO Media File Format Binding](https://aomediacodec.github.io/av1-isobmff/) im Abschnitt 5: [Codecs Parameter String](https://aomediacodec.github.io/av1-isobmff/#codecsparam) definiert.
 
 ```plain
 av01.P.LLT.DD[.M.CCC.cp.tc.mc.F]
 ```
 
 > [!NOTE]
-> Chromium-basierte Browser akzeptieren jede Teilmenge der optionalen Parameter (statt alle oder keine, wie es die Spezifikation erfordert).
+> Auf Chromium-basierten Browsern wird jede Teilmenge der optionalen Parameter akzeptiert (anstatt alle oder keine, wie es die Spezifikation verlangt).
 
-Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabelle detaillierter beschrieben. Jede Komponente hat eine feste Länge an Zeichen; ist der Wert kleiner als diese Länge, muss er mit führenden Nullen aufgefüllt werden.
+Die Komponenten dieser Codec-Parameterzeichenkette werden in der folgenden Tabelle detaillierter beschrieben. Jede Komponente hat eine feste Anzahl an Zeichen; ist der Wert kürzer, muss er mit führenden Nullen aufgefüllt werden.
 
 <table class="standard-table">
   <caption>
-    AV1 Codec-Parameter-String-Komponenten
+    AV1 Codec-Parameter-Zeichenkettenkomponenten
   </caption>
   <thead>
     <tr>
@@ -87,7 +87,7 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
         <p>Die einstellige Profilnummer:</p>
         <table class="standard-table">
           <caption>
-            AV1-Profilnummern
+            AV1 Profilnummern
           </caption>
           <thead>
             <tr>
@@ -99,17 +99,17 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
             <tr>
               <td>0</td>
               <td>
-                "Main"-Profil; unterstützt YUV 4:2:0 oder monochrome Bitstreams mit einer Farbtiefe von 8 oder 10 Bit pro Komponente.
+                "Main" Profil; unterstützt YUV 4:2:0 oder monochrome Bitstreams mit einer Farbtiefe von 8 oder 10 Bit pro Komponente.
               </td>
             </tr>
             <tr>
               <td>1</td>
-              <td>"High"-Profil fügt Unterstützung für 4:4:4 Chroma-Subsampling hinzu.</td>
+              <td>"High" Profil fügt Unterstützung für 4:4:4 Chroma-Subsampling hinzu.</td>
             </tr>
             <tr>
               <td>2</td>
               <td>
-                "Professional"-Profil fügt Unterstützung für 4:2:2 Chroma-Subsampling und 12-Bit pro Komponente-Farbe hinzu.
+                "Professional" Profil fügt Unterstützung für 4:2:2 Chroma-Subsampling und 12-Bit pro Komponente Farbe hinzu.
               </td>
             </tr>
           </tbody>
@@ -119,30 +119,30 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
     <tr>
       <td><code>LL</code></td>
       <td>
-        Die zweistellige Levelnummer, die in das X.Y-Formatlevel umgewandelt wird, wobei <code>X = 2 + (LL >> 2)</code> und <code>Y = LL &#x26; 3</code>.
-        Siehe <a href="https://aomediacodec.github.io/av1-spec/#levels">Anhang A, Abschnitt 3</a> in der AV1-Spezifikation für Details.
+        Die zweistellige Levelnummer, die in das X.Y-Format umgewandelt wird, wobei <code>X = 2 + (LL >> 2)</code> und <code>Y = LL &#x26; 3</code>.
+        Für Details siehe <a href="https://aomediacodec.github.io/av1-spec/#levels">Anhang A, Abschnitt 3</a> in der AV1-Spezifikation.
       </td>
     </tr>
     <tr>
       <td><code>T</code></td>
       <td>
-        Der einstellige Tier-Indikator. Für das Main-Tier (<code>seq_tier</code> entspricht 0) ist dieser Buchstabe das Zeichen <code>M</code>.
-        Für das High-Tier (<code>seq_tier</code> ist 1) ist dieses Zeichen das Zeichen <code>H</code>.
-        Das High-Tier ist nur für Level 4.0 und darüber verfügbar.
+        Der einstellige Geschwindigkeitsanzeiger. Für die Main-Tier (<code>seq_tier</code> entspricht 0) ist dieser Buchstabe <code>M</code>.
+        Für die High-Tier (<code>seq_tier</code> ist 1) ist dieser Buchstabe <code>H</code>.
+        Die High-Tier ist nur für Level 4.0 und höher verfügbar.
       </td>
     </tr>
     <tr>
       <td><code>DD</code></td>
       <td>
-        Die zweistellige Komponentenfarbtiefe. Dieser Wert muss einer der Werte 8, 10 oder 12 sein; welche Werte gültig sind, variiert je nach Profil und anderen Eigenschaften.
+        Die zweistellige bit-Tiefe der Komponenten. Dieser Wert muss 8, 10 oder 12 sein; welche Werte gültig sind, variiert abhängig vom Profil und anderen Eigenschaften.
       </td>
     </tr>
     <tr>
       <td><code>M</code></td>
       <td>
-        Die einstellige monochrome Flagge; wenn dies 0 ist, umfasst das Video die U- und V-Ebenen zusätzlich zur Y-Ebene.
-        Andernfalls sind die Videodaten vollständig in der Y-Ebene und sind daher monochromatisch.
-        Siehe <a href="/de/docs/Web/Media/Formats/Video_concepts#yuv">YUV</a> für Details zum Funktionieren des YUV-Farbsystems.
+        Die einstellige monochrome Flag; wenn diese 0 ist, umfasst das Video die U- und V-Ebenen zusätzlich zur Y-Ebene.
+        Andernfalls sind die Videodaten ausschließlich in der Y-Ebene enthalten und sind daher monochrom.
+        Weitere Informationen zur Funktionsweise des YUV-Farbsystems finden Sie unter <a href="/de/docs/Web/Media/Formats/Video_concepts#yuv">YUV</a>.
         Der Standardwert ist 0 (nicht monochrom).
       </td>
     </tr>
@@ -152,8 +152,8 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
         <p>
           <code>CCC</code> gibt das Chroma-Subsampling als drei Ziffern an.
           Die erste Ziffer ist <code>subsampling_x</code>, die zweite ist <code>subsampling_y</code>.
-          Wenn beide 1 sind, ist die dritte der Wert von <code>chroma_sample_position</code>; andernfalls ist die dritte Ziffer immer 0.
-          Dies, zusammen mit der <code>M</code>-Komponente, kann verwendet werden, um das Chroma-Subsampling-Format zu konstruieren:
+          Wenn beide Eins sind, ist die dritte der Wert von <code>chroma_sample_position</code>; andernfalls ist die dritte Ziffer immer 0.
+          Dies, zusammen mit der <code>M</code> Komponente, kann verwendet werden, um das Chroma-Subsampling-Format zu konstruieren:
         </p>
         <table class="standard-table">
           <caption>
@@ -163,7 +163,7 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
             <tr>
               <th scope="col">subsampling_x</th>
               <th scope="col">subsampling_y</th>
-              <th scope="col">Monochrome Flagge</th>
+              <th scope="col">Monochrome flag</th>
               <th scope="col">Chroma-Subsampling-Format</th>
             </tr>
           </thead>
@@ -195,7 +195,7 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
           </tbody>
         </table>
         <p>
-          Die dritte Ziffer in <code>CCC</code> zeigt die Chroma-Abtastposition an, wobei ein Wert von 0 bedeutet, dass die Position unbekannt ist und während der Dekodierung separat bereitgestellt werden muss; ein Wert von 1 bedeutet, dass die Abtastposition horizontal mit der (0, 0) Luma-Abtastung kollokiert ist; und ein Wert von 2 bedeutet, dass die Abtastposition neben (0, 0) Luma liegt.
+          Die dritte Ziffer in <code>CCC</code> gibt die Position der Chroma-Probe an, wobei ein Wert von 0 angibt, dass die Position unbekannt ist und separat bei der Dekodierung bereitgestellt werden muss; ein Wert von 1 zeigt an, dass die Probe horizontal mit der (0, 0) Luminanzprobe zusammenfällt; und ein Wert von 2 bedeutet, dass die Probe mit (0, 0) Luminanz zusammenfällt.
         </p>
         <p>Der Standardwert ist <code>110</code> (4:2:0 Chroma-Subsampling).</p>
       </td>
@@ -203,16 +203,16 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
     <tr>
       <td><code>cp</code></td>
       <td>
-        Der zweistellige <code>color_primaries</code>-Wert gibt das von den Medien verwendete Farbsystem an.
-        Beispielsweise ist BT.2020/BT.2100 Farbe, wie sie für HDR-Video verwendet wird, <code>09</code>.
-        Die Informationen hierzu – und zu jeder der verbleibenden Komponenten – finden Sie im <a href="https://aomediacodec.github.io/av1-spec/#color-config-semantics"> Abschnitt „Farbkonfigurations-Semantik“ </a> der AV1-Spezifikation.
+        Der zweistellige Wert <code>color_primaries</code> gibt das vom Medium verwendete Farbsystem an.
+        Zum Beispiel ist BT.2020/BT.2100 Farbe, wie sie für HDR-Video verwendet wird, <code>09</code>.
+        Die Informationen hierzu – und für jede der verbleibenden Komponenten – finden Sie im <a href="https://aomediacodec.github.io/av1-spec/#color-config-semantics">Abschnitt über Farbkonfigurationssemantik</a> der AV1-Spezifikation.
         Der Standardwert ist <code>01</code> (ITU-R BT.709).
       </td>
     </tr>
     <tr>
       <td><code>tc</code></td>
       <td>
-        Der zweistellige <code>transfer_characteristics</code>-Wert. Dieser Wert definiert die Funktion, die verwendet wird, um das Gamma (in der Technik herrlich als "opto-elektronische Übertragungsfunktion" bezeichnet) von der Quelle auf das Display abzubilden.
+        Der zweistellige Wert <code>transfer_characteristics</code>. Dieser Wert definiert die Funktion, die verwendet wird, um das Gamma (bekannt als "optische elektronische Transferfunktion" im Fachjargon) von der Quelle zum Display zu mappen.
         Beispielsweise ist 10-Bit BT.2020 <code>14</code>.
         Der Standardwert ist <code>01</code> (ITU-R BT.709).
       </td>
@@ -220,46 +220,46 @@ Die Komponenten dieses Codec-Parameter-Strings werden im Folgenden in der Tabell
     <tr>
       <td><code>mc</code></td>
       <td>
-        Die zweistellige <code>matrix_coefficients</code>-Konstante wählt die Matrix-Koeffizienten aus, die verwendet werden, um die roten, blauen und grünen Kanäle in Luma- und Chroma-Signale umzuwandeln.
-        Beispielsweise werden die standardmäßig für BT.709 verwendeten Koeffizienten durch den Wert <code>01</code> angegeben.
+        Die zweistellige Konstante <code>matrix_coefficients</code> wählt die Matrixkoeffizienten aus, die verwendet werden, um die Rot-, Blau- und Grüntöne in Luminanz- und Chrominanzsignale umzuwandeln.
+        Beispielsweise werden die Standardkoeffizienten, die für BT.709 verwendet werden, mit dem Wert <code>01</code> angegeben.
         Der Standardwert ist <code>01</code> (ITU-R BT.709).
       </td>
     </tr>
     <tr>
       <td><code>F</code></td>
       <td>
-        Ein einstelliger Indikator, der angibt, ob die Farbe den vollen Bereich möglicher Werte verwenden darf (<code>1</code>), oder auf die Werte beschränkt werden soll, die für die angegebene Farbkonfiguration als zulässig gelten (d. h. die <strong>Studio-Swing-Darstellung</strong>).
-        Der Standardwert ist 0 (Verwendung der Studio-Swing-Darstellung).
+        Ein einstelliger Indikator, der anzeigt, ob die Farbe den vollen Bereich der möglichen Werte verwenden darf (<code>1</code>), oder auf die als legal angesehenen Werte für die angegebene Farbdarstellung beschränkt werden sollte (also die <strong>Studio-Swing-Darstellung</strong>).
+        Der Standard ist 0 (Verwendung der Studio-Swing-Darstellung).
       </td>
     </tr>
   </tbody>
 </table>
 
-Alle Felder ab `M` (monochrome Flagge) sind optional; Sie können die Aufnahme von Feldern jederzeit beenden (aber können Felder nicht beliebig weglassen). Die Standardwerte sind in der obigen Tabelle enthalten. Einige Beispiel-AV1-Codec-Strings:
+Alle Felder ab `M` (monochrome Flag) sind optional; Sie können das Einbeziehen von Feldern an irgendeinem Punkt beenden (aber nicht willkürlich Felder weglassen). Die Standardwerte sind in der obigen Tabelle enthalten. Einige Beispiel-AV1-Codec-Strings:
 
 - `av01.2.15M.10.0.100.09.16.09.0`
-  - : AV1 Professional Profile, Stufe 5.3, Main Tier, 10 Bits pro Farbkomponente, 4:2:2 Chroma-Subsampling mit ITU-R BT.2100-Farbprimaries, Transfercharakteristiken und YCbCr-Farbmatrix. Die Studio-Swing-Darstellung ist angegeben.
+  - : AV1 Professional Profil, Level 5.3, Main-Tier, 10 Bit pro Farbkomponente, 4:2:2 Chroma-Subsampling mit ITU-R BT.2100 Farbprimonie, Transfer-Eigenschaften und YCbCr-Farbmatrix. Die Studio-Swing-Darstellung wird angegeben.
 - `av01.0.15M.10`
-  - : AV1 Main Profile, Stufe 5.3, Main Tier, 10 Bits pro Farbkomponente. Die verbleibenden Eigenschaften werden aus den Standardeinstellungen übernommen: 4:2:0 Chroma-Subsampling, BT.709 Farbprimaries, Übertragungscharakteristiken und Matrixkoeffizienten. Studio Swing-Darstellung.
+  - : AV1 Main Profile, Level 5.3, Main-Tier, 10 Bit pro Farbkomponente. Die verbleibenden Eigenschaften stammen aus den Standards: 4:2:0 Chroma-Subsampling, BT.709 Farbprimonie, Transfer-Eigenschaften und Matrixkoeffizienten. Studio-Swing-Darstellung.
 
 ### VP9
 
-#### ISO Based Media File Format Syntax
+#### ISO Base Media File Format Syntax
 
-Die Syntax des `codecs`-Parameters für VP9 ist im [VP Codec ISO Media File Format Binding](https://www.webmproject.org/vp9/mp4/) spezifiziert, im Abschnitt [Codecs Parameter String](https://www.webmproject.org/vp9/mp4/#codecs-parameter-string).
+Die Syntax des `codecs`-Parameters für VP9 wird in der [VP Codec ISO Media File Format Binding](https://www.webmproject.org/vp9/mp4/) Spezifikation im Abschnitt [Codecs Parameter String](https://www.webmproject.org/vp9/mp4/#codecs-parameter-string) definiert.
 
-In diesem Format beginnt der Wert des `codecs`-Parameters mit einem vierstelligen Code, der den im Container verwendeten Codec identifiziert, gefolgt von einer Serie von durch Punkte (`.`) getrennten zweiziffrigen Werten.
+In diesem Format beginnt der Wert des `codecs`-Parameters mit einem vierstelligen Code, der den in dem Container verwendeten Codec angibt, worauf eine Serie von durch Punkt (`.`) getrennten zweistelligen Werten folgt.
 
 ```plain
 cccc.PP.LL.DD
 cccc.PP.LL.DD.CC.cp.tc.mc.FF
 ```
 
-Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling) ist optional, aber entweder alles oder nichts. Jede dieser Komponenten wird in der folgenden Tabelle beschrieben. Nach der Tabelle folgen einige Beispiele.
+Die ersten vier Komponenten sind obligatorisch; alles ab `CC` (Chroma-Subsampling) ist optional, aber alles oder nichts. Jede dieser Komponenten wird in der folgenden Tabelle beschrieben. Nach der Tabelle finden sich einige Beispiele.
 
 <table class="standard-table">
   <caption>
-    WebM-Codecs-Parameterkomponenten
+    WebM Codecs-Parameter-Komponenten
   </caption>
   <thead>
     <tr>
@@ -272,7 +272,7 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
       <td><code>cccc</code></td>
       <td>
         <p>
-          Ein vierstelliger Code, der angibt, welcher der potenziell möglichen Codecs beschrieben wird.
+          Ein vierstelliger Code, der angibt, welcher der möglichen Codecs beschrieben wird.
           Mögliche Werte sind:
         </p>
         <table class="standard-table">
@@ -306,11 +306,11 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
       <td><code>PP</code></td>
       <td>
         <p>
-          Die zweiziffrige Profilnummer, mit führenden Nullen aufgefüllt, falls erforderlich, um genau zwei Ziffern zu erreichen.
+          Die zweistellige Profilnummer, mit führenden Nullen aufgefüllt, falls nötig, um genau zwei Ziffern zu haben.
         </p>
         <table class="standard-table">
           <caption>
-            WebM-Profilnummern
+            WebM Profilnummern
           </caption>
           <thead>
             <tr>
@@ -322,29 +322,29 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
             <tr>
               <td><code>00</code></td>
               <td>
-                Nur 4:2:0 (Chroma sowohl horizontal als auch vertikal subsampled).
-                Erlaubt nur 8 Bits pro Farbkomponente.
+                Nur 4:2:0 (Chroma horizontal und vertikal subsampliert).
+                Erlaubt nur 8 Bit pro Farbkomponente.
               </td>
             </tr>
             <tr>
               <td><code>01</code></td>
               <td>
                 Alle Chroma-Subsampling-Formate sind erlaubt.
-                Erlaubt nur 8 Bits pro Farbkomponente.
+                Erlaubt nur 8 Bit pro Farbkomponente.
               </td>
             </tr>
             <tr>
               <td><code>02</code></td>
               <td>
-                Nur 4:2:0 (Chroma sowohl horizontal als auch vertikal subsampled).
-                Unterstützt 8, 10 oder 12 Bits pro Farbkomponente.
+                Nur 4:2:0 (Chroma horizontal und vertikal subsampliert).
+                Unterstützt 8, 10 oder 12 Bit pro Farbprobenkomponente.
               </td>
             </tr>
             <tr>
               <td><code>03</code></td>
               <td>
                 Alle Chroma-Subsampling-Formate sind erlaubt.
-                Unterstützt 8, 10 oder 12 Bits pro Farbkomponente.
+                Unterstützt 8, 10 oder 12 Bit pro Farbprobenkomponente.
               </td>
             </tr>
           </tbody>
@@ -354,27 +354,27 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
     <tr>
       <td><code>LL</code></td>
       <td>
-        Die zweiziffrige Levelnummer.
-        Die Levelnummer wird als Festkommanotation angegeben, wobei die erste Ziffer die Ganze Zahl und die zweite Ziffer die Zehntel darstellt.
-        Beispielsweise ist Level 3 <code>30</code> und Level 6.1 ist <code>61</code>.
+        Die zweistellige Levelnummer.
+        Die Levelnummer ist eine Festkommanotation, bei der die erste Ziffer die Einerstelle ist und die zweite Ziffer die Zehntelstelle darstellt.
+        Zum Beispiel ist Level 3 gleich <code>30</code> und Level 6,1 gleich <code>61</code>.
       </td>
     </tr>
     <tr>
       <td><code>DD</code></td>
       <td>
-        Die Bit-Tiefe der Luma- und Farbkomponentenwerte; zulässige Werte sind 8, 10 und 12.
+        Die Bittiefe der Luma- und Farbkomponentenwerte; zulässige Werte sind 8, 10 und 12.
       </td>
     </tr>
     <tr>
       <td><code>CC</code></td>
       <td>
         <p>
-          Ein zweistelliger Wert, der angibt, welches Chroma-Subsampling-Format verwendet werden soll.
-          Die folgende Tabelle listet die zulässigen Werte auf; siehe <a href="/de/docs/Web/Media/Formats/Video_concepts#chroma_subsampling">Chroma-Subsampling</a> in unserem "Digitale Videokonzepte"-Leitfaden für weitere Informationen zu diesem und anderen Themen.
+          Ein zweistelliger Wert, der angibt, welches Chroma-Subsampling-Format zu verwenden ist.
+          Die folgende Tabelle listet die zulässigen Werte auf; weitere Informationen zu diesem Thema und anderen finden Sie unter <a href="/de/docs/Web/Media/Formats/Video_concepts#chroma_subsampling">Chroma-Subsampling</a> im "Digitale Video-Konzepte" Leitfaden.
         </p>
         <table class="standard-table">
           <caption>
-            WebM-Chroma-Subsampling-Identifikatoren
+            WebM Chroma-Subsampling-Identifikatoren
           </caption>
           <thead>
             <tr>
@@ -386,25 +386,25 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
             <tr>
               <td><code>00</code></td>
               <td>
-                4:2:0 mit den Chroma-Abtastungen zwischen den Pixeln platziert
+                4:2:0 mit den Chroma-Proben zwischen den Pixeln angesiedelt
               </td>
             </tr>
             <tr>
               <td><code>01</code></td>
               <td>
-                4:2:0 Chroma-Subsampling mit den Abtastungen, die mit Luma (0, 0) kollokiert werden
+                4:2:0 Chroma-Subsampling mit den Proben mit Luma (0, 0) kollokiert
               </td>
             </tr>
             <tr>
               <td><code>02</code></td>
               <td>
-                4:2:2 Chroma-Subsampling (4 von jeweils 4 horizontalen Pixeln werden zum Luminanzsignal verwendet)
+                4:2:2 Chroma-Subsampling (4 von je 4 horizontalen Pixeln Luminanz werden verwendet)
               </td>
             </tr>
             <tr>
               <td><code>03</code></td>
               <td>
-                4:4:4 Chroma-Subsampling (jede Pixel-Luminanz und Chrominanz werden beide beibehalten)
+                4:4:4 Chroma-Subsampling (sowohl Luminanz als auch Chrominanz jedes Pixels werden behalten)
               </td>
             </tr>
             <tr>
@@ -419,13 +419,13 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
       <td><code>cp</code></td>
       <td>
         <p>
-          Ein zweistelliger ganzzahliger Wert, der angibt, welches der Farbprimaries aus Abschnitt 8.1 des <a href="https://www.itu.int/rec/T-REC-H.273/en" >ISO/IEC 23001-8:2016</a> Standards verwendet wird.
-          Diese Komponente ist optional, ebenso wie jede nachfolgende Komponente.
+          Ein zwei-Bit-Integer-Wert, der angibt, welche der Farbprimärfarben aus Abschnitt 8.1 der <a href="https://www.itu.int/rec/T-REC-H.273/en" >ISO/IEC 23001-8:2016</a> Norm.
+          Diese Komponente und jede Komponente, die danach kommt, ist optional.
         </p>
-        <p>Die möglichen Werte der Farbprimaries-Komponente sind:</p>
+        <p>Die möglichen Werte der Farbprimärfarben-Komponente sind:</p>
         <table class="standard-table">
           <caption>
-            ISO/IEC Farbprimäridentifikatoren
+            ISO/IEC Farbprimärfarben-Identifikatoren
           </caption>
           <thead>
             <tr>
@@ -441,14 +441,14 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
             <tr>
               <td><code>01</code></td>
               <td>
-                BT.709, sRGB, sYCC. BT.709 ist der Standard für hochauflösendes (HD) Fernsehen; sRGB ist der am häufigsten verwendete Farbraum für Computerbildschirme.
-                Broadcast BT.709 verwendet eine 8-Bit-Farbtiefe mit einem legalen Bereich von 16 (schwarz) bis 235 (weiß).
+                BT.709, sRGB, sYCC. BT.709 ist der Standard für hochauflösendes (HD) Fernsehen; sRGB ist der am häufigsten genutzte Farbraum für Computerdarstellungen.
+                Broadcast BT.709 verwendet 8-Bit-Farbtiefe, wobei der legale Bereich von 16 (schwarz) bis 235 (weiß) reicht.
               </td>
             </tr>
             <tr>
               <td><code>02</code></td>
               <td>
-                Bildmerkmale sind unbekannt oder werden von der Anwendung bestimmt
+                Bildmerkmale sind unbekannt oder werden durch die Anwendung bestimmt
               </td>
             </tr>
             <tr>
@@ -458,7 +458,7 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
             <tr>
               <td><code>04</code></td>
               <td>
-                BT.470 System M, NTSC (Standard Definition Fernsehen in den USA)
+                BT.470 System M, NTSC (Standard-Definition-Fernsehen in den Vereinigten Staaten)
               </td>
             </tr>
             <tr>
@@ -471,25 +471,25 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
               <td><code>06</code></td>
               <td>
                 BT.601 525; BT.1358 525 oder 625; BT.1700 NTSC; SMPTE 170M.
-                <em>Funktional identisch zu <code>7</code>.</em>
+                <em>Funktional identisch mit <code>7</code>.</em>
               </td>
             </tr>
             <tr>
               <td><code>70</code></td>
               <td>
                 {{Glossary("SMPTE", "SMPTE")}} 240M (historisch).
-                <em>Funktional identisch zu <code>6</code>.</em>
+                <em>Funktional identisch mit <code>6</code>.</em>
               </td>
             </tr>
             <tr>
               <td><code>08</code></td>
-              <td>Generischer Film</td>
+              <td>Allgemeiner Film</td>
             </tr>
             <tr>
               <td><code>09</code></td>
               <td>
                 BT.2020; BT.2100.
-                Verwendet für ultra-hochauflösendes (4K) High Dynamic Range (HDR) Video, diese haben einen sehr großen Farbraum ({{Glossary("gamut", "Gamut")}}) und unterstützen 10-Bit und 12-Bit Farbtiefe pro Komponente.
+                Verwendet für Ultra-High-Definition (4K) High Dynamic Range (HDR) Video, haben diese einen sehr großen Farbumfang und unterstützen 10-Bit- und 12-Bit-Farbkomponenten-Tiefen.
               </td>
             </tr>
             <tr>
@@ -502,15 +502,15 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
             <tr>
               <td><code>11</code></td>
               <td>
-                SMPTE RP 431 (D-Cinema Qualität: Referenzprojektor und Umgebung).
-                Beschreibt die Bedingungen des Referenzprojektors und der Umgebung, die ein konsistentes Filmerlebnis bieten.
+                SMPTE RP 431 (D-Cinema Qualität: Referenzprojektor und -umgebung).
+                Beschreibt den Referenzprojektor und die Umgebung, die eine konsistente Filmerlebnis bietet.
               </td>
             </tr>
             <tr>
               <td><code>12</code></td>
               <td>
-                SMPTE EG 432 (Digital Source Processing: Farbverarbeitung für D-Cinema).
-                Technische Richtlinien geben Empfehlungen zur Dekodierung von Farbsignalen in digitalen Filmen.
+                SMPTE EG 432 (Digitale Source Processing: Farbverarbeitung für D-Cinema).
+                Technische Richtlinien für Farbsignal-Decodierungsempfehlungen für digitale Filme.
               </td>
             </tr>
             <tr>
@@ -532,26 +532,26 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
     <tr>
       <td><code>tc</code></td>
       <td>
-        Ein zweistelliger ganzzahliger Wert, der die
-        <code>transferCharacteristics</code> des Videos angibt.
-        Dieser Wert stammt aus Abschnitt 8.2 von <a href="https://www.itu.int/rec/T-REC-H.273/en">ISO/IEC 23001-8:2016</a> und kennzeichnet die Übertragungscharakteristiken, die bei der Adaption der dekodierten Farbe auf das Wiedergabe-Ziel verwendet werden.
+        Ein zwei-Bit-Integer-Wert, der die
+        <code>transferCharacteristics</code> für das Video angibt.
+        Dieser Wert stammt aus Abschnitt 8.2 des <a href="https://www.itu.int/rec/T-REC-H.273/en">ISO/IEC 23001-8:2016</a>, und gibt die Übertragungsmerkmale an, die verwendet werden sollen, wenn das dekodierte Farbsignal an das Ziel angepasst wird.
       </td>
     </tr>
     <tr>
       <td><code>mc</code></td>
       <td>
-        Der zweistellige Wert für die <code>matrixCoefficients</code>-Eigenschaft.
-        Dieser Wert stammt aus der Tabelle in Abschnitt 8.3 der <a href="https://www.itu.int/rec/T-REC-H.273/en">ISO/IEC 23001-8:2016</a>-Spezifikation.
-        Dieser Wert gibt an, welche Koeffizienten zur Abbildung der nativen Rot-, Blau- und Grün-Primärfarben auf die Luma- und Chrominanzsignale verwendet werden sollen.
-        Diese Koeffizienten werden wiederum mit den in diesem Abschnitt gefundenen Gleichungen verwendet.
+        Der zweistellige Wert für die <code>matrixCoefficients</code> Eigenschaft.
+        Dieser Wert stammt aus der Tabelle in Abschnitt 8.3 der <a href="https://www.itu.int/rec/T-REC-H.273/en">ISO/IEC 23001-8:2016</a> Spezifikation.
+        Dieser Wert gibt an, welche Koordinaten verwendet werden sollen, wenn von den nativen Rot-, Blau- und Grüntönen zu den Luma- und Chromasignalen gewechselt wird.
+        Diese Koordinaten werden zusammen mit den in diesem Abschnitt dargestellten Gleichungen verwendet.
       </td>
     </tr>
     <tr>
       <td><code>FF</code></td>
       <td>
-        Gibt an, ob die Schwarzlevels und deren Reichweite auf den legalen Farbumfang beschränkt werden sollen.
-        Bei 8-Bit-Farbmustern liegt der legale Bereich zwischen 16 und 235.
-        Ein Wert von <code>00</code> gibt an, dass diese Begrenzungen durchgesetzt werden sollen, während ein Wert von <code>01</code> den vollen Bereich für jede Komponente erlaubt, auch wenn die resultierende Farbe aus dem erlaubten Farbumfang herausfällt.
+        Gibt an, ob der Schwarzpegel und der Farbbereich jeder Farbkomponente auf den legalen Bereich eingeschränkt werden sollen.
+        Für 8-Bit-Farbproben gilt der legale Bereich von 16-235.
+        Ein Wert von <code>00</code> gibt an, dass diese Einschränkungen durchgesetzt werden sollten, während ein Wert von <code>01</code> den vollen Bereich möglicher Werte für jede Komponente zulässt, auch wenn die resultierende Farbe außerhalb der Grenzen des Farbsystems liegt.
       </td>
     </tr>
   </tbody>
@@ -560,89 +560,89 @@ Die ersten vier Komponenten sind erforderlich; alles ab `CC` (Chroma-Subsampling
 #### Beispiele
 
 - `video/webm;codecs="vp09.02.10.10.01.09.16.09.01,opus"`
-  - : VP9-Video, Profil 2, Level 1.0, mit 10-Bit-YUV-Inhalten unter Verwendung von 4:2:0-Chroma-Subsampling, BT.2020-Primärfarben, ST 2084 EOTF (HDR-SMPTE), BT.2020-Farbmatrix ohne konstante Luminanz und voller Bereich für Chroma und Luma. Das Audio ist im Opus-Format.
+  - : VP9 Video, Profil 2 Level 1.0, mit 10-Bit YUV-Inhalten, die 4:2:0 Chroma-Subsampling verwenden, BT.2020 Primärfarben, ST 2084 EOTF (HDR SMPTE), BT.2020 nicht-constante Luminanz-Farbmatrix und Vollbereichs-Chroma- und Luma-Codierung. Das Audio ist im Opus-Format.
 
-### ISO Base Media File Format: MP4, QuickTime, and 3GP
+### ISO Base Media File Format: MP4, QuickTime und 3GP
 
-Alle Medientypen, die auf dem [ISO Base Media File Format](https://en.wikipedia.org/wiki/ISO_Base_Media_File_Format) (ISO BMFF) basieren, verwenden die gleiche Syntax für den `codecs`-Parameter. Diese Medientypen schließen [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4) (und in der Tat das [QuickTime](/de/docs/Web/Media/Formats/Containers#quicktime)-Dateiformat, auf dem MPEG-4 basiert) ebenso ein wie [3GP](/de/docs/Web/Media/Formats/Containers#3gp). Sowohl Video- als auch Audiotracks können mithilfe des `codecs`-Parameters mit den folgenden MIME-Typen beschrieben werden:
+Alle Medientypen, die auf dem [ISO Base Media File Format](https://en.wikipedia.org/wiki/ISO_Base_Media_File_Format) (ISO BMFF) basieren, teilen die gleiche Syntax für den `codecs`-Parameter. Diese Medientypen umfassen [MPEG-4](/de/docs/Web/Media/Formats/Containers#mpeg-4_mp4) (und tatsächlich das [QuickTime](/de/docs/Web/Media/Formats/Containers#quicktime) Dateiformat, auf dem MPEG-4 basiert) sowie [3GP](/de/docs/Web/Media/Formats/Containers#3gp). Sowohl Video- als auch Audiotracks können mit dem `codecs`-Parameter mit den folgenden MIME-Typen beschrieben werden:
 
 | MIME-Typ          | Beschreibung                                                                                                       |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `audio/3gpp`      | 3GP-Audio ({{RFC(3839, "MIME Type Registrations for 3rd generation Partnership Project (3GP) Multimedia files")}}) |
-| `video/3gpp`      | 3GP-Video ({{RFC(3839, "MIME Type Registrations for 3rd generation Partnership Project (3GP) Multimedia files")}}) |
-| `audio/3gp2`      | 3GP2-Audio ({{RFC(4393, "MIME Type Registrations for 3GPP2 Multimedia files")}})                                   |
-| `video/3gp2`      | 3GP2-Video ({{RFC(4393, "MIME Type Registrations for 3GPP2 Multimedia files")}})                                   |
-| `audio/mp4`       | MP4-Audio ({{RFC(4337, "MIME Type Registration for MPEG-4")}})                                                     |
-| `video/mp4`       | MP4-Video ({{RFC(4337, "MIME Type Registration for MPEG-4")}})                                                     |
-| `application/mp4` | Nicht-audiovisuelle Medien, die in MPEG-4 gekapselt sind                                                           |
+| `audio/3gpp`      | 3GP Audio ({{RFC(3839, "MIME Type Registrations for 3rd generation Partnership Project (3GP) Multimedia files")}}) |
+| `video/3gpp`      | 3GP Video ({{RFC(3839, "MIME Type Registrations for 3rd generation Partnership Project (3GP) Multimedia files")}}) |
+| `audio/3gp2`      | 3GP2 Audio ({{RFC(4393, "MIME Type Registrations for 3GPP2 Multimedia files")}})                                   |
+| `video/3gp2`      | 3GP2 Video ({{RFC(4393, "MIME Type Registrations for 3GPP2 Multimedia files")}})                                   |
+| `audio/mp4`       | MP4 Audio ({{RFC(4337, "MIME Type Registration for MPEG-4")}})                                                     |
+| `video/mp4`       | MP4 Video ({{RFC(4337, "MIME Type Registration for MPEG-4")}})                                                     |
+| `application/mp4` | Nicht-audiovisuelles Medium, das in MPEG-4 gekapselt ist                                                           |
 
-Jeder durch den `codecs`-Parameter beschriebene Codec kann entweder als Name des Containers (`3gp`, `mp4`, `quicktime` etc.) oder als Containername mit zusätzlichen Parametern zur Spezifikation des Codecs und seiner Konfiguration angegeben werden. Jeder Eintrag in der Codec-Liste kann eine beliebige Anzahl von Komponenten enthalten, die durch Punkte (`.`) getrennt sind.
+Jeder Codec, der durch den `codecs`-Parameter beschrieben wird, kann entweder als Name des Containers (`3gp`, `mp4`, `quicktime`, etc.) oder als Containername plus zusätzliche Parameter zur Angabe des Codec und seiner Konfiguration spezifiziert werden. Jeder Eintrag in der Codekliste kann eine Anzahl von Komponenten enthalten, getrennt durch Punkte (`.`).
 
-Die Syntax für den Wert von `codecs` variiert je nach Codec; sie beginnt jedoch immer mit dem vierstelligen Codec-Identifikationscode, einem Punktseparator (`.`), gefolgt von dem Object Type Indication (OTI)-Wert für das spezifische Datenformat. Für die meisten Codecs ist der OTI eine zweistellige hexadezimale Zahl; für [AVC (H.264)](/de/docs/Web/Media/Formats/Video_codecs#avc_h.264) sind es jedoch sechs hexadezimale Ziffern.
+Die Syntax für den Wert von `codecs` variiert je nach Codec; jedoch beginnt sie immer mit der vierstelligen Kennung des Codecs, einem Trennzeichen (Punkt `.`), gefolgt von dem Object Type Indication (OTI) Wert für das spezifische Datenformat. Für die meisten Codecs ist das OTI eine zweistellige hexadezimale Zahl; jedoch sind es sechs hexadezimale Stellen für [AVC (H.264)](/de/docs/Web/Media/Formats/Video_codecs#avc_h.264).
 
-Somit sehen die Syntaxen für jeden der unterstützten Codecs wie folgt aus:
+Dementsprechend sehen die Syntaxen für jeden der unterstützten Codecs so aus:
 
-- `cccc[.pp]*` (Generisches ISO BMFF)
-  - : Wo `cccc` die vierstellige ID für den Codec ist und `pp` der Ort ist, an dem null oder mehr zweistellige codierte Eigenschaftswerte hingehen.
+- `cccc[.pp]*` (Generische ISO BMFF)
+  - : Wo `cccc` die vierstellige ID für den Codec ist und `pp` der Ort ist, an dem null oder mehr zweistellige kodierte Eigenschaftswerte untergebracht werden.
 - `mp4a.oo[.A]` (MPEG-4 Audio)
-  - : Wo `oo` der Object Type Indication-Wert ist, der den Inhalt der Medien genauer beschreibt und `A` der einstellig _audio_ OTI ist. Die möglichen Werte für den OTI finden Sie auf der Website der MP4-Registrierungsbehörde auf der [Object Types Seite](https://mp4ra.org/registered-types/object-types). Beispielsweise ist Opus-Audio in einer MP4-Datei `mp4a.ad`. Weitere Einzelheiten finden Sie unter [MPEG-4 Audio](#mpeg-4_audio).
+  - : Wo `oo` der Object Type Indication Wert ist, der die Inhalte des Mediums genauer beschreibt, und `A` der einstellig _Audio_ OTI ist. Die möglichen Werte für die OTI sind auf der [Objekttypen-Seite](https://mp4ra.org/registered-types/object-types) der MP4 Registrierungsstelle Webseite zu finden. Ein Beispiel: Opus-Audio in einer MP4-Datei ist `mp4a.ad`. Weitere Details finden Sie unter [MPEG-4 Audio](#mpeg-4_audio).
 - `mp4v.oo[.V]` (MPEG-4 Video)
-  - : Hier ist `oo` wieder der OTI, der den Inhalt genauer beschreibt, während `V` der einstellig _video_ OTI ist.
+  - : Hier ist `oo` erneut das OTI, das die Inhalte genauer beschreibt, während `V` der einstellig _Video_ OTI ist.
 - `avc1[.PPCCLL]` (AVC Video)
 
-  - : `PPCCLL` sind sechs hexadezimale Ziffern, die die Profilnummer (`PP`), die Einschränkungssatzflaggen (`CC`) und das Level (`LL`) angeben. Siehe [AVC-Profile](#avc-profile) für die möglichen Werte von `PP`.
+  - : `PPCCLL` sind sechs hexadezimale Stellen, die die Profilnummer (`PP`), Constraint Set Flags (`CC`) und Level (`LL`) spezifizieren. Siehe [AVC Profile](#avc-profile) für die möglichen Werte von `PP`.
 
-    Das Constraint Set Flags Byte besteht aus einstelligen Booleschen Flags, wobei das bedeutendste Bit als Flag 0 (oder `constraint_set0_flag` in einigen Ressourcen) bezeichnet wird und jedes darauf folgende Bit um eins höher nummeriert ist. Derzeit werden nur die Flags 0 bis 2 verwendet; die anderen fünf Bits müssen null sein. Die Bedeutungen der Flaggen variieren je nach verwendetem Profil.
+    Das Constraint Set Flags Byte besteht aus einstelligen booleschen Flags, wobei das höchstwertige Bit als Flag 0 (oder `constraint_set0_flag`, in einigen Ressourcen) bezeichnet wird, und jedes nachfolgende Bit um eins höher nummeriert wird. Derzeit werden nur Flags 0 bis 2 verwendet; die anderen fünf Bits _müssen_ Null sein. Die Bedeutungen der Flags hängen vom verwendeten Profil ab.
 
-    Das Level ist eine Festkommazahl, sodass ein Wert von `14` (Dezimalzahl 20) Level 2.0 bedeutet, während ein Wert von `3D` (Dezimalzahl 61) Level 6.1 bedeutet. Im Allgemeinen gilt: Je höher die Levelnummer, desto mehr Bandbreite wird der Stream nutzen, und desto größer sind die maximal unterstützten Videodimensionen.
+    Der Level ist eine Festkommazahl, sodass ein Wert von `14` (dezimal 20) Level 2.0 bedeutet, während ein Wert von `3D` (dezimal 61) Level 6.1 bedeutet. Allgemein gilt: Je höher die Levelnummer, desto mehr Bandbreite benötigt der Stream und desto höher sind die maximal unterstützten Videodimensionen.
 
 #### AVC-Profile
 
-Im Folgenden finden Sie die AVC-Profile und ihre Profilnummern zur Verwendung im `codecs`-Parameter sowie den Wert zur Spezifikation der Einschränkungen, `CC`.
+Die folgenden AVC-Profile und ihre Profilnummern für die Verwendung im `codecs`-Parameter sowie den Wert zur Angabe der Constraint-Komponente, `CC`.
 
-| Profil                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Nummer (Hex) | Constraints Byte |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------- |
-| **Constrained Baseline Profile (CBP)** CBP ist in erster Linie eine Lösung für Szenarien, in denen Ressourcen beschränkt sind oder Ressourcen mit Kontrollbedarf eingesetzt werden müssen, um die Wahrscheinlichkeit zu minimieren, dass die Medienleistung abnimmt.                                                                                                                                                                                                                                                                                                                                                | `42`         | `40`             |
-| **Baseline Profile (BP)** Ähnlich wie CBP, jedoch mit mehr Schutz vor Datenverlust und Wiederherstellungsfähigkeit. Dieses Profil wird nicht mehr so häufig verwendet wie vor der Einführung von CBP. Alle CBP-Streams gelten auch als BP-Streams.                                                                                                                                                                                                                                                                                                                                                                  | `42`         | `00`             |
-| **Extended Profile (XP)** Entwickelt für das Streaming von Videos über das Netzwerk mit hoher Komprimierungsfähigkeit und weiteren Verbesserungen in der Datenfestigkeit und dem Stream-Switching.                                                                                                                                                                                                                                                                                                                                                                                                                  | `58`         | `00`             |
-| **Main Profile (MP)** Das Profil, das für digitales Standarddefinition (SD) Fernsehen verwendet wird, das im MPEG-4-Format ausgestrahlt wird. _Nicht_ für hochauflösendes Fernsehen (HDTV) geeignet. Die Bedeutung dieses Profils ist seit der Einführung des High-Profiles – welches 2004 für HDTV eingeführt wurde – zurückgegangen.                                                                                                                                                                                                                                                                              | `4D`         | `00`             |
-| **High Profile (HiP)** Derzeit ist HiP das Hauptprofil für Broadcast- und Discbasierte HD-Videos; es wird sowohl für HD-TV-Sendungen als auch für Blu-Ray-Videos verwendet.                                                                                                                                                                                                                                                                                                                                                                                                                                         | `64`         | `00`             |
-| **Progressive High Profile (PHiP)** Im Wesentlichen das High-Profile ohne Unterstützung für Feldkodierung.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `64`         | `08`             |
-| **Constrained High Profile** PHiP, jedoch ohne Unterstützung für bi-prädiktive Slices ("B-Slices").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `64`         | `0C`             |
-| **High 10 Profile (Hi10P)** High-Profile mit Unterstützung für bis zu 10 Bit pro Farbkomponente.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `6E`         | `00`             |
-| **High 4:2:2 Profile (Hi422P)** Erweitert Hi10P durch Hinzufügen von Unterstützung für 4:2:2 Chroma-Subsampling sowie bis zu 10 Bit pro Farbkomponente.                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `7A`         | `00`             |
-| **High 4:4:4 Predictive Profile (Hi444PP)** Zusätzlich zu den Fähigkeiten von Hi422P fügt Hi444PP Unterstützung für 4:4:4 Chroma-Subsampling hinzu (bei dem keine Farbinformationen verworfen werden). Beinhaltet auch Unterstützung für bis zu 14 Bit pro Farbprobe und effizientes verlustfreies Bereichscodieren. Es ist möglich, jedes Bild als drei separate Farbkanäle zu codieren (das heißt, die Daten jeder Farbe werden gespeichert, als wären sie ein einzelnes monochromes Bild).                                                                                                                       | `F4`         | `00`             |
-| **High 10 Intra Profile** High 10 beschränkt auf reine Intra-Frame Nutzung. In erster Linie für professionelle Anwendungen verwendet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | `6E`         | `10`             |
-| **High 4:2:2 Intra Profile** Das Hi422 Profil mit reiner Intra-Frame Nutzung.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `7A`         | `10`             |
-| **High 4:4:4 Intra Profile** Das High 4:4:4 Profil, auf reine Intra-Frames beschränkt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `F4`         | `10`             |
-| **CAVLC 4:4:4 Intra Profile** Das High 4:4:4 Profil beschränkt auf reine Intra-Nutzung und auf Verwendung nur des CAVLC Entropie-Codierung.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `44`         | `00`             |
-| **Scalable Baseline Profile** Entwickelt für den Einsatz bei Videokonferenzen sowie Überwachungs- und mobilen Anwendungen, basiert das [SVC](https://en.wikipedia.org/wiki/SVC) Baseline-Profil auf dem AVC's Constrained Baseline Profil. Die Basisschicht im Stream wird auf einem hohen Qualitätsniveau bereitgestellt, mit einer Anzahl von sekundären Substreams, die alternative Formen desselben Videos bieten, um in verschiedenen eingeschränkten Umgebungen verwendet zu werden. Diese können jede Kombination aus reduzierter Auflösung, reduzierter Bildrate oder erhöhte Komprimierungsgrad enthalten. | `53`         | `00`             |
-| **Scalable Constrained Baseline Profile** Hauptsächlich für Echtzeitkommunikationsanwendungen verwendet. Noch nicht von WebRTC unterstützt, aber eine Erweiterung der WebRTC-API [um SVC zu ermöglichen](https://github.com/w3c/webrtc-svc) ist in Entwicklung.                                                                                                                                                                                                                                                                                                                                                     | `53`         | `04`             |
-| **Scalable High Profile** Hauptsächlich für Broadcast- und Streaming-Anwendungen gedacht. Die Basis-(oder höchste Qualitäts-) Schicht muss mit dem AVC-High-Profile übereinstimmen.                                                                                                                                                                                                                                                                                                                                                                                                                                 | `56`         | `00`             |
-| **Scalable Constrained High Profile** Ein Unterprofil des Scalable High Profiles, das hauptsächlich für Echtzeitkommunikation entwickelt wurde.                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `56`         | `04`             |
-| **Scalable High Intra Profile** Hauptsächlich nur für Produktionsanwendungen nützlich, unterstützt dieses Profil nur reine Intra-Nutzung.                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `56`         | `20`             |
-| **Stereo High Profile** Das Stereo High Profile bietet stereoskopisches Video unter Verwendung zweier Wiedergaben der Szene (linkes Auge und rechtes Auge). Ansonsten bietet es dieselben Funktionen wie das High Profile.                                                                                                                                                                                                                                                                                                                                                                                          | `80`         | `00`             |
-| **Multiview High Profile** Unterstützt zwei oder mehr Ansichten sowohl mit zeitlicher als auch mit MVC-interlaced Vorhersage. _Unterstützt nicht_ Feldbilder oder Macroblock-adaptive Frame-Field-Codierung.                                                                                                                                                                                                                                                                                                                                                                                                        | `76`         | `00`             |
-| **Multiview Depth High Profile** Basierend auf dem High-Profile, auf das der Haupt-Substream verweisen muss. Die restlichen Substreams müssen dem Stereo-High-Profile entsprechen.                                                                                                                                                                                                                                                                                                                                                                                                                                  | `8A`         | `00`             |
+| Profil                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Nummer (Hex) | Constraint-Byte |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | --------------- |
+| **Constrained Baseline Profile (CBP)** CBP ist vor allem eine Lösung für Szenarien, in denen Ressourcen beschränkt sind oder der Ressourcenverbrauch so gesteuert werden muss, dass die Wahrscheinlichkeit minimiert wird, dass die Medien schlecht abschneiden.                                                                                                                                                                                                                                                                                                   | `42`         | `40`            |
+| **Baseline Profile (BP)** Ähnlich wie CBP, jedoch mit mehr Schutz gegen Datenverlust und Wiederherstellungsfähigkeiten. Dies wird nicht mehr so oft verwendet wie früher, seit CBP eingeführt wurde. Alle CBP-Streams werden ebenfalls als BP-Streams betrachtet.                                                                                                                                                                                                                                                                                                  | `42`         | `00`            |
+| **Extended Profile (XP)** Entwickelt für die Übertragung von Video über das Netzwerk mit hoher Komprimierungsfähigkeit und weiteren Verbesserungen bei Datenrobustheit und Streamwechseln.                                                                                                                                                                                                                                                                                                                                                                         | `58`         | `00`            |
+| **Main Profile (MP)** Das Profil, das für digitale Standard-Definition-Fernsehsendungen im MPEG-4-Format verwendet wird. _Nicht_ verwendet für hochauflösende Fernsehübertragungen. Die Bedeutung dieses Profiles ist seit der Einführung des High-Profiles — das 2004 für HDTV-Zwecke hinzugefügt wurde — verblasst.                                                                                                                                                                                                                                              | `4D`         | `00`            |
+| **High Profile (HiP)** Derzeit ist das High Profile das primäre Profil, das für HD-Videoübertragungen und für Blu-Ray-Video verwendet wird.                                                                                                                                                                                                                                                                                                                                                                                                                        | `64`         | `00`            |
+| **Progressive High Profile (PHiP)** Eigentlich High Profile ohne Unterstützung für Feldcodierung.                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | `64`         | `08`            |
+| **Constrained High Profile** PHiP, jedoch ohne Unterstützung für bi-prädiktive Schnitte ("B-Slices").                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `64`         | `0C`            |
+| **High 10 Profile (Hi10P)** High Profile, jedoch mit Unterstützung für bis zu 10 Bit pro Farbkomponente.                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `6E`         | `00`            |
+| **High 4:2:2 Profile (Hi422P)** Erweitert Hi10P um Unterstützung für 4:2:2 Chroma-Subsampling sowie bis zu 10 Bit pro Farbkomponente.                                                                                                                                                                                                                                                                                                                                                                                                                              | `7A`         | `00`            |
+| **High 4:4:4 Predictive Profile (Hi444PP)** Zusätzlich zu den in Hi422P enthaltenen Funktionen fügt Hi444PP Unterstützung für 4:4:4 Chroma-Subsampling hinzu (bei dem keine Farbinformationen verworfen werden). Auch Unterstützung für bis zu 14 Bit pro Farbprobe und effizientes verlustfreies Region-Encoding. Die Option, jedes Bild als drei separate Farbebenen zu kodieren (d. h., die Daten jeder Farbe werden gespeichert, als wäre sie ein einzelner monochromer Rahmen).                                                                               | `F4`         | `00`            |
+| **High 10 Intra Profile** High 10 beschränkt auf ausschließlich intra-Frame-Nutzung. Vor allem für professionelle Anwendungen verwendet.                                                                                                                                                                                                                                                                                                                                                                                                                           | `6E`         | `10`            |
+| **High 4:2:2 Intra Profile** Das Hi422 Profil mit ausschließlich intra-Frame-Nutzung.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `7A`         | `10`            |
+| **High 4:4:4 Intra Profile** Das High 4:4:4 Profil beschränkt auf die Verwendung nur von Intra-Frames.                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `F4`         | `10`            |
+| **CAVLC 4:4:4 Intra Profile** Das High 4:4:4 Profil beschränkt auf die rein intra-Frame Nutzung und die ausschließliche Verwendung von CAVLC Entropie-Codierung.                                                                                                                                                                                                                                                                                                                                                                                                   | `44`         | `00`            |
+| **Scalable Baseline Profile** Das für Videokonferenzen sowie Überwachungs- und mobile Zwecke gedachte [SVC](https://en.wikipedia.org/wiki/SVC) Baseline Profile basiert auf dem AVC Constrained Baseline Profil. Der Basiscodierlayer im Stream wird mit hoher Qualität bereitgestellt, wobei eine Anzahl von sekundären Substreams alternative Formen desselben Videos für die Nutzung in verschiedenen eingeschränkten Umgebungen bieten. Diese können Kombinationen aus reduzierter Auflösung, reduzierter Bildrate oder erhöhten Kompressionsniveaus umfassen. | `53`         | `00`            |
+| **Scalable Constrained Baseline Profile** Diese Profile wird hauptsächlich für Anwendungen der Echtzeitkommunikation verwendet. Es wird gegenwärtig nicht von WebRTC unterstützt, aber eine Erweiterung der WebRTC-API [um SVC zu erlauben](https://github.com/w3c/webrtc-svc) befindet sich in der Entwicklung.                                                                                                                                                                                                                                                   | `53`         | `04`            |
+| **Scalable High Profile** Hauptsächlich zur Verwendung in Anwendungen für den Rundfunk und Streaming konzipiert. Die Basis (oder höchste Qualitäts-) Schicht muss dem AVC High Profile entsprechen.                                                                                                                                                                                                                                                                                                                                                                | `56`         | `00`            |
+| **Scalable Constrained High Profile** Ein Teil des Scalable High Profiles, das hauptsächlich für Echtzeitkommunikation konzipiert ist.                                                                                                                                                                                                                                                                                                                                                                                                                             | `56`         | `04`            |
+| **Scalable High Intra Profile** Nur für Produktionsanwendungen wirklich nützlich, unterstützt dieses Profil nur All-Intra-Nutzung.                                                                                                                                                                                                                                                                                                                                                                                                                                 | `56`         | `20`            |
+| **Stereo High Profile** Das Stereo High Profile bietet stereoskopisches Video mit zwei Darstellungen der Szene (linkes und rechtes Auge). Ansonsten bietet es die gleichen Funktionen wie das High Profile.                                                                                                                                                                                                                                                                                                                                                        | `80`         | `00`            |
+| **Multiview High Profile** Unterstützt zwei oder mehr Ansichten unter Verwendung sowohl zeitlicher als auch mvc Inter-View-Prädiktion. _Unterstützt keine_ Feldbilder oder makroblock-adaptive Frame-Field-Codierung.                                                                                                                                                                                                                                                                                                                                              | `76`         | `00`            |
+| **Multiview Depth High Profile** Basierend auf dem High Profile, dem der Hauptunterm Strom entspricht. Die restlichen Unterm Ströme müssen dem Stereo High Profil entsprechen.                                                                                                                                                                                                                                                                                                                                                                                     | `8A`         | `00`            |
 
 #### MPEG-4 Audio
 
-Wenn der Wert eines Eintrags in der Codecs-Liste mit `mp4a` beginnt, sollte die Syntax des Werts wie folgt sein:
+Wenn der Wert eines Eintrags in der `codecs` Liste mit `mp4a` beginnt, sollte die Syntax des Wertes wie folgt aussehen:
 
 ```plain
 mp4a.oo[.A]
 ```
 
-Hierbei ist `oo` die zweistellige hexadezimale Object Type Indication, die die verwendete Codec-Klasse für die Medien angibt. Die OTIs werden von der [MP4 Registration Authority](https://mp4ra.org/) vergeben, die eine [Liste der möglichen OTI-Werte](https://mp4ra.org/registered-types/object-types) verwaltet. Ein spezieller Wert ist `40`; dieser gibt an, dass es sich bei den Medien um MPEG-4-Audio handelt (ISO/IEC 14496 Teil 3). Um noch spezifischer zu werden, wird für OTI `40` eine dritte Komponente – der Audiowiedergabetyp – hinzugefügt, um den Typ auf eine bestimmte Subklasse von MPEG-4 zu spezifizieren.
+Hier ist `oo` der zweistellige hexadezimale Object Type Indication, der angibt, welche Codec-Klasse für das Medium verwendet wird. Die OTIs werden von der [MP4 Registrierungsstelle](https://mp4ra.org/) zugewiesen, die eine [Liste der möglichen OTI-Werte](https://mp4ra.org/registered-types/object-types) führt. Ein spezieller Wert ist `40`; dieser zeigt an, dass die Medien MPEG-4 Audio (ISO/IEC 14496 Teil 3) sind. Um noch spezifischer zu werden, wird ein drittes Element – der Audio Object Type – hinzugefügt, wenn das OTI `40` ist, um den Typ auf einen bestimmten Subtyp von MPEG-4 einzugrenzen.
 
-Der Audio-Wiedergabetyp wird als eine oder zwei Dezimalstellen _angegeben_ (im Gegensatz zu den meisten anderen Werten im `codecs`-Parameter, die hexadezimal sind). Beispiel: MPEG-4's AAC-LC hat eine Audio-Wiedergabetyp-Nr. von `2`, sodass der volle `codecs`-Wert, der AAC-LC darstellt, `mp4a.40.2` ist.
+Der Audio Object Type wird als ein- oder zweistelliger _dezimaler_ Wert (im Gegensatz zu den meisten anderen Werten im `codecs` Parameter, die hexadezimal sind) angegeben. Zum Beispiel hat MPEG-4's AAC-LC die Audio-Objekttypnummer `2`, daher ist der vollständige `codecs` Wert, der AAC-LC repräsentiert, `mp4a.40.2`.
 
-So kann der "ER AAC LC"-Codec, dessen Audiowiedergabetyp 17 ist, durch den vollen `codecs`-Wert `mp4a.40.17` dargestellt werden. Einzellige Werte können entweder als eine Stelle (was die beste Wahl ist, da dies die mit den meisten Geräten kompatible ist) oder mit einer führenden Null, die sie auf zwei Stellen füllt, wie `mp4a.40.02`, angegeben werden.
+Daher kann ER AAC LC, dessen Audio-Objekttyp `17` ist, mit dem vollständigen `codecs` Wert `mp4a.40.17` angezeigt werden. Einstellige Werte können entweder als eine Ziffer (was die beste Wahl ist, da sie die weitestgehende Kompatibilität bietet) oder mit einer führenden Null, die sie auf zwei Ziffern aufpolstert, wie `mp4a.40.02`, angegeben werden.
 
 > [!NOTE]
-> Die Spezifikation verlangte ursprünglich, dass die Audiowiedergabetyp-Nummer in der dritten Komponente nur eine Dezimalstelle sein durfte. Änderungen der Spezifikation im Laufe der Zeit haben jedoch den Bereich dieser Werte weit über eine Dezimalstelle hinaus erweitert, sodass die dritte Komponente jetzt entweder eine oder zwei Stellen haben kann. Eine Null vor den Zahlen unter 10 hinzuzufügen, ist optional. Ältere Implementierungen von MPEG-4-Codecs unterstützen möglicherweise keine zweistelligen Werte, sodass die Verwendung einer Stelle, wann immer möglich, die Kompatibilität maximiert.
+> Die Spezifikation verlangte ursprünglich, dass die Audio-Objekttypnummer im dritten Element nur eine Dezimalziffer sein sollte. Mit der Zeit haben jedoch Änderungen der Spezifikation den Bereich dieser Werte erheblich über die eine Dezimalziffer hinaus erweitert, sodass der dritte Parameter jetzt ein- oder zweistellig sein kann. Padding von Werten unter 10 mit einer führenden `0` ist optional. Ältere Implementierungen von MPEG-4 Codecs unterstützen möglicherweise keine zweistelligen Werte, daher wird die Kompatibilität maximiert, wenn eine Ziffer verwendet werden kann.
 
-Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, definiert. Die folgende Tabelle bietet eine grundlegende Liste der Audiowiedergabetypen und im Falle der häufigsten Typen eine Liste der unterstützenden Profile, Sie sollten jedoch die Spezifikation für Details heranziehen, wenn Sie mehr über die inneren Mechanismen eines bestimmten MPEG-4-Audiotyps erfahren müssen.
+Die Audio-Objekttypen sind in ISO/IEC 14496-3 Unterabschnitt 1, Abschnitt 1.5.1 definiert. Die Tabelle unten bietet eine grundlegende Liste der Audio-Objekttypen und im Falle der häufigeren Objekttypen eine Liste der Profile, die sie unterstützen, aber Sie sollten auf die Spezifikation für Details verweisen, wenn Sie mehr über die inneren Funktionsweisen eines bestimmten MPEG-4 Audio Typs wissen müssen.
 
 <table class="standard-table">
   <caption>
@@ -651,7 +651,7 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Audiowiedergabetyp</th>
+      <th scope="col">Audio-Objekttypen</th>
       <th scope="col">Profilunterstützung</th>
     </tr>
   </thead>
@@ -693,7 +693,7 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
     </tr>
     <tr>
       <td><code>7</code></td>
-      <td>TwinVQ (Coding for ultra-low bit rates)</td>
+      <td>TwinVQ (Codierung für ultra-niedrige Bitraten)</td>
       <td>Main, Scalable</td>
     </tr>
     <tr>
@@ -718,12 +718,12 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
     </tr>
     <tr>
       <td><code>13</code></td>
-      <td>Hauptsynthetisch</td>
+      <td>Main Synthetic</td>
       <td>Main, Synthetic</td>
     </tr>
     <tr>
       <td><code>14</code></td>
-      <td>Wavetable Synthese</td>
+      <td>Wavetable Synthesis</td>
       <td></td>
     </tr>
     <tr>
@@ -733,7 +733,7 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
     </tr>
     <tr>
       <td><code>16</code></td>
-      <td>Algorithmische Synthese und Audioeffekte</td>
+      <td>Algorithmic Synthesis and Audio Effects</td>
       <td></td>
     </tr>
     <tr>
@@ -769,14 +769,14 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
     <tr>
       <td><code>23</code></td>
       <td>
-        ER AAC LD (Error Resilient AAC Low-Delay; verwendet für Zwei-Wege-
+        ER AAC LD (Error Resilient AAC Low-Delay; verwendet für Zweirichtungs-
         Kommunikation)
       </td>
       <td>LD, Mobile Internetworking</td>
     </tr>
     <tr>
       <td><code>24</code></td>
-      <td>ER CELP (Error Resilient Code-Excited Linear Prediction)</td>
+      <td>ER CELP (Error Resilient Code Excited Linear Prediction)</td>
       <td>HQ, LD</td>
     </tr>
     <tr>
@@ -796,12 +796,12 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
     </tr>
     <tr>
       <td><code>28</code></td>
-      <td>SSC (Sinusoïdale Codierung)</td>
+      <td>SSC (Sinusoidal Coding)</td>
       <td></td>
     </tr>
     <tr>
       <td><code>29</code></td>
-      <td>PS (Parametrisches Stereo)</td>
+      <td>PS (Parametric Stereo)</td>
       <td>HE-AAC v2</td>
     </tr>
     <tr>
@@ -880,7 +880,6 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
           >.
         </p>
       </td>
-      <td></td>
     </tr>
     <tr>
       <td><code>44</code></td>
@@ -893,7 +892,7 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
       <td></td>
     </tr>
     <tr>
-      <td><code>45</code> und höher</td>
+      <td><code>45</code> und folgende</td>
       <td><em>Reserviert</em></td>
       <td></td>
     </tr>
@@ -902,7 +901,7 @@ Die Audiowiedergabetypen sind in ISO/IEC 14496-3 Teil 1, Abschnitt 1.5.1, defini
 
 ### WebM
 
-Die grundlegende Form eines WebM `codecs`-Parameters besteht darin, einen oder mehrere der vier WebM-Codecs namentlich anzugeben, getrennt durch Kommas. Die folgende Tabelle zeigt einige Beispiele:
+Die grundlegende Form für einen WebM `codecs`-Parameter ist es, einen oder mehrere der vier WebM-Codecs namentlich aufzulisten und durch Kommas zu trennen. Die nachfolgende Tabelle zeigt einige Beispiele:
 
 | MIME-Typ                         | Beschreibung                                                  |
 | -------------------------------- | ------------------------------------------------------------- |
@@ -913,20 +912,20 @@ Die grundlegende Form eines WebM `codecs`-Parameters besteht darin, einen oder m
 | `video/webm;codecs="vp8,vorbis"` | Ein WebM-Container mit VP8-Video und Vorbis-Audio.            |
 | `video/webm;codecs="vp9,opus"`   | Ein WebM-Container mit VP9-Video und Opus-Audio.              |
 
-Die Strings `vp8.0` und `vp9.0` funktionieren ebenfalls, jedoch wird dies nicht empfohlen.
+Die Strings `vp8.0` und `vp9.0` funktionieren auch, werden jedoch nicht empfohlen.
 
 ## Verwendung des `codecs`-Parameters
 
-Sie können den `codecs`-Parameter in einigen Situationen verwenden. Erstens können Sie ihn mit dem {{HTMLElement("source")}}-Element verwenden, wenn Sie ein {{HTMLElement("audio")}}- oder {{HTMLElement("video")}}-Element erstellen, um eine Gruppe von Optionen für den Browser festzulegen, aus der er beim Auswählen des Medienformats, das er dem Benutzer im Element präsentieren soll, wählen kann.
+Den `codecs`-Parameter können Sie in wenigen Situationen verwenden. Erstens können Sie ihn mit dem {{HTMLElement("source")}} Element nutzen, wenn Sie ein {{HTMLElement("audio")}} oder {{HTMLElement("video")}} Element erstellen, um eine Gruppe von Optionen für den Browser festzulegen, aus denen beim Auswählen des im Element anzuzeigenden Medienformats gewählt wird.
 
-Sie können den `codecs`-Parameter auch beim Festlegen eines MIME-Medientyps für die [`MediaSource.isTypeSupported()`](/de/docs/Web/API/MediaSource/isTypeSupported_static)-Methode verwenden; diese Methode gibt eine boolesche Aussage zurück, die anzeigt, ob die Medien wahrscheinlich auf dem aktuellen Gerät funktionieren werden oder nicht.
+Sie können den `codecs`-Parameter auch verwenden, wenn Sie einen MIME-Medientyp an die Methode [`MediaSource.isTypeSupported()`](/de/docs/Web/API/MediaSource/isTypeSupported_static) übergeben; diese Methode gibt einen booleschen Wert zurück, der angibt, ob die Medien auf dem aktuellen Gerät voraussichtlich funktionieren.
 
 ## Siehe auch
 
 - [Web-Medientechnologien](/de/docs/Web/Media)
-- Das {{HTMLElement("source")}}-Element, ein Kindelement der {{HTMLElement("audio")}} und {{HTMLElement("video")}}-Elemente
-- [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Formats)
-- [Leitfaden zu Audio-Codecs im Web](/de/docs/Web/Media/Formats/Audio_codecs)
-- [Leitfaden zu Video-Codecs im Web](/de/docs/Web/Media/Formats/Video_codecs)
+- Das {{HTMLElement("source")}} Element, Kind der {{HTMLElement("audio")}} und {{HTMLElement("video")}} Elemente
+- [Leitfaden zu Medientypen und Formaten im Web](/de/docs/Web/Media/Formats)
+- [Leitfaden zu Audiocodecs, die im Web verwendet werden](/de/docs/Web/Media/Formats/Audio_codecs)
+- [Leitfaden zu Videocodecs, die im Web verwendet werden](/de/docs/Web/Media/Formats/Video_codecs)
 - [Codecs, die von WebRTC verwendet werden](/de/docs/Web/Media/Formats/WebRTC_codecs)
 - [Erhalten des korrekten HTML-Codecs-Parameters für ein AV1-Video](https://jakearchibald.com/2022/html-codecs-parameter-for-av1/)
