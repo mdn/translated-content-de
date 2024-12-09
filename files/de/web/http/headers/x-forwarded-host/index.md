@@ -2,24 +2,26 @@
 title: X-Forwarded-Host
 slug: Web/HTTP/Headers/X-Forwarded-Host
 l10n:
-  sourceCommit: 313910c063db95744d4c052283fb805ecc49c1b3
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der **`X-Forwarded-Host`** (XFH) Header ist ein faktischer Standardheader zur Identifizierung des ursprünglichen Hosts, der vom Client im {{HTTPHeader("Host")}} HTTP-Request-Header angefordert wurde.
+Der HTTP **`X-Forwarded-Host`** (XFH) {{Glossary("request_header", "Request-Header")}} ist ein de-facto Standard-Header zur Identifizierung des ursprünglichen Hosts, der vom Client in der {{HTTPHeader("Host")}} HTTP-Request-Header angefordert wurde.
 
-Hostnamen und Ports von Reverse-Proxys (Load-Balancer, CDNs) können sich vom Ursprungsserver unterscheiden, der die Anfrage bearbeitet. In diesem Fall ist der `X-Forwarded-Host` Header nützlich, um festzustellen, welcher Host ursprünglich verwendet wurde.
+Hostnamen und Ports von Reverse-{{Glossary("Proxy_server", "Proxies")}} (Load Balancer, CDNs) können sich vom Ursprungsserver, der die Anfrage bearbeitet, unterscheiden. In diesem Fall ist der `X-Forwarded-Host` Header nützlich, um zu bestimmen, welcher `Host` ursprünglich verwendet wurde.
+
+Eine standardisierte Version dieses Headers ist der HTTP {{HTTPHeader("Forwarded")}} Header, obwohl dieser viel seltener verwendet wird.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungs-Header")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -32,7 +34,7 @@ X-Forwarded-Host: <host>
 
 ## Direktiven
 
-- \<host>
+- `<host>`
   - : Der Domainname des weitergeleiteten Servers.
 
 ## Beispiele
@@ -43,11 +45,10 @@ X-Forwarded-Host: id42.example-cdn.com
 
 ## Spezifikationen
 
-Nicht Teil einer aktuellen Spezifikation.
+Teil keiner aktuellen Spezifikation.
 
 ## Siehe auch
 
+- {{HTTPHeader("X-Forwarded-For")}}, {{HTTPHeader("X-Forwarded-Proto")}} Header
 - {{HTTPHeader("Host")}}
 - {{HTTPHeader("Forwarded")}}
-- {{HTTPHeader("X-Forwarded-For")}}
-- {{HTTPHeader("X-Forwarded-Proto")}}

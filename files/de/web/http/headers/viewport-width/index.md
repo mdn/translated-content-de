@@ -2,39 +2,37 @@
 title: Viewport-Width
 slug: Web/HTTP/Headers/Viewport-Width
 l10n:
-  sourceCommit: 4d98e1657f9abb1af5c39bbb1f9fdbe47142426f
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}{{Deprecated_Header}}{{SecureContext_header}}{{Non-standard_Header}}
 
-Der **`Viewport-Width`** [device client hint](/de/docs/Web/HTTP/Client_hints) Request-Header bietet die Layout-Viewport-Breite des Clients in {{Glossary("CSS_pixel", "CSS-Pixel")}}. Der Wert wird auf die nächsthöhere ganze Zahl (d.h. aufgerundet) gerundet.
+> [!WARNING]
+> Der `Viewport-Width`-Header wurde aus der Spezifikation der Client-Hints in [draft-ietf-httpbis-client-hints-07](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-client-hints-07) entfernt.
+> Der vorgeschlagene Ersatz ist [`Sec-CH-Viewport-Width`](https://wicg.github.io/responsive-image-client-hints/#sec-ch-viewport-width) (Responsive Image Client Hints).
+
+Der HTTP **`Viewport-Width`** {{Glossary("request_header", "Request-Header")}} ist ein [Device Client Hint](/de/docs/Web/HTTP/Client_hints), der die Layout-Viewport-Breite des Clients in {{Glossary("CSS_pixel", "CSS-Pixeln")}} angibt.
+Der Wert wird auf die nächste ganze Zahl aufgerundet (d.h. auf den nächsten höheren Wert).
+
+Der Hint kann zusammen mit anderen bildschirmbezogenen Hinweisen verwendet werden, um Bilder zu liefern, die für eine bestimmte Bildschirmgröße optimiert sind, oder um Ressourcen zu weglassen, die für eine bestimmte Bildschirmbreite nicht benötigt werden. Wenn der `Viewport-Width`-Header mehr als einmal in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
+
+Ein Server muss sich dafür entscheiden, den `Viewport-Width`-Header vom Client zu empfangen, indem er den {{HTTPHeader("Accept-CH")}}-Antwort-Header sendet. Server, die sich dafür entscheiden, geben diesen Header typischerweise auch im {{HTTPHeader("Vary")}}-Header an, was Caches darüber informiert, dass der Server je nach Header-Wert in einer Anfrage unterschiedliche Antworten senden kann.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungs-Header")}},
-        <a href="/de/docs/Web/HTTP/Client_hints">Client-Hinweis</a>
+        {{Glossary("Request_header", "Request-Header")}},
+        <a href="/de/docs/Web/HTTP/Client_hints">Client Hint</a>
       </td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Headername")}}</th>
-      <td>nein</td>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
-
-Der Hinweis kann zusammen mit anderen bildschirmspezifischen Hinweisen verwendet werden, um Bilder zu liefern, die für eine bestimmte Bildschirmgröße optimiert sind, oder um Ressourcen auszulassen, die für eine bestimmte Bildschirmbreite nicht benötigt werden.
-
-Wenn der `Viewport-Width`-Header mehrmals in einer Nachricht erscheint, wird das letzte Vorkommen verwendet.
-
-> [!NOTE]
->
-> - Client-Hinweise sind nur auf sicheren Ursprüngen (über TLS) zugänglich.
-> - Ein Server muss sich entscheiden, den `Viewport-Width`-Header vom Client zu erhalten, indem er den {{HTTPHeader("Accept-CH")}}-Antwort-Header sendet.
-> - Server, die sich für den `Viewport-Width`-Client-Hinweis entscheiden, geben ihn normalerweise auch im {{HTTPHeader("Vary")}}-Header an. Dies informiert Caches, dass der Server möglicherweise unterschiedliche Antworten basierend auf dem Headerwert in einer Anfrage senden kann.
-> - `Viewport-Width` wurde aus der ursprünglichen Client-Hints-Spezifikation im [draft-ietf-httpbis-client-hints-07](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-client-hints-07) entfernt. Der vorgeschlagene Ersatz ist [`Sec-CH-Viewport-Width`](https://wicg.github.io/responsive-image-client-hints/#sec-ch-viewport-width) (Responsive Image Client Hints).
 
 ## Syntax
 
@@ -44,18 +42,20 @@ Viewport-Width: <number>
 
 ## Direktiven
 
-- \<number>
-  - : Die Breite des Viewports des Benutzers in {{Glossary("CSS_pixel", "CSS-Pixel")}}, aufgerundet auf die nächste ganze Zahl.
+- `<number>`
+  - : Die Breite des Viewports des Nutzers in {{Glossary("CSS_pixel", "CSS-Pixeln")}}, auf die nächste ganze Zahl aufgerundet.
 
 ## Beispiele
 
-Ein Server muss zunächst entscheiden, den `Viewport-Width`-Header zu erhalten, indem er den Antwort-Header {{HTTPHeader("Accept-CH")}} sendet, der die Direktive `Viewport-Width` enthält.
+### Verwendung von Viewport-Width
+
+Ein Server muss sich zuerst entscheiden, den `Viewport-Width`-Header zu empfangen, indem er den Antwort-Header {{HTTPHeader("Accept-CH")}} mit der Direktive `Viewport-Width` sendet.
 
 ```http
 Accept-CH: Viewport-Width
 ```
 
-Dann kann bei nachfolgenden Anfragen der Client den `Viewport-Width`-Header zurücksenden:
+In nachfolgenden Anfragen könnte der Client den `Viewport-Width`-Header senden:
 
 ```http
 Viewport-Width: 320
@@ -67,13 +67,7 @@ Viewport-Width: 320
 
 ## Siehe auch
 
-- [Verbesserung des Datenschutzes und der Entwicklererfahrung mit User-Agent-Client-Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
-- Device Client Hints
-
-  - {{HTTPHeader("Content-DPR")}}
-  - {{HTTPHeader("Device-Memory")}}
-  - {{HTTPHeader("DPR")}}
-  - {{HTTPHeader("Width")}}
-
+- [Verbesserung der Benutzerprivatsphäre und der Entwicklererfahrung mit User-Agent Client Hints](https://developer.chrome.com/docs/privacy-security/user-agent-client-hints) (developer.chrome.com)
+- {{HTTPHeader("Content-DPR")}}, {{HTTPHeader("Device-Memory")}}, {{HTTPHeader("DPR")}}, {{HTTPHeader("Width")}} Device Client Hints
 - {{HTTPHeader("Accept-CH")}}
-- [HTTP-Caching > Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}}-Header

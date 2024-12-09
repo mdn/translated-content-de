@@ -2,12 +2,12 @@
 title: Proxy-Authorization
 slug: Web/HTTP/Headers/Proxy-Authorization
 l10n:
-  sourceCommit: 0b02491044c424c57fc7aff0c970164da602a72c
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Proxy-Authorization`** {{Glossary("request_header", "Anforderungsheader")}} enthält die Anmeldedaten, um einen Client bei einem Proxy-Server zu authentifizieren, typischerweise nachdem der Server mit einem {{HTTPStatus("407", "407 Proxy Authentication Required")}}-Status und dem {{HTTPHeader("Proxy-Authenticate")}}-Header geantwortet hat.
+Der HTTP-**`Proxy-Authorization`**-{{Glossary("request_header", "Anforderungsheader")}} enthält die Anmeldedaten, um einen Client bei einem Proxy-Server zu authentifizieren, normalerweise nachdem der Server mit einem {{HTTPStatus("407", "407 Proxy Authentication Required")}}-Status mit dem {{HTTPHeader("Proxy-Authenticate")}}-Header geantwortet hat.
 
 <table class="properties">
   <tbody>
@@ -31,28 +31,33 @@ Proxy-Authorization: <auth-scheme> <credentials>
 ## Direktiven
 
 - `<auth-scheme>`
-  - : Token, das das [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes) angibt, wie zum Beispiel `Basic`, `Bearer` usw.
-    Das [IANA-Register der Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml) führt eine vollständige Liste der verfügbaren Typen.
+  - : Ein nicht-auf Groß-/Kleinschreibung achtendes Token, das das verwendete [Authentifizierungsschema](/de/docs/Web/HTTP/Authentication#authentication_schemes) angibt.
+    Einige der gängigeren Typen sind [`Basic`](/de/docs/Web/HTTP/Authentication#basic_authentication_scheme), `Digest`, `Negotiate` und `AWS4-HMAC-SHA256`.
+    IANA führt eine [Liste der Authentifizierungsschemata](https://www.iana.org/assignments/http-authschemes/http-authschemes.xhtml), aber es gibt andere Schemata, die von Host-Services angeboten werden.
 - `<credentials>`
   - : Anmeldedaten, die für das Authentifizierungsschema verwendet werden.
+    Im Allgemeinen müssen Sie die entsprechenden Spezifikationen für das Format überprüfen.
+
+> [!NOTE]
+> Weitere Details finden Sie unter {{HTTPHeader("Authorization")}}.
 
 ## Beispiele
 
-### Basis-Authentifizierung
+### Basic-Authentifizierung
 
 Bei der `Basic`-Authentifizierung werden Anmeldedaten im Format `<username>:<password>` gesendet (zum Beispiel `aladdin:opensesame`).
-Die resultierende Zeichenfolge wird dann {{Glossary("Base64", "Base64")}} kodiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
+Der resultierende String wird dann {{Glossary("Base64", "base64")}} kodiert (`YWxhZGRpbjpvcGVuc2VzYW1l`).
 
 ```http
 Proxy-Authorization: Basic YWxhZGRpbjpvcGVuc2VzYW1l
 ```
 
 > [!WARNING]
-> Base64-Codierung ist umkehrbar und bietet daher keine kryptographische Sicherheit.
-> Diese Methode kann als gleichwertig mit dem Versenden von Anmeldedaten im Klartext betrachtet werden.
-> {{Glossary("HTTPS", "HTTPS")}} wird immer empfohlen, wenn Authentifizierung verwendet wird, und ist besonders bei Verwendung der `Basic`-Authentifizierung ratsam.
+> Base64-Kodierung ist umkehrbar und bietet daher keine kryptografische Sicherheit.
+> Diese Methode kann als gleichwertig mit dem Senden der Anmeldedaten im Klartext angesehen werden.
+> {{Glossary("HTTPS", "HTTPS")}} wird immer empfohlen, wenn Authentifizierung verwendet wird, insbesondere bei Verwendung der `Basic`-Authentifizierung.
 
-### Träger-Authentifizierung (Auth-Token)
+### Bearer-Authentifizierung (Authentifizierungs-Token)
 
 ```http
 Proxy-Authorization: Bearer kNTktNTA1My00YzLT1234

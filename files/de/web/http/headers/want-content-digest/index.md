@@ -2,42 +2,64 @@
 title: Want-Content-Digest
 slug: Web/HTTP/Headers/Want-Content-Digest
 l10n:
-  sourceCommit: 488e1953f44909cbeb419f0e2133cc28ca069f84
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der Anforderungs- oder Antwort-Header **`Want-Content-Digest`** gibt den Wunsch nach einem {{HTTPHeader("Content-Digest")}}-Header an. Es ist das `Content-` Gegenstück zu {{HTTPHeader("Want-Repr-Digest")}}.
+Der HTTP **`Want-Content-Digest`** {{Glossary("request_header", "Request-")}} und {{Glossary("response_header", "Response-Header")}} gibt an, dass der Empfänger bevorzugt einen {{HTTPHeader("Content-Digest")}} Integritäts-Header in Nachrichten senden soll, die mit der Anforderungs-URI und den Repräsentationsmetadaten verknüpft sind.
+
+Der Header enthält Präferenzen für Hash-Algorithmen, die der Empfänger in nachfolgenden Nachrichten verwenden kann. Die Präferenzen dienen lediglich als Hinweis, und der Empfänger kann die Algorithmusauswahl oder die Integritäts-Header vollständig ignorieren.
+
+Einige Implementierungen können `Content-Digest` Header ohne vorheriges `Want-Content-Digest` Header in einer vorherigen Nachricht senden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation_header", "Darstellungs-Header")}}</td>
+      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
-`Want-Content-Digest` beschreibt ein [RFC8941 dictionary](https://www.rfc-editor.org/rfc/rfc8941#section-3.2), bei dem die Schlüssel Hashing-Algorithmen und die Werte die Ganzzahlen `0` (bedeutet „nicht akzeptabel“) oder `1` bis `9` (was steigende, relative, gewichtete Präferenz vermittelt) sind.
+Eine durch Kommata getrennte Liste von einem oder mehreren Hash-Algorithmen:
 
-> [!NOTE]
-> Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über {{Glossary("Quality_values", "q-Werte")}} deklariert.
+```http
+Want-Content-Digest: <algorithm>=<preference>
+Want-Content-Digest: <algorithm>=<preference>, …, <algorithmN>=<preferenceN>
+```
 
-## Anweisungen
+## Direktiven
 
-Für zulässige Digest-Algorithmen siehe {{HTTPHeader("Repr-Digest")}}.
+- `<algorithm>`
+  - : Der angeforderte Algorithmus, um einen Digest des Nachrichteninhalts zu erstellen. Nur zwei registrierte Digest-Algorithmen werden als sicher angesehen: `sha-512` und `sha-256`.
+    Die unsicheren (veralteten) registrierten Digest-Algorithmen sind: `md5`, `sha` (SHA-1), `unixsum`, `unixcksum`, `adler` (ADLER32) und `crc32c`.
+- `<preference>`
+  - : Eine ganze Zahl zwischen 0 und 9, wobei `0` "nicht akzeptabel" bedeutet und die Werte `1` bis `9` aufsteigende, relative, gewichtete Präferenzen anzeigen.
+    Im Gegensatz zu früheren Entwürfen der Spezifikationen wird die Gewichtung _nicht_ über `q` {{Glossary("Quality_values", "Qualitätswerte")}} deklariert.
 
 ## Beispiele
 
+### Verwendung von Want-Content-Digest in Anfragen
+
+Die folgende Nachricht fordert den Empfänger auf, einen `Content-Digest` Header unter Verwendung des SHA-512 Algorithmus zu senden:
+
 ```http
-Want-Content-Digest: md5=1, sha-512=0, sha-256=4
-Want-Content-Digest: md5=0
+Want-Content-Digest: sha-512=9
+```
+
+### Want-Content-Digest mit mehreren Werten
+
+Der folgende Header enthält drei Algorithmen und gibt an, dass SHA-256 der bevorzugte Digest-Algorithmus ist, den der Empfänger verwenden sollte, gefolgt von SHA-512 und MD5:
+
+```http
+Want-Content-Digest: md5=1, sha-512=2, sha-256=3
 ```
 
 ## Spezifikationen
@@ -46,9 +68,9 @@ Want-Content-Digest: md5=0
 
 ## Browser-Kompatibilität
 
-Dieser Header hat keine spezifikationsdefinierte Browser-Integration (die "Browser-Kompatibilität" trifft nicht zu).
-Entwickler können HTTP-Header mit `fetch()` setzen und abrufen, um ein anwendungsspezifisches Implementierungsverhalten bereitzustellen.
+Dieser Header hat keine spezifikationsdefinierte Browser-Integration ("Browser-Kompatibilität" gilt nicht). Entwickler können HTTP-Header mit `fetch()` setzen und erhalten, um eine anwendungsspezifische Implementierungsverhalten zu ermöglichen.
 
 ## Siehe auch
 
-- {{HTTPHeader("Content-Digest")}}, {{HTTPHeader("Repr-Digest")}}, {{HTTPHeader("Want-Repr-Digest")}}
+- {{HTTPHeader("Content-Digest")}}, {{HTTPHeader("Repr-Digest")}}, {{HTTPHeader("Want-Repr-Digest")}} Digest-Header
+- [Digitale Signaturen für APIs](https://developer.ebay.com/develop/guides/digital-signatures-for-apis) SDK-Leitfaden verwendet `Content-Digest`s für digitale Signaturen in HTTP-Aufrufen (developer.ebay.com)

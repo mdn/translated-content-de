@@ -2,12 +2,12 @@
 title: Timing-Allow-Origin
 slug: Web/HTTP/Headers/Timing-Allow-Origin
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der **`Timing-Allow-Origin`** Antwort-Header gibt an, welche Ursprünge die Werte von Attributen einsehen dürfen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen wurden und die sonst aufgrund von Cross-Origin-Beschränkungen als Null gemeldet würden.
+Der HTTP **`Timing-Allow-Origin`** {{Glossary("response_header", "Antwort-Header")}} gibt Ursprünge an, die berechtigt sind, Werte von Attributen zu sehen, die über Funktionen der [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing) abgerufen werden. Diese würden aufgrund von Cross-Origin-Beschränkungen sonst als null gemeldet werden.
 
 <table class="properties">
   <tbody>
@@ -17,7 +17,7 @@ Der **`Timing-Allow-Origin`** Antwort-Header gibt an, welche Ursprünge die Wert
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -26,25 +26,27 @@ Der **`Timing-Allow-Origin`** Antwort-Header gibt an, welche Ursprünge die Wert
 
 ```http
 Timing-Allow-Origin: *
-Timing-Allow-Origin: <origin>[, <origin>]*
+Timing-Allow-Origin: <origin>, …, <originN>
 ```
 
 ## Direktiven
 
-- `*`
-  - : Der Server kann "\*" als Platzhalter angeben, um damit jedem Ursprung zu erlauben, die Timing-Ressourcen einzusehen.
-- \<origin>
+- `*` (Wildcard)
+  - : Jeder Ursprung darf die Timing-Ressourcen einsehen.
+- `<origin>`
   - : Gibt eine URI an, die die Timing-Ressourcen einsehen darf. Sie können mehrere Ursprünge angeben, getrennt durch Kommata.
 
 ## Beispiele
 
-Um jeglicher Quelle das Einsehen von Timing-Ressourcen zu ermöglichen:
+### Verwendung von Timing-Allow-Origin
+
+Um jedem Resource-Zugriff das Einsehen von Timing-Ressourcen zu erlauben:
 
 ```http
 Timing-Allow-Origin: *
 ```
 
-Um `https://developer.mozilla.org` das Einsehen von Timing-Ressourcen zu gestatten, können Sie Folgendes angeben:
+Um `https://developer.mozilla.org` das Einsehen von Timing-Ressourcen zu erlauben, können Sie folgendes angeben:
 
 ```http
 Timing-Allow-Origin: https://developer.mozilla.org
@@ -61,4 +63,5 @@ Timing-Allow-Origin: https://developer.mozilla.org
 ## Siehe auch
 
 - [Resource Timing API](/de/docs/Web/API/Performance_API/Resource_timing)
-- {{HTTPHeader("Vary")}}
+- {{HTTPHeader("Server-Timing")}}-Header
+- {{HTTPHeader("Vary")}}-Header

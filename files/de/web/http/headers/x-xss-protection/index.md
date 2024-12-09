@@ -2,29 +2,25 @@
 title: X-XSS-Protection
 slug: Web/HTTP/Headers/X-XSS-Protection
 l10n:
-  sourceCommit: cb132bc83b660e51be8959de5336c00b08030104
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
-{{HTTPSidebar}}{{Non-standard_header}}
-
-Der HTTP-Header **`X-XSS-Protection`** war eine Funktion von Internet Explorer, Chrome und Safari, die das Laden von Seiten stoppte, wenn reflektierte Cross-Site-Scripting-Angriffe ({{Glossary("Cross-site_scripting", "XSS")}}) erkannt wurden. Diese Schutzmaßnahmen sind in modernen Browsern weitgehend unnötig, wenn Websites eine starke {{HTTPHeader("Content-Security-Policy")}} implementieren, die die Verwendung von inline JavaScript (`'unsafe-inline'`) deaktiviert.
+{{HTTPSidebar}}{{Non-standard_header}}{{deprecated_header}}
 
 > [!WARNING]
-> Obwohl diese Funktion Benutzer älterer Webbrowser, die noch keine Unterstützung für {{Glossary("CSP", "CSP")}} haben, schützen kann, kann der XSS-Schutz in einigen Fällen **XSS-Schwachstellen** in ansonsten sicheren Websites erzeugen. Weitere Informationen finden Sie im Abschnitt unten.
+> Auch wenn dieses Feature Benutzer älterer Webbrowser schützen kann, die {{Glossary("CSP", "CSP")}} nicht unterstützen, kann **`X-XSS-Protection` in manchen Fällen XSS-Schwachstellen** auf ansonsten sicheren Webseiten erzeugen.
+> Weitere Informationen finden Sie im Abschnitt [Sicherheitsüberlegungen](#sicherheitsüberlegungen) weiter unten.
 
-> [!NOTE]
->
-> - Chrome hat den [XSS Auditor entfernt](https://chromestatus.com/feature/5021976655560704)
-> - Firefox hat ihn nicht und wird [auch nicht `X-XSS-Protection` implementieren](https://bugzil.la/528661)
-> - Edge hat ihren [XSS-Filter eingestellt](https://blogs.windows.com/windows-insider/2018/07/25/announcing-windows-10-insider-preview-build-17723-and-build-18204/)
->
-> Das bedeutet, wenn Sie keine Unterstützung für veraltete Browser benötigen, wird empfohlen, [`Content-Security-Policy`](/de/docs/Web/HTTP/Headers/Content-Security-Policy) ohne zulässige `unsafe-inline`-Skripte zu verwenden.
+Der HTTP-**`X-XSS-Protection`**-{{Glossary("response_header", "Response-Header")}} war eine Funktion von Internet Explorer, Chrome und Safari, die verhinderte, dass Seiten geladen wurden, wenn reflektierte Cross-Site-Scripting-Angriffe ({{Glossary("Cross-site_scripting", "XSS")}}) erkannt wurden.
+Diese Schutzmaßnahmen sind in modernen Browsern weitgehend überflüssig, wenn Websites eine starke {{HTTPHeader("Content-Security-Policy")}} implementieren, die die Verwendung von inline JavaScript (`'unsafe-inline'`) deaktiviert.
+
+Es wird empfohlen, anstelle des XSS-Filters [`Content-Security-Policy`](/de/docs/Web/HTTP/Headers/Content-Security-Policy) zu verwenden.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Response Header")}}</td>
+      <td>{{Glossary("Response_header", "Response-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
@@ -42,18 +38,22 @@ X-XSS-Protection: 1; mode=block
 X-XSS-Protection: 1; report=<reporting-uri>
 ```
 
-- 0
-  - : Deaktiviert das XSS-Filtering.
-- 1
-  - : Aktiviert das XSS-Filtering (in der Regel in Browsern standardmäßig). Wenn ein Cross-Site-Scripting-Angriff erkannt wird, wird der Browser die Seite bereinigen (die unsicheren Teile entfernen).
-- 1; mode=block
-  - : Aktiviert das XSS-Filtering. Anstatt die Seite zu bereinigen, wird der Browser das Rendern der Seite verhindern, wenn ein Angriff erkannt wird.
-- 1; report=\<reporting-URI> (nur Chromium)
-  - : Aktiviert das XSS-Filtering. Wenn ein Cross-Site-Scripting-Angriff erkannt wird, bereinigt der Browser die Seite und meldet den Verstoß. Dies nutzt die Funktionalität der CSP {{CSP("report-uri")}}-Direktive, um einen Bericht zu senden.
+## Direktiven
 
-## Schwachstellen verursacht durch XSS-Filtering
+- `0`
+  - : Deaktiviert die XSS-Filterung.
+- `1`
+  - : Aktiviert die XSS-Filterung (in der Regel Standard in Browsern). Wenn ein Cross-Site-Scripting-Angriff erkannt wird, bereinigt der Browser die Seite (entfernt die unsicheren Teile).
+- `1; mode=block`
+  - : Aktiviert die XSS-Filterung. Anstatt die Seite zu bereinigen, verhindert der Browser die Anzeige der Seite, wenn ein Angriff erkannt wird.
+- `1; report=<reporting-URI>` (nur Chromium)
+  - : Aktiviert die XSS-Filterung. Wenn ein Cross-Site-Scripting-Angriff erkannt wird, bereinigt der Browser die Seite und meldet den Verstoß. Dies nutzt die Funktionalität der CSP-{{CSP("report-uri")}}-Direktive, um einen Bericht zu senden.
 
-Betrachten Sie das folgende Beispiel von HTML-Code für eine Webseite:
+## Sicherheitsüberlegungen
+
+### Durch XSS-Filterung verursachte Schwachstellen
+
+Betrachten Sie den folgenden Ausschnitt von HTML-Code für eine Webseite:
 
 ```html
 <script>
@@ -67,13 +67,13 @@ Betrachten Sie das folgende Beispiel von HTML-Code für eine Webseite:
 </script>
 ```
 
-Dieser Code ist völlig sicher, wenn der Browser kein XSS-Filtering durchführt. Führt er es jedoch aus und die Suchabfrage ist `?something=%3Cscript%3Evar%20productionMode%20%3D%20true%3B%3C%2Fscript%3E`, könnte der Browser die Skripte auf der Seite ausführen und `<script>var productionMode = true;</script>` ignorieren (in der Annahme, der Server habe es in die Antwort eingefügt, weil es in der URI war), wodurch `window.productionMode` als `undefined` ausgewertet wird und unsicherer Debug-Code ausgeführt wird.
+Dieser Code ist völlig sicher, wenn der Browser keine XSS-Filterung durchführt. Wenn dies jedoch der Fall ist und die Suchanfrage `?something=%3Cscript%3Evar%20productionMode%20%3D%20true%3B%3C%2Fscript%3E` lautet, könnte der Browser die Skripte auf der Seite ausführen, wobei er `<script>var productionMode = true;</script>` ignoriert (weil er denkt, der Server hat es aufgrund der URI in die Antwort eingefügt), wodurch `window.productionMode` auf `undefined` gesetzt wird und der unsichere Debug-Code ausgeführt wird.
 
-Das Setzen des `X-XSS-Protection` Headers auf entweder `0` oder `1; mode=block` verhindert Schwachstellen wie die oben beschriebene. Ersteres würde den Browser alle Skripte ausführen lassen, und letzteres würde verhindern, dass die Seite überhaupt verarbeitet wird (obwohl dieser Ansatz anfällig für [Seitenkanalangriffe](https://portswigger.net/research/abusing-chromes-xss-auditor-to-steal-tokens) sein könnte, sofern die Website in einem `<iframe>` eingebettet werden kann).
+Das Setzen des `X-XSS-Protection`-Headers auf entweder `0` oder `1; mode=block` verhindert Schwachstellen wie die oben beschriebene. Ersteres würde den Browser alle Skripte ausführen lassen, während letzteres verhindern würde, dass die Seite überhaupt verarbeitet wird (obwohl dieser Ansatz anfällig für [Seitenkanalangriffe](https://portswigger.net/research/abusing-chromes-xss-auditor-to-steal-tokens) sein könnte, wenn die Website in einem `<iframe>` eingebettet werden kann).
 
 ## Beispiel
 
-Blockieren Sie das Laden von Seiten, wenn reflektierte XSS-Angriffe erkannt werden:
+Verhindern, dass Seiten geladen werden, wenn sie reflektierte XSS-Angriffe erkennen:
 
 ```http
 X-XSS-Protection: 1; mode=block
@@ -101,7 +101,7 @@ add_header "X-XSS-Protection" "1; mode=block";
 
 ## Spezifikationen
 
-Nicht Teil von Spezifikationen oder Entwürfen.
+Teil keiner Spezifikationen oder Entwürfe.
 
 ## Browser-Kompatibilität
 

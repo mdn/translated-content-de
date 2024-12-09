@@ -2,25 +2,25 @@
 title: Via
 slug: Web/HTTP/Headers/Via
 l10n:
-  sourceCommit: 0880a90f3811475d78bc4b2c344eb4146f25f66c
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der **`Via`** allgemeine Header wird von Proxys hinzugefügt, sowohl vorwärts als auch rückwärts, und kann in den Anforderungs- oder Antwort-Headern erscheinen. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anforderungsschleifen zu vermeiden und die Protokollfähigkeiten von Sendern entlang der Anforderungs-/Antwortkette zu identifizieren.
+Der **`Via`** {{Glossary("request_header", "Request-")}} und {{Glossary("response_header", "Response-Header")}} wird von {{Glossary("Proxy_server", "Proxies")}}, sowohl vorwärts als auch rückwärts, hinzugefügt. Er wird verwendet, um Nachrichtenweiterleitungen zu verfolgen, Anforderungsschleifen zu vermeiden und die Protokollfähigkeiten von Absendern entlang der Anforderungs-/Antwortkette zu identifizieren.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Anforderungs-Header")}},
-        {{Glossary("Response_header", "Antwort-Header")}}
+        {{Glossary("Request_header", "Request-Header")}},
+        {{Glossary("Response_header", "Response-Header")}}
       </td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -28,20 +28,22 @@ Der **`Via`** allgemeine Header wird von Proxys hinzugefügt, sowohl vorwärts a
 ## Syntax
 
 ```http
-Via: [ <protocol-name> "/" ] <protocol-version> <host> [ ":" <port> ]
-Via: [ <protocol-name> "/" ] <protocol-version> <pseudonym>
+Via: [<protocol-name>/]<protocol-version> <host>[:<port>]
+Via: [<protocol-name>/]<protocol-version> <pseudonym>
 ```
 
 ## Direktiven
 
-- \<protocol-name>
-  - : Optional. Der Name des verwendeten Protokolls, wie zum Beispiel "HTTP".
-- \<protocol-version>
+- `<protocol-name>` {{optional_inline}}
+  - : Der Name des verwendeten Protokolls, wie zum Beispiel "HTTP".
+- `<protocol-version>`
   - : Die Version des verwendeten Protokolls, wie zum Beispiel "1.1".
-- \<host> und \<port>
-  - : Öffentliche Proxy-URL und Port.
-- \<pseudonym>
+- `<host>`
+  - : Öffentliche Proxy-URL und optionaler `<port>`.
+    Wenn kein Host angegeben wird, muss ein `<pseudonym>` verwendet werden.
+- `<pseudonym>`
   - : Name/Alias eines internen Proxys.
+    Wenn kein Pseudonym angegeben wird, muss ein `<host>` verwendet werden.
 
 ## Beispiele
 

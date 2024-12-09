@@ -2,27 +2,26 @@
 title: Service-Worker-Navigation-Preload
 slug: Web/HTTP/Headers/Service-Worker-Navigation-Preload
 l10n:
-  sourceCommit: 58ad1df59f2ffb9ecab4e27fe1bdf1eb5a55f89b
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der **`Service-Worker-Navigation-Preload`** Anforderungsheader zeigt an, dass die Anfrage das Ergebnis einer [`fetch()`](/de/docs/Web/API/Window/fetch)-Operation ist, die während des Preloadings der Navigation durch einen Service Worker durchgeführt wurde.
-Er ermöglicht es einem Server, mit einer anderen Ressource als bei einem normalen `fetch()` zu antworten.
+Der HTTP-**`Service-Worker-Navigation-Preload`**-{{Glossary("request_header", "Request-Header")}} zeigt an, dass die Anfrage das Ergebnis eines [`fetch()`](/de/docs/Web/API/Window/fetch)-Vorgangs ist, der während des Preloadings der Service Worker Navigation durchgeführt wurde. Er ermöglicht einem Server, mit einer anderen Ressource zu antworten als bei einem normalen `fetch()`.
 
-Sollte das Setzen dieses Headers zu einer anderen Antwort führen, muss der Server `Vary: Service-Worker-Navigation-Preload` setzen, um sicherzustellen, dass die verschiedenen Antworten zwischengespeichert werden.
+Wenn das Setzen dieses Headers zu einer anderen Antwort führen könnte, muss der Server einen {{HTTPHeader("Vary", "Vary: Service-Worker-Navigation-Preload")}} Header in die Antworten einfügen, um sicherzustellen, dass unterschiedliche Antworten zwischengespeichert werden.
 
-Weitere Informationen finden Sie unter [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) (und [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)).
+Für weitere Informationen siehe [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) (und [`NavigationPreloadManager`](/de/docs/Web/API/NavigationPreloadManager)).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Request_header", "Anforderungsheader")}}</td>
+      <td>{{Glossary("Request_header", "Request-Header")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
@@ -36,20 +35,19 @@ Service-Worker-Navigation-Preload: <value>
 ## Direktiven
 
 - `<value>`
-  - : Ein beliebiger Wert, der angibt, welche Daten in der Antwort auf die Preload-Anfrage gesendet werden sollen.
-    Dieser Wert ist standardmäßig `true`.
-    Es kann im Service Worker auf einen anderen Zeichenfolgenwert gesetzt werden, indem [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) verwendet wird.
+  - : Ein beliebiger Wert, der angibt, welche Daten in der Antwort auf die Preload-Anfrage gesendet werden sollen. Dieser Wert ist standardmäßig `true`. Er kann im Service Worker auf jeden anderen Zeichenfolgenwert gesetzt werden, unter Verwendung von [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue).
 
 ## Beispiele
 
-Der untenstehende Header wird standardmäßig gesendet.
+### Service-Worker-Navigation-Preload-Header
+
+Der folgende Request-Header wird standardmäßig in Navigation-Preload-Anfragen gesendet:
 
 ```http
 Service-Worker-Navigation-Preload: true
 ```
 
-Der Service Worker kann einen anderen Header-Wert mit [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) festlegen.
-Um zum Beispiel zu verlangen, dass ein Fragment der angeforderten Ressource im JSON-Format zurückgegeben wird, könnte der Wert mit der Zeichenfolge `json_fragment1` gesetzt werden.
+Der Service Worker kann einen anderen Header-Wert mittels [`NavigationPreloadManager.setHeaderValue()`](/de/docs/Web/API/NavigationPreloadManager/setHeaderValue) setzen. Um beispielsweise anzufordern, dass ein Fragment der angeforderten Ressource im JSON-Format zurückgegeben wird, könnte der Wert mit der Zeichenkette `json_fragment1` gesetzt werden.
 
 ```http
 Service-Worker-Navigation-Preload: json_fragment1
@@ -62,3 +60,8 @@ Service-Worker-Navigation-Preload: json_fragment1
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary) und {{HTTPHeader("Vary")}} Header
+- [Service Worker API](/de/docs/Web/API/Service_Worker_API)

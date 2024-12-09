@@ -2,41 +2,43 @@
 title: Vary
 slug: Web/HTTP/Headers/Vary
 l10n:
-  sourceCommit: cb132bc83b660e51be8959de5336c00b08030104
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der **`Vary`** HTTP-Response-Header beschreibt die Teile der Anfrage-Nachricht, abgesehen von der Methode und der URL, die den Inhalt der Antwort beeinflusst haben, in der er auftritt. Am häufigsten wird dies verwendet, um einen Cache-Schlüssel zu erstellen, wenn [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation) verwendet wird.
+Der HTTP-**`Vary`**-{{Glossary("response_header", "Antwortheader")}} beschreibt die Teile der Anforderungsnachricht (abgesehen von der Methode und der URL), die den Inhalt der Antwort beeinflussten, in der er vorkommt. Das Hinzufügen eines `Vary`-Headers stellt sicher, dass Antworten basierend auf den im `Vary`-Feld aufgeführten Headers separat zwischengespeichert werden. Meistens wird dies verwendet, um einen Cache-Schlüssel zu erstellen, wenn die [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation) in Verwendung ist.
 
-Der gleiche `Vary`-Header-Wert sollte in allen Antworten für eine gegebene URL verwendet werden, einschließlich {{HTTPStatus("304")}} `Not Modified`-Antworten und der "Standard"-Antwort.
+Der gleiche `Vary`-Headerwert sollte für alle Antworten zu einer gegebenen URL verwendet werden, einschließlich {{HTTPStatus("304")}} `Not Modified`-Antworten und der "Standard"-Antwort.
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Response_header", "Response-Header")}}</td>
+      <td>{{Glossary("Response_header", "Antwortheader")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>nein</td>
+      <th scope="row">{{Glossary("Forbidden_header_name", "Nicht erlaubter Headername")}}</th>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>
 
 ## Syntax
 
+Entweder `*` als Platzhalter oder ein oder mehrere Header-Namen in einer durch Kommas getrennten Liste:
+
 ```http
 Vary: *
-Vary: <header-name>, <header-name>, ...
+Vary: <header-name>, …, <header-nameN>
 ```
 
 ## Direktiven
 
-- \*
-  - : Gibt an, dass andere Faktoren als Anfrage-Header die Erstellung dieser Antwort beeinflusst haben. Impliziert, dass die Antwort nicht cachefähig ist.
-- \<header-name>
-  - : Eine durch Kommas getrennte Liste von Anfrage-Header-Namen, die die Erstellung dieser Antwort beeinflusst haben könnten.
+- `*` (Platzhalter)
+  - : Faktoren, die nicht Anforderungsheader waren, beeinflussten die Erstellung dieser Antwort. Dies impliziert, dass die Antwort nicht zwischengespeichert werden kann.
+- `<header-name>`
+  - : Ein Name eines Anforderungsheaders, der die Erstellung dieser Antwort beeinflusst haben könnte.
 
 ## Spezifikationen
 
@@ -46,12 +48,9 @@ Vary: <header-name>, <header-name>, ...
 
 {{Compat}}
 
-### Kompatibilitätsnotizen
-
-- [Vary with care – Vary-Header-Probleme in IE6-9](https://learn.microsoft.com/en-us/archive/blogs/ieinternals/vary-with-care)
-
 ## Siehe auch
 
-- [Understanding The Vary Header - Smashing Magazine](https://www.smashingmagazine.com/2017/11/understanding-vary-header/)
-- [Best Practices for Using the Vary Header – fastly.com](https://www.fastly.com/blog/best-practices-using-vary-header)
-- [Inhaltsverhandlung](/de/docs/Web/HTTP/Content_negotiation)
+- [Inhaltsaushandlung](/de/docs/Web/HTTP/Content_negotiation)
+- [HTTP-Caching: Vary](/de/docs/Web/HTTP/Caching#vary)
+- [Understanding The Vary Header](https://www.smashingmagazine.com/2017/11/understanding-vary-header/) auf smashingmagazine.com (2017)
+- [Best Practices for Using the Vary Header](https://www.fastly.com/blog/best-practices-using-vary-header) auf fastly.com

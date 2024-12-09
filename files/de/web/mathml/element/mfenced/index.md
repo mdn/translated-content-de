@@ -2,30 +2,43 @@
 title: <mfenced>
 slug: Web/MathML/Element/mfenced
 l10n:
-  sourceCommit: a9a6b72518fa068991c95e8c1a5ba224533e53ee
+  sourceCommit: 1053ac81eea471efe2f59f7056af830e422abb52
 ---
 
 {{MathMLRef}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-Das **`<mfenced>`** [MathML](/de/docs/Web/MathML)-Element ermöglicht es, benutzerdefinierte öffnende und schließende Klammern (wie Klammern) und Trennzeichen (wie Kommas oder Semikolons) zu einem Ausdruck hinzuzufügen.
+Das **`<mfenced>`** [MathML](/de/docs/Web/MathML)-Element bietet die Möglichkeit, benutzerdefinierte Öffnungs- und Schließklammern (wie Klammern) und Trennzeichen (wie Kommas oder Semikolons) zu einem Ausdruck hinzuzufügen.
 
 > [!NOTE]
-> Historisch wurde das `<mfenced>`-Element als Kurzform für das Schreiben von geklammerten Ausdrücken definiert und entsprach einer erweiterten Form unter Verwendung von {{MathMLElement("mrow")}} und {{MathMLElement("mo")}}-Elementen. Heutzutage wird empfohlen, diese äquivalente Form zu verwenden.
+> Historisch gesehen wurde das `<mfenced>`-Element als Abkürzung für die Darstellung von umgrenzten Ausdrücken definiert und war gleichwertig mit einer erweiterten Form, die die Elemente {{MathMLElement("mrow")}} und {{MathMLElement("mo")}} beinhaltete. Heutzutage wird empfohlen, diese erweiterte Form zu verwenden.
 
 ## Attribute
 
 Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/Web/MathML/Global_attributes).
 
 - `close`
-  - : Ein String für das schließende Trennzeichen. Der Standardwert ist `")"` und alle Leerzeichen werden entfernt.
+  - : Ein String für den Schließ-Delimiter. Der Standardwert ist `")"` und alle Leerzeichen werden entfernt.
 - `open`
-  - : Ein String für das öffnende Trennzeichen. Der Standardwert ist `"("` und alle Leerzeichen werden entfernt.
+  - : Ein String für den Öffnungs-Delimiter. Der Standardwert ist `"("` und alle Leerzeichen werden entfernt.
 - `separators`
-  - : Eine Folge von null oder mehr Zeichen, die für unterschiedliche Trennzeichen verwendet werden sollen, optional getrennt durch Leerzeichen, die ignoriert werden. Der Standardwert ist ",". Durch die Angabe von mehr als einem Zeichen ist es möglich, verschiedene Trennzeichen für jedes Argument im Ausdruck festzulegen. Wenn es zu viele Trennzeichen gibt, wird der Überschuss ignoriert. Wenn es zu wenige Trennzeichen im Ausdruck gibt, wird das zuletzt angegebene Trennzeichen wiederholt.
+  - : Eine Folge von null oder mehr Zeichen, die für verschiedene Trennzeichen verwendet werden, optional getrennt durch Leerzeichen, die ignoriert werden. Der Standardwert ist ",". Durch das Angeben von mehr als einem Zeichen ist es möglich, verschiedene Trennzeichen für jedes Argument im Ausdruck festzulegen. Gibt es zu viele Trennzeichen, wird der gesamte Überschuss ignoriert. Sind zu wenige Trennzeichen im Ausdruck vorhanden, wird das zuletzt angegebene Trennzeichen wiederholt.
 
 ## Beispiele
 
 ### Das letzte Trennzeichen wird wiederholt (`,`)
+
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+```
 
 ```html
 <math display="block">
@@ -39,13 +52,28 @@ Die Attribute dieses Elements umfassen die [globalen MathML-Attribute](/de/docs/
 </math>
 ```
 
-Beispielrendering: ![{a;b;c,d,e}](mfenced01.png)
+Beispielhafte Darstellung:
 
-Rendering in Ihrem Browser:
+![{a;b;c,d,e}](mfenced-repeated.svg)
+
+Darstellung in Ihrem Browser:
 
 {{ EmbedLiveSample('mfenced_example1', 700, 200, "", "") }}
 
 ### Der gesamte Überschuss wird ignoriert (`,`)
+
+```css hidden
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+}
+```
 
 ```html
 <math display="block">
@@ -59,9 +87,11 @@ Rendering in Ihrem Browser:
 </math>
 ```
 
-Beispielrendering: ![[a|b|c|d|e]](mfenced02.png)
+Beispielhafte Darstellung:
 
-Rendering in Ihrem Browser:
+![[a|b|c|d|e]](mfenced-ignored.svg)
+
+Darstellung in Ihrem Browser:
 
 {{ EmbedLiveSample('mfenced_example1', 700, 200, "", "") }}
 

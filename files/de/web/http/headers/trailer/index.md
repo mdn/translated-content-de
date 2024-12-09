@@ -2,29 +2,34 @@
 title: Trailer
 slug: Web/HTTP/Headers/Trailer
 l10n:
-  sourceCommit: ae86913908651e6008079242691e06b5e01d1c78
+  sourceCommit: ed041385cf874deec203e820fd415bdcd6f98a19
 ---
 
 {{HTTPSidebar}}
 
-Der **Trailer**-Response-Header ermöglicht es dem Absender, zusätzliche Felder am Ende von Chunked-Nachrichten einzufügen, um Metadaten bereitzustellen, die möglicherweise dynamisch generiert werden, während der Nachrichteninhalt gesendet wird, wie z. B. eine Integritätsprüfung der Nachricht, digitale Signaturen oder der Status der Nachbearbeitung.
+Der HTTP **Trailer** {{Glossary("request_header", "Anforderungs-")}} und {{Glossary("response_header", "Antwortheader")}} erlaubt es dem Absender, zusätzliche Felder am Ende von chunked Nachrichten hinzuzufügen, um Metadaten bereitzustellen, die möglicherweise während des Sendens des Nachrichtenkörpers dynamisch erzeugt werden.
 
 > [!NOTE]
-> Der {{HTTPHeader("TE")}}-Request-Header muss auf "trailers" gesetzt werden, um Trailer-Felder zuzulassen.
+> Der {{HTTPHeader("TE")}} Anforderungsheader muss auf `trailers` gesetzt sein, um Trailer-Felder zu ermöglichen.
+
+> [!WARNING]
+> Entwickler können nicht über die Fetch API oder XHR auf HTTP-Trailer zugreifen.
+> Außerdem ignorieren Browser HTTP-Trailer, mit Ausnahme des {{HTTPHeader("Server-Timing")}} Headers.
+> Weitere Informationen finden Sie unter [Browser-Kompatibilität](#browser-kompatibilität).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
       <td>
-        {{Glossary("Request_header", "Request-Header")}},
-        {{Glossary("Response_header", "Response-Header")}},
-        {{Glossary("Content_header", "Content-Header")}}
+        {{Glossary("Request_header", "Anforderungsheader")}},
+        {{Glossary("Response_header", "Antwortheader")}},
+        {{Glossary("Content_header", "Inhaltsheader")}}
       </td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
-      <td>ja</td>
+      <td>Ja</td>
     </tr>
   </tbody>
 </table>
@@ -39,41 +44,30 @@ Trailer: header-names
 
 - `header-names`
 
-  - : HTTP-Headerfelder, die im Trailer-Teil von Chunked-Nachrichten vorhanden sein werden.
-    Diese Headerfelder sind **nicht erlaubt**:
+  - : HTTP-Headerfelder, die im Trailer-Teil von chunked Nachrichten vorhanden sein werden.
+    Die folgenden Header-Namen sind **nicht erlaubt**:
 
-    - Nachrichtenrahmen-Header (z. B. {{HTTPHeader("Transfer-Encoding")}} und
-      {{HTTPHeader("Content-Length")}}),
-    - Routing-Header (z. B. {{HTTPHeader("Host")}}),
-    - Anforderungsmodifikatoren (z. B. Steuerungen und Bedingungen, wie
-      {{HTTPHeader("Cache-Control")}}, {{HTTPHeader("Max-Forwards")}} oder
-      {{HTTPHeader("TE")}}),
-    - Authentifizierungs-Header (z. B. {{HTTPHeader("Authorization")}} oder
-      {{HTTPHeader("Set-Cookie")}}),
-    - oder {{HTTPHeader("Content-Encoding")}}, {{HTTPHeader("Content-Type")}},
-      {{HTTPHeader("Content-Range")}} und `Trailer` selbst.
+    - {{HTTPHeader("Content-Encoding")}}, {{HTTPHeader("Content-Type")}}, {{HTTPHeader("Content-Range")}} und `Trailer`
+    - Authentifizierungsheader (z. B. {{HTTPHeader("Authorization")}} oder {{HTTPHeader("Set-Cookie")}})
+    - Nachrichtenrahmen-Header (z. B. {{HTTPHeader("Transfer-Encoding")}} und {{HTTPHeader("Content-Length")}})
+    - Routing-Header (z. B. {{HTTPHeader("Host")}})
+    - Anforderungsmodifikatoren (z. B. Steuerungen und Bedingungen wie {{HTTPHeader("Cache-Control")}}, {{HTTPHeader("Max-Forwards")}} oder {{HTTPHeader("TE")}})
 
 ## Beispiele
 
-### Chunked-Transfer-Encoding mit einem Trailer-Header
+### Server-Timing als HTTP-Trailer
 
-In diesem Beispiel wird der {{HTTPHeader("Expires")}}-Header am Ende der Chunked-Nachricht verwendet und dient als Trailer-Header.
+Einige Browser unterstützen die Anzeige von Server-Timing-Daten in den Entwicklertools, wenn der {{HTTPHeader("Server-Timing")}} Header als Trailer gesendet wird.
+Im folgenden Antwortbeispiel wird der `Trailer` Header verwendet, um anzuzeigen, dass ein `Server-Timing` Header dem Antwortkörper folgen wird.
+Eine Metrik `custom-metric` mit einer Dauer von `123.4` Millisekunden wird gesendet:
 
 ```http
 HTTP/1.1 200 OK
-Content-Type: text/plain
 Transfer-Encoding: chunked
-Trailer: Expires
+Trailer: Server-Timing
 
-7\r\n
-Mozilla\r\n
-9\r\n
-Developer\r\n
-7\r\n
-Network\r\n
-0\r\n
-Expires: Wed, 21 Oct 2015 07:28:00 GMT\r\n
-\r\n
+--- response body ---
+Server-Timing: custom-metric;dur=123.4
 ```
 
 ## Spezifikationen
@@ -86,6 +80,7 @@ Expires: Wed, 21 Oct 2015 07:28:00 GMT\r\n
 
 ## Siehe auch
 
+- {{HTTPHeader("Server-Timing")}}
 - {{HTTPHeader("Transfer-Encoding")}}
 - {{HTTPHeader("TE")}}
-- [Chunkierte Transfer-Codierung](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)
+- [Chunked Transfer Encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding)
