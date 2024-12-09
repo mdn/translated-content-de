@@ -2,12 +2,12 @@
 title: webNavigation.onCompleted
 slug: Mozilla/Add-ons/WebExtensions/API/webNavigation/onCompleted
 l10n:
-  sourceCommit: b8a0743ca8b1e1b1b1a95cc93a4413c020f11262
+  sourceCommit: 20af66905a0eeb430f2d53452e467248099df59c
 ---
 
 {{AddonSidebar}}
 
-Wird ausgelöst, wenn ein Dokument, einschließlich der Ressourcen, auf die es verweist, vollständig geladen und initialisiert ist. Dies entspricht dem DOM-Event [`load`](/de/docs/Web/API/Window/load_event).
+Wird ausgelöst, wenn ein Dokument, einschließlich der von ihm referenzierten Ressourcen, vollständig geladen und initialisiert ist. Dies entspricht dem [`load`](/de/docs/Web/API/Window/load_event)-Ereignis des Fensters.
 
 ## Syntax
 
@@ -27,9 +27,9 @@ Ereignisse haben drei Funktionen:
 - `removeListener(listener)`
   - : Stoppt das Lauschen auf dieses Ereignis. Das Argument `listener` ist der zu entfernende Listener.
 - `hasListener(listener)`
-  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es lauscht, andernfalls `false`.
+  - : Überprüft, ob `listener` für dieses Ereignis registriert ist. Gibt `true` zurück, wenn es zuhört, `false` andernfalls.
 
-## Syntax von addListener
+## `addListener`-Syntax
 
 ### Parameter
 
@@ -38,10 +38,10 @@ Ereignisse haben drei Funktionen:
   - : Die Funktion, die aufgerufen wird, wenn dieses Ereignis eintritt. Der Funktion wird dieses Argument übergeben:
 
     - `details`
-      - : `object`. Details über das Navigationseignis. Siehe den Abschnitt [details](#details_2) für weitere Informationen.
+      - : `object`. Details über das Navigationsereignis. Siehe den Abschnitt [details](#details_2) für weitere Informationen.
 
 - `filter` {{optional_inline}}
-  - : `object`. Ein Objekt, das eine einzelne Eigenschaft `url` enthält, die ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mit mindestens einem `UrlFilter` im Array übereinstimmen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
+  - : `object`. Ein Objekt, das eine einzige Eigenschaft `url` enthält, welche ein `Array` von {{WebExtAPIRef("events.UrlFilter")}} Objekten ist. Wenn Sie diesen Parameter einschließen, wird das Ereignis nur für Übergänge zu URLs ausgelöst, die mindestens einem `UrlFilter` im Array entsprechen. Wenn Sie diesen Parameter weglassen, wird das Ereignis für alle Übergänge ausgelöst.
 
 ## Zusätzliche Objekte
 
@@ -52,11 +52,11 @@ Ereignisse haben drei Funktionen:
 - `url`
   - : `string`. Die URL, zu der der gegebene Frame navigiert hat.
 - `processId` {{optional_inline}} {{deprecated_inline}}
-  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Als er gesetzt wurde, stellte er die ID des Prozesses dar, der den Renderer für diesen Tab ausführte.
+  - : `integer`. Dieser Wert wird in modernen Browsern nicht gesetzt. Wenn er gesetzt war, repräsentierte er die ID des Prozesses, der den Renderer für diesen Tab ausführt.
 - `frameId`
-  - : `integer`. Der Frame, in dem die Navigation stattgefunden hat. `0` zeigt an, dass die Navigation im obersten Browsing-Kontext des Tabs stattgefunden hat, nicht in einem verschachtelten {{HTMLElement("iframe")}}. Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe stattgefunden hat. Frame-IDs sind eindeutig für einen gegebenen Tab und Prozess.
+  - : `integer`. Frame, in dem die Navigation stattgefunden hat. `0` zeigt an, dass die Navigation im obersten Browsing-Kontext des Tabs passiert ist, nicht in einem verschachtelten `<iframe>`. Ein positiver Wert zeigt an, dass die Navigation in einem verschachtelten iframe passiert ist. Frame-IDs sind für einen gegebenen Tab und Prozess eindeutig.
 - `timeStamp`
-  - : `number`. Die Zeit, zu der die Seite vollständig geladen war, in [Millisekunden seit der Epoche](https://de.wikipedia.org/wiki/Unixzeit).
+  - : `number`. Die Zeit, zu der die Seite fertig geladen wurde, in [Millisekunden seit dem Epoch](https://de.wikipedia.org/wiki/Unixzeit).
 
 ## Browser-Kompatibilität
 
@@ -64,7 +64,7 @@ Ereignisse haben drei Funktionen:
 
 ## Beispiele
 
-Protokolliert die Ziel-URLs für `onCompleted`, wenn der Ziel-URL-Hostname "example.com" enthält oder mit "developer" beginnt.
+Protokolliert die Ziel-URLs für `onCompleted`, wenn der Hostname der Ziel-URL "example.com" enthält oder mit "developer" beginnt.
 
 ```js
 const filter = {
@@ -81,4 +81,37 @@ browser.webNavigation.onCompleted.addListener(logOnCompleted, filter);
 {{WebExtExamples}}
 
 > [!NOTE]
-> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API von Chromium. Diese Dokumentation ist von [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code abgeleitet.
+> Diese API basiert auf der [`chrome.webNavigation`](https://developer.chrome.com/docs/extensions/reference/api/webNavigation#event-onBeforeNavigate) API von Chromium. Diese Dokumentation ist abgeleitet aus [`web_navigation.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/web_navigation.json) im Chromium-Code.
+
+<!--
+Copyright 2015 Die Chromium Autoren. Alle Rechte vorbehalten.
+
+Redistribution und Verwendung in Quell- und Binärformen, mit oder ohne
+Modifikation, sind unter den folgenden Bedingungen erlaubt:
+
+   * Redistributierungen des Quellcodes müssen den obigen Copyright-Hinweis,
+diese Liste der Bedingungen und den folgenden Disclaimer enthalten.
+   * Redistributions in binärer Form müssen den obigen
+Copyright-Hinweis, diese Liste der Bedingungen und den folgenden Disclaimer
+in der Dokumentation und/oder anderen Materialien, die mit der
+Verteilung bereitgestellt werden, enthalten.
+   * Weder der Name von Google Inc. noch die Namen seiner
+Beitragenden dürfen verwendet werden, um Produkte, die von dieser Software
+abgeleitet wurden, zu unterstützen oder zu bewerben ohne spezifische
+vorherige schriftliche Genehmigung.
+
+DIESE SOFTWARE WIRD VON DEN COPYRIGHT-EIGENTÜMERN UND BEITRAGENDEN
+"BEREITGESTELLT", UND ALLE AUSDRÜCKLICHEN ODER STILLSCHWEIGENDEN
+GARANTIEN, EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT AUF DIE
+STILLSCHWEIGENDEN GARANTIEN DER MARKTGÄNGIGKEIT UND EIGNUNG FÜR EINEN
+BESTIMMTEN ZWECK, WERDEN ABGELEHNT. IN KEINEM FALL SOLLEN DIE COPYRIGHT-
+INHABER ODER BEITRAGENDEN FÜR DIREKTE, INDIREKTE, ZUFÄLLIGE, BESONDERE,
+BEISPIELHAFTE ODER FOLGESCHÄDEN (EINSCHLIESSLICH, ABER NICHT BESCHRÄNKT
+AUF DIE BESCHAFFUNG VON ERSATZWAREN ODER DIENSTLEISTUNGEN; NUTZUNGSAUSFALL,
+DATENVERLUST ODER GEWINNVERLUST; ODER GESCHÄFTSUNTERBRECHUNG) HAFTBAR
+GEMACHT WERDEN, WIE AUCH IMMER VERURSACHT UND AUF JEDER THEORIE DER
+HAFTUNG, OB IN VERTRAG, STRIKTER HAFTUNG ODER UNERLAUBTER HANDLUNG
+(EINSCHLIESSLICH FAHRLÄSSIGKEIT ODER ANDERWEITIG), DIE AUF IRGENDEINE
+WEISE AUS DER VERWENDUNG DIESER SOFTWARE ENTSTANDEN SIND, SELBST WENN AUF
+DIE MÖGLICHKEIT SOLCHER SCHÄDEN HINGEWIESEN WURDE.
+-->

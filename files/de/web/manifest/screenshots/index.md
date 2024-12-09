@@ -2,16 +2,15 @@
 title: screenshots
 slug: Web/Manifest/screenshots
 l10n:
-  sourceCommit: 5f140a8174ef528f61e8c87e2f38e3748257d9bc
+  sourceCommit: 74a94e7d4846bfd2165c5ace9e60a65b52ec1a85
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Manifest")}}
 
-Das `screenshots` Manifest-Element ermöglicht es Ihnen, ein oder mehrere Bilder anzugeben, die Ihre Webanwendung präsentieren.
-Diese Bilder helfen Benutzern, sich einen Eindruck von der Benutzeroberfläche und den Funktionen Ihrer Web-App in App-Stores zu verschaffen.
+Der `screenshots`-Manifestmember ermöglicht es Ihnen, ein oder mehrere Bilder anzugeben, die Ihre Webanwendung präsentieren. Diese Bilder helfen Benutzern, die Benutzeroberfläche und Funktionen Ihrer Web-App in App-Stores zu betrachten.
 
 > [!NOTE]
-> Das `screenshots` Element ist optional, und App-Stores zeigen diese Bilder möglicherweise nicht an, wenn Ihre App präsentiert wird.
+> Der `screenshots`-Member ist optional, und App-Stores zeigen diese Bilder möglicherweise nicht an, wenn sie Ihre App präsentieren.
 
 ## Syntax
 
@@ -49,49 +48,49 @@ Diese Bilder helfen Benutzern, sich einen Eindruck von der Benutzeroberfläche u
 - `screenshots`
 
   - : Ein Array von Objekten.
-    Jedes Objekt repräsentiert einen Screenshot der Web-App in einem gängigen Nutzungsszenario.
+    Jedes Objekt repräsentiert einen Screenshot der Web-App in einem gewöhnlichen Nutzungsszenario.
 
     Jedes Screenshot-Objekt kann eine oder mehrere Eigenschaften haben. Davon ist nur `src` erforderlich. Die möglichen Eigenschaften sind:
 
     - `src`
 
       - : Ein String, der den Pfad zur Bilddatei angibt.
-        Es hat dasselbe Format wie die `src`-Eigenschaft des `icons` Elements [`src`](/de/docs/Web/Manifest/icons#src).
+        Er hat dasselbe Format wie die `icons`-Eigenschaft [`src`](/de/docs/Web/Manifest/icons#src).
 
     - `sizes` {{Optional_Inline}}
 
       - : Ein String, der eine oder mehrere Größen des Bildes angibt.
-        Es hat dasselbe Format wie die `sizes`-Eigenschaft des `icons` Elements [`sizes`](/de/docs/Web/Manifest/icons#sizes).
+        Er hat dasselbe Format wie die `icons`-Eigenschaft [`sizes`](/de/docs/Web/Manifest/icons#sizes).
 
     - `type` {{Optional_Inline}}
 
       - : Ein String, der den {{Glossary("MIME_type", "MIME-Typ")}} des Bildes angibt.
-        Es hat dasselbe Format wie die `type`-Eigenschaft des `icons` Elements [`type`](/de/docs/Web/Manifest/icons#type).
+        Er hat dasselbe Format wie die `icons`-Eigenschaft [`type`](/de/docs/Web/Manifest/icons#type).
 
     - `label` {{Optional_Inline}}
 
       - : Ein String, der den zugänglichen Namen des Screenshot-Objekts darstellt.
         Halten Sie ihn beschreibend, da er als Alternativtext für den gerenderten Screenshot dienen kann.
-        Aus Gründen der Barrierefreiheit wird empfohlen, diese Eigenschaft für jeden Screenshot anzugeben.
+        Für die Barrierefreiheit wird empfohlen, diese Eigenschaft für jeden Screenshot anzugeben.
 
     - `form_factor` {{Optional_Inline}}
 
-      - : Ein String, der die Bildschirmform einer breiten Klasse von Geräten repräsentiert, für die der Screenshot gilt.
-        Geben Sie diese Eigenschaft nur an, wenn der Screenshot für eine bestimmte Bildschirmdarstellung gilt.
-        Wenn `form_factor` nicht angegeben ist, wird der Screenshot als für alle Bildschirmtypen geeignet betrachtet.
+      - : Ein String, der die Bildschirmform einer breiten Klasse von Geräten darstellt, auf die der Screenshot zutrifft.
+        Geben Sie diese Eigenschaft nur an, wenn der Screenshot auf ein spezifisches Bildschirm-Layout zutrifft.
+        Wenn `form_factor` nicht angegeben ist, wird der Screenshot als geeignet für alle Bildschirmtypen angesehen.
 
         Gültige Werte sind:
 
         - `narrow`
-          - : Gibt an, dass der Screenshot nur für schmale Bildschirme gilt, z. B. Mobilgeräte.
+          - : Gibt an, dass der Screenshot nur für schmale Bildschirme, wie z.B. Mobilgeräte, gilt.
         - `wide`
-          - : Gibt an, dass der Screenshot nur für breite Bildschirme gilt, z. B. Desktop-Computer.
+          - : Gibt an, dass der Screenshot nur für breite Bildschirme, wie z.B. Desktop-Computer, gilt.
 
     - `platform`
 
-      - : Ein String, der die Plattform darstellt, für die der Screenshot gilt.
-        Geben Sie diese Eigenschaft nur an, wenn der Screenshot für ein bestimmtes Gerät oder eine bestimmte Vertriebsplattform gilt.
-        Wenn `platform` nicht angegeben ist, wird der Screenshot als für alle Plattformen geeignet betrachtet.
+      - : Ein String, der die Plattform darstellt, auf die der Screenshot zutrifft.
+        Geben Sie diese Eigenschaft nur an, wenn der Screenshot auf ein spezifisches Gerät oder eine Distributionsplattform zutrifft.
+        Wenn `platform` nicht angegeben ist, wird der Screenshot als geeignet für alle Plattformen angesehen.
 
         Gültige Werte sind:
 
@@ -113,31 +112,28 @@ Diese Bilder helfen Benutzern, sich einen Eindruck von der Benutzeroberfläche u
 
 ## Beschreibung
 
-Das `screenshots` Element ist zusätzliche Metadaten, die das Laufzeitverhalten der App oder die Darstellung in Browsern nicht beeinflussen.
-Screenshots werden in App-Stores und anderen Vertriebsplattformen verwendet, um potenziellen Benutzern die Funktionen Ihrer App zu zeigen.
+Der `screenshots`-Member ist ergänzende Metadaten, die das Laufzeitverhalten der App oder die Präsentation der App in Browsern nicht beeinflussen. Screenshots werden in App-Stores und anderen Distributionsplattformen verwendet, um potenziellen Benutzern die Funktionen Ihrer App zu präsentieren.
 
-Vertriebsplattformen können entscheiden, wie viele Screenshots angezeigt werden.
+Distributionsplattformen können entscheiden, wie viele Screenshots angezeigt werden.
 
-Die folgenden Bilder aus dem Apple App Store zeigen, wie Screenshots in einer iPhone-App-Auflistung erscheinen.
-In der Galerieansicht (Bild links) können Benutzer horizontal durch mehrere Bilder blättern.
-Sie können auf ein beliebiges Bild tippen, um es in Vollbildgröße anzuzeigen (Bild rechts).
+Die folgenden Bilder aus dem Apple App Store zeigen, wie Screenshots in einer iPhone-App-Liste erscheinen. In der Galerieansicht (Bild links) können Benutzer durch mehrere Bilder horizontal scrollen. Sie können auf jedes Bild tippen, um es in voller Größe anzusehen (Bild rechts).
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap;">
-  <img src="todoist-iphone-gallery.png" alt="Todoist App im Apple App Store zeigt eine horizontale Galerie von App-Bildern, durch die Benutzer scrollen können" width="350">
-  <img src="todoist-iphone-fullscreen.png" alt="Eine Vollbildansicht eines Bildes aus der horizontalen Galerie der Todoist App" width="350">
+  <img src="todoist-iphone-gallery.png" alt="Todoist-App im Apple App Store zeigt eine horizontale Galerie von App-Bildern, durch die Benutzer scrollen können" width="350">
+  <img src="todoist-iphone-fullscreen.png" alt="Eine Vollbildansicht eines Bildes aus der horizontalen Galerie der Todoist-App" width="350">
 </div>
 
-Das gleiche Vollbild-Bild auf einem iPad zeigt, warum unterschiedliche Screenshots für schmale (iPhone) und breite (iPad) Geräteformfaktoren erforderlich sind:
+Dasselbe Vollbildbild auf dem iPad zeigt, warum unterschiedliche Screenshots für schmale (iPhone) und breite (iPad) Geräteformate benötigt werden:
 
 <div style="display: flex; justify-content: center;">
-  <img src="todoist-ipad-fullscreen.png" alt="Todoist App-Liste auf iPad zeigt mehrere Screenshots in einer breiteren Galerieansicht">
+  <img src="todoist-ipad-fullscreen.png" alt="Todoist-App-Liste auf dem iPad zeigt mehrere Screenshots in einer breiteren Galerieansicht">
 </div>
 
 ## Beispiele
 
-### Vorschaubilder für eine Mahlzeitenplanungs-App hinzufügen
+### Hinzufügen von Vorschauen für eine Essensplanungs-Web-App
 
-Dieses Beispiel zeigt, wie Sie Screenshots für eine Mahlzeitenplanungs-App für verschiedene Geräte hinzufügen. Die Screenshots zeigen dasselbe Feature der App in Desktop- und Mobilansichten:
+Dieses Beispiel zeigt, wie man Screenshots für eine Essensplanungs-App für verschiedene Geräte hinzufügt. Die Screenshots zeigen dasselbe Feature der App in Desktop- und mobilen Ansichten:
 
 ```json
 {
@@ -165,5 +161,4 @@ Dieses Beispiel zeigt, wie Sie Screenshots für eine Mahlzeitenplanungs-App für
 
 ## Browser-Kompatibilität
 
-Das `screenshots` Manifest-Element wird von App-Stores verwendet, wenn Web-Apps veröffentlicht und gelistet werden, daher ist die Browser-Kompatibilität nicht anwendbar.
-Obwohl Browser dieses Element analysieren können, ist es optional und hat keinen Einfluss auf die Funktionalität oder Präsentation der App.
+Der `screenshots`-Manifestmember wird von App-Stores verwendet, wenn Web-Apps veröffentlicht und gelistet werden. Daher ist die Browser-Kompatibilität nicht anwendbar. Während Browser diesen Member möglicherweise parsen, ist er optional und beeinflusst weder die Funktionalität noch die Darstellung der App.
