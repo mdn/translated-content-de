@@ -2,12 +2,12 @@
 title: SVGAnimatedRect
 slug: Web/API/SVGAnimatedRect
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: c6f8bee9aeb156e7d2a415007f7353487b0ccef4
 ---
 
 {{APIRef("SVG")}}
 
-Das `SVGAnimatedRect` Interface wird für Attribute von grundlegenden [`SVGRect`](/de/docs/Web/API/SVGRect) verwendet, die animiert werden können.
+Die `SVGAnimatedRect` Schnittstelle wird für Attribute von grundlegenden [`SVGRect`](/de/docs/Web/API/SVGRect) verwendet, die animiert werden können.
 
 ### Schnittstellenübersicht
 
@@ -58,17 +58,17 @@ Das `SVGAnimatedRect` Interface wird für Attribute von grundlegenden [`SVGRect`
   </thead>
   <tbody>
     <tr>
-      <td><code>baseVal</code></td>
+      <td><code>[`SVGAnimatedRect.baseVal`](/de/docs/Web/API/SVGAnimatedRect/baseVal)</code></td>
       <td>[`SVGRect`](/de/docs/Web/API/SVGRect)</td>
       <td>
-        Der Basiswert des angegebenen Attributs, bevor irgendwelche Animationen angewendet werden.
+        Der Grundwert des angegebenen Attributs, bevor irgendwelche Animationen angewendet werden.
       </td>
     </tr>
     <tr>
-      <td><code>animVal</code></td>
+      <td><code>[`SVGAnimatedRect.animVal`](/de/docs/Web/API/SVGAnimatedRect/animVal)</code></td>
       <td>[`SVGRect`](/de/docs/Web/API/SVGRect)</td>
       <td>
-        Ein schreibgeschützter [`SVGRect`](/de/docs/Web/API/SVGRect), der den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut momentan nicht animiert wird, hat der [`SVGRect`](/de/docs/Web/API/SVGRect) denselben Inhalt wie <code>baseVal</code>. Das von <code>animVal</code> referenzierte Objekt wird immer von dem von <code>baseVal</code> referenzierten Objekt verschieden sein, auch wenn das Attribut nicht animiert ist.
+        Ein schreibgeschützter [`SVGRect`](/de/docs/Web/API/SVGRect), der den aktuellen animierten Wert des angegebenen Attributs darstellt. Wenn das angegebene Attribut derzeit nicht animiert wird, hat der [`SVGRect`](/de/docs/Web/API/SVGRect) denselben Inhalt wie <code>baseVal</code>. Das Objekt, auf das durch <code>animVal</code> verwiesen wird, ist immer von dem Objekt unterschieden, auf das durch <code>baseVal</code> verwiesen wird, selbst wenn das Attribut nicht animiert ist.
       </td>
     </tr>
   </tbody>
@@ -76,7 +76,7 @@ Das `SVGAnimatedRect` Interface wird für Attribute von grundlegenden [`SVGRect`
 
 ## Instanz-Methoden
 
-_Das `SVGAnimatedRect` Interface bietet keine spezifischen Methoden._
+_Die `SVGAnimatedRect` Schnittstelle bietet keine spezifischen Methoden._
 
 ## Spezifikationen
 

@@ -2,16 +2,16 @@
 title: Seitenstrukturen
 slug: MDN/Writing_guidelines/Page_structures
 l10n:
-  sourceCommit: 137a960f52b744eabd33a2b56e54450653b06f45
+  sourceCommit: 514d1d2690c6374cd65921193ff6b166677395fd
 ---
 
 {{MDNSidebar}}
 
-Auf MDN gibt es Dokumentstrukturen, die verwendet werden, um eine konsistente Präsentation von Informationen in MDN-Artikeln zu gewährleisten. Diese Seite listet Artikel auf, die diese Strukturen beschreiben, damit Sie den Seiteninhalt entsprechend für die Dokumente, die Sie schreiben, bearbeiten oder übersetzen, anpassen können.
+Auf MDN gibt es Dokumentstrukturen, die verwendet werden, um eine konsistente Präsentation von Informationen in MDN-Artikeln zu gewährleisten. Diese Seite listet Artikel auf, die diese Strukturen beschreiben, damit Sie den Seiteninhalt für die von Ihnen geschriebenen, bearbeiteten oder übersetzten Dokumente entsprechend anpassen können.
 
-{{LandingPageListSubPages}}
+{{SubpagesWithSummaries}}
 
 ## Siehe auch
 
-- [Seitentemplates](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#page_templates)
+- [Seitenschablonen](/de/docs/MDN/Writing_guidelines/Page_structures/Page_types#page_templates)
 - [Seitenkomponenten](/de/docs/MDN/Writing_guidelines/Writing_style_guide#page_components)
