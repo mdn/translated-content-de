@@ -2,12 +2,12 @@
 title: Math.LOG2E
 slug: Web/JavaScript/Reference/Global_Objects/Math/LOG2E
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: 2ec170b6264d51a15be498ac99b8a30b3dadec15
 ---
 
 {{JSRef}}
 
-Die **`Math.LOG2E`** statische Dateneigenschaft repräsentiert den Logarithmus zur Basis 2 von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E), ungefähr 1,442.
+Die statische Daten-Eigenschaft **`Math.LOG2E`** repräsentiert den Logarithmus von Basis 2 von [e](/de/docs/Web/JavaScript/Reference/Global_Objects/Math/E), ungefähr 1.443.
 
 {{EmbedInteractiveExample("pages/js/math-log2e.html", "shorter")}}
 
@@ -15,7 +15,7 @@ Die **`Math.LOG2E`** statische Dateneigenschaft repräsentiert den Logarithmus z
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mi>𝙼𝚊𝚝𝚑.𝙻𝙾𝙶𝟸𝙴</mi><mo>=</mo><msub><mo lspace="0em" rspace="0em">log</mo><mn>2</mn></msub><mo stretchy="false">(</mo><mi mathvariant="normal">e</mi><mo stretchy="false">)</mo><mo>≈</mo><mn>1.442</mn></mrow><annotation encoding="TeX">\mathtt{Math.LOG2E} = \log_2(\mathrm{e}) \approx 1.442</annotation></semantics>
+  <semantics><mrow><mi>𝙼𝚊𝚝𝚑.𝙻𝙾𝙶𝟸𝙴</mi><mo>=</mo><msub><mo lspace="0em" rspace="0em">log</mo><mn>2</mn></msub><mo stretchy="false">(</mo><mi mathvariant="normal">e</mi><mo stretchy="false">)</mo><mo>≈</mo><mn>1.443</mn></mrow><annotation encoding="TeX">\mathtt{Math.LOG2E} = \log_2(\mathrm{e}) \approx 1.443</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -23,13 +23,13 @@ Die **`Math.LOG2E`** statische Dateneigenschaft repräsentiert den Logarithmus z
 
 ## Beschreibung
 
-Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LOG2E` und nicht als Eigenschaft eines erstellten `Math` Objekts (`Math` ist kein Konstruktor).
+Da `LOG2E` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LOG2E` und nicht als Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
 ### Verwendung von Math.LOG2E
 
-Die folgende Funktion gibt den Logarithmus von e zur Basis 2 zurück:
+Die folgende Funktion gibt den Logarithmus von Basis 2 von e zurück:
 
 ```js
 function getLog2e() {

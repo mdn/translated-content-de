@@ -2,12 +2,12 @@
 title: Math.LN10
 slug: Web/JavaScript/Reference/Global_Objects/Math/LN10
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: 2ec170b6264d51a15be498ac99b8a30b3dadec15
 ---
 
 {{JSRef}}
 
-Die statische Dateneigenschaft **`Math.LN10`** repräsentiert den natürlichen Logarithmus von 10, ungefähr 2,302.
+Die statische Dateneigenschaft **`Math.LN10`** repräsentiert den natürlichen Logarithmus von 10, ungefähr 2,303.
 
 {{EmbedInteractiveExample("pages/js/math-ln10.html", "shorter")}}
 
@@ -15,7 +15,7 @@ Die statische Dateneigenschaft **`Math.LN10`** repräsentiert den natürlichen L
 
 <!-- prettier-ignore-start -->
 <math display="block">
-  <semantics><mrow><mi>𝙼𝚊𝚝𝚑.𝙻𝙽𝟷𝟶</mi><mo>=</mo><mo lspace="0em" rspace="0em">ln</mo><mo stretchy="false">(</mo><mn>10</mn><mo stretchy="false">)</mo><mo>≈</mo><mn>2.302</mn></mrow><annotation encoding="TeX">\mathtt{Math.LN10} = \ln(10) \approx 2.302</annotation></semantics>
+  <semantics><mrow><mi>𝙼𝚊𝚝𝚑.𝙻𝙽𝟷𝟶</mi><mo>=</mo><mo lspace="0em" rspace="0em">ln</mo><mo stretchy="false">(</mo><mn>10</mn><mo stretchy="false">)</mo><mo>≈</mo><mn>2.303</mn></mrow><annotation encoding="TeX">\mathtt{Math.LN10} = \ln(10) \approx 2.303</annotation></semantics>
 </math>
 <!-- prettier-ignore-end -->
 
@@ -23,7 +23,7 @@ Die statische Dateneigenschaft **`Math.LN10`** repräsentiert den natürlichen L
 
 ## Beschreibung
 
-Da `LN10` eine statische Eigenschaft von `Math` ist, wird sie immer als `Math.LN10` verwendet, anstatt als eine Eigenschaft eines von Ihnen erstellten `Math`-Objekts (`Math` ist kein Konstruktor).
+Da `LN10` eine statische Eigenschaft von `Math` ist, verwenden Sie sie immer als `Math.LN10` und nicht als Eigenschaft eines von Ihnen erstellten `Math` Objekts (`Math` ist kein Konstruktor).
 
 ## Beispiele
 
