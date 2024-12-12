@@ -1,13 +1,13 @@
 ---
-title: CSS-Layout im Inline-Format
+title: CSS Inline Layout
 slug: Web/CSS/CSS_inline_layout
 l10n:
-  sourceCommit: 58dd075cc106f92659ed0a940361969b117d47b1
+  sourceCommit: c6a9fa0d5a9f8dcd4bf6373a4441d7a2a1aa76e3
 ---
 
 {{CSSRef}}
 
-Das **CSS-Layout im Inline-Format**-Modul definiert die Blockachsen-Ausrichtung und Größenbestimmung von Inline-Inhalten und fügt einen speziellen Layoutmodus für Initialbuchstaben hinzu. Es beschreibt das CSS-Formatierungsmodell für einen Fluss von Elementen und Text innerhalb eines Containers, der über mehrere Zeilen umgebrochen wird.
+Das **CSS inline layout**-Modul definiert die Block-Achsen-Ausrichtung und Größenanpassung von Inline-Inhalten und fügt einen speziellen Layoutmodus für Initialbuchstaben hinzu. Es beschreibt das CSS-Formatierungsmodell für einen Fluss von Elementen und Text innerhalb eines Containers, der über mehrere Zeilen umbrochen wird.
 
 ## Referenz
 
@@ -16,13 +16,16 @@ Das **CSS-Layout im Inline-Format**-Modul definiert die Blockachsen-Ausrichtung 
 - {{cssxref("dominant-baseline")}}
 - {{cssxref("initial-letter")}}
 - {{cssxref("line-height")}}
+- {{cssxref("text-box-edge")}}
+- {{cssxref("text-box-trim")}}
+- {{cssxref("text-box")}} Kurzbefehl
 - {{cssxref("vertical-align")}}
 
-Die Spezifikation definiert auch die Eigenschaften `alignment-baseline`, `baseline-shift`, `baseline-source`, `initial-letter-align`, `initial-letter-wrap`, `inline-sizing`, `line-fit-edge`, `text-box`, `text-box-edge` und `text-box-trim`, die von keinem Browser unterstützt werden.
+Die Spezifikation definiert auch die Eigenschaften `alignment-baseline`, `baseline-shift`, `baseline-source`, `initial-letter-align`, `initial-letter-wrap`, `inline-sizing` und `line-fit-edge`, die derzeit von keinem Browser unterstützt werden.
 
 ### Glossarbegriffe
 
-- {{Glossary("baseline/typography", "baseline")}}
+- {{Glossary("baseline/typography", "Baseline")}}
 
 ## Verwandte Konzepte
 
@@ -30,8 +33,8 @@ Die Spezifikation definiert auch die Eigenschaften `alignment-baseline`, `baseli
 - {{cssxref("font-feature-settings")}} Eigenschaft
 - {{cssxref("letter-spacing")}} Eigenschaft
 - {{cssxref("text-anchor")}} Eigenschaft
-- {{cssxref("::first-letter")}} Pseudo-Element
-- {{cssxref(":first-child")}} Pseudo-Klasse
+- {{cssxref("::first-letter")}} Pseudoelement
+- {{cssxref(":first-child")}} Pseudoklasse
 
 ## Spezifikationen
 
@@ -39,6 +42,6 @@ Die Spezifikation definiert auch die Eigenschaften `alignment-baseline`, `baseli
 
 ## Siehe auch
 
-- [CSS Text](/de/docs/Web/CSS/CSS_text) Modul
-- [CSS Fonts](/de/docs/Web/CSS/CSS_fonts) Modul
-- [CSS-Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes) Modul
+- [CSS text](/de/docs/Web/CSS/CSS_text) Modul
+- [CSS fonts](/de/docs/Web/CSS/CSS_fonts) Modul
+- [CSS writing modes](/de/docs/Web/CSS/CSS_writing_modes) Modul
