@@ -1,34 +1,34 @@
 ---
-title: Nachgestellte Kommata
+title: Nachgestellte Kommas
 slug: Web/JavaScript/Reference/Trailing_commas
 l10n:
-  sourceCommit: eb7cf694c19b31ee8826f22eaac6c12e808b1e50
+  sourceCommit: 560ca6eaa792b30fb2f0fae01a6ccdfde16b848a
 ---
 
 {{jsSidebar("More")}}
 
-**Nachgestellte Kommata** (manchmal "Schlusskommata" genannt) können nützlich sein, wenn Sie neue Elemente, Parameter oder Eigenschaften zu JavaScript-Code hinzufügen. Wenn Sie eine neue Eigenschaft hinzufügen möchten, können Sie eine neue Zeile hinzufügen, ohne die vorherige letzte Zeile ändern zu müssen, falls diese Zeile bereits ein nachgestelltes Komma verwendet. Dies macht Versionskontroll-Diffs übersichtlicher und das Bearbeiten von Code könnte weniger problematisch sein.
+**Nachgestellte Kommas** (manchmal auch "Finalkommas" genannt) können nützlich sein, wenn neue Elemente, Parameter oder Eigenschaften zum JavaScript-Code hinzugefügt werden. Wenn Sie eine neue Eigenschaft hinzufügen möchten, können Sie eine neue Zeile hinzufügen, ohne die vorherige letzte Zeile zu ändern, falls diese bereits ein nachgestelltes Komma verwendet. Dies macht Versionskontroll-Diffs sauberer und das Bearbeiten des Codes könnte weniger problematisch sein.
 
-JavaScript erlaubt nachgestellte Kommata in Array-Literalen seit Beginn. Nachgestellte Kommata sind jetzt auch in Objektliteralen, Funktionsparametern, benannten Imports, benannten Exports und mehr erlaubt.
+JavaScript erlaubt nachgestellte Kommas in Array-Literalen seit dem Anfang. Nachgestellte Kommas sind jetzt auch in Objekt-Literalen, Funktionsparametern, benannten Importen, benannten Exporten und mehr erlaubt.
 
-{{Glossary("JSON", "JSON")}} erlaubt jedoch keine nachgestellten Kommata.
+{{Glossary("JSON", "JSON")}} verbietet jedoch alle nachgestellten Kommas.
 
 ## Beschreibung
 
-JavaScript erlaubt nachgestellte Kommata überall dort, wo eine kommagetrennte Liste von Werten akzeptiert wird und mehr Werte nach dem letzten Element erwartet werden können. Dazu gehören:
+JavaScript erlaubt nachgestellte Kommas überall dort, wo eine kommagetrennte Liste von Werten akzeptiert wird und weitere Werte nach dem letzten Element erwartet werden können. Dies schließt ein:
 
 - [Array-Literale](#arrays)
-- [Objektliterale](#objekte)
+- [Objekt-Literale](#objekte)
 - [Parameterdefinitionen](#parameterdefinitionen)
 - [Funktionsaufrufe](#funktionsaufrufe)
 - [Benannte Importe](#benannte_importe)
 - [Benannte Exporte](#benannte_exporte)
-- [Dynamischer Import](#nachgestellte_kommata_beim_dynamischen_import)
-- [Array- und Objekt-Destructuring](#nachgestellte_kommata_beim_destructuring)
+- [Dynamische Importe](#nachgestellte_kommas_im_dynamischen_import)
+- [Destrukturierung von Arrays und Objekten](#nachgestellte_kommas_in_der_destrukturierung)
 
-In all diesen Fällen ist das nachgestellte Komma völlig optional und ändert in keiner Weise die Semantik des Programms.
+In all diesen Fällen ist das nachgestellte Komma vollständig optional und ändert die Semantik des Programms in keiner Weise.
 
-Es ist besonders nützlich beim Hinzufügen, Entfernen oder Neuordnen von Elementen in einer Liste, die sich über mehrere Zeilen erstreckt, da es die Anzahl der zu ändernden Zeilen reduziert, was sowohl das Bearbeiten als auch das Überprüfen des Diffs erleichtert.
+Es ist besonders nützlich, wenn Elemente in einer mehrzeiligen Liste hinzugefügt, entfernt oder umgeordnet werden, da es die Anzahl der zu ändernden Zeilen reduziert, was sowohl bei der Bearbeitung als auch bei der Überprüfung des Diffs hilft.
 
 ```diff
   [
@@ -41,11 +41,11 @@ Es ist besonders nützlich beim Hinzufügen, Entfernen oder Neuordnen von Elemen
 
 ## Beispiele
 
-### Nachgestellte Kommata in Literalen
+### Nachgestellte Kommas in Literalen
 
 #### Arrays
 
-JavaScript ignoriert nachgestellte Kommata in Array-Literalen:
+JavaScript ignoriert nachgestellte Kommas in Array-Literalen:
 
 ```js-nolint
 const arr = [
@@ -58,7 +58,7 @@ arr; // [1, 2, 3]
 arr.length; // 3
 ```
 
-Wenn mehr als ein nachgestelltes Komma verwendet wird, wird eine Elision (oder Lücke) erzeugt. Ein Array mit Lücken wird als [_spärlich_](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) bezeichnet (ein _dichtes_ Array hat keine Lücken). Beim Iterieren von Arrays, zum Beispiel mit {{jsxref("Array.prototype.forEach()")}} oder {{jsxref("Array.prototype.map()")}}, werden Array-Lücken übersprungen. Spärliche Arrays sind im Allgemeinen ungünstig, daher sollten Sie vermeiden, mehrere nachgestellte Kommata zu haben.
+Wenn mehr als ein nachgestelltes Komma verwendet wird, entsteht eine Auslassung (oder Lücke). Ein Array mit Lücken wird [_dünn_](/de/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays) genannt (ein _dichtes_ Array hat keine Lücken). Beim Durchlaufen von Arrays, zum Beispiel mit {{jsxref("Array.prototype.forEach()")}} oder {{jsxref("Array.prototype.map()")}}, werden Array-Lücken übersprungen. Dünne Arrays sind in der Regel unerwünscht, daher sollten Sie mehrere nachgestellte Kommas vermeiden.
 
 ```js
 const arr = [1, 2, 3, , ,];
@@ -67,7 +67,7 @@ arr.length; // 5
 
 #### Objekte
 
-Nachgestellte Kommata in Objektliteralen sind ebenfalls zulässig:
+Nachgestellte Kommas in Objekt-Literalen sind ebenfalls erlaubt:
 
 ```js
 const object = {
@@ -77,13 +77,13 @@ const object = {
 };
 ```
 
-### Nachgestellte Kommata in Funktionen
+### Nachgestellte Kommas in Funktionen
 
-Nachgestellte Kommata sind auch in Funktionsparameterlisten erlaubt.
+Nachgestellte Kommas sind auch in Funktionsparameterlisten erlaubt.
 
 #### Parameterdefinitionen
 
-Die folgenden Funktionsdefinitionen sind rechtlich und gleichwertig zueinander. Nachgestellte Kommata beeinflussen nicht die Eigenschaft [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length) von Funktionsdeklarationen oder deren [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt.
+Die folgenden Funktionsdefinitionen sind gültig und äquivalent zueinander. Nachgestellte Kommas beeinflussen nicht die [`length`](/de/docs/Web/JavaScript/Reference/Global_Objects/Function/length)-Eigenschaft von Funktionsdeklarationen oder ihr [`arguments`](/de/docs/Web/JavaScript/Reference/Functions/arguments)-Objekt.
 
 ```js-nolint
 function f(p) {}
@@ -93,7 +93,7 @@ function f(p,) {}
 (p,) => {};
 ```
 
-Das nachgestellte Komma funktioniert auch mit [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) für Klassen oder Objekte:
+Das nachgestellte Komma funktioniert auch bei [Methodendefinitionen](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) für Klassen oder Objekte:
 
 ```js-nolint
 class C {
@@ -109,7 +109,7 @@ const obj = {
 
 #### Funktionsaufrufe
 
-Die folgenden Funktionsaufrufe sind rechtlich und gleichwertig zueinander.
+Die folgenden Funktionsaufrufe sind gültig und äquivalent zueinander.
 
 ```js-nolint
 f(p);
@@ -119,9 +119,9 @@ Math.max(10, 20);
 Math.max(10, 20,);
 ```
 
-#### Ungültige nachgestellte Kommata
+#### Unerlaubte nachgestellte Kommas
 
-Funktionsparameterdefinitionen oder Funktionsaufrufe, die nur ein Komma enthalten, werfen einen {{jsxref("SyntaxError")}}. Außerdem sind bei Verwendung von [Rest-Parametern](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) keine nachgestellten Kommata erlaubt:
+Funktionsparameterdefinitionen oder Funktionsaufrufe, die nur ein Komma enthalten, werfen einen {{jsxref("SyntaxError")}}. Außerdem ist bei der Verwendung von [Rest-Parametern](/de/docs/Web/JavaScript/Reference/Functions/rest_parameters) ein nachgestelltes Komma nicht erlaubt:
 
 ```js-nolint example-bad
 function f(,) {} // SyntaxError: missing formal parameter
@@ -132,9 +132,9 @@ function f(...p,) {} // SyntaxError: parameter after rest parameter
 (...p,) => {}        // SyntaxError: expected closing parenthesis, got ','
 ```
 
-### Nachgestellte Kommata beim Destructuring
+### Nachgestellte Kommas in der Destrukturierung
 
-Ein nachgestelltes Komma ist auch auf der linken Seite erlaubt, wenn die [Destructuring-Zuweisung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwendet wird:
+Ein nachgestelltes Komma ist auch auf der linken Seite bei der Verwendung von [Destrukturierungszuweisungen](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) erlaubt:
 
 ```js-nolint
 // array destructuring with trailing comma
@@ -148,18 +148,18 @@ const o = {
 const { p, q, } = o;
 ```
 
-Auch hier wird bei Verwendung eines Rest-Elements ein {{jsxref("SyntaxError")}} ausgelöst:
+Auch hier wird ein {{jsxref("SyntaxError")}} ausgelöst, wenn ein Rest-Element verwendet wird:
 
 ```js-nolint example-bad
 const [a, ...b,] = [1, 2, 3];
 // SyntaxError: rest element may not have a trailing comma
 ```
 
-### Nachgestellte Kommata in JSON
+### Nachgestellte Kommas in JSON
 
-Da JSON auf einer sehr eingeschränkten Untermenge der JavaScript-Syntax basiert, sind **nachgestellte Kommata in JSON nicht erlaubt**.
+Da JSON auf einem sehr eingeschränkten Subset der JavaScript-Syntax basiert, **sind nachgestellte Kommas in JSON nicht erlaubt**.
 
-Beide Zeilen werfen ein `SyntaxError`:
+Beide Zeilen werfen einen `SyntaxError`:
 
 ```js example-bad
 JSON.parse("[1, 2, 3, 4, ]");
@@ -168,16 +168,16 @@ JSON.parse('{"foo" : 1, }');
 // at line 1 column 14 of the JSON data
 ```
 
-Lassen Sie die nachgestellten Kommata weg, um das JSON korrekt zu parsen:
+Lassen Sie die nachgestellten Kommas weg, um das JSON korrekt zu parsen:
 
 ```js example-good
 JSON.parse("[1, 2, 3, 4 ]");
 JSON.parse('{"foo" : 1 }');
 ```
 
-### Nachgestellte Kommata in benannten Importen und benannten Exporten
+### Nachgestellte Kommas in benannten Importen und benannten Exporten
 
-Nachgestellte Kommata sind in [benannten Importen](/de/docs/Web/JavaScript/Reference/Statements/import#named_import) und [benannten Exporten](/de/docs/Web/JavaScript/Reference/Statements/export) zulässig.
+Nachgestellte Kommas sind in [benannten Importen](/de/docs/Web/JavaScript/Reference/Statements/import#named_import) und [benannten Exporten](/de/docs/Web/JavaScript/Reference/Statements/export) gültig.
 
 #### Benannte Importe
 
@@ -207,9 +207,9 @@ export { A, B, C, };
 export { A as B, C as D, E as F, };
 ```
 
-### Nachgestellte Kommata beim dynamischen Import
+### Nachgestellte Kommas im dynamischen Import
 
-Nachgestellte Kommata sind nur bei [dynamischen Importen](/de/docs/Web/JavaScript/Reference/Operators/import) erlaubt, wenn die Laufzeit auch den zweiten `options`-Parameter implementiert.
+Nachgestellte Kommas sind nur in [dynamischen Importen](/de/docs/Web/JavaScript/Reference/Operators/import) erlaubt, wenn die Laufzeit auch den zweiten `options`-Parameter implementiert.
 
 ```js-nolint
 import("D",);
@@ -219,10 +219,10 @@ import(
 );
 ```
 
-### Quantifizierer-Präfix
+### Quantifier prefix
 
 > [!NOTE]
-> Das nachgestellte Komma in einem [Quantifizierer](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) ändert tatsächlich seine Semantik von "genau `n`" zu "mindestens `n`".
+> Das nachgestellte Komma in einem [Quantor](/de/docs/Web/JavaScript/Guide/Regular_expressions/Quantifiers) ändert tatsächlich seine Semantik vom "genauen `n`" Abgleich zum "mindestens `n`" Abgleich.
 
 ```js
 /x{2}/; // Exactly 2 occurrences of "x"; equivalent to /xx/
