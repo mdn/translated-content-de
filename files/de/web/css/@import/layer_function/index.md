@@ -2,7 +2,7 @@
 title: layer()
 slug: Web/CSS/@import/layer_function
 l10n:
-  sourceCommit: 0febb0315dbb36565f8badbbaa653434df3483d1
+  sourceCommit: 5332af37c3d94913bf15b6aed87aaed2693f19d5
 ---
 
 {{CSSRef}}
@@ -16,16 +16,11 @@ Die **`layer()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functi
 @import "dark.css" layer(framework.themes.dark);
 ```
 
-`framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert würde.
+Das `framework.themes.dark` ist die Schicht, in die die CSS-Datei importiert wird.
 
 ## Formale Syntax
 
-```plain
-layer() = layer( <layer-name> )
-
-<layer-name> =
-  <ident> [ '.' <ident> ]*
-```
+{{CSSSyntax}}
 
 ## Spezifikationen
 

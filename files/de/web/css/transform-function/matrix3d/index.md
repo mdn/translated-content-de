@@ -2,19 +2,19 @@
 title: matrix3d()
 slug: Web/CSS/transform-function/matrix3d
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: 802978f38824a4132b4f9b3d3c23fb6970beba74
 ---
 
 {{CSSRef}}
 
-Die **`matrix3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine 3D-Transformation als 4x4 homogene Matrix.
+Die **`matrix3d()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine 3D-Transformation als eine 4x4 homogene Matrix.
 Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-matrix3d.html")}}
 
 ## Syntax
 
-Die `matrix3d()` Funktion wird mit 16 Werten spezifiziert. Diese sind in der spaltenweise Reihenfolge beschrieben.
+Die `matrix3d()` Funktion wird mit 16 Werten angegeben. Sie werden in der spaltenweisen Reihenfolge beschrieben.
 
 ```css
 matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
@@ -26,7 +26,7 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
   _a3_ _b3_ _c3_ _d3_
   - : Sind {{cssxref("&lt;number&gt;")}}s, die die lineare Transformation beschreiben.
 - _a4_ _b4_ _c4 d4_
-  - : Sind {{cssxref("&lt;number&gt;")}}s, welche die anzuwendende Verschiebung beschreiben.
+  - : Sind {{cssxref("&lt;number&gt;")}}s, die die anzuwendende Translation beschreiben.
 
 <table class="standard-table">
   <thead>
@@ -40,10 +40,10 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
   <tbody>
     <tr>
       <td colspan="2">
-        Diese Transformation wird auf den 3D-Raum angewendet und kann nicht auf der Ebene dargestellt werden.
+        Diese Transformation gilt für den 3D-Raum und kann nicht auf der Ebene dargestellt werden.
       </td>
       <td>
-        Eine generische 3D-<a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden, da Verschiebungen keine linearen Transformationen sind.
+        Eine generische 3D <a href="https://en.wikipedia.org/wiki/Affine_transformation">affine Transformation</a> kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden, da Translationen keine linearen Transformationen sind.
       </td>
       <td>
         <math display="block">
@@ -54,11 +54,15 @@ matrix3d(a1, b1, c1, d1, a2, b2, c2, d2, a3, b3, c3, d3, a4, b4, c4, d4)
   </tbody>
 </table>
 
+## Formale Syntax
+
+{{CSSSyntax}}
+
 ## Beispiele
 
-### Beispiel für das Zusammendrücken eines Würfels
+### Würfel-Zusammenquetschung Beispiel
 
-Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transformationen erstellt wurde und beim Hovern/Fokussieren darauf eine `matrix3d()`-Transformation anwendet.
+Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen erstellt wurde und durch Hover/Fokus eine `matrix3d()` Transformation darauf angewendet werden kann.
 
 #### HTML
 
@@ -138,9 +142,9 @@ Das folgende Beispiel zeigt einen 3D-Würfel, der aus DOM-Elementen und Transfor
 
 {{EmbedLiveSample('Cube_squashing_example', '100%', '300px')}}
 
-### Beispiel für Matrix-Übersetzung und Skalierung
+### Matrix-Translation und Skalierung Beispiel
 
-Ein weiteres `transform3d()`-Beispiel, das eine animierte kombinierte Verschiebung und Skalierung implementiert.
+Ein weiteres `transform3d()` Beispiel, das eine animierte kombinierte Übersetzung und Skalierung implementiert.
 
 #### HTML
 

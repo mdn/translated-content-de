@@ -2,7 +2,7 @@
 title: rotateY()
 slug: Web/CSS/transform-function/rotateY
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 802978f38824a4132b4f9b3d3c23fb6970beba74
 ---
 
 {{CSSRef}}
@@ -11,17 +11,17 @@ Die **`rotateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Func
 
 {{EmbedInteractiveExample("pages/css/function-rotateY.html")}}
 
-Die Rotationsachse verläuft durch einen Ursprungspunkt, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
+Die Achse der Rotation verläuft durch einen Ursprung, der durch die CSS-Eigenschaft {{ cssxref("transform-origin") }} definiert wird.
 
-> **Hinweis:** `rotateY(a)` entspricht
+> **Hinweis:** `rotateY(a)` ist äquivalent zu
 > `rotate3d(0, 1, 0, a)`.
 
 > [!NOTE]
-> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Mit anderen Worten: Die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
+> Im Gegensatz zu Rotationen in der 2D-Ebene ist die Zusammensetzung von 3D-Rotationen in der Regel nicht kommutativ. Mit anderen Worten, die Reihenfolge, in der die Rotationen angewendet werden, beeinflusst das Ergebnis.
 
 ## Syntax
 
-Der durch `rotateY()` erzeugte Rotationsbetrag wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Ist dieser positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, erfolgt sie gegen den Uhrzeigersinn.
+Das Ausmaß der Rotation, die durch `rotateY()` erzeugt wird, wird durch einen {{cssxref("&lt;angle&gt;")}} angegeben. Ist der Wert positiv, erfolgt die Bewegung im Uhrzeigersinn; ist er negativ, gegen den Uhrzeigersinn.
 
 ```css
 rotateY(a)
@@ -30,15 +30,15 @@ rotateY(a)
 ### Werte
 
 - `a`
-  - : Ein {{ cssxref("&lt;angle&gt;") }}, der den Winkel der Rotation repräsentiert. Ein positiver Winkel steht für eine Drehung im Uhrzeigersinn, ein negativer für eine gegen den Uhrzeigersinn.
+  - : Ist ein {{ cssxref("&lt;angle&gt;") }} der den Winkel der Rotation repräsentiert. Ein positiver Winkel bedeutet eine Drehung im Uhrzeigersinn, ein negativer gegen den Uhrzeigersinn.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> im <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> im <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten im <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten im <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -59,6 +59,10 @@ rotateY(a)
     </tr>
   </tbody>
 </table>
+
+## Formaler Syntax
+
+{{CSSSyntax}}
 
 ## Beispiele
 

@@ -2,16 +2,16 @@
 title: exp()
 slug: Web/CSS/exp
 l10n:
-  sourceCommit: 8ac73df2fbe2c88d8649fcb006dcde098616c723
+  sourceCommit: 5332af37c3d94913bf15b6aed87aaed2693f19d5
 ---
 
 {{CSSRef}}
 
-Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine Exponentialfunktion, die eine Zahl als Argument akzeptiert und die mathematische Konstante `e` potenziert mit dieser Zahl zurückgibt.
+Die **`exp()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine Exponentialfunktion, die eine Zahl als Argument nimmt und die mathematische Konstante `e` potenziert mit der gegebenen Zahl zurückgibt.
 
-Die mathematische Konstante [e](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist die Basis der natürlichen Logarithmen und beträgt ungefähr `2.718281828459045`.
+Die mathematische Konstante [e](<https://en.wikipedia.org/wiki/E_(mathematical_constant)>) ist die Basis des natürlichen Logarithmus und beträgt ungefähr `2.718281828459045`.
 
-Die `exp(number)` Funktion enthält eine Berechnung, die denselben Wert wie {{CSSxRef("pow", "pow(e, number)")}} zurückgibt.
+Die Funktion `exp(number)` enthält eine Berechnung, die denselben Wert wie {{CSSxRef("pow", "pow(e, number)")}} zurückgibt.
 
 ## Syntax
 
@@ -24,21 +24,21 @@ width: calc(100px * exp(1)); /* 100px * 2.718281828459045 = 217px */
 
 ### Parameter
 
-Die `exp(number)` Funktion akzeptiert nur einen Wert als Parameter.
+Die Funktion `exp(number)` akzeptiert nur einen Wert als Parameter.
 
 - `number`
-  - : Eine Berechnung, die sich zu einer {{CSSxRef("number")}} auflöst und den Wert darstellt, der mit der Potenz von `e` potenziert wird.
+  - : Eine Berechnung, die zu einer {{CSSxRef("number")}} aufgelöst wird. Sie repräsentiert den Wert, der mit der Potenz von `e` erhöht werden soll.
 
 ### Rückgabewert
 
-Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> repräsentiert, das Ergebnis der Berechnung von `e` potenziert mit der Zahl.
+Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> darstellt, was das Ergebnis der Berechnung von `e` potenziert mit der Zahl ist.
 
 - Wenn `number` `-Infinity` ist, ist das Ergebnis `0`.
 - Wenn `number` `0` ist, ist das Ergebnis `1`.
 - Wenn `number` `1` ist, ist das Ergebnis `e` (d.h. `2.718281828459045`).
 - Wenn `number` `Infinity` ist, ist das Ergebnis `Infinity`.
 
-### Formale Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
@@ -46,7 +46,7 @@ Gibt eine nicht-negative {{CSSxRef("number")}} zurück, die e<sup>number</sup> r
 
 ### Elemente rotieren
 
-Die `exp()` Funktion kann verwendet werden, um {{CSSxRef("transform-function/rotate", "Rotationen")}} von Elementen durchzuführen, da sie eine {{CSSxRef("number")}} zurückgibt.
+Die Funktion `exp()` kann verwendet werden, um Elemente mit {{CSSxRef("transform-function/rotate", "rotate")}} zu drehen, da sie eine {{CSSxRef("number")}} zurückgibt.
 
 #### HTML
 
@@ -97,9 +97,9 @@ div.box-5 {
 
 {{EmbedLiveSample('Rotate elements', '100%', '200px')}}
 
-### Überschriften skalieren mit festem Verhältnis
+### Überschriften um einen festen Faktor skalieren
 
-Die `exp()` Funktion kann nützlich für Strategien wie CSS Modular Scale sein, die alle Schriftgrößen auf einer Seite durch ein festes Verhältnis zueinander in Beziehung setzt.
+Die Funktion `exp()` kann nützlich für Strategien wie die CSS-Modularskalierung sein, die alle Schriftgrößen auf einer Seite durch ein festes Verhältnis miteinander in Beziehung setzt.
 
 #### HTML
 

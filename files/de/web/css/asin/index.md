@@ -2,12 +2,12 @@
 title: asin()
 slug: Web/CSS/asin
 l10n:
-  sourceCommit: 8ac73df2fbe2c88d8649fcb006dcde098616c723
+  sourceCommit: 5332af37c3d94913bf15b6aed87aaed2693f19d5
 ---
 
 {{CSSRef}}
 
-Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Arcus-Sinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion enthält eine einzelne Berechnung, die die Anzahl der Bogenmaß in einem {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` darstellt.
+Die **`asin()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine trigonometrische Funktion, die den Arcus Sinus einer Zahl zwischen `-1` und `1` zurückgibt. Die Funktion umfasst eine einzelne Berechnung, die die Anzahl der Bogenmaß darstellt, welche einem {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` entspricht.
 
 ## Syntax
 
@@ -30,20 +30,20 @@ Die Funktion `asin(number)` akzeptiert nur einen Wert als Parameter.
 
 ### Rückgabewert
 
-Der Arcus-Sinus einer `number` gibt immer einen {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurück.
+Der Arcus Sinus von `number` wird immer einen {{cssxref("&lt;angle&gt;")}} zwischen `-90deg` und `90deg` zurückgeben.
 
-- Wenn `number` kleiner als `-1` oder größer als `1` ist, lautet das Ergebnis `NaN`.
-- Wenn `number` `0⁻` ist, lautet das Ergebnis `0⁻`.
+- Wenn `number` kleiner als `-1` oder größer als `1` ist, ist das Ergebnis `NaN`.
+- Wenn `number` `0⁻` ist, ist das Ergebnis `0⁻`.
 
-### Formale Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Elemente drehen
+### Elemente rotieren
 
-Die `asin()` Funktion kann verwendet werden, um Elemente mit der {{cssxref("transform-function/rotate", "rotate")}} Funktion zu drehen, da sie einen {{cssxref("&lt;angle&gt;")}} zurückgibt.
+Die Funktion `asin()` kann verwendet werden, um Elemente mit {{cssxref("transform-function/rotate", "rotate")}} zu drehen, da sie einen {{cssxref("&lt;angle&gt;")}} zurückgibt.
 
 #### HTML
 

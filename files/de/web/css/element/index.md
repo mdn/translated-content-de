@@ -2,16 +2,16 @@
 title: element()
 slug: Web/CSS/element
 l10n:
-  sourceCommit: 66944f622b6b51bc9c24bebbbea242138d910600
+  sourceCommit: 5332af37c3d94913bf15b6aed87aaed2693f19d5
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`element()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert einen {{cssxref("&lt;image&gt;")}} Wert, der von einem beliebigen HTML-Element generiert wird. Dieses Bild ist live, das heißt, wenn das HTML-Element geändert wird, werden die CSS-Eigenschaften, die diesen Wert verwenden, automatisch aktualisiert.
+Die **`element()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert einen {{cssxref("&lt;image&gt;")}} Wert, der von einem beliebigen HTML-Element generiert wird. Dieses Bild ist live, was bedeutet, dass wenn das HTML-Element geändert wird, die CSS-Eigenschaften, die diesen Wert verwenden, automatisch aktualisiert werden.
 
-Ein besonders nützliches Szenario für die Verwendung wäre, ein Bild in einem HTML {{HTMLElement("canvas")}}-Element zu rendern und dieses dann als Hintergrund zu verwenden.
+Ein besonders nützliches Szenario für die Verwendung davon wäre, ein Bild in einem HTML-{{HTMLElement("canvas")}} Element zu rendern und dieses dann als Hintergrund zu verwenden.
 
-In Gecko-Browsern können Sie die nicht standardmäßige Methode [`document.mozSetImageElement()`](/de/docs/Web/API/Document/mozSetImageElement) verwenden, um das Element zu ändern, das als Hintergrund für ein bestimmtes CSS-Hintergrundelement verwendet wird.
+In Gecko-Browsern können Sie die nicht standardisierte Methode [`document.mozSetImageElement()`](/de/docs/Web/API/Document/mozSetImageElement) verwenden, um das Element zu ändern, das als Hintergrund für ein gegebenes CSS-Hintergrundelement verwendet wird.
 
 ## Syntax
 
@@ -19,18 +19,22 @@ In Gecko-Browsern können Sie die nicht standardmäßige Methode [`document.mozS
 element(id)
 ```
 
-wo:
+wobei:
 
 - _id_
-  - : Die ID eines Elements, das als Hintergrund verwendet werden soll, spezifiziert mit dem HTML-Attribut #_id_ auf dem Element.
+  - : Die ID eines Elements, das als Hintergrund verwendet werden soll, angegeben durch das HTML-Attribut #_id_ des Elements.
+
+## Formale Syntax
+
+{{CSSSyntax}}
 
 ## Beispiele
 
-Diese Beispiele funktionieren in Firefox-Builds, die `-moz-element()` unterstützen.
+Diese Beispiele funktionieren in Firefox-Versionen, die `-moz-element()` unterstützen.
 
-### Ein einigermaßen realistisches Beispiel
+### Ein etwas realistisches Beispiel
 
-Dieses Beispiel verwendet ein verstecktes {{HTMLElement("div")}} als Hintergrund. Das Hintergrundelement verwendet einen Verlauf, enthält aber auch Text, der als Teil des Hintergrunds gerendert wird.
+Dieses Beispiel verwendet ein verborgenes {{HTMLElement("div")}} als Hintergrund. Das Hintergrundelement verwendet einen Verlauf, enthält aber auch Text, der als Teil des Hintergrunds gerendert wird.
 
 ```html
 <div
@@ -51,12 +55,11 @@ Dieses Beispiel verwendet ein verstecktes {{HTMLElement("div")}} als Hintergrund
 
 {{EmbedLiveSample("A_somewhat_realistic_example")}}
 
-Das {{HTMLElement("div")}}-Element mit der ID "myBackground1" wird als Hintergrund für den Inhalt verwendet, einschließlich des Absatzes "This box uses the element with the #myBackground1 ID as its background!".
+Das {{HTMLElement("div")}} Element mit der ID "myBackground1" wird als Hintergrund für den Inhalt verwendet, einschließlich des Absatzes "This box uses the element with the #myBackground1 ID as its background!".
 
 ### Seitenvorschau
 
-Dieses <a href="https://iamvdo.me/en/blog/css-element-function">
-Beispiel basierend auf Vincent De Oliveiras</a> erstellt eine Vorschau des `<div id="css-source">` innerhalb `<div id="css-result">`.
+Dieses <a href="https://iamvdo.me/en/blog/css-element-function">Beispiel basierend auf Vincent De Oliveiras</a> erstellt eine Vorschau des `<div id="css-source">` innerhalb `<div id="css-result">`.
 
 #### HTML
 

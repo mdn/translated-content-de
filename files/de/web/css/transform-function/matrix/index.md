@@ -2,7 +2,7 @@
 title: matrix()
 slug: Web/CSS/transform-function/matrix
 l10n:
-  sourceCommit: 4ecbac9e89961a132c1e7f5493ec94f60dcb1ee4
+  sourceCommit: 802978f38824a4132b4f9b3d3c23fb6970beba74
 ---
 
 {{CSSRef}}
@@ -16,8 +16,7 @@ Die **`matrix()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Funct
 
 ## Syntax
 
-Die `matrix()` Funktion wird mit sechs Werten angegeben. Die Konstanten sind implizit und werden nicht als
-Parameter übergeben; die anderen Parameter sind in der spaltenweisen Anordnung beschrieben.
+Die `matrix()` Funktion wird mit sechs Werten spezifiziert. Die konstanten Werte sind impliziert und nicht als Parameter übergeben; die anderen Parameter werden in Spalten-Major-Order beschrieben.
 
 ```css
 matrix(a, b, c, d, tx, ty)
@@ -33,10 +32,10 @@ matrix(a, b, c, d, tx, ty)
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^2</a></th>
+      <th scope="col"><a href="https://de.wikipedia.org/wiki/Homogene_Koordinaten">Homogene Koordinaten</a> auf <a href="https://de.wikipedia.org/wiki/Projektive_Ebene">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten auf <a href="https://de.wikipedia.org/wiki/Euklidischer_Raum">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten auf <a href="https://de.wikipedia.org/wiki/Projektiver_Raum">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -69,7 +68,11 @@ matrix(a, b, c, d, tx, ty)
 </table>
 
 Die Werte repräsentieren die folgenden Funktionen:
-`matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`
+`matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY())`.
+
+## Formale Syntax
+
+{{CSSSyntax}}
 
 ## Beispiele
 
