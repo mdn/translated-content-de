@@ -1,19 +1,19 @@
 ---
-title: Function
+title: Funktion
 slug: Glossary/Function
 l10n:
-  sourceCommit: 07fd308d45223fc5792d6dc13e3ab2c8826e1b44
+  sourceCommit: c7e6e6a645ea0164114eddd430480660c52b0bf0
 ---
 
 {{GlossarySidebar}}
 
-Eine **Funktion** ist ein Code-Snippet, das von anderem Code oder von sich selbst aufgerufen werden kann, oder eine {{Glossary("variable", "Variable")}}, die auf die Funktion verweist. Wenn eine Funktion aufgerufen wird, werden {{Glossary("Argument", "Argumente")}} als Eingabe an die Funktion übergeben, und die Funktion kann optional einen Wert zurückgeben. Eine Funktion in {{Glossary("JavaScript", "JavaScript")}} ist auch ein {{Glossary("object", "Objekt")}}.
+Eine **Funktion** ist ein Code-Snippet, das von anderem Code oder sich selbst aufgerufen werden kann, oder eine {{Glossary("variable", "Variable")}}, die sich auf die Funktion bezieht. Wenn eine Funktion aufgerufen wird, werden {{Glossary("Argument", "Argumente")}} als Eingabe an die Funktion übergeben und die Funktion kann optional einen Wert zurückgeben. Eine Funktion in {{Glossary("JavaScript", "JavaScript")}} ist auch ein {{Glossary("object", "Objekt")}}.
 
-Ein Funktionsname ist ein {{Glossary("identifier", "Identifier")}}, der Teil einer Funktionsdeklaration oder eines Funktionsausdrucks ist. Der {{Glossary("scope", "Scope")}} des Funktionsnamens hängt davon ab, ob der Funktionsname eine Deklaration oder ein Ausdruck ist.
+Ein Funktionsname ist ein {{Glossary("identifier", "Bezeichner")}}, der Teil einer Funktionsdeklaration oder Funktionsexpression ist. Der {{Glossary("scope", "Geltungsbereich")}} des Funktionsnamens hängt davon ab, ob der Funktionsname eine Deklaration oder eine Expression ist.
 
 ### Verschiedene Arten von Funktionen
 
-Eine **anonyme Funktion** ist eine Funktion ohne Funktionsname. Nur Funktionsausdrücke können anonym sein, Funktionsdeklarationen müssen einen Namen haben:
+Eine **anonyme Funktion** ist eine Funktion ohne Funktionsnamen. Nur Funktionsexpressionen können anonym sein, Funktionsdeklarationen müssen einen Namen haben:
 
 ```js
 // Anonymous function created as a function expression
@@ -23,7 +23,7 @@ Eine **anonyme Funktion** ist eine Funktion ohne Funktionsname. Nur Funktionsaus
 () => {};
 ```
 
-Die folgenden Begriffe werden nicht in der ECMAScript-Sprachspezifikation verwendet, sie sind Jargon, um verschiedene Arten von Funktionen zu benennen.
+Die folgenden Begriffe werden nicht in der ECMAScript-Sprachspezifikation verwendet, sie sind Fachjargon, um sich auf verschiedene Arten von Funktionen zu beziehen.
 
 Eine **benannte Funktion** ist eine Funktion mit einem Funktionsnamen:
 
@@ -66,13 +66,13 @@ function loop(x) {
 // Arrow function
 const loop2 = (x) => {
   if (x >= 10) return;
-  loop(x + 1);
+  loop2(x + 1);
 };
 ```
 
-Ein **sofort ausgeführter Funktionsausdruck** ({{Glossary("IIFE", "IIFE")}}) ist eine Funktion, die direkt nach dem Laden in den Compiler des Browsers aufgerufen wird. Ein IIFE ist daran zu erkennen, dass es am Ende der Funktionsdefinition zusätzliche Klammern gibt.
+Eine **sofort-invokierte Funktionsexpression** ({{Glossary("IIFE", "IIFE")}}) ist eine Funktion, die direkt nach dem Laden in den Compiler des Browsers aufgerufen wird. Eine IIFE ist daran zu erkennen, dass zusätzliche runde Klammern am Ende der Funktionsdefinition vorhanden sind.
 
-Funktionsausdrücke, benannt oder anonym, können sofort aufgerufen werden.
+Funktionsexpressionen, ob benannt oder anonym, können sofort aufgerufen werden.
 
 ```js
 (function foo() {
@@ -86,7 +86,7 @@ Funktionsausdrücke, benannt oder anonym, können sofort aufgerufen werden.
 (() => console.log("hello world"))();
 ```
 
-Deklarierte Funktionen können auf diese Weise nicht sofort aufgerufen werden, da IIFEs Funktions*audrücke* sein müssen.
+Deklarierte Funktionen können auf diese Weise nicht sofort aufgerufen werden, da IIFEs Funktion*ausdrücke* sein müssen.
 
 ```js example-bad
 function foo() {
@@ -94,7 +94,7 @@ function foo() {
 }();
 ```
 
-Wenn Sie mehr über IIFEs wissen möchten, schauen Sie sich die folgende Seite auf Wikipedia an: [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
+Wenn Sie mehr über IIFEs erfahren möchten, besuchen Sie folgende Seite auf Wikipedia: [Immediately Invoked Function Expression](https://en.wikipedia.org/wiki/Immediately_invoked_function_expression)
 
 ## Siehe auch
 

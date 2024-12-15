@@ -2,21 +2,21 @@
 title: SVGAnimatedNumber
 slug: Web/API/SVGAnimatedNumber
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 5f0dba0ef63c41d1361c50c14dc343031beedd09
 ---
 
 {{APIRef("SVG")}}
 
-## SVG animated number Schnittstelle
+## Schnittstelle SVGAnimatedNumber
 
-Die `SVGAnimatedNumber` Schnittstelle wird für Attribute des Basistyps [\<Number>](/de/docs/Web/SVG/Content_type#number) verwendet, die animiert werden können.
+Die Schnittstelle `SVGAnimatedNumber` wird für Attribute des Basistyps [\<Number>](/de/docs/Web/SVG/Content_type#number) verwendet, die animiert werden können.
 
-### Schnittstellenübersicht
+### Übersicht der Schnittstelle
 
 <table class="no-markdown">
   <tbody>
     <tr>
-      <th scope="row">Ebenfalls implementieren</th>
+      <th scope="row">Implementiert auch</th>
       <td><em>Keine</em></td>
     </tr>
     <tr>
@@ -37,7 +37,7 @@ Die `SVGAnimatedNumber` Schnittstelle wird für Attribute des Basistyps [\<Numbe
       <td>
         <a
           href="https://www.w3.org/TR/SVG11/types.html#InterfaceSVGAnimatedNumber"
-          >SVG 1.1 (2nd Edition)</a
+          >SVG 1.1 (2. Ausgabe)</a
         >
       </td>
     </tr>
@@ -56,17 +56,20 @@ Die `SVGAnimatedNumber` Schnittstelle wird für Attribute des Basistyps [\<Numbe
   </thead>
   <tbody>
     <tr>
-      <td><code>baseVal</code></td>
+      <td><code>[`SVGAnimatedNumber.baseVal`](/de/docs/Web/API/SVGAnimatedNumber/baseVal)</code></td>
       <td>float</td>
       <td>
-        Der Basiswert des angegebenen Attributs vor Anwendung jeglicher Animationen.
+        Der Basiswert des angegebenen Attributs vor der Anwendung von Animationen.
       </td>
     </tr>
     <tr>
-      <td><code>animVal</code></td>
+      <td><code>[`SVGAnimatedNumber.animVal`](/de/docs/Web/API/SVGAnimatedNumber/animVal)</code></td>
       <td>float</td>
       <td>
-        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
+        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es
+        den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das
+        angegebene Attribut oder die Eigenschaft nicht animiert wird, enthält es denselben
+        Wert wie <code>baseVal</code>.
       </td>
     </tr>
   </tbody>
@@ -74,7 +77,7 @@ Die `SVGAnimatedNumber` Schnittstelle wird für Attribute des Basistyps [\<Numbe
 
 ## Instanz-Methoden
 
-Die `SVGAnimatedNumber` Schnittstelle bietet keine spezifischen Methoden.
+Die Schnittstelle `SVGAnimatedNumber` stellt keine spezifischen Methoden bereit.
 
 ## Spezifikationen
 
