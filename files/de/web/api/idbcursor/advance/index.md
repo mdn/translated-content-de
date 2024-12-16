@@ -1,16 +1,14 @@
 ---
-title: "IDBCursor: advance() Methode"
+title: "IDBCursor: advance()-Methode"
 short-title: advance()
 slug: Web/API/IDBCursor/advance
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: 733c40043bfb7a55fb01644d52000149b2dab13c
 ---
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`advance()`** Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-Interfaces legt fest, wie oft ein Cursor seine Position
-nach vorne bewegen soll.
+Die **`advance()`**-Methode der [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Schnittstelle legt fest, wie oft ein Cursor seine Position nach vorne verschieben soll.
 
 ## Syntax
 
@@ -21,7 +19,7 @@ advance(count)
 ### Parameter
 
 - `count`
-  - : Die Anzahl der Male, die der Cursor nach vorne bewegt werden soll.
+  - : Die Anzahl der Schritte, um die der Cursor nach vorne bewegt werden soll.
 
 ### Rückgabewert
 
@@ -29,25 +27,20 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode kann ein [`DOMException`](/de/docs/Web/API/DOMException) von einem der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) eines der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Transaktion dieses IDBCursors inaktiv ist.
+  - : Wird ausgelöst, wenn die Transaktion dieses `IDBCursor` inaktiv ist.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn der in den `count` Parameter übergebene Wert Null oder eine negative Zahl war.
+  - : Wird ausgelöst, wenn der übergebene Wert im Parameter `count` null oder eine negative Zahl war.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor derzeit iteriert wird oder bereits über sein Ende hinaus iteriert hat.
+  - : Wird ausgelöst, wenn der Cursor derzeit iteriert wird oder über sein Ende hinaus iteriert hat.
 
 ## Beispiele
 
-In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen
-Cursor, um die Datensätze im Objektspeicher zu durchlaufen. Hier verwenden wir
-`cursor.advance(2)`, um jedes Mal 2 Positionen vorzuspringen, was bedeutet, dass nur
-jedes zweite Ergebnis angezeigt wird. `advance()` funktioniert ähnlich wie
-[`IDBCursor.continue`](/de/docs/Web/API/IDBCursor/continue), erlaubt Ihnen jedoch, mehrere Datensätze gleichzeitig zu überspringen anstatt immer nur zum nächsten Datensatz zu gehen.
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um die Datensätze im Objektspeicher zu durchlaufen. Hier verwenden wir `cursor.advance(2)`, um jedes Mal 2 Plätze vorzuspringen, was bedeutet, dass nur jedes zweite Ergebnis angezeigt wird. `advance()` funktioniert ähnlich wie [`IDBCursor.continue`](/de/docs/Web/API/IDBCursor/continue), ermöglicht jedoch das Springen über mehrere Datensätze gleichzeitig, anstatt immer nur zum nächsten Datensatz zu gehen.
 
-Beachten Sie, dass Sie in jeder Iteration der Schleife
-Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel sehen Sie sich unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) an ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+Beachten Sie, dass Sie in jeder Schleifeniteration Daten aus dem aktuellen Datensatz unter dem Cursorobjekt mit `cursor.value.foo` abrufen können. Für ein vollständiges funktionierendes Beispiel, siehe unser [Beispiel für IDBCursor](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function advanceResult() {
@@ -80,7 +73,7 @@ function advanceResult() {
 ## Siehe auch
 
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
-- Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
+- Starten von Transaktionen: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
 - Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)

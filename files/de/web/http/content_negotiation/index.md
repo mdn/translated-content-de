@@ -1,103 +1,107 @@
 ---
-title: Content-Negotiation
+title: Inhaltsaushandlung
 slug: Web/HTTP/Content_negotiation
 l10n:
-  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
+  sourceCommit: ab1bf2c5955c1bfa4d96d779f701ab22f3870d43
 ---
 
 {{HTTPSidebar}}
 
-Im {{Glossary("HTTP", "HTTP")}} ist die **_Content-Negotiation_** der Mechanismus, der verwendet wird, um unterschiedliche {{Glossary("Representation_header", "Darstellungen")}} einer Ressource unter derselben URI bereitzustellen, um dem Benutzeragenten zu helfen, die am besten geeignete Darstellung für den Nutzer zu spezifizieren (zum Beispiel, welche Dokumentensprache, welches Bildformat oder welche Inhaltskodierung).
+Im {{Glossary("HTTP", "HTTP")}} ist die **_Inhaltsaushandlung_** der Mechanismus, der verwendet wird, um verschiedene {{Glossary("Representation_header", "Darstellungen")}} einer Ressource unter derselben URI bereitzustellen. Dies hilft dem Benutzeragenten, die am besten geeignete Darstellung für den Benutzer zu spezifizieren (zum Beispiel, welche Dokumentsprache, welches Bildformat oder welche Inhaltskodierung).
 
 > [!NOTE]
-> Sie finden einige Nachteile der HTTP-Content-Negotiation in [einer Wiki-Seite von WHATWG](https://wiki.whatwg.org/wiki/Why_not_conneg). HTML bietet Alternativen zur Content-Negotiation, zum Beispiel über das [`<source>`-Element](/de/docs/Web/HTML/Element/source).
+> Sie finden einige Nachteile der HTTP-Inhaltsaushandlung auf [einer Wiki-Seite von WHATWG](https://wiki.whatwg.org/wiki/Why_not_conneg). HTML bietet Alternativen zur Inhaltsaushandlung über beispielsweise das [`<source>`-Element](/de/docs/Web/HTML/Element/source).
 
-## Prinzipien der Content-Negotiation
+## Prinzipien der Inhaltsaushandlung
 
-Ein spezifisches Dokument wird als _Ressource_ bezeichnet. Wenn ein Client eine Ressource abrufen möchte, fordert er sie über eine URL an. Der Server verwendet diese URL, um eine der verfügbaren Varianten auszuwählen–jede Variante wird als _Darstellung_ bezeichnet–und gibt eine bestimmte Darstellung an den Client zurück. Die gesamte Ressource sowie jede der Darstellungen hat eine spezifische URL. _Content-Negotiation_ bestimmt, wie eine bestimmte Darstellung ausgewählt wird, wenn die Ressource aufgerufen wird. Es gibt mehrere Möglichkeiten der Verhandlung zwischen Client und Server.
+Ein spezifisches Dokument wird als _Ressource_ bezeichnet. Wenn ein Client eine Ressource anfordern möchte, tut er dies über eine URL. Der Server verwendet diese URL, um eine der verfügbaren Varianten auszuwählen – jede Variante wird als _Darstellung_ bezeichnet – und gibt eine spezifische Darstellung an den Client zurück. Sowohl die gesamte Ressource als auch jede der Darstellungen hat eine spezifische URL. _Inhaltsaushandlung_ bestimmt, wie eine spezifische Darstellung ausgewählt wird, wenn die Ressource aufgerufen wird. Es gibt mehrere Möglichkeiten der Aushandlung zwischen dem Client und dem Server.
 
-![Ein Client, der eine URL anfordert. Der Server hat mehrere Ressourcen, die durch die URL repräsentiert werden, und sendet basierend auf der Anforderung geeigneten Inhalt zurück.](httpnego.png)
+![Ein Client fordert eine URL an. Der Server hat mehrere durch die URL repräsentierte Ressourcen und sendet das passende Inhalt basierend auf der Anfrage zurück.](httpnego.png)
 
-Die am besten geeignete Darstellung wird durch einen der beiden Mechanismen identifiziert:
+Die am besten geeignete Darstellung wird über einen der beiden Mechanismen identifiziert:
 
-- Bestimmte [HTTP-Header](/de/docs/Web/HTTP/Headers) durch den Client (_servergesteuerte Verhandlung_ oder _proaktive Verhandlung_), was die standardmäßige Methode ist, um einen bestimmten Ressourcentyp auszuhandeln.
-- Die {{HTTPStatus("300")}} (Multiple Choices) oder {{HTTPStatus("406")}} (Not Acceptable), {{HTTPStatus("415")}} (Unsupported Media Type) [HTTP-Antwortcodes](/de/docs/Web/HTTP/Status) durch den Server (_agentengesteuerte Verhandlung_ oder _reaktive Verhandlung_), die als Fallback-Mechanismen verwendet werden.
+- Spezifische [HTTP-Header](/de/docs/Web/HTTP/Headers) vom Client (_servergesteuerte Aushandlung_ oder _proaktive Aushandlung_), was die Standardmethode zum Aushandeln einer bestimmten Art von Ressource ist.
+- Die {{HTTPStatus("300")}} (Mehrere Auswahlmöglichkeiten) oder {{HTTPStatus("406")}} (Nicht akzeptabel), {{HTTPStatus("415")}} (Nicht unterstützter Medientyp) [HTTP-Antwortcodes](/de/docs/Web/HTTP/Status) vom Server (_agentengesteuerte Aushandlung_ oder _reaktive Aushandlung_), die als Rückfallmechanismen verwendet werden.
 
-Im Laufe der Jahre wurden andere Vorschläge zur Content-Negotiation gemacht, wie [transparente Content-Negotiation](https://datatracker.ietf.org/doc/html/rfc2295) und der `Alternates`-Header, die jedoch keinen Anklang fanden und aufgegeben wurden.
+Im Laufe der Jahre wurden andere Vorschläge zur Inhaltsaushandlung wie die [transparente Inhaltsaushandlung](https://datatracker.ietf.org/doc/html/rfc2295) und der `Alternates`-Header vorgeschlagen. Sie konnten sich nicht durchsetzen und wurden aufgegeben.
 
-## Servergesteuerte Content-Negotiation
+## Servergesteuerte Inhaltsaushandlung
 
-In der _servergesteuerten Content-Negotiation_ oder proaktiven Content-Negotiation sendet der Browser (oder eine andere Art von Benutzeragent) mehrere HTTP-Header zusammen mit der URL. Diese Header beschreiben die bevorzugte Wahl des Benutzers. Der Server verwendet sie als Hinweise, und ein interner Algorithmus wählt den besten Inhalt, um ihn an den Client zu liefern. Wenn er keine geeignete Ressource bereitstellen kann, könnte er mit {{HTTPStatus("406")}} (Not Acceptable) oder {{HTTPStatus("415")}} (Unsupported Media Type) antworten und Header für die Medientypen setzen, die er unterstützt (z.B. unter Verwendung von {{HTTPHeader("Accept-Post")}} oder {{HTTPHeader("Accept-Patch")}} für POST- bzw. PATCH-Anfragen). Der Algorithmus ist serverspezifisch und im Standard nicht definiert. Siehe den [Apache-Verhandlungsalgorithmus](https://httpd.apache.org/docs/current/en/content-negotiation.html#algorithm).
+Bei der _servergesteuerten Inhaltsaushandlung_, oder proaktiven Inhaltsaushandlung, sendet der Browser (oder ein anderer Benutzeragent) mehrere HTTP-Header zusammen mit der URL. Diese Header beschreiben die bevorzugte Auswahl des Benutzers. Der Server verwendet sie als Hinweise und ein internes Algorithmus wählt den besten Inhalt aus, um ihn dem Client zu liefern. Wenn der Server keine geeignete Ressource bereitstellen kann, kann er mit {{HTTPStatus("406")}} (Nicht akzeptabel) oder {{HTTPStatus("415")}} (Nicht unterstützter Medientyp) antworten und Header für die Medientypen setzen, die er unterstützt (z.B. mit dem {{HTTPHeader("Accept-Post")}} oder {{HTTPHeader("Accept-Patch")}} für POST- und PATCH-Anfragen). Der Algorithmus ist serverspezifisch und nicht im Standard definiert. Siehe den [Apache-Aushandlungsalgorithmus](https://httpd.apache.org/docs/current/en/content-negotiation.html#algorithm).
 
-![Ein Client, der eine URL mit Headern anfordert, die eine Präferenz für Inhaltstypen angeben. Der Server hat mehrere Ressourcen, die durch die URL dargestellt werden, und sendet den Inhalt für die bevorzugte Sprache zurück und komprimiert den Anforderungstext basierend auf den Headern der Clientanfrage.](httpnegoserver.png)
+![Ein Client fordert eine URL mit Headern an, die eine Präferenz für Inhaltstypen anzeigen. Der Server hat mehrere durch die URL repräsentierte Ressourcen und sendet den Inhalt in der bevorzugten Sprache und komprimiert den Anfragetext entsprechend den Kopfzeilen des Clients.](httpnegoserver.png)
 
-Der HTTP/1.1-Standard definiert eine Liste der standardmäßigen Header, die die servergesteuerte Verhandlung starten (wie {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Encoding")}} und {{HTTPHeader("Accept-Language")}}). Obwohl {{HTTPHeader("User-Agent")}} nicht in dieser Liste steht, wird es manchmal auch verwendet, um eine bestimmte Darstellung der angeforderten Ressource zu senden. Dies wird jedoch nicht immer als gute Praxis angesehen. Der Server verwendet den {{HTTPHeader("Vary")}}-Header, um anzugeben, welche Header er tatsächlich für die Content-Negotiation verwendet hat (oder genauer gesagt, die zugehörigen Anforderungsheader), damit [Caches](/de/docs/Web/HTTP/Caching) optimal funktionieren können.
+Der HTTP/1.1-Standard definiert eine Liste der Standard-Header, die die servergesteuerte Aushandlung starten (wie {{HTTPHeader("Accept")}}, {{HTTPHeader("Accept-Encoding")}} und {{HTTPHeader("Accept-Language")}}). Obwohl {{HTTPHeader("User-Agent")}} nicht in dieser Liste ist, wird es manchmal auch verwendet, um eine spezifische Darstellung der angeforderten Ressource zu senden. Dies wird jedoch nicht immer als gute Praxis angesehen. Der Server verwendet den {{HTTPHeader("Vary")}}-Header, um anzuzeigen, welche Header er tatsächlich für die Inhaltsaushandlung verwendet hat (oder genauer gesagt die zugehörigen Anfrageheader), damit [Caches](/de/docs/Web/HTTP/Caching) optimal arbeiten können.
 
-Zusätzlich zu diesen gibt es einen experimentellen Vorschlag, um mehr Header zur Liste der verfügbaren Header hinzuzufügen, sogenannte _Client Hints_. Client Hints geben an, auf welcher Art von Gerät der Benutzeragent läuft (zum Beispiel ein Desktop-Computer oder ein mobiles Gerät).
+Zusätzlich zu diesen gibt es einen experimentellen Vorschlag, der mehr Header zur Liste der verfügbaren Header hinzufügt, genannt _Client-Hinweise_. Client-Hinweise geben bekannt, auf welcher Art von Gerät der Benutzeragent läuft (zum Beispiel ein Desktop-Computer oder ein mobiles Gerät).
 
-Auch wenn servergesteuerte Content-Negotiation die häufigste Methode ist, um sich auf eine spezifische Darstellung einer Ressource zu einigen, hat sie mehrere Nachteile:
+Obwohl die servergesteuerte Inhaltsaushandlung die häufigste Methode ist, um sich auf eine spezifische Darstellung einer Ressource zu einigen, gibt es einige Nachteile:
 
-- Der Server hat kein vollständiges Wissen über den Browser. Selbst mit der Client-Hints-Erweiterung hat er kein vollständiges Wissen über die Fähigkeiten des Browsers. Im Gegensatz zur reaktiven Content-Negotiation, bei der der Client die Wahl trifft, ist die Serverauswahl immer etwas willkürlich.
-- Die Informationen vom Client sind recht ausführlich (HTTP/2-Header-Kompression mildert dieses Problem) und ein Datenschutzrisiko (HTTP {{Glossary("Fingerprinting", "Fingerprinting")}}).
-- Da mehrere Darstellungen einer bestimmten Ressource gesendet werden, sind gemeinsame Caches weniger effizient, und Serverimplementierungen sind komplexer.
+- Der Server hat kein vollständiges Wissen über den Browser. Selbst mit der Client-Hints-Erweiterung hat er kein vollständiges Wissen über die Fähigkeiten des Browsers. Anders als bei der reaktiven Inhaltsaushandlung, bei der der Client die Wahl trifft, ist die Wahl des Servers immer etwas willkürlich.
+- Die Informationen vom Client sind recht umfangreich (HTTP/2-Header-Komprimierung mildert dieses Problem) und stellen ein Datenschutzrisiko dar (HTTP-{{Glossary("Fingerprinting", "Fingerprinting")}}).
+- Da mehrere Darstellungen einer Ressource gesendet werden, sind gemeinsame Caches weniger effizient und Serverimplementierungen sind komplexer.
 
 ### Der `Accept`-Header
 
-Der {{HTTPHeader("Accept")}}-Header listet die MIME-Typen der Medienressourcen auf, die der Agent zu verarbeiten bereit ist. Dies ist eine durch Kommas getrennte Liste von MIME-Typen, jeweils kombiniert mit einem Qualitätsfaktor, einem Parameter, der den relativen Präferenzgrad zwischen den verschiedenen MIME-Typen angibt.
+Der {{HTTPHeader("Accept")}}-Header listet die MIME-Typen der Medienressourcen auf, die der Agent verarbeiten kann. Dies ist eine durch Kommas getrennte Liste von MIME-Typen, die jeweils mit einem Qualitätsfaktor kombiniert sind, einem Parameter, der das relative Ausmaß der Bevorzugung zwischen den verschiedenen MIME-Typen angibt.
 
-Der `Accept`-Header wird vom Browser oder einem anderen Benutzeragenten definiert und kann je nach Kontext variieren. Zum Beispiel beim Abrufen einer HTML-Seite oder eines Bildes, eines Videos oder eines Skripts. Er ist unterschiedlich, wenn ein Dokument eingegeben wird in die Adressleiste oder ein Element, das über ein {{ HTMLElement("img") }}, {{ HTMLElement("video") }} oder {{ HTMLElement("audio") }}-Element verlinkt ist. Browser sind frei, den Wert des Headers zu verwenden, den sie für am angemessensten halten; eine erschöpfende Liste von [Standardwerten für gängige Browser](/de/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values) ist verfügbar.
+Der `Accept`-Header wird vom Browser oder einem anderen Benutzeragenten definiert und kann je nach Kontext variieren. Zum Beispiel beim Abrufen einer HTML-Seite oder eines Bildes, eines Videos oder eines Skripts. Er ist anders, wenn ein Dokument in der Adressleiste eingegeben oder ein Element über ein {{HTMLElement("img")}}, {{HTMLElement("video")}} oder {{HTMLElement("audio")}} Element verlinkt wird. Browser sind frei, den Wert des Headers zu verwenden, den sie für am besten geeignet halten; eine umfassende Liste der [Standardwerte für gängige Browser](/de/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values) ist verfügbar.
 
 ### Der `Accept-CH`-Header
 
 > [!NOTE]
-> Dies ist Teil einer **experimentellen** Technologie namens _Client Hints_. Erste Unterstützung in Chrome 46 oder höher. Der Device-Memory-Wert ist in Chrome 61 oder höher verfügbar.
+> Dies ist Teil einer **experimentellen** Technologie namens _Client-Hints_. Erste Unterstützung kommt in Chrome 46 oder später. Der Device-Memory-Wert ist in Chrome 61 oder später enthalten.
 
-Der experimentelle {{HTTPHeader("Accept-CH")}}-Header listet Konfigurationsdaten auf, die der Server verwenden kann, um eine geeignete Antwort auszuwählen. Gültige Werte sind:
+Der experimentelle {{HTTPHeader("Accept-CH")}} listet Konfigurationsdaten auf, die der Server verwenden kann, um eine geeignete Antwort auszuwählen. Gültige Werte sind:
 
-| Wert             | Bedeutung                                                                                                                                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Device-Memory`  | Gibt die ungefähre Menge an RAM des Geräts an. Dieser Wert ist eine Annäherung, die durch Runden auf die nächste Potenz von 2 und Teilen dieser Zahl durch 1024 erfolgt. |
-| `Viewport-Width` | Gibt die Breite des Layout-Viewports in CSS-Pixeln an.                                                                                                                   |
-| `Width`          | Gibt die Breite der Ressource in physischen Pixeln an (mit anderen Worten die intrinsische Größe eines Bildes).                                                          |
+| Wert             | Bedeutung                                                                                                                                                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Device-Memory`  | Gibt die ungefähre Menge an Geräte-RAM an. Dieser Wert ist eine Annäherung, die durch Runden auf die nächste Potenz von 2 und Teilen dieser Zahl durch 1024 gegeben ist. Zum Beispiel werden 512 Megabyte als `0.5` angegeben. |
+| `Viewport-Width` | Gibt die Layout-Viewportbreite in CSS-Pixeln an.                                                                                                                                                                               |
+| `Width`          | Gibt die Ressourcenbreite in physischen Pixeln an (in anderen Worten die intrinsische Größe eines Bildes).                                                                                                                     |
 
 ### Der `Accept-Encoding`-Header
 
-Der {{HTTPHeader("Accept-Encoding")}}-Header definiert die akzeptable Inhaltskodierung (unterstützte Kompressionen). Der Wert ist eine q-Faktor-Liste (z.B. `br, gzip;q=0.8`), die die Priorität der Kodierungswerte angibt. Der Standardwert `identity` hat die niedrigste Priorität (es sei denn, es ist anders angegeben).
+Der {{HTTPHeader("Accept-Encoding")}}-Header definiert die akzeptablen Inhaltkodierungen (unterstützte Komprimierungen). Der Wert ist eine q-Faktor-Liste (z.B. `br, gzip;q=0.8`), die die Priorität der Kodierungswerte angibt. Der Standardwert `identity` hat die niedrigste Priorität (sofern nicht anders angegeben).
 
-Das Komprimieren von HTTP-Nachrichten ist einer der wichtigsten Wege, die Leistung einer Website zu verbessern. Es reduziert die Größe der übertragenen Daten und nutzt die verfügbare Bandbreite besser aus. Browser senden immer diesen Header, und der Server sollte so konfiguriert sein, dass er Kompression verwendet.
+Das Komprimieren von HTTP-Nachrichten ist eine der wichtigsten Methoden, um die Leistung einer Website zu verbessern. Es verkleinert die Größe der übertragenen Daten und nutzt die verfügbare Bandbreite optimal. Browser senden diesen Header immer und der Server sollte so konfiguriert sein, dass er Komprimierung verwendet.
 
 ### Der `Accept-Language`-Header
 
-Der {{HTTPHeader("Accept-Language")}}-Header wird verwendet, um die Sprachpräferenz des Benutzers anzugeben. Es handelt sich um eine Liste von Werten mit Qualitätsfaktoren (z.B. `de, en;q=0.7`). Ein Standardwert wird oft entsprechend der Sprache der grafischen Benutzeroberfläche des Benutzeragenten gesetzt, aber die meisten Browser erlauben es, unterschiedliche Sprachpräferenzen einzustellen.
+Der {{HTTPHeader("Accept-Language")}}-Header wird verwendet, um die Sprachpräferenz des Benutzers anzuzeigen. Es ist eine Liste von Werten mit Qualitätsfaktoren (z.B. `de, en;q=0.7`). Ein Standardwert ist häufig entsprechend der Sprache der grafischen Schnittstelle des Benutzeragenten eingestellt, aber die meisten Browser erlauben es, unterschiedliche Sprachpräferenzen festzulegen.
 
-Aufgrund der Zunahme der [konfigurationsbasierten Entropie](https://www.eff.org/deeplinks/2010/01/primer-information-theory-and-privacy) kann ein modifizierter Wert verwendet werden, um den Benutzer zu identifizieren. Es wird nicht empfohlen, ihn zu ändern, und eine Website kann diesem Wert nicht vertrauen, um die tatsächliche Absicht des Nutzers widerzuspiegeln. Es ist am besten, wenn Seitendesigner die Sprachdetektion über diesen Header vermeiden, da dies zu einer schlechten Benutzererfahrung führen kann.
+Aufgrund des [konfigurationsbasierten Entropie](https://www.eff.org/deeplinks/2010/01/primer-information-theory-and-privacy) Anstiegs kann ein modifizierter Wert verwendet werden, um den Benutzer zu fingerprinten. Es wird nicht empfohlen, diesen Wert zu ändern, und eine Website kann nicht darauf vertrauen, dass dieser Wert die tatsächliche Absicht des Benutzers widerspiegelt. Es ist am besten, wenn Site-Designer die Spracherkennung über diesen Header vermeiden, da dies zu einer schlechten Benutzererfahrung führen kann.
 
-- Sie sollten immer eine Möglichkeit bieten, die vom Server gewählte Sprache zu überschreiben, z.B. durch Bereitstellung eines Sprachmenüs auf der Seite. Die meisten Benutzeragenten liefern einen Standardwert für den `Accept-Language`-Header, der an die Sprache der Benutzeroberfläche angepasst ist. Endnutzer ändern ihn oft nicht, weil sie entweder nicht wissen, wie, oder es in ihrer Computerumgebung nicht können.
-- Sobald ein Benutzer die servergewählte Sprache überschrieben hat, sollte eine Seite die Sprachdetektion nicht mehr verwenden und bei der explizit gewählten Sprache bleiben. Mit anderen Worten, nur Einstiegsseiten für eine Seite sollten diesen Header verwenden, um die richtige Sprache auszuwählen.
+- Sie sollten immer eine Möglichkeit bieten, die serverseitig gewählte Sprache zu überschreiben, z.B. durch ein Sprachmenü auf der Seite. Die meisten Benutzeragenten bieten einen Standardwert für den `Accept-Language`-Header, der an die Benutzeroberflächensprache angepasst ist. Endbenutzer ändern ihn oft nicht, weil sie entweder nicht wissen, wie es geht, oder weil sie es aufgrund ihrer Computerumgebung nicht können.
+- Sobald ein Benutzer die serverseitig gewählte Sprache überschrieben hat, sollte eine Website keine Spracherkennung mehr verwenden und bei der explizit gewählten Sprache bleiben. Mit anderen Worten, nur Einstiegsseiten für eine Website sollten diesen Header verwenden, um die richtige Sprache auszuwählen.
 
 ### Der `User-Agent`-Header
 
 > [!NOTE]
-> Obwohl es legitime Verwendungen dieses Headers zur Auswahl von Inhalten gibt, [wird es als schlechte Praxis angesehen](/de/docs/Web/HTTP/Browser_detection_using_the_user_agent), sich darauf zu verlassen, um zu definieren, welche Funktionen vom Benutzeragenten unterstützt werden.
+> Obwohl es legitime Verwendungszwecke für diesen Header zur Auswahl von Inhalt gibt, [wird es als schlechte Praxis angesehen](/de/docs/Web/HTTP/Browser_detection_using_the_user_agent), sich darauf zu verlassen, um zu definieren, welche Funktionen der Benutzeragent unterstützt.
 
-Der {{HTTPHeader("User-Agent")}}-Header identifiziert den Browser, der die Anfrage sendet. Diese Zeichenfolge kann eine durch Leerzeichen getrennte Liste von _Produkttokens_ und _Kommentaren_ enthalten.
+Der {{HTTPHeader("User-Agent")}}-Header identifiziert den Browser, der die Anfrage sendet. Diese Zeichenkette kann eine durch Leerzeichen getrennte Liste von _Produkt-Token_ und _Kommentare_ enthalten.
 
-Ein _Produkttoken_ ist ein Name, gefolgt von einem `/` und einer Versionsnummer, wie `Firefox/4.0.1`. Der Benutzeragent kann so viele davon einfügen, wie er möchte. Ein _Kommentar_ ist eine optionale Zeichenfolge, die durch Klammern eingeschlossen ist. Die Informationen, die in einem Kommentar bereitgestellt werden, sind nicht standardisiert, obwohl mehrere Browser mehrere Tokens hinzufügen, die durch `;` getrennt sind.
+Ein _Produkt-Token_ ist ein Name, gefolgt von einem Schrägstrich und einer Versionsnummer, wie `Firefox/4.0.1`. Der Benutzeragent kann so viele davon hinzufügen, wie er möchte. Ein _Kommentar_ ist eine optionale Zeichenkette, die durch Klammern abgegrenzt ist. Die in einem Kommentar bereitgestellten Informationen sind nicht standardisiert, obwohl einige Browser mehrere Token hinzufügen, die durch `;` getrennt sind.
 
-### Der `Vary`-Antwort-Header
+### Der `Vary`-Antwortheader
 
-Im Gegensatz zu den vorherigen `Accept-*`-Headern, die vom Client gesendet werden, wird der {{HTTPHeader("Vary")}} HTTP-Header vom Webserver in seiner Antwort gesendet. Er gibt die Liste der Header an, die der Server während der servergesteuerten Content-Negotiation-Phase verwendet. Der `Vary`-Header ist notwendig, um den Cache über die Entscheidungskriterien zu informieren, damit er sie reproduzieren kann. Dies ermöglicht es dem Cache, funktionsfähig zu sein und sicherzustellen, dass der richtige Inhalt an den Benutzer geliefert wird.
+Im Gegensatz zu den vorherigen `Accept-*`-Headern, die vom Client gesendet werden, wird der {{HTTPHeader("Vary")}}-HTTP-Header vom Webserver in seiner Antwort gesendet. Er gibt die Liste der Header an, die der Server während der servergesteuerten Inhaltsaushandlungsphase verwendet. Der `Vary`-Header ist erforderlich, um den Cache über die Entscheidungskriterien zu informieren, damit er sie reproduzieren kann. Dies ermöglicht es dem Cache, funktional zu sein und sicherzustellen, dass dem Benutzer der richtige Inhalt geliefert wird.
 
-Der spezielle Wert `*` bedeutet, dass die servergesteuerte Content-Negotiation auch Informationen verwendet, die nicht in einem Header übermittelt werden, um den geeigneten Inhalt auszuwählen.
+Der spezielle Wert `*` bedeutet, dass die servergesteuerte Inhaltsaushandlung auch Informationen verwendet, die nicht in einem Header übertragen werden, um den geeigneten Inhalt auszuwählen.
 
-Der `Vary`-Header wurde in Version 1.1 von HTTP hinzugefügt und ermöglicht es Caches, angemessen zu funktionieren. Um mit der servergesteuerten Content-Negotiation zu arbeiten, muss ein Cache wissen, welche Kriterien der Server verwendet hat, um den übertragenen Inhalt auszuwählen. So kann der Cache den Algorithmus wiederholen und akzeptablen Inhalt direkt bereitstellen, ohne zusätzliche Anfragen an den Server. Natürlich verhindert die Platzhalter `*` das Caching, da der Cache nicht wissen kann, welches Element dahinter steckt. Weitere Informationen finden Sie unter [HTTP-Caching > Variierende Antworten](/de/docs/Web/HTTP/Caching#vary).
+Der `Vary`-Header wurde in Version 1.1 von HTTP hinzugefügt und ermöglicht es den Caches, ordnungsgemäß zu funktionieren. Um mit der servergesteuerten Inhaltsaushandlung zu arbeiten, muss ein Cache wissen, welche Kriterien der Server verwendet hat, um den übertragenen Inhalt auszuwählen. Auf diese Weise kann der Cache den Algorithmus wiederholen und direkt akzeptablen Inhalt bereitstellen, ohne weitere Anfragen an den Server. Offensichtlich verhindert der Platzhalter `*` das Caching, da der Cache nicht wissen kann, welches Element dahinterliegt. Weitere Informationen finden Sie unter [HTTP-Caching > Variierende Antworten](/de/docs/Web/HTTP/Caching#vary).
 
-## Agentengesteuerte Verhandlung
+## Agentengesteuerte Aushandlung
 
-Servergesteuerte Verhandlung hat einige Nachteile: sie skaliert nicht gut. Ein Header pro Funktion wird in der Verhandlung verwendet. Wenn Sie Bildschirmgröße, Auflösung oder andere Dimensionen verwenden möchten, müssen Sie einen neuen HTTP-Header erstellen. Die Header müssen dann bei jeder Anfrage gesendet werden. Dies ist kein Problem, wenn es nur wenige Header gibt, aber je mehr Header es gibt, desto größer könnte die Nachrichtengröße sein, was sich letztendlich auf die Leistung auswirken könnte. Je präziser Header gesendet werden, desto mehr Entropie wird gesendet, was mehr HTTP-Fingerprinting und entsprechende Datenschutzprobleme ermöglicht.
+Die servergesteuerte Aushandlung weist einige Nachteile auf: sie skaliert nicht gut. Ein Header pro Funktion wird in der Aushandlung verwendet. Wenn Sie Bildschirmgröße, Auflösung oder andere Dimensionen verwenden möchten, müssen Sie einen neuen HTTP-Header erstellen. Die Header müssen dann mit jeder Anfrage gesendet werden. Das ist kein Problem, wenn nur wenige Header vorhanden sind, aber wenn die Anzahl der Header zunimmt, könnte die Nachrichtengröße irgendwann die Leistung beeinträchtigen. Je genauer die Header gesendet werden, desto mehr Entropie wird gesendet, was mehr HTTP-Fingerprinting und entsprechende Datenschutzbedenken ermöglicht.
 
-HTTP ermöglicht eine andere Verhandlungsart: _agentengesteuerte Verhandlung_ oder _reaktive Verhandlung_. In diesem Fall sendet der Server eine Seite zurück, die Links zu den verfügbaren alternativen Ressourcen enthält, wenn eine mehrdeutige Anfrage vorliegt. Der Benutzer wird die Ressourcen präsentiert und wählt diejenige aus, die er verwenden möchte.
+HTTP ermöglicht eine andere Aushandlungsart: _agentengesteuerte Aushandlung_ oder _reaktive Aushandlung_. In diesem Fall sendet der Server eine Seite zurück, die Links zu den verfügbaren alternativen Ressourcen enthält, wenn er mit einer mehrdeutigen Anfrage konfrontiert wird. Dem Benutzer werden die Ressourcen präsentiert und er wählt diejenige aus, die er verwenden möchte.
 
-![Ein Client, der eine URL mit Headern anfordert, die eine Präferenz für Inhaltstypen angeben. Der Server hat mehrere Ressourcen, die durch die URL dargestellt werden, und sendet mehrere Antworten zurück, sodass der Client einen Text mit einem bevorzugten Kompressionsalgorithmus auswählen kann.](httpnego3.png)
+![Ein Client fordert eine URL mit Headern an, die eine Präferenz für Inhaltstypen anzeigen. Der Server hat mehrere durch die URL repräsentierte Ressourcen und sendet mehrere Antworten zurück, sodass der Client einen Textkörper mit bevorzugten Komprimierungsalgorithmen wählen kann.](httpnego3.png)
 
-Leider spezifiziert der HTTP-Standard nicht das Format der Seite zur Auswahl zwischen den verfügbaren Ressourcen, was den Prozess davon abhält, automatisiert zu werden. Abgesehen von der Rückkehr zur _servergesteuerten Verhandlung_ wird diese Methode fast immer mit Skripting verwendet, insbesondere mit JavaScript-Umleitung: nachdem die Verhandlungskriterien überprüft wurden, führt das Skript die Umleitung durch. Ein zweites Problem besteht darin, dass eine weitere Anfrage erforderlich ist, um die tatsächliche Ressource abzurufen, wodurch die Verfügbarkeit der Ressource für den Benutzer verzögert wird.
+Leider spezifiziert der HTTP-Standard nicht das Format der Seite zur Auswahl zwischen den verfügbaren Ressourcen, was den Prozess daran hindert, automatisiert zu werden. Neben dem Rückfallen auf die _servergesteuerte Aushandlung_ wird diese Methode fast immer mit Skripten verwendet, insbesondere mit JavaScript-Weiterleitung: nachdem die Aushandlungskriterien überprüft wurden, führt das Skript die Weiterleitung durch. Ein weiteres Problem ist, dass eine weitere Anfrage erforderlich ist, um die tatsächliche Ressource abzurufen, was die Verfügbarkeit der Ressource für den Benutzer verlangsamt.
+
+## Siehe auch
+
+- [Caching](/de/docs/Web/HTTP/Caching)

@@ -2,16 +2,16 @@
 title: JSON
 slug: Glossary/JSON
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: cc710aaf8a8a1e22cc036ad96e2a55a9bbaa3dea
 ---
 
 {{GlossarySidebar}}
 
-_JavaScript Object Notation_ (**JSON**) ist ein Datenaustauschformat. Obwohl es kein striktes Teilmengenformat ist, ähnelt JSON stark einer Teilmenge der {{Glossary("JavaScript", "JavaScript")}}-Syntax. Obwohl viele Programmiersprachen JSON unterstützen, ist es besonders nützlich für JavaScript-basierte Anwendungen, einschließlich Websites und Browser-Erweiterungen.
+_JavaScript Object Notation_ (**JSON**) ist ein Datenaustauschformat. Obwohl es kein striktes Subset ist, ähnelt JSON stark einem Subset der {{Glossary("JavaScript", "JavaScript")}}-Syntax. Obwohl viele Programmiersprachen JSON unterstützen, ist es besonders nützlich für JavaScript-basierte Anwendungen, einschließlich Websites und Browsererweiterungen.
 
-JSON kann Zahlen, boolesche Werte, Zeichenketten, `null`, Arrays (geordnete Sequenzen von Werten) und Objekte (Zeichenfolgen-Wert-Zuordnungen) darstellen, die aus diesen Werten (oder aus anderen Arrays und Objekten) bestehen. JSON kann nicht von Haus aus komplexere Datentypen wie Funktionen, reguläre Ausdrücke, Daten usw. darstellen. (Datumsobjekte werden standardmäßig in eine Zeichenkette serialisiert, die das Datum im ISO-Format enthält, sodass die Information nicht vollständig verloren geht.) Wenn Sie JSON zur Darstellung zusätzlicher Datentypen benötigen, transformieren Sie Werte während der Serialisierung oder bevor sie deserialisiert werden.
+JSON kann Zahlen, Booleans, Strings, `null`, Arrays (geordnete Sequenzen von Werten) und Objekte (Zeichenfolgen-Wert-Zuordnungen) darstellen, die aus diesen Werten (oder anderen Arrays und Objekten) bestehen. JSON stellt von Natur aus keine komplexeren Datentypen wie Funktionen, reguläre Ausdrücke, Datumsangaben usw. dar. (Datumsobjekte werden standardmäßig als eine Zeichenfolge im ISO-Format serialisiert, sodass die Information nicht vollständig verloren geht.) Wenn Sie JSON benötigen, um zusätzliche Datentypen darzustellen, transformieren Sie die Werte, während sie serialisiert oder bevor sie deserialisiert werden.
 
 ## Siehe auch
 
+- [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON)
 - [JSON](https://en.wikipedia.org/wiki/JSON) auf Wikipedia
-- [JSON](/de/docs/Web/JavaScript/Reference/Global_Objects/JSON) auf MDN

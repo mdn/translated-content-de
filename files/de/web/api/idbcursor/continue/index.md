@@ -1,16 +1,14 @@
 ---
-title: "IDBCursor: continue() Methode"
+title: "IDBCursor: Methode continue()"
 short-title: continue()
 slug: Web/API/IDBCursor/continue
 l10n:
-  sourceCommit: 2c641e08878722bf29fb784d58c61873ce4a133a
+  sourceCommit: 733c40043bfb7a55fb01644d52000149b2dab13c
 ---
 
 {{APIRef("IndexedDB")}} {{AvailableInWorkers}}
 
-Die **`continue()`** Methode des [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-Interfaces bewegt den Cursor zur nächsten Position in seiner Richtung, zu dem Element,
-dessen Schlüssel mit dem optionalen Schlüsselparameter übereinstimmt. Wenn kein Schlüssel angegeben ist, bewegt sich der Cursor zur direkt nächstliegenden Position, basierend auf seiner Richtung.
+Die **`continue()`**-Methode der [`IDBCursor`](/de/docs/Web/API/IDBCursor)-Schnittstelle bewegt den Cursor zur nächsten Position in seiner Richtung, zu dem Element, dessen Schlüssel mit dem optionalen Schlüsselparameter übereinstimmt. Wenn kein Schlüssel angegeben ist, bewegt sich der Cursor zur direkt nächsten Position basierend auf seiner Richtung.
 
 ## Syntax
 
@@ -22,7 +20,7 @@ continue(key)
 ### Parameter
 
 - `key` {{optional_inline}}
-  - : Der Schlüssel, bei dem der Cursor positioniert wird.
+  - : Der Schlüssel, um den Cursor zu positionieren.
 
 ### Rückgabewert
 
@@ -30,21 +28,21 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) der folgenden Typen auslösen:
+Diese Methode kann eine [`DOMException`](/de/docs/Web/API/DOMException) mit einem der folgenden Typen auslösen:
 
 - `TransactionInactiveError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Transaktion des IDBCursors inaktiv ist.
+  - : Wird geworfen, wenn die Transaktion dieses `IDBCursor` inaktiv ist.
 - `DataError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Schlüsselparameter eine der folgenden Bedingungen erfüllt:
+  - : Wird geworfen, wenn der Schlüsselparameter eine der folgenden Bedingungen erfüllt:
     - Der Schlüssel ist kein gültiger Schlüssel.
-    - Der Schlüssel ist kleiner oder gleich der Position des Cursors, und die Richtung des Cursors ist `next` oder `nextunique`.
-    - Der Schlüssel ist größer oder gleich der Position des Cursors und die Richtung des Cursors ist `prev` oder `prevunique`.
+    - Der Schlüssel ist kleiner oder gleich der Position dieses Cursors, und die Richtung des Cursors ist `next` oder `nextunique`.
+    - Der Schlüssel ist größer oder gleich der Position dieses Cursors und die Richtung des Cursors ist `prev` oder `prevunique`.
 - `InvalidStateError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn der Cursor derzeit iteriert wird oder sein Ende überschritten hat.
+  - : Wird geworfen, wenn der Cursor derzeit iteriert wird oder über sein Ende hinaus iteriert hat.
 
 ## Beispiele
 
-In diesem einfachen Beispiel erstellen wir eine Transaktion, rufen einen Objekt-Store ab und verwenden dann einen Cursor, um durch alle Datensätze im Objekt-Store zu iterieren. Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle erfassen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges funktionierendes Beispiel siehe unser [IDBCursor Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
+In diesem einfachen Fragment erstellen wir eine Transaktion, rufen einen Objektspeicher ab und verwenden dann einen Cursor, um alle Datensätze im Objektspeicher zu durchlaufen. Der Cursor erfordert nicht, dass wir die Daten basierend auf einem Schlüssel auswählen; wir können einfach alle aufnehmen. Beachten Sie auch, dass Sie in jeder Iteration der Schleife Daten aus dem aktuellen Datensatz unter dem Cursor-Objekt mit `cursor.value.foo` abrufen können. Für ein vollständiges Arbeitsbeispiel siehe unser [IDBCursor-Beispiel](https://github.com/mdn/dom-examples/tree/main/indexeddb-examples/idbcursor) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/indexeddb-examples/idbcursor/)).
 
 ```js
 function displayData() {
@@ -79,7 +77,7 @@ function displayData() {
 - [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - Transaktionen starten: [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)
 - Verwendung von Transaktionen: [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)
-- Einstellen eines Bereichs von Schlüsseln: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
+- Festlegen eines Schlüsselbereichs: [`IDBKeyRange`](/de/docs/Web/API/IDBKeyRange)
 - Abrufen und Ändern Ihrer Daten: [`IDBObjectStore`](/de/docs/Web/API/IDBObjectStore)
-- Verwendung von Cursors: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
-- Referenzbeispiel: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Sehen Sie sich das Beispiel live an](https://mdn.github.io/dom-examples/to-do-notifications/)).
+- Verwendung von Cursoren: [`IDBCursor`](/de/docs/Web/API/IDBCursor)
+- Referenzbeispiel: [To-do-Benachrichtigungen](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([Beispiel live ansehen](https://mdn.github.io/dom-examples/to-do-notifications/)).

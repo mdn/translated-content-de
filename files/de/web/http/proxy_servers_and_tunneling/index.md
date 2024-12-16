@@ -2,69 +2,69 @@
 title: Proxy-Server und Tunneling
 slug: Web/HTTP/Proxy_servers_and_tunneling
 l10n:
-  sourceCommit: 83f30ecaaeb6227dc0d4551f71eb8be1cacb8e94
+  sourceCommit: ab1bf2c5955c1bfa4d96d779f701ab22f3870d43
 ---
 
 {{HTTPSidebar}}
 
-Bei der Navigation durch verschiedene Netzwerke des Internets erleichtern Proxy-Server und HTTP-Tunnel den Zugriff auf Inhalte des World Wide Web. Ein Proxy kann sich auf dem lokalen Computer des Benutzers befinden oder irgendwo zwischen dem Computer des Benutzers und einem Zielserver im Internet. Diese Seite gibt einen Überblick über die Grundlagen von Proxys und stellt einige Konfigurationsoptionen vor.
+Beim Navigieren durch verschiedene Netzwerke des Internets erleichtern Proxy-Server und HTTP-Tunnel den Zugriff auf Inhalte des World Wide Web. Ein Proxy kann entweder auf dem lokalen Computer des Benutzers oder an einem beliebigen Punkt zwischen dem Computer des Benutzers und einem Zielserver im Internet sein. Diese Seite skizziert einige Grundlagen über Proxies und stellt einige Konfigurationsoptionen vor.
 
-Es gibt zwei Arten von Proxys: **Forward-Proxys** (oder Tunnel, oder Gateway) und **Reverse-Proxys** (verwendet zur Steuerung und zum Schutz des Zugriffs auf einen Server für Lastverteilung, Authentifizierung, Entschlüsselung oder Caching).
+Es gibt zwei Arten von Proxies: **Forward Proxies** (oder Tunnel, oder Gateway) und **Reverse Proxies** (werden verwendet, um den Zugriff auf einen Server für Lastverteilung, Authentifizierung, Entschlüsselung oder Zwischenspeicherung zu kontrollieren und schützen).
 
-## Forward-Proxys
+## Forward Proxies
 
-Ein Forward-Proxy, ein Gateway oder einfach nur "Proxy" bietet Proxy-Dienste für einen Client oder eine Gruppe von Clients. Es gibt wahrscheinlich Hunderttausende von offenen Forward-Proxys im Internet. Sie speichern und leiten Internetdienste (wie DNS oder Webseiten) weiter, um den Bandbreitenverbrauch der Gruppe zu reduzieren und zu kontrollieren.
+Ein Forward Proxy, oder Gateway, oder einfach "Proxy", bietet Proxy-Dienste für einen Client oder eine Gruppe von Clients an. Es gibt wahrscheinlich Hunderttausende von offenen Forward Proxies im Internet. Sie speichern und leiten Internetdienste (wie den DNS oder Webseiten) weiter, um die genutzte Bandbreite der Gruppe zu reduzieren und zu kontrollieren.
 
-Forward-Proxys können auch anonym sein und ermöglichen es Nutzern, ihre IP-Adresse beim Surfen im Web oder bei der Nutzung anderer Internetdienste zu verbergen. Zum Beispiel leitet [Tor](https://www.torproject.org/) den Internetverkehr durch mehrere Proxys zur Anonymität.
+Forward Proxies können auch anonym sein und es Benutzern ermöglichen, ihre IP-Adresse beim Surfen im Web oder bei anderen Internetdiensten zu verbergen. Beispielsweise leitet [Tor](https://www.torproject.org/) den Internetverkehr durch mehrere Proxies zur Anonymisierung.
 
-## Reverse-Proxys
+## Reverse Proxies
 
-Wie der Name schon sagt, macht ein Reverse-Proxy das Gegenteil eines Forward-Proxys: Ein Forward-Proxy handelt im Namen von Clients (oder anfragenden Hosts). Forward-Proxys können die Identitäten der Clients verbergen, während Reverse-Proxys die Identitäten der Server verbergen können. Reverse-Proxys haben mehrere Anwendungsfälle, einige davon sind:
+Wie der Name schon sagt, macht ein Reverse Proxy das Gegenteil von dem, was ein Forward Proxy tut: Ein Forward Proxy agiert im Namen von Clients (oder anfordernden Hosts). Forward Proxies können die Identität von Clients verbergen, während Reverse Proxies die Identität von Servern verbergen können. Reverse Proxies haben mehrere Anwendungsfälle, einige davon sind:
 
-- Lastverteilung: die Last auf mehrere Webserver verteilen,
-- Cache statischer Inhalte: die Webserver durch das Caching statischer Inhalte wie Bilder entlasten,
-- Komprimierung: Inhalte komprimieren und optimieren, um die Ladezeit zu verkürzen.
+- Lastverteilung: Verteilung der Last auf mehrere Webserver,
+- Zwischenspeicherung statischer Inhalte: Entlastung der Webserver durch Zwischenspeicherung statischer Inhalte wie Bilder,
+- Komprimierung: Komprimierung und Optimierung von Inhalten zur Beschleunigung der Ladezeit.
 
-## Weiterleitung von Client-Informationen durch Proxys
+## Weiterleitung von Clientinformationen durch Proxies
 
-Proxys können Anfragen so erscheinen lassen, als kämen sie von der IP-Adresse des Proxys. Dies kann nützlich sein, wenn ein Proxy zur Gewährleistung der Anonymität des Clients verwendet wird, jedoch gehen in anderen Fällen Informationen aus der ursprünglichen Anfrage verloren. Die IP-Adresse des ursprünglichen Clients wird häufig für Debugging, Statistiken oder zur Generierung standortabhängiger Inhalte verwendet. Eine übliche Methode zur Offenlegung dieser Informationen ist die Verwendung der folgenden HTTP-Header:
+Proxies können Anfragen so erscheinen lassen, als ob sie von der IP-Adresse des Proxies stammen. Dies kann nützlich sein, wenn ein Proxy verwendet wird, um die Anonymität des Clients zu gewährleisten. In anderen Fällen gehen jedoch Informationen aus der ursprünglichen Anfrage verloren. Die IP-Adresse des ursprünglichen Clients wird häufig für Debugging, Statistiken oder die Erstellung von standortabhängigen Inhalten verwendet. Eine gängige Methode, um diese Informationen offenzulegen, ist die Verwendung der folgenden HTTP-Header:
 
 Der standardisierte Header:
 
 - {{HTTPHeader("Forwarded")}}
-  - : Enthält Informationen von der Client-seitigen Seite von Proxy-Servern, die geändert oder verloren gehen, wenn ein Proxy in den Weg der Anfrage eingebunden wird.
+  - : Enthält Informationen von der clientseitigen Seite von Proxy-Servern, die verändert oder verloren gehen, wenn ein Proxy in den Pfad der Anfrage eingebunden ist.
 
-Oder die de-facto Standardversionen:
+Oder die faktisch als Standard angenommenen Versionen:
 
 - {{HTTPHeader("X-Forwarded-For")}} {{non-standard_inline}}
-  - : Identifiziert die ursprünglichen IP-Adressen eines Clients, der über einen HTTP-Proxy oder einen Lastverteiler eine Verbindung zu einem Webserver herstellt.
+  - : Identifiziert die ursprünglichen IP-Adressen eines Clients, der über einen HTTP-Proxy oder einen Load Balancer eine Verbindung zu einem Webserver herstellt.
 - {{HTTPHeader("X-Forwarded-Host")}} {{non-standard_inline}}
-  - : Identifiziert den ursprünglichen Host, den ein Client zur Verbindung mit Ihrem Proxy oder Lastverteiler verwendet hat.
+  - : Identifiziert den ursprünglichen Host, den ein Client verwendet hat, um sich mit Ihrem Proxy oder Load Balancer zu verbinden.
 - {{HTTPHeader("X-Forwarded-Proto")}} {{non-standard_inline}}
-  - : Identifiziert das Protokoll (HTTP oder HTTPS), das ein Client zur Verbindung mit Ihrem Proxy oder Lastverteiler verwendet hat.
+  - : Identifiziert das Protokoll (HTTP oder HTTPS), das ein Client verwendet hat, um sich mit Ihrem Proxy oder Load Balancer zu verbinden.
 
-Um Informationen über den Proxy selbst bereitzustellen (nicht über den Client, der sich mit ihm verbindet), kann der `Via`-Header verwendet werden.
+Um Informationen über den Proxy selbst (nicht über den Client, der sich mit ihm verbindet) bereitzustellen, kann der `Via`-Header verwendet werden.
 
 - {{HTTPHeader("Via")}}
-  - : Hinzugefügt von Proxys, sowohl Forward- als auch Reverse-Proxys, und kann in den Anforderungs- und Antwort-Headern erscheinen.
+  - : Wird von Proxies, sowohl Forward als auch Reverse Proxies, hinzugefügt und kann in den Anfrage- und Antwort-Headern erscheinen.
 
 ## HTTP-Tunneling
 
-Tunneling überträgt Daten und Protokollinformationen des privaten Netzwerks durch ein öffentliches Netzwerk, indem die Daten gekapselt werden. HTTP-Tunneling verwendet ein Protokoll höherer Ebene (HTTP), um ein Protokoll niedrigerer Ebene (TCP) zu transportieren.
+Tunneling überträgt private Netzwerkinformationen und Protokolldaten über ein öffentliches Netzwerk, indem die Daten gekapselt werden. HTTP-Tunneling nutzt ein höheres Protokoll (HTTP), um ein niedrigeres Protokoll (TCP) zu transportieren.
 
-Das HTTP-Protokoll spezifiziert eine Anfragemethode namens {{HTTPMethod("CONNECT")}}. Sie startet eine Zwei-Wege-Kommunikation mit der angeforderten Ressource und kann verwendet werden, um einen Tunnel zu öffnen. Auf diese Weise kann ein Client hinter einem HTTP-Proxy Zugriff auf Websites unter Verwendung von TLS (d. h. HTTPS, Port 443) erhalten. Beachten Sie jedoch, dass nicht alle Proxy-Server die `CONNECT`-Methode unterstützen oder sie nur auf Port 443 beschränken.
+Das HTTP-Protokoll spezifiziert eine Anfragemethode namens {{HTTPMethod("CONNECT")}}. Es beginnt eine bidirektionale Kommunikation mit der angeforderten Ressource und kann verwendet werden, um einen Tunnel zu öffnen. So kann ein Client hinter einem HTTP-Proxy auf Websites zugreifen, die TLS verwenden (d.h. HTTPS, Port 443). Beachten Sie jedoch, dass nicht alle Proxy-Server die `CONNECT`-Methode unterstützen oder sie nur auf Port 443 beschränken.
 
-Siehe auch den [Artikel zu HTTP-Tunneln auf Wikipedia](https://en.wikipedia.org/wiki/HTTP_tunnel).
+Siehe auch den [Wikipedia-Artikel zu HTTP-Tunneln](https://en.wikipedia.org/wiki/HTTP_tunnel).
 
 ## Proxy Auto-Configuration (PAC)
 
-Eine [Proxy Auto-Configuration (PAC)](/de/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file) Datei ist eine [JavaScript](/de/docs/Web/JavaScript) Funktion, die bestimmt, ob Anfragen des Webbrowsers (HTTP, HTTPS und FTP) direkt zum Ziel oder über einen Web-Proxy-Server weitergeleitet werden. Die im PAC-File enthaltene JavaScript-Funktion definiert die Funktion:
+Eine [Proxy Auto-Configuration (PAC)](/de/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file)-Datei ist eine [JavaScript](/de/docs/Web/JavaScript)-Funktion, die bestimmt, ob Anfragen des Webbrowsers (HTTP, HTTPS und FTP) direkt zum Ziel gehen oder an einen Web-Proxy-Server weitergeleitet werden. Die JavaScript-Funktion, die in der PAC-Datei enthalten ist, definiert die Funktion:
 
-Die Auto-Konfigurationsdatei sollte unter der Dateierweiterung `.pac` gespeichert werden: `proxy.pac`.
+Die Auto-Config-Datei sollte in einer Datei mit der `.pac`-Dateierweiterung gespeichert werden: `proxy.pac`.
 
 Und der MIME-Typ sollte auf `application/x-ns-proxy-autoconfig` gesetzt werden.
 
-Die Datei besteht aus einer Funktion namens `FindProxyForURL`. Das folgende Beispiel funktioniert in einer Umgebung, in der der interne DNS-Server so eingerichtet ist, dass er nur interne Hostnamen auflösen kann und das Ziel ist, einen Proxy nur für Hosts zu verwenden, die nicht auflösbar sind:
+Die Datei besteht aus einer Funktion namens `FindProxyForURL`. Das untenstehende Beispiel wird in einer Umgebung funktionieren, in der der interne DNS-Server so eingerichtet ist, dass er nur interne Hostnamen auflösen kann, und das Ziel ist es, einen Proxy nur für Hosts zu verwenden, die nicht auflösbar sind:
 
 ```js
 function FindProxyForURL(url, host) {
@@ -75,9 +75,8 @@ function FindProxyForURL(url, host) {
 }
 ```
 
-Siehe [Proxy Auto-Configuration (PAC)](/de/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file) für mehr Beispiele.
-
 ## Siehe auch
 
-- {{HTTPMethod("CONNECT")}}
-- [Proxy-Server auf Wikipedia](https://en.wikipedia.org/wiki/Proxy_server)
+- [Proxy Auto-Configuration (PAC)-Datei](/de/docs/Web/HTTP/Proxy_servers_and_tunneling/Proxy_Auto-Configuration_PAC_file)
+- {{HTTPMethod("CONNECT")}}-Methode
+- {{Glossary("Proxy_server", "Proxy-Server")}}

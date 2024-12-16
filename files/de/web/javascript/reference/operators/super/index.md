@@ -2,14 +2,14 @@
 title: super
 slug: Web/JavaScript/Reference/Operators/super
 l10n:
-  sourceCommit: 1492f12d54c344b099dc49fe291c24c8b41abd90
+  sourceCommit: dce87c7e1908d9d25178371c6db75681f4384110
 ---
 
 {{jsSidebar("Operators")}}
 
-Das Schlüsselwort **`super`** wird verwendet, um auf Eigenschaften eines Objekt-Literals oder des [[Prototyps]] einer Klasse zuzugreifen oder um den Konstruktor einer Superklasse aufzurufen.
+Das **`super`** Schlüsselwort wird verwendet, um Eigenschaften auf einem Objektliteral oder dem [[Prototype]] einer Klasse zuzugreifen oder einen Konstruktor der Oberklasse aufzurufen.
 
-Die Ausdrücke `super.prop` und `super[expr]` sind in jeder [Methodendefinition](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) in sowohl [Klassen](/de/docs/Web/JavaScript/Reference/Classes) als auch [Objekt-Literals](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) gültig. Der Ausdruck `super(...args)` ist in Klassenkonstruktoren gültig.
+Die Ausdrücke `super.prop` und `super[expr]` sind in jeder [Methodendefinition](/de/docs/Web/JavaScript/Reference/Functions/Method_definitions) in sowohl [Klassen](/de/docs/Web/JavaScript/Reference/Classes) als auch [Objektliteralen](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer) gültig. Der Ausdruck `super(...args)` ist in Klassenkonstruktoren gültig.
 
 {{EmbedInteractiveExample("pages/js/expressions-super.html", "taller")}}
 
@@ -27,9 +27,9 @@ super[expression]
 
 ## Beschreibung
 
-Das Schlüsselwort `super` kann auf zwei Arten verwendet werden: als "Funktionsaufruf" (`super(...args)`) oder als "Eigenschaftensuche" (`super.prop` und `super[expr]`).
+Das Schlüsselwort `super` kann auf zwei Arten verwendet werden: als "Funktionsaufruf" (`super(...args)`) oder als "Eigenschaftsabfrage" (`super.prop` und `super[expr]`).
 
-> **Hinweis:** `super` ist ein Schlüsselwort und diese sind spezielle syntaktische Strukturen. `super` ist keine Variable, die auf das Prototyp-Objekt verweist. Der Versuch, `super` selbst auszulesen, führt zu einem {{jsxref("SyntaxError")}}.
+> **Hinweis:** `super` ist ein Schlüsselwort und diese sind spezielle syntaktische Konstrukte. `super` ist keine Variable, die auf das Prototyp-Objekt zeigt. Der Versuch, `super` selbst zu lesen, führt zu einem {{jsxref("SyntaxError")}}.
 >
 > ```js-nolint example-bad
 > const child = {
@@ -39,19 +39,19 @@ Das Schlüsselwort `super` kann auf zwei Arten verwendet werden: als "Funktionsa
 > };
 > ```
 
-Im [Konstruktor](/de/docs/Web/JavaScript/Reference/Classes/constructor)-Körper einer abgeleiteten Klasse (mit `extends`) kann das `super`-Schlüsselwort als "Funktionsaufruf" (`super(...args)`) erscheinen, was aufgerufen werden muss, bevor das `this`-Schlüsselwort verwendet wird und bevor der Konstruktor zurückkehrt. Es ruft den Konstruktor der Elternklasse auf und bindet die öffentlichen Felder der Elternklasse, danach kann der Konstruktor der abgeleiteten Klasse weiter auf `this` zugreifen und es modifizieren.
+Im [Konstruktor](/de/docs/Web/JavaScript/Reference/Classes/constructor) einer abgeleiteten Klasse (mit `extends`) kann das Schlüsselwort `super` als "Funktionsaufruf" (`super(...args)`) erscheinen, was aufgerufen werden muss, bevor das Schlüsselwort `this` verwendet wird und bevor der Konstruktor zurückkehrt. Es ruft den Konstruktor der Elternklasse auf und bindet die öffentlichen Felder der Elternklasse, wonach der Konstruktor der abgeleiteten Klasse weiter auf `this` zugreifen und es ändern kann.
 
-Die "Eigenschaftensuche"-Form kann verwendet werden, um Methoden und Eigenschaften eines Objekt-Literals oder des [[Prototyps]] einer Klasse zuzugreifen. Innerhalb des Klassenkörpers kann der Verweis von `super` entweder der Konstruktor der Superklasse selbst oder das `prototype` des Konstruktors sein, abhängig davon, ob der Ausführungskontext die Instanzerstellung oder die Klasseninitialisierung ist. Siehe die Beispiele für weitere Details.
+Die Form der "Eigenschaftsabfrage" kann verwendet werden, um auf Methoden und Eigenschaften des [[Prototype]] eines Objektliterals oder einer Klasse zuzugreifen. Innerhalb des Körpers einer Klasse kann die Referenz von `super` entweder der Konstruktor der Oberklasse selbst sein oder das `prototype` des Konstruktors, abhängig davon, ob der Ausführungskontext eine Instanzerstellung oder eine Klasseninitialisierung ist. Siehe den Abschnitt Beispiele für weitere Details.
 
-Beachten Sie, dass der Verweis von `super` durch die Klasse oder das Objekt-Literal bestimmt wird, in dem `super` deklariert wurde, nicht durch das Objekt, auf dem die Methode aufgerufen wird. Daher ändert das Entbinden oder erneute Binden einer Methode nicht den Verweis von `super` darin (obwohl sie den Verweis von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) ändern). Sie können `super` als eine Variable im Klassen- oder Objekt-Literal-Gültigkeitsbereich sehen, über die die Methoden eine Closure erstellen. (Aber beachten Sie auch, dass es eigentlich keine Variable ist, wie oben erklärt.)
+Beachten Sie, dass die Referenz von `super` durch die Klasse oder das Objektliteral bestimmt wird, in dem `super` deklariert wurde, nicht durch das Objekt, auf dem die Methode aufgerufen wird. Daher ändert das Entbinden oder Neubinden einer Methode nicht die Referenz von `super` darin (auch wenn sie die Referenz von [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) ändern). Sie können `super` als eine Variable im Bereich der Klasse oder des Objektliterals sehen, über die die Methoden eine Closure erstellen. (Aber auch hier Vorsicht, dass es tatsächlich keine Variable ist, wie oben erklärt.)
 
-Wenn Eigenschaften durch `super` gesetzt werden, wird die Eigenschaft auf `this` gesetzt.
+Wenn Sie Eigenschaften über `super` setzen, wird die Eigenschaft auf `this` gesetzt.
 
 ## Beispiele
 
 ### Verwendung von super in Klassen
 
-Dieses Codebeispiel stammt aus dem [Klassen-Beispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html) ([Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html)). Hier wird `super()` aufgerufen, um die Teile des Konstruktors, die zwischen `Rectangle` und `Square` gemeinsam sind, nicht zu duplizieren.
+Dieser Codeausschnitt stammt aus dem [Klassenbeispiel](https://github.com/GoogleChrome/samples/blob/gh-pages/classes-es6/index.html) ([Live-Demo](https://googlechrome.github.io/samples/classes-es6/index.html)). Hier wird `super()` aufgerufen, um die Konstruktorbestandteile zu vermeiden, die zwischen `Rectangle` und `Square` gemeinsam sind.
 
 ```js
 class Rectangle {
@@ -84,9 +84,9 @@ class Square extends Rectangle {
 }
 ```
 
-### Super-Aufruf von statischen Methoden
+### Super-Aufrufe statischer Methoden
 
-Sie können auch Super für den Aufruf von [statischen](/de/docs/Web/JavaScript/Reference/Classes/static) Methoden verwenden.
+Es ist Ihnen auch möglich, super auf [statischen](/de/docs/Web/JavaScript/Reference/Classes/static) Methoden aufzurufen.
 
 ```js
 class Rectangle {
@@ -103,9 +103,9 @@ class Square extends Rectangle {
 Square.logDescription(); // 'I have 4 sides which are all equal'
 ```
 
-### Zugriff auf super in der Deklaration von Klassenfeldern
+### Aufrufen von super in einer Klassendeklaration
 
-`super` kann auch während der Initialisierung von Klassenfeldern aufgerufen werden. Der Verweis von `super` hängt davon ab, ob das aktuelle Feld ein Instanz-Feld oder ein statisches Feld ist.
+`super` kann auch während der Initialisierung von Klassenfeldern aufgerufen werden. Die Referenz von `super` hängt davon ab, ob das aktuelle Feld ein Instanzfeld oder ein statisches Feld ist.
 
 ```js
 class Base {
@@ -121,7 +121,7 @@ class Extended extends Base {
 }
 ```
 
-Beachten Sie, dass Instanzfelder auf der Instanz und nicht auf dem `prototype` des Konstruktors gesetzt werden, sodass Sie `super` nicht verwenden können, um auf das Instanzfeld einer Superklasse zuzugreifen.
+Beachten Sie, dass Instanzfelder auf der Instanz und nicht auf dem `prototype` des Konstruktors gesetzt werden, sodass Sie `super` nicht verwenden können, um auf das Instanzfeld einer Oberklasse zuzugreifen.
 
 ```js example-bad
 class Base {
@@ -133,11 +133,11 @@ class Extended extends Base {
 }
 ```
 
-Hier ist `extendedField` `undefined` anstelle von 10, weil `baseField` als eigene Eigenschaft der `Base`-Instanz und nicht von `Base.prototype` definiert ist. `super` sucht in diesem Kontext nur nach Eigenschaften auf `Base.prototype`, weil das der [[Prototyp]] von `Extended.prototype` ist.
+Hier ist `extendedField` `undefined` statt 10, weil `baseField` als eigene Eigenschaft der `Base`-Instanz definiert ist, statt `Base.prototype`. `super`, in diesem Kontext, sucht nur nach Eigenschaften auf `Base.prototype`, weil das der [[Prototype]] von `Extended.prototype` ist.
 
-### Löschen von super-Eigenschaften führt zu einem Fehler
+### Löschen von super-Eigenschaften wird einen Fehler auslösen
 
-Sie können den [`delete`-Operator](/de/docs/Web/JavaScript/Reference/Operators/delete) und `super.prop` oder `super[expr]` nicht verwenden, um eine Eigenschaft der Elternklasse zu löschen — es führt zu einem {{jsxref("ReferenceError")}}.
+Sie können nicht den [`delete` Operator](/de/docs/Web/JavaScript/Reference/Operators/delete) und `super.prop` oder `super[expr]` verwenden, um eine Eigenschaft der Elternklasse zu löschen — das wird einen {{jsxref("ReferenceError")}} auslösen.
 
 ```js
 class Base {
@@ -152,9 +152,9 @@ class Derived extends Base {
 new Derived().delete(); // ReferenceError: invalid delete involving 'super'.
 ```
 
-### Verwendung von super.prop in Objekt-Literals
+### Verwendung von super.prop in Objektliteralen
 
-Super kann auch in der [Objektinitialisierungs]-Notation verwendet werden. In diesem Beispiel definieren zwei Objekte eine Methode. Im zweiten Objekt ruft `super` die Methode des ersten Objekts auf. Dies funktioniert mit Hilfe von {{jsxref("Object.setPrototypeOf()")}}, womit wir in der Lage sind, den Prototyp von `obj2` auf `obj1` zu setzen, so dass `super` `method1` auf `obj1` finden kann.
+Super kann auch in der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Notation verwendet werden. In diesem Beispiel definieren zwei Objekte eine Methode. Im zweiten Objekt ruft `super` die Methode des ersten Objektes auf. Dies funktioniert mit Hilfe von {{jsxref("Object.setPrototypeOf()"}}, mit dem wir in der Lage sind, das Prototyp des `obj2` auf `obj1` zu setzen, sodass `super` in der Lage ist, `method1` auf `obj1` zu finden.
 
 ```js
 const obj1 = {
@@ -173,9 +173,9 @@ Object.setPrototypeOf(obj2, obj1);
 obj2.method2(); // Logs "method 1"
 ```
 
-### Methoden, die super.prop lesen, verhalten sich nicht anders, wenn sie an andere Objekte gebunden sind
+### Methoden, die super.prop lesen, verhalten sich nicht anders, wenn sie an andere Objekte gebunden werden
 
-Der Zugriff auf `super.x` verhält sich wie `Reflect.get(Object.getPrototypeOf(objectLiteral), "x", this)`, was bedeutet, dass die Eigenschaft immer auf dem Prototyp der Objekt-Literal-/Klassendeklaration gesucht wird, und das Entbinden und erneute Binden einer Methode ändert den Verweis von `super` nicht.
+Der Zugriff auf `super.x` verhält sich wie `Reflect.get(Object.getPrototypeOf(objectLiteral), "x", this)`, was bedeutet, dass die Eigenschaft immer auf dem Prototyp des Objektliterals/der Klassendeklaration gesucht wird, und das Entbinden und Neubinden einer Methode ändert nicht die Referenz von `super`.
 
 ```js
 class Base {
@@ -195,7 +195,7 @@ const { getX } = e;
 console.log(getX()); // 1
 ```
 
-Dasselbe passiert in Objekt-Literals.
+Das Gleiche passiert in Objektliteralen.
 
 ```js
 const parent1 = { prop: 1 };
@@ -217,7 +217,7 @@ const anotherChild = { __proto__: parent2, myParent };
 anotherChild.myParent(); // Still logs "1"
 ```
 
-Nur das Zurücksetzen der gesamten Vererbungskette ändert den Verweis von `super`.
+Nur das Zurücksetzen der gesamten Vererbungskette wird die Referenz von `super` ändern.
 
 ```js
 class Base {
@@ -257,7 +257,7 @@ console.log(Extended.staticGetX()); // Now logs "4"
 
 ### Aufrufen von Methoden von super
 
-Beim Aufrufen von `super.prop` als Funktion ist der `this`-Wert innerhalb der `prop`-Funktion das aktuelle `this`, nicht das Objekt, auf das `super` zeigt. Zum Beispiel protokolliert der Aufruf `super.getName()` `"Extended"`, obwohl der Code so aussieht, als wäre er äquivalent zu `Base.getName()`.
+Beim Aufruf von `super.prop` als Funktion ist der Wert `this` innerhalb der `prop` Funktion das aktuelle `this`, nicht das Objekt, auf das `super` zeigt. Zum Beispiel protokolliert der Aufruf `super.getName()` `"Extended"`, obwohl der Code so aussieht, als wäre er äquivalent zu `Base.getName()`.
 
 ```js
 class Base {
@@ -275,11 +275,11 @@ class Extended extends Base {
 Extended.getName(); // Logs "Extended"
 ```
 
-Dies ist besonders wichtig im Umgang mit [statischen privaten Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#private_static_fields).
+Dies ist besonders wichtig beim Umgang mit [statischen privaten Eigenschaften](/de/docs/Web/JavaScript/Reference/Classes/Private_properties#private_static_fields).
 
 ### Setzen von super.prop setzt die Eigenschaft stattdessen auf this
 
-Das Setzen von Eigenschaften von `super`, wie `super.x = 1`, verhält sich wie `Reflect.set(Object.getPrototypeOf(objectLiteral), "x", 1, this)`. Dies ist einer der Fälle, in denen das Verständnis von `super` als einfache "Referenz des Prototyps-Objekts" nicht ausreicht, da die Eigenschaft stattdessen auf `this` gesetzt wird.
+Das Setzen von Eigenschaften von `super`, wie `super.x = 1`, verhält sich wie `Reflect.set(Object.getPrototypeOf(objectLiteral), "x", 1, this)`. Dies ist einer der Fälle, in denen das Verständnis von `super` als einfach "Referenz des Prototyp-Objekts" nicht ausreicht, weil es tatsächlich die Eigenschaft auf `this` setzt.
 
 ```js
 class A {}
@@ -295,9 +295,9 @@ console.log(b); // B { x: 1 }
 console.log(Object.hasOwn(b, "x")); // true
 ```
 
-`super.x = 1` sucht nach dem Eigenschafts-Deskriptor von `x` auf `A.prototype` (und ruft die dort definierten Setter auf), aber der `this`-Wert wird auf `this` gesetzt, was in diesem Kontext `b` ist. Sie können [`Reflect.set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set) lesen, um weitere Details über den Fall zu erfahren, wenn sich `target` und `receiver` unterscheiden.
+`super.x = 1` wird nach dem Eigenschaftsdescriptor von `x` auf `A.prototype` suchen (und die dort definierten Setter aufrufen), aber der `this` Wert wird auf `this` gesetzt, was in diesem Kontext `b` ist. Sie können [`Reflect.set`](/de/docs/Web/JavaScript/Reference/Global_Objects/Reflect/set) für mehr Details zu dem Fall lesen, wenn sich `target` und `receiver` unterscheiden.
 
-Das bedeutet, dass während Methoden, die _lesen_ `super.prop`, üblicherweise nicht anfällig für Änderungen im `this`-Kontext sind, diejenigen, die _setzen_ `super.prop`, es sind.
+Dies bedeutet, dass während Methoden, die _super.prop_ **holen**, normalerweise nicht anfällig für Änderungen im `this` Kontext sind, diejenigen, die _super.prop_ **setzen**, es sind.
 
 ```js example-bad
 /* Reusing same declarations as above */
@@ -306,7 +306,7 @@ const b2 = new B();
 b2.setX.call(null); // TypeError: Cannot assign to read only property 'x' of object 'null'
 ```
 
-`super.x = 1` konsultiert jedoch immer noch den Eigenschafts-Deskriptor des Prototyp-Objekts, was bedeutet, dass Sie nicht beschreibbare Eigenschaften nicht überschreiben können und Setter aufgerufen werden.
+Allerdings wird `super.x = 1` weiterhin den Eigenschaftsdescriptor des Prototyp-Objekts konsultieren, was bedeutet, dass Sie nicht schreibgeschützte Eigenschaften überschreiben können und Setter aufgerufen werden.
 
 ```js
 class X {
