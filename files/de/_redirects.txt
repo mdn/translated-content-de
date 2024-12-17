@@ -3560,6 +3560,7 @@
 /de/docs/Glossary/Client_hints	/de/docs/Web/HTTP/Client_hints
 /de/docs/Glossary/Condition	/de/docs/Glossary/Conditional
 /de/docs/Glossary/Content_type	/de/docs/Glossary/MIME_type
+/de/docs/Glossary/DOS_attack	/de/docs/Glossary/Denial_of_Service
 /de/docs/Glossary/DTD	/de/docs/Glossary/Doctype
 /de/docs/Glossary/Descriptor_(CSS)	/de/docs/Glossary/CSS_Descriptor
 /de/docs/Glossary/Distributed_DenialofService	/de/docs/Glossary/Distributed_Denial_of_Service
