@@ -3,12 +3,12 @@ title: "MutationEvent: relatedNode-Eigenschaft"
 short-title: relatedNode
 slug: Web/API/MutationEvent/relatedNode
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 8583c1238d297609d6db0623aba9070d5c57f330
 ---
 
-{{APIRef("UI Events")}}{{Deprecated_Header}}
+{{APIRef("UI Events")}}{{Deprecated_Header}}{{non-standard_header}}
 
-Die **`relatedNode`**-Eigenschaft des schreibgeschützten [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Interfaces gibt einen String zurück, der den Knoten bezeichnet, der mit dem Ereignis in Beziehung steht, wie der geänderte Knoten innerhalb des Unterbaums für `DOMSubtreeModified`.
+Die **`relatedNode`** schreibgeschützte Eigenschaft der [`MutationEvent`](/de/docs/Web/API/MutationEvent)-Schnittstelle gibt einen String zurück, der den mit dem Ereignis verbundenen Knoten angibt, wie zum Beispiel den geänderten Knoten innerhalb des Unterbaums für `DOMSubtreeModified`.
 
 ## Wert
 
