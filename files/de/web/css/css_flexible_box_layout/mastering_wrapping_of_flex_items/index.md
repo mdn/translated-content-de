@@ -1,19 +1,19 @@
 ---
-title: Mastering wrapping of flex items
+title: Beherrschen des Umbruchs von Flex-Elementen
 slug: Web/CSS/CSS_flexible_box_layout/Mastering_wrapping_of_flex_items
 l10n:
-  sourceCommit: 8a7e911652fcb4a61cc95f458d53f39ad08c0946
+  sourceCommit: c31ea3d118281b175f1d42ab0432b593f3e94d11
 ---
 
 {{CSSRef}}
 
-Flexbox wurde als eindimensionales Layout-Tool entworfen — es befasst sich mit der Anordnung von Elementen als Reihe oder Spalte — jedoch nicht beides gleichzeitig. Es ist jedoch möglich, Flex-Elemente auf neue Zeilen zu umbrechen, d. h. neue Reihen zu erstellen, wenn {{cssxref("flex-direction")}} `row` ist, und neue Spalten, wenn `flex-direction` `column` ist. Diese Anleitung erklärt das Umbruchverhalten von Flexbox, wofür es gedacht ist und in welchen Situationen das [CSS-Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) anstelle von Flexbox erforderlich ist.
+Flexbox wurde als ein dimensionales Layout-Tool entwickelt — es ist dazu gedacht, Elemente als Reihe oder Spalte anzuordnen — jedoch nicht beides auf einmal. Es ist jedoch möglich, Flex-Elemente auf neue Zeilen umzubrechen, neue Reihen zu erstellen, wenn {{cssxref("flex-direction")}} auf `row` gesetzt ist, und neue Spalten, wenn `flex-direction` auf `column` gesetzt ist. Dieser Leitfaden erklärt das Flexbox-Umbruchverhalten, wofür es konzipiert ist und in welchen Situationen eher das [CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) anstelle von Flexbox benötigt wird.
 
-## Elemente umschlagen lassen
+## Dinge umbrechen lassen
 
-Der anfängliche Wert der {{cssxref("flex-wrap")}}-Eigenschaft ist `nowrap`. Das bedeutet, dass wenn eine Gruppe von Flex-Elementen zu breit für ihren Flex-Container ist, sie diesen überlaufen. Um sie umschlagen zu lassen, sobald sie zu breit sind, fügen Sie die `flex-wrap`-Eigenschaft mit einem Wert von `wrap` hinzu oder verwenden Sie die Kurznotation {{cssxref("flex-flow")}} mit den Werten `row wrap` oder `column wrap`. Die Elemente brechen dann in neue Zeilen um, wenn sie ihren Container überlaufen.
+Der Ausgangswert der {{cssxref("flex-wrap")}}-Eigenschaft ist `nowrap`. Dies bedeutet, dass ein Satz von Flex-Elementen, der zu breit für seinen Flex-Container ist, überfließen wird. Um sie beim Überschreiten der maximalen Breite umbrechen zu lassen, fügen Sie die `flex-wrap`-Eigenschaft mit dem Wert `wrap` hinzu oder verwenden Sie die Abkürzung {{cssxref("flex-flow")}} mit den Werten `row wrap` oder `column wrap`. Elemente werden dann auf neue Zeilen umgebrochen, wenn sie den Container überfüllen.
 
-In diesem Beispiel gibt es zehn Flex-Elemente mit einer `flex-basis` von `160px`, die wachsen und schrumpfen können. Sobald nicht genug Platz für ein weiteres Element von 160 Pixeln in einer Reihe vorhanden ist, wird eine neue Flex-Linie erstellt. Neue Linien werden nach Bedarf erstellt, bis alle Elemente platziert sind. Da die Elemente wachsen können, dehnen sie sich aus, um jede Reihe vollständig auszufüllen. Wenn sich nur ein Element in der letzten Zeile befindet, wird es gestreckt, um die gesamte Zeile zu füllen.
+In diesem Beispiel gibt es zehn Flex-Elemente mit einem `flex-basis` von `160px`, die wachsen und schrumpfen können. Sobald kein Platz mehr ausreicht, um ein weiteres 160 Pixel großes Element in einer Reihe zu platzieren, wird eine neue Flex-Linie erstellt. Neue Linien werden nach Bedarf erstellt, bis alle Elemente platziert sind. Da die Elemente wachsen können, dehnen sie sich aus, um jede Reihe vollständig zu füllen. Wenn sich nur ein Element in der letzten Linie befindet, wird es gestreckt, um die gesamte Linie auszufüllen.
 
 ```html live-sample___row-wrap
 <div class="box">
@@ -48,7 +48,7 @@ In diesem Beispiel gibt es zehn Flex-Elemente mit einer `flex-basis` von `160px`
 
 {{EmbedLiveSample("row-wrap")}}
 
-Das Gleiche passiert bei Flex-Spalten. Um zu umschlagen und neue Spalten zu erstellen, muss der Container eine Höhe haben. Im Fall von Spalten dehnen sich die Elemente vertikal, um jede Spalte vollständig auszufüllen.
+Dasselbe passiert mit Flex-Spalten. Um Spalten umzubrechen und neue zu erstellen, muss der Container eine Höhe haben. Bei Spalten dehnen sich die Elemente vertikal aus, um jede Spalte vollständig auszufüllen.
 
 ```html live-sample___column-wrap
 <div class="box">
@@ -83,9 +83,9 @@ Das Gleiche passiert bei Flex-Spalten. Um zu umschlagen und neue Spalten zu erst
 
 {{EmbedLiveSample("column-wrap", "", "320px")}}
 
-## Umschlagen und flex-direction
+## Umbruch und Flex-Richtung
 
-Umschlagen funktioniert wie erwartet in Kombination mit `flex-direction`. Wenn `flex-direction` auf `row-reverse` gesetzt ist, beginnen die Elemente an der Endkante des Containers und ordnen sich in umgekehrt sortierten Zeilen an.
+Der Umbruch funktioniert wie erwartet, wenn er mit `flex-direction` kombiniert wird. Wenn `flex-direction` auf `row-reverse` gesetzt ist, beginnen die Elemente am Endrand des Containers und ordnen sich in umgekehrter Reihenfolge aus.
 
 ```html live-sample___row-reverse-wrap
 <div class="box">
@@ -120,15 +120,15 @@ Umschlagen funktioniert wie erwartet in Kombination mit `flex-direction`. Wenn `
 
 {{EmbedLiveSample("row-reverse-wrap")}}
 
-Beachten Sie, dass die Umkehrung nur in der inline, Reihenrichtung erfolgt. Wir beginnen rechts und gehen dann in die zweite Zeile und beginnen erneut von rechts. Wir kehren nicht in beide Richtungen um, beginnend vom Boden bis hin zum Container!
+Beachten Sie, dass die Umkehrung nur in der Inline-, Reihen-Richtung erfolgt. Wir beginnen auf der rechten Seite, gehen dann auf die zweite Zeile und beginnen wieder von rechts. Wir kehren nicht in beiden Richtungen um, indem wir von unten nach oben im Container beginnen!
 
-## Erklärung des eindimensionalen Layouts
+## Ein-dimensionales Layout erklärt
 
-Wie wir in den obigen Beispielen gesehen haben, wachsen und schrumpfen unsere Elemente, wenn es in der letzten Reihe oder Spalte weniger Elemente gibt, die dann wachsen, um den verfügbaren Platz auszufüllen.
+Wie wir aus den obigen Beispielen sehen können, wenn unsere Elemente erlaubt sind zu wachsen und zu schrumpfen, wenn es weniger Elemente in der letzten Reihe oder Spalte gibt, wachsen diese Elemente, um den verfügbaren Raum auszufüllen.
 
-Es gibt keine Flexbox-Funktionen, um Elemente in einer Zeile mit Elementen in der darüberliegenden Zeile auszurichten — jede Flex-Linie verhält sich wie ein neuer Flex-Container. Es befasst sich mit der Verteilung von Platz entlang der Hauptachse. Wenn nur ein Element vorhanden ist und dieses Element wachsen darf, füllt es die Achse genauso aus, als ob Sie einen Einzel-Element-Flex-Container hätten. Wenn Sie ein Layout auf zwei Dimensionen wünschen, dann möchten Sie wahrscheinlich Grid-Layout verwenden.
+Es gibt keine Flexbox-Funktionen, um Elemente in einer Reihe mit den Elementen in der darüber liegenden Reihe auszurichten - jede Flex-Linie verhält sich wie ein neuer Flex-Container. Sie verteilt den Raum nur entlang der Hauptachse. Wenn nur ein Element vorhanden ist und dieses Element wachsen darf, wird es die Achse genauso füllen, als ob Sie einen Einzel-Element-Flex-Container hätten. Wenn Sie Layout in zwei Dimensionen möchten, sollten Sie wahrscheinlich das Grid-Layout verwenden.
 
-Dieses Beispiel zeigt den Unterschied, indem das CSS Grid-Layout verwendet wird, um ein Layout mit so vielen Spalten von mindestens `160px` zu erstellen, wie es passt, wobei der zusätzliche Platz gleichmäßig auf alle Spalten verteilt wird. Wir verwenden denselben HTML-Code wie das [Flexbox-Umbruchbeispiel](#elemente_umschlagen_lassen) oben, setzen jedoch `display: grid` darauf. Anstelle der {{cssxref("flex")}}-Kurznotation, die außerhalb von Flexbox keine Wirkung hat, setzen wir die Mindestbreite der Elemente und deren Fähigkeit zu wachsen direkt auf den Container mit {{cssxref("grid-template-columns")}}. Mit CSS Grid bleibt das letzte Element in seiner Gitterzelle; Gitterelemente dehnen sich nicht, wenn es in der letzten Zeile weniger von ihnen gibt.
+Dieses Beispiel demonstriert den Unterschied, indem das CSS Grid-Layout verwendet wird, um ein Layout mit so vielen Spalten von mindestens `160px` zu erstellen, wie passen, und den zusätzlichen Platz zwischen allen Spalten zu verteilen. Wir verwenden denselben HTML-Code wie das [Flexbox-Umbruch-Reihenbeispiel](#dinge_umbrechen_lassen) oben, setzen jedoch `display: grid` darauf. Anstelle der {{cssxref("flex")}}-Abkürzung, die außerhalb von Flexbox keine Wirkung hat, setzen wir die Mindestbreite und die Möglichkeit des Wachstums der Elemente direkt am Container mit {{cssxref("grid-template-columns")}}. Mit CSS Grid bleibt das letzte Element in seiner Rasterzelle; Rasterelemente dehnen sich nicht, wenn es weniger davon in der letzten Zeile gibt.
 
 ```html live-sample___grid-example
 <div class="box">
@@ -162,13 +162,13 @@ Dieses Beispiel zeigt den Unterschied, indem das CSS Grid-Layout verwendet wird,
 
 {{EmbedLiveSample("grid-example")}}
 
-Dies ist der Unterschied zwischen ein- und zweidimensionalen Layouts. In einer eindimensionalen Layoutmethode wie Flexbox steuern wir nur die Reihe oder Spalte. Im zweidimensionalen Grid-Layout steuern wir beides gleichzeitig. Wenn Sie die Platzaufteilung Zeile für Zeile wünschen, verwenden Sie Flexbox. Wenn nicht, verwenden Sie CSS Grid.
+Dies ist der Unterschied zwischen ein- und zwei-dimensionalen Layouts. In einer ein-dimensionalen Layout-Methode wie Flexbox kontrollieren wir nur die Reihe oder die Spalte. In einem zwei-dimensionalen Rasterlayout kontrollieren wir beides gleichzeitig. Wenn Sie die Verteilung des Raumes Zeile für Zeile wünschen, verwenden Sie Flexbox. Wenn nicht, verwenden Sie CSS Grid.
 
-## Wie funktionieren Flexbox-basierte Gridsysteme?
+## Wie funktionieren Flexbox-basierte Rastersysteme?
 
-Flexbox-basierte Layouts können gezwungen werden, sich wie Gridsysteme auszurichten, aber das ist nicht der beabsichtigte Zweck von Flexbox. Wenn Sie prozentuale Breiten Flex-Elementen zuweisen — entweder indem Sie `flex-basis` verwenden oder indem Sie eine Breite direkt auf das Element setzen und den Wert von `flex-basis` als `auto` belassen — können Sie den Eindruck eines zweidimensionalen Layouts erzeugen.
+Flexbox-basierte Layouts können gezwungen werden, sich als Rastersysteme auszurichten, aber das ist nicht der vorgesehene Zweck von Flexbox. Wenn Sie Flex-Elementen Prozentbreiten zuweisen — entweder mit `flex-basis` oder indem Sie dem Element selbst eine Breite hinzufügen und den Wert von `flex-basis` auf `auto` lassen — können Sie den Eindruck eines zwei-dimensionalen Layouts erwecken.
 
-In diesem Beispiel wurden `flex-grow` und `flex-shrink` auf `0` gesetzt, um unflexible Flex-Elemente zu erstellen. Die Flexibilität wird durch Prozentsätze gesteuert.
+In diesem Beispiel wurden `flex-grow` und `flex-shrink` auf `0` gesetzt, um unflexible Flex-Elemente zu machen. Die Flexibilität wird durch Prozentsätze kontrolliert.
 
 ```html live-sample___flex-grid
 <div class="box">
@@ -207,15 +207,15 @@ In diesem Beispiel wurden `flex-grow` und `flex-shrink` auf `0` gesetzt, um unfl
 
 {{EmbedLiveSample("flex-grid")}}
 
-Diese Technik ermöglicht es Ihnen, Flex-Elemente auf der Querachse auszurichten. Wenn Sie jedoch feststellen, dass Sie auf diese Weise Breiten zu Flex-Elementen hinzufügen oder leere Flex-Elemente hinzufügen, um Platz zu beanspruchen, ist das ein guter Hinweis darauf, dass Sie möglicherweise zum CSS-Grid-Layout für diese Komponente wechseln sollten.
+Diese Technik erlaubt es Ihnen, Flex-Elemente auf der Querachse auszurichten. Wenn Sie jedoch feststellen, dass Sie auf diese Weise Breiten zu Flex-Elementen hinzufügen oder leere Flex-Elemente hinzufügen, um Platz einzunehmen, ist das ein guter Hinweis darauf, dass Sie möglicherweise zu CSS Grid-Layout für diese Komponente wechseln sollten.
 
 ## Zwischenräume zwischen Elementen schaffen
 
-Um Lücken oder Abstände zwischen Flex-Elementen zu schaffen, verwenden Sie die {{CSSXref("gap")}}-Eigenschaft direkt am Flex-Container, um einen festen Abstand zwischen benachbarten Flex-Elementen zu erzeugen. Die `gap`-Eigenschaft ist eine Kurzform für `row-gap` und `column-gap`. Diese Eigenschaften geben die Größe der Abstände zwischen Zeilen und Spalten innerhalb von Grid-, Flex- und Mehrspalten-Layouts an.
+Um Lücken oder Abstände zwischen Flex-Elementen zu schaffen, verwenden Sie die {{CSSXref("gap")}}-Eigenschaft direkt am Flex-Container, um einen festen Abstand zwischen benachbarten Flex-Elementen zu schaffen. Die `gap`-Eigenschaft ist eine Abkürzung für `row-gap` und `column-gap`. Diese Eigenschaften spezifizieren die Größe der Lücken zwischen Reihen und Spalten innerhalb von Raster-, Flex- und Mehrspalten-Layouts.
 
-Die `gap`-Eigenschaft ist nicht die einzige Möglichkeit, um Platz zwischen Elementen zu schaffen. Abstände, Polsterung, `justify-content` und `align-content` können ebenfalls die Größe des Abstands vergrößern und die tatsächliche Größe der Lücke beeinflussen.
+Die `gap`-Eigenschaft ist nicht das einzige, das Platz zwischen Elementen schaffen kann. Margins, Padding, `justify-content` und `align-content` können ebenfalls die Größe des Abstands erhöhen und die tatsächliche Größe der Lücke beeinflussen.
 
-Um zu sehen, wie sich die `gap`-Eigenschaft von `margin` in beiden Achsen unterscheidet, versuchen Sie, den `gap`-Wert im Container `.box` zu ändern und einen `margin`-Wert zur `.box > *`-Regel im Stylesheet unten hinzuzufügen. Klicken Sie auf die Schaltfläche "Zurücksetzen", um zu den vorherigen Werten zurückzukehren.
+Um zu sehen, wie sich die `gap`-Eigenschaft von `margin` auf beiden Achsen unterscheidet, versuchen Sie, den `gap`-Wert im Container `.box` zu ändern und einen `margin`-Wert zur `.box > *` Regel im Stylesheet unten hinzuzufügen. Klicken Sie auf die Schaltfläche "Reset", um zu den vorherigen Werten zurückzukehren.
 
 ```html live-sample___gaps
 <div class="wrapper">
@@ -256,22 +256,30 @@ Um zu sehen, wie sich die `gap`-Eigenschaft von `margin` in beiden Achsen unters
 
 ## Kollabierte Elemente
 
-Die Flexbox-Spezifikation beschreibt, was passieren sollte, wenn ein Flex-Element kollabiert wird, indem `visibility: collapse` auf ein Element gesetzt wird. Siehe die MDN-Dokumentation zur {{cssxref("visibility")}}-Eigenschaft. Die Spezifikation beschreibt das Verhalten wie folgt:
+Die Flexbox-Spezifikation beschreibt, was passieren soll, wenn ein Flex-Element durch das Setzen von `visibility: collapse` auf ein Element kollabiert wird. Siehe die MDN-Dokumentation zur {{cssxref("visibility")}}-Eigenschaft. Die Spezifikation beschreibt das Verhalten wie folgt:
 
-> "Die Angabe von visibility:collapse auf einem Flex-Element bewirkt, dass es zu einem kollabierten Flex-Element wird, was einen Effekt ähnlich visibility:collapse auf eine Tabellenzeile oder -spalte erzeugt: Das kollabierte Flex-Element wird vollständig aus der Darstellung entfernt, hinterlässt jedoch eine "Stütze", die die Kreuzgröße der Flex-Linie stabil hält. Wenn ein Flex-Container nur eine Flex-Linie hat, kann das dynamische Kollabieren oder Entkollabieren von Elementen die Hauptgröße des Flex-Containers ändern, hat jedoch garantiert keinen Einfluss auf seine Kreuzgröße und wird nicht dazu führen, dass das restliche Seitenlayout "wackelt". Das Umschlagen der Flex-Linie wird nach dem Kollabieren neu durchgeführt, daher kann sich die Kreuzgröße eines Flex-Containers mit mehreren Linien ändern oder nicht." - [Kollabierte Elemente](https://www.w3.org/TR/css-flexbox-1/#visibility-collapse)
+> "Das Festlegen von visibility:collapse auf einem Flex-Element führt dazu, dass es zu einem kollabierten Flex-Element wird, das einen ähnlichen Effekt wie visibility:collapse auf einer Tabellenzeile oder einer Tabellenspalte erzeugt: das kollabierte Flex-Element wird vollständig aus der Darstellung entfernt, hinterlässt jedoch ein "Strut", das die Quergröße der Flex-Linie stabil hält. Wenn ein Flex-Container nur eine Flex-Linie hat, kann das dynamische Kollabieren oder Entkollabieren von Elementen die Hauptgröße des Flex-Containers ändern, garantiert jedoch, die Quergröße nicht zu beeinflussen und das Layout des Restes der Seite nicht "wobblen" zu lassen. Flex-Linien-Umbrüche werden jedoch nach dem Kollabieren neu ausgeführt, sodass sich die Quergröße eines Flex-Containers mit mehreren Zeilen möglicherweise ändert oder auch nicht." - [Kollabierte Elemente](https://www.w3.org/TR/css-flexbox-1/#visibility-collapse)
 
-Dieses Verhalten ist nützlich, wenn Sie Flex-Elemente mit JavaScript anvisieren möchten, um beispielsweise Inhalte anzuzeigen und zu verbergen. Das Beispiel in der Spezifikation zeigt ein solches Muster.
+Dieses Verhalten ist nützlich, wenn Sie Flex-Elemente mit JavaScript anvisieren möchten, um z.B. Inhalte zu zeigen und zu verstecken. Das Beispiel in der Spezifikation zeigt ein solches Muster.
 
-Im folgenden Live-Beispiel habe ich einen nicht umgeschlagenen Flex-Container. Das dritte Element hat mehr Inhalt als die anderen und ist jedoch auf `visibility: collapse` gesetzt; daher behält der Flex-Container eine _Stütze_ in der Höhe bei, die erforderlich ist, um dieses Element anzuzeigen. Wenn Sie `visibility: collapse` aus dem CSS entfernen oder den Wert in `visible` ändern, wird das Element angezeigt, und der Platz wird zwischen nicht kollabierten Elementen neu verteilt; die Höhe des Flex-Containers sollte sich nicht ändern.
+Im folgenden Live-Beispiel enthält der nicht umbrechende Flex-Container eine Reihe mit drei Flex-Elementen, die so eingestellt sind, dass sie gleich große Flex-Elemente sind. Das dritte Element hat mehrere Zeilen Inhalt, wodurch der Container wächst. Der Standard für `align-items` ist `normal`; für Flex-Elemente verhält sich `normal` wie `stretch`, sodass alle Elemente standardmäßig gedehnt werden, um die Quergröße des Containers zu füllen.
+
+Das Element, das die Quergröße erzeugt, wird auf `visibility: collapse` gesetzt, was das Flex-Element kollabiert oder versteckt, abhängig vom Browser. In jedem Fall behält der Flex-Container jedoch ein _Strut_ der Quergröße bei, auch wenn es nicht sichtbar ist. Auf diese Weise wird, wenn das Element sichtbar gemacht wird, die Quergröße des einzeiligen Flex-Containers nicht verändert. Wenn Sie `visibility: collapse` aus dem CSS entfernen oder den Wert auf `visible` ändern, werden Sie sehen, dass das Element erscheint und der Platz wird zwischen nicht kollabierten Elementen im Hauptbereich neu verteilt, während die Quergröße unverändert bleibt.
 
 > [!NOTE]
-> Verwenden Sie Firefox für die folgenden zwei Beispiele, da Chrome und Safari `collapse` als `hidden` behandeln.
+> Verwenden Sie Firefox für das Beispiel unten, da andere gängige Browser `collapse` als `hidden` behandeln.
+
+```html hidden live-sample___visibility-collapse
+<p>
+  <label><input type="checkbox" /> Toggle <code>visibility</code> value</label>
+</p>
+```
 
 ```html live-sample___visibility-collapse
 <div class="box">
   <div>One</div>
   <div>Two</div>
-  <div class="hide">Three <br />has <br />extra <br />text</div>
+  <div class="collapse">Three <br />has <br />extra <br />text</div>
 </div>
 ```
 
@@ -287,31 +295,45 @@ Im folgenden Live-Beispiel habe ich einen nicht umgeschlagenen Flex-Container. D
   border-radius: 5px;
   background-color: rgb(96 139 168 / 0.2);
 }
-.hide {
+.collapse {
   visibility: collapse;
+}
+```
+
+```css hidden live-sample___visibility-collapse
+p:has(:checked) + div .collapse {
+  visibility: visible;
 }
 ```
 
 {{EmbedLiveSample("visibility-collapse")}}
 
-Wenn Sie jedoch mit mehrzeiligen Flex-Containern arbeiten, müssen Sie verstehen, dass das Umschlagen _nach_ dem Kollabieren neu durchgeführt wird. Der Browser muss das Umschlagverhalten neu ausführen, um den neuen Raum zu berücksichtigen, den das kollabierte Element in der Inlinedirektion hinterlassen hat.
+Oben war ein einzeiliger, nicht umbrechender Flex-Container mit einer festen Größe von `600px`, sodass die Breite unabhängig davon, ob das Element sichtbar oder kollabiert ist, gleich bleibt. Es ist wichtig zu verstehen, dass während der Container ein Strut der Quergröße des kollabierten Elements beibehält, die Hauptgröße nicht erhalten bleibt. Mehrzeilige Flex-Container verpacken ihre Elemente neu, nachdem kollabierte Elemente aus der Darstellung entfernt wurden. Der neue Raum, den ein kollabiertes Element in der Hauptachse hinterlässt, kann nicht kollabierte Elemente dazu veranlassen, in einer anderen Linie platziert zu werden, als wenn das Element nicht kollabiert wäre. Da jede Linie wie ein unabhängiger einzeiliger Flex-Container gestaltet wird und ihre Zusammensetzung sich nach dem Kollabieren ändern kann, kann sich auch ihre Querachsengröße ändern.
 
-Das bedeutet, dass Elemente möglicherweise auf einer anderen Zeile enden als auf der, auf der sie begonnen haben. Im Fall eines Elements, das angezeigt und verborgen wird, könnte es gut sein, dass die Elemente in einer anderen Zeile enden.
+Das folgende Beispiel zeigt dieses Verhalten. Das dritte Flex-Element ist kollabiert, sodass es null Platz entlang der Hauptachse einnimmt (die Inline-Größe ist `0`). Wenn es kollabiert ist, befindet sich sein Strut in der ersten Reihe nach dem vierten Element, wobei die erste Reihe hoch genug ist, um die drei Textzeilen zu aufnehmen, die das dritte Element gehabt hätte. Entfernen Sie dann die Kollabierung des Elements (z.B. durch Entfernen der `collapse` Klasse), gibt es nicht mehr genug horizontalen Platz für das fünfte Element in der ersten Reihe, und es bewegt sich zur zweiten. Dies bewirkt, dass die zweite Reihe wächst, um die zwei Textzeilen ihres neuen Mitglieds aufzunehmen, und das letzte Flex-Element wird auf eine neue Reihe verschoben. Mit einer höheren zweiten Linie und einer neuen dritten Linie ist der Flex-Container deutlich höher als zuvor.
 
-Ich habe dieses Verhalten im nächsten Live-Beispiel erstellt. Sie können sehen, wie das Strecken die Zeilen basierend auf der Position des kollabierten Elements ändert. Wenn Sie dem zweiten Element mehr Inhalt hinzufügen, wird es in eine andere Zeile verschoben, sobald es lang genug wird. Diese obere Zeile wird dann nur so hoch wie eine einzelne Textzeile.
+> [!NOTE]
+> Verwenden Sie Firefox für das Beispiel unten, da andere gängige Browser `collapse` als `hidden` behandeln.
+
+```html hidden live-sample___wrapped-visibility-collapse
+<p>
+  <label><input type="checkbox" /> Toggle <code>visibility</code> value</label>
+</p>
+```
 
 ```html live-sample___wrapped-visibility-collapse
 <div class="box">
   <div>One</div>
-  <div>Add more text to this box to make it grow</div>
-  <div class="hide">Three <br />has <br />extra <br />text</div>
+  <div>Two is the width of this sentence.</div>
+  <div class="collapse">Three <br />is <br />five <br />lines <br />tall.</div>
   <div>Four</div>
-  <div>Five</div>
+  <div>Five<br />Five</div>
   <div>Six</div>
   <div>Seven</div>
   <div>Eight</div>
   <div>Nine</div>
   <div>Ten</div>
+  <div>Eleven is longer</div>
 </div>
 ```
 
@@ -328,17 +350,24 @@ Ich habe dieses Verhalten im nächsten Live-Beispiel erstellt. Sie können sehen
   border-radius: 5px;
   background-color: rgb(96 139 168 / 0.2);
   flex: 1 1 auto;
+  min-width: 50px;
 }
-.hide {
+.collapse {
   visibility: collapse;
 }
 ```
 
-{{EmbedLiveSample("wrapped-visibility-collapse")}}
+```css hidden live-sample___wrapped-visibility-collapse
+p:has(:checked) + div .collapse {
+  visibility: visible;
+}
+```
 
-Wenn dies ein Problem für Ihr Layout darstellt, kann dies ein Umdenken der Struktur erfordern, zum Beispiel jede Zeile in einen separaten Flex-Container zu setzen, damit sie keine Zeilen verschieben können.
+{{EmbedLiveSample("wrapped-visibility-collapse", "", "300")}}
+
+Wenn dies ein Problem für Ihr Layout darstellt, kann es erforderlich sein, die Struktur zu überdenken, z.B. jede Zeile in einen separaten Flex-Container zu setzen, sodass sie die Zeilen nicht verschieben können.
 
 ### Verwendung von `visibility: hidden` und `display: none`
 
-Im vorherigen Live-Beispiel versuchen Sie `visibility: hidden` oder `display: none` anstelle von `visibility: collapse` zu verwenden. Bei Verwendung von `visibility: hidden` wird das Element unsichtbar gemacht, aber die Box bleibt in der Formatierungsstruktur, sodass es sich immer noch so verhält, als wäre es Teil des Layouts.
+Versuchen Sie in den vorherigen Live-Beispielen, `visibility: hidden` oder `display: none` anstelle von `visibility: collapse` zu verwenden. Bei Verwendung von `visibility: hidden` wird das Element unsichtbar gemacht, das Kästchen bleibt jedoch in der Formatierungsstruktur erhalten, sodass es sich immer noch so verhält, als wäre es Teil des Layouts.
 Wenn Sie `display: none` verwenden, wird das Element vollständig aus der Formatierungsstruktur entfernt. Es ist nicht nur unsichtbar, sondern die Struktur wird ebenfalls entfernt. Dies bedeutet, dass Zähler es ignorieren und Dinge wie Übergänge nicht ausgeführt werden.
