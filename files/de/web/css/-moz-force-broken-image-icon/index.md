@@ -52,7 +52,7 @@ img {
 {{EmbedLiveSample('Examples','125','125')}}
 
 > [!NOTE]
-> Es sei denn, das Bild hat eine spezifizierte Höhe und Breite, wird das `alt`-Attribut nicht angezeigt, wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist.
+> Wenn `-moz-force-broken-image-icon` auf `1` gesetzt ist, wird das `alt`-Attribut nicht angezeigt, wenn das Bild eine spezifizierte Höhe oder Breite hat.
 
 ## Hinweise
 
