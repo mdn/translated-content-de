@@ -80,7 +80,7 @@ _Diese Methoden sind veraltete Methoden, die von Microsoft eingeführt wurden un
 
 ## Abrufen eines StyleSheets
 
-Ein Stylesheet ist mit maximal einem [`Document`](/de/docs/Web/API/Document) verknüpft, auf das es angewendet wird (es sei denn, {{domxref("StyleSheet.disabled", "disabled", "", 1)}}). Eine Liste von `CSSStyleSheet`-Objekten für ein bestimmtes Dokument kann über die [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Eigenschaft abgerufen werden. Ein spezifisches Stylesheet kann auch von seinem _Owner_-Objekt (`Node` oder `CSSImportRule`), falls zutreffend, abgerufen werden.
+Ein Stylesheet ist mit maximal einem [`Document`](/de/docs/Web/API/Document) verknüpft, auf das es angewendet wird (es sei denn, [disabled](/de/docs/Web/API/StyleSheet/disabled)). Eine Liste von `CSSStyleSheet`-Objekten für ein bestimmtes Dokument kann über die [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets)-Eigenschaft abgerufen werden. Ein spezifisches Stylesheet kann auch von seinem _Owner_-Objekt (`Node` oder `CSSImportRule`), falls zutreffend, abgerufen werden.
 
 Ein `CSSStyleSheet`-Objekt wird automatisch vom Browser erstellt und in die Liste der [`Document.styleSheets`](/de/docs/Web/API/Document/styleSheets) eines Dokuments eingefügt, wenn ein Stylesheet für ein Dokument geladen wird.
 

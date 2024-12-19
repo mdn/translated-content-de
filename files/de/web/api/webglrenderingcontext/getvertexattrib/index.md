@@ -49,7 +49,7 @@ getVertexAttrib(index, pname)
 
       - : Gibt ein {{jsxref("Float32Array")}} (mit 4 Elementen) zurück, das den aktuellen Wert des Vertex-Attributs am angegebenen `index` darstellt.
 
-    Wenn ein {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} verwendet wird, sind zusätzlich die folgenden Werte verfügbar:
+    Wenn ein [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext) verwendet wird, sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.VERTEX_ATTRIB_ARRAY_INTEGER`
       - : Gibt einen [`GLboolean`](/de/docs/Web/API/WebGL_API/Types) zurück, der angibt, ob ein ganzzahliger Datentyp im Vertex-Attribut-Array am angegebenen `index` vorliegt.

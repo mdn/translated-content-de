@@ -11,5 +11,5 @@ IndexedDB ist eine Web-{{Glossary("API", "API")}} zur Speicherung großer Datens
 
 ## Siehe auch
 
-- Die {{domxref('IndexedDB_API','IndexedDB-API','',1)}} auf MDN
+- Die [IndexedDB-API](/de/docs/Web/API/IndexedDB_API) auf MDN
 - [Die W3C-Spezifikation für IndexedDB](https://w3c.github.io/IndexedDB/)

@@ -30,7 +30,7 @@ bufferSubData(target, offset, srcData)
 
       - : Puffer, der für Elementindizes verwendet wird.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}}
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.COPY_READ_BUFFER`

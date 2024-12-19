@@ -58,6 +58,6 @@ self.addEventListener("request", (event) => {
 
 ## Siehe auch
 
-- {{domxref("History API", "", "", 1)}}
-- {{domxref("Navigation API", "", "", 1)}}
-- {{domxref("Service Worker API", "", "", 1)}}
+- [History API](/de/docs/Web/API/History_API)
+- [Navigation API](/de/docs/Web/API/Navigation_API)
+- [Service Worker API](/de/docs/Web/API/Service_Worker_API)

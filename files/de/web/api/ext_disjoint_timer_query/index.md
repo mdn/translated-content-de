@@ -13,7 +13,7 @@ Die **EXT_disjoint_timer_query**-Erweiterung ist Teil der [WebGL API](/de/docs/W
 WebGL-Erweiterungen sind mit der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung sollte nur in {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexten verfügbar sein. [`EXT_disjoint_timer_query_webgl2`](/de/docs/Web/API/EXT_disjoint_timer_query_webgl2) ist in {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}}-Kontexten verfügbar.
+> Diese Erweiterung sollte nur in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexten verfügbar sein. [`EXT_disjoint_timer_query_webgl2`](/de/docs/Web/API/EXT_disjoint_timer_query_webgl2) ist in [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten verfügbar.
 >
 > In WebGL 2 wird die OpenGL-Methode `getQueryObject()` in [`WebGL2RenderingContext.getQueryParameter`](/de/docs/Web/API/WebGL2RenderingContext/getQueryParameter) umbenannt.
 > In WebGL 2 sind andere Abfragen (wie Okklusionsabfragen und Primärabfragen) mit [`WebGLQuery`](/de/docs/Web/API/WebGLQuery)-Objekten möglich.

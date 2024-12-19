@@ -12,7 +12,7 @@ Die **`ANGLE_instanced_arrays`** Erweiterung ist Teil der [WebGL API](/de/docs/W
 WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Weitere Informationen finden Sie unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar, und die Konstanten und Methoden sind ohne das `ANGLE_`-Präfix verfügbar.
+> Diese Erweiterung ist nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) Kontexte verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung im WebGL2-Kontext standardmäßig verfügbar, und die Konstanten und Methoden sind ohne das `ANGLE_`-Präfix verfügbar.
 >
 > Trotz des Namens "ANGLE" funktioniert diese Erweiterung auf jedem Gerät, wenn die Hardware sie unterstützt, und nicht nur auf Windows, wenn die ANGLE-Bibliothek verwendet wird. "ANGLE" zeigt lediglich an, dass diese Erweiterung von den Autoren der ANGLE-Bibliothek geschrieben wurde.
 

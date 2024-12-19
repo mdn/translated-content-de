@@ -32,7 +32,7 @@ vertexAttribPointer(index, size, type, normalized, stride, offset)
     - `gl.UNSIGNED_SHORT`: unsignierte 16-Bit-Ganzzahl, mit Werten im Bereich \[0,65535]
     - `gl.FLOAT`: 32-Bit IEEE Gleitkommazahl
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 context", "", 1)}},
+    Bei Verwendung eines [WebGL 2 context](/de/docs/Web/API/WebGL2RenderingContext),
     sind zusätzlich folgende Werte verfügbar:
 
     - `gl.HALF_FLOAT`: 16-Bit IEEE Gleitkommazahl
@@ -67,7 +67,7 @@ Keiner ({{jsxref("undefined")}}).
 - Ein `gl.INVALID_VALUE`-Fehler wird ausgelöst, wenn `stride` oder `offset` negativ sind.
 - Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn `stride` und `offset` keine Vielfachen der Größe des Datentyps sind.
 - Ein `gl.INVALID_OPERATION`-Fehler wird ausgelöst, wenn kein WebGLBuffer an das ARRAY_BUFFER-Target gebunden ist.
-- Wenn ein {{domxref("WebGL2RenderingContext", "WebGL 2 context", "", 1)}} verwendet wird, wird ein `gl.INVALID_OPERATION`-Fehler ausgelöst, wenn dieses Vertex-Attribut im Vertex-Shader als Ganzzahl definiert ist (z. B. `uvec4` oder `ivec4`, anstelle von `vec4`).
+- Wenn ein [WebGL 2 context](/de/docs/Web/API/WebGL2RenderingContext) verwendet wird, wird ein `gl.INVALID_OPERATION`-Fehler ausgelöst, wenn dieses Vertex-Attribut im Vertex-Shader als Ganzzahl definiert ist (z. B. `uvec4` oder `ivec4`, anstelle von `vec4`).
 
 ## Beschreibung
 

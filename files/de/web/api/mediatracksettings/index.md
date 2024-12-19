@@ -82,7 +82,7 @@ Tracks, die Video von einem Benutzerbildschirm teilen (unabhängig davon, ob die
   - : Ein String, der angibt, ob der Mauszeiger im generierten Stream enthalten ist und unter welchen Bedingungen. Mögliche Werte sind:
 
     - `always`
-      - : Die Maus ist immer im Videoinhalt der {domxref("MediaStream")}} sichtbar, es sei denn, die Maus hat sich aus dem Bereich des Inhalts hinaus bewegt.
+      - : Die Maus ist immer im Videoinhalt der [`MediaStream`](/de/docs/Web/API/MediaStream) sichtbar, es sei denn, die Maus hat sich aus dem Bereich des Inhalts hinaus bewegt.
     - `motion`
       - : Der Mauszeiger ist im Video immer enthalten, wenn er sich bewegt, und für kurze Zeit, nachdem er aufgehört hat zu bewegen.
     - `never`

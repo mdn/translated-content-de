@@ -69,4 +69,4 @@ Ein boolescher Wert — `true`, wenn das Element Pointer Capture für den durch 
 
 - [`Element.setPointerCapture()`](/de/docs/Web/API/Element/setPointerCapture)
 - [`Element.releasePointerCapture()`](/de/docs/Web/API/Element/releasePointerCapture)
-- {{ domxref("Pointer_events","Pointer Events", "", 1) }}
+- [Pointer Events](/de/docs/Web/API/Pointer_events)

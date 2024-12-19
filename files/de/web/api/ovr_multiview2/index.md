@@ -22,7 +22,7 @@ WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension(
 > [!NOTE]
 > Die Unterstützung hängt vom Grafiktreiber des Systems ab (Windows+ANGLE und Android werden unterstützt; Windows+GL, Mac, Linux werden nicht unterstützt).
 >
-> Diese Erweiterung ist nur für {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}}-Kontexte verfügbar, da sie GLSL 3.00 und Texturarrays benötigt.
+> Diese Erweiterung ist nur für [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar, da sie GLSL 3.00 und Texturarrays benötigt.
 >
 > Derzeit gibt es keine Möglichkeit, Multiview zum Rendern in einen multisample-fähigen Backbuffer zu verwenden, weshalb Sie Kontexte mit `antialias: false` erstellen sollten. Der Oculus-Browser (6+) unterstützt jedoch auch Multisampling mit der [`OCULUS_multiview`](https://developers.meta.com/horizon/documentation/web/web-multiview/#using-oculus_multiview-in-webgl-20)-Erweiterung. Siehe auch dieses [WebGL-Problem](https://github.com/KhronosGroup/WebGL/issues/2912).
 

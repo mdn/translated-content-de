@@ -23,18 +23,18 @@ Gibt einen ganzzahligen Wert zurück, der die aktuelle Auswertungsphase des Erei
     Dieser Prozess beginnt mit dem [`Window`](/de/docs/Web/API/Window), dann [`Document`](/de/docs/Web/API/Document),
     dann dem [`HTMLHtmlElement`](/de/docs/Web/API/HTMLHtmlElement) und so weiter durch die Elemente,
     bis das übergeordnete Element des Ziels erreicht ist.
-    {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}},
+    [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener),
     die für den Capture-Modus registriert wurden, als [`EventTarget.addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) aufgerufen wurde, werden in dieser Phase ausgelöst.
 - `Event.AT_TARGET` (2)
   - : Das Ereignis ist bei
-    {{domxref("EventTarget", "dem Ziel des Ereignisses", "", 1)}} angekommen.
+    [dem Ziel des Ereignisses](/de/docs/Web/API/EventTarget) angekommen.
     In dieser Phase werden die registrierten Event-Listener aufgerufen. Wenn
     [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `false` ist, wird die
     Verarbeitung des Ereignisses nach Abschluss dieser Phase beendet.
 - `Event.BUBBLING_PHASE` (3)
   - : Das Ereignis propagiert sich in umgekehrter Reihenfolge wieder durch die Vorfahren des Ziels nach oben,
     beginnend mit dem übergeordneten Element, und erreicht schließlich das umgebende [`Window`](/de/docs/Web/API/Window).
-    Dies ist bekannt als _Bubbling_ und tritt nur auf, wenn [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `true` ist. {{domxref("EventTarget/addEventListener", "Event-Listener", "", 1)}} registriert für diese Phase werden während dieses Prozesses ausgelöst.
+    Dies ist bekannt als _Bubbling_ und tritt nur auf, wenn [`Event.bubbles`](/de/docs/Web/API/Event/bubbles) `true` ist. [Event-Listener](/de/docs/Web/API/EventTarget/addEventListener) registriert für diese Phase werden während dieses Prozesses ausgelöst.
 
 ## Beispiel
 

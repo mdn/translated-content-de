@@ -18,7 +18,7 @@ WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension(
 > PVRTC ist typischerweise nur auf mobilen Geräten mit PowerVR-Chipsätzen verfügbar.
 > Es wird in allen Generationen des iPhone, iPod Touch und iPad verwendet und unterstützt bestimmte Android-Geräte, die eine PowerVR-GPU verwenden.
 >
-> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}- als auch {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}-Kontexte verfügbar.
+> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexte verfügbar.
 
 > [!NOTE]
 > Auf iOS-Geräten wird diese Erweiterung `WEBKIT_WEBGL_compressed_texture_pvrtc` genannt.

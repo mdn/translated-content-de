@@ -7,7 +7,7 @@ l10n:
 
 {{DefaultAPISidebar("Pointer Events")}}
 
-Dieser Leitfaden zeigt, wie man [Pointer Events](/de/docs/Web/API/Pointer_events) und das HTML-{{HTMLElement("canvas")}}-Element verwendet, um eine Multi-Touch-fähige Zeichenanwendung zu erstellen. Dieses Beispiel basiert auf dem in der [Übersicht zu Touch Events](/de/docs/Web/API/Touch_events), verwendet jedoch das Eingabe-Ereignismodell der {{domxref("PointerEvent","Pointer Events", "", 1)}}. Ein weiterer Unterschied ist, dass die Anwendung aufgrund der Geräteunabhängigkeit von Pointer Events koordinatenbasierte Eingaben von einer Maus, einem Stift oder einem Finger mit demselben Code akzeptiert.
+Dieser Leitfaden zeigt, wie man [Pointer Events](/de/docs/Web/API/Pointer_events) und das HTML-{{HTMLElement("canvas")}}-Element verwendet, um eine Multi-Touch-fähige Zeichenanwendung zu erstellen. Dieses Beispiel basiert auf dem in der [Übersicht zu Touch Events](/de/docs/Web/API/Touch_events), verwendet jedoch das Eingabe-Ereignismodell der [Pointer Events](/de/docs/Web/API/PointerEvent). Ein weiterer Unterschied ist, dass die Anwendung aufgrund der Geräteunabhängigkeit von Pointer Events koordinatenbasierte Eingaben von einer Maus, einem Stift oder einem Finger mit demselben Code akzeptiert.
 
 Diese Anwendung funktioniert nur in einem Browser, der Pointer Events unterstützt.
 

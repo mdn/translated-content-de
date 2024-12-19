@@ -12,7 +12,7 @@ Die **`WebGL2RenderingContext.drawElementsInstanced()`**-Methode
 der [WebGL 2 API](/de/docs/Web/API/WebGL_API) rendert Primitive aus Array-Daten wie die Methode [`gl.drawElements()`](/de/docs/Web/API/WebGLRenderingContext/drawElements). Zusätzlich kann sie mehrere Instanzen eines Satzes von Elementen ausführen.
 
 > [!NOTE]
-> Bei Verwendung von {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} kann die Erweiterung [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) diese Methode auch bereitstellen.
+> Bei Verwendung von [WebGL 1](/de/docs/Web/API/WebGLRenderingContext) kann die Erweiterung [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) diese Methode auch bereitstellen.
 
 ## Syntax
 

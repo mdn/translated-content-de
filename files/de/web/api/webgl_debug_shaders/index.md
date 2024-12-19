@@ -17,7 +17,7 @@ WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension(
 > [!NOTE]
 > Abhängig von den Datenschutzeinstellungen des Browsers könnte diese Erweiterung nur in privilegierten Kontexten verfügbar sein.
 >
-> Diese Erweiterung ist sowohl für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} als auch {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexte verfügbar.
+> Diese Erweiterung ist sowohl für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) als auch [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
 
 ## Instanzmethoden
 

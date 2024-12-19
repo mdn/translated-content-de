@@ -27,7 +27,7 @@ generateMipmap(target)
     - `gl.TEXTURE_2D`: Eine zweidimensionale Textur.
     - `gl.TEXTURE_CUBE_MAP`: Eine Würfelkarten-Textur.
 
-    Beim Verwenden eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}},
+    Beim Verwenden eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext),
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.TEXTURE_3D`: Eine dreidimensionale Textur.

@@ -152,7 +152,7 @@ widthSlider.addEventListener(
 widthSlider.dispatchEvent(new Event("input"));
 ```
 
-Nachdem die Elementreferenzen abgerufen wurden, wird ein {{domxref("EventTarget.addEventListener", "Ereignis-Listener", "", 1)}} eingerichtet, indem [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf dem Schieberegler-Steuerelement aufgerufen wird, um alle [`input`](/de/docs/Web/API/Element/input_event) Ereignisse zu empfangen, die auftreten. Diese Ereignisse werden gesendet, jedes Mal wenn sich der Wert des Schiebereglers ändert, selbst wenn der Benutzer ihn noch bewegt, sodass wir die Textbreite reaktionsschnell anpassen können.
+Nachdem die Elementreferenzen abgerufen wurden, wird ein [Ereignis-Listener](/de/docs/Web/API/EventTarget/addEventListener) eingerichtet, indem [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) auf dem Schieberegler-Steuerelement aufgerufen wird, um alle [`input`](/de/docs/Web/API/Element/input_event) Ereignisse zu empfangen, die auftreten. Diese Ereignisse werden gesendet, jedes Mal wenn sich der Wert des Schiebereglers ändert, selbst wenn der Benutzer ihn noch bewegt, sodass wir die Textbreite reaktionsschnell anpassen können.
 
 Wenn ein `"input"` Ereignis auftritt, rufen wir `newValueSpecifiedUnits()` auf, um den Wert von `textLength` auf den neuen Wert des Schiebereglers zu setzen, wobei die `SVGLength` Schnittstelle's `SVG_LENGTHTYPE_PX` Einheitentyp verwendet wird, um anzuzeigen, dass der Wert Pixel darstellt. Beachten Sie, dass wir in `textLength` hineinsteigen müssen, um seine `baseVal` Eigenschaft zu erhalten; `textLength` wird als ein [`SVGLength`](/de/docs/Web/API/SVGLength) Objekt gespeichert, sodass wir es nicht wie eine einfache Zahl behandeln können.
 

@@ -13,7 +13,7 @@ Die **`EXT_shader_texture_lod`** Erweiterung ist Teil der [WebGL API](/de/docs/W
 WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwenden von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Lehrgang](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung steht nur für {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} Kontexte zur Verfügung. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. Es erfordert GLSL `#version 300 es`.
+> Diese Erweiterung steht nur für [WebGL1](/de/docs/Web/API/WebGLRenderingContext) Kontexte zur Verfügung. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. Es erfordert GLSL `#version 300 es`.
 
 ## GLSL eingebaute Funktionen
 

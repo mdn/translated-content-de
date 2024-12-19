@@ -110,7 +110,7 @@ l10n:
 
 #### WebGL
 
-- Die [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Erweiterung wurde implementiert ([Firefox bug 1129332](https://bugzil.la/1129332)).
+- Die [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float) [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) Erweiterung wurde implementiert ([Firefox bug 1129332](https://bugzil.la/1129332)).
 - Das [`webglcontextcreationerror`](/de/docs/Web/API/HTMLCanvasElement/webglcontextcreationerror_event) Ereignis, das gesendet wird, wenn ein WebGL-Kontext-Erstellungsversuch fehlschlägt, wurde implementiert ([Firefox bug 1271478](https://bugzil.la/1271478)). Verwenden Sie dies, um zu verstehen, was schief gelaufen ist, sowohl für das Debuggen als auch für die Produktionsfehlerbehandlung.
 
 #### IndexedDB

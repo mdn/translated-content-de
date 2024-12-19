@@ -34,7 +34,7 @@ disable(capability)
     | `gl.SCISSOR_TEST`             | Deaktiviert den Scherentest, der Fragmente verwirft, die außerhalb des Scherrechtecks liegen. Siehe [`WebGLRenderingContext.scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).         |
     | `gl.STENCIL_TEST`             | Deaktiviert den Stencil-Test und Updates des Stencil-Puffers. Siehe [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc).                                 |
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Context", "", 1)}} stehen zusätzlich die folgenden Werte zur Verfügung:
+    Bei Verwendung eines [WebGL 2 Context](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich die folgenden Werte zur Verfügung:
 
     | Konstante               | Beschreibung                                                                                                                                                                      |
     | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

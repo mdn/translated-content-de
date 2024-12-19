@@ -37,7 +37,7 @@ renderbufferStorage(target, internalFormat, width, height)
     - `gl.STENCIL_INDEX8`: 8 Stencil-Bits.
     - `gl.DEPTH_STENCIL`
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.R8`
     - `gl.R8UI`
@@ -78,7 +78,7 @@ renderbufferStorage(target, internalFormat, width, height)
 
     - `ext.SRGB8_ALPHA8_EXT`: 8-Bit sRGB und Alpha.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}} und der [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float)-Erweiterung:
+    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) und der [`EXT_color_buffer_float`](/de/docs/Web/API/EXT_color_buffer_float)-Erweiterung:
 
     - `gl.R16F`
     - `gl.RG16F`

@@ -38,7 +38,7 @@ getProgramParameter(program, pname)
 
       - : Gibt ein [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, das die Anzahl der aktiven Uniformvariablen in einem Programm angibt.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}}
+    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext)
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.TRANSFORM_FEEDBACK_BUFFER_MODE`

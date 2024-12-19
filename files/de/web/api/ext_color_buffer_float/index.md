@@ -13,9 +13,9 @@ Die **`EXT_color_buffer_float`** Erweiterung ist Teil von [WebGL](/de/docs/Web/A
 WebGL-Erweiterungen sind mit der Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Weitere Informationen finden Sie auch unter [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Tutorial](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur für {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Kontexte verfügbar.
+> Diese Erweiterung ist nur für [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
 >
-> Für {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}}, siehe die [`EXT_color_buffer_half_float`](/de/docs/Web/API/EXT_color_buffer_half_float) und [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) Erweiterungen.
+> Für [WebGL 1](/de/docs/Web/API/WebGLRenderingContext), siehe die [`EXT_color_buffer_half_float`](/de/docs/Web/API/EXT_color_buffer_half_float) und [`WEBGL_color_buffer_float`](/de/docs/Web/API/WEBGL_color_buffer_float) Erweiterungen.
 
 ## Erweiterte Methoden
 

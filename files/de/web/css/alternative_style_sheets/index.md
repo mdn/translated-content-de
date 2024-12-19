@@ -39,7 +39,7 @@ Unabhängig davon, welcher Stil ausgewählt ist, werden die Regeln aus dem Style
 Ein beliebiges Stylesheet in einem Dokument fällt in eine der folgenden Kategorien:
 
 - **Persistent** (hat `rel="stylesheet"`, kein `title=""`): wird immer auf das Dokument angewendet.
-- **Preferred** (hat `rel="stylesheet"`, mit angegebenem `title="…"`): wird standardmäßig angewendet, aber {{domxref("StyleSheet.disabled", "disabled", "", 1)}} wenn ein alternatives Stylesheet ausgewählt wird. **Es kann nur ein bevorzugtes Stylesheet geben**, daher führt das Angeben von Stylesheets mit unterschiedlichen Titelattributen dazu, dass einige ignoriert werden.
+- **Preferred** (hat `rel="stylesheet"`, mit angegebenem `title="…"`): wird standardmäßig angewendet, aber [disabled](/de/docs/Web/API/StyleSheet/disabled) wenn ein alternatives Stylesheet ausgewählt wird. **Es kann nur ein bevorzugtes Stylesheet geben**, daher führt das Angeben von Stylesheets mit unterschiedlichen Titelattributen dazu, dass einige ignoriert werden.
 - **Alternate** (`rel="alternate stylesheet"`, mit angegebenem `title="…"`): standardmäßig deaktiviert, kann ausgewählt werden.
 
 Wenn Stylesheets mit einem `title`-Attribut im {{HTMLElement("link", "&lt;link rel=\"stylesheet\"&gt;")}} oder {{HTMLElement("style")}}-Element referenziert werden, wird der Titel zu einer der Optionen, die dem Benutzer angeboten werden. Stylesheets, die mit demselben `title` verlinkt sind, sind Teil derselben Auswahl. Stylesheets, die ohne `title`-Attribut verlinkt sind, werden immer angewendet.

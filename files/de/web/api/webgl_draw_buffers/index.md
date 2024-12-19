@@ -13,7 +13,7 @@ Die **`WEBGL_draw_buffers`**-Erweiterung ist Teil der [WebGL API](/de/docs/Web/A
 WebGL-Erweiterungen sind verfügbar über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension). Für weitere Informationen siehe auch [Anleitung zur Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL-Leitfaden](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur in {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}-Kontexten verfügbar. In {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. In WebGL 2 sind die Konstanten ohne das "WEBGL"-Suffix verfügbar und die neuen GLSL-Built-ins erfordern GLSL `#version 300 es`.
+> Diese Erweiterung ist nur in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)-Kontexten verfügbar. In [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) ist die Funktionalität dieser Erweiterung standardmäßig im WebGL2-Kontext verfügbar. In WebGL 2 sind die Konstanten ohne das "WEBGL"-Suffix verfügbar und die neuen GLSL-Built-ins erfordern GLSL `#version 300 es`.
 
 ## Konstanten
 

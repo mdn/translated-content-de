@@ -25,7 +25,7 @@ bindFramebuffer(target, framebuffer)
     - `gl.FRAMEBUFFER`
       - : Datenspeicher für eine Sammlung von Farb-, Alpha-, Tiefen- und Stencil-Puffern, die sowohl als Ziel für Zeichnungen als auch als Quelle für das Lesen verwendet werden (siehe unten).
 
-    Wenn ein {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}} verwendet wird, sind zusätzlich folgende Werte verfügbar:
+    Wenn ein [WebGL 2-Kontext](/de/docs/Web/API/WebGL2RenderingContext) verwendet wird, sind zusätzlich folgende Werte verfügbar:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Wird als Ziel für Zeichenoperationen wie `gl.draw*`, `gl.clear*` und `gl.blitFramebuffer` verwendet.

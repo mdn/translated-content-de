@@ -10,7 +10,7 @@ l10n:
 Die **`image()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert ein {{CSSxRef("&lt;image&gt;")}} ähnlich der {{CSSxRef("url_function", "url()")}} Funktion, bietet jedoch zusätzliche Funktionen, einschließlich der Angabe der Richtungsabhängigkeit des Bildes, der Anzeige nur eines Teils des Bildes, der durch ein Medienfragment definiert ist, sowie der Angabe einer Volltonfarbe als Fallback, falls keines der angegebenen Bilder gerendert werden kann.
 
 > [!NOTE]
-> Die CSS `image()` Funktion sollte nicht mit {{DOMxRef("HTMLImageElement/Image", '<code>Image()</code>, der <code>HTMLImageElement</code> Konstruktor', '', 1)}} verwechselt werden.
+> Die CSS `image()` Funktion sollte nicht mit [<code>Image()</code>, der <code>HTMLImageElement</code> Konstruktor](/de/docs/Web/API/HTMLImageElement/Image) verwechselt werden.
 
 ## Syntax
 

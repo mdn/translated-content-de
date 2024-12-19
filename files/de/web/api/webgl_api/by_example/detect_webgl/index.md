@@ -13,9 +13,9 @@ Dieses Beispiel zeigt, wie ein {{Glossary("WebGL", "WebGL")}}-Rendering-Kontext 
 
 {{EmbedLiveSample("Feature-detecting_WebGL",660,150)}}
 
-In diesem ersten Beispiel werden wir überprüfen, ob der Browser {{Glossary("WebGL", "WebGL")}} unterstützt. Zu diesem Zweck versuchen wir, den {{domxref("WebGLRenderingContext","WebGL rendering context","",1)}} von einem [`canvas`](/de/docs/Web/API/HTMLCanvasElement)-Element zu erhalten. Der {{domxref("WebGLRenderingContext","WebGL rendering context", "", 1)}} ist eine Schnittstelle, über die Sie den Zustand der Grafikeinheit setzen und abfragen, Daten an das WebGL senden und Zeichenbefehle ausführen können.
+In diesem ersten Beispiel werden wir überprüfen, ob der Browser {{Glossary("WebGL", "WebGL")}} unterstützt. Zu diesem Zweck versuchen wir, den [WebGL rendering context](/de/docs/Web/API/WebGLRenderingContext) von einem [`canvas`](/de/docs/Web/API/HTMLCanvasElement)-Element zu erhalten. Der [WebGL rendering context](/de/docs/Web/API/WebGLRenderingContext) ist eine Schnittstelle, über die Sie den Zustand der Grafikeinheit setzen und abfragen, Daten an das WebGL senden und Zeichenbefehle ausführen können.
 
-Den Zustand der Grafikeinheit in einer einzigen Kontextschnittstelle zu speichern, ist nicht einzigartig für {{Glossary("WebGL", "WebGL")}}. Dies wird auch in anderen Grafik-{{Glossary("API", "API")}} wie dem {{domxref("CanvasRenderingContext2D", "canvas 2D rendering context", "", 1)}} gemacht. Die Eigenschaften und Variablen, die Sie anpassen können, sind jedoch für jede {{Glossary("API", "API")}} unterschiedlich.
+Den Zustand der Grafikeinheit in einer einzigen Kontextschnittstelle zu speichern, ist nicht einzigartig für {{Glossary("WebGL", "WebGL")}}. Dies wird auch in anderen Grafik-{{Glossary("API", "API")}} wie dem [canvas 2D rendering context](/de/docs/Web/API/CanvasRenderingContext2D) gemacht. Die Eigenschaften und Variablen, die Sie anpassen können, sind jedoch für jede {{Glossary("API", "API")}} unterschiedlich.
 
 ```html
 <p>[ Here would go the result of WebGL feature detection ]</p>

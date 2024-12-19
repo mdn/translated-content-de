@@ -44,7 +44,7 @@ Nichts Besonderes hier: Der Ball ist eigentlich ein einfacher Kreis und wird mit
 
 ## Geschwindigkeit hinzufügen
 
-Jetzt, wo wir einen Ball haben, können wir eine einfache Animation hinzufügen, wie wir sie im [letzten Kapitel](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) dieses Tutorials gelernt haben. Wieder hilft uns [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) dabei, die Animation zu steuern. Der Ball bewegt sich, indem ein Geschwindigkeitsvektor zur Position hinzugefügt wird. Für jedes Bild löschen wir außerdem mit {{domxref("CanvasRenderingContext2D.clearRect", "clear", "", 1)}} die Leinwand, um alte Kreise aus vorherigen Bildern zu entfernen.
+Jetzt, wo wir einen Ball haben, können wir eine einfache Animation hinzufügen, wie wir sie im [letzten Kapitel](/de/docs/Web/API/Canvas_API/Tutorial/Basic_animations) dieses Tutorials gelernt haben. Wieder hilft uns [`window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) dabei, die Animation zu steuern. Der Ball bewegt sich, indem ein Geschwindigkeitsvektor zur Position hinzugefügt wird. Für jedes Bild löschen wir außerdem mit [clear](/de/docs/Web/API/CanvasRenderingContext2D/clearRect) die Leinwand, um alte Kreise aus vorherigen Bildern zu entfernen.
 
 ```js
 const canvas = document.getElementById("canvas");

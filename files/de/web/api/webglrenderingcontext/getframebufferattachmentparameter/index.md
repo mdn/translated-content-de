@@ -26,7 +26,7 @@ getFramebufferAttachmentParameter(target, attachment, pname)
 
       - : Sammlung von Puffer-Datenspeichern für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die verwendet werden, um ein Bild zu rendern.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}} stehen zusätzlich die folgenden Werte zur Verfügung:
+    Bei Verwendung eines [WebGL 2-Kontext](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich die folgenden Werte zur Verfügung:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Entspricht `gl.FRAMEBUFFER`. Wird als Ziel für Zeichen-, Rendering-, Lösch- und Schreiboperationen verwendet.
@@ -42,7 +42,7 @@ getFramebufferAttachmentParameter(target, attachment, pname)
     - `gl.STENCIL_ATTACHMENT`: Texturanhang für den Stencil-Puffer des Framebuffers.
     - `gl.DEPTH_STENCIL_ATTACHMENT`: Texturanhang für den Tiefen- und Stencil-Puffer.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}} stehen zusätzlich die folgenden Werte zur Verfügung:
+    Bei Verwendung eines [WebGL 2-Kontext](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich die folgenden Werte zur Verfügung:
 
     - `gl.COLOR_ATTACHMENT1 gl.COLOR_ATTACHMENT2 gl.COLOR_ATTACHMENT3 gl.COLOR_ATTACHMENT4 gl.COLOR_ATTACHMENT5 gl.COLOR_ATTACHMENT6 gl.COLOR_ATTACHMENT7 gl.COLOR_ATTACHMENT8 gl.COLOR_ATTACHMENT9 gl.COLOR_ATTACHMENT10 gl.COLOR_ATTACHMENT11 gl.COLOR_ATTACHMENT12 gl.COLOR_ATTACHMENT13 gl.COLOR_ATTACHMENT14 gl.COLOR_ATTACHMENT15`
 
@@ -67,7 +67,7 @@ getFramebufferAttachmentParameter(target, attachment, pname)
 
     - `ext.FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT`: Die Farb-Codierung des Framebuffers.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontext", "", 1)}} stehen zusätzlich die folgenden Werte zur Verfügung:
+    Bei Verwendung eines [WebGL 2-Kontext](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich die folgenden Werte zur Verfügung:
 
     - `gl.FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE`
     - `gl.FRAMEBUFFER_ATTACHMENT_BLUE_SIZE`

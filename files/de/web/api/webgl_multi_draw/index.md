@@ -19,8 +19,8 @@ Wenn diese Erweiterung aktiviert ist:
 
 > [!NOTE]
 > Diese Erweiterung ist sowohl für
-> {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} als auch
-> {{domxref("WebGL2RenderingContext", "WebGL 2", "", 1)}} Kontexte verfügbar.
+> [WebGL 1](/de/docs/Web/API/WebGLRenderingContext) als auch
+> [WebGL 2](/de/docs/Web/API/WebGL2RenderingContext) Kontexte verfügbar.
 >
 > Im Shader-Code muss die Direktive `#extension GL_ANGLE_multi_draw`
 > aufgerufen werden, um die Erweiterung zu aktivieren.

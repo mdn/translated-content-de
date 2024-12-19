@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("WebCodecs API")}}{{SecureContext_Header}}{{AvailableInWorkers("window_and_dedicated")}}
 
-Die **`VideoEncoder`**-Schnittstelle der {{domxref('WebCodecs API', '', '', 1)}} kodiert [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekte in [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)s.
+Die **`VideoEncoder`**-Schnittstelle der [WebCodecs API](/de/docs/Web/API/WebCodecs_API) kodiert [`VideoFrame`](/de/docs/Web/API/VideoFrame)-Objekte in [`EncodedVideoChunk`](/de/docs/Web/API/EncodedVideoChunk)s.
 
 {{InheritanceDiagram}}
 

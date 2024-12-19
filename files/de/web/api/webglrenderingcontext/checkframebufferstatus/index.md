@@ -28,7 +28,7 @@ checkFramebufferStatus(target)
 
       - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Stencil-Puffer, die verwendet werden, um ein Bild darzustellen.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}}
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.DRAW_FRAMEBUFFER`
@@ -50,7 +50,7 @@ Ein [`GLenum`](/de/docs/Web/API/WebGL_API/Types), der den Komplettheitsstatus de
   Anhangs sind nicht gleich.
 - `gl.FRAMEBUFFER_UNSUPPORTED`: Das Format des Anhangs wird nicht
   unterstützt oder wenn Tiefen- und Stencil-Anhänge nicht derselbe Renderbuffer sind.
-- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}}
+- Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
   können zusätzlich die folgenden Werte zurückgegeben werden:
 
   - `gl.FRAMEBUFFER_INCOMPLETE_MULTISAMPLE`: Die Werte von

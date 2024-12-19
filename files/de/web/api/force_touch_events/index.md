@@ -12,7 +12,7 @@ l10n:
 ## Ereignisse
 
 - [`webkitmouseforcewillbegin`](/de/docs/Web/API/Element/webkitmouseforcewillbegin_event) {{non-standard_inline}}
-  - : Dieses Ereignis wird vor dem [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Ereignis ausgelöst. Sein Hauptzweck ist, dass es {{domxref("Event.preventDefault()", "default-prevented", "", 1)}} werden kann.
+  - : Dieses Ereignis wird vor dem [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Ereignis ausgelöst. Sein Hauptzweck ist, dass es [default-prevented](/de/docs/Web/API/Event/preventDefault) werden kann.
 - [`webkitmouseforcedown`](/de/docs/Web/API/Element/webkitmouseforcedown_event) {{non-standard_inline}}
   - : Dieses Ereignis wird nach dem [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Ereignis ausgelöst, sobald genügend Druck ausgeübt wurde, um als "Force Click" zu gelten.
 - [`webkitmouseforceup`](/de/docs/Web/API/Element/webkitmouseforceup_event) {{non-standard_inline}}

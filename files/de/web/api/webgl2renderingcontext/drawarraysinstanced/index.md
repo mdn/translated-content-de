@@ -13,7 +13,7 @@ der [WebGL 2 API](/de/docs/Web/API/WebGL_API) rendert Primitive aus
 Array-Daten wie die [`gl.drawArrays()`](/de/docs/Web/API/WebGLRenderingContext/drawArrays) Methode. Zusätzlich kann sie mehrere Instanzen des Elementbereichs ausführen.
 
 > [!NOTE]
-> Bei Verwendung von {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}}
+> Bei Verwendung von [WebGL 1](/de/docs/Web/API/WebGLRenderingContext)
 > kann die [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) Erweiterung diese Methode ebenfalls bereitstellen.
 
 ## Syntax

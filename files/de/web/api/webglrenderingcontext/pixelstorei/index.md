@@ -86,7 +86,7 @@ Keiner ({{jsxref("undefined")}}).
   </tbody>
 </table>
 
-Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL-2-Kontext", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+Bei Verwendung eines [WebGL-2-Kontext](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
 <table class="no-markdown">
   <thead>

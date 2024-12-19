@@ -28,7 +28,7 @@ getBufferParameter(target, pname)
 
       - : Puffer, der für Elementindizes verwendet wird.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}}
+    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext)
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.COPY_READ_BUFFER`
@@ -58,7 +58,7 @@ getBufferParameter(target, pname)
         - `gl.DYNAMIC_DRAW`
         - `gl.STREAM_DRAW`
 
-        Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}}
+        Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext)
         sind zusätzlich die folgenden Werte verfügbar:
 
         - `gl.STATIC_READ`

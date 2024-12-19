@@ -29,7 +29,7 @@ Keiner ({{jsxref("undefined")}}).
 
 ### Ausnahmen
 
-Diese Methode wirft direkt keine Ausnahmen; wenn jedoch der [`playState`](/de/docs/Web/API/Animation/playState) der Animation beim Abbruch nicht `"idle"` ist, wird das {{domxref("Animation.finished", "aktuelle abgeschlossene Promise", "", 1)}} mit einer [`DOMException`](/de/docs/Web/API/DOMException) mit dem Namen `AbortError` abgelehnt.
+Diese Methode wirft direkt keine Ausnahmen; wenn jedoch der [`playState`](/de/docs/Web/API/Animation/playState) der Animation beim Abbruch nicht `"idle"` ist, wird das [aktuelle abgeschlossene Promise](/de/docs/Web/API/Animation/finished) mit einer [`DOMException`](/de/docs/Web/API/DOMException) mit dem Namen `AbortError` abgelehnt.
 
 ## Spezifikationen
 

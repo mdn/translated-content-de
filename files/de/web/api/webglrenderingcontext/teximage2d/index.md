@@ -703,7 +703,7 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
     - `ext.SRGB_EXT`
     - `ext.SRGB_ALPHA_EXT`
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.R8`
     - `gl.R16F`
@@ -763,7 +763,7 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
 
     - `ext.HALF_FLOAT_OES` (Konstante, die von der Erweiterung bereitgestellt wird)
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.BYTE`
     - `gl.UNSIGNED_SHORT`

@@ -32,7 +32,7 @@ hint(target, mode)
       - : Genauigkeit der Ableitungsberechnung für die integrierten GLSL-Funktionen: `dFdx`,
         `dFdy` und `fwidth`.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}},
+    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext),
     sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.FRAGMENT_SHADER_DERIVATIVE_HINT`

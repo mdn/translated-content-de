@@ -13,7 +13,7 @@ Ein Beispiel, das zeigt, wie ein WebGL-Rendering-Kontext auf eine einfarbige Fl�
 
 {{EmbedLiveSample("Clearing_the_WebGL_context_with_a_solid_color",660,425)}}
 
-Das einfachste grafische {{Glossary("WebGL", "WebGL")}}-Programm. Richten Sie den {{domxref("WebGLRenderingContext","Rendering-Kontext", "", 1)}} ein und löschen Sie ihn dann einfach komplett grün. Beachten Sie, dass {{Glossary("CSS", "CSS")}} die Hintergrundfarbe des Canvas auf Schwarz setzt. Wenn das Canvas grün wird, wissen wir, dass die Magie von {{Glossary("WebGL", "WebGL")}} funktioniert hat.
+Das einfachste grafische {{Glossary("WebGL", "WebGL")}}-Programm. Richten Sie den [Rendering-Kontext](/de/docs/Web/API/WebGLRenderingContext) ein und löschen Sie ihn dann einfach komplett grün. Beachten Sie, dass {{Glossary("CSS", "CSS")}} die Hintergrundfarbe des Canvas auf Schwarz setzt. Wenn das Canvas grün wird, wissen wir, dass die Magie von {{Glossary("WebGL", "WebGL")}} funktioniert hat.
 
 Darüber hinaus werden Sie feststellen, dass die Löschung des Zeichenpuffers mit einer einfarbigen Fläche ein zweistufiger Prozess ist. Zuerst setzen wir die Löschfarbe auf Grün, indem wir die Methode [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor) verwenden. Dadurch wird nur ein interner Zustand von {{Glossary("WebGL", "WebGL")}} geändert, aber es wird noch nichts gezeichnet. Anschließend führen wir die eigentliche Zeichnung durch, indem wir die Methode [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) aufrufen. Dies ist typisch für das Zeichnen mit WebGL. Es gibt nur eine Handvoll Methoden für das eigentliche Zeichnen (`clear()` ist eine davon). Alle anderen Methoden dienen zum Setzen und Abfragen von WebGL-Zustandsvariablen (wie der Löschfarbe).
 

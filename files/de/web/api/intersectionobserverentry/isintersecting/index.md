@@ -16,7 +16,7 @@ Ein boolescher Wert, der angibt, ob das [`target`](/de/docs/Web/API/Intersection
 
 ## Beispiele
 
-In diesem einfachen Beispiel wird ein Überschneidungs-Callback verwendet, um einen Zähler zu aktualisieren, der anzeigt, wie viele Ziel-Elemente derzeit mit der {{domxref("IntersectionObserver.root", "Schnittwurzel", "", 1)}} im Überschneidungsbereich liegen.
+In diesem einfachen Beispiel wird ein Überschneidungs-Callback verwendet, um einen Zähler zu aktualisieren, der anzeigt, wie viele Ziel-Elemente derzeit mit der [Schnittwurzel](/de/docs/Web/API/IntersectionObserver/root) im Überschneidungsbereich liegen.
 
 ```js
 function intersectionCallback(entries) {

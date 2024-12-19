@@ -36,7 +36,7 @@ blendEquation(mode)
     - `ext.MIN_EXT`: Minimum von Quelle und Ziel
     - `ext.MAX_EXT`: Maximum von Quelle und Ziel
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL-2-Kontext", "", 1)}}
+    Bei Verwendung eines [WebGL-2-Kontext](/de/docs/Web/API/WebGL2RenderingContext)
     sind zusätzlich folgende Werte verfügbar:
 
     - `gl.MIN`: Minimum von Quelle und Ziel

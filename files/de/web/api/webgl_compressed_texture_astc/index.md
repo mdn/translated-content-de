@@ -17,7 +17,7 @@ WebGL-Erweiterungen sind mittels der Methode [`WebGLRenderingContext.getExtensio
 > [!NOTE]
 > ASTC-Kompression ist typischerweise verfügbar auf Mali ARM GPUs, Intel GPUs, und NVIDIA Tegra Chips.
 >
-> Diese Erweiterung ist verfügbar in beiden, {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}} und {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}} Kontexten.
+> Diese Erweiterung ist verfügbar in beiden, [WebGL1](/de/docs/Web/API/WebGLRenderingContext) und [WebGL2](/de/docs/Web/API/WebGL2RenderingContext) Kontexten.
 
 ## Instanzmethoden
 

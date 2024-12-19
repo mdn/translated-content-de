@@ -29,7 +29,7 @@ postMessage(message, options)
 ### Parameter
 
 - `message`
-  - : Die zu dem anderen Fenster zu sendenden Daten. Die Daten werden mit dem {{domxref("Web_Workers_API/Structured_clone_algorithm", "Structured Clone Algorithm", "", 1)}} serialisiert. Das bedeutet, Sie können eine Vielzahl von Datenobjekten sicher an das Ziel-Fenster übergeben, ohne sie selbst serialisieren zu müssen.
+  - : Die zu dem anderen Fenster zu sendenden Daten. Die Daten werden mit dem [Structured Clone Algorithm](/de/docs/Web/API/Web_Workers_API/Structured_clone_algorithm) serialisiert. Das bedeutet, Sie können eine Vielzahl von Datenobjekten sicher an das Ziel-Fenster übergeben, ohne sie selbst serialisieren zu müssen.
 - `targetOrigin` {{optional_Inline}}
   - : Gibt den {{Glossary("Origin", "Ursprung")}} an, den das empfangende Fenster haben muss, um das Ereignis zu empfangen. Damit das Ereignis ausgelöst wird, muss der Ursprung genau übereinstimmen (einschließlich Schema, Hostname und Port). Wenn er weggelassen wird, entspricht er standardmäßig dem Ursprung, der die Methode aufruft. Dieser Mechanismus ermöglicht die Kontrolle darüber, wohin Nachrichten gesendet werden; beispielsweise, wenn `postMessage()` verwendet wurde, um ein Passwort zu übertragen, wäre es absolut kritisch, dass dieses Argument ein URI ist, dessen Ursprung mit dem beabsichtigten Empfänger der Nachricht, die das Passwort enthält, identisch ist, um Abfangen des Passworts durch eine bösartige Drittpartei zu verhindern. `*` kann ebenfalls bereitgestellt werden, was bedeutet, dass die Nachricht an einen Listener mit beliebigem Ursprung gesendet werden kann.
     > [!NOTE]

@@ -28,7 +28,7 @@ bufferData(target, srcData, usage)
     - `gl.ELEMENT_ARRAY_BUFFER`
       - : Puffer, der für Elementindizes verwendet wird.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.COPY_READ_BUFFER`
       - : Puffer zum Kopieren von einem Pufferobjekt zu einem anderen.
@@ -59,7 +59,7 @@ bufferData(target, srcData, usage)
     - `gl.STREAM_DRAW`
       - : Der Inhalt soll einmal von der Anwendung angegeben und höchstens ein paar Mal als Quelle für WebGL-Zeichen- und Bildspezifikationsbefehle verwendet werden.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.STATIC_READ`
       - : Der Inhalt soll einmal durch Auslesen von Daten aus WebGL festgelegt und viele Male von der Anwendung abgefragt werden.

@@ -15,7 +15,7 @@ WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension(
 > [!NOTE]
 > Die Unterstützung hängt vom Grafiktreiber des Systems ab. Es gibt keine Unterstützung unter Windows.
 >
-> Diese Erweiterung ist sowohl in {{domxref("WebGLRenderingContext", "WebGL1", "", 1)}}- als auch in {{domxref("WebGL2RenderingContext", "WebGL2", "", 1)}}-Kontexten verfügbar.
+> Diese Erweiterung ist sowohl in [WebGL1](/de/docs/Web/API/WebGLRenderingContext)- als auch in [WebGL2](/de/docs/Web/API/WebGL2RenderingContext)-Kontexten verfügbar.
 
 ## Konstanten
 

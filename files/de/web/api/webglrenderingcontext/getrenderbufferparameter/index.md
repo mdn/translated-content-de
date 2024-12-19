@@ -57,7 +57,7 @@ getRenderbufferParameter(target, pname)
 
       - : Gibt einen [`GLint`](/de/docs/Web/API/WebGL_API/Types) zurück, der die Auflösungsgröße (in Bits) für den Stencil-Kanal ist.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontexts", "", 1)}}
+    Bei Verwendung eines [WebGL 2 Kontexts](/de/docs/Web/API/WebGL2RenderingContext)
     steht zusätzlich der folgende Wert zur Verfügung:
 
     - `gl.RENDERBUFFER_SAMPLES`

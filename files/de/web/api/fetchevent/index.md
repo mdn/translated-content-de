@@ -7,7 +7,7 @@ l10n:
 
 {{APIRef("Service Workers API")}}{{AvailableInWorkers("service")}}
 
-Dies ist der Ereignistyp für `fetch`-Ereignisse, die im {{domxref("ServiceWorkerGlobalScope", "Service Worker Global Scope", "", 1)}} ausgelöst werden. Es enthält Informationen über den Abruf, einschließlich der Anfrage und wie der Empfänger die Antwort behandeln wird. Es stellt die Methode [`event.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) bereit, die es uns ermöglicht, eine Antwort auf diesen Abruf bereitzustellen.
+Dies ist der Ereignistyp für `fetch`-Ereignisse, die im [Service Worker Global Scope](/de/docs/Web/API/ServiceWorkerGlobalScope) ausgelöst werden. Es enthält Informationen über den Abruf, einschließlich der Anfrage und wie der Empfänger die Antwort behandeln wird. Es stellt die Methode [`event.respondWith()`](/de/docs/Web/API/FetchEvent/respondWith) bereit, die es uns ermöglicht, eine Antwort auf diesen Abruf bereitzustellen.
 
 {{InheritanceDiagram}}
 

@@ -12,7 +12,7 @@ Die schreibgeschützte **`DragEvent.dataTransfer`**-Eigenschaft enthält die Dat
 
 ## Wert
 
-Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die {{domxref("DragEvent","Daten des Ziehereignisses", "", 1)}} enthält.
+Ein [`DataTransfer`](/de/docs/Web/API/DataTransfer)-Objekt, das die [Daten des Ziehereignisses](/de/docs/Web/API/DragEvent) enthält.
 
 Die Eigenschaft kann `null` sein, wenn das Ereignis mit dem Konstruktor erstellt wurde. Sie ist niemals `null`, wenn sie vom Browser ausgelöst wird.
 

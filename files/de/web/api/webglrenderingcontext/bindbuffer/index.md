@@ -29,7 +29,7 @@ bindBuffer(target, buffer)
     - `gl.ELEMENT_ARRAY_BUFFER`
       - : Buffer, der für Elementindizes verwendet wird.
 
-    Bei der Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei der Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.COPY_READ_BUFFER`
       - : Buffer zum Kopieren von einem Pufferobjekt in ein anderes.

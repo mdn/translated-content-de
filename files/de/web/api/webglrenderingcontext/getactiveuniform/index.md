@@ -46,7 +46,7 @@ Das `type`-Attribut des Rückgabewerts wird einer der folgenden sein:
 - `gl.FLOAT_MAT4`
 - `gl.SAMPLER_2D`
 - `gl.SAMPLER_CUBE`
-- Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich folgende Werte möglich:
+- Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich folgende Werte möglich:
 
   - `gl.UNSIGNED_INT`
   - `gl.UNSIGNED_INT_VEC2`

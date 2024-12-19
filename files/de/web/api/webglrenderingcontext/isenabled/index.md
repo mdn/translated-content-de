@@ -36,7 +36,7 @@ isEnabled(cap)
     | `gl.SCISSOR_TEST`             | Der Scherentest verwirft Fragmente, die außerhalb des Scherrechtecks liegen. Siehe [`WebGLRenderingContext.scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).                 |
     | `gl.STENCIL_TEST`             | Schablonentests und Aktualisierungen des Schablonenpuffers. Siehe [`WebGLRenderingContext.stencilFunc()`](/de/docs/Web/API/WebGLRenderingContext/stencilFunc).                          |
 
-    Bei der Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2 Kontext", "", 1)}} stehen zusätzlich die folgenden Werte zur Verfügung:
+    Bei der Verwendung eines [WebGL 2 Kontext](/de/docs/Web/API/WebGL2RenderingContext) stehen zusätzlich die folgenden Werte zur Verfügung:
 
     | Konstante               | Beschreibung                                                                                                                                                          |
     | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

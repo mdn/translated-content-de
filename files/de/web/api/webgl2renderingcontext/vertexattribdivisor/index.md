@@ -11,7 +11,7 @@ l10n:
 Die **`WebGL2RenderingContext.vertexAttribDivisor()`** Methode des [WebGL 2 API](/de/docs/Web/API/WebGL_API) ändert die Rate, mit der generische Vertex-Attribute voranschreiten, wenn mehrere Instanzen von Primitiven gerendert werden, mit [`gl.drawArraysInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawArraysInstanced) und [`gl.drawElementsInstanced()`](/de/docs/Web/API/WebGL2RenderingContext/drawElementsInstanced).
 
 > [!NOTE]
-> Bei Verwendung von {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}}, kann die [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) Erweiterung diese Methode ebenfalls bereitstellen.
+> Bei Verwendung von [WebGL 1](/de/docs/Web/API/WebGLRenderingContext), kann die [`ANGLE_instanced_arrays`](/de/docs/Web/API/ANGLE_instanced_arrays) Erweiterung diese Methode ebenfalls bereitstellen.
 
 ## Syntax
 

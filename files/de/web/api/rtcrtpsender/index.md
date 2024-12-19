@@ -41,7 +41,7 @@ Mit ihm können Sie die für den entsprechenden Track verwendete Kodierung konfi
 - [`RTCRtpSender.setParameters()`](/de/docs/Web/API/RTCRtpSender/setParameters)
   - : Wendet Änderungen an Parametern an, die konfigurieren, wie der `track` kodiert und an den entfernten Partner übertragen wird.
 - [`RTCRtpSender.setStreams()`](/de/docs/Web/API/RTCRtpSender/setStreams)
-  - : Setzt die {{domxref("MediaStream", "Stream(s)", "", 1)}} die mit dem von diesem Sender übertragenen [`track`](/de/docs/Web/API/RTCRtpSender/track) verbunden sind.
+  - : Setzt die [Stream(s)](/de/docs/Web/API/MediaStream) die mit dem von diesem Sender übertragenen [`track`](/de/docs/Web/API/RTCRtpSender/track) verbunden sind.
 - [`RTCRtpSender.replaceTrack()`](/de/docs/Web/API/RTCRtpSender/replaceTrack)
   - : Versucht, den derzeit vom `RTCRtpSender` gesendeten Track durch einen anderen Track zu ersetzen, ohne eine Neuverhandlung durchzuführen. Diese Methode kann verwendet werden, um beispielsweise zwischen der vorderen und hinteren Kamera eines Geräts zu wechseln.
 

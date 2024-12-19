@@ -35,7 +35,7 @@ Die Ursprünge der "Client"-, "Seiten"- und "Viewport"-Koordinatensysteme sind h
 
 Koordinaten, die mit dem "Offset"-Modell angegeben werden, verwenden die obere linke Ecke des untersuchten Elements oder auf dem ein Ereignis aufgetreten ist.
 
-Wenn beispielsweise ein {{domxref("MouseEvent", "Mausereignis", "", 1)}} auftritt, wird die Position der Maus, wie in den Eigenschaften [`offsetX`](/de/docs/Web/API/MouseEvent/offsetX) und [`offsetY`](/de/docs/Web/API/MouseEvent/offsetY) des Ereignisses angegeben, relativ zur oberen linken Ecke des Knotens angegeben, an den das Ereignis übermittelt wurde. Der Ursprung ist durch `padding-edge` versetzt, also die Kante zwischen dem Padding-Bereich und dem Randbereich.
+Wenn beispielsweise ein [Mausereignis](/de/docs/Web/API/MouseEvent) auftritt, wird die Position der Maus, wie in den Eigenschaften [`offsetX`](/de/docs/Web/API/MouseEvent/offsetX) und [`offsetY`](/de/docs/Web/API/MouseEvent/offsetY) des Ereignisses angegeben, relativ zur oberen linken Ecke des Knotens angegeben, an den das Ereignis übermittelt wurde. Der Ursprung ist durch `padding-edge` versetzt, also die Kante zwischen dem Padding-Bereich und dem Randbereich.
 
 ### Viewport
 

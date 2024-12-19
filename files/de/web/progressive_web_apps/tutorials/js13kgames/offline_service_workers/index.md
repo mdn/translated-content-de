@@ -110,7 +110,7 @@ Der Service Worker installiert nicht, bis der Code innerhalb von `waitUntil` aus
 
 `caches` ist ein spezielles [`CacheStorage`](/de/docs/Web/API/CacheStorage)-Objekt, das im Bereich des gegebenen Service Workers verfügbar ist, um das Speichern von Daten zu ermöglichen — das Speichern in [Web Storage](/de/docs/Web/API/Web_Storage_API) ist nicht möglich, da Web Storage synchron ist. Mit Service Workers verwenden wir stattdessen die Cache API.
 
-Hier öffnen wir einen Cache mit einem gegebenen Namen und fügen alle Dateien, die unsere App verwendet, dem Cache hinzu, damit sie beim nächsten Laden verfügbar sind. Ressourcen werden durch ihre Anforderungs-URL identifiziert, die relativ zur {{domxref("WorkerGlobalScope.location", "location", "", 1)}} des Workers ist.
+Hier öffnen wir einen Cache mit einem gegebenen Namen und fügen alle Dateien, die unsere App verwendet, dem Cache hinzu, damit sie beim nächsten Laden verfügbar sind. Ressourcen werden durch ihre Anforderungs-URL identifiziert, die relativ zur [location](/de/docs/Web/API/WorkerGlobalScope/location) des Workers ist.
 
 Sie haben vielleicht bemerkt, dass wir `game.js` nicht gecacht haben. Das ist die Datei, die die Daten enthält, die wir beim Anzeigen unserer Spiele verwenden. In Wirklichkeit würden diese Daten wahrscheinlich von einem API-Endpunkt oder einer Datenbank stammen und das Cachen der Daten würde bedeuten, sie regelmäßig zu aktualisieren, wenn eine Netzwerkverbindung besteht. Darauf gehen wir hier nicht ein, aber die [Periodic Background Sync API](/de/docs/Web/API/Web_Periodic_Background_Synchronization_API) ist gute weiterführende Lektüre zu diesem Thema.
 

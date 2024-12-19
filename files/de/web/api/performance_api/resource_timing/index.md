@@ -11,7 +11,7 @@ Resource Timing ist Teil der Performance API und ermöglicht das Abrufen und Ana
 
 Jede Ressource in einem Dokument wird durch einen [`PerformanceResourceTiming`](/de/docs/Web/API/PerformanceResourceTiming) Eintrag (der die [`PerformanceEntry`](/de/docs/Web/API/PerformanceEntry) Schnittstelle erweitert) mit dem [`entryType`](/de/docs/Web/API/PerformanceEntry/entryType) von `"resource"` dargestellt.
 
-Für jeden `PerformanceResourceTiming` Eintrag wird eine _Ressourcen-Ladezeitleiste_ mit {{domxref("DOMHighResTimeStamp","hochauflösenden Zeitstempeln", "", 1)}} für Netzwerkereignisse wie Umleitungsstart- und -endzeiten, DNS-Lookup-Start- und -endzeiten, Anforderungsstart, Antwortstart- und -endzeiten, usw. erfasst. Neben den Zeitstempeln sind auch andere Eigenschaften enthalten, die Informationen über die Ressource bieten, wie die Größe der abgerufenen Ressource oder der Typ der Ressource, die den Abruf initiiert hat.
+Für jeden `PerformanceResourceTiming` Eintrag wird eine _Ressourcen-Ladezeitleiste_ mit [hochauflösenden Zeitstempeln](/de/docs/Web/API/DOMHighResTimeStamp) für Netzwerkereignisse wie Umleitungsstart- und -endzeiten, DNS-Lookup-Start- und -endzeiten, Anforderungsstart, Antwortstart- und -endzeiten, usw. erfasst. Neben den Zeitstempeln sind auch andere Eigenschaften enthalten, die Informationen über die Ressource bieten, wie die Größe der abgerufenen Ressource oder der Typ der Ressource, die den Abruf initiiert hat.
 
 ## Ressourcenlade-Zeitstempel
 

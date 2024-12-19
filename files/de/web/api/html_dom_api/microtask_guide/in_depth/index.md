@@ -106,7 +106,7 @@ Es gibt drei Arten von Event-Schleifen:
 - Arbeiter-Event-Schleife
   - : Eine Arbeiter-Event-Schleife treibt einen Arbeiter an; dazu gehören alle Formen von Arbeitern, einschließlich grundlegender [Web-Arbeiter](/de/docs/Web/API/Web_Workers_API), [Shared Workers](/de/docs/Web/API/SharedWorker) und [Service Workers](/de/docs/Web/API/Service_Worker_API). Arbeiter werden in einem oder mehreren Agents gehalten, die vom „Haupt“-Code getrennt sind; der Browser kann eine einzige Event-Schleife für alle Arbeiter eines bestimmten Typs oder mehrere Event-Schleifen verwenden, um sie zu handhaben.
 - Worklet-Event-Schleife
-  - : Eine {{domxref("Worklet", "worklet", "", 1)}}-Event-Schleife ist die Event-Schleife, die Agents antreibt, die den Code für die Worklets eines bestimmten Agenten ausführen. Dazu gehören Worklets des Typs [`Worklet`](/de/docs/Web/API/Worklet) und [`AudioWorklet`](/de/docs/Web/API/AudioWorklet).
+  - : Eine [worklet](/de/docs/Web/API/Worklet)-Event-Schleife ist die Event-Schleife, die Agents antreibt, die den Code für die Worklets eines bestimmten Agenten ausführen. Dazu gehören Worklets des Typs [`Worklet`](/de/docs/Web/API/Worklet) und [`AudioWorklet`](/de/docs/Web/API/AudioWorklet).
 
 Mehrere Fenster, die vom gleichen {{Glossary("origin", "Ursprung")}} geladen wurden, können auf der gleichen Event-Schleife laufen und Aufgaben in die Event-Schleife einreihen, sodass ihre Aufgaben abwechselnd vom Prozessor bearbeitet werden. Beachten Sie, dass im Web-Jargon das Wort „Fenster“ tatsächlich „Browser-Level-Container bedeutet, in dem Webinhalte ausgeführt werden“, einschließlich eines tatsächlichen Fensters, eines Tabs oder eines Rahmens.
 

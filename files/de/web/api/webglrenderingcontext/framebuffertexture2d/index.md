@@ -26,7 +26,7 @@ framebufferTexture2D(target, attachment, textarget, texture, level)
 
       - : Sammlung von Pufferdatenspeichern für Farb-, Alpha-, Tiefen- und Schablonenpuffer, die zum Rendern eines Bildes verwendet werden.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.DRAW_FRAMEBUFFER`
       - : Wird als Ziel für Zeichen-, Render-, Lösch- und Schreiboperationen verwendet.
@@ -43,7 +43,7 @@ framebufferTexture2D(target, attachment, textarget, texture, level)
     - `gl.DEPTH_ATTACHMENT`: Befestigt die Textur am Tiefen-Puffer des Framebuffers.
     - `gl.STENCIL_ATTACHMENT`: Befestigt die Textur am Schablonen-Puffer des Framebuffers.
 
-    Bei Verwendung eines {{domxref("WebGL2RenderingContext", "WebGL 2-Kontexts", "", 1)}} sind zusätzlich die folgenden Werte verfügbar:
+    Bei Verwendung eines [WebGL 2-Kontexts](/de/docs/Web/API/WebGL2RenderingContext) sind zusätzlich die folgenden Werte verfügbar:
 
     - `gl.DEPTH_STENCIL_ATTACHMENT`: Datenhaltung für Tiefen- und Schablonenpuffer.
     - `gl.COLOR_ATTACHMENT1 gl.COLOR_ATTACHMENT2 ... gl.COLOR_ATTACHMENT15`

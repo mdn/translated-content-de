@@ -12,7 +12,7 @@ Die **`Animation.timeline`**-Eigenschaft der [`Animation`](/de/docs/Web/API/Anim
 
 ## Wert
 
-Ein {{domxref("AnimationTimeline", "timeline object", "", 1)}} zur Verwendung als Zeitquelle für die Animation oder `null`, um die Standardeinstellung zu verwenden, die die Zeitachse des [`Document`](/de/docs/Web/API/Document) ist.
+Ein [timeline object](/de/docs/Web/API/AnimationTimeline) zur Verwendung als Zeitquelle für die Animation oder `null`, um die Standardeinstellung zu verwenden, die die Zeitachse des [`Document`](/de/docs/Web/API/Document) ist.
 
 ## Beispiele
 

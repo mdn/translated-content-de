@@ -13,7 +13,7 @@ Die `OES_fbo_render_mipmap` Erweiterung ist Teil der [WebGL API](/de/docs/Web/AP
 WebGL-Erweiterungen sind über die Methode [`WebGLRenderingContext.getExtension()`](/de/docs/Web/API/WebGLRenderingContext/getExtension) verfügbar. Für weitere Informationen siehe auch [Verwendung von Erweiterungen](/de/docs/Web/API/WebGL_API/Using_Extensions) im [WebGL Lehrgang](/de/docs/Web/API/WebGL_API/Tutorial).
 
 > [!NOTE]
-> Diese Erweiterung ist nur in {{domxref("WebGLRenderingContext", "WebGL 1", "", 1)}} verfügbar.
+> Diese Erweiterung ist nur in [WebGL 1](/de/docs/Web/API/WebGLRenderingContext) verfügbar.
 > In WebGL2 ist die Funktionalität dieser Erweiterung standardmäßig im WebGL 2-Kontext verfügbar.
 
 ## Beispiele
