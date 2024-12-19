@@ -6,7 +6,7 @@ l10n:
   sourceCommit: d0b23f3f26637aa405ee9ee0a0892fc6e9b742ef
 ---
 
-{{APIRef("Web Components")}}}
+{{APIRef("Web Components")}}
 
 Die **`ariaLabel`**-Eigenschaft der [`ElementInternals`](/de/docs/Web/API/ElementInternals)-Schnittstelle spiegelt den Wert des [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attributs wider, das einen String-Wert definiert, der das aktuelle Element beschriftet.
 

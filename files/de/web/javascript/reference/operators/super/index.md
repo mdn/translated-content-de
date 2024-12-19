@@ -154,7 +154,7 @@ new Derived().delete(); // ReferenceError: invalid delete involving 'super'.
 
 ### Verwendung von super.prop in Objektliteralen
 
-Super kann auch in der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Notation verwendet werden. In diesem Beispiel definieren zwei Objekte eine Methode. Im zweiten Objekt ruft `super` die Methode des ersten Objektes auf. Dies funktioniert mit Hilfe von {{jsxref("Object.setPrototypeOf()"}}, mit dem wir in der Lage sind, das Prototyp des `obj2` auf `obj1` zu setzen, sodass `super` in der Lage ist, `method1` auf `obj1` zu finden.
+Super kann auch in der [Objektinitialisierer](/de/docs/Web/JavaScript/Reference/Operators/Object_initializer)-Notation verwendet werden. In diesem Beispiel definieren zwei Objekte eine Methode. Im zweiten Objekt ruft `super` die Methode des ersten Objektes auf. Dies funktioniert mit Hilfe von {{jsxref("Object.setPrototypeOf()")}}, mit dem wir in der Lage sind, das Prototyp des `obj2` auf `obj1` zu setzen, sodass `super` in der Lage ist, `method1` auf `obj1` zu finden.
 
 ```js
 const obj1 = {

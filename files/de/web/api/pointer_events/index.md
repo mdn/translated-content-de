@@ -13,7 +13,7 @@ Zeigerereignisse sind DOM-Ereignisse, die für ein Zeigegerät ausgelöst werden
 
 Der _[Zeiger](#zeiger)_ ist ein hardwareunabhängiges Gerät, das auf eine bestimmte Reihe von Bildschirmkoordinaten zielen kann. Ein einheitliches Ereignismodell für Zeiger kann die Erstellung von Websites und Anwendungen vereinfachen und eine gute Benutzererfahrung bieten, unabhängig von der Hardware des Benutzers. Für Szenarien, in denen gerätespezifische Handhabung erwünscht ist, definiert Zeigerereignisse eine [`pointerType`](/de/docs/Web/API/PointerEvent/pointerType)-Eigenschaft, um den Gerätetyp zu prüfen, der das Ereignis verursacht hat.
 
-Die Ereignisse, die zur Handhabung von generischen Zeigereingaben benötigt werden, sind analog zu {{domxref("MouseEvent","Mausereignissen","","1")}} (`mousedown`/`pointerdown`, `mousemove`/`pointermove` usw.). Infolgedessen sind die Typen der Zeigerereignisse absichtlich den Typen der Mausereignisse ähnlich.
+Die Ereignisse, die zur Handhabung von generischen Zeigereingaben benötigt werden, sind analog zu [Mausereignissen](/de/docs/Web/API/MouseEvent) (`mousedown`/`pointerdown`, `mousemove`/`pointermove` usw.). Infolgedessen sind die Typen der Zeigerereignisse absichtlich den Typen der Mausereignisse ähnlich.
 
 Zusätzlich enthält ein Zeigerereignis die üblichen Eigenschaften, die in Mausereignissen vorhanden sind (Client-Koordinaten, Zielelement, Schaltzustände usw.), sowie neue Eigenschaften für andere Formen der Eingabe: Druck, Kontaktgeometrie, Neigung usw. Tatsächlich erbt das [`PointerEvent`](/de/docs/Web/API/PointerEvent)-Interface alle Eigenschaften des [`MouseEvent`](/de/docs/Web/API/MouseEvent) und erleichtert so die Migration von Inhalten von Mausereignissen zu Zeigerereignissen.
 
@@ -271,7 +271,7 @@ Die folgende Tabelle zeigt die Werte von `button` und `buttons` für die verschi
 
 ## Erfassen des Zeigers
 
-Der Zeigerfang ermöglicht, dass Ereignisse für ein bestimmtes {{domxref("PointerEvent","Zeigerereignis","","1")}} auf ein bestimmtes Element anstelle des normalen [Treffertests](#treffertest) an der Position des Zeigers umgeleitet werden. Dies kann verwendet werden, um sicherzustellen, dass ein Element weiterhin Zeigerereignisse erhält, auch wenn der Kontakt des Zeigegeräts das Element verlässt (zum Beispiel durch Scrollen oder Schwenken).
+Der Zeigerfang ermöglicht, dass Ereignisse für ein bestimmtes [Zeigerereignis](/de/docs/Web/API/PointerEvent) auf ein bestimmtes Element anstelle des normalen [Treffertests](#treffertest) an der Position des Zeigers umgeleitet werden. Dies kann verwendet werden, um sicherzustellen, dass ein Element weiterhin Zeigerereignisse erhält, auch wenn der Kontakt des Zeigegeräts das Element verlässt (zum Beispiel durch Scrollen oder Schwenken).
 
 Der Zeigerfang bewirkt, dass das Ziel alle nachfolgenden Zeigerereignisse wie über das fangende Ziel betrachtet zu empfangen. Folglich werden `pointerover`, `pointerenter`, `pointerleave` und `pointerout` **nicht ausgelöst**, solange dieser Fang aktiviert ist. Für Touchscreen-Browser, die [direkte Manipulation](https://w3c.github.io/pointerevents/#dfn-direct-manipulation) erlauben, wird ein [impliziter Zeigerfang](https://w3c.github.io/pointerevents/#dfn-implicit-pointer-capture) auf dem Element aufgerufen, wenn ein `pointerdown`-Ereignis ausgelöst wird. Der Fang kann manuell durch Aufrufen von [`element.releasePointerCapture`](/de/docs/Web/API/Element/releasePointerCapture) auf dem Zielelement aufgehoben werden, oder er wird implizit nach einem `pointerup`- oder `pointercancel`-Ereignis aufgehoben.
 
