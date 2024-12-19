@@ -1,24 +1,26 @@
 ---
-title: Konfigurieren von Servern für Ogg-Medien
+title: Konfiguration von Servern für Ogg-Medien
 slug: Web/Media/Formats/Configuring_servers_for_Ogg_media
 l10n:
-  sourceCommit: 4d12b3e4f9afb311f2656641260e42c0b6f8f4c6
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/Media")}}
 
-HTML-{{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente ermöglichen die Medienwiedergabe, ohne dass der Benutzer Erweiterungen oder andere Software installieren muss. Dieser Leitfaden behandelt die Serverkonfiguration, die möglicherweise erforderlich ist, um Ogg-Mediendateien korrekt bereitzustellen. Diese Informationen können auch nützlich sein, wenn Sie auf andere Medientypen stoßen, die Ihr Server noch nicht zu erkennen vermag.
+HTML-{{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente ermöglichen die Medienpräsentation, ohne dass der Benutzer Erweiterungen oder andere Software installieren muss.
+Dieser Leitfaden behandelt die Serverkonfiguration, die möglicherweise erforderlich ist, um Ogg-Mediendateien korrekt bereitzustellen.
+Diese Informationen können auch nützlich sein, wenn Sie auf andere Medientypen stoßen, die Ihr Server noch nicht erkennt.
 
 ## Medien mit dem richtigen MIME-Typ bereitstellen
 
 Wenn Sie nicht wissen, ob die Ogg-Datei Audio oder Video enthält, können Sie sie mit dem MIME-Typ `application/ogg` bereitstellen, und der Browser behandelt sie als Videodatei.
 
-- `*.ogg`- und `*.ogv`-Dateien, die Video (möglicherweise auch mit einer Audiospur) enthalten, sollten mit dem MIME-Typ `video/ogg` bereitgestellt werden.
+- `*.ogg`- und `*.ogv`-Dateien, die Video enthalten (möglicherweise auch mit einer Audiospur), sollten mit dem MIME-Typ `video/ogg` bereitgestellt werden.
 - `*.oga`- und `*.ogg`-Dateien, die nur Audio enthalten, sollten mit dem MIME-Typ `audio/ogg` bereitgestellt werden.
 
-Die meisten Server liefern Ogg-Medien standardmäßig nicht mit den richtigen MIME-Typen aus, daher müssen Sie wahrscheinlich die entsprechende Konfiguration hinzufügen.
+Die meisten Server liefern standardmäßig keine Ogg-Medien mit den richtigen MIME-Typen aus, daher müssen Sie wahrscheinlich die entsprechende Konfiguration dafür hinzufügen.
 
-Für Apache können Sie die folgende Konfiguration verwenden:
+Für Apache können Sie Folgendes zu Ihrer Konfiguration hinzufügen:
 
 ```apacheconf
 AddType audio/ogg .oga
@@ -26,43 +28,46 @@ AddType video/ogg .ogv
 AddType application/ogg .ogg
 ```
 
-Der Artikel zu [Mediencontainerformaten](/de/docs/Web/Media/Formats/Containers) ist besonders hilfreich, um Server korrekt für das Hosten von Medien zu konfigurieren.
+Der Artikel über [Medien-Containerformate](/de/docs/Web/Media/Formats/Containers) ist besonders hilfreich, wenn es darum geht, Server richtig für die Bereitstellung von Medien zu konfigurieren.
 
-## Range-Anfragen korrekt bearbeiten
+## Range-Anfragen korrekt behandeln
 
-Um das Suchen und Abspielen von Teilen der Medien zu unterstützen, die noch nicht heruntergeladen wurden, können Sie [Range-Anfragen](/de/docs/Web/HTTP/Range_requests) verwenden, um die Medien ab der Suchzielposition abzurufen. Außerdem wird die Byte-Range-Anfrage verwendet, um bis zum Ende der Medien zu suchen (vorausgesetzt, Sie liefern den {{HTTPHeader("Content-Length")}}-Header), um die Dauer der Medien zu bestimmen.
+Um die Suche und Wiedergabe von nicht heruntergeladenen Medienbereichen zu unterstützen, können Sie [Range-Anfragen](/de/docs/Web/HTTP/Range_requests) verwenden, um die Medien von der Zielposition aus abzurufen.
+Zusätzlich werden Byte-Range-Anfragen verwendet, um zum Ende der Medien zu navigieren (vorausgesetzt, Sie liefern den {{HTTPHeader("Content-Length")}}-Header), um die Dauer der Medien zu bestimmen.
 
-Ihr Server sollte den {{HTTPHeader("Accept-Ranges")}}-Header akzeptieren, wenn er Range-Anfragen annehmen kann. Er muss {{HTTPStatus("206", "206 Partial Content")}} für alle Range-Anfragen zurückgeben, da Browser sonst nicht feststellen können, ob der Server Range-Anfragen unterstützt. Ihr Server muss auch `206: Partial Content` für die Anfrage `Range: bytes=0-` zurückgeben.
+Ihr Server sollte den {{HTTPHeader("Accept-Ranges")}}-Header akzeptieren, wenn er Range-Anfragen annehmen kann.
+Er muss {{HTTPStatus("206", "206 Partial Content")}} für alle Range-Anfragen zurückgeben, andernfalls können Browser nicht feststellen, ob der Server Range-Anfragen unterstützt.
+Ihr Server muss auch `206: Partial Content` für die Anfrage `Range: bytes=0-` zurückgeben.
 
 Weitere Informationen finden Sie unter [Range-Anfragen](/de/docs/Web/HTTP/Range_requests).
 
-## Regelmäßige Keyframes einfügen
+## Regelmäßige Key-Frames einfügen
 
-Wenn der Browser durch Ogg-Medien zu einer bestimmten Zeit sucht, muss er zum nächsten Keyframe vor dem Suchziel suchen, dann das Video von dort herunterladen und dekodieren, bis die gewünschte Zielzeit erreicht ist. Je weiter Ihre Keyframes voneinander entfernt sind, desto länger dauert dies, daher ist es hilfreich, Keyframes in regelmäßigen Abständen einzufügen.
+Wenn der Browser bei Ogg-Medien zu einer bestimmten Zeit sucht, muss er zum nächsten Key-Frame vor dem Suchziel navigieren, dann das Video von dort herunterladen und decodieren, bis die angeforderte Zielzeit erreicht ist. Je weiter Ihre Key-Frames auseinander liegen, desto länger dauert dies, daher ist es hilfreich, Key-Frames in regelmäßigen Abständen einzufügen.
 
-Standardmäßig verwendet [`ffmpeg2theora`](https://gitlab.xiph.org/xiph/ffmpeg2theora) alle 64 Frames ein Keyframe (oder etwa alle 2 Sekunden bei 30 Frames pro Sekunde), was ziemlich gut funktioniert.
+Standardmäßig verwendet [`ffmpeg2theora`](https://gitlab.xiph.org/xiph/ffmpeg2theora) einen Key-Frame alle 64 Frames (oder etwa alle 2 Sekunden bei 30 Frames pro Sekunde), was ziemlich gut funktioniert.
 
 > [!NOTE]
-> Natürlich gilt: Je mehr Keyframes Sie verwenden, desto größer ist Ihre Videodatei, daher müssen Sie möglicherweise ein wenig experimentieren, um die richtige Balance zwischen Dateigröße und Suchleistung zu finden.
+> Natürlich gilt: Je mehr Key-Frames Sie verwenden, desto größer wird Ihre Videodatei, daher müssen Sie möglicherweise ein wenig experimentieren, um das richtige Gleichgewicht zwischen Dateigröße und Suchleistung zu finden.
 
-## Verwenden Sie das Preload-Attribut
+## Erwägen, das preload-Attribut zu verwenden
 
-Die HTML-{{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente bieten das `preload`-Attribut, das dem Browser anweist, beim Laden der Seite zu versuchen, das gesamte Medium herunterzuladen. Ohne `preload` lädt der Browser genug vom Medium herunter, um den ersten Videoframe anzuzeigen und die Dauer des Mediums zu bestimmen.
+Die HTML-{{HTMLElement("audio")}}- und {{HTMLElement("video")}}-Elemente bieten das `preload`-Attribut, das dem Browser mitteilt, dass er versuchen soll, das gesamte Medium herunterzuladen, wenn die Seite geladen wird. Ohne `preload` lädt der Browser genug von den Medien herunter, um das erste Videobild anzuzeigen und die Dauer der Medien zu bestimmen.
 
-- `preload` ist standardmäßig deaktiviert. Wenn das Abspielen des Videos der Zweck Ihrer Webseite ist, könnten Ihre Benutzer es begrüßen, wenn Sie `preload` in Ihre Videoelemente einfügen.
-- Mit `preload="metadata"` wird die Metadaten der Mediendatei vorgeladen und möglicherweise die ersten paar Videoframes. Wenn Sie `payload` auf `auto` setzen, weist dies den Browser an, das Medium automatisch zu laden, sobald die Seite geladen ist, in der Annahme, dass der Benutzer es abspielen wird.
+- `preload` ist standardmäßig ausgeschaltet. Wenn das Video der Schwerpunkt Ihrer Webseite ist, könnten Ihre Benutzer es schätzen, wenn Sie `preload` in Ihren Videoelementen enthalten.
+- Die Verwendung von `preload="metadata"` wird die Metadaten der Mediendatei und möglicherweise die ersten paar Videoframes vorladen. Das Setzen von `payload` auf `auto` teilt dem Browser mit, dass er das Medium automatisch mit dem Laden der Seite herunterladen soll, in der Annahme, dass der Benutzer es abspielen wird.
 
 ## Verwenden Sie keine HTTP-Komprimierung für Ogg-Medien
 
-Eine gängige Methode, um die Serverlast zu reduzieren, ist die Verwendung von [gzip- oder Deflate-Komprimierung](https://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/), wenn Sie an einen unterstützenden Webbrowser ausliefern.
+Eine weit verbreitete Methode, um die Belastung eines Webservers zu verringern, besteht darin, [gzip- oder Deflate-Komprimierung](https://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/) zu verwenden, wenn auf einen unterstützenden Webbrowser zugegriffen wird.
 
-Obwohl es unwahrscheinlich ist, ist es möglich, dass der Browser angibt, dass er HTTP-Komprimierung (gzip/deflate) unterstützt, indem er den `Accept-Encoding: gzip,deflate`-Header sendet, wenn er Mediendateien anfordert. Ihr Server sollte so konfiguriert werden, dass dies nicht geschieht. Die Daten in Mediendateien sind bereits komprimiert, sodass Sie von einer Komprimierung keinen wirklichen Vorteil haben werden, und die Verwendung von Komprimierung macht es für den Browser unmöglich, das Video ordnungsgemäß zu suchen oder dessen Dauer zu bestimmen.
+Obwohl es unwahrscheinlich ist, könnte es sein, dass der Browser anzeigt, dass er die HTTP-Komprimierung (gzip/deflate) unterstützt, indem er den `Accept-Encoding: gzip,deflate`-Header verwendet, wenn er Mediendateien anfordert. Ihr Server sollte so konfiguriert sein, dass dies nicht der Fall ist. Die Daten in Mediendateien sind bereits komprimiert, sodass Sie keinen wirklichen Vorteil aus der Komprimierung ziehen, und die Verwendung der Komprimierung macht es unmöglich, dass der Browser das Video richtig durchsucht oder dessen Dauer bestimmt.
 
-Ein weiteres Problem beim Zulassen von HTTP-Komprimierung für Medienstreaming: Apache-Server senden den {{HTTPHeader("Content-Length")}}-Antwortheader nicht, wenn die gzip-Codierung verwendet wird.
+Ein weiteres Problem bei der Erlaubnis der HTTP-Komprimierung für das Medien-Streaming: Apache-Server senden den {{HTTPHeader("Content-Length")}}-Antwort-Header nicht, wenn die gzip-Codierung verwendet wird.
 
-## Ermitteln der Dauer von Ogg-Medien
+## Dauer von Ogg-Medien ermitteln
 
-Sie können das `oggz-info`-Tool verwenden, um die Spieldauer der Medien zu ermitteln; dieses Tool ist im [`oggz-tools`](https://www.xiph.org/oggz/)-Paket enthalten. Die Ausgabe von `oggz-info` sieht folgendermaßen aus:
+Sie können das `oggz-info`-Tool verwenden, um die Mediendauer zu ermitteln; dieses Tool ist im [`oggz-tools`](https://www.xiph.org/oggz/)-Paket enthalten. Die Ausgabe von `oggz-info` sieht so aus:
 
 ```bash
 $ oggz-info /g/media/bruce_vs_ironman.ogv
@@ -85,11 +90,13 @@ Vorbis: serialno 0708996688
         Audio-Channels: 2
 ```
 
-Beachten Sie, dass Sie die von `oggz-info` gemeldete Content-Duration-Zeile nicht bereitstellen können, da sie im `HH:MM:SS`-Format gemeldet wird. Sie müssen sie in Sekunden umwandeln und diese als Ihren `X-Content-Duration`-Wert bereitstellen. Dazu können Sie die `HH`, `MM` und `SS`-Segmente analysieren und dann in `(HH * 3600) + (MM * 60) + SS` umwandeln, als den Wert, den Sie melden sollten.
+Beachten Sie, dass Sie die von `oggz-info` gemeldete Content-Dauerzeile nicht direkt verwenden können, da sie im `HH:MM:SS`-Format angegeben wird.
+Sie müssen sie in Sekunden umrechnen und dann als Ihren `X-Content-Duration`-Wert bereitstellen.
+Sie können dies tun, indem Sie die `HH`, `MM` und `SS`-Segmente auslesen und dann in `(HH * 3600) + (MM * 60) + SS` umrechnen als den Wert, den Sie angeben sollten.
 
-Es ist wichtig zu beachten, dass `oggz-info` anscheinend einen Lesevorgang des Mediums durchführt, um dessen Dauer zu berechnen, daher ist es eine gute Idee, den Dauerwert zu speichern, um lange Verzögerungen zu vermeiden, während der Wert für jede HTTP-Anfrage Ihres Ogg-Mediums berechnet wird.
+Es ist wichtig zu beachten, dass `oggz-info` scheinbar einen Lesedurchgang des Mediums durchführt, um seine Dauer zu berechnen. Daher ist es eine gute Idee, den Dauerwert zu speichern, um lange Verzögerungen zu vermeiden, während der Wert für jede HTTP-Anfrage Ihres Ogg-Mediums berechnet wird.
 
 ## Siehe auch
 
-- [Video- und Audiocontent](/de/docs/Learn/HTML/Multimedia_and_embedding/Video_and_audio_content)
-- [Codecs in gängigen Medientypen](/de/docs/Web/Media/Formats/codecs_parameter)
+- [Leitfaden zu Medientypen und -formaten im Web](/de/docs/Web/Media/Formats)
+- [HTML-Video und -Audio](/de/docs/Learn_web_development/Core/Structuring_content/HTML_video_and_audio)

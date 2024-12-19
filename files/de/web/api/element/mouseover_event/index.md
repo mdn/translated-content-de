@@ -1,9 +1,9 @@
 ---
-title: "Element: mouseover-Ereignis"
+title: "Element: `mouseover`-Ereignis"
 short-title: mouseover
 slug: Web/API/Element/mouseover_event
 l10n:
-  sourceCommit: b71d118ffc6d72b77efad9661110fcc9ede464eb
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef}}
@@ -12,7 +12,7 @@ Das **`mouseover`**-Ereignis wird bei einem [`Element`](/de/docs/Web/API/Element
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder legen Sie eine Ereignis-Handler-Eigenschaft fest.
 
 ```js
 addEventListener("mouseover", (event) => {});
@@ -33,15 +33,15 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>Alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
-  - : Die Nummer der Taste, die (falls zutreffend) gedrückt wurde, als das Mausereignis ausgelöst wurde.
+  - : Die Nummer der gedrückten Taste (falls zutreffend), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
-  - : Die Tasten, die (falls vorhanden) gedrückt wurden, als das Mausereignis ausgelöst wurde.
+  - : Die gedrückten Tasten (falls vorhanden), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.ctrlKey`](/de/docs/Web/API/MouseEvent/ctrlKey) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>Steuerung</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+  - : Gibt `true` zurück, wenn die <kbd>Strg</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.layerX`](/de/docs/Web/API/MouseEvent/layerX) {{Non-standard_inline}} {{ReadOnlyInline}}
   - : Gibt die horizontale Koordinate des Ereignisses relativ zur aktuellen Ebene zurück.
 - [`MouseEvent.layerY`](/de/docs/Web/API/MouseEvent/layerY) {{Non-standard_inline}} {{ReadOnlyInline}}
@@ -53,9 +53,9 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
   - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauszeigers relativ zur Position der Randeinpassung des Zielknotens.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position der inneren Begrenzungskante des Zielknotens.
 - [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Randeinpassung des Zielknotens.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position der inneren Begrenzungskante des Zielknotens.
 - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
   - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
@@ -69,9 +69,10 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>Shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Typ des Geräts, das das Ereignis generierte (eines der `MOZ_SOURCE_*` Konstanten). Damit können Sie feststellen, ob ein Mausereignis tatsächlich von einer Maus oder von einem Touch-Ereignis generiert wurde (was die Genauigkeit der Interpretation der mit dem Ereignis verbundenen Koordinaten beeinflussen könnte).
+  - : Der Gerätetyp, der das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten).
+    Damit können Sie zum Beispiel feststellen, ob ein Mausereignis von einer tatsächlichen Maus oder von einem Berührungsereignis erzeugt wurde (was die Genauigkeit beeinflussen könnte, mit der Sie die Koordinaten des Ereignisses interpretieren).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der beim Klicken ausgeübte Druck.
+  - : Der ausgeübte Druck beim Klicken.
 - [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 - [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
@@ -79,7 +80,7 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 
 ## Beispiele
 
-Das folgende Beispiel zeigt den Unterschied zwischen `mouseover` und [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)-Ereignissen.
+Das folgende Beispiel verdeutlicht den Unterschied zwischen `mouseover` und [`mouseenter`](/de/docs/Web/API/Element/mouseenter_event)-Ereignissen.
 
 ### HTML
 
@@ -143,7 +144,7 @@ test.addEventListener(
 
 ## Siehe auch
 
-- [Einführung in Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events)
+- [Learn: Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events)
 - [`mousedown`](/de/docs/Web/API/Element/mousedown_event)
 - [`mouseup`](/de/docs/Web/API/Element/mouseup_event)
 - [`mousemove`](/de/docs/Web/API/Element/mousemove_event)

@@ -3,12 +3,12 @@ title: "Element: matches()-Methode"
 short-title: matches()
 slug: Web/API/Element/matches
 l10n:
-  sourceCommit: b85bf9fcc2c0062a765d104799d7d45d9e9b13bb
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("DOM")}}
 
-Die **`matches()`**-Methode der [`Element`](/de/docs/Web/API/Element)-Schnittstelle testet, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn/CSS/Building_blocks/Selectors) ausgewählt würde.
+Die **`matches()`**-Methode des [`Element`](/de/docs/Web/API/Element)-Interfaces prüft, ob das Element durch den angegebenen [CSS-Selektor](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) ausgewählt werden würde.
 
 ## Syntax
 
@@ -19,16 +19,16 @@ matches(selectors)
 ### Parameter
 
 - `selectors`
-  - : Ein String, der gültige [CSS-Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors) enthält, um das [`Element`](/de/docs/Web/API/Element) zu testen.
+  - : Ein String, der gültige [CSS-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) enthält, um das [`Element`](/de/docs/Web/API/Element) zu testen.
 
 ### Rückgabewert
 
-`true`, wenn das [`Element`](/de/docs/Web/API/Element) die `selectors` erfüllt. Andernfalls `false`.
+`true`, wenn das [`Element`](/de/docs/Web/API/Element) den `selectors` entspricht. Andernfalls `false`.
 
 ### Ausnahmen
 
 - `SyntaxError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Ausgelöst, wenn `selectors` nicht als CSS-Selektorliste geparst werden können.
+  - : Wird ausgelöst, wenn `selectors` nicht als CSS-Selektor-Liste geparst werden kann.
 
 ## Beispiele
 
@@ -54,7 +54,7 @@ for (const bird of birds) {
 }
 ```
 
-Dies wird "Der Philippinenadler ist gefährdet!" in der Konsole ausgeben, da das Element tatsächlich ein `class`-Attribut mit dem Wert `endangered` hat.
+Dies wird "The Philippine eagle is endangered!" in die Konsole ausgeben, da das Element tatsächlich ein `class`-Attribut mit dem Wert `endangered` hat.
 
 ## Spezifikationen
 
@@ -66,5 +66,5 @@ Dies wird "Der Philippinenadler ist gefährdet!" in der Konsole ausgeben, da das
 
 ## Siehe auch
 
-- [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)-Modul
+- [CSS Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
 - Andere [`Element`](/de/docs/Web/API/Element)-Methoden, die Selektoren verwenden: [`Element.querySelector()`](/de/docs/Web/API/Element/querySelector), [`Element.querySelectorAll()`](/de/docs/Web/API/Element/querySelectorAll) und [`element.closest()`](/de/docs/Web/API/Element/closest).

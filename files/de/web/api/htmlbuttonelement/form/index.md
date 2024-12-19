@@ -3,12 +3,12 @@ title: "HTMLButtonElement: form-Eigenschaft"
 short-title: form
 slug: Web/API/HTMLButtonElement/form
 l10n:
-  sourceCommit: 650feba1ed52078fe6c9342f7a76bafc8ab43891
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`form`**-Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das das {{htmlelement("button")}}-Element besitzt, oder `null`, wenn dieses Button-Element keinem Formular zugeordnet ist.
+Die **`form`**-Eigenschaft der [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("button")}} besitzt, oder `null`, wenn dieser Button zu keinem Formular gehört.
 
 ## Wert
 
@@ -27,5 +27,5 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("button")}}
-- HTML [`form`](/de/docs/Web/HTML/Element/button#form)-Attribut
-- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
+- HTML-`form`-[Attribut](/de/docs/Web/HTML/Element/button#form)
+- [HTML-Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)

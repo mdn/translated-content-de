@@ -1,44 +1,32 @@
 ---
-title: "HTMLSelectElement: selectedOptions-Eigenschaft"
+title: "HTMLSelectElement: selectedOptions Eigenschaft"
 short-title: selectedOptions
 slug: Web/API/HTMLSelectElement/selectedOptions
 l10n:
-  sourceCommit: b21df53ffbb066cfb9347d7f0e5aebb792ed73e5
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **schreibgeschützte** [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement)-Eigenschaft
-**`selectedOptions`** enthält eine Liste der
-{{HTMLElement("option")}}-Elemente, die innerhalb des {{HTMLElement("select")}}
-Elements enthalten sind und derzeit ausgewählt sind. Die Liste der ausgewählten Optionen ist ein
-[`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt mit einem Eintrag pro aktuell ausgewählter Option.
+Die **schreibgeschützte** [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) Eigenschaft **`selectedOptions`** enthält eine Liste der {{HTMLElement("option")}} Elemente, die innerhalb des {{HTMLElement("select")}} Elements enthalten sind und derzeit ausgewählt sind. Die Liste der ausgewählten Optionen ist ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) Objekt mit einem Eintrag pro derzeit ausgewählter Option.
 
-Eine Option wird als ausgewählt betrachtet, wenn sie ein [`HTMLOptionElement.selected`](/de/docs/Web/API/HTMLOptionElement/selected)
-Attribut besitzt.
+Eine Option wird als ausgewählt betrachtet, wenn sie ein [`HTMLOptionElement.selected`](/de/docs/Web/API/HTMLOptionElement/selected) Attribut hat.
 
 ## Wert
 
-Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die jedes derzeit ausgewählte
-[`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) auflistet, das entweder ein Kind des
-[`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) ist oder eines [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement) innerhalb des
-`<select>` Elements ist.
+Eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection), die jedes aktuell ausgewählte [`HTMLOptionElement`](/de/docs/Web/API/HTMLOptionElement) auflistet, das entweder ein Kind des [`HTMLSelectElement`](/de/docs/Web/API/HTMLSelectElement) oder eines [`HTMLOptGroupElement`](/de/docs/Web/API/HTMLOptGroupElement) innerhalb des `<select>` Elements ist.
 
-Mit anderen Worten, jede Option, die innerhalb des `<select>` Elements enthalten ist, kann
-Teil der Ergebnisse sein, aber Optionsgruppen sind in der Liste nicht enthalten.
+Mit anderen Worten, jede Option, die innerhalb des `<select>` Elements enthalten ist, kann Teil der Ergebnisse sein, aber Optionsgruppen sind nicht in der Liste enthalten.
 
-Wenn momentan keine Optionen ausgewählt sind, ist die Sammlung leer und gibt eine
-[`length`](/de/docs/Web/API/HTMLCollection/length) von 0 zurück.
+Wenn derzeit keine Optionen ausgewählt sind, ist die Sammlung leer und gibt eine [`length`](/de/docs/Web/API/HTMLCollection/length) von 0 zurück.
 
 ## Beispiele
 
-In diesem Beispiel wird ein {{HTMLElement("select")}}-Element mit mehreren Optionen verwendet,
-um es dem Benutzer zu ermöglichen, verschiedene Lebensmittel zu bestellen.
+In diesem Beispiel wird ein {{HTMLElement("select")}} Element mit einer Anzahl von Optionen verwendet, um dem Benutzer das Bestellen verschiedener Lebensmittel zu ermöglichen.
 
 ### HTML
 
-Das HTML, das das Auswahlfeld und die {{HTMLElement("option")}}-Elemente erstellt,
-die jede der Essensauswahlmöglichkeiten darstellen, sieht so aus:
+Der HTML-Code, der die Auswahlbox und die {{HTMLElement("option")}} Elemente erstellt, die jeweils eine der Essensoptionen repräsentieren, sieht so aus:
 
 ```html
 <label for="foods">What do you want to eat?</label><br />
@@ -54,15 +42,11 @@ die jede der Essensauswahlmöglichkeiten darstellen, sieht so aus:
 <p id="output"></p>
 ```
 
-Das `<select>`-Element ist so eingestellt, dass mehrere Elemente ausgewählt werden können,
-und es ist 7 Zeilen hoch. Beachten Sie auch das {{HTMLElement("button")}}, dessen Rolle es ist,
-das Abrufen der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der ausgewählten Elemente mittels der
-`selected`-Eigenschaft auszulösen.
+Das `<select>` Element ist so eingestellt, dass mehrere Artikel ausgewählt werden können, und es ist 7 Zeilen hoch. Beachten Sie auch den {{HTMLElement("button")}}, dessen Rolle es ist, das Abrufen der [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) der ausgewählten Elemente mit der `selected` Eigenschaft auszulösen.
 
 ### JavaScript
 
-Der JavaScript-Code, der den Ereignishandler für die Schaltfläche sowie den
-Ereignishandler selbst festlegt, sieht so aus:
+Der JavaScript-Code, der den Ereignis-Handler für die Schaltfläche einrichtet sowie der Ereignis-Handler selbst, sehen so aus:
 
 ```js
 let orderButton = document.getElementById("order");
@@ -100,11 +84,7 @@ orderButton.addEventListener(
 );
 ```
 
-Dieses Skript richtet einen [`click`](/de/docs/Web/API/Element/click_event)-Ereignislistener auf der Schaltfläche "Jetzt bestellen" ein. Wenn
-geklickt, ruft der Ereignishandler die Liste der ausgewählten Optionen mit
-`selectedOptions` ab und durchläuft dann die Optionen in der Liste. Es wird ein String
-konstruiert, um die bestellten Artikel aufzulisten, mit einer Logik, die die Liste unter Verwendung korrekter englischer
-Grammatikregeln erstellt (einschließlich eines [seriellen Kommas](https://en.wikipedia.org/wiki/Serial_comma)).
+Dieses Script setzt einen [`click`](/de/docs/Web/API/Element/click_event) Ereignis-Listener auf die "Jetzt bestellen" Schaltfläche. Bei einem Klick ruft der Ereignis-Handler die Liste der ausgewählten Optionen unter Verwendung von `selectedOptions` ab und durchläuft die Optionen in der Liste. Eine Zeichenkette wird konstruiert, um die bestellten Artikel aufzulisten, mit Logik, um die Liste mit korrekter englischer Grammatik zu erstellen (einschließlich eines [serial comma](https://en.wikipedia.org/wiki/Serial_comma)).
 
 ### Ergebnis
 
@@ -122,4 +102,4 @@ Der resultierende Inhalt sieht in Aktion so aus:
 
 ## Siehe auch
 
-- [Drop-down controls](/de/docs/Learn/Forms/Other_form_controls#drop-down_controls)
+- [Dropdown-Steuerelemente](/de/docs/Learn_web_development/Extensions/Forms/Other_form_controls#drop-down_controls)

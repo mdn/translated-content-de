@@ -1,13 +1,13 @@
 ---
-title: CSS-Werte und Einheiten
+title: CSS-Werte und -Einheiten
 slug: Web/CSS/CSS_Values_and_Units
 l10n:
-  sourceCommit: 5178e1e7c9edf0c9c652275ae62f090042ce2422
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Jede CSS-Deklaration umfasst ein Paar aus Eigenschaft und Wert. Abhängig von der Eigenschaft kann der Wert von einer einzelnen Zahl oder einem Schlüsselwort bis hin zu einer Reihe von Schlüsselwörtern und Werten mit oder ohne Einheiten reichen. Es gibt einen gemeinsamen Satz von Datentypen — Werte und Einheiten —, die von CSS-Eigenschaften akzeptiert werden. Unten finden Sie einen Überblick über die meisten dieser Datentypen. Für detailliertere Informationen konsultieren Sie die Seite zu jedem Werttyp.
+Jede CSS-Deklaration umfasst ein Eigenschaft-Werte-Paar. Abhängig von der Eigenschaft kann der Wert aus einer einzelnen Ganzzahl oder einem Schlüsselwort bis hin zu einer Reihe von Schlüsselworten und Werten bestehen, mit oder ohne Einheiten. Es gibt eine gemeinsame Reihe von Datentypen – Werten und Einheiten –, die CSS-Eigenschaften akzeptieren. Unten finden Sie einen Überblick über die meisten dieser Datentypen. Konsultieren Sie die Seite für jeden Werttyp für detaillierte Informationen.
 
 ## Textuelle Datentypen
 
@@ -16,11 +16,11 @@ Jede CSS-Deklaration umfasst ein Paar aus Eigenschaft und Wert. Abhängig von de
 - {{cssxref("&lt;string&gt;")}}
 - {{cssxref("url_value", "&lt;url&gt;")}}
 
-Textdaten-Typen sind entweder `<string>`, eine in Anführungszeichen stehende Zeichenreihe, oder ein `<ident>`, ein "CSS Identifier", der eine nicht zitierte Zeichenkette ist. Ein `<string>` muss mit einfachen oder doppelten Anführungszeichen versehen sein. CSS-Identifikatoren, in den Spezifikationen als `<ident>` oder `<custom-ident>` aufgeführt, müssen unverändert sein.
+Textdatentypen sind entweder `<string>`, eine in Anführungszeichen stehende Zeichenserie, oder ein `<ident>`, ein "CSS Identifier", der eine nicht in Anführungszeichen stehende Zeichenfolge ist. Eine `<string>` muss entweder mit einfachen oder doppelten Anführungszeichen eingeschlossen werden. CSS-Identifikatoren, im Regelwerk als `<ident>` oder `<custom-ident>` aufgelistet, dürfen nicht in Anführungszeichen stehen.
 
-In den CSS-Spezifikationen sind Werte, die vom Webentwickler definiert werden können, wie Keyframe-Animationen, Schriftartfamiliennamen oder Rasterbereiche, als {{cssxref("&lt;custom-ident&gt;")}}, {{cssxref("&lt;string&gt;")}} oder beides aufgeführt.
+Im CSS-Regelwerk werden Werte, die vom Webentwickler definiert werden können, wie Keyframe-Animationen, Schriftfamiliennamen oder Rasterbereiche als {{cssxref("&lt;custom-ident&gt;")}}, {{cssxref("&lt;string&gt;")}}, oder beides aufgelistet.
 
-Wenn sowohl zitierte als auch unzitierte benutzerdefinierte Textwerte erlaubt sind, gibt die Spezifikation `<custom-ident> | <string>` an, was bedeutet, dass Anführungszeichen optional sind, wie im Fall von Animationsnamen:
+Wenn sowohl zitierte als auch nicht zitierte benutzerdefinierte Textwerte erlaubt sind, wird die Spezifikation `<custom-ident> | <string>` auflisten, was bedeutet, dass Anführungszeichen optional sind, wie es bei Animationsnamen der Fall ist:
 
 ```css
 @keyframe validIdent {
@@ -31,7 +31,7 @@ Wenn sowohl zitierte als auch unzitierte benutzerdefinierte Textwerte erlaubt si
 }
 ```
 
-Einige Textwerte sind nicht gültig, wenn sie in Anführungszeichen eingeschlossen sind. Zum Beispiel kann der Wert von {{cssxref("grid-area")}} ein `<custom-ident>` sein, sodass wir bei einem Rasterbereich namens `content` diesen ohne Anführungszeichen verwenden würden:
+Einige Textwerte sind nicht gültig, wenn sie in Anführungszeichen gesetzt sind. Zum Beispiel kann der Wert von {{cssxref("grid-area")}} ein `<custom-ident>` sein, daher würden wir, wenn wir einen Rasterbereich namens `content` hätten, diesen ohne Anführungszeichen verwenden:
 
 ```css
 .item {
@@ -39,7 +39,7 @@ Einige Textwerte sind nicht gültig, wenn sie in Anführungszeichen eingeschloss
 }
 ```
 
-Im Vergleich dazu muss ein Datentyp, der ein {{cssxref("&lt;string&gt;")}} ist, wie ein Zeichenkettenwert der {{cssxref("content")}}-Eigenschaft, in Anführungszeichen gesetzt werden:
+Im Vergleich dazu muss ein Datentyp, der ein {{cssxref("&lt;string&gt;")}} ist, wie ein Zeichenkettenwert der {{cssxref("content")}}-Eigenschaft, zitiert werden:
 
 ```css
 .item::after {
@@ -47,13 +47,13 @@ Im Vergleich dazu muss ein Datentyp, der ein {{cssxref("&lt;string&gt;")}} ist, 
 }
 ```
 
-Obwohl Sie grundsätzlich jeden beliebigen Namen erstellen können, einschließlich der Verwendung von Emojis, darf der Identifier nicht `none`, `unset`, `initial` oder `inherit` sein, nicht mit einer Ziffer oder zwei Bindestrichen beginnen, und im Allgemeinen sollte er kein anderes vordefiniertes CSS-Schlüsselwort sein. Siehe die Referenzseiten {{cssxref("&lt;custom-ident&gt;")}} und {{cssxref("&lt;string&gt;")}} für weitere Details.
+Während Sie im Allgemeinen jeden gewünschten Namen erstellen können, einschließlich Emojis, darf der Identifikator nicht `none`, `unset`, `initial` oder `inherit` sein, nicht mit einer Ziffer oder zwei Bindestrichen beginnen, und im Allgemeinen sollten Sie vermeiden, dass es ein anderes vordefiniertes CSS-Schlüsselwort ist. Weitere Informationen finden Sie auf den Referenzseiten zu {{cssxref("&lt;custom-ident&gt;")}} und {{cssxref("&lt;string&gt;")}}.
 
 ### Vordefinierte Schlüsselwortwerte
 
-Vordefinierte Schlüsselwörter sind Textwerte, die durch die Spezifikation für diese Eigenschaft definiert sind. Diese Schlüsselwörter sind ebenfalls CSS-Identifikatoren und werden daher ohne Anführungszeichen verwendet.
+Vordefinierte Schlüsselwörter sind Textwerte, die von der Spezifikation für diese Eigenschaft definiert sind. Diese Schlüsselwörter sind auch CSS-Identifikatoren und werden daher ohne Anführungszeichen verwendet.
 
-Beim Betrachten der CSS-Eigenschaftswertsyn­tax in einer CSS-Spezifikation oder auf der MDN-Eigenschaftsseite werden zulässige Schlüsselwörter in der folgenden Form aufgeführt. Die folgenden Werte sind die vordefinierten Schlüsselwortwerte, die für {{cssxref("float")}} erlaubt sind.
+Wenn Sie die CSS-Eigenschaftswertsyntax in einer CSS-Spezifikation oder auf der MDN-Eigenschaftsseite betrachten, werden die zulässigen Schlüsselwörter in der folgenden Form aufgelistet. Die folgenden Werte sind die vordefinierten Schlüsselwortwerte, die für {{cssxref("float")}} erlaubt sind.
 
 ```plain
 left | right | none | inline-start | inline-end
@@ -67,24 +67,24 @@ Solche Werte werden ohne Anführungszeichen verwendet:
 }
 ```
 
-### CSS-globalen Werte
+### CSS-weite Werte
 
-Zusätzlich zu den vordefinierten Schlüsselwörtern, die Teil der Spezifikation einer Eigenschaft sind, akzeptieren alle CSS-Eigenschaften die CSS-weiten Eigenschaftswerte {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}}, und {{cssxref("revert-layer")}}, die explizit Standardverhalten angeben.
+Zusätzlich zu den vordefinierten Schlüsselwörtern, die Teil der Spezifikation für eine Eigenschaft sind, akzeptieren alle CSS-Eigenschaften die CSS-weiten Eigenschaftswerte {{cssxref("initial")}}, {{cssxref("inherit")}}, {{cssxref("unset")}}, {{cssxref("revert")}} und {{cssxref("revert-layer")}}, die explizit Rücksetzverhalten angeben.
 
 - {{cssxref("initial")}}
-  - : Repräsentiert den als anfänglichen Wert der Eigenschaft spezifizierten Wert.
+  - : Repräsentiert den Wert, der als anfänglicher Wert der Eigenschaft festgelegt wurde.
 - {{cssxref("inherit")}}
-  - : Stellt den berechneten Wert der Eigenschaft auf dem Elternelement dar, sofern sie geerbt wird.
+  - : Repräsentiert den berechneten Wert der Eigenschaft des Elternelements des Elements, vorausgesetzt, dass es geerbt wird.
 - {{cssxref("unset")}}
-  - : Wirkt entweder als `inherit` oder `initial`, je nachdem, ob die Eigenschaft vererbbar ist oder nicht.
+  - : Wirkt wie `inherit` oder `initial`, abhängig davon, ob die Eigenschaft geerbt wird oder nicht.
 - {{cssxref("revert")}}
-  - : Setzt die Eigenschaft auf ihren geerbten Wert zurück, falls sie vom übergeordneten Element erbt, oder auf den Standardwert, der durch das Stylesheet des Benutzeragents (oder durch Benutzerstile, falls vorhanden) etabliert wurde.
+  - : Setzt die Eigenschaft auf ihren geerbten Wert zurück, wenn sie diesen vom Elternelement erbt, oder auf den Standardwert, der durch das Stylesheet des Benutzer-Agents (oder, falls vorhanden, durch Benutzerstile) festgelegt wurde.
 - {{cssxref("revert-layer")}}
-  - : Setzt den Wert einer Eigenschaft in einer [Kaskadenschicht](/de/docs/Web/CSS/@layer) auf den Wert der Eigenschaft in einer CSS-Regel zurück, die dem Element in einer vorherigen Kaskadenschicht entspricht. Der Wert der Eigenschaft mit diesem Schlüsselwort wird neu berechnet, als ob im Ziel-Element in der aktuellen Kaskadenschicht keine Regeln festgelegt worden wären.
+  - : Rollt den Wert einer Eigenschaft in einem [Kaskadenschicht](/de/docs/Web/CSS/@layer) zu dem Wert der Eigenschaft in einer CSS-Regel zurück, die dem Element in einer vorherigen Kaskadenschicht entspricht. Der Wert der Eigenschaft mit diesem Schlüsselwort wird neu berechnet, als ob keine Regeln für das Zielobjekt in der aktuellen Kaskadenschicht festgelegt wären.
 
 ### URLs
 
-Ein Typ {{cssxref("url_value", "&lt;url&gt;")}} verwendet funktionale Notation, die ein `<string>` akzeptiert, das eine URL ist. Dies kann eine absolute URL oder eine relative URL sein. Beispielsweise, wenn Sie ein Hintergrundbild einbinden möchten, können Sie eine der folgenden Optionen verwenden.
+Ein {{cssxref("url_value", "&lt;url&gt;")}}-Typ verwendet funktionale Notation, die eine `<string>` akzeptiert, die eine URL ist. Dies kann eine absolute oder relative URL sein. Wenn Sie beispielsweise ein Hintergrundbild einfügen möchten, könnten Sie eine der folgenden verwenden.
 
 ```css
 .box {
@@ -96,7 +96,7 @@ Ein Typ {{cssxref("url_value", "&lt;url&gt;")}} verwendet funktionale Notation, 
 }
 ```
 
-Der Parameter für `url()` kann entweder zitiert oder unzitiert sein. Wenn er unzitiert ist, wird er als `<url-token>` analysiert, das zusätzliche Anforderungen einschließlich des Entkommens bestimmter Zeichen hat. Weitere Informationen finden Sie unter {{cssxref("url_value", "&lt;url&gt;")}}.
+Der Parameter für `url()` kann entweder in Anführungszeichen oder nicht in Anführungszeichen stehen. Wenn nicht zitiert, wird es als `<url-token>` analysiert, der zusätzliche Anforderungen wie das Escapen bestimmter Zeichen hat. Weitere Informationen finden Sie in {{cssxref("url_value", "&lt;url&gt;")}}.
 
 ## Numerische Datentypen
 
@@ -107,17 +107,17 @@ Der Parameter für `url()` kann entweder zitiert oder unzitiert sein. Wenn er un
 
 ### Ganzzahlen
 
-Eine Ganzzahl ist eine oder mehrere Dezimalziffern, `0` bis `9`, wie `1024` oder `-55`. Eine Ganzzahl kann durch ein `+`- oder `-`-Symbol vorangestellt werden, ohne dass zwischen dem Symbol und der Ganzzahl ein Leerzeichen steht.
+Eine Ganzzahl ist ein oder mehrere Dezimalziffern, `0` bis `9`, wie `1024` oder `-55`. Eine Ganzzahl kann von einem `+` oder `-` Symbol flankiert sein, ohne Leerzeichen zwischen dem Symbol und der Ganzzahl.
 
 ### Zahlen
 
-Ein {{cssxref("&lt;number&gt;")}} stellt eine reelle Zahl dar, die möglicherweise oder möglicherweise nicht ein Komma mit einer Bruchkomponente enthält, zum Beispiel `0.255`, `128` oder `-1.2`. Zahlen können ebenfalls mit einem `+`- oder `-`-Symbol vorangestellt werden.
+Ein {{cssxref("&lt;number&gt;")}} repräsentiert eine reelle Zahl, die einen Dezimalpunkt mit einer Bruchkomponente haben kann oder nicht, beispielsweise `0.255`, `128` oder `-1.2`. Zahlen können auch von einem `+` oder `-` Symbol flankiert sein.
 
-### Maßeinheiten
+### Dimensionen
 
-Ein {{cssxref("&lt;dimension&gt;")}} ist eine `<number>` mit einer angehängten Einheit, zum Beispiel `45deg`, `100ms` oder `10px`. Der angehängte Einheit-Identifikator ist nicht case-sensitive. Es gibt nie einen Leerschritt oder andere Zeichen zwischen der Zahl und dem Einheiten-Identifikator: das heißt, `1 cm` ist nicht gültig.
+Ein {{cssxref("&lt;dimension&gt;")}} ist ein `<number>` mit einer daran angehängten Einheit, zum Beispiel `45deg`, `100ms` oder `10px`. Der angehängte Einheit-Identifier ist nicht empfindlich für Groß- und Kleinschreibung. Es gibt niemals ein Leerzeichen oder andere Zeichen zwischen der Zahl und dem Einheiten-Identifier: d. h. `1 cm` ist nicht gültig.
 
-CSS verwendet Maßeinheiten, um anzugeben:
+CSS verwendet Dimensionen zur Spezifizierung von:
 
 - {{cssxref("&lt;length&gt;")}} (Distanz-Einheiten)
 - {{cssxref("&lt;angle&gt;")}}
@@ -126,147 +126,147 @@ CSS verwendet Maßeinheiten, um anzugeben:
 - {{cssxref("&lt;flex&gt;")}}
 - {{cssxref("&lt;resolution&gt;")}}
 
-Diese werden alle in den folgenden Unterabschnitten behandelt.
+Diese sind alle in den untenstehenden Unterabschnitten behandelt.
 
-#### Distanz-Einheiten
+#### Distanzeinheiten
 
-Wo eine Distanz-Einheit, auch bekannt als Länge, als Wert für eine Eigenschaft erlaubt ist, wird dies als Type {{cssxref("&lt;length&gt;")}} beschrieben. In CSS gibt es zwei Arten von Längen: relative und absolute. Relative Längeneinheiten geben eine Länge im Verhältnis zu etwas anderem an.
+Wo eine Distanzeinheit, auch als Länge bekannt, als Wert für eine Eigenschaft erlaubt ist, wird dies als {{cssxref("&lt;length&gt;")}}-Typ beschrieben. Es gibt zwei Arten von Längen in CSS: relative und absolute Längen. Relative Längeneinheiten geben eine Länge im Verhältnis zu etwas anderem an.
 
-Es gibt zwei Arten von relativen Längen: schriftbezogene Längen und Ansichtsfenster-Prozentsatzlängen. Diese kommen beide in zwei Typen. Schriftbezogene Längeinheiten sind entweder lokale schriftbezogene oder wurzel-schriftbezogene. Ansichtsfenster-Prozentsatzlängen sind entweder relativ zur Höhe oder Breite des Ansichtsfensters oder, wie im [CSS Containment Modul](/de/docs/Web/CSS/CSS_containment) definiert, relativ zu einem [Container](/de/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units).
+Es gibt zwei Arten relativer Längen: schriftbezogene Längen und Längen in Prozent des Sichtbereichs. Diese kommen beide in zwei Arten. Schriftbezogene Längeneinheiten sind entweder lokal schriftbezogen oder wurzelschriftbezogen. Längen in Prozent des Sichtbereichs sind entweder relativ zur Höhe oder Breite des Sichtbereichs oder, wie im [CSS Containment-Modul](/de/docs/Web/CSS/CSS_containment) definiert, relativ zu einem [Container](/de/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units).
 
 ##### Lokale schriftbezogene Längen
 
-Lokale schriftbezogene Längen sind relativ zur "lokalen" Schriftgröße oder Zeilenhöhe und spezifizieren eine Länge im Verhältnis zu einer berechneten Größe eines Merkmals des [Elements](/de/docs/Web/HTML/Element) selbst oder relativ zum geerbten Wert des Elements im Fall eines zirkulären Verweises, wie etwa beim `em`-Wert einer {{cssxref("font-size")}}-Eigenschaft oder einem `lh`-Wert einer {{cssxref("line-height")}}-Eigenschaft. Zum Beispiel, `em` ist relativ zur Schriftgröße auf dem Element und `ex` ist relativ zur x-Höhe der Schrift des Elements.
+Lokale schriftbezogene Längen sind relativ zur "lokalen" Schriftgröße oder Zeilenhöhe und spezifizieren eine Länge im Verhältnis zu einer berechneten Größe einer Funktion des [Elements](/de/docs/Web/HTML/Element) selbst oder relativ zum vererbten Wert des Elements im Falle einer Zirkelreferenz, wie der `em`-Wert für eine {{cssxref("font-size")}}-Eigenschaft oder ein `lh`-Wert für eine {{cssxref("line-height")}}-Eigenschaft. Beispielsweise ist `em` relativ zur Schriftgröße des Elements und `ex` relativ zur x-Höhe der Schrift des Elements.
 
-| Einheit | Relativ zu                                                                                                                                                  |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `cap`   | Kapphöhe (die nominale Höhe von Großbuchstaben) der Schrift des Elements.                                                                                   |
-| `ch`    | Durchschnittlicher Zeichenabstand eines schmalen Glyphen in der Schrift des Elements, dargestellt durch das Zeichen "0" (NULL, U+0030).                     |
-| `em`    | Schriftgröße der Schrift des Elements.                                                                                                                      |
-| `ex`    | x-Höhe der Schrift des Elements.                                                                                                                            |
-| `ic`    | Durchschnittlicher Zeichenabstand eines vollbreiten Glyphen in der Schrift des Elements, dargestellt durch das Zeichen "水" (CJK Wasser-Ideogramm, U+6C34). |
-| `lh`    | Zeilenhöhe des Elements.                                                                                                                                    |
+| Einheit | Relativ zu                                                                                                                      |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `cap`   | Kappenhöhe (die nominelle Höhe von Großbuchstaben) der Schrift des Elements.                                                     |
+| `ch`    | Durchschnittliche Zeichenbreite eines schmalen Glyphs in der Schrift des Elements, dargestellt durch das "0" (NULL, U+0030) Glyphe. |
+| `em`    | Schriftgröße der Schrift des Elements.                                                                                           |
+| `ex`    | x-Höhe der Schrift des Elements.                                                                                                 |
+| `ic`    | Durchschnittliche Zeichenbreite eines vollen Breitenzeichens in der Schrift des Elements, dargestellt durch das "水" (CJK Wasser Ideogramm, U+6C34) Glyphe. |
+| `lh`    | Zeilenhöhe des Elements.                                                                                                         |
 
-##### Wurzel-schriftbezogene Längen
+##### Wurzelschriftbezogene Längen
 
-Wurzel-schriftbezogene Längen geben eine Länge im Verhältnis zum [Wurzelelement](/de/docs/Web/CSS/:root) Vorfahr des Elements an, wie {{HTMLElement("HTML")}} oder {{SVGElement("SVG")}}.
-Beispielsweise ist `rem` relativ zur Schriftgröße auf dem Wurzelelement und `rex` ist die x-Höhe der Schrift des Wurzelelements.
+Wurzelschriftbezogene Längen spezifizieren eine Länge im Verhältnis zum [Wurzelelement](/de/docs/Web/CSS/:root)-Vorfahr des Elements, wie {{HTMLElement("HTML")}} oder {{SVGElement("SVG")}}.
+Zum Beispiel ist `rem` relativ zur Schriftgröße des Wurzelelements und `rex` die x-Höhe der Schrift des Wurzelelements.
 
-| Einheit | Relativ zu                                                                                                                                                        |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `rcap`  | Kapphöhe (die nominale Höhe von Großbuchstaben) der Schrift des Wurzelelements.                                                                                   |
-| `rch`   | Durchschnittlicher Zeichenabstand eines schmalen Glyphen in der Schrift des Wurzelelements, dargestellt durch das Zeichen "0" (NULL, U+0030).                     |
-| `rem`   | Schriftgröße der Schrift des Wurzelelements.                                                                                                                      |
-| `rex`   | x-Höhe der Schrift des Wurzelelements.                                                                                                                            |
-| `ric`   | Durchschnittlicher Zeichenabstand eines vollbreiten Glyphen in der Schrift des Wurzelelements, dargestellt durch das Zeichen "水" (CJK Wasser-Ideogramm, U+6C34). |
-| `rlh`   | Zeilenhöhe des Wurzelelements.                                                                                                                                    |
+| Einheit | Relativ zu                                                                                                                                     |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `rcap`  | Kappenhöhe (die nominelle Höhe von Großbuchstaben) der Schrift des Wurzelelements.                                                            |
+| `rch`   | Durchschnittliche Zeichenbreite eines schmalen Glyphs in der Schrift des Wurzelelements, dargestellt durch das "0" (NULL, U+0030) Glyphe.     |
+| `rem`   | Schriftgröße der Schrift des Wurzelelements.                                                                                                 |
+| `rex`   | x-Höhe der Schrift des Wurzelelements.                                                                                                       |
+| `ric`   | Durchschnittliche Zeichenbreite eines vollen Breitenzeichens in der Schrift des Wurzelelements, dargestellt durch das "水" (CJK Wasser Ideogramm, U+6C34) Glyphe. |
+| `rlh`   | Zeilenhöhe des Wurzelelements.                                                                                                               |
 
-##### Ansichtsfenster-Einheiten
+##### Sichtbereichseinheiten
 
-Ansichtsfenster-Einheiten geben eine Länge relativ zu den Abmessungen des {{Glossary("Viewport", "Ansichtsfensters")}} an.
-Beispielsweise ist `vw` relativ zur Breite des Ansichtsfensters und `vh` relativ zur Höhe des Ansichtsfensters.
+Längeneinheiten des Sichtbereichs geben eine Länge relativ zu den Abmessungen des {{Glossary("Viewport", "Sichtbereichs")}} an.
+Zum Beispiel ist `vw` relativ zur Breite des Sichtbereichs und `vh` relativ zur Höhe des Sichtbereichs.
 
-| Einheit | Relativ zu                                                                                                        |
-| ------- | ----------------------------------------------------------------------------------------------------------------- |
-| `dvh`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Höhe des Ansichtsfensters.                                  |
-| `dvw`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Breite des Ansichtsfensters.                                |
-| `lvh`   | 1% der [großen](/de/docs/Web/CSS/length#large) Höhe des Ansichtsfensters.                                         |
-| `lvw`   | 1% der [großen](/de/docs/Web/CSS/length#large) Breite des Ansichtsfensters.                                       |
-| `svh`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Höhe des Ansichtsfensters.                                        |
-| `svw`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Breite des Ansichtsfensters.                                      |
-| `vb`    | 1% der Größe des Ansichtsfensters auf der {{Glossary("Flow_relative_values", "Blockachse")}} des Wurzelelements.  |
-| `vh`    | 1% der Höhe des Ansichtsfensters.                                                                                 |
-| `vi`    | 1% der Größe des Ansichtsfensters auf der {{Glossary("Flow_relative_values", "Inlineachse")}} des Wurzelelements. |
-| `vmax`  | 1% der größeren Dimension des Ansichtsfensters.                                                                   |
-| `vmin`  | 1% der kleineren Dimension des Ansichtsfensters.                                                                  |
-| `vw`    | 1% der Breite des Ansichtsfensters.                                                                               |
+| Einheit | Relativ zu                                                                                             |
+| ------- | ----------------------------------------------------------------------------------------------------- |
+| `dvh`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Höhe des Sichtbereichs.                       |
+| `dvw`   | 1% der [dynamischen](/de/docs/Web/CSS/length#dynamic) Breite des Sichtbereichs.                     |
+| `lvh`   | 1% der [großen](/de/docs/Web/CSS/length#large) Höhe des Sichtbereichs.                              |
+| `lvw`   | 1% der [großen](/de/docs/Web/CSS/length#large) Breite des Sichtbereichs.                            |
+| `svh`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Höhe des Sichtbereichs.                             |
+| `svw`   | 1% der [kleinen](/de/docs/Web/CSS/length#small) Breite des Sichtbereichs.                           |
+| `vb`    | 1% der Sichtbereichsgröße in der {{Glossary("Flow_relative_values", "Blockachse")}} des Wurzelelements. |
+| `vh`    | 1% der Höhe des Sichtbereichs.                                                                         |
+| `vi`    | 1% der Sichtbereichsgröße in der {{Glossary("Flow_relative_values", "Inlineachse")}} des Wurzelelements. |
+| `vmax`  | 1% der größeren Dimension des Sichtbereichs.                                                           |
+| `vmin`  | 1% der kleineren Dimension des Sichtbereichs.                                                          |
+| `vw`    | 1% der Breite des Sichtbereichs.                                                                       |
 
 ##### Container-Einheiten
 
-Container-Abfrage Längeneinheiten geben eine Länge an, die relativ zu den Abmessungen eines [Abfragecontainers](/de/docs/Web/CSS/CSS_containment/Container_queries) ist.
-Beispielsweise ist `cqw` relativ zur Breite des Abfragecontainers und `cqh` ist relativ zur Höhe des Abfragecontainers.
+Längeneinheiten für Container-Abfragen geben eine Länge relativ zu den Abmessungen eines [Abfragecontainers](/de/docs/Web/CSS/CSS_containment/Container_queries) an.
+Zum Beispiel ist `cqw` relativ zur Breite des Abfragecontainers und `cqh` relativ zur Höhe des Abfragecontainers.
 
-| Einheit | Relativ zu                                 |
-| ------- | ------------------------------------------ |
-| `cqb`   | 1% der Blockgröße eines Abfragecontainers  |
-| `cqh`   | 1% der Höhe eines Abfragecontainers        |
-| `cqi`   | 1% der Inlinegröße eines Abfragecontainers |
-| `cqmax` | Der größere Wert von `cqi` oder `cqb`      |
-| `cqmin` | Der kleinere Wert von `cqi` oder `cqb`     |
-| `cqw`   | 1% der Breite eines Abfragecontainers      |
+| Einheit | Relativ zu                               |
+| ------- | ---------------------------------------- |
+| `cqb`   | 1% der Blockgröße eines Abfragecontainers |
+| `cqh`   | 1% der Höhe eines Abfragecontainers      |
+| `cqi`   | 1% der Innengröße eines Abfragecontainers |
+| `cqmax` | Der größere Wert von `cqi` oder `cqb`    |
+| `cqmin` | Der kleinere Wert von `cqi` oder `cqb`   |
+| `cqw`   | 1% der Breite eines Abfragecontainers    |
 
 #### Absolute Längeneinheiten
 
-Absolute Längeneinheiten sind an eine physische Länge gebunden: entweder ein Zoll oder ein Zentimeter. Viele dieser Einheiten sind daher nützlicher, wenn die Ausgabe ein festes Medienformat hat, wie z.B. Druck. Zum Beispiel, `mm` ist ein physischer Millimeter, 1/10 eines Zentimeters.
+Absolute Längeneinheiten sind an eine physikalische Länge gebunden: entweder ein Zoll oder ein Zentimeter. Viele dieser Einheiten sind daher nützlicher, wenn die Ausgabe ein festes Medienformat hat, wie z. B. beim Drucken. Zum Beispiel ist `mm` ein physischer Millimeter, 1/10 eines Zentimeters.
 
-| Einheit | Name               | Äquivalent zu        |
+| Einheit | Name               | Entspricht           |
 | ------- | ------------------ | -------------------- |
-| `cm`    | Zentimeter         | 1cm = 96px/2,54      |
-| `in`    | Zoll               | 1in = 2,54cm = 96px  |
-| `mm`    | Millimeter         | 1mm = 1/10 eines 1cm |
-| `pc`    | Picas              | 1pc = 1/6 eines 1in  |
-| `pt`    | Punkte             | 1pt = 1/72 eines 1in |
-| `px`    | Pixel              | 1px = 1/96 eines 1in |
-| `Q`     | Viertel-Millimeter | 1Q = 1/40 eines 1cm  |
+| `cm`    | Zentimeter         | 1cm = 96px/2.54      |
+| `in`    | Zoll               | 1in = 2.54cm = 96px  |
+| `mm`    | Millimeter         | 1mm = 1/10 von 1cm   |
+| `pc`    | Pica               | 1pc = 1/6 von 1in    |
+| `pt`    | Punkt              | 1pt = 1/72 von 1in   |
+| `px`    | Pixel              | 1px = 1/96 von 1in   |
+| `Q`     | Viertelmilliimeter | 1Q = 1/40 von 1cm    |
 
-Beim Einfügen eines Längenwertes, wenn die Länge `0` ist, ist der Einheiten-Identifikator nicht erforderlich. Andernfalls ist der Einheiten-Identifikator erforderlich, ist nicht case-sensitive und muss unmittelbar nach dem numerischen Teil des Wertes kommen, ohne dass ein Leerzeichen dazwischen ist.
+Wenn ein Längenwert enthalten ist, ist, wenn die Länge `0` ist, der Einheit-Identifikator nicht erforderlich. Andernfalls wird der Einheit-Identifikator benötigt, ist nicht empfindlich für Groß- und Kleinschreibung und muss unmittelbar nach dem numerischen Teil des Wertes erfolgen, ohne Leerzeichen dazwischen.
 
 ##### Winkeleinheiten
 
-Winkelwerte werden durch den Typ {{cssxref("&lt;angle&gt;")}} dargestellt und akzeptieren die folgenden Werte:
+Winkelwerte werden durch den Typ {{cssxref("&lt;angle&gt;")}} dargestellt und akzeptieren folgende Werte:
 
-| Einheit | Name        | Beschreibung                             |
-| ------- | ----------- | ---------------------------------------- |
-| `deg`   | Grad        | Es gibt 360 Grad in einem Vollkreis.     |
-| `grad`  | Gon         | Es gibt 400 Gon in einem Vollkreis.      |
-| `rad`   | Radiant     | Es gibt 2π Radianten in einem Vollkreis. |
-| `turn`  | Umdrehungen | Es gibt 1 Umdrehung in einem Vollkreis.  |
+| Einheit | Name     | Beschreibung                              |
+| ------- | -------- | ----------------------------------------- |
+| `deg`   | Grad     | Es gibt 360 Grad in einem vollständigen Kreis. |
+| `grad`  | Gon      | Es gibt 400 Gons in einem vollständigen Kreis. |
+| `rad`   | Radiant  | Es gibt 2π Radianten in einem vollständigen Kreis. |
+| `turn`  | Umdrehung | Es gibt 1 Umdrehung in einem vollständigen Kreis. |
 
 ##### Zeiteinheiten
 
-Zeitwerte werden durch den Typ {{cssxref("&lt;time&gt;")}} dargestellt. Bei der Angabe eines Zeitwertes ist der Einheiten-Identifikator — das `s` oder `ms` — erforderlich. Er akzeptiert die folgenden Werte.
+Zeitwerte werden durch den Typ {{cssxref("&lt;time&gt;")}} dargestellt. Wenn ein Zeitwert enthalten ist, ist der Einheiten-Identifikator — das `s` oder `ms` — erforderlich. Er akzeptiert die folgenden Werte.
 
-| Einheit | Name          | Beschreibung                                  |
-| ------- | ------------- | --------------------------------------------- |
+| Einheit | Name        | Beschreibung                                 |
+| ------- | ----------- | -------------------------------------------- |
 | `ms`    | Millisekunden | Es gibt 1.000 Millisekunden in einer Sekunde. |
-| `s`     | Sekunden      |                                               |
+| `s`     | Sekunden    |                                              |
 
 ##### Frequenzeinheiten
 
-Frequenzwerte werden durch den Typ {{cssxref("&lt;frequency&gt;")}} dargestellt. Sie akzeptieren die folgenden Werte.
+Frequenzwerte werden durch den Typ {{cssxref("&lt;frequency&gt;")}} dargestellt. Er akzeptiert die folgenden Werte.
 
-| Einheit | Name      | Beschreibung                                        |
-| ------- | --------- | --------------------------------------------------- |
-| `Hz`    | Hertz     | Repräsentiert die Anzahl der Vorkommen pro Sekunde. |
-| `kHz`   | KiloHertz | Ein KiloHertz sind 1.000 Hertz.                     |
+| Einheit | Name       | Beschreibung                                       |
+| ------- | ---------- | -------------------------------------------------- |
+| `Hz`    | Hertz      | Repräsentiert die Anzahl der Ereignisse pro Sekunde. |
+| `kHz`   | KiloHertz  | Ein KiloHertz entspricht 1000 Hertz.              |
 
-`1Hz`, welcher auch als `1hz` oder `1HZ` geschrieben werden kann, ist ein Zyklus pro Sekunde.
+`1Hz`, das auch als `1hz` oder `1HZ` geschrieben werden kann, ist ein Zyklus pro Sekunde.
 
 ##### Flex-Einheiten
 
-Flex-Einheiten werden durch den Typ {{cssxref("&lt;flex&gt;")}} dargestellt. Sie akzeptieren den folgenden Wert.
+Flex-Einheiten werden durch den Typ {{cssxref("&lt;flex&gt;")}} dargestellt. Er akzeptiert den folgenden Wert.
 
-| Einheit | Name | Beschreibung                                                       |
-| ------- | ---- | ------------------------------------------------------------------ |
-| `fr`    | Flex | Repräsentiert eine flexible Länge innerhalb eines Rastercontainers |
+| Einheit | Name  | Beschreibung                         |
+| ------- | ----- | ------------------------------------ |
+| `fr`    | Flex  | Repräsentiert eine flexible Länge innerhalb eines Rastercontainers. |
 
 ##### Auflösungseinheiten
 
-Auflösungseinheiten werden durch den Typ {{cssxref("&lt;resolution&gt;")}} dargestellt. Sie repräsentieren die Größe eines einzelnen Punkts in einer grafischen Darstellung, z.B. eines Bildschirms, indem angegeben wird, wie viele dieser Punkte in einen CSS-Zoll, Zentimeter oder Pixel passen. Es werden die folgenden Werte akzeptiert:
+Auflösungseinheiten werden durch den Typ {{cssxref("&lt;resolution&gt;")}} dargestellt. Sie repräsentieren die Größe eines einzelnen Punkts in einer grafischen Darstellung, wie einem Bildschirm, indem sie angeben, wie viele dieser Punkte in einen CSS-Zoll, Zentimeter oder Pixel passen. Sie akzeptieren die folgenden Werte:
 
-| Einheit     | Beschreibung           |
-| ----------- | ---------------------- |
-| `dpcm`      | Punkte pro Zentimeter. |
-| `dpi`       | Punkte pro Zoll.       |
-| `dppx`, `x` | Punkte pro px Einheit. |
+| Einheit        | Beschreibung          |
+| -------------- | ------------------- |
+| `dpcm`         | Punkte pro Zentimeter. |
+| `dpi`          | Punkte pro Zoll.    |
+| `dppx`, `x`    | Punkte pro px-Einheit. |
 
 #### Prozentsätze
 
 Ein {{cssxref("&lt;percentage&gt;")}} ist ein Typ, der einen Bruchteil eines anderen Wertes darstellt.
 
-Prozentwerte sind immer relativ zu einer anderen Größe, zum Beispiel einer Länge. Jede Eigenschaft, die Prozentsätze erlaubt, definiert auch die Größe, auf die sich der Prozentsatz bezieht. Diese Größe kann ein Wert einer anderen Eigenschaft des gleichen Elements sein, der Wert einer Eigenschaft eines Vorfahrelements, eine Messung eines enthaltenen Blocks oder etwas anderes.
+Prozentwerte sind immer relativ zu einer anderen Größe, zum Beispiel einer Länge. Jede Eigenschaft, die Prozentsätze zulässt, definiert auch die Größe, auf die sich der Prozentsatz bezieht. Diese Größe kann ein Wert einer anderen Eigenschaft desselben Elements sein, der Wert einer Eigenschaft eines Vorfahren-Elements, eine Messung eines enthaltenen Blocks oder etwas anderes.
 
-Als Beispiel, wenn Sie die {{cssxref("width")}} eines Kastens als Prozentsatz angeben, bezieht sich dies auf den Prozentsatz der berechneten Breite des Elternkastens:
+Als Beispiel, wenn Sie die {{cssxref("width")}} einer Box als Prozentsatz angeben, bezieht sich dieser auf den Prozentsatz der berechneten Breite des übergeordneten Elements der Box:
 
 ```css
 .box {
@@ -274,9 +274,9 @@ Als Beispiel, wenn Sie die {{cssxref("width")}} eines Kastens als Prozentsatz an
 }
 ```
 
-### Mischen von Prozentsätzen und Maßeinheiten
+### Kombination von Prozentsätzen und Dimensionen
 
-Einige Eigenschaften akzeptieren eine Maßeinheit, die entweder eine von zwei Typen sein kann, zum Beispiel eine `<length>` **oder** ein `<percentage>`. In diesem Fall wird der erlaubte Wert in der Spezifikation als Kombinationseinheit detailliert beschrieben, z.B. {{cssxref("&lt;length-percentage&gt;")}}. Andere mögliche Kombinationen sind wie folgt:
+Einige Eigenschaften akzeptieren eine Dimensionsangabe, die entweder eine von zwei Typen sein könnte, zum Beispiel eine `<length>` **oder** ein `<percentage>`. In diesem Fall wird der zulässige Wert in der Spezifikation als Kombinationseinheit, z. B. {{cssxref("&lt;length-percentage&gt;")}}, angegeben. Andere mögliche Kombinationen sind wie folgt:
 
 - {{cssxref("&lt;frequency-percentage&gt;")}}
 - {{cssxref("&lt;angle-percentage&gt;")}}
@@ -290,15 +290,15 @@ Einige Eigenschaften akzeptieren eine Maßeinheit, die entweder eine von zwei Ty
 
 #### Farbe
 
-Der {{cssxref("&lt;color&gt;")}}-Wert gibt die Farbe einer Elementeigenschaft an (z.B. ihre Hintergrundfarbe) und ist im [CSS-Farbmodul](https://drafts.csswg.org/css-color-3/) definiert.
+Der {{cssxref("&lt;color&gt;")}}-Wert gibt die Farbe eines Elementmerkmals an (z. B. dessen Hintergrundfarbe) und wird im [CSS Color Module](https://drafts.csswg.org/css-color-3/) definiert.
 
 #### Bild
 
-Der {{cssxref("&lt;image&gt;")}}-Wert spezifiziert alle verschiedenen Bildtypen, die in CSS verwendet werden können, und ist im [CSS Image Values and Replaced Content Module](https://www.w3.org/TR/css-images-4/) definiert.
+Der {{cssxref("&lt;image&gt;")}}-Wert spezifiziert alle unterschiedlichen Bildtypen, die in CSS verwendet werden können und wird im [CSS Image Values and Replaced Content Module](https://www.w3.org/TR/css-images-4/) definiert.
 
 #### Position
 
-Der {{cssxref("&lt;position&gt;")}}-Typ definiert die 2D-Positionierung eines Objekts innerhalb eines Positionierungsbereichs, beispielsweise eines Hintergrundbilds innerhalb eines Containers. Dieser Typ wird als {{cssxref("background-position")}} interpretiert und daher in der [CSS Backgrounds and Borders Spezifikation](https://www.w3.org/TR/css-backgrounds-3/) spezifiziert.
+Der {{cssxref("&lt;position&gt;")}}-Typ definiert die 2D-Positionierung eines Objekts innerhalb eines Positionierungsbereichs, beispielsweise eines Hintergrundbildes innerhalb eines Containers. Dieser Typ wird als {{cssxref("background-position")}} interpretiert und daher in der [CSS Backgrounds and Borders specification](https://www.w3.org/TR/css-backgrounds-3/) spezifiziert.
 
 ### Funktionale Notation
 
@@ -310,11 +310,11 @@ Der {{cssxref("&lt;position&gt;")}}-Typ definiert die 2D-Positionierung eines Ob
 - {{cssxref("toggle", "toggle()")}}
 - {{cssxref("attr", "attr()")}}
 
-[Funktionale Notation](/de/docs/Web/CSS/CSS_Functions) ist ein Werttyp, der komplexere Typen darstellen oder spezielle Verarbeitung durch CSS anstoßen kann. Die Syntax beginnt mit dem Namen der Funktion, gefolgt unmittelbar von einer linken Klammer `(`, gefolgt von den Argument(en) für die Notation, gefolgt von einer rechten Klammer `)`. Funktionen können mehrere Argumente annehmen, die ähnlich wie ein CSS-Eigenschaftswert formatiert sind.
+[Funktionale Notation](/de/docs/Web/CSS/CSS_Functions) ist eine Art von Wert, die komplexere Typen darstellen oder spezielle Verarbeitung durch CSS anfordern kann. Die Syntax beginnt mit dem Namen der Funktion, gefolgt von einer linken Klammer `(`, gefolgt von dem/den Argument(en) der Notation, gefolgt von einer rechten Klammer `)`. Funktionen können mehrere Argumente haben, die ähnlich wie ein CSS-Eigenschaftswert formatiert sind.
 
-Leerzeichen sind erlaubt, aber innerhalb der Klammern optional. (Aber beachten Sie die Hinweise zu Leerzeichen auf den Seiten für `min()`, `max()`, `minmax()` und `clamp()`-Funktionen.)
+Leerzeichen sind erlaubt, aber innerhalb der Klammern optional. (Siehe aber Hinweise zu Leerzeichen auf Seiten für `min()`, `max()`, `minmax()` und `clamp()`-Funktionen.)
 
-Einige Legacy-Funktionsnotationen, wie die ältere Syntax für `rgb()`, `rgba()`, `hsl()`, und `hsla()`, verwendeten Kommata, aber im Allgemeinen werden Kommata nur verwendet, um Elemente in einer Liste zu trennen. Wenn ein Komma verwendet wird, um Argumente zu trennen, ist vor und nach dem Komma optional ein Leerzeichen.
+Einige veraltete funktionale Notationen, wie die veraltete Syntax für `rgb()`, `rgba()`, `hsl()` und `hsla()`, verwendeten Kommata, aber Kommata werden im Allgemeinen nur verwendet, um Elemente in einer Liste zu trennen. Wenn ein Komma verwendet wird, um Argumente zu trennen, sind vor und nach dem Komma Leerzeichen optional.
 
 ## Spezifikationen
 
@@ -323,5 +323,5 @@ Einige Legacy-Funktionsnotationen, wie die ältere Syntax für `rgb()`, `rgba()`
 ## Siehe auch
 
 - [CSS Grundlegende Datentypen](/de/docs/Web/CSS/CSS_Types)
-- [Einführung in CSS: Werte und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units)
+- [Lernen: Werte und Einheiten](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
 - [Trigonometrische Funktionen in CSS](https://web.dev/articles/css-trig-functions)

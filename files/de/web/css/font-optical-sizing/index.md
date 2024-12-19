@@ -2,12 +2,12 @@
 title: font-optical-sizing
 slug: Web/CSS/font-optical-sizing
 l10n:
-  sourceCommit: 14515827c44f3cb814261a1c6bd487ae8bfcde1b
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`font-optical-sizing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Textrendering für die Darstellung in unterschiedlichen Größen optimiert wird.
+Die **`font-optical-sizing`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob die Textdarstellung für die Ansicht in verschiedenen Größen optimiert wird.
 
 {{EmbedInteractiveExample("pages/css/font-optical-sizing.html")}}
 
@@ -29,15 +29,15 @@ font-optical-sizing: unset;
 ### Werte
 
 - none
-  - : Der Browser wird die Form der Glyphen nicht für eine optimale Darstellung ändern.
+  - : Der Browser wird die Form der Glyphen nicht für eine optimale Ansicht ändern.
 - auto
-  - : Der Browser wird die Form der Glyphen für eine optimale Darstellung ändern.
+  - : Der Browser wird die Form der Glyphen für eine optimale Ansicht ändern.
 
 ## Beschreibung
 
-Optische Anpassung ist standardmäßig für Schriftarten aktiviert, die eine Variationsachse für optische Größe haben. Die Variationsachse für optische Größe wird durch `opsz` in {{cssxref("font-variation-settings")}} dargestellt.
+Optische Größenanpassung ist standardmäßig für Schriftarten aktiviert, die eine Achse für optische Größenanpassung haben. Die Achse für optische Größenanpassung wird durch `opsz` in {{cssxref("font-variation-settings")}} dargestellt.
 
-Wenn optische Anpassung verwendet wird, werden kleine Texthöhen häufig mit dickeren Strichen und größeren Serifen gerendert, während größere Texte oft zarter mit mehr Kontrast zwischen dickeren und dünneren Strichen dargestellt werden.
+Bei Verwendung von optischer Größenanpassung werden kleine Textgrößen oft mit dickeren Strichen und größeren Serifen gerendert, während größerer Text oft feiner gerendert wird, mit mehr Kontrast zwischen dickeren und dünneren Strichen.
 
 ## Formale Definition
 
@@ -49,7 +49,7 @@ Wenn optische Anpassung verwendet wird, werden kleine Texthöhen häufig mit dic
 
 ## Beispiele
 
-### Optische Anpassung deaktivieren
+### Deaktivierung der optischen Größenanpassung
 
 ```html
 <p class="optical-sizing">
@@ -80,7 +80,7 @@ p {
 ```
 
 > [!NOTE]
-> Die oben referenzierte Schriftart — die optische Anpassung umfasst und frei lizenziert ist — eignet sich gut für Tests. Sie können sie [auf GitHub herunterladen](https://github.com/googlefonts/amstelvar/releases).
+> Die oben erwähnte Schriftart — die optische Größenanpassung umfasst und frei lizenziert ist — eignet sich gut zum Testen. Sie können sie [auf GitHub herunterladen](https://github.com/googlefonts/amstelvar/releases).
 
 ## Spezifikationen
 
@@ -94,4 +94,4 @@ p {
 
 - {{cssxref("font-size")}}
 - {{cssxref("font-size-adjust")}}
-- [Grundlagen der Text- und Schriftgestaltung](/de/docs/Learn/CSS/Styling_text/Fundamentals)
+- [Lernen: Grundlegende Text- und Schriftgestaltung](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

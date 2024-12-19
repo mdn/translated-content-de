@@ -1,14 +1,14 @@
 ---
-title: "HTMLButtonElement: setCustomValidity() Methode"
+title: "HTMLButtonElement: setCustomValidity()-Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLButtonElement/setCustomValidity
 l10n:
-  sourceCommit: 26c4d5424eef227f98360e05787bf4838a93382d
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{ APIRef("HTML DOM") }}
 
-Die **`setCustomValidity()`** Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement) Interfaces setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("button")}} Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element keinen benutzerdefinierten Gültigkeitsfehler hat.
+Die **`setCustomValidity()`**-Methode des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces setzt die benutzerdefinierte Fehlermeldung für das {{htmlelement("button")}}-Element. Verwenden Sie den leeren String, um anzuzeigen, dass das Element _keinen_ benutzerdefinierten Gültigkeitsfehler hat.
 
 ## Syntax
 
@@ -52,7 +52,7 @@ if (errors) {
 - [`HTMLButtonElement.validity`](/de/docs/Web/API/HTMLButtonElement/validity)
 - [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - [`HTMLButtonElement.reportValidity()`](/de/docs/Web/API/HTMLButtonElement/reportValidity)
-- [Formularvalidierung](/de/docs/Web/HTML/Constraint_validation).
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen
+- [Form validation](/de/docs/Web/HTML/Constraint_validation).
+- [Learn: Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Constraint_validation)
+- CSS {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-Pseudo-Klassen

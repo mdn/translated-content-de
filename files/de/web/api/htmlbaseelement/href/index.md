@@ -3,18 +3,18 @@ title: "HTMLBaseElement: href-Eigenschaft"
 short-title: href
 slug: Web/API/HTMLBaseElement/href
 l10n:
-  sourceCommit: 3eed3a74d2a59d09545b5e56bbfa752865072d4e
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`href`**-Eigenschaft des [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Interfaces enthält einen String, der die URL ist, die als Basis für [relative URLs](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls) verwendet wird.
+Die **`href`**-Eigenschaft des [`HTMLBaseElement`](/de/docs/Web/API/HTMLBaseElement)-Interfaces enthält einen String, der die URL darstellt, die als Basis für [relative URLs](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL#absolute_urls_vs._relative_urls) genutzt wird.
 
 Sie spiegelt das `href`-Attribut des {{HTMLElement("base")}}-Elements wider.
 
 ## Wert
 
-Ein String, der eine URL enthält oder der leere String (`""`), falls das entsprechende `<base>`-Element das `href`-Attribut nicht beinhaltet.
+Ein String, der eine URL enthält, oder der leere String (`""`), wenn das entsprechende `<base>`-Element das `href`-Attribut nicht umfasst.
 
 ## Beispiele
 

@@ -3,18 +3,18 @@ title: "SVGElement: dataset-Eigenschaft"
 short-title: dataset
 slug: Web/API/SVGElement/dataset
 l10n:
-  sourceCommit: 335dda2e9a42f5e9257ee398437cd984f6cabb45
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("SVG")}}
 
-Die **`dataset`** Lese-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement) Schnittstelle ermöglicht den Lese- und Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/SVG/Attribute/data-*) (`data-*`) von Elementen. Sie stellt eine Zeichenfolgenkarte ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) bereit, die jeweils einen Eintrag für jedes `data-*` Attribut enthält.
+Die **`dataset`** Nur-Lese-Eigenschaft der [`SVGElement`](/de/docs/Web/API/SVGElement)-Schnittstelle bietet Lese-/Schreibzugriff auf [benutzerdefinierte Datenattribute](/de/docs/Web/SVG/Attribute/data-*) (`data-*`) von Elementen. Sie gibt eine Zuordnung von Strings ([`DOMStringMap`](/de/docs/Web/API/DOMStringMap)) mit einem Eintrag für jedes `data-*` Attribut zurück.
 
-Weitere Informationen über das Verhalten von `dataset` finden Sie unter [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset).
+Für weitere Informationen über das Verhalten von `dataset`, siehe [`HTMLElement.dataset`](/de/docs/Web/API/HTMLElement/dataset).
 
 ## Wert
 
-Ein [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
+Eine [`DOMStringMap`](/de/docs/Web/API/DOMStringMap).
 
 ## Beispiele
 
@@ -45,4 +45,4 @@ console.log(el.dataset.id); // "1234567890"
 ## Siehe auch
 
 - [`data-*`](/de/docs/Web/SVG/Attribute/data-*) SVG-Attribute
-- [Verwendung von Datenattributen](/de/docs/Learn/HTML/Howto/Use_data_attributes)
+- [Verwendung von Datenattributen](/de/docs/Learn_web_development/Howto/Solve_HTML_problems/Use_data_attributes)

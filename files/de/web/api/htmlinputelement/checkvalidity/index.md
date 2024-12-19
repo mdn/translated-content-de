@@ -1,17 +1,17 @@
 ---
-title: "HTMLInputElement: checkValidity()-Methode"
+title: "HTMLInputElement: checkValidity() Methode"
 short-title: checkValidity()
 slug: Web/API/HTMLInputElement/checkValidity
 l10n:
-  sourceCommit: 0a9c10fc67901972221dc7b3d006334fbfa73dce
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`**-Methode des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das Element alle angewendeten [Einschränkungs-Validierungsregeln](/de/docs/Web/HTML/Constraint_validation) erfüllt. Wenn der Wert `false` ist, löst die Methode zudem ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis am Element aus. Da es kein Standardverhalten im Browser für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Wirkung.
+Die **`checkValidity()`**-Methode der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-Schnittstelle gibt einen Boolean-Wert zurück, der anzeigt, ob das Element allen darauf angewendeten [Einschränkungsvalidierungsregeln](/de/docs/Web/HTML/Constraint_validation) entspricht. Ist der Wert `false`, löst die Methode auch ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis auf dem Element aus. Da es kein Standardbrowserverhalten für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Auswirkungen.
 
 > [!NOTE]
-> Ein HTML-{{htmlelement("input")}}-Element mit einer nicht-NULL [`validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) wird als ungültig betrachtet, passt zur CSS-{{cssxref(":invalid")}}-Pseudoklasse und führt dazu, dass `checkValidity()` false zurückgibt. Verwenden Sie die [`HTMLInputElement.setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity)-Methode, um die [`HTMLInputElement.validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) auf den leeren String zu setzen und den [`validity`](/de/docs/Web/API/HTMLInputElement/validity)-Zustand auf gültig zu setzen.
+> Ein HTML-{{htmlelement("input")}}-Element mit einer nicht-null [`validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) wird als ungültig angesehen, entspricht der CSS {{cssxref(":invalid")}}-Pseudoklasse und führt dazu, dass `checkValidity()` `false` zurückgibt. Verwenden Sie die Methode [`HTMLInputElement.setCustomValidity()`](/de/docs/Web/API/HTMLInputElement/setCustomValidity), um die [`HTMLInputElement.validationMessage`](/de/docs/Web/API/HTMLInputElement/validationMessage) auf den leeren String zu setzen, um den [`validity`](/de/docs/Web/API/HTMLInputElement/validity)-Zustand als gültig festzulegen.
 
 ## Syntax
 
@@ -25,13 +25,13 @@ Keine.
 
 ### Rückgabewert
 
-Gibt `true` zurück, wenn der Wert des Elements keine Validitätsprobleme aufweist; ansonsten gibt es `false` zurück.
+Gibt `true` zurück, wenn der Wert des Elements keine Gültigkeitsprobleme aufweist; andernfalls wird `false` zurückgegeben.
 
 ## Beispiele
 
 ### HTML
 
-Wir fügen ein Formular mit einem erforderlichen Zahlenfeld und zwei Schaltflächen hinzu: eine, um das Formular zu prüfen, und eine, um es abzusenden.
+Wir enthalten ein Formular mit einem erforderlichen Zahlenfeld und zwei Schaltflächen: eine zur Überprüfung des Formulars und eine andere zum Absenden.
 
 ```html
 <form action="#" method="post">
@@ -68,7 +68,7 @@ checkButton.addEventListener("click", () => {
 
 {{EmbedLiveSample("Examples", "100%", 220)}}
 
-Wenn `false`, wird, falls der Wert fehlt, unter 21, über 65 oder anderweitig ungültig ist, das ungültige Ereignis in der Konsole protokolliert. Um den Fehler dem Benutzer mitzuteilen, verwenden Sie stattdessen [`HTMLInputElement.reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity).
+Wenn `false`, wird das invalid-Ereignis in die Konsole protokolliert, wenn der Wert fehlt, unter 21, über 65 liegt oder anderweitig ungültig ist. Um den Fehler dem Benutzer zu melden, verwenden Sie stattdessen [`HTMLInputElement.reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity).
 
 ## Spezifikationen
 
@@ -83,6 +83,6 @@ Wenn `false`, wird, falls der Wert fehlt, unter 21, über 65 oder anderweitig un
 - [`HTMLInputElement.reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity)
 - {{HTMLElement("input")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungs-Validierung](/de/docs/Web/HTML/Constraint_validation)
-- CSS-{{cssxref(":valid")}}- und {{cssxref(":invalid")}}-Pseudoklassen
+- [Erfahren Sie mehr: Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Constraint_validation)
+- CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudoklassen

@@ -1,33 +1,33 @@
 ---
-title: Color Picker Tool
+title: Farbauswahlwerkzeug
 slug: Web/CSS/CSS_colors/Color_picker_tool
 l10n:
-  sourceCommit: 5f13cbe7517ce96deeb521d4c8e6923266a22913
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Dieses Tool ermöglicht es Ihnen, eine Farbe im sRGB-{{Glossary("color_space", "Farbraum")}} auszuwählen und sie zwischen verschiedenen CSS-[Farbformaten](/de/docs/Web/CSS/color_value) zu konvertieren, wodurch Sie die Syntax der folgenden sRGB-Farbnotierungen verstehen können:
+Dieses Werkzeug ermöglicht es Ihnen, eine Farbe im sRGB-{{Glossary("color_space", "Farbraum")}} auszuwählen und sie zwischen verschiedenen CSS-[Farbformaten](/de/docs/Web/CSS/color_value) umzuwandeln, wodurch Sie die Syntax der folgenden sRGB-Farbnotationen verstehen können:
 
-- {{cssxref("hex-color")}}, eine _hexadezimale Farbdarstellung_ einer {{Glossary("RGB", "sRGB")}}-Farbe, die ihre Primärfarbenkomponenten (rot, grün, blau) als hexadezimale Zahlen sowie ihre Transparenz verwendet.
-- {{CSSxRef("color_value/rgb", "rgb()")}}, definiert eine bestimmte Farbe anhand ihrer roten, grünen, blauen und alpha (Transparenz) Komponenten.
-- {{CSSxRef("color_value/hsl", "hsl()")}}, definiert eine bestimmte Farbe anhand ihrer Farbton-, Sättigungs-, Helligkeits- und Alpha (Transparenz) Komponenten.
-- {{CSSxRef("color_value/hwb", "hwb()")}}, definiert eine bestimmte Farbe anhand ihrer Farbton-, Weiß-, Schwarzanteil- und Alpha (Transparenz) Komponenten.
-- {{CSSxRef("color_value/color", "color()")}}, definiert eine Farbe im angegebenen Farbraum.
+- {{cssxref("hex-color")}}, eine _hexadezimale Farbdarstellung_ einer {{Glossary("RGB", "sRGB")}}-Farbe unter Verwendung seiner Primärfarbkomponenten (rot, grün, blau), die als hexadezimale Zahlen geschrieben werden, sowie seiner Transparenz.
+- {{CSSxRef("color_value/rgb", "rgb()")}}, die eine Farbe anhand ihrer Rot-, Grün-, Blau- und Alpha-(Transparenz)-Komponenten definiert.
+- {{CSSxRef("color_value/hsl", "hsl()")}}, die eine Farbe anhand ihres Farbtons, ihrer Sättigung, Helligkeit und Alpha-(Transparenz)-Komponenten definiert.
+- {{CSSxRef("color_value/hwb", "hwb()")}}, die eine Farbe anhand ihres Farbtons, Weißanteils, Schwarzanteils und Alpha-(Transparenz)-Komponenten definiert.
+- {{CSSxRef("color_value/color", "color()")}}, die eine Farbe im angegebenen Farbraum definiert.
 
-Wenn Sie eine Farbe auswählen, wird sie in vier standardmäßigen CSS-Farbformaten angezeigt. Auch die Steuerung des Alphakanals wird unterstützt.
+Wenn Sie eine Farbe auswählen, wird sie in vier Standard-CSS-Farbformaten angezeigt. Die Kontrolle über den Alphakanal wird ebenfalls unterstützt.
 
 {{EmbedGHLiveSample("css-examples/modules/colors.html", '100%', 450)}}
 
-Die generierten Farbwerte können überall dort verwendet werden, wo der {{cssxref("color_value", "&lt;color&gt")}} Datentyp in CSS unterstützt wird.
+Die generierten Farbwerte können überall dort verwendet werden, wo der {{cssxref("color_value", "&lt;color&gt")}}-Datentyp in CSS unterstützt wird.
 
 ## Siehe auch
 
-- [Farbe mit CSS-Eigenschaften anwenden](/de/docs/Web/CSS/CSS_colors/Applying_color)
+- [Anwenden von Farben mit CSS-Eigenschaften](/de/docs/Web/CSS/CSS_colors/Applying_color)
 - [CSS-Farbwerte](/de/docs/Web/CSS/CSS_colors/Color_values)
-- [Farbe klug einsetzen](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
-- [Relative Farben verwenden](/de/docs/Web/CSS/CSS_colors/Relative_colors)
-- [Farben und Leuchtdichte verstehen](/de/docs/Web/Accessibility/Understanding_Colors_and_Luminance)
+- [Farben gekonnt einsetzen](/de/docs/Web/CSS/CSS_colors/Using_color_wisely)
+- [Verwendung relativer Farben](/de/docs/Web/CSS/CSS_colors/Relative_colors)
+- [Verständnis von Farben und Helligkeit](/de/docs/Web/Accessibility/Understanding_Colors_and_Luminance)
 - [WCAG 1.4.1: Farbkontrast](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable/Color_contrast)
-- [Baustein: Hintergrund- und Rahmenstile mit CSS](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders)
-- [Barrierefreiheit lernen: Farbe und Farbkontrast](/de/docs/Learn/Accessibility/CSS_and_JavaScript#color_and_color_contrast)
+- [Lernen: Gestaltung von Hintergründen und Rahmen mit CSS](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Barrierefreiheit lernen: Farbe und Farbkontrast](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#color_and_color_contrast)

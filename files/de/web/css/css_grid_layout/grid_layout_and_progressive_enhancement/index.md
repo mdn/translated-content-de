@@ -1,31 +1,31 @@
 ---
-title: CSS-Grid-Layout und progressive Verbesserung
+title: CSS Grid-Layout und Progressive Enhancement
 slug: Web/CSS/CSS_grid_layout/Grid_layout_and_progressive_enhancement
 l10n:
-  sourceCommit: b692821c494fd3a25dd883b6fe14998fa2621f7b
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Im Frühjahr 2017 wurde erstmals eine große Spezifikation wie Grid nahezu gleichzeitig in Browsern implementiert, und wir haben jetzt Unterstützung für CSS-Grid-Layout in den öffentlichen Versionen von Firefox, Chrome, Opera, Safari und Edge. Während Evergreen-Browser bedeuten, dass viele von uns sehr schnell die Mehrheit der Benutzer mit Grid-Layout-Unterstützung sehen werden, gibt es auch alte oder nicht unterstützende Browser, die berücksichtigt werden müssen. In diesem Leitfaden gehen wir verschiedene Strategien zur Unterstützung durch.
+Im Frühjahr 2017 erlebten wir erstmals, dass eine bedeutende Spezifikation wie das Grid fast gleichzeitig in Browsern veröffentlicht wurde. Nun haben wir CSS Grid-Layout-Unterstützung in den öffentlichen Versionen von Firefox, Chrome, Opera, Safari und Edge. Während immer aktuelle Browser bedeuten, dass viele von uns schnell feststellen werden, dass die meisten Nutzer Grid-Layout-Unterstützung haben, gibt es auch alte oder nicht unterstützende Browser, mit denen wir umgehen müssen. In diesem Leitfaden gehen wir verschiedene Strategien für die Unterstützung durch.
 
 ## Die unterstützenden Browser
 
-CSS-Grid-Layout ist in allen modernen Browsern unprefixed. Die Unterstützung für alle in diesen Leitfäden beschriebenen Eigenschaften und Werte ist zwischen den Browsern interoperabel. Das bedeutet, dass wenn Sie ein Grid-Layout in Firefox schreiben, es auf die gleiche Weise in Chrome funktionieren sollte. Dies ist keine experimentelle Spezifikation mehr, und Sie können sie sicher in der Produktion verwenden.
+CSS Grid-Layout ist in allen modernen Browsern unverändert (unprefixed). Die Unterstützung für alle in diesen Leitfäden beschriebenen Eigenschaften und Werte ist über die Browser hinweg interoperabel. Das bedeutet, dass, wenn Sie ein Grid-Layout in Firefox schreiben, es auf die gleiche Weise in Chrome funktionieren sollte. Dies ist keine experimentelle Spezifikation mehr und kann sicher in der Produktion verwendet werden.
 
-## Ist es sicher, CSS-Grid für mein Layout zu verwenden?
+## Ist es sicher, CSS Grids für mein Layout zu verwenden?
 
-Ja. Wie bei jeder Frontend-Technologie hängt die Entscheidung, CSS-Grid-Layout zu verwenden, von den Browsern ab, die Ihre Website-Besucher typischerweise verwenden.
+Ja. Wie bei jeder Wahl der Frontend-Technologie hängt die Entscheidung zur Nutzung von CSS Grid-Layout von den Browsern ab, die Ihre Website-Besucher typischerweise verwenden.
 
-## Beginnen Sie, Grid in der Produktion zu verwenden
+## Die Verwendung von Grid in der Produktion beginnen
 
-Es ist erwähnenswert, dass Sie Grid nicht auf eine _Alles-oder-nichts_-Weise verwenden müssen. Beginnen Sie damit, Elemente in Ihrem Design mit Grid zu verbessern, die ansonsten mit einer älteren Methode angezeigt werden könnten. Das Überschreiben von Legacy-Methoden mit Grid-Layout funktioniert überraschend gut, da Grid mit diesen anderen Methoden interagiert.
+Es ist erwähnenswert, dass Sie Grid nicht auf eine _alles oder nichts_ Weise verwenden müssen. Beginnen Sie damit, Elemente in Ihrem Design mit Grid zu verbessern, die andernfalls mit einer älteren Methode angezeigt werden könnten. Das Überschreiben von Legacy-Methoden mit Grid-Layout funktioniert überraschend gut, aufgrund der Art und Weise, wie Grid mit diesen anderen Methoden interagiert.
 
 ### Floats
 
-[Floats](/de/docs/Learn/CSS/CSS_layout/Floats) wurden früher verwendet, um Layouts mit mehreren Spalten zu erstellen. Wenn Sie einen alten Codebestand mit Floats-Layouts unterstützen, wird es keinen Konflikt geben. Grid-Items ignorieren die `float`-Eigenschaft; Fakt ist, dass _ein Grid-Item Vorrang hat._ Im folgenden Beispiel habe ich ein einfaches Medienobjekt. Wenn der {{cssxref("float")}} nicht aus Legacy-CSS entfernt wird, ist das in Ordnung, da das Container ein Grid-Container ist. Wir können die in CSS-Grids implementierten Ausrichtungseigenschaften verwenden.
+[Floats](/de/docs/Learn_web_development/Core/CSS_layout/Floats) wurden früher verwendet, um mehrspaltige Layouts zu erstellen. Wenn Sie eine alte Codebasis mit gefloateten Layouts unterstützen, wird es keinen Konflikt geben. Grid-Elemente ignorieren die `float`-Eigenschaft; Tatsache ist, dass _ein Grid-Element Vorrang hat._ Im folgenden Beispiel habe ich ein einfaches Medienobjekt. Wenn das {{cssxref("float")}} nicht aus dem Legacy-CSS entfernt wird, da der Container ein Grid-Container ist, ist das in Ordnung. Wir können die Ausrichtungseigenschaften nutzen, die in CSS Grids implementiert sind.
 
-Der {{cssxref("float")}} gilt nicht mehr, und ich kann die CSS-Box-Ausrichtungseigenschaft {{cssxref("align-self")}} verwenden, um mein Inhalt am Ende des Containers auszurichten:
+Das {{cssxref("float")}} gilt nicht mehr und ich kann die CSS Box Alignment-Eigenschaft {{cssxref("align-self")}} verwenden, um meinen Inhalt am Ende des Containers auszurichten:
 
 ```css
 * {
@@ -79,15 +79,15 @@ img {
 
 Das Bild unten zeigt das Medienobjekt in einem nicht unterstützenden Browser links und einem unterstützenden rechts:
 
-![Ein einfaches Beispiel für das Überschreiben eines Float-Layouts mit Grid. Beide haben das Bild links ausgerichtet. Der Text ist im Float-Beispiel oben und im Grid-Beispiel unten vertikal ausgerichtet.](10-float-simple-override.png)
+![Ein einfaches Beispiel zum Überschreiben eines gefloateten Layouts mithilfe von Grid. Beide haben das Bild links ausgerichtet. Der Text ist im Float-Beispiel vertikal oben ausgerichtet und im Grid-Beispiel unten.](10-float-simple-override.png)
 
-### Verwenden von Feature-Queries
+### Verwendung von Feature-Queries
 
-Das obige Beispiel ist sehr einfach, und wir kommen ohne Code aus, der in Browsern, die Grid nicht unterstützen, ein Problem darstellt, und Legacy-Code ist für unsere Grid-unterstützenden Browser kein Problem. Allerdings sind die Dinge nicht immer so einfach.
+Das obige Beispiel ist sehr einfach und wir können ohne den Bedarf, Code zu schreiben, der ein Problem für Browser wäre, die Grid nicht unterstützen, und Legacy-Code ist kein Problem für unsere Grid-unterstützenden Browser. Es ist jedoch nicht immer so einfach.
 
 #### Ein komplexeres Beispiel
 
-In diesem nächsten Beispiel habe ich eine Reihe von gefloateten Karten. Ich habe den Karten eine {{cssxref("width")}} zugewiesen, um sie zu {{cssxref("float")}}. Um Lücken zwischen den Karten zu schaffen, verwende ich einen {{cssxref("margin")}} auf den Elementen und dann einen negativen Rand auf dem Container:
+In diesem nächsten Beispiel habe ich eine Reihe von gefloateten Karten. Ich habe den Karten eine {{cssxref("width")}} gegeben, um sie zu {{cssxref("float")}}en. Um Lücken zwischen den Karten zu schaffen, verwende ich einen {{cssxref("margin")}} bei den Elementen und dann einen negativen Rand beim Container:
 
 ```css hidden
 * {
@@ -155,23 +155,23 @@ In diesem nächsten Beispiel habe ich eine Reihe von gefloateten Karten. Ich hab
 </div>
 ```
 
-{{ EmbedLiveSample('Ein_komplizierteres_Beispiel', '550', '450') }}
+{{ EmbedLiveSample('A_more_complex_example', '550', '450') }}
 
-Das Beispiel zeigt das typische Problem, das wir mit Float-Layouts haben: Wenn einem der Karten zusätzlicher Inhalt hinzugefügt wird, bricht das Layout.
+Das Beispiel demonstriert das typische Problem, das wir mit gefloateten Layouts haben: Wenn einem Karteninhalt mehr Inhalt hinzugefügt wird, wird das Layout unterbrochen.
 
-![Ein Floating-Karten-Layout, das das Problem durch ungleichmäßige Inhaltshöhe darstellt. Die obere Reihe hat 3 Karten. Die vierte Karte wird unter der dritten Karte gefloatet. Dann enthält eine untere Reihe die fünfte und sechste Karten. Unter der vierten Karte gibt es einen recht großen leeren Raum.](10-floated-cards.png)
+![Ein gefloatetes Kartenlayout, das das Problem bei ungleichmäßiger Inhaltshöhe zeigt. Die oberste Reihe hat 3 Karten. Die vierte Karte befindet sich unter der dritten Karte. Danach enthält die untere Reihe die fünfte und sechste Karte. Es gibt einen ziemlich großen leeren Raum unter der vierten Karte.](10-floated-cards.png)
 
-Als Zugeständnis für ältere Browser habe ich den Elementen eine {{cssxref("min-height")}} zugewiesen und hoffe, dass meine Inhaltsredakteure nicht zu viel Inhalt hinzufügen und das Layout durcheinanderbringen!
+Als Zugeständnis an ältere Browser habe ich eine {{cssxref("min-height")}} bei den Elementen gesetzt und hoffe, dass meine Inhaltsredakteure nicht zu viel Inhalt hinzufügen und das Layout durcheinanderbringen!
 
-Dann verbessere ich das Layout mit Grid. Ich kann mein {{HTMLElement("ul")}} in einen Grid-Container mit drei Spalten-Tracks verwandeln. Allerdings gilt die Breite, die ich den Listenelementen selbst zugewiesen habe, weiterhin, und sie macht diese Elemente jetzt zu einem Drittel der Breite des Tracks:
+Ich verbessere dann das Layout mithilfe von Grid. Ich kann mein {{HTMLElement("ul")}} in einen Grid-Container mit drei Spalten-Tracks verwandeln. Die Breite, die ich den Listenelementen selbst zugewiesen habe, gilt jedoch immer noch und macht diese Elemente nun ein Drittel der Trackbreite aus:
 
-![Sechs sehr große, sehr schmale Grid-Elemente mit überlaufendem Text rechts. Nach dem Anwenden des Grids auf unseren Container ist die Breite der Elemente jetzt falsch, da sie bei einem Drittel der Breite des Items angezeigt werden.](10-float-width-problem.png)
+![Sechs sehr hohe, sehr schmale Grid-Elemente mit überlaufendem Text auf der rechten Seite. Nach der Anwendung von Grid auf unseren Container ist die Breite der Elemente jetzt falsch, da sie ein Drittel der Itembreite anzeigen.](10-float-width-problem.png)
 
-Wenn ich die Breite auf `auto` zurücksetze, wird das Float-Verhalten für ältere Browser verhindert. Ich muss in der Lage sein, die Breite für ältere Browser zu definieren und die Breite für Grid-unterstützende Browser zu entfernen. Dank [CSS Feature Queries](/de/docs/Web/CSS/@supports) kann ich dies direkt in meinem CSS tun.
+Wenn ich die Breite auf `auto` setze, stoppt dies das Float-Verhalten für ältere Browser. Ich muss in der Lage sein, die Breite für ältere Browser zu definieren und die Breite für Grid-unterstützende Browser zu entfernen. Dank [CSS Feature Queries](/de/docs/Web/CSS/@supports) kann ich dies direkt in meinem CSS tun.
 
 #### Eine Lösung mit Feature-Queries
 
-_Feature Queries_ werden sehr vertraut erscheinen, wenn Sie jemals eine [Media Query](/de/docs/Web/CSS/CSS_media_queries) verwendet haben, um ein responsives Layout zu erstellen. Anstatt eine {{Glossary("viewport", "Viewport")}}-Breite oder ein Browser- beziehungsweise Gerätefeature zu überprüfen, prüfen wir die Unterstützung eines CSS-Eigenschafts- und Wertepaars mit einer {{cssxref("@supports")}}-Regel. Innerhalb der Feature-Query können wir dann beliebiges CSS schreiben, das wir benötigen, um unser modernes Layout anzuwenden und alles zu entfernen, was für das ältere Layout erforderlich ist.
+_Feature-Queries_ werden Ihnen sehr bekannt vorkommen, wenn Sie jemals eine [Media-Query](/de/docs/Web/CSS/CSS_media_queries) verwendet haben, um ein responsives Layout zu erstellen. Anstatt eine {{Glossary("viewport", "Viewport")}}-Breite oder ein Feature des Browsers oder Geräts zu prüfen, prüfen wir die Unterstützung eines CSS-Property-Wert-Paars mithilfe einer {{cssxref("@supports")}}-Regel. Innerhalb der Feature-Query können wir dann beliebiges CSS schreiben, das wir benötigen, um unser modernes Layout anzuwenden, und alles entfernen, was für das ältere Layout notwendig ist.
 
 ```css
 @supports (display: grid) {
@@ -181,9 +181,9 @@ _Feature Queries_ werden sehr vertraut erscheinen, wenn Sie jemals eine [Media Q
 }
 ```
 
-Feature Queries haben eine ausgezeichnete Browser-Unterstützung, und alle Browser, die die aktualisierte Grid-Spezifikation unterstützen, unterstützen auch Feature Queries. Sie können sie verwenden, um das Problem zu lösen, das wir mit unserem erweiterten Floating-Layout haben.
+Feature-Queries haben eine ausgezeichnete Browser-Unterstützung und alle Browser, die die aktualisierte Grid-Spezifikation unterstützen, unterstützen auch Feature-Queries. Sie können sie verwenden, um mit dem Problem umzugehen, das wir mit unserem verbesserten, gefloateten Layout haben.
 
-Ich verwende eine `@supports`-Regel, um die Unterstützung von `display: grid` zu überprüfen. Ich mache dann mein Grid-Code auf dem {{HTMLElement("ul")}}, setze meine Breite und {{cssxref("min-height")}} auf dem {{HTMLElement("li")}} auf `auto`. Ich entferne auch die Margins und negativen Margins und ersetze den Abstand durch die {{cssxref("gap")}}-Eigenschaft. Das bedeutet, dass in der letzten Zeile von Boxen keine Endmarge mehr auftritt. Das Layout funktioniert jetzt, selbst wenn in einer der Karten mehr Inhalt vorhanden ist, als in den anderen:
+Ich verwende eine `@supports`-Regel, um die Unterstützung von `display: grid` zu prüfen. Ich setze dann meinen Grid-Code bei der {{HTMLElement("ul")}}, stelle meine Breite und {{cssxref("min-height")}} bei der {{HTMLElement("li")}} auf `auto` ein. Ich entferne auch die Margen und negativen Margen und ersetze den Abstand durch die {{cssxref("gap")}}-Eigenschaft. Dies bedeutet, dass ich keine endgültige Marge in der letzten Reihe von Boxen bekomme. Das Layout funktioniert jetzt, selbst wenn in einer der Karten mehr Inhalt vorhanden ist als in den anderen:
 
 ```css hidden
 * {
@@ -265,13 +265,13 @@ Ich verwende eine `@supports`-Regel, um die Unterstützung von `display: grid` z
 </div>
 ```
 
-{{ EmbedLiveSample('Eine_Lösung_mit_Feature_Queries', '550', '480') }}
+{{ EmbedLiveSample('A_solution_using_feature_queries', '550', '480') }}
 
 ## Überschreiben anderer Werte von `display`
 
-Aufgrund der Probleme bei der Erstellung von Grids aus Elementen mit Floats würden viele von uns eine andere Methode als die oben gezeigte Floating-Methode verwenden, um ein Satz von Karten zu layouten. Die Verwendung von `display: inline-block` ist eine alternative Methode.
+Aufgrund der Probleme beim Erstellen von Rasterlayouts von Elementen mit Floats würden viele von uns eine andere Methode als die oben gezeigte Floated-Methode verwenden, um ein Set von Karten anzuliegen. Die Verwendung von `display: inline-block` ist eine alternative Methode.
 
-Auch hier kann ich Feature Queries verwenden, um ein Layout zu überschreiben, das `display: inline-block` verwendet, und ich muss nicht alles überschreiben. Ein Element, das auf `inline-block` gesetzt ist, wird zu einem Grid-Item, und daher gilt das Verhalten von `inline-block` nicht mehr. Ich habe die {{cssxref("vertical-align")}}-Eigenschaft auf meinem Element verwendet, wenn es im `inline-block`-Modus angezeigt wird, aber diese Eigenschaft gilt nicht für Grid-Items und wird daher ignoriert, sobald das Element zu einem Grid-Item wird:
+Erneut kann ich Feature-Queries verwenden, um ein Layout zu überschreiben, das `display: inline-block` verwendet, und erneut muss ich nicht alles überschreiben. Ein Element, das auf `inline-block` gesetzt ist, wird zu einem Grid-Element, und daher gelten die Eigenschaften von `inline-block` nicht mehr. Ich habe die Eigenschaft {{cssxref("vertical-align")}} bei meinem Element verwendet, wenn es im `inline-block`-Modus angezeigt wird, aber diese Eigenschaft gilt nicht für Grid-Elemente und wird daher ignoriert, sobald das Element zu einem Grid-Element wird:
 
 ```css hidden
 * {
@@ -354,34 +354,34 @@ Auch hier kann ich Feature Queries verwenden, um ein Layout zu überschreiben, d
 </div>
 ```
 
-{{ EmbedLiveSample('Überschreiben_anderer_Displaywerte', '500', '480') }}
+{{ EmbedLiveSample('Overwriting_other_values_of_display', '500', '480') }}
 
-Wieder ist es die Breite des Elements, die wir ansprechen müssen, und dann andere Eigenschaften, die wir verbessern möchten. In diesem Beispiel habe ich erneut `gap` anstelle von Margins und negativen Margins verwendet, um meine Abstände zu erstellen.
+Erneut ist es die Breite des Elements, die wir ansprechen müssen, und dann alle anderen Eigenschaften, die wir verbessern möchten. In diesem Beispiel habe ich wieder `gap` anstelle von Margen und negativen Margen verwendet, um meine Abstände zu erstellen.
 
 ## Wie definiert die Spezifikation diese Überschreibungen?
 
-Die CSS-Grid-Layout-Spezifikation beschreibt, warum wir das Verhalten bestimmter Eigenschaften überschreiben können, wenn etwas zu einem Grid-Item wird. Die wichtigsten Abschnitte der Spezifikation sind:
+Die CSS Grid-Layout-Spezifikation beschreibt, warum wir das Verhalten bestimmter Eigenschaften überschreiben können, wenn etwas zu einem Grid-Element wird. Die wichtigsten Abschnitte der Spezifikation sind:
 
-- [Grid-Container erstellen](https://drafts.csswg.org/css-grid/#grid-containers)
-- [Grid-Items](https://drafts.csswg.org/css-grid/#grid-items)
-- [Grid-Item-Display](https://drafts.csswg.org/css-grid/#grid-item-display)
+- [Grid-Container etablieren](https://drafts.csswg.org/css-grid/#grid-containers)
+- [Grid-Elemente](https://drafts.csswg.org/css-grid/#grid-items)
+- [Grid-Element-Anzeige](https://drafts.csswg.org/css-grid/#grid-item-display)
 
-Da dieses Verhalten in der Spezifikation beschrieben ist, können Sie sich darauf verlassen, diese Überschreibungen zur Unterstützung älterer Browser zu verwenden. Nichts, was hier beschrieben wird, sollte als "Hack" angesehen werden. Vielmehr nutzen wir die Tatsache, dass die Grid-Spezifikation die Interaktion zwischen verschiedenen Layout-Methoden detailliert beschreibt.
+Da diese Verhaltensweisen in der Spezifikation beschrieben werden, können Sie sich darauf verlassen, diese Überschreibungen in Ihrer Unterstützung für ältere Browser zu verwenden. Nichts, was hier beschrieben wird, sollte als "Hack" betrachtet werden. Vielmehr nutzen wir die Tatsache, dass die Grid-Spezifikation die Interaktion zwischen verschiedenen Layout-Methoden beschreibt.
 
-### Andere Werte von Display
+### Andere Werte von display
 
-Wenn ein Element einen Elternteil mit `display: grid` hat, wird es _blockified_, wie in der [CSS-Display-Spezifikation](https://drafts.csswg.org/css-display-3/#blockify) definiert. Im Falle unseres auf `inline-block` gesetzten Items ist dies der Grund, warum `display: inline-block` nicht mehr gilt.
+Wenn ein Element ein Elternteil hat, das auf `display: grid` gesetzt ist, wird es _blockifiziert_, wie in der [CSS display Spezifikation](https://drafts.csswg.org/css-display-3/#blockify) definiert. Im Fall unseres auf `inline-block` gesetzten Elements ist das der Grund, warum `display: inline-block` nicht mehr angewendet wird.
 
-Wenn Sie `display: table` für Ihr Legacy-Layout verwenden, generiert ein auf `display: table-cell` gesetztes Element anonyme Boxen. Wenn Sie also `display: table-cell` verwenden, ohne dass ein übergeordnetes Element auf `display-table` gesetzt ist, wird ein anonymer Tabellen-Wrapper um alle angrenzenden Zellen erstellt, genau so, als hätten Sie sie in ein div oder ein anderes auf `display: table` gesetztes Element eingewickelt. Wenn Sie ein Element auf `display: table-cell` gesetzt haben und dann in einer Feature-Query den Eltern auf `display: grid` ändern, wird diese anonyme Box-Erstellung nicht stattfinden. Das bedeutet, Sie können `display: table`-basierte Layouts überschreiben, ohne zusätzliche anonyme Boxen zu haben.
+Wenn Sie `display: table` für Ihr Legacy-Layout verwenden, erzeugt ein Element, das auf `display: table-cell` gesetzt ist, anonyme Boxen. Daher wird, wenn Sie `display: table-cell` ohne ein auf `display-table` gesetztes Elternelement verwenden, eine anonyme Tabellenumhüllung um angrenzende Zellen erstellt, genau so, als ob Sie sie in einem div oder einem anderen auf `display: table` gesetzten Element umhüllt hätten. Wenn Sie ein Element haben, das auf `display: table-cell` gesetzt ist und in einer Feature-Query das Elternteil auf `display: grid` umstellen, wird diese anonyme Boxenerstellung nicht stattfinden. Das bedeutet, dass Sie `display: table` basierte Layouts überschreiben können, ohne zusätzliche anonyme Boxen zu haben.
 
 ### Gefloatete Elemente
 
-Wie wir bereits gesehen haben, haben {{cssxref("float")}} und auch {{cssxref("clear")}} keine Auswirkung auf ein Grid-Item. Daher müssen Sie Items nicht explizit auf `float: none` setzen.
+Wie wir bereits gesehen haben, haben {{cssxref("float")}} und auch {{cssxref("clear")}} keine Auswirkungen auf ein Grid-Element. Daher müssen Sie die Elemente nicht explizit auf `float: none` setzen.
 
 ### Vertikale Ausrichtung
 
-Die Ausrichtungseigenschaft {{cssxref("vertical-align")}} hat keine Auswirkung auf ein Grid-Item. In Layouts mit `display: inline-block` oder `display: table` könnten Sie die Ausrichtungseigenschaft verwenden, um eine Grundausrichtung durchzuführen. In Ihrem Grid-Layout haben Sie dann die weitaus mächtigeren Box-Ausrichtungs-Eigenschaften.
+Die Ausrichtungseigenschaft {{cssxref("vertical-align")}} hat keine Funktion für ein Grid-Element. In Layouts mit `display: inline-block` oder `display: table` könnten Sie die Eigenschaft `vertical-align` verwenden, um grundlegende Ausrichtungen vorzunehmen. In Ihrem Grid-Layout haben Sie dann die weit mächtigeren Box-Ausrichtungseigenschaften.
 
-### Layout mit mehreren Spalten
+### Mehrspaltiges Layout
 
-Sie können auch mehrspaltiges Layout als Ihre Legacy-Browser-Planung verwenden, da die `column-*` Eigenschaften nicht angewendet werden, wenn sie auf einen Grid-Container angewendet werden.
+Sie können auch ein mehrspaltiges Layout als Ihren Legacy-Browser-Plan verwenden, da die `column-*`-Eigenschaften nicht angewendet werden, wenn sie auf ein Grid-Container gelegt werden.

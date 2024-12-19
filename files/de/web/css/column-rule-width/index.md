@@ -2,12 +2,12 @@
 title: column-rule-width
 slug: Web/CSS/column-rule-width
 l10n:
-  sourceCommit: 489dbd4d8e2e099733d3bb04ad3f97678c54ac8e
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`column-rule-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezeichnet wird.
+Die **`column-rule-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die Breite der Linie fest, die zwischen Spalten in einem Mehrspalten-Layout gezogen wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule-width.html")}}
 
@@ -31,12 +31,12 @@ column-rule-width: revert-layer;
 column-rule-width: unset;
 ```
 
-Die Eigenschaft `column-rule-width` wird als ein einzelner `<'border-width'>` Wert angegeben.
+Die `column-rule-width`-Eigenschaft wird als einzelner `<'border-width'>`-Wert angegeben.
 
 ### Werte
 
 - `<'border-width'>`
-  - : Dies ist ein Schlüsselwort, das durch {{ cssxref("border-width") }} definiert wird und die Breite der Linie beschreibt. Es kann entweder eine {{cssxref("&lt;length&gt;")}} sein oder eines der Schlüsselwörter `thin`, `medium` oder `thick`.
+  - : Ist ein Schlüsselwort, das durch {{ cssxref("border-width") }} definiert ist und die Breite der Linie beschreibt. Es kann entweder eine {{cssxref("&lt;length&gt;")}} oder eines der Schlüsselwörter `thin`, `medium` oder `thick` sein.
 
 ## Formale Definition
 
@@ -48,7 +48,7 @@ Die Eigenschaft `column-rule-width` wird als ein einzelner `<'border-width'>` We
 
 ## Beispiele
 
-### Festlegen einer dicken Spaltenlinie
+### Eine dicke Spaltenlinie setzen
 
 #### HTML
 
@@ -84,7 +84,7 @@ p {
 
 ## Siehe auch
 
-- [Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-color")}}
 - {{CSSXref("column-rule")}}

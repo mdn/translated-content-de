@@ -2,27 +2,25 @@
 title: Content-Type
 slug: Web/HTTP/Headers/Content-Type
 l10n:
-  sourceCommit: 92b03e46cef6be37de60799363e3e33e3415b491
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{HTTPSidebar}}
 
-Der HTTP **`Content-Type`** {{Glossary("representation_header", "Repräsentations-Header")}} wird verwendet, um den ursprünglichen {{Glossary("MIME_type", "Medientyp")}} einer Ressource anzugeben, bevor eine Inhaltskodierung angewendet wird.
+Der HTTP **`Content-Type`** {{Glossary("representation_header", "Repräsentationsheader")}} wird verwendet, um den ursprünglichen {{Glossary("MIME_type", "Medientyp")}} einer Ressource anzuzeigen, bevor eine Inhaltscodierung angewendet wird.
 
-In Antworten informiert der `Content-Type`-Header den Client über den Medientyp der zurückgegebenen Daten. Bei Anfragen wie {{HTTPMethod("POST")}} oder {{HTTPMethod("PUT")}} verwendet der Client den `Content-Type`-Header, um den Typ des an den Server gesendeten Inhalts zu spezifizieren. Wenn eine Serverimplementierung oder -konfiguration streng mit dem Umgang von Content-Types ist, kann eine {{HTTPStatus("415")}} Client-Fehlermeldung zurückgegeben werden.
+In Antworten informiert der `Content-Type`-Header den Client über den Medientyp der zurückgegebenen Daten. In Anfragen wie {{HTTPMethod("POST")}} oder {{HTTPMethod("PUT")}} verwendet der Client den `Content-Type`-Header, um den Typ des an den Server gesendeten Inhalts zu spezifizieren. Wenn eine Serverimplementierung oder -konfiguration streng im Umgang mit Content-Typen ist, kann eine {{HTTPStatus("415")}}-Clientfehlermeldung zurückgegeben werden.
 
-Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding")}}, indem `Content-Encoding` dem Empfänger hilft, die Daten in ihre ursprüngliche Form zu dekodieren.
+Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding")}}, da `Content-Encoding` dem Empfänger hilft zu verstehen, wie die Daten in ihre ursprüngliche Form dekodiert werden sollen.
 
 > [!NOTE]
-> Dieser Wert kann ignoriert werden, wenn Browser [MIME-Sniffing](/de/docs/Web/HTTP/MIME_types#mime_sniffing) (oder Inhaltssniffing) auf Antworten durchführen.
-> Um zu verhindern, dass Browser MIME-Sniffing verwenden, setzen Sie den Wert des {{HTTPHeader("X-Content-Type-Options")}}-Headers auf `nosniff`.
-> Siehe [MIME-Typ-Verifizierung](/de/docs/Web/Security/Practical_implementation_guides/MIME_types) für weitere Details.
+> Dieser Wert kann ignoriert werden, wenn Browser [MIME sniffing](/de/docs/Web/HTTP/MIME_types#mime_sniffing) (oder Inhaltsschnüffeln) bei Antworten durchführen. Um zu verhindern, dass Browser MIME sniffing verwenden, setzen Sie den Wert des Headers {{HTTPHeader("X-Content-Type-Options")}} auf `nosniff`. Weitere Einzelheiten finden Sie unter [MIME-Typ-Überprüfung](/de/docs/Web/Security/Practical_implementation_guides/MIME_types).
 
 <table class="properties">
   <tbody>
     <tr>
       <th scope="row">Header-Typ</th>
-      <td>{{Glossary("Representation_header", "Repräsentations-Header")}}</td>
+      <td>{{Glossary("Representation_header", "Repräsentationsheader")}}</td>
     </tr>
     <tr>
       <th scope="row">{{Glossary("Forbidden_header_name", "Verbotener Header-Name")}}</th>
@@ -30,13 +28,13 @@ Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding"
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_response_header", "CORS-geförderter Antwort-Header")}}
+        {{Glossary("CORS-safelisted_response_header", "CORS-safelisted response header")}}
       </th>
       <td>Ja</td>
     </tr>
     <tr>
       <th scope="row">
-        {{Glossary("CORS-safelisted_request_header", "CORS-geförderter Anforderungs-Header")}}
+        {{Glossary("CORS-safelisted_request_header", "CORS-safelisted request header")}}
       </th>
       <td>
         Ja*
@@ -45,7 +43,7 @@ Der `Content-Type`-Header unterscheidet sich von {{HTTPHeader("Content-Encoding"
   </tbody>
 </table>
 
-\* Werte können kein [CORS-unsafe request header byte](https://fetch.spec.whatwg.org/#cors-unsafe-request-header-byte) enthalten: `"():<>?@[\]{},`, Delete `0x7F` und Steuerzeichen `0x00` bis `0x19` außer Tab `0x09`. Es muss auch einen Medientyp des geparsten Wertes haben (Parameter ignorierend) von entweder `application/x-www-form-urlencoded`, `multipart/form-data` oder `text/plain`.
+\* Werte dürfen kein [CORS-unsafe request header byte](https://fetch.spec.whatwg.org/#cors-unsafe-request-header-byte) enthalten: `"():<>?@[\]{},`, Löschen `0x7F`, und Steuerzeichen `0x00` bis `0x19` mit Ausnahme von Tab `0x09`. Außerdem muss es einen Medientyp seines geparsten Wertes (Ignorieren von Parametern) von entweder `application/x-www-form-urlencoded`, `multipart/form-data` oder `text/plain` haben.
 
 ## Syntax
 
@@ -64,21 +62,16 @@ Content-Type: multipart/form-data; boundary=ExampleBoundaryString
 
 - `<media-type>`
 
-  - : Der [Medientyp](/de/docs/Web/HTTP/MIME_types) der Ressource oder Daten.
-    Kann folgende Parameter enthalten:
+  - : Der [Medientyp](/de/docs/Web/HTTP/MIME_types) der Ressource oder Daten. Kann die folgenden Parameter enthalten:
 
-    - **`charset`**: Gibt die verwendete {{Glossary("character_encoding", "Zeichenkodierung")}} an.
-      Der Wert ist nicht case-sensitiv, aber Kleinschreibung wird bevorzugt.
-    - **`boundary`**: Für mehrteilige Entitäten ist der `boundary`-Parameter erforderlich.
-      Er wird verwendet, um die Grenzen der verschiedenen Teile der Nachricht abzugrenzen.
-      Der Wert besteht aus 1 bis 70 Zeichen (nicht mit Leerzeichen endend), die in verschiedenen Systemumgebungen (z.B. E-Mail-Gateways) als robust bekannt sind.
-      Oft wird die Header-Grenze im Anforderungstext mit zwei Bindestrichen vorangestellt, und die endgültige Grenze hat zwei Bindestriche am Ende angefügt.
+    - **`charset`**: Gibt den verwendeten {{Glossary("character_encoding", "Zeichenkodierungsstandard")}} an. Der Wert ist nicht groß-/kleinschreibungssensitiv, jedoch wird Kleinschreibung bevorzugt.
+    - **`boundary`**: Für Mehrteil-Nachrichten ist der `boundary`-Parameter erforderlich. Er wird verwendet, um die Grenzen der verschiedenen Teile der Nachricht zu markieren. Der Wert besteht aus 1 bis 70 Zeichen (nicht endend mit Leerzeichen), die dafür bekannt sind, in unterschiedlichen Systemen robust zu sein (z.B. E-Mail-Gateways). Häufig wird der Header-Grenzwert im Anfragekörper von zwei Bindestrichen eingeleitet, und die endgültige Grenze hat am Ende zwei Bindestriche angehängt.
 
 ## Beispiele
 
-### Bereitstellung von Assets mit korrektem Content-Type
+### Assets mit korrektem Content-Typ bereitstellen
 
-In den folgenden zwei Beispielantworten werden JavaScript- und CSS-Assets mit `text/javascript` für JavaScript und `text/css` für CSS bereitgestellt. Der korrekte Content-Type für diese Ressourcen hilft dem Browser, sie sicherer und mit besserer Leistung zu handhaben. Weitere Informationen finden Sie unter [richtige Konfiguration von Server-MIME-Typen](/de/docs/Learn/Server-side/Configuring_server_MIME_types).
+In den folgenden zwei Beispielantworten werden JavaScript- und CSS-Assets mit `text/javascript` für JavaScript und `text/css` für CSS bereitgestellt. Der korrekte Content-Typ für diese Ressourcen hilft dem Browser, sie sicherer und mit besserer Leistung zu behandeln. Weitere Informationen finden Sie unter [Server-MIME-Typen richtig konfigurieren](/de/docs/Learn_web_development/Extensions/Server-side/Configuring_server_MIME_types).
 
 ```http
 HTTP/1.1 200
@@ -104,7 +97,7 @@ content-encoding: br
 
 ### `Content-Type` in mehrteiligen Formularen
 
-In einer {{HTTPMethod("POST")}}-Anfrage, die aus einer HTML-Formularübermittlung resultiert, wird der `Content-Type` der Anfrage durch das `enctype`-Attribut des {{HTMLElement("form")}}-Elements bestimmt.
+In einer {{HTTPMethod("POST")}}-Anfrage, die aus der Einreichung eines HTML-Formulars resultiert, wird der `Content-Type` der Anfrage durch das `enctype`-Attribut des `{{HTMLElement("form")}}`-Elements spezifiziert.
 
 ```html
 <form action="/foo" method="post" enctype="multipart/form-data">
@@ -114,7 +107,7 @@ In einer {{HTTPMethod("POST")}}-Anfrage, die aus einer HTML-Formularübermittlun
 </form>
 ```
 
-Die Anfrage sieht ähnlich aus wie das folgende Beispiel, wobei einige Header zur Kürze weggelassen wurden. In der Anfrage wird ein boundary von `ExampleBoundaryString` zur Veranschaulichung verwendet, aber in der Praxis würde ein Browser eher eine Zeichenfolge wie `---------------------------1003363413119651595289485765` erstellen.
+Die Anfrage sieht in etwa wie das folgende Beispiel aus, wobei einige Header zur Kürze ausgelassen wurden. In der Anfrage wird ein Rechteck von `ExampleBoundaryString` zur Veranschaulichung verwendet, aber in der Praxis würde ein Browser eine Zeichenfolge erstellen, die eher so aussieht: `---------------------------1003363413119651595289485765`.
 
 ```http
 POST /foo HTTP/1.1
@@ -133,9 +126,9 @@ Content-Type: text/plain
 --ExampleBoundaryString--
 ```
 
-### `Content-Type` in URL-kodierter Formularübermittlung
+### `Content-Type` bei URL-kodierten Formulareinreichungen
 
-Wenn Formulare keine Datei-Uploads beinhalten und einfachere Felder verwenden, können URL-kodierte Formulare praktischer sein, wobei die Formulardaten im Anforderungstext enthalten sind:
+Wenn Formulare keine Datei-Uploads beinhalten und einfachere Felder verwenden, können URL-codierte Formulare bequemer sein, bei denen die Formulardaten im Anforderungstext enthalten sind:
 
 ```html
 <form action="/submit" method="post">
@@ -156,7 +149,7 @@ comment=Hello!
 
 ### `Content-Type` in einer REST API mit JSON
 
-Viele {{Glossary("REST", "REST")}} APIs verwenden `application/json` als Content-Type, was für die Kommunikation zwischen Maschinen oder programmatischer Interaktion praktisch ist. Das folgende Beispiel zeigt eine {{HTTPStatus("201", "201 Created")}}-Antwort als Ergebnis einer erfolgreichen Anfrage:
+Viele {{Glossary("REST", "REST")}}-APIs verwenden `application/json` als Inhalts-Typ, was für die Kommunikation zwischen Maschinen oder die programmgesteuerte Interaktion praktisch ist. Das folgende Beispiel zeigt eine {{HTTPStatus("201", "201 Created")}}-Antwort, die das Ergebnis einer erfolgreichen Anfrage anzeigt:
 
 ```http
 HTTP/1.1 201 Created

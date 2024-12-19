@@ -3,16 +3,16 @@ title: "CSSLayerStatementRule: nameList-Eigenschaft"
 short-title: nameList
 slug: Web/API/CSSLayerStatementRule/nameList
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`nameList`**-Eigenschaft der [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)-Schnittstelle gibt die Liste der zugehörigen Kaskadenschichtnamen zurück. Die Namen können nicht verändert werden.
+Die schreibgeschützte **`nameList`**-Eigenschaft der [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule)-Schnittstelle gibt die Liste der zugehörigen Kaskadenschicht-Namen zurück. Die Namen können nicht geändert werden.
 
 ## Wert
 
-Ein {{jsxref("Array")}} von Zeichenketten, die jeweils eine Kaskadenschicht darstellen, die durch die {{cssxref("@layer")}}-Anweisung festgelegt ist.
+Ein {{jsxref("Array")}} von Zeichenfolgen, von denen jede eine Kaskadenschicht repräsentiert, die durch die {{cssxref("@layer")}}-Statement-Regel dargestellt wird.
 
 ## Beispiele
 
@@ -62,4 +62,4 @@ item.textContent = `@layer declares the following layers: ${layer.nameList.join(
 
 - [`CSSLayerBlockRule.name`](/de/docs/Web/API/CSSLayerBlockRule/name)
 - {{CSSXref("@layer")}}
-- [Die `@layer`-Anweisung At-Regel für benannte Schichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
+- [Die `@layer`-Statement-Regel für benannte Schichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_statement_at-rule_for_named_layers)

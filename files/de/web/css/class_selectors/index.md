@@ -2,12 +2,12 @@
 title: Klassenselektoren
 slug: Web/CSS/Class_selectors
 l10n:
-  sourceCommit: 92447fec056cc89b7f28445851bea0c981fcbc12
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Der [CSS](/de/docs/Web/CSS) **Klassenselektor** selektiert Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attributs.
+Der [CSS](/de/docs/Web/CSS) **Klassenselektor** wählt Elemente basierend auf dem Inhalt ihres [`class`](/de/docs/Web/HTML/Global_attributes/class)-Attributs aus.
 
 ```css
 /* All elements with class="spacious" */
@@ -39,7 +39,7 @@ Beachten Sie, dass dies dem folgenden [Attributselektor](/de/docs/Web/CSS/Attrib
 [class~=class_name] { style properties }
 ```
 
-Der Wert `class_name` muss ein gültiger [CSS-Identifier](/de/docs/Web/CSS/ident) sein. HTML `class`-Attribute, die keine gültigen CSS-Identifier sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
+Der Wert `class_name` muss ein gültiger [CSS-Identifikator](/de/docs/Web/CSS/ident) sein. HTML-`class`-Attribute, die keine gültigen CSS-Identifikatoren sind, müssen [escaped](/de/docs/Web/CSS/ident#escaping_characters) werden, bevor sie in Klassenselektoren verwendet werden können.
 
 ## Beispiele
 
@@ -99,7 +99,7 @@ that contain characters which must be escaped in CSS -->
 
 ### Ungültige Klassenselektoren
 
-Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifier und werden ignoriert.
+Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifikatoren und werden ignoriert.
 
 ```css example-bad
 .item?one {
@@ -122,4 +122,4 @@ Die Klassenselektoren in den folgenden Regeln sind keine gültigen CSS-Identifie
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

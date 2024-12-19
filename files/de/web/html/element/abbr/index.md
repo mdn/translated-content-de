@@ -2,51 +2,51 @@
 title: "<abbr>: Das Abkürzungselement"
 slug: Web/HTML/Element/abbr
 l10n:
-  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{HTMLSidebar}}
 
-Das **`<abbr>`** [HTML](/de/docs/Web/HTML) Element repräsentiert eine Abkürzung oder ein Akronym.
+Das **`<abbr>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Abkürzung oder ein Akronym.
 
-Wenn Sie eine Abkürzung oder ein Akronym einschließen, geben Sie bei deren erster Verwendung eine vollständige Ausschreibung des Begriffs in einfachem Text an und verwenden Sie `<abbr>`, um die Abkürzung zu kennzeichnen. Dies informiert den Benutzer darüber, was die Abkürzung oder das Akronym bedeutet.
+Wenn Sie eine Abkürzung oder ein Akronym einfügen, geben Sie beim ersten Auftreten der Begriffs eine vollständige Entfaltung des Begriffs im Klartext an und kennzeichnen Sie die Abkürzung mit dem `<abbr>`. Dies informiert den Benutzer darüber, was die Abkürzung oder das Akronym bedeutet.
 
-Das optionale [`title`](/de/docs/Web/HTML/Global_attributes/title) Attribut kann eine Erweiterung für die Abkürzung oder das Akronym bereitstellen, wenn eine vollständige Ausschreibung nicht vorhanden ist. Dies gibt den Benutzeragenten einen Hinweis darauf, wie der Inhalt angezeigt oder mitgeteilt werden soll, und informiert alle Benutzer darüber, was die Abkürzung bedeutet. Falls vorhanden, muss `title` diese vollständige Beschreibung und nichts anderes enthalten.
+Das optionale [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut kann eine Erweiterung für die Abkürzung oder das Akronym bereitstellen, wenn keine vollständige Entfaltung vorliegt. Dies gibt Benutzeragenten einen Hinweis darauf, wie der Inhalt angekündigt/angezeigt werden soll, während es alle Benutzer darüber informiert, was die Abkürzung bedeutet. Wenn vorhanden, muss `title` diese vollständige Beschreibung enthalten und nichts anderes.
 
 {{EmbedInteractiveExample("pages/tabbed/abbr.html", "tabbed-shorter")}}
 
 ## Attribute
 
-Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes). Das [`title`](/de/docs/Web/HTML/Global_attributes/title) Attribut hat eine spezifische semantische Bedeutung, wenn es mit dem `<abbr>` Element verwendet wird; es _muss_ eine vollständige menschenlesbare Beschreibung oder Ausschreibung der Abkürzung enthalten. Dieser Text wird oft von Browsern als Tooltip angezeigt, wenn der Mauszeiger über das Element bewegt wird.
+Dieses Element unterstützt nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes). Das [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attribut hat eine spezifische semantische Bedeutung, wenn es mit dem `<abbr>`-Element verwendet wird; es _muss_ eine vollständige, menschenlesbare Beschreibung oder Entfaltung der Abkürzung enthalten. Dieser Text wird häufig von Browsern als Tooltip angezeigt, wenn der Mauszeiger über das Element bewegt wird.
 
-Jedes von Ihnen verwendete `<abbr>` Element ist unabhängig von allen anderen; die Bereitstellung eines `title` für eines hängt nicht automatisch den gleichen Erweiterungstext an andere mit demselben Inhaltstext an.
+Jedes verwendete `<abbr>`-Element ist unabhängig von allen anderen; das Bereitstellen eines `title` für eines bindet nicht automatisch denselben Erweiterungstext an andere Elemente mit demselben Inhaltstext.
 
-## Anwendungshinweise
+## Nutzungshinweise
 
 ### Typische Anwendungsfälle
 
-Es ist sicherlich nicht erforderlich, dass alle Abkürzungen mit `<abbr>` gekennzeichnet werden. Es gibt jedoch einige Fälle, in denen dies hilfreich ist:
+Es ist sicherlich nicht erforderlich, dass alle Abkürzungen mit `<abbr>` markiert werden. Es gibt jedoch einige Fälle, in denen dies hilfreich ist:
 
-- Wenn eine Abkürzung verwendet wird und Sie eine Ausschreibung oder Definition außerhalb des Dokumenteninhaltsflusses bereitstellen möchten, verwenden Sie `<abbr>` mit einem geeigneten [`title`](/de/docs/Web/HTML/Global_attributes/title).
-- Um eine Abkürzung zu definieren, die dem Leser möglicherweise unbekannt ist, präsentieren Sie den Begriff mit `<abbr>` und einem eingefügten Text, der die Definition liefert. Fügen Sie ein `title` Attribut nur dann hinzu, wenn die Inline-Ausschreibung oder Definition nicht verfügbar ist.
-- Wenn die Anwesenheit einer Abkürzung im Text semantisch notiert werden muss, ist das `<abbr>` Element nützlich. Dies kann wiederum zu Styling- oder Skriptzwecken verwendet werden.
-- Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um Definitionen für Begriffe zu erstellen, die Abkürzungen oder Akronyme sind. Siehe das Beispiel [Defining an abbreviation](#definition_einer_abkürzung) unten.
+- Wenn eine Abkürzung verwendet wird und Sie eine Entfaltung oder Definition außerhalb des Dokumenteninhalts bereitstellen möchten, verwenden Sie `<abbr>` mit einem geeigneten [`title`](/de/docs/Web/HTML/Global_attributes/title).
+- Um eine Abkürzung zu definieren, die dem Leser möglicherweise unbekannt ist, präsentieren Sie den Begriff mit `<abbr>` und einbettetem Text, der die Definition liefert. Fügen Sie nur dann ein `title`-Attribut hinzu, wenn die Erweiterung oder Definition im Text nicht verfügbar ist.
+- Wenn das Vorhandensein einer Abkürzung im Text semantisch notiert werden muss, ist das `<abbr>`-Element nützlich. Dies kann dann zu Stil- oder Skriptzwecken verwendet werden.
+- Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um Definitionen für Begriffe zu erstellen, die Abkürzungen oder Akronyme sind. Siehe das Beispiel [Defining an abbreviation](#eine_abkürzung_definieren) unten.
 
-### Grammatische Überlegungen
+### Grammatikalische Überlegungen
 
-In Sprachen mit [grammatischem Numerus](https://en.wikipedia.org/wiki/Grammatical_number) (d. h. Sprachen, in denen die Anzahl der Gegenstände die Grammatik eines Satzes beeinflusst), verwenden Sie die gleiche grammatische Anzahl in Ihrem `title` Attribut wie in Ihrem `<abbr>` Element. Dies ist besonders wichtig in Sprachen mit mehr als zwei Nummern, wie Arabisch, aber auch relevant im Englischen.
+In Sprachen mit [grammatischem Numerus](https://de.wikipedia.org/wiki/Grammatischer_Numerus) (das heißt, Sprachen, bei denen die Anzahl der Elemente die Grammatik des Satzes beeinflusst), verwenden Sie denselben grammatischen Numerus in Ihrem `title`-Attribut wie im `<abbr>`-Element. Dies ist besonders wichtig in Sprachen mit mehr als zwei Numeri, wie Arabisch, ist aber auch im Englischen relevant.
 
 ## Standardstil
 
-Der Zweck dieses Elements liegt rein im Komfort des Autors und alle Browser zeigen es standardmäßig inline an ({{cssxref("display", "display: inline")}}), obwohl sich ihr Standardstil von einem Browser zum anderen unterscheidet:
+Der Zweck dieses Elements liegt rein im Komfort des Autors und alle Browser zeigen es standardmäßig inline an ({{cssxref("display", "display: inline")}}), obwohl sein Standardstil von einem Browser zum anderen variiert:
 
-Einige Browser fügen dem Inhalt des Elements eine gepunktete Unterstreichung hinzu. Andere fügen eine gepunktete Unterstreichung hinzu, während sie den Inhalt in Kapitälchen umwandeln. Andere könnten es nicht anders als ein {{HTMLElement("span")}} Element stylen. Um dieses Styling zu kontrollieren, verwenden Sie {{cssxref('text-decoration')}} und {{cssxref('font-variant')}}.
+Einige Browser fügen dem Inhalt des Elements eine gepunktete Unterstreichung hinzu. Andere fügen eine gepunktete Unterstreichung hinzu, während sie den Inhalt in Kapitälchen umwandeln. Andere gestalten ihn möglicherweise nicht anders als ein {{HTMLElement("span")}}-Element. Um diese Gestaltung zu kontrollieren, verwenden Sie {{cssxref('text-decoration')}} und {{cssxref('font-variant')}}.
 
 ## Barrierefreiheit
 
-Die vollständige Ausschreibung eines Akronyms oder einer Abkürzung bei der ersten Nutzung auf einer Seite ist von Vorteil, um das Verständnis zu erleichtern, insbesondere wenn der Inhalt technisch oder branchenspezifisch ist.
+Das Ausschreiben des Akronyms oder der Abkürzung beim ersten Mal, dass es auf einer Seite verwendet wird, ist hilfreich, um Menschen das Verständnis zu erleichtern, insbesondere wenn der Inhalt technisch ist oder Fachjargon enthält.
 
-Fügen Sie nur dann ein `title` hinzu, wenn es im Text nicht möglich ist, die Abkürzung oder das Akronym auszuschreiben. Ein Unterschied zwischen dem mitgeteilten Wort oder Satz und dem, was auf dem Bildschirm angezeigt wird - insbesondere wenn es sich um branchenspezifischen Jargon handelt, mit dem der Leser möglicherweise nicht vertraut ist - kann verwirrend sein.
+Fügen Sie nur dann ein `title` hinzu, wenn es nicht möglich ist, die Abkürzung oder das Akronym im Text zu erweitern. Ein Unterschied zwischen dem angekündigten Wort oder Ausdruck und dem, was auf dem Bildschirm angezeigt wird, insbesondere wenn es sich um Fachjargon handelt, mit dem der Leser möglicherweise nicht vertraut ist, kann irritierend sein.
 
 ```html
 <p>
@@ -57,13 +57,13 @@ Fügen Sie nur dann ein `title` hinzu, wenn es im Text nicht möglich ist, die A
 
 {{EmbedLiveSample("Accessibility")}}
 
-Dies ist besonders hilfreich für Menschen, die mit den im Inhalt diskutierten Begriffen oder Konzepten nicht vertraut sind, Personen, die neu in der Sprache sind, und Menschen mit kognitiven Bedenken.
+Dies ist besonders hilfreich für Menschen, die mit den im Inhalt diskutierten Begriffen oder Konzepten nicht vertraut sind, Neulinge in der Sprache und Menschen mit kognitiven Einschränkungen.
 
 ## Beispiele
 
-### Markierung einer Abkürzung mit Bedeutung
+### Eine Abkürzung semantisch markieren
 
-Um eine Abkürzung ohne Bereitstellung einer Ausschreibung oder Beschreibung zu kennzeichnen, verwenden Sie `<abbr>` ohne Attribute, wie in diesem Beispiel gezeigt.
+Um eine Abkürzung zu markieren, ohne eine Erweiterung oder Beschreibung bereitzustellen, verwenden Sie `<abbr>` ohne Attribute, wie in diesem Beispiel zu sehen ist.
 
 #### HTML
 
@@ -75,9 +75,9 @@ Um eine Abkürzung ohne Bereitstellung einer Ausschreibung oder Beschreibung zu 
 
 {{EmbedLiveSample("Marking_up_an_abbreviation_semantically")}}
 
-### Formatieren von Abkürzungen
+### Abkürzungen stilisieren
 
-Sie können CSS verwenden, um einen benutzerdefinierten Stil für Abkürzungen festzulegen, wie in diesem grundlegenden Beispiel gezeigt.
+Sie können CSS verwenden, um einen benutzerdefinierten Stil für Abkürzungen festzulegen, wie in diesem einfachen Beispiel zu sehen ist.
 
 #### HTML
 
@@ -97,9 +97,9 @@ abbr {
 
 {{EmbedLiveSample("Styling_abbreviations")}}
 
-### Bereitstellung einer Ausschreibung
+### Eine Erweiterung bereitstellen
 
-Das Hinzufügen eines [`title`](/de/docs/Web/HTML/Global_attributes/title) Attributs ermöglicht Ihnen, eine Ausschreibung oder Definition für die Abkürzung oder das Akronym bereitzustellen.
+Das Hinzufügen eines [`title`](/de/docs/Web/HTML/Global_attributes/title)-Attributs ermöglicht es Ihnen, eine Erweiterung oder Definition für die Abkürzung oder das Akronym bereitzustellen.
 
 #### HTML
 
@@ -111,9 +111,9 @@ Das Hinzufügen eines [`title`](/de/docs/Web/HTML/Global_attributes/title) Attri
 
 {{EmbedLiveSample("Providing_an_expansion")}}
 
-### Definition einer Abkürzung
+### Eine Abkürzung definieren
 
-Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um formeller eine Abkürzung zu definieren, wie hier gezeigt.
+Sie können `<abbr>` zusammen mit {{HTMLElement("dfn")}} verwenden, um eine Abkürzung formell zu definieren, wie hier gezeigt.
 
 #### HTML
 
@@ -146,7 +146,7 @@ Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um form
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
-          >Flussinhalt</a
+          >Flow-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasing-Inhalt</a
@@ -154,7 +154,7 @@ Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um form
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Erlaubte Inhalte</th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasing-Inhalt</a
@@ -162,7 +162,7 @@ Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um form
       </td>
     </tr>
     <tr>
-      <th scope="row">Tagauslassung</th>
+      <th scope="row">Tag-Ausschluss</th>
       <td>Keine, sowohl das Start- als auch das End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
@@ -171,8 +171,7 @@ Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um form
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phrasing-Inhalt</a
-        >
-        akzeptiert
+        > akzeptiert
       </td>
     </tr>
     <tr>
@@ -185,7 +184,7 @@ Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um form
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -204,4 +203,4 @@ Sie können `<abbr>` in Verbindung mit {{HTMLElement("dfn")}} verwenden, um form
 
 ## Siehe auch
 
-- [Verwendung des `<abbr>` Elements](/de/docs/Learn/HTML/Introduction_to_HTML/Advanced_text_formatting#abbreviations)
+- [Verwendung des `<abbr>`-Elements](/de/docs/Learn_web_development/Core/Structuring_content/Advanced_text_features#abbreviations)

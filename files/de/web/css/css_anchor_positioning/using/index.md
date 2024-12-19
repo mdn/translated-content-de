@@ -1,40 +1,40 @@
 ---
-title: Verwendung der CSS-Ankerpositionierung
+title: Verwenden der CSS-Anchor-Positionierung
 slug: Web/CSS/CSS_anchor_positioning/Using
 l10n:
-  sourceCommit: fe427ad725f3cf1add1299de3cadfbb2bb05ed14
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Das **CSS-Ankerpositionierungsmodul** definiert Funktionen, die es ermöglichen, Elemente miteinander zu verknüpfen. Elemente können als **Ankerelemente** und **Anker-positionierte Elemente** definiert werden. Anker-positionierte Elemente können an Ankerelemente gebunden werden. Die Größe und Position der Anker-positionierten Elemente kann dann relativ zur Größe und Position der Ankerelemente, an die sie gebunden sind, festgelegt werden.
+Das **CSS-Anchor-Positionierung**-Modul definiert Funktionen, die es ermöglichen, Elemente miteinander zu verbinden. Elemente können als **Anchor-Elemente** und **anchor-positionierte Elemente** definiert werden. Anchor-positionierte Elemente können an Anchor-Elemente gebunden werden. Die Größe und Position der anchor-positionierten Elemente können dann relativ zur Größe und Position der Anker-Elemente, an die sie gebunden sind, festgelegt werden.
 
-Die CSS-Ankerpositionierung bietet außerdem rein CSS-basierte Mechanismen zur Angabe mehrerer alternativer Positionen für ein Anker-positioniertes Element. Zum Beispiel, wenn ein Tooltip an ein Formularfeld verankert ist, aber ansonsten außerhalb des Bildschirms in seiner Standardpositionseinstellung gerendert werden würde, kann der Browser versuchen, es in einer anderen vorgeschlagenen Position zu rendern, damit es auf dem Bildschirm platziert wird, oder alternativ, es ganz auszublenden, falls gewünscht.
+Die CSS-Anchor-Positionierung bietet auch Mechanismen, um mehrere alternative Positionen für ein anchor-positioniertes Element ausschließlich mit CSS zu spezifizieren. Wenn beispielsweise ein Tooltip an ein Formularfeld verankert ist, der Tooltip jedoch in seiner Standardpositionierung außerhalb des Bildschirms angezeigt würde, kann der Browser versuchen, ihn in einer anderen vorgeschlagenen Position anzuzeigen, sodass er auf dem Bildschirm platziert wird, oder ihn gegebenenfalls ganz verbergen.
 
-Dieser Artikel erklärt die grundlegenden Konzepte der Ankerpositionierung und wie Sie die Zuordnungs-, Positionierungs- und Größeneigenschaften des Moduls auf einer grundlegenden Ebene verwenden können. Wir haben Links zu Referenzseiten mit zusätzlichen Beispielen und Syntaxdetails für jedes der unten diskutierten Konzepte enthalten. Für Informationen zur Angabe alternativer Positionen und zum Ausblenden von Anker-positionierten Elementen siehe [Umgang mit Überlauf: alternative Positionen und bedingtes Ausblenden ausprobieren](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding).
+Dieser Artikel erklärt die grundlegenden Konzepte der Anchor-Positionierung und wie man die Assoziierungs-, Positionierungs- und Größenänderungsfunktionen des Moduls auf einer grundlegenden Ebene verwendet. Wir haben Links zu Referenzseiten mit zusätzlichen Beispielen und Syntaxdetails für jedes der unten diskutierten Konzepte hinzugefügt. Informationen zur Spezifizierung alternativer Positionen und zum Verbergen von anchor-positionierten Elementen finden Sie unter [Überlaufbehandlung: Fallbacks und bedingtes Verbergen versuchen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding).
 
 ## Grundlegende Konzepte
 
-Es ist sehr üblich, ein Element an ein anderes zu binden oder zu verknüpfen. Zum Beispiel:
+Es ist sehr üblich, ein Element an ein anderes zu binden oder zu verankern. Zum Beispiel:
 
-- Fehlermeldungen, die neben Formularsteuerungen erscheinen.
+- Fehlermeldungen, die neben Formularelementen angezeigt werden.
 - Tooltips oder Infoboxen, die neben einem UI-Element auftauchen, um weitere Informationen darüber bereitzustellen.
 - Einstellungs- oder Optionsdialoge, die aufgerufen werden können, um UI-Elemente schnell zu konfigurieren.
-- Dropdown- oder Popover-Menüs, die neben einer zugehörigen Navigationsleiste oder Schaltfläche erscheinen.
+- Dropdown- oder Popover-Menüs, die neben einer zugehörigen Navigationsleiste oder einem Button erscheinen.
 
-Moderne Schnittstellen erfordern häufig, dass einige Inhalte – oft wiederverwendbar und dynamisch erstellt – relativ zu einem Ankerelement positioniert werden. Solche Anwendungsfälle zu erstellen, wäre relativ einfach, wenn das Element, an das gebunden werden soll (auch bekannt als **Ankerelement**), immer an derselben Stelle in der Benutzeroberfläche wäre und das gebundene Element (auch bekannt als **Anker-positioniertes Element** oder einfach **positioniertes Element**) immer direkt davor oder danach in der Quellreihenfolge platziert werden könnte. Allerdings sind die Dinge selten so einfach.
+Moderne Schnittstellen erfordern häufig, dass einige Inhalte – oft wiederverwendbar und dynamisch generiert – relativ zu einem Anchor-Element positioniert werden. Solche Anwendungsfälle wären relativ einfach zu gestalten, wenn das zu verankernde Element (also das **Anchor-Element**) immer an derselben Stelle in der UI wäre und das verankerte Element (auch bekannt als **anchor-positioniertes Element** oder einfach **positioniertes Element**) immer unmittelbar davor oder danach in der Quellreihenfolge platziert werden könnte. Allerdings sind die Dinge selten so einfach.
 
-Die Position von positionierten Elementen relativ zu ihrem Ankerelement muss beibehalten und angepasst werden, wenn sich das Ankerelement bewegt oder anderweitig seine Konfiguration ändert (z. B. durch Scrollen, Ändern der Ansichtsgröße, Ziehen und Ablegen usw.). Beispielweise, wenn sich ein Element wie ein Formularfeld dem Rand der Ansicht nähert, kann sein Tooltip außerhalb des Bildschirms landen. In der Regel möchten Sie den Tooltip an sein Formularfeld binden und sicherstellen, dass der Tooltip vollständig sichtbar auf dem Bildschirm bleibt, solange das Formularfeld sichtbar ist, und ihn bei Bedarf automatisch verschieben. Sie haben dies möglicherweise als Standardverhalten in Ihrem Betriebssystem bemerkt, wenn Sie Kontextmenüs auf Ihrem Desktop oder Laptop mit einem Rechtsklick (<kbd>Strg</kbd> + Klick) öffnen.
+Die Position der positionierten Elemente relativ zu ihrem Anker-Element muss beibehalten und angepasst werden, wenn sich das Anker-Element bewegt oder anderweitig konfiguriert wird (z. B. durch Scrollen, Ändern der Ansichtsfenstergröße, Drag & Drop usw.). Wenn beispielsweise ein Element wie ein Formularfeld in die Nähe des Ansichtsfensterrandes gelangt, könnte sein Tooltip schließlich außerhalb des Bildschirms landen. Im Allgemeinen möchten Sie den Tooltip an sein Formularsteuerelement binden und sicherstellen, dass der Tooltip so lange vollständig auf dem Bildschirm sichtbar bleibt wie das Formularfeld sichtbar ist, ihn bei Bedarf automatisch bewegend. Sie haben dies möglicherweise als Standardverhalten in Ihrem Betriebssystem bemerkt, wenn Sie Kontextmenüs auf Ihrem Desktop oder Laptop mit der rechten Maustaste (<kbd>Strg</kbd> + Klick) aufrufen.
 
-Historisch gesehen erforderte das Verknüpfen eines Elements mit einem anderen Element und das dynamische Ändern der Position und Größe eines positionierten Elements basierend auf der Position eines Ankers JavaScript, was Komplexität und Leistungsprobleme hinzufügte. Es war auch nicht garantiert, dass es in allen Situationen funktioniert. Die im [CSS-Ankerpositionierungsmodul](/de/docs/Web/CSS/CSS_anchor_positioning) definierten Funktionen ermöglichen die Implementierung solcher Anwendungsfälle performant und deklarativ mit CSS (und HTML) anstelle von JavaScript.
+Historisch gesehen erforderte die Verbindung eines Elements mit einem anderen und das dynamische Ändern der Position und Größe eines positionierten Elements basierend auf der Position eines Ankers JavaScript, was Komplexität und Leistungsprobleme hinzufügte. Es war außerdem nicht garantiert, dass es in allen Situationen funktioniert. Die Features, die im [CSS Anchor Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning)-Modul definiert sind, ermöglichen die Implementierung solcher Anwendungsfälle effizient und deklarativ mit CSS (und HTML) statt JavaScript.
 
 ## Verknüpfung von Anker- und positionierten Elementen
 
-Um ein Element mit einem Anker zu verknüpfen, müssen Sie zuerst angeben, welches Element der Anker ist, und dann festlegen, welches(n) positionierte(n) Element(e) mit diesem Anker verknüpft werden sollen. Dies kann über CSS oder über das HTML-Attribut [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor) erfolgen.
+Um ein Element mit einem Anker zu verknüpfen, müssen Sie zunächst angeben, welches Element der Anker ist, und dann angeben, welches(n) positionierte(n) Element(e) mit diesem Anker verknüpft werden sollen. Dies kann über CSS oder das HTML-Attribut [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor) erfolgen.
 
-### Nur-CSS-Methode
+### CSS-Only-Methode
 
-Um ein Element über CSS als Anker zu deklarieren, müssen Sie ihm über die Eigenschaft {{cssxref("anchor-name")}} einen Ankernamen zuweisen. Der Ankername muss ein {{cssxref("dashed-ident")}} sein. In diesem Beispiel setzen wir auch die {{cssxref("width")}} des Ankers auf `fit-content`, um einen kleinen quadratischen Anker zu erhalten, der den Ankereffekt besser demonstriert.
+Um ein Element als Anker mit CSS zu deklarieren, müssen Sie ihm einen Ankernamen über die Eigenschaft {{cssxref("anchor-name")}} zuweisen. Der Ankername muss ein {{cssxref("dashed-ident")}} sein. In diesem Beispiel setzen wir auch die {{cssxref("width")}} des Ankers auf `fit-content`, um einen kleinen quadratischen Anker zu erhalten, der den Ankereffekt besser demonstriert.
 
 ```css hidden
 .anchor {
@@ -55,7 +55,7 @@ Um ein Element über CSS als Anker zu deklarieren, müssen Sie ihm über die Eig
 }
 ```
 
-Das Konvertieren eines Elements in ein Anker-positioniertes Element erfordert zwei Schritte: Es muss absolut oder fest [positioniert](/de/docs/Learn/CSS/CSS_layout/Positioning) werden, indem die Eigenschaft {{cssxref("position")}} verwendet wird. Das positionierte Element hat dann seine Eigenschaft {{cssxref("position-anchor")}} auf den Wert der Eigenschaft `anchor-name` des Ankerelements gesetzt, um die beiden miteinander zu verknüpfen:
+Ein Element in ein anchor-positioniertes Element umzuwandeln, erfordert zwei Schritte: Es muss mithilfe der Eigenschaft {{cssxref("position")}} absolut oder fix [positioniert](/de/docs/Learn_web_development/Core/CSS_layout/Positioning) werden. Das positionierte Element hat dann seine Eigenschaft {{cssxref("position-anchor")}} auf den Wert der `anchor-name`-Eigenschaft des Anker-Elements gesetzt, um die beiden miteinander zu verknüpfen:
 
 ```css hidden
 .infobox {
@@ -75,7 +75,7 @@ Das Konvertieren eines Elements in ein Anker-positioniertes Element erfordert zw
 }
 ```
 
-Wir wenden das oben genannte CSS auf das folgende HTML an:
+Wir werden das obige CSS auf das folgende HTML anwenden:
 
 ```html
 <div class="anchor">⚓︎</div>
@@ -87,15 +87,15 @@ Wir wenden das oben genannte CSS auf das folgende HTML an:
 
 Dies wird wie folgt gerendert:
 
-{{ EmbedLiveSample("Nur-CSS-Methode", "100%", "120") }}
+{{ EmbedLiveSample("CSS-Only-Methode", "100%", "120") }}
 
-Der Anker und die Infobox sind jetzt verknüpft, aber im Moment müssen Sie uns dabei vertrauen. Sie sind noch nicht miteinander verbunden – wenn Sie den Anker positionieren und an eine andere Stelle auf der Seite verschieben würden, würde er sich alleine bewegen und die Infobox an derselben Stelle lassen. Sie werden die eigentliche Verbindung in Aktion sehen, wenn wir uns [die Positionierung von Elementen basierend auf der Ankerposition](#platzieren_von_elementen_relativ_zu_ihrem_anker) ansehen.
+Der Anker und die Infobox sind jetzt verknüpft, aber für den Moment müssen Sie uns darauf vertrauen. Sie sind noch nicht miteinander verbunden – wenn Sie den Anker positionieren und ihn woanders auf der Seite verschieben würden, würde er sich alleine bewegen und die Infobox an derselben Stelle lassen. Sie werden die tatsächliche Verbindung in Aktion sehen, wenn wir uns ansehen, [wie man Elemente basierend auf der Ankerposition positioniert](#positionierung_von_elementen_relativ_zu_ihrem_anker).
 
 ### HTML-Methode
 
-Um ein positioniertes Element in HTML mit einem Anker zu verknüpfen, können Sie das Attribut [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor) verwenden. Sie müssen dem Ankerelement eine [`id`](/de/docs/Web/HTML/Global_attributes/id) geben. Das `anchor`-Attribut wird dann auf dem Anker-positionierten Element gesetzt, wobei ein Wert gleich der `id` des Ankerelements, mit dem Sie es verknüpfen möchten, verwendet wird.
+Um ein positioniertes Element mit einem Anker in HTML zu verknüpfen, können Sie das Attribut [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor) verwenden. Sie müssen dem Anker-Element eine [`id`](/de/docs/Web/HTML/Global_attributes/id) geben. Das `anchor`-Attribut wird dann am anchor-positionierten Element gesetzt, mit einem Wert, der der `id` des Anker-Elements entspricht, mit dem Sie es verknüpfen möchten.
 
-Wir haben dies im unten stehenden HTML gemacht:
+Wir haben dies im HTML unten getan:
 
 ```html
 <div class="anchor" id="example-anchor">⚓︎</div>
@@ -105,7 +105,7 @@ Wir haben dies im unten stehenden HTML gemacht:
 </div>
 ```
 
-Elemente müssen absolut oder fest positioniert werden, um mit Ankern in Verbindung gebracht zu werden, daher geben wir der Infobox einen `position`-Wert von `fixed`:
+Elemente müssen absolut oder fix positioniert sein, um mit Ankern verknüpft zu werden, daher geben wir der Infobox einen `position`-Wert von `fixed`:
 
 ```css hidden
 .anchor {
@@ -135,29 +135,29 @@ Elemente müssen absolut oder fest positioniert werden, um mit Ankern in Verbind
 }
 ```
 
-Dies gibt uns das gleiche Ergebnis, das wir zuvor mit CSS erreicht haben. Wir haben ein positioniertes Element mit einem Ankerelement verknüpft, indem wir das `anchor`-Attribut auf dem positionierten Element anstelle der `anchor-name`-Eigenschaft des Ankerelements und der `position-anchor`-Eigenschaft des positionierten Elements verwendet haben.
+Dies ergibt dasselbe Ergebnis, das wir zuvor mit CSS erreicht haben. Wir haben ein positioniertes Element mit einem Anker-Element durch das `anchor`-Attribut am positionierten Element verknüpft, anstatt die `anchor-name`-Eigenschaft des Anker-Elements und die `position-anchor`-Eigenschaft des positionierten Elements zu benutzen.
 
 {{ EmbedLiveSample("HTML-Methode", "100%", "120") }}
 
 > [!NOTE]
-> Das [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor)-Attribut hat derzeit geringere Unterstützung als das CSS-Äquivalent. Siehe die [`anchor`-Attribut-Kompatibilitätstabelle](/de/docs/Web/HTML/Global_attributes/anchor#browser_compatibility) für weitere Informationen.
+> Das [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor)-Attribut hat derzeit weniger Unterstützung als das CSS-Äquivalent. Siehe die [`anchor`-Attribut-Kompatibilitäts-Tabelle](/de/docs/Web/HTML/Global_attributes/anchor#browser_compatibility) für mehr Informationen.
 
 Wir haben die beiden Elemente verknüpft, aber sie sind noch nicht verbunden. Um sie miteinander zu verbinden, muss das positionierte Element relativ zu seinem Anker positioniert werden, was mit CSS erfolgt.
 
-## Platzieren von Elementen relativ zu ihrem Anker
+## Positionierung von Elementen relativ zu ihrem Anker
 
-Wie wir oben gesehen haben, ist es nicht wirklich nützlich, ein positioniertes Element nur mit einem Anker zu verknüpfen. Unser Ziel ist es, das positionierte Element relativ zu seinem zugehörigen Ankerelement zu platzieren. Dies geschieht entweder durch Festlegen eines [CSS-`anchor()`-Funktionswerts](#using_inset_properties_with_anchor_function_values) auf eine {{Glossary("Inset_properties", "Einfügeigenschaft")}}, [Spezifizieren eines `position-area`](#setting_a_position-area) oder Zentrieren des positionierten Elements mit dem [`anchor-center`-Platzierungswert](#centering_on_the_anchor_using_anchor-center).
+Wie wir oben gesehen haben, ist das Verknüpfen eines positionierten Elements mit einem Anker allein nicht sehr nützlich. Unser Ziel ist es, das positionierte Element relativ zu seinem verbundenen Anker-Element zu platzieren. Dies geschieht entweder durch Einstellen eines Werts der [CSS `anchor()` Funktion](#using_inset_properties_with_anchor_function_values) auf einer {{Glossary("Inset_properties", "inset property")}}, [Angabe eines `position-area`](#setting_a_position-area) oder das Zentrieren des positionierten Elements mit dem [`anchor-center` Platzierungswert](#centering_on_the_anchor_using_anchor-center).
 
 > [!NOTE]
-> Das Ankerelement muss ein sichtbarer DOM-Knoten sein, damit die Zuordnung und Positionierung funktioniert. Wenn es ausgeblendet ist (z. B. über [`display: none`](/de/docs/Web/CSS/display#none)), wird das positionierte Element relativ zu seinem nächsten positionierten Vorfahren positioniert. Wir besprechen, wie man ein Anker-positioniertes Element ausblendet, wenn sein Anker verschwindet, in [Bedingtes Ausblenden mit `position-visibility`](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding#conditionally_hiding_anchor-positioned_elements).
+> Das Anker-Element muss ein sichtbarer DOM-Knoten sein, damit die Verknüpfung und Positionierung funktioniert. Wenn es versteckt ist (z.B. durch [`display: none`](/de/docs/Web/CSS/display#none)), wird das positionierte Element relativ zu seinem nächsten positionierten Vorfahren positioniert. Wir erörtern, wie man ein anchor-positioniertes Element ausblendet, wenn sein Anker verschwindet, in [Bedingtes Ausblenden mit `position-visibility`](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding#conditionally_hiding_anchor-positioned_elements).
 
-### Verwenden von Einfügeeigenschaften mit `anchor()`-Funktionswerten
+### Verwenden von inset-Eigenschaften mit `anchor()` Funktionswerten
 
-Konventionell werden absolut und fest positionierte Elemente explizit positioniert, indem {{cssxref("length")}}- oder {{cssxref("percentage")}}-Werte auf {{Glossary("inset_properties", "Einfügeeigenschaften")}} gesetzt werden. Bei `position: absolute` ist dieser Einfügepositionswert ein absoluter Abstand relativ zu den Kanten des nächsten positionierten Vorfahren. Bei `position: fixed` ist der Einfügepositionswert ein absoluter Abstand relativ zur Ansicht.
+Konventionelle absolut und fix positionierte Elemente werden explizit positioniert, indem {{cssxref("length")}} oder {{cssxref("percentage")}} Werte auf {{Glossary("inset_properties", "inset-Eigenschaften")}} gesetzt werden. Mit `position: absolute` ist dieser inset-Positionswert ein absoluter Abstand relativ zu den Rändern des nächsten positionierten Vorfahren. Mit `position: fixed` ist der inset-Positionswert ein absoluter Abstand relativ zum Ansichtsfenster.
 
-Die CSS-Ankerpositionierung ändert dieses Paradigma und ermöglicht es, dass Anker-positionierte Elemente relativ zu den Kanten ihrer zugehörigen Anker platziert werden. Das Modul definiert die [`anchor()`](/de/docs/Web/CSS/anchor) Funktion, die ein gültiger Wert für jede der Einfügeeigenschaften ist. Wenn verwendet, setzt die Funktion den Einfügepositionswert als absoluten Abstand relativ zum Ankerelement, indem das Ankerelement, die Seite des Ankerelements, zu der das positionierte Element positioniert wird, und der Abstand von dieser Seite definiert werden.
+Die CSS-Anchor-Positionierung verändert dieses Paradigma, indem anchor-positionierte Elemente relativ zu den Rändern ihrer verknüpften Anker positioniert werden können. Das Modul definiert die [`anchor()`](/de/docs/Web/CSS/anchor) Funktion, die ein gültiger Wert für jede der inset-Eigenschaften ist. Wenn sie verwendet wird, setzt die Funktion den inset-Positionswert als einen absoluten Abstand relativ zum Anker-Element, indem das Anker-Element, die Seite des Anker-Elements, zu der das positionierte Element positioniert wird, und der Abstand von dieser Seite definiert werden.
 
-Die Funktionskomponenten sehen wie folgt aus:
+Die Komponenten der Funktion sehen folgendermaßen aus:
 
 ```plain
 anchor(<anchor-name> <anchor-side>, <fallback>)
@@ -165,30 +165,30 @@ anchor(<anchor-name> <anchor-side>, <fallback>)
 
 - `<anchor-name>`
 
-  - : Der Wert der [`anchor-name`](/de/docs/Web/CSS/anchor-name)-Eigenschaft des Ankerelements, relativ zu dem Sie die Seite des Elements positionieren möchten. Dies ist ein `<dashed-ident>`-Wert. Wenn weggelassen, wird der **Standardanker** des Elements verwendet, also der Anker, der in seiner [`position-anchor`](/de/docs/Web/CSS/position-anchor)-Eigenschaft referenziert oder über das HTML-Attribut [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor) zugeordnet wird.
+  - : Der Wert der [`anchor-name`](/de/docs/Web/CSS/anchor-name)-Eigenschaft des Anker-Elements, zu dem Sie die Seite des Elementes relativ positionieren möchten. Dies ist ein `<dashed-ident>`-Wert. Wenn er weggelassen wird, wird der **Standardanker** des Elements verwendet. Dies ist der Anker, auf den in seiner [`position-anchor`](/de/docs/Web/CSS/position-anchor)-Eigenschaft verwiesen wird oder der über das [`anchor`](/de/docs/Web/HTML/Global_attributes/anchor) HTML-Attribut dem Element zugeordnet wird.
     > [!NOTE]
-    > Das Angeben eines `<anchor-name>` positioniert das Element relativ zu diesem Anker, stellt jedoch keine Elementzuordnung bereit. Nur die `position-anchor`-Eigenschaft und `anchor`-Attribute erstellen die Zuordnung. Während Sie die Seiten eines Elements relativ zu mehreren Ankern positionieren können, indem Sie [unterschiedliche `<anchor-name>`-Werte](/de/docs/Web/CSS/anchor#positioning_an_element_relative_to_multiple_anchors) innerhalb verschiedener `anchor()`-Funktionen für dasselbe Element angeben, ist das positionierte Element nur mit einem einzigen Anker assoziiert.
+    > Die Angabe eines `<anchor-name>` positioniert das Element relativ zu diesem Anker, bietet aber keine Elementverknüpfung. Nur die `position-anchor`-Eigenschaft und `anchor`-Attribute schaffen die Verknüpfung. Während Sie die Seiten eines Elements relativ zu mehreren Ankern positionieren können, indem Sie [unterschiedliche `<anchor-name>`-Werte](/de/docs/Web/CSS/anchor#positioning_an_element_relative_to_multiple_anchors) innerhalb verschiedener `anchor()`-Funktionen auf demselben Element spezifizieren, wird das positionierte Element nur mit einem einzigen Anker verknüpft.
 
 - [`<anchor-side>`](/de/docs/Web/CSS/anchor#anchor-side)
 
-  - : Gibt die Position relativ zu einer Seite oder Seiten des Ankers an. Gültige Werte umfassen das `center` des Ankers, physische (`top`, `left`, etc.) oder logische (`start`, `self-end`, etc.) Seiten des Ankers oder einen `<percentage>` zwischen dem Start (`0%`) und dem Ende (`100%`) der Achse der Einfügeeigenschaft, auf der `anchor()` gesetzt ist. Wenn ein nicht [kompatibler](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) Wert mit der Einfügeeigenschaft angegeben wird, auf der die `anchor()`-Funktion gesetzt ist, wird der Rückfallwert verwendet.
+  - : Gibt die Position relativ zu einer Seite oder den Seiten des Ankers an. Gültige Werte umfassen das `center` des Ankers, physische (`top`, `left` usw.) oder logische (`start`, `self-end` usw.) Seiten des Ankers oder einen `<percentage>` zwischen dem Start (`0%`) und Ende (`100%`) der Achse der inset-Eigenschaft, auf die `anchor()` gesetzt ist. Wenn ein Wert verwendet wird, der nicht [kompatibel](/de/docs/Web/CSS/anchor#compatibility_of_inset_properties_and_anchor-side_values) mit der inset-Eigenschaft ist, auf der die `anchor()`-Funktion gesetzt ist, wird der Fallback-Wert verwendet.
 
 - `<fallback>`
 
-  - : Ein {{cssxref("length-percentage")}}, das den Abstand angibt, der als Rückfallwert verwendet werden soll, wenn das Element nicht absolut oder fest positioniert ist, oder der `<anchor-side>`-Wert, der verwendet wird, nicht mit der Einfügeeigenschaft kompatibel ist, auf der die `anchor()`-Funktion gesetzt ist, oder wenn das Ankerelement nicht existiert.
+  - : Ein {{cssxref("length-percentage")}}, der die Entfernung als Fallback-Wert bietet, wenn das Element nicht absolut oder fix positioniert ist, der verwendete `<anchor-side>`-Wert nicht kompatibel mit der inset-Eigenschaft ist, auf der die `anchor()`-Funktion gesetzt ist, oder das Anker-Element nicht existiert.
 
-Der Rückgabewert der `anchor()`-Funktion ist ein Längenwert, der basierend auf der Position des Ankers berechnet wird. Wenn Sie direkt eine Länge oder einen Prozentsatz auf eine Einfügeeigenschaft eines Anker-positionierten Elements setzen, wird es so positioniert, als wäre es nicht an das Ankerelement gebunden. Dies ist dasselbe Verhalten, das Sie sehen, wenn der `<anchor-side>`-Wert mit der Einfügeeigenschaft, auf der er gesetzt ist, inkompatibel ist und der Rückfall verwendet wird. Diese beiden Deklarationen sind gleichwertig:
+Der Rückgabewert der `anchor()`-Funktion ist ein Längenwert, der basierend auf der Position des Ankers berechnet wird. Wenn Sie eine Länge oder Prozentsatz direkt auf einer inset-Eigenschaft eines anchor-positionierten Elements setzen, wird es positioniert, als ob es nicht mit dem Anker-Element verbunden wäre. Dies ist dasselbe Verhalten, das auftritt, wenn der `<anchor-side>`-Wert mit der inset-Eigenschaft, auf der er gesetzt ist, unvereinbar ist und der Fallback verwendet wird. Diese beiden Deklarationen sind gleichwertig:
 
 ```css example-bad
 bottom: anchor(right, 50px);
 bottom: 50px;
 ```
 
-Beide platzieren das positionierte Element `50px` über dem unteren Rand des nächsten positionierten Vorfahren (falls vorhanden) oder des initialen enthaltenen Blocks.
+Beide platzieren das positionierte Element `50px` über dem unteren Rand des nächsten positionierten Vorfahren des Elements (falls vorhanden) oder des initialen Enthaltenen Blocks.
 
-Die häufigsten `anchor()`-Parameter, die Sie verwenden, beziehen sich auf eine Seite des Standardankers. Sie werden auch oft einen {{cssxref("margin")}} hinzufügen, um Abstand zwischen den Kanten des Ankers und des positionierten Elements zu schaffen oder `anchor()` innerhalb einer `calc()`-Funktion verwenden, um diesen Abstand hinzuzufügen.
+Die häufigsten `anchor()`-Parameter, die Sie verwenden werden, beziehen sich auf eine Seite des Standardankers. Sie werden auch häufig entweder einen {{cssxref("margin")}} hinzufügen, um Abstand zwischen dem Rand des Anker- und des positionierten Elements zu schaffen, oder `anchor()` innerhalb einer `calc()`-Funktion verwenden, um diesen Abstand hinzuzufügen.
 
-Zum Beispiel, diese Regel positioniert den rechten Rand des positionierten Elements direkt am linken Rand des Ankerelements und fügt dann etwas `margin-left` hinzu, um den Abstand zwischen den Rändern herzustellen:
+Zum Beispiel positioniert diese Regel den rechten Rand des positionierten Elements bündig mit dem linken Rand des Anker-Elements und fügt dann etwas `margin-left` hinzu, um etwas Abstand zwischen den Rändern zu schaffen:
 
 ```css
 .positionedElement {
@@ -197,7 +197,7 @@ Zum Beispiel, diese Regel positioniert den rechten Rand des positionierten Eleme
 }
 ```
 
-Da der Rückgabewert einer `anchor()`-Funktion eine Länge ist, können Sie die Funktion innerhalb einer {{cssxref("calc()")}}-Funktion verwenden. Diese Regel positioniert den logischen Block-Endrand des positionierten Elements `10px` vom logischen Block-Startrand des Ankerelements, wobei der Abstand mit der `calc()`-Funktion hinzugefügt wird, sodass wir keinen Rand hinzufügen müssen:
+Der Rückgabewert einer `anchor()`-Funktion ist eine Länge. Dies bedeutet, dass Sie sie innerhalb einer {{cssxref("calc()")}}-Funktion verwenden können. Diese Regel positioniert den logischen Block-Ende-Rand des positionierten Elements `10px` vom logischen Block-Start-Rand des Anker-Elements entfernt und fügt das Abstandsmaß über die `calc()`-Funktion hinzu, sodass wir keine zusätzliche Margin hinzufügen müssen:
 
 ```css
 .positionedElement {
@@ -207,7 +207,7 @@ Da der Rückgabewert einer `anchor()`-Funktion eine Länge ist, können Sie die 
 
 #### `anchor()`-Beispiel
 
-Lassen Sie uns ein Beispiel von `anchor()` in Aktion ansehen. Wir haben dieselbe HTML-Struktur wie in den vorherigen Beispielen verwendet, aber mit etwas Fülltext darunter und darüber, um den Inhalt über seinen Container hinaus scrollen zu lassen. Wir geben dem Ankerelement denselben `anchor-name` wie in den vorherigen Beispielen:
+Schauen wir uns ein Beispiel von `anchor()` in Aktion an. Wir haben denselben HTML-Code wie in den vorhergehenden Beispielen verwendet, jedoch mit etwas Fülltext, der darunter und darüber platziert wurde, um das Überlaufen des Inhalts seines Containers zu verursachen und zu scrollen. Wir geben dem Anker-Element denselben `anchor-name` wie in den vorhergehenden Beispielen:
 
 ```html hidden
 <p>
@@ -262,7 +262,7 @@ body {
 }
 ```
 
-Die Infobox ist über den Ankernamen mit dem Anker verbunden und wird fest positioniert. Indem wir die Einfügeeigenschaften {{cssxref("inset-block-start")}} und {{cssxref("inset-inline-start")}} einbinden (die Äquivalente zu {{cssxref("top")}} und {{cssxref("left")}} in horizontalen, links-nach-rechts gesetzten Schreibmodi sind), haben wir sie an den Anker gebunden. Wir fügen der Infobox einen `margin` hinzu, um Abstand zwischen dem positionierten Element und seinem Anker zu schaffen:
+Die Infobox ist mit dem Anker über den Ankernamen verknüpft und fix positioniert. Durch das Hinzufügen der Eigenschaften {{cssxref("inset-block-start")}} und {{cssxref("inset-inline-start")}} (die äquivalent zu {{cssxref("top")}} und {{cssxref("left")}} im horizontalen Links-nach-Rechts-Schreibmodus sind) haben wir sie mit dem Anker verbunden. Wir fügen der Infobox einen `margin` hinzu, um Abstand zwischen dem positionierten Element und seinem Anker hinzuzufügen:
 
 ```css hidden
 .infobox {
@@ -285,55 +285,55 @@ Die Infobox ist über den Ankernamen mit dem Anker verbunden und wird fest posit
 }
 ```
 
-Schauen wir uns die Deklarationen der Einfügeeigenschaften genauer an:
+Nun sehen wir uns die Deklarationen zur Positionierung der Inset-Eigenschaft genauer an:
 
-- `inset-block-start: anchor(end)`: Dies setzt den Block-Startrand des positionierten Elements an den Block-Endrand des Ankers, berechnet mit der Funktion `anchor(end)`.
-- `inset-inline-start: anchor(self-end)`: Dies setzt den Inline-Startrand des positionierten Elements an den Inline-Endrand des Ankers, berechnet mit der Funktion `anchor(self-end)`.
+- `inset-block-start: anchor(end)`: Dies setzt den Blockstart-Rand des positionierten Elements an den Blockende-Rand des Ankers, berechnet mithilfe der `anchor(end)`-Funktion.
+- `inset-inline-start: anchor(self-end)`: Dies setzt den Inline-Start-Rand des positionierten Elements an den Inline-Ende-Rand des Ankers, berechnet mithilfe der `anchor(self-end)`-Funktion.
 
-Dies ergibt folgendes Ergebnis:
+Dies ergibt das folgende Ergebnis:
 
-{{ EmbedLiveSample("`anchor()`-Beispiel", "100%", "250") }}
+{{ EmbedLiveSample("`anchor()` Beispiel", "100%", "250") }}
 
-Das positionierte Element befindet sich `5px` unterhalb und `5px` rechts vom Ankerelement. Wenn Sie das Dokument nach oben und unten scrollen, bleibt das positionierte Element relativ zum Ankerelement in seiner Position — es ist am Ankerelement und nicht an der Ansicht fixiert.
+Das positionierte Element befindet sich `5px` unterhalb und `5px` rechts vom Anker-Element. Wenn Sie das Dokument nach oben und unten scrollen, bleibt das positionierte Element relativ zum Anker-Element in seiner Position erhalten – es ist am Anker-Element, nicht am Ansichtsfenster, fixiert.
 
-### Festlegen eines `position-area`
+### Ein `position-area` festlegen
 
-Die Eigenschaft {{cssxref("position-area")}} bietet eine Alternative zur `anchor()`-Funktion, um Elemente relativ zu Ankern zu positionieren. Die `position-area`-Eigenschaft arbeitet mit dem Konzept eines 3x3 Rasters aus Kacheln, wobei das Ankerelement die mittlere Kachel ist. Die `position-area`-Eigenschaft kann verwendet werden, um das Anker-positionierte Element in jeder der neun Kacheln zu positionieren oder es über zwei oder drei Kacheln zu spannen.
+Die Eigenschaft {{cssxref("position-area")}} bietet eine Alternative zur `anchor()`-Funktion, um Elemente relativ zu Ankern zu positionieren. Die `position-area`-Eigenschaft arbeitet nach dem Konzept eines 3x3 Rasters von Kacheln, wobei das Anker-Element die mittlere Kachel ist. Die `position-area`-Eigenschaft kann verwendet werden, um das anchor-positionierte Element in eine der neun Kacheln zu positionieren oder es über zwei oder drei Kacheln hinweg zu spannen.
 
-![Das position-area-Raster, wie unten beschrieben](position-area.png)
+![Das Positionierungsfeld-Raster, wie unten beschrieben](position-area.png)
 
-Die Rasterkacheln sind in Reihen und Spalten unterteilt:
+Die Raster-Kacheln sind in Reihen und Spalten unterteilt:
 
-- Die drei Reihen werden durch die physischen Werte `top`, `center` und `bottom` dargestellt. Sie haben auch logische Entsprechungen wie `start`, `center` und `end` sowie Koordinatenäquivalente wie `y-start`, `center` und `y-end`.
-- Die drei Spalten werden durch die physischen Werte `left`, `center` und `right` dargestellt. Sie haben auch logische Entsprechungen wie `start`, `center` und `end` sowie Koordinatenäquivalente wie `x-start`, `center` und `x-end`.
+- Die drei Reihen werden durch die physischen Werte `top`, `center` und `bottom` dargestellt. Sie haben auch logische Äquivalente wie `start`, `center` und `end` und koordinatenbasierte Äquivalente wie `y-start`, `center` und `y-end`.
+- Die drei Spalten werden durch die physischen Werte `left`, `center` und `right` dargestellt. Sie haben auch logische Äquivalente wie `start`, `center` und `end` und koordinatenbasierte Äquivalente wie `x-start`, `center` und `x-end`.
 
-Die Dimensionen der mittleren Kachel werden durch den [enthältenden Block](/de/docs/Web/CSS/Containing_block) des Ankerelements definiert, während der Abstand zwischen der mittleren Kachel und dem äußeren Rand des Rasters durch den enthältenden Block des positionierten Elements definiert wird.
+Die Dimensionen der mittleren Kachel werden durch den [Enthaltenen Block](/de/docs/Web/CSS/Containing_block) des Anker-Elements definiert, während der Abstand zwischen der mittleren Kachel und dem äußeren Rand des Rasters vom enthaltenden Block des positionierten Elements definiert wird.
 
-`position-area`-Eigenschaftswerte bestehen aus einem oder zwei Werten basierend auf den oben beschriebenen Reihen- und Spaltenwerten, mit Spannungsoptionen, um den Bereich des Rasters zu definieren, in dem das Element positioniert werden soll.
+`position-area`-Eigenschaftswerte bestehen aus einem oder zwei Werten basierend auf den oben beschriebenen Reihen- und Spaltenwerten, mit verschiedenen Optionen zum Spannen, um den Bereich des Rasters zu definieren, in dem das Element positioniert werden soll.
 
 Zum Beispiel:
 
 Sie können zwei Werte angeben, um das positionierte Element in einem bestimmten Rasterfeld zu platzieren. Zum Beispiel:
 
-- `top left` (logisches Äquivalent `start start`) platziert das positionierte Element im oberen linken Feld.
-- `bottom center` (logisches Äquivalent `end center`) platziert das positionierte Element im unteren mittleren Feld.
+- `top left` (logischer Äquivalent `start start`) platziert das positionierte Element im oberen linken Feld.
+- `bottom center` (logischer Äquivalent `end center`) platziert das positionierte Element im unteren mittleren Feld.
 
-Sie können einen Reihen- oder Spaltenwert plus einen `span-*`-Wert angeben. Der erste Wert gibt die Reihe oder Spalte an, in die das positionierte Element platziert werden soll, beginnend in der Mitte, und der andere gibt die Menge dieser Spalte zum Spannen an. Zum Beispiel:
+Sie können einen Zeilen- oder Spaltenwert plus einen `span-*`-Wert angeben. Der erste Wert gibt an, in welcher Zeile oder Spalte das positionierte Element platziert werden soll, wobei es zunächst in der Mitte positioniert wird, und der andere gibt an, auf wie viele dieser Spalte es sich erstrecken soll. Zum Beispiel:
 
-- `top span-left` bewirkt, dass das positionierte Element in der oberen Reihe platziert wird und über die mittlere und linke Kachel dieser Reihe spannt.
-- `y-end span-x-end` bewirkt, dass das positionierte Element am Ende der y-Spalte platziert wird und über die mittlere und die x-end-Kacheln dieser Spalte spannt.
-- `block-end span-all` bewirkt, dass das positionierte Element in der Block-Endreihe platziert wird und über die inline-start, center und inline-end-Kacheln dieser Reihe spannt.
+- `top span-left` bewirkt, dass das positionierte Element in die obere Reihe platziert wird und sich über die mittlere und linke Kachel dieser Reihe erstreckt.
+- `y-end span-x-end` bewirkt, dass das positionierte Element am Ende der y-Spalte platziert wird und sich über die mittleren und x-end-Platten dieser Spalte erstreckt.
+- `block-end span-all` bewirkt, dass das positionierte Element in die block-End-Reihe platziert wird und sich über die inline-start, center und inline-end-Platten dieser Reihe erstreckt.
 
-Wenn Sie nur einen Wert angeben, ist der Effekt unterschiedlich, abhängig davon, welcher Wert angegeben ist:
+Wenn Sie nur einen Wert angeben, hängt der Effekt davon ab, welcher Wert gesetzt ist:
 
-- Ein physischer Seitenwert (`top`, `bottom`, `left` oder `right`) oder Koordinatenwert (`y-start`, `y-end`, `x-start`, `x-end`) wirkt so, als ob der andere Wert `span-all` ist. Zum Beispiel gibt `top` denselben Effekt wie `top span-all`.
-- Ein logischer Seitenwert (`start` oder `end`) wirkt so, als wäre der andere Wert auf denselben Wert gesetzt; zum Beispiel gibt `start` denselben Effekt wie `start start`.
-- Ein Wert von `center` wirkt so, als ob beide Werte auf `center` gesetzt sind (also, `center center`).
+- Ein physischer Seitenwert (`top`, `bottom`, `left` oder `right`) oder Koordinatenwert (`y-start`, `y-end`, `x-start`, `x-end`) wirkt, als ob der andere Wert `span-all` wäre. Zum Beispiel gibt `top` den gleichen Effekt wie `top span-all`.
+- Ein logischer Seitenwert (`start` oder `end`) wirkt, als ob der andere Wert auf den gleichen Wert gesetzt wäre; zum Beispiel gibt `start` den gleichen Effekt wie `start start`.
+- Ein Wert von `center` wirkt, als ob beide Werte auf `center` gesetzt wären (also `center center`).
 
 > [!NOTE]
-> Siehe die Referenzseite für den [`<position-area>`](/de/docs/Web/CSS/position-area_value)-Wert für eine detaillierte Beschreibung aller verfügbaren Werte. Die Mischung eines logischen Werts mit einem physischen Wert wird die Deklaration ungültig machen.
+> Siehe die [`<position-area>`](/de/docs/Web/CSS/position-area_value)-Wert-Referenzseite für eine detaillierte Beschreibung aller verfügbaren Werte. Das Mischen eines logischen Wertes mit einem physischen Wert führt zu einer ungültigen Deklaration.
 
-Demonstrieren wir einige dieser Werte; dieses Beispiel verwendet dieselbe HTML- und Basis-CSS-Stile wie das vorherige Beispiel, außer dass wir ein {{htmlelement("select")}}-Element hinzugefügt haben, um die Änderung des `position-area`-Wertes des positionierten Elements zu ermöglichen.
+Demonstrieren wir einige dieser Werte; dieses Beispiel verwendet den gleichen HTML- und Basis-CSS-Stil wie das vorherige Beispiel, jedoch haben wir ein {{htmlelement("select")}}-Element hinzugefügt, um den `position-area`-Wert des positionierten Elements zu ändern.
 
 ```html hidden
 <p>
@@ -427,7 +427,7 @@ form {
 }
 ```
 
-Die Infobox erhält eine feste Positionierung und ist über CSS mit dem Anker verbunden. Beim Laden wird sie mit `position-area: top;` an den Anker gebunden, was dazu führt, dass sie am oberen Rand des position-area-Rasters positioniert wird. Dies wird überschrieben, sobald Sie andere Werte aus dem `<select>`-Menü wählen.
+Die Infobox wird fix positioniert und mit dem Anker über CSS verknüpft. Wenn geladen, ist sie so eingestellt, dass sie mit dem Anker mit `position-area: top;` verbunden ist, was dazu führt, dass sie am oberen Rand des position-area Rasters positioniert wird. Dies wird überschrieben, sobald Sie andere Werte aus dem `<select>`-Menü auswählen.
 
 ```css hidden
 .infobox {
@@ -448,7 +448,7 @@ Die Infobox erhält eine feste Positionierung und ist über CSS mit dem Anker ve
 }
 ```
 
-Wir fügen auch ein kurzes Skript hinzu, um neue `position-area`-Werte, die aus dem `<select>`-Menü ausgewählt werden, auf die Infobox anzuwenden:
+Wir schließen auch ein kurzes Skript ein, um neue `position-area`-Werte, die aus dem `<select>`-Menü ausgewählt werden, auf die Infobox anzuwenden:
 
 ```js
 const infobox = document.querySelector(".infobox");
@@ -462,25 +462,25 @@ selectElem.addEventListener("change", () => {
 });
 ```
 
-Versuchen Sie, neue `position-area`-Werte aus dem `<select>`-Menü zu wählen, um den Effekt zu sehen, den sie auf die Position der Infobox haben:
+Versuchen Sie, neue `position-area`-Werte aus dem `<select>`-Menü auszuwählen, um den Effekt zu sehen, den sie auf die Position der Infobox haben:
 
-{{ EmbedLiveSample("Festlegen eines `position-area`", "100%", "250") }}
+{{ EmbedLiveSample("Einstellen einer `position-area`", "100%", "250") }}
 
 ### Breite des positionierten Elements
 
-Im obigen Beispiel haben wir die Größe des positionierten Elements in keiner Dimension explizit festgelegt. Wir haben das Größenverhalten absichtlich weggelassen, damit Sie das Verhalten, das dies verursacht, beobachten können.
+Im obigen Beispiel haben wir das positionierte Element in keiner Dimension explizit dimensioniert. Wir haben absichtlich auf Größenangaben verzichtet, damit Sie das Verhalten beobachten können, das dies verursacht.
 
-Wenn ein positioniertes Element in position-area-Rasterzellen ohne explizite Größe platziert wird, richtet es sich an dem angegebenen Rasterbereich aus und verhält sich, als ob {{cssxref("width")}} auf {{cssxref("max-content")}} gesetzt wäre. Es wird basierend auf der Größe seines [enthältenden Blocks](/de/docs/Web/CSS/Containing_block) bemessen, die die Breite seines Inhalts ist. Diese Größe wurde durch die Einstellung `position: fixed` auferlegt. Automatisch größenangepasste absolut und fest positionierte Elemente werden automatisch bemessen, strecken sich so weit wie nötig, um den Textinhalt zu passen, während sie durch die Kante der Ansicht eingeschränkt werden. In diesem Fall, wenn es auf der linken Seite des Rasters mit einem `left`- oder `inline-start`-Wert platziert wird, wird der Text umbrochen. Wenn die `max-content`-Größe des verankerten Elements schmaler oder kürzer als ihr Anker ist, werden sie nicht wachsen, um die Größe des Ankers zu erreichen.
+Wenn ein positioniertes Element ohne explizite Größenangaben in position-area Rasterzellen platziert wird, richtet es sich nach dem spezifizierten Rasterbereich aus und verhält sich so, als ob {{cssxref("width")}} auf {{cssxref("max-content")}} gesetzt wäre. Es wird nach der Größe seines [Enthaltenen Blocks](/de/docs/Web/CSS/Containing_block) bemessen, die die Breite seines Inhalts ist. Diese Größe wurde durch die Einstellung `position: fixed` vorgegeben. Automatisch dimensionierte, absolut und fix-positionierte Elemente werden automatisch dimensioniert und dehnen sich so weit aus, wie es erforderlich ist, um den Textinhalt zu enthalten, während sie durch den Rand des Ansichtsfensters eingeschränkt werden. In diesem Fall, wenn sie auf der linken Seite des Rasters platziert werden, mit einem beliebigen `left`- oder `inline-start`-Wert, wird der Text umgebrochen. Wenn die `max-content`-Größe des verankerten Elements schmaler oder kürzer ist als sein Anker, werden sie nicht wachsen, um die Größe des Ankers zu erfüllen.
 
-Wenn das positionierte Element vertikal zentriert ist, wie mit `position-area: bottom center`, wird es an der angegebenen Rasterzelle ausgerichtet und die Breite wird dieselbe wie die des Ankerelements sein. In diesem Fall ist seine Mindesthöhe die Blockgröße des enthältenden Blocks des Ankerelements. Es wird nicht überlaufen, da die `min-width`-Eigenschaft {{cssxref("min-content")}} ist, was bedeutet, dass sie mindestens so breit wie ihr längstes Wort ist.
+Wenn das positionierte Element vertikal zentriert ist, etwa mit `position-area: bottom center`, richtet es sich mit der spezifizierten Rasterzelle aus und die Breite ist dieselbe wie die des Anker-Elements. In diesem Fall ist seine Mindesthöhe die enthaltende Blockgröße des Anker-Elements. Es wird nicht überlaufen, da die `min-width` {{cssxref("min-content")}} ist, was bedeutet, dass es mindestens so breit ist wie das längste Wort.
 
-## Zentrieren auf dem Anker mit `anchor-center`
+## Zentrieren auf den Anker mit `anchor-center`
 
-Während Sie das Anker-positionierte Element mit den `center`-Werten von `position-area` zentrieren können, bieten Einfügeeigenschaften in Kombination mit der `anchor()`-Funktion mehr Kontrolle über die genaue Position. Die CSS-Ankerpositionierung bietet eine Möglichkeit, ein Anker-positioniertes Element relativ zu seinem Anker zu zentrieren, wenn anstelle von `position-area` Einfügeeigenschaften zum Verbinden verwendet werden.
+Während Sie das anchor-positionierte Element mit den `center`-Werten des `position-area` zentrieren können, bieten die inset-Eigenschaften in Kombination mit der `anchor()`-Funktion eine größere Kontrolle über die genaue Positionierung. Die CSS-Anchor-Positionierung bietet eine Möglichkeit, ein anchor-positioniertes Element relativ zu seinem Anker zu zentrieren, wenn inset-Eigenschaften anstelle des `position-area` verwendet werden, um es zu verbinden.
 
-Die Eigenschaften {{cssxref("justify-self")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}} und {{cssxref("align-items")}} (und ihre Kurzformversionen {{cssxref("place-items")}} und {{cssxref("place-self")}}) existieren, um Entwicklern zu ermöglichen, Elemente leicht in der inline- oder Blockrichtung innerhalb verschiedener Layoutsysteme auszurichten, zum Beispiel entlang der Haupt- oder Querachse im Falle von Flexkindern. Die CSS-Ankerpositionierung bietet einen zusätzlichen Wert für diese Eigenschaften, `anchor-center`, der ein positioniertes Element mit dem Mittelpunkt seines Standardankers ausrichtet.
+Die Eigenschaften {{cssxref("justify-self")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}}, und {{cssxref("align-items")}} (und deren {{cssxref("place-items")}} und {{cssxref("place-self")}} Shorthands) existieren, um Entwicklern das einfache Ausrichten von Elementen in Inline- oder Blockrichtung innerhalb verschiedener Layoutsysteme zu ermöglichen, etwa entlang der Haupt- oder Querachse im Falle von Flexkindern. Die CSS-Anchor-Positionierung bietet einen zusätzlichen Wert für diese Eigenschaften, `anchor-center`, der ein positioniertes Element mit dem Zentrum seines Standardankers ausrichtet.
 
-Dieses Beispiel verwendet dasselbe HTML und Basis-CSS wie das vorherige Beispiel. Die Infobox erhält eine feste Positionierung und ist an der unteren Kante des Ankers fixiert. `justify-self: anchor-center` wird dann verwendet, um sicherzustellen, dass es horizontal auf dem Mittelpunkt des Ankers zentriert ist:
+Dieses Beispiel verwendet dasselbe HTML und dieselbe Basis-CSS wie das vorherige Beispiel. Die Infobox wird fix positioniert und an der unteren Kante des Ankers verbunden. `justify-self: anchor-center` wird dann verwendet, um sicherzustellen, dass es horizontal an der Mitte des Ankers zentriert ist:
 
 ```html hidden
 <p>
@@ -548,15 +548,15 @@ body {
 }
 ```
 
-Dadurch wird das Anker-positionierte Element am unteren Rand seines Ankers zentriert:
+Dies zentriert das anchor-positionierte Element am unteren Rand seines Ankers:
 
-{{ EmbedLiveSample("Zentrieren auf dem Anker mit `anchor-center`", "100%", "250") }}
+{{ EmbedLiveSample("Zentrieren auf den Anker mit `anchor-center`", "100%", "250") }}
 
-## Größe von Elementen basierend auf der Ankergröße
+## Elemente basierend auf der Ankergröße dimensionieren
 
-Zusätzlich zur Positionierung eines Elements relativ zur Position seines Ankers können Sie auch die Größe eines Elements relativ zur Größe seines Ankers mit der [`anchor-size()`](/de/docs/Web/CSS/anchor-size)-Funktion innerhalb eines Größeneigenschaftswerts festlegen.
+Zusätzlich zur Positionierung eines Elements relativ zur Position seines Ankers kann ein Element auch relativ zur Größe seines Ankers dimensioniert werden, indem die [`anchor-size()`](/de/docs/Web/CSS/anchor-size) Funktion innerhalb eines Größenattributwertes verwendet wird.
 
-Eigenschaften zur Größenanpassung, die einen `anchor-size()`-Wert akzeptieren können, umfassen:
+Größeneigenschaften, die einen `anchor-size()`-Wert akzeptieren können, umfassen:
 
 - {{cssxref("width")}}
 - {{cssxref("height")}}
@@ -571,22 +571,22 @@ Eigenschaften zur Größenanpassung, die einen `anchor-size()`-Wert akzeptieren 
 - {{cssxref("max-block-size")}}
 - {{cssxref("max-inline-size")}}
 
-`anchor-size()`-Funktionen werden zu {{cssxref("length")}}-Werten aufgelöst. Ihre Syntax sieht so aus:
+`anchor-size()`-Funktionen lösen sich in {{cssxref("length")}}-Werte auf. Ihre Syntax sieht so aus:
 
 ```plain
 anchor-size(<anchor-name> <anchor-size>, <length-percentage>)
 ```
 
 - `<anchor-name>`
-  - : Der `<dashed-ident>`-Name, der als Wert der [`anchor-name`](/de/docs/Web/CSS/anchor-name)-Eigenschaft des Ankerelements gesetzt ist, relativ zu dem Sie die Größe des Elements bestimmen möchten. Wenn weggelassen, wird der **Standardanker** des Elements verwendet, der in der [`position-anchor`](/de/docs/Web/CSS/position-anchor)-Eigenschaft referenziert wird.
+  - : Der `<dashed-ident>`-Name, der als Wert der [`anchor-name`](/de/docs/Web/CSS/anchor-name)-Eigenschaft des Anker-Elements gesetzt wird, zu dem Sie die Größe des Elementes relativ gestalten möchten. Wenn er weggelassen wird, wird der **Standardanker** des Elements, der in der [`position-anchor`](/de/docs/Web/CSS/position-anchor)-Eigenschaft referenzierte Anker, verwendet.
 - [`<anchor-size>`](/de/docs/Web/CSS/anchor-size#anchor-size)
-  - : Gibt die Dimension des Ankerelements an, relativ zu der das positionierte Element bemessen wird. Dies kann mit physischen (`width` oder `height`) oder logischen (`inline`, `block`, `self-inline` oder `self-block`) Werten ausgedrückt werden.
+  - : Gibt die Dimension des Anker-Elements an, zu der das positionierte Element relativ dimensioniert wird. Dies kann mit physischen (`width` oder `height`) oder logischen (`inline`, `block`, `self-inline`, oder `self-block`) Werten ausgedrückt werden.
 - {{cssxref("length-percentage")}}
-  - : Gibt die Größe an, die als Rückfallwert verwendet werden soll, falls das Element nicht absolut oder fest positioniert ist oder das Ankerelement nicht existiert.
+  - : Gibt die Größe an, die als Fallback-Wert verwendet wird, wenn das Element nicht absolut oder fix positioniert ist oder das Anker-Element nicht existiert.
 
-Die häufigsten `anchor-size()`-Funktionen, die Sie verwenden werden, beziehen sich einfach auf eine Dimension des Standardankers. Sie können sie auch innerhalb von {{cssxref("calc")}}-Funktionen verwenden, um die auf das positionierte Element angewendete Größe zu ändern.
+Die häufigsten `anchor-size()`-Funktionen, die Sie verwenden werden, beziehen sich auf eine Dimension des Standardankers. Sie können sie auch innerhalb von {{cssxref("calc")}}-Funktionen verwenden, um die auf das positionierte Element angewendete Größe zu modifizieren.
 
-Zum Beispiel, diese Regel ändert die Breite des positionierten Elements, um der Breite des Standard-Ankerelements zu entsprechen:
+Zum Beispiel dimensioniert diese Regel die Breite des positionierten Elementes gleich der Breite des Standardanker-Elementes:
 
 ```css
 .elem {
@@ -594,7 +594,7 @@ Zum Beispiel, diese Regel ändert die Breite des positionierten Elements, um der
 }
 ```
 
-Diese Regel ändert die Inline-Größe des positionierten Elements auf das 4-fache der Inline-Größe des Ankerelements, wobei die Multiplikation innerhalb einer `calc()`-Funktion durchgeführt wird:
+Diese Regel dimensioniert die Inline-Größe des positionierten Elementes auf das 4-fache der Inline-Größe des Anker-Elementes, wobei die Multiplikation innerhalb einer `calc()`-Funktion erfolgt:
 
 ```css
 .elem {
@@ -602,7 +602,7 @@ Diese Regel ändert die Inline-Größe des positionierten Elements auf das 4-fac
 }
 ```
 
-Schauen wir uns ein Beispiel an. Das HTML und das Basis-CSS sind dasselbe wie in den vorherigen Beispielen, außer dass das Ankerelement ein [`tabindex="0"`](/de/docs/Web/HTML/Global_attributes/tabindex)-Attribut erhält, um es fokussierbar zu machen. Die Infobox wird fest positioniert und mit dem Anker so verbunden wie zuvor. Dieses Mal binden wir sie jedoch an die rechte Seite des Ankers, indem wir ein `position-area` festlegen, und geben ihr eine Breite, die das Fünffache der Breite des Ankers entspricht:
+Sehen wir uns ein Beispiel an. Das HTML und das Basis-CSS sind dasselbe wie in den vorherigen Beispielen, außer dass dem Anker-Element ein [`tabindex="0"`](/de/docs/Web/HTML/Global_attributes/tabindex)-Attribut hinzugefügt wurde, um es fokussierbar zu machen. Die Infobox wird fix positioniert und in der gleichen Weise wie zuvor mit dem Anker verbunden. Diesmal jedoch verbinden wir es an der rechten Seite des Ankers, indem wir `position-area` verwenden, und geben ihr eine Breite, die fünfmal der Breite des Anker-Elementes entspricht:
 
 ```html hidden
 <p>
@@ -674,7 +674,7 @@ body {
 }
 ```
 
-Zusätzlich erhöhen wir die {{cssxref("width")}} des Ankerelements bei {{cssxref(":hover")}} und {{cssxref(":focus")}} und geben ihm eine {{cssxref("transition")}}, damit es animiert wird, wenn sich der Zustand ändert.
+Zusätzlich erhöhen wir die {{cssxref("width")}} des Anker-Elements bei {{cssxref(":hover")}} und {{cssxref(":focus")}} und geben ihm eine {{cssxref("transition")}}, damit es animiert wird, wenn sich der Zustand verändert.
 
 ```css
 .anchor {
@@ -689,14 +689,14 @@ Zusätzlich erhöhen wir die {{cssxref("width")}} des Ankerelements bei {{cssxre
 }
 ```
 
-Fahren Sie mit der Maus über das Ankerelement oder tabben Sie darauf zu — das positionierte Element wächst, während der Anker wächst, was zeigt, dass die Größe des Anker-positionierten Elements relativ zu seinem Anker ist:
+Fahren Sie über das Anker-Element oder tabben Sie zu ihm – das positionierte Element wächst, wenn der Anker größer wird, was demonstriert, dass die Größe des anchor-positionierten Elementes relativ zu seinem Anker ist:
 
-{{ EmbedLiveSample("Größenanpassung von Elementen basierend auf der Ankergröße", "100%", "250") }}
+{{ EmbedLiveSample("Elemente basierend auf Ankergröße dimensionieren", "100%", "250") }}
 
 ## Siehe auch
 
-- [CSS-Ankerpositionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
-- [Umgang mit Überlauf: alternative Positionen und bedingtes Ausblenden ausprobieren](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
-- [Positionierung](/de/docs/Learn/CSS/CSS_layout/Positioning)
-- [CSS Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
-- [Größenanpassung von Elementen in CSS](/de/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS)
+- [CSS-Anchor-Positionierung](/de/docs/Web/CSS/CSS_anchor_positioning) Modul
+- [Überlaufbehandlung: Fallbacks und bedingtes Verbergen versuchen](/de/docs/Web/CSS/CSS_anchor_positioning/Try_options_hiding)
+- [Lernen: Positionierung](/de/docs/Learn_web_development/Core/CSS_layout/Positioning)
+- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) Modul
+- [Lernen: Elemente in CSS dimensionieren](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)

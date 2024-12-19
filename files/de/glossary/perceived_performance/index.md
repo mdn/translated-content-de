@@ -2,13 +2,13 @@
 title: Wahrgenommene Leistung
 slug: Glossary/Perceived_performance
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{GlossarySidebar}}
 
-**Wahrgenommene Leistung** ist ein Maß dafür, wie schnell, reaktionsfähig und zuverlässig eine Website den Nutzern _erscheint_. Die Wahrnehmung, wie gut eine Seite funktioniert, kann einen größeren Einfluss auf die Benutzererfahrung haben als die tatsächlichen Lade- und Antwortzeiten.
+**Wahrgenommene Leistung** ist ein Maß dafür, wie schnell, reaktionsfähig und zuverlässig eine Website _ihren_ Nutzern erscheint. Die Wahrnehmung, wie gut eine Website funktioniert, kann mehr Einfluss auf die Benutzererfahrung haben als die tatsächlichen Lade- und Reaktionszeiten.
 
 ## Siehe auch
 
-- [Wahrgenommene Leistung](/de/docs/Learn/Performance/Perceived_performance)
+- [Wahrgenommene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance)

@@ -2,22 +2,22 @@
 title: Server
 slug: Glossary/Server
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{GlossarySidebar}}
 
-Ein Server ist eine Software oder Hardware, die einem Benutzer einen Dienst anbietet, der üblicherweise als Client bezeichnet wird. Ein Hardware-Server ist ein gemeinsam genutzter Computer in einem Netzwerk, normalerweise leistungsstark und in einem Rechenzentrum untergebracht. Ein Software-Server (der häufig auf einem Hardware-Server läuft) ist ein Programm, das Dienste für Client-Programme oder eine {{Glossary("UI", "Benutzeroberfläche")}} für menschliche Clients bereitstellt.
+Ein Server ist eine Software oder Hardware, die einem Benutzer, meist als Client bezeichnet, einen Dienst anbietet. Ein Hardware-Server ist ein gemeinsam genutzter Computer in einem Netzwerk, normalerweise leistungsstark und in einem Rechenzentrum untergebracht. Ein Software-Server (der oft auf einem Hardware-Server läuft) ist ein Programm, das Dienstleistungen für Client-Programme oder eine {{Glossary("UI", "Benutzeroberfläche")}} für menschliche Clients bereitstellt.
 
-Dienste werden im Allgemeinen über lokale Netzwerke oder Weitverkehrsnetze wie das Internet bereitgestellt. Ein Client-Programm und ein Server-Programm verbinden sich traditionell durch das Übertragen von Nachrichten, die mithilfe eines {{Glossary("protocol", "Protokolls")}} über eine {{Glossary("API", "API")}} codiert sind.
+Dienste werden in der Regel über lokale Netzwerke oder Weitverkehrsnetze wie das Internet bereitgestellt. Ein Client-Programm und ein Server-Programm verbinden sich traditionell, indem sie Nachrichten austauschen, die mithilfe eines {{Glossary("protocol", "Protokolls")}} über eine {{Glossary("API", "API")}} kodiert sind.
 
 Zum Beispiel:
 
-- Ein mit dem Internet verbundener Webserver sendet eine {{Glossary("HTML", "HTML")}}-Datei an Ihre Browser-Software, damit Sie diese Seite lesen können
-- Lokaler Netzwerkserver für Datei-, Namens-, Mail-, Druck- und Faxdienste
+- Ein internetverbundener Webserver sendet eine {{Glossary("HTML", "HTML")}}-Datei an Ihre Browsersoftware, damit Sie diese Seite lesen können.
+- Lokales Netzwerkserver für Datei-, Namens-, Mail-, Druck- und Faxdienste
 - Minicomputer, Großrechner und Supercomputer in Rechenzentren
 
 ## Siehe auch
 
-- [Einführung in Server](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
-- [Server (Rechnernetz)](<https://en.wikipedia.org/wiki/Server_(computing)>) auf Wikipedia
+- [Einführung in Server](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server)
+- [Server (Computing)](<https://en.wikipedia.org/wiki/Server_(computing)>) auf Wikipedia

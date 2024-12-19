@@ -1,25 +1,25 @@
 ---
-title: <input type="week">
+title: "`<input type=\"week\">`"
 slug: Web/HTML/Element/input/week
 l10n:
-  sourceCommit: f10015d1752d5668d8fe0de29f9d9807de475d58
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{HTMLSidebar}}
 
-{{HTMLElement("input")}}-Elemente vom Typ **`week`** erstellen Eingabefelder, die eine einfache Eingabe eines Jahres plus der [ISO 8601 Wochennummer](https://en.wikipedia.org/wiki/ISO_8601#Week_dates) während dieses Jahres (d.h. Woche 1 bis [52 oder 53](https://en.wikipedia.org/wiki/ISO_8601#Week_dates)) ermöglichen.
+{{HTMLElement("input")}}-Elemente des Typs **`week`** erstellen Eingabefelder, die die einfache Eingabe eines Jahres zusammen mit der [ISO 8601-Wochennummer](https://en.wikipedia.org/wiki/ISO_8601#Week_dates) (d. h. Woche 1 bis [52 oder 53](https://en.wikipedia.org/wiki/ISO_8601#Week_dates)) ermöglichen.
 
 {{EmbedInteractiveExample("pages/tabbed/input-week.html", "tabbed-shorter")}}
 
-Die Benutzeroberfläche des Steuerelements variiert von Browser zu Browser; die plattformübergreifende Unterstützung ist derzeit etwas eingeschränkt, da es nur von Chrome/Opera und Microsoft Edge unterstützt wird. In nicht unterstützten Browsern fällt das Steuerelement anmutig auf dieselbe Funktionalität wie [`<input type="text">`](/de/docs/Web/HTML/Element/input/text) zurück.
+Die Benutzeroberfläche des Steuerelements variiert je nach Browser; die Unterstützung durch verschiedene Browser ist derzeit etwas begrenzt, wobei es nur von Chrome/Opera und Microsoft Edge unterstützt wird. In nicht unterstützenden Browsern wird das Steuerelement in einer Weise reduziert, die identisch zu [`<input type="text">`](/de/docs/Web/HTML/Element/input/text) funktioniert.
 
-![Ein Eingabefeld mit der Aufschrift 'week 01, 2017'. Der Hintergrund von 2017 hat denselben Blauton wie der Fokusrahmen. Im Eingabefeld befinden sich 3 Symbole: ein x oder Löschen, ein Spinner mit kleinen Auf- und Abwärtspfeilen und ein größerer Abwärtspfeil. Ein Kalender wird als Pop-up unter dem Eingabefeld angezeigt, der auf Januar 2017 gesetzt ist. Die erste Spalte des Kalenders zeigt die Woche: 52, 1, 2, 3, 4, 5. Der vollständige Monat ist rechts davon dargestellt. Die Zeile mit Woche 1 und den Daten 2. bis 8. Januar ist hervorgehoben. Auf derselben Linie wie der Monat befinden sich Schaltflächen, um zum nächsten und vorherigen Monat zu navigieren.](week-control-chrome.png)
+![Eine Eingabe liest 'Woche 01, 2017'. Der Hintergrund der Zahl 2017 hat die gleiche blaue Farbe wie der Fokusrahmen. Es gibt drei Symbole in der Eingabe: x oder löschen, ein Spinner mit kleinen Auf- und Abwärtspfeilen und ein größerer Abwärtspfeil. Ein Kalender ist ein Popup unter der Eingabe, das auf Januar 2017 eingestellt ist. Die erste Spalte des Kalenders ist die Woche: 52, 1, 2, 3, 4, 5. Der vollständige Monatskalender befindet sich rechts daneben. Die Zeile mit Woche 1 und 2. bis 8. Januar ist hervorgehoben. In derselben Zeile wie der Monat gibt es Schaltflächen, um zum nächsten und vorherigen Monat zu wechseln.](week-control-chrome.png)
 
 ## Wert
 
-Ein String, der den Wert der in das Eingabefeld eingegebenen Woche/Jahr darstellt. Das Format des für diesen Eingabetyp verwendeten Datums- und Zeitwerts wird in [Week strings](/de/docs/Web/HTML/Date_and_time_formats#week_strings) beschrieben.
+Ein String, der den in die Eingabe eingegebenen Wert der Woche des Jahres repräsentiert. Das Format des Datums- und Zeitwertes, das von diesem Eingabetyp verwendet wird, wird in [Wocheneinträgen](/de/docs/Web/HTML/Date_and_time_formats#week_strings) beschrieben.
 
-Sie können einen Standardwert für die Eingabe festlegen, indem Sie einen Wert innerhalb des [`value`](/de/docs/Web/HTML/Element/input#value)-Attributes einschließen, wie zum Beispiel:
+Sie können einen Standardwert für die Eingabe festlegen, indem Sie einen Wert innerhalb des [`value`](/de/docs/Web/HTML/Element/input#value)-Attributs einfügen, wie folgt:
 
 ```html
 <label for="week">What week would you like to start?</label>
@@ -28,9 +28,9 @@ Sie können einen Standardwert für die Eingabe festlegen, indem Sie einen Wert 
 
 {{EmbedLiveSample('Value', 600, 60)}}
 
-Ein zu beachtender Punkt ist, dass das angezeigte Format von dem tatsächlichen `value` abweichen kann, das immer im Format `yyyy-Www` ist. Wenn der obige Wert beispielsweise an den Server übermittelt wird, können ihn Browser als `Week 01, 2017` anzeigen, aber der übermittelte Wert wird immer als `week=2017-W01` aussehen.
+Eine Sache, die beachtet werden muss, ist, dass das angezeigte Format von dem tatsächlichen `value` abweichen kann, welches immer im Format `yyyy-Www` formatiert ist. Wenn der obige Wert beispielsweise an den Server übermittelt wird, können Browser ihn als `Woche 01, 2017` anzeigen, aber der übermittelte Wert wird immer wie `week=2017-W01` aussehen.
 
-Sie können den Wert auch in JavaScript mit der [`value`](/de/docs/Web/API/HTMLInputElement/value)-Eigenschaft des Eingabeelements abrufen und festlegen:
+Sie können den Wert auch in JavaScript über die [`value`](/de/docs/Web/API/HTMLInputElement/value)-Eigenschaft des Eingabeelements abrufen und festlegen, zum Beispiel:
 
 ```js
 const weekControl = document.querySelector('input[type="week"]');
@@ -39,49 +39,49 @@ weekControl.value = "2017-W45";
 
 ## Zusätzliche Attribute
 
-Neben den allgemeinen Attributen für {{HTMLElement("input")}}-Elemente bieten Wochen-Eingaben die folgenden Attribute.
+Zusätzlich zu den gemeinsamen Attributen von {{HTMLElement("input")}}-Elementen bieten Wochen-Eingaben die folgenden Attribute.
 
 ### max
 
-Das zeitlich späteste Jahr und die Wochennummer im oben im Abschnitt [Wert](#wert) besprochenen String-Format, das akzeptiert wird. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Element/input#value) diesen Wert überschreitet, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) des Elements fehl. Wenn der Wert des `max`-Attributs kein gültiger Wochen-String ist, hat das Element keinen maximalen Wert.
+Das späteste (zeitlich gesehen) Jahr und die Wochennummer im oben im Abschnitt [Wert](#wert) beschriebenen String-Format, das akzeptiert wird. Wenn der in das Element eingegebene [`value`](/de/docs/Web/HTML/Element/input#value) diesen überschreitet, schlägt das Element in der [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl. Wenn der Wert des `max`-Attributs kein gültiger Wocheneintrag ist, hat das Element keinen Maximalwert.
 
-Dieser Wert muss größer als oder gleich dem vom `min`-Attribut angegebenen Jahr und Woche sein.
+Dieser Wert muss größer oder gleich dem Jahr und der Woche sein, die durch das `min`-Attribut festgelegt werden.
 
 ### min
 
-Das früheste Jahr und die Woche, die akzeptiert werden. Wenn der [`value`](/de/docs/Web/HTML/Element/input#value) des Elements kleiner ist, schlägt die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) des Elements fehl. Wenn ein für `min` angegebener Wert kein gültiger Wochen-String ist, hat die Eingabe keinen Minimalwert.
+Das früheste Jahr und die Woche, die akzeptiert werden. Wenn der [`value`](/de/docs/Web/HTML/Element/input#value) des Elements kleiner als dieser ist, schlägt das Element in der [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) fehl. Wenn für `min` ein Wert angegeben wird, der kein gültiger Wocheneintrag ist, hat die Eingabe keinen Minimalwert.
 
-Dieser Wert muss kleiner als oder gleich dem Wert des `max`-Attributs sein.
+Dieser Wert muss kleiner oder gleich dem Wert des `max`-Attributs sein.
 
 ### readonly
 
-Ein Boolean-Attribut, das, wenn vorhanden, bedeutet, dass dieses Feld nicht vom Benutzer bearbeitet werden kann. Sein `value` kann jedoch weiterhin durch JavaScript-Code geändert werden, der direkt die `value`-Eigenschaft des [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement) setzt.
+Ein boolesches Attribut, das, wenn es vorhanden ist, bedeutet, dass dieses Feld vom Benutzer nicht bearbeitet werden kann. Sein `value` kann jedoch immer noch durch direktes Setzen der [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)-`value`-Eigenschaft durch JavaScript-Code geändert werden.
 
 > [!NOTE]
-> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keinen Effekt auf Eingaben mit dem ebenfalls spezifizierten `readonly`-Attribut.
+> Da ein schreibgeschütztes Feld keinen Wert haben kann, hat `required` keine Auswirkung auf Eingaben mit dem ebenfalls angegebenen `readonly`-Attribut.
 
 ### step
 
-Das `step`-Attribut ist eine Zahl, die die Granularität angibt, an die der Wert eingehalten werden muss, oder der spezielle Wert `any`, der unten beschrieben wird. Nur Werte, die dem Schrittablauf (falls angegeben [`min`](#min), andernfalls [`value`](/de/docs/Web/HTML/Element/input#value) und ein geeigneter Standardwert, falls keiner dieser Werte angegeben ist) entsprechen, sind gültig.
+Das `step`-Attribut ist eine Zahl, die die Granularität angibt, die der Wert einhalten muss, oder der spezielle Wert `any`, der unten beschrieben wird. Nur Werte, die gleich der Grundlage für das Springen sind ([`min`](#min), wenn angegeben, ansonsten [`value`](/de/docs/Web/HTML/Element/input#value) und ein entsprechender Standardwert, wenn keiner dieser Angaben gemacht ist), sind gültig.
 
-Ein String-Wert von `any` bedeutet, dass kein Schrittablauf impliziert wird und jeder Wert zulässig ist (außer anderen Einschränkungen wie [`min`](#min) und [`max`](#max)).
+Ein String-Wert von `any` bedeutet, dass kein Springen impliziert ist und jeder Wert (außer andere Einschränkungen wie [`min`](#min) und [`max`](#max)) erlaubt ist.
 
 > [!NOTE]
-> Wenn die vom Benutzer eingegebenen Daten nicht mit der Schrittkonfiguration übereinstimmen, kann der {{Glossary("user_agent", "User Agent")}} auf den nächsten gültigen Wert runden, wobei Zahlen in positiver Richtung bevorzugt werden, wenn zwei gleich nah beieinander liegende Optionen vorhanden sind.
+> Wenn die vom Benutzer eingegebenen Daten nicht der Konfiguration des Schritts entsprechen, kann der {{Glossary("user_agent", "Benutzeragent")}} auf den nächsten gültigen Wert runden, wobei er Zahlen in positiver Richtung bevorzugt, wenn es zwei gleich nah liegende Optionen gibt.
 
-Für `week`-Eingaben wird der Wert von `step` in Wochen angegeben, mit einem Skalierungsfaktor von 604.800.000 (da der zugrunde liegende numerische Wert in Millisekunden angegeben ist). Der Standardwert von `step` ist 1, was 1 Woche bedeutet. Der Standard-Schrittbasiswert ist -259.200.000, was dem Beginn der ersten Woche von 1970 (`"1970-W01"`) entspricht.
+Für `week`-Eingaben wird der wert des `step` in Wochen angegeben, mit einem Skalierungsfaktor von 604.800.000 (da der zugrunde liegende numerische Wert in Millisekunden ist). Der Standardwert von `step` ist 1, was 1 Woche angibt. Die standardmäßige Schrittgrundlage ist -259.200.000, was der Anfang der ersten Woche von 1970 (`"1970-W01"`) ist.
 
-_Zu diesem Zeitpunkt ist unklar, was ein Wert von `"any"` für `step` bedeutet, wenn er mit `week`-Eingaben verwendet wird. Dies wird aktualisiert, sobald diese Informationen feststehen._
+_Verständlicherweise ist derzeit unklar, was ein Wert von `"any"` für `step` bedeutet, wenn er mit `week`-Eingaben verwendet wird. Dies wird aktualisiert, sobald diese Informationen bestimmt sind._
 
-## Verwendung von Wochen-Eingaben
+## Verwendung von Woche-Eingaben
 
-Wochen-Eingaben klingen auf den ersten Blick praktisch, da sie eine einfache Benutzeroberfläche zur Auswahl von Wochen bieten und das an den Server gesendete Datenformat unabhängig vom Browser oder der Region des Benutzers normalisieren. Es gibt jedoch Probleme mit `<input type="week">`, da die Unterstützung durch den Browser nicht in allen Browsern gewährleistet ist.
+Woche-Eingaben scheinen auf den ersten Blick bequem zu sein, da sie eine einfache Benutzeroberfläche zum Auswählen von Wochen bereitstellen und das Datenformat normalisieren, das an den Server gesendet wird, unabhängig vom Browser oder der Lokalisierung des Benutzers. Es gibt jedoch Probleme mit `<input type="week">`, da die Unterstützung durch Browser nicht für alle Browser gewährleistet ist.
 
-Wir werden uns die grundlegende und komplexere Verwendung von `<input type="week">` ansehen und dann Ratschläge zur Bewältigung des Browser-Unterstützungsproblems geben (siehe [Umgang mit der Browser-Unterstützung](#umgang_mit_der_browser-unterstützung)).
+Wir werden uns einfache und komplexere Anwendungen von `<input type="week">` ansehen und dann Ratschläge geben, wie das Problem der Browserunterstützung später angegangen werden kann (siehe [Umgang mit der Browserunterstützung](#umgang_mit_der_browserunterstützung)).
 
-### Grundlegende Verwendung von `week`
+### Grundlegende Verwendung von Woche
 
-Die grundlegendste Verwendung von `<input type="week">` umfasst eine einfache Kombination aus `<input>`- und {{htmlelement("label")}}-Element, wie unten zu sehen:
+Die grundlegendste Verwendung von `<input type="week">` umfasst eine einfache Kombination aus `<input>` und {{htmlelement("label")}}, wie unten zu sehen:
 
 ```html
 <form>
@@ -92,21 +92,21 @@ Die grundlegendste Verwendung von `<input type="week">` umfasst eine einfache Ko
 
 {{EmbedLiveSample('Basic_uses_of_week', 600, 40)}}
 
-### Steuern der Eingabengröße
+### Steuerung der Eingabegröße
 
-`<input type="week">` unterstützt keine Größenattribute wie [`size`](/de/docs/Web/HTML/Element/input#size). Sie müssen auf [CSS](/de/docs/Web/CSS) für Größenanforderungen zurückgreifen.
+`<input type="week">` unterstützt keine Formulargrößenattribute wie [`size`](/de/docs/Web/HTML/Element/input#size). Sie müssen auf [CSS](/de/docs/Web/CSS) zurückgreifen, um Größenanforderungen zu erfüllen.
 
-### Verwendung des `step`-Attributs
+### Verwendung des Step-Attributs
 
-Sie sollten in der Lage sein, das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut zu verwenden, um die Anzahl der Wochen zu variieren, die bei jedem Inkrement oder Dekrement übersprungen werden. Dies scheint jedoch keine Auswirkungen auf unterstützende Browser zu haben.
+Sie sollten in der Lage sein, das [`step`](/de/docs/Web/HTML/Element/input#step)-Attribut zu verwenden, um die Anzahl der Wochen zu variieren, die jedes Mal gesprungen werden, wenn sie erhöht oder reduziert werden, es scheint jedoch keinen Einfluss auf unterstützende Browser zu haben.
 
 ## Validierung
 
-Standardmäßig wendet `<input type="week">` keine Validierung für eingegebene Werte an. Die UI-Implementierungen lassen in der Regel keine Eingaben zu, die keine gültige Woche/Jahr sind, was hilfreich ist, aber es ist immer noch möglich, den Wert mit dem leeren Feld abzugeben, und Sie möchten vielleicht den Bereich der auswählbaren Wochen einschränken.
+Standardmäßig wendet `<input type="week">` keine Validierung auf eingegebene Werte an. Die UI-Implementierungen lassen in der Regel nicht zu, dass Sie etwas eingeben, das keine gültige Woche/Jahr ist, was hilfreich ist, aber es ist trotzdem möglich, mit dem Feld leer zu übermitteln, und Sie könnten den Bereich der auswählbaren Wochen einschränken wollen.
 
-### Festlegen von maximalen und minimalen Wochen
+### Festlegung maximaler und minimaler Wochen
 
-Sie können die Attribute [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) verwenden, um die gültigen Wochen einzuschränken, die der Benutzer auswählen kann. Im folgenden Beispiel legen wir einen Mindestwert von `Woche 01, 2017` und einen Höchstwert von `Woche 52, 2017` fest:
+Sie können die [`min`](/de/docs/Web/HTML/Element/input#min) und [`max`](/de/docs/Web/HTML/Element/input#max) Attribute verwenden, um die gültigen Wochen, die vom Benutzer gewählt werden können, einzuschränken. Im folgenden Beispiel setzen wir einen minimalen Wert von `Woche 01, 2017` und einen maximalen Wert von `Woche 52, 2017`:
 
 ```html
 <form>
@@ -118,7 +118,7 @@ Sie können die Attribute [`min`](/de/docs/Web/HTML/Element/input#min) und [`max
 
 {{EmbedLiveSample('Setting_maximum_and_minimum_weeks', 600, 40)}}
 
-Hier ist der CSS-Code, der im obigen Beispiel verwendet wird. Hier verwenden wir die CSS-Eigenschaften {{cssxref(":valid")}} und {{cssxref(":invalid")}}, um das Eingabefeld basierend darauf zu stylen, ob der aktuelle Wert gültig ist. Wir mussten die Symbole auf einem {{htmlelement("span")}} neben der Eingabe platzieren, nicht auf der Eingabe selbst, da in Chrome der generierte Inhalt innerhalb des Formularelements platziert wird und nicht effektiv gestylt oder angezeigt werden kann.
+Hier ist das CSS, das im obigen Beispiel verwendet wurde. Hier machen wir Gebrauch von den {{cssxref(":valid")}} und {{cssxref(":invalid")}} CSS-Eigenschaften, um die Eingabe basierend darauf zu gestalten, ob der aktuelle Wert gültig ist. Wir mussten die Symbole auf einem {{htmlelement("span")}} neben der Eingabe platzieren, nicht auf der Eingabe selbst, weil in Chrome der generierte Inhalt in das Formularsteuerelement eingefügt wird und nicht effektiv gestaltet oder angezeigt werden kann.
 
 ```css
 div {
@@ -147,13 +147,13 @@ input:valid + span::after {
 }
 ```
 
-Das Ergebnis ist, dass nur Wochen zwischen W01 und W52 im Jahr 2017 als gültig angesehen und in unterstützenden Browsern auswählbar sind.
+Das Ergebnis hier ist, dass nur Wochen zwischen W01 und W52 im Jahr 2017 in unterstützenden Browsern als gültig angesehen werden und ausgewählt werden können.
 
 ### Erforderlich machen von Wochenwerten
 
-Zusätzlich können Sie das [`required`](/de/docs/Web/HTML/Element/input#required)-Attribut verwenden, um die Eingabe der Woche obligatorisch zu machen. Unterstützende Browser zeigen infolgedessen einen Fehler an, wenn Sie versuchen, ein leeres Wochenfeld abzugeben.
+Zusätzlich können Sie das [`required`](/de/docs/Web/HTML/Element/input#required) Attribut verwenden, um das Ausfüllen der Woche obligatorisch zu machen. Infolgedessen werden unterstützende Browser einen Fehler anzeigen, wenn Sie versuchen, ein leeres Wochenfeld abzusenden.
 
-Schauen wir uns ein Beispiel an; hier haben wir Mindest- und Höchstwochen festgelegt und das Feld auch als erforderlich markiert:
+Lassen Sie uns ein Beispiel ansehen; hier haben wir minimale und maximale Wochen festgelegt und auch das Feld als erforderlich definiert:
 
 ```html
 <form>
@@ -174,39 +174,39 @@ Schauen wir uns ein Beispiel an; hier haben wir Mindest- und Höchstwochen festg
 </form>
 ```
 
-Wenn Sie versuchen, das Formular ohne einen Wert abzugeben, zeigt der Browser einen Fehler an. Probieren Sie das Beispiel jetzt aus:
+Wenn Sie versuchen, das Formular ohne Wert abzusenden, zeigt der Browser einen Fehler an. Versuchen Sie nun, mit dem Beispiel zu experimentieren:
 
 {{EmbedLiveSample('Making_week_values_required', 600, 120)}}
 
-Hier ist ein Screenshot für diejenigen, die keinen unterstützenden Browser verwenden:
+Hier ist ein Screenshot für diejenigen unter Ihnen, die keinen unterstützenden Browser verwenden:
 
-![Das Wochenformularsteuerfeld zeigt zwei Striche an, wo die Wochennummer stehen sollte. Eine Popup-Meldung mit gelbem Warnsymbol und 'Bitte füllen Sie dieses Feld aus' stammt von den zwei Strichen, die in blau hervorgehoben sind, dem gleichen Blau wie der Fokusrahmen des Eingabefelds.](week-validation-chrome.png)
+![Das Wochenformular-Steuerelement hat zwei Striche, wo die Wochennummer sein sollte. Ein Popup mit einem gelben Warnsymbol und 'Please fill out this field' kommt von den zwei Strichen, die in Blau hervorgehoben sind, die gleiche blau wie der Fokusrahmen der Eingabe.](week-validation-chrome.png)
 
 > [!WARNING]
-> HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format vorliegen. Es ist viel zu einfach, Anpassungen am HTML vorzunehmen, die es einer Person ermöglichen, die Validierung zu umgehen oder sie vollständig zu entfernen. Außerdem ist es möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server sendet. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, könnte es zu Problemen kommen, wenn falsch formatierte Daten (oder Daten, die zu groß, vom falschen Typ usw. sind) übermittelt werden.
+> HTML-Formularvalidierung ist _kein_ Ersatz für Skripte, die sicherstellen, dass die eingegebenen Daten im richtigen Format sind. Es ist viel zu einfach für jemanden, Anpassungen am HTML vorzunehmen, die es ihm ermöglichen, die Validierung zu umgehen oder sie vollständig zu entfernen. Es ist auch möglich, dass jemand Ihr HTML vollständig umgeht und die Daten direkt an Ihren Server übermittelt. Wenn Ihr serverseitiger Code die empfangenen Daten nicht validiert, könnte es zu einer Katastrophe kommen, wenn falsch formatierte Daten gesendet werden (oder Daten, die zu groß sind, vom falschen Typ usw.).
 
-## Umgang mit der Browser-Unterstützung
+## Umgang mit der Browserunterstützung
 
-Wie oben erwähnt, besteht das Hauptproblem bei der Verwendung von Wochen-Eingaben derzeit in der Browser-Unterstützung: Safari und Firefox unterstützen es nicht auf dem Desktop, und ältere Versionen von IE unterstützen es ebenfalls nicht.
+Wie oben erwähnt, besteht das Hauptproblem bei der Verwendung von Woche-Eingaben derzeit in der Browserunterstützung: Safari und Firefox unterstützen es nicht auf dem Desktop, und alte Versionen des IE unterstützen es ebenfalls nicht.
 
-Mobile Plattformen wie Android und iOS nutzen solche Eingabetypen perfekt und bieten spezialisierte UI-Steuerelemente, die es sehr einfach machen, Werte in einer Touchscreen-Umgebung auszuwählen. Zum Beispiel sieht der `week`-Picker in Chrome für Android so aus:
+Mobile Plattformen wie Android und iOS nutzen solche Eingabetypen perfekt aus und bieten spezialisierte UI-Steuerelemente, die es sehr einfach machen, Werte in einer Touchscreen-Umgebung auszuwählen. Zum Beispiel sieht der `week`-Picker auf Chrome für Android so aus:
 
-![Ein modales Popup. Der Header lautet 'set week'. Es gibt zwei Spalten: links ist 36 in der Mitte in voll sichtbarer Opazität, 35 darüber und 37 darunter sind halbtransparent. Auf der rechten Seite ist 2017 voll sichtbar. Es gibt keine anderen Optionen. Unten befinden sich drei Textlinks oder Schaltflächen: 'clear' links und 'cancel' und 'set' rechts.](week-chrome-android.png)
+![Ein modales Popup. Der Header liest 'Set Week'. Es gibt zwei Spalten: die linke zeigt 36 in der Mitte in voller Opazität, mit 35 darüber und 37 darunter in halbtransparenter Opazität. Auf der rechten Seite ist 2017 vollständig opak. Es gibt keine anderen Optionen. Drei Textlinks oder Schaltflächen am unteren Rand umfassen 'Clear' auf der linken Seite und 'Cancel' und 'Set' auf der rechten Seite.](week-chrome-android.png)
 
-Nicht unterstützende Browser fallen anmutig auf eine Texteingabe zurück, aber dies führt sowohl zu Konsistenzproblemen bei der Benutzeroberfläche (das präsentierte Steuerelement wird anders sein) als auch zu Problemen bei der Datenverarbeitung.
+Nicht unterstützende Browser werden in eine Texteingabe herabgestuft, was jedoch sowohl in Bezug auf die Konsistenz der Benutzeroberfläche (das präsentierte Steuerungselement wird unterschiedlich sein) als auch auf die Datenverarbeitung Probleme verursacht.
 
-Das zweite Problem ist das gravierendere. Wie bereits erwähnt, wird mit einer `week`-Eingabe der tatsächliche Wert immer auf das Format `yyyy-Www` normalisiert. Wenn der Browser auf eine generische Texteingabe zurückgreift, gibt es nichts, das den Benutzer anleitet, die Eingabe korrekt zu formatieren (und es ist sicherlich nicht intuitiv). Es gibt mehrere Weisen, auf die Personen Wochenwerte schreiben könnten; zum Beispiel:
+Das zweite Problem ist das ernstere. Wie bereits erwähnt, wird bei einer `week`-Eingabe der eigentliche Wert immer auf das Format `yyyy-Www` normalisiert. Wenn der Browser auf eine generische Texteingabe zurückgreift, gibt es nichts, das den Benutzer dazu bringt, die Eingabe richtig zu formatieren (und es ist sicherlich nicht intuitiv). Es gibt mehrere Möglichkeiten, in denen Personen Wochenwerte schreiben könnten, zum Beispiel:
 
 - `Woche 1 2017`
-- `Jan 2-8 2017`
+- `2-8. Januar 2017`
 - `2017-W01`
 - usw.
 
-Der beste Weg, derzeit Wochen/Jahre browserübergreifend in Formularen zu behandeln, ist, den Benutzer die Wochennummer und das Jahr in separaten Steuerelementen eingeben zu lassen ({{htmlelement("select")}}-Elemente sind beliebt; siehe unten für ein Beispiel), oder JavaScript-Bibliotheken wie [jQuery date picker](https://jqueryui.com/datepicker/) zu verwenden.
+Die beste Möglichkeit, derzeit mit Wochen/Jahren in Formularen browserübergreifend umzugehen, besteht darin, den Benutzer dazu zu bringen, die Wochennummer und das Jahr in separaten Steuerelementen ({{htmlelement("select")}}-Elementen sind beliebt; siehe unten für ein Beispiel) einzugeben oder JavaScript-Bibliotheken wie [jQuery date picker](https://jqueryui.com/datepicker/) zu verwenden.
 
 ## Beispiele
 
-In diesem Beispiel erstellen wir zwei Sätze von UI-Elementen zum Auswählen von Wochen: einen nativen Picker, der mit `<input type="week">` erstellt wurde, und einen Satz von zwei {{htmlelement("select")}}-Elementen zum Auswählen von Wochen/Jahren in älteren Browsern, die den `week`-Eingabetyp nicht unterstützen.
+In diesem Beispiel erstellen wir zwei Sätze von UI-Elementen zur Auswahl von Wochen: einen nativen Picker, der mit `<input type="week">` erstellt wurde, und eine Reihe von zwei {{htmlelement("select")}}-Elementen zur Auswahl von Wochen/Jahren in älteren Browsern, die den `week` Eingabetyp nicht unterstützen.
 
 {{EmbedLiveSample('Examples', 600, 140)}}
 
@@ -244,7 +244,7 @@ Das HTML sieht folgendermaßen aus:
 </form>
 ```
 
-Die Wochenwerte werden dynamisch durch den untenstehenden JavaScript-Code generiert.
+Die Wochenwerte werden vom folgenden JavaScript-Code dynamisch generiert.
 
 ```css hidden
 div {
@@ -273,7 +273,7 @@ input:valid + span::after {
 }
 ```
 
-Der andere Teil des Codes, der von Interesse sein könnte, ist der Code zur Erkennung von Funktionen. Um zu erkennen, ob der Browser `<input type="week">` unterstützt, erstellen wir ein neues {{htmlelement("input")}}-Element, versuchen, seinen `type` auf `week` zu setzen, und prüfen dann sofort, auf welchen `type` er gesetzt ist. Nicht unterstützende Browser geben `text` zurück, da der `week`-Typ auf den Typ `text` zurückfällt. Wenn `<input type="week">` nicht unterstützt wird, verbergen wir den nativen Picker und zeigen stattdessen die Rückfall-Picker-UI ({{htmlelement("select")}}s) an.
+Der andere Teil des Codes, der von Interesse sein könnte, ist der Code zur Funktionsdetektion. Um zu erkennen, ob der Browser `<input type="week">` unterstützt, erstellen wir ein neues {{htmlelement("input")}}-Element, versuchen, seinen `type` auf `week` zu setzen, und überprüfen dann sofort, was sein `type` ist. Nicht unterstützende Browser geben `text` zurück, da der `week` Typ auf den Typ `text` zurückfällt. Wenn `<input type="week">` nicht unterstützt wird, blenden wir den nativen Picker aus und zeigen stattdessen die Fallback-Picker-UI ({{htmlelement("select")}}s) an.
 
 ```js
 // Get UI elements
@@ -319,7 +319,7 @@ function populateWeeks() {
 ```
 
 > [!NOTE]
-> Denken Sie daran, dass einige Jahre 53 Wochen haben (siehe [Weeks per year](https://en.wikipedia.org/wiki/ISO_week_date#Weeks_per_year))! Sie sollten dies berücksichtigen, wenn Sie Produktionsanwendungen entwickeln.
+> Denken Sie daran, dass einige Jahre 53 Wochen haben (siehe [Wochen pro Jahr](https://en.wikipedia.org/wiki/ISO_week_date#Weeks_per_year))! Sie müssen dies berücksichtigen, wenn Sie Produktions-Apps entwickeln.
 
 ## Technische Zusammenfassung
 
@@ -386,7 +386,6 @@ function populateWeeks() {
 
 ## Siehe auch
 
-- Das generische {{HTMLElement("input")}}-Element und die Schnittstelle zur Manipulation, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
-- [Datums- und Zeitformate, die in HTML verwendet werden](/de/docs/Web/HTML/Date_and_time_formats)
-- [`<input type="datetime-local">`](/de/docs/Web/HTML/Element/input/datetime-local), [`<input type="date">`](/de/docs/Web/HTML/Element/input/date), [`<input type="time">`](/de/docs/Web/HTML/Element/input/time), und [`<input type="month">`](/de/docs/Web/HTML/Element/input/month)
-- [Kompatibilität von CSS-Eigenschaften](/de/docs/Learn/Forms/Property_compatibility_table_for_form_controls)
+- Das generische {{HTMLElement("input")}}-Element und die Schnittstelle, die zur Manipulation verwendet wird, [`HTMLInputElement`](/de/docs/Web/API/HTMLInputElement)
+- [In HTML verwendete Datums- und Zeitformate](/de/docs/Web/HTML/Date_and_time_formats)
+- [`<input type="datetime-local">`](/de/docs/Web/HTML/Element/input/datetime-local), [`<input type="date">`](/de/docs/Web/HTML/Element/input/date), [`<input type="time">`](/de/docs/Web/HTML/Element/input/time) und [`<input type="month">`](/de/docs/Web/HTML/Element/input/month)

@@ -2,12 +2,12 @@
 title: ":placeholder-shown"
 slug: Web/CSS/:placeholder-shown
 l10n:
-  sourceCommit: 50c8e290f11b061bbf2267e1a3279f28180a5fcb
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}}- oder {{HTMLElement("textarea")}}-Element, das aktuell [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
+Die **`:placeholder-shown`** [CSS](/de/docs/Web/CSS) [Pseudo-Klasse](/de/docs/Web/CSS/Pseudo-classes) repräsentiert jedes {{HTMLElement("input")}} oder {{HTMLElement("textarea")}}-Element, das momentan [Platzhaltertext](/de/docs/Web/HTML/Element/input#placeholder) anzeigt.
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-placeholder-shown.html", "tabbed-shorter")}}
 
@@ -52,7 +52,7 @@ input:placeholder-shown {
 
 ### Überlaufender Text
 
-Wenn Formularfelder zu klein sind, kann Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die Eigenschaft {{cssxref("text-overflow")}} verwenden, um die Anzeige von überlaufendem Text zu ändern.
+Wenn Formularfelder zu klein sind, kann der Platzhaltertext auf unerwünschte Weise abgeschnitten werden. Sie können die {{cssxref("text-overflow")}}-Eigenschaft verwenden, um die Anzeige des überlaufenden Textes zu ändern.
 
 #### HTML
 
@@ -75,7 +75,7 @@ Wenn Formularfelder zu klein sind, kann Platzhaltertext auf unerwünschte Weise 
 
 ### Angepasstes Eingabefeld
 
-Das folgende Beispiel hebt das Studenten-ID-Feld mit einem benutzerdefinierten Stil hervor.
+Das folgende Beispiel hebt das Studentennummer-Feld mit einem benutzerdefinierten Stil hervor.
 
 #### HTML
 
@@ -132,6 +132,6 @@ input.student-id:placeholder-shown {
 
 ## Siehe auch
 
-- Das {{CSSxRef("::placeholder")}} Pseudoelement stylt den Platzhalter _selbst_.
+- Das {{CSSxRef("::placeholder")}} Pseudo-Element stylt den Platzhalter _selbst_.
 - Verwandte HTML-Elemente: {{HTMLElement("input")}}, {{HTMLElement("textarea")}}
-- [HTML-Formulare](/de/docs/Learn/Forms)
+- [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)

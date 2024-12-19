@@ -2,22 +2,22 @@
 title: WebDriver
 slug: Web/WebDriver
 l10n:
-  sourceCommit: 8d766d1d1c60a2d6d2c95bd2aa9d0b297d9c70ac
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{QuickLinksWithSubpages}}
 
-WebDriver ist eine Fernsteuerungsschnittstelle, die es ermöglicht, Benutzeragenten zu introspektieren und zu steuern. Es bietet ein plattform- und sprachneutrales Drahtprotokoll, um Programmen außerhalb des Prozesses zu ermöglichen, das Verhalten von Webbrowsern aus der Ferne zu steuern.
+WebDriver ist eine Fernsteuerungsschnittstelle, die die Inspektion und Steuerung von User Agents ermöglicht. Sie bietet ein plattform- und sprachneutrales Drahtprotokoll, um Programmen außerhalb des Prozesses die Möglichkeit zu geben, das Verhalten von Web-Browsern aus der Ferne zu steuern.
 
-Die Fähigkeit, Befehlssätze zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um eine konsistente Erfahrung für Benutzer zu liefern. Mit der neuen Welle von Entwicklungen auf der Webplattform, der zunehmenden Vielfalt an Geräten und der Forderung nach echter Interoperabilität zwischen den Technologien bietet WebDriver Werkzeuge für das [Cross-Browser-Testing](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Introduction).
+Die Fähigkeit, Anweisungssets zu schreiben, die in vielen Browsern auf verschiedenen Plattformen austauschbar ausgeführt werden können, ist entscheidend, um den Benutzern ein konsistentes Erlebnis zu bieten. Mit der neuen Welle von Entwicklungen auf der Web-Plattform, der zunehmenden Vielfalt an Geräten und dem Bedarf an echter Interoperabilität zwischen den Technologien, bietet WebDriver Werkzeuge für [Cross-Browser-Testing](/de/docs/Learn_web_development/Extensions/Testing/Introduction).
 
-Es wird eine Reihe von Schnittstellen bereitgestellt, um DOM-Elemente in Webdokumenten zu entdecken und zu manipulieren und um das Verhalten eines Benutzeragenten zu steuern. Es ist in erster Linie dazu gedacht, Webautoren zu ermöglichen, Tests zu schreiben, die einen Benutzeragenten von einem separaten Steuerprozess aus automatisieren. Es kann jedoch auch so verwendet werden, dass Skripte im Browser einen — möglicherweise separaten — Browser steuern können.
+Bereitgestellt wird eine Reihe von Schnittstellen zum Entdecken und Manipulieren von DOM-Elementen in Web-Dokumenten und zur Steuerung des Verhaltens eines User Agents. Sie ist hauptsächlich dazu gedacht, Web-Autoren zu ermöglichen, Tests zu schreiben, die einen User Agent von einem separaten Steuerungsprozess automatisieren. Sie kann aber auch so verwendet werden, dass Scripts im Browser einen — möglicherweise separaten — Browser steuern.
 
 ## Verwendung
 
-Was ermöglicht Ihnen WebDriver und wie sieht es aus? Da WebDriver programmierneutral ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Sprache Sie wählen.
+Was können Sie also mit WebDriver tun und wie sieht das aus? Da WebDriver sprachneutral ist, hängt die Antwort auf diese Frage davon ab, welchen WebDriver-Client Sie verwenden und welche Sprache Sie gewählt haben.
 
-Aber mit einem beliebten Client, der in Python geschrieben ist, könnte Ihre Interaktion mit WebDriver so aussehen:
+Aber mit einem beliebten Client, der in Python geschrieben ist, könnte Ihre Interaktion mit WebDriver folgendermaßen aussehen:
 
 ```python
 from selenium import webdriver
@@ -40,7 +40,7 @@ with webdriver.Firefox() as driver:
         print(f'#{i} {elem.text} ({elem.get_attribute("href")})')
 ```
 
-Dies könnte eine Ausgabe erzeugen, die in etwa so aussieht:
+Dies könnte eine Ausgabe erzeugen, die ungefähr so aussieht:
 
 ```plain
 #1 Cheese - Wikipedia (https://en.wikipedia.org/wiki/Cheese)
@@ -58,8 +58,8 @@ Dies könnte eine Ausgabe erzeugen, die in etwa so aussieht:
 
 [Typen](/de/docs/Web/WebDriver/Types)
 
-- [Error object](/de/docs/Web/WebDriver/Errors#payload)
-- [Timeouts object](/de/docs/Web/WebDriver/Timeouts)
+- [Fehlerobjekt](/de/docs/Web/WebDriver/Errors#payload)
+- [Timeouts-Objekt](/de/docs/Web/WebDriver/Timeouts)
 - [WebElement](/de/docs/Web/WebDriver/WebElement)
 - [WebWindow](/de/docs/Web/WebDriver/WebWindow)
 
@@ -81,5 +81,5 @@ Dies könnte eine Ausgabe erzeugen, die in etwa so aussieht:
 
 ## Siehe auch
 
-- [Cross-Browser-Testing](/de/docs/Learn/Tools_and_testing/Cross_browser_testing)
+- [Testen](/de/docs/Learn_web_development/Extensions/Testing)
 - [Selenium-Dokumentation](https://www.selenium.dev/documentation/)

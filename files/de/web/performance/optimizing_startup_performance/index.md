@@ -1,75 +1,76 @@
 ---
-title: Optimieren der Startleistung
+title: Optimierung der Startleistung
 slug: Web/Performance/Optimizing_startup_performance
 l10n:
-  sourceCommit: 3d99c28bf464d39683c27d63081c2d393cc4643b
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{QuickLinksWithSubPages("Web/Performance")}}
 
-Die Verbesserung der Startleistung ist oft eine der wertvollsten Leistungsoptimierungen, die vorgenommen werden können. Wie lange dauert es, bis Ihre App startet? Scheint es, als würde das Gerät oder der Browser des Nutzers blockiert, während die App geladen wird? Das lässt Nutzer befürchten, dass Ihre Anwendung abgestürzt ist oder etwas anderes schief läuft. Eine gute Benutzererfahrung beinhaltet, dass Ihre App schnell lädt. Dieser Artikel bietet Leistungstipps und Vorschläge sowohl für das Schreiben neuer Anwendungen als auch für das Portieren von Anwendungen auf das Web von anderen Plattformen.
+Die Verbesserung der Startleistung ist oft eine der wertvollsten Leistungsoptimierungen, die vorgenommen werden können. Wie lange dauert es, bis Ihre App startet? Scheint sie das Gerät oder den Browser des Benutzers zu blockieren, während die App geladen wird? Das lässt Benutzer befürchten, dass Ihre Anwendung abgestürzt ist oder dass etwas anderes nicht stimmt. Eine gute Benutzererfahrung stellt sicher, dass Ihre App schnell lädt. Dieser Artikel bietet Leistungstipps und Vorschläge sowohl für das Schreiben neuer Anwendungen als auch für das Portieren von Anwendungen auf das Web von anderen Plattformen.
 
 ## Schnelles asynchrones Laden
 
-Unabhängig von der Plattform ist es immer eine gute Idee, so **schnell** wie möglich zu starten. Da dies ein universelles Problem ist, werden wir hier nicht zu sehr darauf eingehen. Stattdessen konzentrieren wir uns auf ein wichtigeres Thema beim Erstellen von Web-Apps: so **asynchron** wie möglich zu starten. Das bedeutet, dass Ihr gesamter Startcode nicht in einem einzigen Ereignishandler im Hauptthread der App ausgeführt werden sollte.
+Unabhängig von der Plattform ist es immer eine gute Idee, so **schnell** wie möglich zu starten. Da das ein universelles Problem ist, werden wir uns hier nicht zu sehr darauf konzentrieren. Stattdessen betrachten wir ein wichtigeres Thema beim Erstellen von Web-Apps: so **asynchron** wie möglich zu starten. Das bedeutet, dass nicht der gesamte Startcode in einem einzigen Ereignishandler im Hauptthread der App ausgeführt wird.
 
-Erstellen Sie stattdessen einen [Web-Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers), der so viel wie möglich in einem Hintergrundthread erledigt (zum Beispiel das Abrufen und Verarbeiten von Daten). Das Übertragen von Aufgaben an einen Web-Worker entlastet den Hauptthread für Aufgaben, die ihn benötigen, wie Benutzereingaben und UI-Rendering. Im Gegenzug sollten Ereignisse im Hauptthread aus vielen kleinen Aufgaben bestehen, die auch als [Microtasks](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth) bekannt sind, anstatt aus größeren, zeitaufwendigen Aufgaben.
+Stattdessen sollten Sie einen [Web-Arbeiter](/de/docs/Web/API/Web_Workers_API/Using_web_workers) erstellen, der so viel wie möglich im Hintergrund-Thread erledigt (zum Beispiel das Abrufen und Verarbeiten von Daten). Die Übertragung von Aufgaben an einen Web-Arbeiter entlastet den Hauptthread für Aufgaben, die ihn erfordern, wie Benutzereingaben und UI-Rendering. Im Gegenzug sollten Ereignisse im Hauptthread aus vielen kleinen Aufgaben bestehen, auch bekannt als [Mikro-Aufgaben](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth), anstatt aus größeren, zeitaufwendigen Aufgaben.
 
-Asynchrones Laden hilft zu verhindern, dass Seiten und Benutzeroberflächen unansprechbar erscheinen oder sogar werden. Indem Sie die für jede einzelne Ladevorgang erforderliche Zeit minimieren, wird die [Ereignisschleife](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth#event_loops) der Anwendung weiterhin durchlaufen, während sie startet. Dies verhindert, dass die Anwendung, der Browser und/oder das Gerät eingefroren erscheinen.
+Asynchrones Laden hilft dabei, zu verhindern, dass Seiten und Benutzeroberflächen unansprechbar erscheinen oder tatsächlich werden. Durch die Minimierung der für einzelne Ladeaufgaben erforderlichen Zeit wird die [Ereignisschleife](/de/docs/Web/API/HTML_DOM_API/Microtask_guide/In_depth#event_loops) der Anwendung weiterlaufen, während sie startet. Dies verhindert, dass die Anwendung, der Browser und/oder das Gerät eingefroren erscheinen.
 
-Im schlimmsten Fall kann das Blockieren des Hauptthreads dazu führen, dass Nutzer Ihre App deinstallieren; zum Beispiel, wenn jemand Ihre App versehentlich startet und er nicht daran gehindert wird, die Anwendung zu schließen, möchte er möglicherweise Maßnahmen ergreifen, um dies in Zukunft zu vermeiden.
+Im schlimmsten Fall kann das Blockieren des Hauptthreads dazu führen, dass Benutzer Ihre App deinstallieren; zum Beispiel, wenn jemand Ihre App versehentlich startet und nicht daran gehindert wird, die Anwendung zu schließen, könnte er Maßnahmen ergreifen, damit dies nicht versehentlich wieder passiert.
 
-## Wo ein Wille ist
+## Wo ein Wille ist…
 
-Es ist einfacher, alles gleich beim ersten Mal „richtig“ zu schreiben, als es nachträglich auf Leistung (und Zugänglichkeit) zu optimieren. Wenn Sie bei Null anfangen, bedeutet das, geeignete Codebestandteile asynchron zu gestalten, sodass kein nachträgliches Anpassen erforderlich ist. Alle reinen Startberechnungen sollten in Hintergrundthreads durchgeführt werden, während Sie die Laufzeit von Ereignissen im Hauptthread so kurz wie möglich halten. Anstatt einen Fortschrittsanzeiger einzuschließen, damit der Nutzer weiß, was vor sich geht und wie lange er warten muss, machen Sie den Fortschrittsbalken überflüssig.
+Es ist einfacher, alles von Anfang an "auf die richtige Weise" zu schreiben, als im Nachhinein für Leistung (und Barrierefreiheit) nachzurüsten. Wenn Sie von Grund auf neu beginnen, bedeutet das Asynchronisieren geeigneter Codeteile, dass ein Nachrüsten nicht erforderlich ist. Alle reinen Startberechnungen sollten in Hintergrund-Threads durchgeführt werden, während Sie die Laufzeit von Ereignissen im Hauptthread so kurz wie möglich halten. Anstatt einen Fortschrittsbalken einzufügen, damit der Benutzer weiß, was passiert und wie lange er warten muss, machen Sie den Fortschrittsbalken überflüssig.
 
-Auf der anderen Seite kann das Portieren einer bestehenden App ins Web eine Herausforderung darstellen. Native Anwendungen müssen nicht asynchron geschrieben werden, da das Betriebssystem normalerweise das Laden übernimmt. Die Quellanwendung könnte eine Hauptschleife haben, die leicht asynchron arbeiten kann (indem jede Iteration der Hauptschleife separat ausgeführt wird); der Start ist oft nur ein kontinuierlicher, monolithischer Vorgang, der möglicherweise periodisch einen Fortschrittsbalken aktualisiert.
+Andererseits kann das Portieren einer bestehenden App ins Web eine Herausforderung darstellen. Native Anwendungen müssen nicht asynchron geschrieben werden, da das Betriebssystem normalerweise das Laden für Sie übernimmt. Die Quellanwendung könnte eine Hauptschleife haben, die leicht so angepasst werden kann, dass sie asynchron arbeitet (indem jede Iteration der Hauptschleife separat ausgeführt wird); der Start ist oft nur ein kontinuierlicher, monolithischer Prozess, der möglicherweise periodisch einen Fortschrittsmesser aktualisiert.
 
-Während Sie [Web-Worker](/de/docs/Web/API/Web_Workers_API/Using_web_workers) verwenden können, um auch sehr große, lang andauernde Teile von [JavaScript](/de/docs/Web/JavaScript)-Code asynchron auszuführen, gibt es ein großes Problem: Web-Worker können das [DOM](/de/docs/Web/API/Document_Object_Model) nicht direkt manipulieren und haben eingeschränkten Zugriff auf Methoden und Eigenschaften des [window](/de/docs/Web/API/Window)-Objekts, einschließlich keinen Zugriff auf [WebGL](/de/docs/Web/API/WebGL_API). Das bedeutet, dass es, sofern Sie nicht leicht die „reinen Berechnungs“-Teile Ihres Startvorgangs in Worker auslagern können, darauf hinausläuft, dass Sie den größten Teil oder den gesamten Startcode im Hauptthread ausführen müssen.
+Obwohl Sie [Web-Arbeiter](/de/docs/Web/API/Web_Workers_API/Using_web_workers) verwenden können, um auch sehr große, lang andauernde Stücke von [JavaScript](/de/docs/Web/JavaScript)-Code asynchron auszuführen, gibt es ein großes Aber: Web-Arbeiter können nicht direkt das [DOM](/de/docs/Web/API/Document_Object_Model) manipulieren und haben eingeschränkten Zugriff auf Methoden und Eigenschaften des [window](/de/docs/Web/API/Window)-Objekts, einschließlich keinem Zugriff auf [WebGL](/de/docs/Web/API/WebGL_API). Dies bedeutet, dass, es sei denn, Sie können leicht die "reinen Berechnungs"-Teile Ihres Startprozesses in Arbeiter auslagern, Sie vermutlich den größten Teil oder den gesamten Startcode im Hauptthread ausführen müssen.
 
-Allerdings kann auch dieser Code mit ein wenig Aufwand asynchron gemacht werden.
+Aber auch solcher Code kann mit etwas Arbeit asynchron gemacht werden.
 
-## Asynchron werden
+## Asynchronisieren
 
-Hier sind einige Vorschläge, wie Sie Ihren Startprozess so asynchron wie möglich gestalten können (unabhängig davon, ob es sich um eine neue App oder ein Port handelt):
+Hier sind einige Vorschläge, wie Sie Ihren Startprozess so asynchron wie möglich gestalten können (ob es sich um eine neue App oder einen Port handelt):
 
-- Verwenden Sie das [`defer`](/de/docs/Web/HTML/Element/script#defer)- oder [`async`](/de/docs/Web/HTML/Element/script#async)-Attribut bei Script-Tags, die von der Web-Anwendung benötigt werden. Dies ermöglicht HTML-Parsern, fortzufahren, das Dokument zu verarbeiten, ohne warten zu müssen, bis die Skripte heruntergeladen und ausgeführt sind, bevor es weitergeht.
-- Wenn Sie Asset-Dateien decodieren müssen (zum Beispiel JPEG-Dateien decodieren und in rohe Texturdaten umwandeln, die später von WebGL verwendet werden), ist das großartig, um es in Workern zu tun.
-- Bei der Verarbeitung von Daten, die vom Browser unterstützt werden (zum Beispiel bei der Dekodierung von Bilddaten), verwenden Sie die im Browser oder auf dem Gerät integrierten Decoder, anstatt eigene zu erstellen oder einen aus dem ursprünglichen Codebase zu verwenden. Der bereitgestellte ist fast immer signifikant schneller und verringert darüber hinaus die Größe Ihrer App. Außerdem kann der Browser möglicherweise diese Decoder automatisch parallelisieren.
-- Jegliche Datenverarbeitung, die parallel durchgeführt werden kann, sollte auch parallel durchgeführt werden. Verarbeiten Sie nicht einen Datenblock nach dem anderen; tun Sie sie alle auf einmal, wann immer es möglich ist!
-- Schließen Sie keine Skripte oder Stylesheets ein, die nicht am [kritischen Rendering-Pfad](/de/docs/Web/Performance/Critical_rendering_path) in Ihrer Start-HTML-Datei teilnehmen. Laden Sie sie nur bei Bedarf.
-- Reduzieren Sie die Größe Ihrer JavaScript-Dateien. Versuchen Sie, die minimierte Version der Datei an den Browser zu senden und verwenden Sie Kompression wie Gzip oder Brotli.
-- Nutzen Sie Ressourcenvorgaben (wie preconnect oder preload), wann immer möglich, um dem Browser mitzuteilen, welche Dateien für Ihre Anwendung wichtiger sind.
+- Verwenden Sie das Attribut [`defer`](/de/docs/Web/HTML/Element/script#defer) oder [`async`](/de/docs/Web/HTML/Element/script#async) auf `script`-Tags, die von der Webanwendung benötigt werden. Dies ermöglicht es HTML-Parsern, die Dokumentverarbeitung fortzusetzen, anstatt darauf warten zu müssen, bis die Skripte heruntergeladen und ausgeführt wurden, bevor fortgefahren wird.
+- Wenn Sie Asset-Dateien dekodieren müssen (zum Beispiel das Dekodieren von JPEG-Dateien und das Umwandeln in rohe Texturdaten zur späteren Verwendung durch WebGL), ist es von Vorteil, dies in Arbeitern zu tun.
+- Wenn Sie mit vom Browser unterstützten Daten arbeiten (zum Beispiel die Dekodierung von Bilddaten), verwenden Sie die im Browser oder Gerät integrierten Decoder, anstatt eigene zu entwickeln oder einen aus dem Originalcode zu verwenden. Der bereitgestellte ist fast sicher erheblich schneller und verringert zudem die Größe Ihrer App. Darüber hinaus kann der Browser diese Decoder möglicherweise automatisch parallelisieren.
+- Alle Datenverarbeitungen, die parallel durchgeführt werden können, sollten parallel ausgeführt werden. Führen Sie keine Datenstücke nacheinander durch; erledigen Sie sie alle gleichzeitig, wenn möglich!
+- Schließen Sie keine Skripte oder Stylesheets in Ihre Start-HTML-Datei ein, die nicht am [kritischen Rendering-Pfad](/de/docs/Web/Performance/Critical_rendering_path) teilnehmen. Laden Sie sie nur bei Bedarf nach.
+- Reduzieren Sie die Größe Ihrer JavaScript-Dateien. Versuchen Sie, die minimierte Version der Datei an den Browser zu senden und Komprimierungen wie Gzip oder Brotli zu verwenden.
+- Nutzen Sie Ressourcenvorankündigungen (wie preconnect oder preload), wann immer möglich, um dem Browser anzuzeigen, welche Dateien für Ihre Anwendung kritischer sind.
 
-Je mehr Dinge Sie auf asynchrone Weise durchführen können, desto besser kann Ihre App die Vorteile von Mehrkernprozessoren nutzen.
+Je mehr Sie asynchron erledigen können, desto besser kann Ihre App von Mehrkernprozessoren profitieren.
 
 ### Portierungsprobleme
 
-Sobald das anfängliche Laden abgeschlossen ist und der Hauptcode der App zu laufen beginnt, könnte es sein, dass Ihre App, insbesondere wenn es sich um ein Port handelt, einsträngig bleiben muss. Das Wichtigste, was Sie tun können, um beim Startvorgang des Hauptcodes zu helfen, ist, den Code in kleine Stücke zu refaktorisieren. Diese können dann in Blöcken, verteilt über mehrere Aufrufe der Hauptschleife Ihrer App, ausgeführt werden (sodass der Hauptthread Zeit hat, Eingaben zu verarbeiten und dergleichen).
+Sobald das initiale Laden abgeschlossen ist und der Hauptcode der App ausgeführt wird, ist es möglich, dass Ihre App einspurig arbeiten muss, insbesondere wenn es sich um einen Port handelt. Das Wichtigste, was Sie tun sollten, um beim Startprozess des Hauptcodes zu helfen, ist, den Code in kleine Stücke aufzuteilen. Diese können dann in Stücken über mehrere Aufrufe der Hauptschleife Ihrer App verteilt ausgeführt werden (damit der Hauptthread Eingaben und Ähnliches bearbeiten kann).
 
-Emscripten bietet eine API, die bei dieser Refaktorisierung helfen kann; zum Beispiel können Sie `emscripten_push_main_loop_blocker()` verwenden, um eine Funktion festzulegen, die ausgeführt werden soll, bevor der Hauptthread fortfahren darf. Indem Sie eine Reihe von Funktionen in einer bestimmten Reihenfolge aufrufen, können Sie das Ausführen von Codeabschnitten leichter verwalten, ohne den Hauptthread zu blockieren.
+Emscripten bietet eine API, die bei dieser Umstrukturierung hilft; zum Beispiel können Sie `emscripten_push_main_loop_blocker()` verwenden, um eine Funktion zu etablieren, die ausgeführt wird, bevor der Hauptthread fortfahren darf. Durch die Einrichtung einer Warteschlange von Funktionen, die nacheinander aufgerufen werden, können Sie Teile des Codes einfacher verwalten, ohne den Hauptthread zu blockieren.
 
-Das löst jedoch nicht das Problem, dass Ihr bestehender Code tatsächlich so refaktorisiert werden muss, dass er auf diese Weise funktioniert. Das kann einige Zeit in Anspruch nehmen.
+Das hinterlässt jedoch das Problem, Ihren vorhandenen Code tatsächlich so zu refaktorisieren, dass er auf diese Weise funktioniert. Das kann einige Zeit in Anspruch nehmen.
 
 ### Wie asynchron sollte ich werden?
 
-Je schneller Ihre Website nutzbar wird und je reaktionsfähiger sie auf Benutzereingaben reagiert, desto besser wird sie wahrgenommen. Eine Website, die 1 oder 2 Sekunden benötigt, bevor der Inhalt das erste Mal erscheint, wird normalerweise als schnell angesehen; wenn Sie an Websites gewöhnt sind, die 3 oder 4 Sekunden benötigen, dann fühlen sich 7 oder 8 Sekunden wie eine sehr lange Zeit an.
+Je schneller Ihre Seite zuerst nutzbar wird und je reaktionsschneller sie auf Benutzereingaben ist, desto besser wird sie wahrgenommen.
+Eine Seite, die 1 oder 2 Sekunden braucht, bevor der Inhalt zuerst erscheint, wird normalerweise als schnell angesehen; wenn Sie es gewohnt sind, dass Seiten 3 oder 4 Sekunden brauchen, dann fühlen sich 7 oder 8 Sekunden sehr lang an.
 
-In Hinsicht auf Reaktionsfähigkeit werden Nutzer eine Verzögerung von 50ms oder weniger nicht bemerken. Jede Verzögerung von über 200ms wird von Nutzern als träge wahrgenommen. Wenn Sie daran arbeiten, das Laden und die Reaktionsfähigkeit Ihrer Anwendungen zu verbessern, denken Sie daran, dass viele Ihrer Nutzer möglicherweise ältere, langsamere Computer als Sie haben und daher längere Verzögerungen erleben als Sie!
+In Bezug auf die Reaktionsschnelligkeit wird ein Benutzer eine Verzögerung von 50 ms oder weniger nicht bemerken. Jede Verzögerung von über 200 ms lässt Ihre Seite träge erscheinen. Beim Arbeiten zur Verbesserung des Ladens und der Reaktionsfähigkeit Ihrer Anwendungen bedenken Sie, dass viele Ihrer Benutzer möglicherweise über ältere, langsamere Computer verfügen als Sie, wodurch sie möglicherweise längere Verzögerungen erfahren als Sie!
 
 ## Weitere Vorschläge
 
-Es gibt andere Dinge, über das hinaus gehen, asynchron zu werden, die Ihnen helfen können, die Startzeit Ihrer App zu verbessern. Hier sind einige davon:
+Es gibt noch andere Dinge, die über asynchrones Arbeiten hinausgehen, die Ihnen helfen können, die Startzeit Ihrer App zu verbessern. Hier sind einige von ihnen:
 
 - Downloadzeit
-  - : Beachten Sie, wie lange es dauern wird, bis der Nutzer die Daten Ihrer Anwendung heruntergeladen hat. Wenn Ihre Anwendung sehr beliebt ist oder Inhalte häufig erneut heruntergeladen werden müssen, sollten Sie versuchen, einen möglichst schnellen Hosting-Server zu haben. Komprimieren Sie Ihre Daten immer {{Glossary("gzip_compression", "gzip compression")}}, um sie so klein wie möglich zu machen.
+  - : Berücksichtigen Sie, wie lange es dauern wird, bis der Benutzer die Daten Ihrer Anwendung heruntergeladen hat. Wenn Ihre Anwendung sehr beliebt ist oder häufig Inhalte neu herunterladen muss, sollten Sie versuchen, einen möglichst schnellen Hosting-Server zu haben. Komprimieren Sie immer Ihre Daten {{Glossary("gzip_compression", "komprimieren")}}, um sie so klein wie möglich zu machen.
 - Datengröße
-  - : Geben Sie Ihr Bestes, um die Größe Ihrer Daten zu optimieren; kleinere Leveldateien werden schneller heruntergeladen und verarbeitet als größere.
+  - : Versuchen Sie, die Größe Ihrer Daten bestmöglich zu optimieren; kleinere Level-Dateien werden schneller heruntergeladen und verarbeitet als größere.
 - Subjektive Faktoren
-  - : Alles, was Sie tun können, um dem Nutzer während des Startprozesses zu helfen, bleibt länger bei Ihnen. Das Anzeigen eines fiktiven Startbildschirms kann die [wahrgenommene Leistung](/de/docs/Learn/Performance/Perceived_performance) verbessern. Für große Websites hilft alles, was dem Benutzer das Gefühl gibt, dass Ihre App etwas tut, anstatt leise dazusitzen.
+  - : Alles, was Sie tun können, um den Benutzer während des Startvorgangs zu beschäftigen, wird helfen, die Zeit schneller vergehen zu lassen. Die Anzeige eines Schein-Splash-Bildschirms kann die [wahrgenommene Leistung](/de/docs/Learn_web_development/Extensions/Performance/Perceived_performance) verbessern. Für umfangreiche Seiten hilft alles, was den Benutzer das Gefühl vermittelt, dass Ihre App etwas tut, anstatt still dazusitzen.
 
 ## Siehe auch
 
 - [Apps](/de/docs/Web/Progressive_web_apps)
 - [Spiele](/de/docs/Games)
-- [BananaBread (oder ein beliebiger kompilierter Codebase) Start-Erfahrung](https://mozakai.blogspot.com/2012/07/bananabread-or-any-compiled-codebase.html) (2012)
+- [BananaBread (oder jedem kompiliertem Codebase) Start-Up-Erfahrung](https://mozakai.blogspot.com/2012/07/bananabread-or-any-compiled-codebase.html) (2012)

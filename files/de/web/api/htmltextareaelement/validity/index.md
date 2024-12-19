@@ -1,14 +1,14 @@
 ---
-title: "HTMLTextAreaElement: validity-Eigenschaft"
+title: "HTMLTextAreaElement: Gültigkeitseigenschaft"
 short-title: validity
 slug: Web/API/HTMLTextAreaElement/validity
 l10n:
-  sourceCommit: 2b29051262aa05ce9a630d0dd2d6958f493abe19
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte Eigenschaft **`validity`** des [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände darstellt, in denen sich dieses Element befindet.
+Die **`validity`** schreibgeschützte Eigenschaft der Schnittstelle [`HTMLTextAreaElement`](/de/docs/Web/API/HTMLTextAreaElement) gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände dieses Elements darstellt.
 
 ## Wert
 
@@ -16,7 +16,7 @@ Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel ruft den Gültigkeitszustand eines Textbereichelements ab und verarbeitet es, falls es nicht gültig ist:
+Das folgende Beispiel ermittelt den Gültigkeitszustand eines Textbereich-Elements und verarbeitet es, wenn es ungültig ist:
 
 ```js
 const textArea = document.getElementById("myTextArea");
@@ -39,5 +39,5 @@ if (!validityState.valid) {
 - [`HTMLTextAreaElement.checkValidity()`](/de/docs/Web/API/HTMLTextAreaElement/checkValidity)
 - {{HTMLElement("textarea")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Constraint-Validierung](/de/docs/Web/HTML/Constraint_validation)
+- [Erfahren: Formularvalidierung auf der Client-Seite](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

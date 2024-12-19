@@ -2,16 +2,16 @@
 title: column-rule
 slug: Web/CSS/column-rule
 l10n:
-  sourceCommit: 9e521726ed1d605756b73a788eaa55498d540821
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`column-rule`** [Shorthand-](/de/docs/Web/CSS/Shorthand_properties) [CSS-](/de/docs/Web/CSS) Eigenschaft legt die Breite, den Stil und die Farbe der Linie fest, die zwischen Spalten in einem mehrspaltigen Layout gezeichnet wird.
+Die **`column-rule`** [Kurzform](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS)-Eigenschaft setzt die Breite, den Stil und die Farbe der Linie, die zwischen Spalten in einem Mehrspalten-Layout gezogen wird.
 
 {{EmbedInteractiveExample("pages/css/column-rule.html")}}
 
-## Zusammengesetzte Eigenschaften
+## Bestandteileigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -40,11 +40,11 @@ column-rule: unset;
 Die `column-rule`-Eigenschaft wird als einer, zwei oder drei der unten aufgeführten Werte in beliebiger Reihenfolge angegeben.
 
 - `<'column-rule-width'>`
-  - : Ist ein {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
+  - : Ist eine {{cssxref("&lt;length&gt;")}} oder eines der drei Schlüsselwörter, `thin`, `medium` oder `thick`. Siehe {{cssxref("border-width")}} für Details.
 - `<'column-rule-style'>`
   - : Siehe {{cssxref("border-style")}} für mögliche Werte und Details.
 - `<'column-rule-color'>`
-  - : Ist ein {{cssxref("&lt;color&gt;")}} Wert.
+  - : Ist ein {{cssxref("&lt;color&gt;")}}-Wert.
 
 ## Formale Definition
 
@@ -116,7 +116,7 @@ p.abc {
 
 ## Siehe auch
 
-- [Mehrspaltiges Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
 - {{CSSXref("column-rule-style")}}
 - {{CSSXref("column-rule-width")}}
 - {{CSSXref("column-rule-color")}}

@@ -1,23 +1,23 @@
 ---
-title: Breadcrumb-Navigation
+title: Brotkrumen-Navigation
 slug: Web/CSS/Layout_cookbook/Breadcrumb_Navigation
 l10n:
-  sourceCommit: 507825f6292eb73f0a96419d69870d9330b6776f
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Breadcrumb-Navigation hilft dem Benutzer, ihre Position auf der Website zu verstehen, indem ein {{Glossary("breadcrumb", "Breadcrumb")}}-Pfad zurück zur Startseite bereitgestellt wird. Die Elemente werden typischerweise inline angezeigt, mit einem Trennzeichen zwischen jedem Element, das die Hierarchie zwischen den einzelnen Seiten angibt.
+Brotkrumen-Navigation hilft dem Benutzer zu verstehen, wo er sich auf der Website befindet, indem sie eine {{Glossary("breadcrumb", "Brotkrumen")}}-Spur zurück zur Startseite bietet. Die Elemente werden typischerweise inline angezeigt, mit einem Trennzeichen zwischen jedem Element, das die Hierarchie zwischen den einzelnen Seiten anzeigt.
 
-![Links werden inline mit Trennzeichen angezeigt](breadcrumb-navigation.png)
+![Links displayed inline with separators](breadcrumb-navigation.png)
 
 ## Anforderungen
 
-Zeigen Sie die Hierarchie der Website durch die Anzeige von Links inline an, mit einem Trennzeichen zwischen den Elementen, das die Hierarchie zwischen den einzelnen Seiten angibt, wobei die aktuelle Seite zuletzt erscheint.
+Stellen Sie die Hierarchie der Website dar, indem Sie inline Links mit einem Trennzeichen zwischen den Elementen anzeigen, das die Hierarchie zwischen den einzelnen Seiten anzeigt, wobei die aktuelle Seite zuletzt erscheint.
 
 ## Rezept
 
-Klicken Sie auf "Play" in den Codeblöcken unten, um das Beispiel im MDN Playground zu bearbeiten:
+Klicken Sie auf "Play" in den untenstehenden Codeblöcken, um das Beispiel im MDN Playground zu bearbeiten:
 
 ```html live-sample___breadcrumb-example
 <nav aria-label="Breadcrumb" class="breadcrumb">
@@ -59,7 +59,7 @@ body {
 {{EmbedLiveSample("breadcrumb-example", "", "100px")}}
 
 > [!NOTE]
-> Das obige Beispiel verwendet einen komplexen Selektor, um vor jedem `li` Inhalt einzufügen, außer vor dem letzten. Dies könnte auch durch einen komplexen Selektor erreicht werden, der auf alle `li`-Elemente außer dem ersten abzielt:
+> Das obige Beispiel verwendet einen komplexen Selektor, um vor jedem `li` außer dem letzten Inhalt einzufügen. Dies könnte auch mit einem komplexen Selektor erreicht werden, der alle `li`-Elemente außer dem ersten anspricht:
 >
 > ```css
 > .breadcrumb li:not(:first-child)::before {
@@ -67,24 +67,24 @@ body {
 > }
 > ```
 >
-> Sie können die Lösung wählen, die Sie bevorzugen.
+> Fühlen Sie sich frei, die von Ihnen bevorzugte Lösung zu wählen.
 
 ## Getroffene Entscheidungen
 
-Um Listenelemente inline anzuzeigen, verwenden wir das [Flexbox-Layout](/de/docs/Learn/CSS/CSS_layout/Flexbox) und zeigen somit, wie eine Zeile CSS uns unsere Navigation geben kann. Die Trennzeichen werden mit [CSS-generiertem Inhalt](/de/docs/Web/CSS/CSS_generated_content) hinzugefügt. Sie können diese in jedes beliebige Trennzeichen ändern, das Sie möchten.
+Um Listenelemente inline anzuzeigen, verwenden wir das [Flexbox-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) und demonstrieren so, wie eine Zeile CSS uns unsere Navigation geben kann. Die Trennzeichen werden mithilfe von [CSS-generiertem Inhalt](/de/docs/Web/CSS/CSS_generated_content) hinzugefügt. Sie könnten diese in jedes Trennzeichen ändern, das Ihnen gefällt.
 
 ## Barrierefreiheitsbedenken
 
-Wir haben die Attribute [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) und [`aria-current`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-current) verwendet, um Benutzern von unterstützender Technologie zu helfen, zu verstehen, was diese Navigation ist und wo sich die aktuelle Seite in der Struktur befindet. Weitere Informationen finden Sie in den verwandten Links.
+Wir haben die Attribute [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label) und [`aria-current`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-current) verwendet, um Benutzern unterstützender Technologien zu helfen zu verstehen, was diese Navigation ist und wo sich die aktuelle Seite in der Struktur befindet. Siehe die verwandten Links für weitere Informationen.
 
-Beachten Sie, dass die Trennpfeile `→`, die über die {{cssxref("content")}}-CSS-Eigenschaft im obigen Beispiel hinzugefügt werden, unterstützenden Technologien (AT) zur Verfügung gestellt werden, einschließlich Bildschirmlesern und Braille-Displays. Für eine ruhigere Lösung verwenden Sie ein dekoratives {{HTMLElement("img")}} in Ihrem HTML mit einem leeren `alt`-Attribut. Ein ARIA [`role`](/de/docs/Web/Accessibility/ARIA/Roles), das auf [`none`](/de/docs/Web/Accessibility/ARIA/Roles/none_role) oder [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) gesetzt ist, verhindert ebenfalls, dass das Bild AT zur Verfügung gestellt wird.
+Seien Sie sich bewusst, dass die Trennzeichen-Pfeile `→`, die über die {{cssxref("content")}} CSS-Eigenschaft im obigen Beispiel hinzugefügt werden, für unterstützende Technologien (AT) wie Bildschirmleser und Braille-Displays sichtbar sind. Für eine ruhigere Lösung verwenden Sie in Ihrem HTML ein dekoratives {{HTMLElement("img")}} mit einem leeren `alt`-Attribut. Ein ARIA [`role`](/de/docs/Web/Accessibility/ARIA/Roles) gesetzt auf [`none`](/de/docs/Web/Accessibility/ARIA/Roles/none_role) oder [`presentation`](/de/docs/Web/Accessibility/ARIA/Roles/presentation_role) wird ebenfalls verhindern, dass das Bild AT ausgesetzt wird.
 
-Alternativ können Sie den [CSS-generierten Inhalt](/de/docs/Web/CSS/CSS_generated_content) durch Hinzufügen eines leeren Strings als Alternativtext, gefolgt von einem Schrägstrich (`/`), stumm schalten; beispielsweise `content: url("arrow.png") / "";`.
+Alternativ können Sie den [CSS-generierten Inhalt](/de/docs/Web/CSS/CSS_generated_content) zum Schweigen bringen, indem Sie einen leeren String als Alternativtext einschließen, der durch einen Schrägstrich (`/`) vorausgeht; zum Beispiel `content: url("arrow.png") / "";`.
 
-Wenn Sie generierte Trennzeichen einfügen, die AT zur Verfügung gestellt werden, entscheiden Sie sich dafür, den generierten Inhalt mit dem {{cssxref("::after")}}-Pseudoelement-Selektor anstelle von {{cssxref("::before")}} zu erstellen, sodass der Trennzeicheninhalt nach dem HTML-Inhalt angekündigt wird, anstatt davor.
+Wenn Sie generierte Trennzeichen einfügen, die AT ausgesetzt werden, entscheiden Sie sich dafür, den generierten Inhalt mit dem {{cssxref("::after")}} Pseudoelement-Selektor anstelle von {{cssxref("::before")}} zu erstellen, sodass der Trennungsinhalt nach dem HTML-Inhalt und nicht davor angekündigt wird.
 
 ## Siehe auch
 
 - [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout)
-- [Bereitstellung eines Breadcrumb-Pfads](https://www.w3.org/TR/WCAG20-TECHS/G65.html)
-- [Verwendung des `aria-current`-Attributs](https://tink.uk/using-the-aria-current-attribute/)
+- [Bereitstellung einer Brotkrumenspur](https://www.w3.org/TR/WCAG20-TECHS/G65.html)
+- [Verwendung des `aria-current` Attributs](https://tink.uk/using-the-aria-current-attribute/)

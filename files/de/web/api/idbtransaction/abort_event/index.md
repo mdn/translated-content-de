@@ -1,9 +1,9 @@
 ---
-title: "IDBTransaction: abort-Ereignis"
+title: "IDBTransaction: `abort`-Ereignis"
 short-title: abort
 slug: Web/API/IDBTransaction/abort_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("IndexedDB")}}
@@ -12,13 +12,13 @@ Das `abort`-Ereignis wird ausgelöst, wenn eine `IndexedDB`-Transaktion abgebroc
 
 Dies kann aus einem der folgenden Gründe geschehen:
 
-- Schlechte Anfragen (z.B. der Versuch, denselben Schlüssel zweimal hinzuzufügen, oder denselben Indexschlüssel zu setzen, wenn der Schlüssel eine Einzigartigkeitsbeschränkung hat).
-- Ein expliziter [`abort()`](/de/docs/Web/API/IDBTransaction/abort)-Aufruf.
-- Eine nicht abgefangene Ausnahme im Erfolgs-/Fehler-Handler der Anforderung.
-- Ein I/O-Fehler (ein tatsächliches Scheitern beim Schreiben auf die Festplatte, z.B. durch Festplattenentfernung oder andere Betriebssystem-/Hardwarefehler).
-- Überschreitung des Speicherkontingents.
+- Falsche Anfragen (z.B. der Versuch, denselben Schlüssel zweimal hinzuzufügen, oder denselben Indexschlüssel zu setzen, wenn auf dem Schlüssel eine Einzigartigkeitsbedingung liegt).
+- Ein expliziter Aufruf von [`abort()`](/de/docs/Web/API/IDBTransaction/abort).
+- Eine nicht abgefangene Ausnahme im Erfolgs-/Fehlerhandler der Anfrage.
+- Ein E/A-Fehler (ein tatsächlicher Schreibfehler auf die Festplatte, beispielsweise abgetrennte Festplatte oder ein anderer Betriebssystem-/Hardwarefehler).
+- Überschreiten des Speicherplatzkontingents.
 
-Dieses nicht abbrechbare Ereignis [bubbelt](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) zum zugehörigen [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt.
+Dieses nicht abbrechbare Ereignis [bubbelt](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) zum zugehörigen [`IDBDatabase`](/de/docs/Web/API/IDBDatabase)-Objekt.
 
 ## Syntax
 
@@ -35,13 +35,13 @@ Ein generisches [`Event`](/de/docs/Web/API/Event).
 
 ## Bubbling
 
-Dieses Ereignis bubbelt zum [`IDBDatabase`](/de/docs/Web/API/IDBDatabase). Die `event.target`-Eigenschaft bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das hochbubblet.
+Dieses Ereignis bubblet zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase). Die Eigenschaft `event.target` bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das hochbubbelt.
 
-Für weitere Informationen siehe [Event bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
+Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
 
 ## Beispiele
 
-Dieses Beispiel öffnet eine Datenbank (erstellen der Datenbank, falls sie nicht existiert), öffnet dann eine Transaktion, fügt einen Listener für das `abort`-Ereignis hinzu und bricht dann die Transaktion ab, um das Ereignis auszulösen.
+Dieses Beispiel öffnet eine Datenbank (und erstellt die Datenbank, falls sie nicht existiert), öffnet dann eine Transaktion, fügt einen Listener für das `abort`-Ereignis hinzu und bricht dann die Transaktion ab, um das Ereignis auszulösen.
 
 ```js
 // Open the database
@@ -83,7 +83,7 @@ DBOpenRequest.onsuccess = (event) => {
 };
 ```
 
-Dasselbe Beispiel, aber die Zuordnung des Ereignis-Handlers zur `onabort`-Eigenschaft:
+Dasselbe Beispiel, aber der Ereignishandler wird der `onabort`-Eigenschaft zugewiesen:
 
 ```js
 // Open the database
@@ -135,4 +135,4 @@ DBOpenRequest.onsuccess = (event) => {
 
 ## Siehe auch
 
-- [Using IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)
+- [Verwendung von IndexedDB](/de/docs/Web/API/IndexedDB_API/Using_IndexedDB)

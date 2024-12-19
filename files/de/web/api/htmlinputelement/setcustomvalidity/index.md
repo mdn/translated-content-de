@@ -1,14 +1,14 @@
 ---
-title: "HTMLInputElement: setCustomValidity() Methode"
+title: "HTMLInputElement: setCustomValidity()-Methode"
 short-title: setCustomValidity()
 slug: Web/API/HTMLInputElement/setCustomValidity
 l10n:
-  sourceCommit: 0496bb2fcef13172325e1cc25a5fc71410506557
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die Methode **`HTMLInputElement.setCustomValidity()`** setzt eine benutzerdefinierte Fehlermeldung für das Element.
+Die **`HTMLInputElement.setCustomValidity()`**-Methode legt eine benutzerdefinierte Fehlermeldung für das Element fest.
 
 ## Syntax
 
@@ -19,7 +19,7 @@ setCustomValidity(message)
 ### Parameter
 
 - `message`
-  - : Die Nachricht, die für Validierungsfehler verwendet werden soll.
+  - : Die Nachricht, die für Gültigkeitsfehler verwendet werden soll.
 
 ### Rückgabewert
 
@@ -31,7 +31,7 @@ Keine.
 
 ## Beispiele
 
-In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen verschiedene Fehlermeldungen abhängig davon, ob der Wert fehlt, zu niedrig oder zu hoch ist. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Der Versuch, das Formular abzuschicken, wird die Nachricht anzeigen, oder Sie können die Methode [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) auf dem Element aufrufen.
+In diesem Beispiel übergeben wir die ID eines Eingabeelements und setzen verschiedene Fehlermeldungen, je nachdem, ob der Wert fehlt, zu niedrig oder zu hoch ist. Beachten Sie, dass die Nachricht nicht sofort angezeigt wird. Der Versuch, das Formular zu senden, wird die Nachricht anzeigen, oder Sie können die Methode [`reportValidity()`](/de/docs/Web/API/HTMLInputElement/reportValidity) für das Element aufrufen.
 
 ```js
 function validate(inputID) {
@@ -52,7 +52,7 @@ function validate(inputID) {
 }
 ```
 
-Es ist wichtig, die Nachricht auf einen leeren String zu setzen, wenn keine Fehler vorliegen. Solange die Fehlermeldung nicht leer ist, wird das Formular die Validierung nicht bestehen und nicht abgesendet.
+Es ist wichtig, die Nachricht auf eine leere Zeichenkette zu setzen, wenn keine Fehler vorliegen. Solange die Fehlermeldung nicht leer ist, wird das Formular die Validierung nicht bestehen und nicht abgesendet.
 
 ## Spezifikationen
 
@@ -64,6 +64,6 @@ Es ist wichtig, die Nachricht auf einen leeren String zu setzen, wenn keine Fehl
 
 ## Siehe auch
 
-- [Lernen: Client-seitige Formular-Validierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Eingeschränkte Validierung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Constraints-Validierung](/de/docs/Web/HTML/Constraint_validation)
 - [`ValidityState`](/de/docs/Web/API/ValidityState)

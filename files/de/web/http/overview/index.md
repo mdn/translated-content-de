@@ -2,157 +2,157 @@
 title: Ein Überblick über HTTP
 slug: Web/HTTP/Overview
 l10n:
-  sourceCommit: ab1bf2c5955c1bfa4d96d779f701ab22f3870d43
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{HTTPSidebar}}
 
-**HTTP** ist ein {{Glossary("protocol", "Protokoll")}} zum Abrufen von Ressourcen wie HTML-Dokumenten.
-Es bildet die Grundlage für jeden Datenaustausch im Web und ist ein Client-Server-Protokoll, was bedeutet, dass Anfragen vom Empfänger initiiert werden, normalerweise dem Webbrowser.
-Ein vollständiges Dokument wird in der Regel aus Ressourcen wie Textinhalt, Layoutanweisungen, Bildern, Videos, Skripten und mehr zusammengesetzt.
+**HTTP** ist ein {{Glossary("protocol", "Protokoll")}}, um Ressourcen wie HTML-Dokumente abzurufen.
+Es ist die Grundlage für jeden Datenaustausch im Web und ist ein Client-Server-Protokoll, was bedeutet, dass Anfragen vom Empfänger initiiert werden, in der Regel vom Webbrowser.
+Ein vollständiges Dokument wird typischerweise aus Ressourcen wie Textinhalten, Layoutanweisungen, Bildern, Videos, Skripten und mehr zusammengestellt.
 
-![Ein einzelnes Webdokument, das aus mehreren Ressourcen von verschiedenen Servern zusammengesetzt ist.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/fetching-a-page.svg)
+![Ein einzelnes Webdokument, das aus mehreren Ressourcen von verschiedenen Servern besteht.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/fetching-a-page.svg)
 
-Clients und Server kommunizieren, indem sie einzelne Nachrichten austauschen (im Gegensatz zu einem Datenstrom).
-Die vom Client gesendeten Nachrichten werden _Anfragen_ genannt, und die vom Server als Antwort gesendeten Nachrichten werden _Antworten_ genannt.
+Clients und Server kommunizieren durch den Austausch einzelner Nachrichten (im Gegensatz zu einem Datenstrom).
+Die Nachrichten, die vom Client gesendet werden, werden _Anfragen_ genannt, und die Nachrichten, die vom Server als Antwort gesendet werden, werden _Antworten_ genannt.
 
-![HTTP als Protokoll der Anwendungsschicht, auf TCP (Transportschicht) und IP (Netzwerkschicht) aufbauend und unter der Präsentationsschicht.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/http-layers.svg)
+![HTTP als Anwendungsprotokoll, über TCP (Transportebene) und IP (Netzwerkebene) und unter der Präsentationsebene.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/http-layers.svg)
 
-HTTP wurde in den frühen 1990er Jahren entwickelt und ist ein erweiterbares Protokoll, das sich im Laufe der Zeit entwickelt hat.
-Es ist ein Protokoll der Anwendungsschicht, das über {{Glossary("TCP", "TCP")}} oder eine {{Glossary("TLS", "TLS")}}-verschlüsselte TCP-Verbindung gesendet wird, obwohl theoretisch jedes zuverlässige Transportprotokoll verwendet werden könnte.
-Aufgrund seiner Erweiterbarkeit wird es nicht nur zum Abrufen von Hypertext-Dokumenten, sondern auch von Bildern und Videos oder zum Senden von Inhalten an Server, wie z.B. bei HTML-Formularergebnissen, genutzt.
-HTTP kann auch verwendet werden, um Teile von Dokumenten abzurufen, um Webseiten bei Bedarf zu aktualisieren.
+Entworfen in den frühen 1990er Jahren, ist HTTP ein erweiterbares Protokoll, das sich im Laufe der Zeit entwickelt hat.
+Es ist ein Anwendungsprotokoll, das über {{Glossary("TCP", "TCP")}} oder über eine mit {{Glossary("TLS", "TLS")}} verschlüsselte TCP-Verbindung gesendet wird, obwohl theoretisch jedes zuverlässige Transportprotokoll verwendet werden könnte.
+Dank seiner Erweiterbarkeit wird es nicht nur zum Abrufen von Hypertext-Dokumenten verwendet, sondern auch zum Abrufen von Bildern und Videos oder zum Posten von Inhalten auf Servern, wie bei den Ergebnissen von HTML-Formularen.
+HTTP kann auch verwendet werden, um Teile von Dokumenten abzurufen, um Webseiten auf Anfrage zu aktualisieren.
 
 ## Komponenten von HTTP-basierten Systemen
 
-HTTP ist ein Client-Server-Protokoll: Anfragen werden von einer Entität gesendet, dem Benutzeragenten (oder einem Proxy in dessen Namen).
-Meistens ist der Benutzeragent ein Webbrowser, aber er kann auch alles Mögliche sein, zum Beispiel ein Roboter, der das Web durchsucht, um einen Suchmaschinenindex zu füllen und zu pflegen.
+HTTP ist ein Client-Server-Protokoll: Anfragen werden von einer Einheit, dem User-Agent (oder einem Proxy in seinem Namen) gesendet.
+Meistens ist der User-Agent ein Webbrowser, aber es kann alles sein, zum Beispiel ein Roboter, der das Web durchsucht, um einen Suchmaschinenindex zu füllen und zu pflegen.
 
-Jede einzelne Anfrage wird an einen Server gesendet, der sie bearbeitet und eine Antwort gibt, die als _Antwort_ bezeichnet wird.
-Zwischen dem Client und dem Server gibt es zahlreiche Entitäten, die gemeinsam als {{Glossary("Proxy_server", "Proxys")}} bezeichnet werden und verschiedene Operationen durchführen und als Gateways oder {{Glossary("Cache", "Caches")}} fungieren.
+Jede einzelne Anfrage wird an einen Server gesendet, der sie bearbeitet und eine Antwort liefert, die _Antwort_ genannt wird.
+Zwischen dem Client und dem Server gibt es zahlreiche Einheiten, die gemeinsam als {{Glossary("Proxy_server", "Proxies")}} bezeichnet werden und verschiedene Operationen ausführen und als Gateways oder {{Glossary("Cache", "Caches")}} agieren, zum Beispiel.
 
-![Eine HTTP-Anfrage von einem Client, die von mehreren Proxys an einen Server weitergeleitet und auf demselben Weg zurück an den Client gesendet wird.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/client-server-chain.svg)
+![Eine HTTP-Anfrage von einem Client wird über mehrere Proxies an einen Server weitergeleitet und eine Antwort nimmt denselben Weg zurück zum Client.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/client-server-chain.svg)
 
-In Wirklichkeit gibt es mehr Computer zwischen einem Browser und dem Server, der die Anfrage bearbeitet: Es gibt Router, Modems und mehr.
-Dank des geschichteten Aufbaus des Webs sind diese in den Netzwerk- und Transportschichten verborgen.
-HTTP befindet sich oben, in der Anwendungsschicht.
-Obwohl sie für die Diagnose von Netzwerkproblemen wichtig sind, sind die zugrunde liegenden Schichten für die Beschreibung von HTTP meist irrelevant.
+In der Realität gibt es mehr Computer zwischen einem Browser und dem Server, der die Anfrage bearbeitet: Es gibt Router, Modems und mehr.
+Dank des schichtweisen Designs des Webs sind diese im Netzwerk- und Transportlayer verborgen.
+HTTP liegt obenauf, in der Anwendungsschicht.
+Obwohl wichtig für die Diagnose von Netzwerkproblemen, sind die zugrunde liegenden Schichten größtenteils irrelevant für die Beschreibung von HTTP.
 
-### Client: der Benutzeragent
+### Client: der User-Agent
 
-Der _Benutzeragent_ ist jedes Werkzeug, das im Namen des Benutzers handelt.
-Diese Rolle wird hauptsächlich vom Webbrowser übernommen, kann aber auch von Programmen ausgeführt werden, die von Ingenieuren und Webentwicklern verwendet werden, um ihre Anwendungen zu debuggen.
+Der _User-Agent_ ist jedes Werkzeug, das im Namen des Benutzers handelt.
+Diese Rolle wird hauptsächlich vom Webbrowser ausgeführt, kann aber auch von Programmen ausgeführt werden, die von Ingenieuren und Entwicklern verwendet werden, um ihre Anwendungen zu debuggen.
 
 Der Browser ist **immer** die Entität, die die Anfrage initiiert.
-Es ist niemals der Server (obwohl im Laufe der Jahre einige Mechanismen hinzugefügt wurden, um serverinitiierte Nachrichten zu simulieren).
+Es ist nie der Server (obwohl im Laufe der Jahre einige Mechanismen hinzugefügt wurden, um serverinitiierte Nachrichten zu simulieren).
 
 Um eine Webseite anzuzeigen, sendet der Browser eine ursprüngliche Anfrage, um das HTML-Dokument abzurufen, das die Seite darstellt.
-Er analysiert dann diese Datei und stellt zusätzliche Anfragen, die Ausführungsskripte, Layoutinformationen (CSS) zum Anzeigen und Unterressourcen, die auf der Seite enthalten sind (normalerweise Bilder und Videos), betreffen.
-Der Webbrowser kombiniert dann diese Ressourcen, um das vollständige Dokument, die Webseite, zu präsentieren.
-Skripte, die vom Browser ausgeführt werden, können in späteren Phasen weitere Ressourcen abrufen, und der Browser aktualisiert die Webseite entsprechend.
+Anschließend analysiert er diese Datei und stellt zusätzliche Anfragen, die den Ausführungsskripten, Layoutinformationen (CSS) zur Darstellung und in der Seite enthaltenen Unterressourcen (in der Regel Bilder und Videos) entsprechen.
+Der Webbrowser kombiniert diese Ressourcen dann, um das vollständige Dokument, die Webseite, darzustellen.
+Skripte, die vom Browser ausgeführt werden, können in späteren Phasen mehr Ressourcen abrufen, und der Browser aktualisiert die Webseite entsprechend.
 
-Eine Webseite ist ein Hypertextdokument.
-Das bedeutet, dass einige Teile des angezeigten Inhalts Links sind, die aktiviert werden können (normalerweise durch einen Mausklick), um eine neue Webseite abzurufen und es dem Benutzer ermöglichen, seinen Benutzeragenten zu steuern und durch das Web zu navigieren.
+Eine Webseite ist ein Hypertext-Dokument.
+Das bedeutet, dass einige Teile des angezeigten Inhalts Links sind, die aktiviert werden können (normalerweise durch einen Mausklick), um eine neue Webseite abzurufen, wodurch der Benutzer seinen User-Agent anweisen und durch das Web navigieren kann.
 Der Browser übersetzt diese Anweisungen in HTTP-Anfragen und interpretiert die HTTP-Antworten weiter, um dem Benutzer eine klare Antwort zu präsentieren.
 
 ### Der Webserver
 
-Auf der anderen Seite des Kommunikationskanals befindet sich der Server, der das Dokument gemäß den Anforderungen des Clients _bereitstellt_.
-Ein Server erscheint virtuell als nur eine Maschine; es kann jedoch tatsächlich eine Sammlung von Servern sein, die die Last gemeinsam bewältigen (Lastverteilung) oder andere Software (wie Caches, ein Datenbankserver oder E-Commerce-Server), die das Dokument vollständig oder teilweise nach Bedarf generieren.
+Auf der gegenüberliegenden Seite des Kommunikationskanals befindet sich der Server, der das Dokument bereitstellt, wie es vom Client angefordert wird.
+Ein Server erscheint virtuell als nur eine einzige Maschine; es kann jedoch tatsächlich eine Sammlung von Servern sein, die die Last teilen (Load-Balancing), oder andere Software (wie Caches, ein Datenbankserver oder E-Commerce-Server), die das Dokument vollständig oder teilweise auf Anfrage generieren.
 
-Ein Server muss nicht unbedingt eine einzelne Maschine sein, aber mehrere Serverinstanzen können auf derselben Maschine gehostet werden.
+Ein Server muss nicht unbedingt eine einzelne Maschine sein, aber mehrere Server-Software-Instanzen können auf derselben Maschine gehostet werden.
 Mit HTTP/1.1 und dem {{HTTPHeader("Host")}}-Header können sie sogar dieselbe IP-Adresse teilen.
 
-### Proxys
+### Proxies
 
 Zwischen dem Webbrowser und dem Server leiten zahlreiche Computer und Maschinen die HTTP-Nachrichten weiter.
-Aufgrund der geschichteten Struktur des Web-Stacks arbeiten die meisten von ihnen auf den Transport-, Netzwerk- oder physikalischen Ebenen und werden auf der HTTP-Ebene transparent, was potenziell einen erheblichen Einfluss auf die Leistung haben kann.
-Diejenigen, die auf den Anwendungsebenen arbeiten, werden im Allgemeinen **Proxys** genannt.
-Diese können transparent sein, indem sie die empfangenen Anfragen weiterleiten, ohne sie in irgendeiner Weise zu ändern, oder nicht transparent, in welchem Fall sie die Anfrage auf irgendeine Weise ändern, bevor sie an den Server weitergeleitet wird.
-Proxys können zahlreiche Funktionen ausführen:
+Aufgrund der geschichteten Struktur des Web-Stacks arbeiten die meisten auf der Transport-, Netzwerk- oder physikalischen Ebene und werden auf der HTTP-Ebene transparent, was möglicherweise einen erheblichen Einfluss auf die Leistung hat.
+Diejenigen, die auf den Anwendungsschichten arbeiten, werden allgemein als **Proxies** bezeichnet.
+Diese können transparent sein und die Empfangen weiterleiten, ohne sie in irgendeiner Weise zu ändern, oder nicht transparent, in welchem Fall sie die Anfrage in irgendeiner Weise ändern, bevor sie sie an den Server weiterleiten.
+Proxies können zahlreiche Funktionen erfüllen:
 
-- Caching (der Cache kann öffentlich oder privat sein, wie der Browser-Cache)
-- Filterung (wie ein Virenscan oder Kindersicherung)
-- Lastverteilung (um mehreren Servern unterschiedliche Anfragen zu ermöglichen)
-- Authentifizierung (um den Zugang zu verschiedenen Ressourcen zu kontrollieren)
-- Protokollierung (um die Speicherung historischer Informationen zu ermöglichen)
+- Caching (der Cache kann öffentlich oder privat sein, wie der Browsercache)
+- Filterung (wie ein Virenschutz-Scan oder Kinderschutz)
+- Lastverteilung (um es mehreren Servern zu ermöglichen, verschiedene Anfragen zu bedienen)
+- Authentifizierung (um den Zugriff auf verschiedene Ressourcen zu kontrollieren)
+- Protokollierung (Ermöglicht das Speichern von historischen Informationen)
 
 ## Grundlegende Aspekte von HTTP
 
 ### HTTP ist einfach
 
-HTTP ist im Allgemeinen so konzipiert, dass es einfach und menschenlesbar ist, auch mit der hinzugefügten Komplexität, die in HTTP/2 durch das Einkapseln von HTTP-Nachrichten in Frames eingeführt wird.
-HTTP-Nachrichten können von Menschen gelesen und verstanden werden, was Entwicklern das Testen erleichtert und die Komplexität für Neulinge reduziert.
+HTTP ist generell so konzipiert, dass es einfach und für Menschen lesbar ist, selbst mit der zusätzlichen Komplexität, die in HTTP/2 durch die Einkapselung von HTTP-Nachrichten in Frames eingeführt wurde.
+HTTP-Nachrichten können von Menschen gelesen und verstanden werden, was Entwicklern ein einfacheres Testen und Neulingen eine reduzierte Komplexität ermöglicht.
 
 ### HTTP ist erweiterbar
 
-Eingeführt in HTTP/1.0, machen [HTTP-Header](/de/docs/Web/HTTP/Headers) dieses Protokoll leicht erweiterbar und experimentierfähig.
-Neue Funktionalitäten können sogar durch eine Vereinbarung zwischen einem Client und einem Server über die Bedeutung eines neuen Headers eingeführt werden.
+Eingeführt in HTTP/1.0, machen [HTTP-Header](/de/docs/Web/HTTP/Headers) dieses Protokoll leicht erweiterbar und experimentierbar.
+Neue Funktionalitäten können sogar durch eine Vereinbarung zwischen einem Client und einem Server über die Semantik eines neuen Headers eingeführt werden.
 
-### HTTP ist zustandslos, aber nicht sitzungsfrei
+### HTTP ist zustandslos, aber nicht sitzungslos
 
-HTTP ist zustandslos: Es gibt keine Verbindung zwischen zwei aufeinanderfolgenden Anfragen innerhalb derselben Verbindung.
-Dies könnte sich sofort als problematisch herausstellen für Benutzer, die versuchen, kohärent mit bestimmten Seiten zu interagieren, zum Beispiel mit E-Commerce-Einkaufswagen.
-Aber während der Kern von HTTP selbst zustandslos ist, erlauben HTTP-Cookies die Nutzung von zustandsbehafteten Sitzungen.
-Durch die Erweiterbarkeit der Header werden HTTP-Cookies in den Arbeitsablauf eingefügt, sodass bei jeder HTTP-Anfrage eine Sitzung erstellt werden kann, um denselben Kontext oder denselben Zustand zu teilen.
+HTTP ist zustandslos: Es gibt keine Verbindung zwischen zwei Anfragen, die nacheinander in derselben Verbindung durchgeführt werden.
+Dies hat sofort das Potenzial, problematisch für Benutzer zu sein, die versuchen, mit bestimmten Seiten konsistent zu interagieren, zum Beispiel bei E-Commerce-Warenkörben.
+Aber obwohl der Kern von HTTP selbst zustandslos ist, ermöglichen HTTP-Cookies die Nutzung sitzungsorientierter Sitzungen.
+Durch die Erweiterbarkeit der Header werden HTTP-Cookies dem Workflow hinzugefügt, wodurch die Erstellung von Sitzungen bei jeder HTTP-Anfrage ermöglicht wird, um denselben Kontext oder denselben Zustand zu teilen.
 
 ### HTTP und Verbindungen
 
-Eine Verbindung wird auf der Transportschicht gesteuert und liegt daher grundsätzlich außerhalb des Geltungsbereichs von HTTP.
-HTTP erfordert nicht, dass das zugrunde liegende Transportprotokoll verbindungsbasiert ist; es erfordert lediglich, dass es _zuverlässig_ ist, also keine Nachrichten verliert (zumindest sollte in solchen Fällen ein Fehler angezeigt werden).
-Unter den beiden gebräuchlichsten Transportprotokollen im Internet ist TCP zuverlässig und UDP nicht.
-HTTP verlässt sich daher auf den Standard TCP, der verbindungsbasiert ist.
+Eine Verbindung wird in der Transportschicht gesteuert und ist daher grundsätzlich außerhalb des Anwendungsbereichs von HTTP.
+HTTP erfordert nicht, dass das zugrunde liegende Transportprotokoll verbindungsorientiert ist; es erfordert nur, dass es _zuverlässig_ ist, oder keine Nachrichten verliert (mindestens jedoch in solchen Fällen einen Fehler anzeigt).
+Unter den beiden häufigsten Transportprotokollen im Internet ist TCP zuverlässig und UDP nicht.
+HTTP basiert daher auf dem TCP-Standard, der verbindungsorientiert ist.
 
-Bevor ein Client und ein Server ein HTTP-Anfragen-/Antworten-Paar austauschen können, müssen sie eine TCP-Verbindung herstellen, ein Vorgang, der mehrere Rundreisen erfordert.
-Das Standardverhalten von HTTP/1.0 besteht darin, für jedes HTTP-Anfragen-/Antworten-Paar eine separate TCP-Verbindung zu öffnen.
-Dies ist weniger effizient als die gemeinsame Nutzung einer einzigen TCP-Verbindung, wenn mehrere Anfragen in engem zeitlichem Zusammenhang gesendet werden.
+Bevor ein Client und ein Server ein HTTP-Anfrage-/Antwortpaar austauschen können, müssen sie eine TCP-Verbindung herstellen, ein Prozess, der mehrere Round-Trips erfordert.
+Das Standardverhalten von HTTP/1.0 besteht darin, für jedes HTTP-Anfrage-/Antwortpaar eine separate TCP-Verbindung zu öffnen.
+Dies ist weniger effizient als die gemeinsame Nutzung einer einzigen TCP-Verbindung, wenn mehrere Anfragen in kurzer Abfolge gesendet werden.
 
-Um diesen Mangel zu mildern, hat HTTP/1.1 _Pipelining_ (was sich als schwierig zu implementieren erwiesen hat) und _persistente Verbindungen_ eingeführt: Die zugrunde liegende TCP-Verbindung kann teilweise mit dem {{HTTPHeader("Connection")}}-Header gesteuert werden.
-HTTP/2 ging einen Schritt weiter, indem es Nachrichten über eine einzige Verbindung multiplexte, was hilft, die Verbindung warm und effizienter zu halten.
+Um diesen Mangel zu mildern, führte HTTP/1.1 _Pipelining_ (das sich als schwierig zu implementieren erwies) und _persistente Verbindungen_ ein: Die zugrunde liegende TCP-Verbindung kann teilweise mithilfe des {{HTTPHeader("Connection")}}-Headers gesteuert werden.
+HTTP/2 ging noch einen Schritt weiter und multiplexierte Nachrichten über eine einzige Verbindung, um die Verbindung warm und effizienter zu halten.
 
-Experimente sind im Gange, um ein besser an HTTP angepasstes Transportprotokoll zu entwerfen.
-Beispielsweise experimentiert Google mit [QUIC](https://de.wikipedia.org/wiki/QUIC), das auf UDP aufbaut, um ein zuverlässigeres und effizienteres Transportprotokoll bereitzustellen.
+Experiment wird an einem besseren Transportprotokoll experimentiert, das besser zu HTTP passt.
+Zum Beispiel experimentiert Google mit [QUIC](https://en.wikipedia.org/wiki/QUIC), das auf UDP aufbaut, um ein zuverlässigeres und effizienteres Transportprotokoll bereitzustellen.
 
-## Was durch HTTP gesteuert werden kann
+## Was mit HTTP kontrolliert werden kann
 
-Die erweiterbare Natur von HTTP hat im Laufe der Zeit mehr Kontrolle und Funktionalität im Web ermöglicht.
-Cache- und Authentifizierungsmethoden waren Funktionen, die früh in der Geschichte von HTTP behandelt wurden.
-Die Fähigkeit zur Entspannung der _Origin-Beschränkung_, im Gegensatz dazu, wurde erst in den 2010er Jahren hinzugefügt.
+Diese erweiterbare Natur von HTTP hat es im Laufe der Zeit erlaubt, mehr Kontrolle und Funktionalität des Webs zu bieten.
+Cache- und Authentifizierungsmethoden wurden früh in der HTTP-Geschichte eingeführt.
+Die Fähigkeit, die _Origin-Beschränkung_ zu lockern, wurde hingegen erst in den 2010er Jahren hinzugefügt.
 
-Hier ist eine Liste der häufigen Funktionen, die mit HTTP gesteuert werden können:
+Hier ist eine Liste von häufigen Funktionen, die mit HTTP kontrollierbar sind:
 
 - _[Caching](/de/docs/Web/HTTP/Caching)_:
-  Wie Dokumente zwischengespeichert werden, kann durch HTTP gesteuert werden.
-  Der Server kann Proxys und Clients anweisen, was wie lange zu cachen ist.
-  Der Client kann Intermediate-Cache-Proxys anweisen, das gespeicherte Dokument zu ignorieren.
-- _Entspannung der Origin-Beschränkung_:
-  Um Spionage und andere Datenschutzverletzungen zu verhindern, erzwingen Webbrowser eine strikte Trennung zwischen Websites.
-  Nur Seiten von **derselben Herkunft** können auf alle Informationen einer Webseite zugreifen.
-  Obwohl eine solche Beschränkung für den Server eine Belastung darstellt, können HTTP-Header diese strikte Trennung auf Serverseite lockern und es einem Dokument ermöglichen, ein Flickenteppich von Informationen aus verschiedenen Bereichen zu werden; es könnte sogar sicherheitsrelevante Gründe dafür geben.
+  Wie Dokumente zwischengespeichert werden, kann durch HTTP kontrolliert werden.
+  Der Server kann Proxies und Clients anweisen, was zwischengespeichert werden soll und wie lange.
+  Der Client kann Zwischen-Caches anweisen, das gespeicherte Dokument zu ignorieren.
+- _Lockerung der Origin-Beschränkung_:
+  Um Abhörversuche und andere Datenschutzverletzungen zu verhindern, erzwingen Webbrowser eine strikte Trennung zwischen Websites.
+  Nur Seiten mit demselben **Ursprung** können auf alle Informationen einer Webseite zugreifen.
+  Obwohl eine solche Beschränkung eine Belastung für den Server darstellt, können HTTP-Header diese strikte Trennung auf der Serverseite lockern, sodass ein Dokument zu einem Flickwerk von Informationen aus verschiedenen Domains werden kann; es könnte sogar sicherheitsrelevante Gründe dafür geben.
 - _Authentifizierung_:
-  Einige Seiten können geschützt sein, sodass nur bestimmte Benutzer darauf zugreifen können.
-  Die grundlegende Authentifizierung kann durch HTTP bereitgestellt werden, entweder unter Verwendung der {{HTTPHeader("WWW-Authenticate")}}- und ähnlicher Header oder durch das Festlegen einer bestimmten Sitzung mit [HTTP-Cookies](/de/docs/Web/HTTP/Cookies).
-- _[Proxy- und Tunneling](/de/docs/Web/HTTP/Proxy_servers_and_tunneling)_:
-  Server oder Clients befinden sich oft in Intranets und verbergen ihre echte IP-Adresse vor anderen Computern.
-  HTTP-Anfragen gehen dann durch Proxys, um diese Netzwerkbarriere zu überwinden.
-  Nicht alle Proxys sind HTTP-Proxys.
-  Das SOCKS-Protokoll arbeitet beispielsweise auf einer niedrigeren Ebene.
-  Andere Protokolle, wie ftp, können von diesen Proxys verarbeitet werden.
+  Einige Seiten können geschützt sein, sodass nur bestimmte Benutzer auf sie zugreifen können.
+  Grundlegende Authentifizierung kann durch HTTP bereitgestellt werden, entweder unter Verwendung der {{HTTPHeader("WWW-Authenticate")}} und ähnlichen Headern oder durch Festlegung einer spezifischen Sitzung mit [HTTP-Cookies](/de/docs/Web/HTTP/Cookies).
+- _[Proxy und Tunneling](/de/docs/Web/HTTP/Proxy_servers_and_tunneling)_:
+  Server oder Clients befinden sich häufig in Intranets und verstecken ihre wahre IP-Adresse vor anderen Computern.
+  HTTP-Anfragen gehen dann durch Proxies, um diese Netzwerkbarriere zu überwinden.
+  Nicht alle Proxies sind HTTP-Proxies.
+  Das SOCKS-Protokoll beispielsweise arbeitet auf einer niedrigeren Ebene.
+  Andere Protokolle, wie ftp, können von diesen Proxies gehandhabt werden.
 - _Sitzungen_:
-  Die Verwendung von HTTP-Cookies ermöglicht es, Anfragen mit dem Zustand des Servers zu verknüpfen.
-  Dies schafft Sitzungen, trotz des grundlegenden zustandslosen Protokolls von HTTP.
-  Dies ist nicht nur für E-Commerce-Einkaufswagen nützlich, sondern auch für jede Website, die eine Benutzerkonfiguration der Ausgabe erlaubt.
+  Durch die Verwendung von HTTP-Cookies können Anfragen mit dem Zustand des Servers verknüpft werden.
+  Dies erstellt Sitzungen, obwohl das grundlegende HTTP-Protokoll zustandslos ist.
+  Dies ist nicht nur nützlich für E-Commerce-Warenkörbe, sondern auch für jede Website, die dem Benutzer eine Anpassung der Ausgabe ermöglicht.
 
-## HTTP-Fluss
+## HTTP-Ablauf
 
-Wenn ein Client mit einem Server kommunizieren möchte, entweder mit dem Endserver oder einem Zwischenproxy, führt er die folgenden Schritte aus:
+Wenn ein Client mit einem Server kommunizieren möchte, entweder dem endgültigen Server oder einem Zwischenproxy, führt er die folgenden Schritte aus:
 
-1. Öffnen einer TCP-Verbindung: Die TCP-Verbindung wird genutzt, um eine Anfrage oder mehrere Anfragen zu senden und eine Antwort zu erhalten.
+1. Öffnen einer TCP-Verbindung: Die TCP-Verbindung wird verwendet, um eine Anfrage oder mehrere zu senden und eine Antwort zu erhalten.
    Der Client kann eine neue Verbindung öffnen, eine bestehende Verbindung wiederverwenden oder mehrere TCP-Verbindungen zu den Servern öffnen.
 
 2. Senden einer HTTP-Nachricht: HTTP-Nachrichten (vor HTTP/2) sind menschenlesbar.
-   Bei HTTP/2 werden diese einfachen Nachrichten in Frames gekapselt, was sie unmöglich macht, direkt zu lesen, aber das Prinzip bleibt das gleiche.
-   Ein Beispiel:
+   Mit HTTP/2 werden diese einfachen Nachrichten in Frames gekapselt, was sie unmöglich direkt lesbar macht, aber das Prinzip bleibt das gleiche.
+   Zum Beispiel:
 
    ```http
    GET / HTTP/1.1
@@ -160,7 +160,7 @@ Wenn ein Client mit einem Server kommunizieren möchte, entweder mit dem Endserv
    Accept-Language: fr
    ```
 
-3. Lesen der vom Server gesendeten Antwort, wie etwa:
+3. Lesen der vom Server gesendeten Antwort, wie zum Beispiel:
 
    ```http
    HTTP/1.1 200 OK
@@ -177,15 +177,15 @@ Wenn ein Client mit einem Server kommunizieren möchte, entweder mit dem Endserv
 
 4. Schließen oder Wiederverwenden der Verbindung für weitere Anfragen.
 
-Wenn HTTP-Pipelining aktiviert ist, können mehrere Anfragen gesendet werden, ohne darauf zu warten, dass die erste Antwort vollständig empfangen wird.
-HTTP-Pipelining hat sich als schwierig zu implementieren erwiesen in bestehenden Netzwerken, wo alte Softwarestücke mit modernen Versionen koexistieren.
-HTTP-Pipelining wurde in HTTP/2 durch robusteres Multiplexen von Anfragen innerhalb eines Frames ersetzt.
+Wenn HTTP-Pipelining aktiviert ist, können mehrere Anfragen gesendet werden, ohne auf die vollständige Empfangsbestätigung der ersten Antwort zu warten.
+Das HTTP-Pipelining hat sich in bestehenden Netzwerken, in denen alte Softwareteile mit modernen Versionen koexistieren, als schwer zu implementieren erwiesen.
+Das HTTP-Pipelining wurde in HTTP/2 durch robustere Multiplexing-Anfragen innerhalb eines Frames ersetzt.
 
 ## HTTP-Nachrichten
 
-HTTP-Nachrichten, wie sie in HTTP/1.1 und früher definiert sind, sind menschlich lesbar.
-In HTTP/2 werden diese Nachrichten in eine binäre Struktur, ein _Frame_, eingebettet, was Optimierungen wie Komprimierung von Headern und Multiplexing ermöglicht.
-Auch wenn nur ein Teil der ursprünglichen HTTP-Nachricht in dieser Version von HTTP gesendet wird, bleiben die Semantiken jeder Nachricht unverändert und der Client rekonstruiert (virtuell) die ursprüngliche HTTP/1.1-Anfrage.
+HTTP-Nachrichten, wie in HTTP/1.1 und früher definiert, sind menschenlesbar.
+In HTTP/2 sind diese Nachrichten in einer binären Struktur, einem _Frame_, eingebettet, was Optimierungen wie Kompression von Headern und Multiplexing ermöglicht.
+Auch wenn nur ein Teil der ursprünglichen HTTP-Nachricht in dieser Version von HTTP gesendet wird, bleibt die Semantik jeder Nachricht unverändert und der Client rekonstruiert (virtuell) die ursprüngliche HTTP/1.1-Anfrage.
 Es ist daher nützlich, HTTP/2-Nachrichten im HTTP/1.1-Format zu verstehen.
 
 Es gibt zwei Arten von HTTP-Nachrichten, Anfragen und Antworten, jede mit ihrem eigenen Format.
@@ -194,46 +194,46 @@ Es gibt zwei Arten von HTTP-Nachrichten, Anfragen und Antworten, jede mit ihrem 
 
 Ein Beispiel für eine HTTP-Anfrage:
 
-![Überblick über eine HTTP-GET-Anfrage mit Headern](https://mdn.github.io/shared-assets/images/diagrams/http/overview/http-request.svg)
+![Übersicht über eine HTTP GET-Anfrage mit Headern](https://mdn.github.io/shared-assets/images/diagrams/http/overview/http-request.svg)
 
 Anfragen bestehen aus den folgenden Elementen:
 
-- Einer HTTP-[Methode](/de/docs/Web/HTTP/Methods), üblicherweise ein Verb wie {{HTTPMethod("GET")}}, {{HTTPMethod("POST")}} oder ein Substantiv wie {{HTTPMethod("OPTIONS")}} oder {{HTTPMethod("HEAD")}}, das die vom Client gewünschte Operation definiert.
-  In der Regel möchte ein Client eine Ressource abrufen (unter Verwendung von `GET`) oder den Wert eines [HTML-Formulars](/de/docs/Learn/Forms) senden (unter Verwendung von `POST`), obwohl in anderen Fällen weitere Operationen erforderlich sein können.
-- Der Pfad der abzurufenden Ressource; die URL der Ressource, bereinigt von Elementen, die aus dem Kontext offensichtlich sind, zum Beispiel ohne das {{Glossary("protocol", "Protokoll")}} (`http://`), die {{Glossary("domain", "Domain")}} (hier, `developer.mozilla.org`) oder den TCP-{{Glossary("port", "Port")}} (hier, `80`).
+- Ein [HTTP-Methoden](/de/docs/Web/HTTP/Methods), normalerweise ein Verb wie {{HTTPMethod("GET")}}, {{HTTPMethod("POST")}}, oder ein Nomen wie {{HTTPMethod("OPTIONS")}} oder {{HTTPMethod("HEAD")}}, das die Operation definiert, die der Client ausführen möchte.
+  Typischerweise möchte ein Client eine Ressource abrufen (mithilfe von `GET`) oder den Wert eines [HTML-Formulars](/de/docs/Learn_web_development/Erweiterungen/Forms) übermitteln (mithilfe von `POST`), obwohl in anderen Fällen mehr Operationen erforderlich sein können.
+- Der Pfad der Ressource, die abgerufen werden soll; Die URL der Ressource ohne offensichtliche Elemente des Kontexts, zum Beispiel ohne das {{Glossary("protocol", "Protokoll")}} (`http://`), die {{Glossary("domain", "Domain")}} (hier, `developer.mozilla.org`) oder den TCP-{{Glossary("port", "Port")}} (hier, `80`).
 - Die Version des HTTP-Protokolls.
-- Optionale [Header](/de/docs/Web/HTTP/Headers), die zusätzliche Informationen an die Server übermitteln.
-- Ein Body, für einige Methoden wie `POST`, ähnlich denen in Antworten, die die gesendete Ressource enthalten.
+- Optionale [Header](/de/docs/Web/HTTP/Headers), die zusätzliche Informationen für die Server übermitteln.
+- Ein Body, für einige Methoden wie `POST`, ähnlich wie in Antworten, die die gesendete Ressource enthält.
 
 ### Antworten
 
 Ein Beispiel für eine Antwort:
 
-![Überblick über eine '200 OK' HTTP-Antwort auf eine GET-Anfrage einschließlich Antwort-Headern.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/http-response.svg)
+![Übersicht über eine '200 OK' HTTP-Antwort auf eine GET-Anfrage einschließlich Antwort-Headern.](https://mdn.github.io/shared-assets/images/diagrams/http/overview/http-response.svg)
 
 Antworten bestehen aus den folgenden Elementen:
 
-- Die Version des HTTP-Protokolls, dem sie folgen.
-- Ein [Statuscode](/de/docs/Web/HTTP/Status), der angibt, ob die Anfrage erfolgreich war oder nicht und warum.
-- Eine Statusnachricht, eine nicht-autoritative Kurzbeschreibung des Statuscodes.
-- HTTP-[Header](/de/docs/Web/HTTP/Headers), ähnlich denen für Anfragen.
-- Optional, einen Body, der die abgerufene Ressource enthält.
+- Die Version des von ihnen verwendeten HTTP-Protokolls.
+- Ein [Statuscode](/de/docs/Web/HTTP/Status), der angibt, ob die Anfrage erfolgreich war oder nicht, und warum.
+- Eine Statusmeldung, eine nicht autoritative Kurzbeschreibung des Statuscodes.
+- HTTP-[Header](/de/docs/Web/HTTP/Headers), ähnlich wie bei Anfragen.
+- Optional ein Body, der die abgerufene Ressource enthält.
 
 ## APIs basierend auf HTTP
 
-Die am häufigsten verwendete API, die auf HTTP basiert, ist die [Fetch API](/de/docs/Web/API/Fetch_API), die verwendet werden kann, um HTTP-Anfragen von JavaScript aus zu stellen. Die Fetch API ersetzt die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest) API.
+Die am häufigsten verwendete API basierend auf HTTP ist die [Fetch API](/de/docs/Web/API/Fetch_API), die verwendet werden kann, um HTTP-Anfragen von JavaScript aus zu stellen. Die Fetch API ersetzt die [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)-API.
 
-Eine weitere API, [server-sent events](/de/docs/Web/API/Server-sent_events), ist ein Einwegdienst, mit dem ein Server Ereignisse an den Client senden kann, wobei HTTP als Transportschicht verwendet wird.
-Mit der [`EventSource`](/de/docs/Web/API/EventSource)-Schnittstelle öffnet der Client eine Verbindung und richtet Ereignis-Handler ein.
-Der Client-Browser wandelt die Nachrichten, die auf dem HTTP-Datenstrom ankommen, automatisch in entsprechende [`Event`](/de/docs/Web/API/Event)-Objekte um. Dann werden sie an die Ereignis-Handler geliefert, die für die bekannten [`type`](/de/docs/Web/API/Event/type) der Ereignisse registriert wurden, oder an den [`onmessage`](/de/docs/Web/API/EventSource/message_event)-Ereignis-Handler, wenn kein typspezifischer Ereignis-Handler eingerichtet wurde.
+Eine andere API, [servergesendete Ereignisse](/de/docs/Web/API/Server-sent_events), ist ein unidirektionaler Dienst, der es einem Server ermöglicht, Ereignisse an den Client zu senden, wobei HTTP als Transportmechanismus verwendet wird.
+Mit der Verwendung der Schnittstelle [`EventSource`](/de/docs/Web/API/EventSource) öffnet der Client eine Verbindung und stellt Ereignishandler her.
+Der Clientbrowser konvertiert die Nachrichten, die im HTTP-Stream ankommen, automatisch in entsprechende [`Event`](/de/docs/Web/API/Event)-Objekte. Dann liefert er sie an die registrierten Ereignishandler für den vom Ereignis bekannten [`typ`](/de/docs/Web/API/Event/type), oder an den [`onmessage`](/de/docs/Web/API/EventSource/message_event)-Ereignishandler, falls kein typenspezifischer Ereignishandler erstellt wurde.
 
 ## Fazit
 
-HTTP ist ein erweiterbares Protokoll, das einfach zu verwenden ist.
-Die Client-Server-Struktur, kombiniert mit der Möglichkeit, Header hinzuzufügen, erlaubt es HTTP, sich zusammen mit den erweiterten Fähigkeiten des Webs weiterzuentwickeln.
+HTTP ist ein erweiterbares Protokoll, das einfach zu bedienen ist.
+Die Client-Server-Struktur in Kombination mit der Möglichkeit, Header hinzuzufügen, erlaubt es HTTP, sich zusammen mit den erweiterten Fähigkeiten des Webs weiterzuentwickeln.
 
-Obwohl HTTP/2 durch das Einbetten von HTTP-Nachrichten in Frames zur Verbesserung der Leistung einige Komplexität hinzufügt, hat sich die grundlegende Struktur der Nachrichten seit HTTP/1.0 nicht geändert.
-Der Sitzungsablauf bleibt einfach, was es ermöglicht, ihn mit einem [HTTP-Netzwerkmonitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) zu untersuchen und zu debuggen.
+Obwohl HTTP/2 durch das Einbetten von HTTP-Nachrichten in Frames zur Verbesserung der Leistung einige Komplexität hinzufügt, ist die grundlegende Struktur von Nachrichten seit HTTP/1.0 gleich geblieben.
+Der Sitzungsablauf bleibt grundlegend, was es ermöglicht, ihn mit einem [HTTP-Netzwerkmonitor](https://firefox-source-docs.mozilla.org/devtools-user/network_monitor/index.html) zu untersuchen und zu debuggen.
 
 ## Siehe auch
 

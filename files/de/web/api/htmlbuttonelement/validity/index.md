@@ -1,22 +1,22 @@
 ---
-title: "HTMLButtonElement: validity Eigenschaft"
+title: "HTMLButtonElement: Gültigkeitseigenschaft"
 short-title: validity
 slug: Web/API/HTMLButtonElement/validity
 l10n:
-  sourceCommit: 2b29051262aa05ce9a630d0dd2d6958f493abe19
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`validity`** Schreibgeschützte Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState) Objekt zurück, das die Gültigkeitszustände repräsentiert, in denen sich dieses Element befindet.
+Die **`validity`** schreibgeschützte Eigenschaft des [`HTMLButtonElement`](/de/docs/Web/API/HTMLButtonElement)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände darstellt, in denen sich dieses Element befindet.
 
 ## Wert
 
-Ein [`ValidityState`](/de/docs/Web/API/ValidityState) Objekt.
+Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, dass ein `<button>` sich in einem ungültigen Zustand befindet, wenn ein [`customError`](/de/docs/Web/API/ValidityState/customError) gesetzt ist; in diesem Zustand ist die `validity`-Eigenschaft von `validityState` `false`, während [`checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity) `true` zurückgibt, wenn der [`type`](/de/docs/Web/API/HTMLButtonElement/type) der Schaltfläche nicht `"submit"` ist, da solche Schaltflächen keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Das folgende Beispiel zeigt, dass ein `<button>` sich in einem ungültigen Zustand befindet, wenn ein [`customError`](/de/docs/Web/API/ValidityState/customError) gesetzt ist; in diesem Zustand ist die `validity`-Eigenschaft des `validityState` `false`, während [`checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity) `true` zurückgibt, wenn der [`type`](/de/docs/Web/API/HTMLButtonElement/type) des Buttons nicht `"submit"` ist, da solche Buttons keine Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ```js
 const button = document.getElementById("myButton");
@@ -40,5 +40,5 @@ console.log(button.checkValidity()); // false if the button is of the "submit" t
 - [`HTMLButtonElement.checkValidity()`](/de/docs/Web/API/HTMLButtonElement/checkValidity)
 - {{HTMLElement("button")}}
 - {{HTMLElement("form")}}
-- [Erfahren Sie mehr über: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Erlernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

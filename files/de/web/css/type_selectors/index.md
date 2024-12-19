@@ -2,12 +2,12 @@
 title: Typselektoren
 slug: Web/CSS/Type_selectors
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Der CSS-**Typselektor** erfasst Elemente anhand des Knotennamens. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
+Der CSS **Typselektor** wählt Elemente nach ihrem Knotennamen aus. Mit anderen Worten, er wählt alle Elemente des angegebenen Typs innerhalb eines Dokuments aus.
 
 ```css
 /* All <a> elements. */
@@ -16,11 +16,11 @@ a {
 }
 ```
 
-Typselektoren können bei Verwendung von {{CSSXref("@namespace")}} mit Namespaces versehen werden. Dies ist nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML oder XML, das mehrere Vokabulare mischt.
+Typselektoren können bei der Verwendung von {{CSSXref("@namespace")}} mit Namespaces versehen werden. Dies ist nützlich, wenn man mit Dokumenten arbeitet, die mehrere Namespaces enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
-- `ns|h1` - erfasst `<h1>`-Elemente im Namespace _ns_
-- `*|h1` - erfasst alle `<h1>`-Elemente
-- `|h1` - erfasst alle `<h1>`-Elemente ohne deklarierten Namespace
+- `ns|h1` - wählt `<h1>` Elemente im Namespace _ns_
+- `*|h1` - wählt alle `<h1>` Elemente
+- `|h1` - wählt alle `<h1>` Elemente ohne einen deklarierte Namespace
 
 ## Syntax
 
@@ -52,7 +52,7 @@ span {
 
 ### Namespaces
 
-In diesem Beispiel wird der Selektor nur `<h1>`-Elemente im Beispiel-Namespace erfassen.
+In diesem Beispiel wird der Selektor nur `<h1>` Elemente im Beispiel-Namespace ansprechen.
 
 ```css
 @namespace example url(http://www.example.com/);
@@ -72,4 +72,4 @@ example|h1 {
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors)
-- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [CSS lernen: Grundlegende Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

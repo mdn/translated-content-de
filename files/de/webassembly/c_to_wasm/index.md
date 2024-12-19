@@ -1,34 +1,34 @@
 ---
-title: Compilieren eines neuen C/C++ Moduls zu WebAssembly
+title: Ein neues C/C++ Modul zu WebAssembly kompilieren
 slug: WebAssembly/C_to_Wasm
 l10n:
-  sourceCommit: bea339d321513fc6d66d95c8f0305b9387fa57bb
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{WebAssemblySidebar}}
 
-Wenn Sie ein neues Codemodul in einer Sprache wie C/C++ geschrieben haben, können Sie es mit einem Tool wie [Emscripten](https://emscripten.org/) in WebAssembly kompilieren. Lassen Sie uns anschauen, wie das funktioniert.
+Wenn Sie ein neues Code-Modul in einer Sprache wie C/C++ geschrieben haben, können Sie es mit einem Tool wie [Emscripten](https://emscripten.org/) zu WebAssembly kompilieren. Schauen wir uns an, wie es funktioniert.
 
-## Emscripten-Umgebung einrichten
+## Einrichtung der Emscripten-Umgebung
 
-Zuerst richten wir die benötigte Entwicklungsumgebung ein.
+Zuerst richten wir die erforderliche Entwicklungsumgebung ein.
 
 ### Voraussetzungen
 
-Besorgen Sie sich das Emscripten SDK anhand dieser Anweisungen: <https://emscripten.org/docs/getting_started/downloads.html>
+Laden Sie das Emscripten SDK herunter, indem Sie diesen Anweisungen folgen: <https://emscripten.org/docs/getting_started/downloads.html>
 
-## Ein Beispiel kompilieren
+## Kompilieren eines Beispiels
 
-Mit der eingerichteten Umgebung schauen wir uns an, wie man ein C-Beispiel zu Wasm kompiliert. Es gibt eine Reihe von Optionen beim Kompilieren mit Emscripten, aber die zwei Hauptszenarien, die wir betrachten werden, sind:
+Mit der eingerichteten Umgebung schauen wir uns an, wie man ein C-Beispiel zu Wasm kompiliert. Es gibt eine Reihe von Optionen, wenn Sie mit Emscripten kompilieren, aber die beiden Hauptszenarien, die wir behandeln werden, sind:
 
-- Kompilierung zu Wasm und Erstellung von HTML zur Ausführung unseres Codes sowie den gesamten benötigten JavaScript-„Kleber“-Code, um das Wasm in der Webumgebung laufen zu lassen.
-- Kompilierung zu Wasm und Erstellung nur des JavaScripts.
+- Kompilieren zu Wasm und Erstellen von HTML, um unseren Code darin auszuführen, sowie aller erforderlichen JavaScript-"Glue"-Codes, um das Wasm in der Webumgebung auszuführen.
+- Kompilieren zu Wasm und nur Erstellen des JavaScripts.
 
-Wir werden beide Szenarien im Folgenden betrachten.
+Wir werden uns beide Szenarien unten ansehen.
 
-### HTML und JavaScript erstellen
+### Erstellen von HTML und JavaScript
 
-Dies ist der einfachste Fall, den wir uns ansehen, wobei Sie Emscripten verwenden, um alles zu generieren, was Sie benötigen, um Ihren Code als WebAssembly im Browser auszuführen.
+Dies ist der einfachste Fall, den wir betrachten, bei dem Sie Emscripten anweisen, alles zu generieren, was Sie benötigen, um Ihren Code als WebAssembly im Browser auszuführen.
 
 1. Zuerst benötigen wir ein Beispiel zum Kompilieren. Erstellen Sie eine Kopie des folgenden einfachen C-Beispiels und speichern Sie es in einer Datei namens `hello.c` in einem neuen Verzeichnis auf Ihrem lokalen Laufwerk:
 
@@ -41,37 +41,37 @@ Dies ist der einfachste Fall, den wir uns ansehen, wobei Sie Emscripten verwende
    }
    ```
 
-2. Nun navigieren Sie mit dem Terminalfenster, das Sie zur Eingabe der Emscripten-Kompilerumgebung verwendet haben, zum selben Verzeichnis wie Ihre `hello.c`-Datei und führen den folgenden Befehl aus:
+2. Jetzt navigieren Sie mit dem Terminalfenster, das Sie verwendet haben, um die Emscripten-Compiler-Umgebung zu öffnen, zu demselben Verzeichnis wie Ihre `hello.c`-Datei und führen Sie folgenden Befehl aus:
 
    ```bash
    emcc hello.c -o hello.html
    ```
 
-Die Optionen, die wir mit dem Befehl übergeben haben, sind wie folgt:
+Die mit dem Befehl übergebenen Optionen sind wie folgt:
 
-- `-o hello.html` — Gibt an, dass wir möchten, dass Emscripten eine HTML-Seite generiert, um unseren Code auszuführen (und einen Dateinamen, der verwendet werden soll), sowie das Wasm-Modul und den JavaScript-„Kleber“-Code, um das Wasm zu kompilieren und zu instanziieren, damit es in der Webumgebung verwendet werden kann.
+- `-o hello.html` — Gibt an, dass wir möchten, dass Emscripten eine HTML-Seite generiert, um unseren Code darin auszuführen (und einen Dateinamen dafür), sowie das Wasm-Modul und den JavaScript-"Glue"-Code, um das Wasm zu kompilieren und zu instanziieren, damit es in der Webumgebung verwendet werden kann.
 
-An diesem Punkt sollten Sie in Ihrem Quellverzeichnis haben:
+Zu diesem Zeitpunkt sollten Sie in Ihrem Quellverzeichnis Folgendes haben:
 
 - Den binären Wasm-Modulcode (`hello.wasm`)
-- Eine JavaScript-Datei, die Kleber enthält, um zwischen den nativen C-Funktionen und JavaScript/Wasm zu übersetzen (`hello.js`)
-- Eine HTML-Datei, um Ihren Wasm-Code zu laden, zu kompilieren und zu instanziieren und seine Ausgabe im Browser anzuzeigen (`hello.html`)
+- Eine JavaScript-Datei, die Glue-Code enthält, um zwischen den nativen C-Funktionen und JavaScript/Wasm zu übersetzen (`hello.js`)
+- Eine HTML-Datei, um Ihren Wasm-Code zu laden, zu kompilieren und zu instanziieren, und seine Ausgabe im Browser anzuzeigen (`hello.html`)
 
-### Ihr Beispiel ausführen
+### Ausführen Ihres Beispiels
 
-Jetzt bleibt nur noch, dass Sie das resultierende `hello.html` in einem Browser laden, der WebAssembly unterstützt. Es ist standardmäßig ab Firefox 52, Chrome 57, Edge 57, Opera 44 aktiviert.
+Jetzt bleibt nur noch, das resultierende `hello.html` in einem Browser zu laden, der WebAssembly unterstützt. Es ist standardmäßig ab Firefox 52, Chrome 57, Edge 57, Opera 44 aktiviert.
 
 > [!NOTE]
-> Wenn Sie versuchen, die generierte HTML-Datei (`hello.html`) direkt von Ihrer lokalen Festplatte zu öffnen (z.B. `file://your_path/hello.html`), werden Sie mit einer Fehlermeldung konfrontiert, ähnlich wie _`both async and sync fetching of the wasm failed`._ Sie müssen Ihre HTML-Datei über einen HTTP-Server (`http://`) ausführen — siehe [Wie richtet man einen lokalen Testserver ein?](/de/docs/Learn/Common_questions/Tools_and_setup/set_up_a_local_testing_server) für weitere Informationen.
+> Wenn Sie versuchen, die generierte HTML-Datei (`hello.html`) direkt von Ihrer lokalen Festplatte zu öffnen (z. B. `file://your_path/hello.html`), erhalten Sie eine Fehlermeldung wie _`both async and sync fetching of the wasm failed`._ Sie müssen Ihre HTML-Datei über einen HTTP-Server (`http://`) ausführen — siehe [Wie richten Sie einen lokalen Testserver ein?](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server) für weitere Informationen.
 
-Wenn alles wie geplant funktioniert hat, sollten Sie die Ausgabe "Hello world" in der Emscripten-Konsole auf der Webseite sowie in der JavaScript-Konsole Ihres Browsers sehen. Herzlichen Glückwunsch, Sie haben gerade C zu WebAssembly kompilert und es in Ihrem Browser ausgeführt!
-![image](helloworld.png)
+Wenn alles wie geplant funktioniert hat, sollten Sie die Ausgabe "Hello world" in der Emscripten-Konsole auf der Webseite und in der JavaScript-Konsole Ihres Browsers sehen. Herzlichen Glückwunsch, Sie haben gerade C zu WebAssembly kompiliert und es in Ihrem Browser ausgeführt!
+![Bild](helloworld.png)
 
-### Verwenden einer benutzerdefinierten HTML-Vorlage
+### Verwendung einer benutzerdefinierten HTML-Vorlage
 
 Manchmal möchten Sie eine benutzerdefinierte HTML-Vorlage verwenden. Schauen wir uns an, wie wir das machen können.
 
-1. Speichern Sie zunächst den folgenden C-Code in einer Datei namens `hello2.c` in einem neuen Verzeichnis:
+1. Speichern Sie zuerst den folgenden C-Code in einer Datei namens `hello2.c` in einem neuen Verzeichnis:
 
    ```cpp
    #include <stdio.h>
@@ -82,29 +82,29 @@ Manchmal möchten Sie eine benutzerdefinierte HTML-Vorlage verwenden. Schauen wi
    }
    ```
 
-2. Suchen Sie nach der Datei `shell_minimal.html` in Ihrem emsdk-Repo. Kopieren Sie sie in ein Unterverzeichnis namens `html_template` innerhalb Ihres vorherigen neuen Verzeichnisses.
-3. Navigieren Sie jetzt in Ihr neues Verzeichnis (wieder in Ihrem Emscripten-Kompilierungsumgebungs-/Terminalfenster) und führen Sie den folgenden Befehl aus:
+2. Suchen Sie die Datei `shell_minimal.html` in Ihrem emsdk-Repository. Kopieren Sie sie in ein Unterverzeichnis namens `html_template` innerhalb Ihres zuvor erstellten neuen Verzeichnisses.
+3. Navigieren Sie nun in Ihr neues Verzeichnis (wieder in Ihrem Terminalfenster der Emscripten-Compiler-Umgebung) und führen Sie den folgenden Befehl aus:
 
    ```bash
    emcc -o hello2.html hello2.c -O3 --shell-file html_template/shell_minimal.html
    ```
 
-   Die diesmal übergebenen Optionen sind leicht unterschiedlich:
+   Die übergebenen Optionen sind diesmal etwas anders:
 
-   - Wir haben `-o hello2.html` angegeben, was bedeutet, dass der Compiler weiterhin den JavaScript-Klebercode und `.html` ausgibt.
-   - Wir haben `-O3` angegeben, was zur Optimierung des Codes verwendet wird. Emcc hat Optimierungsstufen wie jeder andere C-Compiler, darunter: `-O0` (keine Optimierung), `-O1`, `-O2`, `-Os`, `-Oz`, `-Og`, und `-O3`. `-O3` ist eine gute Einstellung für Release-Builds.
-   - Wir haben auch `--shell-file html_template/shell_minimal.html` angegeben — dies gibt den Pfad zur HTML-Vorlage an, die Sie für die Erstellung des HTMLs verwenden möchten, durch das Sie Ihr Beispiel ausführen werden.
+   - Wir haben `-o hello2.html` angegeben, was bedeutet, dass der Compiler weiterhin den JavaScript-Glue-Code und `.html` ausgibt.
+   - Wir haben `-O3` spezifiziert, das zur Optimierung des Codes verwendet wird. Emcc hat Optimierungsstufen wie jeder andere C-Compiler, einschließlich: `-O0` (keine Optimierung), `-O1`, `-O2`, `-Os`, `-Oz`, `-Og` und `-O3`. `-O3` ist eine gute Einstellung für Release-Builds.
+   - Wir haben auch `--shell-file html_template/shell_minimal.html` angegeben — dies liefert den Pfad zur HTML-Vorlage, die Sie verwenden möchten, um das HTML zu erstellen, durch das Sie Ihr Beispiel ausführen werden.
 
-4. Führen Sie nun dieses Beispiel aus. Der obige Befehl hätte `hello2.html` generiert, welches viel den gleichen Inhalt wie die Vorlage hat, mit etwas Klebercode, der hinzugefügt wurde, um das generierte Wasm zu laden, auszuführen usw. Öffnen Sie es in Ihrem Browser und Sie werden fast das gleiche Ergebnis wie beim letzten Beispiel sehen.
+4. Lassen Sie uns dieses Beispiel jetzt ausführen. Der obige Befehl hat `hello2.html` generiert, das viel von dem gleichen Inhalt wie die Vorlage haben wird, mit ein bisschen zusätzlichem Glue-Code, um das generierte Wasm zu laden und auszuführen, etc. Öffnen Sie es in Ihrem Browser und Sie werden dieselbe Ausgabe wie beim letzten Beispiel sehen.
 
 > [!NOTE]
-> Sie könnten angeben, dass nur die JavaScript-"Kleber"-Datei\* ausgegeben werden soll, anstelle des vollständigen HTML, indem Sie im Flag `-o` eine .js-Datei anstelle einer HTML-Datei angeben, z.B. `emcc -o hello2.js hello2.c -O3`. Sie könnten dann Ihr benutzerdefiniertes HTML komplett von Grund auf neu erstellen, obwohl dies ein fortgeschrittener Ansatz ist; es ist normalerweise einfacher, die bereitgestellte HTML-Vorlage zu verwenden.
+> Sie könnten das Ausgeben nur der JavaScript-"Glue"-Datei\* anstelle der gesamten HTML spezifizieren, indem Sie in dem `-o` Flag eine .js-Datei statt einer HTML-Datei angeben, z.B. `emcc -o hello2.js hello2.c -O3`. Sie könnten dann Ihr benutzerdefiniertes HTML komplett von Grund auf neu erstellen, obwohl dies ein fortschrittlicher Ansatz ist; es ist in der Regel einfacher, die bereitgestellte HTML-Vorlage zu verwenden.
 >
-> - Emscripten erfordert eine große Vielzahl von JavaScript-"Kleber"-Code, um Speicherverwaltung, Speicherlecks und eine Reihe anderer Probleme zu handhaben
+> - Emscripten benötigt eine große Vielfalt an JavaScript-"Glue"-Codes, um Speicherzuordnung, Speicherlecks und eine Vielzahl anderer Probleme zu handhaben.
 
-### Einen benutzerdefinierten C-Funktionsaufruf
+### Aufrufen einer benutzerdefinierten Funktion, die in C definiert ist
 
-Wenn Sie eine Funktion aufrufen möchten, die in Ihrem C-Code definiert ist, können Sie die Emscripten `ccall()` Funktion und die `EMSCRIPTEN_KEEPALIVE` Deklaration verwenden, die Ihre Funktionen zur exportierten Funktionsliste hinzufügt (siehe [Warum verschwinden Funktionen in meinem C/C++-Quellcode, wenn ich nach JavaScript kompiliere, und/oder Ich bekomme keine Funktionen zum Verarbeiten?](https://emscripten.org/docs/getting_started/FAQ.html#why-do-functions-in-my-c-c-source-code-vanish-when-i-compile-to-webassembly)). Lassen Sie uns anschauen, wie das funktioniert.
+Wenn Sie eine in Ihrem C-Code definierte Funktion aus JavaScript aufrufen möchten, können Sie die Emscripten `ccall()` Funktion und die `EMSCRIPTEN_KEEPALIVE` Deklaration verwenden, die Ihre Funktionen zur Liste der exportierten Funktionen hinzufügt (siehe [Warum verschwinden Funktionen in meinem C/C++-Quellcode, wenn ich sie/wenn ich sie zu JavaScript kompiliere, und/oder warum erhalten Sie Keine Funktionen zu verarbeiten Fehler?](https://emscripten.org/docs/getting_started/FAQ.html#why-do-functions-in-my-c-c-source-code-vanish-when-i-compile-to-webassembly)). Schauen wir uns an, wie das funktioniert.
 
 1. Speichern Sie zunächst den folgenden Code als `hello3.c` in einem neuen Verzeichnis:
 
@@ -128,21 +128,21 @@ Wenn Sie eine Funktion aufrufen möchten, die in Ihrem C-Code definiert ist, kö
    }
    ```
 
-   Standardmäßig ruft der von Emscripten generierte Code immer nur die `main()`-Funktion auf und andere Funktionen werden als toter Code eliminiert. Das Hinzufügen von `EMSCRIPTEN_KEEPALIVE` vor einem Funktionsnamen verhindert, dass dies passiert. Sie müssen auch die `emscripten.h`-Bibliothek importieren, um `EMSCRIPTEN_KEEPALIVE` verwenden zu können.
+   Standardmäßig wird im Emscripten erzeugter Code immer nur die `main()`-Funktion aufgerufen, und andere Funktionen werden als toter Code eliminiert. Das Platzieren von `EMSCRIPTEN_KEEPALIVE` vor einem Funktionsnamen verhindert dies. Sie müssen auch die `emscripten.h`-Bibliothek importieren, um `EMSCRIPTEN_KEEPALIVE` verwenden zu können.
 
    > [!NOTE]
-   > Wir schließen die `#ifdef`-Blöcke ein, damit das Beispiel auch dann funktioniert, wenn Sie versuchen, es in C++-Code einzuschließen. Aufgrund der Namenskonventionen von C im Vergleich zu C++ würde dies sonst nicht funktionieren, aber hier setzen wir es so, dass es wie eine externe C-Funktion behandelt wird, wenn Sie C++ verwenden.
+   > Wir schließen die `#ifdef` Blöcke ein, damit das Beispiel, auch wenn Sie versuchen, es in C++-Code einzuschließen, weiterhin funktioniert. Aufgrund von C versus C++ Namensmangling-Regeln würde dies sonst fehlschlagen, aber hier setzen wir es so, dass es es als externe C-Funktion behandelt, wenn Sie C++ verwenden.
 
-2. Fügen Sie nun `html_template/shell_minimal.html` mit `\{\{{ SCRIPT }}}` als Inhalt zu diesem neuen Verzeichnis hinzu, nur der Bequemlichkeit halber (Sie würden dies offensichtlich an einem zentralen Ort in Ihrer realen Entwicklungsumgebung platzieren).
-3. Lassen Sie uns nun den Kompilierungsschritt erneut ausführen. Kompilieren Sie Ihren C-Code aus Ihrem neuesten Verzeichnis (und während Sie sich in Ihrem Emscripten-Kompilierungsumgebungs-/Terminalfenster befinden) mit dem folgenden Befehl. Beachten Sie, dass wir mit `NO_EXIT_RUNTIME` kompilieren müssen: andernfalls würde der Runtime beim Verlassen von `main()` heruntergefahren werden und es wäre nicht mehr möglich, kompilierten Code aufzurufen. Dies ist erforderlich, um eine ordnungsgemäße C-Emulation sicherzustellen, z.B. um sicherzustellen, dass [`atexit()`](https://en.cppreference.com/w/c/program/atexit)-Funktionen aufgerufen werden.
+2. Fügen Sie jetzt `html_template/shell_minimal.html` mit `\{\{{ SCRIPT }}}` als Inhalt ebenfalls in dieses neue Verzeichnis ein, nur für die Bequemlichkeit (offensichtlich würden Sie dies an einem zentralen Ort in Ihrer realen Entwicklungsumgebung platzieren).
+3. Lassen Sie uns erneut den Kompilierschritt durchführen. Kompilieren Sie Ihren C-Code mit dem folgenden Befehl von innerhalb Ihres neuesten Verzeichnisses (und während Sie sich in Ihrem Emscripten-Compiler-Umgebungsterminalfenster befinden). Beachten Sie, dass wir mit `NO_EXIT_RUNTIME` kompilieren müssen: andernfalls, wenn `main()` beendet ist, würde die Laufzeit heruntergefahren werden und es wäre nicht gültig, kompilierten Code aufzurufen. Dies ist notwendig für eine ordnungsgemäße C-Emulation: zum Beispiel, um sicherzustellen, dass [`atexit()`](https://en.cppreference.com/w/c/program/atexit) Funktionen aufgerufen werden.
 
    ```bash
    emcc -o hello3.html hello3.c --shell-file html_template/shell_minimal.html -s NO_EXIT_RUNTIME=1 -s "EXPORTED_RUNTIME_METHODS=['ccall']"
    ```
 
-4. Wenn Sie das Beispiel wieder in Ihrem Browser laden, sehen Sie dasselbe wie zuvor!
-5. Nun müssen wir die neue Funktion `myFunction()` aus JavaScript aufrufen. Öffnen Sie zunächst Ihre hello3.html-Datei in einem Texteditor.
-6. Fügen Sie ein {{HTMLElement("button")}}-Element wie unten gezeigt hinzu, direkt über dem ersten offenen `<script type='text/javascript'>`-Tag.
+4. Wenn Sie das Beispiel erneut in Ihrem Browser laden, sehen Sie dasselbe wie zuvor!
+5. Jetzt müssen wir unsere neue `myFunction()`-Funktion aus JavaScript ausführen. Öffnen Sie zuerst Ihre hello3.html-Datei in einem Texteditor.
+6. Fügen Sie ein {{HTMLElement("button")}}-Element, wie unten gezeigt, direkt über dem ersten öffnenden `<script type='text/javascript'>`-Tag hinzu.
 
    ```html
    <button id="my-button">Run myFunction</button>
@@ -162,11 +162,11 @@ Wenn Sie eine Funktion aufrufen möchten, die in Ihrem C-Code definiert ist, kö
    });
    ```
 
-Dies veranschaulicht, wie `ccall()` verwendet wird, um die exportierte Funktion aufzurufen.
+Das veranschaulicht, wie `ccall()` verwendet wird, um die exportierte Funktion aufzurufen.
 
 ## Siehe auch
 
-- [emscripten.org](https://emscripten.org/) — erfahren Sie mehr über Emscripten und seine Vielzahl von Optionen.
-- [Aufrufen kompilierter C-Funktionen von JavaScript aus mit ccall/cwrap](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html#calling-compiled-c-functions-from-javascript-using-ccall-cwrap)
-- [Warum verschwinden Funktionen in meinem C/C++-Quellcode, wenn ich nach JavaScript kompiliere, und/oder Ich bekomme keine Funktionen zum Verarbeiten?](https://emscripten.org/docs/getting_started/FAQ.html#why-do-functions-in-my-c-c-source-code-vanish-when-i-compile-to-javascript-and-or-i-get-no-functions-to-process)
+- [emscripten.org](https://emscripten.org/) — Erfahren Sie mehr über Emscripten und seine Vielzahl von Optionen.
+- [Komplizierte C-Funktionen aus JavaScript mit ccall/cwrap aufrufen](https://emscripten.org/docs/porting/connecting_cpp_and_javascript/Interacting-with-code.html#calling-compiled-c-functions-from-javascript-using-ccall-cwrap)
+- [Warum verschwinden Funktionen in meinem C/C++-Quellcode, wenn ich sie zu JavaScript kompiliere, und/oder warum erhalte ich Keine Funktionen zu verarbeiten Fehler?](https://emscripten.org/docs/getting_started/FAQ.html#why-do-functions-in-my-c-c-source-code-vanish-when-i-compile-to-javascript-and-or-i-get-no-functions-to-process)
 - [Ein bestehendes C-Modul zu WebAssembly kompilieren](/de/docs/WebAssembly/existing_C_to_Wasm)

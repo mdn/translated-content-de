@@ -1,20 +1,26 @@
 ---
-title: "Event: preventDefault()-Methode"
+title: "Event: preventDefault() Methode"
 short-title: preventDefault()
 slug: Web/API/Event/preventDefault
 l10n:
-  sourceCommit: a845f9d916369fc5652818416f07ed2829277a50
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`preventDefault()`**-Methode der [`Event`](/de/docs/Web/API/Event)-Schnittstelle teilt dem {{Glossary("user_agent", "Benutzeragenten")}} mit, dass die Standardaktion des Ereignisses nicht wie gewöhnlich ausgeführt werden soll, wenn das Ereignis nicht explizit behandelt wird.
+Die **`preventDefault()`** Methode des [`Event`](/de/docs/Web/API/Event)-Interfaces teilt dem {{Glossary("user_agent", "User-Agent")}} mit, dass, wenn das Ereignis nicht explizit behandelt wird, seine Standardaktion nicht wie üblich ausgeführt werden soll.
 
-Das Ereignis wird weiterhin wie gewohnt verbreitet, es sei denn, einer seiner Ereignis-Listener ruft [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation) oder [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation) auf, von denen jede die Verbreitung sofort beendet.
+Das Ereignis wird wie gewohnt fortgesetzt,
+es sei denn, einer seiner Ereignis-Listener ruft
+[`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation)
+oder [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation) auf,
+wodurch die Ausbreitung sofort beendet wird.
 
-Wie unten erwähnt, hat das Aufrufen von **`preventDefault()`** für ein nicht abbrechbares Ereignis, wie eines, das über [`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) ohne Angabe von `cancelable: true` ausgelöst wurde, keine Wirkung.
+Wie unten erwähnt, hat der Aufruf von **`preventDefault()`** für ein
+nicht abbrechbares Ereignis, wie eines, das über
+[`EventTarget.dispatchEvent()`](/de/docs/Web/API/EventTarget/dispatchEvent) gesendet wird, ohne `cancelable: true` anzugeben, keine Wirkung.
 
-Wenn ein passiver Listener `preventDefault()` aufruft, wird nichts geschehen, und möglicherweise wird eine Konsolenwarnung generiert.
+Wenn ein passiver Listener `preventDefault()` aufruft, passiert nichts und es kann eine Konsolenwarnung erzeugt werden.
 
 ## Syntax
 
@@ -24,9 +30,10 @@ event.preventDefault()
 
 ## Beispiele
 
-### Blockieren der Standard-Click-Verarbeitung
+### Blockierung der Standard-Klickverarbeitung
 
-Das Umschalten eines Kontrollkästchens ist die Standardaktion beim Klicken auf ein Kontrollkästchen. Dieses Beispiel demonstriert, wie dies verhindert werden kann:
+Das Umschalten eines Kontrollkästchens ist die Standardaktion beim Klicken auf ein Kontrollkästchen. Dieses Beispiel
+zeigt, wie dies verhindert werden kann:
 
 #### JavaScript
 
@@ -59,13 +66,14 @@ function checkboxClick(event) {
 
 {{EmbedLiveSample("Blocking_default_click_handling")}}
 
-### Verhindern, dass Tastatureingaben ein Eingabefeld erreichen
+### Verhindern, dass Tastenanschläge ein Bearbeitungsfeld erreichen
 
-Das folgende Beispiel zeigt, wie ungültige Texteingaben daran gehindert werden können, das Eingabefeld mit `preventDefault()` zu erreichen. Heutzutage sollten Sie normalerweise [native HTML-Formularvalidierung](/de/docs/Learn/Forms/Form_validation) verwenden.
+Das folgende Beispiel zeigt, wie ungültige Texteingaben mit `preventDefault()` daran gehindert werden, das Eingabefeld zu erreichen. Heutzutage sollten Sie in der Regel die [native HTML-Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation) verwenden.
 
 #### HTML
 
-Das HTML-Formular unten erfasst Benutzereingaben. Da wir nur an Tastatureingaben interessiert sind, deaktivieren wir `autocomplete`, um zu verhindern, dass der Browser das Eingabefeld mit gespeicherten Werten füllt.
+Das untenstehende HTML-Formular erfasst Benutzereingaben.
+Da wir nur an Tastenanschlägen interessiert sind, deaktivieren wir `autocomplete`, um zu verhindern, dass der Browser das Eingabefeld mit zwischengespeicherten Werten füllt.
 
 ```html
 <div class="container">
@@ -79,7 +87,8 @@ Das HTML-Formular unten erfasst Benutzereingaben. Da wir nur an Tastatureingaben
 
 #### CSS
 
-Wir verwenden etwas CSS für die Warnbox, die wir anzeigen, wenn der Benutzer eine ungültige Taste drückt:
+Wir verwenden ein wenig CSS für das Warnfeld, das wir zeichnen werden, wenn der Benutzer eine
+ungültige Taste drückt:
 
 ```css
 .warning {
@@ -94,14 +103,16 @@ Wir verwenden etwas CSS für die Warnbox, die wir anzeigen, wenn der Benutzer ei
 
 #### JavaScript
 
-Und hier ist der JavaScript-Code, der die Aufgabe erledigt. Zuerst wird auf [`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse gehört:
+Und hier ist der JavaScript-Code, der die Aufgabe erfüllt. Zuerst lauschen wir für
+[`keydown`](/de/docs/Web/API/Element/keydown_event)-Ereignisse:
 
 ```js
 const myTextbox = document.getElementById("my-textbox");
 myTextbox.addEventListener("keydown", checkName, false);
 ```
 
-Die `checkName()`-Funktion, die sich die gedrückte Taste ansieht und entscheidet, ob sie erlaubt wird:
+Die `checkName()`-Funktion prüft die gedrückte Taste und entscheidet,
+ob sie zulässig ist:
 
 ```js
 function checkName(evt) {
@@ -114,7 +125,8 @@ function checkName(evt) {
 }
 ```
 
-Die `displayWarning()`-Funktion zeigt eine Benachrichtigung über ein Problem an. Sie ist keine elegante Funktion, erledigt aber für die Zwecke dieses Beispiels ihren Job:
+Die `displayWarning()`-Funktion zeigt eine Benachrichtigung über ein Problem. Sie ist
+nicht elegant, erfüllt aber die Anforderungen für dieses Beispiel:
 
 ```js
 let warningTimeout;
@@ -142,11 +154,14 @@ function displayWarning(msg) {
 
 {{ EmbedLiveSample('Stopping_keystrokes_from_reaching_an_edit_field', 600, 200) }}
 
-## Hinweise
+## Anmerkungen
 
-Das Aufrufen von `preventDefault()` während jeder Phase des Ereignisablaufs hebt das Ereignis auf, was bedeutet, dass jede Standardaktion, die normalerweise durch die Implementierung als Ergebnis des Ereignisses ausgeführt wird, nicht stattfindet.
+Der Aufruf von `preventDefault()` in jedem Stadium des Ereignisflusses storniert das Ereignis,
+was bedeutet, dass jede Standardaktion, die normalerweise vom Implementierungsprozess als Folge des
+Ereignisses ausgeführt wird, nicht erfolgen wird.
 
-Sie können [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) verwenden, um zu überprüfen, ob das Ereignis abgebrochen werden kann. Das Aufrufen von `preventDefault()` für ein nicht abbrechbares Ereignis hat keine Wirkung.
+Sie können [`Event.cancelable`](/de/docs/Web/API/Event/cancelable) verwenden, um zu prüfen, ob das Ereignis abbruchfähig ist.
+Der Aufruf von `preventDefault()` bei einem nicht abbrechbaren Ereignis hat keine Wirkung.
 
 ## Spezifikationen
 

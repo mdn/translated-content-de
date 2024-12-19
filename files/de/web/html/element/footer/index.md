@@ -2,12 +2,12 @@
 title: "<footer>: Das Footer-Element"
 slug: Web/HTML/Element/footer
 l10n:
-  sourceCommit: bde0cb215d1d307c08678abe6623fc0d39f4cf7f
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{HTMLSidebar}}
 
-Das **`<footer>`**- [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Fußzeile für das nächstgelegene übergeordnete [Sectioning-Content](/de/docs/Web/HTML/Content_categories#sectioning_content)- oder [Sectioning-Root](/de/docs/Web/HTML/Element/Heading_Elements#labeling_section_content)-Element. Ein `<footer>` enthält typischerweise Informationen über den Autor des Abschnitts, Urheberrechtsdaten oder Links zu verwandten Dokumenten.
+Das **`<footer>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert einen Footer für seinen nächsten Vorfahren in der [Sektionsinhalt](/de/docs/Web/HTML/Content_categories#sectioning_content) oder [Sektionswurzel](/de/docs/Web/HTML/Element/Heading_Elements#labeling_section_content). Ein `<footer>` enthält typischerweise Informationen über den Autor der Sektion, Urheberrechtsdaten oder Links zu verwandten Dokumenten.
 
 {{EmbedInteractiveExample("pages/tabbed/footer.html", "tabbed-standard")}}
 
@@ -15,15 +15,15 @@ Das **`<footer>`**- [HTML](/de/docs/Web/HTML)-Element repräsentiert eine Fußze
 
 Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
-## Nutzungshinweise
+## Anwendungsnotizen
 
-- Schließen Sie Informationen über den Autor in ein {{HTMLElement("address")}}-Element ein, das in das `<footer>`-Element eingefügt werden kann.
-- Wenn das nächstgelegene übergeordnete Sectioning-Content- oder Sectioning-Root-Element das `<body>`-Element ist, bezieht sich die Fußzeile auf die gesamte Seite.
-- Das `<footer>`-Element ist kein Sectioning-Content und führt daher keinen neuen Abschnitt in der [Gliederung](/de/docs/Web/HTML/Element/Heading_Elements) ein.
+- Fügen Sie Informationen über den Autor in ein {{HTMLElement("address")}}-Element ein, das in das `<footer>`-Element aufgenommen werden kann.
+- Wenn das nächste vorangegangene Sektionsinhalt- oder Sektionswurzelelement das body-Element ist, gilt der Footer für die gesamte Seite.
+- Das `<footer>`-Element ist kein Sektionsinhalt und führt daher keinen neuen Abschnitt in der [Gliederung](/de/docs/Web/HTML/Element/Heading_Elements) ein.
 
 ## Barrierefreiheit
 
-Vor der Veröffentlichung von Safari 13 wurde die `contentinfo`-[Landmark-Rolle](/de/docs/Learn/Accessibility/WAI-ARIA_basics#signpostslandmarks) von [VoiceOver](https://help.apple.com/voiceover/info/guide/) nicht ordnungsgemäß erkannt. Wenn Sie ältere Safari-Browser unterstützen müssen, fügen Sie dem `footer`-Element `role="contentinfo"` hinzu, um sicherzustellen, dass das Landmark korrekt erkannt wird.
+Vor der Veröffentlichung von Safari 13 wurde die `contentinfo` [Landmark-Rolle](/de/docs/Learn_web_development/Core/Accessibility/WAI-ARIA_basics#signpostslandmarks) von [VoiceOver](https://help.apple.com/voiceover/info/guide/) nicht ordnungsgemäß dargestellt. Wenn Sie ältere Safari-Browser unterstützen müssen, fügen Sie `role="contentinfo"` zum `footer`-Element hinzu, um sicherzustellen, dass die Markierung ordnungsgemäß dargestellt wird.
 
 - Verwandt: [WebKit Bugzilla: 146930 – AX: HTML native elements (header, footer, main, aside, nav) should work the same as ARIA landmarks, sometimes they don't](https://webkit.org/b/146930)
 
@@ -66,35 +66,54 @@ footer {
         <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließ-Content</a>, greifbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließ-Content</a>, jedoch keine <code>&#x3C;footer></code>- oder {{HTMLElement("header")}}-Nachfahren.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>, jedoch ohne <code>&#x3C;footer></code> oder
+        {{HTMLElement("header")}} Nachkommen.
       </td>
     </tr>
     <tr>
-      <th scope="row">Tags-Auslassung</th>
-      <td>Keine, sowohl der startende als auch der endende Tag sind erforderlich.</td>
+      <th scope="row">Tag-Auslassung</th>
+      <td>Keine, sowohl das Start- als auch das Endtag sind erforderlich.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließ-Content</a> akzeptiert. Beachten Sie, dass ein <code>&#x3C;footer></code>-Element kein Nachfahre eines {{HTMLElement("address")}}, {{HTMLElement("header")}} oder eines anderen <code>&#x3C;footer></code>-Elements sein darf.
+        Jedes Element, das
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a> akzeptiert. Beachten Sie, dass ein <code>&#x3C;footer></code>-Element kein Nachkomme eines {{HTMLElement("address")}},
+        {{HTMLElement("header")}} oder eines anderen
+        <code>&#x3C;footer></code>-Elements sein darf.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizite ARIA-Rolle</th>
+      <th scope="row">Implizierte ARIA-Rolle</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/contentinfo_role">contentinfo</a>, oder <a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role">generic</a>, wenn ein Nachfahre eines <a href="/de/docs/Web/HTML/Element/article">article</a>, <a href="/de/docs/Web/HTML/Element/aside">aside</a>, <a href="/de/docs/Web/HTML/Element/main">main</a>, <a href="/de/docs/Web/HTML/Element/nav">nav</a> oder <a href="/de/docs/Web/HTML/Element/section">section</a>-Elements, oder eines Elements mit <code>role=<a href="/de/docs/Web/Accessibility/ARIA/Roles/article_role">article</a></code>, <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/complementary_role">complementary</a></code>, <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/main_role">main</a></code>, <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/navigation_role">navigation</a></code> oder <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/region_role">region</a></code>.
+        <a href="/de/docs/Web/Accessibility/ARIA/Roles/contentinfo_role">contentinfo</a>, oder
+        <a href="/de/docs/Web/Accessibility/ARIA/Roles/generic_role">generic</a>
+        wenn ein Nachkomme von einem
+        <a href="/de/docs/Web/HTML/Element/article">article</a>,
+        <a href="/de/docs/Web/HTML/Element/aside">aside</a>,
+        <a href="/de/docs/Web/HTML/Element/main">main</a>,
+        <a href="/de/docs/Web/HTML/Element/nav">nav</a> oder
+        <a href="/de/docs/Web/HTML/Element/section">section</a>-Element oder
+        ein Element mit
+        <code>role=<a href="/de/docs/Web/Accessibility/ARIA/Roles/article_role">article</a></code>,
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/complementary_role">complementary</a></code>,
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/main_role">main</a></code>,
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/navigation_role">navigation</a></code>
+        oder
+        <code><a href="/de/docs/Web/Accessibility/ARIA/Roles/region_role">region</a></code>
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
       <td>
-        <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a> oder <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>
+        <a href="/de/docs/Web/Accessibility/ARIA/Roles/group_role"><code>group</code></a>, <a href="/de/docs/Web/Accessibility/ARIA/Roles/presentation_role"><code>presentation</code></a> oder
+        <a href="/de/docs/Web/Accessibility/ARIA/Roles/none_role"><code>none</code></a>
       </td>
     </tr>
     <tr>
@@ -114,6 +133,6 @@ footer {
 
 ## Siehe auch
 
-- Andere abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("nav")}}, {{HTMLElement("article")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("section")}}, {{HTMLElement("address")}};
-- [Verwendung von HTML-Abschnitten und Gliederungen](/de/docs/Web/HTML/Element/Heading_Elements)
-- [ARIA: Contentinfo-Rolle](/de/docs/Web/Accessibility/ARIA/Roles/contentinfo_role)
+- Andere Abschnittsbezogene Elemente: {{HTMLElement("body")}}, {{HTMLElement("nav")}}, {{HTMLElement("article")}}, {{HTMLElement("aside")}}, {{HTMLElement("Heading_Elements", "h1")}}, {{HTMLElement("Heading_Elements", "h2")}}, {{HTMLElement("Heading_Elements", "h3")}}, {{HTMLElement("Heading_Elements", "h4")}}, {{HTMLElement("Heading_Elements", "h5")}}, {{HTMLElement("Heading_Elements", "h6")}}, {{HTMLElement("hgroup")}}, {{HTMLElement("header")}}, {{HTMLElement("section")}}, {{HTMLElement("address")}};
+- [Verwendung von HTML-Sektionen und Gliederungen](/de/docs/Web/HTML/Element/Heading_Elements)
+- [ARIA: Rolle Contentinfo](/de/docs/Web/Accessibility/ARIA/Roles/contentinfo_role)

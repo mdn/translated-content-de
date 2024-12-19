@@ -1,28 +1,28 @@
 ---
-title: "Element: cut Ereignis"
+title: "Element: cut Event"
 short-title: cut
 slug: Web/API/Element/cut_event
 l10n:
-  sourceCommit: c20c12fab32381b983b4148d712fda227d34e2bd
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef}}
 
-Das **`cut`** Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer über die Benutzeroberfläche des Browsers eine "Ausschneiden"-Aktion initiiert hat.
+Das **`cut`**-Ereignis der [Clipboard API](/de/docs/Web/API/Clipboard_API) wird ausgelöst, wenn der Benutzer eine "Ausschneiden"-Aktion über die Benutzeroberfläche des Browsers initiiert hat.
 
-Wenn der Benutzer versucht, eine Ausschneideaktion auf nicht editierbarem Inhalt durchzuführen, wird das `cut` Ereignis dennoch ausgelöst, aber das Ereignisobjekt enthält keine Daten.
+Wenn der Benutzer versucht, eine Ausschneideaktion auf nicht bearbeitbarem Inhalt durchzuführen, wird das `cut`-Ereignis trotzdem ausgelöst, aber das Ereignisobjekt enthält keine Daten.
 
-Die Standardaktion des Ereignisses besteht darin, die aktuelle Auswahl (falls vorhanden) in die Zwischenablage des Systems zu kopieren und aus dem Dokument zu entfernen.
+Die Standardaktion des Ereignisses besteht darin, die aktuelle Auswahl (falls vorhanden) in die Systemzwischenablage zu kopieren und sie aus dem Dokument zu entfernen.
 
-Ein Handler für dieses Ereignis kann den Inhalt der Zwischenablage _modifizieren_, indem er [`setData(format, data)`](/de/docs/Web/API/DataTransfer/setData) auf der [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData) Eigenschaft des Ereignisses aufruft und die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbricht.
+Ein Handler für dieses Ereignis kann die Inhalte der Zwischenablage _modifizieren_, indem er [`setData(format, data)`](/de/docs/Web/API/DataTransfer/setData) auf der [`ClipboardEvent.clipboardData`](/de/docs/Web/API/ClipboardEvent/clipboardData)-Eigenschaft des Ereignisses aufruft und die Standardaktion mit [`event.preventDefault()`](/de/docs/Web/API/Event/preventDefault) abbricht.
 
-Beachten Sie jedoch, dass das Abbrechen der Standardaktion auch verhindert, dass das Dokument aktualisiert wird. Daher muss ein Ereignishandler, der die Standardaktion für "Ausschneiden" nachahmen möchte, während er die Zwischenablage modifiziert, auch manuell die Auswahl aus dem Dokument entfernen.
+Beachten Sie jedoch, dass das Abbrechen der Standardaktion auch verhindert, dass das Dokument aktualisiert wird. Ein Ereignishandler, der die Standardaktion für "Ausschneiden" emulieren möchte, während er die Zwischenablage modifiziert, muss daher auch manuell die Auswahl aus dem Dokument entfernen.
 
 Der Handler kann die Daten der Zwischenablage nicht _lesen_.
 
-Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `cut` Ereignis zu konstruieren und auszulösen, aber dies hat keine Auswirkungen auf die System-Zwischenablage oder den Inhalt des Dokuments.
+Es ist möglich, ein [synthetisches](/de/docs/Web/Events/Creating_and_triggering_events) `cut`-Ereignis zu erstellen und auszulösen, aber dies wird weder die Systemzwischenablage noch den Inhalt des Dokuments beeinflussen.
 
-Dieses Ereignis [bubbles](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling), ist [cancelable](/de/docs/Web/API/Event/cancelable) und ist [composed](/de/docs/Web/API/Event/composed).
+Dieses Ereignis [bubbliciert](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling), ist [stornierbar](/de/docs/Web/API/Event/cancelable) und ist [komponiert](/de/docs/Web/API/Event/composed).
 
 ## Syntax
 
@@ -90,5 +90,5 @@ source.addEventListener("cut", (event) => {
 ## Siehe auch
 
 - Verwandte Ereignisse: [`copy`](/de/docs/Web/API/Element/copy_event), [`paste`](/de/docs/Web/API/Element/paste_event)
-- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document) Zielen: [`cut`](/de/docs/Web/API/Document/cut_event)
-- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window) Zielen: [`cut`](/de/docs/Web/API/Window/cut_event)
+- Dieses Ereignis auf [`Document`](/de/docs/Web/API/Document)-Zielen: [`cut`](/de/docs/Web/API/Document/cut_event)
+- Dieses Ereignis auf [`Window`](/de/docs/Web/API/Window)-Zielen: [`cut`](/de/docs/Web/API/Window/cut_event)

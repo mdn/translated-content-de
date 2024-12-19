@@ -1,16 +1,16 @@
 ---
-title: CSS-Mehrspaltenlayout
+title: CSS Mehrspalten-Layout
 slug: Web/CSS/CSS_multicol_layout
 l10n:
-  sourceCommit: a99e16d819b055ae85b5786cd647a03239826421
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
-Das **CSS-Mehrspaltenlayout**-Modul ermöglicht es Ihnen, Inhalte über mehrere Spalten zu verteilen. Durch die Verwendung der Eigenschaften dieses Moduls können Sie die bevorzugte Anzahl und Breite der Spalten, die Lückenbreite zwischen den Spalten und das visuelle Erscheinungsbild der optionalen spaltentrennenden Linien (bekannt als Spaltenregeln) festlegen. Sie können auch definieren, wie Inhalte von Spalte zu Spalte fließen und wie Inhalte zwischen Spalten unterbrochen werden sollen.
+Das **CSS Mehrspalten-Layout** Modul ermöglicht es Ihnen, Inhalte auf mehrere Spalten zu verteilen. Mit den Eigenschaften dieses Moduls können Sie die bevorzugte Anzahl und Breite der Spalten, die Größe des Abstands zwischen den Spalten und das visuelle Erscheinungsbild der optionalen Trennlinien (bekannt als Spaltenregeln) definieren. Sie können auch festlegen, wie der Inhalt von Spalte zu Spalte fließen soll und wie Inhalte zwischen Spalten gebrochen werden sollen.
 
-## Mehrspaltenlayout in Aktion
+## Mehrspalten-Layout in Aktion
 
-In diesem Beispiel wird die Rede von 1967 zum kanadischen Jubiläum, _A Lament for Confederation_, von Chief Dan George, über mehrere Spalten verteilt dargestellt, ähnlich wie Artikel in gedruckten Zeitungen angezeigt werden. Wenn Sie JavaScript aktiviert haben, können Sie die bevorzugte Spaltenanzahl und -breite, die Breite des Abstands zwischen den Spalten, ob der Titel und ein Beispiel-Blockzitat in einer einzigen Spalte enthalten oder über alle Spalten hinweg erstreckt werden sollen, und ob das Brechen innerhalb der Absätze vermieden werden soll, ändern.
+In diesem Beispiel wird die Rede von 1967 zum hundertjährigen Bestehen Kanadas, _A Lament for Confederation_, von Chief Dan George, über mehrere Spalten hinweg angezeigt, ähnlich wie Artikel in gedruckten Zeitungen. Wenn JavaScript aktiviert ist, ermöglichen Steuerungselemente, die bevorzugte Spaltenanzahl und -breite, die Breite des Zwischenraums zwischen den Spalten sowie, ob der Titel und ein Beispiel-Blockzitat in einer einzigen Spalte enthalten oder über alle Spalten hinweg gespannt sein sollen, und ob ein Unterbrechen innerhalb der Absätze vermieden werden soll.
 
 ```html hidden live-sample___multicol
 <article>
@@ -265,7 +265,7 @@ blockquote p::after {
 {{EmbedLiveSample("multicol", "", "800px")}}
 
 > [!NOTE]
-> Mehrspaltenlayout ist eng verwandt mit [Paginierte Medien](/de/docs/Web/CSS/CSS_paged_media). Jede Spaltenbox ist ein Fragment, ähnlich wie jede gedruckte Seite ein Fragment eines Dokuments ist. Mithilfe der im [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul definierten Eigenschaften können Sie steuern, wie Inhalte zwischen Spalten und Seiten unterbrochen werden.
+> Mehrspalten-Layout steht in engem Zusammenhang mit [Seitenmedien](/de/docs/Web/CSS/CSS_paged_media). Jede Spaltenbox ist ein Fragment, ähnlich wie jede gedruckte Seite ein Fragment eines Dokuments ist. Mit den im [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul definierten Eigenschaften können Sie steuern, wie Inhalte zwischen Spalten und Seiten gebrochen werden.
 
 ## Referenz
 
@@ -277,41 +277,41 @@ blockquote p::after {
 - {{cssxref("column-fill")}}
 - {{cssxref("column-gap")}}
 - {{cssxref("column-span")}}
-- {{cssxref("column-rule")}} Kurzschreibweise
+- {{cssxref("column-rule")}} Kurzform
   - {{cssxref("column-rule-color")}}
   - {{cssxref("column-rule-style")}}
   - {{cssxref("column-rule-width")}}
-- {{cssxref("columns")}} Kurzschreibweise
+- {{cssxref("columns")}} Kurzform
   - {{cssxref("column-count")}}
   - {{cssxref("column-width")}}
 
 > [!NOTE]
-> Bedenken Sie, dass das Festlegen der Containerhöhe und der Zeilenlänge Herausforderungen für Menschen mit visuellen oder kognitiven Behinderungen darstellen kann. [WCAG Erfolgskriterium 1.4.8](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) besagt, dass auch bei Verdopplung der Textgröße der Inhalt nicht gescrollt werden muss.
+> Beachten Sie, dass das Festlegen der Containerhöhe und Zeilenlänge Herausforderungen für Personen mit visuellen oder kognitiven Behinderungen darstellen kann. [WCAG Erfolgskriterium 1.4.8](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.4_make_it_easier_for_users_to_see_and_hear_content_including_separating_foreground_from_background) besagt, dass selbst wenn die Textgröße verdoppelt wird, Inhalte nicht gescrollt werden müssen sollten.
 
 ## Leitfäden
 
-- [Grundkonzepte des Mehrspaltenlayouts](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
-  - : Ein Überblick über die Mehrspaltenlayout-Spezifikation
-- [Verwendung von Mehrspaltenlayouts](/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts)
-  - : Leitfaden zur Verwendung von Mehrspalteneigenschaften zur Textgestaltung.
-- [Styling von Spalten](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns)
-  - : Wie man Spaltenregeln verwendet und den Abstand zwischen Spalten verwaltet.
-- [Spannweite und Balance](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
-  - : Wie man Elemente über alle Spalten hinweg erstrecken und die Füllweise der Spalten steuern kann.
-- [Umgang mit Überlauf im Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout)
-  - : Was passiert, wenn ein Element die Spalte, in der es sich befindet, überläuft und was passiert, wenn zu viel Spalteninhalt vorhanden ist, um in einen Container zu passen.
-- [Umgang mit Inhaltsumbrüchen im Mehrspaltenlayout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout)
-  - : Einführung in die Fragmentierungsspezifikation und wie man steuert, wo Spalteninhalte unterbrochen werden.
+- [Grundkonzepte des Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+  - : Ein Überblick über die Mehrspalten-Layout-Spezifikation
+- [Verwendung von Mehrspalten-Layouts](/de/docs/Web/CSS/CSS_multicol_layout/Using_multicol_layouts)
+  - : Anleitung zur Verwendung von Mehrspalteneigenschaften zur Textlayoutgestaltung.
+- [Spalten stylen](/de/docs/Web/CSS/CSS_multicol_layout/Styling_columns)
+  - : Wie man Spaltenregeln verwendet und den Abstand zwischen den Spalten verwaltet.
+- [Spannen und Ausbalancieren](/de/docs/Web/CSS/CSS_multicol_layout/Spanning_balancing_columns)
+  - : Wie man Elemente über alle Spalten hinweg spannt und steuert, wie Spalten gefüllt werden.
+- [Umgang mit Überlauf im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_overflow_in_multicol_layout)
+  - : Was passiert, wenn ein Element die Spalte, in der es sich befindet, überläuft und was passiert, wenn zu viel Spalteninhalt nicht in einen Container passt.
+- [Umgang mit Inhaltsumbrüchen im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_multicol_layout/Handling_content_breaks_in_multicol_layout)
+  - : Einführung in die Fragmentierungsspezifikation und wie man steuert, wo Spalteninhalte gebrochen werden.
 
 ## Verwandte Konzepte
 
-- {{cssxref("orphans")}} CSS Eigenschaft
-- {{cssxref("widows")}} CSS Eigenschaft
-- {{cssxref("overflow")}} CSS Eigenschaft
-- {{cssxref("gap")}} CSS Eigenschaft
-- {{cssxref("height")}}, {{cssxref("max-height")}}, und {{cssxref("block-size")}} CSS Eigenschaften
-- {{cssxref("width")}}, {{cssxref("max-width")}}, und {{cssxref("inline-size")}} CSS Eigenschaften
-- {{cssxref("line-style")}} aufgezählte Datentypen
+- {{cssxref("orphans")}} CSS-Eigenschaft
+- {{cssxref("widows")}} CSS-Eigenschaft
+- {{cssxref("overflow")}} CSS-Eigenschaft
+- {{cssxref("gap")}} CSS-Eigenschaft
+- {{cssxref("height")}}, {{cssxref("max-height")}}, und {{cssxref("block-size")}} CSS-Eigenschaften
+- {{cssxref("width")}}, {{cssxref("max-width")}}, und {{cssxref("inline-size")}} CSS-Eigenschaften
+- {{cssxref("line-style")}} enumerierte Datentyp
 - [Blockformatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context) Leitfaden
 
 ## Spezifikationen
@@ -320,8 +320,8 @@ blockquote p::after {
 
 ## Siehe auch
 
-- [Lernen: Mehrspaltenlayout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout)
-- [CSS-Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
-- [CSS Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
-- [CSS Grid-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout)
+- [CSS Fragmentierung](/de/docs/Web/CSS/CSS_fragmentation) Modul
+- [CSS Flexibler Box-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS Raster-Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
 - [CSS Seitenmedien](/de/docs/Web/CSS/CSS_paged_media) Modul

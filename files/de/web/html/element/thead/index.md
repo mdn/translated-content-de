@@ -1,61 +1,61 @@
 ---
-title: "<thead>: Das Table Head Element"
+title: "<thead>: Das Tabellenkopfelement"
 slug: Web/HTML/Element/thead
 l10n:
-  sourceCommit: 5bd9fe2b25c6eee2a14d0406ce7116998fa48c13
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{HTMLSidebar}}
 
-Das **`<thead>`** [HTML](/de/docs/Web/HTML) Element umfasst eine Gruppe von Tabellenzeilen ({{HTMLElement("tr")}} Elementen), die anzeigen, dass sie den Kopf einer Tabelle bilden, der Informationen über die Spalten der Tabelle enthält. Dies erfolgt gewöhnlich in Form von Spaltenüberschriften ({{HTMLElement("th")}} Elemente).
+Das **`<thead>`** [HTML](/de/docs/Web/HTML) Element umfasst eine Gruppe von Tabellenzeilen ({{HTMLElement("tr")}} Elemente) und zeigt an, dass sie den Kopf einer Tabelle bilden und Informationen über die Tabellenspalten enthalten. Dies erfolgt normalerweise in Form von Spaltenüberschriften ({{HTMLElement("th")}} Elemente).
 
 {{EmbedInteractiveExample("pages/tabbed/thead.html","tabbed-taller")}}
 
 ## Attribute
 
-Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 ### Veraltete Attribute
 
-Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier zu Referenzzwecken dokumentiert, um bestehenden Code zu aktualisieren und aus historischem Interesse.
+Die folgenden Attribute sind veraltet und sollten nicht verwendet werden. Sie sind hier dokumentiert für Referenzzwecke bei der Aktualisierung bestehender Codebasis und aus historischem Interesse.
 
 - `align` {{deprecated_inline}}
 
-  - : Gibt die horizontale Ausrichtung jeder Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `left`, `center`, `right`, `justify`, und `char`. Wenn unterstützt, richtet der `char` Wert den Textinhalt auf dem durch das Attribut [`char`](#char) definierten Zeichen und dem durch das Attribut [`charoff`](#charoff) definierten Offset aus. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die horizontale Ausrichtung jeder Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `left`, `center`, `right`, `justify` und `char`. Wenn unterstützt, richtet der Wert `char` den Textinhalt an dem Zeichen aus, das im [`char`](#char) Attribut definiert ist, sowie am Versatz, der durch das [`charoff`](#charoff) Attribut definiert ist. Verwenden Sie stattdessen die {{cssxref("text-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `bgcolor` {{deprecated_inline}}
 
-  - : Definiert die Hintergrundfarbe jeder Kopfzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger Hexadezimal-RGB-Code](/de/docs/Web/CSS/hex-color), mit einem `#`-Präfix, oder ein [Farb-Schlüsselwort](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt")}} Werte werden nicht unterstützt. Verwenden Sie stattdessen die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Definiert die Hintergrundfarbe jeder Kopfzelle. Der Wert ist eine HTML-Farbe; entweder ein [6-stelliger hexadezimaler RGB-Code](/de/docs/Web/CSS/hex-color), der mit einem `#` vorangestellt ist, oder ein [Farbname](/de/docs/Web/CSS/named-color). Andere CSS {{cssxref("color_value", "&lt;color&gt")}} Werte werden nicht unterstützt. Verwenden Sie stattdessen die {{cssxref("background-color")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 - `char` {{deprecated_inline}}
 
-  - : Hat keine Funktion. Es war ursprünglich vorgesehen, die Ausrichtung des Inhalts auf ein Zeichen jeder Kopfzelle anzugeben. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
+  - : Hat keine Funktion. Es war ursprünglich dafür gedacht, die Ausrichtung des Inhalts an einem Charakter für jede Kopfzelle zu spezifizieren. Wenn [`align`](#align) nicht auf `char` gesetzt ist, wird dieses Attribut ignoriert.
 
 - `charoff` {{deprecated_inline}}
 
-  - : Hat keine Funktion. Es war ursprünglich vorgesehen, die Anzahl der Zeichen anzugeben, um die der Kopfzellinhalt von dem durch das Attribut [`char`](#char) festgelegten Ausrichtungssymbol versetzt wird.
+  - : Hat keine Funktion. Es war ursprünglich dafür gedacht, die Anzahl der Zeichen anzugeben, um die der Kopfzelleninhalt von dem durch das [`char`](#char) Attribut angegebenen Ausrichtungszeichen versetzt wird.
 
 - `valign` {{deprecated_inline}}
 
-  - : Gibt die vertikale Ausrichtung jeder Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufzählbaren")}} Werte sind `baseline`, `bottom`, `middle`, und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
+  - : Gibt die vertikale Ausrichtung jeder Kopfzelle an. Die möglichen {{Glossary("enumerated", "aufgezählten")}} Werte sind `baseline`, `bottom`, `middle` und `top`. Verwenden Sie stattdessen die {{cssxref("vertical-align")}} CSS-Eigenschaft, da dieses Attribut veraltet ist.
 
 ## Verwendungshinweise
 
-- Das `<thead>` wird nach allen {{HTMLElement("caption")}} und {{HTMLElement("colgroup")}} Elementen platziert, aber vor allen {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}}, und {{HTMLElement("tr")}} Elementen.
-- Zusammen mit den verwandten {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}} Elementen bietet das `<thead>`-Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann sowohl für die Bildschirm- als auch für die Druckwiedergabe verwendet werden. Die Spezifizierung solcher Tabelleninhaltsgruppen liefert auch wertvolle kontextuelle Informationen für unterstützende Technologien, einschließlich Screenreader und Suchmaschinen.
-- Beim Drucken eines Dokuments gibt der Tabellenkopf normalerweise Informationen an, die auf jeder Seite gleich bleiben, im Falle einer mehrseitigen Tabelle.
+- Das `<thead>` wird nach allen {{HTMLElement("caption")}} und {{HTMLElement("colgroup")}} Elementen, aber vor allen {{HTMLElement("tbody")}}, {{HTMLElement("tfoot")}} und {{HTMLElement("tr")}} Elementen platziert.
+- Zusammen mit den damit verbundenen {{HTMLElement("tbody")}} und {{HTMLElement("tfoot")}} Elementen bietet das `<thead>`-Element nützliche {{Glossary("semantics", "semantische")}} Informationen und kann sowohl für die Bildschirm- als auch für die Druckwiedergabe verwendet werden. Die Angabe solcher Tischinhaltgruppen bietet auch wertvolle Kontextinformationen für Hilfstechnologien, einschließlich Screenreadern und Suchmaschinen.
+- Beim Drucken eines Dokuments gibt der Tabellkopf in der Regel Informationen an, die bei einer mehrseitigen Tabelle auf jeder Seite gleich bleiben.
 
 ## Beispiele
 
-Sehen Sie {{HTMLElement("table")}} für ein vollständiges Tabellbeispiel, das allgemeine Standards und beste Praktiken einführt.
+Siehe {{HTMLElement("table")}} für ein vollständiges Tabellenbeispiel, das allgemeine Standards und bewährte Praktiken einführt.
 
-### Grundlegende Struktur des Kopfbereichs
+### Grundlegende Kopfstruktur
 
-Dieses Beispiel zeigt eine Tabelle, die in einen Kopfbereich mit Spaltenüberschriften und einen Körperbereich mit den Hauptdaten der Tabelle unterteilt ist.
+Dieses Beispiel zeigt eine Tabelle, die in einen Kopfbereich mit Spaltenüberschriften und einen Hauptteil mit den Hauptdaten der Tabelle unterteilt ist.
 
 #### HTML
 
-Die `<thead>` und {{HTMLElement("tbody")}}-Elemente werden verwendet, um die Tabellenzeilen in {{Glossary("semantics", "semantische")}} Abschnitte zu unterteilen. Das `<thead>`-Element repräsentiert den Kopfbereich der Tabelle, der eine Zeile ({{HTMLElement("tr")}}) von Spaltenüberschriftenzellen ({{HTMLElement("th")}}) enthält.
+Die `<thead>`- und {{HTMLElement("tbody")}}-Elemente werden verwendet, um die Tabellenzeilen in {{Glossary("semantics", "semantische")}} Abschnitte zu strukturieren. Das `<thead>`-Element repräsentiert den Kopfbereich der Tabelle, der eine Zeile ({{HTMLElement("tr")}}) von Spaltenüberschriftenzellen ({{HTMLElement("th")}}) enthält.
 
 ```html
 <table>
@@ -92,7 +92,7 @@ Die `<thead>` und {{HTMLElement("tbody")}}-Elemente werden verwendet, um die Tab
 
 #### CSS
 
-Einige grundlegende CSS wird verwendet, um den Tabellenkopf zu gestalten und hervorzuheben, damit die Überschriften der Spalten sich von den Daten im Tabellenkörper abheben.
+Einige grundlegende CSS-Stile werden verwendet, um den Tabellenkopf zu gestalten und hervorzuheben, sodass die Überschriften der Spalten sich von den Daten im Tabellenkörper abheben.
 
 ```css
 thead {
@@ -131,13 +131,13 @@ tbody > tr > td:last-of-type {
 
 {{EmbedLiveSample("Basic_head_structure", 650, 140)}}
 
-### Mehrere Kopfzeilenzeilen
+### Mehrere Kopfzeilen
 
-Dieses Beispiel zeigt einen Kopfbereich der Tabelle mit zwei Zeilen.
+Dieses Beispiel zeigt einen Tabellenkopfabschnitt mit zwei Zeilen.
 
 #### HTML
 
-In diesem Beispiel erweitern wir das Markup der Tabelle aus dem [Grundbeispiel](#grundlegende_struktur_des_kopfbereichs) durch das Einfügen von zwei Tabellenzeilen ({{HTMLElement("tr")}}) innerhalb des `<thead>`-Elements, wodurch ein mehrzeiliger Tabellenkopf entsteht. Wir haben eine zusätzliche Spalte hinzugefügt, die die Vornamen und Nachnamen der Studierenden aufteilt.
+Wir erweitern das Markup der Tabelle aus dem [Grundbeispiel](#grundlegende_kopfstruktur) in diesem Beispiel, indem wir zwei Tabellenzeilen ({{HTMLElement("tr")}}) innerhalb des `<thead>`-Elements einfügen und so einen mehrzeiligen Tabellenkopf erstellen. Wir haben eine zusätzliche Spalte eingefügt und die Namen der Studenten in Vor- und Nachnamen aufgeteilt.
 
 ```html
 <table>
@@ -179,17 +179,17 @@ In diesem Beispiel erweitern wir das Markup der Tabelle aus dem [Grundbeispiel](
 </table>
 ```
 
-#### Zellenüberspannung
+#### Zellüberspannung
 
-Um die Kopfzellen mit den richtigen Spalten und Zeilen zu verknüpfen und auszurichten, werden die Attribute [`colspan`](/de/docs/Web/HTML/Element/th#colspan) und [`rowspan`](/de/docs/Web/HTML/Element/th#rowspan) auf den {{HTMLElement("th")}}-Elementen verwendet. Die in diesen Attributen festgelegten Werte spezifizieren, wie viele Zellen jede Kopfzelle ({{HTMLElement("th")}}) überspannt. Aufgrund der Art und Weise, wie diese Attribute gesetzt sind, sind die beiden zweiten Zeilenüberschriftenzellen mit den Spalten, die sie leiten, ausgerichtet. Diese überspannen jeweils eine Zeile und eine Spalte, da die Standardwerte für die Attribute [`colspan`](/de/docs/Web/HTML/Element/th#colspan) und [`rowspan`](/de/docs/Web/HTML/Element/th#rowspan) beide `1` sind.
+Um die Überschriftenzellen korrekt mit den entsprechenden Spalten und Zeilen zuzuordnen und auszurichten, werden die Attribute [`colspan`](/de/docs/Web/HTML/Element/th#colspan) und [`rowspan`](/de/docs/Web/HTML/Element/th#rowspan) auf den {{HTMLElement("th")}} Elementen verwendet. Die in diesen Attributen gesetzten Werte geben an, wie viele Zellen jede Überschriftenzelle ({{HTMLElement("th")}}) überspannt. Aufgrund der Art und Weise, wie diese Attribute gesetzt sind, sind die beiden Kopfzeilen der zweiten Zeile mit den Spalten, die sie anführen, ausgerichtet. Diese erstrecken sich jeweils über eine Zeile und eine Spalte, da die Standardwerte für die Attribute [`colspan`](/de/docs/Web/HTML/Element/th#colspan) und [`rowspan`](/de/docs/Web/HTML/Element/th#rowspan) beide `1` sind.
 
-Das Spalten- und Zeilenüberspannen, das durch dieses Beispiel demonstriert wird, wird in der folgenden Abbildung veranschaulicht:
+Die in diesem Beispiel demonstrierte Spalten- und Zeilenüberspannung wird in der folgenden Abbildung veranschaulicht:
 
-![Illustration, die das Spalten- und Zeilenüberspannen von Tabellenzellen zeigt: Zellen 1, 3 und 4 überspannen jeweils eine Spalte und zwei Zeilen; Zelle 2 überspannt zwei Spalten und eine Zeile; Zellen 5 und 6 überspannen jeweils eine einzelne Zeile und Spalte, passen in die verfügbaren Zellen, die die zweite und dritte Spalte in der zweiten Zeile sind](column-row-span.png)
+![Illustration, die die Spalten- und Zeilenüberspannung von Tabellenzellen zeigt: Zellen 1, 3 und 4 überspannen jeweils eine Spalte und zwei Zeilen; Zelle 2 überspannt zwei Spalten und eine Zeile; Zellen 5 und 6 überspannen jeweils eine einzelne Zeile und Spalte und passen in die verfügbaren Zellen, die die zweite und dritte Spalte in der zweiten Zeile sind](column-row-span.png)
 
 #### CSS
 
-Das CSS bleibt unverändert vom [vorherigen Beispiel](#grundlegende_struktur_des_kopfbereichs).
+Das CSS bleibt unverändert gegenüber dem [vorherigen Beispiel](#grundlegende_kopfstruktur).
 
 ```css hidden
 thead {
@@ -225,7 +225,7 @@ tbody > tr > td:last-of-type {
 
 {{EmbedLiveSample("Multiple_head_rows", 650, 180)}}
 
-## Technische Übersicht
+## Technische Zusammenfassung
 
 <table class="properties">
   <tbody>
@@ -238,27 +238,27 @@ tbody > tr > td:last-of-type {
       <td>Keine.</td>
     </tr>
     <tr>
-      <th scope="row">Erlaubter Inhalt</th>
+      <th scope="row">Zulässiger Inhalt</th>
       <td>Null oder mehr {{HTMLElement("tr")}} Elemente.</td>
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
       <td>
         Das Start-Tag ist obligatorisch. Das End-Tag kann weggelassen werden, wenn das
-        <code>&lt;thead&gt;</code> Element sofort von einem
+        <code>&lt;thead&gt;</code> Element unmittelbar von einem
         {{HTMLElement("tbody")}} oder {{HTMLElement("tfoot")}}
         Element gefolgt wird.
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte Eltern</th>
+      <th scope="row">Zulässige Elternelemente</th>
       <td>
         Ein {{HTMLElement("table")}} Element. Das
         <code>&lt;thead&gt;</code> muss nach allen
         {{HTMLElement("caption")}} und
-        {{HTMLElement("colgroup")}} Elementen erscheinen, auch implizit definiert,
+        {{HTMLElement("colgroup")}} Elementen erscheinen, auch wenn sie implizit definiert sind,
         aber vor allen {{HTMLElement("tbody")}},
-        {{HTMLElement("tfoot")}}, und {{HTMLElement("tr")}}
+        {{HTMLElement("tfoot")}} und {{HTMLElement("tr")}}
         Elementen.
       </td>
     </tr>
@@ -273,7 +273,7 @@ tbody > tr > td:last-of-type {
       </td>
     </tr>
     <tr>
-      <th scope="row">Erlaubte ARIA-Rollen</th>
+      <th scope="row">Zulässige ARIA-Rollen</th>
       <td>Beliebig</td>
     </tr>
     <tr>
@@ -293,9 +293,9 @@ tbody > tr > td:last-of-type {
 
 ## Siehe auch
 
-- [Lernen: HTML-Tables](/de/docs/Learn/HTML/Tables)
+- [Learn: HTML table basics](/de/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics)
 - {{HTMLElement("caption")}}, {{HTMLElement("col")}}, {{HTMLElement("colgroup")}}, {{HTMLElement("table")}}, {{HTMLElement("tbody")}}, {{HTMLElement("td")}}, {{HTMLElement("tfoot")}}, {{HTMLElement("th")}}, {{HTMLElement("tr")}}: Andere tabellenbezogene Elemente
-- {{cssxref("background-color")}}: CSS-Eigenschaft zum Setzen der Hintergrundfarbe für jede Kopfzelle
-- {{cssxref("border")}}: CSS-Eigenschaft zur Steuerung der Ränder von Kopfzellen
-- {{cssxref("text-align")}}: CSS-Eigenschaft zur horizontalen Ausrichtung des Inhalts jeder Kopfzelle
-- {{cssxref("vertical-align")}}: CSS-Eigenschaft zur vertikalen Ausrichtung des Inhalts jeder Kopfzelle
+- {{cssxref("background-color")}}: CSS-Eigenschaft, um die Hintergrundfarbe jeder Kopfzelle festzulegen
+- {{cssxref("border")}}: CSS-Eigenschaft, um die Ränder der Kopfzellen zu steuern
+- {{cssxref("text-align")}}: CSS-Eigenschaft, um den Inhalt jeder Kopfzelle horizontal auszurichten
+- {{cssxref("vertical-align")}}: CSS-Eigenschaft, um den Inhalt jeder Kopfzelle vertikal auszurichten

@@ -2,7 +2,7 @@
 title: ":out-of-range"
 slug: Web/CSS/:out-of-range
 l10n:
-  sourceCommit: 4cb569f768ec9529724f8fb06539f2903a583a41
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
@@ -11,10 +11,10 @@ Die **`:out-of-range`** [CSS](/de/docs/Web/CSS) [Pseudoklasse](/de/docs/Web/CSS/
 
 {{EmbedInteractiveExample("pages/tabbed/pseudo-class-out-of-range.html", "tabbed-shorter")}}
 
-Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Wert eines Feldes außerhalb der erlaubten Grenzen liegt.
+Diese Pseudoklasse ist nützlich, um dem Benutzer visuell anzuzeigen, dass der aktuelle Feldwert außerhalb der erlaubten Grenzen liegt.
 
 > [!NOTE]
-> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und annehmen können). Ohne eine solche Beschränkung kann das Element weder "in-range" noch "out-of-range" sein.
+> Diese Pseudoklasse gilt nur für Elemente, die eine Bereichsbeschränkung haben (und aufnehmen können). Ohne eine solche Beschränkung kann ein Element weder "in-range" noch "out-of-range" sein.
 
 ## Syntax
 
@@ -92,4 +92,4 @@ input:out-of-range + label::after {
 ## Siehe auch
 
 - {{cssxref(":in-range")}}
-- [Überprüfung von Formulardaten](/de/docs/Learn/Forms/Form_validation)
+- [Formulardatenvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

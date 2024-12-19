@@ -3,12 +3,12 @@ title: "CSSLayerBlockRule: name-Eigenschaft"
 short-title: name
 slug: Web/API/CSSLayerBlockRule/name
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`name`**-Eigenschaft des [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)-Interfaces repräsentiert den Namen der zugehörigen Kaskadenschicht.
+Die schreibgeschützte **`name`**-Eigenschaft der [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)-Schnittstelle stellt den Namen der zugehörigen Kaskadenschicht dar.
 
 ## Wert
 
@@ -72,5 +72,5 @@ item2.textContent = `A second CSSLayerBlockRule defines a layer with the followi
 
 ## Siehe auch
 
-- Die Deklaration einer {{cssxref("@layer")}}-Anweisung wird durch eine [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule) dargestellt.
-- Anleitung zum [Erstellen benannter Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#creating_cascade_layers) in CSS.
+- Die Deklaration der Anweisung eines {{cssxref("@layer")}} wird durch eine [`CSSLayerStatementRule`](/de/docs/Web/API/CSSLayerStatementRule) dargestellt.
+- Anleitung zum [Erstellen benannter Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#creating_cascade_layers) in CSS.

@@ -1,39 +1,38 @@
 ---
-title: Die MDN Content Kitchensink
+title: Die MDN Inhaltssammlung
 slug: MDN/Kitchensink
 l10n:
-  sourceCommit: 41a27d6c0f8e44f1b9a3dabddd9315655b367b77
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 > [!WARNING]
-> Löschen Sie diese Seite nicht. Sie wird von [mdn/yari](https://github.com/mdn/yari) für deren Automatisierung verwendet.
+> Löschen Sie diese Seite nicht. Sie wird von [mdn/yari](https://github.com/mdn/yari) für die Automatisierung verwendet.
 
 ## Über diese Seite
 
-Der **kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und Yari-Makro zu integrieren.
+Der **Kitchensink** ist eine Seite, die _versucht_, jedes mögliche Inhaltselement und Yari-Makro zu integrieren.
 
-Diese Seite versucht, der komplette Schnittpunkt jeder anderen Seite zu sein. Nicht in Bezug auf den Text, sondern in Bezug auf die Stile und Makros.
-Lassen Sie uns mit einigen Anmerkungen beginnen...
+Diese Seite versucht, das vollständige Schnittpunkt von jeder anderen Seite zu sein. Nicht in Bezug auf den Text, sondern in Bezug auf die Stile und Makros. Lassen Sie uns mit einigen Notizen beginnen...
 
-Text, der das `<kbd>`-Tag verwendet: <kbd>Umschalt</kbd>
+Text, der das `<kbd>`-Tag verwendet: <kbd>Shift</kbd>
 
 > [!NOTE]
-> Hier ist eine Blockanzeige-Notiz.
+> Hier ist eine Block-Notiz.
 
 > [!WARNING]
-> Hier ist eine Blockanzeige-Warnung.
+> Hier ist eine Block-Warnung.
 
-## Vorherige/Nächste-Schaltflächen
+## Vorher/Nachher-Schaltflächen
 
 {{PreviousMenuNext("Games/Techniques/Control_mechanisms/Desktop_with_mouse_and_keyboard", "Games/Techniques/Control_mechanisms/Other", "Games/Techniques/Control_mechanisms")}}
 
-### Ein weiteres Beispiel…
+### Eine andere…
 
 {{PreviousNext("Games/Workflows/2D_Breakout_game_Phaser/Extra_lives", "Games/Workflows/2D_Breakout_game_Phaser/Buttons")}}
 
-## Code-Beispiele
+## Code-Schnipsel
 
-### Klartext
+### Reiner Text
 
 ```plain
   ___________________________
@@ -114,15 +113,15 @@ class BookListView(generic.ListView):
 
 ### Markdown-Tabelle
 
-| Konstanter Name              | Wert   | Beschreibung                                                                                       |
-| ---------------------------- | ------ | -------------------------------------------------------------------------------------------------- |
-| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die verwendet werden, um das Abfrageergebnis für das gegebene Ziel zu halten. |
-| `CURRENT_QUERY_EXT`          | 0x8865 | Die derzeit aktive Abfrage.                                                                        |
-| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                               |
-| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein Boolean, der anzeigt, ob ein Abfrageergebnis verfügbar ist.                                    |
-| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                               |
-| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                                 |
-| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein Boolean, der anzeigt, ob die GPU eine unzusammenhängende Operation ausgeführt hat.             |
+| Name der Konstante           | Wert   | Beschreibung                                                          |
+| ---------------------------- | ------ | --------------------------------------------------------------------- |
+| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die für die Abfrageergebnisse des gegebenen Ziels verwendet werden. |
+| `CURRENT_QUERY_EXT`          | 0x8865 | Die aktuell aktive Abfrage.                                           |
+| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                  |
+| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein booleanischer Wert, der angibt, ob ein Abfrageergebnis verfügbar ist. |
+| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                  |
+| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                    |
+| `GPU_DISJOINT_EXT`           | 0x8FBB | Ein booleanischer Wert, der angibt, ob die GPU eine getrennte Operation durchgeführt hat. |
 
 ### HTML-Tabelle
 
@@ -133,14 +132,14 @@ class BookListView(generic.ListView):
         <a href="/de/docs/Web/HTML/Content_categories">Inhaltskategorien</a>
       </th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Flussinhalt</a>,
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasierungsinhalt</a>, fühlbarer Inhalt.
+        <a href="/de/docs/Web/HTML/Content_categories#flow_content">Fließender Inhalt</a>,
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Formulierungsinhalt</a>, fassbarer Inhalt.
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubter Inhalt</th>
       <td>
-        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasierungsinhalt</a>.
+        <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Formulierungsinhalt</a>.
       </td>
     </tr>
     <tr>
@@ -150,18 +149,18 @@ class BookListView(generic.ListView):
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
-        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Phrasierungsinhalt</a> akzeptiert.
+        Jedes Element, das <a href="/de/docs/Web/HTML/Content_categories#phrasing_content">Formulierungsinhalt</a> akzeptiert.
       </td>
     </tr>
     <tr>
-      <th scope="row">Implizierte ARIA-Rolle</th>
+      <th scope="row">Implizite ARIA-Rolle</th>
       <td>
         <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role">Keine entsprechende Rolle</a>
       </td>
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Beliebige</td>
+      <td>Beliebig</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -184,9 +183,9 @@ class BookListView(generic.ListView):
   <tbody>
     <tr>
       <td><code>width</code></td>
-      <td>Eine positive ganze Zahl oder der Text <code>device-width</code></td>
+      <td>Eine positive Ganzzahl oder der Text <code>device-width</code></td>
       <td>
-        Definiert die Pixelbreite des Viewports, bei der Sie möchten, dass die Webseite gerendert wird.
+        Definiert die Pixelbreite des Viewports, bei der die Website gerendert werden soll.
       </td>
     </tr>
     <tr>
@@ -194,7 +193,8 @@ class BookListView(generic.ListView):
       <td><code>yes</code> oder <code>no</code></td>
       <td>
         Wenn auf <code>no</code> gesetzt, kann der Benutzer nicht in die Webseite hineinzoomen.
-        Der Standardwert ist <code>yes</code>. Browsereinstellungen können diese Regel ignorieren und iOS10+ ignoriert sie standardmäßig.
+        Standard ist <code>yes</code>. Browsereinstellungen können diese Regel ignorieren,
+        und iOS10+ ignoriert sie standardmäßig.
       </td>
     </tr>
     <tr>
@@ -205,11 +205,11 @@ class BookListView(generic.ListView):
           Der Wert <code>auto</code> beeinflusst das anfängliche Layout-Viewport nicht, und die gesamte Webseite ist sichtbar.
         </p>
         <p>
-          Der Wert <code>contain</code> bedeutet, dass der Viewport so skaliert wird, dass er das größte Rechteck im Display vergrößert.
+          Der Wert <code>contain</code> bedeutet, dass der Viewport skaliert wird, um das größte in die Anzeige eingeschriebene Rechteck anzupassen.
         </p>
         <p>
-          Der Wert <code>cover</code> bedeutet, dass der Viewport so skaliert wird, dass er das Gerätedisplay ausfüllt.
-          Es wird dringend empfohlen, die <a href="/de/docs/Web/CSS/env">sicheren Bereichsvariablen</a> zu verwenden, um sicherzustellen, dass wichtiger Inhalt nicht außerhalb des Displays landet.
+          Der Wert <code>cover</code> bedeutet, dass der Viewport skaliert wird, um die Gerätedisplay zu füllen. Es wird dringend empfohlen, die
+          <a href="/de/docs/Web/CSS/env">safe area inset</a> Variablen zu verwenden, um sicherzustellen, dass wichtiger Inhalt nicht außerhalb der Anzeige landet.
         </p>
       </td>
     </tr>
@@ -218,27 +218,23 @@ class BookListView(generic.ListView):
 
 ## Jedes Makro unter der Sonne
 
-**Nun ja, fast jedes Makro. Hoffentlich nur die, die aktiv verwendet werden.**
+**Nun, fast jedes Makro. Hoffentlich nur diejenigen, die aktiv verwendet werden.**
 
 Ein {{Glossary("HTTP", "HTTP")}}-Fehlercode, der "Bad Gateway" bedeutet.
 
-Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (Zwischenschritt) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, übergeordneten Server fungieren.
-Wenn Sie anfordern, auf eine {{Glossary("URL", "URL")}} zuzugreifen, kann der Gateway-Server Ihre Anfrage an den übergeordneten Server weiterleiten.
-"502" bedeutet, dass der übergeordnete Server eine ungültige Antwort zurückgegeben hat.
+Ein {{Glossary("Server", "Server")}} kann als Gateway oder Proxy (Vermittler) zwischen einem Client (wie Ihrem Webbrowser) und einem anderen, stromaufwärts gelegenen Server fungieren. Wenn Sie versuchen, auf eine {{Glossary("URL", "URL")}} zuzugreifen, kann der Gateway-Server Ihre Anfrage an den stromaufwärts gelegenen Server weiterleiten. "502" bedeutet, dass der stromaufwärts gelegene Server eine ungültige Antwort zurückgegeben hat.
 
 - JavaScript {{jsxref("Array")}} auf MDN
 
-Das Lauschen auf Mausbewegungen ist sogar noch einfacher als das Lauschen auf Tastendrücke: alles, was wir brauchen, ist das Event für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
+Das Abhören von Mausbewegungen ist sogar noch einfacher als das Abhören von Tastendrücken: Wir benötigen lediglich den Listener für das [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignis.
 
 ## Browser-Kompatibilität
 
 {{Compat}}
 
-## Achsen-ausgerichtete Begrenzungsbox
+## Achsenbündige Begrenzungsbox
 
-Eine der einfacheren Formen der Kollisionserkennung ist die zwischen zwei Rechtecken, die achsen-ausgerichtet sind — das bedeutet keine Drehung.
-Der Algorithmus funktioniert, indem sichergestellt wird, dass es keine Lücke zwischen den 4 Seiten der Rechtecke gibt.
-Jede Lücke bedeutet, dass keine Kollision besteht.
+Eine der einfacheren Formen der Kollisionserkennung erfolgt zwischen zwei Rechtecken, die achsenparallel sind — d. h. ohne Rotation. Der Algorithmus funktioniert, indem sichergestellt wird, dass es keine Lücke zwischen den 4 Seiten der Rechtecke gibt. Jede Lücke bedeutet, dass keine Kollision existiert.
 
 ```js
 var rect1 = { x: 5, y: 5, width: 50, height: 50 };
@@ -260,7 +256,7 @@ if (5 < 30 && 55 > 20 && 5 < 20 && 55 > 10) {
 }
 ```
 
-### Rechteckcode
+### Rechteck-Code
 
 ```html
 <div id="cr-stage"></div>
@@ -309,8 +305,8 @@ this.color("blue");
 
 {{EmbedGHLiveSample("web-tech-games/index.html", '100%', 820)}}
 
-- [Zugängliche Ressourcen bei MDN](/de/docs/Web/Accessibility)
-- [Webbarrierefreiheit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
+- [Barrierefreiheitsressourcen bei MDN](/de/docs/Web/Accessibility)
+- [Web-Barrierefreiheit](https://en.wikipedia.org/wiki/Web_accessibility) auf Wikipedia
 
 Das [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascript/macros/AvailableInWorkers.ejs)-Makro fügt ein lokalisiertes Hinweisfeld ein, das anzeigt, dass eine Funktion im Kontext eines [Webarbeiters](/de/docs/Web/API/Web_Workers_API) verfügbar ist.
 
@@ -330,10 +326,8 @@ Das [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascript/macr
 <!---->
 
 - Erstellen Sie ein {{htmlelement("canvas")}}-Element und setzen Sie dessen `width`- und `height`-Attribute auf die ursprüngliche, kleinere Auflösung.
-- Setzen Sie dessen CSS-{{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf das Zwei- oder Vierfache des Werts der HTML-`width`- und `height`.
-  Wenn das Canvas mit einer Breite von 128 Pixeln erstellt wurde, würden wir die CSS-`width` auf `512px` setzen, wenn wir eine 4x-Skalierung wollten.
-- Setzen Sie die `image-rendering`-CSS-Eigenschaft des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht unscharf macht.
-  Entweder `crisp-edges` oder `pixelated` funktioniert. Lesen Sie den Artikel zu {{cssxref("image-rendering")}}, um weitere Informationen über die Unterschiede zwischen diesen Werten und die zu verwendenden Präfixe in Abhängigkeit vom Browser zu erhalten.
+- Setzen Sie dessen CSS-{{cssxref("width")}}- und {{cssxref("height")}}-Eigenschaften auf das 2- oder 4-fache des Wertes der HTML-Attribute `width` und `height`. Wenn das Canvas-Beispiel mit einer Breite von 128 Pixel erstellt wurde, würden wir die CSS-Breite auf `512px` setzen, wenn wir eine Skalierung im 4-fachen wünschen.
+- Setzen Sie die CSS-Eigenschaft `image-rendering` des {{htmlelement("canvas")}}-Elements auf einen Wert, der das Bild nicht verschwommen erscheinen lässt. Entweder `crisp-edges` oder `pixelated` funktionieren. Lesen Sie den Artikel über {{cssxref("image-rendering")}}, um mehr über die Unterschiede zwischen diesen Werten zu erfahren und welche Präfixe je nach Browser verwendet werden sollen.
 
 <!---->
 
@@ -342,11 +336,11 @@ Das [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascript/macr
   - {{Glossary("XMLHttpRequest", "XHR")}}
 
 - [AJAX](https://en.wikipedia.org/wiki/AJAX) auf Wikipedia
-- [Ajax](/de/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
+- [Lernen: Netzwerk-Anfragen mit JavaScript stellen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
 - [`XMLHttpRequest`](/de/docs/Web/API/XMLHttpRequest)
 - [`Fetch API`](/de/docs/Web/API/Fetch_API)
 - [Verwendung der Fetch API](/de/docs/Web/API/Fetch_API/Using_Fetch)
-- [Synchron vs. Asynchron-Kommunikation](https://peoplesofttutorial.com/difference-between-synchronous-and-asynchronous-messaging/)
+- [Synchron vs. asynchron Kommunikation](https://peoplesofttutorial.com/difference-between-synchronous-and-asynchronous-messaging/)
 
 <!---->
 
@@ -360,8 +354,8 @@ Das [`AvailableInWorkers`](https://github.com/mdn/yari/blob/main/kumascript/macr
 ## Typen
 
 - {{WebExtAPIRef("alarms.Alarm")}}
-  - : Informationen zu einem bestimmten Alarm.
+  - : Informationen über einen bestimmten Alarm.
 
 {{Non-standard_Header}}
 {{Deprecated_Header}}
-[![Iceberg pic](iceberg.jpg)](iceberg.jpg)
+[![Eisberg Bild](iceberg.jpg)](iceberg.jpg)

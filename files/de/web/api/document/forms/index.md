@@ -1,23 +1,23 @@
 ---
-title: "Document: forms-Eigenschaft"
+title: "Dokument: forms-Eigenschaft"
 short-title: forms
 slug: Web/API/Document/forms
 l10n:
-  sourceCommit: be8f7f155a48e11b30c240f8731afb1845f85378
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("DOM")}}
 
-Die schreibgeschützte **`forms`**-Eigenschaft des [`Document`](/de/docs/Web/API/Document)-Interfaces gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle im Dokument enthaltenen {{HTMLElement("form")}}-Elemente auflistet.
+Die schreibgeschützte **`forms`**-Eigenschaft der [`Document`](/de/docs/Web/API/Document)-Schnittstelle gibt eine [`HTMLCollection`](/de/docs/Web/API/HTMLCollection) zurück, die alle {{HTMLElement("form")}}-Elemente im Dokument auflistet.
 
 > [!NOTE]
-> Ähnlich können Sie auf eine Liste der Benutzerkomponenten-Eingabeelemente eines Formulars mithilfe der [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft zugreifen.
+> Sie können auf ähnliche Weise eine Liste der Benutzereingabe-Komponenten eines Formulars über die [`HTMLFormElement.elements`](/de/docs/Web/API/HTMLFormElement/elements)-Eigenschaft zugreifen.
 
 ## Wert
 
 Ein [`HTMLCollection`](/de/docs/Web/API/HTMLCollection)-Objekt, das alle Formulare des Dokuments auflistet. Jedes Element in der Sammlung ist ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement), das ein einzelnes `<form>`-Element darstellt.
 
-Wenn das Dokument keine Formulare enthält, ist die zurückgegebene Sammlung leer und hat eine Länge von null.
+Falls das Dokument keine Formulare enthält, ist die zurückgegebene Sammlung leer und hat eine Länge von null.
 
 ## Beispiele
 
@@ -97,5 +97,5 @@ const selectFormElement = document.forms[index].elements[index];
 
 ## Siehe auch
 
-- [HTML-Formulare](/de/docs/Learn/Forms)
-- {{HTMLElement("form")}} und das [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interface
+- [HTML-Formulare](/de/docs/Learn_web_development/Extensions/Forms)
+- {{HTMLElement("form")}} und die [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Schnittstelle

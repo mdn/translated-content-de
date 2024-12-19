@@ -1,17 +1,17 @@
 ---
-title: "HTMLFormElement: checkValidity() Methode"
+title: "HTMLFormElement: Methode checkValidity()"
 short-title: checkValidity()
 slug: Web/API/HTMLFormElement/checkValidity
 l10n:
-  sourceCommit: 2b29051262aa05ce9a630d0dd2d6958f493abe19
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`** Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob alle zugehörigen Steuerelemente alle auf sie angewendeten [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) Regeln erfüllen. Die Methode löst auch ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event) Ereignis für jedes ungültige Element aus, jedoch nicht für das Formularelement selbst. Da es kein Standardverhalten des Browsers für `checkValidity()` gibt, hat das Abbrechen dieses `invalid` Ereignisses keinen Effekt.
+Die **`checkValidity()`**-Methode des [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Interfaces gibt einen booleschen Wert zurück, der angibt, ob alle zugehörigen Steuerelemente alle darauf angewendeten [Einschränkungsvalidierungsregeln](/de/docs/Web/HTML/Constraint_validation) erfüllen. Die Methode löst auch ein [`invalid`](/de/docs/Web/API/HTMLElement/invalid_event)-Ereignis bei jedem ungültigen Element aus, jedoch nicht beim Formular-Element selbst. Da es kein standardmäßiges Browser-Verhalten für `checkValidity()` gibt, hat das Abbrechen dieses `invalid`-Ereignisses keine Auswirkungen.
 
 > [!NOTE]
-> Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden auf `<form>` Elemente basierend auf der Gültigkeit der dazugehörigen Formularelemente angewendet, nicht auf die Gültigkeit des `<form>` Elements selbst.
+> Die {{cssxref(":valid")}}- und {{cssxref(":invalid")}}-CSS-Pseudoklassen werden auf `<form>`-Elemente basierend auf der Gültigkeit der zugehörigen Formularsteuerelemente angewendet, nicht auf die Gültigkeit des `<form>`-Elements selbst.
 
 ## Syntax
 
@@ -48,5 +48,5 @@ console.log(element.checkValidity());
 
 - [`HTMLFormElement.reportValidity()`](/de/docs/Web/API/HTMLFormElement/reportValidity)
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

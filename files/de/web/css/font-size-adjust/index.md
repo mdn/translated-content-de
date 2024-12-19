@@ -2,14 +2,14 @@
 title: font-size-adjust
 slug: Web/CSS/font-size-adjust
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`font-size-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, die Größe der Kleinbuchstaben relativ zur Größe der Großbuchstaben zu ändern, was die allgemeine {{cssxref("font-size")}} definiert. Diese Eigenschaft ist nützlich in Situationen, in denen ein Rückfall auf andere Schriftarten erfolgen kann.
+Die **`font-size-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft bietet eine Möglichkeit, die Größe der Kleinbuchstaben relativ zur Größe der Großbuchstaben zu ändern, was die gesamte {{cssxref("font-size")}} definiert. Diese Eigenschaft ist nützlich in Situationen, in denen ein Font-Fallback auftreten kann.
 
-Die Lesbarkeit kann problematisch werden, wenn die bevorzugte {{ Cssxref("font-family") }} nicht verfügbar ist und die Ersatzschriftart einen deutlich anderen Aspektwert (Höhe der Kleinbuchstaben geteilt durch Schriftgröße) hat. Die Lesbarkeit von Schriftarten, insbesondere bei kleinen Schriftgrößen, wird eher durch die Größe der Kleinbuchstaben als durch die Größe der Großbuchstaben bestimmt. Die Eigenschaft `font-size-adjust` ist nützlich, um die Schriftgröße von Ersatzschriftarten anzupassen, um den Aspektwert über Schriftarten hinweg konsistent zu halten und sicherzustellen, dass der Text unabhängig von der verwendeten Schriftart ähnlich aussieht.
+Die Lesbarkeit kann ein Problem sein, wenn die bevorzugte {{cssxref("font-family")}} nicht verfügbar ist und die Ersatzschriftart einen signifikant anderen Aspektwert hat (Höhe der Kleinbuchstaben geteilt durch die Schriftgröße). Die Lesbarkeit von Schriften, insbesondere bei kleinen Schriftgrößen, wird mehr durch die Größe der Kleinbuchstaben als durch die Größe der Großbuchstaben bestimmt. Die `font-size-adjust` Eigenschaft ist nützlich, um die Schriftgröße von Ersatzschriften anzupassen und den Aspektwert über Schriften hinweg konsistent zu halten, sodass der Text unabhängig von der verwendeten Schrift ähnlich erscheint.
 
 ## Syntax
 
@@ -35,46 +35,46 @@ font-size-adjust: unset;
 
 ### Werte
 
-Die Eigenschaft `font-size-adjust` akzeptiert als Wert das Schlüsselwort `none`, einen (`<number>` oder `from-font`) oder zwei Werte (`<font-metric>` und entweder `<number>` oder `from-font`).
+Die `font-size-adjust` Eigenschaft nimmt als Wert das Schlüsselwort `none`, einen (`<number>` oder `from-font`), oder zwei (`<font-metric>` und entweder `<number>` oder `from-font`) Werte an.
 
 - `none`
-  - : Es wird keine Anpassung des `font-size`-Werts für die Ersatzschriftart vorgenommen.
+  - : Es wird keine Anpassung an den `font-size` Wert der Ersatzschrift vorgenommen.
 - `<font-metric>` {{optional_inline}}
 
-  - : Gibt das erste zu verwendende Schriftmetriken an, um die Schriftgröße der Ersatzschriftart anzupassen. Dieser Parameter akzeptiert eines der unten aufgeführten Schlüsselwörter. Es ist ein optionaler Parameter, und `ex-height` wird verwendet, wenn kein `<font-metric>` angegeben ist.
+  - : Gibt die bevorzugte Schriftmetrik an, die zur Anpassung der Schriftgröße der Ersatzschrift verwendet werden soll. Dieser Parameter akzeptiert eines der unten aufgeführten Schlüsselwörter. Es ist ein optionaler Parameter, und `ex-height` wird verwendet, wenn keine `<font-metric>` angegeben ist.
 
     - `ex-height`
-      - : Verwendet das Verhältnis der x-Höhe (Höhe des Kleinbuchstabens "x" in einer Schrift) zur Schriftgröße (Aspektwert), um die Ersatzschriftgröße anzupassen. Dieser Schlüsselwortwert wird verwendet, um Kleinbuchstaben über Schriftarten hinweg zu normalisieren.
+      - : Verwendet das Verhältnis von x-Höhe (Höhe des Kleinbuchstabens "x" in einer Schrift) zu Schriftgröße (Aspektwert), um die Ersatzschriftgröße anzupassen. Dieser Schlüsselwortwert wird verwendet, um Kleinbuchstaben über Schriften hinweg zu normalisieren.
     - `cap-height`
-      - : Verwendet das Verhältnis der cap-Höhe (Höhe der Großbuchstaben) zur Schriftgröße, um die Ersatzschriftgröße anzupassen. Dieser Schlüsselwortwert wird verwendet, um Großbuchstaben über Schriftarten hinweg zu normalisieren.
+      - : Verwendet das Verhältnis von Cap-Höhe (Höhe der Großbuchstaben) zu Schriftgröße, um die Ersatzschriftgröße anzupassen. Dieser Schlüsselwortwert wird verwendet, um Großbuchstaben über Schriften hinweg zu normalisieren.
     - `ch-width`
-      - : Verwendet das Verhältnis der Vorabreite (horizontaler Platz, den ein Zeichen in einer Schrift einnimmt) des Zeichens "0" (NULL, U+0030) zur Schriftgröße. Dieser Schlüsselwortwert wird verwendet, um die horizontale enge Teilung von Schriftarten zu normalisieren.
+      - : Verwendet das Verhältnis der Laufweite (horizontaler Platz, den ein Zeichen in einer Schrift einnimmt) des Zeichens "0" (NULL, U+0030) zur Schriftgröße. Dieser Schlüsselwortwert wird verwendet, um die horizontale schmale Dickte von Schriften zu normalisieren.
     - `ic-width`
-      - : Verwendet das Verhältnis der Vorabreite des Zeichens "水" (CJK Wasser-Ideogramm, U+6C34) zur Schriftgröße. Dieser Schlüsselwortwert wird verwendet, um die horizontale weite Teilung von Schriftarten zu normalisieren, insbesondere solche mit CJK (Chinesisch, Japanisch, Koreanisch) Zeichen.
+      - : Verwendet das Verhältnis der Laufweite des Zeichens "水" (CJK Wasserideogramm, U+6C34) zur Schriftgröße. Dieser Schlüsselwortwert wird verwendet, um die horizontale breite Dickte von Schriften, insbesondere solcher, die CJK (Chinesisch, Japanisch, Koreanisch) Zeichen enthalten, zu normalisieren.
     - `ic-height`
-      - : Verwendet das Verhältnis der Vorurteil (vertikaler Platz, den ein Zeichen in einer Schrift einnimmt) des Zeichens "水" (CJK Wasser-Ideogramm, U+6C34) zur Schriftgröße. Dieser Schlüsselwortwert wird verwendet, um die vertikale weite Teilung von Schriftarten zu normalisieren, insbesondere solche mit CJK-Zeichen.
+      - : Verwendet das Verhältnis der Schreibhöhe (vertikaler Raum, den ein Zeichen in einer Schrift einnimmt) des Zeichens "水" (CJK Wasserideogramm, U+6C34) zur Schriftgröße. Dieser Schlüsselwortwert wird verwendet, um die vertikale breite Dickte von Schriften, insbesondere solcher, die CJK Zeichen enthalten, zu normalisieren.
 
 - {{cssxref("&lt;number&gt;")}}
 
-  - : Passt die verwendete Schriftgröße entsprechend dem angegebenen `<font-metric>` an. Wenn kein `<font-metric>` angegeben ist (in diesem Fall wird der Standardwert `ex-height` verwendet), passt der `<number>`-Wert die Schriftgröße der Ersatzschriftart so an, dass ihre x-Höhe das angegebene Vielfache der Schriftgröße ist. Dieser Wert sollte in der Regel dem Aspektwert (Verhältnis der x-Höhe zur Schriftgröße) der bevorzugten Schriftart entsprechen. Dies bedeutet, dass die bevorzugte Schriftart, wenn verfügbar, konsistent in allen Browsern angezeigt wird, unabhängig von ihrer Unterstützung für `font-size-adjust`.
+  - : Passt die verwendete Schriftgröße je nach angegebener `<font-metric>` an. Wenn keine `<font-metric>` angegeben ist (wobei der Standardwert `ex-height` verwendet wird), passt der `<number>` Wert die Schriftgröße der Ersatzschrift so an, dass ihre x-Höhe das angegebene Vielfache der Schriftgröße ist. Dieser Wert sollte im Allgemeinen dem Aspektwert (Verhältnis von x-Höhe zu Schriftgröße) der bevorzugten Schrift entsprechen. Dies bedeutet, dass die bevorzugte Schrift, wenn sie verfügbar ist, unabhängig von der Unterstützung der Browser für `font-size-adjust` konsistent angezeigt wird.
 
-    Wenn ein `<font-metric>`-Wert angegeben ist, passt der `<number>`-Wert die Schriftgröße entsprechend dem gewählten `<font-metric>` an, um ein konsistentes Erscheinungsbild für die angegebene Schriftmetrik über verschiedene Schriftarten hinweg zu erhalten.
+    Wenn ein `<font-metric>` Wert angegeben ist, passt der `<number>` Wert die Schriftgröße gemäß der gewählten `<font-metric>` an, um ein konsistentes Erscheinungsbild für die angegebene Schriftmetrik über verschiedene Schriften hinweg zu gewährleisten.
 
-    Der `<number>`-Wert akzeptiert jede Zahl von `0` bis unendlich. `0` ergibt Text mit null Höhe (das heißt, der Text ist verborgen). Negative Werte sind ungültig.
+    Der `<number>` Wert akzeptiert jede Zahl von `0` bis unendlich. `0` ergibt Text von null Höhe (das heißt, der Text ist versteckt). Negative Werte sind ungültig.
 
 - `from-font`
-  - : Verwendet den `<number>`-Wert für das angegebene `<font-metric>` aus der ersten verfügbaren Schriftart.
+  - : Verwendet den `<number>` Wert für die angegebene `<font-metric>` aus der ersten verfügbaren Schrift.
 
 ## Beschreibung
 
-Um die Kompatibilität mit Browsern zu gewährleisten, die `font-size-adjust` nicht unterstützen, wird diese Eigenschaft als numerischer Multiplikator der {{cssxref("font-size")}} Eigenschaft angegeben. Diese Zahl sollte in der Regel dem Aspektwert der ersten wahl Schriftart entsprechen.
+Um die Kompatibilität mit Browsern zu gewährleisten, die `font-size-adjust` nicht unterstützen, wird diese Eigenschaft als numerischer Multiplikator der {{cssxref("font-size")}} Eigenschaft angegeben. Diese Zahl sollte im Allgemeinen dem Aspektwert der bevorzugten Schrift entsprechen.
 
 > [!NOTE]
-> Wenn das angegebene `<font-metric>` in [`@font-face`](/de/docs/Web/CSS/@font-face) überschrieben wurde, z.B. durch Verwendung des [`size-adjust`](/de/docs/Web/CSS/@font-face/size-adjust) Deskriptors, dann wird die überschriebene Metrik in der Berechnung von `font-size-adjust` verwendet. Dies bedeutet, dass, wenn `font-size-adjust` und `size-adjust` zusammen angewendet werden, `size-adjust` keine Wirkung hat.
+> Wenn die angegebene `<font-metric>` in [`@font-face`](/de/docs/Web/CSS/@font-face) überschrieben wurde, z.B. durch die Verwendung des [`size-adjust`](/de/docs/Web/CSS/@font-face/size-adjust) Descriptors, wird die überschriebenen Metrik in der `font-size-adjust` Berechnung verwendet. Das bedeutet, dass wenn `font-size-adjust` und `size-adjust` zusammen angewendet werden, `size-adjust` keine Wirkung hat.
 
 Die angepasste Schriftgröße wird mit der Formel `u  =  ( m / m′ ) s` berechnet, wobei:
 
-- `m` das Verhältnis der angegebenen `<font-metric>` zur ersten Schriftgröße ist.
+- `m` das Verhältnis der angegebenen `<font-metric>` zur bevorzugten Schriftgröße ist.
 
 - `m′` das Verhältnis der entsprechenden `<font-metric>` zur Ersatzschriftgröße ist.
 
@@ -82,7 +82,7 @@ Die angepasste Schriftgröße wird mit der Formel `u  =  ( m / m′ ) s` berechn
 
 - `u` die neue, angepasste Schriftgröße für die Ersatzschrift ist.
 
-Betrachten Sie dieses Beispiel, um zu sehen, wie die angepasste Schriftgröße berechnet wird. Eine bevorzugte Schriftart hat eine `font-size` von `12px` (`s`), und das Verhältnis der `cap-height` zur Schriftgröße ist `0.20` (`m`). Das `cap-height` zur Schriftgröße Verhältnis bei der Ersatzschrift ist `0.15` (`m′`). Der `font-size-adjust` Wert wurde als `cap-height 0.20` angegeben. Wenn die primäre Schriftart nicht verfügbar ist, wird die angepasste Schriftgröße der Ersatzschrift mit `16px` (`(0.20 / 0.15) * 12`) berechnet. Dies stellt sicher, dass die `cap-height` der Ersatzschrift ähnlich der der ersten Schriftart erscheint.
+Betrachten Sie dieses Beispiel, um zu sehen, wie die angepasste Schriftgröße berechnet wird. Eine bevorzugte Schrift hat eine `font-size` von `12px` (`s`), und das Verhältnis von `cap-height` zur Schriftgröße beträgt `0.20` (`m`). Das Verhältnis von `cap-height` zur Schriftgröße in der Ersatzschrift beträgt `0.15` (`m′`). Der `font-size-adjust` Wert wurde als `cap-height 0.20` angegeben. Wenn die primäre Schrift nicht verfügbar ist, wird die angepasste Schriftgröße der Ersatzschrift auf `16px` (`(0.20 / 0.15) * 12`) berechnet. Dies stellt sicher, dass die `cap-height` der Ersatzschrift derjenigen der bevorzugten Schrift ähnelt, wenn sie angezeigt wird.
 
 ## Formale Definition
 
@@ -94,11 +94,11 @@ Betrachten Sie dieses Beispiel, um zu sehen, wie die angepasste Schriftgröße b
 
 ## Beispiele
 
-### Normalisierung der Schriftgröße durch Klein- und Großbuchstaben
+### Normalisierung der Schriftgröße durch Kleinbuchstaben und Großbuchstaben
 
-Dieses Beispiel zeigt, wie die `font-size-adjust` Eigenschaft verwendet werden kann, um den gleichen Aspektwert über Schriftarten hinweg beizubehalten. Die Verdana-Schrift hat einen relativ hohen Aspektwert von `0.545`, was bedeutet, dass die Kleinbuchstaben im Verhältnis zu den Großbuchstaben relativ groß sind. Dadurch erscheint der Text bei kleinen Schriftgrößen lesbar. Die Times-Schrift hingegen hat einen niedrigeren Aspektwert von `0.447`, sodass der Text bei kleinen Größen weniger lesbar ist. Wenn Verdana die bevorzugte Schrift ist und Times die Ersatzschrift, kann die Angabe der `font-size-adjust` Eigenschaft dazu beitragen, den gleichen Aspektwert bei Times beizubehalten. Wenn also auf Times zurückgegriffen wird, behält der Text ein ähnliches Maß an Lesbarkeit bei, wie er es bei Verdana hätte.
+Dieses Beispiel zeigt, wie die `font-size-adjust` Eigenschaft verwendet werden kann, um den gleichen Aspektwert über Schriften hinweg beizubehalten. Die Verdana-Schrift hat einen relativ hohen Aspektwert von `0.545`, was bedeutet, dass die Kleinbuchstaben relativ hoch im Vergleich zu den Großbuchstaben sind. Dadurch erscheint der Text in kleinen Schriftgrößen lesbar. Die Times-Schrift hat jedoch einen niedrigeren Aspektwert von `0.447`, sodass der Text bei kleinen Größen weniger lesbar ist. Wenn Verdana die bevorzugte Schrift ist und Times die Ersatzschrift, kann das Angeben der `font-size-adjust` Eigenschaft helfen, den gleichen Aspektwert in Times beizubehalten. Wenn die Schrift auf Times zurückfällt, wird der Text ein ähnliches Maß an Lesbarkeit beibehalten, wie es mit Verdana der Fall wäre.
 
-Ähnlich ist das Verhältnis von `cap-height` zur Schriftgröße in Verdana `0.73` und in Times `0.66`. Wenn die `font-size-adjust` Eigenschaft auf Times angewendet wird, um ihre Großbuchstaben an das Verhältnis in Verdana anzupassen, wird die Times-Schrift mit angepasster Schriftgröße ((0.73 / 0.66) \* 14) `15.48px` angezeigt.
+In ähnlicher Weise ist das Verhältnis von Cap-Höhe zur Schriftgröße in Verdana `0.73` und in Times `0.66`. Wenn die `font-size-adjust` Eigenschaft auf Times angewendet wird, um ihre Großbuchstaben an das Verhältnis in Verdana anzupassen, zeigt die Times-Schrift eine angepasste Schriftgröße von ((0.73 / 0.66) \* 14) `15.48px`.
 
 ```html
 <p class="verdana">
@@ -139,18 +139,17 @@ Dieses Beispiel zeigt, wie die `font-size-adjust` Eigenschaft verwendet werden k
 }
 ```
 
-{{ EmbedLiveSample('Normalisierung der Schriftgröße durch Klein- und Großbuchstaben', 500, 200) }}
+{{ EmbedLiveSample('Normalisierung der Schriftgröße durch Kleinbuchstaben und Großbuchstaben', 500, 200) }}
 
-Ohne `font-size-adjust` in `B` könnte der Wechsel von der Verdana-Schrift zur Times-Schrift zu einem merklichen Rückgang der Lesbarkeit führen, da ihr Aspektwert niedriger ist.
-In `C`, beachten Sie, dass nur ein Wert für die `font-size-adjust` Eigenschaft angegeben ist, sodass der Standardwert `<font-metric>` `ex-height` verwendet wird. `D` zeigt, wie die Schrift im Vergleich zu `A` aussehen würde, wenn ihre Großbuchstabenhöhe angepasst wird.
+Ohne `font-size-adjust` in `B` könnte der Wechsel von Verdana Schrift zu Times Schrift zu einem merklichen Rückgang der Lesbarkeit aufgrund des niedrigeren Aspektwerts führen. In `C` beachten Sie, dass nur ein Wert für die `font-size-adjust` Eigenschaft angegeben wird, sodass der Standard `<font-metric>` Wert `ex-height` verwendet wird. `D` zeigt, wie die Schrift im Vergleich zu `A` aussehen würde, wenn ihre Großbuchstaben-Höhe angepasst wird.
 
-### Bestimmung des Aspektwerts einer Schriftart
+### Bestimmung des Aspektwerts einer Schrift
 
-Für eine gegebene Schriftart können zwei nebeneinanderstehende [`<span>`](/de/docs/Web/HTML/Element/span) Elemente verwendet werden, um den Aspektwert der Schriftart zu bestimmen. Wenn für den Inhalt in beiden Spans die gleiche Schriftgröße verwendet wird, stimmen die Spans überein, wenn der `font-size-adjust`-Wert in einem Span für die gegebene Schriftart korrekt ist.
+Für eine gegebene Schrift kann derselbe Inhalt in zwei nebeneinander liegenden [`<span>`](/de/docs/Web/HTML/Element/span) Elementen verwendet werden, um den Aspektwert der Schrift zu bestimmen. Wenn für den Inhalt in beiden Spans dieselbe Schriftgröße verwendet wird, passen die Spans zueinander, wenn der `font-size-adjust` Wert in einem Span für die gegebene Schrift genau ist.
 
-Im untenstehenden Beispiel gibt es drei Paare von nebeneinanderstehenden `<span>`-Elementen, die jeweils den Buchstaben "b" enthalten. Das Ziel ist es, die `font-size-adjust` Eigenschaft für das rechte `<span>` in jedem Paar anzupassen, bis der Rahmen um die beiden Buchstaben übereinstimmt. Der resultierende `font-size-adjust`-Wert kann als Aspektwert für die Schriftart betrachtet werden.
+Im folgenden Beispiel gibt es drei Paare von nebeneinander liegenden `<span>` Elementen, die jeweils den Buchstaben "b" enthalten. Das Ziel ist, die `font-size-adjust` Eigenschaft für den rechten `<span>` in jedem Paar so anzupassen, bis die Rahmen um die beiden Buchstaben übereinstimmen. Der resultierende `font-size-adjust` Wert kann als Aspektwert für die Schrift angesehen werden.
 
-Beginnend bei `0.6` im ersten Paar und Anpassung auf `0.5` im zweiten, passen wir den Wert der `font-size-adjust` Eigenschaft weiter an, bis die Rahmen um die "b" Buchstaben im dritten Paar perfekt übereinstimmen. In diesem Beispiel wird der Aspektwert als `0.482` bestimmt.
+Ausgehend von `0.6` im ersten Paar und Anpassung auf `0.5` im zweiten, passen wir den `font-size-adjust` Eigenschaftswert weiter an, bis die Rahmen um die "b" Buchstaben im dritten Paar perfekt übereinanderliegen. In diesem Beispiel wird der Aspektwert als `0.482` bestimmt.
 
 ```html
 <div>
@@ -214,7 +213,7 @@ span {
 }
 ```
 
-{{ EmbedLiveSample('Bestimmung des Aspektwerts einer Schriftart', 500, 120) }}
+{{ EmbedLiveSample('Bestimmung des Aspektwerts einer Schrift', 500, 120) }}
 
 ## Spezifikationen
 
@@ -229,4 +228,4 @@ span {
 - {{cssxref("font-size")}}
 - {{cssxref("font-weight")}}
 - {{cssxref("@font-face/size-adjust", "size-adjust")}} `@font-face` Deskriptor
-- [Lernen: Grundlegende Text- und Schriftstilierung](/de/docs/Learn/CSS/Styling_text/Fundamentals)
+- [Learn: Grundlegendes zu Text- und Schriftstilen](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals)

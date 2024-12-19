@@ -1,14 +1,14 @@
 ---
-title: "HTMLOutputElement: Methode reportValidity()"
+title: "HTMLOutputElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLOutputElement/reportValidity
 l10n:
-  sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces führt die gleichen Gültigkeitsprüfungen durch wie die Methode [`checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity). Sie gibt immer `true` zurück, da {{HTMLElement("output")}}-Elemente nie Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`reportValidity()`**-Methode des [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Interfaces führt die gleichen Gültigkeitsprüfungen durch wie die [`checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)-Methode. Sie gibt immer `true` zurück, da {{HTMLElement("output")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Syntax
 
@@ -37,5 +37,5 @@ Ein boolescher Wert, `true`.
 - [`HTMLOutputElement.checkValidity()`](/de/docs/Web/API/HTMLOutputElement/checkValidity)
 - {{HTMLElement("output")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Learn: Client-side form validation](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Constraint validation](/de/docs/Web/HTML/Constraint_validation)

@@ -3,12 +3,12 @@ title: "HTMLObjectElement: reportValidity() Methode"
 short-title: reportValidity()
 slug: Web/API/HTMLObjectElement/reportValidity
 l10n:
-  sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`reportValidity()`**-Methode der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle führt die gleichen Gültigkeitsprüfungs-Schritte aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity)-Methode. Sie gibt immer `true` zurück, da {{HTMLElement("object")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`reportValidity()`** Methode der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle führt dieselben Schritte zur Überprüfung der Gültigkeit aus wie die [`checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity) Methode. Sie gibt immer `true` zurück, da {{HTMLElement("object")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Syntax
 
@@ -22,7 +22,7 @@ Keine.
 
 ### Rückgabewert
 
-Ein Boolescher Wert, `true`.
+Ein boolescher Wert, `true`.
 
 ## Spezifikationen
 
@@ -37,5 +37,5 @@ Ein Boolescher Wert, `true`.
 - [`HTMLObjectElement.checkValidity()`](/de/docs/Web/API/HTMLObjectElement/checkValidity)
 - {{HTMLElement("object")}}
 - {{HTMLElement("form")}}
-- [Erlernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

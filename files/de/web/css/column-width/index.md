@@ -2,16 +2,16 @@
 title: column-width
 slug: Web/CSS/column-width
 l10n:
-  sourceCommit: 9231a7046973685f4600e1891fa644ecce41ef3b
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die CSS-Eigenschaft **`column-width`** setzt die ideale Spaltenbreite in einem mehrspaltigen Layout. Der Container wird so viele Spalten haben, wie ohne jede Spalte mit einer Breite kleiner als der `column-width`-Wert unterzubringen sind. Wenn die Breite des Containers schmaler ist als der angegebene Wert, wird die Breite der einzelnen Spalte kleiner sein als die deklarierte Spaltenbreite.
+Die **`column-width`** [CSS](/de/docs/Web/CSS) Eigenschaft legt die ideale Spaltenbreite in einem Mehrspalten-Layout fest. Der Container wird so viele Spalten haben, wie ohne eine Reduzierung der Spaltenbreite unter den `column-width` Wert hineinpassen. Wenn die Breite des Containers schmaler ist als der angegebene Wert, wird die Breite einer einzigen Spalte kleiner als die deklarierte Spaltenbreite sein.
 
 {{EmbedInteractiveExample("pages/css/column-width.html")}}
 
-Diese Eigenschaft kann Ihnen helfen, responsive Designs zu erstellen, die auf unterschiedliche Bildschirmgrößen passen. Besonders in Anwesenheit der {{cssxref("column-count")}}-Eigenschaft (die Vorrang hat), müssen Sie alle verwandten Längenwerte angeben, um eine genaue Spaltenbreite zu erreichen. In horizontalem Text sind dies {{cssxref('width')}}, `column-width`, {{cssxref('column-gap')}} und {{cssxref('column-rule-width')}}.
+Diese Eigenschaft kann Ihnen helfen, responsive Designs zu erstellen, die zu verschiedenen Bildschirmgrößen passen. Besonders in Anwesenheit der {{cssxref("column-count")}} Eigenschaft (die Vorrang hat), müssen Sie alle verwandten Längenwerte angeben, um eine exakte Spaltenbreite zu erzielen. In horizontalem Text sind dies {{cssxref('width')}}, `column-width`, {{cssxref('column-gap')}}, und {{cssxref('column-rule-width')}}.
 
 ## Syntax
 
@@ -32,14 +32,14 @@ column-width: revert-layer;
 column-width: unset;
 ```
 
-Die `column-width`-Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
+Die `column-width` Eigenschaft wird als einer der unten aufgeführten Werte angegeben.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Gibt die optimale Spaltenbreite an. Die tatsächliche Spaltenbreite kann von dem angegebenen Wert abweichen: Sie kann breiter sein, wenn nötig, um den verfügbaren Platz auszufüllen, und schmaler, wenn der verfügbare Platz zu klein ist. Der Wert muss streng positiv sein, sonst ist die Deklaration ungültig. Prozentwerte sind ebenfalls ungültig.
+  - : Gibt die optimale Spaltenbreite an. Die tatsächliche Spaltenbreite kann vom angegebenen Wert abweichen: Sie kann breiter sein, wenn dies notwendig ist, um den verfügbaren Raum zu füllen, und schmaler, wenn der verfügbare Raum zu klein ist. Der Wert muss strikt positiv sein, andernfalls ist die Deklaration ungültig. Prozentwerte sind ebenfalls ungültig.
 - `auto`
-  - : Die Breite der Spalte wird durch andere CSS-Eigenschaften, wie {{cssxref("column-count")}}, bestimmt.
+  - : Die Breite der Spalte wird durch andere CSS-Eigenschaften bestimmt, wie {{cssxref("column-count")}}.
 
 ## Formale Definition
 
@@ -86,5 +86,5 @@ Die `column-width`-Eigenschaft wird als einer der unten aufgeführten Werte ange
 
 ## Siehe auch
 
-- [Mehrspaltiges Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) (Leitfaden zum Layout)
+- [Lernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Learn Layout)
 - [Grundlegende Konzepte von Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)

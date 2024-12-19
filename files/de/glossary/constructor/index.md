@@ -1,13 +1,13 @@
 ---
-title: Constructor
+title: Konstruktor
 slug: Glossary/Constructor
 l10n:
-  sourceCommit: 7a551aaa034fbada3eb99e6fc924a0313b78307f
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{GlossarySidebar}}
 
-Ein **Constructor** gehört zu einem bestimmten {{Glossary("object", "Objekt")}}, das instanziiert wird. Der Constructor initialisiert dieses Objekt und kann Zugriff auf seine privaten Informationen gewähren. Das Konzept eines Constructors kann auf die meisten {{Glossary("OOP", "objektorientierten Programmiersprachen")}} angewendet werden. Im Wesentlichen wird ein Constructor in {{Glossary("JavaScript", "JavaScript")}} normalerweise beim Instanziieren einer {{Glossary("class", "Klasse")}} deklariert.
+Ein **Konstruktor** gehört zu einem bestimmten {{Glossary("object", "Objekt")}}, das instanziiert wird. Der Konstruktor initialisiert dieses Objekt und kann Zugriff auf seine privaten Informationen bieten. Das Konzept eines Konstruktors kann auf die meisten {{Glossary("OOP", "objektorientierten Programmier")}}-sprachen angewendet werden. Im Wesentlichen wird ein Konstruktor in {{Glossary("JavaScript", "JavaScript")}} gewöhnlich bei der Instanz einer {{Glossary("class", "Klasse")}} deklariert.
 
 ## Syntax
 
@@ -20,7 +20,7 @@ function Default() {}
 function Overloaded(arg1, arg2, /* …, */ argN) {}
 ```
 
-Um den Constructor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue {{Glossary("object_reference", "Objektreferenz")}} einer {{Glossary("variable", "Variablen")}} zuzuweisen.
+Um den Konstruktor der Klasse in JavaScript aufzurufen, verwenden Sie einen `new` Operator, um eine neue {{Glossary("object_reference", "Objektreferenz")}} einer {{Glossary("variable", "Variablen")}} zuzuweisen.
 
 ```js
 function Default() {}
@@ -32,6 +32,6 @@ const defaultReference = new Default();
 
 ## Siehe auch
 
-- [Klassen und Konstruktoren in JavaScript](/de/docs/Learn/JavaScript/Objects/Classes_in_JavaScript#classes_and_constructors)
+- [Klassen und Konstruktoren in JavaScript](/de/docs/Learn_web_development/Extensions/Advanced_JavaScript_objects/Classes_in_JavaScript#classes_and_constructors)
 - [`new` Operator in JavaScript](/de/docs/Web/JavaScript/Reference/Operators/new)
-- [Constructor](https://en.wikipedia.org/wiki/Constructor_%28object-oriented_programming%29) auf Wikipedia
+- [Konstruktor](https://en.wikipedia.org/wiki/Constructor_%28object-oriented_programming%29) auf Wikipedia

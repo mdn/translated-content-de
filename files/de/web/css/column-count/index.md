@@ -2,7 +2,7 @@
 title: column-count
 slug: Web/CSS/column-count
 l10n:
-  sourceCommit: f30eb42442f75f493ebb5ff1f119abf263592d54
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
@@ -33,7 +33,7 @@ column-count: unset;
 - `auto`
   - : Die Anzahl der Spalten wird durch andere CSS-Eigenschaften bestimmt, wie z.B. {{cssxref("column-width")}}.
 - {{cssxref("&lt;integer&gt;")}}
-  - : Ist ein strikt positiver {{cssxref("&lt;integer&gt;")}}, der die ideale Anzahl von Spalten beschreibt, in die der Inhalt des Elements geflossen wird. Wenn die {{cssxref("column-width")}} ebenfalls auf einen anderen Wert als `auto` gesetzt ist, zeigt sie lediglich die maximal zulässige Anzahl von Spalten an.
+  - : Ist eine strikt positive {{cssxref("&lt;integer&gt;")}}, die die ideale Anzahl der Spalten beschreibt, in die der Inhalt des Elements aufgeteilt wird. Wenn auch {{cssxref("column-width")}} auf einen anderen Wert als `auto` gesetzt ist, gibt es lediglich die maximal erlaubte Anzahl von Spalten an.
 
 ## Formale Definition
 
@@ -45,7 +45,7 @@ column-count: unset;
 
 ## Beispiele
 
-### Einen Absatz auf drei Spalten aufteilen
+### Einen Absatz in drei Spalten aufteilen
 
 #### HTML
 
@@ -79,7 +79,7 @@ column-count: unset;
 
 ## Siehe auch
 
-- {{CSSXref("column-width")}}, {{CSSXref("columns")}} Kurznotation
-- {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurznotation
-- [Mehrspalten-Layout](/de/docs/Learn/CSS/CSS_layout/Multiple-column_Layout) (Layout lernen)
-- [Grundlegende Konzepte von Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)
+- {{CSSXref("column-width")}}, {{CSSXref("columns")}} Kurzschreibweise
+- {{CSSXref("column-rule-color")}}, {{CSSXref("column-rule-style")}}, {{CSSXref("column-rule-width")}}, {{CSSXref("column-rule")}} Kurzschreibweise
+- [Erlernen: Mehrspalten-Layout](/de/docs/Learn_web_development/Core/CSS_layout/Multiple-column_Layout) (Learn Layout)
+- [Grundkonzepte des Multicol](/de/docs/Web/CSS/CSS_multicol_layout/Basic_concepts)

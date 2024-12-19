@@ -2,24 +2,24 @@
 title: Python
 slug: Glossary/Python
 l10n:
-  sourceCommit: 530c1f54e63834411aa38789b1ac82e3831c4dfa
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{GlossarySidebar}}
 
-**Python** ist eine universelle, hochentwickelte Programmiersprache. Sie verwendet einen Multi-Paradigmen-Ansatz, was bedeutet, dass sie prozedurale, objektorientierte und einige funktionale Programmierkonstrukte unterstützt.
+**Python** ist eine allgemeine Programmiersprache auf hohem Niveau. Es verwendet einen multiparadigmatischen Ansatz, was bedeutet, dass es prozedurale, objektorientierte und einige funktionale Programmierkonstrukte unterstützt.
 
-Sie wurde von Guido van Rossum als Nachfolger einer anderen Sprache (namens ABC) zwischen 1985 und 1990 entwickelt und wird derzeit in einer Vielzahl von Bereichen eingesetzt, wie z.B. Webentwicklung, Desktop-Anwendungen, Datenwissenschaft, DevOps und Automatisierung/Produktivität.
+Es wurde von Guido van Rossum als Nachfolger einer anderen Sprache (namens ABC) zwischen 1985 und 1990 entwickelt und wird derzeit in einem breiten Spektrum von Domänen wie Webentwicklung, Desktop-Anwendungen, Data Science, DevOps und Automatisierung/Produktivität eingesetzt.
 
-Python wird unter einer von der OSI genehmigten Open-Source-Lizenz entwickelt, was sie frei verwendbar und distribuierbar macht, selbst für kommerzielle Zwecke. Die Lizenz von Python wird von der [Python Software Foundation](https://www.python.org/psf-landing/) verwaltet.
+Python wird unter einer von der OSI genehmigten Open-Source-Lizenz entwickelt, was es frei verwendbar und verbreitbar macht, sogar für kommerzielle Zwecke. Die Lizenz von Python wird von der [Python Software Foundation](https://www.python.org/psf-landing/) verwaltet.
 
 ## Siehe auch
 
 - [Python](<https://en.wikipedia.org/wiki/Python_(programming_language)>) auf Wikipedia
-- [Offizielle Python-Dokumentation: Tutorials](https://docs.python.org/3/tutorial/index.html)
-- [Tutorials Point: Python-Tutorial](https://www.tutorialspoint.com/python/index.htm)
-- [AlphaCodingSkills: Python-Tutorial](https://www.alphacodingskills.com/python/python-tutorial.php)
-- [Django Web Framework (Python)](/de/docs/Learn/Server-side/Django) bei MDN
+- [Offizielle Python-Dokumentation Tutorials](https://docs.python.org/3/tutorial/index.html)
+- [Tutorials Point Python Tutorial](https://www.tutorialspoint.com/python/index.htm)
+- [AlphaCodingSkills Python Tutorial](https://www.alphacodingskills.com/python/python-tutorial.php)
+- [Django Web Framework (Python)](/de/docs/Learn_web_development/Extensions/Server-side/Django) auf MDN
 - Verwandte Glossarbegriffe:
   - {{Glossary("Java", "Java")}}
   - {{Glossary("JavaScript", "JavaScript")}}

@@ -1,15 +1,15 @@
 ---
-title: Erstellen und Auslösen von Events
+title: Erstellen und Auslösen von Ereignissen
 slug: Web/Events/Creating_and_triggering_events
 l10n:
-  sourceCommit: a66fcacdcb4f39c64854d9db351b4669ee4ea69a
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
-Dieser Artikel zeigt, wie man DOM-Events erstellt und auslöst. Solche Events werden oft als **synthetische Events** bezeichnet, im Gegensatz zu den Events, die vom Browser selbst ausgelöst werden.
+Dieser Artikel zeigt, wie DOM-Ereignisse erstellt und ausgelöst werden. Solche Ereignisse werden üblicherweise als **synthetische Ereignisse** bezeichnet, im Gegensatz zu den Ereignissen, die vom Browser selbst ausgelöst werden.
 
-## Erstellen von benutzerdefinierten Events
+## Erstellen benutzerdefinierter Ereignisse
 
-Events können mit dem [`Event`](/de/docs/Web/API/Event)-Konstruktor wie folgt erstellt werden:
+Ereignisse können mit dem [`Event`](/de/docs/Web/API/Event)-Konstruktor wie folgt erstellt werden:
 
 ```js
 const event = new Event("build");
@@ -29,17 +29,18 @@ elem.dispatchEvent(event);
 
 Das obige Codebeispiel verwendet die Methode [EventTarget.dispatchEvent()](/de/docs/Web/API/EventTarget/dispatchEvent).
 
-Dieser Konstruktor wird in den meisten modernen Browsern unterstützt. Für einen ausführlicheren Ansatz siehe [die altmodische Methode](#die_altmodische_methode) unten.
+Dieser Konstruktor wird in den meisten modernen Browsern unterstützt. Für einen ausführlicheren Ansatz siehe [die altmodische Methode](#the_old-fashioned-way) unten.
 
 ### Hinzufügen benutzerdefinierter Daten – CustomEvent()
 
-Um dem Event-Objekt mehr Daten hinzuzufügen, gibt es die [CustomEvent](/de/docs/Web/API/CustomEvent)-Schnittstelle, und die **detail**-Eigenschaft kann verwendet werden, um benutzerdefinierte Daten zu übergeben. Beispielsweise könnte das Event wie folgt erstellt werden:
+Um dem Ereignisobjekt mehr Daten hinzuzufügen, gibt es die [CustomEvent](/de/docs/Web/API/CustomEvent)-Schnittstelle und die **detail**-Eigenschaft kann verwendet werden, um benutzerdefinierte Daten zu übermitteln.
+Zum Beispiel könnte das Ereignis wie folgt erstellt werden:
 
 ```js
 const event = new CustomEvent("build", { detail: elem.dataset.time });
 ```
 
-Dies ermöglicht es Ihnen dann, auf die zusätzlichen Daten im Event-Listener zuzugreifen:
+Dies ermöglicht es Ihnen dann, auf die zusätzlichen Daten im Ereignislistener zuzugreifen:
 
 ```js
 function eventHandler(e) {
@@ -49,7 +50,7 @@ function eventHandler(e) {
 
 ### Die altmodische Methode
 
-Der ältere Ansatz zur Erstellung von Events verwendet von Java inspirierte APIs. Das folgende Beispiel zeigt [`document.createEvent()`](/de/docs/Web/API/Document/createEvent):
+Der ältere Ansatz zur Erstellung von Ereignissen verwendet von Java inspirierte APIs. Das folgende Beispiel zeigt die Verwendung von [`document.createEvent()`](/de/docs/Web/API/Document/createEvent):
 
 ```js
 // Create the event.
@@ -71,9 +72,9 @@ elem.addEventListener(
 elem.dispatchEvent(event);
 ```
 
-### Event-Bubbling
+### Ereignis-Bubbling
 
-Es ist oft wünschenswert, ein Event von einem Kindelement auszulösen und es von einem Vorfahren abfangen zu lassen, optional mit Daten:
+Es ist oft wünschenswert, ein Ereignis von einem Kindelement auszulösen und es von einem übergeordneten Element erfassen zu lassen; optional mit Daten:
 
 ```html
 <form>
@@ -98,9 +99,9 @@ form.addEventListener("awesome", (e) => console.log(e.detail.text()));
 textarea.addEventListener("input", (e) => e.target.dispatchEvent(eventAwesome));
 ```
 
-### Dynamisches Erstellen und Auslösen von Events
+### Ereignisse dynamisch erstellen und auslösen
 
-Elemente können auf Events lauschen, die noch nicht erstellt wurden:
+Elemente können auf Ereignisse hören, die noch nicht erstellt wurden:
 
 ```html
 <form>
@@ -126,9 +127,9 @@ textarea.addEventListener("input", function () {
 });
 ```
 
-## Auslösen von integrierten Events
+## Auslösen eingebauter Ereignisse
 
-Dieses Beispiel demonstriert das Simulieren eines Klicks (d. h. das programmatische Generieren eines Klick-Events) auf ein Kontrollkästchen mittels DOM-Methoden. [Sehen Sie sich das Beispiel in Aktion an.](https://mdn.dev/archives/media/samples/domref/dispatchEvent.html)
+Dieses Beispiel demonstriert das Simulieren eines Klicks (d.h. das programmgesteuerte Generieren eines Klickereignisses) auf ein Kontrollkästchen mithilfe von DOM-Methoden. [Beispiel in Aktion ansehen.](https://mdn.dev/archives/media/samples/domref/dispatchEvent.html)
 
 ```js
 function simulateClick() {
@@ -160,8 +161,8 @@ function simulateClick() {
 
 <section id="Quick_links">
   <ol>
-    <li><a href="/de/docs/Learn/JavaScript/Building_blocks/Events">Einführung in Events</a></li>
-    <li><a href="/de/docs/Web/Events/Event_handlers">Event-Handler (Übersicht)</a></li>
-    <li><a href="/de/docs/Web/Events">Event-Referenz</a></li>
+    <li><a href="/de/docs/Learn_web_development/Core/Scripting/Events">Einführung in Ereignisse</a></li>
+    <li><a href="/de/docs/Web/Events/Event_handlers">Ereignis-Handler (Übersicht)</a></li>
+    <li><a href="/de/docs/Web/Events">Ereignis-Referenz</a></li>
   </ol>
 </section>

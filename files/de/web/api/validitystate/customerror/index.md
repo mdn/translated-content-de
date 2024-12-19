@@ -3,24 +3,24 @@ title: "ValidityState: customError-Eigenschaft"
 short-title: customError
 slug: Web/API/ValidityState/customError
 l10n:
-  sourceCommit: e8805a6eb0b2af30cfd4ec54c30261f7e5f8163e
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`customError`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt `true` zurück, wenn ein Element die in der benutzerdefinierten Gültigkeitsprüfung durch die Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLObjectElement/setCustomValidity) des Elements festgelegte Validierung nicht erfüllt.
+Die schreibgeschützte **`customError`**-Eigenschaft des [`ValidityState`](/de/docs/Web/API/ValidityState)-Interfaces gibt `true` zurück, wenn ein Element die durch die Methode [`setCustomValidity()`](/de/docs/Web/API/HTMLObjectElement/setCustomValidity) des Elements festgelegte benutzerdefinierte Gültigkeit nicht erfüllt.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn eine benutzerdefinierte Fehlermeldung auf einen nicht-leeren String gesetzt wurde.
+Ein Boolean, der `true` ist, wenn eine benutzerdefinierte Fehlermeldung auf einen nicht-leeren String gesetzt wurde.
 
 ## Beispiele
 
 ### Erkennen eines benutzerdefinierten Fehlers
 
-In diesem Beispiel setzt [`setCustomValidity()`](/de/docs/Web/API/HTMLObjectElement/setCustomValidity) eine benutzerdefinierte Fehlermeldung, wenn ein Formular mit Benutzereingaben gesendet wird, die als ungültig angesehen werden. Der Button "Eingabe validieren" ruft [`reportValidity()`](/de/docs/Web/API/HTMLFormElement/reportValidity) auf, welches eine Validierungsmeldung unter dem Element anzeigt, wenn ein Benutzer Werte eingibt, die nicht den [Einschränkungen des Formulars](/de/docs/Web/HTML/Constraint_validation#constraint_validation_process) entsprechen.
+In diesem Beispiel setzt [`setCustomValidity()`](/de/docs/Web/API/HTMLObjectElement/setCustomValidity) eine benutzerdefinierte Fehlermeldung, wenn eine Formularübermittlung Benutzereingaben enthält, die als ungültig angesehen werden. Der "Eingabe validieren"-Button ruft [`reportValidity()`](/de/docs/Web/API/HTMLFormElement/reportValidity) auf, welches eine Validierungsnachricht unter dem Element anzeigt, wenn ein Benutzer Werte eingibt, die nicht den [Einschränkungen des Formulars](/de/docs/Web/HTML/Constraint_validation#constraint_validation_process) entsprechen.
 
-Wenn Sie den Text "good" oder "fine" eingeben und versuchen, die Eingabe zu validieren, wird das Feld als ungültig markiert, bis die benutzerdefinierte Fehlermeldung gelöscht wird (auf einen leeren String gesetzt wird). Zum Vergleich gibt es ein [`minlength`](/de/docs/Web/HTML/Attributes/minlength)-Attribut im Eingabeelement, das uns ermöglicht, den [`tooShort`-Gültigkeitszustand](/de/docs/Web/API/ValidityState/tooShort) zu demonstrieren, wenn der Benutzer weniger als zwei Zeichen eingibt. Wenn der Wert im Formularelement ungültig ist, auch wenn kein benutzerdefinierter Fehler vorliegt, wird die Eingabe mit einem roten Rahmen dargestellt.
+Wenn Sie den Text "good" oder "fine" eingeben und versuchen, die Eingabe zu validieren, wird das Feld als ungültig markiert, bis die benutzerdefinierte Fehlermeldung gelöscht wird (auf einen leeren String gesetzt wird). Zum Vergleich gibt es ein [`minlength`](/de/docs/Web/HTML/Attributes/minlength)-Attribut auf dem Eingabeelement, mit dem wir den [`tooShort`-Gültigkeitszustand](/de/docs/Web/API/ValidityState/tooShort) demonstrieren können, wenn der Benutzer weniger als zwei Zeichen eingibt. Wenn der Wert im Formularsteuerelement ungültig ist, selbst wenn kein benutzerdefinierter Fehler vorliegt, wird das Eingabefeld einen roten Rand haben.
 
 #### HTML
 
@@ -106,6 +106,6 @@ checkButton.addEventListener("click", validateInput);
 
 ## Siehe auch
 
-- ValidityState [badInput](/de/docs/Web/API/ValidityState/badInput), [valid](/de/docs/Web/API/ValidityState/valid) Eigenschaften.
+- ValidityState [badInput](/de/docs/Web/API/ValidityState/badInput), [valid](/de/docs/Web/API/ValidityState/valid)-Eigenschaften.
 - [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
-- [Formulare: Datenformularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Formulare: Datenformularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)

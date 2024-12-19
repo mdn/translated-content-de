@@ -3,19 +3,19 @@ title: "IDBTransaction: error Ereignis"
 short-title: error
 slug: Web/API/IDBTransaction/error_event
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{ APIRef("IndexedDB") }}
 
-Das `error` Ereignis wird auf `IDBTransaction` ausgelöst, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis an das Transaktionsobjekt weitergegeben wird.
+Das `error`-Ereignis wird auf einem `IDBTransaction` ausgelöst, wenn eine Anfrage einen Fehler zurückgibt und das Ereignis bis zum Transaktionsobjekt hochblubbert.
 
 > [!NOTE]
-> Um alle Möglichkeiten zu berücksichtigen, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event) Ereignis beachten.
+> Um alle Wege zu behandeln, wie eine Transaktion fehlschlagen kann, sollten Sie stattdessen das [`abort`](/de/docs/Web/API/IDBTransaction/abort_event)-Ereignis beobachten.
 
 ## Syntax
 
-Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignishandler-Eigenschaft.
+Verwenden Sie den Ereignisnamen in Methoden wie [`addEventListener()`](/de/docs/Web/API/EventTarget/addEventListener) oder setzen Sie eine Ereignis-Handler-Eigenschaft.
 
 ```js
 addEventListener("error", (event) => {});
@@ -26,15 +26,15 @@ onerror = (event) => {};
 
 Ein generisches [`Event`](/de/docs/Web/API/Event).
 
-## Bubbling
+## Blubbern
 
-Dieses Ereignis wird an [`IDBDatabase`](/de/docs/Web/API/IDBDatabase) weitergereicht. Die Eigenschaft `event.target` bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction) Objekt, das weitergegeben wird.
+Dieses Ereignis blubbert zu [`IDBDatabase`](/de/docs/Web/API/IDBDatabase). Die `event.target`-Eigenschaft bezieht sich auf das [`IDBTransaction`](/de/docs/Web/API/IDBTransaction)-Objekt, das hochblubbert.
 
-Für weitere Informationen siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling).
+Für weitere Informationen siehe [Ereignis-Blubbern](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling).
 
 ## Beispiele
 
-In diesem Beispiel wird eine Datenbank geöffnet und versucht, einen Datensatz hinzuzufügen, wobei das `error` Ereignis für die `add()` Operation gehört wird (dies tritt auf, wenn beispielsweise bereits ein Datensatz mit dem gegebenen `taskTitle` existiert):
+Dieses Beispiel öffnet eine Datenbank und versucht, einen Datensatz hinzuzufügen, wobei das `error`-Ereignis für die `add()`-Operation überwacht wird (dies tritt auf, wenn beispielsweise ein Datensatz mit dem angegebenen `taskTitle` bereits existiert):
 
 ```js
 // Open the database

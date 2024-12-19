@@ -3,23 +3,23 @@ title: "ResizeObserverSize: blockSize-Eigenschaft"
 short-title: blockSize
 slug: Web/API/ResizeObserverSize/blockSize
 l10n:
-  sourceCommit: 11f58a4cd8758f89056900a6fb7c21e2d42fa6f1
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("Resize Observer API")}}
 
-Die schreibgeschützte Eigenschaft **`blockSize`** des [`ResizeObserverSize`](/de/docs/Web/API/ResizeObserverSize)-Interfaces gibt die Länge des Rahmenkastens des beobachteten Elements in der Blockdimension zurück. Bei Boxen mit einem horizontalen {{cssxref("writing-mode")}} ist dies die vertikale Dimension oder Höhe; wenn der `writing-mode` vertikal ist, handelt es sich um die horizontale Dimension oder Breite.
+Die schreibgeschützte Eigenschaft **`blockSize`** der [`ResizeObserverSize`](/de/docs/Web/API/ResizeObserverSize)-Schnittstelle gibt die Länge des Rahmenkastens des beobachteten Elements in der Block-Dimension zurück. Bei Kästen mit einem horizontalen {{cssxref("writing-mode")}} ist dies die vertikale Dimension oder Höhe; wenn der Schreibmodus vertikal ist, ist dies die horizontale Dimension oder Breite.
 
 > [!NOTE]
-> Für eine ausführlichere Erklärung der Schreibmodi und der Block- und Inline-Dimensionen lesen Sie [Umgang mit unterschiedlichen Textrichtungen](/de/docs/Learn/CSS/Building_blocks/Handling_different_text_directions).
+> Eine ausführlichere Erklärung zu Schreibmodi und Block- sowie Inline-Dimensionen finden Sie im Artikel [Umgang mit unterschiedlichen Textrichtungen](/de/docs/Learn_web_development/Core/Styling_basics/Handling_different_text_directions).
 
 ## Wert
 
-Ein Dezimalwert, der die Blockgröße in Pixeln darstellt.
+Eine Dezimalzahl, die die Blockgröße in Pixeln darstellt.
 
 ## Beispiele
 
-In diesem Beispiel geben wir ein Array von Größeninformationen mit [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize) zurück. Die `blockSize`-Eigenschaft gibt die Blockdimension des beobachteten Elements zurück.
+In diesem Beispiel geben wir ein Array mit Größeninformationen zurück, indem wir [`ResizeObserverEntry.contentBoxSize`](/de/docs/Web/API/ResizeObserverEntry/contentBoxSize) verwenden. Die Eigenschaft `blockSize` gibt die Block-Dimension des beobachteten Elements zurück.
 
 ```js
 const resizeObserver = new ResizeObserver((entries) => {

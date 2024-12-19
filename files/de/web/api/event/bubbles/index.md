@@ -3,19 +3,19 @@ title: "Event: bubbles-Eigenschaft"
 short-title: bubbles
 slug: Web/API/Event/bubbles
 l10n:
-  sourceCommit: d8f04d843dd81ab8cea1cfc0577ae3c5c9b77d5c
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("DOM")}}{{AvailableInWorkers}}
 
-Die **`bubbles`** Leseeigenschaft des [`Event`](/de/docs/Web/API/Event)-Interfaces zeigt an, ob das Ereignis durch den DOM-Baum aufsteigt oder nicht.
+Die schreibgeschützte **`bubbles`**-Eigenschaft der [`Event`](/de/docs/Web/API/Event)-Schnittstelle gibt an, ob das Ereignis im DOM-Baum weitergeleitet wird oder nicht.
 
 > [!NOTE]
-> Siehe [Ereignis-Bubbling](/de/docs/Learn/JavaScript/Building_blocks/Event_bubbling) für weitere Informationen über das Bubbling.
+> Siehe [Event bubbling](/de/docs/Learn_web_development/Core/Scripting/Event_bubbling) für weitere Informationen über das Weiterleiten von Ereignissen.
 
 ## Wert
 
-Ein boolescher Wert, der `true` ist, wenn das Ereignis durch den DOM-Baum aufsteigt.
+Ein boolescher Wert, der `true` ist, wenn das Ereignis im DOM-Baum weitergeleitet wird.
 
 ## Beispiel
 
@@ -41,6 +41,6 @@ function handleInput(e) {
 
 ## Siehe auch
 
-- [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), um die weitere Ausbreitung des aktuellen Ereignisses in den Capture- und Bubbling-Phasen zu verhindern
+- [`stopPropagation()`](/de/docs/Web/API/Event/stopPropagation), um die weitere Weiterleitung des aktuellen Ereignisses in den Capturing- und Bubbling-Phasen zu verhindern
 - [`stopImmediatePropagation()`](/de/docs/Web/API/Event/stopImmediatePropagation), um keine weiteren Listener für dasselbe Ereignis auf derselben Ebene im DOM aufzurufen
-- [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), um die Ausbreitung fortzusetzen, aber dem Browser zu verbieten, die Standardaktion auszuführen, falls keine Listener das Ereignis behandeln
+- [`preventDefault()`](/de/docs/Web/API/Event/preventDefault), um die Weiterleitung fortzusetzen, aber dem Browser die Ausführung der Standardaktion zu verbieten, falls keine Listener das Ereignis behandeln

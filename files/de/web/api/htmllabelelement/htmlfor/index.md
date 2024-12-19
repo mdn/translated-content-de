@@ -3,16 +3,16 @@ title: "HTMLLabelElement: htmlFor-Eigenschaft"
 short-title: htmlFor
 slug: Web/API/HTMLLabelElement/htmlFor
 l10n:
-  sourceCommit: d16706e4e930c57161d473287374a9286c663147
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`HTMLLabelElement.htmlFor`**-Eigenschaft spiegelt den Wert der [`for`](/de/docs/Web/HTML/Element/label#for)-Inhaltseigenschaft wider. Das bedeutet, dass diese skriptzugängliche Eigenschaft verwendet wird, um den Wert der Inhaltseigenschaft `for` zu setzen und auszulesen, welche die ID des zugeordneten Steuerelements des Labels ist.
+Die **`HTMLLabelElement.htmlFor`**-Eigenschaft spiegelt den Wert der [`for`](/de/docs/Web/HTML/Element/label#for) Inhalts-Eigenschaft wider. Das bedeutet, dass diese skriptzugängliche Eigenschaft verwendet wird, um den Wert der Inhalts-Eigenschaft `for` zu setzen und zu lesen, die die ID des verbundenen Steuerelements des Labels ist.
 
 ## Wert
 
-Ein String, der die ID des Elements enthält, das mit dem Steuerelement verbunden ist.
+Ein String, der die ID-Zeichenfolge des Elements enthält, welches mit dem Steuerelement verbunden ist.
 
 > [!NOTE]
 > Wenn diese Eigenschaft einen Wert hat, muss die [`HTMLLabelElement.control`](/de/docs/Web/API/HTMLLabelElement/control)-Eigenschaft auf dasselbe Steuerelement verweisen.
@@ -31,4 +31,4 @@ Ein String, der die ID des Elements enthält, das mit dem Steuerelement verbunde
 - [`HTMLLabelElement.control`](/de/docs/Web/API/HTMLLabelElement/control)
 - [`HTMLElement`](/de/docs/Web/API/HTMLElement)
 - {{HTMLElement("label")}}
-- [Leitfaden für HTML-Formulare](/de/docs/Learn/Forms)
+- [HTML-Formulare Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)

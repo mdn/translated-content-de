@@ -1,70 +1,70 @@
 ---
-title: Community guidelines
+title: Community-Richtlinien
 slug: MDN/Community
 l10n:
-  sourceCommit: c64e813d8ab9dbe22cbc049c26f7c6703370a2b7
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{MDNSidebar}}
 
-👋 Willkommen bei MDN Web Docs, einem Open-Source-Kollaborationsprojekt, das Webplattform-Technologien dokumentiert, einschließlich [HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS), [JavaScript](/de/docs/Web/JavaScript) und [Web APIs](/de/docs/Web/API). Wir bieten auch umfangreiche [Lernressourcen](/de/docs/Learn) für Entwickler in den frühen Phasen und Studenten an.
+👋 Willkommen bei MDN Web Docs, einem Open-Source-Kollaborationsprojekt, das Technologien der Webplattform dokumentiert, einschließlich [HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS), [JavaScript](/de/docs/Web/JavaScript) und [Web APIs](/de/docs/Web/API). Wir bieten auch umfassende [Lernressourcen](/de/docs/Learn_web_development) für Entwickler*innen in der Anfangsphase und Studierende.
 
-## Möglichkeiten zur Mitwirkung
+## Möglichkeiten zur Mitarbeit
 
-Hier ist eine Liste der Möglichkeiten, wie Sie zu den MDN Web Docs beitragen können:
+Hier ist eine Liste von Möglichkeiten, wie Sie zu den MDN Web Docs beitragen können:
 
-- [Bekannte Probleme mit hohem Einfluss beheben](https://github.com/orgs/mdn/projects/25/views/1)
-- [Pull-Anfragen überprüfen](/de/docs/MDN/Community/Pull_requests)
+- [Bekannte Probleme mit großer Auswirkung beheben](https://github.com/orgs/mdn/projects/25/views/1)
+- [Pull Requests überprüfen](/de/docs/MDN/Community/Pull_requests)
 - [Anfängern helfen, auf MDN Web Docs zu lernen](/de/docs/MDN/Community/Learn_forum)
-- [Zu den interaktiven Beispielen von MDN Web Docs beitragen](https://github.com/mdn/interactive-examples/blob/main/CONTRIBUTING.md)
+- [Beiträge zu den interaktiven Beispielen von MDN Web Docs leisten](https://github.com/mdn/interactive-examples/blob/main/CONTRIBUTING.md)
 - [Helfen Sie, MDN Web Docs zu übersetzen](/de/docs/MDN/Community/Contributing/Translated_content)
-- [Bekannten Plattformproblemen helfen, behoben zu werden](https://github.com/mdn/yari/issues)
-- [Helfen Sie uns, die Browser-Kompatibilitätsdaten aktuell zu halten](https://github.com/mdn/browser-compat-data)
+- [Bekannte Plattformprobleme beheben](https://github.com/mdn/yari/issues)
+- [Helfen Sie, die Browser-Kompatibilitätsdaten aktuell zu halten](https://github.com/mdn/browser-compat-data)
 
-## Gemeinschaftsressourcen
+## Community-Ressourcen
 
 - [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels)
 
-  - : Diese Seite listet die Kommunikationskanäle auf, die vom MDN-Team und unserer Community genutzt werden, mit Hinweisen darauf, welcher für Sie am besten geeignet sein könnte.
+  - : Diese Seite listet die Kommunikationskanäle auf, die vom MDN-Team und unserer Community genutzt werden, mit Hinweisen, welche für Sie am besten geeignet sein könnten.
 
-- [Mitwirken](/de/docs/MDN/Community/Contributing)
+- [Mitarbeit](/de/docs/MDN/Community/Contributing)
 
-  - : Dieser Abschnitt erklärt, wie Sie mit dem Beitrag leisten beginnen können und welche Arten von Beiträgen wir akzeptieren.
-    Er umfasst [Erste Schritte](/de/docs/MDN/Community/Contributing/Getting_started), [Unsere Repositories](/de/docs/MDN/Community/Contributing/Our_repositories), [Übersetzte Inhalte](/de/docs/MDN/Community/Contributing/Translated_content) und [Schritte zur Reaktion auf Sicherheitsanfälligkeiten](/de/docs/MDN/Community/Contributing/Security_vulnerability_response).
+  - : Dieser Abschnitt erklärt, wie Sie beginnen können, einen Beitrag zu leisten und welche Art von Beiträgen wir akzeptieren.
+    Er deckt [Erste Schritte](/de/docs/MDN/Community/Contributing/Getting_started), [Unsere Repositories](/de/docs/MDN/Community/Contributing/Our_repositories), [Übersetzte Inhalte](/de/docs/MDN/Community/Contributing/Translated_content) und [Schritte zur Reaktion auf Sicherheitslücken](/de/docs/MDN/Community/Contributing/Security_vulnerability_response) ab.
 
 - [Open-Source-Etikette](/de/docs/MDN/Community/Open_source_etiquette)
 
-  - : Dieser Artikel gibt Anleitungen, wie man sich bei einem Beitrag zu unserem Open-Source-Projekt verhalten sollte, einschließlich Regeln zur Mitwirkung, Etikette und zum Umgang mit Konflikten.
+  - : Dieser Artikel gibt Hinweise dazu, wie man sich beim Beitrag zu unserem Open-Source-Projekt verhalten sollte, einschließlich Regeln für Beiträge, Etikette und Umgang mit Konflikten.
 
 - [Probleme](/de/docs/MDN/Community/Issues)
 
-  - : Probleme werden verwendet, um alle Bugs und Arbeiten zu verfolgen, die ein klares umsetzbares Ergebnis haben.
-    Dieser Artikel enthält Richtlinien zum Eröffnen und Bearbeiten von Problemen und behandelt auch [Problembewertung](/de/docs/MDN/Community/Issues) und [Inhalts- und Funktionsvorschläge](/de/docs/MDN/Community/Issues/Content_suggestions_feature_proposals).
+  - : Probleme werden verwendet, um alle Fehler und Arbeiten zu verfolgen, die ein klares umsetzbares Ergebnis haben.
+    Dieser Artikel enthält Richtlinien zum Eröffnen und Bearbeiten von Problemen und behandelt auch [Problemtriage](/de/docs/MDN/Community/Issues) und [Inhalts- und Funktionsvorschläge](/de/docs/MDN/Community/Issues/Content_suggestions_feature_proposals).
 
-- [Pull-Anfragen](/de/docs/MDN/Community/Pull_requests)
+- [Pull Requests](/de/docs/MDN/Community/Pull_requests)
 
-  - : Dieser Abschnitt behandelt unsere Richtlinien zum Einreichen von Pull-Anfragen und was Sie vom Überprüfungsprozess erwarten können.
+  - : Dieser Abschnitt behandelt unsere Richtlinien für das Einreichen von Pull Requests und was Sie vom Überprüfungsprozess erwarten sollten.
 
 - [Rollen und Teams](/de/docs/MDN/Community/Roles_teams)
 
-  - : Dieser Abschnitt bietet einen Überblick über die Nutzer und Teams, die Teil des MDN Web Docs-Projekts sind und erläutert, was es bedeutet, Teil eines Teams zu sein.
+  - : Dieser Abschnitt bietet einen Überblick über die Benutzer und Teams, die Teil des MDN Web Docs Projekts sind, und erklärt, was es bedeutet, Teil eines Teams zu sein.
 
 ## Verhaltenskodex
 
-Durch die Teilnahme und Mitwirkung an unseren Projekten und Diskussionen bestätigen Sie, dass Sie die [Mozilla-Community-Teilnahme-Richtlinien](https://github.com/mdn/mdn-community/blob/main/CODE_OF_CONDUCT.md) gelesen haben und ihnen zustimmen.
+Durch die Teilnahme an und den Beitrag zu unseren Projekten und Diskussionen bestätigen Sie, dass Sie die [Richtlinien zur Teilnahme an der Mozilla-Community](https://github.com/mdn/mdn-community/blob/main/CODE_OF_CONDUCT.md) gelesen haben und ihnen zustimmen.
 
 ## Kontakt aufnehmen
 
-Sie können mit dem MDN Web Docs-Team und der Community über die [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kommunizieren.
+Sie können mit dem Team und der Community der MDN Web Docs über die [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) kommunizieren.
 
 ### Allgemeine Unterstützung
 
-Wir sind ein kleines Team, das hart daran arbeitet, den Dokumentationsanforderungen eines sich ständig verändernden Web-Ökosystems gerecht zu werden.
-Leider können wir bei allgemeinen Unterstützungsanfragen nicht helfen.
-Wenn Sie programmieren lernen, können Sie auf die folgenden Ressourcen zurückgreifen:
+Wir sind ein kleines Team, das hart daran arbeitet, den Dokumentationsanforderungen eines sich ständig ändernden Web-Ökosystems gerecht zu werden.
+Leider können wir bei allgemeinen Unterstützungsfragen nicht helfen.
+Wenn Sie lernen, zu programmieren, können Sie auf die folgenden Ressourcen zurückgreifen:
 
-- [Webentwicklung lernen](/de/docs/Learn)
+- [Web-Entwicklung lernen](/de/docs/Learn_web_development)
 - [MDN Web Docs Lernforum](https://discourse.mozilla.org/c/mdn/learn/250)
 - [Stack Overflow](https://stackoverflow.com/questions/)
 
-Alle auf den Repositories eröffneten Probleme, Diskussionen oder Pull-Anfragen, die allgemeine Unterstützung erbitten, werden hierher verwiesen und können geschlossen und gesperrt werden.
+Alle Probleme, Diskussionen oder Pull Requests, die in Repositories eröffnet werden und um allgemeine Unterstützung bitten, werden hierhin geleitet und können geschlossen und gesperrt werden.

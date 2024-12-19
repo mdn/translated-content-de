@@ -3,15 +3,15 @@ title: "HTMLFieldSetElement: validity-Eigenschaft"
 short-title: validity
 slug: Web/API/HTMLFieldSetElement/validity
 l10n:
-  sourceCommit: 2b29051262aa05ce9a630d0dd2d6958f493abe19
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`validity`** schreibgeschützte Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Gültigkeitszustände dieses Elements darstellt. Obwohl {{HTMLElement("fieldset")}}-Elemente niemals Kandidaten für die [Eingabepflichtprüfung](/de/docs/Web/HTML/Constraint_validation) sind, kann der Gültigkeitszustand trotzdem ungültig sein, wenn eine benutzerdefinierte Gültigkeitsnachricht gesetzt wurde.
+Die **`validity`**-Eigenschaft der [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Schnittstelle, die nur lesbar ist, gibt ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt zurück, das die Zustände der Gültigkeit dieses Elements darstellt. Obwohl {{HTMLElement("fieldset")}}-Elemente niemals Kandidaten für die [Constraints-Validierung](/de/docs/Web/HTML/Constraint_validation) sind, kann der Gültigkeitszustand dennoch ungültig sein, wenn eine benutzerdefinierte Fehlermeldung festgelegt wurde.
 
 > [!NOTE]
-> Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden auf `<fieldset>`-Elemente angewendet, basierend auf der Gültigkeit ihrer untergeordneten Formularelemente, nicht auf das `fieldset` selbst.
+> Die {{cssxref(":valid")}} und {{cssxref(":invalid")}} CSS-Pseudoklassen werden auf `<fieldset>`-Elemente basierend auf der Gültigkeit ihrer nachgeordneten Formularelemente angewendet, nicht auf das Fieldset selbst.
 
 ## Wert
 
@@ -19,7 +19,7 @@ Ein [`ValidityState`](/de/docs/Web/API/ValidityState)-Objekt.
 
 ## Beispiele
 
-Das folgende Beispiel zeigt, dass ein `<fieldset>` in einem ungültigen Zustand ist, wenn ein [`customError`](/de/docs/Web/API/ValidityState/customError) gesetzt ist; in diesem Zustand gibt [`checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity) `true` zurück, während die `validity`-Eigenschaft von `validityState` `false` ist.
+Das folgende Beispiel zeigt, dass ein `<fieldset>` sich in einem ungültigen Zustand befindet, wenn ein [`customError`](/de/docs/Web/API/ValidityState/customError) gesetzt ist; in diesem Zustand gibt [`checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity) `true` zurück, während die `validityState`-Eigenschaft `false` ist.
 
 ```js
 const fieldSet = document.getElementById("myFieldSet");
@@ -31,7 +31,7 @@ console.log(fieldSet.checkValidity()); // true
 ```
 
 > [!NOTE]
-> Die CSS-Pseudoklassen {{cssxref(":valid")}} und {{cssxref(":invalid")}} werden auf `<fieldset>`-Elemente angewendet, basierend auf der Gültigkeit ihrer untergeordneten Formularelemente, nicht auf das `fieldset` selbst.
+> Die {{cssxref(":valid")}} und {{cssxref(":invalid")}} CSS-Pseudoklassen werden auf `<fieldset>`-Elemente basierend auf der Gültigkeit ihrer nachgeordneten Formularelemente angewendet, nicht auf das Fieldset selbst.
 
 ## Spezifikationen
 
@@ -46,5 +46,5 @@ console.log(fieldSet.checkValidity()); // true
 - [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
 - {{HTMLElement("fieldset")}}
 - {{HTMLElement("form")}}
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Eingabepflichtprüfung](/de/docs/Web/HTML/Constraint_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Constraints-Validierung](/de/docs/Web/HTML/Constraint_validation)

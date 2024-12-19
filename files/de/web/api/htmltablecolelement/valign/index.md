@@ -3,38 +3,38 @@ title: "HTMLTableColElement: vAlign-Eigenschaft"
 short-title: vAlign
 slug: Web/API/HTMLTableColElement/vAlign
 l10n:
-  sourceCommit: bb48907e64eb4bf60f17efd7d39b46c771d220a0
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}{{deprecated_header}}
 
-Die **`vAlign`**-Eigenschaft der Schnittstelle [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement) ist ein String, der angibt, wie Text in einem Tabellen-<col>-Element vertikal ausgerichtet wird.
+Die **`vAlign`**-Eigenschaft der Schnittstelle [`HTMLTableColElement`](/de/docs/Web/API/HTMLTableColElement) ist ein String, der angibt, wie Text in einem Tabellenspalten-Element vom Typ {{htmlelement("col")}} vertikal ausgerichtet wird.
 
 > [!NOTE]
-> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text in einer Spalte vertikal auszurichten. Verwenden Sie die CSS-Eigenschaft {{cssxref("vertical-align")}}, die Vorrang hat, um Text in jeder Zelle der Spalte vertikal auszurichten.
+> Diese Eigenschaft ist veraltet, und CSS sollte verwendet werden, um Text in einer Spalte vertikal auszurichten. Verwenden Sie stattdessen die CSS-Eigenschaft {{cssxref("vertical-align")}}, die Vorrang hat, um Text in jeder Spaltenzelle vertikal auszurichten.
 >
-> Da {{htmlelement("td")}} keine Kinder von {{htmlelement("col")}} sind, können Sie es nicht direkt auf ein {{HTMLElement("col")}}-Element anwenden. Sie müssen die Zellen der Spalte mit `td:nth-child(n)` oder ähnlichem auswählen (`n` ist die Nummer der Spalte).
+> Da {{htmlelement("td")}} keine Kinder von {{htmlelement("col")}} sind, kann es nicht direkt auf einem {{HTMLElement("col")}}-Element gesetzt werden. Sie müssen die Zellen der Spalte mithilfe von `td:nth-child(n)` oder ähnlichem auswählen (`n` ist die Spaltennummer).
 
 ## Wert
 
 Die möglichen Werte sind: `"top"`, `"middle"`, `"bottom"` oder `"baseline"`
 
 - `top`
-  - : Richtet den Text am oberen Rand der Spalte aus. Verwenden Sie stattdessen `vertical-align: top`.
+  - : Richtet den Text oben in der Spalte aus. Verwenden Sie stattdessen `vertical-align: top`.
 - `center`
   - : Zentriert den Text vertikal in der Spalte. Synonym für `middle`. Verwenden Sie stattdessen `vertical-align: middle`.
 - `middle`
   - : Zentriert den Text vertikal in der Spalte. Verwenden Sie stattdessen `vertical-align: middle`.
 - `bottom`
-  - : Richtet den Text am unteren Rand der Spalte aus. Verwenden Sie stattdessen `vertical-align: bottom`.
+  - : Richtet den Text unten in der Spalte aus. Verwenden Sie stattdessen `vertical-align: bottom`.
 - `baseline`
-  - : Ähnlich wie `top`, richtet aber die Grundlinie des Textes so nah wie möglich am oberen Rand aus, sodass kein Teil des Zeichens außerhalb der Zelle liegt.
+  - : Ähnlich wie `top`, aber richtet die Basislinie des Textes so nah wie möglich an der Oberseite aus, sodass kein Teil des Zeichens außerhalb der Zelle ist.
 
 ## Beispiele
 
-Verwenden Sie CSS `vertical-align`. Da {{htmlelement("td")}}-Elemente einer Spalte keine Kinder von {{htmlelement("col")}} sind, können Sie es nicht direkt auf ein {{HTMLElement("col")}} anwenden. Sie müssen die Zellen mit `td:nth-child(n)` oder ähnlichem auswählen (`n` ist die Nummer der Spalte).
+Verwenden Sie `vertical-align` in CSS. Da {{htmlelement("td")}}-Elemente einer Spalte keine Kinder von {{htmlelement("col")}} sind, können Sie es nicht direkt auf einem {{HTMLElement("col")}} setzen. Sie müssen die Zellen mithilfe von `td:nth-child(n)` oder ähnlichem auswählen (`n` ist die Spaltennummer).
 
-Ein [Beispiel](/de/docs/Web/CSS/:nth-child#styling_a_table_column) finden Sie auf der {{cssxref(":nth-child()")}} Seite.
+Ein [Beispiel](/de/docs/Web/CSS/:nth-child#styling_a_table_column) ist auf der Seite {{cssxref(":nth-child()")}} verfügbar.
 
 ## Spezifikationen
 
@@ -48,4 +48,4 @@ Ein [Beispiel](/de/docs/Web/CSS/:nth-child#styling_a_table_column) finden Sie au
 
 - {{cssxref("vertical-align")}}
 - {{cssxref(":nth-child()")}}
-- [Tabellen stylen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)
+- [Lernen: Tabellen gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Tables)

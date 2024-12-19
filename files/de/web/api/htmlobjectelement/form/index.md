@@ -3,12 +3,12 @@ title: "HTMLObjectElement: form-Eigenschaft"
 short-title: form
 slug: Web/API/HTMLObjectElement/form
 l10n:
-  sourceCommit: 650feba1ed52078fe6c9342f7a76bafc8ab43891
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`form`** Lese-Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("object")}} besitzt, oder `null`, wenn dieses Objekt-Element von keinem Formular besessen wird.
+Die **`form`**-Eigenschaft der [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)-Schnittstelle gibt ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)-Objekt zurück, das dieses {{htmlelement("object")}} besitzt, oder `null`, wenn dieses `object`-Element zu keinem Formular gehört.
 
 ## Wert
 
@@ -27,4 +27,4 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLObjectElement`](/de/docs/Web/API/HTMLObjectElement)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("object")}}
-- [HTML-Formulare Leitfaden](/de/docs/Learn/Forms)
+- [Leitfaden zu HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms)

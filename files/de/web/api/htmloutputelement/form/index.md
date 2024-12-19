@@ -3,7 +3,7 @@ title: "HTMLOutputElement: form-Eigenschaft"
 short-title: form
 slug: Web/API/HTMLOutputElement/form
 l10n:
-  sourceCommit: 650feba1ed52078fe6c9342f7a76bafc8ab43891
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
@@ -27,5 +27,5 @@ Ein [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement) oder `null`.
 - [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)
 - [`HTMLFormElement`](/de/docs/Web/API/HTMLFormElement)
 - {{HTMLElement("output")}}
-- HTML [`form`](/de/docs/Web/HTML/Element/output#form)-Attribut
-- [Leitfaden zu HTML-Formularen](/de/docs/Learn/Forms)
+- HTML-<a href="/de/docs/Web/HTML/Element/output#form">`form`</a>-Attribut
+- [HTML-Formulare-Leitfaden](/de/docs/Learn_web_development/Extensions/Forms)

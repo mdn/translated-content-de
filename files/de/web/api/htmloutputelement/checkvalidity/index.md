@@ -3,12 +3,12 @@ title: "HTMLOutputElement: checkValidity() Methode"
 short-title: checkValidity()
 slug: Web/API/HTMLOutputElement/checkValidity
 l10n:
-  sourceCommit: bc7e82aa6db60568d7146ee285918550bbe4b8ce
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die **`checkValidity()`** Methode der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement)-Schnittstelle überprüft, ob das Element gültig ist, gibt jedoch immer `true` zurück, da {{HTMLElement("output")}}-Elemente niemals Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
+Die **`checkValidity()`** Methode der [`HTMLOutputElement`](/de/docs/Web/API/HTMLOutputElement) Schnittstelle prüft, ob das Element gültig ist, gibt aber immer `true` zurück, da {{HTMLElement("output")}} Elemente nie Kandidaten für die [Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation) sind.
 
 ## Syntax
 
@@ -46,5 +46,5 @@ console.log(element.checkValidity());
 - [`HTMLOutputElement.reportValidity()`](/de/docs/Web/API/HTMLOutputElement/reportValidity)
 - {{HTMLElement("output")}}
 - {{HTMLElement("form")}}
-- [Lernen: Clientseitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
+- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
 - [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)

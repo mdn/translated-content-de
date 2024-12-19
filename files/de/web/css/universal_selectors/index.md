@@ -1,13 +1,13 @@
 ---
-title: Universelle Selektoren
+title: Universalselektoren
 slug: Web/CSS/Universal_selectors
 l10n:
-  sourceCommit: d71da812ee94c20658cb1916a123a42254ea545c
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Der CSS-**universelle Selektor** (`*`) wählt Elemente jeglichen Typs aus.
+Der CSS **Universalselektor** (`*`) passt auf Elemente jeglichen Typs.
 
 ```css
 /* Selects all elements */
@@ -16,11 +16,11 @@ Der CSS-**universelle Selektor** (`*`) wählt Elemente jeglichen Typs aus.
 }
 ```
 
-Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_selectors) und kann daher mit einem Namensraum versehen werden, wenn {{CSSXref("@namespace")}} verwendet wird. Dies ist nützlich, wenn Sie mit Dokumenten arbeiten, die mehrere Namensräume enthalten, wie HTML mit eingebettetem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
+Der Universalselektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_selectors) und kann deshalb mit {{CSSXref("@namespace")}} namensspezifisch verwendet werden. Dies ist nützlich beim Umgang mit Dokumenten, die mehrere Namensräume enthalten, wie HTML mit integriertem SVG oder MathML, oder XML, das mehrere Vokabulare mischt.
 
-- `ns|*` - wählt alle Elemente im Namensraum _ns_ aus
-- `*|*` - wählt alle Elemente aus
-- `|*` - wählt alle Elemente ohne einen deklarierten Namensraum aus
+- `ns|*` - passt auf alle Elemente im Namensraum _ns_
+- `*|*` - passt auf alle Elemente
+- `|*` - passt auf alle Elemente ohne einen deklarierten Namensraum
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Der universelle Selektor ist ein spezieller [Typselektor](/de/docs/Web/CSS/Type_
 * { style properties }
 ```
 
-Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warning` und `.warning` gleichwertig.
+Der Stern ist optional bei einfachen Selektoren. Zum Beispiel sind `*.warning` und `.warning` äquivalent.
 
 ## Beispiele
 
@@ -74,7 +74,7 @@ Das Sternchen ist bei einfachen Selektoren optional. Zum Beispiel sind `*.warnin
 
 ### Namensräume
 
-In diesem Beispiel wird der Selektor nur Elemente im Beispiel-Namensraum auswählen.
+In diesem Beispiel wird der Selektor nur auf Elemente im Beispiels-Namensraum passen.
 
 ```css
 @namespace example url(http://www.example.com/);
@@ -94,4 +94,4 @@ example|* {
 ## Siehe auch
 
 - [CSS-Selektoren](/de/docs/Web/CSS/CSS_selectors) Modul
-- [CSS lernen: Selektoren](/de/docs/Learn/CSS/Building_blocks/Selectors)
+- [CSS lernen: Basis-Selektoren](/de/docs/Learn_web_development/Core/Styling_basics/Basic_selectors)

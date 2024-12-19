@@ -1,27 +1,27 @@
 ---
-title: Verwenden von CSS-Verschachtelung
+title: Verwenden von CSS-Nesting
 slug: Web/CSS/CSS_nesting/Using_CSS_nesting
 l10n:
-  sourceCommit: 5e3cb7c4405256c4ad004986bbff622777b664b6
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Das Modul [CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting) ermöglicht es Ihnen, Ihre Stylesheets so zu schreiben, dass sie leichter lesbar, modularer und wartungsfreundlicher sind. Da Sie nicht ständig Selektoren wiederholen, kann auch die Dateigröße reduziert werden.
+Das [CSS-Nesting](/de/docs/Web/CSS/CSS_nesting) Modul ermöglicht es Ihnen, Ihre Stylesheets so zu schreiben, dass sie leichter lesbar, modularer und wartbarer sind. Da Sie nicht ständig Selektoren wiederholen, kann auch die Dateigröße reduziert werden.
 
-CSS-Verschachtelung unterscheidet sich von CSS-Präprozessoren wie [Sass](https://sass-lang.com/), da sie vom Browser geparst wird und nicht von einem CSS-Präprozessor vorkompiliert wird. Außerdem ist in der CSS-Verschachtelung die [Spezifität des `&` Verschachtelungsselektors](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity) ähnlich der {{cssxref(':is',':is()')}} Funktion; sie wird mit der höchsten Spezifität in der zugehörigen Selektorenliste berechnet.
+CSS-Nesting unterscheidet sich von CSS-Präprozessoren wie [Sass](https://sass-lang.com/) darin, dass es vom Browser analysiert wird, anstatt von einem CSS-Präprozessor vorab kompiliert zu werden. Auch die [Spezifität des `&`-Nesting-Selektors](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity) ist ähnlich wie die Funktion {{cssxref(':is',':is()')}}; sie wird basierend auf der höchsten Spezifität in der zugehörigen Selektorliste berechnet.
 
-Dieser Leitfaden zeigt verschiedene Möglichkeiten zur Anordnung der Verschachtelung in CSS.
+Dieser Leitfaden zeigt verschiedene Möglichkeiten, wie Sie Nesting in CSS anordnen können.
 
-## Kindselektoren
+## Kind-Selektoren
 
-Sie können CSS-Verschachtelung verwenden, um Kindselektoren eines Elternelements zu erstellen, die wiederum dazu verwendet werden können, Kindelemente spezifischer Eltern zu adressieren. Dies kann mit oder ohne den [`&` Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector) erfolgen.
+Sie können CSS-Nesting verwenden, um Kind-Selektoren eines Elternteils zu erstellen, die wiederum verwendet werden können, um Kindelemente spezifischer Eltern zu zielen. Dies kann mit oder ohne den [`&`-Nesting-Selektor](/de/docs/Web/CSS/Nesting_selector) erfolgen.
 
-Es gibt bestimmte Fälle, in denen der `&` Verschachtelungsselektor notwendig oder hilfreich sein kann:
+Es gibt bestimmte Fälle, in denen die Verwendung des `&`-Nesting-Selektors notwendig oder hilfreich sein kann:
 
-- Beim Verbinden von Selektoren, wie etwa beim Verwenden von [komplexen Selektoren](#komplexe_selektoren) oder [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes).
-- Für Abwärtskompatibilität.
-- Als visuelles Indiz zur Unterstützung der Lesbarkeit, da Sie bei Ansicht des `&` Verschachtelungsselektors wissen, dass CSS-Verschachtelung verwendet wird.
+- Beim Zusammenführen von Selektoren, zum Beispiel bei der Verwendung von [zusammengesetzten Selektoren](#zusammengesetzte_selektoren) oder [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes).
+- Für die Abwärtskompatibilität.
+- Als visueller Indikator zur Unterstützung der Lesbarkeit, wenn Sie den `&`-Nesting-Selektor sehen, wissen Sie, dass CSS-Nesting verwendet wird.
 
 ```css
 /* Without nesting selector */
@@ -51,12 +51,12 @@ parent child {
 
 ### Beispiele
 
-In diesen Beispielen, einem ohne und einem mit dem `&` Verschachtelungsselektor, wird das `<input>` innerhalb des `<label>` anders gestylt als das `<input>`, das ein Geschwisterelement eines `<label>` ist. Dies demonstriert die Auswirkung der Auslassung des `&` Verschachtelungsselektors.
+In diesen Beispielen, eines ohne und eines mit dem `&`-Nesting-Selektor, wird das `<input>` innerhalb des `<label>` anders gestylt als das `<input>`, das ein Geschwister von einem `<label>` ist. Dies demonstriert die Auswirkungen des Weglassens des `&`-Nesting-Selektors.
 
 > [!NOTE]
-> Dieses Beispiel zeigt unterschiedliche Ausgaben in Browsern, die die ursprüngliche Spezifikation gegenüber der aktuellen Verschachtelungsspezifikation umsetzen. Die ursprüngliche, vor August 2023 verschachtelte Spezifikation, die in Chrome oder Safari implementiert wurde, erfordert den `&` Verschachtelungskombinator. Wenn Ihr Browser die aktuelle Spezifikation unterstützt, entspricht die Ausgabe beider Beispiele der des zweiten Beispiels.
+> Dieses Beispiel zeigt unterschiedliche Ausgaben in Browsern, die die ursprüngliche Spezifikation im Vergleich zur aktuellen Nesting-Spezifikation implementieren. Die ursprüngliche, vor August 2023 implementierte Nesting-Spezifikation in Chrome oder Safari erfordert den `&`-Nesting-Komparator. Wenn Ihr Browser die aktuelle Spezifikation unterstützt, entspricht die Ausgabe beider Beispiele der des zweiten Beispiels.
 
-#### Ohne Verschachtelungsselektor
+#### Ohne Nesting-Selektor
 
 ##### HTML
 
@@ -101,7 +101,7 @@ label {
 
 {{EmbedLiveSample('Without_nesting_selector','100%','120')}}
 
-#### Mit Verschachtelungsselektor
+#### Mit Nesting-Selektor
 
 ##### HTML
 
@@ -148,13 +148,13 @@ label {
 
 ## Kombinatoren
 
-[CSS-Kombinatoren](/de/docs/Learn/CSS/Building_blocks/Selectors/Combinators) können ebenfalls mit oder ohne den `&` Verschachtelungsselektor verwendet werden.
+[CSS-Kombinatoren](/de/docs/Learn_web_development/Core/Styling_basics/Combinators) können ebenfalls mit oder ohne den `&`-Nesting-Selektor verwendet werden.
 
 ### Beispiel
 
-#### Verschachteln des Geschwisterkombinators
+#### Nesting des Geschwister-Kombinators
 
-In diesem Beispiel wird der erste Absatz nach jedem `<h2>` mit dem [nächstes-Geschwister-Kombinator (`+`)](/de/docs/Web/CSS/Next-sibling_combinator) unter Verwendung von CSS-Verschachtelung angesprochen.
+In diesem Beispiel wird der erste Absatz nach jedem `<h2>` mit dem [nächsten Geschwister-Kombinator (`+`)](/de/docs/Web/CSS/Next-sibling_combinator) unter Verwendung von CSS-Nesting gezielt.
 
 ##### HTML
 
@@ -190,11 +190,11 @@ h2 {
 
 {{EmbedLiveSample('Nesting_the_sibling_combinator','100%','135')}}
 
-## Komplexe Selektoren
+## Zusammengesetzte Selektoren
 
-Beim Verwenden von [komplexen Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) in verschachteltem CSS **müssen** Sie den `&` Verschachtelungsselektor verwenden. Dies liegt daran, dass der Browser automatisch Leerzeichen zwischen Selektoren hinzufügt, die den `&` Verschachtelungsselektor nicht verwenden.
+Bei der Verwendung von [zusammengesetzten Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) in geschachteltem CSS **müssen** Sie den `&`-Nesting-Selektor verwenden. Dies ist erforderlich, da der Browser automatisch Leerzeichen zwischen Selektoren hinzufügt, die nicht den `&`-Nesting-Selektor verwenden.
 
-Um ein Element mit `class="a b"` anzusprechen, wird der `&` Verschachtelungsselektor benötigt, ansonsten wird das Leerzeichen den komplexen Selektor aufbrechen.
+Um ein Element mit `class="a b"` zu selektieren, wird der `&`-Nesting-Selektor benötigt, andernfalls unterbricht das Leerzeichen den zusammengesetzten Selektor.
 
 ```css
 .a {
@@ -221,9 +221,9 @@ Um ein Element mit `class="a b"` anzusprechen, wird der `&` Verschachtelungssele
 
 ### Beispiel
 
-#### Verschachteln und komplexe Selektoren
+#### Nesting und zusammengesetzte Selektoren
 
-In diesem Beispiel wird der `&` Verschachtelungsselektor verwendet, um komplexe Selektoren zu erstellen, um Elemente mit mehreren Klassen zu stylen.
+In diesem Beispiel wird der `&`-Nesting-Selektor verwendet, um zusammengesetzte Selektoren zu erstellen, die Elemente mit mehreren Klassen stylen.
 
 ##### HTML
 
@@ -246,7 +246,7 @@ In diesem Beispiel wird der `&` Verschachtelungsselektor verwendet, um komplexe 
 
 ##### CSS
 
-Stile für die `.notices`, um eine Spalte mit dem [Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) zu erstellen.
+Stile für das `.notices`, um eine Spalte mit [Flexbox-Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) zu erstellen.
 
 ```css
 .notices {
@@ -258,7 +258,7 @@ Stile für die `.notices`, um eine Spalte mit dem [Flexbox-Layout](/de/docs/Web/
 }
 ```
 
-Im folgenden CSS-Code wird die Verschachtelung verwendet, um komplexe Selektoren sowohl mit als auch ohne `&` zu erstellen. Der oberste Selektor definiert die Grundstile für Elemente mit `class="notice"`. Der `&` Verschachtelungsselektor wird dann verwendet, um komplexe Selektoren für Elemente mit entweder `class="notice warning"` oder `class="notice success"` zu erstellen. Zudem kann die Verwendung der Verschachtelung zur Erstellung komplexer Selektoren ohne explizite Verwendung von `&` im Selektor `.notice .notice-heading::before` gesehen werden.
+Im folgenden CSS-Code wird Nesting verwendet, um zusammengesetzte Selektoren sowohl mit als auch ohne `&` zu erstellen. Der Top-Level-Selektor definiert die Basisstile für Elemente mit `class="notice"`. Der `&`-Nesting-Selektor wird dann verwendet, um zusammengesetzte Selektoren für Elemente mit entweder `class="notice warning"` oder `class="notice success"` zu erstellen. Außerdem kann die Verwendung von Nesting zur Erstellung von zusammengesetzten Selektoren ohne explizite Verwendung von `&` im Selektor `.notice .notice-heading::before` gesehen werden.
 
 ```css
 .notice {
@@ -300,9 +300,9 @@ Im folgenden CSS-Code wird die Verschachtelung verwendet, um komplexe Selektoren
 
 {{EmbedLiveSample('Nesting_and_compound_selectors','100%', '455')}}
 
-## Ergänzter Verschachtelungsselektor
+## Anhängen des Nesting-Selektors
 
-Der `&` Verschachtelungsselektor kann auch einem verschachtelten Selektor angehängt werden, wodurch der Kontext umgekehrt wird.
+Der `&`-Nesting-Selektor kann auch an einen verschachtelten Selektor angehängt werden, was die Wirkung hat, den Kontext umzukehren.
 
 Dies kann nützlich sein, wenn wir Stile für ein Kindelement haben, die sich ändern, wenn einem Elternelement eine andere Klasse zugewiesen wird:
 
@@ -331,9 +331,9 @@ Im Gegensatz zu:
 
 ### Beispiel
 
-#### Anfügen des Verschachtelungsselektors
+#### Anhängen des Nesting-Selektors
 
-In diesem Beispiel gibt es 3 Karten, von denen eine hervorgehoben wird. Die Karten sind alle genau gleich, außer dass die hervorgehobene Karte eine alternative Farbe für die Überschrift hat. Durch das Anhängen des `&` Verschachtelungsselektors kann der Stil für `.featured .h2` innerhalb des Stils für `h2` verschachtelt werden.
+In diesem Beispiel gibt es 3 Karten, von denen eine hervorgehoben ist. Die Karten sind alle genau gleich, außer dass die hervorgehobene Karte eine alternative Farbe für die Überschrift haben wird. Durch Anhängen des `&`-Nesting-Selektors kann der Stil für `.featured .h2` in den Stil für `h2` verschachtelt werden.
 
 ##### HTML
 
@@ -365,7 +365,7 @@ In diesem Beispiel gibt es 3 Karten, von denen eine hervorgehoben wird. Die Kart
 }
 ```
 
-Im folgenden CSS erstellen wir die Stile für `.card` und `.card h2`. Dann, im `h2`-Stilblock, verschachteln wir die `.featured`-Klasse mit dem angehängten `&` Verschachtelungsselektor, der einen Stil für `.card :is(.featured h2)` erstellt, was äquivalent zu `:is(.card h2):is(.featured h2)` ist.
+Im folgenden CSS erstellen wir die Stile für `.card` und `.card h2`. Dann wird im `h2`-Stilblock die `.featured`-Klasse mit dem angehängten `&`-Nesting-Selektor verschachtelt, was einen Stil für `.card :is(.featured h2)`, welcher gleichbedeutend mit `:is(.card h2):is(.featured h2)` ist, erzeugt.
 
 ```css
 .card {
@@ -389,7 +389,7 @@ Im folgenden CSS erstellen wir die Stile für `.card` und `.card h2`. Dann, im `
 
 ## Verschachtelte Deklarationsregel
 
-Die Regel für verschachtelte Deklarationen besagt, dass CSS-Regeln in der Reihenfolge geparst werden, in der sie im CSS-Dokument geschrieben sind.
+Die verschachtelte Deklarationsregel besagt, dass CSS-Regeln in der Reihenfolge analysiert werden, in der sie im CSS-Dokument geschrieben sind.
 
 Mit dem folgenden CSS:
 
@@ -403,9 +403,9 @@ Mit dem folgenden CSS:
 }
 ```
 
-Der `background-color` wird zuerst geparst und auf Silber gesetzt, dann wird die `@media`-Regel ausgewertet und schließlich die `color`.
+Der `background-color` wird zuerst analysiert und auf Silber gesetzt, dann wird die `@media` Regel ausgewertet und schließlich die `color`.
 
-Das CSSOM parst das CSS auf folgende Weise:
+Das CSSOM analysiert das CSS auf die folgende Weise:
 
 ```txt
 ↳ CSSStyleRule
@@ -420,16 +420,16 @@ Das CSSOM parst das CSS auf folgende Weise:
       - color: black
 ```
 
-Beachten Sie, dass, um die Parsing-Reihenfolge zu bewahren, alle Regeln vor der Verschachtelung als Top-Level-`CSSRules` behandelt werden, während alle Top-Level-Regeln nach der Verschachtelung als `CSSNestedDeclarations` dargestellt werden.
-Deshalb befindet sich `color-black` in einer verschachtelten Deklaration, obwohl es im Originaldokument eine Top-Level-Deklaration ist.
+Beachten Sie, dass zur Erhaltung der Analyse-Reihenfolge alle Regeln vor dem Nesting als Top-Level-`CSSRules` behandelt werden, während alle Top-Level-Regeln nach dem Nesting als `CSSNestedDeclarations` dargestellt werden.
+Deshalb befindet sich die `color-black` in einer verschachtelten Deklaration, obwohl sie eine Top-Level-Deklaration im Originaldokument ist.
 
 > [!NOTE]
 > Unterstützung für die Regel wurde mit [`CSSNestedDeclarations`](/de/docs/Web/API/CSSNestedDeclarations) hinzugefügt.
-> Browser, die [diese Schnittstelle nicht unterstützen](/de/docs/Web/API/CSSNestedDeclarations#browser_compatibility), könnten verschachtelte Regeln in der falschen Reihenfolge parsen.
+> Browser, die [diese Schnittstelle nicht unterstützen](/de/docs/Web/API/CSSNestedDeclarations#browser_compatibility), könnten verschachtelte Regeln in der falschen Reihenfolge analysieren.
 
 ## Verkettung (ist nicht möglich)
 
-In CSS-Präprozessoren wie [Sass](https://sass-lang.com/) ist es möglich, Verschachtelung zu verwenden, um Zeichenfolgen zu verbinden, um neue Klassen zu erstellen. Dies ist in CSS-Methodologien wie [BEM](https://getbem.com/naming/) üblich.
+In CSS-Präprozessoren wie [Sass](https://sass-lang.com/) ist es möglich, Nesting zu verwenden, um Zeichenfolgen zu verbinden und neue Klassen zu erstellen. Dies ist gängig in CSS-Methodologien wie [BEM](https://getbem.com/naming/).
 
 ```css example-bad
 .component {
@@ -442,9 +442,9 @@ In CSS-Präprozessoren wie [Sass](https://sass-lang.com/) ist es möglich, Versc
 ```
 
 > [!WARNING]
-> Dies ist in CSS-Verschachtelung nicht möglich: Wenn ein [Kombinator](/de/docs/Learn/CSS/Building_blocks/Selectors/Combinators) nicht verwendet wird, wird der verschachtelte Selektor als [Typselektor](/de/docs/Web/CSS/Type_selectors) behandelt. Die Zulassung der Verkettung würde dies brechen.
+> Dies ist im CSS-Nesting nicht möglich: Wenn ein [Kombinator](/de/docs/Learn_web_development/Core/Styling_basics/Combinators) nicht verwendet wird, wird der verschachtelte Selektor als [Type-Selektor](/de/docs/Web/CSS/Type_selectors) behandelt. Eine Zulassung der Verkettung würde dies brechen.
 
-In [komplexen Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) muss der Typselektor zuerst kommen. Schreiben `&Element` (einen [Typselektor](/de/docs/Web/CSS/Type_selectors)) macht den CSS-Selektor und den gesamten Selektorblock ungültig. Da der Typselektor zuerst kommen muss, muss der komplexe Selektor als `Element&` geschrieben werden.
+In [zusammengesetzten Selektoren](/de/docs/Web/CSS/CSS_selectors/Selector_structure#compound_selector) muss der Typ-Selektor an erster Stelle stehen. Das Schreiben von `&Element` (ein [Type-Selektor](/de/docs/Web/CSS/Type_selectors)) macht den CSS-Selektor und den gesamten Selektorblock ungültig. Da der Typ-Selektor zuerst stehen muss, muss der zusammengesetzte Selektor als `Element&` geschrieben werden.
 
 ```css example-good
 .my-class {
@@ -461,7 +461,7 @@ element.my-class {
 
 ## Ungültige verschachtelte Stilregeln
 
-Wenn eine verschachtelte CSS-Regel ungültig ist, werden alle eingeschlossenen Stile ignoriert. Dies beeinflusst nicht die übergeordneten oder vorhergehenden Regeln.
+Wenn eine verschachtelte CSS-Regel ungültig ist, werden alle eingeschlossenen Stile ignoriert. Dies betrifft nicht die übergeordneten oder vorherigen Regeln.
 
 Im folgenden Beispiel gibt es einen ungültigen Selektor (`%` ist kein gültiges Zeichen für Selektoren). Die Regel, die diesen Selektor einschließt, wird ignoriert, aber nachfolgende gültige Regeln nicht.
 
@@ -479,9 +479,9 @@ Im folgenden Beispiel gibt es einen ungültigen Selektor (`%` ist kein gültiges
 
 ## Siehe auch
 
-- [CSS-Verschachtelung](/de/docs/Web/CSS/CSS_nesting) Modul
-- [`&` Verschachtelungsselektor](/de/docs/Web/CSS/Nesting_selector)
-- [Verschachteln von `@` At-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)
-- [Verschachtelung und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
+- [CSS-Nesting](/de/docs/Web/CSS/CSS_nesting) Modul
+- [`&`-Nesting-Selektor](/de/docs/Web/CSS/Nesting_selector)
+- [Nesting von `@`-Regeln](/de/docs/Web/CSS/CSS_nesting/Nesting_at-rules)
+- [Nesting und Spezifität](/de/docs/Web/CSS/CSS_nesting/Nesting_and_specificity)
 - [`CSSNestedDeclarations`](/de/docs/Web/API/CSSNestedDeclarations)
-- [Die Regel der verschachtelten Deklarationen](https://drafts.csswg.org/css-nesting-1/#nested-declarations-rule)
+- [Die verschachtelte Deklarationsregel](https://drafts.csswg.org/css-nesting-1/#nested-declarations-rule)

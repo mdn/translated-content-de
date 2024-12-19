@@ -2,14 +2,14 @@
 title: Webserver
 slug: Glossary/Web_server
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{GlossarySidebar}}
 
-Ein Webserver ist ein Softwareprogramm, das oft auf einem Hardware-Server läuft und einem Benutzer, üblicherweise als Client bezeichnet, Dienste anbietet. Ein Server hingegen ist ein Hardware-Gerät, das sich in einem Raum voller Computer befindet, üblicherweise als Rechenzentrum bekannt.
+Ein Webserver ist ein Softwarestück, das häufig auf einem Hardware-Server läuft und einem Benutzer, normalerweise als Client bezeichnet, Dienstleistungen bietet. Ein Server hingegen ist ein Stück Hardware, das in einem Raum voller Computer, der allgemein als Rechenzentrum bekannt ist, untergebracht ist.
 
 ## Siehe auch
 
-- [Einführung in Server](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
-- [Server (computing)](<https://en.wikipedia.org/wiki/Server_(computing)>) auf Wikipedia
+- [Einführung in Server](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server)
+- [Server (Computing)](<https://en.wikipedia.org/wiki/Server_(computing)>) auf Wikipedia

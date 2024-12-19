@@ -2,12 +2,12 @@
 title: overflow-inline
 slug: Web/CSS/overflow-inline
 l10n:
-  sourceCommit: fc1cc5684c98d19816d5cc81702d70f2a0debbad
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`overflow-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was angezeigt wird, wenn Inhalt die Inline-Start- und -Endkanten eines Rahmens überläuft. Dies kann nichts sein, eine Scroll-Leiste oder der überlaufende Inhalt.
+Die **`overflow-inline`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, was angezeigt wird, wenn Inhalt die inline Anfänge und Enden eines Rahmens überläuft. Dies kann nichts, eine Bildlaufleiste oder der überlaufende Inhalt sein.
 
 > [!NOTE]
 > Die Eigenschaft `overflow-inline` wird je nach Schreibmodus des Dokuments auf {{Cssxref("overflow-y")}} oder {{Cssxref("overflow-x")}} abgebildet.
@@ -30,20 +30,20 @@ overflow-inline: revert-layer;
 overflow-inline: unset;
 ```
 
-Die Eigenschaft `overflow-inline` wird als einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben.
+Die Eigenschaft `overflow-inline` wird als ein einzelnes {{CSSXref("overflow_value", "&lt;overflow&gt;")}} Schlüsselwortwert angegeben.
 
 ### Werte
 
 - `visible`
-  - : Inhalt wird nicht abgeschnitten und kann außerhalb der Inline-Start- und -Endkanten des Innenabstands-Box gerendert werden.
+  - : Inhalt wird nicht abgeschnitten und kann außerhalb der inline Anfänge und Enden des inneren Abstandsrahmens dargestellt werden.
 - `hidden`
-  - : Inhalt wird bei Bedarf abgeschnitten, um in die Inline-Dimension der Innenabstands-Box zu passen. Es werden keine Scrollleisten bereitgestellt.
+  - : Inhalt wird bei Bedarf abgeschnitten, um in die inline Dimension im inneren Abstandsrahmen zu passen. Es werden keine Bildlaufleisten bereitgestellt.
 - `clip`
-  - : Überlaufender Inhalt wird an der Überlauf-Clipping-Kante des Elements abgeschnitten, die mit der Eigenschaft {{CSSXref("overflow-clip-margin")}} definiert ist.
+  - : Überlaufender Inhalt wird an der Überlaufrandkante des Elements abgeschnitten, die mit der {{CSSXref("overflow-clip-margin")}} Eigenschaft definiert ist.
 - `scroll`
-  - : Inhalt wird bei Bedarf abgeschnitten, um in die Inline-Dimension der Innenabstands-Box zu passen. Browser zeigen Scrollleisten an, unabhängig davon, ob Inhalt tatsächlich abgeschnitten wird. (Dies verhindert, dass Scrollleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können dennoch überlaufenden Inhalt drucken.
+  - : Inhalt wird bei Bedarf abgeschnitten, um in die inline Dimension des inneren Abstandsrahmens zu passen. Browser zeigen Bildlaufleisten an, unabhängig davon, ob tatsächlich Inhalt abgeschnitten wird oder nicht. (Dies verhindert, dass Bildlaufleisten erscheinen oder verschwinden, wenn sich der Inhalt ändert.) Drucker können überlaufenden Inhalt dennoch drucken.
 - `auto`
-  - : Hängt vom Benutzeragenten ab. Wenn Inhalt in die Innenabstands-Box passt, sieht es aus wie `visible`, schafft aber dennoch einen neuen Block-Formatierungskontext. Desktop-Browser stellen Scrollleisten bereit, wenn Inhalt überläuft.
+  - : Abhängig vom Benutzeragenten. Wenn der Inhalt in den inneren Abstandsrahmen passt, sieht er genauso aus wie `visible`, schafft jedoch dennoch einen neuen Block-Formatierungskontext. Desktop-Browser bieten Bildlaufleisten an, wenn der Inhalt überläuft.
 
 ## Formale Definition
 
@@ -55,7 +55,7 @@ Die Eigenschaft `overflow-inline` wird als einzelnes {{CSSXref("overflow_value",
 
 ## Beispiele
 
-### Inline-Überlaufverhalten einstellen
+### Einstellung des Verhaltens bei inline Überlauf
 
 #### HTML
 
@@ -136,5 +136,5 @@ div {
 - {{cssxref("clip")}}, {{cssxref("display")}}, {{cssxref("overflow")}}, {{cssxref("overflow-block")}}, {{cssxref("overflow-clip-margin")}}, {{cssxref("overflow-x")}}, {{cssxref("overflow-y")}}, {{cssxref("text-overflow")}}, {{cssxref("white-space")}}
 - [CSS overflow](/de/docs/Web/CSS/CSS_overflow) Modul
 - [CSS logische Eigenschaften](/de/docs/Web/CSS/CSS_logical_properties_and_values)
-- [CSS Schreibmodi](/de/docs/Web/CSS/CSS_writing_modes)
-- [CSS-Bausteine: Überlaufender Inhalt](/de/docs/Learn/CSS/Building_blocks/Overflowing_content)
+- [CSS Schreibrichtungen](/de/docs/Web/CSS/CSS_writing_modes)
+- [Lernen: Überlaufender Inhalt](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)

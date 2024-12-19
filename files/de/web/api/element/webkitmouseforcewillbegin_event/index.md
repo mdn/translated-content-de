@@ -1,20 +1,20 @@
 ---
-title: "Element: webkitmouseforcewillbegin Ereignis"
+title: "Element: webkitmouseforcewillbegin Event"
 short-title: webkitmouseforcewillbegin
 slug: Web/API/Element/webkitmouseforcewillbegin_event
 l10n:
-  sourceCommit: 73b2b6ee411ac094b9fc57dafac6f9c232fc20d9
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("Force Touch Events")}}{{Non-standard_header}}
 
-Safari für macOS löst das nicht standardmäßige **`webkitmouseforcewillbegin`** Ereignis an einem [`Element`](/de/docs/Web/API/Element) aus, bevor das initiale [`mousedown`](/de/docs/Web/API/Element/mousedown_event) Ereignis ausgelöst wird.
+Safari für macOS löst das nicht-standardisierte **`webkitmouseforcewillbegin`**-Ereignis an einem [`Element`](/de/docs/Web/API/Element) aus, bevor das initiale [`mousedown`](/de/docs/Web/API/Element/mousedown_event)-Ereignis ausgelöst wird.
 
-Dies bietet die Möglichkeit, dem System mitzuteilen, keine Standardaktionen für Force Touch auszulösen, falls und wenn der Klick in ein [Force Touch Ereignis](/de/docs/Web/API/Force_Touch_events) übergeht.
+Dies bietet die Möglichkeit, dem System mitzuteilen, keine standardmäßigen Force Touch-Aktionen auszulösen, wenn der Klick zu einem [Force Touch Ereignis](/de/docs/Web/API/Force_Touch_events) wird.
 
-Um macOS anzuweisen, keine Standardaktionen für Force Touch auszuführen, wenn der Benutzer genug Druck ausübt, um ein Force Touch Ereignis zu aktivieren, rufen Sie [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) auf dem `webkitmouseforcewillbegin` Ereignisobjekt auf.
+Um macOS anzuweisen keine standardmäßigen Force Touch-Aktionen zu aktivieren, wenn der Benutzer genug Druck ausübt, um ein Force Touch-Ereignis auszulösen, rufen Sie [`preventDefault()`](/de/docs/Web/API/Event/preventDefault) am `webkitmouseforcewillbegin`-Ereignisobjekt auf.
 
-**`webkitmouseforcewillbegin`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil des [Force Touch Ereignis](/de/docs/Web/API/Force_Touch_events) Features.
+**`webkitmouseforcewillbegin`** ist ein proprietäres, WebKit-spezifisches Ereignis. Es ist Teil der [Force Touch Ereignisse](/de/docs/Web/API/Force_Touch_events).
 
 ## Syntax
 
@@ -37,15 +37,15 @@ Ein [`MouseEvent`](/de/docs/Web/API/MouseEvent). Erbt von [`UIEvent`](/de/docs/W
 _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/Web/API/UIEvent) und [`Event`](/de/docs/Web/API/Event)._
 
 - [`MouseEvent.altKey`](/de/docs/Web/API/MouseEvent/altKey) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>Alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+  - : Gibt `true` zurück, wenn die <kbd>alt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.button`](/de/docs/Web/API/MouseEvent/button) {{ReadOnlyInline}}
-  - : Die Nummer der gedrückten Taste (falls zutreffend), als das Mausereignis ausgelöst wurde.
+  - : Die Nummer der Taste, die gedrückt wurde (falls zutreffend), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.buttons`](/de/docs/Web/API/MouseEvent/buttons) {{ReadOnlyInline}}
-  - : Die Tasten, die gedrückt wurden (falls vorhanden), als das Mausereignis ausgelöst wurde.
+  - : Die gedrückten Tasten (falls vorhanden), als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauspointers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
+  - : Die X-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.clientY`](/de/docs/Web/API/MouseEvent/clientY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauspointers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
+  - : Die Y-Koordinate des Mauszeigers in [Viewport-Koordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#viewport).
 - [`MouseEvent.ctrlKey`](/de/docs/Web/API/MouseEvent/ctrlKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>Strg</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.layerX`](/de/docs/Web/API/MouseEvent/layerX) {{Non-standard_inline}} {{ReadOnlyInline}}
@@ -55,30 +55,30 @@ _Diese Schnittstelle erbt auch Eigenschaften ihrer Eltern, [`UIEvent`](/de/docs/
 - [`MouseEvent.metaKey`](/de/docs/Web/API/MouseEvent/metaKey) {{ReadOnlyInline}}
   - : Gibt `true` zurück, wenn die <kbd>Meta</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.movementX`](/de/docs/Web/API/MouseEvent/movementX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauspointers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.movementY`](/de/docs/Web/API/MouseEvent/movementY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauspointers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event) Ereignisses.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position des letzten [`mousemove`](/de/docs/Web/API/Element/mousemove_event)-Ereignisses.
 - [`MouseEvent.offsetX`](/de/docs/Web/API/MouseEvent/offsetX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauspointers relativ zur Position der Polsterrandkante des Zielknotens.
+  - : Die X-Koordinate des Mauszeigers relativ zur Position der Padding-Kante des Zielknotens.
 - [`MouseEvent.offsetY`](/de/docs/Web/API/MouseEvent/offsetY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauspointers relativ zur Position der Polsterrandkante des Zielknotens.
+  - : Die Y-Koordinate des Mauszeigers relativ zur Position der Padding-Kante des Zielknotens.
 - [`MouseEvent.pageX`](/de/docs/Web/API/MouseEvent/pageX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauspointers relativ zum gesamten Dokument.
+  - : Die X-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.pageY`](/de/docs/Web/API/MouseEvent/pageY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauspointers relativ zum gesamten Dokument.
+  - : Die Y-Koordinate des Mauszeigers relativ zum gesamten Dokument.
 - [`MouseEvent.relatedTarget`](/de/docs/Web/API/MouseEvent/relatedTarget) {{ReadOnlyInline}}
-  - : Das sekundäre Ziel für das Ereignis, falls vorhanden.
+  - : Das sekundäre Ziel des Ereignisses, falls vorhanden.
 - [`MouseEvent.screenX`](/de/docs/Web/API/MouseEvent/screenX) {{ReadOnlyInline}}
-  - : Die X-Koordinate des Mauspointers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
+  - : Die X-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 - [`MouseEvent.screenY`](/de/docs/Web/API/MouseEvent/screenY) {{ReadOnlyInline}}
-  - : Die Y-Koordinate des Mauspointers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
+  - : Die Y-Koordinate des Mauszeigers in [Bildschirmkoordinaten](/de/docs/Web/CSS/CSSOM_view/Coordinate_systems#screen).
 - [`MouseEvent.shiftKey`](/de/docs/Web/API/MouseEvent/shiftKey) {{ReadOnlyInline}}
-  - : Gibt `true` zurück, wenn die <kbd>Umschalt</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
+  - : Gibt `true` zurück, wenn die <kbd>Shift</kbd>-Taste gedrückt war, als das Mausereignis ausgelöst wurde.
 - [`MouseEvent.mozInputSource`](/de/docs/Web/API/MouseEvent/mozInputSource) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Typ des Geräts, das das Ereignis generierte (einer der `MOZ_SOURCE_*` Konstanten).
-    Dies ermöglicht Ihnen beispielsweise, zu bestimmen, ob ein Mausereignis von einer tatsächlichen Maus oder von einem Berührungsereignis generiert wurde (was die Genauigkeit der Interpretation der mit dem Ereignis verbundenen Koordinaten beeinflussen könnte).
+  - : Der Typ des Geräts, das das Ereignis erzeugt hat (einer der `MOZ_SOURCE_*` Konstanten).
+    Damit können Sie zum Beispiel feststellen, ob ein Mausereignis von einer tatsächlichen Maus oder von einem Touchevent erzeugt wurde (was die Genauigkeit beeinflussen könnte, mit der Sie die mit dem Ereignis verbundenen Koordinaten interpretieren).
 - [`MouseEvent.webkitForce`](/de/docs/Web/API/MouseEvent/webkitForce) {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Der Betrag des Drucks, der beim Klicken ausgeübt wurde.
+  - : Die Menge des Drucks, der beim Klicken angewendet wird.
 - [`MouseEvent.x`](/de/docs/Web/API/MouseEvent/x) {{ReadOnlyInline}}
   - : Alias für [`MouseEvent.clientX`](/de/docs/Web/API/MouseEvent/clientX).
 - [`MouseEvent.y`](/de/docs/Web/API/MouseEvent/y) {{ReadOnlyInline}}
@@ -94,7 +94,7 @@ _Nicht Teil einer Spezifikation._ Apple hat [eine Beschreibung in der Mac Develo
 
 ## Siehe auch
 
-- [Einführung in Ereignisse](/de/docs/Learn/JavaScript/Building_blocks/Events)
+- [Lernen: Einführung in Events](/de/docs/Learn_web_development/Core/Scripting/Events)
 - [`webkitmouseforcedown`](/de/docs/Web/API/Element/webkitmouseforcedown_event)
 - [`webkitmouseforceup`](/de/docs/Web/API/Element/webkitmouseforceup_event)
 - [`webkitmouseforcechanged`](/de/docs/Web/API/Element/webkitmouseforcechanged_event)

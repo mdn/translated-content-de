@@ -2,16 +2,16 @@
 title: empty-cells
 slug: Web/CSS/empty-cells
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`empty-cells`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Rahmen und Hintergründe um {{htmlelement("table")}}-Zellen erscheinen, die keinen sichtbaren Inhalt haben.
+Die **`empty-cells`** [CSS](/de/docs/Web/CSS) Eigenschaft legt fest, ob Ränder und Hintergründe um {{htmlelement("table")}}-Zellen erscheinen, die keinen sichtbaren Inhalt haben.
 
 {{EmbedInteractiveExample("pages/css/empty-cells.html")}}
 
-Diese Eigenschaft hat nur eine Auswirkung, wenn die Eigenschaft {{cssxref("border-collapse")}} auf `separate` gesetzt ist.
+Diese Eigenschaft hat nur dann eine Wirkung, wenn die {{cssxref("border-collapse")}} Eigenschaft auf `separate` gesetzt ist.
 
 ## Syntax
 
@@ -28,14 +28,14 @@ empty-cells: revert-layer;
 empty-cells: unset;
 ```
 
-Die `empty-cells`-Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
+Die `empty-cells` Eigenschaft wird als einer der unten aufgeführten Schlüsselwortwerte angegeben.
 
 ### Werte
 
 - `show`
-  - : Rahmen und Hintergründe werden wie in normalen Zellen gezeichnet.
+  - : Ränder und Hintergründe werden wie bei normalen Zellen gezeichnet.
 - `hide`
-  - : Es werden keine Rahmen oder Hintergründe gezeichnet.
+  - : Keine Ränder oder Hintergründe werden gezeichnet.
 
 ## Formale Definition
 
@@ -47,7 +47,7 @@ Die `empty-cells`-Eigenschaft wird als einer der unten aufgeführten Schlüsselw
 
 ## Beispiele
 
-### Leere Tabellenzellen anzeigen und ausblenden
+### Leere Tabellenzellen anzeigen und verbergen
 
 #### HTML
 
@@ -108,5 +108,5 @@ th {
 ## Siehe auch
 
 - {{cssxref("border-collapse")}}
-- [Tabellen stylen](/de/docs/Learn/CSS/Building_blocks/Styling_tables)
-- [CSS-Tabelle](/de/docs/Web/CSS/CSS_table) Modul
+- [Lernen: Tabellen gestalten](/de/docs/Learn_web_development/Core/Styling_basics/Tables)
+- [CSS-Tabellen](/de/docs/Web/CSS/CSS_table) Modul

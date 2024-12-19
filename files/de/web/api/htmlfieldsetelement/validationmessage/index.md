@@ -3,12 +3,12 @@ title: "HTMLFieldSetElement: validationMessage-Eigenschaft"
 short-title: validationMessage
 slug: Web/API/HTMLFieldSetElement/validationMessage
 l10n:
-  sourceCommit: 7c9ce43e847882874a25590bdde696ebc26d9797
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`validationMessage`**-Eigenschaft der [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Schnittstelle gibt einen String zurück, der eine lokalisierte Nachricht darstellt, die die Validierungsbedingungen beschreibt, die das {{htmlelement("fieldset")}}-Steuerelement nicht erfüllt (falls vorhanden). Dies ist der leere String, da `<fieldset>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ([`HTMLFieldSetElement.willValidate`](/de/docs/Web/API/HTMLFieldSetElement/willValidate) ist `false`).
+Die **`validationMessage`** schreibgeschützte Eigenschaft des [`HTMLFieldSetElement`](/de/docs/Web/API/HTMLFieldSetElement)-Interfaces gibt einen String zurück, der eine lokalisierte Nachricht darstellt, die die Validierungsbedingungen beschreibt, die das {{htmlelement("fieldset")}}-Element nicht erfüllt (falls vorhanden). Dies ist der leere String, da `<fieldset>`-Elemente keine Kandidaten für die Einschränkungsvalidierung sind ([`HTMLFieldSetElement.willValidate`](/de/docs/Web/API/HTMLFieldSetElement/willValidate) ist `false`).
 
 ## Wert
 
@@ -31,6 +31,6 @@ Der leere String, `""`;
 - [`HTMLFieldSetElement.checkValidity()`](/de/docs/Web/API/HTMLFieldSetElement/checkValidity)
 - [`HTMLFieldSetElement.reportValidity()`](/de/docs/Web/API/HTMLFieldSetElement/reportValidity)
 - [`HTMLFieldSetElement.setCustomValidity()`](/de/docs/Web/API/HTMLFieldSetElement/setCustomValidity)
-- [Lernen: Client-seitige Formularvalidierung](/de/docs/Learn/Forms/Form_validation)
-- [Leitfaden: Beschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
+- [Erfahren Sie mehr: Formularvalidierung auf der Client-Seite](/de/docs/Learn_web_development/Extensions/Forms/Form_validation)
+- [Leitfaden: Einschränkungsvalidierung](/de/docs/Web/HTML/Constraint_validation)
 - CSS {{cssxref(":valid")}} und {{cssxref(":invalid")}} Pseudo-Klassen

@@ -2,23 +2,23 @@
 title: CSSLayerStatementRule
 slug: Web/API/CSSLayerStatementRule
 l10n:
-  sourceCommit: acfe8c9f1f4145f77653a2bc64a9744b001358dc
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("CSSOM")}}
 
-Die **`CSSLayerStatementRule`** repräsentiert eine {{cssxref("@layer")}}-Anweisungsregel. Im Gegensatz zur [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule) enthält sie keine anderen Regeln und definiert lediglich eine oder mehrere Ebenen, indem sie deren Namen angibt.
+Die **`CSSLayerStatementRule`** repräsentiert eine {{cssxref("@layer")}}-Anweisung. Im Gegensatz zur [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule) enthält sie keine anderen Regeln und definiert lediglich einen oder mehrere Ebenen, indem sie deren Namen angibt.
 
-Diese Regel ermöglicht es, die Ordnung der Ebenen auf eine offensichtliche Weise am Anfang einer CSS-Datei explizit festzulegen: Die Schichtreihenfolge wird durch das Auftreten der Schichtnamen bestimmt. Das Deklarieren mit einer Anweisung ermöglicht es dem Leser, die Reihenfolge der Schichten zu verstehen. Es erlaubt auch, Inline- und importierte Schichten zu überlagern, was bei der Verwendung der `CSSLayerBlockRule`-Syntax nicht möglich ist.
+Diese Regel ermöglicht es, die Ordnungsreihenfolge der Ebenen explizit am Anfang einer CSS-Datei zu deklarieren: Die Reihenfolge der Ebenen wird durch das erste Auftreten jedes Ebenennamens definiert. Eine Deklaration mittels einer Anweisung ermöglicht es dem Leser, die Ebenenreihenfolge zu verstehen. Sie erlaubt auch, dass inline- und importierte Ebenen ineinander verschachtelt werden können, was bei Verwendung der `CSSLayerBlockRule`-Syntax nicht möglich ist.
 
 {{InheritanceDiagram}}
 
 ## Instanz-Eigenschaften
 
-_Erbt auch Eigenschaften von seiner Elternschnittstelle, [`CSSRule`](/de/docs/Web/API/CSSRule)._
+_Erbt auch Eigenschaften von seiner übergeordneten Schnittstelle, [`CSSRule`](/de/docs/Web/API/CSSRule)._
 
 - [`CSSLayerStatementRule.nameList`](/de/docs/Web/API/CSSLayerStatementRule/nameList) {{ReadOnlyInline}}
-  - Ein Array von Zeichenfolgen, das den Namen jeder Kaskadenschicht gemäß der Regel darstellt
+  - Ein Array von Strings, das die Namen jeder Kaskadenschicht der Regel darstellt
 
 ## Beispiele
 
@@ -64,5 +64,5 @@ item.textContent = `The CSS @layer statement declares the following layers: ${la
 ## Siehe auch
 
 - {{cssxref("@layer")}}
-- [Die `@layer`-Anweisungsregel für benannte Schichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
+- [Die `@layer`-Anweisung für benannte Ebenen](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers#the_layer_statement_at-rule_for_named_layers)
 - [`CSSLayerBlockRule`](/de/docs/Web/API/CSSLayerBlockRule)

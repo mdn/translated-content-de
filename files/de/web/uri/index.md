@@ -2,28 +2,28 @@
 title: URIs
 slug: Web/URI
 l10n:
-  sourceCommit: 6b730e3cfdf0f51940b44efa71bd59c84ce76e71
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{QuickLinksWithSubpages("/de/docs/Web/URI")}}
 
-**Uniform Resource Identifiers (URI)** werden verwendet, um "Ressourcen" im Web zu identifizieren. Sie werden häufig als Ziel von [HTTP](/de/docs/Web/HTTP)-Anfragen genutzt, wobei der URI einen Ort für eine physische Ressource wie ein Dokument, ein Foto, binäre Daten usw. darstellt. URIs können auch verwendet werden, um Verhaltensweisen zu triggern, die nicht das Abrufen einer Ressource beinhalten, wie z.B. das Öffnen des E-Mail-Clients, das Versenden von Textnachrichten oder das Ausführen von JavaScript, wenn sie an anderen Stellen wie im [`href`](/de/docs/Web/HTML/Element/a#href) eines HTML-`<a>`-Links verwendet werden.
+**Uniform Resource Identifiers (URI)** werden verwendet, um "Ressourcen" im Web zu identifizieren. Sie werden häufig als Ziele von [HTTP](/de/docs/Web/HTTP)-Anfragen verwendet, wobei der URI einen Ort für eine physische Ressource darstellt, wie z.B. ein Dokument, ein Foto, Binärdaten usw. URIs können auch verwendet werden, um andere Aktionen auszulösen als das Abrufen einer Ressource, einschließlich des Öffnens eines E-Mail-Clients, des Sendens von Textnachrichten oder der Ausführung von JavaScript, wenn sie an anderen Stellen wie dem [`href`](/de/docs/Web/HTML/Element/a#href) eines HTML-`<a>`-Links verwendet werden.
 
 ## URLs und URNs
 
 ### URLs
 
-Die gebräuchlichste Form eines URI ist der Uniform Resource Locator ({{Glossary("URL", "URL")}}), der als _Webadresse_ bekannt ist.
+Die gebräuchlichste Form von URI ist der Uniform Resource Locator ({{Glossary("URL", "URL")}}), der als _Webadresse_ bekannt ist.
 
 ```url
 https://developer.mozilla.org
-https://developer.mozilla.org/en-US/docs/Learn/
+https://developer.mozilla.org/en-US/docs/Learn_web_development/
 https://developer.mozilla.org/en-US/search?q=URL
 ```
 
-Jede dieser URLs kann in die Adressleiste Ihres Browsers eingegeben werden, um die zugehörige Seite (Ressource) zu laden.
+Jede dieser URLs kann in die Adressleiste Ihres Browsers eingegeben werden, um ihn anzuweisen, die zugehörige Seite (Ressource) zu laden.
 
-Eine URL setzt sich aus verschiedenen Teilen zusammen, von denen einige obligatorisch und andere optional sind. Ein komplexeres Beispiel könnte so aussehen:
+Eine URL besteht aus verschiedenen Teilen, von denen einige obligatorisch und andere optional sind. Ein komplexeres Beispiel könnte so aussehen:
 
 ```url
 http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereInTheDocument
@@ -31,17 +31,17 @@ http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereI
 
 ### URNs
 
-Ein Uniform Resource Name (URN) ist ein URI, der eine Ressource mit einem Namen in einem bestimmten Namensraum identifiziert.
+Ein Uniform Resource Name (URN) ist ein URI, der eine Ressource durch ihren Namen in einem bestimmten Namensraum identifiziert.
 
 ```url
 urn:isbn:9780141036144
 urn:ietf:rfc:7230
 ```
 
-Die beiden URNs entsprechen
+Die beiden URNs beziehen sich auf
 
-- dem Buch "1984" von George Orwell,
-- der IETF-Spezifikation 7230, Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing.
+- das Buch Neunzehnhundertvierundachtzig von George Orwell,
+- die IETF-Spezifikation 7230, Hypertext Transfer Protocol (HTTP/1.1): Nachrichtensyntax und Routenführung.
 
 ## Syntax von Uniform Resource Identifiers (URIs)
 
@@ -55,43 +55,43 @@ http://www.example.com:80/path/to/myfile.html?key1=value1&key2=value2#SomewhereI
 
 ![Protokoll](mdn-url-protocol@x2.png)
 
-`http://` ist das [_Schema_](/de/docs/Web/URI/Schemes) der URL und gibt an, welches Protokoll der Browser verwenden muss. Meistens handelt es sich um das HTTP-Protokoll oder seine gesicherte Version HTTPS. Das Web erfordert eines dieser beiden, aber Browser können auch andere Protokolle wie `mailto:` (zum Öffnen eines Mailclients) oder `ftp:` zum Behandeln eines Dateitransfers verarbeiten, daher sollten Sie nicht überrascht sein, solche Protokolle zu sehen. Die [Schema-Referenz](/de/docs/Web/URI/Schemes) bietet eine Liste der gebräuchlichsten Schemata und Dokumentationen zu einigen davon.
+`http://` ist das [_Schema_](/de/docs/Web/URI/Schemes) der URL, das angibt, welches Protokoll der Browser verwenden muss. Normalerweise ist es das HTTP-Protokoll oder seine gesicherte Version, HTTPS. Das Web erfordert eines dieser beiden, aber Browser können auch mit anderen Protokollen wie `mailto:` (um einen E-Mail-Client zu öffnen) oder `ftp:` umgehen, um einen Dateitransfer durchzuführen. Seien Sie daher nicht überrascht, wenn Sie solche Protokolle sehen. Die [Schemes](/de/docs/Web/URI/Schemes)-Referenz bietet eine Liste der gebräuchlichsten Schemas und Dokumentation für einige von ihnen.
 
-Bei der Verwendung von URLs in {{Glossary("HTML", "HTML")}}-Inhalten sollten Sie im Allgemeinen nur einige wenige dieser URL-Schemata verwenden. Bei der Referenzierung von Subressourcen – also Dateien, die als Teil eines größeren Dokuments geladen werden – sollten Sie nur die HTTP- und HTTPS-Schemata nutzen. Zunehmend entfernen Browser die Unterstützung für die Verwendung von FTP zum Laden von Subressourcen aus Sicherheitsgründen.
+Wenn Sie URLs in {{Glossary("HTML", "HTML")}}-Inhalten verwenden, sollten Sie im Allgemeinen nur einige dieser URL-Schemata verwenden. Wenn Sie sich auf Subressourcen beziehen – also Dateien, die als Teil eines größeren Dokuments geladen werden – sollten Sie nur die HTTP- und HTTPS-Schemata verwenden. Zunehmend entfernen Browser die Unterstützung für die Verwendung von FTP zum Laden von Subressourcen aus Sicherheitsgründen.
 
-FTP ist noch auf oberster Ebene akzeptabel (z.B. direkt in die URL-Leiste des Browsers eingegeben oder als Ziel eines Links), obwohl einige Browser das Laden von FTP-Inhalten an eine andere Anwendung delegieren können.
+FTP ist immer noch auf oberster Ebene akzeptabel (z.B. direkt in die URL-Leiste des Browsers eingegeben oder das Ziel eines Links), obwohl einige Browser das Laden von FTP-Inhalten an eine andere Anwendung delegieren könnten.
 
-### Autorität
+### Authority
 
-Die URI-_Autorität_ ([Authority](/de/docs/Web/URI/Authority)) besteht aus Benutzerinformationen (optional und normalerweise nicht angegeben), dem Hostnamen und dem Port.
+Die URI-[_Authority_](/de/docs/Web/URI/Authority) besteht aus Benutzerinformationen (optional und meistens nicht angegeben), dem Hostnamen und dem Port.
 
-![Domain-Name](mdn-url-domain@x2.png)
+![Domain Name](mdn-url-domain@x2.png)
 
-`www.example.com` ist der _Hostname_ der URI und gibt an, welcher Webserver angefordert wird. Hier verwenden wir einen Domainnamen. Es ist auch möglich, direkt eine {{Glossary("IP_address", "IP-Adresse")}} zu verwenden, aber da dies weniger bequem ist, wird es selten gemacht, es sei denn, der Server hat keinen registrierten Domainnamen.
+`www.example.com` ist der _Host Name_ des URI, der angibt, welcher Webserver angefordert wird. Hier verwenden wir einen Domainnamen. Es ist auch möglich, eine {{Glossary("IP_address", "IP-Adresse")}} direkt zu verwenden, aber da dies weniger bequem ist, ist es selten, es sei denn, der Server hat keinen registrierten Domainnamen.
 
 ![Port](mdn-url-port@x2.png)
 
-`:80` ist der _Port_ der URL und gibt das technische „Tor“ an, das zum Zugriff auf die Ressourcen auf dem Webserver verwendet wird. Er wird normalerweise weggelassen, wenn der Webserver die Standardports des HTTP-Protokolls (80 für HTTP und 443 für HTTPS) zum Zugriff auf seine Ressourcen nutzt. Andernfalls ist er obligatorisch.
+`:80` ist der _Port_ der URL, der das technische "Tor" angibt, das verwendet wird, um auf die Ressourcen auf dem Webserver zuzugreifen. Er wird normalerweise weggelassen, wenn der Webserver die Standardports des HTTP-Protokolls verwendet (80 für HTTP und 443 für HTTPS), um den Zugriff auf seine Ressourcen zu gewähren. Andernfalls ist er obligatorisch.
 
 ### Pfad
 
-![Pfad zur Datei](mdn-url-path@x2.png)
+![Path to the file](mdn-url-path@x2.png)
 
-`/path/to/myfile.html` ist der _Pfad_ der URL, der den Ort der Ressource auf dem Webserver angibt. In den frühen Tagen des Webs war dies ein tatsächlicher Verzeichnispfad zu einem physischen Ort auf dem Webserver. Heutzutage abstrahieren Webserver diesen Pfad in der Regel zu einem beliebigen Ort.
+`/path/to/myfile.html` ist der _Pfad_ der URL und gibt den Standort der Ressource auf dem Webserver an. In den frühen Tagen des Webs war dies ein tatsächlicher Verzeichnispfad zu einem physischen Standort auf dem Webserver. Heutzutage abstrahieren Webserver dies meist zu einem beliebigen Ort.
 
-### Abfrage
+### Anfrage
 
-![Parameter](mdn-url-parameters@x2.png)
+![Parameters](mdn-url-parameters@x2.png)
 
-`?key1=value1&key2=value2` ist die _Abfrage_ der URL, die zusätzliche Parameter bereitstellt, die dem Webserver übergeben werden. Die Parameter sind eine Liste von Schlüssel/Wert-Paaren, die mit dem `?`-Symbol vorangestellt und mit dem `&`-Symbol getrennt sind. Diese können verwendet werden, um zusätzlichen Kontext über die angeforderte Ressource bereitzustellen. Jede Ressourcenadresse kann ihre eigenen Regeln hinsichtlich der Parameter haben, und der einzige verlässliche Weg zu wissen, wie bestimmte Parameter behandelt werden, ist, den Eigentümer des Servers zu fragen, z.B. durch Lesen seiner Dokumentation.
+`?key1=value1&key2=value2` ist die _Anfrage_ der URL, welche zusätzliche Parameter bereitstellt, die an den Webserver übermittelt werden. Die Parameter sind eine Liste von Schlüssel/Werte-Paaren, die durch das `?`-Symbol vorangestellt und mit dem `&`-Symbol getrennt sind. Diese können verwendet werden, um zusätzliche Kontextinformationen über die angeforderte Ressource bereitzustellen. Jede Ressourcenlokation kann ihre eigenen Regeln bezüglich der Parameter haben, und der einzige zuverlässige Weg, um herauszufinden, wie spezifische Parameter behandelt werden, besteht darin, den Besitzer des Servers zu konsultieren, z.B. durch Lesen seiner Dokumentation.
 
 ### Fragment
 
-![Anker](mdn-url-anchor@x2.png)
+![Anchor](mdn-url-anchor@x2.png)
 
-`#SomewhereInTheDocument` ist das [_Fragment_](/de/docs/Web/URI/Fragment) der URL, das einen Anker zu einem anderen Teil der Ressource selbst darstellt. Ein Anker stellt eine Art „Lesezeichen“ innerhalb der Ressource dar und gibt dem Browser die Anweisung, den Inhalt an der „markierten“ Stelle anzuzeigen. In einem HTML-Dokument scrollt der Browser beispielsweise zu dem Punkt, an dem der Anker definiert ist. In einem Video- oder Audiodokument versucht der Browser, an die Zeit zu gehen, die der Anker darstellt. Es ist erwähnenswert, dass der Teil nach dem #, auch als Fragmentbezeichner bekannt, nie zusammen mit der Anfrage an den Server gesendet wird.
+`#SomewhereInTheDocument` ist das [_Fragment_](/de/docs/Web/URI/Fragment) der URL, das einen Anker zu einem anderen Teil der Ressource selbst darstellt. Ein Anker stellt eine Art "Lesezeichen" innerhalb der Ressource dar und gibt dem Browser Anweisungen, den Inhalt an der "markierten" Stelle zu zeigen. Bei einem HTML-Dokument scrollt der Browser beispielsweise zu dem Punkt, an dem der Anker definiert ist; bei einem Video- oder Audiodokument versucht der Browser zu dem Zeitpunkt zu gehen, den der Anker darstellt. Es ist erwähnenswert, dass der Teil nach dem `#`, auch als Fragmentbezeichner bekannt, niemals mit der Anfrage an den Server gesendet wird.
 
-Es gibt eine spezielle [Textfragment](/de/docs/Web/URI/Fragment/Text_fragments)-Funktion, die es ermöglicht, zu einem bestimmten Teil einer Webseite zu verlinken, der durch seinen Textinhalt identifiziert wird.
+Es gibt eine spezielle [Text-Fragment](/de/docs/Web/URI/Fragment/Text_fragments)-Funktion, die es ermöglicht, auf einen bestimmten Teil einer Webseite zu verlinken, der durch seinen Textinhalt identifiziert wird.
 
 ## Beispiele
 
@@ -110,4 +110,4 @@ mailto:help@supercyberhelpdesk.info
 
 ## Siehe auch
 
-- [Was ist eine URL?](/de/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL)
+- [Was ist eine URL?](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL)

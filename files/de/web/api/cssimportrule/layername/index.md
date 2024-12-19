@@ -1,16 +1,16 @@
 ---
-title: "CSSImportRule: `layerName`-Eigenschaft"
+title: "CSSImportRule: layerName Eigenschaft"
 short-title: layerName
 slug: Web/API/CSSImportRule/layerName
 l10n:
-  sourceCommit: d76defab4ca13261e9de81ae1df125345f847b0a
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{APIRef("CSSOM")}}
 
-Die schreibgeschützte **`layerName`**-Eigenschaft des [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Interfaces gibt den Namen der Kaskadenschicht zurück, die durch die {{cssxref("@import")}}-[`at-rule`](/de/docs/Web/CSS/At-rule) erstellt wurde.
+Die schreibgeschützte **`layerName`**-Eigenschaft des [`CSSImportRule`](/de/docs/Web/API/CSSImportRule)-Interfaces gibt den Namen der Kaskadenschicht zurück, die durch die {{cssxref("@import")}} [At-Regel](/de/docs/Web/CSS/At-rule) erstellt wird.
 
-Wenn die erstellte Schicht anonym ist, ist der zurückgegebene String leer (`""`); wenn keine Schicht erstellt wurde, ist es das `null`-Objekt.
+Wenn die erstellte Schicht anonym ist, ist der String leer (`""`), wenn keine Schicht erstellt wurde, ist es das `null`-Objekt.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein String, der leer sein kann, oder das `null`-Objekt.
 
 ## Beispiele
 
-Das einzige Stylesheet des Dokuments enthält drei {{cssxref("@import")}}-Regeln. Die erste Deklaration importiert ein Stylesheet in eine benannte Schicht. Die zweite Deklaration importiert ein Stylesheet in eine anonyme Schicht. Die dritte Deklaration importiert ein Stylesheet ohne Schichtdeklaration.
+Das Stylesheet des Dokuments enthält drei {{cssxref("@import")}}-Regeln. Die erste Deklaration importiert ein Stylesheet in eine benannte Schicht. Die zweite Deklaration importiert ein Stylesheet in eine anonyme Schicht. Die dritte Deklaration importiert ein Stylesheet ohne eine Schichtdeklaration.
 
 Die `layerName`-Eigenschaft gibt den Namen der Schicht zurück, die mit dem importierten Stylesheet verbunden ist.
 
@@ -45,5 +45,5 @@ console.log(myRules[2].layerName); // returns `null`
 
 ## Siehe auch
 
-- Lernbereich: [Kaskadenschichten](/de/docs/Learn/CSS/Building_blocks/Cascade_layers)
+- Lernbereich: [Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
 - {{cssxref("@import")}} und {{cssxref("@layer")}}

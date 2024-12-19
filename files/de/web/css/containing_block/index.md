@@ -1,61 +1,61 @@
 ---
-title: Layout und der Containing Block
+title: Layout und der enthaltende Block
 slug: Web/CSS/Containing_block
 l10n:
-  sourceCommit: 3ac20cbf482168cdcf092a2ca5a336c12e299db8
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die Größe und Position eines Elements werden oft von seinem **Containing Block** beeinflusst. Meistens ist der Containing Block der [Inhaltsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) des nächsten {{Glossary("Block-level_content", "Block-Level")}}-Vorfahren des Elements, aber das ist nicht immer der Fall. In diesem Artikel untersuchen wir die Faktoren, die den Containing Block eines Elements bestimmen.
+Die Größe und Position eines Elements werden oft von seinem **enthaltenden Block** beeinflusst. Meistens ist der enthaltende Block der [Inhaltsbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#content_area) des nächsten {{Glossary("Block-level_content", "Block-Level")}}-Vorfahren-Elements, dies ist jedoch nicht immer der Fall. In diesem Artikel untersuchen wir die Faktoren, die den enthaltenden Block eines Elements bestimmen.
 
-Wenn ein User-Agent (wie Ihr Browser) ein Dokument layoutet, generiert er für jedes Element einen Kasten. Jeder Kasten ist in vier Bereiche unterteilt:
+Wenn ein Benutzeragent (wie Ihr Browser) ein Dokument anordnet, wird für jedes Element eine Box erzeugt. Jede Box ist in vier Bereiche unterteilt:
 
 1. Inhaltsbereich
 2. Auffüllbereich
 3. Randbereich
-4. Außenabstand
+4. Außenabstandbereich
 
 ![Diagramm des Box-Modells](box-model.png)
 
-Viele Entwickler glauben, dass der Containing Block eines Elements immer der Inhaltsbereich seines Elternteils ist, aber das stimmt nicht unbedingt. Lassen Sie uns die Faktoren untersuchen, die bestimmen, was der Containing Block eines Elements ist.
+Viele Entwickler glauben, dass der enthaltende Block eines Elements immer der Inhaltsbereich seines Elternteils ist, aber das ist nicht unbedingt wahr. Lassen Sie uns die Faktoren untersuchen, die bestimmen, was der enthaltende Block eines Elements ist.
 
-## Auswirkungen des Containing Blocks
+## Auswirkungen des enthaltenden Blocks
 
-Bevor Sie erfahren, was den Containing Block eines Elements bestimmt, ist es nützlich zu wissen, warum er überhaupt wichtig ist.
+Bevor Sie lernen, was den enthaltenden Block eines Elements bestimmt, ist es nützlich, zu wissen, warum es überhaupt wichtig ist.
 
-Die Größe und Position eines Elements werden oft von seinem Containing Block beeinflusst. Prozentwerte, die auf die Eigenschaften {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("margin")}} und Offset-Eigenschaften eines absolut positionierten Elements angewendet werden (d. h. dessen {{cssxref("position")}} auf `absolute` oder `fixed` gesetzt ist), werden basierend auf dem Containing Block des Elements berechnet.
+Die Größe und Position eines Elements werden oft von seinem enthaltenden Block beeinflusst. Prozentwerte, die auf die Eigenschaften {{cssxref("width")}}, {{cssxref("height")}}, {{cssxref("padding")}}, {{cssxref("margin")}} und die Versatzeigenschaften eines absolut positionierten Elements angewendet werden (d. h. das `position` auf `absolute` oder `fixed` gesetzt hat), werden aus dem enthaltenden Block des Elements berechnet.
 
-## Ermittlung des Containing Blocks
+## Identifizierung des enthaltenden Blocks
 
-Der Prozess zur Ermittlung des Containing Blocks hängt vollständig vom Wert der {{cssxref("position")}}-Eigenschaft des Elements ab:
+Der Prozess zur Identifizierung des enthaltenden Blocks hängt vollständig vom Wert der {{cssxref("position")}}-Eigenschaft des Elements ab:
 
-1. Wenn die `position`-Eigenschaft **`static`**, **`relative`** oder **`sticky`** ist, wird der Containing Block durch den Rand des _Inhaltskastens_ des nächstgelegenen Vorfahrens gebildet, das entweder **ein Block-Container** (wie ein Inline-Block, Block oder Listenelement) ist oder **einen Formatierungskontext etabliert** (wie ein Tabellen-Container, Flex-Container, Grid-Container oder der Block-Container selbst).
-2. Wenn die `position`-Eigenschaft **`absolute`** ist, wird der Containing Block durch den Rand des _Auffüllkastens_ des nächstgelegenen Vorfahren gebildet, der einen `position`-Wert ungleich `static` (`fixed`, `absolute`, `relative` oder `sticky`) hat.
-3. Wenn die `position`-Eigenschaft **`fixed`** ist, wird der Containing Block durch den {{Glossary("viewport", "Viewport")}} (bei kontinuierlichen Medien) oder den Bereich der Seite (bei paginierten Medien) etabliert.
-4. Wenn die `position`-Eigenschaft **`absolute`** oder **`fixed`** ist, kann der Containing Block auch durch den Rand des _Auffüllkastens_ des nächstgelegenen Vorfahren gebildet werden, der eines der folgenden Merkmale aufweist:
+1. Wenn die `position`-Eigenschaft **`static`**, **`relative`** oder **`sticky`** ist, wird der enthaltende Block durch die Kante der _Inhaltsbox_ des nächsten Vorfahren-Elements gebildet, das entweder **ein Block-Container** ist (wie ein Inline-Block, Block oder Listenelement) oder **einen Formatierungskontext erstellt** (wie ein Tabellencontainer, Flexcontainer, Rastercontainer oder der Blockcontainer selbst).
+2. Wenn die `position`-Eigenschaft **`absolute`** ist, wird der enthaltende Block durch die Kante der _Auffüllbox_ des nächsten Vorfahren-Elements gebildet, das einen `position`-Wert ungleich `static` (`fixed`, `absolute`, `relative` oder `sticky`) hat.
+3. Wenn die `position`-Eigenschaft **`fixed`** ist, wird der enthaltende Block durch das {{Glossary("viewport", "viewport")}} (im Falle kontinuierlicher Medien) oder den Seitenbereich (im Falle von Seitenmedien) festgelegt.
+4. Wenn die `position`-Eigenschaft **`absolute`** oder **`fixed`** ist, kann der enthaltende Block auch durch die Kante der _Auffüllbox_ des nächsten Vorfahren-Elements gebildet werden, das eine der folgenden Eigenschaften hat:
 
-   - Einen {{cssxref("filter")}}, {{cssxref("backdrop-filter")}}, {{cssxref("transform")}} oder {{cssxref("perspective")}}-Wert ungleich `none`.
+   - Einen {{cssxref("filter")}}, {{cssxref("backdrop-filter")}}, {{cssxref("transform")}}, oder {{cssxref("perspective")}}-Wert ungleich `none`.
    - Einen {{cssxref("contain")}}-Wert von `layout`, `paint`, `strict` oder `content` (z. B. `contain: paint;`).
    - Einen {{cssxref("container-type")}}-Wert ungleich `normal`.
-   - Einen {{cssxref("will-change")}}-Wert, der eine Eigenschaft enthält, für die ein Nicht-Initialwert einen Containing Block bilden würde (z. B. `filter` oder `transform`).
+   - Einen {{cssxref("will-change")}}-Wert, der eine Eigenschaft enthält, für die ein Wert ungleich dem Anfangswert einen enthaltenden Block bilden würde (z. B. `filter` oder `transform`).
    - Einen {{cssxref("content-visibility")}}-Wert von `auto`.
 
 > [!NOTE]
-> Der Containing Block, in dem das Wurzelelement ({{HTMLElement("html")}}) liegt, ist ein Rechteck namens **initialer Containing Block**. Es hat die Abmessungen des Viewport (bei kontinuierlichen Medien) oder des Seitenbereichs (bei paginierten Medien).
+> Der enthaltende Block, in dem sich das Wurzelelement ({{HTMLElement("html")}}) befindet, ist ein Rechteck, das als **anfänglicher enthaltender Block** bezeichnet wird. Es hat die Abmessungen des Viewports (für kontinuierliche Medien) oder des Seitenbereichs (für Seitenmedien).
 
 > [!NOTE]
-> Es gibt Browser-Inkonsistenzen bei der Bildung des Containing Blocks mit `perspective` und `filter`.
+> Es gibt Browser-Inkonsistenzen bei `perspective` und `filter`, die zur Bildung des enthaltenden Blocks beitragen.
 
-## Berechnung von Prozentwerten aus dem Containing Block
+## Berechnung von Prozentwerten aus dem enthaltenden Block
 
-Wie oben erwähnt, hängt der berechnete Wert bei bestimmten Eigenschaften, die einen Prozentwert haben, vom Containing Block des Elements ab. Die Eigenschaften, die auf diese Weise funktionieren, sind **Box-Modell-Eigenschaften** und **Offset-Eigenschaften**:
+Wie oben erwähnt, hängt der berechnete Wert, wenn bestimmten Eigenschaften ein Prozentwert gegeben wird, vom enthaltenden Block des Elements ab. Die Eigenschaften, die auf diese Weise funktionieren, sind **Eigenschaften des Box-Modells** und **Versatzeigenschaften**:
 
-1. Die Eigenschaften {{cssxref("height")}}, {{cssxref("top")}} und {{cssxref("bottom")}} berechnen Prozentwerte aus der `height` des Containing Blocks.
-2. Die Eigenschaften {{cssxref("width")}}, {{cssxref("left")}}, {{cssxref("right")}}, {{cssxref("padding")}} und {{cssxref("margin")}} berechnen Prozentwerte aus der `width` des Containing Blocks.
+1. Die {{cssxref("height")}}, {{cssxref("top")}} und {{cssxref("bottom")}}-Eigenschaften berechnen Prozentwerte aus der `height` des enthaltenden Blocks.
+2. Die {{cssxref("width")}}, {{cssxref("left")}}, {{cssxref("right")}}, {{cssxref("padding")}} und {{cssxref("margin")}}-Eigenschaften berechnen Prozentwerte aus der `width` des enthaltenden Blocks.
 
 > [!NOTE]
-> Ein **Block-Container** (wie ein Inline-Block, Block oder Listenelement) enthält entweder nur Inline-Boxen, die an einem Inline-Formatierungskontext teilnehmen, oder nur Block-Boxen, die an einem Block-Formatierungskontext teilnehmen. Ein Element ist nur dann ein Block-Container, wenn es Block- oder Inline-Ebenen-Boxen enthält.
+> Ein **Block-Container** (wie ein Inline-Block, Block oder Listenelement) enthält entweder nur Inline-Level-Boxen, die an einem Inline-Formatierungskontext teilnehmen, oder nur Block-Level-Boxen, die an einem Block-Formatierungskontext teilnehmen. Ein Element ist nur dann ein Block-Container, wenn es Block-Level- oder Inline-Level-Boxen enthält.
 
 ## Einige Beispiele
 
@@ -69,11 +69,11 @@ Der HTML-Code für alle unsere Beispiele ist:
 </body>
 ```
 
-Nur das CSS wird in jedem der folgenden Fälle verändert.
+Nur das CSS wird in jedem der untenstehenden Beispiele geändert.
 
 ### Beispiel 1
 
-In diesem Beispiel ist der Absatz statisch positioniert, daher ist sein Containing Block {{HTMLElement("section")}}, da er der nächste Vorfahre ist, der ein Block-Container ist (aufgrund von `display: block`).
+In diesem Beispiel ist der Absatz statisch positioniert, also ist sein enthaltender Block {{HTMLElement("section")}}, da dies der nächste Vorfahre ist, der ein Block-Container ist (aufgrund von `display: block`).
 
 ```html hidden
 <body>
@@ -108,7 +108,7 @@ p {
 
 ### Beispiel 2
 
-In diesem Beispiel ist der Containing Block des Absatzes das {{HTMLElement("body")}}-Element, weil `<section>` kein Block-Container ist (aufgrund von `display: inline`) und keinen Formatierungskontext etabliert.
+In diesem Beispiel ist der enthaltende Block des Absatzes das {{HTMLElement("body")}}-Element, weil `<section>` kein Block-Container ist (aufgrund von `display: inline`) und keinen Formatierungskontext erstellt.
 
 ```html hidden
 <body>
@@ -139,7 +139,7 @@ p {
 
 ### Beispiel 3
 
-In diesem Beispiel ist der Containing Block des Absatzes `<section>`, da dessen `position` `absolute` ist. Die Prozentwerte des Absatzes werden durch das `padding` seines Containing Blocks beeinflusst, obwohl dies bei einem {{cssxref("box-sizing")}}-Wert `border-box` nicht der Fall wäre.
+In diesem Beispiel ist der enthaltende Block des Absatzes `<section>`, da letzterer `position` auf `absolute` gesetzt hat. Die Prozentwerte des Absatzes werden durch das `padding` seines enthaltenden Blocks beeinflusst, obwohl dies nicht der Fall wäre, wenn der {{cssxref("box-sizing")}}-Wert des enthaltenden Blocks `border-box` wäre.
 
 ```html hidden
 <body>
@@ -178,7 +178,7 @@ p {
 
 ### Beispiel 4
 
-In diesem Beispiel ist die `position` des Absatzes `fixed`, daher ist sein Containing Block der initiale Containing Block (auf Bildschirmen der Viewport). Somit ändern sich die Dimensionen des Absatzes basierend auf der Größe des Browserfensters.
+In diesem Beispiel ist die `position` des Absatzes `fixed`, also ist sein enthaltender Block der anfängliche enthaltende Block (bei Bildschirmen der Viewport). Somit ändern sich die Abmessungen des Absatzes basierend auf der Größe des Browserfensters.
 
 ```html hidden
 <body>
@@ -215,7 +215,7 @@ p {
 
 ### Beispiel 5
 
-In diesem Beispiel ist die `position` des Absatzes `absolute`, also ist sein Containing Block `<section>`, welches der nächstgelegene Vorfahre mit einer {{cssxref("transform")}}-Eigenschaft ist, die nicht `none` ist.
+In diesem Beispiel ist die `position` des Absatzes `absolute`, also ist sein enthaltender Block `<section>`, welches das nächste Vorfahren-Element mit einer `transform`-Eigenschaft ist, die nicht `none` ist.
 
 ```html hidden
 <body>
@@ -257,15 +257,15 @@ p {
 - {{cssxref("contain")}}-Eigenschaft
 - {{cssxref("aspect-ratio")}}-Eigenschaft
 - {{cssxref("box-sizing")}}-Eigenschaft
-- {{cssxref("min-content")}} und {{cssxref("max-content")}}-Größenwerte
-- [Baustein: Größen von Elementen in CSS](/de/docs/Learn/CSS/Building_blocks/Sizing_items_in_CSS)
+- {{cssxref("min-content")}} und {{cssxref("max-content")}} Größenwerte
+- [Lernen: Größenanpassung von Elementen in CSS](/de/docs/Learn_web_development/Core/Styling_basics/Sizing)
 - [Box-Modell](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model)
-- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
 - [Layout-Modi](/de/docs/Web/CSS/Layout_mode)
 - [Visuelle Formatierungsmodelle](/de/docs/Web/CSS/Visual_formatting_model)
 - [Block-Formatierungskontext](/de/docs/Web/CSS/CSS_display/Block_formatting_context)
-- [Stapelformatierungskontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context)
-- [Margin Collapsing](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
-- [Initiale](/de/docs/Web/CSS/initial_value), [berechnete](/de/docs/Web/CSS/computed_value), [verwendete](/de/docs/Web/CSS/used_value) und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
+- [Stacking-Kontext](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context)
+- [Außenabstand-Kollaps](/de/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+- [Initial](/de/docs/Web/CSS/initial_value), [berechnet](/de/docs/Web/CSS/computed_value), [verwendet](/de/docs/Web/CSS/used_value), und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
 - [Ersetzte Elemente](/de/docs/Web/CSS/Replaced_element)
 - {{Glossary("Intrinsic_size", "Intrinsische Größe")}}

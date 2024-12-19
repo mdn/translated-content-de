@@ -2,42 +2,42 @@
 title: Screen reader
 slug: Glossary/Screen_reader
 l10n:
-  sourceCommit: 50e5e8a9b8a6b7d0dd9877610c9639d8b90f329f
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{GlossarySidebar}}
 
-Screenreader sind Softwareanwendungen, die versuchen, das, was auf einem Bildschirm angezeigt wird, auf nicht-visuelle Weise zu vermitteln, normalerweise als Text-zu-Sprache, aber auch in Braille oder Sound-Symbole. Screenreader sind für Menschen, die sehbehindert, analphabetisch oder lernbehindert sind, unerlässlich. Es gibt einige Browser-Erweiterungen für Screenreader, aber die meisten Screenreader arbeiten systemweit für alle Benutzeranwendungen, nicht nur für den Browser.
+Bildschirmleser sind Softwareanwendungen, die versuchen, das, was auf einem Bildschirm angezeigt wird, auf nicht-visuelle Weise zu vermitteln, üblicherweise als Text-zu-Sprache, aber auch in Braille oder durch Sound-Icons. Bildschirmleser sind für Menschen mit Sehbehinderungen, Analphabetismus oder Lernbehinderungen unverzichtbar. Es gibt einige Bildschirmleser als Browser-Erweiterungen, aber die meisten Bildschirmleser arbeiten systemweit für alle Benutzeranwendungen, nicht nur für den Browser.
 
-Im Hinblick auf die {{Glossary("accessibility", "Zugänglichkeit")}} im Web bieten die meisten Benutzeragenten ein Accessibility-Objektmodell, und Screenreader interagieren mit speziellen Accessibility-APIs, nutzen verschiedene Betriebssystemfunktionen und wenden Hook-Techniken an.
+In Bezug auf die Web-{{Glossary("accessibility", "Barrierefreiheit")}} bieten die meisten Benutzeragenten ein Barrierefreiheits-Objektmodell und Bildschirmleser greifen auf spezielle Barrierefreiheits-APIs zu, indem sie verschiedene Betriebssystemfunktionen nutzen und Hooking-Techniken einsetzen.
 
-## Häufige Screenreader
+## Häufige Bildschirmleser
 
 ### VoiceOver
 
-iOS und macOS werden mit VoiceOver geliefert, einem integrierten Screenreader. Um VoiceOver auf macOS zu aktivieren, gehen Sie zu Systemeinstellungen > Bedienungshilfen > VoiceOver. Sie können VoiceOver auch mit fn + Befehl + F5 ein- und ausschalten. VoiceOver liest Inhalte laut vor und zeigt sie an. Die laut vorgelesenen Inhalte werden in einem dunkelgrauen Kasten angezeigt.
+iOS und macOS verfügen über VoiceOver, einen integrierten Bildschirmleser. Um VoiceOver auf macOS zu aktivieren, gehen Sie zu Systemeinstellungen > Bedienungshilfen > VoiceOver. Sie können VoiceOver auch mit fn + Command + F5 ein- und ausschalten. VoiceOver liest Inhalte vor und zeigt sie an. Der vorgelesene Inhalt wird in einem dunkelgrauen Kasten angezeigt.
 
-VoiceOver kann auch mit Befehlskürzeln verwendet werden. Sehen Sie sich die [VoiceOver-Allgemeinbefehle auf dem Mac](https://support.apple.com/en-sg/guide/voiceover/cpvokys01/mac) für eine vollständige Liste an.
+VoiceOver kann auch mit Befehlsverknüpfungen verwendet werden. Siehe [VoiceOver allgemeine Befehle auf dem Mac](https://support.apple.com/en-sg/guide/voiceover/cpvokys01/mac) für eine vollständige Liste.
 
-Weitere Informationen finden Sie im [VoiceOver Benutzerhandbuch für Mac](https://support.apple.com/guide/voiceover/welcome/mac) und [Verwenden von VoiceOver in Apps auf dem iPhone](https://support.apple.com/guide/iphone/use-voiceover-in-apps-iphe4ee74be8/ios).
+Siehe [VoiceOver Benutzerhandbuch für Mac](https://support.apple.com/guide/voiceover/welcome/mac) und [Verwenden von VoiceOver in Apps auf dem iPhone](https://support.apple.com/guide/iphone/use-voiceover-in-apps-iphe4ee74be8/ios) für weitere Informationen.
 
 ### Narrator
 
 Narrator ist eine Bildschirmlese-Anwendung, die in Windows 10 und Windows 11 integriert ist.
 
-Siehe [Komplette Anleitung für Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1).
+Siehe [Vollständiger Leitfaden zu Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1).
 
 ### ChromeVox
 
-Chromebooks haben einen integrierten Screenreader namens ChromeVox, der es Menschen mit Sehbehinderungen ermöglicht, das Chrome-Betriebssystem zu verwenden.
+Chromebooks verfügen über einen integrierten Bildschirmleser namens ChromeVox, der es Menschen mit Sehbehinderungen ermöglicht, das Chrome-Betriebssystem zu nutzen.
 
-Weitere Informationen finden Sie unter [ChromeVox Screenreader](https://support.google.com/accessibility/answer/7031755).
+Siehe [ChromeVox Bildschirmleser](https://support.google.com/accessibility/answer/7031755) für weitere Informationen.
 
 ## Siehe auch
 
-- [Zugänglichkeit](/de/docs/Web/Accessibility)
-- [Zugänglichkeit lernen](/de/docs/Learn/Accessibility)
+- [Barrierefreiheit](/de/docs/Web/Accessibility)
+- [Barrierefreiheit lernen](/de/docs/Learn_web_development/Core/Accessibility)
 - [ARIA](/de/docs/Web/Accessibility/ARIA)
-- Verwandte Glossarbegriffe:
-  - {{Glossary("Accessibility", "Zugänglichkeit")}}
+- Verwandte Glossareinträge:
+  - {{Glossary("Accessibility", "Accessibility")}}
   - {{Glossary("ARIA", "ARIA")}}

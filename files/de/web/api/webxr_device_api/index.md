@@ -2,31 +2,31 @@
 title: WebXR Device API
 slug: Web/API/WebXR_Device_API
 l10n:
-  sourceCommit: b065c09b79d18abf0f04778c9307e1c312b8c6f9
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{DefaultAPISidebar("WebXR Device API")}}{{SecureContext_Header}}{{SeeCompatTable}}
 
-**WebXR** ist eine Gruppe von Standards, die verwendet werden, um das Rendern von 3D-Szenen auf Hardware zu unterstützen, die für die Darstellung virtueller Welten (**Virtual Reality** oder **VR**) entwickelt wurde, oder um grafische Bilder zur realen Welt hinzuzufügen (**Augmented Reality** oder **AR**). Die **WebXR Device API** implementiert den Kern der WebXR-Funktionssammlung, verwaltet die Auswahl von Ausgabegeräten, rendert die 3D-Szene auf das gewählte Gerät mit der geeigneten Bildrate und verwaltet Bewegungsvektoren, die mit Hilfe von Eingabesteuerungen erstellt werden.
+**WebXR** ist eine Gruppe von Standards, die zusammen verwendet werden, um das Rendern von 3D-Szenen auf Hardware zu unterstützen, die für die Darstellung virtueller Welten (**Virtual Reality**, oder **VR**) ausgelegt ist, oder um grafische Bilder zur realen Welt hinzuzufügen (**Augmented Reality**, oder **AR**). Die **WebXR Geräte-API** implementiert den Kern des WebXR-Feature-Sets, indem sie die Auswahl der Ausgabegeräte verwaltet, die 3D-Szene dem ausgewählten Gerät mit der angemessenen Bildrate darstellt und Bewegungsvektoren verwaltet, die mit Eingabegeräten erstellt werden.
 
-WebXR-kompatible Geräte umfassen vollständig immersive 3D-Headsets mit Bewegungs- und Orientierungserfassung, Brillen, die Grafik über der durch die Gläser sichtbaren Szene überlagern, und Handys, die durch Aufnahme der Welt mit einer Kamera die Realität erweitern und diese Szene mit computererzeugten Bildern ergänzen.
+Zu den mit WebXR kompatiblen Geräten gehören vollständig immersive 3D-Headsets mit Bewegungs- und Orientierungserfassung, Brillen, die Grafiken über die durch die Rahmen laufende reale Szene legen, und tragbare Mobiltelefone, die die Realität erweitern, indem sie die Welt mit einer Kamera erfassen und diese Szene mit computergenerierten Bildern ergänzen.
 
-Um diese Dinge zu erreichen, bietet die WebXR Device API die folgenden Hauptfunktionen:
+Um diese Aufgaben zu erfüllen, bietet die WebXR Geräte-API die folgenden wesentlichen Funktionen:
 
-- Finden von kompatiblen VR- oder AR-Ausgabegeräten
-- Rendern einer 3D-Szene auf das Gerät mit einer geeigneten Bildrate
+- Finden kompatibler VR- oder AR-Ausgabegeräte
+- Eine 3D-Szene auf dem Gerät bei einer angemessenen Bildrate rendern
 - (Optional) Spiegeln der Ausgabe auf ein 2D-Display
-- Erstellen von Vektoren, die die Bewegungen der Eingabesteuerungen darstellen
+- Erstellen von Vektoren, die die Bewegungen von Eingabesteuerungen darstellen
 
-Auf der grundlegendsten Ebene wird eine Szene in 3D präsentiert, indem die Perspektive berechnet wird, die auf die Szene angewendet werden soll, um sie aus dem Blickwinkel jedes Auges des Benutzers zu rendern. Das geschieht durch Berechnung der Position jedes Auges und Rendern der Szene von dieser Position aus, in Blickrichtung des Benutzers. Jeder dieser beiden Renderings wird in ein Einzelbild gepuffert, wobei das Bild des linken Auges auf der linken und das Bild des rechten Auges auf der rechten Hälfte des Puffers dargestellt wird. Sobald die Perspektiven beider Augen der Szene gerendert wurden, wird der resultierende Framebuffer an das WebXR-Gerät gesendet, um dem Benutzer über das Headset oder ein anderes geeignetes Anzeigegerät präsentiert zu werden.
+Auf der grundlegendsten Ebene wird eine Szene in 3D präsentiert, indem die Perspektive berechnet wird, die auf die Szene angewendet werden soll, um sie aus dem Blickwinkel jedes Auges des Benutzers zu rendern, indem die Position jedes Auges berechnet und die Szene von dieser Position aus gerendert wird, indem in die Richtung geschaut wird, in die der Benutzer gerade schaut. Jedes dieser beiden Bilder wird in ein einzelnes Framebuffer gerendert, wobei das Bild für das linke Auge links und das Bild für das rechte Auge in die rechte Hälfte des Puffers gerendert wird. Sobald die Perspektiven beider Augen auf die Szene gerendert wurden, wird das resultierende Framebuffer dem WebXR-Gerät geliefert, um es dem Benutzer durch ihr Headset oder ein anderes geeignetes Anzeigegerät zu präsentieren.
 
-Während die ältere [WebVR API](/de/docs/Web/API/WebVR_API) ausschließlich zur Unterstützung von Virtual Reality (VR) entwickelt wurde, bietet WebXR Unterstützung sowohl für VR als auch für Augmented Reality (AR) im Web. Die Unterstützung von AR-Funktionalitäten wird durch das WebXR Augmented Reality Modul hinzugefügt.
+Während die ältere [WebVR API](/de/docs/Web/API/WebVR_API) ausschließlich für die Unterstützung von Virtual Reality (VR) entwickelt wurde, bietet WebXR Unterstützung sowohl für VR als auch für Augmented Reality (AR) im Web. Die Unterstützung für AR-Funktionalität wird durch das WebXR Augmented Reality-Modul hinzugefügt.
 
-Ein typisches XR-Gerät kann entweder 3 oder 6 Freiheitsgrade haben und verfügt möglicherweise über keinen oder einen externen Positionssensor.
+Ein typisches XR-Gerät kann entweder 3 oder 6 Freiheitsgrade haben und kann über einen externen Positionssensor verfügen oder nicht.
 
-Die Ausrüstung kann auch einen Beschleunigungsmesser, ein Barometer oder andere Sensoren umfassen, die verwendet werden, um zu erkennen, wann der Benutzer sich durch den Raum bewegt, den Kopf dreht oder Ähnliches.
+Die Ausrüstung kann auch ein Beschleunigungsmesser, ein Barometer oder andere Sensoren umfassen, die verwendet werden, um zu erfassen, wann sich der Benutzer durch den Raum bewegt, seinen Kopf dreht oder ähnliches.
 
-## WebXR-Referenzdokumente
+## WebXR Referenzdokumente
 
 <div class="index">
 
@@ -78,7 +78,7 @@ Die Ausrüstung kann auch einen Beschleunigungsmesser, ein Barometer oder andere
 - [`XRInputSourceEvent`](/de/docs/Web/API/XRInputSourceEvent)
 - [`XRInputSourcesChangeEvent`](/de/docs/Web/API/XRInputSourcesChangeEvent)
 
-### Schichten
+### Ebenen
 
 - [`XRLayer`](/de/docs/Web/API/XRLayer)
 - [`XRLayerEvent`](/de/docs/Web/API/XRLayerEvent)
@@ -90,7 +90,7 @@ Die Ausrüstung kann auch einen Beschleunigungsmesser, ein Barometer oder andere
 - [`XRQuadLayer`](/de/docs/Web/API/XRQuadLayer)
 - [`XRMediaBinding`](/de/docs/Web/API/XRMediaBinding)
 
-### WebGL-Bindung
+### WebGL-Verbindung
 
 - [`XRWebGLBinding`](/de/docs/Web/API/XRWebGLBinding)
 - [`WebGLRenderingContext.makeXRCompatible()`](/de/docs/Web/API/WebGLRenderingContext/makeXRCompatible)
@@ -103,13 +103,13 @@ Die Ausrüstung kann auch einen Beschleunigungsmesser, ein Barometer oder andere
 - [`XRAnchor`](/de/docs/Web/API/XRAnchor)
 - [`XRAnchorSet`](/de/docs/Web/API/XRAnchorSet)
 
-### Tiefensensorik
+### Tiefenerfassung
 
 - [`XRDepthInformation`](/de/docs/Web/API/XRDepthInformation)
 - [`XRCPUDepthInformation`](/de/docs/Web/API/XRCPUDepthInformation)
 - [`XRWebGLDepthInformation`](/de/docs/Web/API/XRWebGLDepthInformation)
 
-### Treffererkennung
+### Objekterkennungstest
 
 - [`XRHitTestSource`](/de/docs/Web/API/XRHitTestSource)
 - [`XRTransientInputHitTestSource`](/de/docs/Web/API/XRTransientInputHitTestSource)
@@ -126,36 +126,36 @@ Die Ausrüstung kann auch einen Beschleunigungsmesser, ein Barometer oder andere
 
 ## Leitfäden und Tutorials
 
-Die folgenden Leitfäden und Tutorials sind eine hervorragende Ressource, um zu lernen, wie man WebXR und die zugrunde liegenden 3D- sowie VR/AR-Grafikkonzepte versteht.
+Die folgenden Leitfäden und Tutorials sind großartige Ressourcen, um zu lernen, wie man WebXR und die zugrunde liegenden 3D- sowie VR/AR-Grafikkonzepte versteht.
 
 <div class="index">
 
 ### Grundlagen und Basics
 
 - [Grundlagen von WebXR](/de/docs/Web/API/WebXR_Device_API/Fundamentals)
-- [Matrix-Mathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
-- [WebXR-Anwendungslebenszyklus](/de/docs/Web/API/WebXR_Device_API/Lifecycle)
+- [Matrixmathematik für das Web](/de/docs/Web/API/WebGL_API/Matrix_math_for_the_web)
+- [Lebenszyklus einer WebXR-Anwendung](/de/docs/Web/API/WebXR_Device_API/Lifecycle)
 
-### Eine Mixed-Reality-Erfahrung schaffen
+### Erstellen einer Mixed-Reality-Erfahrung
 
 - [Starten und Beenden einer WebXR-Sitzung](/de/docs/Web/API/WebXR_Device_API/Startup_and_shutdown)
 - [Geometrie und Referenzräume in WebXR](/de/docs/Web/API/WebXR_Device_API/Geometry)
-- [Räumliches Tracking in WebXR](/de/docs/Web/API/WebXR_Device_API/Spatial_tracking)
-- [Rendern und WebXR-Frame-Animationsrückruf](/de/docs/Web/API/WebXR_Device_API/Rendering)
-- [Blickpunkte und Betrachter: Kamerasimulation in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
-- [Ein Perspektiven-Retrospektive für WebXR-Entwickler](/de/docs/Web/API/WebXR_Device_API/Perspective)
+- [Räumliche Verfolgung in WebXR](/de/docs/Web/API/WebXR_Device_API/Spatial_tracking)
+- [Rendern und der WebXR-Frame-Animations-Callback](/de/docs/Web/API/WebXR_Device_API/Rendering)
+- [Standpunkte und Betrachter: Simulation von Kameras in WebXR](/de/docs/Web/API/WebXR_Device_API/Cameras)
+- [Eine Perspektiven-Retrospektive für WebXR-Entwickler](/de/docs/Web/API/WebXR_Device_API/Perspective)
 - [Beleuchtung einer WebXR-Umgebung](/de/docs/Web/API/WebXR_Device_API/Lighting)
-- [Verwendung begrenzter Referenzräume](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces)
+- [Verwendung von begrenzten Referenzräumen](/de/docs/Web/API/WebXR_Device_API/Bounded_reference_spaces)
 
-### Interaktivität erhöhen
+### Interaktiv gestalten
 
-- [Bewegung, Orientierung und Bewegung: Ein WebXR-Beispiel](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion)
+- [Bewegung, Orientierung und Bewegungsbeispiele: Ein WebXR-Beispiel](/de/docs/Web/API/WebXR_Device_API/Movement_and_motion)
 - [Eingaben und Eingabequellen](/de/docs/Web/API/WebXR_Device_API/Inputs)
-- [Zielen und Treffererkennung](/de/docs/Web/API/WebXR_Device_API/Targeting)
+- [Zielen und Objekterkennung](/de/docs/Web/API/WebXR_Device_API/Targeting)
 
 ### Leistung und Sicherheit
 
-- [WebXR-Leitfaden zur Leistung](/de/docs/Web/API/WebXR_Device_API/Performance)
+- [WebXR Leistung Leitfaden](/de/docs/Web/API/WebXR_Device_API/Performance)
 - [Berechtigungen und Sicherheit für WebXR](/de/docs/Web/API/WebXR_Device_API/Permissions_and_security)
 
 </div>
@@ -165,69 +165,69 @@ Die folgenden Leitfäden und Tutorials sind eine hervorragende Ressource, um zu 
 <table>
   <thead>
     <tr>
-      <th>Specification</th>
+      <th>Spezifikation</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><a href="https://immersive-web.github.io/webxr/"><strong>WebXR Device API</strong></a>
-      (<a href="https://github.com/immersive-web/webxr">Source</a>,
-       <a href="https://github.com/immersive-web/webxr/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/webxr/blob/master/explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/webxr/"><strong>WebXR Geräte-API</strong></a>
+      (<a href="https://github.com/immersive-web/webxr">Quelle</a>,
+       <a href="https://github.com/immersive-web/webxr/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/webxr/blob/master/explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/anchors/"><strong>WebXR Anchors Module</strong></a>
-      (<a href="https://github.com/immersive-web/anchors">Source</a>,
-       <a href="https://github.com/immersive-web/anchors/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/anchors/blob/master/explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/anchors/"><strong>WebXR Anker Modul</strong></a>
+      (<a href="https://github.com/immersive-web/anchors">Quelle</a>,
+       <a href="https://github.com/immersive-web/anchors/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/anchors/blob/master/explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/webxr-ar-module/"><strong>WebXR Augmented Reality Module</strong></a>
-      (<a href="https://github.com/immersive-web/webxr-ar-module">Source</a>,
-       <a href="https://github.com/immersive-web/webxr-ar-module/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/webxr-ar-module/blob/master/ar-module-explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/webxr-ar-module/"><strong>WebXR Augmented Reality Modul</strong></a>
+      (<a href="https://github.com/immersive-web/webxr-ar-module">Quelle</a>,
+       <a href="https://github.com/immersive-web/webxr-ar-module/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/webxr-ar-module/blob/master/ar-module-explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/depth-sensing/"><strong>WebXR Depth Sensing Module</strong></a>
-      (<a href="https://github.com/immersive-web/depth-sensing">Source</a>,
-       <a href="https://github.com/immersive-web/depth-sensing/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/depth-sensing/blob/main/explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/depth-sensing/"><strong>WebXR Tiefenerfassungsmodul</strong></a>
+      (<a href="https://github.com/immersive-web/depth-sensing">Quelle</a>,
+       <a href="https://github.com/immersive-web/depth-sensing/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/depth-sensing/blob/main/explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/dom-overlays/"><strong>WebXR DOM Overlays Module</strong></a>
-      (<a href="https://github.com/immersive-web/dom-overlays">Source</a>,
-       <a href="https://github.com/immersive-web/dom-overlays/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/dom-overlays/blob/master/explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/dom-overlays/"><strong>WebXR DOM Overlays Modul</strong></a>
+      (<a href="https://github.com/immersive-web/dom-overlays">Quelle</a>,
+       <a href="https://github.com/immersive-web/dom-overlays/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/dom-overlays/blob/master/explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/webxr-gamepads-module/"><strong>WebXR Gamepads Module</strong></a>
-      (<a href="https://github.com/immersive-web/webxr-gamepads-module">Source</a>,
-       <a href="https://github.com/immersive-web/webxr-gamepads-module/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/webxr-gamepads-module/blob/master/gamepads-module-explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/webxr-gamepads-module/"><strong>WebXR Gamepads Modul</strong></a>
+      (<a href="https://github.com/immersive-web/webxr-gamepads-module">Quelle</a>,
+       <a href="https://github.com/immersive-web/webxr-gamepads-module/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/webxr-gamepads-module/blob/master/gamepads-module-explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/webxr-hand-input/"><strong>WebXR Hand Input Module</strong></a>
-      (<a href="https://github.com/immersive-web/webxr-hand-input">Source</a>,
-       <a href="https://github.com/immersive-web/webxr-hand-input/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/webxr-hand-input/blob/master/explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/webxr-hand-input/"><strong>WebXR Hand Input Modul</strong></a>
+      (<a href="https://github.com/immersive-web/webxr-hand-input">Quelle</a>,
+       <a href="https://github.com/immersive-web/webxr-hand-input/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/webxr-hand-input/blob/master/explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/hit-test/"><strong>WebXR Hit Test Module</strong></a>
-      (<a href="https://github.com/immersive-web/hit-test">Source</a>,
-       <a href="https://github.com/immersive-web/hit-test/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/hit-test/blob/master/hit-testing-explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/hit-test/"><strong>WebXR Hit Test Modul</strong></a>
+      (<a href="https://github.com/immersive-web/hit-test">Quelle</a>,
+       <a href="https://github.com/immersive-web/hit-test/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/hit-test/blob/master/hit-testing-explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
       <td><a href="https://immersive-web.github.io/layers/"><strong>WebXR Layers API</strong></a>
-      (<a href="https://github.com/immersive-web/layers">Source</a>,
-       <a href="https://github.com/immersive-web/layers/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/layers/blob/master/explainer.md">Explainer</a>)</td>
+      (<a href="https://github.com/immersive-web/layers">Quelle</a>,
+       <a href="https://github.com/immersive-web/layers/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/layers/blob/master/explainer.md">Erklärung</a>)</td>
     </tr>
     <tr>
-      <td><a href="https://immersive-web.github.io/lighting-estimation/"><strong>WebXR Lighting Estimation API</strong></a>
-      (<a href="https://github.com/immersive-web/lighting-estimation">Source</a>,
-       <a href="https://github.com/immersive-web/lighting-estimation/issues">Issues</a>,
-       <a href="https://github.com/immersive-web/lighting-estimation/blob/main/lighting-estimation-explainer.md">Explainer</a>)</td>
+      <td><a href="https://immersive-web.github.io/lighting-estimation/"><strong>WebXR Lichtschätzungs-API</strong></a>
+      (<a href="https://github.com/immersive-web/lighting-estimation">Quelle</a>,
+       <a href="https://github.com/immersive-web/lighting-estimation/issues">Probleme</a>,
+       <a href="https://github.com/immersive-web/lighting-estimation/blob/main/lighting-estimation-explainer.md">Erklärung</a>)</td>
     </tr>
   </tbody>
 </table>
@@ -238,8 +238,7 @@ Die folgenden Leitfäden und Tutorials sind eine hervorragende Ressource, um zu 
 
 ## Siehe auch
 
-- [Grafiken im Web](/de/docs/Learn/HTML/Multimedia_and_embedding/Images_in_HTML#other_graphics_on_the_web)
-- [Grafiken zeichnen](/de/docs/Learn/JavaScript/Client-side_web_APIs/Drawing_graphics)
-- [WebGL API](/de/docs/Web/API/WebGL_API): Beschleunigte 2D- und 3D-Grafik im Web
-- [Canvas API](/de/docs/Web/API/Canvas_API): 2D-Zeichnungen für das Web
+- [Grafiken zeichnen](/de/docs/Learn_web_development/Extensions/Client-side_APIs/Drawing_graphics)
+- [WebGL API](/de/docs/Web/API/WebGL_API): Beschleunigte 2D- und 3D-Grafiken im Web
+- [Canvas API](/de/docs/Web/API/Canvas_API): 2D-Zeichnung für das Web
 - [Canvas-Tutorial](/de/docs/Web/API/Canvas_API/Tutorial)

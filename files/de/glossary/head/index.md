@@ -2,14 +2,14 @@
 title: Head
 slug: Glossary/Head
 l10n:
-  sourceCommit: ada5fa5ef15eadd44b549ecf906423b4a2092f34
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{GlossarySidebar}}
 
-Der **Head** ist der Teil eines {{Glossary("HTML", "HTML")}}-Dokuments, der {{Glossary("metadata", "Metadaten")}} über dieses Dokument enthält, wie den Autor, die Beschreibung und Links zu {{Glossary("CSS", "CSS")}}- oder {{Glossary("JavaScript", "JavaScript")}}-Dateien, die auf das HTML angewendet werden sollen.
+Der **Head** ist der Teil eines {{Glossary("HTML", "HTML")}}-Dokuments, der {{Glossary("metadata", "Metadaten")}} über dieses Dokument enthält, wie zum Beispiel Autor, Beschreibung und Verweise auf {{Glossary("CSS", "CSS")}}- oder {{Glossary("JavaScript", "JavaScript")}}-Dateien, die auf das HTML angewendet werden sollen.
 
 ## Siehe auch
 
-- {{htmlelement("head")}} Elementreferenz bei MDN
-- [Der HTML \<head>](/de/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML) im MDN-Lernbereich
+- {{htmlelement("head")}} Element-Referenz auf MDN
+- [Was steckt im Head? Webseiten-Metadaten](/de/docs/Learn_web_development/Core/Structuring_content/Webpage_metadata) im MDN Lernbereich

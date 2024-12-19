@@ -2,32 +2,32 @@
 title: border-left
 slug: Web/CSS/border-left
 l10n:
-  sourceCommit: 2adfb8760ac42c80966080e2e84211b14e43b589
+  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
 {{CSSRef}}
 
-Die **`border-left`** [Kurznotation](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Rands](/de/docs/Web/CSS/border) eines Elements.
+Die **`border-left`** [Shorthand](/de/docs/Web/CSS/Shorthand_properties) [CSS](/de/docs/Web/CSS) Eigenschaft setzt alle Eigenschaften des linken [Randes](/de/docs/Web/CSS/border) eines Elements.
 
 {{EmbedInteractiveExample("pages/css/border-left.html")}}
 
-Wie bei allen Kurznotationseigenschaften setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht angegeben sind. Es setzt diejenigen, die nicht angegeben sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
+Wie bei allen Shorthand-Eigenschaften, setzt `border-left` immer die Werte aller Eigenschaften, die es setzen kann, auch wenn sie nicht spezifiziert sind. Es setzt diejenigen, die nicht spezifiziert sind, auf ihre Standardwerte. Betrachten Sie den folgenden Code:
 
 ```css
 border-left-style: dotted;
 border-left: thick green;
 ```
 
-Er entspricht tatsächlich diesem hier:
+Dieser ist eigentlich derselbe wie dieser hier:
 
 ```css
 border-left-style: dotted;
 border-left: none thick green;
 ```
 
-Der Wert von {{cssxref("border-left-style")}}, der vor `border-left` angegeben wurde, wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Nicht-Spezifizieren des `border-style`-Teils zu keinem Rahmen.
+Der vorher gegebene Wert von {{cssxref("border-left-style")}} vor `border-left` wird ignoriert. Da der Standardwert von {{cssxref("border-left-style")}} `none` ist, führt das Weglassen des `border-style`-Teils zu keinem Rand.
 
-## Bestandeigenschaften
+## Zusammengesetzte Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -50,7 +50,7 @@ border-left: revert-layer;
 border-left: unset;
 ```
 
-Die drei Werte der Kurznotationseigenschaft können in beliebiger Reihenfolge angegeben werden, wobei einer oder zwei weggelassen werden können.
+Die drei Werte der Shorthand-Eigenschaft können in beliebiger Reihenfolge angegeben werden, und ein oder zwei von ihnen können weggelassen werden.
 
 ### Werte
 
@@ -71,7 +71,7 @@ Die drei Werte der Kurznotationseigenschaft können in beliebiger Reihenfolge an
 
 ## Beispiele
 
-### Anwenden eines linken Rands
+### Anwendung eines linken Randes
 
 #### HTML
 
@@ -109,5 +109,5 @@ div {
 - {{cssxref("border")}}
 - {{cssxref("border-block")}}
 - {{cssxref("outline")}}
-- [Hintergründe und Rahmen](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
-- [CSS lernen: Hintergründe und Rahmen](/de/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders)
+- [Hintergründe und Ränder](/de/docs/Web/CSS/CSS_backgrounds_and_borders)
+- [CSS lernen: Hintergründe und Ränder](/de/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
