@@ -50,7 +50,7 @@ Der `table`-Wert des ARIA-Attributs `role` identifiziert das Element mit der Rol
 Ein Element mit `role="table"` ist eine statische tabellarische Struktur mit Zeilen, die Zellen enthalten. Die Zellen sind nicht fokussierbar oder auswählbar, obwohl Widgets in einzelnen Zellen der Tabelle interaktiv sein können. Die Verwendung eines nativen HTML-{{HTMLElement('table')}}-Elements ist wann immer möglich dringend empfohlen.
 
 > [!WARNING]
-> Wenn eine Tabelle einen Auswahzustand beibehält, eine zweidimensionale Navigation hat oder es dem Benutzer ermöglicht, die Reihenfolge der Zellen zu ändern, verwenden Sie stattdessen [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role).
+> Wenn eine Tabelle einen Auswahlzustand beibehält, eine zweidimensionale Navigation hat oder es dem Benutzer ermöglicht, die Reihenfolge der Zellen zu ändern, verwenden Sie stattdessen [`grid`](/de/docs/Web/Accessibility/ARIA/Roles/grid_role) oder [`treegrid`](/de/docs/Web/Accessibility/ARIA/Roles/treegrid_role).
 
 Um eine ARIA-Tabelle zu erstellen, fügen Sie dem Containerelement `role="table"` hinzu. Innerhalb dieses Containers hat jede Zeile `role="row"` eingestellt und enthält Kindzellen. Jede Zelle hat eine Rolle von entweder `columnheader`, `rowheader` oder `cell`. Zeilen können Kinder der Tabelle oder innerhalb einer `rowgroup` sein.
 
