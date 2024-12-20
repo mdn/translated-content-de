@@ -2,26 +2,20 @@
 title: scaleZ()
 slug: Web/CSS/transform-function/scaleZ
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: c9f96f06d4fbd265808f298eb9b2773f739860c5
 ---
 
 {{CSSRef}}
 
-Die **`scaleZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element entlang der
-z-Achse skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`scaleZ()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) definiert eine Transformation, die ein Element entlang der z-Achse skaliert. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-scaleZ.html")}}
 
-Diese Skalentransformation verändert die z-Koordinate jedes Elementpunkts um einen konstanten Faktor, außer wenn der
-Skalierungsfaktor 1 ist; in diesem Fall ist die Funktion die Identitätstransformation. Die Skalierung ist nicht isotrop, und die Winkel
-des Elements werden nicht beibehalten. `scaleZ(-1)` definiert eine [Axialsymmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), wobei die z-Achse durch den Ursprung
-verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft spezifiziert).
+Diese Skalentransformation modifiziert die z-Koordinate jedes Punkts des Elements um einen konstanten Faktor, außer wenn der Skalierungsfaktor 1 ist, in diesem Fall ist die Funktion die Identitätstransformation. Die Skalierung ist nicht isotrop, und die Winkel des Elements bleiben nicht erhalten. `scaleZ(-1)` definiert eine [axialsymmetrie](https://en.wikipedia.org/wiki/Axial_symmetry), mit der z-Achse, die durch den Ursprung verläuft (wie durch die {{cssxref("transform-origin")}} Eigenschaft angegeben).
 
-In den obigen interaktiven Beispielen sind [`perspective: 550px;`](/de/docs/Web/CSS/perspective) (um einen 3D-Raum zu
-erstellen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/transform-style)
-(damit die Kinder, die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind) am Würfel eingestellt.
+In den obigen interaktiven Beispielen wurden [`perspective: 550px;`](/de/docs/Web/CSS/perspective) (um einen 3D-Raum zu schaffen) und [`transform-style: preserve-3d;`](/de/docs/Web/CSS/transform-style) (damit die Kinder, die 6 Seiten des Würfels, ebenfalls im 3D-Raum positioniert sind) auf den Würfel angewendet.
 
-> **Note:** `scaleZ(sz)` ist äquivalent zu
+> **Hinweis:** `scaleZ(sz)` ist äquivalent zu
 > `scale3d(1, 1, sz)`.
 
 ## Syntax
@@ -33,16 +27,16 @@ scaleZ(s)
 ### Werte
 
 - `s`
-  - : Ist ein {{cssxref("&lt;number&gt;")}}, der den Skalierungsfaktor repräsentiert, der auf die z-Koordinate jedes Punkts des
+  - : Ist ein {{cssxref("&lt;number&gt;")}} und repräsentiert den Skalierungsfaktor, der auf die z-Koordinate jedes Punkts des
     Elements angewendet wird.
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
-      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> auf <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
-      <th scope="col">Kartesische Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
-      <th scope="col">Homogene Koordinaten auf <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
+      <th scope="col"><a href="/de/docs/Web/CSS/transform-function#cartesian_coordinates">Kartesische Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^2</a></th>
+      <th scope="col"><a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">Homogene Koordinaten</a> in <a href="https://en.wikipedia.org/wiki/Real_projective_plane">ℝℙ^2</a></th>
+      <th scope="col">Kartesische Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_coordinate_space">ℝ^3</a></th>
+      <th scope="col">Homogene Koordinaten in <a href="https://en.wikipedia.org/wiki/Real_projective_space">ℝℙ^3</a></th>
     </tr>
   </thead>
   <tbody>
@@ -63,6 +57,10 @@ scaleZ(s)
     </tr>
   </tbody>
 </table>
+
+## Formale Syntax
+
+{{CSSSyntax}}
 
 ## Beispiele
 
@@ -115,7 +113,7 @@ div {
 - {{cssxref("transform")}}
 - {{cssxref("&lt;transform-function&gt;")}}
 - {{cssxref("transform-origin")}}
-- Individuelle Transformations-Eigenschaften:
+- Einzelne Transformations-Eigenschaften:
   - {{cssxref("translate")}}
   - {{cssxref("scale")}}
   - {{cssxref("rotate")}}

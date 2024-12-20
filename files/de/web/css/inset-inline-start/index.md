@@ -2,14 +2,14 @@
 title: inset-inline-start
 slug: Web/CSS/inset-inline-start
 l10n:
-  sourceCommit: 09c431e017263c263558df1821f187f76660dde9
+  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
 ---
 
 {{CSSRef}}
 
-Die **`inset-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Anfangs-Inset einer Zeile eines Elements, das je nach Schreibmodus des Elements, dessen Richtung und Textausrichtung einer physischen Verschiebung entspricht. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
+Die **`inset-inline-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Inline-Start-Versatz eines Elements, der abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements auf einen physischen Versatz abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} oder {{cssxref("left")}} Eigenschaft, je nachdem, welche Werte für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definiert sind.
 
-Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keinen Effekt auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-inline-start.html")}}
 
@@ -19,8 +19,8 @@ Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keine Auswirkung
 /* <length> values */
 inset-inline-start: 3px;
 inset-inline-start: 2.4em;
-inset-inline-start: anchor(self-end);
 inset-inline-start: calc(anchor(--myAnchor 50%) + 10px);
+inset-inline-start: anchor-size(width);
 
 /* <percentage>s of the width or height of the containing block */
 inset-inline-start: 10%;
@@ -40,7 +40,7 @@ Die Kurzform für `inset-inline-start` und {{cssxref("inset-inline-end")}} ist {
 
 ### Werte
 
-Die `inset-inline-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
+Die `inset-inline-start` Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}} Eigenschaft.
 
 ## Formale Definition
 
@@ -52,7 +52,7 @@ Die `inset-inline-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref(
 
 ## Beispiele
 
-### Festlegen des Inline-Anfangsversatzes
+### Festlegen des Inline-Start-Versatzes
 
 #### HTML
 
@@ -93,6 +93,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-end")}}
+- Die Eigenschaften, die andere Inset-Positionen definieren: {{cssxref("inset-block-start")}}, {{cssxref("inset-block-end")}}, und {{cssxref("inset-inline-end")}}
 - Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

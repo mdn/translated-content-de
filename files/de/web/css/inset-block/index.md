@@ -2,18 +2,18 @@
 title: inset-block
 slug: Web/CSS/inset-block
 l10n:
-  sourceCommit: 09c431e017263c263558df1821f187f76660dde9
+  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
 ---
 
 {{CSSRef}}
 
-Die **`inset-block`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logischen Block-Anfangs- und Endversätze eines Elements, die je nach dem Schreibmodus, der Richtung und der Textausrichtung des Elements auf physische Versätze abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}}, oder {{cssxref("right")}} und {{cssxref("left")}} je nach den für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}} definierten Werten.
+Die **`inset-block`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert die logischen Blockanfangs- und -endversätze eines Elements, die je nach Schreibweise, Richtung und Textausrichtung des Elements auf physische Versätze abgebildet werden. Sie entspricht den Eigenschaften {{cssxref("top")}} und {{cssxref("bottom")}} oder {{cssxref("right")}} und {{cssxref("left")}}, abhängig von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
 
-Diese {{Glossary("inset_properties", "inset Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "inset-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block.html")}}
 
-## Bestandeigenschaften
+## Komponenteneigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -28,7 +28,7 @@ inset-block: 3px 10px;
 inset-block: 2.4em 3em;
 inset-block: 10px; /* value applied to start and end */
 inset-block: auto anchor(start);
-inset-block: calc(anchor(--myAnchor 50%) + 10px) auto;
+inset-block: 10em anchor-size(--myAnchor height, 10%);
 
 /* <percentage>s of the width or height of the containing block */
 inset-block: 10% 5%;
@@ -46,7 +46,7 @@ inset-block: unset;
 
 ### Werte
 
-Die `inset-block` Eigenschaft nimmt dieselben Werte wie die {{cssxref("left")}} Eigenschaft an.
+Die `inset-block` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -58,7 +58,7 @@ Die `inset-block` Eigenschaft nimmt dieselben Werte wie die {{cssxref("left")}} 
 
 ## Beispiele
 
-### Block-Anfangs- und Endversätze einstellen
+### Festlegen von Blockanfangs- und -endversätzen
 
 #### HTML
 

@@ -2,16 +2,16 @@
 title: margin-top
 slug: Web/CSS/margin-top
 l10n:
-  sourceCommit: b2833ddfd45cae1bb5e050d24637865e9327408d
+  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
 ---
 
 {{CSSRef}}
 
-Die **`margin-top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den [Randbereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) oben an einem Element fest. Ein positiver Wert platziert es weiter weg von seinen Nachbarn, während ein negativer Wert es näher platziert.
+Die **`margin-top`** [CSS](/de/docs/Web/CSS) Eigenschaft legt den [Margin-Bereich](/de/docs/Web/CSS/CSS_box_model/Introduction_to_the_CSS_box_model#margin_area) am oberen Rand eines Elements fest. Ein positiver Wert platziert es weiter von seinen Nachbarn entfernt, während ein negativer Wert es näher platziert.
 
 {{EmbedInteractiveExample("pages/css/margin-top.html")}}
 
-Diese Eigenschaft hat keine Auswirkung auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie z.B. {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
+Diese Eigenschaft hat keine Auswirkung auf _nicht-[ersetzte](/de/docs/Web/CSS/Replaced_element)_ Inline-Elemente, wie {{HTMLElement("span")}} oder {{HTMLElement("code")}}.
 
 ## Syntax
 
@@ -20,6 +20,8 @@ Diese Eigenschaft hat keine Auswirkung auf _nicht-[ersetzte](/de/docs/Web/CSS/Re
 margin-top: 10px; /* An absolute length */
 margin-top: 1em; /* relative to the text size */
 margin-top: 5%; /* relative to the nearest block container's width */
+margin-top: anchor-size(height);
+margin-top: calc(anchor-size(--myAnchor self-inline, 25px) / 4);
 
 /* Keyword values */
 margin-top: auto;
@@ -32,16 +34,20 @@ margin-top: revert-layer;
 margin-top: unset;
 ```
 
-Die `margin-top` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<length>`, oder ein `<percentage>` angegeben. Der Wert kann positiv, null oder negativ sein.
+Die Eigenschaft `margin-top` wird entweder als Schlüsselwort `auto`, als `<length>`, oder als `<percentage>` angegeben. Ihr Wert kann positiv, null oder negativ sein.
 
 ### Werte
 
 - {{cssxref("&lt;length&gt;")}}
-  - : Die Größe des Außenabstands als fester Wert.
+
+  - : Die Größe des Margins als fester Wert.
+
+    - Für _Anker-positionierte Elemente_ wird die Funktion {{cssxref("anchor-size()")}} zu einem {{cssxref("&lt;length&gt;")}}-Wert relativ zur Breite oder Höhe des zugehörigen _Ankerelements_ aufgelöst (siehe [Festlegung des Element-Margins basierend auf der Ankergröße](/de/docs/Web/CSS/CSS_anchor_positioning/Using#setting_element_margin_based_on_anchor_size)).
+
 - {{cssxref("&lt;percentage&gt;")}}
-  - : Die Größe des Außenabstands als Prozentangabe, bezogen auf die Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umgebenden Blocks](/de/docs/Web/CSS/Containing_block).
+  - : Die Größe des Margins als Prozentsatz, relativ zur Inline-Größe (_Breite_ in einer horizontalen Sprache, definiert durch {{cssxref("writing-mode")}}) des [umschließenden Blocks](/de/docs/Web/CSS/Containing_block).
 - `auto`
-  - : Der Browser wählt einen geeigneten Wert aus. Siehe {{cssxref("margin")}}.
+  - : Der Browser wählt einen geeigneten Wert. Siehe {{cssxref("margin")}}.
 
 ## Formale Definition
 
@@ -53,7 +59,7 @@ Die `margin-top` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<len
 
 ## Beispiele
 
-### Positive und negative obere Abstände setzen
+### Positive und negative obere Margins festlegen
 
 ```css
 .content {
@@ -84,4 +90,4 @@ Die `margin-top` Eigenschaft wird als das Schlüsselwort `auto`, oder eine `<len
 - {{cssxref("margin")}} Kurzschreibweise
 - {{cssxref("margin-block-start")}}, {{cssxref("margin-block-end")}}, {{cssxref("margin-inline-start")}}, und {{cssxref("margin-inline-end")}}
 - {{cssxref("margin-block")}} und {{cssxref("margin-inline")}} Kurzschreibweisen
-- [CSS Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul
+- [CSS-Box-Modell](/de/docs/Web/CSS/CSS_box_model) Modul

@@ -2,14 +2,14 @@
 title: inset-block-start
 slug: Web/CSS/inset-block-start
 l10n:
-  sourceCommit: 09c431e017263c263558df1821f187f76660dde9
+  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
 ---
 
 {{CSSRef}}
 
-Die **`inset-block-start`** [CSS](/de/docs/Web/CSS)-Eigenschaft definiert den logischen Blockstartversatz eines Elements, der in Abhängigkeit vom Schreibmodus, der Richtung und der Textorientierung des Elements auf einen physischen Innenabstand abgebildet wird. Er entspricht der {{cssxref("top")}}-, {{cssxref("right")}}-, {{cssxref("bottom")}}- oder {{cssxref("left")}}-Eigenschaft in Abhängigkeit von den definierten Werten für {{cssxref("writing-mode")}}, {{cssxref("direction")}} und {{cssxref("text-orientation")}}.
+Die **`inset-block-start`** [CSS](/de/docs/Web/CSS) Eigenschaft definiert den logischen Blockanfang-Versatz eines Elements, der abhängig vom Schreibmodus, der Richtung und der Textausrichtung des Elements auf einen physikalischen Inset abgebildet wird. Sie entspricht der {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, oder {{cssxref("left")}} Eigenschaft, abhängig von den Werten, die für {{cssxref("writing-mode")}}, {{cssxref("direction")}}, und {{cssxref("text-orientation")}} definiert sind.
 
-Diese {{Glossary("inset_properties", "Einfüge-Eigenschaft")}} hat keine Wirkung auf nicht positionierte Elemente.
+Diese {{Glossary("inset_properties", "Inset-Eigenschaft")}} hat keinen Effekt auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset-block-start.html")}}
 
@@ -20,7 +20,7 @@ Diese {{Glossary("inset_properties", "Einfüge-Eigenschaft")}} hat keine Wirkung
 inset-block-start: 3px;
 inset-block-start: 2.4em;
 inset-block-start: anchor(end);
-inset-block-start: calc(anchor(--myAnchor 50%) + 5px);
+inset-block-start: calc(anchor-size(--myAnchor height, 70px) * 2);
 
 /* <percentage>s of the width or height of the containing block */
 inset-block-start: 10%;
@@ -38,7 +38,7 @@ inset-block-start: unset;
 
 ### Werte
 
-Die `inset-block-start`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxref("left")}}-Eigenschaft.
+Die `inset-block-start` Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}} Eigenschaft an.
 
 ## Formale Definition
 
@@ -50,7 +50,7 @@ Die `inset-block-start`-Eigenschaft nimmt die gleichen Werte an wie die {{cssxre
 
 ## Beispiele
 
-### Blockstartversatz festlegen
+### Blockanfang-Versatz setzen
 
 #### HTML
 
@@ -91,6 +91,6 @@ div {
 
 ## Siehe auch
 
-- Die Eigenschaften, die andere Ränder definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}} und {{cssxref("inset-inline-end")}}
-- Die zugeordneten physischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und {{cssxref("left")}}
+- Die Eigenschaften, die andere Insets definieren: {{cssxref("inset-block-end")}}, {{cssxref("inset-inline-start")}}, und {{cssxref("inset-inline-end")}}
+- Die abgebildeten physikalischen Eigenschaften: {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("writing-mode")}}, {{cssxref("direction")}}, {{cssxref("text-orientation")}}

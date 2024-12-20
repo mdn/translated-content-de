@@ -2,15 +2,15 @@
 title: scroll()
 slug: Web/CSS/animation-timeline/scroll
 l10n:
-  sourceCommit: 4e508e2f543c0d77c9c04f406ebc8e9db7e965be
+  sourceCommit: c9f96f06d4fbd265808f298eb9b2773f739860c5
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-Die **`scroll()`** [CSS-Funktion](/de/docs/Web/CSS/CSS_Functions) kann mit {{cssxref("animation-timeline")}} verwendet werden, um ein scrollbares Element (_Scroller_) und eine Scrollleistenachse anzugeben, die eine anonyme Scrollfortschritts-Zeitachse zum Animieren des aktuellen Elements bereitstellen. Die Fortschritts-Zeitachse wird durch Scrollen des Scrollers von oben nach unten (oder von links nach rechts) fortschreiten. Die Position im Scrollbereich wird in einen Fortschrittsprozentsatz umgewandelt — 0 % am Anfang und 100 % am Ende.
+Die **`scroll()`** [CSS-Funktion](/de/docs/Web/CSS/CSS_Functions) kann mit {{cssxref("animation-timeline")}} verwendet werden, um ein scrollbares Element (_Scroller_) und eine Scrollleistenachse anzugeben, die eine anonyme Fortschrittszeitleiste für Animationen des aktuellen Elements liefert. Die Fortschrittszeitleiste wird durch das Scrollen des Scrollers zwischen oben und unten (oder links und rechts) fortgesetzt. Die Position im Scrollbereich wird in einen Prozentsatz des Fortschritts umgewandelt — 0 % am Anfang und 100 % am Ende.
 
 > [!NOTE]
-> Wenn die angegebene Achse keine Scrollleiste enthält, wird die Animationszeitachse inaktiv sein (hat keinen Fortschritt).
+> Wenn die angegebene Achse keine Scrollleiste enthält, ist die Animationszeitleiste inaktiv (hat keinen Fortschritt).
 
 > [!NOTE]
 > Jede Verwendung von `scroll()` entspricht einer eigenen Instanz von [`ScrollTimeline`](/de/docs/Web/API/ScrollTimeline) in der [Web Animations API](/de/docs/Web/API/Web_Animations_API).
@@ -42,10 +42,10 @@ animation-timeline: scroll(x self);
 
 - scroller
 
-  - : Der Wert zur Angabe des Scroller-Elements, das die Scroll-Fortschritts-Zeitachse bereitstellen wird, kann einer der folgenden sein:
+  - : Der Wert zur Angabe des Scroller-Elements, das die Scroll-Fortschrittszeitleiste bereitstellt, kann einer der folgenden sein:
 
     - `nearest`
-      - : Der nächste Vorfahre des aktuellen Elements, der auf irgendeiner Achse Scrollleisten hat. Dies ist der Standardwert.
+      - : Der nächstgelegene Vorfahre des aktuellen Elements, der Scrollleisten auf irgendeiner Achse hat. Dies ist der Standardwert.
     - `root`
       - : Das Wurzelelement des Dokuments.
     - `self`
@@ -53,12 +53,12 @@ animation-timeline: scroll(x self);
 
 - axis
 
-  - : Der Wert für die Scrollleistenachse kann einer der folgenden sein:
+  - : Der Wert der Scrollleistenachse kann einer der folgenden sein:
 
     - `block`
-      - : Die Scrollleiste auf der Blockachse des Scrollcontainers, welche die Achse in der Richtung senkrecht zum Textfluss innerhalb einer Zeile ist. Für horizontale Schreibrichtungen, wie z.B. standardmäßiges Englisch, entspricht dies `y`, während es für vertikale Schreibrichtungen `x` ist. Dies ist der Standardwert.
+      - : Die Scrollleiste auf der Blockachse des Scrollcontainers, die senkrecht zum Fluss des Textes in einer Zeile verläuft. Bei horizontalen Schreibmodi, wie z.B. im Englischen, entspricht dies `y`, während es bei vertikalen Schreibmodi `x` entspricht. Dies ist der Standardwert.
     - `inline`
-      - : Die Scrollleiste auf der Inline-Achse des Scrollcontainers, welche die Achse in der Richtung parallel zum Textfluss in einer Zeile ist. Für horizontale Schreibrichtungen entspricht dies `x`, während es für vertikale Schreibrichtungen `y` ist.
+      - : Die Scrollleiste auf der Inlineachse des Scrollcontainers, die parallel zum Fluss des Textes in einer Zeile verläuft. Bei horizontalen Schreibmodi entspricht dies `x`, während es bei vertikalen Schreibmodi `y` entspricht.
     - `y`
       - : Die Scrollleiste auf der vertikalen Achse des Scrollcontainers.
     - `x`
@@ -67,20 +67,20 @@ animation-timeline: scroll(x self);
 > [!NOTE]
 > Die Scroller- und Achsenwerte können in beliebiger Reihenfolge angegeben werden.
 
-### Formale Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Festlegen einer anonymen Scroll-Fortschritts-Zeitachse
+### Festlegen einer anonymen Scroll-Fortschrittszeitleiste
 
-In diesem Beispiel wird das `#square`-Element mit einer anonymen Scroll-Fortschritts-Zeitachse animiert, die mit der `scroll()`-Funktion auf das zu animierende Element angewendet wird.
-Die Zeitachse in diesem speziellen Beispiel wird vom nächstgelegenen übergeordneten Element bereitgestellt, das (irgendwelche) Scrollleisten hat, und zwar von der Scrollleiste in der Blockrichtung.
+In diesem Beispiel wird das `#square` Element mit einer anonymen Scroll-Fortschrittszeitleiste animiert, die auf das zu animierende Element mithilfe der `scroll()` Funktion angewendet wird.
+Die Zeitleiste in diesem speziellen Beispiel wird von dem nächstgelegenen Elternelement bereitgestellt, das eine (beliebige) Scrollleiste hat, von der Scrollleiste in der Blockrichtung.
 
 #### HTML
 
-Das HTML für das Beispiel wird unten gezeigt.
+Das HTML für das Beispiel ist unten gezeigt.
 
 ```html
 <div id="container">
@@ -91,10 +91,10 @@ Das HTML für das Beispiel wird unten gezeigt.
 
 #### CSS
 
-Das CSS unten definiert ein Quadrat, das sich entsprechend der von der `animation-timeline`-Eigenschaft bereitgestellten Zeitachse in wechselnden Richtungen dreht.
-In diesem Fall wird die Zeitachse durch `scroll(block nearest)` bereitgestellt, was bedeutet, dass die Scrollleiste in der Blockrichtung des nächstgelegenen übergeordneten Elements mit Scrollleisten ausgewählt wird; in diesem Fall die vertikale Scrollleiste des "container"-Elements.
+Das untenstehende CSS definiert ein Quadrat, das sich abwechselnd in verschiedene Richtungen entsprechend der von der Eigenschaft `animation-timeline` bereitgestellten Zeitleiste dreht.
+In diesem Fall wird die Zeitleiste durch `scroll(block nearest)` bereitgestellt, was bedeutet, dass die Scrollleiste in der Blockrichtung des nächstgelegenen Vorfahrenelements ausgewählt wird, das Scrollleisten hat; in diesem Fall die vertikale Scrollleiste des "container"-Elements.
 
-> **Hinweis:** `block` und `nearest` sind eigentlich die Standardparameterwerte, daher hätten wir einfach `scroll()` verwenden können.
+> **Hinweis:** `block` und `nearest` sind tatsächlich die Standardparameterwerte, daher hätten wir einfach nur `scroll()` verwenden können.
 
 ```css
 #square {
@@ -121,9 +121,9 @@ In diesem Fall wird die Zeitachse durch `scroll(block nearest)` bereitgestellt, 
 }
 ```
 
-Das CSS für den Container setzt dessen Höhe auf 300px und wir setzen den Container auch so, dass er eine vertikale Scrollleiste erstellt, wenn er überläuft.
-Das "stretcher"-CSS setzt die Blockhöhe auf 600px, wodurch das Containerelement zum Überlaufen gezwungen wird.
-Diese beiden zusammen gewährleisten, dass der Container eine vertikale Scrollleiste hat, die als Quelle der anonymen Scroll-Fortschritts-Zeitachse verwendet werden kann.
+Das CSS für den Container setzt seine Höhe auf 300px, und wir setzen den Container auch so, dass er eine vertikale Scrollleiste erstellt, falls er überläuft.
+Das "Stretcher"-CSS setzt die Blockhöhe auf 600px, was den Container zwingt, überzulaufen.
+Diese zwei zusammen gewährleisten, dass der Container eine vertikale Scrollleiste hat, die als Quelle der anonymen Scroll-Fortschrittszeitleiste verwendet werden kann.
 
 ```css
 #container {
@@ -139,7 +139,7 @@ Diese beiden zusammen gewährleisten, dass der Container eine vertikale Scrollle
 
 #### Ergebnis
 
-Scrollen Sie, um zu sehen, wie das Quadratelement animiert wird.
+Scrollen Sie, um das animierte Square-Element zu sehen.
 
 {{EmbedLiveSample("Setting an anonymous scroll progress timeline", "100%", "320px")}}
 

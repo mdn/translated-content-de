@@ -2,20 +2,20 @@
 title: inset
 slug: Web/CSS/inset
 l10n:
-  sourceCommit: 9a3940b0231838338f65ae1c37d5b874439a3d43
+  sourceCommit: da659b5d4f75b66804d97c80ec7c89b8792d7389
 ---
 
 {{CSSRef}}
 
-Die **`inset`**-[CSS](/de/docs/Web/CSS)-Eigenschaft ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
+Die **`inset`**-Eigenschaft in [CSS](/de/docs/Web/CSS) ist eine Kurzform, die den Eigenschaften {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}} und/oder {{cssxref("left")}} entspricht. Sie hat die gleiche Mehrwert-Syntax wie die Kurzform von {{cssxref("margin")}}.
 
 Diese {{Glossary("inset_properties", "inset-Eigenschaften")}}, einschließlich `inset`, haben keine Wirkung auf nicht positionierte Elemente.
 
 {{EmbedInteractiveExample("pages/css/inset.html")}}
 
-Obwohl es Teil des Moduls [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert es keine _logischen_ Verschiebungen. Es definiert _physische_ Verschiebungen, unabhängig vom Schreibmodus, der Richtung und Textausrichtung des Elements.
+Obwohl sie Teil des Moduls für [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) ist, definiert sie keine _logischen_ Versätze. Sie definiert _physische_ Versätze, unabhängig von der Schreibrichtung, Richtung und Textorientierung des Elements.
 
-## Bestehende Eigenschaften
+## Bestandteil-Eigenschaften
 
 Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
 
@@ -33,7 +33,8 @@ inset: 4px 8px; /* top/bottom left/right */
 inset: 5px 15px 10px; /* top left/right bottom */
 inset: 2.4em 3em 3em 3em; /* top right bottom left */
 inset: calc(anchor(50%) + 10px) anchor(self-start) auto auto;
-inset: auto auto anchor(center) anchor(self-end);
+inset: anchor-size(block) calc(anchor(50%) + 10px) auto
+  calc(anchor-size(width) / 4);
 
 /* <percentage>s of the width (left/right) or height (top/bottom) of the containing block */
 inset: 10% 5% 5% 5%;
@@ -63,7 +64,7 @@ Die `inset`-Eigenschaft nimmt die gleichen Werte wie die {{cssxref("left")}}-Eig
 
 ## Beispiele
 
-### Verschiebungen für ein Element setzen
+### Versätze für ein Element festlegen
 
 #### HTML
 
@@ -108,5 +109,5 @@ div {
 - {{cssxref("top")}}, {{cssxref("right")}}, {{cssxref("bottom")}}, und {{cssxref("left")}}
 - {{cssxref("inset-block")}} und {{cssxref("inset-inline")}}
 - {{cssxref("position")}}
-- [CSS Stellungslayout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
-- [CSS logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)
+- [CSS Positioniertes Layout](/de/docs/Web/CSS/CSS_positioned_layout) Modul
+- [CSS-logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values)

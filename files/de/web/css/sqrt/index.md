@@ -2,12 +2,12 @@
 title: sqrt()
 slug: Web/CSS/sqrt
 l10n:
-  sourceCommit: e64a9e8d7c1970472da07c815098b3da56def5af
+  sourceCommit: c9f96f06d4fbd265808f298eb9b2773f739860c5
 ---
 
 {{CSSRef}}
 
-Die **`sqrt()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine Exponentialfunktion, die die [Quadratwurzel](https://en.wikipedia.org/wiki/Square_root) einer Zahl zurückgibt.
+Die **`sqrt()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) ist eine exponentielle Funktion, die die [Quadratwurzel](https://en.wikipedia.org/wiki/Square_root) einer Zahl zurückgibt.
 
 Die Funktion `pow(x, 0.5)` ist äquivalent zu `sqrt(x)`.
 
@@ -22,10 +22,10 @@ width: calc(100px * sqrt(100)); /* 1000px */
 
 ### Parameter
 
-Die Funktion `sqrt(x)` akzeptiert nur einen Wert als Parameter.
+Die Funktion `sqrt(x)` akzeptiert nur einen Wert als ihren Parameter.
 
 - `x`
-  - : Eine Berechnung, die sich in eine {{cssxref("&lt;number&gt;")}} auflöst, die größer oder gleich 0 ist.
+  - : Eine Berechnung, die zu einer {{cssxref("&lt;number&gt;")}} größer als oder gleich 0 aufgelöst wird.
 
 ### Rückgabewert
 
@@ -35,15 +35,15 @@ Gibt eine {{cssxref("&lt;number&gt;")}} zurück, die die Quadratwurzel von `x` i
 - Wenn `x` `0⁻` ist, ist das Ergebnis `0⁻`.
 - Wenn `x` kleiner als `0` ist, ist das Ergebnis `NaN`.
 
-### Formale Syntax
+## Formale Syntax
 
 {{CSSSyntax}}
 
 ## Beispiele
 
-### Größen basierend auf Quadratwurzeln skalieren
+### Größen anhand der Quadratwurzel skalieren
 
-Dieses Beispiel zeigt, wie Sie die `sqrt()`-Funktion zur Berechnung von Größen verwenden können.
+Dieses Beispiel zeigt, wie Sie die Funktion `sqrt()` verwenden können, um Größen zu berechnen.
 
 #### HTML
 
@@ -58,11 +58,11 @@ Dieses Beispiel zeigt, wie Sie die `sqrt()`-Funktion zur Berechnung von Größen
 
 #### CSS
 
-Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann zur Berechnung der anderen Größen verwendet wird.
+Hier verwenden wir [CSS benutzerdefinierte Eigenschaften](/de/docs/Web/CSS/Using_CSS_custom_properties), um die zu verwendenden Größen zu definieren. Zuerst deklarieren wir die erste Größe (`--size-0`), die dann verwendet wird, um die anderen Größen zu berechnen.
 
-- `--size-1` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 4 (2) multipliziert wird, was zu 100px führt.
-- `--size-2` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 9 (3) multipliziert wird, was zu 150px führt.
-- `--size-3` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 16 (4) multipliziert wird, was zu 200px führt.
+- `--size-1` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 4 (2) multipliziert wird, was 100px ergibt.
+- `--size-2` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 9 (3) multipliziert wird, was 150px ergibt.
+- `--size-3` wird berechnet, indem der Wert von `--size-0` (50px) mit der Quadratwurzel von 16 (4) multipliziert wird, was 200px ergibt.
 
 ```css
 :root {
@@ -91,7 +91,7 @@ Hier verwenden wir [CSS Custom Properties](/de/docs/Web/CSS/Using_CSS_custom_pro
 }
 ```
 
-Die Größen werden dann als `width`- und `height`-Werte der Selektoren angewendet.
+Die Größen werden dann als `width` und `height` Werte der Selektoren angewendet.
 
 ```css
 .one {
@@ -110,7 +110,7 @@ Die Größen werden dann als `width`- und `height`-Werte der Selektoren angewend
 
 #### Ergebnis
 
-{{EmbedLiveSample('Gruppen basierend auf Quadratwurzeln skalieren', '100%', '220px')}}
+{{EmbedLiveSample('Scale sizes based on square root', '100%', '220px')}}
 
 ## Spezifikationen
 

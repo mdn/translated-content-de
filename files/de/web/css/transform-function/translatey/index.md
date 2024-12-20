@@ -2,16 +2,16 @@
 title: translateY()
 slug: Web/CSS/transform-function/translateY
 l10n:
-  sourceCommit: 761b9047d78876cbd153be811efb1aa77b419877
+  sourceCommit: c9f96f06d4fbd265808f298eb9b2773f739860c5
 ---
 
 {{CSSRef}}
 
-Die **`translateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) positioniert ein Element auf der vertikalen Ebene in einer 2D-Ebene neu. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
+Die **`translateY()`** [CSS](/de/docs/Web/CSS) [Funktion](/de/docs/Web/CSS/CSS_Functions) verschiebt ein Element vertikal auf der 2D-Ebene. Das Ergebnis ist ein {{cssxref("&lt;transform-function&gt;")}} Datentyp.
 
 {{EmbedInteractiveExample("pages/css/function-translateY.html")}}
 
-> **Note:** `translateY(ty)` ist äquivalent zu
+> **Hinweis:** `translateY(ty)` entspricht
 > `translate(0, ty)` oder
 > `translate3d(0, ty, 0)`.
 
@@ -26,7 +26,9 @@ transform: translateY(50%);
 ### Werte
 
 - `<length-percentage>`
-  - : Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikal, y-Koordinate) des Übersetzungsvektors [0, ty] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) repräsentiert er die Verschiebung entlang der y-Achse. Ein Prozentwert bezieht sich auf die Höhe des Referenzrahmens, der durch die {{cssxref("transform-box")}} Eigenschaft definiert ist.
+  - : Der Wert ist ein {{cssxref("&lt;length&gt;")}} oder {{cssxref("&lt;percentage&gt;")}}, der die Ordinate (vertikale, y-Koordinate) des
+    Verschiebungsvektors [0, ty] darstellt. Im [kartesischen Koordinatensystem](/de/docs/Web/CSS/transform-function#cartesian_coordinates) repräsentiert er die Verschiebung entlang der y-Achse. Ein Prozentwert bezieht sich auf die Höhe des Referenzrahmens, der durch die
+    {{cssxref("transform-box")}} Eigenschaft definiert wird.
 
 <table class="standard-table">
   <thead>
@@ -41,7 +43,7 @@ transform: translateY(50%);
     <tr>
       <td rowspan="2">
         <p>
-          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mit einer kartesischen Koordinatenmatrix dargestellt werden.
+          Eine Translation ist keine lineare Transformation in ℝ^2 und kann nicht mit einer kartesischen Koordinaten-Matrix dargestellt werden.
         </p>
       </td>
       <td>
@@ -66,11 +68,9 @@ transform: translateY(50%);
   </tbody>
 </table>
 
-### Formale Syntax
+## Formale Syntax
 
-```plain
-translateY({{cssxref("&lt;length-percentage&gt;")}})
-```
+{{CSSSyntax}}
 
 ## Beispiele
 
