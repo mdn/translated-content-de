@@ -2,16 +2,16 @@
 title: "::view-transition-image-pair"
 slug: Web/CSS/::view-transition-image-pair
 l10n:
-  sourceCommit: 632289fcc10e926d166e1b49e5ba3505de182856
+  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
 ---
 
 {{CSSRef}}
 
-Das **`::view-transition-image-pair`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert einen Container für die "alte" und "neue" Ansichtszustände eines [Ansichtswechsels](/de/docs/Web/API/View_Transitions_API) — vor und nach der Transition.
+Das **`::view-transition-image-pair`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert einen Container für die "alte" und "neue" Ansichtszustände eines [View-Transitions](/de/docs/Web/API/View_Transition_API) — vor und nach der Transition.
 
-Während eines Ansichtswechsels wird `::view-transition-image-pair` in den dazugehörigen Pseudo-Elementbaum aufgenommen, wie im Abschnitt [Der Pseudo-Elementbaum des Ansichtswechsels](/de/docs/Web/API/View_Transitions_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer nur ein Kind von einem {{cssxref("::view-transition-group")}}. In Bezug auf die Kinder kann es ein {{cssxref("::view-transition-new")}} oder ein {{cssxref("::view-transition-old")}} oder beide haben.
+Während einer View-Transition ist `::view-transition-image-pair` im zugehörigen Pseudoelement-Baum enthalten, wie in [Der Pseudoelement-Baum der View-Transition](/de/docs/Web/API/View_Transition_API/Using#the_view_transition_pseudo-element_tree) erklärt. Es ist immer nur ein Kind eines {{cssxref("::view-transition-group")}}. In Bezug auf die Kinder kann es ein {{cssxref("::view-transition-new")}} oder ein {{cssxref("::view-transition-old")}} oder beides haben.
 
-`::view-transition-image-pair` erhält im UA-Stylesheet die folgende Standard-Stilgebung:
+`::view-transition-image-pair` hat die folgende Standardformatierung im UA-Stylesheet:
 
 ```css
 :root::view-transition-image-pair(*) {
@@ -24,7 +24,7 @@ Während eines Ansichtswechsels wird `::view-transition-image-pair` in den dazug
 }
 ```
 
-Während eines Ansichtswechsels hat `::view-transition-image-pair` in dem Ansichtswechsel-Stylesheet {{cssxref("isolation", "isolation: isolate")}} gesetzt, damit seine Kinder mit nicht normalen Mischmodi kombiniert werden können, ohne andere visuelle Ausgaben zu beeinflussen.
+Während einer View-Transition hat `::view-transition-image-pair` {{cssxref("isolation", "isolation: isolate")}} im View-Transition-Stylesheet eingestellt, sodass seine Kinder mit nicht normalen Mischmodi gemischt werden können, ohne andere visuelle Ausgaben zu beeinflussen.
 
 ## Syntax
 
@@ -34,14 +34,14 @@ Während eines Ansichtswechsels hat `::view-transition-image-pair` in dem Ansich
 }
 ```
 
-`<pt-name-selector>` kann einen der folgenden Werte haben:
+`<pt-name-selector>` kann einen der folgenden Werte annehmen:
 
 - `*`
-  - : Verursacht, dass das Pseudo-Element mit allen Ansichtswechsel-Gruppen übereinstimmt.
+  - : Verursacht, dass das Pseudoelement mit allen View-Transition-Gruppen übereinstimmt.
 - `root`
-  - : Verursacht, dass das Pseudo-Element mit der Standard-`root`-Ansichtstransitions-Gruppe übereinstimmt, die vom User-Agent erstellt wird, um den Gesamtdarstellungswechsel der Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht einer eigenen spezifischen Ansichtswechsel-Gruppe über die {{cssxref("view-transition-name")}}-Eigenschaft zugewiesen ist.
+  - : Verursacht, dass das Pseudoelement mit der Standard-`root`-View-Transition-Gruppe übereinstimmt, die vom Benutzeragenten erstellt wurde, um die View-Transition für die gesamte Seite zu enthalten. Diese Gruppe umfasst jedes Element, das nicht über die Eigenschaft {{cssxref("view-transition-name")}} seiner eigenen spezifischen View-Transition-Gruppe zugewiesen ist.
 - {{cssxref("custom-ident")}}
-  - : Verursacht, dass das Pseudo-Element mit einer spezifischen Ansichtswechsel-Gruppe übereinstimmt, die durch Zuweisung des angegebenen {{cssxref("custom-ident")}} zu einem Element über die {{cssxref("view-transition-name")}}-Eigenschaft erstellt wird.
+  - : Verursacht, dass das Pseudoelement mit einer spezifischen View-Transition-Gruppe übereinstimmt, die erstellt wurde, indem das gegebene {{cssxref("custom-ident")}} über die Eigenschaft {{cssxref("view-transition-name")}} einem Element zugeordnet wurde.
 
 ## Beispiele
 
@@ -61,5 +61,5 @@ Während eines Ansichtswechsels hat `::view-transition-image-pair` in dem Ansich
 
 ## Siehe auch
 
-- [View Transitions API](/de/docs/Web/API/View_Transitions_API)
-- [Fließende Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [View Transition API](/de/docs/Web/API/View_Transition_API)
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

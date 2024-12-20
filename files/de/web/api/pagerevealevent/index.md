@@ -2,16 +2,16 @@
 title: PageRevealEvent
 slug: Web/API/PageRevealEvent
 l10n:
-  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
+  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Das **`PageRevealEvent`**-Ereignisobjekt steht in Handler-Funktionen für das [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event) Ereignis zur Verfügung.
+Das **`PageRevealEvent`**-Ereignisobjekt ist in Handler-Funktionen für das [`pagereveal`](/de/docs/Web/API/Window/pagereveal_event)-Ereignis verfügbar.
 
-Während einer Navigation über Dokumente hinweg ermöglicht es Ihnen, eine verwandte [View-Transition](/de/docs/Web/API/View_Transitions_API) zu manipulieren (und Zugriff auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition) Objekt zu erhalten) aus dem Dokument, zu dem navigiert wird, wenn die Navigation eine View-Transition ausgelöst hat.
+Während einer Navigation zwischen Dokumenten erlaubt es Ihnen, eine zugehörige [View-Transition](/de/docs/Web/API/View_Transition_API) zu manipulieren (und bietet Zugriff auf das relevante [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt) aus dem Dokument, zu dem navigiert wird, wenn eine View-Transition durch die Navigation ausgelöst wurde.
 
-Außerhalb von View-Transitions ist dieses Ereignis auch nützlich für Fälle wie das Auslösen einer Startanimation oder das Melden eines Seitenaufrufs. Es entspricht dem ersten Lauf von [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame) nach einer Navigation über Dokumente hinweg, wenn Sie `requestAnimationFrame()` im {{htmlelement("head")}} des Dokuments auslösen würden. Wenn Sie zum Beispiel die folgende `reveal()`-Funktion im `<head>` ausführen würden:
+Außerhalb von View-Transitions ist dieses Ereignis auch für Fälle nützlich, wie das Auslösen einer Startanimation oder das Berichten eines Seitenaufrufs. Es entspricht dem ersten [`Window.requestAnimationFrame()`](/de/docs/Web/API/Window/requestAnimationFrame)-Lauf nach einer Navigation zwischen Dokumenten, wenn Sie `requestAnimationFrame()` im {{htmlelement("head")}} des Dokuments auslösen würden. Zum Beispiel, wenn Sie die folgende `reveal()`-Funktion im `<head>` ausführen:
 
 ```js
 function reveal() {
@@ -27,12 +27,12 @@ window.onpagehide = () => requestAnimationFrame(() => reveal());
 ## Konstruktor
 
 - [`PageRevealEvent()`](/de/docs/Web/API/PageRevealEvent/PageRevealEvent)
-  - : Erstellt eine neue Instanz eines `PageRevealEvent`-Objekts.
+  - : Erstellt eine neue Instanz des `PageRevealEvent`-Objekts.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`viewTransition`](/de/docs/Web/API/PageRevealEvent/viewTransition) {{ReadOnlyInline}}
-  - : Enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition) Objekt, das die aktive View-Transition für die Navigation über Dokumente hinweg darstellt.
+  - : Beinhaltet ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive View-Transition für die Navigation zwischen Dokumenten darstellt.
 
 ## Beispiele
 
@@ -88,7 +88,7 @@ window.addEventListener("pagereveal", async (e) => {
 ```
 
 > [!NOTE]
-> Siehe [Liste der Chrome DevRel-Teammitglieder](https://view-transitions.chrome.dev/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
+> Sehen Sie die [Liste der Chrome DevRel Teammitglieder](https://view-transitions.chrome.dev/profiles/mpa/) für die Live-Demo, aus der dieser Code stammt.
 
 ## Spezifikationen
 
@@ -100,4 +100,4 @@ window.addEventListener("pagereveal", async (e) => {
 
 ## Siehe auch
 
-- [View Transitions API](/de/docs/Web/API/View_Transitions_API)
+- [View Transition API](/de/docs/Web/API/View_Transition_API)

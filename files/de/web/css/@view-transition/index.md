@@ -2,14 +2,14 @@
 title: "@view-transition"
 slug: Web/CSS/@view-transition
 l10n:
-  sourceCommit: 8583c1238d297609d6db0623aba9070d5c57f330
+  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
 ---
 
 {{CSSRef}}
 
-Die **`@view-transition`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) wird verwendet, um das aktuelle und das Ziel-Dokument für einen [View-Übergang](/de/docs/Web/API/View_Transitions_API) bei einer Dokument-übergreifenden Navigation anzumelden.
+Die **`@view-transition`** [CSS](/de/docs/Web/CSS) [At-Regel](/de/docs/Web/CSS/At-rule) wird verwendet, um das aktuelle und das Zieldokument für einen [View-Übergang](/de/docs/Web/API/View_Transition_API) im Falle einer Navigation zwischen Dokumenten zu aktivieren.
 
-Damit ein Dokument-übergreifender View-Übergang funktioniert, müssen das aktuelle und das Ziel-Dokument der Navigation auch auf demselben Ursprung sein.
+Damit ein View-Übergang zwischen Dokumenten funktioniert, müssen das aktuelle und das Zieldokument der Navigation auch denselben Ursprung haben.
 
 ## Syntax
 
@@ -23,9 +23,9 @@ Damit ein Dokument-übergreifender View-Übergang funktioniert, müssen das aktu
 
 - `navigation`
 
-  - : Gibt den Effekt an, den diese At-Regel auf das View-Übergangsverhalten des Dokuments haben wird. Mögliche Werte sind:
+  - : Gibt an, welche Wirkung diese At-Regel auf das Verhalten des Dokument-Übergangs hat. Mögliche Werte sind:
 
-    - `auto`: Das Dokument wird einen View-Übergang durchlaufen, wenn es an einer Navigation beteiligt ist, vorausgesetzt, die Navigation ist gleich-originig, ohne cross-origin Umleitungen, und ihr [`navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) ist `traverse`, `push` oder `replace`. Im Falle von `push` oder `replace` muss die Navigation von einem Benutzerinteraktion mit dem Seiteninhalt initiiert werden, nicht durch eine Browser-UI-Funktion.
+    - `auto`: Das Dokument wird einen View-Übergang durchlaufen, wenn es an einer Navigation teilnimmt, vorausgesetzt die Navigation ist gleichursprünglich, ohne Cross-Origin-Weiterleitungen, und ihr [`navigationType`](/de/docs/Web/API/NavigateEvent/navigationType) ist `traverse`, `push` oder `replace`. Im Fall von `push` oder `replace` muss die Navigation durch eine Benutzerinteraktion mit dem Seiteninhalt initiiert werden, nicht durch eine Funktion der Browser-Benutzeroberfläche.
 
     - `none`: Das Dokument wird keinen View-Übergang durchlaufen.
 
@@ -35,11 +35,11 @@ Damit ein Dokument-übergreifender View-Übergang funktioniert, müssen das aktu
 
 ## Beispiele
 
-### Seitenansicht übergehen
+### Übergang des Seiten-View
 
-Die folgenden Code-Snippets zeigen Schlüsselkonzepte, die in einer Seitenübergangs-Demo verwendet werden. Die Demo verwendet Dokument-übergreifende View-Übergänge; ein halbe Sekunde dauernder Übergang, der beim Navigieren zwischen zwei Seiten einer Website auftritt. Für die vollständige Demo siehe das [View transitions multi-page app demo](https://mdn.github.io/dom-examples/view-transitions/mpa/).
+Die folgenden Codebeispiele zeigen die Schlüsselkonzepte, die in einem Demo für Seitenübergänge verwendet werden. Das Demo nutzt Übergänge zwischen Dokumenten; ein halbe Sekunde dauernder Übergang, der beim Navigieren zwischen zwei Seiten einer Website auftritt. Für das vollständige Demo siehe das [View-Übergänge Mehrseiten-App-Demo](https://mdn.github.io/dom-examples/view-transitions/mpa/).
 
-Die `@view-transition` At-Regel wird im CSS sowohl für Ihr aktuelles als auch für das Ziel-Dokument einer Navigation angegeben, um beide für den View-Übergang anzumelden:
+Die `@view-transition` At-Regel wird im CSS sowohl für Ihre aktuellen als auch für die Zieldokumente einer Navigation spezifiziert, um beide in den View-Übergang einzubeziehen:
 
 ```css
 @view-transition {
@@ -81,7 +81,7 @@ Zusätzlich zur `@view-transition` At-Regel definieren wir zwei {{cssxref("@keyf
 }
 ```
 
-Sehen Sie sich dieses [transitions multi-page app](https://mdn.github.io/dom-examples/view-transitions/mpa/) Demo live an.
+Sehen Sie sich dieses [Transitions Mehrseiten-App](https://mdn.github.io/dom-examples/view-transitions/mpa/) Demo live an.
 
 ## Spezifikationen
 
@@ -98,6 +98,6 @@ Sehen Sie sich dieses [transitions multi-page app](https://mdn.github.io/dom-exa
 - {{cssxref("::view-transition-old", "::view-transition-old()")}}
 - {{cssxref("::view-transition-group", "::view-transition-group()")}}
 - {{cssxref("::view-transition-image-pair", "::view-transition-image-pair()")}}
-- [View Transitions API](/de/docs/Web/API/View_Transitions_API)
+- [View Transition API](/de/docs/Web/API/View_Transition_API)
 - [CSS At-Regeln](/de/docs/Web/CSS/At-rule)
 - [CSS At-Regel-Funktionen](/de/docs/Web/CSS/At-rule-functions)

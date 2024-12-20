@@ -1,14 +1,15 @@
 ---
-title: "ViewTransition: skipTransition() Methode"
+title: "ViewTransition: skipTransition()-Methode"
 short-title: skipTransition()
 slug: Web/API/ViewTransition/skipTransition
 l10n:
-  sourceCommit: 722311032dbf520bf6aeba3d1f432aca38779ffd
+  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
 ---
 
-{{APIRef("View Transitions API")}}
+{{APIRef("View Transition API")}}
 
-Die **`skipTransition()`** Methode des [`ViewTransition`](/de/docs/Web/API/ViewTransition) Schnittstelle überspringt den Animationsanteil des View-Übergangs, lässt jedoch die zugehörige Ansicht-Update ausführen.
+Die **`skipTransition()`**-Methode der
+[`ViewTransition`](/de/docs/Web/API/ViewTransition)-Schnittstelle überspringt den Animationsanteil der Ansichtsübertragung, führt jedoch das zugehörige Ansichtsupdate weiterhin aus.
 
 ## Syntax
 
@@ -26,7 +27,7 @@ Keine.
 
 ## Beispiele
 
-### Überspringen eines SPA-View-Übergangs
+### Überspringen einer SPA-Ansichtsübertragung
 
 ```js
 // start new view transition
@@ -36,7 +37,7 @@ const transition = document.startViewTransition(() => displayNewImage());
 transition.skipTransition();
 ```
 
-### Überspringen eines MPA-View-Übergangs
+### Überspringen einer MPA-Ansichtsübertragung
 
 ```js
 // Fired on the current (outgoing) page
@@ -60,4 +61,4 @@ document.addEventListener("pagereveal", (event) => {
 
 ## Siehe auch
 
-- [Sanfte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Sanfte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

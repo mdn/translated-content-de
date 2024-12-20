@@ -3,16 +3,16 @@ title: "PageSwapEvent: viewTransition-Eigenschaft"
 short-title: viewTransition
 slug: Web/API/PageSwapEvent/viewTransition
 l10n:
-  sourceCommit: 7cd4706990ab95794415aee05ba0a9662e742a17
+  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`viewTransition`**-Eigenschaft des [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)-Interfaces enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive View-Übergang für die Cross-Dokument-Navigation darstellt.
+Die **`viewTransition`** schreibgeschützte Eigenschaft des [`PageRevealEvent`](/de/docs/Web/API/PageRevealEvent)-Interface enthält ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt, das die aktive Sichtveränderung für die Dokumenten-übergreifende Navigation darstellt.
 
 ## Wert
 
-Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt oder `null`, wenn kein View-Übergang aktiv ist, wenn das Ereignis ausgelöst wird.
+Ein [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Objekt oder `null`, wenn keine Sichtveränderung aktiv ist, wenn das Ereignis ausgelöst wird.
 
 ## Beispiele
 
@@ -28,4 +28,4 @@ Siehe die Hauptseite [`PageSwapEvent`](/de/docs/Web/API/PageSwapEvent).
 
 ## Siehe auch
 
-- [View Transitions API](/de/docs/Web/API/View_Transitions_API)
+- [View Transition API](/de/docs/Web/API/View_Transition_API)

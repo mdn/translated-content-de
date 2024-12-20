@@ -3,23 +3,23 @@ title: "NavigationActivation: from-Eigenschaft"
 short-title: from
 slug: Web/API/NavigationActivation/from
 l10n:
-  sourceCommit: 722311032dbf520bf6aeba3d1f432aca38779ffd
+  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
 ---
 
 {{APIRef("Navigation API")}}{{SeeCompatTable}}
 
-Die **`from`**-Schreibgeschützte-Eigenschaft des [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Interfaces enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Verlaufseintrag für das ausgehende ("from") Dokument in der Navigation darstellt.
+Die schreibgeschützte **`from`**-Eigenschaft der [`NavigationActivation`](/de/docs/Web/API/NavigationActivation)-Schnittstelle enthält ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt, das den Verlaufseintrag für das ausgehende ("von") Dokument in der Navigation darstellt.
 
 ## Wert
 
 Ein [`NavigationHistoryEntry`](/de/docs/Web/API/NavigationHistoryEntry)-Objekt oder `null`, wenn das ausgehende Dokument:
 
-- Nicht demselben Ursprung wie das eingehende Dokument entstammt.
-- Das initiale `about:blank` Dokument ist.
+- Nicht vom gleichen Ursprung wie das eingehende Dokument ist.
+- Das anfängliche `about:blank`-Dokument ist.
 
 ## Beispiele
 
-Sehen Sie sich die Hauptseite des [`NavigationActivation`](/de/docs/Web/API/NavigationActivation) an.
+Siehe die Hauptseite zu [`NavigationActivation`](/de/docs/Web/API/NavigationActivation).
 
 ## Spezifikationen
 
@@ -32,4 +32,4 @@ Sehen Sie sich die Hauptseite des [`NavigationActivation`](/de/docs/Web/API/Navi
 ## Siehe auch
 
 - [Navigation API](/de/docs/Web/API/Navigation_API)
-- [View Transitions API](/de/docs/Web/API/View_Transitions_API)
+- [View Transition API](/de/docs/Web/API/View_Transition_API)

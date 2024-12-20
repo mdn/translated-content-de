@@ -2,36 +2,36 @@
 title: Browser-Erkennung mittels User-Agent
 slug: Web/HTTP/Browser_detection_using_the_user_agent
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: eb20babb96149f98bcbf7817b58e305c5297f2e1
 ---
 
 {{HTTPSidebar}}
 
-Unterschiedliche Webseiten oder Dienste für verschiedene Browser bereitzustellen, ist in der Regel keine gute Idee. Das Web soll für jeden zugänglich sein, unabhängig davon, welchen Browser oder welches Gerät er oder sie nutzt. Es gibt Möglichkeiten, Ihre Website so zu entwickeln, dass sie sich basierend auf der Verfügbarkeit von Funktionen schrittweise verbessert, anstatt gezielt bestimmte Browser anzusprechen.
+Unterschiedliche Webseiten oder Dienste für verschiedene Browser bereitzustellen, ist in der Regel eine schlechte Idee. Das Web soll für alle zugänglich sein, unabhängig davon, welchen Browser oder welches Gerät sie verwenden. Es gibt Möglichkeiten, Ihre Webseite so zu entwickeln, dass sie sich schrittweise basierend auf der Verfügbarkeit von Funktionen verbessert, anstatt auf bestimmte Browser abzuzielen.
 
-Aber Browser und Standards sind nicht perfekt, und es gibt immer noch ein paar spezielle Fälle, in denen die Erkennung des Browsers notwendig ist. Die Verwendung des User-Agent zur Erkennung des Browsers erscheint einfach, aber es ist tatsächlich ein sehr schwieriges Problem, es gut zu machen. Dieses Dokument wird Sie dabei begleiten, dies so korrekt wie möglich zu tun.
+Aber Browser und Standards sind nicht perfekt, und es gibt immer noch einige Grenzfälle, in denen die Erkennung des Browsers erforderlich ist. Die Verwendung des User-Agents, um den Browser zu erkennen, sieht einfach aus, aber es tatsächlich gut zu machen, ist ein sehr schwieriges Problem. Dieses Dokument wird Sie so gut wie möglich dabei leiten.
 
 > [!NOTE]
-> Es ist wichtig zu betonen: Es ist sehr selten eine gute Idee, User-Agent-Sniffing zu verwenden. Sie können fast immer einen besseren und breiter kompatiblen Weg finden, um Ihr Problem zu lösen!
+> Es lohnt sich zu wiederholen: Es ist sehr selten eine gute Idee, User-Agent-Sniffing zu verwenden. Sie können fast immer eine bessere, breiter kompatible Lösung für Ihr Problem finden!
 
-## Überlegungen vor der Nutzung der Browser-Erkennung
+## Überlegungen vor der Verwendung der Browser-Erkennung
 
-Bevor Sie darüber nachdenken, die User-Agent-String zu verwenden, um herauszufinden, welcher Browser verwendet wird, sollten Sie zunächst versuchen, dies zu vermeiden, wenn möglich. Beginnen Sie damit, zu identifizieren, **warum** Sie dies tun möchten.
+Wenn Sie in Erwägung ziehen, den User-Agent-String zur Erkennung des verwendeten Browsers zu verwenden, sollten Sie zuerst versuchen, dies nach Möglichkeit zu vermeiden. Beginnen Sie damit, zu identifizieren, **warum** Sie es tun wollen.
 
-- Versuchen Sie, einen bestimmten Fehler in einer bestimmten Browserversion zu umgehen?
-  - : Informieren Sie sich oder fragen Sie in spezialisierten Foren: Sie sind wahrscheinlich nicht der oder die Erste, der oder die auf dieses Problem stößt. Außerdem können Experten oder Leute mit einem anderen Blickwinkel Ihnen Ideen geben, wie Sie den Fehler umgehen können. Wenn das Problem selten zu sein scheint, lohnt es sich zu prüfen, ob dieser Bug dem Browser-Hersteller über deren Bug-Tracking-System gemeldet wurde ([Mozilla](https://bugzilla.mozilla.org/); [WebKit](https://bugs.webkit.org/); [Blink](https://www.chromium.org/issue-tracking/); [Opera](https://bugs.opera.com/)). Browser-Hersteller achten auf Fehlerberichte, und die Analyse könnte auf andere Umgehungen für den Fehler hinweisen.
-- Versuchen Sie, die Existenz einer bestimmten Funktion zu überprüfen?
-  - : Ihre Website muss eine bestimmte Web-Funktion verwenden, die einige Browser noch nicht unterstützen, und Sie möchten diese Nutzer auf eine ältere, weniger funktionsreiche Website führen, von der Sie wissen, dass sie funktioniert. Dies ist der schlechteste Grund, um User-Agent-Erkennung zu verwenden, da irgendwann alle anderen Browser aufholen werden. Außerdem ist es nicht praktikabel, jeden der weniger populären Browser zu testen und auf diese Webfeatures zu prüfen. Sie sollten **nie** User-Agent-Sniffing verwenden. Es gibt **immer** die Alternative, stattdessen Feature-Erkennung zu machen.
-- Möchten Sie unterschiedliche HTML je nach Browser bereitstellen?
-  - : Das ist normalerweise eine schlechte Praxis, aber es gibt einige Fälle, in denen dies notwendig ist. In diesen Fällen sollten Sie zuerst Ihre Situation analysieren, um sicherzugehen, dass es wirklich notwendig ist. Können Sie dies verhindern, indem Sie einige nicht-semantische {{ HTMLElement("div") }} oder {{ HTMLElement("span") }} Elemente hinzufügen? Die Schwierigkeit, User-Agent-Erkennung erfolgreich zu verwenden, ist ein paar Störungen der Reinheit Ihres HTML wert. Überdenken Sie auch Ihr Design: Können Sie progressive Verbesserung oder flexible Layouts verwenden, um das Bedürfnis danach zu beseitigen?
+- Versuchen Sie, einen bestimmten Fehler in einer bestimmten Version eines Browsers zu umgehen?
+  - : Schauen Sie in speziellen Foren nach, oder fragen Sie dort: Es ist unwahrscheinlich, dass Sie der Erste sind, der auf dieses Problem stößt. Experten oder Personen mit einem anderen Blickwinkel können Ihnen Ideen zur Umgehung des Fehlers geben. Wenn das Problem ungewöhnlich erscheint, lohnt es sich zu überprüfen, ob dieser Fehler bereits dem Browserhersteller über deren Bug-Tracking-System gemeldet wurde ([Mozilla](https://bugzilla.mozilla.org/); [WebKit](https://bugs.webkit.org/); [Blink](https://www.chromium.org/issue-tracking/); [Opera](https://bugs.opera.com/)). Browser-Hersteller achten auf Fehlerberichte und die Analyse kann Hinweise auf andere Umgehungsmöglichkeiten geben.
+- Versuchen Sie, das Vorhandensein einer bestimmten Funktion zu prüfen?
+  - : Ihre Website muss eine bestimmte Web-Funktion nutzen, die einige Browser noch nicht unterstützen, und Sie möchten diese Benutzer auf eine ältere Website mit weniger Funktionen senden, von der Sie wissen, dass sie funktioniert. Dies ist der schlechteste Grund, um User-Agent-Erkennung zu verwenden, da letztendlich alle anderen Browser aufholen werden. Zudem ist es nicht praktikabel, jeden der weniger populären Browser zu testen und deren Web-Funktionen zu überprüfen. Sie sollten **niemals** User-Agent-Sniffing verwenden. Es gibt **immer** die Alternative der Funktionsüberprüfung.
+- Möchten Sie verschiedenen HTML-Inhalt je nach verwendetem Browser bereitstellen?
+  - : Das ist in der Regel eine schlechte Praxis, aber es gibt einige Fälle, in denen das notwendig ist. In diesen Fällen sollten Sie Ihre Situation zuerst analysieren, um sicherzustellen, dass es wirklich notwendig ist. Können Sie dies durch das Hinzufügen einiger nicht-semantischer {{ HTMLElement("div") }} oder {{ HTMLElement("span") }} Elemente vermeiden? Die Schwierigkeiten, die bei der erfolgreichen Anwendung der User-Agent-Erkennung bestehen, rechtfertigen einige Abstriche bei der Reinheit Ihres HTML. Überdenken Sie auch Ihr Design: Können Sie progressive Verbesserung oder flüssige Layouts verwenden, um die Notwendigkeit dafür zu vermeiden?
 
 ## Vermeidung der User-Agent-Erkennung
 
-Wenn Sie die Nutzung der User-Agent-Erkennung vermeiden möchten, gibt es Möglichkeiten!
+Wenn Sie die Verwendung der User-Agent-Erkennung vermeiden möchten, haben Sie Optionen!
 
-- Feature-Erkennung
+- Funktionsüberprüfung
 
-  - : Feature-Erkennung ist, wo Sie nicht versuchen herauszufinden, welcher Browser Ihre Seite rendert, sondern stattdessen überprüfen, ob das spezifische Feature, das Sie benötigen, verfügbar ist. Wenn nicht, verwenden Sie einen Fallback. In den seltenen Fällen, in denen sich das Verhalten zwischen Browsern unterscheidet, sollten Sie anstelle des Überprüfens des User-Agent-Strings einen Test implementieren, um zu erkennen, wie der Browser die API implementiert und wie Sie sie daraufhin verwenden. Ein Beispiel für Feature-Erkennung ist das folgende. Im Jahr 2017 [schaltete Chrome experimentelle Unterstützung für Lookbehind in regulären Ausdrücken frei](https://chromestatus.com/feature/5668726032564224), aber kein anderer Browser unterstützte es. Also hätten Sie gedacht, dies zu tun:
+  - : Die Funktionsüberprüfung bedeutet, dass Sie nicht versuchen, herauszufinden, welcher Browser Ihre Seite rendert, sondern stattdessen überprüfen, ob die spezifische Funktion, die Sie benötigen, verfügbar ist. Wenn dies nicht der Fall ist, verwenden Sie einen Fallback. In den seltenen Fällen, in denen das Verhalten zwischen Browsern unterschiedlich ist, sollten Sie anstatt den User-Agent-String zu überprüfen, einen Test implementieren, um zu erkennen, wie der Browser die API implementiert und wie sie genutzt werden kann. Ein Beispiel für die Funktionsüberprüfung ist das folgende. 2017 [entfernte Chrome die experiment  ansichtenhinter-Unterstützung in regulären Ausdrücken](https://chromestatus.com/feature/5668726032564224), aber kein anderer Browser unterstützte dies. Sie könnten gedacht haben, dies zu tun:
 
 ```js
 // This code snippet splits a string in a special notation
@@ -57,11 +57,11 @@ console.log(splitUpString("jQWhy")); // ["jQ", "W", "hy"]
 ```
 
 Der obige Code hätte mehrere falsche Annahmen getroffen:
-Erstens wurde angenommen, dass alle User-Agent-Strings, die das Substring "Chrome" enthalten, Chrome sind. User-Agent-Strings sind notorisch irreführend.
-Dann wurde angenommen, dass das Lookbehind-Feature immer verfügbar wäre, wenn der Browser Chrome wäre. Der Agent könnte eine ältere Chrome-Version sein, von bevor die Unterstützung hinzugefügt wurde, oder (weil das Feature zu der Zeit experimentell war) eine spätere Chrome-Version, die es entfernt hat.
-Am wichtigsten ist, dass angenommen wurde, dass das Feature von keinem anderen Browser unterstützt wird. Die Unterstützung hätte jederzeit zu anderen Browsern hinzugefügt werden können, aber dieser Code hätte weiterhin den minderwertigen Pfad gewählt.
+Zuerst hat er angenommen, dass alle User-Agent-Strings, die den Unterstring "Chrome" enthalten, Chrome sind. UA-Strings sind notorisch irreführend.
+Dann wurde angenommen, dass die lookbehind-Funktion immer verfügbar sein würde, wenn der Browser Chrome ist. Der Agent könnte eine ältere Version von Chrome sein, bevor die Unterstützung hinzugefügt wurde, oder (da die Funktion zu dieser Zeit experimentell war) könnte es sich um eine spätere Version von Chrome handeln, die sie entfernt hat.
+Am wichtigsten ist, dass angenommen wurde, dass keine anderen Browser die Funktion unterstützen würden. Die Unterstützung hätte jederzeit zu anderen Browsern hinzugefügt werden können, aber dieser Code hätte weiterhin den suboptimalen Pfad gewählt.
 
-Probleme wie diese können vermieden werden, indem man die Unterstützung des Features selbst testet:
+Probleme wie diese können vermieden werden, indem stattdessen die Unterstützung der Funktion selbst getestet wird:
 
 ```js
 let isLookBehindSupported = false;
@@ -86,16 +86,17 @@ console.log(splitUpString("fooBar")); // ["fooB", "ar"]
 console.log(splitUpString("jQWhy")); // ["jQ", "W", "hy"]
 ```
 
-Wie der obige Code zeigt, gibt es **immer** eine Möglichkeit, Browser-Unterstützung ohne User-Agent-Sniffing zu testen. Es gibt **niemals** einen Grund, den User-Agent-String dafür zu überprüfen.
+Wie der obige Code zeigt, gibt es **immer** eine Möglichkeit, die Browserunterstützung zu testen, ohne User-Agent-Sniffing. Es gibt **nie** einen Grund, den User-Agent-String dafür zu überprüfen.
 
-Zuletzt bringen die obigen Code-Schnipsel ein kritisches Problem des plattformübergreifenden Codings auf, das stets berücksichtigt werden muss. Verwenden Sie die API, die Sie testen, nicht unbeabsichtigt in nicht unterstützten Browsern. Dies mag offensichtlich und einfach klingen, ist es jedoch manchmal nicht. Zum Beispiel führt die Verwendung von Lookbehind in einer kurzen Regexp-Notation (etwa `/reg/igm`) in nicht unterstützten Browsern zu einem Parser-Fehler. Daher würden Sie im obigen Beispiel `new RegExp("(?<=look_behind_stuff)");` anstelle von `/(?<=look_behind_stuff)/` sogar im Lookbehind-unterstützten Abschnitt Ihres Codes verwenden.
+Abschließend bringen die obigen Code-Snippets ein kritisches Problem bei der plattformübergreifenden Codierung auf, das immer berücksichtigt werden muss. Verwenden Sie die API, die Sie für nicht unterstützte Browser testen, nicht ohne Absicht. Das mag offensichtlich und einfach klingen, aber manchmal ist es das nicht. In den obigen Code-Snippets würde die Verwendung von lookbehind in der Kurznotation des Regulären Ausdrucks (zum Beispiel `/reg/igm`) in nicht unterstützten Browsern einen Parserfehler verursachen. Daher würden Sie im obigen Beispiel `new RegExp("(?<=look_behind_stuff)");` anstelle von `/(?<=look_behind_stuff)/` verwenden, selbst im lookbehind-unterstützten Abschnitt Ihres Codes.
 
-- Progressive Enhancement
-  - : Diese Designtechnik beinhaltet die Entwicklung Ihrer Website in 'Schichten', wobei Sie einen Bottom-up-Ansatz verwenden und mit einer einfacheren Schicht beginnen sowie die Fähigkeiten der Website in aufeinanderfolgenden Schichten verbessern, jede mit mehr Funktionen.
-- Graceful Degradation
-  - : Dies ist ein Top-down-Ansatz, bei dem Sie die bestmögliche Website mit allen gewünschten Funktionen bauen und dann anpassen, um sie auf älteren Browsern zum Laufen zu bringen. Dies kann schwieriger sein und weniger effektiv als progressive Verbesserung, kann aber in einigen Fällen nützlich sein.
-- Erkennung mobiler Geräte
-  - : Wahrscheinlich der häufigste Gebrauch und Missbrauch von User-Agent-Sniffing ist die Erkennung, ob das Gerät ein mobiles Gerät ist. Oft übersehen Menschen jedoch, wonach sie wirklich suchen. Menschen verwenden User-Agent-Sniffing, um zu erkennen, ob das Benutzergerät touchfreundlich ist und einen kleinen Bildschirm hat, damit sie ihre Website entsprechend optimieren können. Während User-Agent-Sniffing manchmal dies erkennen kann, sind nicht alle Geräte gleich: Einige mobile Geräte haben große Bildschirmgrößen, einige Desktops haben einen kleinen Touchscreen, einige Leute benutzen Smart-TVs, die ein ganz anderes Spiel sind, und einige Leute können die Breite und Höhe ihres Bildschirms dynamisch ändern, indem sie ihr Tablet auf die Seite drehen! User-Agent-Sniffing ist also definitiv nicht der Weg. Zum Glück gibt es viel bessere Alternativen. Verwenden Sie [`Navigator.maxTouchPoints`](/de/docs/Web/API/Navigator/maxTouchPoints), um zu erkennen, ob das Benutzergerät einen Touchscreen hat. Dann können Sie zurückfallen, um den User-Agent-Screen nur zu überprüfen `if (!("maxTouchPoints" in navigator)) { /* Hier Code */ }`. Verwenden Sie diese Information, ob das Gerät einen Touchscreen hat. Ändern Sie nicht das gesamte Layout der Website nur für Touchgeräte: Das wird Ihnen nur mehr Arbeit und Wartung bescheren. Fügen Sie stattdessen Touch-Annehmlichkeiten wie größere, leichter klickbare Knöpfe hinzu (Sie können dies mit CSS tun, indem Sie die Schriftgröße erhöhen). Hier ist ein Beispiel für Code, der das Padding von `#exampleButton` auf `1em` auf mobilen Geräten erhöht.
+- Progressive Verbesserung
+  - : Diese Designtechnik beinhaltet die Entwicklung Ihrer Website in "Schichten", unter Verwendung eines Bottom-up-Ansatzes, beginnend mit einer einfacheren Schicht und Verbesserung der Fähigkeiten der Website in aufeinanderfolgenden Schichten, die jeweils mehr Funktionen verwenden.
+- Fehlertoleranz
+  - : Dies ist ein Top-Down-Ansatz, bei dem Sie die bestmögliche Site mit allen gewünschten Funktionen erstellen und dann tweaks vornehmen, um sie auch auf älteren Browsern lauffähig zu machen. Dies kann schwieriger sein und weniger effektiv als progressive Verbesserung, kann aber in manchen Fällen nützlich sein.
+- Erkennung von Mobilgeräten
+
+  - : Wahrscheinlich der häufigste Einsatz und Missbrauch von User-Agent-Sniffing ist die Erkennung, ob das Gerät ein Mobilgerät ist. Allerdings übersehen die Leute oft, wonach sie wirklich suchen. Leute verwenden User-Agent-Sniffing, um zu erkennen, ob das Gerät des Benutzers touchfreundlich ist und einen kleinen Bildschirm hat, damit sie ihre Website entsprechend optimieren können. Während User-Agent-Sniffing dies manchmal erkennen kann, sind nicht alle Geräte gleich: Einige Mobilgeräte haben große Bildschirmgrößen, einige Desktops haben einen kleinen Touchscreen, einige Leute benutzen Smart TVs, die eine ganz andere Sache sind, und einige Leute können die Breite und Höhe ihres Bildschirms dynamisch ändern, indem sie ihr Tablet auf die Seite drehen! User-Agent-Sniffing ist also definitiv nicht der Weg. Glücklicherweise gibt es viel bessere Alternativen. Verwenden Sie [`Navigator.maxTouchPoints`](/de/docs/Web/API/Navigator/maxTouchPoints) um zu erkennen, ob das Gerät des Benutzers einen Touchscreen hat. Dann kehren Sie zur Überprüfung des User-Agent-Screens zurück, nur `if (!("maxTouchPoints" in navigator)) { /* Code hier */ }`. Anhand dieser Informationen, ob das Gerät einen Touchscreen hat, ändern Sie nicht das gesamte Layout der Website nur für Touch-Geräte: Sie werden sich nur mehr Arbeit und Wartung aufbürden. Fügen Sie stattdessen Touch-Annehmlichkeiten wie größere, einfacher anklickbare Buttons hinzu (Sie können dies durch Erhöhung der Schriftgröße mit CSS tun). Hier ist ein Beispiel für Code, der das Padding von `#exampleButton` auf `1em` auf Mobilgeräten erhöht.
 
 ```js
 let hasTouchScreen = false;
@@ -123,28 +124,29 @@ if (hasTouchScreen) {
 }
 ```
 
-Was die Bildschirmgröße betrifft, verwenden Sie `window.innerWidth` und `window.addEventListener("resize", () => { /* Bildschirmgrößenabhängige Dinge aktualisieren */ })`. Was Sie für die Bildschirmgröße tun möchten, ist nicht Informationen auf kleineren Bildschirmen abzuschneiden. Das wird die Leute nur verärgern, weil es sie zwingen wird, die Desktop-Version zu verwenden. Versuchen Sie stattdessen, auf kleineren Bildschirmen weniger Spalten von Informationen auf einer längeren Seite zu haben, während auf größeren Bildschirmgrößen mehr Spalten mit einer kürzeren Seite vorhanden sind. Dieser Effekt kann leicht mit CSS [Flexboxes](/de/docs/Learn/web_development/Core/CSS_layout/Flexbox) erreicht werden, manchmal mit [Floats](/de/docs/Learn/web_development/Core/CSS_layout/Floats) als teilweiser Fallback.
+Was die Bildschirmgröße betrifft, verwenden Sie `window.innerWidth` und `window.addEventListener("resize", () => { /* Bildschirmgröße abhängige Dinge aktualisieren */ })`. Was Sie für die Bildschirmgröße tun wollen, ist nicht, Informationen auf kleineren Bildschirmen abzuschneiden. Das wird die Leute nur verärgern, weil sie gezwungen werden, die Desktop-Version zu verwenden. Versuchen Sie stattdessen, weniger Informationsspalten auf einer längeren Seite auf kleineren Bildschirmen zu haben, während Sie auf größeren Bildschirmgrößen mehr Spalten mit einer kürzeren Seite haben. Dieser Effekt kann leicht mit CSS [Flexboxen](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox) erreicht werden, manchmal mit [Floats](/de/docs/Learn_web_development/Core/CSS_layout/Floats) als teilweise Rückfall.
 
-Versuchen Sie auch, weniger relevante/wichtige Informationen nach unten zu verschieben und den Inhalt der Seite sinnvoll zu gruppieren. Obwohl es abseits des Themas ist, könnte Ihnen das folgende detaillierte Beispiel Einblicke und Ideen geben, die Sie dazu bewegen, auf User-Agent-Sniffing zu verzichten. Stellen wir uns eine Seite vor, die aus Informationsboxen besteht; jede Box handelt von einer anderen Katzen- oder Hunderasse. Jede Box hat ein Bild, einen Überblick und eine historische unterhaltsame Tatsache. Die Bilder werden auch auf großen Bildschirmen auf eine maximal vernünftige Größe begrenzt. Um den Inhalt sinnvoll zu gruppieren, sind alle Katzenboxen von allen Hundeboxen getrennt, so dass die Katzen- und Hundeboxen nicht zusammen gemischt sind. Auf einem großen Bildschirm sparen mehrere Spalten Platz, um den Raum zu reduzieren, der links und rechts von den Bildern verschwendet wird. Die Boxen können nach zwei gleich fairen Methoden in mehrere Spalten unterteilt werden. Von diesem Punkt an gehen wir davon aus, dass alle Hundeboxen oben im Quellcode stehen, dass alle Katzenboxen unten im Quellcode stehen und dass all diese Boxen das gleiche Elternelement haben. Natürlich gibt es eine einzige Instanz einer Hundebox direkt über einer Katzenbox. Die erste Methode verwendet horizontale [Flexboxen](/de/docs/Learn/web_development/Core/CSS_layout/Flexbox), um den Inhalt so zu gruppieren, dass, wenn die Seite dem Endbenutzer angezeigt wird, alle Hundeboxen oben auf der Seite und alle Katzenboxen weiter unten auf der Seite sind. Die zweite Methode verwendet ein [Column](/de/docs/Web/CSS/Layout_cookbook/Column_layouts) Layout und setzt alle Hunde nach links und alle Katzen nach rechts. Nur in diesem speziellen Szenario ist es angebracht, keinen Fallback für die Flexbox-/Mehrspaltenlayouts bereitzustellen, was zu einer einzigen Spalte sehr breiter Boxen in alten Browsern führt. Ziehen Sie auch Folgendes in Betracht. Wenn mehr Leute die Webseite besuchen, um die Katzen zu sehen, dann könnte es eine gute Idee sein, alle Katzen höher im Quellcode als die Hunde zu platzieren, damit mehr Leute schneller finden, wonach sie suchen, auf kleineren Bildschirmen, wo sich der Inhalt auf eine Spalte zusammenklappt.
+Versuchen Sie auch, weniger relevante/wichtige Informationen nach unten zu verschieben und den Inhalt der Seite sinnvoll zu gruppieren. Obwohl es ein wenig außerhalb des Themas liegt, könnte das folgende detaillierte Beispiel Ihnen Einblicke und Ideen geben, die Sie davon überzeugen, User-Agent-Sniffing aufzugeben. Lassen Sie uns eine Seite vorstellen, die aus Informationsboxen besteht; jede Box handelt von einer anderen Katzen- oder Hunderasse. Jede Box hat ein Bild, einen Überblick und eine historische Fakten. Die Bilder werden selbst auf großen Bildschirmen auf eine vernünftige Maximalgröße beschränkt. Zum Zweck der sinnvollen Gruppierung des Inhalts sind alle Katzenboxen von allen Hundeboxen getrennt, sodass die Katzen- und Hundeboxen nicht miteinander vermischt sind. Auf einem großen Bildschirm spart es Platz, mehrere Spalten zu haben, um den Raum zu reduzieren, der links und rechts von den Bildern verschwendet wird. Die Boxen können auf zwei gleichermaßen fairen Methode in mehrere Spalten aufgeteilt werden. Von diesem Punkt an werden wir annehmen, dass alle Hundeboxen oben im Quellcode sind, dass alle Katzenboxen unten im Quellcode sind und dass all diese Boxen dasselbe Elternelement haben. Natürlich gibt es eine einzelne Instanz einer Hundebox unmittelbar über einer Katzenbox. Die erste Methode verwendet horizontale [Flexboxen](/de/docs/Learn_web_development/Core/CSS_layout/Flexbox), um den Inhalt so zu gruppieren, dass beim Anzeigen der Seite für den Endbenutzer alle Hunde-Boxen ganz oben auf der Seite und alle Katzen-Boxen weiter unten auf der Seite sind. Die zweite Methode verwendet ein [Spaltenlayout](/de/docs/Web/CSS/Layout_cookbook/Column_layouts) und positioniert alle Hunde links und alle Katzen rechts. Nur in diesem spezifischen Szenario ist es angemessen, kein Fallback für das Flexbox/Mehrspaltenlayout bereitzustellen, was auf alten Browsern in einer einzigen Spalte sehr breiter Boxen resultiert. Berücksichtigen Sie auch das Folgende. Wenn mehr Menschen die Webseite besuchen, um die Katzen zu sehen, dann könnte es eine gute Idee sein, alle Katzen höher im Quellcode zu platzieren als die Hunde, damit mehr Menschen auf kleineren Bildschirmen, auf denen der Inhalt auf eine Spalte kollabiert, schneller finden können, wonach sie suchen.
 
-Machen Sie als nächstes immer Ihren Code dynamisch.
-Der Benutzer kann sein mobiles Gerät auf die Seite drehen und dadurch die Breite und Höhe der Seite ändern.
-Oder es könnte in der Zukunft ein seltsames klappbares Geräte-Ding geben, bei dem das Aufklappen den Bildschirm vergrößert.
-Seien Sie nicht der Entwickler, der Kopfschmerzen darüber hat, wie man mit dem klappbaren Geräte-Ding umgeht.
-Seien Sie niemals zufrieden mit Ihrer Webseite, bis Sie das Entwicklertools-Seitenpanel öffnen und die Größe des Bildschirms ändern können, während die Webseite glatt, flüssig und dynamisch angepasst aussieht.
-Der einfachste Weg, dies zu tun, besteht darin, den gesamten Code, der den Inhalt basierend auf der Bildschirmgröße bewegt, in eine einzige Funktion zu trennen, die beim Laden der Seite und bei jedem [Resize](/de/docs/Web/API/Window/resize_event)-Ereignis danach aufgerufen wird. Wenn viel von dieser Layout-Funktion berechnet wird, bevor sie das neue Layout der Seite bestimmt, dann ziehen Sie in Betracht, das Ereignis mit {{Glossary("debounce", "Debouncing")}} zu versehen, damit es nicht so oft aufgerufen wird.
-Beachten Sie auch, dass es einen großen Unterschied zwischen den Media Queries `(max-width: 25em)`, `not all and (min-width: 25em)` und `(max-width: 24.99em)` gibt: `(max-width: 25em)` schließt `(max-width: 25em)` aus, während `not all and (min-width: 25em)` `(max-width: 25em)` einschließt.
-`(max-width: 24.99em)` ist eine Version von `not all and (min-width: 25em)`, die man nicht verwenden sollte: Verwenden Sie `(max-width: 24.99em)` nicht, da das Layout auf sehr hohen Schriftgrößen auf sehr hochauflösenden Geräten in der Zukunft brechen _könnte_.
-Seien Sie immer sehr sorgfältig bei der Auswahl der richtigen Media Query und bei der Auswahl des richtigen `>=`, `<=`, `>` oder `<` in allen entsprechenden JavaScript, da es sehr einfach ist, dies zu verwechseln, was dazu führt, dass die Webseite seltsam aussieht, genau an der Bildschirmgröße, bei der das Layout ändert.
-Testen Sie daher die Webseite gründlich bei den genaueren Breiten/Höhen, wo Layoutänderungen passieren, um sicherzustellen, dass die Layoutänderungen korrekt passieren.
+Als nächstes sollte Ihr Code immer dynamisch sein.
+Der Benutzer kann sein Mobilgerät auf die Seite kippen und die Seitenbreite und -höhe ändern.
+Oder es könnte in der Zukunft ein seltsames klapphandyartiges Geräte-Ding geben, aufklappen
+ das die Bildschirmgröße vergrößert.
+Seien Sie nie der Entwickler, der Kopfschmerzen damit hat, wie man mit dem klapphandyartigen Geräte-Ding umgeht.
+Seien Sie nie mit Ihrer Webseite zufrieden, bis Sie das Entwicklerwerkzeuge-Seitenfenster öffnen und den Bildschirm in der Größe ändern können, während die Webseite glatt, flüssig und dynamisch anpassbar aussieht.
+Der einfachste Weg, dies zu tun, besteht darin, den gesamten Code, der Inhalte basierend auf der Bildschirmgröße verschiebt, in einer einzelnen Funktion zu trennen, die beim Laden der Seite und bei jedem [resize](/de/docs/Web/API/Window/resize_event)-Ereignis danach aufgerufen wird. Wenn durch diese Lay Funktion vor ihrer Bestimmung des neuen Layouts der Seite viel berechnet wird, sollte man die Ereignislistener durch {{Glossary("debounce", "Entprellung")}} anpassen, dass sie nicht so häufig aufgerufen werden.
+Beachten Sie auch, dass es einen großen Unterschied zwischen den Mediensuchanfragen `( max-width: 25em)` , `not all and ( min-width: 25em)` und `max-width: 24.99em`:  `(max-width: 25em)` schließt `(max-width: 25em)` aus, während `not all and ( min-width: 25em)` `(max-width: 25em)` enthält.
+`(max-width: 24.99em)` ist eine billigere Version von `not all and ( min-width: 25em)`: Verwenden Sie nicht `(max-width: 24.99em)`, weil das Layout _möglicherweise_ auf sehr hohen Schriftgrößen auf sehr hochauflösenden Geräten in der Zukunft bricht.
+ Seien Sie immer sehr vorsichtig bei der Wahl der richtigen Medienabfrage und der Wahl des richtigen `>= , <= , > ` oder `<` in jedem entsprechenden JavaScript, weil es sehr leicht ist, diese durcheinanderzubringen, was dazu führt, dass die Webseite genau bei der Bildschirmgröße, bei der sich das Layout ändert, unordentlich aussieht.
+ Testen Sie die Webseite also gründlich bei den exakten Breiten/Höhen, bei denen Layoutänderungen auftreten, um sicherzustellen, dass die Layoutänderungen ordnungsgemäß stattfinden.
 
-## Das Beste aus User-Agent-Sniffing machen
+## Das Beste aus dem User-Agent-Sniffing machen
 
-Nachdem Sie all die oben genannten besseren Alternativen zum User-Agent-Sniffing überprüft haben, gibt es immer noch einige potenzielle Fälle, in denen das User-Agent-Sniffing angebracht und gerechtfertigt ist.
+Nachdem Sie alle oben genannten besseren Alternativen zum User-Agent-Sniffing betrachtet haben, gibt es immer noch einige potenzielle Fälle, in denen User-Agent-Sniffing angemessen und gerechtfertigt ist.
 
-Ein solcher Fall ist die Verwendung von User-Agent-Sniffing als Fallback, wenn erkannt wird, ob das Gerät einen Touchscreen hat. Weitere Informationen finden Sie im Abschnitt zur [Erkennung mobiler Geräte](#mobile_device_detection).
+Ein solcher Fall ist die Verwendung von User-Agent-Sniffing als Fallbackmethode, um zu erkennen, ob das Gerät einen Touchscreen hat. Weitere Informationen finden Sie im Abschnitt [Mobile Device Detection](#mobile_device_detection).
 
-Ein anderer Fall ist die Behebung von Fehlern in Browsern, die nicht automatisch aktualisiert werden. WebKit (auf iOS) ist ein perfektes Beispiel. Apple zwingt alle Browser auf iOS dazu, intern WebKit zu verwenden, sodass der Benutzer keine Möglichkeit hat, auf älteren Geräten einen besseren, aktualisierten Browser zu erhalten. Die meisten Fehler können entdeckt werden, aber einige Fehler erfordern mehr Aufwand, um entdeckt zu werden. In solchen Fällen könnte es vorteilhaft sein, User-Agent-Sniffing zur Performance-Einsparung zu verwenden. Zum Beispiel hat WebKit 6 einen Fehler, bei dem beim Ändern der Geräteausrichtung der Browser möglicherweise nicht [`MediaQueryList`](/de/docs/Web/API/MediaQueryList)-Listener ausführt, wenn er sollte. Um diesen Fehler zu überwinden, beachten Sie den untenstehenden Code.
+Ein weiterer solcher Fall ist das Beheben von Fehlern in Browsern, die nicht automatisch aktualisieren. WebKit (auf iOS) ist ein perfektes Beispiel. Apple zwingt alle Browser auf iOS, intern WebKit zu verwenden, sodass der Benutzer keine bessere, aktualisierte Version des Browsers auf älteren Geräten erhalten kann. Die meisten Fehler können erkannt werden, aber einige Fehler benötigen mehr Aufwand, um erkannt zu werden. In solchen Fällen könnte es von Vorteil sein, User-Agent-Sniffing zu verwenden, um die Leistung zu verbessern. Beispielsweise hat WebKit 6 einen Fehler, bei dem das Gerät bei einer Änderung der Orientierung möglicherweise keine [`MediaQueryList`](/de/docs/Web/API/MediaQueryList) Listeners auslöst, wenn es sollte. Um diesen Fehler zu überwinden,sehe den folgenden Code an.
 
 ```js
 const UA = navigator.userAgent;
@@ -203,80 +205,80 @@ addEventListener("resize", () =>
 );
 ```
 
-## Welcher Teil des User-Agents enthält die Informationen, nach denen Sie suchen?
+## Welcher Teil des User-Agents enthält die gesuchte Information?
 
-Da es keine Einheitlichkeit der verschiedenen Teile des User-Agent-Strings gibt, ist dies der knifflige Teil.
+Da es keine Einheitlichkeit der verschiedenen Teile des User-Agent-Strings gibt, ist dies der knifflige Part.
 
-### Browser-Name und Version
+### Browsername und -version
 
-Wenn Leute sagen, dass sie "Browser-Erkennung" wollen, möchten sie oft tatsächlich "Rendering-Engine-Erkennung". Möchten Sie wirklich Firefox erkennen im Gegensatz zu SeaMonkey, oder Chrome im Gegensatz zu Chromium? Oder möchten Sie wirklich sehen, ob der Browser die Gecko- oder die WebKit-Rendering-Engine verwendet? Wenn dies das ist, was Sie brauchen, lesen Sie weiter unten auf der Seite.
+Wenn Menschen sagen, sie wollen "Browsererkennung", wollen sie oft tatsächlich "Rendering-Engine-Erkennung". Möchten Sie wirklich Firefox erkennen, im Gegensatz zu SeaMonkey, oder Chrome im Gegensatz zu Chromium? Oder möchten Sie tatsächlich überprüfen, ob der Browser die Gecko- oder die WebKit-Rendering-Engine verwendet? Wenn dies Ihr Bedarf ist, siehe weiter unten auf der Seite.
 
-Die meisten Browser setzen den Namen und die Version im Format _BrowserName/VersionNumber_. Aber da der Name nicht die einzige Information in einem User-Agent-String ist, die in diesem Format vorliegt, können Sie den Namen des Browsers nicht entdecken, Sie können nur überprüfen, ob der Name, den Sie suchen, vorhanden ist. Beachten Sie jedoch, dass einige Browser lügen: Chrome beispielsweise meldet sowohl als Chrome als auch als Safari. Um Safari zu erkennen, müssen Sie nach der Safari-Zeichenfolge und dem Fehlen der Chrome-Zeichenfolge suchen, Chromium meldet sich oft auch als Chrome oder Seamonkey manchmal als Firefox.
+Die meisten Browser setzen den Namen und die Version im Format _BrowserName/VersionNumber_. Da der Name jedoch nicht die einzige Information ist, die in einem User-Agent-String in diesem Format vorliegt, können Sie den Namen des Browsers nicht entdecken, Sie können nur überprüfen, ob der gesuchte Name existiert. Beachten Sie jedoch, dass einige Browser lügen: Chrome beispielsweise meldet sich sowohl als Chrome als auch als Safari. Um Safari zu erkennen, müssen Sie auf den Safari-String und das Fehlen des Chrome-Strings achten. Chromium meldet sich oft auch als Chrome oder Seamonkey berichtet sich manchmal als Firefox.
 
-Achten Sie auch darauf, keine einfache reguläre Ausdruck auf den Browsernamen anzuwenden. User-Agents enthalten auch Zeichenfolgen außerhalb der Keyword/Value-Syntax. Safari & Chrome enthalten beispielsweise die Zeichenfolge 'like Gecko'.
+Achten Sie auch darauf, keine einfachen regulären Ausdrücke für den Browsernamen zu verwenden, User-Agents enthalten auch außerhalb der Keyword/Wert-Syntax Zeichenfolgen. Safari & Chrome enthalten beispielsweise die Zeichenfolge 'like Gecko'.
 
-| Browser-Name                    | Muss enthalten  | Darf nicht enthalten           |
-| ------------------------------- | --------------- | ------------------------------ |
-| Firefox                         | `Firefox/xyz`   | `Seamonkey/xyz`                |
-| Seamonkey                       | `Seamonkey/xyz` |                                |
-| Chrome                          | `Chrome/xyz`    | `Chromium/xyz` oder `Edg.*/xyz`|
-| Chromium                        | `Chromium/xyz`  |                                |
-| Safari                          | `Safari/xyz`    | `Chrome/xyz` oder `Chromium/xyz` |
-| Opera 15+ (auf Blink basierende Engine)  | `OPR/xyz`       |                                |
-| Opera 12- (auf Presto basierende Engine) | `Opera/xyz`     |                                |
+| Browsername                     | Muss enthalten    | Darf nicht enthalten            |
+| ------------------------------- | ----------------- | ------------------------------- |
+| Firefox                         | `Firefox/xyz`     | `Seamonkey/xyz`                 |
+| Seamonkey                       | `Seamonkey/xyz`   |                                 |
+| Chrome                          | `Chrome/xyz`      | `Chromium/xyz` oder `Edg.*/xyz` |
+| Chromium                        | `Chromium/xyz`    |                                 |
+| Safari                          | `Safari/xyz`      | `Chrome/xyz` oder `Chromium/xyz`|
+| Opera 15+ (Blink-basiert)       | `OPR/xyz`         |                                 |
+| Opera 12- (Presto-basiert)      | `Opera/xyz`       |                                 |
 
-\[1] Safari gibt zwei Versionsnummern: eine technische im `Safari/xyz`-Token und eine benutzerfreundliche in einem `Version/xyz`-Token.
+\[1] Safari gibt zwei Versionsnummern: eine technische in dem `Safari/xyz` Token und eine benutzerfreundliche in einem `Version/xyz` Token.
 
-Natürlich gibt es absolut keine Garantie, dass ein anderer Browser einige dieser Dinge nicht kapert (wie Chrome in der Vergangenheit die Safari-Zeichenfolge gekapert hat). Deshalb ist die Browser-Erkennung mittels User-Agent-String unzuverlässig und sollte nur mit der Überprüfung der Versionsnummer durchgeführt werden (das Kapern alter Versionen ist weniger wahrscheinlich).
+Natürlich gibt es absolut keine Garantie, dass ein anderer Browser einige dieser Dinge nicht übernehmen wird (wie Chrome in der Vergangenheit den Safari-String übernommen hat). Deshalb ist die Browsererkennung mit dem User-Agent-String unzuverlässig und sollte nur zusammen mit der Überprüfung der Versionsnummer erfolgen (das Kapern vergangener Versionen ist weniger wahrscheinlich).
 
 ### Rendering-Engine
 
-Wie bereits vorher gesehen, ist in den meisten Fällen das Suchen nach der Rendering-Engine der bessere Weg. Dies wird dazu beitragen, weniger bekannte Browser nicht auszuschließen. Browser, die eine gemeinsame Rendering-Engine teilen, zeigen eine Seite auf die gleiche Weise an: es ist oft eine faire Annahme, dass das, was in einem funktioniert, auch im anderen funktioniert.
+Wie bereits gesehen, ist es in den meisten Fällen besser, nach der Rendering-Engine zu suchen. Dies wird helfen, weniger bekannte Browser nicht auszuschließen. Browser, die eine gemeinsame Rendering-Engine verwenden, werden eine Seite auf die gleiche Weise anzeigen: Es ist oft eine faire Annahme, dass das, was in einem funktioniert, auch im anderen funktioniert.
 
-Es gibt drei aktive Haupt-Rendering-Engines: Blink, Gecko und WebKit. Da das Sniffing der Rendering-Engine-Namen üblich ist, haben viele User-Agents andere Rendering-Namen hinzugefügt, um die Erkennung auszulösen. Es ist daher wichtig, darauf zu achten, keine Fehlentscheidungen zu treffen, wenn die Rendering-Engine erkannt wird.
+Es gibt drei aktive Haupt-Rendering-Engines: Blink, Gecko und WebKit. Da das Aufspüren der Namen von Rendering-Engines üblich ist, haben viele User-Agents andere Rendering-Namen hinzugefügt, um die Erkennung auszulösen. Es ist daher wichtig, darauf zu achten, keine falsch positiven Ergebnisse zu erzeugen, wenn die Rendering-Engine erkannt wird.
 
-| Engine   | Muss enthalten       | Kommentar                                                                                                                                                                                                                                                                                                                                         |
-| -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Blink    | `Chrome/xyz`         |                                                                                                                                                                                                                                                                                                                                                   |
-| Gecko    | `Gecko/xyz`          |                                                                                                                                                                                                                                                                                                                                                   |
-| WebKit   | `AppleWebKit/xyz`    | Achten Sie darauf, WebKit-Browser fügen eine 'like Gecko'-Zeichenfolge hinzu, die eine Fehlentscheidung für Gecko auslösen könnte, wenn die Erkennung nicht sorgfältig erfolgt.                                                                                                                                                                    |
-| Presto   | `Opera/xyz`          | Obsolet; Presto wird in Opera-Browser-Builds >= Version 15 (siehe 'Blink') nicht mehr verwendet.                                                                                                                                                                                                                                                 |
-| EdgeHTML | `Edge/xyz`           | Der nicht-Chromium-Edge setzt seine Engine-Version nach dem _Edge/_-Token, nicht die Anwendungsversion. Obsolet; EdgeHTML wird in Edge-Browser-Builds >= Version 79 (siehe 'Blink') nicht mehr verwendet.                                                                                                                                           |
+| Engine    | Muss enthalten       | Kommentar                                                                                                                                                                                       |
+| --------- | ---------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Blink     | `Chrome/xyz`         |                                                                                                                                                                                                 |
+| Gecko     | `Gecko/xyz`          |                                                                                                                                                                                                 |
+| WebKit    | `AppleWebKit/xyz`    | Achtung, WebKit-Browser fügen einen 'like Gecko'-String hinzu, der möglicherweise falsche positive Ergebnisse für Gecko auslöst, wenn die Erkennung nicht sorgfältig erfolgt.                    |
+| Presto    | `Opera/xyz`          | Obsolet; Presto wird nicht mehr in Opera-Browser-Builds >= Version 15 verwendet (siehe 'Blink')                                                                                                 |
+| EdgeHTML  | `Edge/xyz`           | Das nicht-Chromium Edge setzt seine Engine-Version nach dem _Edge/_ Token, nicht die Anwendungs-Version. Obsolet; EdgeHTML wird nicht mehr in Edge-Browser-Builds >= Version 79 verwendet (siehe 'Blink').|
 
 ## Rendering-Engine-Version
 
-Die meisten Rendering-Engines setzen die Versionsnummer im _RenderingEngine/VersionNumber_-Token, mit der bemerkenswerten Ausnahme von Gecko. Gecko setzt die Gecko-Versionsnummer in den Kommentarbereich des User-Agents nach dem `rv:`-String. Ab Gecko 14 für die mobile Version und Gecko 17 für die Desktop-Version setzt es diesen Wert auch im `Gecko/version`-Token (frühere Versionen setzten dort das Build-Datum, dann ein festes Datum namens GeckoTrail).
+Die meisten Rendering-Engines setzen die Versionsnummer im _RenderingEngine/VersionNumber_ Token, mit Ausnahme von Gecko. Gecko setzt die Gecko-Versionsnummer im Kommentarteil des User-Agents nach dem `rv:` String. Ab Gecko 14 für die mobile Version und Gecko 17 für die Desktop-Version setzt es diesen Wert auch im `Gecko/version` Token (frühere Versionen gaben dort das Build-Datum an, dann ein festgelegtes Datum namens GeckoTrail).
 
-## OS
+## Betriebssystem
 
-Das Betriebssystem wird in den meisten User-Agent-Strings angegeben (auch wenn Plattformen nicht webbasiert sind, wie Firefox OS) , aber das Format variiert stark. Es ist eine feste Zeichenfolge zwischen zwei Semikolons im Kommentarbereich des User-Agents. Diese Zeichenfolgen sind spezifisch für jeden Browser. Sie geben das OS an, aber auch oft seine Version und Informationen über die zugrunde liegende Hardware (32 oder 64 Bits, Intel/PPC für Mac oder x86/ARM CPU-Architektur für Windows PCs).
+Das Betriebssystem ist in den meisten User-Agent-Strings angegeben (obwohl nicht web-fokussierte Plattformen wie Firefox OS), aber das Format variiert stark. Es handelt sich um einen festen String zwischen zwei Semikolons im Kommentarteil des User-Agents. Diese Strings sind spezifisch für jeden Browser. Sie geben das Betriebssystem an, oft aber auch seine Version und Informationen zur zugrunde liegenden Hardware (32 oder 64 Bit, Intel/PPC für Mac oder x86/ARM CPU-Architektur für Windows-PCs).
 
-Wie in allen Fällen können sich diese Zeichenfolgen in Zukunft ändern, man sollte sie nur in Verbindung mit der Erkennung bereits veröffentlichter Browser verwenden. Eine technologische Überwachung muss vorhanden sein, um das Skript anzupassen, wenn neue Browserversionen herauskommen.
+Wie in allen Fällen könnten sich diese Strings in Zukunft ändern, sie sollten nur in Verbindung mit der Erkennung bereits veröffentlichter Browser verwendet werden. Eine technologische Überwachung muss vorhanden sein, um das Skript anzupassen, wenn neue Browserversionen erscheinen.
 
 ### Mobil, Tablet oder Desktop
 
-Der häufigste Grund, User-Agent-Sniffing durchzuführen, ist zu bestimmen, auf welchem Typ von Gerät der Browser läuft. Ziel ist es, unterschiedliche HTMLs an unterschiedliche Gerätetypen zu liefern.
+Der häufigste Grund für die Durchführung von User-Agent-Sniffing ist die Bestimmung, auf welchem Gerät der Browser läuft. Das Ziel ist es, unterschiedliche HTML-Inhalte für verschiedene Gerätetypen anzubieten.
 
-- Nehmen Sie niemals an, dass ein Browser oder eine Rendering-Engine nur auf einem Gerätetyp läuft. Insbesondere machen Sie nicht verschiedene Voreinstellungen für verschiedene Browser oder Rendering-Engines.
-- Verwenden Sie niemals den OS-Token, um zu definieren, ob ein Browser auf Mobilgeräten, Tablets oder Desktops läuft. Das OS kann auf mehr als einem Gerätetyp laufen (zum Beispiel läuft Android sowohl auf Tablets als auch auf Telefonen).
+- Gehen Sie nie davon aus, dass ein Browser oder eine Rendering-Engine nur auf einem Gerätetyp läuft. Machen Sie insbesondere keine unterschiedlichen Standard-Einstellungen für verschiedene Browser oder Rendering-Engines.
+- Verwenden Sie niemals das Betriebssystem-Token, um zu bestimmen, ob ein Browser auf einem mobilen Gerät, Tablet oder Desktop läuft. Das Betriebssystem kann auf mehr als einem Gerätetyp laufen (zum Beispiel läuft Android sowohl auf Tablets als auch auf Telefonen).
 
-Die folgende Tabelle fasst zusammen, wie die meisten Browser-Anbieter angeben, dass ihre Browser auf einem Mobilgerät laufen:
+Die folgende Tabelle fasst zusammen, wie gängige Browseranbieter anzeigen, dass ihre Browser auf einem mobilen Gerät laufen:
 
-| Browser                                                           | Regel                                                 | Beispiel                                                                                                                                                                                   |
-| ----------------------------------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Mozilla (Gecko, Firefox)                                          | `Mobile` oder `Tablet` im Kommentar.                  | `Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0`                                                                                                                          |
-| Basierend auf WebKit (Android, Safari)                            | `Mobile Safari`-Token außerhalb des Kommentars.       | `Mozilla/5.0 (Linux; U; Android 4.0.3; de-ch; HTC Sensation Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`                                          |
-| Basierend auf Blink (Chromium, Google Chrome, Opera 15+, Edge auf Android) | `Mobile Safari`-Token außerhalb des Kommentars.       | `Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047`                             |
-| Basierend auf Presto (Opera 12-)                                   | `Opera Mobi/xyz`-Token im Kommentar.                  | `Opera/9.80 (Android 2.3.3; Linux; Opera Mobi/ADR-1111101157; U; es-ES) Presto/2.9.201 Version/11.50`                                                                                     |
-| Edge auf Windows 10 Mobile                                         | `Mobile/xyz` und `Edge/` Tokens außerhalb des Kommentars. | `Mozilla/5.0 (Windows Phone 10.0; Android 6.0.1; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Mobile Safari/537.36 Edge/16.16299`                             |
+| Browser                                                           | Regel                                                | Beispiel                                                                                                                                                             |
+| ----------------------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mozilla (Gecko, Firefox)                                          | `Mobile` oder `Tablet` innerhalb des Kommentars.     | `Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0`                                                                                                     |
+| WebKit-basiert (Android, Safari)                                  | `Mobile Safari`-Token außerhalb des Kommentars.      | `Mozilla/5.0 (Linux; U; Android 4.0.3; de-ch; HTC Sensation Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`                    |
+| Blink-basiert (Chromium, Google Chrome, Opera 15+, Edge auf Android)| `Mobile Safari`-Token außerhalb des Kommentars.      | `Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047`       |
+| Presto-basiert (Opera 12-)                                        | `Opera Mobi/xyz`-Token innerhalb des Kommentars.     | `Opera/9.80 (Android 2.3.3; Linux; Opera Mobi/ADR-1111101157; U; es-ES) Presto/2.9.201 Version/11.50`                                                                 |
+| Edge auf Windows 10 Mobile                                        | `Mobile/xyz` und `Edge/` Tokens außerhalb des Kommentars. | `Mozilla/5.0 (Windows Phone 10.0; Android 6.0.1; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Mobile Safari/537.36 Edge/16.16299`      |
 
-Zusammengefasst empfehlen wir, nach der Zeichenfolge `Mobi` irgendwo im User-Agent zu suchen, um ein mobiles Gerät zu erkennen.
+Zusammengefasst empfehlen wir, überall im User-Agent nach dem String `Mobi` zu suchen, um ein mobiles Gerät zu erkennen.
 
 > [!NOTE]
-> Wenn das Gerät so groß ist, dass es nicht mit `Mobi` gekennzeichnet ist, sollten Sie Ihre Desktop-Seite bereitstellen (die als beste Praxis ohnehin die Touch-Eingabe unterstützen sollte, da immer mehr Desktop-Computer mit Touchscreens ausgestattet werden).
+> Wenn das Gerät groß genug ist, dass es nicht mit `Mobi` markiert ist, sollten Sie Ihre Desktop-Website bereitstellen (die, wie eine bewährte Praxis, Berührungen trotzdem unterstützen sollte, da immer mehr Desktop-Geräte mit Touchscreens ausgestattet sind).
 
 ## Siehe auch
 
 - [CSS Media Queries](/de/docs/Web/CSS/CSS_media_queries)
-- [HTTP-Client-Hinweise](/de/docs/Web/HTTP/Client_hints)
-- [Feature-Erkennung implementieren](/de/docs/Learn/Tools_and_testing/Cross_browser_testing/Feature_detection)
+- [HTTP Client Hinweise](/de/docs/Web/HTTP/Client_hints)
+- [Implementierung der Funktionsüberprüfung](/de/docs/Learn_web_development/Extensions/Testing/Feature_detection)

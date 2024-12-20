@@ -3,14 +3,14 @@ title: "ViewTransition: ready-Eigenschaft"
 short-title: ready
 slug: Web/API/ViewTransition/ready
 l10n:
-  sourceCommit: 6deab4bdc0b2563d1e32047c4f5b25c3a8f02850
+  sourceCommit: 3a95c239db50c88fdde48daacb6c279006a422b9
 ---
 
-{{APIRef("View Transitions API")}}
+{{APIRef("View Transition API")}}
 
-Die **`ready`**-Eigenschaft, eine schreibgeschützte Eigenschaft des [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Interfaces, ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudoelementbaum erstellt wurde und die Übergangsanimation kurz vor dem Start steht.
+Die schreibgeschützte Eigenschaft **`ready`** des [`ViewTransition`](/de/docs/Web/API/ViewTransition)-Interfaces ist ein {{jsxref("Promise")}}, das erfüllt wird, sobald der Pseudo-Element-Baum erstellt ist und die Übergangsanimation kurz vor dem Start steht.
 
-`ready` wird abgelehnt, wenn der Übergang nicht beginnen kann. Dies kann durch eine Fehlkonfiguration verursacht werden, zum Beispiel durch doppelte {{cssxref("view-transition-name")}}, oder wenn der an [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) übergebene Rückruf eine Ausnahme auslöst oder ein abgelehntes Promise zurückgibt.
+`ready` wird abgelehnt, wenn der Übergang nicht beginnen kann. Dies kann aufgrund einer Fehlkonfiguration der Fall sein, beispielsweise bei doppelten {{cssxref("view-transition-name")}}s, oder wenn der an [`Document.startViewTransition()`](/de/docs/Web/API/Document/startViewTransition) übergebene Callback eine Ausnahme auslöst oder ein Promise zurückgibt, das abgelehnt wird.
 
 ## Wert
 
@@ -18,7 +18,7 @@ Ein Promise.
 
 ## Beispiele
 
-Im folgenden Beispiel wird `ready` verwendet, um einen benutzerdefinierten, kreisförmigen Anzeigeübergang auszulösen, der von der Position des Cursors des Benutzers bei einem Klick ausgeht, mit einer Animation, die von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt wird.
+Im folgenden Beispiel wird `ready` verwendet, um einen benutzerdefinierten kreisförmigen Enthüllungsübergang zu starten, der von der Position des Cursors des Benutzers beim Klicken ausgeht. Die Animation wird von der [Web Animations API](/de/docs/Web/API/Web_Animations_API) bereitgestellt.
 
 ```js
 // Store the last click event
@@ -67,7 +67,7 @@ function spaNavigate(data) {
 }
 ```
 
-Diese Animation erfordert auch das folgende CSS, um die Standard-CSS-Animation zu deaktivieren und zu verhindern, dass die alten und neuen Ansichtsstatus in irgendeiner Weise ineinander überblenden (der neue Status "wischt" über den alten Status hinweg, anstatt hineinzutransitionieren):
+Diese Animation erfordert auch das folgende CSS, um die standardmäßige CSS-Animation auszuschalten und zu verhindern, dass sich die alten und neuen Ansichtsstatus in irgendeiner Weise vermischen (der neue Status "wischt" direkt über den alten Zustand, anstatt hineinzutransitionieren):
 
 ```css
 ::view-transition-image-pair(root) {
@@ -92,4 +92,4 @@ Diese Animation erfordert auch das folgende CSS, um die Standard-CSS-Animation z
 
 ## Siehe auch
 
-- [Glatte und einfache Übergänge mit der View Transitions API](https://developer.chrome.com/docs/web-platform/view-transitions/)
+- [Glatte Übergänge mit der View Transition API](https://developer.chrome.com/docs/web-platform/view-transitions/)

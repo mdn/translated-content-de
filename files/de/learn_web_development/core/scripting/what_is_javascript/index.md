@@ -2,14 +2,15 @@
 title: Was ist JavaScript?
 slug: Learn_web_development/Core/Scripting/What_is_JavaScript
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: eb20babb96149f98bcbf7817b58e305c5297f2e1
 ---
 
 {{LearnSidebar}}
 
 {{NextMenu("Learn_web_development/Core/Scripting/A_first_splash", "Learn_web_development/Core/Scripting")}}
 
-Willkommen beim JavaScript-Kurs für Anfänger auf MDN! In diesem Artikel betrachten wir JavaScript aus einer höheren Perspektive und beantworten Fragen wie „Was ist es?“ und „Was kann man damit machen?“, um sicherzustellen, dass Sie mit dem Zweck von JavaScript vertraut sind.
+Willkommen beim MDN-Einsteigerkurs für JavaScript!
+In diesem Artikel betrachten wir JavaScript aus einer höheren Perspektive, indem wir Fragen wie "Was ist das?" und "Was können Sie damit tun?" beantworten und sicherstellen, dass Sie mit dem Zweck von JavaScript vertraut sind.
 
 <table>
   <tbody>
@@ -21,7 +22,7 @@ Willkommen beim JavaScript-Kurs für Anfänger auf MDN! In diesem Artikel betrac
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Was ist JavaScript und wie passt es in eine Website.</li>
+          <li>Was ist JavaScript und wie passt es in eine Website?</li>
           <li>Was Sie mit JavaScript machen können.</li>
           <li>JavaScript zu einer Webseite hinzufügen.</li>
           <li>Kommentare in JavaScript schreiben.</li>
@@ -33,23 +34,23 @@ Willkommen beim JavaScript-Kurs für Anfänger auf MDN! In diesem Artikel betrac
 
 ## Eine Definition auf hoher Ebene
 
-JavaScript ist eine Skript- oder Programmiersprache, die es Ihnen ermöglicht, komplexe Funktionen auf Webseiten zu implementieren. Jedes Mal, wenn eine Webseite mehr tut, als nur statische Informationen anzuzeigen, die Sie ansehen können — zeitnahe Inhaltsaktualisierungen anzeigen, interaktive Karten, animierte 2D/3D-Grafiken, scrollende Video-Jukeboxen usw. — können Sie darauf wetten, dass JavaScript wahrscheinlich im Spiel ist. Es ist die dritte Ebene des Schichtkuchens der Standard-Webtechnologien, von denen zwei ([HTML](/de/docs/Learn_web_development/Core/Structuring_content) und [CSS](/de/docs/Learn_web_development/Core/Styling_basics)) wir ausführlicher in anderen Teilen des Lernbereichs behandelt haben.
+JavaScript ist eine Skript- oder Programmiersprache, die es Ihnen ermöglicht, komplexe Funktionen auf Webseiten zu implementieren – jedes Mal, wenn eine Webseite mehr tut, als einfach da zu sitzen und statische Informationen anzuzeigen, können Sie sicher sein, dass JavaScript wahrscheinlich beteiligt ist. Es ist die dritte Schicht des Schichtkuchens aus standardmäßigen Webtechnologien, von denen wir zwei ([HTML](/de/docs/Learn_web_development/Core/Structuring_content) und [CSS](/de/docs/Learn_web_development/Core/Styling_basics)) in anderen Teilen des Lernbereichs viel ausführlicher behandelt haben.
 
-![Die drei Schichten der Standard-Webtechnologien; HTML, CSS und JavaScript](cake.png)
+![Die drei Schichten der standardmäßigen Webtechnologien; HTML, CSS und JavaScript](cake.png)
 
-- {{Glossary("HTML", "HTML")}} ist die Auszeichnungssprache, die wir verwenden, um unsere Webinhalte zu strukturieren und ihnen Bedeutung zu geben, beispielsweise Absätze, Überschriften und Datentabellen zu definieren oder Bilder und Videos in die Seite einzubetten.
-- {{Glossary("CSS", "CSS")}} ist eine Sprache von Stilregeln, die wir verwenden, um unseren HTML-Inhalten Stil zu verleihen, beispielsweise Hintergrundfarben und Schriftarten festzulegen und unsere Inhalte in mehreren Spalten anzuordnen.
-- {{Glossary("JavaScript", "JavaScript")}} ist eine Skriptsprache, die es ermöglicht, dynamisch aktualisierte Inhalte zu erstellen, Multimedia zu steuern, Bilder zu animieren und so ziemlich alles andere zu tun. (Okay, nicht alles, aber es ist erstaunlich, was Sie mit ein paar Zeilen JavaScript-Code erreichen können.)
+- {{Glossary("HTML", "HTML")}} ist die Auszeichnungssprache, mit der wir unseren Webinhalten Struktur und Bedeutung geben, indem wir beispielsweise Absätze, Überschriften und Datentabellen definieren oder Bilder und Videos in die Seite einbetten.
+- {{Glossary("CSS", "CSS")}} ist eine Sprache von Stilregeln, mit der wir unsere HTML-Inhalte gestalten, indem wir beispielsweise Hintergrundfarben und Schriftarten festlegen und unsere Inhalte in mehreren Spalten anordnen.
+- {{Glossary("JavaScript", "JavaScript")}} ist eine Skriptsprache, die es Ihnen ermöglicht, dynamisch aktualisierten Inhalt zu erstellen, Multimedia zu steuern, Bilder zu animieren und fast alles andere. (Okay, nicht alles, aber es ist erstaunlich, was Sie mit ein paar Zeilen JavaScript-Code erreichen können.)
 
-Die drei Schichten bauen schön aufeinander auf. Nehmen wir ein Beispiel mit einem Button. Wir können ihn mit HTML markieren, um ihm Struktur und Zweck zu geben:
+Die drei Schichten bauen schön aufeinander auf. Nehmen wir als Beispiel einen Button. Wir können ihn mit HTML kennzeichnen, um ihm Struktur und Zweck zu geben:
 
 ```html
 <button type="button">Player 1: Chris</button>
 ```
 
-![Button, der Player 1: Chris ohne Stil zeigt](just-html.png)
+![Button zeigt Spieler 1: Chris ohne Styling](just-html.png)
 
-Dann können wir etwas CSS hinzufügen, um ihn ansprechend aussehen zu lassen:
+Dann können wir etwas CSS hinzufügen, um ihn optisch ansprechend zu machen:
 
 ```css
 button {
@@ -66,9 +67,9 @@ button {
 }
 ```
 
-![Button, der Player 1: Chris mit Stil zeigt](html-and-css.png)
+![Button zeigt Spieler 1: Chris mit Styling](html-and-css.png)
 
-Und schließlich können wir etwas JavaScript hinzufügen, um dynamisches Verhalten zu implementieren:
+Und schließlich können wir einige JavaScript hinzufügen, um dynamisches Verhalten zu implementieren:
 
 ```js
 const button = document.querySelector("button");
@@ -83,64 +84,66 @@ function updateName() {
 
 {{ EmbedLiveSample('A_high-level_definition', '100%', 80) }}
 
-Versuchen Sie, auf diese letzte Version des Textlabels zu klicken, um zu sehen, was passiert (beachten Sie auch, dass Sie dieses Demo auf GitHub finden können — siehe den [Source Code](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/javascript-label.html), oder [führen Sie es live aus](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/what-is-js/javascript-label.html))!
+Versuchen Sie, diese letzte Version des Textlabels anzuklicken, um zu sehen, was passiert (beachten Sie auch, dass Sie dieses Demo auf GitHub finden können – sehen Sie sich den [Quellcode](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/javascript-label.html) an oder [führen Sie es live aus](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/what-is-js/javascript-label.html))!
 
-JavaScript kann noch viel mehr — lassen Sie uns genauer erkunden, was es kann.
+JavaScript kann noch viel mehr – lassen Sie uns erkunden, was genauer.
 
 ## Was kann es wirklich tun?
 
-Die Kernsprache von clientseitigem JavaScript besteht aus einigen allgemeinen Programmierfunktionen, die es Ihnen ermöglichen, Dinge zu tun, wie:
+Die Kernsprache von JavaScript auf der Clientseite besteht aus einigen allgemeinen Programmierfunktionen, die es Ihnen ermöglichen, Dinge wie die folgenden zu tun:
 
-- Nützliche Werte in Variablen speichern. Im obigen Beispiel beispielsweise fragen wir nach einem neuen Namen, der dann in einer Variablen namens `name` gespeichert wird.
-- Operationen an Textstücken (in der Programmierung als „Strings“ bezeichnet) durchführen. Im obigen Beispiel nehmen wir den String „Player 1: “ und verbinden ihn mit der `name`-Variable, um das vollständige Textlabel zu erstellen, z.B. „Player 1: Chris“.
-- Code als Reaktion auf bestimmte Ereignisse, die auf einer Webseite auftreten, ausführen. Wir haben in unserem obigen Beispiel ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis verwendet, um zu erkennen, wann das Label angeklickt wird und dann den Code auszuführen, der das Textlabel aktualisiert.
+- Nützliche Werte in Variablen speichern. Im obigen Beispiel lassen wir beispielsweise einen neuen Namen eingeben und speichern diesen dann in einer Variablen namens `name`.
+- Operationen an Textstücken durchführen (in der Programmierung als "Strings" bekannt). Im obigen Beispiel nehmen wir den String "Spieler 1: " und fügen ihn mit der `name`-Variable zusammen, um das vollständige Textlabel zu erstellen, z.B. "Spieler 1: Chris".
+- Code in Reaktion auf bestimmte Ereignisse auf einer Webseite ausführen. Wir haben in unserem obigen Beispiel ein [`click`](/de/docs/Web/API/Element/click_event)-Ereignis verwendet, um zu erkennen, wann das Label angeklickt wird, und dann den Code auszuführen, der das Textlabel aktualisiert.
 - Und vieles mehr!
 
-Was jedoch noch aufregender ist, ist die Funktionalität, die auf der clientseitigen JavaScript-Sprache aufbaut. So genannte **Application Programming Interfaces** (**APIs**) geben Ihnen zusätzliche Superkräfte, die Sie in Ihrem JavaScript-Code verwenden können.
+Noch spannender ist jedoch die Funktionalität, die auf der clientseitigen JavaScript-Sprache aufbaut. Sogenannte **Application Programming Interfaces** (**APIs**) bieten Ihnen zusätzliche Superkräfte zur Verwendung in Ihrem JavaScript-Code.
 
-APIs sind fertige Code-Bausteine, die es einem Entwickler ermöglichen, Programme zu implementieren, die ansonsten schwer oder unmöglich zu implementieren wären. Sie erledigen für die Programmierung das Gleiche, was Fertigbausätze für den Möbelbau tun — es ist viel einfacher, bereits zugeschnittene Platten zu nehmen und sie zusammenzuschrauben, um ein Bücherregal zu machen, als das Design selbst zu entwickeln, das richtige Holz zu finden, alle Platten auf die richtige Größe und Form zuzuschneiden, die passenden Schrauben zu finden und _dann_ alles zusammenzusetzen, um ein Bücherregal zu bauen.
+APIs sind fertige Sets von Codebausteinen, die es einem Entwickler ermöglichen, Programme zu implementieren, die ansonsten schwer oder unmöglich zu implementieren wären. Sie tun für die Programmierung das Gleiche wie fertige Möbelkits für den Hausbau – es ist viel einfacher, fertige Platten zu nehmen und sie zusammenzuschrauben, um ein Bücherregal zu bauen, als das Design selbst zu erarbeiten, das richtige Holz zu finden, alle Platten auf die richtige Größe und Form zu schneiden, die richtigen Schrauben zu finden und _dann_ zusammenzubauen.
 
-Sie fallen generell in zwei Kategorien.
+Sie fallen in der Regel in zwei Kategorien.
 
-![Zwei Kategorien von API; Drittanbieter-APIs werden neben dem Browser gezeigt und Browser-APIs im Browser](browser.png)
+![Zwei Kategorien von APIs; Drittanbieter-APIs werden neben dem Browser gezeigt und Browser-APIs befinden sich im Browser](browser.png)
 
-**Browser-APIs** sind in Ihrem Webbrowser eingebaut und können Daten aus der umgebenden Computerumgebung nutzen oder nützliche komplexe Dinge tun. Zum Beispiel:
+**Browser-APIs** sind in Ihrem Webbrowser eingebaut und können Daten aus der umgebenden Computerumgebung bereitstellen oder nützliche komplexe Dinge tun. Zum Beispiel:
 
-- Die [DOM (Document Object Model) API](/de/docs/Web/API/Document_Object_Model) ermöglicht es Ihnen, HTML und CSS zu manipulieren: HTML zu erstellen, zu entfernen und zu ändern, neue Stile dynamisch auf Ihre Seite anzuwenden usw. Jedes Mal, wenn Sie ein Popup-Fenster auf einer Seite erscheinen sehen oder neuer Inhalt angezeigt wird (wie wir es oben in unserem einfachen Demo gesehen haben), ist das der DOM in Aktion.
+- Die [DOM (Document Object Model) API](/de/docs/Web/API/Document_Object_Model) ermöglicht es Ihnen, HTML und CSS zu manipulieren, HTML zu erstellen, zu entfernen und zu ändern, neue Stile dynamisch auf Ihre Seite anzuwenden usw. Jedes Mal, wenn ein Popup-Fenster auf einer Seite erscheint oder neuer Inhalt angezeigt wird (wie wir es oben in unserem einfachen Beispiel gesehen haben), ist das das DOM in Aktion.
 - Die [Geolocation API](/de/docs/Web/API/Geolocation_API) ruft geografische Informationen ab. So kann [Google Maps](https://www.google.com/maps) Ihren Standort finden und auf einer Karte anzeigen.
-- Die [Canvas](/de/docs/Web/API/Canvas_API) und [WebGL](/de/docs/Web/API/WebGL_API) APIs ermöglichen es Ihnen, animierte 2D- und 3D-Grafiken zu erstellen. Menschen machen erstaunliche Dinge mit diesen Webtechnologien — siehe [Chrome Experiments](https://experiments.withgoogle.com/collection/chrome) und [webglsamples](https://webglsamples.org/).
-- [Audio- und Video-APIs](/de/docs/Web/Media/Audio_and_video_delivery) wie [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und [WebRTC](/de/docs/Web/API/WebRTC_API) ermöglichen Ihnen, wirklich interessante Dinge mit Multimedia zu tun, wie Audio und Video direkt auf einer Webseite abzuspielen oder Video von Ihrer Webcam zu erfassen und auf dem Computer einer anderen Person anzuzeigen (probieren Sie unser einfaches [Snapshot-Demo](https://chrisdavidmills.github.io/snapshot/), um die Idee zu verstehen).
+- Die [Canvas](/de/docs/Web/API/Canvas_API) und [WebGL](/de/docs/Web/API/WebGL_API)-APIs ermöglichen es Ihnen, animierte 2D- und 3D-Grafiken zu erstellen. Leute machen erstaunliche Dinge mit diesen Webtechnologien – siehe [Chrome Experiments](https://experiments.withgoogle.com/collection/chrome) und [webglsamples](https://webglsamples.org/).
+- [Audio- und Video-APIs](/de/docs/Web/Media/Audio_and_video_delivery) wie [`HTMLMediaElement`](/de/docs/Web/API/HTMLMediaElement) und [WebRTC](/de/docs/Web/API/WebRTC_API) ermöglichen Ihnen wirklich interessante Dinge mit Multimedia, wie das Abspielen von Audio und Video direkt auf einer Webseite oder das Aufnehmen von Video mit Ihrer Webcam und das Anzeigen auf einem anderen Computer (probieren Sie unser einfaches [Snapshot-Demo](https://chrisdavidmills.github.io/snapshot/), um eine Vorstellung zu bekommen).
 
-**Drittanbieter-APIs** sind standardmäßig nicht im Browser eingebaut, und Sie müssen ihren Code und Informationen normalerweise von irgendwo im Web holen. Zum Beispiel:
+**Drittanbieter-APIs** sind standardmäßig nicht in den Browser eingebaut, und Sie müssen deren Code und Informationen in der Regel irgendwo im Internet abrufen. Zum Beispiel:
 
-- Die [Twitter API](https://developer.x.com/en/docs) ermöglicht es Ihnen, Dinge wie Ihre neuesten Tweets auf Ihrer Website anzuzeigen.
-- Die [Google Maps API](https://developers.google.com/maps/) und [OpenStreetMap API](https://wiki.openstreetmap.org/wiki/API) erlaubt Ihnen, benutzerdefinierte Karten in Ihre Website einzubetten und ähnliche Funktionalität.
+- Die [Twitter API](https://developer.x.com/en/docs) ermöglicht Ihnen Dinge wie das Anzeigen Ihrer neuesten Tweets auf Ihrer Website.
+- Die [Google Maps API](https://developers.google.com/maps/) und [OpenStreetMap API](https://wiki.openstreetmap.org/wiki/API) ermöglicht Ihnen die Einbettung benutzerdefinierter Karten in Ihre Website und andere Funktionen.
 
 > [!NOTE]
-> Diese APIs sind fortgeschritten, und wir werden keine davon in diesem Modul behandeln. Sie können in unserem [Client-side web APIs module](/de/docs/Learn_web_development/Extensions/Client-side_APIs) viel mehr darüber erfahren.
+> Diese APIs sind fortgeschritten und werden in diesem Modul nicht behandelt. Sie können viel mehr über diese in unserem [Client-side web APIs module](/de/docs/Learn_web_development/Extensions/Client-side_APIs) erfahren.
 
-Es gibt noch viel mehr, das zur Verfügung steht! Lassen Sie sich jedoch noch nicht zu sehr begeistern. Sie werden nicht in der Lage sein, das nächste Facebook, Google Maps oder Instagram zu bauen, nachdem Sie 24 Stunden JavaScript studiert haben — es gibt viele Grundlagen zu behandeln. Und deshalb sind Sie hier — lassen Sie uns weitermachen!
+Es gibt noch viel mehr! Aber werden Sie noch nicht zu aufgeregt. Sie werden nicht in der Lage sein, das nächste Facebook, Google Maps oder Instagram nach 24 Stunden JavaScript-Studium zu erstellen – es gibt viele Grundlagen, die zuerst behandelt werden müssen. Und genau deshalb sind Sie hier – lassen Sie uns weitermachen!
 
 ## Was macht JavaScript auf Ihrer Seite?
 
-Hier werden wir tatsächlich etwas Code betrachten und dabei erkunden, was tatsächlich passiert, wenn Sie JavaScript auf Ihrer Seite ausführen.
+Hier werden wir tatsächlich einige Codes betrachten und dabei erforschen, was tatsächlich passiert, wenn Sie etwas JavaScript auf Ihrer Seite ausführen.
 
-Lassen Sie uns kurz die Geschichte rekapitulieren, was passiert, wenn Sie eine Webseite in einem Browser laden (erstmals in unserem [Was ist CSS?](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#how_is_css_applied_to_HTML) Artikel angesprochen). Wenn Sie eine Webseite in Ihrem Browser laden, führen Sie Ihren Code (das HTML, CSS und JavaScript) in einer Ausführungsumgebung (dem Browsertab) aus. Das ist wie eine Fabrik, die Rohmaterialien (den Code) annimmt und ein Produkt (die Webseite) herausgibt.
+Lassen Sie uns kurz die Geschichte rekapitulieren, was passiert, wenn Sie eine Webseite in einem Browser laden (zuerst besprochen in unserem Artikel [Was ist CSS?](/de/docs/Learn_web_development/Core/Styling_basics/What_is_CSS#how_is_css_applied_to_html)). Wenn Sie eine Webseite in Ihrem Browser laden, führen Sie Ihren Code (das HTML, CSS und JavaScript) in einer Ausführungsumgebung (dem Browser-Tab) aus. Dies ist wie eine Fabrik, die Rohstoffe (den Code) entgegennimmt und ein Produkt (die Webseite) ausgibt.
 
-![HTML-, CSS- und JavaScript-Code kommen zusammen, um den Inhalt im Browsertab zu erstellen, wenn die Seite geladen wird](execution.png)
+![HTML-, CSS- und JavaScript-Code vereint sich zum Erstellen des Inhalts im Browser-Tab, wenn die Seite geladen wird](execution.png)
 
-Eine sehr häufige Verwendung von JavaScript besteht darin, HTML und CSS dynamisch zu ändern, um eine Benutzeroberfläche über die Document Object Model API zu aktualisieren (wie oben erwähnt).
+Eine sehr häufige Verwendung von JavaScript ist das dynamische Ändern von HTML und CSS, um eine Benutzeroberfläche zu aktualisieren, über die Document Object Model API (wie oben erwähnt).
 
 ### Browsersicherheit
 
-Jeder Browsertab hat einen eigenen, separaten Bereich zum Ausführen von Code (diese Bereiche werden in der Fachsprache „Ausführungsumgebungen“ genannt) — das bedeutet, dass in den meisten Fällen der Code in jedem Tab völlig unabhängig ausgeführt wird und der Code in einem Tab den Code in einem anderen Tab — oder auf einer anderen Website — nicht direkt beeinflussen kann. Dies ist eine gute Sicherheitsmaßnahme — wenn dies nicht der Fall wäre, könnten Piraten anfangen, Code zu schreiben, um Informationen von anderen Websites zu stehlen und andere böse Dinge zu tun.
+Jeder Browser-Tab hat einen eigenen separaten Bereich für die Ausführung von Code (diese Bereiche werden in technischen Begriffen als "Ausführungsumgebungen" bezeichnet) – das bedeutet, dass in den meisten Fällen der Code in jedem Tab völlig unabhängig ausgeführt wird, und der Code in einem Tab den Code in einem anderen Tab – oder auf einer anderen Website – nicht direkt beeinflussen kann. Dies ist eine gute Sicherheitsmaßnahme – wenn dies nicht der Fall wäre, könnten Piraten anfangen, Code zu schreiben, um Informationen von anderen Websites zu stehlen, und andere solche schlechten Dinge.
 
 > [!NOTE]
-> Es gibt Möglichkeiten, Code und Daten zwischen verschiedenen Websites/Tabs auf sichere Weise zu senden, aber dies sind fortgeschrittene Techniken, die wir in diesem Kurs nicht abdecken werden.
+> Es gibt Möglichkeiten, Code und Daten zwischen verschiedenen Websites/Tabs auf sichere Weise zu senden, aber dies sind fortgeschrittene Techniken, die wir in diesem Kurs nicht behandeln werden.
 
-### Reihenfolge der JavaScript-Ausführung
+### JavaScript-Ausführungsreihenfolge
 
-Wenn der Browser einen Block von JavaScript entdeckt, führt er ihn im Allgemeinen in Reihenfolge von oben nach unten aus. Das bedeutet, dass Sie darauf achten müssen, in welcher Reihenfolge Sie Dinge platzieren. Zum Beispiel, lassen Sie uns zum Block von JavaScript zurückkehren, den wir in unserem ersten Beispiel gesehen haben:
+Wenn der Browser auf einen Block von JavaScript stößt, führt er ihn in der Regel in der Reihenfolge von oben nach unten aus.
+Das bedeutet, dass Sie darauf achten müssen, in welcher Reihenfolge Sie die Dinge platzieren.
+Zum Beispiel, lassen Sie uns zum Block von JavaScript zurückkehren, den wir in unserem ersten Beispiel gesehen haben:
 
 ```js
 const button = document.querySelector("button");
@@ -153,44 +156,59 @@ function updateName() {
 }
 ```
 
-Hier wählen wir zuerst einen Button mit `document.querySelector` aus, dann wird ein Ereignislistener daran angebracht, sodass beim Klicken des Buttons der `updateName()` Codeblock (Zeilen 5–8) ausgeführt wird. Der `updateName()` Codeblock (diese Arten von wiederverwendbaren Codebausteinen werden „Funktionen“ genannt) fragt den Benutzer nach einem neuen Namen und fügt diesen Namen in den Button-Text ein, um die Anzeige zu aktualisieren.
+Hier wählen wir zuerst einen Button mit `document.querySelector` aus, dann fügen wir mit `addEventListener` einen Ereignis-Listener hinzu, sodass, wenn der Button geklickt wird, der `updateName()` Codeblock (Zeilen 5–8) ausgeführt wird. Der `updateName()` Codeblock (diese Arten von wiederverwendbaren Codeblöcken werden "Funktionen" genannt) fragt den Benutzer nach einem neuen Namen und fügt diesen dann in den Button-Text ein, um die Anzeige zu aktualisieren.
 
-Wenn Sie die Reihenfolge der ersten beiden Codezeilen vertauschen würden, würde es nicht mehr funktionieren — stattdessen erhalten Sie eine Fehlermeldung in der [Browser-Entwicklungskonsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) — `Uncaught ReferenceError: Cannot access 'button' before initialization`. Das bedeutet, dass das `button`-Objekt noch nicht initialisiert wurde, sodass wir keinen Ereignislistener daran anhängen können.
+Wenn Sie die Reihenfolge der ersten beiden Codezeilen vertauschen würden, würde es nicht mehr funktionieren – stattdessen würden Sie einen Fehler in der [Browser-Entwicklungskonsole](/de/docs/Learn_web_development/Howto/Tools_and_setup/What_are_browser_developer_tools) erhalten – `Uncaught ReferenceError: Cannot access 'button' before initialization`.
+Das bedeutet, dass das `button`-Objekt noch nicht initialisiert wurde, sodass wir keinen Ereignis-Listener daran anhängen können.
 
 > [!NOTE]
-> Dies ist ein sehr häufiger Fehler — Sie müssen darauf achten, dass die in Ihrem Code referenzierten Objekte existieren, bevor Sie etwas mit ihnen machen.
+> Dies ist ein sehr häufiger Fehler – Sie müssen vorsichtig sein, dass die Objekte, auf die in Ihrem Code verwiesen wird, existieren, bevor Sie versuchen, etwas mit ihnen anzustellen.
 
 ### Interpretierter vs. kompilierter Code
 
-Sie könnten die Begriffe **interpretiert** und **kompiliert** im Zusammenhang mit der Programmierung hören. In interpretierten Sprachen wird der Code von oben nach unten ausgeführt und das Ergebnis der Ausführung wird sofort zurückgegeben. Sie müssen den Code nicht in eine andere Form umwandeln, bevor der Browser ihn ausführt. Der Code wird in seiner benutzerfreundlichen Textform empfangen und direkt daraus verarbeitet.
+Sie könnten die Begriffe **interpretiert** und **kompiliert** im Kontext der Programmierung hören.
+Bei interpretierten Sprachen wird der Code von oben nach unten ausgeführt und das Ergebnis der Ausführung des Codes sofort zurückgegeben.
+Sie müssen den Code nicht in eine andere Form umwandeln, bevor der Browser ihn ausführt.
+Der Code wird in seiner programmerfreundlichen Textform empfangen und direkt daraus verarbeitet.
 
-Kompilierte Sprachen hingegen werden in eine andere Form umgewandelt (kompiliert), bevor sie vom Computer ausgeführt werden. Beispielsweise werden C/C++ in Maschinencode kompiliert, der dann vom Computer ausgeführt wird. Das Programm wird aus einem binären Format ausgeführt, das aus dem ursprünglichen Programmquellcode generiert wurde.
+Kompilierte Sprachen hingegen werden vor ihrer Ausführung durch den Computer in eine andere Form umgewandelt (kompiliert).
+Zum Beispiel wird C/C++ in Maschinencode kompiliert, der dann vom Computer ausgeführt wird.
+Das Programm wird aus einem Binärformat ausgeführt, das aus dem ursprünglichen Programmquellecode erzeugt wurde.
 
-JavaScript ist eine leichtgewichtige interpretierte Programmiersprache. Der Webbrowser empfängt den JavaScript-Code in seiner ursprünglichen Textform und führt das Skript daraus aus. Aus technischer Sicht verwenden die meisten modernen JavaScript-Interpreter tatsächlich eine Technik namens **Just-in-time Compiling**, um die Leistung zu verbessern; der JavaScript-Quellcode wird während der Nutzung des Skripts in ein schnelleres, binäres Format kompiliert, sodass er so schnell wie möglich ausgeführt werden kann. Dennoch gilt JavaScript immer noch als interpretierte Sprache, da die Kompilierung zur Laufzeit und nicht im Voraus erfolgt.
+JavaScript ist eine leichtgewichtige interpretierte Programmiersprache.
+Der Webbrowser empfängt den JavaScript-Code in seiner ursprünglichen Textform und führt das Skript daraus aus.
+Aus technischer Sicht verwenden die meisten modernen JavaScript-Interpreten tatsächlich eine Technik namens **Just-in-Time-Kompilierung**, um die Leistung zu verbessern; der JavaScript-Quellcode wird während der Nutzung zu einem schnelleren, binären Format kompiliert, damit er so schnell wie möglich ausgeführt werden kann.
+JavaScript wird jedoch immer noch als interpretierte Sprache betrachtet, da die Kompilierung zur Laufzeit gehandhabt wird, anstatt im Voraus.
 
-Es gibt Vorteile für beide Arten von Sprachen, aber wir werden sie jetzt nicht erörtern.
+Es gibt Vorteile bei beiden Arten von Sprachen, aber wir werden sie jetzt nicht diskutieren.
 
-### Server-seitiger vs. Client-seitiger Code
+### Serverseitiger vs. clientseitiger Code
 
-Sie könnten auch die Begriffe **Server-seitiger** und **Client-seitiger** Code hören, besonders im Zusammenhang mit der Webentwicklung. Client-seitiger Code ist Code, der auf dem Computer des Benutzers ausgeführt wird — wenn eine Webseite angezeigt wird, wird der client-seitige Code der Seite heruntergeladen und dann vom Browser ausgeführt und angezeigt. In diesem Modul sprechen wir ausdrücklich über **Client-seitiges JavaScript**.
+Sie könnten auch auf die Begriffe **serverseitiger** und **clientseitiger** Code stoßen, insbesondere im Kontext der Webentwicklung.
+Clientseitiger Code ist Code, der auf dem Computer des Benutzers ausgeführt wird – wenn eine Webseite angezeigt wird, wird der clientseitige Code der Seite heruntergeladen, dann vom Browser ausgeführt und angezeigt.
+In diesem Modul sprechen wir ausdrücklich über **clientseitiges JavaScript**.
 
-Server-seitiger Code hingegen wird auf dem Server ausgeführt und dann werden seine Ergebnisse heruntergeladen und im Browser angezeigt. Beispiele für beliebte server-seitige Websprachen sind PHP, Python, Ruby, C# und sogar JavaScript! JavaScript kann auch als server-seitige Sprache verwendet werden, zum Beispiel in der beliebten Node.js-Umgebung — Sie können mehr über server-seitiges JavaScript in unserem Thema [Dynamic Websites – Server-side programming](/de/docs/Learn_web_development/Extensions/Server-side) erfahren.
+Serverseitiger Code hingegen wird auf dem Server ausgeführt, dann werden seine Ergebnisse heruntergeladen und im Browser angezeigt.
+Beispiele für beliebte serverseitige Websprachen sind PHP, Python, Ruby, C# und sogar JavaScript!
+JavaScript kann auch als serverseitige Sprache verwendet werden, zum Beispiel in der beliebten Node.js-Umgebung – Sie können mehr über serverseitiges JavaScript in unserem Thema [Dynamische Websites – Serverseitige Programmierung](/de/docs/Learn_web_development/Extensions/Server-side) erfahren.
 
 ### Dynamischer vs. statischer Code
 
-Das Wort **dynamisch** wird verwendet, um sowohl client-seitiges JavaScript als auch server-seitige Sprachen zu beschreiben — es bezieht sich auf die Fähigkeit, die Anzeige einer Webseite/App zu aktualisieren, um verschiedene Dinge unter verschiedenen Umständen anzuzeigen und bei Bedarf neuen Inhalt zu generieren. Server-seitiger Code erzeugt dynamisch neuen Inhalt auf dem Server, z.B. durch das Abrufen von Daten aus einer Datenbank, während client-seitiges JavaScript dynamisch neuen Inhalt im Browser auf dem Client erzeugt, z.B. indem eine neue HTML-Tabelle erstellt, mit vom Server angeforderten Daten gefüllt und dann die Tabelle in einer dem Benutzer angezeigten Webseite angezeigt wird. Die Bedeutung ist in den beiden Kontexten leicht unterschiedlich, aber verwandt, und beide Ansätze (server-seitig und client-seitig) arbeiten normalerweise zusammen.
+Das Wort **dynamisch** wird verwendet, um sowohl clientseitiges JavaScript als auch serverseitige Sprachen zu beschreiben – es bezieht sich auf die Fähigkeit, die Anzeige einer Webseite/Anwendung zu aktualisieren, um unterschiedliche Dinge unter unterschiedlichen Umständen anzuzeigen und neuen Inhalt nach Bedarf zu generieren.
+Serverseitiger Code erzeugt dynamisch neue Inhalte auf dem Server, z.B. indem Daten aus einer Datenbank abgerufen werden, während clientseitiges JavaScript dynamisch neue Inhalte innerhalb des Browsers auf dem Client erzeugt, z.B. indem eine neue HTML-Tabelle erstellt, mit Daten vom Server gefüllt und dann die Tabelle in einer dem Benutzer angezeigten Webseite dargestellt wird. Die Bedeutung ist in den beiden Kontexten leicht unterschiedlich, aber verwandt, und beide Ansätze (serverseitig und clientseitig) arbeiten in der Regel zusammen.
 
-Eine Webseite ohne dynamisch aktualisierte Inhalte wird als **statisch** bezeichnet — sie zeigt immer den gleichen Inhalt an.
+Eine Webseite ohne dynamisch aktualisierten Inhalt wird als **statisch** bezeichnet – sie zeigt immer denselben Inhalt an.
 
 ## Wie fügen Sie JavaScript zu Ihrer Seite hinzu?
 
-JavaScript wird Ihrer HTML-Seite in ähnlicher Weise wie CSS hinzugefügt. Während CSS {{htmlelement("link")}}-Elemente verwendet, um externe Stylesheets anzuwenden, und {{htmlelement("style")}}-Elemente, um interne Stylesheets auf HTML anzuwenden, benötigt JavaScript nur einen Freund in der Welt des HTML — das {{htmlelement("script")}}-Element. Lassen Sie uns lernen, wie das funktioniert.
+JavaScript wird auf ähnliche Weise auf Ihrer HTML-Seite angewendet wie CSS.
+Während CSS {{htmlelement("link")}}-Elemente verwendet, um externe Stylesheets anzuwenden, und {{htmlelement("style")}}-Elemente, um interne Stylesheets auf HTML anzuwenden, benötigt JavaScript nur einen Freund in der HTML-Welt – das {{htmlelement("script")}}-Element. Lassen Sie uns sehen, wie das funktioniert.
 
 ### Internes JavaScript
 
-1. Erstellen Sie zunächst eine lokale Kopie unserer Beispieldatei [apply-javascript.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/apply-javascript.html). Speichern Sie sie in einem vernünftigem Verzeichnis.
+1. Erstellen Sie zunächst eine lokale Kopie unserer Beispieldatei [apply-javascript.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/apply-javascript.html). Speichern Sie sie in einem sinnvollen Verzeichnis.
 2. Öffnen Sie die Datei in Ihrem Webbrowser und in Ihrem Texteditor. Sie werden sehen, dass das HTML eine einfache Webseite erstellt, die einen klickbaren Button enthält.
-3. Gehen Sie als nächstes zu Ihrem Texteditor und fügen Sie das Folgende am Ende Ihres Body hinzu — direkt vor Ihrem schließenden `</body>`-Tag:
+3. Gehen Sie als nächstes zu Ihrem Texteditor und fügen Sie Folgendes am unteren Rand Ihres Bodys hinzu – direkt vor Ihrem schließenden `</body>`-Tag:
 
    ```html
    <script>
@@ -198,9 +216,9 @@ JavaScript wird Ihrer HTML-Seite in ähnlicher Weise wie CSS hinzugefügt. Währ
    </script>
    ```
 
-   Beachten Sie, dass der Code in Ihren Webdokumenten im Allgemeinen in der Reihenfolge geladen und ausgeführt wird, in der er auf der Seite erscheint. Indem wir das JavaScript am Ende platzieren, stellen wir sicher, dass alle HTML-Elemente geladen sind. (Siehe auch [Script-Ladestrategien](#script-ladestrategien) unten.)
+   Beachten Sie, dass der Code in Ihren Webdokumenten in der Regel in der Reihenfolge geladen und ausgeführt wird, in der er auf der Seite erscheint. Durch das Platzieren des JavaScripts am unteren Rand stellen wir sicher, dass alle HTML-Elemente geladen sind. (Siehe auch [Ladestrategien für Skripte](#ladestrategien_für_skripte) unten.)
 
-4. Jetzt werden wir etwas JavaScript in unser {{htmlelement("script")}}-Element hinzufügen, um die Seite interessanter zu machen — fügen Sie den folgenden Code direkt unter der "// JavaScript goes here"-Zeile hinzu:
+4. Nun fügen wir etwas JavaScript in unser {{htmlelement("script")}}-Element ein, um die Seite interessanter zu machen – fügen Sie den folgenden Code direkt unter der Zeile "// JavaScript goes here" hinzu:
 
    ```js
    function createParagraph() {
@@ -216,23 +234,23 @@ JavaScript wird Ihrer HTML-Seite in ähnlicher Weise wie CSS hinzugefügt. Währ
    }
    ```
 
-5. Speichern Sie Ihre Datei und aktualisieren Sie den Browser — jetzt sollten Sie sehen, dass beim Klicken auf den Button ein neuer Absatz erzeugt und darunter platziert wird.
+5. Speichern Sie Ihre Datei und aktualisieren Sie den Browser – jetzt sollten Sie sehen, dass beim Klicken auf den Button ein neuer Absatz erzeugt und darunter platziert wird.
 
 > [!NOTE]
-> Wenn Ihr Beispiel nicht zu funktionieren scheint, gehen Sie die Schritte erneut durch und überprüfen Sie, ob Sie alles richtig gemacht haben.
-> Haben Sie Ihre lokale Kopie des Startcodes als `.html`-Datei gespeichert?
-> Haben Sie Ihr {{htmlelement("script")}}-Element direkt vor dem schließenden `</body>`-Tag hinzugefügt?
-> Haben Sie das JavaScript genau so eingegeben, wie gezeigt? **JavaScript ist case-sensitiv und sehr pingelig, daher müssen Sie die Syntax genau so eingeben, wie angezeigt, sonst funktioniert es möglicherweise nicht.**
+> Wenn Ihr Beispiel nicht zu funktionieren scheint, gehen Sie die Schritte noch einmal durch und überprüfen Sie, ob Sie alles richtig gemacht haben.
+> Haben Sie Ihre lokale Kopie des Ausgangscodes als `.html`-Datei gespeichert?
+> Haben Sie Ihr {{htmlelement("script")}}-Element direkt vor dem `</body>`-Tag hinzugefügt?
+> Haben Sie das JavaScript genau so eingegeben, wie es gezeigt wird? **JavaScript ist groß- und kleinschreibungssensitiv und sehr pingelig, daher müssen Sie die Syntax genau so eingeben, wie sie gezeigt wird, ansonsten funktioniert es möglicherweise nicht.**
 
 > [!NOTE]
-> Sie können diese Version auf GitHub als [apply-javascript-internal.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/apply-javascript-internal.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/what-is-js/apply-javascript-internal.html)) sehen.
+> Sie können diese Version auf GitHub sehen als [apply-javascript-internal.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/apply-javascript-internal.html) ([sehen Sie es auch live](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/what-is-js/apply-javascript-internal.html)).
 
 ### Externes JavaScript
 
-Dies funktioniert großartig, aber was ist, wenn wir unser JavaScript in einer externen Datei platzieren möchten? Lassen Sie uns dies jetzt erkunden.
+Das funktioniert großartig, aber was tun, wenn wir unser JavaScript in eine externe Datei legen wollen? Lassen Sie uns das jetzt erkunden.
 
-1. Erstellen Sie zuerst eine neue Datei im gleichen Verzeichnis wie Ihre Muster-HTML-Datei. Nennen Sie sie `script.js` — stellen Sie sicher, dass sie diese .js Dateierweiterung hat, da dies als JavaScript erkannt wird.
-2. Entfernen Sie Ihr aktuelles {{htmlelement("script")}}-Element am Ende des `</body>` und fügen Sie das Folgende direkt vor dem schließenden `</head>`-Tag hinzu (so kann der Browser die Datei schneller laden, als wenn sie am Ende ist):
+1. Erstellen Sie zuerst eine neue Datei im gleichen Verzeichnis wie Ihre Beispiel-HTML-Datei. Nennen Sie sie `script.js` – stellen Sie sicher, dass sie diese .js-Dateinamenerweiterung hat, da dies als JavaScript erkannt wird.
+2. Entfernen Sie Ihr aktuelles {{htmlelement("script")}}-Element am unteren Rand des `</body>` und fügen Sie das folgende direkt vor dem schließenden `</head>`-Tag hinzu (damit der Browser die Datei früher laden kann, als wenn sie am unteren Rand steht):
 
    ```html
    <script type="module" src="script.js"></script>
@@ -254,17 +272,20 @@ Dies funktioniert großartig, aber was ist, wenn wir unser JavaScript in einer e
    }
    ```
 
-4. Speichern und aktualisieren Sie Ihren Browser. Sie werden feststellen, dass das Klicken des Buttons keine Wirkung hat und wenn Sie die Konsole Ihres Browsers überprüfen, sehen Sie einen Fehler ähnlich `Cross-origin request blocked`. Das liegt daran, dass wie viele externe Ressourcen, JavaScript-Module vom [gleichen Ursprung](/de/docs/Web/Security/Same-origin_policy) wie das HTML geladen werden müssen und `file://` URLs qualifizieren sich nicht. Es gibt zwei Lösungen, um dieses Problem zu beheben:
-   - Unsere empfohlene Lösung ist es, [einen lokalen Testserver einzurichten](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server). Mit dem laufenden Serverprogramm, das die Dateien `apply-javascript-external.html` und `script.js` auf Port `8000` bereitstellt, öffnen Sie Ihren Browser und gehen zu `http://localhost:8000`.
-   - Wenn Sie keinen lokalen Server ausführen können, können Sie auch `<script defer src="script.js"></script>` anstelle von `<script type="module" src="script.js"></script>` verwenden. Siehe [Script-Ladestrategien](#script-ladestrategien) unten für weitere Informationen. Beachten Sie jedoch, dass Funktionen, die wir in anderen Teilen des Tutorials verwenden, möglicherweise dennoch einen lokalen HTTP-Server erfordern.
-5. Jetzt funktioniert die Website genauso wie zuvor, aber jetzt haben wir unser JavaScript in einer externen Datei. Das ist im Allgemeinen eine gute Sache in Bezug auf die Organisation Ihres Codes und macht ihn wiederverwendbar über mehrere HTML-Dateien hinweg. Außerdem ist das HTML leichter zu lesen, ohne große Teile von Skripten darin zu haben.
+4. Speichern Sie und aktualisieren Sie Ihren Browser. Sie werden feststellen, dass das Klicken auf den Button keine Wirkung hat, und wenn Sie die Konsole Ihres Browsers überprüfen, sehen Sie einen Fehler wie `Cross-origin request blocked`. Das liegt daran, dass wie viele externe Ressourcen auch JavaScript-Module von demselben [Ursprung](/de/docs/Web/Security/Same-origin_policy) wie das HTML geladen werden müssen, und `file://`-URLs qualifizieren sich nicht. Es gibt zwei Lösungen, um dieses Problem zu beheben:
+   - Unsere empfohlene Lösung ist es, [einen lokalen Testserver einzurichten](/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server). Mit dem laufenden Serverprogramm, das die `apply-javascript-external.html` und `script.js` Dateien auf Port `8000` bereitstellt, öffnen Sie Ihren Browser und gehen Sie zu `http://localhost:8000`.
+   - Wenn Sie keinen lokalen Server ausführen können, können Sie auch `<script defer src="script.js"></script>` anstelle von `<script type="module" src="script.js"></script>` verwenden. Siehe [Ladestrategien für Skripte](#ladestrategien_für_skripte) unten für weitere Informationen. Beachten Sie jedoch, dass Funktionen, die wir in anderen Teilen des Tutorials verwenden, möglicherweise sowieso einen lokalen HTTP-Server erfordern.
+5. Jetzt funktioniert die Website genauso wie zuvor, aber jetzt haben wir unser JavaScript in einer externen Datei.
+   Das ist in der Regel gut, um Ihren Code zu organisieren und über mehrere HTML-Dateien hinweg wiederverwendbar zu machen.
+   Außerdem ist das HTML leichter zu lesen, wenn keine großen Codeblöcke darin enthalten sind.
 
 > [!NOTE]
-> Sie können diese Version auf GitHub als [apply-javascript-external.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/apply-javascript-external.html) und [script.js](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/script.js) ([sehen Sie es auch live](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/what-is-js/apply-javascript-external.html)) sehen.
+> Sie können diese Version auf GitHub sehen als [apply-javascript-external.html](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/apply-javascript-external.html) und [script.js](https://github.com/mdn/learning-area/blob/main/javascript/introduction-to-js-1/what-is-js/script.js) ([sehen Sie es auch live](https://mdn.github.io/learning-area/javascript/introduction-to-js-1/what-is-js/apply-javascript-external.html)).
 
 ### Inline-JavaScript-Handler
 
-Beachten Sie, dass Sie manchmal Teile von tatsächlichem JavaScript-Code innerhalb von HTML finden. Es könnte so aussehen:
+Beachten Sie, dass Sie manchmal auf tatsächliche JavaScript-Codebrocken stoßen, die im HTML enthalten sind.
+Es könnte so aussehen:
 
 ```js example-bad
 function createParagraph() {
@@ -284,11 +305,14 @@ Sie können diese Version unseres Demos unten ausprobieren.
 
 Dieses Demo hat genau die gleiche Funktionalität wie in den vorherigen beiden Abschnitten, außer dass das {{htmlelement("button")}}-Element einen Inline-`onclick`-Handler enthält, um die Funktion auszuführen, wenn der Button gedrückt wird.
 
-**Bitte machen Sie das jedoch nicht.** Es ist schlechte Praxis, Ihr HTML mit JavaScript zu verunreinigen, und es ist ineffizient — Sie müssten das `onclick="createParagraph()"`-Attribut auf jedem Button einschließen, auf den JavaScript angewendet werden soll.
+**Bitte tun Sie das jedoch nicht.** Es ist schlechtes Praktizieren, Ihr HTML mit JavaScript zu verschmutzen, und es ist ineffizient – Sie müssten das `onclick="createParagraph()"`-Attribut bei jedem Button hinzufügen, auf den das JavaScript angewendet werden soll.
 
-### Verwendung von addEventListener stattdessen
+### Verwendung von addEventListener anstelle von Inline-Handlern
 
-Anstatt JavaScript in Ihr HTML einzuschließen, verwenden Sie einen reinen JavaScript-Konstrukt. Die `querySelectorAll()`-Funktion ermöglicht Ihnen, alle Buttons auf einer Seite auszuwählen. Sie können dann durch die Buttons iterieren und jedem einen Handler mit `addEventListener()` zuweisen. Der Code dafür ist unten gezeigt:
+Anstelle von JavaScript in Ihrem HTML zu enthalten, verwenden Sie einen rein JavaScript-Konstrukt.
+Die Funktion `querySelectorAll()` ermöglicht es Ihnen, alle Buttons auf einer Seite auszuwählen.
+Sie können dann durch die Buttons schleifen, einen Handler für jeden über `addEventListener()` zuzuweisen.
+Der Code dafür wird unten gezeigt:
 
 ```js
 const buttons = document.querySelectorAll("button");
@@ -298,29 +322,35 @@ for (const button of buttons) {
 }
 ```
 
-Das könnte etwas länger als das `onclick`-Attribut sein, aber es wird für alle Buttons funktionieren — egal wie viele auf der Seite sind, noch wie viele hinzugefügt oder entfernt werden. Das JavaScript muss nicht geändert werden.
+Dies mag ein wenig länger sein als das `onclick`-Attribut, aber es wird für alle Buttons funktionieren – egal wie viele sich auf der Seite befinden, noch wie viele hinzugefügt oder entfernt werden.
+Das JavaScript muss nicht geändert werden.
 
 > [!NOTE]
-> Versuchen Sie, Ihre Version von `apply-javascript.html` zu bearbeiten und ein paar weitere Buttons in die Datei hinzuzufügen. Wenn Sie neu laden, sollten Sie feststellen, dass jeder der Buttons bei Klick einen Absatz erstellt. Genial, oder?
+> Versuchen Sie, Ihre Version von `apply-javascript.html` zu bearbeiten und einige weitere Buttons in die Datei einzufügen.
+> Wenn Sie neu laden, sollten Sie feststellen, dass alle Buttons beim Klicken einen Absatz erstellen.
+> Ziemlich cool, oder?
 
-### Script-Ladestrategien
+### Ladestrategien für Skripte
 
-Alle HTML auf einer Seite wird in der Reihenfolge geladen, in der es erscheint. Wenn Sie JavaScript verwenden, um Elemente auf der Seite (oder genauer gesagt das [Document Object Model](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting#the_document_object_model)) zu manipulieren, funktioniert Ihr Code nicht, falls das JavaScript geladen und geparst wird, bevor das HTML, mit dem Sie etwas tun wollen.
+Alle HTML-Inhalte auf einer Seite werden in der Reihenfolge geladen, in der sie erscheinen.
+Wenn Sie JavaScript verwenden, um Elemente auf der Seite zu manipulieren (oder genauer gesagt, das [Document Object Model](/de/docs/Learn_web_development/Core/Scripting/DOM_scripting#the_document_object_model)), funktioniert Ihr Code nicht, wenn das JavaScript geladen und geparsed wird, bevor das HTML, auf das Sie versuchen, etwas anzuwenden.
 
-Es gibt einige verschiedene Strategien, um sicherzustellen, dass Ihr JavaScript erst nach dem Parsen des HTML ausgeführt wird:
+Es gibt einige Strategien, um sicherzustellen, dass Ihr JavaScript erst nach dem Parsen des HTML ausgeführt wird:
 
-- Im oben gezeigten internen JavaScript-Beispiel wird das Skriptelement am Ende des Dokumentskörpers platziert und daher erst ausgeführt, nachdem der Rest des HTML-Körpers geparst wurde.
-- Im oben gezeigten externen JavaScript-Beispiel wird das Skriptelement im Kopf des Dokuments platziert, bevor der HTML-Körper geparst wird. Aber da wir `<script type="module">` verwenden, wird der Code als [Modul](/de/docs/Web/JavaScript/Guide/Modules) behandelt und der Browser wartet, bis das gesamte HTML verarbeitet ist, bevor JavaScript-Module ausgeführt werden. (Sie könnten externe Skripte auch am Ende des Körpers platzieren. Aber wenn es viel HTML gibt und das Netzwerk langsam ist, kann es viel Zeit in Anspruch nehmen, bevor der Browser überhaupt anfangen kann, das Skript zu laden und zu analysieren, weshalb das Platzieren externer Skripte im Kopf in der Regel besser ist.)
-- Wenn Sie immer noch nicht-modulierte Skripte im Dokumentenkopf verwenden möchten, die die gesamte Seitendarstellung blockieren können und Fehler verursachen könnten, weil sie vor dem Parsen des HTMLs ausgeführt werden:
+- Im obigen Beispiel für internes JavaScript wird das Skript-Element am unteren Rand des Dokumentenkörpers platziert und daher nur nach dem Rest des HTML-Körpers geparsed.
+- Im obigen Beispiel für externes JavaScript wird das Skript-Element im Kopf des Dokuments vor dem Parsen des HTML-Körpers platziert. Aber da wir `<script type="module">` verwenden, wird der Code als [Modul](/de/docs/Web/JavaScript/Guide/Modules) behandelt und der Browser wartet darauf, dass das gesamte HTML verarbeitet wird, bevor JavaScript-Module ausgeführt werden. (Sie könnten auch externe Skripte am unteren Rand des Körpers platzieren. Aber wenn viel HTML vorhanden ist und das Netzwerk langsam ist, kann es lange dauern, bis der Browser das Skript überhaupt abrufen und laden kann, daher ist es in der Regel besser, externe Skripte im Kopf zu platzieren.)
+- Wenn Sie weiterhin nicht-modulare Skripte im Dokumentkopf verwenden möchten, die die gesamte Seite blockieren und Fehler verursachen könnten, weil sie vor dem Parsen des HTML ausgeführt werden:
 
-  - Für externe Skripte sollten Sie das `defer` (oder wenn Sie nicht auf fertig geparstes HTML angewiesen sind, das `async`) Attribut auf das {{htmlelement("script")}}-Element setzen.
-  - Für interne Skripte sollten Sie den Code in ein [`DOMContentLoaded` Ereignislistener](/de/docs/Web/API/Document/DOMContentLoaded_event) einwickeln.
+  - Für externe Skripte sollten Sie das `defer` (oder, wenn Sie das HTML nicht benötigen, `async`) Attribut auf dem {{htmlelement("script")}}-Element hinzufügen.
+  - Für interne Skripte sollten Sie den Code in einem [`DOMContentLoaded` Event-Listener](/de/docs/Web/API/Document/DOMContentLoaded_event) verpacken.
 
-  Dies geht über den Rahmen des Tutorials an diesem Punkt hinaus, aber es sei denn, Sie müssen sehr alte Browser unterstützen, müssen Sie dies nicht tun und können stattdessen einfach `<script type="module">` verwenden.
+  Dies liegt außerhalb des Umfangs des Tutorials an diesem Punkt, aber sofern Sie keine sehr alten Browser unterstützen müssen, müssen Sie dies nicht tun und können stattdessen einfach `<script type="module">` verwenden.
 
 ## Kommentare
 
-Wie bei HTML und CSS ist es möglich, Kommentare in Ihren JavaScript-Code zu schreiben, die vom Browser ignoriert werden und dazu dienen, Ihren Kollegen Anweisungen darüber zu geben, wie der Code funktioniert (und Ihnen, wenn Sie sechs Monate später zurückkehren und sich nicht mehr erinnern, was Sie gemacht haben). Kommentare sind sehr nützlich und Sie sollten sie oft verwenden, besonders für größere Anwendungen. Es gibt zwei Typen:
+Wie bei HTML und CSS ist es möglich, Kommentare in Ihren JavaScript-Code zu schreiben, die vom Browser ignoriert werden und dazu gedacht sind, Ihren Mitentwicklern Anweisungen darüber zu geben, wie der Code funktioniert (und Ihnen, wenn Sie nach sechs Monaten zu Ihrem Code zurückkehren und sich nicht erinnern können, was Sie getan haben).
+Kommentare sind sehr nützlich, und Sie sollten sie oft verwenden, insbesondere für größere Anwendungen.
+Es gibt zwei Typen:
 
 - Einzeilige Kommentare werden nach einem doppelten Schrägstrich (`//`) geschrieben, z.B.
 
@@ -337,7 +367,7 @@ Wie bei HTML und CSS ist es möglich, Kommentare in Ihren JavaScript-Code zu sch
   */
   ```
 
-Zum Beispiel könnten wir das letzte JavaScript-Demo mit Kommentaren wie folgt annotieren:
+Also könnten wir zum Beispiel die JavaScript unseres letzten Demos mit Kommentaren wie folgt annotieren:
 
 ```js
 // Function: creates a new paragraph and appends it to the bottom of the HTML body.
@@ -363,12 +393,15 @@ for (const button of buttons) {
 ```
 
 > [!NOTE]
-> Im Allgemeinen sind mehr Kommentare besser als weniger, aber Sie sollten vorsichtig sein, wenn Sie feststellen, dass Sie viele Kommentare hinzufügen, um zu erklären, was Variablen sind (Ihre Variablennamen sollten möglicherweise intuitiver sein) oder sehr einfache Operationen zu erklären (vielleicht ist Ihr Code überkompliziert).
+> Im Allgemeinen sind mehr Kommentare in der Regel besser als weniger, aber Sie sollten vorsichtig sein, wenn Sie feststellen, dass Sie viele Kommentare hinzufügen, um zu erklären, was Variablen sind (vielleicht sollten Ihre Variablennamen intuitiver sein) oder um sehr einfache Operationen zu erklären (vielleicht ist Ihr Code übermäßig kompliziert).
 
 ## Zusammenfassung
 
-Da haben Sie es, Ihr erster Schritt in die Welt von JavaScript. Wir haben mit Theorie begonnen, um Sie daran zu gewöhnen, warum Sie JavaScript verwenden würden und welche Art von Dingen Sie damit tun können. Unterwegs haben Sie einige Codebeispiele gesehen und gelernt, wie JavaScript in den Rest des Codes auf Ihrer Website passt, unter anderem.
+Da haben Sie es, Ihren ersten Schritt in die Welt von JavaScript.
+Wir haben nur mit Theorie begonnen, um Sie an den Gedanken zu gewöhnen, warum Sie JavaScript verwenden würden und was für Dinge Sie damit tun können.
+Unterwegs haben Sie ein paar Codebeispiele gesehen und erfahren, wie JavaScript mit dem Rest des Codes auf Ihrer Website zusammenpasst, unter anderem.
 
-JavaScript mag jetzt etwas überwältigend erscheinen, aber keine Sorge — in diesem Kurs führen wir Sie in einfachen Schritten durch, die in Zukunft Sinn machen werden. Im nächsten Artikel werden wir direkt ins Praktische einsteigen und Sie dazu bringen, sofort loszulegen und Ihre eigenen JavaScript-Beispiele zu erstellen.
+JavaScript mag jetzt ein wenig einschüchternd erscheinen, aber keine Sorge – in diesem Kurs führen wir Sie in einfachen Schritten durch, die in Zukunft Sinn ergeben werden.
+Im nächsten Artikel werden wir direkt in die Praxis eintauchen und Sie dazu bringen, Ihre eigenen JavaScript-Beispiele zu erstellen.
 
 {{NextMenu("Learn_web_development/Core/Scripting/A_first_splash", "Learn_web_development/Core/Scripting")}}
