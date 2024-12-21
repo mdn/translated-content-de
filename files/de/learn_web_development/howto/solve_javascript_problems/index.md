@@ -17,20 +17,20 @@ Wenn Ihr Code nicht funktioniert und/oder der Browser meldet, dass etwas undefin
 
 Einige häufig verwendete integrierte Browserfunktionen, die Probleme verursachen, sind:
 
-| Richtig                     | Falsch                     |
-| --------------------------- | -------------------------- |
-| `getElementsByTagName()`    | `getElementByTagName()`    |
-| `getElementsByName()`       | `getElementByName()`       |
-| `getElementsByClassName()`  | `getElementByClassName()`  |
-| `getElementById()`          | `getElementsById()`        |
+| Richtig                    | Falsch                    |
+| -------------------------- | ------------------------- |
+| `getElementsByTagName()`   | `getElementByTagName()`   |
+| `getElementsByName()`      | `getElementByName()`      |
+| `getElementsByClassName()` | `getElementByClassName()` |
+| `getElementById()`         | `getElementsById()`       |
 
 ### Position des Semikolons
 
 Stellen Sie sicher, dass Sie keine Semikolons an falschen Stellen setzen. Zum Beispiel:
 
-| Richtig                      | Falsch                        |
-| ---------------------------- | ----------------------------- |
-| `elem.style.color = 'red';`  | `elem.style.color = 'red;'`   |
+| Richtig                     | Falsch                      |
+| --------------------------- | --------------------------- |
+| `elem.style.color = 'red';` | `elem.style.color = 'red;'` |
 
 ### Funktionen
 

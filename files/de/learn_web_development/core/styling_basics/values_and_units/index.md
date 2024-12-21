@@ -131,15 +131,15 @@ Der numerische Typ, dem Sie am häufigsten begegnen werden, ist {{cssxref("lengt
 
 Die folgenden sind alle **absolute** Längeneinheiten — sie sind nicht relativ zu etwas anderem und werden allgemein als immer gleich groß betrachtet.
 
-| Einheit | Name               | Entspricht              |
-| ---- | ----------------- | -------------------- |
-| `cm` | Zentimeter        | 1cm = 37.8px = 25.2/64in |
-| `mm` | Millimeter        | 1mm = 1/10 eines 1cm   |
-| `Q`  | Viertelmillimeter | 1Q = 1/40 eines 1cm   |
-| `in` | Zoll              | 1in = 2.54cm = 96px    |
-| `pc` | Picas             | 1pc = 1/6 eines 1in   |
-| `pt` | Punkt             | 1pt = 1/72 eines 1in  |
-| `px` | Pixel             | 1px = 1/96 eines 1in  |
+| Einheit | Name              | Entspricht               |
+| ------- | ----------------- | ------------------------ |
+| `cm`    | Zentimeter        | 1cm = 37.8px = 25.2/64in |
+| `mm`    | Millimeter        | 1mm = 1/10 eines 1cm     |
+| `Q`     | Viertelmillimeter | 1Q = 1/40 eines 1cm      |
+| `in`    | Zoll              | 1in = 2.54cm = 96px      |
+| `pc`    | Picas             | 1pc = 1/6 eines 1in      |
+| `pt`    | Punkt             | 1pt = 1/72 eines 1in     |
+| `px`    | Pixel             | 1px = 1/96 eines 1in     |
 
 Die meisten dieser Einheiten sind nützlicher, wenn sie für den Druck verwendet werden, anstatt für die Bildschirmausgabe. Zum Beispiel verwenden wir typischerweise nicht `cm` (Zentimeter) auf dem Bildschirm. Der einzige Wert, den Sie häufig verwenden werden, ist `px` (Pixel).
 

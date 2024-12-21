@@ -190,7 +190,7 @@ Ein Antwort-Body ist in den meisten Nachrichten enthalten, wenn auf einen Client
 Antwort-Bodies können Folgendes sein:
 
 - Single-Resource Bodies, die durch die zwei Header {{HTTPHeader("Content-Type")}} und {{HTTPHeader("Content-Length")}} definiert sind, oder von unbekannter Länge und in Teile kodiert sind mit {{HTTPHeader("Transfer-Encoding")}}, die auf `chunked` gesetzt ist.
-- [Mehrere-Ressourcen-Bodies](/de/docs/Web/HTTP/MIME_types#multipartform-data), die aus einem Body bestehen, der mehrere Teile enthält, wobei jeder ein anderes Informationsstück enthält. Multipart-Bodies sind typischerweise mit [HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms) verbunden, können aber auch in Antwort auf [Range-Anfragen](/de/docs/Web/HTTP/Range_requests) gesendet werden. 
+- [Mehrere-Ressourcen-Bodies](/de/docs/Web/HTTP/MIME_types#multipartform-data), die aus einem Body bestehen, der mehrere Teile enthält, wobei jeder ein anderes Informationsstück enthält. Multipart-Bodies sind typischerweise mit [HTML-Formularen](/de/docs/Learn_web_development/Extensions/Forms) verbunden, können aber auch in Antwort auf [Range-Anfragen](/de/docs/Web/HTTP/Range_requests) gesendet werden.
 
 Antworten mit einem Statuscode, der die Anfrage beantwortet, ohne dass Nachrichteninhalt enthalten sein muss, wie {{HTTPStatus("201", "201 Created")}} oder {{HTTPStatus("204", "204 No Content")}}, haben keinen Body.
 

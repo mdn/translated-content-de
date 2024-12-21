@@ -100,7 +100,7 @@ Dies erstellt zwei Objekte, beide Instanzen der `Professor`-Klasse.
 
 Angenommen, wir möchten in unserer Schule auch Studierende darstellen. Im Gegensatz zu Professoren können Studierende keine Papiere bewerten, lehren kein bestimmtes Fach und gehören einem bestimmten Jahr an.
 
-Jedoch haben Studierende einen Namen und wollen sich möglicherweise auch vorstellen, also könnten wir die Definition einer Student*innenklasse folgendermaßen schreiben:
+Jedoch haben Studierende einen Namen und wollen sich möglicherweise auch vorstellen, also könnten wir die Definition einer Student\*innenklasse folgendermaßen schreiben:
 
 ```plain
 class Student

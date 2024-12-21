@@ -210,7 +210,7 @@ sidebar:
 
 Würden die Links zu diesen Seiten in eine Kindlistenstruktur wie diese gruppiert werden:
 
-- CORS-*
+- CORS-\*
   - CORS
   - CORS-safelisted request header
   - CORS-safelisted response header

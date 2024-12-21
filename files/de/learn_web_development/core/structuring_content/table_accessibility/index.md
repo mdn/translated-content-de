@@ -9,7 +9,7 @@ l10n:
 
 {{PreviousMenuNext("Learn_web_development/Core/Structuring_content/HTML_table_basics", "Learn_web_development/Core/Structuring_content/Planet_data_table", "Learn_web_development/Core/Structuring_content")}}
 
-Im vorherigen Artikel haben wir uns eines der wichtigsten Merkmale angesehen, um HTML-Tabellen für sehbehinderte Nutzer*innen zugänglich zu machen — das {{htmlelement("th")}}-Element. In diesem Artikel setzen wir diesen Weg fort und betrachten weitere Merkmale der HTML-Tabellenzugänglichkeit, wie Beschriftungen/Zusammenfassungen, das Gruppieren Ihrer Zeilen in Kopf-, Körper- und Fußbereiche der Tabelle sowie das Festlegen des Geltungsbereichs von Spalten und Zeilen.
+Im vorherigen Artikel haben wir uns eines der wichtigsten Merkmale angesehen, um HTML-Tabellen für sehbehinderte Nutzer\*innen zugänglich zu machen — das {{htmlelement("th")}}-Element. In diesem Artikel setzen wir diesen Weg fort und betrachten weitere Merkmale der HTML-Tabellenzugänglichkeit, wie Beschriftungen/Zusammenfassungen, das Gruppieren Ihrer Zeilen in Kopf-, Körper- und Fußbereiche der Tabelle sowie das Festlegen des Geltungsbereichs von Spalten und Zeilen.
 
 <table>
   <tbody>
@@ -36,7 +36,7 @@ Im vorherigen Artikel haben wir uns eines der wichtigsten Merkmale angesehen, um
   </tbody>
 </table>
 
-## Zusammenfassung: Tabellen für sehbehinderte Nutzer*innen
+## Zusammenfassung: Tabellen für sehbehinderte Nutzer\*innen
 
 Lassen Sie uns kurz zusammenfassen, wie wir Datentabellen verwenden. Eine Tabelle kann ein nützliches Werkzeug sein, um schnellen Zugriff auf Daten zu erhalten und verschiedene Werte nachzuschlagen. Zum Beispiel genügt ein kurzer Blick auf die untenstehende Tabelle, um herauszufinden, wie viele Ringe im August 2016 in Gent verkauft wurden. Um ihre Informationen zu verstehen, stellen wir visuelle Assoziationen zwischen den Daten in dieser Tabelle und deren Spalten- und/oder Zeilenüberschriften her.
 
@@ -129,12 +129,12 @@ Sie können Ihrer Tabelle eine Beschriftung geben, indem Sie sie in ein {{htmlel
 </table>
 ```
 
-Wie Sie aus dem kurzen obigen Beispiel ersehen können, soll die Beschriftung eine Beschreibung des Tabelleninhalts enthalten. Dies ist nützlich für alle Leser*innen, die schnell erkennen möchten, ob die Tabelle für sie nützlich ist, während sie die Seite scannen, insbesondere jedoch für blinde Benutzer*innen. Anstatt von einem Screenreader viele Zelleninhalte vorlesen zu lassen, um herauszufinden, worum es in der Tabelle geht, können sich die Benutzer*innen auf eine Beschriftung verlassen und dann entscheiden, ob sie die Tabelle im Detail lesen möchten.
+Wie Sie aus dem kurzen obigen Beispiel ersehen können, soll die Beschriftung eine Beschreibung des Tabelleninhalts enthalten. Dies ist nützlich für alle Leser*innen, die schnell erkennen möchten, ob die Tabelle für sie nützlich ist, während sie die Seite scannen, insbesondere jedoch für blinde Benutzer*innen. Anstatt von einem Screenreader viele Zelleninhalte vorlesen zu lassen, um herauszufinden, worum es in der Tabelle geht, können sich die Benutzer\*innen auf eine Beschriftung verlassen und dann entscheiden, ob sie die Tabelle im Detail lesen möchten.
 
 Eine Beschriftung wird direkt unterhalb des `<table>`-Tags platziert.
 
 > [!NOTE]
-> Das [`summary`](/de/docs/Web/HTML/Element/table#summary)-Attribut kann auch im `<table>`-Element verwendet werden, um eine Beschreibung bereitzustellen — dies wird ebenfalls von Screenreadern vorgelesen. Wir empfehlen jedoch, stattdessen das `<caption>`-Element zu verwenden, da `summary` veraltet ist und von sehenden Benutzer*innen nicht gelesen werden kann (es erscheint nicht auf der Seite).
+> Das [`summary`](/de/docs/Web/HTML/Element/table#summary)-Attribut kann auch im `<table>`-Element verwendet werden, um eine Beschreibung bereitzustellen — dies wird ebenfalls von Screenreadern vorgelesen. Wir empfehlen jedoch, stattdessen das `<caption>`-Element zu verwenden, da `summary` veraltet ist und von sehenden Benutzer\*innen nicht gelesen werden kann (es erscheint nicht auf der Seite).
 
 ### Aktives Lernen: Hinzufügen einer Beschriftung
 
@@ -151,7 +151,7 @@ Lassen Sie uns dies ausprobieren und ein Beispiel erneut besuchen, das wir im vo
 
 Wenn Ihre Tabellen etwas komplexer in der Struktur werden, ist es nützlich, ihnen mehr strukturelle Definition zu geben. Eine klare Möglichkeit, dies zu tun, besteht darin, {{htmlelement("thead")}}, {{htmlelement("tbody")}} und {{htmlelement("tfoot")}} zu verwenden, die es Ihnen ermöglichen, einen Kopf-, Korpus- und Fußbereich für die Tabelle zu definieren.
 
-Diese Elemente machen die Tabelle nicht unbedingt für Benutzer*innen von Screenreadern zugänglicher. Sie führen selbst nicht zu visuellen Verbesserungen, sind jedoch sehr nützlich zum Anwenden von Gestaltungs- und Layoutverbesserungen über CSS, die die Zugänglichkeit verbessern können. Um Ihnen einige interessante Beispiele zu geben: Im Fall einer langen Tabelle könnten Sie den Tabellenkopf und -fuß auf jeder gedruckten Seite wiederholen und den Körper der Tabelle auf einer Seite anzeigen und die Inhalte durch Scrollen zugänglich machen.
+Diese Elemente machen die Tabelle nicht unbedingt für Benutzer\*innen von Screenreadern zugänglicher. Sie führen selbst nicht zu visuellen Verbesserungen, sind jedoch sehr nützlich zum Anwenden von Gestaltungs- und Layoutverbesserungen über CSS, die die Zugänglichkeit verbessern können. Um Ihnen einige interessante Beispiele zu geben: Im Fall einer langen Tabelle könnten Sie den Tabellenkopf und -fuß auf jeder gedruckten Seite wiederholen und den Körper der Tabelle auf einer Seite anzeigen und die Inhalte durch Scrollen zugänglich machen.
 
 Um sie zu verwenden, sollten sie in folgender Reihenfolge aufgenommen werden:
 

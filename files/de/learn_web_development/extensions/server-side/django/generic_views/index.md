@@ -331,7 +331,7 @@ Die Hauptteile der Syntax, die Sie wissen müssen, um die Musterübereinstimmung
     <tr>
       <td>[ ]</td>
       <td>
-        Übereinstimmung mit einem Zeichen in der Menge. Zum Beispiel, [abc] stimmt mit 
+        Übereinstimmung mit einem Zeichen in der Menge. Zum Beispiel, [abc] stimmt mit
         'a' oder 'b' oder 'c'. [-\w] stimmt mit dem '-' Zeichen oder einem Wortzeichen überein.
       </td>
     </tr>

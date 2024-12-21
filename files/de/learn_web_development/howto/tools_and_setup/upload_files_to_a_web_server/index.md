@@ -14,11 +14,11 @@ Dieser Artikel zeigt Ihnen, wie Sie Ihre Website mit Dateiübertragungstools onl
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Sie müssen wissen, 
+        Sie müssen wissen,
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_web_server"
           >was ein Webserver ist</a
         >
-        und 
+        und
         <a href="/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_domain_name"
           >wie Domainnamen funktionieren</a
         >. Sie müssen auch wissen, wie Sie
@@ -26,7 +26,7 @@ Dieser Artikel zeigt Ihnen, wie Sie Ihre Website mit Dateiübertragungstools onl
           href="/de/docs/Learn_web_development/Howto/Tools_and_setup/set_up_a_local_testing_server"
           >eine grundlegende Umgebung einrichten</a
         >
-        und wie Sie 
+        und wie Sie
         <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
           >eine einfache Webseite schreiben können</a
         >.

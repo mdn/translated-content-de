@@ -176,7 +176,7 @@ Beachten Sie, dass Variablen Werte mit unterschiedlichen [Datentypen](/de/docs/W
     <tr>
       <th scope="row">{{Glossary("Array", "Array")}}</th>
       <td>
-        Dies ist eine Struktur, die es Ihnen ermöglicht, mehrere Werte in einer 
+        Dies ist eine Struktur, die es Ihnen ermöglicht, mehrere Werte in einer
         einzigen Referenz zu speichern.
       </td>
       <td>
@@ -410,7 +410,7 @@ Im obigen Code haben Sie eine Referenz zu Ihrem {{htmlelement("img")}} Element i
 
 1. Sie ermittelt den Wert des `src` Attributs des Bildes.
 2. Sie verwendet eine Bedingung, um zu überprüfen, ob der `src` Wert dem Pfad des ursprünglichen Bildes entspricht:
-   
+
    1. Wenn ja, ändert der Code den `src` Wert in den Pfad des zweiten Bildes und zwingt das andere Bild dazu, im {{htmlelement("img")}} Element geladen zu werden.
    2. Wenn nein (was bedeutet, dass es sich bereits geändert haben muss), wechselt der `src` Wert zurück zum ursprünglichen Bildpfad.
 
