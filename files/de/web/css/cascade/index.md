@@ -51,16 +51,16 @@ Der Kaskadenalgorithmus bestimmt, wie für jede Eigenschaft für jedes Dokumenel
 
 2. **Herkunft und Wichtigkeit**: Dann sortiert er diese Regeln nach ihrer Wichtigkeit, das heißt, ob sie von `!important` gefolgt sind oder nicht, und nach ihrer Herkunft. Wenn man die Schichten für den Moment ignoriert, ist die Kaskadenreihenfolge wie folgt:
 
-   | Reihenfolge (niedrig bis hoch) | Herkunft                   | Wichtigkeit |
-   | ------------------------------- | -------------------------- | ----------- |
-   | 1                               | Benutzeragent (Browser)    | normal      |
-   | 2                               | Benutzer                  | normal      |
-   | 3                               | Autor (Entwickler)         | normal      |
-   | 4                               | CSS @keyframe-Animationen  |             |
-   | 5                               | Autor (Entwickler)         | `!important`|
-   | 6                               | Benutzer                  | `!important`|
-   | 7                               | Benutzeragent (Browser)    | `!important`|
-   | 8                               | CSS-Übergänge             |             |
+   | Reihenfolge (niedrig bis hoch) | Herkunft                  | Wichtigkeit  |
+   | ------------------------------ | ------------------------- | ------------ |
+   | 1                              | Benutzeragent (Browser)   | normal       |
+   | 2                              | Benutzer                  | normal       |
+   | 3                              | Autor (Entwickler)        | normal       |
+   | 4                              | CSS @keyframe-Animationen |              |
+   | 5                              | Autor (Entwickler)        | `!important` |
+   | 6                              | Benutzer                  | `!important` |
+   | 7                              | Benutzeragent (Browser)   | `!important` |
+   | 8                              | CSS-Übergänge             |              |
 
 3. **Spezifität**: Bei Gleichheit bei der Herkunft wird die [Spezifität](/de/docs/Web/CSS/Specificity) einer Regel berücksichtigt, um einen Wert auszuwählen. Die Spezifität der Selector wird verglichen und die Deklaration mit der höchsten Spezifität gewinnt.
 4. **Berechtigungsnähe**: Wenn zwei Selector in der vorrangigen Ursprungsschicht die gleiche Spezifität haben, gewinnt der Eigenschaftswert innerhalb eingrenzender Regeln mit der geringsten Anzahl von Sprüngen nach oben durch die DOM-Hierarchie zur Wurzel des Gültigkeitsbereichs. Siehe [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) für mehr Details und ein Beispiel.
@@ -69,9 +69,9 @@ Der Kaskadenalgorithmus bestimmt, wie für jede Eigenschaft für jedes Dokumenel
 Die Kaskade ist in aufsteigender Reihenfolge, was bedeutet, dass Animationen Vorrang vor normalen Werten haben, unabhängig davon, ob diese in Benutzer-, Autoren- oder Benutzeragentenstilen deklariert sind, wichtige Werte haben Vorrang vor Animationen und Übergänge haben Vorrang vor wichtigen Werten.
 
 > **Hinweis:** **Übergänge und Animationen**
-> 
+>
 > Eigenschaftswerte, die durch die Animation {{cssxref('@keyframes')}} festgelegt werden, sind wichtiger als alle normalen Stile (diejenigen ohne durch [`!important`](/de/docs/Web/CSS/Specificity#the_!important_exception) gesetzte Bedeutung).
-> 
+>
 > Eigenschaftswerte, die in einem {{cssxref('transition')}} festgelegt werden, haben Vorrang vor allen anderen festgelegten Werten, selbst denen, die mit `!important` markiert sind.
 
 Der Kaskadenalgorithmus wird _vor_ dem Spezifitätsalgorithmus angewendet, was bedeutet, dass wenn `:root p { color: red;}` in einem Benutzerstilblatt (Zeile 2) deklariert ist und ein weniger spezifisches `p {color: blue;}` im Autorenstilblatt (Zeile 3) ist, die Absätze blau sein werden.
@@ -221,20 +221,20 @@ und dann im Hauptteil des Dokuments haben wir Inline-Stile:
 Im obigen CSS-Codeblock wurden in dieser Reihenfolge drei Kaskadenschichten mit den Namen "A", "B" und "C" erstellt. Drei Stilblätter wurden direkt in Schichten importiert und zwei wurden importiert, ohne eine Schicht zu erstellen oder zuzuweisen.
 Die "Alle ungelagerten Stile" in der Liste unten (normale Autorenstilreihenfolge - Reihenfolge 4) umfasst Stile aus diesen beiden Stilblättern und den zusätzlichen ungelagerten CSS-Stilblöcken. Zusätzlich gibt es zwei Inline-Stile, eine normale `line-height`-Deklaration und eine wichtige `text-decoration`-Deklaration:
 
-| Reihenfolge (niedrig bis hoch) | Autorenstil           | Wichtigkeit |
-| ------------------------------- | --------------------- | ----------- |
-| 1                               | A - erste Schicht     | normal      |
-| 2                               | B - zweite Schicht    | normal      |
-| 3                               | C - letzte Schicht    | normal      |
-| 4                               | Alle ungelagerten Stile | normal      |
-| 5                               | inline `style`        | normal      |
-| 6                               | Animationen           |             |
-| 7                               | Alle ungelagerten Stile | `!important`|
-| 8                               | C - letzte Schicht    | `!important`|
-| 9                               | B - zweite Schicht    | `!important`|
-| 10                              | A - erste Schicht     | `!important`|
-| 11                              | inline `style`        | `!important`|
-| 12                              | Übergänge             |             |
+| Reihenfolge (niedrig bis hoch) | Autorenstil             | Wichtigkeit  |
+| ------------------------------ | ----------------------- | ------------ |
+| 1                              | A - erste Schicht       | normal       |
+| 2                              | B - zweite Schicht      | normal       |
+| 3                              | C - letzte Schicht      | normal       |
+| 4                              | Alle ungelagerten Stile | normal       |
+| 5                              | inline `style`          | normal       |
+| 6                              | Animationen             |              |
+| 7                              | Alle ungelagerten Stile | `!important` |
+| 8                              | C - letzte Schicht      | `!important` |
+| 9                              | B - zweite Schicht      | `!important` |
+| 10                             | A - erste Schicht       | `!important` |
+| 11                             | inline `style`          | `!important` |
+| 12                             | Übergänge               |              |
 
 In allen Herkunftstypen haben die nicht wichtigen Stile, die in Schichten enthalten sind, die niedrigste Priorität. In unserem Beispiel haben die normalen Stile, die mit der ersten deklarierten Schicht (A) verbunden sind, eine niedrigere Priorität als die normalen Stile in der zweiten deklarierten Schicht (B), die eine niedrigere Priorität haben als normale Stile in der dritten deklarierten Schicht (C). Diese geschichteten Stile haben eine niedrigere Priorität als alle normalen ungelagerten Stile, die normale Stile aus `unlayeredStyles.css`, `moreUnlayeredStyles.css` und die `color` von `p` im `<style>` selbst beinhalten.
 

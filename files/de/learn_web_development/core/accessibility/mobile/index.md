@@ -137,7 +137,7 @@ Sobald VoiceOver aktiviert ist, werden die Basisgesten von iOS ein wenig anders 
 4. Wischen Sie mit drei Fingern, um durch eine Seite zu blättern.
 5. Tippen Sie mit zwei Fingern, um eine kontextbezogene Aktion auszuführen — beispielsweise ein Foto in der Kamera-App aufzunehmen.
 
-Um es wieder auszuschalten, navigieren Sie zurück zu _Einstellungen > Allgemein > Bedienungshilfen > VoiceOver_ mit den oben genannten Gesten und schalten Sie den _VoiceOver_Schieber zurück auf aus.
+Um es wieder auszuschalten, navigieren Sie zurück zu _Einstellungen > Allgemein > Bedienungshilfen > VoiceOver_ mit den oben genannten Gesten und schalten Sie den \_VoiceOver_Schieber zurück auf aus.
 
 #### Telefon entsperren
 

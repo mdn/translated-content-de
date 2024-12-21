@@ -7,7 +7,7 @@ l10n:
 
 {{LearnSidebar}}{{PreviousMenu("Learn_web_development/Extensions/Server-side/Django/web_application_security", "Learn_web_development/Extensions/Server-side/Django")}}
 
-In dieser Bewertung werden Sie Ihr erworbenes Wissen über Django aus dem Modul [Django Web Framework (Python)](https://developer.mozilla.org/de/docs/Learn_web_development/Extensions/Server-side/Django) nutzen, um einen sehr einfachen Blog zu erstellen.
+In dieser Bewertung werden Sie Ihr erworbenes Wissen über Django aus dem Modul [Django Web Framework (Python)](/de/docs/Learn_web_development/Extensions/Server-side/Django) nutzen, um einen sehr einfachen Blog zu erstellen.
 
 <table>
   <tbody>

@@ -61,14 +61,14 @@ article {
 }
 ```
 
-Layouts beziehen sich normalerweise auf das gesamte Dokument, was bedeutet, dass, wenn Sie ein Element verschieben, das gesamte Dokument so behandelt werden muss, als ob sich Dinge überall bewegt haben könnten. Durch die Verwendung von `contain: layout` können Sie dem Browser mitteilen, dass er nur dieses Element überprüfen muss – alles innerhalb des Elements ist auf dieses Element beschränkt und beeinflusst nicht den Rest der Seite, wobei die umschließende Box einen unabhängigen [Formatting Context](https://developer.mozilla.org/de/docs/Web/CSS/CSS_flow_layout/Introduction_to_formatting_contexts) erstellt.
+Layouts beziehen sich normalerweise auf das gesamte Dokument, was bedeutet, dass, wenn Sie ein Element verschieben, das gesamte Dokument so behandelt werden muss, als ob sich Dinge überall bewegt haben könnten. Durch die Verwendung von `contain: layout` können Sie dem Browser mitteilen, dass er nur dieses Element überprüfen muss – alles innerhalb des Elements ist auf dieses Element beschränkt und beeinflusst nicht den Rest der Seite, wobei die umschließende Box einen unabhängigen [Formatting Context](/de/docs/Web/CSS/CSS_flow_layout/Introduction_to_formatting_contexts) erstellt.
 
 Des Weiteren:
 
 - Das {{cssxref("float")}} Layout wird unabhängig innerhalb des angegebenen Elements durchgeführt.
 - Margen kollabieren nicht über eine Layout-Containment-Grenze hinweg.
-- Der Layout-Container ist ein [Containing Block](https://developer.mozilla.org/de/docs/Web/CSS/Containing_block) für absolut und fixed positionierte Nachfahren.
-- Die umschließende Box erstellt einen [Stacking Context](https://developer.mozilla.org/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context), daher kann {{cssxref("z-index")}} verwendet werden.
+- Der Layout-Container ist ein [Containing Block](/de/docs/Web/CSS/Containing_block) für absolut und fixed positionierte Nachfahren.
+- Die umschließende Box erstellt einen [Stacking Context](/de/docs/Web/CSS/CSS_positioned_layout/Understanding_z-index/Stacking_context), daher kann {{cssxref("z-index")}} verwendet werden.
 
 > [!NOTE]
 > Die Werte `style` und `layout` von `contain` werden automatisch angewendet, wenn die Eigenschaften {{cssxref("container-type")}} und {{cssxref("container-name")}} verwendet werden.
@@ -81,7 +81,7 @@ article {
 }
 ```
 
-Paint-Containment schneidet im Wesentlichen die Box an der Padding-Kante der [Hauptbox](https://developer.mozilla.org/de/docs/Web/CSS/Visual_formatting_model#the_principal_box) ab. Es kann kein sichtbarer Überlauf auftreten. Die gleichen zusätzlichen Hinweise gelten für `paint` Containment wie für `layout` Containment (siehe oben).
+Paint-Containment schneidet im Wesentlichen die Box an der Padding-Kante der [Hauptbox](/de/docs/Web/CSS/Visual_formatting_model#the_principal_box) ab. Es kann kein sichtbarer Überlauf auftreten. Die gleichen zusätzlichen Hinweise gelten für `paint` Containment wie für `layout` Containment (siehe oben).
 
 Ein weiterer Vorteil ist, dass der Browser die Kindelemente nicht rendern muss, wenn das Containment-Element außerhalb des sichtbaren Bereichs ist – diese sind ebenfalls bei dieser Box vollständig enthalten und somit auch außerhalb des sichtbaren Bereichs.
 
@@ -112,7 +112,7 @@ article {
 }
 ```
 
-Trotz des Namens bietet Style-Containment keine abgekapselten Styles, wie Sie sie mit dem [Shadow DOM](https://developer.mozilla.org/de/docs/Web/API/Web_components/Using_shadow_DOM) oder {{cssxref("@scope")}} erhalten würden. Der Hauptanwendungsfall für den Wert `style` besteht darin, Situationen zu verhindern, in denen eine [CSS-Zählung](https://developer.mozilla.org/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) in einem Element geändert werden könnte, wodurch der Rest des Baums beeinflusst würde.
+Trotz des Namens bietet Style-Containment keine abgekapselten Styles, wie Sie sie mit dem [Shadow DOM](/de/docs/Web/API/Web_components/Using_shadow_DOM) oder {{cssxref("@scope")}} erhalten würden. Der Hauptanwendungsfall für den Wert `style` besteht darin, Situationen zu verhindern, in denen eine [CSS-Zählung](/de/docs/Web/CSS/CSS_counter_styles/Using_CSS_counters) in einem Element geändert werden könnte, wodurch der Rest des Baums beeinflusst würde.
 
 Die Verwendung von `contain: style` stellt sicher, dass die Eigenschaften {{cssxref("counter-increment")}} und {{cssxref("counter-set")}} neue Zähler erstellen, die nur auf diesen Teilbaum beschränkt sind.
 
@@ -166,7 +166,7 @@ Benutzeragenten haben ein Konzept von Inhalten, die für den Benutzer [relevant]
 - Das Element erscheint im Ansichtsfenster oder innerhalb eines benutzerdefinierten Abstandes um das Ansichtsfenster (50% der Ansichtsfenster-Dimensionen, um der App Zeit zu geben, sich auf mögliche Änderungen der Sichtbarkeit des Elements vorzubereiten).
 - Das Element oder seine Inhalte erhalten den Fokus.
 - Das Element oder seine Inhalte werden ausgewählt, beispielsweise durch Ziehen über den Text mit dem Mauszeiger oder durch eine andere Hervorhebungsoperation.
-- Das Element oder seine Inhalte werden in die [Top-Ebene](https://developer.mozilla.org/de/docs/Glossary/top_layer) verschoben.
+- Das Element oder seine Inhalte werden in die [Top-Ebene](/de/docs/Glossary/top_layer) verschoben.
 
 Wenn `content-visibility: auto` gesetzt ist und der Browser feststellt, dass der Inhalt für den Benutzer relevant ist, wird der Browser diesen Inhalt rendern.
 

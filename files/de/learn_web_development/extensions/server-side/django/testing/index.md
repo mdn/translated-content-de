@@ -127,7 +127,7 @@ Erstellen Sie eine Dateistruktur wie oben in Ihrem _LocalLibrary_-Projekt gezeig
 
 > [!NOTE]
 > Die Skelett-Testdatei **/catalog/tests.py** wurde automatisch erstellt, als wir die [Django-Skelett-Website erstellt](/de/docs/Learn_web_development/Extensions/Server-side/Django/skeleton_website) haben. Es ist vollkommen "rechtlich", alle Ihre Tests darin zu platzieren, aber wenn Sie richtig testen, werden Sie schnell eine sehr große und unübersichtliche Testdatei erhalten.
-> 
+>
 > Löschen Sie die Skelett-Datei, da wir sie nicht benötigen werden.
 
 Öffnen Sie **/catalog/tests/test_models.py**. Die Datei sollte `django.test.TestCase` importieren, wie unten gezeigt:
@@ -482,7 +482,7 @@ Die restlichen Funktionen testen, ob das Formular für Erneuerungsdaten innerhal
 
 > [!NOTE]
 > Hier verwenden wir nicht tatsächlich die Datenbank oder den Testclient. Erwägen Sie, diese Tests zu ändern, um [SimpleTestCase](https://docs.djangoproject.com/en/5.0/topics/testing/tools/#django.test.SimpleTestCase) zu verwenden.
-> 
+>
 > Wir müssen auch validieren, dass die richtigen Fehler ausgegeben werden, wenn das Formular ungültig ist. Dies wird jedoch normalerweise während der Verarbeitung der Ansicht durchgeführt, daher werden wir uns im nächsten Abschnitt damit befassen.
 
 > [!WARNING]
@@ -564,7 +564,7 @@ Sobald wir die Antwort haben, fragen wir sie nach ihrem Statuscode, dem verwende
 
 > [!NOTE]
 > Wenn Sie die `paginate_by`-Variable in Ihrer **/catalog/views.py**-Datei auf eine andere Zahl als 10 gesetzt haben, stellen Sie sicher, dass Sie die Zeilen, die testen, dass die richtige Anzahl von Elementen in paginierten Templates angezeigt werden, oben und in den folgenden Abschnitten aktualisieren. Beispielsweise, wenn Sie die Variable für die Autorlisten-Seite auf 5 gesetzt haben, aktualisieren Sie die Zeile oben zu:
-> 
+>
 > ```python
 > self.assertTrue(len(response.context['author_list']) == 5)
 > ```

@@ -302,7 +302,7 @@ Der folgende Eintrag würde dann der **package.json** Ihrer Anwendung hinzugefü
 ```
 
 > [!NOTE]
-> "[Linters](https://en.wikipedia.org/wiki/Lint_(software))" sind Werkzeuge, die eine statische Analyse von Software durchführen, um die Einhaltung/ Nicht-Einhaltung einer Reihe von Best Practices beim Programmieren zu erkennen und zu melden.
+> "[Linters](<https://en.wikipedia.org/wiki/Lint_(software)>)" sind Werkzeuge, die eine statische Analyse von Software durchführen, um die Einhaltung/ Nicht-Einhaltung einer Reihe von Best Practices beim Programmieren zu erkennen und zu melden.
 
 ### Ausführen von Aufgaben
 
