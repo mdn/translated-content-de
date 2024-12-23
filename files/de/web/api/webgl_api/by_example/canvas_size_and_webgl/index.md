@@ -2,24 +2,24 @@
 title: Canvas-Größe und WebGL
 slug: Web/API/WebGL_API/By_example/Canvas_size_and_WebGL
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Basic_scissoring","Learn/WebGL/By_example/Boilerplate_1")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Basic_scissoring","Web/API/WebGL_API/By_example/Boilerplate_1")}}
 
-Dieses WebGL-Beispiel untersucht die Auswirkungen der Einstellung (oder Nicht-Einstellung) der Canvas-Größe auf die Elementgröße in {{Glossary("CSS", "CSS")}}-Pixeln, wie sie im Browserfenster erscheint.
+Dieses WebGL-Beispiel untersucht die Auswirkungen darauf, ob die Canvas-Größe auf ihre Elementgröße in {{Glossary("CSS", "CSS")}}-Pixeln eingestellt ist oder nicht, so wie sie im Browserfenster erscheint.
 
 ## Auswirkung der Canvas-Größe auf das Rendering mit WebGL
 
 {{EmbedLiveSample("Effect_of_canvas_size_on_rendering_with_WebGL",660,180)}}
 
-Mit [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) können wir demonstrieren, wie der WebGL-Zeichenpuffer durch die Größe des Canvas beeinflusst wird.
+Mit [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) können wir demonstrieren, wie der WebGL-Zeichnungsbuffer von der Größe der Canvas beeinflusst wird.
 
-Die Größe des ersten Canvas wird auf die gestylte [`Element`](/de/docs/Web/API/Element)-Größe gesetzt, die durch {{Glossary("CSS", "CSS")}} bestimmt wird. Dies geschieht durch Zuweisung der [`width`](/de/docs/Web/API/HTMLCanvasElement/width) und [`height`](/de/docs/Web/API/HTMLCanvasElement/height) Eigenschaften des Canvas zu den Werten der [`clientWidth`](/de/docs/Web/API/Element/clientWidth) und [`clientHeight`](/de/docs/Web/API/Element/clientHeight) Eigenschaften, jeweils.
+Die Größe der ersten Canvas wird auf die gestylte Größe des [`Element`](/de/docs/Web/API/Element)s festgelegt, die durch {{Glossary("CSS", "CSS")}} bestimmt wird. Dies erfolgt, indem die [`width`](/de/docs/Web/API/HTMLCanvasElement/width)- und [`height`](/de/docs/Web/API/HTMLCanvasElement/height)-Eigenschaften der Canvas auf die Werte der [`clientWidth`](/de/docs/Web/API/Element/clientWidth)- und [`clientHeight`](/de/docs/Web/API/Element/clientHeight)-Eigenschaften gesetzt werden.
 
-Im Gegensatz dazu erfolgt keine solche Zuweisung für das zweite Canvas. Die internen [`width`](/de/docs/Web/API/HTMLCanvasElement/width) und [`height`](/de/docs/Web/API/HTMLCanvasElement/height) Eigenschaften des Canvas bleiben bei den Standardwerten, die anders sind als die tatsächliche Größe des Canvas-[`Element`](/de/docs/Web/API/Element) im Browserfenster.
+Im Gegensatz dazu wird für die zweite Canvas keine solche Zuweisung vorgenommen. Die internen [`width`](/de/docs/Web/API/HTMLCanvasElement/width)- und [`height`](/de/docs/Web/API/HTMLCanvasElement/height)-Eigenschaften der Canvas bleiben auf den Standardwerten, die sich von der tatsächlichen Größe des Canvas-[`Element`](/de/docs/Web/API/Element)s im Browserfenster unterscheiden.
 
-Der Effekt ist klar sichtbar, wenn [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) verwendet werden, um ein Quadrat in der Mitte des Canvas zu zeichnen, indem seine Position und Größe in Pixeln angegeben werden. In der ersten Canvas erhalten wir das gewünschte Ergebnis. In der zweiten hat das Quadrat die falsche Form, Größe und Position.
+Der Effekt ist deutlich sichtbar, wenn man [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) und [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) verwendet, um ein Quadrat in der Mitte der Canvas zu zeichnen, indem man seine Position und Größe in Pixeln angibt. In der ersten Canvas erhalten wir das gewünschte Ergebnis. In der zweiten hat das Quadrat die falsche Form, Größe und Position.
 
 ```html
 <p>Compare the two canvases.</p>
@@ -70,4 +70,4 @@ window.addEventListener(
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/canvas-size-and-webgl) verfügbar.
 
-{{PreviousNext("Learn/WebGL/By_example/Basic_scissoring","Learn/WebGL/By_example/Boilerplate_1")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Basic_scissoring","Web/API/WebGL_API/By_example/Boilerplate_1")}}

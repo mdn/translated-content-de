@@ -1,29 +1,29 @@
 ---
-title: Grundlegendes Ausschneiden
+title: Grundlegendes zur Beschneidung
 slug: Web/API/WebGL_API/By_example/Basic_scissoring
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Color_masking","Learn/WebGL/By_example/Canvas_size_and_WebGL")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Color_masking","Web/API/WebGL_API/By_example/Canvas_size_and_WebGL")}}
 
-In diesem Beispiel sehen wir, wie Rechtecke und Quadrate mit WebGL-Ausschneideoperationen gezeichnet werden. Das Ausschneiden legt eine Clipregion fest, außerhalb der nicht gezeichnet wird.
+In diesem Beispiel sehen wir, wie man mit WebGL-Beschneidungsoperationen Rechtecke und Quadrate zeichnet. Beschneidung legt eine Zuschnittsregion fest, außerhalb derer keine Zeichnung stattfindet.
 
-## Das Zeichenpuffer reinigen, wenn Ausschneiden angewendet wird
+## Löschen des Zeichenpuffers bei aktiver Beschneidung
 
 {{EmbedLiveSample("Clearing_the_drawing_buffer_when_scissoring_applies",660,425)}}
 
-Dies ist eine Demonstration eines Renderings mit [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).
+Dies ist eine Demonstration einer Darstellung mit [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor).
 
-Obwohl der Zeichenbefehl [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) die Lösungsfarbe (festgelegt durch [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) auf alle Pixel im Zeichenpuffer schreibt, definiert [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) eine Maske, die nur ermöglicht, dass Pixel innerhalb des angegebenen rechteckigen Bereichs aktualisiert werden.
+Obwohl der Zeichnungsbefehl [`clear()`](/de/docs/Web/API/WebGLRenderingContext/clear) die Löschfarbe (festgelegt durch [`clearColor()`](/de/docs/Web/API/WebGLRenderingContext/clearColor)) auf alle Pixel im Zeichenpuffer schreibt, definiert [`scissor()`](/de/docs/Web/API/WebGLRenderingContext/scissor) eine Maske, die nur das Aktualisieren von Pixeln im angegebenen rechteckigen Bereich erlaubt.
 
-Dies ist eine gute Gelegenheit, über den Unterschied zwischen Pixels und _Fragmenten_ zu sprechen. Ein Pixel ist ein Bildelement (in der Praxis ein Punkt) auf dem Bildschirm oder ein einzelnes Element des Zeichenpuffers, der Speicherbereich, der Ihre Pixeldaten (wie {{Glossary("RGB", "RGB")}}-Farbkomponenten) enthält. Ein _Fragment_ bezieht sich auf das Pixel, während es von der {{Glossary("WebGL", "WebGL")}}-Pipeline bearbeitet wird.
+Dies ist eine gute Gelegenheit, über den Unterschied zwischen Pixeln und _Fragmenten_ zu sprechen. Ein Pixel ist ein Bildelement (in der Praxis ein Punkt) auf dem Bildschirm oder ein einzelnes Element des Zeichenpuffers, dem Bereich im Speicher, der Ihre Pixeldaten (wie {{Glossary("RGB", "RGB")}}-Farbkomponenten) enthält. Ein _Fragment_ bezieht sich auf das Pixel, während es von der {{Glossary("WebGL", "WebGL")}}-Pipeline verarbeitet wird.
 
-Der Grund für diese Unterscheidung ist, dass die Fragmentfarbe (und andere Fragmentwerte, wie die Tiefe) während Grafikoperationen mehrmals manipuliert und geändert werden können, bevor sie schließlich auf dem Bildschirm geschrieben werden. Wir haben bereits gesehen, wie sich die Fragmentfarbe während Grafikoperationen ändert, indem [Farbmaskierung](/de/docs/Web/API/WebGLRenderingContext/colorMask) angewendet wird. In anderen Fällen können die Fragmente vollständig verworfen werden (sodass der Pixelwert nicht aktualisiert wird) oder sie können mit dem bereits vorhandenen Pixelwert interagieren (wie bei der Farbmischung für nicht-opake Elemente in der Szene).
+Der Grund für diese Unterscheidung ist, dass die Fragmentfarbe (und andere Fragmentwerte wie die Tiefe) während der Grafikoperationen mehrmals manipuliert und verändert werden können, bevor sie schließlich auf dem Bildschirm ausgegeben wird. Wir haben bereits gesehen, wie sich die Fragmentfarbe während der Grafikoperationen ändert, indem wir [Farbmaskierung](/de/docs/Web/API/WebGLRenderingContext/colorMask) anwenden. In anderen Fällen können die Fragmente vollständig verworfen werden (so dass der Pixelwert nicht aktualisiert wird), oder sie können mit dem bereits existierenden Pixelwert interagieren (wie bei der Farbvermischung bei nicht-opaken Elementen in der Szene).
 
-Hier sehen wir ein weiteres Beispiel für die Unterscheidung zwischen Fragmenten und Pixeln. Das Ausschneiden ist eine eigenständige Phase in der {{Glossary("WebGL", "WebGL")}}/{{Glossary("OpenGL", "OpenGL")}}-Grafikpipeline (es erfolgt nach dem Farblöschen, aber vor der Farbmaskierung). Bevor die tatsächlichen Pixel aktualisiert werden, müssen Fragmente den Scherentest durchlaufen. Wenn die Fragmente den Scherentest bestehen, durchlaufen sie weiterhin die Grafikpipeline und die entsprechenden Pixel werden auf dem Bildschirm aktualisiert. Wenn sie den Test nicht bestehen, werden sie sofort verworfen, es findet keine weitere Verarbeitung statt, und die Pixel werden nicht aktualisiert. Da nur Fragmente innerhalb des angegebenen rechteckigen Bereichs den Scherentest erfolgreich bestehen, werden nur Pixel innerhalb dieses Bereichs aktualisiert, und wir erhalten ein Rechteck auf dem Bildschirm.
+Hier sehen wir ein weiteres Beispiel für die Unterscheidung zwischen Fragmenten und Pixeln. Beschneidung ist ein eigenständiger Schritt in der {{Glossary("WebGL", "WebGL")}}/{{Glossary("OpenGL", "OpenGL")}}-Grafikpipeline (sie erfolgt nach dem Löschen der Farben, aber vor der Farbmaskierung). Bevor die tatsächlichen Pixel aktualisiert werden, müssen Fragmente den Scherstest durchlaufen. Wenn die Fragmente den Scherstest bestehen, durchlaufen sie die Grafikpipeline weiter und die entsprechenden Pixel werden auf dem Bildschirm aktualisiert. Wenn sie den Test nicht bestehen, werden sie sofort verworfen, keine weitere Verarbeitung erfolgt und die Pixel werden nicht aktualisiert. Da nur Fragmente innerhalb des angegebenen rechteckigen Bereichs den Scherstest erfolgreich bestehen, werden nur Pixel innerhalb dieses Bereichs aktualisiert und wir erhalten ein Rechteck auf dem Bildschirm.
 
-Die Ausschneidephase der Pipeline ist standardmäßig deaktiviert. Wir aktivieren sie hier mit der Methode [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable) (Sie werden `enable()` auch verwenden, um viele andere Funktionen von WebGL zu aktivieren; daher die Verwendung der `SCISSOR_TEST`-Konstanten als Argument in diesem Fall). Dies zeigt erneut die typische Reihenfolge von Befehlen in {{Glossary("WebGL", "WebGL")}}. Wir passen zuerst den WebGL-Zustand an. In diesem Fall aktivieren wir den Scherentest und stellen eine rechteckige Maske ein. Erst wenn der WebGL-Zustand zufriedenstellend angepasst ist, führen wir den Zeichenbefehl aus (in diesem Fall `clear()`), der die Verarbeitung von Fragmenten in der Grafikpipeline startet.
+Die Beschneidungsstufe der Pipeline ist standardmäßig deaktiviert. Wir aktivieren sie hier mithilfe der [`enable()`](/de/docs/Web/API/WebGLRenderingContext/enable)-Methode (Sie werden `enable()` auch verwenden, um viele andere Funktionen von WebGL zu aktivieren; daher die Verwendung der Konstante `SCISSOR_TEST` als Argument in diesem Fall). Dies demonstriert erneut die typische Reihenfolge der Befehle in {{Glossary("WebGL", "WebGL")}}. Zuerst passen wir den WebGL-Zustand an. In diesem Fall wird der Scherstest aktiviert und eine rechteckige Maske festgelegt. Erst wenn der WebGL-Zustand zufriedenstellend angepasst wurde, führen wir den Zeichenbefehl aus (in diesem Fall `clear()`), der die Verarbeitung der Fragmente durch die Grafikpipeline startet.
 
 ```html
 <p>Result of scissoring.</p>
@@ -84,4 +84,4 @@ window.addEventListener(
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/basic-scissoring) verfügbar.
 
-{{PreviousNext("Learn/WebGL/By_example/Color_masking","Learn/WebGL/By_example/Canvas_size_and_WebGL")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Color_masking","Web/API/WebGL_API/By_example/Canvas_size_and_WebGL")}}

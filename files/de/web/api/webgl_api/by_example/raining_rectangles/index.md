@@ -1,23 +1,23 @@
 ---
-title: Regnende Rechtecke
+title: Regennde Rechtecke
 slug: Web/API/WebGL_API/By_example/Raining_rectangles
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Scissor_animation","Learn/WebGL/By_example/Hello_GLSL")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Scissor_animation","Web/API/WebGL_API/By_example/Hello_GLSL")}}
 
-Ein einfaches WebGL-Spiel, das das Löschen mit Vollfarben, Beschneiden, Animation und Benutzerinteraktion demonstriert.
+Ein einfaches WebGL-Spiel, das das Löschen mit Volltonfarben, Beschneidung, Animation und Benutzerinteraktion demonstriert.
 
-## Animation und Benutzerinteraktion mit Beschneiden
+## Animation und Benutzerinteraktion mit Beschneidung
 
 {{EmbedLiveSample("Animation_and_user_interaction_with_scissoring",660,425)}}
 
-Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der regnenden Rechtecke wie möglich zu fangen, indem Sie auf sie klicken. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was dabei hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu gestalten.
+Dies ist ein einfaches Spiel. Das Ziel: Versuchen Sie, so viele der herabfallenden Rechtecke wie möglich durch Klicken zu fangen. In diesem Beispiel verwenden wir einen objektorientierten Ansatz für die angezeigten Rechtecke, was hilft, den Zustand des Rechtecks (seine Position, Farbe usw.) an einem Ort zu organisieren und den gesamten Code kompakter und wiederverwendbarer zu machen.
 
-Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Vollfarben und Beschneideoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}}-Grafik-Pipeline und Zustandsmaschine manipuliert.
+Dieses Beispiel kombiniert das Löschen des Zeichenpuffers mit Volltonfarben und Beschneidungsoperationen. Es ist eine Vorschau auf eine vollständige grafische Anwendung, die verschiedene Phasen der {{Glossary("WebGL", "WebGL")}} Grafik-Pipeline und Zustandsmaschine manipuliert.
 
-Darüber hinaus wird in diesem Beispiel gezeigt, wie die WebGL-Funktionsaufrufe in eine Spielschleife integriert werden können. Die Spielschleife ist verantwortlich für das Zeichnen der Animationsbilder und dafür, dass die Animation auf Benutzereingaben reagiert. Hier wird die Spielschleife mittels Timeouts implementiert.
+Zusätzlich demonstriert das Beispiel, wie man die WebGL-Funktionsaufrufe innerhalb einer Spielschleife integriert. Die Spielschleife ist dafür verantwortlich, die Animationsrahmen zu zeichnen und die Animation responsiv auf Benutzereingaben zu halten. Hier wird die Spielschleife mit Timeouts implementiert.
 
 ```html hidden
 <p>You caught <strong>0</strong>. You missed <strong>0</strong>.</p>
@@ -173,4 +173,4 @@ function getRenderingContext() {
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/raining-rectangles) verfügbar.
 
-{{PreviousNext("Learn/WebGL/By_example/Scissor_animation","Learn/WebGL/By_example/Hello_GLSL")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Scissor_animation","Web/API/WebGL_API/By_example/Hello_GLSL")}}

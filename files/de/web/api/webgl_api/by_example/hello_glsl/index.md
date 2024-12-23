@@ -2,17 +2,17 @@
 title: Hallo GLSL
 slug: Web/API/WebGL_API/By_example/Hello_GLSL
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Raining_rectangles","Learn/WebGL/By_example/Hello_vertex_attributes")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Raining_rectangles","Web/API/WebGL_API/By_example/Hello_vertex_attributes")}}
 
-Dieses WebGL-Beispiel zeigt ein sehr grundlegendes GLSL-Shader-Programm, das ein Quadrat mit einer einheitlichen Farbe zeichnet.
+Dieses WebGL-Beispiel demonstriert ein sehr einfaches GLSL-Shader-Programm, das ein Quadrat in einer einheitlichen Farbe zeichnet.
 
 > [!NOTE]
-> Dieses Beispiel wird höchstwahrscheinlich in allen modernen Desktop-Browsern funktionieren. Es kann jedoch sein, dass es in einigen mobilen oder älteren Browsern nicht funktioniert. Wenn die Leinwand leer bleibt, können Sie die Ausgabe des nächsten Beispiels prüfen, das genau dasselbe zeichnet. Denken Sie jedoch daran, die Erklärungen und den Code auf dieser Seite zu lesen, bevor Sie zum nächsten Beispiel übergehen.
+> Dieses Beispiel wird höchstwahrscheinlich in allen modernen Desktop-Browsern funktionieren. Es könnte jedoch in einigen mobilen oder älteren Browsern nicht funktionieren. Wenn die Leinwand leer bleibt, können Sie die Ausgabe des nächsten Beispiels überprüfen, das genau dasselbe zeichnet. Denken Sie jedoch daran, die Erklärungen und den Code auf dieser Seite zu lesen, bevor Sie zum nächsten Beispiel übergehen.
 
-## Hallo-Welt-Programm in GLSL
+## Hello-World-Programm in GLSL
 
 {{EmbedLiveSample("Hello_World_program_in_GLSL",660,425)}}
 
@@ -157,4 +157,4 @@ function getRenderingContext() {
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/hello-glsl) verfügbar.
 
-{{PreviousNext("Learn/WebGL/By_example/Raining_rectangles","Learn/WebGL/By_example/Hello_vertex_attributes")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Raining_rectangles","Web/API/WebGL_API/By_example/Hello_vertex_attributes")}}

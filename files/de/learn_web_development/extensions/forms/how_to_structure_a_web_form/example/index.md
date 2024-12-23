@@ -2,12 +2,12 @@
 title: Beispiel
 slug: Learn_web_development/Extensions/Forms/How_to_structure_a_web_form/Example
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: fc2dda92008a140acbe7b291c20388112580a6e2
 ---
 
 {{LearnSidebar}}
 
-Dies ist das Beispiel für ein einfaches Zahlungsformular für den Artikel [Anleitung zum Strukturieren eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
+Dies ist das Beispiel für ein grundlegendes Zahlungsformular für den Artikel [Anleitung zur Strukturierung eines HTML-Formulars](/de/docs/Learn_web_development/Extensions/Forms/How_to_structure_a_web_form).
 
 ## Ein Zahlungsformular
 
@@ -126,17 +126,13 @@ form {
   border-radius: 1em;
 }
 
-div + div {
-  margin-top: 1em;
-}
-
 label span {
   display: inline-block;
   text-align: right;
 }
 
 input,
-textarea {
+fieldset {
   font: 1em sans-serif;
   width: 250px;
   box-sizing: border-box;
@@ -149,21 +145,8 @@ input[type="radio"] {
   border: none;
 }
 
-input:focus,
-textarea:focus {
-  border-color: #000;
-}
-
-textarea {
-  vertical-align: top;
-  height: 5em;
-  resize: vertical;
-}
-
-fieldset {
-  width: 250px;
-  box-sizing: border-box;
-  border: 1px solid #999;
+input:focus {
+  background-color: yellow;
 }
 
 button {

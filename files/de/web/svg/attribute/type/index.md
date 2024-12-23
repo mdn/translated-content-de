@@ -2,20 +2,20 @@
 title: type
 slug: Web/SVG/Attribute/type
 l10n:
-  sourceCommit: b4f998244660723175f8e06b5d77f68cfb1d1f1a
+  sourceCommit: bc780f1de369fc7f14c73bbdccdeeb8e375cc93e
 ---
 
 {{SVGRef}}
 
-Das `type`-Attribut ist ein generisches Attribut und hat je nach Kontext, in dem es verwendet wird, unterschiedliche Bedeutungen.
+Das `type`-Attribut ist ein generisches Attribut und hat je nach Kontext unterschiedliche Bedeutungen.
 
-- Für das {{SVGElement("animateTransform")}}-Element definiert es die Art der Transformation, deren Werte sich im Laufe der Zeit ändern.
-- Für das {{SVGElement("feColorMatrix")}}-Element gibt es die Art der Matrixoperation an. Das Schlüsselwort `matrix` zeigt an, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter stellen bequeme Abkürzungen dar, um häufig verwendete Farboperationen ohne Angabe einer vollständigen Matrix durchführen zu können.
-- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} gibt es den Typ der Komponententransferfunktion an.
-- Für das {{SVGElement("feTurbulence")}}-Element gibt es an, ob die Filterprimitive eine Rausch- oder Turbulenzfunktion ausführen soll.
+- Für das {{SVGElement("animateTransform")}}-Element definiert es den Typ der Transformation, deren Werte sich im Laufe der Zeit ändern.
+- Für das {{SVGElement("feColorMatrix")}}-Element gibt es die Art der Matrixoperation an. Das Schlüsselwort `matrix` zeigt an, dass eine vollständige 5x4-Matrix von Werten bereitgestellt wird. Die anderen Schlüsselwörter stellen bequeme Abkürzungen dar, um häufig verwendete Farboperationen ohne Angabe einer vollständigen Matrix durchzuführen.
+- Für die Elemente {{SVGElement("feFuncR")}}, {{SVGElement("feFuncG")}}, {{SVGElement("feFuncB")}} und {{SVGElement("feFuncA")}} zeigt es die Art der Komponenten-Transferfunktion an.
+- Für das {{SVGElement("feTurbulence")}}-Element gibt es an, ob die Filterprimitiv eine Rausch- oder Turbulenzfunktion ausführen soll.
 - Für die Elemente {{SVGElement("style")}} und {{SVGElement("script")}} definiert es den Inhaltstyp des Elements.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("feColorMatrix")}}
@@ -175,7 +175,7 @@ SVG-Elemente: {{SVGElement("style")}}, {{SVGElement("script")}}
     </tr>
     <tr>
       <th scope="row">Wert</th>
-      <td>&#x3C;content-type></td>
+      <td>&#x3C;media-type></td>
     </tr>
     <tr>
       <th scope="row">Animierbar</th>

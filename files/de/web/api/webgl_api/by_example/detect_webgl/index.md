@@ -2,20 +2,20 @@
 title: WebGL erkennen
 slug: Web/API/WebGL_API/By_example/Detect_WebGL
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example","Learn/WebGL/By_example/Clearing_with_colors")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example","Web/API/WebGL_API/By_example/Clearing_with_colors")}}
 
-Dieses Beispiel zeigt, wie ein {{Glossary("WebGL", "WebGL")}}-Rendering-Kontext erkannt wird und das Ergebnis dem Benutzer mitgeteilt wird.
+Dieses Beispiel zeigt, wie ein {{Glossary("WebGL", "WebGL")}}-Rendering-Kontext erkannt wird und meldet das Ergebnis an den Benutzer.
 
-## WebGL-Featureerkennung
+## WebGL-Feature-Erkennung
 
 {{EmbedLiveSample("Feature-detecting_WebGL",660,150)}}
 
-In diesem ersten Beispiel werden wir überprüfen, ob der Browser {{Glossary("WebGL", "WebGL")}} unterstützt. Zu diesem Zweck versuchen wir, den [WebGL rendering context](/de/docs/Web/API/WebGLRenderingContext) von einem [`canvas`](/de/docs/Web/API/HTMLCanvasElement)-Element zu erhalten. Der [WebGL rendering context](/de/docs/Web/API/WebGLRenderingContext) ist eine Schnittstelle, über die Sie den Zustand der Grafikeinheit setzen und abfragen, Daten an das WebGL senden und Zeichenbefehle ausführen können.
+In diesem ersten Beispiel überprüfen wir, ob der Browser {{Glossary("WebGL", "WebGL")}} unterstützt. Dazu versuchen wir, den [WebGL-Rendering-Kontext](/de/docs/Web/API/WebGLRenderingContext) von einem [`canvas`](/de/docs/Web/API/HTMLCanvasElement)-Element zu erhalten. Der [WebGL-Rendering-Kontext](/de/docs/Web/API/WebGLRenderingContext) ist eine Schnittstelle, über die Sie den Zustand der Grafikeinheit einstellen und abfragen, Daten an das WebGL senden und Zeichenbefehle ausführen können.
 
-Den Zustand der Grafikeinheit in einer einzigen Kontextschnittstelle zu speichern, ist nicht einzigartig für {{Glossary("WebGL", "WebGL")}}. Dies wird auch in anderen Grafik-{{Glossary("API", "API")}} wie dem [canvas 2D rendering context](/de/docs/Web/API/CanvasRenderingContext2D) gemacht. Die Eigenschaften und Variablen, die Sie anpassen können, sind jedoch für jede {{Glossary("API", "API")}} unterschiedlich.
+Das Speichern des Zustands der Grafikeinheit innerhalb einer einzigen Kontextschnittstelle ist nicht einzigartig für {{Glossary("WebGL", "WebGL")}}. Dies wird auch in anderen Grafik-{{Glossary("API", "API")}} gemacht, wie z.B. dem [canvas 2D-Rendering-Kontext](/de/docs/Web/API/CanvasRenderingContext2D). Die Eigenschaften und Variablen, die Sie ändern können, sind jedoch für jede {{Glossary("API", "API")}} unterschiedlich.
 
 ```html
 <p>[ Here would go the result of WebGL feature detection ]</p>
@@ -68,4 +68,4 @@ window.addEventListener(
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/detect-webgl) verfügbar.
 
-{{PreviousNext("Learn/WebGL/By_example","Learn/WebGL/By_example/Clearing_with_colors")}}
+{{PreviousNext("Web/API/WebGL_API/By_example","Web/API/WebGL_API/By_example/Clearing_with_colors")}}

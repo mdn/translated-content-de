@@ -1,13 +1,13 @@
 ---
-title: Video-Texturen
+title: Videotexturen
 slug: Web/API/WebGL_API/By_example/Video_textures
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{Previous("Learn/WebGL/By_example/Textures_from_code")}}
+{{DefaultAPISidebar("WebGL")}}{{Previous("Web/API/WebGL_API/By_example/Textures_from_code")}}
 
-Dieses Beispiel demonstriert, wie Videodateien als Texturen für WebGL-Oberflächen verwendet werden.
+Dieses Beispiel zeigt, wie Videodateien als Texturen für WebGL-Oberflächen verwendet werden können.
 
 ## Texturen aus Video
 
@@ -15,4 +15,4 @@ Dieses Beispiel demonstriert, wie Videodateien als Texturen für WebGL-Oberfläc
 
 Der Quellcode dieses Beispiels ist auf [GitHub](https://github.com/mdn/dom-examples/tree/main/webgl-examples/tutorial/sample8) verfügbar.
 
-{{Previous("Learn/WebGL/By_example/Textures_from_code")}}
+{{Previous("Web/API/WebGL_API/By_example/Textures_from_code")}}

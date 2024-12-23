@@ -2,7 +2,7 @@
 title: media
 slug: Web/SVG/Attribute/media
 l10n:
-  sourceCommit: 810682f11400bad32c92ae7182daddfc0ca973b3
+  sourceCommit: bc780f1de369fc7f14c73bbdccdeeb8e375cc93e
 ---
 
 {{SVGRef}}
@@ -63,7 +63,7 @@ svg {
     </tr>
     <tr>
       <th scope="row">Animierbar</th>
-      <td>Ja</td>
+      <td>Nein</td>
     </tr>
   </tbody>
 </table>

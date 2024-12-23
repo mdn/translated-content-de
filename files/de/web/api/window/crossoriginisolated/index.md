@@ -3,31 +3,59 @@ title: "Window: crossOriginIsolated-Eigenschaft"
 short-title: crossOriginIsolated
 slug: Web/API/Window/crossOriginIsolated
 l10n:
-  sourceCommit: 070ea0f4ceb3264e21253f63647e12a09bbdfd60
+  sourceCommit: 6d6c7276af1aa286330458c3e84ddc7ea0b435ac
 ---
 
 {{APIRef("DOM")}}
 
-Die **`crossOriginIsolated`** schreibgeschützte Eigenschaft des [`Window`](/de/docs/Web/API/Window)-Interfaces gibt einen booleschen Wert zurück, der anzeigt, ob das Dokument cross-origin isoliert ist.
+Die **`crossOriginIsolated`** schreibgeschützte Eigenschaft der [`Window`](/de/docs/Web/API/Window)-Schnittstelle gibt einen booleschen Wert zurück, der anzeigt, ob das Dokument quellenübergreifend isoliert ist.
 
-Ein cross-origin isoliertes Dokument teilt seine {{Glossary("Browsing_context", "Browsing-Kontextgruppe")}} nur mit gleich-origin Dokumenten in Pop-ups und Navigationen sowie mit Ressourcen (sowohl gleich-origin als auch cross-origin), auf die das Dokument über [CORS](/de/docs/Web/HTTP/CORS) (und [COEP](/de/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) für `<iframe>`) zuzugreifen gewählt hat. Die Beziehung zwischen einem cross-origin Öffner des Dokuments oder jeglichen cross-origin Pop-ups, die es öffnet, wird getrennt. Das Dokument kann auch in einem separaten OS-Prozess neben anderen Dokumenten gehostet werden, mit denen es kommunizieren kann, indem es auf gemeinsamen Speicher zugreift. Dies mindert das Risiko von Seitenkanalangriffen und Cross-Origin-Angriffen, die als [XS-Leaks](https://xsleaks.dev/) bezeichnet werden.
+Ein quellenübergreifend isoliertes Dokument teilt seine {{Glossary("Browsing_context", "Browsing-Kontextgruppe")}} nur mit gleichoriginigen Dokumenten in Pop-ups und Navigationen sowie mit Ressourcen (sowohl gleichoriginig als auch quellenübergreifend), die das Dokument über [CORS](/de/docs/Web/HTTP/CORS) (und [COEP](/de/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) für `<iframe>`) aktiviert hat.
+Die Beziehung zwischen einem quellenübergreifenden Öffner des Dokuments oder jeglichen quellenübergreifenden Pop-ups, die es öffnet, wird getrennt.
+Das Dokument kann auch in einem separaten Betriebssystemprozess gehostet werden, zusammen mit anderen Dokumenten, mit denen es durch den Betrieb auf gemeinsam genutztem Speicher kommunizieren kann.
+Dies verringert das Risiko von Nebenkanalangriffen und quellenübergreifenden Angriffen, die als [XS-Leaks](https://xsleaks.dev/) bekannt sind.
 
-Cross-origin isolierte Dokumente arbeiten mit weniger Einschränkungen bei der Verwendung der folgenden APIs:
+Quellenübergreifend isolierte Dokumente arbeiten mit weniger Einschränkungen, wenn die folgenden APIs verwendet werden:
 
-- {{JSxRef("SharedArrayBuffer")}} kann erstellt und über einen [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage) oder einen [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage)-Aufruf gesendet werden.
-- [`Performance.now()`](/de/docs/Web/API/Performance/now) bietet eine bessere Präzision.
+- {{JSxRef("SharedArrayBuffer")}} kann erstellt und über einen [`Window.postMessage()`](/de/docs/Web/API/Window/postMessage)- oder einen [`MessagePort.postMessage()`](/de/docs/Web/API/MessagePort/postMessage)-Aufruf gesendet werden.
+- [`Performance.now()`](/de/docs/Web/API/Performance/now) bietet bessere Präzision.
 - [`Performance.measureUserAgentSpecificMemory()`](/de/docs/Web/API/Performance/measureUserAgentSpecificMemory) kann aufgerufen werden.
 
-Ein Dokument wird cross-origin isoliert sein, wenn es mit einer HTTP-Antwort zurückgegeben wird, die die folgenden Header beinhaltet:
+Ein Dokument wird quellenübergreifend isoliert, wenn es mit einer HTTP-Antwort zurückgegeben wird, die die Header enthält:
 
 - {{HTTPHeader("Cross-Origin-Opener-Policy")}}-Header mit der Direktive `same-origin`.
 - {{HTTPHeader("Cross-Origin-Embedder-Policy")}}-Header mit der Direktive `require-corp` oder `credentialless`.
+
+Der Zugriff auf die APIs muss auch durch die `Permissions-Policy` {{HTTPHeader("Permissions-Policy/cross-origin-isolated", "cross-origin-isolated")}} erlaubt sein.
+Andernfalls wird die `crossOriginIsolated`-Eigenschaft `false` zurückgeben, und das Dokument kann die oben aufgeführten APIs nicht mit reduzierten Einschränkungen verwenden.
 
 ## Wert
 
 Ein boolescher Wert.
 
 ## Beispiele
+
+### Ein Dokument quellenübergreifend isolieren
+
+Um ein Dokument quellenübergreifend zu isolieren:
+
+- Setzen Sie den {{HTTPHeader("Cross-Origin-Opener-Policy")}}-HTTP-Header auf `same-origin`:
+
+  ```http
+  Cross-Origin-Opener-Policy: same-origin
+  ```
+
+- Setzen Sie den {{HTTPHeader("Cross-Origin-Embedder-Policy")}}-HTTP-Header auf `require-corp` oder `credentialless`:
+
+  ```http
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Embedder-Policy: credentialless
+  ```
+
+- Die {{HTTPHeader("Permissions-Policy/cross-origin-isolated","cross-origin-isolated")}}-Direktive des {{HTTPHeader("Permissions-Policy")}}-Headers darf den Zugriff auf die Funktion nicht blockieren.
+  Beachten Sie, dass die Standard-Zulassungsliste der Direktive `self` ist, sodass die Berechtigung standardmäßig für quellenübergreifend isolierte Dokumente gewährt wird.
+
+### Überprüfen, ob das Dokument quellenübergreifend isoliert ist
 
 ```js
 const myWorker = new Worker("worker.js");
@@ -48,3 +76,7 @@ if (window.crossOriginIsolated) {
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated)

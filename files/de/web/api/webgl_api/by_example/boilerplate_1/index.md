@@ -2,22 +2,22 @@
 title: Boilerplate 1
 slug: Web/API/WebGL_API/By_example/Boilerplate_1
 l10n:
-  sourceCommit: 8d5440dbd259fd6eea32b4f4a200f25257d1bf41
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Canvas_size_and_WebGL","Learn/WebGL/By_example/Scissor_animation")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Canvas_size_and_WebGL","Web/API/WebGL_API/By_example/Scissor_animation")}}
 
-Dieses Beispiel beschreibt wiederkehrende Codeabschnitte, die ab jetzt verborgen werden, sowie die Definition einer JavaScript-Hilfsfunktion, um die WebGL-Initialisierung zu erleichtern.
+Dieses Beispiel beschreibt wiederkehrende Codeabschnitte, die von nun an ausgeblendet werden, und definiert eine JavaScript-Hilfsfunktion, um die WebGL-Initialisierung zu erleichtern.
 
-## Boilerplate-Code zur Einrichtung des WebGL-Rendering-Kontexts
+## Boilerplate-Code für das Einrichten des WebGL-Rendering-Kontexts
 
-Mittlerweile sind Sie es gewohnt, immer wieder die gleichen Stücke von {{Glossary("HTML", "HTML")}}, {{Glossary("CSS", "CSS")}} und {{Glossary("JavaScript", "JavaScript")}} zu sehen. Deshalb werden wir sie von nun an verbergen. Dies ermöglicht es uns, uns auf die interessanten Codeabschnitte zu konzentrieren, die für das Lernen von {{Glossary("WebGL", "WebGL")}} am relevantesten sind.
+Mittlerweile sind Sie daran gewöhnt, dieselben {{Glossary("HTML", "HTML")}}-, {{Glossary("CSS", "CSS")}}- und {{Glossary("JavaScript", "JavaScript")}}-Elemente immer wieder zu sehen. Wir werden sie daher von nun an ausblenden. Dies ermöglicht es uns, uns auf die interessanten Codeabschnitte zu konzentrieren, die für das Lernen von {{Glossary("WebGL", "WebGL")}} am relevantesten sind.
 
-Konkret enthält das HTML ein {{HTMLElement("p")}}-Element, das einige beschreibende Texte über die Seite enthält und auch Fehlermeldungen aufnehmen kann; ein {{HTMLElement("canvas")}}-Element; und optional ein {{HTMLElement("button")}}. Das CSS enthält Regeln für `body`, `canvas` und `button`. Alle zusätzlichen nicht-trivialen CSS- und HTML-Codes werden auf den Seiten spezifischer Beispiele angezeigt.
+Konkret enthält das HTML ein {{HTMLElement("p")}}-Element, das einige beschreibende Texte über die Seite enthält und möglicherweise auch Fehlermeldungen; ein {{HTMLElement("canvas")}}-Element und optional ein {{HTMLElement("button")}}. Das CSS enthält Regeln für `body`, `canvas` und `button`. Jegliches zusätzliche nicht-triviale CSS und HTML wird auf den Seiten der spezifischen Beispiele angezeigt.
 
-In den folgenden Beispielen werden wir eine JavaScript-Hilfsfunktion `getRenderingContext()` verwenden, um den [WebGL-Rendering-Kontext](/de/docs/Web/API/WebGLRenderingContext) zu initialisieren. Sie sollten inzwischen verstehen, was diese Funktion tut. Grundsätzlich holt sie den WebGL-Rendering-Kontext vom Canvas-Element, initialisiert den Zeichnungspuffer, löscht ihn schwarz und gibt den initialisierten Kontext zurück. Im Fehlerfall zeigt sie eine Fehlermeldung an und gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
+In den folgenden Beispielen werden wir eine JavaScript-Hilfsfunktion, `getRenderingContext()`, verwenden, um den [WebGL-Renderingkontext](/de/docs/Web/API/WebGLRenderingContext) zu initialisieren. Bis jetzt sollten Sie verstehen, was die Funktion macht. Grundsätzlich erhält sie den WebGL-Renderingkontext vom Canvas-Element, initialisiert den Zeichenpuffer, löscht ihn schwarz und gibt den initialisierten Kontext zurück. Im Fehlerfall zeigt sie eine Fehlermeldung an und gibt [`null`](/de/docs/Web/JavaScript/Reference/Operators/null) zurück.
 
-Schließlich wird der gesamte JavaScript-Code in einer unmittelbaren Funktion laufen, was eine gängige JavaScript-Technik ist (siehe {{Glossary("Function", "Function")}}). Die Funktionsdeklaration und der Aufruf werden ebenfalls verborgen.
+Schließlich wird der gesamte JavaScript-Code in einer direkten Funktion ausgeführt, was eine häufige JavaScript-Technik ist (siehe {{Glossary("Function", "Funktion")}}). Die Funktionsdeklaration und der Aufruf werden ebenfalls verborgen.
 
 ### HTML
 
@@ -74,4 +74,4 @@ function getRenderingContext() {
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/boilerplate-1) verfügbar.
 
-{{PreviousNext("Learn/WebGL/By_example/Canvas_size_and_WebGL","Learn/WebGL/By_example/Scissor_animation")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Canvas_size_and_WebGL","Web/API/WebGL_API/By_example/Scissor_animation")}}

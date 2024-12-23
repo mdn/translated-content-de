@@ -1,21 +1,21 @@
 ---
-title: Bereinigung durch Klicken
+title: Löschen durch Klicken
 slug: Web/API/WebGL_API/By_example/Clearing_by_clicking
 l10n:
-  sourceCommit: 93b34fcdb9cf91ff44f5dfe7f4dcd13e961962da
+  sourceCommit: 1eae3d383ad47b5e21bf25764d1d35487ea52bb8
 ---
 
-{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Learn/WebGL/By_example/Clearing_with_colors","Learn/WebGL/By_example/Simple_color_animation")}}
+{{DefaultAPISidebar("WebGL")}}{{PreviousNext("Web/API/WebGL_API/By_example/Clearing_with_colors","Web/API/WebGL_API/By_example/Simple_color_animation")}}
 
-Dieses Beispiel zeigt, wie Benutzerinteraktionen mit WebGL-Grafikoperationen kombiniert werden können, indem der Rendering-Kontext mit einer zufälligen Farbe bereinigt wird, wenn der Benutzer klickt.
+Dieses Beispiel zeigt, wie man Benutzerinteraktion mit WebGL-Grafikoperationen kombiniert, indem der Rendering-Kontext mit einer zufälligen Farbe gelöscht wird, wenn der Benutzer klickt.
 
-## Bereinigung des Rendering-Kontexts mit zufälligen Farben
+## Den Rendering-Kontext mit zufälligen Farben löschen
 
 {{EmbedLiveSample("Clearing_the_rendering_context_with_random_colors",660,425)}}
 
-Dieses Beispiel bietet eine Veranschaulichung, wie {{Glossary("WebGL", "WebGL")}} und Benutzerinteraktion kombiniert werden können. Jedes Mal, wenn der Benutzer auf das Canvas oder den Button klickt, wird das Canvas mit einer neu zufällig ausgewählten Farbe bereinigt.
+Dieses Beispiel veranschaulicht, wie man {{Glossary("WebGL", "WebGL")}} und Benutzerinteraktion kombiniert. Jedes Mal, wenn der Benutzer auf das Canvas oder den Button klickt, wird das Canvas mit einer neuen, zufällig gewählten Farbe gelöscht.
 
-Beachten Sie, wie wir die {{Glossary("WebGL", "WebGL")}}-Funktionsaufrufe innerhalb der Event-Handler-Funktion einbetten.
+Beachten Sie, wie wir die {{Glossary("WebGL", "WebGL")}}-Funktionsaufrufe in die Event-Handler-Funktion einbetten.
 
 ```html
 <p>
@@ -109,4 +109,4 @@ window.addEventListener(
 
 Der Quellcode dieses Beispiels ist auch auf [GitHub](https://github.com/idofilin/webgl-by-example/tree/master/clearing-by-clicking) verfügbar.
 
-{{PreviousNext("Learn/WebGL/By_example/Clearing_with_colors","Learn/WebGL/By_example/Simple_color_animation")}}
+{{PreviousNext("Web/API/WebGL_API/By_example/Clearing_with_colors","Web/API/WebGL_API/By_example/Simple_color_animation")}}

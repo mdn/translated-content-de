@@ -2,15 +2,15 @@
 title: <style>
 slug: Web/SVG/Element/style
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: bc780f1de369fc7f14c73bbdccdeeb8e375cc93e
 ---
 
 {{SVGRef}}
 
-Das **`<style>`** [SVG](/de/docs/Web/SVG)-Element ermöglicht es, Stylesheets direkt innerhalb von SVG-Inhalten einzubetten.
+Das **`<style>`**-[SVG](/de/docs/Web/SVG)-Element ermöglicht es, Stylesheets direkt in SVG-Inhalte einzubetten.
 
 > [!NOTE]
-> Das `style`-Element von SVG hat die gleichen Attribute wie das entsprechende Element in HTML (siehe HTML-{{HTMLElement("style")}}-Element).
+> Das `style`-Element von SVG hat dieselben Attribute wie das entsprechende Element in HTML (siehe HTMLs {{HTMLElement("style")}}-Element).
 
 ## Beispiel
 
@@ -41,14 +41,14 @@ svg {
 ## Attribute
 
 - {{SVGAttr("type")}}
-  - : Dieses Attribut definiert den Typ der Stylesheet-Sprache, die als Medientyp-String verwendet wird.
-    _Wertetyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `text/css`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert den Typ der Stylesheet-Sprache als Media-Type-String.
+    _Werttyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `text/css`; _Animierbar_: **nein**
 - {{SVGAttr("media")}}
-  - : Dieses Attribut definiert, auf welches {{cssxref('@media', 'Medien')}} der Stil angewendet wird.
-    _Wertetyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: `all`; _Animierbar_: **nein**
+  - : Dieses Attribut definiert, auf welches {{cssxref('@media', 'media')}} das Stylesheet angewendet wird.
+    _Werttyp_: [**`<media-query-list>`**](/de/docs/Web/CSS/@media#syntax); _Standardwert_: `all`; _Animierbar_: **nein**
 - {{SVGAttr("title")}}
-  - : Dieses Attribut ist der Titel des Stylesheets, das verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/CSS/Alternative_style_sheets) zu wechseln.
-    _Wertetyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _keiner_; _Animierbar_: **nein**
+  - : Dieses Attribut ist der Titel des Stylesheets, der verwendet werden kann, um zwischen [alternativen Stylesheets](/de/docs/Web/CSS/Alternative_style_sheets) zu wechseln.
+    _Werttyp_: [**`<string>`**](/de/docs/Web/CSS/string); _Standardwert_: _none_; _Animierbar_: **nein**
 
 ## Verwendungskontext
 

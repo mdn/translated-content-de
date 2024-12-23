@@ -3,20 +3,12 @@ title: "Performance: measureUserAgentSpecificMemory() Methode"
 short-title: measureUserAgentSpecificMemory()
 slug: Web/API/Performance/measureUserAgentSpecificMemory
 l10n:
-  sourceCommit: 8ab0f2fde2a9c1c7e547884abedf3848f8d7dda5
+  sourceCommit: 6d6c7276af1aa286330458c3e84ddc7ea0b435ac
 ---
 
 {{APIRef("Performance API")}}{{AvailableInWorkers}}{{SeeCompatTable}}
 
-Die **`measureUserAgentSpecificMemory()`**-Methode wird verwendet, um den Speicherverbrauch einer Webanwendung einschließlich all ihrer iframes und Worker abzuschätzen.
-
-## Beschreibung
-
-Der Browser weist automatisch Speicher zu, wenn Objekte erstellt werden, und gibt diesen frei, wenn sie nicht mehr erreichbar sind (Garbage Collection). Diese Garbage Collection (GC) ist eine Annäherung, da das allgemeine Problem, festzustellen, ob ein bestimmter Speicherbereich noch benötigt wird, unmöglich ist (siehe auch [JavaScript-Speicherverwaltung](/de/docs/Web/JavaScript/Memory_management)). Entwickler müssen sicherstellen, dass Objekte garbage collected werden, Speicher nicht verloren geht und die Speichernutzung nicht unnötig mit der Zeit wächst, was zu langsamen und nicht reagierenden Webanwendungen führt. Speicherlecks entstehen typischerweise dadurch, dass man vergisst, einen Event Listener zu deregistrieren, einen Worker nicht zu schließen, Objekte in Arrays zu sammeln und mehr.
-
-Die `measureUserAgentSpecificMemory()`-API aggregiert Speichernutzungsdaten, um Ihnen bei der Erkennung von Speicherlecks zu helfen. Es kann zur Erkennung von Speicherregressionen oder zum A/B-Testen von Funktionen verwendet werden, um deren Speicherauswirkungen zu bewerten. Anstatt einzelne Anrufe an diese Methode zu tätigen, ist es besser, periodische Anrufe zu tätigen, um zu verfolgen, wie sich die Speichernutzung im Laufe einer Sitzung verändert.
-
-Die `byte`-Werte, die diese API zurückgibt, sind nicht über verschiedene Browser oder zwischen verschiedenen Versionen desselben Browsers vergleichbar, da sie stark implementationsabhängig sind. Auch, wie `breakdown`- und `attribution`-Arrays bereitgestellt werden, hängt ebenfalls vom Browser ab. Es ist am besten, keine Annahmen über diese Daten hart zu kodieren. Diese API soll vielmehr periodisch (mit einem randomisierten Intervall) aufgerufen werden, um Daten zu aggregieren und die Unterschiede zwischen den Proben zu analysieren.
+Die **`measureUserAgentSpecificMemory()`** Methode wird verwendet, um die Speichernutzung einer Webanwendung einschließlich aller ihrer iframes und Worker zu schätzen.
 
 ## Syntax
 
@@ -35,25 +27,25 @@ Ein {{jsxref("Promise")}}, das zu einem Objekt aufgelöst wird, das die folgende
 - `bytes`
   - : Eine Zahl, die die gesamte Speichernutzung darstellt.
 - `breakdown`
-  - : Ein {{jsxref("Array")}} von Objekten, die die gesamten `bytes` aufteilen und Zuordnung sowie Typinformationen bereitstellen. Das Objekt enthält die folgenden Eigenschaften:
+  - : Ein {{jsxref("Array")}} von Objekten, das die gesamten `bytes` aufteilt und Attributions- und Typinformationen bereitstellt. Das Objekt enthält die folgenden Eigenschaften:
     - `bytes`
-      - : Die Größe des Speichers, die dieser Eintrag beschreibt.
+      - : Die Größe des Speichers, den dieser Eintrag beschreibt.
     - `attribution`
-      - : Ein {{jsxref("Array")}} von Containerelementen der JavaScript-Reiche, die den Speicher verwenden. Dieses Objekt hat die folgenden Eigenschaften:
+      - : Ein {{jsxref("Array")}} von Container-Elementen der JavaScript-Bereiche, die den Speicher nutzen. Dieses Objekt hat die folgenden Eigenschaften:
         - `url`
-          - : Wenn diese Zuordnung einem JavaScript-Reich gleichem Ursprungs entspricht, enthält diese Eigenschaft die URL des Reiches. Andernfalls ist es der String "cross-origin-url".
+          - : Wenn diese Attribution einem JavaScript-Bereich mit demselben Ursprung entspricht, enthält diese Eigenschaft die URL des Bereichs. Andernfalls ist es der String "cross-origin-url".
         - `container`
-          - : Ein Objekt, das das DOM-Element beschreibt, das dieses JavaScript-Reich enthält. Dieses Objekt hat die folgenden Eigenschaften:
+          - : Ein Objekt, das das DOM-Element beschreibt, das diesen JavaScript-Bereich enthält. Dieses Objekt hat die folgenden Eigenschaften:
             - `id`
-              - : Das `id`-Attribut des Containerelements.
+              - : Das `id` Attribut des Container-Elements.
             - `src`
-              - : Das `src`-Attribut des Containerelements. Wenn das Containerelement ein {{HTMLElement("object")}}-Element ist, enthält dieses Feld den Wert des `data`-Attributs.
+              - : Das `src` Attribut des Container-Elements. Wenn das Container-Element ein {{HTMLElement("object")}} Element ist, enthält dieses Feld den Wert des `data` Attributs.
         - `scope`
-          - : Ein String, der den Typ des JavaScript-Reiches gleichen Ursprungs beschreibt. Entweder `"Window"`, `"DedicatedWorkerGlobalScope"`, `"SharedWorkerGlobalScope"`, `"ServiceWorkerGlobalScope"` oder `"cross-origin-aggregated"` für den Cross-Origin-Fall.
+          - : Ein String, der den Typ des gleichursprünglichen JavaScript-Bereichs beschreibt. Entweder `"Window"`, `"DedicatedWorkerGlobalScope"`, `"SharedWorkerGlobalScope"`, `"ServiceWorkerGlobalScope"` oder `"cross-origin-aggregated"` für den Fall mit übergreifendem Ursprung.
     - `types`
-      - : Ein Array von implementationsdefinierten Speicherarten, die dem Speicher zugeordnet sind.
+      - : Ein Array von implementationsspezifischen Speichertypen, die mit dem Speicher verbunden sind.
 
-Ein Beispiel für einen Rückgabewert sieht folgendermaßen aus:
+Ein Beispiel für einen Rückgabewert sieht so aus:
 
 ```js
 {
@@ -95,23 +87,21 @@ Ein Beispiel für einen Rückgabewert sieht folgendermaßen aus:
 ### Ausnahmen
 
 - `SecurityError` [`DOMException`](/de/docs/Web/API/DOMException)
-  - : Wird ausgelöst, wenn die Sicherheitsanforderungen zur Verhinderung von Cross-Origin-Informationslecks nicht erfüllt sind.
+  - : Wird ausgelöst, wenn die [Sicherheitsanforderungen](#sicherheitsanforderungen) zum Verhindern von übergreifenden Ursprungs-Informationslecks nicht erfüllt sind.
+
+## Beschreibung
+
+Der Browser weist automatisch Speicher zu, wenn Objekte erstellt werden, und gibt ihn frei, wenn sie nicht mehr erreichbar sind (Garbage Collection). Diese Garbage Collection (GC) ist eine Annäherung, da das allgemeine Problem, festzustellen, ob ein bestimmtes Speicherstück noch benötigt wird, unlösbar ist (siehe auch [JavaScript Memory Management](/de/docs/Web/JavaScript/Memory_management)). Entwickler müssen sicherstellen, dass Objekte gesammelt werden, kein Speicher verloren geht und die Speichernutzung nicht unnötig über die Zeit ansteigt, was zu langsamen und nicht reagierenden Webanwendungen führt. Speicherlecks werden typischerweise durch das Vergessen, einen Event-Listener abzumelden, durch das Nicht-Schließen eines Workers, durch das Ansammeln von Objekten in Arrays und mehr, eingeführt.
+
+Die `measureUserAgentSpecificMemory()` API aggregiert Speichernutzungsdaten, um Ihnen bei der Suche nach Speicherlecks zu helfen. Sie kann zur Erkennung von Speicherregressionen oder für A/B-Tests von Funktionen verwendet werden, um deren Speicherauswirkung zu bewerten. Anstatt einzelne Aufrufe dieser Methode zu machen, ist es besser, regelmäßige Aufrufe zu tätigen, um zu verfolgen, wie sich die Speichernutzung während einer Sitzung verändert.
+
+Die `byte` Werte, die diese API zurückgibt, sind zwischen Browsern oder zwischen verschiedenen Versionen desselben Browsers nicht vergleichbar, da diese stark von der Implementierung abhängen. Auch wie die `breakdown` und `attribution` Arrays bereitgestellt werden, liegt ebenfalls im Ermessen des Browsers. Es ist am besten, keine Annahmen über diese Daten festzucodieren. Diese API ist eher dazu gedacht, periodisch (mit einem zufälligen Intervall) aufgerufen zu werden, um Daten zu aggregieren und die Unterschiede zwischen den Proben zu analysieren.
 
 ## Sicherheitsanforderungen
 
-Ihre Seite muss sich in einem [sicheren Kontext](/de/docs/Web/Security/Secure_Contexts) befinden.
+Um diese Methode zu verwenden, muss Ihr Dokument in einem [sicherer Kontext](/de/docs/Web/Security/Secure_Contexts) und [übergreifend isoliert](/de/docs/Web/API/Window/crossOriginIsolated) sein.
 
-Zwei Header müssen gesetzt werden, um Ihre Seite Cross-Origin abzugrenzen:
-
-- [`Cross-Origin-Opener-Policy`](/de/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy) mit `same-origin` als Wert (schützt Ihren Ursprung vor Angreifern)
-- [`Cross-Origin-Embedder-Policy`](/de/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy) mit `require-corp` oder `credentialless` als Wert (schützt Opfer vor Ihrem Ursprung)
-
-```http
-Cross-Origin-Opener-Policy: same-origin
-Cross-Origin-Embedder-Policy: require-corp
-```
-
-Um zu überprüfen, ob die Cross-Origin-Isolation erfolgreich war, können Sie die [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated)-Eigenschaft oder die [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated)-Eigenschaft testen, die in Fenstern und Worker-Kontexten verfügbar ist:
+Sie können die [`Window.crossOriginIsolated`](/de/docs/Web/API/Window/crossOriginIsolated) und [`WorkerGlobalScope.crossOriginIsolated`](/de/docs/Web/API/WorkerGlobalScope/crossOriginIsolated) Eigenschaften verwenden, um zu überprüfen, ob das Dokument übergreifend isoliert ist:
 
 ```js
 if (crossOriginIsolated) {
@@ -123,7 +113,7 @@ if (crossOriginIsolated) {
 
 ### Überwachung der Speichernutzung
 
-Der folgende Code zeigt, wie die `measureUserAgentSpecificMemory()`-Methode einmal alle fünf Minuten in einem zufälligen Intervall mithilfe der [Exponentialverteilung](https://en.wikipedia.org/wiki/Exponential_distribution#Random_variate_generation) aufgerufen wird.
+Der folgende Code zeigt, wie die `measureUserAgentSpecificMemory()` Methode einmal alle fünf Minuten zu einem zufälligen Intervall unter Verwendung der [Exponentialverteilung](https://en.wikipedia.org/wiki/Exponential_distribution#Random_variate_generation) aufgerufen wird.
 
 ```js
 function runMemoryMeasurements() {
