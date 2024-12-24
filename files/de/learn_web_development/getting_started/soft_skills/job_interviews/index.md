@@ -2,7 +2,7 @@
 title: Erfolgreich in Vorstellungsgesprächen
 slug: Learn_web_development/Getting_started/Soft_skills/Job_interviews
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a92e10b293358bc796c43d5872a8981fd988a005
 ---
 
 {{LearnSidebar}}
@@ -10,9 +10,9 @@ l10n:
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes", "Learn_web_development/Core", "Learn_web_development/Getting_started/Soft_skills")}}
 
 > [!NOTE]
-> Der Inhalt dieses Artikels ist derzeit unvollständig, tut uns leid! Wir arbeiten hart daran, den MDN Learn Web Development-Bereich zu verbessern, und wir werden die als unvollständig markierten Bereiche ("TODO") bald fertigstellen.
+> Der Inhalt dieses Artikels ist derzeit unvollständig, tut mir leid! Wir arbeiten hart daran, den Bereich MDN Lernen Webentwicklung zu verbessern, und wir werden bald die als unvollständig markierten Stellen ("TODO") fertigstellen.
 
-Technische Vorstellungsgespräche können sehr anspruchsvoll sein, und einige haben ziemlich spezifische Anforderungen. Die passenden Stellen zu finden, auf die man sich bewerben kann, kann herausfordernd sein! Dieser Job bietet einige Tipps und Ressourcen, die dabei helfen.
+Technische Vorstellungsgespräche können sehr anspruchsvoll sein und einige haben recht spezifische Anforderungen. Bereits die richtigen Stellen zu finden, auf die Sie sich bewerben können, kann eine Herausforderung sein! Dieser Artikel bietet einige Tipps und Ressourcen, die helfen können.
 
 <table>
   <tbody>
@@ -26,58 +26,58 @@ Technische Vorstellungsgespräche können sehr anspruchsvoll sein, und einige ha
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Effektive Strategien für die Stellensuche.</li>
-          <li>Entwicklung von Qualitäten, die Arbeitgeber suchen.</li>
-          <li>Sich selbst gegenüber potenziellen Arbeitgebern „verkaufen“.</li>
-          <li>Sich auf Vorstellungsgespräche vorbereiten.</li>
+          <li>Effektive Strategien für die Jobsuche.</li>
+          <li>Entwicklung von Eigenschaften, nach denen Arbeitgeber suchen.</li>
+          <li>Sich selbst potenziellen Arbeitgebern verkaufen.</li>
+          <li>Vorbereitung auf Vorstellungsgespräche.</li>
         </ul>
       </td>
     </tr>
   </tbody>
 </table>
 
-## Effektive Strategien für die Stellensuche
+## Effektive Strategien für die Jobsuche
 
-- Erlernen Sie effektive Strategien für die Stellensuche. Zum Beispiel:
-- Besuchen Sie Networking-Veranstaltungen und Jobmessen, um potenzielle Arbeitgeber kennenzulernen.
-- Führen Sie ein Inventar der Personen, denen Sie begegnen, und der Unternehmen, bei denen Sie sich bewerben.
-- Folgen Sie vielversprechenden Kontakten nach, die Sie treffen.
+- Lernen Sie effektive Strategien für die Jobsuche. Zum Beispiel:
+- Besuchen Sie Networking-Veranstaltungen und Jobmessen, um potenzielle Arbeitgeber zu treffen.
+- Führen Sie eine Liste der Personen, die Sie treffen, und der Unternehmen, bei denen Sie sich bewerben.
+- Folgen Sie vielversprechenden Kontakten, die Sie treffen, nach.
 
-## Entwicklung von Qualitäten, die Arbeitgeber suchen
+## Entwicklung von Eigenschaften, nach denen Arbeitgeber suchen
 
-Seien Sie sich der Eigenschaften bewusst, die Personalverantwortliche bei einem Kandidaten suchen und bereiten Sie sich entsprechend vor:
+Seien Sie sich der Eigenschaften bewusst, die Personalverantwortliche bei einem Kandidaten suchen, und bereiten Sie sich entsprechend vor:
 
-- Jemand, mit dem sie gut auskommen können.
+- Jemand, mit dem sie sich gut verstehen können.
 - Positive Einstellung, respektvoll, empathisch, konstruktiv.
-- Aufgeschlossen und arbeitet gut in einem vielfältigen Team mit unterschiedlichen Sichtweisen.
-- Anmutig, wenn eine Entscheidung nicht zu ihren Gunsten ausfällt, in der Lage, sich zum Wohle des Ganzen zu orientieren.
-- Gute Kommunikations- und Beziehungsfähigkeiten.
+- Aufgeschlossen und arbeitet gut in einem diversen Team mit unterschiedlichen Standpunkten.
+- Beweist Anstand, wenn eine Entscheidung nicht zu seinen Gunsten ausfällt, und kann sich für das größere Wohl einsetzen.
+- Gute Kommunikator- und Beziehungsaufbau-Fähigkeiten.
 - Hartnäckig, fokussiert, guter Problemlöser.
-- Ein gutes Portfolio besitzen.
+- Ein gutes Portfolio haben.
 
-## Arbeitserfahrung finden
+## Erfahren sammeln
 
 TODO
 
-## Sich selbst gegenüber potenziellen Arbeitgebern „verkaufen“
+## Sich selbst potenziellen Arbeitgebern verkaufen
 
 - Erstellen Sie ein Portfolio.
-- Schreiben Sie den perfekten Lebenslauf.
-- Sammeln Sie Erfahrungen – bauen Sie reale Projekte und tragen Sie zu Open Source bei.
-- Bauen Sie Ihre Online-Persona auf.
-- Nutzen Sie Seiten wie [LinkedIn](https://www.linkedin.com/), um bei den oben genannten Punkten zu helfen.
+- Erstellen Sie den perfekten Lebenslauf.
+- Sammeln Sie Erfahrung – bauen Sie echte Projekte und tragen Sie zu Open Source bei.
+- Bauen Sie Ihre Online-Persönlichkeit auf.
+- Nutzen Sie Websites wie [LinkedIn](https://www.linkedin.com/) zur Unterstützung bei den oben genannten Punkten.
 
 ## Vorbereitung auf Vorstellungsgespräche
 
-- Seien Sie sich der Arten von Fragen und Tests bewusst, auf die Sie stoßen werden.
-- Üben Sie das Schreiben von Antworten für Coding- und Design-Interviewfragen.
-- Bauen Sie eine Sammlung von Anekdoten auf, die Sie für erfahrungsbasierte Interviewfragen verwenden können.
-- Seien Sie geduldig. Selbst die besten Kandidaten erhalten Ablehnungen von mehreren Bewerbungen, bevor sie den gewünschten Job bekommen.
+- Seien Sie sich der Arten von Fragen und Tests bewusst, denen Sie begegnen werden.
+- Üben Sie, Antworten für Coding- und Design-Interviewfragen zu schreiben.
+- Sammeln Sie eine Sammlung von Anekdoten für erfahrungsbasierte Interviewfragen.
+- Seien Sie geduldig. Selbst die besten Kandidaten erhalten Absagen von mehreren Bewerbungen, bevor sie den gewünschten Job bekommen.
 
 ## Siehe auch
 
-- [Getting hired](https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~0156?via=mdn), Scrimba <sup>Kurs-Partner</sup>
-- [Technical Interviewing 101: Ultimate Guide to Acing Your Tech Interview](https://learntocodewith.me/posts/technical-interview/), learntocodewith.me (2022)
-- [30 Technical Interview Questions and Tips for Answering](https://www.coursera.org/articles/technical-interview-questions), Coursera (2023)
+- [Eingestellt werden](https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~0156?via=mdn), Scrimba <sup>Kurs-Partner</sup>
+- [Technisches Interview 101: Ultimativer Leitfaden für das Bestehen Ihres Tech-Interviews](https://learntocodewith.me/posts/technical-interview/), learntocodewith.me (2022)
+- [30 Technische Interviewfragen und Tipps zum Beantworten](https://www.coursera.org/articles/technical-interview-questions), Coursera (2023)
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes", "Learn_web_development/Core", "Learn_web_development/Getting_started/Soft_skills")}}

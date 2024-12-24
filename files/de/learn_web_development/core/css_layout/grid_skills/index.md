@@ -2,27 +2,27 @@
 title: "Testen Sie Ihre Fähigkeiten: Grid"
 slug: Learn_web_development/Core/CSS_layout/Grid_skills
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a92e10b293358bc796c43d5872a8981fd988a005
 ---
 
 {{LearnSidebar}}
 
-Das Ziel dieses Fähigkeitstests ist es zu beurteilen, ob Sie verstehen, wie [Grid und Grid-Elemente](/de/docs/Learn_web_development/Core/CSS_layout/Grids) funktionieren. Sie werden mehrere kleine Aufgaben durchgehen, die verschiedene Elemente des Materials verwenden, das Sie gerade behandelt haben.
+Ziel dieses Tests ist es, zu überprüfen, ob Sie verstehen, wie ein [Grid und Grid-Elemente](/de/docs/Learn_web_development/Core/CSS_layout/Grids) funktionieren. Sie werden mehrere kleine Aufgaben bearbeiten, die verschiedene Elemente des gerade behandelten Materials verwenden.
 
 > [!NOTE]
-> Klicken Sie auf **"Play"** in den unten stehenden Codeblöcken, um die Beispiele im MDN Playground zu bearbeiten.
-> Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
-> Falls Sie feststecken, können Sie uns über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
+> Klicken Sie auf **"Play"** in den Code-Beispielen unten, um die Beispiele im MDN Playground zu bearbeiten.
+> Sie können den Code auch kopieren (klicken Sie auf das Symbol mit der Zwischenablage) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
+> Wenn Sie nicht weiterkommen, können Sie sich in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
 ## Aufgabe 1
 
-In dieser Aufgabe sollten Sie ein Grid erstellen, in das die vier Kindelemente automatisch platziert werden. Das Grid sollte drei Spalten haben, die den verfügbaren Platz gleichmäßig teilen, und einen Abstand von 20 Pixeln zwischen den Spalten- und Reihenbahnen. Versuchen Sie anschließend, mehr Kindcontainer innerhalb des Elterncontainers mit der Klasse `grid` hinzuzufügen und beobachten Sie, wie sie sich standardmäßig verhalten.
+In dieser Aufgabe sollten Sie ein Grid erstellen, in das die vier Kindelemente automatisch eingefügt werden. Das Grid sollte drei Spalten haben, die den verfügbaren Platz gleichmäßig teilen, und einen Abstand von 20 Pixeln zwischen den Spalten- und Zeilen-Spuren aufweisen. Versuchen Sie anschließend, mehr Kindelemente innerhalb des Elternelements mit der Klasse `grid` hinzuzufügen und beobachten Sie, wie sie sich standardmäßig verhalten.
 
-Ihr Endergebnis sollte wie das unten stehende Bild aussehen:
+Ihr Endergebnis sollte wie das untenstehende Bild aussehen:
 
-![Ein dreispaltiges Grid mit vier darin platzierten Elementen.](grid-task1.png)
+![Ein Grid mit drei Spalten und vier platzierten Elementen.](grid-task1.png)
 
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___grid1
 <div class="grid">
@@ -56,7 +56,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Erstellen Sie ein Grid mit `display: grid` mit drei Spalten, indem Sie `grid-template-columns` und einen `gap` zwischen den Elementen verwenden:
+Erstellen Sie ein Grid mit `display: grid`, drei Spalten mit `grid-template-columns` und einem `gap` zwischen den Elementen:
 
 ```css
 .grid {
@@ -70,13 +70,13 @@ Erstellen Sie ein Grid mit `display: grid` mit drei Spalten, indem Sie `grid-tem
 
 ## Aufgabe 2
 
-In dieser Aufgabe haben wir bereits ein Grid definiert. Indem Sie die CSS-Regeln für die beiden Kindelemente bearbeiten, sollen Sie dafür sorgen, dass sie über mehrere Grid-Bahnen jeweils gespannt werden. Das zweite Element sollte das erste überlagern, wie im unten stehenden Bild gezeigt:
+In dieser Aufgabe haben wir bereits ein Grid definiert. Indem Sie die CSS-Regeln für die zwei Kindelemente bearbeiten, sollen diese sich über mehrere Grid-Spuren erstrecken. Das zweite Element sollte sich über das erste legen, wie im untenstehenden Bild:
 
-![Ein Kasten mit zwei Elementen, von denen eines das andere überlagert.](grid-task2.png)
+![Ein Kasten mit zwei Elementen, wobei eines über dem anderen liegt.](grid-task2.png)
 
-**Zusatzfrage:** Können Sie nun dafür sorgen, dass das erste Element oben angezeigt wird, ohne die Reihenfolge der Elemente in der Quelle zu ändern?
+**Zusatzfrage:** Können Sie nun das erste Element auf der Oberseite anzeigen, ohne die Reihenfolge der Elemente im Quellcode zu ändern?
 
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___grid2
 <div class="grid">
@@ -126,8 +126,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Es ist möglich, Elemente zu schichten, indem sie dieselben Grid-Zellen besetzen.
-Eine Möglichkeit besteht darin, die folgenden Kurzformen zu verwenden, allerdings wäre es korrekt, die Langform `grid-row-start` zu verwenden.
+Es ist möglich, Elemente zu überlagern, indem sie denselben Grid-Zellen belegen.
+Eine Option ist, die unten stehenden Kurzformen zu verwenden, es wäre jedoch korrekt, die Langform wie z.B. `grid-row-start` zu verwenden.
 
 ```css
 .item1 {
@@ -141,7 +141,7 @@ Eine Möglichkeit besteht darin, die folgenden Kurzformen zu verwenden, allerdin
 }
 ```
 
-Für die Zusatzfrage wäre eine Möglichkeit, dies zu erreichen, das Verwenden von `order`, das wir im Flexbox-Tutorial behandelt haben.
+Für die Zusatzfrage könnte man `order` verwenden, welches wir im Flexbox-Tutorial behandelt haben.
 
 ```css
 .item1 {
@@ -161,11 +161,11 @@ Eine weitere gültige Lösung ist die Verwendung von `z-index`:
 
 ## Aufgabe 3
 
-In dieser Aufgabe gibt es vier direkte Kinder in diesem Grid. Der Ausgangspunkt ist, dass sie mithilfe der automatischen Platzierung dargestellt werden. Verwenden Sie die Eigenschaften `grid-area` und `grid-template-areas`, um die Elemente so anzuordnen, wie im unten stehenden Bild gezeigt:
+In dieser Aufgabe gibt es vier direkte Kinder in diesem Grid. Der Ausgangspunkt bringt sie mit automatischer Platzierung zur Anzeige. Verwenden Sie die `grid-area` und `grid-template-areas` Eigenschaften, um die Elemente wie im untenstehenden Bild anzuordnen:
 
-![Vier in einem Grid angezeigte Elemente.](grid-task3.png)
+![Vier Elemente in einem Grid angezeigt.](grid-task3.png)
 
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___grid3
 <div class="grid">
@@ -202,7 +202,7 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Jeder Teil des Layouts benötigt einen Namen, indem die Eigenschaft `grid-area` und `grid-template-areas` verwendet werden, um sie zu layouten. Mögliche Verwirrung könnte entstehen, wenn Sie nicht realisieren, dass Sie einen `.` platzieren sollten, um eine Zelle leer zu lassen, oder dass Sie den Namen wiederholen sollten, um ein Element über mehr als eine Bahn zu spannen:
+Jeder Teil des Layouts benötigt einen Namen mit der `grid-area` Eigenschaft und `grid-template-areas` zur Anordnung. Mögliche Verwirrungen könnten sein, nicht zu erkennen, dass Sie einen `.` platzieren sollten, um eine Zelle leer zu lassen, oder dass Sie den Namen wiederholen sollten, um ein Element mehr als eine Spur umfassen zu lassen:
 
 ```css
 .grid {
@@ -236,11 +236,11 @@ Jeder Teil des Layouts benötigt einen Namen, indem die Eigenschaft `grid-area` 
 
 ## Aufgabe 4
 
-In dieser Aufgabe müssen Sie sowohl das Grid-Layout als auch Flexbox verwenden, um das Beispiel wie auf dem unten stehenden Bild zu sehen, nachzubilden. Der Abstand zwischen den Spalten- und Reihenbahnen sollte 10px betragen. Sie müssen keine Änderungen am HTML vornehmen, um dies zu erreichen.
+In dieser Aufgabe müssen Sie sowohl das Grid-Layout als auch Flexbox verwenden, um das Beispiel nachzubilden, wie im untenstehenden Bild zu sehen. Der Abstand zwischen den Spalten- und Zeilen-Spuren sollte 10px betragen. Sie müssen keine Änderungen am HTML vornehmen, um dies zu erreichen.
 
-![Zwei Reihen von Karten, jede mit einem Bild und einer Reihe von Tags.](grid-task4.png)
+![Zwei Reihen mit Karten, jede mit einem Bild und einem Satz von Tags.](grid-task4.png)
 
-Versuchen Sie, den unten stehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
+Versuchen Sie den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___grid4
 <div class="container">
@@ -337,10 +337,10 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Der Container muss ein Grid-Layout sein, da wir Ausrichtungen in Reihen und Spalten haben - zweidimensional.
-Das `<ul>` muss ein Flex-Container sein, da Tags (`<li>` Elemente) nicht in Spalten ausgerichtet sind, sondern nur in Reihen und sie werden mit der Eigenschaft `justify-content` auf `center` im Raum zentriert.
+Der Container muss ein Grid-Layout haben, da wir eine Ausrichtung in Zeilen und Spalten haben - zweidimensional.
+Die `<ul>` muss ein Flex-Container sein, da die Tags (`<li>` Elemente) nicht in Spalten ausgerichtet sind, sondern nur in Reihen, und sie im Raum mit der Ausrichtungseigenschaft `justify-content` auf `center` zentriert sind.
 
-Sie können versuchen, das Flexbox am Container zu verwenden und die Karten mit Prozentwerten einzuschränken. Sie können auch versuchen, die Elemente in ein Grid-Layout zu verwandeln, in diesem Fall beachten Sie, dass die Elemente nicht in zwei Dimensionen ausgerichtet sind, also ist Flexbox nicht die beste Wahl.
+Sie könnten versuchen, Flexbox auf den Container anzuwenden und die Karten mit Prozentwerten zu begrenzen. Sie könnten auch versuchen, die Elemente in ein Grid-Layout zu verwandeln, wobei zu beachten ist, dass die Elemente nicht in zwei Dimensionen ausgerichtet sind, sodass Flexbox nicht die beste Wahl ist.
 
 ```css
 .container {
@@ -360,4 +360,4 @@ Sie können versuchen, das Flexbox am Container zu verwenden und die Karten mit 
 
 ## Siehe auch
 
-- [CSS Stilierungsgrundlagen](/de/docs/Learn_web_development/Core/Styling_basics)
+- [Grundlagen der CSS-Stilgebung](/de/docs/Learn_web_development/Core/Styling_basics)

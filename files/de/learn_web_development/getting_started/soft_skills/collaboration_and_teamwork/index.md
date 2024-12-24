@@ -2,7 +2,7 @@
 title: Zusammenarbeit und Teamarbeit
 slug: Learn_web_development/Getting_started/Soft_skills/Collaboration_and_teamwork
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a92e10b293358bc796c43d5872a8981fd988a005
 ---
 
 {{LearnSidebar}}
@@ -10,9 +10,9 @@ l10n:
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Research_and_learning", "Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes", "Learn_web_development/Getting_started/Soft_skills")}}
 
 > [!NOTE]
-> Der Inhalt dieses Artikels ist derzeit unvollständig, wir bitten um Entschuldigung! Wir arbeiten hart daran, den Abschnitt MDN Learn Web Development zu verbessern, und werden bald die als unvollständig markierten Bereiche ("TODO") fertigstellen.
+> Der Inhalt dieses Artikels ist derzeit unvollständig, entschuldigen Sie, dass! Wir arbeiten hart daran, den Bereich MDN Learn Web Development zu verbessern, und wir werden die als unvollständig markierten Stellen ("TODO") bald fertigstellen.
 
-Als Profi in der Webbranche werden Sie mit anderen Menschen in verschiedenen Projektphasen zusammenarbeiten müssen – von der Ideenfindung über das Verfassen von Vorschlägen bis hin zur Codeimplementierung und mehr. Dieser Artikel befasst sich damit, wie man effektiv mit anderen zusammenarbeitet.
+Als Profi in der Webbranche werden Sie in verschiedenen Phasen an Projekten mit anderen Menschen zusammenarbeiten müssen — Ideen entwickeln, Vorschläge schreiben, Code implementieren und mehr. In diesem Artikel geht es darum, wie man mit anderen zusammenarbeitet.
 
 <table>
   <tbody>
@@ -26,10 +26,10 @@ Als Profi in der Webbranche werden Sie mit anderen Menschen in verschiedenen Pro
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Effektive Techniken, um die Zusammenarbeit mit Teamkollegen zu üben, einschließlich der Weitergabe nützlicher Informationen.</li>
+          <li>Effektive Techniken zur Praxis der Zusammenarbeit mit Teamkollegen, einschließlich des Teilens nützlicher Informationen.</li>
           <li>Lernen, nützliche Fragen zu stellen und sich gegenseitig zu helfen.</li>
-          <li>Erweitern Sie Ihr Netzwerk durch Meetup-Gruppen oder Open-Source-Projekte, um Menschen zu finden, mit denen Sie zusammenarbeiten können.</li>
-          <li>Lernen, keine Angst vor Misserfolgen zu haben, sondern sie als effektives Lerninstrument zu betrachten.</li>
+          <li>Erweitern Sie Ihr Netzwerk auf Meetup-Gruppen oder Open-Source-Projekte, um Menschen zu finden, mit denen Sie zusammenarbeiten können.</li>
+          <li>Lernen Sie, keine Angst vor Misserfolgen zu haben, sondern diese als effektives Lernwerkzeug zu nutzen.</li>
         </ul>
       </td>
     </tr>
@@ -38,36 +38,36 @@ Als Profi in der Webbranche werden Sie mit anderen Menschen in verschiedenen Pro
 
 ## Umgang mit anderen
 
-Als Profi in der Webbranche werden Sie mit anderen Menschen an Projekten arbeiten müssen, sowohl bei der Ideenfindung als auch beim Erstellen von Vorschlägen. Nicht jeder ist von Natur aus mit der Fähigkeit ausgestattet, in einem Team zu arbeiten, deshalb ist es vorteilhaft, frühzeitig einige bewährte Praktiken zu integrieren und an Bereichen zu arbeiten, in denen Sie Defizite haben.
+Als Profi in der Webbranche werden Sie an Projekten mit anderen Menschen arbeiten und beim Brainstorming von Ideen und Vorschlägen mitwirken müssen. Nicht jeder wird mit einer angeborenen Fähigkeit zur Teamarbeit geboren, daher ist es von Vorteil, frühzeitig einige Best Practices einzubringen und in Bereiche zu investieren, in denen Sie denken, dass Sie sich verbessern können.
 
 Empfehlungen:
 
-- Lernen Sie über Empathie, Demut, Konfliktlösung und Zusammenarbeit. Bleiben Sie in allen Interaktionen höflich und respektvoll und vermeiden Sie beleidigende Sprache.
-- In der realen Welt wird häufig erwartet, dass Sie Peer Reviews durchführen. Üben Sie, wie man konstruktiv und respektvoll Feedback gibt. Beim Erhalten von Feedback üben Sie, es nicht persönlich zu nehmen, sondern sich auf die positiven Aspekte und das zu konzentrieren, was Sie lernen können.
-- Nehmen Sie an Pair-Programming teil oder arbeiten Sie im Team an Aufgaben, um die Erfahrung des Arbeitens mit anderen Menschen zu sammeln.
-- Üben Sie, Projekte wie ein echtes Softwareprojekt zu führen, mit einem Zeitplan, einem Plan und Verantwortlichkeiten. Lernen Sie über den Lebenszyklus der Softwareentwicklung. Aneignen Sie sich grundlegende Projektplanungskompetenzen und Werkzeuge, um in der Lage zu sein, Ihre Arbeit/Ihr Projekt zu schätzen und zu planen.
-- Im Rahmen des Kurses bloggen Sie über Ihre Arbeit, Erlebnisse und Hindernisse, teilen Sie Ihre Code-Repositories, lassen Sie Ihre Arbeit von anderen kritisieren und bieten Sie Updates zur Behebung von Problemen in der Arbeit anderer an.
+- Lernen Sie über Empathie, Bescheidenheit, Konfliktlösung und Kooperation. Seien Sie in allen Interaktionen höflich und respektvoll und verwenden Sie keine beleidigende Sprache.
+- In der realen Welt wird erwartet, dass Sie häufig Peer-Reviews durchführen. Üben Sie, wie man Feedback konstruktiv und respektvoll gibt. Wenn Sie Feedback erhalten, üben Sie, es nicht persönlich zu nehmen, sondern sich auf das Positive und das Gelernte zu konzentrieren.
+- Nehmen Sie an Pair Programming teil oder arbeiten Sie in Teams an Beurteilungen, um zu erfahren, wie es ist, mit anderen Menschen zusammenzuarbeiten.
+- Üben Sie, Projekte wie ein echtes Softwareprojekt zu leiten, mit einem Zeitplan, einem Plan und Verantwortlichkeiten. Lernen Sie den Software-Entwicklungslebenszyklus kennen. Sammeln Sie einige grundlegende Projektplanungsfähigkeiten und Werkzeuge, um Ihre Arbeit/Ihr Projekt einschätzen und planen zu können.
+- Als Teil des Kurses bloggen Sie über Ihre Arbeit, Ihre Lernerfahrungen und Hindernisse, teilen Sie Ihre Code-Repositories, lassen Sie Ihre Arbeit von Kollegen kritisieren und bieten Sie Updates an, um Probleme in der Arbeit anderer zu beheben.
 
-## Mitwirken, helfen, Fragen stellen
+## Teilnehmen, Menschen helfen, Fragen stellen
 
-- Treten Sie einem Slack-Kanal, Discord oder einem ähnlichen Raum bei, bitten Sie Kollegen um Hilfe, teilen Sie Ressourcen und diskutieren Sie die zu erledigende Arbeit. Zum Beispiel:
-  - Sehen Sie sich den [Frontend Developers](https://discord.me/frontenddevelopers) Discord-Server an.
-  - Unser Lernpartner, Scrimba, bietet über deren Discord-Server [eine starke Community- und Zusammenarbeitserfahrung](https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~0xyi?via=mdn) an, um ihren Schülern genau diese Fähigkeiten zu vermitteln.
-- Üben Sie, Fragen zu stellen und zu beantworten. Auch wenn sie etwas trivial erscheinen, stellen Sie bei Diskussionen oder der Überprüfung von Arbeiten Ihrer Kollegen immer ein oder zwei Fragen. Es ist wichtig, zu üben, was Sie tun, zu erklären und die richtigen Fragen zu stellen, um herauszufinden, was Sie wissen müssen.
-- Helfen Sie sich gegenseitig, anstatt darauf zu warten, dass ein Lehrer oder ein Senior-Entwickler umhergeht und allen hilft. Weniger fähige Kollegen werden schneller Hilfe bekommen und fähigere Kollegen werden Mentoren und erleben die Zufriedenheit, die dies mit sich bringt.
-- Beobachten und lernen Sie von anderen erfahrenen Personen, wie man sich an Diskussionen beteiligt und wie man Problemlösungen/Debugging angeht.
-- Treten Sie einem Open-Source-Projekt bei, um die erlernten Fähigkeiten zu üben, mit Personen in der Community zu interagieren und von der Beobachtung anderer zu lernen (siehe [How to Contribute to Open Source Projects – A Beginner's Guide](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/) für nützliche Informationen).
+- Treten Sie einem Slack-Kanal, Discord oder einem ähnlichen Raum bei, bitten Sie Kollegen um Hilfe, teilen Sie Ressourcen und diskutieren Sie über die zu erledigende Arbeit. Zum Beispiel:
+  - Schauen Sie sich den [Frontend Developers](https://discord.me/frontenddevelopers) Discord-Server an.
+  - Unser Lernpartner Scrimba bietet eine [starke Gemeinschafts- und Zusammenarbeitserfahrung](https://v2.scrimba.com/the-frontend-developer-career-path-c0j/~0xyi?via=mdn) über ihren Discord-Server an, mit dem Ziel, ihren Studenten genau diese Fähigkeiten zu vermitteln.
+- Üben Sie, Fragen zu stellen und zu beantworten. Auch wenn sie etwas trivial erscheinen, erfinden Sie immer ein oder zwei Fragen, die Sie stellen können, wenn Sie die Arbeit von Kollegen besprechen oder überprüfen. Es ist wichtig, zu üben, zu erklären, was Sie tun, und die richtigen Fragen zu stellen, um herauszufinden, was Sie wissen müssen.
+- Helfen Sie sich gegenseitig, anstatt darauf zu warten, dass ein Lehrer oder Senior-Entwickler vorbeikommt und allen hilft. Weniger fähige Kollegen erhalten schneller Hilfe, und fähigere Kollegen werden zu Mentoren und erleben die Zufriedenheit, die das mit sich bringt.
+- Beobachten und lernen Sie von anderen erfahrenen Personen, wie man sich in Diskussionen einbringt und wie man Problemlösung/Debugging angeht.
+- Nehmen Sie an einem Open-Source-Projekt teil, um die erlernten Fähigkeiten zu üben, sich mit Menschen in der Community zu engagieren und von der Beobachtung anderer zu lernen (siehe [How to Contribute to Open Source Projects – A Beginner's Guide](https://www.freecodecamp.org/news/how-to-contribute-to-open-source-projects-beginners-guide/) für nützliche Informationen).
 
-## Lernen, Misserfolge zu begrüßen
+## Lernen, Misserfolge zu akzeptieren
 
-Ein sehr häufiges Problem, das dazu führt, dass Studenten und neue Entwickler Experimente und Risiken scheuen (beispielsweise beim Start neuer Projekte oder der Erforschung neuer Ideen), ist die Angst vor Misserfolg. Nehmen Sie sich Zeit, um den Wert zu verstehen, der aus dem Machen von Fehlern gewonnen werden kann, und die Lektionen, die daraus gelernt und in ähnlichen zukünftigen Situationen angewendet werden können.
+Ein sehr häufiges Problem, das Studenten und neue Entwickler davon abhält, zu experimentieren und Risiken einzugehen (z. B. beim Starten neuer Projekte oder Erkunden neuer Ideen), ist die Angst vor dem Versagen. Nehmen Sie sich etwas Zeit, um den Wert zu lernen, der aus Fehlern gewonnen werden kann, und die Lektionen, die daraus gezogen und in ähnlichen Situationen in der Zukunft angewandt werden können.
 
-Hier sind einige Tipps zur Verbesserung dieser Fähigkeit:
+Hier sind einige Tipps, um diese Fähigkeit zu verbessern:
 
-- Definieren Sie einen sicheren Raum/eine Peer-Gruppe, in der Fragen frei gestellt werden können und Misserfolge nicht streng beurteilt werden.
-- Suchen Sie in Ihrer lokalen Gemeinschaft nach Meetup-Gruppen mit Personen, die Ihnen entweder Hilfe und Ratschläge geben können oder die die gleichen Probleme haben wie Sie und die moralische Unterstützung bieten oder mit Ihnen experimentieren können.
-- (Für Pädagogen) Richten Sie die Bewertungsrichtlinien für Ihre Aufgaben so ein, dass Sie immer noch eine angemessene Anzahl von Punkten erhalten, auch wenn das korrekte Ergebnis nicht erzielt wurde, vorausgesetzt, der Prozess ist gut dokumentiert. Vergeben Sie zusätzliche Punkte für Innovationen.
-- Führen Sie Show 'n' Tell oder Einzelgespräche während eines Projekts mit Kollegen und Mentoren durch, um Feedback und Einsichten zu erhalten, wo Sie falsch liegen, und Tipps zu bekommen, wie Sie wieder auf den richtigen Weg kommen.
-- Führen Sie Retrospektiven durch, um Projekte zu analysieren, darüber zu sprechen, was nicht so gut gelaufen ist, und wie man Dinge beim nächsten Mal verbessern kann.
+- Definieren Sie einen sicheren Raum/eine Peer-Gruppe, in der Menschen frei Fragen stellen können und Misserfolge nicht streng beurteilt werden.
+- Schauen Sie in Ihre lokale Community und versuchen Sie, Meetup-Gruppen zu finden, mit Menschen, die Ihnen helfen und Ratschläge geben können oder mit denselben Problemen konfrontiert sind wie Sie und die Ihnen moralische Unterstützung bieten oder mit Ihnen zusammen experimentieren können.
+- (Für Pädagogen) Richten Sie die Bewertungsrichtlinien für Ihre Beurteilungen so ein, dass Sie auch dann noch eine angemessene Anzahl von Punkten erhalten können, wenn Sie das richtige Ergebnis nicht erzielt haben, vorausgesetzt, der Prozess ist gut dokumentiert. Vergeben Sie zusätzliche Punkte für Innovation.
+- Führen Sie Show'n'Tell- oder Einzelgespräche während eines Projekts mit Kollegen und Mentoren durch, um Feedback und Einblicke in das zu erhalten, wo Sie Fehler gemacht haben, und erhalten Sie Ratschläge, wie Sie wieder auf den richtigen Weg kommen können.
+- Führen Sie retrospektive Meetings durch, um Projekte zu analysieren, zu analysieren, was nicht so gut gelaufen ist, und darüber zu sprechen, wie Dinge beim nächsten Mal verbessert werden können.
 
 {{PreviousMenuNext("Learn_web_development/Getting_started/Soft_skills/Research_and_learning", "Learn_web_development/Getting_started/Soft_skills/Workflows_and_processes", "Learn_web_development/Getting_started/Soft_skills")}}

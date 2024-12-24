@@ -2,7 +2,7 @@
 title: Barrierefreiheitstools und unterstützende Technologien
 slug: Learn_web_development/Core/Accessibility/Tooling
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: a92e10b293358bc796c43d5872a8981fd988a005
 ---
 
 {{LearnSidebar}}
@@ -10,24 +10,24 @@ l10n:
 {{PreviousMenuNext("Learn_web_development/Core/Accessibility/What_is_Accessibility","Learn_web_development/Core/Accessibility/HTML", "Learn_web_development/Core/Accessibility")}}
 
 > [!NOTE]
-> Der Inhalt in diesem Artikel ist derzeit unvollständig, sorry dafür! Wir arbeiten hart daran, den MDN Learn Web Development-Bereich zu verbessern, und wir werden bald die als unvollständig ("TODO") markierten Stellen fertigstellen.
+> Der Inhalt dieses Artikels ist derzeit unvollständig, tut uns leid! Wir arbeiten hart daran, den MDN Web Development-Bereich zu verbessern, und wir werden bald die als unvollständig markierten Stellen ("TODO") fertigstellen.
 
-Als nächstes richten wir unsere Aufmerksamkeit auf Barrierefreiheitstools und geben Ihnen Informationen zu den Arten von Werkzeugen, die Sie verwenden können, um Barrierefreiheitsprobleme zu lösen, sowie zu den unterstützenden Technologien, die von Menschen mit Behinderungen beim Surfen im Internet verwendet werden. Sie werden diese Werkzeuge in den folgenden Artikeln nutzen.
+Als nächstes wenden wir unsere Aufmerksamkeit auf Barrierefreiheitstools und geben Informationen über die Arten von Tools, die Sie verwenden können, um Barrierefreiheitsprobleme zu lösen, sowie über die assistiven Technologien, die von Menschen mit Behinderungen beim Surfen im Internet genutzt werden. Sie werden diese Tools in den folgenden Artikeln verwenden.
 
 <table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>
-      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, ein <a href="/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility">Grundverständnis von Barrierefreiheitskonzepten</a>.</td>
+      <td>Vertrautheit mit <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a>, ein <a href="/de/docs/Learn_web_development/Core/Accessibility/What_is_accessibility">grundlegendes Verständnis von Barrierefreiheitskonzepten</a>.</td>
     </tr>
     <tr>
       <th scope="row">Lernziele:</th>
       <td>
         <ul>
-          <li>Vertrautheit mit den Arten von Werkzeugen, die Sie zur Lösung von Barrierefreiheitsproblemen verwenden können, wie z.B. Prüftools.</li>
-          <li>Einrichten von Screenreadern und deren Verwendung zur Überprüfung von Websites auf Desktop und Mobilgeräten.</li>
-          <li>Andere unterstützende Technologien wie z.B. große Text- oder Brailletastaturen, alternative Zeigegeräte und Bildschirmvergrößerer.</li>
-          <li>Die Bedeutung von Benutzertests neben automatisierten Tests.</li>
+          <li>Vertrautheit mit der Art von Werkzeugen, die Sie verwenden können, um Barrierefreiheitsprobleme zu lösen, zum Beispiel Prüftools.</li>
+          <li>Bildschirmlesegeräte einrichten und sie benutzen, um Websites auf Desktop- und Mobilgeräten zu testen.</li>
+          <li>Andere unterstützende Technologien wie große Text- oder Braille-Tastaturen, alternative Zeigegeräte und Bildschirmlupen.</li>
+          <li>Die Wichtigkeit von Benutzertests in Kombination mit automatisierten Tests.</li>
         </ul>
       </td>
     </tr>
@@ -36,328 +36,337 @@ Als nächstes richten wir unsere Aufmerksamkeit auf Barrierefreiheitstools und g
 
 ## Barrierefreiheitstools
 
-Lassen Sie uns einen Blick auf die Werkzeuge werfen, die Sie bei der Implementierung barrierefreier Websites und der Behebung von Barrierefreiheitsproblemen nutzen können.
+Lassen Sie uns einen Blick auf die Tools werfen, die Sie verwenden können, um barrierefreie Websites zu implementieren und Barrierefreiheitsprobleme zu beheben.
 
-### Prüfung der Quellreihenfolge
+### Testen der Quellreihenfolge
 
-Ihr Inhalt sollte in seiner Quellreihenfolge logisch Sinn ergeben – Sie können ihn später immer noch mit CSS nach Belieben platzieren, aber Sie sollten die Quellreihenfolge von Anfang an richtig festlegen.
+Ihr Inhalt sollte in der Quellreihenfolge logisch sinnvoll sein — Sie können ihn später immer mit CSS an die gewünschte Stelle platzieren, aber Sie sollten die Quellreihenfolge von Anfang an richtig festlegen.
 
-Als Test können Sie das CSS einer Website deaktivieren und prüfen, wie verständlich sie ohne CSS ist. Sie könnten dies manuell tun, indem Sie das CSS einfach aus Ihrem Code entfernen, aber der einfachste Weg ist die Verwendung von Browser-Funktionen, zum Beispiel:
+Als Test können Sie das CSS einer Seite ausschalten und prüfen, wie verständlich sie ohne CSS ist. Sie könnten dies manuell tun, indem Sie einfach das CSS aus Ihrem Code entfernen, aber der einfachste Weg ist die Verwendung von Browser-Features, zum Beispiel:
 
-- Firefox: Wählen Sie im Hauptmenü _Ansicht > Seitenstil > Kein Stil_.
-- Safari: Wählen Sie im Hauptmenü _Entwickeln > Stile deaktivieren_ (um das Menü _Entwickeln_ zu aktivieren, wählen Sie _Safari > Einstellungen > Erweitert > Entwicklermenü in Menüleiste anzeigen_).
-- Chrome: Installieren Sie die Erweiterung Web Developer Toolbar, starten Sie den Browser neu, klicken Sie auf das Zahnradsymbol und wählen Sie _CSS > Alle Stile deaktivieren_.
-- Edge: Wählen Sie im Hauptmenü _Ansicht > Stil > Kein Stil_.
+- Firefox: Wählen Sie _Ansicht > Seitenstil > Kein Stil_ aus dem Hauptmenü.
+- Safari: Wählen Sie _Entwickeln > Stile deaktivieren_ aus dem Hauptmenü (um das _Entwickeln_-Menü zu aktivieren, wählen Sie _Safari > Einstellungen > Erweitert > Entwicklermenü in der Menüleiste anzeigen_).
+- Chrome: Installieren Sie die Web Developer Toolbar-Erweiterung, starten Sie dann den Browser neu. Klicken Sie auf das Zahnrad-Symbol, das erscheint, und wählen Sie _CSS > Alle Stile deaktivieren_.
+- Edge: Wählen Sie _Ansicht > Stil > Kein Stil_ aus dem Hauptmenü.
 
-### Prüfwerkzeuge für den Farbkontrast
+### Farbkontrastprüfer
 
-Wenn Sie ein Farbschema für Ihre Website wählen, sollten Sie sicherstellen, dass die Textfarbe (Vordergrund) gut mit der Hintergrundfarbe kontrastiert. Ihr Design mag cool aussehen, aber es nützt nichts, wenn Menschen mit Sehbehinderungen wie Farbenblindheit Ihre Inhalte nicht lesen können. Nutzen Sie ein Werkzeug wie WebAIM's [Farbkontrastprüfer](https://webaim.org/resources/contrastchecker/), um zu überprüfen, ob Ihr Schema ausreichend kontrastiert.
+Bei der Auswahl eines Farbschemas für Ihre Website sollten Sie sicherstellen, dass die Textfarbe (Vordergrund) gut mit der Hintergrundfarbe kontrastiert. Ihr Design mag cool aussehen, aber es nützt nichts, wenn Menschen mit Sehbehinderungen wie Farbenblindheit Ihren Inhalt nicht lesen können. Verwenden Sie ein Tool wie WebAIM's [Color Contrast Checker](https://webaim.org/resources/contrastchecker/), um zu überprüfen, ob Ihr Schema ausreichend kontrastiert.
 
-Ein weiterer Tipp ist, sich nicht nur auf Farbe für Wegweiser/Informationen zu verlassen, da dies für diejenigen, die keine Farbe sehen können, nicht hilfreich ist. Anstatt z.B. erforderliche Formularfelder rot zu markieren, markieren Sie sie mit einem Sternchen und in Rot.
+Ein weiterer Tipp ist, nicht nur auf Farben für Schilder/Informationen zu setzen, da dies für diejenigen, die die Farbe nicht sehen können, keinen Nutzen hat. Markieren Sie zum Beispiel verpflichtende Formularfelder zusätzlich zu rot mit einem Sternchen.
 
 > [!NOTE]
-> Ein hoher Kontrast ermöglicht es auch jedem, der ein Smartphone oder Tablet mit glänzendem Bildschirm verwendet, Seiten besser in einer hellen Umgebung, wie Sonnenlicht, zu lesen.
+> Ein hoher Kontrast ermöglicht es auch jedem, der ein Smartphone oder Tablet mit einem glänzenden Bildschirm benutzt, Seiten in einer hellen Umgebung wie Sonnenlicht besser zu lesen.
 
 ### Prüftools
 
-Es gibt eine Reihe von Prüftools, in die Sie Ihre Webseiten einspeisen können. Sie analysieren die Seiten und geben eine Liste der vorhandenen Barrierefreiheitsprobleme auf der Seite zurück. Lassen Sie uns ein Beispiel ansehen, indem wir [Wave](https://wave.webaim.org/), ein Online-Barrierefreiheitsprüfungstool, das eine Webadresse akzeptiert und eine annotierte Ansicht dieser Seite mit hervorgehobenen Barrierefreiheitsproblemen zurückgibt, verwenden.
+Es gibt eine Reihe von Prüftools, in die Sie Ihre Webseiten einfügen können. Sie überprüfen diese und geben eine Liste der auf der Seite vorhandenen Barrierefreiheitsprobleme zurück. Schauen wir uns ein Beispiel an, die Verwendung von [Wave](https://wave.webaim.org/), einem Online-Testtool für Barrierefreiheit, das eine Webadresse akzeptiert und eine annotierte Ansicht dieser Seite mit hervorgehobenen Barrierefreiheitsproblemen zurückgibt.
 
 1. Gehen Sie zur [Wave-Startseite](https://wave.webaim.org/).
-2. Geben Sie die URL unseres Beispiels [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html) in das Text-Eingabefeld nahe der Seite ein. Drücken Sie dann die Eingabetaste oder klicken/tippen Sie auf den Pfeil am rechten Rand des Eingabefeldes.
-3. Die Seite sollte mit einer Beschreibung der Barrierefreiheitsprobleme antworten. Klicken Sie auf die angezeigten Symbole, um weitere Informationen zu den von Wave ermittelten Problemen zu erhalten.
+2. Geben Sie die URL unseres [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html)-Beispiels in das Texteingabefeld oben auf der Seite ein. Drücken Sie dann die Eingabetaste oder klicken/tippen Sie auf den Pfeil am rechten Rand des Eingabefeldes.
+3. Die Seite sollte auf die Barrierefreiheitsprobleme antworten. Klicken Sie auf die angezeigten Symbole, um mehr Informationen zu jedem der von Wave's Bewertung identifizierten Probleme zu erhalten.
 
-Andere Prüftools, die sich lohnen, anzusehen:
+Andere Prüftools, die es wert sind, ausprobiert zu werden:
 
 - [Firefox Accessibility Inspector](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/index.html)
 - [ANDI Bookmarklet](https://www.ssa.gov/accessibility/andi/help/install.html)
-- [Google Lighthouse Accessibility Audits](https://developer.chrome.com/docs/lighthouse/accessibility/)
+- [Google Lighthouse accessibility audits](https://developer.chrome.com/docs/lighthouse/accessibility/)
 
 > [!NOTE]
-> Solche Werkzeuge sind nicht gut genug, um alle Ihre Barrierefreiheitsprobleme allein zu lösen. Sie benötigen eine Kombination daraus, Wissen und Erfahrung, Benutzertests etc., um ein vollständiges Bild zu bekommen.
+> Solche Tools sind nicht genug, um alle Ihre Barrierefreiheitsprobleme allein zu lösen. Sie benötigen eine Kombination aus diesen Tools, Wissen und Erfahrung, Benutzertests usw., um ein vollständiges Bild zu bekommen.
 
 ### Automatisierungstools
 
-[Deque's aXe tool](https://www.deque.com/axe/) geht etwas weiter als die oben genannten Prüftools. Wie die anderen überprüft es Seiten und gibt Barrierefreiheitsfehler zurück. Seine nützlichste Form sind wahrscheinlich die Browser-Erweiterungen:
+[Deque's aXe-Tool](https://www.deque.com/axe/) geht etwas weiter als die oben genannten Prüftools. Wie die anderen prüft es Seiten und gibt Barrierefreiheitsfehler zurück. In seiner unmittelbar nützlichsten Form ist es wahrscheinlich in den Browsererweiterungen erhältlich:
 
 - [aXe für Chrome](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd)
 - [aXe für Firefox](https://addons.mozilla.org/en-US/firefox/addon/axe-devtools/)
 
-Diese fügen den Entwicklertools des Browsers einen Barrierefreiheitsreiter hinzu. Zum Beispiel installierten wir die Firefox-Version und verwendeten sie, um unser Beispiel [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) zu prüfen. Wir erhielten die folgenden Ergebnisse:
+Diese fügen den Entwicklerwerkzeugen des Browsers einen Barrierefreiheits-Reiter hinzu. Zum Beispiel haben wir die Firefox-Version installiert und dann verwendet, um unser [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html)-Beispiel zu prüfen. Wir erhielten die folgenden Ergebnisse:
 
-![Ein Screenshot der von Axe identifizierten Barrierefreiheitsprobleme.](axe-screenshot.png)
+![Ein Screenshot von Barrierefreiheitsproblemen, die vom Axe-Tool identifiziert wurden.](axe-screenshot.png)
 
-aXe lässt sich auch mit `npm` installieren und kann in Task-Runner wie [Grunt](https://gruntjs.com/) und [Gulp](https://gulpjs.com/), Automatisierungs-Frameworks wie [Selenium](https://www.selenium.dev/) und [Cucumber](https://cucumber.io/), Unit-Testing-Frameworks wie [Jasmine](https://jasmine.github.io/), und mehr integriert werden (siehe hierzu auch die [Haupt-AXe-Seite](https://www.deque.com/axe/) für weitere Details).
+aXe kann auch mit `npm` installiert werden und lässt sich mit Task-Runnern wie [Grunt](https://gruntjs.com/) und [Gulp](https://gulpjs.com/), Automatisierungs-Frameworks wie [Selenium](https://www.selenium.dev/) und [Cucumber](https://cucumber.io/), Unit-Test-Frameworks wie [Jasmine](https://jasmine.github.io/) und vielen anderen integrieren (siehe erneut die [Hauptseite von aXe](https://www.deque.com/axe/) für Details).
 
-## Screenreader
+## Bildschirmlesegeräte
 
-Es lohnt sich auf jeden Fall, mit einem Screenreader zu testen, um sich daran zu gewöhnen, wie stark sehbehinderte Menschen das Web nutzen. Es gibt eine Reihe von Screenreadern:
+Es ist auf jeden Fall lohnenswert, ein Bildschirmlesegerät zu testen, um sich daran zu gewöhnen, wie stark sehbehinderte Menschen das Web nutzen. Es gibt mehrere Bildschirmlesegeräte:
 
-- Einige sind kostenpflichtige kommerzielle Produkte, wie [JAWS](https://www.freedomscientific.com/Products/software/JAWS/) (Windows).
+- Einige sind kostenpflichtige kommerzielle Produkte wie [JAWS](https://www.freedomscientific.com/Products/software/JAWS/) (Windows).
 - Einige sind kostenlose Produkte, wie [NVDA](https://www.nvaccess.org/) (Windows), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (Chrome, Windows und macOS) und [Orca](https://wiki.gnome.org/Projects/Orca) (Linux).
-- Einige sind im Betriebssystem integriert, wie [VoiceOver](https://www.apple.com/accessibility/vision/) (macOS und iOS), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (auf Chromebooks) und [TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback) (Android).
+- Einige sind in das Betriebssystem integriert, wie [VoiceOver](https://www.apple.com/accessibility/vision/) (macOS und iOS), [ChromeVox](https://support.google.com/chromebook/answer/7031755) (auf Chromebooks) und [TalkBack](https://play.google.com/store/apps/details?id=com.google.android.marvin.talkback) (Android).
 
-Screenreader sind im Allgemeinen eigenständige Apps, die im Host-Betriebssystem laufen und nicht nur Webseiten, sondern auch Text in anderen Apps lesen können. Dies ist nicht immer der Fall (ChromeVox ist eine Browsererweiterung), aber normalerweise neigen Screenreader dazu, sich auf leicht unterschiedliche Weise zu verhalten und andere Steuerungen zu haben, sodass Sie die Dokumentation Ihres gewählten Screenreaders konsultieren müssen, um alle Details zu erfahren – sie funktionieren im Grunde alle ähnlich.
+Im Allgemeinen sind Bildschirmlesegeräte separate Apps, die auf dem Host-Betriebssystem laufen und nicht nur Webseiten, sondern auch Text in anderen Apps lesen können. Dies ist nicht immer der Fall (ChromeVox ist eine Browsererweiterung), aber normalerweise tendieren Bildschirmlesegeräte dazu, in leicht unterschiedlichen Arten zu agieren und unterschiedliche Steuerungen zu haben, sodass Sie die Dokumentation für Ihr ausgewähltes Bildschirmlesegerät konsultieren müssen, um alle Details zu erhalten — dennoch funktionieren sie alle im Grunde auf die gleiche Weise.
 
-Lassen Sie uns einige Tests mit ein paar verschiedenen Screenreadern durchgehen, um Ihnen eine allgemeine Vorstellung davon zu geben, wie sie funktionieren und wie man mit ihnen testet.
+Lassen Sie uns einige Tests mit verschiedenen Bildschirmlesegeräten durchführen, um Ihnen eine allgemeine Vorstellung davon zu geben, wie sie funktionieren und wie man mit ihnen testet.
 
 > [!NOTE]
-> WebAIMs [Designing for Screen Reader Compatibility](https://webaim.org/techniques/screenreader/) bietet einige nützliche Informationen zur Nutzung von Screenreadern und was am besten für sie funktioniert. Siehe auch [Screen Reader User Survey #9 Ergebnisse](https://webaim.org/projects/screenreadersurvey9/#used) für einige interessante Statistiken zur Nutzung von Screenreadern.
+> WebAIMs [Designing for Screen Reader Compatibility](https://webaim.org/techniques/screenreader/) bietet nützliche Informationen über die Nutzung von Bildschirmlesegeräten und was am besten für sie funktioniert. Siehe auch [Ergebnisse der Screen Reader User Survey #9](https://webaim.org/projects/screenreadersurvey9/#used) für einige interessante Nutzungsstatistiken von Bildschirmlesegeräten.
 
 ### VoiceOver
 
-VoiceOver (VO) ist kostenlos mit Ihrem Mac/iPhone/iPad erhältlich und nützlich für Tests auf Desktop und Mobilgerät, wenn Sie Apple-Produkte verwenden. Wir werden es auf macOS auf einem MacBook Pro testen.
+VoiceOver (VO) wird kostenlos mit Ihrem Mac/iPhone/iPad geliefert, daher ist es nützlich für Tests auf Desktop/Mobilgeräten, wenn Sie Apple-Produkte verwenden. Wir werden es auf macOS auf einem MacBook Pro testen.
 
-Um es zu aktivieren, drücken Sie Cmd + F5. Wenn Sie VO noch nicht verwendet haben, wird Ihnen ein Begrüßungsbildschirm angezeigt, bei dem Sie auswählen können, ob Sie VO starten oder nicht, und ein sehr nützliches Tutorial durchlaufen können, um zu lernen, wie man es benutzt. Um es wieder auszuschalten, drücken Sie erneut Cmd + F5.
+Um es zu aktivieren, drücken Sie Cmd + F5. Wenn Sie VO noch nie verwendet haben, wird Ihnen ein Begrüßungsbildschirm angezeigt, auf dem Sie VO starten oder nicht starten können und ein sehr nützliches Tutorial durchführen können, um zu lernen, wie man es benutzt. Um VO wieder auszuschalten, drücken Sie erneut Cmd + F5.
 
 > [!NOTE]
-> Sie sollten das Tutorial mindestens einmal durchlaufen – es ist ein wirklich nützlicher Weg, um VO zu lernen.
+> Sie sollten das Tutorial mindestens einmal durchgehen — es ist eine wirklich nützliche Möglichkeit, VO zu lernen.
 
-Wenn VO aktiviert ist, sieht die Anzeige im Wesentlichen gleich aus, aber Sie sehen einen schwarzen Kasten unten links auf dem Bildschirm mit Informationen darüber, was VO derzeit ausgewählt hat. Die aktuelle Auswahl wird auch hervorgehoben, mit einem schwarzen Rahmen – diese Hervorhebung ist als **VO-Cursor** bekannt.
+Wenn VO eingeschaltet ist, sieht das Display größtenteils gleich aus, aber Sie sehen ein schwarzes Feld unten links auf dem Bildschirm, das Informationen über das enthält, was VO gerade ausgewählt hat. Die aktuelle Auswahl wird ebenfalls hervorgehoben, mit einem schwarzen Rand — diese Hervorhebung wird als **VO-Cursor** bezeichnet.
 
-![Ein Beispiel-Screenshot, der den Barrierefreiheitstest mit VoiceOver auf der MDN-Startseite zeigt. Unten links im Bild ist eine Hervorhebung der Informationen ausgewählt auf der Webseite.](voiceover.png)
+![Ein Beispiel-Screenshot, der Barrierefreiheitstests mit VoiceOver auf der MDN-Homepage demonstriert. Unten links im Bild ist ein Highlight der auf der Webseite ausgewählten Informationen zu sehen.](voiceover.png)
 
-Um VO zu verwenden, werden Sie viel Gebrauch vom "VO-Modifikator" machen – dies ist eine Taste oder Tastenkombination, die Sie zusätzlich zu den tatsächlichen VO-Tastaturkürzeln drücken müssen, damit sie funktionieren. Die Verwendung eines solchen Modifikators ist bei Screenreadern üblich, um ihre Befehle davor zu bewahren, mit anderen Befehlen zu kollidieren. Im Fall von VO kann der Modifikator entweder CapsLock oder Strg + Option sein.
+Um VO zu verwenden, nutzen Sie den "VO-Modifikator" — dies ist eine Taste oder Tastenkombination, die Sie zusätzlich zu den tatsächlichen VO-Tastenkombinationen drücken müssen, damit sie funktionieren. Die Verwendung eines Modifikators ist bei Bildschirmlesegeräten üblich, um zu verhindern, dass ihre Befehle mit anderen Befehlen kollidieren. Im Fall von VO kann der Modifikator entweder CapsLock oder Strg + Option sein.
 
-VO hat viele Tastaturbefehle, und wir werden nicht alle hier auflisten. Die grundlegendsten Befehle, die Sie für Websitetests benötigen, sind in der folgenden Tabelle aufgeführt. In den Tastaturkürzeln bedeutet "VO" "der VoiceOver-Modifikator".
+VO hat viele Tastaturbefehle, und wir werden sie hier nicht alle auflisten. Die grundlegenden, die Sie für Webseitentests benötigen, sind in der folgenden Tabelle. In den Tastaturkürzeln steht "VO" für "den VoiceOver-Modifikator".
 
 <table class="standard-table no-markdown">
   <caption>
-    Die häufigsten VoiceOver-Tastaturkürzel
+    Häufigste VoiceOver-Tastenkombinationen
   </caption>
   <thead>
     <tr>
-      <th scope="col">Tastaturkürzel</th>
+      <th scope="col">Tastenkombination</th>
       <th scope="col">Beschreibung</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>VO + Cursortasten</td>
-      <td>Bewegen des VO-Cursors nach oben, rechts, unten, links.</td>
+      <td>VO + Pfeiltasten</td>
+      <td>Bewege den VO-Cursor nach oben, rechts, unten, links.</td>
     </tr>
     <tr>
       <td>VO + Leertaste</td>
-      <td>Auswählen/Aktivieren von Elementen, die vom VO-Cursor hervorgehoben werden. Dies umfasst auch im Rotor (siehe unten) ausgewählte Elemente.</td>
+      <td>Wählen/Aktivieren von Elementen, die vom VO-Cursor hervorgehoben sind. Dies schließt Elemente ein, die im Rotor ausgewählt sind (siehe unten).</td>
     </tr>
     <tr>
-      <td>VO + Umschalt + nach unten</td>
-      <td>In eine Gruppe von Elementen (wie eine HTML-Tabelle oder ein Formular usw.) wechseln. Innerhalb einer Gruppe können Sie sich bewegen und Elemente darin auswählen, wie gewohnt.</td>
+      <td>VO + Shift + Pfeil nach unten</td>
+      <td>Wechseln in eine Gruppe von Elementen (wie eine HTML-Tabelle oder ein Formular etc.). Einmal innerhalb einer Gruppe können Sie mit den obigen Befehlen wie üblich durch die Elemente in dieser Gruppe navigieren und diese auswählen.</td>
     </tr>
     <tr>
-      <td>VO + Umschalt + nach oben</td>
-      <td>Aus einer Gruppe heraus wechseln.</td>
+      <td>VO + Shift + Pfeil nach oben</td>
+      <td>Aus einer Gruppe herausgehen.</td>
     </tr>
     <tr>
       <td>VO + C</td>
-      <td>(wenn innerhalb einer Tabelle) Lesen der Kopfzeile der aktuellen Spalte.</td>
+      <td>(innerhalb einer Tabelle) Den Header der aktuellen Spalte lesen.</td>
     </tr>
     <tr>
       <td>VO + R</td>
-      <td>(wenn innerhalb einer Tabelle) Lesen der Kopfzeile der aktuellen Reihe.</td>
+      <td>(innerhalb einer Tabelle) Den Header der aktuellen Zeile lesen.</td>
     </tr>
     <tr>
-      <td>VO + C + C (zwei Cs hintereinander)</td>
-      <td>(wenn innerhalb einer Tabelle) Lesen der gesamten aktuellen Spalte, einschließlich Kopfzeile.</td>
+      <td>VO + C + C (zweimal C nacheinander)</td>
+      <td>(innerhalb einer Tabelle) Die gesamte aktuelle Spalte einschließlich Header lesen.</td>
     </tr>
     <tr>
-      <td>VO + R + R (zwei Rs hintereinander)</td>
-      <td>(wenn innerhalb einer Tabelle) Lesen der gesamten aktuellen Reihe, einschließlich der Kopfzeilen, die zu jeder Zelle gehören.</td>
+      <td>VO + R + R (zweimal R nacheinander)</td>
+      <td>(innerhalb einer Tabelle) Die gesamte aktuelle Zeile einschließlich der für jede Zelle entsprechenden Header lesen.</td>
     </tr>
     <tr>
-      <td>VO + linker Cursor, VO + rechter Cursor</td>
-      <td>(wenn innerhalb einiger horizontaler Optionen, wie Datum- oder Zeitauswahl) Zwischen Optionen wechseln.</td>
+      <td>VO + Pfeil nach links, VO + Pfeil nach rechts</td>
+      <td>(innerhalb einiger horizontaler Optionen, wie einem Datums- oder Zeitauswahlfeld) Zwischen Optionen wechseln.</td>
     </tr>
     <tr>
-      <td>VO + nach oben, VO + nach unten</td>
-      <td>(wenn innerhalb einiger horizontaler Optionen, wie Datum- oder Zeitauswahl) Aktuelle Option ändern.</td>
+      <td>VO + Pfeil nach oben, VO + Pfeil nach unten</td>
+      <td>(innerhalb einiger horizontaler Optionen, wie einem Datums- oder Zeitauswahlfeld) Die aktuelle Option ändern.</td>
     </tr>
     <tr>
       <td>VO + U</td>
-      <td>Verwendung des Rotors, der Listen von Überschriften, Links, Formularelementen usw. zur einfachen Navigation anzeigt.</td>
+      <td>Den Rotor verwenden, der Listen von Überschriften, Links, Steuerungen im Formular usw. für die einfache Navigation anzeigt.</td>
     </tr>
     <tr>
-      <td>VO + linker Cursor, VO + rechter Cursor</td>
-      <td>(wenn innerhalb des Rotors) Zwischen verschiedenen Listen im Rotor wechseln.</td>
+      <td>VO + Pfeil nach links, VO + Pfeil nach rechts</td>
+      <td>(innerhalb des Rotors) Zwischen verschiedenen im Rotor verfügbaren Listen wechseln.</td>
     </tr>
     <tr>
-      <td>VO + nach oben, VO + nach unten</td>
-      <td>(wenn innerhalb des Rotors) Zwischen verschiedenen Elementen in der aktuellen Rotorliste wechseln.</td>
+      <td>VO + Pfeil nach oben, VO + Pfeil nach unten</td>
+      <td>(innerhalb des Rotors) Zwischen verschiedenen Elementen in der aktuellen Rotorliste wechseln.</td>
     </tr>
     <tr>
       <td>Esc</td>
-      <td>(wenn innerhalb des Rotors) Rotor verlassen.</td>
+      <td>(innerhalb des Rotors) Rotor verlassen.</td>
     </tr>
     <tr>
       <td>Strg</td>
-      <td>(wenn VO spricht) Rede pausieren/fortsetzen.</td>
+      <td>(wenn VO spricht) Sprache pausieren/fortsetzen.</td>
     </tr>
     <tr>
       <td>VO + Z</td>
-      <td>Letztes Sprachstück erneut starten.</td>
+      <td>Das letzte Stück Sprache erneut wiedergeben.</td>
     </tr>
     <tr>
       <td>VO + D</td>
-      <td>In das Dock des Mac wechseln, um darin Apps auszuwählen, die ausgeführt werden sollen.</td>
+      <td>In das Dock des Macs wechseln, um darin Apps auswählen und ausführen zu können.</td>
     </tr>
   </tbody>
 </table>
 
-Das klingt nach vielen Befehlen, ist aber nicht so schlimm, wenn Sie sich daran gewöhnt haben, und VO gibt Ihnen regelmäßig Erinnerungen, welche Befehle an bestimmten Stellen verwendet werden sollen. Probieren Sie VO jetzt aus; Sie können dann einige unserer Beispiele im Abschnitt [Screenreader-Tests](#screenreader-tests) ausprobieren.
+Das scheint eine Menge an Befehlen zu sein, aber es ist nicht so schlimm, wenn Sie sich daran gewöhnt haben, und VO gibt Ihnen regelmäßig Erinnerungen, welche Befehle Sie an bestimmten Stellen verwenden können. Spielen Sie jetzt mit VO; Sie können dann mit einigen unserer Beispiele im Abschnitt [Bildschirmlesegeräte-Tests](#bildschirmlesegeräte-tests) weitermachen.
 
 ### NVDA
 
-NVDA ist nur für Windows verfügbar und Sie müssen es installieren.
+NVDA ist nur für Windows verfügbar, und Sie müssen es installieren.
 
-1. Laden Sie es von [nvaccess.org](https://www.nvaccess.org/) herunter. Sie können wählen, ob Sie eine Spende machen oder es kostenlos herunterladen möchten; Sie müssen ihnen auch Ihre E-Mail-Adresse geben, bevor Sie es herunterladen können.
-2. Sobald es heruntergeladen wurde, installieren Sie es – doppelklicken Sie auf die Installationsdatei, akzeptieren Sie die Lizenz und folgen Sie den Anweisungen.
-3. Um NVDA zu starten, doppelklicken Sie auf die Programmdatei/-verknüpfung oder verwenden Sie das Tastaturkürzel Strg + Alt + N. Sie sehen den NvDA-Begrüßungsdialog beim Start. Hier können Sie aus ein paar Optionen auswählen und dann auf die Schaltfläche _OK_ klicken, um fortzufahren.
+1. Laden Sie es von [nvaccess.org](https://www.nvaccess.org/) herunter. Sie können sich entscheiden, ob Sie eine Spende machen oder es kostenlos herunterladen möchten; Sie müssen ihnen auch Ihre E-Mail-Adresse geben, bevor Sie es herunterladen können.
+2. Sobald es heruntergeladen ist, installieren Sie es – doppelklicken Sie auf die Installationsdatei, akzeptieren Sie die Lizenz und folgen Sie den Anweisungen.
+3. Um NVDA zu starten, doppelklicken Sie auf die Programmdatei/Verknüpfung oder verwenden Sie die Tastenkombination Strg + Alt + N. Sie sehen das NVDA Begrüßungsdialog, wenn Sie es starten. Hier können Sie aus einigen Optionen auswählen und dann auf die _OK_-Schaltfläche klicken, um loszulegen.
 
 NVDA ist jetzt auf Ihrem Computer aktiv.
 
-Um NVDA zu verwenden, werden Sie viel Gebrauch vom "NVDA-Modifikator" machen – dies ist eine Taste, die Sie zusätzlich zu den tatsächlichen NVDA-Tastaturkürzeln drücken müssen, damit sie funktionieren. Die Verwendung eines solchen Modifikators ist bei Screenreadern üblich, um ihre Befehle davor zu bewahren, mit anderen Befehlen zu kollidieren. Im Fall von NVDA kann der Modifikator entweder Einfügen (der Standard) oder CapsLock (kann durch Aktivieren der ersten Checkbox im NVDA-Begrüßungsdialog vor dem Drücken von _OK_ gewählt werden).
+Um NVDA zu verwenden, nutzen Sie den "NVDA-Modifikator" — dies ist eine Taste, die Sie zusätzlich zu den tatsächlichen NVDA-Tastenkombinationen drücken müssen, damit sie funktionieren. Die Verwendung eines Modifikators ist bei Bildschirmlesegeräten üblich, um zu verhindern, dass ihre Befehle mit anderen Befehlen kollidieren. Im Fall von NVDA kann der Modifikator entweder Einfg (Standard) oder CapsLock (kann durch Markieren des ersten Kontrollkästchens im NVDA-Begrüßungsdialog ausgewählt werden, bevor Sie auf _OK_ klicken) sein.
 
 > [!NOTE]
-> NVDA ist subtiler als VoiceOver, was die Hervorhebung angeht, wo es sich befindet und was es tut. Wenn Sie durch Überschriften, Listen usw. scrollen, werden die von Ihnen ausgewählten Elemente in der Regel durch eine subtile Umrandung hervorgehoben, aber dies ist nicht immer der Fall bei allen Dingen. Wenn Sie völlig verloren sind, können Sie Strg + F5 drücken, um die aktuelle Seite zu aktualisieren und von oben zu beginnen.
+> NVDA ist subtiler als VoiceOver, wie es hervorhebt, wo es sich befindet und was es tut. Wenn Sie durch Überschriften, Listen usw. scrollen, werden die von Ihnen ausgewählten Elemente in der Regel mit einer subtilen Umrandung hervorgehoben, aber dies ist nicht immer bei allen Dingen der Fall. Wenn Sie völlig verwirrt sind, können Sie Strg + F5 drücken, um die aktuelle Seite zu aktualisieren und von oben zu beginnen.
 
-NVDA hat viele Tastaturbefehle, und wir werden nicht alle hier auflisten. Die grundlegenden Befehle, die Sie für Websitetests benötigen, sind in der folgenden Tabelle aufgeführt. In den Tastaturkürzeln bedeutet "NVDA" "der NVDA-Modifikator".
+NVDA hat viele Tastaturbefehle, und wir werden sie hier nicht alle auflisten. Die grundlegenden, die Sie für Webseitentests benötigen, sind in der folgenden Tabelle. In den Tastaturkürzeln steht "NVDA" für "den NVDA-Modifikator".
 
 <table class="standard-table no-markdown">
   <caption>
-    Die häufigsten NVDA-Tastaturkürzel
+    Häufigste NVDA-Tastenkombinationen
   </caption>
   <thead>
     <tr>
-      <th scope="col">Tastaturkürzel</th>
+      <th scope="col">Tastenkombination</th>
       <th scope="col">Beschreibung</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>NVDA + Q</td>
-      <td>NVDA wieder ausschalten, nachdem Sie es gestartet haben.</td>
+      <td>Schalten Sie NVDA wieder aus, nachdem Sie es gestartet haben.</td>
     </tr>
     <tr>
-      <td>NVDA + nach oben</td>
-      <td>Aktuelle Zeile lesen.</td>
+      <td>NVDA + Pfeil nach oben</td>
+      <td>Die aktuelle Zeile lesen.</td>
     </tr>
     <tr>
-      <td>NVDA + nach unten</td>
-      <td>Lesen ab der aktuellen Position beginnen.</td>
+      <td>NVDA + Pfeil nach unten</td>
+      <td>Ab der aktuellen Position lesen.</td>
     </tr>
     <tr>
-      <td>Nach oben und nach unten, oder Umschalt + Tabulator und Tabulator</td>
-      <td>Zum vorherigen/nächsten Element auf der Seite gehen und es lesen.</td>
+      <td>Pfeil nach oben und Pfeil nach unten oder Umschalt + Tab und Tab</td>
+      <td>Zum vorherigen/nächsten Element auf der Seite wechseln und es lesen.</td>
     </tr>
     <tr>
-      <td>Nach links und nach rechts</td>
-      <td>Zum vorherigen/nächsten Zeichen im aktuellen Element gehen und es lesen.</td>
+      <td>Pfeil nach links und Pfeil nach rechts</td>
+      <td>Zum vorherigen/nächsten Zeichen im aktuellen Element wechseln und es lesen.</td>
     </tr>
     <tr>
       <td>Umschalt + H und H</td>
-      <td>Zur vorherigen/nächsten Überschrift gehen und sie lesen.</td>
+      <td>Zur vorherigen/nächsten Überschrift wechseln und diese lesen.</td>
     </tr>
     <tr>
       <td>Umschalt + K und K</td>
-      <td>Zum vorherigen/nächsten Link gehen und ihn lesen.</td>
+      <td>Zum vorherigen/nächsten Link wechseln und diesen lesen.</td>
     </tr>
     <tr>
       <td>Umschalt + D und D</td>
-      <td>Zur vorherigen/nächsten Dokumentmarkierung (z.B. <code>&#x3C;nav></code>) gehen und sie lesen.</td>
+      <td>
+        Zum vorherigen/nächsten Dokument-Markierungspunkt wechseln (z. B. <code>&#x3C;nav></code>)
+        und diesen lesen.
+      </td>
     </tr>
     <tr>
       <td>Umschalt + 1–6 und 1–6</td>
-      <td>Zur vorherigen/nächsten Überschrift (Stufe 1–6) gehen und sie lesen.</td>
+      <td>Zur vorherigen/nächsten Überschrift (Level 1–6) wechseln und diese lesen.</td>
     </tr>
     <tr>
       <td>Umschalt + F und F</td>
-      <td>Zum vorherigen/nächsten Formulareingabefeld gehen und es fokussieren.</td>
+      <td>Zur vorherigen/nächsten Formulareingabe wechseln und darauf fokussieren.</td>
     </tr>
     <tr>
       <td>Umschalt + T und T</td>
-      <td>Zur vorherigen/nächsten Datentabelle gehen und sie fokussieren.</td>
+      <td>Zur vorherigen/nächsten Datentabelle wechseln und darauf fokussieren.</td>
     </tr>
     <tr>
       <td>Umschalt + B und B</td>
-      <td>Zum vorherigen/nächsten Button gehen und dessen Beschriftung lesen.</td>
+      <td>Zum vorherigen/nächsten Knopf wechseln und dessen Beschriftung lesen.</td>
     </tr>
     <tr>
       <td>Umschalt + L und L</td>
-      <td>Zur vorherigen/nächsten Liste gehen und deren erstes Listenelement lesen.</td>
+      <td>Zur vorherigen/nächsten Liste wechseln und deren erstes Listenelement lesen.</td>
     </tr>
     <tr>
       <td>Umschalt + I und I</td>
-      <td>Zum vorherigen/nächsten Listenelement gehen und es lesen.</td>
+      <td>Zum vorherigen/nächsten Listenelement wechseln und es lesen.</td>
     </tr>
     <tr>
-      <td>Eingabe/Return</td>
-      <td>(Wenn Link/Button oder ein anderes aktivierbares Element ausgewählt ist) Element aktivieren.</td>
+      <td>Eingabetaste</td>
+      <td>
+        (wenn ein Link/Knopf oder ein anderes aktivierbares Element ausgewählt ist) Element aktivieren.
+      </td>
     </tr>
     <tr>
       <td>NVDA + Leertaste</td>
-      <td>(Wenn Formular ausgewählt) Formular betreten, damit einzelne Elemente ausgewählt werden können, oder Formular verlassen, wenn Sie bereits darin sind.</td>
+      <td>
+        (wenn ein Formular ausgewählt ist) Formular betreten, um einzelne Elemente auswählen zu können, oder Formular verlassen, wenn Sie sich bereits darin befinden.
+      </td>
     </tr>
     <tr>
-      <td>Umschalt Tabulator und Tabulator</td>
-      <td>(Wenn innerhalb des Formulars) Zwischen Formulareingabefeldern wechseln.</td>
+      <td>Umschalt + Tab und Tab</td>
+      <td>(innerhalb des Formulars) Zwischen Formulareingaben wechseln.</td>
     </tr>
     <tr>
-      <td>Nach oben und nach unten</td>
-      <td>(Wenn innerhalb des Formulars) Formulareingabewerte ändern (im Falle von Dingen wie Auswahlboxen).</td>
+      <td>Pfeil nach oben und Pfeil nach unten</td>
+      <td>
+        (innerhalb des Formulars) Formulareingabewerte ändern (im Falle von Dingen wie Auswahlfeldern).
+      </td>
     </tr>
     <tr>
       <td>Leertaste</td>
-      <td>(Wenn innerhalb des Formulars) Ausgewählten Wert auswählen.</td>
+      <td>(innerhalb des Formulars) Gewählten Wert auswählen.</td>
     </tr>
     <tr>
-      <td>Strg + Alt + Cursortasten</td>
-      <td>(Wenn eine Tabelle ausgewählt ist) Zwischen Tabellenelementen wechseln.</td>
+      <td>Strg + Alt + Pfeiltasten</td>
+      <td>(wenn eine Tabelle ausgewählt ist) Zwischen Tabellenzellen wechseln.</td>
     </tr>
   </tbody>
 </table>
 
-### Screenreader-Tests
+### Bildschirmlesegeräte-Tests
 
-Jetzt, da Sie sich mit der Verwendung eines Screenreaders vertraut gemacht haben, möchten wir, dass Sie ihn verwenden, um einige kurze Barrierefreiheitsprüfungen durchzuführen, um eine Vorstellung davon zu bekommen, wie Screenreader mit guten und schlechten Webseitenmerkmalen umgehen:
+Nachdem Sie sich an die Verwendung eines Bildschirmlesegeräts gewöhnt haben, möchten wir, dass Sie es für einige schnelle Barrierefreiheitstests verwenden, um eine Vorstellung davon zu bekommen, wie Bildschirmlesegeräte mit guten und schlechten Webseitenmerkmalen umgehen:
 
-- Schauen Sie sich [good-semantics.html](https://mdn.github.io/learning-area/accessibility/html/good-semantics.html) an und achten Sie darauf, wie die Überschriften vom Screenreader gefunden werden und zur Navigation genutzt werden können. Nun schauen Sie sich [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html) an und beachten Sie, wie der Screenreader all diese Informationen nicht erhält. Stellen Sie sich vor, wie ärgerlich dies wäre, wenn man versucht, eine wirklich lange Seite mit Text zu navigieren.
-- Schauen Sie sich [good-links.html](https://mdn.github.io/learning-area/accessibility/html/good-links.html) an und beachten Sie, wie sie auch aus dem Kontext heraus Sinn machen. Dies ist bei [bad-links.html](https://mdn.github.io/learning-area/accessibility/html/bad-links.html) nicht der Fall – sie alle sind nur "hier klicken".
-- Schauen Sie sich [good-form.html](https://mdn.github.io/learning-area/accessibility/html/good-form.html) an und beachten Sie, wie die Formulareingaben mit ihren Labels beschrieben werden, weil wir `<label>`-Elemente richtig verwendet haben. In [bad-form.html](https://mdn.github.io/learning-area/accessibility/html/bad-form.html) erhalten sie ein unhilfreiches Label wie "leer".
-- Schauen Sie sich unser Beispiel [punk-bands-complete.html](https://mdn.github.io/learning-area/css/styling-boxes/styling-tables/punk-bands-complete.html) an und sehen Sie, wie der Screenreader in der Lage ist, Spalten und Zeilen von Inhalten zuzuordnen und sie alle zusammenzulesen, weil wir die Kopfzeilen richtig definiert haben. In [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) können keine der Zellen zugeordnet werden. Beachten Sie, dass NVDA etwas seltsam scheint, wenn Sie nur eine einzige Tabelle auf einer Seite haben; Sie könnten versuchen, [WebAIMs Tabelle-Testseite](https://webaim.org/articles/nvda/tables.htm) stattdessen zu testen.
-- Sehen Sie sich das frühere [WAI-ARIA Live-Regionen-Beispiel](https://www.freedomscientific.com/SurfsUp/AriaLiveRegions.htm) an und beachten Sie, wie der Screenreader kontinuierlich den ständig aktualisierten Abschnitt liest, während er aktualisiert wird.
+- Sehen Sie sich [good-semantics.html](https://mdn.github.io/learning-area/accessibility/html/good-semantics.html) an und bemerken Sie, wie die Überschriften vom Bildschirmlesegerät gefunden und zur Navigation verwendbar sind. Sehen Sie sich dann [bad-semantics.html](https://mdn.github.io/learning-area/accessibility/html/bad-semantics.html) an und bemerken Sie, wie das Bildschirmlesegerät keinerlei dieser Informationen erhält. Stellen Sie sich vor, wie nervig dies beim Versuch, eine wirklich lange Textseite zu navigieren, wäre.
+- Sehen Sie sich [good-links.html](https://mdn.github.io/learning-area/accessibility/html/good-links.html) an und bemerken Sie, wie sie aus dem Kontext heraus Sinn machen. Dies ist nicht der Fall bei [bad-links.html](https://mdn.github.io/learning-area/accessibility/html/bad-links.html) — alle lauten nur "hier klicken".
+- Sehen Sie sich [good-form.html](https://mdn.github.io/learning-area/accessibility/html/good-form.html) an und bemerken Sie, wie die Formulareingaben mit ihren Labels beschrieben werden, da wir `<label>`-Elemente ordnungsgemäß verwendet haben. In [bad-form.html](https://mdn.github.io/learning-area/accessibility/html/bad-form.html) erhalten sie ein unhilfreiches Label wie "leer".
+- Sehen Sie sich unser [punk-bands-complete.html](https://mdn.github.io/learning-area/css/styling-boxes/styling-tables/punk-bands-complete.html)-Beispiel an und sehen Sie, wie Bildschirmlesegeräte in der Lage sind, Spalten und Zeilen von Inhalten zuzuordnen und sie alle zusammen vorzulesen, da wir die Header richtig definiert haben. In [bad-table.html](https://mdn.github.io/learning-area/accessibility/html/bad-table.html) können keine der Zellen zugeordnet werden. Beachten Sie, dass NVDA etwas seltsam agiert, wenn Sie nur eine einzige Tabelle auf einer Seite haben; Sie könnten stattdessen [WebAIMs Tabellentestseite](https://webaim.org/articles/nvda/tables.htm) ausprobieren.
+- Schauen Sie sich das [WAI-ARIA Live Regionen Beispiel](https://www.freedomscientific.com/SurfsUp/AriaLiveRegions.htm) an, das wir bereits gesehen haben, und bemerken Sie, wie das Bildschirmlesegerät den ständig aktualisierten Abschnitt mitliest, sobald er aktualisiert wird.
 
 ## Benutzertests
 
-Wie oben erwähnt, können Sie sich nicht auf automatisierte Werkzeuge allein verlassen, um Barrierefreiheitsprobleme auf Ihrer Website zu bestimmen. Es wird empfohlen, dass Sie bei der Erstellung Ihres Testplans, sofern möglich, einige Barrierefreiheitsanwendergruppen einbeziehen. Versuchen Sie, einige Screenreader-Benutzer, einige reine Tastaturbenutzer, einige nicht hörende Benutzer und vielleicht auch andere Gruppen einzubeziehen, je nach Ihren Anforderungen.
+Wie bereits erwähnt, können Sie sich nicht allein auf automatisierte Tools verlassen, um Barrierefreiheitsprobleme auf Ihrer Seite zu bestimmen. Es wird empfohlen, bei der Erstellung Ihres Testplans, wenn möglich, einige Gruppen von Benutzern mit Behinderungen einzubeziehen. Versuchen Sie, einige Bildschirmleser-Benutzer, einige nur mit der Tastatur arbeitende Benutzer, einige nicht hörende Benutzer und vielleicht andere Gruppen einzubeziehen, je nach Ihren Anforderungen.
 
-## Weitere Werkzeuge
+## Andere Werkzeuge
 
-Es gibt viele andere Arten von unterstützender Technologie, wie z.B.:
+Es gibt viele andere Arten von assistiver Technologie, wie:
 
-- Große Text- oder Brailletastaturen.
+- Große Text- oder Braille-Tastaturen.
 - Alternative Zeigegeräte wie Trackballs, Joysticks und Touchpads.
 - Bildschirmvergrößerer.
 - Sprachsteuerungssoftware.
-- Schaltersteuerungen.
+- Schaltsteuerungen.
 
-## Barrierefreiheits-Checkliste
+## Prüfliste für Barrierefreiheitstests
 
-Die folgende Liste bietet eine Checkliste, der Sie folgen können, um sicherzustellen, dass Sie die empfohlene Barrierefreiheitsprüfung für Ihr Projekt durchgeführt haben:
+Die folgende Liste bietet Ihnen eine Prüfliste, die Sie befolgen können, um sicherzustellen, dass Sie die empfohlenen Barrierefreiheitstests für Ihr Projekt durchgeführt haben:
 
-1. Stellen Sie sicher, dass Ihr HTML so semantisch korrekt wie möglich ist. Die [Validierung](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML#html_validation) ist ein guter Anfang, ebenso wie die Verwendung eines [Prüftools](#prüftools).
-2. Überprüfen Sie, ob Ihr Inhalt Sinn macht, wenn das CSS deaktiviert ist.
-3. Stellen Sie sicher, dass Ihre Funktionalität tastaturzugänglich ist (siehe [UI-Steuerelemente](/de/docs/Learn_web_development/Core/Accessibility/HTML#ui_controls) für mehr Details). Testen Sie das mit Tabulator, Return/Enter usw.
-4. Stellen Sie sicher, dass Ihre nicht-textuellen Inhalte [Textalternativen](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) haben. Ein [Prüftool](#prüftools) ist gut geeignet, um solche Probleme zu erkennen.
-5. Stellen Sie sicher, dass der [Farbkontrast](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#color_and_color_contrast) Ihrer Website akzeptabel ist, unter Verwendung eines geeigneten Prüfwerkzeugs.
-6. Stellen Sie sicher, dass [versteckter Inhalt](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#hiding_things) für Screenreader sichtbar ist.
-7. Stellen Sie sicher, dass die Funktionalität nach Möglichkeit ohne JavaScript nutzbar ist.
+1. Stellen Sie sicher, dass Ihr HTML so semantisch korrekt wie möglich ist. [Es zu validieren](/de/docs/Learn_web_development/Core/Structuring_content/Debugging_HTML#html_validation) ist ein guter Anfang, ebenso wie die Verwendung eines [Prüftools](#prüftools).
+2. Überprüfen Sie, dass Ihr Inhalt Sinn ergibt, wenn das CSS deaktiviert ist.
+3. Stellen Sie sicher, dass Ihre Funktionen über die Tastatur zugänglich sind (siehe [UI-Steuerelemente](/de/docs/Learn_web_development/Core/Accessibility/HTML#ui_controls) für weitere Details). Testen Sie mit Tab, Eingabetaste etc.
+4. Stellen Sie sicher, dass Ihre Nicht-Text-Inhalte [Textalternativen](/de/docs/Learn_web_development/Core/Accessibility/HTML#text_alternatives) haben. Ein [Prüftool](#prüftools) eignet sich gut, um solche Probleme zu erkennen.
+5. Stellen Sie sicher, dass der [Farbkontrast](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#color_and_color_contrast) Ihrer Website akzeptabel ist, indem ein geeignetes Prüfwerkzeug verwendet wird.
+6. Stellen Sie sicher, dass [versteckter Inhalt](/de/docs/Learn_web_development/Core/Accessibility/CSS_and_JavaScript#hiding_things) von Bildschirmlesern erkannt wird.
+7. Stellen Sie sicher, dass die Funktionalität, wo immer möglich, ohne JavaScript nutzbar ist.
 8. Verwenden Sie ARIA, um die Barrierefreiheit dort zu verbessern, wo es angemessen ist.
-9. Lassen Sie Ihre Seite durch ein [Prüftool](#prüftools) laufen.
-10. Testen Sie sie mit einem Screenreader.
-11. Fügen Sie irgendwo auffindbar auf Ihrer Website eine Erklärung zur Barrierefreiheit hinzu, um zu beschreiben, was Sie unternommen haben.
+9. Lassen Sie Ihre Website durch ein [Prüftool](#prüftools) laufen.
+10. Testen Sie sie mit einem Bildschirmlesegerät.
+11. Fügen Sie eine Barrierefreiheitspolitik/Erklärung irgendwo auffindbar auf Ihrer Webseite ein, um zu erklären, was Sie getan haben.
 
 ## Zusammenfassung
 
-Hoffentlich hat Ihnen dieser Artikel eine Vorstellung davon gegeben, welche Arten von Werkzeugen Sie zur Lösung von Barrierefreiheitsproblemen nutzen können und welche unterstützenden Technologien von Menschen mit Behinderungen zur Nutzung des Internets verwendet werden.
+Hoffentlich hat dieser Artikel Ihnen eine Vorstellung davon gegeben, welche Arten von Tools Sie zur Behebung von Barrierefreiheitsproblemen verwenden können, und welche assistiven Technologien von Menschen mit Behinderungen verwendet werden, um das Internet zu nutzen.
 
 Im nächsten Artikel werden wir uns ansehen, wie man barrierefreies HTML schreibt.
 
