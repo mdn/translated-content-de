@@ -60,14 +60,14 @@ In diesem Beispiel fügen wir dem `<button>`-Element ein `onClick`-Attribut hinz
 
 Das `onClick`-Attribut hat hier eine besondere Bedeutung: Es sagt React, dass eine bestimmte Funktion ausgeführt werden soll, wenn der Benutzer auf den Button klickt. Es gibt ein paar weitere Dinge zu beachten:
 
-- Die [CamelCase]-Natur von `onClick` ist wichtig — JSX erkennt `onclick` nicht (es wird bereits in JavaScript für einen bestimmten Zweck verwendet, der verwandt, aber anders ist – standardmäßige [`onclick`](https://developer.mozilla.org/de/docs/Web/API/Element/click_event)-Handler-Eigenschaften).
+- Die [CamelCase]-Natur von `onClick` ist wichtig — JSX erkennt `onclick` nicht (es wird bereits in JavaScript für einen bestimmten Zweck verwendet, der verwandt, aber anders ist – standardmäßige [`onclick`](/de/docs/Web/API/Element/click_event)-Handler-Eigenschaften).
 - Alle Browser-Events folgen diesem Format in JSX – `on`, gefolgt vom Namen des Events.
 
 Wenden wir dies nun in unserer App an, beginnend in der `Form.jsx`-Komponente.
 
 ### Formulardatenübermittlung handhaben
 
-Erstellen Sie am Anfang der `Form()`-Komponentenfunktion (d. h. direkt unter der Zeile `function Form() {`) eine Funktion mit dem Namen `handleSubmit()`. Diese Funktion sollte [das Standardverhalten des `submit`-Events verhindern](https://developer.mozilla.org/de/docs/Learn_web_development/Core/Scripting/Events#preventing_default_behavior). Danach sollte sie eine `alert()` auslösen, die sagen kann, was Sie möchten. Sie sollte am Ende so aussehen:
+Erstellen Sie am Anfang der `Form()`-Komponentenfunktion (d. h. direkt unter der Zeile `function Form() {`) eine Funktion mit dem Namen `handleSubmit()`. Diese Funktion sollte [das Standardverhalten des `submit`-Events verhindern](/de/docs/Learn_web_development/Core/Scripting/Events#preventing_default_behavior). Danach sollte sie eine `alert()` auslösen, die sagen kann, was Sie möchten. Sie sollte am Ende so aussehen:
 
 ```jsx
 function handleSubmit(event) {
@@ -182,7 +182,7 @@ Es passiert einiges in dieser Zeile Code:
 
 - Wir definieren eine `name`-Konstante mit dem Wert `"Learn React"`.
 - Wir definieren eine Funktion, deren Aufgabe es ist, `name` zu ändern, die `setName()` genannt wird.
-- `useState()` gibt diese beiden Dinge in einem Array zurück, sodass wir [Array-Destrukturierung](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwenden, um sie beide in separaten Variablen zu erfassen.
+- `useState()` gibt diese beiden Dinge in einem Array zurück, sodass wir [Array-Destrukturierung](/de/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) verwenden, um sie beide in separaten Variablen zu erfassen.
 
 ### State lesen
 
@@ -231,7 +231,7 @@ function handleChange() {
 
 Derzeit ändert sich der Wert unserer Eingabe nicht, wenn Sie versuchen, Text einzugeben, aber Ihr Browser wird das Wort "Typing!" in der JavaScript-Konsole protokollieren, also wissen wir, dass unser Event-Listener an die Eingabe angehängt ist.
 
-Um die Anschläge des Benutzers zu lesen, müssen wir auf die `value`-Eigenschaft der Eingabe zugreifen. Wir können dies tun, indem wir das `event`-Objekt lesen, das `handleChange()` erhält, wenn es aufgerufen wird. `event` wiederum hat [eine `target`-Eigenschaft](https://developer.mozilla.org/de/docs/Web/API/Event/target), die das Element darstellt, das das `change`-Event ausgelöst hat. Das ist unsere Eingabe. Also ist `event.target.value` der Text innerhalb der Eingabe.
+Um die Anschläge des Benutzers zu lesen, müssen wir auf die `value`-Eigenschaft der Eingabe zugreifen. Wir können dies tun, indem wir das `event`-Objekt lesen, das `handleChange()` erhält, wenn es aufgerufen wird. `event` wiederum hat [eine `target`-Eigenschaft](/de/docs/Web/API/Event/target), die das Element darstellt, das das `change`-Event ausgelöst hat. Das ist unsere Eingabe. Also ist `event.target.value` der Text innerhalb der Eingabe.
 
 Sie können diesen Wert `console.log()` verwenden, um ihn in der Konsole Ihres Browsers zu sehen. Versuchen Sie, die `handleChange()`-Funktion wie folgt zu aktualisieren, und geben Sie in das Eingabefeld ein, um das Ergebnis in Ihrer Konsole zu sehen:
 
@@ -349,7 +349,7 @@ Wir haben jetzt einen `setTasks`-Hook, den wir in unserer `addTask()`-Funktion v
 
 Zuerst müssen wir `name` in ein Objekt einfügen, das die gleiche Struktur wie unsere vorhandenen Aufgaben hat. Innerhalb der `addTask()`-Funktion erstellen wir ein `newTask`-Objekt, das dem Array hinzugefügt werden soll.
 
-Wir müssen dann ein neues Array erstellen, in dem diese neue Aufgabe hinzugefügt wurde, und dann den Zustand der Aufgabendaten auf diesen neuen Zustand aktualisieren. Um dies zu tun, können wir Spread-Syntax verwenden, um [das vorhandene Array zu kopieren](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#copying_an_array) und unser Objekt am Ende hinzuzufügen. Dann übergeben wir dieses Array in `setTasks()`, um den Zustand zu aktualisieren.
+Wir müssen dann ein neues Array erstellen, in dem diese neue Aufgabe hinzugefügt wurde, und dann den Zustand der Aufgabendaten auf diesen neuen Zustand aktualisieren. Um dies zu tun, können wir Spread-Syntax verwenden, um [das vorhandene Array zu kopieren](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax#copying_an_array) und unser Objekt am Ende hinzuzufügen. Dann übergeben wir dieses Array in `setTasks()`, um den Zustand zu aktualisieren.
 
 Alles zusammengefügt, sollte Ihre `addTask()`-Funktion wie folgt aussehen:
 
@@ -486,7 +486,7 @@ function toggleTaskCompleted(id) {
 }
 ```
 
-Hier definieren wir eine `updatedTasks`-Konstante, die über das ursprüngliche `tasks`-Array mappt. Wenn die `id`-Eigenschaft der Aufgabe mit der `id` übereinstimmt, die der Funktion übergeben wurde, verwenden wir [Object-Spread-Syntax](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um ein neues Objekt zu erstellen und die `completed`-Eigenschaft dieses Objekts zu kippen, bevor wir es zurückgeben. Wenn es nicht übereinstimmt, geben wir das ursprüngliche Objekt zurück.
+Hier definieren wir eine `updatedTasks`-Konstante, die über das ursprüngliche `tasks`-Array mappt. Wenn die `id`-Eigenschaft der Aufgabe mit der `id` übereinstimmt, die der Funktion übergeben wurde, verwenden wir [Object-Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax), um ein neues Objekt zu erstellen und die `completed`-Eigenschaft dieses Objekts zu kippen, bevor wir es zurückgeben. Wenn es nicht übereinstimmt, geben wir das ursprüngliche Objekt zurück.
 
 Dann rufen wir `setTasks()` mit diesem neuen Array auf, um unseren Zustand zu aktualisieren.
 
@@ -573,7 +573,7 @@ export default Todo;
 
 Da wir nun wissen, dass `deleteTask()` korrekt aufgerufen wird, können wir unseren `setTasks()`-Hook in `deleteTask()` aufrufen, um diese Aufgabe tatsächlich aus dem Zustand der App zu löschen, ebenso wie visuell in der App-Benutzeroberfläche. Da `setTasks()` ein Array als Argument erwartet, sollten wir ihm ein neues Array zur Verfügung stellen, das die vorhandenen Aufgaben kopiert, _ohne_ die Aufgabe, deren ID mit der ID übereinstimmt, die an `deleteTask()` übergeben wurde.
 
-Dies ist eine perfekte Gelegenheit, [`Array.prototype.filter()`](https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) zu verwenden. Wir können jede Aufgabe prüfen und eine Aufgabe aus dem neuen Array ausschließen, wenn ihre `id`-Prop mit dem `id`-Argument übereinstimmt, das an `deleteTask()` übergeben wurde.
+Dies ist eine perfekte Gelegenheit, [`Array.prototype.filter()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) zu verwenden. Wir können jede Aufgabe prüfen und eine Aufgabe aus dem neuen Array ausschließen, wenn ihre `id`-Prop mit dem `id`-Argument übereinstimmt, das an `deleteTask()` übergeben wurde.
 
 Aktualisieren Sie die `deleteTask()`-Funktion in Ihrer `App.jsx`-Datei wie folgt:
 

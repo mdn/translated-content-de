@@ -11,7 +11,7 @@ l10n:
 
 In diesem Artikel betrachten wir Paketmanager im Detail, um zu verstehen, wie wir sie in unseren eigenen Projekten verwenden können — um Projekt-Tool-Abhängigkeiten zu installieren, sie auf dem neuesten Stand zu halten und mehr.
 
-<table> 
+<table>
   <tbody>
     <tr>
       <th scope="row">Voraussetzungen:</th>

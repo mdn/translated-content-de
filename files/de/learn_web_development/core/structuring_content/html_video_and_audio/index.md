@@ -44,7 +44,7 @@ Wir werden Ihnen nicht beibringen, wie man Audio- und Videodateien produziert �
 > [!NOTE]
 > Bevor Sie hier beginnen, sollten Sie auch wissen, dass es viele OVPs (Online-Video-Anbieter) wie [YouTube](https://www.youtube.com/), [Dailymotion](https://www.dailymotion.com/) und [Vimeo](https://vimeo.com/) sowie Online-Audioanbieter wie [Soundcloud](https://soundcloud.com/) gibt. Solche Unternehmen bieten eine bequeme, einfache Möglichkeit, Videos zu hosten und zu konsumieren, sodass Sie sich nicht um den enormen Bandbreitenverbrauch kümmern müssen. OVPs bieten meist sogar fertigen Code zum Einbetten von Video/Audio in Ihre Webseiten; wenn Sie diesen Weg nutzen, können Sie einige der Schwierigkeiten umgehen, die wir in diesem Artikel diskutieren. Wir werden diese Art von Dienst im nächsten Artikel noch etwas ausführlicher besprechen.
 
-## Das \<video>-Element
+## Das `<video>`-Element
 
 Das {{htmlelement("video")}}-Element ermöglicht es Ihnen, ein Video sehr einfach einzubetten. Ein wirklich einfaches Beispiel sieht so aus:
 
@@ -111,7 +111,7 @@ Die Sache wird ein wenig komplizierter, da nicht nur jeder Browser eine andere M
 
 Aufgrund der Feinheiten, die sicherstellen sollen, dass die Medien Ihrer App auf jeder von Ihnen gewünschten Kombination von Browsern, Plattformen und Geräten angezeigt werden, kann die Wahl der besten Kombination von Codecs und Containern eine komplizierte Aufgabe sein. Weitere Informationen finden Sie unter [Die richtige Containerwahl treffen](/de/docs/Web/Media/Formats/Containers#choosing_the_right_container), um zu sehen, welches Container-Dateiformat am besten für Ihre Bedürfnisse geeignet ist; ebenso finden Sie Unter [Auswahl eines Videocodecs](/de/docs/Web/Media/Formats/Video_codecs#choosing_a_video_codec) und [Auswahl eines Audiocodecs](/de/docs/Web/Media/Formats/Audio_codecs#choosing_an_audio_codec) Hilfe bei der Auswahl der ersten Medien-Codec, die Sie für Ihre Inhalte und Ihr Zielpublikum verwenden möchten.
 
-Ein zusätzlicher Punkt, den Sie im Hinterkopf behalten sollten: Mobile Browser können zusätzliche Formate unterstützen, die von ihren Desktop-Pendants nicht unterstützt werden, genauso wie sie möglicherweise nicht alle Formate unterstützen, die die Desktop-Version unterstützt. Auf die Spitze setzt dem die Möglichkeit, dass sowohl Desktop- als auch Mobile-Browser so entworfen sein *können*, dass sie die Handhabung der Medienwiedergabe auf Software auslagern (entweder für alle Medien oder nur für bestimmte Typen, die sie nicht intern handhaben können). Das bedeutet, dass die Unterstützung von Medien teilweise davon abhängt, welche Software der Benutzer installiert hat.
+Ein zusätzlicher Punkt, den Sie im Hinterkopf behalten sollten: Mobile Browser können zusätzliche Formate unterstützen, die von ihren Desktop-Pendants nicht unterstützt werden, genauso wie sie möglicherweise nicht alle Formate unterstützen, die die Desktop-Version unterstützt. Auf die Spitze setzt dem die Möglichkeit, dass sowohl Desktop- als auch Mobile-Browser so entworfen sein _können_, dass sie die Handhabung der Medienwiedergabe auf Software auslagern (entweder für alle Medien oder nur für bestimmte Typen, die sie nicht intern handhaben können). Das bedeutet, dass die Unterstützung von Medien teilweise davon abhängt, welche Software der Benutzer installiert hat.
 
 Wie machen wir das also? Sehen Sie sich das folgende [aktualisierte Beispiel](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/multiple-video-formats.html) an ([probieren Sie es hier live aus](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/multiple-video-formats.html) auch):
 
@@ -132,7 +132,7 @@ Jedes `<source>`-Element hat auch ein [`type`](/de/docs/Web/HTML/Element/source#
 
 Lesen Sie unseren [Leitfaden zu Medientypen und -formaten](/de/docs/Web/Media/Formats), um Hilfe bei der Auswahl der besten Container und Codecs für Ihre Bedürfnisse zu erhalten sowie um die richtigen MIME-Typen für jede Datei anzugeben.
 
-## Weitere \<video>-Funktionen
+## Weitere `<video>`-Funktionen
 
 Es gibt eine Reihe weiterer Funktionen, die Sie beim Anzeigen eines HTML-Videos einschließen können. Werfen Sie einen Blick auf unser nächstes Beispiel:
 
@@ -181,7 +181,7 @@ Die Funktionen umfassen:
 
 Sie können das obige Beispiel verfügbar sehen, um es [live auf GitHub abzuspielen](https://mdn.github.io/learning-area/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html) (sehen Sie auch den [Quellcode](https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/video-and-audio-content/extra-video-features.html).) Beachten Sie, dass wir das `autoplay`-Attribut in der Live-Version nicht enthalten haben — wenn das Video sofort beim Laden der Seite abgespielt wird, sehen Sie das Poster nicht!
 
-## Das \<audio>-Element
+## Das `<audio>`-Element
 
 Das {{htmlelement("audio")}}-Element funktioniert genauso wie das {{htmlelement("video")}}-Element, mit einigen kleinen Unterschieden, die unten beschrieben werden. Ein typisches Beispiel könnte so aussehen:
 

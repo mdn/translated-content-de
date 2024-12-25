@@ -10,7 +10,7 @@ l10n:
 Das **`EventTarget`** Interface wird von Objekten implementiert, die Ereignisse empfangen können und möglicherweise Listener für sie haben.
 Mit anderen Worten, jedes Ziel von Ereignissen implementiert die drei mit diesem Interface verbundenen Methoden.
 
-[`Element`](/de/docs/Web/API/Element) und seine Kinder sowie [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) sind die häufigsten Ereignisziele, 
+[`Element`](/de/docs/Web/API/Element) und seine Kinder sowie [`Document`](/de/docs/Web/API/Document) und [`Window`](/de/docs/Web/API/Window) sind die häufigsten Ereignisziele,
 aber andere Objekte können ebenfalls Ereignisziele sein.
 Zum Beispiel sind [`IDBRequest`](/de/docs/Web/API/IDBRequest), [`AudioNode`](/de/docs/Web/API/AudioNode) und [`AudioContext`](/de/docs/Web/API/AudioContext) auch Ereignisziele.
 

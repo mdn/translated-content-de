@@ -63,7 +63,7 @@ Elemente können auch Attribute haben, die folgendermaßen aussehen:
 
 ![Absatz Öffnungstag mit einem hervorgehobenen Klassenattribut: class=editor-note](grumpy-cat-attribute-small.png)
 
-Attribute enthalten zusätzliche Informationen über das Element, die nicht im eigentlichen Inhalt erscheinen sollen. Hier ist `class` der Attribut_name_ und `editor-note` der Attribut_wert_. Das `class` Attribut ermöglicht es Ihnen, dem Element eine nicht eindeutige Kennung zu geben, die verwendet werden kann, um es (und alle anderen Elemente mit demselben `class` Wert) mit Stilinformationen und anderem zu versehen.
+Attribute enthalten zusätzliche Informationen über das Element, die nicht im eigentlichen Inhalt erscheinen sollen. Hier ist `class` der Attribut*name* und `editor-note` der Attribut*wert*. Das `class` Attribut ermöglicht es Ihnen, dem Element eine nicht eindeutige Kennung zu geben, die verwendet werden kann, um es (und alle anderen Elemente mit demselben `class` Wert) mit Stilinformationen und anderem zu versehen.
 Einige Attribute haben keinen Wert, wie z.B. [`required`](/de/docs/Web/HTML/Attributes/required).
 
 Attribute, die einen Wert setzen, haben immer:

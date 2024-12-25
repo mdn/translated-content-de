@@ -28,7 +28,7 @@ Das `autocomplete`-Attribut gibt dem User-Agent einen Hinweis, wie beziehungswei
 Wenn ein {{HTMLElement("input")}}, {{HTMLElement("select")}} oder {{HTMLElement("textarea")}}-Element kein `autocomplete`-Attribut hat, verwendet der Browser das [`autocomplete` Attribut des **besitzenden Formulars** des Elements](/de/docs/Web/HTML/Element/form#autocomplete). Das besitzende Formular ist entweder das {{HTMLElement("form")}}, das mit der im `form`-Attribut des Elements angegebenen `id` übereinstimmt (falls vorhanden) oder, häufiger, das `<form>`, in welches das Element eingebettet ist.
 
 > [!NOTE]
-> Um Autovervollständigung bereitzustellen, könnten User-Agents verlangen, dass <input>/<select>/<textarea>-Elemente:
+> Um Autovervollständigung bereitzustellen, könnten User-Agents verlangen, dass `<input>`/`<select>`/`<textarea>`-Elemente:
 >
 > 1. ein `name`- und/oder `id`-Attribut haben
 > 2. Nachkommen eines `<form>`-Elements sind

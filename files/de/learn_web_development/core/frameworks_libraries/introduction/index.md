@@ -254,12 +254,12 @@ Im Großen und Ganzen sind {{Glossary("DSL/Domain_specific_language", "domänens
 
 Sie sollten ernsthaft die Unterstützungs-Matrix und DSLs eines Frameworks in Betracht ziehen, wenn Sie eine Wahl für ein neues Projekt treffen. Nicht passende Browserunterstützung kann ein Hindernis für Ihre Benutzer sein; nicht passende DSL-Unterstützung kann ein Hindernis für Sie und Ihre Teamkollegen sein.
 
-| Framework | Browserunterstützung                 | Bevorzugte DSL | Unterstützte DSLs         | Zitierung                                                                        |
-| --------- | ----------------------------------- | --------------- | ---------------------- | ------------------------------------------------------------------------------- |
-| Angular   | Modern                              | TypeScript      | HTML-basiert; TypeScript | [offizielle Dokumentation](https://angular.dev/guide/browser-support)            |
-| React     | Modern                              | JSX             | JSX; TypeScript        | [offizielle Dokumentation](https://react.dev/reference/react-dom/client#browser-support) |
-| Vue       | Modern (IE9+ in Vue 2)              | HTML-basiert    | HTML-basiert, JSX, Pug   | [offizielle Dokumentation](https://cli.vuejs.org/guide/browser-compatibility.html)       |
-| Ember     | Modern (IE9+ in Ember Version 2.18) | Handlebars      | Handlebars, TypeScript | [offizielle Dokumentation](https://guides.emberjs.com/v3.3.0/templates/handlebars-basics/) |
+| Framework | Browserunterstützung                | Bevorzugte DSL | Unterstützte DSLs        | Zitierung                                                                                  |
+| --------- | ----------------------------------- | -------------- | ------------------------ | ------------------------------------------------------------------------------------------ |
+| Angular   | Modern                              | TypeScript     | HTML-basiert; TypeScript | [offizielle Dokumentation](https://angular.dev/guide/browser-support)                      |
+| React     | Modern                              | JSX            | JSX; TypeScript          | [offizielle Dokumentation](https://react.dev/reference/react-dom/client#browser-support)   |
+| Vue       | Modern (IE9+ in Vue 2)              | HTML-basiert   | HTML-basiert, JSX, Pug   | [offizielle Dokumentation](https://cli.vuejs.org/guide/browser-compatibility.html)         |
+| Ember     | Modern (IE9+ in Ember Version 2.18) | Handlebars     | Handlebars, TypeScript   | [offizielle Dokumentation](https://guides.emberjs.com/v3.3.0/templates/handlebars-basics/) |
 
 > [!NOTE]
 > Die DSLs, die wir als "HTML-basiert" beschrieben haben, haben keine offiziellen Namen. Sie sind nicht wirklich echte DSLs, aber sie sind nicht-standardisiertes HTML, also glauben wir, dass es sich lohnt, sie hervorzuheben.
