@@ -289,7 +289,7 @@ h2 {
 
 {{EmbedLiveSample("logical-mbp", "", "200px")}}
 
-Es gibt eine große Zahl von Eigenschaften, wenn Sie alle einzelnen Rahmen-Langformen in Betracht ziehen, und Sie können alle Zuordnungseigenschaften auf der MDN-Seite für [Logische Eigenschaften und Werte](https://developer.mozilla.org/de/docs/Web/CSS/CSS_logical_properties_and_values) sehen.
+Es gibt eine große Zahl von Eigenschaften, wenn Sie alle einzelnen Rahmen-Langformen in Betracht ziehen, und Sie können alle Zuordnungseigenschaften auf der MDN-Seite für [Logische Eigenschaften und Werte](/de/docs/Web/CSS/CSS_logical_properties_and_values) sehen.
 
 ### Logische Werte
 

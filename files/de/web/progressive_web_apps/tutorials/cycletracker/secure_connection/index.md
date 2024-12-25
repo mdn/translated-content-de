@@ -58,7 +58,7 @@ Standardmäßig wird beim Eingeben von `localhost:8080` in die Browser-URL-Leist
 
 Sie können eine andere Portnummer wählen. Durch Eingeben von `npx http-server /user/IhrName/CycleTracker -p 8787` wird ein lokaler Server auf Port `8787` gestartet, sofern verfügbar. Wenn nicht, und Sie eine Portnummer eingeben, die bereits verwendet wird, erhalten Sie einen Fehler `address already in use` oder ähnliches. Erfolgreich wird beim Eingeben von `localhost:8787` in die Browser-URL-Leiste die Indexdatei als `~/user/IhrName/CycleTracker/index.html` gerendert oder die Verzeichnisinhalte von `~/user/IhrName/CycleTracker/` angezeigt, wenn keine Indexdatei vorhanden ist.
 
-Dieser nicht konfigurierbare statische HTTP-Server reicht für unsere Basis-App aus. Über `localhost` und `127.0.0.1` bereitgestellte Apps sind von https ausgenommen und werden immer als sicher angesehen. Warnungen des Browsers, falls gegeben, können umgangen werden. 
+Dieser nicht konfigurierbare statische HTTP-Server reicht für unsere Basis-App aus. Über `localhost` und `127.0.0.1` bereitgestellte Apps sind von https ausgenommen und werden immer als sicher angesehen. Warnungen des Browsers, falls gegeben, können umgangen werden.
 Während nicht erforderlich, um Ihren lokalen Webserver über HTTPS bereitzustellen zu konfigurieren, können Sie [ein eingebautes TLS-Zertifikat hinzufügen](https://github.com/lwsjs/local-web-server/wiki/How-to-get-the-%22green-padlock%22-using-the-built-in-certificate). Mit dem Zertifikat können Sie [lokal-web-server installieren und ausführen](<https://github.com/lwsjs/local-web-server/wiki/How-to-launch-a-secure-local-web-server-(HTTPS)>) von der Kommandozeile aus, um Ihr Projekt lokal über `https` bereitzustellen und Sicherheitswarnungen zu vermeiden.
 
 ```bash

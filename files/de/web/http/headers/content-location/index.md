@@ -41,11 +41,11 @@ Content-Location: <url>
 
 Angenommen, eine API einer Website kann Daten in den Formaten {{Glossary("JSON", "JSON")}}, {{Glossary("XML", "XML")}} oder [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) zurückgeben. Wenn die URL für ein bestimmtes Dokument unter `https://example.com/documents/foo` liegt, könnte die Website unterschiedliche URLs für `Content-Location` zurückgeben, abhängig vom {{HTTPHeader("Accept")}}-Header der Anfrage:
 
-| Anforderungs-Header                    | Antwort-Header                           |
-| -------------------------------------- | ---------------------------------------- |
-| `Accept: application/json, text/json`  | `Content-Location: /documents/foo.json`  |
-| `Accept: application/xml, text/xml`    | `Content-Location: /documents/foo.xml`   |
-| `Accept: text/plain, text/*`           | `Content-Location: /documents/foo.txt`   |
+| Anforderungs-Header                   | Antwort-Header                          |
+| ------------------------------------- | --------------------------------------- |
+| `Accept: application/json, text/json` | `Content-Location: /documents/foo.json` |
+| `Accept: application/xml, text/xml`   | `Content-Location: /documents/foo.xml`  |
+| `Accept: text/plain, text/*`          | `Content-Location: /documents/foo.txt`  |
 
 Diese URLs sind Beispiele — die Website könnte die verschiedenen Dateitypen mit beliebigen URL-Muster bedienen, wie z.B. einem [Abfrage-String-Parameter](/de/docs/Web/API/HTMLAnchorElement/search): `/documents/foo?format=json`, `/documents/foo?format=xml`, und so weiter.
 

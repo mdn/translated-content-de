@@ -39,12 +39,12 @@ Wie Sie aus Ihrem Studium von HTML wissen, können Elemente Attribute besitzen, 
 
 Diese Selektoren ermöglichen die Auswahl eines Elements basierend einzig auf dem Vorhandensein eines Attributs (zum Beispiel `href`) oder auf verschiedenen Übereinstimmungen mit dem Wert des Attributs.
 
-| Selektor             | Beispiel                         | Beschreibung                                                                                                                            |
-| -------------------- | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| `[*attr*]`           | `a[title]`                       | Selektiert Elemente mit einem _attr_-Attribut (dessen Name der Wert in den eckigen Klammern ist).                                      |
-| `[*attr*=*value*]`   | `a[href="https://example.com"]`  | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist — der String innerhalb der Anführungszeichen.             |
-| `[*attr*~=*value*]`  | `p[class~="special"]`            | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist oder _value_ in seiner (leerzeichen-getrennten) Werteliste enthält. |
-| `[*attr*\|=*value*]` | `div[lang\|="zh"]`               | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist oder mit _value_ direkt gefolgt von einem Bindestrich beginnt.       |
+| Selektor             | Beispiel                        | Beschreibung                                                                                                                                     |
+| -------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `[*attr*]`           | `a[title]`                      | Selektiert Elemente mit einem _attr_-Attribut (dessen Name der Wert in den eckigen Klammern ist).                                                |
+| `[*attr*=*value*]`   | `a[href="https://example.com"]` | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist — der String innerhalb der Anführungszeichen.                       |
+| `[*attr*~=*value*]`  | `p[class~="special"]`           | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist oder _value_ in seiner (leerzeichen-getrennten) Werteliste enthält. |
+| `[*attr*\|=*value*]` | `div[lang\|="zh"]`              | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert genau _value_ ist oder mit _value_ direkt gefolgt von einem Bindestrich beginnt.      |
 
 Im folgenden Beispiel können Sie sehen, wie diese Selektoren verwendet werden.
 
@@ -85,11 +85,11 @@ li[class~="a"] {
 
 Diese Selektoren ermöglichen fortgeschrittenere Übereinstimmungen von Teilstrings innerhalb des Werts Ihres Attributs. Wenn Sie beispielsweise Klassen von `box-warning` und `box-error` hatten und alles selektieren möchten, das mit dem String "box-" beginnt, könnten Sie `[class^="box-"]` verwenden, um beide auszuwählen (oder `[class|="box"]` wie im obigen Abschnitt beschrieben).
 
-| Selektor        | Beispiel              | Beschreibung                                                                                                    |
-| --------------- | --------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `[attr^=value]` | `li[class^="box-"]`   | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ beginnt.                                |
-| `[attr$=value]` | `li[class$="-box"]`   | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ endet.                                  |
-| `[attr*=value]` | `li[class*="box"]`    | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert _value_ irgendwo innerhalb des Strings enthält.     |
+| Selektor        | Beispiel            | Beschreibung                                                                                               |
+| --------------- | ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `[attr^=value]` | `li[class^="box-"]` | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ beginnt.                            |
+| `[attr$=value]` | `li[class$="-box"]` | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert mit _value_ endet.                              |
+| `[attr*=value]` | `li[class*="box"]`  | Selektiert Elemente mit einem _attr_-Attribut, dessen Wert _value_ irgendwo innerhalb des Strings enthält. |
 
 (Nebenbei bemerkt: Es kann hilfreich sein, zu wissen, dass `^` und `$` schon lange als _Anker_ in sogenannten _regulären Ausdrücken_ verwendet werden, um _beginnt mit_ und _endet mit_ zu bedeuten.)
 

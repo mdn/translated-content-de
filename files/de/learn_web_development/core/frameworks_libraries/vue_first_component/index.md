@@ -18,10 +18,10 @@ Jetzt ist es an der Zeit, tiefer in Vue einzutauchen und unsere eigene benutzerd
       <th scope="row">Voraussetzungen:</th>
       <td>
         <p>
-          Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, 
-          <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und 
-          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen, 
-          Kenntnis des 
+          Vertrautheit mit den grundlegenden <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+          <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
+          <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a> Sprachen,
+          Kenntnis des
           <a
             href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Command_line"
             >Terminals/Kommandozeile</a

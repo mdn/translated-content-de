@@ -50,7 +50,7 @@ Um 2006–2007 herum begann Mozilla mit der Arbeit an einer experimentellen 3D-C
 
 Dieser Artikel wird sich hauptsächlich auf 2D-Canvas konzentrieren, da rohe WebGL-Codes sehr komplex sind. Wir werden jedoch zeigen, wie man eine WebGL-Bibliothek verwendet, um eine 3D-Szene einfacher zu erstellen, und Sie können ein Tutorial finden, das rohes WebGL behandelt — siehe [Erste Schritte mit WebGL](/de/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL).
 
-## Aktives Lernen: Erste Schritte mit einem \<canvas>
+## Aktives Lernen: Erste Schritte mit einem `<canvas>`
 
 Wenn Sie eine 2D _oder_ 3D-Szene auf einer Webseite erstellen möchten, müssen Sie mit einem HTML-{{htmlelement("canvas")}}-Element beginnen. Dieses Element wird verwendet, um das Gebiet auf der Seite zu definieren, in das das Bild gezeichnet wird. Dies ist so einfach wie das Einfügen des Elements auf der Seite:
 
@@ -128,7 +128,7 @@ ctx.fillStyle = "rgb(0 0 0)";
 ctx.fillRect(0, 0, width, height);
 ```
 
-Hier setzen wir eine Füllfarbe mit der `fillStyle`-Eigenschaft des Canvas' [`CanvasRenderingContext2D`](https://developer.mozilla.org/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) (dies nimmt [Farbwerte](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color) genau wie CSS-Eigenschaften), dann zeichnen wir ein Rechteck, das den gesamten Bereich des Canvas mit der Methode [`fillRect`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) abdeckt (die ersten beiden Parameter sind die Koordinaten der oberen linken Ecke des Rechtecks; die letzten beiden sind die gewünschte Breite und Höhe des Rechtecks — wir haben Ihnen gesagt, dass die Variablen `width` und `height` nützlich sein würden)!
+Hier setzen wir eine Füllfarbe mit der `fillStyle`-Eigenschaft des Canvas' [`CanvasRenderingContext2D`](/de/docs/Web/API/CanvasRenderingContext2D/fillStyle) (dies nimmt [Farbwerte](/de/docs/Learn_web_development/Core/Styling_basics/Values_and_units#color) genau wie CSS-Eigenschaften), dann zeichnen wir ein Rechteck, das den gesamten Bereich des Canvas mit der Methode [`fillRect`](/de/docs/Web/API/CanvasRenderingContext2D/fillRect) abdeckt (die ersten beiden Parameter sind die Koordinaten der oberen linken Ecke des Rechtecks; die letzten beiden sind die gewünschte Breite und Höhe des Rechtecks — wir haben Ihnen gesagt, dass die Variablen `width` und `height` nützlich sein würden)!
 
 OK, unser Vorlage ist abgeschlossen und es ist Zeit, fortzufahren.
 
@@ -605,7 +605,7 @@ Nun lassen Sie uns eine einfache Animation erstellen — wir bringen eine Figur 
    }
    ```
 
-   Wir setzen den gesamten Block in ein `if (posX % 13 === 0) { }`. Wir verwenden den Modulo-Operator (`%`) (auch bekannt als [Restoperator](/de/docs/Web/JavaScript/Reference/Operators/Remainder)), um zu überprüfen, ob der `posX`-Wert durch 13 genau geteilt werden kann, ohne Rest. Wenn es ausgerichtet werden kann, bewegen wir uns zum nächsten sprite, indem wir `sprite` inkrementieren (auf 0 zurücksetzen, nachdem wir mit sprite #5 fertig sind). Dies bedeutet effektiv, dass wir das sprite nur bei jedem 13. Frame aktualisieren, oder ungefähr fünf Mal pro Sekunde (`requestAnimationFrame()` ruft uns bei bis zu 60 Frames pro Sekunde auf, wenn möglich). Wir verlangsamen absichtlich die Bildrate, da wir nur sechs Sprites haben, um damit zu arbeiten, und wenn wir eines jede 60.  Sekunde anzeigen, wird unser Charakter viel zu schnell bewegt!
+   Wir setzen den gesamten Block in ein `if (posX % 13 === 0) { }`. Wir verwenden den Modulo-Operator (`%`) (auch bekannt als [Restoperator](/de/docs/Web/JavaScript/Reference/Operators/Remainder)), um zu überprüfen, ob der `posX`-Wert durch 13 genau geteilt werden kann, ohne Rest. Wenn es ausgerichtet werden kann, bewegen wir uns zum nächsten sprite, indem wir `sprite` inkrementieren (auf 0 zurücksetzen, nachdem wir mit sprite #5 fertig sind). Dies bedeutet effektiv, dass wir das sprite nur bei jedem 13. Frame aktualisieren, oder ungefähr fünf Mal pro Sekunde (`requestAnimationFrame()` ruft uns bei bis zu 60 Frames pro Sekunde auf, wenn möglich). Wir verlangsamen absichtlich die Bildrate, da wir nur sechs Sprites haben, um damit zu arbeiten, und wenn wir eines jede 60. Sekunde anzeigen, wird unser Charakter viel zu schnell bewegt!
 
    Innerhalb des äußeren Blocks verwenden wir eine [`if...else`](/de/docs/Web/JavaScript/Reference/Statements/if...else)-Anweisung, um zu prüfen, ob der `sprite`-Wert bei 5 (das letzte sprite, da die Sprite-Nummern von 0 bis 5 laufen) ist. Wenn wir bereits das letzte sprite anzeigen, setzen wir `sprite` auf 0 zurück; andernfalls erhöhen wir es einfach um 1.
 
@@ -835,6 +835,7 @@ Hier haben wir nur die wirklichen Grundlagen von Canvas behandelt — es gibt so
 - [Erstellung eines grundlegenden Demos mit Three.js
 
 ](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Three.js) — Basic Three.js Tutorial. Wir haben auch äquivalente Leitfäden für [PlayCanvas](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_PlayCanvas) oder [Babylon.js](/de/docs/Games/Techniques/3D_on_the_web/Building_up_a_basic_demo_with_Babylon.js).
+
 - [Spieleentwicklung](/de/docs/Games) — die Anfangsseite für die Web-Spieleentwicklung auf MDN. Hier gibt es einige wirklich nützliche Tutorials und Techniken im Zusammenhang mit 2D- und 3D-Canvas — sehen Sie die Optionen im Menü Techniken und Tutorials.
 
 ## Beispiele

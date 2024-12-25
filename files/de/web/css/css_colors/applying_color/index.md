@@ -27,7 +27,7 @@ Wann immer ein Element gerendert wird, werden diese Eigenschaften verwendet, um 
 
 - {{cssxref("color")}}
 
-  - : Die Farbe, die beim Zeichnen des Textes und jeglicher [Textdekorationen](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#font_style_font_weight_text_transform_and_text_decoration) (wie z. B. das Hinzufügen von Unter- oder Überstrichen, Durchstreichlinien usw.) verwendet wird. 
+  - : Die Farbe, die beim Zeichnen des Textes und jeglicher [Textdekorationen](/de/docs/Learn_web_development/Core/Text_styling/Fundamentals#font_style_font_weight_text_transform_and_text_decoration) (wie z. B. das Hinzufügen von Unter- oder Überstrichen, Durchstreichlinien usw.) verwendet wird.
 
 - {{cssxref("background-color")}}
 

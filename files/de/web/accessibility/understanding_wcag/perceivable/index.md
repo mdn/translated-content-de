@@ -292,10 +292,10 @@ Dieser Leitfaden bezieht sich auf die Fähigkeit von Inhalten, von Benutzern auf
           </li>
           <li>
             "Wischen Sie vom rechten Bildschirmrand, um das Menü anzuzeigen"<br
-            />Einige Benutzer können möglicherweise nicht den Bildschirm wischen, 
-            entweder aufgrund einer Behinderung oder weil ihr Gerät keine Berührung unterstützt. 
-            Es sollte eine Alternative bereitgestellt werden, wie z. B. eine 
-            Tastaturverknüpfung oder eine Schaltfläche, die per Tastatur oder auf andere Weise 
+            />Einige Benutzer können möglicherweise nicht den Bildschirm wischen,
+            entweder aufgrund einer Behinderung oder weil ihr Gerät keine Berührung unterstützt.
+            Es sollte eine Alternative bereitgestellt werden, wie z. B. eine
+            Tastaturverknüpfung oder eine Schaltfläche, die per Tastatur oder auf andere Weise
             aktiviert werden kann.
           </li>
         </ul>
