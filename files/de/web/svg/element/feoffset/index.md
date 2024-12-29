@@ -2,12 +2,12 @@
 title: <feOffset>
 slug: Web/SVG/Element/feOffset
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: 2bb6de03bd644fd38ba960b30472fe37d94fff9f
 ---
 
 {{SVGRef}}
 
-Das **`<feOffset>`** [SVG](/de/docs/Web/SVG) Filterelement ermöglicht das Verschieben des Eingabebildes. Das gesamte Eingabebild wird um die in den Attributen {{SVGAttr("dx")}} und {{SVGAttr("dy")}} angegebenen Werte verschoben.
+Das **`<feOffset>`** [SVG](/de/docs/Web/SVG) Filter-Primitive ermöglicht das Versetzen eines Eingabebildes relativ zu seiner aktuellen Position. Das gesamte Eingabebild wird durch die in den Attributen {{SVGAttr("dx")}} und {{SVGAttr("dy")}} angegebenen Werte versetzt.
 
 ## Verwendungskontext
 
@@ -79,4 +79,4 @@ Dieses Element implementiert die [`SVGFEOffsetElement`](/de/docs/Web/API/SVGFEOf
 - {{SVGElement("feSpecularLighting")}}
 - {{SVGElement("feTile")}}
 - {{SVGElement("feTurbulence")}}
-- [SVG-Tutorial: Filter effects](/de/docs/Web/SVG/Tutorial/Filter_effects)
+- [SVG-Tutorial: Filtereffekte](/de/docs/Web/SVG/Tutorial/Filter_effects)
