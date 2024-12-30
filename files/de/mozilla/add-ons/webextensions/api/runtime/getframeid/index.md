@@ -2,12 +2,12 @@
 title: runtime.getFrameId()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getFrameId
 l10n:
-  sourceCommit: 824e5d88f3590fd39892d8975a2255c203feae9b
+  sourceCommit: 873e38320b7f7dbe0492f96a02e7e6503ac8c3b3
 ---
 
 {{AddonSidebar}}
 
-Gibt die Frame-ID eines beliebigen Fensterglobals oder Frame-Elements zurück, wenn sie von einem Content-Skript oder einer Erweiterungsseite aufgerufen wird, einschließlich Hintergrundseiten.
+Gibt die Frame-ID eines beliebigen Fenster-Globals oder eines Frame-Elements zurück, wenn sie von einem Content-Skript oder einer Erweiterungsseite aufgerufen wird, einschließlich Hintergrundseiten.
 
 ## Syntax
 
@@ -20,15 +20,15 @@ let gettingInfo = browser.runtime.getFrameId(
 ### Parameter
 
 - `target`
-  - : Ein {{Glossary("WindowProxy", "WindowProxy")}} oder ein {{Glossary("browsing_context", "Browsing-Kontext")}} Container-[Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für das Ziel-Frame.
+  - : Ein {{Glossary("WindowProxy", "WindowProxy")}} oder ein {{Glossary("browsing_context", "browsing context")}} Container-[Element](/de/docs/Web/API/Element) (iframe, frame, embed oder object) für das Ziel-Frame.
 
 ### Rückgabewert
 
-Gibt die Frame-ID des Ziel-Frames zurück oder -1, wenn der Frame nicht existiert.
+Gibt die Frame-ID des Ziel-Frames zurück oder -1, wenn das Frame nicht existiert.
 
 ## Beispiele
 
-Dieser Code durchläuft rekursiv Nachkomme-Frames und erhält übergeordnete Frame-IDs.
+Dieser Code durchläuft rekursiv Nachkommen-Frames und erhält die Frame-IDs der übergeordneten Frames.
 
 ```js
 const parents = {};
@@ -57,6 +57,3 @@ visit(window);
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-> [!NOTE]
-> Die Kompatibilitätsdaten für Microsoft Edge werden von der Microsoft Corporation bereitgestellt und sind hier unter der Creative Commons Attribution 3.0 United States License enthalten.

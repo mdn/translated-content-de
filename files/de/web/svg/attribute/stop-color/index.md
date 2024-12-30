@@ -2,15 +2,15 @@
 title: stop-color
 slug: Web/SVG/Attribute/stop-color
 l10n:
-  sourceCommit: fe1beab414730a2d9ae8a3824af9297ac9bd9410
+  sourceCommit: 401b6b1355a1ca28f686cff9be83384e68e81d82
 ---
 
 {{SVGRef}}
 
-Das **`stop-color`** Attribut gibt an, welche Farbe an einem Farbverlauf-Stopp verwendet werden soll.
+Das **`stop-color`**-Attribut gibt an, welche Farbe an einem Gradientenstopp verwendet werden soll.
 
 > [!NOTE]
-> Im Hinblick auf Farbverläufe behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Farbverläufe nicht in vor-multipliziertem Raum, daher bedeutet `transparent` wirklich transparentes Schwarz. Das Festlegen eines `stop-color` Wertes auf `transparent` ist gleichbedeutend mit dem Festlegen eines `stop-color` Wertes auf `black` und einem {{SVGAttr("stop-opacity")}} Wert von `0`.
+> In Bezug auf Gradienten behandelt SVG das Schlüsselwort `transparent` anders als CSS. SVG berechnet Gradienten nicht im vor-multiplizierten Raum, daher bedeutet `transparent` wirklich transparentes Schwarz. Daher ist das Angeben eines `stop-color`-Attributs mit dem Wert `transparent` gleichbedeutend mit dem Angeben eines `stop-color`-Attributs mit dem Wert `black` und einer {{SVGAttr("stop-opacity")}} mit dem Wert `0`.
 
 > [!NOTE]
 > Als Präsentationsattribut kann `stop-color` als CSS-Eigenschaft verwendet werden.
@@ -19,7 +19,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 
 - {{SVGElement("stop")}}
 
-## Verwendungsnotizen
+## Anwendungshinweise
 
 <table class="properties">
   <tbody>

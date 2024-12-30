@@ -1,28 +1,28 @@
 ---
-title: "Testen Sie Ihr Wissen: Das Box-Modell"
+title: "Testen Sie Ihre Fähigkeiten: Das Boxmodell"
 slug: Learn_web_development/Core/Styling_basics/Box_Model_Tasks
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 8e79112f2dfe6df98356e22bc5a9fed59efe9046
 ---
 
 {{LearnSidebar}}
 
-Ziel dieses Skill-Tests ist es zu überprüfen, ob Sie das [CSS-Box-Modell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
+Ziel dieses Fähigkeitstests ist es zu prüfen, ob Sie das [CSS Boxmodell](/de/docs/Learn_web_development/Core/Styling_basics/Box_model) verstehen.
 
 > [!NOTE]
-> Klicken Sie auf **„Play“** in den Codeblöcken unten, um die Beispiele im MDN Playground zu bearbeiten.
+> Klicken Sie in den unten stehenden Codeblöcken auf **"Play"**, um die Beispiele im MDN Playground zu bearbeiten.
 > Sie können den Code auch kopieren (klicken Sie auf das Clipboard-Symbol) und in einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) einfügen.
-> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie uns in einem unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) erreichen.
 
 ## Aufgabe 1
 
-In dieser Aufgabe gibt es zwei Boxen unten, eine nutzt das Standard-Box-Modell, die andere das alternative Box-Modell. Ändern Sie die Breite der zweiten Box, indem Sie der Klasse `.alternate` Deklarationen hinzufügen, sodass sie der visuellen Breite der ersten Box entspricht.
+In dieser Aufgabe gibt es zwei Boxen unten, eine verwendet das Standard-Boxmodell, die andere das alternative Boxmodell. Ändern Sie die Breite der zweiten Box, indem Sie Deklarationen zur `.alternate` Klasse hinzufügen, sodass sie der visuellen Breite der ersten Box entspricht.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Zwei Boxen der gleichen Größe](mdn-box-model1.png)
+![Zwei Boxen gleicher Größe](mdn-box-model1.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzustellen:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___box-models
 <div class="box">I use the standard box model.</div>
@@ -52,13 +52,12 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Sie müssen die Höhe und Breite des zweiten Blocks erhöhen, um die Größe des Innenabstands und der Rahmen hinzuzufügen:
+Sie müssen die Breite des zweiten Blocks erhöhen, um die Größe des Paddings und des Rahmens hinzuzufügen:
 
 ```css
 .alternate {
   box-sizing: border-box;
   width: 390px;
-  height: 240px;
 }
 ```
 
@@ -66,20 +65,20 @@ Sie müssen die Höhe und Breite des zweiten Blocks erhöhen, um die Größe des
 
 ## Aufgabe 2
 
-In dieser Aufgabe fügen Sie der Box folgende Dinge hinzu:
+Fügen Sie in dieser Aufgabe der Box Folgendes hinzu:
 
-- Einen 5px breiten, schwarzen, gepunkteten Rahmen.
-- Einen oberen Außenabstand von 20px.
-- Einen rechten Außenabstand von 1em.
-- Einen unteren Außenabstand von 40px.
-- Einen linken Außenabstand von 2em.
-- Innenabstand an allen Seiten von 1em.
+- Einen 5px, schwarzen, gepunkteten Rahmen.
+- Einen oberen Rand von 20px.
+- Einen rechten Rand von 1em.
+- Einen unteren Rand von 40px.
+- Einen linken Rand von 2em.
+- Padding auf allen Seiten von 1em.
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
 ![Eine Box mit einem gepunkteten Rahmen](mdn-box-model2.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzustellen:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___mbp
 <div class="box">I use the standard box model.</div>
@@ -99,8 +98,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Diese Aufgabe erfordert die korrekte Verwendung der Eigenschaften `margin`, `border` und `padding`.
-Sie können wählen, die Langform-Eigenschaften ({{cssxref("margin-top")}}, {{cssxref("margin-right")}}, usw.) zu verwenden, aber wenn Sie einen Außenabstand und Innenabstand an allen Seiten setzen, ist die Kurzform wahrscheinlich die bessere Wahl:
+Diese Aufgabe erfordert die korrekte Verwendung der Eigenschaften margin, border und padding.
+Sie können die Langform-Eigenschaften verwenden ({{cssxref("margin-top")}}, {{cssxref("margin-right")}}, etc.), jedoch bei der Festlegung von Rand und Padding auf allen Seiten ist die Kurzform wahrscheinlich die bessere Wahl:
 
 ```css
 .box {
@@ -114,13 +113,13 @@ Sie können wählen, die Langform-Eigenschaften ({{cssxref("margin-top")}}, {{cs
 
 ## Aufgabe 3
 
-In dieser Aufgabe hat das Inline-Element einen Außenabstand, Innenabstand und Rahmen. Jedoch überlappen die Zeilen darüber und darunter es. Was können Sie zu Ihrem CSS hinzufügen, um sicherzustellen, dass die Größe des Außenabstands, Innenabstands und Rahmens von den anderen Zeilen respektiert wird, während das Element dennoch inline bleibt?
+In dieser Aufgabe hat das Inline-Element einen Rand, ein Padding und einen Rahmen. Allerdings überlappen die Zeilen darüber und darunter. Was können Sie zu Ihrem CSS hinzufügen, damit die Größe des Randes, des Paddings und des Rahmens von den anderen Zeilen berücksichtigt wird, während das Element dennoch inline bleibt?
 
 Ihr Endergebnis sollte wie das Bild unten aussehen:
 
-![Ein Inline-Block mit Raum zwischen ihm und dem umgebenden Text.](mdn-box-model3.png)
+![Eine Inline-Box mit Platz zwischen ihr und dem umgebenden Text.](mdn-box-model3.png)
 
-Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzustellen:
+Versuchen Sie, den untenstehenden Code zu aktualisieren, um das fertige Beispiel nachzubilden:
 
 ```html live-sample___inline-block
 <div class="box">
@@ -155,8 +154,8 @@ body {
 <details>
 <summary>Klicken Sie hier, um die Lösung anzuzeigen</summary>
 
-Um diese Aufgabe zu lösen, müssen Sie verstehen, wann verschiedene {{cssxref("display")}}-Werte zu verwenden sind.
-Nachdem Sie `display: inline-block` hinzugefügt haben, werden der Rand, Rahmen und Innenabstand in Blockrichtung dazu führen, dass die anderen Zeilen vom Element weggeschoben werden:
+Um diese Aufgabe zu lösen, müssen Sie verstehen, wann Sie verschiedene {{cssxref("display")}}-Werte verwenden.
+Nachdem Sie `display: inline-block` hinzugefügt haben, werden die Margen, Rahmen und das Padding in der Blockrichtung die anderen Zeilen vom Element wegschieben:
 
 ```css
 .box span {

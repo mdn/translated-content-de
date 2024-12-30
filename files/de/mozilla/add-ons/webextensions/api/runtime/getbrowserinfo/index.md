@@ -2,7 +2,7 @@
 title: runtime.getBrowserInfo()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getBrowserInfo
 l10n:
-  sourceCommit: 824e5d88f3590fd39892d8975a2255c203feae9b
+  sourceCommit: 873e38320b7f7dbe0492f96a02e7e6503ac8c3b3
 ---
 
 {{AddonSidebar}}
@@ -23,20 +23,20 @@ Keine.
 
 ### Rückgabewert
 
-Ein {{JSxRef("Promise")}}, das mit einem Objekt erfüllt wird, welches die folgenden Eigenschaften hat:
+Ein {{JSxRef("Promise")}}, das mit einem Objekt erfüllt wird, das folgende Eigenschaften hat:
 
 - `name`
-  - : String-Wert, der den Namen des Browsers darstellt, zum Beispiel "Firefox".
+  - : Zeichenfolgenwert, der den Namen des Browsers darstellt, zum Beispiel "Firefox".
 - `vendor`
-  - : String-Wert, der den Anbieter des Browsers darstellt, zum Beispiel "Mozilla".
+  - : Zeichenfolgenwert, der den Anbieter des Browsers darstellt, zum Beispiel "Mozilla".
 - `version`
-  - : String, das die Version des Browsers darstellt, zum Beispiel "51.0" oder "51.0a2".
+  - : Zeichenfolge, die die Version des Browsers darstellt, zum Beispiel "51.0" oder "51.0a2".
 - `buildID`
-  - : String, das den spezifischen Build des Browsers darstellt, zum Beispiel "20161018004015".
+  - : Zeichenfolge, die den spezifischen Build des Browsers darstellt, zum Beispiel "20161018004015".
 
 ## Beispiele
 
-Abrufen und Ausgeben des Namens des Browsers:
+Holen und protokollieren Sie den Namen des Browsers:
 
 ```js
 function gotBrowserInfo(info) {
@@ -52,6 +52,3 @@ gettingInfo.then(gotBrowserInfo);
 ## Browser-Kompatibilität
 
 {{Compat}}
-
-> [!NOTE]
-> Die Microsoft Edge-Kompatibilitätsdaten werden von der Microsoft Corporation bereitgestellt und sind hier unter der Creative Commons Attribution 3.0 United States License enthalten.

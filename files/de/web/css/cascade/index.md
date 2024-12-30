@@ -1,88 +1,91 @@
 ---
-title: Einführung in die CSS-Kaskade
+title: Einführung in das CSS-Cascading
 slug: Web/CSS/Cascade
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: 30082a3450d45b62662baf0c94992dfd88d60267
 ---
 
 {{CSSRef}}
 
-Die **Kaskade** ist ein Algorithmus, der definiert, wie Benutzeragenten Eigenschaftswerte aus verschiedenen Quellen kombinieren. Die Kaskade definiert die Herkunft und Ebene, die Vorrang haben, wenn Erklärungen aus mehr als einer [Herkunft](#herkunftstypen), [Kaskadenschicht](/de/docs/Web/CSS/@layer) oder {{CSSxRef("@scope")}}-Block einen Wert für eine Eigenschaft auf einem Element festlegen.
+Der **Cascading** ist ein Algorithmus, der definiert, wie Benutzeragenten Eigenschaftswerte aus verschiedenen Quellen kombinieren. Die Cascade legt fest, welche Quelle und Schicht Vorrang hat, wenn Deklarationen aus mehr als einem [Ursprung](#ursprungstypen), einer [Cascading-Schicht](/de/docs/Web/CSS/@layer) oder einem {{CSSxRef("@scope")}}-Block einen Wert für eine Eigenschaft an einem Element festlegen.
 
-Die Kaskade liegt im Kern von CSS, wie bereits der Name betont: _**Cascading**_ Style Sheets (Kaskadierende Stylesheets). Wenn ein [Selector](/de/docs/Web/CSS/CSS_selectors) mit einem Element übereinstimmt, wird der Eigenschaftswert aus der Herkunft mit der höchsten Priorität angewandt, auch wenn der Selector aus einer weniger wichtigen Herkunft oder Ebene eine höhere [Spezifität](/de/docs/Web/CSS/Specificity) aufweist.
+Die Cascading liegt im Kern von CSS, wie der Name betont: _**Cascading**_ Style Sheets. Wenn ein [Selektor](/de/docs/Web/CSS/CSS_selectors) ein Element trifft, wird der Eigenschaftswert aus dem Ursprung mit der höchsten Priorität angewendet, selbst wenn der Selektor aus einem Ursprung oder einer Schicht mit niedrigerer Priorität eine höhere [Spezifität](/de/docs/Web/CSS/Specificity) besitzt.
 
-Dieser Artikel erklärt, was die Kaskade ist und in welcher Reihenfolge {{Glossary("CSS", "CSS")}} [Deklarationen](/de/docs/Web/API/CSSStyleDeclaration) kaskadieren, wobei Kaskadenschichten und Herkunftstyp behandelt werden. Das Verständnis der Herkunftspriorität ist der Schlüssel zum Verständnis der Kaskade.
+Dieser Artikel erklärt, was die Cascading ist und die Reihenfolge, in der {{Glossary("CSS", "CSS")}}-[Deklarationen](/de/docs/Web/API/CSSStyleDeclaration) kaskadieren, einschließlich Betrachtung der Kaskadenschichten und Ursprungstypen. Das Verständnis der Ursprungsvorrangstellung ist der Schlüssel zum Verständnis der Cascading.
 
-## Herkunftstypen
+## Ursprungstypen
 
-Der Algorithmus der CSS-Kaskade hat die Aufgabe, CSS-Deklarationen auszuwählen, um die korrekten Werte für CSS-Eigenschaften zu bestimmen. CSS-Deklarationen stammen aus verschiedenen Herkunftstypen: **[Benutzeragenten-Stilblätter](#benutzeragenten-stilblätter)**, **[Autorenstilblätter](#autorenstilblätter)** und **[Benutzerstilblätter](#benutzerstilblätter)**.
+Der Algorithmus der CSS-Cascading hat die Aufgabe, CSS-Deklarationen auszuwählen, um die korrekten Werte für CSS-Eigenschaften zu bestimmen. CSS-Deklarationen kommen aus verschiedenen Ursprungstypen: **[User-Agent-Stylesheets](#user-agent-stylesheets)**, **[Autor-Stylesheets](#autor-stylesheets)** und **[Benutzer-Stylesheets](#benutzer-stylesheets)**.
 
-Obwohl Stilblätter aus diesen unterschiedlichen Herkünften stammen und sich in verschiedenen [Schichten](/de/docs/Web/CSS/@layer) innerhalb dieser Herkünfte befinden können, überschneiden sie sich hinsichtlich ihres Standardbereichs; um dies zu arrangieren, definiert der Kaskadenalgorithmus, wie sie interagieren. Bevor wir uns mit den Wechselwirkungen befassen, definieren wir in den nächsten Abschnitten einige wichtige Begriffe.
+Obwohl Stylesheets aus diesen verschiedenen Ursprüngen kommen und in verschiedenen [Schichten](/de/docs/Web/CSS/@layer) innerhalb dieser Ursprünge sein können, überschneiden sie sich in Bezug auf ihren Standardscope; um dies zu ermöglichen, definiert der Cascade-Algorithmus, wie sie interagieren. Bevor wir die Interaktionen ansprechen, definieren wir in den nächsten Abschnitten einige Schlüsselbegriffe.
 
-### Benutzeragenten-Stilblätter
+### User-Agent-Stylesheets
 
-Benutzeragenten oder Browser haben grundlegende Stilblätter, die jedem Dokument Standardstile geben. Diese Stilblätter werden als **Benutzeragenten-Stilblätter** bezeichnet. Die meisten Browser verwenden tatsächliche Stilblätter zu diesem Zweck, während andere sie im Code simulieren. Das Endergebnis ist dasselbe.
+Benutzeragenten, oder Browser, verfügen über grundlegende Stylesheets, die Standardstile für jedes Dokument festlegen. Diese Stylesheets werden **User-Agent-Stylesheets** genannt. Die meisten Browser verwenden dafür tatsächliche Stylesheets, während andere sie im Code simulieren. Das Endergebnis ist das gleiche.
 
-Einige Browser erlauben es Benutzern, das Benutzeragenten-Stilblatt zu ändern, aber das ist selten und kann nicht kontrolliert werden.
+Einige Browser erlauben es Benutzern, das User-Agent-Stylesheet zu ändern, aber das ist selten und lässt sich nicht kontrollieren.
 
-Obwohl einige Einschränkungen für Benutzeragenten-Stilblätter durch die HTML-Spezifikation festgelegt sind, haben Browser viel Spielraum: Das bedeutet, dass es einige Unterschiede zwischen Browsern gibt. Um den Entwicklungsprozess zu vereinfachen, können Webentwickler ein CSS-Reset-Stilblatt wie [normalize.css](https://github.com/necolas/normalize.css) verwenden, das allgemeine Eigenschaften auf einen bekannten Zustand für alle Browser setzt, bevor Änderungen zur Anpassung an spezifische Bedürfnisse vorgenommen werden.
+Obwohl einige Einschränkungen für User-Agent-Stylesheets durch die HTML-Spezifikation festgelegt werden, haben Browser viel Spielraum: Das bedeutet, dass es einige Unterschiede zwischen Browsern gibt. Um den Entwicklungsprozess zu vereinfachen, können Webentwickler ein CSS-Reset-Stylesheet, wie [normalize.css](https://github.com/necolas/normalize.css), verwenden, das bekannte Eigenschaftswerte für alle Browser auf einen bekannten Zustand setzt, bevor Veränderungen vorgenommen werden, um ihren spezifischen Bedürfnissen zu entsprechen.
 
-Sofern das Benutzeragenten-Stilblatt nicht ein [`!important`](/de/docs/Web/CSS/Specificity#the_!important_exception) neben einer Eigenschaft enthält, das es als "wichtig" markiert, haben die von Autorenstilen deklarierten Stile, einschließlich eines Reset-Stilblattes, Vorrang vor den Benutzeragenten-Stilen, unabhängig von der Spezifität des zugehörigen Selectors.
+Sofern das User-Agent-Stylesheet kein [`!important`](/de/docs/Web/CSS/Specificity#the_!important_exception) neben einer Eigenschaft enthält, das es "wichtig" macht, haben vom Autor deklarierte Styles, einschließlich eines Reset-Stylesheets, Vorrang vor den User-Agent-Styles, unabhängig von der Spezifität des zugehörigen Selektors.
 
-### Autorenstilblätter
+### Autor-Stylesheets
 
-**Autorenstilblätter** sind die häufigste Art von Stilblättern; diese Stile werden von Webentwicklern geschrieben. Diese Stile können Benutzeragenten-Stile zurücksetzen, wie oben erwähnt, und die Stile für das Design einer bestimmten Webseite oder Anwendung definieren. Der Autor oder Webentwickler definiert die Stile für das Dokument mithilfe eines oder mehrerer verlinkter oder importierter Stilblätter, {{HTMLElement('style')}}-Blöcke und Inline-Stile, die mit dem [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut definiert sind. Diese Autorenstile definieren das Aussehen und das Gefühl der Website — ihr Thema.
+**Autor-Stylesheets** sind der häufigste Typ von Stylesheets; dies sind die Stile, die von Webentwicklern geschrieben werden. Diese Stile können User-Agent-Stile zurücksetzen, wie oben erwähnt, und die Stile für das Design einer bestimmten Webseite oder Anwendung definieren. Der Autor oder Webentwickler definiert die Stile für das Dokument mit einem oder mehreren verknüpften oder importierten Stylesheets, {{HTMLElement('style')}}-Blöcken und Inline-Stilen, die mit dem [`style`](/de/docs/Web/HTML/Global_attributes/style)-Attribut definiert sind. Diese Autorstile definieren das Aussehen und Gefühl der Website — ihr Thema.
 
-### Benutzerstilblätter
+### Benutzer-Stylesheets
 
-In den meisten Browsern kann der Benutzer (oder Leser) der Website wählen, Stile mit einem benutzerdefinierten **Benutzerstilblatt** zu überschreiben, das darauf ausgelegt ist, das Erlebnis an die Wünsche des Benutzers anzupassen. Abhängig vom Benutzeragenten können [Benutzerstile konfiguriert werden](https://www.thoughtco.com/user-style-sheet-3469931) oder über Browser-Erweiterungen hinzugefügt werden.
+In den meisten Browsern kann der Benutzer (oder Leser) der Website die Stile mit einem benutzerdefinierten **Benutzer-Stylesheet**, das darauf ausgelegt ist, das Erlebnis an die Wünsche des Benutzers anzupassen, überschreiben. Je nach Benutzeragenten können [Benutzerstile konfiguriert werden](https://www.thoughtco.com/user-style-sheet-3469931) oder über Browsererweiterungen hinzugefügt werden.
 
-### Kaskadenschichten
+### Cascading-Schichten
 
-Die Kaskadenreihenfolge basiert auf dem Herkunftstyp. Die Kaskade innerhalb jedes Herkunftstyps basiert auf der Deklarationsreihenfolge von [Kaskadenschichten](/de/docs/Web/CSS/@layer) innerhalb dieses Typs. Bei allen Herkünften - Benutzeragent, Autor oder Benutzer - können Stile innerhalb oder außerhalb von benannten oder anonymen Schichten deklariert werden. Wenn sie mit [`layer`, `layer()`](/de/docs/Web/CSS/@import) oder [`@layer`](/de/docs/Web/CSS/@layer) deklariert werden, werden Stile in die angegebene benannte Schicht oder in eine anonyme Schicht platziert, wenn kein Name angegeben ist. Stile, die außerhalb einer Schicht deklariert werden, gelten als Teil einer anonymen zuletzt deklarierten Schicht.
+Die Reihenfolge der Cacade basiert auf dem Ursprungstyp. Die Cascade innerhalb jedes Typs basiert auf der Deklarationsreihenfolge der [Cascadingschichten](/de/docs/Web/CSS/@layer) innerhalb dieses Typs. Für alle Ursprünge – Benutzeragent, Autor oder Benutzer – können Stile innerhalb oder außerhalb von benannten oder anonymen Schichten deklariert werden. Wenn sie mit [`layer`, `layer()`](/de/docs/Web/CSS/@import) oder [`@layer`](/de/docs/Web/CSS/@layer) deklariert werden, werden Stile in die angegebene benannte Schicht gestellt oder in eine anonyme Schicht, wenn kein Name angegeben wird. Stile, die außerhalb einer Schicht deklariert werden, werden als Teil einer anonymen zuletzt deklarierten Schicht behandelt.
 
-Schauen wir uns zunächst den Ursprungstyp der Kaskade an, bevor wir in die Kaskadenschichten innerhalb jedes Ursprungstyps eintauchen.
+Werfen Sie einen Blick auf den Ursprungstyp der Cascade, bevor Sie sich in die Cascade-Schichten innerhalb jedes Ursprungstyps vertiefen.
 
-## Kaskadenreihenfolge
+## Cascading-Reihenfolge
 
-Der Kaskadenalgorithmus bestimmt, wie für jede Eigenschaft für jedes Dokumenelement der anzuwendende Wert gefunden wird. Die folgenden Schritte gelten für den Kaskadenalgorithmus:
+Der Cascading-Algorithmus bestimmt, wie der Wert zu finden ist, der für jede Eigenschaft für jedes Dokumentelement angewendet wird. Die folgenden Schritte gelten für den Cascading-Algorithmus:
 
-1. **Relevanz**: Er filtert zuerst alle Regeln aus den verschiedenen Quellen heraus, um nur die Regeln zu behalten, die für ein bestimmtes Element gelten. Das bedeutet Regeln, deren Selector mit dem gegebenen Element übereinstimmt und die Teil einer geeigneten `media`-At-Regel sind.
+1. **Relevanz**: Zuerst filtert er alle Regeln aus den verschiedenen Quellen, um nur die Regeln zu behalten, die auf ein bestimmtes Element anwendbar sind. Das bedeutet Regeln, deren Selektor das gegebene Element trifft und die Teil einer geeigneten `media`-at-rule sind.
+2. **Ursprung und Wichtigkeit**: Dann sortiert er diese Regeln nach ihrer Wichtigkeit, also ob sie von `!important` gefolgt werden oder nicht, und nach ihrem Ursprung. Schichten werden zunächst ignoriert; die Cascade-Reihenfolge ist wie folgt:
 
-2. **Herkunft und Wichtigkeit**: Dann sortiert er diese Regeln nach ihrer Wichtigkeit, das heißt, ob sie von `!important` gefolgt sind oder nicht, und nach ihrer Herkunft. Wenn man die Schichten für den Moment ignoriert, ist die Kaskadenreihenfolge wie folgt:
+   | Vorrangsreihenfolge (niedrig zu hoch) | Ursprung                  | Wichtigkeit  |
+   | ------------------------------------- | ------------------------- | ------------ |
+   | 1                                     | Benutzeragent (Browser)   | normal       |
+   | 2                                     | Benutzer                  | normal       |
+   | 3                                     | Autor (Entwickler)        | normal       |
+   | 4                                     | CSS @keyframe-Animationen |              |
+   | 5                                     | Autor (Entwickler)        | `!important` |
+   | 6                                     | Benutzer                  | `!important` |
+   | 7                                     | Benutzeragent (Browser)   | `!important` |
+   | 8                                     | CSS-Übergänge             |              |
 
-   | Reihenfolge (niedrig bis hoch) | Herkunft                   | Wichtigkeit |
-   | ------------------------------- | -------------------------- | ----------- |
-   | 1                               | Benutzeragent (Browser)    | normal      |
-   | 2                               | Benutzer                  | normal      |
-   | 3                               | Autor (Entwickler)         | normal      |
-   | 4                               | CSS @keyframe-Animationen  |             |
-   | 5                               | Autor (Entwickler)         | `!important`|
-   | 6                               | Benutzer                  | `!important`|
-   | 7                               | Benutzeragent (Browser)    | `!important`|
-   | 8                               | CSS-Übergänge             |             |
+3. **Spezifität**: Bei Gleichheit mit einem Ursprung wird die [Spezifität](/de/docs/Web/CSS/Specificity) einer Regel herangezogen, um einen Wert über einen anderen zu wählen. Die Spezifität der Selektoren wird verglichen, und die Deklaration mit der höchsten Spezifität gewinnt.
+4. **Scope-Nähe**: Wenn zwei Selektoren in der Ursprungs-Schicht mit Vorrang die gleiche Spezifität haben, gewinnt der Eigenschaftswert innerhalb von Scoped-Regeln mit der kleinsten Anzahl von Sprüngen in der DOM-Hierarchie zur Scope-Wurzel. Siehe [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) für weitere Details und ein Beispiel.
+5. **Reihenfolge des Erscheinens**: Im Ursprung mit Vorrang, wenn es konkurrierende Werte für eine Eigenschaft gibt, die in Styleblöcken zu Selektoren mit gleicher Spezifität und Scope-Nähe passen, wird die letzte Deklaration in der Stil-Reihenfolge angewendet.
 
-3. **Spezifität**: Bei Gleichheit bei der Herkunft wird die [Spezifität](/de/docs/Web/CSS/Specificity) einer Regel berücksichtigt, um einen Wert auszuwählen. Die Spezifität der Selector wird verglichen und die Deklaration mit der höchsten Spezifität gewinnt.
-4. **Berechtigungsnähe**: Wenn zwei Selector in der vorrangigen Ursprungsschicht die gleiche Spezifität haben, gewinnt der Eigenschaftswert innerhalb eingrenzender Regeln mit der geringsten Anzahl von Sprüngen nach oben durch die DOM-Hierarchie zur Wurzel des Gültigkeitsbereichs. Siehe [Wie `@scope`-Konflikte gelöst werden](/de/docs/Web/CSS/@scope#how_scope_conflicts_are_resolved) für mehr Details und ein Beispiel.
-5. **Reihenfolge des Erscheinens**: In der vorrangigen Herkunft, wenn es konkurrierende Werte für eine Eigenschaft gibt, die in übereinstimmenden Stilblock-Selectors mit gleicher Spezifität und Berechtigungsnähe sind, wird die letzte Deklaration in der Stilreihenfolge angewandt.
+Die Cascade ist in aufsteigender Reihenfolge, was bedeutet:
 
-Die Kaskade ist in aufsteigender Reihenfolge, was bedeutet, dass Animationen Vorrang vor normalen Werten haben, unabhängig davon, ob diese in Benutzer-, Autoren- oder Benutzeragentenstilen deklariert sind, wichtige Werte haben Vorrang vor Animationen und Übergänge haben Vorrang vor wichtigen Werten.
+- Animationen haben Vorrang vor normalen Werten, egal ob sie in Benutzer-, Autoren- oder Benutzeragent-Stilen deklariert sind.
+- Wichtige Werte haben Vorrang vor Animationen, egal ob sie in Benutzer-, Autoren- oder Benutzeragent-Stilen deklariert sind.
+- Übergänge haben Vorrang vor wichtigen Werten.
 
 > **Hinweis:** **Übergänge und Animationen**
-> 
-> Eigenschaftswerte, die durch die Animation {{cssxref('@keyframes')}} festgelegt werden, sind wichtiger als alle normalen Stile (diejenigen ohne durch [`!important`](/de/docs/Web/CSS/Specificity#the_!important_exception) gesetzte Bedeutung).
-> 
-> Eigenschaftswerte, die in einem {{cssxref('transition')}} festgelegt werden, haben Vorrang vor allen anderen festgelegten Werten, selbst denen, die mit `!important` markiert sind.
+>
+> Eigenschaftswerte, die durch Animation {{cssxref('@keyframes')}} gesetzt werden, sind wichtiger als alle normalen Stile (jene ohne [`!important`](/de/docs/Web/CSS/Specificity#the_!important_exception) setzen).
+>
+> Eigenschaftswerte, die in einem {{cssxref('transition')}} festgelegt werden, haben Vorrang vor allen anderen gesetzten Werten, selbst solchen, die mit `!important` gekennzeichnet sind.
 
-Der Kaskadenalgorithmus wird _vor_ dem Spezifitätsalgorithmus angewendet, was bedeutet, dass wenn `:root p { color: red;}` in einem Benutzerstilblatt (Zeile 2) deklariert ist und ein weniger spezifisches `p {color: blue;}` im Autorenstilblatt (Zeile 3) ist, die Absätze blau sein werden.
+Der Cascade-Algorithmus wird _vor_ dem Spezifitätsalgorithmus angewendet, was bedeutet, wenn `:root p { color: red;}` im Benutzer-Stylesheet (Zeile 2) deklariert wird und ein weniger spezifisches `p {color: blue;}` im Autoren-Stylesheet (Zeile 3) vorliegt, dann werden die Absätze blau sein.
 
 ## Einfaches Beispiel
 
-Bevor wir einen tieferen Blick darauf werfen, wie Kaskadenschichten die Kaskade beeinflussen, schauen wir uns ein Beispiel an, das mehrere CSS-Quellen aus den verschiedenen Herkünften einbezieht, und durchlaufen die Schritte des Kaskadenalgorithmus:
+Bevor wir uns genauer ansehen, wie Cascade-Schichten die cascade beeinflussen, schauen wir uns ein Beispiel mit mehreren Quellen von CSS über die verschiedenen Ursprünge an und gehen die Schritte des Cascade-Algorithmus durch:
 
-Hier haben wir ein Benutzeragenten-Stilblatt, zwei Autorenstilblätter und ein Benutzerstilblatt, ohne Inline-Stile im HTML:
+Hier haben wir ein User-Agent-Stylesheet, zwei Autor-Stylesheets und ein Benutzer-Stylesheet, ohne Inline-Stile innerhalb des HTML:
 
-**Benutzeragenten-CSS:**
+**User-Agent CSS:**
 
 ```css
 li {
@@ -90,7 +93,7 @@ li {
 }
 ```
 
-**Autoren-CSS 1:**
+**Autor CSS 1:**
 
 ```css
 li {
@@ -98,7 +101,7 @@ li {
 } /* This is a reset */
 ```
 
-**Autoren-CSS 2:**
+**Autor CSS 2:**
 
 ```css
 @media screen {
@@ -120,7 +123,7 @@ li {
 }
 ```
 
-**Benutzer-CSS:**
+**Benutzer CSS:**
 
 ```css
 .specific {
@@ -137,23 +140,23 @@ li {
 </ul>
 ```
 
-In diesem Fall sollten Erklärungen innerhalb der `li`- und `.specific`-Regeln gelten.
+In diesem Fall sollten Deklarationen innerhalb der `li` und `.specific`-Regeln angewendet werden.
 
-Noch einmal, es gibt fünf Schritte im Kaskadenalgorithmus, in Reihenfolge:
+Erneut gibt es fünf Schritte im Cascade-Algorithmus, in dieser Reihenfolge:
 
 1. Relevanz
-2. Herkunft und Wichtigkeit
+2. Ursprung und Wichtigkeit
 3. Spezifität
-4. Berechtigungsnähe
+4. Scope-Nähe
 5. Reihenfolge des Erscheinens
 
-Die `1px` ist für Druckmedien. Aufgrund der fehlenden _Relevanz_ basierend auf ihrem Medientyp, wird sie aus der Betrachtung entfernt.
+Das `1px` ist für Printmedien. Aufgrund mangelnder _Relevanz_ basierend auf seinem Medientyp wird es aus der Betrachtung entfernt.
 
-Keine Erklärung ist als `!important` gekennzeichnet, daher ist die Vorrangreihenfolge Autorenstilblätter über Benutzerstilblätter über Benutzeragentenstilblatt. Basierend auf _Herkunft und Wichtigkeit_ werden das `1em` aus dem Benutzerstilblatt und das `10px` aus dem Benutzeragenten-Stilblatt aus der Betrachtung entfernt.
+Keine Deklaration ist mit `!important` markiert, daher ist die Vorrangsreihenfolge Autor-Stylesheets über Benutzer-Stylesheets über User-Agent-Stylesheet. Basierend auf _Ursprung und Wichtigkeit_ werden das `1em` aus dem Benutzer-Stylesheet und das `10px` aus dem User-Agent-Stylesheet aus der Betrachtung entfernt.
 
-Beachten Sie, dass selbst wenn der Benutzerstil auf `.specific` von `1em` eine höhere Spezifität hat, handelt es sich um eine normale Erklärung in einem Benutzerstilblatt. Als solche hat es eine niedrigere Priorität als alle Autorenstile und wird durch den Schritt Herkunft und Bedeutung des Algorithmus entfernt, bevor die Spezifität überhaupt ins Spiel kommt.
+Beachten Sie, dass selbst wenn der Benutzerstil auf `.specific` von `1em` eine höhere Spezifität hat, es sich um eine normale Deklaration in einem Benutzer-Stylesheet handelt. Daher hat es eine geringere Vorrangstellung als alle Autorenstile und wird durch den Schritt Ursprung und Wichtigkeit des Algorithmus entfernt, bevor die Spezifität ins Spiel kommt.
 
-Es gibt drei Erklärungen in Autorenstilblättern:
+Es gibt drei Deklarationen in Autoren-Stylesheets:
 
 ```css
 li {
@@ -177,26 +180,26 @@ li {
 }
 ```
 
-Die letzte, die `5px` ist Teil einer Kaskadenschicht. Normale Deklarationen in Schichten haben eine niedrigere Priorität als normale Stile, die nicht in einer Schicht innerhalb des gleichen Herkunftstyps sind. Diese wird ebenfalls durch Schritt 2 des Algorithmus, _Herkunft und Wichtigkeit_, entfernt.
+Die letzte, das `5px`, ist Teil einer Cascade-Schicht. Normale Deklarationen in Schichten haben eine geringere Vorrangstellung als normale Stile, die nicht in einer Schicht innerhalb desselben Ursprungstyps sind. Dies wird ebenfalls durch Schritt 2 des Algorithmus, _Ursprung und Wichtigkeit_, entfernt.
 
-Dies lässt die `0` und `3px` übrig, die beide denselben Selector haben, daher dieselbe _Spezifität_. Keiner von ihnen befindet sich in einem `@scope`-Block, also kommt die Berechtigungsnähe in diesem Beispiel auch nicht zum Tragen.
+Es verbleiben die `0` und die `3px`, die beide den gleichen Selektor und damit die gleiche _Spezifität_ haben. Keiner von ihnen befindet sich in einem `@scope`-Block, sodass die Scope-Nähe in diesem Beispiel nicht ins Spiel kommt.
 
-Dann schauen wir auf die _Reihenfolge des Erscheinens_. Der zweite, der letzte der beiden ungelagerten Autorenstile, gewinnt.
+Wir betrachten dann die _Reihenfolge des Erscheinens_. Die zweite, die letzte der zwei ungeschichteten Autorenstile, gewinnt.
 
 ```css
 margin-left: 3px;
 ```
 
 > [!NOTE]
-> Die im Benutzer-CSS definierte Erklärung, auch wenn sie möglicherweise eine größere Spezifität aufweist, wird nicht ausgewählt, da der Kaskadenalgorithmus von _Herkunft und Wichtigkeit_ angewandt wird, bevor der _Spezifitätsalgorithmus_ berücksichtigt wird. Die in einer Kaskadenschicht definierte Erklärung, obwohl sie später im Code erscheinen kann, wird auch keinen Vorrang haben, da normale Stile in Kaskadenschichten weniger Priorität haben als normale ungelagerte Stile. _Die Reihenfolge des Erscheinens_ spielt nur dann eine Rolle, wenn sowohl Herkunft, Wichtigkeit als auch Spezifität gleich sind.
+> Die Deklaration, die im Benutzer-CSS definiert ist, obwohl sie möglicherweise eine größere Spezifität hat, wird nicht gewählt, da der _Ursprung und die Wichtigkeit_ des Cascade-Algorithmus angewendet werden, bevor der Spezifitätsalgorithmus verwendet wird. Die Deklaration, die in einer Cascade-Schicht definiert ist, wird ebenfalls nicht übernommen, selbst wenn sie später im Code folgt, da normale Stile in Cascadingschichten weniger Vorrang haben als normale ungeschichtete Stile. _Reihenfolge des Erscheinens_ ist nur von Bedeutung, wenn sowohl Ursprung, Wichtigkeit und Spezifität gleich sind.
 
 ## Autorenstile: Inline-Stile, Schichten und Vorrang
 
-Die [Tabelle in Kaskadenreihenfolge](#kaskadenreihenfolge) gab einen Überblick über die Reihenfolge der Priorität. Die Tabelle fasste die Stile der Benutzeragenten, Benutzer und Autoren nach Herkunft in jeweils zwei Zeilen zusammen mit "Herkunftstyp - normal" und "Herkunftstyp - !important". Die Priorität innerhalb jedes Herkunftstyps ist nuancierter. Stile können innerhalb von Schichten innerhalb ihres Herkunftstyps enthalten sein, und bei Autorenstilen gibt es auch das Problem, wo Inline-Stile in der Kaskadenreihenfolge landen.
+Die [Tabelle in Cascading-Reihenfolge](#cascading-reihenfolge) bietet einen Überblick über die Vorrangsreihenfolge. Die Tabelle fasste die Benutzeragent-, Benutzer- und Autor-Stile nach Ursprungstyp in zwei Zeilen mit „Ursprungstyp - normal“ und „Ursprungstyp - !important“ zusammen. Die Vorrangstellung innerhalb jedes Ursprungstyps ist nuancierter. Stile können innerhalb von Schichten innerhalb ihres Ursprungstyps enthalten sein, und bei Autorenstilen gibt es auch die Frage, wo Inline-Stile in der Cascade-Reihenfolge landen.
 
-Die Reihenfolge, in der Schichten deklariert werden, ist wichtig, um die Priorität zu bestimmen. Normale Stile in einer Schicht haben Vorrang vor in vorherigen Schichten deklarierten Stilen; normale Stile, die außerhalb einer Schicht deklariert werden, haben Vorrang vor normalen geschichteten Stilen, unabhängig von ihrer Spezifität.
+Die Reihenfolge, in der Schichten deklariert werden, ist wichtig für die Bestimmung der Vorrangstellung. Normale Stile in einer Schicht haben Vorrang vor in früheren Schichten deklarierten Stilen; wobei normale Stile, die außerhalb einer Schicht deklariert werden, Vorrang vor normalen geschichteten Stilen unabhängig von der Spezifität haben.
 
-In diesem Beispiel hat der Autor CSS's {{CSSXref('@import')}}-Regel verwendet, um fünf externe Stilblätter innerhalb eines {{HTMLElement('style')}}-Informationsblockes zu importieren.
+In diesem Beispiel verwendete der Autor die {{CSSXref('@import')}}-Regel von CSS, um fünf externe Stylesheets innerhalb eines {{HTMLElement('style')}}-Informationselements zu importieren.
 
 ```html
 <style>
@@ -218,48 +221,51 @@ und dann im Hauptteil des Dokuments haben wir Inline-Stile:
 <p style="line-height: 1.6em; text-decoration: overline !important;">Hello</p>
 ```
 
-Im obigen CSS-Codeblock wurden in dieser Reihenfolge drei Kaskadenschichten mit den Namen "A", "B" und "C" erstellt. Drei Stilblätter wurden direkt in Schichten importiert und zwei wurden importiert, ohne eine Schicht zu erstellen oder zuzuweisen.
-Die "Alle ungelagerten Stile" in der Liste unten (normale Autorenstilreihenfolge - Reihenfolge 4) umfasst Stile aus diesen beiden Stilblättern und den zusätzlichen ungelagerten CSS-Stilblöcken. Zusätzlich gibt es zwei Inline-Stile, eine normale `line-height`-Deklaration und eine wichtige `text-decoration`-Deklaration:
+In dem obigen CSS-Codeblock wurden drei Cascade-Schichten namens "A", "B" und "C" erstellt, in dieser Reihenfolge. Drei Stylesheets wurden direkt in Schichten importiert und zwei wurden ohne Erstellung oder Zuweisung zu einer Schicht importiert.
+Die "Alle ungeschichteten Stile" in der Liste unten (normale Autorstilvorwahl - Ordnung 4) umfasst Stile aus diesen beiden Stylesheets und den zusätzlichen ungeschichteten CSS-Stilblöcken. Zusätzlich gibt es zwei Inline-Stile, eine normale `line-height`-Deklaration und eine wichtige `text-decoration`-Deklaration:
 
-| Reihenfolge (niedrig bis hoch) | Autorenstil           | Wichtigkeit |
-| ------------------------------- | --------------------- | ----------- |
-| 1                               | A - erste Schicht     | normal      |
-| 2                               | B - zweite Schicht    | normal      |
-| 3                               | C - letzte Schicht    | normal      |
-| 4                               | Alle ungelagerten Stile | normal      |
-| 5                               | inline `style`        | normal      |
-| 6                               | Animationen           |             |
-| 7                               | Alle ungelagerten Stile | `!important`|
-| 8                               | C - letzte Schicht    | `!important`|
-| 9                               | B - zweite Schicht    | `!important`|
-| 10                              | A - erste Schicht     | `!important`|
-| 11                              | inline `style`        | `!important`|
-| 12                              | Übergänge             |             |
+| Vorrangsreihenfolge (niedrig zu hoch) | Autorenstil                | Wichtigkeit  |
+| ------------------------------------- | -------------------------- | ------------ |
+| 1                                     | A - erste Schicht          | normal       |
+| 2                                     | B - zweite Schicht         | normal       |
+| 3                                     | C - letzte Schicht         | normal       |
+| 4                                     | Alle ungeschichteten Stile | normal       |
+| 5                                     | Inline-`style`             | normal       |
+| 6                                     | Animationen                |              |
+| 7                                     | Alle ungeschichteten Stile | `!important` |
+| 8                                     | C - letzte Schicht         | `!important` |
+| 9                                     | B - zweite Schicht         | `!important` |
+| 10                                    | A - erste Schicht          | `!important` |
+| 11                                    | Inline-`style`             | `!important` |
+| 12                                    | Übergänge                  |              |
 
-In allen Herkunftstypen haben die nicht wichtigen Stile, die in Schichten enthalten sind, die niedrigste Priorität. In unserem Beispiel haben die normalen Stile, die mit der ersten deklarierten Schicht (A) verbunden sind, eine niedrigere Priorität als die normalen Stile in der zweiten deklarierten Schicht (B), die eine niedrigere Priorität haben als normale Stile in der dritten deklarierten Schicht (C). Diese geschichteten Stile haben eine niedrigere Priorität als alle normalen ungelagerten Stile, die normale Stile aus `unlayeredStyles.css`, `moreUnlayeredStyles.css` und die `color` von `p` im `<style>` selbst beinhalten.
+In allen Herkunftstypen haben normale in Schichten enthaltene Stile die niedrigste Priorität. In unserem Beispiel haben die normalen Stile, die mit der zuerst deklarierten Schicht (A) verbunden sind, eine niedrigere Priorität als die normalen Stile in der zweitdeklarierten Schicht (B), die wiederum eine niedrigere Priorität als die normalen Stile in der drittdeklarierten Schicht (C) haben. Diese geschichteten Stile haben eine niedrigere Priorität als alle normalen ungeschichteten Stile, die die normalen Stile aus `unlayeredStyles.css`, `moreUnlayeredStyles.css` und die `color` des `p` im `<style>` selbst umfassen.
 
-Wenn einer der geschichteten Stile in A, B oder C Selector mit höherer Spezifität besitzt, die mit einem Element übereinstimmen, ähnlich `:root body p { color: black;}`, spielt es keine Rolle. Diese Erklärungen werden aufgrund von _Herkunft_ aus der Betrachtung ausgeschlossen; normale geschichtete Stile haben weniger Priorität als normale ungelagerte Stile. Wenn jedoch der spezifischere Selector `:root body p { color: black;}` in `unlayeredStyles.css` gefunden würde, da _Herkunft und Wichtigkeit_ die gleiche Priorität haben, würde _Spezifität_ bedeuten, dass die spezifischere, schwarze Erklärung gewinnen würde.
+Wenn irgendwelche geschichteten Stile in A, B oder C Selektoren mit höherer Spezifität haben, die zu einem Element passen, ähnlich wie `:root body p { color: black; }`, spielt das keine Rolle. Diese Deklarationen werden aufgrund von _Ursprung_ aus der Betrachtung entfernt; normale geschichtete Stile haben weniger Vorrang als normale ungeschichtete Stile. Wenn jedoch der spezifische Selektor `:root body p { color: black; }` in `unlayeredStyles.css` gefunden wurde, da _Herkunft und Wichtigkeit_ die gleiche Priorität haben, würde _Spezifität_ bedeuten, dass die spezifischere, schwarze Deklaration gewinnen würde.
 
-Die Reihenfolge der Schichtpriorität wird für als `!important` deklarierte Stile umgekehrt. Wichtige Stile, die in einer Schicht deklariert werden, haben Vorrang vor wichtigen Stilen, die außerhalb einer Schicht deklariert werden. Wichtige Stile in der ersten deklarierten Schicht (A) haben Vorrang vor wichtigen Erklärungen, die in Schicht B gefunden werden, die wiederum Vorrang vor C haben, die Vorrang vor wichtigen Erklärungen in den ungelagerten Stilen haben.
+Die Schichtreihenfolge der Priorität ist für Stile, die als `!important` deklariert sind, umgekehrt. Wichtige Deklarationen, die in einer Schicht gefunden werden, haben Vorrang vor wichtigen Deklarationen, die außerhalb einer Schicht gefunden werden. Wichtige Deklarationen, die in der ersten Schicht (A) gefunden werden, haben Vorrang vor wichtigen Deklarationen, die in der Schicht B gefunden werden, die Vorrang vor wichtigen Deklarationen haben, die in der Schicht C gefunden werden, die wiederum Vorrang vor wichtigen Deklarationen haben, die außerhalb einer Schicht gefunden werden.
 
 ### Inline-Stile
 
-Nur für Autorenstile bedeutsam sind Inline-Stile, die mit dem `style`-Attribut deklariert werden. Normale Inline-Stile haben Vorrang vor allen anderen normalen Autorenstilen, unabhängig von der Spezifität des Selectors. Wenn `line-height: 2;` in einem `:root body p`-Selector-Block in einem der fünf importierten Stilblätter deklariert würde, wäre die Zeilenhöhe immer noch `1.6`.
+Nur relevant für Autorenstile sind Inline-Stile, die mit dem `style`-Attribut deklariert werden. Normale Inline-Stile haben Vorrang vor allen anderen normalen Autorenstilen, egal wie spezifisch der Selektor ist. Wenn `line-height: 2;` in einem `:root body p` Selector-Block in einem der fünf importierten Stylesheets deklariert wurde, wäre die Zeilenhöhe immer noch `1.6`. Normale Inline-Stile haben keinen Vorrang vor animierten oder Übergangseigenschaften.
 
-Normale Inline-Stile haben Vorrang vor allen anderen normalen Autorenstilen, es sei denn, die Eigenschaft wird durch eine CSS-Animation verändert.
+Wichtige Inline-Stile haben Vorrang vor allen anderen Autorenstilen, unabhängig davon, ob sie wichtig, inline oder geschichtet sind. Wichtige Inline-Stile haben auch Vorrang vor animierten Eigenschaften, jedoch nicht vor Übergangseigenschaften. Drei Dinge können einen wichtigen Inline-Stil überschreiben:
 
-Alle wichtigen Inline-Stile haben Vorrang vor allen Autorenstilen, wichtig und nicht, inline und nicht, geschichtet und nicht. Wichtige Stile haben auch Vorrang vor animierten Eigenschaften, aber nicht vor Übergangseigenschaften. Drei Dinge können einen wichtigen Inline-Stil überschreiben: 1) ein wichtiger Benutzerstil, 2) ein wichtiger Benutzeragentstil oder 3) ein Wert, der über einen Übergang eingestellt wird.
+- Ein wichtiger Benutzerstil.
+- Ein wichtiger Benutzeragentenstil.
+- Eine Übergangseigenschaft.
 
 ### Wichtigkeit und Schichten
 
-Die Reihenfolge der Herkunftstyp-Priorität wird für wichtige Stile umgekehrt. Wichtige Stile, die außerhalb jeder Kaskadenschicht deklariert werden, haben eine niedrigere Priorität als solche, die als Teil einer Schicht deklariert werden. Wichtige Werte, die in frühen Schichten kommen, haben Vorrang vor wichtigen Stilen, die in nachfolgenden Kaskadenschichten deklariert werden.
+Die Prioritätsreihenfolge des Herkunftstyps ist für wichtige Stile umgekehrt. Wichtigste Stile, die außerhalb einer Cascade-Schicht deklariert sind, haben eine niedrigere Priorität als diejenigen, die als Teil einer Schicht deklariert sind. Wichtigste Stile, die in frühen Schichten kommen, haben Vorrang vor wichtigen Stilen, die in späteren Cascade-Schichten deklariert sind.
 
-Betrachten Sie zum Beispiel das folgende CSS:
+Nehmen Sie zum Beispiel das folgende CSS:
 
 ```css
 p {
   color: red;
 }
+
 @layer B {
   :root p {
     color: blue;
@@ -267,14 +273,15 @@ p {
 }
 ```
 
-Obwohl das Rot zuerst deklariert wird und einen weniger spezifischen Selector hat, weil ungelagertes CSS Vorrang vor geschichtetem CSS hat, wird der Absatz rot sein. Hätten wir einen Inline-Stil auf dem Absatz eingestellt, der ihn auf eine andere Farbe setzen würde, wie `<p style="color: black">`, würde der Absatz schwarz sein.
+Auch wenn das Rot zuerst deklariert und der Selektor weniger spezifisch ist, da ungeschichtetes CSS Vorrang vor geschichtetem CSS hat, wird der Absatz rot sein. Hätten wir einen Inline-Stil auf dem Absatz hinzugefügt, um ihn auf eine andere Farbe einzustellen, z. B. `<p style="color: black">`, wäre der Absatz schwarz.
 
-Wenn wir `!important` zu diesem CSS-Fragment hinzufügen, wird die Prioritätsreihenfolge innerhalb des Stylesheets umgekehrt:
+Wenn wir zu diesem CSS `!important` hinzufügen, wird die Prioritätsreihenfolge innerhalb des Stylesheets umgekehrt:
 
 ```css
 p {
   color: red !important;
 }
+
 @layer B {
   :root p {
     color: blue !important;
@@ -282,83 +289,82 @@ p {
 }
 ```
 
-Jetzt wird der Absatz blau sein. Das `!important` in der frühest deklarierten Schicht hat Vorrang vor nachfolgenden Schichten und ungelagerten wichtigen Deklarationen. Wenn der Inline-Stil `!important` enthalten würde, wie `<p style="color: black !important">`, wäre der Absatz wieder schwarz. Inline-Bedeutung hat Vorrang vor allen anderen von Autoren deklarierten `!important`-Deklarationen, unabhängig von der Spezifität.
+Jetzt wird der Absatz blau sein. Das `!important` in der frühestens deklarierten Schicht hat Vorrang vor nachfolgenden Schichten und ungeschichteten wichtigen Deklarationen. Wenn der Inline-Stil `!important` enthalten würde, z. B. `<p style="color: black !important">`, wäre der Absatz wieder schwarz. Inline-Wichtigkeit hat Vorrang vor allen anderen vom Autor deklarierten `!important`-Deklarationen, unabhängig von der Spezifität.
 
 > [!NOTE]
-> Das `!important`-Flag kehrt die Priorität von Kaskadenschichten um. Aus diesem Grund versuchen Sie, `!important` nicht zu verwenden, um externe Stile zu überschreiben. Verwenden Sie stattdessen {{cssxref("@import")}} zusammen mit dem `layer`-Schlüsselwort oder der `layer()`-Funktion, um externe Stylesheets (von Frameworks, Widget-Stilblättern, Bibliotheken usw.) in Schichten zu importieren. Das Importieren von Stylesheets in eine Schicht als erste Deklaration in Ihrem CSS vermindert ihre Priorität und von Autoren definierte Schichten, die später in Ihrem CSS definiert werden, haben eine höhere Priorität. Das `!important`-Flag sollte nur sparsam verwendet werden, wenn überhaupt, um erforderliche Stile gegen spätere Überschreibungen zu schützen, in der zuerst deklarierten Schicht.
+> Das `!important`-Flag kehrt die Prioritätenreihenfolge der Cascade-Schichten um. Aus diesem Grund sollten Sie `!important` nicht verwenden, um externe Stile zu überschreiben. Verwenden Sie stattdessen {{cssxref("@import")}} zusammen mit dem `layer`-Keyword oder der `layer()`-Funktion, um externe Stylesheets (von Frameworks, Widget-Stylesheets, Bibliotheken usw.) in Schichten zu importieren. Das Importieren von Stylesheets in eine Schicht als erste Deklaration in Ihrem CSS senkt deren Priorität, und autorendefinierte Schichten, die später in Ihrem CSS definiert sind, werden eine höhere Priorität haben. Das `!important`-Flag sollte nur sparsam, wenn überhaupt, verwendet werden, um erforderliche Stile gegen spätere Überschreibungen abzusichern, in der ersten deklarierten Schicht.
 
-Stile, die sich im Übergang befinden, haben Vorrang vor allen wichtigen Stilen, unabhängig von der Herkunft oder wie sie deklariert wurden.
+Stile, die sich im Übergang befinden, haben Vorrang vor allen wichtigen Stilen, unabhängig davon, von wem oder wie sie deklariert wurden.
 
-## Vollständige Kaskadenreihenfolge
+## Komplette Cascade-Reihenfolge
 
-Jetzt, da wir ein besseres Verständnis von Herkunftstyp- und Kaskadenschicht-Priorität haben, erkennen wir, dass die Tabelle in [Kaskadenreihenfolge](#kaskadenreihenfolge) genauer durch die folgende Tabelle dargestellt werden könnte:
+Nun, da wir ein besseres Verständnis von Herkunftstyp und Cascade-Schicht-Priorität haben, erkennen wir, dass die Tabelle in [Cascading-Reihenfolge](#cascading-reihenfolge) genauer dargestellt werden könnte durch die folgende Tabelle:
 
 <table>
 <thead>
-  <tr><th>Prioritätsordnung <br/>(niedrig bis hoch)</th><th>Stilherkunft</th><th>Wichtigkeit</th></tr>
+  <tr><th>Vorrangsreihenfolge <br/>(niedrig bis hoch)</th><th>Stilursprung</th><th>Wichtigkeit</th></tr>
 </thead>
 <tbody>
   <tr><td rowspan="3">1</td><td>Benutzeragent - erste deklarierte Schicht</td><td rowspan="3">normal</td></tr>
   <tr><td>Benutzeragent - letzte deklarierte Schicht</td></tr>
-  <tr><td>Benutzeragent - ungelagerte Stile</td></tr>
+  <tr><td>Benutzeragent - ungeschichtete Stile</td></tr>
   <tr><td rowspan="3">2</td><td>Benutzer - erste deklarierte Schicht</td><td rowspan="3">normal</td></tr>
   <tr><td>Benutzer - letzte deklarierte Schicht</td></tr>
-  <tr><td>Benutzer - ungelagerte Stile</td></tr>
+  <tr><td>Benutzer - ungeschichtete Stile</td></tr>
   <tr><td rowspan="4">3</td><td>Autor - erste deklarierte Schicht</td><td rowspan="4">normal</td></tr>
   <tr><td>Autor - letzte deklarierte Schicht</td></tr>
-  <tr><td>Autor - ungelagerte Stile</td></tr>
-  <tr><td>inline <code>style</code></td></tr>
+  <tr><td>Autor - ungeschichtete Stile</td></tr>
+  <tr><td>Inline <code>style</code></td></tr>
   <tr><td>4</td><td>Animationen</td><td></td></tr>
-  <tr><td rowspan="4">5</td><td>Autor - ungelagerte Stile</td><td rowspan="4"><code>!important</code></td></tr>
+  <tr><td rowspan="4">5</td><td>Autor - ungeschichtete Stile</td><td rowspan="4"><code>!important</code></td></tr>
   <tr><td>Autor - letzte deklarierte Schicht</td></tr>
   <tr><td>Autor - erste deklarierte Schicht</td></tr>
-  <tr><td>inline <code>style</code></td></tr>
-  <tr><td rowspan="3">6</td><td>Benutzer - ungelagerte Stile</td><td rowspan="3"><code>!important</code></td></tr>
+  <tr><td>Inline <code>style</code></td></tr>
+  <tr><td rowspan="3">6</td><td>Benutzer - ungeschichtete Stile</td><td rowspan="3"><code>!important</td></tr>
   <tr><td>Benutzer - letzte deklarierte Schicht</td></tr>
   <tr><td>Benutzer - erste deklarierte Schicht</td></tr>
-  <tr><td rowspan="3">7</td><td>Benutzeragent - ungelagerte Stile</td><td rowspan="3"><code>!important</code></td></tr>
+  <tr><td rowspan="3">7</td><td>Benutzeragent - ungeschichtete Stile</td><td rowspan="3"><code>!important</code></td></tr>
   <tr><td>Benutzeragent - letzte deklarierte Schicht</td></tr>
   <tr><td>Benutzeragent - erste deklarierte Schicht</td></tr>
   <tr><td>8</td><td>Übergänge</td><td></td></tr>
 </tbody>
 </table>
 
-## Welche CSS-Entitäten nehmen an der Kaskade teil
+## Welche CSS-Entitäten nehmen an der Cascade teil
 
-Nur CSS-Eigenschafts-/Wertpaar-Deklarationen nehmen an der Kaskade teil. CSS-At-Regel-Beschreibungen nehmen nicht an der Kaskade teil und HTML-präsentative Attribute sind nicht Teil der Kaskade.
+Nur CSS-Eigenschafts-/Wertepaar-Deklarationen nehmen an der Cascade teil. CSS-At-Regel-Deskriptoren nehmen nicht an der Cascading teil und HTML-Darstellungsattribute sind nicht Teil der Cascading.
 
 ### At-Regeln
 
-CSS-[At-Regeln](/de/docs/Web/CSS/At-rule), die andere Entitäten als Deklarationen enthalten, wie eine {{ cssxref("@font-face")}}-Regel mit _Beschreibungen_, nehmen nicht an der Kaskade teil.
+CSS [At-Regeln](/de/docs/Web/CSS/At-rule), die Entitäten andere als Deklarationen enthalten, wie zum Beispiel eine {{ cssxref("@font-face")}}-Regel, die _Deskriptoren_ enthält, nehmen nicht an der Cascade teil.
 
-Zum größten Teil nehmen die in At-Regeln definierten Eigenschaften und Beschreibungen nicht an der Kaskade teil. Nur At-Regeln selbst nehmen an der Kaskade teil. Zum Beispiel werden innerhalb einer `@font-face`-Regel Schriftnamen durch [`font-family`](/de/docs/Web/CSS/@font-face/font-family)-Beschreibungen identifiziert. Wenn mehrere `@font-face`-Regeln mit derselben Beschreibung definiert sind, wird nur die passendste `@font-face` als Ganzes betrachtet. Wenn mehr als eine identisch passend ist, werden die gesamten `@font-face`-Deklarationen mit den Schritten 1, 2 und 4 des Algorithmus verglichen (es gibt keine Spezifität, wenn es um At-Regeln geht).
+Zum größten Teil nehmen die in At-Regeln definierten Eigenschaften und Deskriptoren nicht an der Cascade teil. Nur At-Regeln als Ganzes nehmen an der Cascade teil. Zum Beispiel innerhalb einer `@font-face`-Regel werden Schriftartnamen durch [`font-family`](/de/docs/Web/CSS/@font-face/font-family)-Deskriptoren identifiziert. Wenn mehrere `@font-face`-Regeln mit dem gleichen Deskriptor definiert sind, wird nur die am besten geeignete `@font-face`-Regel als Ganzes in Betracht gezogen. Wenn mehr als eine identisch geeignet ist, werden die gesamten `@font-face`-Deklarationen mit den Schritten 1, 2 und 4 des Algorithmus verglichen (es gibt keine Spezifität bei At-Regeln).
 
-Während die in den meisten At-Regeln enthaltenen Deklarationen — wie diejenigen in {{cssxref("@media")}}, {{cssxref("@document")}} oder {{cssxref("@supports")}} — an der Kaskade teilnehmen, könnte die At-Regel einen gesamten Selector als nicht relevant machen, wie wir im [einfachen Beispiel](#einfaches_beispiel) mit dem Druckstil gesehen haben.
+Während die in den meisten At-Regeln enthaltenen Deklarationen - wie die in {{cssxref("@media")}}, {{cssxref("@document")}} oder {{cssxref("@supports")}} - an der Cascade teilnehmen, kann die At-Regel einen gesamten Selektor als nicht relevant machen, wie wir es mit dem Druckstil im [einfachen Beispiel](#einfaches_beispiel) gesehen haben.
 
-Deklarationen in {{cssxref("@keyframes")}} nehmen nicht an der Kaskade teil. Wie bei `@font-face` wird nur die `@keyframes`-Regel als Ganzes über den Kaskadenalgorithmus ausgewählt. Die [Prioritätsordnung von Animationen wird im Folgenden beschrieben](#css-animationen_und_die_kaskade).
+Deklarationen in {{cssxref("@keyframes")}} nehmen nicht an der Cascade teil. Wie bei `@font-face` wird nur das `@keyframes` als Ganzes über den Cascade-Algorithmus ausgewählt. Die [Prioritätsreihenfolge der Animation wird unten beschrieben](#css-animationen_und_die_cascade).
 
-Wenn es um {{cssxref("@import")}} geht, nimmt `@import` selbst nicht an der Kaskade teil, aber alle importierten Stile nehmen daran teil. Wenn `@import` eine [benannte oder anonyme Schicht](/de/docs/Web/CSS/@layer) definiert, werden die Inhalte des importierten Stilblatts in die angegebene Schicht eingefügt. Alle anderen mit `@import` importierten CSS werden als letzte deklarierte Schicht behandelt. Dies wurde oben diskutiert.
+Bei {{cssxref("@import")}} nimmt das `@import` selbst nicht an der Cascade teil, aber alle importierten Stile tun dies. Wenn das `@import` eine [benannte oder anonyme Schicht](/de/docs/Web/CSS/@layer) definiert, werden die Inhalte des importierten Stylesheets in die angegebene Schicht gelegt. Alle anderen CSS, die mit `@import` importiert wurden, werden als die zuletzt deklarierte Schicht behandelt. Dies wurde oben diskutiert.
 
-Schließlich gehorcht {{cssxref("@charset")}} bestimmten Algorithmen und wird nicht vom Kaskadenalgorithmus beeinflusst.
+Schließlich gehorcht {{cssxref("@charset")}} spezifischen Algorithmen und ist nicht vom Cascade-Algorithmus betroffen.
 
-### Präsentative Attribute
+### Präsentationsattribute
 
-Präsentative Attribute sind Attribute im Quelldokument, die das Styling beeinflussen können. Zum Beispiel setzt das veraltete `align`-Attribut die Ausrichtung auf mehreren HTML-Elementen und das `fill`-Attribut definiert die Farbe, die zum Malen von SVG-Formen und -Texten verwendet wird, und definiert den Endzustand für SVG-Animationen. Obwohl sie Autorenstile sind, nehmen Präsentative Attribute nicht an der Kaskade teil.
+Präsentationsattribute sind Attribute im Quelldokument, die das Styling beeinflussen können. Beispielsweise legt das veraltete `align`-Attribut, wenn es enthalten ist, die Ausrichtung bei mehreren HTML-Elementen fest und das `fill`-Attribut definiert die Farbe, die zum Zeichnen von SVG-Formen und Text verwendet wird, und definiert den Endzustand für SVG-Animationen. Während sie Autorenstile sind, nehmen Präsentationsattribute nicht an der Cascade teil.
 
-Wenn das HTML-Präsentationsattribut vom Benutzeragenten unterstützt wird, werden gültige Präsentationsattribute, die in HTML und SVG enthalten sind, wie die [`align`](/de/docs/Web/HTML/Element/img#align)- oder [`fill`](/de/docs/Web/SVG/Attribute/fill)-Attribute, in die entsprechenden CSS-Regeln übersetzt (alle SVG-Präsentationsattribute werden als CSS-Eigenschaften unterstützt) und in das Autorenstilblatt vor allen anderen Stilen mit einer Spezifität gleich `0` eingefügt.
+Wenn das HTML-Präsentationsattribut vom Benutzeragenten unterstützt wird, werden gültige Präsentationsattribute, die in HTML und SVG enthalten sind, wie die [`align`](/de/docs/Web/HTML/Element/img#align) oder [`fill`](/de/docs/Web/SVG/Attribute/fill) Attribute, in die entsprechenden CSS-Regeln übersetzt (alle SVG-Präsentationsattribute werden als CSS-Eigenschaften unterstützt) und im Autoren-Stylesheet vor allen anderen Stilen eingefügt mit einer Spezifität gleich `0`.
 
-Präsentative Attribute können nicht als `!important` deklariert werden.
+Präsentationsattribute können nicht als `!important` deklariert werden.
 
-## CSS-Animationen und die Kaskade
+## CSS-Animationen und die Cascade
 
-[CSS-Animationen](/de/docs/Web/CSS/CSS_animations), die {{ cssxref("@keyframes")}}-Regeln verwenden, definieren Animationen zwischen Zuständen. Keyframes kaskadieren nicht, das bedeutet, dass zu jedem gegebenen Zeitpunkt CSS nur Werte aus einem einzigen {{cssxref("@keyframes")}} annimmt und nie mehrere zusammen mischt.
-
-Wenn mehrere Keyframe-Animationen mit demselben Animationsnamen definiert sind, wird die zuletzt definierte `@keyframes` in der Herkunft und Schicht mit der größten Priorität verwendet. Nur eine `@keyframes`-Definition wird verwendet, selbst wenn die `@keyframes` unterschiedliche Eigenschaften animiert. `@keyframes` mit demselben Namen werden niemals kombiniert.
+[CSS-Animationen](/de/docs/Web/CSS/CSS_animations), die {{cssxref("@keyframes")}}-Regeln verwenden, definieren Animationen zwischen Zuständen. `@keyframes` kaskadieren nicht, was bedeutet, dass zu jeder Zeit CSS Werte nur aus einem einzigen Satz von `@keyframes` verwendet und niemals mehrere mischt. Wenn mehrere Sätze von `@keyframes` mit dem gleichen Animationsnamen definiert sind, wird der zuletzt definierte Satz im Ursprung und in der Schicht mit der größten Priorität verwendet. Andere `@keyframes` werden ignoriert, selbst wenn sie andere Eigenschaften animieren.
 
 ```css
 p {
   animation: infinite 5s alternate repeatedName;
 }
+
 @keyframes repeatedName {
   from {
     font-size: 1rem;
@@ -378,6 +384,7 @@ p {
     }
   }
 }
+
 @layer B {
   @keyframes repeatedName {
     from {
@@ -390,16 +397,16 @@ p {
 }
 ```
 
-In diesem Beispiel gibt es drei separate Animationsdeklarationen mit dem Namen `repeatedName`. Wenn `animation: infinite 5s alternate repeatedName` auf den Absatz angewendet wird, wird nur eine Animation angewendet: die Keyframe-Animation, die im ungelagerten CSS deklariert ist, hat Vorrang vor den geschichteten Keyframe-Animationsdeklarationen, basierend auf der Herkunfts- und Kaskaden-Schicht-Prioritätsordnung. In diesem Beispiel wird nur die Schriftgröße des Elements animiert.
+In diesem Beispiel gibt es drei separate Animationsdeklarationen mit dem Namen `repeatedName`. Wenn `animation: infinite 5s alternate repeatedName` auf den Absatz angewendet wird, wird nur eine Animation angewendet: die im ungeschichteten CSS definierte Keyframe-Animation hat Vorrang vor den geschichteten Keyframe-Animationsdeklarationen basierend auf Ursprung und Schicht-Prioritätsreihenfolge. In diesem Beispiel wird nur die Schriftgröße des Elements animiert.
 
 > [!NOTE]
-> Es gibt keine wichtigen Animationen, da Eigenschaftsdeklarationen in einem {{cssxref('@keyframes')}}-Block, die `!important` als Teil des Wertes enthalten, ignoriert werden.
+> Es gibt keine wichtigen Animationen, da Eigenschaftsdeklarationen in einem {{cssxref('@keyframes')}}-Block, der `!important` als Teil des Wertes enthält, ignoriert werden.
 
 ## Zurücksetzen von Stilen
 
-Nachdem Ihr Inhalt das Styling beendet hat, kann es in einer Situation sein, in der es die Stile auf einen bekannten Zustand zurücksetzen muss. Dies kann in Fällen von Animationen, Themenänderungen und dergleichen passieren. Die CSS-Eigenschaft {{cssxref("all")}} ermöglicht Ihnen, schnell (fast) alles in CSS auf einen bekannten Zustand zurückzusetzen.
+Nachdem Ihr Inhalt das Styling abgeschlossen hat, kann er sich in einer Situation befinden, in der er diese auf einen bekannten Zustand zurücksetzen muss. Dies kann bei Animationen, Themenwechseln usw. geschehen. Die CSS-Eigenschaft {{cssxref("all")}} ermöglicht es Ihnen, schnell (fast) alles in CSS in einen bekannten Zustand zurückzusetzen.
 
-`all` ermöglicht Ihnen die sofortige Wiederherstellung aller Eigenschaften auf einen ihrer ursprünglichen (standardmäßigen) Zustände, den von der vorherigen Ebene der Kaskade geerbten Zustand, eine bestimmte Herkunft (das Benutzeragenten-Stilblatt, das Autorenstilblatt oder das Benutzerstilblatt) oder sogar das vollständige Löschen der Werte der Eigenschaften.
+`all` erlaubt es Ihnen, sofort alle Eigenschaften auf einen ihrer ursprünglichen (Standard-)Zustände zurückzusetzen, den Zustand, der von der vorherigen Ebene der Cascade geerbt wurde, einen bestimmten Ursprung (das Benutzeragent-Stylesheet, das Autor-Stylesheet oder das Benutzer-Stylesheet) oder sogar die Werte der Eigenschaften vollständig zu löschen.
 
 ## Spezifikationen
 
@@ -408,10 +415,10 @@ Nachdem Ihr Inhalt das Styling beendet hat, kann es in einer Situation sein, in 
 ## Siehe auch
 
 - [Lernen: Umgang mit Konflikten](/de/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts)
-- [Lernen: Kaskadenschichten](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
-- [CSS-Kaskade und Vererbung](/de/docs/Web/CSS/CSS_cascade) Modul
+- [Lernen: Cascade-Ebenen](/de/docs/Learn_web_development/Core/Styling_basics/Cascade_layers)
+- [CSS-Cascade- und Vererbungsmodul](/de/docs/Web/CSS/CSS_cascade)
 - [CSS-Syntax](/de/docs/Web/CSS/Syntax)
 - [Spezifität](/de/docs/Web/CSS/Specificity)
 - [Vererbung](/de/docs/Web/CSS/Inheritance)
 - [At-Regeln](/de/docs/Web/CSS/At-rule)
-- [Empfohlene](/de/docs/Web/CSS/initial_value), [berechnete](/de/docs/Web/CSS/computed_value), [verwendete](/de/docs/Web/CSS/used_value) und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
+- [Initiale](/de/docs/Web/CSS/initial_value), [berechnete](/de/docs/Web/CSS/computed_value), [verwendete](/de/docs/Web/CSS/used_value) und [tatsächliche](/de/docs/Web/CSS/actual_value) Werte
