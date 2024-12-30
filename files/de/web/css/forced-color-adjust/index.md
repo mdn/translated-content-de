@@ -2,18 +2,19 @@
 title: forced-color-adjust
 slug: Web/CSS/forced-color-adjust
 l10n:
-  sourceCommit: aac4966bd12c77281f9374bbfaf4e17e2680ac3b
+  sourceCommit: 4b465e22616ac4bc5aedb821453e15a9fea73e90
 ---
 
 {{CSSRef}}
 
-Die **`forced-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Autoren, bestimmte Elemente vom Zwangsfarbmodus auszunehmen. Dadurch wird die Kontrolle über diese Werte an CSS zurückgegeben.
+Die **`forced-color-adjust`** [CSS](/de/docs/Web/CSS) Eigenschaft ermöglicht es Autoren, bestimmte Elemente vom erzwungenen Farbmodus auszunehmen. Dadurch wird die Kontrolle über diese Werte zurück zu CSS gegeben.
 
 ## Syntax
 
 ```css
 forced-color-adjust: auto;
 forced-color-adjust: none;
+forced-color-adjust: preserve-parent-color;
 
 /* Global values */
 forced-color-adjust: inherit;
@@ -23,18 +24,20 @@ forced-color-adjust: revert-layer;
 forced-color-adjust: unset;
 ```
 
-Der Wert der Eigenschaft `forced-color-adjust` muss eines der folgenden Schlüsselwörter sein.
+Der Wert der `forced-color-adjust` Eigenschaft muss eines der folgenden Schlüsselwörter sein.
 
 ### Werte
 
 - `auto`
-  - : Die Farben des Elements werden im Zwangsfarbmodus vom {{Glossary("user_agent", "User Agent")}} angepasst. Dies ist der Standardwert.
+  - : Die Farben des Elements werden im erzwungenen Farbmodus vom {{Glossary("user_agent", "User-Agent")}} angepasst. Dies ist der Standardwert.
 - `none`
-  - : Die Farben des Elements werden im Zwangsfarbmodus nicht automatisch vom {{Glossary("user_agent", "User Agent")}} angepasst.
+  - : Die Farben des Elements werden im erzwungenen Farbmodus nicht automatisch vom {{Glossary("user_agent", "User-Agent")}} angepasst.
+- `preserve-parent-color`
+  - : Im erzwungenen Farbmodus, wenn die {{cssxref("color")}} Eigenschaft vom übergeordneten Element erbt (d.h. es gibt keinen [kaskadierten Wert](/de/docs/Web/CSS/Cascade) oder der kaskadierte Wert ist `currentcolor`, {{cssxref("inherit")}}, oder ein anderes Schlüsselwort, das vom Elternteil erbt), dann wird er auf die [verwendete Farbe](/de/docs/Web/CSS/used_value) der `color` Eigenschaft des Elternteils berechnet. In allen anderen Fällen verhält es sich wie `none`.
 
-## Verwendungshinweise
+## Nutzungshinweise
 
-Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die die Farb- und Kontrastanforderungen eines Benutzers unterstützen. Zum Beispiel, wenn Sie feststellen, dass die vom {{Glossary("user_agent", "User Agent")}} vorgenommenen Farboptimierungen zu einem schlechten Erlebnis im Hochkontrast- oder Dunkelmodus führen. Durch die Verwendung dieser Eigenschaft können Sie das Ergebnis in diesem Modus anpassen, um ein besseres Erlebnis zu bieten. **Sie sollte nicht verwendet werden, um die Beachtung der Benutzerentscheidungen zu verhindern**.
+Diese Eigenschaft sollte nur verwendet werden, um Änderungen zu unterstützen, die die Farb- und Kontrastanforderungen eines Benutzers erfüllen. Zum Beispiel, wenn Sie feststellen, dass die Farboptimierungen des {{Glossary("user_agent", "User-Agent")}} zu einem schlechten Erlebnis im Hochkontrast- oder Dunkelmodus führen. Durch die Verwendung dieser Eigenschaft könnten Sie das Ergebnis in diesem Modus anpassen, um ein besseres Erlebnis zu bieten. **Es sollte nicht verwendet werden, um zu verhindern, dass Benutzerentscheidungen respektiert werden.**
 
 ## Formale Definition
 
@@ -48,9 +51,9 @@ Diese Eigenschaft sollte nur verwendet werden, um Änderungen vorzunehmen, die d
 
 ### Farben beibehalten
 
-Im folgenden Beispiel wird bei der ersten Box das vom Benutzer eingestellte Farbschema verwendet. Im Windows Hochkontrastmodus mit dem schwarzen Schema hat es beispielsweise einen schwarzen Hintergrund und weißen Text. Die zweite Box wird die auf der `.box` Klasse festgelegten Webseitenfarben beibehalten.
+Im folgenden Beispiel wird der erste Kasten das vom Benutzer eingestellte Farbschema verwenden. Zum Beispiel wird er im schwarzen Schema des Windows-Hochkontrastmodus einen schwarzen Hintergrund und weißen Text haben. Der zweite Kasten wird die auf der `.box` Klasse gesetzten Websitefarben beibehalten.
 
-Durch die Verwendung der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors) Media Query können Sie neben der `forced-color-adjust` Eigenschaft weitere Optimierungen für den Zwangsfarbmodus hinzufügen.
+Durch die Verwendung der {{cssxref("@media/forced-colors", "forced-colors")}} Medienfunktion könnten Sie zusätzliche Optimierungen für den erzwungenen Farbmodus neben der `forced-color-adjust` Eigenschaft hinzufügen.
 
 #### CSS
 
@@ -88,7 +91,7 @@ Durch die Verwendung der [`forced-colors`](/de/docs/Web/CSS/@media/forced-colors
 
 Der folgende Screenshot zeigt das obige Bild im Windows Hochkontrastmodus:
 
-![Das obige Beispiel im Hochkontrastmodus zeigt die erste Box mit einem schwarzen Hintergrund, die zweite mit dem grauen Hintergrund des CSS.](windows-high-contrast.jpg)
+![Das obige Beispiel im Hochkontrastmodus zeigt den ersten Kasten mit schwarzem Hintergrund und den zweiten mit dem grauen Hintergrund des CSS.](windows-high-contrast.jpg)
 
 ## Spezifikationen
 
@@ -100,5 +103,5 @@ Der folgende Screenshot zeigt das obige Bild im Windows Hochkontrastmodus:
 
 ## Siehe auch
 
-- [Styling für Windows Hochkontrast mit Standards für Zwangsfarben.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
+- [Styling for Windows high contrast with standards for forced colors.](https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/)
 - {{cssxref("print-color-adjust")}}
