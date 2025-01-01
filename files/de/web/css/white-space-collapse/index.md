@@ -2,15 +2,15 @@
 title: white-space-collapse
 slug: Web/CSS/white-space-collapse
 l10n:
-  sourceCommit: d3453722e52404b39afdf2a8d874d0600d85db30
+  sourceCommit: 192737d41d098fd3f1b88265fcf1a841b6e9abe2
 ---
 
 {{CSSRef}}
 
-Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie {{Glossary("whitespace", "Leerzeichen")}} innerhalb eines Elements reduziert werden.
+Die **`white-space-collapse`** [CSS](/de/docs/Web/CSS) Eigenschaft steuert, wie {{Glossary("whitespace", "weißraum")}} innerhalb eines Elements kollabiert wird.
 
 > [!NOTE]
-> Die `white-space-collapse` und {{CSSxRef("text-wrap")}} Eigenschaften können zusammen mit der Kurzschreibweise {{CSSxRef("white-space")}} deklariert werden.
+> Die `white-space-collapse` und {{CSSxRef("text-wrap")}} Eigenschaften können zusammen mit der {{CSSxRef("white-space")}} Kurzform-Eigenschaft deklariert werden.
 
 ## Syntax
 
@@ -30,38 +30,41 @@ white-space-collapse: revert-layer;
 white-space-collapse: unset;
 ```
 
-Die Eigenschaft `white-space-collapse` wird als ein einzelnes Schlüsselwort aus der unten stehenden Liste von Werten angegeben.
+Die `white-space-collapse` Eigenschaft wird als einzelnes Schlüsselwort angegeben, das aus der untenstehenden Liste von Werten ausgewählt wird.
 
 ### Werte
 
 - `collapse`
-  - : Leerzeichen-Sequenzen werden [reduziert](#reduzierung_von_leerzeichen).
+  - : Weißraumsequenzen werden [kollabiert](#kollapsen_von_weißraum).
 - `preserve`
-  - : Leerzeichen-Sequenzen und Segment-Trennzeichen werden beibehalten.
+  - : Weißraumsequenzen und Seg­ment­umbruchzeichen werden beibehalten.
 - `preserve-breaks`
-  - : Leerzeichen-Sequenzen werden reduziert, während Segment-Trennzeichen beibehalten werden.
+  - : Weißraumsequenzen werden kollabiert, während Seg­ment­umbruchzeichen beibehalten werden.
 - `preserve-spaces`
-  - : Leerzeichen-Sequenzen werden beibehalten, während Tabs und Segment-Trennzeichen in Leerzeichen umgewandelt werden.
+  - : Weißraumsequenzen werden beibehalten, während Tabs und Seg­ment­umbruchzeichen in Leerzeichen umgewandelt werden.
 - `break-spaces`
-  - : Das Verhalten ist identisch zu `preserve`, mit der Ausnahme, dass:
-    - Jede Sequenz von erhaltenen Leerzeichen nimmt immer Platz ein, auch am Ende der Zeile.
-    - Eine Zeilenumbruchmöglichkeit besteht nach jedem erhaltenen Leerzeichen, auch zwischen Leerzeichen.
-    - Erhaltene Leerzeichen nehmen Platz ein und hängen nicht, was somit die intrinsischen Größen des Kastens beeinflusst ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe).
+  - : Das Verhalten ist identisch zu `preserve`, mit der Ausnahme:
+    - Jede Sequenz von beibehaltenem Weißraum nimmt Platz ein, einschließlich am Ende der Zeile.
+    - Eine Zeilenumbruchmöglichkeit besteht nach jedem beibehaltenen Weißraumzeichen, auch zwischen Weißraumzeichen.
+    - Beibehaltene Leerzeichen nehmen Platz ein und hängen nicht, was die intrinsischen Größen der Box beeinflusst ({{cssxref("min-content")}} Größe und {{cssxref("max-content")}} Größe).
 
-> **Hinweis:** _Segment-Trennzeichen_ sind Zeichen wie Zeilenumbrüche, die den Text auf neue Zeilen brechen lassen.
+> **Hinweis:** _Seg­ment­umbruchzeichen_ sind Zeichen wie Zeilenumbrüche, die dafür sorgen, dass der Text auf neue Zeilen umbricht.
 
-## Reduzierung von Leerzeichen
+> [!NOTE]
+> Das [CSS Text](/de/docs/Web/CSS/CSS_text) Modul definiert einen `discard` Wert für die `white-space-collapse` Eigenschaft, um allen Weißraum im Element zu verwerfen, dies wird jedoch in keinem Browser unterstützt.
 
-Browser-Agenten handhaben die Reduzierung von Leerzeichen wie folgt:
+## Kollapsen von Weißraum
 
-- Tabs werden im Allgemeinen in Leerzeichen umgewandelt.
-- Wenn Segment-Trennzeichen reduziert werden sollen:
-  - Sequenzen von Segment-Trennzeichen werden auf ein einzelnes Segment-Trennzeichen reduziert.
-  - Sie werden in Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), in Leerzeichen umgewandelt oder bei Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch), vollständig entfernt.
-- Wenn Leerzeichen reduziert werden sollen:
-  - Leerzeichen oder Tabs vor oder nach Segment-Trennzeichen werden entfernt.
-  - Sequenzen von Leerzeichen werden in ein einzelnes Leerzeichen umgewandelt oder "reduziert".
-- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als Untrennbar behandelt, außer dass sie am Ende jeder Sequenz weich umbrochen werden — d.h. die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des `break-spaces` Wertes könnte jedoch ein weicher Umbruch nach jedem Leerzeichen potenziell auftreten, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
+Benutzeragenten behandeln das Kollapsen von Weißraum wie folgt:
+
+- Tabs werden in der Regel in Leerzeichen umgewandelt.
+- Wenn Seg­ment­umbrüche kollabiert werden sollen:
+  - Sequenzen von Seg­ment­umbrüchen werden auf einen einzelnen Seg­ment­umbruch reduziert.
+  - Sie werden in Leerzeichen umgewandelt im Fall von Sprachen, die Wörter mit Leerzeichen trennen (wie Englisch), oder vollständig entfernt im Fall von Sprachen, die Wörter nicht mit Leerzeichen trennen (wie Chinesisch).
+- Wenn Leerzeichen kollabiert werden sollen:
+  - Leerzeichen oder Tabs vor oder nach Seg­ment­umbrüchen werden entfernt.
+  - Sequenzen von Leerzeichen werden in ein einzelnes Leerzeichen umgewandelt, oder "kollabiert".
+- Wenn Leerzeichen beibehalten werden, werden Sequenzen von Leerzeichen als nicht-umbrechend behandelt, es sei denn, sie enden mit einem weichen Umbruch am Ende jeder Sequenz – das heißt, die nächste Zeile beginnt immer mit dem nächsten Nicht-Leerzeichen-Zeichen. Im Fall des `break-spaces` Wertes kann jedoch ein weicher Umbruch nach jedem Leerzeichen erfolgen, sodass die nächste Zeile mit einem oder mehreren Leerzeichen beginnen kann.
 
 ## Formale Definition
 
@@ -135,5 +138,5 @@ h2 {
 
 ## Siehe auch
 
-- Kurzschreibweise für `white-space-collapse` und {{CSSxRef("text-wrap")}}: Die {{CSSxRef("white-space")}} Eigenschaft.
-- [CSS Textmodul](/de/docs/Web/CSS/CSS_text)
+- Kurzform für `white-space-collapse` und {{CSSxRef("text-wrap")}}: Die {{CSSxRef("white-space")}} Eigenschaft.
+- [CSS Text Modul](/de/docs/Web/CSS/CSS_text)
