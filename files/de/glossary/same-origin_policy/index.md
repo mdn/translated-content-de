@@ -1,19 +1,19 @@
 ---
-title: Same-origin policy
+title: Same-Origin-Policy
 slug: Glossary/Same-origin_policy
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: d0b6fba231b2863948360034b123325805ab016e
 ---
 
 {{GlossarySidebar}}
 
-Die **[same-origin policy](/de/docs/Web/Security/Same-origin_policy)** ist ein kritischer Sicherheitsmechanismus, der einschränkt, wie ein Dokument oder Skript, das von einem {{Glossary("origin", "Origin")}} geladen wurde, mit einer Ressource von einem anderen Origin interagieren kann.
+Die **[Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)** ist ein kritischer Sicherheitsmechanismus, der einschränkt, wie ein Dokument oder Skript, das von einem {{Glossary("origin", "Origin")}} geladen wurde, mit einer Ressource von einem anderen Origin interagieren kann.
 
-Sie hilft dabei, potenziell bösartige Dokumente zu isolieren und reduziert mögliche Angriffsvektoren.
+Sie hilft, potenziell bösartige Dokumente zu isolieren und reduziert mögliche Angriffsvektoren.
 
 ## Siehe auch
 
-- [Same-origin policy](/de/docs/Web/Security/Same-origin_policy)
-- Verwandte Glossarbegriffe::
+- [Same-Origin-Policy](/de/docs/Web/Security/Same-origin_policy)
+- Verwandte Glossarbegriffe:
   - {{Glossary("CORS", "CORS")}}
   - {{Glossary("origin", "origin")}}
