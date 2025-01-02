@@ -2,18 +2,18 @@
 title: SVGTransformList
 slug: Web/API/SVGTransformList
 l10n:
-  sourceCommit: 00f46adb5616d826821d63b11eac285faf1cf4a5
+  sourceCommit: 81530cefacb86442e219186144610f8a984b5744
 ---
 
 {{APIRef("SVG")}}
 
 ## SVG-Transformationslisten-Schnittstelle
 
-Das `SVGTransformList` definiert eine Liste von [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekten.
+Die `SVGTransformList` definiert eine Liste von [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekten.
 
-Ein `SVGTransformList`-Objekt kann als schreibgeschützt bezeichnet werden, was bedeutet, dass Versuche, das Objekt zu modifizieren, zu einer Ausnahme führen.
+Ein `SVGTransformList`-Objekt kann als schreibgeschützt festgelegt werden, was bedeutet, dass Versuche, das Objekt zu ändern, eine Ausnahme auslösen.
 
-Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werden.
+Eine `SVGTransformList` ist indexierbar und kann wie ein Array zugegriffen werden.
 
 ### Schnittstellenübersicht
 
@@ -21,7 +21,7 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
   <tbody>
     <tr>
       <th scope="row">Implementiert auch</th>
-      <td><em>None</em></td>
+      <td><em>Keine</em></td>
     </tr>
     <tr>
       <th scope="row">Methoden</th>
@@ -84,7 +84,7 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
           <li>readonly unsigned long <code>numberOfItems</code></li>
           <li>
             readonly unsigned long
-            <code>length</code> {{ non-standard_inline() }}
+            <code>length</code>
           </li>
         </ul>
       </td>
@@ -101,39 +101,40 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
   </tbody>
 </table>
 
-## Instanzeigenschaften
+## Instanz-Eigenschaften
 
-| Name                                 | Typ           | Beschreibung                          |
-| ------------------------------------ | ------------- | ------------------------------------- |
-| `numberOfItems`                      | unsigned long | Die Anzahl der Elemente in der Liste. |
-| `length` {{ non-standard_inline() }} | unsigned long | Die Anzahl der Elemente in der Liste. |
+| Name                                                               | Typ           | Beschreibung                          |
+| ------------------------------------------------------------------ | ------------- | ------------------------------------- |
+| [`numberOfItems`](/de/docs/Web/API/SVGTransformList/numberOfItems) | unsigned long | Die Anzahl der Elemente in der Liste. |
+| [`length`](/de/docs/Web/API/SVGTransformList/length)               | unsigned long | Die Anzahl der Elemente in der Liste. |
 
-## Instanzmethoden
+## Instanz-Methoden
 
 <table class="standard-table">
   <thead>
     <tr>
-      <th>Name & Argumente</th>
-      <th>Rückgabe</th>
+      <th>Name &#x26; Argumente</th>
+      <th>Rückgabewert</th>
       <th>Beschreibung</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>
-        <code><strong>clear</strong>()</code>
+        <code><strong>[`clear`](/de/docs/Web/API/SVGTransformList/clear)</strong>()</code>
       </td>
       <td><code>void</code></td>
       <td>
         <p>
-          Löscht alle vorhandenen aktuellen Elemente aus der Liste, sodass eine leere Liste entsteht.
+          Entfernt alle bestehenden Elemente aus der Liste, so dass eine leere Liste entsteht.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -141,47 +142,49 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
     <tr>
       <td>
         <code
-          ><strong>initialize</strong>(in
+          ><strong>[`initialize`](/de/docs/Web/API/SVGTransformList/initialize)</strong>(in
           [`SVGTransform`](/de/docs/Web/API/SVGTransform) <em>newItem</em>)</code
         >
       </td>
       <td>[`SVGTransform`](/de/docs/Web/API/SVGTransform)</td>
       <td>
         <p>
-          Löscht alle vorhandenen aktuellen Elemente aus der Liste und initialisiert die
-          Liste neu, um das durch den Parameter angegebene Einzelelement zu halten. Falls das
+          Entfernt alle bestehenden Elemente aus der Liste und initialisiert die
+          Liste mit dem durch den Parameter angegebenen Einzelobjekt. Wenn das
           eingefügte Element bereits in einer Liste ist, wird es aus seiner vorherigen
-          Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das
-          Element selbst und keine Kopie. Der Rückgabewert ist das Element, das in die
-          Liste eingefügt wird.
+          Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte Element ist
+          das Element selbst und keine Kopie. Der Rückgabewert ist das Element, das in
+          die Liste eingefügt wurde.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
         </ul>
       </td>
     </tr>
     <tr>
       <td>
-        <code><strong>getItem</strong>(in unsigned long <em>index</em>)</code>
+        <code><strong>[`getItem`](/de/docs/Web/API/SVGTransformList/getItem)</strong>(in unsigned long <em>index</em>)</code>
       </td>
       <td>[`SVGTransform`](/de/docs/Web/API/SVGTransform)</td>
       <td>
         <p>
-          Gibt das angegebene Element aus der Liste zurück. Das zurückgegebene Element ist das
-          Element selbst und keine Kopie. Alle an dem Element vorgenommenen Änderungen
-          werden sofort in der Liste widergespiegelt. Das erste Element ist die Nummer 0.
+          Gibt das angegebene Element aus der Liste zurück. Das zurückgegebene Element
+          ist das Element selbst und keine Kopie. Alle Änderungen am Element
+          werden sofort in der Liste widergespiegelt. Das erste Element ist Nummer 0.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -189,7 +192,7 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
     <tr>
       <td>
         <code
-          ><strong>insertItemBefore</strong>(in
+          ><strong>[`insertItemBefore`](/de/docs/Web/API/SVGTransformList/insertItemBefore)</strong>(in
           [`SVGTransform`](/de/docs/Web/API/SVGTransform) <em>newItem</em>, in unsigned
           long <em>index</em>)</code
         >
@@ -198,21 +201,22 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
       <td>
         <p>
           Fügt ein neues Element an der angegebenen Position in die Liste ein. Das erste
-          Element ist die Nummer 0. Falls <code>newItem</code> bereits in einer Liste ist, wird es
+          Element ist Nummer 0. Wenn <code>newItem</code> bereits in einer Liste ist, wird es
           aus seiner vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird.
-          Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element bereits
-          in dieser Liste ist, beachten Sie, dass der Index des Elements, vor dem eingefügt werden soll,
-          vor dem Entfernen des Elements ist. Wenn der <code>index</code> gleich
-          0 ist, wird das neue Element am Anfang der Liste eingefügt. Wenn der
+          Das eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element
+          bereits in dieser Liste ist, beachten Sie, dass der Index des einzufügenden Elements
+          vor der Entfernung des Elements zugewiesen wird. Wenn der <code>index</code>
+          gleich 0 ist, wird das neue Element an den Anfang der Liste eingefügt. Wenn der
           Index größer oder gleich <code>numberOfItems</code> ist, wird das
           neue Element am Ende der Liste angehängt.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -220,7 +224,7 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
     <tr>
       <td>
         <code
-          ><strong>replaceItem</strong>(in
+          ><strong>[`replaceItem`](/de/docs/Web/API/SVGTransformList/replaceItem)</strong>(in
           [`SVGTransform`](/de/docs/Web/API/SVGTransform) <em>newItem</em>, in unsigned
           long <em>index</em>)</code
         >
@@ -228,22 +232,23 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
       <td>[`SVGTransform`](/de/docs/Web/API/SVGTransform)</td>
       <td>
         <p>
-          Ersetzt ein vorhandenes Element in der Liste durch ein neues Element. Wenn
+          Ersetzt ein bestehendes Element in der Liste durch ein neues Element. Wenn
           <code>newItem</code> bereits in einer Liste ist, wird es aus seiner
-          vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das eingefügte
-          Element ist das Element selbst und keine Kopie. Wenn das Element bereits in dieser
-          Liste ist, beachten Sie, dass der Index des Elements, das ersetzt werden soll,
-          vor dem Entfernen des Elements ist.
+          vorherigen Liste entfernt, bevor es in diese Liste eingefügt wird. Das
+          eingefügte Element ist das Element selbst und keine Kopie. Wenn das Element
+          bereits in dieser Liste ist, beachten Sie, dass der Index des auszutauschenden
+          Elements vor der Entfernung des Elements zugewiesen wird.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn die Indexnummer größer
             oder gleich <code>numberOfItems</code> ist.
           </li>
@@ -253,21 +258,22 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
     <tr>
       <td>
         <code
-          ><strong>removeItem</strong>(in unsigned long <em>index</em>)</code
+          ><strong>[`removeItem`](/de/docs/Web/API/SVGTransformList/removeItem)</strong>(in unsigned long <em>index</em>)</code
         >
       </td>
       <td>[`SVGTransform`](/de/docs/Web/API/SVGTransform)</td>
       <td>
-        <p>Entfernt ein vorhandenes Element aus der Liste.</p>
+        <p>Entfernt ein bestehendes Element aus der Liste.</p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>INDEX_SIZE_ERR</code> wird ausgelöst, wenn die Indexnummer größer
             oder gleich <code>numberOfItems</code> ist.
           </li>
@@ -277,24 +283,25 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
     <tr>
       <td>
         <code
-          ><strong>appendItem</strong>(in
+          ><strong>[`appendItem`](/de/docs/Web/API/SVGTransformList/appendItem)</strong>(in
           [`SVGTransform`](/de/docs/Web/API/SVGTransform) <em>newItem</em>)</code
         >
       </td>
       <td>[`SVGTransform`](/de/docs/Web/API/SVGTransform)</td>
       <td>
         <p>
-          Fügt ein neues Element am Ende der Liste ein. Wenn <code>newItem</code> bereits
-          in einer Liste ist, wird es aus seiner vorherigen Liste entfernt, bevor es in
-          diese Liste eingefügt wird. Das eingefügte Element ist das Element selbst und keine
-          Kopie.
+          Fügt ein neues Element am Ende der Liste ein. Wenn <code>newItem</code>
+          bereits in einer Liste ist, wird es aus seiner vorherigen Liste entfernt,
+          bevor es in diese Liste eingefügt wird. Das eingefügte Element ist das
+          Element selbst und keine Kopie.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -302,39 +309,42 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
     <tr>
       <td>
         <code
-          ><strong>createSVGTransformFromMatrix</strong>(in
+          ><strong>[`createSVGTransformFromMatrix`](/de/docs/Web/API/SVGTransformList/createSVGTransformFromMatrix)</strong>(in
           [`DOMMatrix`](/de/docs/Web/API/DOMMatrix))</code
         >
       </td>
       <td>[`SVGTransform`](/de/docs/Web/API/SVGTransform)</td>
       <td>
-        Erstellt ein <code>SVGTransform</code>-Objekt, das initialisiert ist, um eine
-        Transformation vom Typ <code>SVG_TRANSFORM_MATRIX</code> durchzuführen, und dessen Werte die
-        angegebene Matrix sind. Die Werte aus der Parameter-Matrix werden kopiert, die
-        Matrix-Parameter werden nicht als <code>SVGTransform::matrix</code> übernommen.
+        Erstellt ein <code>SVGTransform</code>-Objekt, das auf eine
+        Transformation vom Typ <code>SVG_TRANSFORM_MATRIX</code> initialisiert
+        ist und dessen Werte die gegebene Matrix sind. Die Werte aus der
+        Parameter-Matrix werden kopiert, die Matrix-Parameter wird nicht als
+        <code>SVGTransform::matrix</code> übernommen.
       </td>
     </tr>
     <tr>
       <td>
-        <code><strong>consolidate</strong>()</code>
+        <code><strong>[`consolidate`](/de/docs/Web/API/SVGTransformList/consolidate)</strong>()</code>
       </td>
       <td>[`SVGTransform`](/de/docs/Web/API/SVGTransform)</td>
       <td>
         <p>
-          Konsolidiert die Liste der einzelnen <code>SVGTransform</code>-Objekte durch
-          Multiplikation der äquivalenten Transformationsmatrizen, sodass eine Liste entsteht,
-          die aus einem einzelnen <code>SVGTransform</code>-Objekt vom Typ
-          <code>SVG_TRANSFORM_MATRIX</code> besteht. Der Konsolidierungsvorgang
-          erstellt ein neues <code>SVGTransform</code>-Objekt als das erste und einzige
-          Element in der Liste. Das zurückgegebene Element ist das Element selbst und keine
-          Kopie. Alle an dem Element vorgenommenen Änderungen werden sofort in der Liste widergespiegelt.
+          Konsolidiert die Liste der separaten <code>SVGTransform</code>-Objekte
+          durch Multiplikation der äquivalenten Transformationsmatrizen miteinander,
+          um eine Liste zu erhalten, die aus einem einzigen <code>SVGTransform</code>-Objekt
+          vom Typ <code>SVG_TRANSFORM_MATRIX</code> besteht. Der Konsolidierungsvorgang
+          erzeugt ein neues <code>SVGTransform</code>-Objekt als erstes und einziges
+          Element in der Liste. Das zurückgegebene Element ist das Element selbst und
+          keine Kopie. Alle Änderungen am Element werden sofort in der Liste
+          widergespiegelt.
         </p>
         <p><strong>Ausnahmen:</strong></p>
         <ul>
           <li>
-            ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
+            Ein [`DOMException`](/de/docs/Web/API/DOMException) mit dem Code
             <code>NO_MODIFICATION_ALLOWED_ERR</code> wird ausgelöst, wenn die Liste
-            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst schreibgeschützt ist.
+            einem schreibgeschützten Attribut entspricht oder wenn das Objekt selbst
+            schreibgeschützt ist.
           </li>
         </ul>
       </td>
@@ -344,9 +354,9 @@ Ein `SVGTransformList` ist indizierbar und kann wie ein Array angesprochen werde
 
 ## Beispiele
 
-### Verwenden mehrerer SVGTransform-Objekte
+### Mehrere SVGTransform-Objekte verwenden
 
-In diesem Beispiel erstellen wir eine Funktion, die drei verschiedene Transformationen auf das SVG-Element anwendet, auf das geklickt wurde. Dazu erstellen wir ein separates [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt für jede Transformation — wie `translate`, `rotate` und `scale`. Wir wenden mehrere Transformationen an, indem wir das Transformationsobjekt an die `SVGTransformList` anhängen, die mit einem SVG-Element verknüpft ist.
+In diesem Beispiel erstellen wir eine Funktion, die drei verschiedene Transformationen auf das angeklickte SVG-Element anwendet. Dazu erstellen wir ein separates [`SVGTransform`](/de/docs/Web/API/SVGTransform)-Objekt für jede Transformation — wie `translate`, `rotate` und `scale`. Wir wenden mehrere Transformationen an, indem wir das Transformation-Objekt der `SVGTransformList` hinzufügen, die einem SVG-Element zugeordnet ist.
 
 ```html-nolint
 <svg
