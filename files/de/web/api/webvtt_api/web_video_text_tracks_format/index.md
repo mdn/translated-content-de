@@ -2,35 +2,32 @@
 title: Web Video Text Tracks Format (WebVTT)
 slug: Web/API/WebVTT_API/Web_Video_Text_Tracks_Format
 l10n:
-  sourceCommit: 9a4005caa5cc13f5174e3b8981eeec5631ed83d1
+  sourceCommit: 98fe3467446419e4214147af8e9100f3f052a585
 ---
 
 {{DefaultAPISidebar("WebVTT")}}
 
 <!-- need to add info on region block -->
 
-**Web Video Text Tracks Format** (**WebVTT**) ist ein reines Textdateiformat zur Anzeige von zeitgesteuerten Textspuren, die mit Inhalten in {{HTMLElement("video")}}- und {{HTMLElement("audio")}}-Elementen synchronisiert sind.
-Diese können beispielsweise verwendet werden, um Untertitel und Textüberlagerungen mit Untertiteln zu einem {{HTMLElement("video")}} hinzuzufügen.
+**Web Video Text Tracks Format** (**WebVTT**) ist ein Klartext-Dateiformat zur Darstellung von zeitgesteuerten Textspuren, die mit den Inhalten in {{HTMLElement("video")}}- und {{HTMLElement("audio")}}-Elementen synchronisiert sind. Diese können beispielsweise verwendet werden, um geschlossene Untertitel und Text-Overlays zu einem {{HTMLElement("video")}} hinzuzufügen.
 
-Die mit einem Medienelement verknüpften WebVTT-Dateien werden mithilfe des {{HTMLElement("track")}}-Elements hinzugefügt – siehe [Anzeige von VTT-Inhalten, die in einer Datei definiert sind](/de/docs/Web/API/WebVTT_API#displaying_vtt_content_defined_in_a_file).
-Ein Medienelement kann mit einer Reihe von Dateien verknüpft sein, die jeweils eine andere Art von zeitgesteuerten Daten darstellen, z. B. Untertitel, Überschriften oder Kapitelüberschriften, die in verschiedene Orte übersetzt werden.
+Die mit einem Medienelement assoziierten WebVTT-Dateien werden mit dem {{HTMLElement("track")}}-Element hinzugefügt — siehe [Anzeigen von VTT-Inhalten, die in einer Datei definiert sind](/de/docs/Web/API/WebVTT_API#displaying_vtt_content_defined_in_a_file). Ein Medienelement kann mit einer Anzahl von Dateien zusammenhängen, die jeweils unterschiedliche Arten zeitgesteuerter Daten wie geschlossene Untertitel, Untertitel oder Kapitelüberschriften darstellen, die in verschiedene Sprachumgebungen übersetzt wurden.
 
 > [!NOTE]
-> WebVTT-Inhalte können auch programmgesteuert mit der [WebVTT API](/de/docs/Web/API/WebVTT_API) erstellt und verwaltet werden.
+> WebVTT-Inhalte können auch programmatisch mit der [WebVTT-API](/de/docs/Web/API/WebVTT_API) erstellt und verwaltet werden.
 
-## Überblick
+## Übersicht
 
-WebVTT-Dateien haben einen MIME-Typ von `text/vtt` und die Dateierweiterung `.vtt`.
-Der Inhalt muss mit {{Glossary("UTF-8", "UTF-8")}} kodiert werden.
+WebVTT-Dateien haben einen MIME-Typ `text/vtt` und die Dateiendung `.vtt`. Der Inhalt muss mit {{Glossary("UTF-8", "UTF-8")}} kodiert sein.
 
-Die Struktur eines WebVTT besteht aus den folgenden, teilweise optionalen Komponenten in dieser Reihenfolge:
+Die Struktur eines WebVTT besteht aus den folgenden Komponenten, die teilweise optional sind, in dieser Reihenfolge:
 
-- Ein Header, bestehend aus einem optionalen Byte-Reihenfolge-Marker (BOM) – der Zeichenfolge `WEBVTT` – gefolgt von einem optionalen Texthauptteil, der durch ein oder mehrere Leer- oder Tabulatorzeichen getrennt ist (in WebVTT-Dateien sind Tabs und Leerzeichen austauschbar).
-- Eine oder mehrere Leerzeilen, von denen jede zwei aufeinanderfolgende Zeilenumbrüche entspricht.
-- Null oder mehr `STYLE`-, `REGION`- oder `NOTE`-Blöcke, getrennt durch ein oder mehrere Leerzeilen.
-- Null oder mehr Hinweisspuren oder `NOTE`-Blöcke, getrennt durch ein oder mehrere Leerzeilen.
+- Ein Header, der aus einem optionalen Byte Order Mark (BOM) besteht — der Zeichenfolge `WEBVTT` — gefolgt von einem optionalen Text-Header, der durch ein oder mehrere Leer- oder Tabulatorzeichen getrennt ist (in WebVTT-Dateien sind Tabulatoren und Leerzeichen austauschbar).
+- Eine oder mehrere leere Zeilen, die jeweils zwei aufeinanderfolgende Zeilenumbrüche entsprechen.
+- Null oder mehr `STYLE`-, `REGION`- oder `NOTE`-Blöcke, die durch eine oder mehrere leere Zeilen getrennt sind.
+- Null oder mehr Cue- oder `NOTE`-Blöcke, die durch eine oder mehrere leere Zeilen getrennt sind.
 
-Nachfolgend sehen Sie eine einfache WebVTT-Datei, die den `WEBVTT`-String (aber keinen Header-Text), einen NOTE-Block und zwei Hinweise enthält:
+Eine einfache WebVTT-Datei, die die Zeichenfolge `WEBVTT` (aber keinen Header-Text), einen NOTE-Block und zwei Cues enthält, wird unten gezeigt:
 
 ```plain
 WEBVTT
@@ -48,56 +45,50 @@ Because:
 - You could die.
 ```
 
-Die folgenden Abschnitte erklären die Teile der Datei, einschließlich derjenigen, die im obigen Beispiel nicht verwendet werden.
+Die folgenden Abschnitte erklären die Teile der Datei, einschließlich derer, die im obigen Beispiel nicht verwendet werden.
 
-## WebVTT-Header
+## WebVTT Header
 
 WebVTT-Dateien beginnen mit einem Header-Block, der Folgendes enthält:
 
-- Ein optionaler Byte-Reihenfolge-Marker (BOM), was dem Unicode-Zeichen `U+FEFF` entspricht.
+- Ein optionales Byte Order Mark (BOM), welches das Unicode-Zeichen `U+FEFF` ist.
 - Die Zeichenfolge `WEBVTT`.
-- Einen optionalen Texthauptteil rechts von `WEBVTT`.
+- Einen optionalen Text-Header rechts von `WEBVTT`.
 
-  - Es muss mindestens ein Leerzeichen nach `WEBVTT` folgen.
-  - Sie könnten diesen Header verwenden, um der Datei eine Beschreibung hinzuzufügen.
-  - Sie dürfen alles im Texthauptteil verwenden, außer Zeilenumbrüche oder die Zeichenfolge `-->`.
+  - Es muss mindestens ein Leerzeichen nach `WEBVTT` vorhanden sein.
+  - Sie könnten diesen Header verwenden, um eine Beschreibung zur Datei hinzuzufügen.
+  - Sie dürfen im Text-Header alles verwenden außer Zeilenumbrüche oder die Zeichenfolge `-->`.
 
-Der `WEBVTT`-String ist der einzige erforderliche Teil der WebVTT-Datei. Somit würde die einfachste mögliche WebVTT-Datei folgendermaßen aussehen:
+Der `WEBVTT`-String ist der einzige erforderliche Teil der WebVTT-Datei, daher würde die einfachste mögliche WebVTT-Datei so aussehen:
 
 ```plain
 WEBVTT
 ```
 
-Das Beispiel unten zeigt einen Header mit Text.
-Beachten Sie, dass dieser Text durch mindestens ein Leerzeichen oder Tabulatorzeichen getrennt sein muss.
+Das Beispiel unten zeigt einen Header mit Text. Beachten Sie, dass dieser Text durch mindestens ein Leerzeichen oder Tabulatorzeichen getrennt sein muss.
 
 ```plain
 WEBVTT This file has no cues.
 ```
 
-## WebVTT-Hinweise
+## WebVTT-Cues
 
-Ein Hinweis definiert eine einzelne Bildunterschrift, einen Untertitel oder einen anderen Textblock, der über ein bestimmtes Zeitintervall angezeigt wird.
-Hinweise müssen nach dem Header und nach allen `STYLE`- oder `REGION`-Blöcken erscheinen.
+Ein Cue definiert eine einzelne Bildunterschrift, einen Untertitel oder einen anderen Textblock, der über ein bestimmtes Zeitintervall angezeigt wird. Cues müssen nach dem Header und den `STYLE`- oder `REGION`-Blöcken erscheinen.
 
-Jeder Hinweis besteht aus drei oder mehr Zeilen:
+Jeder Cue besteht aus drei oder mehr Zeilen:
 
-- Ein optionaler Hinweiskennzeichner gefolgt von einem Zeilenumbruch.
-- Hinweistimings, die den Zeitbereich angeben, in dem der Nutzlasttext angezeigt werden soll. Diese werden optional durch Hinweiseinstellungen gefolgt, mit mindestens einem Leerzeichen vor der ersten Einstellung und zwischen jeder Einstellung, gefolgt von einem einzelnen Zeilenumbruch.
-- Der Nutzlasttext des Hinweises, der mehrere Zeilen umfassen kann, und durch eine leere Zeile abgeschlossen wird.
+- Ein optionaler Cue-Identifier gefolgt von einem Zeilenumbruch.
+- Cue-Timings, die den Zeitraum angeben, in dem der Payload-Text angezeigt werden soll. Diese werden optional von Cue-Einstellungen gefolgt, mit mindestens einem Leerzeichen vor der ersten Einstellung und zwischen jeder Einstellung, gefolgt von einem einzigen Zeilenumbruch.
+- Der Cue-Payload-Text, der über mehrere Zeilen hinweg reichen kann und durch eine leere Zeile beendet wird.
 
-Hier ist ein Beispiel für einen einfachen Hinweis.
-Die erste Zeile gibt die Start- und Endzeiten der Anzeige des Hinweises an, getrennt durch die Zeichenfolge `-->`.
-Die zweite Zeile definiert den anzuzeigenden Text.
+Hier ist ein Beispiel für einen einfachen Cue. Die erste Zeile gibt die Anzeige-Start- und Endzeiten des Cues an, getrennt durch die Zeichenfolge `-->`. Die zweite Zeile definiert den Text, der angezeigt werden soll.
 
 ```plain
 00:01.000 --> 00:04.000
 Never drink liquid nitrogen.
 ```
 
-Der nächste Hinweis ist etwas komplizierter.
-Er beginnt mit einem Hinweiskennzeichner – `1 - Title Crawl` –, der zum Referenzieren des Hinweises in JavaScript und CSS verwendet werden kann.
-Er weist außerdem Hinweistimings auf, um die Position des Hinweises festzulegen.
+Der nächste Cue ist etwas komplexer. Er beginnt mit einem Cue-Identifikator — `1 - Title Crawl` —, der verwendet werden kann, um den Cue in JavaScript und CSS zu referenzieren. Er verfügt auch über Cue-Einstellungen nach den Cue-Timings, um die Cue-Position festzulegen.
 
 ```plain
 1 - Title Crawl
@@ -107,19 +98,17 @@ Because:
 - You could die.
 ```
 
-Beachten Sie, dass das Ergebnis Zeilenumbrüche im Nutzlasttext respektiert, was es ermöglicht, Aufzählungslisten unter Verwendung von Bindestrichen (`-`) wie gezeigt zu erstellen.
-Im Allgemeinen sollten Sie diese Umbrüche nur einfügen, wenn sie benötigt werden, da der Browser den Text entsprechend umbricht.
+Beachten Sie, dass das Ergebnis Zeilenumbrüche im Payload-Text respektiert, was Ihnen ermöglicht, Aufzählungslisten mit Bindestrich (`-`) Zeichen zu erstellen, wie gezeigt. Im Allgemeinen sollten Sie diese Umbrüche nur einfügen, wenn dies erforderlich ist, da der Browser den Text bei Bedarf automatisch umbricht.
 
-Es ist wichtig, innerhalb eines Hinweises keine „extra“ Leerzeilen zu verwenden, beispielsweise zwischen den Timings und dem Nutzlasttext oder innerhalb des Nutzlasttextes.
-Dies ist so, weil eine leere Zeile den aktuellen Hinweis beendet.
+Es ist wichtig, im Cue keine "zusätzlichen" Leerzeilen zu verwenden, zum Beispiel zwischen der Timings-Zeile und dem Cue-Payload oder innerhalb des Payloads. Dies liegt daran, dass eine Leerzeile den aktuellen Cue beendet.
 
-Jeder Teil des Hinweises wird in den folgenden Abschnitten detaillierter erklärt.
+Jeder Teil des Cues wird in den folgenden Abschnitten ausführlicher erklärt.
 
-### Hinweiskennzeichner
+### Cue-Identifier
 
-Der Kennzeichner ist ein Name, der den Hinweis identifiziert. Er kann verwendet werden, um den Hinweis von JavaScript oder CSS aus zu referenzieren. Er darf keinen Zeilenumbruch enthalten und nicht die Zeichenfolge `-->` enthalten. Er muss mit einer einzigen neuen Zeile enden. Kennzeichner müssen nicht eindeutig sein, es ist jedoch üblich, sie zu nummerieren (z. B. 1, 2, 3).
+Der Identifier ist ein Name, der den Cue identifiziert. Er kann verwendet werden, um den Cue aus JavaScript oder CSS zu referenzieren. Er darf keinen Zeilenumbruch enthalten und nicht die Zeichenfolge `-->`. Er muss mit einem einzigen Zeilenumbruch enden. Identifier müssen nicht eindeutig sein, es ist jedoch üblich, sie zu nummerieren (z. B. 1, 2, 3).
 
-Das Beispiel unten zeigt eine Datei mit mehreren Hinweisen, die Kennzeichner enthalten:
+Das folgende Beispiel zeigt eine Datei mit mehreren Cues, die Identifikatoren enthalten:
 
 ```plain
 WEBVTT
@@ -137,19 +126,19 @@ This is the second.
 This is the third
 ```
 
-### Hinweistimings
+### Cue-Timings
 
-Ein Hinweistiming zeigt das Zeitintervall an, wann der Hinweis angezeigt wird. Es hat eine Start- und Endzeit, die durch Zeitstempel dargestellt werden. Die Endzeit muss größer als die Startzeit sein, und die Startzeit muss größer oder gleich allen vorherigen Startzeiten sein.
+Ein Cue-Timing gibt das Zeitintervall an, wann der Cue gezeigt wird. Es hat eine Start- und Endzeit, dargestellt durch Zeitstempel. Die Endzeit muss größer als die Startzeit sein, und die Startzeit muss größer oder gleich allen vorherigen Startzeiten sein.
 
-Hinweise können überlappende Timings haben, es sei denn, die WebVTT-Datei wird für Kapitel verwendet ({{HTMLElement("track")}} [`kind`](/de/docs/Web/HTML/Element/track#kind) ist `chapters`).
+Cues dürfen überlappende Timings haben, es sei denn, die WebVTT-Datei wird für Kapitel verwendet ({{HTMLElement("track")}} [`kind`](/de/docs/Web/HTML/Element/track#kind) ist `chapters`).
 
-Jedes Hinweisztiming enthält fünf Komponenten:
+Jedes Cue-Timing enthält fünf Komponenten:
 
 - Einen Zeitstempel für die Startzeit.
 - Mindestens ein Leerzeichen.
 - Die Zeichenfolge `-->`.
 - Mindestens ein Leerzeichen.
-- Einen Zeitstempel für die Endzeit, die größer als die Startzeit sein muss.
+- Einen Zeitstempel für die Endzeit, der größer sein muss als die Startzeit.
 
 Die Zeitstempel können in einem der folgenden zwei Formate angegeben werden:
 
@@ -159,17 +148,17 @@ Die Zeitstempel können in einem der folgenden zwei Formate angegeben werden:
 Wo die Komponenten wie folgt definiert sind:
 
 - `hh`
-  - : Steht für Stunden und muss mindestens zwei Ziffern haben. Es kann mehr als zwei Ziffern haben (z. B. `9999:00:00.000`).
+  - : Stellt Stunden dar und muss mindestens zwei Stellen haben. Es kann mehr als zwei Stellen haben (z. B. `9999:00:00.000`).
 - `mm`
-  - : Steht für Minuten und muss zwischen 00 und 59 liegen, einschließlich.
+  - : Stellt Minuten dar und muss zwischen 00 und 59 liegen, einschließlich.
 - `ss`
-  - : Steht für Sekunden und muss zwischen 00 und 59 liegen, einschließlich.
+  - : Stellt Sekunden dar und muss zwischen 00 und 59 liegen, einschließlich.
 - `ttt`
-  - : Steht für Millisekunden und muss zwischen 000 und 999 liegen, einschließlich.
+  - : Stellt Millisekunden dar und muss zwischen 000 und 999 liegen, einschließlich.
 
-Hier sind einige Beispiele für Hinweisztimings:
+Hier sind einige Beispiele für Cue-Timings:
 
-- Grundlegende Beispiele für Hinweisztimings
+- Einfache Cue-Timing-Beispiele
 
   ```plain
   00:00:22.230 --> 00:00:24.606
@@ -178,7 +167,7 @@ Hier sind einige Beispiele für Hinweisztimings:
   00:00:35.827 --> 00:00:40.122
   ```
 
-- Beispiele für überlappende Hinweisztimings
+- Beispiele für überlappende Cue-Timings
 
   ```plain
   00:00:00.000 --> 00:00:10.000
@@ -186,7 +175,7 @@ Hier sind einige Beispiele für Hinweisztimings:
   00:00:30.000 --> 00:00:50.000
   ```
 
-- Beispiele für nicht überlappende Hinweisztimings
+- Beispiele für nicht überlappende Cue-Timings
 
   ```plain
   00:00:00.000 --> 00:00:10.000
@@ -195,64 +184,63 @@ Hier sind einige Beispiele für Hinweisztimings:
   00:02:01.000 --> 00:02:01.000
   ```
 
-### Hinweiseinstellungen
+### Cue-Einstellungen
 
-Hinweiseinstellungen sind optionale Komponenten, die den Nutzlasttext über dem Video positionieren. Dazu gehören horizontale und vertikale Positionen. Null oder mehr Hinweiseinstellungen können in beliebiger Reihenfolge angegeben und verwendet werden, solange jede Einstellung nicht öfter als einmal verwendet wird.
+Cue-Einstellungen sind optionale Komponenten, die den Cue-Payload-Text über das Video positionieren. Dies umfasst horizontale und vertikale Positionen. Null oder mehr Cue-Einstellungen können angegeben und in beliebiger Reihenfolge verwendet werden, solange jede Einstellung nicht mehr als einmal verwendet wird.
 
-Hinweiseinstellungen werden rechts von den Hinweistimings hinzugefügt. Es muss ein oder mehrere Leerzeichen zwischen dem Hinweisztiming und der ersten Einstellung und zwischen jeder Einstellung geben. Ein Doppelpunkt trennt den Namen und den Wert einer Einstellung. Die Einstellungen sind case-sensitive; verwenden Sie Kleinbuchstaben wie angezeigt. Es gibt fünf verfügbare Hinweiseinstellungen:
+Cue-Einstellungen werden rechts von den Cue-Timings hinzugefügt. Es müssen ein oder mehrere Leerzeichen zwischen dem Cue-Timing und der ersten Einstellung sowie zwischen jeder Einstellung vorhanden sein. Ein Doppelpunkt trennt den Namen und den Wert der Einstellung. Die Einstellungen sind case-sensitive; verwenden Sie Kleinbuchstaben wie gezeigt. Es gibt fünf verfügbare Cue-Einstellungen:
 
 - `vertical`
-  - : Gibt an, dass der Text anstelle von horizontal vertikal angezeigt wird, wie in einigen asiatischen Sprachen. Es gibt zwei mögliche Werte:
+  - : Gibt an, dass der Text vertikal statt horizontal angezeigt wird, beispielsweise in einigen asiatischen Sprachen. Es gibt zwei mögliche Werte:
     - `rl`
-      - : Die Schreibrichtung ist von rechts nach links.
+      - : Die Schreibrichtung ist rechts nach links.
     - `lr`
-      - : Die Schreibrichtung ist von links nach rechts.
+      - : Die Schreibrichtung ist links nach rechts.
 - `line`
 
-  - : Wenn `vertical` nicht gesetzt ist, gibt `line` an, wo der Text vertikal erscheint. Wenn `vertical` gesetzt ist, gibt `line` an, wo der Text horizontal erscheint. Sein Wert kann sein:
+  - : Wenn `vertical` nicht gesetzt ist, gibt `line` an, wo der Text vertikal erscheint. Wenn `vertical` gesetzt ist, gibt `line` an, wo der Text horizontal erscheint. Der Wert kann sein:
 
     - Eine Zeilennummer
-      - : Die Position der ersten Zeile des Hinweises, wie sie auf dem Video erscheint. Positive Zahlen werden von oben nach unten und negative Zahlen von unten nach oben gezählt.
-    - Ein Prozentsatz
-      - : Eine Ganzzahl (d. h. ohne Dezimalstellen) zwischen 0 und 100, die durch ein Prozentzeichen (%) gefolgt werden muss.
+      - : Die Position der ersten Zeile des Cues, wie sie im Video erscheint. Positive Zahlen werden von oben nach unten gezählt und negative Zahlen von unten nach oben.
+    - Ein Prozentwert
+      - : Eine ganze Zahl (d. h. ohne Dezimalstellen) zwischen 0 und 100 einschließlich, die mit einem Prozentzeichen (%) folgen muss.
 
-    | Linie       | `vertical` weggelassen | `vertical:rl` | `vertical:lr` |
-    | ----------- | ---------------------- | ------------- | ------------- |
-    | `line:0`    | oben                   | rechts        | links         |
-    | `line:-1`   | unten                  | links         | rechts        |
-    | `line:0%`   | oben                   | rechts        | links         |
-    | `line:100%` | unten                  | links         | rechts        |
+    | Line        | `vertical` omitted | `vertical:rl` | `vertical:lr` |
+    | ----------- | ------------------ | ------------- | ------------- |
+    | `line:0`    | oben               | rechts        | links         |
+    | `line:-1`   | unten              | links         | rechts        |
+    | `line:0%`   | oben               | rechts        | links         |
+    | `line:100%` | unten              | links         | rechts        |
 
 - `position`
 
-  - : Wenn `vertical` nicht gesetzt ist, gibt `position` an, wo der Text horizontal erscheint. Wenn `vertical` gesetzt ist, gibt `position` an, wo der Text vertikal erscheint. Der Wert ist ein Prozentsatz zwischen 0 und 100 einschließlich.
+  - : Wenn `vertical` nicht gesetzt ist, gibt `position` an, wo der Text horizontal erscheint. Wenn `vertical` gesetzt ist, gibt `position` an, wo der Text vertikal erscheint. Der Wert ist ein Prozentwert zwischen 0 und 100 inklusive.
 
-    | Position        | `vertical` weggelassen | `vertical:rl` | `vertical:lr` |
-    | --------------- | ---------------------- | ------------- | ------------- |
-    | `position:0%`   | links                  | oben          | oben          |
-    | `position:100%` | rechts                 | unten         | unten         |
+    | Position        | `vertical` omitted | `vertical:rl` | `vertical:lr` |
+    | --------------- | ------------------ | ------------- | ------------- |
+    | `position:0%`   | links              | oben          | oben          |
+    | `position:100%` | rechts             | unten         | unten         |
 
 - `size`
 
-  - : Wenn `vertical` nicht gesetzt ist, gibt `size` die Breite des Textbereichs an. Wenn `vertical` gesetzt ist, gibt `size` die Höhe des Textbereichs an. Der Wert ist ein Prozentsatz zwischen 0 und 100 einschließlich.
+  - : Wenn `vertical` nicht gesetzt ist, gibt `size` die Breite des Textbereichs an. Wenn `vertical` gesetzt ist, gibt `size` die Höhe des Textbereichs an. Der Wert ist ein Prozentwert zwischen 0 und 100 inklusive.
 
-    | Größe       | `vertical` weggelassen | `vertical:rl` | `vertical:lr` |
-    | ----------- | ---------------------- | ------------- | ------------- |
-    | `size:100%` | volle Breite           | volle Höhe    | volle Höhe    |
-    | `size:50%`  | halbe Breite           | halbe Höhe    | halbe Höhe    |
+    | Size        | `vertical` omitted | `vertical:rl` | `vertical:lr` |
+    | ----------- | ------------------ | ------------- | ------------- |
+    | `size:100%` | volle Breite       | volle Höhe    | volle Höhe    |
+    | `size:50%`  | halbe Breite       | halbe Höhe    | halbe Höhe    |
 
 - `align`
 
-  - : Gibt die Ausrichtung des Texts an. Der Text wird innerhalb des durch die Größeneinstellung gegebenen Raumes ausgerichtet, falls dieser gesetzt ist.
+  - : Gibt die Ausrichtung des Textes an. Der Text wird innerhalb des durch die Größen-Cue-Einstellung angegebenen Bereichs ausgerichtet, wenn diese eingestellt ist.
 
-    | Ausrichten     | `vertical` weggelassen | `vertical:rl`      | `vertical:lr`      |
-    | -------------- | ---------------------- | ------------------ | ------------------ |
-    | `align:start`  | links                  | oben               | oben               |
-    | `align:center` | horizontal zentriert   | vertikal zentriert | vertikal zentriert |
-    | `align:end`    | rechts                 | unten              | unten              |
+    | Align          | `vertical` omitted   | `vertical:rl`      | `vertical:lr`      |
+    | -------------- | -------------------- | ------------------ | ------------------ |
+    | `align:start`  | links                | oben               | oben               |
+    | `align:center` | horizontal zentriert | vertikal zentriert | vertikal zentriert |
+    | `align:end`    | rechts               | unten              | unten              |
 
-Hier sind einige Beispiele.
-Die erste Zeile zeigt keine Einstellungen. Die zweite Zeile könnte verwendet werden, um Text auf einem Schild oder Etikett zu überlagern. Die dritte Zeile könnte für einen Titel verwendet werden. Die letzte Zeile könnte für eine asiatische Sprache verwendet werden.
+Hier sind einige Beispiele. Die erste Zeile zeigt keine Einstellungen. Die zweite Zeile könnte verwendet werden, um Text auf einem Schild oder Etikett zu überlagern. Die dritte Zeile könnte für einen Titel verwendet werden. Die letzte Zeile könnte für eine asiatische Sprache verwendet werden.
 
 ```plain
 00:00:05.000 --> 00:00:10.000
@@ -264,40 +252,30 @@ Die erste Zeile zeigt keine Einstellungen. Die zweite Zeile könnte verwendet we
 00:00:05.000 --> 00:00:10.000 position:45%,line-right align:center size:90%
 ```
 
-### Hinweisnutzlast
+### Cue-Payload
 
-Die Nutzlast ist, wo der Hinweisinhalt definiert wird, wie der Untertitel- oder der Untertext.
-Er kann neue Zeilen enthalten, darf jedoch nicht zwei aufeinanderfolgende neue Zeilen enthalten: Dies würde eine Leerzeile erzeugen, die das Ende des Blocks anzeigt.
+Der Payload ist der Teil, in dem der Cue-Inhalt definiert ist, wie der Untertitel oder der geschlossene Untertiteltext. Er darf Zeilenumbrüche enthalten, aber keine zwei aufeinanderfolgenden Zeilenumbrüche: dies würde eine Leerzeile erzeugen, die das Ende des Blocks anzeigt.
 
-Eine Hinweistextnutzlast darf nicht die Zeichenfolge `-->`, das Kaufmanns-Und-Zeichen (`&`) oder das kleiner-als-Zeichen (`<`) enthalten.
-Falls nötig, können Sie stattdessen einen {{Glossary("character_reference", "Zeichenreferenz")}} wie die benannte Zeichenreferenz `&amp;` für den Kaufmanns-Und und `&lt;` für weniger-als verwenden.
-Es wird auch empfohlen, die größer-als-Escape-Sequenz `&gt;` anstelle des größer-als-Zeichens (`>`) zu verwenden, um Verwirrung mit Tags zu vermeiden.
-Wenn Sie die WebVTT-Datei für Metadaten verwenden, gelten diese Einschränkungen nicht.
+Ein Cue-Text-Payload darf nicht die Zeichenfolge `-->`, das Kaufmannsund-Zeichen (`&`) oder das Kleiner-Zeichen (`<`) enthalten. Falls erforderlich, können Sie stattdessen einen {{Glossary("character_reference", "Zeichenreferenz")}} wie die benannte Zeichenreferenz `&amp;` für das Kaufmannsund-Zeichen und `&lt;` für das Kleiner-Zeichen verwenden. Es wird auch empfohlen, dass Sie die Escape-Sequenz `&gt;` für das Größer-Zeichen anstelle des Größer-Zeichens (`>`) verwenden, um Verwechslungen mit Tags zu vermeiden. Wenn Sie die WebVTT-Datei für Metadaten verwenden, gelten diese Einschränkungen nicht.
 
-Beachten Sie, dass alle großen Browser alle {{Glossary("character_reference", "Zeichenreferenzen")}} in Hinweisen, Notizen oder anderem Text erlauben.
-Ältere Browserversionen unterstützen möglicherweise nur den folgenden Teil der benannten Zeichenreferenzen:
+Beachten Sie, dass alle großen Browser jede {{Glossary("character_reference", "Zeichenreferenz")}} in Cues, Notizen oder anderem Text zulassen. Ältere Browserversionen unterstützen möglicherweise nur den folgenden Teil der benannten Zeichenreferenzen:
 
-| Name                      | Zeichen  | Escape-Sequenz |
-| ------------------------- | -------- | -------------- |
-| Kaufmanns-Und             | `&`      | `&amp;`        |
-| Weniger-als               | `<`      | `&lt;`         |
-| Größer-als                | `>`      | `&gt;`         |
-| Links-nach-rechts Zeichen | _keines_ | `&lrm;`        |
-| Rechts-nach-links Zeichen | _keines_ | `&rlm;`        |
-| Geschütztes Leerzeichen   |          | `&nbsp;`       |
+| Name                      | Zeichen | Escape-Sequenz |
+| ------------------------- | ------- | -------------- |
+| Kaufmannsund              | `&`     | `&amp;`        |
+| Kleiner-als-Zeichen       | `<`     | `&lt;`         |
+| Größer-als-Zeichen        | `>`     | `&gt;`         |
+| Links-nach-rechts-Zeichen | _keine_ | `&lrm;`        |
+| Rechts-nach-links-Zeichen | _keine_ | `&rlm;`        |
+| Geschütztes Leerzeichen   |         | `&nbsp;`       |
 
-### Tag für Hinweisnutzlasttext
+### Cue-Payload-Text-Tags
 
-Eine Anzahl von Tags, wie zum Beispiel `<b>`, kann verwendet werden, um Text innerhalb eines Hinweises zu markieren und zu formatieren.
-Falls jedoch die WebVTT-Datei in einem {{HTMLElement("track")}}-Element verwendet wird, bei dem das Attribut [`kind`](/de/docs/Web/HTML/Element/track#kind) `chapters` ist, können Sie keine Tags verwenden.
+Eine Anzahl von Tags, wie `<b>`, kann verwendet werden, um Text innerhalb eines Cues zu markieren und zu stylen. Jedoch, wenn die WebVTT-Datei in einem {{HTMLElement("track")}}-Element verwendet wird, bei dem das Attribut [`kind`](/de/docs/Web/HTML/Element/track#kind) `chapters` ist, können Sie keine Tags verwenden.
 
 - Zeitstempel-Tag
 
-  - : Zeitstempel-Tags werden verwendet, um Karaoke-Stil-Untertitel zu ermöglichen.
-    Der Zeitstempel muss größer sein als der Startzeitstempel des Hinweises, größer als jeder vorherige Zeitstempel in der Nutzlast des Hinweises und kleiner als der Endzeitstempel des Hinweises.
-    Der _aktive Text_ ist der Text zwischen dem Zeitstempel und dem nächsten Zeitstempel oder bis zum Ende der Nutzlast, wenn kein weiterer Zeitstempel in der Nutzlast vorhanden ist.
-    Jeder Text vor dem _aktiven Text_ in der Nutzlast ist _vorhergehender Text_.
-    Jeder Text nach dem _aktiven Text_ ist _zukünftiger Text_.
+  - : Zeitstempel-Tags werden verwendet, um Karaoke-ähnliche Untertitel zu ermöglichen. Der Zeitstempel muss größer sein als der Startzeitstempel des Cues, größer als alle vorherigen Zeitstempel im Cue-Payload und kleiner als der Endzeitstempel des Cues. Der _aktive Text_ ist der Text zwischen dem Zeitstempel und dem nächsten Zeitstempel oder bis zum Ende des Payloads, falls sich kein weiterer Zeitstempel im Payload befindet. Jeder Text vor dem _aktiven Text_ im Payload ist _vorheriger Text_. Jeder Text über den _aktiven Text_ hinaus ist _zukünftiger Text_.
 
     ```plain
     1
@@ -313,12 +291,11 @@ Falls jedoch die WebVTT-Datei in einem {{HTMLElement("track")}}-Element verwende
     That's <00:00:21.000>amore
     ```
 
-Die folgenden Tags sind die in einem Hinweis erlaubten HTML-Tags und erfordern öffnende und schließende Tags (z.B. `<b>text</b>`).
-Text, der mit diesen Tags formatiert wurde, kann in [`STYLE`-Blöcken](#style-blöcke) mit dem {{cssxref("::cue")}}-Pseudoelement formatiert werden.
+Die folgenden Tags sind die HTML-Tags, die in einem Cue erlaubt sind, und benötigen öffnende und schließende Tags (z. B., `<b>text</b>`). Mit diesen Tags markierter Text kann in [`STYLE`-Blöcken](#style-blöcke) mit dem {{cssxref("::cue")}}-Pseudo-Element formatiert werden.
 
 - Kursiv-Tag (`<i></i>`)
 
-  - : Kursiviert den enthaltenen Text.
+  - : Italicisiere den enthaltenen Text.
 
     ```xml
     <i>text</i>
@@ -326,47 +303,47 @@ Text, der mit diesen Tags formatiert wurde, kann in [`STYLE`-Blöcken](#style-bl
 
 - Fettschrift-Tag (`<b></b>`)
 
-  - : Macht den enthaltenen Text fett.
+  - : Fette den enthaltenen Text.
 
     ```xml
     <b>text</b>
     ```
 
-- Unterstreichungs-Tag (`<u></u>`)
+- Unterstreichen-Tag (`<u></u>`)
 
-  - : Unterstreicht den enthaltenen Text.
+  - : Unterstreiche den enthaltenen Text.
 
     ```xml
     <u>text</u>
     ```
 
-- Klassentag (`<c></c>`)
+- Klassen-Tag (`<c></c>`)
 
-  - : Fügt dem enthaltenen Text eine Klasse zur Auswahl über CSS hinzu.
+  - : Füge dem enthaltenen Text eine Klasse zur Auswahl über CSS hinzu.
 
     ```xml
     <c.classname>text</c>
     ```
 
-- Rubintag (`<ruby></ruby>`)
+- Ruby-Tag (`<ruby></ruby>`)
 
-  - : Wird mit Rubintext-Tags verwendet, um [Rubinzeichen](https://en.wikipedia.org/wiki/Ruby_character) anzuzeigen (d.h. kleine annotative Zeichen über anderen Zeichen).
-
-    ```xml
-    <ruby>WWW<rt>World Wide Web</rt>oui<rt>yes</rt></ruby>
-    ```
-
-- Rubintext-Tag (`<rt></rt>`)
-
-  - : Wird mit Rubintags verwendet, um [Rubinzeichen](https://en.wikipedia.org/wiki/Ruby_character) anzuzeigen (d.h. kleine annotative Zeichen über anderen Zeichen).
+  - : Wird mit Ruby-Text-Tags verwendet, um [Ruby-Zeichen](https://en.wikipedia.org/wiki/Ruby_character) (d. h., kleine annotative Zeichen oberhalb anderer Zeichen) anzuzeigen.
 
     ```xml
     <ruby>WWW<rt>World Wide Web</rt>oui<rt>yes</rt></ruby>
     ```
 
-- Sprechertag (`<v></v>`)
+- Ruby-Text-Tag (`<rt></rt>`)
 
-  - : Ähnlich wie das Klassentag, wird auch verwendet, um den enthaltenen Text mit CSS zu stylen.
+  - : Wird mit Ruby-Tags verwendet, um [Ruby-Zeichen](https://en.wikipedia.org/wiki/Ruby_character) (d. h., kleine annotative Zeichen oberhalb anderer Zeichen) anzuzeigen.
+
+    ```xml
+    <ruby>WWW<rt>World Wide Web</rt>oui<rt>yes</rt></ruby>
+    ```
+
+- Stimmen-Tag (`<v></v>`)
+
+  - : Ähnlich wie Klassen-Tag, auch verwendet, um den enthaltenen Text mit CSS zu stylen.
 
     ```xml
     <v Bob>text</v>
@@ -374,7 +351,7 @@ Text, der mit diesen Tags formatiert wurde, kann in [`STYLE`-Blöcken](#style-bl
 
 - Sprach-Tag (`<lang></lang>`)
 
-  - : Wird verwendet, um Text hervorzuheben, der als zu einer bestimmten Sprache oder Sprachvariante gehörend markiert ist, unter Verwendung des Formats, das in {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definiert ist.
+  - : Wird verwendet, um Text hervorzuheben, der als zu einer bestimmten Sprache oder Sprachvariante gehörend markiert wurde, und verwendet das im {{RFC(5646, "Tags for Identifying Languages (auch bekannt als BCP 47)")}} definierte Format.
 
     ```xml
     <lang en-GB>English text as spoken in Great Britain!</lang>
@@ -382,23 +359,19 @@ Text, der mit diesen Tags formatiert wurde, kann in [`STYLE`-Blöcken](#style-bl
 
 ## NOTE-Blöcke
 
-NOTE-Blöcke sind optionale Abschnitte, die verwendet werden können, um Kommentare zu einer WebVTT-Datei hinzuzufügen.
-Sie sind für diejenigen gedacht, die die Datei lesen, und werden von den Benutzern nicht gesehen.
-Zum Beispiel könnten Sie sie verwenden, um Autor-Kontaktdetails zu notieren, einen Überblick über Ihre Struktur zu geben oder Platzhalter für noch zu schreibende Hinweise hinzuzufügen.
+NOTE-Blöcke sind optionale Abschnitte, die verwendet werden können, um Kommentare zu einer WebVTT-Datei hinzuzufügen. Sie sind für jene vorgesehen, die die Datei lesen und sind für Benutzer nicht sichtbar. Beispielsweise könnten Sie sie verwenden, um Kontaktdetails des Autors zu verzeichnen, eine Übersicht über Ihre Struktur zu geben oder Platzhalter für Cues hinzuzufügen, die noch geschrieben werden müssen.
 
-Sie können überall nach dem Header in der WebVTT-Datei verwendet werden.
+Sie können überall in der WebVTT-Datei nach dem Header verwendet werden.
 
-NOTE-Blöcke können neue Zeilen enthalten, dürfen jedoch nicht zwei aufeinanderfolgende neue Zeilen enthalten: Dies würde eine Leerzeile erzeugen, die das Ende des Blocks anzeigt.
+NOTE-Blöcke dürfen Zeilenumbrüche enthalten, aber keine zwei aufeinanderfolgenden Zeilenumbrüche: dies würde eine Leerzeile erzeugen, die das Ende des Blocks anzeigt.
 
-Ein Kommentar kann nicht die Zeichenfolge `-->`, das Kaufmanns-Und-Zeichen (`&`) oder das kleiner-als-Zeichen (`<`) enthalten.
-Falls Sie diese Zeichen verwenden möchten, müssen Sie stattdessen eine {{Glossary("character_reference", "Zeichenreferenz")}} wie `&amp;` für das Kaufmanns-Und und `&lt;` für das kleiner-als-Zeichen verwenden.
-Es wird zudem empfohlen, die größer-als-Escape-Sequenz (`&gt;`) anstelle des größer-als-Zeichens (`>`) zu verwenden, um Verwirrungen mit Tags zu vermeiden.
+Ein Kommentar darf nicht die Zeichenfolge `-->`, das Kaufmannsund-Zeichen (`&`) oder das Kleiner-Zeichen (`<`) enthalten. Wenn Sie diese Zeichen verwenden möchten, müssen Sie stattdessen eine {{Glossary("character_reference", "Zeichenreferenz")}} wie `&amp;` für das Kaufmannsund-Zeichen und `&lt;` für das Kleiner-Zeichen verwenden. Es wird auch empfohlen, dass Sie die Escape-Sequenz `&gt;` statt des Größer-Zeichens (`>`) verwenden, um Verwechslungen mit Tags zu vermeiden.
 
 Ein Kommentar besteht aus drei Teilen:
 
-- Die Zeichenfolge `NOTE`.
-- Ein Leerzeichen oder eine neue Zeile.
-- Null oder mehr Zeichen als die oben genannten.
+- Der String `NOTE`.
+- Ein Leerzeichen oder ein Zeilenumbruch.
+- Null oder mehr Zeichen außer den oben genannten.
 
 Hier sind einige Beispiele:
 
@@ -420,24 +393,21 @@ NOTE TODO I might add a line to indicate work that still has to be done.
 
 ## STYLE-Blöcke
 
-`STYLE`-Blöcke sind optionale Abschnitte, die verwendet werden können, um CSS-Styling von Hinweisen innerhalb einer WebVTT-Datei einzubetten.
-Beachten Sie, dass diese zum Stylen des Erscheinungsbildes und der Größe der Hinweise verwendet werden, jedoch nicht für deren Positionierung und Layout, die durch die [Hinweiseinstellungen](#hinweiseinstellungen) gesteuert werden.
+`STYLE`-Blöcke sind optionale Abschnitte, die verwendet werden können, um CSS-Stile von Cues innerhalb einer WebVTT-Datei einzubetten. Beachten Sie, dass diese verwendet werden, um das Erscheinungsbild und die Größe der Cues zu stylen, jedoch nicht deren Position und Layout, die durch die [Cue-Einstellungen](#cue-einstellungen) gesteuert werden.
 
 > [!NOTE]
-> WebVTT-Hinweise können auch durch CSS-Stile, die von dem zugehörigen [Dokument, das das Video-/Audio-Element einbettet](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet), abgeglichen werden.
+> WebVTT-Cues können auch von CSS-Stilen, die durch das zugehörige [Dokument, das das Video/Audio-Element einbettet](/de/docs/Web/API/WebVTT_API#styling_webvtt_in_html_or_a_stylesheet), geladen werden, abgeglichen werden.
 
-STYLE-Blöcke müssen vor allen Hinweisblöcken in der Datei erscheinen.
+`STYLE`-Blöcke müssen vor allen Cue-Blöcken in der Datei erscheinen.
 
 Jeder Block besteht aus den folgenden Zeilen:
 
 - Die Zeichenfolge `STYLE` gefolgt von null oder mehr Leer- oder Tabulatorzeichen und dann einem Zeilenumbruch.
-- Eine Zeichenfolge, die die CSS-Stile zum Abgleichen und Anwenden unter Verwendung des {{cssxref("::cue")}} Pseudoelements definiert.
+- Ein String, der die anzuwendenen CSS-Stile definiert, unter Verwendung des {{cssxref("::cue")}}-Pseudo-Elements.
 
-Der Block darf nicht die Zeichenfolge `-->` enthalten.
-Er kann neue Zeilen enthalten, aber nicht zwei aufeinanderfolgende neue Zeilen: dies würde eine Leerzeile erzeugen, welche das Ende des Blocks anzeigt.
+Der Block darf nicht die Zeichenfolge `-->` enthalten. Er darf Zeilenumbrüche enthalten, jedoch nicht zwei aufeinanderfolgende Zeilenumbrüche: dies würde eine Leerzeile erzeugen, die das Ende des Blocks anzeigt.
 
-Nachfolgend ist eine einfache WebVTT-Datei mit zwei STYLE-Blöcken zu sehen.
-Diese verwendet {{cssxref("::cue")}} zum Anwenden einer Textfarbe auf allen Hinweistext und einer anderen Textfarbe nur auf Text, der mit `<b></b>`-Tags markiert ist.
+Eine einfache WebVTT-Datei mit zwei `STYLE`-Blöcken wird unten gezeigt. Dies verwendet {{cssxref("::cue")}}, um eine Textfarbe für allen Cue-Text anzuwenden und eine andere Textfarbe nur für Text, der mit `<b></b>`-Tags markiert ist.
 
 ```plain
 WEBVTT
@@ -463,48 +433,48 @@ NOTE style blocks cannot appear after the first cue.
 ```
 
 > [!NOTE]
-> Es gibt Live-Beispiele, die viele der folgenden Fälle demonstrieren, in [Mehr Hinweise-Styling-Beispiele](/de/docs/Web/API/WebVTT_API#more_cue_styling_examples) in _WebVTT API_.
+> Es gibt Live-Beispiele, die viele der folgenden Fälle im [Mehr Cue-Styling-Beispiele](/de/docs/Web/API/WebVTT_API#more_cue_styling_examples) im _WebVTT API_ veranschaulichen.
 
-### Abgleichen aller Hinweisnutzlasttexte
+### Alle Cue-Payload-Texte abgleichen
 
-Abgleichen sämtlicher Hinweisnutzlasttexte mit {{cssxref("::cue")}}.
+Abgleich auf allen Cue-Payload-Text unter Verwendung von {{cssxref("::cue")}}.
 
-Zum Beispiel würde der folgende `STYLE`-Block allen Hinweistext abgleichen und ihn gelb einfärben.
+Beispielsweise, der folgende `STYLE`-Block würde allen Cue-Text abgleichen und ihn gelb färben.
 
 ```plain
 STYLE
-cue {
+::cue {
   color: yellow;
 }
 ```
 
-### Abgleichen eines Tag-Typs
+### Einen Tag-Typ abgleichen
 
-Abgleichen von Hinweistext, der mit bestimmten [Hinweisnutzlasttext-Tags](#tag_für_hinweisnutzlasttext), wie `c`, `i`, `b`, `u`, `ruby`, `rt`, `v` und `lang` markiert ist, indem das Tag in {{cssxref("::cue()")}} als Typ-Selektor spezifiziert wird.
+Cue-Text, der mit bestimmten [Cue-Payload-Text-Tags](#cue-payload-text-tags) markiert ist, wie `c`, `i`, `b`, `u`, `ruby`, `rt`, `v`, und `lang`, durch Angabe des Tags in {{cssxref("::cue()")}} als Typselektor abgleichen.
 
-Zum Beispiel, der folgende Block würde Hinweisnutzlasttext, der mit `lang` markiert ist, als gelb, und jedes der anderen Tags als rot abgleichen.
+Beispielsweise würde der folgende Block Cue-Payload-Text abgleichen, der mit `lang` als gelb und jede der anderen Tags als rot markiert ist.
 
 ```plain
 STYLE
-cue(c),
-cue(i),
-cue(b),
-cue(u),
-cue(ruby),
-cue(rt),
-cue(v) {
+::cue(c),
+::cue(i),
+::cue(b),
+::cue(u),
+::cue(ruby),
+::cue(rt),
+::cue(v) {
   color: red;
 }
-cue(lang) {
+::cue(lang) {
   color: yellow;
 }
 ```
 
-### Abgleichen eines Klassen-Selectors
+### Ein Klassenselektor abgleichen
 
-Abgleichen aller mit einem Klassen-Selektor in `::cue()` markierten Tags.
+Alle Tags, die mit einem Klassenselektor bei `::cue()` markiert sind, abgleichen.
 
-Der `STYLE`-Block in der folgenden WebVTT-Datei würde allen Text, der folgt, abgleichen, weil alle Tags die Klasse `myclass` haben.
+Der `STYLE`-Block in der folgenden WebVTT-Datei würde den Text danach abgleichen, weil alle Tags die Klasse `myclass` haben.
 
 ```plain
 WEBVTT
@@ -525,7 +495,7 @@ STYLE
 <lang.myclass en>Yellow!</lang>
 ```
 
-Um ein bestimmtes Tag und Klasse auszuwählen, müssen Sie beides in `::cue()` spezifizieren:
+Um ein bestimmtes Tag und eine Klasse auszuwählen, müssen Sie beide bei `::cue()` spezifizieren:
 
 ```css
 STYLE ::cue(b.myclass) {
@@ -533,11 +503,11 @@ STYLE ::cue(b.myclass) {
 }
 ```
 
-### Abgleichen eines Attributs
+### Ein Attribut abgleichen
 
-Hinweisnutzlasttext, der mit einem bestimmten Tag und Attribut markiert ist, kann mit einem Attribut-Selektor abgeglichen werden.
+Cue-Payload-Text, der mit einem bestimmten Tag und Attribut markiert ist, kann unter Verwendung eines Attributselektors abgeglichen werden.
 
-Zum Beispiel betrachten Sie die folgende WebVTT-Datei, die Text markiert hat, der die `v` und `lang` [Hinweisnutzlasttext-Tags](#tag_für_hinweisnutzlasttext), mit Attributen verwendet, um die bestimmte Stimme ("Salame") und Sprachen zu spezifizieren.
+Beispielsweise, betrachten Sie die folgende WebVTT-Datei, die Text verwendet, der mit den `v` und `lang` [Cue-Payload-Text-Tags](#cue-payload-text-tags) markiert ist, unter Verwendung von Attributen, um die spezielle Stimme ("Salame") und Sprachen anzugeben.
 
 ```plain
 WEBVTT
@@ -563,10 +533,9 @@ Yellow!
 I like <v Salame>lime.</v>
 ```
 
-### Abgleichen unter Verwendung von Pseudoklassen
+### Pseudo-Klassen abgleichen
 
-Das vorherige Beispiel stilisierte Text für eine bestimmte Sprache, indem Attributübereinstimmungen verwendet wurden.
-Sie können Sprachen auch durch die `:lang()` Pseudoklasse abgleichen, wie im folgenden `STYLE`-Block demonstriert.
+Das vorhergehende Beispiel stylte Text für eine bestimmte Sprache unter Verwendung von Attributabgleich. Sie können auch Sprachen mit der Pseudo-Klasse `:lang()` abgleichen, wie durch den `STYLE`-Block unten demonstriert.
 
 ```plain
 STYLE
@@ -578,7 +547,7 @@ STYLE
 }
 ```
 
-Sie können ähnliche Abgleiche mit den Pseudoklassen `:past` und `:future` erstellen, um ein Karaoke-ähnliches Erlebnis zu bieten.
+Auf ähnliche Weise können Sie mit den Pseudo-Klassen `:past` und `:future` abgleichen, um eine karaoke-ähnliche Erfahrung zu schaffen.
 
 ```css
 video::cue(:past) {
@@ -589,16 +558,16 @@ video::cue(:future) {
 }
 ```
 
-Andere Pseudoklassen wie `link`, `nth-last-child` und `nth-child` sollten ähnlich funktionieren.
+Andere Pseudo-Klassen wie `link`, `nth-last-child` und `nth-child` sollten ähnlich funktionieren.
 
-### Abgleichen einer Hinweis-ID
+### Eine Cue-ID abgleichen
 
-Übereinstimmung mit einer spezifischen Hinweis-`id`, indem die `id` innerhalb von {{cssxref("::cue()")}} spezifiziert wird.
+Gegen eine bestimmte Cue-`id` abgleichen, indem die `id` innerhalb {{cssxref("::cue()")}} spezifiziert wird.
 
 > [!NOTE]
-> Zum Zeitpunkt der Erstellung scheint dies in keinem der Hauptbrowser unterstützt zu werden.
+> Zum Zeitpunkt der Erstellung dieser Informationen scheint dies in keinem der Hauptbrowser unterstützt zu werden.
 
-Zum Beispiel sollte die folgende WebVTT-Datei den Hinweis mit der Kennung `cue1` in grün stilisieren.
+Zum Beispiel sollte die folgende WebVTT-Datei den Cue mit der Kennung `cue1` grün stylen.
 
 ```plain
 WEBVTT
@@ -612,7 +581,7 @@ cue1
 Green!
 ```
 
-Beachten Sie, dass Escape-Sequenzen in WebVTT CSS auf die gleiche Weise wie HTML-Seiten verwendet werden. Das folgende Beispiel zeigt, wie man Leerzeichen in einer Hinweiskennzeichnung maskiert:
+Beachten Sie, dass Escape-Sequenzen im WebVTT-CSS auf die gleiche Weise wie HTML-Seiten verwendet werden. Das folgende Beispiel zeigt, wie Leerzeichen in einem Cue-Identifier umgangen werden können:
 
 ```plain
 WEBVTT
@@ -637,4 +606,4 @@ Transcribed by Célestes™
 
 ## Siehe auch
 
-- Die CSS [`::cue` und `::cue()`](/de/docs/Web/CSS/::cue) Pseudo-Elemente
+- Die CSS-Pseudos-Elemente [`::cue` und `::cue()`](/de/docs/Web/CSS/::cue)
