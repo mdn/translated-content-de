@@ -113,14 +113,14 @@ class BookListView(generic.ListView):
 
 ### Markdown-Tabelle
 
-| Name der Konstante           | Wert   | Beschreibung                                                          |
-| ---------------------------- | ------ | --------------------------------------------------------------------- |
-| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die für die Abfrageergebnisse des gegebenen Ziels verwendet werden. |
-| `CURRENT_QUERY_EXT`          | 0x8865 | Die aktuell aktive Abfrage.                                           |
-| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                  |
-| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein booleanischer Wert, der angibt, ob ein Abfrageergebnis verfügbar ist. |
-| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                  |
-| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                    |
+| Name der Konstante           | Wert   | Beschreibung                                                                              |
+| ---------------------------- | ------ | ----------------------------------------------------------------------------------------- |
+| `QUERY_COUNTER_BITS_EXT`     | 0x8864 | Die Anzahl der Bits, die für die Abfrageergebnisse des gegebenen Ziels verwendet werden.  |
+| `CURRENT_QUERY_EXT`          | 0x8865 | Die aktuell aktive Abfrage.                                                               |
+| `QUERY_RESULT_EXT`           | 0x8866 | Das Abfrageergebnis.                                                                      |
+| `QUERY_RESULT_AVAILABLE_EXT` | 0x8867 | Ein booleanischer Wert, der angibt, ob ein Abfrageergebnis verfügbar ist.                 |
+| `TIME_ELAPSED_EXT`           | 0x88BF | Verstrichene Zeit (in Nanosekunden).                                                      |
+| `TIMESTAMP_EXT`              | 0x8E28 | Die aktuelle Zeit.                                                                        |
 | `GPU_DISJOINT_EXT`           | 0x8FBB | Ein booleanischer Wert, der angibt, ob die GPU eine getrennte Operation durchgeführt hat. |
 
 ### HTML-Tabelle

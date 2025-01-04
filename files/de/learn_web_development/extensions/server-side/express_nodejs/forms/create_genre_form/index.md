@@ -11,7 +11,7 @@ Dieser Unterartikel zeigt, wie wir unsere Seite definieren, um `Genre`-Objekte z
 
 ## Importieren von Validierungs- und Bereinigungsmethoden
 
-Um den _express-validator_ in unseren Controllern zu verwenden, müssen wir die Funktionen, die wir verwenden möchten, aus dem Modul `'express-validator'` _require_n.
+Um den _express-validator_ in unseren Controllern zu verwenden, müssen wir die Funktionen, die wir verwenden möchten, aus dem Modul `'express-validator'` \_require_n.
 
 Öffnen Sie **/controllers/genreController.js** und fügen Sie die folgende Zeile am Anfang der Datei hinzu, bevor Sie einen Routen-Handler definieren:
 

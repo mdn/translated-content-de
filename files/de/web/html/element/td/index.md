@@ -233,7 +233,7 @@ table {
 
 {{EmbedLiveSample("Column_and_row_spanning", 650, 170)}}
 
-### Verknüpfung von Datenzellen mit Überschriftzellen 
+### Verknüpfung von Datenzellen mit Überschriftzellen
 
 Für komplexere Beziehungen zwischen Datenzellen (`<td>` Elemente) und Überschriftzellen ({{HTMLElement("th")}} Elemente) reicht die Verwendung von {{HTMLElement("th")}} Elementen mit dem [`scope`](/de/docs/Web/HTML/Element/th#scope) Attribut allein möglicherweise nicht für unterstützende Technologien, insbesondere Bildschirmlesegeräte, aus.
 

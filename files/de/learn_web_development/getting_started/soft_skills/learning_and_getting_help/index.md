@@ -227,8 +227,8 @@ Eine wichtige Fähigkeit, die Sie lernen sollten, ist die Kunst der effektiven W
 Es ist oft ziemlich offensichtlich, wonach Sie suchen sollten. Beispielsweise:
 
 - Wenn Sie mehr über responsives Webdesign erfahren möchten, könnten Sie nach "responsives Webdesign" suchen.
-- Wenn Sie mehr über eine bestimmte technologische Funktion erfahren möchten, wie das HTML-<video>-Element oder die CSS-`background-color`- oder `opacity`-Eigenschaften, oder die JavaScript-`Date.setTime()`-Methode, sollten Sie einfach nach dem Namen der Funktion suchen.
-- Wenn Sie nach spezifischeren Informationen suchen, können Sie andere Schlüsselwörter als Modifikatoren hinzufügen, zum Beispiel "\<video>-Element-Autoplay-Attribut" oder "Date.setTime-Parameter".
+- Wenn Sie mehr über eine bestimmte technologische Funktion erfahren möchten, wie das HTML-`<video>`-Element oder die CSS-`background-color`- oder `opacity`-Eigenschaften, oder die JavaScript-`Date.setTime()`-Methode, sollten Sie einfach nach dem Namen der Funktion suchen.
+- Wenn Sie nach spezifischeren Informationen suchen, können Sie andere Schlüsselwörter als Modifikatoren hinzufügen, zum Beispiel "`<video>`-Element-Autoplay-Attribut" oder "Date.setTime-Parameter".
 
 Wenn Sie nach etwas suchen, das weniger offensichtliche Schlagworte hat, müssen Sie überlegen, was am ehesten das liefert, was Sie wollen.
 
@@ -246,7 +246,7 @@ Wenn Sie ein Problem mit einem Code haben und eine bestimmte Fehlermeldung ersch
 
 Es ist oft eine gute Idee zu sehen, ob Ihr Problem alle Browser betrifft oder ob es nur in einem oder einer kleinen Anzahl von Browsern auftritt. Wenn es nur einen Browser betrifft, zum Beispiel, können Sie diesen Browser verwenden, um die Suche einzugrenzen. Beispielsuchen könnten wie folgt aussehen:
 
-- <video>-Wiedergabe funktioniert nicht im iOS-Browser.
+- `<video>`-Wiedergabe funktioniert nicht im iOS-Browser.
 - Firefox scheint die Beetlejuice-API nicht zu unterstützen.
 
 ### Verwendung von MDN
