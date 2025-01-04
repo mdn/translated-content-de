@@ -3597,6 +3597,7 @@
 /de/docs/Glossary/SSL_Glossary	/de/docs/Glossary/SSL
 /de/docs/Glossary/Scrollport	/de/docs/Glossary/Scroll_container
 /de/docs/Glossary/Second-level_Domain	/de/docs/Glossary/SLD
+/de/docs/Glossary/Self-Executing_Anonymous_Function	/de/docs/Glossary/IIFE
 /de/docs/Glossary/Serialize	/de/docs/Glossary/Serialization
 /de/docs/Glossary/Simple_header	/de/docs/Glossary/CORS-safelisted_request_header
 /de/docs/Glossary/Simple_response_header	/de/docs/Glossary/CORS-safelisted_response_header
