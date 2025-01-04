@@ -635,6 +635,6 @@ Um herauszufinden, wie der Abstand CSS brechen kann, versuchen Sie, mit dem Abst
 
 In diesem Artikel haben wir uns einige Möglichkeiten angesehen, wie man ein Dokument mit CSS stylen kann. Wir werden dieses Wissen weiterentwickeln, während wir die restlichen Lektionen durchlaufen. Sie wissen jedoch jetzt bereits genug, um Text zu stylen und CSS auf verschiedene Weise anzuwenden, um Elemente im Dokument anzusprechen.
 
-Als nächstes geben wir Ihnen eine Herausforderung, um Ihr neu gewonnenes Wissen zu testen. 
+Als nächstes geben wir Ihnen eine Herausforderung, um Ihr neu gewonnenes Wissen zu testen.
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/What_is_CSS", "Learn_web_development/Core/Styling_basics/Styling_a_bio_page", "Learn_web_development/Core/Styling_basics")}}

@@ -34,7 +34,7 @@ Dieses Modul definiert das Overscroll-Verhalten und ermöglicht es Ihnen, die Ak
 
 ## Leitfäden
 
-- [Lernen: Überlappende Inhalte](/de/docs/Learn_web_development/Core/Styling_basics/Overflow) 
+- [Lernen: Überlappende Inhalte](/de/docs/Learn_web_development/Core/Styling_basics/Overflow)
   - : Erfahren Sie, was Overflow ist und wie Sie damit umgehen können.
 
 ## Verwandte Konzepte

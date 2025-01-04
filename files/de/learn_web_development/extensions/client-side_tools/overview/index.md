@@ -16,8 +16,8 @@ In diesem Artikel geben wir einen Überblick über moderne Web-Tools, welche Art
     <tr>
       <th scope="row">Voraussetzungen:</th>
       <td>
-        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>, 
-        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und 
+        Vertrautheit mit den Kernsprachen <a href="/de/docs/Learn_web_development/Core/Structuring_content">HTML</a>,
+        <a href="/de/docs/Learn_web_development/Core/Styling_basics">CSS</a> und
         <a href="/de/docs/Learn_web_development/Core/Scripting">JavaScript</a>.
       </td>
     </tr>
@@ -106,7 +106,7 @@ Typprüfer sind Tools, die Ihnen helfen, zuverlässigeren Code zu schreiben, ind
 
 Diese Phase des Lebenszyklus Ihrer Web-App ermöglicht es Ihnen in der Regel, entweder in "zukünftigen Code" zu programmieren (wie die neuesten CSS- oder JavaScript-Funktionen, die möglicherweise noch keine native Unterstützung in Browsern haben), oder in einer ganz anderen Sprache, wie TypeScript. Transformationstools erzeugen dann browserkompatiblen Code für Sie, der in der Produktion verwendet werden soll.
 
-Generell wird bei der Webentwicklung von drei Sprachen gesprochen: [HTML](/de/docs/Learn_web_development/Core/Structuring_content), [CSS](/de/docs/Learn_web_development/Core/Styling_basics) und [JavaScript](/de/docs/Learn_web_development/Core/Scripting), und es gibt Transformationstools für alle diese Sprachen. Transformation bietet drei Hauptvorteile (neben anderen): 
+Generell wird bei der Webentwicklung von drei Sprachen gesprochen: [HTML](/de/docs/Learn_web_development/Core/Structuring_content), [CSS](/de/docs/Learn_web_development/Core/Styling_basics) und [JavaScript](/de/docs/Learn_web_development/Core/Scripting), und es gibt Transformationstools für alle diese Sprachen. Transformation bietet drei Hauptvorteile (neben anderen):
 
 1. Die Möglichkeit, Code mit den neuesten Sprachfunktionen zu schreiben und diesen in Code umzuwandeln, der auf alltäglichen Geräten funktioniert. Zum Beispiel möchten Sie vielleicht JavaScript mit hochmodernen neuen Sprachfunktionen schreiben, dennoch soll Ihr endgültiger Produktionscode auf älteren Browsern funktionieren, die diese Funktionen nicht unterstützen. Gute Beispiele hierfür sind:
 

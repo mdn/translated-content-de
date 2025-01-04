@@ -60,17 +60,17 @@ Diese Eigenschaft kann entweder als einzelnes `<font-stretch-css3>` Schlüsselwo
 
 Die folgende Tabelle zeigt die Zuordnung zwischen den `<font-stretch-css3>` Schlüsselwörtern und den numerischen Prozentsätzen:
 
-| Schlüsselwort       | Prozentsatz |
-| ------------------- | ----------- |
-| `ultra-condensed`   | 50%         |
-| `extra-condensed`   | 62,5%       |
-| `condensed`         | 75%         |
-| `semi-condensed`    | 87,5%       |
-| `normal`            | 100%        |
-| `semi-expanded`     | 112,5%      |
-| `expanded`          | 125%        |
-| `extra-expanded`    | 150%        |
-| `ultra-expanded`    | 200%        |
+| Schlüsselwort     | Prozentsatz |
+| ----------------- | ----------- |
+| `ultra-condensed` | 50%         |
+| `extra-condensed` | 62,5%       |
+| `condensed`       | 75%         |
+| `semi-condensed`  | 87,5%       |
+| `normal`          | 100%        |
+| `semi-expanded`   | 112,5%      |
+| `expanded`        | 125%        |
+| `extra-expanded`  | 150%        |
+| `ultra-expanded`  | 200%        |
 
 ## Beschreibung
 

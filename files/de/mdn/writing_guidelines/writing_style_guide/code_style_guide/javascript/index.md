@@ -464,18 +464,18 @@ Switch-Anweisungen können etwas schwierig sein.
 
 Wenn Sie eine `break`-Anweisung hinzufügen, wird sie unerreichbar sein. Schreiben Sie nicht:
 
-  ```js example-bad
-  switch (species) {
-    case "chicken":
-      return farm.shed;
-      break;
-    case "horse":
-      return corral.entry;
-      break;
-    default:
-      return "";
-  }
-  ```
+```js example-bad
+switch (species) {
+  case "chicken":
+    return farm.shed;
+    break;
+  case "horse":
+    return corral.entry;
+    break;
+  default:
+    return "";
+}
+```
 
 - Verwenden Sie `default` als letzten Fall und enden Sie nicht mit einer `break`-Anweisung. Wenn Sie es anders machen müssen, fügen Sie einen Kommentar hinzu, der erklärt, warum.
 

@@ -317,6 +317,7 @@ Wann immer die `updateImageDisplay()` Funktion aufgerufen wird, führen wir folg
 - Die [`FileList`](/de/docs/Web/API/FileList) Objekt, das die Informationen zu allen ausgewählten Dateien enthält, erfassen und in einer Variablen namens `curFiles` speichern.
 - Prüfen, ob keine Dateien ausgewählt wurden, indem überprüft wird, ob `curFiles.length` gleich 0 ist. Wenn ja, wird eine Nachricht in das `<div>`-Element ausgegeben, die besagt, dass keine Dateien ausgewählt wurden.
 - Wenn Dateien ausgewählt wurden, durchlaufen wir jede, und geben Informationen darüber in das `<div>`-Element aus. Hier einige bemerkenswerte Punkte:
+
   - Wir verwenden die benutzerdefinierte `validFileType()` Funktion, um zu überprüfen, ob die Datei den korrekten Typ hat (z.B. die in dem `accept` Attribut angegebenen Bildtypen).
   - Wenn ja, geben wir ihren Namen und ihre Dateigröße in einem Listenelement im `<div>`-Element aus (erhalten von `file.name` und `file.size`). Die benutzerdefinierte `returnFileSize()` Funktion gibt eine schön formatierte Version der Größe in Bytes/KB/MB zurück (standardmäßig gibt der Browser die Größe in absoluten Bytes an).
   - Eine Vorschau des Bildes wird erstellt, indem [`URL.createObjectURL(file)`](/de/docs/Web/API/URL/createObjectURL_static) aufgerufen wird. Dann wird das Bild ebenfalls in das Listenelement eingefügt, indem ein neues {{htmlelement("img")}} erstellt und dessen [`src`](/de/docs/Web/HTML/Element/img#src) auf das Thumbnail gesetzt wird.

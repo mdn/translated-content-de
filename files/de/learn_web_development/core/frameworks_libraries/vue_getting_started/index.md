@@ -93,7 +93,7 @@ Dieser Befehl bietet Ihnen eine Liste von Projektkonfigurationen, die Sie verwen
 
 ## Initialisierung eines neuen Projekts
 
-Um verschiedene Funktionen von Vue zu erkunden, werden wir eine Beispiel-App zur Aufgabenverwaltung erstellen. Wir beginnen damit, `create-vue` zu verwenden, um ein neues Grundgerüst für unsere App zu erstellen. 
+Um verschiedene Funktionen von Vue zu erkunden, werden wir eine Beispiel-App zur Aufgabenverwaltung erstellen. Wir beginnen damit, `create-vue` zu verwenden, um ein neues Grundgerüst für unsere App zu erstellen.
 Wechseln Sie im Terminal mit `cd` zu dem Ort, an dem Sie Ihre Beispiel-App erstellen möchten, und führen Sie `npm create vue@latest` (oder `yarn create vue@latest`, wenn Sie Yarn bevorzugen) aus.
 
 Das interaktive Tool lässt Sie einige Optionen wählen und Sie können mit <kbd>Enter</kbd> fortfahren.
@@ -111,7 +111,7 @@ Für dieses Projekt verwenden wir die folgende Konfiguration:
 ? Add Prettier for code formatting? › Yes
 ```
 
-Nach der Auswahl dieser Optionen ist Ihre Projektstruktur nun konfiguriert und Abhängigkeiten sind in einer `package.json`-Datei definiert. 
+Nach der Auswahl dieser Optionen ist Ihre Projektstruktur nun konfiguriert und Abhängigkeiten sind in einer `package.json`-Datei definiert.
 Die nächsten Schritte sind die Installation der Abhängigkeiten und das Starten des Servers, und das Tool gibt Ihnen bequem die Befehle an, die Sie dafür benötigen:
 
 ```plain
@@ -132,7 +132,7 @@ Wenn alles erfolgreich war, sollte das CLI eine Reihe von Dateien und Verzeichni
 - `package.json`: Diese Datei enthält die Liste der Abhängigkeiten für Ihr Projekt, sowie einige Metadaten und `eslint`-Konfigurationen.
 - `yarn.lock`: Wenn Sie `yarn` als Paketmanager gewählt haben, wird diese Datei mit einer Liste aller Abhängigkeiten und Sub-Abhängigkeiten generiert, die Ihr Projekt benötigt.
 - `jsconfig.json`: Dies ist eine Konfigurationsdatei für [Visual Studio Code](https://code.visualstudio.com/docs/languages/jsconfig) und gibt VS Code Kontext für Ihre Projektstruktur sowie Unterstützung für die Autovervollständigung.
-- `vite.config.js`: Dies ist die Konfigurationsdatei für den [Vite](https://vite.dev/) Entwicklungsserver, der Ihr Projekt auf Ihrem lokalen Rechner aufbaut und bereitstellt. 
+- `vite.config.js`: Dies ist die Konfigurationsdatei für den [Vite](https://vite.dev/) Entwicklungsserver, der Ihr Projekt auf Ihrem lokalen Rechner aufbaut und bereitstellt.
   Der Vite-Server überwacht Quell-Dateien auf Änderungen und kann das Projekt während der Änderungen automatisch neu laden.
 - `public`: Dieses Verzeichnis enthält statische Assets, die während des Builds veröffentlicht werden.
   - `favicon.ico`: Dies ist das Favicon für Ihre App. Derzeit ist es das Vue-Logo.

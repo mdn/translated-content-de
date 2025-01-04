@@ -80,14 +80,14 @@ Führen Sie die Anwendung aus und öffnen Sie Ihren Browser unter `http://localh
 
 ## Herausforderung
 
-Derzeit verwenden die meisten _Datumsangaben_ auf der Website das Standard-JavaScript-Format (z.B. _Di Okt 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time))_. Die Herausforderung in diesem Artikel besteht darin, das Erscheinungsbild der Datumsausgabe für `Author`-Lebenszeitinformationen (Geburts-/Todesdatum) und für _BookInstance-Detail_Seiten zu verbessern, um das Format: 6. Okt. 2016 zu verwenden.
+Derzeit verwenden die meisten _Datumsangaben_ auf der Website das Standard-JavaScript-Format (z.B. _Di Okt 06 2020 15:49:58 GMT+1100 (AUS Eastern Daylight Time))_. Die Herausforderung in diesem Artikel besteht darin, das Erscheinungsbild der Datumsausgabe für `Author`-Lebenszeitinformationen (Geburts-/Todesdatum) und für \_BookInstance-Detail_Seiten zu verbessern, um das Format: 6. Okt. 2016 zu verwenden.
 
 > [!NOTE]
 > Sie können denselben Ansatz verwenden, den wir für die _Buch-Instanzliste_ verwendeten (Hinzufügen der virtuellen Eigenschaft für die Lebensspanne zum `Author`-Modell und Verwenden von [luxon](https://www.npmjs.com/package/luxon), um die Datumszeichenfolgen zu formatieren).
 
 Um diese Herausforderung abzuschließen, müssen Sie:
 
-1. Ersetzen Sie die Variable `due_back` durch `due_back_formatted` auf der _BookInstance-Detailseite.
+1. Ersetzen Sie die Variable `due_back` durch `due_back_formatted` auf der \_BookInstance-Detailseite.
 2. Aktualisieren Sie das `Author`-Modell, um eine virtuelle Lebensspanne-Eigenschaft hinzuzufügen. Die Lebensspanne sollte aussehen wie: _date_of_birth - date_of_death_, wobei beide Werte dasselbe Datumsformat wie `BookInstance.due_back_formatted` haben.
 3. Verwenden Sie `Author.lifespan` in allen Ansichten, in denen Sie derzeit explizit `date_of_birth` und `date_of_death` verwenden.
 
