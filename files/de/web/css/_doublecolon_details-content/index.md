@@ -2,12 +2,12 @@
 title: "::details-content"
 slug: Web/CSS/::details-content
 l10n:
-  sourceCommit: 19f054333148427b21bfe98e33d5c3ab1d28a516
+  sourceCommit: 9c15368794c97a0b9ae38059551b71420a3d0222
 ---
 
-{{CSSRef}}
+{{CSSRef}}{{SeeCompatTable}}
 
-Das **`::details-content`** [CSS](/de/docs/Web/CSS) [Pseudo-Element](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den erweiterbaren/zusammenklappbaren Inhalt eines {{HTMLElement("details")}} Elements.
+Das **`::details-content`** [CSS](/de/docs/Web/CSS) [Pseudoelement](/de/docs/Web/CSS/Pseudo-elements) repräsentiert den erweiterbaren/zusammenklappbaren Inhalt eines {{HTMLElement("details")}} Elements.
 
 [//]: # '{{EmbedInteractiveExample("pages/tabbed/pseudo-element-details-content.html", "tabbed-shorter")}}'
 
@@ -21,7 +21,7 @@ selector::details-content
 
 ### Einfaches Beispiel
 
-In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um eine {{cssxref("background-color")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen.
+In diesem Beispiel wird das Pseudoelement `::details-content` genutzt, um eine {{cssxref("background-color")}} auf den Inhalt des {{HTMLElement("details")}} Elements anzuwenden.
 
 #### HTML
 
@@ -40,16 +40,16 @@ details::details-content {
 }
 ```
 
-#### Resultat
+#### Ergebnis
 
 {{EmbedLiveSample("Basic_example", "100%", 150)}}
 
-### Transition Beispiel
+### Übergangsbeispiel
 
-In diesem Beispiel wird das `::details-content` Pseudo-Element verwendet, um eine {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen, sodass dieser reibungslos eingeblendet wird, wenn er erweitert wird und wieder ausblendet, wenn er zusammengeklappt wird. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der `transition` Kurzform-Eigenschaft spezifiziert:
+In diesem Beispiel wird das Pseudoelement `::details-content` verwendet, um eine {{cssxref("transition")}} auf den Inhalt des {{HTMLElement("details")}} Elements zu setzen, sodass es sanft ein- und ausblendet, wenn es erweitert bzw. zusammengeklappt wird. Um dies zu erreichen, werden zwei separate Übergänge innerhalb der Kurzform-Eigenschaft `transition` angegeben:
 
-- Die {{cssxref("opacity")}} Eigenschaft erhält einen grundlegenden Übergang über `600ms`, um den Ein-/Ausblendeffekt zu erzeugen.
-- Die {{cssxref("content-visibility")}} Eigenschaft (die zwischen `hidden` und `visible` umgeschaltet wird, wenn der `<details>` Inhalt erweitert/zusammengeklappt wird) erhält ebenfalls einen grundlegenden `600ms` Übergang, aber mit dem {{cssxref("transition-behavior")}} Wert `allow-discrete` angegeben. Dies ermöglicht dem Browser, einen Übergang auf `content-visibility` zu starten, dessen Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt ist, dass der Inhalt während der gesamten Dauer des Übergangs sichtbar ist, sodass andere Übergänge sichtbar werden. Wäre dieser Übergang nicht enthalten, würde der Inhalt sofort verschwinden, wenn der `<details>` Inhalt zusammengeklappt würde — Sie würden das sanfte Ausblenden nicht sehen.
+- Der Eigenschaft {{cssxref("opacity")}} wird ein einfacher Übergang über `600ms` zugewiesen, um den Effekt des Ein- und Ausblendens zu erzeugen.
+- Der Eigenschaft {{cssxref("content-visibility")}} (die zwischen `hidden` und `visible` geschaltet wird, wenn der `<details>`-Inhalt erweitert/zusammengeklappt wird) wird ebenfalls ein einfacher `600ms` Übergang zugewiesen, jedoch mit dem {{cssxref("transition-behavior")}} Wert `allow-discrete`. Damit wird der Browser in die Lage versetzt, einen Übergang auf `content-visibility` zu starten, wobei das Animationsverhalten [diskret](/de/docs/Web/CSS/CSS_animated_properties#discrete) ist. Der Effekt ist, dass der Inhalt für die gesamte Dauer des Übergangs sichtbar ist, wodurch andere Übergänge gesehen werden können. Wenn dieser Übergang nicht enthalten wäre, würde der Inhalt sofort verschwinden, wenn der `<details>`-Inhalt zusammengeklappt wird — man würde das sanfte Ausblenden nicht sehen.
 
 #### HTML
 
@@ -75,7 +75,7 @@ details[open]::details-content {
 }
 ```
 
-#### Resultat
+#### Ergebnis
 
 {{EmbedLiveSample("Transition_example", "100%", 150)}}
 

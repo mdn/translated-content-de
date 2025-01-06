@@ -2,50 +2,93 @@
 title: "Herausforderung: Eine cool aussehende Box"
 slug: Learn_web_development/Core/Styling_basics/Cool-looking_box
 l10n:
-  sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
+  sourceCommit: ca58132c5bef8bf0e40919325d0c5ed2c47972c7
 ---
 
 {{LearnSidebar}}
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}
 
-In dieser Herausforderung können Sie weiter üben, coole Boxen zu erstellen, indem Sie versuchen, eine auffällige Box zu gestalten.
+In dieser Bewertung werden Sie sich weiter darin üben, cool aussehende Boxen zu erstellen, indem Sie versuchen, eine auffällige Box zu gestalten.
+
+<table>
+  <tbody>
+    <tr>
+      <th scope="row">Voraussetzungen:</th>
+      <td>
+        Bevor Sie diese Bewertung in Angriff nehmen, sollten Sie alle Artikel in diesem Modul bearbeitet haben.
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Ziel:</th>
+      <td>
+        Das Verständnis des CSS-Box-Modells und anderer boxbezogener Funktionen wie Ränder und Hintergründe zu testen.
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ## Ausgangspunkt
 
-Um mit dieser Herausforderung zu beginnen, sollten Sie:
+Um mit dieser Aufgabe zu beginnen, sollten Sie:
 
-- Lokale Kopien des Start-[HTML](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/cool-information-box-start/index.html) und [CSS](https://github.com/mdn/learning-area/blob/main/css/styling-boxes/cool-information-box-start/style.css) erstellen – speichern Sie sie als `index.html` und `style.css` in einem neuen Verzeichnis.
+- Speichern Sie das unten gezeigte HTML und CSS als zwei separate Dateien — `index.html` und `style.css` — in einem neuen Verzeichnis.
 
-Alternativ könnten Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden.
-Sie könnten das HTML einfügen und das CSS in einen dieser Online-Editoren ergänzen.
+### HTML
+
+```html
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Cool box</title>
+    <!-- your css link goes here -->
+  </head>
+  <body>
+    <div>This is a cool box</div>
+  </body>
+</html>
+```
+
+### CSS
+
+```css
+html {
+  font-family: sans-serif;
+}
+
+/* Your CSS below here */
+```
+
+Alternativ können Sie einen Online-Editor wie [CodePen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/) oder [Glitch](https://glitch.com/) verwenden. Sie können das HTML einfügen und das CSS in einen dieser Online-Editoren eintragen.
 
 > [!NOTE]
-> Wenn Sie feststecken, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
+> Wenn Sie nicht weiterkommen, können Sie sich über einen unserer [Kommunikationskanäle](/de/docs/MDN/Community/Communication_channels) an uns wenden.
 
-## Projektbeschreibung
+## Projektbriefing
 
-Ihre Aufgabe ist es, eine coole, schicke Box zu erstellen und den Spaß, den man mit CSS haben kann, zu erkunden.
+Ihre Aufgabe besteht darin, eine coole, schicke Box zu erstellen und den Spaß zu erkunden, den wir mit CSS haben können.
 
 ### Allgemeine Aufgaben
 
 - Wenden Sie das CSS auf das HTML an.
 
-### Die Box stylen
+### Die Box gestalten
 
-Wir möchten, dass Sie das bereitgestellte {{htmlelement("div")}} stylen und ihm Folgendes geben:
+Wir möchten, dass Sie das bereitgestellte {{htmlelement("div")}} gestalten und ihm Folgendes geben:
 
-- Eine angemessene Breite für eine große Box, sagen wir um die 200 Pixel.
+- Eine angemessene Breite für eine große Box, etwa um die 200 Pixel.
 - Eine angemessene Höhe für eine große Box, wobei der Text vertikal zentriert wird.
 - Zentrieren Sie die Box horizontal.
 - Zentrieren Sie den Text innerhalb der Box.
-- Eine leichte Erhöhung der Schriftgröße, auf etwa 17-18 Pixel im berechneten Stil. Verwenden Sie `rems`. Schreiben Sie einen Kommentar darüber, wie Sie den Wert ermittelt haben.
-- Eine Grundfarbe für das Design. Geben Sie der Box diese Farbe als Hintergrundfarbe.
+- Eine leichte Erhöhung der Schriftgröße auf etwa 17-18 Pixel berechneter Stil. Verwenden Sie rems. Schreiben Sie einen Kommentar darüber, wie Sie den Wert ermittelt haben.
+- Eine Grundfarbe für das Design. Vergeben Sie diese Farbe als Hintergrundfarbe der Box.
 - Eine kontrastierende Farbe für den Text und einen schwarzen Textschatten.
-- Ein ziemlich subtiler abgerundeter Rand.
-- Einen 1-Pixel-Solidrand mit einer Farbe, die der Grundfarbe ähnlich ist, jedoch in einem etwas dunkleren Farbton.
-- Einen linearen halbtransparenten schwarzen Verlauf, der zur unteren rechten Ecke verläuft. Machen Sie ihn zu Beginn komplett transparent, verlaufend auf etwa 0,2 Opazität bis 30% und verbleibend in dieser Farbe bis zum Ende.
-- Mehrere Box-Schatten. Versehen Sie ihn mit einem Standard-Box-Schatten, um die Box leicht von der Seite abgehoben wirken zu lassen. Die anderen beiden sollten eingefügte Box-Schatten sein – ein halbtransparenter weißer Schatten in der Nähe der oberen linken Ecke und ein halbtransparenter schwarzer Schatten in der Nähe der unteren rechten Ecke – um den schönen erhabenen 3D-Look der Box zu verstärken.
+- Einen ziemlich subtilen Randradius.
+- Eine ein-Pixel breite, durchgehende Linie an der Grenze mit einer Farbe ähnlich der Grundfarbe, jedoch in einem etwas dunkleren Farbton.
+- Ein linearer, halbtransparenter schwarzer Verlauf, der in die untere rechte Ecke verläuft. Machen Sie ihn am Anfang vollständig transparent, und er sollte entlang des Verlaufs bei 30% eine Opazität von etwa 0.2 erreichen und danach die gleiche Farbe bis zum Ende behalten.
+- Mehrere Box-Schatten. Verleihen Sie ihm einen Standard-Box-Schatten, um die Box leicht angehoben wirken zu lassen. Die anderen beiden sollten eingelassene Box-Schatten sein — ein halbtransparenter weißer Schatten nahe der oberen linken Ecke und ein halbtransparenter schwarzer Schatten nahe der unteren rechten Ecke —, um den schönen erhabenen 3D-Effekt der Box zu verstärken.
 
 ## Hinweise und Tipps
 
@@ -53,8 +96,8 @@ Wir möchten, dass Sie das bereitgestellte {{htmlelement("div")}} stylen und ihm
 
 ## Beispiel
 
-Der folgende Screenshot zeigt ein Beispiel dafür, wie das fertige Design aussehen könnte:
+Der folgende Screenshot zeigt ein Beispiel, wie das fertige Design aussehen könnte:
 
-![Eine große rote Box mit abgerundeten Ecken. Weißer Text mit Schlagschatten lautet 'this is a cool box'.](fancy-box2.png)
+![Eine große rote Box mit abgerundeten Ecken. Weißer Text mit Schlagschatten zeigt 'this is a cool box'.](fancy-box2.png)
 
 {{PreviousMenuNext("Learn_web_development/Core/Styling_basics/Fancy_letterheaded_paper", "Learn_web_development/Core/Text_styling", "Learn_web_development/Core/Styling_basics")}}
