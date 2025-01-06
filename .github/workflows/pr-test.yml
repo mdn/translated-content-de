@@ -158,12 +158,12 @@ jobs:
 
           yarn filecheck ${GIT_DIFF_FILES}
 
-  review:
-    needs: tests
-    if: ${{ needs.tests.outputs.has_assets }}
-    # write permissions are required to create a comment in the corresponding PR
-    permissions: write-all
-    uses: ./.github/workflows/pr-review-companion.yml
-    # inherit the secrets from the parent workflow
-    # https://docs.github.com/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow
-    secrets: inherit
+#  review:
+#    needs: tests
+#    if: ${{ needs.tests.outputs.has_assets }}
+#    # write permissions are required to create a comment in the corresponding PR
+#    permissions: write-all
+#    uses: ./.github/workflows/pr-review-companion.yml
+#    # inherit the secrets from the parent workflow
+#    # https://docs.github.com/actions/using-workflows/reusing-workflows#using-inputs-and-secrets-in-a-reusable-workflow
+#    secrets: inherit
