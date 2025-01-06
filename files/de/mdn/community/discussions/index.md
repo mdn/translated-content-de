@@ -147,7 +147,7 @@ Prüfen Sie das Thema jeder Diskussionskategorie unten, damit Sie Ihre Diskussio
       <td>
         Diskussionen im Zusammenhang mit der
         <a href="https://github.com/mdn/yari">Kernplattform</a> der MDN Web Docs.
-        Ihre Vorschläge zur Verbesserung der Architektur und der bestehenden Funktionen, wie Navigation und Suche, sind willkommen. Wenn Sie jedoch glauben, dass Sie einen Fehler im Zusammenhang mit der Plattform gefunden haben, 
+        Ihre Vorschläge zur Verbesserung der Architektur und der bestehenden Funktionen, wie Navigation und Suche, sind willkommen. Wenn Sie jedoch glauben, dass Sie einen Fehler im Zusammenhang mit der Plattform gefunden haben,
         <a
           href="https://github.com/mdn/yari/issues/choose?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc"
           >melden Sie ihn bitte</a

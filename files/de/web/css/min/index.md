@@ -25,7 +25,7 @@ Sie können, wenn Sie möchten, unterschiedliche Einheiten für jeden Wert in Ih
 
 - Mathematische Ausdrücke, die Prozentsätze für Breiten und Höhen auf Tabellenspalten, Tabellenspalten-Gruppen, Tabellenzeilen, Tabellenzeilen-Gruppen und Tabellenzellen sowohl in automatisch als auch in festgelegten Layout-Tabellen beinhalten, _können_ so behandelt werden, als ob `auto` angegeben wurde.
 - Es ist erlaubt, `max()` und andere `min()`-Funktionen als Ausdruckswerte zu verschachteln. Die Ausdrücke sind vollständige mathematische Ausdrücke, sodass Sie direkte Addition, Subtraktion, Multiplikation und Division ohne die Verwendung der `calc()`-Funktion selbst verwenden können.
-- Der Ausdruck kann Werte kombinieren, die die Operatoren Addition (+), Subtraktion (-), Multiplikation (*) und Division (/) verwenden und die Standardpräzedenzregeln der Operatoren befolgen. Achten Sie darauf, auf jeder Seite der + und - Operanden ein Leerzeichen zu setzen. Die Operanden im Ausdruck können jeden `<length>`-Syntaxwert verwenden.
+- Der Ausdruck kann Werte kombinieren, die die Operatoren Addition (+), Subtraktion (-), Multiplikation (\*) und Division (/) verwenden und die Standardpräzedenzregeln der Operatoren befolgen. Achten Sie darauf, auf jeder Seite der + und - Operanden ein Leerzeichen zu setzen. Die Operanden im Ausdruck können jeden `<length>`-Syntaxwert verwenden.
 - Sie können (und müssen oft) `min()` und `max()`-Werte kombinieren oder `min()` innerhalb einer `clamp()`- oder `calc()`-Funktion verwenden.
 - Sie können mehr als zwei Argumente bereitstellen, wenn Sie mehrere Einschränkungen anwenden müssen.
 

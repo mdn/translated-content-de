@@ -14,7 +14,7 @@ Normalerweise erstellen Sie ein neues `URL`-Objekt, indem Sie die URL als String
 ## Konstruktor
 
 - [`URL()`](/de/docs/Web/API/URL/URL)
-  - : Erstellt und gibt ein `URL` Objekt aus einem URL-String und optionalem Basis-URL-String zurück. 
+  - : Erstellt und gibt ein `URL` Objekt aus einem URL-String und optionalem Basis-URL-String zurück.
     Wirft eine Ausnahme, wenn die übergebenen Argumente keine gültige URL definieren.
 
 ## Instanz-Eigenschaften

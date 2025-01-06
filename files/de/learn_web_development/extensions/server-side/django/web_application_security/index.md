@@ -69,7 +69,6 @@ Wenn Sie den Quellcode der Seite anzeigen, sehen Sie, dass die gefährlichen Zei
 </h1>
 ```
 
-
 Die Verwendung von Django-Templates schützt Sie vor den meisten XSS-Angriffen. Es ist jedoch möglich, diesen Schutz zu deaktivieren, und der Schutz wird nicht automatisch auf sämtliche Tags angewendet, die normalerweise nicht durch Benutzereingaben gefüllt werden (zum Beispiel wird der `help_text` in einem Formularfeld gewöhnlich nicht vom Benutzer geliefert, daher maskiert Django diese Werte nicht).
 
 XSS-Angriffe können auch von anderen nicht vertrauenswürdigen Datenquellen wie Cookies, Webdiensten oder hochgeladenen Dateien ausgehen (wann immer die Daten nicht ausreichend bereinigt werden, bevor sie auf einer Seite verwendet werden). Wenn Sie Daten aus diesen Quellen anzeigen, müssen Sie möglicherweise Ihren eigenen Bereinigungscode hinzufügen.

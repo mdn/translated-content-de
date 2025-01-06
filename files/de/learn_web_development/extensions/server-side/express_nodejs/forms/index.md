@@ -57,7 +57,7 @@ Das Formular wird in HTML als Sammlung von Elementen innerhalb von `<form>…</f
 </form>
 ```
 
-Während wir hier nur ein (Text-)Feld zur Eingabe des Teamnamens eingefügt haben, kann ein Formular _beliebig viele andere Eingabeelemente und die dazugehörigen Labels enthalten. Der `type`-Attribut des Feldes definiert, welche Art von Widget angezeigt wird. Der `name` und `id` des Feldes werden zur Identifizierung des Feldes in JavaScript/CSS/HTML verwendet, während `value` den Anfangswert für das Feld definiert, wenn es zum ersten Mal angezeigt wird. Das passende Team-Label wird mit dem `label` Tag angegeben (siehe "Enter name" oben), mit einem `for`-Feld, das den `id`-Wert des zugehörigen `input` enthält.
+Während wir hier nur ein (Text-)Feld zur Eingabe des Teamnamens eingefügt haben, kann ein Formular \_beliebig viele andere Eingabeelemente und die dazugehörigen Labels enthalten. Der `type`-Attribut des Feldes definiert, welche Art von Widget angezeigt wird. Der `name` und `id` des Feldes werden zur Identifizierung des Feldes in JavaScript/CSS/HTML verwendet, während `value` den Anfangswert für das Feld definiert, wenn es zum ersten Mal angezeigt wird. Das passende Team-Label wird mit dem `label` Tag angegeben (siehe "Enter name" oben), mit einem `for`-Feld, das den `id`-Wert des zugehörigen `input` enthält.
 
 Das `submit`-Eingabeelement wird standardmäßig als Schaltfläche angezeigt—diese kann vom Benutzer gedrückt werden, um die von den anderen Eingabeelementen enthaltenen Daten an den Server hochzuladen (in diesem Fall nur `team_name`). Die Formulareigenschaften definieren die HTTP-Methode `method`, die zur Übertragung der Daten verwendet wird, und das Ziel der Daten auf dem Server (`action`):
 

@@ -148,13 +148,13 @@ input[type="checkbox"] {
 
 Verschiedene Browser behandeln das Kontrollkästchen und die Spanne unterschiedlich, oft auf unschöne Weise:
 
-| Browser                             | Darstellung                                                                                           |
-| ----------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Firefox 71 (macOS)                  | ![Abgerundete Ecken und 1px hellgraue Umrandung](firefox-mac-checkbox.png)                            |
-| Firefox 57 (Windows 10)             | ![Rechteckige Ecken mit 1px mittelgrauer Umrandung](firefox-windows-checkbox.png)                     |
-| Chrome 77 (macOS), Safari 13, Opera | ![Abgerundete Ecken mit 1px mittelgrauer Umrandung](chrome-mac-checkbox.png)                          |
+| Browser                             | Darstellung                                                                                              |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| Firefox 71 (macOS)                  | ![Abgerundete Ecken und 1px hellgraue Umrandung](firefox-mac-checkbox.png)                               |
+| Firefox 57 (Windows 10)             | ![Rechteckige Ecken mit 1px mittelgrauer Umrandung](firefox-windows-checkbox.png)                        |
+| Chrome 77 (macOS), Safari 13, Opera | ![Abgerundete Ecken mit 1px mittelgrauer Umrandung](chrome-mac-checkbox.png)                             |
 | Chrome 63 (Windows 10)              | ![Rechteckige Umrandungen mit leicht grauem Hintergrund anstelle von weiß.](chrome-windows-checkbox.png) |
-| Edge 16 (Windows 10)                | ![Rechteckige Umrandungen mit leicht grauem Hintergrund anstelle von weiß.](edge-checkbox.png)        |
+| Edge 16 (Windows 10)                | ![Rechteckige Umrandungen mit leicht grauem Hintergrund anstelle von weiß.](edge-checkbox.png)           |
 
 #### Verwendung von appearance: none auf Radios/Kontrollkästchen
 

@@ -31,10 +31,10 @@ In HTML werden grundlegende Einschränkungen auf zwei Arten deklariert:
 
 Die intrinsischen Einschränkungen für das [`type`](/de/docs/Web/HTML/Element/input#type) Attribut sind:
 
-| Eingabetyp                                                        | Beschreibung der Einschränkung                                                                                                                                                             | Zugehörige Regelverletzung                                                             |
-| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------------------------------------------------------------------------------- |
-| [`<input type="URL">`](/de/docs/Web/HTML/Element/input/url)    | Der Wert muss eine absolute [URL](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL) sein, wie im [URL Living Standard](https://url.spec.whatwg.org/) definiert.        | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Regelverletzung |
-| [`<input type="email">`](/de/docs/Web/HTML/Element/input/email)| Der Wert muss eine syntaktisch gültige E-Mail-Adresse sein, die allgemein das Format `username@hostname.tld` hat, aber auch lokal sein kann, wie `username@hostname`.                     | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Regelverletzung |
+| Eingabetyp                                                      | Beschreibung der Einschränkung                                                                                                                                                  | Zugehörige Regelverletzung                                                      |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [`<input type="URL">`](/de/docs/Web/HTML/Element/input/url)     | Der Wert muss eine absolute [URL](/de/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL) sein, wie im [URL Living Standard](https://url.spec.whatwg.org/) definiert. | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Regelverletzung |
+| [`<input type="email">`](/de/docs/Web/HTML/Element/input/email) | Der Wert muss eine syntaktisch gültige E-Mail-Adresse sein, die allgemein das Format `username@hostname.tld` hat, aber auch lokal sein kann, wie `username@hostname`.           | **[TypeMismatch](/de/docs/Web/API/ValidityState/typeMismatch)** Regelverletzung |
 
 Für beide dieser Eingabetypen kann das [`multiple`](/de/docs/Web/HTML/Element/input#multiple) Attribut gesetzt werden, wodurch mehrere Werte als kommagetrennte Liste gesetzt werden können. Wenn einer dieser Werte die hier beschriebene Bedingung nicht erfüllt, wird die **Type mismatch** Regelverletzung ausgelöst.
 
@@ -436,7 +436,7 @@ Siehe {{cssxref(':placeholder-shown')}}.
 
 #### :valid :invalid CSS-Pseudoklassen
 
-Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) werden verwendet, um \<input>-Elemente zu repräsentieren, deren Inhalt je nach Einstellung des Eingabetypus validiert bzw. nicht validiert werden kann. Diese Klassen erlauben es, gültige oder ungültige Formularelemente zu stylen, um es benutzerfreundlicher zu machen, Elemente leichter zu identifizieren, die entweder richtig oder falsch formatiert sind.
+Die {{cssxref(':valid')}} und {{cssxref(':invalid')}} [Pseudoklassen](/de/docs/Web/CSS/Pseudo-classes) werden verwendet, um `<input>`-Elemente zu repräsentieren, deren Inhalt je nach Einstellung des Eingabetypus validiert bzw. nicht validiert werden kann. Diese Klassen erlauben es, gültige oder ungültige Formularelemente zu stylen, um es benutzerfreundlicher zu machen, Elemente leichter zu identifizieren, die entweder richtig oder falsch formatiert sind.
 
 ### Kontrolle des Textes bei Regelverletzungen
 

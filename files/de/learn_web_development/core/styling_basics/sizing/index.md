@@ -111,7 +111,7 @@ Aufgrund dieses Problems des Überlaufens müssen wir sehr vorsichtig sein, wenn
 
 ### Verwendung von Prozentangaben
 
-In vielerlei Hinsicht verhalten sich Prozentangaben wie Längeneinheiten, und wie wir in der [Lektion über Werte und Einheiten](https://developer.mozilla.org/de/docs/Learn/CSS/Building_blocks/Values_and_units#percentages) besprochen haben, können sie oft austauschbar mit Längen verwendet werden. Wenn Sie ein Prozent verwenden, müssen Sie wissen, wovon es ein Prozent _ist_. Im Fall einer Box in einem anderen Container wird die Breite der Kinderbox ein Prozent der Breite des übergeordneten Containers sein.
+In vielerlei Hinsicht verhalten sich Prozentangaben wie Längeneinheiten, und wie wir in der [Lektion über Werte und Einheiten](/de/docs/Learn/CSS/Building_blocks/Values_and_units#percentages) besprochen haben, können sie oft austauschbar mit Längen verwendet werden. Wenn Sie ein Prozent verwenden, müssen Sie wissen, wovon es ein Prozent _ist_. Im Fall einer Box in einem anderen Container wird die Breite der Kinderbox ein Prozent der Breite des übergeordneten Containers sein.
 
 ```html live-sample___percent-width
 <div class="box">I have a percentage width.</div>

@@ -11,11 +11,11 @@ Der [Farbkontrast](https://www.w3.org/TR/WCAG21/#dfn-contrast-ratio) zwischen Hi
 
 Bei der Gestaltung lesbarer Oberflächen für unterschiedliche Sehfähigkeiten empfehlen die WCAG-Richtlinien die folgenden Kontrastverhältnisse:
 
-| Art des Inhalts                                                                 | Mindestverhältnis (AA-Bewertung) | Erweitertes Verhältnis (AAA-Bewertung) |
-| ------------------------------------------------------------------------------- | -------------------------------- | ------------------------------------- |
-| Fließtext                                                                       | 4.5 : 1                          | 7 : 1                                 |
-| Großer Text (120-150% größer als Fließtext)                                     | 3 : 1                            | 4.5 : 1                               |
-| Aktive Benutzeroberflächenkomponenten und grafische Objekte wie Symbole und Diagramme | 3 : 1                            | Nicht definiert                       |
+| Art des Inhalts                                                                       | Mindestverhältnis (AA-Bewertung) | Erweitertes Verhältnis (AAA-Bewertung) |
+| ------------------------------------------------------------------------------------- | -------------------------------- | -------------------------------------- |
+| Fließtext                                                                             | 4.5 : 1                          | 7 : 1                                  |
+| Großer Text (120-150% größer als Fließtext)                                           | 3 : 1                            | 4.5 : 1                                |
+| Aktive Benutzeroberflächenkomponenten und grafische Objekte wie Symbole und Diagramme | 3 : 1                            | Nicht definiert                        |
 
 Diese Verhältnisse gelten nicht für „nebensächlichen“ Text, wie inaktive Steuerelemente, Logotypen oder rein dekorativen Text.
 

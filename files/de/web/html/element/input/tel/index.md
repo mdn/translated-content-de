@@ -83,8 +83,8 @@ Glücklicherweise können Sie die Anforderungen Ihrer eigenen Website berücksic
 
 Einer der Hauptvorteile von `<input type="tel">` ist, dass es mobile Browser dazu veranlasst, eine spezielle Tastatur für die Eingabe von Telefonnummern anzuzeigen. Beispielsweise sehen die Tastaturen auf einigen Geräten so aus:
 
-| Firefox für Android                                    | WebKit iOS (Safari/Chrome/Firefox)                           |
-| ------------------------------------------------------ | ------------------------------------------------------------ |
+| Firefox für Android                                       | WebKit iOS (Safari/Chrome/Firefox)                           |
+| --------------------------------------------------------- | ------------------------------------------------------------ |
 | ![Firefox für Android Bildschirmfoto](fx-android-tel.png) | ![Firefox für iOS Screenshot](iphone-tel-keyboard-50pct.png) |
 
 ### Eine grundlegende tel-Eingabe

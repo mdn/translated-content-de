@@ -352,10 +352,10 @@ An diesem Punkt wissen wir, dass Django funktioniert!
 
 Wir haben gerade eine bedeutende Arbeit geleistet, daher ist jetzt ein guter Zeitpunkt, das Projekt mit GitHub zu sichern.
 
-Zuerst verschieben Sie den _Inhalt_ des obersten **locallibrary**-Ordners in den **django_local_library**-Ordner, den Sie [als lokales GitHub-Repository erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#clone_the_repo_to_your_local_computer), als Sie die Entwicklungsumgebung eingerichtet haben. 
+Zuerst verschieben Sie den _Inhalt_ des obersten **locallibrary**-Ordners in den **django_local_library**-Ordner, den Sie [als lokales GitHub-Repository erstellt haben](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#clone_the_repo_to_your_local_computer), als Sie die Entwicklungsumgebung eingerichtet haben.
 Dies umfasst **manage.py**, den **locallibrary** Unterordner, den **catalog** Unterordner und alles andere im obersten Ordner.
 
-Fügen Sie dann die Änderungen im **django_local_library**-Ordner hinzu, committen Sie sie und pushen Sie sie zu GitHub. 
+Fügen Sie dann die Änderungen im **django_local_library**-Ordner hinzu, committen Sie sie und pushen Sie sie zu GitHub.
 Vom Stamm dieses Ordners aus können Sie einen ähnlichen Satz von Befehlen wie im Abschnitt [Änderungen bearbeiten und synchronisieren](/de/docs/Learn_web_development/Extensions/Server-side/Django/development_environment#modify_and_sync_changes) des Themas _Entwicklungsumgebung_ verwenden:
 
 ```bash
@@ -372,7 +372,7 @@ git commit -m "Create Skeleton framework for LocalLibrary" # Commit the changed 
 git push origin skeleton_website
 ```
 
-Erstellen Sie dann einen PR aus Ihrem GitHub-Repository und führen diesen zusammen. 
+Erstellen Sie dann einen PR aus Ihrem GitHub-Repository und führen diesen zusammen.
 Nach dem Zusammenführen können Sie zurück zum `main`-Branch wechseln und Ihre Änderungen von GitHub ziehen:
 
 ```bash

@@ -7,7 +7,7 @@ l10n:
 
 {{MDNSidebar}}
 
-👋 Willkommen bei MDN Web Docs, einem Open-Source-Kollaborationsprojekt, das Technologien der Webplattform dokumentiert, einschließlich [HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS), [JavaScript](/de/docs/Web/JavaScript) und [Web APIs](/de/docs/Web/API). Wir bieten auch umfassende [Lernressourcen](/de/docs/Learn_web_development) für Entwickler*innen in der Anfangsphase und Studierende.
+👋 Willkommen bei MDN Web Docs, einem Open-Source-Kollaborationsprojekt, das Technologien der Webplattform dokumentiert, einschließlich [HTML](/de/docs/Web/HTML), [CSS](/de/docs/Web/CSS), [JavaScript](/de/docs/Web/JavaScript) und [Web APIs](/de/docs/Web/API). Wir bieten auch umfassende [Lernressourcen](/de/docs/Learn_web_development) für Entwickler\*innen in der Anfangsphase und Studierende.
 
 ## Möglichkeiten zur Mitarbeit
 

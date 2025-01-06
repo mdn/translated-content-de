@@ -31,7 +31,7 @@ Wenn Sie die Verwendung der User-Agent-Erkennung vermeiden möchten, haben Sie O
 
 - Funktionsüberprüfung
 
-  - : Die Funktionsüberprüfung bedeutet, dass Sie nicht versuchen, herauszufinden, welcher Browser Ihre Seite rendert, sondern stattdessen überprüfen, ob die spezifische Funktion, die Sie benötigen, verfügbar ist. Wenn dies nicht der Fall ist, verwenden Sie einen Fallback. In den seltenen Fällen, in denen das Verhalten zwischen Browsern unterschiedlich ist, sollten Sie anstatt den User-Agent-String zu überprüfen, einen Test implementieren, um zu erkennen, wie der Browser die API implementiert und wie sie genutzt werden kann. Ein Beispiel für die Funktionsüberprüfung ist das folgende. 2017 [entfernte Chrome die experiment  ansichtenhinter-Unterstützung in regulären Ausdrücken](https://chromestatus.com/feature/5668726032564224), aber kein anderer Browser unterstützte dies. Sie könnten gedacht haben, dies zu tun:
+  - : Die Funktionsüberprüfung bedeutet, dass Sie nicht versuchen, herauszufinden, welcher Browser Ihre Seite rendert, sondern stattdessen überprüfen, ob die spezifische Funktion, die Sie benötigen, verfügbar ist. Wenn dies nicht der Fall ist, verwenden Sie einen Fallback. In den seltenen Fällen, in denen das Verhalten zwischen Browsern unterschiedlich ist, sollten Sie anstatt den User-Agent-String zu überprüfen, einen Test implementieren, um zu erkennen, wie der Browser die API implementiert und wie sie genutzt werden kann. Ein Beispiel für die Funktionsüberprüfung ist das folgende. 2017 [entfernte Chrome die experiment ansichtenhinter-Unterstützung in regulären Ausdrücken](https://chromestatus.com/feature/5668726032564224), aber kein anderer Browser unterstützte dies. Sie könnten gedacht haben, dies zu tun:
 
 ```js
 // This code snippet splits a string in a special notation
@@ -131,14 +131,14 @@ Versuchen Sie auch, weniger relevante/wichtige Informationen nach unten zu versc
 Als nächstes sollte Ihr Code immer dynamisch sein.
 Der Benutzer kann sein Mobilgerät auf die Seite kippen und die Seitenbreite und -höhe ändern.
 Oder es könnte in der Zukunft ein seltsames klapphandyartiges Geräte-Ding geben, aufklappen
- das die Bildschirmgröße vergrößert.
+das die Bildschirmgröße vergrößert.
 Seien Sie nie der Entwickler, der Kopfschmerzen damit hat, wie man mit dem klapphandyartigen Geräte-Ding umgeht.
 Seien Sie nie mit Ihrer Webseite zufrieden, bis Sie das Entwicklerwerkzeuge-Seitenfenster öffnen und den Bildschirm in der Größe ändern können, während die Webseite glatt, flüssig und dynamisch anpassbar aussieht.
 Der einfachste Weg, dies zu tun, besteht darin, den gesamten Code, der Inhalte basierend auf der Bildschirmgröße verschiebt, in einer einzelnen Funktion zu trennen, die beim Laden der Seite und bei jedem [resize](/de/docs/Web/API/Window/resize_event)-Ereignis danach aufgerufen wird. Wenn durch diese Lay Funktion vor ihrer Bestimmung des neuen Layouts der Seite viel berechnet wird, sollte man die Ereignislistener durch {{Glossary("debounce", "Entprellung")}} anpassen, dass sie nicht so häufig aufgerufen werden.
-Beachten Sie auch, dass es einen großen Unterschied zwischen den Mediensuchanfragen `( max-width: 25em)` , `not all and ( min-width: 25em)` und `max-width: 24.99em`:  `(max-width: 25em)` schließt `(max-width: 25em)` aus, während `not all and ( min-width: 25em)` `(max-width: 25em)` enthält.
+Beachten Sie auch, dass es einen großen Unterschied zwischen den Mediensuchanfragen `( max-width: 25em)` , `not all and ( min-width: 25em)` und `max-width: 24.99em`: `(max-width: 25em)` schließt `(max-width: 25em)` aus, während `not all and ( min-width: 25em)` `(max-width: 25em)` enthält.
 `(max-width: 24.99em)` ist eine billigere Version von `not all and ( min-width: 25em)`: Verwenden Sie nicht `(max-width: 24.99em)`, weil das Layout _möglicherweise_ auf sehr hohen Schriftgrößen auf sehr hochauflösenden Geräten in der Zukunft bricht.
- Seien Sie immer sehr vorsichtig bei der Wahl der richtigen Medienabfrage und der Wahl des richtigen `>= , <= , > ` oder `<` in jedem entsprechenden JavaScript, weil es sehr leicht ist, diese durcheinanderzubringen, was dazu führt, dass die Webseite genau bei der Bildschirmgröße, bei der sich das Layout ändert, unordentlich aussieht.
- Testen Sie die Webseite also gründlich bei den exakten Breiten/Höhen, bei denen Layoutänderungen auftreten, um sicherzustellen, dass die Layoutänderungen ordnungsgemäß stattfinden.
+Seien Sie immer sehr vorsichtig bei der Wahl der richtigen Medienabfrage und der Wahl des richtigen `>= , <= , > ` oder `<` in jedem entsprechenden JavaScript, weil es sehr leicht ist, diese durcheinanderzubringen, was dazu führt, dass die Webseite genau bei der Bildschirmgröße, bei der sich das Layout ändert, unordentlich aussieht.
+Testen Sie die Webseite also gründlich bei den exakten Breiten/Höhen, bei denen Layoutänderungen auftreten, um sicherzustellen, dass die Layoutänderungen ordnungsgemäß stattfinden.
 
 ## Das Beste aus dem User-Agent-Sniffing machen
 
@@ -217,15 +217,15 @@ Die meisten Browser setzen den Namen und die Version im Format _BrowserName/Vers
 
 Achten Sie auch darauf, keine einfachen regulären Ausdrücke für den Browsernamen zu verwenden, User-Agents enthalten auch außerhalb der Keyword/Wert-Syntax Zeichenfolgen. Safari & Chrome enthalten beispielsweise die Zeichenfolge 'like Gecko'.
 
-| Browsername                     | Muss enthalten    | Darf nicht enthalten            |
-| ------------------------------- | ----------------- | ------------------------------- |
-| Firefox                         | `Firefox/xyz`     | `Seamonkey/xyz`                 |
-| Seamonkey                       | `Seamonkey/xyz`   |                                 |
-| Chrome                          | `Chrome/xyz`      | `Chromium/xyz` oder `Edg.*/xyz` |
-| Chromium                        | `Chromium/xyz`    |                                 |
-| Safari                          | `Safari/xyz`      | `Chrome/xyz` oder `Chromium/xyz`|
-| Opera 15+ (Blink-basiert)       | `OPR/xyz`         |                                 |
-| Opera 12- (Presto-basiert)      | `Opera/xyz`       |                                 |
+| Browsername                | Muss enthalten  | Darf nicht enthalten             |
+| -------------------------- | --------------- | -------------------------------- |
+| Firefox                    | `Firefox/xyz`   | `Seamonkey/xyz`                  |
+| Seamonkey                  | `Seamonkey/xyz` |                                  |
+| Chrome                     | `Chrome/xyz`    | `Chromium/xyz` oder `Edg.*/xyz`  |
+| Chromium                   | `Chromium/xyz`  |                                  |
+| Safari                     | `Safari/xyz`    | `Chrome/xyz` oder `Chromium/xyz` |
+| Opera 15+ (Blink-basiert)  | `OPR/xyz`       |                                  |
+| Opera 12- (Presto-basiert) | `Opera/xyz`     |                                  |
 
 \[1] Safari gibt zwei Versionsnummern: eine technische in dem `Safari/xyz` Token und eine benutzerfreundliche in einem `Version/xyz` Token.
 
@@ -237,13 +237,13 @@ Wie bereits gesehen, ist es in den meisten Fällen besser, nach der Rendering-En
 
 Es gibt drei aktive Haupt-Rendering-Engines: Blink, Gecko und WebKit. Da das Aufspüren der Namen von Rendering-Engines üblich ist, haben viele User-Agents andere Rendering-Namen hinzugefügt, um die Erkennung auszulösen. Es ist daher wichtig, darauf zu achten, keine falsch positiven Ergebnisse zu erzeugen, wenn die Rendering-Engine erkannt wird.
 
-| Engine    | Muss enthalten       | Kommentar                                                                                                                                                                                       |
-| --------- | ---------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Blink     | `Chrome/xyz`         |                                                                                                                                                                                                 |
-| Gecko     | `Gecko/xyz`          |                                                                                                                                                                                                 |
-| WebKit    | `AppleWebKit/xyz`    | Achtung, WebKit-Browser fügen einen 'like Gecko'-String hinzu, der möglicherweise falsche positive Ergebnisse für Gecko auslöst, wenn die Erkennung nicht sorgfältig erfolgt.                    |
-| Presto    | `Opera/xyz`          | Obsolet; Presto wird nicht mehr in Opera-Browser-Builds >= Version 15 verwendet (siehe 'Blink')                                                                                                 |
-| EdgeHTML  | `Edge/xyz`           | Das nicht-Chromium Edge setzt seine Engine-Version nach dem _Edge/_ Token, nicht die Anwendungs-Version. Obsolet; EdgeHTML wird nicht mehr in Edge-Browser-Builds >= Version 79 verwendet (siehe 'Blink').|
+| Engine   | Muss enthalten    | Kommentar                                                                                                                                                                                                  |
+| -------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Blink    | `Chrome/xyz`      |                                                                                                                                                                                                            |
+| Gecko    | `Gecko/xyz`       |                                                                                                                                                                                                            |
+| WebKit   | `AppleWebKit/xyz` | Achtung, WebKit-Browser fügen einen 'like Gecko'-String hinzu, der möglicherweise falsche positive Ergebnisse für Gecko auslöst, wenn die Erkennung nicht sorgfältig erfolgt.                              |
+| Presto   | `Opera/xyz`       | Obsolet; Presto wird nicht mehr in Opera-Browser-Builds >= Version 15 verwendet (siehe 'Blink')                                                                                                            |
+| EdgeHTML | `Edge/xyz`        | Das nicht-Chromium Edge setzt seine Engine-Version nach dem _Edge/_ Token, nicht die Anwendungs-Version. Obsolet; EdgeHTML wird nicht mehr in Edge-Browser-Builds >= Version 79 verwendet (siehe 'Blink'). |
 
 ## Rendering-Engine-Version
 
@@ -264,13 +264,13 @@ Der häufigste Grund für die Durchführung von User-Agent-Sniffing ist die Best
 
 Die folgende Tabelle fasst zusammen, wie gängige Browseranbieter anzeigen, dass ihre Browser auf einem mobilen Gerät laufen:
 
-| Browser                                                           | Regel                                                | Beispiel                                                                                                                                                             |
-| ----------------------------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Mozilla (Gecko, Firefox)                                          | `Mobile` oder `Tablet` innerhalb des Kommentars.     | `Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0`                                                                                                     |
-| WebKit-basiert (Android, Safari)                                  | `Mobile Safari`-Token außerhalb des Kommentars.      | `Mozilla/5.0 (Linux; U; Android 4.0.3; de-ch; HTC Sensation Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`                    |
-| Blink-basiert (Chromium, Google Chrome, Opera 15+, Edge auf Android)| `Mobile Safari`-Token außerhalb des Kommentars.      | `Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047`       |
-| Presto-basiert (Opera 12-)                                        | `Opera Mobi/xyz`-Token innerhalb des Kommentars.     | `Opera/9.80 (Android 2.3.3; Linux; Opera Mobi/ADR-1111101157; U; es-ES) Presto/2.9.201 Version/11.50`                                                                 |
-| Edge auf Windows 10 Mobile                                        | `Mobile/xyz` und `Edge/` Tokens außerhalb des Kommentars. | `Mozilla/5.0 (Windows Phone 10.0; Android 6.0.1; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Mobile Safari/537.36 Edge/16.16299`      |
+| Browser                                                              | Regel                                                     | Beispiel                                                                                                                                                         |
+| -------------------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Mozilla (Gecko, Firefox)                                             | `Mobile` oder `Tablet` innerhalb des Kommentars.          | `Mozilla/5.0 (Android; Mobile; rv:13.0) Gecko/13.0 Firefox/13.0`                                                                                                 |
+| WebKit-basiert (Android, Safari)                                     | `Mobile Safari`-Token außerhalb des Kommentars.           | `Mozilla/5.0 (Linux; U; Android 4.0.3; de-ch; HTC Sensation Build/IML74K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30`               |
+| Blink-basiert (Chromium, Google Chrome, Opera 15+, Edge auf Android) | `Mobile Safari`-Token außerhalb des Kommentars.           | `Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.117 Mobile Safari/537.36 OPR/20.0.1396.72047`  |
+| Presto-basiert (Opera 12-)                                           | `Opera Mobi/xyz`-Token innerhalb des Kommentars.          | `Opera/9.80 (Android 2.3.3; Linux; Opera Mobi/ADR-1111101157; U; es-ES) Presto/2.9.201 Version/11.50`                                                            |
+| Edge auf Windows 10 Mobile                                           | `Mobile/xyz` und `Edge/` Tokens außerhalb des Kommentars. | `Mozilla/5.0 (Windows Phone 10.0; Android 6.0.1; Xbox; Xbox One) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Mobile Safari/537.36 Edge/16.16299` |
 
 Zusammengefasst empfehlen wir, überall im User-Agent nach dem String `Mobi` zu suchen, um ein mobiles Gerät zu erkennen.
 

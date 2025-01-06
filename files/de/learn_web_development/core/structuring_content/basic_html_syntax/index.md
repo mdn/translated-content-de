@@ -712,13 +712,13 @@ In HTML sind die Zeichen `<`, `>`, `"`, `'`, und `&` Sonderzeichen. Sie sind Tei
 
 Sie machen dies mit {{Glossary("character_reference", "Zeichenreferenzen")}}. Dies sind spezielle Codes, die Zeichen darstellen sollen, die genau in diesen Situationen verwendet werden sollen. Jede Zeichenreferenz beginnt mit einem Ampersand (&) und endet mit einem Semikolon (;).
 
-| Literalzeichen  | Entsprechende Zeichenreferenz |
-| ----------------| ------------------------------|
-| <               | `&lt;`                        |
-| >               | `&gt;`                        |
-| "               | `&quot;`                      |
-| '               | `&apos;`                      |
-| &               | `&amp;`                       |
+| Literalzeichen | Entsprechende Zeichenreferenz |
+| -------------- | ----------------------------- |
+| <              | `&lt;`                        |
+| >              | `&gt;`                        |
+| "              | `&quot;`                      |
+| '              | `&apos;`                      |
+| &              | `&amp;`                       |
 
 Die entsprechenden Zeichenreferenzen sind leicht zu merken, da der Text, den sie verwenden, als weniger als für `&lt;`, als Zitat für `&quot;` und ähnlich für andere gesehen werden kann. Um mehr über Entitätsreferenzen zu erfahren, siehe [Liste von XML- und HTML-Zeichenentitätsreferenzen](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references) (Wikipedia).
 

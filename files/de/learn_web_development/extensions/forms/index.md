@@ -66,7 +66,7 @@ Die folgenden Artikel sind nicht im Lernpfad enthalten, aber sie sind interessan
 ## Siehe auch
 
 - [HTML Formular-Elementreferenz](/de/docs/Web/HTML/Element#forms)
-- [HTML \<input>-Typenreferenz](/de/docs/Web/HTML/Element/input)
+- [HTML `<input>`-Typenreferenz](/de/docs/Web/HTML/Element/input)
 - [HTML-Attribut-Referenz](/de/docs/Web/HTML/Attributes)
 - [Benutzereingabemethoden und Steuerungen](/de/docs/Learn_web_development/Extensions/Forms/User_input_methods)
 

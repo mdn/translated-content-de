@@ -751,7 +751,7 @@ Schließlich starten wir den _gunicorn_ Prozess, einem beliebten Webanwendungsse
 
 Sie werden feststellen, dass wir das Projekt bereits so eingerichtet haben, dass es _gunicorn_ unterstützt und die Bereitstellung statischer Dateien unterstützt!
 
-Sie können die Procfile auch verwenden, um Worke 
+Sie können die Procfile auch verwenden, um Worke
 
 #### Runtime
 
