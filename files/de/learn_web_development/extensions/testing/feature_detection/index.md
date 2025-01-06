@@ -168,7 +168,7 @@ Gängige Muster für nachweisbare Funktionen umfassen:
 
 - Beibehaltung eines zugewiesenen Eigenschaftswertes durch ein Element
 
-  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement), setzen Sie eine Eigenschaft auf einen bestimmten Wert und prüfen Sie dann, ob der Wert erhalten bleibt. Siehe den Funktionstest in [Dive into HTML \<input> type detection](https://diveinto.html5doctor.com/detect.html#input-types) für ein Beispiel dieses Musters.
+  - : Erstellen Sie ein Element im Speicher mit [`Document.createElement()`](/de/docs/Web/API/Document/createElement), setzen Sie eine Eigenschaft auf einen bestimmten Wert und prüfen Sie dann, ob der Wert erhalten bleibt. Siehe den Funktionstest in [Dive into HTML `<input>` type detection](https://diveinto.html5doctor.com/detect.html#input-types) für ein Beispiel dieses Musters.
 
 Beachten Sie, dass einige Funktionen jedoch als nicht nachweisbar bekannt sind. In diesen Fällen müssen Sie einen anderen Ansatz verwenden, wie z.B. ein {{Glossary("Polyfill", "Polyfill")}} zu verwenden.
 

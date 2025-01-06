@@ -271,7 +271,7 @@ Zu den besten Informationsquellen gehören das Mozilla Developer Network (wo Sie
 
 Um das Mozilla Developer Network (MDN) zu nutzen, führen die meisten Leute eine Suchmaschine nach der Technologie aus, über die sie Informationen suchen möchten, plus den Begriff "mdn", zum Beispiel "mdn HTML video". MDN enthält mehrere nützliche Arten von Inhalten:
 
-- Referenzmaterial mit Browserunterstützungsinformationen für clientseitige Webtechnologien, z.B. die [\<video> Referenzseite](/de/docs/Web/HTML/Element/video).
+- Referenzmaterial mit Browserunterstützungsinformationen für clientseitige Webtechnologien, z.B. die [`<video>` Referenzseite](/de/docs/Web/HTML/Element/video).
 - Weitere unterstützende Referenzmaterialien, zum Beispiel unser [Leitfaden zu Medientypen und Formaten im Web](/de/docs/Web/Media/Formats),
 - Nützliche Tutorials, die spezifische Probleme lösen, zum Beispiel [Erstellung eines plattformübergreifenden Videoplayers](/de/docs/Web/Media/Audio_and_video_delivery/cross_browser_video_player).
 

@@ -17,7 +17,7 @@ HTML ist von Natur aus schnell und zugänglich. Es ist unsere Aufgabe als Entwic
         <a
           href="/de/docs/Learn_web_development/Getting_started/Environment_setup/Installing_software"
           >Grundlegende Software installiert</a
-        > und grundlegendes Wissen über 
+        > und grundlegendes Wissen über
         <a href="/de/docs/Learn_web_development/Getting_started/Your_first_website"
           >clientseitige Webtechnologien</a
         >.

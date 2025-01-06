@@ -137,17 +137,17 @@ Die folgenden Methoden erstellen immer neue Arrays mit dem `Array` Basis-Konstru
 
 Die folgende Tabelle listet die Methoden auf, die das ursprüngliche Array verändern, und die entsprechenden nicht-verändernden Alternativen:
 
-| Mutierende Methode                              | Nicht-mutierende Alternative                                |
-| ---------------------------------------------- | ----------------------------------------------------------- |
-| {{jsxref("Array/copyWithin", "copyWithin()")}} | Keine Ein-Methode-Alternative                                 |
-| {{jsxref("Array/fill", "fill()")}}             | Keine Ein-Methode-Alternative                                 |
-| {{jsxref("Array/pop", "pop()")}}               | {{jsxref("Array/slice", "slice(0, -1)")}}                   |
-| {{jsxref("Array/push", "push(v1, v2)")}}       | {{jsxref("Array/concat", "concat([v1, v2])")}}              |
-| {{jsxref("Array/reverse", "reverse()")}}       | {{jsxref("Array/toReversed", "toReversed()")}}              |
-| {{jsxref("Array/shift", "shift()")}}           | {{jsxref("Array/slice", "slice(1)")}}                       |
-| {{jsxref("Array/sort", "sort()")}}             | {{jsxref("Array/toSorted", "toSorted()")}}                  |
-| {{jsxref("Array/splice", "splice()")}}         | {{jsxref("Array/toSpliced", "toSpliced()")}}                |
-| {{jsxref("Array/unshift", "unshift(v1, v2)")}} | {{jsxref("Array/toSpliced", "toSpliced(0, 0, v1, v2)")}}    |
+| Mutierende Methode                             | Nicht-mutierende Alternative                             |
+| ---------------------------------------------- | -------------------------------------------------------- |
+| {{jsxref("Array/copyWithin", "copyWithin()")}} | Keine Ein-Methode-Alternative                            |
+| {{jsxref("Array/fill", "fill()")}}             | Keine Ein-Methode-Alternative                            |
+| {{jsxref("Array/pop", "pop()")}}               | {{jsxref("Array/slice", "slice(0, -1)")}}                |
+| {{jsxref("Array/push", "push(v1, v2)")}}       | {{jsxref("Array/concat", "concat([v1, v2])")}}           |
+| {{jsxref("Array/reverse", "reverse()")}}       | {{jsxref("Array/toReversed", "toReversed()")}}           |
+| {{jsxref("Array/shift", "shift()")}}           | {{jsxref("Array/slice", "slice(1)")}}                    |
+| {{jsxref("Array/sort", "sort()")}}             | {{jsxref("Array/toSorted", "toSorted()")}}               |
+| {{jsxref("Array/splice", "splice()")}}         | {{jsxref("Array/toSpliced", "toSpliced()")}}             |
+| {{jsxref("Array/unshift", "unshift(v1, v2)")}} | {{jsxref("Array/toSpliced", "toSpliced(0, 0, v1, v2)")}} |
 
 Ein einfacher Weg, um eine mutierende Methode in eine nicht-mutierende Alternative zu ändern, ist die Verwendung der [Spread-Syntax](/de/docs/Web/JavaScript/Reference/Operators/Spread_syntax) oder {{jsxref("Array/slice", "slice()")}}, um zuerst eine Kopie zu erstellen:
 

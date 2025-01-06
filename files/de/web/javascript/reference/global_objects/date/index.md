@@ -155,7 +155,7 @@ Verschiedene Komponenten können ausgelassen werden, sodass Folgendes alles gül
 - Nur-Datum-Form: `YYYY`, `YYYY-MM`, `YYYY-MM-DD`
 - Datums-Zeit-Form: eine der oben genannten Nur-Datum-Formen, gefolgt von `T`, gefolgt von `HH:mm`, `HH:mm:ss`, oder `HH:mm:ss.sss`. Jede Kombination kann von einem Zeitzonen-Offset gefolgt sein.
 
-Zum Beispiel sind `"2011-10-10"` (_Nur-Datum-Form_), `"2011-10-10T14:48:00"` (_Datums-Zeit-Form_) oder `"2011-10-10T14:48:00.000+09:00"` (_Datums-Zeit-Form mit Millisekunden und Zeitzone) alle gültige Datums-Zeit-Zeichenfolgen.
+Zum Beispiel sind `"2011-10-10"` (_Nur-Datum-Form_), `"2011-10-10T14:48:00"` (_Datums-Zeit-Form_) oder `"2011-10-10T14:48:00.000+09:00"` (\_Datums-Zeit-Form mit Millisekunden und Zeitzone) alle gültige Datums-Zeit-Zeichenfolgen.
 
 Wenn der Zeitzonen-Offset fehlt, **werden Nur-Datum-Formen als UTC-Zeit interpretiert und Datums-Zeit-Formen als lokale Zeit interpretiert.** Die Interpretation als UTC-Zeit ist auf einen historischen Spezifikationsfehler zurückzuführen, der mit ISO 8601 nicht konsistent war, aber aufgrund der Web-Kompatibilität nicht geändert werden konnte. Siehe [Fehlerhafter Parser – Ein Problem der Web-Realität](https://maggiepint.com/2017/04/11/fixing-javascript-date-web-compatibility-and-reality/).
 

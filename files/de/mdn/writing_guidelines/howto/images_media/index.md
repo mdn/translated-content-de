@@ -137,14 +137,14 @@ Sie benötigen ein Tool zur Aufnahme des Videos. Diese reichen von kostenlos bis
 
 Die folgende Tabelle enthält einige Empfehlungen für gute Starter-Tools:
 
-| Tool                      | OS                    | Kosten | Sind nachträgliche Bearbeitungsfunktionen verfügbar? |
-| ------------------------- | --------------------- | ------ | -------------------------------------------------- |
-| Open Broadcaster Software | macOS, Windows, Linux | Kostenlos | Ja                                               |
-| CamStudio                 | Windows               | Kostenlos | Begrenzt                                         |
-| Camtasia                  | Windows, macOS        | Hoch     | Ja                                               |
-| QuickTime Player          | macOS                 | Kostenlos | Nein, ermöglicht nur einfache Aufnahmen          |
-| ScreenFlow                | macOS                 | Mittel   | Ja                                               |
-| Kazam                     | Linux                 | Kostenlos | Minimal                                         |
+| Tool                      | OS                    | Kosten    | Sind nachträgliche Bearbeitungsfunktionen verfügbar? |
+| ------------------------- | --------------------- | --------- | ---------------------------------------------------- |
+| Open Broadcaster Software | macOS, Windows, Linux | Kostenlos | Ja                                                   |
+| CamStudio                 | Windows               | Kostenlos | Begrenzt                                             |
+| Camtasia                  | Windows, macOS        | Hoch      | Ja                                                   |
+| QuickTime Player          | macOS                 | Kostenlos | Nein, ermöglicht nur einfache Aufnahmen              |
+| ScreenFlow                | macOS                 | Mittel    | Ja                                                   |
+| Kazam                     | Linux                 | Kostenlos | Minimal                                              |
 
 ### QuickTime Player Tipps
 

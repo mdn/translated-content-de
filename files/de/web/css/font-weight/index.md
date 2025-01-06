@@ -148,18 +148,18 @@ Beachten Sie, dass bei der Verwendung relativer Gewichte nur vier Schriftstärke
 
 Die numerischen Werte `100` bis `900` entsprechen in etwa den folgenden gebräuchlichen Gewichtsnamen (siehe die [OpenType-Spezifikation](https://learn.microsoft.com/en-us/typography/opentype/spec/os2#usweightclass)):
 
-| Wert  | Allgemeiner Gewichtname                                                                                                                |
-| ----- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| 100   | Dünn (Haarlinie)                                                                                                                    |
-| 200   | Extra Light (Ultra Light)                                                                                                           |
-| 300   | Light                                                                                                                               |
-| 400   | Normal (Regulär)                                                                                                                    |
-| 500   | Medium                                                                                                                              |
-| 600   | Semi Bold (Demi Bold)                                                                                                               |
-| 700   | Fett                                                                                                                                |
-| 800   | Extra Bold (Ultra Bold)                                                                                                             |
-| 900   | Schwarz (Schwer)                                                                                                                    |
-| 950   | [Extra Schwarz (Ultra Schwarz)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks) |
+| Wert | Allgemeiner Gewichtname                                                                                                                |
+| ---- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| 100  | Dünn (Haarlinie)                                                                                                                       |
+| 200  | Extra Light (Ultra Light)                                                                                                              |
+| 300  | Light                                                                                                                                  |
+| 400  | Normal (Regulär)                                                                                                                       |
+| 500  | Medium                                                                                                                                 |
+| 600  | Semi Bold (Demi Bold)                                                                                                                  |
+| 700  | Fett                                                                                                                                   |
+| 800  | Extra Bold (Ultra Bold)                                                                                                                |
+| 900  | Schwarz (Schwer)                                                                                                                       |
+| 950  | [Extra Schwarz (Ultra Schwarz)](https://learn.microsoft.com/en-us/dotnet/api/system.windows.fontweights?view=netframework-4.8#remarks) |
 
 ### Variable Schriften
 

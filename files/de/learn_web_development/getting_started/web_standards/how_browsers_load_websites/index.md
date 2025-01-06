@@ -48,7 +48,7 @@ In diesem Artikel besprechen wir den Renderprozess einer Website – wenn ein Br
 
 Einige heruntergeladene Code-Dateien werden statisch sein (sie existieren auf dem Server in der gleichen Form, wie sie heruntergeladen werden), und einige werden dynamisch sein (vom Server basierend auf variierenden Daten generiert).
 
-## Wie Dateien zusammengefügt werden, um ein Webdokument im Browser darzustellen 
+## Wie Dateien zusammengefügt werden, um ein Webdokument im Browser darzustellen
 
 - Eine Webseite wird angefordert (z.B. durch Klicken auf einen Link).
 - Ein DNS-Lookup wird durchgeführt, um den Standort aller Ressourcen zu finden, die für die Webseite heruntergeladen werden müssen.

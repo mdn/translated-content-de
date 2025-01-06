@@ -65,7 +65,7 @@ Der Artikel [Erweitertes Formular-Styling](/de/docs/Learn_web_development/Extens
 - Elemente, die an der Erstellung von Dropdown-Widgets beteiligt sind, darunter {{HTMLElement("select")}}, {{HTMLElement("option")}}, {{HTMLElement("optgroup")}} und {{HTMLElement("datalist")}}.
 - {{HTMLElement("progress")}} und {{HTMLElement("meter")}}
 
-Beispielsweise können der Datumsauswahlkalender und die Schaltfläche auf \<select>, die eine Optionsliste anzeigt, wenn sie angeklickt wird, nicht allein mit CSS gestylt werden.
+Beispielsweise können der Datumsauswahlkalender und die Schaltfläche auf `<select>`, die eine Optionsliste anzeigt, wenn sie angeklickt wird, nicht allein mit CSS gestylt werden.
 
 Die Artikel [Erweitertes Formular-Styling](/de/docs/Learn_web_development/Extensions/Forms/Advanced_form_styling) und [Anleitung zum Erstellen benutzerdefinierter Formularelemente](/de/docs/Learn_web_development/Extensions/Forms/How_to_build_custom_form_controls) beschreiben, wie diese gestylt werden.
 

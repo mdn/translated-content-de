@@ -38,8 +38,7 @@ Cross-Browser-Testing ist die Praxis, sicherzustellen, dass eine Website auf ver
 
 Denken Sie daran, dass Sie nicht Ihre Benutzer sind - nur weil Ihre Seite auf Ihrem MacBook Pro oder Ihrem High-End Galaxy Nexus funktioniert, bedeutet das nicht, dass sie für alle Ihre Benutzer funktioniert!
 
-> [!NOTE] 
-> [Machen Sie das Web für alle zugänglich](https://hacks.mozilla.org/2016/07/make-the-web-work-for-everyone/) diskutiert die verschiedenen Browser, ihre Marktanteile und damit verbundene Cross-Browser-Kompatibilitätsprobleme.
+> [!NOTE] > [Machen Sie das Web für alle zugänglich](https://hacks.mozilla.org/2016/07/make-the-web-work-for-everyone/) diskutiert die verschiedenen Browser, ihre Marktanteile und damit verbundene Cross-Browser-Kompatibilitätsprobleme.
 
 Websites sollten auf verschiedenen Browsern und Geräten zugänglich sein und für Menschen mit Behinderungen (z.B. Screenreader-freundlich) funktionieren. Eine Seite muss nicht überall die exakt gleiche Erfahrung bieten, solange die Kernfunktionalität auf irgendeine Weise zugänglich ist. Ein moderner Browser könnte etwas Animiertes, 3D und Glänzendes anzeigen, während ältere Browser einfach eine flache Grafik mit denselben Informationen zeigen könnten.
 

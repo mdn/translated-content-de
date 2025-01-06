@@ -180,12 +180,12 @@ Falls Sie es noch nicht getan haben, speichern Sie Ihren Code, aktualisieren Sie
 
 Zuerst lassen Sie uns die arithmetischen Operatoren ansehen, zum Beispiel:
 
-| Operator | Name             | Beispiel  |
-| -------- | ---------------- | --------- |
-| `+`      | Addition         | `6 + 9`   |
-| `-`      | Subtraktion      | `20 - 15` |
-| `*`      | Multiplikation   | `3 * 7`   |
-| `/`      | Division         | `10 / 5`  |
+| Operator | Name           | Beispiel  |
+| -------- | -------------- | --------- |
+| `+`      | Addition       | `6 + 9`   |
+| `-`      | Subtraktion    | `20 - 15` |
+| `*`      | Multiplikation | `3 * 7`   |
+| `/`      | Division       | `10 / 5`  |
 
 Es gibt auch einige Abkürzungsoperatoren, die sogenannten [Compound Assignment Operators](/de/docs/Web/JavaScript/Reference/Operators#assignment_operators). Wenn Sie zum Beispiel eine neue Zahl zu einer bestehenden hinzufügen und das Ergebnis zurückgeben möchten, könnten Sie das so tun:
 

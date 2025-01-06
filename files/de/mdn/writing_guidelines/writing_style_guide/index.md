@@ -209,15 +209,15 @@ Eine Abkürzung ist eine verkürzte Version eines längeren Wortes, während ein
 
   Die folgende Tabelle fasst die Bedeutungen und englischen Äquivalente der lateinischen Abkürzungen zusammen:
 
-  | Abkürzung | Latein            | Englisch                    |
-  | --------- | ----------------- | --------------------------- |
-  | cf.       | _confer_          | vergleichen                 |
-  | e.g.      | _exempli gratia_  | zum Beispiel                |
-  | et al.    | _et alii_         | und andere                  |
-  | etc.      | _et cetera_       | und so weiter, und so fort  |
-  | i.e.      | _id est_          | das heißt, mit anderen Worten |
-  | N.B.      | _nota bene_       | merke wohl                  |
-  | P.S.      | _post scriptum_   | Nachschrift                |
+  | Abkürzung | Latein           | Englisch                      |
+  | --------- | ---------------- | ----------------------------- |
+  | cf.       | _confer_         | vergleichen                   |
+  | e.g.      | _exempli gratia_ | zum Beispiel                  |
+  | et al.    | _et alii_        | und andere                    |
+  | etc.      | _et cetera_      | und so weiter, und so fort    |
+  | i.e.      | _id est_         | das heißt, mit anderen Worten |
+  | N.B.      | _nota bene_      | merke wohl                    |
+  | P.S.      | _post scriptum_  | Nachschrift                   |
 
   > [!NOTE]
   > Überlegen Sie immer, ob es wirklich nützlich ist, eine lateinische Abkürzung zu verwenden. Einige davon werden so selten benutzt, dass viele Leser entweder verwirrt sind oder ihre Bedeutungen nicht verstehen.

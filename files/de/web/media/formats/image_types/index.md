@@ -487,7 +487,7 @@ GIF unterstützt einfache Animationen, bei denen nach einem anfänglichen vollst
 
 GIF war über Jahrzehnte extrem populär, dank seiner Einfachheit und Kompatibilität. Die Unterstützung für Animation führte in der Ära der sozialen Medien zu einer Wiederbelebung seiner Beliebtheit, als animierte GIFs weit verbreitet als kurze „Videos“, Memes und andere einfache Animationssequenzen verwendet wurden.
 
-Ein weiteres beliebtes Merkmal von GIF ist die Unterstützung von [Interlacing](https://en.wikipedia.org/wiki/Interlacing_(bitmaps)), bei dem Pixelzeilen aus der Reihenfolge gespeichert werden, sodass nur teilweise empfangene Dateien in niedrigerer Qualität angezeigt werden können. Dies ist besonders nützlich, wenn Netzwerkverbindungen langsam sind.
+Ein weiteres beliebtes Merkmal von GIF ist die Unterstützung von [Interlacing](<https://en.wikipedia.org/wiki/Interlacing_(bitmaps)>), bei dem Pixelzeilen aus der Reihenfolge gespeichert werden, sodass nur teilweise empfangene Dateien in niedrigerer Qualität angezeigt werden können. Dies ist besonders nützlich, wenn Netzwerkverbindungen langsam sind.
 
 GIF ist eine gute Wahl für einfache Bilder und Animationen, obwohl das Umwandeln von Vollfarbbildern in GIF zu unbefriedigendem Dithering führen kann. Typischerweise sollte moderner Inhalt [PNG](#png_portable_network_graphics) für verlustfreie _und_ indizierte Standbilder verwenden und [APNG](#apng_animated_portable_network_graphics) für verlustfreie Animationssequenzen in Betracht ziehen.
 
@@ -978,15 +978,15 @@ TIFF unterstützt eine Vielzahl von Komprimierungsmethoden, aber die am häufigs
 
 Jeder Wert in einer TIFF-Datei wird mit seinem **Tag** (der angibt, um welche Art von Information es sich handelt, z. B. die Breite des Bildes) und seinem **Typ** (der das Format angibt, in dem die Daten gespeichert sind) sowie der Länge des Arrays von Werten, die diesem Tag zugewiesen werden sollen (alle Eigenschaften werden in Arrays gespeichert, auch für einzelne Werte), angegeben. Dies ermöglicht die Verwendung unterschiedlicher Datentypen für dieselben Eigenschaften. Zum Beispiel wird die Breite eines Bildes, `ImageWidth`, mit dem Tag `0x0100` gespeichert und ist ein Array mit einem Eintrag. Durch Angabe des Typs 3 (`SHORT`) wird der Wert von `ImageWidth` als 16-Bit-Wert gespeichert:
 
-| Tag                     | Typ               | Größe                  | Wert                   |
-| ----------------------- | ------------------ | ---------------------- | ---------------------- |
-| `0x0100` (`ImageWidth`) | `0x0003` (`SHORT`) | `0x00000001` (1 Eintrag) | `0x0280` (640 Pixel)   |
+| Tag                     | Typ                | Größe                    | Wert                 |
+| ----------------------- | ------------------ | ------------------------ | -------------------- |
+| `0x0100` (`ImageWidth`) | `0x0003` (`SHORT`) | `0x00000001` (1 Eintrag) | `0x0280` (640 Pixel) |
 
 Die Angabe des Typs 4 (`LONG`) speichert die Breite als 32-Bit-Wert:
 
-| Tag                     | Typ              | Größe                  | Wert                       |
-| ----------------------- | ----------------- | ---------------------- | -------------------------- |
-| `0x0100` (`ImageWidth`) | `0x0004` (`LONG`) | `0x00000001` (1 Eintrag) | `0x00000280` (640 Pixel)   |
+| Tag                     | Typ               | Größe                    | Wert                     |
+| ----------------------- | ----------------- | ------------------------ | ------------------------ |
+| `0x0100` (`ImageWidth`) | `0x0004` (`LONG`) | `0x00000001` (1 Eintrag) | `0x00000280` (640 Pixel) |
 
 Eine einzelne TIFF-Datei kann mehrere Bilder enthalten; dies kann zur Darstellung von mehrseitigen Dokumenten verwendet werden, z. B. (wie ein mehrseitiges gescanntes Dokument oder ein empfangenes Fax). Allerdings sind Programme, die TIFF-Dateien lesen, nur dazu verpflichtet, das erste Bild zu unterstützen.
 

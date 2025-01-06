@@ -280,15 +280,15 @@ Siehe [Creating vertical form controls](/de/docs/Web/CSS/CSS_writing_modes/Verti
     <tr>
       <td><strong><a href="#value">Wert</a></strong></td>
       <td>
-        Ein String, der die String-Darstellung des ausgewählten numerischen Werts enthält; verwenden Sie 
-        [`valueAsNumber`](/de/docs/Web/API/HTMLInputElement/valueAsNumber), 
+        Ein String, der die String-Darstellung des ausgewählten numerischen Werts enthält; verwenden Sie
+        [`valueAsNumber`](/de/docs/Web/API/HTMLInputElement/valueAsNumber),
         um den Wert als Zahl zu erhalten.
       </td>
     </tr>
     <tr>
       <td><strong>Ereignisse</strong></td>
       <td>
-        [`change`](/de/docs/Web/API/HTMLElement/change_event) und 
+        [`change`](/de/docs/Web/API/HTMLElement/change_event) und
         [`input`](/de/docs/Web/API/Element/input_event)
       </td>
     </tr>

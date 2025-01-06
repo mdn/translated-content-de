@@ -73,7 +73,7 @@ Ja, wir erhalten einen Kreis:
 
 ## Hintergründe
 
-Wenn wir von einer schicken Box sprechen, sind die Kerneigenschaften, die das handhaben, die [background-* Eigenschaften](/de/docs/Web/CSS/CSS_backgrounds_and_borders). Wenn Sie anfangen, mit Hintergründen zu experimentieren, wird Ihre CSS-Box zu einer leeren Leinwand, die Sie ausfüllen werden.
+Wenn wir von einer schicken Box sprechen, sind die Kerneigenschaften, die das handhaben, die [background-\* Eigenschaften](/de/docs/Web/CSS/CSS_backgrounds_and_borders). Wenn Sie anfangen, mit Hintergründen zu experimentieren, wird Ihre CSS-Box zu einer leeren Leinwand, die Sie ausfüllen werden.
 
 Bevor wir zu einigen praktischen Beispielen springen, lassen Sie uns einen Schritt zurückgehen, da es zwei Dinge gibt, die Sie über Hintergründe wissen sollten.
 

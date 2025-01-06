@@ -170,8 +170,8 @@ Nachdem Sie TypeScript konfiguriert haben, können Sie es in einer Svelte-Kompon
 > Siehe die [Modulauflösung für Bundler, TypeScript-Laufzeiten und Node.js-Loader](https://www.typescriptlang.org/docs/handbook/modules/theory.html#module-resolution-for-bundlers-typescript-runtimes-and-nodejs-loaders) Sektion des TypeScript-Handbuchs für weitere Informationen.
 
 > [!NOTE]
-> Die Verwendung von TypeScript in Markup-Bereichen von Komponenten wird in Svelte 4, auf dem dieser Leitfaden basiert, nicht unterstützt. 
-> Während Sie JavaScript aus dem Markup verwenden können, müssen Sie TypeScript im `<script lang='ts'>`-Bereich verwenden. 
+> Die Verwendung von TypeScript in Markup-Bereichen von Komponenten wird in Svelte 4, auf dem dieser Leitfaden basiert, nicht unterstützt.
+> Während Sie JavaScript aus dem Markup verwenden können, müssen Sie TypeScript im `<script lang='ts'>`-Bereich verwenden.
 > TypeScript in Komponenten-Markup ist ab Svelte 5 erlaubt.
 
 ## Verbesserte Entwicklererfahrung mit TypeScript
@@ -240,8 +240,8 @@ Wir definieren einen `TodoType` Typ, um zu sehen, wie TypeScript durchsetzt, das
    };
    ```
 
-    > [!NOTE]
-    > Das Svelte Template verwendet [svelte-preprocess](https://github.com/sveltejs/svelte-preprocess) 4.0.0, um TypeScript zu unterstützen. Ab dieser Version müssen Sie die `export`/`import`-Syntax verwenden, um Typen und Schnittstellen zu importieren. Überprüfen Sie [diesen Abschnitt des Fehlerbehebungsleitfadens](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#how-do-i-import-interfaces-into-my-svelte-components-i-get-errors-after-transpilation) für weitere Informationen.
+   > [!NOTE]
+   > Das Svelte Template verwendet [svelte-preprocess](https://github.com/sveltejs/svelte-preprocess) 4.0.0, um TypeScript zu unterstützen. Ab dieser Version müssen Sie die `export`/`import`-Syntax verwenden, um Typen und Schnittstellen zu importieren. Überprüfen Sie [diesen Abschnitt des Fehlerbehebungsleitfadens](https://github.com/sveltejs/language-tools/blob/master/docs/preprocessors/typescript.md#how-do-i-import-interfaces-into-my-svelte-components-i-get-errors-after-transpilation) für weitere Informationen.
 
 4. Nun verwenden wir `TodoType` von unserer `Todo.svelte`-Komponente. Fügen Sie zuerst dem `<script>`-Tag `lang="ts"` hinzu.
 5. Importieren Sie den Typ und verwenden Sie ihn, um die `todo`-Eigenschaft zu deklarieren. Ersetzen Sie die Zeile `export let todo` durch folgende Zeile:
@@ -872,7 +872,7 @@ export class StringStack {
 
 Das würde funktionieren. Aber wenn wir mit Zahlen arbeiten wollten, müssten wir denselben Code duplizieren und eine `NumberStack`-Klasse erstellen. Und wie könnten wir einen Stapel von Typen handhaben, die wir noch nicht kennen und die vom Benutzer definiert werden sollten?
 
-Um all diese Probleme zu  lösen, können wir Generika verwenden.
+Um all diese Probleme zu lösen, können wir Generika verwenden.
 
 Das ist unsere `Stack`-Klasse neu implementiert mit Generics:
 

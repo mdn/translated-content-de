@@ -38,7 +38,7 @@ Alle Kommunikation zwischen Webbrowsern und Servern erfolgt über {{Glossary("HT
 
 Sitzungen sind der Mechanismus, den Django (und der größte Teil des Internets) verwendet, um den "Zustand" zwischen der Seite und einem bestimmten Browser zu verfolgen. Sitzungen ermöglichen es Ihnen, beliebige Daten pro Browser zu speichern und diese Daten der Seite zur Verfügung zu stellen, wann immer der Browser eine Verbindung herstellt. Einzelne Datenpunkte, die mit der Sitzung assoziiert sind, werden dann durch einen "Schlüssel" referenziert, der sowohl zum Speichern als auch zum Abrufen der Daten verwendet wird.
 
-Django verwendet ein Cookie, das eine spezielle _Sitzungs-ID_ enthält, um jeden Browser und seine zugehörige Sitzung mit der Seite zu identifizieren. Die eigentlichen Sitzungs_daten_ werden standardmäßig in der Seitendatenbank gespeichert (dies ist sicherer, als die Daten in einem Cookie zu speichern, wo sie bösartigen Benutzern stärker ausgesetzt sind). Sie können Django so konfigurieren, dass die Sitzungsdaten an anderen Orten (Cache, Dateien, "sichere" Cookies) gespeichert werden, aber der Standardort ist eine gute und relativ sichere Option.
+Django verwendet ein Cookie, das eine spezielle _Sitzungs-ID_ enthält, um jeden Browser und seine zugehörige Sitzung mit der Seite zu identifizieren. Die eigentlichen Sitzungs*daten* werden standardmäßig in der Seitendatenbank gespeichert (dies ist sicherer, als die Daten in einem Cookie zu speichern, wo sie bösartigen Benutzern stärker ausgesetzt sind). Sie können Django so konfigurieren, dass die Sitzungsdaten an anderen Orten (Cache, Dateien, "sichere" Cookies) gespeichert werden, aber der Standardort ist eine gute und relativ sichere Option.
 
 ## Sitzungen aktivieren
 

@@ -61,6 +61,7 @@ Bevor Sie mit diesem Modul beginnen, benötigen Sie keine Vorkenntnisse in JavaS
 - [Netzwerkanfragen mit JavaScript ausführen](/de/docs/Learn_web_development/Core/Scripting/Network_requests)
   - : Eine weitere sehr häufige Aufgabe auf modernen Websites und Anwendungen ist das Stellen von Netzwerkanfragen, um einzelne Datenpunkte vom Server abzurufen, um Abschnitte einer Webseite zu aktualisieren, ohne eine vollständig neue Seite laden zu müssen. Dieses scheinbar kleine Detail hat einen riesigen Einfluss auf die Leistung und das Verhalten von Websites gehabt. In diesem Artikel erklären wir das Konzept und sehen uns die Technologien an, die dies möglich machen.
 - [Arbeiten mit JSON](/de/docs/Learn_web_development/Core/Scripting/JSON)
+
   - : JavaScript Object Notation (JSON) ist ein standardisiertes textbasiertes Format zur Darstellung strukturierter Daten auf der Basis der JavaScript-Objektsyntax. Es wird häufig für die Übertragung von Daten in Webanwendungen verwendet (z. B. das Senden einiger Daten vom Server an den Client, damit sie auf einer Webseite angezeigt werden, oder umgekehrt). Sie werden darauf oft stoßen, deshalb geben wir Ihnen in diesem Artikel alles, was Sie benötigen, um mit JSON in JavaScript zu arbeiten, einschließlich des Parsens von JSON, damit Sie auf die darin enthaltenen Daten zugreifen können, und das Erstellen von JSON.
 
 - [JavaScript debuggen und Fehlerbehandlung](/de/docs/Learn_web_development/Core/Scripting/Debugging_JavaScript)

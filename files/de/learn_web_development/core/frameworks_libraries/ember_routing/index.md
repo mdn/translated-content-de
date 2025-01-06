@@ -94,7 +94,7 @@ mit
 
 Als nächstes können wir in unseren `index.hbs`, `completed.hbs` und `active.hbs` Vorlagen (die sich ebenfalls im Vorlagenverzeichnis befinden) vorerst den Aufruf der TodoList-Komponente einfügen.
 
-In jedem Fall ersetzen Sie 
+In jedem Fall ersetzen Sie
 
 ```hbs
 \{{outlet}}

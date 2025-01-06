@@ -390,14 +390,14 @@ Machen Sie sich keine Sorgen, wenn Sie den Code völlig durcheinander bringen. S
 
 Manchmal möchten wir Wahr/Falsch-Tests durchführen und entsprechend dem Ergebnis dieses Tests handeln — hierzu verwenden wir **Vergleichsoperatoren**.
 
-| Operator | Name                        | Zweck                                                                         | Beispiel       |
-| -------- | --------------------------- | ---------------------------------------------------------------------------- | ------------- |
-| `===`    | Strikte Gleichheit          | Testet, ob die linken und rechten Werte identisch zueinander sind             | `5 === 2 + 4` |
-| `!==`    | Strikte Nicht-Gleichheit    | Testet, ob die linken und rechten Werte **nicht** identisch zueinander sind   | `5 !== 2 + 3` |
-| `<`      | Kleiner als                 | Testet, ob der linke Wert kleiner als der rechte ist.                         | `10 < 6`      |
-| `>`      | Größer als                  | Testet, ob der linke Wert größer als der rechte ist.                          | `10 > 20`     |
-| `<=`     | Kleiner oder gleich         | Testet, ob der linke Wert kleiner oder gleich dem rechten ist.                | `3 <= 2`      |
-| `>=`     | Größer oder gleich          | Testet, ob der linke Wert größer oder gleich dem rechten ist.                 | `5 >= 4`      |
+| Operator | Name                     | Zweck                                                                       | Beispiel      |
+| -------- | ------------------------ | --------------------------------------------------------------------------- | ------------- |
+| `===`    | Strikte Gleichheit       | Testet, ob die linken und rechten Werte identisch zueinander sind           | `5 === 2 + 4` |
+| `!==`    | Strikte Nicht-Gleichheit | Testet, ob die linken und rechten Werte **nicht** identisch zueinander sind | `5 !== 2 + 3` |
+| `<`      | Kleiner als              | Testet, ob der linke Wert kleiner als der rechte ist.                       | `10 < 6`      |
+| `>`      | Größer als               | Testet, ob der linke Wert größer als der rechte ist.                        | `10 > 20`     |
+| `<=`     | Kleiner oder gleich      | Testet, ob der linke Wert kleiner oder gleich dem rechten ist.              | `3 <= 2`      |
+| `>=`     | Größer oder gleich       | Testet, ob der linke Wert größer oder gleich dem rechten ist.               | `5 >= 4`      |
 
 > [!NOTE]
 > Sie werden einige Leute sehen, die `==` und `!=` in ihren Tests für Gleichheit und Ungleichheit verwenden. Dies sind gültige Operatoren in JavaScript, aber sie unterscheiden sich von `===`/`!==`. Die erstgenannten Versionen prüfen, ob die Werte gleich sind, prüfen jedoch nicht, ob die Datentypen der Werte gleich sind. Die letzteren, die strikten Versionen, testen sowohl die Gleichheit der Werte als auch ihrer Datentypen. Die strikten Versionen führen in der Regel zu weniger Fehlern, daher empfehlen wir, diese zu verwenden.

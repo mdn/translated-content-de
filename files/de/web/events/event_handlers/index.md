@@ -5,7 +5,7 @@ l10n:
   sourceCommit: 5b20f5f4265f988f80f513db0e4b35c7e0cd70dc
 ---
 
-Ereignisse sind Signale, die im Browserfenster ausgelöst werden und Änderungen in der Browser- oder Betriebssystemumgebung melden. Programmierer können _Ereignisbehandlungs_­code erstellen, der ausgeführt wird, wenn ein Ereignis ausgelöst wird, sodass Webseiten angemessen auf Änderungen reagieren können.
+Ereignisse sind Signale, die im Browserfenster ausgelöst werden und Änderungen in der Browser- oder Betriebssystemumgebung melden. Programmierer können *Ereignisbehandlungs*­code erstellen, der ausgeführt wird, wenn ein Ereignis ausgelöst wird, sodass Webseiten angemessen auf Änderungen reagieren können.
 
 Diese Seite bietet eine sehr kurze "Erinnerung" daran, wie mit Ereignissen und Ereignisbehandlern gearbeitet wird. Neue Entwickler sollten stattdessen [Einführung in Ereignisse](/de/docs/Learn_web_development/Core/Scripting/Events) lesen.
 

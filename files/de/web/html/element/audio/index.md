@@ -386,7 +386,7 @@ Das folgende Beispiel zeigt die grundlegende Verwendung des `<audio>`-Elements, 
 
 Für Details dazu, wann Autoplay funktioniert, wie man die Erlaubnis dafür erhält und wie und wann Autoplay angemessen verwendet wird, siehe unseren [Leitfaden zur Autoplay-Nutzung](/de/docs/Web/Media/Autoplay_guide).
 
-### \<audio>-Element mit \<source>-Element
+### `<audio>`-Element mit \<source>-Element
 
 Dieses Beispiel gibt an, welcher Audiotrack eingebettet werden soll, indem das `src`-Attribut auf einem geschachtelten `<source>`-Element verwendet wird, anstatt direkt auf dem `<audio>`-Element. Es ist immer nützlich, den MIME-Typ der Datei im `type`-Attribut anzugeben, da der Browser sofort erkennen kann, ob er die Datei abspielen kann, und falls nicht, keine Zeit damit verschwendet.
 
@@ -397,7 +397,7 @@ Dieses Beispiel gibt an, welcher Audiotrack eingebettet werden soll, indem das `
 </audio>
 ```
 
-### \<audio> mit mehreren \<source>-Elementen
+### `<audio>` mit mehreren \<source>-Elementen
 
 Dieses Beispiel umfasst mehrere `<source>`-Elemente. Der Browser versucht, das erste Quell-Element (Opus) zu laden, wenn er es abspielen kann; wenn nicht, wechselt er zum zweiten (Vorbis) und schließlich zurück zu MP3:
 

@@ -74,7 +74,7 @@ Wie oben angedeutet, verfügen Linux/Unix-Systeme standardmäßig über ein Term
 
 #### macOS
 
-macOS verfügt über ein System namens Darwin, das unter der grafischen Benutzeroberfläche sitzt. Darwin ist ein Unix-ähnliches System, das das Terminal und den Zugriff auf die grundlegenden Tools bereitstellt. macOS Darwin hat größtenteils Parität mit Unix, sicherlich gut genug, um uns während dieses Artikels keine Sorgen zu bereiten. 
+macOS verfügt über ein System namens Darwin, das unter der grafischen Benutzeroberfläche sitzt. Darwin ist ein Unix-ähnliches System, das das Terminal und den Zugriff auf die grundlegenden Tools bereitstellt. macOS Darwin hat größtenteils Parität mit Unix, sicherlich gut genug, um uns während dieses Artikels keine Sorgen zu bereiten.
 
 Das Terminal ist auf macOS unter `Programme/Dienstprogramme/Terminal` verfügbar.
 
