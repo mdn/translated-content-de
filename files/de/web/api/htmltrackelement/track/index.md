@@ -1,14 +1,14 @@
 ---
-title: "HTMLTrackElement: track Eigenschaft"
+title: "HTMLTrackElement: track-Eigenschaft"
 short-title: track
 slug: Web/API/HTMLTrackElement/track
 l10n:
-  sourceCommit: 0bf15d029fb052d3b20a2f249d4a6de8e29ea774
+  sourceCommit: 3dd7df0af3b0ada1a7c5784cc2bc5448adcda8af
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die readonly **`track`**-Eigenschaft der [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Schnittstelle gibt ein [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt zurück, das dem Texttrack des {{HTMLElement("track")}}-Elements entspricht.
+Die **`track`**-Eigenschaft der [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Schnittstelle ist schreibgeschützt und gibt ein [`TextTrack`](/de/docs/Web/API/TextTrack)-Objekt zurück, das der Textspur des {{HTMLElement("track")}}-Elements entspricht.
 
 ## Wert
 

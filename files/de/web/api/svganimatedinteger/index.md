@@ -2,16 +2,16 @@
 title: SVGAnimatedInteger
 slug: Web/API/SVGAnimatedInteger
 l10n:
-  sourceCommit: b25d8774aa7bcc6a053e26cf804ad454f51e134b
+  sourceCommit: bc7875d9a6c405e47c6ee166b5acc2174515129f
 ---
 
 {{APIRef("SVG")}}
 
-## SVG-Schnittstelle für animierte Ganzzahlen
+## Schnittstelle für animierte Ganzzahlen in SVG
 
-Die Schnittstelle `SVGAnimatedInteger` wird für Attribute des Basisdatentyps [\<integer>](/de/docs/Web/SVG/Content_type#integer) verwendet, die animiert werden können.
+Die `SVGAnimatedInteger`-Schnittstelle wird für Attribute des Basistyps [\<integer>](/de/docs/Web/SVG/Content_type#integer) verwendet, die animiert werden können.
 
-### Schnittstellenübersicht
+### Übersicht der Schnittstelle
 
 <table class="no-markdown">
   <tbody>
@@ -27,7 +27,7 @@ Die Schnittstelle `SVGAnimatedInteger` wird für Attribute des Basisdatentyps [\
       <th scope="row">Eigenschaften</th>
       <td>
         <ul>
-          <li>readonly long <code>baseVal</code></li>
+          <li>long <code>baseVal</code></li>
           <li>readonly long <code>animVal</code></li>
         </ul>
       </td>
@@ -56,17 +56,17 @@ Die Schnittstelle `SVGAnimatedInteger` wird für Attribute des Basisdatentyps [\
   </thead>
   <tbody>
     <tr>
-      <td><code>baseVal</code></td>
+      <td><code>[`baseVal`](/de/docs/Web/API/SVGAnimatedInteger/baseVal)</code></td>
       <td>long</td>
       <td>
-        Der Basiswert des gegebenen Attributs vor der Anwendung von Animationen.
+        Der Grundwert des angegebenen Attributs vor Anwendung von Animationen.
       </td>
     </tr>
     <tr>
-      <td><code>animVal</code></td>
+      <td><code>[`animVal`](/de/docs/Web/API/SVGAnimatedInteger/animVal)</code></td>
       <td>long</td>
       <td>
-        Wenn das gegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das gegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
+        Wenn das angegebene Attribut oder die Eigenschaft animiert wird, enthält es den aktuellen animierten Wert des Attributs oder der Eigenschaft. Wenn das angegebene Attribut oder die Eigenschaft derzeit nicht animiert wird, enthält es denselben Wert wie <code>baseVal</code>.
       </td>
     </tr>
   </tbody>
@@ -74,7 +74,7 @@ Die Schnittstelle `SVGAnimatedInteger` wird für Attribute des Basisdatentyps [\
 
 ## Instanzmethoden
 
-Die Schnittstelle `SVGAnimatedInteger` stellt keine spezifischen Methoden bereit.
+Die `SVGAnimatedInteger`-Schnittstelle bietet keine spezifischen Methoden.
 
 ## Spezifikationen
 

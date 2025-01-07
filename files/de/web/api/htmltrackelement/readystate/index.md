@@ -3,17 +3,17 @@ title: "HTMLTrackElement: readyState-Eigenschaft"
 short-title: readyState
 slug: Web/API/HTMLTrackElement/readyState
 l10n:
-  sourceCommit: 0bf15d029fb052d3b20a2f249d4a6de8e29ea774
+  sourceCommit: 3dd7df0af3b0ada1a7c5784cc2bc5448adcda8af
 ---
 
 {{APIRef("HTML DOM")}}
 
-Die schreibgeschützte **`readyState`**-Eigenschaft des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Interfaces gibt eine Zahl zurück, die den Bereitstellungsstatus des Text-Tracks des {{HTMLElement("track")}}-Elements repräsentiert:
+Die schreibgeschützte Eigenschaft **`readyState`** des [`HTMLTrackElement`](/de/docs/Web/API/HTMLTrackElement)-Interfaces gibt eine Zahl zurück, die den Bereitschaftszustand der Textspur des {{HTMLElement("track")}}-Elements darstellt:
 
-0. NONE: Der Zustand, in dem der Text-Track nicht geladen ist.
-1. LOADING: Der Zustand, in dem der Text-Track geladen wird.
-2. LOADED: Der Zustand, in dem der Text-Track geladen wurde.
-3. ERROR: Der Zustand, in dem der Text-Track nicht geladen werden konnte.
+0. NONE: Der Zustand der nicht geladenen Textspur.
+1. LOADING: Der Ladezustand der Textspur.
+2. LOADED: Der geladene Zustand der Textspur.
+3. ERROR: Der Zustand der fehlgeschlagenen Ladeoperation der Textspur.
 
 ## Wert
 

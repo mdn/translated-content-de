@@ -3,16 +3,16 @@ title: "TaskAttributionTiming: containerType-Eigenschaft"
 short-title: containerType
 slug: Web/API/TaskAttributionTiming/containerType
 l10n:
-  sourceCommit: 0c8a320b035cf625c1df67713a94ead2e7f3aec6
+  sourceCommit: 3dd7df0af3b0ada1a7c5784cc2bc5448adcda8af
 ---
 
 {{APIRef("Performance API")}}{{SeeCompatTable}}
 
-Die readonly-Eigenschaft **`containerType`** des [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming)-Interfaces gibt den Typ des Containers zurück, einer von `iframe`, `embed` oder `object`.
+Die schreibgeschützte Eigenschaft **`containerType`** der Schnittstelle [`TaskAttributionTiming`](/de/docs/Web/API/TaskAttributionTiming) gibt den Typ des Containers zurück, eines von `iframe`, `embed` oder `object`.
 
 ## Wert
 
-Ein String, der den Typ des Containers enthält, einer von `iframe`, `embed` oder `object`. Wenn kein Typ bestimmt werden kann, wird `window` zurückgegeben.
+Ein String, der den Typ des Containers enthält, eines von `iframe`, `embed` oder `object`. Wenn kein Typ bestimmt werden kann, wird `window` zurückgegeben.
 
 ## Spezifikationen
 
