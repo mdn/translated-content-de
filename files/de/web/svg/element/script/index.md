@@ -2,15 +2,15 @@
 title: <script>
 slug: Web/SVG/Element/script
 l10n:
-  sourceCommit: da99ca19ae62059f81dbee3f7b4919de784f3510
+  sourceCommit: fd7ad9c453ff28e5d5d4af5a993b7d8502aaaafe
 ---
 
 {{SVGRef}}
 
-Das **`<script>`** [SVG](/de/docs/Web/SVG) Element ermöglicht es, Skripte zu einem SVG-Dokument hinzuzufügen.
+Das **`<script>`**- [SVG](/de/docs/Web/SVG) Element ermöglicht das Hinzufügen von Skripten zu einem SVG-Dokument.
 
 > [!NOTE]
-> Während das `script` Element von SVG gleichwertig mit dem HTML {{HTMLElement('script')}} Element ist, gibt es einige Unterschiede, wie z.B. die Verwendung des {{SVGAttr('href')}} Attributs anstelle von [`src`](/de/docs/Web/HTML/Element/script#src), und es unterstützt bisher keine ECMAScript Module (siehe unten für Details zur Browser-Kompatibilität).
+> Obwohl das `script`-Element von SVG dem HTML-{{HTMLElement('script')}}-Element entspricht, gibt es einige Unterschiede. Zum Beispiel verwendet es das Attribut {{SVGAttr('href')}} anstelle von [`src`](/de/docs/Web/HTML/Element/script#src) und unterstützt bisher keine ECMAScript-Module (siehe unten für Details zur Browser-Kompatibilität).
 
 ## Beispiel
 
@@ -54,19 +54,19 @@ Click the circle to change colors.
 ## Attribute
 
 - [`crossorigin`](/de/docs/Web/HTML/Element/script#crossorigin)
-  - : Dieses Attribut definiert [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin), wie sie für das HTML {{HTMLElement('script')}} Element definiert sind.
-    _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
+  - : Dieses Attribut definiert die [CORS-Einstellungen](/de/docs/Web/HTML/Attributes/crossorigin) wie sie für das HTML-{{HTMLElement('script')}}-Element definiert sind.
+    _Werttyp_: [**[ anonymous | use-credentials ]?**](/de/docs/Web/CSS/string); _Standardwert_: `?`; _Animierbar_: **ja**
 - {{SVGAttr("href")}}
-  - : Die {{Glossary("URL", "URL")}} zum zu ladenden Skript.
-    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die {{Glossary("URL", "URL")}} zum Skript, das geladen werden soll.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _keiner_; _Animierbar_: **nein**
 - {{SVGAttr("type")}}
   - : Dieses Attribut definiert den Typ der Skriptsprache, die verwendet werden soll.
-    _Werttyp_: [**\<string>**](/de/docs/Web/CSS/string); _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
+    _Werttyp_: {{Glossary("MIME_type", "**`<media-type>`**")}}; _Standardwert_: `application/ecmascript`; _Animierbar_: **nein**
 - {{SVGAttr("xlink:href")}} {{deprecated_inline}}
-  - : Die {{Glossary("URL", "URL")}} zum zu ladenden Skript.
-    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)**; _Standardwert_: _none_; _Animierbar_: **nein**
+  - : Die {{Glossary("URL", "URL")}} zum Skript, das geladen werden soll.
+    _Werttyp_: **[\<URL>](/de/docs/Web/SVG/Content_type#url)** ; _Standardwert_: _keiner_; _Animierbar_: **nein**
 
-## Verwendungskontext
+## Nutzungskontext
 
 {{svginfo}}
 
