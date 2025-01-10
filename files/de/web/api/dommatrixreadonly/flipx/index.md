@@ -3,12 +3,12 @@ title: "DOMMatrixReadOnly: flipX()-Methode"
 short-title: flipX()
 slug: Web/API/DOMMatrixReadOnly/flipX
 l10n:
-  sourceCommit: 3652cfa9c036cf3ceebb1384bdc7edfd549251f3
+  sourceCommit: 87b76f2d22cdbb29eda171b549fa501349ada7df
 ---
 
 {{APIRef("Geometry Interfaces")}}{{AvailableInWorkers}}
 
-Die `flipX()`-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Schnittstelle erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix ist, gespiegelt an der x-Achse.
+Die **`flipX()`**-Methode des [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOnly)-Interfaces erstellt eine neue Matrix, die das Ergebnis der ursprünglichen Matrix, gespiegelt an der x-Achse, ist. Dies entspricht der Multiplikation der Matrix mit `DOMMatrix(-1, 0, 0, 1, 0, 0)`. Die ursprüngliche Matrix wird nicht verändert.
 
 ## Syntax
 
@@ -18,15 +18,13 @@ Die `flipX()`-Methode der [`DOMMatrixReadOnly`](/de/docs/Web/API/DOMMatrixReadOn
 
 ### Rückgabewert
 
-Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück, die eine neue Matrix enthält, die das Ergebnis der ursprünglichen Matrix ist, gespiegelt an der x-Achse, was dem Multiplizieren der Matrix mit `DOMMatrix(-1, 0, 0, 1, 0, 0)` entspricht. Die ursprüngliche Matrix wird nicht verändert.
+Gibt eine [`DOMMatrix`](/de/docs/Web/API/DOMMatrix) zurück.
 
 ## Beispiele
 
-### Invertieren eines Dreiecks
+### Invertierung eines Dreiecks
 
-In diesem Beispiel enthält das SVG zwei Pfade in Form eines Dreiecks, die beide an die gleiche Position gezeichnet werden. Beachten Sie, dass die x-Koordinate des `viewBox`-Attributs negativ ist, was uns den Inhalt von beiden Seiten der x-Achse zeigt.
-
-JavaScript erstellt zuerst eine Identitätsmatrix und verwendet dann die `flipX()`-Methode, um eine neue Matrix zu erstellen, die dann auf das blaue Dreieck angewendet wird, wodurch es entlang der x-Achse invertiert wird. Das rote Dreieck bleibt an Ort und Stelle.
+In diesem Beispiel enthält das SVG zwei Pfade in Form eines Dreiecks, die beide an derselben Position gezeichnet sind. Beachten Sie, dass die x-Koordinate des `viewBox`-Attributs negativ ist, was uns Inhalte von beiden Seiten der x-Achse zeigt.
 
 #### HTML
 
@@ -38,6 +36,8 @@ JavaScript erstellt zuerst eine Identitätsmatrix und verwendet dann die `flipX(
 ```
 
 #### JavaScript
+
+Das JavaScript erstellt zuerst eine Identitätsmatrix, verwendet dann die `flipX()`-Methode, um eine neue Matrix zu erstellen, die anschließend auf das blaue Dreieck angewendet wird und es über die x-Achse invertiert. Das rote Dreieck bleibt unverändert.
 
 ```js
 const flipped = document.getElementById("flipped");
@@ -57,3 +57,7 @@ flipped.setAttribute("transform", flippedMatrix.toString());
 ## Browser-Kompatibilität
 
 {{Compat}}
+
+## Siehe auch
+
+- [`DOMMatrixReadOnly.flipY()`](/de/docs/Web/API/DOMMatrixReadOnly/flipY)

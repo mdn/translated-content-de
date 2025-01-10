@@ -1,22 +1,21 @@
 ---
-title: "<template>: Das Inhaltsvorlage-Element"
+title: "<template>: Das Content Template-Element"
 slug: Web/HTML/Element/template
 l10n:
-  sourceCommit: f47d71927e4dc46f3aabde0a56c7f940da988d9f
+  sourceCommit: afaa8a0345fc2603e20503f00c7ab79f4911b55b
 ---
 
 {{HTMLSidebar}}
 
-Das **`<template>`** [HTML](/de/docs/Web/HTML) Element dient als Mechanismus zum Halten von {{Glossary("HTML", "HTML")}} Fragmenten, die entweder später über JavaScript verwendet oder sofort in den Shadow DOM generiert werden können.
+Das **`<template>`** [HTML](/de/docs/Web/HTML)-Element dient als Mechanismus zum Halten von {{Glossary("HTML", "HTML")}}-Fragmenten, die entweder später über JavaScript verwendet oder sofort in den Shadow DOM generiert werden können.
 
 ## Attribute
 
-Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element umfasst die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `shadowrootmode`
 
-  - : Erstellt einen {{Glossary("Shadow_tree", "Shadow Root")}} für das Elternelement.
-    Es ist eine deklarative Version der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) und akzeptiert die gleichen {{Glossary("enumerated", "aufgezählten")}} Werte.
+  - : Erstellt einen {{Glossary("Shadow_tree", "Shadow Root")}} für das Elternelement. Es ist eine deklarative Version der Methode [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) und akzeptiert die gleichen {{Glossary("enumerated", "enumerierten")}} Werte.
 
     - `open`
 
@@ -27,54 +26,45 @@ Dieses Element enthält die [globalen Attribute](/de/docs/Web/HTML/Global_attrib
       - : Verbirgt den internen Shadow Root DOM vor JavaScript.
 
     > [!NOTE]
-    > Der HTML Parser erstellt ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Objekt im DOM für das erste `<template>` in einem Knoten, bei dem dieses Attribut auf einen erlaubten Wert gesetzt ist.
-    > Wenn das Attribut nicht gesetzt oder nicht auf einen erlaubten Wert gesetzt ist - oder wenn ein `ShadowRoot` bereits deklarativ im selben Elternelement erstellt wurde - wird ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) konstruiert.
-    > Ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) kann anschließend nicht in einen Shadow Root umgewandelt werden, zum Beispiel durch das Setzen von [`HTMLTemplateElement.shadowRootMode`](/de/docs/Web/API/HTMLTemplateElement/shadowRootMode).
+    > Der HTML-Parser erstellt ein [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Objekt im DOM für das erste `<template>` in einem Knoten mit diesem Attribut, das auf einen erlaubten Wert gesetzt ist.
+    > Falls das Attribut nicht gesetzt ist, auf einen nicht erlaubten Wert gesetzt ist oder wenn bereits ein `ShadowRoot` deklarativ im selben Elternelement erstellt wurde, wird ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) konstruiert.
+    > Ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) kann nach dem Parsen nicht mehr in einen Shadow Root umgewandelt werden, zum Beispiel durch das Setzen von [`HTMLTemplateElement.shadowRootMode`](/de/docs/Web/API/HTMLTemplateElement/shadowRootMode).
 
     > [!NOTE]
-    > Sie können das nicht standardisierte `shadowroot` Attribut in älteren Tutorials und Beispielen finden, das in Chrome 90-110 unterstützt wurde. Dieses Attribut wurde seitdem entfernt und durch das standardisierte `shadowrootmode` Attribut ersetzt.
+    > Möglicherweise finden Sie das nicht-standardmäßige `shadowroot`-Attribut in älteren Tutorials und Beispielen, die früher in Chrome 90-110 unterstützt wurden. Dieses Attribut wurde inzwischen entfernt und durch das standardmäßige `shadowrootmode`-Attribut ersetzt.
 
 - `shadowrootclonable`
 
-  - : Setzt den Wert der [`clonable`](/de/docs/Web/API/ShadowRoot/clonable) Eigenschaft eines [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), das mit diesem Element erstellt wurde, auf `true`.
-    Wenn gesetzt, enthält ein Klon des Shadow Hosts (das Elternelement dieses `<template>`), erstellt mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode), einen Shadow Root in der Kopie.
+  - : Setzt den Wert der [`clonable`](/de/docs/Web/API/ShadowRoot/clonable)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`. Wenn gesetzt, wird ein Klon des Shadow Hosts (das Elternelement dieses `<template>`), das mit [`Node.cloneNode()`](/de/docs/Web/API/Node/cloneNode) oder [`Document.importNode()`](/de/docs/Web/API/Document/importNode) erstellt wurde, einen Shadow Root in der Kopie enthalten.
 
 - `shadowrootdelegatesfocus`
 
-  - : Setzt den Wert der [`delegatesFocus`](/de/docs/Web/API/ShadowRoot/delegatesFocus) Eigenschaft eines [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), das mit diesem Element erstellt wurde, auf `true`.
-    Wenn dies gesetzt ist und ein nicht-fokussierbares Element im Shadow Tree ausgewählt wird, wird der Fokus an das erste fokussierbare Element im Baum delegiert.
+  - : Setzt den Wert der [`delegatesFocus`](/de/docs/Web/API/ShadowRoot/delegatesFocus)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`. Wenn dies gesetzt ist und ein nicht-fokussierbares Element im Shadow Tree ausgewählt wird, wird der Fokus an das erste fokussierbare Element im Tree delegiert.
     Der Wert ist standardmäßig `false`.
 
 - `shadowrootserializable` {{experimental_inline}}
 
-  - : Setzt den Wert der [`serializable`](/de/docs/Web/API/ShadowRoot/serializable) Eigenschaft eines [`ShadowRoot`](/de/docs/Web/API/ShadowRoot), das mit diesem Element erstellt wurde, auf `true`.
-    Wenn gesetzt, kann der Shadow Root serialisiert werden, indem die Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) mit dem Parameter `options.serializableShadowRoots` auf `true` aufgerufen werden.
-    Der Wert ist standardmäßig `false`.
+  - : Setzt den Wert der [`serializable`](/de/docs/Web/API/ShadowRoot/serializable)-Eigenschaft eines mit diesem Element erstellten [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) auf `true`. Wenn gesetzt, kann der Shadow Root durch Aufruf der Methoden [`Element.getHTML()`](/de/docs/Web/API/Element/getHTML) oder [`ShadowRoot.getHTML()`](/de/docs/Web/API/ShadowRoot/getHTML) mit dem Parameter `options.serializableShadowRoots` auf `true` gesetzt seriell werden. Der Wert ist standardmäßig `false`.
 
-## Nutzungshinweise
+## Verwendungshinweise
 
-Es gibt zwei Hauptwege, das `<template>` Element zu verwenden.
+Es gibt zwei Hauptmethoden, das `<template>`-Element zu verwenden.
 
-### Dokumentfragment-Vorlage
+### Template-Dokumentfragment
 
-Standardmäßig wird der Inhalt des Elements nicht gerendert.
-Das entsprechende [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) Interface umfasst eine standardmäßige [`content`](/de/docs/Web/API/HTMLTemplateElement/content) Eigenschaft (ohne ein entsprechendes Inhalts-/Markup-Attribut). Diese `content` Eigenschaft ist schreibgeschützt und enthält ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), das den vom Template dargestellten DOM-Teilbaum enthält.
-Dieses Fragment kann mittels der [`cloneNode`](/de/docs/Web/API/Node/cloneNode) Methode geklont und in den DOM eingefügt werden.
+Standardmäßig wird der Inhalt des Elements nicht gerendert. Das entsprechende [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)-Interface enthält eine standardmäßige [`content`](/de/docs/Web/API/HTMLTemplateElement/content)-Eigenschaft (ohne ein äquivalentes Content-/Markup-Attribut). Diese `content`-Eigenschaft ist schreibgeschützt und hält ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment), das den durch das Template dargestellten DOM-Subtree enthält. Dieses Fragment kann über die Methode [`cloneNode`](/de/docs/Web/API/Node/cloneNode) geklont und in den DOM eingefügt werden.
 
-Seien Sie vorsichtig bei der Verwendung der `content` Eigenschaft, da das zurückgegebene `DocumentFragment` unerwartetes Verhalten zeigen kann.
-Für weitere Details sehen Sie sich den Abschnitt [Vermeidung von DocumentFragment-Fallstricken](#vermeidung_von_documentfragment-fallstricken) unten an.
+Seien Sie vorsichtig bei der Verwendung der `content`-Eigenschaft, da das zurückgegebene `DocumentFragment` unerwartetes Verhalten zeigen kann. Für weitere Details siehe den Abschnitt [Vermeiden von DocumentFragment-Fallen](#vermeiden_von_documentfragment-fallen) unten.
 
 ### Deklarativer Shadow DOM
 
-Wenn das `<template>` Element das [`shadowrootmode`](#shadowrootmode) Attribut mit einem Wert von entweder `open` oder `closed` enthält, generiert der HTML Parser sofort einen Shadow DOM. Das Element wird im DOM durch seinen Inhalt ersetzt, der in einem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) eingeschlossen ist, der an das Elternelement angehängt wird.
-Dies ist das deklarative Äquivalent dazu, [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow) aufzurufen, um einen Shadow Root an ein Element anzuhängen.
+Wenn das `<template>`-Element das Attribut [`shadowrootmode`](#shadowrootmode) mit einem Wert von entweder `open` oder `closed` enthält, erzeugt der HTML-Parser sofort einen Shadow DOM. Das Element wird im DOM durch seinen Inhalt ersetzt, der in einem [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) eingewickelt und an das Elternelement angehängt wird. Dies ist das deklarative Äquivalent zum Aufruf von [`Element.attachShadow()`](/de/docs/Web/API/Element/attachShadow), um einen Shadow Root an ein Element anzuhängen.
 
-Wenn das Element einen anderen Wert für `shadowrootmode` hat oder das `shadowrootmode` Attribut fehlt, generiert der Parser ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement).
-Ähnlich, wenn es mehrere deklarative Shadow Roots gibt, wird nur der erste durch einen [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) ersetzt - nachfolgende Instanzen werden als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement) Objekte geparst.
+Wenn das Element einen anderen Wert für `shadowrootmode` hat oder nicht das Attribut `shadowrootmode` besitzt, erzeugt der Parser ein [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement). Ebenso wird, wenn es mehrere deklarative Shadow Roots gibt, nur der erste durch einen [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) ersetzt — nachfolgende Instanzen werden als [`HTMLTemplateElement`](/de/docs/Web/API/HTMLTemplateElement)-Objekte geparst.
 
 ## Beispiele
 
-### Generierung von Tabellenzeilen
+### Erzeugen von Tabellenzeilen
 
 Zuerst beginnen wir mit dem HTML-Teil des Beispiels.
 
@@ -99,9 +89,9 @@ Zuerst beginnen wir mit dem HTML-Teil des Beispiels.
 </template>
 ```
 
-Zuerst haben wir eine Tabelle, in die wir später Inhalte mithilfe von JavaScript-Code einfügen werden. Danach kommt das Template, das die Struktur eines HTML-Fragments beschreibt, das eine einzelne Tabellenreihe repräsentiert.
+Zuerst haben wir eine Tabelle, in die wir später Inhalte mit JavaScript-Code einfügen werden. Anschließend kommt das Template, das die Struktur eines HTML-Fragments beschreibt, das eine einzelne Tabellenzeile darstellt.
 
-Nun, da die Tabelle erstellt und das Template definiert wurde, verwenden wir JavaScript, um Zeilen in die Tabelle einzufügen, wobei jede Zeile mit dem Template als Grundlage konstruiert wird.
+Nun, da die Tabelle erstellt und das Template definiert ist, verwenden wir JavaScript, um Zeilen in die Tabelle einzufügen, wobei jede Zeile mit dem Template als Basis konstruiert wird.
 
 ```js
 // Test to see if the browser supports the HTML template element by checking
@@ -144,11 +134,11 @@ table td {
 }
 ```
 
-{{EmbedLiveSample("Generieren von Tabellenzeilen", 500, 120)}}
+{{EmbedLiveSample("Generating table rows", 500, 120)}}
 
 ### Implementierung eines deklarativen Shadow DOM
 
-In diesem Beispiel ist eine versteckte Unterstützungswarnung am Anfang des Markups enthalten. Diese Warnung wird später über JavaScript angezeigt, wenn der Browser das `shadowrootmode` Attribut nicht unterstützt. Als nächstes folgen zwei {{HTMLElement("article")}} Elemente, die jeweils verschachtelte {{HTMLElement("style")}} Elemente mit unterschiedlichen Verhaltensweisen enthalten. Das erste `<style>` Element ist global für das gesamte Dokument. Das zweite ist dem Shadow Root zugeordnet, der anstelle des `<template>` Elements generiert ist, da das Attribut `shadowrootmode` vorhanden ist.
+In diesem Beispiel wird eine versteckte Unterstützung-Warnung zu Beginn des Markups eingefügt. Diese Warnung wird später über JavaScript angezeigt, wenn der Browser das `shadowrootmode`-Attribut nicht unterstützt. Danach gibt es zwei {{HTMLElement("article")}}-Elemente, die jeweils verschachtelte {{HTMLElement("style")}}-Elemente mit unterschiedlichen Verhaltensweisen enthalten. Das erste `<style>`-Element ist global für das gesamte Dokument. Das zweite ist dem Shadow Root zugeordnet, der anstelle des `<template>`-Elements aufgrund des `shadowrootmode`-Attributs generiert wird.
 
 ```html
 <p hidden>
@@ -189,11 +179,9 @@ document
 
 ### Deklarativer Shadow DOM mit delegiertem Fokus
 
-Dieses Beispiel zeigt, wie `shadowrootdelegatesfocus` auf einen deklarativ erstellten Shadow Root angewendet wird und welchen Effekt dies auf den Fokus hat.
+Dieses Beispiel zeigt, wie `shadowrootdelegatesfocus` auf einen deklarativ erstellten Shadow Root angewendet wird und welche Auswirkungen dies auf den Fokus hat.
 
-Der Code erklärt zunächst einen Shadow Root innerhalb eines `<div>` Elements, wobei das `<template>` Element mit dem `shadowrootmode` Attribut verwendet wird.
-Dies zeigt sowohl ein nicht-fokussierbares `<div>` mit Text als auch ein fokussierbares `<input>` Element.
-Es verwendet auch CSS, um Elemente mit [`:focus`](/de/docs/Web/CSS/:focus) in Blau zu stylen und das normale Styling des Host-Elements zu setzen.
+Der Code deklariert zuerst einen Shadow Root innerhalb eines `<div>`-Elements, unter Verwendung des `<template>`-Elements mit dem `shadowrootmode`-Attribut. Dies zeigt sowohl ein nicht fokussierbares `<div>` mit Text als auch ein fokussierbares `<input>`-Element. Es wird auch CSS verwendet, um Elemente mit [`:focus`](/de/docs/Web/CSS/:focus) blau zu gestalten und das normale Styling des Host-Elements zu setzen.
 
 ```html
 <div>
@@ -215,7 +203,7 @@ Es verwendet auch CSS, um Elemente mit [`:focus`](/de/docs/Web/CSS/:focus) in Bl
 </div>
 ```
 
-Der zweite Codeblock ist identisch, außer dass er das `shadowrootdelegatesfocus` Attribut setzt, welches den Fokus auf das erste fokussierbare Element im Baum delegiert, wenn ein nicht-fokussierbares Element im Baum ausgewählt wird.
+Der zweite Codeblock ist identisch, außer dass er das Attribut `shadowrootdelegatesfocus` setzt, das den Fokus auf das erste fokussierbare Element im Baum delegiert, wenn ein nicht fokussierbares Element im Baum ausgewählt wird.
 
 ```html
 <div>
@@ -237,7 +225,7 @@ Der zweite Codeblock ist identisch, außer dass er das `shadowrootdelegatesfocus
 </div>
 ```
 
-Zuletzt verwenden wir folgendes CSS, um einem übergeordneten `<div>` Element einen gelb-grünen Rand zu geben, wenn es den Fokus hat.
+Zuletzt verwenden wir das folgende CSS, um dem Elternelement `<div>` einen roten Rahmen zu geben, wenn es fokussiert ist.
 
 ```css
 div:focus {
@@ -245,20 +233,17 @@ div:focus {
 }
 ```
 
-Die Ergebnisse sind unten dargestellt.
-Wenn das HTML zuerst gerendert wird, haben die Elemente kein Styling, wie im ersten Bild gezeigt.
-Für den Shadow Root, der `shadowrootdelegatesfocus` nicht gesetzt hat, können Sie überall außer dem `<input>` klicken und der Fokus ändert sich nicht (wenn Sie das `<input>` Element auswählen, sieht es wie im zweiten Bild aus).
+Die Ergebnisse werden unten gezeigt. Wenn das HTML zuerst gerendert wird, haben die Elemente keine Formatierung, wie im ersten Bild gezeigt. Für den Shadow Root, der nicht `shadowrootdelegatesfocus` gesetzt hat, können Sie überall außer dem `<input>` anklicken, und der Fokus ändert sich nicht (wenn Sie das `<input>`-Element auswählen, sieht es wie das zweite Bild aus).
 
-![Screenshot vom Code ohne eingestellten Fokus](template_with_no_focus.png)
+![Screenshot des Codes ohne gesetzten Fokus](template_with_no_focus.png)
 
-Für den Shadow Root mit gesetztem `shadowrootdelegatesfocus` führt ein Klick auf den Text (der nicht-fokussierbar ist) dazu, dass das `<input>` Element ausgewählt wird, da dies das erste fokussierbare Element im Baum ist.
-Dies fokussiert auch das übergeordnete Element, wie unten gezeigt.
+Für den Shadow Root mit gesetztem `shadowrootdelegatesfocus`, wird durch Klicken auf den Text (der nicht fokussierbar ist) das `<input>`-Element ausgewählt, da dies das erste fokussierbare Element im Baum ist. Dies fokussiert auch das Elternelement, wie unten gezeigt.
 
 ![Screenshot des Codes, bei dem das Element den Fokus hat](template_with_focus.png)
 
-## Vermeidung von DocumentFragment-Fallstricken
+## Vermeiden von DocumentFragment-Fallen
 
-Wenn ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment) Wert übergeben wird, verschieben [`Node.appendChild`](/de/docs/Web/API/Node/appendChild) und ähnliche Methoden nur die _Kindknoten_ dieses Werts in den Zielknoten. Daher ist es üblicherweise vorzuziehen, Ereignis-Handler an die Kinder eines `DocumentFragment` anzuhängen, anstatt an das `DocumentFragment` selbst.
+Wenn ein [`DocumentFragment`](/de/docs/Web/API/DocumentFragment)-Wert übergeben wird, verschieben [`Node.appendChild`](/de/docs/Web/API/Node/appendChild) und ähnliche Methoden nur die _Kindknoten_ dieses Wertes in den Zielknoten. Daher ist es in der Regel vorzuziehen, Ereignishandler an die Kinder eines `DocumentFragment` anzuhängen, statt an das `DocumentFragment` selbst.
 
 Betrachten Sie das folgende HTML und JavaScript:
 
@@ -293,7 +278,7 @@ container.appendChild(secondClone);
 
 ### Ergebnis
 
-Da `firstClone` ein `DocumentFragment` ist, werden beim Aufrufen von `appendChild` nur die Kinder zu `container` hinzugefügt; die Ereignis-Handler von `firstClone` werden nicht kopiert. Im Gegensatz dazu wird ein Ereignis-Handler, der zum ersten _Kindknoten_ von `secondClone` hinzugefügt wird, kopiert, wenn `appendChild` aufgerufen wird, und das Klicken darauf funktioniert wie erwartet.
+Da `firstClone` ein `DocumentFragment` ist, werden beim Aufruf von `appendChild` nur seine Kinder zu `container` hinzugefügt; die Ereignishandler von `firstClone` werden nicht kopiert. Im Gegensatz dazu wird, weil ein Ereignishandler zum ersten _Kindknoten_ von `secondClone` hinzugefügt wird, der Ereignishandler kopiert, wenn `appendChild` aufgerufen wird, und ein Klick darauf funktioniert wie erwartet.
 
 {{EmbedLiveSample('Avoiding_DocumentFragment_pitfall')}}
 
@@ -304,12 +289,12 @@ Da `firstClone` ein `DocumentFragment` ist, werden beim Aufrufen von `appendChil
     <tr>
       <th scope="row">
         <a href="/de/docs/Web/HTML/Content_categories"
-          >Inhaltskategorien</a
+          >Content-Kategorien</a
         >
       </th>
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#metadata_content"
-          >Metadateninhalt</a
+          >Metadaten-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
@@ -319,7 +304,7 @@ Da `firstClone` ein `DocumentFragment` ist, werden beim Aufrufen von `appendChil
         >,
         <a
           href="/de/docs/Web/HTML/Content_categories#script-supporting_elements"
-          >script-unterstützende Elemente</a
+          >skriptunterstützender Inhalt</a
         >
       </td>
     </tr>
@@ -329,24 +314,24 @@ Da `firstClone` ein `DocumentFragment` ist, werden beim Aufrufen von `appendChil
     </tr>
     <tr>
       <th scope="row">Tag-Auslassung</th>
-      <td>Keine, sowohl das Start- als auch das End-Tag sind erforderlich.</td>
+      <td>Keine, sowohl der Start- als auch der End-Tag sind obligatorisch.</td>
     </tr>
     <tr>
       <th scope="row">Erlaubte Eltern</th>
       <td>
         Jedes Element, das
         <a href="/de/docs/Web/HTML/Content_categories#metadata_content"
-          >Metadateninhalt</a
+          >Metadaten-Inhalt</a
         >,
         <a href="/de/docs/Web/HTML/Content_categories#phrasing_content"
           >Phraseninhalt</a
-        >, oder
+        > oder
         <a
           href="/de/docs/Web/HTML/Content_categories#script-supporting_elements"
-          >script-unterstützende Elemente</a
-        > akzeptiert. Auch als Kind eines {{HTMLElement("colgroup")}}
-        Elements erlaubt, das kein
-        <a href="/de/docs/Web/HTML/Element/colgroup#span"><code>span</code></a> Attribut hat.
+          >skriptunterstützenden Inhalt</a
+        > akzeptiert. Auch erlaubt als Kind eines {{HTMLElement("colgroup")}}
+        Elements, das <em>nicht</em> das
+        <a href="/de/docs/Web/HTML/Element/colgroup#span"><code>span</code></a>-Attribut hat.
       </td>
     </tr>
     <tr>
@@ -359,7 +344,7 @@ Da `firstClone` ein `DocumentFragment` ist, werden beim Aufrufen von `appendChil
     </tr>
     <tr>
       <th scope="row">Erlaubte ARIA-Rollen</th>
-      <td>Kein <code>role</code> erlaubt</td>
+      <td>Keine <code>role</code> erlaubt</td>
     </tr>
     <tr>
       <th scope="row">DOM-Schnittstelle</th>
@@ -378,12 +363,12 @@ Da `firstClone` ein `DocumentFragment` ist, werden beim Aufrufen von `appendChil
 
 ## Siehe auch
 
-- [`part`](/de/docs/Web/HTML/Global_attributes/part) und [`exportparts`](/de/docs/Web/HTML/Global_attributes/exportparts) HTML Attribute
-- {{HTMLElement("slot")}} HTML Element
-- {{CSSXref(":has-slotted")}}, {{CSSXref(":host")}}, {{CSSXref(":host_function", ":host()")}}, und {{CSSXref(":host-context", ":host-context()")}} CSS Pseudoklassen
-- {{CSSXref("::part")}} und {{CSSXref("::slotted")}} CSS Pseudoelemente
-- [`ShadowRoot`](/de/docs/Web/API/ShadowRoot) Schnittstelle
+- [`part`](/de/docs/Web/HTML/Global_attributes/part) und [`exportparts`](/de/docs/Web/HTML/Global_attributes/exportparts) HTML-Attribute
+- {{HTMLElement("slot")}} HTML-Element
+- {{CSSXref(":has-slotted")}}, {{CSSXref(":host")}}, {{CSSXref(":host_function", ":host()")}}, und {{CSSXref(":host-context", ":host-context()")}} CSS-Pseudoklassen
+- {{CSSXref("::part")}} und {{CSSXref("::slotted")}} CSS-Pseudoelemente
+- [`ShadowRoot`](/de/docs/Web/API/ShadowRoot)-Schnittstelle
 - [Verwendung von Templates und Slots](/de/docs/Web/API/Web_components/Using_templates_and_slots)
-- [CSS Scoping](/de/docs/Web/CSS/CSS_scoping) Modul
-- [Deklarativer Shadow DOM (mit HTML)](/de/docs/Web/API/Web_components/Using_shadow_DOM#declaratively_with_html) in _Using Shadow DOM_
+- [CSS-Scope](/de/docs/Web/CSS/CSS_scoping)-Modul
+- [Deklarativer Shadow DOM (mit HTML)](/de/docs/Web/API/Web_components/Using_shadow_DOM#declaratively_with_html) in _Shadow DOM verwenden_
 - [Deklarativer Shadow DOM](https://web.dev/articles/declarative-shadow-dom) auf web.dev (2023)
