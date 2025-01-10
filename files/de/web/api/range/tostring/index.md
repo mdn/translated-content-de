@@ -3,15 +3,12 @@ title: "Range: toString()-Methode"
 short-title: toString()
 slug: Web/API/Range/toString
 l10n:
-  sourceCommit: c58e8c1dd6ecbcb63894c7dd17fb9495b9511b4e
+  sourceCommit: 06702973c5284e08d70196d1cda9a05b7aed152a
 ---
 
 {{ApiRef("DOM")}}
 
 Die **`Range.toString()`**-Methode ist ein {{Glossary("stringifier", "Stringifier")}}, der den Text des [`Range`](/de/docs/Web/API/Range) zurückgibt.
-
-Das Anzeigen des Inhalts eines [`Range`](/de/docs/Web/API/Range) erzeugt einen impliziten
-`toString()`-Aufruf. Daher ist der Vergleich von Bereich und Text über ein Dialogfeld unwirksam.
 
 ## Syntax
 
@@ -63,4 +60,4 @@ document.getElementById("log").textContent = range.toString();
 
 ## Siehe auch
 
-- [Das DOM-Interfaces-Index](/de/docs/Web/API/Document_Object_Model)
+- [Das DOM-Schnittstellenverzeichnis](/de/docs/Web/API/Document_Object_Model)
