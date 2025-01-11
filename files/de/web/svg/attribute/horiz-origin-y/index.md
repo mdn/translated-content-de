@@ -2,21 +2,21 @@
 title: horiz-origin-y
 slug: Web/SVG/Attribute/horiz-origin-y
 l10n:
-  sourceCommit: a7615ee2f9e22946edff7633962bc1d9eee9e0ad
+  sourceCommit: d29448b3fa76b33809ef2dedde9c0fb6ac178ae6
 ---
 
 {{SVGRef}}{{Deprecated_Header}}
 
-Das **`horiz-origin-y`**-Attribut gibt die y-Koordinate im Koordinatensystem der Schriftart des Ursprungs eines {{Glossary("glyph", "Glyph")}} an, die verwendet wird, wenn horizontal ausgerichteter Text gezeichnet wird.
+Das Attribut **`horiz-origin-y`** gibt die y-Koordinate im Koordinatensystem der Schriftart an, die als Ursprung eines {{Glossary("glyph", "glyph")}} verwendet wird, wenn horizontal ausgerichteter Text gezeichnet wird.
 
 > [!NOTE]
 > Der Ursprung gilt für alle Glyphen in der Schriftart.
 
-Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
+Sie können dieses Attribut mit den folgenden SVG-Elementen verwenden:
 
 - {{SVGElement("font")}}
 
-## Nutzungshinweise
+## Verwendungshinweise
 
 <table class="properties">
   <tbody>
@@ -42,7 +42,7 @@ Dieses Attribut kann mit den folgenden SVG-Elementen verwendet werden:
 </table>
 
 - `<number>`
-  - : Dieser Wert gibt die x-Koordinate des Ursprungs eines Glyphs für horizontal ausgerichteten Text an.
+  - : Dieser Wert gibt die y-Koordinate des Ursprungs einer Glyphe für horizontal ausgerichteten Text an.
 
 ## Spezifikationen
 
