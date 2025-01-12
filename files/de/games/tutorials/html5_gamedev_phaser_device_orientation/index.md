@@ -76,7 +76,7 @@ Bisher haben wir eine einfache HTML-Website mit einigen grundlegenden Inhalten i
 const game = new Phaser.Game(320, 480, Phaser.CANVAS, "game");
 ```
 
-Die obige Zeile initialisiert die Phaser-Instanz – die Argumente sind die Breite des Canvas, die Höhe des Canvas, die Render-Methode (wir verwenden `CANVAS`, aber es gibt auch `WEBGL` und `AUTO` Optionen) und die optionale ID des DOM-Containers, in den wir das Canvas einfügen möchten. Wenn nichts in diesem letzten Argument spezifiziert ist oder das Element nicht gefunden wird, wird das Canvas dem \<body>-Tag hinzugefügt. Ohne das Framework müssten Sie, um das Canvas-Element zur Seite hinzuzufügen, im \<body>-Tag etwa Folgendes schreiben:
+Die obige Zeile initialisiert die Phaser-Instanz – die Argumente sind die Breite des Canvas, die Höhe des Canvas, die Render-Methode (wir verwenden `CANVAS`, aber es gibt auch `WEBGL` und `AUTO` Optionen) und die optionale ID des DOM-Containers, in den wir das Canvas einfügen möchten. Wenn nichts in diesem letzten Argument spezifiziert ist oder das Element nicht gefunden wird, wird das Canvas dem `<body>`-Tag hinzugefügt. Ohne das Framework müssten Sie, um das Canvas-Element zur Seite hinzuzufügen, im `<body>`-Tag etwa Folgendes schreiben:
 
 ```html
 <canvas id="game" width="320" height="480"></canvas>
