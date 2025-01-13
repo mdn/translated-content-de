@@ -1,38 +1,40 @@
 ---
-title: "<pre>: Das Preformatted Text Element"
+title: "`<pre>`: Das Element für vorformatierten Text"
 slug: Web/HTML/Element/pre
 l10n:
-  sourceCommit: 9fe5e2339bb17192e502c7e0875b9676ce211163
+  sourceCommit: 6ca95422a33ab55e746004dd877156d18e42d5b3
 ---
 
 {{HTMLSidebar}}
 
-Das **`<pre>`** [HTML](/de/docs/Web/HTML) Element repräsentiert vorformatierten Text, der genau so dargestellt wird, wie er in der HTML-Datei geschrieben ist. Der Text wird typischerweise in einer nicht proportionalen oder [monospaced](https://en.wikipedia.org/wiki/Monospaced_font) Schriftart angezeigt. Leerzeichen innerhalb dieses Elements werden wie geschrieben angezeigt.
+Das **`<pre>`** [HTML](/de/docs/Web/HTML)-Element repräsentiert vorformatierten Text, der genau so dargestellt werden soll, wie er in der HTML-Datei geschrieben wurde. Der Text wird typischerweise mit einer nicht-proportionalen oder [monospaced](https://en.wikipedia.org/wiki/Monospaced_font)-Schriftart angezeigt.
 
-Standardmäßig ist `<pre>` ein {{Glossary("Block-level_content", "Block-Level")}} Element, d. h. sein Standardwert für {{cssxref("display")}} ist `block`.
+Leerzeichen innerhalb dieses Elements werden wie geschrieben angezeigt, mit einer Ausnahme. Wenn ein oder mehrere führende Zeilenumbrüche unmittelbar nach dem öffnenden `<pre>`-Tag enthalten sind, wird das _erste_ Zeilenumbruchzeichen entfernt.
+
+Standardmäßig ist `<pre>` ein {{Glossary("Block-level_content", "Block-Level")}}-Element, d.h. sein Standardwert für {{cssxref("display")}} ist `block`.
 
 {{EmbedInteractiveExample("pages/tabbed/pre.html", "tabbed-standard")}}
 
-Wenn Sie reservierte Zeichen wie `<`, `>`, `&` und `"` innerhalb des `<pre>`-Tags anzeigen müssen, müssen die Zeichen mithilfe ihrer jeweiligen {{Glossary("character_reference", "Zeichenreferenzen")}} maskiert werden.
+Wenn Sie reservierte Zeichen wie `<`, `>`, `&` und `"` innerhalb des `<pre>`-Tags anzeigen müssen, müssen die Zeichen mit ihren entsprechenden {{Glossary("character_reference", "Zeichenreferenzen")}} maskiert werden.
 
-`<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}}-Elemente, um Computercode, Computerausgabe und Benutzereingaben darzustellen.
+`<pre>`-Elemente enthalten häufig {{HTMLElement("code")}}, {{HTMLElement("samp")}} und {{HTMLElement("kbd")}}-Elemente, um Computer-Code, Computerausgaben und Benutzereingaben darzustellen.
 
 ## Attribute
 
-Dieses Element beinhaltet nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
+Dieses Element enthält nur die [globalen Attribute](/de/docs/Web/HTML/Global_attributes).
 
 - `width` {{deprecated_inline}} {{Non-standard_Inline}}
-  - : Beinhaltet die _bevorzugte_ Anzahl von Zeichen, die eine Zeile haben sollte. Obwohl technisch immer noch implementiert, hat dieses Attribut keine visuelle Auswirkung; um eine solche Wirkung zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("width")}}.
+  - : Enthält die _bevorzugte_ Anzahl von Zeichen, die eine Zeile haben sollte. Obwohl technisch noch implementiert, hat dieses Attribut keine visuelle Wirkung; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("width")}}.
 - `wrap` {{non-standard_inline}} {{Deprecated_Inline}}
-  - : Ist ein _Hinweis_, der angibt, wie der Überlauf geschehen muss. In modernen Browsern wird dieser Hinweis ignoriert und hat keine visuelle Wirkung in seiner Gegenwart; um eine solche Wirkung zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("white-space")}}.
+  - : Ist ein _Hinweis_, wie der Überlauf geschehen soll. In modernen Browsern wird dieser Hinweis ignoriert und hat keine visuelle Wirkung; um einen solchen Effekt zu erzielen, verwenden Sie stattdessen CSS {{Cssxref("white-space")}}.
 
 ## Barrierefreiheit
 
-Es ist wichtig, eine alternative Beschreibung für alle Bilder oder Diagramme bereitzustellen, die mit vorformatiertem Text erstellt wurden. Die alternative Beschreibung sollte den Inhalt des Bildes oder Diagramms klar und prägnant beschreiben.
+Es ist wichtig, eine alternative Beschreibung für alle mit vorformatiertem Text erstellten Bilder oder Diagramme bereitzustellen. Die alternative Beschreibung sollte den Inhalt des Bildes oder Diagramms klar und präzise beschreiben.
 
-Personen mit Sehbehinderungen, die beim Browsen auf unterstützende Technologien wie einen Screenreader angewiesen sind, verstehen möglicherweise nicht, was die Zeichen des vorformatierten Textes darstellen, wenn sie nacheinander vorgelesen werden.
+Personen mit Sehschwächen, die Assistive Technologien wie einen Screenreader verwenden, können möglicherweise nicht verstehen, was die Zeichen des vorformatierten Textes darstellen, wenn sie in Reihenfolge vorgelesen werden.
 
-Eine Kombination aus den Elementen {{HTMLElement("figure")}} und {{HTMLElement("figcaption")}}, ergänzt um die [ARIA](/de/docs/Web/Accessibility/ARIA) `role` und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribute auf dem `pre`-Element ermöglichen es, das vorformatierte {{Glossary("ASCII", "ASCII")}} Kunstwerk als Bild mit alternativem Text anzukündigen, wobei das `figcaption` als Bildunterschrift dient.
+Eine Kombination der {{HTMLElement("figure")}}- und {{HTMLElement("figcaption")}}-Elemente, ergänzt durch die [ARIA](/de/docs/Web/Accessibility/ARIA)-`role` und [`aria-label`](/de/docs/Web/Accessibility/ARIA/Attributes/aria-label)-Attribute auf dem `pre`-Element, ermöglicht es, dass das vorformatierte {{Glossary("ASCII", "ASCII")}}-Kunstwerk als Bild mit alternativem Text angekündigt wird, und `figcaption` dient als Bildunterschrift.
 
 ### Beispiel
 
@@ -55,8 +57,8 @@ Eine Kombination aus den Elementen {{HTMLElement("figure")}} und {{HTMLElement("
 </figure>
 ```
 
-- [MDN Erklärung von WCAG, Richtlinie 1.1](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
-- [H86: Bereitstellung von Textalternativen für ASCII-Kunst, Emoticons und Leetspeak | W3C-Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H86.html)
+- [MDN Verständnis von WCAG, Richtlinie 1.1 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Perceivable#guideline_1.1_—_providing_text_alternatives_for_non-text_content)
+- [H86: Bereitstellung von Textalternativen für ASCII-Kunst, Emoticons und Leetspeak | W3C Techniken für WCAG 2.0](https://www.w3.org/TR/WCAG20-TECHS/H86.html)
 
 ## Beispiele
 
@@ -77,7 +79,7 @@ body {
 
 {{EmbedLiveSample("Basic_example")}}
 
-### Maskierung reservierter Zeichen
+### Maskierung von reservierten Zeichen
 
 #### HTML
 
@@ -107,7 +109,7 @@ if (i &lt; 10 &amp;&amp; i &gt; 0)
       <td>
         <a href="/de/docs/Web/HTML/Content_categories#flow_content"
           >Flussinhalt</a
-        >, fühlbarer Inhalt.
+        >, greifbarer Inhalt.
       </td>
     </tr>
     <tr>
