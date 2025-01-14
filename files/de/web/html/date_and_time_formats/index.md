@@ -1,17 +1,17 @@
 ---
-title: Datum- und Uhrzeitformate in HTML
+title: Datums- und Zeitformate in HTML
 slug: Web/HTML/Date_and_time_formats
 l10n:
-  sourceCommit: 4d3605197ea5c6407aacca2a80cc27a398f04fc8
+  sourceCommit: c16a0ee78e5142b3bfcdaf57d595add3ce825f13
 ---
 
 {{HTMLSidebar}}
 
-Bestimmte HTML-Elemente verwenden Datums- und/oder Uhrzeitwerte. Die Formate der Zeichenfolgen, die diese Werte spezifizieren, werden in diesem Artikel beschrieben.
+Bestimmte HTML-Elemente verwenden Datums- und/oder Zeitwerte. Die Formate der Zeichenketten, die diese Werte spezifizieren, werden in diesem Artikel beschrieben.
 
-Elemente, die solche Formate verwenden, sind bestimmte Formen des {{HTMLElement("input")}}-Elements, die es dem Benutzer ermöglichen, ein Datum, eine Uhrzeit oder beides auszuwählen oder anzugeben, sowie die {{HTMLElement("ins")}} und {{HTMLElement("del")}}-Elemente, deren [`datetime`](/de/docs/Web/HTML/Element/ins#datetime)-Attribut das Datum oder Datum und Uhrzeit angibt, zu dem der Inhalt eingefügt oder gelöscht wurde.
+Elemente, die solche Formate verwenden, umfassen bestimmte Formen des {{HTMLElement("input")}}-Elements, die es dem Benutzer ermöglichen, ein Datum, eine Zeit oder beides auszuwählen oder anzugeben, sowie die {{HTMLElement("ins")}}- und {{HTMLElement("del")}}-Elemente, deren [`datetime`](/de/docs/Web/HTML/Element/ins#datetime)-Attribut das Datum oder Datum und die Uhrzeit angibt, zu der das Einfügen oder Löschen von Inhalten erfolgt ist.
 
-Für `<input>` sind die [`type`](/de/docs/Web/HTML/Element/input#type)-Werte von Eingaben, deren [`value`](/de/docs/Web/HTML/Element/input#value) eine Zeichenfolge enthält, die ein Datum und/oder eine Uhrzeit darstellt:
+Für `<input>` sind die [`type`](/de/docs/Web/HTML/Element/input#type)-Werte von Eingaben, deren [`value`](/de/docs/Web/HTML/Element/input#value) eine Zeichenkette enthält, die ein Datum und/oder eine Zeit darstellt:
 
 - [`date`](/de/docs/Web/HTML/Element/input/date)
 - [`datetime-local`](/de/docs/Web/HTML/Element/input/datetime-local)
@@ -21,16 +21,16 @@ Für `<input>` sind die [`type`](/de/docs/Web/HTML/Element/input#type)-Werte von
 
 ## Beispiele
 
-Bevor wir uns mit den Feinheiten der Schreibweise und Interpretation von Datums- und Uhrzeitzeichenfolgen in HTML befassen, sind hier einige Beispiele, die Ihnen einen guten Eindruck davon vermitteln sollten, wie die häufiger verwendeten Datums- und Uhrzeitzeichenfolgen aussehen.
+Bevor wir uns mit den Feinheiten der Darstellung und Analyse von Datums- und Zeitzeichenketten in HTML befassen, hier einige Beispiele, die Ihnen eine gute Vorstellung davon geben, wie die gebräuchlicheren Datums- und Zeitzeichenformate aussehen.
 
 <table class="standard-table">
   <caption>
-    Beispiel-HTML-Datum- und Uhrzeitzeichenfolgen
+    Beispiel-HTML-Datums- und Zeitzeichenketten
   </caption>
   <thead>
     <tr>
       <th scope="col">Zeichenfolge</th>
-      <th colspan="2" scope="col">Datum und/oder Uhrzeit</th>
+      <th colspan="2" scope="col">Datum und/oder Zeit</th>
     </tr>
   </thead>
   <tbody>
@@ -63,7 +63,7 @@ Bevor wir uns mit den Feinheiten der Schreibweise und Interpretation von Datums-
     </tr>
     <tr>
       <td><code>0033-08-04T03:40</code></td>
-      <td>3:40 Uhr am 4. August 33</td>
+      <td>3:40 Uhr am 4. August, 33</td>
       <td>
         <a
           href="#local_date_and_time_strings"
@@ -108,29 +108,29 @@ Bevor wir uns mit den Feinheiten der Schreibweise und Interpretation von Datums-
 
 ## Grundlagen
 
-Bevor wir uns die verschiedenen Formate der von HTML-Elementen verwendeten Datums- und Uhrzeitzeichenfolgen ansehen, ist es hilfreich, einige grundlegende Fakten über die Art und Weise, wie sie definiert sind, zu verstehen. HTML verwendet eine Variation des [ISO 8601](https://de.wikipedia.org/wiki/ISO_8601)-Standards für seine Datums- und Uhrzeitzeichenfolgen. Es lohnt sich, die Beschreibungen der verwendeten Formate zu überprüfen, um sicherzustellen, dass Ihre Zeichenfolgen tatsächlich mit HTML kompatibel sind, da die HTML-Spezifikation Algorithmen zum Parsen dieser Zeichenfolgen enthält, die tatsächlich präziser sind als ISO 8601, sodass es subtile Unterschiede in der erwarteten Darstellung von Datums- und Uhrzeitzeichenfolgen geben kann.
+Bevor wir uns die verschiedenen Formate von Datum- und zeitbezogenen Zeichenketten ansehen, die von HTML-Elementen verwendet werden, ist es hilfreich, einige grundlegende Fakten über die Art und Weise zu verstehen, wie sie definiert sind. HTML verwendet eine Variante des [ISO 8601](https://de.wikipedia.org/wiki/ISO_8601)-Standards für seine Datums- und Zeitzeichenketten. Es ist empfehlenswert, die Beschreibungen der verwendeten Formate zu überprüfen, um sicherzustellen, dass Ihre Zeichenketten tatsächlich mit HTML kompatibel sind, da die HTML-Spezifikation Algorithmen zum Parsen dieser Zeichenketten enthält, die eigentlich präziser als ISO 8601 sind, sodass es subtile Unterschiede darin geben kann, wie Datums- und Zeitzeichenketten erwartet werden.
 
 ### Zeichensatz
 
-Daten und Uhrzeiten in HTML sind immer Zeichenfolgen, die den {{Glossary("ASCII", "ASCII")}} Zeichensatz verwenden.
+Datum und Zeit in HTML sind immer Zeichenketten, die den {{Glossary("ASCII", "ASCII")}}-Zeichensatz verwenden.
 
 ### Jahreszahlen
 
-Um das Grundformat von Datumszeichenfolgen in HTML zu vereinfachen, erfordert die Spezifikation, dass alle Jahre unter Verwendung des modernen (oder **proleptischen**) [Gregorianischen Kalenders](https://de.wikipedia.org/wiki/Gregorianischer_Kalender) angegeben werden. Während Benutzeroberflächen möglicherweise die Eingabe von Daten mithilfe anderer Kalender zulassen, verwendet der zugrunde liegende Wert immer den Gregorianischen Kalender.
+Um das Grundformat für Datumszeichenketten in HTML zu vereinfachen, verlangt die Spezifikation, dass alle Jahre im modernen (oder **proleptischen**) [Gregorianischen Kalender](https://de.wikipedia.org/wiki/Gregorianischer_Kalender) angegeben werden. Während Benutzeroberflächen die Eingabe von Daten mit anderen Kalendern zulassen können, verwendet der zugrunde liegende Wert immer den Gregorianischen Kalender.
 
-Während der Gregorianische Kalender erst 1582 eingeführt wurde (als Ersatz für den ähnlichen Julianischen Kalender), wird er für HTML-Zwecke auf das Jahr 1 n. Chr. zurückgezogen. Stellen Sie sicher, dass alle älteren Daten dies berücksichtigen.
+Obwohl der Gregorianische Kalender erst im Jahr 1582 eingeführt wurde (als Ersatz für den ähnlichen Julianischen Kalender), wird er für HTML-Zwecke bis zum Jahr 1 n. Chr. erweitert. Stellen Sie sicher, dass alle älteren Daten dies berücksichtigen.
 
-Für HTML-Daten sind Jahre immer mindestens vierstellig; Jahre vor 1000 werden mit führenden Nullen (`0`) aufgefüllt, sodass das Jahr 72 als `0072` geschrieben wird. Jahre vor dem Jahr 1 n. Chr. werden nicht unterstützt, sodass HTML Jahre 1 v. Chr. oder früher (1 v. Chr.) nicht unterstützt.
+Für HTML-Daten sind Jahreszahlen immer mindestens vier Ziffern lang; Jahre vor dem Jahr 1000 werden mit führenden Nullen (`0`) gepolstert, sodass das Jahr 72 als `0072` geschrieben wird. Jahre vor dem Jahr 1 n. Chr. werden nicht unterstützt, sodass HTML keine Jahre 1 v. Chr. (1 v. Chr.) oder früher unterstützt.
 
-Ein Jahr hat normalerweise 365 Tage, außer in **[Schaltjahren](#schaltjahre)**.
+Ein Jahr ist normalerweise 365 Tage lang, außer in **[Schaltjahren](#schaltjahre)**.
 
 #### Schaltjahre
 
-Ein **Schaltjahr** ist ein Jahr, das entweder durch 400 oder durch 4, jedoch nicht durch 100 teilbar ist. Obwohl das Kalenderjahr normalerweise 365 Tage lang ist, dauert es tatsächlich etwa 365,2422 Tage, bis der Planet Erde einen einzigen Umlauf um die Sonne vollendet. Schaltjahre helfen dabei, den Kalender an die tatsächliche Position des Planeten in seiner Umlaufbahn anzupassen. Das Hinzufügen eines Tages zu jedem vierten Jahr macht das durchschnittliche Jahr im Wesentlichen 365,25 Tage lang, was fast korrekt ist.
+Ein **Schaltjahr** ist jedes Jahr, das durch 400 teilbar ist _oder_ das Jahr ist durch 4 teilbar, aber nicht durch 100. Obwohl das Kalenderjahr normalerweise 365 Tage lang ist, dauert es tatsächlich etwa 365,2422 Tage, bis die Erde eine vollständige Umlaufbahn um die Sonne vollendet. Schaltjahre helfen dabei, den Kalender anzupassen, um ihn mit der tatsächlichen Position des Planeten in seiner Umlaufbahn in Einklang zu bringen. Das Hinzufügen eines Tages alle vier Jahre macht das durchschnittliche Jahr im Wesentlichen 365,25 Tage lang, was ziemlich nahe an der richtigen Zahl liegt.
 
-Die Anpassungen am Algorithmus (ein Schaltjahr zu berücksichtigen, wenn das Jahr durch 400 teilbar ist, und Schaltjahre auszulassen, wenn das Jahr durch 100 teilbar ist) tragen dazu bei, den Durchschnittswert noch näher an die korrekte Anzahl von Tagen (365,2425 Tage) zu bringen. Wissenschaftler fügen gelegentlich Schaltsekunden in den Kalender ein (wirklich), um die verbleibenden drei Zehntausendstel eines Tages zu bewältigen und die allmähliche, natürliche Verlangsamung der Erdrotation auszugleichen.
+Die Anpassungen des Algorithmus (ein Schaltjahr wird genommen, wenn das Jahr durch 400 teilbar ist, und Schaltjahre werden übersprungen, wenn das Jahr durch 100 teilbar ist) helfen, den Durchschnitt noch näher an die korrekte Anzahl von Tagen zu bringen (365,2425 Tage). Wissenschaftler fügen gelegentlich Schaltsekunden zum Kalender hinzu (wirklich), um die restlichen drei Zehntausendstel eines Tages zu bewältigen und um die allmählich, natürlich auftretende Verlangsamung der Erdrotation auszugleichen.
 
-Der Monat `02`, Februar, hat normalerweise 28 Tage, in Schaltjahren jedoch 29 Tage.
+Während der Monat `02`, Februar, normalerweise 28 Tage hat, hat er in Schaltjahren 29 Tage.
 
 ### Monate des Jahres
 
@@ -138,33 +138,33 @@ Es gibt 12 Monate im Jahr, nummeriert von 1 bis 12. Sie werden immer durch eine 
 
 ### Tage des Monats
 
-Die Monate 1, 3, 5, 7, 8, 10 und 12 haben 31 Tage. Die Monate 4, 6, 9 und 11 haben 30 Tage. Der Monat 2, Februar, hat die meisten Jahre 28 Tage, jedoch in Schaltjahren 29 Tage. Dies wird in der folgenden Tabelle detailliert dargestellt.
+Monatsnummern 1, 3, 5, 7, 8, 10 und 12 haben 31 Tage. Monate 4, 6, 9 und 11 haben 30 Tage. Monat 2, Februar, hat in den meisten Jahren 28 Tage, aber in Schaltjahren 29 Tage. Dies wird in der folgenden Tabelle detailliert dargestellt.
 
 <table class="standard-table">
   <caption>
-    Die Monate des Jahres und ihre Länge in Tagen
+    Die Monate des Jahres und ihre Längen in Tagen
   </caption>
   <thead>
     <tr>
       <th scope="row">Monatsnummer</th>
-      <th scope="col">Name (Englisch)</th>
-      <th scope="col">Länge in Tagen</th>
+      <th scope="col">Name (Deutsch)</th>
+      <th scope="col">Dauer in Tagen</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">01</th>
-      <td>January</td>
+      <td>Januar</td>
       <td>31</td>
     </tr>
     <tr>
       <th scope="row">02</th>
-      <td>February</td>
+      <td>Februar</td>
       <td>28 (29 in Schaltjahren)</td>
     </tr>
     <tr>
       <th scope="row">03</th>
-      <td>March</td>
+      <td>März</td>
       <td>31</td>
     </tr>
     <tr>
@@ -174,17 +174,17 @@ Die Monate 1, 3, 5, 7, 8, 10 und 12 haben 31 Tage. Die Monate 4, 6, 9 und 11 hab
     </tr>
     <tr>
       <th scope="row">05</th>
-      <td>May</td>
+      <td>Mai</td>
       <td>31</td>
     </tr>
     <tr>
       <th scope="row">06</th>
-      <td>June</td>
+      <td>Juni</td>
       <td>30</td>
     </tr>
     <tr>
       <th scope="row">07</th>
-      <td>July</td>
+      <td>Juli</td>
       <td>31</td>
     </tr>
     <tr>
@@ -199,7 +199,7 @@ Die Monate 1, 3, 5, 7, 8, 10 und 12 haben 31 Tage. Die Monate 4, 6, 9 und 11 hab
     </tr>
     <tr>
       <th scope="row">10</th>
-      <td>October</td>
+      <td>Oktober</td>
       <td>31</td>
     </tr>
     <tr>
@@ -209,17 +209,17 @@ Die Monate 1, 3, 5, 7, 8, 10 und 12 haben 31 Tage. Die Monate 4, 6, 9 und 11 hab
     </tr>
     <tr>
       <th scope="row">12</th>
-      <td>December</td>
+      <td>Dezember</td>
       <td>31</td>
     </tr>
   </tbody>
 </table>
 
-## Wochenzeichenfolgen
+## Wochenzeichenketten
 
-Eine Wochenzeichenfolge spezifiziert eine Woche innerhalb eines bestimmten Jahres. Eine **gültige Wochenzeichenfolge** besteht aus einer gültigen [Jahreszahl](#jahreszahlen), gefolgt von einem Bindestrich (`-`, oder U+002D), dann dem Großbuchstaben `W` (U+0057), gefolgt von einer zweistelligen Wochenzahl des Jahres.
+Eine Wochenzeichenkette gibt eine Woche innerhalb eines bestimmten Jahres an. Eine **gültige Wochenzeichenkette** besteht aus einer gültigen [Jahreszahl](#jahreszahlen), gefolgt von einem Bindestrichzeichen (`-`, oder U+002D), dann dem Großbuchstaben `W` (U+0057), gefolgt von einem zweistelligen Wochenwert des Jahres.
 
-Die Woche des Jahres ist eine zweistellige Zeichenfolge zwischen `01` und `53`. Jede Woche beginnt am Montag und endet am Sonntag. Das bedeutet, dass die ersten Januartage möglicherweise als Teil der vorherigen Woche des Jahres betrachtet werden und die letzten Dezembertage möglicherweise als Teil der folgenden Woche des Jahres betrachtet werden. Die erste Woche des Jahres ist die Woche, die den _ersten Donnerstag des Jahres_ enthält. Beispielsweise war der erste Donnerstag des Jahres 1953 der 1. Januar, sodass diese Woche — beginnend am Montag, den 29. Dezember — als die erste Woche des Jahres gilt. Daher liegt der 30. Dezember 1952 in der Woche `1953-W01`.
+Die Woche des Jahres ist eine zweistellige Zeichenfolge zwischen `01` und `53`. Jede Woche beginnt am Montag und endet am Sonntag. Das bedeutet, dass die ersten Tage des Januars als Teil des vorherigen Jahres angesehen werden können und die letzten Tage des Dezembers als Teil des folgenden Jahres. Die erste Woche des Jahres ist die Woche, die den _ersten Donnerstag des Jahres_ enthält. Beispielsweise war der erste Donnerstag des Jahres 1953 am 1. Januar, sodass diese Woche — beginnend am Montag, dem 29. Dezember — als die erste Woche des Jahres gilt. Daher fällt der 30. Dezember 1952 in die Woche `1953-W01`.
 
 Ein Jahr hat 53 Wochen, wenn:
 
@@ -228,80 +228,80 @@ Ein Jahr hat 53 Wochen, wenn:
 
 Alle anderen Jahre haben 52 Wochen.
 
-| Wochenzeichenfolge | Woche und Jahr (Datumsbereich)                        |
-| ------------------ | ----------------------------------------------------- |
-| `2001-W37`         | Woche 37, 2001 (10.–16. September 2001)               |
-| `1953-W01`         | Woche 1, 1953 (29. Dezember 1952 bis 4. Januar 1953)  |
-| `1948-W53`         | Woche 53, 1948 (27. Dezember 1948 bis 2. Januar 1949) |
-| `1949-W01`         | Woche 1, 1949 (3.–9. Januar 1949)                     |
-| `0531-W16`         | Woche 16, 531 (13.–19. April 531)                     |
-| `0042-W04`         | Woche 4, 42 (21.–27. Januar 42)                       |
+| Wochenzeichenkette | Woche und Jahr (Datumsbereich)                      |
+| ------------------ | --------------------------------------------------- |
+| `2001-W37`         | Woche 37, 2001 (10.-16. September 2001)             |
+| `1953-W01`         | Woche 1, 1953 (29. Dezember 1952 - 4. Januar 1953)  |
+| `1948-W53`         | Woche 53, 1948 (27. Dezember 1948 - 2. Januar 1949) |
+| `1949-W01`         | Woche 1, 1949 (3.-9. Januar 1949)                   |
+| `0531-W16`         | Woche 16, 531 (13.-19. April 531)                   |
+| `0042-W04`         | Woche 4, 42 (21.-27. Januar 42)                     |
 
-Beachten Sie, dass sowohl die Jahres- als auch die Wochennummern mit führenden Nullen aufgefüllt sind, wobei das Jahr auf vier Ziffern und die Woche auf zwei Ziffern gefüllt ist.
+Beachten Sie, dass sowohl die Jahres- als auch die Wochenzahlen mit führenden Nullen gepolstert sind, wobei das Jahr auf vier Stellen und die Woche auf zwei Stellen gepolstert ist.
 
-## Monatszeichenfolgen
+## Monatszeichenketten
 
-Eine Monatszeichenfolge repräsentiert einen bestimmten Monat in der Zeit, anstatt eines generischen Monats des Jahres. Das bedeutet, dass eine HTML-Monatszeichenfolge keinen "Januar" darstellt, sondern einen Monat und ein Jahr zusammen, wie "Januar 1972".
+Eine Monatszeichenkette repräsentiert einen bestimmten Monat in der Zeit, anstatt eines generischen Monats im Jahr. Das heißt, anstatt "Januar" darzustellen, repräsentiert eine HTML-Monatszeichenkette ein Paar aus Monat und Jahr, wie "Januar 1972".
 
-Eine **gültige Monatszeichenfolge** besteht aus einer gültigen [Jahreszahl](#jahreszahlen) (eine Zeichenfolge von mindestens vier Ziffern), gefolgt von einem Bindestrich (`-`, oder U+002D), gefolgt von einer zweistelligen numerischen [Monatsnummer](#monate_des_jahres), wobei `01` Januar und `12` Dezember darstellt.
+Eine **gültige Monatszeichenkette** besteht aus einer gültigen [Jahreszahl](#jahreszahlen) (eine Zeichenfolge aus mindestens vier Ziffern), gefolgt von einem Bindestrich (`-`, oder U+002D), gefolgt von einer zweistelligen numerischen [Monatszahl](#monate_des_jahres), wobei `01` Januar und `12` Dezember repräsentiert.
 
-| Monatszeichenfolge | Monat und Jahr  |
-| ------------------ | --------------- |
-| `17310-09`         | September 17310 |
-| `2019-01`          | Januar 2019     |
-| `1993-11`          | November 1993   |
-| `0571-04`          | April 571       |
-| `0001-07`          | Juli 1 n. Chr.  |
+| Monatszeichenkette | Monat und Jahr   |
+| ------------------ | ---------------- |
+| `17310-09`         | September, 17310 |
+| `2019-01`          | Januar, 2019     |
+| `1993-11`          | November, 1993   |
+| `0571-04`          | April, 571       |
+| `0001-07`          | Juli, 1 n. Chr.  |
 
-Beachten Sie, dass alle Jahre mindestens vier Zeichen lang sind; Jahre, die weniger als vier Ziffern haben, werden mit führenden Nullen aufgefüllt.
+Beachten Sie, dass alle Jahre mindestens vier Zeichen lang sind; Jahre, die weniger als vier Ziffern lang sind, werden mit führenden Nullen gepolstert.
 
-## Datumszeichenfolgen
+## Datumszeichenketten
 
-Eine gültige Datumszeichenfolge besteht aus einer [Monatszeichenfolge](#monatszeichenfolgen), gefolgt von einem Bindestrich (`-`, oder U+002D), gefolgt von einem zweistelligen [Tag des Monats](#tage_des_monats).
+Eine gültige Datumszeichenkette besteht aus einer [Monatszeichenkette](#monatszeichenketten), gefolgt von einem Bindestrich (`-`, oder U+002D), gefolgt von einem zweistelligen [Tag des Monats](#tage_des_monats).
 
-| Datumszeichenfolge | Volles Datum     |
+| Datumszeichenkette | Volles Datum     |
 | ------------------ | ---------------- |
 | `1993-11-01`       | 1. November 1993 |
 | `1066-10-14`       | 14. Oktober 1066 |
 | `0571-04-22`       | 22. April 571    |
 | `0062-02-05`       | 5. Februar 62    |
 
-## Uhrzeitzeichenfolgen
+## Zeitzeichenketten
 
-Eine Zeitzeichenfolge kann eine Uhrzeit mit Genauigkeit auf Minuten, Sekunden oder Millisekunden angeben. Es ist nicht erlaubt, nur die Stunde oder Minute anzugeben. Eine **gültige Uhrzeitzeichenfolge** besteht mindestens aus einer zweistelligen Stunde, gefolgt von einem Doppelpunkt (`:`, U+003A), dann einer zweistelligen Minute. Die Minute kann optional durch einen weiteren Doppelpunkt und einer zweistelligen Anzahl von Sekunden gefolgt werden. Millisekunden können optional durch Hinzufügen eines Dezimalpunktzeichens (`.`, U+002E) gefolgt von ein, zwei oder drei Ziffern angegeben werden.
+Eine Zeitzeichenkette kann eine Zeit mit Präzision auf die Minute, Sekunde oder auf die Millisekunde angeben. Es ist nicht erlaubt, nur die Stunde oder Minute anzugeben. Eine **gültige Zeitzeichenkette** besteht mindestens aus einer zweistelligen Stunde, gefolgt von einem Doppelpunkt (`:`, U+003A), dann einer zweistelligen Minute. Die Minute kann optional gefolgt von einem weiteren Doppelpunkt und einer zweistelligen Anzahl von Sekunden sein. Millisekunden können optional spezifiziert werden, indem nach der Sekundenkomponente der Zeitzeichenkette ein Dezimalpunktzeichen (`.`, U+002E) gefolgt von einer, zwei oder drei Ziffern hinzugefügt wird.
 
 Es gibt einige zusätzliche Grundregeln:
 
-- Die Stunde wird immer im 24-Stunden-Format angegeben, wobei `00` Mitternacht und 23 Uhr `23` ist. Keine Werte außerhalb des Bereichs `00` – `23` sind erlaubt.
+- Die Stunde wird immer im 24-Stunden-Format angegeben, wobei `00` Mitternacht und 23.00 Uhr mit `23` ist. Keine Werte außerhalb des Bereichs `00` – `23` sind zulässig.
 - Die Minute muss eine zweistellige Zahl zwischen `00` und `59` sein. Keine Werte außerhalb dieses Bereichs sind erlaubt.
-- Wenn die Anzahl der Sekunden weggelassen wird (um eine Uhrzeit nur auf die Minute genau anzugeben), darf dem Minutenwert kein Doppelpunkt folgen.
-- Wenn angegeben, muss der ganzzahlige Teil der Sekundenanzahl zwischen `00` und `59` liegen. Sie _können_ keine Schaltsekunden durch die Verwendung von Werten wie `60` oder `61` angeben.
-- Wenn die Anzahl der Sekunden als Ganzzahl angegeben und ist, darf ihr kein Dezimalpunkt folgen.
-- Wenn ein Bruchteil einer Sekunde enthalten ist, kann er aus ein bis drei Ziffern bestehen, die die Anzahl der Millisekunden angeben. Er folgt auf den Dezimalpunkt, der hinter dem Sekundenanteil der Zeitzeichenfolge platziert wird.
+- Falls die Anzahl der Sekunden weggelassen wird (um nur eine Zeit auf die Minute genau anzugeben), darf kein Doppelpunkt nach der Anzahl der Minuten angegeben werden.
+- Wenn angegeben, muss der ganzzahlige Teil der Anzahl der Sekunden zwischen `00` und `59` liegen. Sie _können_ keine Schaltsekunden angeben, indem Sie Werte wie `60` oder `61` verwenden.
+- Wenn die Anzahl der Sekunden als Ganzzahl angegeben wird, darf sie nicht durch einen Dezimalpunkt gefolgt werden.
+- Wenn ein Bruchteil einer Sekunde enthalten ist, kann er von einer bis drei Ziffern lang sein, was die Anzahl der Millisekunden anzeigt. Dies folgt nach dem Dezimalzeichen, das nach der Sekundenkomponente der Zeitzeichenkette platziert wird.
 
-| Zeitzeichenfolge | Uhrzeit                                           |
+| Zeitzeichenkette | Zeit                                              |
 | ---------------- | ------------------------------------------------- |
-| `00:00:30.75`    | 00:00:30.75 Uhr (30.75 Sekunden nach Mitternacht) |
-| `12:15`          | 12:15 Uhr (Mittag)                                |
+| `00:00:30.75`    | 00:00:30.75 Uhr (30,75 Sekunden nach Mitternacht) |
+| `12:15`          | 12:15 Uhr                                         |
 | `13:44:25`       | 13:44:25 Uhr (25 Sekunden nach 13:44 Uhr)         |
 
-## Lokale Datums- und Uhrzeitzeichenfolgen
+## Lokale Datums- und Zeitzeichenketten
 
-Eine gültige [`datetime-local`](/de/docs/Web/HTML/Element/input/datetime-local) Zeichenfolge besteht aus einer `date`-Zeichenfolge und einer `time`-Zeichenfolge, die mit entweder dem Buchstaben `T` oder einem Leerzeichen verbunden werden. Keine Informationen zur Zeitzone sind in der Zeichenfolge enthalten; das Datum und die Uhrzeit werden in der lokalen Zeitzone des Benutzers angenommen.
+Eine gültige [`datetime-local`](/de/docs/Web/HTML/Element/input/datetime-local)-Zeichenkette besteht aus einer `Date`-Zeichenkette und einer `Time`-Zeichenkette, die zusammen mit entweder dem Buchstaben `T` oder einem Leerzeichen getrennt sind. Keine Informationen über die Zeitzone sind in der Zeichenkette enthalten; das Datum und die Zeit werden als in der lokalen Zeitzone des Benutzers liegend angenommen.
 
-Wenn Sie den [`value`](/de/docs/Web/HTML/Element/input#value) eines `datetime-local`-Eingabefeldes festlegen, wird die Zeichenfolge in eine standardisierte Form **normalisiert**. Normalisierte `datetime`-Zeichenfolgen verwenden immer den Buchstaben `T`, um das Datum und die Uhrzeit zu trennen, und der Zeitabschnitt der Zeichenfolge ist so kurz wie möglich. Dies geschieht, indem die Sekundenkomponente weggelassen wird, wenn ihr Wert `:00` ist.
+Wenn Sie den [`value`](/de/docs/Web/HTML/Element/input#value) eines `datetime-local`-Inputs festlegen, wird die Zeichenkette in eine Standardform **normalisiert**. Normalisierte `datetime`-Zeichenketten verwenden immer den Buchstaben `T`, um das Datum und die Zeit zu trennen, und der Zeitteil der Zeichenkette ist so kurz wie möglich. Dies erfolgt, indem die Sekundenkomponente weggelassen wird, wenn ihr Wert `:00` ist.
 
 <table class="standard-table">
   <caption>
     Beispiele für gültige
     <code>datetime-local</code>
-    Zeichenfolgen
+    Zeichenketten
   </caption>
   <thead>
     <tr>
-      <th scope="col">Datum-/Uhrzeitzeichenfolge</th>
-      <th scope="col">Normalisierte Datum-/Uhrzeitzeichenfolge</th>
-      <th scope="col">Tatsächliches Datum und Uhrzeit</th>
+      <th scope="col">Datum/Uhrzeit-Zeichenkette</th>
+      <th scope="col">Normalisierte Datum/Uhrzeit-Zeichenkette</th>
+      <th scope="col">Tatsächliche Datum und Zeit</th>
     </tr>
   </thead>
   <tbody>
@@ -315,10 +315,10 @@ Wenn Sie den [`value`](/de/docs/Web/HTML/Element/input#value) eines `datetime-lo
       <td>
         <p><code>1986-01-28T11:38:00.01</code></p>
         <p>
-          Beachten Sie, dass nach der Normalisierung die gleiche Zeichenfolge wie die vorherige
-          <code>datetime-local</code> Zeichenfolge entsteht. Der Leerraum wurde durch
-          das Zeichen <code>T</code> ersetzt und die Null am Ende des Bruchteils
-          einer Sekunde wurde entfernt, um die Zeichenfolge so kurz wie möglich zu machen.
+          Beachten Sie, dass nach der Normalisierung die gleiche Zeichenkette wie die vorherige
+          <code>datetime-local</code>-Zeichenkette resultiert. Der Leerraum wurde durch
+          den <code>T</code>-Buchstaben ersetzt und die nachstehende Null im Bruchteil
+          einer Sekunde wurde entfernt, um die Zeichenkette so kurz wie möglich zu machen.
         </p>
       </td>
       <td>28. Januar 1986 um 11:38:00.01 Uhr</td>
@@ -328,10 +328,10 @@ Wenn Sie den [`value`](/de/docs/Web/HTML/Element/input#value) eines `datetime-lo
       <td>
         <p><code>0170-07-31T22:00</code></p>
         <p>
-          Beachten Sie, dass in der normalisierten Form dieses Datums das
-          <code>:00</code>, das die Anzahl der Sekunden ist, auf null gesetzt wurde,
-          weil die Sekunden optional sind, wenn sie null sind, und die normalisierte Zeichenfolge
-          minimiert die Länge der Zeichenfolge.
+          Beachten Sie, dass in der normalisierten Form dieses Datums
+          das <code>:00</code>, das die Anzahl der Sekunden als Null angibt, weggelassen wird,
+          weil die Sekunden optional sind, wenn sie Null sind, und die normalisierte Zeichenkette
+          die Länge der Zeichenkette minimiert.
         </p>
       </td>
       <td>31. Juli 170 um 22:00 Uhr</td>
@@ -339,35 +339,35 @@ Wenn Sie den [`value`](/de/docs/Web/HTML/Element/input#value) eines `datetime-lo
   </tbody>
 </table>
 
-## Globale Datums- und Uhrzeitzeichenfolgen
+## Globale Datums- und Zeitzeichenketten
 
-Eine globale Datums- und Uhrzeitzeichenfolge gibt ein Datum und eine Uhrzeit sowie die Zeitzone an, in der sie auftritt. Eine **gültige globale Datums- und Uhrzeitzeichenfolge** hat das gleiche Format wie eine [lokale Datums- und Uhrzeitzeichenfolge](#lokale_datums-_und_uhrzeitzeichenfolgen), außer dass eine Zeitzonenzeichenfolge am Ende, nach der Uhrzeit, angehängt wird.
+Eine globale Datums- und Zeitzeichenkette gibt ein Datum und eine Zeit sowie die Zeitzone an, in der sie auftreten. Eine **gültige globale Datums- und Zeitzeichenkette** hat dasselbe Format wie eine [lokale Datums- und Zeitzeichenkette](#lokale_datums-_und_zeitzeichenketten), jedoch wird am Ende, nach der Zeit, eine Zeitzonenzeichenkette hinzugefügt.
 
-### Zeitzonen-Offset-Zeichenfolge
+### Zeitzonenoffset-Zeichenkette
 
-Eine Zeitzonen-Offset-Zeichenfolge gibt die Verschiebung in entweder einer positiven oder einer negativen Anzahl von Stunden und Minuten von der Standardzeitbasis an. Es gibt zwei Standardzeitbasen, die sehr nahe beieinander liegen, aber nicht genau gleich sind:
+Eine Zeitzonenoffset-Zeichenkette gibt den Offset in entweder einer positiven oder negativen Anzahl von Stunden und Minuten von der Standardzeitbasis an. Es gibt zwei Standardzeitbasen, die sich sehr ähnlich sind, aber nicht genau die gleichen:
 
-- Für Daten nach der Einführung der [Koordinierten Weltzeit](https://de.wikipedia.org/wiki/Coordinated_Universal_Time) (UTC) in den frühen 1960er Jahren ist die Zeitbasis `Z` und die Verschiebung zeigt die Verschiebung einer bestimmten Zeitzone von der Zeit am Nullmeridian bei 0º Länge an (der durch das Royal Observatory in Greenwich, England, verläuft).
-- Für Daten vor UTC wird die Zeitbasis stattdessen in Bezug auf [UT1](https://de.wikipedia.org/wiki/UT1) ausgedrückt, das die zeitgenössische Erdsonnenzeit am Nullmeridian ist.
+- Für Daten nach der Einrichtung von [Koordinierten Weltzeit](https://de.wikipedia.org/wiki/Koordinierte_Weltzeit) (UTC) in den frühen 1960er Jahren ist die Zeitbasis `Z` und der Offset gibt den Offset einer bestimmten Zeitzone von der Zeit auf dem Nullmeridian bei 0º Längengrad an (der durch das königliche Observatorium in Greenwich, England, verläuft).
+- Für Daten vor der UTC wird die Zeitbasis stattdessen in Bezug auf [UT1](https://de.wikipedia.org/w/index.php?title=UT1) ausgedrückt, das die gegenwärtige Erdsolzeit am Nullmeridian ist.
 
-Die Zeitzonenzeichenfolge wird unmittelbar nach der Uhrzeit in der Datums- und Uhrzeitzeichenfolge angehängt. Sie können `Z` als Zeitzonen-Offset-Zeichenfolge angeben, um anzuzeigen, dass die Zeit in UTC angegeben ist. Andernfalls wird die Zeitzonen-Zeichenfolge wie folgt konstruiert:
+Die Zeitzonenzeichenfolge wird direkt nach der Zeit in der Datums- und Zeitzeichenkette hinzugefügt. Sie können `Z` als Zeitzonenoffset-Zeichenfolge angeben, um anzugeben, dass die Zeit in UTC angegeben wird. Andernfalls wird die Zeitzonenzeichenfolge wie folgt konstruiert:
 
-1. Ein Zeichen, das das Vorzeichen der Verschiebung angibt: das Pluszeichen (`+`, oder U+002B) für Zeitzonen östlich des Nullmeridians oder das Minuszeichen (`-`, oder U+002D) für Zeitzonen westlich des Nullmeridians.
-2. Eine zweistellige Anzahl von Stunden, die die Zeitzone von dem Nullmeridian verschoben ist. Dieser Wert muss zwischen `00` und `23` liegen.
-3. Ein optionales Doppelpunkt (`:`) Zeichen.
+1. Ein Zeichen, das das Vorzeichen des Offsets angibt: das Pluszeichen (`+`, oder U+002B) für Zeitzonen östlich des Nullmeridians oder das Minuszeichen (`-`, oder U+002D) für Zeitzonen westlich des Nullmeridians.
+2. Eine zweistellige Anzahl von Stunden, um die die Zeitzone vom Nullmeridian verschoben ist. Dieser Wert muss zwischen `00` und `23` liegen.
+3. Ein optionales Doppelpunktzeichen (`:`).
 4. Eine zweistellige Anzahl von Minuten nach der Stunde; dieser Wert muss zwischen `00` und `59` liegen.
 
-Während dieses Format Zeitzonen zwischen -23:59 und +23:59 erlaubt, liegt der aktuelle Bereich der Zeitzonenverschiebungen zwischen -12:00 und +14:00, und keine Zeitzonen sind derzeit von der Stunde durch etwas anderes als `00`, `30` oder `45` Minuten verschoben. Dies kann sich jederzeit ändern, da Länder ihre Zeitzonen jederzeit und in jeder Weise ändern können, wie sie möchten.
+Während dieses Format Zeitzonen zwischen -23:59 und +23:59 zulässt, liegt der aktuelle Bereich der Zeitzonenverschiebungen zwischen -12:00 und +14:00, und keine Zeitzonen sind derzeit um etwas anderes als `00`, `30` oder `45` Minuten versetzt. Dies kann sich jederzeit ändern, da die Länder jederzeit und in irgendeiner Weise ihre Zeitzonen ändern können, wie sie wollen.
 
 <table class="no-markdown">
   <caption>
-    Beispiele für gültige globale Datums- und Uhrzeitzeichenfolgen
+    Beispiele für gültige globale Datums- und Zeitzeichenketten
   </caption>
   <thead>
     <tr>
-      <th scope="col">Globale Datums- und Uhrzeitzeichenfolge</th>
-      <th scope="col">Tatsächliches globales Datum und Uhrzeit</th>
-      <th scope="col">Datum und Uhrzeit am Nullmeridian</th>
+      <th scope="col">Globale Datums- und Zeitzeichenkette</th>
+      <th scope="col">Tatsächliche globale Datum und Zeit</th>
+      <th scope="col">Datum und Zeit am Nullmeridian</th>
     </tr>
   </thead>
   <tbody>
@@ -379,9 +379,10 @@ Während dieses Format Zeitzonen zwischen -23:59 und +23:59 erlaubt, liegt der a
     <tr>
       <td><code>1789-08-22T12:30:00.1-04:00</code></td>
       <td>
-        22. August 1789 ein Zehntel einer Sekunde nach 12:30 Uhr Eastern Daylight Time (EDT)
+        22. August 1789 eine Zehntelsekunde nach 12:30 Uhr Eastern Daylight
+        Time (EDT)
       </td>
-      <td>22. August 1789 ein Zehntel einer Sekunde nach 16:30 Uhr</td>
+      <td>22. August 1789 eine Zehntelsekunde nach 16:30 Uhr</td>
     </tr>
     <tr>
       <td><code>3755-01-01 00:00+10:00</code></td>
@@ -393,28 +394,28 @@ Während dieses Format Zeitzonen zwischen -23:59 und +23:59 erlaubt, liegt der a
   </tbody>
 </table>
 
-## Datumsprobleme
+## Probleme mit Datumsangaben
 
-Aufgrund von Datenlagerung und Genauigkeitsproblemen sollten Sie sich einiger clientseitiger und serverseitiger Probleme bewusst sein.
+Aufgrund von Datenspeicher- und Präzisionsproblemen sollten Sie sich einige clientseitige und serverseitige Probleme bewusst machen.
 
 ### Das Y2K38-Problem (oft serverseitig)
 
-JavaScript verwendet Gleitkommazahlen mit doppelter Genauigkeit zur Speicherung von Daten, wie auch bei allen Zahlen, was bedeutet, dass JavaScript-Code nicht unter dem Y2K38-Problem leidet, es sei denn, es werden ganzzahlige Zwangsumwandlungen/Bit-Tricks verwendet, da alle JavaScript-Bit-Operatoren 32-Bit vorzeichenbehaftete Zwei-Komplement-Ganzzahlen verwenden.
+JavaScript verwendet doppelte Genauigkeit für Fließkommazahlen zur Speicherung von Daten, wie bei allen Zahlen, was bedeutet, dass JavaScript-Code nicht unter dem Y2K38-Problem leidet, es sei denn, Ganzzahlen-Zwangsbedingungen/Bit-Tricks werden verwendet, da alle JavaScript-Bitoperatoren 32-Bit-Zweierkomplement-Ganzzahlen verwenden.
 
-Das Problem liegt auf der Serverseite: Speicherung von Daten über 2^31 - 1 hinaus. Um dieses Problem zu beheben, müssen Sie alle Daten entweder mit unveränderten 32-Bit-Ganzzahlen, vorzeichenbehafteten 64-Bit-Ganzzahlen oder Gleitkommazahlen mit doppelter Genauigkeit auf dem Server speichern. Wenn Ihr Server in PHP geschrieben ist, könnte die Behebung ein Upgrade Ihrer PHP-Version erfordern und Ihr Hardware-Upgrade auf x86_64 oder IA64. Wenn Sie auf anderer Hardware festsitzen, können Sie versuchen, 64-Bit-Hardware in einer 32-Bit-virtuellen Maschine zu emulieren, aber die meisten VMs unterstützen diese Art von Virtualisierung nicht, da die Stabilität leiden kann und die Leistung definitiv stark sinken wird.
+Das Problem liegt auf der Serverseite: Speicherung von Daten größer als 2^31 - 1. Um dieses Problem zu beheben, müssen Sie alle Daten mit entweder unsigned 32-Bit-Ganzzahlen, signed 64-Bit-Ganzzahlen oder doppelt präzisen Fließkommazahlen auf dem Server speichern. Wenn Ihr Server in PHP geschrieben ist, kann die Reparatur ein Upgrade Ihrer PHP auf eine neuere Version erfordern, sowie ein Upgrade Ihrer Hardware auf x86_64 oder IA64. Wenn Sie mit anderer Hardware feststecken, können Sie versuchen, 64-Bit-Hardware innerhalb einer 32-Bit-virtuellen Maschine zu emulieren, aber die meisten VMs unterstützen diese Art der Virtualisierung nicht, da die Stabilität leiden könnte und die Leistung erheblich beeinträchtigt werden wird.
 
 ### Das Y10k-Problem (oft clientseitig)
 
-Auf vielen Servern werden Daten als Zahlen gespeichert, nicht als Zeichenfolgen - Zahlen fester Größe und unabhängig von Format (abgesehen von der Endianness). Nach dem Jahr 10.000 werden diese Zahlen einfach etwas größer sein als zuvor, sodass viele Server keine Probleme mit Formularen, die nach dem Jahr 10.000 eingereicht werden, haben werden.
+In vielen Servern werden Daten als Zahlen statt als Zeichenketten gespeichert - Zahlen von fester Größe und ohne Rücksicht auf das Format (abgesehen von der Byteordnung). Nach dem Jahr 10.000 werden diese Zahlen nur ein wenig größer sein als zuvor, daher werden viele Server keine Probleme mit Formularen, die nach dem Jahr 10.000 eingereicht wurden, erleben.
 
-Das Problem liegt auf der Client-Seite: die Interpretation von Daten mit mehr als 4 Ziffern im Jahr.
+Das Problem liegt auf der Clientseite: Parsing von Daten mit mehr als 4 Ziffern im Jahr.
 
 ```html
 <!--midnight of January 1st, 10000: the exact time of Y10K-->
 <input type="datetime-local" value="+010000-01-01T05:00" />
 ```
 
-Wir müssen unseren Code auf jede Anzahl von Ziffern vorbereiten — nicht nur 5. Die folgende JavaScript-Funktion legt den Wert programmgesteuert fest:
+Wir müssen unseren Code für eine beliebige Anzahl von Ziffern — nicht nur fünf — vorbereiten. Die folgende JavaScript-Funktion setzt den Wert programmatisch:
 
 ```js
 function setValue(element, date) {
@@ -423,13 +424,13 @@ function setValue(element, date) {
 }
 ```
 
-Warum sich um das Y10k-Problem kümmern, wenn es viele Jahrhunderte nach Ihrem Tod auftreten wird? Genau weil Sie bereits tot sein werden, sodass die Unternehmen, die Ihre Software verwenden, ohne einen anderen Programmierer, der das System gut genug kennt, festsitzen werden, um es zu reparieren.
+Warum sich um das Y10K-Problem sorgen, wenn es weit nach Ihrem Tod auftreten wird? Gerade weil Sie dann schon tot sein werden und die Unternehmen, die Ihre Software nutzen, Ihre Software einsetzen werden, ohne dass ein anderer Programmierer das System gut genug kennt, um es zu lösen.
 
 ## Siehe auch
 
 - {{HTMLElement("input")}}
-- {{HTMLElement("ins")}} und {{HTMLElement("del")}}: siehe das `datetime`-Attribut, das entweder ein Datum oder ein lokales Datum und eine Uhrzeit angibt, zu dem der Inhalt eingefügt oder gelöscht wurde
+- {{HTMLElement("ins")}} und {{HTMLElement("del")}}: siehe das `datetime`-Attribute, welches entweder ein Datum oder ein lokales Datum und Uhrzeit angibt, zu dem der Inhalt eingefügt oder gelöscht wurde
 - [Die ISO 8601 Spezifikation](https://www.iso.org/iso-8601-date-and-time-format.html)
-- [Zahlen und Daten](/de/docs/Web/JavaScript/Guide/Numbers_and_dates) im [JavaScript-Leitfaden](/de/docs/Web/JavaScript/Guide)
-- Das JavaScript-Objekt {{jsxref("Date")}}
-- Das [`Intl.DateTimeFormat`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) Objekt für die Formatierung von Daten und Zeiten für eine gegebene Spracheinstellung
+- [Darstellung von Daten & Uhrzeiten](/de/docs/Web/JavaScript/Guide/Representing_dates_times) im [JavaScript Leitfaden](/de/docs/Web/JavaScript/Guide)
+- Das JavaScript-{{jsxref("Date")}}-Objekt
+- Das [`Intl.DateTimeFormat`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)-Objekt zur Formatierung von Datum und Uhrzeit für eine bestimmte Locale
