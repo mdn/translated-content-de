@@ -225,6 +225,13 @@
         "replace": "`$1`",
         "searchScope": "text",
       },
+      {
+        "name": "escape-angle-brackets",
+        "message": "Escape angle brackets",
+        "searchPattern": "/(?<!\\\\)(<(angle|color|coordinate|custom-ident|integer|length|list-of-numbers|name|number|percentage|scheme-source|string|transform-list|uri)>)/gi",
+        "replace": "\\$1",
+        "searchScope": "text",
+      },
     ],
   },
 }
