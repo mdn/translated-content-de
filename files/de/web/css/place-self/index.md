@@ -2,18 +2,18 @@
 title: place-self
 slug: Web/CSS/place-self
 l10n:
-  sourceCommit: 919d97a4bda8004f63f655d3f9576c27a82c8a2a
+  sourceCommit: a731cff4afe1132e84c29c3044c9ac4a58888f46
 ---
 
 {{CSSRef}}
 
-Die **`place-self`** [CSS](/de/docs/Web/CSS)-[Kurzform-Eigenschaft](/de/docs/Web/CSS/Shorthand_properties) ermöglicht es, ein einzelnes Element sowohl in Block- als auch in Inline-Richtung gleichzeitig auszurichten (d.h. die Eigenschaften {{cssxref("align-self")}} und {{cssxref("justify-self")}}). Diese Eigenschaft gilt für Block-Level-Boxen, absolut positionierte Boxen und Grid-Elemente. Wenn der zweite Wert nicht vorhanden ist, wird auch der erste Wert dafür verwendet.
+Die **`place-self`** [CSS](/de/docs/Web/CSS) [Kurzschreibweise](/de/docs/Web/CSS/Shorthand_properties) ermöglicht es, ein einzelnes Element gleichzeitig in Block- und Inline-Richtung auszurichten (d.h. die {{cssxref("align-self")}}- und {{cssxref("justify-self")}}-Eigenschaften). Diese Eigenschaft gilt für Block-Level-Boxen, absolut positionierte Boxen und Grid-Elemente. Wenn der zweite Wert nicht vorhanden ist, wird auch der erste Wert dafür verwendet.
 
 {{EmbedInteractiveExample("pages/css/place-self.html")}}
 
-## Zusammengehörige Eigenschaften
+## Bestandteil-Eigenschaften
 
-Diese Eigenschaft ist eine Kurzform für die folgenden CSS-Eigenschaften:
+Diese Eigenschaft ist eine Kurzschreibweise für die folgenden CSS-Eigenschaften:
 
 - [`align-self`](/de/docs/Web/CSS/align-self)
 - [`justify-self`](/de/docs/Web/CSS/justify-self)
@@ -50,34 +50,34 @@ place-self: unset;
 ### Werte
 
 - `auto`
-  - : Berechnet sich zum {{cssxref("align-items")}}-Wert des Elternteils.
+  - : Berechnet sich zum Wert des Elternelements von {{cssxref("align-items")}}.
 - `normal`
 
-  - : Die Wirkung dieses Schlüsselworts hängt vom Layoutmodus ab:
+  - : Die Wirkung dieses Schlüsselworts hängt vom genutzten Layoutmodus ab:
 
-    - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` auf _ersetzten_ absolut positionierten Boxen und wie `stretch` auf _allen anderen_ absolut positionierten Boxen.
+    - In absolut positionierten Layouts verhält sich das Schlüsselwort wie `start` bei _ersetzten_ absolut positionierten Boxen und wie `stretch` bei _allen anderen_ absolut positionierten Boxen.
     - In der statischen Position von absolut positionierten Layouts verhält sich das Schlüsselwort wie `stretch`.
-    - Für Flex-Elemente verhält sich das Schlüsselwort wie `stretch`.
-    - Für Grid-Elemente führt dieses Schlüsselwort zu einem ähnlichen Verhalten wie `stretch`, außer bei Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder intrinsischen Größen, wo es sich wie `start` verhält.
-    - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenelemente.
+    - Bei Flex-Elementen verhält sich das Schlüsselwort wie `stretch`.
+    - Bei Grid-Elementen führt dieses Schlüsselwort zu einem Verhalten, das dem von `stretch` ähnelt, außer bei Boxen mit einem {{Glossary("aspect_ratio", "Seitenverhältnis")}} oder einer intrinsischen Größe, bei denen es sich wie `start` verhält.
+    - Die Eigenschaft gilt nicht für Block-Level-Boxen und Tabellenspalten.
 
 - `self-start`
-  - : Richtet die Elemente bündig mit dem Rand des Ausrichtungscontainers aus, der der Startseite des Elements in der Kreuzachse entspricht.
+  - : Richtet die Elemente bündig mit dem Rand des Anpassungscontainers aus, der der Startseite des Elements in der Kreuzachse entspricht.
 - `self-end`
-  - : Richtet die Elemente bündig mit dem Rand des Ausrichtungscontainers aus, der der Endseite des Elements in der Kreuzachse entspricht.
+  - : Richtet die Elemente bündig mit dem Rand des Anpassungscontainers aus, der der Endseite des Elements in der Kreuzachse entspricht.
 - `flex-start`
-  - : Der Start-Margenrand des Flex-Elements liegt bündig mit dem Start-Rand der Linie in der Kreuzachse.
+  - : Der startende Rand des Flex-Elements ist bündig mit dem startenden Rand der Linie.
 - `flex-end`
-  - : Der End-Margenrand des Flex-Elements liegt bündig mit dem End-Rand der Linie in der Kreuzachse.
+  - : Der endende Rand des Flex-Elements ist bündig mit dem endenden Rand der Linie.
 - `center`
-  - : Die Margen-Box des Flex-Elements ist innerhalb der Linie auf der Kreuzachse zentriert. Wenn die Kreuzgröße des Elements größer ist als der Flex-Container, wird es gleichmäßig in beide Richtungen überlaufen.
+  - : Die Margenbox des Flex-Elements ist innerhalb der Linie auf der Kreuzachse zentriert. Wenn die Kreuzgröße des Elements größer als der Flex-Container ist, wird es in beide Richtungen gleichmäßig überlaufen.
 - `baseline`, `first baseline`, `last baseline`
-  - : Gibt die Teilnahme an der Ausrichtung auf der ersten oder letzten Basislinie an: richtet die Ausrichtungsbasislinie des ersten oder letzten Basisliniensatzes der Box mit der entsprechenden Basislinie im gemeinsamen ersten oder letzten Basisliniensatz aller Boxen in seiner Basislinien-Gruppenbeteiligung aus.
-    Die Ersatz-Ausrichtung für `first baseline` ist `start`, die für `last baseline` ist `end`.
+  - : Spezifiziert die Teilnahme an der ersten oder letzten Baseline-Ausrichtung: richtet die Baseline-Ausrichtungsline der ersten oder letzten Baseline-Setzung der Box mit der entsprechenden Baseline in der gemeinsamen ersten oder letzten Baseline-Setzung aller Boxen in ihrer Baseline-Gruppe aus.
+    Die Fallback-Ausrichtung für `first baseline` ist `start`, für `last baseline` ist sie `end`.
 - `stretch`
-  - : Wenn die kombinierte Größe der Elemente entlang der Kreuzachse kleiner ist als die Größe des Ausrichtungscontainers und das Element auf `auto`-Größe eingestellt ist, wird seine Größe gleichmäßig (nicht proportional) erhöht, während die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} (oder gleichwertige Funktionalität) auferlegten Einschränkungen weiterhin beachtet werden, sodass die kombinierte Größe aller `auto`-großen Elemente genau den Ausrichtungscontainer entlang der Kreuzachse füllt.
+  - : Wenn die kombinierte Größe der Elemente entlang der Kreuzachse kleiner als die Größe des Anpassungscontainers ist und das Element auf `auto`-Größe gesetzt ist, wird seine Größe gleichmäßig (nicht proportional) erhöht, während die durch {{cssxref("max-height")}}/{{cssxref("max-width")}} auferlegten Einschränkungen eingehalten werden, so dass die kombinierte Größe aller `auto`-großen Elemente genau den Anpassungscontainer entlang der Kreuzachse füllt.
 - `anchor-center`
-  - : Im Fall von [anker-positionierten](/de/docs/Web/CSS/CSS_anchor_positioning) Elementen richtet das Element auf die Mitte des zugehörigen Ankerelements in Block- und Inline-Richtung aus. Siehe [Zentrierung beim Anker mit `anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
+  - : Bei [anchor-positioned](/de/docs/Web/CSS/CSS_anchor_positioning) Elementen richtet das Element in der Block- und Inline-Richtung auf die Mitte des zugehörigen Anker-Elements aus. Siehe [Zentrieren am Anker mit `anchor-center`](/de/docs/Web/CSS/CSS_anchor_positioning/Using#centering_on_the_anchor_using_anchor-center).
 
 ## Formale Definition
 
@@ -89,11 +89,11 @@ place-self: unset;
 
 ## Beispiele
 
-### Grundlegende Vorführung
+### Grundlegende Demonstration
 
-Im folgenden Beispiel haben wir ein einfaches 2 x 2 Grid-Layout. Zu Beginn hat der Grid-Container Werte von [`justify-items`](/de/docs/Web/CSS/justify-items) und [`align-items`](/de/docs/Web/CSS/align-items) mit `stretch` — den Standardwerten —, was dazu führt, dass die Grid-Elemente sich über die gesamte Breite ihrer Zellen strecken.
+Im folgenden Beispiel haben wir ein einfaches 2 x 2 Rasterlayout. Zunächst hat der Raster-Container die Werte [`justify-items`](/de/docs/Web/CSS/justify-items) und [`align-items`](/de/docs/Web/CSS/align-items) von `stretch` — die Standardwerte — was dazu führt, dass die Raster-Elemente die gesamte Breite ihrer Zellen ausfüllen.
 
-Die zweiten, dritten und vierten Grid-Elemente erhalten dann unterschiedliche Werte von `place-self`, um zu zeigen, wie diese die Standardplatzierungen überschreiben. Diese Werte bewirken, dass die Grid-Elemente nur so breit/hoch wie ihre Inhaltsbreite/-höhe spannen und sich in verschiedenen Positionen innerhalb ihrer Zellen in Block- und Inline-Richtung ausrichten.
+Die zweiten, dritten und vierten Raster-Elemente erhalten dann unterschiedliche Werte von `place-self`, um zu zeigen, wie diese die Standardplatzierung überschreiben. Diese Werte bewirken, dass die Raster-Elemente nur so weit/hoch wie ihre Inhaltsbreite/-höhe reichen und in verschiedenen Positionen in ihren Zellen in Block- und Inline-Richtung ausgerichtet sind.
 
 #### HTML
 
@@ -167,6 +167,6 @@ span {
 - {{cssxref("align-self")}}
 - {{cssxref("justify-self")}}
 - [Grundlegende Konzepte von Flexbox](/de/docs/Web/CSS/CSS_flexible_box_layout/Basic_concepts_of_flexbox)
-- [Ausrichten von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
-- [Box-Ausrichtung in CSS-Grid-Layouts](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
-- [CSS Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment)
+- [Ausrichtung von Elementen in einem Flex-Container](/de/docs/Web/CSS/CSS_flexible_box_layout/Aligning_items_in_a_flex_container)
+- [Box-Ausrichtung in CSS-Rasterlayouts](/de/docs/Web/CSS/CSS_grid_layout/Box_alignment_in_grid_layout)
+- [CSS-Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment)

@@ -2,36 +2,36 @@
 title: Box-Ausrichtung für Block-, absolut positionierte und Tabellenlayouts
 slug: Web/CSS/CSS_box_alignment/Box_alignment_in_block_abspos_tables
 l10n:
-  sourceCommit: ca6d4f6114d278926e183225a90fd2209802cfe9
+  sourceCommit: 49106bd93693d889ff792dada676bdf62350d422
 ---
 
-Die [Box-Ausrichtungs-Spezifikation](/de/docs/Web/CSS/CSS_box_alignment) erklärt, wie die Ausrichtung in verschiedenen Layout-Methoden funktioniert. Auf dieser Seite erkunden wir, wie Box-Ausrichtung im Kontext des Block-Layouts funktioniert, einschließlich schwebender, positionierter und Tabellenelemente. Da diese Seite darauf abzielt, Dinge zu detaillieren, die speziell für Block-Layout und Box-Ausrichtung gelten, sollte sie in Verbindung mit der Hauptseite zur [Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) gelesen werden, die die allgemeinen Merkmale der Box-Ausrichtung über die Layout-Methoden hinweg beschreibt.
+Das [CSS-Box-Ausrichtungsmodul](/de/docs/Web/CSS/CSS_box_alignment) beschreibt, wie die Ausrichtung in verschiedenen Layout-Methoden funktioniert. In diesem Leitfaden untersuchen wir, wie Box-Ausrichtung im Kontext von Block-Layouts funktioniert, einschließlich gefloateter, positionierter und Tabellenelemente. Da dieser Leitfaden darauf abzielt, Dinge zu erläutern, die spezifisch für das Block-Layout und die Box-Ausrichtung sind, sollte er in Verbindung mit dem Leitfaden zur [Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/box_alignment) gelesen werden, der die gemeinsamen Merkmale der Box-Ausrichtung über Layout-Methoden hinweg beschreibt.
 
 ## align-content und justify-content
 
-Die {{cssxref("justify-content")}}-Eigenschaft gilt nicht für Block-Container oder Tabellenzellen.
+Die Eigenschaft {{cssxref("justify-content")}} gilt nicht für Block-Container oder Tabellenzellen.
 
-Die {{cssxref("align-content")}}-Eigenschaft gilt für die Blockachse, um die Inhalte der Box innerhalb ihres Containers auszurichten. Wenn eine Inhaltsverteilungsmethode wie `space-between`, `space-around` oder `space-evenly` angefordert wird, wird die Ersatz-Ausrichtung verwendet, da der Inhalt als ein einziges {{Glossary("Alignment_Subject", "Alignment Subject")}} behandelt wird.
+Die Eigenschaft {{cssxref("align-content")}} bezieht sich auf die Blockachse, um den Inhalt der Box innerhalb ihres Containers auszurichten. Wenn eine Inhaltsverteilungsmethode wie `space-between`, `space-around` oder `space-evenly` angefordert wird, wird die Ersatz-Ausrichtung verwendet, da der Inhalt als ein einziges {{Glossary("Alignment_Subject", "Ausrichtungsobjekt")}} behandelt wird.
 
 ## justify-self
 
-Die {{cssxref("justify-self")}}-Eigenschaft wird verwendet, um ein Element auf der Inline-Achse innerhalb seines enthaltenden Blocks auszurichten.
+Die Eigenschaft {{cssxref("justify-self")}} wird verwendet, um ein Element innerhalb seines umgebenden Blocks auf der Inline-Achse auszurichten.
 
-Diese Eigenschaft gilt nicht für schwebende Elemente oder Tabellenzellen.
+Diese Eigenschaft gilt nicht für gefloatete Elemente oder Tabellenzellen.
 
 ## align-self
 
-Die {{cssxref("align-self")}}-Eigenschaft gilt nicht für Block-Level-Boxen (einschließlich Floats), da mehr als ein Element in der Blockachse vorhanden ist. Sie gilt auch nicht für Tabellenzellen.
+Die Eigenschaft {{cssxref("align-self")}} gilt nicht für Block-Level-Boxen (einschließlich Floats), da es mehr als ein Element in der Blockachse gibt. Sie gilt auch nicht für Tabellenzellen.
 
 ### Absolut positionierte Elemente
 
-Der Ausrichtungs-Container ist der positionierte Block, der die Versatzwerte von oben, links, unten und rechts berücksichtigt. Das normale Schlüsselwort wird zu `stretch`, es sei denn, das positionierte Element ist ein ersetztes Element, in diesem Fall wird es zu `start`.
+Der Ausrichtungs-Container ist der positionierte Block, unter Berücksichtigung der Offset-Werte von oben, links, unten und rechts. Das normale Schlüsselwort wird zu `stretch`, es sei denn, das positionierte Element ist ein ersetztes Element, in diesem Fall wird es zu `start`.
 
 ## Ausrichtung in diesen Layout-Methoden heute
 
-Da wir derzeit keine Browser-Unterstützung für Box-Ausrichtung im Block-Layout haben, sind Ihre Optionen für die Ausrichtung entweder die Verwendung einer der bestehenden Ausrichtungsmethoden oder das Umwandeln eines einzigen Elements innerhalb eines Containers in ein Flex-Element, um die Ausrichtungseigenschaften gemäß Flexbox zu verwenden.
+Da wir derzeit keine Browser-Unterstützung für die Box-Ausrichtung im Block-Layout haben, besteht Ihre Möglichkeit zur Ausrichtung entweder in der Verwendung einer der bestehenden Ausrichtungsmethoden oder darin, sogar ein einzelnes Element innerhalb eines Containers zu einem Flex-Element zu machen, um die in Flexbox angegebenen Ausrichtungseigenschaften zu verwenden.
 
-Die horizontale Ausrichtung von Blöcken vor Flexbox wurde typischerweise durch das Setzen von automatischen Rändern auf dem Block erreicht. Ein {{cssxref("margin")}} von `auto` wird den gesamten verfügbaren Platz in dieser Dimension absorbieren, daher können Sie durch Setzen eines linken und rechten Randes von auto einen Block in die Mitte schieben:
+Die horizontale Ausrichtung von Blöcken vor Flexbox wurde typischerweise durch das Setzen von automatischen Rändern auf dem Block erreicht. Ein {{cssxref("margin")}} von `auto` absorbiert den gesamten verfügbaren Platz in dieser Dimension, daher können Sie durch das Setzen eines linken und rechten Randes von `auto` einen Block in die Mitte schieben:
 
 ```css
 .container {
@@ -41,9 +41,9 @@ Die horizontale Ausrichtung von Blöcken vor Flexbox wurde typischerweise durch 
 }
 ```
 
-Im Tabellenlayout haben Sie Zugriff auf die {{cssxref("vertical-align")}}-Eigenschaft, um den Inhalt einer Zelle innerhalb dieser Zelle auszurichten.
+Im Tabellenlayout haben Sie Zugriff auf die Eigenschaft {{cssxref("vertical-align")}}, um den Inhalt einer Zelle innerhalb dieser Zelle auszurichten.
 
-Für viele Anwendungsfälle gibt Ihnen das Umwandeln des Block-Containers in ein Flex-Element die Ausrichtungsfähigkeit, die Sie suchen. Im untenstehenden Beispiel wurde ein Container mit einem einzigen Element darin in einen Flex-Container umgewandelt, um die Ausrichtungseigenschaften nutzen zu können.
+Für viele Anwendungsfälle wird Ihnen das Umwandeln des Block-Containers in ein Flex-Element die Ausrichtungsfähigkeit geben, die Sie suchen. Im folgenden Beispiel wurde ein Container mit einem einzigen Element darin in einen Flex-Container umgewandelt, um die Ausrichtungseigenschaften verwenden zu können.
 
 ```html live-sample___intro
 <div class="box">
@@ -76,19 +76,9 @@ Für viele Anwendungsfälle gibt Ihnen das Umwandeln des Block-Containers in ein
 
 {{EmbedLiveSample("intro", "", "320px")}}
 
-## Referenz
+## Siehe auch
 
-### CSS Eigenschaften
-
-- {{cssxref("justify-content")}}
-- {{cssxref("align-content")}}
-- {{cssxref("justify-self")}}
-- {{cssxref("align-self")}}
-
-### Glossar Einträge
-
-- {{Glossary("Alignment_Subject", "Alignment subject")}}
-- {{Glossary("Alignment_Container", "Alignment container")}}
-- {{Glossary("Fallback_Alignment", "Fallback alignment")}}
-
-{{CSSRef}}
+- [Übersicht zur Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment)
+- [Box-Ausrichtung in Flexbox](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_flexbox)
+- [Box-Ausrichtung im CSS-Grid-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_grid_layout)
+- [Box-Ausrichtung im Mehrspalten-Layout](/de/docs/Web/CSS/CSS_box_alignment/Box_alignment_in_multi-column_layout)
