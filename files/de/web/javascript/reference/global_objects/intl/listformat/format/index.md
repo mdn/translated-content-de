@@ -2,43 +2,38 @@
 title: Intl.ListFormat.prototype.format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/format
 l10n:
-  sourceCommit: 8421c0cd94fa5aa237c833ac6d24885edbc7d721
+  sourceCommit: 1574e4728b2d31b8898f84843a9832253790c516
 ---
 
 {{JSRef}}
 
-Die **`format()`**-Methode von Instanzen von {{jsxref("Intl.ListFormat")}} gibt einen String mit einer sprachspezifischen Darstellung der Liste zurück.
+Die **`format()`**-Methode von {{jsxref("Intl.ListFormat")}}-Instanzen gibt eine Zeichenkette zurück, die eine sprachspezifische Darstellung der Liste enthält.
 
 {{EmbedInteractiveExample("pages/js/intl-listformat.html", "taller")}}
 
 ## Syntax
 
 ```js-nolint
-format()
 format(list)
 ```
 
 ### Parameter
 
 - `list`
-  - : Ein iterierbares Objekt, wie zum Beispiel ein Array.
+  - : Ein iterierbares Objekt, wie beispielsweise ein Array, das Zeichenketten enthält. Wenn es ausgelassen wird, wird das leere Array formatiert, was etwas verwirrend sein kann, daher wird empfohlen, immer explizit eine Liste zu übergeben.
 
 ### Rückgabewert
 
-Ein sprachspezifisch formatierter String, der die Elemente der Liste darstellt.
+Eine sprachspezifisch formatierte Zeichenkette, die die Elemente der Liste darstellt.
 
 > [!NOTE]
-> Meistens ist das von `format()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Spracheinstellung — Variationen der Ausgabe sind beabsichtigt und durch die Spezifikation erlaubt. Es könnte auch nicht das sein, was Sie erwarten. Zum Beispiel kann der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit festcodierten Konstanten vergleichen.
-
-## Beschreibung
-
-Die **`format()`**-Methode gibt einen String zurück, der auf Grundlage der im `Intl.ListFormat`-Objekt bereitgestellten Parameter formatiert wurde. Die `locales`- und `options`-Parameter passen das Verhalten von `format()` an und ermöglichen es Anwendungen, die Sprachkonventionen zu spezifizieren, die zum Formatieren der Liste verwendet werden sollen.
+> Meistens ist das von `format()` zurückgegebene Format konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Lokalisierung — Abweichungen in der Ausgabe sind beabsichtigt und gemäß der Spezifikation erlaubt. Es könnte auch nicht dem entsprechen, was Sie erwarten. Beispielsweise könnte die Zeichenkette geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest kodierten Konstanten vergleichen.
 
 ## Beispiele
 
 ### Verwendung von format
 
-Das folgende Beispiel zeigt, wie ein Listen-Formatter mit der englischen Sprache erstellt wird.
+Das folgende Beispiel zeigt, wie man einen Listen-Formatter mit der englischen Sprache erstellt.
 
 ```js
 const list = ["Motorcycle", "Bus", "Car"];

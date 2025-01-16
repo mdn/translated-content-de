@@ -2,12 +2,12 @@
 title: Intl.ListFormat.prototype.formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/ListFormat/formatToParts
 l10n:
-  sourceCommit: abad787f40e4f80bfb0a9df78ba21bfac6206db4
+  sourceCommit: 1574e4728b2d31b8898f84843a9832253790c516
 ---
 
 {{JSRef}}
 
-Die Methode **`formatToParts()`** von {{jsxref("Intl.ListFormat")}}-Instanzen gibt ein {{jsxref("Array")}} von Objekten zurück, die die verschiedenen Komponenten repräsentieren, die verwendet werden können, um eine Liste von Werten in einer lokalisierten Weise zu formatieren.
+Die **`formatToParts()`** Methode von {{jsxref("Intl.ListFormat")}} Instanzen gibt ein Array von Objekten zurück, das jeweils einen Teil des formatierten Strings repräsentiert, den {{jsxref("Intl/ListFormat/format", "format()")}} zurückgeben würde. Dies ist nützlich zum Erstellen von benutzerdefinierten Strings aus lokalisierungsspezifischen Token.
 
 {{EmbedInteractiveExample("pages/js/intl-listformat-prototype-formattoparts.html", "taller")}}
 
@@ -20,23 +20,20 @@ formatToParts(list)
 ### Parameter
 
 - `list`
-  - : Ein iterierbares Objekt, wie ein {{jsxref("Array")}}, das gemäß einer Lokale formatiert werden soll.
+  - : Ein iterierbares Objekt, wie ein Array, das Zeichenketten enthält. Wenn es weggelassen wird, führt dies zur Formatierung des leeren Arrays, was etwas verwirrend sein könnte. Es ist daher ratsam, immer explizit eine Liste zu übergeben.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Komponenten, das die formatierten Teile der Liste enthält.
+Ein {{jsxref("Array")}} von Objekten, das die formatierte Liste in Teilen enthält. Jedes Objekt hat zwei Eigenschaften, `type` und `value`, die jeweils eine Zeichenkette enthalten. Die Verkettung der `value`-Zeichenfolgen in der bereitgestellten Reihenfolge ergibt den gleichen String wie {{jsxref("Intl/ListFormat/format", "format()")}}. Der `type` kann einer der folgenden sein:
 
-## Beschreibung
-
-Während {{jsxref("Intl/ListFormat/format", "Intl.ListFormat.prototype.format()")}} eine Zeichenkette zurückgibt, die die formatierte Version der Liste darstellt (gemäß der angegebenen Lokalisierungs- und Stiloptionen), gibt `formatToParts()` ein Array der verschiedenen Komponenten der formatierten Zeichenkette zurück.
-
-Jedes Element des resultierenden Arrays hat zwei Eigenschaften: `type` und `value`. Die `type`-Eigenschaft kann entweder `"element"` sein, was sich auf einen Wert aus der Liste bezieht, oder `"literal"`, was sich auf eine sprachliche Konstruktion bezieht. Die `value`-Eigenschaft liefert den Inhalt des Tokens als Zeichenkette.
-
-Die Lokalisierungs- und Stiloptionen, die für die Formatierung verwendet werden, werden beim Erstellen der {{jsxref("Intl.ListFormat")}}-Instanz angegeben.
+- `literal`
+  - : Jede Zeichenkette, die Teil des Formatmusters ist; zum Beispiel `", "`, `", and"` usw.
+- `element`
+  - : Ein Element der Liste, genau wie angegeben.
 
 ## Beispiele
 
-### Verwendung von formatToParts
+### Verwendung von formatToParts()
 
 ```js
 const fruits = ["Apple", "Orange", "Pineapple"];
@@ -67,6 +64,3 @@ console.table(myListFormat.formatToParts(fruits));
 
 - {{jsxref("Intl.ListFormat")}}
 - {{jsxref("Intl/ListFormat/format", "Intl.ListFormat.prototype.format()")}}
-- {{jsxref("Intl/RelativeTimeFormat/formatToParts", "Intl.RelativeTimeFormat.prototype.formatToParts()")}}
-- {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}}
-- {{jsxref("Intl/DateTimeFormat/formatToParts", "Intl.DateTimeFormat.prototype.formatToParts()")}}

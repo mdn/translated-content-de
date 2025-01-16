@@ -2,12 +2,12 @@
 title: Intl.DurationFormat.prototype.formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/formatToParts
 l10n:
-  sourceCommit: 65bd9d66ad51dfe250494618a695046c6574421a
+  sourceCommit: 1574e4728b2d31b8898f84843a9832253790c516
 ---
 
 {{JSRef}}
 
-Die Methode **`formatToParts()`** von {{jsxref("Intl.DurationFormat")}} Instanzen ermöglicht eine ortsabhängige Formatierung von durch {{jsxref("Intl.DurationFormat")}} Formatierer erzeugten Zeichenfolgen.
+Die **`formatToParts()`**-Methode von {{jsxref("Intl.DurationFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings darstellen, der von {{jsxref("Intl/DurationFormat/format", "format()")}} zurückgegeben würde. Sie ist nützlich, um benutzerdefinierte Strings aus den lokalitätsspezifischen Tokens zu erstellen.
 
 ## Syntax
 
@@ -22,27 +22,11 @@ formatToParts(duration)
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in Teilen enthalten.
-
-## Beschreibung
-
-Die Methode `formatToParts()` ist nützlich für die benutzerdefinierte Formatierung von Dauerobjekten. Sie gibt ein {{jsxref("Array")}} von Objekten zurück, die die ortsspezifischen Tokens enthalten, aus denen benutzerdefinierte Zeichenfolgen erstellt werden können, wobei die ortsspezifischen Teile erhalten bleiben. Die Struktur, die von der `formatToParts()` Methode zurückgegeben wird, sieht folgendermaßen aus:
-
-```js
-[
-  { type: "integer", value: "7", unit: "hour" },
-  { type: "literal", value: " ", unit: "hour" },
-  { type: "unit", value: "hr", unit: "hour" },
-  { type: "literal", value: ", " },
-  { type: "integer", value: "8", unit: "minute" },
-  { type: "literal", value: " ", unit: "minute" },
-  { type: "unit", value: "min", unit: "minute" },
-];
-```
+Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in Teilen enthalten. Jedes Objekt hat zwei oder drei Eigenschaften, `type`, `value` und optional `unit`, von denen jede einen String enthält. Die String-Konkatenation von `value`, in der angegebenen Reihenfolge, ergibt denselben String wie {{jsxref("Intl/DurationFormat/format", "format()")}}. Die Teile können als direkt von einem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert und ihren jeweiligen Einheiten erhalten betrachtet werden. Alle Tokens, die vom `NumberFormat` erzeugt werden, haben eine zusätzliche `unit`-Eigenschaft, die die Singularform der Eingabe `unit` ist; dies ist für die programmgesteuerte Nutzung und nicht lokalisiert. Die lokalisierte Einheit wird als separates `unit`-Token als Teil des `NumberFormat`-Ergebnisses ausgegeben. Die Teile von jeder Dauereinheit werden in derselben Weise wie ein Aufruf von {{jsxref("Intl/ListFormat/formatToParts", "Intl.ListFormat.prototype.formatToParts()")}} mit `{ type: "unit" }` zusammengefügt, sodass zusätzliche literale Tokens eingefügt werden.
 
 ## Beispiele
 
-Die `formatToParts`-Methode ermöglicht ortsabhängige Formatierung von durch `DurationFormat` Formatierer erzeugten Zeichenfolgen, indem sie Ihnen die Zeichenfolge in Teilen bereitstellt:
+Die `formatToParts`-Methode ermöglicht eine lokalitätsbewusste Formatierung von Strings, die von `DurationFormat`-Formatierern erstellt werden, indem sie den String in Teilen bereitstellt:
 
 ```js
 const duration = {
@@ -77,7 +61,7 @@ new Intl.DurationFormat("en", { style: "long" }).formatToParts(duration);
   { type: "integer", value: "456", unit: "microsecond" },
   { type: "literal", value: " ", unit: "microsecond" },
   { type: "unit", value: "microseconds", unit: "microsecond" },
-  { type: "literal", value: " and " },
+  { type: "literal", value: ", " },
   { type: "integer", value: "789", unit: "nanosecond" },
   { type: "literal", value: " ", unit: "nanosecond" },
   { type: "unit", value: "nanoseconds", unit: "nanosecond" },
@@ -95,5 +79,4 @@ new Intl.DurationFormat("en", { style: "long" }).formatToParts(duration);
 ## Siehe auch
 
 - {{jsxref("Intl.DurationFormat")}}
-- {{jsxref("Intl.supportedValuesOf()")}}
-- {{jsxref("Intl")}}
+- {{jsxref("Intl/DurationFormat/format", "Intl.DurationFormat.prototype.format()")}}

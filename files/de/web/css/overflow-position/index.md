@@ -2,14 +2,14 @@
 title: <overflow-position>
 slug: Web/CSS/overflow-position
 l10n:
-  sourceCommit: 25924970e8dbf0cdccfb5d47654eaaa143ed60e2
+  sourceCommit: a7c8d7fda7dae7094d6e7a73e72682d5d73b431b
 ---
 
 {{CSSRef}}
 
-Der **`<overflow-position>`** {{Glossary("enumerated", "aufgezählte")}} Wertetyp definiert, wie ein Ausrichtungsobjekt, das größer ist als sein Ausrichtungscontainer, diesen Container überlaufen wird. Zum Beispiel, wenn zentrierte Elemente breiter sind als ihr Container, kann das Überlauf jenseits des Startkants des Ansichtsfensters angezeigt werden, das nicht durch Scrollen erreicht werden kann. Der `<overflow-position>`-Wert definiert, ob der Ausrichtungsmodus überschrieben werden soll, um sicherzustellen, dass der Inhalt sichtbar ist (`safe`), oder ob der Ausrichtungsmodus unbedingt eingehalten werden muss (`unsafe`).
+Der **`<overflow-position>`**{{Glossary("enumerated", "enumerierte")}} Wertetyp definiert, wie ein Ausrichtungssubjekt, das größer als sein Ausrichtungscontainer ist, diesen Container überläuft. Zum Beispiel, wenn zentrierte Elemente breiter als ihr Container sind, kann das Überlaufen jenseits des Startbereichs des Viewports angezeigt werden, der nicht gescrollt werden kann. Der `<overflow-position>`-Wert definiert, ob der Ausrichtungsmodus überschrieben werden soll, um sicherzustellen, dass der Inhalt sichtbar ist (`safe`), oder ob der Ausrichtungsmodus eingehalten werden muss (`unsafe`).
 
-Dieser Datentyp ist gültig für die {{cssxref("align-content")}}, {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}} und {{cssxref("justify-self")}} Eigenschaften sowie die {{cssxref("place-content")}}, {{cssxref("place-items")}}, und {{cssxref("place-self")}} Kurzschreibweise-Eigenschaften. Wenn er weggelassen wird, ist die standardmäßige Überlauf-Ausrichtung eine Mischung aus `safe` und `unsafe`.
+Dieser Datentyp ist gültig für die {{cssxref("align-content")}}, {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-items")}} und {{cssxref("justify-self")}} Eigenschaften sowie die {{cssxref("place-content")}}, {{cssxref("place-items")}} und {{cssxref("place-self")}} Kurzschreibweise-Eigenschaften. Wenn er weggelassen wird, ist die Standard-Überlauf-Ausrichtung eine Mischung aus `safe` und `unsafe`.
 
 ## Syntax
 
@@ -19,14 +19,14 @@ Dieser Datentyp ist gültig für die {{cssxref("align-content")}}, {{cssxref("al
 
 ## Werte
 
-Die folgenden Schlüsselwortwerte werden durch den `<overflow-position>`-Grammatikbegriff dargestellt:
+Die folgenden Schlüsselwortwerte werden durch den `<overflow-position>` Grammatikbegriff dargestellt:
 
 - `safe`
 
-  - : Wenn die Größe des {{Glossary("alignment_subject", "Ausrichtungsobjekts")}} den {{Glossary("alignment_container", "Ausrichtungscontainer")}} überläuft, wird das Ausrichtungsobjekt stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
+  - : Wenn die Größe des {{Glossary("alignment_subject", "Ausrichtungssubjekts")}} den {{Glossary("alignment_container", "Ausrichtungscontainer")}} überläuft, wird das Ausrichtungssubjekt stattdessen so ausgerichtet, als ob der Ausrichtungsmodus `start` wäre.
 
 - `unsafe`
-  - : Ungeachtet der relativen Größen des Ausrichtungsobjekts und des Ausrichtungscontainers wird der angegebene Ausrichtungswert beibehalten.
+  - : Unabhängig von den relativen Größen des Ausrichtungssubjekts und des Ausrichtungscontainers wird der angegebene Ausrichtungswert beachtet.
 
 ## Spezifikationen
 
@@ -40,4 +40,6 @@ Die folgenden Schlüsselwortwerte werden durch den `<overflow-position>`-Grammat
 
 - Eigenschaften, die diesen Datentyp verwenden: {{cssxref("align-content")}}, {{cssxref("align-items")}}, {{cssxref("align-self")}}, {{cssxref("justify-content")}} {{cssxref("justify-items")}}, {{cssxref("justify-self")}}, {{cssxref("place-content")}}, {{cssxref("place-items")}}, und {{cssxref("place-self")}}
 - Andere Box-Ausrichtungs-Datentypen: {{cssxref("content-distribution")}}, {{cssxref("content-position")}}, {{cssxref("baseline-position")}}, und {{cssxref("self-position")}}
-- [CSS-Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
+- [CSS Box-Ausrichtung](/de/docs/Web/CSS/CSS_box_alignment) Modul
+- [CSS Flexible Box Layout](/de/docs/Web/CSS/CSS_flexible_box_layout) Modul
+- [CSS Grid Layout](/de/docs/Web/CSS/CSS_grid_layout) Modul
