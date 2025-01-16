@@ -103,7 +103,7 @@ Access-Control-Allow-Origin: *
 
 In den folgenden Beispielen wird angenommen, dass `oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC` bereits als der erwartete SHA-384-Hash (Digest) eines bestimmten Skripts `example-framework.js` bekannt ist, und dass eine Kopie des Skripts unter `https://example.com/example-framework.js` gehostet wird.
 
-### Subresource Integrity mit dem \<script>-Element
+### Subresource Integrity mit dem `<script>`-Element
 
 Sie können das folgende {{HTMLElement("script")}}-Element verwenden, um einem Browser mitzuteilen, dass er vor der Ausführung des Skripts `https://example.com/example-framework.js` das Skript zunächst mit dem erwarteten Hash vergleichen und verifizieren muss, dass eine Übereinstimmung besteht.
 

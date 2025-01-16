@@ -41,7 +41,7 @@ Es ist immer möglich, ein Formularelement außerhalb eines {{HTMLElement("form"
 
 Lassen Sie uns weitermachen und die Strukturelemente abdecken, die Sie in einem Formular verschachtelt finden werden.
 
-## Die \<fieldset>- und \<legend>-Elemente
+## Die `<fieldset>`- und `<legend>`-Elemente
 
 Das {{HTMLElement("fieldset")}}-Element ist eine bequeme Möglichkeit, Gruppen von Widgets zu erstellen, die denselben Zweck für Styling- und semantische Zwecke teilen. Sie können ein {{HTMLElement("fieldset")}} kennzeichnen, indem Sie ein {{HTMLElement("legend")}}-Element direkt unter dem öffnenden {{HTMLElement("fieldset")}}-Tag einfügen. Der Textinhalt des {{HTMLElement("legend")}} beschreibt formal den Zweck des {{HTMLElement("fieldset")}}, in dem es enthalten ist.
 

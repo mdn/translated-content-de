@@ -17,7 +17,7 @@ Das `nonce`-Attribut ist nützlich, um bestimmte Elemente, wie zum Beispiel ein 
 > Verwenden Sie `nonce` nur in Fällen, in denen Sie keinen anderen Weg haben, als unsichere Inline-Skript- oder -Stilinhalte zu verwenden. Wenn Sie `nonce` nicht benötigen, verwenden Sie es nicht. Wenn Ihr Skript statisch ist, können Sie stattdessen auch einen CSP-Hash verwenden. (Siehe Anwendungshinweise zu [unsicheren Inline-Skripten](/de/docs/Web/HTTP/Headers/Content-Security-Policy/script-src#unsafe_inline_script).)
 > Versuchen Sie immer, den vollen Vorteil der [CSP](/de/docs/Web/HTTP/CSP)-Schutzmechanismen zu nutzen und Nonces oder unsichere Inline-Skripte wann immer möglich zu vermeiden.
 
-### Verwendung von nonce zur Positivliste eines \<script>-Elements
+### Verwendung von nonce zur Positivliste eines `<script>`-Elements
 
 Es gibt einige Schritte, um ein Inline-Skript mit dem Nonce-Mechanismus auf eine Positivliste zu setzen:
 

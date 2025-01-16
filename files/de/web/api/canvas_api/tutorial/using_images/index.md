@@ -133,7 +133,7 @@ Sobald wir eine Referenz zu unserem Quelle-Bildobjekt haben, können wir die `dr
   - : Zeichnet das durch den `image`-Parameter angegebene Bild an den Koordinaten (`x`, `y`).
 
 > [!NOTE]
-> SVG-Bilder müssen in der Wurzel \<svg> Element eine Breite und Höhe angeben.
+> SVG-Bilder müssen in der Wurzel `<svg>` Element eine Breite und Höhe angeben.
 
 ### Beispiel: Ein kleines Liniendiagramm
 

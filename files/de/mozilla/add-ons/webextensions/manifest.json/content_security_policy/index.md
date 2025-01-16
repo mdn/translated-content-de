@@ -37,7 +37,7 @@ l10n:
   </tbody>
 </table>
 
-Erweiterungen haben standardmäßig eine Content Security Policy (CSP), die auf sie angewendet wird. Die Standardrichtlinie beschränkt die Quellen, von denen Erweiterungen Code laden können (wie z.B. [\<script>](/de/docs/Web/HTML/Element/script)-Ressourcen), und verbietet potenziell unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Siehe [Standard-Content-Security-Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#default_content_security_policy), um mehr über die Auswirkungen zu erfahren.
+Erweiterungen haben standardmäßig eine Content Security Policy (CSP), die auf sie angewendet wird. Die Standardrichtlinie beschränkt die Quellen, von denen Erweiterungen Code laden können (wie z.B. [`<script>`](/de/docs/Web/HTML/Element/script)-Ressourcen), und verbietet potenziell unsichere Praktiken wie die Verwendung von [`eval()`](/de/docs/Web/JavaScript/Reference/Global_Objects/eval). Siehe [Standard-Content-Security-Policy](/de/docs/Mozilla/Add-ons/WebExtensions/Content_Security_Policy#default_content_security_policy), um mehr über die Auswirkungen zu erfahren.
 
 Sie können den Manifest-Schlüssel `"content_security_policy"` verwenden, um die Standardrichtlinie zu lockern oder zu verschärfen. Dieser Schlüssel wird auf die gleiche Weise wie der Content-Security-Policy-HTTP-Header angegeben. Siehe [Verwendung der Content-Security-Policy](/de/docs/Web/HTTP/CSP) für eine allgemeine Beschreibung der CSP-Syntax.
 
