@@ -2,84 +2,86 @@
 title: Animation
 slug: Web/API/Animation
 l10n:
-  sourceCommit: f9f48866f02963e752717310b76a70d5bdaf554c
+  sourceCommit: 716e13680debe8e713d42bf9b29708c0f24ef03a
 ---
 
 {{ APIRef("Web Animations") }}
 
-Die **`Animation`** Schnittstelle der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert einen einzelnen Animations-Player und bietet Wiedergabesteuerungen sowie eine Zeitleiste für einen Animationsknoten oder eine Quelle.
+Das **`Animation`** Interface der [Web Animations API](/de/docs/Web/API/Web_Animations_API) repräsentiert einen einzelnen Animations-Player und bietet Wiedergabesteuerungen sowie eine Zeitleiste für einen Animationsknoten oder eine Quelle.
 
 {{InheritanceDiagram}}
 
 ## Konstruktor
 
 - [`Animation()`](/de/docs/Web/API/Animation/Animation)
-  - : Erstellt eine neue Instanz des `Animation` Objekts.
+  - : Erstellt eine neue `Animation` Objektinstanz.
 
-## Instanz-Eigenschaften
+## Instanzeigenschaften
 
 - [`Animation.currentTime`](/de/docs/Web/API/Animation/currentTime)
-  - : Der aktuelle Zeitwert der Animation in Millisekunden, egal ob sie läuft oder pausiert ist. Wenn der Animation eine [`timeline`](/de/docs/Web/API/AnimationTimeline) fehlt, sie inaktiv ist oder noch nicht abgespielt wurde, beträgt ihr Wert `null`.
+  - : Der aktuelle Zeitwert der Animation in Millisekunden, unabhängig davon, ob sie läuft oder pausiert ist. Wenn der Animation eine [`timeline`](/de/docs/Web/API/AnimationTimeline) fehlt, sie inaktiv ist oder noch nicht abgespielt wurde, hat sie den Wert `null`.
 - [`Animation.effect`](/de/docs/Web/API/Animation/effect)
-  - : Holt und setzt den mit dieser Animation verbundenen [`AnimationEffect`](/de/docs/Web/API/AnimationEffect). Dies wird normalerweise ein [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) Objekt sein.
+  - : Ruft den mit dieser Animation verknüpften [`AnimationEffect`](/de/docs/Web/API/AnimationEffect) ab oder setzt ihn. Dies ist in der Regel ein [`KeyframeEffect`](/de/docs/Web/API/KeyframeEffect) Objekt.
 - [`Animation.finished`](/de/docs/Web/API/Animation/finished) {{ReadOnlyInline}}
-  - : Gibt das aktuelle abgeschlossene `Promise` für diese Animation zurück.
+  - : Gibt das aktuelle abgeschlossene Promise für diese Animation zurück.
 - [`Animation.id`](/de/docs/Web/API/Animation/id)
-  - : Holt und setzt den `String`, der zur Identifizierung der Animation verwendet wird.
+  - : Ruft die `String`-Kennung der Animation ab oder setzt sie.
+- [`Animation.overallProgress`](/de/docs/Web/API/Animation/overallProgress) {{ReadOnlyInline}} {{experimental_inline}}
+  - : Gibt eine Zahl zwischen `0` und `1` zurück, die den Gesamtfortschritt der Animation in Richtung ihres abgeschlossenen Zustands angibt.
 - [`Animation.pending`](/de/docs/Web/API/Animation/pending) {{ReadOnlyInline}}
-  - : Zeigt an, ob die Animation derzeit auf eine asynchrone Operation wartet, wie das Starten der Wiedergabe oder das Pausieren einer laufenden Animation.
+  - : Gibt an, ob die Animation derzeit auf eine asynchrone Operation wartet, wie das Starten der Wiedergabe oder das Pausieren einer laufenden Animation.
 - [`Animation.playState`](/de/docs/Web/API/Animation/playState) {{ReadOnlyInline}}
   - : Gibt einen enumerierten Wert zurück, der den Wiedergabestatus einer Animation beschreibt.
 - [`Animation.playbackRate`](/de/docs/Web/API/Animation/playbackRate)
-  - : Holt oder setzt die Abspielgeschwindigkeit der Animation.
+  - : Ruft die Wiedergabegeschwindigkeit der Animation ab oder setzt sie.
 - [`Animation.ready`](/de/docs/Web/API/Animation/ready) {{ReadOnlyInline}}
-  - : Gibt das aktuelle `ready` Promise für diese Animation zurück.
+  - : Gibt das aktuelle Bereit-Promise für diese Animation zurück.
 - [`Animation.replaceState`](/de/docs/Web/API/Animation/replaceState) {{ReadOnlyInline}}
-  - : Zeigt an, ob die Animation aktiv ist, automatisch entfernt wurde, nachdem sie durch eine andere Animation ersetzt wurde, oder ob sie durch einen Aufruf von [`Animation.persist()`](/de/docs/Web/API/Animation/persist) explizit beibehalten wurde.
+  - : Gibt an, ob die Animation aktiv ist, automatisch entfernt wurde, nachdem sie durch eine andere Animation ersetzt wurde, oder explizit durch einen Aufruf von [`Animation.persist()`](/de/docs/Web/API/Animation/persist) beibehalten wurde.
 - [`Animation.startTime`](/de/docs/Web/API/Animation/startTime)
-  - : Holt oder setzt die geplante Zeit, zu der die Wiedergabe einer Animation beginnen soll.
+  - : Ruft die geplante Zeit ab oder setzt sie, wann die Wiedergabe einer Animation beginnen soll.
 - [`Animation.timeline`](/de/docs/Web/API/Animation/timeline)
-  - : Holt oder setzt die mit dieser Animation verbundene [`timeline`](/de/docs/Web/API/AnimationTimeline).
+  - : Ruft die mit dieser Animation verknüpfte [`timeline`](/de/docs/Web/API/AnimationTimeline) ab oder setzt sie.
 
-## Instanz-Methoden
+## Instanzmethoden
 
 - [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel)
-  - : Löscht alle durch diese Animation verursachten [`keyframeEffects`](/de/docs/Web/API/KeyframeEffect) und beendet ihre Wiedergabe.
+  - : Löscht alle durch diese Animation verursachten [`keyframeEffects`](/de/docs/Web/API/KeyframeEffect) und bricht deren Wiedergabe ab.
 - [`Animation.commitStyles()`](/de/docs/Web/API/Animation/commitStyles)
-  - : Übernimmt den aktuellen Stilzustand einer Animation für das animierte Element, auch nachdem diese Animation entfernt wurde. Es wird den aktuellen Stilzustand auf das animierte Element anwenden, in Form von Eigenschaften innerhalb eines `style` Attributs.
+  - : Übernimmt den aktuellen Stilzustand einer Animation auf das animierte Element, auch nachdem diese Animation entfernt wurde. Es wird dazu führen, dass der aktuelle Stilzustand in Form von Eigenschaften innerhalb eines `style`-Attributs auf das animierte Element angewendet wird.
 - [`Animation.finish()`](/de/docs/Web/API/Animation/finish)
-  - : Springt zu einem der Enden einer Animation, abhängig davon, ob die Animation vorwärts oder rückwärts abgespielt wird.
+  - : Springt entweder zum Ende oder zum Anfang einer Animation, abhängig davon, ob die Animation vorwärts oder rückwärts abgespielt wird.
 - [`Animation.pause()`](/de/docs/Web/API/Animation/pause)
   - : Unterbricht die Wiedergabe einer Animation.
 - [`Animation.persist()`](/de/docs/Web/API/Animation/persist)
-  - : Beibehält eine Animation explizit und verhindert deren [automatische Entfernung](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations), wenn sie durch eine andere Animation ersetzt wird.
+  - : Beibehaltung einer Animation explizit verhindern, dass sie [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird, wenn eine andere Animation sie ersetzt.
 - [`Animation.play()`](/de/docs/Web/API/Animation/play)
-  - : Startet oder setzt die Wiedergabe einer Animation fort oder beginnt die Animation erneut, wenn sie zuvor beendet wurde.
+  - : Startet oder setzt die Wiedergabe einer Animation fort oder beginnt die Animation erneut, wenn sie zuvor abgeschlossen wurde.
 - [`Animation.reverse()`](/de/docs/Web/API/Animation/reverse)
-  - : Kehrt die Abspielrichtung um und stoppt am Anfang der Animation. Wenn die Animation beendet oder nicht abgespielt wurde, wird sie von Ende zu Anfang abgespielt.
+  - : Kehrt die Wiedergaberichtung um und stoppt am Anfang der Animation. Wenn die Animation abgeschlossen oder ungespielt ist, wird sie vom Ende zum Anfang abgespielt.
 - [`Animation.updatePlaybackRate()`](/de/docs/Web/API/Animation/updatePlaybackRate)
-  - : Setzt die Geschwindigkeit einer Animation, nachdem zunächst ihre Wiedergabeposition synchronisiert wurde.
+  - : Setzt die Geschwindigkeit einer Animation, nachdem zuerst die Wiedergabeposition synchronisiert wurde.
 
 ## Ereignisse
 
 - [`cancel`](/de/docs/Web/API/Animation/cancel_event)
-  - : Wird ausgelöst, wenn die Methode [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) aufgerufen wird oder wenn die Animation den `"idle"` Wiedergabezustand aus einem anderen Zustand erreicht.
+  - : Wird ausgelöst, wenn die Methode [`Animation.cancel()`](/de/docs/Web/API/Animation/cancel) aufgerufen wird oder wenn die Animation vom `"idle"` Wiedergabestatus in einen anderen Zustand wechselt.
 - [`finish`](/de/docs/Web/API/Animation/finish_event)
   - : Wird ausgelöst, wenn die Animation das Abspielen beendet.
 - [`remove`](/de/docs/Web/API/Animation/remove_event)
   - : Wird ausgelöst, wenn die Animation vom Browser [automatisch entfernt](/de/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API#automatically_removing_filling_animations) wird.
 
-## Barrierefreiheit
+## Zugänglichkeitsprobleme
 
-Blinkende und flackernde Animationen können problematisch für Menschen mit kognitiven Anliegen wie Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS) sein. Zusätzlich können bestimmte Arten von Bewegungen ein Auslöser für vestibuläre Störungen, Epilepsie, Migräne und skotopische Empfindlichkeit sein.
+Blinkende und flackernde Animationen können für Menschen mit kognitiven Beeinträchtigungen wie Aufmerksamkeitsdefizit-Hyperaktivitätsstörung (ADHS) problematisch sein. Darüber hinaus können bestimmte Arten von Bewegungen ein Auslöser für Vestibular-Störungen, Epilepsie und Migräne sowie Skotopische Empfindlichkeit sein.
 
-Erwägen Sie, eine Möglichkeit zum Pausieren oder Deaktivieren von Animationen bereitzustellen, sowie die Verwendung der [Media Query für reduzierte Bewegung](/de/docs/Web/CSS/@media/prefers-reduced-motion) (oder des entsprechenden [User-Agent-Client-Hints](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}), um eine ergänzende Erfahrung für Benutzer zu schaffen, die eine Präferenz für nicht-animierte Erlebnisse angegeben haben.
+Erwägen Sie, eine Möglichkeit zum Anhalten oder Deaktivieren von Animationen bereitzustellen und verwenden Sie die [Reduced Motion Media Query](/de/docs/Web/CSS/@media/prefers-reduced-motion) (oder die entsprechende [user agent client hint](/de/docs/Web/HTTP/Client_hints#user-agent_client_hints) {{HTTPHeader("Sec-CH-Prefers-Reduced-Motion")}}), um ein ergänzendes Erlebnis für Benutzer zu schaffen, die keine animierten Erlebnisse bevorzugen.
 
-- [Sicherere Webanimationen für Bewegungsempfindlichkeit entwerfen · Ein Artikel von An A List Apart](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/)
-- [Eine Einführung in die Media Query für reduzierte Bewegung | CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)
-- [Responsive Design für Bewegung | WebKit](https://webkit.org/blog/7551/responsive-design-for-motion/)
-- [MDN Verstehen der WCAG, Erklärungen zur Richtlinie 2.2](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%e2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content)
-- [Verständnis des Erfolgskriteriums 2.2.2 | W3C Verstehen der WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
+- [Gestaltung sicherer Webanimationen für Bewegungsempfindlichkeit · Ein Artikel von A List Apart](https://alistapart.com/article/designing-safer-web-animation-for-motion-sensitivity/)
+- [Eine Einführung in die Reduced Motion Media Query | CSS-Tricks](https://css-tricks.com/introduction-reduced-motion-media-query/)
+- [Reaktionsfähiges Design für Bewegung | WebKit](https://webkit.org/blog/7551/responsive-design-for-motion/)
+- [MDN Verständnis WCAG, Richtlinie 2.2 Erklärungen](/de/docs/Web/Accessibility/Understanding_WCAG/Operable#guideline_2.2_%e2%80%94_enough_time_provide_users_enough_time_to_read_and_use_content)
+- [Verständnis der Erfolgskriterien 2.2.2 | W3C Verständnis WCAG 2.0](https://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html)
 
 ## Spezifikationen
 
