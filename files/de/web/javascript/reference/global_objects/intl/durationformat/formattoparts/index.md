@@ -2,12 +2,12 @@
 title: Intl.DurationFormat.prototype.formatToParts()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DurationFormat/formatToParts
 l10n:
-  sourceCommit: 1574e4728b2d31b8898f84843a9832253790c516
+  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
 ---
 
 {{JSRef}}
 
-Die **`formatToParts()`**-Methode von {{jsxref("Intl.DurationFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings darstellen, der von {{jsxref("Intl/DurationFormat/format", "format()")}} zurückgegeben würde. Sie ist nützlich, um benutzerdefinierte Strings aus den lokalitätsspezifischen Tokens zu erstellen.
+Die Methode **`formatToParts()`** von {{jsxref("Intl.DurationFormat")}}-Instanzen gibt ein Array von Objekten zurück, die jeweils einen Teil des formatierten Strings repräsentieren, der von {{jsxref("Intl/DurationFormat/format", "format()")}} zurückgegeben würde. Dies ist nützlich für den Aufbau benutzerdefinierter Strings aus den lokalespezifischen Tokens.
 
 ## Syntax
 
@@ -18,15 +18,15 @@ formatToParts(duration)
 ### Parameter
 
 - `duration` {{optional_inline}}
-  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `"months"`, `"weeks"`, `"days"`, `"hours"`, `"minutes"`, `"seconds"`, `"milliseconds"`, `"microseconds"`, `"nanoseconds"`.
+  - : Das zu formatierende Dauerobjekt. Es sollte einige oder alle der folgenden Eigenschaften enthalten: `years`, `months`, `weeks`, `days`, `hours`, `minutes`, `seconds`, `milliseconds`, `microseconds`, `nanoseconds`. Kann ein {{jsxref("Temporal.Duration")}}-Objekt sein.
 
 ### Rückgabewert
 
-Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in Teilen enthalten. Jedes Objekt hat zwei oder drei Eigenschaften, `type`, `value` und optional `unit`, von denen jede einen String enthält. Die String-Konkatenation von `value`, in der angegebenen Reihenfolge, ergibt denselben String wie {{jsxref("Intl/DurationFormat/format", "format()")}}. Die Teile können als direkt von einem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert und ihren jeweiligen Einheiten erhalten betrachtet werden. Alle Tokens, die vom `NumberFormat` erzeugt werden, haben eine zusätzliche `unit`-Eigenschaft, die die Singularform der Eingabe `unit` ist; dies ist für die programmgesteuerte Nutzung und nicht lokalisiert. Die lokalisierte Einheit wird als separates `unit`-Token als Teil des `NumberFormat`-Ergebnisses ausgegeben. Die Teile von jeder Dauereinheit werden in derselben Weise wie ein Aufruf von {{jsxref("Intl/ListFormat/formatToParts", "Intl.ListFormat.prototype.formatToParts()")}} mit `{ type: "unit" }` zusammengefügt, sodass zusätzliche literale Tokens eingefügt werden.
+Ein {{jsxref("Array")}} von Objekten, die die formatierte Dauer in Teilen enthalten. Jedes Objekt hat zwei oder drei Eigenschaften, `type`, `value` und optional `unit`, die jeweils einen String enthalten. Die Stringverkettung von `value` in der angegebenen Reihenfolge führt zum gleichen String wie {{jsxref("Intl/DurationFormat/format", "format()")}}. Die Teile können als direkt aus dem Aufruf von {{jsxref("Intl/NumberFormat/formatToParts", "Intl.NumberFormat.prototype.formatToParts()")}} mit dem numerischen Wert und ihren jeweiligen Einheiten stammend betrachtet werden. Alle Tokens, die durch das `NumberFormat` erzeugt werden, haben eine zusätzliche `unit`-Eigenschaft, die die Singularform der Eingabe-`unit` ist; dies ist für die programmgesteuerte Nutzung gedacht und ist nicht lokalisiert. Die lokalisierte Einheit wird als separates `unit`-Token als Teil des `NumberFormat`-Ergebnisses ausgegeben. Die Teile jeder Einheit der Dauer werden in gleicher Weise wie bei einem Aufruf von {{jsxref("Intl/ListFormat/formatToParts", "Intl.ListFormat.prototype.formatToParts()")}} mit `{ type: "unit" }` zusammengefügt, sodass zusätzliche literale Tokens eingefügt werden.
 
 ## Beispiele
 
-Die `formatToParts`-Methode ermöglicht eine lokalitätsbewusste Formatierung von Strings, die von `DurationFormat`-Formatierern erstellt werden, indem sie den String in Teilen bereitstellt:
+Die `formatToParts`-Methode ermöglicht das lokalisierungsbewusste Formatieren von Strings, die von `DurationFormat`-Formatierern erzeugt werden, indem sie Ihnen den String in Teilen zur Verfügung stellt:
 
 ```js
 const duration = {
@@ -80,3 +80,4 @@ new Intl.DurationFormat("en", { style: "long" }).formatToParts(duration);
 
 - {{jsxref("Intl.DurationFormat")}}
 - {{jsxref("Intl/DurationFormat/format", "Intl.DurationFormat.prototype.format()")}}
+- {{jsxref("Temporal.Duration")}}

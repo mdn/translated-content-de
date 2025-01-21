@@ -2,102 +2,104 @@
 title: RTCInboundRtpStreamStats
 slug: Web/API/RTCInboundRtpStreamStats
 l10n:
-  sourceCommit: 03b4a9d11d37c9d0be0804669467eadf2d72f2a3
+  sourceCommit: 628d5bca4cf61fa37448a0b5c61b0f675f228e90
 ---
 
 {{APIRef("WebRTC")}}
 
-Das **`RTCInboundRtpStreamStats`** Wörterbuch der [WebRTC API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken im Zusammenhang mit dem empfangenden Ende eines RTP-Streams am lokalen Ende der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu berichten.
+Das **`RTCInboundRtpStreamStats`** Wörterbuch der [WebRTC-API](/de/docs/Web/API/WebRTC_API) wird verwendet, um Statistiken im Zusammenhang mit dem empfangenden Ende eines RTP-Streams am lokalen Ende der [`RTCPeerConnection`](/de/docs/Web/API/RTCPeerConnection) zu berichten.
 
-Die Statistiken können gewonnen werden, indem Sie den [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport) durchlaufen, der von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) oder [`RTCRtpReceiver.getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) zurückgegeben wird, bis Sie einen Bericht mit dem [`type`](#type) `inbound-rtp` finden.
+Die Statistiken können durch Iteration des [`RTCStatsReport`](/de/docs/Web/API/RTCStatsReport), das von [`RTCPeerConnection.getStats()`](/de/docs/Web/API/RTCPeerConnection/getStats) oder [`RTCRtpReceiver.getStats()`](/de/docs/Web/API/RTCRtpReceiver/getStats) zurückgegeben wird, abgerufen werden, bis Sie einen Bericht mit dem [`type`](#type) `inbound-rtp` finden.
 
 ## Instanz-Eigenschaften
 
 - [`averageRtcpInterval`](/de/docs/Web/API/RTCInboundRtpStreamStats/averageRtcpInterval)
   - : Ein Gleitkommawert, der das durchschnittliche {{Glossary("RTCP", "RTCP")}}-Intervall zwischen zwei aufeinanderfolgenden zusammengesetzten RTCP-Paketen angibt.
 - [`bytesReceived`](/de/docs/Web/API/RTCInboundRtpStreamStats/bytesReceived)
-  - : Ein 64-Bit-Ganzzahlwert, der die Gesamtanzahl der bisher für diese Medienquelle empfangenen Bytes angibt.
+  - : Ein 64-Bit-Integer, der die Gesamtzahl der bislang für diese Medienquelle empfangenen Bytes angibt.
 - [`fecPacketsDiscarded`](/de/docs/Web/API/RTCInboundRtpStreamStats/fecPacketsDiscarded)
-  - : Ein Ganzzahlwert, der die Anzahl der RTP-Pakete zur Vorwärtsfehlerkorrektur (FEC) angibt, die für diese Quelle empfangen wurden, deren Fehlerkorrektur-Nutzlast jedoch verworfen wurde.
+  - : Ein Integer-Wert, der die Anzahl der RTP Forward Error Correction (FEC)-Pakete angibt, die für diese Quelle empfangen wurden, deren Fehlerkorrektur-Payload jedoch verworfen wurde.
 - [`fecPacketsReceived`](/de/docs/Web/API/RTCInboundRtpStreamStats/fecPacketsReceived)
-  - : Ein Ganzzahlwert, der die Gesamtanzahl der für diese Quelle empfangenen RTP-FEC-Pakete angibt. Dieser Zähler kann auch erhöht werden, wenn FEC-Pakete gemeinsam mit Medieninhalten im Band ankommen; dies kann beispielsweise bei Opus passieren.
+  - : Ein Integer-Wert, der die Gesamtzahl der für diese Quelle empfangenen RTP-FEC-Pakete angibt. Dieser Zähler kann auch erhöht werden, wenn FEC-Pakete zusammen mit Medieninhalten in-band ankommen; dies kann beispielsweise bei Opus passieren.
 - [`framesDecoded`](/de/docs/Web/API/RTCInboundRtpStreamStats/framesDecoded)
-  - : Ein Wert vom Typ `long`, der die Gesamtanzahl der bisher für diese Medienquelle korrekt decodierten Videoframes angibt. Dies ist die Anzahl der Frames, die gerendert worden wären, wenn keine verworfen wurden. _Nur gültig für Videostreams._
+  - : Ein langer Integer-Wert, der die Gesamtzahl der Videobilder angibt, die für diese Medienquelle bisher korrekt dekodiert wurden. Dies ist die Anzahl der Bilder, die gerendert worden wären, wenn keine verworfen worden wären. _Nur gültig für Videostreams._
 - [`lastPacketReceivedTimestamp`](/de/docs/Web/API/RTCInboundRtpStreamStats/lastPacketReceivedTimestamp)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der den Zeitpunkt angibt, zu dem das letzte Paket für diese Quelle empfangen wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp), der die Zeit angibt, zu der das letzte Paket für diese Quelle empfangen wurde.
     Die [`timestamp`](#timestamp)-Eigenschaft hingegen gibt den Zeitpunkt an, zu dem das Statistikobjekt erstellt wurde.
+- [`mid`](/de/docs/Web/API/RTCInboundRtpStreamStats/mid)
+  - : Ein String, der die Zuordnung von Quelle und Ziel des Streams des Transceivers eindeutig identifiziert.
+    Dies ist der Wert der entsprechenden [`RTCRtpTransceiver.mid`](/de/docs/Web/API/RTCRtpTransceiver/mid), es sei denn, dieser ist null, in diesem Fall ist die Statistikeigenschaft nicht vorhanden.
 - [`nackCount`](/de/docs/Web/API/RTCInboundRtpStreamStats/nackCount)
-  - : Ein Ganzzahlwert, der die Gesamtanzahl der negativen Bestätigungs-(NACK)-Pakete angibt, die dieser Empfänger gesendet hat.
+  - : Ein Integer-Wert, der die gesamte Anzahl der Negativen ACKnowledgement (NACK)-Pakete angibt, die dieser Empfänger gesendet hat.
 - [`packetsDuplicated`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsDuplicated)
-  - : Ein Ganzzahlwert, der die Gesamtanzahl der Pakete angibt, die verworfen wurden, weil sie Duplikate waren. Diese Pakete werden nicht durch [`packetsDiscarded`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsDiscarded) gezählt.
+  - : Ein Integer-Wert, der die Gesamtzahl der Pakete angibt, die verworfen wurden, weil sie Duplikate waren. Diese Pakete werden nicht durch [`packetsDiscarded`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsDiscarded) gezählt.
 - [`packetsFailedDecryption`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsFailedDecryption)
-  - : Eine Ganzzahl, die die Anzahl der RTP-Pakete summiert, die nicht entschlüsselt werden konnten. Diese Pakete werden nicht durch [`packetsDiscarded`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsDiscarded) gezählt.
+  - : Ein Integer, der die Gesamtanzahl der RTP-Pakete angibt, die nicht entschlüsselt werden konnten. Diese Pakete werden nicht durch [`packetsDiscarded`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsDiscarded) gezählt.
 - [`perDscpPacketsReceived`](/de/docs/Web/API/RTCInboundRtpStreamStats/perDscpPacketsReceived)
-  - : Ein Datensatz aus Schlüssel-Wert-Paaren mit Zeichenfolgen als Schlüsseln, die auf 32-Bit-Ganzzahlen abgebildet sind. Jede Angabe steht für die Gesamtanzahl der Pakete, die dieser Empfänger in diesem RTP-Stream von dieser Quelle für jeden Differentiated Services Code Point (DSCP) erhalten hat.
+  - : Eine Aufzeichnung von Schlüssel-Wert-Paaren mit Strings als Schlüsseln, die auf 32-Bit-Integer-Werte abgebildet sind, von denen jeder die Gesamtanzahl der Pakete angibt, die dieser Empfänger auf diesem RTP-Stream von dieser Quelle für jeden Differentiated Services Code Point (DSCP) erhalten hat.
 - [`receiverId`](/de/docs/Web/API/RTCInboundRtpStreamStats/receiverId)
-  - : Eine Zeichenfolge, die das [`RTCAudioReceiverStats`](/de/docs/Web/API/RTCAudioReceiverStats)- oder [`RTCVideoReceiverStats`](/de/docs/Web/API/RTCVideoReceiverStats)-Objekt identifiziert, das dem Empfänger des Streams zugeordnet ist. Diese ID ist stabil über mehrere Aufrufe von `getStats()`.
+  - : Ein String, der das [`RTCAudioReceiverStats`](/de/docs/Web/API/RTCAudioReceiverStats)- oder [`RTCVideoReceiverStats`](/de/docs/Web/API/RTCVideoReceiverStats)-Objekt, das mit dem Empfänger des Streams verbunden ist, identifiziert. Diese ID ist über mehrere Aufrufe von `getStats()` hinweg stabil.
 - [`remoteId`](/de/docs/Web/API/RTCInboundRtpStreamStats/remoteId)
-  - : Eine Zeichenfolge, die das [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Objekt identifiziert, das Statistiken für den entfernten Peer für diese gleiche SSRC bereitstellt. Diese ID ist stabil über mehrere Aufrufe von `getStats()`.
+  - : Ein String, der das [`RTCRemoteOutboundRtpStreamStats`](/de/docs/Web/API/RTCRemoteOutboundRtpStreamStats)-Objekt identifiziert, das Statistiken für das entfernte Gegenstück zu dieser gleichen SSRC bereitstellt. Diese ID ist über mehrere Aufrufe von `getStats()` hinweg stabil.
 - [`sliCount`](/de/docs/Web/API/RTCInboundRtpStreamStats/sliCount)
-  - : Eine Ganzzahl, die angibt, wie oft der Empfänger einen Slice Loss Indication (SLI)-Frame an den Sender gesendet hat, um ihm mitzuteilen, dass ein oder mehrere aufeinanderfolgende (in Bezug auf die Scanreihenfolge) Videomakroblöcke verlorengegangen oder beschädigt sind. Nur für Videostreams verfügbar.
+  - : Ein Integer, der die Anzahl der Male angibt, denen der Empfänger einen Slice Loss Indication (SLI)-Frame an den Absender gesendet hat, um ihm mitzuteilen, dass eines oder mehrere aufeinanderfolgende (im Sinne der Scan-Reihenfolge) Video-Makroblöcke verloren gegangen oder beschädigt sind. Nur für Videostreams verfügbar.
 - `trackIdentifier`
-  - : Eine Zeichenfolge, die den [`id`](/de/docs/Web/API/MediaStreamTrack/id)-Wert des `MediaStreamTrack` enthält, der mit dem eingehenden Stream verbunden ist.
+  - : Ein String, der den [`id`](/de/docs/Web/API/MediaStreamTrack/id)-Wert des `MediaStreamTrack` enthält, der mit dem eingehenden Stream verbunden ist.
 - [`trackId`](/de/docs/Web/API/RTCInboundRtpStreamStats/trackId) {{deprecated_inline}}
-  - : Eine Zeichenfolge, die das Statistikobjekt identifiziert, das den Empfangstrack darstellt; dieses Objekt ist eine von zwei Arten: [`RTCReceiverAudioTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverAudioTrackAttachmentStats) oder [`RTCReceiverVideoTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverVideoTrackAttachmentStats). Diese ID ist stabil über mehrere Aufrufe von `getStats()`.
+  - : Ein String, der das Statistikobjekt identifiziert, das den empfangenden Track darstellt; dieses Objekt ist eine von zwei Arten: [`RTCReceiverAudioTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverAudioTrackAttachmentStats) oder [`RTCReceiverVideoTrackAttachmentStats`](/de/docs/Web/API/RTCReceiverVideoTrackAttachmentStats). Diese ID ist über mehrere Aufrufe von `getStats()` hinweg stabil.
 
-### Statistiken, die am Empfänger eines RTP-Streams gemessen werden
+### Messungen am Empfänger eines RTP-Streams
 
 <!-- RTCReceivedRtpStreamStats -->
 
 Diese Statistiken werden am empfangenden Ende eines RTP-Streams gemessen, unabhängig davon, ob es lokal oder entfernt ist.
 
 - [`packetsReceived`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsReceived)
-  - : Die Gesamtanzahl der für diese synchronisierende Quelle empfangenen RTP-Pakete, einschließlich Retransmissionen.
+  - : Die Gesamtanzahl der RTP-Pakete, die für diese synchronisierende Quelle empfangen wurden, einschließlich der erneuten Übertragungen.
 - [`packetsLost`](/de/docs/Web/API/RTCInboundRtpStreamStats/packetsLost)
-  - : Die Gesamtanzahl der für diese synchronisierende Quelle verlorenen RTP-Pakete.
+  - : Die Gesamtzahl der verlorenen RTP-Pakete für diese synchronisierende Quelle.
     Beachten Sie, dass dies negativ sein kann, wenn mehr Pakete empfangen als gesendet werden.
 - [`jitter`](/de/docs/Web/API/RTCInboundRtpStreamStats/jitter)
   - : Paket-Jitter für diese synchronisierende Quelle, gemessen in Sekunden.
 
-### Nur lokal verfügbare Messungen
+### Nur lokal berechnete Messungen
 
-Diese Eigenschaften werden lokal berechnet und sind nur auf dem Gerät verfügbar, das den Medienstrom empfängt.
-Ihr Hauptzweck ist die Untersuchung der Fehlerresilienz der Verbindung, da sie Informationen über verlorene Pakete, verlorene Frames und die Kompressionsstärke der Daten liefern.
+Diese Eigenschaften werden lokal berechnet und sind nur für das Gerät verfügbar, das den Medienstream empfängt. Ihr Hauptzweck ist es, die Fehlerresistenz der Verbindung zu untersuchen, da sie Informationen über verlorene Pakete, verlorene Frames und die Komprimierungsrate der Daten bieten.
 
 - [`nackCount`](/de/docs/Web/API/RTCInboundRtpStreamStats/nackCount)
-  - : Die Anzahl der Male, die der Empfänger den Sender benachrichtigt hat, dass ein oder mehrere RTP-Pakete verloren gegangen sind, indem er ein Negativ-Acknowledgement-(NACK, auch "Generic NACK" genannt)-Paket an den Sender gesendet hat. Dieser Wert ist nur für den Empfänger verfügbar.
+  - : Die Anzahl der Male, in denen der Empfänger den Absender benachrichtigt hat, dass eines oder mehrere RTP-Pakete verloren gegangen sind, indem er ein Negatives ACKnowledgement (NACK, auch als "Generic NACK" bezeichnet)-Paket an den Absender gesendet hat. Dieser Wert ist nur für den Empfänger verfügbar.
 - [`qpSum`](/de/docs/Web/API/RTCInboundRtpStreamStats/qpSum)
-  - : Ein 64-Bit-Wert, der die Summe der QP-Werte für jedes von diesem RTP-Empfänger bis heute decodierte Frame auf der Videospur enthält, die durch dieses Statistikobjekt beschrieben wird.
-    Sie können den durchschnittlichen QP pro Frame annähernd berechnen, indem Sie diesen Wert durch [`framesDecoded`](/de/docs/Web/API/RTCInboundRtpStreamStats/framesDecoded) teilen, wobei Sie berücksichtigen müssen, dass Codecs oft die Quantisiererwerte sogar innerhalb von Frames variieren.
-    Beachten Sie auch, dass die QP-Werte von Codec zu Codec variieren können, sodass dieser Wert nur potenziell nützlich ist, wenn er mit demselben Codec verglichen wird.
+  - : Ein 64-Bit-Wert, der die Summe der QP-Werte für jedes Bild enthält, das bisher von diesem RTP-Empfänger auf der durch dieses Statistikobjekt beschriebenen Videospur dekodiert wurde.
+    Sie können den durchschnittlichen QP pro Frame abschätzen, indem Sie diesen Wert durch [`framesDecoded`](/de/docs/Web/API/RTCInboundRtpStreamStats/framesDecoded) teilen, wobei Sie beachten sollten, dass Codecs die Quantisierungswerte oft auch innerhalb von Frames variieren.
+    Beachten Sie auch, dass die Werte von QP je nach Codec unterschiedlich sein können, sodass dieser Wert nur potenziell nützlich ist, wenn er gegen denselben Codec verglichen wird.
     _Nur gültig für Videostreams._
 
-### Gemeinsame RTP-Stream-Statistiken
+### Allgemeine RTP-Stream-Statistiken
 
 <!-- RTCRtpStreamStats -->
 
 - [`codecId`](/de/docs/Web/API/RTCInboundRtpStreamStats/codecId)
-  - : Eine Zeichenfolge, die das Objekt eindeutig identifiziert, welches inspiziert wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erstellen, das mit diesem {{Glossary("RTP", "RTP")}}-Stream verbunden ist.
+  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um das [`RTCCodecStats`](/de/docs/Web/API/RTCCodecStats)-Objekt zu erstellen, das mit diesem {{Glossary("RTP", "RTP")}}-Stream verbunden ist.
 - [`kind`](/de/docs/Web/API/RTCInboundRtpStreamStats/kind)
-  - : Eine Zeichenfolge, die angibt, ob der mit dem Stream verbundene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) eine Audio- oder eine Videospur ist.
+  - : Ein String, der angibt, ob der mit dem Stream verbundene [`MediaStreamTrack`](/de/docs/Web/API/MediaStreamTrack) ein Audio- oder ein Videotrack ist.
 - [`ssrc`](/de/docs/Web/API/RTCInboundRtpStreamStats/ssrc)
-  - : Die 32-Bit-Ganzzahl, die die Quelle der RTP-Pakete identifiziert, die dieses Objekt bereitstellt.
+  - : Der 32-Bit-Integer, der die Quelle der RTP-Pakete identifiziert, die dieses Objekt bereitstellt.
     Dieser Wert wird gemäß der {{RFC(3550)}}-Spezifikation generiert.
 - [`transportId`](/de/docs/Web/API/RTCInboundRtpStreamStats/transportId)
-  - : Eine Zeichenfolge, die das Objekt eindeutig identifiziert, welches inspiziert wurde, um das [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Objekt zu erstellen, das mit diesem RTP-Stream verbunden ist.
+  - : Ein String, der das Objekt eindeutig identifiziert, das inspiziert wurde, um das [`RTCTransportStats`](/de/docs/Web/API/RTCTransportStats)-Objekt zu erstellen, das mit diesem RTP-Stream verbunden ist.
 
-### Gemeinsame Instanz-Eigenschaften
+### Allgemeine Instanz-Eigenschaften
 
-Die folgenden Eigenschaften sind allen WebRTC-Statistikobjekten gemeinsam.
+Die folgenden Eigenschaften sind für alle WebRTC-Statistikobjekte gemeinsam.
 
 <!-- RTCStats -->
 
 - [`id`](/de/docs/Web/API/RTCInboundRtpStreamStats/id)
-  - : Eine Zeichenfolge, die das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erstellen, eindeutig identifiziert.
+  - : Ein String, der das Objekt, das überwacht wird, um diesen Satz von Statistiken zu erzeugen, eindeutig identifiziert.
 - [`timestamp`](/de/docs/Web/API/RTCInboundRtpStreamStats/timestamp)
-  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Probe für dieses Statistikobjekt entnommen wurde.
+  - : Ein [`DOMHighResTimeStamp`](/de/docs/Web/API/DOMHighResTimeStamp)-Objekt, das den Zeitpunkt angibt, zu dem die Stichprobe für dieses Statistikobjekt genommen wurde.
 - [`type`](/de/docs/Web/API/RTCInboundRtpStreamStats/type)
-  - : Eine Zeichenfolge mit dem Wert `"inbound-rtp"`, die den Typ der Statistiken angibt, die das Objekt enthält.
+  - : Ein String mit dem Wert `"inbound-rtp"`, der den Typ der Statistiken angibt, die das Objekt enthält.
 
 ## Beispiele
 

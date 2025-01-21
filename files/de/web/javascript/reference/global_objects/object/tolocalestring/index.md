@@ -2,12 +2,12 @@
 title: Object.prototype.toLocaleString()
 slug: Web/JavaScript/Reference/Global_Objects/Object/toLocaleString
 l10n:
-  sourceCommit: 5e878acadb7afcf0443b619b1d2f70a4dfafd679
+  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
 ---
 
 {{JSRef}}
 
-Die **`toLocaleString()`**-Methode von {{jsxref("Object")}}-Instanzen gibt eine Zeichenkette zurück, die dieses Objekt darstellt. Diese Methode ist für eine Überschreibung durch abgeleitete Objekte für lokalisierungsspezifische Zwecke vorgesehen.
+Die **`toLocaleString()`** Methode von {{jsxref("Object")}} Instanzen gibt einen String zurück, der dieses Objekt repräsentiert. Diese Methode soll von abgeleiteten Objekten für länderspezifische Zwecke überschrieben werden.
 
 {{EmbedInteractiveExample("pages/js/object-prototype-tolocalestring.html")}}
 
@@ -19,17 +19,17 @@ toLocaleString()
 
 ### Parameter
 
-Keine. Alle Objekte, die diese Methode überschreiben, sollten jedoch maximal zwei Parameter akzeptieren, die `locales` und `options` entsprechen, wie z. B. {{jsxref("Date.prototype.toLocaleString")}}. Die Parameterpositionen sollten nicht für andere Zwecke verwendet werden.
+Keine. Es wird jedoch erwartet, dass alle Objekte, die diese Methode überschreiben, höchstens zwei Parameter akzeptieren, die den `locales` und `options` entsprechen, wie bei {{jsxref("Number.prototype.toLocaleString")}}. Die Parameterpositionen sollten nicht für andere Zwecke verwendet werden.
 
 ### Rückgabewert
 
-Der Rückgabewert von `this.toString()`.
+Der Rückgabewert des Aufrufs von `this.toString()`.
 
 ## Beschreibung
 
-Alle Objekte, die von `Object.prototype` erben (das heißt alle außer [`null`-Prototyp-Objekten](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die Methode `toLocaleString()`. Das `toLocaleString` von {{jsxref("Object")}} gibt das Ergebnis des Aufrufs von {{jsxref("Object/toString", "this.toString()")}} zurück.
+Alle Objekte, die von `Object.prototype` erben (das heißt, alle außer [`null`-Prototyp-Objekte](/de/docs/Web/JavaScript/Reference/Global_Objects/Object#null-prototype_objects)), erben die `toLocaleString()` Methode. {{jsxref("Object")}}'s `toLocaleString` gibt das Ergebnis des Aufrufs von {{jsxref("Object/toString", "this.toString()")}} zurück.
 
-Diese Funktion wird bereitgestellt, um Objekten eine generische `toLocaleString`-Methode zu geben, auch wenn nicht alle sie verwenden mögen. Im Kern der Sprache überschreiben diese eingebauten Objekte `toLocaleString`, um lokalisierungsspezifische Formatierungen bereitzustellen:
+Diese Funktion wird bereitgestellt, um Objekten eine generische `toLocaleString` Methode zu geben, auch wenn nicht alle sie verwenden. Im Kern der Sprache überschreiben diese eingebauten Objekte `toLocaleString`, um länderspezifische Formatierung bereitzustellen:
 
 - {{jsxref("Array")}}: {{jsxref("Array.prototype.toLocaleString()")}}
 - {{jsxref("Number")}}: {{jsxref("Number.prototype.toLocaleString()")}}
@@ -39,9 +39,9 @@ Diese Funktion wird bereitgestellt, um Objekten eine generische `toLocaleString`
 
 ## Beispiele
 
-### Verwendung der Basis-ToLocaleString()-Methode
+### Verwendung der Basis toLocaleString() Methode
 
-Die Basis-`toLocaleString()`-Methode ruft einfach `toString()` auf.
+Die Basis `toLocaleString()` Methode ruft einfach `toString()` auf.
 
 ```js
 const obj = {
@@ -52,9 +52,9 @@ const obj = {
 console.log(obj.toLocaleString()); // "My Object"
 ```
 
-### Array-ToLocaleString()-Überschreibung
+### Array toLocaleString() Überschreibung
 
-{{jsxref("Array.prototype.toLocaleString()")}} wird verwendet, um Array-Werte als Zeichenkette auszugeben, indem die Methode `toLocaleString()` jedes Elements aufgerufen und die Ergebnisse mit einem lokalisierungsspezifischen Trennzeichen verbunden werden. Zum Beispiel:
+{{jsxref("Array.prototype.toLocaleString()")}} wird verwendet, um Array-Werte als String zu drucken, indem die `toLocaleString()` Methode jedes Elements aufgerufen und die Ergebnisse mit einem länderspezifischen Trennzeichen verbunden werden. Zum Beispiel:
 
 ```js
 const testArray = [4, 7, 10];
@@ -66,9 +66,9 @@ const euroPrices = testArray.toLocaleString("fr", {
 // "4,00 €,7,00 €,10,00 €"
 ```
 
-### Date-ToLocaleString()-Überschreibung
+### Date toLocaleString() Überschreibung
 
-{{jsxref("Date.prototype.toLocaleString()")}} wird verwendet, um Datumsanzeigen auszugeben, die für spezifische Regionen besser geeignet sind. Zum Beispiel:
+{{jsxref("Date.prototype.toLocaleString()")}} wird verwendet, um Datumsausgaben bereitzustellen, die besser für spezielle Lokalisierungen geeignet sind. Zum Beispiel:
 
 ```js
 const testDate = new Date();
@@ -81,9 +81,9 @@ const frDate = testDate.toLocaleString("fr");
 // "29/05/2020, 18:04:24"
 ```
 
-### Number-ToLocaleString()-Überschreibung
+### Number toLocaleString() Überschreibung
 
-{{jsxref("Number.prototype.toLocaleString()")}} wird verwendet, um Zahldarstellungen auszugeben, die für spezifische Regionen besser geeignet sind, z. B. mit den richtigen Trennern. Zum Beispiel:
+{{jsxref("Number.prototype.toLocaleString()")}} wird verwendet, um Zifferndarstellungen bereitzustellen, die besser für spezielle Lokalisierungen geeignet sind, z.B. mit den richtigen Trennzeichen. Zum Beispiel:
 
 ```js
 const testNumber = 2901234564;

@@ -2,12 +2,12 @@
 title: Intl.DateTimeFormat.prototype.format()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format
 l10n:
-  sourceCommit: 1574e4728b2d31b8898f84843a9832253790c516
+  sourceCommit: a4e9bce1e8bac1b845b32536e0e44f335233eab6
 ---
 
 {{JSRef}}
 
-Die **`format()`** Methode von {{jsxref("Intl.DateTimeFormat")}} Instanzen formatiert ein Datum gemäß der Lokale und den Formatierungsoptionen dieses `Intl.DateTimeFormat` Objekts.
+Die **`format()`** Methode von {{jsxref("Intl.DateTimeFormat")}} Instanzen formatiert ein Datum gemäß den Locale- und Formatierungsoptionen dieses `Intl.DateTimeFormat` Objekts.
 
 {{EmbedInteractiveExample("pages/js/intl-datetimeformat-prototype-format.html", "taller")}}
 
@@ -20,20 +20,26 @@ format(date)
 ### Parameter
 
 - `date`
-  - : Das zu formatierende Datum. Wenn dies weggelassen wird, wird das aktuelle Datum formatiert (wie von {{jsxref("Date.now()")}} zurückgegeben), was etwas verwirrend sein kann, daher ist es ratsam, immer explizit ein Datum zu übergeben.
+
+  - : Das zu formatierende Datum. Kann ein {{jsxref("Date")}}- oder {{jsxref("Temporal.PlainDateTime")}}-Objekt sein. Zusätzlich kann es sich um ein {{jsxref("Temporal.PlainTime")}}, {{jsxref("Temporal.PlainDate")}}, {{jsxref("Temporal.PlainYearMonth")}} oder {{jsxref("Temporal.PlainMonthDay")}}-Objekt handeln, wenn das `DateTimeFormat`-Objekt so konfiguriert wurde, dass es mindestens einen relevanten Teil des Datums ausgibt.
+
+    > [!NOTE]
+    > Ein {{jsxref("Temporal.ZonedDateTime")}}-Objekt wird immer einen `TypeError` auslösen; verwenden Sie stattdessen {{jsxref("Temporal/ZonedDateTime/toLocaleString", "Temporal.ZonedDateTime.prototype.toLocaleString()")}} oder konvertieren Sie es in ein {{jsxref("Temporal.PlainDateTime")}}-Objekt.
+
+    Wenn es weggelassen wird, wird das aktuelle Datum formatiert (wie von {{jsxref("Date.now()")}} zurückgegeben), was etwas verwirrend sein kann. Es ist daher ratsam, immer ein Datum explizit zu übergeben.
 
 ### Rückgabewert
 
-Ein String, der das angegebene `date` formatiert gemäß der Lokale und den Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}} Objekts darstellt.
+Ein String, der das gegebene `date` gemäß den Locale- und Formatierungsoptionen dieses {{jsxref("Intl.DateTimeFormat")}} Objekts darstellt.
 
 > [!NOTE]
-> In den meisten Fällen ist die Formatierung, die von `format()` zurückgegeben wird, konsistent. Allerdings kann die Ausgabe zwischen Implementierungen variieren, selbst innerhalb derselben Lokale – Ausgabevariationen sind absichtlich und von der Spezifikation erlaubt. Sie könnte auch nicht das sein, was Sie erwarten. Zum Beispiel könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
+> In der Regel ist das von `format()` zurückgegebene Format konsistent. Jedoch kann die Ausgabe in unterschiedlichen Implementierungen variieren, selbst innerhalb derselben Locale — Ausgabevarianten sind von der Spezifikation erlaubt und beabsichtigt. Es kann auch nicht das sein, was Sie erwarten. Beispielsweise könnte der String geschützte Leerzeichen verwenden oder von bidirektionalen Steuerzeichen umgeben sein. Sie sollten die Ergebnisse von `format()` nicht mit fest codierten Konstanten vergleichen.
 
 ## Beispiele
 
-### Format verwenden
+### Verwendung von format
 
-Verwenden Sie die `format` Getter-Funktion zum Formatieren eines einzelnen Datums, hier für Serbien:
+Verwenden Sie die `format` Getter-Funktion, um ein einzelnes Datum zu formatieren, hier für Serbien:
 
 ```js
 const options = {
@@ -47,9 +53,9 @@ console.log(dateTimeFormat.format(new Date()));
 // "недеља, 7. април 2013."
 ```
 
-### Format mit Map verwenden
+### Verwendung von format mit map
 
-Verwenden Sie die `format` Getter-Funktion zum Formatieren aller Daten in einem Array. Beachten Sie, dass die Funktion an das {{jsxref("Intl.DateTimeFormat")}} gebunden ist, von dem sie erhalten wurde, sodass sie direkt an {{jsxref("Array.prototype.map()")}} übergeben werden kann.
+Verwenden Sie die `format` Getter-Funktion, um alle Daten in einem Array zu formatieren. Beachten Sie, dass die Funktion an die {{jsxref("Intl.DateTimeFormat")}} gebunden ist, von der sie abgerufen wurde, sodass sie direkt an {{jsxref("Array.prototype.map()")}} übergeben werden kann.
 
 ```js
 const a = [new Date(2012, 8), new Date(2012, 11), new Date(2012, 3)];
@@ -71,6 +77,3 @@ console.log(formatted.join("; "));
 ## Siehe auch
 
 - {{jsxref("Intl.DateTimeFormat")}}
-- {{jsxref("Date.prototype.toLocaleString()")}}
-- {{jsxref("Date.prototype.toLocaleDateString()")}}
-- {{jsxref("Date.prototype.toLocaleTimeString()")}}
