@@ -2,7 +2,7 @@
 title: Intl.NumberFormat()-Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat
 l10n:
-  sourceCommit: 288fb73a50817abfd794eec9454b3c062b5d48ca
+  sourceCommit: 537aeae8ea6f3f080941261af7229dba30f791ac
 ---
 
 {{JSRef}}
@@ -23,200 +23,200 @@ Intl.NumberFormat(locales)
 Intl.NumberFormat(locales, options)
 ```
 
-> **Note:** `Intl.NumberFormat()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erstellen eine neue `Intl.NumberFormat`-Instanz. Es gibt jedoch ein spezielles Verhalten, wenn es ohne `new` aufgerufen wird und der `this`-Wert eine andere `Intl.NumberFormat`-Instanz ist; siehe [Rückgabewert](#rückgabewert).
+> **Hinweis:** `Intl.NumberFormat()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide rufen eine neue `Intl.NumberFormat`-Instanz hervor. Es gibt jedoch ein spezielles Verhalten, wenn es ohne `new` aufgerufen wird und der `this`-Wert eine andere `Intl.NumberFormat`-Instanz ist; siehe [Rückgabewert](#rückgabewert).
 
 ### Parameter
 
 - `locales` {{optional_inline}}
 
-  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}}-Instanz, oder ein Array solcher Locale-Identifikatoren. Die Standardsprache des Laufzeitsystems wird verwendet, wenn `undefined` übergeben wird oder wenn keine der angegebenen Locale-Identifikatoren unterstützt wird. Weitere Informationen zur allgemeinen Form und Interpretation des `locales`-Arguments finden Sie in [der Parameterbeschreibung auf der `Intl`-Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47-Sprach-Tag oder eine {{jsxref("Intl.Locale")}}-Instanz oder ein Array solcher Locale-Identifikatoren. Die Standard-Locale der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Locale-Identifikatoren unterstützt wird. Für die allgemeine Form und Interpretation des `locales`-Arguments siehe [die Parameterbeschreibung auf der Hauptseite von `Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
     Der folgende Unicode-Erweiterungsschlüssel ist erlaubt:
 
     - `nu`
       - : Siehe [`numberingSystem`](#numberingsystem).
 
-    Dieser Schlüssel kann auch mit `options` (wie unten aufgeführt) gesetzt werden. Wenn beide gesetzt sind, hat die `options`-Eigenschaft Vorrang.
+    Dieser Schlüssel kann auch mit den `options` gesetzt werden (wie unten aufgeführt). Wenn beide gesetzt sind, hat die `options`-Eigenschaft Vorrang.
 
 - `options` {{optional_inline}}
 
-  - : Ein Objekt. Zur besseren Lesbarkeit ist die Eigenschaftenliste in Abschnitte unterteilt, basierend auf ihren Verwendungszwecken, einschließlich [Locale-Optionen](#locale-optionen), [Stiloptionen](#stiloptionen), [Zifferoptionen](#zifferoptionen), und [andere Optionen](#andere_optionen).
+  - : Ein Objekt. Zur leichteren Lesbarkeit ist die Eigenschaftsliste nach ihrem Zweck gegliedert, einschließlich der [Locale-Optionen](#locale-optionen), [Stiloptionen](#stiloptionen), [Ziffernoptionen](#ziffernoptionen) und [andere Optionen](#andere_optionen).
 
 #### Locale-Optionen
 
 - `localeMatcher`
-  - : Der zu verwendende Locale-Abgleichs-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`.
-    Weitere Informationen zu dieser Option finden Sie unter [Identifikation und Verhandlung von Locales](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+  - : Der zu verwendende Locale-Matching-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`.
+    Für Informationen über diese Option siehe [Locale-Identifikation und -Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
 - `numberingSystem`
-  - : Das Ziffernsystem, das für die Zahlenformatierung verwendet werden soll, wie `"arab"`, `"hans"`, `"mathsans"`, usw. Für eine Liste der unterstützten Ziffernsystemtypen siehe [`Intl.Locale.prototype.getNumberingSystems()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getNumberingSystems#supported_numbering_system_types). Diese Option kann auch durch den `nu`-Unicode-Erweiterungsschlüssel gesetzt werden; wenn beide bereitgestellt werden, hat diese `options`-Eigenschaft Vorrang.
+  - : Das Nummerierungssystem, das für die Zahlenformatierung verwendet werden soll, wie `"arab"`, `"hans"`, `"mathsans"`, und so weiter. Eine Liste der unterstützten Nummerierungssystemtypen finden Sie unter [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types). Diese Option kann auch über den `nu`-Unicode-Erweiterungsschlüssel gesetzt werden; wenn beide angegeben werden, hat diese `options`-Eigenschaft Vorrang.
 
 #### Stiloptionen
 
-Abhängig vom verwendeten `style` können einige ignoriert werden, und andere sind möglicherweise erforderlich:
+Je nach verwendetem `style` können einige ignoriert und andere erforderlich sein:
 
 - `style`
-  - : Der zu verwendende Formatierungsstil.
+  - : Der Formatierungsstil, der verwendet werden soll.
     - `"decimal"` (Standard)
-      - : Für das einfache Zahlenformat.
+      - : Für einfaches Zahlenformat.
     - `"currency"`
-      - : Für die Währungsformatierung.
+      - : Für Währungsformatierung.
     - `"percent"`
-      - : Für die Prozentformatierung.
+      - : Für Prozentformatierung.
     - `"unit"`
-      - : Für die Einheitenformatierung.
+      - : Für Einheitenformatierung.
 - `currency`
-  - : Die Währung, die für die Währungsformatierung verwendet werden soll. Mögliche Werte sind die ISO 4217-Währungscodes, wie `"USD"` für den US-Dollar, `"EUR"` für den Euro oder `"CNY"` für den chinesischen RMB — siehe die [aktuelle Liste der Währungs- und Fondcodes](https://de.wikipedia.org/wiki/ISO_4217#Liste_der_ISO_4217-W%C3%A4hrungscodes). Es gibt keinen Standardwert; wenn der `style` `"currency"` ist, muss die `currency`-Eigenschaft angegeben werden. Sie wird in Großbuchstaben normalisiert.
+  - : Die Währung, die bei der Währungsformatierung verwendet werden soll. Mögliche Werte sind die ISO 4217-Währungscodes, wie z.B. `"USD"` für den US-Dollar, `"EUR"` für den Euro oder `"CNY"` für den chinesischen RMB — siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_currency_identifiers). Es gibt keinen Standardwert; wenn der `style` `"currency"` ist, muss die `currency`-Eigenschaft angegeben werden. Sie wird in Großbuchstaben normalisiert.
 - `currencyDisplay`
-  - : Wie die Währung in der Währungsformatierung angezeigt werden soll.
+  - : Wie die Währung bei der Währungsformatierung angezeigt werden soll.
     - `"code"`
-      - : Verwende den ISO-Währungscode.
+      - : Verwenden Sie den ISO-Währungscode.
     - `"symbol"` (Standard)
-      - : Verwende ein lokalisiertes Währungssymbol wie €.
+      - : Verwenden Sie ein lokalisiertes Währungssymbol, wie z.B. €.
     - `"narrowSymbol"`
-      - : Verwende ein schmales Format-Symbol ("$100" anstelle von "US$100").
+      - : Verwenden Sie ein schmales Formatsymbol ("$100" statt "US$100").
     - `"name"`
-      - : Verwende einen lokalisierten Währungsnamen wie `"dollar"`.
+      - : Verwenden Sie einen lokalisierten Währungsnamen, wie z.B. `"Dollar"`.
 - `currencySign`
-  - : In vielen Locales bedeutet das Accounting-Format, dass die Zahl in Klammern gesetzt wird, anstatt ein Minuszeichen zu verwenden. Mögliche Werte sind `"standard"` und `"accounting"`; der Standardwert ist `"standard"`.
+  - : In vielen Locales bedeutet das Buchhaltungsformat, dass die Zahl in Klammern gesetzt wird, anstatt ein Minuszeichen hinzuzufügen. Mögliche Werte sind `"standard"` und `"accounting"`; der Standardwert ist `"standard"`.
 - `unit`
-  - : Die Einheit, die in der `unit`-Formatierung verwendet werden soll. Mögliche Werte sind Kerneinheit-Identifikatoren, definiert in [UTS #35, Teil 2, Abschnitt 6](https://unicode.org/reports/tr35/tr35-general.html#Unit_Elements). Ein [Teilset](https://tc39.es/ecma402/#table-sanctioned-single-unit-identifiers) von Einheiten aus der [vollständigen Liste](https://github.com/unicode-org/cldr/blob/main/common/validity/unit.xml) wurde zur Verwendung in ECMAScript ausgewählt. Paare von einfachen Einheiten können mit "-per-" zu einer Verbundeneinheit verknüpft werden. Es gibt keinen Standardwert; wenn der `style` `"unit"` ist, muss die `unit`-Eigenschaft angegeben werden.
+  - : Die Einheit, die bei der Einheitenformatierung verwendet werden soll. Mögliche Werte sind in [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_unit_identifiers) aufgelistet. Paare einfacher Einheiten können mit "-per-" für eine zusammengesetzte Einheit verkettet werden. Es gibt keinen Standardwert; wenn der `style` `"unit"` ist, muss die `unit`-Eigenschaft angegeben werden.
 - `unitDisplay`
-  - : Der Einheitenformatierungsstil, der in der `unit`-Formatierung verwendet werden soll. Mögliche Werte sind:
+  - : Der Einheitenformatierungsstil, der bei der Einheitenformatierung verwendet werden soll. Mögliche Werte sind:
     - `"short"` (Standard)
-      - : z.B., `16 l`.
+      - : Z.B. `16 l`.
     - `"narrow"`
-      - : z.B., `16l`.
+      - : Z.B. `16l`.
     - `"long"`
-      - : z.B., `16 litre`.
+      - : Z.B. `16 Liter`.
 
-#### Zifferoptionen
+#### Ziffernoptionen
 
-Die folgenden Eigenschaften werden auch von {{jsxref("Intl.PluralRules")}} unterstützt.
+Die folgenden Eigenschaften werden ebenfalls von {{jsxref("Intl.PluralRules")}} unterstützt.
 
 - `minimumIntegerDigits`
-  - : Die minimale Anzahl von Ganzzahlziffern, die verwendet werden soll. Ein Wert mit einer kleineren Anzahl von Ganzzahlziffern als diese Zahl wird beim Formatieren (auf die angegebene Länge) mit Nullen aufgefüllt. Mögliche Werte sind von `1` bis `21`; der Standardwert ist `1`.
+  - : Die minimale Anzahl an Ganzzahlziffern, die verwendet werden sollen. Ein Wert mit weniger Ganzzahlziffern als dieser Wert wird beim Formatieren links mit Nullen (bis zur angegebenen Länge) aufgefüllt. Mögliche Werte sind von `1` bis `21`; der Standardwert ist `1`.
 - `minimumFractionDigits`
-  - : Die minimale Anzahl von Bruchziffern, die verwendet werden soll. Mögliche Werte sind von `0` bis `100`; der Standardwert für einfache Zahlen- und Prozentformatierungen ist `0`; der Standardwert für Währungsformatierungen ist die Anzahl der Nebenstelleziffern, die von der [ISO 4217-Währungscodeliste](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml) (2, wenn die Liste diese Information nicht liefert) angegeben wird. Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Anwendungszeitpunkt dieses Standards.
+  - : Die minimale Anzahl an Nachkommastellen, die verwendet werden sollen. Mögliche Werte sind von `0` bis `100`; der Standardwert für die einfache Zahlen- und Prozentformatierung ist `0`; der Standardwert für die Währungsformatierung ist die Anzahl der Nebeneinheitsstellen, die von der [ISO 4217-Währungscodeliste](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml) bereitgestellt werden (2, wenn diese Information nicht angegeben wird). Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Fall, dass dieser Standard angewendet wird.
 - `maximumFractionDigits`
-  - : Die maximale Anzahl von Bruchziffern, die verwendet werden soll. Mögliche Werte sind von `0` bis `100`; der Standardwert für die einfache Zahlenformatierung ist die größere von `minimumFractionDigits` und `3`; der Standardwert für die Währungsformatierung ist die größere von `minimumFractionDigits` und der in der [ISO 4217-Währungscodeliste](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml) angegebenen Anzahl von Nebenstelleziffern (2, wenn die Liste diese Information nicht liefert); der Standardwert für die Prozentformatierung ist die größere von `minimumFractionDigits` und 0. Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Anwendungszeitpunkt dieses Standards.
+  - : Die maximale Anzahl an Nachkommastellen, die verwendet werden sollen. Mögliche Werte sind von `0` bis `100`; der Standardwert für das einfache Zahlenformat ist der größere von `minimumFractionDigits` und `3`; der Standardwert für die Währungsformatierung ist der größere von `minimumFractionDigits` und der Anzahl der Nebeneinheitsstellen, die von der [ISO 4217-Währungscodeliste](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml) bereitgestellt werden (2, wenn diese Information nicht angegeben wird); der Standardwert für die Prozentformatierung ist der größere von `minimumFractionDigits` und 0. Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Fall, dass dieser Standard angewendet wird.
 - `minimumSignificantDigits`
-  - : Die minimale Anzahl signifikanter Ziffern, die verwendet werden soll. Mögliche Werte sind von `1` bis `21`; der Standardwert ist `1`. Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Anwendungszeitpunkt dieses Standards.
+  - : Die minimale Anzahl an signifikanten Ziffern, die verwendet werden sollen. Mögliche Werte sind von `1` bis `21`; der Standardwert ist `1`. Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Fall, dass dieser Standard angewendet wird.
 - `maximumSignificantDigits`
-  - : Die maximale Anzahl signifikanter Ziffern, die verwendet werden soll. Mögliche Werte sind von `1` bis `21`; der Standardwert ist `21`. Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Anwendungszeitpunkt dieses Standards.
+  - : Die maximale Anzahl an signifikanten Ziffern, die verwendet werden sollen. Mögliche Werte sind von `1` bis `21`; der Standardwert ist `21`. Siehe [Standardwerte für SignificantDigits/FractionDigits](#significantdigitsfractiondigits_default_values) für den Fall, dass dieser Standard angewendet wird.
 - `roundingPriority`
 
-  - : Geben Sie an, wie Rundungskonflikte behoben werden sollen, wenn sowohl "FractionDigits" ([`minimumFractionDigits`](#minimumfractiondigits)/[`maximumFractionDigits`](#maximumfractiondigits)) als auch "SignificantDigits" ([`minimumSignificantDigits`](#minimumsignificantdigits)/[`maximumSignificantDigits`](#maximumsignificantdigits)) angegeben sind.
+  - : Bestimmen Sie, wie Rundungskonflikte gelöst werden sollen, wenn sowohl "FractionDigits" ([`minimumFractionDigits`](#minimumfractiondigits)/[`maximumFractionDigits`](#maximumfractiondigits)) als auch "SignificantDigits" ([`minimumSignificantDigits`](#minimumsignificantdigits)/[`maximumSignificantDigits`](#maximumsignificantdigits)) angegeben sind.
     Mögliche Werte sind:
 
     - `"auto"` (Standard)
-      - : Das Ergebnis der signifikanten Zifferneigenschaft wird verwendet.
+      - : Das Ergebnis aus der Eigenschaft der signifikanten Ziffern wird verwendet.
     - `"morePrecision"`
-      - : Das Ergebnis der Eigenschaft, die zu mehr Präzision führt, wird verwendet.
+      - : Das Ergebnis der Eigenschaft, die mehr Präzision ergibt, wird verwendet.
     - `"lessPrecision"`
-      - : Das Ergebnis der Eigenschaft, die zu weniger Präzision führt, wird verwendet.
+      - : Das Ergebnis der Eigenschaft, die weniger Präzision ergibt, wird verwendet.
 
-    Der Wert `"auto"` wird zu `"morePrecision"` normalisiert, wenn `notation` `"compact"` ist und keine der vier "FractionDigits"/"SignificantDigits"-Optionen gesetzt sind.
+    Der Wert `"auto"` wird normalisiert zu `"morePrecision"`, wenn `notation` `"compact"` ist und keine der vier Optionen "FractionDigits"/"SignificantDigits" gesetzt sind.
 
-    Beachten Sie, dass für andere Werte als `auto` das Ergebnis mit mehr Präzision aus den [`maximumSignificantDigits`](#minimumsignificantdigits) und [`maximumFractionDigits`](#maximumfractiondigits) berechnet wird (minimale Bruch- und signifikante Zifferneinstellungen werden ignoriert).
+    Beachten Sie, dass für andere als `auto`-Werte das Ergebnis mit mehr Präzision aus den [`maximumSignificantDigits`](#minimumsignificantdigits) und [`maximumFractionDigits`](#maximumfractiondigits) berechnet wird (Einstellungen für minimale Bruch- und signifikante Ziffern werden ignoriert).
 
 - `roundingIncrement`
 
-  - : Gibt das Inkrement an, bei dem gerundet werden soll, relativ zur berechneten Rundungsmagnitude. Mögliche Werte sind `1`, `2`, `5`, `10`, `20`, `25`, `50`, `100`, `200`, `250`, `500`, `1000`, `2000`, `2500` und `5000`; der Standardwert ist `1`. Es kann nicht mit signifikanter Ziffernrundung oder einer Einstellung von `roundingPriority` gemischt werden, die nicht `auto` ist.
+  - : Gibt das Inkrement an, bei dem die Rundung relativ zur berechneten Rundungsmagnitude erfolgen soll. Mögliche Werte sind `1`, `2`, `5`, `10`, `20`, `25`, `50`, `100`, `200`, `250`, `500`, `1000`, `2000`, `2500` und `5000`; der Standardwert ist `1`. Es kann nicht mit einer Signifikanzziffernrundung oder einer Einstellung von `roundingPriority`, die nicht `auto` ist, gemischt werden.
 
 - `roundingMode`
 
-  - : Wie Dezimalzahlen gerundet werden sollen. Mögliche Werte sind:
+  - : Wie Dezimalstellen gerundet werden sollen. Mögliche Werte sind:
 
     - `"ceil"`
-      - : Auf +∞ runden. Positive Werte runden nach oben. Negative Werte runden "mehr positiv".
+      - : Runden gegen +∞. Positive Werte werden aufgerundet. Negative Werte werden "positiver".
     - `"floor"`
-      - : Auf -∞ runden. Positive Werte runden nach unten. Negative Werte runden "mehr negativ".
+      - : Runden gegen -∞. Positive Werte werden abgerundet. Negative Werte werden "negativer".
     - `"expand"`
-      - : Vom Nullpunkt wegrunden. Die _Größe_ des Wertes wird immer durch Rundung vergrößert. Positive Werte runden nach oben. Negative Werte runden "mehr negativ".
+      - : Von 0 weg runden. Der _Betrag_ des Wertes wird durch das Runden stets erhöht. Positive Werte werden aufgerundet. Negative Werte werden "negativer".
     - `"trunc"`
-      - : Auf Null runden. Diese _Größe_ des Wertes wird immer durch Rundung reduziert. Positive Werte runden nach unten. Negative Werte runden "weniger negativ".
+      - : Richtung 0 Runden. Dieser _Betrag_ des Wertes wird durch das Runden stets verringert. Positive Werte werden abgerundet. Negative Werte werden "weniger negativ".
     - `"halfCeil"`
-      - : Klammern in Richtung +∞. Werte über dem Halbinkrement runden wie `"ceil"` (in Richtung +∞) und darunter wie `"floor"` (in Richtung -∞). Beim Halbinkrement, Werte runden wie `"ceil"`.
+      - : Gleichstände Richtung +∞. Werte über dem Halbincrement werden wie `"ceil"` (gegen +∞) gerundet, und darunter wie `"floor"` (gegen -∞). Beim Halbincrement werden Werte wie `"ceil"` gerundet.
     - `"halfFloor"`
-      - : Klammern in Richtung -∞. Werte über dem Halbinkrement runden wie `"ceil"` (in Richtung +∞) und darunter wie `"floor"` (in Richtung -∞). Beim Halbinkrement, Werte runden wie `"floor"`.
+      - : Gleichstände Richtung -∞. Werte über dem Halbincrement werden wie `"ceil"` (gegen +∞) gerundet, und darunter wie `"floor"` (gegen -∞). Beim Halbincrement werden Werte wie `"floor"` gerundet.
     - `"halfExpand"` (Standard)
-      - : Klammern weg von 0. Werte über dem Halbinkrement runden wie `"expand"` (weg von Null) und darunter wie `"trunc"` (in Richtung 0). Beim Halbinkrement, Werte runden wie `"expand"`.
+      - : Gleichstände von 0 weg. Werte über dem Halbincrement werden wie `"expand"` (von 0 weg) gerundet, und darunter wie `"trunc"` (gegen 0). Beim Halbincrement werden Werte wie `"expand"` gerundet.
     - `"halfTrunc"`
-      - : Klammern in Richtung 0. Werte über dem Halbinkrement runden wie `"expand"` (weg von Null) und darunter wie `"trunc"` (in Richtung 0). Beim Halbinkrement, Werte runden wie `"trunc"`.
+      - : Gleichstände gegen 0. Werte über dem Halbincrement werden wie `"expand"` (von 0 weg) gerundet, und darunter wie `"trunc"` (gegen 0). Beim Halbincrement werden Werte wie `"trunc"` gerundet.
     - `"halfEven"`
-      - : Klammern in Richtung der nächsten geraden Ganzzahl. Werte über dem Halbinkrement runden wie `"expand"` (weg von Null) und darunter wie `"trunc"` (in Richtung 0). Beim Halbinkrement Werte runden in Richtung der nächsten geraden Ziffer.
+      - : Gleichstände gegen die nächste gerade Zahl. Werte über dem Halbincrement werden wie `"expand"` (von 0 weg) gerundet, und darunter wie `"trunc"` (gegen 0). Beim Halbincrement werden Werte gegen die nächste gerade Ziffer gerundet.
 
     Diese Optionen spiegeln den [ICU-Benutzerleitfaden](https://unicode-org.github.io/icu/userguide/format_parse/numbers/rounding-modes.html) wider, bei dem "expand" und "trunc" auf ICU "UP" und "DOWN" abgebildet werden.
-    Das nachstehende Beispiel zu [Rundungsmodi](#rundungsmodi) zeigt, wie jeder Modus funktioniert.
+    Das unten stehende Beispiel der [Rundungsmodi](#rundungsmodi) zeigt, wie jeder Modus funktioniert.
 
 - `trailingZeroDisplay`
-  - : Die Strategie zur Anzeige von Nullen am Ende von Ganzzahlen. Mögliche Werte sind:
+  - : Die Strategie zur Anzeige führender Nullen bei ganzen Zahlen. Mögliche Werte sind:
     - `"auto"` (Standard)
-      - : Behalten von Nullen am Ende gemäß `minimumFractionDigits` und `minimumSignificantDigits`.
+      - : Behalten Sie die nachfolgenden Nullen gemäß `minimumFractionDigits` und `minimumSignificantDigits`.
     - `"stripIfInteger"`
-      - : Entfernen von Bruchziffern _wenn_ sie alle null sind. Dies ist das gleiche wie `"auto"` wenn eine der Bruchziffern ungleich null ist.
+      - : Entfernen Sie die Nachkommastellen, _wenn_ sie alle Null sind. Dies ist dasselbe wie `"auto"`, wenn eine der Nachkommastellen ungleich Null ist.
 
 ##### Standardwerte für SignificantDigits/FractionDigits
 
-Für die vier oben genannten Optionen (die `FractionDigits` und `SignificantDigits`-Optionen), erwähnten wir ihre Standardwerte; diese Standards werden jedoch _nicht bedingungslos angewendet_. Sie werden nur angewendet, wenn die Eigenschaft tatsächlich verwendet werden soll, was von den Einstellungen für die [`roundingPriority`](#roundingpriority) und [`notation`](#notation) abhängt. Genauer:
+Für die vier oben genannten Optionen (die Optionen `FractionDigits` und `SignificantDigits`) haben wir ihre Standardwerte erwähnt; allerdings werden diese Standards _nicht bedingungslos angewendet_. Sie werden nur dann angewendet, wenn die Eigenschaft tatsächlich verwendet werden soll, was von dem [`roundingPriority`](#roundingpriority) und [`notation`](#notation) Einstellungen abhängt. Konkret:
 
 - Wenn `roundingPriority` nicht `"auto"` ist, dann gelten alle vier Optionen.
 - Wenn `roundingPriority` `"auto"` ist und mindestens eine `SignificantDigits`-Option gesetzt ist, dann gelten die `SignificantDigits`-Optionen und die `FractionDigits`-Optionen werden ignoriert.
 - Wenn `roundingPriority` `"auto"` ist und entweder mindestens eine `FractionDigits`-Option gesetzt ist oder `notation` nicht `"compact"` ist, dann gelten die `FractionDigits`-Optionen und die `SignificantDigits`-Optionen werden ignoriert.
-- Wenn `roundingPriority` `"auto"` ist, `notation` `"compact"` ist und keine der vier Optionen gesetzt sind, dann werden sie auf `{ minimumFractionDigits: 0, maximumFractionDigits: 0, minimumSignificantDigits: 1, maximumSignificantDigits: 2 }` gesetzt, unabhängig von den genannten Standardwerten, und `roundingPriority` wird auf `"morePrecision"` gesetzt.
+- Wenn `roundingPriority` `"auto"` ist, `notation` `"compact"` ist und keine der vier Optionen gesetzt sind, dann werden sie auf `{ minimumFractionDigits: 0, maximumFractionDigits: 0, minimumSignificantDigits: 1, maximumSignificantDigits: 2 } gesetzt, unabhängig von den oben genannten Standardwerten, und `roundingPriority`wird auf`"morePrecision"` gesetzt.
 
 #### Andere Optionen
 
 - `notation`
-  - : Die Formatierung, die für die Zahl angezeigt werden soll. Mögliche Werte sind:
+  - : Das Format, das für die Zahl angezeigt werden soll. Mögliche Werte sind:
     - `"standard"` (Standard)
-      - : Einfache Zahlenformatierung.
+      - : Einfaches nummerisches Format.
     - `"scientific"`
-      - : Den Ordnungsbereich der formatierten Zahl zurückgeben.
+      - : Gibt die Größenordnung für die formatierte Zahl zurück.
     - `"engineering"`
-      - : Den Exponenten von zehn zurückgeben, wenn durch drei teilbar.
+      - : Gibt den Exponenten der Zehner zurück, wenn er durch drei teilbar ist.
     - `"compact"`
-      - : Zeichenfolge, die den Exponenten darstellt; Voreinstellung der Nutzung der "kurzen" Form.
+      - : Zeichenkette, die den Exponenten darstellt; Standard ist die "short"-Form.
 - `compactDisplay`
-  - : Nur verwendet, wenn `notation` `"compact"` ist. Mögliche Werte sind `"short"` und `"long"`; der Standardwert ist `"short"`.
+  - : Wird nur verwendet, wenn `notation` `"compact"` ist. Mögliche Werte sind `"short"` und `"long"`; der Standardwert ist `"short"`.
 - `useGrouping`
 
-  - : Ob Gruppierungszeichen wie Tausender-Trennzeichen oder Tausender/Lakh/Crore-Separatoren verwendet werden sollen.
+  - : Ob Gruppierungszeichen, wie Tausendertrennzeichen oder Tausend/Lakh/Crore-Trennzeichen, verwendet werden sollen.
 
     - `"always"`
-      - : Gruppierungszeichen immer anzeigen, auch wenn das Locale sie nicht bevorzugt.
+      - : Zeigt Gruppierungszeichen immer an, auch wenn die Locale anderes bevorzugt.
     - `"auto"`
-      - : Gruppierungszeichen basierend auf der Vorliebe des Locale anzeigen, was auch von der Währung abhängig sein kann.
+      - : Zeigt Gruppierungszeichen basierend auf der Locale-Präferenz an, die auch von der Währung abhängig sein kann.
     - `"min2"`
-      - : Gruppierungszeichen anzeigen, wenn es mindestens 2 Ziffern in einer Gruppe gibt.
+      - : Zeigt Gruppierungszeichen an, wenn mindestens 2 Ziffern in einer Gruppe sind.
     - `true`
-      - : Wie `"always"`.
+      - : Entspricht `"always"`.
     - `false`
-      - : Keine Gruppierungszeichen anzeigen.
+      - : Zeigt keine Gruppierungszeichen an.
 
-    Der Standardwert ist `"min2"`, wenn `notation` `"compact"` ist, ansonsten `"auto"`. Die Zeichenfolgenwerte `"true"` und `"false"` werden akzeptiert, werden jedoch immer in den Standardwert konvertiert.
+    Der Standardwert ist `"min2"`, wenn `notation` `"compact"` ist, und `"auto"` sonst. Die Zeichenkettenwerte `"true"` und `"false"` werden akzeptiert, aber immer zum Standardwert konvertiert.
 
 - `signDisplay`
   - : Wann das Vorzeichen für die Zahl angezeigt werden soll. Mögliche Werte sind:
     - `"auto"` (Standard)
       - : Vorzeichenanzeige nur für negative Zahlen, einschließlich negativer Null.
     - `"always"`
-      - : Vorzeichen immer anzeigen.
+      - : Immer das Vorzeichen anzeigen.
     - `"exceptZero"`
       - : Vorzeichenanzeige für positive und negative Zahlen, aber nicht für Null.
     - `"negative"`
-      - : Vorzeichenanzeige nur für negative Zahlen, ohne negative Null.
+      - : Vorzeichenanzeige nur für negative Zahlen, exklusive negativer Null.
     - `"never"`
-      - : Vorzeichen nie anzeigen.
+      - : Niemals das Vorzeichen anzeigen.
 
 ### Rückgabewert
 
 Ein neues `Intl.NumberFormat`-Objekt.
 
 > [!NOTE]
-> Der folgende Text beschreibt ein Verhalten, das von der Spezifikation als "optional" gekennzeichnet ist. Es funktioniert möglicherweise nicht in allen Umgebungen. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität).
+> Der Text unten beschreibt ein Verhalten, das nach der Spezifikation als "optional" gekennzeichnet ist. Es funktioniert möglicherweise nicht in allen Umgebungen. Überprüfen Sie die [Browser-Kompatibilitätstabelle](#browser-kompatibilität).
 
-Normalerweise kann `Intl.NumberFormat()` mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, und eine neue `Intl.NumberFormat`-Instanz wird in beiden Fällen zurückgegeben. Wenn jedoch der [`this`](/de/docs/Web/JavaScript/Reference/Operators/this) Wert ein Objekt ist, das [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) `Intl.NumberFormat` ist (was nicht unbedingt bedeutet, dass es über `new Intl.NumberFormat` erstellt wurde; es hat nur `Intl.NumberFormat.prototype` in seiner Prototypkette), dann wird der Wert von `this` stattdessen zurückgegeben, wobei das neu erstellte `Intl.NumberFormat`-Objekt in einer `[Symbol(IntlLegacyConstructedSymbol)]`-Eigenschaft versteckt wird (ein einzigartiges Symbol, das zwischen Instanzen wiederverwendet wird).
+Normalerweise kann `Intl.NumberFormat()` mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden, und in beiden Fällen wird eine neue `Intl.NumberFormat`-Instanz zurückgegeben. Wenn jedoch der [`this`](/de/docs/Web/JavaScript/Reference/Operators/this)-Wert ein Objekt ist, das [`instanceof`](/de/docs/Web/JavaScript/Reference/Operators/instanceof) `Intl.NumberFormat` ist (was nicht unbedingt bedeutet, dass es über `new Intl.NumberFormat` erstellt wurde; es bedeutet lediglich, dass es `Intl.NumberFormat.prototype` in seiner Prototypkette hat), dann wird stattdessen der Wert von `this` zurückgegeben, wobei das neu erstellte `Intl.NumberFormat`-Objekt in einer `[Symbol(IntlLegacyConstructedSymbol)]`-Eigenschaft verborgen ist (ein eindeutiges Symbol, das zwischen Instanzen wiederverwendet wird).
 
 ```js
 const formatter = Intl.NumberFormat.call(
@@ -235,26 +235,26 @@ console.log(Object.getOwnPropertyDescriptors(formatter));
 // }
 ```
 
-Beachten Sie, dass es hier nur eine tatsächliche `Intl.NumberFormat`-Instanz gibt: diejenige, die in `[Symbol(IntlLegacyConstructedSymbol)]` versteckt ist. Das Aufrufen der Methoden [`format()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/format) und [`resolvedOptions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/resolvedOptions) auf `formatter` würde die in dieser Instanz gespeicherten Optionen korrekt verwenden, aber das Aufrufen aller anderen Methoden (z.B. [`formatRange()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRange)) würde mit "TypeError: formatRange method called on incompatible Object" fehlschlagen, da diese Methoden die Optionen der versteckten Instanz nicht konsultieren.
+Beachten Sie, dass es hier in Wirklichkeit nur eine `Intl.NumberFormat`-Instanz gibt: diejenige, die in `[Symbol(IntlLegacyConstructedSymbol)]` verborgen ist. Das Aufrufen der [`format()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/format)- und [`resolvedOptions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/resolvedOptions)-Methoden auf `formatter` würde korrekt die Optionen dieser Instanz verwenden, aber das Aufrufen aller anderen Methoden (z.B. [`formatRange()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/formatRange)) würde mit "TypeError: formatRange method called on incompatible Object" fehlschlagen, da diese Methoden die Optionen der verborgenen Instanz nicht konsultieren.
 
-Dieses Verhalten, genannt `ChainNumberFormat`, tritt nicht auf, wenn `Intl.NumberFormat()` ohne `new` aufgerufen wird, der `this`-Wert jedoch auf etwas anderes gesetzt ist, das kein `instanceof Intl.NumberFormat` ist. Wenn Sie es direkt als `Intl.NumberFormat()` aufrufen, ist der `this`-Wert [`Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl), und eine neue `Intl.NumberFormat`-Instanz wird normal erstellt.
+Dieses Verhalten, genannt `ChainNumberFormat`, tritt nicht auf, wenn `Intl.NumberFormat()` ohne `new` aufgerufen wird, aber mit `this` auf etwas anderes gesetzt ist, das nicht ein `instanceof Intl.NumberFormat` ist. Wenn Sie es direkt als `Intl.NumberFormat()` aufrufen, ist der `this`-Wert [`Intl`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl), und eine neue `Intl.NumberFormat`-Instanz wird normal erstellt.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
   - : Wird in einem der folgenden Fälle ausgelöst:
-    - Eine Eigenschaft, die enumerierte Werte akzeptiert (wie `style`, `units`, `currency`, und so weiter) ist auf einen ungültigen Wert gesetzt.
-    - Sowohl `maximumFractionDigits` als auch `minimumFractionDigits` sind gesetzt, und sie sind auf unterschiedliche Werte gesetzt.
-      Beachten Sie, dass je nach verschiedenen Formatierungsoptionen, diese Eigenschaften Standardwerte haben können.
-      Es ist daher möglich, diesen Fehler zu erhalten, auch wenn Sie nur eine der Eigenschaften setzen.
+    - Eine Eigenschaft, die enumerierte Werte akzeptiert (wie `style`, `units`, `currency` usw.), ist auf einen ungültigen Wert gesetzt.
+    - Sowohl `maximumFractionDigits` als auch `minimumFractionDigits` sind festgelegt, und sie sind auf unterschiedliche Werte gesetzt.
+      Beachten Sie, dass je nach verschiedenen Formatierungsoptionen diese Eigenschaften Standardwerte haben können.
+      Es ist daher möglich, diesen Fehler zu erhalten, auch wenn Sie nur eine der Eigenschaften festlegen.
 - {{jsxref("TypeError")}}
-  - : Wird ausgelöst, wenn die Eigenschaft `options.style` auf "unit" oder "currency" gesetzt ist und kein Wert für die entsprechende Eigenschaft `options.unit` oder `options.currency` gesetzt wurde.
+  - : Wird ausgelöst, wenn die Eigenschaft `options.style` auf "unit" oder "currency" gesetzt ist und kein Wert für die entsprechende Eigenschaft `options.unit` oder `options.currency` festgelegt wurde.
 
 ## Beispiele
 
 ### Grundlegende Verwendung
 
-Bei der grundlegenden Verwendung ohne Angabe eines Locale wird eine formatierte Zeichenfolge in der Standardsprache und mit den Standardoptionen zurückgegeben.
+Bei der grundlegenden Verwendung ohne Angabe einer Locale wird eine formatierte Zeichenkette in der Standard-Locale und mit Standardoptionen zurückgegeben.
 
 ```js
 const amount = 3500;
@@ -298,7 +298,9 @@ new Intl.NumberFormat("en-US", {
 
 ### Währungsformatierung
 
-Wenn der `style` `'currency'` ist, muss eine `currency`-Eigenschaft angegeben werden. Optional steuern `currencyDisplay` und `currencySign` die Einheitenformatierung.
+Wenn der `style` `'currency'` ist, muss eine `currency`-Eigenschaft
+angegeben werden. Optional steuern `currencyDisplay` und
+`currencySign` die Einheitenformatierung.
 
 ```js
 const amount = -3500;
@@ -322,7 +324,7 @@ new Intl.NumberFormat("bn", {
 
 ### Wissenschaftliche, technische oder kompakte Notationen
 
-Wissenschaftliche und kompakte Notation werden mit der `notation`-Option dargestellt und können wie folgt formatiert werden:
+Wissenschaftliche und kompakte Notation werden durch die `notation`-Option dargestellt und können wie folgt formatiert werden:
 
 ```js
 new Intl.NumberFormat("en-US", {
@@ -363,9 +365,9 @@ new Intl.NumberFormat("en-GB", {
 // 988M
 ```
 
-### Vorzeichen anzeigen
+### Anzeigen von Vorzeichen
 
-Ein Vorzeichen für positive und negative Zahlen anzeigen, aber nicht für Null:
+Zeigen Sie ein Vorzeichen für positive und negative Zahlen an, jedoch nicht für Null:
 
 ```js
 new Intl.NumberFormat("en-US", {
@@ -375,7 +377,7 @@ new Intl.NumberFormat("en-US", {
 // '+55%'
 ```
 
-Beachten Sie, dass, wenn das Währungsvorzeichen "accounting" ist, möglicherweise Klammern anstelle eines Minuszeichens verwendet werden:
+Beachten Sie, dass bei "Buchhaltungs"-Vorzeichen eventuell Klammern anstelle eines Minuszeichens verwendet werden können:
 
 ```js
 new Intl.NumberFormat("bn", {
@@ -392,14 +394,14 @@ new Intl.NumberFormat("bn", {
 Sie können die minimale oder maximale Anzahl von Bruch-, Ganz- oder signifikanten Ziffern angeben, die beim Formatieren einer Zahl angezeigt werden sollen.
 
 > [!NOTE]
-> Wenn sowohl signifikante als auch Bruchzifferngrenzen angegeben sind, hängt das eigentliche Format von der [`roundingPriority`](#roundingpriority) ab.
+> Wenn sowohl Grenzen für signifikante als auch für Bruchziffern angegeben sind, hängt das eigentliche Formatieren vom [`roundingPriority`](#roundingpriority) ab.
 
-#### FractionDigits und IntegerDigits verwenden
+#### Verwendung von FractionDigits und IntegerDigits
 
-Die Ganz- und Bruchzifferneigenschaften zeigen die Anzahl der anzuzeigenden Ziffern vor und nach dem Dezimalpunkt an.
-Wenn der anzuzeigende Wert weniger Ganzzahlziffern als angegeben hat, wird er mit Nullen auf die erwartete Zahl aufgefüllt.
-Wenn er weniger Bruchziffern hat, wird er mit Nullen aufgefüllt.
-Beide Fälle sind unten gezeigt:
+Die Ganzzahl- und Bruchzifferneigenschaften geben die Anzahl der Ziffern an, die vor und nach dem Dezimalpunkt angezeigt werden sollen.
+Wenn der anzuzeigende Wert weniger Ganzzahlziffern als angegeben hat, wird er mit Nullen links auf die erforderliche Anzahl aufgefüllt.
+Wenn er weniger Bruchziffern hat, wird er rechts mit Nullen aufgefüllt.
+Beide Fälle sind unten dargestellt:
 
 ```js
 // Formatting adds zeros to display minimum integers and fractions
@@ -413,7 +415,7 @@ console.log(
 ```
 
 Wenn ein Wert mehr Bruchziffern als die angegebene maximale Anzahl hat, wird er gerundet.
-Die _Art_, wie er gerundet wird, hängt von der [`roundingMode`](#roundingmode)-Eigenschaft ab (weitere Details finden Sie im Abschnitt [Rundungsmodi](#rundungsmodi)).
+Die _Art_, wie er gerundet wird, hängt von der [`roundingMode`](#roundingmode)-Eigenschaft ab (weitere Details dazu im Abschnitt [Rundungsmodi](#rundungsmodi)).
 Unten wird der Wert von fünf Bruchziffern (`4.33145`) auf zwei (`4.33`) gerundet:
 
 ```js
@@ -426,7 +428,7 @@ console.log(
 // "4.33"
 ```
 
-Die minimalen Bruchziffern haben keinen Effekt, wenn der Wert bereits mehr als 2 Bruchziffern hat:
+Die minimale Anzahl an Bruchziffern hat keinen Effekt, wenn der Wert bereits mehr Bruchziffern hat:
 
 ```js
 // Minimum fractions have no effect if value is higher precision.
@@ -439,13 +441,13 @@ console.log(
 ```
 
 > [!WARNING]
-> Achten Sie auf Standardwerte, da diese das Format beeinflussen können, auch wenn sie nicht im Code angegeben sind.
-> Der Standardwert für die maximale Ziffernanzahl ist `3` für einfache Werte, `2` für Währungen und kann für andere vordefinierte Typen unterschiedliche Werte haben.
+> Achten Sie auf Standardwerte, da diese die Formatierung beeinflussen können, auch wenn sie nicht in Ihrem Code spezifiziert sind.
+> Der Standardwert für die maximale Ziffernanzahl ist `3` für einfache Werte, `2` für Währung und kann unterschiedliche Werte für andere vordefinierte Typen haben.
 
-Der formatierte Wert oben wird auf 3 Ziffern gerundet, obwohl wir nicht die maximale Ziffer angegeben haben!
-Dies liegt daran, dass ein Standardwert von `maximumFractionDigits` gesetzt wird, wenn wir `minimumFractionDigits` angeben und umgekehrt. Die Standardwerte von `maximumFractionDigits` und `minimumFractionDigits` sind jeweils `3` und `0`.
+Der oben formatierte Wert wird auf 3 Ziffern gerundet, obwohl wir die maximale Ziffernanzahl nicht spezifiziert haben!
+Dies liegt daran, dass ein Standardwert für `maximumFractionDigits` gesetzt wird, wenn wir `minimumFractionDigits` angeben, und umgekehrt. Die Standardwerte für `maximumFractionDigits` und `minimumFractionDigits` sind `3` und `0` respektive.
 
-Sie können [`resolvedOptions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/resolvedOptions) verwenden, um den Formatter zu überprüfen.
+Sie können [`resolvedOptions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/resolvedOptions) verwenden, um den Formatter zu inspizieren.
 
 ```js
 console.log(
@@ -475,13 +477,13 @@ console.log(
 // }
 ```
 
-#### SignificantDigits verwenden
+#### Verwendung von SignificantDigits
 
-Die Anzahl der _signifikanten Ziffern_ ist die Gesamtzahl der Ziffern einschließlich der Ganz- und Bruchteile.
-Die `maximumSignificantDigits` wird verwendet, um die Gesamtzahl der Ziffern vom ursprünglichen Wert anzuzeigen.
+Die Anzahl der _signifikanten Ziffern_ ist die Gesamtsumme der Ziffern, einschließlich der Ganzzahl- und Bruchteile.
+`maximumSignificantDigits` wird verwendet, um die Gesamtsumme der Ziffern vom Originalwert anzuzeigen.
 
-Die Beispiele unten zeigen, wie dies funktioniert.
-Beachten Sie insbesondere den letzten Fall: Es wird nur die erste Ziffer behalten und die anderen werden verworfen/auf null gesetzt.
+Die untenstehenden Beispiele zeigen, wie das funktioniert.
+Besonders bemerkenswert ist der letzte Fall: nur die erste Ziffer wird beibehalten und die anderen werden verworfen/auf Null gesetzt.
 
 ```js
 // Display 5 significant digits
@@ -509,7 +511,7 @@ console.log(
 // "50"
 ```
 
-Die `minimumSignificantDigits` stellt sicher, dass mindestens die angegebene Anzahl von Ziffern angezeigt wird, indem bei Bedarf Nullen an das Ende des Wertes hinzugefügt werden.
+Die `minimumSignificantDigits` gewährleistet, dass mindestens die angegebene Zahl an Ziffern angezeigt wird, indem bei Bedarf Nullen an das Ende des Wertes angefügt werden.
 
 ```js
 // Minimum 10 significant digits
@@ -522,20 +524,20 @@ console.log(
 ```
 
 > [!WARNING]
-> Achten Sie auf Standardwerte, da diese das Format beeinflussen können.
-> Wenn nur eine `SignificantDigits`-Eigenschaft verwendet wird, wird ihr Gegenstück automatisch mit dem Standardwert angewendet.
-> Die Standardwerte für die maximale und minimale signifikante Ziffer sind 20 bzw. 1.
+> Achten Sie auf Standardwerte, da diese die Formatierung beeinflussen können.
+> Wurde nur eine `SignificantDigits`-Eigenschaft verwendet, wird deren Gegenstück automatisch mit dem Standardwert angewendet.
+> Die Standard-Maximal- und Minimalwerte für signifikante Ziffern sind 20 und 1 respektive.
 
-#### Signifikante und Bruchziffern gleichzeitig angeben
+#### Gleichzeitige Angabe von signifikanten und Bruchziffern
 
-Die Bruchziffern ([`minimumFractionDigits`](#minimumfractiondigits)/[`maximumFractionDigits`](#maximumfractiondigits)) und signifikante Ziffern ([`minimumSignificantDigits`](#minimumsignificantdigits)/[`maximumSignificantDigits`](#maximumsignificantdigits)) sind beide Möglichkeiten, um zu kontrollieren, wie viele Bruch- und führende Ziffern formatiert werden sollen.
-Wenn beide gleichzeitig verwendet werden, können sie in Konflikt geraten.
+Die Bruchziffern ([`minimumFractionDigits`](#minimumfractiondigits)/[`maximumFractionDigits`](#maximumfractiondigits)) und die signifikanten Ziffern ([`minimumSignificantDigits`](#minimumsignificantdigits)/[`maximumSignificantDigits`](#maximumsignificantdigits)) sind beide Wege, um zu steuern, wie viele Bruch- und führende Ziffern formatiert werden sollen.
+Wenn beide zur gleichen Zeit verwendet werden, können sie im Konflikt stehen.
 
 Diese Konflikte werden mit der [`roundingPriority`](#roundingpriority)-Eigenschaft gelöst.
-Standardmäßig hat diese den Wert `"auto"`, was bedeutet, dass, wenn entweder [`minimumSignificantDigits`](#minimumsignificantdigits) oder [`maximumSignificantDigits`](#minimumsignificantdigits) angegeben ist, die Bruch- und Ganzzahleigenschaften ignoriert werden.
+Standardmäßig hat sie einen Wert von `"auto"`, was bedeutet, dass, wenn entweder [`minimumSignificantDigits`](#minimumsignificantdigits) oder [`maximumSignificantDigits`](#maximumsignificantdigits) angegeben sind, die Bruch- und Ganzzahldigitaleigenschaften ignoriert werden.
 
-Zum Beispiel formatiert der untenstehende Code den Wert von `4.33145` mit `maximumFractionDigits: 3` und dann `maximumSignificantDigits: 2` und dann beides.
-Der Wert mit beiden ist der mit `maximumSignificantDigits` gesetzte.
+Zum Beispiel formatiert der untenstehende Code den Wert von `4.33145` mit `maximumFractionDigits: 3`, dann `maximumSignificantDigits: 2` und dann beide.
+Der Wert mit beiden ist derjenige, der mit `maximumSignificantDigits` gesetzt ist.
 
 ```js
 console.log(
@@ -559,7 +561,7 @@ console.log(
 // "4.3"
 ```
 
-Unter Verwendung von [`resolvedOptions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/resolvedOptions) zur Überprüfung des Formatters, können wir sehen, dass das zurückgegebene Objekt `maximumFractionDigits` nicht enthält, wenn `maximumSignificantDigits` oder `minimumSignificantDigits` angegeben sind.
+Wenn man [`resolvedOptions()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/resolvedOptions) verwendet, um den Formatter zu inspizieren, sieht man, dass das zurückgegebene Objekt `maximumFractionDigits` nicht einbezieht, wenn `maximumSignificantDigits` oder `minimumSignificantDigits` angegeben sind.
 
 ```js
 console.log(
@@ -591,9 +593,9 @@ console.log(
 ```
 
 Zusätzlich zu `"auto"` können Sie Konflikte lösen, indem Sie [`roundingPriority`](#roundingpriority) als `"morePrecision"` oder `"lessPrecision"` angeben.
-Der Formatter berechnet die Präzision unter Verwendung der Werte von `maximumSignificantDigits` und `maximumFractionDigits`.
+Der Formatter berechnet die Präzision mit den Werten von `maximumSignificantDigits` und `maximumFractionDigits`.
 
-Der untere Code zeigt das ausgewählte Format für die drei verschiedenen Rundungsprioritäten:
+Der untenstehende Code zeigt das Format, das für die drei verschiedenen Rundungsprioritäten ausgewählt wird:
 
 ```js
 const maxFracNF = new Intl.NumberFormat("en", {
@@ -632,9 +634,9 @@ console.log(`morePrecision - ${bothMore.format(1.23456)}`);
 // "morePrecision - 1.235"
 ```
 
-Beachten Sie, dass der Algorithmus auf eine unintuitive Weise verhalten kann, wenn ein Mindestwert ohne einen Höchstwert angegeben wird.
-Das untere Beispiel formatiert den Wert `1` mit der Angabe `minimumFractionDigits: 2` (formatiert zu `1.00`) und `minimumSignificantDigits: 2` (formatiert zu `1.0`).
-Da `1.00` mehr Ziffern als `1.0` hat, sollte dies das Ergebnis sein, wenn `morePrecision` priorisiert wird, aber tatsächlich ist das Gegenteil der Fall:
+Beachten Sie, dass der Algorithmus sich unvorhersehbar verhalten kann, wenn ein Minimalwert angegeben ist, ohne ein Maximalwert.
+Das untenstehende Beispiel formatiert den Wert `1` mit `minimumFractionDigits: 2` (formatiert zu `1.00`) und `minimumSignificantDigits: 2` (formatiert zu `1.0`).
+Da `1.00` mehr Ziffern hat als `1.0`, sollte dies das Ergebnis sein, wenn `morePrecision` priorisiert wird, aber tatsächlich ist das Gegenteil der Fall:
 
 ```js
 const bothLess = new Intl.NumberFormat("en", {
@@ -654,22 +656,22 @@ console.log(`morePrecision - ${bothMore.format(1)}`);
 // "morePrecision - 1.0"
 ```
 
-Der Grund dafür ist, dass nur die Werte für die maximale Präzision für die Berechnung verwendet werden und der Standardwert von `maximumSignificantDigits` viel höher ist als `maximumFractionDigits`.
+Der Grund dafür ist, dass nur die "maximalen Präzisions"-Werte für die Berechnung verwendet werden und der Standardwert von `maximumSignificantDigits` viel höher ist als `maximumFractionDigits`.
 
 > [!NOTE]
-> Die Arbeitsgruppe hat eine Änderung des Algorithmus vorgeschlagen, bei der der Formatter das Ergebnis unter Verwendung der angegebenen Bruch- und signifikanten Ziffern unabhängig bewerten sollte (unter Berücksichtigung sowohl der minimalen als auch der maximalen Werte).
-> Er wird dann die Option wählen, die mehr Bruchziffern anzeigt, wenn `morePrecision` gesetzt ist, und weniger, wenn `lessPrecision` gesetzt ist.
-> Dies wird zu einem intuitiveren Verhalten für diesen Fall führen.
+> Die Arbeitsgruppe hat eine Änderung des Algorithmus vorgeschlagen, bei der der Formatter das Ergebnis der Verwendung der angegebenen Bruch- und signifikanten Ziffern unabhängig bewerten soll (unter Berücksichtigung sowohl der minimalen als auch der maximalen Werte).
+> Dann wird die Option ausgewählt, die im Falle von `morePrecision` mehr Bruchziffern anzeigt und im Falle von `lessPrecision` weniger.
+> Dies führt zu einem intuitiveren Verhalten in diesem Fall.
 
 ### Rundungsmodi
 
-Wenn ein Wert mehr Bruchziffern hat als durch die Konstruktoroptionen erlaubt, wird der formatierte Wert auf die angegebene Anzahl von Bruchziffern _gerundet_.
-Die _Art_, in der der Wert gerundet wird, hängt von der [`roundingMode`](#roundingmode)-Eigenschaft ab.
+Wenn ein Wert mehr Bruchziffern hat, als es die Konstruktoroptionen erlauben, wird der formatierte Wert auf die spezifizierte Anzahl von Bruchziffern _gerundet_.
+Die _Art_ und Weise, wie der Wert gerundet wird, hängt von der [`roundingMode`](#roundingmode)-Eigenschaft ab.
 
-Zahlenformatierer verwenden standardmäßig `halfExpand`-Rundung, die Werte "weg von Null" am Halbinkrement rundet (in anderen Worten, die _Größe_ des Wertes wird aufgerundet).
+Zahlenformatierer verwenden standardmäßig die `halfExpand`-Rundung, die Werte "von Null weg" beim Halbincrement rundet (mit anderen Worten wird der _Betrag_ des Wertes nach oben gerundet).
 
-Für eine positive Zahl, wenn die zu entfernenden Bruchziffern näher an das nächste Inkrement (oder am halben Weg) liegen, werden die verbleibenden Bruchziffern aufgerundet, andernfalls werden sie abgerundet.
-Dies wird unten gezeigt: 2.23, gerundet auf zwei signifikante Ziffern, wird auf 2.2 gekürzt, da 2.23 weniger als das halbe Inkrement 2.25 ist, während Werte von 2.25 und mehr auf 2.3 aufgerundet werden:
+Für eine positive Zahl, wenn die Bruchziffern, die entfernt werden sollen, näher an das nächste Inkrement (oder genau auf der Halben Strecke) sind, wird die verbleibende Bruchstelle aufgerundet, sonst wird sie abgerundet.
+Dies wird unten gezeigt: 2.23 gerundet auf zwei signifikante Ziffern wird auf 2.2 gekürzt, da 2.23 weniger als das Halbincrement 2.25 ist, während Werte von 2.25 und größer auf 2.3 aufgerundet werden:
 
 ```js
 // Value below half-increment: round down.
@@ -695,7 +697,7 @@ console.log(
 // "2.3"
 ```
 
-Eine negative Zahl auf oder unter dem Halbinkrementpunkt wird ebenfalls von null wegrunden (wird negativer):
+Eine negative Zahl auf oder unter dem Halbincrement wird ebenfalls von Null weg gerundet (wird negativer):
 
 ```js
 // Value below half-increment: round down.
@@ -721,7 +723,7 @@ console.log(
 // "-2.3"
 ```
 
-Die Tabelle unten zeigt die Wirkung verschiedener Rundungsmodi für positive und negative Werte auf und um den Halbinkrement.
+Die folgende Tabelle zeigt die Auswirkungen verschiedener Rundungsmodi für positive und negative Werte, die auf und um das Halbincrement (half increment) liegen.
 
 | Rundungsmodus | 2.23 | 2.25 | 2.28 | -2.23 | -2.25 | -2.28 |
 | ------------- | ---- | ---- | ---- | ----- | ----- | ----- |
@@ -735,16 +737,16 @@ Die Tabelle unten zeigt die Wirkung verschiedener Rundungsmodi für positive und
 | `halfTrunc`   | 2.2  | 2.2  | 2.3  | -2.2  | -2.2  | -2.3  |
 | `halfEven`    | 2.2  | 2.2  | 2.3  | -2.2  | -2.2  | -2.3  |
 
-Bei Verwendung von `halfEven` hängt sein Verhalten auch von der Parität (ungerade oder gerade) der letzten Ziffer der gerundeten Zahl ab. Zum Beispiel ist das Verhalten von `halfEven` in der Tabelle oben dasselbe wie `halfTrunc`, weil die Größen aller Zahlen zwischen einer kleineren "geraden" Zahl (2.2) und einer größeren "ungeraden" Zahl (2.3) liegen. Wenn die Zahlen zwischen ±2.3 und ±2.4 liegen, wird sich `halfEven` stattdessen wie `halfExpand` verhalten. Dieses Verhalten vermeidet konsequentes Unter- oder Überschätzen von Halbinkrementen in einer großen Datenstichprobe.
+Bei Verwendung von `halfEven` hängt das Verhalten auch von der Parität (ungerade oder gerade) der letzten Ziffer der gerundeten Zahl ab. Zum Beispiel ist das Verhalten von `halfEven` in der obigen Tabelle das gleiche wie von `halfTrunc`, da die Beträge aller Zahlen zwischen einer kleineren "geraden" Zahl (2.2) und einer größeren "ungeraden" Zahl (2.3) liegen. Wenn die Zahlen zwischen ±2.3 und ±2.4 liegen würden, würde `halfEven` stattdessen wie `halfExpand` funktionieren. Dieses Verhalten vermeidet konsistente Unter- oder Überbewertungen von Halbincrementen in einer großen Datenprobe.
 
-### Verwendung von RoundingIncrement
+### Verwendung von roundingIncrement
 
-Manchmal möchten wir die verbleibenden Bruchziffern auf ein anderes Inkrement als das nächste Ganze runden.
-Zum Beispiel könnten Währungen, für die die kleinste Münze 5 Cent ist, den Wert auf Inkremente von 5 runden, ähnlich Beträgen, die tatsächlich bar bezahlt werden können.
+Manchmal möchten wir die verbleibenden Bruchziffern auf ein anderes Inkrement als den nächsten Ganzzahl-Wert runden.
+Zum Beispiel können Währungen, für die die kleinste Münze 5 Cent ist, den Wert auf 5er-Inkremente runden, um Beträge widerzuspiegeln, die tatsächlich in bar gezahlt werden können.
 
 Diese Art der Rundung kann mit der [`roundingIncrement`](#roundingincrement)-Eigenschaft erreicht werden.
 
-Zum Beispiel, wenn `maximumFractionDigits` auf 2 und `roundingIncrement` auf 5 gesetzt ist, wird die Zahl auf das nächste 0.05 gerundet:
+Zum Beispiel, wenn `maximumFractionDigits` 2 ist und `roundingIncrement` 5, wird die Zahl auf das nächste 0.05-Inkrement gerundet:
 
 ```js
 const nf = new Intl.NumberFormat("en-US", {
@@ -759,8 +761,8 @@ console.log(nf.format(11.25)); // "$11.25"
 console.log(nf.format(11.22)); // "$11.20"
 ```
 
-Dieses spezielle Muster wird als "Nickelrundung" bezeichnet, wobei Nickel der umgangssprachliche Name für eine USA 5-Cent-Münze ist.
-Um auf den nächsten 10-Cent ("Dime-Rundung") zu runden, könnten Sie `roundingIncrement` auf `10` ändern.
+Dieses spezielle Muster wird als "Nickel-Rundung" bezeichnet, wobei Nickel der umgangssprachliche Name für eine 5-Cent-Münze in den USA ist.
+Um auf die nächsten 10 Cent ("Dime-Rundung") zu runden, könnten Sie `roundingIncrement` auf `10` ändern.
 
 ```js
 const nf = new Intl.NumberFormat("en-US", {
@@ -776,8 +778,8 @@ console.log(nf.format(11.22)); // "$11.20"
 ```
 
 Sie können auch [`roundingMode`](#roundingmode) verwenden, um den Rundungsalgorithmus zu ändern.
-Das untenstehende Beispiel zeigt, wie `halfCeil`-Rundung verwendet werden kann, um den Wert "weniger positiv" unterhalb des halben Rundungsinkrements und "mehr positiv", wenn über oder auf dem Halbincrement, zu runden.
-Die inkrementierte Ziffer ist "0.05", daher liegt das Halbincrement bei .025 (unten ist dies bei 11.225 gezeigt).
+Das untenstehende Beispiel zeigt, wie `halfCeil`-Rundung verwendet werden kann, um den Wert "weniger positiv" unterhalb des Halbincrements und "mehr positiv" darüber oder beim Halbincrement zu runden.
+Die inkrementierte Ziffer ist "0.05", daher ist das Halbincrement bei 0.025 (unten bei 11.225 gezeigt).
 
 ```js
 const nf = new Intl.NumberFormat("en-US", {
@@ -795,9 +797,9 @@ console.log(nf.format(11.225)); // "$11.25"
 console.log(nf.format(11.23)); // "$11.25"
 ```
 
-Wenn Sie die Anzahl der Ziffern ändern müssen, denken Sie daran, dass `minimumFractionDigits` und `maximumFractionDigits` auf denselben Wert gesetzt werden müssen, andernfalls wird ein `RangeError` ausgelöst.
+Wenn Sie die Anzahl der Ziffern ändern müssen, denken Sie daran, dass `minimumFractionDigits` und `maximumFractionDigits` beide auf denselben Wert eingestellt sein müssen, ansonsten wird ein `RangeError` ausgelöst.
 
-`roundingIncrement` kann nicht mit signifikanter Ziffernrundung oder einer Einstellung von `roundingPriority` gemischt werden, die nicht `auto` ist.
+`roundingIncrement` kann nicht mit der Rundung von signifikanten Ziffern oder einer Einstellung von `roundingPriority`, die nicht `auto` ist, gemischt werden.
 
 ## Spezifikationen
 

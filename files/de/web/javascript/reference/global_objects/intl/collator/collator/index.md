@@ -2,7 +2,7 @@
 title: Intl.Collator() Konstruktor
 slug: Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator
 l10n:
-  sourceCommit: 3bafaa475155dba11f4e5e3aff7790b3ade3edb4
+  sourceCommit: 537aeae8ea6f3f080941261af7229dba30f791ac
 ---
 
 {{JSRef}}
@@ -23,13 +23,13 @@ Intl.Collator(locales)
 Intl.Collator(locales, options)
 ```
 
-> **Note:** `Intl.Collator()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beides erzeugt eine neue `Intl.Collator` Instanz.
+> **Hinweis:** `Intl.Collator()` kann mit oder ohne [`new`](/de/docs/Web/JavaScript/Reference/Operators/new) aufgerufen werden. Beide erzeugen eine neue `Intl.Collator` Instanz.
 
 ### Parameter
 
 - `locales` {{optional_inline}}
 
-  - : Ein String mit einem BCP 47-Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz, oder ein Array solcher Sprachkennungen. Die Standard-Lokale des Laufzeitsystems wird verwendet, wenn `undefined` übergeben wird oder wenn keine der angegebenen Sprachkennungen unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
+  - : Ein String mit einem BCP 47 Sprach-Tag oder eine {{jsxref("Intl.Locale")}} Instanz oder ein Array solcher Gebietsschema-Bezeichner. Das Standard-Gebietsschema der Laufzeitumgebung wird verwendet, wenn `undefined` übergeben wird oder wenn keiner der angegebenen Gebietsschema-Bezeichner unterstützt wird. Für die allgemeine Form und Interpretation des `locales` Arguments, siehe [die Parameterbeschreibung auf der `Intl` Hauptseite](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).
 
     Die folgenden Unicode-Erweiterungsschlüssel sind erlaubt:
 
@@ -40,54 +40,54 @@ Intl.Collator(locales, options)
     - `kf`
       - : Siehe [`caseFirst`](#casefirst).
 
-    Diese Schlüssel können auch mit `options` festgelegt werden (wie unten aufgeführt). Wenn beide gesetzt sind, hat die `options` Eigenschaft Vorrang.
+    Diese Schlüssel können auch mit `options` (wie unten aufgeführt) eingestellt werden. Wenn beide eingestellt sind, hat die `options` Eigenschaft Vorrang.
 
 - `options` {{optional_inline}}
 
   - : Ein Objekt, das die folgenden Eigenschaften enthält, in der Reihenfolge, in der sie abgerufen werden (alle sind optional):
 
     - `usage`
-      - : Ob der Vergleich für das Sortieren einer Liste von Zeichenfolgen oder für unscharfe (für das lateinische Skript diakritisch insensitive und groß-/kleinschreibung-ignorierende) Filterung einer Liste von Zeichenfolgen nach Schlüssel ist. Mögliche Werte sind:
+      - : Ob der Vergleich zum Sortieren einer Liste von Zeichenfolgen oder zum unscharfen Filtern (für das lateinische Skript diakritisch-unempfindlich und groß-kleinschreibungsunempfindlich) einer Liste von Zeichenfolgen nach Schlüssel gedacht ist. Mögliche Werte sind:
         - `"sort"` (Standard)
           - : Zum Sortieren einer Liste von Zeichenfolgen.
         - `"search"`
-          - : Zum Filtern einer Liste von Zeichenfolgen durch Testen jedes Listenelements auf eine vollständige Übereinstimmung mit einem Schlüssel. Mit `"search"` sollte der Anrufer nur darauf achten, ob `compare()` Null oder Nicht-Null zurückgibt und sollte die Nicht-Null-Rückgabewerte nicht unterscheiden. Das bedeutet, dass es unangemessen ist, `"search"` für das Sortieren/Anordnen zu verwenden.
+          - : Zum Filtern einer Liste von Zeichenfolgen, indem jedes Listenelement auf eine ganze-String-Übereinstimmung mit einem Schlüssel getestet wird. Bei `"search"` sollte der Aufrufer nur darauf achten, ob `compare()` null oder ungleich null zurückgibt, und sollte die ungleichen null Rückgabewerte nicht voneinander unterscheiden. Das heißt, es ist unangebracht, `"search"` zum Sortieren/Anordnen zu verwenden.
     - `localeMatcher`
-      - : Der zu verwendende Algorithmus zur Übereinstimmung von Lokalen. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standard ist `"best fit"`. Für Informationen über diese Option siehe [Lokale Identifizierung und Verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
+      - : Der zu verwendende Sprachabgleich-Algorithmus. Mögliche Werte sind `"lookup"` und `"best fit"`; der Standardwert ist `"best fit"`. Informationen zu dieser Option finden Sie unter [Sprachidentifikation und -verhandlung](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation).
     - `collation`
-      - : Varianten-Kollationen für bestimmte Lokale, wie `"emoji"`, `"pinyin"`, `"stroke"` usw. Für eine Liste der unterstützten Kollationstypen siehe [`Intl.Locale.prototype.getCollations()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getCollations#supported_collation_types); der Standard ist `"default"`. Diese Option kann auch durch den `co` Unicode-Erweiterungsschlüssel gesetzt werden; wenn beide angegeben sind, hat diese `options` Eigenschaft Vorrang.
+      - : Varianten-Kollationen für bestimmte Gebiete, wie `"emoji"`, `"pinyin"`, `"stroke"`, und so weiter. Für eine Liste der unterstützten Kollationstypen siehe [`Intl.supportedValuesOf()`](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_collation_types); der Standardwert ist `"default"`. Diese Option kann auch über den `co` Unicode-Erweiterungsschlüssel festgelegt werden; wenn beide angegeben sind, hat diese `options` Eigenschaft Vorrang.
     - `numeric`
-      - : Ob numerische Kollation verwendet werden soll, so dass "1" < "2" < "10". Mögliche Werte sind `true` und `false`; der Standard ist `false`. Diese Option kann auch durch den `kn` Unicode-Erweiterungsschlüssel gesetzt werden; wenn beide angegeben sind, hat diese `options` Eigenschaft Vorrang.
+      - : Ob numerische Sortierung verwendet werden soll, sodass "1" < "2" < "10". Mögliche Werte sind `true` und `false`; der Standardwert ist `false`. Diese Option kann auch über den `kn` Unicode-Erweiterungsschlüssel festgelegt werden; wenn beide angegeben sind, hat diese `options` Eigenschaft Vorrang.
     - `caseFirst`
-      - : Ob Großbuchstaben oder Kleinbuchstaben zuerst sortiert werden sollen. Mögliche Werte sind `"upper"`, `"lower"` und `"false"` (Verwendung des Standardwertes des Lokals); der Standard ist `"false"`. Diese Option kann auch durch den `kf` Unicode-Erweiterungsschlüssel gesetzt werden; wenn beide angegeben sind, hat diese `options` Eigenschaft Vorrang.
+      - : Ob Groß- oder Kleinschreibung zuerst sortiert werden sollte. Mögliche Werte sind `"upper"`, `"lower"`, und `"false"` (verwendet den Standard des Gebietsschemas); der Standardwert ist `"false"`. Diese Option kann auch über den `kf` Unicode-Erweiterungsschlüssel festgelegt werden; wenn beide angegeben sind, hat diese `options` Eigenschaft Vorrang.
     - `sensitivity`
 
-      - : Welche Unterschiede in den Zeichenfolgen zu Nicht-Null-Ergebnissen führen sollen. Mögliche Werte sind:
+      - : Welche Unterschiede in den Zeichenfolgen zu einem ungleich null Ergebnis führen sollen. Mögliche Werte sind:
 
         - `"base"`
-          - : Nur Zeichenfolgen, die sich in Basisbuchstaben unterscheiden, werden als ungleich verglichen. Beispiele: a ≠ b, a = á, a = A.
+          - : Nur Zeichenfolgen, die sich in Grundbuchstaben unterscheiden, werden als ungleich verglichen. Beispiele: a ≠ b, a = á, a = A.
         - `"accent"`
-          - : Nur Zeichenfolgen, die sich in Basisbuchstaben oder Akzenten und anderen diakritischen Zeichen unterscheiden, werden als ungleich verglichen. Beispiele: a ≠ b, a ≠ á, a = A.
+          - : Nur Zeichenfolgen, die sich in Grundbuchstaben, Akzenten und anderen diakritischen Zeichen unterscheiden, werden als ungleich verglichen. Beispiele: a ≠ b, a ≠ á, a = A.
         - `"case"`
-          - : Nur Zeichenfolgen, die sich in Basisbuchstaben oder Groß-/Kleinschreibung unterscheiden, werden als ungleich verglichen. Beispiele: a ≠ b, a = á, a ≠ A.
+          - : Nur Zeichenfolgen, die sich in Grundbuchstaben oder Groß-/Kleinschreibung unterscheiden, werden als ungleich verglichen. Beispiele: a ≠ b, a = á, a ≠ A.
         - `"variant"`
-          - : Zeichenfolgen, die sich in Basisbuchstaben, Akzenten und anderen diakritischen Zeichen oder Groß-/Kleinschreibung unterscheiden, werden als ungleich verglichen. Weitere Unterschiede können ebenfalls berücksichtigt werden. Beispiele: a ≠ b, a ≠ á, a ≠ A.
+          - : Zeichenfolgen, die sich in Grundbuchstaben, Akzenten und anderen diakritischen Zeichen oder Groß-/Kleinschreibung unterscheiden, werden als ungleich verglichen. Andere Unterschiede können ebenfalls in Betracht gezogen werden. Beispiele: a ≠ b, a ≠ á, a ≠ A.
 
-        Der Standard ist `"variant"` für die Verwendung `"sort"`; es ist lokalabhängig für die Verwendung `"search"` gemäß Spezifikation, aber die Kernfunktion von `"search"` ist die accent-insensitive und case-insensitive Filterung, daher ergibt `"base"` am meisten Sinn (und vielleicht `"case"`).
+        Der Standardwert ist `"variant"` für `"sort"`; es ist gemäß Spezifikation sprachabhängig für `"search"`, aber die grundlegende Funktionalität von `"search"` ist akzent-unempfindliches und groß-kleinschreibungsunempfindliches Filtern, sodass `"base"` am sinnvollsten ist (und vielleicht `"case"`).
 
     - `ignorePunctuation`
-      - : Ob Interpunktion ignoriert werden soll. Mögliche Werte sind `true` und `false`. Der Standard ist `true` für Thai (`th`) und `false` für alle anderen Sprachen.
+      - : Ob Interpunktion ignoriert werden soll. Mögliche Werte sind `true` und `false`. Der Standardwert ist `true` für Thai (`th`) und `false` für alle anderen Sprachen.
 
 ### Ausnahmen
 
 - {{jsxref("RangeError")}}
-  - : Wird ausgelöst, wenn `locales` oder `options` ungültige Werte enthalten.
+  - : Werden ausgelöst, wenn `locales` oder `options` ungültige Werte enthalten.
 
 ## Beispiele
 
 ### Verwendung von Collator
 
-Das folgende Beispiel demonstriert die unterschiedlichen potenziellen Ergebnisse, wenn ein String vor, nach oder auf demselben Level wie ein anderer vorkommt:
+Das folgende Beispiel zeigt die unterschiedlichen möglichen Ergebnisse für eine Zeichenfolge, die vor, nach oder auf derselben Ebene wie eine andere vorkommt:
 
 ```js
 console.log(new Intl.Collator().compare("a", "c")); // -1, or some other negative value
@@ -95,9 +95,9 @@ console.log(new Intl.Collator().compare("c", "a")); // 1, or some other positive
 console.log(new Intl.Collator().compare("a", "a")); // 0
 ```
 
-Beachten Sie, dass die in dem obigen Code gezeigten Ergebnisse zwischen Browsern und Browserversionen variieren können. Das liegt daran, dass die Werte spezifisch für die Implementierung sind. Das bedeutet, dass die Spezifikation nur erfordert, dass die Werte vor und nach negativ beziehungsweise positiv sind.
+Beachten Sie, dass sich die im Code oben gezeigten Ergebnisse zwischen Browsern und Browserversionen unterscheiden können. Dies liegt daran, dass die Werte implementationsspezifisch sind. Die Spezifikation erfordert nur, dass die Vor- und Nach-Werte negativ bzw. positiv sind.
 
-Wenn die Verwendung `"search"` ist, sollte der Anrufer nur darauf achten, ob der Rückgabewert von `compare()` Null oder Nicht-Null ist. Es ist unangemessen, einen `Collator` mit der Verwendung `"search"` zum Sortieren zu verwenden.
+Wenn die Verwendung `"search"` ist, sollte der Aufrufer nur darauf achten, ob der Rückgabewert von `compare()` null oder ungleich null ist. Es ist unangebracht, einen `Collator` mit der Verwendung `"search"` zum Sortieren zu verwenden.
 
 ## Spezifikationen
 

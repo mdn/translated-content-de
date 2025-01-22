@@ -2,12 +2,12 @@
 title: Intl.RelativeTimeFormat.prototype.resolvedOptions()
 slug: Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions
 l10n:
-  sourceCommit: 643fa96e963ecaf2959cca5ddb573751a3efafac
+  sourceCommit: 537aeae8ea6f3f080941261af7229dba30f791ac
 ---
 
 {{JSRef}}
 
-Die Methode **`resolvedOptions()`** von {{jsxref("Intl.RelativeTimeFormat")}}-Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die während der Initialisierung dieses `RelativeTimeFormat`-Objekts berechneten Optionen widerspiegeln.
+Die **`resolvedOptions()`** Methode von {{jsxref("Intl.RelativeTimeFormat")}} Instanzen gibt ein neues Objekt mit Eigenschaften zurück, die die Optionen widerspiegeln, die während der Initialisierung dieses `RelativeTimeFormat` Objekts berechnet wurden.
 
 {{EmbedInteractiveExample("pages/js/intl-relativetimeformat-prototype-resolvedoptions.html")}}
 
@@ -23,16 +23,16 @@ Keine.
 
 ### Rückgabewert
 
-Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `RelativeTimeFormat`-Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgelistet sind:
+Ein neues Objekt mit Eigenschaften, die die während der Initialisierung dieses `RelativeTimeFormat` Objekts berechneten Optionen widerspiegeln. Das Objekt hat die folgenden Eigenschaften, in der Reihenfolge, in der sie aufgeführt sind:
 
 - `locale`
-  - : Der BCP 47 Sprach-Tag für das tatsächlich verwendete Locale, bestimmt durch den [Locale-Aushandlungsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu` Unicode-Erweiterungsschlüssel, falls angefordert, kann in der Ausgabe enthalten sein.
+  - : Das BCP 47 Sprach-Tag für die tatsächlich verwendete Locale, bestimmt durch den [Locale-Negotiationsprozess](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl#locale_identification_and_negotiation). Nur der `nu` Unicode-Erweiterungsschlüssel, falls angefordert, kann in der Ausgabe enthalten sein.
 - `style`
-  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft, wobei der Standard bei Bedarf ausgefüllt wird. Er ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standardwert ist `"long"`.
+  - : Der für diese Eigenschaft im `options` Argument angegebene Wert, mit Notwendigkeit der Standardfüllung. Es ist entweder `"long"`, `"short"` oder `"narrow"`. Der Standard ist `"long"`.
 - `numeric`
-  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft, wobei der Standard bei Bedarf ausgefüllt wird. Er ist entweder `"always"` oder `"auto"`. Der Standardwert ist `"always"`.
+  - : Der für diese Eigenschaft im `options` Argument angegebene Wert, mit Notwendigkeit der Standardfüllung. Es ist entweder `"always"` oder `"auto"`. Der Standard ist `"always"`.
 - `numberingSystem`
-  - : Der in dem `options`-Argument angegebene Wert für diese Eigenschaft oder unter Verwendung des Unicode-Erweiterungsschlüssels `"nu"`, wobei der Standard bei Bedarf ausgefüllt wird. Es ist ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/getNumberingSystems#supported_numbering_system_types) für dieses Locale. Der Standard ist von der Locale abhängig.
+  - : Der für diese Eigenschaft im `options` Argument angegebene Wert oder mittels des Unicode-Erweiterungsschlüssels `"nu"`, mit Notwendigkeit der Standardfüllung. Es ist ein unterstütztes [Nummerierungssystem](/de/docs/Web/JavaScript/Reference/Global_Objects/Intl/supportedValuesOf#supported_numbering_system_types) für diese Locale. Der Standard ist von der Locale abhängig.
 
 ## Beispiele
 
