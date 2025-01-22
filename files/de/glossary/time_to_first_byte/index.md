@@ -2,21 +2,24 @@
 title: Time to First Byte
 slug: Glossary/Time_to_first_byte
 l10n:
-  sourceCommit: 50e5edd07155de2eec2a8b6b2ad95820748cfec7
+  sourceCommit: db12ba7455d1897dc1ff5f5c1dbe36f6e2720805
 ---
 
 {{GlossarySidebar}}
 
-**Time to First Byte** (TTFB) bezeichnet die Zeitspanne zwischen der Anforderung einer Seite durch den Browser und dem Empfang des ersten Bytes der Information vom Server. Diese Zeit umfasst die {{Glossary("DNS", "DNS")}}-Abfrage sowie das Herstellen der Verbindung mittels eines {{Glossary("TCP", "TCP")}}-Handshakes und eines {{Glossary("TLS", "TLS")}}-Handshakes, falls die Anfrage über {{Glossary("HTTPS", "HTTPS")}} erfolgt.
+**Time to First Byte** (TTFB) bezieht sich auf die Zeit zwischen der Anforderung einer Seite durch den Browser und dem Empfang des ersten Bytes der Informationen vom Server. Diese Zeit umfasst das {{Glossary("DNS", "DNS")}}-Lookup und den Verbindungsaufbau mit einem {{Glossary("TCP", "TCP")}}-Handshake und einem {{Glossary("TLS", "TLS")}}-Handshake, wenn die Anforderung über {{Glossary("HTTPS", "HTTPS")}} erfolgt.
 
-TTFB ist die Zeit, die zwischen dem Beginn der Anfrage und dem Beginn der Antwort vergeht, gemessen in Millisekunden:
+TTFB ist die Zeit, die zwischen dem Start der Anforderung und dem Beginn der Antwort in Millisekunden vergeht. Diese kann mit dem Attribut `[`requestStart`](/de/docs/Web/API/PerformanceResourceTiming/requestStart)` von [`PerformanceNavigationTiming`](/de/docs/Web/API/PerformanceNavigationTiming)` gemessen werden:
 
-```plain
-TTFB = responseStart - navigationStart
+```javascript
+const ttfb = performance.getEntriesByType("navigation")[0].responseStart;
 ```
+
+> [!NOTE]
+> Für Websites, die {{HTTPStatus("103", "103 Early Hints")}} verwenden, ist TTFB typischerweise die _ersten Bytes_ (nach eventuellen Umleitungen) — also die 103 Zwischenantwort. Webseitenbetreiber, die die Zeit bis zur endgültigen Antwort messen möchten, sollten `[`finalResponseHeadersStart`](/de/docs/Web/API/PerformanceResourceTiming/finalResponseHeadersStart)` verwenden, wo unterstützt.
 
 ## Siehe auch
 
-- [Ein typisches HTTP-Sitzung](/de/docs/Web/HTTP/Session)
+- [Eine typische HTTP-Sitzung](/de/docs/Web/HTTP/Session)
 - [PerformanceResourceTiming](/de/docs/Web/API/PerformanceResourceTiming)
-- [PerformanceTiming](/de/docs/Web/API/PerformanceTiming)
+- [PerformanceNavigationTiming](/de/docs/Web/API/PerformanceNavigationTiming)
